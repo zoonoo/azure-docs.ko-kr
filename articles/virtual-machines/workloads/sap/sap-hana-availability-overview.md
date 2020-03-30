@@ -16,10 +16,10 @@ ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bccaf45cf617bd31a584b6c73f3dd08877bc8587
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71266069"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>Azure Virtual Machines의 SAP HANA 고가용성
@@ -46,7 +46,7 @@ ms.locfileid: "71266069"
 - [SAP HANA의 고가용성](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/6d252db7cdd044d19ad85b46e6c294a4.html)
 - [FAQ: SAP HANA의 고가용성](https://archive.sap.com/documents/docs/DOC-66702)
 - [SAP HANA에 대한 시스템 복제 수행](https://archive.sap.com/documents/docs/DOC-47702)
-- [SAP HANA 2.0 SPS 01의 새로운 기능: 고가용성](https://blogs.sap.com/2017/05/15/sap-hana-2.0-sps-01-whats-new-high-availability-by-the-sap-hana-academy/)
+- [SAP HANA 2.0 SPS 01 새로운 기능: 고가용성](https://blogs.sap.com/2017/05/15/sap-hana-2.0-sps-01-whats-new-high-availability-by-the-sap-hana-academy/)
 - [SAP HANA 시스템 복제에 대한 네트워크 권장 사항](https://www.sap.com/documents/2016/06/18079a1c-767c-0010-82c7-eda71af511fa.html)
 - [SAP HANA 시스템 복제](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
 - [SAP HANA 서비스 자동 다시 시작](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html)
@@ -58,11 +58,11 @@ Azure에서 VM을 배포하는 데 익숙하지 않은 경우, Azure에서 가�
 
 Azure는 네트워킹, 스토리지 및 VM과 같은 다양한 구성 요소에 대해 서로 다른 가용성 SLA를 제공합니다. SLA는 모두 문서화되어 있습니다. 자세한 내용은 [Microsoft Azure 서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 참조하세요. 
 
-[Virtual Machines에 대 한 sla](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) 는 세 가지 다른 구성에 대 한 세 가지 sla를 설명 합니다.
+[가상 시스템용 SLA는](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) 세 가지 다른 구성에 대해 세 가지 다른 SLA를 설명합니다.
 
 - OS 디스크 및 모든 데이터 디스크에 [Azure 프리미엄 SSD](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)를 사용하는 단일 VM. 이 옵션은 매월 99.9%의 가동 시간을 제공합니다.
 - [Azure 가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)에 구성된 여러 개의 VM(2개 이상). 이 옵션은 매월 99.95%의 가동 시간을 제공합니다.
-- [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)에 구성 된 여러 개의 vm (두 개 이상) 이 옵션은 매월 99.99%의 가동 시간을 제공 했습니다.
+- [Availablity 영역에서](https://docs.microsoft.com/azure/availability-zones/az-overview)구성되는 여러 VM(적어도 두 개) VM. 이 옵션은 월별 가동 시간 99.99%를 제공했습니다.
 
 Azure 구성 요소에서 제공할 수 있는 SLA에 대한 가용성 요구 사항을 측정합니다. 그런 다음, SAP HANA에서 필요한 수준의 가용성을 달성할 수 있는 시나리오를 선택합니다.
 

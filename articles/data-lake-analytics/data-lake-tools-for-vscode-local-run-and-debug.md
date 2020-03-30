@@ -1,5 +1,5 @@
 ---
-title: 디버그 U-SQL 작업-Azure Data Lake Tools for Visual Studio 코드
+title: 디버그 U-SQL 작업 - 비주얼 스튜디오 코드에 대한 Azure 데이터 레이크 도구
 description: Azure Data Lake Tools for Visual Studio Code를 사용하여 U-SQL 작업을 로컬에서 실행하고 디버그하는 방법을 알아봅니다.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -10,10 +10,10 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 07/14/2017
 ms.openlocfilehash: e51b5640163546c673a1b0f61da47ccd992f27ad
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72030042"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Visual Studio Code로 로컬에서 U-SQL 실행 및 디버그
@@ -45,19 +45,19 @@ Azure Data Lake Tools for Visual Studio의 Windows 설치만 U-SQL을 로컬로 
 
 
 ## <a name="start-the-local-run-service-and-submit-the-u-sql-job-to-a-local-account"></a>로컬 실행 서비스 시작 및 로컬 계정에 U-SQL 작업 제출 
-첫 번째 사용자의 경우 **Adl:** 로컬 실행 패키지 다운로드를 사용 하 여 로컬 실행 패키지를 다운로드 [합니다.](#set-up-the-u-sql-local-run-environment)
+ [U-SQL 로컬 실행 환경을 설정하지](#set-up-the-u-sql-local-run-environment)않은 경우 **ADL: 로컬 실행 패키지 다운로드를** 사용하여 로컬 실행 패키지를 다운로드합니다.
 
 1. Ctrl+Shift+P를 선택하여 명령 팔레트를 연 다음 **ADL: Start Local Run Service**를 입력합니다.   
 2. **Accept**를 선택하여 처음으로 Microsoft 소프트웨어 사용 조건에 동의합니다. 
 
    ![Microsoft 소프트웨어 사용 조건에 동의](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/AcceptEULA.png)   
-3. cmd 콘솔이 열립니다. 처음 사용하는 경우 **3**을 입력한 다음 데이터 입력 및 출력을 위한 로컬 폴더 경로를 찾아야 합니다. 백슬래시를 사용 하 여 경로를 정의 하지 못한 경우 슬래시를 사용 하십시오. 다른 옵션은 기본값을 사용할 수 있습니다.
+3. cmd 콘솔이 열립니다. 처음 사용하는 경우 **3**을 입력한 다음 데이터 입력 및 출력을 위한 로컬 폴더 경로를 찾아야 합니다. 백슬래시로 경로를 정의하지 못한 경우 앞으로 슬래시를 시도합니다. 다른 옵션은 기본값을 사용할 수 있습니다.
 
    ![Data Lake Tools for Visual Studio Code가 cmd 로컬 실행](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-cmd.png)
 4. Ctrl+Shift+P를 선택하여 명령 팔레트를 열고 **ADL: Submit Job**을 입력한 다음 **Local**을 선택하여 작업을 로컬 계정에 제출합니다.
 
    ![Data Lake Tools for Visual Studio Code 로컬 선택](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-select-local.png)
-5. 작업을 제출하면 제출 세부 정보를 볼 수 있습니다. 제출 세부 정보를 보려면 **Output** 창에서 **jobUrl**을 선택합니다. cmd 콘솔에서 작업 제출 상태를 볼 수도 있습니다. 작업 세부 정보에 대해 더 알고 싶은 경우 cmd 콘솔에 **7**을 입력합니다.
+5. 작업을 제출하면 제출 세부 정보를 볼 수 있습니다. 제출 세부 정보를 보려면 **출력** 창에서 **jobUrl을** 선택합니다. cmd 콘솔에서 작업 제출 상태를 볼 수도 있습니다. 작업 세부 정보에 대해 더 알고 싶은 경우 cmd 콘솔에 **7**을 입력합니다.
 
    ![Data Lake Tools for Visual Studio Code 로컬 실행 출력](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-result.png)
    ![Data Lake Tools for Visual Studio Code 로컬 실행 cmd 상태](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-localrun-cmd-status.png) 
@@ -66,11 +66,11 @@ Azure Data Lake Tools for Visual Studio의 Windows 설치만 U-SQL을 로컬로 
 ## <a name="start-a-local-debug-for-the-u-sql-job"></a>U-SQL 작업에 대한 로컬 디버그 시작  
 첫 번째 사용자:
 
-1. **Adl:** Local run Package를 다운로드 하 여 로컬 실행 패키지를 다운로드 합니다 ( [U-SQL 로컬 실행 환경을 설정](#set-up-the-u-sql-local-run-environment)하지 않은 경우).
-2. 메시지 상자에 제안 된 대로 .NET Core SDK 2.0를 설치 하지 않은 경우 설치 합니다.
+1. **ADL 사용:**  [U-SQL 로컬](#set-up-the-u-sql-local-run-environment)실행 환경을 설정하지 않은 경우 로컬 실행 패키지를 다운로드하여 로컬 실행 패키지를 다운로드합니다.
+2. .NET Core SDK 2.0을 설치하지 않은 경우 메시지 상자에 제시된 대로 설치합니다.
  
-  ![ 미리 알림은 Dotnet](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/remind-install-dotnet.png) 설치 합니다.
-3. 설치 C# 되지 않은 경우 메시지 상자에 제안 된 대로 Visual Studio Code를 설치 합니다. **설치** 를 클릭 하 여 계속 진행 한 다음 vscode를 다시 시작 합니다.
+  ![미리 알림설치 닷넷](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/remind-install-dotnet.png)
+3. Visual Studio Code용 C#을 설치하지 않은 경우 메시지 상자에 제시된 대로 설치합니다.**설치**를 클릭하여 계속 진행한 후 VSCode를 다시 시작합니다.
 
     ![C# 설치 미리 알림](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/install-csharp.png)
 

@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 8f04d943e1db49beed13c183fbd06e401546fc03
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71153887"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Azure VM 게스트 OS 방화벽이 잘못 구성됨
@@ -35,7 +35,7 @@ ms.locfileid: "71153887"
 
 게스트 시스템 방화벽의 잘못된 구성으로 인해 일부 또는 모든 종류의 네트워크 트래픽이 VM에 도달하는 것이 차단될 수 있습니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 다음 단계를 따르기 전에 영향을 받는 VM의 시스템 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 
@@ -55,7 +55,7 @@ ms.locfileid: "71153887"
 
 *   파일 및 프린터 공유(SMB-In): 이 규칙을 통해 문제 해결 옵션으로 네트워크 공유 액세스를 사용할 수 있습니다.
 
-*   파일 및 프린터 공유(에코 요청 - ICMPv4-In): 이 규칙을 사용하면 VM을 ping할 수 있습니다.
+*   파일 및 프린터 공유(에코 요청 - ICMPv4-In): 이 규칙을 사용하면 VM에 ping할 수 있습니다.
 
 직렬 콘솔 액세스 인스턴스에서 방화벽 규칙의 현재 상태를 쿼리할 수 있습니다.
 
@@ -98,7 +98,7 @@ ms.locfileid: "71153887"
 
 ### <a name="offline-mitigations"></a>오프라인 해결 방법
 
-1.  방화벽 규칙을 사용 하거나 사용 하지 않도록 설정 하려면 [AZURE VM 게스트 OS에서 방화벽 규칙 사용 또는 사용 안 함](enable-disable-firewall-rule-guest-os.md)을 참조 하세요.
+1.  방화벽 규칙을 사용하거나 사용하지 않으려면 [Azure VM 게스트 OS에서 방화벽 규칙을 사용 하거나 사용하지 않도록 설정합니다.](enable-disable-firewall-rule-guest-os.md)
 
 2.  [인바운드 트래픽을 차단하는 게스트 OS 방화벽 시나리오](guest-os-firewall-blocking-inbound-traffic.md)에 있는지 여부를 확인합니다.
 

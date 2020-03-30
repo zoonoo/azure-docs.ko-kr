@@ -1,5 +1,5 @@
 ---
-title: 원격 모니터링 솔루션을 로컬로 배포-Docker-Azure | Microsoft Docs
+title: 원격 모니터링 솔루션을 로컬로 배포 - Docker - Azure | 마이크로 소프트 문서
 description: 이 방법 가이드에서는 테스트 및 개발을 위해 Docker를 사용하여 원격 모니터링 솔루션 가속기를 로컬 머신에 배포하는 방법을 보여줍니다.
 author: avneet723
 manager: hegate
@@ -9,34 +9,34 @@ services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.openlocfilehash: 32b47d9d6d45ff471961f55f8159dbe85eae2dce
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73888826"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>로컬로 원격 모니터링 솔루션 가속기 배포 - Docker
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-이 문서에서는 테스트 및 개발을 위해 원격 모니터링 솔루션 가속기를 로컬 컴퓨터에 배포하는 방법을 보여줍니다. 마이크로 서비스를 로컬 Docker 컨테이너에 배포하는 방법에 대해 알아봅니다. 로컬 마이크로 서비스 배포는 클라우드에서 클라우드 서비스 IoT Hub, Cosmos DB, Azure Streaming Analytics 및 Azure Time Series Insights 서비스를 사용합니다.
+이 문서에서는 테스트 및 개발을 위해 원격 모니터링 솔루션 가속기를 로컬 컴퓨터에 배포하는 방법을 보여줍니다. 마이크로 서비스를 로컬 Docker 컨테이너에 배포하는 방법에 대해 알아봅니다. 로컬 마이크로 서비스 배포는 클라우드에서 IoT Hub, Cosmos DB, Azure Streaming Analytics 및 Azure Time Series Insights 서비스와 같은 클라우드 서비스를 사용합니다.
 
 로컬 머신의 IDE에서 원격 모니터링 솔루션 가속기를 실행하려면 [로컬로 원격 모니터링 솔루션 가속기 배포 - Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md)를 참조하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 원격 모니터링 솔루션 가속기에 사용되는 Azure 서비스를 배포하려면 활성 Azure 구독이 필요합니다.
 
-계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판을](https://azure.microsoft.com/pricing/free-trial/)참조하십시오.
 
-### <a name="machine-setup"></a>머신 설정
+### <a name="machine-setup"></a>머신 설치
 
 로컬 배포를 완료하기 위해 로컬 개발 컴퓨터에 설치되어 있어야 하는 도구는 다음과 같습니다.
 
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
 * [Visual Studio](https://visualstudio.microsoft.com/) - 마이크로 서비스를 변경하려는 경우
-* [Node.js v8](https://nodejs.org/) - 이 소프트웨어는 스크립트에서 Azure 리소스를 만드는 데 사용하는 PCS CLI에 대한 필수 구성 요소입니다. Node.js v10을 사용하지 마세요.
+* [Node.js v8](https://nodejs.org/) - 이 소프트웨어는 스크립트에서 Azure 리소스를 만드는 데 사용하는 PCS CLI에 대한 필수 구성 요소입니다. Node.js v10은 사용하지 마세요.
 
 > [!NOTE]
 > 이러한 도구는 Windows, Linux 및 iOS를 포함한 다양한 플랫폼에서 사용할 수 있습니다.
@@ -70,7 +70,7 @@ docker-compose up
 ```
 
 > [!NOTE] 
-> [을 실행하기 전에 Docker와 ](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/issues/115)로컬 드라이브를 공유`docker-compose up`해야 합니다.
+> `docker-compose up`을 실행하기 전에 Docker와 [로컬 드라이브를 공유](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/issues/115)해야 합니다.
 
 이 명령을 처음 실행하는 경우 Docker는 Docker 허브에서 마이크로 서비스 이미지를 다운로드하여 컨테이너를 로컬로 빌드합니다. 다음 실행에서 Docker는 컨테이너를 즉시 실행합니다.
 
@@ -87,20 +87,20 @@ docker rmi <list_of_images>
 
 ### <a name="start-the-stream-analytics-job"></a>Stream Analytics 작업 시작
 
-Stream Analytics 작업을 시작하려면 다음 단계를 수행합니다.
+다음 단계에 따라 Stream Analytics 작업을 시작합니다.
 
-1. [Azure Portal](https://portal.azure.com)로 이동합니다.
+1. [Azure 포털로](https://portal.azure.com)이동합니다.
 1. 솔루션에 대해 만든 **리소스 그룹**으로 이동합니다. 리소스 그룹의 이름은 **start.cmd** 스크립트를 실행할 때 선택한 솔루션 이름입니다.
 1. 리소스 목록에서 **Stream Analytics 작업**을 클릭합니다.
-1. Stream Analytics 작업 **개요** 페이지에서 **시작** 단추를 클릭합니다. 이제 **시작**을 클릭하여 작업을 시작합니다.
+1. Stream Analytics 작업 **개요** 페이지에서 **시작** 단추를 클릭합니다. 그런 다음, **시작**을 클릭하여 지금 작업을 시작합니다.
 
 ### <a name="connect-to-the-dashboard"></a>대시보드에 연결
 
-원격 모니터링 솔루션 대시보드에 액세스 하려면 브라우저에서 `http://localhost:8080`로 이동 합니다. 이제 웹 UI와 로컬 마이크로 서비스를 사용할 수 있습니다.
+원격 모니터링 솔루션 대시보드에 액세스하려면 브라우저에서 `http://localhost:8080`으로 이동합니다. 이제 웹 UI와 로컬 마이크로 서비스를 사용할 수 있습니다.
 
 ## <a name="clean-up"></a>정리
 
-불필요한 요금을 피하려면 테스트를 마친 후 Azure 구독에서 클라우드 서비스를 제거하세요. 서비스를 제거하려면 [Azure Portal](https://ms.portal.azure.com)로 이동하여 **start.cmd** 스크립트에서 만든 리소스 그룹을 삭제합니다.
+불필요한 요금을 방지하려면 테스트를 마친 후 Azure 구독에서 클라우드 서비스를 제거합니다. 서비스를 제거하려면 [Azure Portal](https://ms.portal.azure.com)로 이동하여 **start.cmd** 스크립트에서 만든 리소스 그룹을 삭제합니다.
 
 `docker-compose down --rmi all` 명령을 사용하여 Docker 이미지를 제거하고 로컬 컴퓨터의 공간을 확보합니다. 또한 GitHub에서 소스 코드를 복제할 때 만들어진 원격 모니터링 리포지토리의 로컬 복사본을 삭제할 수도 있습니다.
 

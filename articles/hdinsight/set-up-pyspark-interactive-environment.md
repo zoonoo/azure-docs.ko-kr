@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight Tools를 사용 하 여 대화형 환경 PySpark
+title: Azure HDInsight 도구를 사용하여 파이스파크 인터랙티브 환경
 description: Azure HDInsight Tools for Visual Studio Code를 사용하여 쿼리와 스크립트를 만들고 제출하는 방법에 대해 알아봅니다.
 keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,대화형 Hive,대화형 쿼리
 author: jejiang
@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: db2336fb79207ada24b71e0e64f0aaaab543e4da
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73241552"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Visual Studio Code용 PySpark 대화형 환경 설정
@@ -21,16 +21,16 @@ ms.locfileid: "73241552"
 
 **python/pip** 명령을 사용하여 홈 경로에서 가상 환경을 빌드합니다. 다른 버전을 사용하려면 **python/pip** 명령의 기본 버전을 수동으로 변경해야 합니다. 자세한 내용은 [update-alternatives](https://linux.die.net/man/8/update-alternatives)를 참조하세요.
 
-1. [Python](https://www.python.org/downloads/) 및 [pip](https://pip.pypa.io/en/stable/installing/)를 설치 합니다.
+1. [파이썬을](https://www.python.org/downloads/) 설치하고 [핍](https://pip.pypa.io/en/stable/installing/).
 
-   + [https://www.python.org/downloads/](https://www.python.org/downloads/)에서 Python을 설치합니다.
-   + [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) 에서 pip를 설치 합니다 (Python 설치에서 설치 되지 않은 경우).
-   + 다음 명령을 사용 하 여 Python 및 pip가 성공적으로 설치 되었는지 확인 합니다. (선택 사항)
+   + 에서 파이썬을 설치합니다. [https://www.python.org/downloads/](https://www.python.org/downloads/)
+   + 에서 [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) 핍을 설치하십시오 (파이썬 설치에서 설치되지 않은 경우).
+   + 다음 명령을 사용하여 파이썬 및 핍이 성공적으로 설치되어 있는지 확인합니다. (선택 사항)
 
-        ![Python pip 버전 명령 확인](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
+        ![파이썬 핍 버전 명령 확인](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
      > [!NOTE]
-     > MacOS 기본 버전을 사용 하는 대신 Python을 수동으로 설치 하는 것이 좋습니다.
+     > macOS 기본 버전을 사용하는 대신 수동으로 파이썬을 설치하는 것이 좋습니다.
 
 2. 아래 명령을 실행하여 **virtualenv**를 설치합니다.
 
@@ -40,9 +40,9 @@ ms.locfileid: "73241552"
 
 ## <a name="other-packages"></a>기타 패키지
 
-오류 메시지가 표시 되 면 다음 명령을 실행 하 여 필요한 패키지를 설치 합니다.
+오류 메시지가 발생하면 다음 명령을 실행하여 필요한 패키지를 설치합니다.
 
-   ![Python 용 libkrb5-dev 패키지 설치](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
+   ![파이썬을위한 libkrb5 패키지를 설치](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
 
 ```
 sudo apt-get install libkrb5-dev

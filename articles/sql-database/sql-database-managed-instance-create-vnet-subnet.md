@@ -1,5 +1,5 @@
 ---
-title: 관리 되는 인스턴스에 대 한 가상 네트워크 만들기
+title: 관리되는 인스턴스에 대한 가상 네트워크 만들기
 description: 이 문서에서는 Azure SQL Database Managed Instance를 배포할 수 있는 가상 네트워크를 만드는 방법을 설명합니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
 ms.openlocfilehash: 9f115d51657993562642391a235de79420aa434a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823371"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance의 가상 네트워크 만들기
@@ -34,14 +34,14 @@ Azure SQL Database Managed Instance는 Azure [가상 네트워크](../virtual-ne
 >
 > 기존 가상 네트워크를 사용하려는 경우 Managed Instance를 수용하도록 해당 네트워크 구성을 수정해야 합니다. 자세한 내용은 [Managed Instance의 기존 가상 네트워크 수정](sql-database-managed-instance-configure-vnet-subnet.md)을 참조하세요.
 >
-> 관리 되는 인스턴스를 만든 후에는 관리 되는 인스턴스 또는 VNet을 다른 리소스 그룹 또는 구독으로 이동할 수 없습니다.
+> 관리되는 인스턴스를 만든 후 관리되는 인스턴스 또는 VNet을 다른 리소스 그룹 또는 구독으로 이동하는 것은 지원되지 않습니다.
 
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
 가상 네트워크를 만들고 구성하는 가장 쉬운 방법은 Azure Resource Manager 배포 템플릿을 사용하는 것입니다.
 
-1. Azure 포털에 로그인합니다.
+1. Azure Portal에 로그인합니다.
 
 2. **Azure에 배포** 단추를 선택합니다.
 
@@ -64,4 +64,4 @@ Azure SQL Database Managed Instance는 Azure [가상 네트워크](../virtual-ne
 - [Managed Instance의 연결 아키텍처](sql-database-managed-instance-connectivity-architecture.md)에 대해 알아봅니다.
 - [Managed Instance의 기존 가상 네트워크를 수정](sql-database-managed-instance-configure-vnet-subnet.md)하는 방법을 알아봅니다.
 - 가상 네트워크를 만들고, Managed Instance를 만들고, 데이터베이스 백업에서 데이터베이스를 복원하는 방법을 보여주는 자습서는 [Azure SQL Database Managed Instance 만들기](sql-database-managed-instance-get-started.md)를 참조하세요.
-- DNS 문제는 [사용자 지정 DNS 구성](sql-database-managed-instance-custom-dns.md)을 참조하세요.
+- DNS 문제의 경우 [사용자 지정 DNS 구성을](sql-database-managed-instance-custom-dns.md)참조하십시오.

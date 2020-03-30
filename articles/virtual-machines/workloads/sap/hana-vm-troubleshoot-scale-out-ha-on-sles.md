@@ -1,5 +1,5 @@
 ---
-title: Azure Vm의 SLES을 사용 하 여 Pacemaker HSR-확장을 확장 합니다. 문제 해결 | SAP HANA Microsoft Docs
+title: SAP HANA Azure VM 문제 해결에 SLES를 갖춘 HSR-Pacemaker 확장* 마이크로 소프트 문서
 description: Azure 가상 머신에서 실행되는 SLES 12 SP3의 SAP HSR(HANA System Replication) 및 Pacemaker에 기반한 복잡한 SAP HANA 스케일 아웃 고가용성 구성 확인 및 문제 해결 가이드
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: e93b3412785817050ac53030be9ff2172a678c06
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617133"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>SLES 12 SP3에서 SAP HANA 스케일 아웃 고가용성 설정 확인 및 문제 해결 
@@ -41,16 +41,16 @@ ms.locfileid: "77617133"
 ## <a name="important-notes"></a>중요
 
 SAP HANA System Replication 및 Pacemaker와 함께 SAP HANA 스케일 아웃에 대한 모든 테스트는 SAP HANA 2.0에서만 수행되었습니다. 운영 체제 버전은 SAP 애플리케이션용 SUSE Linux Enterprise Server 12 SP3이 사용되었습니다. 최신 RPM 패키지인 SUSE의 SAPHanaSR-ScaleOut도 Pacemaker 클러스터를 설정하는 데 사용되었습니다.
-SUSE [이 성능 최적화 설정에 대 한 자세한 설명을][sles-hana-scale-out-ha-paper]게시 했습니다.
+SUSE의 [성능 최적화 설정에 대한 자세한 설명][sles-hana-scale-out-ha-paper]이 게시되어 있습니다.
 
-SAP HANA 스케일 아웃에 대해 지원 되는 가상 컴퓨터 유형의 경우 [SAP HANA 인증 된 IaaS 디렉터리][sap-hana-iaas-list]를 확인 합니다.
+SAP HANA 스케일 아웃에 지원되는 가상 머신 유형은 [SAP HANA 인증 IaaS 디렉터리][sap-hana-iaas-list]를 확인하세요.
 
 여러 서브넷과 vNIC 및 HSR 설정과 함께 SAP HANA 스케일 아웃에 기술적인 문제가 있었습니다. 이 문제가 해결된 최신 SAP HANA 2.0 패치는 반드시 사용해야 합니다. 지원되는 SAP HANA 버전은 다음과 같습니다. 
 
 * rev2.00.024.04 이상 
 * rev2.00.032 이상
 
-SUSE의 지원이 필요한 경우이 [가이드][suse-pacemaker-support-log-files]를 따르세요. 이 문서의 설명대로 SAP HANA HA(고가용성) 클러스터에 대한 모든 정보를 수집합니다. SUSE 지원은 추가 분석을 위해 이 정보가 필요합니다.
+SUSE의 지원이 필요한 경우 [가이드][suse-pacemaker-support-log-files]를 따르십시오. 이 문서의 설명대로 SAP HANA HA(고가용성) 클러스터에 대한 모든 정보를 수집합니다. SUSE 지원은 추가 분석을 위해 이 정보가 필요합니다.
 
 내부 테스트 중에 Azure Portal을 통한 정상적인 VM 종료로 인해 클러스터 설정이 혼란스러워졌습니다. 따라서 다른 방법으로 클러스터 장애 조치를 테스트하는 것이 좋습니다. 커널 패닉을 강제 적용하거나 네트워크를 종료하거나 **msl** 리소스 마이그레이션과 같은 방법을 사용하십시오. 자세한 내용은 아래 섹션을 참조하세요. 표준 종료는 의도한 대로 발생한다는 가정이 있습니다. 의도적인 종료의 가장 좋은 사례는 유지 관리를 위한 경우입니다. 자세한 내용은 [계획된 유지 관리](#planned-maintenance)를 참조하세요.
 
@@ -93,7 +93,7 @@ SAP HANA 네트워크 권장 사항에 따라 하나의 Azure 가상 네트워�
 
 다중 네트워크 사용과 관련된 SAP HANA 구성에 대한 자세한 내용은 [SAP HANA global.ini](#sap-hana-globalini)를 참조하세요.
 
-클러스터의 모든 VM에는 서브넷 수에 해당하는 세 개의 vNIC가 있습니다. [여러 네트워크 인터페이스 카드를 사용 하 여 azure에서 linux 가상 머신을 만드는 방법][azure-linux-multiple-nics] linux VM을 배포할 때 azure에서 잠재적인 라우팅 문제를 설명 합니다. 이 구체적인 라우팅 문서는 여러 vNIC를 사용하는 경우에만 해당됩니다. 이러한 문제는 SLES 12 SP3의 SUSE에서 기본값으로 해결됩니다. 자세한 내용은 [EC2 및 Azure에서 클라우드-netconfig를 사용 하는 다중 NIC][suse-cloud-netconfig]를 참조 하세요.
+클러스터의 모든 VM에는 서브넷 수에 해당하는 세 개의 vNIC가 있습니다. [여러 네트워크 인터페이스 카드를 사용하여 Azure에서 Linux 가상 머신을 만드는 방법][azure-linux-multiple-nics]에서는 Linux VM을 배포하는 경우 Azure의 잠재적인 라우팅 문제를 설명합니다. 이 구체적인 라우팅 문서는 여러 vNIC를 사용하는 경우에만 해당됩니다. 이러한 문제는 SLES 12 SP3의 SUSE에서 기본값으로 해결됩니다. 자세한 내용은 [EC2 및 Azure의 cloud-netconfig를 통한 다중 NIC][suse-cloud-netconfig]를 참조하세요.
 
 
 SAP HANA가 다중 네트워크를 사용하기 적합하게 구성되었는지 확인하려면 다음 명령을 실행합니다. 먼저 OS 수준에서 세 개의 서브넷 모두에 대한 세 개의 내부 IP 주소가 모두 활성인지 확인합니다. 다른 IP 주소 범위를 사용하여 서브넷을 정의한 경우에는 명령을 조정해야 합니다.
@@ -119,13 +119,13 @@ inet addr:10.0.2.42  Bcast:10.0.2.255  Mask:255.255.255.0
 select * from "SYS"."M_SYSTEM_OVERVIEW"
 </code></pre>
 
-예를 들어 올바른 포트 번호를 찾으려면 HANA Studio의 **구성** 아래에서 또는 SQL 문에서 찾아볼 수 있습니다.
+올바른 포트 번호를 찾으려면 구성 **아래의** HANA Studio 또는 SQL 문을 통해 볼 수 있습니다.
 
 <pre><code>
 select * from M_INIFILE_CONTENTS WHERE KEY LIKE 'listen%'
 </code></pre>
 
-SAP HANA를 포함 하 여 SAP 소프트웨어 스택에서 사용 되는 모든 포트를 찾으려면 [모든 sap 제품의 tcp/ip 포트][sap-list-port-numbers]를 검색 합니다.
+SAP HANA를 포함한 SAP 소프트웨어 스택에서 사용되는 모든 포트를 찾으려면 [모든 SAP 제품의 TCP/IP 포트][sap-list-port-numbers]를 검색해 보세요.
 
 SAP HANA 2.0 테스트 시스템에서 인스턴스 번호가 **00**인 경우 이름 서버의 포트 번호는 **30001**입니다. HSR 메타데이터 통신의 포트 번호는 **40002**입니다. 한 가지 옵션은 작업자 노드에 로그인한 다음, 마스터 노드 서비스를 확인하는 것입니다. 이 문서의 경우, 사이트 2의 마스터 노드에 연결하려고 시도하면서 사이트 2의 작업자 노드 2를 확인했습니다.
 
@@ -172,7 +172,7 @@ nc: connect to 10.0.2.40 port 40002 (tcp) failed: Connection refused
 
 테스트 시스템에 있는 **corosync.conf**의 내용은 예제입니다.
 
-첫 번째 섹션은 **클러스터 설치**, 11단계의 설명대로 [totem](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation)입니다. **mcastaddr**에 대한 값은 무시할 수 있습니다. 기존 항목만 유지합니다. **토큰** 및 **합의** 항목은 [Microsoft Azure SAP HANA 설명서][sles-pacemaker-ha-guide]에 따라 설정 해야 합니다.
+첫 번째 섹션은 [클러스터 설치](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation), 11단계의 설명대로 **totem**입니다. **mcastaddr**에 대한 값은 무시할 수 있습니다. 기존 항목만 유지합니다. **token** 및 **consensus**에 대한 항목은[Microsoft Azure SAP HANA 설명서][sles-pacemaker-ha-guide]에 따라 설정해야 합니다.
 
 <pre><code>
 totem {
@@ -457,7 +457,7 @@ node.startup = automatic
 5. 초기자 이름 위에 **Service Start**(서비스 시작) 값이 **When Booting**(부팅 시)로 설정되어 있는지 확인합니다.
 6. 그렇지 않은 경우 **Manually**(수동) 대신 **When Booting**(부팅 시)으로 설정합니다.
 7. 그런 다음, 위쪽 탭을 **Connected Targets**(연결된 대상)으로 전환합니다.
-8. **Connected Targets**(연결된 대상) 화면에서 SBD 디바이스에 대한 항목이 이 샘플과 같이 표시됩니다(**10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**).
+8. 연결된 **대상** 화면에이 샘플과 같은 SBD 장치에 대한 항목이 표시됩니다: **10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**.
 9. **Start-Up**(시작) 값이 **on boot**(부팅)로 설정되어 있는지 확인합니다.
 10. 그렇지 않은 경우 **Edit**(편집)을 선택하여 변경합니다.
 11. 변경 내용을 저장하고 YaST2를 종료합니다.
@@ -472,7 +472,7 @@ node.startup = automatic
 systemctl status pacemaker
 </code></pre>
 
-출력의 맨 위가 다음 샘플과 유사하게 표시됩니다. **Active**(활성) 뒤의 상태가 **loaded**(로드됨) 또는 **active (running)** (활성(실행 중))으로 표시되는 것이 중요합니다. **Loaded**(로드 됨) 후의 상태는 **enabled**(사용)로 표시되어야 합니다.
+출력의 맨 위가 다음 샘플과 유사하게 표시됩니다. **Active**(활성) 뒤의 상태가 **loaded**(로드됨) 또는 **active (running)**(활성(실행 중))으로 표시되는 것이 중요합니다. **Loaded**(로드 됨) 후의 상태는 **enabled**(사용)로 표시되어야 합니다.
 
 <pre><code>
   pacemaker.service - Pacemaker High Availability Cluster Manager
@@ -504,7 +504,7 @@ Pacemaker에서 구성된 모든 리소스를 보려면 다음 명령을 실행�
 crm status
 </code></pre>
 
-출력이 다음 샘플과 유사하게 표시됩니다. **cln** 및 **msl** 리소스는 주 결정자 VM, **hso-hana-dm**에서 stopped(중지됨)로 표시됩니다. 주 결정자 노드에는 SAP HANA가 설치되어 있지 않습니다. 따라서 **cln** 및 **msl** 리소스가 stopped(중지됨)로 표시됩니다. 올바른 총 VM 수(**7**)를 표시하는 것이 중요합니다. 클러스터의 일부인 모든 VM은 **Online**(온라인) 상태에서 나열되어야 합니다. 현재 주 마스터 노드를 올바르게 인식해야 합니다. 이 예제에서는 **hso-hana-vm-s1-0**입니다.
+출력이 다음 샘플과 유사하게 표시됩니다. **cln** 및 **msl** 리소스는 주 결정자 VM, **hso-hana-dm**에서 stopped(중지됨)로 표시됩니다. 주 결정자 노드에는 SAP HANA가 설치되어 있지 않습니다. 따라서 **cln** 및 **msl** 리소스가 stopped(중지됨)로 표시됩니다. VM의 정확한 총 수, **7을**표시하는 것이 중요합니다. 클러스터의 일부인 모든 VM은 **Online**(온라인) 상태에서 나열되어야 합니다. 현재 주 마스터 노드를 올바르게 인식해야 합니다. 이 예제에서는 **hso-hana-vm-s1-0**입니다.
 
 <pre><code>
 Stack: corosync
@@ -656,7 +656,7 @@ Waiting for 7 replies from the CRMd....... OK
 
 ## <a name="failover-or-takeover"></a>장애 조치(failover) 또는 인수
 
-[중요 참고 사항](#important-notes)에 언급된 것처럼, 표준 정상 종료를 사용하여 클러스터 장애 조치 또는 SAP HANA HSR 인수를 테스트하면 안됩니다. 대신, 커널 패닉을 트리거하거나, 리소스 마이그레이션을 강제 적용하거나, VM의 OS 수준에서 모든 네트워크를 종료하는 것이 좋습니다. 또 다른 방법은 **crm \<node\> standby** 명령입니다. [SUSE 문서][sles-12-ha-paper]를 참조 하세요. 
+[중요 참고 사항](#important-notes)에 언급된 것처럼, 표준 정상 종료를 사용하여 클러스터 장애 조치 또는 SAP HANA HSR 인수를 테스트하면 안됩니다. 대신, 커널 패닉을 트리거하거나, 리소스 마이그레이션을 강제 적용하거나, VM의 OS 수준에서 모든 네트워크를 종료하는 것이 좋습니다. 또 다른 방법은 **crm \<node\> standby** 명령입니다. [SUSE 문서][sles-12-ha-paper]를 참조하세요. 
 
 다음 세 가지 샘플 명령은 클러스터 장애 조치를 강제 적용할 수 있습니다.
 
@@ -682,7 +682,7 @@ SAP Python 스크립트에서 제공되는 SAP HANA 랜드스케이프 상태를
 
 불필요한 장애 조치를 방지하기 위해 몇 가지 재시도가 있습니다. 클러스터는 **Ok** 상태, 반환 값이 **4**가 **error** 및 반환 값 **1**로 변경되는 경우에만 반응합니다. 따라서 **SAPHanaSR-showAttr**의 출력에 **offline** 상태의 VM이 표시되면 맞습니다. 단, 주와 보조를 전환할 작업은 아직 없습니다. SAP HANA에서 오류를 반환하지 않는 한 클러스터 작업은 트리거되지 않습니다.
 
-다음과 같이 SAP Python 스크립트를 호출하여 SAP HANA 랜드스케이프 상태를 **\<HANA SID\>adm** 사용자로 모니터링할 수 있습니다. 경로를 조정해야 할 수도 있습니다.
+다음과 같이 SAP 파이썬 스크립트를 호출하여 사용자 ** \<HANA SID\>adm으로** SAP HANA 가로 상태 상태를 모니터링할 수 있습니다. 경로를 조정해야 할 수도 있습니다.
 
 <pre><code>
 watch python /hana/shared/HSO/exe/linuxx86_64/HDB_2.00.032.00.1533114046_eeaf4723ec52ed3935ae0dc9769c9411ed73fec5/python_support/landscapeHostConfiguration.py
@@ -725,7 +725,7 @@ Transition Summary:
 ## <a name="planned-maintenance"></a>계획된 유지 보수 
 
 계획된 유지 관리와 관련하여 다양한 사용 사례가 있습니다. 한 가지 질문은 OS 수준 및 디스크 구성 또는 HANA 업그레이드에 대한 변경과 같은 인프라 유지 관리뿐인지 여부입니다.
-SUSE에서 [0 가동 중지 시간][sles-zero-downtime-paper] 또는 [SAP HANA SR 성능 최적화 시나리오][sles-12-for-sap]와 같은 추가 정보를 찾을 수 있습니다. 이러한 문서에는 주 노드를 수동으로 마이그레이션하는 방법을 보여주는 샘플도 포함되어 있습니다.
+[Towards Zero Downtime][sles-zero-downtime-paper] 또는 [SAP HANA SR Performance Optimized Scenario][sles-12-for-sap]와 같은 SUSE의 문서에서 추가 정보를 찾을 수 있습니다. 이러한 문서에는 주 노드를 수동으로 마이그레이션하는 방법을 보여주는 샘플도 포함되어 있습니다.
 
 인프라 유지 관리 사용 사례를 확인하기 위해 강력한 내부 테스트가 수행되었습니다. 주 노드 마이그레이션과 관련된 모든 종류의 문제를 방지하기 위해 클러스터를 유지 관리 모드로 전환하기 전에 항상 주 노드를 마이그레이션하기로 결정했습니다. 이렇게 하면 클러스터에서 이전 상황(주 노드 및 보조 노드)을 잊게 만들 필요가 없습니다.
 
@@ -945,7 +945,7 @@ listeninterface = .internal
 ## <a name="hawk"></a>Hawk
 
 클러스터 솔루션은 메뉴와 그래픽에 셸 수준의 모든 명령이 있는 것을 선호하는 사용자를 위해 GUI를 제공하는 다음과 같은 브라우저 인터페이스를 제공합니다.
-브라우저 인터페이스를 사용하려면 다음 URL에서 **\<node\>** 를 실제 SAP HANA 노드로 변경합니다. 그런 다음, 클러스터의 자격 증명을 입력합니다(사용자 **클러스터**).
+브라우저 인터페이스를 사용하려면 ** \<\> 노드를** 다음 URL에서 실제 SAP HANA 노드로 바꿉습니다. 그런 다음, 클러스터의 자격 증명을 입력합니다(사용자 **클러스터**).
 
 <pre><code>
 https://&ltnode&gt:7630
@@ -963,7 +963,7 @@ https://&ltnode&gt:7630
 ![Hawk 제약 조건 나열](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.png)
 
 
-다음과 같이 Hawk의 **History**에서 **hb_report** 출력을 업로드할 수도 있습니다. 로그 파일을 수집 하려면 hb_report를 참조 하세요. 
+다음과 같이 Hawk의 **History**에서 **hb_report** 출력을 업로드할 수도 있습니다. 일을 수집하는 hb_report를 참조하세요. 
 
 ![Hawk hb_report 출력 업로드](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 
@@ -978,5 +978,5 @@ https://&ltnode&gt:7630
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문제 해결 가이드에서는 스케일 아웃 구성의 SAP HANA 고가용성에 대해 설명합니다. 데이터베이스 외에도 SAP 랜드스케이프의 또 다른 중요한 구성 요소는 SAP NetWeaver 스택입니다. [SUSE Enterprise Linux Server를 사용 하는 Azure virtual machines의 SAP NetWeaver에 대 한 고가용성][sap-nw-ha-guide-sles]에 대해 알아봅니다.
+이 문제 해결 가이드에서는 스케일 아웃 구성의 SAP HANA 고가용성에 대해 설명합니다. 데이터베이스 외에도 SAP 랜드스케이프의 또 다른 중요한 구성 요소는 SAP NetWeaver 스택입니다. [SUSE Enterprise Linux Server를 사용하는 Azure 가상 머신의 SAP NetWeaver 고가용성][sap-nw-ha-guide-sles]에 대해 알아보세요.
 

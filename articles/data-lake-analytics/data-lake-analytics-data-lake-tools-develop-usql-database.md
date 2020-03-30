@@ -1,5 +1,5 @@
 ---
-title: U-SQL 데이터베이스 프로젝트 개발-Azure Data Lake
+title: U-SQL 데이터베이스 프로젝트 개발 - Azure 데이터 레이크
 description: Azure Data Lake Tools for Visual Studio를 사용하여 U-SQL 데이터베이스를 개발하는 방법을 알아봅니다.
 author: yanancai
 ms.author: yanacai
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: a9b271b5f7d4e53dbf871d03dd43b62b9299aa53
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71309918"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>U-SQL 데이터베이스 프로젝트를 사용하여 Azure Data Lake용 U-SQL 데이터베이스 개발
@@ -48,7 +48,7 @@ U-SQL 데이터베이스 프로젝트를 마우스 오른쪽 단추로 클릭합
 
     ![Data Lake Tools for Visual Studio--참조에서 어셈블리 만들기](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-create-assembly-from-reference.png)
 
-3.  **관리되는 종속성** 및 **추가 파일**(있는 경우)을 추가합니다. 추가 파일을 추가하는 경우 이 도구는 나중에 상대 경로를 사용하여 로컬 컴퓨터 및 빌드 컴퓨터 둘 다에서 어셈블리를 찾을 수 있습니다. 
+3.  **관리되는 종속성** 및 추가 파일이 있는 경우 **추가합니다.** 추가 파일을 추가하는 경우 이 도구는 나중에 상대 경로를 사용하여 로컬 컴퓨터 및 빌드 컴퓨터 둘 다에서 어셈블리를 찾을 수 있습니다. 
 
 @_DeployTempDirectory는 도구가 빌드 출력 폴더를 가리키도록 하는 미리 정의된 변수입니다. 모든 어셈블리는 빌드 출력 폴더 아래에 어셈블리 이름의 하위 폴더가 있습니다. 모든 DLL 및 추가 파일이 해당 하위 폴더에 있습니다. 
  
@@ -56,7 +56,7 @@ U-SQL 데이터베이스 프로젝트를 마우스 오른쪽 단추로 클릭합
 
 U-SQL 데이터베이스 프로젝트에 대한 빌드 출력은 접미사 `.usqldbpack`으로 명명된 U-SQL 데이터베이스 배포 패키지입니다. `.usqldbpack` 패키지는 단일 U-SQL 스크립트의 모든 DDL 문을 **DDL** 폴더에 포함하고, 어셈블리에 대한 모든 DLL 및 추가 파일을 **Temp** 폴더에 포함하는 zip 파일입니다.
 
-[MSBuild 명령줄 및 Azure DevOps Services 빌드 작업을 사용 하 여 t-sql 데이터베이스 프로젝트를 빌드하는 방법](data-lake-analytics-cicd-overview.md)에 대해 자세히 알아보세요.
+[MSBuild 명령줄 및 Azure DevOps 서비스 빌드 작업을 사용하여 U-SQL 데이터베이스 프로젝트를 빌드하는 방법에](data-lake-analytics-cicd-overview.md)대해 자세히 알아봅니다.
 
 ## <a name="deploy-a-u-sql-database"></a>U-SQL 데이터베이스 배포
 
@@ -69,7 +69,7 @@ Visual Studio에서 U-SQL 데이터베이스 프로젝트 또는 .usqldbpack 패
 #### <a name="deploy-through-a-u-sql-database-project"></a>U-SQL 데이터베이스 프로젝트를 통해 배포
 
 1.  U-SQL 데이터베이스 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **배포**를 선택합니다.
-2.  **U-SQL 데이터베이스 배포 마법사**에서 데이터베이스를 배포하려는 **ADLA 계정**을 선택합니다. 로컬 계정과 ADLA 계정이 둘 다 지원됩니다.
+2.  **U-SQL 데이터베이스 배포 마법사에서**데이터베이스를 배포할 **ADLA 계정을** 선택합니다. 로컬 계정과 ADLA 계정이 둘 다 지원됩니다.
 3.  **데이터베이스 원본**은 자동으로 채워지며, 프로젝트의 빌드 출력 폴더에 있는 .usqldbpack 패키지를 가리킵니다.
 4.  **데이터베이스 이름**에 이름을 입력하여 데이터베이스를 만듭니다. 같은 이름의 데이터베이스가 대상 Azure Data Lake Analytics 계정에 이미 있는 경우 데이터베이스 프로젝트에 정의된 모든 개체는 데이터베이스를 다시 만들지 않고도 생성됩니다.
 5.  U-SQL 데이터베이스를 배포하려면 **제출**을 선택합니다. 모든 리소스(어셈블리 및 추가 파일)가 업로드되고 모든 DDL 문을 포함하는 U-SQL 작업이 제출됩니다.
@@ -80,7 +80,7 @@ Visual Studio에서 U-SQL 데이터베이스 프로젝트 또는 .usqldbpack 패
 
 #### <a name="deploy-through-a-u-sql-database-deployment-package"></a>U-SQL 데이터베이스 배포 패키지를 통해 배포
 
-1.  **서버 탐색기**를 엽니다. 그런 다음, 데이터베이스를 배포할 **Azure Data Lake Analytics 계정**을 확장합니다.
+1.  **서버 탐색기**열기 . 그런 다음, 데이터베이스를 배포할 **Azure Data Lake Analytics 계정**을 확장합니다.
 2.  **U-SQL 데이터베이스**를 마우스 오른쪽 단추로 클릭하고 **데이터베이스 배포**를 선택합니다.
 3.  **데이터베이스 원본**을 U-SQL 데이터베이스 배포 패키지(.usqldbpack 파일) 경로로 설정합니다.
 4.  **데이터베이스 이름**을 입력하여 데이터베이스를 만듭니다. 같은 이름의 데이터베이스가 대상 Azure Data Lake Analytics 계정에 이미 있는 경우 데이터베이스 프로젝트에 정의된 모든 개체는 데이터베이스를 다시 만들지 않고도 생성됩니다.
@@ -99,8 +99,8 @@ Visual Studio에서 U-SQL 데이터베이스 프로젝트 또는 .usqldbpack 패
 
 U-SQL 프로젝트는 U-SQL 데이터베이스 프로젝트를 참조할 수 있습니다. 이러한 참조는 다음 두 워크로드를 영향을 줍니다.
 
-- *프로젝트 빌드*: U-SQL 스크립트를 빌드하기 전에 참조 된 데이터베이스 환경을 설정 합니다. 
-- 로컬 *프로젝트에 대 한 로컬 실행 계정*: 참조 된 데이터베이스 환경은 U-SQL 스크립트 실행 전에 (로컬 프로젝트) 계정에 배포 됩니다. [여기에서 로컬 실행과 (local-machine) 및 (local-project) 계정 간 차이점에 대해 자세히 알아봅니다](data-lake-analytics-data-lake-tools-local-run.md).
+- *프로젝트 빌드*: 참조된 데이터베이스 환경은 U-SQL 스크립트를 빌드하기 전에 설정됩니다. 
+- *(local-project) 계정에 대한 로컬 실행*: 참조된 데이터베이스 환경은 U-SQL 스크립트 실행 전에 (local-project) 계정에 배포됩니다. [여기에서 로컬 실행과 (local-machine) 및 (local-project) 계정 간 차이점에 대해 자세히 알아봅니다](data-lake-analytics-data-lake-tools-local-run.md).
 
 ### <a name="how-to-add-a-u-sql-database-reference"></a>U-SQL 데이터베이스 참조를 추가하는 방법
 

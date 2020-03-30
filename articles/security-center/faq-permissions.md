@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center FAQ-사용 권한에 대 한 질문
-description: 이 FAQ는 위협을 예방, 감지 및 대응 하는 데 도움을 주는 제품인 Azure Security Center의 사용 권한에 대 한 질문에 답변 합니다.
+title: Azure 보안 센터 FAQ - 권한에 대한 질문
+description: 이 FAQ는 위협을 방지, 탐지 및 대응하는 데 도움이 되는 제품인 Azure Security Center의 사용 권한에 대한 질문에 답합니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,17 +14,17 @@ ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: 66a260fbb03f770ee98ec29a5f5e15e3d7dd1310
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77599393"
 ---
 # <a name="permissions"></a>사용 권한
 
-## <a name="how-do-permissions-work-in-azure-security-center"></a>Azure Security Center에서 사용 권한은 어떻게 작동 하나요?
+## <a name="how-do-permissions-work-in-azure-security-center"></a>Azure 보안 센터에서 사용 권한은 어떻게 작동합니까?
 
-Azure Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](../role-based-access-control/role-assignments-portal.md)을 제공하는 [RBAC(역할 기반 Access Control)](../role-based-access-control/built-in-roles.md)를 사용합니다.
+Azure Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](../role-based-access-control/built-in-roles.md)을 제공하는 [RBAC(역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md)를 사용합니다.
 
 Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성을 식별합니다. Security Center에서는 리소스가 속한 구독이나 리소스 그룹에 대한 소유자, 참가자 또는 독자 역할을 할당 받을 때 리소스와 관련된 항목만 볼 수 있습니다.
 

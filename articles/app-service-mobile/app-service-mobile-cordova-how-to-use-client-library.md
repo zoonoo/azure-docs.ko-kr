@@ -1,5 +1,5 @@
 ---
-title: Apache Cordova 플러그 인을 사용 하는 방법
+title: 아파치 코르도바 플러그인을 사용 하는 방법
 description: Azure Mobile Apps용 Apache Cordova 플러그인 사용 방법
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
 ms.tgt_pltfrm: mobile-html
@@ -7,10 +7,10 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: cafeea8afe571fc81548833952eee72a695fed41
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77459364"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps용 Apache Cordova 클라이언트 라이브러리를 사용하는 방법
@@ -27,7 +27,7 @@ ms.locfileid: "77459364"
 * Windows Phone 8.1
 * 범용 Windows 플랫폼
 
-## <a name="Setup"></a>설정 및 필수 조건
+## <a name="setup-and-prerequisites"></a><a name="Setup"></a>설정 및 필수 구성 조건
 이 가이드에서는 테이블과 함께 백 엔드를 만들었다고 가정합니다. 이 가이드에서는 해당 테이블에 이러한 자습서의 테이블과 동일한 스키마가 있다고 가정합니다. 또한 이 가이드는 사용자 코드에 Apache Cordova 플러그 인을 추가했다고 가정합니다.  아직 추가하지 않은 경우 명령줄에서 프로젝트에 Apache Cordova 플러그 인을 추가할 수 있습니다.
 
 ```
@@ -36,7 +36,7 @@ cordova plugin add cordova-plugin-ms-azure-mobile-apps
 
 [첫 번째 Apache Cordova 앱]을 만드는 방법에 대한 자세한 내용은 해당 설명서를 참조하세요.
 
-## <a name="ionic"></a>Ionic v2 앱 설정
+## <a name="setting-up-an-ionic-v2-app"></a><a name="ionic"></a>Ionic v2 앱 설정
 
 Ionic v2 프로젝트를 올바르게 구성하려면 먼저 기본 앱을 만들고 Cordova 플러그 인을 추가합니다.
 
@@ -64,8 +64,8 @@ Azure Mobile Apps Cordova 플러그 인은 Ionic v1 및 v2 앱을 모두 지원�
 
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="auth"></a>방법: 사용자 인증
-Azure App Service는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 다양한 외부 ID 공급자를 사용하여 앱 사용자의 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 [인증 시작] 자습서를 참조하세요.
+## <a name="how-to-authenticate-users"></a><a name="auth"></a>방법: 사용자 인증
+Azure App Service는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 다양한 외부 ID 공급자를 사용하여 앱 사용자의 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 인증 [시작] 자습서를 참조하세요.
 
 Apache Cordova 앱에 인증을 사용할 때는 다음 Cordova 플러그 인을 사용할 수 있어야 합니다.
 
@@ -76,7 +76,7 @@ Apache Cordova 앱에 인증을 사용할 때는 다음 Cordova 플러그 인을
 
 [!INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="configure-external-redirect-urls"></a>방법: 외부 리디렉션 URL에 대해 모바일 App Service 구성
+### <a name="how-to-configure-your-mobile-app-service-for-external-redirect-urls"></a><a name="configure-external-redirect-urls"></a>방법: 외부 리디렉션 URL에 대해 모바일 앱 서비스를 구성합니다.
 여러 가지 유형의 Apache Cordova 애플리케이션은 루프백 기능을 사용하여 OAuth UI 흐름을 처리합니다.  기본적으로 인증 서비스만 사용자 서비스의 활용 방법을 알기 때문에 localhost의 OAuth UI 흐름에 문제가 발생합니다.  다음은 문제가 있는 OAuth UI 흐름의 예입니다.
 
 * Ripple 에뮬레이터.
@@ -86,9 +86,9 @@ Apache Cordova 앱에 인증을 사용할 때는 다음 Cordova 플러그 인을
 
 구성에 로컬 설정을 추가하려면 다음 지침을 따릅니다.
 
-1. [Azure Portal]에 로그인
+1. [Azure 포털에] 로그인
 2. **모든 리소스** 또는 **App Services**를 선택한 후 모바일 앱의 이름을 클릭합니다.
-3. **도구** 클릭
+3. **도구를 클릭합니다.**
 4. 관찰 메뉴에서 **리소스 Explorer**를 클릭한 다음 **이동**을 클릭합니다.  새 창 또는 탭이 열립니다.
 5. 왼쪽 탐색 창에서 사이트에 대한 **config**, **authsettings** 노드를 확장합니다.
 6. **편집**을 클릭합니다.
@@ -99,14 +99,14 @@ Apache Cordova 앱에 인증을 사용할 때는 다음 Cordova 플러그 인을
              "https://localhost:3000"
          ],
 
-    URL을 서비스의 URL로 바꿉니다.  예를 들어 `http://localhost:3000` (node.js 샘플 서비스의 경우) 또는 `http://localhost:4400` (Ripple 서비스의 경우)가 있습니다.  그러나 이러한 URL은 예제일 뿐입니다. 예에서 언급된 서비스를 포함하여 사용자의 상황이 다를 수 있습니다.
+    URL을 서비스의 URL로 바꿉니다.  예를 들어 `http://localhost:3000` (Node.js 샘플 서비스의 `http://localhost:4400` 경우) 또는 (리플 서비스의 경우).  그러나 이러한 URL은 예제일 뿐입니다. 예에서 언급된 서비스를 포함하여 사용자의 상황이 다를 수 있습니다.
 8. 화면 오른쪽 위에 있는 **읽기/쓰기** 단추를 클릭합니다.
 9. 녹색 **배치** 단추를 클릭합니다.
 
 이 시점에서 설정이 저장됩니다.  설정 저장이 완료될 때까지 브라우저 창을 닫지 않도록 합니다.
 또한 App Service에 대한 CORS 설정에 이러한 루프백 URL을 추가합니다.
 
-1. [Azure Portal]에 로그인
+1. [Azure 포털에] 로그인
 2. **모든 리소스** 또는 **App Services**를 선택한 후 모바일 앱의 이름을 클릭합니다.
 3. 설정 블레이드가 자동으로 열립니다.  자동으로 열리지 않으면 **모든 설정**을 클릭합니다.
 4. API 메뉴에서 **CORS**를 클릭합니다.
@@ -116,7 +116,7 @@ Apache Cordova 앱에 인증을 사용할 때는 다음 Cordova 플러그 인을
 
 새 설정이 적용되는 데는 약 10~15초가 걸립니다.
 
-## <a name="register-for-push"></a>방법: 푸시 알림 등록
+## <a name="how-to-register-for-push-notifications"></a><a name="register-for-push"></a>방법: 푸시 알림 등록
 푸시 알림을 처리하기 위해 [phonegap-plugin-push]를 설치합니다.  이 플러그인은 명령줄에서 `cordova plugin add` 명령을 사용하거나 Visual Studio 내에서 Git 플러그 인 설치 관리자를 통해 쉽게 추가할 수 있습니다.  Apache Cordova 앱에서 다음 코드는 푸시 알림을 위해 디바이스를 등록합니다.
 
 ```javascript
@@ -163,7 +163,7 @@ Notification Hubs SDK를 사용하여 서버에서 푸시 알림을 보냅니다
 우리의 [API 설명서](https://azure.github.io/azure-mobile-apps-js-client/)에서 자세한 API 세부 정보를 찾을 수 있습니다.
 
 <!-- URLs. -->
-[Azure Portal]: https://portal.azure.com
+[Azure 포털]: https://portal.azure.com
 [Azure Mobile Apps 빠른 시작]: app-service-mobile-cordova-get-started.md
 [인증 시작]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md

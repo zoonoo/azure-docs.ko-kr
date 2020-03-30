@@ -8,15 +8,15 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.openlocfilehash: 0463e3297bbb2fda50adfeefaa89f0a7a3ef8b0a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72901523"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Azure HDInsight 4.0 개요
 
-Azure HDInsight는 Azure에서 오픈 소스 Apache Hadoop 및 Apache Spark 분석을 위해 기업 고객들 사이에서 가장 인기 있는 서비스 중 하나입니다. HDInsight 4.0은 Apache Hadoop 구성 요소의 클라우드 배포입니다. 이 문서에서는 가장 최근 Azure HDInsight 릴리스 및 업그레이드 방법에 대한 정보를 제공합니다.
+Azure HDInsight는 Azure에서 오픈 소스 Apache Hadoop 및 Apache Spark 분석을 위해 기업 고객들 사이에서 가장 인기 있는 서비스 중 하나입니다. HDInsight 4.0은 아파치 하두롭 구성 요소의 클라우드 분포입니다. 이 문서에서는 가장 최근 Azure HDInsight 릴리스 및 업그레이드 방법에 대한 정보를 제공합니다.
 
 ## <a name="whats-new-in-hdinsight-40"></a>HDInsight 4.0의 새로운 기능
 
@@ -85,14 +85,14 @@ Apache Oozie 4.3.1은 다음 변경 내용으로 HDI 4.0에 포함됩니다.
 
 모든 주요 릴리스와 마찬가지로 프로덕션 환경에서 최신 버전을 구현하기 전에 구성 요소를 철저히 테스트해야 합니다. HDInsight 4.0을 업그레이드 프로세스를 시작하는 데 사용할 수 있지만 HDInsight 3.6은 실수로 인한 오류 발생을 방지하기 위해 기본 옵션입니다.
 
-이전 버전의 HDInsight에서 HDInsight 4.0로의 지원 되는 업그레이드 경로는 없습니다. Metastore 및 blob 데이터 형식이 변경 되었으므로 HDInsight 4.0은 이전 버전과 호환 되지 않습니다. 새 HDInsight 4.0 환경을 현재 프로덕션 환경과 분리 하 여 유지 하는 것이 중요 합니다. 현재 환경에 HDInsight 4.0을 배포 하는 경우 Metastore가 업그레이드 되며 되돌릴 수 없습니다.  
+이전 버전의 HDInsight에서 HDInsight 4.0으로 업그레이드되는 경로는 지원되지 않습니다. 메타스토어 및 Blob 데이터 형식이 변경되었기 때문에 HDInsight 4.0은 이전 버전과 호환되지 않습니다. 새 HDInsight 4.0 환경을 현재 프로덕션 환경과 별도로 유지하는 것이 중요합니다. HDInsight 4.0을 현재 환경에 배포하면 메타스토어가 업그레이드되고 되돌릴 수 없습니다.  
 
 ## <a name="limitations"></a>제한 사항
 
-* HDInsight 4.0는 Apache Hive에 대 한 MapReduce를 지원 하지 않습니다. 대신 Apache Tez를 사용하세요. [Apache Tez](https://tez.apache.org/)에 대해 자세히 알아봅니다.
-* HDInsight 4.0는 Apache Storm을 지원 하지 않습니다.
+* HDInsight 4.0은 아파치 하이브에 대한 맵Reduce를 지원하지 않습니다. 대신 Apache Tez를 사용하세요. [Apache Tez](https://tez.apache.org/)에 대해 자세히 알아봅니다.
+* HDInsight 4.0은 아파치 스톰을 지원하지 않습니다.
 * Hive 보기는 HDInsight 4.0에서 더 이상 사용할 수 없습니다.
-* Apache Zeppelin의 셸 인터프리터는 Spark 및 대화형 쿼리 클러스터에서 지원 되지 않습니다.
+* 아파치 제플린의 쉘 인터프리터는 스파크 및 대화형 쿼리 클러스터에서 지원되지 않습니다.
 * LLAP는 Spark-LLAP 클러스터에서 *사용하지 않도록 설정*할 수 없으며, 이를 해제할 수만 있습니다.
 * Azure Data Lake Storage Gen2는 Spark 클러스터에 Juypter 노트북을 저장할 수 없습니다.
 

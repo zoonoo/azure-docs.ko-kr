@@ -1,5 +1,5 @@
 ---
-title: Apache Hive Azure HDInsight를 사용 하는 Java UDF (사용자 정의 함수)
+title: 아파치 하이브 Azure HDInsight를 갖춘 자바 사용자 정의 기능(UDF)
 description: Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만드는 방법을 알아봅니다. 이 예제 UDF는 텍스트 문자열 테이블을 소문자로 변환합니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/20/2019
 ms.openlocfilehash: 73a2a612a4eeb4a59f12abf0660fffb092f0547f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74327202"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>HDInsight에서 Apache Hive와 함께 Java UDF 사용
 
 Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만드는 방법을 알아봅니다. 이 예제의 Java UDF는 텍스트 문자열 테이블을 모두 소문자로 변환합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+* HDInsight의 하두프 클러스터. [리눅스에서 HDInsight로 시작하기를](./apache-hadoop-linux-tutorial-get-started.md)참조하십시오.
 * [JDK(Java Developer Kit) 버전 8](https://aka.ms/azure-jdks)
-* Apache에 따라 올바르게 [설치된](https://maven.apache.org/download.cgi) [Apache Maven](https://maven.apache.org/install.html)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
-* 클러스터 기본 스토리지에 대한 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. 이는 Azure Data Lake Storage Gen1에 대 한 Azure Data Lake Storage Gen2 또는 adl://에 대 한 Azure Storage, abfs://에 대 한 wasb://입니다. Azure Storage에 대해 보안 전송이 활성화된 경우 URI는 `wasbs://`입니다.  [보안 전송](../../storage/common/storage-require-secure-transfer.md)도 참조하세요.
+* Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html)[Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
+* 클러스터 기본 스토리지에 대한 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. Azure 데이터 호수 저장소 Gen2에 대한 abfs:// Azure 데이터 레이크 저장소 Gen1에 대한 adl:// Azure 저장소에 대해 wasb://. Azure Storage에 대해 보안 전송이 활성화된 경우 URI는 `wasbs://`입니다.  [보안 전송](../../storage/common/storage-require-secure-transfer.md)도 참조하세요.
 
 * 텍스트 편집기 또는 Java IDE
 
@@ -33,9 +33,9 @@ Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만�
 
 ## <a name="test-environment"></a>테스트 환경
 
-이 문서에 사용 되는 환경은 Windows 10을 실행 하는 컴퓨터 였습니다.  명령은 명령 프롬프트에서 실행 되었으며 다양 한 파일이 메모장을 사용 하 여 편집 되었습니다. 사용자 환경에 맞게 수정 합니다.
+이 문서에 사용된 환경은 Windows 10을 실행하는 컴퓨터였습니다.  명령은 명령 프롬프트에서 실행되었으며 다양한 파일은 메모장으로 편집되었습니다. 환경에 맞게 수정합니다.
 
-명령 프롬프트에서 아래 명령을 입력 하 여 작업 환경을 만듭니다.
+명령 프롬프트에서 아래 명령을 입력하여 작업 환경을 만듭니다.
 
 ```cmd
 IF NOT EXIST C:\HDI MKDIR C:\HDI
@@ -44,28 +44,28 @@ cd C:\HDI
 
 ## <a name="create-an-example-java-udf"></a>예제 Java UDF 만들기
 
-1. 다음 명령을 입력 하 여 새 Maven 프로젝트를 만듭니다.
+1. 다음 명령을 입력하여 새 Maven 프로젝트를 만듭니다.
 
     ```cmd
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=ExampleUDF -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    이 명령은 Maven 프로젝트를 포함 하는 `exampleudf`라는 디렉터리를 만듭니다.
+    이 명령은 Maven `exampleudf`프로젝트를 포함하는 명명된 디렉터리를 만듭니다.
 
-2. 프로젝트를 만든 후에는 다음 명령을 입력 하 여 프로젝트의 일부로 만든 `exampleudf/src/test` 디렉터리를 삭제 합니다.
+2. 프로젝트가 만들어지면 다음 명령을 `exampleudf/src/test` 입력하여 프로젝트의 일부로 만든 디렉터리를 삭제합니다.
 
     ```cmd
     cd ExampleUDF
     rmdir /S /Q "src/test"
     ```
 
-3. 아래 명령을 입력 하 여 `pom.xml`를 엽니다.
+3. 아래 `pom.xml` 명령을 입력하여 엽니다.
 
     ```cmd
     notepad pom.xml
     ```
 
-    그런 다음 기존 `<dependencies>` 항목을 다음 XML로 바꿉니다.
+    그런 다음 `<dependencies>` 기존 항목을 다음 XML로 바꿉꿉을 바꿉입니다.
 
     ```xml
     <dependencies>
@@ -86,7 +86,7 @@ cd C:\HDI
 
     이러한 항목은 HDInsight 3.6과 함께 포함된 Hadoop 및 Hive의 버전을 지정합니다. [HDInsight 구성 요소 버전 관리](../hdinsight-component-versioning.md) 문서에서 HDInsight를 제공하는 Hadoop 및 Hive의 버전에 대한 정보를 찾을 수 있습니다.
 
-    파일 끝의 `<build>` 줄 앞에 `</project>` 섹션을 추가합니다. 이 섹션에는 다음 XML이 포함되어야 합니다.
+    파일 끝의 `</project>` 줄 앞에 `<build>` 섹션을 추가합니다. 이 섹션에는 다음 XML이 포함되어야 합니다.
 
     ```xml
     <build>
@@ -144,13 +144,13 @@ cd C:\HDI
 
     변경이 완료되면 파일을 저장합니다.
 
-4. 다음 명령을 입력 하 `ExampleUDF.java`새 파일을 만들고 엽니다.
+4. 아래 명령을 입력하여 새 파일을 `ExampleUDF.java`만들고 엽니다.
 
     ```cmd
     notepad src/main/java/com/microsoft/examples/ExampleUDF.java
     ```
 
-    그런 다음 아래 java 코드를 복사 하 여 새 파일에 붙여넣습니다. 그런 다음 파일을 닫습니다.
+    그런 다음 아래 자바 코드를 복사하여 새 파일에 붙여 넣습니다. 그런 다음 파일을 닫습니다.
 
     ```java
     package com.microsoft.examples;
@@ -181,9 +181,9 @@ cd C:\HDI
 
 ## <a name="build-and-install-the-udf"></a>UDF 빌드 및 설치
 
-아래 명령에서 `sshuser`를 실제 사용자 이름 (다른 경우)으로 바꿉니다. `mycluster`를 실제 클러스터 이름으로 바꿉니다.
+아래 명령에서 다른 `sshuser` 경우 실제 사용자 이름으로 바꿉니다. 실제 `mycluster` 클러스터 이름으로 바꿉니다.
 
-1. 다음 명령을 입력 하 여 UDF를 컴파일하고 패키지 합니다.
+1. 다음 명령을 입력하여 UDF를 컴파일하고 패키지화합니다.
 
     ```cmd
     mvn compile package
@@ -191,19 +191,19 @@ cd C:\HDI
 
     이 명령은 `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar` 파일에 UDF를 빌드하고 패키지합니다.
 
-2. `scp` 명령을 사용 하 여 다음 명령을 입력 하 여 파일을 HDInsight 클러스터에 복사 합니다.
+2. `scp` 다음 명령을 입력하여 파일을 HDInsight 클러스터에 복사하는 명령을 사용합니다.
 
     ```cmd
     scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:
     ```
 
-3. 다음 명령을 입력 하 여 SSH를 사용 하 여 클러스터에 연결 합니다.
+3. 다음 명령을 입력하여 SSH를 사용하여 클러스터에 연결합니다.
 
     ```cmd
     ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-4. 열려 있는 SSH 세션에서 jar 파일을 HDInsight 저장소에 복사 합니다.
+4. 열린 SSH 세션에서 항아리 파일을 HDInsight 저장소로 복사합니다.
 
     ```bash
     hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
@@ -211,7 +211,7 @@ cd C:\HDI
 
 ## <a name="use-the-udf-from-hive"></a>Hive에서 UDF 사용
 
-1. 다음 명령을 입력 하 여 SSH 세션에서 Beeline client를 시작 합니다.
+1. 다음 명령을 입력하여 SSH 세션에서 Beeline 클라이언트를 시작합니다.
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
@@ -232,7 +232,7 @@ cd C:\HDI
     SELECT tolower(state) AS ExampleUDF, state FROM hivesampletable LIMIT 10;
     ```
 
-    이 쿼리는 테이블에서 상태를 선택 하 고 문자열을 소문자로 변환한 다음 수정 되지 않은 이름과 함께 표시 합니다. 출력은 다음 텍스트와 유사합니다.
+    이 쿼리는 테이블에서 상태를 선택하고 문자열을 소문자로 변환한 다음 수정되지 않은 이름과 함께 표시합니다. 출력은 다음 텍스트와 유사합니다.
 
         +---------------+---------------+--+
         |  exampleudf   |     state     |
@@ -251,7 +251,7 @@ cd C:\HDI
 
 ## <a name="troubleshooting"></a>문제 해결
 
-Hive 작업을 실행 하는 경우 다음 텍스트와 유사한 오류가 발생할 수 있습니다.
+하이브 작업을 실행할 때 다음 텍스트와 유사한 오류가 발생할 수 있습니다.
 
     Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
 

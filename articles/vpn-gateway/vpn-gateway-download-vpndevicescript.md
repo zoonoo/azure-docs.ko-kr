@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: yushwang
 ms.openlocfilehash: f905e27f48a0bf9181625bbba07549a13d9420cb
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162139"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>S2S VPN 연결에 대한 VPN 디바이스 구성 스크립트 다운로드
@@ -26,7 +26,7 @@ ms.locfileid: "77162139"
 
 [!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
-## <a name="about"></a>VPN 디바이스 구성 스크립트 정보
+## <a name="about-vpn-device-configuration-scripts"></a><a name="about"></a>VPN 디바이스 구성 스크립트 정보
 
 크로스-프레미스 VPN 연결은 Azure VPN Gateway, 온-프레미스 VPN 디바이스 및 이 둘을 연결하는 IPsec S2S VPN 터널로 구성됩니다. 일반적인 워크플로에는 다음 단계가 포함됩니다.
 
@@ -50,7 +50,7 @@ Azure [Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md), [Powe
 
 Azure VPN Gateway, 로컬 네트워크 게이트웨이 및 이 둘을 연결하는 연결 리소스를 만듭니다. 다음 페이지에서 해당 단계를 안내합니다.
 
-* [Azure Portal에서 사이트 간 연결 만들기](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Azure 포털에서 사이트 간 연결 만들기](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 
 연결 리소스를 만든 후 아래의 지시에 따라 VPN 디바이스 구성 스크립트를 다운로드합니다.
 

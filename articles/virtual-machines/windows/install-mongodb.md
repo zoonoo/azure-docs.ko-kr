@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: 37c1b58d364e7eadb33803ce7eac1f2b956ec1b6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74038543"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Azure에서 Windows VM에 MongoDB를 설치 및 구성
 [MongoDB](https://www.mongodb.org)는 인기 있는 고성능 오픈 소스 NoSQL 데이터베이스입니다. 이 문서에서는 Azure에서 Windows Server 2016 VM(가상 머신)에 MongoDB를 설치 및 구성하는 방법을 안내합니다. [Azure에서 Linux VM에 MongoDB를 설치](../linux/install-mongodb.md)할 수도 있습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 MongoDB를 설치 및 구성하기 전에 VM을 만들고, 데이터 디스크를 추가해야 합니다. 다음 문서를 참조하여 VM을 만들고 데이터 디스크를 추가하세요.
 
 * [Azure Portal](quick-create-portal.md) 또는 [Azure PowerShell](quick-create-powershell.md)을 사용하여 Windows Server VM을 만듭니다.
@@ -60,18 +60,18 @@ MongoDB 설치 및 구성을 시작하려면 원격 데스크톱을 사용하여
    
    * **시작** 메뉴를 마우스 오른쪽 단추로 클릭하고 **시스템**을 선택합니다.
    * **고급 시스템 설정**을 클릭한 다음 **환경 변수**를 클릭합니다.
-   * **시스템 변수**에서 **경로**를 선택한 다음 **편집**을 클릭합니다.
+   * **시스템 변수**에서 **Path**를 선택하고 **편집**을 클릭합니다.
      
      ![PATH 변수 구성](./media/install-mongodb/configure-path-variables.png)
      
-     MongoDB `bin` 폴더에 경로를 추가합니다. 일반적으로 MongoDB는 *C:\Program Files\MongoDB*에 설치됩니다. VM의 설치 경로를 확인합니다. 다음은 `PATH` 변수에 기본 MongoDB 설치 위치를 추가하는 예제입니다.
+     MongoDB `bin` 폴더에 경로를 추가합니다. MongoDB는 일반적으로 *C:\프로그램 파일\MongoDB에*설치됩니다. VM의 설치 경로를 확인합니다. 다음은 `PATH` 변수에 기본 MongoDB 설치 위치를 추가하는 예제입니다.
      
      ```
      ;C:\Program Files\MongoDB\Server\3.6\bin
      ```
      
      > [!NOTE]
-     > `;` 변수에 위치를 추가하는 것을 나타내는 선행 세미콜론(`PATH`)을 추가합니다.
+     > `PATH` 변수에 위치를 추가하는 것을 나타내는 선행 세미콜론(`;`)을 추가합니다.
 
 2. 데이터 디스크에 MongoDB 데이터 및 로그 디렉터리를 만듭니다. **시작** 메뉴에서 **명령 프롬프트**를 선택합니다. 다음 예에서는 F: 드라이브에 디렉터리를 만듭니다.
    
@@ -85,7 +85,7 @@ MongoDB 설치 및 구성을 시작하려면 원격 데스크톱을 사용하여
     mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
     ```
    
-    MongoDB가 저널 파일을 할당하고 연결 수신을 시작할 때까지 몇 분 정도 걸릴 수 있습니다. *서버가 시작되어 저널 파일을 할당하면 모든 로그 메시지가*F:\MongoLogs\mongolog.log`mongod.exe` 파일로 보내집니다.
+    MongoDB가 저널 파일을 할당하고 연결 수신을 시작할 때까지 몇 분 정도 걸릴 수 있습니다. `mongod.exe` 서버가 시작되어 저널 파일을 할당하면 모든 로그 메시지가 *F:\MongoLogs\mongolog.log* 파일로 보내집니다.
    
    > [!NOTE]
    > 명령 프롬프트는 MongoDB 인스턴스가 실행되는 동안 이 태스크에 계속 집중합니다. 명령 프롬프트 창을 열어 놓고 MongoDB를 계속 실행합니다. 또는 다음 단계에 설명된 대로 MongoDB를 서비스로 설치합니다.
@@ -158,7 +158,7 @@ New-NetFirewallRule `
 필요한 경우 기존 Azure 가상 네트워크 서브넷 외부에서 MongoDB에 액세스하도록 허용하는 네트워크 보안 그룹 규칙을 만듭니다. [Azure Portal](nsg-quickstart-portal.md) 또는 [Azure PowerShell](nsg-quickstart-powershell.md)을 사용하여 네트워크 보안 그룹 규칙을 만들 수 있습니다. Windows 방화벽 규칙과 마찬가지로 MongoDB VM의 가상 네트워크 인터페이스에 TCP 포트 27017을 허용합니다.
 
 > [!NOTE]
-> TCP 포트 27017은 MongoDB가 사용하는 기본 포트입니다. 수동으로 또는 서비스에서 `--port`를 시작하고 `mongod.exe` 매개 변수를 사용하여 이 포트를 변경할 수 있습니다. 포트를 변경하는 경우 이전 단계의 Windows 방화벽 및 네트워크 보안 그룹 규칙을 업데이트해야 합니다.
+> TCP 포트 27017은 MongoDB가 사용하는 기본 포트입니다. 수동으로 또는 서비스에서 `mongod.exe`를 시작하고 `--port` 매개 변수를 사용하여 이 포트를 변경할 수 있습니다. 포트를 변경하는 경우 이전 단계의 Windows 방화벽 및 네트워크 보안 그룹 규칙을 업데이트해야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

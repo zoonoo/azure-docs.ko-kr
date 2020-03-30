@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: d8c6b68a38d4b60cf7a3194e6a5ded8804cc416f
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77150175"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Azure 가용성 영역에서 영역 중복 가상 네트워크 게이트웨이 만들기
@@ -23,7 +23,7 @@ Azure 가용성 영역에서 VPN 및 ExpressRoute 게이트웨이를 배포할 �
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-## <a name="variables"></a>1. 변수를 선언 합니다.
+## <a name="1-declare-your-variables"></a><a name="variables"></a>1. 변수 선언
 
 사용할 변수를 선언합니다. 다음 샘플을 사용하여 필요할 때 고유한 값으로 대체합니다. 이 연습을 수행하는 동안 PowerShell/Cloud Shell 세션을 닫게 되는 경우 값을 복사하고 붙여넣어 변수를 다시 선언하세요. 위치를 지정할 경우 지정한 영역이 지원되는지 확인합니다. 자세한 내용은 [FAQ](#faq)을 참조하세요.
 
@@ -43,7 +43,7 @@ $GwIP1       = "VNet1GWIP"
 $GwIPConf1   = "gwipconf1"
 ```
 
-## <a name="configure"></a>2. 가상 네트워크 만들기
+## <a name="2-create-the-virtual-network"></a><a name="configure"></a>2. 가상 네트워크 만들기
 
 리소스 그룹을 만듭니다.
 
@@ -59,7 +59,7 @@ $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubnet1 -AddressPrefix $BEPr
 $vnet = New-AzVirtualNetwork -Name $VNet1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNet1Prefix -Subnet $fesub1,$besub1
 ```
 
-## <a name="gwsub"></a>3. 게이트웨이 서브넷 추가
+## <a name="3-add-the-gateway-subnet"></a><a name="gwsub"></a>3. 게이트웨이 서브넷 추가
 
 게이트웨이 서브넷은 가상 네트워크 게이트웨이 서비스가 사용하는 예약된 IP 주소를 포함합니다. 다음 예제를 사용하여 게이트웨이 서브넷을 추가하고 설정합니다.
 
@@ -75,11 +75,11 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0
 ```azurepowershell-interactive
 $getvnet | Set-AzVirtualNetwork
 ```
-## <a name="publicip"></a>4. 공용 IP 주소를 요청 합니다.
+## <a name="4-request-a-public-ip-address"></a><a name="publicip"></a>4. 공용 IP 주소 요청
  
 이 단계에서는 만들려는 게이트웨이에 적용되는 지침을 선택합니다. 게이트웨이 배포를 위한 영역 선택은 공용 IP 주소에 대해 지정된 영역에 따라 달라집니다.
 
-### <a name="ipzoneredundant"></a>영역 중복 게이트웨이의 경우
+### <a name="for-zone-redundant-gateways"></a><a name="ipzoneredundant"></a>영역 중복 게이트웨이의 경우
 
 **표준** PublicIpaddress SKU가 포함된 공용 IP 주소를 요청하고 모든 영역을 지정하지 않습니다. 이 경우 만들어진 표준 공용 IP 주소는 영역 중복 공용 IP가 됩니다.   
 
@@ -87,7 +87,7 @@ $getvnet | Set-AzVirtualNetwork
 $pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard
 ```
 
-### <a name="ipzonalgw"></a>영역 게이트웨이의 경우
+### <a name="for-zonal-gateways"></a><a name="ipzonalgw"></a>영역 게이트웨이의 경우
 
 **표준** PublicIpaddress SKU가 포함된 공용 IP 주소를 요청합니다. 영역(1, 2 또는 3)을 지정합니다. 이 영역에 모든 게이트웨이 인스턴스가 배포됩니다.
 
@@ -95,14 +95,14 @@ $pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $Gw
 $pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard -Zone 1
 ```
 
-### <a name="ipregionalgw"></a>지역 게이트웨이의 경우
+### <a name="for-regional-gateways"></a><a name="ipregionalgw"></a>지역 게이트웨이의 경우
 
 **기본** PublicIpaddress SKU가 포함된 공용 IP 주소를 요청합니다. 이 경우 게이트웨이가 지역 게이트웨이로 배포되며 게이트웨이에 기본 제공된 영역 중복성이 없습니다. 게이트웨이 인스턴스는 각각 모든 영역에서 만들어집니다.
 
 ```azurepowershell-interactive
 $pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Dynamic -Sku Basic
 ```
-## <a name="gwipconfig"></a>5. IP 구성을 만듭니다.
+## <a name="5-create-the-ip-configuration"></a><a name="gwipconfig"></a>5. IP 구성 만들기
 
 ```azurepowershell-interactive
 $getvnet = Get-AzVirtualNetwork -ResourceGroupName $RG1 -Name $VNet1
@@ -110,7 +110,7 @@ $subnet = Get-AzVirtualNetworkSubnetConfig -Name $GwSubnet1 -VirtualNetwork $get
 $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $subnet -PublicIpAddress $pip1
 ```
 
-## <a name="gwconfig"></a>6. 게이트웨이 만들기
+## <a name="6-create-the-gateway"></a><a name="gwconfig"></a>6. 게이트웨이 만들기
 
 가상 네트워크 게이트웨이를 만듭니다.
 
@@ -126,7 +126,7 @@ New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 
 New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1AZ
 ```
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a><a name="faq"></a>FAQ
 
 ### <a name="what-will-change-when-i-deploy-these-new-skus"></a>새 SKU를 배포할 때 변경되는 사항은 무엇인가요?
 
@@ -138,7 +138,7 @@ New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>새 SKU를 사용할 수 있는 지역은 어디인가요?
 
-사용 가능한 지역의 최신 목록은 [가용성 영역](../availability-zones/az-overview.md#services-support-by-region) 를 참조 하세요.
+사용 가능한 지역의 최신 목록은 [가용성 영역을](../availability-zones/az-overview.md#services-support-by-region) 참조하십시오.
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>내 기존 가상 네트워크 게이트웨이를 영역 중복 또는 영역 게이트웨이로 변경/마이그레이션/업그레이드할 수 있나요?
 

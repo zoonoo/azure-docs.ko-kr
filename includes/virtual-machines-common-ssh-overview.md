@@ -9,15 +9,15 @@ ms.date: 12/21/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 3f9b86dd3716a25ab95265cf46b616144f57163b
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71168617"
 ---
 ## <a name="overview-of-ssh-and-keys"></a>SSH 및 키에 대한 개요
 
-[SSH](https://www.ssh.com/ssh/)는 안전하지 않은 연결을 통해 안전하게 로그인할 수 있도록 암호화된 연결 프로토콜입니다. SSH는 Azure에서 호스팅되는 Linux VM에 대한 기본 연결 프로토콜입니다. SSH 자체에서 암호화된 연결을 제공하지만 SSH 연결과 함께 암호를 하더라도 VM은 여전히 무차별 암호 대입 공격이나 암호 추측에 취약합니다. SSH를 사용하여 VM에 연결하는 데 있어 더 안전하고 선호하는 방법은 *SSH 키*라고도 하는퍼블릭-프라이빗 키 쌍을 사용하는 것입니다. 
+[SSH는](https://www.ssh.com/ssh/) 보안되지 않은 연결을 통해 보안 로그인을 허용하는 암호화된 연결 프로토콜입니다. SSH는 Azure에서 호스팅되는 Linux VM에 대한 기본 연결 프로토콜입니다. SSH 자체에서 암호화된 연결을 제공하지만 SSH 연결과 함께 암호를 하더라도 VM은 여전히 무차별 암호 대입 공격이나 암호 추측에 취약합니다. SSH를 사용하여 VM에 연결하는 보다 안전하고 선호되는 방법은 *SSH 키라고도*하는 공개 개인 키 쌍을 사용하는 것입니다. 
 
 * *공개 키*는 public-key 암호화를 사용하려는 Linux VM 또는 다른 서비스에 배치됩니다.
 

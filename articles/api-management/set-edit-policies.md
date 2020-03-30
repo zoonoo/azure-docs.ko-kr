@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
 ms.openlocfilehash: 2df57477ae5270405a1774b7a4f04ed185fea396
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70071697"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Azure API Management 정책을 설정 및 편집하는 방법
@@ -29,7 +29,7 @@ ms.locfileid: "70071697"
 
 정책을 설정하거나 편집하려면 다음 단계를 수행합니다.
 
-1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+1. 에서 [https://portal.azure.com](https://portal.azure.com)Azure 포털에 로그인합니다.
 2. APIM 인스턴스로 이동합니다.
 3. **API** 탭을 클릭합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "70071697"
 4. 이전에 가져온 API 중 하나를 선택합니다.
 5. **디자인** 탭을 선택합니다.
 6. 정책을 적용하려는 작업을 선택합니다. 모든 작업에 정책을 적용하려는 경우 **모든 작업**을 선택합니다.
-7. **인바운드 처리** 또는 **아웃바운드 처리** 섹션에서 **</>** (코드 편집기) 아이콘을 선택합니다.
+7. **</>** **인바운드 처리** 또는 **아웃바운드 처리** 섹션에서 (코드 편집기) 아이콘을 선택합니다.
 8. 원하는 정책 코드를 적절한 블록 중 하나에 붙여넣습니다.
 
     ```XML
@@ -110,7 +110,7 @@ API 범위는 선택한 API의 **모든 작업**에 대해 구성됩니다.
 
     ![API 범위](./media/api-management-howto-policies/api-scope.png)
 
-2. **모든 작업**을 선택합니다.
+2. **모든 작업** 선택
 3. 삼각형 아이콘을 클릭합니다.
 4. **코드 편집기**를 선택합니다.
 5. 정책을 추가하거나 편집합니다.
@@ -120,7 +120,7 @@ API 범위는 선택한 API의 **모든 작업**에 대해 구성됩니다.
 
 작업 범위는 선택한 작업에 대해 구성됩니다.
 
-1. **API**를 선택합니다.
+1. **API를**선택합니다.
 2. 정책을 적용하려는 작업을 선택합니다.
 
     ![작업 범위](./media/api-management-howto-policies/operation-scope.png)

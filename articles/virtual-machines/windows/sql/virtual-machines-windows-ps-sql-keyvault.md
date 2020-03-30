@@ -16,22 +16,22 @@ ms.date: 04/30/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: cad70169e88e1fafa129c02f30d5288d39e30a9c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70102143"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines에서 SQL Server에 대한 Azure Key Vault 통합 구성(Resource Manager)
 
 > [!div class="op_single_selector"]
 > * [리소스 관리자](virtual-machines-windows-ps-sql-keyvault.md)
-> * [클래식](../sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault.md)
+> * [고전적인](../sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault.md)
 
 ## <a name="overview"></a>개요
-[TDE(투명한 데이터 암호화)](https://msdn.microsoft.com/library/bb934049.aspx), [CLE(열 수준 암호화)](https://msdn.microsoft.com/library/ms173744.aspx) [백업 암호화](https://msdn.microsoft.com/library/dn449489.aspx) 등 여러 SQL Server 암호화 기능이 있습니다. 이러한 형태의 암호화는 암호화에 사용되는 암호화 키를 관리 및 저장해야 합니다. AKV(Azure Key Vault) 서비스는 안전하고 가용성이 높은 위치에서 이러한 키의 보안 및 관리를 개선하도록 설계되었습니다. [SQL Server 커넥터](https://www.microsoft.com/download/details.aspx?id=45344)는 SQL Server가 Azure Key Vault의 키를 사용할 수 있게 해줍니다.
+[TDE(투명한 데이터 암호화)](https://msdn.microsoft.com/library/bb934049.aspx), [CLE(열 수준 암호화)](https://msdn.microsoft.com/library/ms173744.aspx)[백업 암호화](https://msdn.microsoft.com/library/dn449489.aspx) 등 여러 SQL Server 암호화 기능이 있습니다. 이러한 형태의 암호화는 암호화에 사용되는 암호화 키를 관리 및 저장해야 합니다. AKV(Azure Key Vault) 서비스는 안전하고 가용성이 높은 위치에서 이러한 키의 보안 및 관리를 개선하도록 설계되었습니다. [SQL Server 커넥터를](https://www.microsoft.com/download/details.aspx?id=45344) 사용하면 SQL Server에서 Azure 키 자격 증명 모음에서 이러한 키를 사용할 수 있습니다.
 
-온-프레미스 컴퓨터로 SQL Server를 실행하는 경우 [온-프레미스 SQL Server 컴퓨터에서 Azure Key Vault에 액세스할 수 있는 단계](https://msdn.microsoft.com/library/dn198405.aspx)가 있습니다. 하지만 Azure VM의 SQL Server에서는 *Azure Key Vault 통합* 기능을 사용하여 시간을 절약할 수 있습니다.
+온-프레미스 컴퓨터에서 SQL Server를 실행하는 경우 [온-프레미스 SQL Server 컴퓨터에서 Azure Key Vault에 액세스하기 위해 따를 수](https://msdn.microsoft.com/library/dn198405.aspx)있는 단계가 있습니다. 그러나 Azure VM의 SQL Server의 경우 *Azure 키 볼트 통합* 기능을 사용하여 시간을 절약할 수 있습니다.
 
 이 기능은 활성화되면 자동으로 SQL Server 커넥터를 설치하고, Azure Key Vault에 액세스하도록 EKM 공급자를 구성하고, 사용자가 자격 증명 모음에 액세스할 수 있도록 자격 증명을 만듭니다. 앞에서 언급한 온-프레미스 설명서의 단계를 살펴보셨다면 이 기능이 2 및 3단계를 자동화한다는 것을 알 수 있습니다. 사용자가 수동으로 해야 하는 유일한 일은 키 자격 증명 모음 및 키를 만드는 작업입니다. 그 이후에 SQL VM을 설정하는 전체 과정이 자동화됩니다. 이 기능이 설정을 완료하면 사용자는 T-SQL 문을 실행하여 평소와 같이 데이터베이스 암호화 또는 백업을 시작할 수 있습니다.
 
@@ -49,17 +49,17 @@ Resource Manager와 함께 새 SQL Server 가상 머신을 프로비저닝하는
 
 ![SQL Azure Key Vault 통합](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
 
-프로 비전에 대 한 자세한 연습은 [Azure Portal에서 SQL Server 가상 머신 프로 비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조 하세요.
+프로비저닝에 대한 자세한 연습은 [Azure Portal에서 SQL Server 가상 컴퓨터 프로비저닝을](virtual-machines-windows-portal-sql-server-provision.md)참조하십시오.
 
 ### <a name="existing-vms"></a>기존 VM
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-기존 SQL Server 가상 컴퓨터의 경우 [SQL 가상 컴퓨터 리소스](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) 를 열고 **설정**에서 **보안** 을 선택 합니다. Azure Key Vault 통합을 사용 하려면 **사용** 을 선택 합니다. 
+기존 SQL Server 가상 시스템의 경우 [SQL 가상 컴퓨터 리소스를](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) 열고 **설정에서** **보안을** 선택합니다. Azure 키 볼트 통합을 사용하도록 **설정하려면 활성화를** 선택합니다. 
 
 ![기존 VM에 대한 SQL AKV 통합](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-existing-vms.png)
 
-완료 되 면 **보안** 페이지의 아래쪽에서 **적용** 단추를 선택 하 여 변경 내용을 저장 합니다.
+완료되면 **보안** 페이지 하단의 **적용** 단추를 선택하여 변경 내용을 저장합니다.
 
 > [!NOTE]
 > 여기에서 만든 자격 증명 이름은 나중에 SQL 로그인에 매핑됩니다. 이렇게 하면 SQL 로그인이 키 자격 증명 모음에 액세스할 수 있습다. 

@@ -7,10 +7,10 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 6fec85c028e992c15fb9503ffb599023e668c58f
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77459942"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Android 앱에 푸시 알림 추가
@@ -23,7 +23,7 @@ ms.locfileid: "77459942"
 
 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 푸시 알림 확장 패키지가 필요합니다. 자세한 내용은 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음이 필요합니다.
 
@@ -78,11 +78,11 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 
 이 자습서를 완료했으므로 다음 자습서 중 하나를 계속하는 것을 고려해보세요.
 
-* [Android 앱에 인증 추가](app-service-mobile-android-get-started-users.md).
+* [Android 앱에 인증을 추가합니다.](app-service-mobile-android-get-started-users.md)
   지원되는 ID 공급자를 사용하여 Android의 할 일 모음 빠른 시작 프로젝트에 인증을 추가하는 방법을 알아봅니다.
 * [Android 앱에 대해 오프라인 동기화를 사용합니다](app-service-mobile-android-get-started-offline-data.md).
   Mobile Apps 백 엔드를 사용하여 앱에 오프라인 지원을 추가하는 방법을 알아봅니다. 오프라인 동기화를 사용하면 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱&mdash;데이터 보기, 추가 또는 수정&mdash;과 같은 상호 작용을 수행할 수 있습니다.
 
 <!-- URLs -->
 [Android 빠른 시작]: app-service-mobile-android-get-started.md
-[Android 프로젝트에 Firebase 추가]: https://firebase.google.com/docs/android/setup
+[Android 프로젝트에 Firebase 추가]:https://firebase.google.com/docs/android/setup

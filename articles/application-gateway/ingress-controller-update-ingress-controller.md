@@ -1,6 +1,6 @@
 ---
-title: 투구로 수신 컨트롤러 업그레이드
-description: 이 문서에서는 투구를 사용 하 여 Application Gateway 수신을 업그레이드 하는 방법에 대 한 정보를 제공 합니다.
+title: 헬름으로 어그레 컨트롤러 업그레이드
+description: 이 문서에서는 Helm을 사용하여 응용 프로그램 게이트웨이 수집을 업그레이드하는 방법에 대한 정보를 제공합니다.
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 3903ccd1c15765d06cd1794a40567e2c70062538
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73795894"
 ---
-# <a name="how-to-upgrade-application-gateway-ingress-controller-using-helm"></a>투구를 사용 하 여 Application Gateway 수신 컨트롤러를 업그레이드 하는 방법 
+# <a name="how-to-upgrade-application-gateway-ingress-controller-using-helm"></a>Helm을 사용하여 Application Gateway 수신 컨트롤러를 업그레이드하는 방법 
 
-Azure Storage에서 호스트 되는 투구 리포지토리를 사용 하 여 Kubernetes 용 Azure 애플리케이션 게이트웨이 수신 컨트롤러 (AGIC)를 업그레이드할 수 있습니다.
+Kubernetes(AGIC)에 대한 Azure 응용 프로그램 게이트웨이 침투 컨트롤러는 Azure 저장소에서 호스팅되는 Helm 리포지토리를 사용하여 업그레이드할 수 있습니다.
 
-업그레이드 절차를 시작 하기 전에 필요한 리포지토리를 추가 했는지 확인 합니다.
+업그레이드 절차를 시작하기 전에 필요한 리포지토리를 추가해야 합니다.
 
-- 현재 추가 된 투구 리포지토리 보기:
+- 다음과 함께 현재 추가된 Helm 리포지토리보기:
 
     ```bash
     helm repo list
     ```
 
-- 다음을 사용 하 여 AGIC 리포지토리를 추가 합니다.
+- AGIC 리포지토리를 다음과 같은 다음으로 추가합니다.
 
     ```bash
     helm repo add \
@@ -36,7 +36,7 @@ Azure Storage에서 호스트 되는 투구 리포지토리를 사용 하 여 Ku
 
 ## <a name="upgrade"></a>업그레이드
 
-1. 최신 릴리스를 얻으려면 AGIC 투구 리포지토리를 새로 고칩니다.
+1. AGIC 헬름 리포지토리를 새로 고쳐 최신 릴리스를 가져옵니다.
 
     ```bash
     helm repo update
@@ -56,9 +56,9 @@ Azure Storage에서 호스트 되는 투구 리포지토리를 사용 하 여 Ku
     application-gateway-kubernetes-ingress/ingress-azure    0.6.0           0.6.0           Use Azure Application Gateway as the ingress for an Azure...
     ```
 
-    위의 목록에서 사용 가능한 최신 버전은 다음과 같습니다. `0.7.0-rc1`
+    위의 목록에서 사용할 수 있는 최신 버전은 다음과 같이 표시됩니다.`0.7.0-rc1`
 
-1. 현재 설치 되어 있는 투구 차트를 봅니다.
+1. 현재 설치된 투구 차트 보기:
 
     ```bash
     helm list
@@ -71,9 +71,9 @@ Azure Storage에서 호스트 되는 투구 리포지토리를 사용 하 여 Ku
     odd-billygoat   22              Fri Jun 21 15:56:06 2019        FAILED  ingress-azure-0.7.0-rc1 0.7.0-rc1       default
     ```
 
-    위의 샘플 응답에서의 투구 차트 설치는 `odd-billygoat`이름입니다. 나머지 명령에는이 이름을 사용 합니다. 실제 배포 이름은 대부분 다를 수 있습니다.
+    위의 샘플 응답에서 헬름 차트 `odd-billygoat`설치의 이름이 지정됩니다. 이 이름은 나머지 명령에 사용합니다. 실제 배포 이름은 다를 가능성이 높습니다.
 
-1. 투구 배포를 새 버전으로 업그레이드:
+1. Helm 배포를 새 버전으로 업그레이드합니다.
 
     ```bash
     helm upgrade \
@@ -84,7 +84,7 @@ Azure Storage에서 호스트 되는 투구 리포지토리를 사용 하 여 Ku
 
 ## <a name="rollback"></a>롤백
 
-투구 배포에 실패 하는 경우 이전 릴리스로 롤백할 수 있습니다.
+Helm 배포가 실패하면 이전 릴리스로 롤백할 수 있습니다.
 
 1. 마지막으로 알려진 정상 릴리스 번호를 가져옵니다.
 
@@ -100,9 +100,9 @@ Azure Storage에서 호스트 되는 투구 리포지토리를 사용 하 여 Ku
     2               Fri Jun 21 15:56:06 2019        FAILED          ingress-azure-xx        xxxx
     ```
 
-    `helm history` 명령의 샘플 출력에서 마지막으로 성공한 `odd-billygoat` 배포가 수정 된 것 처럼 보입니다 `1`
+    `helm history` 명령의 샘플 출력에서 우리의 `odd-billygoat` 마지막 성공적인 배포는 개정했다처럼 보인다`1`
 
-1. 마지막으로 성공한 수정 버전으로 롤백:
+1. 마지막으로 성공한 개정으로 롤백:
 
     ```bash
     helm rollback odd-billygoat 1

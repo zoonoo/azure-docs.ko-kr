@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 8b0db4a1e55b53165e40e176834d66b62926e24b
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74421562"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>확장된 클라우드 데이터베이스 간 데이터 이동
@@ -30,15 +30,15 @@ ms.locfileid: "74421562"
 
 [Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
-## <a name="documentation"></a>문서화
+## <a name="documentation"></a>설명서
 
 1. [탄력적 데이터베이스 분할/병합 도구 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
-2. [분할-병합 보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)
+2. [분할 병합 보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)
 3. [분할-병합 보안 고려 사항](sql-database-elastic-scale-split-merge-security-configuration.md)
 4. [분할된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md)
 5. [확장하기 위해 기존 데이터베이스 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md)
 6. [탄력적 데이터베이스 도구](sql-database-elastic-scale-introduction.md)
-7. [Elastic Database 도구 용어집](sql-database-elastic-scale-glossary.md)
+7. [탄력적 데이터베이스 도구 용어집](sql-database-elastic-scale-glossary.md)
 
 ## <a name="why-use-the-split-merge-tool"></a>분할-병합 도구를 사용하는 이유
 
@@ -134,7 +134,7 @@ ms.locfileid: "74421562"
 
   작업 유형은 이 요청에 대해 서비스에서 수행하는 작업의 종류를 제어하는 라디오 단추입니다. 분할, 병합 및 이동 시나리오 중에서 선택할 수 있습니다. 이전에 제출된 작업을 취소할 수도 있습니다. 범위 분할된 데이터베이스 맵에 분할, 병합 및 이동 요청을 사용할 수 있습니다. 목록 분할된 데이터베이스 맵은 이동 작업만 지원합니다.
 
-- **분할된 데이터베이스 맵**
+- **샤드 맵**
 
   요청 매개 변수의 다음 섹션에서는 분할된 데이터베이스 맵과 분할된 데이터베이스 맵을 호스트하는 데이터베이스에 대한 정보를 다룹니다. 특히, Azure SQL Database 서버의 이름과 shardmap을 호스트하는 데이터베이스의 이름, 분할된 데이터베이스 맵 데이터베이스에 연결하는 자격 증명, 마지막으로 분할된 데이터베이스 맵의 이름을 제공해야 합니다. 현재 작업은 단일 자격 증명 집합만 허용합니다. 이러한 자격 증명에는 분할된 데이터베이스 맵과 분할된 데이터베이스의 사용자 데이터를 변경할 수 있는 권한이 있어야 합니다.
 
@@ -186,11 +186,11 @@ ms.locfileid: "74421562"
 
 분할-병합 서비스는 완료된 요청 및 진행 중인 요청의 모니터링을 위해 메타데이터 저장소 데이터베이스에서 **RequestStatus** 테이블을 제공합니다. 이 테이블은 분할/병합 서비스의 이 인스턴스에 제출된 각 분할/병합 요청에 대한 행을 나열하며, 각 요청에 대해 다음 정보를 제공합니다.
 
-- **Timestamp**
+- **타임 스탬프**
 
   요청이 시작된 시간 및 날짜입니다.
 
-- **OperationId**
+- **오퍼레이션 ID**
 
   요청을 고유하게 식별하는 GUID입니다. 이 요청을 사용하여 아직 진행 중인 작업을 취소할 수도 있습니다.
 
@@ -219,7 +219,7 @@ ms.locfileid: "74421562"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> PowerShell Azure 리소스 관리자 모듈은 Azure SQL Database에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈용입니다. 이러한 cmdlet에 대 한 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조 합니다. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 거의 동일합니다.
 
 모니터링 및 진단 구성을 사용하여NuGet 패키지에서 제공 하는 웹 및 작업자 역할에 대한 진단 유틸리티를 사용하려면 Azure PowerShell을 사용하여 다음 명령을 실행 합니다.
 
@@ -249,7 +249,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
 
 위의 그림에서 강조 표시된 WADLogsTable에는 분할/병합 서비스의 애플리케이션 로그에 있는 자세한 이벤트가 포함됩니다. 다운로드한 패키지의 기본 구성이 프로덕션 배포에 맞춰 조정됩니다. 그렇기 때문에, 서비스 인스턴스에서 로그 및 카운터를 가져오는 간격이 큽니다(5 분). 테스트 및 개발을 위해 필요에 따라 웹 또는 작업자 역할의 진단 설정을 조정하여 간격을 낮출 수 있습니다. Visual Studio 서버 탐색기(위 참조)의 역할을 마우스 오른쪽 단추로 클릭하여 이 작업을 수행한 다음 진단 구성 설정용 대화 상자에서 전송 기간을 조정합니다.
 
-![구성][3]
+![Configuration][3]
 
 ## <a name="performance"></a>성능
 

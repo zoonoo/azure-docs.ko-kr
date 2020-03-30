@@ -1,5 +1,5 @@
 ---
-title: Xamarin.ios 시작
+title: Xamarin.Forms 시작
 description: 이 자습서에 따라 Mobile Apps를 사용하여 Xamarin.Forms 개발을 시작할 수 있습니다.
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
 ms.tgt_pltfrm: mobile-xamarin
@@ -7,10 +7,10 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.openlocfilehash: 9ae97ccbcc358a150e914a6e950579a972fef0bc
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461337"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Azure를 사용하여 Xamarin.Forms 앱 만들기
@@ -28,31 +28,31 @@ ms.locfileid: "77461337"
 
 * 활성 Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 앱을 가져올 수 있습니다. 이러한 앱은 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-* Xamarin에 대 한 Visual Studio Tools Visual Studio 2017 이상 또는 Mac용 Visual Studio. 자세한 내용은 [Xamarin 설치 페이지][Install Xamarin] 를 참조 하세요.
+* 비주얼 스튜디오 2017 이상, 또는 맥에 대한 비주얼 스튜디오에서 Xamarin에 대한 비주얼 스튜디오 도구. 지침은 [Xamarin 설치 페이지][Install Xamarin]를 참조하세요.
 
-* (선택 사항) iOS 앱을 빌드하려면 Xcode 9.0 이상이 있는 Mac이 필요합니다. IOS 앱을 개발 하는 데 사용할 수 Mac용 Visual Studio 또는 Mac을 네트워크에서 사용할 수 있는 경우 Visual Studio 2017 이상을 사용할 수 있습니다.
+* (선택 사항) iOS 앱을 빌드하려면 Xcode 9.0 이상이 있는 Mac이 필요합니다. Mac용 Visual Studio를 사용하여 iOS 앱을 개발할 수도 있고, Visual Studio 2017 이상(네트워크에서 Mac을 사용할 수 있는 경우)을 사용할 수 있습니다.
 
 ## <a name="create-a-new-mobile-apps-back-end"></a>새 Mobile Apps 백 엔드 만들기
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>데이터베이스 연결을 만들고 클라이언트 및 서버 프로젝트를 구성 합니다.
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>데이터베이스 연결 만들기 및 클라이언트 및 서버 프로젝트 구성
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="run-the-xamarinforms-solution"></a>Xamarin Forms 솔루션 실행
+## <a name="run-the-xamarinforms-solution"></a>자마린.양식 솔루션 실행
 
-Xamarin에 대 한 Visual Studio Tools는 솔루션을 여는 데 필요 합니다. [xamarin 설치 지침][Install Xamarin]을 참조 하세요. 도구를 이미 설치한 경우 다음 단계에 따라 솔루션을 다운로드하고 엽니다.
+Xamarin용 Visual Studio Tools는 솔루션을 열어야 합니다. [Xamarin 설치 지침][Install Xamarin]을 참조하세요. 도구를 이미 설치한 경우 다음 단계에 따라 솔루션을 다운로드하고 엽니다.
 
-### <a name="visual-studio-windows-and-mac"></a>Visual Studio (Windows 및 Mac)
+### <a name="visual-studio-windows-and-mac"></a>비주얼 스튜디오 (윈도우와 맥)
 
-1. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 만든 모바일 앱으로 이동 합니다. `Overview` 블레이드에서 모바일 앱에 대 한 공용 끝점 인 URL을 찾습니다. 예-내 앱 이름 "test123"에 대 한 sitename이 https://test123.azurewebsites.net됩니다.
+1. [Azure 포털로](https://portal.azure.com/) 이동하여 만든 모바일 앱으로 이동합니다. 블레이드에서 `Overview` 모바일 앱의 공개 끝점인 URL을 찾습니다. 예 - 내 앱 이름 "test123"의 https://test123.azurewebsites.net사이트 이름은 .
 
-2. 이 폴더에서 파일 `Constants.cs` (xamarin.ios/ZUMOAPPNAME)를 엽니다. 응용 프로그램 이름이 `ZUMOAPPNAME`입니다.
+2. xamarin.forms/ZUMOAPPNAME - 이 폴더에서 파일을 `Constants.cs` 엽니다. 응용 프로그램 `ZUMOAPPNAME`이름은 입니다.
 
-3. `Constants.cs` 클래스에서 `ZUMOAPPURL` 변수를 위의 공용 끝점으로 바꿉니다.
+3. 클래스에서는 `Constants.cs` 변수를 위의 공용 끝점으로 바꿉습니다. `ZUMOAPPURL`
 
     `public static string ApplicationURL = @"ZUMOAPPURL";`
 
-    --&gt;
+    다음이 됩니다.
 
     `public static string ApplicationURL = @"https://test123.azurewebsites.net";`
     
@@ -78,7 +78,7 @@ Xamarin에 대 한 Visual Studio Tools는 솔루션을 여는 데 필요 합니�
 
 2. 프로젝트를 빌드하고 Android 에뮬레이터에서 앱을 시작하려면 **실행** 메뉴를 선택한 다음, **디버깅 시작**을 선택합니다.
 
-앱에서 *Learn Xamarin*과 같은 의미 있는 텍스트를 입력한 후 더하기 기호( **+** )를 선택합니다.
+앱에서 *Learn Xamarin*과 같은 의미 있는 텍스트를 입력한 후 더하기 기호(**+**)를 선택합니다.
 
 ![Android 할 일 앱][11]
 
@@ -94,7 +94,7 @@ Xamarin에 대 한 Visual Studio Tools는 솔루션을 여는 데 필요 합니�
 
 ### <a name="visual-studio"></a>Visual Studio
 
-1. iOS 프로젝트를 마우스 오른쪽 단추로 누른 다음 **시작 프로젝트로 설정**을 선택합니다.
+1. iOS 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정을**선택합니다.
 
 2. **빌드** 메뉴에서 **구성 관리자**를 선택합니다.
 
@@ -108,7 +108,7 @@ Xamarin에 대 한 Visual Studio Tools는 솔루션을 여는 데 필요 합니�
 
 2. **실행** 메뉴에서 **디버깅 시작**을 선택하여 프로젝트를 빌드하고 iPhone 에뮬레이터에서 앱을 시작합니다.
 
-앱에서 *Learn Xamarin*과 같은 의미 있는 텍스트를 입력한 후 더하기 기호( **+** )를 선택합니다.
+앱에서 *Learn Xamarin*과 같은 의미 있는 텍스트를 입력한 후 더하기 기호(**+**)를 선택합니다.
 
 ![iOS 할 일 앱][10]
 
@@ -135,7 +135,7 @@ Xamarin에 대 한 Visual Studio Tools는 솔루션을 여는 데 필요 합니�
 > [!NOTE]
 > Windows 프로젝트를 macOS에서 실행할 수 없습니다.
 
-앱에서 *Learn Xamarin*과 같은 의미 있는 텍스트를 입력한 후 더하기 기호( **+** )를 선택합니다.
+앱에서 *Learn Xamarin*과 같은 의미 있는 텍스트를 입력한 후 더하기 기호(**+**)를 선택합니다.
 
 이 작업을 통해 Azure에서 호스트된 새 Mobile Apps 백 엔드에 게시 요청이 전송됩니다. 요청에서 데이터가 TodoItem 테이블에 삽입됩니다. 테이블에 저장된 항목이 Mobile Apps 백 엔드에서 반환되고 데이터가 목록에 표시됩니다.
 

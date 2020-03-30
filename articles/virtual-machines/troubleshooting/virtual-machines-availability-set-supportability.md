@@ -1,6 +1,6 @@
 ---
 title: 기존 가용성 집합에 Azure VM 추가의 지원 가능성 | Microsoft Docs
-description: 이 문서에서는 동일한 가용성 집합에서 혼합할 수 있는 VM 시리즈에 대 한 지원 가능성 매트릭스를 제공 합니다.
+description: 이 문서에서는 동일한 가용성 집합에서 혼합할 수 있는 VM 시리즈에 대한 지원 가능성 매트릭스를 제공합니다.
 documentationcenter: ''
 author: Deland-Han
 manager: dcscontentpm
@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.openlocfilehash: a9ca8f219bef787de04b51600209bfd3a24dd166
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77122923"
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>기존 가용성 집합에 Azure VM 추가의 지원 가능성
@@ -32,4 +32,4 @@ ms.locfileid: "77122923"
 
 다른 모든 시리즈는 특정 하드웨어가 필요하기 때문에 동일한 가용성 집합에 있을 수 없습니다.
 
-A8/A9 VM 크기는 전용 RDMA 백 엔드 네트워크에 대 한 요구 사항으로 인해 혼합할 수 없습니다.
+전용 RDMA 백 엔드 네트워크의 요구 사항으로 인해 A8/A9 VM 크기를 혼합할 수 없습니다.

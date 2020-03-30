@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용 하 여 Azure Express 경로 Azure VM 재해 복구 통합
+title: Azure ExpressRoute Azure VM 재해 복구를 Azure 사이트 복구와 통합
 description: Azure Site Recovery 및 Azure ExpressRoute를 사용하여 Azure VM을 위한 재해 복구를 설정하는 방법 설명
 services: site-recovery
 author: mayurigupta13
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: bf12a5b7850a56d945e1082be6c522c31738669c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954093"
 ---
-# <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure Vm에 대 한 재해 복구와 Express 경로 통합
+# <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure VM에 대한 재해 복구와 ExpressRoute 통합
 
 
 이 문서에서는 Azure VM을 위한 재해 복구를 보조 Azure 하위 지역으로 설정할 때 Azure ExpressRoute를 [Azure Site Recovery](site-recovery-overview.md)와 통합하는 방법을 설명합니다.
@@ -36,8 +36,8 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연�
 
 시작하기 전에 다음 개념을 이해해야 합니다.
 
-- ExpressRoute [회로](../expressroute/expressroute-circuit-peerings.md)
-- ExpressRoute [라우팅 도메인](../expressroute/expressroute-circuit-peerings.md#routingdomains)
+- 익스프레스루트 [회로](../expressroute/expressroute-circuit-peerings.md)
+- 익스프레스루트 [라우팅 도메인](../expressroute/expressroute-circuit-peerings.md#routingdomains)
 - ExpressRoute [위치](../expressroute/expressroute-locations.md).
 - Azure VM [복제 아키텍처](azure-to-azure-architecture.md)
 - Azure VM을 위한 [복제를 설정](azure-to-azure-tutorial-enable-replication.md)하는 방법.
@@ -85,7 +85,7 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연�
 
 ![장애 조치 전에 ExpressRoute를 포함한 Azure에 온-프레미스](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-before-failover.png)
 
-- **하위 지역**. 앱은 Azure 동아시아 지역에 배포 됩니다.
+- **지역**. 앱은 Azure 동아시아 지역에 배포 됩니다.
 - **스포크 VNet**. 앱은 두 개의 스포크 vNet에 배포됩니다.
     - **원본 vNet1**: 10.1.0.0/24.
     - **원본 vNet2**: 10.2.0.0/24.
@@ -104,22 +104,22 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연�
 
 #### <a name="spoke-to-hub"></a>스포크-허브
 
-**Direction** | **설정** | **State**
+**방향** | **설정** | **상태**
 --- | --- | ---
-스포크-허브 | 가상 네트워크 주소 허용 | Enabled
-스포크-허브 | 전달된 트래픽 허용 | Enabled
+스포크-허브 | 가상 네트워크 주소 허용 | 사용
+스포크-허브 | 전달된 트래픽 허용 | 사용
 스포크-허브 | 게이트웨이 전송 허용 | 사용 안 함
-스포크-허브 | 게이트웨이 제거 사용 | Enabled
+스포크-허브 | 게이트웨이 제거 사용 | 사용
 
  ![허브 피어링 구성에 대한 스포크](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
 #### <a name="hub-to-spoke"></a>허브-스포크
 
-**Direction** | **설정** | **State**
+**방향** | **설정** | **상태**
 --- | --- | ---
-허브-스포크 | 가상 네트워크 주소 허용 | Enabled
-허브-스포크 | 전달된 트래픽 허용 | Enabled
-허브-스포크 | 게이트웨이 전송 허용 | Enabled
+허브-스포크 | 가상 네트워크 주소 허용 | 사용
+허브-스포크 | 전달된 트래픽 허용 | 사용
+허브-스포크 | 게이트웨이 전송 허용 | 사용
 허브-스포크 | 게이트웨이 제거 사용 | 사용 안 함
 
  ![스포크 피어링 구성에 대한 허브](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
@@ -164,11 +164,11 @@ Site Recovery를 사용하여 대상 Azure 하위 지역에 Azure VM을 장애 �
 
 ### <a name="access-with-a-single-circuit"></a>단일 회로를 사용하여 액세스
 
-이 구성에서는 ExpressRoute 회로가 한 개만 있습니다. 회로에 중복 연결이 있더라도 한 회로가 다운된 경우 피어링 하위 지역이 다운되면 단일 경로 회로가 회복력을 제공하지 않습니다. 다음 사항에 유의합니다.
+이 구성에서는 ExpressRoute 회로가 한 개만 있습니다. 회로에 중복 연결이 있더라도 한 회로가 다운된 경우 피어링 하위 지역이 다운되면 단일 경로 회로가 회복력을 제공하지 않습니다. 다음 사항에 유의하세요.
 
 - [동일한 지리적 위치](azure-to-azure-support-matrix.md#region-support)의 Azure 하위 지역에 Azure VM을 복제할 수 있습니다. 대상 Azure 하위 지역이 원본과 동일한 위치에 있지 않은 경우 단일 ExpressRoute 회로를 사용한다면 ExpressRoute Premium을 사용하도록 설정해야 합니다. [ExpressRoute 위치](../expressroute/expressroute-locations.md) 및 [ExpressRoute 가격 책정](https://azure.microsoft.com/pricing/details/expressroute/)에 대해 알아보세요.
 - 대상 하위 지역에 동일한 IP 주소 공간을 사용하는 경우 원본과 대상 vNet을 동시에 회로에 연결할 수 없습니다. 이 시나리오에서는    
-    -  원본 쪽 연결을 끊은 다음, 대상 쪽 연결을 설정하세요. 이 연결 변경은 Site Recovery 복구 계획의 일부로 스크립트될 수 있습니다. 다음 사항에 유의합니다.
+    -  원본 쪽 연결을 끊은 다음, 대상 쪽 연결을 설정하세요. 이 연결 변경은 Site Recovery 복구 계획의 일부로 스크립트될 수 있습니다. 다음 사항에 유의하세요.
         - 지역 오류에서 주 지역에 액세스할 수 없으면 연결 끊기 작업에 실패할 수 있습니다. 이는 대상 하위 지역에 대한 연결 생성에 영향을 미칠 수 있습니다.
         - 대상 하위 지역에 연결을 만들고 나중에 기본 하위 지역이 복구되는 경우, 동일한 주소 공간에 연결하려는 두 개의 동시 연결 시도가 있으면 패킷 드롭을 경험할 수 있습니다.
         - 이 현상을 방지하려면 기본 연결을 즉시 종료합니다.
@@ -176,7 +176,7 @@ Site Recovery를 사용하여 대상 Azure 하위 지역에 Azure VM을 장애 �
 -   대상 vNet에 서로 다른 주소 공간을 사용하는 경우, 동일한 ExpressRoute 회로에서 원본 및 대상 vNet에 동시에 연결할 수 있습니다.
 
 
-## <a name="failover-example"></a>장애 조치(failover) 예제
+## <a name="failover-example"></a>장애 조치 예제
 
 이 예제에서는 다음과 같은 토폴로지를 사용합니다.
 
@@ -197,9 +197,9 @@ Site Recovery를 사용하여 대상 Azure 하위 지역에 Azure VM을 장애 �
 
     b. 대상 허브 vNet에서 대상 ExpressRoute 회로에 연결을 만듭니다.
 
-    c. 대상 지역의 허브와 스포크 가상 네트워크 간에 VNet 피어링을 설정합니다. 대상 지역의 피어링 속성은 원본 지역에 있는 속성과 동일합니다.
+    다. 대상 지역의 허브와 스포크 가상 네트워크 간에 VNet 피어링을 설정합니다. 대상 지역의 피어링 속성은 원본 지역에 있는 속성과 동일합니다.
 
-    ㄹ. 허브 VNet의 UDR 및 두 개의 스포크 VNet을 설정합니다.
+    d. 허브 VNet의 UDR 및 두 개의 스포크 VNet을 설정합니다.
 
     - 동일한 IP 주소를 사용할 때 대상 쪽 UDR의 속성이 원본 쪽 속성과 동일합니다.
     - 다른 대상 IP 주소에서 UDR은 적절하게 수정해야 합니다.

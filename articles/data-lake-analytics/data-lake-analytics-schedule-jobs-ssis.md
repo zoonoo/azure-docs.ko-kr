@@ -1,6 +1,6 @@
 ---
 title: SSIS를 사용하여 Azure Data Lake Analytics U-SQL 작업 예약
-description: SQL Server Integration Services를 사용 하 여 인라인 스크립트를 사용 하거나 U-SQL 쿼리 파일을 사용 하 여 T-SQL 작업을 예약 하는 방법에 대해 알아봅니다.
+description: SQL Server 통합 서비스를 사용하여 인라인 스크립트 또는 U-SQL 쿼리 파일로 U-SQL 작업을 예약하는 방법을 알아봅니다.
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
 ms.openlocfilehash: 0650fcc5023ac57b193fa23b0dedf65113fd64e6
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71672902"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>SSIS(SQL Server Integration Services)를 사용하여 U-SQL 작업 예약
@@ -93,7 +93,7 @@ SSIS 패키지 디자인 뷰에서 **Azure Data Lake Store 파일 시스템 태�
     
     이 파일 연결을 만들려면
 
-   1. **@No__t-1New Connection ...을 선택 합니다.** FileConnection 설정의 >입니다.
+   1. 파일 연결 설정에서 ** \<새 연결 및 >** 선택합니다.
    2. **사용 유형**을 **기존 파일**로 설정하고, **파일**을 기존 파일의 파일 경로로 설정합니다.
 
        ![Foreach 루프 컨테이너 구성](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
@@ -106,7 +106,7 @@ SSIS 패키지 디자인 뷰에서 **Azure Data Lake Store 파일 시스템 태�
 
 3. **AzureDataLakeAnalyticsConnection**을 작업이 제출될 Azure Data Lake Analytics 계정으로 설정합니다. [Azure Data Lake Analytics 연결 관리자](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017)에 대해 자세히 알아보세요.
 
-4. 기타 작업 구성을 설정합니다. [자세한 정보](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017).
+4. 기타 작업 구성을 설정합니다. [자세한 내용을 알아보십시오.](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017)
 
 5. **식**을 사용하여 U-SQL 작업 이름을 동적으로 설정합니다.
 
@@ -119,7 +119,7 @@ SSIS 패키지 디자인 뷰에서 **Azure Data Lake Store 파일 시스템 태�
 
 Azure Feature Pack의 **Azure Blob 다운로드 태스크**를 사용하여 Azure Blob Storage의 U-SQL 파일을 사용할 수 있습니다. 이 방법을 사용하면 클라우드에 있는 스크립트를 사용할 수 있습니다.
 
-단계는 [시나리오 2: Azure Data Lake Store의 U-SQL 파일 사용](#scenario-2-use-u-sql-files-in-azure-data-lake-store)과 비슷합니다. Azure Data Lake Store 파일 시스템 태스크를 Azure Blob 다운로드 태스크로 변경합니다. [Azure Blob 다운로드 태스크에 대해 자세히 알아보세요](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
+단계는 시나리오 [2와 유사합니다: Azure Data Lake 스토어에서 U-SQL 파일 사용.](#scenario-2-use-u-sql-files-in-azure-data-lake-store) Azure Data Lake Store 파일 시스템 태스크를 Azure Blob 다운로드 태스크로 변경합니다. [Azure Blob 다운로드 태스크에 대해 자세히 알아보세요](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
 
 제어 흐름은 아래와 같습니다.
 
@@ -137,7 +137,7 @@ Azure Feature Pack의 **Azure Blob 다운로드 태스크**를 사용하여 Azur
 
     ![로컬 파일에 대한 파일 연결 추가](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
-4. **Azure Data Lake Analytics** 태스크를 추가하고 다음을 수행합니다.
+4. **Azure 데이터 레이크 분석** 작업 추가 및 다음
     1. **SourceType**을 **FileConnection**으로 설정합니다.
     2. **FileConnection**을 방금 만든 파일 연결로 설정합니다.
 
@@ -169,5 +169,5 @@ U-SQL 스크립트에서 U-SQL 변수 값을 동적으로 설정하려는 경우
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure에서 SSIS 패키지 실행](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
-- [Azure Feature Pack for Integration Services(SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
+- [Integration Services에 대한 Azure 기능 팩(SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
 - [Azure Data Factory를 사용하여 U-SQL 작업 예약](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)

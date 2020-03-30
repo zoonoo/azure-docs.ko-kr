@@ -10,10 +10,10 @@ ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: b8c7d2ba1c782c3b6ae3034d6a9aab5eb19be954
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70813628"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Java 앱을 사용하여 Azure Data Lake Analytics 관리
@@ -21,8 +21,8 @@ ms.locfileid: "70813628"
 
 이 문서에서는 Azure Java SDK를 사용하여 작성한 앱을 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법을 설명합니다. 
 
-## <a name="prerequisites"></a>전제 조건
-* **JDK(Java Development Kit) 8**(Java 버전 1.8 사용)
+## <a name="prerequisites"></a>사전 요구 사항
+* **자바 개발 키트 (JDK) 8** (자바 버전 1.8 사용).
 * **IntelliJ** 또는 다른 적절한 Java 개발 환경. 이 문서의 지침에서는 IntelliJ를 사용합니다.
 * AAD(Azure Active Directory) 애플리케이션을 만들고 **클라이언트 ID**, **테넌트 ID** 및 **키**를 검색합니다. AAD 애플리케이션에 대한 자세한 내용 및 클라이언트 ID를 가져오는 방법에 대한 지침은 [포털을 사용하여 Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. 애플리케이션을 만들고 키를 생성했다면 회신 URI 및 키를 포털에서 사용할 수 있습니다.
 
@@ -78,7 +78,7 @@ ms.locfileid: "70813628"
 
 **파일 > 설정 > 빌드 > 실행 > 배포**로 이동합니다. **빌드 도구 > Maven > 가져오기**를 선택합니다. **Maven 프로젝트 자동으로 가져오기**를 선택합니다.
 
-을 `Main.java` 열고 기존 코드 블록을 다음 코드로 바꿉니다.
+기존 `Main.java` 코드 블록을 열고 다음 코드로 바꿉니다.
 
 ```java
 import com.microsoft.azure.CloudException;

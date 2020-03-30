@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: damendo
 ms.openlocfilehash: 47d927f9f17580767526ec6683e819256fc5e994
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77619924"
 ---
 # <a name="read-nsg-flow-logs"></a>NSG 흐름 로그 읽기
@@ -31,7 +31,7 @@ NSG 흐름 로그는 스토리지 계정의 [블록 Blob](https://docs.microsoft
 
 다음 시나리오에서는 스토리지 계정에 저장된 예제 흐름 로그를 사용합니다. NSG 흐름 로그에서 최신 이벤트를 선택적으로 읽는 방법을 알아봅니다. 이 문서에서는 PowerShell을 사용하지만 여기서 설명하는 개념은 프로그래밍 언어에만 국한되지 않으며, Azure Storage API가 지원하는 모든 언어에 적용됩니다.
 
-## <a name="setup"></a>설치
+## <a name="setup"></a>설치 프로그램
 
 시작하기 전에 계정에 있는 하나 이상의 네트워크 보안 그룹에서 네트워크 보안 그룹 흐름 로깅을 사용하도록 설정해야 합니다. 네트워크 보안 흐름 로그를 사용하도록 설정하는 방법에 대한 지침은 [네트워크 보안 그룹에 대한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md) 문서를 참조하세요.
 
@@ -187,8 +187,8 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 ## <a name="next-steps"></a>다음 단계
 
 
-NSG 흐름 로그를 보는 방법에 대해 자세히 알아보려면 [Elastic Stack 사용](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Grafana 사용](network-watcher-nsg-grafana.md) 및 [Graylog 사용](network-watcher-analyze-nsg-flow-logs-graylog.md)을 참조하세요. Blob을 직접 사용 하 고 다양 한 log analytics 소비자를 내보내는 데 사용 되는 오픈 소스 Azure 함수 방법은 [Azure Network Watcher NSG 흐름 로그 커넥터](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector)에서 찾을 수 있습니다.
+NSG 흐름 로그를 보는 방법에 대해 자세히 알아보려면 [Elastic Stack 사용](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Grafana 사용](network-watcher-nsg-grafana.md) 및 [Graylog 사용](network-watcher-analyze-nsg-flow-logs-graylog.md)을 참조하세요. Blob을 직접 사용 하 고 다양 한 로그 분석 소비자에 게 내보내는 오픈 소스 Azure Function 접근 방식은 여기에서 찾을 수 있습니다: [Azure 네트워크 감시자 NSG 흐름 로그 커넥터.](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector)
 
-[Azure 트래픽 분석](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) 를 사용 하 여 트래픽 흐름에 대 한 통찰력을 얻을 수 있습니다. 트래픽 분석은 [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) 를 사용 하 여 트래픽 흐름을 쿼리할 수 있도록 합니다.
+[Azure 트래픽 분석을](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) 사용하여 트래픽 흐름에 대한 통찰력을 얻을 수 있습니다. 트래픽 분석은 [로그 애널리틱스를](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) 사용하여 트래픽 흐름을 쿼리가능하게 만듭니다.
 
-스토리지 Blob에 대해 자세히 알아보려면 [Azure Functions Blob Storage 바인딩](../azure-functions/functions-bindings-storage-blob.md)을 방문하세요.[
+저장소 Blob 방문에 대 한 자세한 내용은: [Azure Functions Blob 저장소 바인딩](../azure-functions/functions-bindings-storage-blob.md)

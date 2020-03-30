@@ -17,10 +17,10 @@ ms.date: 02/04/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9de9fd2eb7a46719b841a885ac173f8d9c1271c1
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71059115"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신(클래식)에 대한 개인 IP 주소 구성
@@ -40,14 +40,14 @@ ms.locfileid: "71059115"
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>VM을 만들 때 정적 개인 IP 주소를 지정하는 방법
 *192.168.1.101*의 정적 개인 IP 주소를 사용하여 *TestVNet*이라는 VNet의 *FrontEnd* 서브넷에 *DNS01*이라는 VM을 만들려면 다음 단계를 완료하세요.
 
-1. 브라우저에서 https://portal.azure.com 으로 이동하고, 필요한 경우 Azure 계정으로 로그인합니다.
-2. **새로 만들기** > **계산** > **Windows Server 2012 R2 Datacenter**를 선택하고 **배포 모델 선택** 목록에 **클래식**이 이미 표시되는지 확인한 후 **만들기**를 선택합니다.
+1. 브라우저에서 https://portal.azure.com으로 이동하고, 필요한 경우 Azure 계정으로 로그인합니다.
+2. **새** > **계산** > Windows Server**2012 R2 데이터 센터를**선택하, 배포 모델 **선택** **Create**목록에 이미 **클래식**이 표시 되고 있습니다.
    
     ![Azure 포털에서 VM 만들기](./media/virtual-networks-static-ip-classic-pportal/figure01.png)
 3. **VM 만들기**에서 만들 VM의 이름(이 시나리오에서는*DNS01* ), 로컬 관리자 계정 및 암호를 입력합니다.
    
     ![Azure 포털에서 VM 만들기](./media/virtual-networks-static-ip-classic-pportal/figure02.png)
-4. **옵션 구성** > **네트워크** > **Virtual Network**를 선택하고 **TestVNet**을 선택합니다. **TestVNet** 을 사용할 수 없는 경우 *미국 중부* 위치를 사용 중이고 이 문서의 시작 부분에서 설명한 테스트 환경을 만들었는지 확인합니다.
+4. **선택적 구성** > **네트워크** > 가상**네트워크를**선택한 다음 **TestVNet**을 선택합니다. **TestVNet** 을 사용할 수 없는 경우 *미국 중부* 위치를 사용 중이고 이 문서의 시작 부분에서 설명한 테스트 환경을 만들었는지 확인합니다.
    
     ![Azure 포털에서 VM 만들기](./media/virtual-networks-static-ip-classic-pportal/figure03.png)
 5. **네트워크**에서 현재 선택된 서브넷이 *FrontEnd*인지 확인하고 **IP 주소 할당** 아래에서 **IP 주소**를 선택하고 **정적**을 선택한 후 아래와 같이 **IP 주소**에 대해 *192.168.1.101*을 입력합니다.
@@ -61,7 +61,7 @@ ms.locfileid: "71059115"
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>VM의 정적 개인 IP 주소 정보를 검색하는 방법
 위의 단계를 사용하여 만든 VM에 대한 정적 개인 IP 주소를 보려면 아래 단계를 실행합니다.
 
-1. Azure Portal에서 **모두 찾아보기** > **가상 머신(클래식)**  > **DNS01** > **모든 설정** > **IP 주소**를 선택하고 아래와 같이 IP 주소 할당 및 IP 주소를 확인합니다.
+1. Azure 포털에서 > 모든**가상 시스템(클래식)** > **DNS01** > 모든**설정** > IP**주소** **찾아보기를**선택하고 아래와 같이 IP 주소 할당 및 IP 주소를 확인합니다.
    
     ![Azure 포털에서 VM 만들기](./media/virtual-networks-static-ip-classic-pportal/figure06.png)
 

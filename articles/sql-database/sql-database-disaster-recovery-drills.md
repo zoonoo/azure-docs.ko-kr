@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
 ms.openlocfilehash: 3ca00a03976ae38b7956616b8287220a7bc5998c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73825847"
 ---
 # <a name="performing-disaster-recovery-drill"></a>재해 복구 훈련 수행
@@ -30,7 +30,7 @@ ms.locfileid: "73825847"
 
 [비즈니스 연속성을 위한 애플리케이션 설계](sql-database-business-continuity.md)방법에 따라 연습을 실행하는 워크플로가 달라질 수 있습니다. 이 문서에서는 Azure SQL Database와 관련하여 재해 복구 훈련을 수행하기 위한 모범 사례를 설명합니다.
 
-## <a name="geo-restore"></a>지역 복원
+## <a name="geo-restore"></a>지리적 복원
 
 재해 복구 훈련을 수행할 때 잠재적인 데이터 손실을 방지하려면, 프로덕션 환경의 복사본을 만들고 이를 애플리케이션의 장애 조치(failover) 워크플로를 검사하는 데 사용하는 방법으로 훈련을 수행합니다.
 
@@ -69,5 +69,5 @@ ms.locfileid: "73825847"
 
 * 비즈니스 연속성 시나리오에 대해 알아보려면 [연속성 시나리오](sql-database-business-continuity.md)를 참조하세요.
 * Azure SQL Database 자동화 백업에 대한 자세한 내용은 [SQL Database 자동화 백업](sql-database-automated-backups.md)
-* 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
+* 복구를 위해 자동화된 백업을 사용하는 방법에 대해 알아보려면 [서비스 시작 백업에서 데이터베이스 복원을](sql-database-recovery-using-backups.md)참조하십시오.
 * 빠른 복구 옵션에 대해 알아보려면 [활성 지역 복제](sql-database-active-geo-replication.md)와 [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md)을 참조하세요.

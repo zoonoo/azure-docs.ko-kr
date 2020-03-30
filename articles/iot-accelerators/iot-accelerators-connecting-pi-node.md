@@ -1,5 +1,5 @@
 ---
-title: Raspberry Pi를 원격 모니터링 솔루션에 연결-node.js-Azure | Microsoft Docs
+title: 원격 모니터링 솔루션에 라즈베리 파이 연결 - Node.js - Azure | 마이크로 소프트 문서
 description: Node.js에 작성된 애플리케이션을 사용하여 원격 모니터링 솔루션 가속기에 Raspberry Pi 디바이스를 연결하는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
 ms.openlocfilehash: 98d947e8aabf20fbfdb192cb80c9bc881007d5da
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889281"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>원격 모니터링 솔루션 가속기에 Raspberry Pi 디바이스 연결(Node.js)
@@ -45,7 +45,7 @@ Raspberry Pi의 명령줄에 원격으로 액세스할 수 있도록 데스크�
 
 아직 그렇게 하지 않은 경우 Raspberry Pi에 Node.js 버전 4.0.0 이상을 설치합니다. 다음 단계에서는 Raspberry Pi에 Node.js v6을 설치하는 방법을 보여 줍니다.
 
-1. `ssh`를 사용하여 Raspberry Pi에 연결합니다. 자세한 내용은 [Raspberry Pi 웹 사이트](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md)에서 [SSH(Secure Shell)](https://www.raspberrypi.org/)를 참조하세요.
+1. `ssh`를 사용하여 Raspberry Pi에 연결합니다. 자세한 내용은 [Raspberry Pi 웹 사이트](https://www.raspberrypi.org/)에서 [SSH(Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md)를 참조하세요.
 
 1. 다음 명령을 사용하여 Raspberry Pi를 업데이트합니다.
 

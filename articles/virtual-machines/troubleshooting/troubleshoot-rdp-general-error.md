@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 7fc0fbf3362d18284ad6a80afa6396b6be1270a9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71058009"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Azure VM의 RDP 일반 오류 문제 해결
@@ -58,13 +58,13 @@ RDP 구성 요소가 다음과 같이 사용하지 않도록 설정되었습니�
 
 RDP 수신기가 잘못 구성되었습니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 이 문제를 해결하려면 [운영 체제 디스크를 백업](../windows/snapshot-copy-managed-disk.md)하고 [운영 체제 디스크를 복구 VM에 연결](troubleshoot-recovery-disks-portal-windows.md)한 다음, 단계를 따르세요.
 
 ### <a name="serial-console"></a>직렬 콘솔
 
-#### <a name="step-1-open-cmd-instance-in-serial-console"></a>1단계: 직렬 콘솔 CMD 인스턴스 열기
+#### <a name="step-1-open-cmd-instance-in-serial-console"></a>1단계: 직렬 콘솔의 CMD 인스턴스 열기
 
 1. **지원 및 문제 해결** > **직렬 콘솔(미리 보기)** 을 선택하여 [직렬 콘솔](serial-console-windows.md)에 액세스합니다. VM에서 기능을 사용하도록 설정하면 VM을 성공적으로 연결할 수 있습니다.
 
@@ -76,7 +76,7 @@ RDP 수신기가 잘못 구성되었습니다.
    ch -si 1
    ```
 
-#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>2단계: RDP 레지스트리 키의 값을 확인 합니다.
+#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>2단계: RDP 레지스트리 키를 값 확인하기:
 
 1. RDP가 정책에서 비활성화되어 있는지 확인합니다.
 
@@ -173,13 +173,13 @@ RDP 수신기가 잘못 구성되었습니다.
 
 ### <a name="offline-repair"></a>오프라인 복구
 
-#### <a name="step-1-turn-on-remote-desktop"></a>1단계: 원격 데스크톱 설정
+#### <a name="step-1-turn-on-remote-desktop"></a>1단계: 원격 데스크톱 켜기
 
-1. [복구 VM에 OS 디스크를 연결합니다](../windows/troubleshoot-recovery-disks-portal.md).
+1. [복구 VM에 OS 디스크를 연결합니다.](../windows/troubleshoot-recovery-disks-portal.md)
 2. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
-3. 디스크 관리 콘솔에서 디스크의 플래그가 **온라인**으로 지정되었는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
+3. 디스크 관리 콘솔에서 디스크가 **온라인으로** 플래그가 지정되어 있는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
 4. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
-5. 관리자 권한 명령 프롬프트 세션을 엽니다(**관리자 권한으로 실행**). 다음 스크립트를 실행합니다. 이 스크립트에서 연결된 OS 디스크에 할당된 드라이브 문자가 F라고 가정합니다. 이 드라이브 문자를 VM에서 적절한 값으로 바꿉니다.
+5. 상승된 명령 프롬프트**세션(관리자로 실행)을**엽니다. 다음 스크립트를 실행합니다. 이 스크립트에서 연결된 OS 디스크에 할당된 드라이브 문자가 F라고 가정합니다. 이 드라이브 문자를 VM에서 적절한 값으로 바꿉니다.
 
       ```
       reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv 
@@ -241,6 +241,6 @@ RDP 수신기가 잘못 구성되었습니다.
 
 자세한 내용은 [Azure VM에서 원격 데스크톱 연결이 자주 끊김](troubleshoot-rdp-intermittent-connectivity.md)을 참조하세요.
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
-다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

@@ -1,6 +1,6 @@
 ---
-title: 보안 정보 (미리 보기) 페이지에서 앱 암호 만들기-Azure AD
-description: 조직에서 브라우저가 아닌 앱 또는 2 단계 인증을 지원 하지 않는 앱에서 사용할 자동 생성 암호 (앱 암호)를 만듭니다. 이 앱 암호는 일반 암호와 별개이며 보안 정보 페이지에서 설정할 수 있습니다.
+title: 보안 정보(미리 보기) 페이지에서 앱 암호 만들기 - Azure AD
+description: 조직에서 비브라우저 앱 또는 2단계 확인을 지원하지 않는 앱과 함께 사용할 자동 생성 암호(앱 암호)를 만듭니다. 이 앱 암호는 일반 암호와 별개이며 보안 정보 페이지에서 설정할 수 있습니다.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: curtand
 ms.openlocfilehash: 787fa67ee77997fd1f9967db3abdbfc83d4ffad2
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77064073"
 ---
-# <a name="create-app-passwords-from-the-security-info-preview-page"></a>보안 정보 (미리 보기) 페이지에서 앱 암호 만들기
+# <a name="create-app-passwords-from-the-security-info-preview-page"></a>보안 정보(미리 보기) 페이지에서 앱 암호 만들기
 
 Outlook 2010과 같은 특정 앱은 2단계 인증을 지원하지 않습니다. 따라서 조직에서 2단계 인증을 사용하는 경우 앱이 작동하지 않습니다. 이 문제를 해결하려면 사용자의 일반 암호와는 별도로 자동으로 생성된 암호를 만들어 각 비 브라우저 앱과 함께 사용할 수 있습니다.
 
@@ -29,7 +29,7 @@ Outlook 2010과 같은 특정 앱은 2단계 인증을 지원하지 않습니다
 
 앱 암호를 사용하는 경우 다음 사항을 고려해야 합니다.
 
-- 앱 암호는 자동으로 생성 되며, 앱 당 한 번 만들어 입력 해야 합니다.
+- 앱 암호는 자동으로 생성되며 앱당 한 번씩 만들고 입력해야 합니다.
 
 - 사용자당 40개의 암호로 제한되어 있습니다. 해당 제한을 초과한 후 암호를 만들려고 하면 새 암호를 만들기 전에 기존 암호를 삭제할 것인지를 묻는 메시지가 표시됩니다.
 

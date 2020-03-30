@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 554508b1bf784e306cd12a4a601f908e06320933
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71154970"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>역할을 재활용하게 하는 일반적인 문제
@@ -51,7 +51,7 @@ Azure에 애플리케이션 패키지를 배포하기 전에 `DiagnosticsConnect
 
 * `DiagnosticsConnectionString` 설정이 Azure의 유효한 스토리지 계정을 가리킵니다.  
   기본적으로 이 설정은 에뮬레이트된 스토리지 계정을 가리키므로 애플리케이션 패키지를 배포하기 전에 이 설정을 명시적으로 변경해야 합니다. 이 설정을 변경하지 않는 경우 역할 인스턴스가 진단 모니터링을 시작하려고 할 때 예외가 throw됩니다. 역할 인스턴스가 무기한 재활용되게 할 수 있습니다.
-* 연결 문자열은 다음과 같은 [형식](../storage/common/storage-configure-connection-string.md)으로 지정해야 합니다. (HTTPS 프로토콜을 지정해야 합니다.) *MyAccountName*을 스토리지 계정의 이름으로 바꾸고 *MyAccountKey*를 선택키로 바꿉니다.    
+* 연결 문자열은 다음과 같은 [형식](../storage/common/storage-configure-connection-string.md)으로 지정해야 합니다. (프로토콜은 HTTPS로 지정해야 합니다.) *MyAccountName을* 저장소 계정 의 이름으로 바꾸고 *MyAccountKey를* 액세스 키로 바꿉니다.    
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 

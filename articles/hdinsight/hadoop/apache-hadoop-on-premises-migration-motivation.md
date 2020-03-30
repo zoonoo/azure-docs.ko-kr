@@ -1,5 +1,5 @@
 ---
-title: '이점: 온-프레미스 Apache Hadoop을 Azure HDInsight로 마이그레이션'
+title: '이점: 온-프레미스 아파치 하두롭을 Azure HDInsight로 마이그레이션'
 description: 온-프레미스 Hadoop 클러스터를 Azure HDInsight로 마이그레이션하도록 유도하는 동기 부여 및 혜택에 대해 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.openlocfilehash: 2440b93629416ea73fcf211cbe7bf5a3b72ab2e7
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74267317"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 동기 부여 및 혜택
@@ -41,19 +41,19 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 
 - **쉽게 확장 가능** - HDInsight를 사용하면 워크로드를  [확장](../hdinsight-administer-use-portal-linux.md) 또는 축소할 수 있습니다. Azure는 데이터 처리 작업을 중단하지 않고 데이터 재배포 및 워크로드 리밸런싱을 처리합니다.
 
-- **글로벌 가용성** - HDInsight는 그 어떤 빅 데이터 분석 제품보다 많은 [지역](https://azure.microsoft.com/regions/services/)에서 사용할 수 있습니다. Azure HDInsight는 주요 통치 지역에서 엔터프라이즈 요구 사항을 충족할 수 있도록 Azure Government, 중국 및 독일에서도 사용할 수 있습니다.
+- **글로벌 가용성** - HDInsight는 다른 빅 데이터 분석 제품보다 더 많은 [지역에서](https://azure.microsoft.com/regions/services/) 사용할 수 있습니다. Azure HDInsight는 주요 통치 지역에서 엔터프라이즈 요구 사항을 충족할 수 있도록 Azure Government, 중국 및 독일에서도 사용할 수 있습니다.
 
 - **보안 및 규정 준수** - HDInsight를 사용하면  [Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md),  [암호화](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) 및  [Azure Active Directory](../domain-joined/hdinsight-security-overview.md)와 통합을 통해 엔터프라이즈 데이터 자산을 보호할 수 있습니다. 또한 HDInsight는 가장 널리 사용되는 산업 및 정부  [규격 표준](https://azure.microsoft.com/overview/trusted-cloud)을 충족합니다.
 
-- **간소화 된 버전 관리** -Azure HDInsight는 Hadoop 에코 시스템 구성 요소의 버전을 관리 하 고 최신 상태로 유지 합니다. 소프트웨어 업데이트는 일반적으로 온-프레미스 배포를 위한 복잡한 프로세스입니다.
+- **간소화된 버전 관리** - Azure HDInsight는 Hadoop 에코 시스템 구성 요소의 버전을 관리하고 최신 상태로 유지합니다. 소프트웨어 업데이트는 일반적으로 온-프레미스 배포를 위한 복잡한 프로세스입니다.
 
-- **구성 요소 간 종속성이 적고 특정 워크로드에 최적화된 더 작아진 클러스터** - 일반적인 온-프레미스 Hadoop 설치 시 다목적 단일 클러스터를 사용합니다. Azure HDInsight를 사용하면 워크로드 관련 클러스터를 만들 수 있습니다. 특정 워크로드에 대한 클러스터를 만들면 복잡성이 점점 증가하는 단일 클러스터를 유지할 필요가 없습니다.
+- **구성 요소 간의 종속성이 적은 특정 워크로드에 최적화된 소규모 클러스터** - 일반적인 온-프레미스 Hadoop 설정은 여러 용도로 사용되는 단일 클러스터를 사용합니다. Azure HDInsight를 사용하면 워크로드 관련 클러스터를 만들 수 있습니다. 특정 워크로드에 대한 클러스터를 만들면 복잡성이 점점 증가하는 단일 클러스터를 유지할 필요가 없습니다.
 
 - **생산성** - 원하는 개발 환경에서 다양한 Hadoop 및 Spark용 도구를 사용할 수 있습니다.
 
 - **사용자 지정 도구 또는 타사 애플리케이션을 통해 확장성 제공** - HDInsight 클러스터는 설치된 구성 요소를 통해 확장 가능하며 Azure 마켓플레이스에서 [원클릭](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) 배포를 사용하여 다른 빅 데이터 솔루션과 통합할 수도 있습니다.
 
-- **간편한 관리, 관리 및 모니터링** -Azure HDInsight는 [Azure Monitor 로그](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 와 통합 하 여 모든 클러스터를 모니터링할 수 있는 단일 인터페이스를 제공 합니다.
+- **간편한 관리, 관리 및 모니터링** - Azure HDInsight는 [Azure Monitor 로그와](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 통합되어 모든 클러스터를 모니터링할 수 있는 단일 인터페이스를 제공합니다.
 
 - **다른 Azure 서비스와 통합** - HDInsight는 다음과 같은 인기 Azure 서비스와 쉽게 통합할 수 있습니다.
 
@@ -85,7 +85,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 - 프로젝트 세부 정보
 - Azure 요구 사항
 
-### <a name="on-premises-deployment-questionnaire"></a>온-프레미스 배포 질문
+### <a name="on-premises-deployment-questionnaire"></a>온-프레미스 배포 설문지
 
 | **질문** | **예제** | **대답** |
 |---|---|---|
@@ -96,14 +96,14 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 |클러스터 수|4|
 |마스터 노드 수|2|
 |작업자 노드 수|100|
-|에 지 노드 수| 5|
+|모서리 노드 수| 5|
 |총 디스크 공간|100TB|
 |마스터 노드 구성|m/y, cpu, 디스크 등|
 |데이터 노드 구성|m/y, cpu, 디스크 등|
 |에지 노드 구성|m/y, cpu, 디스크 등|
-|HDFS 암호화를 사용합니까?|예|
+|HDFS 암호화를 사용합니까?|yes|
 |고가용성|HDFS HA, Metastore HA|
-|재해 복구/백업|백업 클러스터 지원 여부|  
+|재해 복구 / 백업|백업 클러스터 지원 여부|  
 |클러스터에 종속된 시스템|SQL Server, Teradata, Power BI, MongoDB|
 |타사 통합|Tableau, GridGain, Qubole, Informatica, Splunk|
 |**토픽**: **보안**|||
@@ -137,8 +137,8 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 |데이터 대상|HDFS, RDBMS, Kafka, MPP ||
 |**토픽**: **메타데이터**|||
 |Hive DB 형식|Mysql, Postgres||
-|Hive metastore 수|2||
-|Hive 테이블 수|100||
+|하이브 메타스토어 수|2||
+|하이브 테이블 수|100||
 |레인저 정책 수|20||
 |Oozie 워크플로 수|100||
 |**토픽**: **규모**|||
@@ -156,7 +156,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 |개발자 수|10||
 |최종 사용자 수|100||
 |기술|Hadoop, Spark||
-|마이그레이션 작업에 사용할 수 있는 리소스의 수|2||
+|마이그레이션 노력에 사용할 수 있는 리소스 수|2||
 |**토픽**: **제한 사항**|||
 |현재 제한 사항|대기 시간이 높음||
 |현재 과제|동시성 문제||
@@ -167,8 +167,8 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 |---|---|---|
 |**질문**|**예제**|**대답**|
 | 기본 지역|미국 동부||
-|VNet이 기본 설정입니까?|예||
-|HA/DR이 필요합니까?|예||
+|VNet이 기본 설정입니까?|yes||
+|HA/DR이 필요합니까?|yes||
 |다른 클라우드 서비스와의 통합 여부|ADF, CosmosDB||
 |**토픽**: **데이터 이동**  |||
 |초기 로드 기본 설정|DistCp, Data box, ADF, WANDisco||
@@ -177,27 +177,27 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 |**토픽**: **모니터링 및 경고** |||
 |Azure와 타사의 모니터링 및 경고 사용 비교|Azure 모니터링 및 경고 사용||
 |**토픽**: **보인 기본 설정** |||
-|보호되는 프라이빗 데이터 파이프라인인가요?|예||
-|도메인 가입 클러스터(ESP)입니까?|     예||
-|온-프레미스 AD가 클라우드와 동기화됩니까?|     예||
-|동기화 할 AD 사용자의 수|          100||
-|암호를 클라우드와 동기화해도 괜찮습니까?|    예||
-|클라우드 전용 사용자입니까?|                 예||
-|MFA가 필요합니까?|                       아니오|| 
-|데이터 권한 부여 요구 사항이 있습니까?|  예||
-|역할 기반 액세스 제어를 사용합니까?|        예||
-|감사가 필요합니까?|                  예||
-|저장 데이터 암호화를 사용합니까?|          예||
-|전송 중 데이터 암호화를 사용합니까?|       예||
+|보호되는 프라이빗 데이터 파이프라인인가요?|yes||
+|도메인 가입 클러스터(ESP)입니까?|     yes||
+|온-프레미스 AD가 클라우드와 동기화됩니까?|     yes||
+|동기화할 AD 사용자 수?|          100||
+|암호를 클라우드와 동기화해도 괜찮습니까?|    yes||
+|클라우드 전용 사용자입니까?|                 yes||
+|MFA가 필요합니까?|                       예|| 
+|데이터 권한 부여 요구 사항이 있습니까?|  yes||
+|역할 기반 액세스 제어를 사용합니까?|        yes||
+|감사가 필요합니까?|                  yes||
+|저장 데이터 암호화를 사용합니까?|          yes||
+|전송 중 데이터 암호화를 사용합니까?|       yes||
 |**토픽**: **재설계 기본 설정** |||
 |단일 클러스터 vs 특정 클러스터 형식|특정 클러스터 형식||
 |공동 배치된 스토리지 Vs 원격 스토리지|원격 스토리지||
 |데이터로 더 작은 클러스터 크기는 원격으로 저장되나요?|더 작은 클러스터 크기||
 |하나의 큰 클러스터 대신 작은 클러스터 여러 개를 사용합니까?|작은 클러스터 여러 개 사용||
-|원격 metastore를 사용합니까?|예||
-|서로 다른 클러스터 간에 metastore를 공유합니까?|예||
+|원격 metastore를 사용합니까?|yes||
+|서로 다른 클러스터 간에 metastore를 공유합니까?|yes||
 |워크로드를 분해합니까?|Hive 작업을 Spark 작업으로 대체||
-|데이터 오케스트레이션에 ADF를 사용합니까?|아니오||
+|데이터 오케스트레이션에 ADF를 사용합니까?|예||
 
 ## <a name="next-steps"></a>다음 단계
 

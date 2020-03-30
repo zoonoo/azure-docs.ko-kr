@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 55e6bbc338c1ac6f9ef935b4a3a05c32f2b5e9f5
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72755219"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Azure Key Vault를 사용하여 Azure Cosmos 키 보호 
@@ -30,7 +30,7 @@ Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다�
 
 ## <a name="create-a-key-vault"></a>주요 자격 증명 모음 만들기
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.  
+1. [Azure 포털에](https://portal.azure.com/)로그인합니다.  
 2. **[리소스 만들기] > [보안] > [Key Vault]** 를 선택합니다.  
 3. **Key Vault 만들기** 섹션에서 다음 정보를 제공합니다.  
    * **이름:** Key Vault의 고유한 이름을 제공합니다.  
@@ -44,7 +44,7 @@ Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다�
 1. 이전 단계에서 만든 Key Vault로 이동하고 **비밀** 탭을 엽니다.  
 2. **+생성/가져오기**를 선택합니다. 
 
-   * **업로드 옵션**에 **수동**을 선택합니다.
+   * **업로드 옵션에**대한 **설명서를** 선택합니다.
    * 비밀의 **이름**을 제공합니다.
    * Cosmos DB 계정의 연결 문자열을 **값** 필드에 제공합니다. 그런 다음, **만들기**를 선택합니다.
 

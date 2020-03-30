@@ -1,5 +1,5 @@
 ---
-title: '& 쿼리 Azure Data Lake Analytics 만들기-PowerShell'
+title: '& 쿼리 만들기 Azure 데이터 레이크 분석 - PowerShell'
 description: Azure PowerShell을 사용하여 Azure Data Lake Analytics 계정을 만들고 U-SQL 작업을 제출합니다.
 ms.service: data-lake-analytics
 author: saveenr
@@ -9,10 +9,10 @@ ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.openlocfilehash: 8b176434ce450382cc6463e7d21d341a74581ed8
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71316605"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Data Lake Analytics 시작
@@ -27,8 +27,8 @@ Azure PowerShell을 사용하여 Azure Data Lake Analytics 계정을 만든 다�
 
 이 자습서를 시작하기 전에 다음 정보가 있어야 합니다.
 
-* **Azure 데이터 레이크 분석 계정**. [Data Lake Analytics 시작](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal)을 참조하세요.
-* **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
+* **Azure 데이터 레이크 분석 계정.** [Data Lake Analytics 시작](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal)을 참조하세요.
+* **Azure PowerShell을 가진 워크스테이션**. [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 

@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell 스크립트: Azure 데이터 공유 동기화 설정 설정 및 보기 | Microsoft Docs'
-description: 이 PowerShell 스크립트는 공유 동기화 설정을 설정 하 고 가져옵니다.
+title: 'PowerShell 스크립트: Azure 데이터 공유 시크로니화 설정 설정 및 보기 | 마이크로 소프트 문서'
+description: 이 PowerShell 스크립트는 공유 동기화 설정을 설정하고 가져옵니다.
 services: data-share
 author: joannapea
 ms.service: data-share
@@ -10,15 +10,15 @@ ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
 ms.openlocfilehash: b8d01a383e816bfc73413d21e9cc8d51d326ab14
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70307177"
 ---
-# <a name="use-powershell-to-monitor-the-usage-of-a-sent-data-share"></a>PowerShell을 사용 하 여 전송 된 데이터 공유의 사용 모니터링
+# <a name="use-powershell-to-monitor-the-usage-of-a-sent-data-share"></a>PowerShell을 사용하여 전송된 데이터 공유의 사용량모니터링
 
-이 PowerShell 스크립트는 공유 동기화 설정을 설정 하 고 가져옵니다.
+이 PowerShell 스크립트는 공유 동기화 설정을 설정하고 가져옵니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -46,14 +46,14 @@ Get-AzDataShareSynchronizationSetting -ResourceGroupName $resourceGroupName -Acc
 
 이 스크립트는 다음 명령을 사용합니다. 
 
-| 명령 | 참고 |
+| 명령 | 메모 |
 |---|---|
-| [AzDataShareSynchronizationSetting](/powershell/module/az.datashare/new-azdatasharesynchronizationsetting?view=azps-2.6.0) | 공유 동기화를 만듭니다. |
-| [AzDataShareSynchronizationSetting](/powershell/module/az.datashare/get-azdatasharesynchronizationsetting?view=azps-2.6.0) | 공유 동기화의 동기화 설정을 가져옵니다. |
+| [새 아즈데이터 공유 동기화설정](/powershell/module/az.datashare/new-azdatasharesynchronizationsetting?view=azps-2.6.0) | 공유 동기화를 만듭니다. |
+| [받기-아즈데이터공유동기화설정](/powershell/module/az.datashare/get-azdatasharesynchronizationsetting?view=azps-2.6.0) | 공유 동기화의 동기화 설정을 가져옵니다. |
 |||
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/)를 참조하세요.
 
-추가 Azure 데이터 공유 PowerShell 스크립트 샘플은 [Azure 데이터 공유 powershell 샘플](../../samples-powershell.md)에서 찾을 수 있습니다.
+추가 Azure 데이터 공유 PowerShell 스크립트 샘플은 [Azure 데이터 공유 PowerShell 샘플에서](../../samples-powershell.md)찾을 수 있습니다.

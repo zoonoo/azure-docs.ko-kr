@@ -1,6 +1,6 @@
 ---
-title: 다중 DRM 콘텐츠 보호 시스템-Azure Media Services v3
-description: 이 문서에서는 Azure Media Services를 사용 하 여 다중 DRM 콘텐츠 보호 시스템을 설계 하는 방법에 대 한 자세한 설명을 제공 합니다.
+title: 다중 DRM 콘텐츠 보호 시스템 - Azure 미디어 서비스 v3
+description: 이 문서에서는 Azure Media Services를 사용하여 다중 DRM 콘텐츠 보호 시스템을 디자인하는 방법에 대한 자세한 설명을 제공합니다.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -15,10 +15,10 @@ ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
 ms.openlocfilehash: fbc6d6fa8f9a3b424eaec1f04a61b5ca24fe14fc
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161786"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계 
@@ -48,7 +48,7 @@ OTT(Over-the-Top) 또는 온라인 스트리밍 솔루션을 위한 DRM(디지�
 | **클라이언트 플랫폼** | **기본 DRM** | **EME** |
 | --- | --- | --- |
 | **스마트 TV, STB** | PlayReady, Widevine 및/또는 기타 | 포함된 브라우저/PlayReady용 EME 및/또는 Widevine|
-| **Windows 10** | PlayReady | Microsoft Edge/PlayReady용 IE11|
+| **윈도우 10** | PlayReady | Microsoft Edge/PlayReady용 IE11|
 | **Android 디바이스(전화, 태블릿, TV)** |Widevine |Widevine용 Chrome |
 | **iOS** | FairPlay | FairPlay용 Safari(iOS 11.2 이후) |
 | **macOS** | FairPlay | FairPlay용 Safari(Safari 9 이후+Mac OS X 10.11에서+El Capitan)|
@@ -134,12 +134,12 @@ DRM 하위 시스템은 다음 구성 요소를 포함할 수 있습니다.
 | **구성 요소** | **Technology** |
 | --- | --- |
 | **플레이어** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
-| **IDP(ID 공급자)** |Azure AD(Azure Active Directory) |
+| **IDP(IDP)** |Azure AD(Azure Active Directory) |
 | **STS(보안 토큰 서비스)** |Azure AD |
 | **DRM 보호 워크플로** |Azure Media Services 동적 보호 |
 | **DRM 라이선스 배달** |* Media Services 라이선스 배달(PlayReady, Widevine, FairPlay) <br/>* Axinom License Server <br/>* 사용자 지정 PlayReady 라이선스 서버 |
-| **원본** |Azure Media Services 스트리밍 엔드포인트 |
-| **키 관리** |참조 구현에는 필요하지 않음 |
+| **기원** |Azure Media Services 스트리밍 엔드포인트 |
+| **주요 관리** |참조 구현에는 필요하지 않음 |
 | **콘텐츠 관리** |C# 콘솔 애플리케이션 |
 
 즉, IDP와 STS 둘 다 Azure AD에서 제공됩니다. 플레이어로는 [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/)가 사용됩니다. Azure Media Services 및 Azure Media Player 둘 다 DASH를 통한 CENC, HLS를 통한 FairPlay, 부드러운 스트리밍을 통한 PlayReady 및 DASH, HLS 및 부드러운 스트리밍을 통한 AES-128 암호화를 제공합니다.
@@ -176,7 +176,7 @@ DRM 콘텐츠 보호를 설정하기 위해 콘텐츠 관리 도구는 다음 �
 ### <a name="implementation-procedures"></a>구현 절차
 구현에는 다음 단계가 포함됩니다.
 
-1. 테스트 자산을 준비합니다. Media Services에서 테스트 비디오를 다중 비트 전송률 조각화된 MP4로 인코딩/패키징합니다. 이 자산은 DRM으로 보호되지 *않습니다*. DRM 보호는 나중에 동적 보호로 수행됩니다.
+1. 테스트 자산을 준비합니다. Media Services에서 테스트 비디오를 다중 비트 전송률 조각화된 MP4로 인코딩/패키징합니다. 이 자산은 DRM이 *보호되지 않습니다.* DRM 보호는 나중에 동적 보호로 수행됩니다.
 
 2. 키 ID 및 콘텐츠 키(필요한 경우 키 시드에서)를 만듭니다. 이 인스턴스에서는 여러 테스트 자산에 대해 단일 키 ID 및 콘텐츠 키만 필요하므로 키 관리 시스템이 필요하지 않습니다.
 
@@ -204,12 +204,12 @@ DRM 콘텐츠 보호를 설정하기 위해 콘텐츠 관리 도구는 다음 �
     | --- | --- | --- | --- |
     | **PlayReady** |Windows 10의 Microsoft Edge 또는 Internet Explorer 11 |합격 |실패 |
     | **Widevine** |Chrome, Firefox, Opera |합격 |실패 |
-    | **FairPlay** |macOS의 Safari      |합격 |실패 |
+    | **Fairplay** |macOS의 Safari      |합격 |실패 |
     | **AES-128** |최신 브라우저  |합격 |실패 |
 
 ASP.NET MVC 플레이어 앱에 대해 Azure AD를 설정하는 방법에 대한 내용은 [Azure Media Services OWIN MVC 기반 앱을 Azure Active Directory와 통합하고 JWT 클레임을 기준으로 콘텐츠 키 배달 제한](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)을 참조하세요.
 
-자세한 내용은 [Azure Media Services 및 동적 암호화의 JWT 토큰 인증](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)을 참조하세요.  
+자세한 내용은 [Azure 미디어 서비스 및 동적 암호화에서 JWT 토큰 인증을](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)참조하십시오.  
 
 Azure AD에 대한 내용:
 

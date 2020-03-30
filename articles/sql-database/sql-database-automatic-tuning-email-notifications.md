@@ -1,5 +1,5 @@
 ---
-title: 자동 조정 전자 메일 알림 방법 가이드
+title: 자동 튜닝 이메일 알림 방법 가이드
 description: Azure SQL Database 자동 쿼리 튜닝에 대한 이메일 알림을 사용하도록 설정합니다.
 services: sql-database
 ms.service: sql-database
@@ -12,21 +12,21 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/03/2019
 ms.openlocfilehash: b48c37a6e607d121416ebae4d74e58f39670b79a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73821920"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>자동 조정에 대한 전자 메일 알림
 
 SQL Database 조정 권장 사항은 Azure SQL Database [자동 조정](sql-database-automatic-tuning.md)에서 생성됩니다. 이 솔루션은 SQL Database의 워크로드를 지속적으로 모니터링하고 분석하여, 각 개별 데이터베이스에 대해 인덱스 만들기, 인덱스 삭제 및 쿼리 실행 계획의 최적화와 관련된 사용자 지정 조정 권장 사항을 제공합니다.
 
-SQL Database 자동 조정 권장 구성은 [Azure Portal](sql-database-advisor-portal.md)에서 [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor)를 호출하거나 [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) 및 [ PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) 명령을 사용해서 검색할 수 있습니다. 이 문서는 PowerShell 스크립트를 사용하여 자동 조정 권장 사항을 검색합니다.
+SQL Database 자동 조정 권장 사항은 [Azure Portal](sql-database-advisor-portal.md)에서 [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor)를 호출하거나 [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) 및 [ PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) 명령을 사용해서 검색할 수 있습니다. 이 문서는 PowerShell 스크립트를 사용하여 자동 조정 권장 사항을 검색합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> PowerShell Azure 리소스 관리자 모듈은 Azure SQL Database에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈용입니다. 이러한 cmdlet에 대 한 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조 합니다. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 거의 동일합니다.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>자동 조정 권장 사항에 대한 전자 메일 알림 자동화
 
@@ -39,7 +39,7 @@ Azure Automation을 사용하려는 경우 첫 번째 단계는 자동화 계정
 Marketplace의 Automation 앱을 선택하고 구성하는 방법을 통해 Azure Automation 계정을 만들려면 다음 단계를 따릅니다.
 
 - Azure Portal에 로그인합니다.
-- 왼쪽 위 모서리에서 " **+ 리소스 만들기**"를 클릭합니다.
+- 왼쪽 위 모서리에서 "**+ 리소스 만들기**"를 클릭합니다.
 - "**Automation**"을 검색합니다(Enter 키 누름).
 - 검색 결과에서 Automation 앱을 클릭합니다.
 
@@ -58,9 +58,9 @@ Marketplace의 Automation 앱을 선택하고 구성하는 방법을 통해 Azur
 
 ## <a name="update-azure-automation-modules"></a>Azure Automation 모듈 업데이트
 
-자동 조정 권장 사항을 검색 하는 PowerShell 스크립트는 [AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) 및 [AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) 명령을 사용 하 여 Azure 모듈 버전 4 이상이 필요 합니다.
+자동 튜닝 권장 사항을 검색하는 PowerShell 스크립트는 Azure 모듈 버전 4 이상이 필요한 [Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) 및 [Get-AzSqlDatabase추천조치](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) 명령을 사용합니다.
 
-- Azure 모듈을 업데이트 해야 하는 경우 [Azure Automation의 Az module support](../automation/az-modules.md)를 참조 하세요.
+- Azure 모듈을 업데이트해야 하는 경우 [Azure 자동화에서 Az 모듈 지원을](../automation/az-modules.md)참조하십시오.
 
 ## <a name="create-azure-automation-runbook"></a>Azure Automation Runbook 만들기
 
@@ -70,15 +70,15 @@ Azure Automation Runbook을 만들려면 다음 단계를 수행합니다.
 
 - 이전 단계에서 만든 Azure Automation 계정에 액세스합니다.
 - Automation 계정 창 왼쪽에서 "**Runbook**" 메뉴 항목을 클릭하여 PowerShell 스크립트로 새 Azure Automation Runbook을 만듭니다. Automation Runbook을 만드는 방법에 대한 자세한 내용은 [새 Runbook 만들기](../automation/manage-runbooks.md#create-a-runbook)를 참조하세요.
-- 새 Runbook을 추가하려면 " **+ Runbook 추가**" 메뉴 옵션을 클릭하고 "**빨리 만들기 – 새 Runbook 만들기**"를 클릭합니다.
-- Runbook 창에서 Runbook의 이름을 입력하고(이 예제의 목적에 맞게 "**AutomaticTuningEmailAutomation**" 사용) Runbook의 유형을 **PowerShell**로 지정한 후 이 Runbook의 용도를 나타내는 설명을 작성합니다.
+- 새 Runbook을 추가하려면 "**+ Runbook 추가**" 메뉴 옵션을 클릭하고 "**빨리 만들기 – 새 Runbook 만들기**"를 클릭합니다.
+- Runbook 창에서 Runbook의 이름을 입력하고(이 예제에서는 "**AutomaticTuningEmailAutomation**" 사용) Runbook의 유형을 **PowerShell**로 선택한 후 이 Runbook의 용도를 나타내는 설명을 작성합니다.
 - **만들기** 단추를 클릭하여 새 Runbook 만들기를 완료합니다.
 
 ![Azure Automation Runbook 추가](./media/sql-database-automatic-tuning-email-notifications/howto-email-03.png)
 
 만든 Runbook 내에 PowerShell 스크립트를 로드하려면 다음 단계를 수행합니다.
 
-- "**PowerShell Runbook 편집**" 창의 메뉴 트리에서 "**RUNBOOKS**"를 선택하고 Runbook 이름이 보일 때까지 보기를 확장합니다(이 예제에서는 " **AutomaticTuningEmailAutomation**"). 이 Runbook을 선택합니다.
+- "**PowerShell Runbook 편집**" 창의 메뉴 트리에서 "**RUNBOOKS**"를 선택하고 Runbook 이름이 보일 때까지 보기를 확장합니다(이 예제에서는 "** AutomaticTuningEmailAutomation**"). 이 Runbook을 선택합니다.
 - "PowerShell Runbook 편집"의 첫 번째 줄에(숫자 1부터 시작) 다음 PowerShell 스크립트 코드를 복사하여 붙여 넣습니다. 이 PowerShell 스크립트는 사용자가 시작할 수 있도록만 제공됩니다. 요구에 맞게 스크립트를 수정합니다.
 
 제공된 PowerShell 스크립트의 헤더에서 `<SUBSCRIPTION_ID_WITH_DATABASES>`를 Azure 구독 ID로 바꾸어야 합니다. Azure 구독 ID를 검색하는 방법을 알아보려면 [Azure 구독 GUID 가져오기](https://blogs.msdn.microsoft.com/mschray/20../../getting-your-azure-subscription-guid-new-portal/)를 참조하세요.
@@ -184,7 +184,7 @@ Write-Output $table
 
 솔루션을 완료하려면 최종 단계로, Microsoft Flow에서 다음 3가지 작업으로 구성되는 자동화 흐름을 만듭니다.
 
-1. "**Azure Automation - 작업 만들기**" – Azure Automation Runbook 내에서 자동 조정 권장 구성을 검색하기 위한 PowerShell 스크립트를 실행하는 데 사용합니다.
+1. "**Azure Automation - 작업 만들기**" – Azure Automation Runbook 내에서 자동 조정 권장 사항을 검색하기 위한 PowerShell 스크립트를 실행하는 데 사용합니다.
 2. "**Azure Automation - 작업 출력 가져오기**" – 실행된 PowerShell 스크립트에서 출력을 검색하는 데 사용합니다.
 3. "**Office 365 Outlook - 전자 메일 보내기**" – 전자 메일을 보내는 데 사용합니다. 전자 메일은 흐름을 만드는 개인의 Office 365 계정을 사용하여 전송됩니다.
 
@@ -193,23 +193,23 @@ Microsoft Flow 기능에 대한 자세한 내용은 [Microsoft Flow 시작](http
 이 단계의 전제 조건은 [Microsoft Flow](https://flow.microsoft.com) 계정을 등록하고 로그인하는 것입니다. 솔루션 내부에서 다음 단계에 따라 **새 흐름**을 설정합니다.
 
 - "**내 흐름**" 메뉴 항목에 액세스합니다.
-- 내 흐름 내의 페이지 위쪽에서 " **+빈 페이지에서 만들기**" 페이지를 선택합니다.
+- 내 흐름 내의 페이지 위쪽에서 "**+빈 페이지에서 만들기**" 페이지를 선택합니다.
 - 페이지 아래쪽에서 "**수백 개의 커넥터 및 트리거 검색**" 링크를 클릭합니다.
-- 검색 필드에서 "**되풀이**"를 선택하고 검색 결과에서 "**예약 - 되풀이**"를 선택하여 전자 메일 배달 작업이 실행되도록 예약합니다.
+- 검색 필드에서 "**되풀이**"를 입력하고 검색 결과에서 "**예약 - 되풀이**"를 선택하여 전자 메일 배달 작업이 실행되도록 예약합니다.
 - 되풀이 창의 빈도 필드에서 이 흐름을 실행할 예약 빈도(예: 분, 시, 일, 주 등의 빈도로 자동 전자 메일 전송)를 선택합니다.
 
 다음 단계는 새로 만든 되풀이 흐름에 3개의 작업(전자 메일 만들기, 출력 가져오기 및 전자 메일 전송)을 추가하는 것입니다. 필요한 작업을 흐름에 추가하려면 다음 단계를 따릅니다.
 
 1. 조정 권장 사항을 검색하는 PowerShell 스크립트를 실행하는 작업을 만듭니다.
 
-   - 되풀이 흐름 창에서 " **+새 단계**","**작업 추가**"를 선택합니다.
+   - 되풀이 흐름 창에서 "**+새 단계**","**작업 추가**"를 선택합니다.
    - 검색 필드에 "**Automation**"을 입력하고 검색 결과에서 "**Azure Automation – 작업 만들기**"를 선택합니다.
    - 작업 만들기 창에서 작업 속성을 구성합니다. 이 구성에 대해 **Automation 계정 창**에서 **이전에 기록한** Azure 구독 ID, 리소스 그룹 및 Automation 계정의 세부 정보가 필요합니다. 이 섹션에서 사용할 수 있는 옵션에 대한 자세한 내용은 [Azure Automation – 작업 만들기](https://docs.microsoft.com/connectors/azureautomation/#create-job)를 참조하세요.
    - "**흐름 저장**"을 클릭하여 이 작업 만들기를 완료합니다.
 
 2. 실행된 PowerShell 스크립트에서 출력을 검색하는 작업을 만듭니다.
 
-   - 되풀이 흐름 창에서 " **+새 단계**","**작업 추가**"를 선택합니다.
+   - 되풀이 흐름 창에서 "**+새 단계**","**작업 추가**"를 선택합니다.
    - 검색 필드에 "**Automation**"을 입력하고 검색 결과에서 "**Azure Automation - 작업 출력 가져오기**"를 선택합니다. 이 섹션에서 사용할 수 있는 옵션에 대한 자세한 내용은 [Azure Automation – 작업 출력 가져오기](https://docs.microsoft.com/connectors/azureautomation/#get-job-output)를 참조하세요.
    - 필수 필드를 채웁니다(이전 작업을 만들 때와 유사) - Azure 구독 ID, 리소스 그룹 및 Automation 계정을 채웁니다(Automation 계정 창에 입력한 것과 같음).
    - "**작업 ID**" 필드 내부를 클릭하여 "**동적 콘텐츠**" 메뉴를 표시합니다. 이 메뉴 내에서 "**작업 ID**" 옵션을 선택합니다.
@@ -217,7 +217,7 @@ Microsoft Flow 기능에 대한 자세한 내용은 [Microsoft Flow 시작](http
 
 3. Office 365 통합을 사용하여 메일을 전송하기 위한 작업을 만듭니다.
 
-   - 되풀이 흐름 창에서 " **+새 단계**","**작업 추가**"를 선택합니다.
+   - 되풀이 흐름 창에서 "**+새 단계**","**작업 추가**"를 선택합니다.
    - 검색 필드에서 "**전자 메일 보내기**"를 입력하고 검색 결과에서 "**Office 365 Outlook - 전자 메일 보내기**"를 선택합니다.
    - "**받는 사람**" 필드에 알림 전자 메일을 보내야 하는 전자 메일 주소를 입력합니다.
    - "**제목**" 필드에 전자 메일의 제목(예: "자동 조정 권장 사항 전자 메일 알림")을 입력합니다.

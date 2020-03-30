@@ -10,10 +10,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: dc55615d7a5c6ae9a393ed4fd5f49cd92aedc0f9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73162571"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL 프로그래밍 기능 가이드
@@ -133,7 +133,7 @@ REFERENCE ASSEMBLY MyDB.[MyAssembly];
 
 업로드된 각 어셈블리 DLL, 리소스 파일(예: 다양한 런타임), 네이티브 어셈블리 또는 구성 파일의 크기는 최대 400MB입니다. DEPLOY RESOURCE를 통해 또는 참조 어셈블리를 통해 배포된 리소스 및 추가 파일의 총 크기는 3GB를 초과할 수 없습니다.
 
-마지막으로 U-SQL 데이터베이스마다 지정된 어셈블리 버전을 하나만 포함할 수 있습니다. 예를 들어 Newtonsoft.json Json.NET 라이브러리의 버전 7과 버전 8이 모두 필요한 경우 두 개의 다른 데이터베이스에 등록 해야 합니다. 또한 각 스크립트는 지정된 어셈블리 DLL의 한 가지 버전만 참조할 수 있습니다. 이러한 점에서 U-SQL은 C# 어셈블리 관리 및 버전 관리 의미 체계를 따릅니다.
+마지막으로 U-SQL 데이터베이스마다 지정된 어셈블리 버전을 하나만 포함할 수 있습니다. 예를 들어 NewtonSoft Json.NET 라이브러리의 버전 7과 버전 8이 모두 필요한 경우 두 개의 서로 다른 데이터베이스에 등록해야 합니다. 또한 각 스크립트는 지정된 어셈블리 DLL의 한 가지 버전만 참조할 수 있습니다. 이러한 점에서 U-SQL은 C# 어셈블리 관리 및 버전 관리 의미 체계를 따릅니다.
 
 ## <a name="use-user-defined-functions-udf"></a>UDF(사용자 정의 함수) 사용
 U-SQL UDF(사용자 정의 함수)는 매개 변수를 받아들이고, 작업(예: 복잡한 계산)을 수행하며, 해당 작업의 결과를 값으로 반환하는 프로그래밍 루틴입니다. UDF의 반환 값은 단지 단일 스칼라일 수 있습니다. U-SQL UDF는 다른 C# 스칼라 함수와 같이 U-SQL 기본 스크립트에서 호출할 수 있습니다.
@@ -496,7 +496,7 @@ using System.IO;
 
 * SqlUserDefinedType 특성을 사용하여 사용자 정의 형식을 정의합니다.
 
-**SqlUserDefinedType**은 어셈블리의 형식 정의를 U-SQL UDT로 표시하는 데 사용됩니다. 특성의 속성에는 UDT의 물리적 특성이 반영됩니다. 이 클래스는 상속될 수 없습니다.
+**SqlUserDefinedType**은 어셈블리의 형식 정의를 U-SQL UDT로 표시하는 데 사용됩니다. 특성의 속성에는 UDT의 물리적 특성이 반영됩니다. 이 클래스는 상속할 수 없습니다.
 
 SqlUserDefinedType은 UDT 정의에 필요한 특성입니다.
 
@@ -912,9 +912,9 @@ UDAGG(사용자 정의 집계) 기본 클래스 정의는 다음과 같습니다
     }
 ```
 
-**SqlUserDefinedAggregate**는 UDAGG로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
+**SqlUserDefinedAggregate**는 UDAGG로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속할 수 없습니다.
 
-SqlUserDefinedType 특성은 UDAGG 정의의 **선택 사항**입니다.
+SQLUser정의 형식 특성은 UDAGG 정의에 대한 **선택 사항입니다.**
 
 
 기본 클래스를 사용하면 세 개의 추상 매개 변수(두 개는 입력 매개 변수로, 하나는 결과로)를 전달할 수 있습니다. 데이터 형식은 변수이며, 클래스를 상속하는 동안 정의해야 합니다.
@@ -946,16 +946,16 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
 * T1: Accumulate의 첫 번째 매개 변수
-* T2: 누적 시킬 두 번째 매개 변수
+* T2: 누적할 두 번째 매개변수
 * TResult: Terminate의 반환 형식
 
-다음은 그 예입니다.
+예를 들어:
 
 ```
 public class GuidAggregate : IAggregate<string, int, int>
 ```
 
-or
+또는
 
 ```
 public class GuidAggregate : IAggregate<string, string, string>
@@ -1057,7 +1057,7 @@ UDO는 일반적으로 다음 U-SQL 문의 일부로 U-SQL 스크립트에서 �
 
 * EXTRACT
 * OUTPUT
-* 프로세스
+* PROCESS
 * COMBINE
 * REDUCE
 
@@ -1067,11 +1067,11 @@ UDO는 일반적으로 다음 U-SQL 문의 일부로 U-SQL 스크립트에서 �
 ## <a name="use-user-defined-extractors"></a>UDE(사용자 정의 추출기) 사용
 U-SQL을 사용하면 EXTRACT 문을 사용하여 외부 데이터를 가져올 수 있습니다. EXTRACT 문은 기본 제공 UDO 추출기를 사용할 수 있습니다.  
 
-* *Extractors.Text()* : 다른 인코딩의 구분 기호로 분리된 텍스트 파일에서 데이터를 추출합니다.
+* *Extractors.Text()*: 다른 인코딩의 구분 기호로 분리된 텍스트 파일에서 데이터를 추출합니다.
 
-* *Extractors.Csv()* : 다른 인코딩의 쉼표로 구분된 값(CSV) 파일에서 데이터를 추출합니다.
+* *Extractors.Csv()*: 다른 인코딩의 쉼표로 구분된 값(CSV) 파일에서 데이터를 추출합니다.
 
-* *Extractors.Tsv()* : 다른 인코딩의 탭으로 구분된 값(TSV) 파일에서 데이터를 추출합니다.
+* *Extractors.Tsv()*: 다른 인코딩의 탭으로 구분된 값(TSV) 파일에서 데이터를 추출합니다.
 
 사용자 지정 추출기를 개발하는 것이 유용할 수 있습니다. 다음 작업 중 하나를 수행하려는 경우 데이터를 가져오는 동안 도움이 될 수 있습니다.
 
@@ -1093,7 +1093,7 @@ public class SampleExtractor : IExtractor
 }
 ```
 
-**SqlUserDefinedExtractor** 특성은 UDE(사용자 정의 추출기)로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
+**SqlUserDefinedExtractor** 특성은 UDE(사용자 정의 추출기)로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속할 수 없습니다.
 
 SqlUserDefinedExtractor는 UDE 정의의 선택적 특성이며, UDE 개체의 AtomicFileProcessing 속성을 정의하는 데 사용됩니다.
 
@@ -1219,9 +1219,9 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ## <a name="use-user-defined-outputters"></a>사용자 정의 출력자 사용
 사용자 정의 출력자는 기본 제공 U-SQL 기능을 확장할 수 있는 또 다른 U-SQL UDO입니다. 추출기와 마찬가지로 여러 개의 기본 제공 출력자가 있습니다.
 
-* *Outputters.Text()* : 다른 인코딩의 구분 기호로 분리된 텍스트 파일에 데이터를 씁니다.
-* *Outputters.Csv()* : 다른 인코딩의 쉼표로 구분된 값(CSV) 파일에 데이터를 씁니다.
-* *Outputters.Tsv()* : 다른 인코딩의 탭으로 구분된 값(TSV) 파일에 데이터를 씁니다.
+* *Outputters.Text()*: 다른 인코딩의 구분 기호로 분리된 텍스트 파일에 데이터를 씁니다.
+* *Outputters.Csv()*: 다른 인코딩의 쉼표로 구분된 값(CSV) 파일에 데이터를 씁니다.
+* *Outputters.Tsv()*: 다른 인코딩의 탭으로 구분된 값(TSV) 파일에 데이터를 씁니다.
 
 사용자 지정 출력자를 사용하면 사용자 정의된 형식으로 데이터를 쓸 수 있습니다. 이 기능은 다음 작업에 유용할 수 있습니다.
 
@@ -1271,7 +1271,7 @@ public class MyOutputter : IOutputter
 * 생성자 클래스는 사용자 정의 출력자에 매개 변수를 전달하는 데 사용됩니다.
 * `Close`는 비용이 높은 상태를 해제하거나 마지막 행이 기록된 시점을 판단하기 위해 선택적으로 재정의하는 데 사용됩니다.
 
-**SqlUserDefinedOutputter** 특성은 사용자 정의 출력자로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
+**SqlUserDefinedOutputter** 특성은 사용자 정의 출력자로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속할 수 없습니다.
 
 SqlUserDefinedOutputter는 사용자 정의 출력자 정의의 선택적 특성이며, AtomicFileProcessing 속성을 정의하는 데 사용됩니다.
 
@@ -1514,7 +1514,7 @@ public override IRow Process(IRow input, IUpdatableRow output)
 }
 ```
 
-**SqlUserDefinedProcessor**는 UDP로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
+**SqlUserDefinedProcessor**는 UDP로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속할 수 없습니다.
 
 SqlUserDefinedProcessor 특성은 UDP 정의의 **선택 사항**입니다.
 
@@ -1635,7 +1635,7 @@ public class ParserApplier : IApplier
 * Apply는 Outer 테이블의 각 행에 대해 호출되며, `IUpdatableRow` 출력 행 집합을 반환합니다.
 * 생성자 클래스는 사용자 정의 적용자에 매개 변수를 전달하는 데 사용됩니다.
 
-**SqlUserDefinedApplier**는 사용자 정의 적용자로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
+**SqlUserDefinedApplier**는 사용자 정의 적용자로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속할 수 없습니다.
 
 **SqlUserDefinedApplier**는 사용자 정의 적용자 정의의 **선택 사항**입니다.
 
@@ -1847,7 +1847,7 @@ public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
 }
 ```
 
-**SqlUserDefinedCombiner** 특성은 사용자 정의 결합자로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
+**SqlUserDefinedCombiner** 특성은 사용자 정의 결합자로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속할 수 없습니다.
 
 **SqlUserDefinedCombiner**는 결합자 모드 속성을 정의하는 데 사용됩니다. 사용자 정의 결합자 정의의 선택적 특성입니다.
 
@@ -2107,7 +2107,7 @@ public class EmptyUserReducer : IReducer
 }
 ```
 
-**SqlUserDefinedReducer** 특성은 사용자 정의 리듀서로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
+**SqlUserDefinedReducer** 특성은 사용자 정의 리듀서로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속할 수 없습니다.
 **SqlUserDefinedReducer**는 UDR(사용자 정의 리듀서) 정의의 선택적 특성이며, IsRecursive 속성을 정의하는 데 사용됩니다.
 
 * bool IsRecursive    

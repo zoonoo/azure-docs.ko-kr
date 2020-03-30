@@ -1,5 +1,5 @@
 ---
-title: 여러 데이터베이스에 걸친 임시 보고 쿼리
+title: 여러 데이터베이스에서 쿼리를 보고하는 임시
 description: 다중 테넌트 앱 예에서 여러 SQL Database에 대해 임시 보고 쿼리를 실행합니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: craigg
 ms.reviewer: sstein
 ms.date: 10/30/2018
 ms.openlocfilehash: c0d1829c52041446b4feb43d8af262265e2680fc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822180"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>여러 Azure SQL 데이터베이스에 대해 임시 분석 쿼리 실행
@@ -33,7 +33,7 @@ ms.locfileid: "73822180"
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
-* Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 배포 및 탐색](saas-multitenantdb-get-started-deploy.md)을 참조하세요.
+* Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱이 배포되어 있어야 합니다. 5분 이내에 배포하려면 [Wingtip 티켓 SaaS 다중 테넌트 데이터베이스 응용 프로그램 배포 및 탐색을](saas-multitenantdb-get-started-deploy.md) 참조하세요.
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 * SSMS(SQL Server Management Studio)가 설치되었습니다. SSMS를 다운로드하고 설치하려면 [SSMS(SQL Server Management Studio) 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)를 참조하세요.
 
@@ -52,7 +52,7 @@ SaaS 애플리케이션은 클라우드에 중앙 집중식으로 저장되는 �
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 소스 코드 및 스크립트 가져오기
 
-Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플리케이션 소스 코드는 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 확인할 수 있습니다. [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)에서 Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계를 확인하세요.
+윙팁 티켓 SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 사용할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
 
 ## <a name="create-ticket-sales-data"></a>티켓 판매 데이터 만들기
 
@@ -72,10 +72,10 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션에�
 
 이 연습에서는 *adhocreporting* 데이터베이스를 배포합니다. 모든 테넌트 데이터베이스에 쿼리하는 데 사용되는 스키마를 포함하는 헤드 데이터베이스입니다. 데이터베이스는 샘플 앱에서 모든 관리 관련 데이터베이스에 사용되는 서버인 기존 카탈로그 서버에 배포됩니다.
 
-1. \\PowerShell ISE\\에서 \\학습 모듈\\운영 분석*임시 보고* *Demo-AdhocReporting.ps1*을 열고 다음 값을 설정합니다.
+1. *PowerShell ISE*에서 \\학습 모듈\\운영 분석\\임시 보고\\*Demo-AdhocReporting.ps1*을 열고 다음 값을 설정합니다.
    * **$DemoScenario** = 2, **임시 분석 데이터베이스 배포**.
 
-2. 스크립트를 실행하고 **adhocreporting** 데이터베이스를 만들려면 *F5* 키를 누릅니다.
+2. 스크립트를 실행하고 *adhocreporting* 데이터베이스를 만들려면 **F5** 키를 누릅니다.
 
 다음 섹션에서 배포된 쿼리를 실행하는 데 사용할 수 있도록 데이터베이스에 스키마를 추가합니다.
 
@@ -105,7 +105,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션에�
 
    이러한 방식으로 참조 테이블을 포함하는 경우 테넌트 데이터베이스를 업데이트할 때마다 테이블 스키마 및 데이터를 업데이트해야 합니다.
 
-4. 스크립트를 실행하고 **adhocreporting** 데이터베이스를 초기화하려면 *F5* 키를 누릅니다. 
+4. 스크립트를 실행하고 *adhocreporting* 데이터베이스를 초기화하려면 **F5** 키를 누릅니다. 
 
 이제 배포된 쿼리를 실행하고 모든 테넌트 간에 정보를 수집할 수 있습니다.
 
@@ -138,7 +138,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션에�
 
    이 쿼리는 좀 더 복잡한 조인 및 집계를 수행합니다. 대부분 처리를 원격으로 수행하는 것이 중요합니다. 또한 여기서는 다시 필요한 행만을 가져오고 일당 각 부문의 집계 티켓 판매 개수의 단일 행만을 반환합니다.
 
-   ![쿼리](media/saas-multitenantdb-adhoc-reporting/query3-plan.png)
+   ![Query](media/saas-multitenantdb-adhoc-reporting/query3-plan.png)
 
 
 ## <a name="next-steps"></a>다음 단계

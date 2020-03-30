@@ -1,7 +1,7 @@
 ---
-title: Id 공급자 구성 (MSAL iOS/macOS) | Microsoft
+title: ID 공급자 구성(MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
-description: IOS 및 macOS 용 MSAL에서 B2C, 소 버린 클라우드 및 게스트 사용자와 같은 다양 한 기관을 사용 하는 방법에 대해 알아봅니다.
+description: iOS 및 macOS용 MSAL을 사용하여 B2C, 주권 클라우드 및 게스트 사용자와 같은 다양한 권한을 사용하는 방법을 알아봅니다.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,32 +14,32 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 4810de772e44be22ee5bd4a9fb6ef0ef756e62f4
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77085216"
 ---
-# <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>방법: 다른 id 공급자를 사용 하도록 iOS 및 macOS에 대 한 MSAL 구성
+# <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>방법: iOS 및 macOS용 MSAL을 구성하여 다른 ID 공급자를 사용하도록 합니다.
 
-이 문서에서는 Azure Active Directory (Azure AD), B2b (B2C), 소 버린 클라우드 및 게스트 사용자와 같은 다양 한 기관에 대해 MSAL (iOS 및 macOS) 용 Microsoft 인증 라이브러리 앱을 구성 하는 방법을 보여 줍니다.  이 문서 전체에서 일반적으로 인증 기관을 id 공급자로 간주할 수 있습니다.
+이 문서에서는 Azure Active Directory(Azure AD), B2C(비즈니스-소비자), 주권 클라우드 및 게스트 사용자와 같은 다른 기관에 대해 iOS 및 macOS(MSAL)에 대한 Microsoft 인증 라이브러리 앱을 구성하는 방법을 보여 줍니다.  이 문서 전체에서 일반적으로 권한을 ID 공급자로 생각할 수 있습니다.
 
-## <a name="default-authority-configuration"></a>기본 인증 기관 구성
+## <a name="default-authority-configuration"></a>기본 기관 구성
 
-`MSALPublicClientApplication`는 AAD (대부분 Azure Active Directory) 시나리오에 적합 한 `https://login.microsoftonline.com/common`의 기본 인증 기관 URL을 사용 하 여 구성 됩니다. 국가별 클라우드와 같은 고급 시나리오를 구현 하거나 B2C를 사용 하지 않는 경우에는 변경할 필요가 없습니다.
+`MSALPublicClientApplication`의 기본 기관 URL로 `https://login.microsoftonline.com/common`구성된다. 국가 클라우드와 같은 고급 시나리오를 구현하거나 B2C로 작업하지 않는 한 변경할 필요가 없습니다.
 
 > [!NOTE]
-> ADFS (Active Directory Federation Services id 공급자)를 사용 하는 최신 인증은 지원 되지 않습니다 (자세한 내용은 [개발자 용 adfs](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios) 참조). ADFS는 페더레이션을 통해 지원 됩니다.
+> ADFS(ID 공급자)로 Active Directory 페더레이션 서비스를 사용한 최신 인증은 지원되지 않습니다(자세한 내용은 [개발자용 ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios) 참조). ADFS는 페더레이션을 통해 지원됩니다.
 
-## <a name="change-the-default-authority"></a>기본 인증 기관 변경
+## <a name="change-the-default-authority"></a>기본 권한 변경
 
-B2C (b2b)와 같은 일부 시나리오에서는 기본 인증 기관을 변경 해야 할 수 있습니다.
+B2C(비즈니스 대 소비자)와 같은 일부 시나리오에서는 기본 권한을 변경해야 할 수 있습니다.
 
 ### <a name="b2c"></a>B2C
 
-B2C를 사용 하려면 [MSAL (Microsoft 인증 라이브러리)](reference-v2-libraries.md) 에 다른 기관 구성이 필요 합니다. MSAL은 B2C 한 기관 URL 형식을 자체적으로 인식 합니다. `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SignInPolicy`와 같이 인식 된 B2C authority 형식이 `https://<host>/tfp/<tenant>/<policy>`. 그러나 authority를 B2C authority로 명시적으로 선언 하 여 지원 되는 다른 B2C authority Url을 사용할 수도 있습니다.
+B2C에서 작업하려면 [MSAL(Microsoft 인증 라이브러리)에](reference-v2-libraries.md) 다른 권한 구성이 필요합니다. MSAL은 하나의 기관 URL 형식을 B2C로 인식합니다. 인식된 B2C 기관 `https://<host>/tfp/<tenant>/<policy>`형식은 `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SignInPolicy`예를 들어 입니다. 그러나 권한을 B2C 기관으로 명시적으로 선언하여 지원되는 다른 B2C 기관 URL을 사용할 수도 있습니다.
 
-B2C에 대 한 임의의 URL 형식을 지원 하기 위해 다음과 같은 임의 URL을 사용 하 여 `MSALB2CAuthority`를 설정할 수 있습니다.
+B2C에 대한 임의의 URL `MSALB2CAuthority` 형식을 지원하려면 다음과 같이 임의의 URL로 설정할 수 있습니다.
 
 Objective-C
 ```objc
@@ -56,9 +56,9 @@ guard let authorityURL = URL(string: "arbitrary URL") else {
 let b2cAuthority = try MSALB2CAuthority(url: authorityURL)
 ```
 
-기본 B2C authority 형식을 사용 하지 않는 모든 B2C 기관은 알려진 인증 기관으로 선언 되어야 합니다.
+기본 B2C 권한 형식을 사용하지 않는 모든 B2C 권한은 알려진 기관으로 선언되어야 합니다.
 
-기관이 정책에만 다른 경우에도 각 B2C 기관을 알려진 기관 목록에 추가 합니다.
+각 다른 B2C 권한을 알려진 기관 목록에 추가하여 정책이 다를 경우에만
 
 Objective-C
 ```objc
@@ -74,9 +74,9 @@ let b2cApplicationConfig = MSALPublicClientApplicationConfig(clientId: "your-cli
 b2cApplicationConfig.knownAuthorities = [b2cAuthority]
 ```
 
-앱에서 새 정책을 요청 하는 경우 기관 url이 정책 마다 다르므로 기관 URL을 변경 해야 합니다. 
+앱에서 새 정책을 요청하면 각 정책에 대해 권한 URL이 다르므로 권한 URL을 변경해야 합니다. 
 
-B2C 응용 프로그램을 구성 하려면 다음과 같이 `MSALPublicClientApplication`를 만들기 전에 `MSALPublicClientApplicationConfig`의 `MSALB2CAuthority` 인스턴스로 `@property MSALAuthority *authority`를 설정 합니다.
+B2C 응용 프로그램을 구성하려면 다음과 `@property MSALAuthority *authority` `MSALB2CAuthority` 같이 `MSALPublicClientApplicationConfig` 만들기 `MSALPublicClientApplication`전에 의 인스턴스로 설정합니다.
 
 Objective-C
 ```ObjC
@@ -127,9 +127,9 @@ do{
 }
 ```
 
-### <a name="sovereign-clouds"></a>소 버린 클라우드
+### <a name="sovereign-clouds"></a>주권 구름
 
-앱이 소 버린 클라우드에서 실행 되는 경우 `MSALPublicClientApplication`의 기관 URL을 변경 해야 할 수 있습니다. 다음 예에서는 독일어 AAD 클라우드를 사용 하도록 기관 URL을 설정 합니다.
+앱이 주권 클라우드에서 실행되는 경우 `MSALPublicClientApplication`에서 권한 URL을 변경해야 할 수 있습니다. 다음 예제는 독일 AAD 클라우드에서 작동하도록 권한 URL을 설정합니다.
 
 Objective-C
 ```objc
@@ -174,17 +174,17 @@ do{
 }
 ```
 
-각 소 버린 클라우드에 다른 범위를 전달 해야 할 수 있습니다. 보낼 범위는 사용 중인 리소스에 따라 달라 집니다. 예를 들어 전 세계 클라우드의 `"https://graph.microsoft.com/user.read"`를 사용 하 고 독일어 클라우드에서 `"https://graph.microsoft.de/user.read"` 수 있습니다.
+각 주권 클라우드에 서로 다른 범위를 전달해야 할 수 있습니다. 보낼 범위는 사용 중인 리소스에 따라 다릅니다. 예를 들어 전 `"https://graph.microsoft.com/user.read"` 세계 클라우드와 `"https://graph.microsoft.de/user.read"` 독일어 클라우드에서 사용할 수 있습니다.
 
-### <a name="signing-a-user-into-a-specific-tenant"></a>특정 테 넌 트에 사용자 서명
+### <a name="signing-a-user-into-a-specific-tenant"></a>사용자를 특정 테넌트에 서명
 
-Authority URL이 `"login.microsoftonline.com/common"`로 설정 된 경우 사용자는 해당 홈 테 넌 트에 로그인 됩니다. 그러나 일부 앱은 사용자를 다른 테 넌 트에 서명 해야 할 수 있으며, 일부 앱은 단일 테 넌 트에서만 작동 합니다.
+기관 URL을 `"login.microsoftonline.com/common"`로 설정하면 사용자는 홈 테넌트에 로그인됩니다. 그러나 일부 앱은 사용자를 다른 테넌트에 서명해야 할 수 있으며 일부 앱은 단일 테넌트에서만 작동합니다.
 
-사용자를 특정 테 넌 트에 서명 하려면 특정 권한으로 `MSALPublicClientApplication`를 구성 합니다. 다음은 그 예입니다.
+사용자를 특정 테넌트에 로그인하려면 특정 권한으로 구성합니다. `MSALPublicClientApplication` 예를 들어:
 
 `https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4`
 
-다음은 특정 테 넌 트에 사용자를 서명 하는 방법을 보여 줍니다.
+다음은 특정 테넌트에 사용자를 서명하는 방법을 보여 주며,
 
 Objective-C
 ```objc
@@ -228,23 +228,23 @@ do{
 }
 ```
 
-## <a name="supported-authorities"></a>지원 되는 기관
+## <a name="supported-authorities"></a>지원되는 기관
 
-### <a name="msalauthority"></a>MSALAuthority
+### <a name="msalauthority"></a>MSAL 권한
 
-`MSALAuthority` 클래스는 MSAL authority 클래스의 기본 추상 클래스입니다. `alloc` 또는 `new`를 사용 하 여 인스턴스를 만들지 마세요. 대신 서브 클래스 중 하나 (`MSALAADAuthority`, `MSALB2CAuthority`)를 직접 만들거나 팩터리 메서드 `authorityWithURL:error:`를 사용 하 여 기관 URL을 사용 하 여 하위 클래스를 만듭니다.
+클래스는 `MSALAuthority` MSAL 기관 클래스의 기본 추상 클래스입니다. 또는 `alloc` `new`를 사용하여 인스턴스를 만들려고 하지 마십시오. 대신 직접 (,`MSALAADAuthority` `MSALB2CAuthority`) 의 하위 클래스 중 하나를 `authorityWithURL:error:` 만들거나 팩터리 메서드를 사용하여 권한 URL을 사용하여 하위 클래스를 만듭니다.
 
-`url` 속성을 사용 하 여 정규화 된 인증 기관 URL을 가져옵니다. 추가 매개 변수 및 경로 구성 요소 또는 권한 일부가 아닌 조각은 반환 된 정규화 된 인증 기관 URL에 포함 되지 않습니다.
+속성을 `url` 사용하여 정규화된 권한 URL을 가져옵니다. 권한의 일부가 아닌 추가 매개 변수 및 경로 구성 요소 또는 조각은 반환된 정규화 된 권한 URL에 없습니다.
 
-다음은 사용 하려는 기관에 따라 인스턴스화할 수 있는 `MSALAuthority`의 서브 클래스입니다.
+다음은 사용하려는 권한에 따라 인스턴스화할 수 `MSALAuthority` 있는 하위 클래스입니다.
 
-### <a name="msalaadauthority"></a>MSALAADAuthority
+### <a name="msalaadauthority"></a>MSALAAD 기관
 
-`MSALAADAuthority`는 AAD 기관을 나타냅니다. Authority url은 다음과 같은 형식 이어야 합니다. 여기서 `<port>`은 선택 사항입니다. `https://<host>:<port>/<tenant>`
+`MSALAADAuthority`는 AAD 기관을 나타냅니다. 기관 URL은 다음과 같은 형식이어야 `<port>` 하며 여기서는 선택 사항입니다.`https://<host>:<port>/<tenant>`
 
-### <a name="msalb2cauthority"></a>MSALB2CAuthority
+### <a name="msalb2cauthority"></a>MSALB2C 기관
 
-`MSALB2CAuthority` B2C 기관을 나타냅니다. 기본적으로 B2C authority url은 다음과 같은 형식 이어야 합니다. 여기서 `<port>`은 `https://<host>:<port>/tfp/<tenant>/<policy>`입니다. 그러나 MSAL은 다른 임의의 B2C authority 형식도 지원 합니다.
+`MSALB2CAuthority`는 B2C 기관을 나타냅니다. 기본적으로 B2C 권한 URL은 다음과 `<port>` `https://<host>:<port>/tfp/<tenant>/<policy>`같은 형식이어야 합니다. 그러나 MSAL은 다른 임의B2C 권한 형식도 지원합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

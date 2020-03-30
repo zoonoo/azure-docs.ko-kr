@@ -1,16 +1,16 @@
 ---
-title: Xamarin iOS에서 인증 시작
-description: Mobile Apps를 사용 하 여 AAD, Google, Facebook, Twitter, Microsoft 등의 id 공급자를 통해 Xamarin iOS 앱 사용자를 인증 하는 방법을 알아봅니다.
+title: 자마린 iOS에서 인증 시작하기
+description: 모바일 앱을 사용하여 AAD, 구글, 페이스북, 트위터, 마이크로소프트 와 같은 ID 제공업체를 통해 Xamarin iOS 앱의 사용자를 인증하는 방법을 알아봅니다.
 ms.assetid: 180cc61b-19c5-48bf-a16c-7181aef3eacc
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 05e936accbcd5c6fa2760c4f8682d907557f23b5
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461320"
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Xamarin.iOS 앱에 인증 추가
@@ -51,7 +51,7 @@ ms.locfileid: "77461320"
 ## <a name="add-authentication-to-the-app"></a>앱에 인증 추가
 이 섹션에서는 데이터 표시 전에 로그인 화면을 표시하도록 앱을 수정합니다. 앱이 시작될 때 앱은 App Service에 연결하지 않으며, 데이터를 표시하지 않습니다. 사용자가 새로 고침 제스처를 처음 수행한 다음 로그인 화면이 나타나고, 로그인이 성공하면 todo 항목 목록이 표시됩니다.
 
-1. 클라이언트 프로젝트에서 QSTodoService 클래스에 문 및 접근자가 있는 **를 사용하여** QSTodoService.cs`MobileServiceUser` 파일을 열고 다음을 추가합니다.
+1. 클라이언트 프로젝트에서 QSTodoService 클래스에 문 및 접근자가 있는 `MobileServiceUser`를 사용하여 **QSTodoService.cs** 파일을 열고 다음을 추가합니다.
 
     ```csharp
     using UIKit;

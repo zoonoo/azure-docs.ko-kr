@@ -14,15 +14,15 @@ ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 6c37ba61005c9936e6421d06369d1f52b93ac264
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77201699"
 ---
 # <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>SMTP 배너 검사를 위한 역방향 조회 영역 구성
 
-이 문서에서는 Azure DNS에서 역방향 영역을 사용 하 고 SMTP 배너 검사를 위한 역방향 DNS (PTR) 레코드를 만드는 방법을 설명 합니다.
+이 문서에서는 Azure DNS에서 역방향 영역을 사용하고 SMTP 배너 검사에 대한 역방향 DTR(PTR) 레코드를 만드는 방법에 대해 설명합니다.
 
 ## <a name="symptom"></a>증상
 

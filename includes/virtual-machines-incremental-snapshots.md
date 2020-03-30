@@ -9,10 +9,10 @@ ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: f30518c3bfc9876cbddaf8295ff9e8b667a70200
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74014541"
 ---
 ## <a name="overview"></a>개요
@@ -87,9 +87,9 @@ Azure VM 백업에 대해 알아보려면 [Azure VM 백업 계획](../articles/b
 
 1. *mypremiumdisk_ss1*이라는 *mypremiumdisk* 스냅샷을 만들어서 Premium Storage 디스크에 대한 백업 페이지 Blob을 만듭니다.
 2. 이 스냅샷을 mybackupstdaccount에 *mybackupstdpageblob*이라는 페이지 Blob으로 복사합니다.
-3. *스냅샷 Blob*을 사용하여 *mybackupstdpageblob_ss1*이라는 [mybackupstdpageblob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob)의 스냅샷을 만들고 *mybackupstdaccount*에 저장합니다.
+3. [스냅샷 Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob)을 사용하여 *mybackupstdpageblob_ss1*이라는 *mybackupstdpageblob*의 스냅샷을 만들고 *mybackupstdaccount*에 저장합니다.
 4. 백업 창에 있는 동안 *mypremiumdisk_ss2*라는 *mypremiumdisk*의 또 다른 스냅샷을 만들고 *mypremiumaccount*에 저장합니다.
-5. *prevsnapshot* 매개 변수가 *mypremiumdisk_ss1*의 타임스탬프로 설정된 [mypremiumdisk_ss2](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges)의 *GetPageRanges*를 사용하여 두 스냅샷 **mypremiumdisk_ss2**와 *mypremiumdisk_ss1* 간의 증분 변경 내용을 가져옵니다. 이러한 증분 변경 내용을 *mybackupstdaccount*의 백업 페이지 Blob *mybackupstdpageblob*에 작성합니다. 증분 변경 내용에 삭제된 범위가 있는 경우 백업 페이지 Blob에서 지워야 합니다. [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) 를 사용하여 증분 변경 내용을 백업 페이지 Blob에 작성합니다.
+5. **prevsnapshot** 매개 변수가 *mypremiumdisk_ss1*의 타임스탬프로 설정된 *mypremiumdisk_ss2*의 [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges)를 사용하여 두 스냅샷 *mypremiumdisk_ss2*와 *mypremiumdisk_ss1* 간의 증분 변경 내용을 가져옵니다. 이러한 증분 변경 내용을 *mybackupstdaccount*의 백업 페이지 Blob *mybackupstdpageblob*에 작성합니다. 증분 변경 내용에 삭제된 범위가 있는 경우 백업 페이지 Blob에서 지워야 합니다. [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) 를 사용하여 증분 변경 내용을 백업 페이지 Blob에 작성합니다.
 6. *mybackupstdpageblob_ss2*라는 백업 페이지 Blob *mybackupstdpageblob*의 스냅샷을 만듭니다. Premium Storage 계정에서 이전 스냅샷 *mypremiumdisk_ss1*을 삭제합니다.
 7. 백업 창마다 4~6단계를 반복합니다. 이러한 방식으로 표준 스토리지 계정에서 *mypremiumdisk* 의 백업을 유지할 수 있습니다.
 

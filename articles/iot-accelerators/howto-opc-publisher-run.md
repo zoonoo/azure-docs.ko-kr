@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 4f5d57bab51d537b64ce4b800737219663c3d7a7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77198789"
 ---
 # <a name="run-opc-publisher"></a>OPC 게시자 실행
@@ -369,7 +369,7 @@ OPC 게시자는 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge) 모
 OPC 게시자를 모듈로 IoT Edge 배포에 추가하려면 Azure Portal에서 IoT Hub 설정으로 이동하여 다음 단계를 완료합니다.
 
 1. **IoT Edge**로 이동하여 IoT Edge 디바이스를 만들거나 선택합니다.
-1. **모듈 설정**을 선택합니다.
+1. **모듈 설정**선택 .
 1. **배포 모듈** 아래에서 **추가**를 선택한 다음, **IoT Edge 모듈**을 선택합니다.
 1. **이름** 필드에서 **publisher**를 입력합니다.
 1. **이미지 URI** 필드에서 `mcr.microsoft.com/iotedge/opc-publisher:<tag>`를 입력합니다.
@@ -491,11 +491,11 @@ docker run -h publisher mcr.microsoft.com/iotedge/opc-publisher <applicationname
 
 ### <a name="use-bind-mounts-shared-filesystem"></a>바인딩 탑재 사용(공유 파일 시스템)
 
-컨테이너 파일 시스템을 사용하는 대신 구성 정보와 로그 파일을 저장할 호스트 파일 시스템을 선택할 수 있습니다. 이 옵션을 구성하려면 바인딩 탑재 모드에서 `-v`의 `docker run` 옵션을 사용합니다.
+컨테이너 파일 시스템을 사용하는 대신 구성 정보와 로그 파일을 저장할 호스트 파일 시스템을 선택할 수 있습니다. 이 옵션을 구성하려면 바인딩 탑재 모드에서 `docker run`의 `-v` 옵션을 사용합니다.
 
 ## <a name="opc-ua-x509-certificates"></a>OPC UA X.509 인증서
 
-OPC UA는 X.509 인증서를 사용하여 OPC UA 클라이언트와 서버에서 연결을 설정할 때 이 클라이언트와 서버를 인증하고 상호 간의 통신을 암호화합니다. OPC 게시자는 OPC UA 스택에서 유지 관리하는 인증서 저장소를 사용하여 모든 인증서를 관리합니다. 시작 시 OPC 게시자에서 자체적으로 인증서가 있는지 확인합니다. 인증서가 인증서 저장소에 없고 명령줄에서 전달된 인증서가 아닌 경우 OPC 게시자에서 자체 서명된 인증서를 만듭니다. 자세한 내용은 **의** InitApplicationSecurityAsync`OpcApplicationConfigurationSecurity.cs` 메서드를 참조하세요.
+OPC UA는 X.509 인증서를 사용하여 OPC UA 클라이언트와 서버에서 연결을 설정할 때 이 클라이언트와 서버를 인증하고 상호 간의 통신을 암호화합니다. OPC 게시자는 OPC UA 스택에서 유지 관리하는 인증서 저장소를 사용하여 모든 인증서를 관리합니다. 시작 시 OPC 게시자에서 자체적으로 인증서가 있는지 확인합니다. 인증서가 인증서 저장소에 없고 명령줄에서 전달된 인증서가 아닌 경우 OPC 게시자에서 자체 서명된 인증서를 만듭니다. 자세한 내용은 `OpcApplicationConfigurationSecurity.cs`의 **InitApplicationSecurityAsync** 메서드를 참조하세요.
 
 자체 서명된 인증서는 신뢰할 수 있는 CA에서 서명하지 않았으므로 보안을 제공하지 않습니다.
 

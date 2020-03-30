@@ -1,5 +1,5 @@
 ---
-title: Azure Event Grid를 사용 하 여 이벤트 도메인으로 이벤트 게시
+title: Azure 이벤트 그리드를 통해 이벤트 도메인을 가진 이벤트 게시
 description: Azure Event Grid에서 이벤트 도메인을 사용하여 대규모 토픽 집합을 관리하고 토픽에 이벤트를 게시하는 방법을 보여줍니다.
 services: event-grid
 author: banisadr
@@ -8,10 +8,10 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.openlocfilehash: 1d07227249806b7d54523af66817a170c19354ee
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72786549"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>이벤트 도메인을 사용하여 토픽을 관리하고 이벤트를 게시하는 방법
@@ -35,7 +35,7 @@ ms.locfileid: "72786549"
 
 대규모 토픽 집합을 관리하려면 이벤트 도메인을 만듭니다.
 
-# <a name="azure-clitabazurecli"></a>[Azure CLI](#tab/azurecli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.
@@ -48,7 +48,7 @@ az eventgrid domain create \
   -l <location>
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Powershell](#tab/powershell)
 ```azurepowershell-interactive
 # If you have not already installed the module, do it now.
 # This module is required for preview features.
@@ -86,7 +86,7 @@ New-AzureRmEventGridDomain `
 
 Event Grid는 도메인 내 다양한 토픽에 대한 특정 사용자 액세스를 할당하는 데 사용할 수 있는 두 가지 기본 제공 역할을 제공합니다. 이러한 역할은 구독을 만들고 삭제할 수 있는 `EventGrid EventSubscription Contributor (Preview)` 및 이벤트 구독을 나열하는 것만 가능한 `EventGrid EventSubscription Reader (Preview)`입니다.
 
-# <a name="azure-clitabazurecli"></a>[Azure CLI](#tab/azurecli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 다음 Azure CLI 명령은 `demotopic1` 토픽에만 이벤트 구독을 만들고 삭제하도록 `alice@contoso.com`을 제한합니다.
 
 ```azurecli-interactive
@@ -96,7 +96,7 @@ az role assignment create \
   --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Powershell](#tab/powershell)
 다음 PowerShell 명령은 `demotopic1` 토픽에만 이벤트 구독을 만들고 삭제하도록 `alice@contoso.com`을 제한합니다.
 
 ```azurepowershell-interactive
@@ -117,7 +117,7 @@ Event Grid 서비스는 도메인 토픽에 대한 이벤트 구독 만들기 �
 
 일반적으로 이전 섹션에서 액세스 권한을 부여한 사용자가 구독을 만듭니다. 이 문서를 간소화하기 위해 구독을 만듭니다. 
 
-# <a name="azure-clitabazurecli"></a>[Azure CLI](#tab/azurecli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -126,7 +126,7 @@ az eventgrid event-subscription create \
   --endpoint https://contoso.azurewebsites.net/api/updates
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Powershell](#tab/powershell)
 
 ```azurepowershell-interactive
 New-AzureRmEventGridSubscription `
@@ -146,7 +146,7 @@ New-AzureRmEventGridSubscription `
 
 ## <a name="publish-events-to-an-event-grid-domain"></a>Event Grid 도메인에 이벤트 게시
 
-도메인에 이벤트를 게시하는 방법은 [사용자 지정 토픽에 게시](./post-to-custom-topic.md)하는 방법과 동일합니다. 그러나 사용자 지정 항목에 게시하는 대신 모든 이벤트를 도메인 엔드포인트에 게시합니다. JSON 이벤트 데이터에서 이벤트를 이동할 항목을 지정합니다. 다음 이벤트 배열을 게시하면 `"id": "1111"`인 이벤트는 `demotopic1` 토픽으로 전송되고 `"id": "2222"`인 이벤트는 `demotopic2` 토픽으로 전송됩니다.
+도메인에 이벤트를 게시하는 것은 사용자 지정 항목에 게시하는 것과 [동일합니다.](./post-to-custom-topic.md) 그러나 사용자 지정 항목에 게시하는 대신 모든 이벤트를 도메인 엔드포인트에 게시합니다. JSON 이벤트 데이터에서 이벤트를 이동할 항목을 지정합니다. 다음 이벤트 배열을 게시하면 `"id": "1111"`인 이벤트는 `demotopic1` 토픽으로 전송되고 `"id": "2222"`인 이벤트는 `demotopic2` 토픽으로 전송됩니다.
 
 ```json
 [{
@@ -175,7 +175,7 @@ New-AzureRmEventGridSubscription `
 }]
 ```
 
-# <a name="azure-clitabazurecli"></a>[Azure CLI](#tab/azurecli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 Azure CLI로 도메인 엔드포인트를 가져오려면 다음을 사용합니다.
 
 ```azurecli-interactive
@@ -192,7 +192,7 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Powershell](#tab/powershell)
 PowerShell로 도메인 엔드포인트를 가져오려면 다음을 사용합니다.
 
 ```azurepowershell-interactive

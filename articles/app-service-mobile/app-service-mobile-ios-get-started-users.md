@@ -1,27 +1,27 @@
 ---
-title: IOS에 대 한 인증 추가
-description: Azure Mobile Apps를 사용 하 여 AAD, Google, Facebook, Twitter, Microsoft 등의 id 공급자를 통해 iOS 앱 사용자를 인증 하는 방법을 알아봅니다.
+title: iOS에서 인증 추가
+description: AAD, 구글, 페이스북, 트위터, 마이크로소프트 와 같은 ID 제공업체를 통해 Azure 모바일 앱을 사용하여 iOS 앱 사용자를 인증하는 방법을 알아봅니다.
 ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: fd7860053e8c04ca9d5e355a721afd834835a441
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77459026"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>iOS 앱에 인증 추가
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-이 자습서에서는 지원되는 ID 공급자를 사용하여 [iOS 빠른 시작] 에 인증을 추가합니다. 이 자습서는 먼저 완료해야 하는 [iOS 빠른 시작] 를 기반으로 합니다.
+이 자습서에서는 지원되는 ID 공급자를 사용하여 [iOS 빠른 시작] 에 인증을 추가합니다. 이 자습서는 먼저 완료해야 하는 [iOS 빠른 시작 안내서] 를 기반으로 합니다.
 
-## <a name="register"></a>인증을 위해 앱 등록 및 App Service 구성
+## <a name="register-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>인증을 위해 앱 등록 및 App Service 구성
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>허용되는 외부 리디렉션 URL에 앱 추가
+## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a><a name="redirecturl"></a>허용되는 외부 리디렉션 URL에 앱 추가
 
 보안 인증을 위해서는 앱에 대한 새로운 URL 체계를 정의해야 합니다.  이를 통해 인증 시스템은 인증 프로세스가 완료되면 앱으로 다시 리디렉션될 수 있습니다.  이 자습서에서는 전체적으로 URL 체계 _appname_을 사용합니다.  그러나 선택한 어떤 URL 체계도 사용 가능합니다.  이 체계는 모바일 애플리케이션에 고유해야 합니다.  서버 쪽에서 리디렉션을 사용하도록 설정하려면
 
@@ -39,13 +39,13 @@ ms.locfileid: "77459026"
 
 7. **저장**을 클릭합니다.
 
-## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
+## <a name="restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>인증된 사용자에게 권한 제한
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 않은 사용자로 백 엔드에 액세스하려고 시도하지만 *TodoItem* 테이블에서 이제 인증을 요구하기 때문에 예외가 발생합니다.
 
-## <a name="add-authentication"></a>앱에 인증 추가
-**Objective-C**:
+## <a name="add-authentication-to-app"></a><a name="add-authentication"></a>앱에 인증 추가
+**목표-C**:
 
 1. Mac에서 Xcode를 사용하여 *QSTodoListViewController.m*을 열고 다음 메서드를 추가합니다.
 
@@ -69,11 +69,11 @@ Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 �
     }
     ```
 
-    Google을 ID 공급자로 사용하지 않는 경우 *google*을 *microsoftaccount*, *twitter*, *facebook* 또는 *windowsazureactivedirectory*로 변경합니다. Facebook을 사용 하는 경우 앱에서 [facebook 도메인을 허용 목록][1] 해야 합니다.
+    Google을 ID 공급자로 사용하지 않는 경우 *google*을 *microsoftaccount*, *twitter*, *facebook* 또는 *windowsazureactivedirectory*로 변경합니다. Facebook을 사용하는 경우 [앱에서 Facebook 도메인을 허용 목록에 추가해야 합니다][1].
 
     **urlScheme**을 애플리케이션에 대한 고유한 이름으로 바꿉니다.  urlScheme은 Azure Portal의 **외부 리디렉션 Url 허용** 필드에 지정한 URL 체계 프로토콜과 같아야 합니다. urlScheme은 인증 요청이 완료된 후 인증 콜백에서 애플리케이션으로 다시 전환하는 데 사용됩니다.
 
-2. `[self refresh]`QSTodoListViewController.m`viewDidLoad`의 *에 있는* 를 다음 코드로 바꿉니다.
+2. *QSTodoListViewController.m*의 `viewDidLoad`에 있는 `[self refresh]`를 다음 코드로 바꿉니다.
 
     ```Objective-C
     [self loginAndGetData];
@@ -102,7 +102,7 @@ Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 �
     }
     ```
 
-   `#pragma mark - Core Data stack` 줄 바로 앞에 다음 코드를 추가합니다.  _Appname_ 을 1 단계에서 사용한 urlscheme 값으로 바꿉니다.
+   `#pragma mark - Core Data stack` 줄 바로 앞에 다음 코드를 추가합니다.  1단계에서 사용한 _urlScheme_ 값으로 앱 이름을 바꿉니다.
 
 5. `AppName-Info.plist` 파일을 열고(AppName을 앱 이름으로 바꿈) 다음 코드를 추가합니다.
 
@@ -122,11 +122,11 @@ Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 �
 
     이 코드는 `<dict>` 요소 안에 추가해야 합니다.  _appname_ 문자열(**CFBundleURLSchemes**에 대한 배열 내에 있음)를 1단계에서 선택한 앱 이름으로 바꿉니다.  이러한 사항을 plist 편집기에서 변경할 수 있습니다. XCode에서 `AppName-Info.plist` 파일을 클릭하여 plist 편집기를 엽니다.
 
-    `com.microsoft.azure.zumo`CFBundleURLName**에 대한**  문자열을 Apple 번들 식별자로 바꿉니다.
+    **CFBundleURLName**에 대한 `com.microsoft.azure.zumo` 문자열을 Apple 번들 식별자로 바꿉니다.
 
 6. *Run*을 눌러 앱을 시작한 다음 로그인합니다. 로그인할 때 할 일 목록을 보고 업데이트할 수 있어야 합니다.
 
-**Swift**:
+**스위프트**:
 
 1. Mac의 Xcode에서 *ToDoTableViewController.swift*를 열고 다음 메서드를 추가합니다.
 
@@ -155,11 +155,11 @@ Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 �
     }
     ```
 
-    Google을 ID 공급자로 사용하지 않는 경우 *google*을 *microsoftaccount*, *twitter*, *facebook* 또는 *windowsazureactivedirectory*로 변경합니다. Facebook을 사용 하는 경우 앱에서 [facebook 도메인을 허용 목록][1] 해야 합니다.
+    Google을 ID 공급자로 사용하지 않는 경우 *google*을 *microsoftaccount*, *twitter*, *facebook* 또는 *windowsazureactivedirectory*로 변경합니다. Facebook을 사용하는 경우 [앱에서 Facebook 도메인을 허용 목록에 추가해야 합니다][1].
 
     **urlScheme**을 애플리케이션에 대한 고유한 이름으로 바꿉니다.  urlScheme은 Azure Portal의 **외부 리디렉션 Url 허용** 필드에 지정한 URL 체계 프로토콜과 같아야 합니다. urlScheme은 인증 요청이 완료된 후 인증 콜백에서 애플리케이션으로 다시 전환하는 데 사용됩니다.
 
-2. `self.refreshControl?.beginRefreshing()`ToDoTableViewController.swift`self.onRefresh(self.refreshControl)`에 있는 `viewDidLoad()`의 끝에서 *및* 줄을 제거합니다. 그 자리에 `loginAndGetData()` 에 대한 호출을 추가합니다.
+2. *ToDoTableViewController.swift*에 있는 `viewDidLoad()`의 끝에서 `self.refreshControl?.beginRefreshing()` 및 `self.onRefresh(self.refreshControl)` 줄을 제거합니다. 그 자리에 `loginAndGetData()` 에 대한 호출을 추가합니다.
 
     ```swift
     loginAndGetData()
@@ -180,7 +180,7 @@ Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 �
     }
     ```
 
-    _Appname_ 을 1 단계에서 사용한 urlscheme 값으로 바꿉니다.
+    1단계에서 사용한 _urlScheme_ 값으로 앱 이름을 바꿉니다.
 
 4. `AppName-Info.plist` 파일을 열고(AppName을 앱 이름으로 바꿈) 다음 코드를 추가합니다.
 
@@ -200,16 +200,16 @@ Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 �
 
     이 코드는 `<dict>` 요소 안에 추가해야 합니다.  _appname_ 문자열(**CFBundleURLSchemes**에 대한 배열 내에 있음)를 1단계에서 선택한 앱 이름으로 바꿉니다.  이러한 사항을 plist 편집기에서 변경할 수 있습니다. XCode에서 `AppName-Info.plist` 파일을 클릭하여 plist 편집기를 엽니다.
 
-    `com.microsoft.azure.zumo`CFBundleURLName**에 대한**  문자열을 Apple 번들 식별자로 바꿉니다.
+    **CFBundleURLName**에 대한 `com.microsoft.azure.zumo` 문자열을 Apple 번들 식별자로 바꿉니다.
 
 5. *Run*을 눌러 앱을 시작한 다음 로그인합니다. 로그인할 때 할 일 목록을 보고 업데이트할 수 있어야 합니다.
 
-App Service 인증은 Apples Inter-App Communication을 사용합니다.  이 주제에 대 한 자세한 내용은 [Apple 설명서][2] 를 참조 하세요.
+App Service 인증은 Apples Inter-App Communication을 사용합니다.  이 항목에 대한 자세한 내용은 [Apple 설명서][2]를 참조하세요.
 <!-- URLs. -->
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist
 [2]: https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html
-[Azure Portal]: https://portal.azure.com
+[Azure 포털]: https://portal.azure.com
 
 [iOS 빠른 시작]: app-service-mobile-ios-get-started.md
 

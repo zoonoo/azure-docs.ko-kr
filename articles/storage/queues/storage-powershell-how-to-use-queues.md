@@ -1,5 +1,5 @@
 ---
-title: PowerShell에서 Azure Queue storage 작업 수행
+title: PowerShell에서 Azure 큐 저장소 작업 수행
 description: PowerShell을 사용하여 Azure Queue Storage에서 작업을 수행하는 방법
 author: mhopkins-msft
 ms.author: mhopkins
@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.openlocfilehash: bd2f372bdcb949b64f748d186a9b060bb9cbec4a
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77087061"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Queue Storage 작업 수행
@@ -78,7 +78,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-queue"></a>큐 만들기
 
-다음 예제는 먼저 Storage 계정 이름 및 해당 액세스 키를 포함하는 Storage 계정 컨텍스트를 사용하여 Azure Storage에 대한 연결을 설정합니다. 그런 다음 [AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) cmdlet을 호출 하 여 ' howtoqueue ' 라는 큐를 만듭니다.
+다음 예제는 먼저 Storage 계정 이름 및 해당 액세스 키를 포함하는 Storage 계정 컨텍스트를 사용하여 Azure Storage에 대한 연결을 설정합니다. 다음으로 [New-AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) cmdlet을 호출하여 '하우투큐'라는 큐를 만듭니다.
 
 ```powershell
 $queueName = "howtoqueue"
@@ -103,7 +103,7 @@ Get-AzStorageQueue -Context $ctx | Select-Object Name
 
 ## <a name="add-a-message-to-a-queue"></a>큐에 메시지 추가
 
-큐의 실제 메시지에 영향을 미치는 작업은 PowerShell에 노출된 대로 .NET 스토리지 클라이언트 라이브러리를 사용합니다. 큐에 메시지를 추가 하려면 [CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message) 클래스와 같은 메시지 개체의 새 인스턴스를 만듭니다. 그런 다음, [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage) 메서드를 호출합니다. 문자열(UTF-8 형식) 또는 바이트 배열에서 CloudQueueMessage를 만들 수 있습니다.
+큐의 실제 메시지에 영향을 미치는 작업은 PowerShell에 노출된 대로 .NET 스토리지 클라이언트 라이브러리를 사용합니다. 큐에 메시지를 추가하려면 메시지 개체의 새 인스턴스인 [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message) 클래스를 만듭니다. 다음으로 AddMessage 메서드를 [호출합니다.](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage) 문자열(UTF-8 형식) 또는 바이트 배열에서 CloudQueueMessage를 만들 수 있습니다.
 
 다음 예제에서는 큐에 메시지를 추가하는 방법을 보여 줍니다.
 
@@ -130,7 +130,7 @@ $queue.CloudQueue.AddMessageAsync($QueueMessage)
 
 이 **표시 안 함 시간 제한**은 메시지를 다시 처리할 수 있을 때까지 해당 메시지를 표시하지 않을 시간을 정의합니다. 기본값은 30초입니다.
 
-코드는 2단계를 거쳐 큐에서 메시지를 읽습니다. Microsoft Azure. .cdca [queue. GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) 메서드를 호출 하면 큐에서 다음 메시지를 가져올 수 있습니다. **GetMessage** 에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 큐에서 메시지의 제거를 완료 하려면 [DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) 메서드를 호출 합니다 .이 메서드는
+코드는 2단계를 거쳐 큐에서 메시지를 읽습니다. [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) 메서드를 호출하면 큐에서 다음 메시지가 표시됩니다. **GetMessage에서** 반환 된 메시지는이 큐에서 메시지를 읽는 다른 코드에 표시 되지 않습니다. 큐에서 메시지 제거를 완료하려면 [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) 메서드를 호출합니다.
 
 다음 예제에서는 세 개의 큐 메시지를 통해 읽은 후 10초(표시 안 함 시간 제한) 동안 대기합니다. 그런 다음 세 개의 메시지를 다시 읽으면 **DeleteMessage**를 호출하여 읽은 후 메시지가 삭제됩니다. 메시지를 삭제한 후에 큐를 읽으려고 하면 $queueMessage가 NULL로 반환됩니다.
 

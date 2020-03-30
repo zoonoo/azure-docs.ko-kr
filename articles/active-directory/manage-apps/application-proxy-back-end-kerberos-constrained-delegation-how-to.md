@@ -1,5 +1,5 @@
 ---
-title: Kerberos 제한 위임 문제 해결-앱 프록시
+title: 문제 해결 Kerberos 제한된 위임 - 앱 프록시
 description: 애플리케이션 프록시에 대한 Kerberos 제한 위임 구성 문제 해결
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5e866f61409960447e17ecb50b035eabd53dc38
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74275690"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>애플리케이션 프록시에 대한 Kerberos 제한 위임 구성 문제 해결
@@ -38,7 +38,7 @@ KCD를 사용하도록 설정하는 절차는 간단합니다. SSO를 지원하�
 - 서버 및 애플리케이션 호스트는 단일 Azure Active Directory 도메인에 상주합니다. 도메인 및 포리스트 간 시나리오에 대한 자세한 내용은 [KCD 백서](https://aka.ms/KCDPaper)를 참조하세요.
 - 주체 애플리케이션은 사전 인증을 사용하도록 설정하여 Azure 테넌트에 게시됩니다. 사용자는 양식 기반 인증을 통해 Azure에 인증해야 합니다. 리치 클라이언트 인증 시나리오는 이 문서에서 다루지 않습니다. 나중에 특정 시점에 추가될 수도 있습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure AD 애플리케이션 프록시는 여러 유형의 인프라 또는 환경에 배포할 수 있습니다. 아키텍처는 조직마다 다릅니다. KCD 관련 문제의 가장 일반적인 원인은 환경이 아닙니다. 대부분의 문제가 단순한 구성 오류나 일반적인 실수로 인해 발생합니다.
 
@@ -46,7 +46,7 @@ Azure AD 애플리케이션 프록시는 여러 유형의 인프라 또는 환�
 
 - 도메인 구성원 서버가 특정 DC(도메인 컨트롤러)와 보안 채널 대화를 여는 것은 흔한 일입니다. 그런 다음, 서버는 언제든지 다른 대화로 이동할 수 있습니다. 따라서 커넥터 호스트는 특정 로컬 사이트 DC하고만 통신하도록 제한되지 않습니다.
 - 도메인 간 시나리오는 커넥터 호스트를 로컬 네트워크 경계 외부에 있는 DC에 연결하는 참조를 사용합니다. 이러한 경우, 다른 각각의 도메인을 나타내는 DC까지 계속 트래픽을 보내는 것도 중요합니다. 그러지 않으면 위임이 실패합니다.
-- 가능한 경우, 커넥터 호스트와 DC 사이에 활성 IPS 또는 IDS 디바이스를 배치하지 마세요. 이러한 장치는 너무 방해가 되지 않으며 핵심 RPC 트래픽을 방해할 수 있습니다.
+- 가능한 경우, 커넥터 호스트와 DC 사이에 활성 IPS 또는 IDS 디바이스를 배치하지 마세요. 이러한 장치는 때때로 너무 방해하고 핵심 RPC 트래픽을 방해합니다.
 
 간단한 시나리오에서 위임을 테스트합니다. 변수가 많을수록 더 많이 고민해야 할 수 있습니다. 시간을 절약하려면 테스트를 단일 커넥터로 제한합니다. 문제가 해결된 후 커넥터를 더 추가합니다.
 
@@ -56,9 +56,9 @@ Azure AD 애플리케이션 프록시는 여러 유형의 인프라 또는 환�
 
 KCD 문제를 보여 주는 것은 무엇일까요? KCD SSO 오류를 나타내는 여러 가지 일반적인 표시가 있습니다. 문제의 첫 번째 증상은 브라우저에서 나타납니다.
 
-![예: 잘못 된 KCD 구성 오류](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
+![예: 잘못된 KCD 구성 오류](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
 
-![예: 권한 누락으로 인해 권한 부여에 실패 했습니다.](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
+![예: 사용 권한이 누락되어 권한 부여가 실패했습니다.](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
 두 이미지 모두 동일한 증상인 SSO 실패를 보여 줍니다. 애플리케이션에 대한 사용자 액세스가 거부되었습니다.
 
@@ -84,9 +84,9 @@ Kerberos KCD(키 배포 센터)에서 사용자에 대한 Kerberos 서비스 티
 
 앞에서 언급했듯이 브라우저 오류 메시지는 실패하는 이유에 대한 단서를 제공합니다. 응답에 포함된 활동 ID 및 타임스탬프를 적어 두세요. 이 정보는 Azure 프록시 이벤트 로그의 실제 이벤트와 동작을 상호 연결하는 데 도움이 됩니다.
 
-![예: 잘못 된 KCD 구성 오류](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
+![예: 잘못된 KCD 구성 오류](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
 
-이벤트 로그에 표시된 해당 항목은 이벤트 13019 또는 12027로 표시됩니다. 커넥터 이벤트 로그는 **애플리케이션 및 서비스 로그**&gt;**Microsoft**&gt;**AadApplicationProxy**&gt;**Connector**&gt;**Admin**에서 확인할 수 있습니다.
+이벤트 로그에 표시된 해당 항목은 이벤트 13019 또는 12027로 표시됩니다. 커넥터 이벤트 로그는 **애플리케이션 및 서비스 로그** &gt; **Microsoft** &gt; **AadApplicationProxy** &gt; **Connector** &gt; **Admin**에서 확인할 수 있습니다.
 
 ![애플리케이션 프록시 이벤트 로그의 이벤트 13019](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic4.png)
 
@@ -129,15 +129,15 @@ Kerberos KCD(키 배포 센터)에서 사용자에 대한 Kerberos 서비스 티
 
      *백 엔드 서버가 HTTP 401 오류와 함께 Kerberos 인증 시도에 응답하기 때문에 Microsoft AAD Application Proxy Connector에서 사용자를 인증할 수 없습니다.*
 
-      ![HTTTP 401 사용할 수 없음 오류 표시](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
+      ![HTTTP 401 금지 된 오류를 표시 합니다.](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
 
    - IIS 애플리케이션을 확인합니다. 구성된 애플리케이션 풀과 SPN이 Azure AD에서 동일한 계정을 사용하도록 구성되었는지 확인합니다. 다음 그림에 표시된 대로 IIS를 탐색합니다.
 
       ![IIS 애플리케이션 구성 창](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic9.png)
 
-      ID를 알게 되었으면, 이 계정이 해당 SPN으로 구성되었는지 확인합니다. 예는 `setspn –q http/spn.wacketywack.com`입니다. 명령 프롬프트에 다음 텍스트를 입력합니다.
+      ID를 알게 되었으면, 이 계정이 해당 SPN으로 구성되었는지 확인합니다. 예제는 `setspn –q http/spn.wacketywack.com`입니다. 명령 프롬프트에 다음 텍스트를 입력합니다.
 
-      ![SetSPN 명령 창을 표시 합니다.](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
+      ![SetSPN 명령 창 표시](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
 
    - 포털에서 애플리케이션 설정에 대해 정의된 SPN을 확인합니다. 대상 Azure AD 계정에 대해 구성된 것과 동일한 SPN이 애플리케이션 앱 풀에서 사용되는지 확인합니다.
 
@@ -165,8 +165,8 @@ Kerberos KCD(키 배포 센터)에서 사용자에 대한 Kerberos 서비스 티
 
 ## <a name="other-scenarios"></a>기타 시나리오
 
-- Azure 애플리케이션 프록시는 애플리케이션에 요청을 보내기 전에 Kerberos 티켓을 요청합니다. 일부 타사 응용 프로그램은이 인증 방법을 원하지 않습니다. 이러한 애플리케이션은 보다 일반적인 협상이 수행될 것으로 예상합니다. 첫 번째 요청은 익명으로 처리되므로 애플리케이션이 401을 통해 지원하는 인증 유형으로 응답할 수 있습니다.
-- 다중 홉 인증은 일반적으로 SQL Server Reporting Services와 같이 둘 다 인증이 필요한 백 엔드 및 프런트 엔드를 사용하여 애플리케이션이 계층화된 시나리오에서 사용됩니다. 다중 홉 시나리오를 구성 하려면 지원 문서 [멀티 홉 시나리오에서 Kerberos 제한 위임에 프로토콜 전환이 필요할 수 있음](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul)을 참조 하세요.
+- Azure 애플리케이션 프록시는 애플리케이션에 요청을 보내기 전에 Kerberos 티켓을 요청합니다. 일부 타사 응용 프로그램은 이 인증 방법을 좋아하지 않습니다. 이러한 애플리케이션은 보다 일반적인 협상이 수행될 것으로 예상합니다. 첫 번째 요청은 익명으로 처리되므로 애플리케이션이 401을 통해 지원하는 인증 유형으로 응답할 수 있습니다.
+- 다중 홉 인증은 일반적으로 SQL Server Reporting Services와 같이 둘 다 인증이 필요한 백 엔드 및 프런트 엔드를 사용하여 애플리케이션이 계층화된 시나리오에서 사용됩니다. 다중 홉 시나리오를 구성하려면 [다중 홉 시나리오에서 프로토콜 전환이 필요할 수 있는 Kerberos 제한된 위임](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul)지원 문서를 참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

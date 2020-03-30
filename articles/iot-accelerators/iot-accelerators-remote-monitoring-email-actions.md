@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
 ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74168372"
 ---
 # <a name="add-an-email-action"></a>이메일 작업 추가
@@ -81,7 +81,7 @@ ms.locfileid: "74168372"
 
 이제 이메일 작업이 적용된 규칙이 사용되도록 설정됩니다. 작업이 트리거될 때마다 새 이메일이 받는 사람에게 전송됩니다.
 
-## Outlook에 로그인 <a name="outlook"></a>
+## <a name="sign-in-to-outlook"></a>Outlook에 로그인 <a name="outlook"></a>
 
 솔루션 가속기에서 이메일 작업을 처음 사용하도록 설정할 경우 Outlook에 로그인해야 합니다. 이 작업은 이메일 알림을 보내는 이메일 계정을 설정합니다.
 
@@ -96,7 +96,7 @@ ms.locfileid: "74168372"
 
 다음 단계에서는 이메일 작업을 수동으로 설정하고 확인하는 방법을 보여 줍니다.
 
-1. [Azure Portal](https://portal.azure.com)로 이동합니다.
+1. [Azure 포털로](https://portal.azure.com)이동합니다.
 
 1. 솔루션 가속기에 대한 리소스 그룹으로 이동합니다.
 
@@ -138,7 +138,7 @@ ms.locfileid: "74168372"
 
    ![Outlook 로그인 성공](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
-## 이메일 HTML 사용자 지정 <a name="htmledit"></a>
+## <a name="customize-the-email-html"></a>이메일 HTML 사용자 지정 <a name="htmledit"></a>
 
 기본 제공된 원격 모니터링 솔루션 가속기는 작업 이메일에 대한 기본 HTML 템플릿을 제공합니다. 이메일 템플릿은 이메일 작업 설정의 값을 사용합니다. 예를 들면 다음과 같습니다.
 
@@ -164,7 +164,7 @@ ms.locfileid: "74168372"
 
 1. 이미지 또는 사용자 지정 텍스트를 추가하려면 EmailTemplate.HTML 파일을 직접 업데이트합니다.
 
-## <a name="throttling"></a>제한
+## <a name="throttling"></a>스로틀
 
 원격 모니터링 솔루션 가속기는 Outlook을 사용하여 이메일 알림을 보냅니다. Outlook에서 전송되는 이메일 수가 [분당 30개 이메일](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits)로 제한됩니다. 이메일을 수신하는 이메일 클라이언트에서 분당 수신되는 이메일의 수를 제한할 수도 있습니다. 제한 사항은 특정 이메일 클라이언트에 문의하세요. 규칙에 대해 이메일 알림을 설정할 때 규칙은 적어도 1분 동안의 평균 값을 계산하고 아주 짧은 기간의 값은 사용하지 않아야 합니다.
 

@@ -1,28 +1,28 @@
 ---
-title: 클라우드 폴더의 콘텐츠 동기화
-description: OneDrive 또는 Dropbox를 포함 하 여 클라우드 폴더에서 콘텐츠 동기화를 통해 Azure App Service에 앱을 배포 하는 방법에 대해 알아봅니다.
+title: 클라우드 폴더에서 콘텐츠 동기화
+description: OneDrive 또는 Dropbox를 비롯한 클라우드 폴더의 콘텐츠 동기화를 통해 Azure 앱 서비스에 앱을 배포하는 방법을 알아봅니다.
 ms.assetid: 88d3a670-303a-4fa2-9de9-715cc904acec
 ms.topic: article
 ms.date: 12/03/2018
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: 9f18eef607a5f655aecc0b6ebe1c85a239b34192
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77482975"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>클라우드 폴더에서 Azure App Service로 콘텐츠 동기화
 이 문서에서는 Dropbox 및 OneDrive에서 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)로 사용자 콘텐츠를 동기화하는 방법을 보여 줍니다. 
 
-주문형 콘텐츠 동기화 배포는 App Service [Kudu 배포 엔진](https://github.com/projectkudu/kudu/wiki)에서 제공됩니다. 지정 된 클라우드 폴더에서 앱 코드 및 콘텐츠 작업을 수행한 다음 단추를 클릭 하 여 App Service와 동기화 할 수 있습니다. 콘텐츠 동기화는 Kudu 빌드 서버를 사용합니다. 
+주문형 콘텐츠 동기화 배포는 App Service [Kudu 배포 엔진](https://github.com/projectkudu/kudu/wiki)에서 제공됩니다. 지정된 클라우드 폴더에서 앱 코드 및 콘텐츠로 작업한 다음 단추 클릭만으로 앱 서비스에 동기화할 수 있습니다. 콘텐츠 동기화는 Kudu 빌드 서버를 사용합니다. 
 
 ## <a name="enable-content-sync-deployment"></a>콘텐츠 동기화 배포를 사용하도록 설정
 
 콘텐츠 동기화를 사용하도록 설정하려면 [Azure Portal](https://portal.azure.com)에서 App Service 앱 페이지로 이동합니다.
 
-왼쪽 메뉴에서 **배포 센터** > **OneDrive** 또는 **Dropbox** > **인증**을 클릭합니다. 표시되는 인증 메시지를 따릅니다. 
+왼쪽 메뉴에서 **배포 센터** > **원드라이브** 또는 **드롭박스** > **인증을 클릭합니다.** 표시되는 인증 메시지를 따릅니다. 
 
 ![](media/app-service-deploy-content-sync/choose-source.png)
 
@@ -32,8 +32,8 @@ ms.locfileid: "77482975"
 
 **구성** 페이지에서 동기화할 폴더를 선택합니다. 이 폴더는 OneDrive 또는 Dropbox에서 다음과 같은 지정된 콘텐츠 경로 아래에 생성됩니다. 
    
-* **OneDrive**: `Apps\Azure Web Apps`
-* **Dropbox**: `Apps\Azure`
+* **원 드라이브**:`Apps\Azure Web Apps`
+* **드롭 박스**:`Apps\Azure`
 
 작업을 마쳤으면 **계속**을 클릭합니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "77482975"
 
 콘텐츠 동기화를 사용하지 않도록 설정하려면 [Azure Portal](https://portal.azure.com)에서 App Service 앱 페이지로 이동합니다.
 
-왼쪽 메뉴에서 **배포 센터** > **연결 끊기**를 클릭합니다.
+왼쪽 메뉴에서 **배포 센터** > **연결을**클릭합니다.
 
 ![](media/app-service-deploy-content-sync/disable.png)
 

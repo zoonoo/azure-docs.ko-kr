@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용 하 여 SSL 오프 로드-Azure 애플리케이션 게이트웨이
+title: PowerShell - Azure 응용 프로그램 게이트웨이를 사용하는 SSL 오프로드
 description: 이 문서에서는 Azure 클래식 배포 모델을 사용하여 SSL 오프로드와 함께 애플리케이션 게이트웨이를 만드는 지침을 제공합니다.
 services: application-gateway
 author: vhorne
@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: c456a0856adb0d36349b5f96ba0ab8bab3eec5c9
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74047913"
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 SSL 오프로드에 대한 애플리케이션 게이트웨이 구성
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-ssl-portal.md)
+> * [Azure 포털](application-gateway-ssl-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
 > * [Azure 클래식 PowerShell](application-gateway-ssl.md)
 > * [Azure CLI](application-gateway-ssl-cli.md)
@@ -49,7 +49,7 @@ New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subn
 
 생성된 게이트웨이의 유효성을 검사하려면 `Get-AzureApplicationGateway` cmdlet을 입력합니다.
 
-이 샘플에서 **Description**, **InstanceCount** 및 **GatewaySize**는 선택적 매개 변수입니다. **InstanceCount**의 기본값은 **2**이고, 최대값은 **10**입니다. **GatewaySize**에 대한 기본값은 **보통**입니다. 크고 작은 다른 사용 가능한 값이 됩니다. 게이트웨이가 아직 시작되지 않았으므로 **VirtualIPs** 및 **DnsName**이 빈 값으로 표시됩니다. 이 값들은 게이트웨이가 실행 상태가 된 후 생성됩니다.
+이 샘플에서 **Description**, **InstanceCount** 및 **GatewaySize**는 선택적 매개 변수입니다. **InstanceCount**의 기본값은 **2**이고, 최대값은 **10**입니다. **GatewaySize의** 기본값은 **보통입니다.** 크고 작은 다른 사용 가능한 값이 됩니다. 게이트웨이가 아직 시작되지 않았으므로 **VirtualIPs** 및 **DnsName**이 빈 값으로 표시됩니다. 이 값들은 게이트웨이가 실행 상태가 된 후 생성됩니다.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -94,13 +94,13 @@ State..........: Provisioned
 
 * **백 엔드 서버 풀**: 백 엔드 서버의 IP 주소 목록입니다. 나열된 IP 주소는 가상 네트워크 서브넷에 속하거나 공용 IP 도는 VIP 주소이어야 합니다.
 * **백 엔드 서버 풀 설정**: 모든 풀에는 포트, 프로토콜 및 쿠키 기반의 선호도와 같은 설정이 있습니다. 이러한 설정은 풀에 연결 및 풀 내의 모든 서버에 적용 됩니다.
-* **프런트 엔드 포트**: 이 포트는 애플리케이션 게이트웨이에 열려 있는 공용 포트입니다. 트래픽이 이 포트에 도달하면, 백 엔드 서버 중의 하나로 리디렉트됩니다.
+* **프런트 엔드 포트**: 이 포트는 응용 프로그램 게이트웨이에서 열리는 공용 포트입니다. 트래픽이 이 포트에 도달하면, 백 엔드 서버 중의 하나로 리디렉트됩니다.
 * **수신기**: 수신기에는 프런트 엔드 포트, 프로토콜(Http 또는 Https, 이 값은 대/소문자 구분) 및 SSL 인증서 이름(SSL 오프로드를 구성하는 경우)이 있습니다.
 * **규칙**: 규칙은 수신기와 백 엔드 서버 풀을 바인딩하고 특정 수신기에 도달했을 때 트래픽을 이동하는 백 엔드 서버 풀을 정의합니다. 현재는 *기본* 규칙만 지원 됩니다. *기본* 규칙은 라운드 로빈 부하 분산입니다.
 
 **추가 구성 정보**
 
-SSL 인증서 구성에서 **HttpListener** 의 프로토콜은 **Https** (대/소문자 구분)로 바꿔야 합니다. **SslCert** 요소를 이전 **SSL 인증서 섹션의 업로드**에 사용된 것과 동일한 이름으로 값을 설정하여 [HttpListener](#upload-ssl-certificates)에 추가합니다. 프런트 엔드 포트는 **443**으로 업데이트되어야 합니다.
+SSL 인증서 구성에서 **HttpListener** 의 프로토콜은 **Https** (대/소문자 구분)로 바꿔야 합니다. **SslCert** 요소를 이전 [SSL 인증서 섹션의 업로드](#upload-ssl-certificates)에 사용된 것과 동일한 이름으로 값을 설정하여 **HttpListener**에 추가합니다. 프런트 엔드 포트는 **443으로**업데이트되어야 합니다.
 
 **쿠키 기반 선호도를 사용하도록 설정**: 클라이언트 세션의 요청이 항상 웹 팜에 있는 동일한 VM으로 전송되도록 애플리케이션 게이트웨이를 구성할 수 있습니다. 이를 완료하려면 게이트웨이에서 트래픽을 적절하게 지시할 수 있는 세션 쿠키를 삽입합니다. 쿠키 기반 선호도를 사용하려면 **BackendHttpSettings** 요소에서 **CookieBasedAffinity**를 **Enabled**로 설정합니다.
 
@@ -202,5 +202,5 @@ DnsName       : appgw-4c960426-d1e6-4aae-8670-81fd7a519a43.cloudapp.net
 
 일반적 부하 분산 옵션에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
+* [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
+* [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)

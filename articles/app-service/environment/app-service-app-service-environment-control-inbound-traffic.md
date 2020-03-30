@@ -1,6 +1,6 @@
 ---
-title: 인바운드 트래픽 v1 제어
-description: App Service Environment에 대 한 인바운드 트래픽을 방법 제어 하는 방법을 알아봅니다. 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
+title: 인바운드 트래픽 제어 v1
+description: 앱 서비스 환경에 대한 인바운드 트래픽을 제어하는 방법을 알아봅니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
 author: ccompy
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
 ms.topic: article
@@ -8,19 +8,19 @@ ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: aa43d44a691fa9151959e8817596bdfc9bba65f0
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74687386"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>App Service Environment로의 인바운드 트래픽을 제어하는 방법
 ## <a name="overview"></a>개요
-App Service Environment은 Azure Resource Manager 가상 네트워크 **또는** 클래식 배포 모델 [가상 네트워크][virtualnetwork] **에서 만들** 수 있습니다.  App Service Environment를 만들 때 새 가상 네트워크 및 새 서브넷을 정의할 수 있습니다.  또는 기존 가상 네트워크 및 기존 서브넷에 App Service Environment를 만들 수 있습니다.  2016년 6월에 적용된 변경 내용에 따르면 공용 주소 범위 또는 RFC1918 주소 공간(즉, 프라이빗 주소) 중 하나를 사용하는 가상 네트워크에 ASE를 배포할 수도 있습니다.  App Service Environment 만드는 방법에 대 한 자세한 내용은 [App Service Environment를 만드는 방법을][HowToCreateAnAppServiceEnvironment]참조 하세요.
+App Service Environment를 Azure Resource Manager 가상 네트워크에서 **만들 수도 있고** 클래식 배포 모델 [가상 네트워크][virtualnetwork]에서 **만들 수도 있습니다**.  App Service Environment를 만들 때 새 가상 네트워크 및 새 서브넷을 정의할 수 있습니다.  또는 기존 가상 네트워크 및 기존 서브넷에 App Service Environment를 만들 수 있습니다.  2016년 6월에 적용된 변경 내용에 따르면 공용 주소 범위 또는 RFC1918 주소 공간(즉, 프라이빗 주소) 중 하나를 사용하는 가상 네트워크에 ASE를 배포할 수도 있습니다.  앱 서비스 환경을 만드는 방법에 대한 자세한 내용은 [App Service 환경을 만드는 방법][HowToCreateAnAppServiceEnvironment]을 참조하세요.
 
 App Service Environment는 항상 서브넷 내에 만들어야 합니다. 서브넷은 특정 업스트림 IP 주소의 HTTP 및 HTTPS 트래픽만 허용되도록 업스트림 디바이스 및 서비스 뒤의 인바운드 트래픽을 잠그는 데 사용할 수 있는 네트워크 경계를 제공하기 때문입니다.
 
-서브넷의 인바운드 및 아웃 바운드 네트워크 트래픽은 [네트워크 보안 그룹][NetworkSecurityGroups]을 사용 하 여 제어 됩니다. 인바운드 트래픽을 제어하려면 네트워크 보안 그룹에 네트워크 보안 규칙을 만든 다음 App Service Environment가 포함된 서브넷에 네트워크 보안 그룹을 할당해야 합니다.
+서브넷의 인바운드 및 아웃바운드 네트워크 트래픽은 [네트워크 보안 그룹][NetworkSecurityGroups]을 사용하여 제어합니다. 인바운드 트래픽을 제어하려면 네트워크 보안 그룹에 네트워크 보안 규칙을 만든 다음 App Service Environment가 포함된 서브넷에 네트워크 보안 그룹을 할당해야 합니다.
 
 네트워크 보안 그룹을 서브넷에 할당하면 네트워크 보안 그룹에 정의된 허용 및 거부 규칙에 따라 App Service Environment의 앱에 대한 인바운드 트래픽이 허용/거부됩니다.
 
@@ -31,8 +31,8 @@ App Service Environment는 항상 서브넷 내에 만들어야 합니다. 서�
 
 다음은 App Service 환경에서 사용되는 포트 목록입니다. 명확하게 언급이 없는 한 모든 포트는 **TCP**입니다.
 
-* 454: Azure 인프라에서 SSL을 통해 App Service 환경을 관리 및 유지 보수하는 데 사용되는 **필수 포트** 입니다.  이 포트를 차단하지 마세요.  이 포트는 항상 ASE의 공용 VIP에 바인딩됩니다.
-* 455: Azure 인프라에서 SSL을 통해 App Service 환경을 관리 및 유지 보수하는 데 사용되는 **필수 포트** 입니다.  이 포트를 차단하지 마세요.  이 포트는 항상 ASE의 공용 VIP에 바인딩됩니다.
+* 454: SSL을 통해 앱 서비스 환경을 관리하고 유지 관리하기 위해 Azure 인프라에서 사용하는 **필수 포트입니다.**  이 포트를 차단하지 마세요.  이 포트는 항상 ASE의 공용 VIP에 바인딩됩니다.
+* 455: SSL을 통해 앱 서비스 환경을 관리하고 유지 관리하기 위해 Azure 인프라에서 사용하는 **필수 포트입니다.**  이 포트를 차단하지 마세요.  이 포트는 항상 ASE의 공용 VIP에 바인딩됩니다.
 * 80: App Service 환경의 App Service 계획에서 실행되는 앱에 대한 인바운드 HTTP 트래픽의 기본 포트입니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩됩니다.
 * 443: App Service Environment의 App Service 계획에서 실행되는 앱에 대한 인바운드 SSL 트래픽의 기본 포트입니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩됩니다.
 * 21: FTP에 대한 컨트롤 채널입니다.  FTP를 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩될 수 있습니다.
@@ -45,14 +45,14 @@ App Service Environment는 항상 서브넷 내에 만들어야 합니다. 서�
 ## <a name="outbound-connectivity-and-dns-requirements"></a>아웃 바운드 연결 및 DNS 요구 사항
 App Service 환경이 제대로 작동하려면 다양한 엔드포인트에 대한 아웃바운드 액세스가 필요합니다. ASE에서 사용하는 외부 엔드포인트의 전체 목록은 [ExpressRoute에 대한 네트워크 구성](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) 문서의 "필수 네트워크 연결" 섹션에 있습니다.
 
-App Service Environment에는 가상 네트워크에 대해 구성된 유효한 DNS 인프라가 필요합니다.  App Service Environment를 만든 후에 어떤 이유로든 DNS 구성이 변경되면 개발자는 App Service Environment를 강제하여 새 DNS 구성을 선택할 수 있습니다.  [Azure Portal][NewPortal] 에서 App Service Environment 관리 블레이드 맨 위에 있는 "다시 시작" 아이콘을 사용 하 여 롤링 환경 다시 부팅을 트리거하면 환경에서 새 DNS 구성을 선택 하 게 됩니다.
+App Service Environment에는 가상 네트워크에 대해 구성된 유효한 DNS 인프라가 필요합니다.  App Service Environment를 만든 후에 어떤 이유로든 DNS 구성이 변경되면 개발자는 App Service Environment를 강제하여 새 DNS 구성을 선택할 수 있습니다.  [Azure Portal][NewPortal]에서 App Service 환경 관리 블레이드의 상단에 있는 "다시 시작" 아이콘을 사용하여 롤링 환경 다시 부팅을 트리거하면 환경에서 새 DNS 구성을 선택하게 됩니다.
 
 Vnet의 모든 사용자 지정 DNS 서버는 App Service Environment 생성보다 미리 설치하는 것을 권장합니다.  App Service Environment가 만들어질 때 가상 네트워크의 DNS 구성이 변경될 경우, App Service Environment 생성 과정에 장애가 발생합니다.  이와 비슷하게, 사용자 지정 DNS 서버가 VPN 게이트웨이의 반대쪽 끝에 있고 DNS 서버를 연결하거나 사용할 수 없는 경우 App Service Environment를 만드는 프로세스도 실패합니다.
 
 ## <a name="creating-a-network-security-group"></a>네트워크 보안 그룹 만들기
-네트워크 보안 그룹의 작동 방식에 대 한 자세한 내용은 다음 [정보][NetworkSecurityGroups]를 참조 하세요.  다음Azure Service Management 예는 네트워크 보안 그룹을 구성하고 App Service 환경이 포함된 서브넷에 적용하는 방법을 중심으로 설명된 네트워크 보안 그룹에 대한 세부 정보입니다.
+네트워크 보안 그룹의 작동 방식에 대한 자세한 내용은 다음 [정보][NetworkSecurityGroups]를 참조하세요.  다음Azure Service Management 예는 네트워크 보안 그룹을 구성하고 App Service 환경이 포함된 서브넷에 적용하는 방법을 중심으로 설명된 네트워크 보안 그룹에 대한 세부 정보입니다.
 
-**참고:** [Azure Portal](https://portal.azure.com) 을 사용하거나 Azure PowerShell을 통해 그래픽 방식으로 네트워크 보안 그룹을 구성할 수 있습니다.
+**참고:**[Azure Portal](https://portal.azure.com) 을 사용하거나 Azure PowerShell을 통해 그래픽 방식으로 네트워크 보안 그룹을 구성할 수 있습니다.
 
 네트워크 보안 그룹은 먼저 구독과 연결된 독립 실행형 엔터티로 만들어집니다. 네트워크 보안 그룹은 Azure 지역에 만들어지므로 App Service Environment와 동일한 지역에 만들어졌는지 확인해야 합니다.
 
@@ -79,7 +79,7 @@ FTP 지원이 필요한 경우 다음 규칙을 템플릿으로 사용하여 FTP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPCtrl" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '21' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '10001-10020' -Protocol TCP
 
-(**참고:** 데이터 채널 포트 범위는 미리 보기 기간 동안 변경될 수 있습니다.)
+**(참고:** 미리 보기 기간 동안 데이터 채널 포트 범위가 변경될 수 있습니다.)
 
 Visual Studio를 통한 원격 디버깅을 사용하는 경우 다음과 같은 규칙에 따라 액세스 권한을 부여할 수 있습니다.  버전마다 다른 포트를 원격 디버깅에 사용하기 때문에 지원되는 각 버전의 Visual Studio에 대한 별도의 규칙이 있습니다.  FTP 액세스와 마찬가지로 원격 디버깅 트래픽은 기존 WAF 또는 프록시 디바이스를 통해 제대로 흐르지 않을 수 있습니다.  대신 *SourceAddressPrefix* 를 Visual Studio를 실행하는 개발자 컴퓨터의 IP 주소 범위로 설정할 수 있습니다.
 
@@ -110,9 +110,9 @@ Visual Studio를 통한 원격 디버깅을 사용하는 경우 다음과 같은
 ASE의 앱이 IP-SSL을 사용하도록 구성되어 있으면 외부 고객에게 보이지 않으므로 특수 포트 쌍 매핑에 대한 지식이 필요하지 않습니다.  앱에 대한 트래픽은 구성된 IP-SSL 주소를 정상적으로 이동됩니다.  특수 포트 쌍으로의 변환은 ASE를 포함하는 서브넷으로의 라우팅 트래픽 최종 레그 동안 내부적으로 자동 발생합니다. 
 
 ## <a name="getting-started"></a>시작
-App Service Environment를 시작하려면 [App Service Environment 소개][IntroToAppServiceEnvironment]를 참조하세요.
+App Service 환경을 시작하려면 [App Service 환경 소개][IntroToAppServiceEnvironment]
 
-App Service Environment에서 백 엔드 리소스에 안전 하 게 연결 하는 앱에 대 한 자세한 내용은 [App Service Environment에서 백 엔드 리소스에 안전 하 게 연결][SecurelyConnecttoBackend]
+App Service 환경에서 백 엔드 리소스에 앱을 안전하게 연결하는 방법에 대한 자세한 내용은 [App Service 환경에서 백 엔드 리소스에 안전하게 연결][SecurelyConnecttoBackend]을 참조하세요.
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

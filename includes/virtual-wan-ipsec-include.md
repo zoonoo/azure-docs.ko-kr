@@ -9,14 +9,14 @@ ms.date: 10/07/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 02ced43f8c3fc7c83359b78362e8ad0feeab3070
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72168402"
 ---
 >[!NOTE]
->기본 정책으로 작업할 때 Azure는 IPsec 터널을 설정 하는 동안 초기자와 응답자 역할을 모두 수행할 수 있습니다. Azure는 응답자 전용으로 지원 되지 않습니다.
+>기본 정책으로 작업할 때 Azure는 IPsec 터널 설정 중에 초기화자 및 응답자 역할을 할 수 있습니다. Azure는 응답자로만 지원되지 않습니다.
 >
 
 ### <a name="initiator"></a>시작자

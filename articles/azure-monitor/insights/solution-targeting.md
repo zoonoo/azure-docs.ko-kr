@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
 ms.openlocfilehash: dd3279db67fb45aee43cf1b0ef1bebf49433eef4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663235"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Azure Monitor의 모니터링 솔루션 대상 지정(미리 보기)
@@ -42,7 +42,7 @@ Azure Monitor에서 [컴퓨터 그룹](../platform/computer-groups.md)을 만들
  6. **확인**을 클릭하여 범위 구성을 만듭니다. 
 
 
-### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. 범위 구성을 솔루션에 적용 합니다.
+### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. 범위 구성을 솔루션에 적용합니다.
 범위를 구성했으면 하나 이상의 솔루션에 적용할 수 있습니다.  단일 범위 구성을 여러 솔루션에서 사용할 수 있지만, 각 솔루션은 범위 구성을 하나만 사용할 수 있습니다.
 
 다음 프로세스를 사용하여 범위 구성을 적용합니다.  

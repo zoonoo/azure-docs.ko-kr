@@ -1,6 +1,6 @@
 ---
 title: HDInsight에서 ML 서비스 운영 - Azure
-description: Azure HDInsight에서 ML 서비스를 사용 하 여 예측 하도록 데이터 모델을 운영 하는 방법을 알아봅니다.
+description: Azure HDInsight에서 ML 서비스를 사용하여 예측하기 위해 데이터 모델을 운영하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: a05bcdef2b7456fbab852e9728c156e57f847f57
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71123572"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 운영
@@ -23,7 +23,7 @@ HDInsight에서 ML 서비스 클러스터를 사용하여 데이터 모델링을
 
 * HDInsight의 ML Services 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**으로 **ML Services**를 선택합니다.
 
-* SSH (Secure Shell) 클라이언트: SSH 클라이언트는 HDInsight 클러스터에 원격으로 연결하여 클러스터에서 직접 명령을 실행하는 데 사용됩니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+* SSH(보안 셸) 클라이언트: SSH 클라이언트는 HDInsight 클러스터에 원격으로 연결하여 클러스터에서 직접 명령을 실행하는 데 사용됩니다. 자세한 내용은 [HDInsight와 SSH 사용을](../hdinsight-hadoop-linux-use-ssh-unix.md)참조하십시오.
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>원 박스 구성을 사용하여 ML 서비스 클러스터 운영
 
@@ -54,27 +54,27 @@ HDInsight에서 ML 서비스 클러스터를 사용하여 데이터 모델링을
 
 1. 이제 ML Server를 운영하는 방법을 선택할 수 있는 옵션이 표시됩니다. 표시된 옵션에서 **A**를 입력하여 첫 번째 옵션을 선택합니다.
 
-    ![R server 관리 유틸리티 운영](./media/r-server-operationalize/admin-util-one-box-2.png)
+    ![R 서버 관리 유틸리티 운영](./media/r-server-operationalize/admin-util-one-box-2.png)
 
 1. 메시지가 표시되면 로컬 관리 사용자의 암호를 입력하고 다시 입력합니다.
 
 1. 조작이 성공했음을 알리는 출력이 표시됩니다. 메뉴에서 다른 옵션을 선택하라는 메시지도 표시됩니다. E를 선택하여 주 메뉴로 돌아갑니다.
 
-    ![R server 관리 유틸리티 성공](./media/r-server-operationalize/admin-util-one-box-3.png)
+    ![R 서버 관리 유틸리티 성공](./media/r-server-operationalize/admin-util-one-box-3.png)
 
 1. 필요에 따라 다음과 같이 진단 테스트를 실행하여 진단 검사를 수행할 수 있습니다.
 
     a. 주 메뉴에서 **6**을 선택하여 진단 테스트를 실행합니다.
 
-    ![R server 관리 유틸리티 진단](./media/r-server-operationalize/hdinsight-diagnostic1.png)
+    ![R 서버 관리 유틸리티 진단](./media/r-server-operationalize/hdinsight-diagnostic1.png)
 
-    b. 진단 테스트 메뉴에서 **A**를 선택합니다. 메시지가 표시되면 로컬 관리 사용자에 대해 지정한 암호를 입력합니다.
+    b. 진단 테스트 메뉴에서 **A를**선택합니다. 메시지가 표시되면 로컬 관리자 사용자에게 제공한 암호를 입력합니다.
 
-    ![R server 관리 유틸리티 테스트](./media/r-server-operationalize/hdinsight-diagnostic2.png)
+    ![R 서버 관리 유틸리티 테스트](./media/r-server-operationalize/hdinsight-diagnostic2.png)
 
-    c. 출력에서 전체 상태가 성공으로 표시되는지 확인합니다.
+    다. 출력에서 전체 상태가 성공으로 표시되는지 확인합니다.
 
-    ![R server 관리 유틸리티 통과](./media/r-server-operationalize/hdinsight-diagnostic3.png)
+    ![R 서버 관리 유틸리티 패스](./media/r-server-operationalize/hdinsight-diagnostic3.png)
 
     d. 표시된 메뉴 옵션에서 **E**를 입력하여 주 메뉴로 돌아간 다음 **8**을 입력하여 관리 유틸리티를 종료합니다.
 
@@ -136,7 +136,7 @@ SSH 세션이 활성화되면 로컬 머신의 12800 포트에서 발생한 트�
 
 컴퓨팅 노드를 확장하려면 먼저 작업자 노드 서비스를 해제한 다음, 서비스 해제된 작업자 노드에서 컴퓨팅 노드를 구성합니다.
 
-### <a name="step-1-decommission-the-worker-nodes"></a>1단계: 작업자 노드 해제
+### <a name="step-1-decommission-the-worker-nodes"></a>1단계: 작업자 노드 서비스 해제
 
 ML 서비스 클러스터는 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)을 통해 관리되지 않습니다. 작업자 노드 서비스를 해제하지 않으면 YARN 리소스 관리자가 서버에서 사용하는 리소스를 인식하지 못하기 때문에 예상대로 작동하지 않습니다. 이 상황을 피하려면 컴퓨팅 노드의 크기를 조정하기 전에 작업자 노드의 서비스를 해제하는 것이 좋습니다.
 
@@ -146,17 +146,17 @@ ML 서비스 클러스터는 [Apache Hadoop YARN](https://hadoop.apache.org/docs
 
 1. 서비스 해제할 작업자 노드를 선택합니다.
 
-1. **작업** > **선택한 호스트** > **호스트** > **유지 관리 모드 켜기**를 클릭합니다. 예를 들어 다음 이미지에서는 wn3과 wn4를 선택하여 서비스를 해제했습니다.  
+1. 선택한 **호스트** > **호스트가** > **Hosts** > **유지 관리 모드를 켜는**작업을 클릭합니다. 예를 들어 다음 이미지에서는 wn3과 wn4를 선택하여 서비스를 해제했습니다.  
 
-   ![Apache Ambari 유지 관리 모드 켜기](./media/r-server-operationalize/get-started-operationalization.png)  
+   ![아파치 암바리 유지 보수 모드를 켜십시오](./media/r-server-operationalize/get-started-operationalization.png)  
 
-* **작업** > **선택한 호스트** > **DataNodes**를 선택하고 > **서비스 해제**를 클릭합니다.
-* **작업** > **선택한 호스트** > **NodeManagers**를 선택하고 > **서비스 해제**를 클릭합니다.
-* **작업** > **선택한 호스트** > **DataNodes**를 선택하고 > **중지**를 클릭합니다.
-* **작업** > **선택한 호스트** > **NodeManagers**를 선택하고 > **중지**를 클릭합니다.
-* **작업** > **선택한 호스트** > **호스트**를 선택하고 > **모든 구성 요소 중지**를 클릭합니다.
+* 선택한 **작업** > **선택 데이터노드 호스트** > **DataNodes** > 해제 를 **클릭합니다.**
+* 선택한 **작업** > **선택 노드** > **관리자** > **해제**를 클릭합니다.
+* **선택한 작업** > **호스트** > **데이터노드** > **중지를 클릭합니다.**
+* 선택한 **작업** > **선택 노드** > **관리자** > **중지를**클릭합니다.
+* 선택한 **작업** > **호스트가** > **호스트를** > **모든 구성 요소 중지를**클릭합니다.
 * 작업자 노드를 선택 취소하고 헤드 노드를 선택합니다.
-* **작업** > **선택한 호스트** > **호스트** > **모든 구성 요소 다시 시작**을 선택합니다.
+* **선택한** **작업** > 호스트 >**"호스트가** > **모든 구성 요소를 다시 시작합니다.**
 
 ### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>2단계: 서비스 해제된 작업자 노드 각각에 컴퓨팅 노드 구성
 

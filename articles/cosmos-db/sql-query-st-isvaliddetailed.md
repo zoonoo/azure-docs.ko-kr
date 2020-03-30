@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB 쿼리 언어의 ST_ISVALIDDETAILED
-description: Azure Cosmos DB의 SQL 시스템 함수 ST_ISVALIDDETAILED에 대해 알아봅니다.
+title: Azure 코스모스 DB 쿼리 언어로 ST_ISVALIDDETAILED
+description: Azure Cosmos DB에서 ST_ISVALIDDETAILED SQL 시스템 기능에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 9e640c223c2fef844b9b53e1f4afa3a5d398c8c0
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71349345"
 ---
-# <a name="st_isvaliddetailed-azure-cosmos-db"></a>ST_ISVALIDDETAILED (Azure Cosmos DB)
+# <a name="st_isvaliddetailed-azure-cosmos-db"></a>ST_ISVALIDDETAILED (Azure 코스모스 DB)
  지정된 GeoJSON Point, Polygon 또는 LineString 식이 유효한 경우 부울 값을 포함하는 JSON 값을 반환하고, 잘못된 경우 추가로 그 이유를 문자열 값으로 반환합니다.  
   
 ## <a name="syntax"></a>구문
@@ -26,15 +26,15 @@ ST_ISVALIDDETAILED(<spatial_expr>)
 ## <a name="arguments"></a>인수
   
 *spatial_expr*  
-   GeoJSON point 또는 polygon 식입니다.  
+   GeoJSON 점 또는 다각형 표현식입니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   지정된 GeoJSON 점 또는 다각형 식이 유효한 경우 부울 값을 포함하는 JSON 값을 반환하고, 잘못된 경우 추가로 그 이유를 문자열 값으로 반환합니다.  
   
 ## <a name="examples"></a>예
   
-  다음 예에서는 `ST_ISVALIDDETAILED`을 사용 하 여 유효성 검사 (세부 정보 포함)를 확인 하는 방법을 보여 줍니다.  
+  다음 예제에서는 을 사용하여 유효성을 확인하는 `ST_ISVALIDDETAILED`방법(세부 정보 참조)을 확인합니다.  
   
 ```sql
 SELECT ST_ISVALIDDETAILED({   
@@ -56,6 +56,6 @@ SELECT ST_ISVALIDDETAILED({
 
 ## <a name="next-steps"></a>다음 단계
 
-- [공간 함수 Azure Cosmos DB](sql-query-spatial-functions.md)
-- [시스템 함수 Azure Cosmos DB](sql-query-system-functions.md)
-- [Azure Cosmos DB 소개](introduction.md)
+- [공간 함수 Azure 코스모스 DB](sql-query-spatial-functions.md)
+- [시스템 기능 Azure 코스모스 DB](sql-query-system-functions.md)
+- [Azure 코스모스 DB 소개](introduction.md)

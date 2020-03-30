@@ -1,7 +1,7 @@
 ---
 title: Linux VM에 대한 DHCPv6 구성
 titleSuffix: Azure Load Balancer
-description: 이 문서에서는 Linux Vm에 대해 DHCPv6을 구성 하는 방법에 대해 알아봅니다.
+description: 이 문서에서는 Linux VM용 DHCPv6를 구성하는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: allensu
 ms.openlocfilehash: 6ea215b6aa826231e940f88c3687bb65591303f2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74225313"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Linux VM에 대한 DHCPv6 구성
@@ -54,9 +54,9 @@ Azure Marketplace의 Linux 가상 머신 이미지 중 일부에는 기본적으
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
-Ubuntu 17.10 부터는 기본 네트워크 구성 메커니즘이 [Netplan]( https://netplan.io)입니다.  설치/인스턴스화 시간에 NETPLAN은이 위치에 있는 YAML 구성 파일의 네트워크 구성을 읽습니다 (예:/{lib).
+우분투 17.10부터 기본 네트워크 구성 메커니즘은 [NETPLAN입니다.]( https://netplan.io)  설치/인스턴스화 시간에 NETPLAN은 이 위치에서 YAML 구성 파일에서 네트워크 구성을 읽습니다.
 
-구성의 각 이더넷 인터페이스에 대해 *dhcp6: true* 문을 포함 하십시오.  예를 들어 다음과 같은 가치를 제공해야 합니다.
+구성에 각 이더넷 인터페이스에 대한 *dhcp6:true* 문을 포함하십시오.  예를 들어:
   
         network:
           version: 2
@@ -64,7 +64,7 @@ Ubuntu 17.10 부터는 기본 네트워크 구성 메커니즘이 [Netplan]( htt
             eno1:
               dhcp6: true
 
-초기 부팅 하는 동안 netplan "네트워크 렌더러"는/run에 구성을 써서 NETPLAN에 대 한 참조 정보에 대 한 장치 제어를 지정 된 네트워킹 데몬에 전달 합니다. https://netplan.io/reference를 참조 하세요.
+초기 부팅 하는 동안 netplan "네트워크 렌더러" /run 에 구성을 작성 하 여 지정된 된 네트워킹 https://netplan.io/reference데몬에 장치의 제어를 넘겨 NETPLAN에 대 한 참조 정보를 참조 하십시오.
  
 ## <a name="debian"></a>Debian
 

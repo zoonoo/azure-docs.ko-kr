@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Analytics에서 U-SQL 언어 시작
-description: Azure Data Lake Analytics에서 U-SQL 언어에 대한 기본 사항을 알아봅니다. 변수를 사용 하 여 파일의 추가 데이터에 대 한 첫 번째 쿼리를 작성 하 고 행 집합을 변환한 다음 데이터를 집계 합니다.
+description: Azure Data Lake Analytics에서 U-SQL 언어에 대한 기본 사항을 알아봅니다. 변수를 사용하여 파일의 추가 데이터에 첫 번째 쿼리를 작성하고, 행 집합을 변환하고, 데이터를 집계합니다.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
 ms.openlocfilehash: 8130679dcc519cecd25abf43902c003ad8047df3
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71672830"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 시작
@@ -25,7 +25,7 @@ U-SQL은 선언적 SQL을 명령적 C#에 결합하여 규모에 관계 없이 �
 * **U-SQL 언어 구문**에 대한 자세한 내용은 [U-SQL 언어 참조](https://docs.microsoft.com/u-sql/)를 참조하세요.
 * **U-SQL 디자인 철학**을 이해하려면 Visual Studio 블로그 게시물 [Introducing U-SQL – A Language that makes Big Data Processing Easy(U-SQL 소개 - 빅 데이터 처리를 수월하게 해주는 언어)](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/)를 참조하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 U-SQL 샘플을 살펴본 후에 [자습서: Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 읽고 완료하세요. 이 자습서는 Azure Data Lake Tools for Visual Studio에서 U-SQL을 사용하는 기법에 대해 설명합니다.
 
@@ -225,5 +225,5 @@ U-SQL HAVING 절은 HAVING 조건을 만족하는 그룹으로 출력을 제한�
 고급 집계 시나리오의 경우 U-SQL 참조 설명서에서 [집계, 분석 및 참조 기능](/u-sql/built-in-functions)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
+* [Microsoft Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
 * [Data Lake Tools for Visual Studio를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)

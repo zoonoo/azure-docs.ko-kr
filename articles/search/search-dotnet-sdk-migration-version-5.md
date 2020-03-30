@@ -1,5 +1,5 @@
 ---
-title: Azure Search .NET SDK 버전 5로 업그레이드
+title: Azure 검색 .NET SDK 버전 5로 업그레이드
 titleSuffix: Azure Cognitive Search
 description: 이전 버전에서 Azure Search .NET SDK 버전 5로 코드를 마이그레이션합니다. 새로운 기능과 필요한 코드 변경 내용을 알아봅니다.
 manager: nitinme
@@ -10,13 +10,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: bb0cd191ba7e5939c55d11b484ed7a2c422f8c6d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72793031"
 ---
-# <a name="upgrade-to-azure-search-net-sdk-version-5"></a>Azure Search .NET SDK 버전 5로 업그레이드
+# <a name="upgrade-to-azure-search-net-sdk-version-5"></a>Azure 검색 .NET SDK 버전 5로 업그레이드
 
 버전 4.0-preview 또는 이전 버전의 [Azure Search .NET SDK](https://aka.ms/search-sdk)를 사용하는 경우 이 문서를 참조하여 버전 5로 애플리케이션을 업그레이드할 수 있습니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "72793031"
 Azure Search .NET SDK 버전 5에는 이전 버전에서 변경된 사항이 일부 포함되어 있습니다. 대부분 소소한 변경이므로 코드를 변경하는 데 최소한의 작업만 필요합니다. 새 SDK 버전을 사용하는 코드를 변경하는 방법에 대한 지침은 [업그레이드 단계](#UpgradeSteps) 를 참조하세요.
 
 > [!NOTE]
-> 2\.0-preview 또는 이전 버전을 사용하는 경우 먼저 버전 3으로 업그레이드한 후 버전 5로 업그레이드해야 합니다. 지침은 [Azure Search .NET SDK 버전 3으로 업그레이드](search-dotnet-sdk-migration.md)를 참조하세요.
+> 2.0-preview 또는 이전 버전을 사용하는 경우 먼저 버전 3으로 업그레이드한 후 버전 5로 업그레이드해야 합니다. 지침은 [Azure Search .NET SDK 버전 3으로 업그레이드](search-dotnet-sdk-migration.md)를 참조하세요.
 >
 > Azure Search 서비스 인스턴스는 최신 버전을 포함한 여러 REST API 버전을 지원합니다. 더 이상 최신 버전이 아닌 버전을 계속 사용할 수는 있지만 코드를 마이그레이션하여 최신 버전을 사용하는 것이 좋습니다. REST API를 사용하는 경우 api-version 매개 변수를 통해 모든 요청에 API 버전을 지정해야 합니다. .NET SDK를 사용하는 경우 사용 중인 SDK의 버전에 따라 해당하는 REST API 버전이 결정됩니다. 이전 버전의 SDK를 사용하는 경우 최신 API 버전을 지원하기 위해 서비스가 업그레이드된 경우에도 변경 내용 없이 해당 코드를 계속 실행할 수 있습니다.
 
@@ -34,7 +34,7 @@ Azure Search .NET SDK 버전 5에는 이전 버전에서 변경된 사항이 일
 ## <a name="whats-new-in-version-5"></a>버전 5의 새로운 기능
 Azure Search .NET SDK 버전 5는 Azure Search REST API의 최신 일반 공급 버전, 특히 2017-11-11을 대상으로 합니다. 이 버전이 있으면 다음을 비롯한 Azure Search의 새 기능을 .NET 애플리케이션에서 사용할 수 있습니다.
 
-* [동의어](search-synonyms.md)
+* [동의어](search-synonyms.md).
 * 이제 프로그래밍 방식으로 인덱서 실행 기록에서 경고에 액세스할 수 있습니다. 자세한 내용은 [.NET 참조](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet)에서 `IndexerExecutionResult`의 `Warning` 속성을 참조하세요.
 * .NET Core 2 지원
 * 새 패키지 구조는 필요한 SDK 부분만 사용하도록 지원합니다. 자세한 내용은 [버전 5의 주요 변경 내용](#ListOfChanges)을 참조하세요.
@@ -98,6 +98,6 @@ Azure Search .NET SDK의 패키징이 변경되었으므로 버전 5를 사용�
 ## <a name="conclusion"></a>결론
 Azure Search .NET SDK 사용에 대한 자세한 내용은 [.NET 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
-SDK에 대한 귀하의 피드백을 환영합니다! 문제가 발생 하는 경우 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search)에 대 한 도움을 요청 하세요. 버그를 발견하는 경우 [Azure .NET SDK GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/issues)에 문제를 제출할 수 있습니다. 문제 제목에 "[Azure Search]"라는 접두사를 지정해야 합니다.
+SDK에 대한 귀하의 피드백을 환영합니다! 문제가 발생하면 [스택 오버플로에](https://stackoverflow.com/questions/tagged/azure-search)대한 도움을 요청하십시오. 버그를 발견하는 경우 [Azure .NET SDK GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/issues)에 문제를 제출할 수 있습니다. 문제 제목에 "[Azure Search]"라는 접두사를 지정해야 합니다.
 
 Azure Search를 이용해 주셔서 감사합니다!

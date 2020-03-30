@@ -17,10 +17,10 @@ ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: 5a6da7e65a9a3e962a2df37b062792fbb990d04d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73159686"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Azure Kubernetes 네트워크 정책 개요
@@ -32,7 +32,7 @@ ms.locfileid: "73159686"
 Azure 네트워크 정책은 컨테이너를 위한 VNet 통합을 제공하는 Azure CNI와 함께 작동합니다. 이는 현재 Linux 노드에 대해서만 지원합니다. 구현은 트래픽 필터링을 적용하기 위해 정의된 정책에 따라 Linux IP 테이블 규칙을 구성합니다.
 
 ## <a name="planning-security-for-your-kubernetes-cluster"></a>Kubernetes 클러스터에 대한 보안 계획
-클러스터에 대 한 보안을 구현 하는 경우 NSGs (네트워크 보안 그룹)를 사용 하 여 북쪽 남부 트래픽을 필터링 합니다. 즉, 클러스터 서브넷을 들어오고 나가는 트래픽을 필터링 하 고 Kubernetes 네트워크 정책을 사용 하 여 동-서 트래픽, 즉 pod 간 트래픽 클러스터.
+클러스터에 대한 보안을 구현할 때 NSG(네트워크 보안 그룹)를 사용하여 남북 트래픽, 즉 클러스터 서브넷에 들어및 나가는 트래픽을 필터링하고 동서 트래픽, 즉 포드 간 트래픽에 대해 Kubernetes 네트워크 정책을 사용합니다. 클러스터를 선택합니다.
 
 ## <a name="using-azure-kubernetes-network-policies"></a>Azure Kubernetes 네트워크 정책 사용
 Azure 네트워크 정책은 pod에 대한 마이크로 구분을 제공하기 위해 다음과 같은 방법에서 사용할 수 있습니다.
@@ -42,7 +42,7 @@ ACS 엔진은 Azure에서 Kubernetes 클러스터 배포를 위한 Azure Resourc
 
 acs 엔진을 사용하여 배포된 클러스터에서 정책을 사용하도록 설정하려면 클러스터 정의 파일의 networkPolicy 설정의 값을 “azure”로 지정합니다.
 
-#### <a name="example-configuration"></a>예제 구성
+#### <a name="example-configuration"></a>구성 예
 
 다음 JSON 예제 구성은 새 가상 네트워크 및 서브넷을 만들고 Azure CNI 내에서 Kubernetes 클러스터를 배포합니다. “Notepad”를 사용하여 JSON 파일을 편집하는 것이 좋습니다. 
 ```json
@@ -102,4 +102,4 @@ acs 엔진을 사용하여 배포된 클러스터에서 정책을 사용하도�
 ## <a name="next-steps"></a>다음 단계
 - [Azure Kubernetes Service](../aks/intro-kubernetes.md)에 대해 알아봅니다.
 -  [컨테이너 네트워크](container-networking-overview.md)에 대해 알아봅니다.
-- Kubernetes 클러스터 또는 Docker 컨테이너에 대한 [플러그 인을 배포](deploy-container-networking.md)합니다.
+- Kubernetes 클러스터 또는 Docker 컨테이너에 대한 [플러그인을 배포합니다.](deploy-container-networking.md)

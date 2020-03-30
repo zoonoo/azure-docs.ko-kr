@@ -1,14 +1,14 @@
 ---
-title: 메시지를 사용 하 여 Azure Blockchain 워크 벤치와 통합
-description: 메시지를 사용 하 여 Azure Blockchain 워크 벤치 Preview를 다른 시스템과 통합 하는 방법에 대 한 개요입니다.
+title: 메시지를 사용하여 Azure 블록 체인 워크벤치와 통합
+description: Azure 블록 체인 워크벤치 미리 보기를 다른 시스템과 통합하기 위해 메시지를 사용하는 개요입니다.
 ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 14bd0f84bc9490d95d3dbe0b9f122882f0d2059d
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74324502"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench 메시지 통합 개요
@@ -27,18 +27,18 @@ Azure Blockchain Workbench는 REST API를 제공할 뿐만 아니라 메시징 �
 
 요청에는 다음 필드가 필요합니다.
 
-| **Name**             | **설명**                                      |
+| **이름**             | **설명**                                      |
 |----------------------|------------------------------------------------------|
 | requestId            | 클라이언트 제공 GUID입니다.                                |
-| firstname            | 사용자의 이름입니다.                              |
-| Lastname             | 사용자의 성입니다.                               |
+| firstName            | 사용자의 이름입니다.                              |
+| lastName             | 사용자의 성입니다.                               |
 | emailAddress         | 사용자의 이메일 주소입니다.                           |
 | externalId           | 사용자의 Azure AD 개체 ID입니다.                      |
 | connectionId         | 블록체인 연결에 대한 고유 식별자입니다. |
 | messageSchemaVersion | 메시징 스키마 버전입니다.                            |
 | messageName          | **CreateUserRequest**                               |
 
-예:
+예제:
 
 ``` json
 {
@@ -55,11 +55,11 @@ Azure Blockchain Workbench는 REST API를 제공할 뿐만 아니라 메시징 �
 
 Blockchain Workbench는 다음 필드가 포함된 응답을 반환합니다.
 
-| **Name**              | **설명**                                                                                                             |
+| **이름**              | **설명**                                                                                                             |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | requestId             | 클라이언트 제공 GUID입니다. |
 | userId                | 생성된 사용자의 ID입니다. |
-| userChainIdentifier   | 블록체인 네트워크에서 생성된 사용자의 주소입니다. Ethereum에서 주소는 사용자의 **체인** 주소입니다. |
+| userChainIdentifier   | 블록체인 네트워크에서 생성된 사용자의 주소입니다. 이더리움에서 주소는 사용자의 **온체인** 주소입니다. |
 | connectionId          | 블록체인 연결에 대한 고유 식별자입니다.|
 | messageSchemaVersion  | 메시징 스키마 버전입니다. |
 | messageName           | **CreateUserUpdate** |
@@ -105,19 +105,19 @@ Blockchain Workbench의 성공적인 **사용자 만들기** 응답 예:
 
 요청에는 다음 필드가 필요합니다.
 
-| **Name**             | **설명**                                                                                                           |
+| **이름**             | **설명**                                                                                                           |
 |----------------------|---------------------------------------------------------------------------------------------------------------------------|
 | requestId            | 클라이언트 제공 GUID입니다. |
 | userChainIdentifier  | 블록체인 네트워크에서 생성된 사용자의 주소입니다. Ethereum에서 이 주소는 **체인 내** 주소입니다. |
 | applicationName      | 애플리케이션의 이름입니다. |
-| version              | 애플리케이션의 버전입니다. 여러 버전의 애플리케이션을 사용하도록 설정한 경우 필요합니다. 그렇지 않은 경우 version은 선택 사항입니다. 애플리케이션 버전 관리에 대한 자세한 내용은 [Azure Blockchain Workbench 애플리케이션 버전 관리](version-app.md)를 참조하세요. |
+| 버전              | 애플리케이션의 버전입니다. 여러 버전의 애플리케이션을 사용하도록 설정한 경우 필요합니다. 그렇지 않은 경우 version은 선택 사항입니다. 애플리케이션 버전 관리에 대한 자세한 내용은 [Azure Blockchain Workbench 애플리케이션 버전 관리](version-app.md)를 참조하세요. |
 | workflowName         | 워크플로의 이름입니다. |
-| parameters           | 계약 생성을 위한 매개 변수 입력입니다. |
+| 매개 변수           | 계약 생성을 위한 매개 변수 입력입니다. |
 | connectionId         | 블록체인 연결에 대한 고유 식별자입니다. |
 | messageSchemaVersion | 메시징 스키마 버전입니다. |
 | messageName          | **CreateContractRequest** |
 
-예:
+예제:
 
 ``` json
 { 
@@ -144,7 +144,7 @@ Blockchain Workbench의 성공적인 **사용자 만들기** 응답 예:
 
 Blockchain Workbench는 다음 필드가 포함된 응답을 반환합니다.
 
-| **Name**                 | **설명**                                                                   |
+| **이름**                 | **설명**                                                                   |
 |--------------------------|-----------------------------------------------------------------------------------|
 | requestId                | 클라이언트 제공 GUID입니다.                                                             |
 | contractId               | Azure Blockchain Workbench 내 계약에 대한 고유 식별자입니다. |
@@ -209,19 +209,19 @@ Blockchain Workbench의 커밋된 **계약 만들기** 응답 예:
 
 요청에는 다음 필드가 필요합니다.
 
-| **Name**                 | **설명**                                                                                                           |
+| **이름**                 | **설명**                                                                                                           |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------|
 | requestId                | 클라이언트 제공 GUID입니다. |
 | userChainIdentifier      | 블록체인 네트워크에서 생성된 사용자의 주소입니다. Ethereum에서 이 주소는 **체인 내** 주소입니다. |
 | contractLedgerIdentifier | 원장의 계약 주소입니다. |
-| version                  | 애플리케이션의 버전입니다. 여러 버전의 애플리케이션을 사용하도록 설정한 경우 필요합니다. 그렇지 않은 경우 version은 선택 사항입니다. 애플리케이션 버전 관리에 대한 자세한 내용은 [Azure Blockchain Workbench 애플리케이션 버전 관리](version-app.md)를 참조하세요. |
+| 버전                  | 애플리케이션의 버전입니다. 여러 버전의 애플리케이션을 사용하도록 설정한 경우 필요합니다. 그렇지 않은 경우 version은 선택 사항입니다. 애플리케이션 버전 관리에 대한 자세한 내용은 [Azure Blockchain Workbench 애플리케이션 버전 관리](version-app.md)를 참조하세요. |
 | workflowFunctionName     | 워크플로 함수의 이름입니다. |
-| parameters               | 계약 생성을 위한 매개 변수 입력입니다. |
+| 매개 변수               | 계약 생성을 위한 매개 변수 입력입니다. |
 | connectionId             | 블록체인 연결에 대한 고유 식별자입니다. |
 | messageSchemaVersion     | 메시징 스키마 버전입니다. |
 | messageName              | **CreateContractActionRequest** |
 
-예:
+예제:
 
 ``` json
 {
@@ -248,7 +248,7 @@ Blockchain Workbench의 커밋된 **계약 만들기** 응답 예:
 
 Blockchain Workbench는 다음 필드가 포함된 응답을 반환합니다.
 
-| **Name**              | **설명**                                                                   |
+| **이름**              | **설명**                                                                   |
 |-----------------------|-----------------------------------------------------------------------------------|
 | requestId             | 클라이언트 제공 GUID입니다.|
 | contractId            | Azure Blockchain Workbench 내 계약에 대한 고유 식별자입니다. |
@@ -369,7 +369,7 @@ Service Bus 토픽을 사용하여 Blockchain Workbench에서 발생하는 이�
 
 ## <a name="notification-message-reference"></a>알림 메시지 참조
 
-**Messagename**에 따라 알림 메시지의 메시지 유형 중 하나는 다음과 같습니다.
+**messageName에**따라 알림 메시지에는 다음 메시지 유형 중 하나가 있습니다.
 
 ### <a name="block-message"></a>블록 메시지
 
@@ -400,8 +400,8 @@ Service Bus 토픽을 사용하여 Blockchain Workbench에서 발생하는 이�
 |--------------------|-------------|
 | transactionId      | Azure Blockchain Workbench 내 트랜잭션에 대한 고유 식별자입니다. |
 | transactionHash    | 원장에 있는 트랜잭션의 해시입니다. |
-| from               | 트랜잭션 원본에 대한 원장의 고유 식별자 |
-| 다음으로 변경:                 | 트랜잭션 대상에 대한 원장의 고유 식별자 |
+| 원본               | 트랜잭션 원본에 대한 원장의 고유 식별자 |
+| to                 | 트랜잭션 대상에 대한 원장의 고유 식별자 |
 | provisioningStatus | 트랜잭션에 대한 프로비전 프로세스의 현재 상태를 식별합니다. 가능한 값은 다음과 같습니다. </br>0 – API에 의해 데이터베이스에 트랜잭션이 생성됨</br>1 – 트랜잭션이 원장에 전송됨</br>2 – 트랜잭션이 원장에 성공적으로 커밋됨</br>3 또는 4 - 트랜잭션이 원장에 커밋하는 데 실패함</br>5 – 트랜잭션이 원장에 성공적으로 커밋됨 |
 
 Blockchain Workbench에서 *BlockMessage*의 예제:
@@ -462,8 +462,8 @@ Blockchain Workbench에서 *BlockMessage*의 예제:
 |--------------------|-------------|
 | transactionId | Azure Blockchain Workbench 내 트랜잭션에 대한 고유 식별자입니다. |
 | transactionHash | 원장에 있는 트랜잭션의 해시입니다. |
-| from | 트랜잭션 원본에 대한 원장의 고유 식별자 |
-| 다음으로 변경: | 트랜잭션 대상에 대한 원장의 고유 식별자 |
+| 원본 | 트랜잭션 원본에 대한 원장의 고유 식별자 |
+| to | 트랜잭션 대상에 대한 원장의 고유 식별자 |
 
 #### <a name="contract-properties"></a>계약 속성
 
@@ -471,7 +471,7 @@ Blockchain Workbench에서 *BlockMessage*의 예제:
 |--------------------|-------------|
 | workflowPropertyId | Azure Blockchain Workbench 내 워크플로 속성에 대한 고유 식별자입니다. |
 | name | 워크플로 속성의 이름입니다. |
-| 값 | 워크플로 속성의 값입니다. |
+| value | 워크플로 속성의 값입니다. |
 
 Blockchain Workbench에서 *ContractMessage*의 예제:
 
@@ -561,7 +561,7 @@ Blockchain Workbench에서 *ContractMessage*의 예제:
 | contractId                  | Azure Blockchain Workbench 내 계약에 대한 고유 식별자입니다. |
 | contractLedgerIdentifier    | 원장에서 계약에 대한 고유 식별자입니다. |
 | functionName                | 함수의 이름 |
-| parameters                  | [매개 변수 정보](#parameter-information) |
+| 매개 변수                  | [매개 변수 정보](#parameter-information) |
 | 트랜잭션                 | 트랜잭션 정보 |
 | inTransactionSequenceNumber | 블록에서 트랜잭션의 시퀀스 번호 |
 | connectionId                | 연결에 대한 고유 식별자입니다. |
@@ -582,7 +582,7 @@ Blockchain Workbench에서 *ContractMessage*의 예제:
 | 이름 | 설명 |
 |------|-------------|
 | name | 매개 변수 이름 |
-| 값 | 매개 변수 값 |
+| value | 매개 변수 값 |
 
 #### <a name="event-message-transaction-information"></a>이벤트 메시지 트랜잭션 정보
 
@@ -590,8 +590,8 @@ Blockchain Workbench에서 *ContractMessage*의 예제:
 |--------------------|-------------|
 | transactionId      | Azure Blockchain Workbench 내 트랜잭션에 대한 고유 식별자입니다. |
 | transactionHash    | 원장에 있는 트랜잭션의 해시입니다. |
-| from               | 트랜잭션 원본에 대한 원장의 고유 식별자 |
-| 다음으로 변경:                 | 트랜잭션 대상에 대한 원장의 고유 식별자 |
+| 원본               | 트랜잭션 원본에 대한 원장의 고유 식별자 |
+| to                 | 트랜잭션 대상에 대한 원장의 고유 식별자 |
 
 Blockchain Workbench에서 *EventMessage ContractFunctionInvocation*의 예제:
 
@@ -630,7 +630,7 @@ Blockchain Workbench에서 *EventMessage ContractFunctionInvocation*의 예제:
 }
 ```
 
-### <a name="event-message-application-ingestion"></a>이벤트 메시지: 응용 프로그램 수집
+### <a name="event-message-application-ingestion"></a>이벤트 메시지: 응용 프로그램 사용
 
 애플리케이션이 Workbench에 업로드될 때 업로드된 애플리케이션의 이름 및 버전과 같은 정보를 포함합니다.
 
@@ -656,7 +656,7 @@ Blockchain Workbench에서 *EventMessage ContractFunctionInvocation*의 예제:
 |------|-------------|
 | id | Azure Blockchain Workbench 내 계약 코드 파일에 대한 고유 식별자입니다. |
 | ledgerId | Azure Blockchain Workbench 내 원장에 대한 고유 식별자입니다. |
-| location | 계약 코드 파일이 위치한 URL |
+| 위치 | 계약 코드 파일이 위치한 URL |
 
 #### <a name="application-role-information"></a>애플리케이션 역할 정보
 
@@ -672,9 +672,9 @@ Blockchain Workbench에서 *EventMessage ContractFunctionInvocation*의 예제:
 | id | Azure Blockchain Workbench 내 애플리케이션 워크플로에 대한 고유 식별자입니다. |
 | name | 애플리케이션 워크플로 이름 |
 | displayName | 애플리케이션 워크플로 표시 이름 |
-| functions | [응용 프로그램 워크플로에 대 한 함수](#workflow-function-information) 컬렉션입니다.|
+| functions | 응용 [프로그램 워크플로에 대한 함수](#workflow-function-information) 컬렉션|
 | states | [애플리케이션 워크플로에 대한 상태](#workflow-state-information)의 컬렉션 |
-| 속성 | 애플리케이션 [워크플로 속성 정보](#workflow-property-information) |
+| properties | 애플리케이션 [워크플로 속성 정보](#workflow-property-information) |
 
 ##### <a name="workflow-function-information"></a>워크플로 함수 정보
 
@@ -682,7 +682,7 @@ Blockchain Workbench에서 *EventMessage ContractFunctionInvocation*의 예제:
 |------|-------------|
 | id | Azure Blockchain Workbench 내 애플리케이션 워크플로 함수에 대한 고유 식별자입니다. |
 | name | 함수 이름 |
-| parameters | 함수의 매개 변수 |
+| 매개 변수 | 함수의 매개 변수 |
 
 ##### <a name="workflow-state-information"></a>워크플로 상태 정보
 

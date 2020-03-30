@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
 ms.openlocfilehash: f9fca0a9fefb5959747a4492139ae422a118db02
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70390187"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Event Grid 구독에 대한 이벤트 필터링 이해
@@ -43,7 +43,7 @@ ms.locfileid: "70390187"
 
 사용자 지정 항목에 이벤트를 게시할 때 구독자가 이벤트에 관심이 있는지 더 쉽게 알 수 있도록 사용자 이벤트에 대한 제목을 만듭니다. 구독자는 제목 속성을 사용하여 이벤트를 필터링 및 라우팅합니다. 구독자가 해당 경로의 세그먼트를 기준으로 필터링할 수 있도록 이벤트가 발생하는 경로를 추가하는 것을 고려합니다. 구독자는 경로를 통해 이벤트를 제한적이거나 광범위하게 필터링할 수 있습니다. 제목에 `/A/B/C`와 같은 3개의 세그먼트 경로를 제공하는 경우 구독자는 첫 번째 세그먼트 `/A`를 기준으로 필터링하여 광범위한 이벤트 집합을 가져올 수 있습니다. 구독자는 `/A/B/C` 또는 `/A/D/E`와 같은 제목이 있는 이벤트를 가져옵니다. 다른 구독자는 `/A/B`를 기준으로 필터링하여 제한된 이벤트 집합을 얻을 수 있습니다.
 
-제목별로 필터링 하기 위한 JSON 구문은 다음과 같습니다.
+주제별로 필터링하기 위한 JSON 구문은 다음과 다 있습니다.
 
 ```json
 "filter": {
@@ -61,7 +61,7 @@ ms.locfileid: "70390187"
 * 키 - 필터링에 사용하는 이벤트 데이터의 필드입니다. 숫자, 부울 또는 문자열일 수 있습니다.
 * 값 - 키와 비교할 값입니다.
 
-여러 값이 있는 단일 필터를 지정 하는 경우 **또는** 작업이 수행 되므로 키 필드의 값은 다음 값 중 하나 여야 합니다. 다음 예를 참조하세요.
+여러 값을 가진 단일 필터를 지정하는 경우 **OR** 작업이 수행되므로 키 필드의 값이 이러한 값 중 하나여야 합니다. 다음은 예제입니다.
 
 ```json
 "advancedFilters": [
@@ -76,7 +76,7 @@ ms.locfileid: "70390187"
 ]
 ```
 
-여러 필터를 지정 하는 경우 **및** 작업이 수행 되므로 각 필터 조건이 충족 되어야 합니다. 다음 예를 참조하세요. 
+여러 개의 다른 필터를 지정하는 경우 **AND** 작업이 수행되므로 각 필터 조건이 충족되어야 합니다. 다음은 예제입니다. 
 
 ```json
 "advancedFilters": [
@@ -108,7 +108,7 @@ ms.locfileid: "70390187"
 * NumberIn
 * NumberNotIn
 
-부울에 사용 가능한 연산자: BoolEquals
+부울에 사용 가능한 연산자는 BoolEquals입니다.
 
 문자열에 사용 가능한 연산자는 다음과 같습니다.
 
@@ -127,7 +127,7 @@ Event Grid 스키마의 이벤트의 경우 키에 대해 다음 값을 사용�
 * ID
 * 항목
 * 제목
-* 이벤트 유형
+* EventType
 * DataVersion
 * 이벤트 데이터(예: Data.key1)
 
@@ -135,7 +135,7 @@ Event Grid 스키마의 이벤트의 경우 키에 대해 다음 값을 사용�
 
 * EventId
 * 원본
-* 이벤트 유형
+* EventType
 * EventTypeVersion
 * 이벤트 데이터(예: Data.key1)
 
@@ -146,9 +146,9 @@ Event Grid 스키마의 이벤트의 경우 키에 대해 다음 값을 사용�
 값은 다음이 될 수 있습니다.
 
 * number
-* string
+* 문자열
 * boolean
-* 배열
+* array
 
 ### <a name="limitations"></a>제한 사항
 
