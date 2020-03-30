@@ -1,18 +1,18 @@
 ---
 title: Azure Marketplace에 대한 게시 검사 목록 | Azure
 description: Cloud 파트너 포털을 사용하여 Azure Marketplace에 대한 게시 검사 목록.
-author: jm-aditi-ms
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dsindona
-ms.openlocfilehash: deee43628f8d9f782979b4112f1fec415d137340
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0409933a3cd4bb535427cf61bd06207d53d5a96e
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284996"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387719"
 ---
 # <a name="publishing-checklist-for-azure-marketplace"></a>Azure Marketplace에 대한 게시 검사 목록    
 게시 프로세스를 시작하기 전에 필수 구성 요소를 검토합니다.  
@@ -27,7 +27,7 @@ Cloud 파트너 포털에서 제품 게시 만들기 워크플로를 완료하�
 | 모두 | Virtual Machine | <table> <tr><th>기술 정보</th></tr> <tr><td>지원 URL</td></tr> </table> |
 | 목록 | 컨설팅 서비스 | <table> <tr><th>상점 세부 정보</th></tr> <tr><td>참여 기간</td></tr> <tr><td>회사 로고(48x48, 216x216)</td></tr> </table> |  
 | 평가판 | 모두 | <table> <tr><th>기술 정보</th></tr> <tr><td>체험 URL</td></tr> <tr><td>지원되는 언어</td></tr> <tr><td>앱 버전 번호</td></tr> <tr><td>앱 릴리스 날짜</td></tr> <tr><td>지원 URL</td></tr> </table> |  
-| 평가판 | 시험 사용 | <table> <tr><th>시험 사용</th></tr> <tr><td>설명</td></tr> <tr><td>Duration</td></tr> <tr><td>사용자 설명서</td></tr> <tr><td>시험 사용 동영상(최대 1개)</td></tr> <tr><td>시험 사용 국가/하위 지역 가용성</td></tr> <tr><td>Azure 구독 ID입니다.</td></tr> <tr><td>Azure AD 테넌트 ID</td></tr> <tr><td>Azure AD 앱 ID</td></tr> <tr><td>Azure AD 앱 키</td></tr> </table> |  
+| 평가판 | 시험 사용 | <table> <tr><th>시험 사용</th></tr> <tr><td>Description</td></tr> <tr><td>Duration</td></tr> <tr><td>사용자 설명서</td></tr> <tr><td>시험 사용 동영상(최대 1개)</td></tr> <tr><td>시험 사용 국가/하위 지역 가용성</td></tr> <tr><td>Azure 구독 ID입니다.</td></tr> <tr><td>Azure AD 테넌트 ID</td></tr> <tr><td>Azure AD 앱 ID</td></tr> <tr><td>Azure AD 앱 키</td></tr> </table> |  
 | 거래 | Virtual Machine | <table> <tr><th>상점</th></tr> <tr><td>제목(50자)</td></tr> <tr><td>요약(200자)</td></tr> <tr><td>긴 요약(256자)</td></tr> <tr><td>HTML 기반 설명(3,000자)</td></tr> <tr><td>회사 로고(40x40, 90x90, 115x115, 255x115, 815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>운영 체제 세부 정보</td></tr> <tr><td>사용 중인 포트</td></tr> <tr><td>사용 중인 프로토콜</td></tr> <tr><td>사용 중인 각 VHD에 대한 디스크 버전</td></tr> <tr><td>사용 중인 각 VHD에 대한 SAS URL</td></tr> </table> |  
 | 거래 | Azure 앱: 솔루션 템플릿 | <table> <tr><th>상점</th></tr> <tr><td>제목(50자)</td></tr> <tr><td>요약(200자)</td></tr> <tr><td>긴 요약(256자)</td></tr> <tr><td>HTML 기반 설명(3,000자)</td></tr> <tr><td>회사 로고(40x40, 90x90, 115x115, 255x115, 815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>버전 번호</td></tr> <tr><td>포함하는 패키지 파일<ul> <li>모든 템플릿 파일</li> <li>createUIDefinition 파일</li> </ul> </td></tr> </table> |  
 | 거래 | Azure 앱: 관리되는 앱 | <table> <tr><th>상점</th></tr> <tr><td>제목(50자)</td></tr> <tr><td>요약(200자)</td></tr> <tr><td>긴 요약(256자)</td></tr> <tr><td>HTML 기반 설명(3,000자)</td></tr> <tr><td>회사 로고(40x40, 90x90, 115x115, 255x115, 815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>버전 번호</td></tr> <tr><td>포함하는 패키지 파일<ul> <li>모든 템플릿 파일</li> <li>createUIDefinition 파일</li> </ul> </td></tr> </table> |  

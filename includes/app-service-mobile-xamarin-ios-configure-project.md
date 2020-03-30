@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: a69df0cc9ea14a2c9fa172c77663afb1d6861f9b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67182703"
 ---
 #### <a name="configure-the-ios-project-in-xamarin-studio"></a>Xamarin Studio에서 iOS 프로젝트 구성
-1. Xamarin.Studio에서 **Info.plist**를 열고 앞에서 새 앱 ID로 만든 번들 ID를 사용하여 **Bundle 식별자**를 업데이트합니다.
+1. Xamarin.Studio에서 **Info.plist를**열고 새 앱 ID로 이전에 만든 번들 ID로 **번들 식별자를** 업데이트합니다.
 
     ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png)
 2. 아래의 **Background Modes**로 스크롤합니다. **Enable Background Modes** 상자와 **Remote notifications** 상자를 선택합니다.

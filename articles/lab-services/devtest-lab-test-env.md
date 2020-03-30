@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: c6b458091a8e5e22cca55d401e89e5e13bcf9de9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60623184"
 ---
 # <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>VM 및 PaaS 테스트 환경에 Azure DevTest Labs 사용
@@ -88,7 +88,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
 
    - VM에 설치하려는 도구(예: 에이전트, Fiddler 및 Visual Studio)
    - VM에서 실행하려는 작업(예: 리포지토리 복제)
-   - 테스트하려는 애플리케이션.
+   - 테스트하려는 애플리케이션
 
    많은 아티팩트는 이미 기본 제공되어 있습니다. 특정 요구에 맞게 추가로 사용자 지정하려는 경우 자시만의 사용자 지정 아티팩트를 만들 수 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure AD Domain Services에 대해 호환 되는 타사 소프트웨어 | Microsoft Docs
+title: Azure AD 도메인 서비스에 대한 호환 되는 타사 소프트웨어 | 마이크로 소프트 문서
 description: Azure Active Directory Domain Services와 호환되는 타사 소프트웨어
 services: active-directory-ds
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 03/06/2017
 ms.author: iainfou
 ms.openlocfilehash: f5a633a49a0f7b99da4eac08a527d17299aa34b9
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72754448"
 ---
 # <a name="third-party-software-compatible-with-azure-ad-domain-services"></a>Azure AD Domain Services와 호환되는 타사 소프트웨어

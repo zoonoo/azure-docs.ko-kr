@@ -2,23 +2,23 @@
 title: Azure Cosmos DB의 미사용 암호화
 description: Azure Cosmos DB에서 미사용 데이터 암호화를 제공하는 방법 및 구현 방식을 알아봅니다.
 author: markjbrown
-ms.author: sngun
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 366a8cc2d8b08c9508053eaeb8bf70622fd870cf
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: db20388b5277e000ffe7055e9840742d6af7788e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548104"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062592"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터 암호화 
 
 미사용 암호화는 일반적으로 반도체 드라이브(SSD) 및 하드 디스크(HDD)와 같은 비휘발성 스토리지 디바이스에서 데이터를 암호화하는 것을 말합니다. Cosmos DB는 해당 주 데이터베이스를 SSD에 저장합니다. 해당 미디어 첨부 파일 및 백업은 일반적으로 HDD로 백업되는 Azure Blob Storage에 저장됩니다. Cosmos DB에 대한 미사용 암호화가 릴리스됨에 따라 모든 데이터베이스, 미디어 첨부 파일 및 백업이 암호화됩니다. 이제 데이터는 전송 중(네트워크를 통해)과 미사용 시(비휘발성 스토리지) 암호화되므로 엔드투엔드 암호화가 가능합니다.
 
-PaaS 서비스인 Cosmos DB는 사용하기가 매우 간편합니다. Cosmos DB에 저장된 모든 사용자 데이터는 미사용 및 전송 시 암호화되기 때문에 어떤 조치도 취할 필요가 없습니다. 또한 미사용 암호화가 기본적으로 "설정" 상태라는 것도 이러한 노력 중 하나입니다. 설정하거나 해제하는 데 사용되는 컨트롤이 없습니다. Azure Cosmos DB는 계정이 실행 되는 모든 지역에서 AES-256 암호화를 사용 합니다. Microsoft는 [가용성 및 성능 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db)를 지속적으로 충족하면서 이 기능을 제공합니다.
+PaaS 서비스인 Cosmos DB는 사용하기가 매우 간편합니다. Cosmos DB에 저장된 모든 사용자 데이터는 미사용 및 전송 시 암호화되기 때문에 어떤 조치도 취할 필요가 없습니다. 또한 미사용 암호화가 기본적으로 "설정" 상태라는 것도 이러한 노력 중 하나입니다. 설정하거나 해제하는 데 사용되는 컨트롤이 없습니다. Azure Cosmos DB는 계정이 실행 중인 모든 리전에서 AES-256 암호화를 사용합니다. Microsoft는 [가용성 및 성능 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db)를 지속적으로 충족하면서 이 기능을 제공합니다.
 
 ## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 미사용 암호화 구현
 
@@ -34,7 +34,7 @@ PaaS 서비스인 Cosmos DB는 사용하기가 매우 간편합니다. Cosmos DB
 - JSON 문서와 인덱스 데이터 모두 보안 스토리지에 기록됩니다.
 - 데이터는 보안 스토리지에서 주기적으로 읽어오고 Azure Encrypted Blob Store에 백업됩니다.
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>Q: 스토리지 서비스 암호화를 사용하는 경우 Azure Storage 비용은 얼마나 늘어나나요?
 A: 추가 비용은 없습니다.
@@ -46,7 +46,7 @@ A: 키는 Microsoft에서 관리합니다.
 A: Microsoft에는 Cosmos DB가 따르는 암호화 키 회전에 대한 일련의 내부 지침이 있습니다. 특정 지침은 게시되지 않습니다. Microsoft는 내부 지침의 하위 집합으로 간주되고 개발자를 위한 유용한 모범 사례가 있는 [SDL(Security Development Lifecycle)](https://www.microsoft.com/sdl/default.aspx)을 게시합니다.
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>Q: 나만의 암호화 키를 사용할 수 있나요?
-A: 예 이제 새 cosmos 계정에이 기능을 사용할 수 있으며 계정을 만들 때이 작업을 수행 해야 합니다. 자세한 내용은 [고객 관리 키](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk) 문서를 참조 하세요.
+A: 예, 이제 이 기능은 새로운 코스모스 계정에 사용할 수 있으며, 계정 생성 시 수행해야 합니다. 자세한 내용은 [고객 관리 키](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk) 문서를 참조하십시오.
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>Q: 암호화가 설정된 지역은 어디인가요?
 A: 모든 Azure Cosmos DB 지역에서 모든 사용자 데이터에 대해 암호화가 켜져 있습니다.
@@ -59,5 +59,5 @@ A: 에뮬레이터는 독립 실행형 개발/테스트 도구이며 관리되�
 
 ## <a name="next-steps"></a>다음 단계
 
-Cosmos DB 보안 및 최신 개선 사항에 대 한 개요는 [Azure Cosmos database 보안](database-security.md)을 참조 하세요.
+코스모스 DB 보안 및 최신 개선 사항에 대한 개요는 [Azure Cosmos 데이터베이스 보안을](database-security.md)참조하십시오.
 Microsoft 인증에 대한 자세한 내용은 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요.

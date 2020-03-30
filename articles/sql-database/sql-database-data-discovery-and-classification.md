@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/05/2020
 tags: azure-synapse
-ms.openlocfilehash: eb4e7907c3dcffed035307c2084160ce6051be13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 98b21969ce86f84b20fbe78dbdf3002769ef65f5
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409952"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387872"
 ---
 # <a name="data-discovery--classification-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL 데이터베이스 및 Azure 시냅스 분석을 위한 데이터 검색 & 분류
 
@@ -89,17 +89,11 @@ Information Protection 정책 관리의 일환으로, 사용자 지정 레이블
 
 4. 보고서를 Excel 형식으로 다운로드하려면 창의 위쪽 메뉴에서 **내보내기** 옵션을 클릭합니다.
 
-   ![Excel로 내보내기](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
-
 5. <a id="step-5"></a>데이터 분류를 시작하려면 창의 위쪽에 있는 **분류 탭**을 클릭합니다.
-
-    ![데이터 분류](./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png)
 
 6. 분류 엔진은 데이터베이스를 검색하여 잠재적으로 중요한 데이터가 포함된 열을 검색하고 **권장열 분류**목록을 제공합니다. 분류 권장 사항 보기 및 적용하기
 
-   - 권장된 열 분류 목록을 보려면 창의 맨 아래에서 권장 사항 패널을 클릭합니다.
-
-      ![데이터 분류](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png)
+   - 권장 열 분류 목록을 보려면 창 하단의 권장 패널을 클릭합니다.
 
    - 권장 사항 목록을 검토합니다. 특정 열에 대한 권장 사항을 받아 들이려면 관련 행의 왼쪽 열에 있는 확인란을 선택합니다. 권장 사항 테이블 헤더에서 확인란을 선택하여 *모든 권장 사항*을 수락됨으로 표시할 수도 있습니다.
 
@@ -107,21 +101,15 @@ Information Protection 정책 관리의 일환으로, 사용자 지정 레이블
 
    - 선택한 권장 사항을 적용하려면 파란색 **선택한 권장 사항 허용** 단추를 클릭합니다.
 
-      ![권장 사항 적용](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png)
-
 7. 대안으로 열을 **수동으로 분류**하거나 권장 사항 기반 분류로 지정할 수도 있습니다.
 
    - 창의 위쪽 메뉴에서 **분류 추가**를 클릭합니다.
-
-      ![수동으로 분류 추가](./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png)
 
    - 열려 있는 컨텍스트 창에서 분류하려는 스키마 > 테이블 > 열을 선택하고 정보 형식 및 민감도 레이블을 선택합니다. 컨텍스트 창의 아래쪽에 있는 파란색 **분류 추가** 단추를 클릭합니다.
 
       ![분류할 열 선택](./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png)
 
 8. 새 분류 메타데이터를 사용하여 분류를 완료하고 영구적으로 데이터베이스 열의 레이블(태그)을 지정하려면 창의 최상위 메뉴에서 **저장**을 클릭합니다.
-
-   ![저장](./media/sql-data-discovery-and-classification/10_data_classification_save.png)
 
 ## <a name="auditing-access-to-sensitive-data"></a><a id="subheading-3"></a>중요한 데이터에 대한 액세스 감사
 
@@ -183,7 +171,7 @@ PowerShell을 사용하여 Azure SQL 데이터베이스 및 관리되는 인스�
 
 ## <a name="next-steps"></a><a id="subheading-6"></a>다음 단계
 
-- [고급 데이터 보안](sql-database-advanced-data-security.md)에 대해 자세히 알아봅니다.
+- [고급 데이터 보안에](sql-database-advanced-data-security.md)대해 자세히 알아보십시오.
 - 분류된 중요한 데이터에 대한 액세스를 모니터링 및 감사하기 위해 [Azure SQL Database 감사](sql-database-auditing.md)를 구성하는 것이 좋습니다.
 - 데이터 검색 & 분류가 포함된 YouTube 프레젠테이션의 경우 [SQL 데이터 보호 & 검색, 분류, 레이블 지정 을 참조하십시오 | 데이터 노출](https://www.youtube.com/watch?v=itVi9bkJUNc).
 

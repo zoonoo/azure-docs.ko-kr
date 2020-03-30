@@ -1,28 +1,27 @@
 ---
-title: 상업적 marketplace 정책 및 약관 | Microsoft
-description: Microsoft 상업적 marketplace 정책 및 조항은 Microsoft Azure Marketplace의 모든 게시자 및 제품에 적용 됩니다.
-services: Azure, Marketplace, AppSource, commercial marketplace, Partner Center
-author: MaggiePucciEvans
+title: 상업 시장 정책 및 약관 | Azure
+description: Microsoft 상용 마켓플레이스 정책 및 약관은 Microsoft Azure 마켓플레이스의 모든 게시자 및 제품에 적용됩니다.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
-ms.date: 03/07/2020
-ms.author: evansma
-ms.openlocfilehash: 51d6a50631d94086318a9e37a9cecf89eb489ed1
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.topic: conceptual
+ms.date: 03/27/2020
+ms.author: dsindona
+ms.openlocfilehash: a370b7b21d25f117e44d613d060dd8cdd060c062
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673431"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336257"
 ---
-# <a name="commercial-marketplace-policies-and-terms"></a>상업적 marketplace 정책 및 약관
+# <a name="commercial-marketplace-policies-and-terms"></a>상용 마켓플레이스 정책 및 약관
 
 >[!Note]
->"Microsoft 상업적 marketplace"는 고객이 고객이 제공 하거나 구매할 수 있는 것으로 명명 된 Microsoft 소유 또는 운영 플랫폼을 의미 합니다. 별도로 지정 하지 않는 한 상업적 marketplace에는 Microsoft Azure Marketplace 및 Microsoft AppSource 포함 되어 있습니다.
+>"Microsoft 상용 마켓플레이스"는 Microsoft가 소유하거나 운영하는 플랫폼을 의미하지만, 이를 통해 고객에게 제안을 제공하거나 획득할 수 있습니다. 달리 명시되지 않는 한 상용 마켓플레이스에는 Microsoft Azure 마켓플레이스 및 Microsoft 앱소스가 포함됩니다.
 
-상업적 marketplace에서 제품을 게시 하는 데 관심을 가져 주셔서 감사 합니다. Microsoft는 전 세계의 고객을 즐거움 비즈니스를 구축 하는 데 도움이 되는 다양 한 클라우드 솔루션 및 lob (기간 업무) 솔루션을 구축 하기 위해 최선을 다하고 있습니다.
+상업 시장에 제안을 게시에 관심을 가져 주셔서 감사합니다. 당사는 전 세계 고객을 만족시키고 비즈니스를 구축하는 데 도움이 되는 풍부한 클라우드 솔루션 과 비즈니스 제공 라인을 구축하기 위해 고객과 파트너십을 맺기 위해 최선을 다하고 있습니다.
 
-Marketplace에서 제공 하는 제품은 정책과 약관을 준수 해야 합니다. 이러한 정책과 용어를 적시에 업데이트 하 여 고객 환경을 개선 하 고 파트너에 게 성공할 수 있는 기회를 제공 합니다. 정책 또는 용어에 대 한 의견이 있는 경우 [Azure Marketplace 및 AppSource 포럼](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)에서 주석으로 알려주세요.
+마켓플레이스에서의 오퍼는 당사의 정책 및 약관을 준수해야 합니다. 당사는 좋은 고객 경험을 보장하고 파트너에게 성공할 수 있는 기회를 제공하기 위해 이러한 정책과 조건을 수시로 업데이트합니다. 정책 또는 약관에 대한 피드백이 있는 경우 [Azure 마켓플레이스 및 AppSource 포럼에서](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)의견을 보내 주시기 바랍니다.
 
 ## <a name="policies-and-terms"></a>정책 및 약관
 
@@ -36,6 +35,6 @@ Marketplace에서 제공 하는 제품은 정책과 약관을 준수 해야 합�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Marketplace 및 AppSource 게시 가이드](./marketplace-publishers-guide.md) 페이지를 방문 하세요.
+Azure [마켓플레이스 및 AppSource 게시 가이드](./marketplace-publishers-guide.md) 페이지를 방문하십시오.
 
 ---

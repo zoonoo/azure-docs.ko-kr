@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 2d427a8b40fcb537801ce76aae6bc32fcda3a307
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71056937"
 ---
-# <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>문제 해결: Azure에서 가상 네트워크를 삭제 하지 못했습니다.
+# <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>문제 해결: Azure에서 가상 네트워크를 삭제하지 못함
 
 Microsoft Azure에서 가상 네트워크를 삭제하려고 할 때 오류가 발생할 수 있습니다. 이 문서에서는 이 문제를 해결하는 데 도움이 되는 문제 해결 단계를 제공합니다. 
 
@@ -29,10 +29,10 @@ Microsoft Azure에서 가상 네트워크를 삭제하려고 할 때 오류가 �
 
 ## <a name="troubleshooting-guidance"></a>문제 해결 지침 
 
-1. [가상 네트워크에서 가상 네트워크 게이트웨이가 실행 중인지 확인](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network)합니다.
-2. [가상 네트워크에서 애플리케이션 게이트웨이가 실행 중인지 확인](#check-whether-an-application-gateway-is-running-in-the-virtual-network)합니다.
-3. [가상 네트워크에서 Azure Active Directory Domain Service가 사용하도록 설정되어 있는지 확인](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network)합니다.
-4. [가상 네트워크가 다른 리소스에 연결되어 있는지 확인](#check-whether-the-virtual-network-is-connected-to-other-resource)합니다.
+1. [가상 네트워크 게이트웨이가 가상 네트워크에서 실행되고 있는지 확인합니다.](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network)
+2. [응용 프로그램 게이트웨이가 가상 네트워크에서 실행되고 있는지 확인합니다.](#check-whether-an-application-gateway-is-running-in-the-virtual-network)
+3. [가상 네트워크에서 Azure Active Directory 도메인 서비스가 활성화되어 있는지 확인합니다.](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network)
+4. [가상 네트워크가 다른 리소스에 연결되어 있는지 확인합니다.](#check-whether-the-virtual-network-is-connected-to-other-resource)
 5. [가상 네트워크에서 가상 컴퓨터가 여전히 실행 중인지 확인](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network)합니다.
 6. [가상 네트워크가 마이그레이션 도중에 걸려 있는지 확인](#check-whether-the-virtual-network-is-stuck-in-migration)합니다.
 
@@ -92,5 +92,5 @@ Active Directory Domain Service가 사용하도록 설정되어 있고 가상 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Virtual Network](virtual-networks-overview.md)
+- [Azure 가상 네트워크](virtual-networks-overview.md)
 - [Azure Virtual Network FAQ(질문과 대답)](virtual-networks-faq.md)

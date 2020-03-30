@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services v3로 Widevstandroid 오프 라인 스트리밍
+title: Azure 미디어 서비스 v3와 스트림 와이드 바인 안드로이드 오프라인
 description: 이 항목에서는 Widevine 보호 콘텐츠의 오프라인 스트리밍에 대한 Azure Media Services 계정을 구성하는 방법을 보여 줍니다.
 services: media-services
 keywords: DASH, DRM, Widevine 오프라인 모드, ExoPlayer, Android
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 55ed849b6083435e70d0943a359c83793ca0842d
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 64cd93acc78f4cb5b7ebc4266e7359aec662890c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705907"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295431"
 ---
-# <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Media Services v3을 사용 하 여 Android 용 오프 라인 Widevine 스트리밍
+# <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>미디어 서비스 v3와 안드로이드에 대한 오프라인 와이드 바인 스트리밍
 
 온라인 스트리밍을 위해 콘텐츠를 보호하는 것 외에도, 미디어 콘텐츠 구독 및 임대 서비스는 인터넷에 연결되지 않았을 때 작동하는 다운로드 가능한 콘텐츠를 제공합니다. 네트워크에서 연결이 끊긴 상태로 비행하는 비행기 모드에서 재생하려면 휴대폰이나 태블릿에 콘텐츠를 다운로드해야 할 수 있습니다. 콘텐츠를 다운로드하려는 추가적인 시나리오는 다음과 같습니다.
 
-- 일부 콘텐츠 공급자는 국가/지역 테두리를 넘어 DRM 라이선스 배달을 허용 하지 않을 수 있습니다. 사용자를 해외 여행을 하면서 콘텐츠를 보려 할 경우 오프 라인 다운로드가 필요합니다.
-- 일부 국가/지역에서는 인터넷 가용성 및/또는 대역폭이 제한 됩니다. 사용자가 만족스러운 보기 환경을 위해 충분히 높은 해상도로 콘텐츠를 볼 수 있도록 콘텐츠를 다운로드하도록 선택할 수도 있습니다.
+- 일부 콘텐츠 제공업체는 국가/지역의 경계를 넘어 DRM 라이선스 전송을 허용하지 않을 수 있습니다. 사용자를 해외 여행을 하면서 콘텐츠를 보려 할 경우 오프 라인 다운로드가 필요합니다.
+- 일부 국가/지역에서는 인터넷 가용성 및/또는 대역폭이 제한됩니다. 사용자가 만족스러운 보기 환경을 위해 충분히 높은 해상도로 콘텐츠를 볼 수 있도록 콘텐츠를 다운로드하도록 선택할 수도 있습니다.
 
 이 문서에서는 Android 디바이스에서 Widevine에 의해 보호되는 DASH 콘텐츠에 대해 오프라인 모드 재생을 구현하는 방법을 설명합니다. 오프라인 DRM은 콘텐츠에 대해 구독, 임대 및 구매 모델을 제공하여, 서비스 고객이 인터넷에 연결되어 있지 않을 때도 콘텐츠를 쉽게 사용하도록 할 수 있습니다.
 
@@ -40,16 +40,16 @@ Android 플레이어 앱을 빌드하는 경우 다음 세 가지 옵션을 사�
 또한 Widevine 보호 콘텐츠의 오프라인 스트리밍과 관련된 몇 가지 일반적인 질문에 대한 답변도 제공되어 있습니다.
 
 > [!NOTE]
-> 오프 라인 DRM은 콘텐츠를 다운로드할 때 라이선스에 대 한 단일 요청을 만드는 경우에만 청구 됩니다. 모든 오류는 청구 되지 않습니다.
+> 오프라인 DRM은 콘텐츠를 다운로드할 때 라이선스에 대한 단일 요청에 대해서만 청구됩니다. 모든 오류는 청구되지 않습니다.
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 Android 디바이스에서 Widevine에 대한 오프라인 DRM을 구현하기 전에 먼저 다음을 수행해야 합니다.
 
 - Widevine DRM을 사용하는 온라인 콘텐츠 보호를 위해 도입된 개념을 숙지합니다. 이 내용은 다음 문서/샘플에서 자세히 다룹니다.
     - [액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계](design-multi-drm-system-with-access-control.md)
     - [DRM 동적 암호화 및 라이선스 배달 서비스 사용](protect-with-drm.md)
-- https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git 을 복제합니다.
+- https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git을 복제합니다.
 
     [.NET을 사용하여 DRM으로 암호화](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM)에서 코드를 수정하여 Widevine 구성을 추가해야 합니다.  
 - 오프라인 Widevine DRM 재생을 지원할 수 있는 오픈 소스 비디오 플레이어 SDK인 Android용 Google ExoPlayer SDK에 익숙해집니다. 
@@ -98,7 +98,7 @@ Widevine 라이선스에 대해 **오프라인** 모드를 사용하도록 설�
 
 ## <a name="configuring-the-android-player-for-offline-playback"></a>오프라인 재생을 위한 Android 플레이어 구성
 
-Android 디바이스용 네이티브 플레이어 앱을 개발하는 가장 쉬운 방법은 오픈 소스 비디오 플레이어 SDK인 [Google ExoPlayer SDK](https://github.com/google/ExoPlayer)를 사용하는 것입니다. ExoPlayer는 MPEG-DASH 및 Microsoft 부드러운 스트리밍 배달 프로토콜을 포함하여 Android의 네이티브 MediaPlayer API에서 현재 지원하지 않는 기능을 지원합니다.
+Android 디바이스용 네이티브 플레이어 앱을 개발하는 가장 쉬운 방법은 오픈 소스 비디오 플레이어 SDK인 [Google ExoPlayer SDK](https://github.com/google/ExoPlayer)를 사용하는 것입니다. 엑소플레이어는 MPEG-DASH 및 마이크로소프트 스무스 스트리밍 전송 프로토콜을 포함하여 안드로이드의 기본 미디어플레이어 API에서 현재 지원되지 않는 기능을 지원합니다.
 
 ExoPlayer 버전 2.6 이상에는 오프라인 Widevine DRM 재생을 지원하는 여러 클래스가 포함되어 있습니다. 특히, OfflineLicenseHelper 클래스는 DefaultDrmSessionManager를 사용하여 오프라인 라이선스 다운로드, 갱신 및 해제를 용이하게 수행하도록 하는 유틸리티 함수를 제공합니다. SDK 폴더 "library/core/src/main/java/com/google/android/exoplayer2/offline/"에 제공되는 클래스는 오프라인 비디오 콘텐츠 다운로드를 지원합니다.
 
@@ -121,7 +121,7 @@ ExoPlayer 버전 2.6 이상에는 오프라인 Widevine DRM 재생을 지원하�
 
 일부 이전 Android 디바이스의 경우, 다음 **policy_overrides** 속성([Widevine 라이선스 템플릿](widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds** 및 **license_duration_seconds**)에 대한 값을 설정해야 합니다. 또는 무한/무제한 기간을 의미하는 0으로 설정할 수도 있습니다.  
 
-정수 오버플로 버그를 방지하도록 해당 값을 설정해야 합니다. 문제에 대한 자세한 설명은 https://github.com/google/ExoPlayer/issues/3150 및 https://github.com/google/ExoPlayer/issues/3112 를 참조하세요. <br/>값을 명시적으로 설정하지 않으면 **PlaybackDurationRemaining** 및 **LicenseDurationRemaining** 값으로 매우 큰 값(예: 64비트 정수에 대한 최대 양수인 9223372036854775807)이 할당됩니다. 결과적으로, Widevine 라이선스는 만료된 것으로 나타나며, 암호 해독은 발생하지 않습니다. 
+정수 오버플로 버그를 방지하도록 해당 값을 설정해야 합니다. 문제에 대한 자세한 설명은 https://github.com/google/ExoPlayer/issues/3150 및 https://github.com/google/ExoPlayer/issues/3112를 참조하세요. <br/>값을 명시적으로 설정하지 않으면 **PlaybackDurationRemaining** 및 **LicenseDurationRemaining** 값으로 매우 큰 값(예: 64비트 정수에 대한 최대 양수인 9223372036854775807)이 할당됩니다. 결과적으로, Widevine 라이선스는 만료된 것으로 나타나며, 암호 해독은 발생하지 않습니다. 
 
 Android 4.4 KitKat은 원래부터 다른 이전 Android 버전과 마찬가지로 ARMv7 및 32비트 플랫폼을 지원하도록 디자인되어 있지만, Android 5.0은 ARMv8([Advanced RISC Machine](https://en.wikipedia.org/wiki/ARM_architecture)) 및 64비트 플랫폼을 완전하게 지원하도록 디자인된 최초의 Android 버전이므로 Android 5.0 Lollipop 이상에서는 이 문제가 발생하지 않습니다.
 
@@ -136,7 +136,7 @@ Android 4.4 KitKat은 원래부터 다른 이전 Android 버전과 마찬가지�
 
 ## <a name="chrome-player-apps-for-android"></a>Android용 Chrome 플레이어 앱
 
-[Android v. 62의 Chrome](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates)릴리스부터 EME의 영구 라이선스가 지원 됩니다. [Widevine L1](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates#widevine_l1)은 이제 Android용 Chrome에서도 지원됩니다. 따라서, 최종 사용자에게 이 버전 이상의 Chrome이 있기만 하면 Chrome에서 오프라인 재생 애플리케이션을 만들 수 있습니다. 
+[안드로이드 v. 62에 대한 크롬의](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates)출시를 시작으로, EME의 영구 라이센스가 지원됩니다. [Widevine L1](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates#widevine_l1)은 이제 Android용 Chrome에서도 지원됩니다. 따라서, 최종 사용자에게 이 버전 이상의 Chrome이 있기만 하면 Chrome에서 오프라인 재생 애플리케이션을 만들 수 있습니다. 
 
 또한 Google은 PWA(Progressive Web App) 샘플을 생성하고 오픈 소스로 설정했습니다. 
 
@@ -147,34 +147,34 @@ Android 휴대폰에서 모바일 Chrome 브라우저를 v62(또는 이상)로 �
 
 위의 오픈 소스 PWA 앱은 Node.js에서 작성됩니다. Ubuntu 서버에 고유한 버전을 호스트하려는 경우, 재생을 방해할 수 있는 다음과 같은 일반적인 문제가 발생한다는 점에 유의합니다.
 
-1. CORS 문제: 샘플 앱의 샘플 비디오는 https://storage.googleapis.com/biograf-video-files/videos/ 에서 호스팅됩니다. Google은 Google 클라우드 스토리지 버킷에 호스트되는 모든 테스트 샘플에 대해 CORS를 설정했습니다. CORS 항목 https://biograf-155113.appspot.com (Google에서 해당 샘플을 호스트하는 도메인)을 명시적으로 지정하는 CORS 헤더가 사용되어 다른 사이트의 액세스를 방지합니다. 작업을 시도하면 다음 HTTP 오류가 표시됩니다. https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: 를 로드하지 못했습니다. 요청된 리소스에 'Access-Control-Allow-Origin' 헤더가 없습니다. 따라서 원본 ' https:\//13.85.80.81:8080 '은 액세스가 허용 되지 않습니다. 사용자 요구에 불명확한 응답이 제공되면 요청 모드를 'no-cors'로 설정하여 CORS가 사용되지 않도록 설정된 리소스를 가져옵니다.
+1. CORS 문제: 샘플 앱의 샘플 비디오는 https://storage.googleapis.com/biograf-video-files/videos/에서 호스팅됩니다. Google은 Google 클라우드 스토리지 버킷에 호스트되는 모든 테스트 샘플에 대해 CORS를 설정했습니다. CORS 항목 `https://biograf-155113.appspot.com` (Google에서 해당 샘플을 호스트하는 도메인)을 명시적으로 지정하는 CORS 헤더가 사용되어 다른 사이트의 액세스를 방지합니다. 시도하면 다음과 같은 HTTP 오류가 표시됩니다.`Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
 2. 인증서 문제: Chrome v 58부터, Widevine용 EME에는 HTTPS가 필요합니다. 따라서 X509 인증서를 사용해서 HTTPS를 통해 샘플 앱을 호스트해야 합니다. 일반적인 테스트 인증서는 다음 요구 사항 때문에 작동하지 않습니다. 즉, 다음과 같은 최소 요구 사항을 충족하는 인증서를 가져와야 합니다.
     - Chrome 및 Firefox에서는 SAN 주체 대체 이름 설정이 인증서에 있어야 합니다.
     - 인증서는 신뢰할 수 있는 CA에서 발급한 것이어야 하고, 자체 서명된 인증서가 작동하지 않습니다.
     - 인증서는 웹 서버 또는 게이트웨이의 DNS 이름과 일치하는 CN이 있어야 합니다.
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="question"></a>질문
 
 일부 클라이언트/사용자에게는 영구 라이선스(오프라인 사용 가능)를 제공하고 일부에게는 비영구 라이선스(오프라인 사용 불가)를 제공하려면 어떻게 해야 하나요? 콘텐츠를 복제하고 별도 콘텐츠 키를 사용해야 하나요?
 
-### <a name="answer"></a>답변
+### <a name="answer"></a>Answer
 Media Services v3에서는 자산에 여러 StreamingLocator가 포함될 수 있기 때문입니다. 다음을 유지할 수 있습니다.
 
-1.  license_type = "persistent"인 하나의 ContentKeyPolicy, "persistent"에 대한 클레임이 있는 ContentKeyPolicyRestriction 및 해당 StreamingLocator
-2.  license_type = "nonpersistent"인 다른 ContentKeyPolicy, "nonpersistent"에 대한 클레임이 있는 ContentKeyPolicyRestriction 및 해당 StreamingLocator
-3.  두 StreamingLocator의 ContentKey가 다릅니다.
+1.    license_type = "persistent"인 하나의 ContentKeyPolicy, "persistent"에 대한 클레임이 있는 ContentKeyPolicyRestriction 및 해당 StreamingLocator
+2.    license_type = "nonpersistent"인 다른 ContentKeyPolicy, "nonpersistent"에 대한 클레임이 있는 ContentKeyPolicyRestriction 및 해당 StreamingLocator
+3.    두 StreamingLocator의 ContentKey가 다릅니다.
 
 사용자 지정 STS의 비즈니스 논리에 따라 JWT 토큰에서 다른 클레임이 발급됩니다. 이 토큰을 사용하여 해당 라이선스만 가져올 수 있고 해당 URL만 재생할 수 있습니다.
 
 ### <a name="question"></a>질문
 
-Widevine 보안 수준에 대해 Google의 [Widevine DRM 아키텍처 개요 문서](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) 설명서에서는 세 가지 다른 보안 수준을 정의하고 있습니다. 그러나 [Widevine 라이선스 템플릿에 대한 Azure Media Services 설명서](widevine-license-template-overview.md)에는 5개의 보안 수준이 설명되어 있습니다. 두 가지 다른 보안 수준 집합 간에는 어떤 관계 또는 매핑이 있나요?
+와이드바인 보안 레벨의 경우 Google의 "와이드바인 DRM 아키텍처 개요" 문서는 세 가지 보안 수준을 정의합니다. 그러나 [Widevine 라이선스 템플릿에 대한 Azure Media Services 설명서](widevine-license-template-overview.md)에는 5개의 보안 수준이 설명되어 있습니다. 두 가지 다른 보안 수준 집합 간에는 어떤 관계 또는 매핑이 있나요?
 
-### <a name="answer"></a>답변
+### <a name="answer"></a>Answer
 
-Google의 [Widevine DRM 아키텍처 개요](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf)에서는 다음과 같은 세 가지 보안 수준을 정의하고 있습니다.
+Google의 "와이드바인 DRM 아키텍처 검토" 문서는 다음과 같은 세 가지 보안 수준을 정의합니다.
 
 1.  보안 수준 1: 모든 콘텐츠 처리, 암호화 및 제어가 TEE(신뢰할 수 있는 실행 환경)에서 수행됩니다. 일부 구현 모델에서 보안 처리는 다른 칩에서 수행될 수 있습니다.
 2.  보안 수준 2: TEE 내에서 암호화(비디오 처리는 아님)를 수행합니다. 암호 해독된 버퍼는 애플리케이션 도메인으로 반환되고 별도의 비디오 하드웨어 또는 소프트웨어를 통해 처리됩니다. 그러나 수준 2에서 암호화 정보는 여전히 TEE 내에서만 처리됩니다.
@@ -192,15 +192,15 @@ Google의 [Widevine DRM 아키텍처 개요](https://storage.googleapis.com/wvdo
 
 | **Widevine 아키텍처에 정의되는 보안 수준** |**Widevine API에서 사용되는 보안 수준**|
 |---|---| 
-| **보안 수준 1**: 모든 콘텐츠 처리, 암호화 및 제어가 TEE(신뢰할 수 있는 실행 환경)에서 수행됩니다. 일부 구현 모델에서 보안 처리는 다른 칩에서 수행될 수 있습니다.|**보안 수준 5**: 하드웨어 기반의 신뢰할 수 있는 실행 환경에서 미디어의 암호화, 디코딩 및 모든 처리(압축 및 압축 해제)를 수행해야 합니다.<br/><br/>**보안 수준 4**: 하드웨어 기반의 신뢰할 수 있는 실행 환경에서 콘텐츠의 암호화 및 디코딩을 수행해야 합니다.|
+| **보안 수준 1**: 모든 콘텐츠 처리, 암호화 및 제어는 신뢰할 수 있는 실행 환경(TEE) 내에서 수행됩니다. 일부 구현 모델에서 보안 처리는 다른 칩에서 수행될 수 있습니다.|**보안 수준 5**: 하드웨어 기반의 신뢰할 수 있는 실행 환경에서 미디어의 암호화, 디코딩 및 모든 처리(압축 및 압축 해제)를 수행해야 합니다.<br/><br/>**보안 수준 4**: 하드웨어 기반의 신뢰할 수 있는 실행 환경에서 콘텐츠의 암호화 및 디코딩을 수행해야 합니다.|
 **보안 수준 2**: TEE 내에서 암호화(비디오 처리는 아님)를 수행합니다. 암호 해독된 버퍼는 애플리케이션 도메인으로 반환되고 별도의 비디오 하드웨어 또는 소프트웨어를 통해 처리됩니다. 그러나 수준 2에서 암호화 정보는 여전히 TEE 내에서만 처리됩니다.| **보안 수준 3**: 하드웨어 기반의 신뢰할 수 있는 실행 환경에서 키 자료 및 암호화 작업을 수행해야 합니다. |
-| **보안 수준 3**: 디바이스에 TEE가 없습니다. 호스트 운영 체제의 암호화 정보 및 암호 해독된 콘텐츠를 보호하기 위해 적절한 조치가 수행될 수 있습니다. 수준 3 구현에도 하드웨어 암호화 엔진이 포함될 수 있지만 보안이 아닌 성능만 향상시킵니다. | **security_level = 2**: 소프트웨어 암호화 및 난독 처리 된 디코더가 필요 합니다.<br/><br/>**security_level=1**: 소프트웨어 기반 화이트 박스 암호화가 필요합니다.|
+| **보안 수준 3**: 디바이스에 TEE가 없습니다. 호스트 운영 체제의 암호화 정보 및 암호 해독된 콘텐츠를 보호하기 위해 적절한 조치가 수행될 수 있습니다. 수준 3 구현에도 하드웨어 암호화 엔진이 포함될 수 있지만 보안이 아닌 성능만 향상시킵니다. | **security_level =2**: 소프트웨어 암호 및 난독 처리 된 디코더가 필요합니다.<br/><br/>**security_level=1**: 소프트웨어 기반 화이트 박스 암호화가 필요합니다.|
 
 ### <a name="question"></a>질문
 
 콘텐츠 다운로드 시간이 너무 오래 걸리는 이유는 무엇인가요?
 
-### <a name="answer"></a>답변
+### <a name="answer"></a>Answer
 
 다운로드 속도를 개선하는 방법으로는 다음 두 가지가 있습니다.
 

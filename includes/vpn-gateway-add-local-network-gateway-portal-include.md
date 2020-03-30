@@ -9,16 +9,16 @@ ms.date: 10/04/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9648f4c16e8d266bbdd504d4a7599b67a5c846b4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73523347"
 ---
-1. [Azure Portal](https://portal.azure.com) 메뉴에서 **리소스 만들기**를 선택 합니다. 
+1. Azure [포털](https://portal.azure.com) 메뉴에서 **리소스 만들기를 선택합니다.** 
 
-   ![Azure Portal에서 리소스 만들기](./media/vpn-gateway-add-local-network-gateway-portal-include/azure-portal-create-resource.png)
-2. **Marketplace 검색** 필드에서 **로컬 네트워크 게이트웨이**를 입력 한 다음 **enter** 키를 눌러 검색 합니다. 그러면 결과 목록이 반환됩니다. **로컬 네트워크 게이트웨이**를 클릭한 다음, **만들기** 단추를 클릭하여 **로컬 네트워크 게이트웨이 만들기** 페이지를 엽니다.
+   ![Azure Portal에서 리소스를 만듭니다.](./media/vpn-gateway-add-local-network-gateway-portal-include/azure-portal-create-resource.png)
+2. **마켓플레이스 검색** 필드에서 **로컬 네트워크 게이트웨이를**입력한 다음 **Enter를** 눌러 검색합니다. 그러면 결과 목록이 반환됩니다. **로컬 네트워크 게이트웨이**를 클릭한 다음, **만들기** 단추를 클릭하여 **로컬 네트워크 게이트웨이 만들기** 페이지를 엽니다.
 
    ![로컬 네트워크 게이트웨이 만들기](./media/vpn-gateway-add-local-network-gateway-portal-include/create-local-network-gateway.png "로컬 네트워크 게이트웨이 만들기")
 
@@ -30,6 +30,6 @@ ms.locfileid: "73523347"
    - **BGP 설정 구성:** BGP를 구성할 때에만 사용합니다. 그렇지 않으면 이것을 선택하지 마십시오.
    - **구독:** 올바른 구독이 표시되어 있는지 확인합니다.
    - **리소스 그룹:** 사용하려는 리소스 그룹을 선택합니다. 새 리소스 그룹을 만들거나 이미 만든 리소스 그룹을 선택할 수 있습니다.
-   - **위치:** 위치는 다른 설정의 **지역과** 동일 합니다. 이 개체를 만들 위치를 선택합니다. VNet이 있는 동일한 위치를 선택하는 것이 좋지만 그렇게 하지 않아도 됩니다.
+   - **위치:** 위치는 다른 설정의 **지역과** 동일합니다. 이 개체를 만들 위치를 선택합니다. VNet이 있는 동일한 위치를 선택하는 것이 좋지만 그렇게 하지 않아도 됩니다.
 
 4. 값을 지정하는 작업을 완료하면 페이지 맨 아래에서 **만들기** 단추를 클릭하여 로컬 네트워크 게이트웨이를 만듭니다.

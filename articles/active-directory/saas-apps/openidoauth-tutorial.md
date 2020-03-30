@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbf9cde8dd2032e81abe0fb2572c2181d4ba21ee
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f8a2c962c69ead28c4e79b663010eab77a499f5c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160222"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048427"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에서 OpenID/OAuth 애플리케이션 구성
 
@@ -71,7 +71,7 @@ ms.locfileid: "73160222"
 > [!NOTE]
 > 여러 디렉터리에 있는 사용자에게 애플리케이션을 사용할 수 있도록 만들려면 사용자가 속한 테넌트를 확인할 수 있는 메커니즘이 필요합니다. 단일 테넌트 애플리케이션은 사용자에 대한 고유한 디렉터리에서 확인해야 합니다. 다중 테넌트 애플리케이션은 Azure AD의 모든 디렉터리에서 특정 사용자를 식별해야 합니다.
 > 
-> 이 작업을 수행할 수 있도록 Azure AD는 테넌트 특정 엔드포인트를 제공하지 않고 다중 테넌트 애플리케이션이 로그인 요청을 디렉션할 수 있는 공통 인증 엔드포인트를 제공합니다. 이 엔드포인트는 Azure AD의 모든 디렉터리에 대한 [https://login.microsoftonline.com/common](https://login.microsoftonline.com/common)입니다. 테넌트별 엔드포인트는 [https://login.microsoftonline.com/contoso.onmicrosoft.com](https://login.microsoftonline.com/contoso.onmicrosoft.com)일 수 있습니다. 
+> 이 작업을 수행할 수 있도록 Azure AD는 테넌트 특정 엔드포인트를 제공하지 않고 다중 테넌트 애플리케이션이 로그인 요청을 디렉션할 수 있는 공통 인증 엔드포인트를 제공합니다. 이 엔드포인트는 Azure AD의 모든 디렉터리에 대해 `https://login.microsoftonline.com/common`입니다. 테넌트별 엔드포인트는 `https://login.microsoftonline.com/contoso.onmicrosoft.com`일 수 있습니다. 
 >
 > 애플리케이션을 개발하는 경우 공통 엔드포인트를 고려하는 것은 중요합니다. 로그인, 로그아웃 및 토큰 유효성 검사 중에 여러 테넌트를 처리하는 데 필요한 논리가 필요합니다.
 
@@ -144,7 +144,7 @@ Graph API는 또한 더 많은 Microsoft 클라우드 서비스에서 사용자 
 > [!NOTE]
 > **관리자 동의 부여** 단추를 사용하는 명시적 동의 부여는 현재 ADAL.js를 사용하는 SPA(단일 페이지 애플리케이션)에 필요합니다. 그렇지 않고 액세스 토큰을 요청하는 경우 애플리케이션이 실패합니다.
 
-응용 프로그램 전용 권한은 테넌트 관리자의 동의를 항상 필요로 합니다. 애플리케이션이 애플리케이션 전용 사용 권한을 요청하고 사용자가 애플리케이션에 로그인을 시도하는 경우 오류 메시지가 나타납니다. 메시지는 사용자가 동의할 수 없음을 알립니다.
+앱 전용 권한은 테넌트 관리자의 동의를 항상 필요로 합니다. 애플리케이션이 애플리케이션 전용 사용 권한을 요청하고 사용자가 애플리케이션에 로그인을 시도하는 경우 오류 메시지가 나타납니다. 메시지는 사용자가 동의할 수 없음을 알립니다.
 
 애플리케이션이 관리자 동의가 필요한 권한을 사용할 경우 관리자가 작업을 시작할 수 있도록 단추나 링크와 같은 제스처가 있어야 합니다. 애플리케이션에서 이 작업에 대해 보내는 요청은 일반적인 OAuth2/OpenID Connect 권한 부여 요청입니다. 이 요청은 *prompt=admin_consent* 쿼리 문자열 매개 변수를 포함합니다. 
 

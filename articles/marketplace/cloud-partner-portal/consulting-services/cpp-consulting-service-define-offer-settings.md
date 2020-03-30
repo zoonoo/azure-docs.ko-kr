@@ -1,19 +1,18 @@
 ---
-title: 컨설팅 서비스 제품에 대 한 제품 설정 정의 | Azure Marketplace
-description: Azure Marketplace에 대 한 Cloud 파트너 포털의 Azure 또는 Dynamics 365 컨설팅 서비스 제품에서 제품 설정을 정의 합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
+title: 컨설팅 서비스 오퍼의 오퍼 설정 정의 | Azure 마켓플레이스
+description: Azure 마켓플레이스용 클라우드 파트너 포털에서 Azure 또는 Dynamics 365 컨설팅 서비스 오퍼에서 제안 설정을 정의합니다.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
-ms.openlocfilehash: e505f9aa1ec08708b85176d5b05fc5b40ceb295e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: ac7ac2cc049c87b3f619f68a9a93a2268d961114
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818136"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278572"
 ---
 # <a name="offer-settings-tab"></a>제품 설정 탭
 
@@ -22,7 +21,7 @@ ms.locfileid: "73818136"
 ![새 컨설팅 서비스 제품 만들기 - 제품 설정 탭](media/consultingoffer-settings-tab.png)
 
 
-### <a name="offer-id"></a>제품 ID *
+### <a name="offer-id"></a>제공 ID*
 
 이 식별자는 제품을 처음 제출할 때 만드는 고유한 이름입니다. 제품 ID에는 소문자 영숫자 문자, 대시 또는 밑줄만 사용해야 합니다. **제품 ID**는 URL에 표시되며 검색 엔진 결과에 영향을 줍니다. *yourcompanyname_exampleservice* 등을 예로 들 수 있습니다.
 
@@ -32,12 +31,12 @@ ms.locfileid: "73818136"
 >제품이 라이브로 표시된 후에는 식별자를 업데이트할 수 없습니다.
 
 
-### <a name="publisher-id"></a>게시자 ID *
+### <a name="publisher-id"></a>게시자 ID*
 
 이 식별자는 계정과 관련이 있습니다. 조직 계정으로 로그인하고 나면 **게시자 ID**가 드롭다운 메뉴에 표시됩니다.
 
 
-### <a name="name"></a>이름의
+### <a name="name"></a>이름*
 
 이 문자열은 AppSource 또는 Azure Marketplace에서 제품 이름으로 표시됩니다. **이름** 상자에는 50자까지만 입력할 수 있습니다. 검토자는 제목을 편집하여 제품 이름에 기간 및 제품 유형을 추가해야 할 수 있습니다.
 
@@ -47,10 +46,10 @@ ms.locfileid: "73818136"
 
 제품 이름은 다음의 네 부분으로 구성됩니다.
 
--   **기간:** 편집기의 **Storefront Details** 탭에 정의 되어 있습니다. 기간은 시간, 일 또는 주 단위로 표시할 수 있습니다.
--   **서비스 유형:** 편집기의 **Storefront Details** 탭에 정의 되어 있습니다. 서비스의 유형은 `Assessment`, `Briefing`, `Implementation`, `Proof of concept` 및 `Workshop`입니다.
--   **전치사:** 검토자가 삽입 합니다.
--   **이름:** **제품 설정** 페이지에서 정의 됩니다.
+-   **지속 시간:** 편집기의 **스토어프론트 세부 정보** 탭에 정의됩니다. 기간은 시간, 일 또는 주 단위로 표시할 수 있습니다.
+-   **서비스 유형:** 편집기의 **스토어프론트 세부 정보** 탭에 정의됩니다. 서비스의 유형은 `Assessment`, `Briefing`, `Implementation`, `Proof of concept` 및 `Workshop`입니다.
+-   **전치사:** 검토자가 삽입합니다.
+-   **이름:** **오퍼 설정** 페이지에 정의됩니다.
 
 >[!Note]
 >**이름** 상자에는 50자까지만 입력할 수 있습니다. 검토자는 제목을 편집하여 제품 이름에 기간 및 제품 유형을 추가해야 할 수 있습니다.
@@ -60,13 +59,13 @@ ms.locfileid: "73818136"
 -   전문 서비스 필수 사항: 1시간 브리핑
 -   클라우드 마이그레이션 플랫폼: 1시간 브리핑
 -   PowerApps 및 Microsoft Flow: 1시간 워크샵
--   Azure Machine Learning: 3-Wk PoC
+-   Azure 기계 학습: 3-Wk PoC
 -   Brick and Click Retail 솔루션: 1시간 브리핑
--   사용자 고유의 데이터 가져오기: 1-Wk 워크숍
+-   나만의 데이터 가져오기: 1-Wk 워크샵
 -   Cloud Analytics: 3일 워크샵
 -   Power BI 교육: 3일 워크샵
 -   영업 관리 솔루션: 1주 구현
--   CRM 빠른 시작: 1 일간 워크숍
+-   CRM 퀵스타트: 1일 워크샵
 -   Dynamics 365 for Sales: 2일 평가
 
 **제품 설정** 탭에 필요한 정보를 입력한 후에 제출 내용을 저장합니다. 이제 제품 이름이 편집기 위에 표시되며 **모든 제품**에서 이름을 확인할 수 있습니다.

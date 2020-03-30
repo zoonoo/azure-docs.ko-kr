@@ -1,5 +1,5 @@
 ---
-title: REST Api를 사용 하 여 IoT Edge의 Azure Stream Analytics에 대 한 CI/CD를 수행 합니다.
+title: REST API를 사용하여 IoT 에지에서 Azure 스트림 분석을 위해 CI/CD 를 수행합니다.
 description: REST API를 사용하여 Azure Stream Analytics에 대한 지속적인 통합 및 배포 파이프라인을 구현하는 방법에 알아봅니다.
 author: mamccrea
 ms.author: mamccrea
@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: 78f2e06947c2b81ffe5e6cd8a88438db4dabf158
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 328ca7cd2c6f76095c8334ae6fdb4aa75fbb867d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426409"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80291997"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>API를 사용하여 IoT Edge의 Stream Analytics에 대한 CI/CD 구현
 
@@ -57,7 +57,7 @@ Stream Analytics 작업을 만들려면 Stream Analytics API를 사용하여 PUT
 
 |방법|요청 URL|
 |------|-----------|
-|PUT|https://management.azure.com/subscriptions/{**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview|
+|PUT|`https://management.azure.com/subscriptions/{\**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview`|
  
 **curl**을 사용하는 명령 예제입니다.
 
@@ -144,7 +144,7 @@ IoT Edge에서 Stream Analytics 작업을 게시하려면 Edge Package Publish A
 
 |방법|요청 URL|
 |------|-----------|
-|POST|https://management.azure.com/subscriptions/{**subscriptionid**}/resourceGroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**jobname**}/publishedgepackage?api-version=2017-04-01-preview|
+|POST|`https://management.azure.com/subscriptions/{\**subscriptionid**}/resourceGroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**jobname**}/publishedgepackage?api-version=2017-04-01-preview`|
 
 작업이 성공적으로 게시될 때까지 이 비동기 작업은 202 상태를 반환합니다. 위치 응답 헤더는 프로세스의 상태를 가져오는 데 사용하는 URI를 포함합니다. 프로세스가 실행 중인 동안 위치 헤더의 URI에 대한 호출은 202 상태를 반환합니다. 프로세스가 끝났을 때 위치 헤더의 URI는 200 상태를 반환합니다. 
 

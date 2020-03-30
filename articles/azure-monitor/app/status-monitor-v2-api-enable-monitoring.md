@@ -1,57 +1,57 @@
 ---
-title: Azure 애플리케이션 Insights 에이전트 API 참조
-description: 에이전트 API 참조를 Application Insights 합니다. Enable-ApplicationInsightsMonitoring. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
+title: Azure 응용 프로그램 인사이트 에이전트 API 참조
+description: 응용 프로그램 인사이트 에이전트 API 참조. 애플리케이션 인사이트 모니터링 을 활성화합니다. 웹 사이트를 다시 배포하지 않고 웹 사이트 성능을 모니터링합니다. 온-프레미스, VM 또는 Azure에서 호스팅되는 ASP.NET 웹 앱과 함께 작동합니다.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 8bbdc96a49fffc91f80d24a9eb0926766f86ee16
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671310"
 ---
-# <a name="application-insights-agent-api-enable-applicationinsightsmonitoring"></a>Application Insights 에이전트 API: ApplicationInsightsMonitoring
+# <a name="application-insights-agent-api-enable-applicationinsightsmonitoring"></a>애플리케이션 인사이트 에이전트 API: 인에이블-애플리케이션 인사이트 모니터링
 
-이 문서에서는 [Az. ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)의 멤버인 cmdlet에 대해 설명 합니다.
+이 문서에서는 [Az.ApplicationMonitor PowerShell 모듈의](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)구성원인 cmdlet에 대해 설명합니다.
 
-## <a name="description"></a>Description
+## <a name="description"></a>설명
 
-대상 컴퓨터에서 IIS 앱에 대 한 코드 없는 연결 모니터링을 사용 하도록 설정 합니다.
+대상 컴퓨터에서 IIS 앱을 코드 없이 첨부모니터링할 수 있습니다.
 
-이 cmdlet은 IIS Applicationhost.config를 수정 하 고 일부 레지스트리 키를 설정 합니다.
-또한 각 앱에서 사용 하는 계측 키를 정의 하는 applicationinsights. ikey .config 파일이 만들어집니다.
-IIS는 시작 시 RedfieldModule를 로드 합니다. 그러면 응용 프로그램이 시작 될 때 응용 프로그램에 Application Insights SDK가 삽입 됩니다.
-IIS를 다시 시작 하 여 변경 내용을 적용 합니다.
+이 cmdlet은 IIS applicationHost.config를 수정하고 일부 레지스트리 키를 설정합니다.
+또한 각 앱에서 사용하는 계측 키를 정의하는 applicationinsights.ikey.config 파일을 만듭니다.
+IIS는 시작 시 RedfieldModule을 로드하여 응용 프로그램이 시작될 때 응용 프로그램 인사이트 SDK를 응용 프로그램에 삽입합니다.
+변경 사항이 적용되면 IIS를 다시 시작합니다.
 
-모니터링을 사용 하도록 설정한 후에는 [라이브 메트릭을](live-stream.md) 사용 하 여 앱이 원격 분석을 전송 하 고 있는지 신속 하 게 확인 하는 것이 좋습니다.
+모니터링을 사용하도록 설정하면 라이브 [메트릭을](live-stream.md) 사용하여 앱에서 원격 분석을 보내는지 빠르게 확인하는 것이 좋습니다.
 
 
 > [!NOTE] 
-> - 시작 하려면 계측 키가 필요 합니다. 자세한 내용은 [리소스 만들기](create-new-resource.md#copy-the-instrumentation-key)를 참조 하세요.
-> - 이 cmdlet을 사용 하려면 라이선스 및 개인 정보 취급 방침을 검토 하 고 동의 해야 합니다.
+> - 시작하려면 계측 키가 필요합니다. 자세한 내용은 [리소스 만들기](create-new-resource.md#copy-the-instrumentation-key)를 참조하십시오.
+> - 이 cmdlet은 당사의 라이선스 및 개인 정보 취급 방침을 검토하고 수락하도록 요구합니다.
 
 > [!IMPORTANT] 
-> 이 cmdlet을 사용 하려면 관리자 권한 및 관리자 권한으로 실행 정책이 있는 PowerShell 세션이 필요 합니다. 자세한 내용은 [관리자 권한으로 실행 정책으로 PowerShell 실행](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy)을 참조 하세요.
+> 이 cmdlet에는 관리자 권한이 있는 PowerShell 세션과 높은 실행 정책이 필요합니다. 자세한 내용은 [PowerShell 실행 을 높은 실행 정책이 있는 관리자로 실행](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy)을 참조하십시오.
 
 ## <a name="examples"></a>예
 
-### <a name="example-with-a-single-instrumentation-key"></a>단일 계측 키를 사용 하는 예제
-이 예제에서는 현재 컴퓨터의 모든 앱에 단일 계측 키가 할당 됩니다.
+### <a name="example-with-a-single-instrumentation-key"></a>단일 계측 키의 예
+이 예제에서는 현재 컴퓨터의 모든 앱에 단일 계측 키가 할당됩니다.
 
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-### <a name="example-with-an-instrumentation-key-map"></a>계측 키 맵이 있는 예제
-이 예제에서:
-- `MachineFilter`은 `'.*'` 와일드 카드를 사용 하 여 현재 컴퓨터와 일치 합니다.
-- `AppFilter='WebAppExclude'` `null` 계측 키를 제공 합니다. 지정 된 앱은 계측 되지 않습니다.
-- `AppFilter='WebAppOne'` 지정 된 앱에 고유한 계측 키를 할당 합니다.
-- `AppFilter='WebAppTwo'` 지정 된 앱에 고유한 계측 키를 할당 합니다.
-- 마지막으로 `AppFilter`는 `'.*'` 와일드 카드를 사용 하 여 이전 규칙과 일치 하지 않는 모든 웹 앱을 일치 시키고 기본 계측 키를 할당 합니다.
-- 가독성을 위해 공백을 추가 합니다.
+### <a name="example-with-an-instrumentation-key-map"></a>계측 키 맵의 예
+이 예제에 대한 설명:
+- `MachineFilter`와일드카드를 사용하여 현재 `'.*'` 컴퓨터와 일치합니다.
+- `AppFilter='WebAppExclude'`계측 `null` 키를 제공합니다. 지정된 앱은 계측되지 않습니다.
+- `AppFilter='WebAppOne'`지정된 앱에 고유한 계측 키를 할당합니다.
+- `AppFilter='WebAppTwo'`지정된 앱에 고유한 계측 키를 할당합니다.
+- `AppFilter` 마지막으로 와일드카드를 `'.*'` 사용하여 이전 규칙과 일치하지 않는 모든 웹 앱과 일치시키고 기본 계측 키를 할당합니다.
+- 가독성을 위해 공백이 추가됩니다.
 
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap 
@@ -65,53 +65,53 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 
 ## <a name="parameters"></a>매개 변수
 
-### <a name="-instrumentationkey"></a>-InstrumentationKey
-**필수** 이 매개 변수를 사용 하 여 대상 컴퓨터의 모든 앱에서 사용할 단일 계측 키를 제공 합니다.
+### <a name="-instrumentationkey"></a>- 계측키
+**필수.** 이 매개 변수를 사용하여 대상 컴퓨터의 모든 앱에서 사용할 단일 계측 키를 제공합니다.
 
-### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
-**필수** 이 매개 변수를 사용 하 여 여러 계측 키를 제공 하 고 각 앱에서 사용 하는 계측 키의 매핑을 제공 합니다.
-`MachineFilter`를 설정 하 여 여러 컴퓨터에 대해 단일 설치 스크립트를 만들 수 있습니다.
+### <a name="-instrumentationkeymap"></a>-계측키맵
+**필수.** 이 매개 변수를 사용하여 여러 계측 키와 각 앱에서 사용하는 계측 키매핑을 제공합니다.
+을 설정하여 `MachineFilter`여러 컴퓨터에 대한 단일 설치 스크립트를 만들 수 있습니다.
 
 > [!IMPORTANT]
-> 앱은 규칙이 제공 된 순서 대로 규칙에 대해 일치 합니다. 따라서 가장 구체적인 규칙을 먼저 지정 하 고 가장 일반적인 규칙을 마지막에 지정 해야 합니다.
+> 앱은 규칙이 제공되는 순서대로 규칙과 일치합니다. 따라서 가장 구체적인 규칙을 먼저 지정하고 가장 일반적인 규칙을 마지막으로 지정해야 합니다.
 
 #### <a name="schema"></a>스키마
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'}})`
 
-- **Machinefilter** 는 컴퓨터 또는 C# VM 이름의 필수 regex입니다.
-    - '. * '는 모두 일치 합니다.
-    - ' ComputerName '은 정확히 이름이 지정 된 컴퓨터에만 일치 합니다.
-- **Appfilter** 는 IIS 사이트 C# 이름의 필수 regex입니다. [Get iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite)명령을 실행 하 여 서버에서 사이트 목록을 가져올 수 있습니다.
-    - '. * '는 모두 일치 합니다.
-    - ' SiteName '은 정확한 이름을 지정 하 여 IIS 사이트와 일치 합니다.
-- **InstrumentationKey** 는 위의 두 필터와 일치 하는 앱의 모니터링을 사용 하도록 설정 하는 데 필요 합니다.
-    - 모니터링을 제외 하는 규칙을 정의 하려면이 값을 null로 둡니다.
+- **MachineFilter는** 컴퓨터 또는 VM 이름의 필수 C# 정규식입니다.
+    - '.*'는 모든
+    - 'ComputerName'은 지정된 정확한 이름의 컴퓨터만 일치합니다.
+- **AppFilter는** IIS 사이트 이름의 필수 C# 정규법입니다. [get-iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite)명령을 실행하여 서버의 사이트 목록을 얻을 수 있습니다.
+    - '.*'는 모든
+    - '사이트이름'은 IIS 사이트와 정확한 이름과 일치합니다.
+- **계측키는** 앞의 두 필터와 일치하는 앱을 모니터링하는 데 필요합니다.
+    - 모니터링을 제외하는 규칙을 정의하려면 이 값을 null로 둡니다.
 
 
-### <a name="-enableinstrumentationengine"></a>-EnableInstrumentationEngine
-**(선택 사항)** 이 스위치를 사용 하 여 계측 엔진에서 관리 되는 프로세스를 실행 하는 동안 발생 하는 상황에 대 한 이벤트 및 메시지를 수집할 수 있도록 합니다. 이러한 이벤트 및 메시지에는 종속성 결과 코드, HTTP 동사 및 SQL 명령 텍스트가 포함 됩니다.
+### <a name="-enableinstrumentationengine"></a>-인에이블계측 엔진
+**선택적.** 이 스위치를 사용하여 계측 엔진이 관리되는 프로세스를 실행하는 동안 발생하는 일에 대한 이벤트 및 메시지를 수집할 수 있습니다. 이러한 이벤트 및 메시지에는 종속성 결과 코드, HTTP 동사 및 SQL 명령 텍스트가 포함됩니다.
 
-계측 엔진은 오버 헤드를 추가 하며 기본적으로 해제 되어 있습니다.
+계측 엔진은 오버헤드를 추가하고 기본적으로 꺼져 있습니다.
 
-### <a name="-acceptlicense"></a>-AcceptLicense
-**(선택 사항)** 이 스위치를 사용 하 여 헤드리스 설치에서 라이선스 및 개인 정보 취급 방침에 동의 합니다.
+### <a name="-acceptlicense"></a>- 수락라이센스
+**선택적.** 이 스위치를 사용하여 헤드리스 설치에서 라이선스 및 개인 정보 취급 방침을 수락합니다.
 
-### <a name="-ignoresharedconfig"></a>-IgnoreSharedConfig
-웹 서버 클러스터가 있는 경우 [공유 구성을](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211)사용할 수 있습니다.
-HttpModule은이 공유 구성에 삽입할 수 없습니다.
-이 스크립트는 추가 설치 단계가 필요 하다는 메시지와 함께 실패 합니다.
-이 검사를 무시 하 고 필수 구성 요소 설치를 계속 하려면이 스위치를 사용 하십시오. 자세한 내용은 [알려진 충돌 (iis 공유-구성](status-monitor-v2-troubleshoot.md#conflict-with-iis-shared-configuration) )을 참조 하세요.
+### <a name="-ignoresharedconfig"></a>-무시공유구성
+웹 서버 클러스터가 있는 경우 [공유 구성을](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211)사용하고 있을 수 있습니다.
+HttpModule은 이 공유 구성에 삽입할 수 없습니다.
+이 스크립트는 추가 설치 단계가 필요하다는 메시지와 함께 실패합니다.
+이 스위치를 사용하여 이 검사를 무시하고 필수 구성 조건을 계속 설치합니다. 자세한 내용은 [알려진 iis 공유 구성을 참조하십시오.](status-monitor-v2-troubleshoot.md#conflict-with-iis-shared-configuration)
 
 ### <a name="-verbose"></a>-Verbose
-**일반 매개 변수입니다.** 이 스위치를 사용 하 여 자세한 로그를 표시 합니다.
+**공통 매개 변수입니다.** 이 스위치를 사용하여 자세한 로그를 표시합니다.
 
 ### <a name="-whatif"></a>-WhatIf 
-**일반 매개 변수입니다.** 이 스위치를 사용 하면 실제로 모니터링을 사용 하지 않고 입력 매개 변수를 테스트 하 고 유효성을 검사할 수 있습니다.
+**공통 매개 변수입니다.** 이 스위치를 사용하여 실제로 모니터링을 사용하지 않고 입력 매개 변수를 테스트하고 유효성을 검사합니다.
 
 ## <a name="output"></a>출력
 
 
-#### <a name="example-output-from-a-successful-enablement"></a>성공적인 활성화의 예제 출력
+#### <a name="example-output-from-a-successful-enablement"></a>성공적인 인에이블먼트의 예제 출력
 
 ```
 Initiating Disable Process
@@ -147,17 +147,17 @@ Successfully enabled Application Insights Status Monitor
 ## <a name="next-steps"></a>다음 단계
 
   원격 분석 보기:
- - [메트릭을 탐색](../../azure-monitor/app/metrics-explorer.md) 하 여 성능 및 사용량을 모니터링 합니다.
-- [이벤트와 로그를 검색](../../azure-monitor/app/diagnostic-search.md) 하 여 문제를 진단 합니다.
-- 고급 쿼리를 위해 [분석을 사용](../../azure-monitor/app/analytics.md) 합니다.
-- [대시보드를 만듭니다](../../azure-monitor/app/overview-dashboard.md).
+ - [메트릭을 탐색하여](../../azure-monitor/app/metrics-explorer.md) 성능 및 사용량을 모니터링합니다.
+- [이벤트 및 로그를 검색하여](../../azure-monitor/app/diagnostic-search.md) 문제를 진단합니다.
+- 고급 쿼리에 [애널리틱스를 사용합니다.](../../azure-monitor/app/analytics.md)
+- [대시보드를 만듭니다.](../../azure-monitor/app/overview-dashboard.md)
  
  원격 분석 더 추가:
- - [웹 테스트를 만들어](monitor-web-app-availability.md) 사이트가 라이브 상태로 유지 되는지 확인 합니다.
-- 웹 [클라이언트 원격 분석을 추가](../../azure-monitor/app/javascript.md) 하 여 웹 페이지 코드에서 예외를 확인 하 고 추적 호출을 사용 하도록 설정 합니다.
-- 추적 및 로그 호출을 삽입할 수 있도록 [APPLICATION INSIGHTS SDK를 코드에 추가](../../azure-monitor/app/asp-net.md) 합니다.
+ - [웹 테스트를 만들어](monitor-web-app-availability.md) 사이트가 라이브 상태로 유지되고 있는지 확인합니다.
+- [웹 클라이언트 원격 분석을 추가하여](../../azure-monitor/app/javascript.md) 웹 페이지 코드의 예외를 확인하고 추적 호출을 사용하도록 설정합니다.
+- 추적 및 로그 호출을 삽입할 수 있도록 [코드에 응용 프로그램 인사이트 SDK를 추가합니다.](../../azure-monitor/app/asp-net.md)
  
- Application Insights 에이전트를 사용 하 여 더 많은 작업 수행:
- - 가이드를 사용 하 여 Application Insights 에이전트 [문제를 해결할](status-monitor-v2-troubleshoot.md) 수 있습니다.
- - [구성을 가져와서](status-monitor-v2-api-get-config.md) 설정이 올바르게 기록 되었는지 확인 합니다.
- - 모니터링을 검사할 [상태를 가져옵니다](status-monitor-v2-api-get-status.md) .
+ 애플리케이션 인사이트 에이전트로 더 많은 작업을 수행합니다.
+ - 가이드를 사용하여 애플리케이션 인사이트 에이전트 [문제를 해결하세요.](status-monitor-v2-troubleshoot.md)
+ - 설정이 올바르게 기록되었는지 확인하기 위해 [구성을 가져옵니다.](status-monitor-v2-api-get-config.md)
+ - 모니터링을 검사할 [상태를 가져옵니다.](status-monitor-v2-api-get-status.md)

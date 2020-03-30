@@ -1,5 +1,5 @@
 ---
-title: VMware에서 StorSimple 가상 배열 프로 비전
+title: VMware에서 StorSimple 가상 배열 프로비저닝
 description: StorSimple Virtual Array 배포 시리즈의 두 번째 자습서에는 VMware에서 가상 디바이스를 프로비전하는 내용이 포함됩니다.
 author: alkohli
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
@@ -9,10 +9,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5f5ded3faec3a080022eea70de2cca5d27529c4d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76272089"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>StorSimple 가상 배열 배포 - VMware에서 프로비전
@@ -101,7 +101,7 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 9. 새 폴더가 **데이터 저장소 브라우저**의 왼쪽 창에 표시됩니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image9.png)
-10. 업로드 아이콘 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image10.png)을 클릭하고 **파일 업로드**를 선택합니다.
+10. 업로드 아이콘을 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image10.png) 클릭하고 **파일 업로드를**선택합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image11.png)
 11. 다운로드한 VMDK 파일을 찾아서 가리킵니다. 두 가지 파일이 있습니다. 업로드할 파일을 선택합니다.
@@ -157,25 +157,25 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 28. **Virtual Machines 속성** 페이지의 **하드웨어** 탭에서 디바이스 하드웨어를 찾습니다. **새 하드 디스크**를 선택합니다. **추가**를 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image29.png)
-29. **하드웨어 추가** 창이 표시됩니다. **디바이스 유형** 페이지의 **추가할 디바이스 유형 선택**에서 **하드 디스크**를 선택하고 **다음**을 클릭합니다.
+29. **하드웨어 추가** 창이 표시됩니다. 장치 **유형** 페이지에서 **추가하려는 장치 유형을 선택하고**하드 **디스크를**선택하고 **다음**을 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image30.png)
 30. **디스크 선택** 페이지에서 **새 가상 디스크 만들기**를 선택합니다. **다음**을 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
-31. **디스크 만들기** 페이지에서 **디스크 크기**를 500GB(또는 그 이상)로 변경합니다. 500GB가 최소 요구 사항이지만 언제나 더 큰 디스크를 프로비전할 수 있습니다. 프로비전된 후에는 디스크를 확장하거나 축소할 수 없습니다. 프로비전할 디스크의 크기에 대한 자세한 정보는 [모범 사례 문서](storsimple-ova-best-practices.md)의 크기 조정 섹션을 검토하세요. **디스크 프로비전**에서 **씬 프로비전**을 선택합니다. **다음**을 클릭합니다.
+31. **디스크 만들기** 페이지에서 **디스크 크기**를 500GB(또는 그 이상)로 변경합니다. 500GB가 최소 요구 사항이지만 언제나 더 큰 디스크를 프로비전할 수 있습니다. 프로비전된 후에는 디스크를 확장하거나 축소할 수 없습니다. 프로비저닝할 디스크 크기에 대한 자세한 내용은 모범 [사례 문서의](storsimple-ova-best-practices.md)크기 조정 섹션을 검토합니다. **디스크 프로비전**에서 **씬 프로비전**을 선택합니다. **다음**을 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
 32. **고급 옵션** 페이지에서 기본값을 적용합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image33.png)
-33. **Ready to Complete** (완료 준비) 페이지에서 디스크 옵션을 검토합니다. **Finish**를 클릭합니다.
+33. **Ready to Complete** (완료 준비) 페이지에서 디스크 옵션을 검토합니다. **마침**을 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image34.png)
-34. Virtual Machine 속성 페이지로 돌아갑니다. 새 하드 디스크가 가상 머신에 추가되어 있습니다. **Finish**를 클릭합니다.
+34. Virtual Machine 속성 페이지로 돌아갑니다. 새 하드 디스크가 가상 머신에 추가되어 있습니다. **마침**을 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image35.png)
-35. 오른쪽 창에서 가상 컴퓨터를 선택한 상태에서 **요약** 탭으로 이동 합니다. 가상 컴퓨터에 대 한 설정을 검토 합니다.
+35. 가상 컴퓨터를 오른쪽 창에서 선택한 경우 **요약** 탭으로 이동합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
@@ -191,7 +191,7 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 1. 가상 디바이스를 시작합니다. vSphere 구성 관리자의 왼쪽 창에서 디바이스를 선택하고 마우스 오른쪽 단추를 클릭하여 상황에 맞는 메뉴를 표시합니다. **전원**을 선택한 후 **전원 켜기**를 선택합니다. 이렇게 하면 가상 머신의 전원이 켜집니다. vSphere 클라이언트의 아래쪽 **최근 태스크** 창에서 상태를 볼 수 있습니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image37.png)
-2. 설정 태스크를 완료하려면 몇 분 정도 걸립니다. 장치가 실행 되 면 **콘솔** 탭으로 이동 합니다. 장치에 로그인 하려면 Ctrl + Alt + Delete를 보냅니다. 또는, 콘솔 창의 커서를 가리키고 Ctrl+Alt+Insert 키를 누릅니다. 기본 사용자는 *StorSimpleAdmin*이고 기본 암호는 *Password1*입니다.
+2. 설정 태스크를 완료하려면 몇 분 정도 걸립니다. 장치가 실행되면 **콘솔** 탭으로 이동합니다. 또는, 콘솔 창의 커서를 가리키고 Ctrl+Alt+Insert 키를 누릅니다. 기본 사용자는 *StorSimpleAdmin*이고 기본 암호는 *Password1*입니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image38.png)
 3. 보안상의 이유로 디바이스 관리자 암호는 처음 로그인하면 만료됩니다. 암호를 변경하라는 메시지가 표시됩니다.

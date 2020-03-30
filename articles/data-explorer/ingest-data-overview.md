@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.openlocfilehash: 4846a19c403cce16bed704ed4e7c70499f3b5d13
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246397"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure 데이터 탐색기 데이터 수집
@@ -26,7 +26,7 @@ ms.locfileid: "79246397"
 
 1. **일괄 처리**: 같은 데이터베이스와 테이블로 흐르는 데이터를 일괄 처리하여 수집 처리량을 최적화합니다.
 
-1. **유효성 검사**: 예비 유효성 검사 및 형식 변환 (필요한 경우)
+1. **유효성 검사**: 필요한 경우 예비 유효성 검사 및 형식 변환.
 
 1. **데이터 조작**: 스키마 매칭, 데이터 구성, 인덱싱, 인코딩 및 압축.
 
@@ -52,7 +52,7 @@ Azure Data Explorer는 현재 다음을 지원합니다.
 
 ### <a name="ingestion-using-integration-services"></a>통합 서비스를 사용한 수집
 
-* Azure의 분석 워크 로드를 위한 완전히 관리 되는 데이터 통합 서비스인 ADF (Azure Data Factory)는 [지원 되는 데이터 저장소와 형식을](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)사용 하 여 azure 데이터 탐색기 간에 데이터를 복사 하는 데 사용 됩니다. 자세한 내용은 [Azure Data Factory에서 Azure 데이터 탐색기로 데이터 복사](/azure/data-explorer/data-factory-load-data)를 참조 하세요.
+* Azure의 분석 워크로드에 대해 완전히 관리되는 데이터 통합 서비스인 Azure Data Factory(ADF)는 [지원되는 데이터 저장소 및 형식을](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)사용하여 Azure 데이터 탐색기에서 데이터를 복사합니다. 자세한 내용은 [Azure 데이터 팩터리에서 Azure 데이터 탐색기로의 데이터 복사](/azure/data-explorer/data-factory-load-data)를 참조하십시오.
 
 ### <a name="programmatic-ingestion"></a>프로그래밍 방식 수집
 
@@ -70,7 +70,7 @@ Kusto는 데이터를 수집하고 쿼리하는 데 사용할 수 있는 다음�
 
 * [Node SDK](/azure/kusto/api/node/kusto-node-client-library)
 
-* [REST API](/azure/kusto/api/netfx/kusto-ingest-client-rest)
+* [나머지 API](/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **프로그래밍 방식 수집 기술**:
 
@@ -80,7 +80,7 @@ Kusto는 데이터를 수집하고 쿼리하는 데 사용할 수 있는 다음�
 
 * Azure 데이터 탐색기 엔진에 직접 데이터 수집(탐색 및 프로토타입에 가장 적합):
 
-  * **인라인**수집: 대역 외 데이터를 포함 하는 제어 명령 (. 수집 인라인)은 임시 테스트 목적으로 사용 됩니다.
+  * **인라인 수집**: 대역 내 데이터를 포함하는 제어 명령(.ingest inline)은 임시 테스트 용입니다.
 
   * **쿼리에서 수집**: 쿼리 결과를 가리키는 제어 명령(.set, .set-or-append, .set-or-replace)이 보고서 또는 작은 임시 테이블을 생성하는 데 사용됩니다.
 
@@ -113,13 +113,13 @@ Kusto는 데이터를 수집하고 쿼리하는 데 사용할 수 있는 다음�
 * 대기 시간 요구 사항은 무엇인가요? 
 * 기존에 관리되는 수집 파이프라인 중 하나를 사용할 수 있나요? 
 
-이벤트 허브 및 IoT Hub 같은 메시징 서비스를 기반으로 하는 기존 인프라를 사용 하는 조직의 경우 커넥터를 사용 하는 것이 가장 적합 한 솔루션 일 수 있습니다. 큐에 대기된 수집은 큰 데이터 볼륨에 적합합니다.
+Event Hub 및 IoT Hub와 같은 메시징 서비스를 기반으로 하는 기존 인프라를 사용하는 조직의 경우 커넥터를 사용하는 것이 가장 적합한 솔루션일 수 있습니다. 큐에 대기된 수집은 큰 데이터 볼륨에 적합합니다.
 
 ## <a name="supported-data-formats"></a>지원되는 데이터 형식
 
 쿼리에서 수집을 제외한 모든 수집 방법에 대해 Azure Data Explorer에서 구문 분석이 가능하도록 데이터 형식을 지정합니다. 
-* 지원 되는 데이터 형식은 TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (줄 구분, 여러 줄), Avro, Orc 및 Parquet입니다. 
-* ZIP 및 GZIP 압축을 지원 합니다.
+* 지원되는 데이터 형식은 다음과 같습니다 : TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (라인 분리, 멀티 라인), 아브로, 오크와 마루. 
+* ZIP 및 GZIP 압축을 지원합니다.
 
 > [!NOTE]
 > 데이터가 수집될 때 목표 테이블 열을 기반으로 데이터 형식이 유추됩니다. 레코드가 불완전하거나 필수 데이터 형식으로 필드를 구문 분석할 수 없는 경우, 해당 테이블 열에는 Null 값이 채워집니다.
@@ -139,7 +139,7 @@ Kusto는 데이터를 수집하고 쿼리하는 데 사용할 수 있는 다음�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [이벤트 허브에서 Azure Data Explorer로 데이터 수집](ingest-data-event-hub.md)
+> [Event Hub에서 Azure Data Explorer로 데이터 수집](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
 > [Event Grid 구독을 사용하여 Azure Data Explorer로 데이터 수집](ingest-data-event-grid.md)
@@ -148,10 +148,10 @@ Kusto는 데이터를 수집하고 쿼리하는 데 사용할 수 있는 다음�
 > [Kafka에서 Azure Data Explorer로 데이터 수집](ingest-data-kafka.md)
 
 > [!div class="nextstepaction"]
-> [Azure Data Explorer Python 라이브러리를 사용하여 데이터 수집](python-ingest-data.md)
+> [Azure 데이터 탐색기 파이썬 라이브러리를 사용하여 데이터 수집](python-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Azure Data Explorer Node 라이브러리를 사용하여 데이터 수집](node-ingest-data.md)
+> [Azure 데이터 탐색기 노드 라이브러리를 사용하여 데이터 수집](node-ingest-data.md)
 
 > [!div class="nextstepaction"]
 > [Azure Data Explorer .NET Standard SDK(미리 보기)를 사용하여 데이터 수집](net-standard-ingest-data.md)

@@ -1,5 +1,5 @@
 ---
-title: 클라이언트 VM-관리 되는 인스턴스 연결
+title: 클라이언트 VM 연결 - 관리형 인스턴스
 description: Azure 가상 머신에서 SQL Server Management Studio를 사용하여 Azure SQL Database Managed Instance에 연결합니다.
 services: sql-database
 ms.service: sql-database
@@ -12,23 +12,23 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
 ms.openlocfilehash: 7273c7b1dbf5eb6c855b95a8661f38bd4bd14af7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73839043"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database Managed Instance에 연결하도록 Azure VM 구성
 
 이 빠른 시작에서는 SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Database Managed Instance에 연결하도록 Azure 가상 머신을 구성하는 방법을 보여 줍니다. 지점 및 사이트 간 연결을 사용하여 온-프레미스 클라이언트 컴퓨터에서 연결하는 방법을 보여주는 빠른 시작은 [지점 및 사이트 간 연결 구성](sql-database-managed-instance-configure-p2s.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작에서는 [Managed Instance 만들기](sql-database-managed-instance-get-started.md)에서 만든 리소스를 시작점으로 사용합니다.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+[Azure 포털에](https://portal.azure.com/)로그인합니다.
 
 ## <a name="create-a-new-subnet-in-the-managed-instance-vnet"></a>Managed Instance VNet에 새 서브넷 만들기
 
@@ -46,12 +46,12 @@ ms.locfileid: "73839043"
 
    | 설정| 제안 값 | 설명 |
    | ---------------- | ----------------- | ----------- |
-   | **이름** | 모든 유효한 이름|유효한 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요.|
+   | **이름** | 유효한 이름|유효한 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요.|
    | **주소 범위(CIDR 블록)** | 유효 범위 | 이 빠른 시작에는 기본값이 적합합니다.|
-   | **네트워크 보안 그룹** | 없음 | 이 빠른 시작에는 기본값이 적합합니다.|
-   | **경로 테이블** | 없음 | 이 빠른 시작에는 기본값이 적합합니다.|
-   | **서비스 엔드포인트** | 0개 선택됨 | 이 빠른 시작에는 기본값이 적합합니다.|
-   | **서브넷 위임** | 없음 | 이 빠른 시작에는 기본값이 적합합니다.|
+   | **네트워크 보안 그룹** | None | 이 빠른 시작에는 기본값이 적합합니다.|
+   | **경로 표** | None | 이 빠른 시작에는 기본값이 적합합니다.|
+   | **서비스 끝점** | 0개 선택됨 | 이 빠른 시작에는 기본값이 적합합니다.|
+   | **서브넷 위임** | None | 이 빠른 시작에는 기본값이 적합합니다.|
 
    ![클라이언트 VM의 새 Managed Instance 서브넷](./media/sql-database-managed-instance-configure-vm/new-subnet.png)
 
@@ -67,7 +67,7 @@ SQL Managed Instance가 프라이빗 Virtual Network에 배치되므로 SQL Serv
 
 필요한 도구가 모두 포함된 클라이언트 가상 머신을 만드는 가장 쉬운 방법은 Azure Resource Manager 템플릿을 사용하는 것입니다.
 
-1. 다른 브라우저 탭의 Azure Portal에 로그인 했는지 확인 합니다. 그런 다음, 다음 단추를 선택 하 여 클라이언트 가상 머신을 만들고 SQL Server Management Studio를 설치 합니다.
+1. 다른 브라우저 탭에서 Azure 포털에 로그인했는지 확인합니다. 그런 다음 다음 단추를 선택하여 클라이언트 가상 컴퓨터를 만들고 SQL Server 관리 Studio를 설치합니다.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
@@ -77,13 +77,13 @@ SQL Managed Instance가 프라이빗 Virtual Network에 배치되므로 SQL Serv
    | ---------------- | ----------------- | ----------- |
    | **구독** | 유효한 구독 | 새 리소스를 만들 권한이 있는 구독이어야 합니다. |
    | **리소스 그룹** |[Managed Instance 만들기](sql-database-managed-instance-get-started.md) 빠른 시작에서 지정한 리소스 그룹입니다.|이 리소스 그룹은 VNet이 있는 리소스 그룹이어야 합니다.|
-   | **위치**: | 리소스 그룹의 위치 | 이 값은 선택한 리소스 그룹에 따라 채워집니다. |
-   | **가상 머신 이름**  | 모든 유효한 이름 | 유효한 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요.|
-   |**관리 사용자 이름**|유효한 사용자 이름|유효한 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. "serveradmin"을 예약된 서버 수준 역할로 사용하지 않습니다.<br>이 사용자 이름은 [VM에 연결](#connect-to-virtual-machine)할 때마다 사용됩니다.|
+   | **위치** | 리소스 그룹의 위치 | 이 값은 선택한 리소스 그룹에 따라 채워집니다. |
+   | **가상 컴퓨터 이름**  | 유효한 이름 | 유효한 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요.|
+   |**관리자 사용자 이름**|유효한 사용자 이름|유효한 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. "serveradmin"을 예약된 서버 수준 역할로 사용하지 않습니다.<br>이 사용자 이름은 [VM에 연결](#connect-to-virtual-machine)할 때마다 사용됩니다.|
    |**암호**|유효한 암호|암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.<br>이 암호는 [VM에 연결](#connect-to-virtual-machine)할 때마다 사용됩니다.|
-   | **가상 머신 크기** | 모든 유효한 크기 | 이 빠른 시작에서는 이 템플릿의 기본값인 **Standard_B2s**로 충분합니다. |
-   | **위치**:|[resourceGroup().location].| 이 값은 변경하지 마세요. |
-   | **가상 네트워크 이름**|Managed Instance를 만든 가상 네트워크입니다.|
+   | **가상 컴퓨터 크기** | 모든 유효한 크기 | 이 빠른 시작에서는 이 템플릿의 기본값인 **Standard_B2s**로 충분합니다. |
+   | **위치**|[resourceGroup().location].| 이 값은 변경하지 마세요. |
+   | **가상 네트워크 이름**|관리되는 인스턴스를 만든 가상 네트워크입니다.|
    | **서브넷 이름**|이전 절차에서 만든 서브넷의 이름| Managed Instance를 만든 서브넷을 선택하지 마세요.|
    | **아티팩트 위치** | [deployment().properties.templateLink.uri] | 이 값은 변경하지 마세요. |
    | **아티팩트 위치 Sas 토큰** | 비워 둡니다. | 이 값은 변경하지 마세요. |
@@ -113,7 +113,7 @@ SQL Managed Instance가 프라이빗 Virtual Network에 배치되므로 SQL Serv
 
    ![RDP 양식](./media/sql-database-managed-instance-configure-vm/rdp.png)  
 
-3. **RDP 파일 다운로드**를 선택합니다.
+3. **RDP 파일 다운로드를**선택합니다.
 
    > [!NOTE]
    > SSH를 사용하여 VM에 연결할 수도 있습니다.
@@ -141,6 +141,6 @@ SQL Managed Instance가 프라이빗 Virtual Network에 배치되므로 SQL Serv
 
 ## <a name="next-steps"></a>다음 단계
 
-- 온-프레미스 클라이언트 컴퓨터에서 지점 및 사이트 간 연결을 사용하여 연결하는 방법을 보여주는 빠른 시작은 [지점 및 사이트 간 연결 구성](sql-database-managed-instance-configure-p2s.md)을 참조하세요.
+- 지점 간 연결을 사용하여 온-프레미스 클라이언트 컴퓨터에서 연결하는 방법을 빠르게 보여 주려면 [지점 간 연결 구성을](sql-database-managed-instance-configure-p2s.md)참조하십시오.
 - 애플리케이션의 연결 옵션 개요는 [애플리케이션을 Managed Instance에 연결](sql-database-managed-instance-connect-app.md)을 참조하세요.
 - 온-프레미스의 기존 SQL Server 데이터베이스를 Managed Instance로 복원하려면 [마이그레이션용 Azure DMS(Database Migration Service)](../dms/tutorial-sql-server-to-managed-instance.md) 또는 [T-SQL RESTORE 명령](sql-database-managed-instance-get-started-restore.md)을 사용하여 데이터베이스 백업 파일에서 복원하면 됩니다.

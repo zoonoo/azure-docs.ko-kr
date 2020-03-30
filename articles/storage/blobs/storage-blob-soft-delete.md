@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 360930b708d6358692de2af7325701b73d5cf9c9
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 4deae235ed15d02874ab5cb3470c62e934324364
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79370562"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80234303"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure Storage Blob에 대한 일시 삭제
 
@@ -21,13 +21,13 @@ Azure Storage는 이제 애플리케이션 또는 다른 스토리지 계정 사
 
 [!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
-## <a name="how-soft-delete-works"></a>일시 삭제 작동 방식
+## <a name="how-soft-delete-works"></a>소프트 삭제 작동 방식
 
-일시 삭제를 사용 하도록 설정 하면 blob 또는 blob 스냅숏이 삭제 될 때 데이터를 저장 하 고 복구할 수 있습니다. 이 보호는 덮어쓰기의 결과로 삭제되는 Blob 데이터로 확장합니다.
+소프트 삭제를 사용하면 Blob 또는 Blob 스냅숏이 삭제될 때 데이터를 저장하고 복구할 수 있습니다. 이 보호는 덮어쓰기의 결과로 삭제되는 Blob 데이터로 확장합니다.
 
 데이터가 삭제되면 영구적으로 삭제되는 대신 일시 삭제된 상태로 전환됩니다. 일시 삭제가 있고 데이터를 덮어쓰는 경우 일시 삭제된 스냅샷은 덮어쓴 데이터의 상태를 저장하기 위해 생성됩니다. 일시 삭제된 개체는 명시적으로 나열되지 않는 한 표시되지 않습니다. 일시 삭제된 데이터가 영구적으로 만료되기 전에 복구 가능한 기간을 구성할 수 있습니다.
 
-일시 삭제는 이전 버전과 호환 되므로 응용 프로그램을 변경할 필요가 없으므로이 기능의 보호를 활용할 수 있습니다. 그러나 [데이터 복구](#recovery)는 새로운 **삭제 취소 Blob** API를 도입합니다.
+소프트 삭제는 이전 버전과 호환되므로 이 기능이 제공하는 보호 기능을 활용하기 위해 응용 프로그램을 변경할 필요가 없습니다. 그러나 [데이터 복구](#recovery)는 새로운 **삭제 취소 Blob** API를 도입합니다.
 
 ### <a name="configuration-settings"></a>구성 설정
 
@@ -43,11 +43,11 @@ Azure Storage는 이제 애플리케이션 또는 다른 스토리지 계정 사
 
 일시 삭제는 Blob 또는 Blob 스냅샷이 삭제되거나 덮어쓰여지는 대부분의 경우에서 데이터를 유지합니다.
 
-Blob 넣기, **블록**배치, **블록 목록 배치**또는 **blob 복사** **를 사용 하**여 blob을 덮어쓰는 경우 쓰기 작업 전에 blob의 상태 스냅숏이 자동으로 생성 됩니다. 이 스냅샷은 일시 삭제된 스냅샷이며 일시 삭제된 개체가 명시적으로 나열된 경우가 아니면 표시되지 않습니다. 일시 삭제된 개체를 나열하는 방법을 알아보려면 [복구](#recovery) 섹션을 참조하세요.
+**Blob 넣기,** **블록 넣기,** 블록 목록 **넣기**또는 쓰기 작업 전에 Blob 상태의 스냅숏을 **복사하여** Blob을 덮어쓰면 자동으로 생성됩니다. 이 스냅샷은 일시 삭제된 스냅샷이며 일시 삭제된 개체가 명시적으로 나열된 경우가 아니면 표시되지 않습니다. 일시 삭제된 개체를 나열하는 방법을 알아보려면 [복구](#recovery) 섹션을 참조하세요.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-overwrite.png)
 
-*일시 삭제 된 데이터는 회색 이며 활성 데이터는 파란색입니다. 이전 데이터 아래에 더 최근에 작성 된 데이터가 표시 됩니다. B0을 B1로 덮어쓰면 일시 삭제 된 B0 스냅숏이 생성 됩니다. B2를 B2로 덮어쓰면 B1의 일시 삭제 된 스냅숏이 생성 됩니다.*
+*일시 삭제된 데이터는 회색이며 활성 데이터는 파란색입니다. 최근에 작성된 데이터는 이전 데이터 아래에 나타납니다. B0을 B1로 덮어쓰면 B0의 일시 삭제된 스냅숏이 생성됩니다. B1을 B2로 덮어쓰면 B1의 일시 삭제된 스냅숏이 생성됩니다.*
 
 > [!NOTE]  
 > 일시 삭제는 대상 Blob의 계정이 설정된 경우, 복사 작업에 대한 덮어쓰기 보호만 제공합니다.
@@ -59,13 +59,13 @@ Blob 넣기, **블록**배치, **블록 목록 배치**또는 **blob 복사** **
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-explicit-delete-snapshot.png)
 
-*일시 삭제 된 데이터는 회색 이며 활성 데이터는 파란색입니다. 이전 데이터 아래에 더 최근에 작성 된 데이터가 표시 됩니다. **Snapshot Blob** 이 호출 되 면 B0은 스냅숏이 되 고 B1은 blob의 활성 상태입니다. B0 스냅숏이 삭제 되 면 일시 삭제로 표시 됩니다.*
+*일시 삭제된 데이터는 회색이며 활성 데이터는 파란색입니다. 최근에 작성된 데이터는 이전 데이터 아래에 나타납니다. **스냅숏 Blob이** 호출되면 B0은 스냅숏이 되고 B1은 Blob의 활성 상태입니다. B0 스냅숏이 삭제되면 소프트 삭제된 것으로 표시됩니다.*
 
 기본 Blob에서 **Blob 삭제**가 호출되는 경우(자체 스냅샷이 아닌 모든 Blob) 해당 Blob은 일시 삭제됨으로 표시됩니다. 이전 동작과 일치하는 활성 스냅샷이 있는 Blob에서 **Blob 삭제**를 호출하면 오류를 반환합니다. 일시 삭제된 스냅샷이 있는 Blob에서 **Blob 삭제**를 호출하면 오류를 반환하지 않습니다. 일시 삭제가 설정되면 단일 작업에서 Blob 및 모든 해당 스냅샷을 여전히 삭제할 수 있습니다. 이렇게 하면 기본 Blob 및 스냅샷을 일시 삭제됨으로 표시합니다.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-explicit-include.png)
 
-*일시 삭제 된 데이터는 회색 이며 활성 데이터는 파란색입니다. 이전 데이터 아래에 더 최근에 작성 된 데이터가 표시 됩니다. 여기서 **Delete Blob** 호출은 B2와 연결 된 모든 스냅숏을 삭제 합니다. 활성 blob, B2 및 연결 된 모든 스냅숏이 일시 삭제로 표시 됩니다.*
+*일시 삭제된 데이터는 회색이며 활성 데이터는 파란색입니다. 최근에 작성된 데이터는 이전 데이터 아래에 나타납니다. 여기서는 **B2** 및 연결된 모든 스냅숏을 삭제하기 위해 Blob 삭제 호출이 이루어집니다. 활성 Blob, B2 및 연결된 모든 스냅숏은 일시 삭제된 것으로 표시됩니다.*
 
 > [!NOTE]  
 > 일시 삭제된 Blob이 덮어쓰여지는 경우 쓰기 작업 전에 Blob 상태의 일시 삭제된 스냅샷이 자동으로 생성됩니다. 새 Blob은 덮어쓰여진 Blob의 계층을 상속합니다.
@@ -74,14 +74,14 @@ Blob 넣기, **블록**배치, **블록 목록 배치**또는 **blob 복사** **
 
 다음 표는 일시 삭제가 설정된 경우 예상되는 동작을 자세히 설명합니다.
 
-| REST API 작업 | 리소스 유형 | Description | 동작 변경 |
+| REST API 작업 | 리소스 유형 | 설명 | 동작 변경 |
 |--------------------|---------------|-------------|--------------------|
-| [Delete](/rest/api/storagerp/StorageAccounts/Delete) | 계정 | 포함하는 모든 컨테이너 및 Blob을 포함하여 스토리지 계정을 삭제합니다.                           | 변경 없음 삭제된 계정의 컨테이너 및 Blob은 복구할 수 없습니다. |
+| [삭제](/rest/api/storagerp/StorageAccounts/Delete) | 계정 | 포함하는 모든 컨테이너 및 Blob을 포함하여 스토리지 계정을 삭제합니다.                           | 변경 없음 삭제된 계정의 컨테이너 및 Blob은 복구할 수 없습니다. |
 | [컨테이너 삭제](/rest/api/storageservices/delete-container) | 컨테이너 | 포함하는 모든 Blob을 포함하여 컨테이너를 삭제합니다. | 변경 없음 삭제된 컨테이너의 Blob은 복구할 수 없습니다. |
-| [Blob 배치](/rest/api/storageservices/put-blob) | 블록, 추가 및 페이지 Blob | 새 Blob을 만들거나 컨테이너 내 기존 Blob 교체 | 기존 Blob을 교체하는 데 사용되는 경우, 호출 전에 Blob의 상태 스냅샷이 자동으로 생성됩니다. 이는 동일한 유형의 blob (블록, 추가 또는 페이지)로 대체 되는 경우에만 이전에 일시 삭제 된 blob에도 적용 됩니다. 다른 형식의 Blob으로 교체되는 경우 기존의 모든 일시 삭제된 데이터는 영구적으로 만료됩니다. |
+| [Blob 배치](/rest/api/storageservices/put-blob) | 블록, 추가 및 페이지 Blob | 새 Blob을 만들거나 컨테이너 내 기존 Blob 교체 | 기존 Blob을 교체하는 데 사용되는 경우, 호출 전에 Blob의 상태 스냅샷이 자동으로 생성됩니다. 이는 이전에 일시 삭제된 Blob에도 적용되며 동일한 유형의 Blob(차단, 추가 또는 페이지)으로 대체된 경우에만 적용됩니다. 다른 형식의 Blob으로 교체되는 경우 기존의 모든 일시 삭제된 데이터는 영구적으로 만료됩니다. |
 | [Blob 삭제](/rest/api/storageservices/delete-blob) | 블록, 추가 및 페이지 Blob | 삭제를 위한 Blob 또는 Blob 스냅샷을 표시합니다. 가비지 수집 중 Blob 또는 스냅샷은 나중에 삭제됩니다. | Blob 스냅샷을 삭제하는 데 사용되는 경우 해당 스냅샷은 일시 삭제됨으로 표시됩니다. Blob을 삭제하는 데 사용되는 경우 해당 스냅숏은 일시 삭제됨으로 표시됩니다. |
-| [Blob 복사](/rest/api/storageservices/copy-blob) | 블록, 추가 및 페이지 Blob | 동일한 스토리지 계정 또는 다른 스토리지 계정에서 대상 Blob에 원본 Blob을 복사합니다. | 기존 Blob을 교체하는 데 사용되는 경우, 호출 전에 Blob의 상태 스냅샷이 자동으로 생성됩니다. 이는 동일한 유형의 blob (블록, 추가 또는 페이지)로 대체 되는 경우에만 이전에 일시 삭제 된 blob에도 적용 됩니다. 다른 형식의 Blob으로 교체되는 경우 기존의 모든 일시 삭제된 데이터는 영구적으로 만료됩니다. |
-| [블록 배치](/rest/api/storageservices/put-block) | 블록 Blob | 블록 Blob의 일부로 커밋될 새 블록을 만듭니다. | 활성 상태인 blob에 블록을 커밋하는 데 사용 되는 경우 변경 내용이 없습니다. 일시 삭제된 Blob에 블록을 커밋하는 데 사용되는 경우 새 Blob이 만들어지고 일시 삭제된 Blob의 상태를 캡처하도록 스냅샷이 자동으로 생성됩니다. |
+| [복사 Blob](/rest/api/storageservices/copy-blob) | 블록, 추가 및 페이지 Blob | 동일한 스토리지 계정 또는 다른 스토리지 계정에서 대상 Blob에 원본 Blob을 복사합니다. | 기존 Blob을 교체하는 데 사용되는 경우, 호출 전에 Blob의 상태 스냅샷이 자동으로 생성됩니다. 이는 이전에 일시 삭제된 Blob에도 적용되며 동일한 유형의 Blob(차단, 추가 또는 페이지)으로 대체된 경우에만 적용됩니다. 다른 형식의 Blob으로 교체되는 경우 기존의 모든 일시 삭제된 데이터는 영구적으로 만료됩니다. |
+| [블록 배치](/rest/api/storageservices/put-block) | 블록 Blob | 블록 Blob의 일부로 커밋될 새 블록을 만듭니다. | 활성 Blob에 블록을 커밋하는 데 사용되는 경우 변경 사항은 없습니다. 일시 삭제된 Blob에 블록을 커밋하는 데 사용되는 경우 새 Blob이 만들어지고 일시 삭제된 Blob의 상태를 캡처하도록 스냅샷이 자동으로 생성됩니다. |
 | [블록 목록 배치](/rest/api/storageservices/put-block-list) | 블록 Blob | 블록 Blob을 구성하는 블록 ID의 집합을 지정하여 Blob을 커밋합니다. | 기존 Blob을 교체하는 데 사용되는 경우, 호출 전에 Blob의 상태 스냅샷이 자동으로 생성됩니다. 블록 Blob인 경우에만 이전에 일시 삭제된 Blob에도 적용됩니다. 다른 형식의 Blob으로 교체되는 경우 기존의 모든 일시 삭제된 데이터는 영구적으로 만료됩니다. |
 | [페이지 배치](/rest/api/storageservices/put-page) | 페이지 Blob | 페이지 Blob에 페이지의 범위를 작성합니다. | 변경 없음 이 작업을 사용하여 덮어쓰여지거나 제거된 페이지 Blob 데이터는 저장되지 않고 복구할 수 없습니다. |
 | [추가 블록](/rest/api/storageservices/append-block) | 추가 Blob | 추가 Blob의 끝에 데이터 블록을 작성합니다. | 변경 없음 |
@@ -92,19 +92,19 @@ Blob 넣기, **블록**배치, **블록 목록 배치**또는 **blob 복사** **
 
 ### <a name="recovery"></a>복구
 
-일시 삭제 된 기본 blob에서 [blob 삭제 취소](/rest/api/storageservices/undelete-blob) 작업을 호출 하면 해당 작업 및 연결 된 모든 일시 삭제 된 스냅숏이 활성으로 복원 됩니다. 활성 기본 blob에 대 한 `Undelete Blob` 작업을 호출 하면 연결 된 모든 일시 삭제 된 스냅숏이 활성으로 복원 됩니다. 스냅샷이 활성으로 복원되는 경우 사용자 생성 스냅샷처럼 보입니다. 이는 기본 Blob을 덮어쓰지 않습니다.
+일시 삭제된 기본 Blob에서 [삭제 해제 Blob](/rest/api/storageservices/undelete-blob) 작업을 호출하면 일시 삭제된 모든 일시 삭제된 스냅숏이 활성으로 복원됩니다. 활성 `Undelete Blob` 기본 Blob에서 작업을 호출하여 연결된 모든 소프트 삭제된 스냅숏을 활성으로 복원합니다. 스냅샷이 활성으로 복원되는 경우 사용자 생성 스냅샷처럼 보입니다. 이는 기본 Blob을 덮어쓰지 않습니다.
 
-Blob을 일시 삭제 된 특정 스냅숏으로 복원 하려면 기본 blob에서 `Undelete Blob`를 호출 하면 됩니다. 그런 다음, 현재 활성 Blob을 통해 스냅샷을 복사할 수 있습니다. 새 Blob에 스냅샷을 복사할 수도 있습니다.
+Blob을 특정 일시 삭제된 스냅숏으로 `Undelete Blob` 복원하려면 기본 Blob을 호출할 수 있습니다. 그런 다음, 현재 활성 Blob을 통해 스냅샷을 복사할 수 있습니다. 새 Blob에 스냅샷을 복사할 수도 있습니다.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-recover.png)
 
-*일시 삭제 된 데이터는 회색 이며 활성 데이터는 파란색입니다. 이전 데이터 아래에 더 최근에 작성 된 데이터가 표시 됩니다. 여기서는 blob B에서 **삭제 취소 blob** 을 호출 하 여 기본 Blob, B1 및 연결 된 모든 스냅숏을 복원 합니다. 여기에서는 B0만 활성으로 복원 합니다. 두 번째 단계에서는 B0이 기본 blob을 통해 복사 됩니다. 이 복사 작업은 B1의 일시 삭제 된 스냅숏을 생성 합니다.*
+*일시 삭제된 데이터는 회색이며 활성 데이터는 파란색입니다. 최근에 작성된 데이터는 이전 데이터 아래에 나타납니다. 여기서 **삭제 해제 Blob은** Blob B에서 호출되어 기본 Blob, B1 및 관련된 모든 스냅숏을 활성으로 B0만 복원합니다. 두 번째 단계에서B0는 기본 Blob 위에 복사됩니다. 이 복사 작업은 B1의 일시 삭제된 스냅샷을 생성합니다.*
 
 일시 삭제된 Blob 및 Blob 스냅샷을 보려면 **Blob 나열**에 삭제된 데이터를 포함하도록 선택할 수 있습니다. 일시 삭제된 기본 Blob만을 보거나 일시 삭제된 Blob 스냅샷도 포함하도록 선택할 수 있습니다. 모든 일시 삭제된 데이터의 경우 데이터가 삭제되었던 시간 및 데이터가 영구적으로 만료되기 전까지의 일 수를 볼 수 있습니다.
 
 ### <a name="example"></a>예제
 
-다음은 일시 삭제가 설정 된 경우 *HelloWorld* 라는 blob을 업로드, 덮어쓰기, 스냅숏, 삭제 및 복원 하는 .net 스크립트의 콘솔 출력입니다.
+다음은 소프트 삭제가 켜져 있을 때 *HelloWorld라는* Blob을 업로드, 덮어쓰기, 스냅샷, 삭제 및 복원하는 .NET 스크립트의 콘솔 출력입니다.
 
 ```bash
 Upload:
@@ -142,29 +142,29 @@ Copy a snapshot over the base blob:
 
 일시 삭제된 모든 데이터는 활성 데이터와 동일한 요율로 요금이 청구됩니다. 구성된 보존 기간 후 영구적으로 삭제되는 데이터에 대한 비용은 청구되지 않습니다. 스냅샷 및 요금이 발생하는 방법에 대해 자세히 알아보려면 [스냅샷 요금 청구 방법 이해](storage-blob-snapshots.md)를 참조하세요.
 
-스냅샷의 자동 생성과 관련된 트랜잭션에 대해 요금이 청구되지 않습니다. 쓰기 작업에 대 한 속도에서 **삭제 취소 Blob** 트랜잭션에 대 한 요금이 청구 됩니다.
+스냅샷의 자동 생성과 관련된 트랜잭션에 대해 요금이 청구되지 않습니다. **삭제 취소 Blob** 트랜잭션에 대한 청구는 쓰기 작업 의 비율로 청구됩니다.
 
 일반적인 Azure Blob Storage에 대한 가격의 자세한 내용은 [Azure Blob Storage 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조하세요.
 
 일시 삭제를 처음 켤 때 기능이 요금에 영향을 주는 방법을 더 잘 이해할 수 있도록 작은 보존 기간을 사용하는 것이 좋습니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
-다음 단계는 일시 삭제를 시작 하는 방법을 보여 줍니다.
+다음 단계는 소프트 삭제를 시작하는 방법을 보여 주며, 소프트 삭제를 시작하는 방법을 보여 준다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-Azure Portal를 사용 하 여 저장소 계정의 blob에 대해 일시 삭제를 사용 하도록 설정 합니다.
+Azure 포털을 사용하여 저장소 계정의 Blob에 대해 소프트 삭제를 사용하도록 설정합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 저장소 계정을 선택 합니다. 
+1. Azure [포털에서](https://portal.azure.com/)저장소 계정을 선택합니다. 
 
-2. **Blob Service**에서 **데이터 보호** 옵션으로 이동 합니다.
+2. **Blob Service**에서 **데이터 보호** 옵션으로 이동합니다.
 
-3. **Blob 일시 삭제** 아래에서 **사용** 을 클릭 합니다.
+3. **Blob 소프트 삭제** 에서 사용 **click**
 
-4. **보존 정책** 에서 *보존할* 일 수를 입력 합니다.
+4. **보존 정책에** *따라 유지하려는* 일 수를 입력합니다.
 
-5. **저장** 단추를 선택 하 여 데이터 보호 설정 확인
+5. **저장** 버튼을 선택하여 데이터 보호 설정을 확인합니다.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
 
@@ -206,7 +206,8 @@ $MatchingAccounts | Enable-AzStorageDeleteRetentionPolicy -RetentionDays 7
 다음 명령을 사용하여 일시 삭제가 켜졌는지 확인할 수 있습니다.
 
 ```powershell
-$MatchingAccounts | Get-AzStorageServiceProperty -ServiceType Blob
+$MatchingAccounts | $account = Get-AzStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
+   Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context | Select-Object -ExpandProperty DeleteRetentionPolicy
 ```
 
 실수로 삭제된 Blob을 복구하려면 해당 Blob에서 삭제 취소를 호출합니다. 활성 및 일시 삭제된 Blob 모두에서 **삭제 취소 Blob**을 호출하면 활성으로 연결된 모든 일시 삭제된 스냅샷을 복원합니다. 다음 예제에서는 컨테이너의 모든 일시 삭제된 Blob 및 활성 Blob에서 삭제 취소를 호출합니다.
@@ -229,7 +230,7 @@ $Blobs.ICloudBlob.Undelete()
    Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context
 ```
 
-# <a name="cli"></a>[CLI](#tab/azure-CLI)
+# <a name="cli"></a>[Cli](#tab/azure-CLI)
 
 일시 삭제를 활성화하려면 Blob 클라이언트의 서비스 속성을 업데이트합니다.
 
@@ -307,68 +308,68 @@ blockBlob.StartCopy(copySource);
 
 ## <a name="special-considerations"></a>특별 고려 사항
 
-응용 프로그램 또는 다른 저장소 계정 사용자가 실수로 데이터를 수정 하거나 삭제할 가능성이 있는 경우 일시 삭제를 켜는 것이 좋습니다. 자주 덮어쓴 데이터에 대해 일시 삭제를 사용 하도록 설정 하면 blob을 나열할 때 저장소 용량 요금이 증가 하 고 대기 시간이 길어질 수 있습니다. 일시 삭제를 사용 하지 않도록 설정 된 별도의 저장소 계정에 자주 덮어쓴 데이터를 저장 하 여 이러한 추가 비용 및 대기 시간을 줄일 수 있습니다. 
+응용 프로그램 이나 다른 저장소 계정 사용자에 의해 실수로 데이터를 수정 하거나 삭제 될 가능성이 있는 경우 소프트 삭제를 사용 하는 것이 좋습니다. 자주 덮어쓰는 데이터에 대해 소프트 삭제를 사용하도록 설정하면 Blob을 나열할 때 저장소 용량 요금이 증가하고 대기 시간이 늘어질 수 있습니다. 자주 덮어쓰는 데이터를 소프트 삭제가 비활성화된 별도의 저장소 계정에 저장하여 이 추가 비용 및 대기 시간을 줄일 수 있습니다. 
 
 ## <a name="faq"></a>FAQ
 
-### <a name="for-which-storage-services-can-i-use-soft-delete"></a>일시 삭제를 사용할 수 있는 저장소 서비스는 무엇 인가요?
+### <a name="for-which-storage-services-can-i-use-soft-delete"></a>어떤 저장소 서비스에서 소프트 삭제를 사용할 수 있습니까?
 
 현재 일시 삭제는 Blob(개체) 스토리지에 대해서만 사용 가능합니다.
 
-### <a name="is-soft-delete-available-for-all-storage-account-types"></a>일시 삭제는 모든 저장소 계정 유형에 사용할 수 있나요?
+### <a name="is-soft-delete-available-for-all-storage-account-types"></a>일시 삭제는 모든 스토리지 계정 형식에 사용할 수 있나요?
 
-예, 일시 삭제는 Blob storage 계정 뿐만 아니라 범용 (GPv1 및 GPv2) 저장소 계정의 blob에 대해서만 사용할 수 있습니다. Standard 및 premium 계정 유형이 모두 지원 됩니다. 일시 삭제는 관리 되지 않는 디스크에 사용할 수 있으며,이는 페이지 blob입니다. 일시 삭제는 관리 디스크에 사용할 수 없습니다.
+예. 소프트 삭제는 Blob 저장소 계정뿐만 아니라 범용(GPv1 및 GPv2) 저장소 계정의 Blob에서도 사용할 수 있습니다. 표준 계정 유형과 프리미엄 계정 유형이 모두 지원됩니다. 소프트 삭제는 관리되지 않는 디스크에 사용할 수 있습니다. 일시 삭제는 관리 디스크에 사용할 수 없습니다.
 
-### <a name="is-soft-delete-available-for-all-storage-tiers"></a>일시 삭제는 모든 저장소 계층에 사용할 수 있나요?
+### <a name="is-soft-delete-available-for-all-storage-tiers"></a>일시 삭제는 모든 스토리지 계층에 사용할 수 있나요?
 
-예, 일시 삭제는 핫, 쿨 및 보관을 비롯 한 모든 저장소 계층에 사용할 수 있습니다. 그러나 일시 삭제는 보관 계층의 Blob에 대한 덮어쓰기 보호를 제공하지 않습니다.
+예. 핫, 쿨 및 아카이브를 포함한 모든 저장소 계층에서 소프트 삭제를 사용할 수 있습니다. 그러나 일시 삭제는 보관 계층의 Blob에 대한 덮어쓰기 보호를 제공하지 않습니다.
 
-### <a name="can-i-use-the-set-blob-tier-api-to-tier-blobs-with-soft-deleted-snapshots"></a>Blob 계층 API 집합을 사용 하 여 일시 삭제 된 스냅숏이 있는 blob 계층을 만들 수 있나요?
+### <a name="can-i-use-the-set-blob-tier-api-to-tier-blobs-with-soft-deleted-snapshots"></a>Blob 계층 API 설정을 사용하여 일시 삭제된 스냅샷과 함께 Blob의 계층을 설정할 수 있습니까?
 
 예. 일시 삭제된 스냅샷은 원본 계층에 유지되지만 기본 Blob은 새 계층으로 이동합니다. 
 
-### <a name="premium-storage-accounts-have-a-per-blob-snapshot-limit-of-100-do-soft-deleted-snapshots-count-toward-this-limit"></a>Premium storage 계정에는 blob 당 스냅숏 제한인 100이 있습니다. 일시 삭제 된 스냅숏 수가이 한도에 도달 하나요?
+### <a name="premium-storage-accounts-have-a-per-blob-snapshot-limit-of-100-do-soft-deleted-snapshots-count-toward-this-limit"></a>Premium Storage 계정은 Blob당 100개로 스냅샷을 제한합니다. 일시 삭제된 스냅샷은 이 제한에 포함되나요?
 
 아니요, 일시 삭제된 스냅샷은 이 제한에 포함되지 않습니다.
 
-### <a name="can-i-turn-on-soft-delete-for-existing-storage-accounts"></a>기존 저장소 계정에 대해 일시 삭제를 켤 수 있나요?
+### <a name="can-i-turn-on-soft-delete-for-existing-storage-accounts"></a>기존 스토리지 계정에 대해 일시 삭제를 켤 수 있나요?
 
 예, 일시 삭제는 기존 및 새 스토리지 계정 모두에 대해 구성할 수 있습니다.
 
-### <a name="if-i-delete-an-entire-account-or-container-with-soft-delete-turned-on-will-all-associated-blobs-be-saved"></a>일시 삭제가 설정 된 상태에서 전체 계정 또는 컨테이너를 삭제 하면 연결 된 모든 blob이 저장 됩니까?
+### <a name="if-i-delete-an-entire-account-or-container-with-soft-delete-turned-on-will-all-associated-blobs-be-saved"></a>일시 삭제가 설정된 상태로 전체 계정 또는 컨테이너를 삭제하는 경우 연결된 모든 Blob 저장되나요?
 
-아니요, 전체 계정 또는 컨테이너를 삭제하면 연결된 모든 Blob은 영구적으로 삭제됩니다. 저장소 계정이 실수로 삭제 되지 않도록 보호 하는 방법에 대 한 자세한 내용은 [리소스를 잠가 예기치 않은 변경 방지](../../azure-resource-manager/management/lock-resources.md)를 참조 하세요.
+아니요, 전체 계정 또는 컨테이너를 삭제하면 연결된 모든 Blob은 영구적으로 삭제됩니다. 실수로 삭제되지 않도록 저장소 계정을 보호하는 자세한 내용은 [리소스 잠금을 참조하여 예기치 않은 변경을 방지합니다.](../../azure-resource-manager/management/lock-resources.md)
 
-### <a name="can-i-view-capacity-metrics-for-deleted-data"></a>삭제 된 데이터에 대 한 용량 메트릭을 볼 수 있나요?
+### <a name="can-i-view-capacity-metrics-for-deleted-data"></a>삭제된 데이터에 대한 용량 메트릭을 볼 수 있나요?
 
-일시 삭제된 데이터는 총 스토리지 계정 용량의 일부분으로 포함됩니다. 저장소 용량 추적 및 모니터링에 대 한 자세한 내용은 [스토리지 분석](../common/storage-analytics.md)를 참조 하세요.
+일시 삭제된 데이터는 총 스토리지 계정 용량의 일부분으로 포함됩니다. 스토리지 용량 추적 및 모니터링에 대한 자세한 내용은 [스토리지 분석을](../common/storage-analytics.md)참조하십시오.
 
-### <a name="if-i-turn-off-soft-delete-will-i-still-be-able-to-access-soft-deleted-data"></a>일시 삭제를 해제 한 경우에도 일시 삭제 된 데이터에 계속 액세스할 수 있나요?
+### <a name="if-i-turn-off-soft-delete-will-i-still-be-able-to-access-soft-deleted-data"></a>일시 삭제를 해제하는 경우 여전히 일시 삭제된 데이터에 액세스할 수 있나요?
 
 예, 일시 삭제가 해제된 경우 만료되지 않은 일시 삭제된 데이터에 여전히 액세스하고 이를 복구할 수 있습니다.
 
-### <a name="can-i-read-and-copy-out-soft-deleted-snapshots-of-my-blob"></a>Blob의 일시 삭제 된 스냅숏을 읽고 복사할 수 있나요?  
+### <a name="can-i-read-and-copy-out-soft-deleted-snapshots-of-my-blob"></a>내 Blob의 일시 삭제된 스냅샷을 읽고 복사할 수 있나요?  
 
 예, 하지만 Blob에서 먼저 삭제 취소를 호출해야 합니다.
 
-### <a name="is-soft-delete-available-for-all-blob-types"></a>일시 삭제는 모든 blob 유형에 사용할 수 있나요?
+### <a name="is-soft-delete-available-for-all-blob-types"></a>일시 삭제는 모든 Blob 형식에 사용할 수 있나요?
 
-예, 일시 삭제는 블록 blob, 추가 blob 및 페이지 blob에 사용할 수 있습니다.
+예. 소프트 삭제는 블록 Blob, 추가 Blob 및 페이지 Blob에 사용할 수 있습니다.
 
-### <a name="is-soft-delete-available-for-virtual-machine-disks"></a>가상 컴퓨터 디스크에 대해 일시 삭제를 사용할 수 있나요?  
+### <a name="is-soft-delete-available-for-virtual-machine-disks"></a>일시 삭제를 가상 머신 디스크에 사용할 수 있나요?  
 
-일시 삭제는 프리미엄 및 표준 관리 되지 않는 디스크 모두에 사용할 수 있습니다. 이러한 디스크는 내부적으로 페이지 blob입니다. 일시 삭제는 **Blob 삭제**, **Blob 배치**, **블록 목록**배치, **블록 배치** 및 **blob 복사** 작업을 통해 삭제 된 데이터를 복구 하는 데만 도움이 됩니다. **페이지 배치**에 대한 호출로 덮어쓰여진 데이터는 복구할 수 없습니다.
+소프트 삭제는 프리미엄 디스크와 표준 관리되지 않는 디스크 모두에 사용할 수 있으며, 이 디스크는 덮개 아래에 있는 페이지 Blob입니다. 소프트 삭제는 **Blob 삭제**, **Blob 넣기,** **블록 목록 넣기,** **블록 넣기** 및 **Blob 복사** 작업에서 삭제한 데이터를 복구하는 데만 도움이 됩니다. **페이지 배치**에 대한 호출로 덮어쓰여진 데이터는 복구할 수 없습니다.
 
-Azure 가상 머신은 **Put 페이지**호출을 사용 하 여 관리 되지 않는 디스크에 기록 되므로, 일시 삭제를 사용 하 여 azure VM에서 관리 되지 않는 디스크에 대 한 쓰기를 실행 취소 하는 것은 지원 되지 않습니다.
+Azure 가상 시스템은 **Put Page**호출을 사용하여 관리되지 않는 디스크에 쓰기하므로 소프트 삭제를 사용하여 Azure VM에서 관리되지 않는 디스크에 대한 쓰기를 취소하는 것은 지원되는 시나리오가 아닙니다.
 
-### <a name="do-i-need-to-change-my-existing-applications-to-use-soft-delete"></a>일시 삭제를 사용 하도록 기존 응용 프로그램을 변경 해야 하나요?
+### <a name="do-i-need-to-change-my-existing-applications-to-use-soft-delete"></a>일시 삭제를 사용하려면 기존 애플리케이션을 변경해야 하나요?
 
-사용하는 API 버전에 관계 없이 일시 삭제를 활용할 수 있습니다. 그러나 일시 삭제된 Blob 및 Blob 스냅샷을 나열하고 복구하려면 [스토리지 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services)의 2017-07-29 버전 이상을 사용해야 합니다. Microsoft에서 항상 최신 버전의 Azure Storage API를 사용 하는 것이 좋습니다.
+사용하는 API 버전에 관계 없이 일시 삭제를 활용할 수 있습니다. 그러나 일시 삭제된 Blob 및 Blob 스냅샷을 나열하고 복구하려면 [스토리지 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services)의 2017-07-29 버전 이상을 사용해야 합니다. 항상 최신 버전의 Azure 저장소 API를 사용하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [.NET 샘플 코드](https://github.com/Azure-Samples/storage-dotnet-blob-soft-delete)
 * [BLOB 서비스 REST API](/rest/api/storageservices/blob-service-rest-api)
-* [Azure Storage 복제](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Azure 저장소 복제](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [RA-GRS를 사용하여 항상 사용 가능한 애플리케이션 설계](../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Azure Storage에서 재해 복구 및 스토리지 계정 장애 조치(Failover)(미리 보기)](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

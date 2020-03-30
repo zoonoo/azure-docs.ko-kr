@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 12/04/2018
 ms.openlocfilehash: d7a37d51c411488231205fd036f9a287f5206ce5
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77672449"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Azure Monitor 로그에서 텍스트 데이터 구문 분석
@@ -137,9 +137,9 @@ MyCustomCSVLog_CL
 데이터 형식이 알려진 구조체로 지정된 경우 [Kusto 쿼리 언어](/azure/kusto/query/)의 함수 중 하나를 사용하여 미리 정의된 구조체를 구문 분석할 수 있습니다.
 
 - [JSON](/azure/kusto/query/parsejsonfunction)
-- [XML](/azure/kusto/query/parse-xmlfunction)
+- [Xml](/azure/kusto/query/parse-xmlfunction)
 - [IPv4](/azure/kusto/query/parse-ipv4function)
-- [URL](/azure/kusto/query/parseurlfunction)
+- [Url](/azure/kusto/query/parseurlfunction)
 - [URL 쿼리](/azure/kusto/query/parseurlqueryfunction)
 - [파일 경로](/azure/kusto/query/parsepathfunction)
 - [사용자 에이전트](/azure/kusto/query/parse-useragentfunction)

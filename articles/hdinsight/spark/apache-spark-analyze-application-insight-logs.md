@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: 6fd7682f56fbe446904a4acdb39e78525f2523a8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75435232"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>HDInsight에서 Apache Spark를 사용하여 Application Insights 원격 분석 로그 분석
@@ -21,7 +21,7 @@ HDInsight에서 [Apache Spark](https://spark.apache.org/)를 사용하여 Applic
 
 [Visual Studio Application Insights](../../azure-monitor/app/app-insights-overview.md) 는 웹 애플리케이션을 모니터링하는 분석 서비스입니다. Application Insights에 의해 생성된 원격 분석 데이터를 Azure Storage로 내보낼 수 있습니다. 데이터가 Azure Storage에 있으면 HDInsight를 사용하여 분석할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 애플리케이션에서 Application Insights를 사용하도록 구성합니다.
 
@@ -39,7 +39,7 @@ HDInsight에서 [Apache Spark](https://spark.apache.org/)를 사용하여 Applic
 
 다음 다이어그램은 이 예제의 서비스 아키텍처를 보여 줍니다.
 
-![Application Insights에서 blob 저장소로 흐르는 데이터, Spark](./media/apache-spark-analyze-application-insight-logs/application-insights.png)
+![애플리케이션 인사이트에서 Blob 스토리지로 흐르는 데이터, 스파크](./media/apache-spark-analyze-application-insight-logs/application-insights.png)
 
 ### <a name="azure-storage"></a>Azure Storage
 
@@ -60,17 +60,17 @@ Application Insights는 Blob으로 내보낸 원격 분석 데이터 형식에 �
 
 ## <a name="export-telemetry-data"></a>원격 분석 데이터 내보내기
 
-[연속 내보내기 구성](../../azure-monitor/app/export-telemetry.md) 의 단계에 따라 원격 분석 정보를 Azure Storage blob으로 내보내도록 Application Insights를 구성 합니다.
+[연속 내보내기 구성의](../../azure-monitor/app/export-telemetry.md) 단계에 따라 응용 프로그램 정보를 구성하여 원격 분석 정보를 Azure Storage Blob으로 내보낼 수 있습니다.
 
 ## <a name="configure-hdinsight-to-access-the-data"></a>HDInsight를 구성하여 데이터에 액세스
 
-HDInsight 클러스터를 만드는 경우 클러스터를 만드는 동안 저장소 계정을 추가 합니다.
+HDInsight 클러스터를 만드는 경우 클러스터를 만드는 동안 저장소 계정을 추가합니다.
 
 Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 스토리지 계정 추가](../hdinsight-hadoop-add-storage.md) 문서의 내용을 사용하세요.
 
 ## <a name="analyze-the-data-pyspark"></a>데이터 분석: PySpark
 
-1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/jupyter`로 이동 합니다. 여기서 CLUSTERNAME은 클러스터의 이름입니다.
+1. 웹 브라우저에서 CLUSTERNAME이 클러스터의 이름인 `https://CLUSTERNAME.azurehdinsight.net/jupyter` 곳으로 이동합니다.
 
 2. Jupyter 페이지의 오른쪽 위 모퉁이에서 **새로 만들기**, **PySpark**를 차례로 선택합니다. Python 기반 Jupyter Notebook을 포함하는 새 브라우저 탭이 열립니다.
 
@@ -92,7 +92,7 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 스토리
         Creating HiveContext as 'sqlContext'
         SparkContext and HiveContext created. Executing user code ...
 
-5. 새 셀은 첫 번째 셀의 아래에 생성됩니다. 새 셀에서 다음 텍스트를 입력합니다. `CONTAINER` 및 `STORAGEACCOUNT`를 Application Insights 데이터를 포함 하는 Azure Storage 계정 이름 및 blob 컨테이너 이름으로 바꿉니다.
+5. 새 셀은 첫 번째 셀의 아래에 생성됩니다. 새 셀에서 다음 텍스트를 입력합니다. 응용 `CONTAINER` `STORAGEACCOUNT` 프로그램 인사이트 데이터가 포함된 Azure Storage 계정 이름 및 Blob 컨테이너 이름을 대체합니다.
 
    ```python
    %%bash
@@ -104,7 +104,7 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 스토리
         Found 1 items
         drwxrwxrwx   -          0 1970-01-01 00:00 wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831
 
-    반환 되는 wasbs 경로는 Application Insights 원격 분석 데이터의 위치입니다. 반환 된 wasbs 경로를 사용 하도록 셀의 `hdfs dfs -ls` 줄을 변경한 다음 **SHIFT + ENTER** 를 사용 하 여 셀을 다시 실행 합니다. 이번 결과는 원격 분석 데이터를 포함하는 디렉터리를 표시해야 합니다.
+    반환된 wasbs 경로는 응용 프로그램 인사이트 원격 분석 데이터의 위치입니다. 반환된 `hdfs dfs -ls` wasbs 경로를 사용하도록 셀의 선을 변경한 다음 **SHIFT+ENTER를** 사용하여 셀을 다시 실행합니다. 이번 결과는 원격 분석 데이터를 포함하는 디렉터리를 표시해야 합니다.
 
    > [!NOTE]  
    > 이 섹션의 나머지 단계에서는 `wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` 디렉터리를 사용했습니다. 사용자의 디렉터리 구조는 다를 수 있습니다.
@@ -194,7 +194,7 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 스토리
    df.show()
    ```
 
-    이 쿼리는 상위 20 개 레코드에 대 한 도시 정보를 반환 합니다 .이 경우에는 해당 위치가 null이 아닙니다.
+    이 쿼리는 context.location.city가 null이 아닌 상위 20개 레코드에 대한 도시 정보를 반환합니다.
 
    > [!NOTE]  
    > 컨텍스트 구조는 Application Insights에 의해 기록된 모든 원격 분석에 표시됩니다. 도시 요소는 로그에서 채워지지 않을 수 있습니다. 스키마를 사용하여 로그에 대한 데이터를 포함하는 쿼리할 수 있는 다른 요소를 식별합니다.
@@ -213,7 +213,7 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 스토리
 
 ## <a name="analyze-the-data-scala"></a>데이터 분석: Scala
 
-1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/jupyter`로 이동 합니다. 여기서 CLUSTERNAME은 클러스터의 이름입니다.
+1. 웹 브라우저에서 CLUSTERNAME이 클러스터의 이름인 `https://CLUSTERNAME.azurehdinsight.net/jupyter` 곳으로 이동합니다.
 
 2. Jupyter 페이지의 오른쪽 위 모퉁이에서 **새로 만들기**, **Scala**를 차례로 선택합니다. Scala 기반 Jupyter Notebook을 포함하는 새 브라우저 탭이 나타납니다.
 
@@ -235,7 +235,7 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 스토리
         Creating HiveContext as 'sqlContext'
         SparkContext and HiveContext created. Executing user code ...
 
-5. 새 셀은 첫 번째 셀의 아래에 생성됩니다. 새 셀에서 다음 텍스트를 입력합니다. `CONTAINER` 및 `STORAGEACCOUNT`를 Application Insights 로그를 포함 하는 Azure Storage 계정 이름 및 blob 컨테이너 이름으로 바꿉니다.
+5. 새 셀은 첫 번째 셀의 아래에 생성됩니다. 새 셀에서 다음 텍스트를 입력합니다. 응용 `CONTAINER` `STORAGEACCOUNT` 프로그램 인사이트 로그를 포함하는 Azure Storage 계정 이름 및 Blob 컨테이너 이름을 대체합니다.
 
    ```scala
    %%bash
@@ -247,7 +247,7 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 스토리
         Found 1 items
         drwxrwxrwx   -          0 1970-01-01 00:00 wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831
 
-    반환 되는 wasbs 경로는 Application Insights 원격 분석 데이터의 위치입니다. 반환 된 wasbs 경로를 사용 하도록 셀의 `hdfs dfs -ls` 줄을 변경한 다음 **SHIFT + ENTER** 를 사용 하 여 셀을 다시 실행 합니다. 이번 결과는 원격 분석 데이터를 포함하는 디렉터리를 표시해야 합니다.
+    반환된 wasbs 경로는 응용 프로그램 인사이트 원격 분석 데이터의 위치입니다. 반환된 `hdfs dfs -ls` wasbs 경로를 사용하도록 셀의 선을 변경한 다음 **SHIFT+ENTER를** 사용하여 셀을 다시 실행합니다. 이번 결과는 원격 분석 데이터를 포함하는 디렉터리를 표시해야 합니다.
 
    > [!NOTE]  
    > 이 섹션의 나머지 단계에서는 `wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` 디렉터리를 사용했습니다. 원격 분석 데이터가 웹앱에 대한 것이 아니면 이 디렉터리는 없을 수도 있습니다.
@@ -338,7 +338,7 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 스토리
    var city = sqlContext.sql("select context.location.city from requests where context.location.city isn't null limit 10").show()
    ```
 
-    이 쿼리는 상위 20 개 레코드에 대 한 도시 정보를 반환 합니다 .이 경우에는 해당 위치가 null이 아닙니다.
+    이 쿼리는 context.location.city가 null이 아닌 상위 20개 레코드에 대한 도시 정보를 반환합니다.
 
    > [!NOTE]  
    > 컨텍스트 구조는 Application Insights에 의해 기록된 모든 원격 분석에 표시됩니다. 도시 요소는 로그에서 채워지지 않을 수 있습니다. 스키마를 사용하여 로그에 대한 데이터를 포함하는 쿼리할 수 있는 다른 요소를 식별합니다.

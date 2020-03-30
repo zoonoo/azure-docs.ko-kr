@@ -1,19 +1,18 @@
 ---
-title: 라이브로 전환 | Azure Marketplace
+title: 라이브로 이동 | Azure 마켓플레이스
 description: Go Live API는 제품 라이브 목록 추가 프로세스를 시작합니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 30500e9dfae9411563fc727290d0569998ba3550
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: bf7bebf6e72e373811879a311d70255c29988ed6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819678"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288583"
 ---
 <a name="go-live"></a>Go Live
 =======
@@ -27,8 +26,8 @@ ms.locfileid: "73819678"
 
 |  **이름**      |   **설명**                                                           | **데이터 형식** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherid    | 검색할 제품의 게시자 식별자입니다(예: `contoso`).       |  문자열       |
-| offerId        | 검색할 제품의 제품 식별자입니다.                                   |  문자열       |
+| publisherId    | 검색할 제품의 게시자 식별자입니다(예: `contoso`).       |  String       |
+| offerId        | 검색할 제품의 제품 식별자입니다.                                   |  String       |
 | api-version    | 최신 버전의 API입니다.                                                   |  Date         |
 |  |  |  |
 
@@ -65,5 +64,5 @@ ms.locfileid: "73819678"
 | -------- |  ----------------                                                                        |
 |  202     | `Accepted` - 요청이 성공적으로 수락되었습니다. 응답에는 작업 상태 추적을 위한 위치가 포함됩니다. |
 |  400     | `Bad/Malformed request` -응답 본문 내에서 추가 오류 정보가 확인되었습니다. |
-|  404     |  `Not found` - 지정된 엔터티가 존재하지 않습니다.                                       |
+|  404     |  `Not found` - 지정한 엔터티가 없습니다.                                       |
 |  |  |
