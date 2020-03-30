@@ -1,6 +1,6 @@
 ---
-title: '성능 조정: Hive, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
-description: Hive 성능 조정 지침을 Azure Data Lake Storage Gen2 합니다.
+title: '조정 성능: 하이브, HDInsight & Azure 데이터 레이크 스토리지 Gen2 | 마이크로 소프트 문서'
+description: Azure 데이터 레이크 저장소 Gen2 하이브 성능 튜닝 지침입니다.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,23 +9,23 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 66042568cede364c16302fbd85751de4113bbe0f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74327576"
 ---
-# <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>성능 조정: Hive, HDInsight & Azure Data Lake Storage Gen2
+# <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>조정 성능: 하이브, HDInsight & Azure 데이터 레이크 스토리지 Gen2
 
 서로 다른 여러 사용 사례 간에 적절한 성능을 제공하도록 기본 설정이 지정되었습니다.  I/O 집약적 쿼리의 경우 Azure Data Lake Storage Gen2를 사용하여 Hive를 튜닝함으로써 더 나은 성능을 얻을 수 있습니다.  
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Data Lake Storage Gen2 계정**. 만드는 방법에 대 한 지침은 [빠른 시작: Azure Data Lake Storage Gen2 저장소 계정 만들기](data-lake-storage-quickstart-create-account.md) 를 참조 하세요.
-* Data Lake Storage Gen2 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) 참조
+* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* **Data Lake Storage Gen2 계정**. 하나를 만드는 방법에 대 한 지침은 [빠른 시작 을 참조: Azure 데이터 호수 저장소 Gen2 저장소 계정 만들기](data-lake-storage-quickstart-create-account.md)
+* Data Lake Storage Gen2 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Azure HDInsight 클러스터를 사용하여 Azure 데이터 레이크 스토리지 Gen2 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) 참조
 * **HDInsight에서 Hive 실행**.  HDInsight에서 Hive 작업 실행에 대한 자세한 내용은 [HDInsight의 Hive 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)을 참조하세요.
-* **Data Lake Storage Gen2에 대한 성능 튜닝 지침**.  일반적인 성능 개념은 [Data Lake Storage Gen2 성능 튜닝 지침](data-lake-storage-performance-tuning-guidance.md)을 참조하세요.
+* **Data Lake Storage Gen2에 대한 성능 튜닝 지침**.  일반적인 성능 개념은 [데이터 레이크 스토리지 Gen2 성능 튜닝 지침을](data-lake-storage-performance-tuning-guidance.md) 참조하십시오.
 
 ## <a name="parameters"></a>매개 변수
 
@@ -47,7 +47,7 @@ ms.locfileid: "74327576"
 
 **hive.exec.reducer.bytes.per.reducer** – 이 매개 변수는 각 리듀서의 크기를 설정합니다.  기본적으로 각 리듀서는 256MB입니다.  
 
-## <a name="guidance"></a>인도
+## <a name="guidance"></a>지침
 
 **hive.exec.reducer.bytes.per.reducer 설정** – 데이터가 압축되지 않은 경우 기본 값이 제대로 작동합니다.  압축된 데이터의 경우 리듀서의 크기를 줄여야 합니다.  
 
@@ -55,7 +55,7 @@ ms.locfileid: "74327576"
 
 I/O 집약적인 워크로드의 경우 Tez 컨테이너 크기를 줄여 더 많은 병렬 처리의 이점을 얻을 수 있습니다. 이렇게 하면 사용자에게 더 많은 컨테이너가 제공되어 동시성이 증가합니다.  하지만 일부 Hive 쿼리에는 상당한 양의 메모리가 필요합니다(예: MapJoin).  태스크에 충분한 메모리가 없는 경우 런타임 중에 메모리 부족 예외가 발생합니다.  메모리 부족 예외가 발생하면 메모리를 늘려야 합니다.   
 
-병렬 처리에서 실행 중인 동시 태스크 수는 총 YARN 메모리의 제약을 받습니다.  YARN 컨테이너 수에 따라 실행할 수 있는 동시 태스크 수가 결정됩니다.  노드당 YARN 메모리를 찾으려면 Ambari로 이동할 수 있습니다.  YARN으로 이동 하 여 Configs 탭을 확인 합니다.  YARN 메모리가이 창에 표시 됩니다.  
+병렬 처리에서 실행 중인 동시 태스크 수는 총 YARN 메모리의 제약을 받습니다.  YARN 컨테이너 수에 따라 실행할 수 있는 동시 태스크 수가 결정됩니다.  노드당 YARN 메모리를 찾으려면 Ambari로 이동할 수 있습니다.  YARN으로 이동하여 구성 설정 탭을 봅니다.  YARN 메모리가 이 창에 표시됩니다.  
 
         Total YARN memory = nodes * YARN memory per node
         # of YARN containers = Total YARN memory / Tez container size

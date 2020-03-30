@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 사용 하 여 공유 이미지 갤러리 만들기
+title: Azure CLI를 사용하여 공유 이미지 갤러리 만들기
 description: 이 문서에서는 Azure CLI를 사용하여 Azure에서 VM의 공유 이미지를 만드는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -17,10 +17,10 @@ ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
 ms.openlocfilehash: de1afa2367afcb78e8ca68e518acc93e33f61c43
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034957"
 ---
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>Azure CLI를 사용하여 공유 이미지 갤러리 만들기
@@ -46,7 +46,7 @@ ms.locfileid: "74034957"
 
 ## <a name="create-a-vm"></a>VM 만들기
 
-[Az VM create](/cli/azure/vm#az-vm-create)를 사용 하 여 최신 이미지 버전에서 vm을 만듭니다.
+az vm create를 사용하여 최신 이미지 버전에서 [VM을 만듭니다.](/cli/azure/vm#az-vm-create)
 
 ```azurecli-interactive 
 az vm create\
@@ -56,18 +56,18 @@ az vm create\
    --generate-ssh-keys
 ```
 
-`--image` 매개 변수에 대 한 이미지 버전 ID를 사용 하 여 특정 버전을 사용할 수도 있습니다. 예를 들어 이미지 버전 *1.0.0* 형식을 사용 하려면 `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`합니다.
+`--image` 매개 변수에 대한 이미지 버전 ID를 사용하여 특정 버전을 사용할 수도 있습니다. 예를 들어 이미지 버전 *1.0.0* `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`을 사용하려면 다음을 입력합니다.
 
 [!INCLUDE [virtual-machines-common-gallery-list-cli](../../../includes/virtual-machines-common-gallery-list-cli.md)]
 
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-cli](../../../includes/virtual-machines-common-shared-images-update-delete-cli.md)]
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 이미지 작성기(미리 보기)](image-builder-overview.md)를 사용하여 이미지 버전 생성을 자동화할 수 있고, [기존 이미지 버전에서 새 이미지 버전을 만들고](image-builder-gallery-update-image-version.md) 업데이트할 수도 있습니다. 
+[Azure 이미지 빌더(미리 보기)는](image-builder-overview.md) 이미지 버전 생성을 자동화하는 데 도움이 될 수 있으며, [기존 이미지 버전에서 새 이미지 버전을](image-builder-gallery-update-image-version.md)업데이트하고 만드는 데 사용할 수도 있습니다. 
 
-템플릿을 사용 하 여 공유 이미지 갤러리 리소스를 만들 수도 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
+템플릿을 사용하여 공유 이미지 갤러리 리소스를 만들 수도 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
 
-- [공유 이미지 갤러리 만들기](https://azure.microsoft.com/resources/templates/101-sig-create/)
+- [Shared Image Gallery 만들기](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [이미지 버전에서 VM 만들기](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)

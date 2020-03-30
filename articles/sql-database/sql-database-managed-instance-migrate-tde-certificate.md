@@ -1,5 +1,5 @@
 ---
-title: TDE 인증서 관리 되는 인스턴스 마이그레이션
+title: TDE 인증서 마이그레이션 - 관리되는 인스턴스
 description: 투명한 데이터 암호화를 사용하여 데이터베이스의 데이터베이스 암호화 키를 보호하는 인증서를 Azure SQL Database Managed instance로 마이그레이션
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 ms.date: 04/25/2019
 ms.openlocfilehash: 0f6e379287323d9353acd887cf30d5c9c0065959
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74555378"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>TDE 보호 데이터베이스의 인증서를 Azure SQL Database Managed Instance로 마이그레이션
@@ -30,35 +30,35 @@ ms.locfileid: "74555378"
 완전히 관리되는 서비스를 사용하여 TDE 보호 데이터베이스와 해당 인증서를 원활하게 마이그레이션하는 대체 옵션은 [Azure Database Migration Service를 사용하여 온-프레미스 데이터베이스를 Managed Instance로 마이그레이션하는 방법](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 마이그레이션된 인증서는 TDE 보호 데이터베이스 복원에만 사용됩니다. 복원이 완료 된 후 곧 마이그레이션된 인증서가 인스턴스에 설정 된 투명 한 데이터 암호화의 유형에 따라 키 자격 증명 모음에서 서비스 관리 인증서 또는 비대칭 키와 같은 다른 보호기로 바뀝니다.
+> 마이그레이션된 인증서는 TDE 보호 데이터베이스 복원에만 사용됩니다. 복원이 완료된 직후 마이그레이션된 인증서는 인스턴스에서 설정한 투명한 데이터 암호화 유형에 따라 서비스 관리 인증서 또는 키 자격 증명 모음의 비대칭 키인 다른 보호장치로 대체됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
 - 파일로 내보낸 인증서에 대한 액세스 권한이 있는 온-프레미스 서버나 기타 시스템에 설치된 [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) 명령줄 도구. Pvk2Pfx 도구는 [Enterprise Windows 드라이버 키트](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk)에 속하며 독립 실행형 자체 포함 명령줄 환경입니다.
 - [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell) 버전 5.0 이상 설치.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 다음 항목이 있는지 확인합니다.
 
-- 모듈 [을 설치 하 고 업데이트](https://docs.microsoft.com/powershell/azure/install-az-ps)Azure PowerShell 합니다.
-- [Az .sql module](https://www.powershellgallery.com/packages/Az.Sql).
+- Azure PowerShell [모듈이 설치 및 업데이트되었습니다.](https://docs.microsoft.com/powershell/azure/install-az-ps)
+- [Az.Sql 모듈](https://www.powershellgallery.com/packages/Az.Sql).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL Database에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az module 및 AzureRm 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다.
+> PowerShell Azure 리소스 관리자 모듈은 Azure SQL Database에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈용입니다. 이러한 cmdlet에 대 한 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조 합니다. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 거의 동일합니다.
 
-PowerShell에서 다음 명령을 실행 하 여 모듈을 설치/업데이트 합니다.
+PowerShell에서 다음 명령을 실행하여 모듈을 설치/업데이트합니다.
 
 ```azurepowershell
 Install-Module -Name Az.Sql
 Update-Module -Name Az.Sql
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
@@ -129,7 +129,7 @@ Update-Module -Name Az.Sql
 
 ## <a name="upload-certificate-to-azure-sql-database-managed-instance-using-azure-powershell-cmdlet"></a>Azure PowerShell cmdlet을 사용하여 Azure SQL Database Managed Instance에 인증서 업로드
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 1. PowerShell에서 준비 단계부터 시작합니다.
 
@@ -156,9 +156,9 @@ Update-Module -Name Az.Sql
        -ManagedInstanceName "<managedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
    ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-먼저 *.pfx* 파일을 사용 하 여 [Azure Key Vault를 설정](/azure/key-vault/key-vault-manage-with-cli2) 해야 합니다.
+*먼저 .pfx* 파일을 사용하여 [Azure 키 볼트를 설정해야](/azure/key-vault/key-vault-manage-with-cli2) 합니다.
 
 1. PowerShell에서 준비 단계부터 시작합니다.
 

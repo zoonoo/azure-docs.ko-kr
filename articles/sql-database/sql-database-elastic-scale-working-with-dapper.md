@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: 83d24d45d7628a2e02068c8757fa6568d6d3fc37
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823469"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Dapper과 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용
@@ -23,7 +23,7 @@ ms.locfileid: "73823469"
 
 **샘플 코드**: [Azure SQL Database - Dapper 통합에 대한 Elastic Database 도구](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
-**Dapper**와 **DapperExtensions**는 Azure SQL Database의 탄력적 데이터베이스 클라이언트와 쉽게 통합할 수 있습니다. 애플리케이션에서는 새로운 [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) 개체를 만들고 열 때 [클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/dn807226.aspx)의 [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn765902.aspx) 호출을 사용하도록 변경하여 데이터 종속 라우팅을 사용할 수 있습니다. 이 경우 애플리케이션에서 새 연결을 만들고 열 때만 해당 호출을 사용하도록 변경됩니다. 
+**Dapper**와 **DapperExtensions**는 Azure SQL Database의 탄력적 데이터베이스 클라이언트와 쉽게 통합할 수 있습니다. 애플리케이션에서는 새로운 [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) 개체를 만들고 열 때 [클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/dn765902.aspx)의 [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) 호출을 사용하도록 변경하여 데이터 종속 라우팅을 사용할 수 있습니다. 이 경우 애플리케이션에서 새 연결을 만들고 열 때만 해당 호출을 사용하도록 변경됩니다. 
 
 ## <a name="dapper-overview"></a>Dapper 개요
 **Dapper** 는 개체 관계형 매퍼입니다. 애플리케이션의 .NET 개체와 관계형 데이터베이스를 서로 매핑합니다. 샘플 코드의 첫 부분에서는 탄력적 데이터베이스 클라이언트 라이브러리를 Dapper 기반 애플리케이션과 통합할 수 있는 방법을 보여 줍니다. 그리고 두 번째 부분에서는 Dapper와 DapperExtensions를 통합하는 방법이 나와 있습니다.  
@@ -83,7 +83,7 @@ Dapper를 사용하는 경우 대개 애플리케이션에서 기본 데이터�
 
 분할된 데이터베이스 맵 개체는 지정된 분할 키용 shardlet을 포함하는 분할된 데이터베이스에 대한 연결을 만듭니다. 또한 탄력적 데이터베이스 클라이언트 API는 일관성을 보장하기 위해 연결에 태그를 지정합니다. [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) 호출에서는 일반 SQL 클라이언트 연결 개체를 반환하므로 Dapper에서 후속 **Execute** 확장 메서드를 호출할 때는 표준 Dapper 방식을 따릅니다.
 
-쿼리는 거의 비슷한 방식으로 작동합니다. 즉, 먼저 탄력적인 확장 API에서 [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx)를 사용하여 연결을 엽니다. 그런 다음 일반 Dapper 확장 메서드를 사용하여 SQL 쿼리 결과를 .NET 개체에 매핑합니다.
+쿼리는 매우 동일한 방식으로 작동합니다 - 먼저 클라이언트 API에서 [OpenConnectionForKey를](https://msdn.microsoft.com/library/azure/dn807226.aspx) 사용하여 연결을 엽니다. 그런 다음 일반 Dapper 확장 메서드를 사용하여 SQL 쿼리 결과를 .NET 개체에 매핑합니다.
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId1,

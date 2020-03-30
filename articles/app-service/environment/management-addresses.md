@@ -1,6 +1,6 @@
 ---
 title: 관리 주소
-description: App Service Environment를 제어 하는 데 사용 되는 관리 주소를 찾습니다. 비대칭 라우팅 문제를 방지 하기 위해 경로 테이블에 구성 합니다.
+description: 앱 서비스 환경을 제어하는 데 사용되는 관리 주소를 찾습니다. 비대칭 라우팅 문제를 피하기 위해 경로 테이블에서 구성했습니다.
 author: ccompy
 ms.assetid: a7738a24-89ef-43d3-bff1-77f43d5a3952
 ms.topic: article
@@ -8,19 +8,19 @@ ms.date: 11/13/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 7d7f97552e8faadee1af928a9ce4e1eea2df476e
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74687106"
 ---
 # <a name="app-service-environment-management-addresses"></a>App Service Environment 관리 주소
 
-ASE (App Service Environment)는 VNet (Azure Virtual Network)에서 실행 되는 Azure App Service의 단일 테 넌 트 배포입니다.  ASE가 VNet에서 실행 되는 동안에는 Azure App Service에서 서비스를 관리 하는 데 사용 하는 많은 전용 IP 주소에서 액세스할 수 있어야 합니다.  ASE의 경우 관리 트래픽은 사용자 제어 네트워크를 통과 합니다. 이 트래픽이 차단되거나 잘못 라우팅된 경우 ASE는 일시 중단 됩니다. ASE 네트워킹 종속성에 대 한 자세한 내용은 [네트워킹 고려 사항 및 App Service Environment][networking]을 참조 하세요. ASE에 대 한 일반 정보는 [App Service Environment 소개][intro]부터 시작할 수 있습니다.
+앱 서비스 환경(ASE)은 Azure 가상 네트워크(VNet)에서 실행되는 Azure 앱 서비스의 단일 테넌트 배포입니다.  ASE는 VNet에서 실행되지만 Azure App 서비스에서 서비스를 관리하는 데 사용되는 여러 전용 IP 주소에서 계속 액세스할 수 있어야 합니다.  ASE의 경우 관리 트래픽이 사용자 제어 네트워크를 통과합니다. 이 트래픽이 차단되거나 잘못 라우팅된 경우 ASE는 일시 중단 됩니다. ASE 네트워킹 종속성에 대한 자세한 내용은 [네트워킹 고려 사항 및 앱 서비스 환경을][networking]참조하십시오. 시작하는 데 도움이 되는 ASE에 대한 일반적인 정보는 [App Service Environment 소개][intro]를 참조하세요.
 
-모든 ASE에는 관리 트래픽이 전달되는 공개 VIP가 있습니다. 이러한 주소에서 들어오는 관리 트래픽은 ASE의 공개 VIP에서 포트 454 및 455로 전달됩니다. 이 문서에서는 ASE에 대한 관리 트래픽의 App Service 원본 주소를 나열합니다. 이러한 주소는 이름이 AppServiceManagement 인 IP 서비스 태그에도 있습니다.
+모든 ASE에는 관리 트래픽이 전달되는 공개 VIP가 있습니다. 이러한 주소에서 들어오는 관리 트래픽은 ASE의 공개 VIP에서 포트 454 및 455로 전달됩니다. 이 문서에서는 ASE에 대한 관리 트래픽의 App Service 원본 주소를 나열합니다. 이러한 주소는 AppServiceManagement라는 IP 서비스 태그에도 있습니다.
 
-아래에 설명 된 주소는 관리 트래픽과의 비대칭 라우팅 문제를 방지 하기 위해 경로 테이블에서 구성할 수 있습니다. 경로는 IP 수준에서 트래픽에 대해 작동 하며 트래픽 방향을 인식 하거나 트래픽이 TCP 응답 메시지의 일부임을 갖지 않습니다. TCP 요청에 대 한 회신 주소가 전송 된 주소와 다른 경우 비대칭 라우팅 문제가 발생 합니다. ASE 관리 트래픽에 대 한 비대칭 라우팅 문제를 방지 하려면 전송 된 동일한 주소에서 회신이 다시 전송 되도록 해야 합니다. 아웃 바운드 트래픽이 온-프레미스에서 전송 되는 환경에서 작동 하도록 ASE를 구성 하는 방법에 대 한 자세한 내용은 [강제 터널링을 사용 하 여 Ase 구성][forcedtunnel] 을 참조 하세요.
+아래 언급한 주소는 관리 트래픽에 대한 비대칭 라우팅 문제를 방지하기 위해 라우트 테이블에서 구성할 수 있습니다. 경로는 IP 수준에서 트래픽에 따라 작동하며 트래픽 방향에 대한 인식이 없거나 트래픽이 TCP 회신 메시지의 일부라는 것을 인식하지 못합니다. TCP 요청에 대한 회신 주소가 전송된 주소와 다른 경우 비대칭 라우팅 문제가 있는 것입니다. ASE 관리 트래픽과 비대칭 라우팅 문제를 방지하려면 회신이 전송된 주소와 동일한 주소에서 다시 전송되도록 해야 합니다. ASE를 아웃바운드 트래픽이 온-프레미스에서 전송되는 환경에서 작동하도록 구성하는 방법에 대한 내용은 [강제 터널링을 사용하여 ASE 구성][forcedtunnel]을 참조하세요.
 
 ## <a name="list-of-management-addresses"></a>관리 주소 목록 ##
 
@@ -31,7 +31,7 @@ ASE (App Service Environment)는 VNet (Azure Virtual Network)에서 실행 되�
 
 ## <a name="configuring-a-network-security-group"></a>네트워크 보안 그룹 구성
 
-네트워크 보안 그룹을 사용 하는 경우 개별 주소에 대해 걱정 하지 않아도 됩니다. 모든 주소를 최신 상태로 유지 하는 AppServiceManagement 라는 IP 서비스 태그가 있습니다. NSG에서이 IP 서비스 태그를 사용 하려면 포털로 이동 하 여 네트워크 보안 그룹 UI를 열고 인바운드 보안 규칙을 선택 합니다. 인바운드 관리 트래픽에 대 한 기존 규칙이 있는 경우 해당 규칙을 편집 합니다. 이 NSG를 ASE과 함께 만들지 않았거나 모두 새 항목이면 **추가**를 선택합니다. 원본 드롭다운 목록에서 **서비스 태그**를 선택합니다.  원본 서비스 태그 아래에서 **AppServiceManagement**을 선택 합니다. 원본 포트 범위를 \*으로, 대상을 **모두**로, 대상 포트 범위를 **454-455**로, 프로토콜을 **TCP**로, 작업을 **허용**으로 설정합니다. 규칙을 만드는 경우 우선 순위를 설정 해야 합니다. 
+네트워크 보안 그룹에서는 개별 주소에 대해 걱정할 필요가 없으며 자체 구성을 유지할 필요가 없습니다. AppServiceManagement라는 IP 서비스 태그가 있어 모든 주소와 함께 최신 상태로 유지됩니다. NSG에서 이 IP 서비스 태그를 사용하려면 포털로 이동하여 네트워크 보안 그룹 UI를 열고 인바운드 보안 규칙을 선택합니다. 인바운드 관리 트래픽에 대한 기존 규칙이 있는 경우 편집합니다. 이 NSG를 ASE과 함께 만들지 않았거나 모두 새 항목이면 **추가**를 선택합니다. 원본 드롭다운 목록에서 **서비스 태그**를 선택합니다.  소스 서비스 태그 아래에서 **AppServiceManagement**를 선택합니다. 원본 포트 범위를 \*으로, 대상을 **모두**로, 대상 포트 범위를 **454-455**로, 프로토콜을 **TCP**로, 작업을 **허용**으로 설정합니다. 규칙을 만드는 경우 우선 순위를 설정해야 합니다. 
 
 ![서비스 태그를 사용하여 NSG 만들기][1]
 

@@ -1,5 +1,5 @@
 ---
-title: SQL 데이터 동기화에서 스키마 변경 내용 복제를 자동화 합니다.
+title: SQL 데이터 동기화에서 스키마 변경 내용 의 복제 자동화
 description: Azure SQL 데이터 동기화에서 스키마 변경 복제를 자동화하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/14/2018
 ms.openlocfilehash: 639901975bbb66b9f410bea297d9e48cd96d6d1b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822443"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Azure SQL 데이터 동기화에서 스키마 변경 복제 자동화
@@ -31,7 +31,7 @@ SQL 데이터 동기화를 사용하면 Azure SQL 데이터베이스와 온-프�
 이 문서에서는 스키마 변경의 예로 ALTER TABLE을 사용하지만 이 솔루션은 다른 유형의 스키마 변경에도 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 동기화 환경에서 자동화된 스키마 변경 복제를 구현하기 전에 특히 [문제 해결](#troubleshoot) 및 [기타 고려 사항](#other)에 대한 섹션을 주의 깊게 참조하는 것이 좋습니다. 또한 [SQL 데이터 동기화를 사용 하 여 여러 클라우드 및 온-프레미스 데이터베이스에서 동기화 데이터](sql-database-sync-data.md)를 읽는 것이 좋습니다. 일부 데이터베이스 작업은이 문서에서 설명 하는 솔루션을 손상 시킬 수 있습니다. 이러한 문제를 해결하려면 SQL Server 및 Transact-SQL에 대한 추가적인 도메인 지식이 필요할 수 있습니다.
+> 동기화 환경에서 자동화된 스키마 변경 복제를 구현하기 전에 특히 [문제 해결](#troubleshoot) 및 [기타 고려 사항](#other)에 대한 섹션을 주의 깊게 참조하는 것이 좋습니다. 또한 SQL Data [Sync를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 동기화 데이터를](sql-database-sync-data.md)읽는 것이 좋습니다. 일부 데이터베이스 작업은 이 문서에서 설명하는 솔루션을 중단할 수 있습니다. 이러한 문제를 해결하려면 SQL Server 및 Transact-SQL에 대한 추가적인 도메인 지식이 필요할 수 있습니다.
 
 ![스키마 변경 복제 자동화](media/sql-database-update-sync-schema/automate-schema-changes.png)
 
@@ -171,7 +171,7 @@ DDL 트리거를 만든 데이터베이스에서 수행된 스키마 변경만 �
 
 다른 유형의 스키마 변경(예: 저장 프로시저 만들기 또는 인덱스 삭제)에서는 동기화 스키마를 업데이트할 필요가 없습니다.
 
-## <a name="troubleshoot"></a> 자동화된 스키마 변경 복제 문제 해결
+## <a name="troubleshoot-automated-schema-change-replication"></a><a name="troubleshoot"></a> 자동화된 스키마 변경 복제 문제 해결
 
 이 문서에서 설명하는 복제 논리는 일부 상황에서 작업을 중지합니다. 예를 들어 Azure SQL Database에서 지원되지 않는 온-프레미스 데이터베이스에서 스키마를 변경한 경우가 있습니다. 이 경우 스키마 변경 내용 추적 테이블의 동기화가 실패합니다. 이 문제는 다음과 같이 수동으로 해결해야 합니다.
 
@@ -199,7 +199,7 @@ DDL 트리거를 만든 데이터베이스에서 수행된 스키마 변경만 �
 
 스키마 변경 내용 추적 테이블에서 레코드를 정리하려면 TRUNCATE 대신 DELETE를 사용합니다. DBCC CHECKIDENT를 사용하여 스키마 변경 내용 추적 테이블에서 ID 열을 다시 시드하지 않습니다. 새 스키마 변경 내용 추적 테이블을 만들고, 다시 시드해야 하는 경우 DDL 트리거에서 테이블 이름을 업데이트할 수 있습니다.
 
-## <a name="other"></a> 기타 고려 사항
+## <a name="other-considerations"></a><a name="other"></a> 기타 고려 사항
 
 -   허브 및 구성원 데이터베이스를 구성하는 데이터베이스 사용자에게는 스키마 변경 명령을 실행할 수 있는 충분한 권한이 있어야 합니다.
 
@@ -227,7 +227,7 @@ SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
     - PowerShell 사용
         -  [PowerShell을 사용하여 여러 Azure SQL 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)
--   데이터 동기화 에이전트 - [Azure SQL 데이타 동기화용 데이터 동기화 에이전트](sql-database-data-sync-agent.md)
+-   데이터 동기화 에이전트 - [Azure SQL 데이터 동기화용 데이터 동기화 에이전트](sql-database-data-sync-agent.md)
 -   모범 사례 - [Azure SQL 데이터 동기화에 대한 모범 사례](sql-database-best-practices-data-sync.md)
 -   모니터 - [Azure Monitor 로그를 사용하여 SQL 데이터 동기화 모니터링](sql-database-sync-monitor-oms.md)
 -   문제 해결 - [Azure SQL 데이터 동기화 문제 해결](sql-database-troubleshoot-data-sync.md)

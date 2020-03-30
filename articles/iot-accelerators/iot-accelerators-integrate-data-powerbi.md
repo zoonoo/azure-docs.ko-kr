@@ -1,6 +1,6 @@
 ---
 title: Power BI를 사용하여 원격 모니터링 데이터 시각화 - Azure | Microsoft Docs
-description: 이 자습서에서는 Power BI Desktop 및 Cosmos DB를 사용 하 여 원격 모니터링 솔루션의 데이터를 사용자 지정 된 시각화로 통합 합니다. 이렇게 하면 자신만의 사용자 지정 대시보드를 만들어서 솔루션이 아닌 곳에서 사용자에게 공유할 수 있습니다.
+description: 이 자습서에서는 Power BI 데스크톱 및 Cosmos DB를 사용하여 원격 모니터링 솔루션의 데이터를 사용자 지정 시각화에 통합합니다. 이렇게 하면 자신만의 사용자 지정 대시보드를 만들어서 솔루션이 아닌 곳에서 사용자에게 공유할 수 있습니다.
 author: dominicbetts
 manager: hegate
 ms.author: dobett
@@ -9,26 +9,26 @@ services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8b0f395936c8628ff7b8dab601168538f97ccdb7
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74184234"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Power BI를 사용하여 원격 모니터링 데이터 시각화
 
 이 자습서는 CosmosDB의 원격 모니터링 솔루션 데이터를 Power BI에 연결하는 방법을 안내합니다. 이 연결이 설정되면 자신만의 사용자 지정 대시보드를 만들어서 원격 모니터링 솔루션 대시보드에 다시 추가할 수 있습니다. 이러한 작업 흐름을 통해 기본 제공 그래프뿐만 아니라 보다 전문화된 그래프를 만들 수 있습니다. 그런 다음 이 자습서를 사용하여 다른 데이터 스트림과 통합하거나 사용자 지정 대시보드를 작성하여 원격 모니터링 솔루션 외부에서 사용할 수 있습니다. Power BI에서 대시보드를 작성하고 특정 부분을 선택하면 각 패널이 상호 작용할 수 있습니다. 예를 들어 시뮬레이션된 트럭에 대한 정보만 보여주는 필터가 있으면 대시보드의 각 부분이 상호 작용하여 시뮬레이션된 트럭 정보만 표시됩니다. Power BI 이외의 도구를 사용하려는 경우 이 단계를 확장하여 원하는 시각화 도구를 사용하고 Cosmos 데이터베이스 또는 사용자 정의 데이터베이스(설정해 둔 경우)에 연결할 수 있습니다. 
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 현재 실행 중인 원격 모니터링 솔루션이 있어야 합니다.
-- [Azure Portal](https://portal.azure.com) 및 IoT Hub 및 솔루션이 실행 되는 구독에 대 한 액세스 권한이 있어야 합니다.
+- [Azure 포털](https://portal.azure.com) 및 IoT Hub 및 솔루션이 실행 중인 구독에 액세스할 수 있어야 합니다.
 - [Power BI 데스크톱](https://powerbi.microsoft.com)이 설치되어 있어야 하며 버전은 상관 없습니다.
 
 
-## <a name="information-needed-from-azure-portal"></a>Azure Portal에서 필요한 정보
+## <a name="information-needed-from-azure-portal"></a>Azure 포털에서 필요한 정보
 
-1. [Azure Portal](https://portal.azure.com) 로 이동 하 고 필요한 경우 로그인 합니다.
+1. Azure [포털로](https://portal.azure.com) 이동 및 필요한 경우 로그인
 
 2. 왼쪽 패널에서 리소스 그룹을 클릭합니다.
 

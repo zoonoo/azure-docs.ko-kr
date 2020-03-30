@@ -1,6 +1,6 @@
 ---
 title: 연결된 팩터리 솔루션 FAQ - Azure | Microsoft Docs
-description: 이 문서에서는 연결 된 팩터리 솔루션 가속기에 대 한 자주 묻는 질문에 답변 합니다. GitHub 리포지토리에 대 한 링크를 포함 합니다.
+description: 이 문서에서는 커넥티드 팩토리 솔루션 가속기에 대해 자주 묻는 질문에 대한 답변을 제공합니다. 여기에는 GitHub 리포지토리에 대한 링크가 포함되어 있습니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: c84452ff71fa34a65b2e56ec753b68bf551c7e35
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73826272"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기에 대한 질문과 대답
@@ -42,7 +42,7 @@ Microsoft는 플랫폼 독립적이고 업계에서 통용되며 입증된 오�
 
 IP 주소를 추가하는 두 가지 옵션이 있습니다.
 
-* `Simulation/Factory/Add-SimulationPublicIp.ps1`리포지토리[에서 PowerShell 스크립트 ](https://github.com/Azure/azure-iot-connected-factory)을 사용합니다. 배포 이름을 매개 변수로 전달합니다. 로컬 배포의 경우 `<your username>ConnFactoryLocal`을 사용합니다. 스크립트는 VM의 IP 주소를 출력합니다.
+* [리포지토리](https://github.com/Azure/azure-iot-connected-factory)에서 PowerShell 스크립트 `Simulation/Factory/Add-SimulationPublicIp.ps1`을 사용합니다. 배포 이름을 매개 변수로 전달합니다. 로컬 배포의 경우 `<your username>ConnFactoryLocal`을 사용합니다. 스크립트는 VM의 IP 주소를 출력합니다.
 
 * Azure Portal에서 배포의 리소스 그룹을 찾습니다. 로컬 배포의 경우를 제외하고 리소스 그룹에는 솔루션 또는 배포 이름으로 지정한 이름이 있습니다. 빌드 스크립트를 사용하는 로컬 배포의 경우 리소스 그룹의 이름은 `<your username>ConnFactoryLocal`입니다. 이제 리소스 그룹에 새 **공용 IP 주소** 리소스를 추가합니다.
 
@@ -59,7 +59,7 @@ IP 주소를 제거하는 두 가지 옵션이 있습니다.
 
 ### <a name="how-do-i-sign-in-to-the-simulation-vm"></a>시뮬레이션 VM에 어떻게 로그인하나요?
 
-`build.ps1`리포지토리[에서 PowerShell 스크립트 ](https://github.com/Azure/azure-iot-connected-factory)을 사용하여 솔루션을 배포한 경우에만 시뮬레이션 VM에 대한 로그인이 지원됩니다.
+[리포지토리](https://github.com/Azure/azure-iot-connected-factory)에서 PowerShell 스크립트 `build.ps1`을 사용하여 솔루션을 배포한 경우에만 시뮬레이션 VM에 대한 로그인이 지원됩니다.
 
 www.azureiotsolutions.com에서 솔루션을 배포한 경우 VM에 로그인할 수 없습니다. 암호는 임의로 생성되고 다시 설정할 수 없으므로 로그인할 수 없습니다.
 
@@ -76,7 +76,7 @@ www.azureiotsolutions.com에서 솔루션을 배포한 경우 VM에 로그인할
 1. 활성화되어 있는 컨테이너를 확인하려면 `docker ps`를 실행합니다.
 1. 모든 시뮬레이션 컨테이너를 중지하려면 `./stopsimulation`을 실행합니다.
 1. 모든 시뮬레이션 컨테이너를 시작하려면:
-    * **IOTHUB_CONNECTIONSTRING** 이름으로 셸 변수를 내보냅니다. **파일에서**IotHubOwnerConnectionString`<name of your deployment>.config.user` 설정의 값을 사용합니다. 예:
+    * **IOTHUB_CONNECTIONSTRING** 이름으로 셸 변수를 내보냅니다. `<name of your deployment>.config.user` 파일에서 **IotHubOwnerConnectionString** 설정의 값을 사용합니다. 예를 들어:
 
         ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
@@ -86,11 +86,11 @@ www.azureiotsolutions.com에서 솔루션을 배포한 경우 VM에 로그인할
 
 ### <a name="how-do-i-update-the-simulation-in-the-vm"></a>VM에서 시뮬레이션을 어떻게 업데이트하나요?
 
-시뮬레이션에 변경 사항을 만든 경우 `build.ps1` 명령을 사용하여 [리포지토리](https://github.com/Azure/azure-iot-connected-factory)에서 PowerShell 스크립트 `updatedimulation`을 사용할 수 있습니다. 이 스크립트는 모든 시뮬레이션 구성 요소를 빌드하고, VM에서 시뮬레이션을 중지하고, 모든 시뮬레이션 구성 요소를 업로드, 설치 및 시작합니다.
+시뮬레이션에 변경 사항을 만든 경우 `updatedimulation` 명령을 사용하여 [리포지토리](https://github.com/Azure/azure-iot-connected-factory)에서 PowerShell 스크립트 `build.ps1`을 사용할 수 있습니다. 이 스크립트는 모든 시뮬레이션 구성 요소를 빌드하고, VM에서 시뮬레이션을 중지하고, 모든 시뮬레이션 구성 요소를 업로드, 설치 및 시작합니다.
 
 ### <a name="how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution"></a>내 솔루션에서 사용하는 IoT 허브의 연결 문자열을 어떻게 찾나요?
 
-`build.ps1`리포지토리[에서 ](https://github.com/Azure/azure-iot-connected-factory) 스크립트를 사용하여 솔루션을 배포한 경우 연결 문자열은 **파일에서**IotHubOwnerConnectionString`<name of your deployment>.config.user`의 값입니다.
+[리포지토리](https://github.com/Azure/azure-iot-connected-factory)에서 `build.ps1` 스크립트를 사용하여 솔루션을 배포한 경우 연결 문자열은 `<name of your deployment>.config.user` 파일에서 **IotHubOwnerConnectionString**의 값입니다.
 
 Azure Portal을 사용하여 연결 문자열을 찾을 수도 있습니다. 배포의 리소스 그룹의 IoT Hub 리소스에서 연결 문자열 설정을 찾습니다.
 
@@ -115,7 +115,7 @@ Azure Portal을 사용하여 연결 문자열을 찾을 수도 있습니다. 배
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>시뮬레이션 구성 요소에서 로그 데이터는 어떻게 얻을 수 있나요?
 
-시뮬레이션에서 모든 구성 요소는 로그 파일에 정보를 기록합니다. 이러한 파일은 `home/docker/Logs` 폴더의 VM에서 찾을 수 있습니다. 로그를 검색하기 위해 `Simulation/Factory/Get-SimulationLogs.ps1`리포지토리[에서 PowerShell 스크립트 ](https://github.com/Azure/azure-iot-connected-factory)을 사용할 수 있습니다.
+시뮬레이션에서 모든 구성 요소는 로그 파일에 정보를 기록합니다. 이러한 파일은 `home/docker/Logs` 폴더의 VM에서 찾을 수 있습니다. 로그를 검색하기 위해 [리포지토리](https://github.com/Azure/azure-iot-connected-factory)에서 PowerShell 스크립트 `Simulation/Factory/Get-SimulationLogs.ps1`을 사용할 수 있습니다.
 
 이 스크립트는 VM에 로그인해야 합니다. 로그인에 대한 자격 증명을 제공해야 합니다. 자격 증명을 찾으려면 [시뮬레이션 VM에 어떻게 로그인하나요?](#how-do-i-sign-in-to-the-simulation-vm)를 참조하세요.
 
@@ -148,7 +148,7 @@ IoT Hub로 전송된 데이터를 볼 수 없는 경우 시뮬레이션에 문�
 
 또한 배포 후 솔루션 가속기에 Azure Maps 계정 키를 추가할 수도 있습니다. Azure Portal로 이동한 후 연결된 팩터리 배포의 App Service 리소스에 액세스합니다. **애플리케이션 설정** 섹션을 찾을 수 있는 **애플리케이션 설정**으로 이동합니다. **MapApiQueryKey**를 [Azure Maps 계정의 키](../azure-maps/how-to-manage-account-keys.md)로 설정합니다. 설정을 저장한 다음 **개요**로 이동하고 App Service를 다시 시작합니다.
 
-### <a name="how-do-i-create-an-azure-maps-account"></a>Azure Maps 계정을 만들 어떻게 할까요? 있나요?
+### <a name="how-do-i-create-an-azure-maps-account"></a>Azure Maps 계정을 만들려면 어떻게 해야 합니까?
 
 [Azure Maps 계정과 키를 관리하는 방법](../azure-maps/how-to-manage-account-keys.md)을 참조하세요.
 
@@ -158,7 +158,7 @@ IoT Hub로 전송된 데이터를 볼 수 없는 경우 시뮬레이션에 문�
 
 ### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>로컬로 디버그하는 동안 대화형 맵을 사용하려면 어떻게 하나요?
 
-로컬로 디버그하는 동안 대화형 맵을 사용하려면 배포 루트의 `MapApiQueryKey` 및 `local.user.config` 파일에서 `<yourdeploymentname>.user.config` 설정 값을 이전에 복사한 **QueryKey** 값으로 설정합니다.
+로컬로 디버그하는 동안 대화형 맵을 사용하려면 배포 루트의 `local.user.config` 및 `<yourdeploymentname>.user.config` 파일에서 `MapApiQueryKey` 설정 값을 이전에 복사한 **QueryKey** 값으로 설정합니다.
 
 ### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>내 대시보드의 홈페이지에서 다른 이미지를 사용하려면 어떻게 할까요?
 
@@ -168,7 +168,7 @@ IoT Hub로 전송된 데이터를 볼 수 없는 경우 시뮬레이션에 문�
 
 비 OPC UA 디바이스에서 연결된 팩터리에 원격 분석 데이터를 보내려면:
 
-1. [ 파일에서 ](iot-accelerators-connected-factory-configure.md)연결된 팩터리 토폴로지의 새 스테이션을 구성`ContosoTopologyDescription.json`합니다.
+1. `ContosoTopologyDescription.json` 파일에서 [연결된 팩터리 토폴로지의 새 스테이션을 구성](iot-accelerators-connected-factory-configure.md)합니다.
 
 1. 연결된 팩터리 호환 가능 JSON 형식으로 원격 분석 데이터를 수집합니다.
 
