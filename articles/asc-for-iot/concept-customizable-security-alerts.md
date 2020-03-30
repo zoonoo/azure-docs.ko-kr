@@ -1,6 +1,6 @@
 ---
-title: IoT에 대 한 Azure Security Center에 대 한 사용자 지정 가능한 보안 경고 가이드 | Microsoft Docs
-description: IoT 기능 및 서비스에 대 한 Azure Security Center를 사용 하 여 사용자 지정 가능한 보안 경고 및 권장 수정 사항에 대해 알아봅니다.
+title: IoT용 Azure 보안 센터에 대한 사용자 지정 가능한 보안 경고 가이드 | 마이크로 소프트 문서
+description: IoT 기능 및 서비스에 대한 Azure 보안 센터를 사용하여 사용자 지정 가능한 보안 경고 및 권장 업데이트 에 대해 알아봅니다.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,25 +15,25 @@ ms.workload: na
 ms.date: 03/04/2020
 ms.author: mlottner
 ms.openlocfilehash: 32d79267559480de8ec91e5e66196bfd57e01cf1
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78299576"
 ---
-# <a name="azure-security-center-for-iot-security-alerts"></a>IoT 보안 경고에 대 한 Azure Security Center
+# <a name="azure-security-center-for-iot-security-alerts"></a>IoT용 Azure Security Center 보안 경고
 
-IoT에 대 한 Azure Security Center는 고급 분석 및 위협 인텔리전스를 사용 하 여 IoT 솔루션을 지속적으로 분석 하 여 악의적인 활동을 경고 합니다.
+IoT용 Azure 보안 센터는 고급 분석 및 위협 인텔리전스를 사용하여 IoT 솔루션을 지속적으로 분석하여 악의적인 활동을 경고합니다.
 
-사용자가 고유한 조직 배포 및 환경에서 잠재적인 손상에 대 한 가장 효율적인 지표로 경고를 제공 하도록 예상 되는 장치 동작에 대 한 지식을 바탕으로 사용자 지정 경고를 만드는 것이 좋습니다. 
+예상 디바이스 동작에 대한 지식을 바탕으로 사용자 지정 경고를 만들어 경고가 고유한 조직 배포 및 환경 면에서 잠재적 손상의 가장 효율적인 지표로 작동하도록 하는 것이 좋습니다. 
 
-IoT 경고에 대 한 다음 Azure Security Center 목록은 예상 IoT Hub 및/또는 장치 동작에 따라 사용자가 정의할 수 있습니다. 각 경고를 사용자 지정 하는 방법에 대 한 자세한 내용은 [사용자 지정 경고 만들기](quickstart-create-custom-alerts.md)를 참조 하세요.
+IoT 에 대한 Azure 보안 센터 경고의 다음 목록은 예상되는 IoT Hub 및/또는 장치 동작에 따라 정의할 수 있습니다. 각 경고를 사용자 지정하는 방법에 대한 자세한 내용은 [사용자 지정 경고 만들기를](quickstart-create-custom-alerts.md)참조하십시오.
 
 ## <a name="iot-hub-alerts-available-for-customization"></a>사용자 지정에 사용할 수 있는 IoT Hub 경고 
 
 
 
-| 심각도 | 경고 이름 | 데이터 원본 | Description | 제안된 수정 사항|
+| 심각도 | 경고 이름 | 데이터 원본 | 설명 | 제안된 수정 사항|
 |---|---|---|---|---|
 | 낮음      | 사용자 지정 경고 - AMQP 프로토콜의 클라우드-디바이스 메시지 수가 허용 범위를 벗어납니다.          | IoT Hub     | 특정 시간 범위 내의 클라우드-디바이스 메시지 수(AMQP 프로토콜)가 현재 구성된 허용 범위를 벗어납니다.||
 | 낮음      | 사용자 지정 경고 - AMQP 프로토콜에서 거부된 클라우드-디바이스 메시지 수가 허용 범위를 벗어납니다. | IoT Hub     | 디바이스에서 거부한 특정 시간 범위 내의 클라우드-디바이스 메시지 수(AMQP 프로토콜)가 현재 구성된 허용 범위를 벗어납니다.||
@@ -53,7 +53,7 @@ IoT 경고에 대 한 다음 Azure Security Center 목록은 예상 IoT Hub 및/
 
 ## <a name="agent-alerts-available-for-customization"></a>사용자 지정에 사용할 수 있는 에이전트 경고 
 
-| 심각도 | 경고 이름 | 데이터 원본 | Description | 제안된 수정 사항|
+| 심각도 | 경고 이름 | 데이터 원본 | 설명 | 제안된 수정 사항|
 |---|---|---|---|---|
 | 낮음      | 사용자 지정 경고 - 활성 연결 수가 허용 범위를 벗어납니다.  | 에이전트       | 특정 시간 범위 내의 활성 연결 수가 현재 구성된 허용 범위를 벗어납니다.|  디바이스 로그를 조사합니다. 연결이 시작된 위치를 알아보고, 무해하거나 악의적인 위치인지 확인합니다. 악의적인 위치이면 가능한 멀웨어를 제거하고 해당 원본을 파악합니다. 무해한 위치이면 해당 원본을 연결 허용 목록에 추가합니다.  |
 | 낮음      | 사용자 지정 경고 - 아웃바운드 연결이 허용되지 않는 IP에 만들어졌습니다.                             | 에이전트       | 아웃바운드 연결이 IP 허용 목록을 벗어난 IP에 만들어졌습니다. |디바이스 로그를 조사합니다. 연결이 시작된 위치를 알아보고, 무해하거나 악의적인 위치인지 확인합니다. 악의적인 위치이면 가능한 멀웨어를 제거하고 해당 원본을 파악합니다. 무해한 위치이면 해당 원본을 IP 허용 목록에 추가합니다.                        |
@@ -64,7 +64,7 @@ IoT 경고에 대 한 다음 Azure Security Center 목록은 예상 IoT Hub 및/
 
 ## <a name="next-steps"></a>다음 단계
 
-- [경고를 사용자 지정](quickstart-create-custom-alerts.md) 하는 방법 알아보기
-- IoT 서비스에 대 한 Azure Security Center [개요](overview.md)
-- [보안 데이터에 액세스](how-to-security-data-access.md) 하는 방법 알아보기
-- [장치 조사](how-to-investigate-device.md) 에 대 한 자세한 정보
+- [경고를 사용자 지정하는](quickstart-create-custom-alerts.md) 방법 알아보기
+- IoT 서비스를 위한 Azure 보안 센터 [개요](overview.md)
+- [보안 데이터에 액세스하는](how-to-security-data-access.md) 방법 알아보기
+- [기기 조사에](how-to-investigate-device.md) 대해 자세히 알아보기

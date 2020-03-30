@@ -9,10 +9,10 @@ ms.date: 01/26/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: 33e6ecca0eb4ca05b1f6bf53cdb3bd4ac8c8d8a9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75978445"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>복사 로그 파일로 Azure Import/Export 작업 상태 검토 | Microsoft Docs
@@ -30,8 +30,8 @@ Microsoft Azure Import/Export 서비스가 가져오기 또는 내보내기 작�
 
 ## <a name="next-steps"></a>다음 단계
 
- * [Azure Import/Export 도구 설정](storage-import-export-tool-setup-v1.md)   
- * [가져오기 작업을 위한 하드 드라이브 준비](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+ * [Azure 가져오기/내보내기 도구 설정](storage-import-export-tool-setup-v1.md)   
+ * [가져오기 작업에 대한 하드 드라이브 준비](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
  * [가져오기 작업 복구](../storage-import-export-tool-repairing-an-import-job-v1.md)   
  * [내보내기 작업 복구](../storage-import-export-tool-repairing-an-export-job-v1.md)   
- * [Azure Import/Export 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)
+ * [Azure 가져오기/내보내기 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)

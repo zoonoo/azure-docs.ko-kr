@@ -1,22 +1,22 @@
 ---
-title: Node.js에서 Azure Queue storage 사용-Azure Storage
+title: Node.js - Azure 저장소에서 Azure 큐 저장소 사용
 description: Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 Node.js로 작성되었습니다.
 author: mhopkins-msft
-ms.service: storage
 ms.author: mhopkins
 ms.date: 12/08/2016
+ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 9eee7f6b321a5ba660e1a0a5a48771c599746bcb
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 7abcad03678131668700f5d2c64b9c971081cb89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673090"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060928"
 ---
-# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Azure 큐 서비스를 사용 하 여 node.js에서 큐 만들기 및 삭제
+# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Azure 큐 서비스를 사용하여 Node.js에서 큐를 만들고 삭제합니다.
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
@@ -63,7 +63,7 @@ var azure = require('azure-storage');
 ## <a name="setup-an-azure-storage-connection"></a>Azure Storage 연결 설정
 Azure 모듈은 AZURE\_STORAGE\_ACCOUNT 및 AZURE\_STORAGE\_ACCESS\_KEY 또는 AZURE\_STORAGE\_CONNECTION\_STRING 환경 변수를 읽고 Azure Storage 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되지 않은 경우 **createQueueService**를 호출할 때 계정 정보를 지정해야 합니다.
 
-## <a name="how-to-create-a-queue"></a>방법: 큐 만들기
+## <a name="how-to-create-a-queue"></a>큐를 만드는 방법
 다음 코드는 **QueueService** 개체를 만들어 큐 작업을 수행할 수 있게 해 줍니다.
 
 ```javascript
@@ -83,7 +83,7 @@ queueSvc.createQueueIfNotExists('myqueue', function(error, results, response){
 큐가 만들어지면 `result.created` 는 true가 됩니다. 큐가 있을 경우 `result.created` 는 false가 됩니다.
 
 ### <a name="filters"></a>필터
-**QueueService**를 사용하여 수행되는 작업에 선택적 필터링 작업을 적용할 수 있습니다. 필터링 작업은 로깅, 자동 재시도 등을 포함할 수 있습니다. 필터는 시그니쳐가 있는 메서드를 구현하는 개체입니다.
+**QueueService**를 사용하여 수행되는 작업에 선택적 필터링 작업을 적용할 수 있습니다. 필터링 작업에는 로깅, 자동 재시도 등이 포함될 수 있습니다. 필터는 시그니처를 사용하여 메서드를 구현하는 개체입니다.
 
 ```javascript
 function handle (requestOptions, next)
@@ -104,8 +104,8 @@ var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var queueSvc = azure.createQueueService().withFilter(retryOperations);
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>방법: 큐에 메시지 삽입
-큐에 메시지를 삽입하려면 **createMessage** 메서드를 사용하여 새 메시지를 만들고 이 메시지를 큐에 추가하면 됩니다.
+## <a name="how-to-insert-a-message-into-a-queue"></a>큐에 메시지를 삽입하는 방법
+큐에 메시지를 삽입하려면 **createMessage** 메서드를 사용하여 새 메시지를 만들고 큐에 추가합니다.
 
 ```javascript
 queueSvc.createMessage('myqueue', "Hello world!", function(error, results, response){
@@ -115,8 +115,8 @@ queueSvc.createMessage('myqueue', "Hello world!", function(error, results, respo
 });
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>방법: 다음 메시지 피킹
-큐에서 메시지를 제거하지 않고도 **peekMessages** 메서드를 호출하여 큐의 맨 앞에서 원하는 메시지를 볼 수 있습니다. 기본적으로 **peekMessages** 는 단일 메시지를 볼 수 있게 해 줍니다.
+## <a name="how-to-peek-at-the-next-message"></a>다음 메시지를 보는 방법
+**peekMessages** 메서드를 호출하여 큐에서 메시지를 제거하지 않고 큐 앞에 있는 메시지를 엿볼 수 있습니다. 기본적으로 **peekMessages** 는 단일 메시지를 볼 수 있게 해 줍니다.
 
 ```javascript
 queueSvc.peekMessages('myqueue', function(error, results, response){
@@ -133,7 +133,7 @@ queueSvc.peekMessages('myqueue', function(error, results, response){
 > 
 > 
 
-## <a name="how-to-dequeue-the-next-message"></a>방법: 큐에서 다음 메시지 제거
+## <a name="how-to-dequeue-the-next-message"></a>큐에서 다음 메시지를 제거하는 방법
 메시지 처리는 2단계 프로세스입니다.
 
 1. 메시지를 큐에서 제거합니다.
@@ -163,7 +163,7 @@ queueSvc.getMessages('myqueue', function(error, results, response){
 > 
 > 
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>방법: 큐 대기 메시지의 콘텐츠 변경
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>대기 중인 메시지의 콘텐츠 변경 방법
 **updateMessage**를 사용하면 큐에 있는 메시지의 콘텐츠를 변경할 수 있습니다. 다음 예제에서는 메시지의 텍스트를 업데이트합니다.
 
 ```javascript
@@ -180,7 +180,7 @@ queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
 });
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>방법: 큐에서 메시지를 제거하는 추가 옵션
+## <a name="how-to-additional-options-for-dequeuing-messages"></a>dequeuing 메시지의 추가옵션을 설정하는 방법
 큐에서 메시지 검색을 사용자 지정할 수 있는 방법으로는 두 가지가 있습니다.
 
 * `options.numOfMessages` - 메시지 배치를 검색합니다(최대 32개).
@@ -216,7 +216,7 @@ queueSvc.getQueueMetadata('myqueue', function(error, results, response){
 });
 ```
 
-## <a name="how-to-list-queues"></a>방법: 큐 나열
+## <a name="how-to-list-queues"></a>큐 나열하는 방법
 큐 목록을 검색하려면 **listQueuesSegmented**를 사용합니다. 특정 접두사를 기준으로 필터링된 목록을 검색하려면 **listQueuesSegmentedWithPrefix**를 사용합니다.
 
 ```javascript
@@ -230,7 +230,7 @@ queueSvc.listQueuesSegmented(null, function(error, results, response){
 큐를 모두 반환할 수 없는 경우에는 `result.continuationToken`을 **listQueuesSegmented**의 첫 번째 매개 변수나 **listQueuesSegmentedWithPrefix**의 두 번째 매개 변수로 사용하여 더 많은 결과를 검색할 수 있습니다.
 
 ## <a name="how-to-delete-a-queue"></a>방법: 큐 삭제
-큐 및 해당 큐의 모든 메시지를 삭제하려면 큐 개체의 **deleteQueue** 메서드를 호출합니다.
+큐와 큐에 포함된 모든 메시지를 삭제하려면 큐 개체에서 **deleteQueue** 메서드를 호출합니다.
 
 ```javascript
 queueSvc.deleteQueue(queueName, function(error, response){
@@ -242,7 +242,7 @@ queueSvc.deleteQueue(queueName, function(error, response){
 
 큐를 삭제하지 않고 모든 메시지를 지우려면 **clearMessages**를 사용합니다.
 
-## <a name="how-to-work-with-shared-access-signatures"></a>방법: 공유 액세스 서명으로 작업
+## <a name="how-to-work-with-shared-access-signatures"></a>공유 액세스 서명 작업 방법
 SAS(공유 액세스 서명)는 스토리지 계정 이름이나 키를 제공하지 않으면서 큐에 세분화된 액세스 권한을 안전하게 제공하는 방법입니다. SAS는 모바일 앱에서 메시지를 제출하도록 허용하는 경우와 같이 큐에 대해 제한된 액세스를 제공하는 경우에 자주 사용합니다.
 
 클라우드 기반 서비스와 같이 신뢰할 수 있는 애플리케이션에서는 **QueueService**의 **generateSharedAccessSignature**를 사용하여 SAS를 생성하고 신뢰할 수 없거나 신뢰가 약한 애플리케이션에 제공합니다. 예를 들면 모바일 앱이 여기에 해당됩니다. SAS는 SAS가 유효한 시작 및 종료 날짜와 SAS 소유자에게 부여되는 액세스 수준을 설명하는 정책을 사용하여 생성됩니다.
@@ -327,7 +327,7 @@ queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 ## <a name="next-steps"></a>다음 단계
 이제 Queue Storage의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 스토리지 작업에 대해 알아보세요.
 
-* [Azure Storage 팀 블로그][Azure Storage Team Blog](영문)를 방문하세요.
+* Azure [저장소 팀 블로그를][Azure Storage Team Blog]방문합니다.
 * GitHub에서 [Azure Storage SDK for Node][Azure Storage SDK for Node] 리포지토리를 방문하세요.
 
 

@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Data Box Gateway 사용 사례 | Microsoft Docs
-description: Azure로 데이터를 전송할 수 있도록 하는 가상 어플라이언스 저장소 솔루션인 Azure Data Box Gateway의 사용 사례에 대해 설명 합니다.
+title: 마이크로소프트 Azure 데이터 박스 게이트웨이 사용 사례 | 마이크로 소프트 문서
+description: Azure로 데이터를 전송할 수 있는 가상 어플라이언스 저장소 솔루션인 Azure Data Box Gateway의 사용 사례에 대해 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
 ms.openlocfilehash: e72113313e27949819db567c550401b1f051473f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022684"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Azure Data Box Gateway에 대한 사용 사례
@@ -44,10 +44,10 @@ Data Box Gateway의 주요 장점 중 하나는 데이터 크기에 관계없이
 
 ### <a name="move-data-to-archive-tier"></a>보관 계층으로 데이터 이동
 
-시작하기 전에 실행 중인 Data Box Gateway 디바이스가 있는지 확인합니다. [자습서: Azure Data Box Gateway 배포 준비](data-box-gateway-deploy-prep.md) 에 설명 된 단계를 수행 하 고, 운영 장치를 사용할 때까지 다음 자습서로 계속 진행 합니다.
+시작하기 전에 실행 중인 Data Box Gateway 디바이스가 있는지 확인합니다. 자습서에서 자세히 설명한 단계에 [따라: Azure 데이터 상자 게이트웨이를 배포할 준비를](data-box-gateway-deploy-prep.md) 하고 운영 장치가 있을 때까지 다음 자습서로 계속 진행합니다.
 
 - Data Box Gateway 디바이스를 사용하여 [Data Box Gateway를 통해 데이터 전송](data-box-gateway-deploy-add-shares.md)에 설명된 일반적인 전송 절차를 통해 Azure에 데이터를 업로드합니다.
-- 데이터가 업로드된 후 보관 계층으로 이동해야 합니다. Azure PowerShell 스크립트 또는 Azure Storage 수명 주기 관리 정책 등 두 가지 방법으로 blob 계층을 설정할 수 있습니다.  
+- 데이터가 업로드된 후 보관 계층으로 이동해야 합니다. Blob 계층을 Azure PowerShell 스크립트 또는 Azure 저장소 수명 주기 관리 정책의 두 가지 방법으로 설정할 수 있습니다.  
     - Azure PowerShell을 사용하는 경우 다음 [단계](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier)를 따라 데이터를 보관 계층으로 이동합니다.
     - Azure 수명 주기 관리를 사용하는 경우 다음 단계를 따라 데이터를 보관 계층으로 이동합니다.
         - 보관 계층을 사용하도록 Blob 수명 주기 관리 서비스의 미리보기를 [등록](/azure/storage/common/storage-lifecycle-management-concepts)합니다.
@@ -81,7 +81,7 @@ Data Box Gateway에서 지속적인 수집을 위해 다음 단계를 수행합�
 
 1. Data Box Gateway에서 클라우드 공유를 만듭니다. 이 공유는 Azure Storage 계정에 데이터를 자동으로 업로드합니다. Data Box Gateway 리소스에서 **공유**로 이동하고 **+ 공유 추가**를 클릭합니다.
 
-    ![\+ 공유 추가 클릭](media/data-box-gateway-use-cases/add-share1.png)
+    ![+ 공유 추가 클릭](media/data-box-gateway-use-cases/add-share1.png)
 
 2. 이 공유가 시드된 데이터를 포함하는 컨테이너에 매핑되는지 확인합니다. **Blob 컨테이너 선택**에 대해 **기존 항목 사용**을 선택하고 Data Box의 데이터가 전송된 컨테이너를 찾습니다.
 

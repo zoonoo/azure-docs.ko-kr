@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Backup 서비스를 사용하여 Azure �
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.openlocfilehash: c69d4642aefbd599d3783dcdfa059a0cd9d129d9
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302545"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Azure Files 백업에 대한 질문
@@ -36,7 +36,7 @@ Azure 파일 공유가 동일한 Recovery Services 자격 증명 모음에서 �
 
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>파일 공유를 백업하는 자격 증명 모음을 변경할 수 있나요?
 
-예. 그러나 연결 된 자격 증명 모음에서 [파일 공유에 대 한 보호를 중지](manage-afs-backup.md#stop-protection-on-a-file-share) 하 고이 저장소 계정의 등록을 [취소](troubleshoot-azure-files.md#configuring-backup) 한 다음 다른 자격 증명 모음에서 보호 해야 합니다.
+예. 그러나 연결된 Vault에서 [파일 공유에 대한 보호를 중지하고](manage-afs-backup.md#stop-protection-on-a-file-share) 이 저장소 [계정의 등록을 취소한](troubleshoot-azure-files.md#configuring-backup) 다음 다른 Vault로부터 보호해야 합니다.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares"></a>Azure 파일 공유를 백업할 수 있는 지역은 어디인가요?
 
@@ -71,19 +71,19 @@ Azure 파일 공유에 대한 Backup은 현재 미리 보기로 제공되며 다
 - US Gov 텍사스(UGT)
 - US Gov 버지니아(UGV)
 - 오스트레일리아 중부 (ACL)
-- 인도 서 부 (INW)
-- 남아프리카 공화국 북부 (SAN)
-- 아랍에미리트 북부 (UAN)
-- 프랑스 중부 (FRC)
+- 인도 서부 (INW)
+- 남아프리카 공화국(SAN)
+- 아랍에미리트 북부(아랍에미리트)
+- 프랑스 센트럴 (FRC)
 - 독일 북부 (GN)                       
-- 독일 중서부 (GWC)
-- 남아프리카 공화국 서 (본)
-- 아랍에미리트 Central (UAC)
+- 독일 웨스트 센트럴 (GWC)
+- 남아프리카 공화국 서부 (SAW)
+- 아랍에미리트 중부 (UAC)
 - NWE (노르웨이 동부)     
-- NWW (노르웨이 서 부)
+- NWW (노르웨이 서부)
 - SZN (스위스 북부)
 
-위에 나열되지 않은 특정 지역에서 사용해야 하는 경우 [AskAzureBackupTeam@microsoft.com](mailto:askazurebackupteam@microsoft.com)으로 문의하세요.
+위에 [AskAzureBackupTeam@microsoft.com](mailto:askazurebackupteam@microsoft.com) 나열되지 않은 특정 지역에서 사용해야 하는 경우 작성합니다.
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vault"></a>자격 증명 모음에서 보호할 수 있는 Azure 파일 공유 수는 몇 개인가요?
 

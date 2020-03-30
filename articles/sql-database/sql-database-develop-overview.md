@@ -1,22 +1,20 @@
 ---
-title: 응용 프로그램 개발 개요
+title: 애플리케이션 개발 개요
 description: 사용 가능한 연결 라이브러리 및 SQL Database에 연결하는 애플리케이션에 대한 모범 사례를 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 26aa9948a44727ff4c8092eb5131b1c054bf5442
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 741906bbe9de68459b2e4a704a243fde4771b3a2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79257005"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067322"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL Database 애플리케이션 개발 개요
 
@@ -48,7 +46,7 @@ Azure SQL Database에 대한 액세스는 로그인과 방화벽으로 보호됩
 
 ## <a name="resiliency"></a>복원력
 
-Azure SQL Database는 기본 인프라 또는 클라우드 엔터티 간의 통신에서 발생하는 일시적인 오류를 예상할 수 있는 클라우드 서비스입니다. Azure SQL Database는 일시적인 인프라 오류에 대해 복원력이 있지만, 이러한 오류는 연결에 영향을 미칠 수 있습니다. SQL Database에 연결하는 동안 일시적인 오류가 발생하면, 코드는 [호출을 다시 시도](sql-database-connectivity-issues.md)해야 합니다. 여러 클라이언트가 재시도를 동시에 수행하여 SQL Database가 채워지지 않도록 재시도 논리에 백오프 논리를 사용하는 것이 좋습니다. 재시도 논리는 [SQL Database 클라이언트 프로그램에 대한 오류 메시지](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md)에 따라 달라집니다.
+Azure SQL Database는 기본 인프라 또는 클라우드 엔터티 간의 통신에서 발생하는 일시적인 오류를 예상할 수 있는 클라우드 서비스입니다. Azure SQL Database는 일시적인 인프라 오류에 대해 복원력이 있지만, 이러한 오류는 연결에 영향을 미칠 수 있습니다. SQL Database에 연결하는 동안 일시적인 오류가 발생하면 코드에서 [호출을 다시 시도해야](sql-database-connectivity-issues.md)합니다. 여러 클라이언트가 재시도를 동시에 수행하여 SQL Database가 채워지지 않도록 재시도 논리에 백오프 논리를 사용하는 것이 좋습니다. 재시도 논리는 [SQL Database 클라이언트 프로그램에 대한 오류 메시지](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md)에 따라 달라집니다.
 
 Azure SQL 데이터베이스에서 계획된 유지 관리 이벤트를 준비하는 방법에 대한 자세한 내용은 [Azure SQL Database의 Azure 유지 관리 이벤트 계획](sql-database-planned-maintenance.md)을 참조하세요.
 
@@ -57,8 +55,8 @@ Azure SQL 데이터베이스에서 계획된 유지 관리 이벤트를 준비�
 - 클라이언트 프로그램을 호스팅하는 컴퓨터에서 방화벽이 포트 1433에서 발신 TCP 통신을 허용하는지 확인합니다.  추가 정보: [Azure SQL Database 방화벽 구성](sql-database-configure-firewall-settings.md).
 - Azure VM(가상 머신)에서 클라이언트가 실행되는 동안 클라이언트 프로그램이 SQL Database에 연결하는 경우에는, VM의 특정 포트 범위를 열어야 합니다. 추가 정보: [ADO.NET 4.5 및 SQL Database에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Azure SQL Database에 대한 클라이언트 연결이 프록시를 바이패스하고 데이터베이스와 직접 상호 작용하는 경우가 있습니다. 1433 이외의 포트가 중요해집니다. 자세한 내용은 [Azure SQL Database 연결 아키텍처](sql-database-connectivity-architecture.md) 및 [ADO.NET 4.5 및 SQL Database에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
-- 관리 되는 인스턴스의 네트워킹 구성에 대해서 [는 관리 되는 인스턴스의 네트워크 구성](sql-database-howto-managed-instance.md#network-configuration)을 참조 하세요.
+- 관리되는 인스턴스의 네트워킹 구성에 대한 [경우 관리되는 인스턴스에 대한 네트워크 구성을](sql-database-howto-managed-instance.md#network-configuration)참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 
-모든 [SQL Database의 기능](sql-database-technical-overview.md)을 탐색합니다.
+[SQL 데이터베이스의](sql-database-technical-overview.md)모든 기능을 살펴보십시오.

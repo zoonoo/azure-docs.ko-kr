@@ -1,6 +1,6 @@
 ---
 title: Azure Portal에서 지원되는 브라우저 및 디바이스 | Microsoft Docs
-description: 최신 브라우저 버전의 모든 최신 장치에서 Azure Portal를 사용할 수 있습니다. 브라우저가 지원 되는지 확인 하려면이 문서를 참조 하세요.
+description: 모든 최신 장치 및 최신 브라우저 버전에서 Azure 포털을 사용할 수 있습니다. 브라우저가 지원되는지 확인하려면 이 문서를 참조하십시오.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -16,15 +16,15 @@ ms.date: 12/20/2019
 ms.author: mblythe
 ms.custom: accessibility
 ms.openlocfilehash: 792864022cb7c1b2b4b43a4980d86e32b213525c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75640107"
 ---
 # <a name="supported-devices"></a>지원되는 디바이스
 
-[Azure Portal](https://portal.azure.com) 은 웹 기반 콘솔 이며 모든 최신 데스크톱 및 태블릿 장치의 브라우저에서 실행 됩니다. 모바일 장치에서 Azure 리소스를 관리 해야 하는 경우 [Azure 모바일 앱](https://azure.microsoft.com/features/azure-portal/mobile-app/)사용해 보세요. IOS 및 Android에서 사용할 수 있습니다.
+[Azure 포털은](https://portal.azure.com) 웹 기반 콘솔이며 모든 최신 데스크톱 및 태블릿 장치의 브라우저에서 실행됩니다. 모바일 장치에서 Azure 리소스를 관리해야 하는 경우 [Azure 모바일 앱을](https://azure.microsoft.com/features/azure-portal/mobile-app/)사용해 보십시오. iOS 및 Android에서 사용할 수 있습니다.
 
 ## <a name="recommended-browsers"></a>권장 브라우저
 

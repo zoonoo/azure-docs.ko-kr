@@ -1,6 +1,6 @@
 ---
 title: Azure Analysis Services 모델에 대한 비동기 새로 고침 | Microsoft Docs
-description: Azure Analysis Services REST API를 사용 하 여 모델 데이터의 비동기 새로 고침을 코딩 하는 방법을 설명 합니다.
+description: Azure 분석 서비스 REST API를 사용하여 모델 데이터의 비동기 새로 고침을 코딩하는 방법을 설명합니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,17 +8,17 @@ ms.date: 01/14/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 6457f062a40e60a491220fcf977585e8b07445b2
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273714"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API를 사용한 비동기 새로 고침
 
 REST 호출을 지원하는 프로그래밍 언어를 사용하여 Azure Analysis Services 테이블 형식 모델에서 비동기 데이터 새로 고침 작업을 수행할 수 있습니다. 여기에는 쿼리 스케일 아웃을 위한 읽기 전용 복제본의 동기화가 포함됩니다. 
 
-데이터 새로 고침 작업은 데이터 볼륨, 파티션 사용 최적화 수준 등을 비롯 한 다양 한 요인에 따라 다소 시간이 걸릴 수 있습니다. 이러한 작업은 일반적으로 [TOM](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (테이블 형식 개체 모델), [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) cmdlet 또는 [Tmsl](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (테이블 형식 모델 스크립팅 언어)을 사용 하는 등의 기존 메서드를 사용 하 여 호출 되었습니다. 그러나 이러한 메서드는 종종 신뢰할 수 없는, 장기 실행 HTTP 연결을 요구할 수 있습니다.
+데이터 새로 고침 작업은 데이터 볼륨, 파티션을 사용한 최적화 수준 등 여러 요인에 따라 다소 시간이 걸릴 수 있습니다. 이러한 작업은 일반적으로 [TOM(테이블](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) 형식 개체 모델), [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) cmdlet 또는 [TMSL(테이블](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) 형식 모델 스크립팅 언어)을 사용하는 것과 같은 기존 메서드에서 호출되었습니다. 그러나 이러한 메서드는 종종 신뢰할 수 없는, 장기 실행 HTTP 연결을 요구할 수 있습니다.
 
 Azure Analysis Services용 REST API에서는 데이터 새로 고침 작업을 비동기적으로 실행할 수 있습니다. REST API를 사용하면 클라이언트 애플리케이션에서의 장기 실행 HTTP 연결이 필요하지 않습니다. 안정성을 위한 기타 기본 제공 기능(예: 자동 다시 시도 및 일괄 처리 커밋)도 있습니다.
 
@@ -30,7 +30,7 @@ Azure Analysis Services용 REST API에서는 데이터 새로 고침 작업을 �
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-예를 들어 미국 서 부 Azure 지역에 있는 `myserver`서버에서 AdventureWorks 라는 모델을 생각해 보겠습니다. 서버 이름은 다음과 같습니다.
+예를 들어 미국 서부 Azure 지역에 있는 `myserver`서버에서 AdventureWorks라는 모델을 생각해 보십시오. 서버 이름은 다음과 같습니다.
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -97,7 +97,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 매개 변수를 지정할 필요는 없습니다. 기본값이 적용됩니다.
 
-| 속성             | Type  | Description  |기본값  |
+| 이름             | Type  | Description  |기본값  |
 |------------------|-------|--------------|---------|
 | `Type`           | 열거형  | 수행할 처리 형식입니다. 이 형식은 TMSL [새로 고침 명령](https://docs.microsoft.com/analysis-services/tmsl/refresh-command-tmsl) 형식인 full, clearValues, calculate, dataOnly, automatic 및 defragment에 맞춰 정렬됩니다. Add 형식은 지원되지 않습니다.      |   automatic      |
 | `CommitMode`     | 열거형  | 개체가 일괄로 커밋될지 또는 완료될 때만 커밋될지를 결정합니다. 모드에는 default, transactional, partialBatch가 포함됩니다.  |  transactional       |
@@ -112,18 +112,18 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 
 ### <a name="status-values"></a>상태 값
 
-|상태 값  |Description  |
+|상태 값  |설명  |
 |---------|---------|
-|`notStarted`    |   작업이 아직 시작 되지 않았습니다.      |
+|`notStarted`    |   작업이 아직 시작되지 않았습니다.      |
 |`inProgress`     |   작업이 진행 중입니다.      |
-|`timedOut`     |    사용자가 지정한 시간 제한에 따라 작업 시간이 초과 되었습니다.     |
-|`cancelled`     |   사용자 또는 시스템에 의해 작업이 취소 되었습니다.      |
+|`timedOut`     |    사용자가 지정한 시간 시간에 따라 작업 시간이 시간 지정됩니다.     |
+|`cancelled`     |   사용자 또는 시스템에서 취소한 작업입니다.      |
 |`failed`     |   작업이 실패했습니다.      |
 |`succeeded`      |   작업이 성공했습니다.      |
 
 ## <a name="get-refreshesrefreshid"></a>GET /refreshes/\<refreshId>
 
-새로 고침 작업의 상태를 확인하려면 새로 고침 ID에 GET 동사를 사용합니다. 응답 본문의 예는 다음과 같습니다. 작업이 진행 중인 경우 상태에서 `inProgress` 반환 됩니다.
+새로 고침 작업의 상태를 확인하려면 새로 고침 ID에 GET 동사를 사용합니다. 응답 본문의 예는 다음과 같습니다. 작업이 진행 중이면 `inProgress` 상태가 반환됩니다.
 
 ```
 {
@@ -177,7 +177,7 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 
 ## <a name="post-sync"></a>POST /sync
 
-새로 고침 작업을 수행한 후 쿼리 확장을 위해 새 데이터를 복제본과 동기화 해야 할 수 있습니다. 모델에 대 한 동기화 작업을 수행 하려면/sync 함수에서 POST 동사를 사용 합니다. 응답의 Location 헤더에는 동기화 작업 ID가 포함됩니다.
+새로 고침 작업을 수행한 후 쿼리 확장에 대 한 복제본과 새 데이터를 동기화 해야 할 수 있습니다. 모델에 대한 동기화 작업을 수행하려면 /sync 함수에서 POST 동사를 사용합니다. 응답의 Location 헤더에는 동기화 작업 ID가 포함됩니다.
 
 ## <a name="get-sync-status"></a>GET /sync status
 
@@ -211,7 +211,7 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 1.  리포지토리를 복제하거나 다운로드합니다. RestApiSample 솔루션을 엽니다.
 2.  **client.BaseAddress = …** 줄을 찾은 후 [기준 URL](#base-url)을 제공합니다.
 
-코드 샘플에서는 [서비스 주체](#service-principal) 인증을 사용 합니다.
+코드 샘플은 [서비스 주체](#service-principal) 인증을 사용합니다.
 
 ### <a name="service-principal"></a>서비스 주체
 
@@ -222,9 +222,9 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 3.  예제를 실행합니다.
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 [샘플](analysis-services-samples.md)   
-[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
+[나머지 API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 

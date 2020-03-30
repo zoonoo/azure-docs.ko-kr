@@ -1,15 +1,15 @@
 ---
-title: PublicIpAddressCombo UI 요소
+title: 퍼블릭IpAddressCombo UI 요소
 description: Azure Portal의 Microsoft.Network.PublicIpAddressCombo UI 요소에 대해 설명합니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 0393673663df8f3ca580ff34e16bee910b955f8d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75651918"
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Microsoft.Network.PublicIpAddressCombo UI 요소
@@ -80,15 +80,15 @@ ms.locfileid: "75651918"
 }
 ```
 
-- `options.hideNone`이 **true**로 지정되면 `newOrExistingOrNone`은 **새 값** 또는 **기존 값**만 갖습니다.
-- `options.hideDomainNameLabel`이 **true**로 지정되면 `domainNameLabel`이 선언되지 않습니다.
+- `options.hideNone` **true로** `newOrExistingOrNone` 지정되면 **새** 값또는 **기존**값만 있습니다.
+- `options.hideDomainNameLabel` **true로** `domainNameLabel` 지정되면 선언되지 않습니다.
 
 ## <a name="remarks"></a>설명
 
 - `constraints.required.domainNameLabel`을 **true**로 설정하면 사용자가 새 공용 IP 주소를 만들 때 도메인 이름 레이블을 제공해야 합니다. 레이블이 없는 기존의 공용 IP 주소는 선택할 수 없습니다.
-- `options.hideNone`을 **true**로 설정하면 공용 IP 주소에 대해 **없음**을 선택하는 옵션이 숨겨집니다. 기본 값은 **false**입니다.
-- `options.hideDomainNameLabel`이 **true**로 설정하면 도메인 이름 레이블의 텍스트 상자가 숨겨집니다. 기본 값은 **false**입니다.
-- `options.hideExisting`이 true이면 사용자가 기존 공용 IP 주소를 선택할 수 없습니다. 기본 값은 **false**입니다.
+- `options.hideNone`을 **true**로 설정하면 공용 IP 주소에 대해 **없음**을 선택하는 옵션이 숨겨집니다. 기본값은 **false**입니다.
+- `options.hideDomainNameLabel`이 **true**로 설정하면 도메인 이름 레이블의 텍스트 상자가 숨겨집니다. 기본값은 **false**입니다.
+- `options.hideExisting`이 true이면 사용자가 기존 공용 IP 주소를 선택할 수 없습니다. 기본값은 **false**입니다.
 - `zone`의 경우 지정된 영역에 대한 유일한 공용 IP 주소 또는 영역 복원력 있는 공용 IP 주소를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

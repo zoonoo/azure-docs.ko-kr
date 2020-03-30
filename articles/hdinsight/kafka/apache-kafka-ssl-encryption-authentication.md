@@ -1,6 +1,6 @@
 ---
-title: Apache Kafka SSL 암호화 & 인증-Azure HDInsight
-description: Kafka 클라이언트와 kafka 브로커 간의 통신에 대해 SSL 암호화를 설정 하 고 Kafka broker 간에 통신을 설정 합니다. 클라이언트의 SSL 인증을 설정 합니다.
+title: 아파치 카프카 SSL 암호화 & 인증 - Azure HDInsight
+description: 카프카 클라이언트와 카프카 브로커 간의 통신뿐만 아니라 카프카 브로커 간의 통신을 위해 SSL 암호화를 설정합니다. 클라이언트의 SSL 인증을 설정합니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,58 +8,52 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9b07d16ed97a93b5b5b9422673cfc38ada8e8116
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 4a363caf61046cf39c31ae2d5f35622b7b9109f4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76764357"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80129979"
 ---
-# <a name="set-up-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Kafka에 대 한 SSL(Secure Sockets Layer) (SSL) 암호화 및 인증 설정
+# <a name="set-up-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Azure HDInsight에서 아파치 카프카에 대한 보안 소켓 계층(SSL) 암호화 및 인증 설정
 
-이 문서에서는 Apache Kafka 클라이언트와 Apache Kafka broker 간에 SSL 암호화를 설정 하는 방법을 보여 줍니다. 또한 클라이언트의 인증을 설정 하는 방법을 보여 줍니다 (양방향 SSL이 라고도 함).
+이 문서에서는 아파치 카프카 클라이언트와 아파치 카프카 브로커 사이에 SSL 암호화를 설정하는 방법을 보여줍니다. 또한 클라이언트의 인증을 설정하는 방법(양방향 SSL이라고도 함)도 보여 주십니다.
 
 > [!Important]
-> Kafka 응용 프로그램에 사용할 수 있는 두 가지 클라이언트는 Java 클라이언트와 콘솔 클라이언트입니다. Java 클라이언트 `ProducerConsumer.java`는 생성 및 소비 둘 다에 SSL을 사용할 수 있습니다. 콘솔 생산자 클라이언트 `console-producer.sh`는 SSL에서 작동 하지 않습니다.
+> Kafka 응용 프로그램에 사용할 수 있는 두 개의 클라이언트가 있습니다: Java 클라이언트와 콘솔 클라이언트. Java 클라이언트만 `ProducerConsumer.java` 생산 및 소비모두에 SSL을 사용할 수 있습니다. 콘솔 생산자 `console-producer.sh` 클라이언트가 SSL에서 작동하지 않습니다.
 
-## <a name="apache-kafka-broker-setup"></a>Apache Kafka broker 설치
+> [!Note] 
+> 버전 1.1을 갖춘 HDInsight 카프카 콘솔 프로듀서는 SSL을 지원하지 않습니다.
+## <a name="apache-kafka-broker-setup"></a>아파치 카프카 브로커 설정
 
-Kafka SSL broker 설치 프로그램은 다음과 같은 방식으로 4 개의 HDInsight 클러스터 Vm을 사용 합니다.
+Kafka SSL 브로커 설정은 다음과 같은 방법으로 4개의 HDInsight 클러스터 VM을 사용합니다.
 
-* 헤드 노드 0-CA (인증 기관)
-* 작업자 노드 0, 1 및 2-broker
+* 헤드노드 0 - 인증 기관(CA)
+* 작업자 노드 0, 1 및 2 - 브로커
 
 > [!Note] 
 > 이 가이드에서는 자체 서명된 인증서를 사용하지만, 가장 안전한 솔루션은 신뢰할 수 있는 CA에서 발급한 인증서를 사용하는 것입니다.
 
-Broker 설치 프로세스의 요약은 다음과 같습니다.
+브로커 설정 프로세스의 요약은 다음과 같습니다.
 
-1. 세 개의 작업자 노드 각각에 대해 다음 단계가 반복 됩니다.
+1. 다음 단계는 세 작업자 노드 각각에서 반복됩니다.
 
-    1. 인증서를 생성 합니다.
+    1. 인증서를 생성합니다.
     1. 인증서 서명 요청을 만듭니다.
-    1. 인증서 서명 요청을 CA (인증 기관)로 보냅니다.
-    1. CA에 로그인 하 고 요청에 서명 합니다.
-    1. 서명 된 인증서를 작업자 노드에 다시 SCP 합니다.
-    1. SCP CA의 공용 인증서를 작업자 노드에 대 한 합니다.
+    1. 인증서 서명 요청을 CA(인증 기관)로 보냅니다.
+    1. CA에 로그인하고 요청에 서명합니다.
+    1. 서명된 인증서를 작업자 노드로 다시 SCP합니다.
+    1. 작업자 노드에 대한 CA의 공용 인증서를 SCP로 합니다.
 
-1. 인증서가 모두 있으면 인증서를 인증서 저장소에 넣습니다.
-1. Ambari으로 이동 하 여 구성을 변경 합니다.
+1. 모든 인증서가 있으면 인증서를 인증서 저장소에 넣습니다.
+1. Ambari로 이동하여 구성을 변경합니다.
 
-다음 세부 지침을 사용 하 여 broker 설치를 완료 합니다.
+브로커 설정을 완료하려면 다음 세부 지침을 사용합니다.
 
 > [!Important]
-> 다음 코드 조각에서는 세 개의 작업자 노드 중 하나에 대 한 약어 이며 적절 한 `wn0``wn1` 또는 `wn2`로 대체 되어야 합니다. `WorkerNode0_Name` 및 `HeadNode0_Name`를 해당 컴퓨터의 이름으로 대체 해야 합니다.
+> 다음 코드 코드 조각 wnX는 세 작업자 노드 중 하나에 대한 약어이며 `wn0`적절하거나 `wn1` `wn2` 적절하게 대체해야 합니다. `WorkerNode0_Name`각 `HeadNode0_Name` 기계의 이름으로 대체되어야 합니다.
 
-1. 헤드 노드 0에 대 한 초기 설치를 수행 합니다 .이 경우 HDInsight는 CA (인증 기관)의 역할을 채웁니다.
-
-    ```bash
-    # Create a new directory 'ssl' and change into it
-    mkdir ssl
-    cd ssl
-    ```
-
-1. 각 브로커 (작업자 노드 0, 1, 2)에서 동일한 초기 설정을 수행 합니다.
+1. HDInsight의 경우 인증 기관(CA)의 역할을 채우는 헤드 노드 0에서 초기 설정을 수행합니다.
 
     ```bash
     # Create a new directory 'ssl' and change into it
@@ -67,10 +61,18 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
     cd ssl
     ```
 
-1. 각 작업자 노드에서 아래 코드 조각을 사용 하 여 다음 단계를 실행 합니다.
-    1. 키 저장소을 만들고 새 개인 인증서로 채웁니다.
+1. 각 브로커(작업자 노드 0, 1 및 2)에서 동일한 초기 설정을 수행합니다.
+
+    ```bash
+    # Create a new directory 'ssl' and change into it
+    mkdir ssl
+    cd ssl
+    ```
+
+1. 각 작업자 노드에서 아래 코드 조각을 사용하여 다음 단계를 실행합니다.
+    1. 키 저장소를 만들고 새 개인 인증서로 채웁니다.
     1. 인증서 서명 요청을 만듭니다.
-    1. SCP CA에 대 한 인증서 서명 요청 (headnode0)
+    1. CA에 대한 인증서 서명 요청(헤드노드0)을 SCP
 
     ```bash
     keytool -genkey -keystore kafka.server.keystore.jks -validity 365 -storepass "MyServerPassword123" -keypass "MyServerPassword123" -dname "CN=FQDN_WORKER_NODE" -storetype pkcs12
@@ -78,13 +80,13 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
     scp cert-file sshuser@HeadNode0_Name:~/ssl/wnX-cert-sign-request
     ```
 
-1. CA 컴퓨터에서 다음 명령을 실행 하 여 ca 인증서 및 ca 키 파일을 만듭니다.
+1. CA 컴퓨터에서 다음 명령을 실행하여 ca-cert 및 ca 키 파일을 만듭니다.
 
     ```bash
     openssl req -new -newkey rsa:4096 -days 365 -x509 -subj "/CN=Kafka-Security-CA" -keyout ca-key -out ca-cert -nodes
     ```
 
-1. CA 컴퓨터로 변경 하 고 수신 된 모든 인증서 서명 요청을 서명 합니다.
+1. CA 컴퓨터를 변경하고 수신된 모든 인증서 서명 요청에 서명합니다.
 
     ```bash
     openssl x509 -req -CA ca-cert -CAkey ca-key -in wn0-cert-sign-request -out wn0-cert-signed -days 365 -CAcreateserial -passin pass:"MyServerPassword123"
@@ -92,7 +94,7 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
     openssl x509 -req -CA ca-cert -CAkey ca-key -in wn2-cert-sign-request -out wn2-cert-signed -days 365 -CAcreateserial -passin pass:"MyServerPassword123"
     ```
 
-1. 서명 된 인증서를 CA에서 작업자 노드로 다시 보냅니다 (headnode0).
+1. 서명된 인증서를 CA(headnode0)의 작업자 노드로 다시 보냅니다.
 
     ```bash
     scp wn0-cert-signed sshuser@WorkerNode0_Name:~/ssl/cert-signed
@@ -100,7 +102,7 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
     scp wn2-cert-signed sshuser@WorkerNode2_Name:~/ssl/cert-signed
     ```
 
-1. 각 작업자 노드에 CA의 공용 인증서를 보냅니다.
+1. CA의 공용 인증서를 각 작업자 노드에 보냅니다.
 
     ```bash
     scp ca-cert sshuser@WorkerNode0_Name:~/ssl/ca-cert
@@ -108,7 +110,7 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
     scp ca-cert sshuser@WorkerNode2_Name:~/ssl/ca-cert
     ```
 
-1. 각 작업자 노드에서 Ca 공용 인증서를 truststore 및 키 저장소에 추가 합니다. 그런 다음 키 저장소에 작업자 노드의 자체 서명 된 인증서를 추가 합니다.
+1. 각 작업자 노드에서 TRUST스토어 및 키저장소에 임시 인증서를 추가합니다. 그런 다음 작업자 노드의 서명된 인증서를 키 저장소에 추가합니다.
 
     ```bash
     keytool -keystore kafka.server.truststore.jks -alias CARoot -import -file ca-cert -storepass "MyServerPassword123" -keypass "MyServerPassword123" -noprompt
@@ -119,7 +121,7 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
 
 ## <a name="update-kafka-configuration-to-use-ssl-and-restart-brokers"></a>SSL을 사용하도록 Kafka 구성 업데이트 및 브로커 다시 시작
 
-이제 키 저장소 및 truststore를 사용 하 여 각 Kafka broker를 설정 하 고 올바른 인증서를 가져왔습니다. 다음으로, Ambari를 사용하여 관련된 Kafka 구성 속성을 수정하고 Kafka 브로커를 다시 시작합니다.
+이제 키 저장소와 트러스트 스토어를 통해 각 Kafka 브로커를 설정하고 올바른 인증서를 가져왔습니다. 다음으로, Ambari를 사용하여 관련된 Kafka 구성 속성을 수정하고 Kafka 브로커를 다시 시작합니다.
 
 구성 수정을 완료하려면 다음 단계를 수행합니다.
 
@@ -130,11 +132,11 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
 
     ![Ambari에서 Kafka SSL 구성 속성 편집](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png)
 
-1. **사용자 지정 kafka-broker**에서 **ssl.client.auth** 속성을 `required`로 설정합니다. 이 단계는 인증 및 암호화를 설정 하는 경우에만 필요 합니다.
+1. **사용자 지정 kafka-broker**에서 **ssl.client.auth** 속성을 `required`로 설정합니다. 이 단계는 인증 및 암호화를 설정하는 경우에만 필요합니다.
 
     ![Ambari에서 kafka SSL 구성 속성 편집](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
 
-1. 서버. 속성 파일에 새 구성 속성을 추가 합니다.
+1. server.properties 파일에 새 구성 속성을 추가합니다.
 
     ```bash
     # Configure Kafka to advertise IP addresses instead of FQDN
@@ -149,46 +151,52 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
     echo "ssl.truststore.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
 
-1. Ambari 구성 UI로 이동 하 여 새 속성이 **고급 kafka env** 및 **kafka-env 템플릿** 속성에 표시 되는지 확인 합니다.
+1. Ambari 구성 UI로 이동하여 **고급 카프카-env** 및 **kafka-env 템플릿** 속성 아래에 새 속성이 표시되는지 확인합니다.
 
-    ![Ambari에서 kafka-env 템플릿 속성 편집](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env.png)
+    HDI 버전 3.6의 경우:
+
+    ![암바리에서 카프카-env 템플릿 속성 편집](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env.png)
+
+    HDI 버전 4.0의 경우:
+
+     ![암바리 4에서 카프카 env 템플릿 속성 편집](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png)   
 
 1. 모든 Kafka 브로커를 다시 시작합니다.
-1. 생산자와 소비자 옵션으로 관리 클라이언트를 시작 하 여 생산자와 소비자가 포트 9093에서 작동 하는지 확인 합니다.
+1. 생산자 및 소비자 옵션으로 관리자 클라이언트를 시작하여 생산자와 소비자 모두 포트 9093에서 작업하고 있는지 확인합니다.
 
 ## <a name="client-setup-without-authentication"></a>클라이언트 설정(인증 제외)
 
-인증이 필요 하지 않은 경우 SSL 암호화를 설정 하는 단계를 요약 하면 다음과 같습니다.
+인증이 필요하지 않은 경우 SSL 암호화만 설정하는 단계의 요약은 다음과 같습니다.
 
-1. CA (활성 헤드 노드)에 로그인 합니다.
-1. Ca 인증서를 CA 컴퓨터 (wn0)에서 클라이언트 컴퓨터로 복사 합니다.
-1. 클라이언트 컴퓨터 (h n 1)에 로그인 하 고 `~/ssl` 폴더로 이동 합니다.
-1. CA 인증서를 truststore로 가져옵니다.
+1. CA(활성 헤드 노드)에 로그인합니다.
+1. CA 인증서를 CA 컴퓨터(wn0)에서 클라이언트 컴퓨터에 복사합니다.
+1. 클라이언트 컴퓨터(hn1)에 로그인하고 폴더로 `~/ssl` 이동합니다.
+1. CA 인증서를 트러스트 스토어로 가져옵니다.
 1. CA 인증서를 키 저장소로 가져옵니다.
 
-이러한 단계는 다음 코드 조각에 자세히 설명 되어 있습니다.
+이러한 단계는 다음 코드 조각에 자세히 설명되어 있습니다.
 
-1. CA 노드에 로그인 합니다.
+1. CA 노드에 로그인합니다.
 
     ```bash
     ssh sshuser@HeadNode0_Name
     cd ssl
     ```
 
-1. Ca 인증서를 클라이언트 컴퓨터에 복사 합니다.
+1. ca-cert를 클라이언트 컴퓨터에 복사
 
     ```bash
     scp ca-cert sshuser@HeadNode1_Name:~/ssl/ca-cert
     ```
 
-1. 클라이언트 컴퓨터 (대기 헤드 노드)에 로그인 합니다.
+1. 클라이언트 컴퓨터(대기 헤드 노드)에 로그인합니다.
 
     ```bash
     ssh sshuser@HeadNode1_Name
     cd ssl
     ```
 
-1. CA 인증서를 truststore로 가져옵니다.
+1. CA 인증서를 트러스트 스토어로 가져옵니다.
 
     ```bash
     keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
@@ -211,24 +219,24 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
 ## <a name="client-setup-with-authentication"></a>클라이언트 설정(인증 포함)
 
 > [!Note]
-> 다음 단계는 SSL 암호화 **및** 인증을 둘 다 설정하는 경우에만 필요합니다. 암호화를 설정 하는 경우에는 [인증 없이 클라이언트 설정](apache-kafka-ssl-encryption-authentication.md#client-setup-without-authentication)을 참조 하세요.
+> 다음 단계는 SSL 암호화 **및** 인증을 둘 다 설정하는 경우에만 필요합니다. 암호화만 설정하는 경우 [인증 없이 클라이언트 설정을](apache-kafka-ssl-encryption-authentication.md#client-setup-without-authentication)참조하세요.
 
-다음 4 단계에서는 클라이언트 설치를 완료 하는 데 필요한 작업을 요약 합니다.
+다음 네 단계는 클라이언트 설정을 완료하는 데 필요한 작업을 요약합니다.
 
-1. 클라이언트 컴퓨터 (대기 헤드 노드)에 로그인 합니다.
+1. 클라이언트 컴퓨터(대기 헤드 노드)에 로그인합니다.
 1. Java 키 저장소를 만들고 서명된 브로커용 인증서를 가져옵니다. 그런 다음, CA가 실행 중인 VM에 인증서를 복사합니다.
-1. 클라이언트 인증서에 서명 하려면 CA 컴퓨터 (활성 헤드 노드)로 전환 합니다.
-1. 클라이언트 컴퓨터 (대기 헤드 노드)로 이동 하 여 `~/ssl` 폴더로 이동 합니다. 서명된 인증서를 클라이언트 머신에 복사합니다.
+1. CA 컴퓨터(활성 헤드 노드)로 전환하여 클라이언트 인증서에 서명합니다.
+1. 클라이언트 컴퓨터(대기 헤드 노드)로 이동하여 `~/ssl` 폴더로 이동합니다. 서명된 인증서를 클라이언트 머신에 복사합니다.
 
-각 단계에 대 한 세부 정보는 아래에 제공 됩니다.
+각 단계의 세부 사항은 다음과 같습니다.
 
-1. 클라이언트 컴퓨터 (대기 헤드 노드)에 로그인 합니다.
+1. 클라이언트 컴퓨터(대기 헤드 노드)에 로그인합니다.
 
     ```bash
     ssh sshuser@HeadNode1_Name
     ```
 
-1. 기존 ssl 디렉터리를 제거 합니다.
+1. 기존 ssl 디렉터리를 제거합니다.
 
     ```bash
     rm -R ~/ssl
@@ -236,7 +244,7 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
     cd ssl
     ```
 
-1. Java 키 저장소을 만들고 인증서 서명 요청을 만듭니다. 
+1. java 키 저장소를 만들고 인증서 서명 요청을 만듭니다. 
 
     ```bash
     keytool -genkey -keystore kafka.client.keystore.jks -validity 365 -storepass "MyClientPassword123" -keypass "MyClientPassword123" -dname "CN=HEADNODE1_FQDN" -storetype pkcs12
@@ -244,13 +252,13 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
     keytool -keystore kafka.client.keystore.jks -certreq -file client-cert-sign-request -storepass "MyClientPassword123" -keypass "MyClientPassword123"
     ```
 
-1. 인증서 서명 요청을 CA에 복사 합니다.
+1. 인증서 서명 요청을 CA에 복사합니다.
 
     ```bash
     scp client-cert-sign-request sshuser@HeadNode0_Name:~/ssl/client-cert-sign-request
     ```
 
-1. CA 컴퓨터 (활성 헤드 노드)로 전환 하 고 클라이언트 인증서에 서명 합니다.
+1. CA 컴퓨터(활성 헤드 노드)로 전환하고 클라이언트 인증서에 서명합니다.
 
     ```bash
     ssh sshuser@HeadNode0_Name
@@ -258,19 +266,19 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
     openssl x509 -req -CA ca-cert -CAkey ca-key -in ~/ssl/client-cert-sign-request -out ~/ssl/client-cert-signed -days 365 -CAcreateserial -passin pass:MyClientPassword123
     ```
 
-1. 서명 된 클라이언트 인증서를 CA (활성 헤드 노드)에서 클라이언트 컴퓨터로 복사 합니다.
+1. CA(활성 헤드 노드)에서 클라이언트 컴퓨터로 서명된 클라이언트 인증서를 복사합니다.
 
     ```bash
     scp client-cert-signed sshuser@HeadNode1_Name:~/ssl/client-signed-cert
     ```
 
-1. Ca 인증서를 클라이언트 컴퓨터에 복사 합니다.
+1. ca-cert를 클라이언트 컴퓨터에 복사
 
     ```bash
     scp ca-cert sshuser@HeadNode1_Name:~/ssl/ca-cert
     ```
 
-1. 서명 된 인증서를 사용 하 여 클라이언트 저장소를 만들고 키 저장소 및 truststore으로 ca 인증서를 가져옵니다.
+1. 서명된 인증서를 사용하여 클라이언트 저장소를 만들고 ca 인증서를 키 저장소 및 트러스트 스토어로 가져옵니다.
 
     ```bash
     keytool -keystore kafka.client.keystore.jks -import -file client-cert-signed -storepass MyClientPassword123 -keypass MyClientPassword123 -noprompt
@@ -280,7 +288,7 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
     keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass MyClientPassword123 -keypass MyClientPassword123 -noprompt
     ```
 
-1. `client-ssl-auth.properties`파일을 만듭니다. 파일에 다음 줄이 있어야 합니다.
+1. 파일 `client-ssl-auth.properties`만들기 . 파일에 다음 줄이 있어야 합니다.
 
     ```bash
     security.protocol=SSL
@@ -294,43 +302,43 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
 ## <a name="verification"></a>확인
 
 > [!Note]
-> HDInsight 4.0 및 Kafka 2.1가 설치 된 경우 콘솔 생산자/소비자를 사용 하 여 설치를 확인할 수 있습니다. 그렇지 않은 경우 포트 9092에서 Kafka 생산자를 실행 하 고 토픽에 메시지를 보낸 다음 SSL을 사용 하는 포트 9093에서 Kafka 소비자를 사용 합니다.
+> HDInsight 4.0 및 Kafka 2.1이 설치된 경우 콘솔 생산자/소비자를 사용하여 설정을 확인할 수 있습니다. 그렇지 않은 경우 포트 9092에서 Kafka 생산자를 실행하고 주제에 메시지를 보낸 다음 SSL을 사용하는 포트 9093에서 Kafka 소비자를 사용합니다.
 
-### <a name="kafka-21-or-above"></a>Kafka 2.1 이상
+### <a name="kafka-21-or-above"></a>카프카 2.1 이상
 
-1. 아직 존재 하지 않는 경우 토픽을 만듭니다.
+1. 아직 존재하지 않는 토픽을 만듭니다.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper <ZOOKEEPER_NODE>:2181 --create --topic topic1 --partitions 2 --replication-factor 2
     ```
 
-1.  콘솔 공급자를 시작 하 고 `client-ssl-auth.properties` 경로를 생산자의 구성 파일로 제공 합니다.
+1.  콘솔 생산자를 시작하고 생산자에 대한 구성 `client-ssl-auth.properties` 파일로 경로를 제공합니다.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list <FQDN_WORKER_NODE>:9093 --topic topic1 --producer.config ~/ssl/client-ssl-auth.properties
     ```
 
-1.  클라이언트 컴퓨터에 대 한 다른 ssh 연결을 열고 콘솔 소비자를 시작 하 고 `client-ssl-auth.properties` 경로를 소비자의 구성 파일로 제공 합니다.
+1.  클라이언트 컴퓨터에 대한 다른 ssh 연결을 열고 콘솔 `client-ssl-auth.properties` 소비자를 시작하고 소비자를 위한 구성 파일로 경로를 제공합니다.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning
     ```
 
-### <a name="kafka-11"></a>Kafka 1.1
+### <a name="kafka-11"></a>카프카 1.1
 
-1. 아직 존재 하지 않는 경우 토픽을 만듭니다.
+1. 아직 존재하지 않는 토픽을 만듭니다.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper <ZOOKEEPER_NODE_0>:2181 --create --topic topic1 --partitions 2 --replication-factor 2
     ```
 
-1.  콘솔 공급자를 시작 하 고 클라이언트-ssl-인증의 경로를 생산자의 구성 파일로 제공 합니다.
+1.  콘솔 생산자를 시작하고 클라이언트-ssl-auth.properties에 대한 경로를 생산자의 구성 파일로 제공합니다.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list <FQDN_WORKER_NODE>:9092 --topic topic1 
     ```
 
-3.  클라이언트 컴퓨터에 대 한 다른 ssh 연결을 열고 콘솔 소비자를 시작 하 고 `client-ssl-auth.properties` 경로를 소비자의 구성 파일로 제공 합니다.
+3.  클라이언트 컴퓨터에 대한 다른 ssh 연결을 열고 콘솔 `client-ssl-auth.properties` 소비자를 시작하고 소비자를 위한 구성 파일로 경로를 제공합니다.
 
     ```bash
     $ /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning

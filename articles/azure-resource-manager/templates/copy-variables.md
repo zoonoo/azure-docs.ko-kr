@@ -1,24 +1,24 @@
 ---
 title: 변수의 여러 인스턴스 정의
-description: 변수를 만들 때 Azure Resource Manager 템플릿에서 복사 작업을 사용 하 여 여러 번 반복 합니다.
+description: Azure 리소스 관리자 템플릿에서 복사 작업을 사용하여 변수를 만들 때 여러 번 반복합니다.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: ea4caf3553b3cd14eec194b8cef0db59499a4f4c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: ed0c2d87c48a18b0a065f6c76e1e69142a9df048
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622877"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153304"
 ---
-# <a name="variable-iteration-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 변수 반복
+# <a name="variable-iteration-in-arm-templates"></a>ARM 템플릿의 가변 반복
 
-이 문서에서는 Azure Resource Manager 템플릿에서 변수 값을 두 개 이상 만드는 방법을 보여 줍니다. **복사** 요소를 템플릿의 변수 섹션에 추가 하 여 배포 하는 동안 변수에 대 한 항목 수를 동적으로 설정할 수 있습니다. 템플릿 구문을 반복 하지 않아도 됩니다.
+이 문서에서는 ARM(Azure Resource Manager) 템플릿에서 변수에 대해 두 개 이상의 값을 만드는 방법을 보여 줍니다. **복사** 요소를 템플릿의 변수 섹션에 추가하면 배포 하는 동안 변수에 대 한 항목 수를 동적으로 설정할 수 있습니다. 또한 템플릿 구문을 반복하지 않아도 됩니다.
 
-[리소스](copy-resources.md), [리소스의 속성](copy-properties.md)및 [출력과](copy-outputs.md)함께 copy를 사용할 수도 있습니다.
+[리소스, 리소스의](copy-resources.md) [속성](copy-properties.md)및 출력이 있는 복사본을 사용할 수도 [있습니다.](copy-outputs.md)
 
 ## <a name="variable-iteration"></a>변수 반복
 
-Copy 요소의 일반적인 형식은 다음과 같습니다.
+복사 요소에는 다음과 같은 일반적인 형식이 있습니다.
 
 ```json
 "copy": [
@@ -30,11 +30,11 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 ]
 ```
 
-**Name** 속성은 루프를 식별 하는 값입니다. **Count** 속성은 변수에 대해 원하는 반복 횟수를 지정 합니다.
+**name** 속성은 루프를 식별하는 모든 값입니다. **count** 속성은 변수에 대해 원하는 반복 수를 지정합니다.
 
-**입력** 속성은 반복할 속성을 지정 합니다. **Input** 속성의 값에서 생성 된 요소의 배열을 만듭니다. 단일 속성 (예: 문자열) 또는 여러 속성이 있는 개체 일 수 있습니다.
+**input** 속성은 반복할 속성을 지정합니다. **입력** 속성의 값에서 생성 된 요소의 배열을 만듭니다. 단일 속성(예: 문자열) 또는 여러 속성이 있는 개체일 수 있습니다.
 
-다음 예제에서는 문자열 값의 배열을 만드는 방법을 보여 줍니다.
+다음 예제에서는 문자열 값의 배열을 만드는 방법을 보여 주며 있습니다.
 
 ```json
 {
@@ -65,7 +65,7 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 }
 ```
 
-위의 템플릿은 다음 값을 포함 하는 배열을 반환 합니다.
+앞의 템플릿은 다음 값을 가진 배열을 반환합니다.
 
 ```json
 [
@@ -77,7 +77,7 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 ]
 ```
 
-다음 예제에서는 이름, diskSizeGB 및 diskIndex의 세 가지 속성을 사용 하 여 개체 배열을 만드는 방법을 보여 줍니다.
+다음 예제에서는 이름, diskSizeGB 및 diskIndex의 세 가지 속성을 가진 개체 배열을 만드는 방법을 보여 주며 있습니다.
 
 ```json
 {
@@ -112,7 +112,7 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 }
 ```
 
-앞의 예제에서는 다음 값을 포함 하는 배열을 반환 합니다.
+앞의 예제는 다음 값을 가진 배열을 반환합니다.
 
 ```json
 [
@@ -145,10 +145,10 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 ```
 
 > [!NOTE]
-> 변수 반복은 오프셋 인수를 지원 합니다. 오프셋은 copyIndex (' diskNames ', 1)와 같이 반복의 이름 뒤에와 야 합니다. 오프셋 값을 제공 하지 않으면 첫 번째 인스턴스의 경우 기본값은 0입니다.
+> 가변 반복은 오프셋 인수를 지원합니다. 오프셋은 copyIndex('diskNames', 1)와 같은 반복 이름 의 이름을 따라 와야 합니다. 오프셋 값을 제공하지 않으면 첫 번째 인스턴스의 기본값은 0으로 설정됩니다.
 >
 
-변수 내에서 copy 요소를 사용할 수도 있습니다. 다음 예제에서는 배열을 해당 값 중 하나로 포함 하는 개체를 만듭니다.
+변수 내에서 복사 요소를 사용할 수도 있습니다. 다음 예제는 배열이 해당 값 중 하나로 있는 개체를 만듭니다.
 
 ```json
 {
@@ -186,7 +186,7 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 }
 ```
 
-앞의 예제에서는 다음 값을 가진 개체를 반환 합니다.
+앞의 예제는 다음 값을 가진 객체를 반환합니다.
 
 ```json
 {
@@ -221,7 +221,7 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 }
 ```
 
-다음 예에서는 변수를 사용 하 여 복사를 사용 하는 다양 한 방법을 보여 줍니다.
+다음 예제에서는 변수가 있는 복사본을 사용할 수 있는 여러 가지 방법을 보여 주입니다.
 
 ```json
 {
@@ -297,26 +297,26 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 
 ## <a name="copy-limits"></a>복사 제한
 
-개수는 800를 초과할 수 없습니다.
+개수는 800을 초과할 수 없습니다.
 
-개수는 음수일 수 없습니다. Azure PowerShell 2.6 Azure CLI 이상 버전을 사용 하 여 템플릿을 배포 하거나, 2.0.74 이상 또는 REST API **2019-05-10** 이상 버전을 사용 하는 경우 count를 0으로 설정할 수 있습니다. 이전 버전의 PowerShell, CLI 및 REST API는 count에 대해 0을 지원 하지 않습니다.
+개수는 음수일 수 없습니다. Azure PowerShell 2.6 이상, Azure CLI 2.0.74 이상 또는 REST API 버전 **2019-05-10** 이상과 함께 템플릿을 배포하는 경우 개수를 0으로 설정할 수 있습니다. 이전 버전의 PowerShell, CLI 및 REST API는 카운트에 대해 0을 지원하지 않습니다.
 
 ## <a name="example-templates"></a>예제 템플릿
 
-다음 예에서는 변수에 대 한 값을 두 개 이상 만드는 일반적인 시나리오를 보여 줍니다.
+다음 예제는 변수에 대해 두 개 이상의 값을 만드는 일반적인 시나리오를 보여 주며 있습니다.
 
-|템플릿  |Description  |
+|템플릿  |설명  |
 |---------|---------|
 |[변수 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |변수를 반복하는 다양한 방법을 보여 줍니다. |
 |[다중 보안 규칙](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |네트워크 보안 그룹에 여러 보안 규칙을 배포합니다. 매개 변수에서 보안 규칙을 구성합니다. 매개 변수는 [여러 NSG 매개 변수 파일](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json)을 참조합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-* 자습서를 살펴보려면 [자습서: Resource Manager 템플릿을 사용하여 여러 리소스 인스턴스 만들기](template-tutorial-create-multiple-instances.md)를 참조하세요.
-* Copy 요소의 다른 용도는 다음을 참조 하세요.
-  * [Azure Resource Manager 템플릿의 리소스 반복](copy-resources.md)
-  * [Azure Resource Manager 템플릿의 속성 반복](copy-properties.md)
-  * [Azure Resource Manager 템플릿의 출력 반복](copy-outputs.md)
-* 템플릿 섹션에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](template-syntax.md)을 참조하세요.
-* 템플릿 배포 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 애플리케이션 배포](deploy-powershell.md)를 참조하세요.
+* 자습서를 진행하려면 [자습서: ARM 템플릿을 사용하여 여러 리소스 인스턴스만들기](template-tutorial-create-multiple-instances.md)를 참조하십시오.
+* 복사 요소의 다른 용도는 다음을 참조하십시오.
+  * [ARM 템플릿의 리소스 반복](copy-resources.md)
+  * [ARM 템플릿의 속성 반복](copy-properties.md)
+  * [ARM 템플릿의 출력 반복](copy-outputs.md)
+* 템플릿의 섹션에 대해 알아보려면 ARM [템플릿 작성](template-syntax.md)을 참조하십시오.
+* 템플릿을 배포하는 방법을 알아보려면 [ARM 템플릿을 사용하여 응용 프로그램 배포를](deploy-powershell.md)참조하세요.
 

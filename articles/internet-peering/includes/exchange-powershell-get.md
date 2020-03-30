@@ -9,19 +9,19 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 33ae3c3f9a2a213bd8135af846b4e72901b3df0d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774446"
 ---
-피어 링 목록을 가져오려면 `Get-AzPeering` 명령을 실행 합니다.
+피어링 목록을 얻으려면 `Get-AzPeering` 명령을 실행합니다.
 
 ```powershell
 Get-AzPeering ResourceGroupName "PeeringResourceGroup" -Name "SeattleExchangePeering"
 ```
 
-종단 간 프로 비전이 성공적으로 완료 된 경우의 예제 응답은 다음과 같습니다.
+다음은 종단 간 프로비저닝이 성공적으로 완료된 경우의 예제 응답입니다.
 
 ```powershell
     Name                     : SeattleExchangePeering

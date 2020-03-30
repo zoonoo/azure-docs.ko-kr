@@ -1,15 +1,15 @@
 ---
-title: MongoDB를 사용 하는 node.js 응용 프로그램 배포
+title: MongoDB를 사용하는 Node.js 응용 프로그램 배포
 description: 여러 게스트 실행 파일을 패키지하여 Azure 서비스 패브릭 클러스터에 배포하는 방법에 대한 연습
 author: mikkelhegn
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
 ms.openlocfilehash: 4538efc8a2426fc20dd20d1a85edaf6f76bfc649
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614471"
 ---
 # <a name="deploy-multiple-guest-executables"></a>여러 개의 게스트 실행 파일 배포
@@ -24,7 +24,7 @@ Visual Studio를 사용하여 여러 게스트 실행 파일이 포함된 애플
 * [REST를 사용하여 이름 지정 서비스를 통해 통신하는 두 게스트 실행 파일(C# 및 nodejs)의 샘플](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>수동으로 여러 게스트 실행 애플리케이션 패키징
-또는 실행 게스트를 수동으로 패키징할 수 있습니다. 자세한 내용은 [기존 실행 파일을 수동으로 패키지 및 배포](service-fabric-deploy-existing-app.md#manually-package-and-deploy-an-existing-executable)를 참조 하세요.
+또는 실행 게스트를 수동으로 패키징할 수 있습니다. 자세한 내용은 [기존 실행 을 수동으로 패키지하고 배포하는](service-fabric-deploy-existing-app.md#manually-package-and-deploy-an-existing-executable)것을 참조하십시오.
 
 ### <a name="packaging-the-nodejs-application"></a>Node.js 애플리케이션 패키징
 이 문서에서는 서비스 패브릭 클러스터의 노드에 Node.js가 아직 설치되지 않은 것으로 가정합니다. 결과적으로 패키징 전에 노드 애플리케이션의 루트 디렉터리에 node.exe를 추가해야 합니다. Node.js 애플리케이션의 디렉터리 구조(Express 웹 프레임워크 및 Jade 템플릿 엔진 사용)는 다음과 비슷합니다.
@@ -195,7 +195,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-응용 프로그램이 로컬 클러스터에 성공적으로 게시 되 면 node.js 응용 프로그램의 서비스 매니페스트에 입력 한 포트에서 node.js 응용 프로그램에 액세스할 수 있습니다 (예: http:\//wlocals: 3000).
+응용 프로그램이 로컬 클러스터에 성공적으로 게시되면 Node.js 응용 프로그램의 서비스 매니페스트에 입력한 포트에서 Node.js 응용 프로그램에\/액세스할 수 있습니다(예: http: /localhost:3000).
 
 이 자습서에서는 간편하게 두 기존 애플리케이션을 하나의 서버 패브릭 애플리케이션으로 패키지하는 방법을 알아보았습니다. 또한 고가용성 및 상태 시스템 통합 같은 서비스 패브릭의 장점을 활용할 수 있도록 응용 프로그램을 서비스 패브릭에 배포하는 방법도 알아보았습니다.
 

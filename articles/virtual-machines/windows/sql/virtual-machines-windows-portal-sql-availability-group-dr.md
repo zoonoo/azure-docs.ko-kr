@@ -1,5 +1,5 @@
 ---
-title: 여러 지역에서 가용성 그룹 구성
+title: 여러 지역에 걸친 가용성 그룹 구성
 description: 이 문서에서는 다른 지역의 복제본으로 Azure Virtual Machines의 SQL Server 가용성 그룹을 구성하는 방법을 설명합니다.
 services: virtual-machines
 documentationCenter: na
@@ -9,20 +9,20 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
-ms.custom: seo-lt-2019
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: cd27e581aaca241fc15886f9f72546f92391b744
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 8ca871a6f525d4e68ce70060e6faddbcfc8e1f3f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772655"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060123"
 ---
-# <a name="configure-an-availability-group-on-azure-sql-server-virtual-machines-in-different-regions"></a>서로 다른 지역의 Azure SQL Server virtual machines에서 가용성 그룹 구성
+# <a name="configure-an-availability-group-on-azure-sql-server-virtual-machines-in-different-regions"></a>다른 지역의 Azure SQL Server 가상 컴퓨터에서 가용성 그룹 구성
 
 이 문서에서는 원격 Azure 위치의 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹 복제본을 구성하는 방법을 설명합니다. 이 구성을 사용하여 재해 복구를 지원합니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "76772655"
 
 1. [새 지역에서 가상 네트워크를 만듭니다](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network).
 
-1. [Azure Portal에서 VNet-VNet 연결을 구성합니다](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+1. [Azure 포털을 사용하여 VNet-VNet 연결을 구성합니다.](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 
    >[!NOTE]
    >경우에 따라 PowerShell을 사용하여 VNet 간 연결을 만들어야 할 수 있습니다. 예를 들어 다른 Azure 계정을 사용하는 경우 포털에서 연결을 구성할 수 없습니다. 이 경우 [Azure Portal에서 VNet-VNet 연결 구성](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요.
@@ -93,26 +93,26 @@ ms.locfileid: "76772655"
 
 1. [새 SQL Server를 Windows Server 장애 조치 클러스터에 추가합니다](virtual-machines-windows-portal-sql-availability-group-tutorial.md#addNode).
 
-1. 클러스터에 IP 주소 리소스를 추가 합니다.
+1. 클러스터에 IP 주소 리소스를 추가합니다.
 
-   장애 조치 클러스터 관리자에서 IP 주소 리소스를 만들 수 있습니다. 클러스터의 이름을 선택한 다음 클러스터 **코어 리소스** 에서 클러스터 이름을 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택 합니다. 
+   장애 조치 클러스터 관리자에서 IP 주소 리소스를 만들 수 있습니다. 클러스터 이름을 선택한 다음 **클러스터 코어 리소스** 에서 클러스터 이름을 마우스 오른쪽 단추로 클릭하고 **속성을**선택합니다. 
 
    ![클러스터 속성](./media/virtual-machines-windows-portal-sql-availability-group-dr/cluster-name-properties.png)
 
-   **속성** 대화 상자에서 **IP 주소**아래에 있는 **추가** 를 선택 하 고 원격 네트워크 지역에서 클러스터 이름의 ip 주소를 추가 합니다. **Ip 주소** 대화 상자에서 **확인** 을 선택한 다음 **클러스터 속성** 대화 상자에서 **확인** 을 다시 선택 하 여 새 ip 주소를 저장 합니다. 
+   **속성** 대화 상자에서 **IP 주소**아래에 **추가를** 선택한 다음 원격 네트워크 영역에서 클러스터 이름의 IP 주소를 추가합니다. **IP 주소** 대화 상자에서 **확인을** 선택한 다음 **클러스터 속성** 대화 상자에서 **확인을** 다시 선택하여 새 IP 주소를 저장합니다. 
 
    ![클러스터 IP 추가](./media/virtual-machines-windows-portal-sql-availability-group-dr/add-cluster-ip-address.png)
 
 
-1. 핵심 클러스터 이름에 대 한 종속성으로 IP 주소를 추가 합니다.
+1. IP 주소를 코어 클러스터 이름에 대한 종속성으로 추가합니다.
 
-   클러스터 속성을 한 번 더 열고 **종속성** 탭을 선택 합니다. 두 개의 IP 주소에 대해 또는 종속성을 구성 합니다. 
+   클러스터 속성을 한 번 더 열고 **종속성** 탭을 선택합니다. 
 
    ![클러스터 속성](./media/virtual-machines-windows-portal-sql-availability-group-dr/cluster-ip-dependencies.png)
 
-1. 클러스터의 가용성 그룹 역할에 IP 주소 리소스를 추가 합니다. 
+1. 클러스터의 가용성 그룹 역할에 IP 주소 리소스를 추가합니다. 
 
-   장애 조치(Failover) 클러스터 관리자에서 가용성 그룹 역할을 마우스 오른쪽 단추로 클릭 하 고 **리소스 추가**, 추가 **리소스**를 차례로 선택한 다음 **IP 주소**를 선택 합니다.
+   장애 조치 클러스터 관리자에서 가용성 그룹 역할을 마우스 오른쪽 단추로 클릭하고 **리소스 추가,** **추가 리소스**를 선택하고 **IP 주소를**선택합니다.
 
    ![IP 주소 만들기](./media/virtual-machines-windows-portal-sql-availability-group-dr/20-add-ip-resource.png)
 
@@ -130,7 +130,7 @@ ms.locfileid: "76772655"
    >[!IMPORTANT]
    >클러스터 리소스 그룹에는 두 IP 주소가 포함됩니다. 두 IP 주소는 수신기 클라이언트 액세스 지점에 대한 종속성입니다. 클러스터 종속성 구성에 **OR** 연산자를 사용합니다.
 
-1. [PowerShell에서 클러스터 매개 변수를 설정합니다](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam).
+1. [PowerShell에서 클러스터 매개 변수를 설정합니다.](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam)
 
 새 지역의 부하 분산 장치에 대해 구성한 클러스터 네트워크 이름, IP 주소 및 프로브 포트를 사용하여 PowerShell 스크립트를 실행합니다.
 
@@ -162,7 +162,7 @@ ms.locfileid: "76772655"
 
 가급적 클라이언트 연결 문자열을 업데이트하여 `MultiSubnetFailover=Yes`를 설정합니다. [MultiSubnetFailover로 연결](https://msdn.microsoft.com/library/gg471494#Anchor_0)을 참조하세요.
 
-연결 문자열을 수정할 수 없는 경우 이름 확인 캐시를 구성할 수 있습니다. [제한 시간 오류를 참조 하 고 다중 서브넷 환경에서 SQL Server 2012 AlwaysOn 가용성 그룹 수신기에 연결할 수 없습니다](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
+연결 문자열을 수정할 수 없는 경우 이름 확인 캐시를 구성할 수 있습니다. [시간 시간 시간 오류를 참조하면 다중 서브넷 환경에서 SQL Server 2012 AlwaysOn 가용성 그룹 수신기에 연결할 수 없습니다.](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av)
 
 ## <a name="fail-over-to-remote-region"></a>원격 지역으로 장애 조치
 
@@ -175,7 +175,7 @@ ms.locfileid: "76772655"
 1. 확인을 클릭합니다.
 1. **개체 탐색기**에서 가용성 그룹을 마우스 오른쪽 단추로 클릭하고 **대시보드 표시**를 클릭합니다.
 1. 대시보드에서 DR 사이트의 복제본이 동기화되었는지 확인합니다.
-1. **개체 탐색기**에서 가용성 그룹을 마우스 오른쪽 단추로 클릭 하 고 **장애 조치 (Failover) ...** 를 클릭 합니다. SQL Server Management 스튜디오는 SQL Server를 장애 조치 하는 마법사를 엽니다.  
+1. **개체 탐색기에서**가용성 그룹을 마우스 오른쪽 단추로 클릭하고 **장애 조치(Failover)를 클릭합니다.** SQL Server 관리 스튜디오에서 SQL Server를 장애 조치하는 마법사를 엽니다.  
 1. **다음**을 클릭하고 DR 사이트의 SQL Server 인스턴스를 선택합니다. 다시 **다음**을 클릭합니다.
 1. DR 사이트에서 SQL Server 인스턴스에 연결하고 **다음**을 클릭합니다.
 1. **요약** 페이지에서 설정을 확인한 다음 **마침**을 클릭합니다.
@@ -186,19 +186,19 @@ ms.locfileid: "76772655"
 | ----- | ----- | ----- | ----- | -----
 | 주 데이터 센터 | SQL-1 | 주 | 동기 | 자동
 | 주 데이터 센터 | SQL-2 | 보조 | 동기 | 자동
-| 보조 또는 원격 데이터 센터 | SQL-3 | 보조 | 비동기 | Manual
+| 보조 또는 원격 데이터 센터 | SQL-3 | 보조 | 비동기 | 설명서
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>계획된 및 강제 수동 장애 조치에 대한 자세한 내용
 
 자세한 내용은 아래 항목을 참조하세요.
 
-- [가용성 그룹의 계획된 수동 장애 조치(Failover) 수행(SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
-- [가용성 그룹의 강제 수동 장애 조치 수행(SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
+- [SQL Server(가용성 그룹)의 계획된 수동 장애 조치 수행](https://msdn.microsoft.com/library/hh231018.aspx)
+- [가용성 그룹의 강제 수동 장애 조치(Failover) 수행(SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
 
 ## <a name="additional-links"></a>추가 링크
 
 * [Always On 가용성 그룹](https://msdn.microsoft.com/library/hh510230.aspx)
-* [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/)
-* [Azure Load Balancer](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
+* [Azure 가상 시스템](https://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Azure 로드 밸로드밸로드](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Azure 가용성 집합](../manage-availability.md)

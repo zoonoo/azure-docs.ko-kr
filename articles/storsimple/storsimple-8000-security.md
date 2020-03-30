@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
 ms.openlocfilehash: 4598f71f9b611e68f8eb00676138784833c39f32
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75891509"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple 보안 및 데이터 보호
@@ -37,7 +37,7 @@ Microsoft Azure StorSimple 솔루션은 서로 상호 작용 하는 네 가지 �
 * **Microsoft Azure에서 호스트되는 StorSimple 디바이스 관리자 서비스** – StorSimple 디바이스를 구성하고 프로비전하는 데 사용하는 관리 서비스입니다.
 * **StorSimple 디바이스** – 데이터 센터에 설치된 물리적 디바이스입니다. StorSimple 디바이스에 연결하는 데이터를 생성하는 모든 호스트와 클라이언트이며, 해당 디바이스는 데이터를 관리하여 적절한 경우 Azure 클라우드로 이동합니다.
 * **디바이스에 연결된 클라이언트/호스트** – StorSimple 디바이스에 연결되고 보호되어야 하는 데이터를 생성하는 인프라 내의 클라이언트입니다.
-* **클라우드 스토리지** – 데이터가 저장되는 Azure 클라우드의 위치입니다.
+* **클라우드 저장소** – Azure 클라우드 내에서 데이터가 저장되는 위치입니다.
 
 다음 섹션에서는 각 이러한 구성 요소와 구성요소에 저장된 데이터를 보호할 수 있는 StorSimple 보안 기능에 대해 설명합니다. 또한 Microsoft Azure StorSimple 보안 및 해당 답변에 대해 있을 수 있는 질문의 목록이 포함됩니다.
 
@@ -185,7 +185,7 @@ StorSimple 디바이스는 사용 빈도에 따라 데이터를 로컬과 클라
 
 ## <a name="protect-data-via-storage-accounts"></a>스토리지 계정을 통해 데이터 보호
 
-각 Microsoft Azure 구독에 하나 이상의 스토리지 계정을 만들 수 있습니다. (저장소 계정은 Azure 클라우드에 저장 된 데이터로 작업 하기 위한 고유한 네임 스페이스를 제공 합니다.) 저장소 계정에 대 한 액세스는 해당 저장소 계정과 연결 된 구독 및 액세스 키에 의해 제어 됩니다.
+각 Microsoft Azure 구독에 하나 이상의 스토리지 계정을 만들 수 있습니다. 저장소 계정은 Azure 클라우드에 저장된 데이터로 작업하기 위한 고유한 네임스페이스를 제공합니다. 저장소 계정에 대한 액세스는 해당 저장소 계정과 연결된 구독 및 액세스 키에 의해 제어됩니다.
 
 스토리지 계정을 만들 때 Microsoft Azure는 두 개의 512비트 스토리지 액세스 키를 생성하며, 이 중 하나는 StorSimple 디바이스가 스토리지 계정에 액세스할 때 인증에 사용됩니다. 이 키 중 하나만 사용 중입니다. 주기적으로 키를 회전하도록 다른 키를 예약 상태로 둡니다. 키를 회전하려면 보조키를 활성화한 다음, 기본 키를 삭제합니다. 그런 후 다음 회전 시 사용할 새 키를 만들 수 있습니다. (보안상의 이유로 많은 데이터 센터 키 회전이 필요합니다.)
 
@@ -217,9 +217,9 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 - 공유 폴더에 있는 데이터에 액세스할 수 있는 사용자입니다. 공유 데이터에 액세스할 수 있는 사용자의 목록을 표시하고 볼 수 있습니다. 공유가 삭제되는 경우 이 목록도 삭제됩니다. 이는 StorSimple 가상 배열에만 적용됩니다.
   * 액세스할 수 있는 사용자 목록을 보거나 공유를 삭제하려면 [StorSimple 가상 배열에서 공유 관리](storsimple-virtual-array-manage-shares.md) 단계 수행
 
-자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토합니다.
+자세한 내용은 [트러스트 센터의](https://www.microsoft.com/trustcenter)Microsoft 개인 정보 보호 정책을 참조하십시오.
 
-## <a name="frequently-asked-questions-faq"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
 
 보안 및 Microsoft Azure StorSimple에 대한 질문과 답변은 다음과 같습니다.
 
@@ -236,7 +236,7 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 
 * [서비스 등록 키 보기 또는 다시 생성](storsimple-8000-manage-service.md#regenerate-the-service-registration-key)
 
-**Q:** 서비스 데이터 암호화 키를 잃어버렸습니다. 어떻게 하나요?
+**Q:** 서비스 데이터 암호화 키를 잃어버렸습니다. 어떻게 해야 합니까?
 
 **A:** Microsoft 지원에 문의하세요. Microsoft 지원 담당자가 디바이스의 지원 세션에 로그온하여 키를 검색할 수 있습니다(한 대 이상의 디바이스가 온라인 상태인 경우). 서비스 데이터 암호화 키를 가져온 직후에 새 키를 사용자만 알 수 있도록 키를 변경해야 합니다. 자세한 내용은 다음을 참조하세요.
 
@@ -254,7 +254,7 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 
 **A:** StorSimple 디바이스에 대한 액세스를 허용하는 암호를 변경하고 재설정하고, 서비스 데이터 암호화 키를 변경하여 새 정보가 인증되지 않은 사람에게 알려지지 않도록 합니다. 자세한 내용은 다음을 참조하세요.
 
-* [StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 암호 변경](storsimple-8000-change-passwords.md)
+* [StorSimple 장치 관리자 서비스를 사용하여 간단한 암호를 변경합니다.](storsimple-8000-change-passwords.md)
 * [서비스 데이터 암호화 키 변경](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [StorSimple 디바이스에 대한 CHAP 구성](storsimple-8000-configure-chap.md)
 
