@@ -1,7 +1,7 @@
 ---
-title: 감정 analysis 사용 사례
+title: 감정 분석 사용 사례
 titleSuffix: ML Studio (classic) - Azure
-description: 텍스트 전처리, N 그램 또는 기능 해시를 위해 모듈을 사용 하 여 Azure Machine Learning Studio (클래식)에서 텍스트 분석 모델을 만드는 방법
+description: 텍스트 전처리, N-그램 또는 기능 해싱을 위한 모듈을 사용하여 Azure 기계 학습 스튜디오(클래식)에서 텍스트 분석 모델을 만드는 방법
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,17 +11,17 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/14/2018
 ms.openlocfilehash: 89fc5196977f53e040e1a6553b46ca57f39b18b4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79217892"
 ---
-# <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)에서 감정 분석 모델 만들기
+# <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio-classic"></a>Azure 기계 학습 스튜디오(클래식)에서 감정 분석 모델 만들기
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-Azure Machine Learning Studio (클래식)를 사용 하 여 텍스트 분석 모델을 작성 하 고 운영 수 있습니다. 예를 들어 이러한 모델은 문서 분류 또는 정서 분석 문제를 해결하는 데 유용할 수 있습니다.
+Azure 기계 학습 스튜디오(클래식)를 사용하여 텍스트 분석 모델을 빌드하고 운영할 수 있습니다. 예를 들어 이러한 모델은 문서 분류 또는 정서 분석 문제를 해결하는 데 유용할 수 있습니다.
 
 텍스트 분석 실험에서는 일반적으로 다음을 수행합니다.
 
@@ -31,7 +31,7 @@ Azure Machine Learning Studio (클래식)를 사용 하 여 텍스트 분석 모
 4. 모델 점수 매기기 및 유효성 검사
 5. 모델을 프로덕션에 배포
 
-이 자습서에서는 Amazon Book 리뷰 데이터 집합을 사용 하 여 감정 분석 모델을 진행 하면서 이러한 단계를 알아봅니다 (이 연구 백서 "Biographies, Bollywood, Boom-boxes 및 Blenders: 감정 분류를 위한 도메인 적응" 참조) John Blitzer, Mark Dredze 및 김철수 Pereira; 계산 Linguistics (ACL), 2007.) 이 데이터 집합은 검토 점수 (1-2 또는 4-5)와 자유 형식 텍스트로 구성 됩니다. 그 목표는 리뷰 점수: 낮음(1-2) 또는 높음(4-5)를 예측하는 것입니다.
+이 자습서에서는 Amazon Book Reviews 데이터 집합을 사용하여 감정 분석 모델을 살펴보면서 다음 단계를 학습합니다(John Blitzer의 "전기, 볼리우드, 붐 박스 및 블렌더: 감정 분류를 위한 도메인 적응"을 참조하세요. 마크 드레즈, 페르난도 페레이라; 전산 언어학 협회 (ACL), 2007.) 이 데이터 집합은 검토 점수(1-2 또는 4-5)와 자유 형식 텍스트로 구성됩니다. 그 목표는 리뷰 점수: 낮음(1-2) 또는 높음(4-5)를 예측하는 것입니다.
 
 Azure AI 갤러리에서 이 자습서에 나오는 실험을 찾을 수 있습니다.
 
@@ -68,7 +68,7 @@ N-Gram 특성 추출을 사용하는 대신, 특성 해시 모듈을 사용할 �
 ## <a name="step-3-train-classification-or-regression-model"></a>3단계: 분류 또는 회귀 모델 학습
 이제 텍스트가 숫자 특성 열로 변환되었습니다. 데이터 세트에는 여전히 이전 단계의 문자열 열이 포함되어 있으므로 데이터 세트의 열 선택을 사용하여 제외시킵니다.
 
-[2클래스 로지스틱 회귀](https://msdn.microsoft.com/library/azure/dn905994.aspx) 를 사용하여 목표: 높음 또는 낮음 리뷰 점수를 예측합니다. 현재 텍스트 분석 문제가 일반 분류 문제로 변환되었습니다. Azure Machine Learning Studio (클래식)에서 제공 하는 도구를 사용 하 여 모델을 개선할 수 있습니다. 예를 들어 다양한 분류자로 실험하여 얼마나 정확한 결과를 제공하는지 확인하거나, 하이퍼 매개 변수 조정을 사용하여 정확도를 향상시킬 수 있습니다.
+[2클래스 로지스틱 회귀](https://msdn.microsoft.com/library/azure/dn905994.aspx) 를 사용하여 목표: 높음 또는 낮음 리뷰 점수를 예측합니다. 현재 텍스트 분석 문제가 일반 분류 문제로 변환되었습니다. Azure 기계 학습 스튜디오(클래식)에서 사용할 수 있는 도구를 사용하여 모델을 개선할 수 있습니다. 예를 들어 다양한 분류자로 실험하여 얼마나 정확한 결과를 제공하는지 확인하거나, 하이퍼 매개 변수 조정을 사용하여 정확도를 향상시킬 수 있습니다.
 
 ![학습 및 점수 매기기](./media/text-analytics-module-tutorial/scoring-text.png)
 

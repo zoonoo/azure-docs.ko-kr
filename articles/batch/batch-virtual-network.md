@@ -10,10 +10,10 @@ ms.date: 04/10/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: bbe38a9dc7be749b8e138ff3ca9ec4f06255b389
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247749"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>가상 네트워크에서 Azure Batch 만들기
@@ -26,7 +26,7 @@ Azure Batch 풀에는 다중 인스턴스 작업 처리 등, 컴퓨팅 노드가
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* **인증**. Azure VNet을 사용하려면 Batch 클라이언트 API가 Azure AD(Active Directory) 인증을 사용해야 합니다. Azure AD에 대한 Azure Batch 지원은 [Active Directory를 사용하여 Batch 서비스 솔루션 인증](batch-aad-auth.md)에 설명되어 있습니다. 
+* **인증**: Azure VNet을 사용하려면 Batch 클라이언트 API가 Azure AD(Active Directory) 인증을 사용해야 합니다. Azure AD에 대한 Azure Batch 지원은 [Active Directory를 사용하여 Batch 서비스 솔루션 인증](batch-aad-auth.md)에 설명되어 있습니다. 
 
 * **Azure VNet**. VNet 요구 사항 및 구성에 대한 다음 섹션을 참조하세요. 하나 이상의 서브넷으로 VNet을 미리 준비하기 위해 Azure Portal, Azure PowerShell, Azure CLI(명령줄 인터페이스) 또는 기타 방법을 사용할 수 있습니다.  
   * Azure Resource Manager VNet을 만들려면 [가상 네트워크 만들기](../virtual-network/manage-virtual-network.md#create-a-virtual-network)를 참조하세요. Resource Manager 기반 VNet은 새 배포에 권장되며, Virtual Machine 구성의 풀에서만 지원됩니다.
@@ -56,7 +56,7 @@ VNet을 만들고 서브넷을 할당한 후에는 해당 VNet으로 Batch 풀�
 
 강제 터널링을 사용하는 VNet에서 Azure Batch 풀 컴퓨팅 노드가 작동하도록 해당 서브넷에 대해 다음 [사용자 정의 경로](../virtual-network/virtual-networks-udr-overview.md)를 추가해야 합니다.
 
-* Batch 서비스는 작업 예약을 위해 풀 컴퓨팅 노드와 통신해야 합니다. 이 통신을 사용하려면 Batch 계정이 존재하는 지역의 Batch 서비스에서 사용하는 각 IP 주소에 대해 사용자 정의 경로를 추가해야 합니다. Batch 서비스의 IP 주소 목록을 가져오는 방법에 대해 알아보려면 [온-프레미스의 서비스 태그](../virtual-network/service-tags-overview.md) 를 참조 하세요.
+* Batch 서비스는 작업 예약을 위해 풀 컴퓨팅 노드와 통신해야 합니다. 이 통신을 사용하려면 Batch 계정이 존재하는 지역의 Batch 서비스에서 사용하는 각 IP 주소에 대해 사용자 정의 경로를 추가해야 합니다. Batch 서비스의 IP 주소 목록을 가져오는 방법을 알아보려면 [온-프레미스의 서비스 태그를](../virtual-network/service-tags-overview.md) 참조하십시오.
 
 * 온-프레미스 네트워크 장비에서 Azure Storage에 대한 아웃바운드 트래픽(특히 `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` 및 `<account>.blob.core.windows.net`)이 차단되지 않는지 확인합니다.
 

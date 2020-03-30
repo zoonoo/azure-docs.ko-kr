@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 607379f8645226a031646376df9ca18f4d3164bf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267795"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Azure Portal에서 StorSimple 디바이스 관리자 서비스를 사용하여 백업 정책 관리
@@ -46,13 +46,13 @@ StorSimple 디바이스에 대한 **Backup 정책** 블레이드에서는 백업
   > [!NOTE]
   > 볼륨을 만들 때는 자동 또는 기본 백업 정책이 더 이상 사용되지 않습니다.
 
-* **마지막으로 성공한 백업** –이 정책을 사용하여 수행된 마지막으로 성공한 백업 시간과 날짜입니다.
+* **마지막으로 성공한 백업** – 이 정책을 사용하여 마지막으로 성공한 백업의 날짜와 시간입니다.
 
-* **다음 백업** –이 정책에서 시작될 다음 예약 백업의 시간과 날짜입니다.
+* **다음 백업** – 이 정책을 사용하여 시작할 다음 예약 백업의 날짜와 시간입니다.
 
 * **볼륨** – 정책과 연결된 볼륨입니다. 백업을 만들 때 백업 정책과 연관된 모든 볼륨이 함께 그룹화됩니다.
 
-* **일정** – 백업 정책과 연관된 일정의 수입니다.
+* **일정** – 백업 정책과 연결된 일정의 수입니다.
 
 백업 정책에 대해 수행할 수 있는 자주 사용되는 작업은 다음과 같습니다.
 

@@ -5,15 +5,15 @@ ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.openlocfilehash: 6d46a091a4e620e26d05735f12a201009663e65d
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77602459"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server에 시스템 상태 복원
 
-이 문서에서는 Azure Recovery Services 자격 증명 모음에서 Windows Server 시스템 상태 백업을 복원하는 방법에 대해 설명합니다. 시스템 상태를 복원하려면 시스템 상태 백업([시스템 상태 백업](backup-azure-system-state.md#back-up-windows-server-system-state) 지침에 따라 만듦)이 있어야 하고 [최신 버전의 MARS(Microsoft Azure Recovery Services) 에이전트](https://aka.ms/azurebackup_agent)가 설치되어 있는지 확인합니다. Azure Recovery Services 자격 증명 모음에서 Windows Server 시스템 상태 데이터를 복구하는 작업은 두 단계로 이루어집니다.
+이 문서에서는 Azure Recovery Services 자격 증명 모음에서 Windows Server 시스템 상태 백업을 복원하는 방법에 대해 설명합니다. 시스템 상태를 복원하려면 시스템 상태 [백업(시스템 상태 백업의](backup-azure-system-state.md#back-up-windows-server-system-state)지침을 사용하여 만든) 및 [최신 버전의 Microsoft Azure 복구 서비스(MARS) 에이전트를](https://aka.ms/azurebackup_agent)설치했는지 확인해야 합니다. Azure Recovery Services 자격 증명 모음에서 Windows Server 시스템 상태 데이터를 복구하는 작업은 두 단계로 이루어집니다.
 
 1. Azure Backup에서 파일로 시스템 상태 복원 Azure Backup에서 파일로 시스템 상태를 복원할 경우 다음을 수행할 수 있습니다.
    * 백업이 수행된 동일한 서버에 시스템 상태 복원 또는
@@ -35,7 +35,7 @@ ms.locfileid: "77602459"
 
 3. **시작** 창에서 동일한 서버 또는 컴퓨터로 데이터를 복원하려면 **이 서버(`<server name>`)** 를 선택하고 **다음**을 클릭합니다.
 
-    ![동일한 컴퓨터에 데이터를 복원 하려면이 서버 옵션을 선택 합니다.](./media/backup-azure-restore-system-state/samemachine.png)
+    ![이 서버 옵션을 선택하여 데이터를 동일한 컴퓨터로 복원합니다.](./media/backup-azure-restore-system-state/samemachine.png)
 
 4. **복구 모드 선택** 창에서 **시스템 상태**를 선택하고 **다음**을 선택합니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "77602459"
 
 5. **볼륨 및 날짜 선택** 창의 일정에서 복구 지점을 선택합니다.
 
-    어떤 복구 시점에서라도 복원할 수 있습니다. **굵게** 표시된 날짜는 하나 이상의 복구 지점을 사용 가능함을 나타냅니다. 날짜를 선택하고 여러 복구 지점을 사용할 수 있는 경우 **시간** 드롭다운 메뉴에서 특정 복구 지점을 선택합니다.
+    어떤 복구 시점에서라도 복원할 수 있습니다. **굵게** 표시된 날짜는 하나 이상의 복구 지점을 사용 가능함을 나타냅니다. 날짜를 선택하면 여러 복구 지점을 사용할 수 있는 경우 **시간** 드롭다운 메뉴에서 특정 복구 지점을 선택합니다.
 
     ![볼륨 및 날짜](./media/backup-azure-restore-system-state/select-date.png)
 
@@ -103,7 +103,7 @@ Windows Server가 손상되었거나 액세스할 수 없고 Windows Server 시�
 
     **두 버전 모두 유지하도록 복사본 만들기** 옵션을 통해 전체 시스템 상태 아카이브의 복사본을 만드는 대신 기존의 시스템 상태 파일 아카이브에서 개별 파일의 복사본을 만듭니다.
 
-11. 확인 창에서 복구의 세부 정보를 확인하고 **복구**를 클릭합니다.
+11. 확인 창에서 복구 세부 정보를 확인하고 **복구 를**클릭합니다.
 
     ![복구 단추를 클릭하여 복구 프로세스 확인](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
@@ -159,11 +159,11 @@ Azure Recovery Services 에이전트를 사용하여 시스템 상태를 파일�
 시스템 상태 백업은 Active Directory 데이터를 포함합니다. 다음 단계를 사용하여 현재 상태에서 이전 상태로 AD DS(Active Directory Domain Service)를 복원합니다.
 
 1. DSRM(디렉터리 서비스 복원 모드)로 도메인 컨트롤러를 다시 시작합니다.
-2. Windows Server Backup cmdlet을 사용하여 AD DS를 복구하려면 [여기](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) 있는 단계를 수행합니다.
+2. Windows 서버 백업 cmdlet을 사용하여 AD DS를 복구하려면 [다음](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) 단계를 따르십시오.
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>실패한 시스템 상태 복원 문제 해결
 
-시스템 상태를 적용하는 이전 프로세스가 성공적으로 완료되지 않으면 Win RE(Windows Recovery Environment)를 사용하여 Windows Server를 복구합니다. 다음 단계에서는 Win RE를 사용하여 복구하는 방법을 설명합니다. 시스템 상태 복원 후 Windows Server가 정상적으로 부팅 되지 않는 경우에만이 옵션을 사용 합니다. 다음 프로세스는 비 시스템 데이터를 지우고 주의를 사용합니다.
+시스템 상태를 적용하는 이전 프로세스가 성공적으로 완료되지 않으면 Win RE(Windows Recovery Environment)를 사용하여 Windows Server를 복구합니다. 다음 단계에서는 Win RE를 사용하여 복구하는 방법을 설명합니다. 시스템 상태 복원 후 Windows Server가 정상적으로 부팅되지 않는 경우에만 이 옵션을 사용합니다. 다음 프로세스는 비 시스템 데이터를 지우고 주의를 사용합니다.
 
 1. Win RE(Windows Recovery Environment)로 Windows Server를 부팅합니다.
 

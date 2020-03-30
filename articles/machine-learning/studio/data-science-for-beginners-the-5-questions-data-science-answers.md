@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: af0611e121228a587e159bd4e6529c807132d16d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204446"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>초급자를 위한 데이터 과학 비디오 1: 데이터 과학으로 답변할 수 있는 5가지 질문
@@ -32,9 +32,9 @@ ms.locfileid: "79204446"
 
 * 비디오 1: 데이터 과학으로 답변할 수 있는 5가지 질문
 * 비디오 2: [데이터 과학에 사용할 수 있게 데이터가 준비되었나요?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4분 56초)*
-* 비디오 3: [데이터로 대답할 수 있는 질문 하기](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 분 17 초)*
-* 비디오 4: [단순 모델을 사용 하 여 답변 예측](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 분 42 초)*
-* 비디오 5: [데이터 과학을 수행 하기 위해 다른 사람의 작업을 복사 합니다](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 분 18 초)* .
+* 비디오 3: [데이터로 대답할 수 있는 질문하기](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4분 17초)*
+* 비디오 4: [단순 모델을 사용하여 답변 예측](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7분 42초)*
+* 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3분 18초)*
 
 ## <a name="transcript-the-5-questions-data-science-answers"></a>비디오 내용: 데이터 과학으로 답변할 수 있는 5가지 질문
 안녕하세요. 비디오 시리즈 *초급자를 위한 데이터 과학*에 오신 것을 환영합니다.
@@ -66,7 +66,7 @@ ms.locfileid: "79204446"
 
 두 가지 가능한 답변이 있는 질문에 유용합니다.
 
-다음은 그 예입니다.
+예를 들어:
 
 * 이 타이어는 다음 1,000마일을 가는 동안 터질까요? 예 또는 아니요?
 * 어떤 방식이 더 많은 고객을 이끌까요? 5달러 쿠폰 또는 25% 할인?
@@ -78,12 +78,12 @@ ms.locfileid: "79204446"
 
 ![변칙 감지 알고리즘: 이것은 이상한가요?](./media/data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
 
-신용 카드가 있는 경우 이미 변칙 검색을 통해 혜택을 얻었습니다. 여러분의 신용 카드 회사는 구매 패턴을 분석하므로 가능한 사기 행위를 여러분에게 경고할 수 있습니다. "이상하게" 요금이 청구되었다면 평소에 물건을 구매하지 않던 매장에서 구매하거나 굉장히 비싼 가격의 상품을 구매해서일 수 있습니다.
+신용 카드가 있는 경우 이미 이상 징후 감지의 이점을 얻었습니다. 여러분의 신용 카드 회사는 구매 패턴을 분석하므로 가능한 사기 행위를 여러분에게 경고할 수 있습니다. "이상하게" 요금이 청구되었다면 평소에 물건을 구매하지 않던 매장에서 구매하거나 굉장히 비싼 가격의 상품을 구매해서일 수 있습니다.
 
 이 질문은 다양한 측면에서 유용할 수 있습니다. 예:
 
 * 자동차에 압력 계기판이 있는 경우 이 압력 계기판에 정상적인 수치가 표시되는지 알고 싶을 수 있습니다.
-* 인터넷을 모니터링 하는 경우 인터넷의이 메시지가 일반적인 지 확인 하는 것이 좋습니다.
+* 인터넷을 모니터링하는 경우 인터넷에서 이 메시지가 일반적입니까?
 
 변칙 감지는 예기치 않거나 비정상적인 이벤트 또는 동작에 플래그를 지정합니다. 어디서 문제점을 찾아내야 할지에 대한 단서를 줍니다.
 
@@ -102,7 +102,7 @@ ms.locfileid: "79204446"
 ## <a name="question-4-how-is-this-organized-uses-clustering-algorithms"></a>질문 4: 어떻게 구성되어 있나요?에서는 클러스터링 알고리즘을 사용합니다.
 마지막 두 개의 질문은 좀 더 수준이 높습니다.
 
-데이터 집합의 구조를 이해하고 싶을 수 있습니다. 이러한 경우 어떻게 구성되어 있나요?라고 질문할 수 있습니다. 이 질문에 대 한 결과를 이미 알고 있는 예제는 없습니다.
+데이터 집합의 구조를 이해하고 싶을 수 있습니다. 이러한 경우 어떻게 구성되어 있나요?라고 질문할 수 있습니다. 이 질문에 대 한, 당신은 이미 에 대 한 결과 알고 있는 예제가 없습니다.
 
 데이터 구조를 조작할 수 있는 방법이 많이 있습니다. 한 가지 방법은 클러스터링입니다. 이 방식은 보다 쉬운 해석을 위해 데이터를 적절한 "그룹"으로 분리합니다. 클러스터링을 사용하면 한 가지 정답은 없습니다.
 
@@ -135,5 +135,5 @@ ms.locfileid: "79204446"
 지금까지 데이터 과학으로 답변할 수 있는 5가지 질문에 대해 알아보았습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Machine Learning Studio를 사용 하 여 첫 번째 데이터 과학 실험 시도 (클래식)](create-experiment.md)
+* [기계 학습 스튜디오(클래식)를 사용하여 첫 번째 데이터 과학 실험을 해보세요.](create-experiment.md)
 * [Microsoft Azure의 Machine Learning 소개 보기](/azure/machine-learning/preview/overview-what-is-azure-ml)

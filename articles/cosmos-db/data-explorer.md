@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dech
 ms.openlocfilehash: 57ba647ade45928f03cd7fb2b037642d5e4d52cc
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79096807"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Azure Cosmos 탐색기를 사용하여 데이터 작업 
@@ -25,7 +25,7 @@ Azure Cosmos DB 탐색기는 Azure Cosmos DB에 저장된 데이터를 보고 �
 
 ## <a name="access-azure-cosmos-db-explorer"></a>Azure Cosmos DB 탐색기 액세스
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
+1. [Azure 포털에](https://portal.azure.com/)로그인합니다. 
 
 2. **모든 리소스**에서 Azure Cosmos DB 계정을 찾아서 탐색한 다음, 키를 선택하고 **기본 연결 문자열**을 복사합니다.  
 
@@ -47,7 +47,7 @@ Azure Cosmos DB 탐색기는 Azure Cosmos DB에 저장된 데이터를 보고 �
 
 현재, 임시 읽기/쓰기 또는 읽기 권한을 공유할 수 있는 **전체 화면 열기** 환경은 Azure Cosmos DB Gremlin 및 Table API 계정에 대해 아직 지원되지 않습니다. 하지만 Azure Cosmos DB 탐색기에 연결 문자열을 전달하면 Gremlin 및 Table API 계정을 볼 수 있습니다. 
 
-현재는 데이터 탐색기에서 UUID가 포함 된 문서 보기를 지원 하지 않습니다. 이러한 문서를 포함 하는 개별 문서 또는 쿼리를 보기만 하 여 컬렉션을 로드 하는 데에는 영향을 주지 않습니다. 이러한 문서를 보고 관리 하려면 사용자가 원래 이러한 문서를 만드는 데 사용 된 도구를 계속 사용 해야 합니다.
+현재 UUID가 포함된 문서 보기는 데이터 탐색기에서 지원되지 않습니다. 컬렉션 로드에는 영향을 주지 않으며 이러한 문서가 포함된 개별 문서 또는 쿼리만 볼 수 있습니다. 이러한 문서를 보고 관리하려면 사용자가 원래 이러한 문서를 만드는 데 사용되었던 도구를 계속 사용해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Cosmos DB 탐색기를 시작하여 데이터를 관리하는 방법을 배웠으므로 이제 다음 작업을 수행할 수 있습니다.

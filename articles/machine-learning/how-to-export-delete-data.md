@@ -1,7 +1,7 @@
 ---
 title: 작업 영역 데이터 내보내기 또는 삭제
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning studio, CLI, SDK 및 인증 된 REST Api를 사용 하 여 작업 영역을 내보내거나 삭제 하는 방법에 대해 알아봅니다.
+description: Azure 기계 학습 스튜디오, CLI, SDK 및 인증된 REST API를 사용하여 작업 영역을 내보내거나 삭제하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,10 +12,10 @@ ms.author: laobri
 ms.date: 03/06/2020
 ms.custom: seodec18
 ms.openlocfilehash: 4abef0146b4bf0cfaa254d196b0ca68f0d8ac883
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79218281"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Machine Learning 서비스 작업 영역 데이터 내보내기 또는 삭제
@@ -30,7 +30,7 @@ Azure Machine Learning에서는 인증된 REST API를 사용하여 작업 영역
 
 ## <a name="control-your-workspace-data"></a>작업 영역 데이터 제어
 
-Azure Machine Learning에 의해 저장 된 제품 데이터는 Azure Machine Learning studio, CLI, SDK 및 인증 된 REST Api를 통해 내보내기 및 삭제에 사용할 수 있습니다. 원격 분석 데이터는 Azure 개인 정보 보호 포털을 통해 액세스할 수 있습니다. 
+Azure 기계 학습에 의해 저장된 제품 내 데이터는 Azure 기계 학습 스튜디오, CLI, SDK 및 인증된 REST API를 통해 내보내고 삭제할 수 있습니다. 원격 분석 데이터는 Azure 개인 정보 보호 포털을 통해 액세스할 수 있습니다. 
 
 Azure Machine Learning에서 개인 데이터는 서비스와 일부 사용자 간 상호 작용의 실행 기록 문서 및 원격 분석 레코드의 사용자 정보로 구성됩니다.
 
@@ -38,7 +38,7 @@ Azure Machine Learning에서 개인 데이터는 서비스와 일부 사용자 �
 
 데이터를 삭제하려면 HTTP DELETE 동사로 다음 API 호출을 만들 수 있습니다. 이러한 호출은 요청에 `Authorization: Bearer <arm-token>` 헤더를 포함하여 권한이 부여됩니다. 여기서 `<arm-token>`은 `https://management.core.windows.net/` 엔드포인트에 대한 AAD 액세스 토큰입니다.  
 
-이 토큰을 가져오고 Azure 끝점을 호출 하는 방법에 대 한 자세한 내용은 [REST를 사용 하 여 ML 리소스](how-to-manage-rest.md) 및 [azure REST API 설명서](https://docs.microsoft.com/rest/api/azure/)관리를 참조 하세요.  
+이 토큰을 받고 Azure 끝점을 호출하는 방법을 알아보려면 REST 사용을 참조하여 ML 리소스 및 [Azure REST API 설명서를](https://docs.microsoft.com/rest/api/azure/) [관리합니다.](how-to-manage-rest.md)  
 
 다음 예제에서 {}의 텍스트를 관련된 리소스를 결정하는 인스턴스 이름으로 바꿉니다.
 
@@ -94,7 +94,7 @@ Azure Machine Learning에서 개인 데이터는 서비스와 일부 사용자 �
 
 데이터를 내보내려면 HTTP GET 동사로 다음 API 호출을 만들 수 있습니다. 이는 요청에 `Authorization: Bearer <arm-token>` 헤더를 포함하여 권한이 부여됩니다. 여기서 `<arm-token>`은 엔드포인트 `https://management.core.windows.net/`에 대한 AAD 액세스 토큰입니다.  
 
-이 토큰을 가져오고 Azure 끝점을 호출 하는 방법에 대 한 자세한 내용은 [REST를 사용 하 여 ML 리소스 관리](how-to-manage-rest.md) 및 [azure REST API 설명서](https://docs.microsoft.com/rest/api/azure/)를 참조 하세요.   
+이 토큰을 받고 Azure 끝점을 호출하는 방법을 알아보려면 [REST 사용을 참조하여 ML 리소스](how-to-manage-rest.md) 및 Azure REST API [설명서를](https://docs.microsoft.com/rest/api/azure/)관리합니다.   
 
 다음 예제에서 {}의 텍스트를 관련된 리소스를 결정하는 인스턴스 이름으로 바꿉니다.
 
@@ -236,28 +236,28 @@ Azure Machine Learning에서 개인 데이터는 서비스와 일부 사용자 �
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
 
-## <a name="delete-assets-in-the-designer"></a>디자이너에서 자산 삭제
+## <a name="delete-assets-in-the-designer"></a>디자이너의 자산 삭제
 
-실험을 만든 디자이너에서 개별 자산을 삭제 합니다.
+실험을 만든 디자이너에서 개별 자산을 삭제합니다.
 
 1. 디자이너로 이동
 
     ![자산 삭제](./media/how-to-export-delete-data/delete-experiment.png)
 
-1. 목록에서 삭제할 개별 파이프라인 초안을 선택 합니다.
+1. 목록에서 삭제할 개별 파이프라인 초안을 선택합니다.
 
-1. **삭제**를 선택합니다.
+1. **삭제를 선택합니다.**
 
-### <a name="delete-datasets-in-the-designer"></a>디자이너에서 데이터 집합 삭제
+### <a name="delete-datasets-in-the-designer"></a>디자이너의 데이터 집합 삭제
 
-디자이너에서 데이터 집합을 삭제 하려면 Azure Portal 또는 Storage 탐색기를 사용 하 여 연결 된 저장소 계정으로 이동 하 고 여기에서 데이터 집합을 삭제 합니다. 디자이너에서 데이터 집합의 등록을 취소 하면 저장소의 참조 지점만 제거 됩니다.
+디자이너에서 데이터 집합을 삭제하려면 Azure 포털 또는 저장소 탐색기를 사용하여 연결된 저장소 계정으로 이동하여 데이터 집합을 삭제합니다. 디자이너에서 데이터 집합을 등록 취소하는 것은 저장소의 참조점만 제거합니다.
 
-## <a name="export-data-in-the-designer"></a>디자이너에서 데이터 내보내기
+## <a name="export-data-in-the-designer"></a>디자이너의 데이터 내보내기
 
 실험을 만든 디자이너에서 추가한 데이터를 내보냅니다.
 
-1. 왼쪽에서 **데이터 집합**을 선택 합니다.
+1. 왼쪽에서 데이터 **집합을**선택합니다.
 
-1. 목록에서 내보낼 데이터 집합을 선택 합니다.
+1. 목록에서 내보낼 데이터 집합을 선택합니다.
 
     ![데이터 다운로드](./media/how-to-export-delete-data/unregister-dataset.png)

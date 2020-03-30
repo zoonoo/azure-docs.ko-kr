@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
 ms.openlocfilehash: 9cbc48d8bca2f7491d0464be1c5bd64054927dc9
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77608742"
 ---
 Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리하려면 일종의 자동화가 필요합니다. 완벽한 Azure 인프라 배포 및 관리 수명 주기를 자동화할 수 있는 다양한 도구와 솔루션이 있습니다. 이 문서에서는 Azure에서 사용할 수 있는 인프라 자동화 도구 중 일부를 소개합니다. 이러한 도구는 일반적으로 다음 방법 중 하나에 적합합니다.
@@ -30,7 +30,7 @@ Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리�
 방법 배우기:
 
 - [Azure에서 사용하도록 Linux에 Ansible 설치 및 구성](../articles/ansible/ansible-install-configure.md)
-- [Linux 가상 머신 만들기](../articles/ansible/ansible-create-vm.md)
+- [리눅스 가상 머신을 만듭니다.](../articles/ansible/ansible-create-vm.md)
 - [Linux 가상 머신 관리](../articles/ansible/ansible-manage-linux-vm.md)
 
 
@@ -110,7 +110,7 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 방법 배우기:
 
-- [PowerShell Runbook 만들기](../articles/automation/automation-first-runbook-textual-powershell.md)
+- [PowerShell 실행책을 만듭니다.](../articles/automation/automation-first-runbook-textual-powershell.md)
 - [Hybrid Runbook Worker를 사용하여 온-프레미스 리소스 관리](../articles/automation/automation-hybrid-runbook-worker.md)
 - [Azure Automation DSC 사용](../articles/automation/automation-dsc-getting-started.md)
 

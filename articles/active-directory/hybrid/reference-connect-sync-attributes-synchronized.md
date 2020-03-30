@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6a82766be01476890bbf18b518ce21febe0d07f1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253612"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 동기화: Azure Active Directory에 동기화된 특성
@@ -251,12 +251,12 @@ ms.locfileid: "79253612"
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
-| usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역입니다.
+| usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역
 . 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 | wWWHomePage |X |X | | |
 
-## <a name="teams-and-skype-for-business-online"></a>팀 및 비즈니스용 Skype Online
+## <a name="teams-and-skype-for-business-online"></a>온라인 비즈니스를 위한 팀 및 스카이프
 | 특성 이름 | 사용자 | 연락처 | 그룹 | 주석 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
@@ -430,7 +430,7 @@ Windows 10 도메인에 가입된 컴퓨터(디바이스)는 일부 특성을 Az
 | msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |필터링: 온-프레미스 필터링을 다시 쓰고 온라인 보관 및 보낸 사람의 데이터를 클라이어트로부터 차단합니다. |
 | msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |필터링: 온-프레미스 필터링을 다시 쓰고 온라인 보관 및 보낸 사람의 데이터를 클라이어트로부터 차단합니다. |
 | msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |UM(통합 메시징)-온라인 음성 메일 사용: Microsoft Lync Server Intergration 사용자가 온라인 서비스에 음성 메일이 있는지 Lync Server 온-프레미스에 나타내기 위해서 사용합니다. |
-| msExchUserHoldPolicies| UserHoldPolicies |X | | |소송 보류: 어떤 사용자가 소송을 보류 중인지 확인하기 위해 클라우드 서비스를 사용합니다. |
+| msExchUserHoldPolicies| ms-Exch-사용자 보류 정책 |X | | |소송 보류: 어떤 사용자가 소송을 보류 중인지 확인하기 위해 클라우드 서비스를 사용합니다. |
 | proxyAddresses| proxyAddresses |X |X |X |Exchange Online의 x500 주소만 삽입됩니다. |
 | publicDelegates| ms-Exch-Public-Delegates  |X | | |Exchange Online 사서함에 온-프레미스 Exchange 사서함이 있는 사용자에게 SendOnBehalfTo 권한을 부여할 수 있습니다. Azure AD Connect 빌드 1.1.552.0 이상이 필요합니다. |
 

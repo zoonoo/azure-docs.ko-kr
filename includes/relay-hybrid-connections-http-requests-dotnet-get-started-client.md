@@ -9,10 +9,10 @@ ms.date: 08/16/2018
 ms.author: clemensv
 ms.custom: include file
 ms.openlocfilehash: ce29cd03de46e1d93d7f1f28f9f5184cd59a57e7
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79199887"
 ---
 ### <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
@@ -69,7 +69,7 @@ Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만듭니
         Console.WriteLine(await response.Content.ReadAsStringAsync());        Console.ReadLine();
     }
     ```
-4. `Main` 클래스의 `Program` 메서드에 다음 코드 줄을 추가합니다.
+4. `Program` 클래스의 `Main` 메서드에 다음 코드 줄을 추가합니다.
    
     ```csharp
     RunAsync().GetAwaiter().GetResult();

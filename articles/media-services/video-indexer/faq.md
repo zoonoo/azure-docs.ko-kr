@@ -1,7 +1,7 @@
 ---
 title: Video Indexer에 대한 질문과 대답 - Azure
 titleSuffix: Azure Media Services
-description: 이 문서에서는 Azure Media Services Video Indexer에 대해 자주 묻는 질문에 대 한 대답을 제공 합니다.
+description: 이 문서에서는 Azure 미디어 서비스 비디오 인덱서에 대해 자주 묻는 질문에 대한 답변을 제공합니다.
 services: media-services
 author: Juliako
 manager: femila
@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: eacbeca275192e1a68b6682c3036da2d5c09bd54
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77619886"
 ---
-# <a name="video-indexer-frequently-asked-questions"></a>Video Indexer 질문과 대답
+# <a name="video-indexer-frequently-asked-questions"></a>비디오 인덱서 자주 묻는 질문
 
 이 문서에서는 Video Indexer에 대한 질문과 대답을 확인합니다.
 
@@ -34,7 +34,7 @@ Video Indexer가 미디어 파일에서 수행할 수 있는 일부 작업은 �
 * 음성을 식별 및 추출하고 화자 식별
 * 비디오에서 화면의 텍스트를 식별 및 추출
 * 비디오 파일에서 개체 감지
-* 비디오의 오디오 트랙과 화면 텍스트에서 브랜드 (예: Microsoft)를 식별 합니다.
+* 오디오 트랙 및 비디오의 화면 텍스트에서 브랜드(예: Microsoft)를 식별합니다.
 * 유명인의 데이터베이스 및 얼굴의 사용자 정의 데이터베이스에서 얼굴 검색 및 인식
 * 논의되었으나 오디오 및 비디오 콘텐츠에서 반드시 언급될 필요는 없는 항목 추출
 * 오디오 트랙의 선택 자막 또는 자막 만들기
@@ -71,19 +71,19 @@ Video Indexer API 및 Video Indexer 웹 기반 인터페이스를 사용하여 �
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>사용자 지정 워크플로를 만들어 Video Indexer를 사용한 프로세스를 자동화할 수 있나요?
 
-예, Logic Apps, Flow 및 [Azure Functions](https://azure.microsoft.com/services/functions/)과 같은 서버리스 기술에 Video Indexer를 통합할 수 있습니다. [여기](https://azure.microsoft.com/services/logic-apps/)에서 Video Indexer용 [Logic Apps](https://flow.microsoft.com/en-us/) 및 [Flow](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/) 커넥터에 대한 자세한 정보를 확인할 수 있습니다. 
+예, Logic Apps, Flow 및 [Azure Functions](https://azure.microsoft.com/services/functions/)과 같은 서버리스 기술에 Video Indexer를 통합할 수 있습니다. [여기](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/)에서 Video Indexer용 [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 및 [Flow](https://flow.microsoft.com/en-us/) 커넥터에 대한 자세한 정보를 확인할 수 있습니다. 
 
 ### <a name="in-which-azure-regions-is-video-indexer-available"></a>어떤 Azure 지역에서 Video indexer를 사용할 수 있나요?
 
 [지역](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all) 페이지에서 Video Indexer를 사용할 수 있는 Azure 지역을 찾을 수 있습니다.
 
-### <a name="can-i-customize-video-indexer-models-for-my-specific-use-case"></a>특정 사용 사례에 대 한 Video Indexer 모델을 사용자 지정할 수 있나요? 
+### <a name="can-i-customize-video-indexer-models-for-my-specific-use-case"></a>특정 사용 사례에 맞게 비디오 인덱서 모델을 사용자 지정할 수 있습니까? 
 
-예. Video Indexer에서는 사용자의 요구에 맞게 사용 가능한 모델 중 일부를 사용자 지정할 수 있습니다. 
+예. 비디오 인덱서에서 당신은 더 나은 요구에 맞게 사용 가능한 모델중 일부를 사용자 정의 할 수 있습니다. 
 
-예를 들어 사용자 모델은 유명인 인식의 기본 100만 얼굴을 지원 하지만이를 학습 하 여 해당 데이터베이스에 없는 다른 얼굴을 인식할 수도 있습니다. 
+예를 들어 Person 모델은 즉시 사용할 수 있는 1,000,000개의 얼굴인식을 지원하지만 해당 데이터베이스에 없는 다른 얼굴을 인식하도록 학습할 수도 있습니다. 
 
-자세한 내용은 [사람](customize-person-model-overview.md), [브랜드](customize-brands-model-overview.md)및 [언어](customize-language-model-overview.md) 모델을 사용자 지정 하는 방법에 대 한 문서를 참조 하세요. 
+자세한 내용은 [사용자 지정,](customize-person-model-overview.md) [브랜드](customize-brands-model-overview.md)및 [언어](customize-language-model-overview.md) 모델에 대한 문서를 참조하세요. 
 
 ### <a name="what-is-the-sla-for-video-indexer"></a>Video Indexer에 대한 SLA는 무엇인가요?
 
@@ -119,7 +119,7 @@ Azure Media Service의 SLA가 Video Indexer에 적용되며, [SLA](https://azure
 
 예, 콘텐츠 및 해당 인사이트는 여러 Azure 지역을 사용하는 수동 구성이 Azure 구독에 없는 한 Azure 지역 내에 유지됩니다. 
 
-### <a name="what-is-the-privacy-policy-for-video-indexer"></a>Video Indexer에 대 한 개인 정보 취급 방침은 무엇 인가요?
+### <a name="what-is-the-privacy-policy-for-video-indexer"></a>비디오 인덱서의 개인 정보 보호 정책은 무엇입니까?
 
 Video Indexer는 [Microsoft 개인정보처리방침](https://privacy.microsoft.com/privacystatement)이 적용됩니다. 개인정보처리방침은 Microsoft에서 처리하는 개인 데이터, Microsoft에서 개인 데이터를 처리하는 방법 및 Microsoft에서 개인 데이터를 처리하는 목적을 설명합니다. 개인 정보에 대해 자세히 알아보려면 [Microsoft 보안 센터](https://www.microsoft.com/trustcenter)를 방문하세요.
 
@@ -127,20 +127,20 @@ Video Indexer는 [Microsoft 개인정보처리방침](https://privacy.microsoft.
 
 현재 Video Indexer에는 SOC 인증이 있습니다. Video Indexer의 인증을 검토하려면 [Microsoft 보안 센터](https://www.microsoft.com/trustcenter/compliance/complianceofferings?product=Azure)를 참조하세요.
 
-### <a name="what-is-the-difference-between-private-and-public-videos"></a>개인 및 공용 비디오 간의 차이점은 무엇 인가요? 
+### <a name="what-is-the-difference-between-private-and-public-videos"></a>비공개 동영상과 공개 동영상의 차이점은 무엇인가요? 
 
-Video Indexer에 비디오를 업로드 하는 경우 개인 및 공용의 두 개인 설정에서 선택할 수 있습니다. 공용 비디오는 익명이 고 식별 되지 않은 사용자를 포함 하 여 누구나 액세스할 수 있습니다. 개인 항목은 계정 구성원 으로만 제한 됩니다. 
+동영상이 비디오 인덱서에 업로드되면 비공개 및 공개의 두 가지 공개 설정 중에서 선택할 수 있습니다. 공개 동영상은 익명 및 식별되지 않은 사용자를 포함하여 누구나 액세스할 수 있습니다. 비공개 는 계정 회원으로만 제한됩니다. 
 
-### <a name="i-tried-to-upload-a-video-as-public-and-it-was-flagged-for-inappropriate-or-offensive-content-what-does-that-mean"></a>공용으로 비디오를 업로드 하려고 했는데 부적절 하거나 공격적인 콘텐츠에 플래그가 지정 된 경우 무엇을 의미 하나요? 
+### <a name="i-tried-to-upload-a-video-as-public-and-it-was-flagged-for-inappropriate-or-offensive-content-what-does-that-mean"></a>동영상을 공개로 업로드하려고 했는데 부적절하거나 불쾌감을 주는 콘텐츠로 신고를 받았는데, 그게 무슨 뜻인가요? 
 
-Video Indexer에 비디오를 업로드 하는 경우 적절 한 콘텐츠가 공개적으로 표시 되지 않도록 하기 위해 알고리즘 및 모델에서 자동 콘텐츠 분석을 수행 합니다. 명시적 콘텐츠를 포함 하는 것으로 의심 스러운 비디오를 발견 한 경우에는이를 공용으로 설정할 수 없습니다. 그러나 계정 구성원은 여전히 개인 비디오로 액세스할 수 있습니다 (보기, 정보 및 추출 된 아티팩트를 다운로드 하 고 계정 구성원에 사용할 수 있는 기타 작업을 수행할 수 있음).   
+비디오 인덱서에 동영상을 업로드할 때 부적절한 콘텐츠가 공개적으로 표시되지 않도록 알고리즘과 모델에 의해 자동 콘텐츠 분석이 수행됩니다. 동영상에 노골적인 콘텐츠가 포함된 것으로 의심되는 경우 공개로 설정할 수 없습니다. 그러나 계정 구성원은 여전히 비공개 비디오로 액세스할 수 있습니다(보기, 인사이트 및 추출된 아티팩트를 다운로드하고, 계정 구성원이 사용할 수 있는 다른 작업을 수행).   
 
-공용 액세스용 비디오를 설정 하기 위해 다음 중 하나를 수행할 수 있습니다. 
+비디오를 공용 액세스로 설정하려면 다음 중 하나를 수행할 수 있습니다. 
 
-* 사용자 고유의 인터페이스 계층 (예: 앱 또는 웹 사이트)을 빌드하고이를 사용 하 여 Video Indexer 서비스와 상호 작용 합니다. 이러한 방식으로 포털에서 비디오가 개인으로 유지 되 고 사용자는 인터페이스를 통해 상호 작용할 수 있습니다. 예를 들어 여전히 정보를 얻거나 고유한 인터페이스에서 비디오를 볼 수 있습니다. 
-* 콘텐츠에 대 한 사람의 검토를 요청 하면 콘텐츠가 명시적이 아닌 것으로 가정 하 여 제한이 제거 됩니다. 
+* 앱 또는 웹 사이트와 같은 고유한 인터페이스 계층을 빌드하고 이를 사용하여 Video Indexer 서비스와 상호 작용합니다. 이렇게 하면 비디오가 포털에서 비공개로 유지되며 사용자는 인터페이스를 통해 비디오와 상호 작용할 수 있습니다. 예를 들어 자체 인터페이스에서 인사이트를 얻거나 비디오를 볼 수 있습니다. 
+* 콘텐츠에 대한 검토 권한을 요청하면 콘텐츠가 명시적이지 않다고 가정하여 제한이 제거됩니다. 
 
-    이 옵션은 Video Indexer 웹 사이트를 사용자가 인터페이스 레이어로 직접 사용 하는 경우와 공개 (인증 되지 않은) 보기에 대해 탐색할 수 있습니다. 
+    이 옵션은 Video Indexer 웹 사이트가 사용자가 인터페이스 계층으로 직접 사용하고 공개(인증되지 않은) 보기를 위해 사용하는 경우 탐색할 수 있습니다. 
 
 ## <a name="api-questions"></a>API 질문
 
@@ -180,11 +180,11 @@ Video Indexer API는 권한 부여 API 및 작업 API를 포함합니다. 권한
 
 ### <a name="how-much-does-video-indexer-cost"></a>Video Indexer의 비용은 얼마인가요?
 
-Video Indexer는 인덱싱하는 콘텐츠 입력 기간을 기반으로 하는 간단한 종량제 가격 책정 모델을 사용합니다. 추가 요금은 인코딩, 스트리밍, 스토리지, 네트워크 사용량 및 미디어 예약 단위에 대해 적용될 수 있습니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/) 페이지를 참조하세요.
+Video Indexer는 인덱싱하는 콘텐츠 입력 기간을 기반으로 하는 간단한 종량제 가격 책정 모델을 사용합니다. 추가 요금은 인코딩, 스트리밍, 스토리지, 네트워크 사용량 및 미디어 예약 단위에 대해 적용될 수 있습니다. 자세한 내용은 가격 [책정](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/) 페이지를 참조하세요.
 
-### <a name="when-am-i-billed-for-using-video-indexer"></a>Video Indexer 사용에 대 한 요금은 어떻게 청구 되나요?
+### <a name="when-am-i-billed-for-using-video-indexer"></a>비디오 인덱서 사용에 대한 요금은 언제 청구되나요?
 
-인덱싱할 비디오를 보낼 때 사용자는 비디오 분석, 오디오 분석 또는 둘 다로 인덱싱을 정의 합니다. 그러면 요금이 청구 될 Sku가 결정 됩니다. 처리 하는 동안 심각한 수준 오류가 발생 하면 오류 코드가 응답으로 반환 됩니다. 이러한 경우에는 청구가 발생 하지 않습니다.  중요 한 오류는 코드의 버그 또는 서비스에 내부 종속성의 심각한 오류가 원인일 수 있습니다. 잘못 된 식별 또는 정보 추출 등의 오류는 중요 한 것으로 간주 되지 않으며 응답이 반환 됩니다. 잘못 된 (오류 코드) 응답이 반환 되는 모든 경우에는 청구가 발생 합니다.
+인덱싱할 비디오를 전송할 때 사용자는 비디오 분석, 오디오 분석 또는 둘 다로 인덱싱을 정의합니다. 이렇게 하면 어떤 SCO가 청구될지 결정됩니다. 처리 중에 중요한 수준 오류가 있는 경우 오류 코드가 응답으로 반환됩니다. 이 경우 청구가 발생하지 않습니다.  중요한 오류는 코드의 버그 또는 서비스에 있는 내부 종속성의 치명적인 오류로 인해 발생할 수 있습니다. 잘못된 식별 또는 인사이트 추출과 같은 오류는 중요한 것으로 간주되지 않으며 응답이 반환됩니다. 유효한(오류 없는 코드) 응답이 반환되는 경우 청구가 발생합니다.
  
 ### <a name="does-video-indexer-offer-a-free-trial"></a>Video Indexer는 평가판을 제공하나요?
 

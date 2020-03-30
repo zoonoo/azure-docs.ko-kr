@@ -1,5 +1,5 @@
 ---
-title: 다른 StorSimple 8000 장치로 장애 조치 (Failover), 재해 복구
+title: 장애 조치, 다른 StorSimple 8000 장치에 대한 재해 복구
 description: 다른 실제 디바이스로 StorSimple 8000 시리즈 실제 디바이스를 장애 조치(failover)하는 방법에 대해 알아봅니다.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 9e4e890ab5491e46ffe5ea0e1c168d168f9cc729
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77468612"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>StorSimple 8000 시리즈 실제 디바이스에 장애 조치

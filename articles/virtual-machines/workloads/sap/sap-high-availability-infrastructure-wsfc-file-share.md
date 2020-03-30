@@ -1,5 +1,5 @@
 ---
-title: WSFC & 파일 공유를 사용 하는 SAP ASCS/SCS HA 용 Azure 인프라 | Microsoft Docs
+title: WSFC가 있는 SAP ASCS/SCS HA용 Azure 인프라&파일 공유 | 마이크로 소프트 문서
 description: SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4abae94ded92aca075fcb41a7cd42491e92d41d6
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77591543"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비
@@ -213,7 +213,7 @@ ms.locfileid: "77591543"
 
 설치를 시작하기 전에 다음 문서를 검토하세요.
 
-* [아키텍처 가이드: Windows 장애 조치 (failover) 클러스터에서 파일 공유를 사용 하 여 SAP ASCS/SCS 인스턴스 클러스터링][sap-high-availability-guide-wsfc-file-share]
+* [아키텍처 가이드: Windows 장애 조치(Failover) 클러스터에서 파일 공유를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링][sap-high-availability-guide-wsfc-file-share]
 
 
 ## <a name="host-names-and-ip-addresses"></a>호스트 이름 및 IP 주소
@@ -250,30 +250,30 @@ ms.locfileid: "77591543"
 
 Azure 인프라를 준비하려면 다음을 완료합니다.
 
-* [아키텍처 템플릿 1, 2, 3에 대 한 인프라를 준비][sap-high-availability-infrastructure-wsfc-shared-disk]합니다.
+* [아키텍처 템플릿 1, 2 및 3에 대한 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
 
-* [Azure 가상 네트워크를 만듭니다][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network].
+* [Azure 가상 네트워크 만들기.][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network]
 
-* [필요한 DNS IP 주소를 설정][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip]합니다.
+* [필수 DNS IP 주소 설정][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip]
 
-* [SAP 가상 컴퓨터에 대 한 고정 IP 주소를 설정][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip]합니다.
+* [SAP 가상 시스템에 대한 정적 IP 주소를 설정합니다.][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip]
 
-* [Azure 내부 부하 분산 장치에 대 한 고정 IP 주소를 설정][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb]합니다.
+* [Azure 내부 로드 밸러버에 대한 정적 IP 주소를 설정합니다.][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb]
 
-* [Azure 내부 부하 분산 장치에 대 한 기본 ASCS/SCS 부하 분산 규칙을 설정][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]합니다.
+* [Azure 내부 부하 분산 장치의 기본 ASCS/SCS 부하 분산 규칙 설정][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]
 
-* [Azure 내부 부하 분산 장치에 대 한 ASCS/SCS 기본 부하 분산 규칙을 변경][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules]합니다.
+* [Azure 내부 로드 밸런서에 대한 ASCS/SCS 기본 부하 분산 규칙을 변경합니다.][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules]
 
-* [도메인에 Windows 가상 컴퓨터를 추가][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]합니다.
+* [도메인에 Windows 가상 컴퓨터를 추가합니다.][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]
 
-* [SAP ASCS/SCS 인스턴스의 두 클러스터 노드에 대해 레지스트리 항목을 추가][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]합니다.
+* [SAP ASCS/SCS 인스턴스의 두 클러스터 노드에 레지스트리 항목을 추가합니다.][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]
 
-* Windows Server 2016를 사용 하는 경우 [Azure 클라우드 감시][deploy-cloud-witness]를 구성 하는 것이 좋습니다.
+* Windows Server 2016을 사용하는 경우 [Azure Cloud Witness][deploy-cloud-witness]를 구성하는 것이 좋습니다.
 
 
 ## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>수동으로 스케일 아웃 파일 서버 클러스터 배포 
 
-다음 코드를 실행 하 여 [Azure의 블로그 스토리지 공간 다이렉트][ms-blog-s2d-in-azure]에 설명 된 대로 Microsoft 스케일 아웃 파일 서버 클러스터를 수동으로 배포할 수 있습니다.  
+다음 코드를 실행하여 [Azure의 스토리지 공간 다이렉트][ms-blog-s2d-in-azure] 블로그에 설명된 대로 Microsoft 스케일 아웃 파일 서버 클러스터를 수동으로 배포할 수 있습니다.  
 
 
 ```powershell
@@ -318,13 +318,13 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 
 ### <a name="use-managed-disks"></a>관리 디스크 사용
 
-스토리지 공간 다이렉트 및 Azure Managed Disks를 사용 하 여 스케일 아웃 파일 서버를 배포 하기 위한 Azure Resource Manager 템플릿은 [GitHub][arm-sofs-s2d-managed-disks]에서 사용할 수 있습니다.
+스토리지 공간 다이렉트 및 Azure Managed Disks를 사용하여 스케일 아웃 파일 서버를 배포하는 Azure Resource Manager 템플릿은 [GitHub][arm-sofs-s2d-managed-disks]에서 사용할 수 있습니다.
 
 Managed Disks를 사용하는 것이 좋습니다.
 
 ![그림 1: Managed Disks가 포함된 스케일 아웃 파일 서버 Resource Manager 템플릿의 UI 화면][sap-ha-guide-figure-8010]
 
-_**그림 1**: Managed Disks가 포함된 스케일 아웃 파일 서버 Resource Manager 템플릿의 UI 화면_
+_**그림 1**: 관리 디스크가 있는 확장 파일 서버 리소스 관리자 템플릿의 UI 화면_
 
 템플릿에서 다음 작업을 수행합니다.
 1. **VM 수** 상자에 **2**라는 최소 수를 입력합니다.
@@ -334,24 +334,24 @@ _**그림 1**: Managed Disks가 포함된 스케일 아웃 파일 서버 Resourc
 
 ### <a name="use-unmanaged-disks"></a>관리되지 않는 디스크 사용
 
-스토리지 공간 다이렉트 및 Azure 관리 되지 않는 디스크를 사용 하 여 스케일 아웃 파일 서버를 배포 하기 위한 Azure Resource Manager 템플릿은 [GitHub][arm-sofs-s2d-non-managed-disks]에서 사용할 수 있습니다.
+스토리지 공간 다이렉트 및 Azure 관리되지 않는 디스크를 사용하여 스케일 아웃 파일 서버를 배포하는 Azure Resource Manager 템플릿은 [GitHub][arm-sofs-s2d-non-managed-disks]에서 사용할 수 있습니다.
 
 ![그림 2: Managed Disks가 포함되지 않은 스케일 아웃 파일 서버 Azure Resource Manager 템플릿의 UI 화면][sap-ha-guide-figure-8011]
 
-_**그림 2**: Managed Disks가 포함되지 않은 스케일 아웃 파일 서버 Azure Resource Manager 템플릿의 UI 화면_
+_**그림 2**: 관리 디스크가 없는 확장 파일 서버 Azure 리소스 관리자 템플릿에 대한 UI 화면_
 
 **스토리지 계정 형식** 상자에서 **Premium Storage**를 선택합니다. 다른 모든 설정은 Managed Disks와 동일합니다.
 
-## <a name="adjust-cluster-timeout-settings"></a>클러스터 제한 시간 설정 조정
+## <a name="adjust-cluster-timeout-settings"></a>클러스터 시간 시간 설정 조정
 
-Windows 스케일 아웃 파일 서버 클러스터를 성공적으로 설치한 후 Azure의 조건에 대 한 장애 조치 (failover) 검색의 시간 제한 임계값을 조정 합니다. 변경할 매개 변수는 [장애 조치 (failover) 클러스터 네트워크 임계값 조정][tuning-failover-cluster-network-thresholds]에 설명 되어 있습니다. 클러스터 된 Vm이 동일한 서브넷에 있다고 가정 하 고 다음 매개 변수를 이러한 값으로 변경 합니다.
+Windows 확장 파일 서버 클러스터를 성공적으로 설치한 후 장애 조치 검색에 대한 시간 초과 임계값을 Azure의 조건에 맞게 조정합니다. 변경할 매개 변수는 [장애 조치(failover) 클러스터 네트워크 임계값 조정][tuning-failover-cluster-network-thresholds]에 설명되어 있습니다. 클러스터된 VM이 동일한 서브넷에 있다고 가정하면 다음 매개 변수를 다음 값으로 변경합니다.
 
-- SameSubNetDelay = 2000
+- 동일서브넷딜레이 : 2000
 - SameSubNetThreshold = 15
-- RoutingHistoryLength = 30
+- 라우팅기록길이 = 30
 
-이러한 설정은 고객과 함께 테스트되어 도출된 합리적인 타협안입니다. 복원 력이 충분 하지만 실제 오류 조건 또는 VM 오류로 인해 빠르게 충분 한 장애 조치 (failover)를 제공 합니다.
+이러한 설정은 고객과 함께 테스트되어 도출된 합리적인 타협안입니다. 충분히 탄력적이지만 실제 오류 조건이나 VM 오류에서 충분히 빠른 장애 조치(failover)를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [SAP ASCS/SCS 인스턴스에 대 한 Windows 장애 조치 (failover) 클러스터 및 파일 공유에 SAP NetWeaver 고가용성 설치][sap-high-availability-installation-wsfc-file-share]
+* [SAP ASCS/SCS 인스턴스의 Windows 장애 조치(Failover) 클러스터 및 파일 공유에서 SAP NetWeaver 고가용성 설치][sap-high-availability-installation-wsfc-file-share]

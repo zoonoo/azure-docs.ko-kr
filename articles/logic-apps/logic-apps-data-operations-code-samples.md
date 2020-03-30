@@ -1,16 +1,16 @@
 ---
-title: 데이터 작업 사용에 대 한 코드 샘플
-description: 을 사용 하 여 만든 자동화 된 워크플로에서 데이터 작업을 사용 하는 방법을 보여 주는 다음 코드 샘플을 사용해 보세요 Azure Logic Apps
+title: 데이터 작업 사용을 위한 코드 샘플
+description: Azure Logic Apps로 만든 자동화된 워크플로에서 데이터 작업을 사용하는 방법을 보여 주는 코드 샘플을 사용해 보십시오.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.openlocfilehash: c56c31bb6f56efb10808ce25b6b232089391e831
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270525"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Azure Logic Apps용 데이터 작업 코드 샘플
@@ -265,7 +265,7 @@ ms.locfileid: "79270525"
 
 ## <a name="parse-json"></a>Parse JSON
 
-[**구문 분석 JSON**  작업 예제](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action)를 사용하려면 다음과 같은 작업 정의를 사용할 수 있습니다.
+[**구문 분석 JSON ** 작업 예제](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action)를 사용하려면 다음과 같은 작업 정의를 사용할 수 있습니다.
 
 ```json
 "actions": {
@@ -322,7 +322,7 @@ ms.locfileid: "79270525"
 
 <a name="select-action-example"></a>
 
-## <a name="select"></a>여기서
+## <a name="select"></a>선택
 
 [**선택** 작업 예제](../logic-apps/logic-apps-perform-data-operations.md#select-action)를 사용하려면 다음과 같은 작업 정의를 사용할 수 있습니다.
 

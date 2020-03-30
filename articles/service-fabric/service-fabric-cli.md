@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 46c5e1ed0a1d0db100c3415c40f59d46f62b21f9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258942"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
@@ -30,7 +30,7 @@ Service Fabric CLI는 Service Fabric SDK의 최신 런타임 버전을 지원하
 
 | CLI 버전   | 지원되는 런타임 버전 |
 |---------------|---------------------------|
-| 최신 (~ = 9)  | 최신(~=7)              |
+| 최신(~=9)  | 최신(~=7)              |
 | 8.0.0         | 6.5                       |
 | 7.1.0         | 6.4                       |
 | 6.0.0         | 6.3                       |
@@ -99,7 +99,7 @@ sfctl -h
 
 `sfctl: command not found`
 
-`~/.local/bin`에서 `$PATH`에 액세스할 수 있도록 합니다.
+`$PATH`에서 `~/.local/bin`에 액세스할 수 있도록 합니다.
 
 ```bash
 export PATH=$PATH:~/.local/bin

@@ -4,15 +4,15 @@ description: 고객을 Azure 위임 리소스 관리에 등록하여 고유한 �
 ms.date: 10/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: c06ed4ea597808aee18d4a848bcfea7152b9cf8e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270642"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>위임된 구독 내에서 수정할 수 있는 정책 배포
 
-[Azure Lighthouse](../overview.md)를 사용하면 서비스 공급자가 위임된 구독 내에서 정책 정의를 만들고 편집할 수 있습니다. 그러나 [수정 작업](../../governance/policy/how-to/remediate-resources.md)을 사용하는 정책(즉 [deployIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists) 또는 [modify](../../governance/policy/concepts/effects.md#modify) 효과를 사용하는 정책)을 배포하려면 고객 테넌트에서 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 만들어야 합니다. Azure Policy에서 이 관리 ID를 사용하여 정책 내에서 템플릿을 배포할 수 있습니다. Azure 위임된 리소스 관리를 위해 고객을 등록하고 정책 자체를 배포할 때 이 시나리오를 활성화하는 데 필요한 단계가 있습니다.
+[Azure Lighthouse를](../overview.md) 사용하면 서비스 공급자가 위임된 구독 내에서 정책 정의를 만들고 편집할 수 있습니다. 그러나 [수정 작업](../../governance/policy/how-to/remediate-resources.md)을 사용하는 정책(즉 [deployIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists) 또는 [modify](../../governance/policy/concepts/effects.md#modify) 효과를 사용하는 정책)을 배포하려면 고객 테넌트에서 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 만들어야 합니다. Azure Policy에서 이 관리 ID를 사용하여 정책 내에서 템플릿을 배포할 수 있습니다. Azure 위임된 리소스 관리를 위해 고객을 등록하고 정책 자체를 배포할 때 이 시나리오를 활성화하는 데 필요한 단계가 있습니다.
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>고객 테넌트에서 관리 ID에 역할을 할당할 수 있는 사용자 만들기
 
@@ -22,7 +22,7 @@ Azure에서 위임된 리소스 관리를 위해 고객을 등록하는 경우 �
 
 고객이 등록된 후 이 권한 부여에서 만든 **principalId**는 이러한 기본 제공 역할을 고객 테넌트의 관리 ID에 할당할 수 있습니다. 그러나 일반적으로 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 없습니다.
 
-아래 예제에서는 사용자 액세스 관리자 역할을 보유하는 **principalId**를 보여 줍니다. 이 사용자는 고객 테 넌 트의 관리 되는 id에 두 가지 기본 제공 역할 (참가자 및 Log Analytics 참가자)을 할당할 수 있습니다.
+아래 예제에서는 사용자 액세스 관리자 역할을 보유하는 **principalId**를 보여 줍니다. 이 사용자는 고객 테넌트의 관리ID인 기고자 및 로그 분석 기고자에게 두 가지 기본 제공 역할을 할당할 수 있습니다.
 
 ```json
 {

@@ -9,10 +9,10 @@ ms.date: 02/18/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 26e76731f663ac9038bc87182d52c4bd245f1b6e
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77471702"
 ---
 ## <a name="limitations"></a>제한 사항
@@ -25,12 +25,12 @@ ms.locfileid: "77471702"
 
 ## <a name="deploy-an-azure-shared-disk"></a>Azure 공유 디스크 배포
 
-공유 디스크 기능이 사용 하도록 설정 된 관리 디스크를 배포 하려면 `maxShares` 새 속성을 사용 하 여 `>1`값을 정의 합니다. 이렇게 하면 여러 Vm에서 디스크를 공유할 수 있습니다.
+공유 디스크 기능이 활성화된 관리 디스크를 배포하려면 `maxShares` 새 속성을 `>1`사용하고 값을 정의합니다. 이렇게 하면 여러 VM에서 디스크를 공유할 수 있습니다.
 
 > [!IMPORTANT]
-> 모든 Vm에서 디스크가 분리 된 경우에만 `maxShares`의 값을 설정 하거나 변경할 수 있습니다. `maxShares`에 대해 허용 되는 값은 [디스크 크기](#disk-sizes) 를 참조 하세요.
+> 디스크가 `maxShares` 모든 VM에서 마운트 해제된 경우에만 값을 설정하거나 변경할 수 있습니다. 에 대해 허용되는 값에 대한 디스크 크기를 참조하십시오. [Disk sizes](#disk-sizes) `maxShares`
 
-다음 템플릿을 사용 하기 전에 `[parameters('dataDiskName')]`, `[resourceGroup().location]`, `[parameters('dataDiskSizeGB')]`및 `[parameters('maxShares')]`를 사용자 고유의 값으로 바꿉니다.
+다음 템플릿을 사용하기 `[parameters('dataDiskName')]`전에 `[resourceGroup().location]` `[parameters('dataDiskSizeGB')]`에서 `[parameters('maxShares')]` 를 바꾸고 사용자 고유의 값으로 바꿉습니다.
 
 ```json
 { 
@@ -71,12 +71,12 @@ ms.locfileid: "77471702"
 }
 ```
 
-### <a name="using-azure-shared-disks-with-your-vms"></a>Vm에서 Azure 공유 디스크 사용
+### <a name="using-azure-shared-disks-with-your-vms"></a>VM에서 Azure 공유 디스크 사용
 
-`maxShares>1`를 사용 하 여 공유 디스크를 배포한 후에는 하나 이상의 Vm에 디스크를 탑재할 수 있습니다.
+`maxShares>1`을 사용하여 공유 디스크를 배포한 후에는 하나 이상의 VM에 디스크를 탑재할 수 있습니다.
 
 > [!IMPORTANT]
-> 디스크를 공유 하는 모든 Vm은 동일한 [근접 배치 그룹](../articles/virtual-machines/windows/proximity-placement-groups.md)에 배포 되어야 합니다.
+> 디스크를 공유하는 모든 VM은 동일한 [근접 배치 그룹에](../articles/virtual-machines/windows/proximity-placement-groups.md)배포해야 합니다.
 
 ```azurepowershell-interactive
 
@@ -98,11 +98,11 @@ $vm = Add-AzVMDataDisk -VM $vm -Name "mySharedDisk" -CreateOption Attach -Manage
 update-AzVm -VM $vm -ResourceGroupName $resourceGroup
 ```
 
-## <a name="supported-scsi-pr-commands"></a>지원 되는 SCSI PR 명령
+## <a name="supported-scsi-pr-commands"></a>지원되는 SCSI PR 명령
 
-공유 디스크를 클러스터의 Vm에 탑재 한 후에는 SCSI PR을 사용 하 여 쿼럼 및 디스크에 대 한 읽기/쓰기를 설정할 수 있습니다. Azure 공유 디스크를 사용 하는 경우 다음과 같은 PR 명령을 사용할 수 있습니다.
+클러스터의 VM에 공유 디스크를 탑재한 후에는 SCSI PR을 사용하여 쿼럼을 설정하고 디스크에 읽기/쓰기를 할 수 있습니다. Azure 공유 디스크를 사용할 때 다음 PR 명령을 사용할 수 있습니다.
 
-디스크와 상호 작용 하려면 영구 예약 작업 목록으로 시작 합니다.
+디스크와 상호 작용하려면 영구 예약 작업 목록으로 시작합니다.
 
 ```
 PR_REGISTER_KEY 
@@ -120,7 +120,7 @@ PR_CLEAR_RESERVATION
 PR_RELEASE_RESERVATION 
 ```
 
-PR_RESERVE, PR_PREEMPT_RESERVATION 또는 PR_RELEASE_RESERVATION를 사용 하는 경우 다음의 영구 예약 형식 중 하나를 제공 합니다.
+PR_RESERVE, PR_PREEMPT_RESERVATION 또는 PR_RELEASE_RESERVATION 사용하는 경우 다음 중 하나를 영구 예약 유형으로 제공합니다.
 
 ```
 PR_NONE 
@@ -138,9 +138,9 @@ PR_WRITE_EXCLUSIVE_ALL_REGISTRANTS
 PR_EXCLUSIVE_ACCESS_ALL_REGISTRANTS 
 ```
 
-PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_CLEAR_RESERVATION 또는 PR_RELEASE 예약을 사용 하는 경우에도 영구 예약 키를 제공 해야 합니다.
+또한 PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_CLEAR_RESERVATION 또는 PR_RELEASE 예약을 사용할 때 영구 예약 키를 제공해야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-공유 디스크를 사용해 보려는 경우 [미리 보기에 등록 하세요](https://aka.ms/AzureSharedDiskPreviewSignUp).
+공유 디스크를 시도하고 싶다면 미리 [보기에 등록하십시오.](https://aka.ms/AzureSharedDiskPreviewSignUp)

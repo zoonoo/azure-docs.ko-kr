@@ -4,36 +4,36 @@ description: 다시 배포하지 않고 웹 사이트의 성능을 모니터링�
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.openlocfilehash: 63d632df61548d15a1e0a606cf2e198207faf341
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670052"
 ---
-# <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Application Insights 코드 없는 Attach를 사용 하 여 런타임 시 웹 앱 계측
+# <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>응용 프로그램 인사이트 코드리스 첨부를 사용하여 런타임시 계측기 웹 앱
 
 > [!IMPORTANT]
-> 상태 모니터는 더 이상 사용 하지 않는 것이 좋습니다. 이 파일은 Azure Monitor Application Insights 에이전트로 대체 되었습니다 (이전의 명명 된 상태 모니터 v2). [온-프레미스 서버 배포](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) 또는 [Azure 가상 머신과 가상 머신 확장 집합 배포](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps)에 대 한 설명서를 참조 하세요.
+> 상태 모니터는 더 이상 사용하지 않는 것이 좋습니다. Azure 모니터 응용 프로그램 인사이트 에이전트(이전 이름 상태 모니터 v2)로 대체되었습니다. [온-프레미스 서버 배포](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) 또는 [Azure 가상 컴퓨터 및 가상 시스템 집합 배포에 대한 설명서를](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps)참조하십시오.
 
 코드를 수정하거나 다시 배포할 필요 없이 Azure Application Insights를 사용하여 라이브 웹앱을 계측할 수 있습니다. [Microsoft Azure](https://azure.com) 구독이 필요합니다.
 
 상태 모니터는 온-프레미스 또는 VM의 IIS에서 호스트되는 .NET 애플리케이션을 계측하는 데 사용합니다.
 
-- 앱이 Azure VM 또는 Azure 가상 머신 확장 집합에 배포 되는 경우 [다음 지침](azure-vm-vmss-apps.md)을 따르세요.
+- 앱이 Azure VM 또는 Azure 가상 시스템 규모 집합에 배포된 경우 [다음 지침을](azure-vm-vmss-apps.md)따르십시오.
 - 앱을 Azure App Services에 배포하는 경우 [이러한 지침](azure-web-apps.md)을 따릅니다.
 - 앱을 Azure VM에 배포하는 경우 Azure 제어판에서 Application Insights 모니터링을 켤 수 있습니다.
-- [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)를 계측 하는 방법에 대 한 별도의 문서도 있습니다.
+- (Azure [클라우드 서비스](../../azure-monitor/app/cloudservices.md)계측에 대한 별도의 문서도 있습니다.)
 
 
 ![실패한 요청, 서버 응답 시간 및 서버 요청에 대한 정보를 포함하는 App Insights 개요 그래프 스크린샷](./media/monitor-performance-live-website-now/overview-graphs.png)
 
 Application Insights를 .NET 웹 애플리케이션에 적용하는 두 가지 경로가 있습니다.
 
-* **빌드 시간:** 웹 앱 코드에 [Application Insights SDK를 추가][greenbrown] 합니다.
+* **빌드 시간: 웹앱 코드에 ** [Application Insights SDK를 추가][greenbrown]합니다.
 * **실행 시간:** 코드를 다시 빌드하거나 다시 작성하지 않고 아래 설명된 대로 서버에서 웹앱을 계측합니다.
 
 > [!NOTE]
-> 빌드 시간 계측을 사용 하는 경우에는 실행 시간 계측 기능이 설정 된 경우에도 작동 하지 않습니다.
+> 빌드 시간 계측을 사용하는 경우 실행 시간 계측이 켜져 있어도 작동하지 않습니다.
 
 다음은 각 루트의 장점을 요약한 것입니다.
 
@@ -58,7 +58,7 @@ IIS 서버에서 앱이 호스트되는 경우 상태 모니터를 사용하여 
 2. Application Insights 상태 모니터가 설치되어 있지 않으면 [설치 관리자를 다운로드하여 실행](#download)합니다.
 3. 상태 모니터에서 모니터링할 설치된 웹 애플리케이션 또는 웹 사이트를 선택합니다. Azure 자격 증명으로 로그인합니다.
 
-    Application Insights 포털에서 결과를 표시할 리소스를 구성합니다. (일반적으로 새 리소스를 만드는 것이 좋습니다. 이 앱에 대 한 [웹 테스트][availability] 또는 [클라이언트 모니터링][client] 이 이미 있는 경우 기존 리소스를 선택 합니다. 
+    Application Insights 포털에서 결과를 표시할 리소스를 구성합니다. (일반적으로 새 리소스를 만드는 것이 좋습니다. 이 앱에 대해 [웹 테스트][availability] 또는 [클라이언트 모니터링][client]이 이미 있으면 기존 리소스를 선택합니다.) 
 
     ![앱과 리소스를 선택합니다.](./media/monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
@@ -74,7 +74,7 @@ Application Insights를 사용하면 DLL 및 ApplicationInsights.config가 웹�
 
 ## <a name="when-you-re-publish-your-app-re-enable-application-insights"></a>앱을 다시 게시할 때 Application Insights 다시 활성화
 
-앱을 다시 게시 하기 전에 [Visual Studio에서 코드에 Application Insights을 추가 하는][greenbrown]것이 좋습니다. 이렇게 하면 자세한 원격 분석을 얻을 수 있고 사용자 지정 원격 분석을 작성하는 기능도 얻을 수 있습니다.
+앱을 다시 게시하기 전에 [Application Insights를 Visual Studio에서 코드에 추가][greenbrown]하는 것이 좋습니다. 이렇게 하면 자세한 원격 분석을 얻을 수 있고 사용자 지정 원격 분석을 작성하는 기능도 얻을 수 있습니다.
 
 Application Insights를 코드에 추가하지 않고 다시 게시하려는 경우, 배포 과정에서 게시된 웹 사이트의 DLL 및 ApplicationInsights.config가 삭제될 수 있으니 유의하세요. 따라서
 
@@ -84,7 +84,7 @@ Application Insights를 코드에 추가하지 않고 다시 게시하려는 경
 4. .config 파일에 수행했던 편집 내용을 복구합니다.
 
 
-## <a name="troubleshoot"></a>문제 해결
+## <a name="troubleshooting"></a><a name="troubleshoot"></a>문제 해결
 
 ### <a name="confirm-a-valid-installation"></a>유효한 설치 확인 
 
@@ -128,7 +128,7 @@ Application Insights를 사용하도록 설정하면 이 오류가 발생할 수
 </dependentAssembly>
 ```
 
-[여기](https://github.com/Microsoft/ApplicationInsights-Home/issues/301)에서 이 문제를 추적하고 있습니다.
+여기에서 이 문제를 추적하고 [있습니다.](https://github.com/Microsoft/ApplicationInsights-Home/issues/301)
 
 
 ### <a name="application-diagnostic-messages"></a>애플리케이션 진단 메시지
@@ -144,7 +144,7 @@ Application Insights를 사용하도록 설정하면 이 오류가 발생할 수
 * 자세한 정보 표시 로그를 출력하려면 구성 파일 `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config`를 수정하고 `<add key="TraceLevel" value="All" />`을 `appsettings`에 추가합니다.
 그런 후 상태 모니터를 다시 시작합니다.
 
-* 상태 모니터 .NET 응용 프로그램 이므로 [적절 한 진단을 구성 파일에 추가 하 여 .net 추적](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element)을 사용 하도록 설정할 수도 있습니다. 예를 들어 일부 시나리오에서는 [네트워크 추적을 구성](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing) 하 여 네트워크 수준에서 발생 하는 상황을 확인 하는 것이 유용할 수 있습니다.
+* 상태 모니터는 .NET 응용 프로그램이기 때문에 [구성 파일에 적절한 진단을 추가하여 .net 추적을 활성화할](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element)수도 있습니다. 예를 들어 일부 시나리오에서는 [네트워크 추적을 구성하여](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing) 네트워크 수준에서 무슨 일이 일어나고 있는지 확인하는 것이 유용할 수 있습니다.
 
 ### <a name="insufficient-permissions"></a>권한 부족
   
@@ -170,7 +170,7 @@ Application Insights를 사용하도록 설정하면 이 오류가 발생할 수
 
 ### <a name="additional-troubleshooting"></a>추가적인 문제 해결
 
-* 추가 [문제 해결][qna]을 참조 하세요.
+* 추가적인 [문제 해결][qna] 참조
 
 ## <a name="system-requirements"></a>시스템 요구 사항
 Server에서 Application Insights 상태 모니터에 대한 OS 지원:
@@ -181,7 +181,7 @@ Server에서 Application Insights 상태 모니터에 대한 OS 지원:
 * Windows Server 2012 R2
 * Windows Server 2016
 
-최신 SP 및 .NET Framework 4.5 (이 버전의 프레임 워크를 기반으로 하는 상태 모니터)
+최신 SP 및 .NET 프레임 워크 4.5 (상태 모니터는 프레임 워크의이 버전에 내장 되어 있습니다)
 
 클라이언트 쪽 Windows 7, 8, 8.1 및 10에서, 역시 .NET Framework 4.5 포함
 
@@ -238,7 +238,7 @@ IIS 서버에서 PowerShell을 사용하여 모니터링을 시작하고 중지�
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
 * `-Name`: IIS에서 웹앱의 이름
-* `-InstrumentationKey` (옵션) 이를 사용 하 여 앱의 원격 분석이 전송 되는 리소스를 변경 합니다.
+* `-InstrumentationKey`(선택 사항)을 사용합니다. 이 것을 사용하여 앱의 원격 분석이 전송되는 리소스를 변경합니다.
 * 이 cmdlet은:
   * 최근에 이 컴퓨터에 다운로드된 SDK 버전으로 명명된 앱을 업그레이드합니다. (`SdkState==EnabledAfterDeployment`인 경우에만 작동)
   * 계측 키를 제공하는 경우 명명된 앱은 해당 키가 있는 리소스에 원격 분석을 전송하도록 다시 구성됩니다. ( `SdkState != Disabled`인 경우 작동)
@@ -247,7 +247,7 @@ IIS 서버에서 PowerShell을 사용하여 모니터링을 시작하고 중지�
 
 * 서버에 최신 Application Insights SDK를 다운로드합니다.
 
-## <a name="questions"></a>상태 모니터에 대한 질문
+## <a name="questions-about-status-monitor"></a><a name="questions"></a>상태 모니터에 대한 질문
 
 ### <a name="what-is-status-monitor"></a>상태 모니터란?
 
@@ -275,7 +275,7 @@ IIS 웹 서버에 설치한 데스크톱 애플리케이션입니다. 웹앱을 
 
 현재 상태 모니터는 Application Insights SDK 버전 2.3 또는 2.4만 설치할 수 있습니다. 
 
-Application Insights SDK 버전 2.4은 [.net 4.0을 지원 하기 위한 최신 버전](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1) 으로, [2016 년 1 월 1 일](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/)입니다. 따라서 현재는 상태 모니터 .NET 4.0 응용 프로그램을 계측 하는 데 사용할 수 있습니다. 
+응용 프로그램 인사이트 SDK 버전 2.4는 [2016년 1월 EOL이었던](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/) [.NET 4.0을 지원하는 마지막 버전입니다.](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1) 따라서 현재 상태 모니터를 사용하여 .NET 4.0 응용 프로그램을 계측할 수 있습니다. 
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>앱을 업데이트할 때마다 상태 모니터를 실행해야 하나요?
 
@@ -304,25 +304,25 @@ Application Insights SDK 버전 2.4은 [.net 4.0을 지원 하기 위한 최신 
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="download"></a>상태 모니터 다운로드
+## <a name="download-status-monitor"></a><a name="download"></a>상태 모니터 다운로드
 
-- 새 [PowerShell 모듈](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) 사용
-- [상태 모니터 설치 관리자](https://go.microsoft.com/fwlink/?LinkId=506648)를 다운로드하고 실행합니다.
+- 새로운 [PowerShell 모듈](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) 사용
+- 상태 모니터 [설치 관리자](https://go.microsoft.com/fwlink/?LinkId=506648) 다운로드 및 실행
 - 또는 [웹 플랫폼 설치 관리자](https://www.microsoft.com/web/downloads/platform.aspx)를 실행하고 Application Insights 상태 모니터를 검색합니다.
 
-## <a name="next"></a>다음 단계
+## <a name="next-steps"></a><a name="next"></a>다음 단계
 
 원격 분석 보기:
 
 * [메트릭을 탐색하여](../../azure-monitor/app/metrics-explorer.md) 성능 및 사용량을 모니터링합니다.
-* [이벤트 및 로그를 검색][diagnostic] 하 여 문제 진단
+* [이벤트 및 로그를 검색하여][diagnostic] 문제를 진단합니다.
 * [분석](../../azure-monitor/app/analytics.md)을 통해 고급 쿼리를 수행합니다.
 
 원격 분석 더 추가:
 
-* [웹 테스트를 만들어][availability] 사이트가 라이브 상태로 유지 되는지 확인 합니다.
-* 웹 [클라이언트 원격 분석을 추가][usage] 하 여 웹 페이지 코드에서 예외를 확인 하 고 추적 호출을 삽입할 수 있습니다.
-* 추적 및 로그 호출을 삽입할 수 있도록 [APPLICATION INSIGHTS SDK를 코드에 추가][greenbrown] 합니다.
+* [웹 테스트를 만들어][availability] 사이트가 라이브 상태로 유지되고 있는지 확인합니다.
+* [웹 클라이언트 원격 분석을 추가][usage]하여 웹 페이지 코드에서 예외를 확인하고 추적 호출을 삽입합니다.
+* [Application Insights SDK를 코드에 추가하여][greenbrown] 추적 및 로그 호출을 삽입할 수 있도록 합니다.
 
 <!--Link references-->
 

@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: cb4eb4474ad074a3e69dc146c97b48d54343595b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79213956"
 ---
 # <a name="extended-events-in-sql-database"></a>SQL Database의 확장 이벤트
@@ -38,7 +38,7 @@ Azure SQL Database 및 Microsoft SQL Server용 확장 이벤트에 대한 추가
 
 이 항목은 다음에 대한 어느 정도의 지식이 있는 것으로 가정합니다.
 
-- [Azure SQL Database 서비스](https://azure.microsoft.com/services/sql-database/).
+- [Azure SQL 데이터베이스 서비스](https://azure.microsoft.com/services/sql-database/).
 - Microsoft SQL Server의 [Extended events](https://msdn.microsoft.com/library/bb630282.aspx).
 
 - 이 설명서에서 확장 이벤트에 대한 내용의 많은 부분이 SQL Server와 SQL Database에 모두 적용됩니다.
@@ -81,7 +81,7 @@ Azure SQL Database 및 Microsoft SQL Server용 확장 이벤트에 대한 추가
 
 확장 이벤트 기능은 여러 [카탈로그 뷰](https://msdn.microsoft.com/library/ms174365.aspx)에서 지원합니다. 카탈로그 뷰를 통해 현재 데이터베이스에서 사용자가 만든 이벤트 세션의 *메타데이터 또는 정의* 를 확인할 수 있습니다. 뷰는 활성 이벤트 세션의 인스턴스에 대한 정보를 반환하지 않습니다.
 
-| 카탈로그 뷰의<br/>이름 | Description |
+| 카탈로그 뷰의<br/>이름 | 설명 |
 |:--- |:--- |
 | **sys.database_event_session_actions** |이벤트 세션의 각 이벤트의 동작에 대해 한 행을 반환합니다. |
 | **sys.database_event_session_events** |이벤트 세션의 각 이벤트에 대한 행을 반환합니다. |
@@ -95,7 +95,7 @@ Microsoft SQL Server에서 유사한 카탈로그 뷰의 이름에는 *.database
 
 Azure SQL Database에는 확장 이벤트를 지원하는 [DMV(동적 관리 뷰)](https://msdn.microsoft.com/library/bb677293.aspx)가 있습니다. DMV를 통해 *활성* 이벤트 세션을 확인할 수 있습니다.
 
-| DMV의 이름 | Description |
+| DMV의 이름 | 설명 |
 |:--- |:--- |
 | **sys.dm_xe_database_session_event_actions** |이벤트 세션 동작에 대한 정보를 반환합니다. |
 | **sys.dm_xe_database_session_events** |세션 이벤트에 대한 정보를 반환합니다. |
@@ -103,7 +103,7 @@ Azure SQL Database에는 확장 이벤트를 지원하는 [DMV(동적 관리 뷰
 | **sys.dm_xe_database_session_targets** |세션 작업에 대한 정보를 반환합니다. |
 | **sys.dm_xe_database_sessions** |현재 데이터베이스로 범위가 한정된 각 이벤트 세션에 대한 행을 반환합니다. |
 
-Microsoft SQL Server에서 유사한 카탈로그 뷰는 다음과 같이 이름에 *\_database* 부분이 없습니다.
+Microsoft SQL Server에서 다음과 같은 * \_이름의 데이터베이스* 부분 없이 유사한 카탈로그 보기의 이름이 지정됩니다.
 
 - **sys.dm_xe_sessions**, 이름 대신<br/>**sys.dm_xe_database_sessions**.
 
@@ -190,7 +190,7 @@ Azure Storage BLOB에 데이터를 유지하는 동안 **이벤트 파일** 대�
 
 ## <a name="related-links"></a>관련 링크
 
-- [Azure Storage와 함께 Azure PowerShell 사용](../storage/common/storage-powershell-guide-full.md)
+- [Azure 저장소와 함께 Azure PowerShell 을 사용 하 여](../storage/common/storage-powershell-guide-full.md)입니다.
 - [Azure Storage Cmdlet](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [Azure Storage와 함께 Azure PowerShell 사용](../storage/common/storage-powershell-guide-full.md) - PowerShell 및 Azure Storage 서비스에 대한 포괄적 정보를 제공합니다.
 - [.NET에서 Blob Storage를 사용하는 방법](../storage/blobs/storage-dotnet-how-to-use-blobs.md)

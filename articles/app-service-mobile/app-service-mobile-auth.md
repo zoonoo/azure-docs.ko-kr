@@ -1,20 +1,20 @@
 ---
 title: 인증 및 권한 부여
-description: Azure App Service에 대 한 인증/권한 부여 기능의 개념 참조 및 개요 (특히 mobile apps 용)
+description: Azure 앱 서비스( 특히 모바일 앱용)에 대한 인증/권한 부여 기능에 대한 개념 참조 및 개요입니다.
 ms.topic: article
 ms.date: 10/01/2016
 ms.openlocfilehash: 4a9ef62178b9a58fa8703413a09114a617d1d239
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77459466"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Azure App Service에서 모바일 앱에 대한 인증 및 권한 부여
 
 이 문서에서는 App Service 백 엔드를 사용하여 네이티브 모바일 앱을 개발할 때 인증 및 권한 부여가 작동하는 방법에 대해 설명합니다. App Service에서 통합된 인증 및 권한 부여를 제공하므로 모바일 앱은 App Service의 코드를 변경하지 않고 사용자를 로그인할 수 있습니다. 애플리케이션을 보호하고 사용자 단위당 데이터로 작업하는 쉬운 방법을 제공합니다. 
 
-이 문서는 모바일 앱 개발에 중점을 둡니다. 모바일 앱에 대 한 App Service 인증 및 권한 부여를 신속 하 게 시작 하려면 [iOS 앱에 인증 추가][iOS] (또는 [android], [Windows], [Xamarin.iOS] [Xamarin.Android] [Xamarin.Forms]또는 [Cordova]) 자습서 중 하나를 참조 하세요. 
+이 문서는 모바일 앱 개발에 중점을 둡니다. 모바일 앱에 대한 App Service 인증 및 권한 부여를 빠르게 시작하려면 [iOS 앱에 인증 추가][iOS](또는 [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] 또는 [Cordova]) 자습서 중 하나를 참조하세요. 
 
 App Service에서 인증 및 권한 부여가 작동하는 방법에 대한 내용은 [Azure App Service의 인증 및 권한 부여](../app-service/overview-authentication-authorization.md)를 참조하세요.
 
@@ -48,20 +48,20 @@ App Service에서 모든 항목이 구성되면 App Service를 사용하여 로�
 다음 자습서에서는 [서버 제어 흐름](../app-service/overview-authentication-authorization.md#authentication-flow)을 사용하여 모바일 클라이언트에 인증을 추가하는 방법을 보여 줍니다.
 
 * [iOS 앱에 인증 추가][iOS]
-* [Android 앱에 인증 추가][Android]
+* [안드로이드 앱에 인증 추가][Android]
 * [Windows 앱에 인증 추가][Windows]
 * [Xamarin.iOS 앱에 인증 추가][Xamarin.iOS]
 * [Xamarin Android 앱에 인증 추가][Xamarin.Android]
-* [Xamarin. Forms 앱에 인증 추가][Xamarin.Forms]
-* [Cordova 앱에 인증 추가][Cordova]
+* [Xamarin.Forms 앱에 인증 추가][Xamarin.Forms]
+* [코르도바 앱에 인증 추가][Cordova]
 
 Azure Active Directory에 대한 [클라이언트 제어 흐름](../app-service/overview-authentication-authorization.md#authentication-flow)을 사용하려는 경우 다음 리소스를 사용하세요.
 
-* [IOS에 대 한 Active Directory 인증 라이브러리 사용][ADAL-iOS]
-* [Android 용 Active Directory 인증 라이브러리 사용][ADAL-Android]
-* [Windows 및 Xamarin에 대 한 Active Directory 인증 라이브러리 사용][ADAL-dotnet]
+* [iOS용 Active Directory 인증 라이브러리 사용][ADAL-iOS]
+* [Android용 Active Directory 인증 라이브러리 사용][ADAL-Android]
+* [Windows 및 Xamarin용 Active Directory 인증 라이브러리 사용][ADAL-dotnet]
 
-Facebook에 대한 [클라이언트 제어 흐름](../app-service/overview-authentication-authorization.md#authentication-flow)을 사용하려는 경우 다음 리소스를 사용하세요.
+Facebook에 [대한 클라이언트 지향 흐름을](../app-service/overview-authentication-authorization.md#authentication-flow) 사용하려면 다음 리소스를 사용합니다.
 
 * [iOS용 Facebook SDK 사용](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#facebook-sdk)
 

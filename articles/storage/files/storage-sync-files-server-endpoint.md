@@ -8,10 +8,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 684b30a24e049722cb531cbc84e3a2cd90912ec8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255107"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Azure 파일 동기화 서버 엔드포인트 추가/제거
@@ -54,11 +54,11 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order CloudTieringPolicy
 ```
-`-Order CloudTieringPolicy`를 지정 하면 가장 최근에 수정한 파일이 먼저 회수 됩니다.
-고려할 수 있는 다른 옵션 이지만 유용한 매개 변수는 다음과 같습니다.
-* `-ThreadCount`은 동시에 회수할 수 있는 파일 수를 결정 합니다.
-* `-PerFileRetryCount`은 현재 차단 된 파일에 대 한 회수를 시도 하는 빈도를 결정 합니다.
-* `-PerFileRetryDelaySeconds`회수 시도 사이의 시간 (초)을 결정 하 고, 항상 이전 매개 변수와 함께 사용 해야 합니다.
+지정하면 `-Order CloudTieringPolicy` 가장 최근에 수정된 파일이 먼저 기억됩니다.
+고려해야 할 다른 선택적이지만 유용한 매개 변수는 다음과 같습니다.
+* `-ThreadCount`병렬로 회수할 수 있는 파일 수를 결정합니다.
+* `-PerFileRetryCount`현재 차단된 파일의 리콜 시도 빈도를 결정합니다.
+* `-PerFileRetryDelaySeconds`다시 시도 회수사이의 시간을 결정하며 항상 이전 매개 변수와 함께 사용해야 합니다.
 
 > [!Note]  
 > 서버를 호스트하는 로컬 볼륨에 모든 계층화된 데이터를 기억할 충분한 사용 가능한 공간이 없으면 `Invoke-StorageSyncFileRecall` cmdlet이 실패합니다.  
@@ -73,5 +73,5 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order Clou
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure 파일 동기화에 서버 등록/등록 취소](storage-sync-files-server-registration.md)
-- [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)
+- [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md)
 - [Azure 파일 동기화 모니터링](storage-sync-files-monitoring.md)

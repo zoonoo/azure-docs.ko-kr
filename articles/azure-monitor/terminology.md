@@ -7,23 +7,23 @@ author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
 ms.openlocfilehash: 0c5e1096b0780d2f9e50389f772e63344935012b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274139"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure Monitor 이름 지정 및 용어 변경
 Azure 고객을 위한 모니터링 간소화를 위해 다양한 서비스가 통합되면서 Azure Monitor가 최근 상당히 변화되었습니다. 이 문서에서는 Azure Monitor 설명서의 이름 및 용어 변경 내용을 설명합니다.
 
-## <a name="october-2019---diagnostic-log-to-resource-log"></a>10 월 2019-리소스 로그에 대 한 진단 로그
-실제로 수집 되는 항목에 맞게 "진단 로그"가 "리소스 로그"로 변경 되었습니다. "진단 설정" 이라는 용어는 동일 하 게 유지 됩니다.  
+## <a name="october-2019---diagnostic-log-to-resource-log"></a>2019년 10월 - 리소스 로그에 대한 진단 로그
+"진단 로그"가 실제로 수집되는 내용과 더 잘 일치하도록 "리소스 로그"로 변경되었습니다. "진단 설정"이라는 용어는 동일하게 유지됩니다.  
 
 ## <a name="february-2019---log-analytics-terminology"></a>2019년 2월 - Log Analytics 용어
 Azure Monitor에 다양한 서비스를 통합한 후 다음 단계로, Azure Monitor 서비스와 다른 구성 요소를 잘 설명하기 위해 설명서의 용어가 수정되었습니다. 
 
 ### <a name="log-analytics"></a>Log Analytics
-Azure Monitor 로그 데이터는 여전히 Log Analytics 작업 영역에 저장되며 동일한 Log Analytics 서비스에 의해 수집되고 분석됩니다. 다만, 여러 위치에서 _Log Analytics_라는 용어를 _Azure Monitor_ 로그로 변경하고 있습니다. 이 용어는 Azure Monitor의 역할을 반영 하 고 [Azure Monitor의 메트릭과](platform/data-platform-metrics.md)더 나은 일관성을 제공 합니다.
+Azure Monitor 로그 데이터는 여전히 Log Analytics 작업 영역에 저장되며 동일한 Log Analytics 서비스에 의해 수집되고 분석됩니다. 다만, 여러 위치에서 _Log Analytics_라는 용어를 _Azure Monitor_ 로그로 변경하고 있습니다. 이 용어는 Azure Monitor의 역할을 더 잘 반영하고 Azure 모니터 의 메트릭과 더 나은 [일관성을](platform/data-platform-metrics.md)제공합니다.
 
 이제 로그 분석(_log analytics_)이라는 용어는 쿼리를 작성하여 실행하고 로그 데이터를 분석하는 데 사용되는 Azure Portal의 페이지에 주로 적용됩니다. 이것은 [메트릭 탐색기](platform/metrics-charts.md)와 기능적으로 동일하며 메트릭 데이터를 분석하는 데 사용되는 Azure Portal의 페이지입니다.
 
@@ -45,7 +45,7 @@ Azure 리소스와 하이브리드 환경을 모니터링하는 단일 통합 �
 ## <a name="april-2018---retirement-of-operations-management-suite-brand"></a>2018년 4월 - Operations Management Suite 브랜드 사용 중지
 OMS(Operations Management Suite)는 라이센스 부여에 사용되는 다음 Azure 관리 서비스를 번들한 것입니다.
 
-- Application Insights
+- 애플리케이션 정보
 - Azure Automation
 - Azure Backup
 - Log Analytics

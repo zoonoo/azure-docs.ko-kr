@@ -1,5 +1,5 @@
 ---
-title: 웹 서비스 매개 변수-Azure Machine Learning Studio (클래식) | Microsoft Docs
+title: 웹 서비스 매개 변수 - Azure 기계 학습 스튜디오 (클래식) | 마이크로 소프트 문서
 description: Azure Machine Learning 웹 서비스 매개 변수를 사용하여 웹 서비스에 액세스할 때 모델의 동작을 수정하는 방법입니다.
 services: machine-learning
 author: xiaoharper
@@ -13,19 +13,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2017
 ms.openlocfilehash: d6ddd9603f22bd3820d18be020b9c620cf06aa42
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204412"
 ---
-# <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Azure Machine Learning Studio (클래식) 웹 서비스 매개 변수 사용
+# <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Azure 기계 학습 스튜디오(클래식) 웹 서비스 매개 변수 사용
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈이 포함된 실험을 게시하여 만듭니다. 경우에 따라 웹 서비스가 실행되는 동안 모듈 동작을 변경할 수도 있습니다. *웹 서비스 매개 변수*를 통해 이 태스크를 수행할 수 있습니다. 
 
-일반적인 예는 게시 된 웹 서비스의 사용자가 웹 서비스에 액세스할 때 다른 데이터 원본을 지정할 수 있도록 [데이터 가져오기][reader] 모듈을 설정 하는 것입니다. 또는 다른 대상을 지정할 수 있도록 [데이터 내보내기][writer] 모듈을 구성 합니다. 다른 예로는 [기능 해싱][feature-hashing] 모듈의 비트 수 또는 [필터 기반 기능 선택][filter-based-feature-selection] 모듈의 원하는 기능 수를 변경 하는 경우가 있습니다. 
+일반적인 예는 게시된 웹 서비스의 사용자가 웹 서비스에 액세스할 때 다른 데이터 원본을 지정할 수 있도록 [데이터 가져오기][reader] 모듈을 설정하는 것입니다. 또는 다른 대상을 지정할 수 있도록 [데이터 내보내기][writer] 모듈을 구성하는 것입니다. 다른 예로는 [기능 해싱][feature-hashing] 모듈에 대한 비트 수 변경 또는 [필터 기반 기능 선택][filter-based-feature-selection] 모듈에 대한 원하는 기능 수가 있습니다. 
 
 실험에서 웹 서비스 매개 변수를 설정하여 하나 이상의 모듈 매개 변수와 연결하고 이러한 매개 변수가 필수인지 또는 선택 사항인지 지정할 수 있습니다. 그러면 웹 서비스 사용자는 웹 서비스를 호출할 때 이러한 매개 변수에 대한 값을 제공할 수 있습니다. 
 
@@ -41,27 +41,27 @@ Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈
 웹 서비스에 대한 API 설명서에는 웹 서비스에 액세스할 때 프로그래밍 방식으로 웹 서비스 매개 변수를 지정하는 방법과 관련해서 웹 서비스 사용자를 위한 정보가 포함됩니다.
 
 > [!NOTE]
-> 클래식 웹 서비스에 대 한 API 설명서는 Machine Learning Studio (클래식)의 웹 서비스 **대시보드에서** **api 도움말 페이지** 링크를 통해 제공 됩니다. 새 웹 서비스에 대한 API 설명서는 웹 서비스에 대한 [사용](https://services.azureml.net/Quickstart) 및 **Swagger API** 페이지의 **Azure Machine Learning 웹 서비스** 포털을 통해 제공됩니다.
+> 클래식 웹 서비스에 대한 API 설명서는 기계 학습 스튜디오의 웹 서비스 **대시보드의** **API 도움말 페이지** 링크를 통해 제공됩니다(클래식). 새 웹 서비스에 대한 API 설명서는 웹 서비스에 대한 **사용** 및 **Swagger API** 페이지의 [Azure Machine Learning 웹 서비스](https://services.azureml.net/Quickstart) 포털을 통해 제공됩니다.
 > 
 > 
 
 ## <a name="example"></a>예제
-예를 들어 Azure blob 저장소로 정보를 전송 하는 [데이터 내보내기][writer] 모듈이 있는 실험이 있다고 가정 하겠습니다. 고객이 새 데이터(PUT Blob, PUT 블록, PUT 페이지, PUT 파일 등)를 Blob 또는 File Storage에 기록할 경우 모든 기록 내용이 가장 강력한 블록 암호화 중 하나인 256비트 {1}AES 암호화{2}를 사용하여 암호화됩니다.
+예를 들어 Azure Blob Storage로 정보를 전송하는 [데이터 내보내기][writer] 모듈이 포함된 실험이 있다고 가정합니다. 고객이 새 데이터(PUT Blob, PUT 블록, PUT 페이지, PUT 파일 등)를 Blob 또는 File Storage에 기록할 경우 모든 기록 내용이 가장 강력한 블록 암호화 중 하나인 256비트 AES 암호화를 사용하여 암호화됩니다.
 
-1. Machine Learning Studio (클래식)에서 [데이터 내보내기][writer] 모듈을 클릭 하 여 선택 합니다. 실험 캔버스 오른쪽에 있는 속성 창에 해당 속성이 표시됩니다.
+1. 기계 학습 스튜디오(클래식)에서 [데이터 내보내기][writer] 모듈을 클릭하여 선택합니다. 실험 캔버스 오른쪽에 있는 속성 창에 해당 속성이 표시됩니다.
 2. 스토리지 형식을 지정합니다.
    
    * **데이터 대상 지정**에서 "Azure Blob Storage"를 선택합니다.
    * **인증 유형 지정**에서 "계정"을 선택합니다.
    * Blob Storage 내에서, File Storage 내에서 또는 Blob Storage에서 파일 스토리지로 혹은 그 반대로 파일을 복사할 때 이 옵션을 사용할 수 있습니다. 
 
-3. **컨테이너로 시작하는 Blob 경로 매개 변수**오른쪽에 있는 아이콘을 클릭합니다. 다음과 같이 표시됩니다.
+3. **컨테이너 매개 변수로 시작하는 blob에 대한 경로**의 오른쪽에 있는 아이콘을 클릭합니다. 다음과 같이 표시됩니다.
    
    ![웹 서비스 매개 변수 아이콘](./media/web-service-parameters/icon.png)
    
    "웹 서비스 매개 변수로 설정"을 선택합니다.
    
-   속성 창 맨 아래의 **웹 서비스 매개 변수** 에 "컨테이너로 시작하는 Blob 경로”라는 이름으로 항목이 추가됩니다. 이제이 [데이터 내보내기][writer] 모듈 매개 변수와 연결 된 웹 서비스 매개 변수입니다.
+   속성 창 맨 아래의 **웹 서비스 매개 변수** 에 "컨테이너로 시작하는 Blob 경로”라는 이름으로 항목이 추가됩니다. 이제 이 웹 서비스 매개 변수가 이 [데이터 내보내기][writer] 모듈 매개 변수와 연결됩니다.
 4. 웹 서비스 매개 변수의 이름을 바꾸려면 이름을 클릭하고 "Blob 경로"를 입력한 다음 **Enter** 키를 누릅니다. 
 5. 웹 서비스 매개 변수에 대한 기본값을 제공하려면 이름 오른쪽에 있는 아이콘을 클릭하고 "기본값 제공"을 선택한 다음 값(예: "container1/output1.csv")을 입력하고 **Enter** 키를 누릅니다.
    
@@ -72,7 +72,7 @@ Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈
 > [!NOTE] 
 > 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](manage-new-webservice.md)를 참조하세요. 
 
-이제 웹 서비스 사용자가 웹 서비스에 액세스할 때 [데이터 내보내기][writer] 모듈에 대 한 새 대상을 지정할 수 있습니다.
+이제 웹 서비스 사용자가 웹 서비스에 액세스할 때 [데이터 내보내기][writer] 모듈에 대한 새 대상을 지정할 수 있습니다.
 
 ## <a name="more-information"></a>자세한 정보
 자세한 예제는 [Machine Learning 블로그](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx)의 [웹 서비스 매개 변수](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) 항목을 참조하세요.

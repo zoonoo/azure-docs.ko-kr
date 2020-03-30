@@ -1,6 +1,6 @@
 ---
 title: 네트워크 아키텍처 v1
-description: App Service 환경의 네트워크 토폴로지에 대 한 아키텍처 개요입니다. 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
+description: 앱 서비스 환경의 네트워크 토폴로지의 아키텍처 개요입니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
 author: stefsch
 ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
 ms.topic: article
@@ -8,17 +8,17 @@ ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: b1b866f3be789c59eea38c5c22b5557d557440be
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243849"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>App Service Environment의 네트워크 아키텍처 개요
-App Service 환경은 항상 [가상 네트워크][virtualnetwork] 의 서브넷 내에 생성 됩니다. App Service Environment에서 실행 되는 앱은 동일한 가상 네트워크 토폴로지 내에 위치한 개인 끝점과 통신할 수 있습니다.  고객은 그들의 가상 네트워크 일부를 잠글 수 있기 때문에 App Service Environment에서 일어나는 네트워크 통신 흐름의 유형을 이해하는 것은 중요합니다.
+App Service 환경은 [가상 네트워크][virtualnetwork]의 서브넷에서 항상 만들어지고, App Service 환경에서 실행되는 앱은 동일한 가상 네트워크 토폴로지 내에 위치한 프라이빗 엔드포인트와 통신할 수 있습니다.  고객은 그들의 가상 네트워크 일부를 잠글 수 있기 때문에 App Service Environment에서 일어나는 네트워크 통신 흐름의 유형을 이해하는 것은 중요합니다.
 
 ## <a name="general-network-flow"></a>일반 네트워크 흐름
-ASE(App Service Environment)가 앱에 공용 VIP(가상 IP 주소)를 사용하는 경우 모든 인바운드 트래픽이 해당 공용 VIP에 도착합니다.  여기에는 FTP에 대한 다른 트래픽, 원격 디버깅 기능, Azure 관리 작업과 마찬가지로 앱의 HTTP와 HTTPS 트래픽이 포함됩니다.  공용 VIP에서 사용할 수 있는 특정 포트 (필수 및 선택적)의 전체 목록은 App Service Environment [인바운드 트래픽 제어][controllinginboundtraffic] 문서를 참조 하세요. 
+ASE(App Service Environment)가 앱에 공용 VIP(가상 IP 주소)를 사용하는 경우 모든 인바운드 트래픽이 해당 공용 VIP에 도착합니다.  여기에는 FTP에 대한 다른 트래픽, 원격 디버깅 기능, Azure 관리 작업과 마찬가지로 앱의 HTTP와 HTTPS 트래픽이 포함됩니다.  공용 VIP에서 사용할 수 있는 특정 포트(필수 및 선택적)의 전체 목록은 App Service 환경의 [인바운드 트래픽 제어][controllinginboundtraffic] 문서를 참조하세요. 
 
 또한 App Service Environment는 ILB(내부 부하 분산 장치) 주소라고도 하는 가상 네트워크 내부 주소에만 바인딩되는 앱 실행을 지원합니다.  ILB 지원 ASE에서 앱에 대한 HTTP 및 HTTPS 트래픽과 원격 디버깅 호출은 ILB 주소에 도착합니다.  가장 일반적인 ILB-ASE 구성에서는 FTP/FTPS 트래픽도 ILB 주소에 도착합니다.  그러나 Azure 관리 작업은 여전히 ILB 지원 ASE의 공용 VIP에 있는 포트 454/455로 이동합니다.
 
@@ -35,9 +35,9 @@ App Service Environment는 다양한 프라이빗 고객 엔드포인트와 통�
 
 App Service Environment 역시 관리 및 운영에 필요한 sql DB 및 Azure Storage와 통신할 수 있습니다.  App Service Environment와 통신하는 일부 SQL 및 스토리지 리소스는 App Service Environment는와 같은 지역에 위치해 있는 반면, 나머지는 Azure 지역과 멀리 위치해 있습니다.  결과적으로, 인터넷에 대한 아웃 바운드 연결은 항상 제대로 작동하는 App Service Environment에 필요 합니다. 
 
-서브넷에 배포된 App Service Environment 때문에, 네트워크 보안 그룹은 서브넷에 인바운드 트래픽을 제어할 때 사용할 수 있습니다.  App Service Environment에 대 한 인바운드 트래픽을 제어 하는 방법에 대 한 자세한 내용은 다음 [문서][controllinginboundtraffic]를 참조 하세요.
+서브넷에 배포된 App Service Environment 때문에, 네트워크 보안 그룹은 서브넷에 인바운드 트래픽을 제어할 때 사용할 수 있습니다.  App Service 환경에 대한 인바운드 트래픽을 제어하는 방법에 대한 자세한 내용은 다음 [문서][controllinginboundtraffic]를 참조하세요.
 
-App Service Environment에서 아웃 바운드 인터넷 연결을 허용 하는 방법에 대 한 자세한 내용은 [Express 경로][ExpressRoute]작업에 대 한 다음 문서를 참조 하세요.  사이트와 사이트를 연결 및 강제 터널링을 사용할 때는 문서에 설명된 동일한 방법을 적용합니다.
+App Service 환경으로부터 아웃바운드 인터넷 연결을 허용하는 방법에 대한 세부 정보는 [Express 경로][ExpressRoute]로 작업하는 다음 문서를 참조하세요.  사이트와 사이트를 연결 및 강제 터널링을 사용할 때는 문서에 설명된 동일한 방법을 적용합니다.
 
 ## <a name="outbound-network-addresses"></a>아웃 바운드 네트워크 주소
 App Service Environment가 아웃바운드를 호출하는 경우, IP 주소는 항상 아웃바운드 호출과 연관이 있습니다.  특정 IP 주소는 엔드포인트 호출이 이 가상 네트워크 토폴로지 내에 있는지 혹은 밖에 있는지에 따라서 달라집니다.
@@ -73,9 +73,9 @@ App Service Environment에서 앱을 만든 다음 앱 주소에 대해 *nslooku
 다른 App Service Environment 간의 호출이 "Internet" 호출로 처리되더라도, 두 App Service Environment가 모두 동일한 Azure 지역에 있으면 네트워크 트래픽은 지역 Azure 네트워크에 그대로 유지되며 물리적으로 공용 인터넷을 통해 이동하지 않습니다.  결과적으로 첫 번째 App Service Environment(아웃바운드 IP 주소는 192.23.1.2임)에서의 인바운드 호출을 허용하도록 두번째 App Service Environment의 서브넷에서 네트워크 보안 그룹을 사용하여, App Service Environment 간의 보안 통신을 유지할 수 있습니다.
 
 ## <a name="additional-links-and-information"></a>추가 링크 및 정보
-App Service 환경에서 사용 하 고 인바운드 트래픽을 제어 하기 위해 네트워크 보안 그룹을 사용 하는 인바운드 포트에 대 한 자세한 내용은 [여기][controllinginboundtraffic]에서 제공 됩니다.
+App Service 환경에서 사용된 인바운드 포트의 세부 정보 및 인바운드 트래픽 제어를 위한 네트워크 보안 그룹 사용은 [여기][controllinginboundtraffic]에서 사용 가능합니다.
 
-사용자 정의 경로를 사용 하 여 App Service 환경에 아웃 바운드 인터넷 액세스 권한을 부여 하는 방법에 대 한 자세한 내용은이 [문서][ExpressRoute]에서 제공 합니다. 
+App Service 환경에 아웃바운드 인터넷 액세스 권한을 부여하는 사용자 정의 경로 사용에 대한 자세한 세부 정보는 이 [문서][ExpressRoute]에서 사용 가능합니다. 
 
 <!-- LINKS -->
 [virtualnetwork]: https://azure.microsoft.com/services/virtual-network/

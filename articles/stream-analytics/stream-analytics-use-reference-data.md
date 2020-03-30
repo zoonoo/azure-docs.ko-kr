@@ -8,19 +8,19 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019
 ms.openlocfilehash: b3808524706b13761dd8eccffa301c602d08f481
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267288"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream Analytics에서 조회에 대한 참조 데이터 사용
 
-참조 데이터 (조회 테이블이 라고도 함)는 데이터 스트림을 조회 하거나 확장 하는 데 사용 되는 정적 또는 느린 변경의 제한 된 데이터 집합입니다. 예를 들어 IoT 시나리오에서는 센서에 대한 메타데이터를 참조 데이터에 저장하고(보통 변경하지 않음) 실시간 IoT 데이터 스트림과 조인할 수 있습니다. Azure Stream Analytics는 메모리에서 참조 데이터를 로드하여 대기 시간이 짧은 스트림 프로세스를 달성합니다. Azure Stream Analytics 작업에서 참조 데이터를 사용하려면 일반적으로 쿼리에서 [참조 데이터 조인](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics)을 사용합니다. 
+참조 데이터(조회 테이블이라고도 함)는 일시적이거나 자연에서 느리게 변경되는 유한 데이터 집합으로, 조회를 수행하거나 데이터 스트림을 보강하는 데 사용됩니다. 예를 들어 IoT 시나리오에서는 센서에 대한 메타데이터를 참조 데이터에 저장하고(보통 변경하지 않음) 실시간 IoT 데이터 스트림과 조인할 수 있습니다. Azure Stream Analytics는 메모리에서 참조 데이터를 로드하여 대기 시간이 짧은 스트림 프로세스를 달성합니다. Azure Stream Analytics 작업에서 참조 데이터를 사용하려면 일반적으로 쿼리에 [참조 데이터 조인을](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) 사용합니다. 
 
 Stream Analytics는 참조 데이터에 대한 스토리지 계층으로 Azure Blob 스토리지 및 Azure SQL Database를 지원합니다. 또한 참조 데이터를 Azure Data Factory에서 Blob Storage로 변환 및/또는 복사하여 [여러 클라우드 기반 및 온-프레미스 데이터 저장소](../data-factory/copy-activity-overview.md)를 사용할 수 있습니다.
 
-## <a name="azure-blob-storage"></a>Azure BLOB 스토리지
+## <a name="azure-blob-storage"></a>Azure Blob 스토리지
 
 참조 데이터는 BLOB 이름에서 지정한 날짜/시간의 오름차순에 따라 BLOB의 시퀀스(입력 구성에서 정의)로 모델링됩니다. 시퀀스의 마지막 BLOB에서 지정한 것보다 **이후인** 날짜/시간을 사용하여 시퀀스의 마지막에 추가하는 것**만** 지원됩니다.
 
@@ -42,18 +42,18 @@ Stream Analytics는 참조 데이터에 대한 스토리지 계층으로 Azure B
 
 ### <a name="static-reference-data"></a>정적 참조 데이터
 
-참조 데이터가 변경될 필요가 없으면 입력 구성에 정적 경로를 지정하여 정적 참조 데이터에 대한 지원을 사용하도록 설정할 수 있습니다. Azure Stream Analytics는 지정된 경로에서 Blob을 선택합니다. {date} 및 {time} 대체 토큰이 필요하지 않습니다. Stream Analytics에서 참조 데이터를 변경할 수 없으므로 정적 참조 데이터 blob을 덮어쓰는 것은 권장 되지 않습니다.
+참조 데이터가 변경될 필요가 없으면 입력 구성에 정적 경로를 지정하여 정적 참조 데이터에 대한 지원을 사용하도록 설정할 수 있습니다. Azure Stream Analytics는 지정된 경로에서 Blob을 선택합니다. {date} 및 {time} 대체 토큰이 필요하지 않습니다. 스트림 애널리틱스에서는 참조 데이터를 변경할 수 없으므로 정적 참조 데이터 Blob을 덮어쓰는 것은 권장되지 않습니다.
 
 ### <a name="generate-reference-data-on-a-schedule"></a>일정에 따라 참조 데이터 생성
 
-참조 데이터가 느리게 변경되는 데이터 집합인 경우 {date} 및 {time} 대체 토큰을 사용하여 입력 구성의 경로 패턴을 지정하여 참조 데이터 새로 고침 지원을 사용하도록 설정할 수 있습니다. Stream Analytics이 이 경로 패턴에 따라 업데이트된 참조 데이터 정의를 선택합니다. 예를 들어 날짜 형식 `sample/{date}/{time}/products.csv`“YYYY-MM-DD”**및 시간 형식**“HH-mm”**의**  패턴은 UTC 표준 시간대 2015년 4월 16일 오후 5시 30분에 Stream Analytics에서 업데이트된 Blob `sample/2015-04-16/17-30/products.csv`을 선택하도록 지시합니다.
+참조 데이터가 느리게 변경되는 데이터 집합인 경우 {date} 및 {time} 대체 토큰을 사용하여 입력 구성의 경로 패턴을 지정하여 참조 데이터 새로 고침 지원을 사용하도록 설정할 수 있습니다. Stream Analytics이 이 경로 패턴에 따라 업데이트된 참조 데이터 정의를 선택합니다. 예를 들어 날짜 `sample/{date}/{time}/products.csv` **형식인 "YYYY-MM-DD"와** **"HH-mm"의** 시간 형식의 패턴은 2015년 `sample/2015-04-16/17-30/products.csv` 4월 16일 오후 5:30UTC 표준 시간대에 업데이트된 Blob을 선택하도록 스트림 애널리틱스에게 지시합니다.
 
-Azure Stream Analytics는 1분 간격으로 새로 고친 참조 데이터 Blob을 자동으로 검색합니다. 타임 스탬프가 10:30:00 인 blob이 짧은 지연 (예: 10:30:30)으로 업로드 되는 경우이 blob를 참조 하는 Stream Analytics 작업에서 약간의 지연이 발생 합니다. 이러한 시나리오를 방지 하려면 대상 유효 시간 (이 예제에서는 10:30:00) 이전의 blob을 업로드 하 여 메모리에서 Stream Analytics 작업을 검색 및 로드 하 고 작업을 수행 하는 데 충분 한 시간을 허용 하는 것이 좋습니다. 
+Azure Stream Analytics는 1분 간격으로 새로 고친 참조 데이터 Blob을 자동으로 검색합니다. 타임스탬프가 있는 Blob이 작은 지연(예: 10:30:30)으로 업로드되는 경우 이 Blob을 참조하는 Stream Analytics 작업이 조금 지연되는 것을 알 수 있습니다. 이러한 시나리오를 방지하려면 스트림 분석 작업이 메모리에서 검색및 로드하고 작업을 수행할 수 있는 충분한 시간을 허용하도록 대상 유효 시간(이 예에서 10:30:00)보다 일찍 Blob을 업로드하는 것이 좋습니다. 
 
 > [!NOTE]
 > 현재 Stream Analytics 작업은 컴퓨터 시간이 Blob 이름에 인코딩된 시간으로 진행하는 경우에만 Blob 새로 고침을 찾습니다. 예를 들어 작업은 가능한 빨리 `sample/2015-04-16/17-30/products.csv`를 찾지만 표준 시간대 2015년 4월 16일 오후 5시 30분보다 이르지 않습니다. 마지막으로 검색된 것보다 이전에 인코딩된 시간으로 Blob을 찾지 *않습니다* .
 > 
-> 예를 들어 작업에서 `sample/2015-04-16/17-30/products.csv` blob을 찾은 후 5:30 년 4 월 16 2015 일 오후에 인코드된 날짜로 파일을 무시 하 게 됩니다. 따라서 지연 되는 `sample/2015-04-16/17-25/products.csv` blob이 작업에서 사용 하지 않는 동일한 컨테이너에서 생성 됩니다.
+> 예를 들어 작업이 Blob을 `sample/2015-04-16/17-30/products.csv` 찾으면 2015년 4월 16일 오후 5:30 보다 일찍 인코딩된 날짜가 `sample/2015-04-16/17-25/products.csv` 있는 모든 파일을 무시하므로 늦게 도착한 Blob이 동일한 컨테이너에서 만들어지면 해당 작업은 사용하지 않습니다.
 > 
 > 마찬가지로 `sample/2015-04-16/17-30/products.csv`가 2015년 4월 16일 오후 10시 3분에 생성되었지만 컨테이너에 이전 날짜의 Blob이 없는 경우 작업은 2015년 4월 16일 오후 10시 3분에 시작하는 이 파일을 사용하고 그때까지 이전 참조 데이터를 사용합니다.
 > 
@@ -68,7 +68,7 @@ Stream Analytics에서 참조 데이터 정의를 업데이트하는 데 필요�
     * 경로 패턴에 {date}/{time}을 사용합니다.
     * 작업 입력에 정의된 동일한 컨테이너와 경로 패턴을 사용하여 새 Blob을 추가합니다.
     * 시퀀스의 마지막 Blob에서 지정된 날짜/시간보다 **큰** 날짜/시간을 사용합니다.
-3. 참조 데이터 Blob은 Blob의 “마지막 수정” 시간 순서가 **아니라** {date} 및 {time}을 대체하여 Blob 이름에 지정한 날짜와 시간으로만 순서가 지정됩니다.
+3. 참조 데이터 Blob은 Blob의 "마지막으로 수정된" 시간순이 **아니라** {date} 및 {time} 대체를 사용하여 Blob 이름에 지정된 시간 및 날짜까지만 정렬됩니다.
 3. 많은 수의 BLOB을 표시하지 않으려면 더 이상 처리 작업이 수행되지 않는 아주 오래된 BLOB을 삭제합니다. 재시작 같은 일부 시나리오에서는 ASA가 소량을 다시 처리해야 할 수도 있습니다.
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
@@ -77,7 +77,7 @@ Azure SQL Database 참조 데이터는 Stream Analytics 작업에서 검색되�
 
 참조 데이터가 느리게 변화하는 데이터 세트인 경우 작업에서 사용되는 스냅샷을 정기적으로 새로 고쳐야 합니다. Stream Analytics를 사용하면 Azure SQL Database 입력 연결을 구성할 때 새로 고침 빈도를 설정할 수 있습니다. Stream Analytics 런타임은 새로 고침 빈도에서 지정된 간격으로 Azure SQL Database를 쿼리합니다. 지원되는 가장 빠른 새로 고침 빈도는 1분에 한 번씩입니다. 각 새로 고침의 경우 Stream Analytics는 제공된 스토리지 계정에 새 스냅샷을 저장합니다.
 
-Stream Analytics는 Azure SQL Database를 쿼리하기 위한 두 가지 옵션을 제공합니다. 스냅샷 쿼리는 필수이며 각 작업에 포함되어야 합니다. Stream Analytics는 새로 고침 간격에 따라 주기적으로 스냅샷 쿼리를 실행하고 쿼리의 결과(스냅샷)를 참조 데이터 세트로 사용합니다. 스냅샷 쿼리는 대부분의 시나리오에 적합해야 하지만, 데이터 세트가 크고 새로 고침 주기가 빠른 성능 문제가 발생하는 경우 델타 쿼리 옵션을 사용할 수 있습니다. 참조 데이터 집합을 반환 하는 데 60 초를 초과 하는 쿼리는 시간 초과가 발생 합니다.
+Stream Analytics는 Azure SQL Database를 쿼리하기 위한 두 가지 옵션을 제공합니다. 스냅샷 쿼리는 필수이며 각 작업에 포함되어야 합니다. Stream Analytics는 새로 고침 간격에 따라 주기적으로 스냅샷 쿼리를 실행하고 쿼리의 결과(스냅샷)를 참조 데이터 세트로 사용합니다. 스냅샷 쿼리는 대부분의 시나리오에 적합해야 하지만, 데이터 세트가 크고 새로 고침 주기가 빠른 성능 문제가 발생하는 경우 델타 쿼리 옵션을 사용할 수 있습니다. 참조 데이터 집합을 반환하는 데 60초 이상 걸리는 쿼리는 시간 초과가 발생합니다.
 
 델타 쿼리 옵션을 사용하면 Stream Analytics는 초기에 스냅샷 쿼리를 실행하여 기본 참조 데이터 세트를 가져옵니다. 그 후에 Stream Analytics는 새로 고침 간격에 따라 주기적으로 델타 쿼리를 실행하여 증분 변경 내용을 검색합니다. 이러한 증분 변경 내용은 지속적으로 참조 데이터 세트에 적용되어 업데이트를 최신으로 유지합니다. 델타 쿼리를 사용하면 스토리지 비용 및 네트워크 I/O 작업을 줄이는 데 도움이 될 수 있습니다.
 
@@ -85,13 +85,13 @@ Stream Analytics는 Azure SQL Database를 쿼리하기 위한 두 가지 옵션�
 
 SQL Database 참조 데이터를 구성하려면 먼저 **참조 데이터** 입력을 만들어야 합니다. 다음 표에는 참조 데이터 입력을 만드는 동안 제공해야 하는 각 속성이 해당 설명과 함께 나와 있습니다. 자세한 내용은 [Azure Stream Analytics 작업에 SQL Database의 참조 데이터 사용](sql-reference-data.md)을 참조하세요.
 
-[Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) 를 참조 데이터 입력으로 사용할 수 있습니다. [Azure SQL Database Managed Instance에서 공용 끝점을 구성](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) 하 고 Azure Stream Analytics에서 다음 설정을 수동으로 구성 해야 합니다. 아래 설정을 수동으로 구성 하 여 연결 된 데이터베이스와 함께 SQL Server를 실행 하는 Azure 가상 컴퓨터도 지원 됩니다.
+[Azure SQL Database 관리 인스턴스를](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) 참조 데이터 입력으로 사용할 수 있습니다. [Azure SQL Database 관리 인스턴스에서 공용 끝점을 구성한](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) 다음 Azure Stream Analytics에서 다음 설정을 수동으로 구성해야 합니다. 데이터베이스가 연결된 SQL Server를 실행하는 Azure 가상 컴퓨터도 아래 설정을 수동으로 구성하여 지원됩니다.
 
 |**속성 이름**|**설명**  |
 |---------|---------|
 |입력 별칭|이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다.|
 |Subscription|구독 선택|
-|데이터베이스|참조 데이터가 포함된 Azure SQL Database입니다. Azure SQL Database Managed Instance의 경우 포트 3342를 지정 해야 합니다. 예를 들어 *sampleserver, 3342* 입니다.|
+|데이터베이스|참조 데이터가 포함된 Azure SQL Database입니다. Azure SQL 데이터베이스 관리 인스턴스의 경우 포트 3342를 지정해야 합니다. 예를 들어, *샘플 서버.public.database.windows.net,3342*|
 |사용자 이름|Azure SQL Database와 연결된 사용자 이름입니다.|
 |암호|Azure SQL Database와 연결된 암호입니다.|
 |주기적으로 새로 고침|이 옵션을 사용하면 새로 고침 빈도를 선택할 수 있습니다. “On”을 선택하면 DD:HH:MM 형식으로 새로 고침 빈도를 지정할 수 있습니다.|

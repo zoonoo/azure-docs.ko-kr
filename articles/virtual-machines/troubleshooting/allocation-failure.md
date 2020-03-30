@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
 ms.openlocfilehash: b4750ad9fdfa214aa4d7b6a0355c319e7eb1d9c3
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77484403"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Azure에서 VM을 만들거나 재시작하거나 크기를 조정하는 경우 할당 오류 해결
@@ -25,11 +25,11 @@ VM(가상 머신)을 만들거나 중지된(할당이 취소된) VM을 재시작
 
 **오류 코드**: AllocationFailed 또는 ZonalAllocationFailed
 
-**오류 메시지**: "할당하지 못했습니다. 이 지역에 요청된 VM 크기에 대해 충분한 용량이 없습니다. Https:\//aka.ms/allocation-guidance에서 할당 성공 가능성 향상에 대해 자세히 알아보세요.
+**오류 메시지**: "할당하지 못했습니다. 이 지역에 요청된 VM 크기에 대해 충분한 용량이 없습니다. https:\//aka.ms/allocation-guidance"에서 할당 성공 가능성을 개선하는 것에 대해 자세히 알아보기
 
 이 문서는 일부 일반적인 할당 오류의 이유를 설명하고 가능한 해결 방법을 제안합니다.
 
-Azure 문제와 관련된 정보가 이 문서에 없을 경우 [MSDN 및 스택 오버플로에서 Azure 포럼](https://azure.microsoft.com/support/forums/)을 방문합니다. 이러한 포럼이나 Twitter의 @AzureSupport에 문제를 게시할 수 있습니다. 또한 [Azure 지원](https://azure.microsoft.com/support/options/) 사이트에서 지원 받기를 선택하여 Azure 지원 요청을 제출할 수 있습니다.
+이 문서에서 Azure 문제를 해결하지 않는 경우 [MSDN 및 스택 오버플로의 Azure 포럼을](https://azure.microsoft.com/support/forums/)방문하십시오. 이러한 포럼이나 Twitter의 @AzureSupport에 문제를 게시할 수 있습니다. 또한 [Azure 지원](https://azure.microsoft.com/support/options/) 사이트에서 지원 받기를 선택하여 Azure 지원 요청을 제출할 수 있습니다.
 
 배포 문제가 있는 고객은 원하는 지역에서 원하는 VM 유형을 사용할 수 있게 될 때까지 임시 해결 방법으로 다음 표의 지침을 고려하는 것이 좋습니다. 
 
@@ -79,7 +79,7 @@ Dv1, DSv1, Av1, D15v2, DS15v2와 같은 이전 VM 시리즈 또는 크기를 사
 
 할당 요청이 큰 경우(500개가 넘는 코어) 다음 섹션의 지침을 참조하여 소규모 배포로 요청을 분할합니다.
 
-[VM을 다시 배포](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows)해 보세요. VM을 다시 배포 하면 VM이 지역 내의 새 클러스터에 할당 됩니다.
+VM 을 [다시 배포해](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows)보십시오. VM을 다시 배포할 경우 VM이 리전 내의 새 클러스터에 할당됩니다.
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>이전 VM 크기의 할당 오류(Av1, Dv1, DSv1, D15v2, DS15v2 등)
 

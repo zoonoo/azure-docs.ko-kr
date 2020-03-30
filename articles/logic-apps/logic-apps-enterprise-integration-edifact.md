@@ -1,5 +1,5 @@
 ---
-title: B2B 통합에 대 한 EDIFACT 메시지
+title: B2B 통합을 위한 EDIFACT 메시지
 description: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 EDI 형식의 B2B 엔터프라이즈 통합용 EDIFACT 메시지 교환
 services: logic-apps
 ms.suite: integration
@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/26/2016
 ms.openlocfilehash: 3ada12a0cde122fb78815a1d3241d8acb9da2580
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651460"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 EDIFACT 메시지 교환
@@ -22,7 +22,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 > [!NOTE]
 > 이 페이지에서는 Azure Logic Apps의 EDIFACT 기능을 설명합니다. 자세한 내용은 [X12](logic-apps-enterprise-integration-x12.md)를 참조하세요.
 
-## <a name="before-you-start"></a>시작하기 전 확인 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 필요한 항목은 다음과 같습니다.
 
@@ -36,7 +36,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 ## <a name="create-an-edifact-agreement"></a>EDIFACT 규약 만들기 
 
-1. [Azure Portal](https://portal.azure.com "Azure 포털")에 로그인합니다. 
+1. [Azure 포털에](https://portal.azure.com "Azure portal")로그인합니다. 
 
 2. Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 "통합"을 입력한 다음, **통합 계정**을 선택합니다.
 
@@ -107,14 +107,14 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 | 속성 | 설명 |
 | --- | --- |
 | UNH2.1(유형) |트랜잭션 집합 유형을 선택합니다. |
-| UNH2.2(버전) |메시지 버전 번호를 입력합니다. 1자에서 3자까지 입력할 수 있습니다. |
-| UNH2.3(릴리스) |메시지 릴리스 번호를 입력합니다. 1자에서 3자까지 입력할 수 있습니다. |
-| UNH2.5(연결 할당 코드) |할당된 코드를 입력합니다. 6자까지 입력할 수 있습니다. 지정할 수 있습니다. |
+| UNH2.2(버전) |메시지 버전 번호를 입력합니다. (최소 1자, 최대 3자) |
+| UNH2.3(릴리스) |메시지 릴리스 번호를 입력합니다. (최소 1자, 최대 3자) |
+| UNH2.5(연결 할당 코드) |할당된 코드를 입력합니다. (최대 6자. 영숫자여야 함) |
 | UNG2.1(앱 보낸 사람 ID) |1 ~ 35자의 영숫자 값을 입력합니다. |
 | UNG2.2(앱 보낸 사람 코드 한정자) |최대 4자의 영숫자 값을 입력합니다. |
-| 스키마 |연결된 통합 계정으로부터 사용하려는 이전에 업로드한 스키마를 선택합니다. |
+| SCHEMA |연결된 통합 계정으로부터 사용하려는 이전에 업로드한 스키마를 선택합니다. |
 
-### <a name="control-numbers"></a>컨트롤 번호
+### <a name="control-numbers"></a>제어 번호
 
 | 속성 | 설명 |
 | --- | --- |
@@ -188,9 +188,9 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 | UNH2.1(유형) |트랜잭션 집합 유형을 선택합니다. |
 | UNH2.2(버전) |메시지 버전 번호를 입력합니다. |
 | UNH2.3(릴리스) |메시지 릴리스 번호를 입력합니다. |
-| 스키마 |사용할 스키마를 선택합니다. 스키마는 통합 계정에 있습니다. 스키마에 액세스하려면 먼저 통합 계정을 논리 앱에 연결합니다. |
+| SCHEMA |사용할 스키마를 선택합니다. 스키마는 통합 계정에 있습니다. 스키마에 액세스하려면 먼저 통합 계정을 논리 앱에 연결합니다. |
 
-### <a name="envelopes"></a>포락선
+### <a name="envelopes"></a>봉투
 
 | 속성 | 설명 |
 | --- | --- |
@@ -206,21 +206,21 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 | 속성 | 설명 |
 | --- | --- |
-| UNB1.1(시스템 식별자) |나가는 교환에 적용할 EDIFACT 문자 집합을 선택합니다. |
+| UNB1.1(시스템 식별자) |나가는 교환에서 적용할 EDIFACT 문자 집합을 선택합니다. |
 | 스키마 |드롭다운 목록에서 스키마를 선택합니다. 각 행을 완료한 후에 새 행이 자동으로 추가됩니다. 선택한 스키마의 경우 아래의 구분 기호 설명에 따라 사용하려는 구분 기호 집합을 선택합니다. |
-| 입력 유형 |드롭다운 목록에서 입력 형식을 선택합니다. |
+| 입력 형식 |드롭다운 목록에서 입력 형식을 선택합니다. |
 | Component Separator |복합 데이터 요소를 분리하려면 단일 문자를 입력합니다. |
-| 데이터 요소 구분 기호 |복합 데이터 요소 내에서 단순 데이터 요소를 분리하려면 단일 문자를 입력합니다. |
+| Data Element Separator |복합 데이터 요소 내에서 단순 데이터 요소를 분리하려면 단일 문자를 입력합니다. |
 | Segment Terminator |EDI 세그먼트의 끝을 나타내려면 단일 문자를 입력합니다. |
 | 접미사 |세그먼트 식별자와 함께 사용할 문자를 선택합니다. 접미사를 지정하면 세그먼트 마침 표시 데이터 요소를 비워 둘 수 있습니다. 세그먼트 마침 표시를 비워 두는 경우 접미사를 지정해야 합니다. |
 
-### <a name="control-numbers"></a>컨트롤 번호
+### <a name="control-numbers"></a>제어 번호
 
 | 속성 | 설명 |
 | --- | --- |
-| UNB5(교환 컨트롤 번호) |접두사, 교환 컨트롤 번호 값의 범위, 접미사를 입력합니다. 이들 값은 나가는 교환을 생성하는 데 사용됩니다. 접두사와 접미사는 옵션이지만 컨트롤 번호는 필수입니다. 새 메시지가 추가될 때마다 컨트롤 번호가 증가하며 전위와 접미사는 그대로 유지됩니다. |
-| UNG5(그룹 컨트롤 번호) |접두사, 교환 컨트롤 번호 값의 범위, 접미사를 입력합니다. 이들 값은 그룹 컨트롤 번호를 생성하는 데 사용됩니다. 접두사와 접미사는 옵션이지만 컨트롤 번호는 필수입니다. 최대값에 도달할 때까지 새 메시지가 추가될 때마다 컨트롤 번호가 증가하며 전위와 접미사는 그대로 유지됩니다. |
-| UNH1(메시지 헤더 참조 번호) |접두사, 교환 컨트롤 번호 값의 범위, 접미사를 입력합니다. 이들 값은 메시지 헤더 참조 번호를 생성하는 데 사용됩니다. 접두사와 접미사는 옵션이지만 참조 번호는 필수입니다. 새 메시지가 추가될 때마다 참조 번호가 증가하며 전위와 접미사는 그대로 유지됩니다. |
+| UNB5(교환 컨트롤 번호) |접두사, 교환 컨트롤 번호 값의 범위, 접미사를 입력합니다. 이들 값은 나가는 교환을 생성하는 데 사용됩니다. 접두사와 접미사는 옵션이지만 컨트롤 번호는 필수입니다. 컨트롤 번호는 각 새 메시지에 대해 증가하지만, 접두사와 접미사는 동일하게 유지됩니다. |
+| UNG5(그룹 컨트롤 번호) |접두사, 교환 컨트롤 번호 값의 범위, 접미사를 입력합니다. 이들 값은 그룹 컨트롤 번호를 생성하는 데 사용됩니다. 접두사와 접미사는 옵션이지만 컨트롤 번호는 필수입니다. 컨트롤 번호는 최대값에 도달할 때까지 각 새 메시지에 대해 증가하지만, 접두사와 접미사는 동일하게 유지됩니다. |
+| UNH1(메시지 헤더 참조 번호) |접두사, 교환 컨트롤 번호 값의 범위, 접미사를 입력합니다. 이들 값은 메시지 헤더 참조 번호를 생성하는 데 사용됩니다. 접두사와 접미사는 옵션이지만 참조 번호는 필수입니다. 참조 번호는 각 새 메시지에 대해 증가하지만, 접두사와 접미사는 동일하게 유지됩니다. |
 
 ### <a name="validation"></a>유효성 검사
 
@@ -247,10 +247,10 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 Swagger 파일에 설명 된 작업 및 제한과 같이이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/edifact/)를 참조 하세요.
+커넥터의 Swagger 파일에 설명된 작업 및 제한과 같은 이 커넥터에 대한 자세한 내용은 [커넥터의 참조 페이지를](https://docs.microsoft.com/connectors/edifact/)참조하십시오.
 
 > [!NOTE]
-> [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블 버전은 [ise 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용 합니다.
+> [통합 서비스 환경(ISE)의](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)논리 앱의 경우 이 커넥터의 ISE 레이블이 지정된 버전은 [ISE 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

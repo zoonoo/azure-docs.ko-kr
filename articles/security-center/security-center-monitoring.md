@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
 ms.openlocfilehash: 40352b7ae1f3fb6b1178f2dfe70cdca9871c76b7
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603776"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Azure Security Center를 사용하여 보안 태세 강화
@@ -34,7 +34,7 @@ ms.locfileid: "77603776"
 - 가상 머신, 네트워크 보안 그룹 및 엔드포인트와 같은 네트워크 리소스를 모니터링하고 보안 향상을 위한 권장 사항을 받으려면 [Azure Security Center에서 네트워크 보호](security-center-network-recommendations.md)를 참조하세요. 
 - SQL Server 및 스토리지 계정과 같은 데이터 및 스토리지 리소스를 모니터링하고 보안 향상을 위한 권장 사항을 받으려면 [Azure Security Center에서 Azure SQL 서비스 및 데이터 보호](security-center-sql-service-recommendations.md)를 참조하세요. 
 - MFA 및 계정 권한을 비롯한 ID 및 액세스 리소스를 모니터링하고 보안 향상을 위한 권장 사항을 받으려면 [Azure Security Center에서 ID 및 액세스 모니터링](security-center-identity-access.md)을 참조하세요. 
-- 리소스에 대 한 just-in-time 액세스를 모니터링 하려면 자세한 내용은 just-in-time을 [사용 하 여 가상 머신 액세스 관리](security-center-just-in-time.md) 를 참조 하세요. 
+- 리소스에 대한 적시 액세스를 모니터링하려면 자세한 내용은 [적시(Just-In-Time)를 사용하여 가상 시스템 액세스 관리를](security-center-just-in-time.md) 참조하세요. 
 
 
 권장 사항을 적용하는 방법에 대한 자세한 내용은 [Azure Security Center에서 보안 권장 사항 구현](security-center-recommendations.md)을 참조하세요.
@@ -45,7 +45,7 @@ ms.locfileid: "77603776"
 
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 이 문서에서는 Azure Security Center의 모니터링 기능을 사용하는 방법을 살펴보았습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) - Azure Security Center에서 보안 설정을 구성하는 방법을 알아봅니다.

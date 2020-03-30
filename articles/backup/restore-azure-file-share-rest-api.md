@@ -1,64 +1,64 @@
 ---
-title: REST API를 사용 하 여 Azure 파일 공유 복원
-description: REST API를 사용 하 여에서 만든 복원 지점에서 Azure 파일 공유 또는 특정 파일을 복원 하는 방법에 대해 알아봅니다 Azure Backup
+title: REST API를 사용 하 고 Azure 파일 공유 복원
+description: REST API를 사용하여 Azure Backup에서 만든 복원 지점에서 Azure 파일 공유 또는 특정 파일을 복원하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 1c3160491ef92c62745af1468556e7d5c30437fc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252507"
 ---
-# <a name="restore-azure-file-shares-using-rest-api"></a>REST API를 사용 하 여 Azure 파일 공유 복원
+# <a name="restore-azure-file-shares-using-rest-api"></a>REST API를 사용하여 Azure 파일 공유 복원
 
-이 문서에서는 REST API를 사용 하 여 [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) 에서 만든 복원 지점에서 전체 파일 공유 또는 특정 파일을 복원 하는 방법을 설명 합니다.
+이 문서에서는 REST API를 사용하여 [Azure Backup에서](https://docs.microsoft.com/azure/backup/backup-overview) 만든 복원 지점에서 전체 파일 공유 또는 특정 파일을 복원하는 방법을 설명합니다.
 
-이 문서의 끝부분에서는 REST API를 사용 하 여 다음 작업을 수행 하는 방법을 알아봅니다.
+이 문서의 끝으로 REST API를 사용 하 여 다음 작업을 수행 하는 방법을 알아봅니다.
 
-* 백업 된 Azure 파일 공유의 복원 지점이 표시 됩니다.
-* 전체 Azure 파일 공유를 복원 합니다.
-* 개별 파일 또는 폴더를 복원 합니다.
+* 백업된 Azure 파일 공유에 대한 복원 지점을 봅니다.
+* 전체 Azure 파일 공유를 복원합니다.
+* 개별 파일 또는 폴더를 복원합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-복원 하려는 백업 된 파일 공유가 이미 있다고 가정 합니다. 그렇지 않은 경우 REST API를 [사용 하 여 Azure 파일 공유 백업](backup-azure-file-share-rest-api.md) 을 선택 하 여 만드는 방법을 알아봅니다.
+복원하려는 백업된 파일 공유가 이미 있다고 가정합니다. 그렇지 않은 경우 [REST API를 사용하여 Azure 백업 파일 공유를](backup-azure-file-share-rest-api.md) 확인하여 파일을 만드는 방법을 알아봅니다.
 
-이 문서에서는 다음 리소스를 사용 합니다.
+이 문서에서는 다음 리소스를 사용합니다.
 
-* **Recoveryservicesvault**: *azurefilesvault*
+* **복구 서비스 볼트**: *azurefilesvault*
 * **리소스 그룹**: *azurefiles*
-* **Storage 계정**: *afsaccount*
+* **저장 계정**: *afsaccount*
 * **파일 공유**: *azurefiles*
 
-## <a name="fetch-containername-and-protecteditemname"></a>Fetch ContainerName 및 ProtectedItemName
+## <a name="fetch-containername-and-protecteditemname"></a>컨테이너 이름 및 보호된항목 이름 가져오기
 
-대부분의 복원 관련 API 호출의 경우 {containerName} 및 {protectedItemName} URI 매개 변수에 대 한 값을 전달 해야 합니다. [GET backupprotectableitems](https://docs.microsoft.com/rest/api/backup/protecteditems/get) 작업의 응답 본문에서 ID 특성을 사용 하 여 이러한 매개 변수에 대 한 값을 검색 합니다. 이 예제에서 보호 하려는 파일 공유의 ID는 다음과 같습니다.
+대부분의 복원 관련 API 호출의 경우 {containerName} 및 {protectedItemName} URI 매개 변수에 대한 값을 전달해야 합니다. [GET backupprotectableitems](https://docs.microsoft.com/rest/api/backup/protecteditems/get) 작업의 응답 본문에 ID 특성을 사용하여 이러한 매개 변수에 대한 값을 검색합니다. 이 예제에서는 보호하려는 파일 공유의 ID는 다음과 같은 것입니다.
 
 `"/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/storagecontainer;storage;azurefiles;afsaccount/protectableItems/azurefileshare;azurefiles`
 
-따라서 값은 다음과 같이 변환 됩니다.
+따라서 값은 다음과 같이 변환됩니다.
 
-* {containername}- *storagecontainer; 저장소; azurefiles; afsaccount*
-* {protectedItemName}- *azurefileshare 공유*
+* {컨테이너 이름} - *저장소 컨테이너;저장소;azurefiles;afsaccount*
+* {보호된ItemName} - *azurefileshare;azurefiles*
 
-## <a name="fetch-recovery-points-for-backed-up-azure-file-share"></a>백업 되는 Azure 파일 공유에 대 한 복구 지점의 페치
+## <a name="fetch-recovery-points-for-backed-up-azure-file-share"></a>백업된 Azure 파일 공유에 대한 복구 지점 가져오기
 
-백업 된 파일 공유 또는 파일을 복원 하려면 먼저 복구 지점을 선택 하 여 복원 작업을 수행 합니다. 백업 된 항목의 사용 가능한 복구 지점은 [복구 지점 목록](https://docs.microsoft.com/rest/api/site-recovery/recoverypoints/listbyreplicationprotecteditems) REST API 호출을 사용 하 여 나열할 수 있습니다. 모든 관련 값이 포함 된 GET 작업입니다.
+백업된 파일 공유 또는 파일을 복원하려면 먼저 복구 지점을 선택하여 복원 작업을 수행합니다. 백업된 항목의 사용 가능한 복구 지점은 [복구 지점 목록](https://docs.microsoft.com/rest/api/site-recovery/recoverypoints/listbyreplicationprotecteditems) REST API 호출을 사용하여 나열할 수 있습니다. 모든 관련 값을 가진 GET 작업입니다.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13&$filter={$filter}
 ```
 
-다음과 같이 URI 값을 설정 합니다.
+URI 값을 다음과 같이 설정합니다.
 
-* {fabricName}: *Azure*
-* {vaultName}: *azurefilesvault*
-* {containername}: *storagecontainer; 저장소; azurefiles; afsaccount*
-* {protectedItemName}: *azurefileshare 공유*
-* {ResourceGroupName}: *azurefiles*
+* {패브릭 이름}: *Azure*
+* {볼트 이름}: *azurefilesvault*
+* {컨테이너 이름}: *저장소 컨테이너;저장소;azurefiles;afsaccount*
+* {보호된ItemName}: *azurefileshare;azurefiles*
+* {리소스 그룹 이름}: *azurefiles*
 
-GET URI에는 모든 필수 매개 변수가 있습니다. 추가 요청 본문은 필요 하지 않습니다.
+GET URI에는 필요한 모든 매개 변수가 있습니다. 추가 요청 본문이 필요하지 않습니다.
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare;azurefiles/recoveryPoints?api-version=2019-05-13
@@ -66,7 +66,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 ### <a name="example-response"></a>예제 응답
 
-GET URI가 제출 되 면 200 응답이 반환 됩니다.
+GET URI가 제출되면 200개의 응답이 반환됩니다.
 
 ```http
 HTTP/1.1" 200 None
@@ -139,18 +139,18 @@ HTTP/1.1" 200 None
   },
 ```
 
-복구 지점은 위의 응답에서 {name} 필드를 사용 하 여 식별 됩니다.
+복구 지점은 위의 응답에서 {name} 필드로 식별됩니다.
 
-## <a name="full-share-recovery-using-rest-api"></a>REST API를 사용 하 여 전체 공유 복구
+## <a name="full-share-recovery-using-rest-api"></a>REST API를 사용한 전체 공유 복구
 
-이 복원 옵션을 사용 하 여 원래 위치 또는 대체 위치에서 전체 파일 공유를 복원할 수 있습니다.
-복원 트리거는 POST 요청 이며 [트리거 복원](https://docs.microsoft.com/rest/api/backup/restores/trigger) REST API를 사용 하 여이 작업을 수행할 수 있습니다.
+이 복원 옵션을 사용하여 원본 또는 대체 위치에서 전체 파일 공유를 복원합니다.
+복원 트리거링은 POST 요청이며 REST API [를 복원하는 트리거를](https://docs.microsoft.com/rest/api/backup/restores/trigger) 사용하여 이 작업을 수행할 수 있습니다.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
 ```
 
-{ContainerName} 및 {protectedItemName} 값은 [여기](#fetch-containername-and-protecteditemname) 에 설정 된 것 이며 recoveryPointID은 위에서 언급 한 복구 지점의 {name} 필드입니다.
+{컨테이너Name} 및 {protectedItemName} 값은 [여기에](#fetch-containername-and-protecteditemname) 설정되어 있으며 recoveryPointID는 위에서 언급한 복구 지점의 {name} 필드입니다.
 
 ```http
 POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare%3Bazurefiles/recoveryPoints/932886657837421071/restore?api-version=2019-05-13'
@@ -158,19 +158,19 @@ POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48a
 
 ### <a name="create-request-body"></a>요청 본문 만들기
 
-Azure 파일 공유에 대 한 복원을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
+Azure 파일 공유에 대한 복원을 트리거하려면 요청 본문 구성 요소는 다음과 같습니다.
 
-속성 |  Type   |   Description
+이름 |  Type   |   Description
 --- | ---- | ----
-속성 | AzureFileShareRestoreRequest | RestoreRequestResource 속성
+속성 | AzureFileShare복원요청 | 복원요청리소스 속성
 
-요청 본문 및 기타 세부 정보에 대 한 전체 정의 목록은 [트리거 복원 REST API 문서](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body)를 참조 하세요.
+요청 본문 및 기타 세부 정보의 전체 정의 목록은 [REST API 문서 복원 트리거를](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body)참조하십시오.
 
 ### <a name="restore-to-original-location"></a>원래 위치로 복원
 
 #### <a name="request-body-example"></a>요청 본문 예제
 
-다음 요청 본문은 Azure 파일 공유 복원을 트리거하는 데 필요한 속성을 정의 합니다.
+다음 요청 본문에서 Azure 파일 공유 복원을 트리거하는 데 필요한 속성을 정의합니다.
 
 ```json
 {
@@ -186,15 +186,15 @@ Azure 파일 공유에 대 한 복원을 트리거하려면 요청 본문의 구
 
 ### <a name="restore-to-alternate-location"></a>대체 위치에 복원
 
-대체 위치 복구에 대해 다음 매개 변수를 지정 합니다.
+대체 위치 복구를 위해 다음 매개 변수를 지정합니다.
 
-* **targetResourceId**: 백업 된 콘텐츠를 복원할 저장소 계정입니다. 대상 스토리지 계정은 자격 증명 모음과 동일한 위치에 있어야 합니다.
-* **이름**: 백업 된 콘텐츠를 복원할 대상 저장소 계정 내의 파일 공유입니다.
-* **Targetfolderpath**: 데이터가 복원 되는 파일 공유의 폴더입니다.
+* **targetResourceId:** 백업된 콘텐츠가 복원되는 저장소 계정입니다. 대상 스토리지 계정은 자격 증명 모음과 동일한 위치에 있어야 합니다.
+* **이름**: 백업된 콘텐츠가 복원되는 대상 저장소 계정 내의 파일 공유입니다.
+* **targetFolderPath**: 데이터가 복원되는 파일 공유 아래의 폴더입니다.
 
 #### <a name="request-body-example"></a>요청 본문 예제
 
-다음 요청 본문은 *afsaccount* 저장소 계정의 *azurefiles* 파일 공유를 *afaccount1* storage 계정의 *azurefiles1* 파일 공유로 복원 합니다.
+다음 요청 본문에서는 *afsaccount* 저장소 계정의 *azurefiles* 파일 공유를 *afaccount1* 저장소 계정의 *azurefiles1* 파일 공유로 복원합니다.
 
 ```json
 {
@@ -219,12 +219,12 @@ Azure 파일 공유에 대 한 복원을 트리거하려면 요청 본문의 구
 
 ### <a name="response"></a>응답
 
-복원 작업의 트리거는 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 이 작업은 별도로 추적 해야 하는 다른 작업을 만듭니다.
-이는 다른 작업을 만들 때 202 (수락 됨)와 해당 작업이 완료 될 때 200 (OK)의 두 응답을 반환 합니다.
+복원 작업의 트리거링은 [비동기 작업입니다.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
+다른 작업이 생성될 때 202(허용됨)와 해당 작업이 완료되면 200(확인)의 두 개의 응답을 반환합니다.
 
 #### <a name="response-example"></a>응답 예제
 
-복원을 트리거하는 *게시* URI를 제출 하면 초기 응답은 위치 헤더 또는 Azure-async-헤더를 사용 하는 202 (수락 됨)입니다.
+복원을 트리거하기 위해 *POST* URI를 제출하면 초기 응답은 위치 헤더 또는 Azure-비동기 헤더가 있는 202(허용됨)입니다.
 
 ```http
 HTTP/1.1" 202
@@ -245,7 +245,7 @@ HTTP/1.1" 202
 'Date': 'Wed, 05 Feb 2020 07:43:47 GMT'
 ```
 
-그런 다음 GET 명령을 사용 하 여 location 헤더 또는 AsyncOperation 헤더를 사용 하 여 결과 작업을 추적 합니다.
+그런 다음 GET 명령을 사용하여 위치 헤더 또는 Azure-AsyncOperation 헤더를 사용하여 결과 작업을 추적합니다.
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupOperations/68ccfbc1-a64f-4b29-b955-314b5790cfa9?api-version=2016-12-01
@@ -304,7 +304,7 @@ HTTP/1.1" 200
 }
 ```
 
-대체 위치 복구의 경우 응답 본문은 다음과 같습니다.
+대체 위치 복구의 경우 응답 본문에는 다음과 같이 표시됩니다.
 
 ```http
 {
@@ -354,13 +354,13 @@ HTTP/1.1" 200
 
 ## <a name="item-level-recovery-using-rest-api"></a>REST API를 사용한 항목 수준 복구
 
-이 복원 옵션을 사용 하 여 원본 또는 대체 위치의 개별 파일 또는 폴더를 복원할 수 있습니다.
+이 복원 옵션을 사용하여 원본 또는 대체 위치에 있는 개별 파일 또는 폴더를 복원할 수 있습니다.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
 ```
 
-{ContainerName} 및 {protectedItemName} 값은 [여기](#fetch-containername-and-protecteditemname) 에 설정 된 것 이며 recoveryPointID은 위에서 언급 한 복구 지점의 {name} 필드입니다.
+{컨테이너Name} 및 {protectedItemName} 값은 [여기에](#fetch-containername-and-protecteditemname) 설정되어 있으며 recoveryPointID는 위에서 언급한 복구 지점의 {name} 필드입니다.
 
 ```http
 POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare%3Bazurefiles/recoveryPoints/932886657837421071/restore?api-version=2019-05-13'
@@ -368,17 +368,17 @@ POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48a
 
 ### <a name="create-request-body"></a>요청 본문 만들기
 
-Azure 파일 공유에 대 한 복원을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
+Azure 파일 공유에 대한 복원을 트리거하려면 요청 본문 구성 요소는 다음과 같습니다.
 
-속성 |  Type   |   Description
+이름 |  Type   |   Description
 --- | ---- | ----
-속성 | AzureFileShareRestoreRequest | RestoreRequestResource 속성
+속성 | AzureFileShare복원요청 | 복원요청리소스 속성
 
-요청 본문 및 기타 세부 정보에 대 한 전체 정의 목록은 [트리거 복원 REST API 문서](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body)를 참조 하세요.
+요청 본문 및 기타 세부 정보의 전체 정의 목록은 [REST API 문서 복원 트리거를](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body)참조하십시오.
 
 ### <a name="restore-to-original-location"></a>원래 위치로 복원
 
-다음 요청 본문은 *afsaccount* 저장소 계정의 *azurefiles* 파일 공유에 *Restoretest* 파일을 복원 하는 것입니다.
+다음 요청 본문에는 *afsaccount* 저장소 계정의 *azurefiles* 파일 공유에 *Restoretest.txt* 파일을 복원하는 것입니다.
 
 요청 본문 만들기
 
@@ -404,7 +404,7 @@ Azure 파일 공유에 대 한 복원을 트리거하려면 요청 본문의 구
 
 ### <a name="restore-to-alternate-location"></a>대체 위치에 복원
 
-다음 요청 본문은 *afsaccount* 저장소 계정의 *azurefiles* 파일 공유에 있는 *Restoretest* 파일을 *afaccount1* storage 계정에 있는 *azurefiles1* 파일 공유의 *restoredata* 폴더에 복원 하는 것입니다.
+다음 요청 본문은 *afsaccount* 저장소 계정의 *azurefiles* 파일 공유에 있는 *Restoretest.txt* 파일을 *afaccount1* 저장소 계정의 *azurefiles1* 파일 공유의 *restoredata* 폴더로 복원하는 것입니다.
 
 요청 본문 만들기
 
@@ -431,8 +431,8 @@ Azure 파일 공유에 대 한 복원을 트리거하려면 요청 본문의 구
 }
 ```
 
-응답은 [전체 공유 복원](#full-share-recovery-using-rest-api)에 대해 위에서 설명한 것과 동일한 방식으로 처리 되어야 합니다.
+[전체 공유 복원에](#full-share-recovery-using-rest-api)대해 위에서 설명한 것과 동일한 방식으로 응답을 처리해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [REST API를 사용 하 여 Azure 파일 공유 백업을 관리](manage-azure-file-share-rest-api.md)하는 방법을 알아봅니다.
+* [나머지 API를 사용하여 Azure 파일 공유 백업을 관리하는](manage-azure-file-share-rest-api.md)방법에 대해 알아봅니다.

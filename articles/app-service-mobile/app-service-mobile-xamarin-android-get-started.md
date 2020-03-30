@@ -1,16 +1,16 @@
 ---
-title: Xamarin Android 앱 시작
-description: 이 자습서에 따라 Azure Mobile Apps를 사용 하 여 Xamarin Android 개발을 시작할 수 있습니다.
+title: Xamarin.Android 앱 시작하기
+description: 이 자습서를 따라 Xamarin Android 개발을 위한 Azure 모바일 앱 사용을 시작하십시오.
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.openlocfilehash: b42205436c88f9075423bfcaf9e5a9fd931ee4f4
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461371"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Xamarin.Android 앱 만들기
@@ -28,7 +28,7 @@ ms.locfileid: "77461371"
 ## <a name="prerequisites"></a>사전 요구 사항
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
-* 활성 Azure 계정. 계정이 아직 없으면 Azure 평가판에 등록하고 최대 10개의 무료 Mobile Apps을 가져옵니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* 활성 Azure 계정. 계정이 아직 없으면 Azure 평가판에 등록하고 최대 10개의 무료 Mobile Apps을 가져옵니다. 자세한 내용은 [Azure 무료 평가판을](https://azure.microsoft.com/pricing/free-trial/)참조하십시오.
 * Xamarin이 포함된 Visual Studio입니다. 지침은 [Visual Studio 및 Xamarin을 위한 설치 및 설정](/visualstudio/cross-platform/setup-and-install) 을 참조하세요.
 
 ## <a name="create-an-azure-mobile-app-backend"></a>새 Azure Mobile App 백 엔드 만들기
@@ -38,25 +38,25 @@ ms.locfileid: "77461371"
 
 이제 모바일 클라이언트 애플리케이션에서 사용할 수 있는 Azure 모바일 앱 백 엔드를 프로비저닝했습니다. 다음으로, 간단한 "할 일 목록" 백 엔드에 대한 서버 프로젝트를 다운로드하고 Azure에 게시합니다.
 
-## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>데이터베이스 연결을 만들고 클라이언트 및 서버 프로젝트를 구성 합니다.
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>데이터베이스 연결 만들기 및 클라이언트 및 서버 프로젝트 구성
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="run-the-xamarinandroid-app"></a>Xamarin Android 앱 실행
-1. Xamarin Android 프로젝트를 엽니다.
+## <a name="run-the-xamarinandroid-app"></a>자마린.안드로이드 응용 프로그램을 실행
+1. Xamarin.Android 프로젝트를 엽니다.
 
-2. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 만든 모바일 앱으로 이동 합니다. `Overview` 블레이드에서 모바일 앱에 대 한 공용 끝점 인 URL을 찾습니다. 예-내 앱 이름 "test123"에 대 한 sitename이 https://test123.azurewebsites.net됩니다.
+2. [Azure 포털로](https://portal.azure.com/) 이동하여 만든 모바일 앱으로 이동합니다. 블레이드에서 `Overview` 모바일 앱의 공개 끝점인 URL을 찾습니다. 예 - 내 앱 이름 "test123"의 https://test123.azurewebsites.net사이트 이름은 .
 
-3. 이 폴더에서 파일 `ToDoActivity.cs`를 엽니다.-xamarin.ios/ZUMOAPPNAME/Todoactivity.java. 응용 프로그램 이름이 `ZUMOAPPNAME`입니다.
+3. 이 폴더에서 파일을 `ToDoActivity.cs` 엽니 다 - xamarin.android/ZUMOAPPNAME/ToDoActivity.cs. 응용 프로그램 `ZUMOAPPNAME`이름은 입니다.
 
-4. `ToDoActivity` 클래스에서 `ZUMOAPPURL` 변수를 위의 공용 끝점으로 바꿉니다.
+4. 클래스에서는 `ToDoActivity` 변수를 위의 공용 끝점으로 바꿉습니다. `ZUMOAPPURL`
 
     `const string applicationURL = @"ZUMOAPPURL";`
 
-    --&gt;
+    다음이 됩니다.
     
     `const string applicationURL = @"https://test123.azurewebsites.net";`
     
-5. F5 키를 눌러 응용 프로그램을 배포 하 고 실행 합니다.
+5. F5 키를 눌러 앱을 배포하고 실행합니다.
 
 6. 앱에서 *자습서 완료* 등의 의미 있는 텍스트를 입력한 후 **추가** 단추를 클릭합니다.
 

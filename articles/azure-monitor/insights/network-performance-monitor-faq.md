@@ -1,16 +1,16 @@
 ---
 title: FAQ - Azure의 네트워크 성능 모니터 솔루션 | Microsoft Docs
-description: 이 문서에서는 Azure의 네트워크 성능 모니터에 대 한 자주 묻는 질문을 캡처합니다. NPM (네트워크 성능 모니터)를 사용 하면 네트워크 성능을 거의 실시간으로 모니터링 하 여 네트워크 성능 병목을 감지 하 고 찾을 수 있습니다.
+description: 이 문서에서는 Azure의 네트워크 성능 모니터에 대해 자주 묻는 질문을 캡처합니다. NPM(네트워크 성능 모니터)을 사용하면 거의 실시간으로 네트워크 성능을 모니터링하고 네트워크 성능 병목 현상을 감지하고 찾을 수 있습니다.
 ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
 ms.openlocfilehash: 443e4b44633e949dd9bd55df1ec7d18ca93d6e04
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79096220"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>네트워크 성능 모니터 솔루션 FAQ
@@ -19,7 +19,7 @@ ms.locfileid: "79096220"
 
 이 문서에서는 NPM(네트워크 성능 모니터)에 대한 FAQ(질문과 대답)를 캡처합니다.
 
-[네트워크 성능 모니터](/azure/networking/network-monitoring-overview)는 네트워크 인프라의 다양한 지점 간 네트워크 성능을 모니터링하는 데 도움이 되는 클라우드 기반 [하이브리드 네트워크 모니터링](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) 솔루션입니다. 또한 [서비스 및 애플리케이션 엔드포인트](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md)에 대한 네트워크 연결을 모니터링하고 [Azure ExpressRoute의 성능을 모니터링하는](../../azure-monitor/insights/network-performance-monitor-expressroute.md) 데 도움이 됩니다. 
+[네트워크 성능 모니터는](/azure/networking/network-monitoring-overview) 네트워크 인프라의 다양한 지점 간에 네트워크 성능을 모니터링하는 데 도움이 되는 클라우드 기반 [하이브리드 네트워크 모니터링](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) 솔루션입니다. 또한 [서비스 및 애플리케이션 엔드포인트](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md)에 대한 네트워크 연결을 모니터링하고 [Azure ExpressRoute의 성능을 모니터링하는](../../azure-monitor/insights/network-performance-monitor-expressroute.md) 데 도움이 됩니다. 
 
 네트워크 성능 모니터는 트래픽 블랙홀링, 라우팅 오류와 같은 네트워크 문제와 기존 네트워크 모니터링 방법으로 감지할 수 없는 문제를 감지합니다. 이 솔루션은 네트워크 링크에 임계값이 위반되면 경고를 생성하고 사용자에게 알립니다. 또한 네트워크 성능 문제를 적시에 감지하고 문제의 원인을 특정 네트워크 세그먼트 또는 디바이스로 국한시킵니다. 
 
@@ -30,24 +30,24 @@ ms.locfileid: "79096220"
 ### <a name="what-are-the-platform-requirements-for-the-nodes-to-be-used-for-monitoring-by-npm"></a>NPM에서 모니터링에 사용할 노드에 대한 플랫폼 요구 사항은 무엇입니까?
 NPM의 다양한 기능에 대한 플랫폼 요구 사항은 아래와 같습니다.
 
-- NPM의 성능 모니터 및 서비스 연결 모니터 기능은 Windows server 및 Windows 데스크톱/클라이언트 운영 체제를 모두 지원 합니다. 지원 되는 Windows server OS 버전은 2008 SP1 이상입니다. 지원 되는 windows 데스크톱/클라이언트 버전은 Windows 10, Windows 8.1, Windows 8 및 Windows 7입니다. 
+- NPM의 성능 모니터 및 서비스 연결 모니터 기능은 Windows 서버와 Windows 데스크톱/클라이언트 운영 체제를 모두 지원합니다. 지원되는 Windows 서버 OS 버전은 2008 SP1 이상입니다. 지원되는 Windows 데스크톱/클라이언트 버전은 Windows 10, Windows 8.1, Windows 8 및 Windows 7입니다. 
 - NPM의 ExpressRoute 모니터 기능은 Windows 서버(2008 SP1 이상) 운영 체제만 지원합니다.
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>NPM에서 Linux 머신을 모니터링 노드로 사용할 수 있나요?
-Linux 기반 노드를 사용 하 여 네트워크를 모니터링 하는 기능은 현재 미리 보기로 제공 됩니다. 더 자세한 내용은 계정 관리자에 문의하세요. Linux 에이전트는 NPM의 성능 모니터 기능에 대해서만 모니터링 기능을 제공하고 서비스 연결 모니터 및 ExpressRoute 모니터 기능에 대해서는 사용할 수 없습니다.
+Linux 기반 노드를 사용하여 네트워크를 모니터링하는 기능은 현재 미리 보기 상태입니다. 더 자세한 내용은 계정 관리자에 문의하세요. Linux 에이전트는 NPM의 성능 모니터 기능에 대해서만 모니터링 기능을 제공하고 서비스 연결 모니터 및 ExpressRoute 모니터 기능에 대해서는 사용할 수 없습니다.
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>NPM에서 모니터링에 사용할 노드에 대한 크기 요구 사항은 얼마인가요?
-네트워크를 모니터링하기 위해 노드 VM에서 NPM 솔루션을 실행하려면 노드에 최소 메모리 500MB 및 코어 한 개가 있어야 합니다. NPM를 실행 하는 데 별도의 노드를 사용할 필요가 없습니다. 다른 워크로드가 실행 중인 노드에서 이 솔루션을 실행할 수 있습니다. 이 솔루션에는 CPU가 5% 넘게 사용 되는 경우 모니터링 프로세스를 중지할 수 있는 기능이 있습니다.
+네트워크를 모니터링하기 위해 노드 VM에서 NPM 솔루션을 실행하려면 노드에 최소 메모리 500MB 및 코어 한 개가 있어야 합니다. NPM을 실행하기 위해 별도의 노드를 사용할 필요가 없습니다. 다른 워크로드가 실행 중인 노드에서 이 솔루션을 실행할 수 있습니다. 이 솔루션에는 5% 이상의 CPU를 사용하는 경우 모니터링 프로세스를 중지할 수 있는 기능이 있습니다.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>NPM을 사용하려면 내 노드를 직접 에이전트로 또는 System Center Operations Manager를 통해 연결해야 하나요?
-성능 모니터와 서비스 연결 모니터 기능은 모두 [직접 에이전트로 연결 되](../../azure-monitor/platform/agent-windows.md) 고 [Operations Manager를 통해 연결](../../azure-monitor/platform/om-agents.md)된 노드를 지원 합니다.
+성능 모니터 와 서비스 연결 모니터 기능은 [직접 에이전트로 연결되고](../../azure-monitor/platform/agent-windows.md) [Operations Manager를 통해 연결된](../../azure-monitor/platform/om-agents.md)노드를 지원합니다.
 
-ExpressRoute 모니터 기능의 경우 Azure 노드를 직접 에이전트로만 연결해야 합니다. Operations Manager를 통해 연결된 Azure 노드는 지원되지 않습니다. 온-프레미스 노드의 경우 직접 에이전트로 연결 된 노드와 Operations Manager를 통해 Express 경로 회로를 모니터링 하는 데 사용할 수 있습니다.
+ExpressRoute 모니터 기능의 경우 Azure 노드를 직접 에이전트로만 연결해야 합니다. Operations Manager를 통해 연결된 Azure 노드는 지원되지 않습니다. 온-프레미스 노드의 경우 직접 에이전트 및 운영 관리자를 통해 연결된 노드가 ExpressRoute 회로를 모니터링하는 데 지원됩니다.
 
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>모니터링을 위해 TCP와 ICMP 중 어느 프로토콜을 선택해야 하나요?
-Windows server 기반 노드를 사용 하 여 네트워크를 모니터링 하는 경우 더 나은 정확도를 제공 하므로 TCP를 모니터링 프로토콜로 사용 하는 것이 좋습니다. 
+Windows 서버 기반 노드를 사용하여 네트워크를 모니터링하는 경우 더 나은 정확도를 제공하므로 TCP를 모니터링 프로토콜로 사용하는 것이 좋습니다. 
 
-Windows 데스크톱/클라이언트 운영 체제 기반 노드에 ICMP를 사용하는 것이 좋습니다. 이 플랫폼에서는 NPM가 네트워크 토폴로지를 검색 하는 데 사용 하는 원시 소켓을 통해 TCP 데이터를 전송 하는 것을 허용 하지 않습니다.
+Windows 데스크톱/클라이언트 운영 체제 기반 노드에 ICMP를 사용하는 것이 좋습니다. 이 플랫폼에서는 NPM이 네트워크 토폴로지 에서 사용하는 원시 소켓을 통해 TCP 데이터를 전송할 수 없습니다.
 
 각 프로토콜의 상대적 이점에 대한 세부 정보는 [여기](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol)에서 얻을 수 있습니다.
 
@@ -65,8 +65,8 @@ NPM에서 모니터링을 위해 사용하는 TCP 포트는 [EnableRules.ps1](ht
 ### <a name="how-many-agents-should-i-use"></a>에이전트를 얼마나 많이 사용해야 하나요?
 모니터링하려는 각 서브넷에 대해 최소 한 개의 에이전트를 사용해야 합니다.
 
-### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--youve-reached-your-configuration-limit"></a>사용할 수 있는 에이전트의 최대 수 또는 오류 "... 구성 제한에 도달 했습니다. "
-NPM은 작업 영역당 IP 수를 5000개로 제한합니다. 노드에 IPv4 및 IPv6 주소가 모두 있는 경우 이 값은 해당 노드의 2개 IP로 계산됩니다. 또한 이 5000개 한도에 따라 에이전트 수의 상한이 결정됩니다. NPM >> [구성]의 [노드] 탭에서 비활성 에이전트를 삭제할 수 있습니다. 또한 NPM은 에이전트를 호스트 하는 VM에 할당 된 모든 Ip에 대 한 기록을 유지 관리 하며 각 IP는 해당 상한 5000 Ip에 영향을 주는 별도의 IP로 계산 됩니다. 작업 영역에 대 한 Ip를 확보 하려면 노드 페이지를 사용 하 여 사용 하지 않는 Ip를 삭제할 수 있습니다.
+### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--youve-reached-your-configuration-limit"></a>내가 사용할 수있는 에이전트의 최대 수는 무엇입니까 또는 나는 오류를 참조하십시오 ".... 구성 한도에 도달했습니다."?
+NPM은 작업 영역당 IP 수를 5000개로 제한합니다. 노드에 IPv4 및 IPv6 주소가 모두 있는 경우 이 값은 해당 노드의 2개 IP로 계산됩니다. 또한 이 5000개 한도에 따라 에이전트 수의 상한이 결정됩니다. NPM >> [구성]의 [노드] 탭에서 비활성 에이전트를 삭제할 수 있습니다. 또한 NPM은 에이전트를 호스팅하는 VM에 할당된 모든 IP의 기록을 유지하며 각 IP는 5000IP의 상한에 기여하는 별도의 IP로 계산됩니다. 작업 영역에 대한 IP를 확보하려면 노드 페이지를 사용하여 사용하지 않는 IP를 삭제할 수 있습니다.
 
 ## <a name="monitoring"></a>모니터링
 
@@ -97,7 +97,7 @@ NPM은 확률적 메커니즘을 사용하여 홉이 속한 비정상 경로 수
 ### <a name="how-can-i-create-alerts-in-npm"></a>NPM에서 경고를 얼마나 많이 만들 수 있나요?
 [설명서의 경고 섹션](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor#alerts)에서 단계별 지침을 참조하세요.
 
-### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>경고에 대 한 기본 Log Analytics 쿼리
+### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>경고에 대한 기본 로그 분석 쿼리는 무엇입니까?
 성능 모니터 쿼리
 
     NetworkMonitoring 
@@ -110,7 +110,7 @@ NPM은 확률적 메커니즘을 사용하여 홉이 속한 비정상 경로 수
      | where (SubType == "EndpointHealth" or SubType == "EndpointPath")
      | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or ServiceResponseHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and TestName == "<<your test name>>"
     
-Express 경로 모니터 쿼리: 회로 쿼리
+ExpressRoute 모니터 쿼리: 회로 쿼리
 
     NetworkMonitoring
     | where (SubType == "ERCircuitTotalUtilization") and (UtilizationHealthState == "Unhealthy") and CircuitResourceId == "<<your circuit resource ID>>"
@@ -127,7 +127,7 @@ Microsoft 피어링
      | where (SubType == "ExpressRoutePeering" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == ""<<your circuit name>>" and PeeringType == "MicrosoftPeering"
 
-일반 쿼리   
+일반적인 쿼리   
 
     NetworkMonitoring
     | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
@@ -145,19 +145,19 @@ NPM은 원본 IP와 대상 IP 간의 기본 네트워크 홉(스위치, 라우�
 ### <a name="can-we-get-incoming-and-outgoing-bandwidth-information-for-the-expressroute"></a>ExpressRoute에 대해 들어오고 나가는 대역폭 정보를 얻을 수 있나요?
 주 및 보조 대역폭 둘 다에 대해 들어오고 나가는 값을 캡처할 수 있습니다.
 
-MS 피어 링 수준 정보를 보려면 로그 검색에서 아래 설명 된 쿼리를 사용 하십시오.
+MS 피어링 수준 정보의 경우 로그 검색에서 아래에 언급된 쿼리를 사용합니다.
 
     NetworkMonitoring 
      | where SubType == "ERMSPeeringUtilization"
      | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
     
-개인 피어 링 수준 정보를 보려면 로그 검색에서 아래에 설명 된 쿼리를 사용 하십시오.
+개인 피어링 수준 정보의 경우 로그 검색에서 아래에 언급된 쿼리를 사용합니다.
 
     NetworkMonitoring 
      | where SubType == "ERVNetConnectionUtilization"
      | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
   
-회로 수준 정보를 보려면 로그 검색에서 아래에서 언급 한 쿼리를 사용 하십시오.
+회로 수준 정보는 로그 검색에서 아래에 언급된 쿼리를 사용합니다.
 
     NetworkMonitoring 
         | where SubType == "ERCircuitTotalUtilization"
@@ -175,7 +175,7 @@ NPM은 어떤 Azure 하위 지역에 위치한 ExpressRoute 회로도 모니터�
 ## <a name="troubleshoot"></a>문제 해결
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>홉의 일부가 네트워크 토폴로지 보기에서 식별되지 않은 것으로 표시되는 이유는 무엇입니까?
-NPM은 경로 추적의 수정된 버전을 사용하여 원본 에이전트에서 대상까지 토폴로지를 검색합니다. 식별되지 않은 홉은 네트워크 홉이 원본 에이전트의 경로 추적 요청에 응답하지 않았음을 나타냅니다. 3 개의 연속 네트워크 홉이 에이전트의 경로 추적 응답 하지 않는 경우 솔루션은 응답 하지 않는 홉을 식별 되지 않은 것으로 표시 하 고 더 많은 홉을 검색 하지 않습니다.
+NPM은 경로 추적의 수정된 버전을 사용하여 원본 에이전트에서 대상까지 토폴로지를 검색합니다. 식별되지 않은 홉은 네트워크 홉이 원본 에이전트의 경로 추적 요청에 응답하지 않았음을 나타냅니다. 세 개의 연속된 네트워크 홉이 에이전트의 추적 경로에 응답하지 않는 경우 솔루션은 응답하지 않는 홉을 식별되지 않은 것으로 표시하고 더 많은 홉을 검색하려고 하지 않습니다.
 
 홉은 아래 시나리오 중 하나 이상에서 경로 추적에 응답하지 않을 수 있습니다.
 
@@ -183,27 +183,27 @@ NPM은 경로 추적의 수정된 버전을 사용하여 원본 에이전트에�
 * 네트워크 디바이스가 ICMP_TTL_EXCEEDED 트래픽을 허용하지 않습니다.
 * 방화벽이 네트워크 디바이스에서 ICMP_TTL_EXCEEDED 응답을 차단합니다.
 
-끝점 중 하나가 Azure에 있는 경우 Azure 인프라에서 id를 경로 추적로 표시 하지 않으므로 경로 추적는 식별 되지 않은 홉을 표시 합니다. 
+끝점 중 하나가 Azure에 있는 경우 Azure 인프라에서 추적 경로에 대한 ID를 표시하지 않으므로 traceroute가 확인되지 않은 홉을 표시합니다. 
 
-### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy"></a>비정상 테스트에 대 한 경고를 가져오지만 NPM의 손실 및 대기 시간 그래프에 높은 값이 표시 되지 않습니다. 비정상 상태를 확인 어떻게 할까요?
-NPM는 원본과 대상 사이의 종단 간 대기 시간이 임계값을 초과 하는 경우 경고를 발생 시킵니다. 일부 네트워크에는 동일한 원본 및 대상을 연결 하는 경로가 여러 개 있습니다. NPM는 상태가 비정상 인 경우 경고를 발생 시킵니다. 그래프에 표시 되는 손실 및 대기 시간은 모든 경로의 평균 값 이므로 단일 경로의 정확한 값을 표시 하지 않을 수 있습니다. 임계값이 위반 된 위치를 이해 하려면 경고의 "하위 유형" 열을 찾습니다. 경로 때문에 문제가 발생 하는 경우 하위 유형 값은 NetworkPath (성능 모니터 테스트의 경우), EndpointPath (서비스 연결 모니터 테스트의 경우) 및 ExpressRoutePath (ExpressRotue Monitor 테스트의 경우)입니다. 
+### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy"></a>비정상 테스트에 대한 경고를 받지만 NPM의 손실 및 대기 시간 그래프에서 높은 값을 볼 수 없습니다. 건강에 해로운 것이 무엇인지 어떻게 확인합니까?
+NPM은 소스와 대상 간의 종료 대기 시간이 둘 사이의 경로에 대한 임계값을 초과할 경우 경고를 발생시입니다. 일부 네트워크에는 동일한 소스와 대상을 연결하는 여러 경로가 있습니다. NPM은 모든 경로가 비정상인 경고를 발생시다. 그래프에서 볼 수 있는 손실 및 대기 시간은 모든 경로의 평균 값이므로 단일 경로의 정확한 값이 표시되지 않을 수 있습니다. 임계값이 위반된 위치를 이해하려면 경고의 "SubType" 열을 찾습니다. 경로로 인해 문제가 발생하는 경우 하위 유형 값은 NetworkPath(성능 모니터 테스트용), EndpointPath(서비스 연결 모니터 테스트용) 및 ExpressRoutePath(ExpressRotue 모니터 테스트용)입니다. 
 
-경로를 찾는 샘플 쿼리가 비정상 상태입니다.
+찾을 샘플 쿼리는 경로가 비정상입니다.
 
     NetworkMonitoring 
     | where ( SubType == "ExpressRoutePath")
     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and          CircuitResourceID =="<your ER circuit ID>" and ConnectionResourceId == "<your ER connection resource id>"
     | project SubType, LossHealthState, LatencyHealthState, MedianLatency 
 
-### <a name="why-does-my-test-show-unhealthy-but-the-topology-does-not"></a>테스트가 비정상으로 표시 되는 이유는 무엇 인가요? 
-NPM는 종단 간 손실, 대기 시간 및 토폴로지를 서로 다른 간격으로 모니터링 합니다. 손실 및 대기 시간은 5 초 마다 한 번씩 측정 되 고 3 분 마다 (성능 모니터 및 Express 경로 모니터의 경우), 토폴로지는 10 분 마다 한 번씩 경로 추적을 사용 하 여 계산 됩니다. 예를 들어 3:44과 4:04 사이에서 토폴로지는 세 번 (3:44, 3:54, 4:04) 업데이트 될 수 있지만 손실 및 대기 시간은 7 회 (3:44, 3:47, 3:50, 3:53, 3:56, 3:59, 4:02)로 업데이트 됩니다. 3:54에 생성 된 토폴로지는 3:56, 3:59 및 4:02에서 계산 되는 손실 및 대기 시간에 대해 렌더링 됩니다. ER 회로가 3:59에 비정상 상태임을 알리는 경고가 표시 되는 경우를 가정 합니다. NPM에 로그온 하 여 토폴로지 시간을 3:59로 설정 해 봅니다. NPM는 3:54에 생성 된 토폴로지를 렌더링 합니다. 네트워크의 마지막 알려진 토폴로지를 이해 하려면 TimeProcessed 된 필드 (손실 및 대기 시간을 계산한 시간) 및 TracerouteCompletedTime (토폴로지가 계산 된 시간)을 비교 합니다. 
+### <a name="why-does-my-test-show-unhealthy-but-the-topology-does-not"></a>내 테스트가 비정상으로 표시되지만 토폴로지가 
+NPM은 서로 다른 간격으로 종단 간 손실, 대기 시간 및 토폴로지를 모니터링합니다. 손실 및 대기 시간은 5초에 한 번씩 측정되고 3분마다 집계됩니다(성능 모니터 및 익스프레스 경로 모니터의 경우) 토폴로지는 10분마다 한 번씩 traceroute를 사용하여 계산됩니다. 예를 들어 3:44에서 4:04 사이에 토폴로지는 세 번 업데이트될 수 있지만(3:44, 3:54, 4:04), 손실 및 대기 시간은 약 7번(3:44, 3:47, 3:50, 3:53, 3:56, 3:59, 4:02)에 대해 업데이트됩니다. 3:54에서 생성된 토폴로지는 3:56, 3:59 및 4:02에 계산되는 손실 및 대기 시간에 대해 렌더링됩니다. 3:59에서 ER 회로가 비정상이라는 경고가 있다고 가정합니다. NPM에 로그온하고 토폴로지 시간을 3:59로 설정합니다. NPM은 3:54에 생성된 토폴로지를 렌더링합니다. 네트워크의 마지막으로 알려진 토폴로지(TimeProcessed) 필드(손실 및 대기 시간이 계산된 시간)와 TracerouteCompletedTime(토폴로지가 계산된 시간)을 비교합니다. 
 
-### <a name="what-is-the-difference-between-the-fields-e2emedianlatency-and-avghoplatencylist-in-the-networkmonitoring-table"></a>NetworkMonitoring 테이블에서 E2EMedianLatency 및 AvgHopLatencyList 필드 간의 차이점은 무엇 인가요?
-E2EMedianLatency는 tcp ping 테스트 결과를 집계 한 후 3 분 마다 업데이트 되는 대기 시간으로, AvgHopLatencyList은 경로 추적에 따라 10 분 마다 업데이트 됩니다. E2EMedianLatency 계산 된 정확한 시간을 이해 하려면 TimeProcessed 필드를 사용 합니다. 경로 추적 완료 되 고 AvgHopLatencyList 업데이트 된 정확한 시간을 이해 하려면 TracerouteCompletedTime 필드를 사용 합니다.
+### <a name="what-is-the-difference-between-the-fields-e2emedianlatency-and-avghoplatencylist-in-the-networkmonitoring-table"></a>네트워크 모니터링 테이블의 E2EMedianLatency 및 평균 홉지연목록 필드의 차이점은 무엇입니까?
+E2EMedianLatency는 tcp ping 테스트 의 결과를 집계한 후 3분마다 업데이트되는 대기 시간인 반면 AvgHopLatencyList는 추적 경로를 기반으로 10분마다 업데이트됩니다. E2EMedianLatency가 계산된 정확한 시간을 이해하려면 TimeProcessed 필드를 사용합니다. 추적 경로가 완료되고 업데이트된 정확한 시간을 이해하려면 추적 경로완료시간 필드를 사용합니다.
 
-### <a name="why-does-hop-by-hop-latency-numbers-differ-from-hoplatencyvalues"></a>홉 단위 대기 시간 수가 HopLatencyValues와 다른 이유는 무엇 인가요? 
-HopLatencyValues은 끝점에 대 한 소스입니다.
-예: 홉 A, B, C. AvgHopLatency - 10,15,20. 즉, 소스가 대기 시간 = 10이 고 원본에서 B로의 대기 시간 = 15 이며 원본에서 C 대기 시간이 20입니다. UI는 토폴로지에서-B 홉 대기 시간을 5로 계산 합니다.
+### <a name="why-does-hop-by-hop-latency-numbers-differ-from-hoplatencyvalues"></a>홉별 대기 시간 수가 HopLatencyValues와 다른 이유 
+HopLatencyValue는 끝점의 소스입니다.
+예: 홉 - A, B, C. 평균홉라테시 - 10,15,20. 즉, 대기 시간 = 10, B 대기 시간 소스 = 15, C 대기 시간이 20에 소스입니다. UI는 토폴로지에서 A-B 홉 대기 시간을 5로 계산합니다.
 
 ### <a name="the-solution-shows-100-loss-but-there-is-connectivity-between-the-source-and-destination"></a>솔루션은 100% 손실을 보여 주지만 원본과 대상 사이에 연결이 있습니다.
 이 상황은 호스트 방화벽 또는 중간 방화벽(네트워크 방화벽 또는 Azure NSG)이 NPM에서 모니터링하는 데 사용 중인 포트(고객이 변경하지 않았다면 기본적으로 포트 8084) 상에서 원본 에이전트와 대상 간의 통신을 차단합니다.

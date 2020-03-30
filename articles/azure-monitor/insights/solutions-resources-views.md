@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
 ms.openlocfilehash: a9a1c1718fb95a6ace3700af043134072d582473
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663048"
 ---
 # <a name="views-in-management-solutions-preview"></a>관리 솔루션 보기(미리 보기)
@@ -18,7 +18,7 @@ ms.locfileid: "77663048"
 > 현재 Preview로 제공되는 관리 솔루션 만들기에 대한 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.    
 
 
-[관리 솔루션](solutions.md)은 대개 데이터를 시각화하기 위한 하나 이상의 보기를 포함합니다.  이 문서에서는 [뷰 디자이너](../../azure-monitor/platform/view-designer.md)에서 만들어진 보기를 내보내고 관리 솔루션에 포함하는 방법을 설명합니다.  
+[관리 솔루션에는](solutions.md) 일반적으로 데이터를 시각화하기 위한 하나 이상의 보기가 포함됩니다.  이 문서에서는 [뷰 디자이너에서](../../azure-monitor/platform/view-designer.md) 만든 뷰를 내보내고 관리 솔루션에 포함하는 방법을 설명합니다.  
 
 > [!NOTE]
 > 이 문서의 샘플에는 관리 솔루션에 필요하거나 공통적이며 [Azure의 관리 솔루션 디자인 및 빌드](solutions-creating.md)에서 설명한 매개 변수와 변수가 사용
@@ -29,7 +29,7 @@ ms.locfileid: "77663048"
 이 문서에서는 [관리 솔루션을 만드는](solutions-creating.md) 방법과 솔루션 파일의 구조를 잘 알고 있다고 가정합니다.
 
 ## <a name="overview"></a>개요
-관리 솔루션에 보기를 포함하려면 **솔루션 파일**에서 이에 대한 [리소스](solutions-creating.md)를 만듭니다.  보기의 세부 구성을 설명하는 JSON은 일반적으로 복잡하며 일반적인 솔루션 작성자가 수동으로 만들 수 있는 것이 아닙니다.  가장 일반적인 방법은 [뷰 디자이너](../../azure-monitor/platform/view-designer.md)를 사용하여 보기를 만들고, 내보내고 나서, 세부 구성을 솔루션에 추가하는 것입니다.
+관리 솔루션에 보기를 포함하려면 [솔루션 파일](solutions-creating.md)에서 이에 대한 **리소스**를 만듭니다.  보기의 세부 구성을 설명하는 JSON은 일반적으로 복잡하며 일반적인 솔루션 작성자가 수동으로 만들 수 있는 것이 아닙니다.  가장 일반적인 방법은 [뷰 디자이너](../../azure-monitor/platform/view-designer.md)를 사용하여 보기를 만들고, 내보내고 나서, 세부 구성을 솔루션에 추가하는 것입니다.
 
 보기를 솔루션에 추가하는 기본 단계는 다음과 같습니다.  각 단계는 아래 섹션에서 자세히 설명합니다.
 

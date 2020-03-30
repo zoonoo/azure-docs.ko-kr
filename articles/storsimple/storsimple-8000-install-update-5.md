@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: d86e77ef0148c0fac3dfa31153364de153b094ef
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267886"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>StorSimple 디바이스에 업데이트 5 설치
@@ -76,19 +76,19 @@ ms.locfileid: "79267886"
 
 다음 핫픽스를 사전 설정된 순서대로 제안된 폴더에 다운로드하고 설치해야 합니다.
 
-| 주문 | KB | Description | 업데이트 유형 | 설치 시간 |폴더에 설치|
+| 주문 | KB | 설명 | 업데이트 유형 | 설치 시간 |폴더에 설치|
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4037264 |소프트웨어 업데이트<br> _HcsSoftwareUpdate.exe_ 및 _CisMSDAgent.exe_를 둘 다 다운로드 |일반 <br></br>중단 없음 |~ 25분 |FirstOrderUpdate|
 
 업데이트 4를 실행하는 디바이스에서 업데이트하는 경우 OS 누적 업데이트를 반드시 두 번째 주문 업데이트로 설치해야 합니다.
 
-| 주문 | KB | Description | 업데이트 유형 | 설치 시간 |폴더에 설치|
+| 주문 | KB | 설명 | 업데이트 유형 | 설치 시간 |폴더에 설치|
 | --- | --- | --- | --- | --- | --- |
 | 2A. |KB4025336 |운영 체제 누적 업데이트 패키지 <br> Windows Server 2012 R2 버전 다운로드 |일반 <br></br>중단 없음 |- |SecondOrderUpdate|
 
 업데이트 3 또는 이전 버전을 실행하는 디바이스에서 설치하는 경우 누적 업데이트 외에 다음도 설치합니다.
 
-| 주문 | KB | Description | 업데이트 유형 | 설치 시간 |폴더에 설치|
+| 주문 | KB | 설명 | 업데이트 유형 | 설치 시간 |폴더에 설치|
 | --- | --- | --- | --- | --- | --- |
 | 2B. |KB4011841 <br> KB4011842 |LSI 드라이버 및 펌웨어 업데이트 <br> USM 펌웨어 업데이트(버전 3.38) |일반 <br></br>중단 없음 |~ 3시간 <br> (2A. + 2B. + 2C 포함)|SecondOrderUpdate|
 | 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS 보안 업데이트 패키지 <br> Windows Server 2012 R2 버전 다운로드 |일반 <br></br>중단 없음 |- |SecondOrderUpdate|
@@ -97,7 +97,7 @@ ms.locfileid: "79267886"
 
 앞의 표에 나와 있는 모든 업데이트 맨 위에 디스크 펌웨어 업데이트를 설치해야 할 수도 있습니다. `Get-HcsFirmwareVersion` cmdlet을 실행하여 디스크 펌웨어 업데이트가 필요한지를 확인할 수 있습니다. 펌웨어 버전 `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003` ,`0107`을 실행하는 경우 이러한 업데이트를 설치할 필요가 없습니다.
 
-| 주문 | KB | Description | 업데이트 유형 | 설치 시간 | 폴더에 설치|
+| 주문 | KB | 설명 | 업데이트 유형 | 설치 시간 | 폴더에 설치|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB4037263 |디스크 펌웨어 |유지 관리 <br></br>중단 |~ 30분 | ThirdOrderUpdate |
 

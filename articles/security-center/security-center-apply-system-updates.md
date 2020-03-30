@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
 ms.openlocfilehash: 3f27753b0775f44cbdf9d4c478a19e423b8e1f19
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604561"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Azure Security Center의 시스템 업데이트 적용
@@ -62,23 +62,23 @@ Azure Security Center는 매일 Windows 및 Linux VM(가상 머신)과 컴퓨터
 
    ![누락된 보안 업데이트][3]
 
-4. 위쪽 리본에서 **검색** 아이콘을 선택합니다.  업데이트가 누락 된 컴퓨터에 필터링 된 Azure Monitor 로그 검색 쿼리가 열립니다.
+4. 위쪽 리본에서 **검색** 아이콘을 선택합니다.  Azure Monitor로그 검색 쿼리가 업데이트가 누락된 컴퓨터에 필터링된 열립니다.
 
-   ![Azure Monitor 로그 검색][4]
+   ![Azure 모니터 로그 검색][4]
 
 5. 목록에서 컴퓨터를 선택하면 자세한 내용을 확인할 수 있습니다. 해당 컴퓨터와 관련된 정보만 표시되도록 필터링된 다른 검색 결과가 열립니다.
 
-    ![Azure Monitor 로그 검색][5]
+    ![Azure 모니터 로그 검색][5]
 
 ## <a name="next-steps"></a>다음 단계
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md) -- 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아봅니다.
-* [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) –- Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
-* [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) -- 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) -- Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+* [Azure 보안 센터에서 보안 정책 설정](tutorial-security-policy.md) - Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성하는 방법을 알아봅니다.
+* [Azure 보안 센터에서 보안 권장 사항 관리](security-center-recommendations.md) - 권장 사항이 Azure 리소스를 보호하는 데 어떻게 도움이 되는지 알아봅니다.
+* [Azure 보안 센터의 보안 상태 모니터링](security-center-monitoring.md) - Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
+* [Azure 보안 센터에서 보안 경고 관리 및 응답](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
+* [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
+* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) -- Azure 보안 및 규정 준수에 대한 블로그 게시물을 찾습니다.
 
 <!--Image references-->
 [1]: ./media/security-center-apply-system-updates/missing-system-updates.png

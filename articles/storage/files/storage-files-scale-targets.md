@@ -8,10 +8,10 @@ ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 1a74ec3610367193b5eee53ea0e0818901433e96
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255133"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
@@ -33,26 +33,26 @@ Azure 파일 공유에 대한 부모 리소스는 Azure Storage 계정입니다.
 
 ## <a name="azure-files-scale-targets"></a>Azure Files 크기 조정 목표
 
-저장소 계정, 공유 및 파일 Azure Files에 대해 고려할 세 가지 제한 범주가 있습니다.
+Azure 파일에 대해 고려해야 할 세 가지 제한 범주는 저장소 계정, 공유 및 파일입니다.
 
-예를 들어 프리미엄 파일 공유를 사용 하는 경우 단일 공유에서 10만 IOPS를 달성할 수 있으며 단일 파일이 5000 IOPS까지 확장 될 수 있습니다. 따라서 한 공유에 세 개의 파일이 있는 경우 해당 공유에서 얻을 수 있는 최대 IOPS는 15000입니다.
+예를 들어 프리미엄 파일 공유를 사용하면 단일 공유로 100,000 IOPS를 달성할 수 있으며 단일 파일은 최대 5,000 IOPS까지 확장할 수 있습니다. 따라서 한 공유에 세 개의 파일이 있는 경우 해당 공유에서 얻을 수 있는 최대 IOPS는 15,000입니다.
 
-### <a name="standard-storage-account-limits"></a>표준 저장소 계정 제한
+### <a name="standard-storage-account-limits"></a>표준 스토리지 계정 한도
 
-이러한 제한에 대해서는 [Azure storage 계정 크기 목표](#azure-storage-account-scale-targets) 섹션을 참조 하세요.
+이러한 제한에 대한 [Azure 저장소 계정 확장 대상](#azure-storage-account-scale-targets) 섹션을 참조하십시오.
 
-### <a name="premium-filestorage-account-limits"></a>프리미엄 FileStorage 계정 제한
+### <a name="premium-filestorage-account-limits"></a>프리미엄 파일스토리지 계정 한도
 
 [!INCLUDE [azure-storage-limits-filestorage](../../../includes/azure-storage-limits-filestorage.md)]
 
 > [!IMPORTANT]
-> 저장소 계정 제한은 모든 공유에 적용 됩니다. 최대 FileStorage 계정에 대 한 최대 크기 조정은 FileStorage 계정 당 하나의 공유만 있는 경우에만 달성할 수 있습니다.
+> 저장소 계정 한도는 모든 공유에 적용됩니다. FileStorage 계정당 공유가 하나만 있는 경우에만 FileStorage 계정의 최대 크기 조정을 달성할 수 있습니다.
 
-### <a name="file-share-and-file-scale-targets"></a>파일 공유 및 파일 크기 조정 대상
+### <a name="file-share-and-file-scale-targets"></a>파일 공유 및 파일 배율 대상
 
 > [!NOTE]
-> 5 보다 큰 표준 파일 공유에는 특정 제한 사항과 지역 제한이 TiB.
-> 이러한 큰 파일 공유 크기를 설정 하는 제한 사항, 지역별 정보 및 지침을 보려면 계획 가이드의 [더 큰 파일 공유에 대 한 온보드](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) 섹션을 참조 하십시오.
+> 5 TiB보다 큰 표준 파일 공유에는 특정 제한 사항 과 지역 제한이 있습니다.
+> 이러한 더 큰 파일 공유 크기를 활성화하기 위한 제한 사항, 지역 정보 및 지침 목록은 계획 가이드의 [더 큰 파일 공유 섹션에](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) 대한 온보드를 참조하십시오.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -87,8 +87,8 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 |-|-|
 | 개체 수 | 2500만 개 개체 |
 | 데이터 세트 크기| ~ 4.7 TiB |
-| 평균 파일 크기 | ~ 200 KiB (가장 큰 파일: 100 GiB) |
-| 처리량 업로드 | 동기화 그룹당 초당 20 개의 개체 |
+| 평균 파일 크기 | ~ 200 KiB (가장 큰 파일 : 100 GiB) |
+| 처리량 업로드 | 동기화 그룹당 초당 20개의 개체 |
 | 네임스페이스 다운로드 처리량* | 초당 개체 400개 |
 
 *새 서버 엔드포인트를 만들 때 Azure 파일 동기화 에이전트는 파일 콘텐츠를 다운로드하지 않습니다. 먼저 전체 네임스페이스를 동기화한 다음, 백그라운드 회수를 트리거하여 전체 파일을 다운로드하거나 클라우드 계층화를 사용하는 경우 서버 엔드포인트에서 설정된 클라우드 계층화 정책에 파일을 다운로드합니다.
@@ -98,7 +98,7 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 | 동기화된 개체 수| 125000개 개체(~1% 변동) |
 | 데이터 세트 크기| 50GiB |
 | 평균 파일 크기 | ~500KiB |
-| 처리량 업로드 | 동기화 그룹당 초당 20 개의 개체 |
+| 처리량 업로드 | 동기화 그룹당 초당 20개의 개체 |
 | 전체 다운로드 처리량* | 초당 개체 60개 |
 
 *클라우드 계층화를 사용하면 일부 파일 데이터만을 다운로드할 때 성능이 더 개선될 수도 있습니다. Azure 파일 동기화는 엔드포인트 중 하나에서 캐시된 파일의 데이터가 변경될 때에만 해당 데이터를 다운로드합니다. 계층되거나 새로 생성된 파일의 경우 에이전트는 파일 데이터를 다운로드하지 않습니다. 대신 모든 서버 엔드포인트에 네임스페이스만을 동기화합니다. 에이전트는 사용자가 액세스할 때 계층화된 파일의 부분 다운로드도 지원합니다. 
@@ -111,7 +111,7 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 - 개체 처리량은 서버의 동기화 그룹 수에 비례하여 크기를 조정합니다. 서버의 여러 동기화 그룹으로 데이터를 분할하면 처리량이 향상됩니다. 처리량은 서버 및 네트워크에 의해서도 제한됩니다
 - 개체 처리량은 초당 MiB 처리량에 반비례합니다. 더 작은 파일의 경우 초당 처리된 개체 수 측면에서 더 높은 처리량이 발생하지만 초당 MiB 처리량은 더 낮습니다. 반대로 큰 파일의 경우 초당 처리되는 개체는 적지만 초당 MiB 처리량은 높습니다. 초당 MiB 처리량은 Azure Files 크기 조정 목표에 의해 제한됩니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
-- [Azure 파일 배포에 대한 계획](storage-files-planning.md)
-- [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)
+- [Azure Files 배포에 대한 계획](storage-files-planning.md)
+- [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md)

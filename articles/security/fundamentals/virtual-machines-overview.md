@@ -1,5 +1,5 @@
 ---
-title: Azure Vm에 사용 되는 보안 기능
+title: Azure VM에 사용되는 보안 기능
 titleSuffix: Azure security
 description: 이 문서에서는 Azure Virtual Machines에서 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공합니다.
 services: security
@@ -17,14 +17,14 @@ ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
 ms.openlocfilehash: a1726e18ea8c1ba86d77d7b9ca3d50c444620361
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77657166"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure Virtual Machines 보안 개요
-이 문서에서는 가상 컴퓨터에서 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공 합니다.
+이 문서에서는 가상 컴퓨터와 함께 사용할 수 있는 핵심 Azure 보안 기능에 대한 개요를 제공합니다.
 
 Azure Virtual Machines를 사용하여 다양한 컴퓨팅 솔루션을 민첩하게 배포할 수 있습니다. 이 서비스는 Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP 및 Azure BizTalk Services를 지원합니다. 따라서 거의 모든 운영 체제에 모든 워크로드와 언어를 배포할 수 있습니다.
 
@@ -46,12 +46,12 @@ Azure Cloud Services 및 Virtual Machines를 위한 Microsoft 맬웨어 방지 �
 
 Azure용 Microsoft 맬웨어 방지 프로그램은 애플리케이션 및 테넌트 환경을 위한 단일 에이전트 솔루션으로, 사용자의 개입 없이 백그라운드에서 실행되도록 설계됩니다. 맬웨어 방지 프로그램 모니터링을 포함하여 기본 보안 또는 고급 사용자 지정 구성을 사용하여 애플리케이션 워크로드의 필요에 따라 보호를 배포할 수 있습니다.
 
-[Azure 용 Microsoft 맬웨어 방지](antimalware.md) 및 사용 가능한 핵심 기능에 대해 자세히 알아보세요.
+[Azure용 Microsoft 맬웨어 방지](antimalware.md) 및 사용 가능한 핵심 기능에 대해 자세히 알아봅니다.
 
 가상 머신을 보호하는 맬웨어 방지 소프트웨어에 대해 자세히 알아보세요.
 
 * [Azure Virtual Machines에 맬웨어 방지 솔루션 배포](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법](/azure/virtual-machines/windows/classic/install-trend)
+* [Windows VM에서 서비스로 Trend 마이크로 딥 시큐리티를 설치하고 구성하는 방법](/azure/virtual-machines/windows/classic/install-trend)
 * [Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](/azure/virtual-machines/windows/classic/install-symantec)
 * [Azure Marketplace의 보안 솔루션](https://azure.microsoft.com/marketplace/?term=security)
 
@@ -84,7 +84,7 @@ Azure용 Microsoft 맬웨어 방지 프로그램은 애플리케이션 및 테�
 
 ## <a name="virtual-machine-disk-encryption"></a>가상 머신 디스크 암호화
 
-Azure Disk Encryption은 Windows 및 Linux 가상 머신 디스크를 암호화하는 새 기능입니다. Azure Disk Encryption은 업계 표준인 Windows의 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) 기능과 Linux의 [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 사용하여 OS 및 데이터 디스크를 위한 볼륨 암호화를 제공합니다.
+Azure Disk Encryption은 Windows 및 Linux 가상 머신 디스크를 암호화하는 새 기능입니다. Azure 디스크 암호화는 Windows의 업계 표준 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) 기능과 Linux의 [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 사용하여 OS 및 데이터 디스크에 대한 볼륨 암호화를 제공합니다.
 
 또한 이 솔루션은 고객이 Key Vault 구독에서 디스크 암호화 키 및 암호를 관리 및 제어할 수 있도록 Azure Key Vault와 통합됩니다. 가상 머신 디스크에 있는 모든 데이터가 미사용 시 Azure Storage에 암호화되도록 합니다.
 
@@ -99,7 +99,7 @@ Azure Backup은 자본 투자 없이 최소의 비용으로 애플리케이션 �
 
 자세한 정보:
 
-* [Azure Backup이란?](/azure/backup/backup-introduction-to-azure-backup)
+* [Azure 백업이란 무엇입니까?](/azure/backup/backup-introduction-to-azure-backup)
 * [Azure Backup 서비스 FAQ](/azure/backup/backup-azure-backup-faq)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
@@ -116,9 +116,9 @@ Site Recovery:
 
 자세한 정보:
 
-* [Azure Site Recovery란?](/azure/site-recovery/site-recovery-overview)
+* [Azure Site Recovery란 무엇인가요?](/azure/site-recovery/site-recovery-overview)
 * [Azure Site Recovery 작동 방식](/azure/site-recovery/site-recovery-components)
-* [Azure Site Recovery로 보호되는 작업은 무엇입니까?](/azure/site-recovery/site-recovery-workload)
+* [Azure 사이트 복구에서 보호되는 워크로드는 무엇입니까?](/azure/site-recovery/site-recovery-workload)
 
 ## <a name="virtual-networking"></a>가상 네트워킹
 
@@ -129,8 +129,8 @@ Azure 가상 네트워크는 물리적 Azure 네트워크 패브릭 위에 구�
 자세한 정보:
 
 * [Azure 네트워크 보안 개요](network-overview.md)
-* [Virtual Network 개요](/azure/virtual-network/virtual-networks-overview)
-* [네트워킹 기능 및 엔터프라이즈 시나리오에 대한 파트너 관계](https://azure.microsoft.com/blog/networking-enterprise/)
+* [가상 네트워크 개요](/azure/virtual-network/virtual-networks-overview)
+* [엔터프라이즈 시나리오를 위한 네트워킹 기능 및 파트너십](https://azure.microsoft.com/blog/networking-enterprise/)
 
 ## <a name="security-policy-management-and-reporting"></a>보안 정책 관리 및 보고
 
@@ -171,4 +171,4 @@ TEE는 디버거를 사용해도 외부에서 내부의 데이터 또는 작업�
 
 ## <a name="next-steps"></a>다음 단계
 
-Vm 및 운영 체제에 대 한 [보안 모범 사례](iaas.md) 를 알아봅니다.
+VM 및 운영 체제에 대한 [보안 모범 사례에](iaas.md) 대해 알아봅니다.

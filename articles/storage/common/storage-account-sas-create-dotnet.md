@@ -1,7 +1,7 @@
 ---
-title: .NET을 사용 하 여 계정 SAS 만들기
+title: .NET을 사용하여 계정 SAS 만들기
 titleSuffix: Azure Storage
-description: .NET 클라이언트 라이브러리를 사용 하 여 계정 공유 액세스 서명 (SAS)을 만드는 방법에 대해 알아봅니다.
+description: .NET 클라이언트 라이브러리를 사용하여 계정 공유 액세스 서명(SAS)을 만드는 방법을 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,21 +11,21 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 9da27cef7bafa94715a42db86fc5a5675a049eb1
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79137872"
 ---
-# <a name="create-an-account-sas-with-net"></a>.NET을 사용 하 여 계정 SAS 만들기
+# <a name="create-an-account-sas-with-net"></a>.NET을 사용하여 계정 SAS 만들기
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-이 문서에서는 저장소 계정 키를 사용 하 여 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage?view=azure-dotnet)를 사용 하 여 계정 SAS를 만드는 방법을 보여 줍니다.
+이 문서에서는 저장소 계정 키를 사용하여 .NET 에 [대한 Azure Storage 클라이언트 라이브러리를](/dotnet/api/overview/azure/storage?view=azure-dotnet)사용하여 계정 SAS를 만드는 방법을 보여 주며 있습니다.
 
 ## <a name="create-an-account-sas"></a>계정 SAS 만들기
 
-컨테이너에 대 한 계정 SAS를 만들려면 [Cloudstorageaccount. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.getsharedaccesssignature) 메서드를 호출 합니다.
+컨테이너에 대한 계정 SAS를 만들려면 [CloudStorageAccount.GetSharedAccess서명](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.getsharedaccesssignature) 메서드를 호출합니다.
 
 다음 코드 예제는 Blob 및 파일 공유에 유효한 계정 SAS를 만들며 클라이언트가 읽기, 쓰기, 목록 권한을 사용하여 서비스 수준 API에 액세스할 수 있는 권한을 부여합니다. 계정 SAS는 프로토콜을 HTTPS로 제한하므로 반드시 HTTPS로 요청해야 합니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
@@ -51,9 +51,9 @@ static string GetAccountSASToken()
 }
 ```
 
-## <a name="use-an-account-sas-from-a-client"></a>클라이언트에서 계정 SAS 사용
+## <a name="use-an-account-sas-from-a-client"></a>클라이언트의 계정 SAS 사용
 
-계정 SAS를 사용 하 여 Blob service에 대 한 서비스 수준 Api에 액세스 하려면 SAS 및 저장소 계정에 대 한 Blob storage 끝점을 사용 하 여 Blob service client 개체를 생성 합니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+계정 SAS를 사용하여 Blob 서비스에 대한 서비스 수준 API에 액세스하려면 저장소 계정에 대한 SAS 및 Blob 저장소 끝점을 사용하여 Blob 서비스 클라이언트 개체를 구성합니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```csharp
 static void UseAccountSAS(string sasToken)
@@ -97,5 +97,5 @@ static void UseAccountSAS(string sasToken)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](storage-sas-overview.md)
+- [공유 액세스 서명(SAS)을 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](storage-sas-overview.md)
 - [계정 SAS 만들기](/rest/api/storageservices/create-account-sas)

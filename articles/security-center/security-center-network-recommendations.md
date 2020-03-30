@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center에서 네트워크 리소스 보호
+title: Azure 보안 센터에서 네트워크 리소스 보호
 description: 이 문서에서는 Azure 네트워크 리소스를 보호하고 보안 정책을 준수하는 데 도움이 되는 Azure Security Center의 권장 사항에 대해 설명합니다.
 services: security-center
 documentationcenter: na
@@ -14,20 +14,20 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
 ms.openlocfilehash: 792b95b120f67afcd360730acbd783a3071388b2
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77431488"
 ---
 # <a name="protect-your-network-resources"></a>네트워크 리소스 보호
 Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리소스의 보안 상태를 지속적으로 분석합니다. Security Center에서 잠재적인 보안 취약점을 식별하는 경우 리소스를 보호하고 강화하는 데 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다.
 
-이 문서에서는 Security Center 리소스 보안 섹션의 **네트워킹** 페이지에 대해 설명 합니다.
+이 문서에서는 보안 센터의 리소스 보안 섹션의 **네트워킹** 페이지를 설명합니다.
 
-네트워킹에 대 한 권장 사항의 전체 목록은 [네트워킹 권장 사항](recommendations-reference.md#recs-network)을 참조 하세요.
+네트워킹에 대한 권장 사항의 전체 목록은 [네트워킹 권장 사항을](recommendations-reference.md#recs-network)참조하십시오.
 
-이 문서에서는 네트워크 보안 관점에서 Azure 리소스에 적용되는 권장 사항을 설명합니다. 네트워킹 권장 사항은 차세대 방화벽, 네트워크 보안 그룹, JIT VM 액세스, 과도 하 게 허용 되는 인바운드 트래픽 규칙 등을 중심으로 합니다. 네트워킹 권장 사항 및 수정 작업 목록은 [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md)를 참조하세요.
+이 문서에서는 네트워크 보안 관점에서 Azure 리소스에 적용되는 권장 사항을 설명합니다. 네트워킹 권장 사항은 차세대 방화벽, 네트워크 보안 그룹, JIT VM 액세스, 지나치게 허용되는 인바운드 트래픽 규칙 등을 중심으로 합니다. 네트워킹 권장 사항 및 수정 작업 목록은 [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md)를 참조하세요.
 
 > [!NOTE]
 > **네트워킹** 페이지에서 네트워크 관점에서 본 Azure 리소스 상태에 대해 자세히 알아볼 수 있습니다. 네트워크 맵 및 적응 네트워크 컨트롤은 Azure Security Center 표준 계층에서만 사용할 수 있습니다. [무료 계층을 사용하는 경우 **레거시 네트워킹 보기** 단추를 클릭하여 네트워킹 리소스 권장 사항을 받을 수 있습니다](#legacy-networking).
@@ -53,8 +53,8 @@ Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리�
 토폴로지 맵의 기본 보기에 다음이 표시됩니다.
 
 - Azure에서 선택한 구독입니다. 맵은 여러 구독을 지원합니다.
-- 리소스 관리자 리소스 종류의 Vm, 서브넷 및 Vnet (클래식 Azure 리소스는 지원 되지 않음)
-- 피어 링 Vnet
+- 리소스 관리자 리소스 유형의 VM, 서브넷 및 VNet(클래식 Azure 리소스는 지원되지 않음)
+- 피어드 VNet
 - [네트워크 권장 사항](security-center-recommendations.md)의 심각도가 높거나 보통인 리소스만  
 - 인터넷 연결 리소스
 - 맵은 Azure에서 선택한 구독에 대해 최적화됩니다. 선택 항목을 수정하는 경우 맵이 다시 계산되고 새 설정을 기반으로 다시 최적화됩니다.  
@@ -107,14 +107,14 @@ Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리�
 리소스로 드릴다운하려면:
 
 1. 맵에서 특정 리소스를 선택하면 오른쪽 창이 열리고 리소스에 대한 일반 정보, 연결된 보안 솔루션(있는 경우) 및 리소스와 관련된 권장 사항을 제공합니다. 선택한 리소스의 각 형식에 대해 동일한 동작 형식입니다. 
-2. 리소스에서 가능한 아웃바운드 및 인바운드 트래픽의 목록을 보려면 **트래픽**을 클릭합니다. 이 목록은 리소스와 통신할 수 있는 사용자 및 프로토콜과 포트를 통해 리소스가 통신할 수 있는 대상의 포괄적인 목록입니다. 예를 들어 VM을 선택 하면 통신할 수 있는 모든 Vm이 표시 되 고, 서브넷을 선택 하면 통신할 수 있는 모든 서브넷이 표시 됩니다.
+2. 리소스에서 가능한 아웃바운드 및 인바운드 트래픽의 목록을 보려면 **트래픽**을 클릭합니다. 이 목록은 리소스와 통신할 수 있는 사용자 및 프로토콜과 포트를 통해 리소스가 통신할 수 있는 대상의 포괄적인 목록입니다. 예를 들어 VM을 선택하면 통신할 수 있는 모든 VM이 표시되고 서브넷을 선택하면 통신할 수 있는 모든 서브넷이 표시됩니다.
 
 **이 데이터는 크로스오버 및 상호 작용을 이해하기 위해 여러 규칙을 분석하는 고급 Machine Learning 알고리즘과 함께 네트워크 보안 그룹의 분석을 기반으로 합니다.** 
 
 [![네트워킹 트래픽 맵](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
 
 
-## 레거시 네트워킹 <a name ="legacy-networking"></a>
+## <a name="legacy-networking"></a>레거시 네트워킹 <a name ="legacy-networking"></a>
 
 이 섹션에서는 Security Center 표준 계층이 없는 경우 사용 가능한 네트워킹 권장 사항을 확인하는 방법을 설명합니다.
 
@@ -132,9 +132,9 @@ Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리�
 
 테이블은 심각도별로 정렬됩니다(가상 머신 및 서브넷).
 
-이 토폴로지 보기에서 첫 번째 수준은 Vnet을 표시합니다. 두 번째는 서브넷을 표시 하 고 세 번째 수준에는 해당 서브넷에 속하는 가상 컴퓨터가 표시 됩니다. 오른쪽 열에는 해당 리소스의 네트워크 보안 그룹 권장 사항의 현재 상태가 표시됩니다.
+이 토폴로지 보기에서 첫 번째 수준은 Vnet을 표시합니다. 두 번째 수준은 서브넷을 표시하고 세 번째 수준은 해당 서브넷에 속한 가상 컴퓨터를 표시합니다. 오른쪽 열에는 해당 리소스의 네트워크 보안 그룹 권장 사항의 현재 상태가 표시됩니다.
 
-세 번째 수준은 이전에 설명한 것과 유사한 가상 머신을 표시합니다. 리소스를 클릭 하 여 자세히 알아보거나 필요한 보안 제어 또는 구성을 적용할 수 있습니다.
+세 번째 수준은 이전에 설명한 것과 유사한 가상 머신을 표시합니다. 리소스를 클릭하여 자세히 알아보거나 필요한 보안 제어 또는 구성을 적용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
 ms.openlocfilehash: 8046e4f42db50db15c840a13b95ae1f3620a8c7f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266924"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>원격 데스크톱을 통해 Azure VM에 연결하려고 할 때 내부 오류 발생
@@ -158,7 +158,7 @@ RDP 클라이언트는 TLS 1.0을 기본 프로토콜로 사용합니다. 그러
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>복구 VM에 OS 디스크 연결
 
-1. [복구 VM에 OS 디스크를 연결합니다](../windows/troubleshoot-recovery-disks-portal.md).
+1. [복구 VM에 OS 디스크를 연결합니다.](../windows/troubleshoot-recovery-disks-portal.md)
 2. OS 디스크가 복구 VM에 연결되면 디스크 관리 콘솔에서 디스크의 플래그가 **온라인**으로 지정되어 있는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
 3. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
 
@@ -166,7 +166,7 @@ RDP 클라이언트는 TLS 1.0을 기본 프로토콜로 사용합니다. 그러
 
 덤프 로그 및 직렬 콘솔을 사용하도록 설정하려면 다음 스크립트를 실행합니다.
 
-1. 관리자 권한 명령 프롬프트 세션을 엽니다(**관리자 권한으로 실행**).
+1. 상승된 명령 프롬프트**세션(관리자로 실행)을**엽니다.
 2. 다음 스크립트를 실행합니다.
 
     이 스크립트에서 연결된 OS 디스크에 할당된 드라이브 문자가 F라고 가정합니다. 이 드라이브 문자를 VM에서 적절한 값으로 바꿉니다.
@@ -195,7 +195,7 @@ RDP 클라이언트는 TLS 1.0을 기본 프로토콜로 사용합니다. 그러
 
 #### <a name="reset-the-permission-for-machinekeys-folder"></a>MachineKeys 폴더에 대한 권한 다시 설정
 
-1. 관리자 권한 명령 프롬프트 세션을 엽니다(**관리자 권한으로 실행**).
+1. 상승된 명령 프롬프트**세션(관리자로 실행)을**엽니다.
 2. 다음 스크립트를 실행합니다. 이 스크립트에서 연결된 OS 디스크에 할당된 드라이브 문자가 F라고 가정합니다. 이 드라이브 문자를 VM에서 적절한 값으로 바꿉니다.
 
         Md F:\temp

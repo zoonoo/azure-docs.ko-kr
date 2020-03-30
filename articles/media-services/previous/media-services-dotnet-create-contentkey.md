@@ -1,6 +1,6 @@
 ---
 title: .NET을 사용하여 Contentkey 만들기
-description: 이 문서에서는 자산에 대 한 보안 액세스를 제공 하는 콘텐츠 키를 만드는 방법을 보여 줍니다.
+description: 이 문서에서는 자산에 대한 보안 액세스를 제공하는 콘텐츠 키를 만드는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: aebd6dee9314d6e5641988767c024790b6b721f4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251155"
 ---
 # <a name="create-contentkeys-with-net"></a>.NET을 사용하여 Contentkey 만들기 
 > [!div class="op_single_selector"]
-> * [REST (영문)](media-services-rest-create-contentkey.md)
+> * [나머지](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
 > 
 > 
@@ -32,7 +32,7 @@ Media Services를 사용하면 암호화된 자산을 만들어서 제공할 수
 
 새 자산을 만들 때(예: [파일 업로드](media-services-dotnet-upload-files.md) 전) **StorageEncrypted**, **CommonEncryptionProtected** 또는 **EnvelopeEncryptionProtected** 암호화 옵션을 지정할 수 있습니다. 
 
-클라이언트에 자산을 제공할 때 [DynamicEnvelopeEncryption](media-services-dotnet-configure-asset-delivery-policy.md) 또는 **DynamicCommonEncryption** 암호화 중 하나를 사용하여 **자산이 동적으로 암호화되도록 구성**할 수 있습니다.
+클라이언트에 자산을 제공할 때 **DynamicEnvelopeEncryption** 또는 **DynamicCommonEncryption** 암호화 중 하나를 사용하여 [자산이 동적으로 암호화되도록 구성](media-services-dotnet-configure-asset-delivery-policy.md)할 수 있습니다.
 
 암호화된 자산은 **ContentKey**와 연관되어야 합니다. 이 문서에서는 콘텐츠 키를 만드는 방법을 설명합니다.
 
@@ -70,7 +70,7 @@ Media Services를 사용하면 암호화된 자산을 만들어서 제공할 수
     }
 ```
 
-## <a id="envelope_contentkey"></a>봉투 유형의 ContentKey 만들기
+## <a name="create-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>봉투 유형의 ContentKey 만들기
 다음 코드 조각은 봉투 암호화 유형의 콘텐츠 키를 만듭니다. 그런 다음 키를 지정된 자산과 연결합니다.
 
 ```csharp
@@ -108,7 +108,7 @@ call
 ```
 
 
-## <a id="common_contentkey"></a>일반 유형의 ContentKey 만들기
+## <a name="create-common-type-contentkey"></a><a id="common_contentkey"></a>일반 유형의 ContentKey 만들기
 다음 코드 조각은 일반 암호화 유형의 콘텐츠 키를 만듭니다. 그런 다음 키를 지정된 자산과 연결합니다.
 
 ```csharp
