@@ -1,5 +1,5 @@
 ---
-title: Service Fabric 메시를 사용 하 여 신뢰할 수 있는 디스크 볼륨 Service Fabric
+title: 서비스 패브릭 메쉬를 가진 서비스 직물 믿을 수 있는 디스크 볼륨
 description: Azure CLI를 사용하여 컨테이너 내부에서 볼륨에 기반한 Service Fabric Reliable Disk를 탑재하여 Azure Service Fabric Mesh 애플리케이션에 상태를 저장하는 방법을 알아봅니다.
 author: ashishnegi
 ms.topic: conceptual
@@ -7,10 +7,10 @@ ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
 ms.openlocfilehash: f26fe70afe7d9e2872f06ac6da7143556278b1b0
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75497957"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Azure Service Fabric Mesh 애플리케이션에서 볼륨에 기반한 고가용성 Service Fabric Reliable Disk 탑재 
@@ -23,7 +23,7 @@ Service Fabric Reliable Disk는 고가용성 Service Fabric 클러스터 내에�
 
 `counterService`는 주기적으로 파일에서 카운터 값을 읽고 이를 증분하여 파일에 다시 씁니다. 파일은 Service Fabric Reliable Disk에서 지원하는 볼륨에 탑재되는 폴더에 저장됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용하여 이 작업을 완료할 수 있습니다. 이 문서에서 Azure CLI를 사용하려면 `az --version`이 `azure-cli (2.0.43)` 이상을 반환하는지 확인합니다.  다음 [지침](service-fabric-mesh-howto-setup-cli.md)에 따라 Azure Service Fabric Mesh CLI 확장 모듈을 설치 또는 업데이트합니다.
 

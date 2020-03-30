@@ -1,18 +1,18 @@
 ---
-title: 재해 복구 및 지역 배포 Azure Durable Functions
+title: 재해 복구 및 지리적 분포 Azure 지속 기능
 description: 지속형 함수의 재해 복구 및 지역 복제에 대해 알아봅니다.
 author: MS-Santi
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 7951f216143bef0d48a6b751beff3f8f4316b9bd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75433341"
 ---
-# <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Azure Durable Functions의 재해 복구 및 지역 배포
+# <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Azure 지속 형 함수의 재해 복구 및 지리적 분포
 
 Durable Functions에서 모든 상태는 Azure Storage에 유지됩니다. [작업 허브](durable-functions-task-hubs.md)는 오케스트레이션에 사용되는 Azure Storage 리소스에 대한 논리적 컨테이너입니다. 오케스트레이터 및 작업 함수는 동일한 작업 허브에 속할 때만 상호 작용할 수 있습니다.
 설명된 시나리오는 가용성을 높여 주는 배포 옵션을 제안하고, 재해 복구 작업 동안 작동 중단을 최소화합니다.

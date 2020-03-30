@@ -1,16 +1,16 @@
 ---
-title: Redis 용 Azure Cache에서 redis를 사용 하는 방법
-description: Redis 용 Azure Cache with client로 *redis-cli.exe* 를 명령줄 도구로 사용 하는 방법에 대해 알아봅니다.
+title: Redis에 대 한 Azure 캐시와 함께 redis-cli를 사용 하는 방법
+description: '*redis-cli.exe를* 클라이언트로 Redis용 Azure 캐시와 상호 작용하기 위한 명령줄 도구로 사용하는 방법에 대해 알아봅니다.'
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.openlocfilehash: a48e69f19db88c7823365964c2fe9c0629a078bc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75412679"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Azure Cache for Redis에서 Redis 명령줄 도구를 사용하는 방법
@@ -19,7 +19,7 @@ ms.locfileid: "75412679"
 
 이 도구는 [Windows용 Redis 명령줄 도구](https://github.com/MSOpenTech/redis/releases/)를 다운로드하여 Windows 플랫폼에 대해 사용할 수 있습니다. 
 
-다른 플랫폼에서 이 명령줄 도구를 실행하려면 [https://redis.io/download](https://redis.io/download)에서 Azure Cache for Redis 다운로드하세요.
+다른 플랫폼에서 명령줄 도구를 실행하려면 에서 [https://redis.io/download](https://redis.io/download)Redis에 대한 Azure 캐시를 다운로드합니다.
 
 ## <a name="gather-cache-access-information"></a>캐시 액세스 정보 수집
 
@@ -40,7 +40,7 @@ ms.locfileid: "75412679"
 
 Azure Cache for Redis를 사용하면 기본적으로 SSL 포트(6380)만 사용할 수 있습니다. `redis-cli.exe` 명령줄 도구는 SSL을 지원하지 않습니다. 두 가지 구성 옵션을 사용할 수 있습니다.
 
-1. [비 SSL 포트(6379) 사용](cache-configure.md#access-ports) - **권장되지 않는 구성입니다**. 이 구성에서는 액세스 키가 일반 텍스트로 TCP를 통해 전송되기 문입니다. 이 변경으로 인해 캐시에 대한 액세스가 손상될 수 있습니다. 테스트 캐시에 액세스하는 경우에만 이 시나리오를 고려할 수 있습니다.
+1. [비 SSL 포트 활성화(6379)](cache-configure.md#access-ports) - 이 구성에서는 액세스 키가 일반 텍스트로 TCP를 통해 전송되므로**이 구성은 권장되지 않습니다.** 이 변경으로 인해 캐시에 대한 액세스가 손상될 수 있습니다. 테스트 캐시에 액세스하는 경우에만 이 시나리오를 고려할 수 있습니다.
 
 2. [stunnel](https://www.stunnel.org/downloads.html) 다운로드 및 설치 -
 
@@ -48,7 +48,7 @@ Azure Cache for Redis를 사용하면 기본적으로 SSL 포트(6380)만 사용
 
     작업 표시줄에서 stunnel 서버의 아이콘을 마우스 오른쪽 단추로 클릭하고 **로그 창 표시**를 클릭합니다.
 
-    stunnel 로그 창 메뉴에서 **구성** > **구성 편집** 클릭하여 현재 구성 파일을 엽니다.
+    스터널 로그 창 메뉴에서 **구성** > **편집 구성을** 클릭하여 현재 구성 파일을 엽니다.
 
     **서비스 정의** 섹션 아래에서 *redis-cli.exe*에 대해 다음 항목을 추가합니다. `yourcachename` 대신 실제 캐시 이름을 삽입합니다. 
 
@@ -61,7 +61,7 @@ Azure Cache for Redis를 사용하면 기본적으로 SSL 포트(6380)만 사용
 
     구성 파일을 저장하고 닫습니다. 
   
-    stunnel 로그 창 메뉴에서 **구성** > **구성 재로드**를 클릭합니다.
+    스터널 로그 창 메뉴에서 **구성** > **다시 로드 구성을 클릭합니다.**
 
 
 ## <a name="connect-using-the-redis-command-line-tool"></a>Redis 명령줄 도구를 사용하여 연결합니다.

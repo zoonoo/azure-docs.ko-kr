@@ -5,13 +5,13 @@ author: ecfan
 ms.author: estfan
 ms.date: 11/03/2016
 ms.openlocfilehash: 951ab2300aa4ffed2c5f1039ff993cd7f6af543f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789672"
 ---
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 계정의 경우 [무료 계정](https://azure.microsoft.com/free)
 * [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) 계정 
@@ -24,7 +24,7 @@ ms.locfileid: "74789672"
    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 2. 이전에 OneDrive에 대한 연결을 만들지 않은 경우 OneDrive 자격 증명을 사용하여 로그인하라는 메시지가 표시됩니다.  
    ![](./media/connectors-create-api-onedrive/onedrive-2.png)
-3. **로그인**을 선택하고 사용자 이름 및 암호를 입력합니다. **로그인**을 선택합니다.  
+3. **로그인**을 선택하고 사용자 이름 및 암호를 입력합니다. **로그인**선택:  
    ![](./media/connectors-create-api-onedrive/onedrive-3.png)   
    
     이러한 자격 증명을 사용하여 OneDrive 계정의 데이터에 연결하도록 논리 앱에 권한을 부여하고 해당 데이터에 액세스할 수 있습니다. 

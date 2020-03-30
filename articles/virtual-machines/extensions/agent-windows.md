@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
 ms.openlocfilehash: 3d9c178201ab0c22ed4eab9cf65f7d48e59e1359
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78246116"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure Virtual Machines 에이전트 개요
 Microsoft Azure VM 에이전트(가상 머신 에이전트)는 Azure 패브릭 컨트롤러와 VM(가상 머신)의 상호 작용을 관리하는 안전하고 간단한 프로세스입니다. VM 에이전트는 Azure 가상 머신 확장을 설정하고 실행하는 데 기본적인 역할을 수행합니다. VM 확장을 사용하면 소프트웨어 설치 및 구성과 같은 VM의 배포 후 구성을 설정할 수 있습니다. 또한 VM 확장을 사용하면 VM의 관리 암호를 다시 설정하는 등의 복구 기능도 사용할 수 있습니다. Azure VM 에이전트가 없으면 VM 확장을 실행할 수 없습니다.
 
-이 문서에서는 Azure 가상 머신 에이전트의 설치 및 검색에 대해 자세히 설명 합니다.
+이 문서에서는 Azure 가상 시스템 에이전트의 설치 및 검색에 대해 자세히 설명합니다.
 
 ## <a name="install-the-vm-agent"></a>VM 에이전트 설치
 
@@ -59,10 +59,10 @@ VM을 부팅하려면 VM에 PA가 설치되어 있어야 하지만 WinGA는 설�
 에이전트가 설치되어 있지 않으면 Azure Backup 또는 Azure Security와 같은 일부 Azure 서비스를 사용할 수 없습니다. 이러한 서비스를 사용하려면 확장을 설치해야 합니다. WinGA 없이 VM을 배포한 경우 나중에 최신 버전의 에이전트를 설치할 수 있습니다.
 
 ### <a name="manual-installation"></a>수동 설치
-Windows VM 에이전트는 Windows 설치 관리자 패키지를 사용하여 수동으로 설치할 수 있습니다. Azure에 배포된 사용자 지정 VM 이미지를 만들 때 수동 설치가 필요할 수 있습니다. Windows VM 에이전트를 수동으로 설치하려면 [VM 에이전트 설치 관리자를 다운로드합니다](https://go.microsoft.com/fwlink/?LinkID=394789). VM 에이전트는 Windows Server 2008 R2 이상에서 지원 됩니다.
+Windows VM 에이전트는 Windows 설치 관리자 패키지를 사용하여 수동으로 설치할 수 있습니다. Azure에 배포된 사용자 지정 VM 이미지를 만들 때 수동 설치가 필요할 수 있습니다. Windows VM 에이전트를 수동으로 설치하려면 [VM 에이전트 설치 관리자를 다운로드합니다](https://go.microsoft.com/fwlink/?LinkID=394789). VM 에이전트는 Windows Server 2008 R2 이상에서 지원됩니다.
 
 > [!NOTE]
-> ProvisionVMAgent를 사용 하지 않고 이미지에서 배포 된 VM에 VMAgent를 수동으로 설치한 후 AllowExtensionOperations 옵션을 업데이트 하는 것이 중요 합니다.
+> 프로비저닝VMAgent 를 사용하지 않고 이미지에서 배포된 VM에 VMAgent를 수동으로 설치한 후 AllowExtensionOperations 옵션을 업데이트하는 것이 중요합니다.
 
 ```powershell
 $vm.OSProfile.AllowExtensionOperations = $true
@@ -70,9 +70,9 @@ $vm | Update-AzVM
 ```
 
 ### <a name="prerequisites"></a>사전 요구 사항
-- Windows VM 에이전트는 .Net Framework 4.0를 사용 하 여 Windows Server 2008 R2 (64 비트) 이상을 실행 해야 합니다. [Azure의 가상 머신 에이전트에 대 한 최소 버전 지원을](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) 참조 하세요.
+- Windows VM 에이전트는 .Net Framework 4.0을 사용하여 실행하려면 Windows Server 2008 R2(64비트) 이상이 필요합니다. [Azure의 가상 시스템 에이전트에 대한 최소 버전 지원](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) 참조
 
-- VM에 IP 주소 168.63.129.16에 대 한 액세스 권한이 있는지 확인 합니다. 자세한 내용은 [IP 주소 168.63.129.16?을](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)참조 하세요.
+- VM이 IP 주소 168.63.129.16에 액세스할 수 있는지 확인합니다. 자세한 내용은 [IP 주소 168.63.129.16을](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)참조하십시오.
 
 ## <a name="detect-the-vm-agent"></a>VM 에이전트 검색
 
@@ -114,8 +114,8 @@ Microsoft VM에 로그인하면 작업 관리자를 사용하여 실행 중인 �
 ## <a name="upgrade-the-vm-agent"></a>VM 에이전트 업그레이드
 Windows용 Azure VM 에이전트는 자동으로 업그레이드됩니다. 새 VM이 Azure에 배포되면 VM 프로비전 시 최신 VM 에이전트가 제공됩니다. 사용자 지정 VM 이미지는 이미지를 만들 때 새 VM 에이전트를 포함하도록 수동으로 업데이트해야 합니다.
 
-## <a name="windows-guest-agent-automatic-logs-collection"></a>Windows 게스트 에이전트 자동 로그 수집
-Windows 게스트 에이전트에는 일부 로그를 자동으로 수집 하는 기능이 있습니다. 이 기능은 CollectGuestLogs 프로세스에 의해 컨트롤러입니다. PaaS Cloud Services 및 IaaS Virtual Machines 모두에 대해 존재 하며,이는 VM에서 일부 진단 로그를 자동으로 수집 하 & 오프 라인 분석에 사용할 수 있도록 하는 것입니다. 수집 된 로그는 이벤트 로그, OS 로그, Azure 로그 및 일부 레지스트리 키입니다. VM의 호스트로 전송 되는 ZIP 파일을 생성 합니다. 그런 다음이 ZIP 파일을 검토 하 여 엔지니어링 팀과 지원 전문가에 게 VM을 소유 하는 고객의 요청에 대 한 문제를 조사할 수 있습니다.
+## <a name="windows-guest-agent-automatic-logs-collection"></a>Windows 게스트 에이전트 자동 로그 컬렉션
+Windows 게스트 에이전트에는 일부 로그를 자동으로 수집하는 기능이 있습니다. 이 기능은 CollectGuestLogs.exe 프로세스의 컨트롤러입니다. PaaS 클라우드 서비스와 IaaS 가상 머신 모두에 존재하며, 그 목표는 VM에서 일부 진단 로그를 신속하게 & 오프라인 분석에 사용할 수 있도록 하는 것입니다. 수집된 로그는 이벤트 로그, OS 로그, Azure 로그 및 일부 레지스트리 키입니다. VM의 호스트로 전송되는 ZIP 파일을 생성합니다. 그런 다음 엔지니어링 팀 및 지원 전문가가 이 ZIP 파일을 검토하여 VM을 소유한 고객의 요청에 따라 문제를 조사할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 VM 확장에 대한 자세한 내용은 [Azure 가상 머신 확장 및 기능 개요](overview.md)를 참조하세요.

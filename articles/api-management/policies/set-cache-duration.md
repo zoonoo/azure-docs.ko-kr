@@ -1,5 +1,5 @@
 ---
-title: 샘플 API 관리 정책-응답 캐시 기간 설정
+title: 샘플 API 관리 정책 - 응답 캐시 기간 설정
 titleSuffix: Azure API Management
 description: Azure API Managment 정책 샘플 - 백 엔드에서 전송한 Cache-Control 헤더의 maxAge 값을 사용하여 응답 캐시 기간을 설정하는 방법을 보여줍니다.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 3101c5695272e8fa6b577ad313897cbc1fa29629
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75442389"
 ---
 # <a name="set-response-cache-duration"></a>응답 캐시 기간 설정

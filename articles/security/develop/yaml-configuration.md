@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure 보안 코드 분석 작업 사용자 지정 가이드
-description: 이 문서에서는 Microsoft 보안 코드 분석 확장에서 모든 작업을 사용자 지정 하기 위한 YAML 구성 옵션을 설명 합니다.
+title: 마이크로소프트 Azure 보안 코드 분석 작업 사용자 지정 가이드
+description: 이 문서에서는 Microsoft 보안 코드 분석 확장의 모든 작업을 사용자 지정하기 위한 YAML 구성 옵션 에 대해 설명합니다.
 author: vharindra
 manager: sukhans
 ms.author: terrylan
@@ -13,180 +13,180 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 82802ceae8f9fdd24d1f5642d80d90ebfd8b92a3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75460659"
 ---
-# <a name="yaml-configuration-options-to-customize-the-build-tasks"></a>빌드 작업을 사용자 지정 하는 YAML 구성 옵션
+# <a name="yaml-configuration-options-to-customize-the-build-tasks"></a>빌드 작업을 사용자 지정하는 YAML 구성 옵션
 
-이 문서에서는 각 빌드 작업에서 사용할 수 있는 모든 YAML 구성 옵션을 나열 합니다. 이 문서는 보안 코드 분석 도구에 대 한 작업으로 시작 합니다. 사후 처리 작업으로 끝납니다.
+이 문서에서는 각 빌드 작업에서 사용할 수 있는 모든 YAML 구성 옵션을 나열합니다. 이 문서는 보안 코드 분석 도구에 대한 작업으로 시작합니다. 사후 처리 작업으로 끝납니다.
 
 ## <a name="anti-malware-scanner-task"></a>맬웨어 방지 스캐너 작업
 
-| **InputType**      | **형식**     | **해당**            | **필수** | **기본값**             | **옵션 (선택 목록)**                                   | **설명**                                                                                                                                                                                                                                                                                                                            |
+| **입력 유형**      | **유형**     | **적용**            | **필수** | **기본값**             | **옵션(선택 목록용)**                                   | **설명**                                                                                                                                                                                                                                                                                                                            |
 |------------|---------------|-----------------------|----------|---------------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| InputType | 선택 목록 | 항상 | 참 | Basic | 기본, 사용자 지정 | 
-| ScanType | 선택 목록 | InputType = 기본 | 참 | CustomScan | CustomScan, FullSystemScan, QuickScan, YourConfiguredScan | 맬웨어 방지 검사에 사용할 검색 유형입니다.
-| FileDirPath | filePath | ScanType = CustomScan | 참 | $ (Build.stagingdirectory) |  | 검색할 파일 또는 디렉터리를 나타냅니다.
-| DisableRemediation | boolean | ScanType = CustomScan | 거짓 | true |  | 선택 된 경우: 1) 파일 제외가 무시 됩니다. 2) 보관 파일이 검색 됩니다. 3) 검색 후에는 작업이 적용 되지 않습니다. 4) 검색 후 이벤트 로그 항목이 기록 되지 않습니다. 5) 사용자 지정 검색에서 검색은 사용자 인터페이스에 표시 되지 않습니다. 6) 콘솔 출력에 사용자 지정 검사의 검색 목록이 표시 됩니다.
-| BootSectorScan | boolean | ScanType = CustomScan | 거짓 | false |  | 선택 하는 경우 부팅 섹터 검색을 사용 하도록 설정 합니다.
-| 인수 | 문자열 | InputType = 사용자 지정 | 참 | -Scan-ScanType DisableRemediation-File $ (Build.stagingdirectory) |  | 명령줄 인수입니다. 여기서-File의 인수는 절대 경로 이거나 빌드 에이전트에 미리 정의 된 $ (Build.stagingdirectory)에 대 한 상대 경로입니다. 참고:-File에 대 한 인수를 마지막 인수로 제공 하지 않으면 $ (Build.stagingdirectory)로 기본 설정 됩니다. MpCmdRun .exe 도구에서 허용 하는 고유한 인수를 제공할 수도 있습니다.<br/><br/>이 도구에 대 한 명령줄 인수에 대 한 자세한 내용을 보려면 <strong>-h</strong> 또는 <strong>-?</strong> 를 입력 하십시오. 인수 필드에서를 실행 하 고 빌드 작업을 실행 합니다.
-| EnableServices | boolean | 항상 | 참 | false |  | 선택 하는 경우 사용 하지 않도록 설정 된 경우 Windows 업데이트에 필요한 서비스를 사용 하도록 설정 합니다.<br/>**참고**: 그룹 정책에서 서비스를 사용 하지 않도록 설정 하 고이 빌드를 실행 하는 계정에 관리자 권한이 있는지 확인 하십시오.
-| SupportLogOnError | boolean | 항상 | 참 | false |  | 선택 하는 경우 오류가 발생 했을 때 진단을 위한 지원 파일을 수집 합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.<br/>**참고**:이 빌드가 실행 되 고 있는 계정에 관리자 권한이 있는지 확인 하세요.
-| TreatSignatureUpdateFailureAs | 선택 목록 | 항상 | 참 | 경고 | 오류, 표준, 경고 | 런타임에 서명을 업데이트할 수 없는 경우 사용 되는 로그 수준입니다. **오류**로 설정 되 면 서명 업데이트에 실패 하면 빌드 작업이 실패 합니다. 서명이 상대적으로 최신 (3 시간 미만) 인 경우에도 호스트 된 빌드 에이전트에서 서명 업데이트가 실패 하는 것이 일반적입니다.
-| SignatureFreshness | 선택 목록 | 항상 | 참 | UpToDate | OneDay, ThreeDays, TwoDays, UpToDate | 맬웨어 방지 서명에 허용 되는 최대 기간입니다. 서명을 업데이트할 수 없고이 값 보다 오래 된 경우 빌드 작업은 **서명 확인 사용 기간** 필드에서 선택한 값에 따라 동작 합니다. 참고: **최신 버전을 선택 하**는 경우 서명은 최대 3 시간까지 허용 됩니다.
-| TreatStaleSignatureAs | 선택 목록 | 항상 | 참 | 오류 | 오류, 표준, 경고 | 서명 기간이 선택한 **맬웨어 방지 프로그램 서명 기간**보다 오래 된 경우 사용 되는 로그 수준입니다. 최신 서명이 맬웨어 방지 검사를 계속 하는 **경고** 또는 **정보** 로 처리 될 수 있지만이 방법은 사용 하지 않는 것이 좋습니다.
+| 입력 유형 | 픽리스트 | always | True | Basic | 기본, 사용자 정의 | 
+| 스캔 유형 | 픽리스트 | 입력 유형 = 기본 | True | 사용자 정의 스캔 | 사용자 정의 스캔, 전체 시스템 스캔, 빠른 스캔, 당신의 구성 스캔 | 맬웨어 방지 검사에 사용할 검사 유형입니다.
+| 파일디어패스 | filePath | 스캔 유형 = 사용자 지정 검색 | True | $(빌드.스테이징 디렉터리) |  | 검색할 파일 또는 디렉터리를 나타냅니다.
+| 사용 안 함 | boolean | 스캔 유형 = 사용자 지정 검색 | False | true |  | 선택시: 1) 파일 제외는 무시됩니다. 2) 아카이브 파일이 스캔됩니다. 3) 감지 후 조치가 적용되지 않습니다. 4) 이벤트 로그 항목은 감지 후 기록되지 않습니다. 5) 사용자 정의 검색에서 검색은 사용자 인터페이스에 표시되지 않습니다. 6) 콘솔 출력은 사용자 정의 검색에서 검색 목록을 표시합니다.
+| 부트 섹터스캔 | boolean | 스캔 유형 = 사용자 지정 검색 | False | false |  | 이 옵션을 선택하면 부팅 섹터를 스캔할 수 있습니다.
+| 인수 | 문자열 | 입력 유형 = 사용자 지정 | True | - 스캔 -스캔 유형 3 -비활성화 된 수정 -파일 $(Build.StagingDirectory) |  | -File에 대한 인수가 절대 경로이거나 빌드 에이전트에서 미리 정의된 $(Build.StagingDirectory)에 대한 상대 경로인 명령줄 인수입니다. 참고: -File에 대한 인수를 마지막 인수로 제공하지 않으면 기본값 $(Build.StagingDirectory)으로 설정됩니다. MpCmdRun.exe 도구에서 허용하는 고유한 인수를 제공할 수도 있습니다.<br/><br/>이 도구의 명령줄 인수에 대한 자세한 내용은 <strong>-h</strong> 또는 <strong>-?</strong> 인수 필드에서 빌드 작업을 실행합니다.
+| 인에이블 서비스 | boolean | always | True | false |  | 이 옵션을 선택하면 Windows 업데이트에 필요한 서비스를 사용하도록 설정하려고 합니다.<br/>**참고:** 그룹 정책이 서비스를 비활성화하지 않도록 하고 이 빌드에서 실행 중인 계정에 관리자 권한이 있는지 확인하십시오.
+| 지원로그온오류 | boolean | always | True | false |  | 이 옵션을 선택하면 오류가 발생했을 때 진단을 위해 지원 파일을 수집합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.<br/>**참고:** 이 빌드에서 실행 중인 계정에 관리자 권한이 있는지 확인하십시오.
+| 트리트 시그니처업데이트실패 | 픽리스트 | always | True | Warning | 오류, 표준, 경고 | 런타임에 서명을 업데이트할 수 없는 경우 사용되는 로그 수준입니다. **오류로**설정하면 서명을 업데이트하지 못하면 빌드 작업이 실패합니다. 서명이 비교적 최신(3시간 미만)일 지라도 호스팅빌드 에이전트에서 서명 업데이트가 실패하는 것이 일반적입니다.
+| 시그니처 신선함 | 픽리스트 | always | True | 업데이트 | 1일, 3일, 이틀, 업데이트 | 맬웨어 방지 서명의 최대 허용 시간입니다. 서명을 업데이트할 수 없고 이 값보다 오래된 경우 빌드 작업은 서명 연령 **확인** 필드에서 선택한 값에 따라 수행됩니다. 참고: 최신 **날짜를**선택하면 서명이 최대 3시간 까지 사용할 수 있습니다.
+| 트리트테일 시그니처아스 | 픽리스트 | always | True | Error | 오류, 표준, 경고 | 서명 연령이 선택한 **맬웨어 방지 서명 연령보다**오래된 경우 사용되는 로그 수준입니다. 오래된 서명은 맬웨어 방지 검사를 계속하기 위한 **경고** 또는 **정보로** 처리될 수 있지만 권장되지는 않습니다.
 
-## <a name="binskim-task"></a>BinSkim 작업
+## <a name="binskim-task"></a>빈스킴 작업
 
-| **InputType**      | **형식**     | **해당**            | **필수** | **기본값**             | **옵션 (선택 목록)**                                   | **설명**                                                                                                                                                                                                                                                                                                                            |
+| **입력 유형**      | **유형**     | **적용**            | **필수** | **기본값**             | **옵션(선택 목록용)**                                   | **설명**                                                                                                                                                                                                                                                                                                                            |
 |------------|---------------|-----------------------|----------|---------------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| InputType | 선택 목록 | 항상 | 참 | Basic | Basic, CommandLine | 
-| 인수 | 문자열 | InputType = CommandLine | 참 |  |  | 실행할 표준 Binskim 명령줄 인수입니다. 출력 경로가 제거 되 고 바뀝니다.<br>이 도구에 대 한 명령줄 인수에 대 한 자세한 내용을 보려면 인수 필드에 **도움말** 을 입력 하 고 빌드 작업을 실행 하십시오.
-| 함수 | 선택 목록 | InputType = 기본 | 참 | 분석 | 분석, 덤프, exportConfig, exportRules | 
-| AnalyzeTarget | filePath | InputType = Basic & & Function = analyze | 참 | $ (Build.artifactstagingdirectory)\*.dll;<br>$ (Build.artifactstagingdirectory)\*. .exe |  | 분석할 하나 이상의 이진으로 확인 되는 파일, 디렉터리 또는 필터 패턴에 대 한 하나 이상의 지정자입니다. ('; ' 구분한 목록)
-| AnalyzeSymPath | 문자열 | InputType = Basic & & Function = analyze | 거짓 |  |  | 대상에 대 한 기호 파일의 경로입니다.
-| AnalyzeConfigPath | 문자열 | InputType = Basic & & Function = analyze | 거짓 | 기본값 |  | 분석을 구성 하는 데 사용 될 정책 파일의 경로입니다. 기본 제공 설정을 사용 하려면 ' 기본값 '의 값을 전달 합니다.
-| AnalyzePluginPath | 문자열 | InputType = Basic & & Function = analyze | 거짓 |  |  | 분석 집합의 모든 대상에 대해 호출 되는 플러그 인의 경로입니다.
-| AnalyzeRecurse | boolean | InputType = Basic & & Function = analyze | 거짓 | true |  | 파일 지정자 인수를 평가할 때 하위 디렉터리로 재귀 합니다.
-| AnalyzeVerbose | boolean | InputType = Basic & & Function = analyze | 거짓 | false |  | 자세한 정보 출력을 내보냅니다. 결과 포괄적인 보고서는 규정 준수 시나리오에 대 한 적절 한 증거를 제공 하도록 설계 되었습니다.
-| AnalyzeHashes | boolean | InputType = Basic & & Function = analyze | 거짓 | false |  | SARIF 보고서를 내보낼 때 분석 대상의 SHA-256 해시를 출력 합니다.
-| AnalyzeStatistics | boolean | InputType = Basic & & Function = analyze | 거짓 | false |  | 분석 세션에 대 한 타이밍 및 기타 통계를 생성 합니다.
-| AnalyzeEnvironment | boolean | InputType = Basic & & Function = analyze | 거짓 | false |  | 출력 파일에 대 한 실행의 컴퓨터 환경 세부 정보를 기록 합니다. 경고:이 옵션은 모든 환경 변수 값과 같은 잠재적으로 중요 한 정보를 내보낸 로그에 기록 합니다.
-| ExportRulesOutputType | 선택 목록 | InputType = Basic & & 함수 = exportRules | 거짓 | SARIF | SARIF, SonarQube | 출력할 규칙 설명자 파일의 유형입니다. 이는 보안 분석 로그 빌드 게시 작업에서 게시 한 BinSkim logs 폴더에 포함 됩니다.
-| 대상 \ 대상 | filePath | InputType = Basic & & Function = dump | 참 | $ (Build.artifactstagingdirectory) |  | 분석할 하나 이상의 이진으로 확인 되는 파일, 디렉터리 또는 필터 패턴에 대 한 하나 이상의 지정자입니다. ('; ' 구분한 목록)
-| DumpRecurse | boolean | InputType = Basic & & Function = dump | 거짓 | true |  | 파일 지정자 인수를 평가할 때 하위 디렉터리로 재귀 합니다.
-| 로깅 세부 정보 표시 | boolean | InputType = Basic & & Function = dump | 거짓 | true |  | 자세한 정보 출력을 내보냅니다. 결과 포괄적인 보고서는 규정 준수 시나리오에 대 한 적절 한 증거를 제공 하도록 설계 되었습니다.
-| toolVersion | 선택 목록 | 항상 | 거짓 | 최신 버전 | 1.5.0, 최신, LatestPreRelease | 실행할 도구의 버전입니다.
+| 입력 유형 | 픽리스트 | always | True | Basic | 기본, 커맨드라인 | 
+| 인수 | 문자열 | 입력 유형 = 명령줄 | True |  |  | 실행할 표준 Binskim 명령줄 인수입니다. 출력 경로가 제거되고 교체됩니다.<br>이 도구의 명령줄 인수에 대한 자세한 내용은 인수 필드에 **도움말을** 입력하고 빌드 작업을 실행하십시오.
+| 함수 | 픽리스트 | 입력 유형 = 기본 | True | 분석 | 분석, 덤프, 내보내기구성, 내보내기규칙 | 
+| 분석 대상 | filePath | 입력 유형 = 기본 && 함수 = 분석 | True | $(Build.ArtifactStagingDirectory)\*.dll;<br>$(Build.ArtifactStagingDirectory)\*.exe |  | 하나 이상의 지정자가 하나 이상의 바이너리로 확인되어 분석할 파일, 디렉터리 또는 필터 패턴에 대한 지정 (';' 분리된 목록)
+| 심패스 분석 | 문자열 | 입력 유형 = 기본 && 함수 = 분석 | False |  |  | 대상에 대한 기호 파일에 대한 경로입니다.
+| 분석ConfigPath | 문자열 | 입력 유형 = 기본 && 함수 = 분석 | False | default |  | 분석을 구성하는 데 사용할 정책 파일에 대한 경로입니다. 기본 제공 설정을 사용하려면 '기본값'을 전달합니다.
+| 분석플러그인 패스 | 문자열 | 입력 유형 = 기본 && 함수 = 분석 | False |  |  | 분석 세트의 모든 대상에 대해 호출되는 플러그인에 대한 경로입니다.
+| 분석재저주 | boolean | 입력 유형 = 기본 && 함수 = 분석 | False | true |  | 파일 지정자 인수를 평가할 때 하위 디렉토리로 다시 지정합니다.
+| 분석버보스 | boolean | 입력 유형 = 기본 && 함수 = 분석 | False | false |  | 자세한 출력을 내보사. 결과 포괄적인 보고서는 규정 준수 시나리오에 대한 적절한 증거를 제공하도록 설계되었습니다.
+| 분석해시 | boolean | 입력 유형 = 기본 && 함수 = 분석 | False | false |  | SARIF 보고서를 내보내는 경우 SHA-256 분석 대상의 출력 SHA-256 해시.
+| 통계 분석 | boolean | 입력 유형 = 기본 && 함수 = 분석 | False | false |  | 분석 세션에 대한 타이밍 및 기타 통계를 생성합니다.
+| 분석환경 | boolean | 입력 유형 = 기본 && 함수 = 분석 | False | false |  | 출력 파일에 실행의 컴퓨터 환경 세부 정보를 기록합니다. 경고: 이 옵션은 내보낸 로그에 잠재적으로 중요한 정보(예: 모든 환경 변수 값)를 기록합니다.
+| 내보내기규칙출력유형 | 픽리스트 | 입력 유형 = 기본 && 함수 = 내보내기규칙 | False | 사리프 (주)(주) | 사리프, 수중 음파 탐지기 | 출력할 규칙 설명자 파일의 유형입니다. 이는 게시 보안 분석 로그 빌드 작업에 의해 게시된 BinSkim 로그 폴더에 포함됩니다.
+| 덤프 대상 | filePath | 입력 유형 = 기본 && 함수 = 덤프 | True | $(빌드.아티팩트스테이징 디렉터리) |  | 하나 이상의 지정자가 하나 이상의 바이너리로 확인되어 분석할 파일, 디렉터리 또는 필터 패턴에 대한 지정 (';' 분리된 목록)
+| 덤프레저주 | boolean | 입력 유형 = 기본 && 함수 = 덤프 | False | true |  | 파일 지정자 인수를 평가할 때 하위 디렉토리로 다시 지정합니다.
+| 덤프버보스 | boolean | 입력 유형 = 기본 && 함수 = 덤프 | False | true |  | 자세한 출력을 내보사. 결과 포괄적인 보고서는 규정 준수 시나리오에 대한 적절한 증거를 제공하도록 설계되었습니다.
+| 도구버전 | 픽리스트 | always | False | 최신 버전 | 1.5.0, 최신, 최신프리릴리즈 | 실행할 도구의 버전입니다.
 
 ## <a name="credential-scanner-task"></a>자격 증명 스캐너 작업
 
-| **InputType**      | **형식**     | **해당**            | **필수** | **기본값**             | **옵션 (선택 목록)**                                   | **설명**                                                                                                                                                                                                                                                                                                                            |
+| **입력 유형**      | **유형**     | **적용**            | **필수** | **기본값**             | **옵션(선택 목록용)**                                   | **설명**                                                                                                                                                                                                                                                                                                                            |
 |------------|---------------|-----------------------|----------|---------------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| outputFormat | 선택 목록 | 항상 | 거짓 | pre | csv, pre, tsv | 자격 증명 스캐너 결과 파일의 출력 형식입니다.
-| toolVersion | 선택 목록 | 항상 | 거짓 | 최신 버전 | 1.27.7, 최신, LatestPreRelease | 실행할 도구의 버전입니다.
-| scanFolder | filePath | 항상 | 거짓 | $ (빌드용 디렉터리) |  | 자격 증명을 검색할 리포지토리의 폴더입니다.
-| searchersFileType | 선택 목록 | 항상 | 거짓 | 기본값 | 사용자 지정, 기본, DefaultAndCustom | 검색에 사용 되는 searchers 파일을 찾을 수 있는 옵션입니다.
-| searchersFile | filePath | searchersFileType = = Custom 또는 searchersFileType = = DefaultAndCustom | 거짓 |  |  | 실행할 확인의 자격 증명 스캐너 searchers 구성 파일입니다. 자격 증명 스캐너 searchers 파일에 대 한 쉼표로 구분 된 경로 목록을 제공 하 여 여러 값을 포함 하 고 사용할 수 있습니다.
-| suppressionsFile | filePath | 항상 | 거짓 |  |  | 출력 로그에서 문제를 억제 하는 데 사용할 자격 증명 스캐너 비 표시 파일입니다.
-| suppressAsError | boolean | 항상 | 거짓 | false |  | 표시 되지 않는 일치 항목은 출력 파일 [-O]-일치 항목으로 출력 됩니다. 기본 억제 된 출력 파일 [-O]-표시 되지 않고 [-f]. [-f]. 기본값은 ' f a l s e '입니다.
-| verboseOutput | boolean | 항상 | 거짓 | false |  | 자세한 정보를 출력 합니다.
-| batchSize | 문자열 | 항상 | 거짓 |  |  | 자격 증명 스캐너를 병렬로 실행 하는 데 사용 되는 동시 스레드 수입니다. (기본값은 20)<br/>값은 1-2147483647 범위 내에 있어야 합니다.
-| regexMatchTimeoutInSeconds | 문자열 | 항상 | 거짓 |  |  | 확인을 중단 하기 전에 검색 자가 일치를 시도 하는 데 소요 되는 시간 (초)입니다.<br/>명령줄에 ``-Co RegexMatchTimeoutInSeconds=<Value>``를 추가 합니다.
-| fileScanReadBufferSize | 문자열 | 항상 | 거짓 |  |  | 콘텐츠를 읽는 동안 버퍼 크기 (바이트)입니다. (기본값은 524288)<br/>명령줄에 ``-Co FileScanReadBufferSize=<Value>``를 추가 합니다.
-| maxFileScanReadBytes | 문자열 | 항상 | 거짓 |  |  | 콘텐츠 분석 중 지정 된 파일에서 읽을 최대 바이트 수입니다. (기본값은 104857600)<br/>명령줄에 ``-Co MaxFileScanReadBytes=<Value>``를 추가 합니다.
+| outputFormat | 픽리스트 | always | False | pre | csv, 사전, tsv | 자격 증명 스캐너 결과 파일의 출력 형식입니다.
+| 도구버전 | 픽리스트 | always | False | 최신 버전 | 1.27.7, 최신, 최신프리릴리즈 | 실행할 도구의 버전입니다.
+| 스캔폴더 | filePath | always | False | $(빌드.소스 디렉터리) |  | 자격 증명을 검사할 리포지토리의 폴더입니다.
+| 검색어파일타입 | 픽리스트 | always | False | 기본값 | 사용자 지정, 기본값, 기본값및사용자 정의 | 검색에 사용되는 검색기 파일을 찾는 옵션입니다.
+| 검색파일 | filePath | 검색어파일타입 == 사용자 지정 또는 검색어파일타입 == 디폴티드및커스터마이텀 | False |  |  | 실행할 검사의 자격 증명 스캐너 검색자 구성 파일입니다. 자격 증명 스캐너 검색자 파일에 쉼표로 구분된 경로 목록을 제공하여 여러 값을 포함하고 사용할 수 있습니다.
+| 억제파일 | filePath | always | False |  |  | 출력 로그의 문제를 억제하는 데 사용할 자격 증명 스캐너 억제 파일입니다.
+| 서드AError | boolean | always | False | false |  | 억제된 일치 항목이 출력 파일 [-O]-일치에 출력됩니다. [-f] 기본 억제 된 출력 파일 [-O]-억제 되지 않습니다. [-f]. (기본값은 'False')
+| 자세한 출력 | boolean | always | False | false |  | 자세한 정보를 출력합니다.
+| batchSize | 문자열 | always | False |  |  | 자격 증명 스캐너를 병렬로 실행하는 데 사용되는 동시 스레드 수입니다. (기본값 20)<br/>값은 1-2147483647 범위 내에 있어야 합니다.
+| 정규렉스매치타임아웃인세컨즈 | 문자열 | always | False |  |  | 수표를 포기하기 전에 검색자 일치를 시도하는 데 소요되는 시간(초)입니다.<br/>명령줄에 추가합니다. ``-Co RegexMatchTimeoutInSeconds=<Value>``
+| 파일스캔읽기버퍼크기 | 문자열 | always | False |  |  | 바이트로 콘텐츠를 읽는 동안 버퍼 크기입니다. (기본값 524288)<br/>명령줄에 추가합니다. ``-Co FileScanReadBufferSize=<Value>``
+| maxFile스캔읽기바이트 | 문자열 | always | False |  |  | 콘텐츠 분석 중에 지정된 파일에서 읽을 최대 바이트 수입니다. (기본값 104857600)<br/>명령줄에 추가합니다. ``-Co MaxFileScanReadBytes=<Value>``
 
 ## <a name="microsoft-security-risk-detection-task"></a>Microsoft 보안 위험 검색 작업
 
-| **InputType**      | **형식**     | **해당**            | **필수** | **기본값**             | **옵션 (선택 목록)**                                   | **설명**                                                                                                                                                                                                                                                                           |
+| **입력 유형**      | **유형**     | **적용**            | **필수** | **기본값**             | **옵션(선택 목록용)**                                   | **설명**                                                                                                                                                                                                                                                                           |
 |------------|---------------|-----------------------|----------|---------------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ServiceEndpointName | connectedService: Generic | 항상 | 참 |  |  | 사용자의 계정 설정 페이지에서 생성 되 고 계정에 대 한 모든 액세스를 허용 하는 MSRD 인스턴스 URL (등록) REST API 및 액세스 토큰 (계정 설정 페이지에서 생성 됨)을 저장 하는 VSTS 프로젝트의 미리 구성 된 서비스 끝점 (제네릭 형식)의 이름입니다.
-| AccountId | 문자열 | 항상 | 참 |  |  | 계정을 식별 하는 GUID입니다. 계정 URL에서 검색할 수 있습니다.
-| BinariesURL | 문자열 | 항상 | 참 |  |  | 퍼지 컴퓨터에서 이진 파일을 다운로드 하는 데 사용할 Url을 세미콜론으로 구분한 목록입니다. Url을 공개적으로 사용할 수 있는지를 만듭니다.
-| SeedsURL | 문자열 | 항상 | 거짓 |  |  | 퍼징 컴퓨터에서 시드를 다운로드 하는 데 사용할 Url을 세미콜론으로 구분한 목록입니다. Url을 공개적으로 사용할 수 있는지 확인 합니다.
-| OSPlatformType | 선택 목록 | 항상 | 참 | Windows | Linux, Windows | 퍼징 작업을 실행할 컴퓨터의 OS 플랫폼 유형입니다.
-| WindowsEdition | 문자열 | OSPlatformType = Windows | 참 | Server 2008 R2 |  | 퍼징 작업을 실행할 컴퓨터의 OS 버전입니다.
-| LinuxEdition | 문자열 | OSPlatformType = Linux | 참 | Redhat |  | 퍼징 작업을 실행할 컴퓨터의 OS 버전입니다.
-| PreSubmissionCommand | 문자열 | 항상 | 거짓 |  |  | 테스트 대상 프로그램 및 해당 종속성을 설치 하기 위해 테스트 컴퓨터에서 실행 해야 하는 스크립트를 실행 하 여 퍼지 작업을 제출 합니다.
-| SeedDirectory | 문자열 | 항상 | 참 |  |  | 시드를 포함 하는 퍼지 컴퓨터의 디렉터리 경로입니다. 자세한 내용은 [Seed File 디렉터리](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/03-choose-seed-files#seed-file-directory) 를 참조 하십시오.
-| SeedExtension | 문자열 | 항상 | 참 |  |  | 초기값의 파일 확장명입니다.
-| TestDriverExecutable 파일 | 문자열 | 항상 | 참 |  |  | 퍼지 컴퓨터에서 대상 실행 파일의 경로입니다. 자세한 내용은 [EPE에 대 한 전체 경로를](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/02-choose-exe#full-path-to-the-epe) 참조 하세요.
-| TestDriverExeType | 선택 목록 | 항상 | 참 | x86 | amd64, x86 | 대상 실행 파일 아키텍처입니다.
-| TestDriverParameters | 문자열 | 항상 | 참 | "% testfile%" |  | 테스트 대상 실행 파일에 전달 되는 명령줄 인수입니다. 큰따옴표를 포함 한 **"% testfile%"** 기호는 테스트 드라이버가 구문 분석 해야 하는 대상 파일의 전체 경로로 자동으로 대체 됩니다. 자세한 내용은 [명령줄 인수](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/02-choose-exe#command-line-arguments) 를 참조 하세요.
-| ClosesItself | boolean | 항상 | 참 | true |  | 테스트 드라이버가 완료 될 때 자체 종료 되는지 확인 합니다 (예: 테스트 드라이버가 입력 파일을 구문 분석 하 고 즉시 종료). 테스트 드라이버를 강제로 닫아야 하는지 여부를 선택 취소 합니다. 예를 들어 테스트 드라이버는 입력을 구문 분석 한 후 주 창이 열려 있는 GUI 응용 프로그램입니다. 자세한 내용은 [자체 종료](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/05-scope-exe-lifetime#self-termination) 를 참조 하십시오.
-| MaxDurationInSeconds | 문자열 | 항상 | 참 | 5 |  | 테스트 드라이버의 최대 지속 시간 (초)입니다. 대상 프로그램에서 입력 파일을 구문 분석 하는 데 필요한 가장 긴 예상 시간을 예측 하 여 제공 합니다. 이러한 예측을 보다 정확 하 게 하면 퍼지 실행이 더 효율적입니다. 자세한 내용은 [예상 되는 최대 실행 기간](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/05-scope-exe-lifetime#maximum-expected-execution-duration) 을 참조 하세요.
-| CanRunRepeat | boolean | 항상 | 참 | true |  | 지속형/공유 전역 상태에 따라 테스트 드라이버를 반복 해 서 실행할 수 있는지 확인 합니다. 자세한 내용은 [처음부터 실행을](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/04-describe-exe-characteristics#runs-from-scratch) 참조 하세요.
-| CanTestDriverBeRenamed | boolean | 항상 | 참 | false |  | 테스트 드라이버 실행 파일의 이름을 바꿀 수 있고 제대로 작동할 수 있는지 확인 합니다. 자세한 내용은 [이름을 바꾸고 병렬화 할 수 있습니다](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/04-describe-exe-characteristics#can-be-renamed-and-parallelized) .
-| SingleOsProcess | boolean | 항상 | 참 | false |  | 단일 OS 프로세스에서 테스트 드라이버가 실행 되는지 확인 합니다. 테스트 드라이버가 추가 프로세스를 생성 하는 경우 선택을 취소 합니다. 자세한 내용은 [단일 프로세스](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/04-describe-exe-characteristics#single-process) 를 참조 하세요.
+| 서비스 엔드포인트 이름 | 커넥티드 서비스:제네릭 | always | True |  |  | MSRD 인스턴스 URL(온보딩한) 및 REST API 액세스 토큰(계정 설정 페이지에서 생성되어 계정에 대한 전체 액세스를 허용)을 저장하는 VSTS 프로젝트의 미리 구성된 서비스 끝점(일반 유형)의 이름입니다.
+| AccountId | 문자열 | always | True |  |  | 계정을 식별하는 GUID입니다. 계정 URL에서 검색할 수 있습니다.
+| 바이너리URL | 문자열 | always | True |  |  | 퍼징 컴퓨터에서 바이너리를 다운로드하는 데 사용할 세미콜론으로 구분된 URL 목록입니다. URL을 공개적으로 사용할 수 있는지 확인합니다.
+| 시드 URL | 문자열 | always | False |  |  | 퍼징 컴퓨터에서 시드를 다운로드하는 데 사용할 세미콜론으로 구분된 URL 목록입니다. URL을 공개적으로 사용할 수 있는지 확인합니다.
+| OS플랫폼 유형 | 픽리스트 | always | True | Windows | Linux, Windows | 퍼지 작업을 실행할 컴퓨터의 OS 플랫폼 유형입니다.
+| 윈도우 에디션 | 문자열 | OS플랫폼유형 = 윈도우 | True | Server 2008 R2 |  | 컴퓨터의 OS 버전에서 퍼징 작업을 실행합니다.
+| 리눅스 에디션 | 문자열 | OS플랫폼 유형 = 리눅스 | True | Redhat |  | 컴퓨터의 OS 버전에서 퍼징 작업을 실행합니다.
+| 사전 제출 명령 | 문자열 | always | False |  |  | 퍼지 작업을 제출하기 전에 테스트 대상 프로그램 및 해당 종속성을 설치하기 위해 테스트 컴퓨터에서 실행해야 하는 스크립트입니다.
+| 시드 디렉터리 | 문자열 | always | True |  |  | 시드를 포함하는 퍼징 머신의 디렉토리에 대한 경로입니다. 자세한 내용은 [시드 파일 디렉토리를](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/03-choose-seed-files#seed-file-directory) 참조하십시오.
+| 시드 익스텐션 | 문자열 | always | True |  |  | 시드의 파일 확장자입니다.
+| 테스트 드라이버 실행 가능 | 문자열 | always | True |  |  | 퍼징 머신에서 실행 가능한 대상에 대한 경로입니다. 자세한 내용은 [EPE로 가는 전체 경로를](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/02-choose-exe#full-path-to-the-epe) 참조하십시오.
+| 테스트 드라이버ExeType | 픽리스트 | always | True | x86 | amd64, x86 | 대상 실행 파일 아키텍처입니다.
+| 테스트 드라이버매개 변수 | 문자열 | always | True | "%테스트 파일%" |  | 명령줄 인수는 테스트 대상 실행 에 전달되었습니다. 이중 따옴표를 포함한 **"%testfilefile%"** 기호는 테스트 드라이버가 구문 분석할 것으로 예상되는 대상 파일에 대한 전체 경로로 자동으로 대체됩니다. 자세한 내용은 [명령줄 인수를](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/02-choose-exe#command-line-arguments) 참조하십시오.
+| 닫기 자체 | boolean | always | True | true |  | 테스트 드라이버가 완료되면 자체적으로 종료하는지 확인합니다(예: 테스트 드라이버가 입력 파일을 구문 분석하고 즉시 종료). 테스트 드라이버를 강제로 닫아야 하는지 확인을 취소합니다(예: 테스트 드라이버는 입력을 구문 분석한 후 주 창이 열려 있는 GUI 응용 프로그램입니다). 자세한 내용은 [자체 종료를](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/05-scope-exe-lifetime#self-termination) 참조하십시오.
+| 최대 지속 시간 | 문자열 | always | True | 5 |  | 테스트 드라이버의 최대 지속 시간(초)입니다. 대상 프로그램이 입력 파일을 구문 분석하는 데 필요한 합리적으로 예상되는 가장 긴 시간을 추정합니다. 이 추정이 정확할수록 퍼징 런의 효율성이 높아집니다. 자세한 내용은 [최대 예상 실행 기간을](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/05-scope-exe-lifetime#maximum-expected-execution-duration) 참조하십시오.
+| 캔실행반복 | boolean | always | True | true |  | 지속/공유 전역 상태에 따라 테스트 드라이버를 반복적으로 실행할 수 있는지 확인합니다. 자세한 내용은 [처음부터 실행을](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/04-describe-exe-characteristics#runs-from-scratch) 참조하십시오.
+| 캔테스트드라이버베명 | boolean | always | True | false |  | 테스트 드라이버 실행 의 이름을 바꿀 수 있고 여전히 제대로 작동할 수 있는지 확인합니다. 자세한 내용은 [이름을 바꿀 수 있고 병렬화할 수 있습니다.](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/04-describe-exe-characteristics#can-be-renamed-and-parallelized)
+| 싱글오스프로세스 | boolean | always | True | false |  | 테스트 드라이버가 단일 OS 프로세스에서 실행되는지 확인합니다. 테스트 드라이버가 추가 프로세스를 생성하는지 확인을 취소합니다. 자세한 내용은 [단일 프로세스를](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/04-describe-exe-characteristics#single-process) 참조하십시오.
 
-## <a name="roslyn-analyzers-task"></a>Roslyn 분석기 작업
+## <a name="roslyn-analyzers-task"></a>로슬린 분석기 작업
 
-| **InputType**      | **형식**     | **해당**            | **필수** | **기본값**             | **옵션 (선택 목록)**                                   | **설명**                                                                                                                                                                                                                                                                                                                   |
+| **입력 유형**      | **유형**     | **적용**            | **필수** | **기본값**             | **옵션(선택 목록용)**                                   | **설명**                                                                                                                                                                                                                                                                                                                   |
 |------------|---------------|-----------------------|----------|---------------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| userProvideBuildInfo | 선택 목록 | 항상 | 참 | auto | auto, msBuildInfo | MSBuild 버전, MSBuild 아키텍처 및 Roslyn 분석을 위한 명령줄 빌드를 제공 하는 사용자를 위한 옵션입니다. **자동** 을 선택 하는 경우이 작업은 동일한 파이프라인의 이전 **MSBuild**, **vsbuild**및/또는 **.net Core** (빌드) 작업에서 빌드 정보를 검색 합니다.
-| msBuildVersion | 선택 목록 | userProvideBuildInfo = = msBuildInfo | 참 | 16.0 | 15.0, 16.0 | MSBuild 버전입니다.
-| msBuildArchitecture | 선택 목록 | userProvideBuildInfo = = msBuildInfo | 참 | x86 | DotNetCore, x64, x86 | MSBuild 아키텍처입니다. 참고: 빌드 명령줄에서 **dotnet build**를 호출 하는 경우 **Via .NET Core** 옵션을 선택 합니다.
-| msBuildCommandline | 문자열 | userProvideBuildInfo = = msBuildInfo | 참 |  |  | 솔루션 또는 프로젝트를 컴파일하기 위한 전체 빌드 명령줄입니다.<br/><br/>참고: 명령줄은 **msbuild.exe** 또는 **dotnet**의 전체 경로를 사용 하 여 시작 해야 합니다.<br/>명령은 $ (빌드용 디렉터리)를 사용 하 여 작업 디렉터리로 실행 됩니다.
-| rulesetName | 선택 목록 | 항상 | 거짓 | 권장 | 사용자 지정, 없음, 권장, 필수 | 사용할 명명 된 규칙 집합입니다.<br/><br/>`Ruleset Configured In Your Visual Studio Project File(s)` 선택 하면 VS 프로젝트 파일에 미리 구성 된 규칙 집합이 사용 됩니다. `Custom`를 선택 하면 사용자 지정 규칙 집합 경로 옵션을 설정할 수 있습니다.
-| Rulesetversion이 | 선택 목록 | rulesetName = = Required 또는 rulesetName = = 권장 | 거짓 | 최신 버전 | 8.0, 8.1, 8.2, 최신, LatestPreRelease | 선택한 SDL 규칙 집합의 버전입니다.
-| customRuleset 집합 | 문자열 | rulesetName = 사용자 지정 | 거짓 |  |  | 사용할 규칙 집합에 액세스할 수 있는 경로입니다. 상대 경로는 원본 리포지토리의 루트 (`$(Build.SourcesDirectory)`)로 정규화 됩니다.<br/><br/>규칙 집합이 `Actions` 설정 된 `Rules`를 `Error`로 지정 하면 빌드 작업이 실패 합니다. 이를 수행 하는 규칙 집합을 사용 하려면 빌드 작업의 `Control Options`에서 `Continue on error`를 확인 하세요.
-| microsoftAnalyzersVersion | 선택 목록 | 항상 | 거짓 | 최신 버전 | 2.9.3, 2.9.4, 2.9.6, 최신, LatestPreRelease | 실행할 [FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers) 패키지의 버전입니다.
-| suppressionFileForCompilerWarnings | filePath | 항상 | 거짓 |  |  | VB 컴파일러 경고를 표시 C# 하지 않는 비 표시 되지 않는 파일입니다.<br/><br/>각 경고 ID가 별도의 줄에 나열 된 일반 텍스트 파일입니다.<br/>컴파일러 경고의 경우 경고 식별자의 숫자 부분만 지정 합니다. 예를 들어 1018은 CS1018를 표시 하지 않으며 CA1501는 CA1501를 표시 하지 않습니다.<br/><br/>상대 파일 경로는 원본 리포지토리의 루트 (`$(Build.SourcesDirectory)`)에 추가 됩니다.
+| 사용자 제공빌드정보 | 픽리스트 | always | True | auto | 자동, msBuildInfo | 사용자가 MSBuild 버전, MSBuild 아키텍처를 제공하고 Roslyn 분석을 위한 명령줄을 빌드하는 옵션입니다. **자동을** 선택하면 이 작업은 동일한 파이프라인의 이전 **MSBuild,** **VSBuild**및/또는 **.NET** Core(빌드용) 작업에서 빌드 정보를 검색합니다.
+| msBuildVersion | 픽리스트 | 사용자제공빌드정보 == msBuildInfo | True | 16.0 | 15.0, 16.0 | MSBuild 버전입니다.
+| msBuild아키텍처 | 픽리스트 | 사용자제공빌드정보 == msBuildInfo | True | x86 | 도트넷코어, x64, x86 | MSBuild 아키텍처입니다. 참고: 빌드 명령줄이 **dotnet.exe 빌드를**호출하는 경우 **Via .Net Core** 옵션을 선택합니다.
+| msBuildCommandline | 문자열 | 사용자제공빌드정보 == msBuildInfo | True |  |  | 솔루션 또는 프로젝트를 컴파일하기 위한 전체 빌드 명령줄입니다.<br/><br/>참고: 명령줄은 **MSBuild.exe** 또는 **dotnet.exe에**대한 전체 경로로 시작해야 합니다.<br/>명령은 $(Build.SourceDirectory)를 작업 디렉토리로 실행합니다.
+| 규칙 집합이름 | 픽리스트 | always | False | 권장 | 사용자 지정, 없음, 권장 사항, 필수 | 사용할 명명된 규칙 집합입니다.<br/><br/>이 `Ruleset Configured In Your Visual Studio Project File(s)` 옵션을 선택하면 VS 프로젝트 파일에서 미리 구성된 규칙 집합이 사용됩니다. `Custom` 이 옵션을 선택하면 사용자 지정 규칙 집합 경로 옵션을 설정할 수 있습니다.
+| 규칙 설정버전 | 픽리스트 | rulesetName == 필수 또는 규칙 집합 이름 == 권장 | False | 최신 버전 | 8.0, 8.1, 8.2, 최신, 최신사전 릴리스 | 선택한 SDL 규칙 집합의 버전입니다.
+| 사용자 지정 규칙 집합 | 문자열 | 규칙 setName = 사용자 지정 | False |  |  | 사용할 규칙 집합에 대한 액세스 가능한 경로입니다. 상대 경로는 원본 리포지토리()의`$(Build.SourcesDirectory)`루트로 정규화됩니다.<br/><br/>규칙 집합이 `Rules` `Actions` `Error`로 설정된 경우 빌드 작업이 실패합니다. 이 작업을 수행하는 규칙 집합을 `Continue on error` 사용하려면 빌드 작업의 `Control Options`을 체크 인하십시오.
+| 마이크로 소프트 분석기반전 | 픽리스트 | always | False | 최신 버전 | 2.9.3, 2.9.4, 2.9.6, 최신, 최신 사전 릴리스 | [Microsoft.CodeAnalysis.FxCop분석기](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers) 패키지의 버전을 실행합니다.
+| 억제파일컴파일러경고 | filePath | always | False |  |  | C# 및 VB 컴파일러 경고를 억제하는 억제 파일입니다.<br/><br/>각 경고 ID가 있는 일반 텍스트 파일은 하나의 별도의 줄을 나열했습니다.<br/>컴파일러 경고의 경우 경고 식별자의 숫자 부분만 지정합니다. 예를 들어 1018은 CS1018을 억제하고 CA1501은 CA1501을 억제합니다.<br/><br/>상대 파일 경로는 원본 리포지토리()의`$(Build.SourcesDirectory)`루트에 추가됩니다.
 
 ## <a name="tslint-task"></a>TSLint 작업
 
-| **InputType**      | **형식**     | **해당**            | **필수** | **기본값**             | **옵션 (선택 목록)**                                   | **설명**                                                                                                                                                                                                                                                                                                                            |
+| **입력 유형**      | **유형**     | **적용**            | **필수** | **기본값**             | **옵션(선택 목록용)**                                   | **설명**                                                                                                                                                                                                                                                                                                                            |
 |------------|---------------|-----------------------|----------|---------------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| RuleLibrary | 선택 목록 | 항상 | 참 | tslint | 사용자 지정, microsoft, tslint | 모든 결과에는 선택한 버전의 TSLint와 함께 제공 되는 규칙이 포함 됩니다 (**기본 전용**).<br/><br/>**기준만-** TSLint와 함께 제공 되는 규칙만 제공 됩니다.<br/><br/>**Microsoft 규칙 포함-** 다운로드 [tslint-microsoft](https://github.com/Microsoft/tslint-microsoft-contrib) -tslint 실행에 사용할 수 있는 규칙을 포함 합니다. 이 옵션을 선택 하면 Microsoft의 규칙에 필요 하므로 자동으로 사용 되는 `Type Checking` 확인란은 숨겨집니다. 또한 `Microsoft Contribution Version` 필드를 표시 [npm](https://www.npmjs.com/package/tslint-microsoft-contrib) 의 `tslint-microsoft-contrib` 버전을 선택할 수 있습니다.<br/><br/>**사용자 지정 규칙 포함-** 표시 필드 `Rules Directory`는 TSLint 실행에 사용할 수 있는 TSLint 규칙의 디렉터리에 액세스할 수 있는 경로를 허용 합니다.<br/><br/>**참고:** 사용자가 Microsoft 규칙 집합을 구성 하는 데 문제가 발생 하 여 기본값이 tslint로 변경 되었습니다. 특정 버전 구성에 대 한 자세한 내용은 [tslint](https://github.com/microsoft/tslint-microsoft-contrib)을 참조 하세요.
-| 규칙 디렉터리 | 문자열 | RuleLibrary = = 사용자 지정 | 참 |  |  | TSLint 실행에서 사용할 수 있는 추가 TSLint 규칙을 포함 하는 액세스 가능한 디렉터리입니다.
-| 집합이 | 선택 목록 | RuleLibrary! = microsoft | 참 | tsrecommended | 사용자 지정, tslatest, tslatest | TypeScript 파일에 대해 실행할 규칙을 정의 합니다.<br/><br/>**[tslint: 최신](https://github.com/palantir/tslint/blob/master/src/configs/latest.ts) -** `tslint:recommended`를 확장 하 고 모든 TSLint 릴리스의 최신 규칙에 대 한 구성을 포함 하도록 지속적으로 업데이트 됩니다. 이 구성을 사용 하면 코드에서 보풀이 실패를 야기 하는 새 규칙을 사용할 수 있으므로 사소한 릴리스에 대 한 주요 변경 내용이 발생할 수 있습니다. TSLint 주 버전에 도달 하면 `tslint:recommended` `tslint:latest`와 동일 하 게 업데이트 됩니다.<br/><br/>**[tslint: 권장](https://github.com/palantir/tslint/blob/master/src/configs/recommended.ts) -** 일반적으로 일반적인 TypeScript 프로그래밍에 대해 권장 되는 안정 된 독단적인 규칙 집합입니다. 이 구성은 `semver`따라 달라 지 며, 사소한 또는 패치 릴리스 간에 주요 변경 내용이 *없습니다* .
-| RulesetMicrosoft | 선택 목록 | RuleLibrary = = microsoft | 참 | mssdlrequired | 사용자 지정, msrecommended, mssdlrecommended, mssdlrequired, tslatest, tslatest | TypeScript 파일에 대해 실행할 규칙을 정의 합니다.<br/><br/>**[microsoft: sdl --](https://github.com/Microsoft/tslint-microsoft-contrib/wiki/TSLint-and-the-Microsoft-Security-Development-Lifecycle)**  필수 tslint에서 제공 하는 사용 가능한 모든 검사를 실행 하 고 *필요한* [sdl (보안 개발 수명 주기)](https://www.microsoft.com/sdl/) 정책을 충족 하는 tslint-microsoft--규칙을 실행 합니다.<br/><br/>**[microsoft: sdl 권장](https://github.com/Microsoft/tslint-microsoft-contrib/wiki/TSLint-and-the-Microsoft-Security-Development-Lifecycle) -** 는 tslint에서 제공 하는 사용 가능한 모든 검사를 실행 하 고, *필수 및 권장* [sdl (보안 개발 수명 주기)](https://www.microsoft.com/sdl/) 정책을 충족 하는 tslint-microsoft-리브 규칙을 실행 합니다.<br/><br/>**[microsoft: 권장](https://github.com/Microsoft/tslint-microsoft-contrib/blob/master/recommended_ruleset.js) -** Tslint-microsoft-역할 규칙의 작성자가 권장 하는 모든 검사입니다. 여기에는 보안 및 비보안 검사가 포함 됩니다.<br/><br/>**[tslint: 최신](https://github.com/palantir/tslint/blob/master/src/configs/latest.ts) -** `tslint:recommended`를 확장 하 고 모든 TSLint 릴리스의 최신 규칙에 대 한 구성을 포함 하도록 지속적으로 업데이트 됩니다. 이 구성을 사용 하면 코드에서 보풀이 실패를 야기 하는 새 규칙을 사용할 수 있으므로 사소한 릴리스에 대 한 주요 변경 내용이 발생할 수 있습니다. TSLint 주 버전에 도달 하면 `tslint:recommended` `tslint:latest`와 동일 하 게 업데이트 됩니다.<br/><br/>**[tslint: 권장](https://github.com/palantir/tslint/blob/master/src/configs/recommended.ts) -** 일반적으로 일반적인 TypeScript 프로그래밍에 대해 권장 되는 안정 된 독단적인 규칙 집합입니다. 이 구성은 `semver`따라 달라 지 며, 사소한 또는 패치 릴리스 간에 주요 변경 내용이 *없습니다* .
-| RulesetFile | 문자열 | 규칙 집합 = = 사용자 지정 또는 RulesetMicrosoft = = 사용자 지정 | 참 |  |  | 실행할 규칙을 지정 하는 [구성 파일](https://palantir.github.io/tslint/usage/cli/) 입니다.<br/><br/>구성에 대 한 경로는 [사용자 지정 규칙](https://palantir.github.io/tslint/develop/custom-rules/)에 대 한 경로로 추가 됩니다.
-| FileSelectionType | 선택 목록 | 항상 | 참 | fileGlob | fileGlob, projectFile | 
-| 파일 | 문자열 | FileSelectionType = = fileGlob | 참 | \*** |  | 처리할 파일을 결정 하는 [glob](https://www.npmjs.com/package/glob) 파일입니다. 경로는 `Build.SourcesDirectory` 값을 기준으로 합니다.<br/><br/>Microsoft의 기여 라이브러리를 사용 하려면 프로젝트 파일을 사용 해야 합니다. `File Glob Pattern` 옵션으로 Microsoft의 기여 라이브러리를 사용 하는 경우 프로젝트 파일이 자동으로 생성 됩니다.
-| ECMAScriptVersion | 선택 목록 | FileSelectionType = = fileGlob & & RuleLibrary = = microsoft | 참 | ES3 | ES2015, ES2016, ES2017, ES3, ES5, ES6, ESNext | TypeScript 컴파일러를 사용 하 여 구성 된 ECMAScript의 대상 버전입니다. 프로젝트 파일을 사용 하는 경우이는 TypeScript tsconfig 파일의 compilerOptions 필드입니다.
-| Project | 문자열 | FileSelectionType = = projectFile | 참 |  |  | TSLint를 실행할 TypeScript 파일을 지정 하는 [tsconfig](http://www.typescriptlang.org/docs/handbook/tsconfig-json.html) 파일의 경로입니다. 경로는 `Build.SourcesDirectory` 값을 기준으로 합니다.
-| TypeCheck | boolean | RuleLibrary! = microsoft & & FileSelectionType = = projectFile | 거짓 | true |  | Lint 규칙을 실행할 때 형식 검사기를 사용 하도록 설정 합니다.
-| ExcludeFiles | 문자열 | 항상 | 거짓 |  |  | Lint에서 제외할 파일을 나타내는 [glob](https://www.npmjs.com/package/glob) 입니다. 경로는 `Build.SourcesDirectory` 값을 기준으로 합니다. 세미콜론으로 구분 하 여 여러 값을 지정할 수 있습니다.
-| OutputFormat | 선택 목록 | 항상 | 참 | json : | checkstyle, codeFrame, filesList, json, msbuild, pmd, prose, 세련 되 고 자세한 정보 표시, vso | 출력을 생성 하는 데 사용할 [포맷터](https://palantir.github.io/tslint/formatters/) 입니다. JSON 형식은 사후 분석과 호환 됩니다.
-| NodeMemory | 문자열 | 항상 | 거짓 |  |  | TSLint를 실행 하기 위해 노드에 할당할 명시적 메모리 양 (Mb)입니다. 예: 8000<br/><br/>`v8 option`노드의 `--max_old_space=<value>` CLI 옵션에 매핑됩니다.
-| ToolVersion | 선택 목록 | RuleLibrary! = microsoft | 참 | latest | 4.0.0, 4.0.1, 4.0.2, 4.1.0, 4.1.1, 4.2.0, 4.3.0, 4.3.1, 4.4.0, 4.4.1, 4.4.2, 4.5.0, 4.5.1, 5.0.0, 5.1.0, 5.2.0, 5.3.0, 5.3.2, 5.4.0, 5.4.1, 5.4.2, 5.4.3, 5.5.0, 최신 | 다운로드 하 여 실행할 TSLint의 [버전](https://github.com/palantir/tslint/releases) 입니다.
-| TypeScriptVersion | 선택 목록 | 항상 | 참 | latest | 0.8.0부터, 0.8.1, 0.8.2, 0.8.3, 0.9.0, 0.9.1, 0.9.5, 0.9.7, 1.0.0, 1.0.1, 1.3.0, 1.4.1, 1.5.3, 1.6.2, 1.7.3, 1.7.5, 1.8.0, 1.8.10, 1.8.2, 1.8.5, 1.8.6, 1.8.7, 1.8.9, 1.9.0, 2.0.0, v2.0.10, 2.0.2, 2.0.3 라이브러리가, 2.0.6, 2.0.7, 2.0.8 이상이 필요, 2.0.9, 2.1.1, 2.1.4, 2.1.5, 2.1.6, 2.2.0,,, 2.2.1, 사용자 지정, 최신 | 다운로드 하 여 사용할 [typescript](https://www.npmjs.com/package/typescript) 의 버전입니다.<br/>**참고:** 코드를 컴파일하는 데 사용 되는 것과 동일한 버전의 TypeScript 여야 합니다.
-| TypeScriptVersionCustom | 문자열 | TypeScriptVersion = = 사용자 지정 | 참 | latest |  | 다운로드 하 여 사용할 [typescript](https://www.npmjs.com/package/typescript) 의 버전입니다.<br/>**참고:** 코드를 컴파일하는 데 사용 되는 것과 동일한 버전의 TypeScript 여야 합니다.
-| MicrosoftContribVersion | 선택 목록 | RuleLibrary = = microsoft |  | latest | 4.0.0, 4.0.1, 5.0.0, 5.0.1 용, 최신 | 다운로드 하 여 사용 하는 [tslint](https://www.npmjs.com/package/tslint-microsoft-contrib) (SDL 규칙)의 버전입니다.</br>**참고:** Tslint-microsoft-tslint에 대해 선택한 버전과 호환 되는 버전의 [](https://www.npmjs.com/package/tslint) 가 선택 됩니다. Tslint에 대 한 업데이트는 테스트 기간이 발생할 때까지이 빌드 작업에 의해 제어 됩니다.
+| 규칙 라이브러리 | 픽리스트 | always | True | tslint | 사용자 정의, 마이크로 소프트, tslint | 모든 결과에는 선택한 버전의 TSLint(기본**전용)와**함께 제공되는 규칙이 포함됩니다.<br/><br/>**베이스 전용 -** TSLint와 함께 제공되는 규칙만 있습니다.<br/><br/>**Microsoft 규칙 포함 -** [tslint-microsoft-contrib을](https://github.com/Microsoft/tslint-microsoft-contrib) 다운로드하고 TSLint 실행에서 사용할 수 있도록 규칙을 포함합니다. 이 옵션을 선택하면 `Type Checking` Microsoft 의 규칙에서 요구되고 자동으로 사용되기 때문에 확인란이 숨겨집니다. 또한 `Microsoft Contribution Version` 필드를 숨기기 해제하여 `tslint-microsoft-contrib` [npm에서](https://www.npmjs.com/package/tslint-microsoft-contrib) 버전을 선택할 수 있습니다.<br/><br/>**사용자 지정 규칙 포함 -** TSLint `Rules Directory` 실행에서 사용할 수 있도록 TSLint 규칙의 디렉터리로 액세스할 수 있는 경로를 허용하는 필드를 숨깁니다.<br/><br/>**참고:** 많은 사용자가 Microsoft 규칙 집합을 구성하는 데 문제가 발생했기 때문에 기본값이 tslint로 변경되었습니다. 특정 버전 구성에 대 한 [GitHub에 tslint-마이크로소프트-contrib를](https://github.com/microsoft/tslint-microsoft-contrib)참조 하십시오.
+| 규칙 디렉터리 | 문자열 | 규칙 라이브러리 == 사용자 지정 | True |  |  | TSLint 실행에서 사용할 수 있는 추가 TSLint 규칙을 포함하는 액세스 가능한 디렉터리입니다.
+| Ruleset | 픽리스트 | 규칙 라이브러리 != 마이크로 소프트 | True | ts추천 | 사용자 정의, tslatest, ts추천 | TypeScript 파일에 대해 실행할 규칙을 정의합니다.<br/><br/>** [tslint:최신](https://github.com/palantir/tslint/blob/master/src/configs/latest.ts)  - ** 모든 `tslint:recommended` TSLint 릴리스의 최신 규칙에 대한 구성을 포함하도록 확장되고 지속적으로 업데이트됩니다. 이 구성을 사용하면 코드에 보풀 오류가 발생하는 새 규칙이 활성화되면 부 릴리스에서 주요 변경 내용이 발생할 수 있습니다. TSLint가 주 버전 범프에 도달하면 `tslint:recommended` `tslint:latest`와 동일하게 업데이트됩니다.<br/><br/>** [tslint:권장](https://github.com/palantir/tslint/blob/master/src/configs/recommended.ts)  - ** TSLint가 일반적인 TypeScript 프로그래밍을 권장하는 안정적이고 다소 의견이 있는 규칙 집합입니다. 이 구성은 다음과 `semver` *not* 같습니다.
+| 규칙 집합마이크로 소프트 | 픽리스트 | 규칙 라이브러리 == 마이크로 소프트 | True | mssdlrequired | 사용자 정의, ms추천, mssdl추천, mssdlrequired, tslatest, ts추천 | TypeScript 파일에 대해 실행할 규칙을 정의합니다.<br/><br/>** [마이크로 소프트 :sdl-필수](https://github.com/Microsoft/tslint-microsoft-contrib/wiki/TSLint-and-the-Microsoft-Security-Development-Lifecycle)  - ** tslint 및 *필요한* [SDL(보안 개발 수명 주기)](https://www.microsoft.com/sdl/) 정책을 충족하는 tslint-microsoft-contrib 규칙에서 제공하는 사용 가능한 모든 검사를 실행합니다.<br/><br/>** [마이크로 소프트 :sdl-추천](https://github.com/Microsoft/tslint-microsoft-contrib/wiki/TSLint-and-the-Microsoft-Security-Development-Lifecycle)  - ** tslint 및 *필수 및 권장* 보안 개발 [수명 주기(SDL)](https://www.microsoft.com/sdl/) 정책을 충족하는 tslint-microsoft-contrib 규칙에서 제공하는 사용 가능한 모든 검사를 실행합니다.<br/><br/>** [마이크로 소프트 : 권장](https://github.com/Microsoft/tslint-microsoft-contrib/blob/master/recommended_ruleset.js)  - ** tslint-microsoft-contrib 규칙의 제작자가 권장하는 모든 검사. 여기에는 보안 및 비보안 검사가 포함됩니다.<br/><br/>** [tslint:최신](https://github.com/palantir/tslint/blob/master/src/configs/latest.ts)  - ** 모든 `tslint:recommended` TSLint 릴리스의 최신 규칙에 대한 구성을 포함하도록 확장되고 지속적으로 업데이트됩니다. 이 구성을 사용하면 코드에 보풀 오류가 발생하는 새 규칙이 활성화되면 부 릴리스에서 주요 변경 내용이 발생할 수 있습니다. TSLint가 주 버전 범프에 도달하면 `tslint:recommended` `tslint:latest`와 동일하게 업데이트됩니다.<br/><br/>** [tslint:권장](https://github.com/palantir/tslint/blob/master/src/configs/recommended.ts)  - ** TSLint가 일반적인 TypeScript 프로그래밍을 권장하는 안정적이고 다소 의견이 있는 규칙 집합입니다. 이 구성은 다음과 `semver` *not* 같습니다.
+| 규칙 집합 파일 | 문자열 | 규칙 집합 == 사용자 지정 또는 규칙 집합Microsoft == 사용자 지정 | True |  |  | 실행할 규칙을 지정하는 [구성 파일입니다.](https://palantir.github.io/tslint/usage/cli/)<br/><br/>구성에 대한 경로는 [사용자 지정 규칙의](https://palantir.github.io/tslint/develop/custom-rules/)경로로 추가됩니다.
+| 파일 선택 유형 | 픽리스트 | always | True | 파일 글롭 | 파일글롭, 프로젝트파일 | 
+| 파일 | 문자열 | 파일 선택 유형 == 파일글롭 | True | **\*.ts |  | 처리할 파일을 결정하는 파일 [글로브입니다.](https://www.npmjs.com/package/glob) 경로는 `Build.SourcesDirectory` 값을 기준으로 합니다.<br/><br/>Microsoft의 기여 라이브러리에서는 프로젝트 파일을 사용해야 합니다. `File Glob Pattern` 이 옵션과 함께 Microsoft기여 서를 사용하는 경우 프로젝트 파일이 생성됩니다.
+| ECMA스크립트버전 | 픽리스트 | 파일 선택 유형 == fileGlob && 규칙 라이브러리 == 마이크로 소프트 | True | ES3 | ES2015, ES2016, ES2017, ES3, ES5, ES6, ESNext | TypeScript 컴파일러로 구성된 ECMAScript의 대상 버전입니다. 프로젝트 파일을 사용하는 경우 TypeScript tsconfig.json 파일의 컴파일러Options.target 필드입니다.
+| Project | 문자열 | 파일 선택 유형 == 프로젝트 파일 | True |  |  | TSLint를 실행하도록 TypeScript 파일을 지정하는 [tsconfig.json](http://www.typescriptlang.org/docs/handbook/tsconfig-json.html) 파일에 대한 경로입니다. 경로는 `Build.SourcesDirectory` 값을 기준으로 합니다.
+| 유형 검사 | boolean | 규칙 라이브러리 != 마이크로 소프트 && 파일 선택 유형 = 프로젝트파일 | False | true |  | 린팅 규칙을 실행할 때 형식 검사기를 활성화합니다.
+| 제외 파일 | 문자열 | always | False |  |  | 파일을 linting에서 제외할 파일을 나타내는 [글로브입니다.](https://www.npmjs.com/package/glob) 경로는 `Build.SourcesDirectory` 값을 기준으로 합니다. 여러 값을 세미콜론으로 구분하여 지정할 수 있습니다.
+| OutputFormat | 픽리스트 | always | True | json : | 체크 스타일, codeFrame, 파일목록, json, msbuild, pmd, 산문, 세련된, 자세한, vso | 출력을 생성하는 데 사용할 [포터터입니다.](https://palantir.github.io/tslint/formatters/) JSON 형식은 사후 분석과 호환됩니다.
+| 노드 메모리 | 문자열 | always | False |  |  | TSLint를 실행하기 위해 노드에 할당할 MB의 명시적 메모리 양입니다. 예: 8000<br/><br/>노드에 `--max_old_space=<value>` 대한 CLI 옵션에 매핑됩니다. `v8 option`
+| 공구 버전 | 픽리스트 | 규칙 라이브러리 != 마이크로 소프트 | True | 최신 | 4.0.0, 4.0.1, 4.0.2, 4.1.0, 4.1.1, 4.2.0, 4.3.0, 4.3.1, 4.4.0, 4.4.1, 4.4.2, 4.5.0, 4.5.1, 5.0.0, 5.0, 5.3.0, 5.3.2, 5.4.0, 5.4.1, 5.4.2, 5.4.2, 5.4.2, 5.4. 5.5.5. | 다운로드 및 실행 TSLint의 [버전.](https://github.com/palantir/tslint/releases)
+| 타이핑 스크립트버전 | 픽리스트 | always | True | 최신 | 0.8.0, 0.8.1, 0.8.2, 0.8.3, 0.9.0, 0.9.1, 0.9.5, 0.9.7, 1.0.0, 1.0.1, 1.3.0, 1.4.1, 1.5.3, 1.6.2, 1.7.3, 1.7.5, 1.8.0, 1.8.10, 1.8.2, 1.8.5, 1.8.6, 1.8.7, 1.8.9, 1.9.0, 2.0.0, 2.0.10, 2.0.2, 2.0.3, 2.0.6, 2.0.7, 2.0.8, 2.0.9, 2.1.1, 2.1.4, 2.1.5, 2.1.6, 2.2.0, 2.2.1, 사용자 정의, 최신 | 다운로드하여 사용할 [타이프스크립트](https://www.npmjs.com/package/typescript) 버전입니다.<br/>**참고:** 코드를 컴파일하는 데 사용되는 TypeScript 버전과 동일한 버전이어야 합니다.
+| 입력 스크립트버전 사용자 지정 | 문자열 | 타이핑스크립트버전 == 사용자 지정 | True | 최신 |  | 다운로드하여 사용할 [타이프스크립트](https://www.npmjs.com/package/typescript) 버전입니다.<br/>**참고:** 코드를 컴파일하는 데 사용되는 TypeScript 버전과 동일한 버전이어야 합니다.
+| 마이크로소프트콘트버전 | 픽리스트 | 규칙 라이브러리 == 마이크로 소프트 |  | 최신 | 4.0.0, 4.0.1, 5.0.0, 5.0.1, 최신 | 다운로드 및 사용 [tslint - 마이크로 소프트 - contrib](https://www.npmjs.com/package/tslint-microsoft-contrib) (SDL 규칙)의 버전.</br>**참고:** [tslint의](https://www.npmjs.com/package/tslint) 버전은 tslint-마이크로 소프트-contrib에 대해 선택한 버전과 호환되는 선택됩니다. tslint-microsoft-contrib에 대 한 업데이트는 테스트 기간이 발생할 수 있을 때까지이 빌드 작업에 의해 게이트 됩니다.
 
-## <a name="publish-security-analysis-logs-task"></a>보안 분석 로그 게시 태스크
+## <a name="publish-security-analysis-logs-task"></a>보안 분석 로그 작업 게시
 
-| **InputType**      | **형식**     | **해당**            | **필수** | **기본값**             | **옵션 (선택 목록)**                                   | **설명**                                                                                                                                                                                                                                                                                                                            |
+| **입력 유형**      | **유형**     | **적용**            | **필수** | **기본값**             | **옵션(선택 목록용)**                                   | **설명**                                                                                                                                                                                                                                                                                                                            |
 |------------|---------------|-----------------------|----------|---------------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ArtifactName | 문자열 | 항상 | 참 | CodeAnalysisLogs |  | 만들 아티팩트의 이름입니다.
-| ArtifactType | 선택 목록 | 항상 | 참 | 컨테이너 | 컨테이너, FilePath | 만들 아티팩트의 형식입니다.
-| TargetPath | 문자열 | ArtifactType = FilePath | 거짓 | \\my\share\$(빌드 DefinitionName)<br>\$(빌드 BuildNumber) |  | 파일을 복사할 파일 공유
-| AllTools | boolean | 항상 | 참 | true |  | 모든 보안 개발 도구 빌드 작업에서 생성 된 결과를 게시 합니다.
-| AntiMalware | boolean | AllTools = false | 참 | true |  | 맬웨어 방지 빌드 작업에 의해 생성 된 결과를 게시 합니다.
-| BinSkim | boolean | AllTools = false | 참 | true |  | BinSkim build 작업에 의해 생성 된 결과를 게시 합니다.
-| CredScan | boolean | AllTools = false | 참 | true |  | 자격 증명 스캐너 빌드 작업으로 생성 된 결과를 게시 합니다.
-| MSRD | boolean | AllTools = false | 참 | true |  | MSRD 빌드 작업에 의해 시작 된 MSRD 작업의 작업 정보 및 작업 url을 게시 합니다. MSRD 작업은 장기 실행 되며 별도의 보고서를 제공 합니다.
-| Rosl이상 분석기 | boolean | AllTools = false | 참 | false |  | Roslyn 분석기 빌드 작업에 의해 생성 된 결과를 게시 합니다.
-| TSLint | boolean | AllTools = false | 참 | true |  | TSLint build 작업에 의해 생성 된 결과를 게시 합니다. JSON 형식의 TSLint 로그만 보고서에 대해 지원 됩니다. 다른 형식을 선택한 경우에는 TSLint 빌드 작업을 적절 하 게 업데이트 하세요.
-| ToolLogsNotFoundAction | 선택 목록 | 항상 | 참 | Standard | 오류, 없음, 표준, 경고 | 도구를 실행 하지 않은 경우 선택 된 도구 (또는 모든 도구를 선택 하는 경우 도구)에 대 한 로그를 찾을 수 없는 경우 수행할 동작입니다.<br/><br/>**옵션:**<br/>**없음:** VSTS 변수 **system.object** 를 **true**로 설정 하 여 액세스할 수 있는 자세한 정보 출력 스트림에 메시지가 기록 됩니다.<br/>**Standard:** (기본값) 도구에 대 한 로그를 찾을 수 없는 표준 출력 메시지를 기록 합니다.<br/>**경고:** 빌드 요약 페이지에 경고로 표시 되는, 도구에 대 한 로그를 찾지 못한 노란색 경고 메시지를 씁니다.<br/>**오류:** 빨간색 오류 메시지를 기록 하 고 빌드를 중단 하는 예외를 throw 합니다. 이 옵션을 사용 하 여 개별 도구를 선택 하 여 실행 되는 도구를 확인 합니다.
+| 아티팩트 이름 | 문자열 | always | True | 코드 분석 로그 |  | 만들 아티팩트의 이름입니다.
+| 아티팩트 타입 | 픽리스트 | always | True | 컨테이너 | 컨테이너, 파일 경로 | 만들 아티팩트의 형식입니다.
+| TargetPath | 문자열 | 아티팩트 유형 = 파일 경로 | False | \\내\공유(빌드.정의\$이름)<br>\$(빌드.빌드 번호) |  | 파일을 복사할 파일 공유
+| 올툴 (것)과 함께 | boolean | always | True | true |  | 모든 보안 개발 도구 빌드 작업에서 생성된 결과를 게시합니다.
+| 맬웨어 방지 | boolean | AllTools = 거짓 | True | true |  | 맬웨어 방지 빌드 작업에 의해 생성된 결과를 게시합니다.
+| 빈스킴 | boolean | AllTools = 거짓 | True | true |  | BinSkim 빌드 작업에 의해 생성된 결과를 게시합니다.
+| 크레데스캔 (주) | boolean | AllTools = 거짓 | True | true |  | 자격 증명 스캐너 빌드 작업에 의해 생성된 결과를 게시합니다.
+| MSRD | boolean | AllTools = 거짓 | True | true |  | MSRD 빌드 작업에서 시작된 MSRD 작업에 대한 작업 정보 및 작업 URL을 게시합니다. MSRD 작업은 오래 실행중이며 별도의 보고서를 제공합니다.
+| 로슬린 분석기 | boolean | AllTools = 거짓 | True | false |  | Roslyn 분석기 빌드 작업에 의해 생성 된 결과를 게시합니다.
+| 트슬린트 (주) | boolean | AllTools = 거짓 | True | true |  | TSLint 빌드 태스크에서 생성된 결과를 게시합니다. JSON 형식의 TSLint 로그만 보고서에 대해 지원됩니다. 다른 형식을 선택한 경우 TSLint 빌드 작업을 적절하게 업데이트하십시오.
+| 툴로그NotFound액션 | 선택 목록 | always | True | Standard | 오류, 없음, 표준, 경고 | 선택한 도구에 대한 로그(또는 모든 도구가 선택된 도구)가 찾을 수 없을 때 취해야 할 작업이 도구가 실행되지 않음을 의미합니다.<br/><br/>**옵션:**<br/>**없음:** 메시지는 VSTS 변수 **system.debug를** **true로**설정해야만 액세스할 수 있는 자세한 출력 스트림에 기록됩니다.<br/>**표준:** (기본값) 도구에 대한 로그를 찾을 수 없음을 표준 출력 메시지를 씁니다.<br/>**경고:** 도구에 대한 로그를 찾을 수 없음을 나타내는 노란색 경고 메시지를 작성합니다.<br/>**오류:** 빨간색 오류 메시지를 작성하고 예외를 throw하여 빌드를 중단합니다. 이 옵션을 사용하여 개별 도구를 선택하여 실행된 도구를 확인할 수 있습니다.
 
 ## <a name="security-report-task"></a>보안 보고서 작업
 
-| **InputType**      | **형식**     | **해당**            | **필수** | **기본값**             | **옵션 (선택 목록)**                                   | **설명**                                                                                                                                                                                                                                                                                                                            |
+| **입력 유형**      | **유형**     | **적용**            | **필수** | **기본값**             | **옵션(선택 목록용)**                                   | **설명**                                                                                                                                                                                                                                                                                                                            |
 |------------|---------------|-----------------------|----------|---------------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| VstsConsole | boolean | 항상 | 거짓 | true |  | 파이프라인 콘솔에 결과를 씁니다.
-| TsvFile | boolean | 항상 | 거짓 | true |  | 검색 된 결과와 결과에 대 한 정보를 구분 하는 탭이 하나씩 있는 tsv 파일 (탭으로 구분 된 값)을 생성 합니다.
-| HtmlFile | boolean | 항상 | 거짓 | true |  | Html 보고서 파일을 생성 합니다.
-| AllTools | boolean | 항상 | 참 | false |  | 모든 보안 개발 도구에서 생성 된 작업을 작성 하는 보고서 결과입니다.
-| BinSkim | boolean | AllTools = false | 참 | false |  | BinSkim build 작업에 의해 생성 된 결과를 보고 합니다.
-| 불균형 | 선택 목록 | AllTools = true 또는 BinSkim = true | 참 | 오류 | 오류, WarningAbove | 보고할 결과의 수준입니다.
-| CredScan | boolean | AllTools = false | 참 | false |  | 자격 증명 스캐너 빌드 작업을 통해 생성 되는 보고서 결과입니다.
-| MSRD | boolean | AllTools = false | 참 | false |  | MSRD 빌드 작업에 의해 시작 된 MSRD 작업의 작업 정보 및 작업 url을 보고 합니다. MSRD 작업은 장기 실행 되며 별도의 보고서를 제공 합니다.
-| Rosl이상 분석기 | boolean | AllTools = false | 참 | false |  | Roslyn Analyzer 빌드 작업에 의해 생성 된 결과를 보고 합니다.
-| RoslynAnalyzersBreakOn | 선택 목록 | AllTools = true 또는 Rosl를 분석기 = true | 참 | 오류 | 오류, WarningAbove | 보고할 결과의 수준입니다.
-| TSLint | boolean | AllTools = false | 참 | false |  | TSLint build 작업에 의해 생성 된 결과를 보고 합니다. JSON 형식의 TSLint 로그만 보고서에 대해 지원 됩니다. 다른 형식을 선택한 경우에는 TSLint 빌드 작업을 적절 하 게 업데이트 하세요.
-| Tslintor | 선택 목록 | AllTools = true 또는 TSLint = true | 참 | 오류 | 오류, WarningAbove | 보고할 결과의 수준입니다.
-| ToolLogsNotFoundAction | 선택 목록 | 항상 | 참 | Standard | 오류, 없음, 표준, 경고 | 도구를 실행 하지 않은 경우 선택 된 도구 (또는 모든 도구를 선택 하는 경우 도구)에 대 한 로그를 찾을 수 없는 경우 수행할 동작입니다.<br/><br/>**옵션:**<br/>**없음:** VSTS 변수 **system.object** 를 **true**로 설정 하 여 액세스할 수 있는 자세한 정보 출력 스트림에 메시지가 기록 됩니다.<br/>**Standard:** (기본값) 도구에 대 한 로그를 찾을 수 없는 표준 출력 메시지를 기록 합니다.<br/>**경고:** 빌드 요약 페이지에 경고로 표시 되는, 도구에 대 한 로그를 찾지 못한 노란색 경고 메시지를 씁니다.<br/>**오류:** 빨간색 오류 메시지를 기록 하 고 빌드를 중단 하는 예외를 throw 합니다. 이 옵션을 사용 하 여 개별 도구를 선택 하 여 실행 되는 도구를 확인 합니다.
-| CustomLogsFolder | 문자열 | 항상 | 거짓 |  |  | 분석 도구 로그가 있는 기본 폴더 개별 로그 파일은이 경로 아래에 있는 각 도구 다음에 이름이 지정 된 하위 폴더에 있습니다.
+| Vsts콘솔 | boolean | always | False | true |  | 파이프라인 콘솔에 결과를 작성합니다.
+| TsvFile | boolean | always | False | true |  | 찾은 결과당 한 줄로 tsv 파일(탭 분리값)을 생성하고 결과에 대한 정보를 분리하는 탭을 생성합니다.
+| Html파일 | boolean | always | False | true |  | html 보고서 파일을 생성합니다.
+| 올툴 (것)과 함께 | boolean | always | True | false |  | 모든 보안 개발 도구 빌드 작업에서 생성된 결과를 보고합니다.
+| 빈스킴 | boolean | AllTools = 거짓 | True | false |  | BinSkim 빌드 작업에 의해 생성된 결과를 보고합니다.
+| 빈스킴브레이크온 | 픽리스트 | AllTools = true 또는 BinSkim = true | True | Error | 오류, 경고위 | 보고할 결과의 수준입니다.
+| 크레데스캔 (주) | boolean | AllTools = 거짓 | True | false |  | 자격 증명 스캐너 빌드 작업에 의해 생성된 결과를 보고합니다.
+| MSRD | boolean | AllTools = 거짓 | True | false |  | MSRD 빌드 작업에서 시작된 MSRD 작업에 대한 작업 정보 및 작업 URL을 보고합니다. MSRD 작업은 오래 실행중이며 별도의 보고서를 제공합니다.
+| 로슬린 분석기 | boolean | AllTools = 거짓 | True | false |  | Roslyn 분석기 빌드 작업에 의해 생성된 결과를 보고합니다.
+| 로슬린 분석기브레이크온 | 픽리스트 | AllTools = true 또는 Roslyn분석기 = true | True | Error | 오류, 경고위 | 보고할 결과의 수준입니다.
+| 트슬린트 (주) | boolean | AllTools = 거짓 | True | false |  | TSLint 빌드 작업에 의해 생성된 결과를 보고합니다. JSON 형식의 TSLint 로그만 보고서에 대해 지원됩니다. 다른 형식을 선택한 경우 TSLint 빌드 작업을 적절하게 업데이트하십시오.
+| TSLintBreakOn | 픽리스트 | AllTools = true OR TSLint = true | True | Error | 오류, 경고위 | 보고할 결과의 수준입니다.
+| 툴로그NotFound액션 | 선택 목록 | always | True | Standard | 오류, 없음, 표준, 경고 | 선택한 도구에 대한 로그(또는 모든 도구가 선택된 도구)가 찾을 수 없을 때 취해야 할 작업이 도구가 실행되지 않음을 의미합니다.<br/><br/>**옵션:**<br/>**없음:** 메시지는 VSTS 변수 **system.debug를** **true로**설정해야만 액세스할 수 있는 자세한 출력 스트림에 기록됩니다.<br/>**표준:** (기본값) 도구에 대한 로그를 찾을 수 없음을 표준 출력 메시지를 씁니다.<br/>**경고:** 도구에 대한 로그를 찾을 수 없음을 나타내는 노란색 경고 메시지를 작성합니다.<br/>**오류:** 빨간색 오류 메시지를 작성하고 예외를 throw하여 빌드를 중단합니다. 이 옵션을 사용하여 개별 도구를 선택하여 실행된 도구를 확인할 수 있습니다.
+| 사용자 정의 로그폴더 | 문자열 | always | False |  |  | 분석 도구 로그가 있는 기본 폴더입니다. 개별 로그 파일은 이 경로 아래의 각 도구의 이름을 따서 명명된 하위 폴더에 있습니다.
 
-## <a name="post-analysis-task"></a>사후 분석 작업
+## <a name="post-analysis-task"></a>분석 후 작업
 
-| **InputType**      | **형식**     | **해당**            | **필수** | **기본값**             | **옵션 (선택 목록)**                                   | **설명**                                                                                                                                                                                                                                                                                                                            |
+| **입력 유형**      | **유형**     | **적용**            | **필수** | **기본값**             | **옵션(선택 목록용)**                                   | **설명**                                                                                                                                                                                                                                                                                                                            |
 |------------|---------------|-----------------------|----------|---------------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AllTools | boolean | 항상 | 참 | false |  | Microsoft 보안 코드 분석 빌드 작업에서 문제가 발견 되 면 빌드를 중단 합니다.
-| BinSkim | boolean | AllTools = false | 참 | false |  | 선택한 중단 옵션에 따라 BinSkim 문제가 발견 되 면 빌드를 중단 합니다.
-| 불균형 | 선택 목록 | AllTools = true 또는 BinSkim = true | 참 | 오류 | 오류, WarningAbove | 빌드를 중단할 문제 수준입니다.
-| CredScan | boolean | AllTools = false | 참 | false |  | 자격 증명 스캐너 문제가 발견 되 면 빌드를 중단 합니다.
-| Rosl이상 분석기 | boolean | AllTools = false | 참 | false |  | Roslyn 분석기 문제가 발견 되 면 빌드를 중단 합니다.
-| RoslynAnalyzersBreakOn | 선택 목록 | AllTools = true 또는 Rosl를 분석기 = true | 참 | 오류 | 오류, WarningAbove | 빌드를 중단할 문제 수준입니다.
-| TSLint | boolean | AllTools = false | 참 | false |  | TSLint 문제가 발견 되 면 빌드를 중단 합니다. JSON 형식의 TSLint 로그만 사후 분석에 대해 지원 됩니다. 다른 형식을 선택한 경우에는 TSLint 빌드 작업을 적절 하 게 업데이트 하세요.
-| Tslintor | 선택 목록 | AllTools = true 또는 TSLint = true | 참 | 오류 | 오류, WarningAbove | 빌드를 중단할 문제 수준입니다.
-| VstsConsole | boolean | 항상 | 거짓 | true |  | 파이프라인 콘솔에 결과를 씁니다.
-| ToolLogsNotFoundAction | 선택 목록 | 항상 | 참 | Standard | 오류, 없음, 표준, 경고 | 도구를 실행 하지 않은 경우 선택 된 도구 (또는 모든 도구를 선택 하는 경우 도구)에 대 한 로그를 찾을 수 없는 경우 수행할 동작입니다.<br/><br/>**옵션:**<br/>**없음:** VSTS 변수 **system.object** 를 **true**로 설정 하 여 액세스할 수 있는 자세한 정보 출력 스트림에 메시지가 기록 됩니다.<br/>**Standard:** (기본값) 도구에 대 한 로그를 찾을 수 없는 표준 출력 메시지를 기록 합니다.<br/>**경고:** 빌드 요약 페이지에 경고로 표시 되는, 도구에 대 한 로그를 찾지 못한 노란색 경고 메시지를 씁니다.<br/>**오류:** 빨간색 오류 메시지를 기록 하 고 빌드를 중단 하는 예외를 throw 합니다. 이 옵션을 사용 하 여 개별 도구를 선택 하 여 실행 되는 도구를 확인 합니다.
+| 올툴 (것)과 함께 | boolean | always | True | false |  | Microsoft 보안 코드 분석 빌드 작업에서 문제가 발견되면 빌드를 중단합니다.
+| 빈스킴 | boolean | AllTools = 거짓 | True | false |  | 선택한 중단 옵션에 따라 BinSkim 문제가 발견되면 빌드를 중단합니다.
+| 빈스킴브레이크온 | 픽리스트 | AllTools = true 또는 BinSkim = true | True | Error | 오류, 경고위 | 빌드를 중단하는 문제의 수준입니다.
+| 크레데스캔 (주) | boolean | AllTools = 거짓 | True | false |  | 자격 증명 스캐너 문제가 발견되면 빌드를 중단합니다.
+| 로슬린 분석기 | boolean | AllTools = 거짓 | True | false |  | Roslyn 분석기 문제가 발견되면 빌드를 중단합니다.
+| 로슬린 분석기브레이크온 | 픽리스트 | AllTools = true 또는 Roslyn분석기 = true | True | Error | 오류, 경고위 | 빌드를 중단하는 문제의 수준입니다.
+| 트슬린트 (주) | boolean | AllTools = 거짓 | True | false |  | TSLint 문제가 발견되면 빌드를 중단합니다. JSON 형식의 TSLint 로그만 사후 분석을 위해 지원됩니다. 다른 형식을 선택한 경우 TSLint 빌드 작업을 적절하게 업데이트하십시오.
+| TSLintBreakOn | 픽리스트 | AllTools = true OR TSLint = true | True | Error | 오류, 경고위 | 빌드를 중단하는 문제의 수준입니다.
+| Vsts콘솔 | boolean | always | False | true |  | 파이프라인 콘솔에 결과를 작성합니다.
+| 툴로그NotFound액션 | 선택 목록 | always | True | Standard | 오류, 없음, 표준, 경고 | 선택한 도구에 대한 로그(또는 모든 도구가 선택된 도구)가 찾을 수 없을 때 취해야 할 작업이 도구가 실행되지 않음을 의미합니다.<br/><br/>**옵션:**<br/>**없음:** 메시지는 VSTS 변수 **system.debug를** **true로**설정해야만 액세스할 수 있는 자세한 출력 스트림에 기록됩니다.<br/>**표준:** (기본값) 도구에 대한 로그를 찾을 수 없음을 표준 출력 메시지를 씁니다.<br/>**경고:** 도구에 대한 로그를 찾을 수 없음을 나타내는 노란색 경고 메시지를 작성합니다.<br/>**오류:** 빨간색 오류 메시지를 작성하고 예외를 throw하여 빌드를 중단합니다. 이 옵션을 사용하여 개별 도구를 선택하여 실행된 도구를 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-보안 코드 분석 확장 및 제공 된 도구에 대 한 추가 질문이 있는 경우 [FAQ 페이지](security-code-analysis-faq.md)를 확인 하세요.
+보안 코드 분석 확장 및 제공되는 도구에 대한 추가 질문이 있는 경우 [FAQ 페이지를](security-code-analysis-faq.md)확인하십시오.

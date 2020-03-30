@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.custom: seodec18
 ms.openlocfilehash: 1cf8898e5fd63e35447f6580e13347ba6d7fc413
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75485443"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Azure 비동기 작업 추적
@@ -185,4 +185,4 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 ## <a name="next-steps"></a>다음 단계
 
 * 각 REST 작업에 대한 설명서는 [REST API 설명서](/rest/api/)를 참조하세요.
-* 리소스 관리자 REST API를 통해 템플릿을 배포 하는 방법에 대 한 자세한 내용은 [리소스 관리자 템플릿과 함께 리소스 배포 및 리소스 관리자 REST API](../templates/deploy-rest.md)을 참조 하세요.
+* 리소스 관리자 REST API를 통해 템플릿을 배포하는 방법은 [리소스 관리자 템플릿 및 리소스 관리자 REST API를 사용 하 여 리소스 배포 를](../templates/deploy-rest.md)참조 합니다.

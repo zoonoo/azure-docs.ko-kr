@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 56514f5dcf4bfe205ef46ee64dcf4dcf638d4f62
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67182408"
 ---
 #### <a name="to-configure-and-register-the-device"></a>디바이스를 구성 및 등록하려면
@@ -109,7 +109,7 @@ ms.locfileid: "67182408"
 14. Azure Portal로 돌아가 다음 단계를 완료합니다.
     
     1. StorSimple 디바이스 관리자 서비스로 이동합니다.
-    2. **디바이스**를 클릭합니다.
+    2. **장치**를 클릭합니다.
     3. 테이블 형식 디바이스 목록에서 상태를 조회하여 디바이스가 서비스에 성공적으로 연결되었는지 확인합니다. 디바이스 상태는 **설정할 준비 완료**여야 합니다.
        
         ![StorSimple 디바이스 페이지](./media/storsimple-8000-configure-and-register-device-u2/step3pssetup2.png)

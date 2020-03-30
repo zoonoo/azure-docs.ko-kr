@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric 독립 실행형 클러스터 크기 조정
+title: Azure 서비스 패브릭 독립 실행형 클러스터 크기 조정
 description: Service Fabric 독립 실행형 클러스터의 스케일 인 또는 스케일 아웃, 규모 확장 또는 규모 축소에 대해 알아봅니다.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dekapur
 ms.openlocfilehash: 16ec0eb429ec6e8f6613490226b7cff01dff1b32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75451920"
 ---
 # <a name="scaling-service-fabric-standalone-clusters"></a>Service Fabric 독립 실행형 클러스터 크기 조정

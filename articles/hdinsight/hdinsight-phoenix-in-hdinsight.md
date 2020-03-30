@@ -1,6 +1,6 @@
 ---
 title: HDinsight의 Apache Phoenix - Azure HDInsight
-description: Apache Phoenix 개요
+description: 아파치 피닉스 개요
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: b1d81296c996ab09cb6482cb970496779ccf8bd6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75435488"
 ---
-# <a name="apache-phoenix-in-azure-hdinsight"></a>Azure HDInsight의 Apache Phoenix
+# <a name="apache-phoenix-in-azure-hdinsight"></a>애저 HDInsight의 아파치 피닉스
 
 [Apache Phoenix](https://phoenix.apache.org/)는 [Apache HBase](hbase/apache-hbase-overview.md)에서 구축되는 오픈 소스 대규모 병렬 관계형 데이터베이스 계층입니다. Phoenix를 사용하면 HBase를 통해 SQL 유사 쿼리를 사용할 수 있습니다. Phoenix는 아래의 JDBC 드라이버를 사용하여 사용자가 개별적으로 및 대량으로 SQL 테이블, 인덱스, 뷰 및 시퀀스를 생성, 삭제, 변경하고, 행을 Upsert할 수 있도록 합니다. Phoenix는 MapReduce를 사용하여 쿼리를 컴파일하는 대신, noSQL 네이티브 컴파일을 사용하여 HBase 위에 대기 시간이 짧은 애플리케이션을 만들 수 있도록 합니다. Phoenix는 서버의 주소 공간에서 클라이언트 제공 코드를 실행하도록 지원하는 보조 프로세서를 추가하고, 데이터와 함께 있는 코드를 실행합니다. 이 접근 방법은 클라이언트/서버 데이터 전송을 최소화합니다.
 
@@ -37,7 +37,7 @@ HBase의 기본 행 키에는 사전순으로 정렬되는 단일 인덱스가 �
 CREATE INDEX ix_purchasetype on SALTEDWEBLOGS (purchasetype, transactiondate) INCLUDE (bookname, quantity);
 ```
 
-이 방법은 단일 인덱싱 쿼리를 실행하는 것보다 성능을 크게 향상시킬 수 있습니다. 이 유형의 보조 인덱스는 쿼리에 포함된 모든 열을 포함하는 **포함 인덱스**입니다. 따라서 테이블 조회가 필요 하지 않으며 인덱스는 전체 쿼리를 만족 합니다.
+이 방법은 단일 인덱싱 쿼리를 실행하는 것보다 성능을 크게 향상시킬 수 있습니다. 이 유형의 보조 인덱스는 쿼리에 포함된 모든 열을 포함하는 **포함 인덱스**입니다. 따라서 테이블 조회가 필요하지 않으며 인덱스가 전체 쿼리를 만족도가 높습니다.
 
 ### <a name="views"></a>뷰
 
@@ -70,9 +70,9 @@ WHERE metric_type = 'm';
 
 검색 건너뛰기는 복합 인덱스의 열 하나 이상을 사용하여 고유 값을 찾습니다. 범위 검색과 달리, 검색 건너뛰기는 행 내 검색을 구현하여 [향상된 성능](https://phoenix.apache.org/performance.html#Skip-Scan)을 제공합니다. 검색하는 동안, 일치하는 첫 번째 값은 다음 값을 찾을 때까지 인덱스와 함께 건너뛰어집니다.
 
-검색 건너뛰기는 HBase 필터의 `SEEK_NEXT_USING_HINT` 열거형을 사용합니다. `SEEK_NEXT_USING_HINT`를 사용할 경우 검색 건너뛰기는 각 열에 대해 검색되는 키 집합 또는 키 범위를 추적합니다. Skip 검색은 필터 평가 중에 전달 된 키를 사용 하 여 조합 중 하나 인지 여부를 확인 합니다. 그렇지 않으면, 검색 건너뛰기는 건너뛸 다음으로 가장 높은 키를 평가합니다.
+검색 건너뛰기는 HBase 필터의 `SEEK_NEXT_USING_HINT` 열거형을 사용합니다. `SEEK_NEXT_USING_HINT`를 사용할 경우 검색 건너뛰기는 각 열에 대해 검색되는 키 집합 또는 키 범위를 추적합니다. 그런 다음 건너뛰기 검사는 필터 평가 중에 전달된 키를 가져와 조합 중 하나인지 여부를 결정합니다. 그렇지 않으면, 검색 건너뛰기는 건너뛸 다음으로 가장 높은 키를 평가합니다.
 
-### <a name="transactions"></a>트랜잭션
+### <a name="transactions"></a>의
 
 HBase는 행 수준 트랜잭션을 제공하지만, Phoenix는 [Tephra](https://tephra.io/)와 통합되어 전체 [ACID](https://en.wikipedia.org/wiki/ACID) 의미 체계에 대한 행 간 및 테이블 간 트랜잭션 지원을 추가합니다.
 
@@ -97,7 +97,7 @@ ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 
 ### <a name="salted-tables"></a>솔트된 테이블
 
-*지역 서버 핫스폿*은 HBase에 대한 순차 키를 사용해서 레코드를 작성할 때 발생할 수 있습니다. 클러스터에 여러 지역 서버가 있을 수 있지만 쓰기는 모두 한 서버에서만 발생합니다. 이러한 집중을 통해 쓰기 워크로드가 사용 가능한 모든 지역 서버에서 분산되지 않고, 한 서버만 부하를 처리하는 핫스폿 문제가 발생합니다. 각 영역에는 미리 정의 된 최대 크기가 있으므로 지역이 해당 크기 제한에 도달 하면 두 개의 작은 영역으로 분할 됩니다. 이 경우, 이러한 새 지역 중 하나가 모든 새 레코드를 받게 되어 새로운 핫스폿이 됩니다.
+HBase에 순차키로 레코드를 작성할 때 *지역 서버 핫스팟이* 발생할 수 있습니다. 클러스터에 여러 지역 서버가 있을 수 있지만 쓰기는 모두 한 서버에서만 발생합니다. 이러한 집중을 통해 쓰기 워크로드가 사용 가능한 모든 지역 서버에서 분산되지 않고, 한 서버만 부하를 처리하는 핫스폿 문제가 발생합니다. 각 리전의 최대 크기는 미리 정의되어 있으므로 해당 영역의 크기 제한에 도달하면 두 개의 작은 영역으로 분할됩니다. 이 경우, 이러한 새 지역 중 하나가 모든 새 레코드를 받게 되어 새로운 핫스폿이 됩니다.
 
 이 문제를 완화하고 성능을 향상시키기 위해, 모든 지역 서버가 균일하게 사용되도록 테이블을 미리 분할합니다. Phoenix는 특정 테이블에 대한 행 키에 솔트 바이트를 투명하게 추가하여 *솔트된 테이블*을 제공합니다. 이 테이블은 테이블의 초기 단계 동안, 지역 서버 간에 부하를 균일하게 분산하기 위해 솔트 바이트 경계에서 미리 분할됩니다. 이 방법은 사용 가능한 모든 지역 서버에서 쓰기 워크로드를 분산하여 쓰기 및 읽기 성능을 향상시킵니다. 테이블을 솔트하려면 테이블이 생성될 때 `SALT_BUCKETS` 테이블 속성을 지정합니다.
 
@@ -128,14 +128,14 @@ HDInsight HBase 클러스터에는 구성을 변경하기 위한 [Ambari UI](hdi
 
 2. 왼쪽 메뉴의 서비스 목록에서 **HBase**를 선택하고 **구성** 탭을 선택합니다.
 
-    ![Apache Ambari HBase 구성](./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config1.png)
+    ![아파치 암바리 HBase 구성](./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config1.png)
 
 3. **Phoenix SQL** 구성 섹션을 찾아 Phoenix를 사용하거나 사용하지 않도록 설정하고, 쿼리 제한 시간을 설정합니다.
 
     ![Ambari Phoenix SQL 구성 섹션](./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [HDInsight에서 Linux 기반 HBase 클러스터와 함께 Apache Phoenix 사용](hbase/apache-hbase-query-with-phoenix.md)
 
-* [Apache Zeppelin를 사용 하 여 Azure HDInsight에서 Apache HBase를 통해 Apache Phoenix 쿼리 실행](./hbase/apache-hbase-phoenix-zeppelin.md)
+* [아파치 제플린을 사용 하 여 아파치 피닉스 쿼리를 실행 하는 아파치 HBase Azure HDInsight에서](./hbase/apache-hbase-phoenix-zeppelin.md)

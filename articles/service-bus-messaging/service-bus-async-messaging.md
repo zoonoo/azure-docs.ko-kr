@@ -1,6 +1,6 @@
 ---
 title: Service Bus 비동기 메시징 | Microsoft Docs
-description: 큐, 토픽 및 구독과 함께 저장소 및 전달 메커니즘을 통해 비동기를 지 원하는 Azure Service Bus 방법에 대해 알아봅니다.
+description: Azure Service Bus가 큐, 토픽 및 구독을 통해 저장소 및 전달 메커니즘을 통해 비동기를 지원하는 방법을 알아봅니다.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 554260f403104d815b9b63c576c7ba0a2f3cf1e1
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76761035"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>비동기 메시징 패턴 및 고가용성
@@ -45,13 +45,13 @@ ms.locfileid: "76761035"
 * Azure 데이터 센터 내에서 Service Bus의 오류입니다. 몇 분 또는 몇 시간 동안 시스템에 연결할 수 없는 "치명적 오류"입니다.
 
 > [!NOTE]
-> 용어 **스토리지**는 Azure Storage 및 SQL Azure를 의미할 수 있습니다.
+> **저장소**라는 용어는 Azure 저장소와 SQL Azure를 모두 의미할 수 있습니다.
 > 
 > 
 
 Service Bus는 이런 문제에 대한 다양한 완화 방법을 포함합니다. 다음 섹션에서는 각 문제 및 해당 완화 방법을 설명합니다.
 
-### <a name="throttling"></a>제한
+### <a name="throttling"></a>스로틀
 Service Bus로 제한을 사용하면 공동으로 메시지 속도를 관리할 수 있습니다. 각 개별 Service Bus 노드가 여러 엔터티가 있습니다. 이러한 각 엔터티는 CPU, 메모리, 스토리지 및 기타 측면에서 시스템에 요청을 만듭니다. 패싯이 정의된 임계값을 초과하는 사용을 감지하면 Service Bus는 지정된 요청을 거부할 수 있습니다. 호출자는 [ServerBusyException][ServerBusyException]를 수신하고 10 초 후에 다시 시도합니다.
 
 완화 방법으로 코드는 오류를 읽고 적어도 10초 동안 메시지의 다시 시도를 중단해야 합니다. 오류는 고객 애플리케이션의 조각에 발생할 수 있으므로 각 조각이 재시도 논리를 독립적으로 실행한다고 예상됩니다. 코드는 큐 또는 토픽에서 분할을 사용하여 제한될 가능성을 줄일 수 있습니다.
@@ -62,10 +62,10 @@ Azure 내의 다른 구성 요소에는 서비스 문제가 있는 경우도 있
 ### <a name="service-bus-failure-on-a-single-subsystem"></a>단일 하위 시스템에서 Service Bus 오류
 애플리케이션의 경우 Service Bus의 내부 구성 요소가 일치하지 않는 상황이 발생할 수 있습니다. Service Bus가 이를 감지하는 경우 애플리케이션에서 데이터를 수집하여 상황을 진단하기 위해 지원합니다. 데이터가 수집되면 애플리케이션은 일관 된 상태로 반환하기 위해 다시 시작됩니다. 이 프로세스는 매우 신속하게 발생하고 엔터티가 최대 몇 분 동안 사용 불가 상태로 나타날 수 있지만 일반적인 가동 중지 시간은 훨씬 짧습니다.
 
-이러한 경우 클라이언트 애플리케이션은 [System.TimeoutException][System.TimeoutException] 또는 [MessagingException][MessagingException] 예외를 생성합니다. Service Bus는 자동화된 클라이언트 다시 시도 논리의 형태로 이 문제에 대한 완화 방법을 포함합니다. 다시 시도 기간이 끝나고 메시지가 전달 되지 않으면 [중단 및 재해 처리][handling outages and disasters]문서에 설명 된 다른을 사용 하 여 탐색할 수 있습니다.
+이러한 경우 클라이언트 애플리케이션은 [System.TimeoutException][System.TimeoutException] 또는 [MessagingException][MessagingException] 예외를 생성합니다. Service Bus는 자동화된 클라이언트 다시 시도 논리의 형태로 이 문제에 대한 완화 방법을 포함합니다. 다시 시도 기간이 끝나고 메시지가 전달되지 않으면 [중단 및 재해 처리][handling outages and disasters]에 대한 문서에 언급된 다른 기능을 사용하여 검색할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-Service Bus에서 비동기 메시징의 기본 사항을 배웠으므로 [중단 및 재해 처리][handling outages and disasters]에 대 한 자세한 내용을 참조 하세요.
+이제 Service Bus에서 비동기 메시징의 기본 사항을 알아보았으므로 [중단 및 재해 처리][handling outages and disasters]에 대한 자세한 내용을 읽습니다.
 
 [ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception
 [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx

@@ -1,17 +1,17 @@
 ---
-title: 빠른 시작-Event Grid로 이벤트 보내기
+title: 빠른 시작 - 이벤트 그리드에 이벤트 보내기
 description: 이 빠른 시작에서는 컨테이너 레지스트리에 Event Grid 이벤트를 활성화한 다음, 애플리케이션 예제에 컨테이너 이미지 push 및 delete 이벤트를 전송합니다.
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18
 ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78403242"
 ---
-# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>빠른 시작: 개인 컨테이너 레지스트리의 이벤트를 Event Grid으로 보내기
+# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>빠른 시작: 개인 컨테이너 레지스트리에서 이벤트 그리드로 이벤트 보내기
 
 Azure Event Grid는 게시-구독 모델을 사용하여 균일한 이벤트 소비를 제공하는 완전히 관리되는 이벤트 라우팅 서비스입니다. 이 빠른 시작에서는 Azure CLI를 사용하여 컨테이너 레지스트리를 만들고, 레지스트리 이벤트를 구독한 다음, 샘플 웹 애플리케이션을 배포하여 이벤트를 수신합니다. 마지막으로, 컨테이너 이미지 `push` 및 `delete` 이벤트를 트리거하고 애플리케이션 예제에서 이벤트 페이로드를 봅니다.
 
@@ -27,7 +27,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][azure-a
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-Azure 리소스 그룹은 Azure 리소스를 배포하고 관리하는 논리 컨테이너입니다. 다음 [az group create][az-group-create] 명령은 *E미국* 지역에 *myresourcegroup* 이라는 리소스 그룹을 만듭니다. 리소스 그룹에 다른 이름을 사용하려면 `RESOURCE_GROUP_NAME`을 다른 값으로 설정합니다.
+Azure 리소스 그룹은 Azure 리소스를 배포하고 관리하는 논리 컨테이너입니다. 다음 [az group create][az-group-create] 명령에서는 *eastus* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다. 리소스 그룹에 다른 이름을 사용하려면 `RESOURCE_GROUP_NAME`을 다른 값으로 설정합니다.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -37,7 +37,7 @@ az group create --name $RESOURCE_GROUP_NAME --location eastus
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
-다음으로, 다음 명령을 사용하여 리소스 그룹에 컨테이너 레지스트리를 배포합니다. [Az acr create][az-acr-create] 명령을 실행 하기 전에 `ACR_NAME`를 레지스트리의 이름으로 설정 합니다. 이 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자로 제한됩니다.
+다음으로, 다음 명령을 사용하여 리소스 그룹에 컨테이너 레지스트리를 배포합니다. [az acr create][az-acr-create] 명령을 실행하기 전에 `ACR_NAME`을 레지스트리 이름으로 설정합니다. 이 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자로 제한됩니다.
 
 ```azurecli-interactive
 ACR_NAME=<acrName>
@@ -96,7 +96,7 @@ az group deployment create \
 
 ## <a name="subscribe-to-registry-events"></a>레지스트리 이벤트 구독
 
-Event Grid에서 *항목*을 구독하여 추적하려는 이벤트와 이벤트를 보낼 위치를 알립니다. 다음 [az event grid 이벤트-subscription create][az-eventgrid-event-subscription-create] 명령은 사용자가 만든 컨테이너 레지스트리를 구독 하 고 웹 앱의 URL을 이벤트를 보내야 하는 끝점으로 지정 합니다. 이전 섹션에서 채워진 환경 변수가 여기에 재사용되므로 편집이 필요 없습니다.
+Event Grid에서 *항목*을 구독하여 추적하려는 이벤트와 이벤트를 보낼 위치를 알립니다. 다음 [az eventgrid event-subscription create][az-eventgrid-event-subscription-create] 명령은 사용자가 생성한 컨테이너 레지스트리를 구독하고, 이벤트를 보내야 하는 엔드포인트로 사용자의 웹앱 URL을 지정합니다. 이전 섹션에서 채워진 환경 변수가 여기에 재사용되므로 편집이 필요 없습니다.
 
 ```azurecli-interactive
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
@@ -179,7 +179,7 @@ az acr repository show-tags --name $ACR_NAME --repository myimage
 
 ### <a name="delete-the-image"></a>이미지 삭제
 
-이제 [az acr repository delete][az-acr-repository-delete] 명령을 사용 하 여 이미지를 삭제 하 여 `ImageDeleted` 이벤트를 생성 합니다.
+이제 [az acr repository delete][az-acr-repository-delete] 명령으로 이미지를 삭제하여 `ImageDeleted` 이벤트를 생성합니다.
 
 ```azurecli-interactive
 az acr repository delete --name $ACR_NAME --image myimage:v1

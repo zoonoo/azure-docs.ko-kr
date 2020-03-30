@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 73256aef19a03c4c971be5fc9e69f988ef5a831a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75438621"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: 질문과 대답
@@ -101,7 +101,7 @@ A.  Data Box를 주문한 후 주문이 처리되기 전에만 주문을 취소�
 A. 예. 여러 호스트 컴퓨터를 동일한 Data Box에 연결하여 데이터를 전송할 수 있으며, 여러 복사 작업을 병렬로 실행할 수 있습니다. 자세한 내용은 [자습서: Azure Data Box에 데이터 복사](data-box-deploy-copy-data.md)를 참조하세요.
 
 ### <a name="q-can-i-connect-to-both-the-10-gbe-interfaces-on-the-data-box-to-transfer-data"></a>17. Data Box의 두 10GbE 인터페이스에 연결하여 데이터를 전송할 수 있나요?
-A. 예. Data Box의 두 10GbE 인터페이스에 모두 연결하여 동시에 데이터를 복사할 수 있습니다. 데이터를 복사 하는 방법에 대 한 자세한 내용은 [자습서: 데이터를 Azure Data Box 복사](data-box-deploy-copy-data.md)로 이동 합니다.
+A. 예. Data Box의 두 10GbE 인터페이스에 모두 연결하여 동시에 데이터를 복사할 수 있습니다. 데이터를 복사하는 방법에 대한 자세한 내용은 [자습서: Azure 데이터 상자에 데이터를 복사합니다.](data-box-deploy-copy-data.md)
 
 <!--### Q. The network interface on my Data Box is not working. What should I do? 
 A. 
@@ -116,7 +116,7 @@ A.
 A.-->
 
 ### <a name="q-the-system-fault-indicator-led-on-the-front-operating-panel-is-on-what-should-i-do"></a>17. 전면 작동 패널의 시스템 결함 표시기 LED가 켜졌습니다. 어떻게 해야 하나요?
-A. 시스템 결함 표시기 LED가 켜져 있으면 시스템이 정상 상태가 아님을 나타냅니다. [Microsoft 지원에 문의](data-box-disk-contact-microsoft-support.md)하세요.
+A. 시스템 결함 표시기 LED가 켜져 있으면 시스템이 정상 상태가 아님을 나타냅니다. 다음 단계는 [Microsoft 지원에 문의하십시오.](data-box-disk-contact-microsoft-support.md)
 
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>17. Azure Portal에서 Data Box 잠금 해제 암호에 액세스할 수 없습니다. 왜 그럴까요?
 A. Azure Portal의 잠금 해제 암호에 액세스할 수 없다면 구독 및 스토리지 계정의 권한을 확인합니다. 리소스 그룹 수준에서 기여자 또는 소유자 권한이 있는지 확인합니다. 없는 경우 액세스 자격 증명을 보려면 최소한 Data Box 운영자 역할 권한이 있어야 합니다.
@@ -141,7 +141,7 @@ A. Azure Portal에서 Data Box 주문, **개요**로 차례로 이동할 수 있
 A.  Data Box에는 80TB의 사용 가능한 스토리지 용량이 있습니다. 크기가 40 ~ 80TB에 해당하는 데이터에는 단일 Data Box 디바이스를 사용할 수 있습니다. 최대 500TB의 데이터 크기가 필요한 경우 여러 개의 Data Box 디바이스를 주문할 수 있습니다. 500TB가 넘는 데이터는 Data Box Heavy에 가입하세요.  
 
 ### <a name="q-what-are-the-maximum-block-blob-and-page-blob-sizes-supported-by-data-box"></a>17. Data Box에서 지원하는 블록 Blob 및 페이지 Blob에 대한 최대 크기는 어떻게 되나요? 
-A.  최대 크기는 Azure Storage 제한으로 관리됩니다. 최대 블록 Blob 크기는 대략 4.768TiB이고, 최대 페이지 Blob 크기는 8TiB입니다. 자세한 내용은 [Blob 저장소에 대 한 확장성 및 성능 목표](../storage/blobs/scalability-targets.md)를 참조 하세요.
+A.  최대 크기는 Azure Storage 제한으로 관리됩니다. 최대 블록 Blob 크기는 대략 4.768TiB이고, 최대 페이지 Blob 크기는 8TiB입니다. 자세한 내용은 [Azure 스토리지의 확장성 및 성능 목표](../storage/blobs/scalability-targets.md)를 참조하세요.
 
 ### <a name="q-how-do-i-know-that-my-data-is-secure-during-transit"></a>17. 전송 중에 내 데이터가 안전하다는 것을 확인하려면 어떻게 할까요? 
 A. 운송 중 Data Box 보호를 위해 여러 보안 기능이 구현되어 있습니다. 여기에는 손상 증명 봉인, 하드웨어 및 소프트웨어 변조 탐지, 디바이스 잠금 해제 암호 등을 비롯한 여러 기능이 포함됩니다. 자세한 내용은 [Azure Data Box 보안 및 데이터 보호](data-box-security.md)를 참조하세요.
@@ -180,19 +180,19 @@ A.  예. Data Box에서는 최대 10개의 스토리지 계정, 범용, 클래�
 ### <a name="q-my-device-was-delivered-but-the-device-seems-to-be-damaged-what-should-i-do"></a>17. 내 디바이스가 배송되었으나 손상된 것 같습니다. 어떻게 해야 하나요?
 A. 디바이스가 손상된 상태로 도착했거나 변조의 증거가 있다면 디바이스를 사용하지 않습니다. [Microsoft 지원에 문의](data-box-disk-contact-microsoft-support.md)하고 가능한 빨리 디바이스를 반환하세요. 교체 디바이스를 위한 새 Data Box 주문을 만들 수도 있습니다. 이런 경우 교체 디바이스에 대한 요금이 청구되지 않습니다.
 
-### <a name="q-can-i-pick-up-my-data-box-order-myself-can-i-return-the-data-box-via-a-carrier-that-i-choose"></a>17. 내 Data Box 주문을 직접 선택할 수 있나요? 선택한 캐리어를 통해 Data Box을 반환할 수 있나요?
-A. 예. Microsoft는 US Gov 지역에만 자체 관리형 배송을 제공합니다. Data Box 순서를 배치할 때 자체 관리 전달 옵션을 선택할 수 있습니다. Data Box 장치를 선택 하려면 다음 단계를 수행 합니다.
+### <a name="q-can-i-pick-up-my-data-box-order-myself-can-i-return-the-data-box-via-a-carrier-that-i-choose"></a>17. 데이터 박스 주문을 직접 수령할 수 있나요? 선택한 이동통신사를 통해 데이터 박스를 반품할 수 있습니까?
+A. 예. Microsoft는 US Gov 지역에만 자체 관리형 배송을 제공합니다. 데이터 박스 주문을 할 때 자체 관리 배송 옵션을 선택할 수 있습니다. 데이터 박스 기기를 선택하려면 다음 단계를 수행하십시오.
     
-1. 주문을 배치 하면 주문이 처리 되 고 Data Box 준비 됩니다. 주문한 제품의 픽업 준비가 완료되었다는 이메일 알림이 발송됩니다. 
+1. 주문을 한 후 주문이 처리되고 데이터 상자가 준비됩니다. 주문한 제품의 픽업 준비가 완료되었다는 이메일 알림이 발송됩니다. 
 2. 제품 픽업 준비가 완료되면 Azure Portal에서 주문한 제품으로 이동하여 **개요** 블레이드로 이동합니다. 
 3. Azure Portal에 코드가 포함된 알림이 표시됩니다. 이메일을 통해 [Azure Data Box 운영 팀](mailto:adbops@microsoft.com)에 코드를 보냅니다. 그러면 운영 팀에서 위치를 알려주고 픽업 날짜 및 시간을 예약합니다. 이메일 알림을 받은 후 5영업일 내에 팀에게 알려야 합니다.
 
-데이터 복사가 완료 되 면 다음 단계를 수행 하 여 장치를 반환 합니다.
+데이터 복사본이 완료되면 다음 단계를 수행하여 장치를 반환합니다.
 
-1. 데이터 복사가 오류 없이 완료 되 면 **배송 준비**를 실행 합니다. 준비가 완료 되 면 장치의 로컬 웹 UI에서 코드를 받게 됩니다. 코드를 복사 하 고 저장 합니다.
-2. 장치를 끄고 연결 케이블을 제거 합니다.
+1. 데이터 복사본이 오류 없이 완료되면 **발송 준비를 실행합니다.** 준비가 완료되면 장치의 로컬 웹 UI에서 코드를 받게 됩니다. 코드를 복사하여 저장합니다.
+2. 장치를 끄고 연결 케이블을 분리합니다.
 3. 디바이스와 함께 제공된 전원 코드를 디바이스 뒷면에 스풀링하고 안전하게 고정합니다.
-4. [Azure Data Box 운영 팀](mailto:adbops@microsoft.com) 에 전자 메일을 보내고 이전에 저장 한 코드를 제공 합니다. 장치를 어디에서 어디에 놓는 지에 대 한 정보를 제공 합니다.
+4. Azure [데이터 상자 운영 팀에](mailto:adbops@microsoft.com) 전자 메일을 보내고 이전에 저장한 코드를 제공합니다. 장치를 언제, 어디에서 내려야 할지에 대한 정보를 제공합니다.
 
 ### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>17. 배송 중에 내 Data Box 디바이스가 국가 경계를 넘을 수 있나요?
 A. 모든 Data Box 디바이스는 목적지와 동일한 국가 내에서 배송되며 국경을 넘지 않습니다. 유일한 예외는 디바이스가 모든 EU 국가 간에 발송될 수 있는 EU(유럽 연합) 내에서의 주문입니다. Data Box와 Data Box Heavy 디바이스에 모두 적용됩니다.
@@ -261,7 +261,7 @@ A.  관리 연속성 지원을 위해 다음 보고를 사용할 수 있습니�
 A.  이동 통신 사업자 추적 로그는 Data Box 주문 기록에 캡처됩니다. 이 보고서는 디바이스가 Azure 데이터 센터로 반환되고 디바이스 디스크의 데이터가 정리된 후 사용할 수 있습니다. 즉시 필요한 경우 배송 업체 웹 사이트에서 직접 주문 추적 번호를 사용하여 추적 정보를 구할 수 있습니다.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Azure 데이터 센터에 Data Box를 직접 전달할 수 있나요? 
-A.  아닙니다. 현재 Azure 데이터 센터는 고객 또는 UPS 이외의 운송업체에서 수행하는 Data Box 배달을 허용하지 않습니다.
+A.  아니요. 현재 Azure 데이터 센터는 고객 또는 UPS 이외의 운송업체에서 수행하는 Data Box 배달을 허용하지 않습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

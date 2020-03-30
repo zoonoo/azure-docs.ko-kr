@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric 서비스를 시작할 때 스크립트 실행
+title: Azure 서비스 패브릭 서비스가 시작될 때 스크립트 실행
 description: Service Fabric 서비스 설치 진입점에 대한 정책을 구성하고 서비스 시작 시간에 스크립트를 실행하는 방법을 알아봅니다.
 author: athinanthny
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: atsenthi
 ms.openlocfilehash: a25f16f08ab8ae9564363f179d19d4b30c5315fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75464278"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>로컬 사용자 또는 시스템 계정으로 서비스 시작 스크립트 실행
@@ -136,9 +136,9 @@ Service Fabric 서비스 실행 파일이 시작되기 전에 일부 구성 또�
 ## <a name="run-a-script-from-the-setup-entry-point"></a>설치 진입점에서 스크립트 실행
 이제 관리자 권한으로 실행할 시작 스크립트를 프로젝트에 추가합니다. 
 
-Visual Studio에서 서비스 프로젝트를 마우스 오른쪽 단추로 클릭하고 새 파일 *MySetup.bat*를 추가합니다.
+Visual Studio에서 서비스 프로젝트를 마우스 오른쪽 단추로 클릭하고 *MySetup.bat*라는 새 파일을 추가합니다.
 
-그런 다음, *MySetup.bat* 파일이 서비스 패키지에 포함되도록 합니다. 기본적으로 아닙니다. 파일을 선택하고 상황에 맞는 메뉴를 마우스 오른쪽 단추로 클릭하며 **속성**을 선택합니다. 속성 대화 상자에서 **출력 디렉터리로 복사**가 **변경된 내용만 복사**로 설정되도록 합니다. 다음 스크린샷이 표시됩니다.
+그런 다음 *MySetup.bat* 파일이 서비스 패키지에 포함되어 있는지 확인합니다. 기본적으로 아닙니다. 파일을 선택하고 상황에 맞는 메뉴를 마우스 오른쪽 단추로 클릭하며 **속성**을 선택합니다. 속성 대화 상자에서 **출력 디렉터리로 복사**가 **변경된 내용만 복사**로 설정되도록 합니다. 다음 스크린샷이 표시됩니다.
 
 ![SetupEntryPoint 배치 파일에 대한 Visual Studio CopyToOutput][image1]
 
@@ -154,14 +154,14 @@ REM To delete this system variable us
 REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ```
 
-다음으로 솔루션을 빌드하여 로컬 개발 클러스터에 배포합니다. 서비스가 시작되면 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에 표시된 대로 MySetup.bat 파일이 두 가지 방법으로 성공한 것을 볼 수 있습니다. Azure PowerShell 명령 프롬프트를 열고 입력합니다.
+다음으로 솔루션을 빌드하여 로컬 개발 클러스터에 배포합니다. [서비스 패브릭 탐색기에서와](service-fabric-visualizing-your-cluster.md)같이 서비스가 시작된 후 MySetup.bat 파일이 두 가지 방법으로 성공한 것을 확인할 수 있습니다. Azure PowerShell 명령 프롬프트를 열고 입력합니다.
 
 ```
 PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ```
 
-그런 다음, 서비스가 배포되고 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에서 시작된 노드의 이름을 적어둡니다. 예를 들어 노드 2 등입니다. 다음으로 애플리케이션 인스턴스 작업 폴더로 이동하여 **TestVariable**값을 보여주는 out.txt 파일을 찾습니다. 예를 들어 이 서비스가 노드 2에 배포된 경우 **MyApplicationType**에 대한 이 경로로 이동할 수 있습니다.
+그런 다음, 서비스가 배포되고 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에서 시작된 노드의 이름을 적어둡니다. 예를 들어 노드 2 등입니다. 다음으로 애플리케이션 인스턴스 작업 폴더로 이동하여 **TestVariable**값을 보여주는 out.txt 파일을 찾습니다. 예를 들어 이 서비스가 노드 2에 배포된 경우 **MyApplicationType에**대해 이 경로로 이동할 수 있습니다.
 
 ```
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt

@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure StorSimple Data Manager 작업에 .NET SDK 사용
+title: 마이크로 소프트 Azure Stor간단한 데이터 관리자 작업에 대한 .NET SDK를 사용하여
 description: .NET SDK를 사용하여 StorSimple 데이터 관리자 작업을 시작하는 방법에 대해 알아보기
 author: alkohli
 ms.service: storsimple
@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: b7cf1d3b9d4a9d751348c4792f904062b00ac104
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76270734"
 ---
-# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>.NET SDK를 사용 하 여 데이터 변환 시작
+# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>.NET SDK를 사용하여 데이터 변환 시작
 
 ## <a name="overview"></a>개요
 
@@ -26,7 +26,7 @@ ms.locfileid: "76270734"
  
   이 문서에서는 샘플 .NET 콘솔 애플리케이션을 만들어 데이터 변환 작업을 시작하고 완료하기 위해 추적하는 방법을 자세히 설명합니다. 자동화를 통해 데이터 변환을 시작하는 방법에 대한 자세한 내용을 보려면 [Azure Automation Runbook을 사용하여 데이터 변환 작업 트리거](storsimple-data-manager-job-using-automation.md)로 이동합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 항목이 있어야 합니다.
 *   다음을 실행하는 컴퓨터:
@@ -36,7 +36,7 @@ ms.locfileid: "76270734"
     - Azure Powershell. [Azure Powershell을 다운로드합니다](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
 *   리소스 그룹 내 StorSimple 데이터 관리자에 올바르게 구성된 작업 정의
 *   모든 필수 dll입니다. 이러한 dll을 [GitHub 리포지토리](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls)에서 다운로드합니다.
-*   GitHub 리포지토리의 [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) 스크립트입니다.
+*   [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1)GitHub 리포지토리의 스크립트입니다.
 
 ## <a name="step-by-step-procedure"></a>단계별 절차
 
@@ -61,7 +61,7 @@ ms.locfileid: "76270734"
 
 3. Visual Studio 2012, 2013 또는 2015를 사용하여 C# .NET 콘솔 애플리케이션을 만듭니다.
 
-    1. **Visual Studio 2012/2013/2015**을 실행합니다.
+    1. **비주얼 스튜디오 2012/2013/2015를**시작합니다.
     1. **파일 > 새로 만들기 > 프로젝트**를 선택합니다.
 
         ![프로젝트 1 만들기](media/storsimple-data-manager-dotnet-jobs/create-new-project-7.png)        
@@ -83,7 +83,7 @@ ms.locfileid: "76270734"
 
        ![dll 2 추가](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
 
-5. 다음 **using** 문을 프로젝트의 원본 파일(Program.cs)에 추가합니다.
+5. 프로젝트의 소스 파일(Program.cs)에 문을 **사용하여** 다음을 추가합니다.
 
     ```
     using System;

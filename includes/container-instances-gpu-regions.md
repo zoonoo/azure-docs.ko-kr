@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: danlep
 ms.openlocfilehash: 7f5b6780fd330489a893354143dc866bf416c8e8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75445845"
 ---
-### <a name="region-availability"></a>리전 가용성
+### <a name="region-availability"></a>지역 가용성
 
-| 개 지역 | OS | 사용 가능한 GPU Sku |
+| 영역 | OS | 사용 가능한 GPU SUS |
 | -------- | ---- | :-----------: |
-| 미국 동부, 유럽 서부, 미국 서 부 2 | Linux | K80, P100, V100 |
+| 미국 동부, 유럽 서부, 미국 서부 2 | Linux | K80, P100, V100 |
 | 동남아시아 | Linux | P100, V100|
 | 인도 중부 | Linux | V100 |
 | 북유럽 | Linux | K80 |

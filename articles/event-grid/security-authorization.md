@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
 ms.openlocfilehash: 03bc2f9de6f50f08c9f62f86a3d1791a067cecd0
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78899283"
 ---
-# <a name="authorizing-access-to-event-grid-resources"></a>Event Grid 리소스에 대 한 액세스 권한 부여
+# <a name="authorizing-access-to-event-grid-resources"></a>이벤트 그리드 리소스에 대한 액세스 권한 부여
 Azure Event Grid를 사용하면 여러 사용자가 이벤트 구독 나열, 새 구독 만들기 및 키 생성과 같은 다양한 관리 작업을 수행할 수 있는 액세스 수준을 제어할 수 있습니다. Event Grid는 Azure의 RBAC(역할 기반 액세스 제어)를 사용합니다.
 
 ## <a name="operation-types"></a>작업 형식
@@ -33,11 +33,11 @@ Event Grid는 다음 작업을 지원합니다.
 
 ## <a name="built-in-roles"></a>기본 제공 역할
 
-Event Grid는 이벤트 구독을 관리하기 위한 두 가지 기본 제공 역할을 제공합니다. 이벤트 도메인의 토픽을 구독 하는 데 필요한 사용 권한을 사용자에 게 부여 하므로 [이벤트 도메인](event-domains.md) 을 구현 하는 경우 중요 합니다. 이러한 역할은 이벤트 구독에 중점을 두며, 토픽 만들기와 같은 작업에 대한 액세스 권한을 부여하지 않습니다.
+Event Grid는 이벤트 구독을 관리하기 위한 두 가지 기본 제공 역할을 제공합니다. [이벤트 도메인을](event-domains.md) 구현할 때는 이벤트 도메인의 주제를 구독하는 데 필요한 권한을 사용자에게 부여하므로 중요합니다. 이러한 역할은 이벤트 구독에 중점을 두며, 토픽 만들기와 같은 작업에 대한 액세스 권한을 부여하지 않습니다.
 
 [사용자 또는 그룹에 이러한 역할을 할당](../role-based-access-control/quickstart-assign-role-user-portal.md)할 수 있습니다.
 
-**Eventgrid Eventgrid 참여자**: Event Grid 구독 작업 관리
+**EventGrid 이벤트 구독 기여자**: 이벤트 그리드 구독 작업 관리
 
 ```json
 [
@@ -73,7 +73,7 @@ Event Grid는 이벤트 구독을 관리하기 위한 두 가지 기본 제공 �
 ]
 ```
 
-**Eventgrid Eventgrid Reader**: Event Grid 구독 읽기
+**EventGrid 이벤트 구독 리더**: 이벤트 그리드 구독 읽기
 
 ```json
 [
@@ -181,7 +181,7 @@ Event Grid는 이벤트 구독을 관리하기 위한 두 가지 기본 제공 �
 
 ### <a name="encryption-at-rest"></a>휴지 상태의 암호화
 
-Event Grid 서비스에서 디스크에 기록 하는 모든 이벤트 또는 데이터는 Microsoft에서 관리 하는 키로 암호화 되어 암호화 된 상태로 유지 됩니다. 또한 이벤트 또는 데이터를 보존 하는 최대 기간은 [Event Grid 재시도 정책을](delivery-and-retry.md)준수 하 여 24 시간입니다. Event Grid는 24 시간 후에 모든 이벤트 또는 데이터를 자동으로 삭제 하 고, 이벤트의 ttl (time to live) 중 더 작은 값을 자동으로 삭제 합니다.
+Event Grid 서비스에 의해 디스크에 기록된 모든 이벤트 또는 데이터는 Microsoft에서 관리하는 키로 암호화되어 미사용 으로 암호화됩니다. 또한 이벤트 또는 데이터가 보존되는 최대 기간은 이벤트 그리드 다시 시도 [정책을](delivery-and-retry.md)준수하는 데 24시간입니다. 이벤트 그리드는 24시간 후에 모든 이벤트 또는 데이터를 자동으로 삭제하거나 이벤트 시간(라이브 시간)이 적거나 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

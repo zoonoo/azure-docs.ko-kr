@@ -1,13 +1,13 @@
 ---
-title: 'Service Fabric 클러스터 보안: 클라이언트 역할'
+title: '서비스 패브릭 클러스터 보안: 클라이언트 역할'
 description: 이 문서에서는 두 개의 클라이언트 역할 및 역할에 제공된 사용 권한을 설명합니다.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: abca19e686d39338fcaa2e0b0c8126913135170b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75451890"
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>서비스 패브릭 클라이언트용 역할 기반 액세스 제어

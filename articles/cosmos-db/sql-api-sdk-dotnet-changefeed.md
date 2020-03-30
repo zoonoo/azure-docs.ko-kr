@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB .NET 변경 피드 프로세서 API, SDK 릴리스 정보
+title: Azure 코스모스 DB .NET 변경 피드 프로세서 API, SDK 릴리스 노트
 description: 릴리스 날짜, 사용 중지 날짜 및 .NET 변경 피드 프로세서 SDK의 각 버전 간 변경 내용을 포함하여 변경 피드 프로세서 API 및 SDK에 대한 모든 것을 알아봅니다.
 author: ealsur
 ms.service: cosmos-db
@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
 ms.openlocfilehash: 9252e3e41d0c639231a2abe20202499c6b3ee32a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75444850"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
@@ -22,89 +22,89 @@ ms.locfileid: "75444850"
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.JS](sql-api-sdk-node.md)
+> * [Node.js](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [나머지](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [대량 실행자-.NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [대량 실행자-Java](sql-api-sdk-bulk-executor-java.md)
+> * [대량 실행기 - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [대량 실행기 - 자바](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
 |**SDK 다운로드**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
-|**API 설명서**|[피드 프로세서 라이브러리 API 참조 문서 변경](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
+|**API 문서**|[피드 프로세서 라이브러리 API 참조 문서 변경](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
 |**시작**|[변경 피드 프로세서 .NET SDK 시작](change-feed.md)|
-|**현재 지원되는 프레임워크**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
+|**현재 지원되는 프레임워크**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [마이크로소프트 .NET 코어](https://www.microsoft.com/net/download/core) |
 
 > [!NOTE]
-> 변경 피드 프로세서를 사용 하는 경우 SDK에 기본 제공 되는 변경 피드가 있는 [.NET SDK](change-feed-processor.md)의 최신 버전을 참조 하세요. 
+> 변경 피드 프로세서를 사용하는 경우 SDK에 변경 피드가 내장된 [.NET SDK의](change-feed-processor.md)최신 버전 3.x를 참조하십시오. 
 
 ## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="v2-builds"></a>v2 빌드
 
-### <a name="a-name228228"></a><a name="2.2.8"/>2.2.8
-* 안정성 및 진단 가능 향상 된 기능:
-  * 읽기 변경 피드를 검색 하는 데 오랜 시간이 소요 되는 지원이 추가 되었습니다. `ChangeFeedProcessorOptions.ChangeFeedTimeout` 속성에 지정 된 값 보다 오래 걸리면 다음 단계가 수행 됩니다.
-    * 문제가 있는 파티션에서 변경 피드를 읽는 작업이 중단 됩니다.
-    * 변경 피드 프로세서 인스턴스는 문제가 있는 임대의 소유권을 삭제 합니다. 삭제 된 임대는 동일 하거나 다른 변경 피드 프로세서 인스턴스에 의해 수행 되는 다음 임대 획득 단계 중에 선택 됩니다. 이러한 방식으로 변경 피드를 읽기가 시작 됩니다.
-    * 상태 모니터에 문제가 보고 됩니다. 기본 heath 모니터는 보고 로그에 보고 된 모든 문제를 보냅니다.
-  * 새 공용 속성 `ChangeFeedProcessorOptions.ChangeFeedTimeout`를 추가 했습니다. 이 속성의 기본값은 10 분입니다.
-  * 새 공용 열거형 값 `Monitoring.MonitoredOperation.ReadChangeFeed`을 (를) 추가 했습니다. `HealthMonitoringRecord.Operation` 값이 `Monitoring.MonitoredOperation.ReadChangeFeed`으로 설정 된 경우 상태 문제는 변경 피드 읽기와 관련 되어 있음을 나타냅니다.
+### <a name="228"></a><a name="2.2.8"/>2.2.8
+* 안정성 및 진단성 개선:
+  * 시간이 오래 걸리는 읽기 변경 피드를 감지하는 지원이 추가되었습니다. 속성에서 `ChangeFeedProcessorOptions.ChangeFeedTimeout` 지정한 값보다 오래 걸리는 경우 다음 단계가 수행됩니다.
+    * 문제가 있는 파티션에서 변경 피드를 읽는 작업이 중단됩니다.
+    * 변경 피드 프로세서 인스턴스는 문제가 있는 임대의 소유권을 삭제합니다. 삭제된 임대는 동일하거나 다른 변경 피드 프로세서 인스턴스에 의해 수행되는 다음 임대 획득 단계에서 픽업됩니다. 이렇게 하면 변경 피드 읽기가 다시 시작됩니다.
+    * 문제가 상태 모니터에 보고됩니다. 기본 히스 모니터는 보고된 모든 문제를 추적 로그에 보냅니다.
+  * 새 공용 속성이 `ChangeFeedProcessorOptions.ChangeFeedTimeout`추가되었습니다. 이 속성의 기본값은 10분입니다.
+  * 새 공용 열거형 `Monitoring.MonitoredOperation.ReadChangeFeed`값을 추가했습니다. 값을 `HealthMonitoringRecord.Operation` `Monitoring.MonitoredOperation.ReadChangeFeed`로 설정하면 상태 문제가 변경 피드 읽기와 관련이 있음을 나타냅니다.
 
-### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
-* 모든 임대를 가져오는 경우의 시나리오에 대 한 향상 된 부하 분산 전략은 임대 만료 간격 (예: 네트워크 문제 때문) 보다 오래 걸립니다.
-  * 이 시나리오에서는 임대가 만료 된 것으로 간주 하 여 활성 소유자의 임대를 도용 하는 데 사용 되는 부하 분산 알고리즘이 사용 됩니다. 이로 인해 많은 임대를 불필요 하 게 다시 분산 시킬 수 있습니다.
-  * 이 문제는 소유자가 변경 하지 않고 만료 된 임대를 다음 부하 분산 반복으로 posponing 하는 만료 된 임대를 획득 하는 동안 충돌 시 재시도를 방지 하 여 해결 됩니다.
+### <a name="227"></a><a name="2.2.7"/>2.2.7
+* 네트워크 문제로 인해 모든 임대를 받는 데 임대 만료 간격보다 더 오래 걸리는 경우 시나리오의 부하 분산 전략이 개선되었습니다.
+  * 이 시나리오에서 임대를 만료된 것으로 잘못 간주하는 데 사용되는 로드 분산 알고리즘으로 인해 활성 소유자로부터 임대를 도용합니다. 이렇게 하면 많은 임대에 불필요한 재조정이 발생할 수 있습니다.
+  * 이 문제는 소유자가 변경되지 않은 만료된 임대를 획득하는 동안 충돌에 대한 재시도를 피하고 다음 로드 균형 이터레이션에 만료된 임대를 획득하는 방식으로 이 릴리스에서 해결됩니다.
 
-### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
+### <a name="226"></a><a name="2.2.6"/>2.2.6
 * 관찰자 예외 처리가 향상되었습니다.
 * 관찰자 오류에 대해 더욱 자세한 정보가 제공됩니다.
   * 이제는 관찰자 ProcessChangesAsync에서 throw된 예외로 인해 관찰자가 닫힐 때 ChangeFeedObserverCloseReason.ObserverError에 대한 이유 매개 변수 세트가 수신됩니다.
   * 관찰자의 사용자 코드 내에서 오류를 확인할 수 있도록 추적 기능이 추가되었습니다.
 
-### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
+### <a name="225"></a><a name="2.2.5"/>2.2.5
 * 공유 데이터베이스 처리량을 사용하는 컬렉션으로 분할 처리에 대한 지원이 추가되었습니다.
   * 이 릴리스는 두 개가 아닌 하나의 하위 파티션 키 범위만 만들어진 파티션 부하 다시 분산으로 결과를 분할할 때 공유 데이터베이스 처리량을 사용하는 컬렉션으로 분할 중에 발생할 수 있는 문제를 해결합니다. 이 경우 변경 피드 프로세서에서 이전 파티션 키 범위의 임대 삭제가 중단되고 새 임대 만들기는 중단되지 않을 수 있습니다. 이 문제는 이 릴리스에서 해결되었습니다.
 
-### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
+### <a name="224"></a><a name="2.2.4"/>2.2.4
 * 요청 연속 토큰에서 변경 피드 시작을 지원하기 위해 새 속성 ChangeFeedProcessorOptions.StartContinuation을 추가했습니다. 이 속성은 임대 컬렉션이 비어 있거나 임대에 ContinuationToken이 설정되어 있지 않은 경우에만 사용됩니다. ContinuationToken이 설정된 임대 컬렉션의 임대의 경우 ContinuationToken이 사용되며 ChangeFeedProcessorOptions.StartContinuation은 무시됩니다.
 
-### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+### <a name="223"></a><a name="2.2.3"/>2.2.3
 * 파티션당 연속 토큰을 지속하기 위해 사용자 지정 스토리지 사용을 위한 지원이 추가되었습니다.
   * 예를 들어 사용자 지정 임대 스토리지는 어떠한 사용자 지정 방식으로든 파티션된 Azure Cosmos DB 임대 컬렉션일 수 있습니다.
   * 사용자 지정 임대 스토리지는 새 확장성 지점 ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) 및 ILeaseStoreManager 공용 인터페이스를 사용할 수 있습니다.
   * ILeaseManager 인터페이스가 여러 역할 인터페이스로 리팩터링되었습니다.
 * 호환성이 손상되는 사소한 변경: 확장성 포인트 ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager)가 제거되었습니다. 대신 ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager)를 사용합니다.
 
-### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
+### <a name="222"></a><a name="2.2.2"/>2.2.2
 * 이 릴리스는 모니터링된 컬렉션에서 분할을 처리하고 파티션된 임대 컬렉션을 사용하는 중 발생하는 문제를 해결합니다. 분할 파티션에 대한 임대 처리 시 해당 파티션에 해당하는 임대는 삭제할 수 없습니다. 이 문제는 이 릴리스에서 해결되었습니다.
 
-### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+### <a name="221"></a><a name="2.2.1"/>2.2.1
 * 다중 마스터 계정 및 새 세션 토큰 형식에 대한 고정 추정기 계산입니다.
 
-### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+### <a name="220"></a><a name="2.2.0"/>2.2.0
 * 분할된 임대 컬렉션에 대한 지원이 추가되었습니다. 파티션 키는 /id로 정의되어야 합니다.
-* 주요 변경 내용: IChangeFeedDocumentClient 인터페이스 및 ChangeFeedDocumentClient 클래스의 메서드는 RequestOptions 및 CancellationToken 매개 변수를 포함하도록 변경되었습니다. IChangeFeedDocumentClient는 변경 피드 프로세서와 함께 사용할 문서 클라이언트의 사용자 지정 구현을 제공할 수 있도록 하는 고급 확장성 지점입니다 (예: 데코레이팅 DocumentClient 및이에 대 한 모든 호출을 가로채 추가 추적, 오류 처리 수행). 등. 이 업데이트를 사용 하는 경우 IChangeFeedDocumentClient을 구현 하는 코드를 변경 하 여 구현에 새 매개 변수를 포함 해야 합니다.
+* 주요 변경 내용: IChangeFeedDocumentClient 인터페이스 및 ChangeFeedDocumentClient 클래스의 메서드는 RequestOptions 및 CancellationToken 매개 변수를 포함하도록 변경되었습니다. IChangeFeedDocumentClient는 변경 피드 프로세서와 함께 사용할 문서 클라이언트의 사용자 지정 구현을 제공할 수 있는 고급 확장성 지점입니다(예: DocumentClient 장식 및 추가 추적, 오류 처리를 수행하기 위해 문서에 대한 모든 호출을 가로채기) 등. 이 업데이트를 사용 하 고 IChangeFeedDocumentClient를 구현 하는 코드를 변경 해야 구현에 새 매개 변수를 포함 하 고 있습니다.
 * 사소한 진단 개선 사항입니다.
 
-### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+### <a name="210"></a><a name="2.1.0"/>2.1.0
 * 새 API인 Task&lt;IReadOnlyList&lt;RemainingPartitionWork&gt;&gt; IRemainingWorkEstimator.GetEstimatedRemainingWorkPerPartitionAsync()를 추가했습니다. 각 파티션에 대해 예상되는 작업을 구하는 데 사용할 수 있습니다.
 * Microsoft.Azure.DocumentDB SDK 2.0을 지원합니다. Microsoft.Azure.DocumentDB 2.0 이상이 필요합니다.
 
-### <a name="a-name206206"></a><a name="2.0.6"/>2.0.6
+### <a name="206"></a><a name="2.0.6"/>2.0.6
 * v1과의 호환성에 대한 ChangeFeedEventHost.HostName 공용 속성이 추가되었습니다.
 
-### <a name="a-name205205"></a><a name="2.0.5"/>2.0.5
+### <a name="205"></a><a name="2.0.5"/>2.0.5
 * 파티션 분할 동안 발생하는 경쟁 조건을 수정했습니다. 파티션을 분할하는 동안 경쟁 조건이 임대 획득으로 이어지고 즉시 손실되어 경합을 초래할 수 있습니다. 경쟁 조건 문제는 이 릴리스에서 해결되었습니다.
 
-### <a name="a-name204204"></a><a name="2.0.4"/>2.0.4
+### <a name="204"></a><a name="2.0.4"/>2.0.4
 * GA SDK
 
-### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-prerelease
+### <a name="203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-prerelease
 * 다음 문제가 수정됨:
   * 파티션 분할의 경우 분할 전에 수정된 문서의 중복 처리가 있을 수 있습니다.
   * 임대 컬렉션에 임대가 없는 경우 GetEstimatedRemainingWork API가 0를 반환했습니다.
@@ -115,11 +115,11 @@ ms.locfileid: "75444850"
   * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionNotFoundException.
   * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionSplitException. 
 
-### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2 시험판
+### <a name="202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2 시험판
 * 부 버전 API 변경 내용:
   * 사용되지 않는 것으로 표시된 ChangeFeedProcessorOptions.IsAutoCheckpointEnabled를 제거했습니다.
 
-### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-시험판
+### <a name="201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-시험판
 * 안정성 향상:
   * 임대 저장소 초기화를 더 효율적으로 처리합니다. 임대 저장소가 비어 있는 경우 프로세서의 한 인스턴스만 초기화할 수 있으며 다른 인스턴스는 대기합니다.
   * 더 안정적인/효율적인 임대 갱신/릴리스를 제공합니다. 하나의 파티션 임대의 갱신 및 해제는 다른 파티션의 갱신과 독립적입니다. v1에서는 모든 파티션에 대해 순차적으로 수행됩니다.
@@ -140,33 +140,33 @@ ms.locfileid: "75444850"
 
 ### <a name="v1-builds"></a>v1 빌드
 
-### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
+### <a name="133"></a><a name="1.3.3"/>1.3.3
 * 자세한 로깅을 추가했습니다.
 * 보류 중인 작업 예측을 여러 번 호출할 때 DocumentClient 누수를 수정했습니다.
 
-### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+### <a name="132"></a><a name="1.3.2"/>1.3.2
 * 보류 중인 작업 예측에서 해결합니다.
 
-### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
+### <a name="131"></a><a name="1.3.1"/>1.3.1
 * 안정성 향상
-  * 일부 파티션에서 중지 된 관찰자를 발생 시킬 수 있는 취소 된 작업 처리 문제를 해결 합니다.
+  * 일부 파티션에서 관찰자가 중지될 수 있는 취소된 작업 문제를 처리하는 문제를 수정합니다.
 * 수동 검사점 설정 지원
 * [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.21 이상과 호환
 
-### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+### <a name="120"></a><a name="1.2.0"/>1.2.0
 * .NET Standard 2.0에 대한 지원을 추가합니다. 이제 패키지는 `netstandard2.0` 및 `net451` 프레임워크 모니커를 지원합니다.
 * [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.17.0 이상과 호환 가능합니다.
 * [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) 버전 1.5.1 이상과 호환 가능합니다.
 
-### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+### <a name="111"></a><a name="1.1.1"/>1.1.1
 * 변경 피드가 비어 있거나 보류 중인 작업이 없을 때 예상되는 남은 작업을 계산할 때 발생하는 문제를 해결했습니다.
 * [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.13.2 이상과 호환 가능합니다.
 
-### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+### <a name="110"></a><a name="1.1.0"/>1.1.0
 * 변경 피드에서 처리될 나머지 작업의 추정치를 얻을 수 있는 메서드가 추가되었습니다.
 * [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.13.2 이상과 호환 가능합니다.
 
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"/>1.0.0
 * GA SDK
 * [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.14.1 이하와 호환 가능합니다.
 
@@ -182,7 +182,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
-| [2.2.8](#2.2.8) |2019 년 10 월 28 일 |--- |
+| [2.2.8](#2.2.8) |2019년 10월 28일 |--- |
 | [2.2.7](#2.2.7) |2019년 5월 14일 |--- |
 | [2.2.6](#2.2.6) |2019년 1월 29일 |--- |
 | [2.2.5](#2.2.5) |2018년 12월 13일 |--- |
@@ -202,6 +202,6 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요.

@@ -1,6 +1,6 @@
 ---
-title: 웹 Api를 호출 하는 web API-Microsoft id 플랫폼 | Microsoft
-description: Web Api를 호출 하는 web API를 빌드하는 방법에 대해 알아봅니다.
+title: 웹 API를 호출하는 웹 API - Microsoft ID 플랫폼 | Azure
+description: 웹 API를 호출하는 웹 API를 빌드하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,23 +15,23 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: d66a08d4e84a3771d6c3fa46b96c975869435452
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76833382"
 ---
-# <a name="a-web-api-that-calls-web-apis-call-an-api"></a>웹 api를 호출 하는 web API: API 호출
+# <a name="a-web-api-that-calls-web-apis-call-an-api"></a>웹 API를 호출하는 웹 API: API 호출
 
-토큰이 있으면 보호 된 웹 API를 호출할 수 있습니다. 웹 API의 컨트롤러에서이 작업을 수행 합니다.
+토큰이 있으면 보호된 웹 API를 호출할 수 있습니다. 웹 API의 컨트롤러에서 이 작업을 수행합니다.
 
 ## <a name="controller-code"></a>컨트롤러 코드
 
-# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-다음 코드는 web Api를 호출 하는 web API에 표시 되는 예제 코드를 계속 합니다 [. 앱에 대 한 토큰을 가져옵니다](scenario-web-api-call-api-acquire-token.md). 코드는 API 컨트롤러의 작업에서 호출 됩니다. *Todolist*이라는 다운스트림 API를 호출 합니다.
+다음 코드는 [웹 API를 호출하는 웹 API에](scenario-web-api-call-api-acquire-token.md)표시되는 예제 코드를 계속 합니다. 코드는 API 컨트롤러의 작업에서 호출됩니다. *todolist라는*다운스트림 API를 호출합니다.
 
-토큰을 가져온 후에는이 토큰을 전달자 토큰으로 사용 하 여 다운스트림 API를 호출 합니다.
+토큰을 획득한 후 이를 보유자 토큰으로 사용하여 다운스트림 API를 호출합니다.
 
 ```csharp
 private async Task GetTodoList(bool isAppStarting)
@@ -59,11 +59,11 @@ HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + 
 }
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
-다음 코드는 web Api를 호출 하는 web API에 표시 되는 예제 코드를 계속 합니다 [. 앱에 대 한 토큰을 가져옵니다](scenario-web-api-call-api-acquire-token.md). 코드는 API 컨트롤러의 작업에서 호출 됩니다. 다운스트림 API MS Graph를 호출 합니다.
+다음 코드는 [웹 API를 호출하는 웹 API에](scenario-web-api-call-api-acquire-token.md)표시되는 예제 코드를 계속 합니다. 코드는 API 컨트롤러의 작업에서 호출됩니다. 다운스트림 API MS 그래프를 호출합니다.
 
-토큰을 가져온 후에는이 토큰을 전달자 토큰으로 사용 하 여 다운스트림 API를 호출 합니다.
+토큰을 획득한 후 이를 보유자 토큰으로 사용하여 다운스트림 API를 호출합니다.
 
 ```Java
 private String callMicrosoftGraphMeEndpoint(String accessToken){
@@ -83,12 +83,12 @@ private String callMicrosoftGraphMeEndpoint(String accessToken){
 }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
-MSAL Python을 사용 하 여이 흐름을 보여 주는 샘플은 아직 사용할 수 없습니다.
+# <a name="python"></a>[Python](#tab/python)
+MSAL 파이썬을 사용하여 이 흐름을 보여 주는 샘플은 아직 사용할 수 없습니다.
 
 ---
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [웹 Api를 호출 하는 web API: 프로덕션으로 이동](scenario-web-api-call-api-production.md)
+> [웹 API를 호출하는 웹 API: 프로덕션으로 이동](scenario-web-api-call-api-production.md)

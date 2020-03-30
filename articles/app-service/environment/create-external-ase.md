@@ -1,6 +1,6 @@
 ---
 title: 외부 ASE 만들기
-description: 앱을 사용 하 여 App Service 환경을 만들거나 독립 실행형 (빈) ASE를 만드는 방법에 대해 알아봅니다.
+description: 앱이 있는 앱 서비스 환경을 만들거나 독립 실행형(비어 있는) ASE를 만드는 방법을 알아봅니다.
 author: ccompy
 ms.assetid: 94dd0222-b960-469c-85da-7fcb98654241
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 6c4838e3226b91cbb5d6f86b83266a986418c120
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75430505"
 ---
 # <a name="create-an-external-app-service-environment"></a>외부 App Service Environment 만들기
@@ -19,14 +19,14 @@ ms.locfileid: "75430505"
 Azure App Service Environment는 Azure App Service를 Azure VNet(Virtual Network)의 서브넷에 배포한 것입니다.
 
 > [!NOTE]
-> 각 App Service Environment에는 App Service Environment에 연결 하는 데 사용할 수 있는 VIP (가상 IP)가 있습니다.
+> 각 앱 서비스 환경에는 앱 서비스 환경에 문의하는 데 사용할 수 있는 가상 IP(VIP)가 있습니다.
 
 ASE(App Service Environment)에는 두 가지 배포 방법이 있습니다.
 
 - 외부 ASE라고도 하는 외부 IP 주소의 VIP 사용
 - 내부 엔드포인트가 ILB(내부 부하 분산 장치)이기 때문에 ILB ASE라고도 하는 내부 IP 주소의 VIP 사용
 
-이 문서에서는 외부 ASE를 만드는 방법을 보여줍니다. ASE에 대 한 개요는 [App Service Environment에][Intro]대 한 소개를 참조 하세요. ILB ASE를 만드는 방법에 대 한 자세한 내용은 [ILB Ase 만들기 및 사용][MakeILBASE]을 참조 하세요.
+이 문서에서는 외부 ASE를 만드는 방법을 보여줍니다. ASE의 개요는 [App Service Environment에 대한 소개][Intro]를 참조하세요. ILB ASE를 만드는 방법에 대한 자세한 내용은 [ILB ASE 만들기 및 사용][MakeILBASE]을 참조하세요.
 
 ## <a name="before-you-create-your-ase"></a>ASE를 만들기 전에
 
@@ -34,7 +34,7 @@ ASE를 만든 후에는 다음을 변경할 수 없습니다.
 
 - 위치
 - Subscription
-- 리소스 그룹
+- Resource group
 - 사용되는 VNet
 - 사용되는 서브넷
 - 서브넷 크기
@@ -49,7 +49,7 @@ ASE를 만드는 세 가지 방법은 다음과 같습니다.
 
 - **App Service 계획을 만들 때**. 이 메서드는 한 번에 ASE 및 App Service 계획을 만듭니다.
 - **독립 실행형 작업으로**. 이 메서드는 내부에 아무것도 포함되지 않은 ASE인 독립 실행형 ASE를 만듭니다. 이 메서드는 ASE를 만드는 더 고급 수준의 프로세스입니다. ILB를 사용하여 ASE를 만들 때 사용합니다.
-- **Azure Resource Manager 템플릿에서**. 이 메서드는 고급 사용자를 위한 것입니다. 자세한 내용은 [템플릿에서 ASE 만들기][MakeASEfromTemplate]를 참조 하세요.
+- **Azure Resource Manager 템플릿에서**. 이 메서드는 고급 사용자를 위한 것입니다. 자세한 내용은 [템플릿에서 ASE 만들기][MakeASEfromTemplate]를 참조하세요.
 
 외부 ASE에는 공용 VIP가 있습니다. 즉, ASE의 앱에 대한 모든 HTTP/HTTPS 트래픽이 인터넷 액세스가 가능한 IP 주소에 도달합니다. ILB를 사용하는 ASE에는 ASE에서 사용하는 서브넷의 IP 주소가 있습니다. ILB ASE에 호스팅된 앱은 인터넷에 직접 노출되지 않습니다.
 
@@ -149,7 +149,7 @@ ASE 독립 실행형을 만드는 경우 내부에는 아무것도 없습니다.
 
 1. 구독을 선택합니다. 또한 이 구독은 ASE의 모든 앱이 사용하는 것입니다. 다른 구독에 있는 VNet에 ASE를 배치할 수 없습니다.
 
-1. 새 리소스 그룹을 선택하거나 지정합니다. ASE에 사용되는 리소스 그룹은 VNet에 사용되는 것과 동일해야 합니다. 기존 VNet을 선택하는 경우 ASE에 대한 리소스 그룹을 선택하는 작업은 VNet의 선택을 반영하도록 업데이트됩니다. *Resource Manager 템플릿을 사용하는 경우 VNet 리소스 그룹과 다른 리소스 그룹으로 ASE를 만들 수 있습니다.* 템플릿에서 ASE를 만들려면 [템플릿에서 App Service 환경 만들기][MakeASEfromTemplate]를 참조 하세요.
+1. 새 리소스 그룹을 선택하거나 지정합니다. ASE에 사용되는 리소스 그룹은 VNet에 사용되는 것과 동일해야 합니다. 기존 VNet을 선택하는 경우 ASE에 대한 리소스 그룹을 선택하는 작업은 VNet의 선택을 반영하도록 업데이트됩니다. *Resource Manager 템플릿을 사용하는 경우 VNet 리소스 그룹과 다른 리소스 그룹으로 ASE를 만들 수 있습니다.* 템플릿에서 ASE를 만들려면 [템플릿에서 앱 서비스 환경 만들기를][MakeASEfromTemplate]참조하십시오.
 
     ![리소스 그룹 선택][6]
 
@@ -157,19 +157,19 @@ ASE 독립 실행형을 만드는 경우 내부에는 아무것도 없습니다.
 
     * 새 VNet을 선택하면 이름 및 위치를 지정할 수 있습니다. 
     
-    * 새 VNet의 주소 범위는 192.168.250.0/23이고 default라는 서브넷이 있습니다. 서브넷은 192.168.250.0/24로 정의되어 있습니다. Resource Manager VNet만 선택할 수 있습니다. **VIP 형식**을 선택하면 ASE가 인터넷(외부)에서 직접 액세스할 수 있는지 또는 ILB를 사용하는지를 결정합니다. 이러한 옵션에 대해 자세히 알아보려면 [App Service 환경을 사용 하 여 내부 부하 분산 장치 만들기 및 사용][MakeILBASE]을 참조 하세요. 
+    * 새 VNet의 주소 범위는 192.168.250.0/23이고 default라는 서브넷이 있습니다. 서브넷은 192.168.250.0/24로 정의되어 있습니다. Resource Manager VNet만 선택할 수 있습니다. **VIP 형식**을 선택하면 ASE가 인터넷(외부)에서 직접 액세스할 수 있는지 또는 ILB를 사용하는지를 결정합니다. 이러한 옵션에 대한 자세한 내용은 [App Service Environment에서 내부 부하 분산 장치 만들기 및 사용][MakeILBASE]을 참조하세요. 
 
       * **VIP 형식**에 **외부**를 선택하면 시스템이 IP 기반 SSL 목적으로 만들 수 있는 외부 IP 주소의 개수를 선택할 수 있습니다. 
     
       * **VIP 형식**에 **내부**를 선택하면 ASE가 사용하는 도메인을 지정해야 합니다. 공개 또는 프라이빗 주소 범위를 사용하는 VNet으로 ASE를 배포할 수 있습니다. 공용 주소 범위를 가진 VNet을 사용하려면 사전에 VNet을 만들어야 합니다. 
     
-    * 기존 VNet을 선택한 경우 새 서브넷은 ASE를 만들 때 만들어집니다. *포털에서 미리 생성 된 서브넷을 사용할 수 없습니다. 리소스 관리자 템플릿을 사용 하는 경우 기존 서브넷으로 ASE를 만들 수 있습니다.* 템플릿에서 ASE를 만들려면 [템플릿에서 App Service Environment 만들기][MakeASEfromTemplate]를 참조 하세요.
+    * 기존 VNet을 선택한 경우 새 서브넷은 ASE를 만들 때 만들어집니다. *포털에서 미리 만든 서브넷을 사용할 수 없습니다. 리소스 관리자 템플릿을 사용하는 경우 기존 서브넷을 사용하여 ASE를 만들 수 있습니다.* 템플릿에서 ASE를 만들려면 [템플릿에서 App Service Environment 만들기][MakeASEfromTemplate]를 참조하세요.
 
 ## <a name="app-service-environment-v1"></a>App Service 환경 v1
 
 여전히 ASEv1(첫 번째 버전의 App Service Environment)의 인스턴스를 만들 수 있습니다. 해당 프로세스를 시작하려면 Marketplace에서 **App Service Environment v1**을 검색합니다. 독립 실행형 ASE를 만드는 동일한 방식으로 ASE를 만듭니다. 완료되면 ASEv1에 두 개의 프런트 엔드 및 두 명의 작업자가 있습니다. ASEv1을 사용하면 프런트 엔드와 작업자를 관리해야 합니다. 이는 App Service 계획을 만들 때 자동으로 추가되지 않습니다. 프런트 엔드는 HTTP/HTTPS 엔드포인트로 작동하여 작업자로 트래픽을 전송합니다. 작업자는 사용자 앱을 호스트하는 역할입니다. ASE를 만든 후 프런트 엔드 및 작업자의 수량을 조정할 수 있습니다. 
 
-ASEv1에 대해 자세히 알아보려면 [App Service Environment V1 소개][ASEv1Intro]를 참조 하세요. ASEv1 크기 조정, 관리 및 모니터링에 대 한 자세한 내용은 [How to configure a App Service Environment][ConfigureASEv1]를 참조 하세요.
+ASEv1에 대해 자세히 알아보려면 [App Service Environment v1 소개][ASEv1Intro]를 참조하세요. ASEv1의 크기 조정, 관리 및 모니터링에 대한 자세한 내용은 [App Service Environment를 구성하는 방법][ConfigureASEv1]을 참조하세요.
 
 <!--Image references-->
 [1]: ./media/how_to_create_an_external_app_service_environment/createexternalase-create.png

@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 파이프라인 실행 작업
+title: Azure 데이터 팩터리에서 파이프라인 활동 실행
 description: 파이프라인 실행 작업을 사용하여 하나의 Data Factory 파이프라인에서 다른 Data Factory 파이프라인을 호출하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 26dd7c4f33360030b13ddbfc1516396436724c40
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75440432"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 작업
@@ -59,15 +59,15 @@ ms.locfileid: "75440432"
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | Description | 허용되는 값 | 필수
+속성 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-name | 파이프라인 실행 작업의 이름입니다. | String | 예
-type | **ExecutePipeline**으로 설정되어야 합니다. | String | 예
-pipeline | 이 파이프라인을 호출하는 종속 파이프라인에 대한 파이프라인 참조입니다. 파이프라인 참조 개체에는 두 가지 속성(**referenceName** 및 **type**)이 있습니다. referenceName 속성은 참조 파이프라인의 이름을 지정합니다. type 속성은 PipelineReference로 설정되어야 합니다. | PipelineReference | 예
-매개 변수 | 호출된 파이프라인으로 전달될 매개 변수 | 매개 변수 이름을 인수 값에 매핑하는 JSON 개체 | 아닙니다.
-waitOnCompletion | 종속 파이프라인 실행이 완료될 때까지 작업 실행을 기다릴지 여부를 정의합니다. 기본값은 false입니다. | 부울 | 아닙니다.
+name | 파이프라인 실행 작업의 이름입니다. | String | yes
+type | **ExecutePipeline**으로 설정되어야 합니다. | String | yes
+pipeline | 이 파이프라인을 호출하는 종속 파이프라인에 대한 파이프라인 참조입니다. 파이프라인 참조 개체에는 두 가지 속성(**referenceName** 및 **type**)이 있습니다. referenceName 속성은 참조 파이프라인의 이름을 지정합니다. type 속성은 PipelineReference로 설정되어야 합니다. | PipelineReference | yes
+매개 변수 | 호출된 파이프라인으로 전달될 매개 변수 | 매개 변수 이름을 인수 값에 매핑하는 JSON 개체 | 예
+waitOnCompletion | 종속 파이프라인 실행이 완료될 때까지 작업 실행을 기다릴지 여부를 정의합니다. 기본값은 false입니다. | 부울 | 예
 
-## <a name="sample"></a>샘플
+## <a name="sample"></a>예제
 이 시나리오에는 두 개의 파이프라인이 있습니다.
 
 - **마스터 파이프라인** - 이 파이프라인에는 호출된 파이프라인을 호출하는 하나의 파이프라인 실행 작업이 있습니다. 마스터 파이프라인에는 두 개의 매개 변수, `masterSourceBlobContainer`와 `masterSinkBlobContainer`가 필요합니다.
@@ -254,7 +254,7 @@ waitOnCompletion | 종속 파이프라인 실행이 완료될 때까지 작업 �
 ## <a name="next-steps"></a>다음 단계
 Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요. 
 
-- [ForEach 작업](control-flow-for-each-activity.md)
-- [메타데이터 작업 가져오기](control-flow-get-metadata-activity.md)
+- [각 활동에 대해](control-flow-for-each-activity.md)
+- [메타데이터 활동 받기](control-flow-get-metadata-activity.md)
 - [조회 작업](control-flow-lookup-activity.md)
-- [웹 작업](control-flow-web-activity.md)
+- [웹 활동](control-flow-web-activity.md)

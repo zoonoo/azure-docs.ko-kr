@@ -9,43 +9,43 @@ ms.date: 12/13/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: fb44f217b7a940bc07a164e482b67ddb53835715
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75440471"
 ---
-| 범주 | 데이터 저장소 |
+| Category | 데이터 저장소 |
 |:--- |:--- |
-| **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |
+| **Azure** |[Azure Blob 스토리지](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB(SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |
 | &nbsp; |[Azure Data Explorer](../articles/data-factory/connector-azure-data-explorer.md) |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |
 | &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) |
 | &nbsp; |[Azure Database for MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |
-| &nbsp; |[Azure Database for MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |
+| &nbsp; |[MySQL용 Azure 데이터베이스](../articles/data-factory/connector-azure-database-for-mysql.md) |
 | &nbsp; |[Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
 | &nbsp; |[Azure 파일](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |
-| &nbsp; |[Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |
-| &nbsp; |[Azure Synapse Analytics (이전의 SQL Data Warehouse)](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
+| &nbsp; |[Azure SQL 데이터베이스 관리 인스턴스](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |
+| &nbsp; |[Azure 시냅스 분석(이전 SQL 데이터 웨어하우스)](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) |
-| **Database** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
+| **데이터베이스** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |
 | &nbsp; |[Drill](../articles/data-factory/connector-drill.md) |
 | &nbsp; |[Google BigQuery](../articles/data-factory/connector-google-bigquery.md) |
 | &nbsp; |[Greenplum](../articles/data-factory/connector-greenplum.md) |
 | &nbsp; |[HBase](../articles/data-factory/connector-hbase.md) |
-| &nbsp; |[Hive](../articles/data-factory/connector-hive.md) |
+| &nbsp; |[하이브](../articles/data-factory/connector-hive.md) |
 | &nbsp; |[Apache Impala](../articles/data-factory/connector-impala.md) |
 | &nbsp; |[Informix](../articles/data-factory/connector-informix.md) 
 | &nbsp; |[MariaDB](../articles/data-factory/connector-mariadb.md) |
 | &nbsp; |[Microsoft Access](../articles/data-factory/connector-microsoft-access.md) |
-| &nbsp; |[MySQL](../articles/data-factory/connector-mysql.md) |
+| &nbsp; |[Mysql](../articles/data-factory/connector-mysql.md) |
 | &nbsp; |[Netezza](../articles/data-factory/connector-netezza.md) |
 | &nbsp; |[Oracle](../articles/data-factory/connector-oracle.md) |
 | &nbsp; |[Phoenix](../articles/data-factory/connector-phoenix.md) |
-| &nbsp; |[PostgreSQL](../articles/data-factory/connector-postgresql.md) 
+| &nbsp; |[Postgresql](../articles/data-factory/connector-postgresql.md) 
 | &nbsp; |[Presto(미리 보기)](../articles/data-factory/connector-presto.md) |
 | &nbsp; |[SAP Business Warehouse 개방형 허브](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |
 | &nbsp; |[MDX를 통한 SAP Business Warehouse](../articles/data-factory/connector-sap-business-warehouse.md) |
@@ -56,9 +56,9 @@ ms.locfileid: "75440471"
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |
 | &nbsp; |[Teradata](../articles/data-factory/connector-teradata.md) |
 | &nbsp; |[Vertica](../articles/data-factory/connector-vertica.md) |
-| **NoSQL** |[Cassandra](../articles/data-factory/connector-cassandra.md) |
+| **Nosql** |[Cassandra](../articles/data-factory/connector-cassandra.md) |
 | &nbsp; |[Couchbase(미리 보기)](../articles/data-factory/connector-couchbase.md) |
-| **최근에 사용한 파일** |[Amazon S3](../articles/data-factory/connector-amazon-simple-storage-service.md) |
+| **파일** |[Amazon S3](../articles/data-factory/connector-amazon-simple-storage-service.md) |
 | &nbsp; |[파일 시스템](../articles/data-factory/connector-file-system.md) |
 | &nbsp; |[FTP](../articles/data-factory/connector-ftp.md) |
 | &nbsp; |[Google Cloud Storage](../articles/data-factory/connector-google-cloud-storage.md) |
@@ -68,7 +68,7 @@ ms.locfileid: "75440471"
 | &nbsp; |[일반 OData](../articles/data-factory/connector-odata.md) |
 | &nbsp; |[일반 ODBC](../articles/data-factory/connector-odbc.md) |
 | **서비스 및 앱** |[Amazon Marketplace 웹 서비스](../articles/data-factory/connector-amazon-marketplace-web-service.md) |
-| &nbsp; |[Common Data Service for Apps](../articles/data-factory/connector-dynamics-crm-office-365.md) |
+| &nbsp; |[앱에 대한 Common Data Service](../articles/data-factory/connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Concur(미리 보기)](../articles/data-factory/connector-concur.md) |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Azure IoT Hub](../articles/data-factory/connector-dynamics-ax.md) |
@@ -81,7 +81,7 @@ ms.locfileid: "75440471"
 | &nbsp; |[Oracle Eloqua(미리 보기)](../articles/data-factory/connector-oracle-eloqua.md) |
 | &nbsp; |[Oracle Responsys(미리 보기)](../articles/data-factory/connector-oracle-responsys.md) |
 | &nbsp; |[Oracle Service Cloud(미리 보기)](../articles/data-factory/connector-oracle-service-cloud.md) |
-| &nbsp; |[PayPal (미리 보기)](../articles/data-factory/connector-paypal.md) |
+| &nbsp; |[페이팔 (미리보기)](../articles/data-factory/connector-paypal.md) |
 | &nbsp; |[QuickBooks(미리 보기)](../articles/data-factory/connector-quickbooks.md) |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |
 | &nbsp; |[Salesforce 서비스 클라우드](../articles/data-factory/connector-salesforce-service-cloud.md) |

@@ -9,19 +9,19 @@ ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
 ms.openlocfilehash: a9473f69d600a86ff71da69c7efe0dea3f2b0a08
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76159339"
 ---
-## <a name="os-config"></a>VM 운영 체제에 IP 주소 추가
+## <a name="add-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>VM 운영 체제에 IP 주소 추가
 
 여러 개인 IP 주소를 사용하여 만든 VM에 연결하고 로그인합니다. VM에 추가한 모든 개인 IP 주소(기본 포함)를 수동으로 추가해야 합니다. VM 운영 체제에 대한 다음 단계를 완료합니다.
 
 ### <a name="windows"></a>Windows
 
-1. 명령 프롬프트에서 *ipconfig /all*을 입력합니다.  *기본* 개인 IP 주소(DHCP를 통한)만 표시됩니다.
+1. 명령 프롬프트에서 *ipconfig /all을*입력합니다.  *기본* 개인 IP 주소(DHCP를 통한)만 표시됩니다.
 2. 명령 프롬프트 창에 *ncpa.cpl*을 입력하여 **네트워크 연결** 창을 엽니다.
 3. 적절한 어댑터 **로컬 영역 연결**에 대한 속성을 엽니다.
 4. IPv4(인터넷 프로토콜 버전 4)를 두 번 클릭합니다.
@@ -38,7 +38,7 @@ ms.locfileid: "76159339"
 
     * **확인**을 클릭하여 TCP/IP 설정을 닫은 다음 **확인**을 다시 클릭하여 어댑터 설정을 닫습니다. RDP 연결이 다시 설정됩니다.
 
-6. 명령 프롬프트에서 *ipconfig /all*을 입력합니다. 추가한 모든 IP 주소가 표시되고 DHCP는 해제됩니다.
+6. 명령 프롬프트에서 *ipconfig /all을*입력합니다. 추가한 모든 IP 주소가 표시되고 DHCP는 해제됩니다.
 7. Azure에서 Windows에 대한 기본 IP 주소로 기본 IP 구성의 개인 IP 주소를 사용하도록 Windows를 구성합니다. 자세한 내용은 [여러 개의 IP 주소가 있는 Azure Windows VM에서 인터넷 액세스 없음](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse)을 참조하세요. 
 
 ### <a name="validation-windows"></a>유효성 검사(Windows)
@@ -51,9 +51,9 @@ ping -S 10.0.0.5 hotmail.com
 >[!NOTE]
 >보조 IP 구성의 경우 구성에 공용 IP 주소가 연결된 경우에만 인터넷에 ping할 수 있습니다. 기본 IP 구성의 경우 공용 IP 주소가 인터넷에 ping되지 않아도 됩니다.
 
-### <a name="linux-ubuntu-1416"></a>Linux (Ubuntu 14/16)
+### <a name="linux-ubuntu-1416"></a>리눅스 (우분투 14/16)
 
-Linux 배포에 대 한 최신 설명서를 확인 하는 것이 좋습니다. 
+Linux 배포판에 대한 최신 설명서를 살펴보는 것이 좋습니다. 
 
 1. 터미널 창을 엽니다.
 2. 루트 사용자인지 확인합니다. 그렇지 않으면 다음 명령을 입력합니다.
@@ -112,9 +112,9 @@ Linux 배포에 대 한 최신 설명서를 확인 하는 것이 좋습니다.
 
    목록의 일부로 추가한 IP 주소가 표시되어야 합니다.
 
-### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04 +)
+### <a name="linux-ubuntu-1804"></a>리눅스 (우분투 18.04+)
 
-Ubuntu 18.04 이상이 OS 네트워크 관리에 대 한 `netplan`로 변경 되었습니다. Linux 배포에 대 한 최신 설명서를 확인 하는 것이 좋습니다. 
+우분투 18.04 이상 OS `netplan` 네트워크 관리에 대 한 변경 되었습니다. Linux 배포판에 대한 최신 설명서를 살펴보는 것이 좋습니다. 
 
 1. 터미널 창을 엽니다.
 2. 루트 사용자인지 확인합니다. 그렇지 않으면 다음 명령을 입력합니다.
@@ -123,13 +123,13 @@ Ubuntu 18.04 이상이 OS 네트워크 관리에 대 한 `netplan`로 변경 되
     sudo -i
     ```
 
-3. 두 번째 인터페이스에 대 한 파일을 만들고 텍스트 편집기에서 엽니다.
+3. 두 번째 인터페이스에 대한 파일을 만들고 텍스트 편집기에서 엽니다.
 
     ```bash
     vi /etc/netplan/60-static.yaml
     ```
 
-4. 파일에 다음 줄을 추가 하 여 `10.0.0.6/24`를 IP/네트워크 네트워크로 바꿉니다.
+4. IP/netmask로 대체하여 `10.0.0.6/24` 파일에 다음 줄을 추가합니다.
 
     ```bash
     network:
@@ -146,16 +146,16 @@ Ubuntu 18.04 이상이 OS 네트워크 관리에 대 한 `netplan`로 변경 되
     :wq
     ```
 
-6. [Netplan](http://manpages.ubuntu.com/manpages/cosmic/man8/netplan-try.8.html) 을 사용 하 여 변경 내용 테스트 구문을 확인 합니다.
+6. netplan을 사용하여 변경 내용을 테스트하여 구문을 [확인합니다.](http://manpages.ubuntu.com/manpages/cosmic/man8/netplan-try.8.html)
 
     ```bash
     netplan try
     ```
 
 > [!NOTE]
-> `netplan try`는 변경 내용을 일시적으로 적용 하 고 120 초 후에 변경 내용을 롤백합니다. 연결이 끊어지면 120 초 정도 기다린 후 다시 연결 하십시오. 이 시점에서 변경 내용이 롤백됩니다.
+> `netplan try`변경 내용을 일시적으로 적용하고 120초 후에 변경 내용을 롤백합니다. 연결이 끊어지면 120초 간 기다린 다음 다시 연결하십시오. 이 때 변경 내용이 롤백됩니다.
 
-7. `netplan try`에 문제가 없는 것으로 가정 하 여 구성 변경 내용을 적용 합니다.
+7. 에 문제가 `netplan try`없다고 가정하면 구성 변경 내용을 적용합니다.
 
     ```bash
     netplan apply
@@ -167,7 +167,7 @@ Ubuntu 18.04 이상이 OS 네트워크 관리에 대 한 `netplan`로 변경 되
     ip addr list eth0
     ```
 
-    목록의 일부로 추가한 IP 주소가 표시되어야 합니다. 예:
+    목록의 일부로 추가한 IP 주소가 표시되어야 합니다. 예제:
 
     ```bash
     1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000

@@ -1,28 +1,28 @@
 ---
-title: Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법 | Microsoft Docs
-description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift 클러스터의 모니터링을 중지 하는 방법을 설명 합니다.
+title: Azure Red Hat 오픈시프트 클러스터 모니터링을 중지하는 방법 | 마이크로 소프트 문서
+description: 이 문서에서는 컨테이너에 대한 Azure 모니터를 통해 Azure Red Hat OpenShift 클러스터의 모니터링을 중지하는 방법에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.openlocfilehash: eff5203aeedd3c7ad283b55ba12f0e45a556460d
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78250727"
 ---
-# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-cluster-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법
+# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-cluster-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure 모니터와 Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법
 
-Azure Red Hat OpenShift 클러스터의 모니터링을 사용 하도록 설정한 후에는 더 이상 모니터링 하지 않으려는 클러스터의 모니터링을 중지할 수 있습니다. 이 문서에서는 제공 된 Azure Resource Manager 템플릿을 사용 하 여이를 수행 하는 방법을 보여 줍니다.  
+Azure Red Hat OpenShift 클러스터의 모니터링을 활성화한 후 더 이상 모니터링하지 않으려는 경우 클러스터 모니터링을 중지할 수 있습니다. 이 문서에서는 제공된 Azure 리소스 관리자 템플릿을 사용하여 이 작업을 수행하는 방법을 보여 주며 이 문서에서는 이 작업을 수행합니다.  
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 
-리소스 그룹에서 솔루션 리소스를 일관적이고 반복적인 방법으로 제거할 수 있는 두 가지 Azure Resource Manager 템플릿이 제공됩니다. 하나는 모니터링을 중지 하는 구성을 지정 하는 JSON 템플릿이 고, 다른 하나에는 클러스터를 배포 하는 OpenShift 클러스터 리소스 ID 및 Azure 지역을 지정 하도록 구성 하는 매개 변수 값이 포함 됩니다.
+리소스 그룹에서 솔루션 리소스를 일관적이고 반복적인 방법으로 제거할 수 있는 두 가지 Azure Resource Manager 템플릿이 제공됩니다. 하나는 모니터링을 중지하도록 구성을 지정하는 JSON 템플릿이고 다른 하나는 클러스터가 배포된 OpenShift 클러스터 리소스 ID 및 Azure 영역을 지정하도록 구성하는 매개 변수 값을 포함합니다.
 
 템플릿을 사용하여 리소스를 배포하는 개념에 익숙하지 않은 경우 다음을 참조하십시오.
 * [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)
 
-Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.65 이상을 실행 해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.65 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
 
 ### <a name="create-template"></a>템플릿 만들기
 
@@ -84,7 +84,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
     }
     ```
 
-4. 선택한 클러스터의 **속성** 페이지에서 찾을 수 있는 openshift 클러스터의 값을 사용 하 여 **Aroresourceid** 및 **aroresourceid** 에 대 한 값을 편집 합니다.
+4. 선택한 클러스터의 **속성** 페이지에서 찾을 수 있는 OpenShift 클러스터의 값을 사용하여 **aroResourceId** 및 **aroResourceLocation의** 값을 편집합니다.
 
     ![컨테이너 속성 페이지](media/container-insights-optout-openshift/cluster-properties-page.png)
 
@@ -94,7 +94,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 
 ### <a name="remove-the-solution-using-azure-cli"></a>Azure CLI를 사용하여 솔루션 제거
 
-Linux에서 Azure CLI를 사용 하 여 다음 명령을 실행 하 여 솔루션을 제거 하 고 클러스터의 구성을 정리 합니다.
+Linux에서 Azure CLI를 사용하여 다음 명령을 실행하여 솔루션을 제거하고 클러스터의 구성을 정리합니다.
 
 ```azurecli
 az login   
@@ -112,7 +112,7 @@ ProvisioningState       : Succeeded
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-템플릿을 포함 하는 폴더에서 다음 PowerShell 명령을 실행 하 여 솔루션을 제거 하 고 클러스터에서 구성을 정리 합니다.    
+템플릿이 포함된 폴더에서 다음 PowerShell 명령을 실행하여 솔루션을 제거하고 클러스터에서 구성을 정리합니다.    
 
 ```powershell
 Connect-AzAccount
@@ -128,4 +128,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>다음 단계
 
-클러스터 모니터링을 지원하려는 목적으로만 작업 영역을 만들었으며 더 이상 필요하지 않은 경우 수동으로 삭제해야 합니다. 작업 영역을 삭제 하는 방법에 익숙하지 않은 경우 [Azure Log Analytics 작업 영역 삭제](../../log-analytics/log-analytics-manage-del-workspace.md)를 참조 하세요.
+클러스터 모니터링을 지원하려는 목적으로만 작업 영역을 만들었으며 더 이상 필요하지 않은 경우 수동으로 삭제해야 합니다. 작업 영역을 삭제하는 방법에 익숙하지 않은 경우 [Azure Log Analytics 작업 영역 삭제를](../../log-analytics/log-analytics-manage-del-workspace.md)참조하십시오.

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 4a885f183dcec49ac857777ae552e97060c656f4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930863"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Zoho에서 데이터 복사(미리 보기)
@@ -23,14 +23,14 @@ ms.locfileid: "74930863"
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Zoho에서 데이터를 복사하는 방법에 대해 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 > [!IMPORTANT]
-> 이 커넥터는 현재 미리 보기 상태입니다. 사용해 보고 피드백을 제공할 수 있습니다. 솔루션의 미리 보기 커넥터에 종속성을 적용하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.
+> 이 커넥터는 현재 미리 보기로 제공되고 있습니다. 사용해 보고 피드백을 제공할 수 있습니다. 솔루션의 미리 보기 커넥터에 종속성을 적용하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-이 Zoho 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
+이 Zoho 커넥터는 다음 활동에 대해 지원됩니다.
 
-- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
-- [조회 작업](control-flow-lookup-activity.md)
+- [지원되는 소스/싱크 매트릭스로](copy-activity-overview.md) [활동 복사](copy-activity-overview.md)
+- [조회 활동](control-flow-lookup-activity.md)
 
 
 Zoho에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
@@ -47,14 +47,14 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 다음은 Zoho 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Zoho**로 설정해야 합니다. | yes |
-| endpoint | Zoho 서버의 엔드포인트입니다(`crm.zoho.com/crm/private`). | yes |
-| accessToken | Zoho 인증에 대한 액세스 토큰입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
-| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아닙니다. |
-| useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아닙니다. |
-| usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 아닙니다. |
+| 엔드포인트(endpoint) | Zoho 서버의 엔드포인트입니다(`crm.zoho.com/crm/private`). | yes |
+| accessToken | Zoho 인증에 대한 액세스 토큰입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
+| useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
+| usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
 
 **예제:**
 
@@ -76,13 +76,13 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Zoho 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
+데이터 집합을 정의하는 데 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Zoho 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
 Zoho에서 데이터를 복사하려면 데이터 세트의 type 속성을 **ZohoObject**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 type 속성은 **ZohoObject** 로 설정 해야 합니다. | yes |
+| type | 데이터 집합의 형식 속성을 **ZohoObject로** 설정해야 합니다. | yes |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -108,12 +108,12 @@ Zoho에서 데이터를 복사하려면 데이터 세트의 type 속성을 **Zoh
 
 ### <a name="zoho-as-source"></a>Zoho를 원본으로
 
-Zoho에서 데이터를 복사하려면 복사 작업의 원본 형식을 **ZohoSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
+Zoho에서 데이터를 복사하려면 복사 작업의 원본 형식을 **ZohoSource**로 설정합니다. 다음 속성은 복사 활동 **소스** 섹션에서 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **ZohoSource**로 설정해야 합니다. | yes |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Accounts"`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
+| Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Accounts"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 
@@ -147,9 +147,9 @@ Zoho에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Zoho
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>조회 작업 속성
+## <a name="lookup-activity-properties"></a>조회 활동 속성
 
-속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
+속성에 대한 자세한 내용을 보려면 [조회 활동을](control-flow-lookup-activity.md)선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

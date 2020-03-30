@@ -1,5 +1,5 @@
 ---
-title: 사용자 지정 정책을 사용 하 여 Salesforce SAML 공급자로 로그인 설정
+title: 사용자 지정 정책을 사용하여 Salesforce SAML 공급자와 함께 로그인 설정
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Salesforce SAML 공급자로 로그인 설정
 services: active-directory-b2c
@@ -12,23 +12,23 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 67fe9ef4ad2b025d11f88976973658c9cd8ae693
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187953"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Salesforce SAML 공급자로 로그인 설정
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 [사용자 지정 정책을](custom-policy-overview.md) 사용 하 여 Salesforce 조직의 사용자에 대 한 로그인을 사용 하도록 설정 하는 방법을 보여 줍니다. 사용자 지정 정책에 [SAML 기술 프로필](saml-technical-profile.md)을 추가하여 로그인할 수 있습니다.
+이 문서에서는 Azure Active Directory B2C(Azure AD B2C)의 [사용자 지정 정책을](custom-policy-overview.md) 사용하여 Salesforce 조직의 사용자에 대해 로그인을 활성화하는 방법을 보여 주며 이 문서에서는 사용자 지정 정책에 [SAML 기술 프로필](saml-technical-profile.md)을 추가하여 로그인할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 시작](custom-policy-get-started.md)의 단계를 완료합니다.
 - [Developer Edition 평가판 계정](https://developer.salesforce.com/signup)을 아직 등록하지 않았으면 등록합니다. 이 문서에서는 [Salesforce Lightning 환경](https://developer.salesforce.com/page/Lightning_Experience_FAQ)을 사용합니다.
-- Salesforce 조직에 [내 도메인을 설정](https://help.salesforce.com/articleView?id=domain_name_setup.htm&language=en_US&type=0)합니다.
+- Salesforce 조직을 위한 [내 도메인을 설정합니다.](https://help.salesforce.com/articleView?id=domain_name_setup.htm&language=en_US&type=0)
 
 ### <a name="set-up-salesforce-as-an-identity-provider"></a>Salesforce를 ID 공급자로 설정
 
@@ -40,7 +40,7 @@ ms.locfileid: "78187953"
 
 ### <a name="create-a-connected-app-in-salesforce"></a>Salesforce에서 연결된 앱 만들기
 
-1. **Id 공급자** 페이지에서 **서비스 공급자가 이제 연결 된 앱을 통해 생성 됨을 선택 합니다. 여기를 클릭 하세요.**
+1. ID **공급자** 페이지에서 이제 연결된 앱을 통해 서비스 **공급자를 선택합니다. 여기를 클릭하세요.**
 2. **기본 정보** 아래에서 연결된 앱에 대한 필수 값을 입력합니다.
 3. **웹앱 설정** 아래에서 **SAML 사용** 확인란을 선택합니다.
 4. **엔터티 ID** 필드에 다음 URL을 입력합니다. `your-tenant` 값을 Azure AD B2C 테넌트의 이름으로 바꾸어야 합니다.
@@ -88,7 +88,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 
 만든 ADFS 인증서를 Azure AD B2C 테넌트에 저장해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
 2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.
@@ -103,7 +103,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 
 사용자가 Salesforce 계정을 사용하여 로그인하도록 하려는 경우 Azure AD B2C가 엔드포인트를 통해 통신할 수 있는 클레임 공급자로 계정을 정의해야 합니다. 엔드포인트는 Azure AD B2C에서 사용하는 일련의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다.
 
-정책의 확장 파일에서 **ClaimsProviders** 요소에 Salesforce 계정을 추가하여 해당 계정을 클레임 공급자로 정의할 수 있습니다. 자세한 내용은 [SAML 기술 프로필 정의](saml-technical-profile.md)를 참조 하세요.
+정책의 확장 파일에서 **ClaimsProviders** 요소에 Salesforce 계정을 추가하여 해당 계정을 클레임 공급자로 정의할 수 있습니다. 자세한 내용은 [SAML 기술 프로필 정의를](saml-technical-profile.md)참조하십시오.
 
 1. *TrustFrameworkExtensions.xml*을 엽니다.
 1. **ClaimsProviders** 요소를 찾습니다. 해당 요소가 없으면 루트 요소 아래에 추가합니다.
@@ -150,7 +150,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 
 1. **PartnerEntity** 값을 앞에서 복사한 Salesforce 메타데이터 URL로 업데이트합니다.
 1. **StorageReferenceId**의 두 인스턴스 값을 서명 인증서의 키 이름으로 업데이트합니다. 예: B2C_1A_SAMLSigningCert.
-1. `<ClaimsProviders>` 섹션을 찾아 다음 XML 코드 조각을 추가 합니다. 정책에 이미 기술 프로필 `SM-Saml-idp` 포함 되어 있는 경우 다음 단계로 건너뜁니다. 자세한 내용은 [Single Sign-On 세션 관리](custom-policy-reference-sso.md)를 참조 하세요.
+1. `<ClaimsProviders>` 섹션을 찾아 다음 XML 스니펫을 추가합니다. 정책에 기술 프로필이 `SM-Saml-idp` 이미 포함되어 있는 경우 다음 단계로 건너뜁니다. 자세한 내용은 [단일 사인온 세션 관리를](custom-policy-reference-sso.md)참조하십시오.
 
     ```XML
     <ClaimsProvider>
@@ -182,7 +182,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 이제 ID 공급자는 설정되었지만 등록 또는 로그인 화면에서 사용할 수는 없는 상태입니다. ID 공급자를 사용할 수 있게 하려면 기존 템플릿 사용자 경험의 복제본을 만든 다음 Salesforce ID 공급자도 포함하도록 수정합니다.
 
 1. 시작 팩에서 *TrustFrameworkBase.xml* 파일을 엽니다.
-2. **이 포함된** UserJourney`Id="SignUpOrSignIn"` 요소를 찾아서 전체 콘텐츠를 복사합니다.
+2. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소를 찾아서 전체 콘텐츠를 복사합니다.
 3. *TrustFrameworkExtensions.xml*을 열어 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
 4. 이전 단계에서 복사한 **UserJourney** 요소의 전체 콘텐츠를 **UserJourneys** 요소의 자식으로 붙여넣습니다.
 5. 사용자 경험 ID의 이름을 바꿉니다. `SignUpSignInSalesforce`)을 입력합니다.
@@ -191,7 +191,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 
 **ClaimsProviderSelection** 요소는 등록 또는 로그인 화면의 ID 공급자 단추와 비슷합니다. LinkedIn 계정에 **ClaimsProviderSelection** 요소를 추가하면 사용자가 페이지를 열 때 새 단추가 표시됩니다.
 
-1. 방금 만든 사용자 경험의 **이 포함된** OrchestrationStep`Order="1"` 요소를 찾습니다.
+1. 방금 만든 사용자 경험의 `Order="1"`이 포함된 **OrchestrationStep** 요소를 찾습니다.
 2. **ClaimsProviderSelects** 아래에 다음 요소를 추가합니다. **TargetClaimsExchangeId** 값을 적절한 값(예: `SalesforceExchange`)으로 설정합니다.
 
     ```XML
@@ -202,7 +202,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 
 이제 단추가 준비되었으므로 동작에 연결해야 합니다. 이 경우에 작업을 통해 Azure AD B2C에서 Salesforce 계정과 통신하여 토큰을 수신할 수 있게 됩니다.
 
-1. 사용자 경험에서 **가 포함된** OrchestrationStep`Order="2"`을 찾습니다.
+1. 사용자 경험에서 `Order="2"`가 포함된 **OrchestrationStep**을 찾습니다.
 2. 다음 **ClaimsExchange** 요소를 추가합니다. **Id**에는 **TargetClaimsExchangeId**에 사용한 것과 같은 값을 사용해야 합니다.
 
     ```XML
@@ -215,7 +215,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 애플리케이션 만들기
 
-Azure AD B2C와의 통신은 B2C 테 넌 트에 등록 하는 응용 프로그램을 통해 발생 합니다. 이 섹션에는 아직 만들지 않은 경우 테스트 애플리케이션을 만들기 위해 완료할 수 있는 선택적 단계가 나와 있습니다.
+Azure AD B2C와의 통신은 B2C 테넌트에 등록하는 응용 프로그램을 통해 발생합니다. 이 섹션에는 아직 만들지 않은 경우 테스트 애플리케이션을 만들기 위해 완료할 수 있는 선택적 단계가 나와 있습니다.
 
 [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 

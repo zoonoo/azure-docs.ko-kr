@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 528b961ca07ec86ad502ee1b589772e354564a3d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75421690"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Orchestrator에서 Azure Automation으로 마이그레이션(Beta)
@@ -92,7 +92,7 @@ ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module 
 ### <a name="log-files"></a>로그 파일
 Runbook Converter는 동일한 위치에 있는 다음 로그 파일을 변환된 runbook으로 만듭니다.  파일이 이미 있는 경우 마지막 변환에서 정보를 사용하여 덮어씁니다.
 
-| File | 콘텐츠 |
+| 파일 | 콘텐츠 |
 |:--- |:--- |
 | Runbook Converter - Progress.log |성공적으로 변환된 각 작업에 대한 정보 및 변환되지 않은 각 활동에 대한 경고를 포함하는 변환의 자세한 단계입니다. |
 | Runbook Converter - Summary.log |변환된 runbook에 필요한 변수를 만드는 등 수행해야 하는 경고 및 후속 작업을 포함한 마지막 변환의 요약입니다. |

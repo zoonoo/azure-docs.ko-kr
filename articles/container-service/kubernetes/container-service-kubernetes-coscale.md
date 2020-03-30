@@ -8,10 +8,10 @@ ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: f1d0ca1ffc2e7a3d645ac5acbaafdf45f85550be
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76271106"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>(사용되지 않음) CoScale을 사용하여 Azure Container Service Kubernetes 클러스터 모니터링
@@ -30,7 +30,7 @@ CoScale은 여러 오케스트레이션 플랫폼의 모든 컨테이너에서 �
 이 문서에 나와 있는 것처럼 Kubernetes 클러스터에 에이전트를 설치하여 CoScale을 SaaS 솔루션으로 실행할 수 있습니다. 데이터를 온사이트에 유지하려는 경우 온-프레미스 설치에도 CoScale을 사용할 수 있습니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 먼저 [CoScale 계정을 만들어야 합니다](https://web.archive.org/web/20170507123133/https://www.coscale.com/free-trial).
 
@@ -59,7 +59,7 @@ az acs kubernetes install-cli
 ```
 
 ## <a name="installing-the-coscale-agent-with-a-daemonset"></a>DaemonSet에 CoScale 에이전트 설치
-[DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)은 Kubernetes가 클러스터의 각 호스트에서 컨테이너의 단일 인스턴스를 실행하기 위해 사용합니다.
+[DaemonSet은](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) Kubernetes에서 클러스터의 각 호스트에서 컨테이너의 단일 인스턴스를 실행하는 데 사용됩니다.
 CoScale 에이전트와 같은 모니터링 에이전트를 실행하는 데 완벽합니다.
 
 CoScale에 로그인한 후 [에이전트 페이지](https://app.coscale.com/)로 이동한 다음 DaemonSet을 사용하여 클러스터에 CoScale 에이전트를 설치합니다. CoScale UI는 에이전트를 만들고 전체 Kubernetes 클러스터 모니터링을 시작하기 위한 단계별 구성 과정을 제공합니다.

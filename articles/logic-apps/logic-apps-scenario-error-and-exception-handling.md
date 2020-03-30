@@ -1,6 +1,6 @@
 ---
 title: 예외 처리 & 오류 로깅 시나리오
-description: 고급 예외 처리 및 오류 로깅에 대 한 실제 사용 사례 및 시나리오 Azure Logic Apps
+description: Azure Logic Apps의 고급 예외 처리 및 오류 로깅을 위한 실제 사용 사례 및 시나리오
 services: logic-apps
 ms.suite: integration
 author: hedidin
@@ -8,10 +8,10 @@ ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
 ms.openlocfilehash: 1bb6e28c9dcae01f3233178706d2a24156fa509a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76902693"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>시나리오: 논리 앱에 대한 예외 처리 및 오류 로깅
@@ -37,9 +37,9 @@ ms.locfileid: "76902693"
 
 ## <a name="how-we-solved-the-problem"></a>문제를 해결한 방법
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") 를 로그 및 오류 레코드에 대 한 리포지토리로 선택 했습니다 (Cosmos DB 레코드를 문서로 참조). Azure Logic Apps에 모든 응답에 대한 표준 템플릿이 있으므로 사용자 지정 스키마를 만들 필요가 없습니다. 오류 및 로그 기록에 대한 **삽입** 및 **쿼리**에 API 앱을 만들 수 있습니다. API 앱 내에서 각각에 대한 스키마를 정의할 수도 있습니다.  
+Azure [코스모스 DB를](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") 로그 및 오류 레코드의 리포지토리로 선택했습니다(코스모스 DB는 레코드를 문서로 참조함). Azure Logic Apps에 모든 응답에 대한 표준 템플릿이 있으므로 사용자 지정 스키마를 만들 필요가 없습니다. 오류 및 로그 기록에 대한 **삽입** 및 **쿼리**에 API 앱을 만들 수 있습니다. API 앱 내에서 각각에 대한 스키마를 정의할 수도 있습니다.  
 
-다른 요구 사항은 특정 날짜 이후 기록을 제거하는 것입니다. Cosmos DB에는 TTL ( [time To live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Ttl (Time to Live)") ) 이라는 속성이 있으며,이 속성을 통해 각 레코드 또는 컬렉션의 Ttl ( **time to live** ) 값을 설정할 수 있었습니다. 이 기능 덕분에 Cosmos DB에서 레코드를 수동으로 삭제할 필요가 없어졌습니다.
+다른 요구 사항은 특정 날짜 이후 기록을 제거하는 것입니다. 코스모스 DB는 각 레코드 또는 컬렉션에 대해 **시간 라이브** 값을 설정할 수 있는 TTL(Time [to Live)이라는](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "살 시간") 속성을 가지고 있습니다. 이 기능 덕분에 Cosmos DB에서 레코드를 수동으로 삭제할 필요가 없어졌습니다.
 
 > [!IMPORTANT]
 > 이 자습서를 완료하려면 Cosmos DB 데이터베이스와 두 개의 컬렉션(로깅 및 오류)을 만들어야 합니다.
@@ -431,7 +431,7 @@ API 앱에서 발생한 로그 응답 메시지입니다.
 
 Azure Cosmos DB의 모든 문서에는 고유 ID가 있어야 합니다. `PatientId` 를 사용하고 Unix 타임스탬프 값(double)으로 변환되는 타임스탬프를 추가합니다. 값을 잘라서 소수 자릿수 값을 제거합니다.
 
-[GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs)에서 오류 컨트롤러 API의 소스 코드를 확인할 수 있습니다.
+[GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs)에서 오류 컨트롤러 API의 소스 코드를 볼 수 있습니다.
 
 다음 구문을 사용하여 논리 앱에서 API를 호출합니다.
 
@@ -476,7 +476,7 @@ Azure Cosmos DB의 모든 문서에는 고유 ID가 있어야 합니다. `Patien
 
 ### <a name="source-code"></a>소스 코드
 
-Logic Apps exception management API 응용 프로그램에 대 한 소스 코드는이 [GitHub 리포지토리에서](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "논리 앱 예외 관리 API")사용할 수 있습니다.
+논리 앱 예외 관리 API 응용 프로그램에 대한 소스 코드는 이 [GitHub 리포지토리에서](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "논리 앱 예외 관리 API")사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

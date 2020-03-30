@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 0a40496e4d496d0062c6ee7a6ab935c1ad9b35a1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75396345"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure에서 자동 크기 조정 시작
@@ -19,7 +19,7 @@ Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://a
 ## <a name="discover-the-autoscale-settings-in-your-subscription"></a>구독에서 자동 크기 조정 설정 검색
 Azure Monitor에서 자동 크기 조정을 적용할 수 있는 리소스를 모두 검색할 수 있습니다. 단계별 연습을 진행하려면 다음 단계를 수행합니다.
 
-1. Azure Portal를 엽니다 [.][1]
+1. Azure [포털을 엽니다.][1]
 1. 왼쪽 창에서 Azure Monitor 아이콘을 클릭합니다.
   ![Azure Monitor 열기][2]
 1. **자동 크기 조정**을 클릭하여 자동 크기 조정을 적용할 수 있는 모든 리소스와 해당 리소스의 현재 자동 크기 조정 상태를 확인합니다.
@@ -37,7 +37,7 @@ Azure Monitor에서 자동 크기 조정을 적용할 수 있는 리소스를 �
 
 이제 간단한 단계별 연습을 통해 첫 번째 자동 크기 조정 설정을 만들어 보겠습니다.
 
-1. Azure Monitor에서 **자동 크기 조정** 블레이드를 열고 크기를 조정할 리소스를 선택합니다. 아래 단계에서는 웹앱과 연결된 App Service 계획을 사용합니다. [5 분 내에 Azure에서 첫 번째 ASP.NET 웹 앱을 만들][4]수 있습니다.
+1. Azure Monitor에서 **자동 크기 조정** 블레이드를 열고 크기를 조정할 리소스를 선택합니다. 아래 단계에서는 웹앱과 연결된 App Service 계획을 사용합니다. [Azure에서 5분 내에 첫 번째 ASP.NET 웹앱을 만들 수 있습니다.][4]
 1. 현재 인스턴스 수는 1개입니다. **자동 크기 조정 사용**을 클릭합니다.
   ![새 웹앱에 대한 크기 조정 설정][5]
 1. 크기 조정 설정의 이름을 입력하고 **규칙 추가**를 클릭합니다. 오른쪽에 컨텍스트 창으로 열리는 크기 조정 규칙 옵션을 확인합니다. 이 규칙은 기본적으로 리소스의 CPU 백분율이 70%를 초과하면 인스턴스 수를 하나씩 늘리도록 옵션을 설정합니다. 규칙을 기본값으로 유지하고 **추가**를 클릭합니다.

@@ -1,6 +1,6 @@
 ---
-title: Azure 서비스에 대 한 역방향 DNS-Azure DNS
-description: 이 학습 경로를 사용 하 여 Azure에서 호스트 되는 서비스에 대 한 역방향 DNS 조회 구성을 시작 합니다.
+title: Azure 서비스에 대한 역방향 DNS - Azure DNS
+description: 이 학습 경로를 통해 Azure에서 호스팅되는 서비스에 대한 역방향 DNS 조회 구성을 시작할 수 있습니다.
 services: dns
 documentationcenter: na
 author: rohinkoul
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
 ms.openlocfilehash: 073e84ece11f6817bfe2c5a94735ec6e16dac4fe
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76932364"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Azure에서 호스트되는 서비스에 대해 역방향 DNS 구성
@@ -61,7 +61,7 @@ Azure는 현재 IPv4 PublicIpAddress 리소스에 대해서만 역방향 DNS를 
 
 #### <a name="powershell"></a>PowerShell
 
-역방향 DNS를 기존 PublicIpAddress 업데이트 하려면 다음을 수행 합니다.
+역방향 DNS를 기존 PublicIpAddress로 업데이트하려면 다음을 수행하십시오.
 
 ```powershell
 $pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
@@ -224,7 +224,7 @@ Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse 
 
 ### <a name="are-default-reverse-dns-records-created-for-my-azure-services"></a>내 Azure 서비스에 대해 기본 역방향 DNS 레코드가 생성되나요?
 
-아닙니다. 역방향 DNS는 옵트인(opt in) 기능입니다. 역방향 레코드를 구성하지 않으면 기본 역방향 DNS 레코드가 만들어지지 않습니다.
+아니요. 역방향 DNS는 옵트인(opt in) 기능입니다. 역방향 레코드를 구성하지 않으면 기본 역방향 DNS 레코드가 만들어지지 않습니다.
 
 ### <a name="what-is-the-format-for-the-fully-qualified-domain-name-fqdn"></a>FQDN(정규화된 도메인 이름)의 형식은 무엇인가요?
 
@@ -236,15 +236,15 @@ FQDN은 정방향 순서로 지정되고 점으로 끝나야 합니다(예: "app
 
 ### <a name="can-i-configure-reverse-dns-for-azure-app-service"></a>Azure App Service에 대한 역방향 DNS를 구성할 수 있나요?
 
-아닙니다. 역방향 DNS는 Azure App Service에 대해 지원되지 않습니다.
+아니요. 역방향 DNS는 Azure App Service에 대해 지원되지 않습니다.
 
 ### <a name="can-i-configure-multiple-reverse-dns-records-for-my-azure-service"></a>내 Azure 대해 다중 역방향 DNS 레코드를 구성할 수 있나요?
 
-아닙니다. Azure는 각 Azure Cloud Service 또는 PublicIpAddress에 대해 단일 역방향 DNS 레코드를 지원합니다.
+아니요. Azure는 각 Azure Cloud Service 또는 PublicIpAddress에 대해 단일 역방향 DNS 레코드를 지원합니다.
 
 ### <a name="can-i-configure-reverse-dns-for-ipv6-publicipaddress-resources"></a>IPv6 PublicIpAddress 리소스에 대한 역방향 DNS를 구성할 수 있나요?
 
-아닙니다. Azure는 현재 IPv4 PublicIpAddress 리소스 및 Cloud Services에 대해서만 역방향 DNS를 지원합니다.
+아니요. Azure는 현재 IPv4 PublicIpAddress 리소스 및 Cloud Services에 대해서만 역방향 DNS를 지원합니다.
 
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Azure Compute 서비스에서 외부 도메인으로 이메일을 보낼 수 있나요?
 

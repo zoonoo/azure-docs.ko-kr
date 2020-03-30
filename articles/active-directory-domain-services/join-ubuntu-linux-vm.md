@@ -1,6 +1,6 @@
 ---
-title: Azure AD Domain Services에 Ubuntu VM 참여 | Microsoft Docs
-description: Ubuntu Linux 가상 머신을 구성 하 고 Azure AD Domain Services 관리 되는 도메인에 가입 하는 방법을 알아봅니다.
+title: 우분투 VM에 가입하여 Azure AD 도메인 서비스에 | 마이크로 소프트 문서
+description: Azure AD 도메인 서비스 관리 도메인에 우분투 리눅스 가상 컴퓨터를 구성 하고 가입 하는 방법에 대해 알아봅니다.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: iainfou
 ms.openlocfilehash: bc5371ccbd3ba66117d5c613090b70ce7f07d51e
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78298844"
 ---
-# <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리 되는 도메인에 Ubuntu Linux 가상 컴퓨터 연결
+# <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Azure AD 도메인 서비스 관리 도메인에 우분투 리눅스 가상 머신에 가입
 
-사용자가 단일 자격 증명 집합을 사용 하 여 Azure에서 Vm (가상 머신)에 로그인 할 수 있도록 Vm을 Azure Active Directory Domain Services (AD DS) 관리 되는 도메인에 조인할 수 있습니다. Azure AD DS 관리 되는 도메인에 VM을 가입 하는 경우 도메인의 사용자 계정 및 자격 증명을 사용 하 여 서버에 로그인 하 고 서버를 관리할 수 있습니다. VM의 파일 또는 서비스에 대 한 액세스를 제어할 수 있도록 Azure AD DS 관리 되는 도메인의 그룹 멤버 자격도 적용 됩니다.
+사용자가 단일 자격 증명 집합을 사용하여 Azure의 VM(가상 시스템)에 로그인할 수 있도록 하려면 VM을 Azure Active Directory 도메인 서비스(AD DS) 관리 도메인에 조인할 수 있습니다. VM을 Azure AD DS 관리 도메인에 가입하면 도메인의 사용자 계정 및 자격 증명을 사용하여 서버에 로그인하고 관리할 수 있습니다. Azure AD DS 관리 도메인의 그룹 구성원 자격도 적용되어 VM의 파일 또는 서비스에 대한 액세스를 제어할 수 있습니다.
 
-이 문서에서는 Azure AD DS 관리 되는 도메인에 Ubuntu Linux VM을 조인 하는 방법을 보여 줍니다.
+이 문서에서는 Azure AD DS 관리 도메인에 우분투 리눅스 VM을 조인하는 방법을 보여 주며 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -34,82 +34,82 @@ ms.locfileid: "78298844"
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
     * 필요한 경우 첫 번째 자습서에서 [Azure Active Directory Domain Services 인스턴스를 만들고 구성합니다][create-azure-ad-ds-instance].
-* Azure AD DS 관리 되는 도메인의 일부인 사용자 계정
+* Azure AD DS 관리 도메인의 일부인 사용자 계정입니다.
 
-## <a name="create-and-connect-to-an-ubuntu-linux-vm"></a>Ubuntu Linux VM 만들기 및 연결
+## <a name="create-and-connect-to-an-ubuntu-linux-vm"></a>만들고 우분투 리눅스 VM에 연결
 
-Azure에 기존 Ubuntu Linux VM이 있는 경우 SSH를 사용 하 여 연결 하 고 다음 단계를 계속 진행 하 여 [vm 구성을 시작](#configure-the-hosts-file)합니다.
+Azure에 기존 우분투 리눅스 VM이 있는 경우 SSH를 사용하여 연결한 다음 다음 단계로 계속하여 [VM 구성을 시작합니다.](#configure-the-hosts-file)
 
-Ubuntu Linux VM을 만들거나이 문서에서 사용할 테스트 VM을 만들려는 경우 다음 방법 중 하나를 사용할 수 있습니다.
+우분투 리눅스 VM을 만들 필요가 있거나이 문서와 함께 사용할 테스트 VM을 만들려면 다음 방법 중 하나를 사용할 수 있습니다.
 
-* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
+* [Azure 포털](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
-* [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
+* [Azure 파워쉘](../virtual-machines/linux/quick-create-powershell.md)
 
-VM을 만들 때 VM이 Azure AD DS 관리 되는 도메인과 통신할 수 있는지 확인 하려면 가상 네트워크 설정에 주의를 기울여야 합니다.
+VM을 만들 때 가상 네트워크 설정에 주의를 기울여 VM이 Azure AD DS 관리 도메인과 통신할 수 있는지 확인합니다.
 
-* Azure AD Domain Services를 사용 하도록 설정한 것과 동일한 또는 피어 링 가상 네트워크에 VM을 배포 합니다.
-* Azure AD Domain Services 인스턴스와 다른 서브넷에 VM을 배포 합니다.
+* VM을 Azure AD 도메인 서비스를 사용하도록 설정한 동일한 피어식 가상 네트워크에 배포합니다.
+* Azure AD 도메인 서비스 인스턴스와 다른 서브넷에 VM을 배포합니다.
 
-VM을 배포한 후에는 SSH를 사용 하 여 VM에 연결 하는 단계를 수행 합니다.
+VM이 배포되면 SSH를 사용하여 VM에 연결하는 단계를 따릅니다.
 
 ## <a name="configure-the-hosts-file"></a>hosts 파일 구성
 
-VM 호스트 이름이 관리 되는 도메인에 대해 올바르게 구성 되었는지 확인 하려면 */etc/hosts* 파일을 편집 하 고 호스트 이름을 설정 합니다.
+관리되는 도메인에 대해 VM 호스트 이름이 올바르게 구성되었는지 확인하려면 */etc/hosts* 파일을 편집하고 호스트 이름을 설정합니다.
 
 ```console
 sudo vi /etc/hosts
 ```
 
-*Hosts* 파일에서 *localhost* 주소를 업데이트 합니다. 다음 예제에서,
+*호스트* 파일에서 로컬 *호스트* 주소를 업데이트합니다. 다음 예제에서,
 
-* *aaddscontoso.com* 는 Azure AD DS 관리 되는 도메인의 DNS 도메인 이름입니다.
-* *ubuntu* 는 관리 되는 도메인에 가입 하는 ubuntu VM의 호스트 이름입니다.
+* *aaddscontoso.com* Azure AD DS 관리 도메인의 DNS 도메인 이름입니다.
+* *우분투는* 관리 되는 도메인에 가입 하는 우분투 VM의 호스트 이름입니다.
 
-이러한 이름을 사용자 고유의 값으로 업데이트 합니다.
+이러한 이름을 사용자 고유의 값으로 업데이트합니다.
 
 ```console
 127.0.0.1 ubuntu.aaddscontoso.com ubuntu
 ```
 
-완료 되 면 편집기의 `:wq` 명령을 사용 하 여 *hosts* 파일을 저장 하 고 종료 합니다.
+작업이 완료되면 편집기의 *hosts* `:wq` 명령을 사용하여 호스트 파일을 저장하고 종료합니다.
 
 ## <a name="install-required-packages"></a>필요한 패키지를 설치합니다.
 
-Vm을 Azure AD DS 관리 되는 도메인에 가입 하려면 VM에 몇 가지 추가 패키지가 필요 합니다. 이러한 패키지를 설치 및 구성 하려면 `apt-get`를 사용 하 여 도메인 가입 도구를 업데이트 하 고 설치 합니다.
+VM은 Azure AD DS 관리 도메인에 VM을 조인하기 위해 몇 가지 추가 패키지가 필요합니다. 이러한 패키지를 설치하고 구성하려면 다음을 사용하여 도메인 조인 도구를 업데이트하고 설치합니다.`apt-get`
 
-Kerberos 설치 중에 *krb5.conf* 패키지는 모두 대문자로 영역 이름을 입력 하 라는 메시지를 표시 합니다. 예를 들어 Azure AD DS 관리 되는 도메인의 이름이 *aaddscontoso.com*인 경우 *AADDSCONTOSO.COM* 를 영역으로 입력 합니다. 설치는 */etc/krb5.conf* 구성 파일의 `[realm]` 및 `[domain_realm]` 섹션을 작성 합니다. 영역을 모두 대문자로 지정 해야 합니다.
+Kerberos 설치 하는 동안 *krb5 사용자* 패키지 는 모든 대문자의 영역 이름에 대 한 메시지를 표시 합니다. 예를 들어 Azure AD DS 관리 도메인의 이름이 *aaddscontoso.com*경우 *AADDSCONTOSO.COM* 영역으로 입력합니다. 설치는 `[realm]` */etc/krb5.conf* 구성 파일에 및 `[domain_realm]` 섹션을 씁니다. 영역을 ALL 대문자로 지정해야 합니다.
 
 ```console
 sudo apt-get update
 sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp ntpdate realmd adcli
 ```
 
-## <a name="configure-network-time-protocol-ntp"></a>NTP (Network Time Protocol) 구성
+## <a name="configure-network-time-protocol-ntp"></a>NTP(네트워크 시간 프로토콜 구성)
 
-도메인 통신이 제대로 작동 하려면 Ubuntu VM의 날짜 및 시간이 Azure AD DS 관리 되는 도메인과 동기화 되어야 합니다. Azure AD DS 관리 되는 도메인의 NTP 호스트 이름을 */etc/ntp.conf* 파일에 추가 합니다.
+도메인 통신이 올바르게 작동하려면 우분투 VM의 날짜와 시간이 Azure AD DS 관리 도메인과 동기화되어야 합니다. Azure AD DS 관리 도메인의 NTP 호스트 이름을 */etc/ntp.conf* 파일에 추가합니다.
 
-1. 편집기를 사용 하 여 *ntp* 파일을 엽니다.
+1. 편집기와 *ntp.conf* 파일을 엽니다.
 
     ```console
     sudo vi /etc/ntp.conf
     ```
 
-1. *Ntp* 파일에서 Azure AD DS 관리 되는 도메인의 DNS 이름을 추가할 줄을 만듭니다. 다음 예제에서는 *aaddscontoso.com* 에 대 한 항목을 추가 합니다. 사용자 고유의 DNS 이름 사용:
+1. *ntp.conf* 파일에서 Azure AD DS 관리 도메인의 DNS 이름을 추가할 줄을 만듭니다. 다음 예제에서는 *aaddscontoso.com* 대한 항목이 추가됩니다. 사용자 고유의 DNS 이름을 사용합니다.
 
     ```console
     server aaddscontoso.com
     ```
 
-    완료 되 면 편집기의 `:wq` 명령을 사용 하 여 *ntp* 파일을 저장 하 고 종료 합니다.
+    완료되면 편집기의 `:wq` 명령을 사용하여 *ntp.conf* 파일을 저장하고 종료합니다.
 
-1. VM이 Azure AD DS 관리 되는 도메인과 동기화 되었는지 확인 하려면 다음 단계를 수행 해야 합니다.
+1. VM이 Azure AD DS 관리 도메인과 동기화되도록 하려면 다음 단계가 필요합니다.
 
     * NTP 서버 중지
-    * 관리 되는 도메인에서 날짜 및 시간 업데이트
-    * NTP 서비스를 시작 합니다.
+    * 관리되는 도메인의 날짜 및 시간 업데이트
+    * NTP 서비스 시작
 
-    다음 명령을 실행 하 여 이러한 단계를 완료 합니다. `ntpdate` 명령을 사용 하 여 사용자 고유의 DNS 이름을 사용 합니다.
+    다음 명령을 실행하여 이러한 단계를 완료합니다. `ntpdate` 명령과 함께 자신의 DNS 이름을 사용합니다.
 
     ```console
     sudo systemctl stop ntp
@@ -117,63 +117,63 @@ sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp n
     sudo systemctl start ntp
     ```
 
-## <a name="join-vm-to-the-managed-domain"></a>VM을 관리 되는 도메인에 가입
+## <a name="join-vm-to-the-managed-domain"></a>관리되는 도메인에 VM 가입
 
-필요한 패키지가 VM에 설치 되어 있고 NTP가 구성 되었으므로 Azure AD DS 관리 되는 도메인에 VM을 가입 시킵니다.
+필요한 패키지가 VM에 설치되고 NTP가 구성되었으므로 VM을 Azure AD DS 관리 도메인에 조인합니다.
 
-1. `realm discover` 명령을 사용 하 여 Azure AD DS 관리 되는 도메인을 검색 합니다. 다음 예에서는 영역 *AADDSCONTOSO.COM*을 검색 합니다. Azure AD DS 관리 되는 도메인 이름을 모두 대문자로 지정 합니다.
+1. `realm discover` 명령을 사용하여 Azure AD DS 관리 도메인을 검색합니다. 다음 예제는 *AADDSCONTOSO.COM*영역을 검색합니다. 모든 대문자에서 고유한 Azure AD DS 관리 도메인 이름을 지정합니다.
 
     ```console
     sudo realm discover AADDSCONTOSO.COM
     ```
 
-   `realm discover` 명령이 Azure AD DS 관리 되는 도메인을 찾을 수 없는 경우 다음 문제 해결 단계를 검토 합니다.
+   명령에서 `realm discover` Azure AD DS 관리 도메인을 찾을 수 없는 경우 다음 문제 해결 단계를 검토합니다.
 
-    * VM에서 도메인에 연결할 수 있는지 확인 합니다. `ping aaddscontoso.com`를 시도 하 여 긍정 회신이 반환 되는지 확인 합니다.
-    * VM이 Azure AD DS 관리 되는 도메인을 사용할 수 있는 동일한 또는 피어 링 가상 네트워크에 배포 되었는지 확인 합니다.
-    * 가상 네트워크에 대 한 DNS 서버 설정이 Azure AD DS 관리 되는 도메인의 도메인 컨트롤러를 가리키도록 업데이트 되었는지 확인 합니다.
+    * VM에서 도메인에 연결할 수 있는지 확인합니다. 긍정적인 `ping aaddscontoso.com` 답장이 반환되는지 확인합니다.
+    * VM이 Azure AD DS 관리 도메인을 사용할 수 있는 동일한 피어있는 가상 네트워크에 배포되어 있는지 확인합니다.
+    * Azure AD DS 관리 도메인의 도메인 컨트롤러를 가리키도록 가상 네트워크에 대한 DNS 서버 설정이 업데이트되었는지 확인합니다.
 
-1. 이제 `kinit` 명령을 사용 하 여 Kerberos를 초기화 합니다. Azure AD DS 관리 되는 도메인의 일부인 사용자를 지정 합니다. 필요한 경우 [AZURE AD의 그룹에 사용자 계정을 추가](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)합니다.
+1. 이제 명령을 사용하여 Kerberos를 `kinit` 초기화합니다. Azure AD DS 관리 도메인의 일부인 사용자를 지정합니다. 필요한 경우 [Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)의 그룹에 사용자 계정을 추가합니다.
 
-    Azure AD DS 관리 되는 도메인 이름을 모두 대문자로 입력 해야 합니다. 다음 예에서는 `contosoadmin@aaddscontoso.com` 라는 계정이 Kerberos를 초기화 하는 데 사용 됩니다. Azure AD DS 관리 되는 도메인의 일부인 사용자 계정을 입력 합니다.
+    다시 말하지만 Azure AD DS 관리 되는 도메인 이름은 모든 대문자에 입력 해야 합니다. 다음 예제에서는 Kerberos를 초기화하는 데 명명된 `contosoadmin@aaddscontoso.com` 계정이 사용됩니다. Azure AD DS 관리 도메인의 일부인 사용자 계정을 입력합니다.
 
     ```console
     kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
-1. 마지막으로 `realm join` 명령을 사용 하 여 Azure AD DS 관리 되는 도메인에 컴퓨터를 가입 시킵니다. 이전 `kinit` 명령에서 지정한 Azure AD DS 관리 되는 도메인의 일부인 동일한 사용자 계정 (예: `contosoadmin@AADDSCONTOSO.COM`)을 사용 합니다.
+1. 마지막으로 명령을 사용하여 컴퓨터를 Azure AD DS `realm join` 관리 도메인에 조인합니다. 다음과 같이 `kinit` `contosoadmin@AADDSCONTOSO.COM`이전 명령에서 지정한 Azure AD DS 관리 도메인의 일부인 동일한 사용자 계정을 사용합니다.
 
     ```console
     sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM' --install=/
     ```
 
-VM을 Azure AD DS 관리 되는 도메인에 가입 하는 데 몇 분 정도 걸립니다. 다음 예제 출력에서는 VM이 Azure AD DS 관리 되는 도메인에 성공적으로 가입 되었음을 보여 줍니다.
+VM을 Azure AD DS 관리 도메인에 가입하는 데 몇 분 정도 걸립니다. 다음 예제 출력은 VM이 Azure AD DS 관리 도메인에 성공적으로 가입되었음을 보여 주며 다음과 같은
 
 ```output
 Successfully enrolled machine in realm
 ```
 
-VM이 도메인 가입 프로세스를 성공적으로 완료할 수 없는 경우 VM의 네트워크 보안 그룹이 TCP + UDP 포트 464의 아웃 바운드 Kerberos 트래픽을 Azure AD DS 관리 되는 도메인에 대 한 가상 네트워크 서브넷으로 허용 하는지 확인 합니다.
+VM이 도메인 조인 프로세스를 성공적으로 완료할 수 없는 경우 VM의 네트워크 보안 그룹이 TCP + UDP 포트 464의 아웃바운드 Kerberos 트래픽을 Azure AD DS 관리 도메인의 가상 네트워크 서브넷에 허용해야 합니다.
 
 ## <a name="update-the-sssd-configuration"></a>SSSD 구성 업데이트
 
-이전 단계에서 설치 된 패키지 중 하나는 SSSD (시스템 보안 서비스 디먼) 용입니다. 사용자가 도메인 자격 증명을 사용 하 여 VM에 로그인 하려고 하면 SSSD는 인증 공급자에 게 요청을 릴레이 합니다. 이 시나리오에서 SSSD는 Azure AD DS를 사용 하 여 요청을 인증 합니다.
+이전 단계에 설치된 패키지 중 하나는 시스템 보안 서비스 데몬(SSSD)이었습니다. 사용자가 도메인 자격 증명을 사용하여 VM에 로그인하려고 하면 SSSD는 요청을 인증 공급자에게 전달합니다. 이 시나리오에서 SSSD는 Azure AD DS를 사용하여 요청을 인증합니다.
 
-1. 편집기를 사용 하 여 *sssd* 파일을 엽니다.
+1. 편집기와 *sssd.conf* 파일을 엽니다.
 
     ```console
     sudo vi /etc/sssd/sssd.conf
     ```
 
-1. 다음과 같이 *use_fully_qualified_names* 에 대 한 줄을 주석으로 처리 합니다.
+1. 다음과 같이 *use_fully_qualified_names* 줄을 주석지:
 
     ```console
     # use_fully_qualified_names = True
     ```
 
-    완료 되 면 편집기의 `:wq` 명령을 사용 하 여 *sssd* 파일을 저장 하 고 종료 합니다.
+    완료되면 편집기의 `:wq` 명령을 사용하여 *sssd.conf* 파일을 저장하고 종료합니다.
 
-1. 변경 내용을 적용 하려면 SSSD 서비스를 다시 시작 합니다.
+1. 변경 을 적용하려면 SSSD 서비스를 다시 시작합니다.
 
     ```console
     sudo service sssd restart
@@ -181,27 +181,27 @@ VM이 도메인 가입 프로세스를 성공적으로 완료할 수 없는 경�
 
 ## <a name="configure-user-account-and-group-settings"></a>사용자 계정 및 그룹 설정 구성
 
-Azure AD DS 관리 되는 도메인에 가입 되 고 인증을 위해 구성 된 VM을 사용 하 여 몇 가지 사용자 구성 옵션을 완료할 수 있습니다. 이러한 구성 변경에는 암호 기반 인증 허용, 도메인 사용자가 처음으로 로그인 할 때 로컬 VM에서 홈 디렉터리 자동 생성이 포함 됩니다.
+VM이 Azure AD DS 관리 도메인에 가입되어 인증을 위해 구성되면 완료할 몇 가지 사용자 구성 옵션이 있습니다. 이러한 구성 변경 에는 암호 기반 인증을 허용하고 도메인 사용자가 처음 로그인할 때 로컬 VM에서 홈 디렉터리를 자동으로 만드는 것이 포함됩니다.
 
-### <a name="allow-password-authentication-for-ssh"></a>SSH에 대 한 암호 인증 허용
+### <a name="allow-password-authentication-for-ssh"></a>SSH에 대한 암호 인증 허용
 
-기본적으로 사용자는 SSH 공개 키 기반 인증을 사용 하 여 VM에만 로그인 할 수 있습니다. 암호 기반 인증에 실패 합니다. VM을 Azure AD DS 관리 되는 도메인에 가입 하는 경우 해당 도메인 계정은 암호 기반 인증을 사용 해야 합니다. 다음과 같이 암호 기반 인증을 허용 하도록 SSH 구성을 업데이트 합니다.
+기본적으로 사용자는 SSH 공개 키 기반 인증을 사용하여 VM에만 로그인할 수 있습니다. 암호 기반 인증에 실패합니다. VM을 Azure AD DS 관리 도메인에 가입할 때 해당 도메인 계정은 암호 기반 인증을 사용해야 합니다. 다음과 같이 암호 기반 인증을 허용하도록 SSH 구성을 업데이트합니다.
 
-1. 편집기를 사용 하 여 *sshd_conf* 파일을 엽니다.
+1. 편집기와 함께 *sshd_conf* 파일을 엽니다.
 
     ```console
     sudo vi /etc/ssh/sshd_config
     ```
 
-1. *Passwordauthentication* 의 줄을 *예*로 업데이트 합니다.
+1. *암호 인증에* 대한 줄을 *예로*업데이트합니다.
 
     ```console
     PasswordAuthentication yes
     ```
 
-    완료 되 면 편집기의 `:wq` 명령을 사용 하 여 *sshd_conf* 파일을 저장 하 고 종료 합니다.
+    작업이 완료되면 편집기의 *sshd_conf* `:wq` 명령을 사용하여 sshd_conf 파일을 저장하고 종료합니다.
 
-1. 변경 내용을 적용 하 고 사용자가 암호를 사용 하 여 로그인 하도록 하려면 SSH 서비스를 다시 시작 합니다.
+1. 변경 내용을 적용하고 사용자가 암호를 사용하여 로그인하도록 하려면 SSH 서비스를 다시 시작하십시오.
 
     ```console
     sudo systemctl restart ssh
@@ -209,7 +209,7 @@ Azure AD DS 관리 되는 도메인에 가입 되 고 인증을 위해 구성 �
 
 ### <a name="configure-automatic-home-directory-creation"></a>자동 홈 디렉터리 생성 구성
 
-사용자가 처음으로 로그인 할 때 홈 디렉터리의 자동 생성을 사용 하도록 설정 하려면 다음 단계를 완료 합니다.
+사용자가 처음 에 서명할 때 홈 디렉터리를 자동으로 만들수 있도록 하려면 다음 단계를 완료하십시오.
 
 1. 편집기에서 */etc/pam.d/common-session* 파일을 엽니다.
 
@@ -217,60 +217,60 @@ Azure AD DS 관리 되는 도메인에 가입 되 고 인증을 위해 구성 �
     sudo vi /etc/pam.d/common-session
     ```
 
-1. 이 파일에서 줄 `session optional pam_sss.so`아래에 다음 줄을 추가 합니다.
+1. 이 파일의 다음 줄을 줄 `session optional pam_sss.so`아래에 추가합니다.
 
     ```console
     session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
     ```
 
-    완료 되 면 편집기의 `:wq` 명령을 사용 하 여 *공용 세션* 파일을 저장 하 고 종료 합니다.
+    작업이 완료되면 편집기의 *common-session* `:wq` 명령을 사용하여 공통 세션 파일을 저장하고 종료합니다.
 
 ### <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>'AAD DC Administrators' 그룹 sudo 권한 부여
 
-*AAD DC 관리자* 그룹 구성원에 게 Ubuntu VM에 대 한 관리 권한을 부여 하려면 */etc/sudoers*에 항목을 추가 합니다. 일단 추가 되 면 *AAD DC 관리자* 그룹의 구성원이 Ubuntu VM에서 `sudo` 명령을 사용할 수 있습니다.
+우분투 VM에서 *AAD DC Administrators* 그룹 관리 권한의 구성원에게 권한을 부여하려면 */etc/sudoers*에 항목을 추가합니다. 추가되면 *AAD DC 관리자* 그룹의 구성원은 `sudo` 우분투 VM에서 명령을 사용할 수 있습니다.
 
-1. 편집할 *sudoers* 파일을 엽니다.
+1. 편집을 위해 *sudoers* 파일을 엽니다.
 
     ```console
     sudo visudo
     ```
 
-1. */Etc/sudoers* 파일의 끝에 다음 항목을 추가 합니다.
+1. */etc/sudoers* 파일의 끝에 다음 항목을 추가합니다.
 
     ```console
     # Add 'AAD DC Administrators' group members as admins.
     %AAD\ DC\ Administrators ALL=(ALL) NOPASSWD:ALL
     ```
 
-    완료 되 면 `Ctrl-X` 명령을 사용 하 여 편집기를 저장 하 고 종료 합니다.
+    완료되면 명령을 사용하여 편집기에서 `Ctrl-X` 저장하고 종료합니다.
 
-## <a name="sign-in-to-the-vm-using-a-domain-account"></a>도메인 계정을 사용 하 여 VM에 로그인 합니다.
+## <a name="sign-in-to-the-vm-using-a-domain-account"></a>도메인 계정을 사용하여 VM에 로그인
 
-VM이 Azure AD DS 관리 되는 도메인에 성공적으로 가입 되었는지 확인 하려면 도메인 사용자 계정을 사용 하 여 새 SSH 연결을 시작 합니다. 홈 디렉터리가 만들어지고 도메인의 그룹 구성원이 적용 되었는지 확인 합니다.
+VM이 Azure AD DS 관리 도메인에 성공적으로 가입되었는지 확인하려면 도메인 사용자 계정을 사용하여 새 SSH 연결을 시작합니다. 홈 디렉터리가 만들어졌고 도메인의 그룹 구성원이 적용되었는지 확인합니다.
 
-1. 콘솔에서 새 SSH 연결을 만듭니다. `contosoadmin@aaddscontoso.com`와 같은 `ssh -l` 명령을 사용 하 여 관리 되는 도메인에 속하는 도메인 계정을 사용한 다음 VM의 주소 (예: *ubuntu.aaddscontoso.com*)를 입력 합니다. Azure Cloud Shell 사용 하는 경우 내부 DNS 이름이 아닌 VM의 공용 IP 주소를 사용 합니다.
+1. 본체에서 새 SSH 연결을 만듭니다. ubuntu.aaddscontoso.com 와 같은 VM의 주소를 `ssh -l` 입력하는 등의 `contosoadmin@aaddscontoso.com` 명령을 사용하여 관리되는 도메인에 속한 도메인 계정을 *사용합니다.* Azure 클라우드 셸을 사용하는 경우 내부 DNS 이름이 아닌 VM의 공용 IP 주소를 사용합니다.
 
     ```console
     ssh -l contosoadmin@AADDSCONTOSO.com ubuntu.aaddscontoso.com
     ```
 
-1. VM에 성공적으로 연결한 경우 홈 디렉터리가 올바르게 초기화 되었는지 확인 합니다.
+1. VM에 성공적으로 연결한 경우 홈 디렉터리가 올바르게 초기화되었는지 확인합니다.
 
     ```console
     pwd
     ```
 
-    사용자 계정과 일치 하는 고유한 디렉터리를 사용 하 여 */home* 디렉터리에 있어야 합니다.
+    사용자 계정과 일치하는 고유한 디렉터리로 */home* 디렉터리에 있어야 합니다.
 
-1. 이제 그룹 멤버 자격이 올바르게 확인 되는지 확인 합니다.
+1. 이제 그룹 멤버 자격이 올바르게 확인되고 있는지 확인합니다.
 
     ```console
     id
     ```
 
-    Azure AD DS 관리 되는 도메인에서 그룹 멤버 자격을 확인 해야 합니다.
+    Azure AD DS 관리 도메인의 그룹 구성원 자격이 표시됩니다.
 
-1. *AAD DC 관리자* 그룹의 구성원으로 VM에 로그인 한 경우 `sudo` 명령을 올바르게 사용할 수 있는지 확인 합니다.
+1. *AAD DC Administrators* 그룹의 구성원으로 VM에 로그인한 경우 `sudo` 명령을 올바르게 사용할 수 있는지 확인합니다.
 
     ```console
     sudo apt-get update
@@ -278,7 +278,7 @@ VM이 Azure AD DS 관리 되는 도메인에 성공적으로 가입 되었는지
 
 ## <a name="next-steps"></a>다음 단계
 
-VM을 Azure AD DS 관리 되는 도메인에 연결 하거나 도메인 계정으로 로그인 하는 데 문제가 있는 경우 [도메인 가입 문제 해결](join-windows-vm.md#troubleshoot-domain-join-issues)을 참조 하세요.
+VM을 Azure AD DS 관리 도메인에 연결하거나 도메인 계정으로 로그인하는 데 문제가 있는 경우 [도메인 가입 문제 해결 을](join-windows-vm.md#troubleshoot-domain-join-issues)참조하세요.
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

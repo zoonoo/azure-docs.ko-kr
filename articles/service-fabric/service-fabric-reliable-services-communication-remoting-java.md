@@ -1,20 +1,20 @@
 ---
-title: Azure Service Fabric에서 Java를 사용 하 여 서비스 원격
+title: Azure 서비스 패브릭에서 Java를 사용한 서비스 원격
 description: 서비스 패브릭 원격 호출을 사용하면 클라이언트와 서비스가 원격 프로시저 호출을 사용하여 Java 서비스와 통신할 수 있도록 합니다.
 author: PavanKunapareddyMSFT
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: pakunapa
 ms.openlocfilehash: eef63d7a2c8a4b15938dfbffd7db5f9d1b22d426
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75426629"
 ---
 # <a name="service-remoting-in-java-with-reliable-services"></a>Reliable Services로 Java에서 서비스 원격 호출
 > [!div class="op_single_selector"]
-> * [Windows에서 C#](service-fabric-reliable-services-communication-remoting.md)
+> * [윈도우에서 C #](service-fabric-reliable-services-communication-remoting.md)
 > * [Linux에서 Java](service-fabric-reliable-services-communication-remoting-java.md)
 >
 >
@@ -94,7 +94,7 @@ ServiceProxy 만들기는 가벼운 작업이므로 사용자가 원하는 만�
 ServiceProxy는 만들어진 서비스 파티션에 대한 모든 장애 조치(failover) 예외를 처리합니다. 장애 조치(Failover) 예외(영구적인 예외)가 있는 경우 엔드포인트를 다시 확인하고 올바른 엔드포인트로 호출을 다시 시도합니다. 장애 조치(Failover) 예외에 대한 재시도 횟수는 무한합니다.
 TransientExceptions의 경우에는 호출만 다시 시도합니다.
 
-기본 재시도 매개 변수는 [OperationRetrySettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client.operationretrysettings)에서 제공됩니다.
+기본 재시도 매개 변수는 [OperationRetrySettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client.operationretrysettings)에 의해 proproproed .
 사용자는 OperationRetrySettings 개체를 ServiceProxyFactory 생성자에게 전달하여 이러한 값을 구성할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus SQLFilter 구문 참조 | Microsoft Docs
-description: 이 문서에서는 SQLFilter 문법에 대 한 세부 정보를 제공 합니다. SqlFilter는 SQL-92 표준의 하위 집합을 지원합니다.
+description: 이 문서에서는 SQLFilter 문법에 대한 자세한 내용을 제공합니다. SqlFilter는 SQL-92 표준의 하위 집합을 지원합니다.
 services: service-bus-messaging
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/05/2018
 ms.author: spelluru
 ms.openlocfilehash: d5a8e165fcee23c5feecd5935983dd77d3ec6c30
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76759666"
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter 구문
@@ -60,7 +60,7 @@ ms.locfileid: "76759666"
   
 ## <a name="arguments"></a>인수  
   
--   `<scope>`는 `<property_name>`의 범위를 나타내는 선택적 문자열입니다. 유효한 값은 `sys` 또는 `user`입니다. `sys` 값은 `<property_name>`이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)의 공용 속성 이름인 시스템 범위를 나타냅니다. `user`는 `<property_name>`이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 사전의 키인 사용자 범위를 나타냅니다. `<scope>`가 지정되지 않은 경우 `user` 범위가 기본 범위입니다.  
+-   `<scope>`는 `<property_name>`의 범위를 나타내는 선택적 문자열입니다. 유효한 값은 `sys` 또는 `user`입니다. 이 `sys` 값은 `<property_name>` [BrokeredMessage 클래스의](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)공용 속성 이름이 있는 시스템 범위를 나타냅니다. `user`은 `<property_name>` [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 사전의 키인 사용자 범위를 나타냅니다. `<scope>`가 지정되지 않은 경우 `user` 범위가 기본 범위입니다.  
   
 ## <a name="remarks"></a>설명
 
@@ -239,11 +239,11 @@ Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은
   
   `[NOT] LIKE`에서 알 수 없음 평가:  
   
-- 피연산자가 **알 수 없음**으로 평가되는 경우 결과는 **알 수 없음**입니다.  
+- 피연산자중 알 **수 없음으로**평가되면 결과를 **알 수 없습니다.**  
   
   `[NOT] IN`에서 알 수 없음 평가:  
   
-- 왼쪽 피연산자가 **알 수 없음**으로 평가되는 경우 결과는 **알 수 없음**입니다.  
+- 왼쪽 피연산을 알 **수 없음으로**평가하면 결과를 **알 수 없습니다.**  
   
   **AND** 연산자에서 알 수 없음 평가:  
   

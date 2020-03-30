@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 3c1e34bb418f9be2e26afc117343f1fa50bd8566
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76308910"
 ---
 이 FAQ는 클래식 배포 모델을 사용하는 P2S 연결에 적용됩니다.
@@ -27,15 +27,15 @@ ms.locfileid: "76308910"
 * Windows 8.1(32비트 및 64비트)
 * Windows Server 2012(64비트 전용)
 * Windows Server 2012 R2(64비트 전용)
-* Windows 10
+* 윈도우 10
 
 ### <a name="can-i-use-any-software-vpn-client-that-supports-sstp-for-point-to-site"></a>지점 및 사이트 간 SSTP를 지원하는 소프트웨어 VPN 클라이언트를 사용할 수 있습니까?
 
-아닙니다. 나열된 Windows 운영 체제 버전만 지원됩니다.
+아니요. 나열된 Windows 운영 체제 버전만 지원됩니다.
 
 ### <a name="how-many-vpn-client-endpoints-can-exist-in-my-point-to-site-configuration"></a>지점 및 사이트 간 구성에 존재할 수 있는 VPN 클라이언트 엔드포인트의 수는 어떻게 됩니까?
 
-VPN 클라이언트 끝점의 양은 게이트웨이 sku 및 프로토콜에 따라 달라 집니다.
+VPN 클라이언트 엔드포인트의 양은 게이트웨이 스쿠 및 프로토콜에 따라 다릅니다.
 [!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ### <a name="can-i-use-my-own-internal-pki-root-ca-for-point-to-site-connectivity"></a>지점 및 사이트 간 연결에 내부 PKI 루트 CA를 사용할 수 있습니까?
@@ -52,7 +52,7 @@ VPN 클라이언트 끝점의 양은 게이트웨이 sku 및 프로토콜에 따
 
 ### <a name="does-point-to-site-support-auto-reconnect-and-ddns-on-the-vpn-clients"></a>지점 및 사이트 간 구성은 VPN 클라이언트에서 자동 다시 연결 및 DDNS를 지원합니까?
 
-아닙니다. 자동 다시 연결 및 DDNS는 현재 지점 및 사이트 간 VPN에서 지원되지 않습니다.
+아니요. 자동 다시 연결 및 DDNS는 현재 지점 및 사이트 간 VPN에서 지원되지 않습니다.
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-for-the-same-virtual-network"></a>동일한 가상 네트워크에 대해 사이트 간 구성과 지점 및 사이트 간 구성을 사용할 수 있습니까?
 

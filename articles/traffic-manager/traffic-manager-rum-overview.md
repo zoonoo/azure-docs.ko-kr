@@ -1,6 +1,6 @@
 ---
 title: Azure Traffic Manager의 실제 사용자 측정
-description: 이 소개에서는 Azure Traffic Manager 실제 사용자 측정 작동 하는 방법을 알아봅니다.
+description: 이 소개에서는 Azure 트래픽 관리자 실제 사용자 측정의 작동 방식을 알아봅니다.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: rohinkoul
@@ -13,10 +13,10 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: e38e1255b1a84ab5d3fd37e16eb65c76001dbfa1
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938445"
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Traffic Manager 실제 사용자 측정 개요
@@ -37,43 +37,43 @@ ms.locfileid: "76938445"
 
 ## <a name="faqs"></a>FAQ
 
-* [실제 사용자 측정를 사용할 경우의 이점은 무엇 인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-benefits-of-using-real-user-measurements)
+* [실제 사용자 측정을 사용하는 장점은 무엇인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-benefits-of-using-real-user-measurements)
 
-* [Azure 지역이 아닌 지역에서 실제 사용자 측정를 사용할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-real-user-measurements-with-non-azure-regions)
+* [비 Azure 지역에서 실제 사용자 측정을 사용할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-real-user-measurements-with-non-azure-regions)
 
-* [실제 사용자 측정에서 얻는 라우팅 방법](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#which-routing-method-benefits-from-real-user-measurements)
+* [실제 사용자 측정을 사용할 수 있는 라우팅 메서드는 무엇인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#which-routing-method-benefits-from-real-user-measurements)
 
-* [각 프로필을 별도로 실제 사용자 측정 사용 하도록 설정 해야 하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-enable-real-user-measurements-each-profile-separately)
+* [각 프로필에 실제 사용자 측정을 개별적으로 사용하도록 설정해야 하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-enable-real-user-measurements-each-profile-separately)
 
-* [내 구독에 대 한 실제 사용자 측정 해제 어떻게 할까요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-turn-off-real-user-measurements-for-my-subscription)
+* [내 구독에서 실제 사용자 측정을 해제하려면 어떻게 할까요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-turn-off-real-user-measurements-for-my-subscription)
 
-* [웹 페이지가 아닌 클라이언트 응용 프로그램에서 실제 사용자 측정를 사용할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-real-user-measurements-with-client-applications-other-than-web-pages)
+* [웹 페이지가 아닌 클라이언트 애플리케이션에서 실제 사용자 측정을 사용할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-real-user-measurements-with-client-applications-other-than-web-pages)
 
-* [내 실제 사용자 측정 활성화 된 웹 페이지가 렌더링 될 때마다 얼마나 많은 측정값이 생성 되나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered)
+* [실제 사용자 측정을 사용하는 웹 페이지를 렌더링할 때마다 만들어지는 측정값은 얼마인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered)
 
-* [웹 페이지에서 실제 사용자 측정 스크립트가 실행 되기 전에 지연이 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage)
+* [내 웹 페이지에서 실제 사용자 측정 스크립트를 실행하기 전에 지연되나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage)
 
-* [측정 하려는 Azure 지역에만 실제 사용자 측정을 사용할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-real-user-measurements-with-only-the-azure-regions-i-want-to-measure)
+* [측정하려는 Azure 지역에서만 실제 사용자 측정을 사용할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-real-user-measurements-with-only-the-azure-regions-i-want-to-measure)
 
-* [특정 숫자에 대 한 측정 수를 제한할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-limit-the-number-of-measurements-made-to-a-specific-number)
+* [측정값 수를 지정된 숫자로 제한할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-limit-the-number-of-measurements-made-to-a-specific-number)
 
-* [실제 사용자 측정의 일부로 클라이언트 응용 프로그램에서 측정 한 측정값을 볼 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements)
+* [실제 사용자 측정의 일환으로 클라이언트 애플리케이션에서 측정된 측정값을 볼 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements)
 
-* [Traffic Manager에서 제공 하는 측정 스크립트를 수정할 수 있습니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-modify-the-measurement-script-provided-by-traffic-manager)
+* [Traffic Manager에서 제공하는 측정 스크립트를 수정할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-modify-the-measurement-script-provided-by-traffic-manager)
 
-* [다른 사용자가 실제 사용자 측정에서 사용 하는 키를 볼 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements)
+* [내가 실제 사용자 측정에서 사용한 키를 다른 사용자가 볼 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements)
 
-* [다른 사용자가 내 RUM 키를 악용할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-others-abuse-my-rum-key)
+* [다른 사용자가 내 RUM 키를 공격할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-others-abuse-my-rum-key)
 
-* [모든 웹 페이지에 JavaScript 측정을 추가 해야 하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-put-the-measurement-javascript-in-all-my-web-pages)
+* [JavaScript 측정값을 전체 웹 페이지에 배치해야 하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-put-the-measurement-javascript-in-all-my-web-pages)
 
-* [실제 사용자 측정를 사용 하는 경우 최종 사용자에 대 한 정보를 Traffic Manager으로 식별할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-information-about-my-end-users-be-identified-by-traffic-manager-if-i-use-real-user-measurements)
+* [실제 사용자 측정을 사용하는 경우 Traffic Manager에서 최종 사용자에 대한 정보를 식별할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-information-about-my-end-users-be-identified-by-traffic-manager-if-i-use-real-user-measurements)
 
-* [실제 사용자 측정 웹 페이지에서 라우팅에 Traffic Manager를 사용 해야 하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-the-webpage-measuring-real-user-measurements-need-to-be-using-traffic-manager-for-routing)
+* [실제 사용자 측정을 측정하는 웹 페이지에서 라우팅을 위해 Traffic Manager를 사용해야 하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-the-webpage-measuring-real-user-measurements-need-to-be-using-traffic-manager-for-routing)
 
-* [실제 사용자 측정와 함께 사용 하기 위해 Azure 지역에서 서비스를 호스트 해야 하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements)
+* [실제 사용자 측정에서 사용하기 위해 Azure 지역에서 모든 서비스를 호스트해야 하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements)
 
-* [실제 사용자 측정 사용 하는 경우 Azure 대역폭 사용량이 증가 하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements)
+* [실제 사용자 측정을 사용하는 경우 내 Azure 대역폭 사용량이 증가하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements)
 
 ## <a name="next-steps"></a>다음 단계
 - [웹 페이지에서 실제 사용자 측정](traffic-manager-create-rum-web-pages.md)을 사용하는 방법 알아봅니다.

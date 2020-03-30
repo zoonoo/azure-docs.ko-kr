@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: robinsh
 ms.openlocfilehash: dfea53e62383409411925f2fe2f18d61a6855ec1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75429377"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>C용 Azure IoT 디바이스 SDK - 직렬 변환기에 대한 자세한 정보
 
-이 시리즈의 첫 번째 문서에서는 [C 용 Azure IoT 장치 SDK에 대 한 소개](iot-hub-device-sdk-c-intro.md)를 소개 했습니다. 다음 문서에서는 [C--IoTHubClient에 대 한 Azure IoT 장치 SDK](iot-hub-device-sdk-c-iothubclient.md)에 대 한 자세한 설명을 제공 합니다. 이 문서에서는 나머지 구성 요소인 **serializer** 라이브러리에 대한 보다 자세한 설명을 제공하여 SDK의 범위를 보완합니다.
+이 시리즈의 첫 번째 문서에서는 [C에 대한 Azure IoT 장치 SDK 소개를](iot-hub-device-sdk-c-intro.md)소개했습니다. 다음 기사에서는 [C -- IoTHubClient에 대한 Azure IoT 장치 SDK에 대한](iot-hub-device-sdk-c-iothubclient.md)자세한 설명을 제공했습니다. 이 문서에서는 나머지 구성 요소인 **serializer** 라이브러리에 대한 보다 자세한 설명을 제공하여 SDK의 범위를 보완합니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -64,14 +64,14 @@ END_NAMESPACE(WeatherStation);
 
 **serializer** 라이브러리로 만든 모델에 다음 데이터 형식이 지원됩니다.
 
-| 유형 | Description |
+| Type | Description |
 | --- | --- |
 | double |배정밀도 부동 소수점 숫자 |
 | int |32비트 정수 |
 | float |단정밀도 부동 소수점 숫자 |
 | long |정수(Long) |
-| int8\_t |8 비트 정수 |
-| int16\_t |16 비트 정수 |
+| int8\_t |8비트 정수 |
+| int16\_t |16비트 정수 |
 | int32\_t |32비트 정수 |
 | int64\_t |64비트 정수 |
 | bool |boolean |
@@ -278,7 +278,7 @@ static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned 
 {"Temperature":75, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-**TemperatureEvent**형식의 온도를 전송 하 고 있으며 해당 구조체에는 **온도** 및 **시간** 멤버가 포함 되어 있습니다. 직렬화된 데이터에 이 내용이 직접 반영됩니다.
+온도이벤트 유형이고 구조체에 온도 **TemperatureEvent**및 **시간** 멤버가 포함된 **온도를** 보내고 있습니다. 직렬화된 데이터에 이 내용이 직접 반영됩니다.
 
 마찬가지로 이 코드로 습도 이벤트도 전송할 수 있습니다.
 
@@ -315,7 +315,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-이 경우 **DECLARE\_STRUCT** 매크로를 제거 하 고 모델링 언어의 단순 유형을 사용 하 여 시나리오에서 데이터 항목을 정의 하기만 하면 됩니다.
+이 경우 **선언\_STRUCT** 매크로를 제거하고 모델링 언어의 간단한 형식을 사용하여 시나리오에서 데이터 항목을 정의하기만 하면 됩니다.
 
 일단 **시간** 이벤트는 무시하겠습니다. 이와 별개로 다음은 **온도**를 수신하는 코드입니다.
 
@@ -398,7 +398,7 @@ WITH_DATA(TemperatureAndHumidityEvent, TemperatureAndHumidity),
 
 이 모델을 사용한 경우에 **온도** 및 **습도**가 동일한 직렬화된 메시지로 전송되는 방식을 보다 쉽게 이해하게 됩니다. 하지만 두 데이터 이벤트를 모델 2를 사용하여 **SERIALIZE** 로 전달하는 경우 왜 그렇게 작동하는지 명확하지 않을 수 있습니다.
 
-이 동작은 **serializer** 라이브러리의 가정 사항을 알고 있는 경우 보다 쉽게 이해할 수 있습니다. 이를 이해 하기 위해 모델을 다시 살펴보겠습니다.
+이 동작은 **serializer** 라이브러리의 가정 사항을 알고 있는 경우 보다 쉽게 이해할 수 있습니다. 이를 이해하기 위해 모델로 돌아가보겠습니다.
 
 ```C
 DECLARE_MODEL(Thermostat,
@@ -408,7 +408,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-이 모델을 개체 지향 용어로 생각해봅니다. 이 경우 물리적 장치 (자동 온도 조절기)를 모델링 하 고 해당 장치는 **온도** 및 **습도**와 같은 특성을 포함 합니다.
+이 모델을 개체 지향 용어로 생각해봅니다. 이 경우 물리적 장치(온도 조절기)를 모델링하고 해당 장치에 **온도** 및 **습도와**같은 속성이 포함되어 있습니다.
 
 다음과 같은 코드를 사용하여 모델의 전체 상태를 전송할 수 있습니다.
 
@@ -431,11 +431,11 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature, thermosta
 {"Temperature":75, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-그러면 **Temperature** 및 **Time** 멤버를 포함하는 **TemperatureEvent**를 정의한 것처럼 정확히 같은 직렬화된 이벤트를 생성합니다. 이것은 모델 1에서 진행했습니다. 이 경우 다른 모델 (모델 2)을 사용 하 여 동일한 직렬화 된 이벤트를 생성할 수 있었습니다 .이는 다른 방식으로 **serialize** 를 호출 했기 때문입니다.
+그러면 **Temperature** 및 **Time** 멤버를 포함하는 **TemperatureEvent**를 정의한 것처럼 정확히 같은 직렬화된 이벤트를 생성합니다. 이것은 모델 1에서 진행했습니다. 이 경우 다른 방식으로 **SERIALIZE라고** 하기 때문에 다른 모델(모델 2)을 사용하여 정확히 동일한 직렬화된 이벤트를 생성할 수 있었습니다.
 
 중요한 사항은 여러 데이터 이벤트를 **SERIALIZE** 로 전달하면 각 이벤트가 단일 JSON 개체의 속성인 것으로 가정한다는 것입니다.
 
-최적의 접근 방식은 사용자와 사용자가 모델에 대해 어떻게 생각하는지에 따라 결정됩니다. "이벤트"를 클라우드로 전송하고 각 이벤트에 정의된 속성 집합이 있다면 첫 번째 접근 방식이 바람직합니다. 이 경우 **DECLARE\_STRUCT**를 사용하여 각 이벤트의 구조체를 정의한 후 **WITH\_DATA** 매크로를 사용하여 이를 모델에 포함합니다. 그런 다음 위의 첫 번째 예에서 했던 것처럼 각 이벤트를 전송합니다. 이 방법에서는 **직렬 변환기**에 단일 데이터 이벤트만 전달 합니다.
+최적의 접근 방식은 사용자와 사용자가 모델에 대해 어떻게 생각하는지에 따라 결정됩니다. "이벤트"를 클라우드로 전송하고 각 이벤트에 정의된 속성 집합이 있다면 첫 번째 접근 방식이 바람직합니다. 이 경우 **DECLARE\_STRUCT**를 사용하여 각 이벤트의 구조체를 정의한 후 **WITH\_DATA** 매크로를 사용하여 이를 모델에 포함합니다. 그런 다음 위의 첫 번째 예에서 했던 것처럼 각 이벤트를 전송합니다. 이 방법에서는 단일 데이터 이벤트만 **SERIALIZER**에 전달합니다.
 
 모델을 개체 지향 방식으로 생각한다면 두 번째 접근 방식이 적합할 수 있습니다. 이 경우에 **WITH\_DATA**를 사용하여 정의된 요소는 개체의 "속성"입니다. 클라우드로 전송하려는 "개체" 상태의 양에 따라 이벤트의 하위 집합을 원하는 대로 **SERIALIZE** 로 전달합니다.
 
@@ -443,7 +443,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature, thermosta
 
 ## <a name="message-handling"></a>메시지 처리
 
-지금까지 이 문서에서는 이벤트를 IoT Hub에 전송하는 것에 대해서만 다루었으며 수신 메시지에 대해서는 다루지 않았습니다. 이는 메시지 수신에 대해 알아야 하는 이유는 [C 용 Azure IoT 장치 SDK](iot-hub-device-sdk-c-intro.md)문서에서 주로 다룹니다. 메시지 콜백 함수를 등록 하 여 메시지를 처리 하는 문서를 회수 합니다.
+지금까지 이 문서에서는 이벤트를 IoT Hub에 전송하는 것에 대해서만 다루었으며 수신 메시지에 대해서는 다루지 않았습니다. 그 이유는 메시지 수신에 대해 알아야 할 사항이 [C에 대한 Azure IoT 장치 SDK](iot-hub-device-sdk-c-intro.md)문서에서 주로 다루어졌기 때문입니다. 메시지 콜백 함수를 등록하여 메시지를 처리하는 해당 문서에서 기억하십시오.
 
 ```C
 IoTHubClient_SetMessageCallback(iotHubClientHandle, IoTHubMessage, myWeather)
@@ -537,7 +537,7 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 
 **Serializer** 라이브러리를 사용하는 경우 알아야 할 SDK의 중요한 내용은 azure-c-shared-utility 라이브러리에 있습니다.
 
-GitHub에서 Azure-iot-c 리포지토리를 복제 하 고 `git submodule update --init` 명령을 실행 한 경우이 공유 유틸리티 라이브러리를 여기에서 찾을 수 있습니다.
+GitHub에서 Azure-iot-sdk-c 리포지토리를 복제하고 `git submodule update --init` 명령을 내린 경우 여기에서 이 공유 유틸리티 라이브러리를 찾을 수 있습니다.
 
 ```C
 .\\c-utility
@@ -557,7 +557,7 @@ azure-c-shared-utility\\macro\_utils\_h\_generator.
 
 이 솔루션의 프로그램은 **macro\_utils.h** 파일을 생성합니다. SDK에 포함된 기본 macro\_utils.h 파일이 있습니다. 이 솔루션을 사용하면 일부 매개 변수를 수정하고 이러한 매개 변수를 기반으로 헤더 파일을 다시 작성할 수 있습니다.
 
-와 관련 된 두 가지 주요 매개 변수는 **Narithmetic** 및 **nMacroParameters**입니다 .이는 매크로\_utils.tt에 있는 다음 두 줄에 정의 되어 있습니다.
+관련해야 할 두 가지 주요 매개 변수는 매크로\_utils.tt 있는 이 두 줄에 정의된 **nArithmetic** 및 **nMacroParameters입니다.**
 
 ```C
 <#int nArithmetic=1024;#>
@@ -663,9 +663,9 @@ serializer_deinit();
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 **C 용 Azure IoT 장치 SDK**에 포함 된 **serializer** 라이브러리의 고유한 측면에 대해 자세히 설명 합니다. 제공 된 정보를 사용 하 여 모델을 사용 하 여 이벤트를 전송 하 고 IoT Hub에서 메시지를 받는 방법을 잘 이해 해야 합니다.
+이 문서에서는 **C에 대한 Azure IoT 장치 SDK에**포함된 **직렬화자** 라이브러리의 고유한 측면을 자세히 설명합니다. 제공된 정보를 통해 모델을 사용하여 이벤트를 보내고 IoT Hub에서 메시지를 받는 방법을 잘 이해해야 합니다.
 
-또한 **C 용 Azure IoT 장치 SDK**를 사용 하 여 응용 프로그램을 개발 하는 방법에 대 한 세 부분으로 구성 된 시리즈를 마무리 합니다. 이렇게 하면 시작 하는 데 충분 한 정보를 얻을 수 있을 뿐만 아니라 Api의 작동 방식을 완벽 하 게 파악할 수 있습니다. 자세한 정보를 위해 여기에서 다루지 않은 몇 가지 샘플이 SDK에 제공됩니다. [Azure IoT SDK 설명서](https://github.com/Azure/azure-iot-sdk-c) 리소스에서도 유용한 추가 정보가 제공됩니다.
+또한 **C용 Azure IoT 장치 SDK를**사용하여 응용 프로그램을 개발하는 방법에 대한 세 부분으로 구성된 시리즈도 마무리합니다. 이 정보는 시작하기에 충분할 뿐만 아니라 API의 작동 방식을 철저히 이해할 수 있어야 합니다. 자세한 정보를 위해 여기에서 다루지 않은 몇 가지 샘플이 SDK에 제공됩니다. [Azure IoT SDK 설명서](https://github.com/Azure/azure-iot-sdk-c) 리소스에서도 유용한 추가 정보가 제공됩니다.
 
 IoT Hub를 개발하는 방법에 대한 자세한 내용은 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 

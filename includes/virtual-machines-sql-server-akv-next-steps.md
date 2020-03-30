@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 22f16a7382cb0fe1f3fe2a6ef5e7c00a6989623c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67182153"
 ---
 ## <a name="next-steps"></a>다음 단계
@@ -17,7 +17,7 @@ Azure Key Vault 통합을 설정한 후에는 SQL VM에서 SQL Server 암호화�
 
 여러 형태의 암호화를 이용할 수 있습니다.
 
-* [TDE(투명한 데이터 암호화)](https://msdn.microsoft.com/library/bb934049.aspx)
+* [투명 데이터 암호화(TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
 * [암호화된 백업](https://msdn.microsoft.com/library/dn449489.aspx)
 * [CLE(열 수준 암호화)](https://msdn.microsoft.com/library/ms173744.aspx)
 

@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: b-juche
 ms.openlocfilehash: 48055a774808aea86452e8410b7e717f5019d172
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78267895"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 스냅샷 관리
 
-Azure NetApp Files를 사용 하 여 볼륨에 대 한 주문형 스냅숏을 수동으로 만들거나 스냅숏에서 새 볼륨으로 복원할 수 있습니다. Azure NetApp Files 서비스는 볼륨 스냅숏을 자동으로 만들지 않습니다.  
+Azure NetApp 파일을 사용하여 볼륨에 대한 주문형 스냅샷을 수동으로 만들거나 스냅샷에서 새 볼륨으로 복원할 수 있습니다. Azure NetApp 파일 서비스는 볼륨 스냅숏을 자동으로 만들지 않습니다.  
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>볼륨에 대한 주문형 스냅샷 만들기
 
@@ -72,7 +72,7 @@ Azure NetApp Files를 사용 하 여 볼륨에 대 한 주문형 스냅숏을 �
 
     *   **가상 네트워크**  
         볼륨에 액세스하려는 Azure Vnet(가상 네트워크)을 지정합니다.  
-        지정하는 VNet에는 Azure NetApp Files에 위임된 서브넷이 있어야 합니다. Azure NetApp Files는 동일한 Vnet 또는 Vnet 피어링을 통해 볼륨과 동일한 지역에 있는 Vnet에서만 액세스할 수 있습니다. Express 경로를 통해 온-프레미스 네트워크에서 볼륨에 액세스할 수 있습니다. 
+        지정하는 VNet에는 Azure NetApp Files에 위임된 서브넷이 있어야 합니다. Azure NetApp Files는 동일한 Vnet 또는 Vnet 피어링을 통해 볼륨과 동일한 지역에 있는 Vnet에서만 액세스할 수 있습니다. 익스프레스 루트를 통해 온-프레미스 네트워크에서 볼륨에 액세스할 수 있습니다. 
 
     * **서브넷**  
         볼륨에 사용할 서브넷을 지정합니다.  

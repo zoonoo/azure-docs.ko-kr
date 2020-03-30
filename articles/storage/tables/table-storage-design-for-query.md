@@ -1,6 +1,6 @@
 ---
-title: 쿼리를 위한 Azure Table storage 디자인 | Microsoft Docs
-description: Azure 테이블 저장소의 쿼리에 대 한 테이블을 디자인 합니다.
+title: 쿼리를 위한 Azure 테이블 저장소 디자인 | 마이크로 소프트 문서
+description: Azure 테이블 저장소에서 쿼리에 대 한 테이블을 디자인 합니다.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75457634"
 ---
 # <a name="design-for-querying"></a>쿼리를 위한 디자인
@@ -39,9 +39,9 @@ Table service 솔루션은 읽기 집중적이거나, 쓰기 집중적이거나,
 | --- | --- |
 | **PartitionKey** (부서 이름) |String |
 | **RowKey** (직원 Id) |String |
-| **FirstName** |String |
-| **LastName** |String |
-| **Age** |정수 |
+| **이름** |String |
+| **성** |String |
+| **연령** |정수 |
 | **EmailAddress** |String |
 
 [Azure Table Storage 개요](table-storage-overview.md) 아티클에서는 쿼리를 디자인하는 데 직접적인 영향을 주는 Azure Table service의 주요 기능 중 일부에 대해 설명합니다. 이 섹션의 내용은 Table service 쿼리 디자인에 대한 다음과 같은 일반적인 지침으로 요약됩니다. 아래 예제에 사용된 필터 구문은 Table service REST API에서 가져온 것입니다(자세한 내용은 [엔터티 쿼리](https://docs.microsoft.com/rest/api/storageservices/Query-Entities)참조).  

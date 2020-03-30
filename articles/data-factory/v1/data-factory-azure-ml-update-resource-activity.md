@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory를 사용 하 여 Machine Learning 모델 업데이트
-description: Azure Data Factory 및 Azure Machine Learning를 사용 하 여 예측 파이프라인을 만드는 방법을 설명 합니다.
+title: Azure 데이터 팩터리를 사용하여 기계 학습 모델 업데이트
+description: Azure 데이터 팩터리 및 Azure 기계 학습을 사용하여 예측 파이프라인을 만드는 방법에 대해 설명합니다.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,24 +12,24 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: afc79badd19fa180e631f1f8fa9735567a0b1e33
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74978716"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>업데이트 리소스 작업을 사용하여 Azure Machine Learning 모델 업데이트
 
-> [!div class="op_single_selector" title1="변환 작업"]
-> * [Hive 작업](data-factory-hive-activity.md) 
+> [!div class="op_single_selector" title1="변환 활동"]
+> * [하이브 활동](data-factory-hive-activity.md) 
 > * [Pig 작업](data-factory-pig-activity.md)
-> * [MapReduce 작업](data-factory-map-reduce.md)
+> * [맵감소 활동](data-factory-map-reduce.md)
 > * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 > * [Spark 작업](data-factory-spark.md)
-> * [Machine Learning Batch 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
-> * [Machine Learning 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
-> * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
-> * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
+> * [기계 학습 일괄 실행 활동](data-factory-azure-ml-batch-execution-activity.md)
+> * [Machine Learning 업데이트 리소스 활동](data-factory-azure-ml-update-resource-activity.md)
+> * [저장 프로시저 활동](data-factory-stored-proc-activity.md)
+> * [데이터 레이크 분석 U-SQL 활동](data-factory-usql-activity.md)
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
 
 
@@ -41,8 +41,8 @@ ms.locfileid: "74978716"
 ## <a name="overview"></a>개요
 시간이 지남에 따라 Azure ML 점수 매기기 실험의 예측 모델은 새 입력 데이터 세트를 사용하여 다시 학습되어야 합니다. 재학습으로 완료한 후에는 재학습한 ML 모델로 점수 매기기 웹 서비스를 업데이트하려고 합니다. 웹 서비스를 통해 Azure ML 모델을 재학습하고 업데이트하는 일반적인 단계는 다음과 같습니다.
 
-1. [Azure Machine Learning Studio (클래식)](https://studio.azureml.net)에서 실험을 만듭니다.
-2. 모델에 만족 하는 경우 Azure Machine Learning Studio (클래식)를 사용 하 여 **학습 실험** 및 점수 매기기/**예측 실험**에 대 한 웹 서비스를 게시 합니다.
+1. Azure 기계 [학습 스튜디오(클래식)에서](https://studio.azureml.net)실험을 만듭니다.
+2. 모델에 만족하면 Azure 기계 학습 스튜디오(클래식)를 사용하여 **학습 실험** 및 점수 매기기/예측**실험**모두에 대한 웹 서비스를 게시합니다.
 
 다음 표에서는 이 예제에 사용된 웹 서비스에 대해 설명합니다.  자세한 내용은 [프로그래밍 방식으로 Machine Learning 모델 다시 학습](../../machine-learning/machine-learning-retrain-models-programmatically.md)을 참조하세요.
 
@@ -58,7 +58,7 @@ ms.locfileid: "74978716"
 **scoring web service** 을 사용하여 두 번째 **Azure ML 업데이트 리소스 작업** 을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트합니다. 다음 예제에서는 연결된 서비스 정의를 제공합니다. 
 
 ## <a name="scoring-web-service-is-a-classic-web-service"></a>웹 서비스 점수 매기기는 클래식 웹 서비스입니다.
-웹 서비스 점수 매기기가 **클래식 웹 서비스**인 경우 Azure Portal을 사용하여 두 번째 **기본이 아닌 업데이트 가능한 엔드포인트**를 만들어야 합니다. 이에 대한 단계는 [엔드포인트 만들기](../../machine-learning/machine-learning-create-endpoint.md) 문서를 참조하세요. 기본이 아닌 업데이트 가능한 엔드포인트를 만든 후 다음 단계를 수행합니다.
+채점 웹 서비스가 **클래식 웹 서비스인**경우 Azure 포털을 사용하여 두 번째 **비기본 및 업데이터 처리 할 수 있는 끝점을** 만듭니다. 이에 대한 단계는 [엔드포인트 만들기](../../machine-learning/machine-learning-create-endpoint.md) 문서를 참조하세요. 기본이 아닌 업데이트 가능한 엔드포인트를 만든 후 다음 단계를 수행합니다.
 
 * **배치 실행**을 클릭하여 **mlEndpoint** JSON 속성에 대한 URI 값을 가져옵니다.
 * **업데이트 리소스** 링크를 클릭하여 **updateResourceEndpoint** JSON 속성에 대한 URI 값을 가져옵니다. API 키는 엔드포인트 페이지 자체의 오른쪽 하단에 있습니다.
@@ -88,7 +88,7 @@ ms.locfileid: "74978716"
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
 ```
 
-[Azure Machine Learning 웹 서비스 포털](https://services.azureml.net/)에서 웹 서비스를 쿼리할 때 URL에 대한 자리 표시자 값을 가져올 수 있습니다. 새로운 유형의 업데이트 리소스 엔드포인트에는 AAD(Azure Active Directory) 토큰이 필요합니다. Azure Machine Learning 연결 된 서비스에서 **servicePrincipalId** 및 **servicePrincipalKey** 를 지정 합니다. [서비스 보안 주체 만들기 및 Azure 리소스를 관리하기 위한 권한 할당 방법](../../active-directory/develop/howto-create-service-principal-portal.md)을 참조하세요. 샘플 AzureML 연결된 서비스 정의는 다음과 같습니다. 
+[Azure Machine Learning 웹 서비스 포털](https://services.azureml.net/)에서 웹 서비스를 쿼리할 때 URL에 대한 자리 표시자 값을 가져올 수 있습니다. 새로운 유형의 업데이트 리소스 엔드포인트에는 AAD(Azure Active Directory) 토큰이 필요합니다. Azure 기계 학습 연결 된 서비스에 **servicePrincipalId** 및 **servicePrincipalKey를** 지정 합니다. [서비스 보안 주체 만들기 및 Azure 리소스를 관리하기 위한 권한 할당 방법](../../active-directory/develop/howto-create-service-principal-portal.md)을 참조하세요. 샘플 AzureML 연결된 서비스 정의는 다음과 같습니다. 
 
 ```json
 {
@@ -138,7 +138,7 @@ Azure Storage는 다음 데이터를 보관합니다.
 ```
 
 ### <a name="training-input-dataset"></a>학습 입력 데이터 세트:
-다음 데이터 집합은 Azure Machine Learning 교육 웹 서비스에 대 한 입력 학습 데이터를 나타냅니다. Azure Machine Learning Batch 실행 작업은이 데이터 집합을 입력으로 사용 합니다.
+다음 데이터 집합은 Azure 기계 학습 학습 학습 웹 서비스에 대한 입력 학습 데이터를 나타냅니다. Azure 기계 학습 일괄 처리 실행 작업은 이 데이터 집합을 입력으로 사용합니다.
 
 ```JSON
 {
@@ -192,7 +192,7 @@ Azure Storage는 다음 데이터를 보관합니다.
 }
 ```
 
-### <a name="linked-service-for-azure-machine-learning-training-endpoint"></a>Azure Machine Learning 교육 끝점에 대 한 연결 된 서비스
+### <a name="linked-service-for-azure-machine-learning-training-endpoint"></a>Azure 기계 학습 학습 학습 끝점에 대한 연결된 서비스
 다음 JSON 코드 조각은 학습 웹 서비스의 기본 엔드포인트를 가리키는 Azure Machine Learning에 연결된 서비스를 정의합니다.
 
 ```JSON
@@ -208,12 +208,12 @@ Azure Storage는 다음 데이터를 보관합니다.
 }
 ```
 
-**Azure Machine Learning Studio (클래식)** 에서 다음을 수행 하 여 **Mlendpoint** 및 **apikey**에 대 한 값을 가져옵니다.
+**Azure 기계 학습 스튜디오 (클래식)에서** **mlEndpoint** 및 **apiKey에**대한 값을 얻으려면 다음을 수행하십시오.
 
 1. 왼쪽 메뉴에서 **웹 서비스** 를 클릭합니다.
 2. 웹 서비스 목록에서 **학습 웹 서비스** 를 클릭합니다.
 3. **API 키** 텍스트 상자 옆의 복사를 클릭합니다. 클립보드의 키를 Data Factory JSON 편집기에 붙여넣습니다.
-4. **Azure Machine Learning Studio (클래식)** 에서 **BATCH 실행** 링크를 클릭 합니다.
+4. Azure **기계 학습 스튜디오(클래식)에서** **일괄 처리 실행** 링크를 클릭합니다.
 5. **요청** 섹션에서 **요청 URI**를 복사하여 Data Factory JSON 편집기에 붙여넣습니다.   
 
 ### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Azure ML 업데이트 가능한 점수 매기기 엔드포인트에 대한 연결된 서비스:
