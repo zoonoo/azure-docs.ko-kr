@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 154160f9a3fbd485ee6383bf3d5ff1c291520a75
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71088515"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Azure VM에 연결할 때 원격 데스크톱 라이선스 서버를 사용할 수 없음
@@ -50,7 +50,7 @@ mstsc /v:<Server>[:<Port>] /admin
 - 원격 데스크톱 라이선스가 환경에 설치되었습니다. 사용 가능한 CAL이 있지만 제대로 구성되지 않았습니다.
 - 원격 데스크톱 라이선스에 CAL이 있고 활성화되었습니다. 그러나 원격 데스크톱 라이선스 서버의 다른 문제 때문에 환경 내에서 라이선스를 제공할 수 없습니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 이 문제를 해결하려면 [OS 디스크를 백업](../windows/snapshot-copy-managed-disk.md)하고 다음 단계를 수행합니다.
 
@@ -62,7 +62,7 @@ mstsc /v:<Server>[:<Port>] /admin
 
     관리 세션을 사용하여 VM에 연결할 수 없는 경우 다음과 같이 [Azure의 Virtual Machine 직렬 콘솔](serial-console-windows.md)을 사용하여 VM에 액세스합니다.
 
-    1. **지원 및 문제 해결** > **직렬 콘솔(미리 보기)** 을 선택하여 직렬 콘솔에 액세스합니다. VM에서 기능을 사용하도록 설정하면 VM을 성공적으로 연결할 수 있습니다.
+    1. **지원 및 문제 해결****직렬 콘솔(미리 보기)** 을 선택하여 직렬 콘솔 > 에 액세스합니다. VM에서 기능을 사용하도록 설정하면 VM을 성공적으로 연결할 수 있습니다.
 
     2. CMD 인스턴스에 대한 새 채널을 만듭니다. **CMD**를 입력하여 채널을 시작하고 채널 이름을 가져옵니다.
 
@@ -126,6 +126,6 @@ mstsc /v:<Server>[:<Port>] /admin
 
 4. 원격 데스크톱 라이선스 서버가 구성되었고 정상 상태이면 CAL을 사용하여 원격 데스크톱 라이선스 서버가 활성화되었는지 확인합니다.
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 해결하세요.

@@ -1,6 +1,6 @@
 ---
 title: Azure AD 응용 프로그램 프록시 CORS 문제 이해 및 해결
-description: Azure AD 응용 프로그램 프록시의 CORS 및 CORS 문제를 식별 하 고 해결 하는 방법에 대해 설명 합니다.
+description: Azure AD 응용 프로그램 프록시에서 CORS에 대한 이해와 CORS 문제를 식별하고 해결하는 방법을 제공합니다.
 services: active-directory
 author: jeevanbisht
 manager: mtillman
@@ -12,109 +12,109 @@ ms.date: 05/23/2019
 ms.author: celested
 ms.reviewer: japere
 ms.openlocfilehash: c49535ad11139ac5145d4f283374bf9cc6d71f52
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72025781"
 ---
-# <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>CORS 문제 Azure Active Directory 응용 프로그램 프록시 이해 및 해결
+# <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Azure Active Directory 응용 프로그램 프록시 CORS 문제 이해 및 해결
 
-[CORS (크로스-원본 자원 공유)](https://www.w3.org/TR/cors/) 는 Azure Active Directory 응용 프로그램 프록시를 통해 게시 하는 앱 및 api에 대 한 문제를 일으킬 수 있습니다. 이 문서에서는 Azure AD 응용 프로그램 프록시 CORS 문제 및 해결 방법에 대해 설명 합니다.
+[CORS(원본 간 리소스 공유)는](https://www.w3.org/TR/cors/) Azure Active Directory 응용 프로그램 프록시를 통해 게시하는 앱 및 API에 문제가 있을 수 있습니다. 이 문서에서는 Azure AD 응용 프로그램 프록시 CORS 문제 및 해결 에 대해 설명합니다.
 
-브라우저 보안은 일반적으로 웹 페이지에서 다른 도메인에 대 한 AJAX 요청을 수행 하지 못하도록 합니다. 이 제약 사항을 *동일 원본 정책(Same-Origin Policy)* 이라고 부르며, 악의적인 사이트가 다른 사이트의 민감한 데이터를 무차별적으로 읽는 것을 방지합니다. 그러나 경우에 따라 다른 사이트에서 web API를 호출 하도록 할 수도 있습니다. CORS는 서버에서 동일한 원본 정책을 완화 하 고 일부 원본 간 요청을 허용 하 여 다른 사용자를 거부할 수 있게 해 주는 W3C 표준입니다.
+브라우저 보안은 일반적으로 웹 페이지가 다른 도메인에 AJAX 요청을 하지 못하도록 합니다. 이러한 제한을 *동일한 원본 정책이라고*하며 악의적인 사이트가 다른 사이트에서 중요한 데이터를 읽지 못하도록 합니다. 그러나 다른 사이트에서 웹 API를 호출하도록 허용하려는 경우가 있습니다. CORS는 서버가 동일한 원본 정책을 완화하고 다른 요청을 거부하면서 일부 원본 간 요청을 허용하는 W3C 표준입니다.
 
 ## <a name="understand-and-identify-cors-issues"></a>CORS 문제 이해 및 식별
 
-동일한 스키마, 호스트 및 포트 ([RFC 6454](https://tools.ietf.org/html/rfc6454))가 있는 경우 두 개의 url은 동일한 원본을 갖습니다.
+두 URL은 다음과 같이 동일한 구성표, 호스트 및[포트(RFC 6454)가](https://tools.ietf.org/html/rfc6454)있는 경우 동일한 출처를 갖습니다.
 
 -   http:\//contoso.com/foo.html
 -   http:\//contoso.com/bar.html
 
-다음 Url의 원본이 이전 두의 원본과 다릅니다.
+다음 URL의 출처는 이전 두 URL과 다릅니다.
 
--   http:\//contoso.net-다른 도메인
--   http:\//contoso.com:9000/foo.html-다른 포트
--   https:\//contoso.com/foo.html-다른 체계
--   http:\//www.contoso.com/foo.html-다른 하위 도메인
+-   http:\//contoso.net - 다른 도메인
+-   http:\//contoso.com:9000/foo.html - 다른 포트
+-   https:\//contoso.com/foo.html - 다른 체계
+-   http:\//www.contoso.com/foo.html - 다른 하위 도메인
 
-동일한 원본 정책은 올바른 액세스 제어 헤더를 사용 하지 않는 한 앱이 다른 원본에서 리소스에 액세스할 수 없도록 합니다. CORS 헤더가 없거나 잘못 된 경우 크로스-원본 요청이 실패 합니다. 
+동일한 원본 정책은 앱이 올바른 액세스 제어 헤더를 사용하지 않는 한 다른 원본의 리소스에 액세스하지 못하도록 합니다. CORS 헤더가 없거나 올바르지 않은 경우 원본 간 요청이 실패합니다. 
 
-브라우저 디버그 도구를 사용 하 여 CORS 문제를 식별할 수 있습니다.
+브라우저 디버그 도구를 사용하여 CORS 문제를 식별할 수 있습니다.
 
-1. 브라우저를 시작 하 고 웹 앱으로 이동 합니다.
-1. **F12** 키를 눌러 디버그 콘솔을 엽니다.
-1. 트랜잭션을 재현 하 고 콘솔 메시지를 검토 하십시오. CORS 위반으로 인해 원본에 대 한 콘솔 오류가 생성 됩니다.
+1. 브라우저를 실행하고 웹 앱을 찾아봅봅봅습니다.
+1. **F12를** 눌러 디버그 콘솔을 가져옵니다.
+1. 트랜잭션을 재현하고 콘솔 메시지를 검토해 보십시오. CORS 위반으로 Origin에 대한 콘솔 오류가 발생합니다.
 
-다음 스크린샷에는 **사용해 보기** 단추를 선택 하면 corswebclient-contoso.msappproxy.net 헤더에서 https:\//을 찾을 수 없다는 CORS 오류 메시지가 발생 했습니다.
+다음 스크린샷에서 **Try It** 단추를 선택하면 https:\//corswebclient-contoso.msappproxy.net 액세스 제어-허용-원본 헤더에서 찾을 수 없는 CORS 오류 메시지가 발생했습니다.
 
 ![CORS 문제](./media/application-proxy-understand-cors-issues/image3.png)
 
-## <a name="cors-challenges-with-application-proxy"></a>응용 프로그램 프록시를 사용한 CORS 챌린지
+## <a name="cors-challenges-with-application-proxy"></a>응용 프로그램 프록시를 통해 해결된 CORS 문제
 
-다음 예제에서는 일반적인 Azure AD 응용 프로그램 프록시 CORS 시나리오를 보여 줍니다. 내부 서버는 **corswebservice** 웹 API 컨트롤러 및 **corswebservice**를 호출 하는 **corswebservice** 를 호스팅합니다. **Corswebclient** 에서 **CORSWEBCLIENT**로의 AJAX 요청이 있습니다.
+다음 예제에서는 일반적인 Azure AD 응용 프로그램 프록시 CORS 시나리오를 보여 주며 있습니다. 내부 서버는 **CORSWebService** 웹 API 컨트롤러와 **CORSWebService를 호출하는 CORSWebClient를 호스팅합니다.** **CORSWebClient** **CORSWebClient에서 CORSWebService에** 대한 AJAX **요청이 있습니다.**
 
-![온-프레미스 동일한 원본 요청](./media/application-proxy-understand-cors-issues/image1.png)
+![온-프레미스 동일 원산지 요청](./media/application-proxy-understand-cors-issues/image1.png)
 
-CORSWebClient 앱은 온-프레미스에서 호스트 하는 경우 작동 하지만, Azure AD 응용 프로그램 프록시를 통해 게시 될 때 로드 되지 않거나 오류가 발생 합니다. 응용 프로그램 프록시를 통해 CORSWebClient 및 Corswebclient 앱을 다른 앱으로 개별적으로 게시 한 경우 두 앱은 서로 다른 도메인에서 호스팅됩니다. CORSWebClient에서 Corswebclient로의 AJAX 요청은 크로스-원본 요청 이며 실패 합니다.
+CORSWebClient 앱은 온-프레미스에서 호스팅할 때 작동하지만 Azure AD 응용 프로그램 프록시를 통해 게시할 때 로드되지 않거나 오류가 발생합니다. CORSWebClient 및 CORSWebService 앱을 응용 프로그램 프록시를 통해 다른 앱으로 별도로 게시한 경우 두 앱은 서로 다른 도메인에서 호스팅됩니다. CORSWebClient에서 CORSWebService로의 AJAX 요청은 원본 간 요청이며 실패합니다.
 
 ![응용 프로그램 프록시 CORS 요청](./media/application-proxy-understand-cors-issues/image2.png)
 
-## <a name="solutions-for-application-proxy-cors-issues"></a>응용 프로그램 프록시 CORS 문제에 대 한 솔루션
+## <a name="solutions-for-application-proxy-cors-issues"></a>응용 프로그램 프록시 CORS 문제에 대한 솔루션
 
-여러 가지 방법 중 하나로 이전 CORS 문제를 해결할 수 있습니다.
+여러 가지 방법 중 하나로 앞의 CORS 문제를 해결할 수 있습니다.
 
 ### <a name="option-1-set-up-a-custom-domain"></a>옵션 1: 사용자 지정 도메인 설정
 
-앱 원본, 코드 또는 헤더를 변경 하지 않고도 Azure AD 응용 프로그램 프록시 [사용자 지정 도메인](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) 을 사용 하 여 동일한 원본에서 게시할 수 있습니다. 
+Azure AD 응용 프로그램 프록시 [사용자 지정 도메인을](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) 사용하여 앱 원본, 코드 또는 헤더를 변경하지 않고도 동일한 원본에서 게시할 수 있습니다. 
 
-### <a name="option-2-publish-the-parent-directory"></a>옵션 2: 부모 디렉터리 게시
+### <a name="option-2-publish-the-parent-directory"></a>옵션 2: 상위 디렉터리 게시
 
-두 앱의 부모 디렉터리를 게시 합니다. 이 솔루션은 웹 서버에 두 개의 앱만 있는 경우에 특히 효과적입니다. 각 앱을 별도로 게시 하는 대신 동일한 원본을 생성 하는 공통 부모 디렉터리를 게시할 수 있습니다.
+두 앱의 상위 디렉터리를 게시합니다. 이 솔루션은 웹 서버에 두 개의 앱만 있는 경우에 특히 효과적입니다. 각 앱을 별도로 게시하는 대신 공통 상위 디렉터리를 게시할 수 있으며, 이로 인해 동일한 원본이 생성됩니다.
 
-다음 예에서는 CORSWebClient 앱에 대 한 포털 Azure AD 응용 프로그램 프록시 페이지를 보여 줍니다.  **내부 URL** 이 *contoso.com/CORSWebClient*로 설정 된 경우 응용 프로그램은 교차 원본 이기 때문에 *contoso.com/CORSWebService* 디렉터리에 대 한 성공적인 요청을 수행할 수 없습니다. 
+다음 예제는 CORSWebClient 앱에 대한 포털 Azure AD 응용 프로그램 프록시 페이지를 보여 주습니다.  내부 **URL이** *contoso.com/CORSWebClient*설정되면 앱은 교차 원본이기 때문에 *contoso.com/CORSWebService* 디렉터리에 대한 성공적인 요청을 할 수 없습니다. 
 
-![개별적으로 앱 게시](./media/application-proxy-understand-cors-issues/image4.png)
+![앱을 개별적으로 게시](./media/application-proxy-understand-cors-issues/image4.png)
 
-대신 *Corswebclient* 및 *corswebclient* 디렉터리를 모두 포함 하는 부모 디렉터리를 게시 하도록 **내부 URL** 을 설정 합니다.
+대신 내부 **URL을** 설정하여 *CORSWebClient* 및 *CORSWebService* 디렉터리를 모두 포함하는 상위 디렉터리를 게시합니다.
 
-![부모 디렉터리 게시](./media/application-proxy-understand-cors-issues/image5.png)
+![상위 디렉터리 게시](./media/application-proxy-understand-cors-issues/image5.png)
 
-결과 앱 Url은 CORS 문제를 효과적으로 해결 합니다.
+결과 앱 URL은 CORS 문제를 효과적으로 해결합니다.
 
 - https:\//corswebclient-contoso.msappproxy.net/CORSWebService
 - https:\//corswebclient-contoso.msappproxy.net/CORSWebClient
 
 ### <a name="option-3-update-http-headers"></a>옵션 3: HTTP 헤더 업데이트
 
-웹 서비스에 사용자 지정 HTTP 응답 헤더를 추가 하 여 원본 요청과 일치 시킵니다. 인터넷 정보 서비스 (IIS)에서 실행 되는 웹 사이트의 경우에는 IIS 관리자를 사용 하 여 헤더를 수정 합니다.
+원본 요청과 일치하도록 웹 서비스에 사용자 지정 HTTP 응답 헤더를 추가합니다. IIS(인터넷 정보 서비스)에서 실행되는 웹 사이트의 경우 IIS 관리자를 사용하여 헤더를 수정합니다.
 
-![IIS 관리자에서 사용자 지정 응답 헤더 추가](./media/application-proxy-understand-cors-issues/image6.png)
+![IIS 관리자에 사용자 지정 응답 헤더 추가](./media/application-proxy-understand-cors-issues/image6.png)
 
-이 수정 작업에는 코드 변경이 필요 하지 않습니다. Fiddler 추적에서 확인할 수 있습니다.
+이 수정은 코드를 변경할 필요가 없습니다. Fiddler 추적에서 확인할 수 있습니다.
 
-**헤더 더하기\ 게시**
+**헤더 추가 게시**\
 HTTP/1.1 200 OK\
-Cache-control: 캐시 안 함 \
-Pragma: no cache \
-Content-type: 텍스트/일반 형식입니다. charset = utf-8 \
-Expires: -1\
-Vary: Accept-Encoding \
-서버: Microsoft-IIS/8.5 Microsoft-HTTPAPI.DLL/2.0 \
-**액세스 제어-허용-원본: https\://corswebclient-contoso.msappproxy.net**\
-X-AspNet-버전: 4.0.30319 \
-X-구동: ASP.NET \
-콘텐츠-길이: 17
+캐시 제어: 캐시 없음\
+Pragma: 캐시 없음\
+콘텐츠 유형: 텍스트/일반; charset =utf-8\
+만료: -1\
+다양성: 인코딩 수락\
+서버: 마이크로소프트-IIS/8.5 마이크로소프트-HTTPAPI/2.0\
+**액세스 제어 허용-원산지:\:https//corswebclient-contoso.msappproxy.net**\
+X-AspNet 버전: 4.0.30319\
+X 구동 바이: ASP.NET\
+콘텐츠 길이: 17
 
 ### <a name="option-4-modify-the-app"></a>옵션 4: 앱 수정
 
-적절 한 값을 사용 하 여 액세스 제어-허용-원본 헤더를 추가 하 여 CORS를 지원 하도록 앱을 변경할 수 있습니다. 헤더를 추가 하는 방법은 앱의 코드 언어에 따라 달라 집니다. 코드를 변경 하는 것이 가장 좋습니다. 가장 좋은 옵션은 가장 필요 합니다.
+적절한 값으로 액세스 제어-허용-원본 헤더를 추가하여 CORS를 지원하도록 앱을 변경할 수 있습니다. 헤더를 추가하는 방법은 앱의 코드 언어에 따라 다릅니다. 코드를 변경하는 것은 가장 많은 노력이 필요하기 때문에 권장되는 옵션이 가장 적습니다.
 
 ### <a name="option-5-extend-the-lifetime-of-the-access-token"></a>옵션 5: 액세스 토큰의 수명 연장
 
-앱이 인증을 위해 *login.microsoftonline.com* 로 리디렉션되고 액세스 토큰이 만료 되는 경우와 같이 일부 CORS 문제는 해결할 수 없습니다. 그런 다음 CORS 호출이 실패 합니다. 이 시나리오에 대 한 해결 방법은 사용자 세션 중에 만료 되지 않도록 액세스 토큰의 수명을 연장 하는 것입니다. 이 작업을 수행 하는 방법에 대 한 자세한 내용은 [AZURE AD의 구성 가능한 토큰 수명](../develop/active-directory-configurable-token-lifetimes.md)을 참조 하세요.
+앱이 인증할 *login.microsoftonline.com* 리디렉션되고 액세스 토큰이 만료되는 경우와 같이 일부 CORS 문제는 해결할 수 없습니다. 그러면 CORS 호출이 실패합니다. 이 시나리오의 해결 방법은 액세스 토큰의 수명을 연장하여 사용자의 세션 중에 만료되지 않도록 하는 것입니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [Azure AD의 구성 가능한 토큰 수명을](../develop/active-directory-configurable-token-lifetimes.md)참조하십시오.
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참조
 - [자습서: Azure Active Directory에서 응용 프로그램 프록시를 통해 원격 액세스를 위한 온-프레미스 응용 프로그램 추가](application-proxy-add-on-premises-application.md) 
 - [Azure AD 응용 프로그램 프록시 배포 계획](application-proxy-deployment-plan.md) 
-- [Azure Active Directory 응용 프로그램 프록시를 통해 온-프레미스 응용 프로그램에 원격으로 액세스](application-proxy.md) 
+- [Azure Active Directory 응용 프로그램 프록시를 통해 온-프레미스 응용 프로그램에 대한 원격 액세스](application-proxy.md) 

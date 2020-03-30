@@ -9,10 +9,10 @@ ms.date: 09/24/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5a734963ced9daefda2b7b6f4a52fd9ef437eddc
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71269275"
 ---
 가상 네트워크 게이트웨이는 '게이트웨이 서브넷'이라는 특정 서브넷을 사용합니다. 게이트웨이 서브넷은 가상 네트워크를 구성할 때 지정하는 가상 네트워크 IP 주소 범위에 속합니다. 여기에는 가상 네트워크 게이트웨이 리소스 및 서비스에서 사용하는 IP 주소가 포함됩니다. Azure에서 게이트웨이 리소스를 배포하려면 서브넷의 이름을 'GatewaySubnet'으로 지정해야 합니다. 게이트웨이 리소스를 배포할 다른 서브넷은 지정할 수 없습니다. 'GatewaySubnet'이라는 서브넷이 없는 경우 VPN 게이트웨이를 만들면 실패합니다.

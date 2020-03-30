@@ -4,21 +4,21 @@ description: Microsoft Azure Backup Server에서는 VM, 파일 및 폴더, 워�
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: 61430ce06d3e441fcfe0443eaaf5de3755b04624
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77582809"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Microsoft Azure Backup Server의 새로운 기능
 
-MABS V3 (Microsoft Azure Backup Server 버전 3)은 최신 업그레이드 이며 중요 한 버그 수정, Windows Server 2019 지원, SQL 2017 지원 및 기타 기능과 향상 된 기능을 포함 합니다. 수정된 버그 목록 및 MABS V3에 대한 설치 지침을 보려면 KB 문서 [4457852](https://support.microsoft.com/help/4457852/microsoft-azure-backup-server-v3)를 참조하세요.
+Microsoft Azure 백업 서버 버전 3(MABS V3)은 최신 업그레이드이며 중요한 버그 수정, Windows Server 2019 지원, SQL 2017 지원 및 기타 기능 및 향상된 기능을 포함합니다. 수정된 버그 목록 및 MABS V3에 대한 설치 지침을 보려면 KB 문서 [4457852](https://support.microsoft.com/help/4457852/microsoft-azure-backup-server-v3)를 참조하세요.
 
 다음 기능이 MABS V3에 포함됩니다.
 
 ## <a name="volume-to-volume-migration"></a>볼륨 간 마이그레이션
 
-MABS V2에서 MBS(Modern Backup Storage)를 사용하여 워크로드 인식 스토리지를 발표했습니다. 여기에서 스토리지 속성에 따라 특정 스토리지로 백업할 특정 워크로드를 구성합니다. 그러나 구성 후 최적화된 리소스 사용률을 위해 특정 데이터 원본의 백업을 다른 스토리지로 이동해야 함을 알 수 있습니다. MABS V3은 백업을 마이그레이션하고 [세 단계로](https://techcommunity.microsoft.com/t5/system-center-blog/sc-2016-dpm-ur4-migrate-backup-storage-in-3-simple-steps/ba-p/351842)다른 볼륨에 저장 되도록 구성할 수 있는 기능을 제공 합니다.
+MABS V2에서 MBS(Modern Backup Storage)를 사용하여 워크로드 인식 스토리지를 발표했습니다. 여기에서 스토리지 속성에 따라 특정 스토리지로 백업할 특정 워크로드를 구성합니다. 그러나 구성 후 최적화된 리소스 사용률을 위해 특정 데이터 원본의 백업을 다른 스토리지로 이동해야 함을 알 수 있습니다. MABS V3는 백업을 마이그레이션하고 [세 단계로](https://techcommunity.microsoft.com/t5/system-center-blog/sc-2016-dpm-ur4-migrate-backup-storage-in-3-simple-steps/ba-p/351842)다른 볼륨으로 저장하도록 구성할 수 있는 기능을 제공합니다.
 
 ## <a name="prevent-unexpected-data-loss"></a>예기치 않은 데이터 손실 방지
 
@@ -40,7 +40,7 @@ TLS 1.2는 최상의 암호화를 사용하여 Microsoft에서 제안하는 통�
 
 VMware VM 백업은 이제 프로덕션 배포에 지원됩니다. MABS V3은 VMware VM 보호를 위해 다음을 제공합니다.
 
-- 5\.5 및 6.0에 대한 지원과 함께 vCenter 및 ESXi 6.5에 대한 지원
+- 5.5 및 6.0에 대한 지원과 함께 vCenter 및 ESXi 6.5에 대한 지원
 - 클라우드로 VMware VM의 자동 보호 새 VMware VM이 보호된 폴더에 추가되는 경우 디스크 및 클라우드로 자동으로 보호됩니다.
 - VMware 대체 위치 복구를 위한 복구 효율성 개선
 

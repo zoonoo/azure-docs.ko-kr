@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 71a31228602ef161158eaa05c80d50f65de98a50
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77133279"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services를 사용할 때 온-프레미스 인코더를 구성하여 다중 비트 전송률 스트림을 만드는 방법

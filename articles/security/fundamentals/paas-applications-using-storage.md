@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
 ms.openlocfilehash: 675e10101d01d831aad7652c70cbfcf320085a3c
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70999160"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Azure Storage를 사용하여 PaaS 웹 및 모바일 애플리케이션 보안을 유지하는 모범 사례
@@ -27,7 +27,7 @@ ms.locfileid: "70999160"
 
 Azure에서는 온-프레미스에서는 쉽게 달성할 수 없는 방식으로 스토리지를 배포하고 사용할 수 있습니다. Azure Storage를 사용하면 비교적 적은 노력으로 높은 수준의 확장성 및 가용성을 얻을 수 있습니다. Azure Storage는 Windows 및 Linux Azure Virtual Machines의 기반일 뿐만 아니라 대규모 분산 애플리케이션도 지원할 수 있습니다.
 
-Azure Storage는 다음과 같은 4가지 서비스를 제공합니다. Blob Storage, Table Storage, Queue Storage 및 File Storage. 자세한 내용은 [Microsoft Azure Storage 소개](/azure/storage/common/storage-introduction)를 참조하세요.
+Azure Storage는 Blob 스토리지, 테이블 스토리지, 큐 스토리지 및 파일 스토리지 등의 4가지 서비스를 제공합니다. 자세한 내용은 [Microsoft Azure Storage 소개](/azure/storage/common/storage-introduction)를 참조하세요.
 
 [Azure Storage 보안 가이드](/azure/storage/common/storage-security-guide)는 Azure Storage 및 보안에 대한 자세한 정보를 제공합니다. 이 모범 사례 문서에서는 보안 가이드에 나오는 일부 개념을 소개하고 좀 더 자세한 정보를 원하는 사용자를 위해 보안 가이드 및 기타 원본에 대한 링크를 제공합니다.
 
@@ -40,7 +40,7 @@ Azure Storage는 다음과 같은 4가지 서비스를 제공합니다. Blob Sto
 
 
 ## <a name="use-a-shared-access-signature-instead-of-a-storage-account-key"></a>스토리지 계정 키 대신 공유 액세스 서명 사용
-액세스 제어는 중요합니다. Azure Storage 액세스를 쉽게 제어할 수 있도록 하기 위해 저장소 계정을 만들 때는 512비트 SAK(저장소 계정 키) 2개가 생성됩니다. 이처럼 키가 중복 생성되므로 일상적인 키 순환 중에 서비스 중단을 방지할 수 있습니다. 
+액세스 제어는 중요합니다. Azure Storage 액세스를 쉽게 제어할 수 있도록 하기 위해 스토리지 계정을 만들 때는 512비트 SAK(스토리지 계정 키) 2개가 생성됩니다. 이처럼 키가 중복 생성되므로 일상적인 키 순환 중에 서비스 중단을 방지할 수 있습니다. 
 
 스토리지 액세스 키는 우선 순위가 높은 비밀로, 스토리지 액세스 제어를 담당하는 사용자만 액세스할 수 있어야 합니다. 잘못된 사용자가 이러한 키에 액세스하면 스토리지를 완전히 제어하고 스토리지에서 파일을 바꾸거나 삭제하거나 추가할 수 있게 됩니다. 여기에는 조직 또는 고객에게 손상을 줄 수 있는 맬웨어 및 다른 유형의 콘텐츠가 포함됩니다.
 
@@ -64,7 +64,7 @@ RBAC와 같은 기능을 사용하여 데이터 액세스 제어를 적용하지
 
 RBAC에 대한 자세한 내용은 다음을 참조하세요.
 
-- [RBAC 및 Azure Portal을 사용하여 액세스 관리](/azure/role-based-access-control/role-assignments-portal)
+- [RBAC 및 Azure 포털을 사용하여 액세스 관리](/azure/role-based-access-control/role-assignments-portal)
 - [Azure 리소스에 대한 기본 제공 역할](/azure/role-based-access-control/built-in-roles)
 - [Azure Storage 보안 가이드](/azure/storage/common/storage-security-guide) 
 
@@ -73,7 +73,7 @@ RBAC에 대한 자세한 내용은 다음을 참조하세요.
 
 또한 클라이언트 쪽 암호화를 사용하면 암호화 키를 단독으로 제어할 수 있습니다. 자체 암호화 키를 생성하고 관리할 수 있습니다. 클라이언트 쪽 암호화는 Azure Storage 클라이언트 라이브러리가 CEK(콘텐츠 암호화 키)를 생성하고 KEK(키 암호화 키)를 사용하여 래핑(암호화)하는 봉투(envelope) 기술을 사용합니다. KEK는 키 식별자로 식별되고 비대칭 키 쌍 또는 대칭 키일 수 있으며 로컬로 관리되거나 [Azure Key Vault](/azure/key-vault/key-vault-overview)에 저장됩니다.
 
-클라이언트 쪽 암호화는 Java 및 .NET 스토리지 클라이언트 라이브러리에 기본적으로 제공되어 있습니다. 클라이언트 애플리케이션 내에서 데이터를 암호화하고 자체 암호화 키를 생성 및 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage용 클라이언트 쪽 암호화 및 Azure Key Vault](/azure/storage/common/storage-client-side-encryption)를 참조하세요.
+클라이언트 쪽 암호화는 Java 및 .NET 스토리지 클라이언트 라이브러리에 기본적으로 제공되어 있습니다. 클라이언트 응용 프로그램 내에서 데이터를 암호화하고 자체 암호화 키를 생성 및 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure 저장소용 클라이언트 측 암호화 및 Azure 키 자격 증명 모음을](/azure/storage/common/storage-client-side-encryption) 참조하십시오.
 
 ## <a name="enable-storage-service-encryption-for-data-at-rest"></a>미사용 데이터에 대해 스토리지 서비스 암호화 사용
 File Storage에 대해 [Storage 서비스 암호화](/azure/storage/common/storage-service-encryption)가 사용되도록 설정되면 데이터는 AES-256 암호화를 사용하여 자동으로 암호화됩니다. Microsoft는 모든 암호화, 해독 및 키 관리를 처리합니다. 이 기능은 LRS 및 GRS 중복 유형에 사용할 수 있습니다.

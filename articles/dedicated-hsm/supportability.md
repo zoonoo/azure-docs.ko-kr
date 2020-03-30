@@ -13,10 +13,10 @@ ms.custom: seodec18
 ms.date: 03/27/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d83d688707baf6098d63dfde9b4181eb04fb9729
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70881011"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Azure Dedicated HSM 지원 가능성
@@ -26,26 +26,26 @@ Azure Dedicated HSM 서비스는 고객이 완벽한 관리 제어 및 관리 �
 
 ## <a name="getting-support"></a>지원 받기
 
-전용 HSM에 대 한 고객 지원은 Microsoft와 Gemalto 간의 공동 작업입니다. 하드웨어 문제나 네트워크 경로 문제는 Microsoft에서 해결 하며, 구성, 소프트웨어, 펌웨어 및 응용 프로그램 개발과 같은 실제 HSM을 사용 하는 모든 작업은 Gemalto에 의해 처리 됩니다. 이 지원 모델은 가장 효율적인 지원으로 가장 빠르게 라우팅할 수 있도록 합니다. 특정 문제를 해결 하는 경우 Microsoft와의 지원 요청을 제기 하 고 적절 하 게 전달 되도록 합니다. Microsoft는 모든 지원 시나리오를 계속 활용 하 고 고객을 위한 최고의 지원 환경을 제공 합니다.
+전용 HSM에 대한 고객 지원은 Microsoft와 Gemalto간의 공동 노력입니다. 모든 하드웨어 문제 나 네트워크 경로 문제는 Microsoft에서 해결되며 구성, 소프트웨어, 펌웨어 및 응용 프로그램 개발과 같은 실제 HSM과 관련된 모든 문제는 Gemalto에서 해결됩니다. 이 지원 모델은 가장 효과적인 지원으로 가는 가장 빠른 경로를 보장합니다. 특정 문제가 의심되는 경우 Microsoft에 지원 요청을 제기하면 적절한 지시를 받을 수 있습니다. Microsoft는 모든 지원 시나리오에 계속 참여하고 고객에게 최상의 지원 환경을 위해 노력할 것입니다.
 
 ## <a name="gemalto-support"></a>Gemalto 지원
 
-전용 HSM 서비스를 사용 하는 고객은 Plus 지원 계획에 따라 Gemalto의 지원을 받을 수 있습니다. 이렇게 하려면 Gemalto 지원 포털을 사용 하는 등록 프로세스만 있으면 됩니다. 이에 대 한 고객 ID와 지침은 전용 HSM 서비스에 대 한 액세스 권한을 얻기 위해 Microsoft와 초기 engagement의 일부로 제공 됩니다. Gemalto에서 지원하는 메커니즘은 [고객 지원 포털](https://supportportal.gemalto.com/csm/)을 통해 이루어집니다.
-핵심은 고객이 지원 포털에서 다운로드를 통해 HSM (예: 클라이언트 액세스 소프트웨어 및 Sdk)을 사용 하는 데 필요한 모든 소프트웨어와 설명서를 Gemalto에서 제공 한다는 점입니다.
+전용 HSM 서비스를 사용하는 고객은 플러스 지원 플랜에 따라 Gemalto의 지원을 받을 수 있습니다. Gemalto 지원 포털을 사용하는 등록 프로세스만 있으면 됩니다. 전용 HSM 서비스에 액세스하기 위해 Microsoft와의 초기 계약의 일환으로 고객 ID와 지침이 제공됩니다. Gemalto에서 지원하는 메커니즘은 [고객 지원 포털](https://supportportal.gemalto.com/csm/)을 통해 이루어집니다.
+주목할 점은 Gemalto가 고객 지원 포털에서 다운로드를 통해 HSM(예: 클라이언트 액세스 소프트웨어 및 SDK)을 사용하는 데 필요한 모든 소프트웨어와 문서를 제공한다는 것입니다.
 
 ### <a name="software-components"></a>소프트웨어 구성 요소
 
 HSM 디바이스의 구성에 사용되는 다양한 소프트웨어 구성 요소는 다음과 같습니다.
 
 * 클라이언트 소프트웨어
-* SDK
+* SDK)
 * 도구
 
 ### <a name="guidance"></a>지침
 
 Gemalto는 [고객 지원 포털](https://supportportal.gemalto.com/csm/)을 통해 관리 및 구성 지침을 제공합니다. 유효한 고객 ID를 사용하여 로그인하면 이러한 문서를 다운로드할 수 있습니다. 또한 Gemalto는 고객에게 다양한 시나리오와 소프트웨어 통합을 지원하는 일련의 통합 가이드를 제공합니다. 자세한 내용은 [Microsoft에 대한 Gemalto 파트너 사이트](https://safenet.gemalto.com/partners/microsoft/)를 참조하세요.
 
-### <a name="support"></a>지원
+### <a name="support"></a>고객 지원팀
 
 Dedicated HSM 서비스의 일부로 HSM을 사용하는 것과 관련된 모든 소프트웨어 수준 문제 또는 질문은 Gemalto 지원에서 직접 처리해야 합니다. 위에 나열된 모든 소프트웨어 구성 요소와 프로비전 이후의 모든 사용자 지정 HSM 구성은 Gemalto에서 처리됩니다. 자세한 내용은 [Gemalto 고객 지원 포털](https://supportportal.gemalto.com/csm/)을 참조하세요.
 
@@ -55,7 +55,7 @@ HSM을 사용하는 사용자 지정 애플리케이션의 설계, 개발 및 �
 
 ## <a name="microsoft-support"></a>Microsoft 지원
 
-Microsoft는 단일 고객의 독점적 사용을 위해 실제 HSM 장치를 네트워크에 액세스할 수 있고 작동 상태를 보장 합니다. 고객은 장치의 구성, 관리 및 관리를 담당 합니다. Microsoft의 책임은 다음과 같습니다.
+Microsoft는 물리적 HSM 장치가 네트워크에 액세스할 수 있고 단일 고객을 단독으로 사용할 수 있도록 운영 상태를 보장합니다. 고객은 장치의 구성, 관리 및 관리를 담당합니다. Microsoft의 책임은 다음과 같습니다.
 
 * 디바이스에 전원 및 냉각 디바이스가 있는지 확인합니다.
 * HSM의 작동 상태를 유지합니다(예: 고장/수리 시나리오).
@@ -76,7 +76,7 @@ Dedicated HSM 서비스에 대한 고객의 등록이 승인되면 HSM 리소스
 
 ### <a name="hardware-issues"></a>하드웨어 문제
 
-HSM 디바이스에는 중복 및 교체 가능한 전원 공급 디바이스와 팬 냉각 디바이스가 있습니다.  그러나 팬 단위 제거는 여전히 변조 이벤트를 발생 시킵니다. 구성 요소 오류가 발생하면 Microsoft에서 고객의 서비스 가용성에 대한 중단과 위험을 최소화하는 방식으로 구성 요소 수준 문제를 해결하는 데 가장 적절한 프로세스를 사용합니다.
+HSM 디바이스에는 중복 및 교체 가능한 전원 공급 디바이스와 팬 냉각 디바이스가 있습니다.  그러나 팬 장치를 제거하면 변조 이벤트가 계속 발생합니다. 구성 요소 오류가 발생하면 Microsoft에서 고객의 서비스 가용성에 대한 중단과 위험을 최소화하는 방식으로 구성 요소 수준 문제를 해결하는 데 가장 적절한 프로세스를 사용합니다.
 디바이스에 더 심각한 오류가 발생하면 해당 디바이스가 사용 가능한 풀의 새 디바이스로 교체됩니다. 고객이 기존 HA 쌍에 새 디바이스를 포함하기만 하면 동기화하고 전체 작동 상태로 되돌릴 수 있습니다. 디바이스에 오류가 발생하면 데이터 센터의 현장에서 해당 데이터 관련 디바이스를 제거하고 단편화합니다. 섀시만 재활용을 위해 Gemalto에 반환됩니다.
 
 

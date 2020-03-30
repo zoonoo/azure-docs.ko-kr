@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd4743bc38c3b2b4b9495b33535b4b73f48d1372
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71176683"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory Seamless Single Sign-On: 기술 심층 분석
@@ -39,12 +39,12 @@ ms.locfileid: "71176683"
 
 Seamless SSO는 [여기](how-to-connect-sso-quick-start.md)서 보여 주듯이 Azure AD Connect를 통해 사용하도록 설정할 수 있습니다. 이 기능을 사용하도록 설정하는 동안 발생하는 단계는 다음과 같습니다.
 
-- 컴퓨터 계정 (`AZUREADSSOACC`)은 Azure AD Connect를 사용 하 여 Azure ad에 동기화 하는 각 ad 포리스트의 온-프레미스 Active Directory (ad)에 만들어집니다.
-- 또한 Azure AD 로그인 프로세스 중에 사용 하기 위해 다양 한 Kerberos Spn (서비스 사용자 이름)이 생성 됩니다.
+- 컴퓨터 계정`AZUREADSSOACC`()은 Azure AD 연결 사용으로 Azure AD에 동기화하는 각 AD 포리스트의 온-프레미스 Active Directory(AD)에서 만들어집니다.
+- 또한 Azure AD 로그인 프로세스 중에 사용할 수 있도록 여러 Kerberos 서비스 주체 이름(SPN)이 만들어집니다.
 - 컴퓨터 계정의 Kerberos 암호 해독 키가 Azure AD와 안전하게 공유됩니다. AD 포리스트가 여러 개인 경우 각 컴퓨터 계정에 고유한 Kerberos 암호 해독 키가 있습니다.
 
 >[!IMPORTANT]
-> 보안상의 이유로 컴퓨터 계정을 강력 하 게 보호 해야 합니다. `AZUREADSSOACC` 도메인 관리자만 컴퓨터 계정을 관리할 수 있어야 합니다. 컴퓨터 계정에 대 한 Kerberos 위임이 사용 하지 않도록 설정 되어 있고 Active Directory의 다른 계정에 `AZUREADSSOACC` 컴퓨터 계정에 대 한 위임 권한이 있는지 확인 하십시오. 실수로 삭제 되는 것이 안전 하 고 도메인 관리자만 액세스할 수 있는 조직 구성 단위 (OU)에 컴퓨터 계정을 저장 합니다. 컴퓨터 계정의 Kerberos 암호 해독 키도 중요 한 것으로 간주 됩니다. 적어도 30일마다 `AZUREADSSOACC` 컴퓨터 계정의 [Kerberos 암호 해독 키를 롤오버](how-to-connect-sso-faq.md)하는 것이 좋습니다.
+> `AZUREADSSOACC` 컴퓨터 계정은 보안상의 이유로 강력하게 보호되어야 합니다. 도메인 관리자만 컴퓨터 계정을 관리할 수 있어야 합니다. 컴퓨터 계정의 Kerberos 위임이 비활성화되어 있고 Active Directory의 다른 계정에 컴퓨터 `AZUREADSSOACC` 계정에 위임 권한이 없는지 확인합니다. 컴퓨터 계정을 우발적인 삭제로부터 안전하고 도메인 관리자만 액세스할 수 있는 조직 단위(OU)에 저장합니다. 컴퓨터 계정의 Kerberos 암호 해독 키도 중요한 것으로 간주해야 합니다. 적어도 30일마다 `AZUREADSSOACC` 컴퓨터 계정의 [Kerberos 암호 해독 키를 롤오버](how-to-connect-sso-faq.md)하는 것이 좋습니다.
 
 설정이 완료되면 Seamless SSO는 IWA(Windows 통합 인증)를 사용하는 다른 로그인과 동일한 방식으로 작동합니다.
 
@@ -52,7 +52,7 @@ Seamless SSO는 [여기](how-to-connect-sso-quick-start.md)서 보여 주듯이 
 
 웹 브라우저의 로그인 흐름은 다음과 같습니다.
 
-1. 사용자가 회사 네트워크의 도메인 가입 회사 디바이스에서 웹 애플리케이션(예: Outlook 웹앱 https://outlook.office365.com/owa/) )에 액세스하려고 합니다.
+1. 사용자가 회사 네트워크의 도메인 가입 회사 디바이스에서 웹 애플리케이션(예: Outlook 웹앱 https://outlook.office365.com/owa/))에 액세스하려고 합니다.
 2. 사용자가 아직 로그인하지 않은 경우 해당 사용자는 Azure AD 로그인 페이지로 리디렉션됩니다.
 3. 사용자는 자신의 사용자 이름을 Azure AD 로그인 페이지에 입력합니다.
 
@@ -96,6 +96,6 @@ Seamless SSO는 편의적인 기능입니다. 이는 SSO가 실패하면 로그�
 ## <a name="next-steps"></a>다음 단계
 
 - [**빠른 시작**](how-to-connect-sso-quick-start.md) - Azure AD Seamless SSO를 준비하고 실행합니다.
-- [**FAQ(질문과 대답)** ](how-to-connect-sso-faq.md) - 질문과 대답을 다루고 있습니다.
-- [**문제 해결**](tshoot-connect-sso.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 새로운 기능 요청을 제출합니다.
+- [**자주 묻는 질문**](how-to-connect-sso-faq.md) - 자주 묻는 질문에 대한 답변입니다.
+- [**문제 해결**](tshoot-connect-sso.md) - 이 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.
+- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 새 기능 요청을 제출하기 위한 것입니다.

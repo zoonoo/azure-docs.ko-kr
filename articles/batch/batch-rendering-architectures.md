@@ -10,10 +10,10 @@ ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
 ms.openlocfilehash: 20442a6618ca9357bb3be95879b68bffca45a40d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022956"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Azure 렌더링 참조 아키텍처
@@ -28,7 +28,7 @@ ms.locfileid: "77022956"
 
 * **네트워크** - 온-프레미스: Azure ExpressRoute 또는 VPN입니다. Azure: Azure VNet입니다.
 
-* **스토리지** - 입력 및 출력 파일: Azure VM을 사용하는 NFS 또는 CFS이며, Azure 파일 동기화 또는 RSync를 통해 온-프레미스 스토리지와 동기화됩니다. 또는 Avere: NFS를 사용 하 여 온-프레미스 NAS 장치에서 파일을 입력 또는 출력 vFXT 합니다.
+* **스토리지** - 입력 및 출력 파일: Azure VM을 사용하는 NFS 또는 CFS이며, Azure 파일 동기화 또는 RSync를 통해 온-프레미스 스토리지와 동기화됩니다. 또는 Avere vFXT를 사용하여 NFS를 사용하여 온-프레미스 NAS 장치에서 파일을 입력하거나 출력할 수 있습니다.
 
   ![클라우드 버스팅 - NFS와 CFS가 있는 하이브리드](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 

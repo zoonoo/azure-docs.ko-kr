@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 5c7686d8501baf17a63a5317f0d136adb6ac7812
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "69014681"
 ---
 피드백을 제공하고 Azure Media Services를 개선하는 방법에 대해 제안하려면 [사용자 음성](https://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409) 포럼을 사용합니다. 또한 다음 범주 중 하나로 직접 이동할 수 있습니다.
@@ -18,6 +18,6 @@ ms.locfileid: "69014681"
 * [Encoding 및 처리](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/)
 * [라이브 스트리밍](https://feedback.azure.com/forums/169396-media-services/category/144414-live-streaming/)
 * [미디어 분석](https://feedback.azure.com/forums/169396-media-services/category/146181-media-analytics)
-* [Azure Portal](https://feedback.azure.com/forums/169396-media-services/category/144432-portal/)
+* [Azure 포털](https://feedback.azure.com/forums/169396-media-services/category/144432-portal/)
 * [REST API 및 플랫폼](https://feedback.azure.com/forums/169396-media-services/category/144423-rest-api-and-platform/)
 * [주문형 비디오 스트리밍](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)

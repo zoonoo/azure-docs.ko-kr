@@ -1,5 +1,5 @@
 ---
-title: Time Series Insights를 사용 하 여 시뮬레이션 된 원격 분석 시각화-Azure | Microsoft Docs
+title: 타임시리즈 인사이트로 시뮬레이션된 원격 분석 시각화 - Azure | 마이크로 소프트 문서
 description: 디바이스 시뮬레이션 솔루션 가속기에서 생성된 원격 분석을 탐색하고 분석하도록 Time Series Insights 환경을 구성하는 방법을 알아봅니다.
 author: dominicbetts
 manager: timlt
@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 2bbd7911a40d6a256d478e2533ad2469b8fd6973
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889341"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Time Series Insights를 사용하여 디바이스 시뮬레이션 솔루션 가속기에서 보낸 원격 분석 시각화
 
 디바이스 시뮬레이션 솔루션 가속기를 사용하여 IoT 솔루션을 테스트하도록 시뮬레이션된 디바이스에서 원격 분석을 생성할 수 있습니다. 이 방법 가이드에서는 Time Series Insights 환경을 사용하여 시뮬레이션된 원격 분석을 시각화 및 분석하는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 방법 가이드의 단계를 수행하려면 활성 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+이 방법 가이드의 단계를 수행하려면 활성 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 이 방법 가이드의 단계에서는 Azure 구독에 디바이스 시뮬레이션 솔루션 가속기를 배포했다고 가정합니다. 솔루션 가속기를 배포하지 않은 경우 [클라우드 기반 디바이스 시뮬레이션 솔루션 배포 및 실행](quickstart-device-simulation-deploy.md) 빠른 시작의 단계를 수행합니다.
 
@@ -55,9 +55,9 @@ Time Series Insights에 원격 분석을 스트리밍하도록 전용 소비자 
 
 [Azure Time Series Insights](../../articles/time-series-insights/time-series-insights-overview.md)는 클라우드에서 IoT 규모 시계열 데이터를 관리하기 위한 완전 관리형 분석, 스토리지 및 가상화 서비스입니다. 새로운 Time Series Insights 환경을 만들려면:
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
 
-1. **리소스 만들기** > **사물 인터넷** > **Time Series Insights**를 선택합니다.
+1.  > **리소스** **Create a resource** > 사물 인터넷**타임시리즈 인사이트**만들기 선택:
 
     ![새로운 Time Series Insights](./media/iot-accelerators-device-simulation-time-series-insights/new-time-series-insights.png)
 
@@ -66,9 +66,9 @@ Time Series Insights에 원격 분석을 스트리밍하도록 전용 소비자 
     | 설정 | 값 |
     | ------- | ----- |
     | 환경 이름 | 다음 스크린샷에서는 **Contoso-TSI**라는 이름을 사용합니다. 이 단계를 완료할 때는 자신만의 고유한 이름을 선택합니다. |
-    | 구독 | 드롭다운에서 Azure 구독을 선택합니다. |
-    | 리소스 그룹 | **contoso-simulation** 솔루션 가속기의 이름을 사용합니다. |
-    | Location | 이 예제에서는 **미국 동부**를 사용합니다. 디바이스 시뮬레이션 가속기와 동일한 지역에 환경을 만듭니다. |
+    | Subscription | 드롭다운에서 Azure 구독을 선택합니다. |
+    | Resource group | **contoso-simulation** 솔루션 가속기의 이름을 사용합니다. |
+    | 위치 | 이 예제에서는 **미국 동부**를 사용합니다. 디바이스 시뮬레이션 가속기와 동일한 지역에 환경을 만듭니다. |
     | SKU |**S1** |
     | 용량 | **1** |
 
@@ -89,7 +89,7 @@ IoT 허브에 연결할 새 이벤트 원본을 만듭니다. 이전 단계에�
 
     ![이벤트 원본 보기](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-event-sources.png)
 
-1. **추가**를 클릭합니다.
+1. **추가를 클릭합니다.**
 
     ![이벤트 원본 추가](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-event-sources-add.png)
 
@@ -139,7 +139,7 @@ Time Series Insights 탐색기는 원격 분석을 시각화하는 데 사용할
 
     ![Time Series Insights 탐색기 쿼리](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-query1.png)
 
-1. 차트를 마우스 오른쪽 단추로 클릭하고 **이벤트 탐색**을 선택합니다.
+1. 차트를 마우스 오른쪽 버튼으로 클릭하고 **이벤트 탐색을**선택합니다.
 
     ![Time Series Insights 탐색기 이벤트](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-explore-events.png)
 
@@ -151,7 +151,7 @@ Time Series Insights 탐색기는 원격 분석을 시각화하는 데 사용할
 
     ![Time Series Insights 탐색기 큐브 뷰](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-explorer-perspective.png)
 
-1. **+** 를 클릭하여 큐브 뷰에 새 쿼리를 추가합니다.
+1. 원근에 새 쿼리를 추가하려면 클릭합니다. **+**
 
     ![Time Series Insights 탐색기 쿼리 추가](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-new-query.png)
 
@@ -167,7 +167,7 @@ Time Series Insights 탐색기는 원격 분석을 시각화하는 데 사용할
 
 더 탐색하려면 솔루션 가속기를 배포된 대로 둡니다.
 
-솔루션 가속기가 더 이상 필요하지 않은 경우 선택한 다음, [솔루션 삭제](https://www.azureiotsolutions.com/Accelerators#dashboard)를 클릭하여 **프로비전된 솔루션** 페이지에서 삭제합니다.
+솔루션 가속기가 더 이상 필요하지 않은 경우 [프로비전된 솔루션](https://www.azureiotsolutions.com/Accelerators#dashboard) 페이지에서 솔루션을 선택한 다음 **솔루션 삭제를**클릭하여 삭제합니다.
 
 솔루션 가속기의 리소스 그룹에 Time Series Insights 환경을 추가한 경우 솔루션 가속기를 삭제할 때 자동으로 삭제됩니다. 그렇지 않은 경우 Azure Portal에서 Time Series Insights 환경을 수동으로 제거해야 합니다.
 

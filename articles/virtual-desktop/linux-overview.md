@@ -1,6 +1,6 @@
 ---
-title: Windows 가상 데스크톱 Linux Support-Azure
-description: Windows 가상 데스크톱에 대 한 간단한 개요 Linux 지원
+title: 윈도우 가상 데스크톱 리눅스 지원 - Azure
+description: 윈도우 가상 데스크톱에 대한 간단한 개요 리눅스 지원.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,57 +9,57 @@ ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 967fd1fa182b7c8e581fd74cc287c5a6ba0e4038
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127833"
 ---
 # <a name="linux-support"></a>Linux 지원
 
-Windows 가상 데스크톱에 대 한 Linux SDK를 사용 하 여 독립 실행형 Windows 가상 데스크톱 클라이언트를 빌드할 수 있습니다. 클라이언트 응용 프로그램에서 Windows 가상 데스크톱 지원을 사용 하도록 설정 하는 데 사용할 수도 있습니다. 이 빠른 가이드에서는 Linux SDK의 정의와 사용을 시작 하는 방법을 설명 합니다.
+Windows 가상 데스크톱용 Linux SDK를 사용하여 독립 실행형 Windows 가상 데스크톱 클라이언트를 빌드할 수 있습니다. 클라이언트 응용 프로그램에서 Windows 가상 데스크톱 지원을 활성화하는 데 사용할 수도 있습니다. 이 빠른 가이드는 리눅스 SDK가 무엇이며 어떻게 사용하기 시작하는지 설명합니다.
 
-## <a name="what-is-the-linux-sdk"></a>Linux SDK 란 무엇 인가요?
+## <a name="what-is-the-linux-sdk"></a>리눅스 SDK는 무엇입니까?
 
-SDK Api를 사용 하 여 리소스 피드를 검색 하 고, 데스크톱 또는 원격 응용 프로그램 세션에 연결 하 고, 자사 클라이언트에서 지 원하는 대부분의 리디렉션을 사용할 수 있습니다.
+SDK API를 사용하여 리소스 피드를 검색하고, 데스크톱 또는 원격 응용 프로그램 세션에 연결하고, 타사 클라이언트가 지원하는 많은 리디렉션을 사용할 수 있습니다.
 
 > [!NOTE]
-> SDK는 현재 개발 중입니다. SDK를 사용할 수 있는 경우이 문서에 액세스 하는 지침이 포함 된이 문서를 업데이트 합니다.
+> SDK는 현재 개발 중입니다. 사용 가능한 경우 SDK에 액세스하는 지침으로 이 문서를 업데이트합니다.
 
-### <a name="supported-linux-distributions"></a>지원 되는 Linux 배포판
+### <a name="supported-linux-distributions"></a>지원되는 Linux 배포판
 
-SDK는 Ubuntu 18.04 이상을 기반으로 하는 대부분의 운영 체제와 호환 됩니다. 다른 Linux 배포를 사용 하는 경우 사용자와 협력 하 여 요구 사항을 가장 잘 지 원하는 방법을 알아낼 수 있습니다.
+SDK는 우분투 18.04 이상에 따라 대부분의 운영 체제와 호환됩니다. 다른 Linux 배포판이 있는 경우 귀사와 협력하여 사용자의 요구를 가장 잘 지원하는 방법을 파악할 수 있습니다.
 
 ### <a name="feature-support"></a>기능 지원
 
-SDK는 데스크톱 및 원격 응용 프로그램 세션에 대 한 여러 연결을 지원 합니다. 다음 리디렉션이 지원 됩니다.
+SDK는 데스크톱 및 원격 응용 프로그램 세션에 대한 여러 연결을 지원합니다. 다음 리디렉션이 지원됩니다.
 
 | 리디렉션       | 지원됨 |
 | :---------------- | :-------: |
 | 키보드          | &#10004;  |
 | 마우스             | &#10004;  |
-| 오디오의          | &#10004;  |
-| 오디오 출력         | &#10004;  |
-| 클립보드 (텍스트)  | &#10004;  |
-| 클립보드 (이미지) | &#10004;  |
+| 오디오 에서          | &#10004;  |
+| 오디오 아웃         | &#10004;  |
+| 클립보드(텍스트)  | &#10004;  |
+| 클립보드(이미지) | &#10004;  |
 | 클립보드 (파일)  | &#10004;  |
 | 스마트 카드         | &#10004;  |
 | 드라이브/폴더      | &#10004;  |
 
-또한 SDK는 세션에 대해 선택 하는 모니터가 연속적으로 여러 모니터 표시 구성을 지원 합니다.
+SDK는 세션에 대해 선택한 모니터가 연속적인 경우 여러 모니터 디스플레이 구성을 지원합니다.
 
-새 기능 및 리디렉션에 대 한 지원을 추가할 때이 문서를 업데이트 합니다. 새 기능 및 기타 향상 된 기능을 제안 하려면 [UserVoice 페이지](https://go.microsoft.com/fwlink/?linkid=2116523)를 방문 하세요.
+새로운 기능 및 리디렉션에 대한 지원을 추가하면서 이 문서를 업데이트하겠습니다. 새로운 기능 및 기타 개선 사항 제안을 원하면 [UserVoice 페이지를](https://go.microsoft.com/fwlink/?linkid=2116523)방문하십시오.
 
-## <a name="get-started-with-the-linux-sdk"></a>Linux SDK 시작
+## <a name="get-started-with-the-linux-sdk"></a>리눅스 SDK로 시작하기
 
-Windows 가상 데스크톱에 대 한 Linux 클라이언트를 개발 하려면 먼저 다음 작업을 수행 해야 합니다.
+Windows 가상 데스크톱용 Linux 클라이언트를 개발하려면 다음 을 수행해야 합니다.
 
-1. 테스트 또는 프로덕션 사용을 위해 Windows 가상 데스크톱 환경을 빌드 및 배포 합니다.
-2. 사용 가능한 자사 클라이언트를 테스트 하 여 Windows 가상 데스크톱 사용자 환경에 익숙해질 수 있습니다.
+1. 테스트 또는 프로덕션 용으로 Windows 가상 데스크톱 환경을 빌드하고 배포합니다.
+2. 사용 가능한 자말 클라이언트를 테스트하여 Windows 가상 데스크톱 사용자 환경을 숙지합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 클라이언트에 대 한 설명서를 확인 하세요.
+다음 고객에 대한 설명서를 확인하십시오.
 
 - [Windows 데스크톱 클라이언트](connect-windows-7-and-10.md)
 - [웹 클라이언트](connect-web.md)

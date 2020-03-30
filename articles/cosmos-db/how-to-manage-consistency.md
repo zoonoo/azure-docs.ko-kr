@@ -1,16 +1,16 @@
 ---
-title: Azure Cosmos DB의 일관성 관리
-description: Azure Portal, .Net SDK, Java SDK 및 기타 다양 한 Sdk를 사용 하 여 Azure Cosmos DB에서 일관성 수준을 구성 하 고 관리 하는 방법을 알아봅니다.
+title: Azure Cosmos DB에서 일관성 관리
+description: Azure 포털, .Net SDK, Java SDK 및 기타 다양한 SDK를 사용하여 Azure Cosmos DB에서 일관성 수준을 구성하고 관리하는 방법을 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.openlocfilehash: 651daa0af8188b386220d97390e7a61615f94120
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79369406"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준 관리
@@ -69,7 +69,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 클라이언트는 서비스에서 설정한 기본 일관성 수준을 재정의할 수 있습니다. 일관성 수준을 요청별로 설정할 수 있으며, 이렇게 하면 계정 수준에서 설정된 기본 일관성 수준이 재정의됩니다.
 
-### <a id="override-default-consistency-dotnet"></a>.NET SDK V2
+### <a name="net-sdk-v2"></a><a id="override-default-consistency-dotnet"></a>.NET SDK V2
 
 ```csharp
 // Override consistency at the client level
@@ -81,7 +81,7 @@ RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = Consiste
 var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
 ```
 
-### <a id="override-default-consistency-dotnet-v3"></a>.NET SDK V3
+### <a name="net-sdk-v3"></a><a id="override-default-consistency-dotnet-v3"></a>.NET SDK V3
 
 ```csharp
 // Override consistency at the request level via request options
@@ -94,7 +94,7 @@ var response = await client.GetContainer(databaseName, containerName)
         requestOptions);
 ```
 
-### <a id="override-default-consistency-java-async"></a>Java 비동기 SDK
+### <a name="java-async-sdk"></a><a id="override-default-consistency-java-async"></a>Java 비동기 SDK
 
 ```java
 // Override consistency at the client level
@@ -108,7 +108,7 @@ AsyncDocumentClient client =
                 .withConnectionPolicy(policy).build();
 ```
 
-### <a id="override-default-consistency-java-sync"></a>Java 동기 SDK
+### <a name="java-sync-sdk"></a><a id="override-default-consistency-java-sync"></a>Java 동기 SDK
 
 ```java
 // Override consistency at the client level
@@ -116,7 +116,7 @@ ConnectionPolicy connectionPolicy = new ConnectionPolicy();
 DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy, ConsistencyLevel.Eventual);
 ```
 
-### <a id="override-default-consistency-javascript"></a>Node.js/JavaScript/TypeScript SDK
+### <a name="nodejsjavascripttypescript-sdk"></a><a id="override-default-consistency-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
 ```javascript
 // Override consistency at the client level
@@ -129,7 +129,7 @@ const client = new CosmosClient({
 const { body } = await item.read({ consistencyLevel: ConsistencyLevel.Eventual });
 ```
 
-### <a id="override-default-consistency-python"></a>Python SDK
+### <a name="python-sdk"></a><a id="override-default-consistency-python"></a>Python SDK
 
 ```python
 # Override consistency at the client level
@@ -144,7 +144,7 @@ Azure Cosmos DB의 일관성 수준 중 하나는 *세션* 일관성입니다. �
 
 세션 토큰을 수동으로 관리하려면 응답에서 세션 토큰을 가져와서 요청별로 설정합니다. 세션 토큰을 수동으로 관리할 필요가 없으면 다음 샘플을 사용할 필요가 없습니다. SDK는 세션 토큰을 자동으로 추적합니다. 세션 토큰을 수동으로 설정하지 않으면 기본적으로 SDK에서 최신 세션 토큰을 사용합니다.
 
-### <a id="utilize-session-tokens-dotnet"></a>.NET SDK V2
+### <a name="net-sdk-v2"></a><a id="utilize-session-tokens-dotnet"></a>.NET SDK V2
 
 ```csharp
 var response = await client.ReadDocumentAsync(
@@ -157,7 +157,7 @@ var response = await client.ReadDocumentAsync(
                 UriFactory.CreateDocumentUri(databaseName, collectionName, "SalesOrder1"), options);
 ```
 
-### <a id="utilize-session-tokens-dotnet-v3"></a>.NET SDK V3
+### <a name="net-sdk-v3"></a><a id="utilize-session-tokens-dotnet-v3"></a>.NET SDK V3
 
 ```csharp
 Container container = client.GetContainer(databaseName, collectionName);
@@ -169,7 +169,7 @@ options.SessionToken = sessionToken;
 ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(salesOrder.Id, new PartitionKey(salesOrder.PartitionKey), options);
 ```
 
-### <a id="utilize-session-tokens-java-async"></a>Java 비동기 SDK
+### <a name="java-async-sdk"></a><a id="utilize-session-tokens-java-async"></a>Java 비동기 SDK
 
 ```java
 // Get session token from response
@@ -191,7 +191,7 @@ requestOptions.setSessionToken(sessionToken);
 Observable<ResourceResponse<Document>> readObservable = client.readDocument(document.getSelfLink(), options);
 ```
 
-### <a id="utilize-session-tokens-java-sync"></a>Java 동기 SDK
+### <a name="java-sync-sdk"></a><a id="utilize-session-tokens-java-sync"></a>Java 동기 SDK
 
 ```java
 // Get session token from response
@@ -204,7 +204,7 @@ options.setSessionToken(sessionToken);
 ResourceResponse<Document> response = client.readDocument(documentLink, options);
 ```
 
-### <a id="utilize-session-tokens-javascript"></a>Node.js/JavaScript/TypeScript SDK
+### <a name="nodejsjavascripttypescript-sdk"></a><a id="utilize-session-tokens-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
 ```javascript
 // Get session token from response
@@ -215,7 +215,7 @@ const sessionToken = headers["x-ms-session-token"];
 const { body } = await item.read({ sessionToken });
 ```
 
-### <a id="utilize-session-tokens-python"></a>Python SDK
+### <a name="python-sdk"></a><a id="utilize-session-tokens-python"></a>Python SDK
 
 ```python
 // Get the session token from the last response headers
@@ -231,7 +231,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>PBS(확률적 제한된 부실) 메트릭 모니터링
 
-최종 일관성은 어떻게 최종인가요? 평균적인 사례의 경우 버전 기록 및 시간과 관련하여 부실 범위를 제공할 수 있습니다. [**PBS(확률적 제한된 부실)** ](https://pbs.cs.berkeley.edu/) 메트릭은 부실의 확률을 수량화하여 메트릭으로 표시하려고 시도합니다. PBS 메트릭을 보려면 Azure Portal에서 Cosmos 계정으로 이동합니다. **메트릭** 창을 열고 **일관성** 탭을 선택 합니다. **작업을 기반으로 하는 강력한 일관성 읽기의 확률**이라는 그래프를 확인 합니다 (PBS 참조).
+최종 일관성은 어떻게 최종인가요? 평균적인 사례의 경우 버전 기록 및 시간과 관련하여 부실 범위를 제공할 수 있습니다. [**PBS(확률적 제한된 부실)**](https://pbs.cs.berkeley.edu/) 메트릭은 부실의 확률을 수량화하여 메트릭으로 표시하려고 시도합니다. PBS 메트릭을 보려면 Azure Portal에서 Cosmos 계정으로 이동합니다. **메트릭** 창을 열고 **일관성** 탭을 선택합니다. **워크로드에 따라 강력하게 일관된 읽기의 확률이라는 그래프를 확인합니다(PBS 참조).**
 
 ![Azure Portal의 PBS 그래프](./media/how-to-manage-consistency/pbs-metric.png)
 
@@ -243,6 +243,6 @@ item = client.ReadItem(doc_link, options)
 * [Azure Cosmos DB의 일관성 수준](consistency-levels.md)
 * [Azure 지역 간 충돌 관리](how-to-manage-conflicts.md)
 * [분할 및 데이터 배포](partition-data.md)
-* [최신 분산 데이터베이스 시스템 디자인의 일관성 절충](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+* [최신 분산 데이터베이스 시스템 설계의 일관성 장단점](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 * [고가용성](high-availability.md)
 * [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

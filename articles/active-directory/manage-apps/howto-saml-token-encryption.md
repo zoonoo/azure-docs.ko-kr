@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0082d841faf22745e609d38444f4a97553b3c867
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79365869"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption"></a>방법: Azure AD SAML 토큰 암호화 구성
@@ -56,7 +56,7 @@ SAML 토큰 암호화를 구성하려면 다음 단계를 수행합니다.
 
 Azure Portal 내의 애플리케이션 구성에 공용 인증서를 추가할 수 있습니다.
 
-1. [Azure 포털](https://portal.azure.com)로 이동합니다.
+1. [Azure 포털로](https://portal.azure.com)이동합니다.
 
 1. **Azure Active Directory > 엔터프라이즈 애플리케이션** 블레이드로 이동한 후 해당 토큰 암호화를 구성하려는 애플리케이션을 선택합니다.
 
@@ -67,7 +67,7 @@ Azure Portal 내의 애플리케이션 구성에 공용 인증서를 추가할 �
     > [!NOTE]
     > **토큰 암호화** 옵션은 Azure Portal의 **엔터프라이즈 애플리케이션** 블레이드, 애플리케이션 갤러리 또는 Gallery 이외의 앱에서 설정한 SAML 애플리케이션에만 사용할 수 있습니다. 다른 애플리케이션의 경우 이 메뉴 옵션을 사용할 수 없습니다. Azure Portal의 **앱 등록** 환경을 통해 등록된 애플리케이션의 경우 애플리케이션 매니페스트를 사용하거나 Microsoft Graph 또는 PowerShell을 통해 SAML 토큰에 대한 암호화를 구성할 수 있습니다.
 
-1. **토큰 암호화** 페이지에서 **인증서 가져오기**를 선택하여 공용 X.509 인증서를 포함하는 .cer 파일을 가져옵니다.
+1. 토큰 **암호화** 페이지에서 **인증서 가져오기를** 선택하여 공용 X.509 인증서가 포함된 .cer 파일을 가져옵니다.
 
     ![X.509 인증서를 포함하는 .cer 파일 가져오기](./media/howto-saml-token-encryption/import-certificate-small.png)
 
@@ -123,15 +123,15 @@ Graph 또는 PowerShell을 사용하거나 keyId에 사용할 GUID를 생성해�
 
 ### <a name="to-configure-token-encryption-using-powershell"></a>PowerShell을 사용하여 토큰 암호화를 구성하려면
 
-1. 최신 Azure AD PowerShell 모듈을 사용 하 여 테 넌 트에 연결 합니다.
+1. 최신 Azure AD PowerShell 모듈을 사용하여 테넌트에 연결합니다.
 
-1. **[Set AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** 명령을 사용 하 여 토큰 암호화 설정을 설정 합니다.
+1. **[Set-AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** 명령을 사용하여 토큰 암호화 설정을 설정합니다.
 
     ```
     Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>
     ```
 
-1. 다음 명령을 사용 하 여 토큰 암호화 설정을 읽습니다.
+1. 다음 명령을 사용하여 토큰 암호화 설정을 읽습니다.
 
     ```powershell
     $app=Get-AzureADApplication -ObjectId <ApplicationObjectId>

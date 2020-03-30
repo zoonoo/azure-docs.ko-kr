@@ -1,6 +1,6 @@
 ---
-title: VMware 솔루션에 대 한 노드 삭제 (AVS)-Azure
-description: AVS 배포를 사용 하 여 VMWare에서 노드를 삭제 하는 방법을 알아봅니다.
+title: 클라우드심플 - Azure를 통해 VM웨어 솔루션용 노드 삭제
+description: CloudSimple 배포를 통해 VMWare에서 노드를 삭제하는 방법 알아보기
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/05/2019
@@ -8,45 +8,45 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 30d128d6bd2f2e1e2705a7b742f02d11fd947a03
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 122e0636f54e066ae86ed2d19cefe5863b026293
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77024741"
 ---
-# <a name="delete-nodes-from-azure-vmware-solution-by-avs"></a>Azure VMware 솔루션에서 AVS로 노드 삭제
+# <a name="delete-nodes-from-azure-vmware-solution-by-cloudsimple"></a>클라우드 단순에 의해 Azure VMware 솔루션에서 노드 삭제
 
-AVS 노드는 생성 되 면 계량 됩니다. 노드 계량을 중지 하려면 노드를 삭제 해야 합니다. Azure Portal에서 사용 되지 않는 노드를 삭제 합니다.
+CloudSimple 노드는 생성되면 미터화됩니다.  노드의 계량을 중지하려면 노드를 삭제해야 합니다.  Azure 포털에서 사용되지 않는 노드를 삭제합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-노드는 다음 조건 에서만 삭제할 수 있습니다.
+노드는 다음 조건에서만 삭제할 수 있습니다.
 
-* 노드를 사용 하 여 만든 AVS 사설 클라우드가 삭제 됩니다. AVS 사설 클라우드를 삭제 하려면 [Avs 사설 클라우드에서 Azure VMware 솔루션 삭제](delete-private-cloud.md)를 참조 하세요.
-* 노드가 avs 사설 클라우드를 축소 하 여 AVS 사설 클라우드에서 제거 되었습니다. AVS 사설 클라우드를 축소 하려면 [Avs 사설 클라우드에서 Azure VMware 솔루션 축소](shrink-private-cloud.md)를 참조 하세요.
+* 노드로 만든 프라이빗 클라우드가 삭제됩니다.  프라이빗 클라우드를 삭제하려면 [CloudSimple 프라이빗 클라우드에서 Azure VMware 솔루션 삭제를](delete-private-cloud.md)참조하십시오.
+* 프라이빗 클라우드를 축소하여 노드가 프라이빗 클라우드에서 제거되었습니다.  프라이빗 클라우드를 축소하려면 [CloudSimple 프라이빗 클라우드로 Azure VMware 솔루션 축소를](shrink-private-cloud.md)참조하십시오.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+에서 [https://portal.azure.com](https://portal.azure.com)Azure 포털에 로그인합니다.
 
-## <a name="delete-avs-node"></a>AVS 노드 삭제
+## <a name="delete-cloudsimple-node"></a>클라우드 단순 노드 삭제
 
-1. **모든 서비스**를 선택합니다.
+1. **모든 서비스를**선택합니다.
 
-2. **AVS 노드**를 검색 합니다.
+2. 클라우드 **단순 노드 검색**.
 
-   ![AVS 노드 검색](media/create-cloudsimple-node-search.png)
+   ![클라우드 단순 노드 검색](media/create-cloudsimple-node-search.png)
 
-3. **AVS 노드**를 선택 합니다.
+3. **클라우드 단순 노드를 선택합니다.**
 
-4. 삭제할 AVS 사설 클라우드에 속하지 않는 노드를 선택 합니다. **AVS 사설 클라우드 이름** 열은 노드가 속한 Avs 사설 클라우드 이름을 표시 합니다. 노드가 AVS 사설 클라우드에서 사용 되지 않는 경우에는 값이 비어 있게 됩니다. 
+4. 삭제할 프라이빗 클라우드에 속하지 않는 노드를 선택합니다.  **비공개 클라우드 이름** 열에는 노드가 속한 프라이빗 클라우드 이름이 표시됩니다.  사설 클라우드에서 노드를 사용하지 않으면 값이 비어 있습니다. 
 
-    ![AVS 노드 선택](media/select-delete-cloudsimple-node.png)
+    ![클라우드 단순 노드 선택](media/select-delete-cloudsimple-node.png)
 
 > [!NOTE]
-> AVS 사설 클라우드에 속하지 않는 노드만 삭제할 수 있습니다.
+> 프라이빗 클라우드의 일부가 아닌 노드만 삭제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [AVS 사설 클라우드에](cloudsimple-private-cloud.md) 대해 알아보기
+* 프라이빗 [클라우드에](cloudsimple-private-cloud.md) 대해 알아보기

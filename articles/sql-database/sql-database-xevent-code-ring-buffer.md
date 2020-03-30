@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: ad98b61d6339388551af93671b3d4d892942f4e4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79213977"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>SQL Database의 확장 이벤트에 대한 링 버퍼 대상 코드
@@ -29,7 +29,7 @@ ms.locfileid: "79213977"
 1. 시연하는 데 사용할 데이터를 포함하는 테이블을 만듭니다.
 2. 기존 확장 이벤트에 대한 세션 즉, **sqlserver.sql_statement_starting**을 만듭니다.
    
-   * 이 이벤트는 특정 업데이트 문자열을 포함하는 SQL 문( **statement LIKE '%UPDATE tabEmployee%'** )으로 제한됩니다.
+   * 이 이벤트는 특정 업데이트 문자열을 포함하는 SQL 문( **statement LIKE '%UPDATE tabEmployee%'**)으로 제한됩니다.
    * 링 버퍼 유형의 대상 즉, **package0.ring_buffer**로 이벤트 출력을 보내도록 선택합니다.
 3. 이벤트 세션을 시작합니다.
 4. 몇 가지 간단한 SQL UPDATE 문을 실행합니다.
@@ -54,7 +54,7 @@ ms.locfileid: "79213977"
 
 ## <a name="code-sample"></a>코드 샘플
 
-다음 링 버퍼 코드 샘플은 약간만 수정하면 Azure SQL Database 또는 Microsoft SQL Server에서 실행할 수 있습니다. 5단계의 FROM 절에 사용되는 일부 DMV(동적 관리 뷰) 이름에 '_database' 노드가 있다는 점이 다릅니다. 다음은 그 예입니다.
+다음 링 버퍼 코드 샘플은 약간만 수정하면 Azure SQL Database 또는 Microsoft SQL Server에서 실행할 수 있습니다. 5단계의 FROM 절에 사용되는 일부 DMV(동적 관리 뷰) 이름에 '_database' 노드가 있다는 점이 다릅니다. 예를 들어:
 
 * sys.dm_xe<strong>_database</strong>_session_targets
 * sys.dm_xe_session_targets
@@ -222,7 +222,7 @@ ssms.exe를 사용하여 코드 샘플을 실행했습니다.
 
 그런 다음 결과 창에서 열 머리글 **target_data_XML** 아래의 셀을 클릭했습니다. 그러면 결과 셀의 콘텐츠가 XML로 표시된 다른 파일 탭이 ssms.exe에 만들어졌습니다.
 
-출력은 다음 블록에 표시되어 있습니다. 긴 것으로 보이지만 두 개의 **\<이벤트 >** 요소입니다.
+출력은 다음 블록에 표시되어 있습니다. 그것은 길어 보이지만 요소>두 가지 ** \<이벤트일** 뿐입니다.
 
 &nbsp;
 

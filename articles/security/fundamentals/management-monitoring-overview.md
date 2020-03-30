@@ -1,5 +1,5 @@
 ---
-title: 관리 및 모니터링 보안 기능-Microsoft Azure | Microsoft Docs
+title: 보안 기능 관리 및 모니터링 - Microsoft Azure | 마이크로 소프트 문서
 description: 이 문서에서는 Azure Cloud Services 및 Virtual Machines의 관리 및 모니터링을 지원하기 위해 Azure에서 제공하는 보안 기능 및 서비스에 대한 개요를 제공합니다.
 services: security
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 7ad7a29a92d25556190b4cf44f4e48158a6f0952
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73162755"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 보안 관리 및 모니터링 개요
@@ -29,10 +29,10 @@ ms.locfileid: "73162755"
 
 RBAC(역할 기반 액세스 제어)는 Azure 리소스에 대한 세밀한 액세스 관리를 제공합니다. RBAC를 사용하면 사용자에게 해당 작업을 수행하는 데 필요한 정도의 액세스 권한만 부여할 수 있습니다. 또한 RBAC는 직원 퇴사 시 클라우드의 리소스에 대한 액세스 권한을 잃도록 해줄 수도 있습니다.
 
-자세히 보기:
+자세한 정보:
 
 * [RBAC의 Active Directory 팀 블로그](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
-* [Azure 역할 기반 액세스 제어](../../role-based-access-control/role-assignments-portal.md)
+* [Azure 역할 기반 Access Control](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>맬웨어 방지
 
@@ -40,11 +40,11 @@ Azure를 통해 Microsoft, Symantec, Trend Micro, McAfee, Kaspersky 등 주요 �
 
 Azure Cloud Services 및 Virtual Machines용 Microsoft 맬웨어 방지는 PaaS 역할 및 가상 머신 모두에 대한 맬웨어 방지 에이전트를 설치할 수 있는 기능을 제공합니다. System Center Endpoint Protection에 기반한 이 기능은 클라우드에 입증된 온-프레미스 보안 기술을 구현합니다.
 
-또한, Azure 플랫폼에서 Trend의 [Deep Security](https://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) 및 [SecureCloud](https://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) 제품에 대한 심층적인 통합도 제공합니다. DeepSecurity는 바이러스 백신 솔루션이며 SecureCloud는 암호화 솔루션입니다. DeepSecurity는 확장 모델을 통해 VM 내부에 배포됩니다. Azure Portal UI 및 PowerShell을 사용하면 복제하려는 새 VM 내부의 DeepSecurity를 사용하거나 이미 배포된 기존 VM을 사용할지 선택할 수 있습니다.
+또한 Azure 플랫폼에서 Trend의 [딥 시큐리티](https://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) 및 [SecureCloud](https://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) 제품에 대한 심층 통합을 제공합니다. DeepSecurity는 바이러스 백신 솔루션이며 SecureCloud는 암호화 솔루션입니다. DeepSecurity는 확장 모델을 통해 VM 내부에 배포됩니다. Azure Portal UI 및 PowerShell을 사용하면 복제하려는 새 VM 내부의 DeepSecurity를 사용하거나 이미 배포된 기존 VM을 사용할지 선택할 수 있습니다.
 
 SEP(Symantec Endpoint Protection)도 Azure에서 지원됩니다. 포털 통합을 통해 VM에서 SEP를 사용할지 지정할 수 있습니다. SEP는 Azure Portal을 통해 새로운 VM에 설치하거나 PowerShell을 통해 기존 VM에 설치할 수 있습니다.
 
-자세히 보기:
+자세한 정보:
 
 * [Azure Virtual Machines에 맬웨어 방지 솔루션 배포](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Azure Cloud Services 및 Virtual Machines용 Microsoft 맬웨어 방지 프로그램](antimalware.md)
@@ -52,19 +52,19 @@ SEP(Symantec Endpoint Protection)도 Azure에서 지원됩니다. 포털 통합�
 * [Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](/azure/virtual-machines/windows/classic/install-symantec)
 * [Azure Virtual Machines를 보호하는 새로운 맬웨어 방지 옵션](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
-## <a name="multi-factor-authentication"></a>다중 인증(Multi-Factor Authentification)
+## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 Azure Multi-Factor Authentication은 두 가지 이상의 확인 방법을 사용하도록 요구하는 인증 방법입니다. 사용자 로그인 및 트랜잭션에 중요한 두 번째 보안 계층을 추가합니다.
 
 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 Multi-Factor Authentication을 사용하면 데이터와 애플리케이션에 대한 액세스를 보호합니다. 전화 통화, 문자 메시지 또는 모바일 앱 알림 또는 확인 코드 및 타사 OATH 토큰과 같은 다양한 확인 옵션을 통해 강력한 인증을 전달합니다.
 
-자세히 보기:
+자세한 정보:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 * [Azure Multi-Factor Authentication 정의](/azure/active-directory/authentication/multi-factor-authentication)
 * [Azure Multi-Factor Authentication 작동 방법](../../active-directory/authentication/concept-mfa-howitworks.md)
 
-## <a name="expressroute"></a>Express Route
+## <a name="expressroute"></a>ExpressRoute
 
 Azure ExpressRoute를 사용하여 연결 공급자에서 쉽게 처리된 전용 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 다음에서 Azure, Office 365, CRM Online과 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.
 
@@ -74,7 +74,7 @@ Azure ExpressRoute를 사용하여 연결 공급자에서 쉽게 처리된 전�
 
 ExpressRoute 연결은 공용 인터넷을 사용하지 않습니다. Express 경로는 일반적인 인터넷을 통한 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 
-자세히 보기:
+자세한 정보:
 
 * [ExpressRoute 기술 개요](../../expressroute/expressroute-introduction.md)
 
@@ -82,7 +82,7 @@ ExpressRoute 연결은 공용 인터넷을 사용하지 않습니다. Express �
 
 Azure Virtual Network 게이트웨이라는 VPN Gateway는 가상 네트워크와 온-프레미스 위치 간에 네트워크 트래픽을 보내는 데 사용됩니다. 또한 Azure 내의 여러 가상 네트워크 간(네트워크 간)에 트래픽을 보내는 데에도 사용됩니다. VPN 게이트웨이는 Azure와 인프라 사이의 안전한 프레미스 간 연결을 제공합니다.
 
-자세히 보기:
+자세한 정보:
 
 * [VPN 게이트웨이 정보](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 * [Azure 네트워크 보안 개요](network-overview.md)
@@ -95,9 +95,9 @@ Azure Virtual Network 게이트웨이라는 VPN Gateway는 가상 네트워크�
 
 Privileged Identity Management는 역할에 대해 임시 관리자 개념 또는 “Just-In-Time” 관리자 액세스 개념을 도입합니다. 이러한 종류의 관리자는 할당된 역할에 대한 활성화 프로세스를 완료해야 합니다. 활성화 프로세스는 Azure AD에서 할당된 사용자 역할을 지정된 기간 동안 비활성에서 활성 상태로 변경합니다.
 
-자세히 보기:
+자세한 정보:
 
-* [Azure AD 권한 있는 ID 관리](../../active-directory/privileged-identity-management/pim-configure.md)
+* [Azure AD Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
 * [Azure AD Privileged Identity Management 시작](../../active-directory/privileged-identity-management/pim-getting-started.md)
 
 ## <a name="identity-protection"></a>ID 보호
@@ -110,7 +110,7 @@ Azure AD Identity Protection은 의심스러운 로그인 활동 및 잠재적 �
 
 알림 및 권장된 수정을 제공하여 실시간으로 위험을 완화하는 데 도움이 됩니다. 사용자 위험 심각도를 계산하므로 이후 위협으로부터 애플리케이션 액세스를 자동으로 보호하도록 위험 기반 정책을 구성할 수 있습니다.
 
-자세히 보기:
+자세한 정보:
 
 * [Azure Active Directory ID 보호](/azure/active-directory/active-directory-identityprotection)
 * [Channel 9: Azure AD 및 ID 표시: ID 보호 미리 보기](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
@@ -127,18 +127,18 @@ Azure Security Center를 통해 위협을 예방하고 감지하며 대응할 �
 * Azure 가상 머신, 네트워킹 및 애플리케이션의 상태를 모니터링합니다.
 * 통합된 파트너 솔루션에서의 경고를 포함하여 우선 순위가 지정된 보안 경고 목록을 제공합니다. 또한 공격 및 해결 방법에 대한 권장 사항을 신속히 조사하는 데 필요한 정보를 제공합니다.
 
-자세히 보기:
+자세한 정보:
 
 * [Azure Security Center 소개](../../security-center/security-center-intro.md)
 * [Azure Security Center의 보안 점수 개선](../../security-center/security-center-secure-score.md)
 
 ## <a name="intelligent-security-graph"></a>Intelligent Security Graph
 
-Intelligent Security Graph는 Microsoft 제품 및 서비스에서 실시간 위협 보호를 제공합니다. 대량의 위협 인텔리전스 및 보안 데이터를 연결하는 고급 분석을 사용하여 조직 보안을 강화할 수 있는 통찰력을 제공합니다. Microsoft는 매월 4,500억 개 이상의 인증을 처리하고, 맬웨어 및 피싱을 찾기 위해 4,000억 개의 이메일을 검사하며, 10억 대의 디바이스를 업데이트하는 등의 고급 분석을 사용하여 더 풍부한 통찰력을 제공합니다. 귀사는 이 인사이트를 통해 공격을 신속하게 탐지하고 대응할 수 있습니다.
+Intelligent Security Graph는 Microsoft 제품 및 서비스에서 실시간 위협 보호를 제공합니다. 대량의 위협 인텔리전스 및 보안 데이터를 연결하는 고급 분석을 사용하여 조직 보안을 강화할 수 있는 통찰력을 제공합니다. Microsoft는 매월 4,500억 개 이상의 인증을 처리하고, 맬웨어 및 피싱을 찾기 위해 4,000억 개의 이메일을 검사하며, 10억 대의 디바이스를 업데이트하는 등의 고급 분석을 사용하여 더 풍부한 통찰력을 제공합니다. 이러한 통찰력은 조직이 검색 및 반응하여 공격에 대응하는 데 도움이 될 수 있습니다.
 
 * [Intelligent Security Graph](https://www.microsoft.com/security/intelligence)
 
 ## <a name="next-steps"></a>다음 단계
-[공유 책임 모델](shared-responsibility.md) 및 Microsoft에서 처리 하는 보안 작업과 사용자가 처리 하는 작업에 대해 알아봅니다.
+[공유 책임 모델과](shared-responsibility.md) Microsoft에서 처리하는 보안 작업 및 귀하가 처리하는 작업에 대해 알아봅니다.
 
 보안 관리에 대한 자세한 내용은 [Azure의 보안 관리](management.md)를 참조하세요.

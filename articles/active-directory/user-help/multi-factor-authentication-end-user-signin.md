@@ -1,6 +1,6 @@
 ---
-title: 회사 또는 학교 계정으로 인증을 사용 하 여 로그인-Azure AD
-description: 다양 한 2 단계 인증 방법을 사용 하 여 회사 또는 학교 계정에 로그인 하는 방법을 알아봅니다.
+title: 직장 또는 학교 계정으로 인증을 사용하여 로그인 - Azure AD
+description: 다양한 2단계 인증 방법을 사용하여 직장 또는 학교 계정에 로그인하는 방법을 알아보세요.
 services: active-directory
 author: curtand
 manager: daveba
@@ -14,13 +14,13 @@ ms.author: curtand
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
 ms.openlocfilehash: 33cf9e284d2206ea497af7a5da7c3cf4a890cc87
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77064090"
 ---
-# <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>2 단계 인증 방법을 사용 하 여 회사 또는 학교 계정에 로그인 합니다.
+# <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>2단계 인증 방법을 사용하여 직장 또는 학교 계정에 로그인
 
 > [!NOTE]
 > 이 문서의 목적은 일반적인 로그인 환경을 연습해보는 것입니다. 로그인 관련 지원을 얻거나 문제를 해결하려면 [Azure Multi-Factor Authentication에 문제가 있는 경우](multi-factor-authentication-end-user-troubleshoot.md)를 참조하세요.
@@ -32,7 +32,7 @@ ms.locfileid: "77064090"
 | --- |
 | [내 휴대폰 또는 사무실 전화로 통화](#signing-in-with-a-phone-call) |
 | [내 휴대폰으로 문자 발송](#signing-in-with-a-text-message)
-| [ 앱의 알림 사용](#to-sign-in-with-a-notification-from-the-microsoft-authenticator-app) |
+| [Microsoft Authenticator 앱의 알림 사용](#to-sign-in-with-a-notification-from-the-microsoft-authenticator-app) |
 | Microsoft Authenticator 앱의 확인 코드 사용 |
 | [원하는 방법이 없으므로 다른 방법 사용](#signing-in-with-an-alternate-method) |
 
@@ -60,7 +60,7 @@ ms.locfileid: "77064090"
    ![Microsoft가 알림을 보냄](./media/multi-factor-authentication-end-user-signin/notify.png)
 
 3. 휴대폰에서 알림을 열고 **확인** 키를 선택합니다. 회사에서 PIN을 요구하는 경우 여기에 입력합니다.
-4. 이제 로그인됩니다.
+4. 사용자가 로그인됩니다.
 
 ### <a name="to-sign-in-using-a-verification-code-with-the-microsoft-authenticator-app"></a>확인 코드를 사용하여 Microsoft Authenticator 앱에 로그인하려면
 

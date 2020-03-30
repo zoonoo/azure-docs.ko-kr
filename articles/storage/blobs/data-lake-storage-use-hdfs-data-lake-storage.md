@@ -10,22 +10,22 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
 ms.openlocfilehash: 1d5313f3f0fff128dd09f9c9857b7dd9921ea4f8
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69992211"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Data Lake Storage Gen2에서 HDFS CLI 사용
 
-[Hadoop 분산 파일 시스템 (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)를 사용 하는 것 처럼 명령줄 인터페이스를 사용 하 여 저장소 계정에서 데이터에 액세스 하 고 관리할 수 있습니다. 이 문서에서는 시작 하는 데 도움이 되는 몇 가지 예를 제공 합니다.
+[하두롭 분산 파일 시스템(HDFS)과](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)마찬가지로 명령줄 인터페이스를 사용하여 저장소 계정의 데이터에 액세스하고 관리할 수 있습니다. 이 문서에서는 시작하는 데 도움이 되는 몇 가지 예제를 제공합니다.
 
-HDInsight는 계산 노드에 로컬로 연결 된 분산 컨테이너에 대 한 액세스를 제공 합니다. HDFS와 Hadoop에서 지 원하는 다른 파일 시스템을 직접 조작 하는 셸을 사용 하 여이 컨테이너에 액세스할 수 있습니다.
+HDInsight는 계산 노드에 로컬로 연결된 분산 컨테이너에 대한 액세스를 제공합니다. HDFS 및 Hadoop이 지원하는 다른 파일 시스템과 직접 상호 작용하는 셸을 사용하여 이 컨테이너에 액세스할 수 있습니다.
 
-HDFS CLI에 대 한 자세한 내용은 [공식 설명서](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) 및 [Hdfs 사용 권한 가이드](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html) 를 참조 하세요.
+HDFS CLI에 대한 자세한 내용은 [공식 설명서](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) 및 [HDFS 권한 가이드를](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html) 참조하십시오.
 
 >[!NOTE]
->HDInsight 대신 Azure Databricks를 사용 하는 경우 명령줄 인터페이스를 사용 하 여 데이터와 상호 작용 하려면 Databricks CLI를 사용 하 여 Databricks 파일 시스템과 상호 작용할 수 있습니다. [DATABRICKS CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)를 참조 하세요.
+>HDInsight 대신 Azure Databricks를 사용하고 명령줄 인터페이스를 사용하여 데이터와 상호 작용하려는 경우 Databricks CLI를 사용하여 Databricks 파일 시스템과 상호 작용할 수 있습니다. [데이터 브릭 CLI를](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)참조하십시오.
 
 ## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Linux에서 HDInsight Hadoop 클러스터로 HDFS CLI 사용
 
@@ -48,7 +48,7 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
     hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/
 
-* 자리 표시자 `<container-name>` 를 컨테이너에 지정할 이름으로 바꿉니다.
+* `<container-name>` 자리 표시자를 컨테이너에 지정할 이름으로 바꿉니다.
 
 * `<storage-account-name>` 자리 표시자를 스토리지 계정 이름으로 바꿉니다.
 
@@ -56,7 +56,7 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
     hdfs dfs -ls <path>
 
-자리 표시자 `<path>` 를 컨테이너 또는 컨테이너 폴더의 URI로 바꿉니다.
+`<path>` 자리 표시자를 컨테이너 또는 컨테이너 폴더의 URI로 바꿉습니다.
 
 예: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
@@ -64,7 +64,7 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
     hdfs dfs -mkdir [-p] <path>
 
-자리 표시자 `<path>` 를 루트 컨테이너 이름 또는 컨테이너 내의 폴더로 바꿉니다.
+자리 `<path>` 표시자를 루트 컨테이너 이름 또는 컨테이너 내의 폴더로 바꿉니다.
 
 예: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
 
@@ -120,4 +120,4 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
 * [Azure Databricks에서 Azure Data Lake Storage Gen2 지원 계정 사용](./data-lake-storage-quickstart-create-databricks-account.md)
 
-* [파일 및 디렉터리에 대 한 액세스 제어 목록에 대해 알아보기](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+* [파일 및 디렉터리에서 액세스 제어 목록에 대해 자세히 알아보기](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)

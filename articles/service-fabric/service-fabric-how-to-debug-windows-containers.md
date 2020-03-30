@@ -1,19 +1,19 @@
 ---
 title: Service Fabric 및 VS를 사용하여 Windows 컨테이너 디버그
-description: Visual Studio 2019을 사용 하 여 Azure Service Fabric에서 Windows 컨테이너를 디버그 하는 방법을 알아봅니다.
+description: Visual Studio 2019를 사용하여 Azure 서비스 패브릭에서 Windows 컨테이너를 디버깅하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: mikhegn
 ms.openlocfilehash: 2a00a352d09562ffe46dc8e6e63a5d4963ac3a3f
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127614"
 ---
-# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>방법: Visual Studio 2019을 사용 하 여 Azure Service Fabric에서 Windows 컨테이너 디버그
+# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>방법: Visual Studio 2019를 사용하여 Azure 서비스 패브릭에서 Windows 컨테이너 디버깅
 
-Visual Studio 2019을 사용 하면 Service Fabric 서비스로 컨테이너에서 .NET 응용 프로그램을 디버그할 수 있습니다. 이 문서에서는 환경을 구성한 다음, 로컬 Service Fabric 클러스터에서 실행되는 컨테이너의 .NET 애플리케이션을 디버그하는 방법에 대해 설명합니다.
+Visual Studio 2019를 사용하면 서비스 패브릭 서비스로 컨테이너에서 .NET 응용 프로그램을 디버깅할 수 있습니다. 이 문서에서는 환경을 구성한 다음, 로컬 Service Fabric 클러스터에서 실행되는 컨테이너의 .NET 애플리케이션을 디버그하는 방법에 대해 설명합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -25,7 +25,7 @@ Visual Studio 2019을 사용 하면 Service Fabric 서비스로 컨테이너에�
 
 1. 다음 단계로 계속 진행하기 전에 Window용 Docker 서비스가 실행되고 있는지 확인합니다.
 
-1. 컨테이너 간 DNS 확인을 지원 하려면 컴퓨터 이름을 사용 하 여 로컬 개발 클러스터를 설정 해야 합니다. 또한 이러한 단계는 역방향 프록시를 통해 서비스에 주소를 지정하려는 경우 필요합니다.
+1. 컨테이너 간에 DNS 해상도를 지원하려면 컴퓨터 이름을 사용하여 로컬 개발 클러스터를 설정해야 합니다. 또한 이러한 단계는 역방향 프록시를 통해 서비스에 주소를 지정하려는 경우 필요합니다.
    1. PowerShell을 관리자 권한으로 엽니다.
    2. SDK 클러스터 설치 폴더(일반적으로 `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`)로 이동합니다.
    3. 스크립트 실행`DevClusterSetup.ps1`
@@ -44,19 +44,19 @@ Visual Studio 2019을 사용 하면 Service Fabric 서비스로 컨테이너에�
 
 Service Fabric의 컨테이너 디버깅에 대해 알려진 제한 사항과 가능한 해결 방법은 다음과 같습니다.
 
-* ClusterFQDNorIP에 localhost를 사용 하는 것은 컨테이너에서 DNS 확인을 지원 하지 않습니다.
+* ClusterFQDNorIP에 로컬 호스트를 사용하면 컨테이너에서 DNS 해상도를 지원하지 않습니다.
     * 해결 방법: 컴퓨터 이름을 사용하여 로컬 클러스터를 설정합니다(위 참조).
-* 가상 머신에서 Windows10를 실행 하면 컨테이너에 대 한 DNS 회신이 반환 되지 않습니다.
+* 가상 컴퓨터에서 Windows10을 실행하면 DNS가 컨테이너에 다시 회신하지 않습니다.
     * 해결 방법: Virtual Machines NIC에서 IPv4에 대한 UDP 체크섬 오프로드를 사용하지 않도록 설정합니다.
-    * Windows10를 실행 하면 컴퓨터의 네트워킹 성능이 저하 됩니다.
+    * Windows10을 실행하면 컴퓨터에서 네트워킹 성능이 저하됩니다.
     * https://github.com/Azure/service-fabric-issues/issues/1061
-* Docker Compose를 사용 하 여 응용 프로그램이 배포 된 경우 DNS 서비스 이름을 사용 하 여 동일한 응용 프로그램의 서비스를 확인 하지 않습니다.
+* Docker Compose를 사용하여 응용 프로그램을 배포한 경우 DNS 서비스 이름을 사용하여 동일한 응용 프로그램에서 서비스를 해결하는 것이 Windows10에서 작동하지 않습니다.
     * 해결 방법: servicename.applicationname을 사용하여 서비스 엔드포인트를 확인합니다.
     * https://github.com/Azure/service-fabric-issues/issues/1062
 * ClusterFQDNorIP에 IP-address를 사용하는 경우 호스트에서 주 IP를 변경하면 DNS 기능이 중단됩니다.
-    * 해결 방법: 호스트에서 새 주 IP를 사용하여 클러스터를 다시 만들거나 컴퓨터 이름을 사용합니다. 이 중단은 의도 된 것입니다.
-* 클러스터를 만든 FQDN을 네트워크에서 확인할 수 없는 경우 DNS가 실패 합니다.
-    * 해결 방법: 호스트의 주 IP를 사용하여 로컬 클러스터를 다시 만듭니다. 이 오류는 의도적으로 설계 되었습니다.
+    * 해결 방법: 호스트에서 새 주 IP를 사용하여 클러스터를 다시 만들거나 컴퓨터 이름을 사용합니다. 이 파손은 의도적으로 설계되었습니다.
+* 클러스터를 만든 FQDN이 네트워크에서 확인할 수 없는 경우 DNS가 실패합니다.
+    * 해결 방법: 호스트의 주 IP를 사용하여 로컬 클러스터를 다시 만듭니다. 이 오류는 의도적으로 설계되었습니다.
 * 컨테이너를 디버그하는 경우 Docker 로그는 Visual Studio 출력 창에서만 사용할 수 있으며 Service Fabric API(Service Fabric Explorer 포함)를 통해서는 사용할 수 없습니다
 
 ## <a name="debug-a-net-application-running-in-docker-containers-on-service-fabric"></a>Service Fabric을 통해 Docker 컨테이너에서 실행되는 .NET 애플리케이션 디버깅
@@ -67,9 +67,9 @@ Service Fabric의 컨테이너 디버깅에 대해 알려진 제한 사항과 �
 
 1. 프로젝트를 마우스 오른쪽 단추로 클릭하고, **추가 -> 컨테이너 오케스트레이터 지원 -> Service Fabric**을 차례로 선택합니다.
 
-1. **F5** 키를 눌러 애플리케이션 디버깅을 시작합니다.
+1. **F5를** 눌러 응용 프로그램 디버깅을 시작합니다.
 
     Visual Studio는 .NET 및 .NET Core용 콘솔 및 ASP.NET 프로젝트 형식을 지원합니다.
 
 ## <a name="next-steps"></a>다음 단계
-Service Fabric 및 컨테이너의 기능에 대해 자세히 알아보려면 [Service Fabric 컨테이너 개요](service-fabric-containers-overview.md)를 참조 하세요.
+서비스 패브릭 및 컨테이너의 기능에 대한 자세한 내용은 [서비스 패브릭 컨테이너 개요를](service-fabric-containers-overview.md)참조하십시오.

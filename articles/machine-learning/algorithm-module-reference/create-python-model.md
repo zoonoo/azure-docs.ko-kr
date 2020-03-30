@@ -1,7 +1,7 @@
 ---
-title: 'Python 모델 만들기: 모듈 참조'
+title: '파이썬 모델 만들기: 모듈 참조'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 Python 모델 만들기 모듈을 사용 하 여 사용자 지정 모델링 또는 데이터 처리 모듈을 만드는 방법에 대해 알아봅니다.
+description: Azure 기계 학습에서 파이썬 모델 만들기 모듈을 사용하여 사용자 지정 모델링 또는 데이터 처리 모듈을 만드는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,36 +10,36 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
 ms.openlocfilehash: 929938bba9c9512ecfd663a540cf4a7ebbf68e2b
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371820"
 ---
-# <a name="create-python-model-module"></a>Python 모델 모듈 만들기
+# <a name="create-python-model-module"></a>파이썬 모델 모듈 만들기
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure 기계 학습 디자이너(미리 보기)의 모듈에 대해 설명합니다.
 
-Python 모델 만들기 모듈을 사용 하 여 Python 스크립트에서 학습 되지 않은 모델을 만드는 방법에 대해 알아봅니다. Azure Machine Learning designer 환경의 Python 패키지에 포함 된 모든 학습자 모델을 기반으로 할 수 있습니다. 
+파이썬 모델 만들기 모듈을 사용하여 파이썬 스크립트에서 학습되지 않은 모델을 만드는 방법에 대해 알아봅니다. Azure 기계 학습 디자이너 환경에서 Python 패키지에 포함된 모든 학습자의 모델을 기반으로 할 수 있습니다. 
 
-모델을 만든 후에는 [모델 학습](train-model.md) 을 사용 하 여 Azure Machine Learning의 다른 학습자 같은 데이터 집합에 대 한 모델 학습을 수행할 수 있습니다. 학습 된 모델을 [점수 모델](score-model.md) 에 전달 하 여 예측을 만들 수 있습니다. 그런 다음 학습 된 모델을 저장 하 고 점수 매기기 워크플로를 웹 서비스로 게시할 수 있습니다.
+모델을 만든 후 [Train Model을](train-model.md) 사용하여 Azure 기계 학습의 다른 수강생과 마찬가지로 데이터 집합에서 모델을 학습할 수 있습니다. 학습된 모델을 점수 [모델로](score-model.md) 전달하여 예측을 할 수 있습니다. 그런 다음 학습된 모델을 저장하고 점수 매기기 워크플로를 웹 서비스로 게시할 수 있습니다.
 
 > [!WARNING]
-> 현재는 Python 모델의 점수가 매겨진 결과를 전달 하 여 [모델을 평가할](evaluate-model.md)수 없습니다. 모델을 평가 해야 하는 경우 사용자 지정 Python 스크립트를 작성 하 고 [Python 스크립트 실행](execute-python-script.md) 모듈을 사용 하 여 실행할 수 있습니다.  
+> 현재 파이썬 모델의 점수가 매겨지는 결과를 [모델 평가에](evaluate-model.md)전달할 수 없습니다. 모델을 평가해야하는 경우 사용자 정의 파이썬 스크립트를 작성하고 [파이썬 스크립트 실행](execute-python-script.md) 모듈을 사용하여 실행할 수 있습니다.  
 
 
 ## <a name="configure-the-module"></a>모듈 구성
 
-이 모듈을 사용 하려면 Python에 대해 중급 또는 전문 지식이 필요 합니다. 이 모듈은 Azure Machine Learning에 이미 설치 된 Python 패키지에 포함 된 모든 학습자의 사용을 지원 합니다. [Python 스크립트 실행](execute-python-script.md)에서 사전 설치 된 python 패키지 목록을 참조 하세요.
+이 모듈을 사용하려면 파이썬에 대한 중간 또는 전문 지식이 필요합니다. 이 모듈은 Azure 기계 학습에 이미 설치된 Python 패키지에 포함된 모든 학습자의 사용을 지원합니다. [파이썬 스크립트 실행에서](execute-python-script.md)사전 설치된 파이썬 패키지 목록을 참조하십시오.
   
 
-이 문서에서는 간단한 파이프라인에서 **Python 모델 만들기** 를 사용 하는 방법을 보여 줍니다. 파이프라인의 다이어그램은 다음과 같습니다.
+이 문서에서는 간단한 파이프라인으로 **파이썬 모델 만들기를** 사용하는 방법을 보여 주며 이 문서에서는 파이프라인다이어그램은 다음과 같습니다.
 
-![Python 모델 만들기 다이어그램](./media/module/create-python-model.png)
+![파이썬 모델 만들기 다이어그램](./media/module/create-python-model.png)
 
-1. **Python 모델 만들기**를 선택 하 고 스크립트를 편집 하 여 모델링 또는 데이터 관리 프로세스를 구현 합니다. Azure Machine Learning 환경의 Python 패키지에 포함 된 모든 학습자 모델을 기반으로 할 수 있습니다.
+1. **파이썬 모델 만들기를**선택하고 모델링 또는 데이터 관리 프로세스를 구현하기 위해 스크립트를 편집합니다. Azure 기계 학습 환경에서 Python 패키지에 포함된 모든 학습자의 모델을 기반으로 할 수 있습니다.
 
-   2 클래스 Naive Bayes 분류자의 다음 샘플 코드 *는 인기 있는 기능을 사용 하* 는 다음 패키지를 사용 합니다.
+   2클래스 Naive Bayes 분류기의 다음 샘플 코드는 인기 있는 *sklearn* 패키지를 사용합니다.
 
    ```Python
 
@@ -73,9 +73,9 @@ Python 모델 만들기 모듈을 사용 하 여 Python 스크립트에서 학�
 
    ```
 
-1. 방금 만든 **Python 모델 만들기** 모듈을 연결 하 여 **모델을 학습** 하 고 **모델 점수**를 매길 수 있습니다.
+1. 방금 만든 **파이썬 모델 만들기** 모듈을 연결하여 모델 및 **점수 모델을** **학습합니다.**
 
-1. 모델을 평가 해야 하는 경우 [Python 스크립트 실행](execute-python-script.md) 모듈을 추가 하 고 python 스크립트를 편집 합니다.
+1. 모델을 평가해야하는 경우 [파이썬 스크립트](execute-python-script.md) 실행 모듈을 추가하고 파이썬 스크립트를 편집하십시오.
 
    다음 스크립트는 샘플 평가 코드입니다.
 
@@ -118,4 +118,4 @@ Python 모델 만들기 모듈을 사용 하 여 Python 스크립트에서 학�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure 기계 학습에 사용할 수 있는 [모듈 집합을](module-reference.md) 참조하십시오. 

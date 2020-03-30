@@ -16,20 +16,20 @@ ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
 ms.openlocfilehash: 37969986b1d015ed08113da42a309eef42df569c
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69015517"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Azure Media Services를 사용하여 라이브 스트리밍을 수행하여 .NET으로 다중 비트 스트림을 만드는 방법
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [나머지 API](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > [!NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 참조 하세요 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)합니다.
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 평가판을](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)참조하십시오.
 > 
 > 
 
@@ -66,7 +66,7 @@ ms.locfileid: "69015517"
 11. 주문형 로케이터를 만들어 프로그램과 관련된 자산을 게시합니다.
 
     >[!NOTE]
-    >AMS 계정이 만들어질 때 **기본** 스트리밍 엔드포인트는 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태에 있어야 합니다. 
+    >AMS 계정이 생성되면 **기본** 스트리밍 끝점이 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태에 있어야 합니다. 
 
 12. 스트리밍 및 보관을 시작할 준비가 되었으면 프로그램을 시작합니다.
 13. 필요에 따라 라이브 인코더는 광고를 시작하라는 신호를 받을 수 있습니다. 광고는 출력 스트림에 삽입됩니다.
@@ -90,7 +90,7 @@ ms.locfileid: "69015517"
 ## <a name="prerequisites"></a>사전 요구 사항
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
-* Azure 계정. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 참조 하세요 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)합니다. 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 됩니다. 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스 및 기능(예: Azure App Service의 Web Apps 기능)을 사용할 수 있습니다.
+* Azure 계정. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판을](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)참조하십시오. 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 됩니다. 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스 및 기능(예: Azure App Service의 Web Apps 기능)을 사용할 수 있습니다.
 * Media Services 계정. Media Services 계정을 만들려면 [계정 만들기](media-services-portal-create-account.md)를 참조하세요.
 * Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express) 이상 버전.
 * Media Services .NET SDK 버전 3.2.0.0 이상을 사용해야 합니다.
@@ -106,7 +106,7 @@ ms.locfileid: "69015517"
 
 ## <a name="set-up-for-development-with-media-services-sdk-for-net"></a>.NET용 Media Services SDK를 사용한 개발을 위한 설정
 
-개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
+.NET 을 사용하면 Media Services 개발에 설명된 대로 개발 환경을 설정하고 app.config 파일을 연결 [정보로](media-services-dotnet-how-to-use.md)채웁니다. 
 
 ## <a name="code-example"></a>코드 예제
 

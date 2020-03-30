@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/01/2016
 ms.author: memccror
 ms.openlocfilehash: a1945aad12eb34bad1b593878779e1ceb0dae686
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68359048"
 ---
 # <a name="how-to-scale-a-cloud-service-in-powershell"></a>PowerShell에서 클라우드 서비스 크기를 조정하는 방법

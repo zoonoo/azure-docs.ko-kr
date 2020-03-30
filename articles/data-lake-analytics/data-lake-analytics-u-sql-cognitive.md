@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Analytics의 U-SQL 인식 기능
-description: U-SQL에서 인식 기능의 인텔리전스를 사용 하는 방법에 대해 알아봅니다. 이 코드 샘플은 시작 하는 데 도움이 됩니다.
+title: Azure 데이터 레이크 분석의 U-SQL 코그너티브 기능
+description: U-SQL에서 인지 기능의 인텔리전스를 사용하는 방법에 대해 알아봅니다. 이 코드 샘플은 시작하는 데 도움이 됩니다.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.openlocfilehash: 406eb1c9153e1ddbdc196cd64378c17cfa986dac
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71672702"
 ---
 # <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>U-SQL의 인식 기능 시작
@@ -22,14 +22,14 @@ ms.locfileid: "71672702"
 U-SQL에 대한 인식 기능은 개발자가 빅 데이터 프로그램에서 인텔리전스를 사용하도록 합니다. 
 
 인식 기능을 사용할 수 있는 샘플은 다음과 같습니다.
-* 이미지 [얼굴 감지](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
-* 이미지 [Emotion 검색](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world)
-* 이미지 [개체 검색 (태그 지정)](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
-* 이미지 [OCR(Optical Character Recognition)](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
-* 본문 [핵심 구 추출 & 감정 분석](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
+* 이미징: [얼굴 감지](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* 이미징: [감정 감지](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world)
+* 이미징: [개체 감지(태그 지정)](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
+* 이미징: [OCR(광학 문자 인식)](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* 텍스트: [핵심 구 추출 및 감정 분석](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
 
 ## <a name="registering-cognitive-extensions-in-u-sql"></a>U-SQL에서 인식 확장 등록
-시작 하기 전에이 문서의 단계에 따라 U-SQL에 인지 확장을 등록 합니다. [인식 확장을 U-SQL에 등록](/u-sql/objects-and-extensions/cognitive-capabilities-in#registeringExtensions)합니다.
+시작하기 전에 U-SQL에서 인식 확장을 등록하려면 이 문서의 단계를 수행합니다. [U-SQL에서 인식 확장 등록](/u-sql/objects-and-extensions/cognitive-capabilities-in#registeringExtensions)
 
 ## <a name="next-steps"></a>다음 단계
 * [U-SQL/인식 샘플](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)

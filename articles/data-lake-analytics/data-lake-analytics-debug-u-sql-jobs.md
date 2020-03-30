@@ -1,5 +1,5 @@
 ---
-title: Azure Data Lake C# U-SQL 작업에 대 한 코드 디버그
+title: Azure 데이터 레이크 U-SQL 작업에 대한 C# 코드 디버그
 description: 이 문서에서는 Azure Data Lake Tools for Visual Studio를 사용하여 U-SQL의 실패한 꼭짓점을 디버그하는 방법을 설명합니다.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -10,10 +10,10 @@ ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.openlocfilehash: 72239fc1679d2ebbfd9c9b5be6b79b58efb760cb
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71315804"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>실패한 U-SQL 작업에 대한 사용자 정의 C# 코드 디버그
@@ -28,7 +28,7 @@ U-SQL은 C#을 사용하는 확장성 모델을 제공합니다. U-SQL 스크립
 >
 
 > [!IMPORTANT]
-> 이 기능을 사용 하려면 Visual Studio에서 다음과 같은 두 가지 업데이트가 필요 합니다. [Microsoft Visual C++ 2015 재배포 가능 업데이트 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) 및 [Windows 용 유니버설 C 런타임](https://www.microsoft.com/download/details.aspx?id=50410)
+> 이 기능을 사용하기 위해 Visual Studio에는 [Microsoft Visual C++ 2015 재배포 가능 업데이트 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) 및 [Windows용 유니버설 C 런타임](https://www.microsoft.com/download/details.aspx?id=50410)이라는 두 업데이트가 필요합니다.
 >
 
 ## <a name="download-failed-vertex-to-local-machine"></a>로컬 컴퓨터에 실패한 꼭짓점 다운로드
@@ -80,7 +80,7 @@ C# 소스 코드가 캡처되는 두 가지 경우가 있습니다.
 
 2. **FailedVertexDebugHost** 프로젝트에 프로젝트 폴더 경로를 가져옵니다. 
 
-3. **추가된 어셈블리 소스 코드 프로젝트 > 속성**을 마우스 오른쪽 단추로 클릭하고, 왼쪽의 **빌드** 탭을 선택하고, \bin\debug로 끝나는 복사된 경로를 **출력 > 출력 경로**에 붙여넣습니다. 최종 출력 경로는와 유사 `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`합니다.
+3. **추가된 어셈블리 소스 코드 프로젝트 > 속성**을 마우스 오른쪽 단추로 클릭하고, 왼쪽의 **빌드** 탭을 선택하고, \bin\debug로 끝나는 복사된 경로를 **출력 > 출력 경로**에 붙여넣습니다. 최종 출력 경로는 `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`와 같습니다.
 
     ![Azure Data Lake Analytics U-SQL 디버그 - pdb 경로 설정](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 

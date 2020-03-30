@@ -8,10 +8,10 @@ ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: 02d04076ccc41d243a493838667f5e8cc6bfa5ac
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371157"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(사용되지 않음) Log Analytics를 사용하여 Azure Container Service 클러스터 모니터링
@@ -33,7 +33,7 @@ az --version
 ```
 
 `az` 도구가 설치되어 있지 않으면 [여기](https://github.com/azure/azure-cli#installation)의 지침을 따르세요.
-또는 사용자를 위해 이미 [ Azure cli 및 ](https://docs.microsoft.com/azure/cloud-shell/overview) 도구를 설치한 `az`Azure Cloud Shell`kubectl`을 사용할 수 있습니다.
+또는 사용자를 위해 이미 `az` Azure cli 및 `kubectl` 도구를 설치한 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용할 수 있습니다.
 
 다음을 실행하여 `kubectl` 도구가 설치되어 있는지 테스트할 수 있습니다.
 
@@ -63,7 +63,7 @@ az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUST
 
 ## <a name="monitoring-containers-with-log-analytics"></a>Log Analytics를 사용하여 컨테이너 모니터링
 
-Log Analytics는 온-프레미스 및 클라우드 인프라를 관리하고 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다. 컨테이너 솔루션은 컨테이너 인벤토리, 성능 및 로그를 단일 위치에서 볼 수 있도록 하는 Log Analytics의 솔루션입니다. 중앙 위치에서 로그를 확인하여 컨테이너를 감사하고 문제를 해결하며 호스트에서 매우 과도하게 사용되는 컨테이너를 찾을 수 있습니다.
+Log Analytics는 온-프레미스 및 클라우드 인프라를 관리하고 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다.Container Solution은 컨테이너 인벤토리, 성능 및 로그를 단일 위치에서 볼 수 있는 Log Analytics의 솔루션입니다. 중앙 위치에서 로그를 확인하여 컨테이너를 감사하고 문제를 해결하며 호스트에서 매우 과도하게 사용되는 컨테이너를 찾을 수 있습니다.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
@@ -81,7 +81,7 @@ Log Analytics 에이전트가 서비스와 통신하려면 작업 영역 ID 및 
 DaemonSet은 Kubernetes가 클러스터의 각 호스트에서 컨테이너의 단일 인스턴스를 실행하기 위해 사용합니다.
 모니터링 에이전트를 실행하는 데 완벽합니다.
 
-다음은 [DaemonSet YAML 파일](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)입니다. `oms-daemonset.yaml`라는 파일로 저장하고 `WSID` 및 `KEY`에 대한 자리 표시자 값을 파일의 작업 영역 ID 및 키로 바꿉니다.
+다음은 [데몬셋 YAML 파일입니다.](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) `oms-daemonset.yaml`라는 파일로 저장하고 `WSID` 및 `KEY`에 대한 자리 표시자 값을 파일의 작업 영역 ID 및 키로 바꿉니다.
 
 작업 영역 ID와 키를 DaemonSet 구성에 추가한 후 `kubectl` 명령줄 도구를 사용하여 클러스터에 Log Analytics 에이전트를 설치할 수 있습니다.
 
@@ -92,7 +92,7 @@ kubectl create -f oms-daemonset.yaml
 ### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Kubernetes 비밀을 사용하여 Log Analytics 에이전트 설치
 Log Analytics 작업 영역 ID 및 키를 보호하려면 Kubernetes 암호를 DaemonSet YAML 파일의 일부로 사용하면 됩니다.
 
-- [리포지토리](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)에서 스크립트, 비밀 템플릿 파일 및 DaemonSet YAML 파일을 복사하고 이러한 항목이 같은 디렉터리에 있는지 확인합니다.
+- 스크립트, 비밀 템플릿 파일 및 [저장소에서](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)DaemonSet YAML 파일을 복사하고 동일한 디렉터리에 있는지 확인합니다.
   - 비밀 생성 스크립트 - secret-gen.sh
   - 비밀 템플릿 - secret-template.yaml
     - DaemonSet YAML 파일 - omsagent-ds-secrets.yaml
@@ -132,7 +132,7 @@ Log Analytics 작업 영역 ID 및 키를 보호하려면 Kubernetes 암호를 D
   KEY:    88 bytes
   ```
 
-  - 다음을 실행 하 여 omsagent 데몬 집합을 만듭니다.
+  - 다음을 실행하여 omsagent 데몬 세트를 만듭니다.
   
   ```console
   kubectl create -f omsagent-ds-secrets.yaml

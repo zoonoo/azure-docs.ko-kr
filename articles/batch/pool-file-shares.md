@@ -15,10 +15,10 @@ ms.date: 05/24/2018
 ms.author: labrenne
 ms.custom: ''
 ms.openlocfilehash: 156dad25af5abd1b4d5db32569faf09a23fadfb1
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022514"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>배치 풀에서 Azure 파일 공유 사용
@@ -50,8 +50,8 @@ ms.locfileid: "77022514"
 
 예를 들어, 각 작업 명령줄의 일부로 파일 공유를 탑재하려면 `net use` 명령을 포함합니다. 파일 공유를 탑재하려면 다음 자격 증명이 필요합니다.
 
-* **사용자 이름**: AZURE\\\<storageaccountname\>, 예: AZURE\\*mystorageaccountname*
-* **암호**: \<StorageAccountKeyWhichEnds in = = > (예: *XXXXXXXXXXXXXXXXXXXXX = =* )
+* **사용자 이름**\\\<: AZURE\>저장소 계정\\이름, 예를 들어, AZURE*mystorageaccountname*
+* **암호** \<: 저장소 계정키어떤 =>, 예를 들어, *XXXXXXXXXXXXXXXXXXXXX = =*
 
 다음 명령은 스토리지 계정 *mystorageaccountname*에서 파일 공유 *myfileshare*를 *S:* 드라이브로 탑재합니다.
 
@@ -117,7 +117,7 @@ tasks.Add(task);
 
 ## <a name="mount-a-share-on-a-linux-pool"></a>Linux 풀에서 공유 탑재
 
-Azure 파일 공유는 [CIFS 커널 클라이언트](https://wiki.samba.org/index.php/LinuxCIFS)를 사용하여 Linux 배포판에 탑재할 수 있습니다. 다음 예제는 Ubuntu 16.04 LTS 컴퓨팅 노드의 풀에서 파일 공유를 탑재하는 방법을 보여 줍니다. 다른 Linux 배포를 사용하는 경우, 일반적인 단계는 유사하지만 배포에 적합한 패키지 관리자를 사용합니다. 자세한 내용과 추가적인 예제는 [Linux에서 Azure Files 사용](../storage/files/storage-how-to-use-files-linux.md)을 참조하세요.
+Azure 파일 공유는 [CIFS 커널 클라이언트를](https://wiki.samba.org/index.php/LinuxCIFS)사용하여 Linux 배포판에 탑재할 수 있습니다. 다음 예제는 Ubuntu 16.04 LTS 컴퓨팅 노드의 풀에서 파일 공유를 탑재하는 방법을 보여 줍니다. 다른 Linux 배포를 사용하는 경우, 일반적인 단계는 유사하지만 배포에 적합한 패키지 관리자를 사용합니다. 자세한 내용과 추가적인 예제는 [Linux에서 Azure Files 사용](../storage/files/storage-how-to-use-files-linux.md)을 참조하세요.
 
 먼저 관리자 ID로 `cifs-utils` 패키지를 설치하고 로컬 파일 시스템에서 탑재 지점(예: */mnt/MyAzureFileShare*)을 만듭니다. 탑재 지점의 폴더는 파일 시스템의 어디에나 만들 수 있지만, 일반적으로 `/mnt` 폴더 아래에 만듭니다. `/mnt`(Ubuntu) 또는 `/mnt/resource`(다른 배포)에 직접 탑재 지점을 만들지는 마세요.
 
@@ -127,8 +127,8 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 
 그런 다음, `mount` 명령을 실행하여 파일 공유를 탑재하여 다음 자격 증명을 제공합니다.
 
-* **사용자 이름**: \<storageaccountname\>, 예: *mystorageaccountname*
-* **암호**: \<StorageAccountKeyWhichEnds in = = > (예: *XXXXXXXXXXXXXXXXXXXXX = =* )
+* **사용자**이름 \<:\>저장소 계정 이름, 예: *mystorageaccountname*
+* **암호** \<: 저장소 계정키어떤 =>, 예를 들어, *XXXXXXXXXXXXXXXXXXXXX = =*
 
 다음 명령은 스토리지 계정 *mystorageaccountname*에서 파일 공유 *myfileshare*를 */mnt/MyAzureFileShare*에 탑재합니다. 
 

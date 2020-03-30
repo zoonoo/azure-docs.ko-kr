@@ -1,5 +1,5 @@
 ---
-title: IoT Hub C SDK를 사용 하 여 제한 된 장치에 대 한 Azure IoT Hub 개발
+title: IoT 허브 C SDK를 사용하여 제한된 장치를 위한 Azure IoT 허브 개발
 description: 개발자 가이드 - 제한된 디바이스에 Azure IoT SDK를 사용하여 개발하는 방법에 대한 지침입니다.
 author: robinsh
 ms.service: iot-hub
@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: robinsh
 ms.openlocfilehash: a1918a99efcdcc5764140093ad422f7887ca3c88
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954693"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Azure IoT C SDK를 사용하여 제한된 디바이스 개발
 
 Azure IoT Hub C SDK는 ANSI C(C99)로 작성되었으며, 작은 디스크 및 메모리 공간으로 다양한 플랫폼을 작동하는 데 적합합니다. 권장되는 RAM은 64KB 이상이지만, 정확한 메모리 공간은 사용되는 프로토콜, 열린 연결 수 및 대상 플랫폼에 따라 다릅니다.
 > [!NOTE]
-> * Azure IoT C SDK는 개발에 도움이 되는 리소스 소비 정보를 정기적으로 게시 합니다.  [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md) 를 방문 하 여 최신 벤치 마크를 검토 하세요.
+> * Azure IoT C SDK는 개발에 도움이 되는 리소스 소비 정보를 정기적으로 게시합니다.  [GitHub 리포지토리를](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md) 방문하여 최신 벤치마크를 검토하십시오.
 >
 
-C SDK는 apt-get, NuGet 및 MBED의 패키지 형태로 사용할 수 있습니다. 제한된 디바이스를 대상으로 지정하려면 대상 플랫폼에 맞게 SDK를 로컬로 빌드하는 것이 좋습니다. 이 설명서에서는 C SDK의 공간을 줄이기 위해 [cmake](https://cmake.org/)를 사용하여 특정 기능을 제거하는 방법을 보여줍니다. 또한 제한된 디바이스를 사용하기 위한 최적의 프로그래밍 모델에 대해 설명합니다.
+C SDK는 apt-get, NuGet 및 MBED의 패키지 형태로 사용할 수 있습니다. 제한된 디바이스를 대상으로 지정하려면 대상 플랫폼에 맞게 SDK를 로컬로 빌드하는 것이 좋습니다. 이 설명서에서는 C SDK의 공간을 줄이기 위해 [cmake](https://cmake.org/)를 사용하여 특정 기능을 제거하는 방법을 보여 줍니다. 또한 제한된 디바이스를 사용하기 위한 최적의 프로그래밍 모델에 대해 설명합니다.
 
 ## <a name="building-the-c-sdk-for-constrained-devices"></a>제한된 디바이스에 대한 C SDK 빌드
 
 제한된 디바이스에 대한 C SDK를 빌드합니다.
 
-### <a name="prerequisites"></a>선행 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 이 [C SDK 설정 가이드](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)에 따라 C SDK를 빌드하기 위한 개발 환경을 준비합니다. cmake를 사용하여 빌드하는 단계를 시작하기 전에 cmake 플래그를 호출하여 사용하지 않는 기능을 제거할 수 있습니다.
 
@@ -71,7 +71,7 @@ strip -s <Path_to_executable>
 
 ### <a name="avoid-using-the-serializer"></a>직렬 변환기 사용 방지
 
-C SDK에는 선언적 매핑 테이블을 사용하여 메서드 및 디바이스 쌍 속성을 정의할 수 있는 선택적 [C SDK 직렬 변환기](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer)가 있습니다. 직렬 변환기는 개발을 간소화하기 위해 설계되었지만 오버헤드가 추가되므로 제한된 디바이스에 적합하지 않습니다. 이 경우에 원시 클라이언트 API를 사용하고 [parson](https://github.com/kgabis/parson)과 같은 경량 파서를 사용하여 JSON을 구문 분석하는 것이 좋습니다.
+C SDK에는 선언적 매핑 테이블을 사용하여 메서드 및 디바이스 쌍 속성을 정의할 수 있는 선택적 [C SDK 직렬 변환기](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer)가 있습니다. 직렬 변환기는 개발을 간소화하기 위해 설계되었지만 오버헤드가 추가되므로 제한된 디바이스에 적합하지 않습니다. 이 경우 [parson과](https://github.com/kgabis/parson)같은 경량 파서를 사용하여 기본 클라이언트 API및 JSON구문 분석하는 것이 좋습니다.
 
 ### <a name="use-the-lower-layer-_ll_"></a>_LL_(하위 계층) 사용
 
