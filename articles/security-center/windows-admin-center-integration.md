@@ -1,6 +1,6 @@
 ---
-title: Windows 관리 센터를 Azure Security Center와 통합 하는 방법 | Microsoft Docs
-description: 이 문서에서는 Windows 관리 센터와 Azure Security Center를 통합 하는 방법을 설명 합니다.
+title: Windows 관리 센터를 Azure 보안 센터와 통합하는 방법 | 마이크로 소프트 문서
+description: 이 문서에서는 Azure 보안 센터를 Windows 관리 센터와 통합하는 방법에 대해 설명합니다.
 services: security-center
 author: memildin
 manager: rkarlin
@@ -9,66 +9,66 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: 5467794bf246fab4ff7ded9c445dbeee0c4093b8
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79139626"
 ---
-# <a name="integrate-azure-security-center-with-windows-admin-center"></a>Windows 관리 센터와 Azure Security Center 통합
+# <a name="integrate-azure-security-center-with-windows-admin-center"></a>Azure 보안 센터를 Windows 관리 센터와 통합
 
-Windows 관리 센터는 Windows server에 대 한 관리 도구입니다. 시스템 관리자가 가장 일반적으로 사용 되는 대부분의 관리 도구에 액세스할 수 있는 단일 위치입니다. Windows 관리 센터 내에서 온-프레미스 서버를 Azure Security Center에 직접 등록할 수 있습니다. 그러면 Windows 관리 센터 환경에서 직접 보안 권장 사항 및 경고에 대 한 요약을 볼 수 있습니다.
+Windows 관리 센터는 Windows 서버의 관리 도구입니다. 시스템 관리자가 가장 일반적으로 사용되는 대부분의 관리 도구에 액세스할 수 있는 단일 위치입니다. Windows 관리 센터 내에서 온프레미 서버를 Azure 보안 센터에 직접 온보온할 수 있습니다. 그런 다음 Windows 관리 센터 환경에서 직접 보안 권장 사항 및 경고요약을 볼 수 있습니다.
 
 > [!NOTE]
-> Windows 관리 센터 통합을 사용 하도록 설정 하려면 Azure 구독 및 연결 된 Log Analytics 작업 영역에 Security Center의 표준 계층이 사용 하도록 설정 되어 있어야 합니다.
-> 이전에 구독 및 작업 영역에서 사용 하지 않은 경우 표준 계층은 처음 30 일 동안 무료입니다. 자세한 내용은 [가격 책정 정보 페이지](security-center-pricing.md)를 참조 하세요.
+> Windows 관리 센터 통합을 사용하려면 Azure 구독 및 연결된 로그 분석 작업 영역 모두 보안 센터의 표준 계층을 사용하도록 설정해야 합니다.
+> 구독 및 작업 영역에서 이전에 사용하지 않은 경우 표준 계층은 처음 30일 동안 무료입니다. 자세한 내용은 [가격 정보 페이지를](security-center-pricing.md)참조하십시오.
 >
 
-Windows 관리 센터에서 Azure Security Center 서버를 성공적으로 등록 하는 경우 다음을 수행할 수 있습니다.
+Windows 관리 센터에서 Azure 보안 센터로 서버를 성공적으로 온보온한 경우 다음을 수행할 수 있습니다.
 
-* Windows 관리 센터의 Security Center 확장 내에서 보안 경고 및 권장 사항 보기
-* 보안 상태를 확인 하 고 Azure Portal 내 Security Center에서 또는 API를 통해 Windows 관리 센터 관리 서버에 대 한 추가 세부 정보를 검색 합니다.
+* Windows 관리 센터의 보안 센터 확장 내 보안 경고 및 권장 사항 보기
+* 보안 상태를 보고 Azure 포털 내(또는 API를 통해) 보안 센터에서 Windows 관리 센터 관리 서버의 추가 세부 정보를 검색합니다.
 
-이러한 두 도구를 결합 하 여 Security Center 모든 보안 정보를 볼 수 있는 단일 창이 유리 합니다. Windows 관리 센터에서 관리 되는 온-프레미스 서버, Vm 및 추가 PaaS 워크 로드를 보호 합니다.
+이 두 도구를 결합하여 보안 센터는 모든 보안 정보를 볼 수 있는 단일 창이 됩니다.
 
-## <a name="onboarding-windows-admin-center-managed-servers-into-security-center"></a>Security Center로 Windows 관리 센터 관리 서버 온 보 딩
+## <a name="onboarding-windows-admin-center-managed-servers-into-security-center"></a>Windows 관리 센터를 보안 센터로 온보딩
 
-1. Windows 관리 센터에서 서버 중 하나를 선택 하 고 **도구** 창에서 Azure Security Center 확장을 선택 합니다.
+1. Windows 관리 센터에서 서버 중 하나를 선택하고 **도구** 창에서 Azure 보안 센터 확장을 선택합니다.
 
-    ![Windows 관리 센터의 Azure Security Center 확장](./media/windows-admin-center-integration/onboarding-from-wac.png)
-
-    > [!NOTE]
-    > 서버가 이미 Security Center 등록 되 면 설정 창이 표시 되지 않습니다.
-
-1. **Azure에 로그인 및 설정**을 클릭 합니다.
-    Azure Security Center](./media/windows-admin-center-integration/onboarding-from-wac-welcome.png)에 Windows 관리 센터 확장을 등록 ![
-
-1. 지침에 따라 Security Center에 서버를 연결 합니다. 필요한 세부 정보를 입력 하 고 확인 한 후에는 필요한 구성 변경을 수행 하 여 다음 모두에 해당 하는지 확인 Security Center 합니다.
-    * Azure 게이트웨이가 등록 됩니다.
-    * 서버에는 보고할 작업 영역 및 연결 된 구독이 있습니다.
-    * 작업 영역에서 Security Center의 표준 계층 Log Analytics 솔루션이 사용 됩니다. 이 솔루션은이 작업 영역에 보고 하는 *모든* 서버 및 가상 컴퓨터에 대 한 Security Center 표준 계층 기능을 제공 합니다.
-    * 가상 컴퓨터에 대 한 Security Center의 표준 계층 가격은 구독에서 사용 하도록 설정 됩니다.
-    * Microsoft Monitoring Agent (MMA)는 서버에 설치 되 고 선택한 작업 영역에 보고 하도록 구성 됩니다. 서버에서 이미 다른 작업 영역에 보고 하는 경우 새로 선택한 작업 영역에도 보고 하도록 구성 됩니다.
+    ![Windows 관리 센터의 Azure 보안 센터 확장](./media/windows-admin-center-integration/onboarding-from-wac.png)
 
     > [!NOTE]
-    > 권장 사항이 표시 되려면 등록 후 시간이 다소 걸릴 수 있습니다. 실제로 서버 작업에 *따라 경고를* 수신 하지 못할 수 있습니다. 경고가 제대로 작동 하는지 테스트 하기 위해 테스트 경고를 생성 하려면 [경고 유효성 검사 절차](security-center-alert-validation.md)의 지침을 따르세요.
+    > 서버가 보안 센터에 이미 온보억되어 있으면 설정 창이 나타나지 않습니다.
+
+1. **Azure에 로그인하고 설정합니다.**
+    ![Azure 보안 센터에 대한 Windows 관리 센터 확장 온보딩](./media/windows-admin-center-integration/onboarding-from-wac-welcome.png)
+
+1. 지침에 따라 서버를 보안 센터에 연결합니다. 필요한 세부 정보를 입력하고 확인한 후 보안 센터에서 다음 사항을 모두 적용할 수 있도록 필요한 구성을 변경합니다.
+    * Azure 게이트웨이가 등록됩니다.
+    * 서버에는 보고할 작업 영역과 연결된 구독이 있습니다.
+    * 보안 센터의 표준 계층 로그 분석 솔루션은 작업 영역에서 활성화됩니다. 이 솔루션은 이 작업 영역에 보고하는 *모든* 서버 및 가상 시스템에 대한 보안 센터의 표준 계층 기능을 제공합니다.
+    * 보안 센터의 가상 컴퓨터에 대한 표준 계층 가격 책정은 구독에서 활성화됩니다.
+    * MMA(Microsoft 모니터링 에이전트)는 서버에 설치되고 선택한 작업 영역에 보고하도록 구성됩니다. 서버가 이미 다른 작업 영역에 보고하는 경우 새로 선택한 작업 영역에도 보고하도록 구성됩니다.
+
+    > [!NOTE]
+    > 권장 사항이 표시되려면 온보딩 후 시간이 걸릴 수 있습니다. 실제로 서버 활동에 따라 *경고를* 받지 못할 수 있습니다. 경고가 올바르게 작동하는지 테스트하는 테스트 경고를 생성하려면 [경고 유효성 검사 절차의](security-center-alert-validation.md)지침을 따르십시오.
 
 
 ## <a name="viewing-security-recommendations-and-alerts-in-windows-admin-center"></a>Windows 관리 센터에서 보안 권장 사항 및 경고 보기
 
-등록 하면 Windows 관리 센터의 Azure Security Center 영역에서 직접 경고 및 권장 사항을 볼 수 있습니다. 권장 사항 또는 경고를 클릭 하 여 Azure Portal에 표시 합니다. 여기에서 추가 정보를 얻고 문제를 해결 하는 방법을 알아보세요.
+온보던을 통해 Windows 관리 센터의 Azure 보안 센터 영역에서 직접 경고 및 권장 사항을 볼 수 있습니다. 권장 사항 또는 경고를 클릭하여 Azure 포털에서 볼 수 있습니다. 거기에서 추가 정보를 얻고 문제를 해결하는 방법을 알아봅니다.
 
-[Windows 관리 센터에 표시 된 것 처럼 Security Center 권장 사항 및 경고를 ![합니다.](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png)](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png#lightbox)
+[![Windows 관리 센터에서 볼 수 있는 보안 센터 권장 사항 및 경고](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png)](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png#lightbox)
 
-## <a name="viewing-security-recommendations-and-alerts-for-windows-admin-center-managed-servers-in-security-center"></a>Security Center에서 Windows 관리 센터 관리 서버에 대 한 보안 권장 사항 및 경고 보기
-Azure Security Center에서:
+## <a name="viewing-security-recommendations-and-alerts-for-windows-admin-center-managed-servers-in-security-center"></a>보안 센터에서 Windows 관리 센터 관리 서버에 대한 보안 권장 사항 및 경고 보기
+Azure 보안 센터에서 오시면 됩니다.
 
-* 모든 Windows 관리 센터 서버에 대 한 보안 권장 사항을 보려면 **Compute & Apps** 를 열고 **vm 및 컴퓨터** 탭을 클릭 합니다. 다음과 같이 리소스 "서버" 별로 목록을 필터링 합니다.
+* 모든 Windows 관리 센터 서버에 대한 보안 권장 사항을 보려면 **컴퓨팅 & 앱을** 열고 **VM 및 컴퓨터** 탭을 클릭합니다.
 
-    [Windows 관리 센터 관리 서버에 대 한 보안 권장 사항을 ![보기](media/windows-admin-center-integration/viewing-recommendations-wac.png)](media/windows-admin-center-integration/viewing-recommendations-wac.png#lightbox)
+    [![Windows 관리 센터 관리 서버에 대한 보안 권장 사항 보기](media/windows-admin-center-integration/viewing-recommendations-wac.png)](media/windows-admin-center-integration/viewing-recommendations-wac.png#lightbox)
 
-* 모든 Windows 관리 센터 서버에 대 한 보안 경고를 보려면 **보안 경고**를 엽니다. **필터** 를 클릭 하 여 "비 Azure" **만** 선택 되어 있는지 확인 합니다.
+* 모든 Windows 관리 센터 서버에 대한 보안 경고를 보려면 **보안 경고를 엽니다.** **필터를** 클릭하고 "비Azure"만 선택되었는지 확인합니다. **only**
 
-    ![Windows 관리 센터 관리 서버에 대 한 보안 경고 필터링](./media/windows-admin-center-integration/filtering-alerts-to-non-azure.png)
+    ![Windows 관리 센터 관리 서버에 대한 보안 경고 필터링](./media/windows-admin-center-integration/filtering-alerts-to-non-azure.png)
 
-    [Windows 관리 센터 관리 서버에 대 한 보안 경고 ![보기](media/windows-admin-center-integration/viewing-alerts-wac.png)](media/windows-admin-center-integration/viewing-alerts-wac.png#lightbox)
+    [![Windows 관리 센터 관리 서버에 대한 보안 경고 보기](media/windows-admin-center-integration/viewing-alerts-wac.png)](media/windows-admin-center-integration/viewing-alerts-wac.png#lightbox)

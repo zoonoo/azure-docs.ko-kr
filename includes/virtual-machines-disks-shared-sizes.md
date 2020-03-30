@@ -9,25 +9,25 @@ ms.date: 02/18/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 34699ed89e79448d66343021dd624cb872d0172d
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77471705"
 ---
-지금은 premium Ssd만 공유 디스크를 사용 하도록 설정할 수 있습니다. 이 기능을 지 원하는 디스크 크기는 P15 이상입니다. 다른 디스크 크기의 `maxShares` 제한이 있을 수 있으며이는 `maxShares` 값을 설정할 때 초과할 수 없습니다.
+지금은 프리미엄 SSD만 공유 디스크를 사용할 수 있습니다. 이 기능을 지원하는 디스크 크기는 P15 이상입니다. 디스크 크기에 따라 `maxShares` `maxShares` 다른 제한이 있을 수 있으며 값을 설정할 때 초과할 수 없습니다.
 
-각 디스크에 대해 디스크를 동시에 공유할 수 있는 최대 노드 수를 나타내는 `maxShares` 값을 정의할 수 있습니다. 예를 들어 2 노드 장애 조치 (failover) 클러스터를 설정 하려는 경우 `maxShares=2`를 설정 합니다. 최대값은 상한 값입니다. 노드 수가 지정 된 `maxShares` 값 보다 적으면 노드가 클러스터를 연결 하거나 탈퇴할 수 있습니다 (디스크 탑재 또는 분리).
+각 디스크에 대해 디스크를 `maxShares` 동시에 공유할 수 있는 최대 노드 수를 나타내는 값을 정의할 수 있습니다. 예를 들어 2노드 장애 조치 클러스터를 설정하려는 경우 을 `maxShares=2`설정합니다. 최대값은 상한입니다. 노드 수가 지정된 `maxShares` 값보다 작을 경우 노드는 클러스터를 결합하거나(디스크 마운트 또는 마운트 해제) 나갈 수 있습니다.
 
 > [!NOTE]
-> 디스크가 모든 노드에서 분리 된 경우에만 `maxShares` 값을 설정 하거나 편집할 수 있습니다.
+> 디스크가 `maxShares` 모든 노드에서 분리된 경우에만 값을 설정하거나 편집할 수 있습니다.
 
-다음 표에서는 디스크 크기에 `maxShares`에 대해 허용 되는 최대 값을 보여 줍니다.
+다음 표에서는 디스크 `maxShares` 크기별로 허용되는 최대 값을 보여 줍니다.
 
-|디스크 크기  |maxShares 제한  |
+|디스크 크기  |최대 공유 제한  |
 |---------|---------|
 |P15, P20     |2         |
 |P30, P40, P50     |5         |
 |P60, P70, P80     |10         |
 
-디스크에 대 한 IOPS 및 대역폭 제한은 `maxShares` 값의 영향을 받지 않습니다. 예를 들어 P15 디스크의 최대 IOPS는 maxShares = 1 또는 maxShares > 1 인지 여부를 1100 합니다.
+디스크의 IOPS 및 대역폭 제한은 값의 `maxShares` 영향을 받지 않습니다. 예를 들어 P15 디스크의 최대 IOPS는 maxShares = 1 또는 maxShares > 1인지 여부에 관계없이 1100입니다.

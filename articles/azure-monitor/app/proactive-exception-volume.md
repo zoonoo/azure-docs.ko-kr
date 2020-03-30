@@ -1,13 +1,13 @@
 ---
-title: 예외 볼륨의 비정상적인 증가-Azure 애플리케이션 정보
-description: 예외 볼륨의 특수 한 패턴에 대 한 Azure 애플리케이션 정보에서 스마트 검색을 사용 하 여 응용 프로그램 예외를 모니터링 합니다.
+title: 예외 볼륨의 비정상적인 증가 - Azure 응용 프로그램 인사이트
+description: Azure 응용 프로그램 인사이트에서 스마트 검색을 통해 예외 볼륨에서 비정상적인 패턴을 검사하여 응용 프로그램 예외를 모니터링합니다.
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.openlocfilehash: a08fae4774a8afb9959f55ea3196cd1a45c33439
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671769"
 ---
 # <a name="abnormal-rise-in-exception-volume-preview"></a>예외 볼륨의 비정상적인 증가(미리 보기)

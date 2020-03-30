@@ -1,6 +1,6 @@
 ---
-title: 로컬 웹 UI를 사용 하 여 Azure Data Box/Azure Data Box Heavy 관리
-description: 로컬 웹 UI를 사용 하 여 Data Box 및 Data Box Heavy 장치를 관리 하는 방법을 설명 합니다.
+title: 로컬 웹 UI를 사용하여 Azure 데이터 상자/Azure 데이터 상자 헤비 관리
+description: 로컬 웹 UI를 사용하여 데이터 상자 및 데이터 상자 무거운 장치를 관리하는 방법에 대해 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
 ms.openlocfilehash: cf7cf0a7aa2812d7a93c282cbda5f82dd83aac29
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560187"
 ---
-# <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>로컬 웹 UI를 사용 하 여 Data Box를 관리 하 고 Data Box Heavy
+# <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>로컬 웹 UI를 사용하여 데이터 상자 및 데이터 상자 사용량을 관리합니다.
 
-이 문서에서는 Data Box 및 Data Box Heavy 장치에서 수행할 수 있는 몇 가지 구성 및 관리 작업에 대해 설명 합니다. Azure Portal UI와 장치의 로컬 웹 UI를 통해 Data Box 및 Data Box Heavy 장치를 관리할 수 있습니다. 이 문서에서는 로컬 웹 UI를 사용하여 수행할 수 있는 작업을 중점적으로 설명합니다.
+이 문서에서는 데이터 상자 및 데이터 상자 무거운 장치에서 수행할 수 있는 구성 및 관리 작업 중 일부에 대해 설명합니다. Azure 포털 UI 및 장치에 대한 로컬 웹 UI를 통해 데이터 상자 및 데이터 상자 무거운 장치를 관리할 수 있습니다. 이 문서에서는 로컬 웹 UI를 사용하여 수행할 수 있는 작업을 중점적으로 설명합니다.
 
-Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성에 사용 됩니다. 로컬 웹 UI를 사용 하 여 장치를 종료 하거나 다시 시작 하 고, 진단 테스트를 실행 하 고, 소프트웨어를 업데이트 하 고, 복사 로그를 보고, Microsoft 지원에 대 한 로그 패키지를 생성할 수도 있습니다. 독립적인 노드가 두 개인 Data Box Heavy 장치에서는 장치의 각 노드에 해당 하는 두 개의 개별 로컬 웹 Ui에 액세스할 수 있습니다.
+데이터 상자 및 데이터 상자 헤비에 대한 로컬 웹 UI는 장치의 초기 구성에 사용됩니다. 로컬 웹 UI를 사용하여 장치를 종료하거나 다시 시작하고, 진단 테스트를 실행하고, 소프트웨어를 업데이트하고, 복사본 로그를 보고, Microsoft 지원에 대한 로그 패키지를 생성할 수도 있습니다. 두 개의 독립 노드가 있는 데이터 박스 무거운 장치에서 장치의 각 노드에 해당하는 두 개의 별도의 로컬 웹 UI에 액세스할 수 있습니다.
 
 이 문서에는 다음 자습서가 포함되어 있습니다.
 
@@ -31,7 +31,7 @@ Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성�
 
 ## <a name="generate-support-package"></a>지원 패키지 생성
 
-디바이스 문제가 발생하는 경우 시스템 로그에서 지원 패키지를 만들 수 있습니다. Microsoft 지원에서는 이 패키지를 사용하여 문제를 해결합니다. 지원 패키지를 생성 하려면 다음 단계를 수행 합니다.
+디바이스 문제가 발생하는 경우 시스템 로그에서 지원 패키지를 만들 수 있습니다. Microsoft 지원에서는 이 패키지를 사용하여 문제를 해결합니다. 지원 패키지를 생성하려면 다음 단계를 수행합니다.
 
 1. 로컬 웹 UI에서 **고객 지원에 문의**로 이동한 다음 **지원 패키지 만들기**를 클릭합니다.
 
@@ -52,9 +52,9 @@ Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성�
 
 ## <a name="shut-down-or-restart-your-device"></a>디바이스 종료 또는 다시 시작
 
-로컬 웹 UI를 사용 하 여 장치를 종료 하거나 다시 시작할 수 있습니다. 다시 시작하기 전에 호스트에서 공유를 오프라인으로 전환한 후 디바이스를 다시 시작하는 것이 좋습니다. 이렇게 하면 데이터 손상 가능성이 최소화됩니다. 디바이스를 종료할 때 데이터 복사가 진행 중이지 않은지 확인합니다.
+로컬 웹 UI를 사용하여 장치를 종료하거나 다시 시작할 수 있습니다. 다시 시작하기 전에 호스트에서 공유를 오프라인으로 전환한 후 디바이스를 다시 시작하는 것이 좋습니다. 이렇게 하면 데이터 손상 가능성이 최소화됩니다. 디바이스를 종료할 때 데이터 복사가 진행 중이지 않은지 확인합니다.
 
-장치를 종료 하려면 다음 단계를 수행 합니다.
+기기를 종료하려면 다음 단계를 수행합니다.
 
 1. 로컬 웹 UI에서 **종료 또는 다시 시작**으로 이동합니다.
 2. **종료**를 클릭합니다.
@@ -80,11 +80,11 @@ Data Box를 다시 시작하려면 다음 단계를 수행합니다.
 
 ## <a name="download-bom-or-manifest-files"></a>BOM 또는 매니페스트 파일 다운로드
 
-BOM (자재 청구) 또는 매니페스트 파일은 Data Box 또는 Data Box Heavy에 복사 된 파일의 목록을 포함 합니다. 이러한 파일은 장치를 배송 하도록 준비할 때 생성 됩니다.
+BOM(BOM) 또는 매니페스트 파일에는 데이터 상자 또는 데이터 상자 헤비에 복사된 파일 목록이 포함되어 있습니다. 이러한 파일은 장치를 준비할 때 생성됩니다.
 
-시작 하기 전에 장치가 **배송 준비** 단계를 완료 했는지 확인 합니다. 다음 단계에 따라 BOM 또는 매니페스트 파일을 다운로드합니다.
+시작하기 전에 기기가 **배송 준비** 단계를 완료했는지 확인합니다. 다음 단계에 따라 BOM 또는 매니페스트 파일을 다운로드합니다.
 
-1. 장치의 로컬 웹 UI로 이동 합니다. 장치에서 제공 준비를 완료 한 것을 확인할 수 있습니다. 디바이스 준비가 완료되면 디바이스 상태가 **배송 준비 완료**로 표시됩니다.
+1. 장치의 로컬 웹 UI로 이동합니다. 장치가 배송 준비를 완료한 것을 볼 수 있습니다. 디바이스 준비가 완료되면 디바이스 상태가 **배송 준비 완료**로 표시됩니다.
 
     ![디바이스 배송 준비 완료](media/data-box-portal-admin/ready-to-ship.png)
 
@@ -103,15 +103,15 @@ BOM (자재 청구) 또는 매니페스트 파일은 Data Box 또는 Data Box He
     |databoxe2etest_BlockBlob.txt     |블록 Blob         |SMB/NFS         |
     |databoxe2etest_PageBlob.txt     |페이지 Blob         |SMB/NFS         |
     |databoxe2etest_AzFile-BOM.txt    |Azure 파일         |SMB/NFS         |
-    |databoxe2etest_PageBlock_Rest-BOM.txt     |페이지 Blob         |REST        |
-    |databoxe2etest_BlockBlock_Rest-BOM.txt    |블록 Blob         |REST         |
+    |databoxe2etest_PageBlock_Rest-BOM.txt     |페이지 Blob         |REST (영문)        |
+    |databoxe2etest_BlockBlock_Rest-BOM.txt    |블록 Blob         |REST (영문)         |
     |mydbmdrg1_MDisk-BOM.txt    |관리 디스크:         |SMB/NFS         |
     |mydbmdrg2_MDisk-BOM.txt     |관리 디스크:         |SMB/NFS         |
 
 이 목록을 사용하여 Data Box가 Azure 데이터 센터로 반환된 후 Azure Storage 계정에 업로드된 파일을 확인합니다. 샘플 매니페스트 파일은 아래에 표시되어 있습니다.
 
 > [!NOTE]
-> Data Box Heavy에는 장치의 두 노드에 해당 하는 두 개의 파일 목록 (BOM 파일)이 표시 됩니다.
+> 데이터 박스 헤비에는 장치의 두 노드에 해당하는 두 개의 파일 목록(BOM 파일)이 있습니다.
 
 ```xml
 <file size="52689" crc64="0x95a62e3f2095181e">\databox\media\data-box-deploy-copy-data\prepare-to-ship2.png</file>
@@ -153,7 +153,7 @@ BOM (자재 청구) 또는 매니페스트 파일은 Data Box 또는 Data Box He
 <file size="3603" crc64="0x7e34c25d5606693f">\databox\TOC.yml</file>
 ```
 
-이 파일은 Data Box 또는 Data Box Heavy에 복사 된 모든 파일의 목록을 포함 합니다. 이 파일의 *crc64* 값은 해당 파일에 대해 생성된 체크섬과 관련이 있습니다.
+이 파일에는 데이터 상자 또는 데이터 상자 헤비에 복사된 모든 파일 목록이 포함되어 있습니다. 이 파일의 *crc64* 값은 해당 파일에 대해 생성된 체크섬과 관련이 있습니다.
 
 ## <a name="view-available-capacity-of-the-device"></a>디바이스의 사용 가능한 용량 확인
 
@@ -170,7 +170,7 @@ BOM (자재 청구) 또는 매니페스트 파일은 Data Box 또는 Data Box He
 
 성능이 매우 낮은 경우가 아니면 체크섬은 사용하는 것이 좋습니다.
 
-1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정**으로 이동 합니다.
+1. 장치의 로컬 웹 UI의 오른쪽 상단 모서리에서 **설정으로**이동합니다.
 
     ![체크섬 사용 안 함](media/data-box-local-web-ui-admin/disable-checksum.png)
 
@@ -179,5 +179,5 @@ BOM (자재 청구) 또는 매니페스트 파일은 Data Box 또는 Data Box He
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal를 통해 Data Box 및 Data Box Heavy를 관리](data-box-portal-admin.md)하는 방법을 알아봅니다.
+- [Azure 포털을 통해 데이터 상자 및 데이터 상자 헤비를 관리하는](data-box-portal-admin.md)방법에 대해 알아봅니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 애플리케이션 Insights를 사용 하 여 Visual Studio에서 디버그
+title: Azure 응용 프로그램 인사이트를 통해 Visual Studio에서 디버그
 description: 디버깅 및 프로덕션 중에 웹앱 성능 분석 및 진단입니다.
 ms.topic: conceptual
 author: NumberByColors
@@ -8,10 +8,10 @@ ms.date: 07/07/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
 ms.openlocfilehash: 8905222214d58eeba24ecf50da768ffa1d65c39d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670885"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Visual Studio에서 Azure Application Insights로 애플리케이션 디버그
@@ -21,7 +21,7 @@ Visual Studio 2017 이상을 사용하여 ASP.NET 웹앱을 만든 경우 이미
 
 앱이 라이브 프로덕션 상태인 경우 모니터링하려면 일반적으로 [Azure Portal](https://portal.azure.com)에서 Application Insights 원격 분석을 봅니다. 여기서 경고를 설정하고 강력한 모니터링 도구를 적용할 수 있습니다. 그러나 디버깅하려면 Visual Studio에서 원격 분석 데이터를 검색하고 분석할 수 있습니다. Visual Studio를 사용하여 개발 컴퓨터에서 프로덕션 사이트 및 디버깅 실행의 원격 분석을 분석할 수 있습니다. 후자의 경우 Azure Portal에 원격 분석을 보내도록 SDK를 아직 구성하지 않더라도 디버깅 실행을 분석할 수 있습니다. 
 
-## <a name="run"></a> 프로젝트 디버깅
+## <a name="debug-your-project"></a><a name="run"></a> 프로젝트 디버깅
 F5 키를 사용하여 로컬 디버그 모드로 웹앱을 실행합니다. 다른 페이지를 열어서 일부 원격 분석을 생성합니다.
 
 Visual Studio에서 프로젝트의 Application Insights 모듈에 의해 기록된 이벤트의 수가 표시됩니다.
@@ -90,7 +90,7 @@ Application Insights 도구 모음 단추 또는 Application Insights Search 창
 * *우선 Application Insights를 완전히 구성하여 포털에 원격 분석을 전송했습니다. 하지만 이제 Visual Studio에서만 원격 분석을 확인하려 합니다.*
   
   * Search 창 설정에서 앱이 포털에 원격 분석을 전송하는 경우 로컬 진단을 검색하는 옵션이 있습니다.
-  * 포털로 전송 되는 원격 분석을 중지 하려면 ApplicationInsights에서 줄 `<instrumentationkey>...` 주석 처리 합니다. 포털에 원격 분석을 다시 보낼 준비가 되 면 주석 처리를 제거 합니다.
+  * 포털로 전송되는 원격 분석을 중지하려면 ApplicationInsights.config에서 줄을 `<instrumentationkey>...` 주석으로 작성합니다. 포털에 원격 분석을 다시 보낼 준비가 되면 댓글을 취소합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,5 +1,5 @@
 ---
-title: Azure CLI에서 VM 이름 확인을 위해 내부 DNS 사용
+title: Azure CLI에서 VM 이름 확인에 내부 DNS 사용
 description: 가상 네트워크 인터페이스 카드를 만들고 Azure CLI를 사용하여 Azure에서 VM 이름 확인을 위해 내부 DNS를 사용하는 방법
 services: virtual-machines-linux
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: cynthn
 ms.openlocfilehash: acfdfd4edf90b90998a913fa0c6479bedf0028b7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034737"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>가상 네트워크 인터페이스 카드 만들기 및 Azure에서 VM 이름 확인을 위해 내부 DNS 사용
@@ -32,7 +32,7 @@ ms.locfileid: "74034737"
 * [SSH 공용 및 프라이빗 키 파일](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quick-commands"></a>빠른 명령
-태스크를 빠르게 완료해야 하는 경우 다음 섹션에서 필요한 명령에 대해 자세히 알아보세요. 각 단계에 대한 보다 자세한 내용 및 상황 설명은 [여기서부터](#detailed-walkthrough) 문서 끝까지 참조하세요. 이러한 단계를 수행하려면 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인해야 합니다.
+태스크를 빠르게 완료해야 하는 경우 다음 섹션에서 필요한 명령에 대해 자세히 알아보세요. 각 단계에 대한 자세한 정보와 컨텍스트는 [여기에서 시작하여](#detailed-walkthrough)문서의 나머지 부분에서 찾을 수 있습니다. 이러한 단계를 수행하려면 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인해야 합니다.
 
 사전 요구 사항: 리소스 그룹, 가상 네트워크 및 서브넷, SSH 인바운드가 있는 네트워크 보안 그룹.
 
@@ -49,7 +49,7 @@ az network nic create \
 ```
 
 ### <a name="deploy-a-vm-and-connect-the-vnic"></a>VM 배포 및 vNic 연결
-[az vm create](/cli/azure/vm)로 VM을 만듭니다. `--nics` 플래그는 Azure에 배포하는 동안 VM에 vNic를 연결합니다. 다음 예제에서는 Azure Managed Disks를 사용하여 가상 컴퓨터 `myVM`을 만들고 이전 단계에서 vNic `myNic`를 연결합니다.
+[az vm 만들기를 사용하여 VM을 만듭니다.](/cli/azure/vm) `--nics` 플래그는 Azure에 배포하는 동안 VM에 vNic를 연결합니다. 다음 예제에서는 Azure Managed Disks를 사용하여 가상 컴퓨터 `myVM`을 만들고 이전 단계에서 vNic `myNic`를 연결합니다.
 
 ```azurecli
 az vm create \
@@ -70,7 +70,7 @@ Azure에서 전체 CiCd(지속적인 통합 및 지속적인 배포) 인프라�
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에 `myResourceGroup`, `myNic` 및 `myVM`이 포함됩니다.
 
 ## <a name="create-the-resource-group"></a>리소스 그룹 만들기
-먼저 [az group create](/cli/azure/group)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 `myResourceGroup` 위치에 `westus`이라는 리소스 그룹을 만듭니다.
+먼저 [az group create](/cli/azure/group)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 `westus` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -149,7 +149,7 @@ az network nic create \
 ## <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>가상 네트워크 인프라에 VM 배포
 이제 가상 네트워크, 서브넷, 네트워크 보안 그룹이 SSH에 대한 포트 22 및 vNic를 제외한 모든 인바운드 트래픽을 차단하여 서브넷을 보호하는 방화벽의 역할을 하게 됩니다. 이제 이 기존 네트워크 인프라 내에 VM을 배포할 수 있습니다.
 
-[az vm create](/cli/azure/vm)로 VM을 만듭니다. 다음 예제에서는 Azure Managed Disks를 사용하여 가상 컴퓨터 `myVM`을 만들고 이전 단계에서 vNic `myNic`를 연결합니다.
+[az vm 만들기를 사용하여 VM을 만듭니다.](/cli/azure/vm) 다음 예제에서는 Azure Managed Disks를 사용하여 가상 컴퓨터 `myVM`을 만들고 이전 단계에서 vNic `myNic`를 연결합니다.
 
 ```azurecli
 az vm create \

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4e3e430874f9d5b64f717b6ebb1cacb0eae46b1f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243953"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Azure API Management의 사용자 프로필 템플릿
@@ -40,7 +40,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="Profile"></a>프로필  
+##  <a name="profile"></a><a name="Profile"></a>프로필  
  **프로필** 템플릿을 사용하여 개발자 포털에서 사용자 프로필 페이지의 사용자 프로필 섹션을 사용자 지정할 수 있습니다.  
   
  ![사용자 프로필 페이지](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "APIM 사용자 프로필 페이지")  
@@ -98,7 +98,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ```  
   
 ### <a name="controls"></a>컨트롤  
- 이 템플릿은 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 없습니다.  
+ 이 템플릿은 [페이지 컨트롤을](api-management-page-controls.md)사용할 수 없습니다.  
   
 ### <a name="data-model"></a>데이터 모델  
   
@@ -185,7 +185,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 }  
 ```  
   
-##  <a name="Subscriptions"></a> 구독  
+##  <a name="subscriptions"></a><a name="Subscriptions"></a>구독  
  **구독** 템플릿을 사용하여 개발자 포털에서 사용자 프로필 페이지의 구독 섹션을 사용자 지정할 수 있습니다.  
   
  ![사용자 구독 페이지](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "APIM 사용자 구독 페이지")  
@@ -317,9 +317,9 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ```  
   
 ### <a name="controls"></a>컨트롤  
- 이 템플릿에서 다음 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 있습니다.  
+ 이 템플릿은 다음 [페이지 컨트롤을](api-management-page-controls.md)사용할 수 있습니다.  
   
--   [subscription-cancel](api-management-page-controls.md#subscription-cancel)  
+-   [구독 취소](api-management-page-controls.md#subscription-cancel)  
   
 ### <a name="data-model"></a>데이터 모델  
   
@@ -406,7 +406,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 }  
 ```  
   
-##  <a name="Applications"></a> 애플리케이션  
+##  <a name="applications"></a><a name="Applications"></a>응용 프로그램  
  **애플리케이션** 템플릿을 사용하여 개발자 포털에서 사용자 프로필 페이지의 구독 섹션을 사용자 지정할 수 있습니다.  
   
  ![사용자 계정 응용 프로그램 페이지](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "APIM 사용자 계정 응용 프로그램 페이지")  
@@ -480,9 +480,9 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ```  
   
 ### <a name="controls"></a>컨트롤  
- 이 템플릿에서 다음 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 있습니다.  
+ 이 템플릿은 다음 [페이지 컨트롤을](api-management-page-controls.md)사용할 수 있습니다.  
   
--   [app-actions](api-management-page-controls.md#app-actions)  
+-   [앱-작업](api-management-page-controls.md#app-actions)  
   
 ### <a name="data-model"></a>데이터 모델  
   
@@ -569,7 +569,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 }  
 ```  
   
-##  <a name="UpdateAccountInfo"></a> 계정 정보 업데이트  
+##  <a name="update-account-info"></a><a name="UpdateAccountInfo"></a> 계정 정보 업데이트  
  **계정 정보 업데이트** 템플릿을 사용하여 개발자 포털의 **계정 정보 업데이트** 페이지를 사용자 지정할 수 있습니다.  
   
  ![사용자 계정 정보 페이지 개발자 포털 템플릿](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "APIM 사용자 계정 정보 페이지 개발자 포털 템플릿")  
@@ -607,7 +607,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ```  
   
 ### <a name="controls"></a>컨트롤  
- 이 템플릿은 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 없습니다.  
+ 이 템플릿은 [페이지 컨트롤을](api-management-page-controls.md)사용할 수 없습니다.  
   
 ### <a name="data-model"></a>데이터 모델  
  [사용자 계정 정보](api-management-template-data-model-reference.md#UserAccountInfo) 엔터티입니다.  

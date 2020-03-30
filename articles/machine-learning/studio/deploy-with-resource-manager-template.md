@@ -1,7 +1,7 @@
 ---
-title: Azure Resource Manager를 사용 하 여 Studio (클래식) 작업 영역 배포
+title: Azure 리소스 관리자를 사용 하 고 스튜디오 (클래식) 작업 영역 배포
 titleSuffix: ML Studio (classic) - Azure
-description: Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning Studio (클래식)에 대 한 작업 영역을 배포 하는 방법
+description: Azure 리소스 관리자 템플릿을 사용하여 Azure 기계 학습 스튜디오(클래식)에 대한 작업 영역을 배포하는 방법
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,22 +11,22 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/05/2018
 ms.openlocfilehash: 34333d4fe6e9b34a0c8b56cca8123f4ed93a917a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79218109"
 ---
-# <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Azure Resource Manager를 사용 하 여 Azure Machine Learning Studio (클래식) 작업 영역 배포
+# <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Azure 리소스 관리자를 사용하여 Azure 기계 학습 스튜디오(클래식) 작업 영역 배포
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-Azure Resource Manager 배포 템플릿을 사용하면 유효성 검사와 상호 연결된 구성 요소를 배포하고 메커니즘을 다시 시도하는 확장성 있는 방법을 제공하여 시간을 절약할 수 있습니다. 예를 들어 Azure Machine Learning Studio (클래식) 작업 영역을 설정 하려면 먼저 Azure storage 계정을 구성 하 고 작업 영역을 배포 해야 합니다. 수백 개의 작업 영역에 대해 이 작업을 수동으로 수행한다고 가정합니다. 보다 쉬운 방법은 Azure Resource Manager 템플릿을 사용 하 여 Studio (클래식) 작업 영역 및 모든 해당 종속성을 배포 하는 것입니다. 이 문서는 이 과정을 단계별로 안내합니다. Azure Resource Manager에 대한 개요는 [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)를 참조하세요.
+Azure Resource Manager 배포 템플릿을 사용하면 유효성 검사와 상호 연결된 구성 요소를 배포하고 메커니즘을 다시 시도하는 확장성 있는 방법을 제공하여 시간을 절약할 수 있습니다. 예를 들어 Azure 기계 학습 스튜디오(클래식) 작업 영역을 설정하려면 먼저 Azure 저장소 계정을 구성한 다음 작업 영역을 배포해야 합니다. 수백 개의 작업 영역에 대해 이 작업을 수동으로 수행한다고 가정합니다. 더 쉬운 대안은 Azure 리소스 관리자 템플릿을 사용하여 Studio(클래식) 작업 영역 및 모든 종속성을 배포하는 것입니다. 이 문서는 이 과정을 단계별로 안내합니다. Azure Resource Manager에 대한 개요는 [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)를 참조하세요.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="step-by-step-create-a-machine-learning-workspace"></a>단계별: Machine Learning 작업 영역 만들기
-Azure 리소스 그룹을 만든 다음 리소스 관리자 템플릿을 사용 하 여 새 Azure storage 계정 및 새 Azure Machine Learning Studio (클래식) 작업 영역을 배포 합니다. 배포가 완료되면 생성된 작업 영역에 대한 중요한 정보를 인쇄합니다(기본 키, workspaceID 및 작업 영역에 대한 URL).
+Azure 리소스 그룹을 만든 다음 리소스 관리자 템플릿을 사용하여 새 Azure 저장소 계정과 새 Azure 기계 학습 스튜디오(클래식) 작업 영역을 배포합니다. 배포가 완료되면 생성된 작업 영역에 대한 중요한 정보를 인쇄합니다(기본 키, workspaceID 및 작업 영역에 대한 URL).
 
 ### <a name="create-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 만들기
 
@@ -114,7 +114,7 @@ $rg = New-AzResourceGroup -Name "uniquenamerequired523" -Location "South Central
 $rg
 ```
 
-리소스 그룹이 올바르게 프로비전되었는지 확인합니다. **ProvisioningState** 는 "성공" 이어야 합니다.
+리소스 그룹이 올바르게 프로비전되었는지 확인합니다. **프로비저닝상태는** "성공"이어야 합니다.
 리소스 그룹 이름은 스토리지 계정 이름을 생성하는 템플릿에 의해 사용됩니다. 스토리지 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다.
 
 ![리소스 그룹](./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png)
@@ -133,13 +133,13 @@ $rgd = New-AzResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworks
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
-기존 작업 영역의 토큰을 검색 하는 또 다른 방법은 AzResourceAction 명령을 사용 하는 것입니다. 예를 들어 모든 작업 영역의 기본 및 보조 토큰을 나열할 수 있습니다.
+기존 작업 영역의 토큰을 검색하는 또 다른 방법은 Invoke-AzResourceAction 명령을 사용하는 것입니다. 예를 들어 모든 작업 영역의 기본 및 보조 토큰을 나열할 수 있습니다.
 
 ```powershell
 # List the primary and secondary tokens of all workspaces
 Get-AzResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEach-Object { Invoke-AzResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
-작업 영역을 프로 비전 한 후 [에는 Azure Machine Learning Studio (클래식)에 대 한 PowerShell 모듈](https://aka.ms/amlps)을 사용 하 여 많은 Azure Machine Learning Studio (클래식) 작업을 자동화할 수도 있습니다.
+작업 영역을 프로비전한 후 Azure 기계 학습 [Studio(클래식)에 대한 PowerShell 모듈을](https://aka.ms/amlps)사용하여 많은 Azure 기계 학습 스튜디오(클래식) 작업을 자동화할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

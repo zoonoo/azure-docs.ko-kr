@@ -1,5 +1,5 @@
 ---
-title: Windows 용 Azure 진단 확장
+title: Windows용 Azure 진단 확장
 description: Azure Diagnostics 확장을 사용하여 Azure Windows VM 모니터링
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
 ms.openlocfilehash: d4ba3e8bbdad72f10c630a056f988ec83e9b1a68
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471621"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Windows VM용 Azure Diagnostics 확장
@@ -86,9 +86,9 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 Azure Diagnostics 확장에 대한 보다 포괄적인 문제 해결 가이드는 [이 문서를 참조](../../azure-monitor/platform/diagnostics-extension-troubleshooting.md)하세요.
 
-### <a name="support"></a>지원
+### <a name="support"></a>고객 지원팀
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
+이 문서의 어느 시점에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼의](https://azure.microsoft.com/support/forums/)Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동하여 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Diagnostics 확장에 대해 자세히 알아보기](../../azure-monitor/platform/diagnostics-extension-overview.md)

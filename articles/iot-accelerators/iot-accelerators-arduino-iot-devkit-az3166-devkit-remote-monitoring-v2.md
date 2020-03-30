@@ -1,5 +1,5 @@
 ---
-title: IoT DevKit를 원격 모니터링 솔루션에 연결-Azure | Microsoft Docs
+title: 원격 모니터링 솔루션에 IoT DevKit 연결 - Azure | 마이크로 소프트 문서
 description: 이 방법 가이드에서는 모니터링 및 시각화를 위해 IoT DevKit AZ3166 디바이스의 센서에서 원격 모니터링 솔루션 가속기로 원격 분석을 보내는 방법을 알아봅니다.
 author: isabelcabezasm
 manager: ''
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
 ms.openlocfilehash: 6e9f9c89cf2e5e40d37a1532e688490aae294181
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73888859"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에 IoT DevKit 디바이스 연결
@@ -36,7 +36,7 @@ VS Code에서 원격 모니터링 샘플을 열려면
 
 1. IoT DevKit가 컴퓨터에 연결되어 있지 않은지 확인합니다. VS Code를 시작하고 DevKit를 컴퓨터에 연결합니다.
 
-1. `F1`를 클릭 하 여 명령 팔레트를 열고 **Azure IoT 장치 워크 벤치: 예제 열기**...를 입력 하 고 선택 합니다. 그런 다음 **IoT DevKit** as board를 선택 합니다.
+1. 명령 `F1` 팔레트를 열고 **Azure IoT 장치 워크벤치: 예제 열기를 선택합니다.** 그런 다음 **IoT DevKit을** 보드로 선택합니다.
 
 1. **원격 모니터링**을 찾아 **예제 열기**를 클릭합니다. 프로젝트 폴더를 표시하는 새 VS Code 창이 열립니다.
 
@@ -46,7 +46,7 @@ VS Code에서 원격 모니터링 샘플을 열려면
 
 DevKit 디바이스에서 IoT Hub 디바이스 연결 문자열을 구성하려면
 
-1. IoT DevKit를 **구성 모드**로 전환합니다.
+1. IoT DevKit을 **구성 모드로**전환:
 
     * **A** 단추를 누르고 있습니다.
     * **다시 설정** 단추를 눌렀다가 놓습니다.
@@ -55,7 +55,7 @@ DevKit 디바이스에서 IoT Hub 디바이스 연결 문자열을 구성하려�
 
     ![IoT DevKit 구성 모드](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/devkit-configuration-mode.png)
 
-1. **F1** 키를 눌러 명령 팔레트를 열고 **Azure IoT 장치 워크 벤치: 장치 설정 구성 ...을 입력 하 고 선택 합니다. 구성 장치 연결 문자열을 >** 합니다.
+1. **F1을** 눌러 명령 팔레트를 열고 **Azure IoT 장치 워크벤치를**입력하고 선택합니다: 장치 설정 구성... > 장치 연결 문자열 .
 
 1. 이전에 복사한 연결 문자열을 붙여넣고 **Enter** 키를 눌러 디바이스를 구성합니다.
 
@@ -63,7 +63,7 @@ DevKit 디바이스에서 IoT Hub 디바이스 연결 문자열을 구성하려�
 
 디바이스 코드를 빌드하고 업로드하려면
 
-1. `F1` 키를 눌러 명령 팔레트를 열고 **Azure IoT 장치 워크 벤치: 업로드 장치 코드**를 입력 하 고 선택 합니다.
+1. 명령 `F1` 팔레트를 열고 **Azure IoT 장치 워크벤치를**입력하고 선택하려면 장치 코드 업로드:
 
 1. VS Code가 코드를 컴파일하고 DevKit 디바이스로 업로드합니다.
 
@@ -79,7 +79,7 @@ DevKit 디바이스에 업로드한 샘플 애플리케이션이 작동하는지
 
 샘플 앱이 실행되면 DevKit 디바이스가 Wi-Fi를 통해 해당 센서 데이터에서 솔루션 가속기로 원격 분석을 보냅니다. 원격 분석을 확인하려면
 
-1. 솔루션 대시보드로 이동 하 고 **Device Explorer**를 클릭 합니다.
+1. 솔루션 대시보드로 이동하여 **장치 탐색기를**클릭합니다.
 
 1. DevKit 디바이스의 디바이스 이름을 클릭합니다. 오른쪽 탭에서 DevKit의 원격 분석을 실시간으로 확인할 수 있습니다.
 
@@ -87,7 +87,7 @@ DevKit 디바이스에 업로드한 샘플 애플리케이션이 작동하는지
 
 ### <a name="control-the-devkit-device"></a>DevKit 디바이스 제어
 
-원격 모니터링 솔루션 가속기를 사용하면 디바이스를 원격으로 제어할 수 있습니다. 샘플 코드는 **Device Explorer** 페이지에서 장치를 선택 하는 경우 **메서드** 섹션에서 볼 수 있는 세 가지 메서드를 구현 합니다.
+원격 모니터링 솔루션 가속기를 사용하면 디바이스를 원격으로 제어할 수 있습니다. 샘플 코드는 **장치 탐색기** 페이지에서 장치를 선택할 때 **방법** 섹션에서 볼 수 있는 세 가지 메서드를 구현합니다.
 
 ![IoT DevKit 메서드](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-methods.png)
 

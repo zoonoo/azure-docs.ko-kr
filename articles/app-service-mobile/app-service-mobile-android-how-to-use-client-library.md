@@ -1,5 +1,5 @@
 ---
-title: Android 용 SDK를 사용 하는 방법
+title: 안드로이드에 대한 SDK를 사용하는 방법
 description: Android용 Azure Mobile Apps SDK를 사용하는 방법
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.tgt_pltfrm: mobile-android
@@ -7,10 +7,10 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 52e91d900ce0f22862904695ba8adf463219c469
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249387"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android용 Azure Mobile Apps SDK를 사용하는 방법
@@ -22,11 +22,11 @@ ms.locfileid: "79249387"
 * 오류 처리.
 * 클라이언트 사용자 지정.
 
-이 가이드는 클라이언트 쪽 Android SDK에 중점을 둡니다.  Mobile Apps에 대 한 서버 쪽 Sdk에 대해 자세히 알아보려면 [.net 백 엔드 Sdk 작업][10] 또는 [NODE.JS 백 엔드 sdk를 사용 하는 방법][11]을 참조 하세요.
+이 가이드는 클라이언트 쪽 Android SDK에 중점을 둡니다.  Mobile Apps용 서버 쪽 SDK에 대해 자세히 알아보려면 [.NET 백 엔드 SDK로 작업][10] 또는 [Node.js 백 엔드 SDK를 사용하는 방법][11]을 참조하세요.
 
 ## <a name="reference-documentation"></a>참조 설명서
 
-GitHub에서 Android 클라이언트 라이브러리에 대 한 [라이브러리용 JAVADOCS API 참조][12] 를 찾을 수 있습니다.
+Android 클라이언트 라이브러리용 [Javadocs API 참조][12]는 GitHub에서 확인할 수 있습니다.
 
 ## <a name="supported-platforms"></a>지원되는 플랫폼
 
@@ -38,15 +38,15 @@ Android용 Azure Mobile Apps SDK는 휴대폰 및 태블릿 폼 팩터용 API �
 
 빠른 시작 자습서를 완료하지 않으려는 경우에는 다음 작업을 완료하세요.
 
-* Android 앱과 함께 사용할 [모바일 앱 백 엔드를 만듭니다][13] .
+* Android 앱과 함께 사용할 [모바일 앱 백 엔드를 만듭니다][13].
 * Android Studio에서 [Gradle 빌드 파일을 업데이트](#gradle-build)합니다.
-* [인터넷 권한을 사용합니다](#enable-internet).
+* [인터넷 권한 사용 .](#enable-internet)
 
-### <a name="gradle-build"></a>Gradle 빌드 파일 업데이트
+### <a name="update-the-gradle-build-file"></a><a name="gradle-build"></a>Gradle 빌드 파일 업데이트
 
 **build.gradle** 파일을 모두 변경합니다.
 
-1. *프로젝트* 수준 **gradle** 파일에 다음 코드를 추가 합니다.
+1. 이 코드를 *프로젝트* 수준 **build.gradle** 파일에 추가합니다.
 
     ```gradle
     buildscript {
@@ -64,15 +64,15 @@ Android용 Azure Mobile Apps SDK는 휴대폰 및 태블릿 폼 팩터용 API �
     }
     ```
 
-2. *dependencies* 태그 내의 **모듈 앱** 수준 *build.gradle* 파일에 이 코드를 추가합니다.
+2. *dependencies* 태그 내의 *모듈 앱* 수준 **build.gradle** 파일에 이 코드를 추가합니다.
 
     ```gradle
     implementation 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
-    현재 최신 버전은 3.4.0입니다. 지원 되는 버전은 [bintray에][14]나열 됩니다.
+    현재 최신 버전은 3.4.0입니다. 지원되는 버전은 [bintray][14]에 나열되어 있습니다.
 
-### <a name="enable-internet"></a>인터넷 권한 사용
+### <a name="enable-internet-permission"></a><a name="enable-internet"></a>인터넷 권한 사용
 
 Azure에 액세스하려면 앱은 인터넷 사용 권한을 사용하도록 설정해야 합니다. 아직 사용하지 않는 경우 코드의 다음 줄을 **AndroidManifest.xml** 파일에 추가합니다.
 
@@ -99,9 +99,9 @@ MobileServiceClient mClient = new MobileServiceClient(
 
 `<MobileAppUrl>`은 모바일 백 엔드를 가리키는 문자열 또는 URL 개체입니다.  Azure App Service를 사용하여 모바일 백 엔드를 호스트하는 경우 보안 `https://` 버전의 URL을 사용해야 합니다.
 
-클라이언트는 활동 또는 컨텍스트(예제의 `this` 매개 변수)에 대한 액세스도 필요합니다.  MobileServiceClient 생성은 `onCreate()` 파일에 언급된 활동의 `AndroidManifest.xml` 메서드 내에서 수행되어야 합니다.
+클라이언트는 활동 또는 컨텍스트(예제의 `this` 매개 변수)에 대한 액세스도 필요합니다.  MobileServiceClient 생성은 `AndroidManifest.xml` 파일에 언급된 활동의 `onCreate()` 메서드 내에서 수행되어야 합니다.
 
-가장 좋은 방법은 서버 통신을 자체(singleton 패턴) 클래스로 추상화하는 것입니다.  이런 경우 서비스를 적절히 구성하려면 활동을 생성자 내에서 전달해야 합니다.  다음은 그 예입니다.
+가장 좋은 방법은 서버 통신을 자체(singleton 패턴) 클래스로 추상화하는 것입니다.  이런 경우 서비스를 적절히 구성하려면 활동을 생성자 내에서 전달해야 합니다.  예를 들어:
 
 ```java
 package com.example.appname.services;
@@ -143,7 +143,7 @@ public class AzureServiceAdapter {
 }
 ```
 
-이제 기본 활동의 `AzureServiceAdapter.Initialize(this);` 메서드에서 `onCreate()`를 호출할 수 있습니다.  클라이언트에 대한 액세스가 필요한 다른 모든 메서드는 `AzureServiceAdapter.getInstance();`를 사용하여 서비스 어댑터에 대한 참조를 확보합니다.
+이제 기본 활동의 `onCreate()` 메서드에서 `AzureServiceAdapter.Initialize(this);`를 호출할 수 있습니다.  클라이언트에 대한 액세스가 필요한 다른 모든 메서드는 `AzureServiceAdapter.getInstance();`를 사용하여 서비스 어댑터에 대한 참조를 확보합니다.
 
 ## <a name="data-operations"></a>데이터 작업
 
@@ -190,17 +190,17 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Mobile Apps 백 엔드에서 추가 테이블을 만드는 방법을 알아보려면 [방법: 테이블 컨트롤러 정의][15] (.net 백 엔드) 또는 [동적 스키마를 사용 하 여 테이블 정의][16] (node.js 백 엔드)를 참조 하세요.
+Mobile Apps 백 엔드에 추가 테이블을 작성하는 방법을 알아보려면 [방법: 테이블 컨트롤러 정의][15](.NET 백 엔드) 또는 [동적 스키마를 사용하여 테이블 정의][16](Node.js 백 엔드)를 참조하세요.
 
 Azure Mobile Apps 백 엔드 테이블은 5개의 특수 필드를 정의하며 이 중 4개는 클라이언트에서 사용할 수 있습니다.
 
-* `String id`: 레코드의 전역 고유 ID입니다.  Id를 [UUID][17] 개체의 문자열 표현으로 설정 하는 것이 가장 좋습니다.
+* `String id`: 레코드의 전역 고유 ID입니다.  가장 좋은 방법은 ID를 [UUID][17] 개체의 문자열 표현으로 만드는 것입니다.
 * `DateTimeOffset updatedAt`: 마지막 업데이트 날짜/시간입니다.  updatedAt 필드는 서버에 의해 설정되며 클라이언트 코드로 설정하지 말아야 합니다.
 * `DateTimeOffset createdAt`: 개체가 만들어진 날짜/시간입니다.  createdAt 필드는 서버에 의해 설정되며 클라이언트 코드로 설정하지 말아야 합니다.
 * `byte[] version`: 일반적으로 문자열로 표시되며 버전도 서버에 의해 설정됩니다.
 * `boolean deleted`: 레코드가 삭제되었지만 아직 제거되지 않았음을 나타냅니다.  `deleted`를 클래스에서 속성으로 사용하지 마십시오.
 
-`id` 필드는 필수입니다.  `updatedAt` 필드 및 `version` 필드는 오프라인 동기화에(각각 증분 동기화 및 충돌 해결을 위해) 사용됩니다.  `createdAt` 필드는 참조 필드이며 클라이언트에서 사용되지 않습니다.  이름은 속성의 "across-the-wire" 이름이며 조정할 수 없습니다.  그러나 [gson][3] 라이브러리를 사용 하 여 개체와 "유선" 이름 간의 매핑을 만들 수 있습니다.  다음은 그 예입니다.
+`id` 필드는 필수입니다.  `updatedAt` 필드 및 `version` 필드는 오프라인 동기화에(각각 증분 동기화 및 충돌 해결을 위해) 사용됩니다.  `createdAt` 필드는 참조 필드이며 클라이언트에서 사용되지 않습니다.  이름은 속성의 "across-the-wire" 이름이며 조정할 수 없습니다.  하지만 [gson][3] 라이브러리를 사용하여 개체와 "across-the-wire" 이름 사이에 매핑을 만들 수 있습니다.  예를 들어:
 
 ```java
 package com.example.zumoappname;
@@ -260,7 +260,7 @@ public class ToDoItem
 
 ### <a name="create-a-table-reference"></a>테이블 참조 만들기
 
-테이블에 액세스 하려면 먼저 [MobileServiceClient][9]에서 **getTable** 메서드를 호출 하 여 [MobileServiceTable][8] 개체를 만듭니다.  이 메서드에는 두 가지 오버로드가 있습니다.
+테이블에 액세스하려면 우선 [MobileServiceClient][9]에서 **getTable** 메서드를 호출하여 [MobileServiceTable][8] 개체를 만듭니다.  이 메서드에는 두 가지 오버로드가 있습니다.
 
 ```java
 public class MobileServiceClient {
@@ -281,18 +281,18 @@ MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
 MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 ```
 
-## <a name="query"></a> 엔드 테이블 쿼리
+## <a name="query-a-backend-table"></a><a name="query"></a> 엔드 테이블 쿼리
 
 먼저 테이블 참조를 가져옵니다.  그런 다음 테이블 참조에 쿼리를 실행합니다.  쿼리는 다음의 조합입니다.
 
-* `.where()` [필터 절입니다](#filtering).
-* `.orderBy()` [순서 절입니다](#sorting).
-* `.select()` [필드 선택 절입니다](#selection).
-* `.skip()`페이징 결과`.top()`에 대한 [ 및 ](#paging).
+* `.where()` [필터 절](#filtering).
+* `.orderBy()` [ordering 절](#sorting).
+* `.select()` [필드 선택 절](#selection).
+* [페이징 결과](#paging)에 대한 `.skip()` 및 `.top()`.
 
 절은 선행 순으로 제공해야 합니다.
 
-### <a name="filter"></a> 결과 필터링
+### <a name="filtering-results"></a><a name="filter"></a> 결과 필터링
 
 쿼리의 일반적인 형식은 다음과 같습니다.
 
@@ -303,9 +303,9 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-앞의 예제는 모든 결과(서버가 설정한 최대 페이지 크기까지)를 반환합니다.  `.execute()` 메서드는 백 엔드에서 쿼리를 실행합니다.  Mobile Apps 백 엔드에 전송 하기 전에 쿼리가 [OData v3][19] 쿼리로 변환 됩니다.  수신되면 Mobile Apps 백 엔드는 SQL Azure 인스턴스에서 쿼리를 실행하기 전에 SQL 문으로 변환합니다.  네트워크 활동에는 시간이 걸리므로 `.execute()` 메서드는 [`ListenableFuture<E>`][18]반환 합니다.
+앞의 예제는 모든 결과(서버가 설정한 최대 페이지 크기까지)를 반환합니다.  `.execute()` 메서드는 백 엔드에서 쿼리를 실행합니다.  쿼리는 Mobile Apps 백 엔드로 전송되기 전에 [OData v3][19] 쿼리로 변환됩니다.  수신되면 Mobile Apps 백 엔드는 SQL Azure 인스턴스에서 쿼리를 실행하기 전에 SQL 문으로 변환합니다.  네트워크 활동에는 다소 시간이 `.execute()` 걸리므로 [`ListenableFuture<E>`][18]메서드는 을 반환합니다.
 
-### <a name="filtering"></a>반환된 데이터 필터링
+### <a name="filter-returned-data"></a><a name="filtering"></a>반환된 데이터 필터링
 
 다음 쿼리 실행은 **완료**가 **false**와 같은 **ToDoItem** 테이블에서 모든 항목을 반환합니다.
 
@@ -377,7 +377,7 @@ List<ToDoItem> results = mToDoTable
 
 필터링에 대한 자세한 내용과 예를 보려면 [Android 클라이언트 쿼리 모델의 다양한 기능 알아보기][20]를 참조하세요.
 
-### <a name="sorting"></a>반환된 데이터 정렬
+### <a name="sort-returned-data"></a><a name="sorting"></a>반환된 데이터 정렬
 
 다음 코드는 **ToDoItems** 테이블에서 *텍스트* 필드를 기준으로 오름차순 정렬된 모든 항목을 반환합니다. *mToDoTable* 은 이전에 만든 백 엔드 테이블에 대한 참조입니다.
 
@@ -390,7 +390,7 @@ List<ToDoItem> results = mToDoTable
 
 **orderBy** 메서드의 첫 번째 매개 변수는 정렬 기준이 되는 필드의 이름과 동일한 문자열입니다. 두 번째 매개 변수는 **QueryOrder** 열거형을 사용하여 오름차순이나 내림차순으로 정렬할지를 지정합니다.  ***where*** 메서드를 사용하여 필터링하려는 경우 ***orderBy*** 메서드 이전에 ***where*** 메서드를 호출해야 합니다.
 
-### <a name="selection"></a>특정 열 선택
+### <a name="select-specific-columns"></a><a name="selection"></a>특정 열 선택
 
 다음 코드는 **ToDoItems** 테이블에서 모든 항목을 반환하지만 **완료** 및 **텍스트** 필드만 표시하는 방법을 보여 줍니다. **mToDoTable** 은 이전에 만든 백 엔드 테이블에 대한 참조입니다.
 
@@ -403,7 +403,7 @@ List<ToDoItemNarrow> result = mToDoTable
 
 select 함수의 매개 변수는 반환하려는 테이블 열의 문자열 이름입니다.  **select** 메서드는 **where**나 **orderBy** 같은 메서드의 뒤에 나와야 합니다. 그 뒤에 **skip** 및 **top**등의 메서드를 페이징하여 나올 수 있습니다.
 
-### <a name="paging"></a>페이지에 데이터 반환
+### <a name="return-data-in-pages"></a><a name="paging"></a>페이지에서 데이터 반환
 
 데이터는 **항상** 페이지에 반환됩니다.  반환되는 레코드의 최대 수는 서버에 의해 설정됩니다.  클라이언트가 더 많은 레코드를 요청하면 서버는 최대 레코드 수를 반환합니다.  기본적으로 서버의 최대 페이지 크기는 50개 레코드입니다.
 
@@ -447,9 +447,9 @@ do {
 > [!TIP]
 > 올바른 페이지 크기를 선택하면 요청이 발생하는 동안의 메모리 사용량과 데이터를 완전히 수신하는 데 걸리는 시간 및 대역폭 사용량 사이에 균형이 유지됩니다.  기본값(레코드 50개)은 모든 디바이스에 적합합니다.  대형 메모리 디바이스에서 독점적으로 작동하는 경우 최대 500개까지 늘립니다.  페이지 크기를 레코드 500개를 초과하도록 늘리면 허용되지 않는 지연과 큰 메모리 문제가 발생합니다.
 
-### <a name="chaining"></a>방법: 쿼리 메서드 연결
+### <a name="how-to-concatenate-query-methods"></a><a name="chaining"></a>방법: 쿼리 메서드 연결
 
-백 엔드 테이블을 쿼리하는 데 사용되는 메서드를 연결할 수 있습니다. 쿼리 메서드를 연결하면 정렬 및 페이징되는 필터링된 행의 특정 열을 선택할 수 있습니다. 상당히 복잡한 논리 필터를 만들 수 있습니다.  각 쿼리 메서드는 쿼리 개체를 반환합니다. 일련의 메서드를 종료하고 실제로 쿼리를 실행하려면 **execute** 메서드를 호출합니다. 다음은 그 예입니다.
+백 엔드 테이블을 쿼리하는 데 사용되는 메서드를 연결할 수 있습니다. 쿼리 메서드를 연결하면 정렬 및 페이징되는 필터링된 행의 특정 열을 선택할 수 있습니다. 상당히 복잡한 논리 필터를 만들 수 있습니다.  각 쿼리 메서드는 쿼리 개체를 반환합니다. 일련의 메서드를 종료하고 실제로 쿼리를 실행하려면 **execute** 메서드를 호출합니다. 예를 들어:
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -472,7 +472,7 @@ List<ToDoItem> results = mToDoTable
 3. 선택(**select**) 메서드.
 4. 페이징(**skip** 및 **top**) 메서드.
 
-## <a name="binding"></a>사용자 인터페이스에 데이터 바인딩
+## <a name="bind-data-to-the-user-interface"></a><a name="binding"></a>사용자 인터페이스에 데이터 바인딩
 
 데이터 바인딩에는 세 가지 구성 요소가 필요합니다.
 
@@ -482,7 +482,7 @@ List<ToDoItem> results = mToDoTable
 
 샘플 코드에서는 Mobile Apps SQL Azure 테이블 **ToDoItem** 의 데이터를 배열로 반환합니다. 이 활동은 데이터 애플리케이션에서 매우 흔한 패턴입니다.  데이터베이스 쿼리는 종종 클라이언트에서 목록 또는 배열로 가져오는 행 컬렉션을 반환합니다. 이 샘플에서 배열은 데이터 원본입니다.  코드는 디바이스에 나타나는 데이터 뷰를 정의하는 화면 레이아웃을 지정합니다.  이 두 요소는 어댑터(이 코드에서 **ArrayAdapter&lt;ToDoItem&gt;** 클래스의 확장)를 통해 바인딩됩니다.
 
-#### <a name="layout"></a>레이아웃 정의
+#### <a name="define-the-layout"></a><a name="layout"></a>레이아웃 정의
 
 레이아웃은 다수의 XML 코드 조각으로 정의됩니다. 기존 레이아웃을 고려할 때 다음 코드는 서버 데이터로 채울 **ListView**를 나타냅니다.
 
@@ -511,15 +511,15 @@ List<ToDoItem> results = mToDoTable
 </LinearLayout>
 ```
 
-#### <a name="adapter"></a>어댑터 정의
-이 뷰의 데이터 원본은 **ToDoItem**의 배열이기 때문에, **ArrayAdapter&lt;ToDoItem&gt;** 클래스에서 어댑터의 서브클래스를 지정합니다. 이 서브클래스는 **row_list_to_do** 레이아웃을 사용하는 모든 **ToDoItem**의 뷰를 생성합니다.  코드에는 **ArrayAdapter&lt;E&gt;** 클래스의 확장인 다음 클래스를 정의합니다.
+#### <a name="define-the-adapter"></a><a name="adapter"></a>어댑터 정의
+이 뷰의 데이터 원본은 **ToDoItem**의 배열이기 때문에, **ArrayAdapter&lt;ToDoItem&gt;** 클래스에서 어댑터의 서브클래스를 지정합니다. 이 서브클래스는 **row_list_to_do** 레이아웃을 사용하는 모든 **ToDoItem**의 뷰를 생성합니다.  코드에서 **ArrayAdapter&lt;E&gt; ** 클래스의 확장인 다음 클래스를 정의합니다.
 
 ```java
 public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 }
 ```
 
-어댑터의 **getView** 메서드를 다시 정의합니다. 다음은 그 예입니다.
+어댑터의 **getView** 메서드를 다시 정의합니다. 예를 들어:
 
 ```java
     @Override
@@ -569,7 +569,7 @@ ToDoItemAdapter 생성자의 두 번째 매개 변수는 레이아웃에 대한 
     listViewToDo.setAdapter(mAdapter);
 ```
 
-#### <a name="use-adapter"></a>어댑터를 사용하여 UI에 바인딩
+#### <a name="use-the-adapter-to-bind-to-the-ui"></a><a name="use-adapter"></a>어댑터를 사용하여 UI에 바인딩
 
 이제 데이터 바인딩을 사용할 준비가 되었습니다. 다음 코드는 테이블의 항목을 가져오고 로컬 어댑터를 반환된 항목으로 채우는 방법을 보여줍니다.
 
@@ -604,7 +604,7 @@ ToDoItemAdapter 생성자의 두 번째 매개 변수는 레이아웃에 대한 
 
 전체 예제는 [Android 빠른 시작 프로젝트][21]에서 찾을 수 있습니다.
 
-## <a name="inserting"></a>백 엔드에 데이터 삽입
+## <a name="insert-data-into-the-backend"></a><a name="inserting"></a>백 엔드에 데이터 삽입
 
 *ToDoItem* 클래스 인스턴스를 인스턴스화하고 해당 속성을 설정합니다.
 
@@ -624,7 +624,7 @@ ToDoItem entity = mToDoTable
 
 반환된 엔터티는 백 엔드 테이블에 삽입된 데이터와 일치하며 이는 ID 및 백 엔드에 설정된 다른 값(예: `createdAt`, `updatedAt` 및 `version` 필드)을 포함합니다.
 
-Mobile Apps 테이블에는 **id**라는 기본 키 열이 필요 합니다. 이 열은 문자열 이어야 합니다. ID 열의 기본값은 GUID입니다.  전자 메일 주소나 사용자 이름처럼 다른 고유한 값을 입력해도 됩니다. 삽입된 레코드에 대한 문자열 ID 값을 입력하지 않으면 백 엔드에서 새 GUID를 생성합니다.
+모바일 앱 테이블에는 **id라는**기본 키 열이 필요합니다. 이 열은 문자열이어야 합니다. ID 열의 기본값은 GUID입니다.  전자 메일 주소나 사용자 이름처럼 다른 고유한 값을 입력해도 됩니다. 삽입된 레코드에 대한 문자열 ID 값을 입력하지 않으면 백 엔드에서 새 GUID를 생성합니다.
 
 문자열 ID 값은 다음과 같은 이점을 제공합니다.
 
@@ -634,7 +634,7 @@ Mobile Apps 테이블에는 **id**라는 기본 키 열이 필요 합니다. 이
 
 오프라인 동기화를 지원하려면 문자열 ID 값이 **필수** 입니다.  ID가 백 엔드 데이터베이스에 저장되고 나면 ID를 변경할 수 없습니다.
 
-## <a name="updating"></a>모바일 앱의 데이터 업데이트
+## <a name="update-data-in-a-mobile-app"></a><a name="updating"></a>모바일 앱의 데이터 업데이트
 
 테이블의 데이터를 업데이트하려면 새 개체를 **update()** 메서드에 전달합니다.
 
@@ -646,7 +646,7 @@ mToDoTable
 
 이 예제에서 *item*은 일부 변경된 *ToDoItem* 테이블의 행에 대한 참조입니다.  **id** 가 같은 행이 업데이트됩니다.
 
-## <a name="deleting"></a>모바일 앱의 데이터 삭제
+## <a name="delete-data-in-a-mobile-app"></a><a name="deleting"></a>모바일 앱의 데이터 삭제
 
 다음 코드는 데이터 개체를 지정하여 테이블에서 데이터를 삭제하는 방법을 보여줍니다.
 
@@ -663,7 +663,7 @@ mToDoTable
     .delete(myRowId);
 ```
 
-## <a name="lookup"></a>ID로 특정 항목 조회
+## <a name="look-up-a-specific-item-by-id"></a><a name="lookup"></a>ID로 특정 항목 조회
 
 **lookUp()** 메서드를 사용하여 특정 **id** 필드 값을 가진 항목을 조회합니다.
 
@@ -673,11 +673,11 @@ ToDoItem result = mToDoTable
     .get();
 ```
 
-## <a name="untyped"></a>방법: 형식화되지 않은 데이터 작업
+## <a name="how-to-work-with-untyped-data"></a><a name="untyped"></a>방법: 형식화되지 않은 데이터 작업
 
 형식화되지 않은 프로그래밍 모델은 JSON 직렬화를 정확하게 제어할 수 있습니다.  형식화되지 않은 프로그래밍 모델을 사용하는 것이 좋은 몇 가지 일반적인 시나리오가 있습니다. 백 엔드 테이블에 여러 열이 있는데 그 중 일부만 참조해야 하는 경우를 예로 들 수 있습니다.  형식화된 모델을 사용하려면 데이터 클래스의 Mobile Apps 백 엔드에 정의된 모든 열을 정의해야 합니다.  데이터에 액세스하는 대부분의 API 호출은 형식화된 프로그래밍 호출과 유사합니다. 주요 차이점은 형식화되지 않은 모델에서는 **MobileServiceTable** 개체 대신 **MobileServiceJsonTable** 개체에 대해 메서드를 호출한다는 점입니다.
 
-### <a name="json_instance"></a>형식화되지 않은 테이블 인스턴스 만들기
+### <a name="create-an-instance-of-an-untyped-table"></a><a name="json_instance"></a>형식화되지 않은 테이블 인스턴스 만들기
 
 형식화된 모델과 유사하게 테이블 참조를 가져와서 시작합니다. 하지만 이 경우에는 이 참조가 **MobileServicesJsonTable** 개체입니다. 클라이언트의 인스턴스에 대해 **getTable** 메서드를 호출하여 참조를 가져옵니다.
 
@@ -689,8 +689,8 @@ mJsonToDoTable = mClient.getTable("ToDoItem");
 
 **MobileServiceJsonTable**의 인스턴스를 만들면 형식화된 프로그래밍 모델을 사용할 때와 거의 동일한 API를 사용할 수 있습니다. 경우에 따라 메서드가 형식화된 매개 변수 대신 형식화되지 않은 매개 변수를 가져오기도 합니다.
 
-### <a name="json_insert"></a>형식화되지 않은 테이블에 삽입
-다음 코드는 삽입하는 방법을 보여 줍니다. 첫 번째 단계는 [gson][3] 라이브러리의 일부인 [JsonObject][1]을 만드는 것입니다.
+### <a name="insert-into-an-untyped-table"></a><a name="json_insert"></a>형식화되지 않은 테이블에 삽입
+다음 코드는 삽입하는 방법을 보여 줍니다. 첫 번째 단계는 [gson][3] 라이브러리의 일부인 [JsonObject][1]를 만드는 것입니다.
 
 ```java
 JsonObject jsonItem = new JsonObject();
@@ -711,7 +711,7 @@ JsonObject insertedItem = mJsonToDoTable
 ```java
 String id = insertedItem.getAsJsonPrimitive("id").getAsString();
 ```
-### <a name="json_delete"></a>형식화되지 않은 테이블에서 삭제
+### <a name="delete-from-an-untyped-table"></a><a name="json_delete"></a>형식화되지 않은 테이블에서 삭제
 다음 코드는 인스턴스를 삭제하는 방법을 보여 줍니다. 이 경우에는 앞의 **insert** 예에서 만들어진 것과 동일한 *JsonObject* 인스턴스를 삭제합니다. 코드는 형식화된 경우와 같지만 메서드가 **JsonObject**를 참조하기 때문에 메서드의 서명이 다릅니다.
 
 ```java
@@ -725,7 +725,7 @@ ID를 사용하여 직접 인스턴스를 삭제할 수도 있습니다.
 mToDoTable.delete(ID);
 ```
 
-### <a name="json_get"></a>형식화되지 않은 테이블에서 모든 행 반환
+### <a name="return-all-rows-from-an-untyped-table"></a><a name="json_get"></a>형식화되지 않은 테이블에서 모든 행 반환
 다음 코드는 전체 테이블을 검색하는 방법을 보여 줍니다. Json 테이블을 사용하기 때문에 테이블 열의 일부만 선택적으로 검색할 수 있습니다.
 
 ```java
@@ -764,7 +764,7 @@ public void showAllUntyped(View view) {
 
 형식화된 모델에 제공되는 것과 동일한 필터링 및 페이징 메서드가 형식화되지 않은 모델에 제공됩니다.
 
-## <a name="offline-sync"></a>오프라인 동기화 구현
+## <a name="implement-offline-sync"></a><a name="offline-sync"></a>오프라인 동기화 구현
 
 Azure Mobile Apps 클라이언트 SDK는 SQLite 데이터베이스를 사용하여 서버 데이터의 복사본을 로컬에 저장하여 데이터의 오프라인 동기화를 구현합니다.  오프라인 테이블에 수행되는 작업에는 모바일 연결이 필요하지 않습니다.  오프라인 동기화는 충돌 해결을 위해보다 복잡한 논리를 사용하는 대신 복원력과 성능을 향상시킵니다.  Azure Mobile Apps 클라이언트 SDK는 다음 기능을 구현합니다.
 
@@ -863,7 +863,7 @@ private AsyncTask<Void, Void, Void> sync(MobileServiceClient mClient) {
 
 모든 충돌이 원하는 대로 표시되면 `.push()`를 다시 호출하여 모든 충돌을 해결합니다.
 
-## <a name="custom-api"></a>사용자 지정 API 호출
+## <a name="call-a-custom-api"></a><a name="custom-api"></a>사용자 지정 API 호출
 
 사용자 지정 API는 삽입, 업데이트, 삭제 또는 읽기 작업에 매핑되지 않는 서버 기능을 노출하는 사용자 지정 엔드포인트를 정의할 수 있게 합니다. 사용자 지정 API를 사용하면 HTTP 메시지 헤더 읽기와 설정 및 JSON 이외의 메시지 본문 형식 정의를 비롯하여 더 효율적으로 메시징을 제어할 수 있습니다.
 
@@ -889,7 +889,7 @@ public void completeItem(View view) {
 
 **invokeApi** 메서드가 클라이언트에서 호출되어 POST 요청을 새 사용자 지정 API로 보냅니다. 사용자 지정 API에서 반환하는 결과는 오류와 마찬가지로 메시지 대화 상자에 표시됩니다. 다른 버전의 **invokeApi** 를 사용하면 필요에 따라 요청 본문에 개체를 보내고 HTTP 메서드를 지정하며 요청으로 쿼리 매개 변수를 보낼 수 있습니다. **invokeApi** 의 형식화되지 않은 버전도 제공됩니다.
 
-## <a name="authentication"></a>앱에 인증 추가
+## <a name="add-authentication-to-your-app"></a><a name="authentication"></a>앱에 인증 추가
 
 자습서는 이러한 기능을 추가하는 방법을 이미 자세히 설명합니다.
 
@@ -908,7 +908,7 @@ App Service는 Facebook, Google, Microsoft 계정, Twitter 및 Azure Active Dire
 
 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 SID를 사용하여 요청을 수정할 수도 있습니다.  자세한 내용은 [인증 시작] 및 서버 SDK 사용 방법 문서를 참조하세요.
 
-### <a name="caching"></a>인증: 서버 흐름
+### <a name="authentication-server-flow"></a><a name="caching"></a>인증: 서버 흐름
 
 다음 코드는 Google 공급자를 사용하여 서버 흐름 로그인 프로세스를 시작합니다.  Google 공급자에 대한 보안 요구 사항으로 인해 추가 구성이 필요합니다.
 
@@ -994,13 +994,13 @@ dependencies {
 > [!WARNING]
 > 언급한 URL 구성표는 대/소문자를 구분합니다.  `{url_scheme_of_you_app}`의 모든 경우가 대/소문자가 일치해야 합니다.
 
-### <a name="caching"></a>인증 토큰 캐시
+### <a name="cache-authentication-tokens"></a><a name="caching"></a>인증 토큰 캐시
 
-인증 토큰을 캐시하려면 사용자 ID 및 인증 토큰을 디바이스에 로컬로 저장해야 합니다. 다음에 앱이 시작될 때 캐시를 확인하여 이 값이 있는 경우 로그인 절차를 건너뛰고 이 데이터로 클라이언트를 리하이드레이션할 수 있습니다. 하지만 이 데이터는 중요하므로 휴대폰을 분실하는 경우 안전을 위해 암호화하여 저장해야 합니다.  인증 토큰을 캐시 하는 방법에 대 한 전체 예제는 [캐시 인증 토큰 섹션][7]에서 확인할 수 있습니다.
+인증 토큰을 캐시하려면 사용자 ID 및 인증 토큰을 디바이스에 로컬로 저장해야 합니다. 다음에 앱이 시작될 때 캐시를 확인하여 이 값이 있는 경우 로그인 절차를 건너뛰고 이 데이터로 클라이언트를 리하이드레이션할 수 있습니다. 하지만 이 데이터는 중요하므로 휴대폰을 분실하는 경우 안전을 위해 암호화하여 저장해야 합니다.  인증 토큰을 캐시하는 방법의 전체 예제는 [캐시 인증 토큰 섹션][7]에서 볼 수 있습니다.
 
 만료된 토큰을 사용하려고 하면 *401 권한 없음* 응답을 받습니다. 필터를 사용하여 인증 오류를 처리할 수 있습니다.  필터가 App Service 백 엔드에 대한 요청을 가로챕니다. 필터 코드가 401에 대한 응답을 테스트하고, 로그인 프로세스를 트리거한 후 401을 생성한 요청을 다시 시작합니다.
 
-### <a name="refresh"></a>토큰 새로 고침 사용
+### <a name="use-refresh-tokens"></a><a name="refresh"></a>토큰 새로 고침 사용
 
 Azure App Service 인증 및 권한 부여에서 반환된 토큰에는 정의된 수명이 1시간 있습니다.  이 기간이 지나면 사용자를 다시 인증해야 합니다.  클라이언트 흐름 인증을 통해 수신한 수명이 긴 토큰을 사용하는 경우 동일한 토큰을 사용하여 Azure App Service 인증 및 권한 부여로 다시 인증할 수 있습니다.  또 다른 Azure App Service 토큰이 새로운 수명으로 생성됩니다.
 
@@ -1070,11 +1070,11 @@ MobileServiceUser user = mClient
 
 `onSuccess()` 메서드를 성공적인 로그인에 사용할 코드로 대체합니다.  `{provider}` 문자열은 유효한 공급자 즉 **aad**(Azure Active Directory), **facebook**, **google**, **microsoftaccount** 또는 **twitter**입니다.  사용자 지정 인증을 구현하면 사용자 지정 인증 공급자 태그를 사용할 수도 있습니다.
 
-### <a name="adal"></a>Active Directory 인증 라이브러리(ADAL)를 사용하여 사용자 인증
+### <a name="authenticate-users-with-the-active-directory-authentication-library-adal"></a><a name="adal"></a>Active Directory 인증 라이브러리(ADAL)를 사용하여 사용자 인증
 
 Azure Active Directory를 사용하여 애플리케이션에 사용자가 로그인하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다. 클라이언트 흐름 로그인은 UX 느낌을 그대로 제공하고 추가 사용자 지정이 가능하기 때문에 `loginAsync()` 메서드보다 선호도가 높습니다.
 
-1. 다음으로 [Active Directory 로그인에 App Service를 구성하는 방법][22] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 애플리케이션을 등록하는 선택적 단계를 완료해야 합니다.
+1. [Active Directory 로그인에 App Service를 구성하는 방법][22] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 애플리케이션을 등록하는 선택적 단계를 완료해야 합니다.
 2. 다음 정의를 포함하도록 build.gradle 파일을 수정하여 ADAL을 설치합니다.
 
     ```gradle
@@ -1105,7 +1105,7 @@ Azure Active Directory를 사용하여 애플리케이션에 사용자가 로그
     * **INSERT-AUTHORITY-HERE**를 애플리케이션이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com이어야 합니다.
     * **INSERT-RESOURCE-ID-HERE** 를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 Azure **Active Directory 설정**에 있는 **고급** 탭에서 클라이언트 ID를 가져올 수 있습니다.
     * **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 애플리케이션에서 복사한 클라이언트 ID로 바꿉니다.
-    * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE** 를 사이트의 */.auth/login/done* 엔드포인트로 바꿉니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done* 과 비슷해야 합니다.
+    * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE** 를 사이트의 */.auth/login/done* 엔드포인트로 바꿉니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done*와 유사해야 합니다.
 
 ```java
 private AuthenticationContext mContext;
@@ -1170,7 +1170,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-## <a name="filters"></a>클라이언트-서버 통신 조정
+## <a name="adjust-the-client-server-communication"></a><a name="filters"></a>클라이언트-서버 통신 조정
 
 클라이언트 연결은 일반적으로 Android SDK와 함께 제공되는 기본 HTTP 라이브러리를 사용하는 기본 HTTP 연결입니다.  변경하려는 이유는 여러 가지입니다.
 
@@ -1267,9 +1267,9 @@ private class CustomHeaderFilter implements ServiceFilter {
 }
 ```
 
-### <a name="conversions"></a>자동 직렬화 구성
+### <a name="configure-automatic-serialization"></a><a name="conversions"></a>자동 직렬화 구성
 
-[Gson][3] API를 사용 하 여 모든 열에 적용 되는 변환 전략을 지정할 수 있습니다. Android 클라이언트 라이브러리는 데이터를 Azure App Service 보내기 전에 백그라운드에서 [gson][3] 을 사용 하 여 Java 개체를 JSON 데이터로 직렬화 합니다.  다음은 **setFieldNamingStrategy()** 메서드를 사용하여 전략을 설정하는 코드입니다. 이 예에서는 시작 문자("m")를 삭제한 후 각 필드 이름에 대해 다음 문자를 소문자로 처리하도록 지시합니다. 예를 들어 "mId"를 "id"로 변환합니다.  대부분의 필드에서 `SerializedName()` 주석의 필요성을 줄이려면 변환 전략을 구현합니다.
+[gson][3] API를 사용하여 모든 열에 적용되는 변환 전략을 지정할 수 있습니다. Android 클라이언트 라이브러리는 배후에서 [gson][3]을 사용하여 Java 개체를 JSON 데이터로 직렬화한 후 Azure App Service로 데이터를 전송합니다.  다음은 **setFieldNamingStrategy()** 메서드를 사용하여 전략을 설정하는 코드입니다. 이 예에서는 시작 문자("m")를 삭제한 후 각 필드 이름에 대해 다음 문자를 소문자로 처리하도록 지시합니다. 예를 들어 "mId"를 "id"로 변환합니다.  대부분의 필드에서 `SerializedName()` 주석의 필요성을 줄이려면 변환 전략을 구현합니다.
 
 ```java
 FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: c776f4ac09626f0abd1eb754cde391a1c5447627
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74421214"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>확장하기 위해 기존 데이터베이스 마이그레이션
@@ -33,7 +33,7 @@ Azure SQL Database 데이터베이스 도구(예: [Elastic Database 클라이언
 
 이러한 기술은 [.NET Framework 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) 또는 [Azure SQL DB - Elastic Database 도구 스크립트](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)에 있는 PowerShell 스크립트 중 하나를 사용하여 구현할 수 있습니다. 여기에 있는 예제에서는 PowerShell 스크립트를 사용합니다.
 
-ShardMapManager에 대한 자세한 내용은 [분할된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md)를 참조하세요. 탄력적 데이터베이스 도구에 대한 개요는 [Elastic Database 기능 개요](sql-database-elastic-scale-introduction.md)를 참조하세요.
+ShardMapManager에 대한 자세한 내용은 [분할된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md)를 참조하세요. Elastic Database 도구에 대한 개요는 [Elastic Database 기능 개요](sql-database-elastic-scale-introduction.md)를 참조하세요.
 
 ## <a name="prepare-the-shard-map-manager-database"></a>분할된 데이터베이스 맵 관리자 데이터베이스를 준비합니다.
 
@@ -100,7 +100,7 @@ $ShardMap = New-ListShardMap -KeyType $([int]) -ListShardMapName 'ListShardMap' 
 $ShardMap = New-RangeShardMap -KeyType $([int]) -RangeShardMapName 'RangeShardMap' -ShardMapManager $ShardMapManager
 ```
 
-### <a name="option-3-list-mappings-on-an-individual-database"></a>옵션 3: 개별 데이터베이스에 대 한 매핑 나열
+### <a name="option-3-list-mappings-on-an-individual-database"></a>옵션 3: 개별 데이터베이스에 매핑 목록
 
 2단계 옵션 1과 같이 이 패턴을 설정할 때도 목록 맵을 만들어야 합니다.
 

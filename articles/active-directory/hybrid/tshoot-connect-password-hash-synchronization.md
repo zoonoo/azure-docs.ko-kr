@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6feed11fcfc597658f3ec148b5dd18bb7e3f8f83
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253547"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 문제 해결
@@ -64,13 +64,13 @@ ms.locfileid: "79253547"
 
 3. Azure AD Connect 마법사를 시작합니다.
 
-4. **추가 작업** 페이지로 이동하고 **문제 해결**을 선택하고 **다음**을 클릭합니다.
+4. **추가 작업** 페이지로 이동하여 **문제 해결을**선택하고 다음 을 **클릭합니다.**
 
-5. 문제 해결 페이지에서 **시작**을 클릭하여 PowerShell의 문제 해결 메뉴를 시작합니다.
+5. 문제 해결 페이지에서 **시작을** 클릭하여 PowerShell에서 문제 해결 메뉴를 시작합니다.
 
-6. 주 메뉴에서 **암호 해시 동기화 문제 해결**을 선택합니다.
+6. 메인 메뉴에서 **암호 해시 동기화 문제 해결을**선택합니다.
 
-7. 하위 메뉴에서 **암호 해시 동기화가 전혀 작동하지 않음**을 선택합니다.
+7. 하위 메뉴에서 **암호 해시 동기화가 전혀 작동하지 않음을**선택합니다.
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>문제 해결 작업의 결과 이해
 
@@ -147,11 +147,11 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
 
 3. Azure AD Connect 마법사를 시작합니다.
 
-4. **추가 작업** 페이지로 이동하고 **문제 해결**을 선택하고 **다음**을 클릭합니다.
+4. **추가 작업** 페이지로 이동하여 **문제 해결을**선택하고 다음 을 **클릭합니다.**
 
-5. 문제 해결 페이지에서 **시작**을 클릭하여 PowerShell의 문제 해결 메뉴를 시작합니다.
+5. 문제 해결 페이지에서 **시작을** 클릭하여 PowerShell에서 문제 해결 메뉴를 시작합니다.
 
-6. 주 메뉴에서 **암호 해시 동기화 문제 해결**을 선택합니다.
+6. 메인 메뉴에서 **암호 해시 동기화 문제 해결을**선택합니다.
 
 7. 하위 메뉴에서 **특정 사용자 계정에 대해 암호가 동기화되지 않음**을 선택합니다.
 
@@ -235,7 +235,7 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
    ```
 
-   다음은 그 예입니다.
+   예를 들어:
 
    ```powershell
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
@@ -253,7 +253,7 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
 
     ![암호 동기화 설정의 PowerShell 스크립트 출력](./media/tshoot-connect-password-hash-synchronization/psverifyconfig.png)  
 
-3. Azure AD에서 이 기능이 사용되지 않거나 동기화 채널 상태가 사용되지 않는 경우 Connect 설치 마법사를 실행합니다. **동기화 옵션 사용자 지정**을 선택 하 고 암호 동기화의 선택을 취소 합니다. 이 변경 내용은 일시적으로 기능을 사용 하지 않도록 설정 합니다. 그런 다음 마법사를 다시 실행 하 고 암호 동기화를 다시 사용 하도록 설정 합니다. 스크립트를 다시 실행 하 여 구성이 올바른지 확인 합니다.
+3. Azure AD에서 이 기능이 사용되지 않거나 동기화 채널 상태가 사용되지 않는 경우 Connect 설치 마법사를 실행합니다. **동기화 옵션 사용자 지정을**선택하고 암호 동기화를 선택 취소합니다. 이렇게 변경하면 기능이 일시적으로 비활성화됩니다. 그런 다음 마법사를 다시 실행하고 암호 동기화를 다시 활성화합니다. 스크립트를 다시 실행하여 구성이 올바른지 확인합니다.
 
 4. 이벤트 로그에서 오류를 찾습니다. 문제를 나타내는 다음 이벤트를 찾습니다.
     * 원본: "디렉터리 동기화" ID: 0, 611, 652, 655 이러한 이벤트가 표시되면 연결 문제가 있는 것입니다. 이벤트 로그 메시지에는 문제가 있는 포리스트 정보가 포함됩니다. 자세한 내용은 [연결 문제](#connectivity problem)를 참조하세요.
@@ -293,7 +293,7 @@ Azure AD와 연결되어 있나요?
  
 8. **디렉터리 파티션 선택**에서 도메인을 선택하고 **기본 설정 도메인 컨트롤러만 사용** 확인란을 선택한 다음 **구성**을 클릭합니다. 
 
-9. 목록에서, 연결에서 암호 동기화에 사용 해야 하는 도메인 컨트롤러를 입력 합니다. 동일한 목록이 가져오기 및 내보내기에도 사용 됩니다. 모든 도메인에 대해 이 단계를 수행합니다.
+9. 목록에서 Connect가 암호 동기화에 사용해야 하는 도메인 컨트롤러를 입력합니다. 가져오기 및 내보내기에도 동일한 목록이 사용됩니다. 모든 도메인에 대해 이 단계를 수행합니다.
 
 10. 스크립트에서 하트비트가 없음을 보여 주는 경우 [모든 암호의 전체 동기화 트리거](#trigger-a-full-sync-of-all-passwords)에서 스크립트를 실행합니다.
 
@@ -339,11 +339,11 @@ Azure AD와 연결되어 있나요?
 
     **cloudFiltered** 특성이 없는지 확인합니다. 도메인 특성(domainFQDN 및 domainNetBios)이 예상 값을 갖는지 확인합니다.
 
-    j. **커넥터** 탭을 클릭 합니다. 온-프레미스 Active Directory와 Azure AD 둘 다에 대 한 커넥터가 표시 되는지 확인 합니다.
+    j. 커넥터 **탭을** 클릭합니다. 온-프레미스 Active Directory 및 Azure AD모두에 커넥터가 표시되는지 확인합니다.
 
     ![메타버스 정보](./media/tshoot-connect-password-hash-synchronization/mvconnectors.png)  
 
-    k. Azure AD를 나타내는 행을 선택 하 고 **속성**을 클릭 한 다음 **계보** 탭을 클릭 합니다. 커넥터 공간 개체는 **Passwordsync** 열에서 **True**로 설정 된 아웃 바운드 규칙을 포함 해야 합니다. 기본 구성에서 동기화 규칙의 이름은 **AAD로 나가기 - 사용자 조인**입니다.  
+    k. Azure AD를 나타내는 행을 선택하고 **속성을**클릭한 다음 **리니지** 탭을 클릭합니다. 커넥터 공간 개체에는 **PasswordSync** 열에 아웃바운드 규칙이 **True로**설정되어 있어야 합니다. 기본 구성에서 동기화 규칙의 이름은 **AAD로 나가기 - 사용자 조인**입니다.  
 
     ![커넥터 공간 개체 속성 대화 상자](./media/tshoot-connect-password-hash-synchronization/cspasswordsync2.png)  
 
@@ -351,7 +351,7 @@ Azure AD와 연결되어 있나요?
 
 상태 열에는 다음과 같은 값을 포함할 수 있습니다.
 
-| 상태 | Description |
+| 상태 | 설명 |
 | --- | --- |
 | Success |암호가 성공적으로 동기화되었습니다. |
 | FilteredByTarget |**다음 로그인할 때 반드시 암호 변경**으로 암호가 설정됩니다. 암호가 동기화되지 않았습니다. |

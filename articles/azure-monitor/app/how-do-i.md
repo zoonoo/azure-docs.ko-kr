@@ -4,10 +4,10 @@ description: Application Insights의 FAQ
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.openlocfilehash: 5b65087c361911f0714723c315e0b7f7e9bb74e6
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663860"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights에서 어떻게 할까요?
@@ -73,14 +73,14 @@ ms.locfileid: "77663860"
 
 ## <a name="separate-telemetry-from-different-versions"></a>서로 다른 버전에서 별도 원격 분석
 
-* 앱의 여러 역할: 단일 Application Insights 리소스를 사용 하 고 [cloud_Rolename](../../azure-monitor/app/app-map.md)를 필터링 합니다.
-* 개발, 테스트 및 릴리스 버전 구분: 다른 Application Insights 리소스 사용. Web.config에서 계측 키를 선택 합니다. [자세히 알아보기](../../azure-monitor/app/separate-resources.md)
+* 앱의 여러 역할: 단일 응용 프로그램 인사이트 리소스를 사용하고 [cloud_Rolename.](../../azure-monitor/app/app-map.md)
+* 개발, 테스트 및 릴리스 버전 구분: 다른 Application Insights 리소스 사용. web.config에서 계측 키를 선택합니다. [자세히 알아보기](../../azure-monitor/app/separate-resources.md)
 * 빌드 버전 보고: 원격 분석 이니셜라이저를 사용하여 속성 추가. [자세히 알아보기](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>백엔드 서버 및 데스크톱 앱 모니터링
 [Windows Server SDK 모듈을 사용합니다](../../azure-monitor/app/windows-desktop.md).
 
-## <a name="visualize-data"></a>데이터 가상화
+## <a name="visualize-data"></a>데이터 시각화
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>여러 앱의 메트릭이 있는 대시보드
 * [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md)에서 차트를 사용자 지정하고 즐겨찾기에 저장합니다. Azure 대시보드에 고정합니다.
 
@@ -94,11 +94,11 @@ ms.locfileid: "77663860"
 <a name="search-specific-users"></a>
 
 ### <a name="filter-out-anonymous-or-authenticated-users"></a>익명 또는 인증된 사용자 필터링
-사용자가 로그인 하는 경우 [인증 된 사용자 ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)를 설정할 수 있습니다. 이 작업은 자동으로 수행되지 않습니다.
+사용자가 로그인하는 경우 [인증된 사용자 ID를](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)설정할 수 있습니다. 이 작업은 자동으로 수행되지 않습니다.
 
 그런 다음 아래의 작업을 수행할 수 있습니다.
 
-* 특정 사용자 Id 검색
+* 특정 사용자 아이디 검색
 
 ![](./media/how-do-i/110-search.png)
 
@@ -110,12 +110,12 @@ ms.locfileid: "77663860"
 [필터](../../azure-monitor/app/api-filtering-sampling.md#filtering)를 만듭니다. 그러면 원격 분석을 수정하거나 필터링한 후 앱에서 Application Insights로 전송할 수 있습니다.
 
 ## <a name="list-specific-users-and-their-usage"></a>특정 사용자와 그 사용 방법을 나열
-[특정 사용자를 검색](#search-specific-users)하려는 경우 [인증 된 사용자 ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)를 설정할 수 있습니다.
+[특정 사용자를 검색하려는](#search-specific-users)경우 [인증된 사용자 ID를](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)설정할 수 있습니다.
 
 사용자가 보는 페이지, 로그인 빈도 등과 같은 데이터와 사용자 목록이 필요한 경우 두 가지 옵션이 있습니다.
 
-* [인증 된 사용자 ID를 설정](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)하 고 [데이터베이스로 내보낸](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) 다음 적합 한 도구를 사용 하 여 사용자 데이터를 분석 합니다.
-* 사용자 수가 적은 경우에는 관심 있는 데이터를 메트릭 값 이나 이벤트 이름으로 사용 하 고 사용자 ID를 속성으로 설정 하 여 사용자 지정 이벤트 또는 메트릭을 보냅니다. 페이지 보기를 분석하려면 표준 JavaScript trackPageView 호출을 대체합니다. 서버 쪽 원격 분석을 분석 하려면 원격 분석 이니셜라이저를 사용 하 여 사용자 ID를 모든 서버 원격 분석에 추가 합니다. 그런 다음 사용자 ID에 대 한 메트릭 및 검색을 필터링 하 고 분할할 수 있습니다.
+* [인증된 사용자 ID를 설정하고](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) [데이터베이스로 내보내고](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) 적절한 도구를 사용하여 사용자 데이터를 분석합니다.
+* 사용자 수가 적은 경우 관심 있는 데이터를 메트릭 값 또는 이벤트 이름으로 사용하고 사용자 ID를 속성으로 설정하여 사용자 지정 이벤트 또는 메트릭을 보냅니다. 페이지 보기를 분석하려면 표준 JavaScript trackPageView 호출을 대체합니다. 서버 측 원격 분석을 분석하려면 원격 분석 초기화자를 사용하여 모든 서버 원격 분석에 사용자 ID를 추가합니다. 그런 다음 사용자 ID에서 메트릭 및 검색을 필터링하고 분류할 수 있습니다.
 
 ## <a name="reduce-traffic-from-my-app-to-application-insights"></a>Application Insights에 대한 내 앱의 트래픽 줄이기
 * [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)에서 성능 카운터 수집기 등 필요하지 않은 모듈을 모두 사용하지 않도록 설정합니다.
@@ -137,16 +137,16 @@ ms.locfileid: "77663860"
 ```
 
 ### <a name="other-applications"></a>다른 애플리케이션
-콘솔 또는 ASP.NET Core 응용 프로그램에서 `TelemetryConfiguration.Active` singleton을 사용 하지 않는 것이 좋습니다.
-`TelemetryConfiguration` 인스턴스를 직접 만든 경우 `DisableTelemetry`을 `true`로 설정 합니다.
+콘솔 이나 ASP.NET `TelemetryConfiguration.Active` 코어 응용 프로그램에서 싱글 톤을 사용 하지 않는 것이 좋습니다.
+인스턴스를 `TelemetryConfiguration` 직접 만든 `DisableTelemetry` 경우 `true`- 로 설정합니다.
 
-ASP.NET Core 응용 프로그램의 경우 [ASP.NET Core 종속성 주입](/aspnet/core/fundamentals/dependency-injection/)을 사용 하 여 `TelemetryConfiguration` 인스턴스에 액세스할 수 있습니다. [ASP.NET Core 응용 프로그램에 대 한 Applicationinsights](../../azure-monitor/app/asp-net-core.md) 문서에서 자세한 내용을 확인 하세요.
+ASP.NET 핵심 응용 프로그램의 `TelemetryConfiguration` 경우 [ASP.NET Core 종속성 주입을](/aspnet/core/fundamentals/dependency-injection/)사용하여 인스턴스에 액세스할 수 있습니다. ASP.NET 핵심 응용 프로그램 문서에 [대 한 ApplicationInsights에서](../../azure-monitor/app/asp-net-core.md) 자세한 내용을 찾을 수 있습니다.
 
 ## <a name="disable-selected-standard-collectors"></a>선택한 표준 수집기 사용 안 함
-표준 수집기 (예: 성능 카운터, HTTP 요청 또는 종속성)를 사용 하지 않도록 설정할 수 있습니다.
+표준 수집기(예: 성능 카운터, HTTP 요청 또는 종속성)를 사용하지 않도록 설정할 수 있습니다.
 
-* **ASP.NET 응용 프로그램** -applicationinsights에서 관련 줄을 삭제 하거나 주석으로 처리 [합니다.](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
-* **응용 프로그램 ASP.NET Core** - [applicationinsights](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules) 의 원격 분석 모듈 구성 옵션을 따릅니다 ASP.NET Core
+* **ASP.NET 응용 프로그램** - [ApplicationInsights.config에서](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 관련 줄을 삭제하거나 주석을 달았습니다.
+* **ASP.NET 핵심 응용 프로그램** - [ApplicationInsights ASP.NET 코어에서](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules) 원격 분석 모듈 구성 옵션을 따릅니다.
 
 ## <a name="view-system-performance-counters"></a>시스템 성능 카운터 보기
 메트릭 탐색기에서 표시할 수 있는 메트릭 중에는 시스템 성능 카운터 집합이 있습니다. 이름이 **서버** 인 미리 정의된 블레이드에서 그중 몇 가지를 표시합니다.
@@ -156,7 +156,7 @@ ASP.NET Core 응용 프로그램의 경우 [ASP.NET Core 종속성 주입](/aspn
 ### <a name="if-you-see-no-performance-counter-data"></a>성능 카운터 데이터가 없는 경우
 * **IIS 서버** . [상태 모니터를 설치합니다](../../azure-monitor/app/monitor-performance-live-website-now.md).
 * **Azure 웹 사이트** - 성능 카운터는 아직 지원되지 않습니다. Azure 웹 사이트 제어판의 표준 부분으로 몇 가지 메트릭을 가져올  수 있습니다.
-* **Unix 서버** - [collectd 설치](../../azure-monitor/app/java-collectd.md)
+* **유닉스 서버** - [설치 수집](../../azure-monitor/app/java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>더 많은 성능 카운터를 표시하려면
 * 먼저 [새 차트를 추가하고](../../azure-monitor/app/metrics-explorer.md) 제공한 기본 집합에 카운터가 있는지 확인합니다.

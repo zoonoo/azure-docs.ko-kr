@@ -1,5 +1,5 @@
 ---
-title: REST API 오류 코드-Azure Machine Learning Studio (클래식) | Microsoft Docs
+title: REST API 오류 코드 - Azure 기계 학습 스튜디오 (클래식) | 마이크로 소프트 문서
 description: 이러한 오류 코드는 Azure Machine Learning 웹 서비스의 작업에서 반환될 수 있습니다.
 keywords: ''
 services: machine-learning
@@ -13,23 +13,23 @@ ms.subservice: studio
 ms.topic: reference
 ms.date: 11/16/2016
 ms.openlocfilehash: 9e25f2fbc10eb07cc71f2a7bd34247c0191f61b9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79217769"
 ---
-# <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Azure Machine Learning Studio (클래식) REST API 오류 코드
+# <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Azure 기계 학습 스튜디오(클래식) REST API 오류 코드
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
  
-Azure Machine Learning Studio (클래식) 웹 서비스에 대 한 작업에 의해 반환 되는 오류 코드는 다음과 같습니다.
+Azure 기계 학습 스튜디오(클래식) 웹 서비스의 작업에서 다음 오류 코드를 반환할 수 있습니다.
  
 ## <a name="badargument-http-status-code-400"></a>BadArgument(HTTP 상태 코드 400)
  
 잘못된 인수가 제공되었습니다.
  
-이 오류 클래스는 어딘가에 제공된 인수가 잘못되었다는 의미입니다. 웹 서비스에 전달된 내용에 대한 Azure Storage의 위치 또는 자격 증명일 수 있습니다. "세부 정보" 섹션의 오류 "코드" 필드를 확인 하 여 잘못 된 특정 인수를 진단 하십시오.
+이 오류 클래스는 어딘가에 제공된 인수가 잘못되었다는 의미입니다. 웹 서비스에 전달된 내용에 대한 Azure Storage의 위치 또는 자격 증명일 수 있습니다. "세부 정보" 절의 오류 "코드" 필드를 확인하여 어떤 특정 인수가 유효하지 않은지 진단하십시오.
  
 | 오류 코드 | 사용자 메시지 |
 | ---------- |--------------|
@@ -67,7 +67,7 @@ Azure Machine Learning Studio (클래식) 웹 서비스에 대 한 작업에 의
 | MissingWebServicePackage | 웹 서비스 패키지가 제공되지 않았습니다. 유효한 웹 서비스 패키지를 제공하고 다시 시도하세요. |
 | MissingWorkspaceId | 작업 영역 ID가 제공되지 않았습니다. 유효한 작업 영역 ID를 제공하고 다시 시도하세요. |
 | ModelConfigurationInvalid | 모델 패키지에 모델 구성이 잘못되었습니다. 모델 구성에 출력 엔드포인트 정의, std 오류 엔드포인트, std 출력 엔드포인트가 포함되었는지 확인하고 다시 시도하세요. |
-| ModelPackageIdInvalid | 모델 패키지 Id가 잘못 되었습니다. 모델 패키지 Id가 올바른지 확인 한 후 다시 시도 하십시오. |
+| ModelPackageIdInvalid | 잘못된 모델 패키지 Id. 모델 패키지 ID가 올바른지 확인하고 다시 시도하십시오. |
 | RequestBodyInvalid | 요청 본문이 제공되지 않았거나 요청 본문을 역직렬화하는 동안 오류가 발생했습니다. |
 | RequestIsEmpty | 요청이 제공되지 않았습니다. 유효한 요청을 제공하고 다시 시도하세요. |
 | UnexpectedParameter | 예기치 않은 매개 변수가 제공되었습니다. 모든 매개 변수 이름의 철자가 올바른지, 예상된 매개 변수가 전달되는지 확인하고 다시 시도하세요. |

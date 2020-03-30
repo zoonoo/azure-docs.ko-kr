@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 62afa5ee6993aa1bb3c7b5926e5320ab1fa510a2
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74157604"
 ---
 # <a name="azure-signalr-service-internals"></a>Azure SignalR Service 내부 기능
@@ -25,7 +25,7 @@ Azure SignalR Service는 ASP.NET Core SignalR 프레임워크를 기반으로 �
 
 자체 호스팅 ASP.NET Core SignalR 애플리케이션과의 차이점도 설명되어 있습니다.
 
-![아키텍처](./media/signalr-concept-internals/arch.png)
+![Architecture](./media/signalr-concept-internals/arch.png)
 
 ## <a name="server-connections"></a>서버 연결
 

@@ -1,23 +1,23 @@
 ---
-title: 블록 체인 앱 버전 관리-Azure Blockchain 워크 벤치
-description: Azure Blockchain 워크 벤치 미리 보기에서 응용 프로그램 버전을 사용 하는 방법입니다.
+title: 블록 체인 앱 버전 - Azure 블록 체인 워크 벤치
+description: Azure 블록 체인 워크 벤치 미리 보기에서 응용 프로그램 버전을 사용하는 방법.
 ms.date: 11/20/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 45219790cf0cd064e0fcd456e262b2f93aa03ac9
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74323905"
 ---
-# <a name="azure-blockchain-workbench-preview-application-versioning"></a>Azure Blockchain 워크 벤치 미리 보기 응용 프로그램 버전 관리
+# <a name="azure-blockchain-workbench-preview-application-versioning"></a>Azure 블록 체인 워크벤치 미리 보기 응용 프로그램 버전 조정
 
-여러 버전의 Azure Blockchain 워크 벤치 미리 보기 앱을 만들고 사용할 수 있습니다. 여러 버전의 동일한 애플리케이션이 업로드되는 경우 버전 기록을 사용할 수 있으며 사용자는 사용하려는 버전을 선택할 수 있습니다.
+Azure 블록 체인 워크벤치 미리 보기 앱의 여러 버전을 만들고 사용할 수 있습니다. 여러 버전의 동일한 애플리케이션이 업로드되는 경우 버전 기록을 사용할 수 있으며 사용자는 사용하려는 버전을 선택할 수 있습니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Blockchain Workbench 배포. 자세한 내용은 배포에 대한 세부 사항을 위한 [Azure Blockchain Workbench 배포](deploy.md)를 참조하세요.
 * Blockchain Workbench에 배포된 블록체인 애플리케이션. [Azure Blockchain Workbench에서 블록체인 애플리케이션 만들기](create-app.md)를 참조하세요.
@@ -27,7 +27,7 @@ ms.locfileid: "74323905"
 새 버전을 추가하려면 Blockchain Workbench에 새 구성 및 스마트 계약 파일을 업로드합니다.
 
 1. 웹 브라우저에서 Blockchain Workbench 웹 주소로 이동합니다. 예를 들어 `https://{workbench URL}.azurewebsites.net/` Blockchain Workbench 웹 주소를 찾는 방법에 대한 내용은 [Blockchain Workbench 웹 URL](deploy.md#blockchain-workbench-web-url)을 참조하세요.
-2. [Blockchain Workbench 관리자](manage-users.md#manage-blockchain-workbench-administrators)로 로그인합니다.
+2. 블록 체인 [워크 벤치 관리자로](manage-users.md#manage-blockchain-workbench-administrators)로그인합니다.
 3. 다른 버전으로 업데이트하려는 블록체인 애플리케이션을 선택합니다.
 4. **버전 추가**를 선택합니다. **추가 버전** 창이 표시됩니다.
 5. 새 버전 계약 구성 및 업로드할 계약 코드 파일을 선택합니다. 구성 파일의 유효성이 자동으로 검사됩니다. 애플리케이션을 배포하기 전에 유효성 검사 오류를 수정합니다.

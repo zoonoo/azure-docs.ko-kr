@@ -1,16 +1,16 @@
 ---
 title: Azure Monitor 로그 쿼리의 app() 식 | Microsoft Docs
-description: 앱 식은 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독에 있는 특정 Application Insights 앱에서 데이터를 검색 하기 위해 Azure Monitor 로그 쿼리에서 사용 됩니다.
+description: 앱 식은 Azure Monitor 로그 쿼리에서 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 Application Insights 앱에서 데이터를 검색하는 데 사용됩니다.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/25/2019
 ms.openlocfilehash: 5502df1cd119c0f63c65945d73431a17282ebc0c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670261"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Azure Monitor 쿼리에서 app() 식
@@ -21,7 +21,7 @@ ms.locfileid: "77670261"
 
 ## <a name="syntax"></a>구문
 
-`app(`*Identifier*`)`
+`app(`*식별자*`)`
 
 
 ## <a name="arguments"></a>인수

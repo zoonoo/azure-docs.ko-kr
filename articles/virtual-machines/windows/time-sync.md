@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: dd2ae2159c43da6a049d67cae739f111eba682c9
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74534463"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Azure의 Windows VM에 대한 시간 동기화
@@ -73,7 +73,7 @@ w32time은 계층 수준, 루트 지연, 루트 분산, 시간 오프셋의 우�
 
 ### <a name="host-only"></a>호스트 전용 
 
-Time.windows.com는 공용 NTP 서버 이므로 시간을 동기화 하면 인터넷을 통해 트래픽을 전송 해야 하며, 다양 한 패킷 지연이 발생 하면 시간 동기화의 품질에 부정적인 영향을 줄 수 있습니다. 호스트 전용 동기화로 전환 하 여 time.windows.com를 제거 하면 시간 동기화 결과를 향상 시킬 수 있습니다.
+time.windows.com 공용 NTP 서버이기 때문에 시간을 동기화하려면 인터넷을 통해 트래픽을 보내야 하므로 패킷 지연이 다양하면 시간 동기화 품질에 부정적인 영향을 줄 수 있습니다. 호스트 전용 동기화로 전환하여 time.windows.com 제거하면 시간 동기화 결과가 향상될 수 있습니다.
 
 기본 구성을 사용하는 시간 동기화 문제를 겪는 경우 호스트 전용 시간 동기화로 전환하는 것이 합리적입니다. 이 방법이 VM에서 시간 동기화를 향상시키는지 확인하려면 호스트 전용 동기화를 사용해 보세요. 
 
@@ -153,7 +153,7 @@ net stop w32time && net start w32time
 
 ## <a name="windows-server-2012-and-r2-vms"></a>Windows Server 2012 및 R2 VM 
 
-Windows Server 2012 및 Windows 2012 Server 2008 r 2에는 시간 동기화에 대 한 기본 설정이 다릅니다. 기본적으로 w32time은 정확한 시간으로 서비스의 낮은 오버 헤드를 선호 하는 방식으로 구성 됩니다. 
+Windows Server 2012 및 Windows 서버 2012 R2에는 시간 동기화에 대한 기본 설정이 다릅니다. 기본적으로 w32time은 정확한 시간에 걸쳐 서비스의 낮은 오버헤드를 선호하는 방식으로 구성됩니다. 
 
 정확한 시간을 선호하는 최신 기본값을 사용하기 위해 Windows Server 2012 및 2012 R2 배포로 이동하려는 경우 다음 설정을 적용할 수 있습니다.
 

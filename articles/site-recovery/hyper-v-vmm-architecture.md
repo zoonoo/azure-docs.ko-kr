@@ -1,5 +1,5 @@
 ---
-title: 아키텍처-Azure Site Recovery를 사용 하 여 보조 사이트로의 Hyper-v 재해 복구
+title: Azure 사이트 복구를 사용하여 보조 사이트로 아키텍처 하이퍼-V 재해 복구
 description: 이 문서에서는 Azure Site Recovery를 사용한 온-프레미스 Hyper-V VM과 보조 System Center VMM 사이트 간 재해 복구를 위한 아키텍처를 간략하게 설명합니다.
 author: rayne-wiselman
 manager: carmonm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 3e81e353d2912f56a932ce118a0424e45e758df7
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74133005"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>아키텍처 - 보조 사이트로 Hyper-V 복제
@@ -36,7 +36,7 @@ a
 
 ## <a name="replication-process"></a>복제 프로세스
 
-1. 초기 복제가 트리거되면 [Hyper-V VM 스냅샷](https://technet.microsoft.com/library/dd560637.aspx)이 생성됩니다.
+1. 초기 복제가 트리거되면 [Hyper-V VM 스냅숏스냅숏이](https://technet.microsoft.com/library/dd560637.aspx) 생성됩니다.
 2. VM의 가상 하드 디스크는 보조 위치에 하나씩 복제됩니다.
 3. 초기 복제 진행 중에 디스크가 변경될 경우, Hyper-V 복제 로그(.hrl)로 Hyper-V 복제본 복제 추적자가 이러한 변경 내용을 추적합니다. 이러한 로그 파일은 디스크와 동일한 폴더에 있습니다. 각 디스크에는 보조 위치로 전송되는 .hrl 파일이 연결되어 있습니다. 초기 복제 진행 중에는 스냅샷과 로그 파일이 디스크 리소스를 사용합니다.
 4. 초기 복제가 완료되면 VM 스냅샷은 삭제되고 델타 복제가 시작됩니다.
@@ -45,7 +45,7 @@ a
 
 ## <a name="failover-and-failback-process"></a>장애 조치 및 장애 복구 프로세스
 
-- 단일 컴퓨터에 장애 조치(failover)를 수행하거나 복구 계획을 만들어서 여러 컴퓨터의 장애 조치(failover)를 오케스트레이션할 수 있습니다.
+- 단일 컴퓨터에 장애 조치를 수행하거나 복구 계획을 만들어서 여러 컴퓨터의 장애 조치를 오케스트레이션할 수 있습니다.
 - 온-프레미스 사이트 간에 계획된 또는 계획되지 않은 장애 조치(failover)를 실행할 수 있습니다. 계획된 장애 조치를 실행할 경우 데이터 손실을 방지하기 위해 원본 VM이 종료됩니다.
     - 보조 사이트로 계획되지 않은 장애 조치(failover)를 수행하는 경우 장애 조치 후에 보조 위치의 컴퓨터가 보호되지 않습니다.
     - 계획된 장애 조치를 실행했으면 장애 조치 후에 보조 위치에 있는 컴퓨터가 보호됩니다.

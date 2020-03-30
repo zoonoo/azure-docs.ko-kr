@@ -1,6 +1,6 @@
 ---
-title: 사용자 지정 Linux 컨테이너에 대 한 CI/CD
-description: Azure App Service에서 사용자 지정 Linux 컨테이너에 대 한 연속 배포를 설정 하는 방법을 알아봅니다. 연속 배포는 Docker 허브 및 ACR에 대해 지원 됩니다.
+title: 사용자 정의 리눅스 컨테이너에 CI / CD
+description: Azure 앱 서비스에서 사용자 지정 Linux 컨테이너에 대한 지속적인 배포를 설정하는 방법에 대해 알아봅니다. Docker 허브 및 ACR에 대해 지속적인 배포가 지원됩니다.
 keywords: Azure App Service, Linux, OSS
 author: msangapu-msft
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
@@ -9,21 +9,21 @@ ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: d43491de7500204ed470757a1b744017a8180b57
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74687625"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Web App for Containers를 사용한 연속 배포
 
-이 자습서에서는 관리되는 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) 리포지토리 또는 [Docker 허브](https://hub.docker.com)에서 사용자 지정 컨테이너 이미지에 대한 연속 배포를 구성합니다.
+이 자습서에서는 관리되는 [Azure 컨테이너 레지스트리](https://azure.microsoft.com/services/container-registry/) 리포지토리 또는 Docker [Hub에서](https://hub.docker.com)사용자 지정 컨테이너 이미지에 대한 연속 배포를 구성합니다.
 
 ## <a name="enable-continuous-deployment-with-acr"></a>ACR을 사용하여 지속적인 배포 활성화
 
 ![ACR webhook 스크린샷](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-02.png)
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
 2. 페이지의 왼쪽에서 **App Service** 옵션을 선택합니다.
 3. 지속적인 배포를 구성하려는 앱의 이름을 선택합니다.
 4. **컨테이너 설정** 페이지에서 **단일 컨테이너**를 선택합니다.
@@ -41,7 +41,7 @@ Container Registry에서 Webhook를 클릭하여 현재 webhook를 볼 수 있�
 
 ## <a name="enable-continuous-deployment-with-docker-hub-optional"></a>Docker 허브(선택 사항)를 사용하여 지속적인 배포 활성화
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
 2. 페이지의 왼쪽에서 **App Service** 옵션을 선택합니다.
 3. 지속적인 배포를 구성하려는 앱의 이름을 선택합니다.
 4. **컨테이너 설정** 페이지에서 **단일 컨테이너**를 선택합니다.

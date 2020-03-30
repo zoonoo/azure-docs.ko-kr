@@ -1,5 +1,5 @@
 ---
-title: Azure Automation를 사용 하 여 데이터베이스 관리
+title: Azure 자동화를 사용하여 데이터베이스 관리
 description: Azure Automation 서비스를 사용하여 대규모 Azure SQL 데이터베이스를 관리하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 9d826a75f05cf2031565f89e21d7f3667ecc8f17
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822817"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Azure Automation을 사용하여 Azure SQL 데이터베이스 관리
@@ -32,7 +32,7 @@ Azure Automation에 의해 자동으로 실행되도록 클라우드 관리 작�
 
 ## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Azure Automation을 통해 Azure SQL 데이터베이스 관리 향상
 
-Azure SQL Database는 [Azure PowerShell 도구](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql)에서 사용할 수 있는 [Azure SQL Database PowerShell cmdlets](/powershell/azure/overview)를 이용하여 Azure Automation에서 관리할 수 있습니다. Azure Automation에서는 이러한 Azure SQL Database PowerShell cmdlet을 기본적으로 사용할 수 있으므로 서비스 내에서 SQL DB 관리 작업을 모두 수행할 수 있습니다. Azure Automation에서 이러한 cmdlet을 다른 Azure 서비스용 cmdlet과 연결하여 Azure 서비스와 타사 시스템 간의 복잡한 작업을 자동화할 수도 있습니다.
+Azure SQL Database는 [Azure PowerShell 도구](/powershell/azure/overview)에서 사용할 수 있는 [Azure SQL Database PowerShell cmdlets](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql)를 이용하여 Azure Automation에서 관리할 수 있습니다. Azure Automation에서는 이러한 Azure SQL Database PowerShell cmdlet을 기본적으로 사용할 수 있으므로 서비스 내에서 SQL DB 관리 작업을 모두 수행할 수 있습니다. Azure Automation에서 이러한 cmdlet을 다른 Azure 서비스용 cmdlet과 연결하여 Azure 서비스와 타사 시스템 간의 복잡한 작업을 자동화할 수도 있습니다.
 
 또한 Azure Automation에서 PowerShell을 통해 SQL 명령을 실행하여 SQL 서버와 직접 통신할 수 있습니다.
 
@@ -47,6 +47,6 @@ Azure SQL Database는 [Azure PowerShell 도구](https://docs.microsoft.com/power
 
 Azure Automation의 기본 사항과 Azure Automation을 사용하여 Azure SQL 데이터베이스를 관리하는 방법을 알아보았으므로 이제 다음 링크에 따라 Azure Automation에 대해 자세히 알아보세요.
 
-- [Azure Automation 개요](../automation/automation-intro.md)
+- [Azure 자동화 개요](../automation/automation-intro.md)
 - [내 첫 번째 runbook](../automation/automation-first-runbook-graphical.md)
 - [Azure Automation: 클라우드의 SQL 에이전트](https://azure.microsoft.com/blog/20../../azure-automation-your-sql-agent-in-the-cloud/) 

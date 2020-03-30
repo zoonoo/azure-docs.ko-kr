@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager를 사용 하 여 사용자 할당 관리 id 만들기 & 삭제
+title: Azure 리소스 관리자를 사용하여 사용자 할당된 관리 되는 id를 삭제 하는 & 만들기
 description: Azure Resource Manager를 사용하여 사용자 할당 관리 ID를 만들고 삭제하는 방법에 대한 단계별 지침입니다.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 12/10/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 244965da4e22c0808fd1ea9088aa182b27eaf484
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253378"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 사용자 할당 관리 ID 생성, 나열 및 삭제

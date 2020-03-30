@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/05/2019
 ms.openlocfilehash: 4740034bd970f42833125fa43bfdf72f710ac147
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249608"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Azure Monitor에서 리소스 간 로그 쿼리 수행  
@@ -21,9 +21,9 @@ ms.locfileid: "79249608"
 
 ## <a name="cross-resource-query-limits"></a>리소스 간 쿼리 제한 
 
-* 단일 쿼리에 포함할 수 있는 Application Insights 리소스 및 Log Analytics 작업 영역의 수는 100 개로 제한 됩니다.
-* 뷰 디자이너에서는 리소스 간 쿼리가 지원 되지 않습니다. Log Analytics에서 쿼리를 작성 하 고 Azure 대시보드에 고정 하 여 [로그 쿼리를 시각화할](../learn/tutorial-logs-dashboards.md)수 있습니다. 
-* 로그 경고의 리소스 간 쿼리는 새 [SCHEDULEDQUERYRULES API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)에서 지원 됩니다. [레거시 Log Analytics 경고 API](../platform/api-alerts.md)에서 전환하지 않는 한, Azure Monitor는 기본적으로 [레거시 Log Analytics 경고 API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api)를 사용하여 Azure Portal에서 새 로그 경고 규칙을 만듭니다. 전환 후에는 새 API가 Azure Portal에서 새 경고 규칙의 기본값이 되며, 해당 API를 사용하여 리소스 간 쿼리 로그 경고 규칙을 만들 수 있습니다. [SCHEDULEDQUERYRULES api에 대 한 Azure Resource Manager 템플릿을](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) 사용 하 여 스위치를 만들지 않고 리소스 간 쿼리 로그 경고 규칙을 만들 수 있지만이 경고 규칙은 Azure Portal가 아닌 [scheduledQueryRules api](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 를 통해 관리할 수 있습니다.
+* 단일 쿼리에 포함할 수 있는 응용 프로그램 인사이트 리소스 및 Log Analytics 작업 영역수는 100개로 제한됩니다.
+* 리소스 간 쿼리는 보기 디자이너에서 지원되지 않습니다. Log Analytics에서 쿼리를 작성하고 Azure 대시보드에 고정하여 [로그 쿼리를 시각화할](../learn/tutorial-logs-dashboards.md)수 있습니다. 
+* 로그 경고의 리소스 간 쿼리는 새 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)에서 지원됩니다. [레거시 Log Analytics 경고 API](../platform/api-alerts.md)에서 전환하지 않는 한, Azure Monitor는 기본적으로 [레거시 Log Analytics 경고 API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api)를 사용하여 Azure Portal에서 새 로그 경고 규칙을 만듭니다. 전환 후에는 새 API가 Azure Portal에서 새 경고 규칙의 기본값이 되며, 해당 API를 사용하여 리소스 간 쿼리 로그 경고 규칙을 만들 수 있습니다. [예약된QueryRules API에 대한 Azure 리소스 관리자 템플릿을](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) 사용하여 전환하지 않고 리소스 간 쿼리 로그 경고 규칙을 만들 수 있지만 이 경고 규칙은 Azure Portal이 아닌 [예약된QueryRules API를](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 통해 관리할 수 있습니다.
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Log Analytics 작업 영역 전체 및 Application Insights 쿼리
@@ -38,7 +38,7 @@ ms.locfileid: "79249608"
 
     `workspace("contosoretail-it").Update | count`
 
-* 정규화된 이름 - 구독 이름, 리소스 그룹 및 구성 요소 이름이 *subscriptionName/resourceGroup/componentName* 형식으로 구성된 작업 영역의 "전체 이름"입니다. 
+* 정규화된 이름 - 이 형식의 구독 이름, 리소스 그룹 및 구성 요소 이름으로 구성된 *subscriptionName/resourceGroup/componentName*작업 영역의 "전체 이름"입니다. 
 
     `workspace('contoso/contosoretail/contosoretail-it').Update | count`
 
@@ -52,7 +52,7 @@ ms.locfileid: "79249608"
 
 * Azure Resource ID – Azure에서 정의한 작업 영역의 고유 ID입니다. 리소스 이름이 모호한 경우 리소스 ID를 사용합니다.  작업 영역의 형: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/componentName*.  
 
-    다음은 그 예입니다.
+    예를 들어:
     ``` 
     workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
@@ -67,7 +67,7 @@ Application Insights에서 애플리케이션 식별은 *app(Identifier)* 식으
     `app("fabrikamapp")`
 
     >[!NOTE]
-    >이름을 기준으로 응용 프로그램을 식별 하면 액세스 가능한 모든 구독에서 고유성이 가정 됩니다. 지정된 이름의 애플리케이션이 여러 개 있으면 모호성으로 인해 쿼리가 실패합니다. 이런 경우 다른 식별자 중 하나를 사용해야 합니다.
+    >이름으로 응용 프로그램을 식별하면 액세스 가능한 모든 구독에서 고유성이 가정됩니다. 지정된 이름의 애플리케이션이 여러 개 있으면 모호성으로 인해 쿼리가 실패합니다. 이런 경우 다른 식별자 중 하나를 사용해야 합니다.
 
 * 정규화된 이름 - 구독 이름, 리소스 그룹 및 구성 요소 이름이 *subscriptionName/resourceGroup/componentName* 형식으로 구성된 앱의 "전체 이름"입니다. 
 
@@ -83,7 +83,7 @@ Application Insights에서 애플리케이션 식별은 *app(Identifier)* 식으
 
 * Azure Resource ID – Azure에서 정의한 앱의 고유 ID입니다. 리소스 이름이 모호한 경우 리소스 ID를 사용합니다. 형식은 */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/components/componentName*입니다.  
 
-    다음은 그 예입니다.
+    예를 들어:
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```
@@ -103,7 +103,7 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ## <a name="using-cross-resource-query-for-multiple-resources"></a>여러 리소스에 리소스 간 쿼리 사용
 리소스 간 쿼리를 사용하여 여러 Log Analytics 작업 영역 및 Application Insights 리소스에서 데이터의 상관 관계를 지정하는 경우 쿼리는 복잡하고 유지 관리하기 어려워질 수 있습니다. [Azure Monitor 로그 쿼리의 함수](functions.md)를 활용하여 쿼리 리소스 범위에서 쿼리 논리를 분리합니다. 이는 쿼리 구조를 간소화합니다. 다음 예제에서는 여러 Application Insights 리소스를 모니터링하고 애플리케이션 이름으로 실패한 요청의 수를 시각화하는 방법을 보여줍니다. 
 
-Application Insights 리소스의 범위를 참조하는 다음과 같은 쿼리를 만듭니다. `withsource= SourceApp` 명령은 로그를 전송한 애플리케이션 이름을 지정하는 열을 추가합니다. 별칭 [applicationsScoping](functions.md#create-a-function)을 사용하여 _함수로 쿼리를 저장합니다_.
+Application Insights 리소스의 범위를 참조하는 다음과 같은 쿼리를 만듭니다. `withsource= SourceApp` 명령은 로그를 전송한 애플리케이션 이름을 지정하는 열을 추가합니다. 별칭 _applicationsScoping_을 사용하여 [함수로 쿼리를 저장합니다](functions.md#create-a-function).
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources
@@ -129,7 +129,7 @@ applicationsScoping
 ```
 
 >[!NOTE]
->작업 영역 및 응용 프로그램을 포함 하 여 경고 규칙 리소스의 액세스 유효성 검사는 경고 생성 시 수행 되므로이 메서드는 로그 경고와 함께 사용할 수 없습니다. 경고를 만든 후 함수에 새 리소스를 추가 하는 것은 지원 되지 않습니다. 로그 경고에 리소스 범위를 지정 하는 함수를 사용 하려면 포털에서 또는 리소스 관리자 템플릿을 사용 하 여 범위 리소스를 업데이트 해야 합니다. 또는 로그 경고 쿼리에 리소스 목록을 포함할 수 있습니다.
+>작업 영역 및 응용 프로그램을 포함한 경고 규칙 리소스의 액세스 유효성 검사가 경고 생성 시 수행되므로 로그 경고와 함께 이 메서드를 사용할 수 없습니다. 경고 생성 후 함수에 새 리소스를 추가하는 것은 지원되지 않습니다. 로그 경고에서 리소스 범위를 지정하는 데 함수를 사용하려면 포털또는 리소스 관리자 템플릿을 사용하여 범위 가 있는 리소스를 업데이트해야 합니다. 또는 로그 경고 쿼리에 리소스 목록을 포함할 수 있습니다.
 
 
 ![Timechart](media/cross-workspace-query/chart.png)

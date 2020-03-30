@@ -1,7 +1,7 @@
 ---
 title: 샘플 데이터 세트 사용
 titleSuffix: ML Studio (classic) - Azure
-description: Machine Learning Studio (클래식)에 포함 된 샘플 모델에 사용 된 데이터 집합에 대 한 설명입니다. 실험에 대해 이 샘플 데이터 세트를 사용할 수 있습니다.
+description: 기계 학습 스튜디오(클래식)에 포함된 샘플 모델에 사용된 데이터 집합에 대한 설명입니다. 실험에 대해 이 샘플 데이터 세트를 사용할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,23 +11,23 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
 ms.openlocfilehash: b7b8606f7f15f8d6fdd66681a1c7ade60ff506f3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79217777"
 ---
-# <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)에서 샘플 데이터 집합 사용
+# <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Azure 기계 학습 스튜디오의 샘플 데이터 집합 사용(클래식)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [top]: #machine-learning-sample-datasets
 
-Azure Machine Learning Studio (클래식)에서 새 작업 영역을 만들 때 기본적으로 몇 가지 샘플 데이터 집합 및 실험을 포함 합니다. 이 샘플 데이터 세트 중 다수는 [Azure AI 갤러리](https://gallery.azure.ai/)의 샘플 모델에서 사용됩니다. 나머지는 Machine Learning에서 일반적으로 사용되는 다양한 유형의 데이터 예로 포함됩니다.
+Azure 기계 학습 스튜디오(클래식)에서 새 작업 영역을 만들 면 기본적으로 여러 샘플 데이터 집합 및 실험이 포함됩니다. 이 샘플 데이터 세트 중 다수는 [Azure AI 갤러리](https://gallery.azure.ai/)의 샘플 모델에서 사용됩니다. 나머지는 Machine Learning에서 일반적으로 사용되는 다양한 유형의 데이터 예로 포함됩니다.
 
-일부 데이터 세트는 Azure Blob Storage에서 사용할 수 있습니다. 이러한 데이터 세트의 경우 다음 표에서 직접 링크가 제공됩니다. [데이터 가져오기][import-data] 모듈을 사용 하 여 실험에서 이러한 데이터 집합을 사용할 수 있습니다.
+일부 데이터 세트는 Azure Blob Storage에서 사용할 수 있습니다. 이러한 데이터 세트의 경우 다음 표에서 직접 링크가 제공됩니다. [데이터 가져오기][import-data] 모듈을 사용하여 이 데이터 세트를 실험에 사용할 수 있습니다.
 
-이러한 샘플 데이터 세트의 나머지는 작업 영역의 **저장된 데이터 세트** 아래에서 확인할 수 있습니다. Machine Learning Studio (클래식)의 실험 캔버스 왼쪽에 있는 모듈 팔레트에서이를 찾을 수 있습니다.
+이러한 샘플 데이터 세트의 나머지는 작업 영역의 **저장된 데이터 세트** 아래에서 확인할 수 있습니다. 기계 학습 스튜디오(클래식)의 실험 캔버스 왼쪽에 있는 모듈 팔레트에서 찾을 수 있습니다.
 실험 캔버스로 끌어와 이러한 데이터 세트를 실험에서 사용할 수 있습니다.
 
 ## <a name="datasets"></a>데이터 세트
@@ -46,7 +46,7 @@ Azure Machine Learning Studio (클래식)에서 새 작업 영역을 만들 때 
 <p></p>
 <b>사용:</b> 인구 통계를 기반으로 사람을 분류하여 개인의 소득이 연간 50,000을 초과할지 예측합니다.
 <p></p>
-<b>관련 조사:</b> Kohavi, R., Becker, B., (1996). UCI Machine Learning 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>관련 조사:</b> Kohavi, R., Becker, B., (1996). UCI 기계 학습 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -67,7 +67,7 @@ Azure Machine Learning Studio (클래식)에서 새 작업 영역을 만들 때 
 <p></p>
 <b>사용:</b> 회귀 및 다변수 분류를 사용하여 기능별 위험 점수를 예측합니다. 
 <p></p>
-<b>관련 조사:</b> Schlimmer, J.C. (1987). UCI Machine Learning 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>관련 조사:</b> Schlimmer, J.C. (1987). UCI 기계 학습 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -98,9 +98,9 @@ CSV 데이터로 변환된 공개 사용 가능한 이미지 파일.
 <p></p>
 <b>사용:</b> 목표는 헌혈자가 2007년 3월 헌혈을 했는지를 분류를 통해 예측하는 것입니다. 여기서 1은 목표 기간 중 헌혈자를 나타내고 0은 비헌혈자를 나타냅니다. 
 <p></p>
-<b>관련 조사:</b> Yeh, I.C., (2008). UCI Machine Learning 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
+<b>관련 조사:</b> Yeh, I.C., (2008). UCI 기계 학습 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
-Yeh, I-Cheng, Yang, King-Jang, 및 Ting, Tao-Ming, "Bernoulli 시퀀스를 사용한 RFM 모델에 대한 정보 검색 "2008 년 애플리케이션을 이용한 전문가 시스템 <a href="https://dx.doi.org/10.1016/j.eswa.2008.07.018">https://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
+예, I-Cheng, 양, 왕장, 팅, 타오밍, "베르누이 시퀀스를 사용하여 RFM 모델에 대한 지식 발견, "응용 프로그램을 가진 전문가 시스템, 2008,<a href="https://dx.doi.org/10.1016/j.eswa.2008.07.018">https://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
 </tr>
 
@@ -111,7 +111,7 @@ Yeh, I-Cheng, Yang, King-Jang, 및 Ting, Tao-Ming, "Bernoulli 시퀀스를 사�
 <p></p>
 <b>사용:</b> 특성 9개에 따라 암 유형을 분류합니다. 이들 중 몇몇은 선형이고 몇몇은 범주입니다. 
 <p></p>
-<b>관련 조사:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI Machine Learning 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>관련 조사:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI 기계 학습 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -162,17 +162,17 @@ KDD Cup 2009 고객 관계 예측 챌린지의 레이블(<a href="http://www.sig
   <td>
 12가지 건물 형태에 따라 시뮬레이트된 에너지 프로필의 컬렉션입니다. 건물은 8개의 특징으로 구분됩니다. 여기에는 창호 면적, 창호 면적 분포 및 방향이 포함됩니다.
 <p></p>
-<b>사용:</b> 회귀 또는 분류를 사용하여 두 가지 실제 값 응답의 하나를 기반으로 에너지 효율 등급을 예측합니다. 다중 클래스 분류에 대해서는 가장 가까운 정수로 응답 변수를 반올림합니다. 
+<b>사용 법:</b> 회귀 또는 분류를 사용하여 두 개의 실제 값 응답 중 하나로서 에너지 효율 등급을 예측합니다. 다중 클래스 분류에 대해서는 가장 가까운 정수로 응답 변수를 반올림합니다. 
 <p></p>
-<b>관련 조사:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>관련 연구:</b> 시파라, A. & 타나스, A. (2012). UCI 기계 학습 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
   <td>비행 지연 데이터</td>
   <td>
-미국 운송 부서 (승객)의 진행 상태 데이터 수집에서 가져온 비행 실시간 성능<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">데이터를 수집</a>합니다.
+미국 교통부(정시)의 TranStats 데이터 수집에서 가져온 승객 항공편 정시 성과 데이터.<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time</a>
 <p></p>
-데이터 세트는 2013년 4월-10월 기간에 해당합니다. Azure Machine Learning Studio (클래식)에 업로드 하기 전에 데이터 집합이 다음과 같이 처리 됩니다.
+데이터 세트는 2013년 4월-10월 기간에 해당합니다. Azure 기계 학습 스튜디오(클래식)에 업로드하기 전에 데이터 집합은 다음과 같이 처리되었습니다.
 <ul>
   <li>데이터 세트는 미국 본토에서 비행이 가장 많은 공항 70곳만을 포함하도록 필터링되었습니다.</li>
   <li>취소된 비행은 15분 초과 지연으로 레이블이 지정되었습니다.</li>
@@ -200,9 +200,9 @@ KDD Cup 2009 고객 관계 예측 챌린지의 레이블(<a href="http://www.sig
 <p></p>
 <b>사용:</b> 이 작업은 산불 피해지를 예측하기 위한 어려운 회귀 작업입니다. 
 <p></p>
-<b>관련 조사:</b> Cortez, P., & 모 (2008)입니다. UCI Machine Learning 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
+<b>관련 연구:</b> 코르테즈, 피, & 모레, A. (2008). UCI 기계 학습 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
-[Cortez and Morais, 2007] P. Cortez and A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. In J. Neves, M. F. Santos 및 J. Machado Eds., 인공 지능의 새로운 추세, 13회 EPIA 2007 - 인공 지능에 관한 포르투갈 컨퍼런스, 12월, 포르투갈 기마랑이스, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. 사용 가능: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
+[Cortez and Morais, 2007] P. Cortez and A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. In J. Neves, M. F. Santos 및 J. Machado Eds., 인공 지능의 새로운 추세, 13회 EPIA 2007 - 인공 지능에 관한 포르투갈 컨퍼런스, 12월, 포르투갈 기마랑이스, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. 에서 사용 <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>가능: .
   </td>
 </tr>
 
@@ -229,13 +229,13 @@ german.data 파일을 사용한 UCI Statlog(독일 신용 카드) 데이터 세�
 <p></p>
 <b>사용:</b> 측정값에서 붓꽃 종류를 예측합니다.  
 <p></p>
-<b>관련 조사:</b> Fisher, R.A. (1988). UCI Machine Learning 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>관련 조사:</b> Fisher, R.A. (1988). UCI 기계 학습 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
   <td>영화 트윗</td>
   <td>
-이 데이터 세트는 Movie Tweetings 데이터 세트의 확장된 버전입니다. 이 데이터 세트에는 잘 구성된 Twitter 트윗에서 추출한 170,000개의 영화 등급이 있습니다. 각 인스턴스는 트 윗를 나타내며 튜플을 나타냅니다. 사용자 ID, IMDB 영화 ID, 등급, 타임 스탬프,이 트 윗에 대 한 즐겨찾기 수,이 트 윗의 보존 기간 수를 나타냅니다. 이 데이터 세트는 A. Said, S. Dooms, B. Loni 및 D. Tikk가 Recommender Systems Challenge 2014를 위해 제공했습니다.
+이 데이터 세트는 Movie Tweetings 데이터 세트의 확장된 버전입니다. 이 데이터 세트에는 잘 구성된 Twitter 트윗에서 추출한 170,000개의 영화 등급이 있습니다. 각 인스턴스는 트윗을 나타내며 사용자 ID, IMDB 영화 ID, 등급, 타임스탬프, 이 트윗의 즐겨찾기 수, 이 트윗의 리트윗 수와 같은 튜플입니다. 이 데이터 세트는 A. Said, S. Dooms, B. Loni 및 D. Tikk가 Recommender Systems Challenge 2014를 위해 제공했습니다.
   </td>
 </tr>
 
@@ -248,7 +248,7 @@ german.data 파일을 사용한 UCI Statlog(독일 신용 카드) 데이터 세�
 <p></p>
 <b>사용:</b> 다중 값 개별 특성 3개와 연속 특성 5개를 기반으로 연비를 예측합니다. 
 <p></p>
-<b>관련 조사:</b> StatLib, Carnegie Mellon University, (1993). UCI Machine Learning 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>관련 연구:</b> StatLib, 카네기 멜론 대학, (1993). UCI 기계 학습 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -258,7 +258,7 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
 <p></p>
 <b>사용:</b> 대상에게 당뇨병이 있는지를 예측합니다(이진 분류). 
 <p></p>
-<b>관련 조사:</b> Sigillito, v. (1990). UCI Machine Learning 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml"</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>관련 연구:</b> 시길리토, V. (1990). UCI 기계 학습 리포지토리 <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml"</a> Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -266,9 +266,9 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
   <td>
 인구 통계 및 선호도를 비롯한 고객에 대한 메타데이터 집합입니다.
 <p></p>
-<b>사용:</b> 이 데이터 세트를 다른 두 가지 음식점 데이터 세트와 함께 사용하여 추천 시스템을 학습 및 테스트합니다. 
+<b>사용 법:</b> 이 데이터 집합을 다른 두 레스토랑 데이터 집합과 함께 사용하여 권장 시스템을 학습하고 테스트합니다. 
 <p></p>
-<b>관련 조사:</b> Bache, K 및 Lichman, M. (2013). UCI Machine Learning 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+<b>관련 연구:</b> 바슈, 케이, 리치먼, M. (2013). UCI 기계 학습 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -277,9 +277,9 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
   <td>
 음식점 및 음식 종료, 식사 스타일, 위치 같은 기능에 대한 메타데이터 집합입니다.
 <p></p>
-<b>사용:</b> 이 데이터 세트를 다른 두 가지 음식점 데이터 세트와 함께 사용하여 추천 시스템을 학습 및 테스트합니다. 
+<b>사용 법:</b> 이 데이터 집합을 다른 두 레스토랑 데이터 집합과 함께 사용하여 권장 시스템을 학습하고 테스트합니다. 
 <p></p>
-<b>관련 조사:</b> Bache, K 및 Lichman, M. (2013). UCI Machine Learning 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+<b>관련 연구:</b> 바슈, 케이, 리치먼, M. (2013). UCI 기계 학습 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -288,9 +288,9 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
   <td>
 0-2점 사이에 사용자가 제공한 음식점 등급을 포함합니다.
 <p></p>
-<b>사용:</b> 이 데이터 세트를 다른 두 가지 음식점 데이터 세트와 함께 사용하여 추천 시스템을 학습 및 테스트합니다. 
+<b>사용 법:</b> 이 데이터 집합을 다른 두 레스토랑 데이터 집합과 함께 사용하여 권장 시스템을 학습하고 테스트합니다. 
 <p></p>
-<b>관련 조사:</b> Bache, K 및 Lichman, M. (2013). UCI Machine Learning 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+<b>관련 연구:</b> 바슈, 케이, 리치먼, M. (2013). UCI 기계 학습 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -303,9 +303,9 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
 <p></p>
 강철 등급은 SAE 및 기타 조직에서 정의된 집합 표준을 따릅니다. 특정 '등급'(클래스 변수)을 찾고 있고 필요한 값을 파악하려고 합니다. 
 <p></p>
-<b>관련 조사:</b> 3, & Buntine, W. (NA). UCI Machine Learning 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
+<b>관련 연구:</b> 스털링, D. & 번틴, 더블유 (NA). UCI 기계 학습 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
-여기에서 강철 등급에 대한 유용한 지침을 확인할 수 있습니다. <a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
+강철 등급에 대한 유용한 가이드는 여기에서 찾을 수 있습니다.<a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 
@@ -324,7 +324,7 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
 <p></p>
 또한 배경 이벤트 수(하드론 샤워의 경우 h)는 과소 예측되지만 실제 측정값에서 h 또는 소음 클래스가 대부분의 이벤트를 나타냅니다. 
 <p></p>
-<b>관련 조사:</b> Bock, R.K. (1995). UCI Machine Learning 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information </td>
+<b>관련 조사:</b> Bock, R.K. (1995). UCI 기계 학습 리포지토리 <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information </td>
 </tr>
 
 <tr>
@@ -332,7 +332,7 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
   <td>
 NOAA에서 제공한 시간별 지상 기상 관측(<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">201304부터 201310까지의 병합된 데이터</a>).
 <p></p>
-기상 데이터는 2013년 4월-10월 기간에 공항 기상 관측소에서 수행된 관측을 포함합니다. Azure Machine Learning Studio (클래식)에 업로드 하기 전에 데이터 집합이 다음과 같이 처리 됩니다.
+기상 데이터는 2013년 4월-10월 기간에 공항 기상 관측소에서 수행된 관측을 포함합니다. Azure 기계 학습 스튜디오(클래식)에 업로드하기 전에 데이터 집합은 다음과 같이 처리되었습니다.
 <ul>
   <li>기상 관측소 ID가 해당 공항 ID에 매핑되었습니다.</li>
   <li>비행이 가장 많은 공항 70곳과 연계되지 않은 기상 관측소가 필터링되었습니다.</li>
@@ -345,9 +345,9 @@ NOAA에서 제공한 시간별 지상 기상 관측(<a href="https://az754797.vo
 <tr>
   <td>Wikipedia SP 500 데이터 세트</td>
   <td>
-데이터는 XML 데이터로 저장되는 각 S&P 500 회사의 자료에 따라 Wikipedia(<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>)에서 파생됩니다.
+데이터는 각 S&P<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>500 회사의 기사를 기반으로 위키백과 () 에서 파생되며 XML 데이터로 저장됩니다.
 <p></p>
-Azure Machine Learning Studio (클래식)에 업로드 하기 전에 데이터 집합이 다음과 같이 처리 됩니다.
+Azure 기계 학습 스튜디오(클래식)에 업로드하기 전에 데이터 집합은 다음과 같이 처리되었습니다.
 <ul>
   <li>각 특정 회사에 대한 텍스트 콘텐츠 추출</li>
   <li>위치 형식 지정 제거</li>
@@ -393,7 +393,7 @@ KDD Cup 1999 지식 검색 및 데이터 마이닝 도구 경합(<a href="https:
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td>
-RCV1-V2 Reuters 뉴스 데이터 세트의 뉴스 기사에 대한 토픽 할당입니다. 하나의 뉴스 기사를 여러 항목에 할당할 수 있습니다. 각 행의 형식은 "&lt;토픽 이름&gt; &lt;문서 id&gt; 1"입니다. 이 데이터 세트에는 260만 개의 항목 할당이 포함됩니다. 이 데이터 세트는 David. D. Lewis가 제공했습니다.
+RCV1-V2 Reuters 뉴스 데이터 세트의 뉴스 기사에 대한 토픽 할당입니다. 하나의 뉴스 기사를 여러 항목에 할당할 수 있습니다. 각 행의 형식은&lt;"주제 이름&gt; &lt;문서 ID&gt; 1"입니다. 이 데이터 세트에는 260만 개의 항목 할당이 포함됩니다. 이 데이터 세트는 David. D. Lewis가 제공했습니다.
   </td>
 </tr>
 
@@ -411,7 +411,7 @@ RCV1-V2 Reuters 뉴스 데이터 세트의 뉴스 기사에 대한 토픽 할당
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [예제를 사용 하 여 실험 Kickstart](sample-experiments.md)
+> [예제로 실험 시작](sample-experiments.md)
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

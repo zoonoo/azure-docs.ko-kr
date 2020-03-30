@@ -1,6 +1,6 @@
 ---
-title: Azure DevTest Labs에서 비용 및 소유권 관리
-description: 이 문서에서는 비용을 최적화 하 고 사용자 환경에서 소유권을 맞추는 데 도움이 되는 정보를 제공 합니다.
+title: Azure DevTest 랩에서 비용 및 소유권 관리
+description: 이 문서에서는 비용을 최적화하고 사용자 환경 전반에서 소유권을 조정하는 데 도움이 되는 정보를 제공합니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,10 +14,10 @@ ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: b82d338f85f1b43712296ac7f27bdad55f8f1919
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74561671"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Azure DevTest Labs 인프라의 거버넌스 - 비용 및 소유권 관리
@@ -28,7 +28,7 @@ ms.locfileid: "74561671"
 ### <a name="question"></a>질문
 DevTest Labs 환경 내에서 비용을 최적화하려면 어떻게 해야 하나요?
 
-### <a name="answer"></a>답변
+### <a name="answer"></a>Answer
 비용 최적화에 도움이 되는 DevTest Labs의 다양한 기본 제공 기능이 있습니다. 사용자 작업을 제한하려면 [비용 관리, 임계값](devtest-lab-configure-cost-management.md) [ 및 정책](devtest-lab-set-lab-policy.md) 문서를 참조하세요. 
 
 개발 및 테스트 워크로드에 DevTest Labs를 활용할 때 기업계약의 일부로 [Enterprise 개발/테스트 구독 혜택](https://azure.microsoft.com/offers/ms-azr-0148p/)을 사용하는 것이 적절할 수 있습니다. 또는 종량제 고객인 경우 [종량제 DevTest 제안](https://azure.microsoft.com/offers/ms-azr-0023p/)을 고려할 수 있습니다.
@@ -47,7 +47,7 @@ DevTest 제안을 사용하기로 결정한 경우 이 혜택이 개발 및 애�
 ### <a name="question"></a>질문
 개발자/테스트 담당자가 해당 작업을 수행하는 동안 IT 부서에서 관리할 수 있도록 내 DevTest Labs의 역할 기반 액세스 제어를 정의하려면 어떻게 해야 하나요? 
 
-### <a name="answer"></a>답변
+### <a name="answer"></a>Answer
 광범위하게 적용되는 한 가지 패턴이 있지만 세부 사항은 조직에 따라 다릅니다.
 
 중앙 IT 부서는 필요한 사항만 소유하고 프로젝트 및 애플리케이션 팀이 필요한 수준의 제어 권한을 갖도록 하는 것이 좋습니다. 이에 따라 일반적으로 중앙 IT 부서는 구독을 소유하고 네트워킹 구성과 같은 핵심 IT 기능을 처리합니다. 구독의 **소유자** 집합은 소규모인 것이 좋습니다. 이러한 소유자는 필요할 때 추가 소유자를 지정하거나, 구독자 수준 정책(예: “공용 IP 없음”)을 적용할 수 있습니다.

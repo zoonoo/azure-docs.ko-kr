@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 4560ca2b07826e2a071f515f147dfab8cbec3624
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254496"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>StorSimple 가상 배열 배포 – Azure Portal을 통해 iSCSI 서버로 설정
@@ -81,7 +81,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 6. **디바이스 설정** 페이지에서:
    
    1. 디바이스에 고유한 **이름** 을 할당합니다. 이름에는 1-15자를 사용할 수 있으며 문자, 숫자 및 하이픈을 포함할 수 있습니다.
-   2. 만드는 디바이스의 **유형**에 대해 ![iSCSI 서버](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png) 아이콘 **iSCSI 서버 아이콘**을 클릭합니다. iSCSI 서버에서 블록 스토리지를 프로비전할 수 있습니다.
+   2. 만드는 디바이스의 **유형**에 대해 **iSCSI 서버** 아이콘 ![iSCSI 서버 아이콘](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png)을 클릭합니다. iSCSI 서버에서 블록 스토리지를 프로비전할 수 있습니다.
    3. 이 디바이스를 도메인에 가입할지 지정합니다. 디바이스가 iSCSI 서버인 경우, 도메인 가입은 선택 사항입니다. iSCSI 서버를 도메인에 가입하지 않으려면, **적용**을 클릭하고 설정이 적용될 때까지 기다린 후에 다음 단계로 건너뜁니다.
       
        디바이스를 도메인에 가입하려면 **도메인 이름**을 입력하고 **적용**을 클릭합니다.
@@ -100,7 +100,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
    
     **웹 프록시** 페이지에서:
    
-   1. 다음 형식으로 **웹 프록시 URL** 을 제공 합니다. *http:\//host-ip 주소* 또는 *FQDN: 포트 번호*. HTTPS URL은 지원되지 않습니다.
+   1. 이 형식의 **웹 프록시 URL을** 제공: *http:\//host-IP 주소* 또는 *FQDN:포트 번호*. HTTPS URL은 지원되지 않습니다.
    2. **인증**은 **기본** 또는 **없음**으로 지정합니다.
    3. 인증을 사용하는 경우에는 **사용자 이름** 및 **암호**도 제공해야 합니다.
    4. **적용**을 클릭합니다. 구성된 웹 프록시 설정의 유효성을 검사하고 적용합니다.
@@ -116,8 +116,8 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
    4. **적용**을 클릭합니다. 구성된 시간 설정의 유효성을 검사하고 적용합니다.
 9. 디바이스에 대한 클라우드 설정을 구성합니다. 이 단계에서는 로컬 디바이스 구성을 완료한 다음, StorSimple 디바이스 관리자 서비스에 디바이스를 등록합니다.
    
-   1. **StorSimple 가상 배열 배포 - 포털 준비**에서 **2단계:서비스 등록 키 얻기**에서 얻은 [서비스 등록 키](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key)를 입력합니다.
-   2. 서비스에 디바이스를 처음으로 등록하는 경우가 아니라면 **서비스 데이터 암호화 키**를 제공해야 합니다. 이 키는 StorSimple 디바이스 관리자 서비스에 추가 디바이스를 등록하기 위한 서비스 등록 키에 필요합니다. 자세한 내용은 로컬 웹 UI의 [서비스 데이터 암호화 키 받기](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)를 참조하세요.
+   1. [StorSimple 가상 배열 배포 - 포털 준비](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key)에서 **2단계:서비스 등록 키 얻기**에서 얻은 **서비스 등록 키**를 입력합니다.
+   2. 이 서비스에 등록하는 첫 번째 장치가 아닌 경우 **서비스 데이터 암호화 키를**제공해야 합니다. 이 키는 StorSimple 디바이스 관리자 서비스에 추가 디바이스를 등록하기 위한 서비스 등록 키에 필요합니다. 자세한 내용은 로컬 웹 UI의 [서비스 데이터 암호화 키 받기](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)를 참조하세요.
    3. **등록**을 클릭합니다. 디바이스가 다시 시작됩니다. 디바이스 등록이 완료되기까지 2-3분 정도 기다려야 할 수 있습니다. 디바이스가 다시 시작된 후 로그인 페이지가 열립니다.
       
       ![디바이스 등록](./media/storsimple-virtual-array-deploy3-iscsi-setup/image11.png)
@@ -162,7 +162,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 2. **볼륨 추가** 블레이드에서 다음을 수행합니다.
    
    * **볼륨 이름** 필드에서 볼륨의 고유 이름을 입력합니다. 이름은 3~127개의 문자를 포함하는 문자열이어야 합니다.
-   * **형식** 드롭다운 목록에서 **계층** 또는 **로컬로 고정** 볼륨을 만들지 여부를 지정합니다. 로컬 보증, 낮은 대기 시간 및 높은 성능을 필요로 하는 워크 로드의 경우 **로컬로 고정** 된 **볼륨**을 선택 합니다. 다른 모든 데이터에 대해서는 **계층화** 된 **볼륨**을 선택 합니다.
+   * **형식** 드롭다운 목록에서 **계층** 또는 **로컬로 고정** 볼륨을 만들지 여부를 지정합니다. 로컬 보증, 낮은 대기 시간 및 높은 성능을 필요로 하는 워크로드의 경우 **로컬로 고정된** **볼륨**을 선택합니다. 다른 모든 데이터에 대해서는 **계층화된** **볼륨**을 선택합니다.
    * **용량** 필드에서 볼륨의 크기를 지정합니다. 계층화된 볼륨은 500GB에서 5TB 사이여야 하고 로컬로 고정된 볼륨은 50GB에서 500GB 사이여야 합니다.
      
      로컬로 고정된 볼륨은 씩 프로비전되며, 볼륨의 기본 데이터가 디바이스에 유지되고 클라우드에 유출되지 않도록 합니다.
@@ -194,15 +194,15 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 3. **대상 포털 검색** 대화 상자에서 iSCSI 사용 네트워크 인터페이스의 IP 주소를 입력하고 **확인**을 클릭합니다.
    
     ![IP 주소](./media/storsimple-virtual-array-deploy3-iscsi-setup/image23.png)
-4. **iSCSI 초기자 속성** 창의 **대상** 탭에서 **검색된 대상**을 찾습니다. 각 볼륨은 검색 된 대상이 됩니다. 장치 상태는 **비활성**으로 표시 되어야 합니다.
+4. **iSCSI 초기자 속성** 창의 **대상** 탭에서 **검색된 대상**을 찾습니다. (각 볼륨은 검색된 대상이 됩니다.) 장치 상태가 **비활성으로**표시되어야 합니다.
    
     ![검색된 대상](./media/storsimple-virtual-array-deploy3-iscsi-setup/image24.png)
-5. 대상 디바이스를 선택하고 **연결**을 클릭합니다. 디바이스가 연결되면 상태가 **연결됨**으로 변경됩니다. Microsoft iSCSI 초기자를 사용 하는 방법에 대 한 자세한 내용은 [Microsoft Iscsi 초기자 설치 및 구성][1]을 참조 하세요.
+5. 대상 디바이스를 선택하고 **연결**을 클릭합니다. 디바이스가 연결되면 상태가 **연결됨**으로 변경됩니다. Microsoft iSCSI 이니시에이터 사용에 대한 자세한 내용은 [Microsoft iSCSI 이니시에이터 설치 및 구성을][1]참조하십시오.
    
     ![대상 디바이스 선택](./media/storsimple-virtual-array-deploy3-iscsi-setup/image25.png)
 6. Windows 호스트에서 Windows 로고 키 + X를 누르고 **실행**을 클릭합니다.
-7. **실행** 대화 상자에 **Diskmgmt.msc**를 입력합니다. **확인**을 클릭하면 **디스크 관리** 대화 상자가 나타납니다. 오른쪽 창에 호스트의 볼륨이 표시됩니다.
-8. **디스크 관리** 창에 탑재된 볼륨이 다음 그림과 같이 표시됩니다. 검색된 볼륨을 마우스 오른쪽 단추로 클릭(디스크 이름 클릭)한 다음 **온라인**을 클릭합니다.
+7. **실행** 대화 상자에 **Diskmgmt.msc**를 입력합니다. **확인**을 클릭하면 **디스크 관리** 대화 상자가 나타나도 오른쪽 창에 호스트의 볼륨이 표시됩니다.
+8. **디스크 관리** 창에 탑재된 볼륨이 다음 그림과 같이 표시됩니다. 검색된 볼륨을 마우스 오른쪽 단추로 클릭(디스크 이름 클릭)하고 **온라인**을 클릭합니다.
    
     ![디스크 관리](./media/storsimple-virtual-array-deploy3-iscsi-setup/image26.png)
 9. 마우스 오른쪽 단추를 클릭한 다음 **디스크 초기화**를 선택합니다.
@@ -230,7 +230,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-로컬 웹 UI를 사용하여 [StorSimple 가상 배열을 관리](storsimple-ova-web-ui-admin.md)하는 방법을 알아봅니다.
+로컬 웹 UI를 사용하여 [StorSimple 가상 배열을 관리하는](storsimple-ova-web-ui-admin.md)방법에 대해 알아봅니다.
 
 ## <a name="appendix-a-get-the-iqn-of-a-windows-server-host"></a>부록 A: Windows Server 호스트의 IQN 가져오기
 
@@ -239,7 +239,7 @@ Windows Server 2012를 실행하는 Windows 호스트의 iSCSI 정규화된 이�
 #### <a name="to-get-the-iqn-of-a-windows-host"></a>Windows Server 호스트의 IQN을 가져오려면
 
 1. Windows 호스트에서 Microsoft iSCSI 초기자를 시작합니다.
-2. **iSCSI 초기자 속성** 창의 **구성** 탭에서 **초기자 이름** 필드의 문자열을 선택하고 복사합니다.
+2. **iSCSI 초기자 속성** 창의 **구성** 탭에 있는 **초기자 이름** 필드의 문자열을 선택하여 복사합니다.
    
     ![iSCSI 초기자 속성](./media/storsimple-virtual-array-deploy3-iscsi-setup/image34.png)
 3. 이 문자열을 저장합니다.

@@ -1,14 +1,14 @@
 ---
-title: Azure 애플리케이션 Insights 예외 원격 분석 데이터 모델
+title: Azure 응용 프로그램 인사이트 예외 원격 분석 데이터 모델
 description: 예외 원격 분석을 위한 Azure Application Insights 데이터 모델
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: fa9bc4efd9549cbcb1d50439989c5dea79d9d60c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671939"
 ---
 # <a name="exception-telemetry-application-insights-data-model"></a>예외 원격 분석: Application Insights 데이터 모델

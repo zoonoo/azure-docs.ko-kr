@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 79bd0a19a9bd8ebd100ed80ca0206656d73ef76c
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74672369"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Azure App Service로 활성 DNS 이름 마이그레이션
@@ -21,7 +21,7 @@ ms.locfileid: "74672369"
 
 DNS 확인의 중단을 염려하지 않는 경우에는 [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법을 완료하려면 다음이 필요합니다.
 
@@ -46,9 +46,9 @@ DNS 확인의 중단을 염려하지 않는 경우에는 [Azure App Service에 �
 
 | DNS 레코드 예제 | TXT 호스트 | TXT 값 |
 | - | - | - |
-| \@(root) | _awverify_ | _&lt;appname>.azurewebsites.net_ |
-| www(하위) | _awverify.www_ | _&lt;appname>.azurewebsites.net_ |
-| \*(와일드카드) | _awverify.\*_ | _&lt;appname>.azurewebsites.net_ |
+| \@(root) | _awverify_ | _&lt;앱네임>.azurewebsite.net_ |
+| www(하위) | _awverify.www_ | _&lt;앱네임>.azurewebsite.net_ |
+| \*(와일드카드) | _awverify.\*_ | _&lt;앱네임>.azurewebsite.net_ |
 
 DNS 레코드 페이지에서 마이그레이션할 DNS 이름의 레코드 종류에 유의합니다. App Service는 CNAME 및 A 레코드로부터의 매핑을 지원합니다.
 
@@ -111,11 +111,11 @@ A 레코드를 다시 매핑하려면 **사용자 지정 도메인** 페이지�
 
 `contoso.com` 루트 도메인 예제의 경우 다음 표의 예제와 같은 A 또는 CNAME 레코드를 다시 매핑합니다. 
 
-| FQDN 예 | 레코드 형식 | 호스트 | Value |
+| FQDN 예 | 레코드 형식 | 호스트 | 값 |
 | - | - | - | - |
-| contoso.com(루트) | 문자열(UTF-8 형식) 또는 | `@` | [앱의 IP 주소 복사](#info)에서 가져온 IP 주소 |
-| www\.contoso.com (sub) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |
-| \*.contoso.com(와일드카드) | CNAME | _\*_ | _&lt;appname>.azurewebsites.net_ |
+| contoso.com(루트) | A | `@` | [앱의 IP 주소 복사](#info)에서 가져온 IP 주소 |
+| www\.contoso.com (서브) | CNAME | `www` | _&lt;앱네임>.azurewebsite.net_ |
+| \*.contoso.com(와일드카드) | CNAME | _\*_ | _&lt;앱네임>.azurewebsite.net_ |
 
 설정을 저장합니다.
 
@@ -123,13 +123,13 @@ DNS 쿼리는 DNS가 전파된 직후 App Service 앱에 대해 확인을 시작
 
 ## <a name="active-domain-in-azure"></a>Azure의 활성 도메인
 
-Azure에서 구독 또는 동일한 구독 내에서 활성 사용자 지정 도메인을 마이그레이션할 수 있습니다. 그러나 가동 중지 시간 없이 마이그레이션하는 경우 원본 앱이 필요 하 고 대상 앱은 특정 시간에 동일한 사용자 지정 도메인에 할당 됩니다. 따라서 두 앱이 동일한 배포 단위 (내부적으로는 웹 공간 이라고 함)에 배포 되지 않았는지 확인 해야 합니다. 도메인 이름은 각 배포 단위에서 하나의 앱에만 할당할 수 있습니다.
+Azure, 구독 간에 또는 동일한 구독 내에서 활성 사용자 지정 도메인을 마이그레이션할 수 있습니다. 그러나 가동 중지 시간 없이 이러한 마이그레이션을 사용하려면 원본 앱이 필요하며 대상 앱은 특정 시간에 동일한 사용자 지정 도메인에 할당됩니다. 따라서 두 앱이 동일한 배포 단위(내부적으로 웹 공간)에 배포되지 않았는지 확인해야 합니다. 도메인 이름은 각 배포 단위의 하나의 앱에만 할당할 수 있습니다.
 
-`<deployment-unit>.ftp.azurewebsites.windows.net`FTP/S URL의 도메인 이름을 살펴보면 앱에 대 한 배포 단위를 찾을 수 있습니다. 배포 단위가 원본 앱과 대상 앱 간에 다른 지 확인 합니다. 앱의 배포 단위는의 [App Service 계획](overview-hosting-plans.md) 에 따라 결정 됩니다. 계획을 만들 때 Azure에서 임의로 선택 되며 변경할 수 없습니다. Azure는 동일한 [리소스 그룹 *및* 동일한 지역에서](app-service-plan-manage.md#create-an-app-service-plan)두 요금제를 만들 때 동일한 배포 단위에 있지만 계획이 다른 배포 단위에 있는지 확인 하는 논리는 없습니다. 다른 배포 단위로 계획을 만드는 유일한 방법은 다른 배포 단위가 나타날 때까지 새 리소스 그룹이 나 지역에 계획을 계속 만드는 것입니다.
+FTP/S URL의 `<deployment-unit>.ftp.azurewebsites.windows.net`도메인 이름을 확인하여 앱의 배포 단위를 찾을 수 있습니다. 배포 단위가 원본 앱과 대상 앱 간에 다른지 확인합니다. 앱의 배포 단위는 앱이 있는 [앱 서비스 계획에](overview-hosting-plans.md) 따라 결정됩니다. 계획을 만들 때 Azure에서 임의로 선택되며 변경할 수 없습니다. Azure는 [동일한 리소스 그룹과 동일한 리전에서 두 *and* ](app-service-plan-manage.md#create-an-app-service-plan)계획을 만들 때 두 계획이 동일한 배포 단위에 있는지 만 확인하지만 계획이 다른 배포 단위에 있는지 확인하는 논리는 없습니다. 다른 배포 단위에서 계획을 만드는 유일한 방법은 다른 배포 단위를 얻을 때까지 새 리소스 그룹 또는 지역에서 계획을 계속 만드는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 사용자 지정 SSL 인증서를 App Service에 바인딩하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure App Service에 SSL 인증서 바인딩](configure-ssl-bindings.md)
+> [Azure 앱 서비스에 SSL 인증서 바인딩](configure-ssl-bindings.md)

@@ -4,14 +4,14 @@ description: Stream Analytics를 사용하여 Application Insights 데이터를 
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.openlocfilehash: 3ef0420cdab64f11b699fd4031ed2b0134f18609
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663694"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>연습: Stream Analytics를 사용하여 Application Insights에서 SQL로 내보내기
-이 문서에서는 [연속 내보내기][export] 및 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)를 사용 하 여 [Azure 애플리케이션 Insights][start] 에서 Azure SQL database로 원격 분석 데이터를 이동 하는 방법을 보여 줍니다. 
+이 문서에서는 [연속 내보내기][export] 및 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)을 사용하여 [Azure Application Insights][start]에서 Azure SQL 데이터베이스로 원격 분석 데이터를 이동하는 방법을 보여줍니다. 
 
 연속 내보내기는 원격 분석 데이터를 JSON 형식으로 Azure Storage로 이동합니다. Azure Stream Analytics를 사용하여 JSON 개체를 구문 분석하고 데이터베이스 테이블에 행을 만들 것입니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "77663694"
 ## <a name="create-storage-in-azure"></a>Azure에서 스토리지 만들기
 연속 내보내기는 항상 Azure Storage 계정에 데이터를 출력하므로 스토리지를 먼저 만들어야 합니다.
 
-1. [Azure 포털][portal]에서 구독에 스토리지 계정을 만듭니다.
+1. [Azure Portal][portal]에서 구독에 스토리지 계정을 만듭니다.
    
     ![Azure Portal에서 새로 만들기, 데이터, 스토리지를 선택합니다. 클래식을 선택하고 만들기를 선택합니다. 스토리지 이름을 제공합니다.](./media/code-sample-export-sql-stream-analytics/040-store.png)
 2. 컨테이너 만들기
@@ -73,7 +73,7 @@ ms.locfileid: "77663694"
 이벤트는 JSON 형식으로 blob 파일에 기록됩니다. 각 파일에는 하나 이상의 이벤트가 있을 수 있습니다. 따라서 이벤트 데이터를 읽고 원하는 필드를 필터링하려고 합니다. 데이터로 온갖 종류의 작업을 수행할 수 있지만, 지금은 Stream Analytics를 사용하여 데이터를 SQL 데이터베이스로 이동하려고 합니다. 이렇게 하면 흥미로운 많은 쿼리를 쉽게 실행할 수 있습니다.
 
 ## <a name="create-an-azure-sql-database"></a>Azure SQL Database 만들기
-[Azure Portal][portal]의 구독에서 다시 시작 하 여 데이터를 작성할 데이터베이스 (및 이미 있는 경우 새 서버)를 만듭니다.
+다시 한 번 [Azure Portal][portal]의 구독에서 시작하여 데이터를 작성할 데이터베이스(및 이미 있는 경우 새 서버)를 만듭니다.
 
 ![새로 만들기, 데이터, SQL](./media/code-sample-export-sql-stream-analytics/090-sql.png)
 
@@ -153,13 +153,13 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 #### <a name="set-path-prefix-pattern"></a>경로 접두사 패턴 설정
 
-**날짜 형식을 YYYY-MM-DD(파선 포함)로 설정해야 합니다.**
+**날짜 형식을 YYYY-MM-DD(대시)로 설정해야 합니다.**
 
 경로 접두사 패턴은 Stream Analytics가 스토리지에서 입력 파일을 찾는 방법을 지정합니다. 연속 내보내기에서 데이터를 저장하는 방법과 일치하도록 설정해야 합니다. 다음과 같이 설정합니다.
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
-이 예제에서:
+이 예제에 대한 설명:
 
 * `webapplication27`은 Application Insights 리소스의 이름으로, **모두 소문자**입니다. 
 * `1234...`은 **대시를 제거한**Application Insights 리소스의 계측 키입니다. 

@@ -1,15 +1,15 @@
 ---
 title: 운영 체제 기능
-description: Windows에서 Azure App Service의 OS 기능에 대해 알아봅니다. 앱에서 가져오는 파일, 네트워크 및 레지스트리 액세스의 유형을 확인 합니다.
+description: Windows의 Azure 앱 서비스에서 OS 기능에 대해 알아봅니다. 앱에서 어떤 유형의 파일, 네트워크 및 레지스트리 액세스 권한을 얻는지 알아보십시오.
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
 ms.openlocfilehash: ed84cb2b0cb8d98b12fe787e49c400ba47e4e38a
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74671620"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service의 운영 체제 기능
@@ -51,11 +51,11 @@ App Service에는 로컬 드라이브와 네트워크 드라이브를 포함한 
 - App Service에서 단독으로 사용하며 고객이 액세스할 수 없는 Azure 패키지 cspkg 파일을 포함하는 애플리케이션 드라이브
 - VM의 크기에 따라 크기가 달라지는 "user" 드라이브(C:\ 드라이브) 
 
-애플리케이션이 커질수록 디스크 사용률을 모니터링하는 것이 중요합니다. 디스크 할당량에 도달하면 애플리케이션에 부정적인 영향을 줄 수 있습니다. 다음은 그 예입니다. 
+애플리케이션이 커질수록 디스크 사용률을 모니터링하는 것이 중요합니다. 디스크 할당량에 도달하면 애플리케이션에 부정적인 영향을 줄 수 있습니다. 예를 들어: 
 
 - 앱이 디스크 공간 부족을 나타내는 오류를 throw할 수 있습니다.
 - Kudu 콘솔로 이동하면 디스크 오류가 표시될 수 있습니다.
-- `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`를 사용 하 여 Azure DevOps 또는 Visual Studio에서 배포가 실패할 수 있습니다.
+- Azure DevOps 또는 Visual Studio에서 `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`배포가 실패할 수 있습니다.
 - 앱 성능이 저하될 수 있습니다.
 
 <a id="NetworkDrives"></a>
@@ -76,7 +76,7 @@ Azure 서비스가 작동하는 방식으로 인해 UNC 공유를 호스트하�
 
 App Service가 임시 로컬 스토리지를 사용하는 방법을 두 가지 예로 들면 임시 ASP.NET 파일용 디렉터리와 IIS 압축 파일용 디렉터리 등입니다. ASP.NET 컴파일 시스템은 임시 컴파일 캐시 위치로 "Temporary ASP.NET Files" 디렉터리를 사용합니다. IIS는 압축된 응답 출력을 저장하는 데 "IIS Temporary Compressed Files" 디렉터리를 사용합니다. 이 두 가지 파일 사용법은(다른 사용법도 포함) 모두 App Service에서 앱별 임시 로컬 스토리지로 다시 매핑됩니다. 이렇게 다시 매핑되면 해당 기능이 예상대로 지속됩니다.
 
-App Service의 각 앱은 "애플리케이션 풀 ID"라는 권한이 낮은 임의의 고유 작업자 프로세스 ID로 실행됩니다. 이 ID에 대한 자세한 내용은 [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities)를 참조하세요. 애플리케이션 코드는 운영 체제 드라이브(D:\ 드라이브)에 대한 기본적인 읽기 전용 액세스에 이 ID를 사용합니다. 따라서 애플리케이션 코드는 일반적인 디렉터리 구조를 나열하고 운영 체제 드라이브에 있는 일반 파일을 읽을 수 있습니다. 이는 다소 광범위한 수준의 액세스 권한으로 보일 수도 있지만, Azure 호스팅 서비스에서 작업자 역할을 프로비전하고 드라이브 콘텐츠를 읽을 때 동일한 디렉터리 및 파일에 액세스할 수 있습니다. 
+App Service의 각 앱은 "응용 프로그램 풀 ID"라고 하는 임의의 고유한 [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities)하위 권한 작업자 프로세스 ID로 실행됩니다. 애플리케이션 코드는 운영 체제 드라이브(D:\ 드라이브)에 대한 기본적인 읽기 전용 액세스에 이 ID를 사용합니다. 따라서 애플리케이션 코드는 일반적인 디렉터리 구조를 나열하고 운영 체제 드라이브에 있는 일반 파일을 읽을 수 있습니다. 이는 다소 광범위한 수준의 액세스 권한으로 보일 수도 있지만, Azure 호스팅 서비스에서 작업자 역할을 프로비전하고 드라이브 콘텐츠를 읽을 때 동일한 디렉터리 및 파일에 액세스할 수 있습니다. 
 
 <a name="multipleinstances"></a>
 
@@ -86,7 +86,7 @@ App Service의 각 앱은 "애플리케이션 풀 ID"라는 권한이 낮은 임
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>네트워크 액세스
-애플리케이션 코드는 외부 서비스를 노출하는 인터넷 액세스 엔드포인트에 아웃바운드 네트워크를 연결하는 데 TCP/IP 및 UDP 기반 프로토콜을 사용할 수 있습니다. 앱은 이러한 동일한 프로토콜을 사용 하 여 Azure 내에서 서비스에 연결할 수 있습니다. 예를 들어 SQL Database에 대 한 HTTPS 연결을 설정할 수 있습니다.
+애플리케이션 코드는 외부 서비스를 노출하는 인터넷 액세스 엔드포인트에 아웃바운드 네트워크를 연결하는 데 TCP/IP 및 UDP 기반 프로토콜을 사용할 수 있습니다. 앱은 SQL Database에 대한 HTTPS 연결을 설정하여 Azure 내의 서비스에 연결하기 위해 이러한 프로토콜을 사용할 수 있습니다.
 
 앱이 하나의 로컬 루프백 연결을 설정하고 앱이 해당 로컬 루프백 소켓을 수신 대기하도록 만드는 제한된 기능도 있습니다. 이 기능은 주로 기능의 일부로 로컬 루프백 소켓을 수신 대기하는 앱을 사용하도록 설정하기 위한 것입니다. 각 앱에서 "프라이빗" 루프백 연결을 볼 수 있습니다 앱 "A"는 앱 "B"가 설정한 로컬 루프백 소켓을 수신할 수 없습니다.
 

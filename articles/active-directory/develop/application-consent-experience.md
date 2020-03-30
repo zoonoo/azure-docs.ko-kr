@@ -1,5 +1,5 @@
 ---
-title: Azure AD 앱 승인 환경
+title: Azure AD 앱 동의 환경
 titleSuffix: Microsoft identity platform
 description: Azure AD에서 애플리케이션을 관리 및 개발할 때 Azure AD 동의 환경을 사용하는 방법을 확인하기 위해 해당 환경에 대해 알아보기
 services: active-directory
@@ -15,10 +15,10 @@ ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
 ms.openlocfilehash: c9b449b65a8f8def9dc28a668cd9ee3671124cb0
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77484505"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Azure AD 애플리케이션 동의 환경 이해
@@ -84,4 +84,4 @@ Azure AD(Azure Active Directory) 애플리케이션 동의 사용자 환경에 �
 ## <a name="next-steps"></a>다음 단계
 - [Azure AD 동의 프레임워크가 동의를 구현하는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)에 대한 단계별 개요 확인
 - 좀 더 깊이 있는 이해를 위해 [다중 테넌트 애플리케이션이 동의 프레임워크를 사용하여](active-directory-devhowto-multi-tenant-overview.md) "user" 및 "admin" 동의를 구현하고 좀 더 수준 높은 다중 계층 애플리케이션 패턴을 지원하는 방법 알아보기
-- [앱의 게시자 도메인을 구성 하는 방법](howto-configure-publisher-domain.md)에 대해 알아봅니다.
+- [앱의 게시자 도메인을 구성하는 방법에](howto-configure-publisher-domain.md)대해 알아봅니다.

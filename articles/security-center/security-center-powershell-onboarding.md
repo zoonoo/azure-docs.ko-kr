@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용 하 여 Azure Security Center에 등록
+title: PowerShell을 사용하여 Azure 보안 센터에 온보보드
 description: 이 문서에서는 PowerShell cmdlet을 사용하여 Azure Security Center 온보딩 프로세스를 단계별로 안내합니다.
 services: security-center
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
 ms.openlocfilehash: 5aaaf539c07a7ba2c2463d5bfd1f452853f52379
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603681"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>PowerShell을 사용하여 Azure Security Center 온보딩 자동화
@@ -31,13 +31,13 @@ PowerShell을 사용하여 Azure Security Center를 온보딩하면 Azure 리소
 
 이 예제에서는 ID가 d07c0080-170c-4c24-861d-9c817742786c인 구독에서 Security Center를 사용하도록 설정하고 고급 위협 보호 및 검색 기능을 제공하는 Security Center의 표준 계층을 구현하여 높은 수준의 보호를 제공합니다.
 
-1. [Security Center 표준 보호 수준을](https://azure.microsoft.com/pricing/details/security-center/)설정 합니다. 
+1. 보안 [센터 표준 보호 수준을](https://azure.microsoft.com/pricing/details/security-center/)설정합니다. 
  
 2. Microsoft Monitoring Agent가 구독과 연결된 VM에서 수집하는 데이터를 보낼 Log Analytics 작업 영역을 설정합니다(이 예제에서는 기존 사용자 정의 작업 영역(myWorkspace)).
 
 3. [Microsoft Monitoring Agent를 배포](security-center-enable-data-collection.md#auto-provision-mma)하는 Security Center의 자동 에이전트 프로비저닝을 활성화합니다.
 
-5. [Security Center 경고 및 주목할 만한 이벤트에 대 한 보안 연락처로 조직의 ciso](security-center-provide-security-contact-details.md)을 설정 합니다.
+5. 조직의 [CISO를 보안 센터 경고 및 주목할 만한 이벤트에 대한 보안 연락처로 설정합니다.](security-center-provide-security-contact-details.md)
 
 6. Azure Security Center의 [기본 보안 정책](tutorial-security-policy.md)을 할당합니다.
 
@@ -97,12 +97,12 @@ PowerShell을 사용하여 Azure Security Center를 온보딩하면 Azure 리소
 
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 PowerShell을 사용하여 Security Center에 대한 온보딩을 자동화하는 방법을 자세히 알아보려면 다음 문서를 참조하세요.
 
 * [Az.Security](https://docs.microsoft.com/powershell/module/az.security).
 
 Security Center에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
+* [Azure 보안 센터에서 보안 정책 설정](tutorial-security-policy.md) - Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성하는 방법을 알아봅니다.
+* [Azure 보안 센터에서 보안 경고 관리 및 응답](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.

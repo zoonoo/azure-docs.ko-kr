@@ -1,20 +1,20 @@
 ---
-title: 컨테이너 인스턴스의 Jenkins 빌드
-description: Azure Container Instances에서 주문형 빌드 작업을 실행 하도록 Jenkins 서버를 구성 하는 방법에 대해 알아봅니다.
+title: 젠킨스는 컨테이너 인스턴스에 빌드
+description: Azure 컨테이너 인스턴스에서 주문형 빌드 작업을 실행하도록 Jenkins 서버를 구성하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 08/31/2018
 ms.openlocfilehash: 8bb84895fb581053248fbad326ea7b2c8d1873a2
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617971"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Azure Container Instances를 Jenkins 빌드 에이전트로 사용
 
 ACI(Azure Container Instances)는 컨테이너화된 워크로드를 실행하기 위한 격리된 주문형, 버스터블 환경을 제공합니다. 이러한 특성 때문에 ACI는 Jenkins 빌드 작업을 대규모로 실행할 수 있는 우수한 플랫폼을 만들어 줍니다. 이 문서에서는 ACI를 통해 빌드 대상으로 미리 구성된 Jenkins 서버를 배포하고 사용하는 방법을 안내합니다.
 
-Azure Container Instances에 대 한 자세한 내용은 [Azure Container Instances](../container-instances/container-instances-overview.md)정보를 참조 하세요.
+Azure Container Instances에 대한 자세한 내용은 [Azure Container Instances 정보](../container-instances/container-instances-overview.md)를 참조하세요.
 
 ## <a name="deploy-a-jenkins-server"></a>Jenkins 서버 배포
 
@@ -43,7 +43,7 @@ Azure Container Instances에 대 한 자세한 내용은 [Azure Container Instan
 
    ![Jenkins 포털 배포의 추가 설정](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. 서비스 사용자 통합의 경우 **자동 (MSI)** 을 선택 하 여 [Azure 리소스에 대 한 관리 id](../active-directory/managed-identities-azure-resources/overview.md) 가 Jenkins 인스턴스에 대 한 인증 id를 자동으로 만듭니다. 사용자 고유의 서비스 주체 자격 증명을 입력하려면 **수동**을 선택합니다.
+4. 서비스 주체 통합을 위해 **Auto(MSI)** 를 선택하여 [Azure 리소스용 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)가 Jenkins 인스턴스에 대한 인증 ID를 자동으로 만들게 합니다. 사용자 고유의 서비스 주체 자격 증명을 입력하려면 **수동**을 선택합니다.
 
 5. 클라우드 에이전트는 Jenkins 빌드 작업을 위한 클라우드 기반 플랫폼을 구성합니다. 이 문서에서는 **ACI**를 선택합니다. ACI 클라우드 에이전트를 사용하면 각 Jenkins 빌드 작업이 하나의 컨테이너 인스턴스에서 실행됩니다.
 
@@ -125,7 +125,7 @@ Azure Container Instances에 대 한 자세한 내용은 [Azure Container Instan
 
 ## <a name="troubleshooting-the-jenkins-plugin"></a>Jenkins 플러그 인 문제 해결
 
-Jenkins 플러그 인에서 버그가 발생하면 [Jenkins JIRA](https://issues.jenkins-ci.org/)에서 특정 구성 요소에 대한 문제를 제출해 주세요.
+젠킨스 플러그인에 문제가 발생 하는 경우, 특정 구성 요소에 대 한 [젠킨스 JIRA에](https://issues.jenkins-ci.org/) 문제를 제기.
 
 ## <a name="next-steps"></a>다음 단계
 

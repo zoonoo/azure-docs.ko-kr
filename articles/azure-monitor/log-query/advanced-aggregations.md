@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: e5dc290a40342e0797001dde6cab90e12dd5cf39
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77662181"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 고급 집계
@@ -38,7 +38,7 @@ Event
 | computer2 | [326,105,302,301,300,102] |
 | ... | ... |
 
-`makelist`는 데이터가 전달된 순서로 목록을 생성합니다. 이벤트를 가장 오래된 것부터 최신 순서로 정렬하려면 order 문에 `asc` 대신 `desc`를 사용합니다. 
+`makelist`는 데이터가 전달된 순서로 목록을 생성합니다. 이벤트를 가장 오래된 것부터 최신 순서로 정렬하려면 order 문에 `desc` 대신 `asc`를 사용합니다. 
 
 고유 값 목록만 만들어도 유용합니다. 이것을 _집합_이라고 하며, `makeset`을 사용하여 생성할 수 있습니다.
 
@@ -113,7 +113,7 @@ Heartbeat
 | ... | ... |
 
 ## <a name="handling-missing-bins"></a>누락된 bin 처리
-`mvexpand`의 유용한 응용 프로그램은 누락 된 bin에 대 한의 기본값을 채워야 합니다. 예를 들어 하트 비트를 탐색 하 여 특정 컴퓨터의 작동 시간을 찾고 있다고 가정 합니다. _범주_ 열에 있는 하드비트의 원본을 볼 수도 있습니다. 일반적으로 간단한 summerize 문을 다음과 같이 사용할 수 있습니다.
+유용한 응용 `mvexpand` 프로그램은 누락된 저장소에 대한 기본값을 입력해야 하는 것입니다. 예를 들어 하트비트를 탐색하여 특정 컴퓨터의 가동 시간을 찾고 있다고 가정합니다. _범주_ 열에 있는 하드비트의 원본을 볼 수도 있습니다. 일반적으로 간단한 summerize 문을 다음과 같이 사용할 수 있습니다.
 
 ```Kusto
 Heartbeat

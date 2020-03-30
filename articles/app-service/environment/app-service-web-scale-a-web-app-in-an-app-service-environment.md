@@ -1,6 +1,6 @@
 ---
 title: ASE v1에서 앱 크기 조정
-description: App Service Environment에서 앱의 크기를 조정 합니다. 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
+description: 앱 서비스 환경에서 앱 크기 조정 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
 author: ccompy
 ms.assetid: 78eb1e49-4fcd-49e7-b3c7-f1906f0f22e3
 ms.topic: article
@@ -8,13 +8,13 @@ ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 43849ca7084f2237c37ad537c50f4e94ac4ea7c0
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74688671"
 ---
-# <a name="scaling-apps-in-an-app-service-environment-v1"></a>App Service Environment v1에서 앱 크기 조정
+# <a name="scaling-apps-in-an-app-service-environment-v1"></a>앱 서비스 환경 v1에서 앱 크기 조정
 Azure App Service에서는 일반적으로 다음 세 가지를 확장할 수 있습니다.
 
 * 가격 계획
@@ -23,7 +23,7 @@ Azure App Service에서는 일반적으로 다음 세 가지를 확장할 수 �
 
 ASE에서는 가격 계획을 선택하거나 변경할 필요가 없습니다.  기능적인 측면에서 이미 프리미엄 가격 기능 수준이기 때문입니다.  
 
-작업자 크기와 관련하여 ASE 관리자는 고정 크기 대신 각 작업자 풀에 사용할 컴퓨팅 리소스의 크기를 할당할 수 있습니다.  따라서 필요한 경우 P4 컴퓨팅 리소스가 있는 작업자 풀 1과 P1 컴퓨팅 리소스가 있는 작업자 풀 2를 둘 수 있습니다.  크기 순이 아니어도 됩니다.  크기 및 해당 가격에 대 한 자세한 내용은 여기 [Azure App Service 가격 책정][AppServicePricing]문서를 참조 하세요.  따라서 App Service Environment에서는 웹앱 및 App Service 계획의 확장 옵션에 다음 항목만 남게 됩니다.
+작업자 크기와 관련하여 ASE 관리자는 고정 크기 대신 각 작업자 풀에 사용할 컴퓨팅 리소스의 크기를 할당할 수 있습니다.  따라서 필요한 경우 P4 컴퓨팅 리소스가 있는 작업자 풀 1과 P1 컴퓨팅 리소스가 있는 작업자 풀 2를 둘 수 있습니다.  크기 순이 아니어도 됩니다.  크기 및 해당 가격 책정에 대한 자세한 내용은 [Azure App Service 가격 책정][AppServicePricing]을 참조하세요.  따라서 App Service Environment에서는 웹앱 및 App Service 계획의 확장 옵션에 다음 항목만 남게 됩니다.
 
 * 작업자 풀 선택
 * 인스턴스 수
@@ -32,7 +32,7 @@ ASE에서는 가격 계획을 선택하거나 변경할 필요가 없습니다. 
 
 ![][1]
 
-ASP가 있는 작업자 풀의 사용 가능한 컴퓨팅 리소스 수를 초과하여 ASP를 확장할 수 없습니다.  해당 작업자 풀에 컴퓨팅 리소스가 필요한 경우 ASE 관리자에게 추가해 달라고 요청해야 합니다.  ASE를 다시 구성 하는 방법에 대 한 자세한 내용은 [App Service 환경을 구성 하는 방법을][HowtoConfigureASE]참조 하십시오.  일정 또는 메트릭에 따라 용량을 추가하기 위해 ASE 자동 크기 조정 기능을 활용할 수도 있습니다.  ASE 환경 자체에 대 한 자동 크기 조정 구성에 대 한 자세한 내용은 [App Service Environment 자동 크기 조정을 구성 하는 방법][ASEAutoscale]을 참조 하세요.
+ASP가 있는 작업자 풀의 사용 가능한 컴퓨팅 리소스 수를 초과하여 ASP를 확장할 수 없습니다.  해당 작업자 풀에 컴퓨팅 리소스가 필요한 경우 ASE 관리자에게 추가해 달라고 요청해야 합니다.  ASE를 다시 구성하는 방법에 대한 정보는 [App Service 환경을 구성하는 방법][HowtoConfigureASE]을 읽어보세요.  일정 또는 메트릭에 따라 용량을 추가하기 위해 ASE 자동 크기 조정 기능을 활용할 수도 있습니다.  ASE 환경 자체에 대한 자동 크기 조정 구성에 대한 자세한 내용은 [App Service 환경에 대한 자동 크기 조정을 구성하는 방법][ASEAutoscale]을 참조하세요.
 
 다양한 작업자 풀의 컴퓨팅 리소스를 사용하여 여러 앱 서비스 계획을 만들거나, 동일한 작업자 풀을 사용할 수 있습니다.  예를 들어 작업자 풀 1에 사용 가능한 컴퓨팅 리소스 10개가 있는 경우 6개의 컴퓨팅 리소스를 사용하여 하나의 앱 서비스 계획을 만들고 나머지 4개의 컴퓨팅 리소스를 사용하는 두 번째 앱 서비스를 만들 수 있습니다.
 
@@ -43,7 +43,7 @@ ASE의 용량이 충분한 경우에는 매우 간단합니다.  확장할 사�
 
 ![][2] 
 
-ASE의 ASP에 대한 자동 크기 조정 규칙은 일반적인 경우와 동일하게 작동합니다.  ***확장 기준***에 있는 ***CPU 비율***을 선택하여 CPU 비율에 따라 ASP에 대한 자동 크기 조정 규칙을 만들거나 ***일정 및 성능 규칙***을 사용하여 좀 더 복잡한 규칙을 만들 수 있습니다.  자동 크기 조정 구성에 대 한 자세한 내용을 보려면 여기 [에서 앱 크기 조정 Azure App Service에서][AppScale]가이드를 사용 하세요. 
+ASE의 ASP에 대한 자동 크기 조정 규칙은 일반적인 경우와 동일하게 작동합니다.  ***확장 기준***에 있는 ***CPU 비율***을 선택하여 CPU 비율에 따라 ASP에 대한 자동 크기 조정 규칙을 만들거나 ***일정 및 성능 규칙***을 사용하여 좀 더 복잡한 규칙을 만들 수 있습니다.  자동 크기 조정 구성에 관하여 전체 세부 정보를 자세히 보려면 [Azure App Service에서 앱 확장][AppScale] 가이드를 참조하세요. 
 
 ### <a name="worker-pool-selection"></a>작업자 풀 선택
 앞에서 언급한 것처럼 작업자 풀 선택은 ASP UI에서 액세스됩니다.  확장하려는 ASP의 블레이드를 열고 작업자 풀을 선택합니다.  App Service Environment에서 구성한 모든 작업자 풀이 표시됩니다.  작업자 풀이 하나뿐인 경우에는 하나의 풀만 나열됩니다.  ASP가 있는 작업자 풀을 변경하려면 App Service 계획을 이동할 작업자 풀을 선택하기만 하면 됩니다.  
@@ -53,12 +53,12 @@ ASE의 ASP에 대한 자동 크기 조정 규칙은 일반적인 경우와 동�
 한 작업자 풀에서 다른 작업자 풀로 ASP를 이동하기 전에 ASP에 대해 적절한 용량이 있는지 확인하는 것이 중요합니다.  작업자 풀 목록에는 작업자 풀 이름이 나열될 뿐만 아니라 해당 작업자 풀에서 사용 가능한 작업자 수도 표시됩니다.  App Service 계획을 포함할 수 있는 충분한 인스턴스가 있는지 확인합니다.  이동할 작업자 풀에 추가 컴퓨팅 리소스가 필요한 경우 ASE 관리자에게 추가하도록 요청합니다.  
 
 > [!NOTE]
-> 한 작업자 풀에서 ASP를 이동하면 해당 ASP에서 앱이 콜드 부팅됩니다.  이렇게 하면 앱이 새 컴퓨팅 리소스에서 시작할 때 요청이 느리게 실행될 수 있습니다.  Azure App Service에서 [응용 프로그램 준비 기능][AppWarmup] 을 사용 하 여 콜드 부팅을 방지할 수 있습니다.  앱이 새 컴퓨팅 리소스에서 콜드 시작하는 경우에 초기화 프로세스가 호출되기 때문에 문서에서 설명하는 애플리케이션 초기화 모듈은 콜드 시작에서도 작동합니다. 
+> 한 작업자 풀에서 ASP를 이동하면 해당 ASP에서 앱이 콜드 부팅됩니다.  이렇게 하면 앱이 새 컴퓨팅 리소스에서 시작할 때 요청이 느리게 실행될 수 있습니다.  Azure App Service에서 [애플리케이션 준비 기능][AppWarmup]을 사용하여 콜드 부팅을 방지할 수 있습니다.  앱이 새 컴퓨팅 리소스에서 콜드 시작하는 경우에 초기화 프로세스가 호출되기 때문에 문서에서 설명하는 애플리케이션 초기화 모듈은 콜드 시작에서도 작동합니다. 
 > 
 > 
 
 ## <a name="getting-started"></a>시작
-App Service 환경을 시작 하려면 [App Service Environment를 만드는 방법][HowtoCreateASE] 을 참조 하세요.
+앱 서비스 환경을 시작하려면 [앱 서비스 환경을 만드는 방법을][HowtoCreateASE] 참조하세요.
 
 <!--Image references-->
 [1]: ./media/app-service-web-scale-a-web-app-in-an-app-service-environment/aseappscale-aspblade.png

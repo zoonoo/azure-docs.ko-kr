@@ -1,6 +1,6 @@
 ---
-title: Power BI SQL 쿼리를 사용 하 여 Azure 데이터 탐색기에서 데이터 시각화
-description: 이 문서에서는 Azure 데이터 탐색기 클러스터에 대 한 SQL 쿼리 Power BI에서 데이터를 시각화 하기 위한 세 가지 옵션 중 하나를 사용 하는 방법에 대해 알아봅니다.
+title: Power BI SQL 쿼리를 사용하여 Azure 데이터 탐색기의 데이터 시각화
+description: 이 문서에서는 Power BI에서 데이터를 시각화하기 위한 세 가지 옵션 중 하나인 Azure 데이터 탐색기 클러스터에 대한 SQL 쿼리를 사용하는 방법을 알아봅니다.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
@@ -8,23 +8,23 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: d402d4c1ee77d0f97d2a5c3bdf43d0cc62aac096
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560476"
 ---
 # <a name="visualize-data-from-azure-data-explorer-using-a-sql-query-in-power-bi"></a>Power BI에서 SQL 쿼리를 사용하여 Azure Data Explorer의 데이터 시각화
 
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Power BI는 데이터를 시각화하고 조직 전체에서 결과를 공유할 수 있는 비즈니스 분석 솔루션입니다.
 
-Azure Data Explorer는 Power BI에서 데이터에 연결하기 위한 세 가지 옵션, 즉 기본 제공 커넥터 사용, Azure Data Explorer에서 쿼리 가져오기 또는 SQL 쿼리 사용을 제공합니다. 이 문서에서는 SQL 쿼리를 사용 하 여 Power BI 보고서에서 데이터를 가져오고 시각화 하는 방법을 보여 줍니다.
+Azure Data Explorer는 Power BI에서 데이터에 연결하기 위한 세 가지 옵션, 즉 기본 제공 커넥터 사용, Azure Data Explorer에서 쿼리 가져오기 또는 SQL 쿼리 사용을 제공합니다. 이 문서에서는 SQL 쿼리를 사용하여 데이터를 얻고 Power BI 보고서에서 시각화하는 방법을 보여 주며 이 문서에서는 이를 보여 주며, 이를 보여 주시면 됩니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서를 완료 하려면 다음이 필요 합니다.
+이 문서를 완료하려면 다음이 필요합니다.
 
 * [Azure Data Explorer 도움말 클러스터](https://dataexplorer.azure.com/clusters/help/databases/samples)에 연결하기 위한 Active Directory 디렉터리의 구성원인 조직 이메일 계정
 
@@ -50,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
     **설정** | **값** | **필드 설명**
     |---|---|---|
-    | Server | *help.kusto.windows.net* | 도움말 클러스터의 URL입니다(*https://* 제외). 다른 클러스터의 경우 이 URL은 *\<ClusterName\>.\<Region\>.kusto.windows.net* 형식입니다. |
+    | 서버 | *help.kusto.windows.net* | 도움말 클러스터의 URL입니다(*https://* 제외). 다른 클러스터의 경우 URL이 * \<\>ClusterName 입니다.\< 지역\>.kusto.windows.net*. |
     | 데이터베이스 | *샘플* | 연결 중인 클러스터에서 호스트되는 샘플 데이터베이스입니다. |
     | 데이터 연결 모드 | *가져오기* | Power BI가 데이터를 가져올지 또는 데이터 원본에 직접 연결될지를 결정합니다. 이 커넥터에서는 두 옵션을 모두 사용할 수 있습니다. |
     | 명령 시간 제한 | 비워 둠 | 제한 오류를 throw하기 전에 쿼리가 실행되는 기간입니다. |
@@ -80,8 +80,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 문서에 대해 만든 보고서가 더 이상 필요 하지 않은 경우 Power BI Desktop (.pbix) 파일을 삭제 합니다.
+이 문서에 대해 만든 보고서가 더 이상 필요하지 않으면 Power BI 데스크톱(.pbix) 파일을 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Power BI에 대 한 Azure 데이터 탐색기 커넥터를 사용 하 여 데이터 시각화](power-bi-connector.md)
+[Power BI용 Azure Data Explorer 커넥터를 사용하여 데이터 시각화](power-bi-connector.md)

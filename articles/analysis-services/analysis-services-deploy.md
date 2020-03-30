@@ -1,6 +1,6 @@
 ---
-title: Visual Studio를 사용 하 여 Azure Analysis Services에 모델 배포 | Microsoft Docs
-description: Visual Studio를 사용 하 여 Azure Analysis Services 서버에 테이블 형식 모델을 배포 하는 방법을 알아봅니다.
+title: Visual Studio를 사용하여 Azure 분석 서비스에 모델 배포 | 마이크로 소프트 문서
+description: Visual Studio를 사용하여 Azure 분석 서비스 서버에 테이블 모델을 배포하는 방법을 알아봅니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,26 +8,26 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 71b3b7815d2a4b0b4de3afdca9db93156f505445
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73572890"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Visual Studio에서 모델 배포
 
-Azure 구독에서 서버를 만들면 여기에 테이블 형식 모델 데이터베이스를 배포할 준비가 되었습니다. Visual Studio를 Analysis Services 프로젝트와 함께 사용 하 여 작업 중인 테이블 형식 모델 프로젝트를 빌드하고 배포할 수 있습니다. 
+Azure 구독에서 서버를 만들면 여기에 테이블 형식 모델 데이터베이스를 배포할 준비가 되었습니다. 분석 서비스 프로젝트와 함께 Visual Studio를 사용하여 작업 중인 테이블 모델 프로젝트를 빌드하고 배포할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음이 필요합니다.
 
-* Azure의 **Analysis Services 서버** 자세한 내용은 [Azure Analysis Services 서버 만들기](analysis-services-create-server.md)를 참조하세요.
-* Visual Studio의 **테이블 형식 모델 프로젝트** 또는 1200 이상 호환성 수준의 기존 테이블 형식 모델 만들어 본 적이 없나요? [Adventure Works Internet Sales Tabular Modeling 자습서](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)를 사용해 보세요.
+* Azure의 **Analysis Services 서버** - 자세한 내용은 [Azure Analysis Services 서버 만들기](analysis-services-create-server.md)를 참조하세요.
+* Visual Studio의 **테이블 모델 프로젝트** 또는 1200 이상의 호환성 수준에서 기존 테이블 형식 모델. 만들어 본 적이 없나요? [Adventure Works Internet Sales Tabular Modeling 자습서](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)를 사용해 보세요.
 * **온-프레미스 게이트웨이** - 하나 이상의 데이터 원본이 조직 네트워크의 온-프레미스에 있는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 설치해야 합니다. 온-프레미스 데이터 원본에 대한 클라우드 연결에 있는 서버가 모델에서 데이터를 처리하고 새로 고치는 데 게이트웨이가 필요합니다.
 
 > [!TIP]
-> 배포하기 전에 테이블에서 데이터를 처리할 수 있는지 확인합니다. Visual Studio에서 **모델** > **처리** > **모두 처리**를 클릭 합니다. 처리가 실패하는 경우 성공적으로 배포할 수 없습니다.
+> 배포하기 전에 테이블에서 데이터를 처리할 수 있는지 확인합니다. Visual Studio에서 **모델** > **프로세스** > **프로세스 모두를 클릭합니다.** 처리가 실패하는 경우 성공적으로 배포할 수 없습니다.
 > 
 > 
 
@@ -37,9 +37,9 @@ Azure 구독에서 서버를 만들면 여기에 테이블 형식 모델 데이�
    
 ![Azure에서 서버 이름 가져오기](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
-## <a name="to-deploy-from-visual-studio"></a>Visual Studio에서 배포 하려면
+## <a name="to-deploy-from-visual-studio"></a>비주얼 스튜디오에서 배포하려면
 
-1. Visual Studio > **솔루션 탐색기**에서 프로젝트 > **속성**을 마우스 오른쪽 단추로 클릭 합니다. 그런 다음 **배포** > **서버**에서 서버 이름을 붙여 넣습니다.   
+1. Visual Studio > **솔루션 탐색기에서** **프로퍼티**> 프로젝트를 마우스 오른쪽 단추로 클릭합니다. 그런 다음 **배포** > **서버에서** 서버 이름을 붙여 넣습니다.   
    
     ![배포 서버 속성에 서버 이름을 붙여 넣습니다](./media/analysis-services-deploy/aas-deploy-deployment-server-property.png)
 2. **솔루션 탐색기**에서 **속성**을 마우스 오른쪽 단추로 클릭한 후 **배포**를 클릭합니다. Azure에 로그인하라는 메시지가 표시될 수 있습니다.
@@ -55,11 +55,11 @@ Azure 구독에서 서버를 만들면 여기에 테이블 형식 모델 데이�
 
 ## <a name="troubleshooting"></a>문제 해결
 
-메타 데이터를 배포할 때 배포가 실패 하는 경우 Visual Studio가 서버에 연결할 수 없기 때문일 수 있습니다. SSMS를 사용하여 서버에 연결할 수 있는지 확인합니다. 프로젝트에 대한 배포 서버 속성이 정확한지 확인합니다.
+메타데이터를 배포할 때 배포가 실패하면 Visual Studio가 서버에 연결할 수 없기 때문일 수 있습니다. SSMS를 사용하여 서버에 연결할 수 있는지 확인합니다. 프로젝트에 대한 배포 서버 속성이 정확한지 확인합니다.
 
 테이블에서 배포에 실패한 경우 서버가 데이터 원본에 연결할 수 없기 때문일 수 있습니다. 데이터 원본이 조직의 온-프레미스에 있는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 설치해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-테이블 형식 모델을 서버에 배포했으므로 연결할 준비가 되었습니다. [SSMS (SQL Server Management Studio)를 사용 하 여이 파일에 연결](analysis-services-manage.md) 하 여 관리할 수 있습니다. 그리고 Power BI, Power BI Desktop 또는 Excel과 같은 [클라이언트 도구를 사용하여 연결](analysis-services-connect.md)하고 보고서를 만들기 시작할 수 있습니다.
+테이블 형식 모델을 서버에 배포했으므로 연결할 준비가 되었습니다. SQL [서버 관리 스튜디오(SSMS)와 연결하여](analysis-services-manage.md) 관리할 수 있습니다. 그리고 Power BI, Power BI Desktop 또는 Excel과 같은 [클라이언트 도구를 사용하여 연결](analysis-services-connect.md)하고 보고서를 만들기 시작할 수 있습니다.
 
