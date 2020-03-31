@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 3db039d39ef532ea51143dc9cbdb6bd5f29d6225
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75970285"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob 파일 시스템 드라이버(ABFS): Hadoop 전용 Azure Storage 드라이버
@@ -21,7 +21,7 @@ Azure Data Lake Storage Gen2에서 데이터에 대한 기본 액세스 방법 �
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>이전 기능: Windows Azure Storage Blob 드라이버
 
-[WASB 드라이버](https://hadoop.apache.org/docs/current/hadoop-azure/index.html)(Windows Azure Storage Blob 드라이버)는 Azure Blob Storage에 대한 원래 지원을 제공했습니다. 이 드라이버는 파일 시스템 의미 체계를 Azure Blob Storage에서 공개한 개체 저장소 스타일 인터페이스의 드라이버에 매핑하는 복잡한 작업(Hadoop 파일 시스템 인터페이스에서 요구하는 대로)을 수행하였습니다. 이 드라이버는이 모델을 계속 지원 하 여 blob에 저장 된 데이터에 대 한 고성능 액세스를 제공 하지만이 매핑을 수행 하는 상당한 양의 코드를 포함 하 여 유지 관리 하기가 어렵습니다. 또한 [FileSystem.rename()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) 및 [FileSystem.delete()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) 같은 몇몇 작업은 디렉터리에 적용될 때 개체 저장소의 디렉터리에 대한 지원이 부족하기 때문에 드라이버가 방대한 수의 작업을 수행하도록 요구해 종종 성능 저하로 이어집니다. ABFS 드라이버는 WASB의 고유한 결함을 해결하도록 설계되었습니다.
+[WASB 드라이버](https://hadoop.apache.org/docs/current/hadoop-azure/index.html)(Windows Azure Storage Blob 드라이버)는 Azure Blob Storage에 대한 원래 지원을 제공했습니다. 이 드라이버는 파일 시스템 의미 체계를 Azure Blob Storage에서 공개한 개체 저장소 스타일 인터페이스의 드라이버에 매핑하는 복잡한 작업(Hadoop 파일 시스템 인터페이스에서 요구하는 대로)을 수행하였습니다. 이 드라이버는 이 모델을 계속 지원하여 Blob에 저장된 데이터에 대한 고성능 액세스를 제공하지만 이 매핑을 수행하는 많은 코드가 포함되어 있어 유지 관리가 어렵습니다. 또한 [FileSystem.rename()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) 및 [FileSystem.delete()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) 같은 몇몇 작업은 디렉터리에 적용될 때 개체 저장소의 디렉터리에 대한 지원이 부족하기 때문에 드라이버가 방대한 수의 작업을 수행하도록 요구해 종종 성능 저하로 이어집니다. ABFS 드라이버는 WASB의 고유한 결함을 해결하도록 설계되었습니다.
 
 ## <a name="the-azure-blob-file-system-driver"></a>Azure Blob 파일 시스템 드라이버
 
@@ -51,9 +51,9 @@ ABFS 드라이버는 두 가지 형식의 인증을 지원하므로 Hadoop 애�
 - **Azure Active Directory OAuth 전달자 토큰:** Azure AD 전달자 토큰은 최종 사용자의 ID 또는 구성된 서비스 주체를 사용하여 드라이버에서 획득되고 새로 고쳐집니다. 이 인증 모델을 사용하면 모든 액세스 권한은 할당된 POSIX ACL(액세스 제어 목록)에 대해 평가되고 제공된 토큰과 연결된 ID를 사용하여 호출당 기준으로 부여됩니다.
 
    > [!NOTE]
-   > Azure Data Lake Storage Gen2는 Azure AD v 1.0 끝점만 지원 합니다.
+   > Azure 데이터 레이크 저장소 Gen2는 Azure AD v1.0 끝점만 지원합니다.
 
-### <a name="configuration"></a>구성
+### <a name="configuration"></a>Configuration
 
 ABFS 드라이버에 대한 모든 구성은 <code>core-site.xml</code> 구성 파일에 저장됩니다. [Ambari](https://ambari.apache.org/)가 특징인 Hadoop 배포에서 웹 포털이나 Ambari REST API를 사용하여 구성을 관리할 수 있습니다.
 
@@ -65,5 +65,5 @@ ABFS 드라이버는 [Hadoop 공식 설명서](https://hadoop.apache.org/docs/st
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Databricks 클러스터 만들기](./data-lake-storage-quickstart-create-databricks-account.md)
+- [Azure 데이터 브릭 클러스터 만들기](./data-lake-storage-quickstart-create-databricks-account.md)
 - [Azure Data Lake Storage Gen2 URI 사용](./data-lake-storage-introduction-abfs-uri.md)

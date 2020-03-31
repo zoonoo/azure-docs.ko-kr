@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 01/27/2020
+ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a32ee682490c5930b8c48d069087020c4763dcb
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: e62b3c551f41bca0055f35cf6bf62c59d921c73b
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127762"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80294825"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란? 
 
@@ -123,11 +123,32 @@ Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스
 
 다음 원격 데스크톱 클라이언트는 Windows Virtual Desktop을 지원합니다.
 
-* [Windows](connect-windows-7-and-10.md)
+* [Windows Desktop](connect-windows-7-and-10.md)
 * [Web](connect-web.md)
-* [Mac](connect-macos.md)
+* [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
 * [Android(미리 보기)](connect-android.md)
+
+> [!IMPORTANT]
+> Windows Virtual Desktop은 RADC(RemoteApp 및 데스크톱 연결) 클라이언트 또는 원격 데스크톱 연결(MSTSC) 클라이언트를 지원하지 않습니다.
+
+> [!IMPORTANT]
+> Windows Virtual Desktop은 현재 Windows Store에서 원격 데스크톱 클라이언트를 지원하지 않습니다. 이 클라이언트에 대한 지원은 향후 릴리스에 추가될 예정입니다.
+
+원격 데스크톱 클라이언트에는 다음 URL에 액세스할 수 있어야 합니다.
+
+|주소|아웃바운드 포트|목적|클라이언트|
+|---|---|---|---|
+|*.wvd.microsoft.com|TCP 포트 443|서비스 트래픽|모두|
+|\*.servicebus.windows.net|TCP 포트 443|데이터 문제 해결|모두|
+|go.microsoft.com|TCP 포트 443|Microsoft FWLinks|모두|
+|aka.ms|TCP 포트 443|Microsoft URL 단축기|모두|
+|docs.microsoft.com|TCP 포트 443|문서화|모두|
+|privacy.microsoft.com|TCP 포트 443|개인정보처리방침|모두|
+|query.prod.cms.rt.microsoft.com|TCP 포트 443|클라이언트 업데이트|Windows Desktop|
+
+>[!IMPORTANT]
+>이러한 URL을 여는 것은 신뢰할 수 있는 클라이언트 환경을 위해 필수적입니다. 이러한 URL에 대한 액세스를 차단하는 것은 지원되지 않으며 서비스 기능에 영향을 줍니다. 이러한 URL은 클라이언트 사이트 및 리소스에만 해당하고 Azure Active Directory와 같은 다른 서비스에 대한 URL은 포함하지 않습니다.
 
 ## <a name="supported-virtual-machine-os-images"></a>지원되는 가상 머신 OS 이미지
 

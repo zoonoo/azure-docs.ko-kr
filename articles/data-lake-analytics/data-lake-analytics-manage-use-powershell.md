@@ -10,10 +10,10 @@ ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66156413"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리
@@ -21,17 +21,17 @@ ms.locfileid: "66156413"
 
 이 문서에서는 Azure PowerShell을 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Data Lake Analytics와 함께 PowerShell을 사용하려면 다음과 같은 정보를 수집합니다. 
 
 * **구독 ID**: Data Lake Analytics 계정을 포함하는 Azure 구독의 ID입니다.
-* **리소스 그룹**: Data Lake Analytics 계정을 포함하는 Azure 리소스 그룹의 이름입니다.
+* **리소스 그룹**: Data Lake Analytics 계정이 포함된 Azure 리소스 그룹의 이름입니다.
 * **Data Lake Analytics 계정 이름**: Data Lake Analytics 계정의 이름입니다.
-* **기본 Data Lake Store 계정 이름**: 모든 Data Lake Analytics 계정에는 기본 Data Lake Store 계정이 있습니다.
-* **Location**: Data Lake Analytics 계정의 위치입니다(예: “미국 동부 2” 또는 다른 지원되는 위치).
+* **기본 Data Lake Store 계정 이름**: 각 Data Lake Analytics 계정에는 기본 Data Lake Store 계정이 있습니다.
+* **위치**: Data Lake Analytics 계정의 위치입니다(예: "미국 동부 2" 또는 다른 지원되는 위치).
 
 이 자습서의 PowerShell 코드 조각은 이러한 변수를 사용하여 이 정보를 저장합니다.
 
@@ -121,8 +121,8 @@ Test-AdlAnalyticsAccount -Name $adla
 ## <a name="manage-data-sources"></a>데이터 원본 관리
 Azure Data Lake Analytics는 현재 다음 데이터 원본을 지원합니다.
 
-* [Azure Data Lake Storage](../data-lake-store/data-lake-store-overview.md)
-* [Azure Storage](../storage/common/storage-introduction.md)
+* [Azure 데이터 레이크 스토어](../data-lake-store/data-lake-store-overview.md)
+* [Azure 저장소](../storage/common/storage-introduction.md)
 
 모든 Data Lake Analytics 계정에는 기본 Data Lake Store 계정이 있습니다. 기본 Data Lake Store 계정은 작업 메타데이터 및 작업 감사 로그를 저장하는 데 사용됩니다. 
 
@@ -244,8 +244,8 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 
 * Cancelled
 * 실패
-* 없음
-* Succeeded
+* None
+* 성공
 
 ``` powershell
 # List Successful jobs.
@@ -327,7 +327,7 @@ $recurrence = Get-AdlJobRecurrence -Account $adla -RecurrenceId "<recurrence ID>
 
 ### <a name="list-existing-compute-policies"></a>기존 컴퓨팅 정책 나열
 
-`Get-AdlAnalyticsComputePolicy` cmdlet은 Data Lake Analytics 계정에 대한 계산 정책에 대한 정보를 검색합니다.
+`Get-AdlAnalyticsComputePolicy` cmdlet은 Data Lake Analytics 계정에 대한 컴퓨팅 정책에 대한 정보를 검색합니다.
 
 ```powershell
 $policies = Get-AdlAnalyticsComputePolicy -Account $adla
@@ -335,7 +335,7 @@ $policies = Get-AdlAnalyticsComputePolicy -Account $adla
 
 ### <a name="create-a-compute-policy"></a>컴퓨팅 정책 만들기
 
-`New-AdlAnalyticsComputePolicy` cmdlet은 Data Lake Analytics 계정에 대한 새 계산 정책을 만듭니다. 이 예제에서는 지정된 사용자에게 제공되는 최대 AU를 50으로 설정하고, 최소 작업 우선 순위를 250으로 설정합니다.
+`New-AdlAnalyticsComputePolicy` cmdlet은 Data Lake Analytics 계정에 대한 새 컴퓨팅 정책을 만듭니다. 이 예제에서는 지정된 사용자에게 제공되는 최대 AU를 50으로 설정하고, 최소 작업 우선 순위를 250으로 설정합니다.
 
 ```powershell
 $userObjectId = (Get-AzAdUser -SearchString "garymcdaniel@contoso.com").Id
@@ -553,9 +553,9 @@ foreach ($sub in $subs)
 
 ## <a name="create-a-data-lake-analytics-account-using-a-template"></a>템플릿을 사용하여 Data Lake Analytics 계정 만들기
 
-다음 샘플을 사용하여 Azure 리소스 그룹 템플릿을 사용할 수 있습니다. [템플릿을 사용하여 Data Lake Analytics 계정 만들기](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template)
+[템플릿을 사용하여 Data Lake Analytics 계정 만들기](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template) 샘플을 사용하는 Azure 리소스 그룹 템플릿을 사용할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
-* [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [Azure CLI](data-lake-analytics-get-started-cli.md)를 사용하여 Data Lake Analytics 시작
-* [Azure Portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md)를 사용하여 Azure Data Lake Analytics 관리 
+* [Microsoft Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
+* [Azure 포털](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | Azure[CLI를](data-lake-analytics-get-started-cli.md) 사용하여 데이터 레이크 분석 시작
+* [Azure 포털](data-lake-analytics-manage-use-portal.md) | Azure[PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI를](data-lake-analytics-manage-use-cli.md) 사용하여 Azure 데이터 레이크 분석 관리 

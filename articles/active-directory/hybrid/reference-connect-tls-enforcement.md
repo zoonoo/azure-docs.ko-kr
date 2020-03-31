@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9ff5c75785622b43e66b808009c4674d4b2f2b50
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78300851"
 ---
 # <a name="tls-12-enforcement-for-azure-ad-connect"></a>Azure AD Connect에 대한 TLS 1.2 적용
@@ -34,20 +34,20 @@ Azure AD Connect 서버에서 TLS 1.2만 사용하도록 적용하려면 Windows
 
 
 ### <a name="enable-tls-12"></a>TLS 1.2 사용
-- [HKEY_LOCAL_MACHINE \SOFTWARE\WOW6432Node\Microsoft\\입니다. NETFramework\v4.0.30319
-  - "SystemDefaultTlsVersions" = dword: 00000001
-  - "SchUseStrongCrypto" = dword: 0000001
-- [HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\\입니다. NETFramework\v4.0.30319
-  - "SystemDefaultTlsVersions" = dword: 00000001
+- [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\마이크로\\소프트 . 넷프레임워크\v4.0.30319]
+  - "시스템 기본값TlsVersions"=dword:00000001
+  - "슈유스트롱크립크립토"=워드:0000001
+- [HKEY_LOCAL_MACHINE\소프트웨어\마이크로\\소프트 . 넷프레임워크\v4.0.30319]
+  - "시스템 기본값TlsVersions"=dword:00000001
   - "SchUseStrongCrypto"=dword:00000001
-- [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \server]
-  - "Enabled" = dword: 00000001
-- [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \server]
-  - "DisabledByDefault" = dword: 00000000 
-- [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ 클라이언트]
-  - "Enabled" = dword: 00000001
-- [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ 클라이언트]
-  - "DisabledByDefault" = dword: 00000000
+- [HKEY_LOCAL_MACHINE\SYSTEM\현재 제어세트\제어\보안 제공자\SCHANNEL\프로토콜\TLS 1.2\서버]
+  - "사용 가능"=dword:000000001
+- [HKEY_LOCAL_MACHINE\SYSTEM\현재 제어세트\제어\보안 제공자\SCHANNEL\프로토콜\TLS 1.2\서버]
+  - "비활성화된 기본값"=dword:000000000 
+- [HKEY_LOCAL_MACHINE\SYSTEM\현재 제어세트\제어\보안 제공자\SCHANNEL\프로토콜\TLS 1.2\클라이언트]
+  - "사용 가능"=dword:000000001
+- [HKEY_LOCAL_MACHINE\SYSTEM\현재 제어세트\제어\보안 제공자\SCHANNEL\프로토콜\TLS 1.2\클라이언트]
+  - "비활성화된 기본값"=dword:000000000
 
 ### <a name="powershell-script-to-enable-tls-12"></a>TLS 1.2를 사용하도록 설정하는 PowerShell 스크립트
 다음 PowerShell 스크립트를 사용하여 Azure AD Connect 서버에서 TLS 1.2를 사용하도록 설정할 수 있습니다.
@@ -80,20 +80,20 @@ Azure AD Connect 서버에서 TLS 1.2만 사용하도록 적용하려면 Windows
 ```
 
 ### <a name="disable-tls-12"></a>TLS 1.2 사용 안 함
-- [HKEY_LOCAL_MACHINE \SOFTWARE\WOW6432Node\Microsoft\\입니다. NETFramework\v4.0.30319
-  - "SystemDefaultTlsVersions" = dword: 00000000
-  - "SchUseStrongCrypto" = dword: 0000000
-- [HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\\입니다. NETFramework\v4.0.30319
-  - "SystemDefaultTlsVersions" = dword: 00000000
-  - "SchUseStrongCrypto" = dword: 00000000
-- [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \server]
-  - "Enabled" = dword: 00000000
-- [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \server]
-  - "DisabledByDefault" = dword: 00000001
-- [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ 클라이언트]
-  - "Enabled" = dword: 00000000
-- [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ 클라이언트]
-  - "DisabledByDefault" = dword: 00000001 
+- [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\마이크로\\소프트 . 넷프레임워크\v4.0.30319]
+  - "시스템 기본값TlsVersions"=dword:000000000
+  - "슈유스트롱크립크립토"=워드:0000000
+- [HKEY_LOCAL_MACHINE\소프트웨어\마이크로\\소프트 . 넷프레임워크\v4.0.30319]
+  - "시스템 기본값TlsVersions"=dword:000000000
+  - "슈유스트롱크립크립토"=워드:00000000
+- [HKEY_LOCAL_MACHINE\SYSTEM\현재 제어세트\제어\보안 제공자\SCHANNEL\프로토콜\TLS 1.2\서버]
+  - "사용 가능"=dword:000000000
+- [HKEY_LOCAL_MACHINE\SYSTEM\현재 제어세트\제어\보안 제공자\SCHANNEL\프로토콜\TLS 1.2\서버]
+  - "비활성화된 기본값"=dword:000000001
+- [HKEY_LOCAL_MACHINE\SYSTEM\현재 제어세트\제어\보안 제공자\SCHANNEL\프로토콜\TLS 1.2\클라이언트]
+  - "사용 가능"=dword:000000000
+- [HKEY_LOCAL_MACHINE\SYSTEM\현재 제어세트\제어\보안 제공자\SCHANNEL\프로토콜\TLS 1.2\클라이언트]
+  - "비활성화된 기본값"=dword:000000001 
 
 ### <a name="powershell-script-to-disable-tls-12"></a>TLS 1.2를 사용하지 않도록 설정하는 PowerShell 스크립트
 다음 PowerShell 스크립트를 사용하여 Azure AD Connect 서버에서 TLS 1.2를 사용하지 않도록 설정할 수 있습니다.

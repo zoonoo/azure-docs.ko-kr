@@ -9,14 +9,14 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2020
 ms.author: iainfou
-ms.openlocfilehash: 05705d14db336b15a6ddf2317f9e69464c8e575b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: f853d6d59a4c23b7b52a2a0ba800ace58c997f6e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378539"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79481588"
 ---
-# <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>자습서: 관리 되는 도메인에 Windows Server 가상 머신 연결
+# <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>자습서: Windows Server 가상 머신을 관리되는 도메인에 가입
 
 Azure AD DS(Azure Active Directory Domain Services)는 Windows Server Active Directory와 완전히 호환되는 도메인 조인, 그룹 정책, LDAP, Kerberos/NTLM 인증과 같은 관리되는 도메인 서비스를 제공합니다. Azure AD DS 관리형 도메인을 사용하면 도메인 조인 및 관리 기능을 Azure의 VM(가상 머신)에 제공할 수 있습니다. 이 자습서에서는 Windows Server VM을 만든 다음, Azure AD DS 관리형 도메인에 조인하는 방법을 보여 줍니다.
 
@@ -39,10 +39,10 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
     * 필요한 경우 [Azure Active Directory Domain Services 인스턴스를 만들고 구성합니다][create-azure-ad-ds-instance].
-* Azure AD DS 관리 되는 도메인의 일부인 사용자 계정
+* Azure AD DS 관리형 도메인의 일부인 사용자 계정입니다.
     * 계정에서 Azure AD DS 관리형 도메인에 로그인할 수 있도록 Azure AD Connect 암호 해시 동기화 또는 셀프 서비스 암호 재설정이 수행되었는지 확인합니다.
-* Azure AD DS 가상 네트워크에 배포 된 Azure 방호 호스트.
-    * 필요한 경우 [Azure 방호 호스트를 만듭니다][azure-bastion].
+* Azure AD DS 가상 네트워크에 배포된 Azure Bastion 호스트
+    * 필요한 경우 [Azure Bastion 호스트를 만듭니다][azure-bastion].
 
 도메인에 조인하려는 VM이 이미 있는 경우 [VM을 Azure AD DS 관리형 도메인에 조인](#join-the-vm-to-the-azure-ad-ds-managed-domain) 섹션으로 건너뜁니다.
 
@@ -72,16 +72,16 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
     | 사용자 이름             | VM에 만들 로컬 관리자 계정의 사용자 이름(예: *azureuser*)을 입력합니다. |
     | 암호             | 로컬 관리자가 VM에 만들 보안 암호를 입력하고 확인합니다. 도메인 사용자 계정의 자격 증명을 지정하지 마세요. |
 
-1. 기본적으로 Azure에서 만든 Vm은 RDP를 사용 하 여 인터넷에서 액세스할 수 있습니다. RDP를 사용하도록 설정하면 자동 로그인 공격이 발생할 수 있으며, 이로 인해 여러 번의 연속 로그인 시도가 실패하여 *admin* 또는 *administrator*와 같은 일반 이름의 계정을 사용하지 않도록 설정될 수 있습니다.
+1. 기본적으로 Azure에서 만든 VM은 RDP를 사용하여 인터넷에서 액세스할 수 없습니다. RDP를 사용하도록 설정하면 자동 로그인 공격이 발생할 수 있으며, 이로 인해 여러 번의 연속 로그인 시도가 실패하여 *admin* 또는 *administrator*와 같은 일반 이름의 계정을 사용하지 않도록 설정될 수 있습니다.
 
-    RDP는 필요한 경우에만 사용하도록 설정하고 권한 있는 IP 범위 세트로 제한해야 합니다. 이 구성은 VM의 보안을 향상시키고 잠재적인 공격 영역을 줄이는 데 도움이 됩니다. 또는 SSL을 통해 Azure Portal을 통해서만 액세스할 수 있는 Azure 방호 호스트를 만들고 사용 합니다. 이 자습서의 다음 단계에서는 Azure 방호 호스트를 사용 하 여 VM에 안전 하 게 연결 합니다.
+    RDP는 필요한 경우에만 사용하도록 설정하고 권한 있는 IP 범위 세트로 제한해야 합니다. 이 구성은 VM의 보안을 향상시키고 잠재적인 공격 영역을 줄이는 데 도움이 됩니다. 또는 TLS를 통해 Azure Portal에서만 액세스할 수 있는 Azure Bastion 호스트를 만들고 사용합니다. 이 자습서의 다음 단계에서는 Azure Bastion 호스트를 사용하여 VM에 안전하게 연결합니다.
 
-    지금은 VM에 대 한 직접 RDP 연결을 사용 하지 않도록 설정 합니다.
+    지금은 VM에 대한 직접 RDP 연결을 사용하지 않도록 설정합니다.
 
-    **공용 인바운드 포트**에서 *없음*을 선택 합니다.
+    **퍼블릭 인바운드 포트** 아래에서 *없음*을 선택합니다.
 
-1. 완료 되 면 **다음: 디스크**를 선택 합니다.
-1. **OS 디스크 유형에**대 한 드롭다운 메뉴에서 *표준 SSD*를 선택 하 고 **다음: 네트워킹**을 선택 합니다.
+1. 완료되면 **다음: 디스크**를 선택합니다.
+1. **OS 디스크 유형**의 드롭다운 메뉴에서 *표준 SSD*, **다음: 네트워킹**을 차례로 선택합니다.
 1. VM은 Azure AD DS 관리형 도메인이 배포된 서브넷과 통신할 수 있는 Azure 가상 네트워크 서브넷에 연결해야 합니다. Azure AD DS 관리형 도메인은 자체 전용 서브넷에 배포하는 것이 좋습니다. VM을 Azure AD DS 관리형 도메인과 동일한 서브넷에 배포하지 마세요.
 
     VM을 배포하고 적절한 가상 네트워크 서브넷에 연결하는 두 가지 주요 방법이 있습니다.
@@ -122,23 +122,23 @@ VM을 만드는 데 몇 분이 걸립니다. Azure Portal에서 배포 상태를
 
 ## <a name="connect-to-the-windows-server-vm"></a>Windows Server VM에 연결
 
-Vm에 안전 하 게 연결 하려면 Azure 방호 호스트를 사용 합니다. Azure 방호를 사용 하면 관리 호스트를 가상 네트워크에 배포 하 고 Vm에 대 한 웹 기반 RDP 또는 SSH 연결을 제공 합니다. Vm에는 공용 IP 주소가 필요 하지 않으며, 외부 원격 트래픽에 대 한 네트워크 보안 그룹 규칙을 열지 않아도 됩니다. 웹 브라우저에서 Azure Portal를 사용 하 여 Vm에 연결 합니다.
+VM에 안전하게 연결하려면 Azure Bastion 호스트를 사용합니다. Azure Bastion을 사용하면 관리 호스트가 가상 네트워크에 배포되고, VM에 대한 웹 기반 RDP 또는 SSH 연결을 제공합니다. VM에는 공용 IP 주소가 필요하지 않으며, 외부 원격 트래픽에 대한 네트워크 보안 그룹 규칙을 열 필요가 없습니다. 웹 브라우저에서 Azure Portal을 사용하여 VM에 연결합니다.
 
-요새 호스트를 사용 하 여 VM에 연결 하려면 다음 단계를 완료 합니다.
+Bastion 호스트를 사용하여 VM에 연결하려면 다음 단계를 완료합니다.
 
-1. VM에 대 한 **개요** 창에서 **연결**, **방호**를 차례로 선택 합니다.
+1. VM에 대한 **개요** 창에서 **연결**, **Bastion**을 차례로 선택합니다.
 
-    ![Azure Portal에서 방호를 사용 하 여 Windows 가상 머신에 연결](./media/join-windows-vm/connect-to-vm.png)
+    ![Azure Portal에서 Bastion을 사용하여 Windows 가상 머신에 연결](./media/join-windows-vm/connect-to-vm.png)
 
-1. 이전 섹션에서 지정한 VM에 대 한 자격 증명을 입력 한 다음 **연결**을 선택 합니다.
+1. 이전 섹션에서 지정한 VM의 자격 증명을 입력한 다음, **연결**을 선택합니다.
 
-   ![Azure Portal에서 요새 호스트를 통해 연결](./media/join-windows-vm/connect-to-bastion.png)
+   ![Azure Portal에서 Bastion 호스트를 통해 연결](./media/join-windows-vm/connect-to-bastion.png)
 
-필요한 경우 웹 브라우저에서 해당 웹 브라우저를 사용 하 여 방호 연결을 표시할 수 있습니다. VM에 연결 하는 데 몇 초 정도 걸립니다.
+필요한 경우 웹 브라우저에서 Bastion 연결을 표시할 팝업을 열도록 허용합니다. VM에 연결하는 데 몇 초 정도 걸립니다.
 
 ## <a name="join-the-vm-to-the-azure-ad-ds-managed-domain"></a>VM을 Azure AD DS 관리형 도메인에 조인
 
-이제 Azure 방호를 사용 하 여 만든 VM과 웹 기반 RDP 연결을 사용 하 여 Windows Server 가상 머신을 Azure AD DS 관리 되는 도메인에 가입 하겠습니다. 이 프로세스는 컴퓨터에서 일반 온-프레미스 Active Directory Domain Services 도메인에 연결하는 것과 동일합니다.
+Azure Bastion을 사용하여 VM이 만들어지고 웹 기반 RDP 연결이 설정되었으면 이제 Windows Server 가상 머신을 Azure AD DS 관리형 도메인에 조인해 보겠습니다. 이 프로세스는 컴퓨터에서 일반 온-프레미스 Active Directory Domain Services 도메인에 연결하는 것과 동일합니다.
 
 1. VM에 로그인할 때 **서버 관리자**가 기본적으로 열리지 않는 경우 **시작** 메뉴를 선택한 다음, **서버 관리자**를 선택합니다.
 1. **서버 관리자** 창의 왼쪽 창에서 **로컬 서버**를 클릭합니다. 오른쪽 창의 **속성** 아래에서 **작업 그룹**을 선택합니다.
@@ -149,11 +149,11 @@ Vm에 안전 하 게 연결 하려면 Azure 방호 호스트를 사용 합니다
 
     ![작업 그룹 또는 도메인 속성을 변경하도록 선택](./media/join-windows-vm/change-domain.png)
 
-1. **도메인** 상자에서 Azure AD DS 관리 되는 도메인의 이름 (예: *aaddscontoso.com*)을 지정한 다음 **확인**을 선택 합니다.
+1. **도메인** 상자에서 Azure AD DS 관리형 도메인의 이름(예: *aaddscontoso.com*)을 지정한 다음, **확인**을 선택합니다.
 
     ![조인할 Azure AD DS 관리형 도메인 지정](./media/join-windows-vm/join-domain.png)
 
-1. 도메인에 조인할 도메인 자격 증명을 입력합니다. Azure AD DS 관리 되는 도메인의 일부인 사용자에 대 한 자격 증명을 사용 합니다. 계정은 Azure AD DS 관리되는 도메인 또는 Azure AD 테넌트의 일부여야 합니다. 즉, Azure AD 테넌트와 연결된 외부 디렉터리의 계정은 도메인 가입 프로세스 중에 올바르게 인증되지 않습니다. 계정 자격 증명은 다음 방법 중 하나로 지정할 수 있습니다.
+1. 도메인에 조인할 도메인 자격 증명을 입력합니다. Azure AD DS 관리형 도메인의 일부인 사용자에 대한 자격 증명을 사용합니다. 계정은 Azure AD DS 관리되는 도메인 또는 Azure AD 테넌트의 일부여야 합니다. 즉, Azure AD 테넌트와 연결된 외부 디렉터리의 계정은 도메인 가입 프로세스 중에 올바르게 인증되지 않습니다. 계정 자격 증명은 다음 방법 중 하나로 지정할 수 있습니다.
 
     * **UPN 형식**(추천) - Azure AD에 구성된 대로 사용자 계정의 UPN(사용자 계정 이름) 접미사를 입력합니다. 예를 들어 *contosoadmin* 사용자의 UPN 접미사는 `contosoadmin@aaddscontoso.onmicrosoft.com`입니다. UPN 형식을 사용하여 *SAMAccountName* 형식이 아닌 도메인에 안정적으로 로그인할 수 있는 몇 가지 일반적인 사용 사례는 다음과 같습니다.
         * 사용자의 UPN 접두사(예: *deehasareallylongname*)가 긴 경우 *SAMAccountName*이 자동으로 생성될 수 있습니다.
@@ -169,7 +169,7 @@ Vm에 안전 하 게 연결 하려면 Azure 방호 호스트를 사용 합니다
 1. Azure AD DS 관리형 도메인에 조인하는 프로세스를 완료하려면 VM을 다시 시작합니다.
 
 > [!TIP]
-> PowerShell에서 [Add-Computer][add-computer] cmdlet을 사용하여 VM을 도메인에 조인할 수 있습니다. 다음 예에서는 *Aaddscontoso* 도메인을 조인한 다음 VM을 다시 시작 합니다. 메시지가 표시 되 면 Azure AD DS 관리 되는 도메인의 일부인 사용자에 대 한 자격 증명을 입력 합니다.
+> PowerShell에서 [Add-Computer][add-computer] cmdlet을 사용하여 VM을 도메인에 조인할 수 있습니다. 다음 예제에서는 *AADDSCONTOSO* 도메인에 조인한 다음, VM을 다시 시작합니다. 메시지가 표시되면 Azure AD DS 관리형 도메인의 일부인 사용자에 대한 자격 증명을 입력합니다.
 >
 > `Add-Computer -DomainName AADDSCONTOSO -Restart`
 >
@@ -179,7 +179,7 @@ Windows Server VM이 다시 시작되면 Azure AD DS 관리형 도메인에 적�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다음 자습서에서는 이 Windows Server VM을 사용하여 Azure AD DS 관리형 도메인을 관리할 수 있는 관리 도구를 설치합니다. 이 자습서 시리즈에서 계속 하지 않으려면 다음 정리 단계를 검토 하 여 [VM을 삭제](#delete-the-vm)합니다. 그렇지 않으면 [다음 자습서로 계속 진행](#next-steps)합니다.
+다음 자습서에서는 이 Windows Server VM을 사용하여 Azure AD DS 관리형 도메인을 관리할 수 있는 관리 도구를 설치합니다. 이 자습서 시리즈를 계속 진행하지 않으려면 다음 정리 단계를 검토하여 [VM을 삭제](#delete-the-vm)합니다. 그렇지 않으면 [다음 자습서로 계속 진행](#next-steps)합니다.
 
 ### <a name="un-join-the-vm-from-azure-ad-ds-managed-domain"></a>VM을 Azure AD DS 관리형 도메인에서 조인 해제
 
@@ -218,7 +218,7 @@ Windows Server VM은 일반 온-프레미스 컴퓨터에서 Active Directory Do
 
 다음 문제 해결 단계를 각각 수행한 후에 Windows Server VM을 다시 관리형 도메인에 조인시킵니다.
 
-* 지정 하는 사용자 계정이 Azure AD DS 관리 되는 도메인에 속하는지 확인 합니다.
+* 지정한 사용자 계정이 Azure AD DS 관리형 도메인에 속하는지 확인합니다.
 * 계정이 Azure AD DS 관리되는 도메인 또는 Azure AD 테넌트에 속하는지 확인합니다. Azure AD 테넌트와 연결된 외부 디렉터리의 계정은 도메인 가입 프로세스 중에 올바르게 인증되지 않습니다.
 * UPN 형식을 사용하여 자격 증명(예: `contosoadmin@aaddscontoso.onmicrosoft.com`)을 지정합니다. 테넌트에서 여러 사용자가 동일한 UPN 접두사를 사용하거나 UPN 접두사가 너무 긴 경우 사용자 계정의 *SAMAccountName*이 자동으로 생성될 수 있습니다. 이러한 경우 사용자 계정의 *SAMAccountName* 형식이 온-프레미스 도메인에서 필요하거나 사용하는 것과 다를 수 있습니다.
 * 관리되는 도메인에 대해 [암호 동기화를 사용하도록 설정][password-sync]했는지 확인합니다. 이 구성 단계를 수행하지 않으면 필요한 암호 해시가 Azure AD DS 관리형 도메인에 없어 로그인 시도를 올바르게 인증할 수 없습니다.

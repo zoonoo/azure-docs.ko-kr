@@ -1,6 +1,6 @@
 ---
 title: Media Encoder Standard로 비디오를 자르는 방법 - Azure | Microsoft Docs
-description: 자르기는 비디오 프레임 내에서 사각형 창을 선택하는 과정이며 해당 창 내의 픽셀을 인코딩합니다. 이 문서에서는 Media Encoder Standard으로 비디오를 자르는 방법을 보여 줍니다.
+description: 자르기는 비디오 프레임 내에서 사각형 창을 선택하는 과정이며 해당 창 내의 픽셀을 인코딩합니다. 이 문서에서는 미디어 인코더 표준으로 비디오를 자르는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -15,10 +15,10 @@ ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
 ms.openlocfilehash: 059816284e39c65bb772bd02f066d73da624722f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74887767"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>미디어 인코더 표준으로 비디오 자르기  
@@ -128,7 +128,7 @@ MES에서 자르기는 전처리 단계이므로 인코딩 사전 설정의 자�
 
 
 ## <a name="restrictions-on-cropping"></a>자르기에 대한 제한 사항
-자르기 기능은 수동입니다. 원하는 프레임을 선택 하 고, 커서를 배치 하 여 자르기 사각형의 오프셋을 결정 하 고, 특정 비디오 등에 대해 조정 되는 인코딩 사전 설정을 결정 하는 데 적합 한 편집 도구로 입력 비디오를 로드 해야 합니다. 이 기능은 입력 비디오에서 블랙 박스/pillarbox 테두리의 자동 검색 및 제거와 같은 작업을 사용 하도록 설정 하는 것이 아닙니다.
+자르기 기능은 수동입니다. 입력 비디오를 관심 있는 프레임을 선택하고 커서를 배치하여 자르기 사각형의 오프셋을 결정하고 특정 비디오에 맞게 조정된 인코딩 사전 설정을 결정할 수 있는 적절한 편집 도구로 입력 비디오를 로드해야 합니다. 이 기능은 입력 비디오에서 블랙 레터박스/필기상자 테두리를 자동으로 감지하고 제거하는 것과 같은 기능을 사용하지 않습니다.
 
 자르기 기능에는 다음과 같은 제약 조건이 적용됩니다. 이러한 제약 조건이 충족되지 않으면 인코딩 작업이 실패하거나 예기치 않은 출력을 생성할 수 있습니다.
 
@@ -137,7 +137,7 @@ MES에서 자르기는 전처리 단계이므로 인코딩 사전 설정의 자�
 3. 자르기는 가로 모드에서 캡처된 비디오에 적용됩니다(즉, 세로로 또는 인물 모드로 스마트폰을 잡고 기록한 비디오에는 적용되지 않음).
 4. 정사각형 픽셀로 캡처된 프로그레시브 비디오에서 가장 잘 작동합니다.
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>다음 단계

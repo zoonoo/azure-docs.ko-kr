@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: a8545939fd027989519e0f7a161f750ec676749a
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68976809"
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Azure Data Catalog에서 검색 저장 및 데이터 자산 고정
@@ -37,7 +37,7 @@ Azure Data Catalog는 데이터 원본 검색에 대한 기능을 제공합니�
 ### <a name="manage-saved-searches"></a>저장된 검색 관리
 하나 이상의 검색을 저장한 후 **현재 검색** 상자 아래에 **저장된 검색** 옵션이 표시됩니다. 목록이 확장되는 경우 저장된 모든 검색이 표시됩니다.
 
- ![Data Catalog-저장 된 검색 목록](./media/data-catalog-how-to-save-pin/03-list.png)
+ ![데이터 카탈로그 - 저장된 검색 목록](./media/data-catalog-how-to-save-pin/03-list.png)
 
 다음 중 하나를 수행합니다.
 
@@ -56,18 +56,18 @@ Azure Data Catalog는 데이터 원본 검색에 대한 기능을 제공합니�
 ### <a name="organizational-saved-searches"></a>조직 저장된 검색
 조직의 모든 사용자는 자신의 용도에 대한 검색을 저장할 수 있습니다. 데이터 카탈로그 관리자는 조직 내의 모든 사용자에 대한 검색을 저장할 수도 있습니다. 관리자가 검색을 저장하는 경우 **회사 내에서 공유** 옵션으로 제공됩니다. 이 옵션을 선택하면 조직의 모든 사용자에 대해 저장된 검색을 공유합니다.
 
- ![Data Catalog-조직에서 저장 한 검색](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
+ ![데이터 카탈로그 - 조직에서 저장된 검색](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
 
 ## <a name="pinned-data-assets"></a>고정된 데이터 자산
 저장된 검색을 사용하여 검색 정의를 저장하고 다시 사용할 수 있습니다. 검색에서 반환되는 데이터 자산은 카탈로그 변경 내용으로 시간이 지남에 따라 변경될 수 있습니다. 데이터 자산을 고정하는 경우 검색을 사용할 필요 없이 쉽게 액세스할 수 있게 하는 특정 데이터 자산을 명시적으로 식별할 수 있습니다.
 
 데이터 자산을 고정하는 것은 간단합니다. 데이터 자산을 고정된 목록에 추가하려면 **고정** 아이콘을 간단히 클릭합니다. 아이콘이 Azure Data Catalog 포털의 목록 뷰 중 가장 왼쪽 열에 있는 타일 뷰에서 자산 타일의 모퉁이에 표시됩니다.
 
-![Data Catalog-데이터 자산 고정 아이콘](./media/data-catalog-how-to-save-pin/05-pinning.png)
+![데이터 카탈로그 - 데이터 자산 핀 아이콘](./media/data-catalog-how-to-save-pin/05-pinning.png)
 
 데이터 자산을 고정 해제하는 것은 동일하게 간단합니다. **고정 해제** 아이콘을 간단히 클릭하여 선택한 자산에 대한 설정을 전환합니다.
 
-![Data Catalog-데이터 자산 고정 해제 아이콘](./media/data-catalog-how-to-save-pin/06-unpinning.png)
+![데이터 카탈로그 - 데이터 자산 고정 해제 아이콘](./media/data-catalog-how-to-save-pin/06-unpinning.png)
 
 ## <a name="the-my-assets-section"></a>내 자산 섹션
 데이터 카탈로그 포털 홈 페이지는 현재 사용자에 대한 관심 자산을 표시하는 **내 자산** 섹션을 포함합니다. 이 섹션은 고정된 자산 및 저장된 검색을 모두 포함합니다.

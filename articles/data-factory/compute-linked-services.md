@@ -11,10 +11,10 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: 4545a75cc2082c21dcb87986eba819ebe39adf7b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246345"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 컴퓨팅 환경
@@ -25,14 +25,14 @@ ms.locfileid: "79246345"
 | 컴퓨팅 환경                                          | 작업                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [주문형 HDInsight 클러스터](#azure-hdinsight-on-demand-linked-service) 또는 [사용자 고유의 HDInsight 클러스터](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop 스트리밍](transform-data-using-hadoop-streaming.md) |
-| [Azure Batch](#azure-batch-linked-service)                   | [Custom](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio-linked-service) | [Machine Learning 작업: Batch 실행 및 업데이트 리소스](transform-data-using-machine-learning.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [파이프라인 실행 Azure Machine Learning](transform-data-machine-learning-service.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [파이프라인 실행 Azure Machine Learning](transform-data-machine-learning-service.md) |
-| [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [데이터 레이크 분석 U-SQL](transform-data-using-data-lake-analytics.md) |
+| [Azure Batch](#azure-batch-linked-service)                   | [주문](transform-data-using-dotnet-custom-activity.md)     |
+| [Azure 기계 학습 스튜디오](#azure-machine-learning-studio-linked-service) | [Machine Learning 작업: Batch 실행 및 업데이트 리소스](transform-data-using-machine-learning.md) |
+| [Azure 기계 학습](#azure-machine-learning-linked-service) | [Azure 기계 학습 실행 파이프라인](transform-data-machine-learning-service.md) |
+| [Azure 기계 학습](#azure-machine-learning-linked-service) | [Azure 기계 학습 실행 파이프라인](transform-data-machine-learning-service.md) |
+| [Azure 데이터 레이크 분석](#azure-data-lake-analytics-linked-service) | [데이터 레이크 분석 U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [저장 프로시저](transform-data-using-stored-procedure.md) |
-| [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
-| [Azure Function](#azure-function-linked-service)         | [Azure 함수 활동](control-flow-azure-function-activity.md)
+| [Azure 데이터 브릭](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
+| [Azure 함수](#azure-function-linked-service)         | [Azure 함수 작업](control-flow-azure-function-activity.md)
 >  
 
 ## <a name="on-demand-hdinsight-compute-environment"></a>주문형 HDInsight 컴퓨팅 환경
@@ -90,14 +90,14 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 ```
 
 > [!IMPORTANT]
-> HDInsight 클러스터는 JSON(**linkedServiceName**)에서 지정한 Blob Storage에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리해야 할 때마다 HDInsight 클러스터가 만들어지며 처리가 완료되면 삭제됩니다. 
+> HDInsight 클러스터는**JSON(linkedServiceName)에**지정한 Blob 저장소에 **기본 컨테이너를** 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리해야 할 때마다 HDInsight 클러스터가 만들어지며 처리가 완료되면 삭제됩니다. 
 >
 > 더 많은 작업이 실행될수록 Azure Blob Storage에 컨테이너가 많아집니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 스토리지 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp` 패턴을 따릅니다. [Microsoft Storage Explorer](https://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob Storage에서 컨테이너를 삭제합니다.
 >
 > 
 
 ### <a name="properties"></a>속성
-| 속성                     | Description                              | 필수 |
+| 속성                     | 설명                              | 필수 |
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | 형식 속성은 **HDInsightOnDemand**로 설정해야 합니다. | yes      |
 | clusterSize                  | 클러스터의 작업자/데이터 노드 수 HDInsight 클러스터는 속성에 지정한 작업자 노드의 수와 함께 2개의 헤드 노드로 생성됩니다. 노드의 크기는 4개 코어를 포함한 Standard_D3이므로, 4개 작업자 노드 클러스터에서 24개 코어(작업자 노드용 4\*4 = 16코어 및 헤드 노드용 2\*4 = 8코어)를 사용합니다. 자세한 내용은 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요. | yes      |
@@ -115,7 +115,7 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 | connectVia                   | 이 HDInsight 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. 주문형 HDInsight 연결된 서비스의 경우 Azure 통합 런타임만 지원합니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 예       |
 | clusterUserName                   | 클러스터에 액세스하기 위한 사용자 이름입니다. | 예       |
 | clusterPassword                   | 클러스터에 액세스하기 위한 보안 문자열 형식의 암호입니다. | 예       |
-| clusterSshUserName         | SSH에 대 한 사용자 이름은 클러스터의 노드에 원격으로 연결 됩니다 (Linux의 경우). | 예       |
+| clusterSshUserName         | SSH에 대한 사용자 이름은 원격으로 클러스터의 노드(Linux용)에 연결됩니다. | 예       |
 | clusterSshPassword         | SSH를 통해 클러스터 노드에 원격으로 연결하기 위한 보안 문자열 형식의 암호입니다(Linux용). | 예       |
 | scriptActions | 주문형 클러스터를 만드는 동안 [HDInsight 클러스터 사용자 지정](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)을 위한 스크립트를 지정합니다. <br />현재 Azure Data Factory의 사용자 인터페이스 제작 도구는 1개의 스크립트 동작만 지정하도록 지원하지만 JSON에서는 이 제한을 무시할 수 있습니다(JSON에서 여러 스크립트 동작 지정). | 예 |
 
@@ -147,17 +147,17 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 
 다음 속성을 지정하여 서비스 주체 인증을 사용합니다.
 
-| 속성                | Description                              | 필수 |
+| 속성                | 설명                              | 필수 |
 | :---------------------- | :--------------------------------------- | :------- |
-| **servicePrincipalId**  | 애플리케이션의 클라이언트 ID를 지정합니다.     | yes      |
+| **서비스PrincipalId**  | 애플리케이션의 클라이언트 ID를 지정합니다.     | yes      |
 | **servicePrincipalKey** | 애플리케이션의 키를 지정합니다.           | yes      |
-| **테넌트**              | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | yes      |
+| **테 넌 트**              | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | yes      |
 
 ### <a name="advanced-properties"></a>고급 속성
 
 또한 주문형 HDInsight 클러스터의 세부적인 구성에 다음 속성을 지정할 수 있습니다.
 
-| 속성               | Description                              | 필수 |
+| 속성               | 설명                              | 필수 |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | 만들어지는 HDInsight 클러스터에 대한 핵심 구성 매개 변수(core-site.xml에서 처럼)를 지정합니다. | 예       |
 | hBaseConfiguration     | HDInsight 클러스터에 대한 HBase 구성 매개 변수(hbase-site.xml)를 지정합니다. | 예       |
@@ -225,7 +225,7 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 ### <a name="node-sizes"></a>노드 크기
 다음 속성을 사용하여 헤드, 데이터 및 Zookeeper 노드의 크기를 지정할 수 있습니다. 
 
-| 속성          | Description                              | 필수 |
+| 속성          | 설명                              | 필수 |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | 헤드 노드의 크기를 지정합니다. 기본값은 Standard_D3입니다. 자세한 내용은 **노드 크기 지정** 섹션을 참조하세요. | 예       |
 | dataNodeSize      | 데이터 노드의 크기를 지정합니다. 기본값은 Standard_D3입니다. | 예       |
@@ -241,7 +241,7 @@ D4 크기의 헤드 노드 및 작업자 노드를 만들려는 경우 headNodeS
 "dataNodeSize": "Standard_D4",
 ```
 
-이러한 속성에 잘못된 값을 지정하는 경우 다음과 같은 오류가 발생할 수 있습니다. **오류:** 클러스터를 만들지 못했습니다. 예외: 클러스터 만들기 작업을 완료할 수 없습니다. 작업이 실패했습니다. 오류 코드는 '400'입니다. 클러스터의 상태가 '오류'로 남아 있습니다. 메시지: 'PreClusterCreationValidationFailure'. 이 오류가 발생하면 **Virtual Machines 크기** 문서의 테이블에서 [CMDLET 및 API](../virtual-machines/linux/sizes.md) 이름을 사용하고 있는지 확인합니다.        
+이러한 속성에 대해 잘못된 값을 지정하면 클러스터를 만들지 **못했다는** 오류가 발생할 수 있습니다. 예외: 클러스터 만들기 작업을 완료할 수 없습니다. 작업이 실패했습니다. 오류 코드는 '400'입니다. 클러스터의 상태가 '오류'로 남아 있습니다. 메시지: 'PreClusterCreationValidationFailure'. 이 오류가 발생하면 [Virtual Machines 크기](../virtual-machines/linux/sizes.md) 문서의 테이블에서 **CMDLET 및 API** 이름을 사용하고 있는지 확인합니다.        
 
 ## <a name="bring-your-own-compute-environment"></a>사용자 고유의 컴퓨팅 환경 가져오기
 이 구성의 형식에서는 사용자가 이미 기존 컴퓨팅 환경을 데이터 팩터리에서 연결된 서비스로 등록할 수 있습니다. 컴퓨팅 환경은 이를 사용하여 작업을 실행하는 데이터 팩터리 서비스와 사용자에 의해 관리됩니다.
@@ -285,15 +285,15 @@ Azure HDInsight 연결된 서비스를 만들어서 데이터 팩터리를 사�
 ```
 
 ### <a name="properties"></a>속성
-| 속성          | Description                                                  | 필수 |
+| 속성          | 설명                                                  | 필수 |
 | ----------------- | ------------------------------------------------------------ | -------- |
 | type              | 형식 속성은 **HDInsight**로 설정해야 합니다.            | yes      |
 | clusterUri        | HDInsight 클러스터의 URI입니다.                            | yes      |
 | 사용자 이름          | 기존 HDInsight 클러스터에 연결하는데 사용할 사용자의 이름을 지정합니다. | yes      |
 | password          | 사용자 계정으로 password를 지정합니다.                       | yes      |
 | linkedServiceName | HDInsight 클러스터에서 사용하는 Azure Blob Storage를 참조하는 Azure Storage 연결된 서비스의 이름입니다. <p>현재 이 속성에 대한 Azure Data Lake Store 연결된 서비스를 지정할 수 없습니다. HDInsight 클러스터가 Data Lake Store에 액세스할 경우 Hive/Pig 스크립트의 Azure Data Lake Store에 있는 데이터에 액세스할 수 있습니다. </p> | yes      |
-| isEspEnabled      | HDInsight 클러스터에서 *Enterprise Security Package*가 사용하도록 설정되어 있으면 '[true](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-architecture)'를 지정합니다. 기본값은 ‘*false*’입니다. | 예       |
-| connectVia        | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. <br />ESP (Enterprise Security Package)를 사용 하도록 설정 된 HDInsight 클러스터는 클러스터에 대 한 시야를 포함 하는 자체 호스팅 integration runtime을 사용 하 여 ESP HDInsight 클러스터와 동일한 Virtual Network 내에 배포 해야 합니다. | 예       |
+| isEspEnabled      | HDInsight 클러스터에서 [Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-architecture)가 사용하도록 설정되어 있으면 '*true*'를 지정합니다. 기본값은 *'false'입니다.* | 예       |
+| connectVia        | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. <br />ESP(엔터프라이즈 보안 패키지) 지원 HDInsight 클러스터는 자체 호스팅 통합 런타임을 사용하며, 이 런타임은 클러스터에 가시선이 있거나 ESP HDInsight 클러스터와 동일한 가상 네트워크 내에 배포되어야 합니다. | 예       |
 
 > [!IMPORTANT]
 > HDInsight는 배포할 수 있는 여러 Hadoop 클러스터 버전을 지원합니다. 각 버전을 선택하면 특정 버전의 HDP(Hortonworks Data Platform) 배포 및 배포에 포함된 구성 요소 집합이 만들어집니다. 지원되는 HDInsight 버전 목록을 계속 업데이트하여 최신 Hadoop 에코시스템 구성 요소 및 수정 프로그램을 제공합니다. [지원되는 HDInsight 버전 및 OS 형식](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)의 최신 정보를 항상 참조하여 지원되는 HDInsight 버전을 사용 중인지 확인합니다. 
@@ -312,8 +312,8 @@ Azure Batch 연결된 서비스를 만들어 데이터 팩터리에 가상 머�
 Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 
 * [Azure Batch 기본 사항](../batch/batch-technical-overview.md) 입니다.
-* [AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet을 사용 하 여 Azure Batch 계정 (또는) [Azure Portal](../batch/batch-account-create-portal.md) 를 만들어 Azure Portal를 사용 하 여 Azure Batch 계정을 만들 수 있습니다. 이 cmdlet 사용에 관한 자세한 지침은 [PowerShell을 사용하여 Azure Batch 계정 관리](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) 문서를 참조하세요.
-* Azure Batch 풀을 만드는 [AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet
+* [새 AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet Azure 일괄 처리 계정 (또는) [Azure 포털을](../batch/batch-account-create-portal.md) 만들어 Azure 포털을 사용하여 Azure Batch 계정을 만듭니다. 이 cmdlet 사용에 관한 자세한 지침은 [PowerShell을 사용하여 Azure Batch 계정 관리](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) 문서를 참조하세요.
+* Azure 배치 풀을 만드는 [새 AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet입니다.
 
 ### <a name="example"></a>예제
 
@@ -345,7 +345,7 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 
 
 ### <a name="properties"></a>속성
-| 속성          | Description                              | 필수 |
+| 속성          | 설명                              | 필수 |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | 형식 속성은 **AzureBatch**로 설정해야 합니다. | yes      |
 | accountName       | Azure Batch 계정의 이름         | yes      |
@@ -355,8 +355,8 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 | linkedServiceName | Azure Batch 연결된 서비스와 관련된 Azure Storage 연결된 서비스의 이름입니다. 이 연결된 서비스는 작업을 실행하는 데 필요한 파일을 준비하는 데 사용됩니다. | yes      |
 | connectVia        | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 예       |
 
-## <a name="azure-machine-learning-studio-linked-service"></a>Azure Machine Learning Studio 연결 된 서비스
-Azure Machine Learning Studio 연결 된 서비스를 만들어 데이터 팩터리에 Machine Learning 일괄 처리 점수 매기기 끝점을 등록 합니다.
+## <a name="azure-machine-learning-studio-linked-service"></a>Azure 기계 학습 스튜디오 연결 서비스
+Azure 기계 학습 스튜디오 연결 서비스를 만들어 기계 학습 일괄 처리 점수 매기기 끝점을 데이터 팩터리에 등록합니다.
 
 ### <a name="example"></a>예제
 
@@ -381,22 +381,22 @@ Azure Machine Learning Studio 연결 된 서비스를 만들어 데이터 팩터
 ```
 
 ### <a name="properties"></a>속성
-| 속성               | Description                              | 필수                                 |
+| 속성               | 설명                              | 필수                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | 형식 속성은 **AzureML**로 설정해야 합니다. | yes                                      |
 | mlEndpoint             | 일괄 처리 점수 매기기 URL입니다.                   | yes                                      |
 | apiKey                 | 게시된 작업 영역 모델의 API입니다.     | yes                                      |
-| updateResourceEndpoint | 학습 된 모델 파일로 예측 웹 서비스를 업데이트 하는 데 사용 되는 Azure Machine Learning 웹 서비스 끝점에 대 한 업데이트 리소스 URL입니다. | 예                                       |
+| updateResourceEndpoint | 학습된 모델 파일로 예측 웹 서비스를 업데이트하는 데 사용되는 Azure 기계 학습 웹 서비스 끝점에 대한 리소스 업데이트 URL | 예                                       |
 | servicePrincipalId     | 애플리케이션의 클라이언트 ID를 지정합니다.     | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
 | servicePrincipalKey    | 애플리케이션의 키를 지정합니다.           | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
 | tenant                 | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
 | connectVia             | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 예                                       |
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning 연결된 서비스
-Azure Machine Learning 연결 된 서비스를 만들어 Azure Machine Learning 작업 영역을 데이터 팩터리에 연결 합니다.
+Azure 기계 학습 연결 된 서비스를 만들어 Azure 기계 학습 작업 영역을 데이터 팩터리에 연결 합니다.
 
 > [!NOTE]
-> 현재 Azure Machine Learning 연결 된 서비스에 대 한 서비스 주체 인증만 지원 됩니다.
+> 현재 Azure 기계 학습 연결 서비스에 대해 서비스 주체 인증만 지원됩니다.
 
 ### <a name="example"></a>예제
 
@@ -425,12 +425,12 @@ Azure Machine Learning 연결 된 서비스를 만들어 Azure Machine Learning 
 ```
 
 ### <a name="properties"></a>속성
-| 속성               | Description                              | 필수                                 |
+| 속성               | 설명                              | 필수                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
-| Type                   | Type 속성은 **AzureMLService**로 설정 해야 합니다. | yes                                      |
+| Type                   | 형식 속성은 **AzureMLService**로 설정해야 합니다. | yes                                      |
 | subscriptionId         | Azure 구독 ID입니다.              | yes                                      |
 | resourceGroupName      | name | yes                                      |
-| mlWorkspaceName        | Azure Machine Learning 작업 영역 이름 | yes  |
+| ml워크스페이스이름        | Azure 기계 학습 작업 영역 이름 | yes  |
 | servicePrincipalId     | 애플리케이션의 클라이언트 ID를 지정합니다.     | 예 |
 | servicePrincipalKey    | 애플리케이션의 키를 지정합니다.           | 예 |
 | tenant                 | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | UpdateResourceEndpoint가 지정된 경우에 필요합니다. | 예 |
@@ -468,7 +468,7 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 
 ### <a name="properties"></a>속성
 
-| 속성             | Description                              | 필수                                 |
+| 속성             | 설명                              | 필수                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | type                 | type 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. | yes                                      |
 | accountName          | Azure 데이터 레이크 분석 계정 이름입니다.  | yes                                      |
@@ -483,9 +483,9 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 
 
 ## <a name="azure-databricks-linked-service"></a>Azure Databricks 연결된 서비스
-Databricks 워크 로드를 실행 하는 데 사용할 Databricks 작업 영역을 등록 하는 **Azure Databricks 연결 된 서비스** 를 만들 수 있습니다 (노트북, jar, python). 
+**Azure Databricks 링크된 서비스를** 만들어 Databricks 워크로드(노트북, jar, 파이썬)를 실행하는 데 사용할 Databricks 작업 영역을 등록할 수 있습니다. 
 > [!IMPORTANT]
-> Databricks 연결 된 서비스는 [인스턴스 풀](https://aka.ms/instance-pools)을 지원 합니다. 
+> Databricks 링크된 서비스는 [인스턴스 풀을](https://aka.ms/instance-pools)지원합니다. 
 
 ### <a name="example---using-new-job-cluster-in-databricks"></a>예 - Databricks에서 새 작업 클러스터 사용
 
@@ -530,19 +530,19 @@ Databricks 워크 로드를 실행 하는 데 사용할 Databricks 작업 영역
 
 ### <a name="properties"></a>속성
 
-| 속성             | Description                              | 필수                                 |
+| 속성             | 설명                              | 필수                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | name                 | 연결된 서비스의 이름입니다.               | yes   |
-| type                 | 형식 속성은 **Azure Databricks**로 설정 되어야 합니다. | yes                                      |
+| type                 | 형식 속성은 **Azure Databricks로**설정해야 합니다. | yes                                      |
 | 도메인               | Databricks 작업 영역의 지역을 기준으로 Azure 지역을 적절히 지정합니다. 예: https://eastus.azuredatabricks.net | yes                                 |
 | accessToken          | 데이터 팩터리가 Azure Databricks에서 인증을 받으려면 액세스 토큰이 필요합니다. 액세스 토큰은 Databricks 작업 영역에서 생성해야 합니다. 액세스 토큰을 찾는 보다 자세한 단계는 [여기](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)에서 확인할 수 있습니다.  | yes                                       |
-| existingClusterId    | 해당하는 모든 작업을 실행할 기존 클러스터의 클러스터 ID입니다. 이미 만들어진 대화형 클러스터여야 합니다. 클러스터가 응답을 중지하는 경우 수동으로 다시 시작해야 합니다. 안정성을 높이기 위해서는 새 클러스터에서 작업을 실행하는 것이 좋습니다. Databricks 작업 영역 -> 대화형 클러스터 이름 -> 구성 -> 태그에서 대화형 클러스터의 클러스터 ID를 찾을 수 있습니다. [자세한 정보](https://docs.databricks.com/user-guide/clusters/tags.html) | 예 
-| instancePoolId    | Databricks 작업 영역에 있는 기존 풀의 인스턴스 풀 ID입니다.  | 예  |
+| existingClusterId    | 해당하는 모든 작업을 실행할 기존 클러스터의 클러스터 ID입니다. 이미 만들어진 대화형 클러스터여야 합니다. 클러스터가 응답을 중지하는 경우 수동으로 다시 시작해야 합니다. 안정성을 높이기 위해서는 새 클러스터에서 작업을 실행하는 것이 좋습니다. Databricks 작업 영역 -> 대화형 클러스터 이름 -> 구성 -> 태그에서 대화형 클러스터의 클러스터 ID를 찾을 수 있습니다. [자세한 내용](https://docs.databricks.com/user-guide/clusters/tags.html) | 예 
+| 인스턴스풀Id    | 데이터 브릭 작업 영역에서 기존 풀의 인스턴스 풀 ID입니다.  | 예  |
 | newClusterVersion    | 클러스터의 Spark 버전입니다. Databricks에서 작업 클러스터를 만듭니다. | 예  |
-| newClusterNumOfWorker| 이 클러스터에 있어야 하는 작업자 노드의 수입니다. 하나의 클러스터에 총 num_workers + 1개의 Spark 노드에 대해 하나의 Spark 드라이버와 num_workers개의 실행기가 있습니다. 문자열 형식 Int32 (예: "1")는 numOfWorker가 1 또는 "1:10" 임을 의미 합니다. 1에서 min 및 10을 max로 자동 크기 조정을 의미 합니다.  | 예                |
-| newClusterNodeType   | 이 필드는 단일 값을 통해 이 클러스터의 각 Spark 노드에서 사용할 수 있는 리소스를 인코딩합니다. 예를 들어, Spark 노드는 메모리 또는 계산 집약적 워크 로드에 대해 프로 비전 되 고 최적화 될 수 있습니다. 이 필드는 새 클러스터에 필요 합니다.                | 예               |
+| newClusterNumOfWorker| 이 클러스터에 있어야 하는 작업자 노드의 수입니다. 하나의 클러스터에 총 num_workers + 1개의 Spark 노드에 대해 하나의 Spark 드라이버와 num_workers개의 실행기가 있습니다. "1"과 같이 Int32 형식의 문자열은 numOfWorker가 1 또는 "1:10"이라는 의미로 1에서 최소로, 10에서 최대로 자동 크기 조정을 의미합니다.  | 예                |
+| newClusterNodeType   | 이 필드는 단일 값을 통해 이 클러스터의 각 Spark 노드에서 사용할 수 있는 리소스를 인코딩합니다. 예를 들어 Spark 노드는 메모리또는 계산집약적인 워크로드에 맞게 프로비저닝 및 최적화할 수 있습니다. 새 클러스터에 이 필드가 필요합니다.                | 예               |
 | newClusterSparkConf  | 선택적인 사용자 지정 Spark 구성 키-값 쌍의 집합입니다. 또한 사용자는 각각 spark.driver.extraJavaOptions 및 spark.executor.extraJavaOptions를 통해 드라이버와 실행기에 추가 JVM 옵션 문자열을 전달할 수 있습니다. | 예  |
-| newClusterInitScripts| 새 클러스터에 대 한 선택적 사용자 정의 초기화 스크립트의 집합입니다. Init 스크립트에 대 한 DBFS 경로를 지정 합니다. | 예  |
+| newClusterInit스크립트| 새 클러스터에 대한 선택적 사용자 정의 초기화 스크립트 집합입니다. init 스크립트에 대한 DBFS 경로를 지정합니다. | 예  |
 
 
 ## <a name="azure-sql-database-linked-service"></a>Azure SQL Database 연결된 서비스
@@ -555,13 +555,13 @@ Azure SQL Data Warehouse 연결된 서비스를 만들고 [저장 프로시저 �
 SQL Server 연결된 서비스를 만들고 [저장 프로시저 활동](transform-data-using-stored-procedure.md) 에서 사용하여 Data Factory 파이프라인에서 저장 프로시저를 호출합니다. 이 연결된 서비스에 대한 자세한 내용은 [SQL Server 커넥터](connector-sql-server.md#linked-service-properties) 문서를 참조하세요.
 
 ## <a name="azure-function-linked-service"></a>Azure 함수의 연결된 서비스
-Azure Function 연결 된 서비스를 만들고 [Azure function 활동](control-flow-azure-function-activity.md) 에서 사용 하 여 Data Factory 파이프라인에서 Azure Functions를 실행 합니다. Azure 함수의 반환 형식은 유효한 `JObject`여야 합니다. [Jarray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) 는 `JObject`이 *아닙니다* . `JObject` 이외의 모든 반환 형식이 실패 하 고 사용자 오류 *응답 콘텐츠가 올바른 JObject가 아닙니다*.
+Azure Function 연결된 서비스를 만들고 Azure [Function 활동과](control-flow-azure-function-activity.md) 함께 사용하여 데이터 팩터리 파이프라인에서 Azure 함수를 실행합니다. Azure 함수의 반환 형식은 유효한 `JObject`여야 합니다. [(JArray는](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *not* `JObject`.) 실패 하 고 `JObject` 사용자 오류 *응답 콘텐츠가 유효한 JObject*.
 
 | **속성** | **설명** | **필수** |
 | --- | --- | --- |
-| type   | Type 속성은 **AzureFunction** 로 설정 해야 합니다. | 예 |
+| type   | 형식 속성을 설정 해야 **합니다.: AzureFunction** | 예 |
 | 함수 앱 URL | Azure 함수 앱의 URL입니다. 형식은 `https://<accountname>.azurewebsites.net`입니다. 이 URL은 Azure Portal에서 함수 앱을 볼 때 **URL** 섹션 아래에 표시되는 값입니다.  | 예 |
-| 기능 키 | Azure 함수의 액세스 키입니다. 해당 함수의 **관리** 섹션을 클릭하고 **기능 키** 또는 **호스트 키**를 복사합니다. [AZURE FUNCTIONS HTTP 트리거 및 바인딩을](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) 참조 하세요. | 예 |
+| 기능 키 | Azure 함수의 액세스 키입니다. 해당 함수의 **관리** 섹션을 클릭하고 **기능 키** 또는 **호스트 키**를 복사합니다. 여기에서 자세히 알아보기: [Azure Functions HTTP 트리거 및 바인딩](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | 예 |
 |   |   |   |
 
 ## <a name="next-steps"></a>다음 단계

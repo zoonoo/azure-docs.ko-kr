@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 10/18/2019
+ms.date: 03/17/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e928d67ba7102df3d342e77705ea895f9230ff3
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: d2b1d9748b243dcc2104ce7b8e0e8735a7b7276f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887703"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79497683"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection이란?
 
@@ -46,14 +46,14 @@ Microsoft의 ID 보안 및 보호 팀을 이끄는 Alex Weinert는 [자신의 20
 
 Identity Protection은 다음과 같은 분류로 위험을 식별합니다.
 
-| 위험 탐지 유형 | 설명 |
+| 위험 탐지 유형 | Description |
 | --- | --- |
-| 비정상적 이동 | 사용자의 최근 로그인을 기준으로 비정상적인 위치에서 로그인 |
+| 비정상적 이동 | 사용자의 최근 로그인을 기준으로 비정상적인 위치에서 로그인합니다. |
 | 익명 IP 주소 | 익명 IP 주소에서 로그인(예: Tor 브라우저, 익명성 도구 VPN) |
-| 일반적이지 않은 로그인 속성 | 지정된 사용자와 관련하여 최근 확인된 적이 없는 속성을 사용한 로그인 |
+| 일반적이지 않은 로그인 속성 | 지정된 사용자에게 최근 확인되지 않은 속성으로 로그인합니다. |
 | 맬웨어 연결 IP 주소 | 맬웨어 연결 IP 주소에서 로그인 |
 | 유출된 자격 증명 | 이 위험 탐지는 사용자의 유효한 자격 증명이 유출되었음을 나타냅니다. |
-| Azure AD 위협 인텔리전스 | Microsoft 내부 및 외부 위협 인텔리전스 소스는 알려진 공격 패턴을 식별합니다. |
+| Azure AD 위협 인텔리전스 | Microsoft의 내부 및 외부 위협 인텔리전스 소스가 알려진 공격 패턴을 식별했습니다. |
 
 이러한 위험에 대한 더 자세한 내용 및 계산되는 방법/시기는 [위험이란?](concept-identity-protection-risks.md) 문서에서 확인할 수 있습니다.
 
@@ -75,9 +75,18 @@ Identity Protection의 데이터를 추가 조사 및 보관 및 추가 조사 �
 
 Identity Protection 정보를 Azure Sentinel과 통합하는 방법에 대한 정보는 [Azure AD Identity Protection에서 정보 연결](../../sentinel/connect-azure-ad-identity-protection.md) 문서에서 확인할 수 있습니다.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 Identity Protection을 사용하려면 사용자가 보안 읽기 권한자, 보안 운영자, 보안 관리자, 글로벌 독자 또는 글로벌 관리자여야 액세스할 수 있습니다.
+
+| 역할 | 가능한 작업 | 수행할 수 없음 |
+| --- | --- | --- |
+| 전역 관리자 | ID 보호에 대한 완전한 액세스 |   |
+| 보안 관리자 | ID 보호에 대한 완전한 액세스 | 사용자 암호 다시 설정 |
+| 보안 운영자 | 모든 Identity Protection 보고서 및 개요 블레이드 보기 <br><br> 사용자 위험 해제, 안전 로그인 확인, 손상 확인 | 정책 구성 또는 변경 <br><br> 사용자 암호 다시 설정 <br><br> 경고 구성 |
+| 보안 판독기 | 모든 Identity Protection 보고서 및 개요 블레이드 보기 | 정책 구성 또는 변경 <br><br> 사용자 암호 다시 설정 <br><br> 경고 구성 <br><br> 검색에 대한 피드백 제공 |
+
+조건부 액세스 관리자는 로그인 위험을 조건으로 고려하는 정책을 만들 수도 있습니다. 자세한 내용은 [조건부 액세스: 조건](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk) 문서에서 찾을 수 있습니다.
 
 ## <a name="license-requirements"></a>라이선스 요구 사항
 
@@ -85,15 +94,15 @@ Identity Protection을 사용하려면 사용자가 보안 읽기 권한자, 보
 
 | 기능 | 세부 정보 | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
 | --- | --- | --- | --- | --- |
-| 위험 정책 | 사용자 위험 정책(ID 보호를 통해) | 예 | 아니요 | 아니요 |
-| 위험 정책 | 로그인 위험 정책(ID 보호 또는 조건부 액세스를 통해) | 예 | 아니요 | 아니요 |
-| 보안 보고서 | 개요 | 예 | 아니요 | 아니요 |
+| 위험 정책 | 사용자 위험 정책(ID 보호를 통해) | 예 | 예 | 예 |
+| 위험 정책 | 로그인 위험 정책(ID 보호 또는 조건부 액세스를 통해) | 예 | 예 | 예 |
+| 보안 보고서 | 개요 | 예 | 예 | 예 |
 | 보안 보고서 | 위험한 사용자 | 모든 권한 | 제한적 정보 제공 | 제한적 정보 제공 |
 | 보안 보고서 | 위험한 로그인 | 모든 권한 | 제한적 정보 제공 | 제한적 정보 제공 |
-| 보안 보고서 | 위험 탐지 | 모든 권한 | 제한적 정보 제공 | 아니요 |
-| 공지 | 위험에 처한 사용자가 알림을 감지함 | 예 | 아니요 | 아니요 |
-| 공지 | 주 단위 요약 | 예 | 아니요 | 아니요 |
-| | MFA 등록 정책 | 예 | 아니요 | 아니요 |
+| 보안 보고서 | 위험 탐지 | 모든 권한 | 제한적 정보 제공 | 예 |
+| 공지 | 위험에 처한 사용자가 알림을 감지함 | 예 | 예 | 예 |
+| 공지 | 주 단위 요약 | 예 | 예 | 예 |
+| | MFA 등록 정책 | 예 | 예 | 예 |
 
 ## <a name="next-steps"></a>다음 단계
 

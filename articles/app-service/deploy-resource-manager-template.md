@@ -1,16 +1,16 @@
 ---
-title: 템플릿을 사용 하 여 앱 배포
-description: App Service 앱을 프로 비전 하 고 배포 하는 Azure Resource Manager 템플릿을 만드는 방법에 대 한 지침을 찾습니다.
+title: 템플릿을 사용한 앱 배포
+description: 앱 서비스 앱을 프로비전하고 배포하기 위한 Azure 리소스 관리자 템플릿 을 만드는 방법에 대한 지침을 찾습니다.
 author: tfitzmac
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: dfdfa9f69e00aa644c21fc96cb70e9fa460ca0c1
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77211709"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 웹앱을 배포하는 방법에 대한 지침
@@ -22,7 +22,7 @@ ms.locfileid: "77211709"
 웹앱의 종속성을 정의하려면 웹앱 내에서 리소스가 상호 작용하는 원리를 이해해야 합니다. 잘못된 순서로 종속성을 지정하면 배포 오류가 발생하거나 배포가 중지되는 경합 상태가 생성될 수 있습니다.
 
 > [!WARNING]
-> 템플릿에 MSDeploy 사이트 확장을 포함하는 경우 구성 리소스가 MSDeploy 리소스에 종속되는 것으로 설정해야 합니다. 구성을 변경하면 사이트가 비동기적으로 다시 시작됩니다. 구성 리소스가 MSDeploy에 종속되도록 설정하면 사이트가 다시 시작되기 전에 MSDeploy가 완료됩니다. 이러한 종속성이 없으면 MSDeploy의 배포 프로세스 도중에 사이트가 다시 시작될 수 있습니다. 예제 템플릿을 보려면 [웹 배포 종속성이 포함된 WordPress 템플릿](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WordpressTemplateWebDeployDependency.json)을 참조하세요.
+> 템플릿에 MSDeploy 사이트 확장을 포함하는 경우 구성 리소스가 MSDeploy 리소스에 종속되는 것으로 설정해야 합니다. 구성을 변경하면 사이트가 비동기적으로 다시 시작됩니다. 구성 리소스가 MSDeploy에 종속되도록 설정하면 사이트가 다시 시작되기 전에 MSDeploy가 완료됩니다. 이러한 종속성이 없으면 MSDeploy의 배포 프로세스 도중에 사이트가 다시 시작될 수 있습니다. 예제 템플릿은 [웹 배포 종속성이 있는 워드프레스 템플릿을](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WordpressTemplateWebDeployDependency.json)참조하십시오.
 
 다음 이미지는 다양한 App Service 리소스의 종속성 순서를 보여줍니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "77211709"
 **계층 3**
 * 소스 제어--웹앱에 종속됩니다.
 * MSDeploy 사이트 확장--웹앱에 종속됩니다.
-* 웹 앱을 대상으로 하는 Azure 애플리케이션 Insights 인스턴스-웹 앱에 종속 됩니다.
+* 웹 앱을 대상으로 하는 Azure 응용 프로그램 인사이트 인스턴스는 웹 앱에 따라 다릅니다.
 
 **계층 4**
 * App Service 인증서--있는 경우 소스 제어 또는 MSDeploy에 종속됩니다. 그렇지 않으면, 웹앱에 종속됩니다.
@@ -90,7 +90,7 @@ Resource Manager 템플릿에서 MSDeploy를 사용하는 경우 배포 오류 �
 
 1. 사이트의 [Kudu 콘솔](https://github.com/projectkudu/kudu/wiki/Kudu-console)로 이동합니다.
 2. D:\home\LogFiles\SiteExtensions\MSDeploy에서 폴더로 이동합니다.
-3. appManagerStatus.xml 및 appManagerLog.xml 파일을 찾습니다. 첫 번째 파일은 상태를 기록합니다. 두 번째 파일은 오류에 대한 정보를 기록합니다. 오류가 명확 하지 않은 경우 [포럼](https://docs.microsoft.com/answers/topics/azure-webapps.html)에서 도움을 요청 하는 경우이를 포함할 수 있습니다.
+3. appManagerStatus.xml 및 appManagerLog.xml 파일을 찾습니다. 첫 번째 파일은 상태를 기록합니다. 두 번째 파일은 오류에 대한 정보를 기록합니다. 오류가 명확하지 않은 경우 [포럼에서](https://docs.microsoft.com/answers/topics/azure-webapps.html)도움을 요청할 때 포함할 수 있습니다.
 
 ## <a name="choose-a-unique-web-app-name"></a>고유한 웹앱 이름을 선택합니다.
 

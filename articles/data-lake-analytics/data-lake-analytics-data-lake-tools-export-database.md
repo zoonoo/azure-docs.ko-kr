@@ -1,5 +1,5 @@
 ---
-title: 내보내기 U-SQL 데이터베이스-Azure Data Lake Tools for Visual Studio
+title: 비주얼 스튜디오에 대 한 U-SQL 데이터베이스- Azure 데이터 호수 도구 내보내기
 description: Azure Data Lake Tools for Visual Studio를 사용하여 U-SQL 데이터베이스를 내보내고 자동으로 로컬 계정으로 가져오는 방법을 알아봅니다.
 services: data-lake-analytics
 author: yanancai
@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.openlocfilehash: e5a52de0342e864cb108d8d590583fe64f72e3b6
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71315784"
 ---
 # <a name="export-a-u-sql-database"></a>U-SQL 데이터베이스 내보내기
@@ -37,7 +37,7 @@ ms.locfileid: "71315784"
 
      **내보내기** 메뉴 옵션을 사용할 수 없는 경우 [도구를 최신 릴리스로 업데이트해야 합니다](https://aka.ms/adltoolsvs).
 
-### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>2단계: 내보내려는 개체 구성
+### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>2단계: 내보낼 개체 구성
 
 큰 데이터베이스의 작은 부분만 필요한 경우 내보내기 마법사에서 내보낼 개체의 하위 집합을 구성할 수 있습니다. 
 

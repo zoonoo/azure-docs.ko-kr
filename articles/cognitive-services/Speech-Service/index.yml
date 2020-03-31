@@ -11,14 +11,14 @@ metadata:
   manager: nitinme
   ms.service: speech-service
   ms.topic: hub-page
-  ms.date: 03/04/2020
+  ms.date: 03/24/2020
   ms.author: dapine
-  ms.openlocfilehash: 0071d4da31e4739ccf53e9570bc7d0ed61c01bc4
-  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+  ms.openlocfilehash: f047af5d14ed6b18c559f814b35d730ba7ce0f6a
+  ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/09/2020
-  ms.locfileid: "78943327"
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "80244327"
 highlightedContent:
   items:
   - title: Speech Service란?
@@ -37,15 +37,15 @@ conceptualContent:
   items:
   - title: 음성 텍스트 변환
     links:
+    - itemType: how-to-guide
+      text: 음성 인식 기본 사항
+      url: speech-to-text-basics.md
     - itemType: quickstart
       text: 마이크에서 음성 인식
       url: quickstarts/speech-to-text-from-microphone.md
     - itemType: quickstart
-      text: 일괄 처리 모드에서 음성 인식
-      url: batch-transcription.md
-    - itemType: how-to-guide
-      text: 앱의 음성 인식 사용자 지정
-      url: how-to-custom-speech.md
+      text: 오디오 파일에서 음성 인식
+      url: quickstarts/speech-to-text-from-file.md
     footerLink:
       text: 자세히 보기
       url: index-speech-to-text.yml
@@ -94,10 +94,10 @@ conceptualContent:
   - title: 대화 시나리오
     links:
     - itemType: overview
-      text: 대화 전사 정보
+      text: 대화 전사 정보(모임)
       url: conversation-transcription.md
     - itemType: overview
-      text: 다중 디바이스 대화 정보
+      text: 다중 디바이스 대화 정보(모임)
       url: multi-device-conversation.md
     - itemType: how-to-guide
       text: 호출 센터 전사
@@ -152,9 +152,6 @@ conceptualContent:
     - itemType: how-to-guide
       text: Bing Speech에서 마이그레이션
       url: how-to-migrate-from-bing-speech.md
-    - itemType: how-to-guide
-      text: Custom Speech Service에서 마이그레이션
-      url: how-to-migrate-from-custom-speech-service.md
     - itemType: how-to-guide
       text: Translator Speech API에서 마이그레이션
       url: how-to-migrate-from-translator-speech-api.md

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
 ms.openlocfilehash: eba7d7ad009b2ef0442a916983489489eb5cceb8
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74806663"
 ---
-# <a name="use-the-net-sdk-for-apache-hbase"></a>Apache HBase 용 .NET SDK 사용
+# <a name="use-the-net-sdk-for-apache-hbase"></a>아파치 HBase에 .NET SDK 사용
 
 [Apache HBase](apache-hbase-overview.md)는 데이터 작업을 위한 두 가지 주요 선택 항목인 [Apache Hive 쿼리와 HBase의 RESTful API 호출](apache-hbase-tutorial-get-started-linux.md)을 제공합니다. `curl`명령 또는 이와 유사한 유틸리티를 사용하여 REST API로 직접 작업할 수 있습니다.
 
@@ -58,7 +58,7 @@ if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 }
 ```
 
-이 새 테이블에는 두 개의 열 패밀리 t1 및 t2가 있습니다. 열 패밀리는 다른 HFiles에 별도로 저장되므로 자주 쿼리된 데이터에 대한 별도의 열 패밀리가 있는 것이 합리적입니다. 다음의 [데이터 삽입](#insert-data) 예제에서는 열이 T1 열 패밀리에 추가됩니다.
+이 새 테이블에는 t1 및 t2의 두 열 패밀리가 있습니다. 열 패밀리는 다른 HFiles에 별도로 저장되므로 자주 쿼리된 데이터에 대한 별도의 열 패밀리가 있는 것이 합리적입니다. 다음의 [데이터 삽입](#insert-data) 예제에서는 열이 T1 열 패밀리에 추가됩니다.
 
 ## <a name="delete-a-table"></a>테이블 삭제
 
@@ -112,11 +112,11 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-HBase는 [Cloud BigTable](https://cloud.google.com/bigtable/)을 구현 하므로 데이터 형식은 다음 이미지와 같습니다.
+HBase는 [클라우드 BigTable을](https://cloud.google.com/bigtable/)구현하므로 데이터 형식은 다음과 같은 이미지처럼 보입니다.
 
-![Apache HBase 샘플 데이터 출력](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
+![아파치 HBase 샘플 데이터 출력](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
 
-## <a name="select-data"></a>데이터를 선택합니다.
+## <a name="select-data"></a>데이터 선택
 
 HBase 테이블에서 데이터를 읽으려면 테이블 이름과 행 키를 `CellSet`를 반환하는 `GetCellsAsync` 메서드로 전달합니다.
 

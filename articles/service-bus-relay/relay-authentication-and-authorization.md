@@ -1,6 +1,6 @@
 ---
 title: Azure Relay 인증 및 권한 부여 | Microsoft Docs
-description: 이 문서에서는 Azure Relay 서비스를 사용 하는 SAS (공유 액세스 서명) 인증에 대 한 개요를 제공 합니다.
+description: 이 문서에서는 Azure 릴레이 서비스를 통해 SAS(공유 액세스 서명) 인증에 대한 개요를 제공합니다.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: aac5c973a99b13d5918a0162feb7f1ede443463b
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76514581"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Azure Relay 인증 및 권한 부여
@@ -29,16 +29,16 @@ ms.locfileid: "76514581"
 
 [SAS 인증](../service-bus-messaging/service-bus-sas.md)을 사용하면 특정 권한으로 Azure Relay 리소스에 액세스하는 권한을 사용자에게 부여할 수 있습니다. SAS 인증은 리소스에 연결된 권한이 있는 암호화 키의 구성을 포함합니다. 클라이언트는 액세스된 리소스 URI 및 구성된 키로 서명된 만료로 구성된 SAS 토큰을 제공하여 해당 리소스에 대한 액세스를 얻을 수 있습니다.
 
-Relay 네임스페이스에서 SAS에 대한 키를 구성할 수 있습니다. Service Bus 메시징과 달리 [Relay 하이브리드 연결](relay-hybrid-connections-protocol.md)은 무단 또는 익명 발신자를 지원합니다. 포털에서 다음 스크린샷에 표시 된 것 처럼 엔터티를 만들 때 해당 엔터티에 대 한 익명 액세스를 사용 하도록 설정할 수 있습니다.
+Relay 네임스페이스에서 SAS에 대한 키를 구성할 수 있습니다. Service Bus 메시징과 달리 [Relay 하이브리드 연결](relay-hybrid-connections-protocol.md)은 무단 또는 익명 발신자를 지원합니다. 포털의 다음 스크린샷과 같이 엔터티를 만들 때 엔터티에 대한 익명 액세스를 활성화할 수 있습니다.
 
 ![][0]
 
 SAS를 사용하려면 다음을 구성하는 Relay 네임스페이스에서 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 개체를 구성할 수 있습니다.
 
-* *KeyName* 입니다.
-* *PrimaryKey* 는 SAS 토큰을 서명/확인하는 데 사용되는 암호화 키입니다.
-* *SecondaryKey* 는 SAS 토큰을 서명/확인하는 데 사용되는 암호화 키입니다.
-* *권한* 입니다.
+* *KeyName*: 규칙을 식별합니다.
+* *PrimaryKey*: SAS 토큰에 서명/SAS 토큰의 유효성을 검사하는 데 사용되는 암호화 키입니다.
+* *SecondaryKey*: SAS 토큰에 서명/SAS 토큰의 유효성을 검사하는 데 사용되는 암호화 키입니다.
+* *Rights*: 부여된 수신 대기, 보내기 또는 관리 권한의 컬렉션을 나타냅니다.
 
 네임스페이스 수준에서 구성된 권한 부여 규칙은 해당 키를 사용하여 서명된 토큰으로 클라이언트에 대한 네임스페이스의 모든 relay 연결에 액세스를 부여할 수 있습니다. 권한 부여 규칙은 Relay 네임스페이스에서 최대 12개까지 구성할 수 있습니다. 기본적으로 모든 권한이 있는 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 은 처음으로 프로비전될 때 모든 네임스페이스에 대해 구성됩니다.
 
