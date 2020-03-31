@@ -1,5 +1,5 @@
 ---
-title: 기본값에서 blob 경로 변경
+title: 기본값에서 Blob 경로 변경
 description: Azure 함수를 설정하여 Blob 파일 경로의 이름을 변경하는 방법 알아보기
 author: alkohli
 ms.service: storsimple
@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 5ba1709ae195631371e4ea72667ba9b2a4bf279e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76270623"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>기본 경로에서 Blob 경로 변경
 
 StorSimple 데이터 관리자 서비스가 데이터를 변환하는 경우, 기본적으로 대상 리포지토리를 만드는 동안 지정된 대로, 변환된 Blob를 스토리지 컨테이너에 배치합니다. Blob이 이 위치에 도달하면 이러한 Blob을 다른 위치로 이동하려고 할 수 있습니다. 이 문서에서는 기본 Blob 파일 경로의 이름을 바꾸고 Blob을 다른 위치로 이동하도록 Azure 함수를 설정하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 StorSimple 데이터 관리자 서비스에서 작업 정의를 올바르게 구성했는지 확인합니다.
 
@@ -25,7 +25,7 @@ StorSimple 데이터 관리자 서비스에서 작업 정의를 올바르게 구
 
 Azure 함수를 만들려면 다음 단계를 수행합니다.
 
-1. [Azure 포털](https://portal.azure.com/)로 이동합니다.
+1. [Azure 포털로](https://portal.azure.com/)이동합니다.
 
 2. **+ 리소스 만들기**를 클릭합니다. **검색** 상자에 **함수 앱**을 입력하고 **Enter**를 누릅니다. 표시되는 앱 목록에서 **함수 앱**을 선택한 후 클릭합니다.
 
@@ -52,7 +52,7 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
 
 5. **함수**를 선택하고 **+ 새 함수**를 클릭합니다.
 
-    ![\+ 새 함수 클릭](./media/storsimple-data-manager-change-default-blob-path/create-new-function.png)
+    ![+ 새 함수 클릭](./media/storsimple-data-manager-change-default-blob-path/create-new-function.png)
 
 6. 언어로 **C#** 을 선택합니다. 템플릿 타일 배열의 **QueueTrigger-CSharp** 타일에서 **C#** 을 선택합니다.
 
@@ -179,7 +179,7 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
 
         ![스토리지 연결 이름 복사](./media/storsimple-data-manager-change-default-blob-path/new-function-storage-connection-name.png)
 
-    3. 함수를 **저장**합니다.
+    3. 함수를 **저장합니다.**
 
         ![함수 저장](./media/storsimple-data-manager-change-default-blob-path/save-function.png)
 
@@ -193,7 +193,7 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
         
         ![“파일 보기” 링크](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
-    3. **project.json**을 입력하고 **Enter** 키를 누릅니다. **project.json** 파일에 다음 코드를 붙여 넣습니다.
+    3. **project.json을**입력한 다음 **Enter**를 누릅니다. **project.json** 파일에 다음 코드를 붙여 넣습니다.
 
         ```
         {
@@ -217,4 +217,4 @@ Azure Function이 만들어졌습니다. 이 함수는 데이터 변환 작업�
 
 ## <a name="next-steps"></a>다음 단계
 
-[StorSimple 데이터 관리자 UI를 사용하여 데이터를 변환합니다](storsimple-data-manager-ui.md).
+[StorSimple 데이터 관리자 UI를 사용하여 데이터 변환](storsimple-data-manager-ui.md)

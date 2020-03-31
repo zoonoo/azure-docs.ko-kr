@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: f2b454e812db1eea686f82e92841163f1129b6c8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267626"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>StorSimple 디바이스 배포 문제 해결
@@ -58,7 +58,7 @@ ms.locfileid: "79267626"
      > [!IMPORTANT]
      > 등록 하기 전에 암호가 수집되지만 디바이스를 성공적으로 등록한 후에만 적용됩니다. 암호를 적용하지 못한 경우 필요한 암호(복잡성 요구 사항에 맞는)가 수집될 때까지 다시 암호를 입력하라는 메시지가 표시됩니다.
      
-4. 디바이스 등록: 최종 단계는 Microsoft Azure에서 실행되는 StorSimple 디바이스 관리자 서비스를 사용하는 디바이스 등록입니다. 등록할 때 Azure Portal에서 [서비스 등록 키를 가져와](storsimple-8000-manage-service.md#get-the-service-registration-key) 설치 마법사에서 제공해야 합니다. **장치가 성공적으로 등록 되 면 서비스 데이터 암호화 키가 제공 됩니다. 이 암호화 키는 모든 후속 장치를 서비스에 등록 하는 데 필요 하므로 안전한 위치에 보관 해야 합니다.**
+4. 디바이스 등록: 최종 단계는 Microsoft Azure에서 실행되는 StorSimple 디바이스 관리자 서비스를 사용하는 디바이스 등록입니다. 등록할 때 Azure Portal에서 [서비스 등록 키를 가져와](storsimple-8000-manage-service.md#get-the-service-registration-key) 설치 마법사에서 제공해야 합니다. **장치가 성공적으로 등록되면 서비스 데이터 암호화 키가 제공됩니다. 이 암호화 키는 서비스에 모든 후속 장치를 등록해야 하므로 안전한 위치에 보관해야 합니다.**
 
 ## <a name="common-errors-during-device-deployment"></a>디바이스 배포 중 일반 오류
 다음의 경우 발생할 수 있는 일반 오류를 아래 표에서 표시합니다.
@@ -75,18 +75,18 @@ ms.locfileid: "79267626"
 | 2 |Invoke-HcsSetupWizard: 디바이스가 준비되지 않았습니다. |데이터 0에 대한 네트워크 연결 문제가 있습니다. |데이터 0에 대한 실제 네트워크 연결을 확인합니다. |
 | 3 |Invoke-HcsSetupWizard: 네트워크에서 다른 시스템과 IP 충돌이 있습니다(HRESULT: 0x80070263에서 예외 발생). |데이터 0에 대해 제공된 IP가 이미 다른 시스템에서 사용 중입니다. |사용되지 않는 새 IP를 제공합니다. |
 | 4 |Invoke-HcsSetupWizard: 클러스터 리소스가 실패했습니다. (HRESULT: 0x800713AE에서 예외 발생). |VIP가 중복되었습니다. 제공된 IP가 이미 사용 중입니다. |사용되지 않는 새 IP를 제공합니다. |
-| 5 |Invoke-HcsSetupWizard: 잘못된 IPv4 주소입니다. |IP 주소는 잘못된 형식으로 제공됩니다. |형식을 확인하고 다시 사용자의 IP 주소를 제공합니다. 자세한 내용은 [Ipv4 주소 지정][1]을 참조 하세요. |
-| 6 |Invoke-HcsSetupWizard: 잘못된 IPv6 주소입니다. |IP 주소는 잘못된 형식으로 제공됩니다. |형식을 확인하고 다시 사용자의 IP 주소를 제공합니다. 자세한 내용은 [Ipv6 주소 지정][2]을 참조 하세요. |
-| 7 |Invoke-HcsSetupWizard: 엔드포인트 매퍼에서 사용 가능한 엔드포인트가 더 이상 없습니다. (HRESULT: 0x800706D9에서 예외 발생). |클러스터 기능이 작동하지 않습니다. |[Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. |
+| 5 |Invoke-HcsSetupWizard: 잘못된 IPv4 주소입니다. |IP 주소는 잘못된 형식으로 제공됩니다. |형식을 확인하고 다시 사용자의 IP 주소를 제공합니다. 자세한 내용은 [Ipv4 주소 지정][1]을 참조하세요. |
+| 6 |Invoke-HcsSetupWizard: 잘못된 IPv6 주소입니다. |IP 주소는 잘못된 형식으로 제공됩니다. |형식을 확인하고 다시 사용자의 IP 주소를 제공합니다. 자세한 내용은 [Ipv6 주소 지정][2]을 참조하세요. |
+| 7 |Invoke-HcsSetupWizard: 엔드포인트 매퍼에서 사용 가능한 엔드포인트가 더 이상 없습니다. (HRESULT: 0x800706D9에서 예외 발생). |클러스터 기능이 작동하지 않습니다. |다음 단계는 [Microsoft 지원에 문의하십시오.](storsimple-8000-contact-microsoft-support.md) |
 
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>선택적 웹 프록시 설정 중 오류
 | 아니요. | 오류 메시지 | 가능한 원인 | 권장 작업 |
 | --- | --- | --- | --- |
-| 1 |Invoke-HcsSetupWizard: 잘못된 매개 변수(HRESULT: 0x80070057에서 예외 발생) |프록시 설정에 대해 제공된 매개 변수 중 하나가 잘못되었습니다. |URI는 올바른 형식으로 제공되지 않습니다. 다음 형식을 사용 합니다. http:// *\<IP 주소 또는 웹 프록시 서버의 FQDN >* : *\<TCP 포트 번호 >* |
-| 2 |Invoke-HcsSetupWizard: RPC 서버 사용 불가능(HRESULT: 0x800706ba에서 예외 발생) |근본 원인은 다음 중 하나입니다.<ol><li>클러스터가 켜지지 않았습니다.</li><li>수동 컨트롤러는 활성 컨트롤러와 통신할 수 없으며 명령은 수동 컨트롤러에서 실행되었습니다.</li></ol> |근본 원인에 따라:<ol><li>[Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하여 클러스터가 작동하는지 확인합니다.</li><li>활성 컨트롤러에서 명령을 실행합니다. 수동 컨트롤러에서 명령을 실행하려는 경우 수동 컨트롤러가 활성 컨트롤러와 통신할 수 있는지 확인해야 합니다. 이 연결이 끊어진 경우, [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)해야 합니다.</li></ol> |
+| 1 |Invoke-HcsSetupWizard: 잘못된 매개 변수(HRESULT: 0x80070057에서 예외 발생) |프록시 설정에 대해 제공된 매개 변수 중 하나가 잘못되었습니다. |URI는 올바른 형식으로 제공되지 않습니다. 다음 형식을 사용: http://*\<IP 주소 또는 웹 프록시 서버>FQDN *:*\<TCP 포트 번호>* |
+| 2 |Invoke-HcsSetupWizard: RPC 서버 사용 불가능(HRESULT: 0x800706ba에서 예외 발생) |근본 원인은 다음 중 하나입니다.<ol><li>클러스터가 켜지지 않았습니다.</li><li>수동 컨트롤러는 활성 컨트롤러와 통신할 수 없으며 명령은 수동 컨트롤러에서 실행되었습니다.</li></ol> |근본 원인에 따라:<ol><li>[Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하여 클러스터가 작동하는지 확인합니다.</li><li>활성 컨트롤러에서 명령을 실행합니다. 수동 컨트롤러에서 명령을 실행하려는 경우 수동 컨트롤러가 활성 컨트롤러와 통신할 수 있는지 확인해야 합니다. 이 연결이 끊긴 경우에는 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)해야 합니다.</li></ol> |
 | 3 |Invoke-HcsSetupWizard: RPC 호출 실패함(HRESULT: 0x800706be에서 예외 발생) |클러스터의 작동이 중단되었습니다. |[Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하여 클러스터가 작동하는지 확인합니다. |
 | 4 |Invoke-HcsSetupWizard: 클러스터 리소스를 찾을 수 없음(HRESULT: 0x8007138f에서 예외 발생) |클러스터 리소스를 찾을 수 없습니다. 설치가 올바르지 않은 경우 발생할 수 있습니다. |디바이스를 공장 기본 설정으로 다시 설정해야 합니다. [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하여 클러스터 리소스를 만듭니다. |
-| 5 |Invoke-HcsSetupWizard: 클러스터 리소스가 온라인 상태가 아님(HRESULT: 0x8007138c에서 예외 발생) |클러스터 리소스가 온라인 상태가 아닙니다. |[Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. |
+| 5 |Invoke-HcsSetupWizard: 클러스터 리소스가 온라인 상태가 아님(HRESULT: 0x8007138c에서 예외 발생) |클러스터 리소스가 온라인 상태가 아닙니다. |다음 단계는 [Microsoft 지원에 문의하십시오.](storsimple-8000-contact-microsoft-support.md) |
 
 ## <a name="errors-related-to-device-administrator-password"></a>디바이스 관리자 암호 관련 오류
 기본 디바이스 관리자 암호는 **Password1**입니다. 처음 로그온한 후 이 암호가 만료되므로 변경하려면 설치 마법사를 사용해야 합니다. 처음으로 디바이스를 등록하는 경우 새 디바이스 관리자 암호를 입력해야 합니다. 
@@ -128,18 +128,18 @@ Microsoft Azure에서 실행되는 StorSimple 디바이스 관리자 서비스�
 
 | 아니요. | 오류 메시지 | 가능한 원인 | 권장 작업 |
 | --- | --- | --- | --- |
-| 1 |오류 350027: StorSimple 디바이스 관리자를 사용하여 디바이스를 등록하지 못했습니다. | |몇 분간 기다린 다음 작업을 다시 시도하세요. 문제가 지속되면, [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. |
+| 1 |오류 350027: StorSimple 디바이스 관리자를 사용하여 디바이스를 등록하지 못했습니다. | |몇 분간 기다린 다음 작업을 다시 시도하세요. 문제가 지속되면 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. |
 | 2 |오류 350013: 디바이스를 등록 하는 중에 오류가 발생했습니다. 잘못된 서비스 등록 키 때문일 수 있습니다. | |올바른 서비스 등록 키로 디바이스를 다시 등록하세요. 자세한 내용은 [서비스 등록 키 받기](storsimple-8000-manage-service.md#get-the-service-registration-key)를 참조하세요. |
 | 3 |오류 350063: StorSimple 디바이스 관리자 서비스에 대한 인증은 통과했지만 등록에 실패했습니다. 잠시 후 작업을 다시 시도하세요. |이 오류는 ACS로 인증이 통과했지만 서비스에 대한 레지스터 호출이 실패했음을 나타냅니다. 간헐적인 네트워크 결함의 결과일 수 있습니다. |문제가 지속되면 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. |
-| 4 |350049 오류: 등록하는 동안 서비스에 연결할 수 없습니다. |서비스에 호출되면 웹 예외가 수신됩니다. 경우에 따라 작업을 나중에 다시 시도하여 수정될 수 있습니다. |IP 주소 및 DNS 이름을 확인한 다음 작업을 다시 시도합니다. 문제가 지속되면, [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. |
+| 4 |350049 오류: 등록하는 동안 서비스에 연결할 수 없습니다. |서비스에 호출되면 웹 예외가 수신됩니다. 경우에 따라 작업을 나중에 다시 시도하여 수정될 수 있습니다. |IP 주소 및 DNS 이름을 확인한 다음 작업을 다시 시도합니다. 문제가 지속되면 [Microsoft 지원에 문의하십시오.](storsimple-8000-contact-microsoft-support.md) |
 | 5 |오류 350031: 디바이스가 이미 등록되었습니다. | |필요한 작업이 없습니다. |
 | 6 |오류 350016: 디바이스 등록에 실패했습니다. | |등록 키가 올바른지 확인하세요. |
 | 7 |Invoke-HcsSetupWizard: 디바이스를 등록하는 동안 오류가 발생했습니다. 잘못된 IP 주소 또는 DNS 이름때문일 수 있습니다. 네트워크 설정을 확인하고 다시 시도하세요. 문제가 계속되면 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. (오류 350050) |디바이스에 외부 네트워크를 ping할 수 있는지 확인합니다. 외부 네트워크에 연결되지 않은 경우 이 오류와 함께 등록이 실패할 수 있습니다. 이 오류는 다음 중 하나 이상의 조합일 수 있습니다:<ul><li>잘못된 IP</li><li>잘못된 서브넷</li><li>잘못된 게이트웨이</li><li>잘못된 DNS 설정</li></ul> |[단계별 문제 해결 예제](#step-by-step-storsimple-troubleshooting-example)의 단계를 참조하세요. |
-| 8 |Invoke-HcsSetupWizard: 내부 서비스 오류 [0x1FBE2]때문에 현재 작업이 실패했습니다. 잠시 후 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. |모든 사용자가 서비스 또는 에이전트에서 볼 수 없는 오류에 대해 발생한 일반 오류입니다. 가장 일반적인 이유가 ACS 인증 실패일 수 있습니다. 실패에 대한 가능한 원인은 NTP 서버 구성에 문제가 있고 디바이스의 시간이 올바르게 설정되지 않았기 때문일 수 있습니다. |시간을 수정하고(문제가 있는 경우) 등록 작업을 다시 시도하세요. Set-HcsSystem -Timezone 명령을 사용하여 표준 시간대를 조정하는 경우 표준 시간대의 각 단어 첫 글자를 대문자로 표시합니다(예: "Pacific Standard Time").  이 문제가 지속되면 다음 단계는 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. |
+| 8 |Invoke-HcsSetupWizard: 내부 서비스 오류 [0x1FBE2]때문에 현재 작업이 실패했습니다. 잠시 후 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. |모든 사용자가 서비스 또는 에이전트에서 볼 수 없는 오류에 대해 발생한 일반 오류입니다. 가장 일반적인 이유가 ACS 인증 실패일 수 있습니다. 실패에 대한 가능한 원인은 NTP 서버 구성에 문제가 있고 디바이스의 시간이 올바르게 설정되지 않았기 때문일 수 있습니다. |시간을 수정하고(문제가 있는 경우) 등록 작업을 다시 시도하세요. Set-HcsSystem -Timezone 명령을 사용하여 표준 시간대를 조정하는 경우 표준 시간대의 각 단어 첫 글자를 대문자로 표시합니다(예: "Pacific Standard Time").  문제가 계속되면 다음 단계를 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. |
 | 9 |경고: 디바이스를 활성화할 수 없습니다. 디바이스 관리자 및 StorSimple Snapshot Manager 암호가 변경되지 않습니다. |등록이 실패하면, 디바이스 관리자 및 StorSimple Snapshot Manager 암호가 변경되지 않습니다. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>StorSimple 배포 문제 해결을 위한 팁
-StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있는 여러 도구를 포함합니다. 이러한 개체는 다음과 같습니다.
+StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있는 여러 도구를 포함합니다. 여기에는 다음이 포함됩니다.
 
 * 지원 패키지 및 디바이스 로그
 * 문제 해결을 위해 특별히 설계된 Cmdlet
@@ -153,8 +153,8 @@ StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있�
 3. 이 [단계별 절차](storsimple-8000-create-manage-support-package.md#edit-a-support-package)를 사용하여 지원 패키지를 열고 암호를 해독합니다.
 4. 암호 해독된 지원 패키지 로그는 etw/etvx 형식입니다. 다음 단계를 수행하여 Windows 이벤트 뷰어에서 이 파일을 볼 수 있습니다.
    
-   1. Windows 클라이언트에서 **eventvwr** 명령을 실행합니다. 이벤트 뷰어를 시작합니다.
-   2. **작업** 창에서 **저장된 로그 열기**를 클릭하고 etvx/etw 형식(지원 패키지)의 로그 파일을 가리킵니다. 이제 파일을 볼 수 있습니다. 파일을 연 후 마우스 오른쪽 단추로 클릭하고 텍스트로 파일을 저장할 수 있습니다.
+   1. Windows 클라이언트에서 **eventvwr** 명령을 실행하세요. 이벤트 뷰어를 시작합니다.
+   2. **작업** 창에서 **저장된 로그 열기**를 클릭하고 etvx/etw 형식의 로그 파일(지원 패키지)을 지정하세요. 이제 파일을 볼 수 있습니다. 파일을 연 후 마우스 오른쪽 단추로 클릭하고 텍스트로 파일을 저장할 수 있습니다.
       
       > [!IMPORTANT]
       > **Get-WinEvent** cmdlet을 사용하여 Windows PowerShell에서 이 파일을 열 수도 있습니다. 자세한 내용은 Windows PowerShell cmdlet 참조 설명서의 [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx)를 참조하세요.
@@ -164,7 +164,7 @@ StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있�
    * hcs_pfconfig/Operational 로그
    * hcs_pfconfig/Config
 6. 로그 파일에서, 설치 마법사에서 호출한 cmdlet와 관련된 문자열을 검색합니다. 이 cmdlet의 목록은 [처음 설치 마법사 프로세스](#first-time-setup-wizard-process)를 참조하세요.
-7. 문제의 원인을 알아낼 수 없는 경우, 다음 단계는 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)할 수 있습니다. Microsoft 지원에 문의하는 경우 [지원 요청 만들기](storsimple-8000-contact-microsoft-support.md#create-a-support-request)의 단계를 사용합니다.
+7. 문제의 원인을 확인할 수 없는 경우 다음 단계를 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)할 수 있습니다. Microsoft 지원에 문의하는 경우 [지원 요청 만들기](storsimple-8000-contact-microsoft-support.md#create-a-support-request)의 단계를 사용합니다.
 
 ## <a name="cmdlets-available-for-troubleshooting"></a>문제 해결에 사용할 수 있는 Cmdlet
 다음 Windows PowerShell cmdlet을 사용하여 연결 오류를 검색합니다.
@@ -184,12 +184,12 @@ StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있�
 1. StorSimple용 Windows PowerShell을 시작한 다음 `Get-NetAdapter`를 입력합니다. 
 2. `Get-NetAdapter` cmdlet의 출력 및 다음 지침을 사용하여 네트워크 인터페이스의 상태를 이해합니다.
    
-   * 인터페이스가 정상 상태이고 사용 가능한 경우 **ifIndex** 상태가 **작동**으로 표시됩니다.
-   * 인터페이스가 정상 상태이지만 물리적으로 연결되어 있지 않은 경우(네트워크 케이블로), **ifIndex**는 **사용 안함**으로 표시됩니다.
-   * 인터페이스가 정상 상태이지만 사용 불가능한 경우 **ifIndex** 상태가 **표시되지 않음**으로 나타납니다.
+   * 인터페이스의 상태가 정상이고 사용 가능한 경우 **ifIndex** 상태가 **Up**으로 표시됩니다.
+   * 인터페이스의 상태가 정상이지만 실제로 연결되지 않은 경우(네트워크 케이블 이용) **ifIndex**가 **Disabled**로 표시됩니다.
+   * 인터페이스의 상태가 정상이지만 사용되지 않는 경우 **ifIndex** 상태가 **NotPresent**로 표시됩니다.
    * 인터페이스가 없는 경우 이 목록에 나타나지 않습니다. StorSimple 디바이스 관리자 서비스 UI에서는 이 인터페이스가 계속 실패한 상태로 표시됩니다.
 
-이 cmdlet을 사용하는 방법에 대한 자세한 내용은 Windows PowerShell cmdlet 참조의 [Get-NetAdapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter?view=win10-ps)로 이동합니다.
+이 cmdlet을 사용하는 방법에 대한 자세한 내용은 Windows PowerShell cmdlet 참조에서 [Get-NetAdapter로](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter?view=win10-ps) 이동하십시오.
 
 다음 섹션에서는 샘플 `Get-NetAdapter` cmdlet의 출력 샘플을 표시합니다.
 
@@ -504,9 +504,9 @@ StorSimple 디바이스에 업데이트 1을 실행하는 경우 데이터 0 네
 3. 네트워크 인터페이스의 상태를 확인합니다.
    
    * Get-NetAdapter cmdlet를 사용하여 데이터 0에 대한 네트워크 인터페이스의 상태를 감지합니다. 
-   * 링크 작동하지 않은 경우 **ifindex** 상태는 인터페이스가 작동 중단되었음을 나타냅니다. 그런 다음 기기 및 스위치에 대한 네트워크 연결을 확인해야 합니다. 잘못된 케이블을 제거해야 합니다. 
+   * 링크가 작동하지 않는 경우 상태가 **ifindex**이면 인터페이스가 작동하지 않는 것입니다. 그런 다음 기기 및 스위치에 대한 네트워크 연결을 확인해야 합니다. 잘못된 케이블을 제거해야 합니다. 
    * 활성 컨트롤러의 데이터 0 포트가 의심되는 경우, 컨트롤러 1의 데이터 0 포트에 연결하여 확인할 수 있습니다. 이를 확인하려면, 컨트롤러 0의 디바이스 뒷면에서 네트워크 케이블을 분리하고 컨트롤러 1에 케이블을 연결한 다음 Get-NetAdapter cmdlet을 다시 실행합니다.
-     컨트롤러의 데이터 0 포트가 실패하면 다음 단계는 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. 시스템에서 컨트롤러를 교체해야할 수 있습니다.
+     컨트롤러의 DATA 0 포트에서 오류가 발생하면 다음 단계를 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. 시스템에서 컨트롤러를 교체해야할 수 있습니다.
 4. 스위치에 연결을 확인합니다.
    
    * 기본 인클로저에서 컨트롤러 0과 컨트롤러 1의 데이터 0 네트워크 인터페이스가 동일한 서브넷에 있는지 확인합니다. 

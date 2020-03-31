@@ -12,27 +12,27 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: ac38adba4ca0d978dd48a546bed1b1faf4fe40fe
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79036963"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>내 MVC 프로젝트(Visual Studio Azure Active Directory 연결된 서비스)의 변경 내용
 
 > [!div class="op_single_selector"]
 > - [시작](vs-active-directory-dotnet-getting-started.md)
-> - [변경된 내용](vs-active-directory-dotnet-what-happened.md)
+> - [무슨 일이 있었나요](vs-active-directory-dotnet-what-happened.md)
 
-이 문서에서는 [Visual Studio를 사용 하 여 Azure Active Directory 연결 된 서비스](vs-active-directory-add-connected-service.md)를 추가할 때 ASP.NET MVC 프로젝트에 대 한 정확한 변경 내용을 확인 합니다.
+이 문서에서는 [Visual Studio를 사용하여 Azure Active Directory 연결 서비스를](vs-active-directory-add-connected-service.md)추가할 때 ASP.NET MVC 프로젝트에 대한 정확한 변경 사항을 식별합니다.
 
 연결된 서비스를 사용한 작업에 대한 자세한 내용은 [시작](vs-active-directory-dotnet-getting-started.md)을 참조하세요.
 
 ## <a name="added-references"></a>추가된 참조
 
-프로젝트 파일 (* .NET 참조) 및 `packages.config` (NuGet 참조)에 영향을 줍니다.
+프로젝트 파일(*.NET 참조) `packages.config` 및(NuGet 참조)에 영향을 줍니다.
 
-| Type | 참조 |
+| Type | 참고 |
 | --- | --- |
 | .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
 | .NET; NuGet | Microsoft.Owin |
@@ -47,7 +47,7 @@ ms.locfileid: "79036963"
 
 **디렉터리 데이터 읽기** 옵션을 선택한 경우 추가 참조는 다음과 같습니다.
 
-| Type | 참조 |
+| Type | 참고 |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer(Visual Studio 2015만 해당) |
@@ -61,7 +61,7 @@ ms.locfileid: "79036963"
 
 다음 참조가 제거됩니다(Visual Studio 2015와 마찬가지로 ASP.NET 4 프로젝트만 해당).
 
-| Type | 참조 |
+| Type | 참고 |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
@@ -70,7 +70,7 @@ ms.locfileid: "79036963"
 ## <a name="project-file-changes"></a>프로젝트 파일 변경 내용
 
 - `IISExpressSSLPort` 속성을 고유 번호로 설정합니다.
-- `WebProject_DirectoryAccessLevelKey`디렉터리 데이터 읽기**옵션을 선택한 경우** 속성을 0 또는 1로 설정합니다.
+- **디렉터리 데이터 읽기** 옵션을 선택한 경우 `WebProject_DirectoryAccessLevelKey` 속성을 0 또는 1로 설정합니다.
 - `IISUrl` 속성을 `https://localhost:<port>/`로 설정합니다. 여기서 `<port>`는 `IISExpressSSLPort` 값과 일치합니다.
 
 ## <a name="webconfig-or-appconfig-changes"></a>web.config 또는 app.config 변경 내용
@@ -87,7 +87,7 @@ ms.locfileid: "79036963"
     </appSettings>
     ```
 
-- `<dependentAssembly>` 및 `<runtime><assemblyBinding>`에 대한 `System.IdentityModel.Tokens.Jwt` 노드 아래에 `Microsoft.IdentityModel.Protocol.Extensions` 요소를 추가했습니다.
+- `System.IdentityModel.Tokens.Jwt` 및 `Microsoft.IdentityModel.Protocol.Extensions`에 대한 `<runtime><assemblyBinding>` 노드 아래에 `<dependentAssembly>` 요소를 추가했습니다.
 
 **디렉터리 데이터 읽기** 옵션을 선택한 경우 추가 변경 내용은 다음과 같습니다.
 
@@ -121,7 +121,7 @@ ms.locfileid: "79036963"
     </entityFramework>
     ```
 
-- `<dependentAssembly>`, `<runtime><assemblyBinding>` 및 `Microsoft.Data.Services.Client`에 대한 `Microsoft.Data.Edm` 노드 아래에 `Microsoft.Data.OData` 요소를 추가했습니다.
+- `Microsoft.Data.Services.Client`, `Microsoft.Data.Edm` 및 `Microsoft.Data.OData`에 대한 `<runtime><assemblyBinding>` 노드 아래에 `<dependentAssembly>` 요소를 추가했습니다.
 
 ## <a name="code-changes-and-additions"></a>코드 변경 및 추가
 
@@ -129,13 +129,13 @@ ms.locfileid: "79036963"
 
 - Azure AD 인증을 위한 시작 논리를 포함하는 인증 시작 클래스 `App_Start/Startup.Auth.cs`를 추가했습니다. **디렉터리 데이터 읽기** 옵션을 선택한 경우 이 파일에 OAuth 코드를 수신하고 액세스 토큰으로 교환하는 코드도 포함됩니다.
 
-- `Controllers/AccountController.cs` 및 `SignIn` 메서드를 포함하는 컨트롤러 클래스 `SignOut`를 추가했습니다.
+- `SignIn` 및 `SignOut` 메서드를 포함하는 컨트롤러 클래스 `Controllers/AccountController.cs`를 추가했습니다.
 
-- `Views/Shared/_LoginPartial.cshtml` 및 `SignIn`에 대한 작업 링크를 포함하는 부분 보기 `SignOut`을 추가했습니다.
+- `SignIn` 및 `SignOut`에 대한 작업 링크를 포함하는 부분 보기 `Views/Shared/_LoginPartial.cshtml`을 추가했습니다.
 
 - 로그아웃 UI에 대한 HTML을 포함하는 부분 보기 `Views/Account/SignoutCallback.cshtml`을 추가했습니다.
 
-- 클래스가 이미 존재하는 경우 `Startup.Configuration`에 대한 호출을 포함하는 `ConfigureAuth(app)` 메서드를 업데이트합니다. 그렇지 않으면 메서드를 호출하는 `Startup` 클래스를 추가합니다.
+- 클래스가 이미 존재하는 경우 `ConfigureAuth(app)`에 대한 호출을 포함하는 `Startup.Configuration` 메서드를 업데이트합니다. 그렇지 않으면 메서드를 호출하는 `Startup` 클래스를 추가합니다.
 
 - Visual Studio가 연결된 서비스의 추가를 추적하는 데 사용하는 정보가 포함된 `Connected Services/AzureAD/ConnectedService.json`(Visual Studio 2017) 또는 `Service References/Azure AD/ConnectedService.json`(Visual Studio 2015)을 추가했습니다.
 
@@ -143,7 +143,7 @@ ms.locfileid: "79036963"
 
 ### <a name="file-backup-visual-studio-2015"></a>파일 백업(Visual Studio 2015)
 
-Visual Studio 2015는 연결된 서비스를 추가할 때 변경 및 제거된 파일을 백업합니다. 영향을 받는 모든 파일은 `Backup/AzureAD` 폴더에 저장됩니다. Visual Studio 2017 이상에서는 백업을 만들지 않습니다.
+Visual Studio 2015는 연결된 서비스를 추가할 때 변경 및 제거된 파일을 백업합니다. 영향을 받는 모든 파일은 `Backup/AzureAD` 폴더에 저장됩니다. Visual Studio 2017 이상은 백업을 만들지 않습니다.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`
@@ -159,9 +159,9 @@ Visual Studio 2015는 연결된 서비스를 추가할 때 변경 및 제거된 
 - 연결된 서비스를 추가할 때 선택한 도메인에 Azure AD 애플리케이션이 생성됩니다.
 - 해당 옵션이 선택된 경우 **디렉터리 데이터 읽기** 권한을 포함하도록 앱을 업데이트했습니다.
 
-[Azure Active Directory에 대해 자세히 알아보세요](https://azure.microsoft.com/services/active-directory/).
+[Azure 활성 디렉터리 에 대해 자세히 알아봅니다.](https://azure.microsoft.com/services/active-directory/)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory 인증 시나리오](authentication-scenarios.md)
+- [Azure Active Directory에 대한 인증 시나리오](authentication-scenarios.md)
 - [ASP.NET 웹앱에 Microsoft에 로그인 추가](quickstart-v2-aspnet-webapp.md)

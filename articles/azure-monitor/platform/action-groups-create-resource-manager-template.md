@@ -8,10 +8,10 @@ ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: 50ad9d57b24fab9ee57c2f9caae8f4c39d2681f0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669083"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용하여 작업 그룹 만들기
@@ -163,7 +163,7 @@ Resource Manager 템플릿을 사용하여 작업 그룹을 만들려면 `Micros
 
 
 ## <a name="next-steps"></a>다음 단계
-* [작업 그룹](../../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보세요.
+* [작업 그룹에](../../azure-monitor/platform/action-groups.md)대해 자세히 알아보세요.
 * [경고](alerts-overview.md)에 대해 자세히 알아보세요.
 * [리소스 관리자 템플릿을 사용하여 경고](../../azure-monitor/platform/alerts-activity-log.md)를 추가하는 방법을 알아보세요.
 

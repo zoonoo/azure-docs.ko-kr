@@ -1,5 +1,5 @@
 ---
-title: MSAL에 대 한 자세한 정보 Microsoft
+title: MSAL에 대해 알아보기 | Azure
 titleSuffix: Microsoft identity platform
 description: MSAL(Microsoft 인증 라이브러리)을 통해 애플리케이션 개발자는 보안 웹 API를 호출하기 위한 토큰을 획득할 수 있습니다. 이러한 웹 API에는 Microsoft Graph, 기타 Microsoft API, 타사 웹 API 또는 사용자의 웹 API가 있습니다. MSAL은 다수의 애플리케이션 아키텍처와 플랫폼을 지원합니다.
 services: active-directory
@@ -14,14 +14,14 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: c20d93c70484dc7ea800898da4309af2699c718e
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77085743"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>MSAL(Microsoft 인증 라이브러리) 개요
-MSAL(Microsoft 인증 라이브러리)을 통해 개발자는 보안 웹 API에 액세스하기 위해 Microsoft ID 플랫폼 엔드포인트에서 [토큰](developer-glossary.md#security-token)을 획득할 수 있습니다. 이러한 웹 API에는 Microsoft Graph, 기타 Microsoft API, 타사 웹 API 또는 사용자의 웹 API가 있습니다. MSAL은 다양한 애플리케이션 아키텍처와 플랫폼을 지원하는 .NET, JavaScript, Android 및 iOS에서 사용할 수 있습니다.
+MSAL(Microsoft 인증 라이브러리)을 사용하면 개발자가 Microsoft ID 플랫폼 끝점에서 [토큰을](developer-glossary.md#security-token) 획득하여 보안 웹 API에 액세스할 수 있습니다. 이러한 웹 API에는 Microsoft Graph, 기타 Microsoft API, 타사 웹 API 또는 사용자의 웹 API가 있습니다. MSAL은 다양한 애플리케이션 아키텍처와 플랫폼을 지원하는 .NET, JavaScript, Android 및 iOS에서 사용할 수 있습니다.
 
 MSAL을 통해 여러 플랫폼에 대해 일관된 API를 사용하여 토큰을 얻을 수 있는 방법은 여러 가지입니다. MSAL을 사용하면 다음과 같은 이점이 있습니다.
 
@@ -37,13 +37,13 @@ MSAL을 사용하면 웹 애플리케이션, 웹 API, 단일 페이지 앱(JavaS
 
 MSAL은 다음을 비롯한 여러 가지 애플리케이션 시나리오에 사용할 수 있습니다.
 
-* [단일 페이지 애플리케이션(JavaScript)](scenario-spa-overview.md)
+* [단일 페이지 응용 프로그램 (자바 스크립트)](scenario-spa-overview.md)
 * [사용자가 로그인하는 웹앱](scenario-web-app-sign-user-overview.md)
 * [사용자가 로그인하고 사용자를 대신하여 웹 API를 호출하는 웹 애플리케이션](scenario-web-app-call-api-overview.md)
 * [인증된 사용자만 액세스할 수 있도록 웹 API 보호](scenario-protected-web-api-overview.md)
 * [로그인한 사용자를 대신하여 또 다른 다운스트림 웹 API를 호출하는 웹 API](scenario-web-api-call-api-overview.md)
-* [로그인한 사용자를 대신하여 웹 API를 호출하는 데스크톱 애플리케이션](scenario-desktop-overview.md)
-* [대화형으로 로그인한 사용자를 대신하여 Web API를 호출하는 모바일 애플리케이션](scenario-mobile-overview.md)
+* [로그인한 사용자를 대신하여 웹 API를 호출하는 데스크톱 응용 프로그램](scenario-desktop-overview.md)
+* [대화식으로 로그인한 사용자를 대신하여 웹 API를 호출하는 모바일 응용 프로그램입니다.](scenario-mobile-overview.md)
 * [자체적으로 대신 웹 API를 호출하는 데스크톱/서비스 디먼 애플리케이션](scenario-daemon-overview.md)
 
 ## <a name="languages-and-frameworks"></a>언어 및 프레임워크
@@ -53,9 +53,9 @@ MSAL은 다음을 비롯한 여러 가지 애플리케이션 시나리오에 사
 | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET Framework, .NET Core, Xamarin Android, Xamarin iOS, 유니버설 Windows 플랫폼|
 | [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| AngularJS, Ember.js 또는 Durandal.js와 같은 JavaScript/TypeScript 프레임워크|
 | [Android용 MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
-| [IOS 및 macOS 용 MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS 및 macOS|
-| [MSAL Java (미리 보기)](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Java|
-| [MSAL Python (미리 보기)](https://github.com/AzureAD/microsoft-authentication-library-for-python)|Python|
+| [iOS 및 macOS용 MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS 및 macOS|
+| [MSAL 자바 (미리보기)](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Java|
+| [MSAL 파이썬 (미리보기)](https://github.com/AzureAD/microsoft-authentication-library-for-python)|Python|
 
 ## <a name="differences-between-adal-and-msal"></a>ADAL과 MSAL의 차이점
 

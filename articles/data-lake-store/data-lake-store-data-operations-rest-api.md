@@ -12,29 +12,29 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 351c92f1e1a698893f61004d523ba79ebca253e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60878786"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>REST API를 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST API](data-lake-store-data-operations-rest-api.md)
+> * [나머지 API](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 > 
 
 이 문서에서는 WebHDFS REST API 및 Data Lake Storage Gen1 REST API를 사용하여 Azure Data Lake Storage Gen1에서 파일 시스템 작업을 수행하는 방법을 알아봅니다. REST API를 사용하여 Data Lake Storage Gen1에서 계정 관리 작업을 수행하는 방법에 대한 지침은 [REST API를 사용한 Data Lake Storage Gen1에서의 계정 관리 작업](data-lake-store-get-started-rest-api.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-* **Azure Data Lake Storage Gen1 계정**. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
+* **Azure 데이터 레이크 저장소 Gen1 계정**. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
 
-* **[cURL](https://curl.haxx.se/)** . 이 문서에서는 cURL을 사용하여 Data Lake Storage Gen1 계정에 대해 REST API 호출을 수행하는 방법을 설명합니다.
+* **[cURL](https://curl.haxx.se/)**. 이 문서에서는 cURL을 사용하여 Data Lake Storage Gen1 계정에 대해 REST API 호출을 수행하는 방법을 설명합니다.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Azure Active Directory를 사용하여 인증하려면 어떻게 해야 하나요?
 Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있습니다.
@@ -46,7 +46,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
 ## <a name="create-folders"></a>폴더 만들기
 이 작업은 [여기](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
 
-다음 cURL 명령을 사용합니다. **\<yourstorename>** 을 Data Lake Storage Gen1 계정 이름으로 바꿉니다.
+다음 cURL 명령을 사용합니다. ** \<스토어 이름>** 데이터 레이크 스토리지 Gen1 계정 이름으로 바꿉니다.
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=MKDIRS'
 
@@ -59,7 +59,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
 ## <a name="list-folders"></a>폴더 나열
 이 작업은 [여기](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
 
-다음 cURL 명령을 사용합니다. **\<yourstorename>** 을 Data Lake Storage Gen1 계정 이름으로 바꿉니다.
+다음 cURL 명령을 사용합니다. ** \<스토어 이름>** 데이터 레이크 스토리지 Gen1 계정 이름으로 바꿉니다.
 
     curl -i -X GET -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS'
 
@@ -87,7 +87,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
 ## <a name="upload-data"></a>데이터 업로드
 이 작업은 [여기](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
 
-다음 cURL 명령을 사용합니다. **\<yourstorename>** 을 Data Lake Storage Gen1 계정 이름으로 바꿉니다.
+다음 cURL 명령을 사용합니다. ** \<스토어 이름>** 데이터 레이크 스토리지 Gen1 계정 이름으로 바꿉니다.
 
     curl -i -X PUT -L -T 'C:\temp\list.txt' -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/list.txt?op=CREATE'
 
@@ -114,7 +114,7 @@ Data Lake Storage Gen1 계정에서 데이터를 읽는 작업은 2단계 프로
 * 먼저 엔드포인트 `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN`에 대해 GET 요청을 제출합니다. 이 호출은 다음 GET 요청을 제출할 위치를 반환합니다.
 * 그러면 엔드포인트 `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN&read=true`에 대해 GET 요청을 제출합니다. 이 호출은 파일 콘텐츠를 표시합니다.
 
-그러나 첫 번째 단계와 두 번째 단계 간에 입력 매개 변수의 차이가 없으므로 `-L` 매개 변수를 사용하여 첫 번째 요청을 제출할 수 있습니다. `-L` 옵션은 기본적으로 두 요청을 하나로 결합하며 cURL이 새 위치에서 요청을 다시 실행하도록 만듭니다. 마지막으로, 모든 요청 호출의 출력이 다음 코드 조각에 나온 것처럼 표시됩니다. **\<yourstorename>** 을 Data Lake Storage Gen1 계정 이름으로 바꿉니다.
+그러나 첫 번째 단계와 두 번째 단계 간에 입력 매개 변수의 차이가 없으므로 `-L` 매개 변수를 사용하여 첫 번째 요청을 제출할 수 있습니다. `-L` 옵션은 기본적으로 두 요청을 하나로 결합하며 cURL이 새 위치에서 요청을 다시 실행하도록 만듭니다. 마지막으로, 모든 요청 호출의 출력이 다음 코드 조각에 나온 것처럼 표시됩니다. ** \<스토어 이름>** 데이터 레이크 스토리지 Gen1 계정 이름으로 바꿉니다.
 
     curl -i -L GET -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN'
 
@@ -133,7 +133,7 @@ Data Lake Storage Gen1 계정에서 데이터를 읽는 작업은 2단계 프로
 ## <a name="rename-a-file"></a>파일 이름 바꾸기
 이 작업은 [여기](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
 
-파일의 이름을 바꾸려면 다음 cURL 명령을 사용합니다. **\<yourstorename>** 을 Data Lake Storage Gen1 계정 이름으로 바꿉니다.
+파일의 이름을 바꾸려면 다음 cURL 명령을 사용합니다. ** \<스토어 이름>** 데이터 레이크 스토리지 Gen1 계정 이름으로 바꿉니다.
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=RENAME&destination=/mytempdir/myinputfile1.txt'
 
@@ -147,7 +147,7 @@ Data Lake Storage Gen1 계정에서 데이터를 읽는 작업은 2단계 프로
 ## <a name="delete-a-file"></a>파일 삭제
 이 작업은 [여기](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
 
-파일을 삭제하려면 다음 cURL 명령을 사용합니다. **\<yourstorename>** 을 Data Lake Storage Gen1 계정 이름으로 바꿉니다.
+파일을 삭제하려면 다음 cURL 명령을 사용합니다. ** \<스토어 이름>** 데이터 레이크 스토리지 Gen1 계정 이름으로 바꿉니다.
 
     curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile1.txt?op=DELETE'
 
@@ -159,9 +159,9 @@ Data Lake Storage Gen1 계정에서 데이터를 읽는 작업은 2단계 프로
     {"boolean":true}
 
 ## <a name="next-steps"></a>다음 단계
-* [REST API를 사용한 Data Lake Storage Gen1에서의 계정 관리 작업](data-lake-store-get-started-rest-api.md).
+* [REST API를 사용하여 데이터 레이크 스토리지 Gen1의 계정 관리 작업.](data-lake-store-get-started-rest-api.md)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Azure Data Lake Storage Gen1 REST API 참조](https://docs.microsoft.com/rest/api/datalakestore/)
 * [Azure Data Lake Storage Gen1과 호환되는 오픈 소스 빅 데이터 애플리케이션](data-lake-store-compatible-oss-other-applications.md)
 

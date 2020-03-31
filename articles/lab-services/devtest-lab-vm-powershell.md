@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell를 사용 하 여 DevTest Labs에서 가상 머신 만들기
-description: Azure DevTest Labs를 사용 하 여 Azure PowerShell에서 가상 머신을 만들고 관리 하는 방법을 알아봅니다.
+title: Azure PowerShell을 사용하여 DevTest 랩에서 가상 시스템 만들기
+description: Azure DevTest 랩을 사용하여 Azure PowerShell을 사용하여 가상 컴퓨터를 만들고 관리하는 방법을 알아봅니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,23 +14,23 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 13014c39641203bddadf858c34cff67462b3a4b3
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76167104"
 ---
-# <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 DevTest Labs를 사용 하 여 가상 머신 만들기
-이 문서에서는 Azure PowerShell를 사용 하 여 Azure DevTest Labs에서 가상 컴퓨터를 만드는 방법을 보여 줍니다. PowerShell 스크립트를 사용 하 여 Azure DevTest Labs에서 랩에서 가상 컴퓨터 만들기를 자동화할 수 있습니다. 
+# <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Azure PowerShell을 사용하여 DevTest 랩을 사용하여 가상 시스템 만들기
+이 문서에서는 Azure PowerShell을 사용하여 Azure DevTest Labs에서 가상 컴퓨터를 만드는 방법을 보여 주며 있습니다. PowerShell 스크립트를 사용하여 Azure DevTest 랩의 랩에서 가상 컴퓨터 생성을 자동화할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에
 
-- 이 문서의 스크립트나 명령을 테스트 하기 위해 기존 랩을 사용 하지 않으려는 경우 [랩을 만듭니다](devtest-lab-create-lab.md) . 
-- [Azure PowerShell를 설치](/powershell/azure/install-az-ps?view=azps-1.7.0) 하거나 Azure Portal에 통합 된 Azure Cloud Shell를 사용 합니다. 
+- 기존 랩을 사용하여 이 문서의 스크립트 또는 명령을 테스트하지 않으려면 [랩을 만듭니다.](devtest-lab-create-lab.md) 
+- [Azure PowerShell을 설치하거나](/powershell/azure/install-az-ps?view=azps-1.7.0) Azure 포털에 통합된 Azure 클라우드 셸을 사용합니다. 
 
 ## <a name="powershell-script"></a>PowerShell 스크립트
-이 단원의 샘플 스크립트에서는 [AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) cmdlet을 사용 합니다.  이 cmdlet은 랩의 리소스 ID, 수행할 동작의 이름 (`createEnvironment`) 및 해당 작업을 수행 하는 데 필요한 매개 변수를 사용 합니다. 매개 변수는 모든 가상 컴퓨터 설명 속성을 포함 하는 해시 테이블에 있습니다. 
+이 섹션의 샘플 스크립트는 [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) cmdlet을 사용합니다.  이 cmdlet은 랩의 리소스 ID, 수행할 작업`createEnvironment`이름()을 사용 하며 필요한 매개 변수는 해당 작업을 수행 합니다. 매개 변수는 모든 가상 시스템 설명 속성을 포함하는 해시 테이블에 있습니다. 
 
 ```powershell
 [CmdletBinding()]
@@ -115,29 +115,29 @@ finally {
 }
 ```
 
-위의 스크립트에 있는 가상 컴퓨터의 속성을 사용 하면 Windows Server 2016 DataCenter를 OS로 사용 하 여 가상 컴퓨터를 만들 수 있습니다. 각 유형의 가상 컴퓨터에 대해 이러한 속성은 약간 다릅니다. [가상 컴퓨터 정의](#define-virtual-machine) 섹션에서는이 스크립트에서 사용할 속성을 결정 하는 방법을 보여 줍니다.
+위의 스크립트에서 가상 시스템에 대 한 속성을 사용 하면 우리가 윈도우 서버와 가상 컴퓨터를 만들 수 있습니다 2016 데이터 센터 OS로. 가상 시스템의 각 유형에 대해 이러한 속성은 약간 다릅니다. [가상 시스템 정의](#define-virtual-machine) 섹션에서는 이 스크립트에서 사용할 속성을 결정하는 방법을 보여 주며 있습니다.
 
-다음 명령은 파일 이름에 저장 된 스크립트를 실행 하는 예를 제공 합니다. Create-LabVirtualMachine. 
+다음 명령은 파일 이름에 저장된 스크립트를 실행하는 예제를 제공합니다: Create-LabVirtualMachine.ps1. 
 
 ```powershell
  PS> .\Create-LabVirtualMachine.ps1 -ResourceGroupName 'MyLabResourceGroup' -LabName 'MyLab' -userName 'AdminUser' -password 'Password1!' -VMName 'MyLabVM'
 ```
 
-## <a name="define-virtual-machine"></a>가상 컴퓨터 정의
-이 섹션에서는 만들려는 가상 컴퓨터의 형식에 해당 하는 속성을 가져오는 방법을 보여 줍니다. 
+## <a name="define-virtual-machine"></a>가상 시스템 정의
+이 섹션에서는 만들려는 가상 컴퓨터 유형과 관련된 속성을 얻는 방법을 보여 주십습니다. 
 
 ### <a name="use-azure-portal"></a>Azure Portal 사용
-Azure Portal에서 VM을 만들 때 Azure Resource Manager 템플릿을 생성할 수 있습니다. VM을 만드는 프로세스를 완료할 필요가 없습니다. 템플릿이 표시 될 때까지 단계를 따릅니다. 랩 VM을 아직 만들지 않은 경우 필요한 JSON 설명을 가져오는 가장 좋은 방법입니다. 
+Azure 포털에서 VM을 만들 때 Azure 리소스 관리자 템플릿을 생성할 수 있습니다. VM을 만드는 프로세스를 완료할 필요가 없습니다. 템플릿이 표시될 때까지만 단계를 따릅니다. 랩 VM이 아직 생성되지 않은 경우 필요한 JSON 설명을 얻는 가장 좋은 방법입니다. 
 
-1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-2. 왼쪽 탐색 메뉴에서 **모든 서비스** 를 선택 합니다.
-3. 서비스 목록에서 **DevTest Labs** 를 검색 하 고 선택 합니다. 
-4. **DevTest labs** 페이지의 랩 목록에서 랩을 선택 합니다.
-5. 랩의 홈 페이지에 있는 도구 모음에서 **+ 추가** 를 선택 합니다. 
-6. VM에 대 한 **기본 이미지** 를 선택 합니다. 
-7. 페이지 아래쪽의 **제출** 단추 위에 있는 **자동화 옵션** 을 선택 합니다. 
-8. 가상 컴퓨터를 만들기 위한 **Azure Resource Manager 템플릿이** 표시 됩니다. 
-9. **리소스** 섹션의 JSON 세그먼트에는 이전에 선택한 이미지 형식에 대 한 정의가 있습니다. 
+1. [Azure 포털로](https://portal.azure.com)이동합니다.
+2. 왼쪽 탐색 메뉴에서 **모든 서비스를** 선택합니다.
+3. 서비스 목록에서 **DevTest 랩을** 검색하고 선택합니다. 
+4. **DevTest Labs** 페이지에서 랩 목록에서 랩을 선택합니다.
+5. 랩의 홈 페이지에서 도구 모음에 **+ 추가를** 선택합니다. 
+6. VM의 **기본 이미지를** 선택합니다. 
+7. **제출** 단추 위의 페이지 하단에서 **자동화 옵션을** 선택합니다. 
+8. 가상 컴퓨터를 만들기 위한 **Azure 리소스 관리자 템플릿이** 표시됩니다. 
+9. **리소스** 섹션의 JSON 세그먼트에는 이전에 선택한 이미지 유형에 대한 정의가 있습니다. 
 
     ```json
     {
@@ -177,22 +177,22 @@ Azure Portal에서 VM을 만들 때 Azure Resource Manager 템플릿을 생성�
     }
     ```
 
-이 예제에서는 Azure Market Place 이미지의 정의를 가져오는 방법에 대해 알아봅니다. 동일한 방식으로 사용자 지정 이미지, 수식 또는 환경에 대 한 정의를 가져올 수 있습니다. 가상 컴퓨터에 필요한 아티팩트를 추가 하 고 필요한 고급 설정을 설정 합니다. **자동화 옵션** 단추를 선택 하기 전에 필수 필드 및 선택적 필드에 대 한 값을 제공한 후
+이 예제에서는 Azure Market Place 이미지의 정의를 얻는 방법을 볼 수 있습니다. 사용자 지정 이미지, 수식 또는 환경의 정의를 동일한 방식으로 얻을 수 있습니다. 가상 시스템에 필요한 아티팩트를 추가하고 필요한 고급 설정을 설정합니다. **자동화 옵션** 단추를 선택하기 전에 필요한 필드 및 선택적 필드에 대한 값을 제공한 후
 
 ### <a name="use-azure-rest-api"></a>Azure REST API 사용
-다음 절차에서는 REST API를 사용 하 여 이미지의 속성을 가져오는 단계를 제공 합니다 .이 단계는 랩에서 기존 VM에 대해서만 작동 합니다. 
+다음 절차에서는 REST API를 사용하여 이미지의 속성을 얻는 단계를 제공합니다. 
 
-1. [Virtual Machines 목록](/rest/api/dtl/virtualmachines/list) 페이지로 이동 하 여 **사용해 보기** 단추를 선택 합니다. 
-2. Azure **구독**을 선택합니다.
-3. **랩에 대 한 리소스 그룹**을 입력 합니다.
-4. **랩의 이름을**입력 합니다. 
-5. **실행**을 선택합니다.
-6. VM이 만들어진 기준 **이미지에 대 한 속성** 을 볼 수 있습니다. 
+1. [가상 컴퓨터로](/rest/api/dtl/virtualmachines/list) 이동 - 목록 페이지, **시도 단추를** 선택합니다. 
+2. Azure **구독을**선택합니다.
+3. **랩의 리소스 그룹을 입력합니다.**
+4. 랩 **이름을 입력합니다.** 
+5. **실행을 선택합니다.**
+6. VM이 만들어진 **이미지에 대한 속성이** 표시됩니다. 
 
 ## <a name="set-expiration-date"></a>만료 날짜 설정
-학습, 데모, 시험 등의 시나리오에서 가상 컴퓨터를 만들고 고정 기간 후에 자동으로 삭제 하 여 불필요 한 비용이 발생 하지 않도록 할 수 있습니다. Powershell [스크립트](#powershell-script) 섹션 예제에 표시 된 대로 powershell을 사용 하 여 VM을 만드는 동안 VM에 대 한 만료 날짜를 설정할 수 있습니다.
+교육, 데모 및 평가판과 같은 시나리오에서는 불필요한 비용이 발생하지 않도록 고정된 기간 이후에 가상 컴퓨터를 만들고 자동으로 삭제할 수 있습니다. 예제 [PowerShell 스크립트](#powershell-script) 섹션에 표시된 대로 PowerShell을 사용하여 VM을 만드는 동안 VM의 만료 날짜를 설정할 수 있습니다.
 
-다음은 랩에서 모든 기존 Vm에 대 한 만료 날짜를 설정 하는 샘플 PowerShell 스크립트입니다.
+다음은 랩의 모든 기존 VM에 대한 만료 날짜를 설정하는 샘플 PowerShell 스크립트입니다.
 
 ```powershell
 # Values to change
@@ -225,4 +225,4 @@ Set-AzureRmResource -ResourceId $VmResourceId -Properties $VmProperties -Force
 
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 다음 콘텐츠를 참조 하세요. [Azure PowerShell 설명서 Azure DevTest Labs](/powershell/module/az.devtestlabs/)
+다음 콘텐츠 참조: [Azure DevTest 랩에 대 한 Azure PowerShell 설명서](/powershell/module/az.devtestlabs/)

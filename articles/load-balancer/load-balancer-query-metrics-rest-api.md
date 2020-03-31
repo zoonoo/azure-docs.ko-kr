@@ -1,7 +1,7 @@
 ---
 title: REST API를 사용하여 메트릭 검색
 titleSuffix: Azure Load Balancer
-description: 이 문서에서는 Azure REST Api를 사용 하 여 Azure Load Balancer에 대 한 상태 및 사용 메트릭을 수집 하기 시작 합니다.
+description: 이 문서에서는 Azure REST API를 사용하여 Azure Load Balancer에 대한 상태 및 사용 메트릭을 수집하기 시작합니다.
 services: sql-database
 author: asudbring
 manager: KumudD
@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: allensu
 ms.openlocfilehash: 760ec8a945ab88b63dde2de75f5354818facf4f2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74225253"
 ---
-# <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>REST API를 사용 하 여 Load Balancer 사용 메트릭 가져오기
+# <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>REST API를 사용하여 로드 밸러저 사용 메트릭 받기
 
-[Azure REST API](/rest/api/azure/)를 사용 하 여 시간 간격 동안 [표준 Load Balancer](/azure/load-balancer/load-balancer-standard-overview) 에서 처리 한 바이트 수를 수집 합니다.
+[Azure REST API를](/rest/api/azure/)사용하여 시간 간격동안 [표준 로드 밸런서에서](/azure/load-balancer/load-balancer-standard-overview) 처리되는 바이트 수를 수집합니다.
 
 REST API에 대한 전체 참조 설명서 및 추가 샘플은 [Azure Monitor REST 참조](/rest/api/monitor)에서 사용할 수 있습니다. 
 
@@ -31,14 +31,14 @@ REST API에 대한 전체 참조 설명서 및 추가 샘플은 [Azure Monitor R
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=ByteCount&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
 ```
 
-### <a name="request-headers"></a>요청 헤더
+### <a name="request-headers"></a>헤더 요청
 
 다음과 같은 헤더가 필요합니다. 
 
 |요청 헤더|설명|  
 |--------------------|-----------------|  
-|*Content-Type:*|필수입니다. `application/json`로 설정합니다.|  
-|*권한 부여*|필수입니다. 유효한 `Bearer` [액세스 토큰](/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |  
+|*콘텐츠 유형:*|필수 사항입니다. `application/json`로 설정합니다.|  
+|*권한 부여:*|필수 사항입니다. 유효한 `Bearer` [액세스 토큰](/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |  
 
 ### <a name="uri-parameters"></a>URI 매개 변수
 
@@ -49,7 +49,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 | loadBalancerName | Azure Load Balancer의 이름입니다. |
 | 메트릭 이름 | 쉼표로 구분된 유효한 [Load Balancer 메트릭](/azure/load-balancer/load-balancer-standard-diagnostics) 목록입니다. |
 | api-version | 요청에 사용할 API 버전입니다.<br /><br /> 이 문서에서는 위 URL에 포함되어 있는 api-version `2018-01-01`을 다룹니다.  |
-| timespan | 쿼리의 시간 범위입니다. `startDateTime_ISO/endDateTime_ISO`형식의 문자열입니다. 이 선택적 매개 변수는 예제에서 하루 동안의 데이터를 반환하도록 설정되어 있습니다. |
+| timespan | 쿼리의 시간 범위입니다. 다음 형식의 `startDateTime_ISO/endDateTime_ISO`문자열입니다. 이 선택적 매개 변수는 예제에서 하루 동안의 데이터를 반환하도록 설정되어 있습니다. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>요청 본문

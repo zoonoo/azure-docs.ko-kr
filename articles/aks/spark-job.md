@@ -6,26 +6,26 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 7465f8eb4357fcb6faa1d0fee0173837b6cb019b
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 4b3248cb9ab61a158f70b5a2d6ae9dd846501816
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77593652"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473628"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>AKS에서 Apache Spark 작업 실행
 
-[Apache Spark][apache-spark] 는 대규모 데이터 처리를 위한 고속 엔진입니다. [Spark 2.3.0 릴리스에서][spark-latest-release]는 Apache Spark Kubernetes 클러스터와의 기본 통합을 지원 합니다. AKS(Azure Kubernetes Service)는 Azure에서 실행되는 관리 Kubernetes 환경입니다. 이 문서에서는 Apache Spark 작업을 준비하고 AKS(Azure Kubernetes Service) 클러스터에서 실행하는 방법을 자세히 설명합니다.
+[아파치 스파크는][apache-spark] 대규모 데이터 처리를 위한 빠른 엔진입니다. [Spark 2.3.0 릴리스][spark-latest-release]부터 Apache Spark는 Kubernetes 클러스터와의 네이티브 통합을 지원합니다. AKS(Azure Kubernetes Service)는 Azure에서 실행되는 관리 Kubernetes 환경입니다. 이 문서에서는 Apache Spark 작업을 준비하고 AKS(Azure Kubernetes Service) 클러스터에서 실행하는 방법을 자세히 설명합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 이 아티클 내의 단계를 완료하기 위해 다음 항목이 필요합니다.
 
-* Kubernetes 및 [Apache Spark][spark-quickstart]에 대 한 기본적인 이해
-* [Docker 허브][docker-hub] 계정 또는 [Azure Container Registry][acr-create]입니다.
-* Azure CLI 개발 시스템에 [설치][azure-cli] 됩니다.
-* [JDK 8][java-install] 이 시스템에 설치 되어 있어야 합니다.
-* SBT ([Scala Build Tool][sbt-install])가 시스템에 설치 되어 있어야 합니다.
+* Kubernetes 및 [Apache Spark][spark-quickstart]에 대한 기본적인 이해.
+* [Docker 허브][docker-hub] 계정 또는 [Azure Container Registry][acr-create].
+* 개발 시스템에 [설치된][azure-cli] Azure CLI입니다.
+* 시스템에 설치된 [JDK 8][java-install].
+* 시스템에 설치된 SBT([Scala 빌드 도구][sbt-install]).
 * 시스템에 설치된 Git 명령줄 도구
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
@@ -40,13 +40,13 @@ Spark는 대규모 데이터 처리에 사용되며 Kubernetes 노드의 크기�
 az group create --name mySparkCluster --location eastus
 ```
 
-클러스터에 대 한 서비스 주체를 만듭니다. 만든 후에는 다음 명령에 대 한 서비스 사용자 appId 및 암호가 필요 합니다.
+클러스터에 대한 서비스 보안 주체를 만듭니다. 만든 후에는 다음 명령에 대한 서비스 주체 appId 및 암호가 필요합니다.
 
 ```azurecli
 az ad sp create-for-rbac --name SparkSP
 ```
 
-`Standard_D3_v2`크기의 노드 및 서비스 사용자 및 클라이언트 암호 매개 변수로 전달 되는 appId 및 암호의 값을 사용 하 여 AKS 클러스터를 만듭니다.
+AKS 클러스터를 크기별 `Standard_D3_v2`노드와 appId 및 암호 값이 서비스 주체 및 클라이언트 비밀 매개 변수로 전달되는 것으로 만듭니다.
 
 ```azurecli
 az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2 --generate-ssh-keys --service-principal <APPID> --client-secret <PASSWORD>
@@ -58,7 +58,7 @@ AKS 클러스터에 연결합니다.
 az aks get-credentials --resource-group mySparkCluster --name mySparkCluster
 ```
 
-ACR(Azure Container Registry)을 사용하여 컨테이너 이미지를 저장하는 경우 AKS와 ACR 간에 인증을 구성합니다. 이러한 단계는 [ACR 인증 설명서][acr-aks] 를 참조 하세요.
+ACR(Azure Container Registry)을 사용하여 컨테이너 이미지를 저장하는 경우 AKS와 ACR 간에 인증을 구성합니다. 구성 단계는 [ACR 인증 설명서][acr-aks]를 참조하세요.
 
 ## <a name="build-the-spark-source"></a>Spark 소스 빌드
 
@@ -186,7 +186,7 @@ export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-strin
 
 다음 명령을 사용하여 jar 파일을 Azure Storage 계정에 업로드합니다.
 
-```bash
+```azurecli
 CONTAINER_NAME=jars
 BLOB_NAME=SparkPi-assembly-0.1.0-SNAPSHOT.jar
 FILE_TO_UPLOAD=target/scala-2.11/SparkPi-assembly-0.1.0-SNAPSHOT.jar
@@ -217,7 +217,7 @@ Spark 리포지토리의 루트로 돌아갑니다.
 cd $sparkdir
 ```
 
-작업을 실행 하는 데 충분 한 권한이 있는 서비스 계정을 만듭니다.
+작업을 실행하기에 충분한 권한이 있는 서비스 계정을 만듭니다.
 
 ```bash
 kubectl create serviceaccount spark
@@ -241,8 +241,10 @@ kubectl create clusterrolebinding spark-role --clusterrole=edit --serviceaccount
 이 연산은 Spark 작업을 시작하고, 작업 상태를 셸 세션에 스트리밍합니다. 작업이 실행되는 동안 kubectl get pods 명령을 사용하여 Spark 드라이버 Pod 및 실행기 Pod를 볼 수 있습니다. 두 번째 터미널 세션을 열고 다음 명령을 실행합니다.
 
 ```console
-$ kubectl get pods
+kubectl get pods
+```
 
+```output
 NAME                                               READY     STATUS     RESTARTS   AGE
 spark-pi-2232778d0f663768ab27edc35cb73040-driver   1/1       Running    0          16s
 spark-pi-2232778d0f663768ab27edc35cb73040-exec-1   0/1       Init:0/1   0          4s
@@ -270,7 +272,7 @@ kubectl get pods --show-all
 
 출력:
 
-```bash
+```output
 NAME                                               READY     STATUS      RESTARTS   AGE
 spark-pi-2232778d0f663768ab27edc35cb73040-driver   0/1       Completed   0          1m
 ```
@@ -283,7 +285,7 @@ kubectl logs spark-pi-2232778d0f663768ab27edc35cb73040-driver
 
 이 로그에서 Pi의 값이 되는 Spark 작업의 결과를 볼 수 있습니다.
 
-```bash
+```output
 Pi is roughly 3.152155760778804
 ```
 
@@ -291,7 +293,7 @@ Pi is roughly 3.152155760778804
 
 위의 예제에서는 Spark jar 파일을 Azure Storage에 업로드했습니다. 또 다른 옵션은 jar 파일을 사용자 지정된 Docker 이미지로 패키징하는 것입니다.
 
-이렇게 하려면 `dockerfile` 디렉터리에서 Spark 이미지에 대한 `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/`을 찾습니다. `ADD` 및 `jar` 선언 사이에 Spark 작업 `WORKDIR`에 대한 `ENTRYPOINT` 명령문을 추가합니다.
+이렇게 하려면 `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` 디렉터리에서 Spark 이미지에 대한 `dockerfile`을 찾습니다. `WORKDIR` 및 `ENTRYPOINT` 선언 사이에 Spark 작업 `jar`에 대한 `ADD` 명령문을 추가합니다.
 
 jar 경로를 개발 시스템의 `SparkPi-assembly-0.1.0-SNAPSHOT.jar` 파일 위치로 업데이트합니다. 개발자 고유의 사용자 지정 jar 파일을 사용해도 됩니다.
 
@@ -325,7 +327,7 @@ ENTRYPOINT [ "/opt/entrypoint.sh" ]
 ```
 
 > [!WARNING]
-> Spark [설명서][spark-docs]에서: "Kubernetes scheduler는 현재 실험적입니다. 이후 버전에서는 구성, 컨테이너 이미지 및 진입점 동작이 변경될 수 있습니다."
+> Spark [설명서][spark-docs]에서 "Kubernetes 스케줄러는 현재 실험적입니다. 이후 버전에서는 구성, 컨테이너 이미지 및 진입점 동작이 변경될 수 있습니다."
 
 ## <a name="next-steps"></a>다음 단계
 

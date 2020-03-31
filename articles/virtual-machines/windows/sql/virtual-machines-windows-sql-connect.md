@@ -15,10 +15,10 @@ ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: deb337d989a3658e909cefa7a9ab028e37792562
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243173"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Azure에서 SQL Server 가상 머신에 연결
@@ -39,10 +39,10 @@ Azure Portal에서 SQL Server VM을 프로비전하는 경우 **SQL 연결**의 
 
 연결에 대한 옵션은 다음과 같습니다.
 
-| 옵션 | Description |
+| 옵션 | 설명 |
 |---|---|
 | **공용** | 인터넷을 통해 SQL Server에 연결 |
-| **프라이빗** | 동일한 가상 네트워크의 SQL Server에 연결 |
+| **개인** | 동일한 가상 네트워크의 SQL Server에 연결 |
 | **로컬** | 동일한 가상 머신의 SQL Server에 로컬로 연결 | 
 
 다음 섹션은 **공용** 및 **프라이빗** 옵션을 자세히 설명합니다.
@@ -91,17 +91,17 @@ Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User 
 Server=mysqlvm;Integrated Security=true
 ```
 
-## <a id="change"></a> SQL 연결 설정 변경
+## <a name="change-sql-connectivity-settings"></a><a id="change"></a> SQL 연결 설정 변경
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
 Azure Portal에서 SQL Server 가상 머신에 대한 연결 설정을 변경할 수 있습니다.
 
-1. Azure Portal에서 **SQL 가상 컴퓨터**를 선택 합니다.
+1. Azure 포털에서 **SQL 가상 컴퓨터를**선택합니다.
 
 2. SQL Server VM을 선택합니다.
 
-3. **설정**아래에서 **보안**을 선택 합니다.
+3. **설정에서** **보안**을 선택합니다.
 
 4. **SQL 연결 수준**을 필요한 설정으로 변경합니다. 필요에 따라 이 영역을 사용하여 SQL Server 포트 또는 SQL 인증 설정을 변경할 수 있습니다.
 
@@ -111,7 +111,7 @@ Azure Portal에서 SQL Server 가상 머신에 대한 연결 설정을 변경할
 
    ![SQL VM 업데이트 알림](./media/virtual-machines-windows-sql-connect/sql-vm-updating-notification.png)
 
-## <a id="manualtcp"></a> Developer 및 Express 버전에 대해 TCP/IP 사용
+## <a name="enable-tcpip-for-developer-and-express-editions"></a><a id="manualtcp"></a>개발자 및 익스프레스 에디션을 위한 TCP/IP 사용
 
 SQL Server 연결 설정을 변경할 때 Azure는 SQL Server Developer 및 Express 버전에 대해 TCP/IP 프로토콜을 자동으로 설정하지 않습니다. 아래 단계에서는 IP 주소를 통해 원격으로 연결할 수 있도록 TCP/IP를 수동으로 사용하도록 설정하는 방법을 설명합니다.
 
@@ -129,15 +129,15 @@ SQL Server 연결 설정을 변경할 때 Azure는 SQL Server Developer 및 Expr
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
-## <a id="manual"></a> 수동 구성 및 문제 해결
+## <a name="manual-configuration-and-troubleshooting"></a><a id="manual"></a> 수동 구성 및 문제 해결
 
 포털에서 자동으로 연결을 구성하는 옵션을 제공하지만 수동으로 연결을 구성하는 방법을 알고 있으면 유용합니다. 요구 사항을 이해하면 문제 해결에 도움이 될 수 있습니다.
 
 다음 표에는 Azure VM에서 실행되는 SQL Server에 연결하기 위한 요구 사항이 나와 있습니다.
 
-| 요구 사항 | Description |
+| 요구 사항 | 설명 |
 |---|---|
-| [SQL Server 인증 모드 사용](/sql/database-engine/configure-windows/change-server-authentication-mode#use-ssms) | Virtual Network에 Active Directory를 구성하지 않은 경우 원격으로 VM에 연결하는 데 SQL Server 인증이 필요합니다. |
+| [SQL 서버 인증 모드 활성화](/sql/database-engine/configure-windows/change-server-authentication-mode#use-ssms) | Virtual Network에 Active Directory를 구성하지 않은 경우 원격으로 VM에 연결하는 데 SQL Server 인증이 필요합니다. |
 | [SQL 로그인 만들기](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | SQL 인증을 사용하는 경우 대상 데이터베이스에 대한 권한이 있는 사용자 이름과 암호를 사용하는 SQL 로그인이 필요합니다. |
 | [TCP/IP 프로토콜 사용](#manualtcp) | SQL Server에서 TCP를 통한 연결을 허용해야 합니다. |
 | [SQL Server 포트에 방화벽 규칙 사용](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | VM의 방화벽은 SQL Server 포트에서 인바운드 트래픽을 허용해야 합니다(기본값 1433). |

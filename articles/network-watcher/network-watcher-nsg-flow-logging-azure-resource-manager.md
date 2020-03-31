@@ -1,6 +1,6 @@
 ---
-title: Network Watcher-Azure Resource Manager 템플릿을 사용 하 여 NSG 흐름 로그 만들기
-description: Azure Resource Manager 템플릿 및 PowerShell을 사용 하 여 NSG 흐름 로그를 쉽게 설정할 수 있습니다.
+title: 네트워크 감시자 - Azure 리소스 관리자 템플릿을 사용하여 NSG 흐름 로그 만들기
+description: Azure 리소스 관리자 템플릿 및 PowerShell을 사용하여 NSG 흐름 로그를 쉽게 설정할 수 있습니다.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -15,31 +15,31 @@ ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
 ms.openlocfilehash: 35d185a625a81a259c366a45999769ecf76c6a7d
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77538161"
 ---
-# <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿에서 NSG 흐름 로그 구성
+# <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Azure 리소스 관리자 템플릿에서 NSG 흐름 로그 구성
 
 > [!div class="op_single_selector"]
-> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
-> - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
+> - [Azure 포털](network-watcher-nsg-flow-logging-portal.md)
+> - [Powershell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
-> - [REST API](network-watcher-nsg-flow-logging-rest.md)
+> - [나머지 API](network-watcher-nsg-flow-logging-rest.md)
 > - [Azure 리소스 관리자](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
-[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) 는 Azure의 기본 이며 [인프라를 코드로](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code)관리 하는 강력한 방법입니다.
+[Azure 리소스 관리자는](https://azure.microsoft.com/features/resource-manager/) Azure의 네이티브이자 강력한 방법으로 [인프라를 코드로](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code)관리할 수 있습니다.
 
-이 문서에서는 Azure Resource Manager 템플릿 및 Azure PowerShell를 사용 하 여 [Nsg 흐름 로그](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) 를 프로그래밍 방식으로 사용 하도록 설정 하는 방법을 보여 줍니다. 먼저 NSG 흐름 로그 개체의 속성에 대 한 개요를 제공 하 고 몇 가지 샘플 템플릿을 제공 합니다. 그런 다음 로컬 PowerShell 인스턴스를 사용 하 여 템플릿을 배포 합니다.
+이 문서에서는 Azure 리소스 관리자 템플릿 및 Azure PowerShell을 사용하여 [NSG 흐름 로그를](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) 프로그래밍 방식으로 사용하도록 설정하는 방법을 보여 주며 이 문서에서는 먼저 NSG 흐름 로그 개체의 속성에 대한 개요를 제공하고 몇 가지 샘플 템플릿을 제공합니다. 그런 다음 로컬 PowerShell 인스턴스를 사용하여 배포 템플릿을 사용합니다.
 
 
 ## <a name="nsg-flow-logs-object"></a>NSG 흐름 로그 개체
 
-모든 매개 변수를 포함 하는 NSG 흐름 로그 개체는 다음과 같습니다.
-속성의 전체 개요를 확인 하려면 [Nsg 흐름 로그 템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters)를 읽어 보십시오.
+모든 매개 변수가 있는 NSG 흐름 로그 개체는 다음과 같습니다.
+속성에 대한 전체 개요를 보려면 [NSG 흐름 로그 템플릿 참조를](https://docs.microsoft.com/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters)읽을 수 있습니다.
 
 ```json
 {
@@ -69,20 +69,20 @@ ms.locfileid: "77538161"
     }
   }
 ```
-Microsoft. Network/networkWatchers/flowLogs 리소스를 만들려면 템플릿의 리소스 섹션에 위의 JSON을 추가 합니다.
+Microsoft.Network/networkWatchers/flowLogs 리소스를 만들려면 템플릿의 리소스 섹션에 위의 JSON을 추가합니다.
 
 
 ## <a name="creating-your-template"></a>템플릿 만들기
 
-Azure Resource Manager 템플릿을 처음 사용 하는 경우 아래 링크를 사용 하 여 자세히 알아볼 수 있습니다.
+Azure 리소스 관리자 템플릿을 처음 사용하는 경우 아래 링크를 사용하여 템플릿에 대해 자세히 알아볼 수 있습니다.
 
 * [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell#deploy-local-template)
-* [자습서: 첫 번째 Azure Resource Manager 템플릿 만들기 및 배포](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)
+* [자습서: 첫 번째 Azure 리소스 관리자 템플릿 만들기 및 배포](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)
 
 
-다음은 NSG 흐름 로그를 설정 하는 전체 템플릿의 두 가지 예입니다.
+다음은 NSG 흐름 로그를 설정하는 전체 템플릿의 두 가지 예입니다.
 
-**예 1**: 최소 매개 변수가 전달 된 위의 가장 간단한 버전입니다. 아래 템플릿에서는 대상 NSG에 대 한 NSG 흐름 로그를 사용 하도록 설정 하 고 지정 된 저장소 계정에 저장 합니다.
+**예 1**: 최소 매개 변수가 전달된 위의 가장 간단한 버전입니다. 아래 템플릿은 대상 NSG에 NSG 흐름 로그를 활성화하고 지정된 저장소 계정에 저장합니다.
 
 ```json
 {
@@ -110,11 +110,11 @@ Azure Resource Manager 템플릿을 처음 사용 하는 경우 아래 링크를
 ```
 
 > [!NOTE]
-> * 리소스 이름에는 "Parent Resource >/Child resource" 형식이 있습니다. 여기에서 부모 리소스는 지역 Network Watcher 인스턴스입니다 (형식: NetworkWatcher_<RegionName>. 예: NetworkWatcher_centraluseuap)
+> * 리소스 이름에는 "상위 리소스>/자식 리소스" 형식이 있습니다. 여기서 상위 리소스는 지역 네트워크 감시자 인스턴스(형식: NetworkWatcher_<RegionName>. 예: NetworkWatcher_centraluseuap)
 > * targetResourceId는 대상 NSG의 리소스 ID입니다.
 > * storageId는 대상 저장소 계정의 리소스 ID입니다.
 
-**예 2**: 다음 템플릿은 Nsg 흐름 로그 (버전 2)를 5 일 동안 보존 하도록 설정 합니다. 처리 간격이 10 분인 트래픽 분석를 사용 하도록 설정 합니다.
+**예제 2**: NSG 흐름 로그(버전 2)를 5일 동안 보존할 수 있도록 하는 다음 템플릿입니다. 처리 간격이 10분인 트래픽 분석을 활성화합니다.
 
 ```json
 {
@@ -153,12 +153,12 @@ Azure Resource Manager 템플릿을 처음 사용 하는 경우 아래 링크를
 }
 ```
 
-## <a name="deploying-your-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 배포
+## <a name="deploying-your-azure-resource-manager-template"></a>Azure 리소스 관리자 템플릿 배포
 
-이 자습서에서는 흐름 로깅을 사용 하도록 설정할 수 있는 기존 리소스 그룹 및 NSG가 있는 것으로 가정 합니다.
-위의 예제 템플릿 중 하나를 `azuredeploy.json`으로 로컬로 저장할 수 있습니다. 구독에서 유효한 리소스를 가리키도록 속성 값을 업데이트 합니다.
+이 자습서에서는 기존 리소스 그룹과 흐름 로그온을 활성화할 수 있는 NSG가 있다고 가정합니다.
+위의 예제 템플릿중 어느 것을 로컬로 `azuredeploy.json`저장할 수 있습니다. 구독에서 유효한 리소스를 가리키도록 속성 값을 업데이트합니다.
 
-템플릿을 배포 하려면 PowerShell에서 다음 명령을 실행 합니다.
+템플릿을 배포하려면 PowerShell에서 다음 명령을 실행합니다.
 ```azurepowershell
 New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatcherRG `
     -TemplateFile "C:\MyTemplates\azuredeploy.json"
@@ -167,12 +167,12 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 
 ## <a name="verifying-your-deployment"></a>배포 확인
 
-배포가 성공 했는지 확인 하는 몇 가지 방법이 있습니다. PowerShell 콘솔에 "ProvisioningState"이 "성공"으로 표시 되어야 합니다. 또한 [Nsg 흐름 로그 포털 페이지](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) 를 방문 하 여 변경 내용을 확인할 수 있습니다. 배포에 문제가 있는 경우 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors)을 살펴보세요.
+배포가 성공했는지 확인하는 방법에는 몇 가지가 있습니다. PowerShell 콘솔에 "프로비저닝상태"를 "성공"으로 표시해야 합니다. 또한 [NSG 흐름 로그 포털 페이지를](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) 방문하여 변경 사항을 확인할 수 있습니다. 배포에 문제가 있는 경우 Azure 리소스 관리자를 사용 하 고 [일반적인 Azure 배포 오류 문제 해결을](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors)살펴보십시오.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-다음을 사용 하 여 NSG 흐름 데이터를 시각화 하는 방법을 알아봅니다.
-* [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+다음을 사용하여 NSG 흐름 데이터를 시각화하는 방법에 대해 알아봅니다.
+* [마이크로소프트 파워 BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 * [오픈 소스 도구](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 * [Azure 트래픽 분석](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)

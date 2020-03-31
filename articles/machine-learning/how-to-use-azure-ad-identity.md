@@ -1,7 +1,7 @@
 ---
-title: 웹 서비스에서 AAD id 사용
+title: 웹 서비스와 함께 AAD ID 사용
 titleSuffix: Azure Machine Learning
-description: Azure Kubernetes Service에서 웹 서비스와 함께 AAD id를 사용 하 여 점수 매기기 중에 클라우드 리소스에 액세스 합니다.
+description: Azure Kubernetes 서비스에서 웹 서비스와 함께 AAD ID를 사용하여 채점 하는 동안 클라우드 리소스에 액세스합니다.
 services: machine-learning
 author: trevorbye
 ms.author: trbye
@@ -11,49 +11,49 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.openlocfilehash: f997aef59e91bed325b84af855a84f43cd639d83
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77122845"
 ---
-# <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 machine learning 웹 서비스와 함께 Azure AD id 사용
+# <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Azure Kubernetes 서비스에서 기계 학습 웹 서비스와 함께 Azure AD ID 사용
 
-이 방법에서는 Azure Kubernetes Service에서 배포 된 machine learning 모델에 AAD (Azure Active Directory) id를 할당 하는 방법에 대해 알아봅니다. [Aad Pod identity](https://github.com/Azure/aad-pod-identity) 프로젝트를 사용 하면 응용 프로그램에서 [관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 및 Kubernetes 기본 형식을 사용 하 여 aad로 안전 하 게 클라우드 리소스에 액세스할 수 있습니다. 이를 통해 웹 서비스는 `score.py` 스크립트 내에서 직접 자격 증명을 포함 하거나 토큰을 관리할 필요 없이 Azure 리소스에 안전 하 게 액세스할 수 있습니다. 이 문서에서는 azure Kubernetes Service 클러스터에서 Azure Id를 만들고 설치 하 고 배포 된 웹 서비스에 id를 할당 하는 단계를 설명 합니다.
+이 방법에서는 Azure Kubernetes 서비스에서 배포된 기계 학습 모델에 AAD(Azure Active Directory) ID를 할당하는 방법을 알아봅니다. [AAD 포드 ID](https://github.com/Azure/aad-pod-identity) 프로젝트를 사용하면 [애플리케이션이 관리되는 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 및 Kubernetes 프리미티브를 사용하여 AAD를 사용하여 클라우드 리소스에 안전하게 액세스할 수 있습니다. 이렇게 하면 웹 서비스가 스크립트 내에 직접 자격 증명을 포함하거나 토큰을 관리할 `score.py` 필요 없이 Azure 리소스에 안전하게 액세스할 수 있습니다. 이 문서에서는 Azure Kubernetes 서비스 클러스터에 Azure ID를 만들고 설치하고 배포된 웹 서비스에 ID를 할당하는 단계를 설명합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [Machine Learning 서비스에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md), [PYTHON 용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md)입니다.
+- [기계 학습 서비스에 대한 Azure CLI 확장,](reference-azure-machine-learning-cli.md) [파이썬용 Azure 기계 학습 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)또는 [Azure 기계 학습 시각적 스튜디오 코드 확장.](tutorial-setup-vscode-extension.md)
 
-- `kubectl` 명령을 사용 하 여 AKS 클러스터에 액세스 합니다. 자세한 내용은 [클러스터에 연결](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster) 을 참조 하세요.
+- 명령을 사용하여 AKS 클러스터에 `kubectl` 액세스합니다. 자세한 내용은 [클러스터에 연결](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)
 
-- AKS 클러스터에 배포 된 Azure Machine Learning 웹 서비스입니다.
+- AKS 클러스터에 배포된 Azure 기계 학습 웹 서비스입니다.
 
-## <a name="create-and-install-an-azure-identity-in-your-aks-cluster"></a>AKS 클러스터에서 Azure Id 만들기 및 설치
+## <a name="create-and-install-an-azure-identity-in-your-aks-cluster"></a>AKS 클러스터에 Azure ID 생성 및 설치
 
-1. AKS 클러스터가 RBAC를 사용 하는지 확인 하려면 다음 명령을 사용 합니다.
+1. AKS 클러스터가 RBAC를 사용하도록 설정되어 있는지 확인하려면 다음 명령을 사용합니다.
 
     ```azurecli-interactive
     az aks show --name <AKS cluster name> --resource-group <resource group name> --subscription <subscription id> --query enableRbac
     ```
 
-    RBAC를 사용 하는 경우이 명령은 `true`의 값을 반환 합니다. 이 값은 다음 단계에서 사용할 명령을 결정 합니다.
+    이 명령은 RBAC가 활성화된 경우의 `true` 값을 반환합니다. 이 값은 다음 단계에서 사용할 명령을 결정합니다.
 
-1. AKS 클러스터에 [AAD Pod id](https://github.com/Azure/aad-pod-identity#getting-started) 를 설치 하려면 다음 명령 중 하나를 사용 합니다.
+1. AKS 클러스터에 [AAD 포드 ID를](https://github.com/Azure/aad-pod-identity#getting-started) 설치하려면 다음 명령 중 하나를 사용합니다.
 
-    * AKS 클러스터에서 RBAC를 **사용** 하는 경우 다음 명령을 사용 합니다.
+    * AKS 클러스터에 **RBAC를 사용하도록 설정한** 경우 다음 명령을 사용합니다.
     
         ```azurecli-interactive
         kubectl apply -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
         ```
     
-    * AKS 클러스터에서 **RBAC를 사용 하도록 설정 하지 않은**경우 다음 명령을 사용 합니다.
+    * AKS **클러스터에 RBAC를 사용하도록 설정한**경우 다음 명령을 사용합니다.
     
         ```azurecli-interactive
         kubectl apply -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
         ```
     
-        명령의 출력은 다음 텍스트와 유사 합니다.
+        명령의 출력은 다음 텍스트와 유사합니다.
 
         ```text
         customresourcedefinition.apiextensions.k8s.io/azureassignedidentities.aadpodidentity.k8s.io created
@@ -64,25 +64,25 @@ ms.locfileid: "77122845"
         deployment.apps/mic created
         ```
 
-1. AAD Pod Id 프로젝트 페이지에 표시 된 단계에 따라 [Azure id를 만듭니다](https://github.com/Azure/aad-pod-identity#2-create-an-azure-identity) .
+1. AAD 포드 ID 프로젝트 페이지에 표시된 단계에 따라 [Azure ID를 만듭니다.](https://github.com/Azure/aad-pod-identity#2-create-an-azure-identity)
 
-1. AAD Pod Id 프로젝트 페이지에 표시 된 단계에 따라 [Azure id를 설치 합니다](https://github.com/Azure/aad-pod-identity#3-install-the-azure-identity) .
+1. AAD 포드 ID 프로젝트 페이지에 표시된 단계에 따라 [Azure ID를 설치합니다.](https://github.com/Azure/aad-pod-identity#3-install-the-azure-identity)
 
-1. AAD Pod Id 프로젝트 페이지에 표시 된 단계에 따라 [Azure Id 바인딩을 설치 합니다](https://github.com/Azure/aad-pod-identity#5-install-the-azure-identity-binding) .
+1. AAD 포드 ID 프로젝트 페이지에 표시된 단계에 따라 [Azure ID 바인딩을 설치합니다.](https://github.com/Azure/aad-pod-identity#5-install-the-azure-identity-binding)
 
-1. 이전 단계에서 만든 Azure Id가 AKS 클러스터와 동일한 리소스 그룹에 없는 경우 AAD Pod Identity project 페이지에 표시 된 단계에 따라 [MIC에 대 한 사용 권한 설정](https://github.com/Azure/aad-pod-identity#6-set-permissions-for-mic) 을 따릅니다.
+1. 이전 단계에서 만든 Azure ID가 AKS 클러스터와 동일한 리소스 그룹에 없는 경우 AAD Pod Id 프로젝트 페이지에 표시된 단계에 따라 [MIC에 대한 권한 설정(권한 설정)을](https://github.com/Azure/aad-pod-identity#6-set-permissions-for-mic) 따릅니다.
 
-## <a name="assign-azure-identity-to-machine-learning-web-service"></a>Machine learning 웹 서비스에 Azure Id 할당
+## <a name="assign-azure-identity-to-machine-learning-web-service"></a>기계 학습 웹 서비스에 Azure ID 할당
 
-다음 단계에서는 이전 섹션에서 만든 Azure Id를 사용 하 고 **선택기 레이블을**통해 AKS 웹 서비스에 할당 합니다.
+다음 단계에서는 이전 섹션에서 만든 Azure Id를 사용하고 **선택 레이블을**통해 AKS 웹 서비스에 할당합니다.
 
-먼저 AKS 클러스터에서 Azure Id를 할당 하려는 배포의 이름 및 네임 스페이스를 식별 합니다. 다음 명령을 실행 하 여이 정보를 가져올 수 있습니다. 네임 스페이스는 Azure Machine Learning 작업 영역 이름 이어야 하 고 배포 이름은 포털에 표시 된 것 처럼 끝점 이름 이어야 합니다.
+먼저 Azure ID를 할당할 AKS 클러스터에서 배포의 이름과 네임스페이스를 식별합니다. 다음 명령을 실행하여 이 정보를 얻을 수 있습니다. 네임스페이스는 Azure Machine Learning 작업 영역 이름이어야 하며 배포 이름은 포털에 표시된 대로 끝점 이름이어야 합니다.
 
 ```azurecli-interactive
 kubectl get deployment --selector=isazuremlapp=true --all-namespaces --show-labels
 ```
 
-배포 사양을 편집 하 여 배포에 Azure Id 선택기 레이블을 추가 합니다. 선택기 값은 [Azure Id 바인딩 설치](https://github.com/Azure/aad-pod-identity#5-install-the-azure-identity-binding)의 5 단계에서 정의한 값 이어야 합니다.
+배포 사양을 편집하여 배포에 Azure Id 선택기 레이블을 추가합니다. 선택기 값은 [Azure ID 바인딩 설치](https://github.com/Azure/aad-pod-identity#5-install-the-azure-identity-binding)의 5단계에서 정의한 값이어야 합니다.
 
 ```yaml
 apiVersion: "aadpodidentity.k8s.io/v1"
@@ -94,7 +94,7 @@ spec:
   Selector: <label value to match>
 ```
 
-배포를 편집 하 여 Azure Id 선택기 레이블을 추가 합니다. `/spec/template/metadata/labels`에서 다음 섹션으로 이동 합니다. `isazuremlapp: “true”`와 같은 값이 표시 됩니다. 아래와 같이 aad-pod id 레이블을 추가 합니다.
+배포를 편집하여 Azure ID 선택기 레이블을 추가합니다. 아래의 `/spec/template/metadata/labels`섹션으로 이동합니다. `isazuremlapp: “true”`와 같은 값이 표시됩니다. 아래와 같이 aad-pod-IDENTITY 레이블을 추가합니다.
 
 ```azurecli-interactive
     kubectl edit deployment/<name of deployment> -n azureml-<name of workspace>
@@ -109,31 +109,31 @@ spec:
       ...
 ```
 
-레이블이 올바르게 추가 되었는지 확인 하려면 다음 명령을 실행 합니다.
+레이블이 올바르게 추가되었는지 확인하려면 다음 명령을 실행합니다.
 
 ```azurecli-interactive
    kubectl get deployment <name of deployment> -n azureml-<name of workspace> --show-labels
 ```
 
-모든 pod 상태를 보려면 다음 명령을 실행 합니다.
+모든 포드 상태를 보려면 다음 명령을 실행합니다.
 
 ```azurecli-interactive
     kubectl get pods -n azureml-<name of workspace>
 ```
 
-Pod 실행 되 면이 배포에 대 한 웹 서비스에서 코드에 자격 증명을 포함 하지 않고도 Azure Id를 통해 Azure 리소스에 액세스할 수 있게 됩니다. 
+포드가 실행되면 이 배포의 웹 서비스는 이제 코드에 자격 증명을 포함하지 않고도 Azure Id를 통해 Azure 리소스에 액세스할 수 있습니다. 
 
-## <a name="assign-the-appropriate-roles-to-your-azure-identity"></a>Azure Id에 적절 한 역할을 할당 합니다.
+## <a name="assign-the-appropriate-roles-to-your-azure-identity"></a>Azure ID에 적절한 역할 할당
 
-[Azure 관리 되는 id를 적절 한 역할에 할당](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) 하 여 다른 azure 리소스에 액세스 합니다. 할당 하는 역할에 올바른 **데이터 작업이**있는지 확인 합니다. 예를 들어 [저장소 Blob 데이터 읽기 권한자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) 에는 저장소 blob에 대 한 읽기 권한이 부여 되지만 일반 [판독기 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) 은 그렇지 않을 수도 있습니다.
+다른 Azure 리소스에 액세스하는 [적절한 역할로 Azure 관리 ID를 할당합니다.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) 할당하는 역할에 올바른 **데이터 작업이**있는지 확인합니다. 예를 들어 [저장소 Blob 데이터 리더 역할에는](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) 저장소 Blob에 대한 읽기 권한이 있지만 일반 [판독기 역할은](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) 그렇지 않을 수 있습니다.
 
-## <a name="use-azure-identity-with-your-machine-learning-web-service"></a>Machine learning 웹 서비스에서 Azure Id 사용
+## <a name="use-azure-identity-with-your-machine-learning-web-service"></a>기계 학습 웹 서비스와 함께 Azure ID 사용
 
-AKS 클러스터에 모델을 배포 합니다. `score.py` 스크립트에는 Azure Id가 액세스할 수 있는 Azure 리소스를 가리키는 작업이 포함 될 수 있습니다. 액세스 하려는 리소스에 대 한 필수 클라이언트 라이브러리 종속성을 설치 했는지 확인 합니다. 다음은 Azure Id를 사용 하 여 서비스에서 다양 한 Azure 리소스에 액세스 하는 방법에 대 한 몇 가지 예입니다.
+AKS 클러스터에 모델을 배포합니다. 스크립트에는 `score.py` Azure Id에 액세스할 수 있는 Azure 리소스를 가리키는 작업이 포함될 수 있습니다. 액세스하려는 리소스에 필요한 클라이언트 라이브러리 종속성을 설치했습니다. 다음은 Azure ID를 사용하여 서비스에서 다른 Azure 리소스에 액세스하는 방법에 대한 몇 가지 예입니다.
 
-### <a name="access-key-vault-from-your-web-service"></a>웹 서비스에서 Key Vault 액세스
+### <a name="access-key-vault-from-your-web-service"></a>웹 서비스에서 키 볼트 에 액세스
 
-**Key Vault**내에서 암호에 대 한 읽기 액세스 권한을 Azure id에 제공 하면 `score.py` 다음 코드를 사용 하 여 액세스할 수 있습니다.
+Azure Id 읽기 액세스 권한을 **키 볼트**내부의 비밀에 부여한 경우 다음 코드를 사용하여 액세스할 `score.py` 수 있습니다.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -151,9 +151,9 @@ secret_client = SecretClient(
 secret = secret_client.get_secret(my_secret_name)
 ```
 
-### <a name="access-blob-from-your-web-service"></a>웹 서비스에서 Blob 액세스
+### <a name="access-blob-from-your-web-service"></a>웹 서비스에서 Blob에 액세스
 
-**저장소 Blob**내의 데이터에 대 한 Azure id 읽기 액세스 권한을 제공 하는 경우 `score.py`는 다음 코드를 사용 하 여 액세스할 수 있습니다.
+Azure Id읽기 액세스 권한을 저장소 **Blob**내의 데이터에 `score.py` 부여한 경우 다음 코드를 사용하여 데이터에 액세스할 수 있습니다.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -175,5 +175,5 @@ blob_data.readall()
 
 ## <a name="next-steps"></a>다음 단계
 
-* Python Azure Id 클라이언트 라이브러리를 사용 하는 방법에 대 한 자세한 내용은 GitHub의 [리포지토리](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity#azure-identity-client-library-for-python) 를 참조 하세요.
-* Azure Kubernetes Service 클러스터에 모델을 배포 하는 방법에 대 한 자세한 지침은 [방법](how-to-deploy-azure-kubernetes-service.md)을 참조 하세요.
+* Python Azure Id 클라이언트 라이브러리를 사용하는 방법에 대한 자세한 내용은 GitHub의 [리포지토리를](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity#azure-identity-client-library-for-python) 참조하십시오.
+* Azure Kubernetes 서비스 클러스터에 모델을 배포하는 방법에 대한 자세한 가이드는 [방법을](how-to-deploy-azure-kubernetes-service.md)참조하십시오.

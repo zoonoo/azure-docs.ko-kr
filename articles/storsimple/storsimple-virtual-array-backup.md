@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60581396"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에서 공유 또는 볼륨 백업
@@ -32,7 +32,7 @@ StorSimple Virtual Array는 파일 서버 또는 iSCSI 서버로 구성할 수 �
 
 ## <a name="back-up-shares-and-volumes"></a>공유 및 볼륨 백업
 
-Backup은 지정 시간 보호 기능을 제공하고, 복구 기능을 개선하며, 공유 및 볼륨의 복원 시간을 최소화합니다. 두 가지 방법으로 StorSimple 장치에서 공유 또는 볼륨을 백업할 수 있습니다. **예약** 나 **수동**합니다. 각 메서드는 다음 섹션에서 설명합니다.
+Backup은 지정 시간 보호 기능을 제공하고, 복구 기능을 개선하며, 공유 및 볼륨의 복원 시간을 최소화합니다. StorSimple 디바이스에서 공유 또는 볼륨을 두 가지 방법(**예약** 또는 **수동**)으로 백업할 수 있습니다. 각 메서드는 다음 섹션에서 설명합니다.
 
 ## <a name="change-the-backup-start-time"></a>백업 시작 시간 변경
 

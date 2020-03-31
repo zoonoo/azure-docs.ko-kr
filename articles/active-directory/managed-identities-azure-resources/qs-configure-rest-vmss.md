@@ -1,5 +1,5 @@
 ---
-title: REST를 사용 하 여 Azure VMSS에서 관리 되는 id 구성
+title: REST - Azure AD를 사용하여 Azure VMSS에서 관리되는 ID 구성
 description: CURL을 통해 REST API를 호출하여 Azure VMSS에서 시스템 및 사용자 할당 관리 ID를 구성하기 위한 단계별 지침을 제공합니다.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dce9894b26d03c351a2209792cc076de91feba54
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253339"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>REST API 호출을 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성
@@ -46,7 +46,7 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
     - [관리 ID 참가자](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) 역할: 사용자 할당 관리 ID를 만듭니다.
     - [관리 ID 운영자](/azure/role-based-access-control/built-in-roles#managed-identity-operator) 역할: 가상 머신 확장 집합에 사용자가 할당한 ID를 할당하거나 이 집합에서 사용자 할당 ID를 제거합니다.
 - Windows를 사용하는 경우, [Linux용 Windows 하위 시스템](https://msdn.microsoft.com/commandline/wsl/about)을 설치하거나 Azure Portal에서 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다.
-- [Linux용 Windows 하위 시스템](/cli/azure/install-azure-cli) 또는 [Linux 배포 OS](https://msdn.microsoft.com/commandline/wsl/about)를 사용하는 경우, [Azure CLI 로컬 콘솔](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)을 설치합니다.
+- [Linux용 Windows 하위 시스템](https://msdn.microsoft.com/commandline/wsl/about) 또는 [Linux 배포 OS](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)를 사용하는 경우, [Azure CLI 로컬 콘솔](/cli/azure/install-azure-cli)을 설치합니다.
 - Azure CLI 로컬 콘솔을 사용하는 경우, 시스템 또는 사용자 할당 관리 ID를 관리하려는 Azure 구독과 연결된 계정으로 `az login`을 사용하여 Azure에 로그인합니다.
 
 
@@ -60,7 +60,7 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
 
 시스템 할당 관리 ID를 사용할 수 있는 가상 머신 확장 집합을 만들려면 가상 머신 확장 집합을 만들고 액세스 토큰을 검색하여 CURL을 통해 시스템 할당 관리 ID 유형 값으로 Resource Manager 엔드포인트를 호출해야 합니다.
 
-1. [az group create](../../azure-resource-manager/management/overview.md#terminology)를 사용하여 가상 머신 확장 집합 및 관련 리소스를 포함하고 배포하기 위한 [리소스 그룹](/cli/azure/group/#az-group-create)을 만듭니다. 대신 사용하려는 리소스 그룹이 이미 있다면 이 단계를 건너뛰어도 됩니다.
+1. [az group create](/cli/azure/group/#az-group-create)를 사용하여 가상 머신 확장 집합 및 관련 리소스를 포함하고 배포하기 위한 [리소스 그룹](../../azure-resource-manager/management/overview.md#terminology)을 만듭니다. 대신 사용하려는 리소스 그룹이 이미 있다면 이 단계를 건너뛰어도 됩니다.
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
@@ -78,7 +78,7 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    az account get-access-token
    ``` 
 
-4. CURL을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하는 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 요청 본문에서 *값으로 식별된 시스템 할당 관리 ID를 사용하여*myResourceGroup*에서* myVMSS`"identity":{"type":"SystemAssigned"}`라는 가상 머신 확장 집합을 만듭니다. 전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<ACCESS TOKEN>` 값으로 `<SUBSCRIPTION ID>`을 바꿉니다.
+4. CURL을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하는 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 요청 본문에서 `"identity":{"type":"SystemAssigned"}` 값으로 식별된 시스템 할당 관리 ID를 사용하여 *myResourceGroup*에서 *myVMSS*라는 가상 머신 확장 집합을 만듭니다. 전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
 
    ```bash   
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"SystemAssigned"},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -88,11 +88,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **요청 헤더**
+   **헤더 요청**
 
-   |요청 헤더  |Description  |
+   |요청 헤더  |설명  |
    |---------|---------|
-   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -170,7 +170,7 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    az account get-access-token
    ```
 
-2. 다음 CURL 명령을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하면 요청 본문에서 `{"identity":{"type":"SystemAssigned"}`myVMSS*라는 가상 머신 확장 집합의*  값으로 식별된 시스템 할당 관리 ID를 가상 머신 확장 집합에서 사용할 수 있습니다.  전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<ACCESS TOKEN>` 값으로 `<SUBSCRIPTION ID>`을 바꿉니다.
+2. 다음 CURL 명령을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하면 요청 본문에서 *myVMSS*라는 가상 머신 확장 집합의 `{"identity":{"type":"SystemAssigned"}` 값으로 식별된 시스템 할당 관리 ID를 가상 머신 확장 집합에서 사용할 수 있습니다.  전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
    
    > [!IMPORTANT]
    > 가상 머신 확장 집합에 할당된 기존 사용자 할당 관리 ID를 삭제하지 않는지 확인하려면 다음 CURL 명령을 사용하여 사용자 할당 관리 ID를 나열해야 합니다. `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` 응답에서 `identity` 값으로 식별된 사용자 할당 관리 ID가 가상 머신 확장 집합에 할당되어 있는 경우에는 가상 머신 확장 집합에서 시스템 할당 관리 ID를 사용하면서 사용자 할당 관리 ID를 유지하는 방법을 보여주는 3단계로 건너뜁니다.
@@ -183,11 +183,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **요청 헤더**
+   **헤더 요청**
 
-   |요청 헤더  |Description  |
+   |요청 헤더  |설명  |
    |---------|---------|
-   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -204,7 +204,7 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    
    예를 들어, 가상 머신 확장 집합에 사용자 할당 관리 ID `ID1` 및 `ID2`가 할당되어 있고 시스템 할당 관리 ID를 가상 머신 확장 집합에 추가하려면 다음 CURL 호출을 사용합니다. `<ACCESS TOKEN>` 및 `<SUBSCRIPTION ID>`를 사용자 환경에 적절한 값으로 바꿉니다.
 
-   API 버전 `2018-06-01`은 API 버전 `userAssignedIdentities`에서 사용된 배열 형식의 `identityIds` 값과 달리 사전 형식의 `2017-12-01` 값에 사용자 할당 관리 ID를 저장합니다.
+   API 버전 `2018-06-01`은 API 버전 `2017-12-01`에서 사용된 배열 형식의 `identityIds` 값과 달리 사전 형식의 `userAssignedIdentities` 값에 사용자 할당 관리 ID를 저장합니다.
    
    **API 버전 2018-06-01**
 
@@ -216,11 +216,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **요청 헤더**
+   **헤더 요청**
 
-   |요청 헤더  |Description  |
+   |요청 헤더  |설명  |
    |---------|---------|
-   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. |
  
    **요청 본문**
@@ -250,11 +250,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **요청 헤더**
+   **헤더 요청**
 
-   |요청 헤더  |Description  |
+   |요청 헤더  |설명  |
    |---------|---------|
-   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -281,7 +281,7 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    az account get-access-token
    ```
 
-2. CURL을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하도록 가상 머신 확장 집합을 업데이트하여 시스템 할당 관리 ID를 사용하지 않도록 설정합니다.  다음 예제에서는 요청 본문에서 `{"identity":{"type":"None"}}`myVMSS*라는 가상 머신 확장 집합의*  값으로 식별되는 시스템 할당 관리 ID를 사용하지 않도록 설정합니다.  전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<ACCESS TOKEN>` 값으로 `<SUBSCRIPTION ID>`을 바꿉니다.
+2. CURL을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하도록 가상 머신 확장 집합을 업데이트하여 시스템 할당 관리 ID를 사용하지 않도록 설정합니다.  다음 예제에서는 요청 본문에서 *myVMSS*라는 가상 머신 확장 집합의 `{"identity":{"type":"None"}}` 값으로 식별되는 시스템 할당 관리 ID를 사용하지 않도록 설정합니다.  전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
 
    > [!IMPORTANT]
    > 가상 머신 확장 집합에 할당된 기존 사용자 할당 관리 ID를 삭제하지 않는지 확인하려면 다음 CURL 명령을 사용하여 사용자 할당 관리 ID를 나열해야 합니다. `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` 사용자 할당 관리 ID가 가상 머신 확장 집합에 할당되어 있는 경우에는 가상 머신 확장 집합에서 시스템 할당 관리 ID를 제거하면서 사용자 할당 관리 ID를 유지하는 방법을 보여주는 3단계로 건너뜁니다.
@@ -294,11 +294,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **요청 헤더**
+   **헤더 요청**
 
-   |요청 헤더  |Description  |
+   |요청 헤더  |설명  |
    |---------|---------|
-   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -311,7 +311,7 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
     }
    ```
 
-   사용자 할당 관리 ID가 있는 가상 머신 확장 집합에서 시스템 할당 관리 ID를 제거하려면 `SystemAssigned`API 버전 2018-06-01`{"identity":{"type:" "}}`을 사용 중인 경우 `UserAssigned` 값 및 `userAssignedIdentities` 사전 값을 유지하면서 **값에서**를 제거합니다. **API 버전 2017-12-01** 이전 버전을 사용 중인 경우 `identityIds` 배열을 유지합니다.
+   사용자 할당 관리 ID가 있는 가상 머신 확장 집합에서 시스템 할당 관리 ID를 제거하려면 **API 버전 2018-06-01**을 사용 중인 경우 `UserAssigned` 값 및 `userAssignedIdentities` 사전 값을 유지하면서 `{"identity":{"type:" "}}` 값에서 `SystemAssigned`를 제거합니다. **API 버전 2017-12-01** 이전 버전을 사용 중인 경우 `identityIds` 배열을 유지합니다.
 
 ## <a name="user-assigned-managed-identity"></a>사용자 할당 관리 ID
 
@@ -337,9 +337,9 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    az account get-access-token
    ``` 
 
-4. [사용자 할당 관리 ID 만들기](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity)의 지침에 따라 사용자 할당 관리 ID를 만듭니다.
+4. 여기에 있는 지침을 사용하여 사용자 할당된 관리 되는 ID 를 [만듭니다.](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity)
 
-5. CURL을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하는 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 요청 본문에서 *값으로 식별된 사용자 할당 관리 ID*을 사용하여 리소스 그룹 *myResourceGroup*에서 `ID1`myVMSS`"identity":{"type":"UserAssigned"}`라는 가상 머신 확장 집합을 만듭니다. 전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<ACCESS TOKEN>` 값으로 `<SUBSCRIPTION ID>`을 바꿉니다.
+5. CURL을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하는 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 요청 본문에서 `"identity":{"type":"UserAssigned"}` 값으로 식별된 사용자 할당 관리 ID `ID1`을 사용하여 리소스 그룹 *myResourceGroup*에서 *myVMSS*라는 가상 머신 확장 집합을 만듭니다. 전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
  
    **API 버전 2018-06-01**
 
@@ -351,11 +351,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **요청 헤더**
+   **헤더 요청**
 
-   |요청 헤더  |Description  |
+   |요청 헤더  |설명  |
    |---------|---------|
-   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -438,11 +438,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **요청 헤더**
+   **헤더 요청**
 
-   |요청 헤더  |Description  |
+   |요청 헤더  |설명  |
    |---------|---------|
-   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. |
  
    **요청 본문**
@@ -533,16 +533,16 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **요청 헤더**
+   **헤더 요청**
 
-   |요청 헤더  |Description  |
+   |요청 헤더  |설명  |
    |---------|---------|
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. |   
  
 
 4. 가상 머신 확장 집합에 할당된 사용자 또는 시스템 할당 관리 ID가 없는 경우에는 다음 CURL 명령을 통해 Azure Resource Manager REST 엔드포인트를 호출하여 첫 번째 사용자 할당 관리 ID를 가상 머신 확장 집합에 할당합니다.  가상 머신 확장 집합에 할당된 사용자 또는 시스템 할당 관리 ID가 있는 경우, 시스템 할당 관리 ID를 유지하면서 여러 사용자 할당 관리 ID를 가상 머신 확장 집합에 추가하는 방법을 보여주는 5단계로 건너뜁니다.
 
-   다음 예제에서는 리소스 그룹 `ID1`myResourceGroup*의 가상 머신 확장 집합* myVMSS*에 사용자 할당 관리 ID* 을 할당합니다.  전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<ACCESS TOKEN>` 값으로 `<SUBSCRIPTION ID>`을 바꿉니다.
+   다음 예제에서는 리소스 그룹 *myResourceGroup*의 가상 머신 확장 집합 *myVMSS*에 사용자 할당 관리 ID `ID1`을 할당합니다.  전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
 
    **API 버전 2018-06-01**
 
@@ -554,11 +554,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-12-01 HTTP/1.1
    ```
 
-   **요청 헤더**
+   **헤더 요청**
 
-   |요청 헤더  |Description  |
+   |요청 헤더  |설명  |
    |---------|---------|
-   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -586,11 +586,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **요청 헤더**
+   **헤더 요청**
 
-   |요청 헤더  |Description  |
+   |요청 헤더  |설명  |
    |---------|---------|
-   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -622,11 +622,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **요청 헤더**
+   **헤더 요청**
 
-   |요청 헤더  |Description  |
+   |요청 헤더  |설명  |
    |---------|---------|
-   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -661,11 +661,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-    **요청 헤더**
+    **헤더 요청**
 
-   |요청 헤더  |Description  |
+   |요청 헤더  |설명  |
    |---------|---------|
-   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -700,9 +700,9 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **요청 헤더**
+   **헤더 요청**
 
-   |요청 헤더  |Description  |
+   |요청 헤더  |설명  |
    |---------|---------|
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. |
    
@@ -722,11 +722,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **요청 헤더**
+   **헤더 요청**
 
-   |요청 헤더  |Description  |
+   |요청 헤더  |설명  |
    |---------|---------|
-   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -754,11 +754,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **요청 헤더**
+   **헤더 요청**
 
-   |요청 헤더  |Description  |
+   |요청 헤더  |설명  |
    |---------|---------|
-   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -784,11 +784,11 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
 ```
 
-**요청 헤더**
+**헤더 요청**
 
-|요청 헤더  |Description  |
+|요청 헤더  |설명  |
 |---------|---------|
-|*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+|*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
 |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
 **요청 본문**
@@ -811,11 +811,11 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
 ```
 
-**요청 헤더**
+**헤더 요청**
 
-|요청 헤더  |Description  |
+|요청 헤더  |설명  |
 |---------|---------|
-|*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+|*콘텐츠 유형*     | 필수 사항입니다. `application/json`로 설정합니다.        |
 |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
 **요청 본문**

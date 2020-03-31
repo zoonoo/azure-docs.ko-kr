@@ -10,10 +10,10 @@ ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: d40658e1510c9ae8a2e3e1f865df7ac95f61abfb
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68355987"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Python을 사용하여 Azure Data Lake Analytics 관리
@@ -24,17 +24,17 @@ ms.locfileid: "68355987"
 ## <a name="supported-python-versions"></a>지원되는 Python 버전
 
 * Python의 64비트 버전을 사용합니다.
-* **[Python.org 다운로드](https://www.python.org/downloads/)** 에서 찾을 수 있는 표준 Python 배포를 사용할 수 있습니다. 
-* 대부분의 개발자는 **[Anaconda Python 배포](https://www.anaconda.com/download/)** 사용을 편리하게 여깁니다.  
+* **[Python.org 다운로드에서](https://www.python.org/downloads/)** 찾을 수 있는 표준 파이썬 배포판을 사용할 수 있습니다. 
+* 많은 개발자는 **[아나콘다 파이썬 배포판을](https://www.anaconda.com/download/)** 사용하는 것이 편리하다고 합니다.  
 * 이 문서는 표준 Python 배포의 Python 버전 3.6을 사용하여 작성되었습니다.
 
 ## <a name="install-azure-python-sdk"></a>Azure Python SDK 설치
 
 다음 모듈을 설치합니다.
 
-* **azure-mgmt-resource** 모듈에는 Active Directory에 대한 다른 Azure 모듈이 포함됩니다.
-* **azure-datalake-store** 모듈에는 Azure Data Lake Store 파일 시스템 작업이 포함됩니다. 
-* **azure-mgmt-datalake-store** 모듈에는 Azure Data Lake Store 계정 관리 작업이 포함됩니다.
+* **Azure-mgmt-리소스** 모듈에는 Active Directory 등에 대한 다른 Azure 모듈이 포함됩니다.
+* **Azure-datalake-store** 모듈에는 Azure Data Lake 스토어 파일 시스템 작업이 포함됩니다. 
+* **Azure-mgmt-datalake-store** 모듈에는 Azure Data Lake 스토어 계정 관리 작업이 포함됩니다.
 * **azure-mgmt-datalake-analytics** 모듈에는 Azure Data Lake Analytics 작업이 포함됩니다. 
 
 먼저 다음 명령을 실행하여 최신 `pip`가 있는지 확인합니다.

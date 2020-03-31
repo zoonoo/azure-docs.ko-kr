@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
 ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284279"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Azure DevTest Labs에 소유자 및 사용자 추가
@@ -37,7 +37,7 @@ Azure DevTest Labs의 액세스는 [Azure 역할 기반 Access Control(RBAC)](..
 
 다음 표에는 이러한 각 역할의 사용자가 수행할 수 있는 작업에 대해 설명합니다.
 
-| **이 역할의 사용자가 수행할 수 있는 작업** | **DevTest Lab 사용자** | **소유자** | **기여자** |
+| **이 역할의 사용자가 수행할 수 있는 작업** | **데브테스트 랩 사용자** | **소유자** | **참가자** |
 | --- | --- | --- | --- |
 | **랩 작업** | | | |
 | 랩에 사용자 추가 |예 |yes |예 |
@@ -64,8 +64,8 @@ Azure DevTest Labs의 액세스는 [Azure 역할 기반 Access Control(RBAC)](..
 Azure Portal을 통해 랩 수준에서 소유자 및 사용자를 추가할 수 있습니다. 사용자는 유효한 [MSA(Microsoft 계정)](devtest-lab-faq.md#what-is-a-microsoft-account)를 가진 외부 사용자일 수 있습니다.
 다음 단계는 Azure DevTest Labs에서 랩에 소유자 또는 사용자를 추가하는 과정을 안내합니다.
 
-1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
-2. **모든 서비스**를 선택한 다음 목록에서 **DevTest Labs**를 선택합니다.
+1. [Azure 포털에](https://go.microsoft.com/fwlink/p/?LinkID=525040)로그인합니다.
+2. **모든 서비스를**선택한 다음 목록에서 **DevTest 랩을 선택합니다.**
 3. 랩 목록에서 원하는 랩을 탭합니다.
 4. 랩의 블레이드에서 **구성 및 정책**을 선택합니다. 
 5. **구성 및 정책** 페이지의 왼쪽 메뉴에서 **액세스 제어(IAM)** 를 선택합니다. 
@@ -119,13 +119,13 @@ Azure 권한은 Azure의 부모 범위에서 자식 범위로 전파됩니다. �
 
 Azure 구독에 소유자를 추가하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure 포털에](https://go.microsoft.com/fwlink/p/?LinkID=525040)로그인합니다.
 2. **모든 서비스**를 선택한 다음, 목록에서 **구독**을 선택합니다.
 3. 원하는 구독을 선택합니다.
 4. **액세스** 아이콘을 선택합니다. 
    
     ![사용자 액세스](./media/devtest-lab-add-devtest-user/access-users.png)
-5. **사용자** 블레이드에서 **추가**를 선택합니다.
+5. **사용자** 블레이드에서 **추가 를**선택합니다.
    
     ![사용자 추가](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 6. **역할 선택** 블레이드에서 **소유자**를 선택합니다.

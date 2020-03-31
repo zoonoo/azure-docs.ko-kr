@@ -6,10 +6,10 @@ ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
 ms.openlocfilehash: 4445f6e9b72380b66f3282d50871b4283f7fc7fa
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75966734"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>사용 예: Automation State Configuration 및 Chocolatey를 사용하여 Virtual Machines에 연속 배포
@@ -40,17 +40,17 @@ Azure Automation State Configuration은 PowerShell DSC 도구를 포함하도록
 DSC 리소스는 네트워크 관리, Active Directory 또는 SQL Server 등과 같은 특정 기능을 갖는 코드 모듈입니다. Chocolatey DSC 리소스는 NuGet 서버 액세스(서로 간), 패키지 다운로드, 패키지 설치 방법 등을 이해하고 있습니다. 여러 다른 DSC 리소스는 [PowerShell 갤러리](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title)에 있습니다.
 이러한 모듈은 사용자가 구성에서 사용할 수 있게 Azure Automation State Configuration 풀 서버에 설치됩니다.
 
-리소스 관리자 템플릿은 네트워크, 서브넷, 네트워크 보안, 라우팅, 부하 분산 장치, NIC, VM 등의 인프라를 생성하는 선언적인 방법을 제공합니다. 다음 [문서](../azure-resource-manager/management/deployment-models.md)에서는 Resource Manager 배포 모델(선언적)을 Azure 서비스 관리(ASM 또는 클래식) 배포 모델(명령적)을 비교하고 핵심 리소스 공급자, 컴퓨팅, 스토리지 및 네트워크에 대해 설명합니다.
+리소스 관리자 템플릿은 네트워크, 서브넷, 네트워크 보안, 라우팅, 부하 분산 장치, NIC, VM 등의 인프라를 생성하는 선언적인 방법을 제공합니다. 다음은 리소스 관리자 배포 모델(선언적)과 AZURE 서비스 관리(ASM 또는 클래식) 배포 모델(명령적)을 비교하고 핵심 리소스 공급자, 계산, 저장소 및 네트워크에 대해 설명하는 [문서입니다.](../azure-resource-manager/management/deployment-models.md)
 
 Resource Manager 템플릿의 핵심 기능은 프로비전되었을 때 VM에 VM 확장을 설치하는 것입니다. VM 확장에는 사용자 지정 스크립트 실행, 바이러스 백신 소프트웨어 설치, DSC 구성 스크립트 실행 등과 같은 특정 기능이 있습니다. VM 확장에는 여러 다른 형식이 있습니다.
 
 ## <a name="quick-trip-around-the-diagram"></a>간략히 다이어그램 둘러보기
 
 맨 위쪽부터 코드를 작성하고 빌드 및 테스트한 다음 설치 패키지를 만듭니다.
-Chocolatey는 MSI, MSU, ZIP 등과 같은 다양한 형태의 설치 패키지를 처리할 수 있습니다. 또한 Chocolatey의 기본 기능이 부족할 경우 PowerShell을 완전히 활용하여 실제 설치를 수행할 수 있습니다. 패키지 리포지토리를 통해 연결할 수 있는 위치에 패키지를 배치 합니다. 이 사용 예는 Auzre Blob Storage 계정의 공용 폴더를 사용하지만 어디에나 있을 수 있습니다. Chocolatey는 패키지 메타데이터의 관리를 위해 NuGet 서버 및 기타 제품과 기본적으로 연동됩니다. [이 문서](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) 에서는 이러한 옵션에 대해 설명합니다. 이 사용 예는 NuGet을 사용합니다. Nuspec은 패키지에 관한 메타데이터입니다. Nuspec은 NuPkg에 "컴파일"되어 NuGet 서버에 저장됩니다. 구성에서 이름으로 패키지를 요청하고 NuGet 서버를 참조할 경우 Chocolatey DSC 리소스(이제 VM에 있음)가 패키지를 포착하여 설치합니다. 특정 버전의 패키지를 요청할 수도 있습니다.
+Chocolatey는 MSI, MSU, ZIP 등과 같은 다양한 형태의 설치 패키지를 처리할 수 있습니다. 또한 Chocolatey의 기본 기능이 부족할 경우 PowerShell을 완전히 활용하여 실제 설치를 수행할 수 있습니다. 패키지 저장소인 접근 가능한 장소에 패키지를 넣습니다. 이 사용 예는 Auzre Blob Storage 계정의 공용 폴더를 사용하지만 어디에나 있을 수 있습니다. Chocolatey는 패키지 메타데이터의 관리를 위해 NuGet 서버 및 기타 제품과 기본적으로 연동됩니다. [이 문서](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) 에서는 이러한 옵션에 대해 설명합니다. 이 사용 예는 NuGet을 사용합니다. Nuspec은 패키지에 관한 메타데이터입니다. Nuspec은 NuPkg에 "컴파일"되어 NuGet 서버에 저장됩니다. 구성에서 이름으로 패키지를 요청하고 NuGet 서버를 참조할 경우 Chocolatey DSC 리소스(이제 VM에 있음)가 패키지를 포착하여 설치합니다. 특정 버전의 패키지를 요청할 수도 있습니다.
 
 그림의 왼쪽 하단에는 Azure Resource Manager 템플릿이 있습니다. 이 사용 예에서는 VM 확장이 VM을 Azure Automation State Configuration 풀 서버(즉, 풀 서버)에 노드로 등록합니다. 구성은 풀 서버에 저장됩니다.
-실제로는 두 번 저장 됩니다. 즉, 일반 텍스트로 한 번, MOF 파일로 컴파일된 후에는 두 번 저장 됩니다. 포털에서 MOF는 단순히 "구성"이 아닌 "노드 구성"입니다. 노드와 관련한 아티팩트이므로 노드가 그 구성을 알고 있습니다. 아래의 세부 정보는 노드 구성을 노드에 할당하는 방법을 보여줍니다.
+사실, 그것은 두 번 저장됩니다 : 한 번 일반 텍스트로 한 번 MOF 파일로 컴파일됩니다 (그러한 것들에 대해 알고있는 사람들을 위해). 포털에서 MOF는 단순히 "구성"이 아닌 "노드 구성"입니다. 노드와 관련한 아티팩트이므로 노드가 그 구성을 알고 있습니다. 아래의 세부 정보는 노드 구성을 노드에 할당하는 방법을 보여줍니다.
 
 아마도 이미 윗 부분 또는 대부분을 수행하고 있을 것입니다. Nuspec를 생성, 컴파일 및 NuGet 서버에 저장하는 작업은 간단합니다. 이미 VM을 관리하고 있습니다. 연속 배포의 다음 단계로 이동하려면 풀 서버를 설정하고(1회), 노드를 풀 서버에 등록하고(1회), 여기에 구성을 만들어 저장해야 합니다(최초). 그러면 패키지가 업그레이드되어 리포지토리에 배포되며 풀 서버에서 구성 및 노드 구성을 새로 고칩니다.(필요에 따라 반복)
 
@@ -82,7 +82,7 @@ Azure Automation 계정에 DSC 리소스를 설치하기 위해 PowerShell 갤�
 Azure Portal에 최근에 추가된 또 다른 방법을 사용하면 새 모듈을 당겨오거나 기존 모듈을 업데이트할 수 있습니다. Automation 계정 리소스, 자산 타일 및 모듈 타일을 차례로 클릭합니다. 갤러리 찾아보기 아이콘을 사용하면 갤러리에서 모듈의 목록을 보고 세부 정보로 드릴다운하고 궁극적으로 Automation 계정으로 가져올 수 있습니다. 이는 모듈을 최신 상태로 유지할 수 있는 좋은 방법입니다. 그리고 가져오기 기능은 다른 모듈의 종속성을 확인하여 동기화에서 빠져 나가지 않도록 합니다.
 
 또는 수동 방법이 있습니다. Windows 컴퓨터용 PowerShell 통합 모듈의 폴더 구조는 Azure Automation에서의 예상 폴더 구조와 다소 차이가 있습니다.
-여기에는 약간의 사용자 조정 작업이 필요합니다. 그러나이 작업은 어려울 수 있으며 나중에 업그레이드 하려고 하지 않는 한 리소스 당 한 번만 수행 됩니다. PowerShell 통합 모듈을 제작 하는 방법에 대 한 자세한 내용은 [Azure Automation에 대 한 통합 모듈 제작](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/) 문서를 참조 하세요.
+여기에는 약간의 사용자 조정 작업이 필요합니다. 그러나 어렵지 않으며 리소스당 한 번만 수행됩니다(나중에 업그레이드하려는 경우가 아니면). PowerShell 통합 모듈 작성에 대한 자세한 내용은 이 문서를 [참조하십시오.](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 - 다음과 같이 사용자 워크스테이션에 필요한 모듈을 설치합니다.
   - [Windows Management Framework, v5](https://aka.ms/wmf5latest) 설치(Windows 10에는 필요 없음)

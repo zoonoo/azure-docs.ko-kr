@@ -8,10 +8,10 @@ ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
 ms.openlocfilehash: 11a6debe735459b617f6f93c3f67a32350dd4623
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76549056"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(사용되지 않음) Azure DevOps Services를 사용하여 Docker Swarm을 포함한 Azure Container Service에 있는 다중 컨테이너 애플리케이션을 배포하는 전체 CI/CD 파이프라인
@@ -38,19 +38,19 @@ Azure DevOps Services를 사용하여 Docker Swarm 클러스터에서 이 애플
 1. 클러스터의 Docker Swarm은 이미지의 최신 버전을 가져옵니다. 
 1. Docker 작성을 사용하여 새 버전의 애플리케이션을 배포합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 다음 작업을 완료해야 합니다.
 
 - [Azure 컨테이너 서비스에서 Swarm 클러스터 만들기](container-service-deployment.md)
 - [Azure 컨테이너 서비스에서 Swarm 클러스터에 연결](../container-service-connect.md)
-- [Azure 컨테이너 레지스트리 만들기](../../container-registry/container-registry-get-started-portal.md)
+- [Azure Container Registry 만들기](../../container-registry/container-registry-get-started-portal.md)
 - [Azure DevOps Services 조직 및 프로젝트 만들기](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 - [GitHub 계정에 GitHub 리포지토리 포크](https://github.com/jcorioland/MyShop/)
 
 [!INCLUDE [container-service-swarm-mode-note](../../../includes/container-service-swarm-mode-note.md)]
 
-또한 Docker를 설치한 Ubuntu 14.04 또는 16.04 컴퓨터가 필요합니다. 이 컴퓨터는 Azure Pipelines 프로세스 도중에 Azure DevOps Services에서 사용합니다. 이 컴퓨터를 만드는 한 가지 방법은 Azure Marketplace에서 사용할 수 있는 이미지를 사용 하는 것입니다. 
+또한 Docker를 설치한 Ubuntu 14.04 또는 16.04 컴퓨터가 필요합니다. 이 컴퓨터는 Azure Pipelines 프로세스 도중에 Azure DevOps Services에서 사용합니다. 이 컴퓨터를 만드는 방법은 Azure Marketplace에서 사용할 수 있는 이미지를 사용하는 것입니다. 
 
 ## <a name="step-1-configure-your-azure-devops-services-organization"></a>1단계: Azure DevOps Services 조직 구성 
 
@@ -80,7 +80,7 @@ Azure DevOps Services 프로젝트와 GitHub 계정 간에 연결을 설정합�
 
     ![Azure DevOps Services - 외부 연결](./media/container-service-docker-swarm-setup-ci-cd/vsts-services-menu.png)
 
-1. 왼쪽에서 **새 서비스 엔드포인트** > **GitHub**를 클릭합니다.
+1. 왼쪽에서 새 **서비스 끝점** > **GitHub를**클릭합니다.
 
     ![Azure DevOps Services - GitHub](./media/container-service-docker-swarm-setup-ci-cd/vsts-github.png)
 
@@ -159,7 +159,7 @@ CI/CD 파이프라인에 도달하기 전에 Azure의 컨테이너 레지스트�
 
 1. 5개의 이미지 각각에 대한 빌드 및 푸시 단계를 구성한 후에 빌드 워크플로에서 두 개 이상의 단계를 추가합니다.
 
-    a. Bash 스크립트를 사용 하 여 docker-compose.ci.build.yml 파일에서 *BuildNumber* 발생을 현재 빌드 Id로 바꾸는 명령줄 작업입니다. 자세한 내용은 다음 화면을 참조 하십시오.
+    a. bash 스크립트를 사용하여 docker-compose.yml 파일의 *BuildNumber* 발생을 현재 빌드 ID로 대체하는 명령줄 작업입니다. 자세한 내용은 다음 화면을 참조하십시오.
 
     ![Azure DevOps Services - 작성 파일 업데이트](./media/container-service-docker-swarm-setup-ci-cd/vsts-build-replace-build-number.png)
 
@@ -177,9 +177,9 @@ Azure DevOps Services를 사용하면 [환경에서 릴리스를 관리](https:/
 
 ### <a name="initial-release-setup"></a>최초 릴리스 설정
 
-1. 릴리스 파이프라인을 만들려면 **릴리스** >  **+ 릴리스**를 클릭합니다.
+1. 릴리스 파이프라인을 만들려면 **릴리스** > **+ 릴리스를** 클릭합니다.
 
-1. 아티팩트 원본을 구성하려면 **아티팩트** > **아티팩트 원본 연결**을 클릭합니다. 여기에서는 이전 단계에서 정의한 빌드에 이 새로운 릴리스 파이프라인을 연결합니다. 이 작업을 수행하여 docker-compose.yml 파일을 릴리스 프로세스에서 사용할 수 있습니다.
+1. 아티팩트 소스를 구성하려면 **아티팩트** > **링크를**클릭합니다. 여기에서는 이전 단계에서 정의한 빌드에 이 새로운 릴리스 파이프라인을 연결합니다. 이 작업을 수행하여 docker-compose.yml 파일을 릴리스 프로세스에서 사용할 수 있습니다.
 
     ![Azure DevOps Services - 아티팩트 릴리스](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-artefacts.png) 
 
@@ -222,4 +222,4 @@ Azure DevOps Services를 사용하면 [환경에서 릴리스를 관리](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure DevOps Services를 사용 하는 CI/CD에 대 한 자세한 내용은 [Azure Pipelines 설명서](/azure/devops/pipelines/?view=azure-devops) 문서를 참조 하세요.
+* Azure DevOps 서비스를 사용하면 CI/CD에 대한 자세한 내용은 Azure 파이프라인 설명서 문서를 [참조하세요.](/azure/devops/pipelines/?view=azure-devops)

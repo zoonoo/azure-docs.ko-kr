@@ -1,5 +1,5 @@
 ---
-title: 응용 프로그램 업그레이드 롤링
+title: 애플리케이션 롤링 업그레이드
 description: Azure SQL Database 지역에서 복제를 사용하여 클라우드 애플리케이션의 온라인 업그레이드를 지원하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
 ms.openlocfilehash: 9c627c3e597fdcd3859ce02ea208fc7a8b5d612b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822868"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>SQL Database 활성 지역 복제를 사용하여 클라우드 애플리케이션의 롤링 업그레이드 관리
@@ -109,7 +109,7 @@ ALTER DATABASE <Prod_DB>
 SET (ALLOW_CONNECTIONS = NO)
 ```
 
-2. 보조 (11)의 연결을 해제 하 여 지역에서 복제를 종료 합니다. 이 작업으로 프로덕션 데이터베이스의 완전히 동기화된 독립 복사본이 생성됩니다. 이 데이터베이스가 업그레이드됩니다. 다음 예에서는 Transact-sql을 사용 하지만 [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) 도 사용할 수 있습니다. 
+2. 보조(11)를 분리하여 지역 복제를 종료합니다. 이 작업으로 프로덕션 데이터베이스의 완전히 동기화된 독립 복사본이 생성됩니다. 이 데이터베이스가 업그레이드됩니다. 다음 예제에서는 Transact-SQL을 사용하지만 [PowerShell도](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) 사용할 수 있습니다. 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication
@@ -150,8 +150,8 @@ REMOVE SECONDARY ON SERVER <Partner-Server>
 
 ## <a name="next-steps"></a>다음 단계
 
-* 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
-* Azure SQL Database 활성 지역 복제에 대해 알아보려면 [활성 지역 복제를 사용하여 읽기 가능한 보조 데이터베이스 만들기](sql-database-active-geo-replication.md)를 참조하세요.
+* 비즈니스 연속성 개요 및 시나리오는 [비즈니스 연속성 개요를](sql-database-business-continuity.md)참조하십시오.
+* Azure SQL Database 활성 지역 복제에 대해 자세히 알아보려면 [활성 지역 복제를 사용하여 읽을 수 있는 보조 데이터베이스 만들기를](sql-database-active-geo-replication.md)참조하십시오.
 * Azure SQL Database 자동 장애 조치(failover) 그룹에 대해 알아보려면 [자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스에서 조정된 투명 장애 조치(failover) 수행](sql-database-auto-failover-group.md)을 참조하세요.
 * Azure App Service의 스테이징 환경에 대해 알아보려면 [Azure App Service에서 스테이징 환경 설정](../app-service/deploy-staging-slots.md)을 참조하세요.
 * Azure Traffic Manager 프로필에 대해 알아보려면 [Azure Traffic Manager 프로필 관리](../traffic-manager/traffic-manager-manage-profiles.md)를 참조하세요.

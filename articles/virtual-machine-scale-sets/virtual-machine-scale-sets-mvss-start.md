@@ -1,6 +1,6 @@
 ---
 title: 가상 머신 확장 집합 템플릿에 대해 알아보기
-description: 몇 가지 간단한 단계를 통해 Azure virtual machine scale sets에 대 한 기본 확장 집합 템플릿을 만드는 방법에 대해 알아봅니다.
+description: 몇 가지 간단한 단계를 통해 Azure 가상 시스템 확장 집합에 대한 기본 축척 집합 템플릿을 만드는 방법에 대해 알아봅니다.
 author: mayanknayar
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: manayar
 ms.openlocfilehash: 24db9b2d39771c481a8c43e2b55f12cef381b4d6
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76271896"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>가상 머신 확장 집합 템플릿에 대해 알아보기
-[Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process)은 관련된 리소스 그룹을 배포하는 유용한 방법입니다. 이 자습서 시리즈에서는 기본 확장 집합 템플릿을 만드는 방법 및 다양 한 시나리오에 맞게이 템플릿을 수정 하는 방법을 보여 줍니다. 모든 예제는 [GitHub 리포지토리](https://github.com/gatneil/mvss)에서 가져온 것입니다.
+[Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process)은 관련된 리소스 그룹을 배포하는 유용한 방법입니다. 이 자습서 시리즈에서는 기본 축척 집합 템플릿을 만드는 방법과 다양한 시나리오에 맞게 이 템플릿을 수정하는 방법을 보여 주며 이 방법을 보여 주시면 됩니다. 모든 예제는 [GitHub 리포지토리](https://github.com/gatneil/mvss)에서 가져온 것입니다.
 
 이 템플릿은 간단하게 제작되었습니다. 확장 집합 템플릿의 전체 예제를 보려면 [Azure 빠른 시작 템플릿 GitHub 리포지토리](https://github.com/Azure/azure-quickstart-templates)를 참조하고 문자열 `vmss`가 포함된 폴더를 검색하세요.
 
@@ -124,7 +124,7 @@ Resource Manager 템플릿을 사용하여 나중에 템플릿에 사용할 변�
 ```
 
 ### <a name="choose-type-of-updates"></a>업데이트 유형 선택
-또한 확장 집합은 확장 집합의 업데이트 처리 방법을 알아야 합니다. 현재는 `Manual`, `Rolling` 및 `Automatic`의 세 가지 옵션이 있습니다. 두 옵션 사이의 차이점에 대한 자세한 내용은 [확장 집합을 업그레이드하는 방법](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)에 대한 설명서를 참조하세요.
+또한 확장 집합은 확장 집합의 업데이트 처리 방법을 알아야 합니다. 현재 세 가지 옵션이 `Manual` `Rolling` 있습니다. `Automatic` 두 옵션 사이의 차이점에 대한 자세한 내용은 [확장 집합을 업그레이드하는 방법](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)에 대한 설명서를 참조하세요.
 
 ```json
        "properties": {

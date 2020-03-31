@@ -1,6 +1,6 @@
 ---
 title: ASE v1 구성
-description: App Service Environment v1의 구성, 관리 및 모니터링 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
+description: 앱 서비스 환경 v1의 구성, 관리 및 모니터링. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
 author: ccompy
 ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
 ms.topic: article
@@ -8,16 +8,16 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: b37708e27887b20604a1fe921f14e51387793737
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74687267"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>App Service Environment v1 구성
 
 > [!NOTE]
-> 이 문서는 ASE(App Service Environment) v1에 관한 내용입니다.  사용하기가 더 쉽고 더 강력한 인프라에서 실행되는 최신 버전의 App Service Environment가 있습니다. 새 버전에 대한 자세한 내용은 [App Service Environment 소개](intro.md)를 참조하세요.
+> 이 문서는 ASE(App Service Environment) v1에 관한 내용입니다.  사용하기가 더 쉽고 더 강력한 인프라에서 실행되는 최신 버전의 App Service Environment가 있습니다. 새 버전에 대한 자세한 내용은 [앱 서비스 환경 소개로](intro.md)시작합니다.
 > 
 
 ## <a name="overview"></a>개요
@@ -63,7 +63,7 @@ Azure App Service Environment는 크게 몇 가지 주요 구성 요소로 이�
 
 **자동 크기 조정**: 컴퓨팅 리소스 사용을 관리하는 데 도움이 되는 도구 중 하나는 자동 크기 조정입니다. 프런트 엔드 또는 작업자 풀에 대해 자동 크기 조정을 사용할 수 있습니다. 오전에는 특정 풀 유형의 인스턴스를 늘렸다가 저녁에는 줄이는 것과 같은 작업이 가능합니다. 또는 작업자 풀에서 사용할 수 있는 작업자 수가 특정 임계값 아래로 떨어질 경우 인스턴스를 추가할 수도 있습니다.
 
-컴퓨팅 리소스 풀 메트릭을 기준으로 자동 크기 조정 규칙을 설정하려는 경우 프로비전에 필요한 시간을 고려해야 합니다. App Service 환경 자동 크기 조정에 대 한 자세한 내용은 [App Service Environment에서 자동 크기 조정을 구성 하는 방법][ASEAutoscale]을 참조 하세요.
+컴퓨팅 리소스 풀 메트릭을 기준으로 자동 크기 조정 규칙을 설정하려는 경우 프로비전에 필요한 시간을 고려해야 합니다. App Service Environment의 자동 크기 조정에 대한 자세한 내용은 [App Service Environment에서 자동 크기 조정을 구성하는 방법][ASEAutoscale]을 참조하세요.
 
 ### <a name="storage"></a>스토리지
 ASE 각각은 500GB의 스토리지로 구성됩니다. 이 공간은 ASE의 모든 앱에서 사용됩니다. 이 스토리지 공간은 ASE의 일부이며 현재는 사용자의 스토리지 공간을 사용하도록 전환할 수 없습니다. 가상 네트워크 라우팅 또는 보안에 대해 조정하는 경우 Azure Storage에 대한 액세스를 허용하지 않으면 ASE가 작동되지 않습니다.
@@ -81,7 +81,7 @@ ASE에 사용되는 가상 네트워크에 대한 몇 가지 제한 사항이 �
 * 서브넷을 사용하여 ASE를 호스트하면 서브넷의 주소 범위를 변경할 수 없습니다. 따라서 서브넷에는 향후 ASE 성장을 수용하도록 주소가 64개 이상 포함되는 것이 좋습니다.
 * 서브넷에 ASE 외에는 아무 것도 없을 수 있습니다.
 
-ASE를 포함 하는 호스 티 드 서비스와 달리 [가상 네트워크][virtualnetwork] 및 서브넷은 사용자 제어를 받고 있습니다.  가상 네트워크 관리는 Virtual Network UI 또는 PowerShell을 통해 수행할 수 있습니다.  ASE는 클래식 또는 Resource Manager VNet에 배포될 수 있습니다.  포털 및 API 환경은 클래식 및 Resource Manager VNet 간에 약간 차이가 있지만 ASE 환경은 동일합니다.
+ASE를 포함하는 호스티드 서비스와 달리 [가상 네트워크][virtualnetwork] 및 서브넷은 사용자 제어 하에 있습니다.  가상 네트워크 관리는 Virtual Network UI 또는 PowerShell을 통해 수행할 수 있습니다.  ASE는 클래식 또는 Resource Manager VNet에 배포될 수 있습니다.  포털 및 API 환경은 클래식 및 Resource Manager VNet 간에 약간 차이가 있지만 ASE 환경은 동일합니다.
 
 ASE를 호스트하는 데 사용되는 VNet은 프라이빗 RFC1918 IP 주소를 사용하거나 공용 IP 주소를 사용할 수 있습니다.  RFC1918에 포함되지 않는 IP 범위(10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16)를 사용하려는 경우 ASE 생성 전에 ASE에서 사용할 VNet 및 서브넷을 만들어야 합니다.
 
@@ -89,14 +89,14 @@ ASE를 호스트하는 데 사용되는 VNet은 프라이빗 RFC1918 IP 주소�
 
 예를 들어 가상 네트워크 통합을 사용하여 구독에 있는 VNET과 통합할 수 있지만 ASE에 있는 가상 네트워크에 연결되지 않습니다. 또한 하이브리드 연결을 계속 사용하여 일반적인 상황과 마찬가지로 다른 네트워크의 리소스에 액세스할 수 있습니다.  
 
-ExpressRoute VPN을 사용하여 구성된 가상 네트워크가 없는 경우 라우팅 일부는 ASE에 있는 VNET이 필요합니다. ASE와 호환되지 않는 일부 사용자 정의 경로(UDR) 구성이 있습니다. Express 경로를 사용 하 여 가상 네트워크에서 ASE를 실행 하는 방법에 대 한 자세한 내용은 Express 경로를 [사용 하 여 가상 네트워크에서 App Service Environment 실행][ExpressRoute]을 참조 하세요.
+ExpressRoute VPN을 사용하여 구성된 가상 네트워크가 없는 경우 라우팅 일부는 ASE에 있는 VNET이 필요합니다. ASE와 호환되지 않는 일부 사용자 정의 경로(UDR) 구성이 있습니다. ExpressRoute를 사용하는 가상 네트워크에서 ASE 실행에 대한 자세한 내용은 [ExpressRoute를 사용하는 가상 네트워크에서 App Service Environment 실행][ExpressRoute]을 참조하세요.
 
 #### <a name="securing-inbound-traffic"></a>인바운드 트래픽 보안
 ASE로의 인바운드 트래픽을 제어하는 기본적인 방법에는 두 가지가 있습니다.  [App Service Environment에서 인바운드 트래픽을 제어하는 방법](app-service-app-service-environment-control-inbound-traffic.md) 에 설명된 것처럼 NSG(네트워크 보안 그룹)를 사용하여 ASE에 액세스할 수 있는 IP를 제어하고, ILB(내부 부하 분산 장치)를 사용하여 ASE를 구성할 수도 있습니다.  NSG를 사용하는 액세스를 ILB ASE로 제한하려는 경우에는 이러한 기능을 함께 사용할 수 있습니다.
 
 ASE를 만들면 VNet에 VIP가 만들어집니다.  외부 및 내부의 두 가지 VIP 유형이 있습니다.  외부 VIP를 사용하여 ASE를 만들 경우 ASE의 앱에 인터넷 라우팅 가능 IP 주소를 통해 액세스할 수 있습니다. 내부를 선택하는 경우 ASE는 ILB로 구성되고, 인터넷에 직접 액세스할 수 없습니다.  ILB ASE는 외부 VIP가 여전히 필요하지만 Azure 관리 및 유지 관리 액세스에만 사용됩니다.  
 
-ILB ASE를 만드는 동안 ILB ASE에서 사용되는 하위 도메인을 제공하고, 지정한 하위 도메인에 대한 고유한 DNS를 관리해야 합니다.  하위 도메인 이름을 설정했으므로 HTTPS 액세스에 사용되는 인증서를 관리해야 합니다.  ASE를 만든 후에 인증서를 제공하라는 메시지가 표시됩니다.  ILB ASE를 만들고 사용 하는 방법에 대 한 자세한 내용은 [App Service Environment에서 내부 Load Balancer 사용][ILBASE]을 참조 하세요. 
+ILB ASE를 만드는 동안 ILB ASE에서 사용되는 하위 도메인을 제공하고, 지정한 하위 도메인에 대한 고유한 DNS를 관리해야 합니다.  하위 도메인 이름을 설정했으므로 HTTPS 액세스에 사용되는 인증서를 관리해야 합니다.  ASE를 만든 후에 인증서를 제공하라는 메시지가 표시됩니다.  ILB ASE 만들기 및 사용에 대한 자세한 내용은 [App Service Environment에서 내부 부하 분산 장치 사용][ILBASE]을 참조하세요. 
 
 ## <a name="portal"></a>포털
 Azure Portal의 UI를 사용하여 App Service Environment를 관리하고 모니터링할 수 있습니다. ASE가 있는 경우 사이드바에서 App Service 기호를 확인할 수 있습니다. 이 기호는 Azure Portal에서 App Service Environment를 나타내는 데 사용됩니다.
@@ -125,13 +125,13 @@ ASE에서 모든 App Service 계획은 전용 App Service 계획입니다. 즉, 
 ### <a name="settings"></a>설정
 ASE 블레이드 내에 몇 가지 중요한 기능을 포함하는 **설정** 섹션이 있습니다.
 
-**설정** > **속성**: ASE 블레이드를 불러오면 **설정** 블레이드가 자동으로 열립니다. 맨 위쪽에 **속성**이 있습니다. 여기에 **Essentials**에 표시된 것과 중복되는 여러 항목이 있지만 **아웃바운드 IP 주소**뿐만 아니라 **가상 IP 주소**가 매우 유용합니다.
+**설정** > **속성**: ASE 블레이드를 가져올 때 **설정** 블레이드가 자동으로 열립니다. 맨 위쪽에 **속성**이 있습니다. 여기에 **Essentials**에 표시된 것과 중복되는 여러 항목이 있지만 **아웃바운드 IP 주소**뿐만 아니라 **가상 IP 주소**가 매우 유용합니다.
 
 ![설정 블레이드 및 속성][4]
 
-**설정** > **IP 주소**: ASE에서 IP SSL(Secure Sockets Layer) 앱을 만들 때 IP SSL 주소가 필요합니다. 그렇게 하려면 ASE에서 소유하는 IP SSL 주소가 할당될 수 있어야 합니다. 이를 위해, ASE를 만들 때 1개의 IP SSL 주소가 있지만 더 추가할 수 있습니다. [App Service 가격 책정][AppServicePricing] (SSL 연결 섹션)에 나와 있는 것 처럼 추가 IP SSL 주소에 대 한 요금이 청구 됩니다. 추가 가격은 IP SSL 가격입니다.
+**설정** > **IP 주소**: ASE에서 IP 보안 소켓 계층(SSL) 앱을 만들 때 IP SSL 주소가 필요합니다. 그렇게 하려면 ASE에서 소유하는 IP SSL 주소가 할당될 수 있어야 합니다. 이를 위해, ASE를 만들 때 1개의 IP SSL 주소가 있지만 더 추가할 수 있습니다. SSL 연결 섹션의 [App Service 가격][AppServicePricing]에서 보여 주듯이 추가 IP SSL 주소에 대한 요금이 청구됩니다. 추가 가격은 IP SSL 가격입니다.
 
-**설정** > **프런트 엔드 풀** / **작업자 풀**: 이러한 리소스 풀 블레이드는 각각 완벽하게 해당 리소스 풀의 크기를 조정하도록 제어를 제공하는 것 외에도 해당 리소스 풀에 대한 정보를 확인하는 기능을 제공합니다.  
+**설정** > **프런트 엔드 풀** / **작업자 풀**: 이러한 각 리소스 풀 블레이드는 해당 리소스 풀을 완전히 확장하는 컨트롤을 제공하는 것 외에도 해당 리소스 풀에 대한 정보만 볼 수 있는 기능을 제공합니다.  
 
 각 리소스 풀에 대한 기본 블레이드는 해당 리소스 풀에 대한 메트릭을 사용하여 차트를 제공합니다. ASE 블레이드의 차트와 마찬가지로 차트로 이동하고 원하는 대로 경고를 설정합니다. 특정 리소스 풀에 대한 ASE 블레이드에서 경고를 설정하는 작업은 리소스 풀에서의 작업 수행과 동일합니다. 작업자 풀 **설정** 블레이드에서 이 작업자 풀에 실행 중인 모든 앱 또는 App Service 계획에 액세스할 수 있습니다.
 
@@ -154,7 +154,7 @@ ASE 블레이드에서 크기 조정 작업을 사용하려면 슬라이더를 �
 
 ![크기 조정 UI][6]
 
-특정 리소스 풀에서 수동 또는 자동 크기 조정 기능을 사용하려면 **설정** > **프런트 엔드 풀** / **작업자 풀**로 적절하게 이동합니다. 그런 다음 변경하려는 풀을 엽니다. **설정** > **규모 확장** 또는 **설정** > **강화**로 이동합니다. **규모 확장** 블레이드를 사용하면 인스턴스 수량을 제어할 수 있습니다. **강화** 를 사용하면 리소스 크기를 제어할 수 있습니다.  
+특정 리소스 풀에서 수동 또는 자동 크기 조정 기능을 사용하려면 적절한 **경우 설정** > **프런트 엔드 풀** / **작업자 풀로 이동하십시오.** 그런 다음 변경하려는 풀을 엽니다. **설정** > **으로** 이동 확장 또는 **설정** > **확장.** **규모 확장** 블레이드를 사용하면 인스턴스 수량을 제어할 수 있습니다. **강화** 를 사용하면 리소스 크기를 제어할 수 있습니다.  
 
 ![크기 조정 설정 UI][7]
 

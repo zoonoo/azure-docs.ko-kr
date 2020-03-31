@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: c1f321f452b65016c11cb66d08ebab108509cc62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61448413"
 ---
 # <a name="deploy-a-custom-device-simulation-docker-image"></a>사용자 지정 디바이스 시뮬레이션 Docker 이미지 배포
@@ -27,7 +27,7 @@ ms.locfileid: "61448413"
 1. 새 Docker 이미지를 사용하도록 디바이스 시뮬레이션 구성
 1. 새 이미지를 사용하여 시뮬레이션 실행
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드의 단계를 완료하려면 다음이 필요합니다.
 

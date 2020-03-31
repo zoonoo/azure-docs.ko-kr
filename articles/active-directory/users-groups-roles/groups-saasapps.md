@@ -1,5 +1,5 @@
 ---
-title: 그룹을 사용 하 여 SaaS 앱에 대 한 액세스 관리-Azure AD | Microsoft Docs
+title: 그룹을 사용하여 SaaS 앱에 대한 액세스를 관리 - Azure AD | 마이크로 소프트 문서
 description: Azure Active Directory에서 그룹을 사용하여 Azure Active Directory와 통합되는 SaaS 애플리케이션에 대한 액세스 권한을 할당하는 방법입니다.
 services: active-directory
 documentationcenter: ''
@@ -15,22 +15,22 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51375f057543c86fe021822eb9722ffd1be16804
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74026849"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>그룹을 사용하여 SaaS 애플리케이션에 대한 액세스 관리
 
-Azure AD Premium 라이선스 계획과 함께 Azure Active Directory (Azure AD)를 사용 하 여 그룹을 사용 하 여 Azure AD와 통합 된 SaaS 응용 프로그램에 대 한 액세스 권한을 할당할 수 있습니다. 예를 들어 5가지 SaaS 애플리케이션을 사용하는 마케팅 부서에 대해 액세스 권한을 할당하려는 경우 마케팅 부서의 사용자가 포함된 그룹을 만든 다음 마케팅 부서에 필요한 이 5가지 SaaS 애플리케이션에 해당 그룹을 할당할 수 있습니다. 이러한 방식으로 한 곳에서 마케팅 부서의 멤버 자격을 관리하여 시간을 절약할 수 있습니다. 사용자는 마케팅 그룹 멤버로 추가되는 경우 애플리케이션에 할당되고 마케팅 그룹에서 제거되면 애플리케이션에서 할당이 제거됩니다. 이 기능은 Azure AD 애플리케이션 갤러리 내에서 추가할 수 있는 수많은 애플리케이션과 함께 사용할 수 있습니다.
+Azure AD 프리미엄 라이선스 계획과 함께 Azure Active Directory(Azure AD)를 사용하여 그룹을 사용하여 Azure AD와 통합된 SaaS 응용 프로그램에 대한 액세스를 할당할 수 있습니다. 예를 들어 5가지 SaaS 애플리케이션을 사용하는 마케팅 부서에 대해 액세스 권한을 할당하려는 경우 마케팅 부서의 사용자가 포함된 그룹을 만든 다음 마케팅 부서에 필요한 이 5가지 SaaS 애플리케이션에 해당 그룹을 할당할 수 있습니다. 이러한 방식으로 한 곳에서 마케팅 부서의 멤버 자격을 관리하여 시간을 절약할 수 있습니다. 사용자는 마케팅 그룹 멤버로 추가되는 경우 애플리케이션에 할당되고 마케팅 그룹에서 제거되면 애플리케이션에서 할당이 제거됩니다. 이 기능은 Azure AD 애플리케이션 갤러리 내에서 추가할 수 있는 수많은 애플리케이션과 함께 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure AD Premium 평가판을 시작 하거나 Azure AD Premium 라이선스 계획을 구매한 후에만이 기능을 사용할 수 있습니다.
-> 그룹 기반 할당은 보안 그룹에 대해서만 지원 됩니다.
+> Azure AD 프리미엄 평가판을 시작하거나 Azure AD 프리미엄 라이선스 플랜을 구입한 후에만 이 기능을 사용할 수 있습니다.
+> 그룹 기반 할당은 보안 그룹에 대해서만 지원됩니다.
 > 중첩 그룹 구성원은 이번 애플리케이션에 대한 그룹 기반 할당에서 지원되지 않습니다.
 
-## <a name="to-assign-access-for-a-user-or-group-to-a-saas-application"></a>SaaS 응용 프로그램에 사용자 또는 그룹에 대 한 액세스 권한을 할당 하려면
+## <a name="to-assign-access-for-a-user-or-group-to-a-saas-application"></a>사용자 또는 그룹에 대해 SaaS 애플리케이션 액세스 권한을 할당하려면
 
 1. [Azure AD 관리 센터](https://aad.portal.azure.com)에서 **Enterprise 애플리케이션**을 선택합니다.
 2. 애플리케이션 갤러리에서 추가한 애플리케이션을 선택하여 엽니다.

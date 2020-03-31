@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: af6badda426f1bb81d8528cfda9b8c02d55712b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61463847"
 ---
-# <a name="how-to-get-a-media-processor-instance"></a>방법: 미디어 프로세서 인스턴스 가져오기
+# <a name="how-to-get-a-media-processor-instance"></a>방법: 미디어 프로세서 인스턴스 받기
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
-> * [REST (영문)](media-services-rest-get-media-processor.md)
+> * [나머지](media-services-rest-get-media-processor.md)
 > 
 > 
 
@@ -35,7 +35,7 @@ Media Services에서 미디어 프로세서는 미디어 콘텐츠 인코딩, �
 
 미디어 프로세스 목록은 다음 항목에서 제공됩니다.
 
-* [Encoding 미디어 프로세서](scenarios-and-availability.md#encoding-media-processors)
+* [미디어 프로세서 인코딩](scenarios-and-availability.md#encoding-media-processors)
 * [분석 미디어 프로세서](scenarios-and-availability.md#analytics-media-processors)
 
 ## <a name="get-media-processor"></a>미디어 프로세서 가져오기

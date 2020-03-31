@@ -1,6 +1,6 @@
 ---
-title: 분산 추적 (사전)을 통해 IoT 메시지에 상관 관계 Id 추가
-description: 분산 추적 기능을 사용 하 여 솔루션에서 사용 하는 Azure 서비스 전체에서 IoT 메시지를 추적 하는 방법을 알아봅니다.
+title: 분산 추적을 통해 IoT 메시지에 상관 관계 아이디 추가(사전)
+description: 분산 추적 기능을 사용하여 솔루션에서 사용하는 Azure 서비스 전체에서 IoT 메시지를 추적하는 방법을 알아봅니다.
 author: jlian
 manager: briz
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
 ms.openlocfilehash: efee34ddfb2b2f6090d5dc8c43647c7ee1c53ce2
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77562431"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>분산 추적(미리 보기)을 사용하여 Azure IoT 디바이스-클라우드 메시지 추적
@@ -30,7 +30,7 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 이 문서에서는 분산 추적과 함께 [C용 Azure IoT 디바이스 SDK](iot-hub-device-sdk-c-intro.md)를 사용합니다. 다른 SDK의 경우 분산 추적 지원이 아직 진행 중입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 분산 추적의 미리 보기는 현재 다음 지역에서 만든 IoT Hub에 대해서만 지원됩니다.
 
@@ -48,7 +48,7 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 이 섹션에서는 분산 추적 특성(상관 관계 ID 및 타임스탬프)을 기록하도록 IoT Hub를 구성합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 IoT Hub로 이동합니다.
+1. [Azure 포털에서](https://portal.azure.com/)IoT 허브로 이동합니다.
 
 1. IoT Hub의 왼쪽 창에서 아래의 **모니터링** 섹션으로 스크롤하고 **진단 설정**을 클릭합니다.
 
@@ -58,9 +58,9 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 1. 로깅 전송 위치를 결정하는 다음 옵션 중 하나 이상을 선택합니다.
 
-    - **저장소 계정에 보관**: 로깅 정보를 포함 하도록 저장소 계정을 구성 합니다.
-    - **이벤트 허브로 스트림**: 로깅 정보를 포함 하도록 이벤트 허브를 구성 합니다.
-    - **Log Analytics 보내기**: 로깅 정보를 포함 하도록 Log Analytics 작업 영역을 구성 합니다.
+    - **저장소 계정에 보관**: 로깅 정보를 포함하도록 저장소 계정을 구성합니다.
+    - **이벤트 허브로 스트리밍**: 로깅 정보를 포함하도록 이벤트 허브를 구성합니다.
+    - **로그 분석으로 보내기**: 로깅 정보를 포함하도록 로그 분석 작업 영역을 구성합니다.
 
 1. **로그** 섹션에서 로깅 정보를 사용하려는 작업을 선택합니다.
 
@@ -88,11 +88,11 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 ### <a name="clone-the-source-code-and-initialize"></a>소스 코드를 복제 및 초기화
 
-1. Visual Studio 2019에 대 한 ["데스크톱 개발 C++" 워크 로드](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) 를 설치 합니다. Visual Studio 2017 및 2015도 지원 됩니다.
+1. Visual Studio 2019를 위해 ["C++를 사용하여 데스크톱 개발" 워크로드를](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) 설치합니다. 비주얼 스튜디오 2017 및 2015도 지원됩니다.
 
-1. [CMake](https://cmake.org/)를 설치합니다. 명령 프롬프트에서 `PATH`을 입력하여 `cmake -version`에 있는지 확인합니다.
+1. [CMake](https://cmake.org/)를 설치합니다. 명령 프롬프트에서 `cmake -version`을 입력하여 `PATH`에 있는지 확인합니다.
 
-1. 명령 프롬프트 또는 Git Bash 셸을 엽니다. 다음 명령을 실행 하 여 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 리포지토리의 최신 릴리스를 복제 합니다.
+1. 명령 프롬프트 또는 Git Bash 셸을 엽니다. [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 리포지토리의 최신 릴리스를 복제하려면 다음 명령을 실행합니다.
 
     ```cmd
     git clone -b public-preview https://github.com/Azure/azure-iot-sdk-c.git
@@ -131,7 +131,7 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 ### <a name="edit-the-send-telemetry-sample-to-enable-distributed-tracing"></a>분산 추적을 사용하도록 원격 분석 보내기 샘플 편집
 
 > [!div class="button"]
-> <a href="https://github.com/Azure-Samples/azure-iot-distributed-tracing-sample/blob/master/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c" target="_blank">GitHub에서 샘플 가져오기</a>
+> <a href="https://github.com/Azure-Samples/azure-iot-distributed-tracing-sample/blob/master/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c" target="_blank">GitHub에서 샘플 받기</a>
 
 1. 편집기를 사용하여 `azure-iot-sdk-c/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c` 소스 파일을 엽니다.
 
@@ -139,7 +139,7 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
     [!code-c[](~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c?name=snippet_config&highlight=2)]
 
-    `connectionString` 상수 값을 [원격 분석 보내기 C 빠른 시작](./quickstart-send-telemetry-c.md#register-a-device)의 [디바이스 등록](./quickstart-send-telemetry-c.md) 섹션에서 기록해 둔 디바이스 연결 문자열로 바꿉니다.
+    `connectionString` 상수 값을 [원격 분석 보내기 C 빠른 시작](./quickstart-send-telemetry-c.md)의 [디바이스 등록](./quickstart-send-telemetry-c.md#register-a-device) 섹션에서 기록해 둔 디바이스 연결 문자열로 바꿉니다.
 
 1. `MESSAGE_COUNT` 정의를 `5000`으로 변경합니다.
 
@@ -157,14 +157,14 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 ### <a name="compile-and-run"></a>컴파일 및 실행
 
-1. 이전에 만든 CMake 디렉터리( *)에서* iothub_ll_telemetry_sample`azure-iot-sdk-c/cmake` 프로젝트 디렉터리로 이동한 후 샘플을 컴파일합니다.
+1. 이전에 만든 CMake 디렉터리(`azure-iot-sdk-c/cmake`)에서 *iothub_ll_telemetry_sample* 프로젝트 디렉터리로 이동한 후 샘플을 컴파일합니다.
 
     ```cmd
     cd iothub_client/samples/iothub_ll_telemetry_sample
     cmake --build . --target iothub_ll_telemetry_sample --config Debug
     ```
 
-1. 응용 프로그램을 실행합니다. 디바이스는 분산 추적을 지원하는 원격 분석을 보냅니다.
+1. 애플리케이션을 실행합니다. 디바이스는 분산 추적을 지원하는 원격 분석을 보냅니다.
 
     ```cmd
     Debug/iothub_ll_telemetry_sample.exe
@@ -174,14 +174,14 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 <!-- For a client app that can receive sampling decisions from the cloud, check out [this sample](https://aka.ms/iottracingCsample).  -->
 
-### <a name="workaround-for-third-party-clients"></a>타사 클라이언트에 대 한 해결 방법
+### <a name="workaround-for-third-party-clients"></a>타사 고객을 위한 해결 방법을 제공했습니다.
 
-C SDK를 사용 하지 않고도 분산 추적 **기능을 미리 볼 수 있습니다** . 따라서이 방법은 사용 하지 않는 것이 좋습니다.
+C SDK를 사용하지 않고 분산 추적 기능을 미리 보기만 하면 **됩니다.** 따라서이 방법은 권장 되지 않습니다.
 
-먼저 개발자 가이드 [IoT Hub 메시지 만들기 및 읽기](iot-hub-devguide-messages-construct.md)를 따라 메시지의 모든 IoT Hub 프로토콜 기본 형식을 구현 해야 합니다. 그런 다음 MQTT/AMQP 메시지의 프로토콜 속성을 편집 하 여 `tracestate`를 **시스템 속성**으로 추가 합니다. 특히 다음에 대해 주의하십시오.
+먼저 개발자 가이드 만들기 [및 IoT Hub 메시지 읽기를](iot-hub-devguide-messages-construct.md)따라 메시지에 모든 IoT Hub 프로토콜 기본 요소를 구현해야 합니다. 그런 다음 MQTT/AMQP 메시지의 프로토콜 속성을 `tracestate` 편집하여 **시스템 속성으로**추가합니다. 특히,
 
-* MQTT의 경우 메시지 항목에 `%24.tracestate=timestamp%3d1539243209`를 추가 합니다. 여기서 `1539243209`는 unix 타임 스탬프 형식으로 메시지를 만든 시간으로 바꾸어야 합니다. 예를 들어 [C SDK의](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761) 구현을 참조 하세요.
-* AMQP의 경우 `key("tracestate")` 및 `value("timestamp=1539243209")`를 메시지 주석으로 추가 합니다. 참조 구현은 [여기](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527)를 참조 하십시오.
+* MQTT의 경우 `%24.tracestate=timestamp%3d1539243209` 메시지 항목에 추가하고 `1539243209` 여기서 유닉스 타임스탬프 형식으로 메시지 생성 시간으로 바꿔야 합니다. 예를 들어 C [SDK의 구현을](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761) 참조하십시오.
+* AMQP의 경우 `key("tracestate")` `value("timestamp=1539243209")` 메시지 추가 및 메시지 어노명으로 추가합니다. 참조 구현에 대 한 참조를 참조 [하십시오.](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527)
 
 이 속성을 포함하는 메시지의 비율을 제어하려는 경우 쌍 업데이트와 같은 클라우드 시작 이벤트를 수신 대기하도록 논리를 구현합니다.
 
@@ -211,9 +211,9 @@ C SDK를 사용 하지 않고도 분산 추적 **기능을 미리 볼 수 있습
 
 1. (선택 사항) 샘플링 비율을 다른 값으로 변경하고 애플리케이션 속성에서 메시지가 `tracestate`를 포함하는 빈도의 변화를 확인합니다.
 
-### <a name="update-using-azure-iot-hub-for-vs-code"></a>VS Code에 대 한 Azure IoT Hub를 사용 하 여 업데이트
+### <a name="update-using-azure-iot-hub-for-vs-code"></a>VS 코드에 대 한 Azure IoT 허브를 사용 하 여 업데이트
 
-1. VS Code를 설치 하 고 [여기](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)에서 VS Code에 대 한 Azure IoT Hub 최신 버전을 설치 합니다.
+1. VS 코드를 설치한 다음 여기에서 VS 코드에 대한 Azure IoT Hub의 최신 버전을 [설치합니다.](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
 1. VS Code를 열고 [IoT Hub 연결 문자열을 설정](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites)합니다.
 
@@ -244,10 +244,10 @@ C SDK를 사용 하지 않고도 분산 추적 **기능을 미리 볼 수 있습
 }
 ```
 
-| 요소 이름 | 필수 | 형식 | 설명 |
+| 요소 이름 | 필수 | Type | Description |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | 예 | 정수 | 샘플링을 켜고 끄기 위해 현재 두 가지 모드 값이 지원됩니다. `1`은 켜짐이고 `2`는 꺼짐입니다. |
-| `sampling_rate` | 예 | 정수 | 이 값은 백분율입니다. `0`~`100`(경계값 포함) 사이의 값만 허용됩니다.  |
+| `sampling_mode` | yes | 정수 | 샘플링을 켜고 끄기 위해 현재 두 가지 모드 값이 지원됩니다. `1`은 켜짐이고 `2`는 꺼짐입니다. |
+| `sampling_rate` | yes | 정수 | 이 값은 백분율입니다. `0`~`100`(경계값 포함) 사이의 값만 허용됩니다.  |
 
 ## <a name="query-and-visualize"></a>쿼리 및 시각화
 
@@ -267,11 +267,11 @@ AzureDiagnostics
 
 Log Analytics에 표시된 예제 로그:
 
-| TimeGenerated | OperationName | 범주 | Level | CorrelationId | DurationMs | 속성 |
+| TimeGenerated | OperationName | Category | Level | CorrelationId | DurationMs | 속성 |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | 정보 | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
-| 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | 정보 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
-| 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | 정보 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
+| 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | 정보 제공 | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
+| 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | 정보 제공 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
+| 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | 정보 제공 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
 
 다양한 유형의 로그를 이해하려면 [Azure IoT Hub 진단 로그](iot-hub-monitor-resource-health.md#distributed-tracing-preview)를 참조하세요.
 
@@ -280,7 +280,7 @@ Log Analytics에 표시된 예제 로그:
 IoT 메시지의 흐름을 시각화하기 위해 애플리케이션 맵 샘플 앱을 설정합니다. 샘플 앱은 Azure Function 및 Event Hub를 사용하여 분산 추적 로그를 [애플리케이션 맵](../application-insights/app-insights-app-map.md)으로 보냅니다.
 
 > [!div class="button"]
-> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">GitHub에서 샘플 가져오기</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">GitHub에서 샘플 받기</a>
 
 아래 이미지는 다음과 같은 3개의 라우팅 엔드포인트가 있는 앱 지도의 분산 추적을 보여 줍니다.
 
@@ -308,9 +308,9 @@ IoT 메시지의 흐름을 시각화하기 위해 애플리케이션 맵 샘플 
 1. IoT 디바이스는 IoT Hub에 메시지를 보냅니다.
 1. 메시지가 IoT Hub 게이트웨이에 도착합니다.
 1. IoT Hub가 메시지 애플리케이션 속성에서 `tracestate`를 찾고 올바른 형식인지 확인합니다.
-1. 이 경우 IoT Hub는 메시지에 대 한 전역적으로 고유한 `trace-id`를 생성 하 고, "홉"에 대해 `span-id` 하 고, 작업 `DiagnosticIoTHubD2C`에서 Azure Monitor 진단 로그에 기록 합니다.
-1. 메시지 처리가 완료 되 면 IoT Hub는 다른 `span-id` 생성 하 고 작업 `DiagnosticIoTHubIngress`아래의 기존 `trace-id` 함께 로깅합니다.
-1. 메시지에 대해 라우팅을 사용하도록 설정하면, IoT Hub는 사용자 지정 엔드포인트에 쓰고, `span-id` 범주 아래에 동일한 `trace-id`를 사용하여 다른 `DiagnosticIoTHubEgress`를 기록합니다.
+1. 이 경우 IoT Hub는 "홉"에 `trace-id` `span-id` 대한 메시지에 대해 전역적으로 고유한 메시지를 생성하고 작업 `DiagnosticIoTHubD2C`중인 Azure Monitor 진단 로그에 기록합니다.
+1. 메시지 처리가 완료되면 IoT Hub는 `span-id` 다른 메시지를 생성하고 작업 `trace-id` `DiagnosticIoTHubIngress`중인 기존 과 함께 기록합니다.
+1. 메시지에 대해 라우팅을 사용하도록 설정하면, IoT Hub는 사용자 지정 엔드포인트에 쓰고, `DiagnosticIoTHubEgress` 범주 아래에 동일한 `trace-id`를 사용하여 다른 `span-id`를 기록합니다.
 1. 위 단계는 생성된 각 메시지에 대해 반복됩니다.
 
 ## <a name="public-preview-limits-and-considerations"></a>공개 미리 보기 제한 및 고려 사항
