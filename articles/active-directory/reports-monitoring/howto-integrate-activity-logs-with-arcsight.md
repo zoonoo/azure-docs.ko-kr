@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor를 사용 하 여 ArcSight와 로그 통합 Microsoft Docs
-description: 를 사용 하 여 ArcSight와 Azure Active Directory 로그를 통합 하는 방법을 알아봅니다 Azure Monitor
+title: Azure 모니터를 사용하여 ArcSight와 로그를 통합 | 마이크로 소프트 문서
+description: Azure 모니터를 사용하여 Azure Active Directory 로그를 ArcSight와 통합하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,19 +18,19 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 05002c1b11ef31b61fb4036f09dc8edcdafca767
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75608383"
 ---
-# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Azure Monitor를 사용 하 여 ArcSight와 Azure Active Directory 로그 통합
+# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Azure Monitor를 사용하여 ArcSight와 Azure Active Directory 로그 통합
 
 [Micro Focus ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview)는 플랫폼에서 보안 위협을 탐지하여 대응하는 데 도움이 되는 보안 정보 및 이벤트 관리(SIEM)입니다. 이제 Azure AD용 ArcSight 커넥터를 사용하는 Azure Monitor를 사용하여 ArcSight로 Azure AD(Azure Active Directory) 로그를 라우팅할 수 있습니다. 이 기능을 통해 ArcSight를 사용하여 테넌트에 보안 위협이 있는지 모니터링할 수 있습니다.  
 
 이 문서에서는 Azure Monitor를 사용하여 ArcSight로 Azure AD 로그를 라우팅하는 방법을 배웁니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 기능을 사용하려면 다음이 필요합니다.
 * Azure AD 활동 로그를 포함하는 Azure 이벤트 허브입니다. [활동 로그를 이벤트 허브로 스트림](quickstart-azure-monitor-stream-logs-to-event-hub.md)하는 방법을 알아봅니다. 

@@ -1,17 +1,17 @@
 ---
-title: Azure Monitor 데이터 수집기 API를 사용 하 여 데이터 파이프라인 만들기 | Microsoft Docs
+title: 데이터 수집기 API를 사용하여 데이터 파이프라인 만들기
 description: REST API를 호출할 수 있는 모든 클라이언트에서 Azure Monitor HTTP 데이터 수집기 API를 사용하여 POST JSON 데이터를 Log Analytics 작업 영역에 추가할 수 있습니다. 이 아티클에서는 자동화된 방식으로 파일에 저장된 데이터를 업로드하는 방법을 설명합니다.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/09/2018
-ms.openlocfilehash: 0300b44577725ddb272086713220d3318f1726fe
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 96c64f6a0167b678f14bf0199069ecd6b4c8d57a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77655340"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055105"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>데이터 수집기 API를 사용하여 데이터 파이프라인 만들기
 
@@ -20,7 +20,7 @@ ms.locfileid: "77655340"
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>예제 문제
-이 아티클의 나머지 부분에서는 Application Insights에서 페이지 보기 데이터를 검사합니다. 이 가상 시나리오에서는 Application Insights SDK에서 기본적으로 수집한 지리적 정보를 전 세계의 모든 국가/지역에 대 한 인구를 포함 하는 사용자 지정 데이터로 상관 관계를 지정 하려고 합니다. 가장 많은 마케팅 금액을 지출 해야 하는 위치를 식별 하는 것이 좋습니다. 
+이 아티클의 나머지 부분에서는 Application Insights에서 페이지 보기 데이터를 검사합니다. 가상 시나리오에서는 응용 프로그램 인사이트 SDK에서 기본적으로 수집한 지리적 정보를 전 세계 모든 국가/지역의 인구를 포함하는 사용자 지정 데이터와 상호 연관시켜 마케팅 비용을 가장 많이 지출해야 하는 위치를 파악하는 것을 목표로 합니다. 
 
 이를 위해 [UN World Population Prospects](https://esa.un.org/unpd/wpp/)와 같은 공용 데이터 원본을 사용합니다. 데이터는 다음과 같은 간단한 스키마를 제공합니다.
 

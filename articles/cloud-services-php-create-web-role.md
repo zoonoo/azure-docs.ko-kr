@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.openlocfilehash: 54410e1e70a2ec0d3a9e2f853dc9556cd05996ad
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79297257"
 ---
 # <a name="create-php-web-and-worker-roles"></a>PHP 웹 및 작업자 역할 만들기
@@ -32,7 +32,7 @@ Azure는 애플리케이션을 실행하기 위한 세 가지 컴퓨팅 모델�
 
 ## <a name="download-the-azure-sdk-for-php"></a>PHP용 Azure SDK 다운로드(영문)
 
-[PHP용 Azure SDK](https://github.com/Azure/azure-sdk-for-php)는 여러 구성 요소로 구성됩니다. 이 문서에서는 이러한 구성 요소 중 두 가지인 Azure PowerShell 및 Azure 에뮬레이터를 사용합니다. 이러한 두 구성 요소는 Microsoft 웹 플랫폼 설치 관리자를 통해 설치할 수 있습니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
+[PHP용 Azure SDK](https://github.com/Azure/azure-sdk-for-php)는 여러 구성 요소로 구성됩니다. 이 문서에서는 이러한 구성 요소 중 두 가지인 Azure PowerShell 및 Azure 에뮬레이터를 사용합니다. 이러한 두 구성 요소는 Microsoft 웹 플랫폼 설치 관리자를 통해 설치할 수 있습니다. 자세한 내용은 [Azure PowerShell을 설치하고 구성하는 방법을](/powershell/azure/overview)참조하세요.
 
 ## <a name="create-a-cloud-services-project"></a>Cloud Services 프로젝트 만들기
 
@@ -68,11 +68,11 @@ PHP 웹 역할을 프로젝트에 추가하려면 프로젝트의 루트 디렉�
 사용자가 제공하는 PHP 런타임을 사용하도록 웹 역할을 구성하려면 아래 단계를 따릅니다.
 
 1. 이 항목의 앞부분에서 설명한 대로 Azure 서비스 프로젝트를 만들고 PHP 웹 역할을 추가합니다.
-2. 웹 역할의 루트 디렉터리에 있는 `php` 폴더에 `bin` 폴더를 만든 후 PHP 런타임(모든 바이너리, 구성 파일, 하위 폴더 등)을 `php` 폴더에 추가합니다.
-3. 필드 PHP 런타임이 [Microsoft Drivers FOR php for SQL Server][sqlsrv drivers]를 사용 하는 경우 프로 비전 될 때 [SQL Server Native Client 2012][sql native client] 를 설치 하도록 웹 역할을 구성 해야 합니다. 이렇게 하려면 [sqlncli.msi x64 설치 관리자]를 웹 역할의 루트 디렉터리에 있는 `bin` 폴더에 추가합니다. 다음 단계에 설명되어 있는 시작 스크립트는 역할이 프로비전될 때 설치 관리자를 자동으로 실행합니다. PHP 런타임이 Microsoft Drivers for PHP for SQL Server를 사용하지 않으면 다음 단계의 스크립트에서 다음 줄을 제거할 수 있습니다.
+2. 웹 역할의 루트 디렉터리에 있는 `bin` 폴더에 `php` 폴더를 만든 후 PHP 런타임(모든 바이너리, 구성 파일, 하위 폴더 등)을 `php` 폴더에 추가합니다.
+3. (선택 사항) PHP 런타임이 [Microsoft Drivers for PHP for SQL Server][sqlsrv drivers]를 사용하면 웹 역할이 프로비전될 때 [SQL Server Native Client 2012][sql native client]를 설치하도록 웹 역할을 구성해야 합니다. 이렇게 하려면 [sqlncli.msi x64 설치 관리자]를 웹 역할의 루트 디렉터리에 있는 `bin` 폴더에 추가합니다. 다음 단계에 설명되어 있는 시작 스크립트는 역할이 프로비전될 때 설치 관리자를 자동으로 실행합니다. PHP 런타임이 Microsoft Drivers for PHP for SQL Server를 사용하지 않으면 다음 단계의 스크립트에서 다음 줄을 제거할 수 있습니다.
 
         msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
-4. PHP 런타임을 사용 하 여 `.php` 페이지에 대 한 요청을 처리 하도록 [인터넷 정보 서비스 (IIS)][iis.net] 를 구성 하는 시작 작업을 정의 합니다. 이렇게 하려면 텍스트 편집기에서 `setup_web.cmd` 파일(웹 역할 루트 디렉터리의 `bin` 파일에 있음)을 열고 그 내용을 다음 스크립트로 바꿉니다.
+4. PHP 런타임을 사용하여  페이지에 대한 요청을 처리하도록 [IIS(인터넷 정보 서비스)`.php`][iis.net]를 구성하는 시작 작업을 정의합니다. 이렇게 하려면 텍스트 편집기에서 `setup_web.cmd` 파일(웹 역할 루트 디렉터리의 `bin` 파일에 있음)을 열고 그 내용을 다음 스크립트로 바꿉니다.
 
     ```cmd
     @ECHO ON
@@ -105,7 +105,7 @@ PHP 웹 역할을 프로젝트에 추가하려면 프로젝트의 루트 디렉�
 
 1. 이 항목의 앞부분에서 설명한 대로 Azure 서비스 프로젝트를 만들고 PHP 작업자 역할을 추가합니다.
 2. 작업자 역할의 루트 디렉터리에 `php` 폴더를 만든 후 PHP 런타임(모든 바이너리, 구성 파일, 하위 폴더 등)을 `php` 폴더에 추가합니다.
-3. 필드 PHP 런타임이 [SQL Server 용 php 용 Microsoft 드라이버][sqlsrv drivers]를 사용 하는 경우 프로 비전 될 때 [SQL Server Native Client 2012][sql native client] 를 설치 하도록 작업자 역할을 구성 해야 합니다. 이렇게 하려면 [sqlncli.msi x64 설치 관리자]를 작업자 역할의 루트 디렉터리에 추가합니다. 다음 단계에 설명되어 있는 시작 스크립트는 역할이 프로비전될 때 설치 관리자를 자동으로 실행합니다. PHP 런타임이 Microsoft Drivers for PHP for SQL Server를 사용하지 않으면 다음 단계의 스크립트에서 다음 줄을 제거할 수 있습니다.
+3. (선택 사항) PHP 런타임이 [Microsoft Drivers for PHP for SQL Server][sqlsrv drivers]를 사용하면 작업자 역할이 프로비전될 때 [SQL Server Native Client 2012][sql native client]를 설치하도록 작업자 역할을 구성해야 합니다. 이렇게 하려면 [sqlncli.msi x64 설치 관리자]를 작업자 역할의 루트 디렉터리에 추가합니다. 다음 단계에 설명되어 있는 시작 스크립트는 역할이 프로비전될 때 설치 관리자를 자동으로 실행합니다. PHP 런타임이 Microsoft Drivers for PHP for SQL Server를 사용하지 않으면 다음 단계의 스크립트에서 다음 줄을 제거할 수 있습니다.
 
         msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 4. 역할이 프로비전될 때 `php.exe` 실행 파일을 작업자 역할의 PATH 환경 변수에 추가하는 시작 작업을 정의합니다. 이렇게 하려면 텍스트 편집기에서 `setup_worker.cmd` 파일(작업자 역할의 루트 디렉터리에 있음)을 열고 그 내용을 다음 스크립트로 바꿉니다.

@@ -9,10 +9,10 @@ ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 58997b20c01f33037a5e5e149caa59e1630373ff
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255315"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export에 대한 시스템 요구 사항
@@ -41,7 +41,7 @@ WAImportExport 도구를 사용하여 하드 드라이브를 준비하기 위해
 
 Azure Import/Export 서비스는 다음과 같은 유형의 스토리지 계정을 지원합니다.
 
-- 표준 범용 v2 저장소 계정 (대부분의 시나리오에 권장)
+- 표준 범용 v2 저장소 계정(대부분의 시나리오에 권장)
 - Blob Storage 계정
 - 범용 v1 스토리지 계정(클래식 또는 Azure Resource Manager 배포 모두),
 
@@ -50,7 +50,7 @@ Azure Import/Export 서비스는 다음과 같은 유형의 스토리지 계정�
 각 작업은 하나의 스토리지 계정에서만 데이터 전송에 사용될 수 있습니다. 다시 말해, 하나의 가져오기/내보내기 작업이 여러 스토리지 계정에서 사용될 수 없습니다. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-account-create.md)(영문)을 참조하세요.
 
 > [!IMPORTANT]
-> Azure Import Export 서비스는 [Virtual Network 서비스 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md) 기능이 활성화된 스토리지 계정을 지원하지 않습니다. 
+> Azure 가져오기 내보내기 서비스는 [가상 네트워크 서비스 끝점](../../virtual-network/virtual-network-service-endpoints-overview.md) 기능이 활성화된 저장소 계정을 지원하지 않습니다. 
 
 ## <a name="supported-storage-types"></a>지원되는 스토리지 형식
 
@@ -59,8 +59,8 @@ Azure Import/Export 서비스는 다음과 같은 유형의 스토리지 계정�
 
 |작업  |스토리지 서비스 |지원됨  |지원되지 않음  |
 |---------|---------|---------|---------|
-|가져오기     |  Azure BLOB 스토리지 <br><br> Azure File Storage       | 블록 Blob 및 페이지 Blob 지원됨 <br><br> 파일 지원됨          |
-|내보내기     |   Azure BLOB 스토리지       | 블록 Blob, 페이지 Blob 및 추가 Blob 지원됨         | Azure Files 지원되지 않음
+|가져오기     |  Azure Blob 스토리지 <br><br> Azure File Storage       | 블록 Blob 및 페이지 Blob 지원됨 <br><br> 파일 지원됨          |
+|내보내기     |   Azure Blob 스토리지       | 블록 Blob, 페이지 Blob 및 추가 Blob 지원됨         | Azure Files 지원되지 않음
 
 
 ## <a name="supported-hardware"></a>지원되는 하드웨어
@@ -74,13 +74,13 @@ Azure Import/Export 서비스의 경우 데이터를 복사할 지원되는 디�
 
 |디스크 유형  |크기  |지원됨 |
 |---------|---------|---------|
-|SSD    |   2.5"      |SATA III          |
+|SSD    |   2.5"      |사타 III          |
 |HDD     |  2.5"<br>3.5"       |SATA II, SATA III         |
 
-지원 되지 않는 디스크 유형은 다음과 같습니다.
-- USBs.
-- 기본 제공 USB 어댑터를 사용 하는 외부 HDD.
-- 외부 HDD의 대/소문자를 포함 하는 디스크입니다.
+다음 디스크 유형은 지원되지 않습니다.
+- Usbs.
+- USB 어댑터가 내장된 외부 HDD.
+- 외부 HDD의 케이스 내부에 있는 디스크입니다.
 
 단일 가져오기/내보내기 작업은 다음을 포함합니다.
 - 최대 10개의 HDD/SSD.
@@ -95,4 +95,4 @@ Azure Import/Export 서비스의 경우 데이터를 복사할 지원되는 디�
 
 * [WAImportExport 도구 설정](storage-import-export-tool-how-to.md)
 * [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
-* [Azure Import/Export REST API 샘플](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)
+* [Azure 가져오기 내보내기 REST 샘플](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

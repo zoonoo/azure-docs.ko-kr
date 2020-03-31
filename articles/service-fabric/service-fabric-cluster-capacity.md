@@ -1,21 +1,21 @@
 ---
-title: Service Fabric 클러스터 용량 계획
+title: 서비스 패브릭 클러스터 용량 계획
 description: Service Fabric 클러스터 용량 계획 고려 사항입니다. 노드 유형, 작업, 내구성 및 안정성 계층
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: pepogors
 ms.openlocfilehash: 6e60fc10dd7e0eec24de4a089d09d914624dcfbc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258916"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>서비스 패브릭 클러스터 용량 계획 고려 사항
 프로덕션 배포의 경우 용량 계획은 중요한 단계입니다. 다음은 해당 프로세스의 일부로 고려해야 하는 항목 중 일부입니다.
 
 * 클러스터에서 시작해야 하는 노드 형식의 수입니다.
-* 각 노드 유형의 속성 (크기, 기본, 인터넷 연결, Vm 수 등)
+* 각 노드 유형의 속성(크기, 기본, 인터넷 직면, VM 수 등)
 * 클러스터의 안정성 및 지속성 특성
 
 > [!NOTE]
@@ -52,7 +52,7 @@ Service Fabric 시스템 서비스(예: 클러스터 관리자 서비스 또는 
 * 주 노드 유형에 대한 **최소 VM 크기**는 선택한 **내구성 계층**에 따라 결정됩니다. 기본 내구성 계층은 Bronze입니다. 자세한 내용은 [클러스터의 내구성 특성](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)을 참조하세요.  
 * 주 노드 유형에 대한 **최소 VM 수**는 선택한 **안정성 계층**에 따라 결정됩니다. 기본 안정성 계층은 Silver입니다. 자세한 내용은 [클러스터의 안정성 특성](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster)을 참조하세요.  
 
-Azure Resource Manager 템플릿에서 주 노드 형식은 `isPrimary`노드 형식 정의[ 아래의 ](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) 특성으로 구성됩니다.
+Azure Resource Manager 템플릿에서 주 노드 형식은 [노드 형식 정의](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) 아래의 `isPrimary` 특성으로 구성됩니다.
 
 ### <a name="non-primary-node-type"></a>주가 아닌 노드 유형
 
@@ -67,11 +67,11 @@ Azure Resource Manager 템플릿에서 주 노드 형식은 `isPrimary`노드 �
 | 내구성 계층  | 필요한 최소 VM 수 | 지원되는 VM SKU                                                                  | 가상 머신 확장 집합의 업데이트                               | Azure에서 시작되는 업데이트 및 유지 관리                                                              | 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | 금             | 5                              | 단일 고객 전용인 전체 노드 SKU(예: L32s, GS5, G5, DS15_v2, D15_v2) | Service Fabric 클러스터에서 승인될 때까지 지연될 수 있음 | 복제본이 이전 오류에서 복구될 수 있는 추가 시간을 허용하기 위해 UD당 2시간 동안 일시 중지될 수 있음 |
-| 은           | 5                              | 최소 50 GB 이상의 로컬 SSD를 포함 하는 단일 코어 이상의 Vm                      | Service Fabric 클러스터에서 승인될 때까지 지연될 수 있음 | 오랜 기간 동안 지연될 수 없음                                                    |
-| 동           | 1                              | 50 GB 이상의 로컬 SSD를 포함 하는 Vm                                              | Service Fabric 클러스터에 의해 지연되지 않음           | 오랜 기간 동안 지연될 수 없음                                                    |
+| 은           | 5                              | 로컬 SSD가 50GB 이상인 단일 코어 이상의 VM                      | Service Fabric 클러스터에서 승인될 때까지 지연될 수 있음 | 오랜 기간 동안 지연될 수 없음                                                    |
+| 동           | 1                              | 로컬 SSD가 50GB 이상인 VM                                              | Service Fabric 클러스터에 의해 지연되지 않음           | 오랜 기간 동안 지연될 수 없음                                                    |
 
 > [!WARNING]
-> Bronze 내구성으로 실행되는 노드 형식은 _권한 없음_이 됩니다. 즉, 상태 저장 작업에 영향을 주는 인프라 작업은 중지 되거나 지연 되지 않으므로 워크 로드에 영향을 줄 수 있습니다. 상태 비저장 워크로드만 실행하는 노드 형식에는 Bronze만 사용합니다. 프로덕션 워크로드의 경우 Silver 이상을 실행하는 것이 좋습니다. 
+> Bronze 내구성으로 실행되는 노드 형식은 _권한 없음_이 됩니다. 즉, 상태 저장 워크로드에 영향을 주는 인프라 작업이 중지되거나 지연되지 않으므로 워크로드에 영향을 줄 수 있습니다. 상태 비저장 워크로드만 실행하는 노드 형식에는 Bronze만 사용합니다. 프로덕션 워크로드의 경우 Silver 이상을 실행하는 것이 좋습니다. 
 > 
 > 내구성 수준에 관계 없이 VM 확장 집합의 [할당 취소](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) 작업은 클러스터를 삭제합니다.
 
@@ -98,9 +98,9 @@ Azure Resource Manager 템플릿에서 주 노드 형식은 `isPrimary`노드 �
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Silver 또는 Gold 내구성 수준으로 설정한 노드 유형에 대한 운영 권장 사항입니다.
 
 - 클러스터와 애플리케이션을 항상 정상 상태로 유지하고, 애플리케이션이 모든 [서비스 복제본 수명 주기 이벤트](service-fabric-reliable-services-lifecycle.md)(예: 빌드의 복제본에 문제가 있을 경우)에 제때에 응답하는지 확인하세요.
-- VM SKU를 변경 하는 더 안전한 방법 채택 (확장/축소): 가상 머신 확장 집합의 VM SKU를 변경 하려면 여러 단계와 고려 사항이 필요 합니다. 일반적인 문제를 방지하기 위해 수행할 수 있는 프로세스는 다음과 같습니다.
+- VM SKU 변경(확장/축소)을 만드는 보다 안전한 방법 채택: 가상 시스템 규모 집합의 VM SKU를 변경하려면 여러 단계와 고려 사항이 필요합니다. 일반적인 문제를 방지하기 위해 수행할 수 있는 프로세스는 다음과 같습니다.
     - **주 노드 형식이 아닐 경우:** 새 가상 머신 확장 집합을 생성하고, 새로운 가상 머신 확장 집합/노드 형식을 포함하도록 서비스 배치 제약 조건을 수정한 후 이전의 가상 머신 확장 집합 인스턴스 수를 한 번에 한 노드씩 0으로 줄이는 것이 좋습니다(노드 제거로 인한 클러스터 안정성 저하를 방지하기 위함).
-    - **주 노드 형식:** 선택한 VM SKU가 용량에 있고 더 큰 VM SKU로 변경 하려는 경우 [주 노드 형식에 대 한 수직 확장](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-node-type)에 대 한 지침을 따르세요. 
+    - **기본 노드 유형의 경우:** 선택한 VM SKU가 용량에 있고 더 큰 VM SKU로 변경하려는 경우 [기본 노드 유형에 대한 수직 크기 조정에 대한](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-node-type)지침을 따르십시오. 
 
 - Gold 또는 Silver 내구성 수준이 활성화된 가상 머신 확장 집합의 노드 수는 최소 5개로 유지합니다.
 - 내구성 수준이 Silver 또는 Gold인 각 가상 머신 확장 집합은 Service Fabric 클러스터에서 고유한 노드 형식에 매핑되어야 합니다. 여러 가상 머신 확장 집합을 단일 노드 형식에 매핑하면 Service Fabric 클러스터와 Azure 인프라 간의 조정이 제대로 작동하지 않습니다.
@@ -142,7 +142,7 @@ Azure Resource Manager 템플릿에서 주 노드 형식은 `isPrimary`노드 �
 다음은 주 노드 유형 용량 계획에 대한 지침입니다.
 
 - **Azure에서 프로덕션 작업을 실행하기 위한 VM 인스턴스 수:** 최소 주 노드 형식 크기를 5로 지정하고 안정성 계층을 Silver로 지정해야 합니다.  
-- **Azure에서 테스트 작업을 실행하기 위한 VM 인스턴스 수** 최소 주 노드 형식 크기를 1 또는 3으로 지정할 수 있습니다. 하나의 노드 클러스터는 특별한 구성으로 실행되므로 해당 클러스터의 규모 확장은 지원되지 않습니다. 하나의 노드 클러스터는 안정성이 없으므로 Resource Manager 템플릿에서 해당 구성을 제거해야 하며/지정해서는 안 됩니다(구성 값을 설정하지 않는 것은 충분하지 않음). 포털을 통해 하나의 노드 클러스터 설정을 설정한 경우 구성이 자동으로 처리됩니다. 1 및 3 노드 클러스터는 프로덕션 워크로드 실행에 대해 지원되지 않습니다. 
+- **Azure에서 테스트 워크로드를 실행할 VM 인스턴스 수** 최소 기본 노드 유형 크기를 1 또는 3으로 지정할 수 있습니다. 하나의 노드 클러스터는 특별한 구성으로 실행되므로 해당 클러스터의 규모 확장은 지원되지 않습니다. 하나의 노드 클러스터는 안정성이 없으므로 Resource Manager 템플릿에서 해당 구성을 제거해야 하며/지정해서는 안 됩니다(구성 값을 설정하지 않는 것은 충분하지 않음). 포털을 통해 하나의 노드 클러스터 설정을 설정한 경우 구성이 자동으로 처리됩니다. 1 및 3 노드 클러스터는 프로덕션 워크로드 실행에 대해 지원되지 않습니다. 
 - **VM SKU:** 주 노드 유형은 시스템 서비스가 실행되는 위치이므로 VM SKU를 선택할 때는 클러스터에 배치하려는 전체 최대 로드를 고려해야 합니다. 이러한 설명을 뒷받침하는 예가 다음에 나와 있습니다. 주 노드 유형을 "폐"라고 생각하면 폐는 뇌에 산소를 공급합니다. 또한 뇌에 충분한 산소가 공급되지 않으면 몸 전체에 문제가 발생합니다. 
 
 클러스터의 용량 요구 사항은 클러스터에서 실행하려는 작업에 따라 결정됩니다. 따라서 특정 작업에 대해 정성적 지침을 제공할 수는 없지만 다음의 보편적인 지침을 통해 시작하는 데 필요한 도움을 얻을 수 있을 것입니다.
@@ -150,11 +150,11 @@ Azure Resource Manager 템플릿에서 주 노드 형식은 `isPrimary`노드 �
 프로덕션 워크로드: 
 
 - 클러스터 기본 NodeType을 시스템 서비스 전용으로 지정하고 배포 제약 조건을 사용하여 보조 NodeType에 애플리케이션을 배포하는 것이 좋습니다.
-- 권장 VM SKU는 표준 D2_V2 이거나 최소 50 GB의 로컬 SSD와 동일 합니다.
-- 지원 되는 최소 사용 VM SKU는 Standard_D2_V3 또는 표준 D1_V2 이거나 최소 50 GB의 로컬 SSD와 동일 합니다. 
+- 권장되는 VM SKU는 표준 D2_V2 또는 최소 50GB의 로컬 SSD와 동일합니다.
+- VM SKU를 지원하는 최소 사용량은 Standard_D2_V3 또는 표준 D1_V2 또는 최소 50GB의 로컬 SSD와 동일합니다. 
 - 권장 사항은 최소 50GB입니다. 워크로드를 위해, 특히 Windows 컨테이너를 실행하는 경우, 더 큰 디스크가 필요합니다. 
 - 프로덕션 작업에는 표준 A0과 같은 부분 코어 VM SKU가 지원되지 않습니다.
-- 시리즈 VM Sku는 성능상의 이유로 프로덕션 워크 로드에 대해 지원 되지 않습니다.
+- 시리즈 VM SCO는 성능상의 이유로 프로덕션 워크로드에 대해 지원되지 않습니다.
 - 우선 순위가 낮은 VM은 지원되지 않습니다.
 
 > [!WARNING]
@@ -172,10 +172,10 @@ Azure Resource Manager 템플릿에서 주 노드 형식은 `isPrimary`노드 �
 
 프로덕션 워크로드 
 
-- 권장 VM SKU는 표준 D2_V2 이거나 최소 50 GB의 로컬 SSD와 동일 합니다.
-- 지원 되는 최소 사용 VM SKU는 Standard_D2_V3 또는 표준 D1_V2 이거나 최소 50 GB의 로컬 SSD와 동일 합니다. 
+- 권장되는 VM SKU는 표준 D2_V2 또는 최소 50GB의 로컬 SSD와 동일합니다.
+- VM SKU를 지원하는 최소 사용량은 Standard_D2_V3 또는 표준 D1_V2 또는 최소 50GB의 로컬 SSD와 동일합니다. 
 - 프로덕션 작업에는 표준 A0과 같은 부분 코어 VM SKU가 지원되지 않습니다.
-- 시리즈 VM Sku는 성능상의 이유로 프로덕션 워크 로드에 대해 지원 되지 않습니다.
+- 시리즈 VM SCO는 성능상의 이유로 프로덕션 워크로드에 대해 지원되지 않습니다.
 
 ## <a name="non-primary-node-type---capacity-guidance-for-stateless-workloads"></a>상태 비저장 워크로드에 대한 주가 아닌 노드 유형 - 용량 지침
 
@@ -187,10 +187,10 @@ Azure Resource Manager 템플릿에서 주 노드 형식은 `isPrimary`노드 �
 
 프로덕션 워크로드 
 
-- 권장 VM SKU는 표준 D2_V2 이거나 이와 동일 합니다. 
+- 권장되는 VM SKU는 표준 D2_V2 또는 이와 동등한 표준입니다. 
 - 지원되는 최소 사용 VM SKU는 표준 D1 또는 표준 D1_V2이거나 동급 수준입니다. 
 - 프로덕션 작업에는 표준 A0과 같은 부분 코어 VM SKU가 지원되지 않습니다.
-- 시리즈 VM Sku는 성능상의 이유로 프로덕션 워크 로드에 대해 지원 되지 않습니다.
+- 시리즈 VM SCO는 성능상의 이유로 프로덕션 워크로드에 대해 지원되지 않습니다.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 

@@ -1,27 +1,27 @@
 ---
-title: Azure 애플리케이션 Insights 에이전트 API 참조
-description: 에이전트 API 참조를 Application Insights 합니다. InstrumentationEngine를 사용 하지 않습니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
+title: Azure 응용 프로그램 인사이트 에이전트 API 참조
+description: 응용 프로그램 인사이트 에이전트 API 참조. 계측 해제엔진. 웹 사이트를 다시 배포하지 않고 웹 사이트 성능을 모니터링합니다. 온-프레미스, VM 또는 Azure에서 호스팅되는 ASP.NET 웹 앱과 함께 작동합니다.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: dafa12db95a10df467bf0d042cfd9395720648b2
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671378"
 ---
-# <a name="application-insights-agent-api-disable-instrumentationengine"></a>Application Insights 에이전트 API: InstrumentationEngine
+# <a name="application-insights-agent-api-disable-instrumentationengine"></a>애플리케이션 인사이트 에이전트 API: 인스트루먼트 엔진 사용 안 함
 
-이 문서에서는 [Az. ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)의 멤버인 cmdlet에 대해 설명 합니다.
+이 문서에서는 [Az.ApplicationMonitor PowerShell 모듈의](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)구성원인 cmdlet에 대해 설명합니다.
 
-## <a name="description"></a>Description
-일부 레지스트리 키를 제거 하 여 계측 엔진을 사용 하지 않도록 설정 합니다.
-변경 내용을 적용 하려면 IIS를 다시 시작 하십시오.
+## <a name="description"></a>설명
+일부 레지스트리 키를 제거하여 계측 엔진을 사용하지 않도록 설정합니다.
+변경 사항이 적용되면 IIS를 다시 시작합니다.
 
 > [!IMPORTANT] 
-> 이 cmdlet을 사용 하려면 관리자 권한이 있는 PowerShell 세션이 있어야 합니다.
+> 이 cmdlet에는 관리자 권한이 있는 PowerShell 세션이 필요합니다.
 
 ## <a name="examples"></a>예
 
@@ -32,12 +32,12 @@ PS C:\> Disable-InstrumentationEngine
 ## <a name="parameters"></a>매개 변수 
 
 ### <a name="-verbose"></a>-Verbose
-**일반 매개 변수입니다.** 이 스위치를 사용 하 여 자세한 로그를 출력 합니다.
+**공통 매개 변수입니다.** 이 스위치를 사용하여 자세한 로그를 출력합니다.
 
 ## <a name="output"></a>출력
 
 
-#### <a name="example-output-from-successfully-disabling-the-instrumentation-engine"></a>계측 엔진을 사용 하지 않도록 설정 하는 예제 출력
+#### <a name="example-output-from-successfully-disabling-the-instrumentation-engine"></a>계측 엔진을 성공적으로 비활성화한 결과
 
 ```
 Configuring IIS Environment for instrumentation engine...
@@ -50,5 +50,5 @@ Configuring registry for instrumentation engine...
 
 ## <a name="next-steps"></a>다음 단계
 
- Application Insights 에이전트를 사용 하 여 더 많은 작업 수행:
- - 가이드를 사용 하 여 Application Insights 에이전트 [문제를 해결할](status-monitor-v2-troubleshoot.md) 수 있습니다.
+ 애플리케이션 인사이트 에이전트로 더 많은 작업을 수행합니다.
+ - 가이드를 사용하여 애플리케이션 인사이트 에이전트 [문제를 해결하세요.](status-monitor-v2-troubleshoot.md)

@@ -1,22 +1,20 @@
 ---
-title: 단일 또는 풀링된 데이터베이스를 BACPAC 파일로 내보내기
+title: 단일 또는 풀백 된 데이터베이스를 BACPAC 파일로 내보내기
 description: Azure Portal을 사용하여 Azure SQL 데이터베이스를 BACPAC 파일로 내보내기
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: ''
-ms.devlang: ''
-ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: b96d2e69b757774afe177341caffe2f3cbf00e2b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.topic: conceptual
+ms.openlocfilehash: 0bc72f0ad58829a3ff6545b5c4741ddc20916c31
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823461"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061622"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Azure SQL 데이터베이스를 BACPAC 파일로 내보내기
 
@@ -24,10 +22,10 @@ ms.locfileid: "73823461"
 
 ## <a name="considerations-when-exporting-an-azure-sql-database"></a>Azure SQL 데이터베이스를 내보낼 경우 고려 사항
 
-- 내보내기 작업에서 트랜잭션이 일치하도록 내보내기 중에나 Azure SQL 데이터베이스의 [트랜잭션 일치 복사본](sql-database-copy.md)에서 내보내는 중에는 쓰기 활동이 발생하지 않도록 해야 합니다.
+- 내보내기가 트랜잭션일관성이 되려면 내보내기 중에 쓰기 활동이 발생하지 않거나 Azure SQL 데이터베이스의 [트랜잭션 일관된 복사본에서](sql-database-copy.md) 내보내고 있는지 확인해야 합니다.
 - Blob Storage로 내보내는 경우 BACPAC 파일의 최대 크기는 200GB입니다. 더 큰 BACPAC 파일을 보관하려면 로컬 스토리지로 내보냅니다.
 - 이 문서에서 설명하는 방법을 사용하여 Azure Premium Storage에서 BACPAC 파일을 내보낼 수는 없습니다.
-- 방화벽 뒤의 저장소는 현재 지원 되지 않습니다.
+- 방화벽 뒤의 저장소는 현재 지원되지 않습니다.
 - Azure SQL Database에서 내보내기 작업이 20시간을 초과하면 취소될 수 있습니다. 내보내는 중에 성능을 향상시키기 위해 다음을 수행할 수 있습니다.
 
   - 컴퓨팅 크기를 일시적으로 늘립니다.
@@ -35,20 +33,20 @@ ms.locfileid: "73823461"
   - 모든 대형 테이블에 null이 아닌 값의 [클러스터형 인덱스](https://msdn.microsoft.com/library/ms190457.aspx) 를 사용합니다. 클러스터형 인덱스가 없는 경우 6~12시간 이상 소요되면 내보내기에 실패할 수 있습니다. 전체 테이블 내보내기를 시도하려면 내보내기 서비스에서 테이블 스캔을 완료해야 하기 때문입니다. 테이블이 내보내기에 최적화되었는지 확인하는 좋은 방법은 **DBCC SHOW_STATISTICS**를 실행하고 *RANGE_HI_KEY*가 null이 아닌지와 해당 값이 잘 배포되어 있는지 검토하는 것입니다. 자세한 내용은 [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx)를 참조하세요.
 
 > [!NOTE]
-> BACPAC는 백업에 사용되는 목적이 아니며 작업을 복원합니다. Azure SQL Database에서는 모든 사용자 데이터베이스의 백업이 자동으로 생성됩니다. 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md) 및 [SQL Database 백업](sql-database-automated-backups.md)을 참조하세요.
+> BACPAC는 백업에 사용되는 목적이 아니며 작업을 복원합니다. Azure SQL Database에서는 모든 사용자 데이터베이스의 백업이 자동으로 생성됩니다. 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md) 및 [SQL Database 백업을](sql-database-automated-backups.md)참조하십시오.
 
 ## <a name="export-to-a-bacpac-file-using-the-azure-portal"></a>Azure Portal을 사용하여 BACPAC 파일로 내보내기
 
-Azure PowerShell를 사용 하 여 관리 되는 [인스턴스에서](sql-database-managed-instance.md) 데이터베이스 BACPAC를 내보내는 것은 현재 지원 되지 않습니다. 대신 SQL Server Management Studio 또는 SQLPackage를 사용 해야 합니다.
+Azure PowerShell을 사용하여 [관리되는 인스턴스에서](sql-database-managed-instance.md) 데이터베이스의 BACPAC내보내기는 현재 지원되지 않습니다. 대신 SQL 서버 관리 스튜디오 또는 SQLPackage를 사용합니다.
 
 > [!NOTE]
-> Azure Portal 또는 PowerShell을 통해 제출 된 가져오기/내보내기 요청을 처리 하는 컴퓨터는 BACPAC 파일 뿐만 아니라 데이터 계층 응용 프로그램 프레임 워크 (DacFX)에서 생성 된 임시 파일을 저장 해야 합니다. 필요한 디스크 공간은 크기가 같은 데이터베이스에 따라 크게 달라 지 며, 데이터베이스 크기의 최대 3 배까지 디스크 공간이 필요할 수 있습니다. Import/export 요청을 실행 하는 컴퓨터에는 450GB 로컬 디스크 공간만 있습니다. 따라서 일부 요청은 `There is not enough space on the disk`오류와 함께 실패할 수 있습니다. 이 경우 해결 방법은 충분 한 로컬 디스크 공간이 있는 컴퓨터에서 sqlpackage를 실행 하는 것입니다. 이 문제를 방지 하기 위해 [SqlPackage](#export-to-a-bacpac-file-using-the-sqlpackage-utility) 를 사용 하 여 150GB 보다 큰 데이터베이스를 가져오거나 내보내는 것이 좋습니다.
+> Azure 포털 또는 PowerShell을 통해 제출된 가져오기/내보내기 요청을 처리하는 컴퓨터는 데이터 계층 응용 프로그램 프레임워크(DacFX)에서 생성된 임시 파일뿐만 아니라 BACPAC 파일을 저장해야 합니다. 필요한 디스크 공간은 크기가 같은 데이터베이스에 따라 크게 다르며 데이터베이스 크기의 최대 3배까지 디스크 공간이 필요할 수 있습니다. 가져오기/내보내기 요청을 실행하는 컴퓨터에는 450GB 로컬 디스크 공간만 있습니다. 따라서 일부 요청은 오류와 `There is not enough space on the disk`함께 실패할 수 있습니다. 이 경우 해결 방법은 로컬 디스크 공간이 충분한 컴퓨터에서 sqlpackage.exe를 실행하는 것입니다. 이 문제를 방지하려면 [SqlPackage를](#export-to-a-bacpac-file-using-the-sqlpackage-utility) 사용하여 150GB보다 큰 데이터베이스를 가져오고 내보내는 것이 좋습니다.
 
 1. [Azure Portal](https://portal.azure.com)을 사용하여 데이터베이스를 내보내려면 데이터베이스에 대한 페이지를 열고 도구 모음에서 **내보내기**를 클릭합니다.
 
    ![데이터베이스 내보내기](./media/sql-database-export/database-export1.png)
 
-2. BACPAC 파일 이름을 지정하고 내보내기에 대해 기존 Azure Storage 계정 및 컨테이너를 선택한 다음, 원본 데이터베이스에 액세스할 수 있는 적절한 자격 증명을 제공합니다. Azure 관리자 인 경우에는 azure 관리자가 SQL Server 관리 권한이 없는 것과 같이 Azure 관리자 인 경우에도 SQL **Server 관리자 로그인** 이 필요 합니다.
+2. BACPAC 파일 이름을 지정하고 내보내기에 대해 기존 Azure Storage 계정 및 컨테이너를 선택한 다음, 원본 데이터베이스에 액세스할 수 있는 적절한 자격 증명을 제공합니다. Azure **관리자인** 경우 SQL Server 관리자 권한이 있는 것과 동일하지 않으므로 여기에서 SQL Server 관리자 로그인이 필요합니다.
 
     ![데이터베이스 내보내기](./media/sql-database-export/database-export2.png)
 
@@ -79,7 +77,7 @@ SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.d
 > [!NOTE]
 > [관리되는 인스턴스](sql-database-managed-instance.md)는 현재 Azure PowerShell을 사용하여 데이터베이스를 BACPAC 파일로 내보내는 기능을 지원하지 않습니다. 관리되는 인스턴스를 BACPAC 파일로 내보내려면 SQL Server Management Studio 또는 SQLPackage를 사용합니다.
 
-[AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) cmdlet을 사용 하 여 Azure SQL Database 서비스에 데이터베이스 내보내기 요청을 제출 합니다. 데이터베이스 크기에 따라 내보내기 작업을 완료하는 데 다소 시간이 걸릴 수 있습니다.
+[New-AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) cmdlet을 사용하여 Azure SQL Database 서비스에 내보내기 데이터베이스 요청을 제출합니다. 데이터베이스 크기에 따라 내보내기 작업을 완료하는 데 다소 시간이 걸릴 수 있습니다.
 
 ```powershell
 $exportRequest = New-AzSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
@@ -87,7 +85,7 @@ $exportRequest = New-AzSqlDatabaseExport -ResourceGroupName $ResourceGroupName -
   -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
 ```
 
-내보내기 요청의 상태를 확인 하려면 [AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) cmdlet을 사용 합니다. 요청 직후에 이 명령을 실행하면 **Status: InProgress**가 반환됩니다. **Status : Succeeded**가 표시되면 내보내기가 완료된 것입니다.
+내보내기 요청의 상태를 확인하려면 [Get-AzSqlDatabaseExportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) cmdlet을 사용합니다. 이 요청 직후에 이 명령을 실행하면 **Status: InProgress**가 반환됩니다. **Status : Succeeded**가 표시되면 내보내기가 완료된 것입니다.
 
 ```powershell
 $exportStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink

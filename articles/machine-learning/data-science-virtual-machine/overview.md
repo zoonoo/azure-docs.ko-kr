@@ -10,20 +10,20 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 12/31/2019
-ms.openlocfilehash: ea53ee3f3c1d39652982b6343b1e634dac1fbc75
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: a5fbcc1eef8717fdb1aa7f914c3e0ba6594fc27a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360640"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281802"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux 및 Windows용 Azure Data Science Virtual Machine이란?
 
 DSVM(Data Science Virtual Machine)은 데이터 과학 수행을 위해 특별히 구축된 Azure 클라우드 플랫폼의 사용자 지정 VM 이미지입니다. 여기에는 고급 분석을 위한 인텔리전트 애플리케이션 빌드를 바로 수행할 수 있도록 다수의 유명한 데이터 과학 도구가 미리 설치 및 구성되어 있습니다. 
 
 DSVM은 다음에서 사용할 수 있습니다.
-+ **Windows Server 2019(미리 보기)**
-+ **Ubuntu 18.04 LTS(미리 보기)**
++ **Windows Server 2019**
++ **Ubuntu 18.04 LTS**
 + Windows Server 2016
 + Ubuntu 16.04 LTS 및 CentOS 7.4
 
@@ -57,7 +57,7 @@ DSVM은 지원 및 비호환 문제를 덜어주는 일관된 설정을 사용�
 모든 한도를 해제하려면 DSVM 또는 Jupyter 서버에서 실행되는 다른 모든 VM에 Notebook 프로젝트를 연결하면 됩니다. Azure Active Directory를 사용하는 계정(예: 회사 계정)으로 Azure Notebooks에 로그인하면 Notebooks가 해당 계정과 연결된 모든 구독의 DSVM을 자동으로 보여줍니다. [DSVM을 Azure Notebooks에 연결](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)하여 사용 가능한 컴퓨팅 성능을 확장할 수 있습니다.
 
 ### <a name="short-term-experimentation-and-evaluation"></a>단기 실험 및 평가
-DSVM을 사용하면, 특별히 게시된 [샘플 및 연습](./tools-included.md) 중 일부를 진행하여 새로운 데이터 과학 [도구](./dsvm-samples-and-walkthroughs.md)를 평가하거나 학습할 수 있습니다.
+DSVM을 사용하면, 특별히 게시된 [샘플 및 연습](./dsvm-samples-and-walkthroughs.md) 중 일부를 진행하여 새로운 데이터 과학 [도구](./tools-included.md)를 평가하거나 학습할 수 있습니다.
 
 
 ### <a name="deep-learning-with-gpus"></a>GPU를 사용한 딥 러닝

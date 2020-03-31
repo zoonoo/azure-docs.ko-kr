@@ -11,7 +11,9 @@
   items:
     - name: 알림 허브 만들기 - Azure Portal
       href: create-notification-hub-portal.md
-    - name: 알림 허브 구성 - Azure Portal
+    - name: 알림 허브 만들기 - Azure CLI
+      href: create-notification-hub-azure-cli.md
+    - name: 알림 허브 구성
       href: configure-notification-hub-portal-pns-settings.md
 - name: 자습서
   items:
@@ -140,6 +142,8 @@
       href: notification-hubs-push-notification-fixer.md
     - name: Baidu 클라우드 푸시를 사용하여 푸시 알림
       href: notification-hubs-baidu-china-android-notifications-get-started.md
+    - name: Notification Hubs를 통해 APNS VOIP 사용
+      href: voip-apns.md
 - name: 참조
   items:
     - name: .NET

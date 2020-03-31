@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 164f07f6545c1c225814958bba5722536b11a9b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 883dbc95ee77d03aee4c3231c6ab8c03f9f7f6e4
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78269428"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387838"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Windows를 실행하는 N 시리즈 VM에 AMD GPU 드라이버 설치
 
@@ -40,7 +40,7 @@ Windows를 실행하는 새로운 Azure NVv4 시리즈 VM의 GPU 기능을 활�
 
 2. NVv4 미리 보기 고객인 경우 VM을 중지하고 중지됨(Deallocated) 상태로 이동할 때까지 기다려 주십시오.
 
-3. VM을 시작한 다음 폴더에 있는 "amdcleanuputility-x64.exe"를 실행하여 미리 보기 드라이버를 제거하십시오 .\AMDCleanUninstallUtility". 정확한 경로는 이전 드라이버 설치 파일의 위치에 따라 달라집니다.  
+3. VM을 시작하고 최신 [AMD 정리 유틸리티를](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe)다운로드하십시오. "amdcleanuputility-x64.exe"를 실행하여 기존 드라이버를 제거합니다. 이전 드라이버와 함께 설치된 exisitng 정리 유틸리티를 사용하지 마십시오.  
 
 4. 최신 드라이버를 다운로드하여 설치합니다.
 

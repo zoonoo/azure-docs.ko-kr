@@ -1,16 +1,16 @@
 ---
-title: Xamarin.ios 앱에 푸시 알림 추가
-description: Azure App Service를 사용 하 여 Xamarin.ios 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다.
+title: Xamarin.iOS 앱에 푸시 알림 추가
+description: Azure 앱 서비스를 사용하여 Xamarin.iOS 앱으로 푸시 알림을 보내는 방법을 알아봅니다.
 ms.assetid: 2921214a-49f8-45e1-a306-a85ce21defca
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: f9c70491d06f61931ebabda859ff3a86ed035b44
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249283"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>Xamarin.iOS 앱에 푸시 알림 추가
@@ -132,15 +132,15 @@ ms.locfileid: "79249283"
 
 이제 푸시 알림을 지원하도록 앱이 업데이트됩니다.
 
-## <a name="test"></a>앱에서 푸시 알림 테스트
+## <a name="test-push-notifications-in-your-app"></a><a name="test"></a>앱에서 푸시 알림 테스트
 
 1. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 지원 디바이스에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
 
    > [!NOTE]
    > 앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
 
-2. 앱에서 작업을 입력한 다음 더하기( **+** ) 아이콘을 클릭합니다.
-3. 알림이 수신되는지 확인하고, **확인** 을 클릭하여 알림을 해제합니다.
+2. 앱에서 작업을 입력한 다음 더하기 ()**+** 아이콘을 클릭합니다.
+3. 알림이 수신되었는지 확인한 다음 **확인을** 클릭하여 알림을 해제합니다.
 4. 2단계를 반복하여 앱을 즉시 닫은 후 알림이 표시되는지 확인합니다.
 
 이 자습서를 성공적으로 완료했습니다.

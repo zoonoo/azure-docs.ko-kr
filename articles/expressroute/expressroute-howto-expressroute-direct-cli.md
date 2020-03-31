@@ -1,24 +1,24 @@
 ---
-title: 'Azure Express 경로: Express 경로 직접 구성: CLI'
-description: 이 문서는를 사용 하 여 Express 경로 다이렉트를 구성 하는 데 도움이 됩니다 Azure CLI
+title: 'Azure 익스프레스 라우팅: 익스프레스라우팅 직접 구성: CLI'
+description: 이 문서에서는 Azure CLI를 사용하여 ExpressRoute Direct를 구성하는 데 도움이 됩니다.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: 47ee05113d46f66efd02978fed09cf72edc5ac1c
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: dcca1417aec52fb4bf99d5c480d81995154a68b0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049934"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481979"
 ---
-# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Express 경로 직접 구성
+# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Azure CLI를 사용하여 익스프레스라우팅 직접 구성
 
 Azure ExpressRoute Direct를 사용하여 전 세계에 전략적으로 분산된 피어링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결할 수 있습니다. 자세한 내용은 [ExpressRoute Direct Connect 정보](expressroute-erdirect-about.md)를 참조하세요.
 
-## <a name="resources"></a>리소스 만들기
+## <a name="create-the-resource"></a><a name="resources"></a>리소스 만들기
 
 1. Azure에 로그인하고 ExpressRoute를 포함하는 구독을 선택합니다. ExpressRoute Direct 리소스와 ExpressRoute 회로가 동일한 구독에 있어야 합니다. Azure CLI에서 다음 명령을 실행합니다.
 
@@ -38,7 +38,7 @@ Azure ExpressRoute Direct를 사용하여 전 세계에 전략적으로 분산�
    az account set --subscription "<subscription ID>"
    ```
 
-2. Expressrouteportslocation 및 expressrouteport Api에 액세스 하려면 구독을 Microsoft 네트워크에 다시 등록 합니다.
+2. Microsoft.Network에 구독을 다시 등록하여 익스프레스루트포트위치 및 익스프레스루트포트 API에 액세스
 
    ```azurecli
    az provider register --namespace Microsoft.Network
@@ -51,7 +51,7 @@ Azure ExpressRoute Direct를 사용하여 전 세계에 전략적으로 분산�
 
    **예제 출력**
   
-   ```azurecli
+   ```output
    [
    {
     "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
@@ -118,7 +118,7 @@ Azure ExpressRoute Direct를 사용하여 전 세계에 전략적으로 분산�
 
    **예제 출력**
 
-   ```azurecli
+   ```output
    {
    "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
    "availableBandwidths": [
@@ -156,7 +156,7 @@ Azure ExpressRoute Direct를 사용하여 전 세계에 전략적으로 분산�
 
    **예제 출력**
 
-   ```azurecli
+   ```output
    {
    "allocationDate": "Wednesday, October 17, 2018",
    "bandwidthInGbps": 100,
@@ -208,7 +208,7 @@ Azure ExpressRoute Direct를 사용하여 전 세계에 전략적으로 분산�
    }  
    ```
 
-## <a name="state"></a>링크에 대한 AdminState 변경
+## <a name="change-adminstate-for-links"></a><a name="state"></a>링크에 대한 AdminState 변경
 
 이 프로세스를 사용하여 계층 1 테스트를 수행합니다. 각 교차 연결을 기본 및 보조 포트의 각 라우터에 제대로 패치해야 합니다.
 
@@ -224,7 +224,7 @@ Azure ExpressRoute Direct를 사용하여 전 세계에 전략적으로 분산�
    ```
    **예제 출력**
 
-   ```azurecli
+   ```output
    {
    "allocationDate": "Wednesday, October 17, 2018",
    "bandwidthInGbps": 100,
@@ -278,15 +278,15 @@ Azure ExpressRoute Direct를 사용하여 전 세계에 전략적으로 분산�
 
    동일한 절차에 따라 `AdminState = "Disabled"`를 사용하여 포트를 작동 중단합니다.
 
-## <a name="circuit"></a>회로 만들기
+## <a name="create-a-circuit"></a><a name="circuit"></a>회로 만들기
 
 기본적으로 ExpressRoute Direct 리소스를 포함하는 구독에서 10개의 회로를 만들 수 있습니다. Microsoft 지원은 기본 제한을 늘릴 수 있습니다. 사용자는 프로비전된 대역폭과 사용된 대역폭을 둘 다 추적할 책임이 있습니다. 프로비전된 대역폭은 ExpressRoute Direct 리소스의 모든 회로 대역폭 합계입니다. 사용된 대역폭은 기본 실제 인터페이스의 실제 사용량입니다.
 
 여기에 설명된 시나리오만 지원하도록 ExpressRoute Direct에서 추가 회로 대역폭을 사용할 수 있습니다. 대역폭은 40Gbps 및 100Gbps입니다.
 
-지역, 표준 또는 프리미엄 일 **수 있습니다.**
+**스쿠티에** 지역은 로컬, 스탠다드 또는 프리미엄일 수 있습니다.
 
-Unlimiteddata는 Express 경로 직접 지원 되지 않으므로 무제한으로 사용할 **수 있어야 합니다** .
+**SkuFamily는** 무제한익스프레스루트 다이렉트에서 지원되지 않는 경우에만 미터데이터여야 합니다.
 ExpressRoute Direct 리소스에서 회로를 만듭니다.
 
   ```azurecli
@@ -297,7 +297,7 @@ ExpressRoute Direct 리소스에서 회로를 만듭니다.
 
   **예제 출력**
 
-  ```azurecli
+  ```output
   {
   "allowClassicOperations": false,
   "allowGlobalReach": false,

@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: bc08cd5183bcaac6cb77ccb0938b07893f082862
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78250220"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>프로토콜 버퍼를 사용하여 원격 분석 직렬화
@@ -36,11 +36,11 @@ Protobuf는 데이터를 직렬화하기 위해 컴파일된 코드가 필요하
 
 이 방법 가이드의 단계를 수행하려면 다음이 필요합니다.
 
-* Visual Studio Code. [Mac, Linux 및 Windows용 Visual Studio Code를 다운로드](https://code.visualstudio.com/download)할 수 있습니다.
+* Visual Studio Code. [Mac, Linux 및 Windows용 비주얼 스튜디오 코드를](https://code.visualstudio.com/download)다운로드할 수 있습니다.
 * .NET Core [Mac, Linux 및 Windows용 .NET Core를 다운로드](https://www.microsoft.com/net/download)할 수 있습니다.
-* Postman [Mac, Windows 또는 Linux용 Postman](https://www.getpostman.com/apps)을 다운로드할 수 있습니다.
+* Postman [당신은 맥, 윈도우, 또는 리눅스에 대한 우체부를](https://www.getpostman.com/apps)다운로드 할 수 있습니다 .
 * [Azure 구독에 배포된 IoT 허브](../iot-hub/iot-hub-create-through-portal.md) 이 가이드의 단계를 완료하려면 IoT 허브의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
-* SQL API를 사용하고 [강력한 일관성](../cosmos-db/create-sql-api-dotnet.md#create-account)으로 구성되어 [Azure 구독에 배포된 Cosmos DB 데이터베이스](../cosmos-db/manage-account.md). 이 가이드의 단계를 완료하려면 Cosmos DB 데이터베이스의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
+* SQL API를 사용하고 [강력한 일관성](../cosmos-db/manage-account.md)으로 구성되어 [Azure 구독에 배포된 Cosmos DB 데이터베이스](../cosmos-db/create-sql-api-dotnet.md#create-account). 이 가이드의 단계를 완료하려면 Cosmos DB 데이터베이스의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
 * [Azure 구독에 배포된 Azure 스토리지 계정](../storage/common/storage-account-create.md). 이 가이드의 단계를 완료하려면 스토리지 계정의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
 
 ## <a name="prepare-your-development-environment"></a>개발 환경 준비
@@ -70,7 +70,7 @@ Visual Studio Code에서 **remote-monitoring-services-dotnet-master\storage-adap
 
 스토리지 어댑터 마이크로 서비스를 로컬로 실행하려면 **디버그 \> 디버깅 시작**을 차례로 클릭합니다.
 
-Visual Studio Code의 **터미널** 창에서 웹 서비스 상태 확인에 대한 URL(<http://127.0.0.1:9022/v1/status>)을 포함하여 실행 중인 마이크로 서비스의 출력을 표시합니다. 이 주소로 이동하면 상태는 "OK: 활성 및 양호"이어야 합니다.
+Visual Studio Code에서 **터미널** 창은 웹 서비스 상태 확인에 대한 URL을 포함하여 실행 중인 마이크로 서비스에서 출력을 표시합니다. <http://127.0.0.1:9022/v1/status> 이 주소로 이동하면 상태는 "OK: 활성 및 양호"이어야 합니다.
 
 다음 단계를 완료하는 동안 Visual Studio Code의 이 인스턴스에서 실행되는 스토리지 어댑터 마이크로 서비스는 그대로 유지합니다.
 
@@ -145,7 +145,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 디바이스 모델이 있고 메시지 형식을 결정했으면 **proto** 파일을 만들 수 있습니다. **proto** 파일에서 다음을 추가합니다.
 
-* 디바이스 모델의 `csharp_namespace`ClassName**속성과 일치하는**
+* 디바이스 모델의 **ClassName** 속성과 일치하는 `csharp_namespace`
 * 직렬화할 각 데이터 구조에 대한 메시지
 * 메시지의 각 필드에 대한 이름 및 형식
 
@@ -174,7 +174,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 1. [GitHub에서 Protobuf 컴파일러를 다운로드](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)합니다.
 
-1. 컴파일러를 실행하여 소스 디렉터리, 대상 디렉터리 및 **proto** 파일의 이름을 지정합니다. 다음은 그 예입니다.
+1. 컴파일러를 실행하여 소스 디렉터리, 대상 디렉터리 및 **proto** 파일의 이름을 지정합니다. 예를 들어:
 
     ```cmd
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
@@ -206,7 +206,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 기본적으로 새 JSON 및 JS 디바이스 모델 파일은 빌드된 솔루션에 복사되지 않습니다. 명시적으로 포함해야 합니다.
 
-포함하려는 각 파일에 대한 항목을 **services\services.csproj**에 추가합니다. 다음은 그 예입니다.
+포함하려는 각 파일에 대한 항목을 **services\services.csproj**에 추가합니다. 예를 들어:
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">
@@ -249,11 +249,11 @@ Postman을 설정하려면:
 
 1. **파일 \> 가져오기**를 차례로 클릭합니다. 그런 다음, **파일 선택**을 클릭합니다.
 
-1. **Azure IoT Device Simulation solution accelerator.postman\_collection** 및 **Azure IoT Device Simulation solution accelerator.postman\_environment**를 선택하고, **열기**를 클릭합니다.
+1. **Azure IoT 장치 시뮬레이션 솔루션 accelerator.postman\_컬렉션** 및 Azure **IoT 장치\_시뮬레이션 솔루션 accelerator.postman 환경을** 선택하고 **열기를**클릭합니다.
 
 1. **Azure IoT 디바이스 시뮬레이션 솔루션 가속기**를 확장하여 보낼 수 있는 요청을 봅니다.
 
-1. **환경 없음**을 클릭하고, **Azure IoT 디바이스 시뮬레이션 솔루션 가속기**를 선택합니다.
+1. **환경 없음을** 클릭하고 **Azure IoT 장치 시뮬레이션 솔루션 가속기를**선택합니다.
 
 이제 디바이스 시뮬레이션 마이크로 서비스와 상호 작용하는 데 사용할 수 있는 Postman 작업 영역에 로드된 컬렉션 및 환경이 있습니다.
 

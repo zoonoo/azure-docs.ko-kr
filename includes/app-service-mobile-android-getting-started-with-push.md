@@ -5,10 +5,10 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: e66e7d4646b650d2d811d3807db04605dfddeded
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67182717"
 ---
 1. **앱** 프로젝트에서 `AndroidManifest.xml` 파일을 엽니다. 다음 코드를 `application` 시작 태그 뒤에 추가합니다.
@@ -62,7 +62,7 @@ ms.locfileid: "67182717"
         registerPush();
         ```
 
-3. 알림을 처리하는 새 클래스를 추가합니다. 프로젝트 탐색기에서 **app** > **java** > **your-project-namespace** 노드를 열고 패키지 이름 노드를 마우스 오른쪽 단추로 클릭합니다. **새로 만들기**를 클릭한 후 **Java Class**를 클릭합니다. 이름에 `ToDoMessagingService`를 입력하고 [확인]을 클릭합니다. 그런 다음 클래스 선언을 다음으로 바꿉니다.
+3. 알림을 처리하는 새 클래스를 추가합니다. 프로젝트 탐색기에서 **앱** >  > **java-프로젝트 네임스페이스** 노드를 열고 패키지 이름 노드를 마우스 오른쪽 단추로 클릭합니다.**java** **새로 만들기**를 클릭한 후 **Java Class**를 클릭합니다. 이름에 `ToDoMessagingService`를 입력하고 [확인]을 클릭합니다. 그런 다음 클래스 선언을 다음으로 바꿉니다.
 
     ```java
     import android.app.Notification;

@@ -1,6 +1,6 @@
 ---
 title: Azure의 하이브리드 ID 디자인 - 다단계 인증 요구 사항 | Microsoft Docs
-description: 조건부 액세스 제어를 사용 하 여 Azure Active Directory 사용자를 인증할 때 및 응용 프로그램에 대 한 액세스를 허용 하기 전에 선택한 특정 조건을 확인 합니다. 이러한 조건이 충족되면 사용자가 인증되고 애플리케이션에 대한 액세스가 허용됩니다.
+description: 조건부 액세스 제어를 사용하여 Azure Active Directory는 사용자를 인증할 때 선택한 특정 조건을 검사한 후 응용 프로그램에 대한 액세스를 허용합니다. 이러한 조건이 충족되면 사용자가 인증되고 애플리케이션에 대한 액세스가 허용됩니다.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4743195fc79d43571ec79a13b8518edc7e81379b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67109304"
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 다단계 인증 요구 사항 확인
@@ -58,6 +58,6 @@ ms.locfileid: "67109304"
 ## <a name="next-steps"></a>다음 단계
 [하이브리드 ID 채택 전략 정의](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 
-## <a name="see-also"></a>참고 항목
-[디자인 고려 사항 개요](plan-hybrid-identity-design-considerations-overview.md)
+## <a name="see-also"></a>참조
+[설계 고려 사항 개요](plan-hybrid-identity-design-considerations-overview.md)
 

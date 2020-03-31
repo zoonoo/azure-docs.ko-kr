@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 2e5eb0acd2a94f7726fbacefbe6e1022c8cebae2
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75864182"
 ---
 # <a name="azure-data-lake-data-science-walkthroughs-using-u-sql"></a>U-SQL을 사용하여 Azure Data Lake 데이터 과학 연습
@@ -27,11 +27,11 @@ Team Data Science Process를 실행하는 추가 데이터 과학 연습은 사�
 
 ## <a name="predict-taxi-tips-using-u-sql-with-azure-data-lake"></a>Azure Data Lake와 함께 U-SQL을 사용하여 택시 팁 예측
 
-[데이터 과학을 위한 Azure Data Lake 사용](data-lake-walkthrough.md) 연습은 Azure Data Lake를 사용 하 여 데이터 탐색 및 이진 분류 작업을 수행 하는 방법을 보여 줍니다.  데이터는 NYC taxi 데이터 집합의 샘플입니다.  이 태스크는 고객이 팁을 지불할 지 여부를 예측 합니다. 
+[데이터 과학에 Azure Data Lake 사용](data-lake-walkthrough.md) 연습에서는 Azure Data Lake를 사용하여 데이터 탐색 및 이진 분류 작업을 수행하는 방법을 보여 주며 있습니다.  데이터는 NYC 택시 데이터 집합의 샘플입니다.  이 작업은 고객이 팁을 지불하는지 여부를 예측하는 것입니다. 
 
 
 ## <a name="next-steps"></a>다음 단계
 
-팀 데이터 과학 프로세스에 대 한 개요는 [팀 데이터 과학 프로세스 개요](overview.md)를 참조 하세요.
+팀 데이터 과학 프로세스에 대한 개요는 [팀 데이터 과학 프로세스 개요를](overview.md)참조하십시오.
 
-팀 데이터 과학 프로세스 수명 주기에 대 한 설명은 [팀 데이터 과학 프로세스 수명 주기](lifecycle.md)를 참조 하세요. 이 수명 주기는 프로젝트가 실행 될 때 일반적으로 수행 하는 단계를 간략하게 설명 합니다. 
+팀 데이터 과학 프로세스 수명 주기에 대한 자세한 내용은 [팀 데이터 과학 프로세스 수명 주기를](lifecycle.md)참조하십시오. 이 수명 주기에서는 프로젝트가 실행될 때 일반적으로 따르는 단계를 간략하게 설명합니다. 

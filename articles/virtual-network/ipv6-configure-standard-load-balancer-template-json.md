@@ -1,7 +1,7 @@
 ---
-title: Azure virtual network에서 IPv6 이중 스택 응용 프로그램 배포-리소스 관리자 템플릿 (미리 보기)
+title: Azure 가상 네트워크에서 IPv6 듀얼 스택 응용 프로그램 배포 - 리소스 관리자 템플릿(미리 보기)
 titlesuffix: Azure Virtual Network
-description: 이 문서에서는 Azure Resource Manager VM 템플릿을 사용 하 여 Azure virtual network에 표준 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램을 배포 하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure 리소스 관리자 VM 템플릿을 사용하여 Azure 가상 네트워크에서 표준 로드 밸런서를 사용하여 IPv6 이중 스택 응용 프로그램을 배포하는 방법을 보여 주며 있습니다.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,21 +13,21 @@ ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
 ms.openlocfilehash: 8f2c6bc7fb7ab0939da20932fd531c158549ce7a
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70012843"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---template-preview"></a>Azure virtual network에서 IPv6 이중 스택 응용 프로그램 배포-템플릿 (미리 보기)
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---template-preview"></a>Azure 가상 네트워크에서 IPv6 듀얼 스택 응용 프로그램 배포 - 템플릿(미리 보기)
 
-이 문서에서는에 적용 되는 Azure Resource Manager VM 템플릿의 일부가 포함 된 IPv6 구성 작업 목록을 제공 합니다. 이 문서에서 설명 하는 템플릿을 사용 하 여 Azure에서 표준 Load Balancer 사용 하는 이중 스택 (ipv4 + IPv6) 응용 프로그램을 배포 합니다. 여기에는 IPv4 및 IPv6 서브넷이 포함 된 이중 스택 가상 네트워크, 이중 (IPv4 + IPv6) 프런트 엔드가 포함 된 표준 Load Balancer 구성, Nic를 사용 하는 Vm에는 이중 IP 구성, 네트워크 보안 그룹 및 공용 Ip가 있습니다. 
+이 문서에서는 적용되는 Azure 리소스 관리자 VM 템플릿의 일부와 함께 IPv6 구성 작업 목록을 제공합니다. 이 문서에서 설명한 템플릿을 사용하여 이중 스택(IPv4 + IPv6) 응용 프로그램을 배포하려면 IPv4 및 IPv6 서브넷이 있는 이중 스택 가상 네트워크, 듀얼(IPv4 + IPv6) 프런트 엔드가 있는 표준 로드 밸러서가 포함된 Azure의 표준 로드 밸러서를 사용하여 응용 프로그램을 배포합니다. 구성, 이중 IP 구성이 있는 NIC가 있는 VM, 네트워크 보안 그룹 및 공용 IP가 있습니다. 
 
 ## <a name="required-configurations"></a>필수 구성
 
-템플릿에서 템플릿 섹션을 검색 하 여 어디에서 발생 해야 하는지 확인 합니다.
+템플릿의 템플릿 섹션을 검색하여 템플릿이 발생할 위치를 확인합니다.
 
-### <a name="ipv6-addressspace-for-the-virtual-network"></a>가상 네트워크에 대 한 IPv6 addressSpace
+### <a name="ipv6-addressspace-for-the-virtual-network"></a>가상 네트워크를 위한 IPv6 주소공간
 
 추가할 템플릿 섹션:
 
@@ -38,7 +38,7 @@ ms.locfileid: "70012843"
             "[variables('vnetv6AddressRange')]"    
 ```
 
-### <a name="ipv6-subnet-within-the-ipv6-virtual-network-addressspace"></a>IPv6 가상 네트워크 내의 IPv6 서브넷 addressSpace
+### <a name="ipv6-subnet-within-the-ipv6-virtual-network-addressspace"></a>IPv6 가상 네트워크 주소 공간 내의 IPv6 서브넷
 
 추가할 템플릿 섹션:
 ```JSON
@@ -50,7 +50,7 @@ ms.locfileid: "70012843"
 
 ```
 
-### <a name="ipv6-configuration-for-the-nic"></a>NIC에 대 한 IPv6 구성
+### <a name="ipv6-configuration-for-the-nic"></a>NIC용 IPv6 구성
 
 추가할 템플릿 섹션:
 ```JSON
@@ -68,7 +68,7 @@ ms.locfileid: "70012843"
                 }
 ```
 
-### <a name="ipv6-network-security-group-nsg-rules"></a>IPv6 NSG (네트워크 보안 그룹) 규칙
+### <a name="ipv6-network-security-group-nsg-rules"></a>IPv6 네트워크 보안 그룹(NSG) 규칙
 
 ```JSON
           {
@@ -88,7 +88,7 @@ ms.locfileid: "70012843"
 
 ## <a name="conditional-configuration"></a>조건부 구성
 
-네트워크 가상 어플라이언스를 사용 하는 경우 경로 테이블에 IPv6 경로를 추가 합니다. 그렇지 않으면이 구성은 선택 사항입니다.
+네트워크 가상 어플라이언스를 사용하는 경우 경로 테이블에 IPv6 경로를 추가합니다. 그렇지 않으면 이 구성은 선택 사항입니다.
 
 ```JSON
     {
@@ -107,9 +107,9 @@ ms.locfileid: "70012843"
             }
 ```
 
-## <a name="optional-configuration"></a>옵션 구성
+## <a name="optional-configuration"></a>선택적 구성
 
-### <a name="ipv6-internet-access-for-the-virtual-network"></a>가상 네트워크에 대 한 IPv6 인터넷 액세스
+### <a name="ipv6-internet-access-for-the-virtual-network"></a>가상 네트워크에 대한 IPv6 인터넷 액세스
 
 ```JSON
 {
@@ -137,7 +137,7 @@ ms.locfileid: "70012843"
       }
 ```
 
-### <a name="ipv6-front-end-for-load-balancer"></a>Load Balancer에 대 한 IPv6 프런트 엔드
+### <a name="ipv6-front-end-for-load-balancer"></a>부하 밸러블러용 IPv6 프런트 엔드
 
 ```JSON
           {
@@ -148,7 +148,7 @@ ms.locfileid: "70012843"
               }
 ```
 
-### <a name="ipv6-back-end-address-pool-for-load-balancer"></a>Load Balancer에 대 한 IPv6 백 엔드 주소 풀
+### <a name="ipv6-back-end-address-pool-for-load-balancer"></a>로드 밸러블러용 IPv6 백 엔드 주소 풀
 
 ```JSON
               "backendAddressPool": {
@@ -161,7 +161,7 @@ ms.locfileid: "70012843"
             "name": "lbrule-v6"
 ```
 
-### <a name="ipv6-load-balancer-rules-to-associate-incoming-and-outgoing-ports"></a>들어오고 나가는 포트를 연결 하는 IPv6 부하 분산 장치 규칙
+### <a name="ipv6-load-balancer-rules-to-associate-incoming-and-outgoing-ports"></a>들어오는 포트와 나가는 포트를 연결하는 IPv6 로드 밸러서 규칙
 
 ```JSON
           {
@@ -179,8 +179,8 @@ ms.locfileid: "70012843"
 ```
 
 ## <a name="sample-vm-template-json"></a>샘플 VM 템플릿 JSON
-Azure Resource Manager 템플릿을 사용 하 여 Azure 가상 네트워크에서 IPv6 이중 스택 응용 프로그램을 배포 하려면 [여기](https://azure.microsoft.com/resources/templates/ipv6-in-vnet-stdlb/)에서 샘플 템플릿을 참조 하세요.
+Azure 리소스 관리자 템플릿을 사용하여 Azure 가상 네트워크에 IPv6 이중 스택 응용 프로그램을 배포하려면 [여기에서](https://azure.microsoft.com/resources/templates/ipv6-in-vnet-stdlb/)샘플 템플릿을 봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[공용 IP 주소](https://azure.microsoft.com/pricing/details/ip-addresses/), [네트워크 대역폭](https://azure.microsoft.com/pricing/details/bandwidth/)또는 [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/)에 대 한 가격 책정에 대 한 세부 정보를 찾을 수 있습니다.
+공용 IP 주소, [네트워크 대역폭](https://azure.microsoft.com/pricing/details/bandwidth/)또는 [로드 밸런서에](https://azure.microsoft.com/pricing/details/load-balancer/)대한 가격 책정에 대한 세부 정보를 찾을 수 [있습니다.](https://azure.microsoft.com/pricing/details/ip-addresses/)

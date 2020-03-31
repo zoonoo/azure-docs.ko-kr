@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB 쿼리 언어의 ST_ISVALID
-description: Azure Cosmos DB의 SQL 시스템 함수 ST_ISVALID에 대해 알아봅니다.
+title: Azure 코스모스 DB 쿼리 언어로 ST_ISVALID
+description: Azure Cosmos DB에서 ST_ISVALID SQL 시스템 기능에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 8fbddbe82ae13585b8259a66dffaeef8024baf5d
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71349371"
 ---
-# <a name="st_isvalid-azure-cosmos-db"></a>ST_ISVALID (Azure Cosmos DB)
+# <a name="st_isvalid-azure-cosmos-db"></a>ST_ISVALID (Azure 코스모스 DB)
  지정된 GeoJSON Point, Polygon 또는 LineString 식이 유효한지 여부를 나타내는 부울 값을 반환합니다.  
   
 ## <a name="syntax"></a>구문
@@ -26,9 +26,9 @@ ST_ISVALID(<spatial_expr>)
 ## <a name="arguments"></a>인수
   
 *spatial_expr*  
-   는 GeoJSON Point, Polygon 또는 LineString 식입니다.  
+   GeoJSON 점, 다각형 또는 선 문자열 식입니다.  
   
-## <a name="return-types"></a>반환 유형
+## <a name="return-types"></a>반환 형식
   
   부울 식을 반환합니다.  
   
@@ -52,6 +52,6 @@ SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] }) AS b
 
 ## <a name="next-steps"></a>다음 단계
 
-- [공간 함수 Azure Cosmos DB](sql-query-spatial-functions.md)
-- [시스템 함수 Azure Cosmos DB](sql-query-system-functions.md)
-- [Azure Cosmos DB 소개](introduction.md)
+- [공간 함수 Azure 코스모스 DB](sql-query-spatial-functions.md)
+- [시스템 기능 Azure 코스모스 DB](sql-query-system-functions.md)
+- [Azure 코스모스 DB 소개](introduction.md)

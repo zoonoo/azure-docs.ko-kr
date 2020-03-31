@@ -8,22 +8,22 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: 20fdafc3077d1017c17d1055596dab150dffec72
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: f7dc7b520cba2bbf2351d93795a1a26b3b5124be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206642"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471356"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight의 Apache Hive 및 HiveQL이란?
 
-[Apache Hive](https://hive.apache.org/)는 Apache Hadoop용 데이터 웨어하우스 시스템입니다. Hive를 사용하면 데이터의 요약, 쿼리 및 분석을 수행할 수 있습니다. Hive 쿼리는 SQL과 유사한 쿼리 언어인 HiveQL로 작성합니다.
+[아파치 하이브는](https://hive.apache.org/) 아파치 하두프의 데이터 웨어하우스 시스템입니다. Hive를 사용하면 데이터의 요약, 쿼리 및 분석을 수행할 수 있습니다. Hive 쿼리는 SQL과 유사한 쿼리 언어인 HiveQL로 작성합니다.
 
-Hive를 사용 하면 주로 구조화 된 데이터에 대 한 구조를 지정할 수 있습니다. 구조를 정의한 후에 Java 또는 MapReduce 지식 없이 해당 데이터를 쿼리할 때에 HiveQL을 사용할 수 있습니다.
+Hive를 사용하면 크게 구조가 없는 데이터에 구조를 투영할 수 있습니다. 구조를 정의한 후에 Java 또는 MapReduce 지식 없이 해당 데이터를 쿼리할 때에 HiveQL을 사용할 수 있습니다.
 
 HDInsight는 특정 워크로드에 맞게 조정되는 여러 클러스터 형식을 제공합니다. 다음과 같은 클러스터 형식이 Hive 쿼리에 가장 자주 사용됩니다.
 
-|클러스터 유형 |Description|
+|클러스터 유형 |설명|
 |---|---|
 |대화형 쿼리|[LLAP(낮은 대기 시간 분석 처리)](https://cwiki.apache.org/confluence/display/Hive/LLAP) 기능을 제공하여 대화형 쿼리에 대한 응답 시간을 개선하는 Hadoop 클러스터입니다. 자세한 내용은 [HDInsight의 Interactive Query로 시작](../interactive-query/apache-interactive-query-get-started.md) 문서를 참조하세요.|
 |Hadoop은|일괄 처리 프로세싱 워크로드에 대해 조정된 Hadoop 클러스터입니다. 자세한 내용은 [HDInsight의 Apache Hadoop으로 시작](../hadoop/apache-hadoop-linux-tutorial-get-started.md) 문서를 참조하세요.|
@@ -34,18 +34,18 @@ HDInsight는 특정 워크로드에 맞게 조정되는 여러 클러스터 형�
 
 HDInsight에서 Hive를 사용하는 여러 가지 방법을 알아보려면 다음 표를 참조하세요.
 
-| 다음을 원하는 경우 **이 메서드를 사용**... | ...**대화형** 쿼리 | ...**배치** 처리 | ... **클라이언트 운영 체제** |
+| 다음을 원하는 경우 **이 메서드를 사용**... | ...**대화형** 쿼리 | ... **배치** 처리 | ... **클라이언트 운영 체제** |
 |:--- |:---:|:---:|:--- |:--- |
 | [HDInsight tools for Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ | Linux, Unix, Mac OS X, 또는 Windows |
 | [Visual Studio용 HDInsight 도구](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
-| [Hive 보기](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |모두(브라우저 기반) |
+| [하이브 뷰](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |모두(브라우저 기반) |
 | [Beeline 클라이언트](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux, Unix, Mac OS X, 또는 Windows |
-| [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, Unix, Mac OS X, 또는 Windows |
+| [나머지 API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, Unix, Mac OS X, 또는 Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Windows |
 
 ## <a name="hiveql-language-reference"></a>HiveQL 언어 참조
 
-HiveQL 언어 참조는 [언어 설명서](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)에서 사용할 수 있습니다.
+HiveQL 언어 참조는 [언어 설명서에서](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)사용할 수 있습니다.
 
 ## <a name="hive-and-data-structure"></a>Hive 및 데이터 구조
 
@@ -83,12 +83,12 @@ Hive로 다음과 같은 두 가지 형식의 테이블을 만들 수 있습니�
 
     다음 조건 중 하나가 적용되는 경우 외부 테이블을 사용합니다.
 
-    * 데이터를 Hive 외부에서도 사용합니다. 예를 들어 데이터 파일은 파일을 잠그지 않는 다른 프로세스에 의해 업데이트 됩니다.
+    * 데이터를 Hive 외부에서도 사용합니다. 예를 들어 데이터 파일은 파일을 잠그지 않는 다른 프로세스에 의해 업데이트됩니다.
     * 테이블을 삭제한 후에도 데이터는 기본 위치에 남아 있어야 합니다.
     * 기본이 아닌 스토리지 계정과 같은 사용자 지정 위치가 필요합니다.
-    * Hive 이외의 프로그램은 데이터 형식, 위치 등을 관리 합니다.
+    * 하이브 이외의 프로그램은 데이터 형식, 위치 등을 관리합니다.
 
-자세한 내용은 [Hive 내부 및 외부 테이블 소개](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/) 블로그 게시물을 참조 하세요.
+자세한 내용은 [Hive 내부 및 외부 테이블 소개](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/) 블로그 게시물을 참조하세요.
 
 ## <a name="user-defined-functions-udf"></a>UDF(사용자 정의 함수)
 
@@ -131,14 +131,14 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 이전 예제에서 HiveQL 문은 다음 작업을 수행합니다.
 
-|인수를 제거합니다. |Description |
+|인수를 제거합니다. |설명 |
 |---|---|
 |DROP TABLE|이미 테이블이 있는 경우 삭제합니다.|
 |외부 테이블 만들기|Hive에서 새 **외부** 테이블을 만듭니다. 외부 테이블만 테이블 정의를 Hive에 저장합니다. 데이터는 원래 위치에 원래 형식으로 남아 있습니다.|
 |행 형식|데이터의 형식 지정 방식을 Hive에 알립니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.|
-|TEXTFILE 위치로 저장 됨|데이터가 저장 되는 위치 (`example/data` 디렉터리)와 텍스트로 저장 된 Hive를 알려 줍니다. 데이터는 디렉터리 내에서 하나의 파일 또는 여러 파일에 걸쳐 분산될 수 있습니다.|
-|SELECT|**t4** 열에 **[ERROR]** 값이 포함된 모든 행의 수를 선택합니다. 이 값을 포함하는 행이 3개 있으므로 이 문은 **3** 값을 반환합니다.|
-|'% .Log '와 INPUT__FILE__NAME.|Hive는 디렉터리의 모든 파일에 스키마를 적용 하려고 시도 합니다. 이 경우 디렉터리에는 스키마와 일치 하지 않는 파일이 포함 됩니다. 결과에 가비지 데이터가 나타나는 것을 방지하기 위해 이 문은 .log로 끝나는 파일의 데이터만 반환해야 함을 Hive에게 알립니다.|
+|텍스트 파일 위치로 저장|데이터가 저장되는 `example/data` 위치(디렉터리)와 텍스트로 저장되는 위치를 Hive에 알려줍니다. 데이터는 디렉터리 내에서 하나의 파일 또는 여러 파일에 걸쳐 분산될 수 있습니다.|
+|선택|**t4** 열에 **[ERROR]** 값이 포함된 모든 행의 수를 선택합니다. 이 값을 포함하는 행이 3개 있으므로 이 문은 **3** 값을 반환합니다.|
+|INPUT__FILE__NAME '%.log'를 좋아합니다.|Hive는 디렉터리내의 모든 파일에 스키마를 적용하려고 시도합니다. 이 경우 디렉터리에는 스키마와 일치하지 않는 파일이 포함되어 있습니다. 결과에 가비지 데이터가 나타나는 것을 방지하기 위해 이 문은 .log로 끝나는 파일의 데이터만 반환해야 함을 Hive에게 알립니다.|
 
 > [!NOTE]  
 > 외부 원본에서 기본 데이터를 업데이트하길 원하는 경우에는 외부 테이블을 사용해야 합니다. 예를 들어 자동화된 데이터 업로드 프로세스 또는 MapReduce 작업이 있습니다.
@@ -164,11 +164,11 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 이러한 문은 다음 작업을 수행합니다.
 
-|인수를 제거합니다. |Description |
+|인수를 제거합니다. |설명 |
 |---|---|
-|존재 하지 않는 경우 CREATE TABLE|테이블이 존재 하지 않는 경우 만듭니다. **EXTERNAL** 키워드가 사용 되지 않으므로이 문은 내부 테이블을 만듭니다. 테이블은 Hive 데이터 웨어하우스에 저장되며 Hive에서 전적으로 관리됩니다.|
-|ORC로 저장 됨|데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. ORC는 Hive 데이터를 저장하기 위한 고도로 최적화되고 효율적인 형식입니다.|
-|덮어쓰기 삽입 ...|**[ERROR]** 가 포함된 **log4jLogs** 테이블에서 행을 선택하고 데이터를 **errorLogs** 테이블에 삽입합니다.|
+|테이블 만들기 존재하지 않는 경우|테이블이 없으면 테이블을 만듭니다. **외부** 키워드가 사용되지 않으므로 이 문은 내부 테이블을 만듭니다. 테이블은 Hive 데이터 웨어하우스에 저장되며 Hive에서 전적으로 관리됩니다.|
+|ORC로 저장|데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. ORC는 Hive 데이터를 저장하기 위한 고도로 최적화되고 효율적인 형식입니다.|
+|덮어 쓰기 삽입 ... 선택|**[ERROR]** 가 포함된 **log4jLogs** 테이블에서 행을 선택하고 데이터를 **errorLogs** 테이블에 삽입합니다.|
 
 > [!NOTE]  
 > 외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
@@ -177,7 +177,7 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 ### <a name="apache-tez"></a>Apache Tez
 
-[Apache Tez](https://tez.apache.org) 는 Hive와 같이 데이터를 많이 사용하는 애플리케이션을 큰 규모에서도 훨씬 더 효율적으로 실행할 수 있는 프레임워크입니다. Tez는 기본적으로 사용 하도록 설정 되어 있습니다.  [Tez의 Apache Hive 디자인 문서](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez)에는 선택 가능한 구현 및 튜닝 구성과 관련된 세부 정보가 포함되어 있습니다.
+[Apache Tez](https://tez.apache.org) 는 Hive와 같이 데이터를 많이 사용하는 애플리케이션을 큰 규모에서도 훨씬 더 효율적으로 실행할 수 있는 프레임워크입니다. Tez는 기본적으로 활성화되어 있습니다.  [Tez의 Apache Hive 디자인 문서](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez)에는 선택 가능한 구현 및 튜닝 구성과 관련된 세부 정보가 포함되어 있습니다.
 
 ### <a name="low-latency-analytical-processing-llap"></a>LLAP(짧은 대기 시간 분석 처리)
 
@@ -201,7 +201,7 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 
 * [Azure 구독 연결 관리자](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
-자세한 내용은 [Azure 기능 팩](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis) 설명서를 참조 하세요.
+자세한 내용은 [Azure 기능 팩](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis) 설명서를 참조하세요.
 
 ### <a name="apache-oozie"></a>Apache Oozie
 

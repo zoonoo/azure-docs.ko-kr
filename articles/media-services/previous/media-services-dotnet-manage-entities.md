@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: a686465b0006c2e9aac6e06cb4ab12d30921e8c5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251142"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Media Services.NET SDK를 사용하여 자산 및 관련 엔터티 관리
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-manage-entities.md)
-> * [REST (영문)](media-services-rest-manage-entities.md)
+> * [나머지](media-services-rest-manage-entities.md)
 > 
 > 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전, [미디어 서비스 v3을](https://docs.microsoft.com/azure/media-services/latest/)확인하십시오. 또한 [v2에서 v3로의 마이그레이션 지침을](../latest/migrate-from-v2-to-v3.md) 참조하십시오.
 
 이 항목에서는 .NET를 사용하여 Azure Media Services 엔터티를 관리하는 방법을 보여 줍니다.
 
@@ -37,10 +37,10 @@ ms.locfileid: "79251142"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
+.NET 을 사용하면 Media Services 개발에 설명된 대로 개발 환경을 설정하고 app.config 파일을 연결 [정보로](media-services-dotnet-how-to-use.md)채웁니다. 
 
 ## <a name="get-an-asset-reference"></a>자산 참조 가져오기
-자주 수행하는 작업은 Media Services에서 기존 자산에 대한 참조를 가져오는 것입니다. 다음 코드 예제에서는 자산 Id에 따라 서버 컨텍스트 개체의 자산 컬렉션에서 자산 참조를 가져오는 방법을 보여 줍니다. 다음 코드 예제에서는 Linq 쿼리를 사용 하 여 기존 IAsset 개체에 대 한 참조를 가져옵니다.
+자주 수행하는 작업은 Media Services에서 기존 자산에 대한 참조를 가져오는 것입니다. 다음 코드 예제에서는 자산 ID를 기반으로 서버 컨텍스트 개체의 자산 컬렉션에서 자산 참조를 얻는 방법을 보여 주며 있습니다. 다음 코드 예제에서는 Linq 쿼리를 사용하여 기존 IAsset 개체에 대한 참조를 가져옵니다.
 
 ```csharp
     static IAsset GetAsset(string assetId)
@@ -100,7 +100,7 @@ ms.locfileid: "79251142"
 
 ## <a name="get-a-job-reference"></a>작업 참조 가져오기
 
-Media Services 코드에서 처리 작업을 수행 하는 경우에는 Id를 기반으로 하 여 기존 작업에 대 한 참조를 가져와야 하는 경우가 많습니다. 다음 코드 예제에서는 Jobs 컬렉션에서 IJob 개체에 대 한 참조를 가져오는 방법을 보여 줍니다.
+Media Services 코드에서 처리 작업을 수행하는 경우 ID를 기반으로 기존 작업에 대한 참조를 얻어야 하는 경우가 많습니다. 다음 코드 예제에서는 작업 컬렉션에서 IJob 개체에 대 한 참조를 얻는 방법을 보여 주며 있습니다.
 
 실행 시간이 긴 인코딩 작업을 시작할 때 작업 참조를 가져와야 하고 스레드에서 작업 상태를 확인해야 합니다. 이 경우 메서드가 스레드에서 반환될 때 작업에 대한 새로 고쳐진 참조를 검색해야 합니다.
 
@@ -203,7 +203,7 @@ Media Services 코드에서 처리 작업을 수행 하는 경우에는 Id를 �
 ```
 
 ## <a name="list-all-access-policies"></a>모든 액세스 정책 나열
-Media Services에서 자산 또는 해당 파일에 대한 액세스 정책을 정의할 수 있습니다. 액세스 정책은 파일 또는 자산에 대한 권한을 정의합니다(액세스 유형 및 기간). Media Services 코드에서는 일반적으로 IAccessPolicy 개체를 만들고 기존 자산에 연결하여 액세스 정책을 정의합니다. 그런 다음 Media Services의 자산에 대 한 직접 액세스를 제공 하는 ILocator 사용 하는 개체를 만듭니다. 이 설명서 시리즈와 함께 제공되는 Visual Studio 프로젝트에는 액세스 정책과 로케이터를 만들고 자산에 할당하는 방법을 보여 주는 몇 가지 코드 예제가 들어 있습니다.
+Media Services에서 자산 또는 해당 파일에 대한 액세스 정책을 정의할 수 있습니다. 액세스 정책은 파일 또는 자산에 대한 권한을 정의합니다(액세스 유형 및 기간). Media Services 코드에서는 일반적으로 IAccessPolicy 개체를 만들고 기존 자산에 연결하여 액세스 정책을 정의합니다. 그런 다음 미디어 서비스에서 자산에 직접 액세스할 수 있는 ILocator 개체를 만듭니다. 이 설명서 시리즈와 함께 제공되는 Visual Studio 프로젝트에는 액세스 정책과 로케이터를 만들고 자산에 할당하는 방법을 보여 주는 몇 가지 코드 예제가 들어 있습니다.
 
 다음 코드 예제에서는 서버의 모든 액세스 정책을 나열하는 방법과 각 액세스 정책과 관련된 권한 유형을 보여 줍니다. 액세스 정책을 보는 또 다른 유용한 방법은 서버의 모든 ILocator 개체를 나열하는 것이고, 이렇게 하면 각 로케이터에 대해 AccessPolicy 속성을 사용하여 관련 액세스 정책을 나열할 수 있습니다.
 

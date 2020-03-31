@@ -1,6 +1,6 @@
 ---
-title: 파일 시스템 오류로 인 한 Linux VM 시작 문제 해결 | Microsoft Docs
-description: Linux VM을 시작할 수 없는 이유와 문제를 해결 하는 방법을 설명 합니다.
+title: 파일 시스템 오류로 인해 리눅스 VM 시작 문제 해결 | 마이크로 소프트 문서
+description: Linux VM을 시작할 수 없는 이유와 문제를 해결하는 방법을 설명합니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: v-miegge
@@ -15,19 +15,19 @@ ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
 ms.openlocfilehash: 455cb1e0067217be6edcf665e8c07e8fcd684ab5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76842404"
 ---
-# <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>파일 시스템 오류로 인 한 Linux VM 시작 문제 해결
+# <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>파일 시스템 오류로 인해 Linux VM 시작 문제 해결
 
-Secure Shell (SSH)를 사용 하 여 Azure Linux VM (가상 머신)에 연결할 수 없습니다. [Azure Portal](https://portal.azure.com/)에서 부팅 진단 기능을 실행 하면 다음 예제와 유사한 로그 항목이 표시 됩니다.
+보안 셸(SSH)을 사용하여 Azure Linux 가상 시스템(VM)에 연결할 수 없습니다. [Azure 포털에서](https://portal.azure.com/)부팅 진단 기능을 실행하면 다음 예제와 유사한 로그 항목이 표시됩니다.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
-가능한 오류의 예는 다음과 같습니다.
+다음은 가능한 오류의 예입니다.
 
 ### <a name="example-1"></a>예 1 
 
@@ -57,7 +57,7 @@ An error occurred while mounting /.
 
 ### <a name="example-4"></a>예제 4 
 
-이 예는 정리 된 fsck에 의해 발생 합니다. 이 경우 VM에 추가 데이터 디스크 (/sv/sdc1 및/dev/sde1)도 연결 되어 있습니다.
+이 예제는 깨끗한 fsck로 인해 발생합니다. 이 경우 VM(/dev/sdc1 및 /dev/sde1)에 연결된 추가 데이터 디스크도 있습니다.
 
 ```
 Checking all file systems. 
@@ -69,64 +69,64 @@ Checking all file systems.
 /dev/sde1 : clean, 51/67043328 files, 4259482/268173037 blocks
 ```
 
-이 문제는 파일 시스템이 완전히 종료 되지 않거나 저장소 관련 문제가 발생 한 경우에 발생할 수 있습니다. 이러한 문제에는 하드웨어 또는 소프트웨어 오류, 드라이버 또는 프로그램에 대 한 문제, 쓰기 오류 등이 포함 됩니다. 중요 한 데이터의 백업은 항상 중요 합니다. 이 문서에서 설명 하는 도구는 파일 시스템을 복구 하는 데 도움이 될 수 있지만 여전히 데이터 손실이 발생할 수 있습니다.
+파일 시스템이 정리되어 있지 않거나 저장소 관련 문제가 있는 경우 이 문제가 발생할 수 있습니다. 문제는 하드웨어 또는 소프트웨어 오류, 드라이버 또는 프로그램 문제, 쓰기 오류 등을 포함합니다. 중요한 데이터를 백업하는 것은 항상 중요합니다. 이 문서에서 설명하는 도구는 파일 시스템을 복구하는 데 도움이 될 수 있지만 데이터 손실은 여전히 발생할 수 있습니다.
 
-Linux에는 사용할 수 있는 몇 가지 파일 시스템 검사기가 있습니다. Azure의 배포에 대 한 가장 일반적인은 [FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific), [E2FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific)및 [Xfs_repair](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair)입니다.
+리눅스는 여러 파일 시스템 검사기를 사용할 수 있습니다. Azure에서 배포에 대 한 가장 일반적인: [FSCK,](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific) [E2FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific)및 [Xfs_repair.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair)
 
-## <a name="resolution"></a>해상도
+## <a name="resolution"></a>해결 방법
 
-이 문제를 해결 하려면 [직렬 콘솔](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux) 을 사용 하 여 VM을 응급 모드로 부팅 하 고 해당 도구를 사용 하 여 파일 시스템을 복구 합니다. VM에서 직렬 콘솔을 사용 하도록 설정 하지 않았거나 작동 하지 않는 경우이 문서의 [vm 오프 라인 복구](#repair-the-vm-offline) 섹션을 참조 하세요.
+이 문제를 해결하려면 [직렬 콘솔을](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux) 사용하여 VM을 비상 모드로 부팅하고 해당 도구를 사용하여 파일 시스템을 복구합니다. VM에서 직렬 콘솔을 사용할 수 없거나 작동하지 않는 경우 이 문서의 [VM 오프라인 복구](#repair-the-vm-offline) 섹션을 참조하십시오.
 
 ## <a name="use-the-serial-console"></a>직렬 콘솔 사용
 
 1. 직렬 콘솔에 연결합니다.
 
    > [!Note]
-   > Linux 용 직렬 콘솔을 사용 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
-   > * [직렬 콘솔을 사용 하 여 GRUB 및 단일 사용자 모드에 액세스](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
+   > Linux용 직렬 콘솔 사용에 대한 자세한 내용은 다음을 참조하십시오.
+   > * [시리얼 콘솔을 사용하여 GRUB 및 단일 사용자 모드에 액세스](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
    > * [SysRq 및 NMI 호출에 직렬 콘솔 사용](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-nmi-sysrq)
 
-2. 전원 아이콘 단추를 선택한 다음, VM 다시 시작을 선택 합니다. (직렬 콘솔이 사용 하도록 설정 되지 않았거나 연결 되지 않은 경우 단추가 표시 되지 않습니다.)
+2. 전원 아이콘 단추를 선택한 다음 VM 다시 시작을 선택합니다. 직렬 콘솔을 사용하지 않거나 성공적으로 연결되지 않으면 단추가 표시되지 않습니다.
 
    ![IMAGE](./media/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck/restart-vm.png)
 
-3. 에서 VM을 응급 모드로 부팅 합니다.
+3. VM을 비상 모드로 부팅합니다.
 
-4. 응급 모드에 로그인 하려면 루트 계정의 암호를 입력 하세요.
+4. 긴급 모드에 로그인하려면 루트 계정의 암호를 입력합니다.
 
-5. 파일 시스템에서 오류를 검색 하려면-n 옵션과 함께 xfs_repair를 사용 합니다. 다음 샘플에서는 시스템 파티션이/dev/sda1. 것으로 가정 합니다. VM에 대 한 적절 한 값으로 바꿉니다.
+5. 파일 시스템의 오류를 감지하려면 -n 옵션과 함께 xfs_repair 사용합니다. 다음 샘플에서는 시스템 파티션이 /dev/sda1이라고 가정합니다. VM에 적합한 값으로 바꿉습니다.
 
    ```
    xfs_repair -n /dev/sda1
    ```
 
-6. 다음 명령을 실행 하 여 파일 시스템을 복구 합니다.
+6. 다음 명령을 실행하여 파일 시스템을 복구합니다.
 
    ```
    xfs_repair /dev/sda1
    ```
 
-7. "오류: 파일 시스템에 재생 해야 하는 로그에 중요 한 메타 데이터 변경 내용이 있습니다." 라는 오류 메시지가 표시 되 면 임시 디렉터리를 만들고 파일 시스템을 탑재 합니다.
+7. "오류: 파일 시스템에 재생해야 하는 로그에 중요한 메타데이터 변경 내용"이라는 오류 메시지가 발생하면 임시 디렉터리를 만들고 파일 시스템을 탑재합니다.
 
    ```
    mkdir /temp
    mount /dev/sda1 /temp
    ```
 
-8. 디스크를 탑재 하지 못하는 경우-L 옵션 (force log 제로화)을 사용 하 여 xfs_repair 명령을 실행 합니다.
+8. 디스크가 마운트되지 않으면 -L 옵션(강제 로그 비점)으로 xfs_repair 명령을 실행합니다.
 
    ```
    xfs_repair /dev/sda1 -L
    ```
 
-9. 다음으로 파일 시스템을 탑재 해 봅니다. 디스크가 성공적으로 탑재 되 면 다음과 같은 출력이 표시 됩니다.
+9. 다음으로 파일 시스템을 탑재해 봅을 사용해 봅을 사용해 봅을. 디스크가 성공적으로 탑재되면 다음과 같은 출력을 받게 됩니다.
  
    ```
    XFS (sda1): Mounting V1 Filesystem
    XFS (sda1): Ending clean mount
    ```
 
-10. VM을 다시 시작 하 고 문제가 해결 되었는지 확인 합니다.
+10. VM을 다시 시작한 다음 문제가 해결되었는지 확인합니다.
 
     ```
     Reboot -f
@@ -134,23 +134,23 @@ Linux에는 사용할 수 있는 몇 가지 파일 시스템 검사기가 있습
 
 ## <a name="repair-the-vm-offline"></a>오프라인으로 VM 복구
 
-1. VM의 시스템 디스크를 복구 VM (모든 작동 중인 Linux VM)에 데이터 디스크로 연결 합니다. 이렇게 하려면 [CLI 명령을](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) 사용 하거나 [vm 복구 명령을](repair-linux-vm-using-azure-virtual-machine-repair-commands.md)사용 하 여 복구 vm 설정을 자동화할 수 있습니다.
+1. VM의 시스템 디스크를 복구 VM(모든 작업 Linux VM)에 데이터 디스크로 연결합니다. 이렇게 하려면 [CLI 명령을](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) 사용하거나 [VM 복구 명령을](repair-linux-vm-using-azure-virtual-machine-repair-commands.md)사용하여 복구 VM 설정을 자동화할 수 있습니다.
 
-2. 연결한 시스템 디스크의 드라이브 레이블을 찾습니다. 이 경우 연결 된 시스템 디스크의 레이블이/sv/sdc1 이라고 가정 합니다. VM에 대 한 적절 한 값으로 대체 합니다.
+2. 연결한 시스템 디스크의 드라이브 레이블을 찾습니다. 이 경우 연결한 시스템 디스크의 레이블이 /dev/sdc1이라고 가정합니다. VM에 적합한 값으로 바꿉습니다.
 
-3. 파일 시스템에서 오류를 검색 하려면-n 옵션과 함께 xfs_repair를 사용 합니다.
+3. 파일 시스템의 오류를 감지하려면 -n 옵션과 함께 xfs_repair 사용합니다.
 
    ```
    xfs_repair -n /dev/sdc1
    ```
 
-4. 다음 명령을 실행 하 여 파일 시스템을 복구 합니다.
+4. 다음 명령을 실행하여 파일 시스템을 복구합니다.
 
    ```
    xfs_repair /dev/sdc1
    ```
 
-5. "오류: 파일 시스템에 재생 해야 하는 로그에 중요 한 메타 데이터 변경 내용이 있습니다." 라는 오류 메시지가 표시 되 면 임시 디렉터리를 만들고 파일 시스템을 탑재 합니다.
+5. "오류: 파일 시스템에 재생해야 하는 로그에 중요한 메타데이터 변경 내용"이라는 오류 메시지가 발생하면 임시 디렉터리를 만들고 파일 시스템을 탑재합니다.
 
    ```
    mkdir /temp
@@ -158,13 +158,13 @@ Linux에는 사용할 수 있는 몇 가지 파일 시스템 검사기가 있습
    mount /dev/sdc1 /temp
    ```
 
-   디스크를 탑재 하지 못하는 경우-L 옵션 (force log 제로화)을 사용 하 여 xfs_repair 명령을 실행 합니다.
+   디스크가 마운트되지 않으면 -L 옵션(강제 로그 비점)으로 xfs_repair 명령을 실행합니다.
 
    ```
    xfs_repair /dev/sdc1 -L
    ```
 
-6. 다음으로 파일 시스템을 탑재 해 봅니다. 디스크가 성공적으로 탑재 되 면 다음과 같은 출력이 표시 됩니다.
+6. 다음으로 파일 시스템을 탑재해 봅을 사용해 봅을 사용해 봅을. 디스크가 성공적으로 탑재되면 다음과 같은 출력을 받게 됩니다.
 
    ```
    XFS (sdc1): Mounting V1 Filesystem
@@ -172,12 +172,12 @@ Linux에는 사용할 수 있는 몇 가지 파일 시스템 검사기가 있습
    XFS (sdc1): Ending clean mount
    ```
 
-7. 원본 가상 하드 디스크를 분리 한 다음 원래 시스템 디스크에서 VM을 만듭니다. 이렇게 하려면 [CLI 명령](troubleshoot-recovery-disks-linux.md) 또는 [vm 복구 명령](repair-linux-vm-using-azure-virtual-machine-repair-commands.md) (사용 하 여 복구 vm을 만든 경우)을 사용할 수 있습니다.
+7. 원래 가상 하드 디스크의 마운트를 해제하고 분리한 다음 원래 시스템 디스크에서 VM을 만듭니다. 이렇게 하려면 [CLI 명령](troubleshoot-recovery-disks-linux.md) 또는 [VM 복구 명령을](repair-linux-vm-using-azure-virtual-machine-repair-commands.md) 사용 하는 경우 복구 VM을 만들 려면 사용할 수 있습니다.
 
-8. 문제가 해결 되었는지 확인 합니다.
+8. 문제가 해결되었는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure CLI 2.0를 사용 하 여 OS 디스크를 복구 VM에 연결 함으로써 Linux VM 문제를 해결 합니다.](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
-* [포털을 사용 하 여 Linux VM에 데이터 디스크 연결](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal)
+* [Azure CLI 2.0을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Linux VM 문제 해결](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
+* [포털을 사용하여 데이터 디스크를 Linux VM에 연결](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal)
 

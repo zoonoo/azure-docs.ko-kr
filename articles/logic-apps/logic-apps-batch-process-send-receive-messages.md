@@ -1,6 +1,6 @@
 ---
-title: 메시지를 그룹으로 일괄 처리
-description: Azure Logic Apps에서 일괄 처리를 사용 하 여 워크플로 간에 메시지 보내기 및 받기
+title: 그룹으로 메시지를 일괄 처리
+description: Azure Logic Apps에서 일괄 처리를 사용하여 워크플로 간에 그룹으로 메시지 보내기 및 수신
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -9,10 +9,10 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: e48d2bb2ffce0dd4f9293417534165165d426784
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75666757"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Azure Logic Apps에서 메시지 보내기, 받기 및 일괄 처리
@@ -29,15 +29,15 @@ ms.locfileid: "75666757"
 
 일괄 처리 수신자와 일괄 처리 발신자에서 동일한 Azure 구독 *및* Azure 지역을 공유하는지 확인합니다. 그렇지 않은 경우 서로 표시되지 않기 때문에 일괄 처리 발신자를 만들 때 일괄 처리 수신자를 선택할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 예제를 수행하려면 다음과 같은 항목이 필요합니다.
 
-* Azure 구독 구독이 없는 경우 [Azure 계정을 사용하여 시작](https://azure.microsoft.com/free/)할 수 있습니다. 또는 [종량제 구독에 등록합니다](https://azure.microsoft.com/pricing/purchase-options/).
+* Azure 구독 구독이 없는 경우 무료 Azure [계정으로 시작할](https://azure.microsoft.com/free/)수 있습니다. 또는 [종량제 구독에 등록합니다](https://azure.microsoft.com/pricing/purchase-options/).
 
 * [Azure Logic Apps에서 지원하는 전자 메일 공급자](../connectors/apis-list.md)를 사용하는 메일 계정
 
-* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식 
+* [논리 앱을 만드는 방법에](../logic-apps/quickstart-create-first-logic-app-workflow.md) 대한 기본 지식 
 
 * Azure Portal 대신 Visual Studio를 사용하려면 [Logic Apps를 사용하도록 Visual Studio를 설정](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)해야 합니다.
 
@@ -55,11 +55,11 @@ ms.locfileid: "75666757"
 
 3. 일괄 처리 수신자에 대해 다음 속성을 설정합니다. 
 
-   | 속성 | Description | 
+   | 속성 | 설명 | 
    |----------|-------------|
    | **일괄 처리 모드** | - **인라인**: 일괄 처리 트리거 내부에 해제 조건을 정의하는 경우 <br>- **통합 계정**: [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)을 통해 다중 해제 조건 구성을 정의하는 경우. 통합 계정을 사용하면 별도의 논리 앱이 아닌 한 곳에서 이러한 구성을 모두 유지 관리할 수 있습니다. | 
    | **일괄 처리 이름** | 일괄 처리에 대한 이름이며(이 예의 경우 "TestBatch"), **인라인** 일괄 처리 모드에만 적용됩니다. |  
-   | **해제 조건** | **인라인** 일괄 처리 모드에만 적용되며, 각 일괄 처리를 처리하기 전에 충족할 조건을 선택합니다. <p>- **메시지 수 기반**: 일괄 처리에 의해 수집 된 메시지 수에 따라 일괄 처리를 해제 합니다. <br>- **크기 기반**: 해당 일괄 처리에 의해 수집 된 모든 메시지의 총 크기 (바이트)를 기준으로 일괄 처리를 해제 합니다. <br>- **일정**: 간격 및 빈도를 지정 하는 되풀이 일정을 기반으로 일괄 처리를 해제 합니다. 고급 옵션에서는 표준 시간대를 선택하고 시작 날짜와 시간을 선택할 수도 있습니다. <br>- **모두 선택**: 지정된 모든 조건을 사용합니다. | 
+   | **해제 조건** | **인라인** 일괄 처리 모드에만 적용되며, 각 일괄 처리를 처리하기 전에 충족할 조건을 선택합니다. <p>- **메시지 수 기반**: 일괄 처리에서 수집한 메시지 수에 따라 일괄 처리를 해제합니다. <br>- **크기 기반**: 해당 일괄 처리에서 수집된 모든 메시지에 대해 총 바이트 크기를 기준으로 일괄 처리를 해제합니다. <br>- **일정**: 간격 및 빈도를 지정하는 되풀이 일정에 따라 일괄 처리를 해제합니다. 고급 옵션에서는 표준 시간대를 선택하고 시작 날짜와 시간을 선택할 수도 있습니다. <br>- **모두 선택**: 지정된 모든 조건을 사용합니다. | 
    | **메시지 수** | 일괄 처리에서 수집할 메시지 수입니다(예: 10개 메시지). 일괄 처리당 메시지는 8,000개로 제한됩니다. | 
    | **Batch 크기** | 일괄 처리에서 수집할 총 바이트 크기입니다(예: 10MB). 일괄 처리 크기는 80MB로 제한됩니다. | 
    | **일정** | 일괄 처리 해제 간의 간격 및 빈도입니다(예: 10분). 되풀이는 최소 60초 또는 1분입니다. 분의 소수 자릿수 부분은 1분으로 반올림됩니다. 표준 시간대나 시작 시간 및 날짜를 지정하려면 **고급 옵션 표시**를 선택합니다. | 
@@ -89,7 +89,7 @@ ms.locfileid: "75666757"
 
    3. **이메일 보내기 - <*이메일 공급자*>** 작업을 선택합니다.
 
-      예:
+      예를 들어:
 
       ![전자 메일 공급자에 대한 “전자 메일 보내기” 작업을 선택합니다.](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-send-email-action.png)
 
@@ -168,7 +168,7 @@ ms.locfileid: "75666757"
 
 3. 일괄 처리 발신자의 속성을 설정합니다.
 
-   | 속성 | Description | 
+   | 속성 | 설명 | 
    |----------|-------------| 
    | **일괄 처리 이름** | 수신자 논리 앱에서 정의된 일괄 처리 이름입니다(이 예의 경우 "TestBatch"). <p>**중요**: 일괄 처리 이름은 런타임에 유효성이 검사되고 수신자 논리 앱에서 지정된 이름과 일치해야 합니다. 일괄 처리 이름을 변경하면 일괄 처리 발신자가 실패하게 됩니다. | 
    | **메시지 콘텐츠** | 보내려는 메시지에 대한 콘텐츠입니다. | 
@@ -186,7 +186,7 @@ ms.locfileid: "75666757"
 
 4. 이제 일괄 처리에 대한 파티션을 설정합니다. "BatchReceiver" 작업에서 **고급 옵션 표시**를 선택하고 다음 속성을 설정합니다.
 
-   | 속성 | Description | 
+   | 속성 | 설명 | 
    |----------|-------------| 
    | **파티션 이름** | 대상 일괄 처리를 논리적 하위 집합으로 나누고 해당 키에 따라 메시지를 수집하는 데 사용하는 선택적 고유 파티션 키입니다. | 
    | **메시지 ID** | 비어 있을 때 생성된 GUID(Globally Unique Identifier)라는 선택적 메시지 식별자입니다. | 

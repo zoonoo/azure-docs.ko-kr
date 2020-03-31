@@ -1,14 +1,14 @@
 ---
 title: DoD 영향 수준 4 청사진 샘플
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 DoD 영향 수분 4 청사진 샘플에 대한 단계를 배포합니다.
-ms.date: 02/09/2020
+ms.date: 03/06/2020
 ms.topic: sample
-ms.openlocfilehash: 087b5947f86d33e44cd72754b79acd457674d545
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: c92e24327bc1879b8fea89cf85a50f845e473810
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77154701"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79415311"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>DoD 영향 수준 4 청사진 샘플 배포
 
@@ -132,7 +132,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |\[미리 보기\]: DoD 영향 수준 4|정책 할당|구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
 |\[미리 보기\]: DoD 영향 수준 4|정책 할당|구독에서 쓰기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
 |\[미리 보기\]: DoD 영향 수준 4|정책 할당|Azure SQL Database에 대해 장기 지역 중복 백업을 사용하도록 설정해야 함|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
-
+|허용되는 위치|정책 할당|허용되는 위치|이 정책을 사용하면 조직에서 리소스를 배포할 때 지정할 수 있는 위치를 제한할 수 있습니다. 지역 규정 준수 요구 사항을 적용하는 데 사용합니다.|
+|리소스 그룹에 허용되는 위치|정책 할당 |허용되는 위치|이 정책을 통해 조직에서 리소스 그룹을 만들 수 있는 위치를 제한할 수 있습니다. 지역 규정 준수 요구 사항을 적용하는 데 사용합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

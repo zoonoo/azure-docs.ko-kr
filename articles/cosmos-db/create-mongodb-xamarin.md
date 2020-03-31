@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/20/2018
+ms.date: 03/16/2020
 ms.author: masoucou
-ms.openlocfilehash: a21e3705fe367e478ec02b82ec83c4ad7cfb4151
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 98b0ddf345ebd19e2cd974db3891e88c9f72530d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445454"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79481690"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>빠른 시작: .NET SDK 및 Azure Cosmos DB의 MongoDB API를 사용하여 Xamarin.Forms 앱 빌드
 
@@ -52,10 +52,18 @@ Mac에서 작업하려는 경우 [Mac용 Visual Studio](https://visualstudio.mic
 
 먼저 GitHub에서 샘플 앱을 다운로드합니다. 이 앱은 MongoDB의 문서 스토리지 모델을 사용하여 todo 앱을 구현합니다.
 
-1. 명령 프롬프트를 열고, git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
+
+
+# <a name="windows"></a>[Windows](#tab/windows)
+
+1. Windows에서 명령 프롬프트를 열거나 Mac에서 터미널을 열고 git-samples라는 새 폴더를 만든 다음, 창을 닫습니다.
+
+    ```batch
+    md "C:\git-samples"
+    ```
 
     ```bash
-    md "C:\git-samples"
+    mkdir '$home\git-samples\
     ```
 
 2. Git Bash와 같은 Git 터미널 창을 열고, `cd` 명령을 사용하여 샘플 앱을 설치할 새 폴더로 변경합니다.
@@ -86,6 +94,8 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
 
     settings.SslSettings =
         new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
+
+    settings.RetryWrites = false;
 
     MongoClient mongoClient = new MongoClient(settings);
     ```
@@ -159,6 +169,11 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
 2. **TaskList.Core** 프로젝트의 **Helpers** 디렉터리에서 **APIKeys.cs** 파일을 엽니다.
 
 3. (복사 단추를 사용하여) 포털에서 **기본 연결 문자열** 값을 복사하고 **APIKeys.cs** 파일에서 **ConnectionString** 필드의 값으로 만듭니다.
+
+4. 연결 문자열에서 `&replicaSet=globaldb`를 제거합니다. 쿼리 문자열에서 해당 값을 제거하지 않으면 런타임 오류가 발생합니다.
+
+> [!IMPORTANT]
+> 런타임 오류를 방지하려면 연결 문자열의 쿼리 문자열에서 `&replicaSet=globaldb` 키/값 쌍을 제거해야 합니다.
 
 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다.
 

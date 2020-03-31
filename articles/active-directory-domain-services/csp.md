@@ -1,5 +1,5 @@
 ---
-title: 클라우드 솔루션 공급자에 대 한 Azure AD Domain Services | Microsoft Docs
+title: 클라우드 솔루션 공급자를 위한 Azure AD 도메인 서비스 | 마이크로 소프트 문서
 description: Azure 클라우드 솔루션 공급자의 Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: iainfou
 ms.openlocfilehash: 1134c078ee36a146cb1e1cbf8ca46f6cd9f8d775
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72754432"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure CSP(클라우드 솔루션 공급자)의 Azure AD(Active Directory) Domain Services
@@ -43,7 +43,7 @@ Azure AD Domain Services는 LDAP, Kerberos/NTLM 인증, 도메인 가입, 그룹
 
 Azure AD Domain Services는 이제 Azure CSP 구독을 지원합니다. 이제 고객의 Azure AD 디렉터리에 연결된 Azure CSP 구독에서 애플리케이션을 배포할 수 있습니다. 결과적으로 직원(지원 스태프)은 해당 조직의 회사 자격 증명을 사용하여 애플리케이션을 배포한 가상 머신을 관리하고 제공할 수 있습니다. 또한 고객의 Azure AD 디렉터리에 Azure AD Domain Services 관리되는 도메인을 제공할 수 있습니다. 애플리케이션은 고객의 관리되는 도메인에 연결됩니다. 따라서 LDAP, Kerberos/NTLM 또는 [System.DirectoryServices API](/dotnet/api/system.directoryservices)를 사용하는 애플리케이션 내의 기능은 고객의 디렉터리에 대해 원활하게 작동합니다. 최종 고객은 애플리케이션이 배포된 인프라를 유지 관리할 방법에 대해 걱정할 필요 없이 애플리케이션을 서비스로 사용하여 큰 이익을 얻습니다.
 
-Azure AD Domain Services를 비롯한 해당 구독에서 사용하는 Azure 리소스에 대한 요금은 다시 사용자에게 청구됩니다. 판매, 청구, 기술 지원 등을 통해 고객과의 관계에 대 한 모든 권한을 유지 합니다. Azure CSP 플랫폼의 유연성을 제공 하는 소규모 지원 에이전트 팀은 응용 프로그램 인스턴스를 배포 하는 여러 고객에 게 서비스를 제공 합니다.
+Azure AD Domain Services를 비롯한 해당 구독에서 사용하는 Azure 리소스에 대한 요금은 다시 사용자에게 청구됩니다. 영업, 청구, 기술 지원 등고객과의 관계를 완전히 제어할 수 있습니다. Azure CSP 플랫폼의 유연성을 통해 소규모 지원 에이전트 팀은 응용 프로그램의 인스턴스가 배포된 많은 고객에게 서비스를 제공할 수 있습니다.
 
 
 ## <a name="csp-deployment-models-for-azure-ad-domain-services"></a>Azure AD Domain Services의 CSP 배포 모델
@@ -56,7 +56,7 @@ Azure AD Domain Services를 비롯한 해당 구독에서 사용하는 Azure 리
 
 ![직접 배포 모델](./media/csp/csp_direct_deployment_model.png)
 
-이 배포 모델에서 CSP 공급자의 관리 에이전트는 고객에 대한 ID를 관리할 수 있습니다. 이러한 관리 에이전트는 새 사용자, 그룹, 고객의 Azure AD 디렉터리 내에 응용 프로그램을 추가 하는 등의 기능을 제공 합니다. 이 배포 모델은 전용 id 관리자가 없거나 CSP 파트너가 대신 id를 관리 하는 것을 선호 하는 소규모 조직에 적합할 수 있습니다.
+이 배포 모델에서 CSP 공급자의 관리 에이전트는 고객에 대한 ID를 관리할 수 있습니다. 이러한 관리자 에이전트는 고객의 Azure AD 디렉터리 등에서 새 사용자, 그룹, 응용 프로그램을 추가할 수 있습니다. 이 배포 모델은 전용 ID 관리자가 없거나 CSP 파트너가 대신 ID를 관리하는 것을 선호하는 소규모 조직에 적합할 수 있습니다.
 
 
 ### <a name="peered-deployment-model"></a>피어링된 배포 모델
@@ -83,11 +83,11 @@ Azure CSP 구독에서 관리되는 도메인을 관리하는 경우 다음과 �
   > CSP 관리 사용자의 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 없습니다. 이렇게 하려면 고객의 Azure AD 디렉터리에 속한 사용자 계정의 자격 증명을 사용합니다. 가상 머신을 관리되는 도메인에 가입하고, DNS를 관리하고, 그룹 정책 관리하는 등의 작업에 이러한 자격 증명이 필요합니다.
   >
 
-* **진행 중인 관리를 위해 만든 사용자 계정은 'AAD DC 관리자' 그룹에 추가되어야 합니다:** 'AAD DC 관리자' 그룹은 관리되는 도메인에서 위임된 특정 관리 작업을 수행할 권한을 가집니다. 이러한 작업에는 DNS 구성, 조직 구성 단위 만들기, 그룹 정책 관리 등이 포함 됩니다. CSP 파트너가 관리 되는 도메인에서 이러한 작업을 수행 하려면 고객의 Azure AD 디렉터리 내에서 사용자 계정을 만들어야 합니다. 이 계정에 대한 자격 증명은 CSP 파트너의 관리 에이전트와 공유되어야 합니다. 또한 이 사용자 계정은 'AAD DC 관리자' 그룹에 추가되어 해당 사용자 계정을 사용하여 수행할 관리되는 도메인의 구성 작업을 사용해야 합니다.
+* **진행 중인 관리를 위해 만든 사용자 계정은 'AAD DC 관리자' 그룹에 추가되어야 합니다:** 'AAD DC 관리자' 그룹은 관리되는 도메인에서 위임된 특정 관리 작업을 수행할 권한을 가집니다. 이러한 작업에는 DNS 구성, 조직 단위 만들기, 그룹 정책 관리 등이 포함됩니다. CSP 파트너가 관리되는 도메인에서 이러한 작업을 수행하려면 고객의 Azure AD 디렉터리 내에서 사용자 계정을 만들어야 합니다. 이 계정에 대한 자격 증명은 CSP 파트너의 관리 에이전트와 공유되어야 합니다. 또한 이 사용자 계정은 'AAD DC 관리자' 그룹에 추가되어 해당 사용자 계정을 사용하여 수행할 관리되는 도메인의 구성 작업을 사용해야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure CSP 프로그램에 등록](https://docs.microsoft.com/partner-center/enrolling-in-the-csp-program)하고 Azure CSP를 통해 비즈니스를 만듭니다.
+* [Azure CSP 프로그램에 등록하고 Azure CSP를](https://docs.microsoft.com/partner-center/enrolling-in-the-csp-program) 통해 비즈니스 를 만들기 시작합니다.
 * [Azure CSP에서 사용할 수 있는 Azure 서비스](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services) 목록을 검토합니다.
 * [PowerShell을 사용하여 Azure AD Domain Services 사용](powershell-create-instance.md)
 * [Azure AD 도메인 서비스 시작](tutorial-create-instance.md)

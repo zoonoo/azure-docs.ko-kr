@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: c77b700cab4afd411c3a2df824ee8335cb394cda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64868308"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Azure StorSimple의 Azure Media Services 계정에 파일 업로드  
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전, [미디어 서비스 v3을](https://docs.microsoft.com/azure/media-services/latest/)확인하십시오. 또한 [v2에서 v3로의 마이그레이션 지침을](../latest/migrate-from-v2-to-v3.md) 참조하십시오.
 >
 > 
 > 현재 Azure StorSimple 데이터 관리자는 프라이빗 미리 보기 상태입니다. 
@@ -32,11 +32,11 @@ ms.locfileid: "64868308"
 
 ## <a name="overview"></a>개요
 
-Media Services에서 자산에 디지털 파일을 업로드합니다. 자산에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 자막 파일(및 이러한 파일에 대한 메타데이터)이 포함될 수 있습니다. 파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다.
+Media Services에서 자산에 디지털 파일을 업로드합니다. 자산에는 비디오, 오디오, 이미지, 썸네일 컬렉션, 텍스트 트랙 및 닫힌 캡션 파일(및 이러한 파일에 대한 메타데이터)이 포함될 수 있습니다. 파일이 업로드되면 콘텐츠가 클라우드에 안전하게 저장되어 추가 처리 및 스트리밍이 됩니다.
 
 [Azure StorSimple](https://docs.microsoft.com/azure/storsimple/)은 클라우드 스토리지를 온-프레미스 솔루션의 확장으로 사용하여 자동으로 온-프레미스 솔루션 및 클라우드 스토리지에서 데이터를 계층화합니다. StorSimple 디바이스는 데이터를 클라우드로 보내기 전에 중복을 제거하고 압축하여 큰 파일을 클라우드에 효율적으로 전송하게 됩니다. [StorSimple 데이터 관리자](../../storsimple/storsimple-data-manager-overview.md) 서비스는 StorSimple에서 데이터를 추출하고 AMS 자산으로 제공할 수 있는 API를 제공합니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 1. 자산을 전송하려는 곳에 [Media Services 계정을 만듭니다](media-services-portal-create-account.md).
 2. [StorSimple 데이터 관리자](../../storsimple/storsimple-data-manager-overview.md) 문서에 설명된 대로 데이터 관리자 미리 보기에 등록합니다.
@@ -45,9 +45,9 @@ Media Services에서 자산에 디지털 파일을 업로드합니다. 자산에
 
     스토리지 큐는 작업이 실행되기 시작할 때 만들어집니다. 이 큐는 준비가 완료된 변환 Blob에 대한 메시지로 채워집니다. 이 큐의 이름은 작업 정의의 이름과 같습니다. 이 큐를 사용하여 자산이 준비되는 시기를 결정하고 원하는 Media Services 작업을 호출하여 여기서 실행할 수 있습니다. 예를 들어 이 큐를 사용하여 필요한 Media Services 코드가 있는 Azure Function을 트리거할 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
-[데이터 관리자에서 작업 트리거를.NET SDK를 사용 합니다.](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
+[.NET SDK를 사용하여 데이터 관리자에서 작업을 트리거합니다.](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

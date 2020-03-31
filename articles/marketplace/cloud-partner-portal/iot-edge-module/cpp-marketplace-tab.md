@@ -1,19 +1,18 @@
 ---
-title: Azure IoT Edge 모듈의 Marketplace 설명 | Azure Marketplace
+title: Azure IoT 에지 모듈에 대한 마켓플레이스 설명 | Azure 마켓플레이스
 description: IoT Edge 모듈에 대한 마켓플레이스 설명을 만듭니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: 8021b6fe40e006a95b3eeff1031606c38cc47b87
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.author: dsindona
+ms.openlocfilehash: 3ff65a637c1d3722e773ab27f051b3b5bc109a23
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721628"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281734"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>IoT Edge 모듈 Marketplace 탭
 
@@ -33,11 +32,11 @@ ms.locfileid: "76721628"
 | **제목\***                 | 제품의 제목입니다. 마켓플레이스에서 눈에 띄게 표시됩니다.  최대 길이는 50자입니다. <!--ADD PICTURE IN ACTION-->|
 | **요약\***               | 제품의 간단한 요약입니다. 최대 길이는 100자입니다. <!--ADD PICTURE IN ACTION-->|
 | **긴 요약\***          | 제품의 더 긴 요약입니다(**요약**과 동일할 수 있지만).  최대 길이는 256자입니다. <!--ADD PICTURE IN ACTION-->|
-| **Description\***           | 제품에 대한 설명입니다.  최대 길이는 3,000자이며, 단순 HTML 형식을 지원합니다.<br/> 맨 아래에 *최소 하드웨어 요구 사항*을 포함해야 합니다. 예: <br/> <p><u>최소 하드웨어 요구 사항:</u> Linux x64 및 arm32 OS, 1GB의 RAM, 500Mb의 스토리지</p>
-| **마케팅 식별자\***  | 이 제안과 연결할 고유 URL이며, 일반적으로 조직 및 솔루션 이름을 포함하고 최대 길이는 50자입니다.  다음은 그 예입니다. <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **설명\***           | 제품에 대한 설명입니다.  최대 길이는 3,000자이며, 단순 HTML 형식을 지원합니다.<br/> 맨 아래에 *최소 하드웨어 요구 사항*을 포함해야 합니다. 예: <br/> <p><u>최소 하드웨어 요구 사항:</u> Linux x64 및 arm32 OS, 1GB의 RAM, 500Mb의 스토리지</p>
+| **마케팅 식별자\***  | 이 제안과 연결할 고유 URL이며, 일반적으로 조직 및 솔루션 이름을 포함하고 최대 길이는 50자입니다.  예를 들어: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **미리 보기 구독 ID** | 1-100개의 미리 보기 구독 식별자를 추가합니다. 제안이 게시된 후 라이브 상태가 되기 전에 이러한 허용 목록에 추가된 구독에서 해당 제안에 액세스할 수 있습니다. |
 | **유용한 링크**          | 제품이 가장 적합하게 연결될 수 있는 비즈니스 및 기술 범주에 대한 다중 선택입니다.  최대 10개가 허용됩니다. [Azure IoT 디바이스 카탈로그](https://catalog.azureiotsolutions.com/)에서 설명서에 하나 이상의 링크 및 호환 IoT Edge 디바이스에 하나의 링크를 추가해야 합니다. |
-| **제안 된 범주\*** | 최대 5개의 범주를 선택합니다. 이러한 범주는 제품 세부 정보 페이지에 표시됩니다. 찾아보기 페이지에서 모든 IoT Edge 모듈이 *사물 인터넷 \> IoT Edge 모듈* 범주에 표시됩니다.|
+| **추천 카테고리\*** | 최대 5개의 범주를 선택합니다. 이러한 범주는 제품 세부 정보 페이지에 표시됩니다. 찾아보기 페이지에서 모든 IoT Edge 모듈이 *사물 인터넷 \> IoT Edge 모듈* 범주에 표시됩니다.|
 |  |  |
 
 
@@ -86,9 +85,9 @@ ms.locfileid: "76721628"
 |  **필드**                |     **설명**                                                          |
 |  ---------                |     ---------------                                                          |
 | *로고*  | 로고가 사용되는 방법 및 위치를 보려면 이전 화면 캡처를 참조하세요.  |
-| **작음\***                 | 40x40 픽셀 PNG 형식                                                     |
-| **중간\***                | 90x90 픽셀 PNG 형식                                                     |
-| **큼\***                 | 115x115 픽셀 PNG 형식                                                  |
+| **작은\***                 | 40x40 픽셀 PNG 형식                                                     |
+| **매체\***                | 90x90 픽셀 PNG 형식                                                     |
+| **큰\***                 | 115x115 픽셀 PNG 형식                                                  |
 | **넓은\***                  | 255x115 픽셀 PNG 형식                                                   |
 | **대표**                  | 815x290 픽셀 PNG 형식  선택 사항이지만, 일단 업로드되면 대표 로고를 삭제할 수 없습니다. |
 | *스크린샷*  | 스크린샷은 제품 세부 정보 페이지에 표시됩니다. IoT Edge 모듈의 의미 및 작동 방식을 시각적으로 알려주는 좋은 방법입니다. 아키텍처 다이어그램이나 사용 사례 그림을 예제로 표시할 수 있습니다. 선택 사항이지만, SKU당 최대 5개의 스크린샷을 제공합니다. |
@@ -97,7 +96,7 @@ ms.locfileid: "76721628"
 | *비디오*  | 비디오는 제품 세부 정보 페이지에 표시됩니다. IoT Edge 모듈의 의미 및 작동 방식을 시각적으로 알려주는 좋은 방법입니다. |
 | **이름**                  | 이름 또는 제목입니다. 최대 길이는 100자입니다.                             |
 | **링크**                  | YouTube 또는 Vimeo에서 호스팅되는 비디오 URL입니다.                                        |
-| **썸네일**             | 533x324 픽셀 PNG 형식                                                     |
+| **미리 보기**             | 533x324 픽셀 PNG 형식                                                     |
 |  |  |
 
 
@@ -165,9 +164,9 @@ As an example, the following hero icon is for the Azure Container Service.
 
 |  **필드**                    |     **설명**                                                          |
 |  ---------                    |     ---------------                                                          |
-| **개인 정보 취급 방침 URL\***      | 게시된 개인정보처리방침에 대한 URL                                            |
-| **표준 Constract\* 사용**  | 표준 Microsoft 계약 템플릿을 사용할지 여부를 지정 합니다.  자세한 내용은 [표준 계약](https://docs.microsoft.com/azure/marketplace/standard-contract)을 참조 하세요.   |
-| **사용 약관\***            | 인라인 간단한 HTML로 *사용 약관* 게시 된 사용 약관 페이지에 연결 합니다.     |
+| **개인정보처리방침 URL\***      | 게시된 개인정보처리방침에 대한 URL                                            |
+| **표준 단점 사용\***  | 표준 Microsoft 계약 템플릿을 사용할지 여부입니다.  자세한 내용은 [표준 계약](https://docs.microsoft.com/azure/marketplace/standard-contract)을 참조하십시오.   |
+| **이용 약관\***            | 인라인 간단한 *HTML또는* 게시된 이용 약관 페이지링크로 사용 약관     |
 |  |  |
 
 

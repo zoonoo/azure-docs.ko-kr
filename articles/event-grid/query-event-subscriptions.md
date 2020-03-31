@@ -1,6 +1,6 @@
 ---
 title: Azure Event Grid 구독 쿼리
-description: 이 문서에서는 Azure 구독에서 Event Grid 구독을 나열 하는 방법을 설명 합니다. 구독 유형에 따라 서로 다른 매개 변수를 제공 합니다.
+description: 이 문서에서는 Azure 구독에서 이벤트 그리드 구독을 나열하는 방법을 설명합니다. 구독 유형에 따라 다른 매개 변수를 제공합니다.
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 2da4ba5946f16092c1d0918aec8dc3109b5fd4a8
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721543"
 ---
 # <a name="query-event-grid-subscriptions"></a>Event Grid 구독 쿼리 
@@ -161,5 +161,5 @@ Get-AzEventGridSubscription -ResourceId $resourceid
 ## <a name="next-steps"></a>다음 단계
 
 * 이벤트 배달 및 다시 시도에 대한 자세한 내용은 [Event Grid 메시지 배달 및 다시 시도](delivery-and-retry.md)를 참조하세요.
-* Event Grid에 대한 소개는 [Event Grid 정보](overview.md)를 참조하세요.
+* 이벤트 그리드에 대한 소개는 [이벤트 그리드 소개를](overview.md)참조하십시오.
 * Event Grid를 빠르게 시작하려면 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요.

@@ -1,5 +1,5 @@
 ---
-title: 원격 모니터링 솔루션 UI에 페이지 추가-Azure | Microsoft Docs
+title: 원격 모니터링 솔루션 UI에 페이지 추가 - Azure | Microsoft Docs
 description: 이 문서에서는 원격 모니터링 솔루션 가속기 웹 UI에 새 페이지를 추가하는 방법을 보여 줍니다.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: ec0b9fbdfdb96317e1e7f6fe00384ba4f8c42bcc
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 0228f317e2d3380f2387dd557a27203eb3abc4ad
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607960"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240271"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>원격 모니터링 솔루션 가속기 웹 UI에 사용자 지정 페이지 추가
 
@@ -24,7 +24,7 @@ ms.locfileid: "68607960"
 
 다른 방법 가이드에서는 이 시나리오를 확장하여 추가하는 페이지에 더 많은 기능을 추가합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드의 단계를 완료하려면 로컬 개발 머신에 다음과 같은 소프트웨어가 설치되어 있어야 합니다.
 
@@ -142,7 +142,7 @@ npm install
 npm start
 ```
 
-이전 명령은 [http://localhost:3000/dashboard](http://localhost:3000/dashboard)에서 UI를 로컬로 실행합니다.
+이전 명령은 에서 [http://localhost:3000/dashboard](http://localhost:3000/dashboard)UI를 로컬로 실행합니다.
 
 웹 UI의 로컬 인스턴스를 솔루션 가속기의 배포된 인스턴스에 연결하지 않으면 대시보드에 오류가 표시됩니다. 이러한 오류는 새 페이지를 테스트하는 기능에 영향을 주지 않습니다.
 
@@ -154,17 +154,17 @@ npm start
 
 1. **pcs** CLI를 사용하여 솔루션 가속기의 **기본** 인스턴스를 배포합니다. 가상 머신에 대해 제공한 배포 및 자격 증명의 이름을 기록해 둡니다. 자세한 내용은 [CLI를 사용하여 배포](iot-accelerators-remote-monitoring-deploy-cli.md)를 참조하세요.
 
-1. Azure Portal 또는 [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용하여 솔루션에서 마이크로 서비스를 호스트하는 가상 머신에 대한 SSH 액세스를 활성화합니다. 예를 들어:
+1. Azure 포털 또는 [az CLI를](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 사용하여 솔루션에서 마이크로 서비스를 호스팅하는 가상 컴퓨터에 대한 SSH 액세스를 활성화합니다. 예를 들어:
 
-    ```sh
+    ```azurecli
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    테스트 및 개발하는 동안 SSH 액세스만 활성화해야 합니다. SSH를 활성화하는 경우 [가능한 한 빨리 비활성화해야 합니다](../security/fundamentals/network-best-practices.md).
+    테스트 및 개발하는 동안 SSH 액세스만 활성화해야 합니다. SSH를 사용하도록 설정한 경우 [가능한 한 빨리 다시 비활성화해야 합니다.](../security/fundamentals/network-best-practices.md)
 
 1. Azure Portal 또는 [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용하여 가상 머신의 이름 및 공용 IP 주소를 찾습니다. 예를 들어:
 
-    ```sh
+    ```azurecli
     az resource list --resource-group {your solution name} -o table
     az vm list-ip-addresses --name {your vm name from previous command} --resource-group {your solution name} -o table
     ```

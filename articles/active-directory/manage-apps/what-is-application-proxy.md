@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f23b20d460952ae582c292c8015851b9dc2ea98
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7047dfd0f02ffe95dcacfdf4ddc014047a338513
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108170"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79481197"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 사용자용 온-프레미스 앱 게시
 
@@ -122,7 +122,7 @@ Azure AD는 애플리케이션 프록시를 사용하여 온-프레미스 및 �
 
 앱을 Azure AD로 마이그레이션하는 방법에 대한 자세한 내용은 [애플리케이션을 Azure Active Directory로 마이그레이션](https://aka.ms/migrateapps/whitepaper) 백서를 참조하세요.
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 
 다음 다이어그램은 Azure AD 인증 서비스와 애플리케이션 프록시가 함께 작동하여 온-프레미스 애플리케이션에 대한 Single Sign-On을 최종 사용자에게 제공하는 방법을 보여줍니다.
 
@@ -145,7 +145,7 @@ Azure AD는 애플리케이션 프록시를 사용하여 온-프레미스 및 �
 |AD(Active Directory)|Active Directory는 온-프레미스에서 실행되어 도메인 계정에 대한 인증을 수행합니다. Single Sign-On이 구성되면 커넥터가 AD와 통신하여 필요한 추가 인증을 수행합니다.|
 |온-프레미스 애플리케이션|마지막으로, 사용자는 온-프레미스 애플리케이션에 액세스할 수 있습니다.|
 
-Azure AD 애플리케이션 프록시는 클라우드 기반 애플리케이션 프록시 서비스와 온-프레미스 커넥터로 구성됩니다. 커넥터는 애플리케이션 프록시 서비스의 요청을 수신 대기하고 내부 애플리케이션에 대한 연결을 처리합니다. 모든 통신은 SSL을 통해 발생하고 항상 커넥터에서 애플리케이션 프록시 서비스로 발생한다는 점에 유의해야 합니다. 즉, 통신은 아웃바운드만 있습니다. 커넥터는 클라이언트 인증서를 사용하여 모든 호출에 대해 애플리케이션 프록시 서비스를 인증합니다. 이러한 연결 보안에 대한 유일한 예외는 클라이언트 인증서가 설정되는 초기 설정 단계입니다. 자세한 내용은 애플리케이션 프록시 [내부 살펴보기](application-proxy-security.md#under-the-hood)를 참조하세요.
+Azure AD 애플리케이션 프록시는 클라우드 기반 애플리케이션 프록시 서비스와 온-프레미스 커넥터로 구성됩니다. 커넥터는 애플리케이션 프록시 서비스의 요청을 수신 대기하고 내부 애플리케이션에 대한 연결을 처리합니다. 모든 통신은 TLS를 통해 발생하고 항상 커넥터에서 애플리케이션 프록시 서비스로 발생한다는 점에 유의해야 합니다. 즉, 통신은 아웃바운드만 있습니다. 커넥터는 클라이언트 인증서를 사용하여 모든 호출에 대해 애플리케이션 프록시 서비스를 인증합니다. 이러한 연결 보안에 대한 유일한 예외는 클라이언트 인증서가 설정되는 초기 설정 단계입니다. 자세한 내용은 애플리케이션 프록시 [내부 살펴보기](application-proxy-security.md#under-the-hood)를 참조하세요.
 
 ### <a name="application-proxy-connectors"></a>애플리케이션 프록시 커넥터
 
@@ -180,10 +180,10 @@ Azure AD 애플리케이션 프록시는 클라우드 기반 애플리케이션 
 
 ## <a name="other-use-cases"></a>기타 사용 사례
 
-지금까지는 애플리케이션 프록시를 사용하여 온-프레미스 애플리케이션을 외부에 게시하는 동시에 모든 클라우드 및 온-프레미스 앱에 대한 Single Sign-On이 가능하도록 설정하는 방법에 중점을 두었습니다. 하지만 앱 프록시에 대해 언급할 만한 다른 사용 사례가 있습니다. 다음과 같습니다.
+지금까지는 애플리케이션 프록시를 사용하여 온-프레미스 애플리케이션을 외부에 게시하는 동시에 모든 클라우드 및 온-프레미스 앱에 대한 Single Sign-On이 가능하도록 설정하는 방법에 중점을 두었습니다. 하지만 앱 프록시에 대해 언급할 만한 다른 사용 사례가 있습니다. 해당 기능은 아래와 같습니다.
 
 * **REST API를 안전하게 게시**. 온-프레미스에서 실행되거나 클라우드의 가상 머신에서 호스팅되는 비즈니스 논리 또는 API가 있는 경우, 애플리케이션 프록시가 API 액세스를 위한 공용 엔드포인트를 제공합니다. API 엔드포인트에 액세스할 수 있으면 수신 포트 없이도 인증 및 권한 부여를 제어할 수 있습니다. Azure AD Premium 기능을 통해 Intune을 사용한 데스크톱, iOS, MAC 및 Android 디바이스에 대한 다단계 인증 및 디바이스 기반 조건부 액세스와 같은 추가 보안 기능이 제공됩니다. 자세한 내용은 [네이티브 클라이언트 애플리케이션이 프록시 애플리케이션과 상호 작용하도록 설정하는 방법](application-proxy-configure-native-client-application.md) 및 [Azure Active Directory 및 API Management에서 OAuth 2.0을 사용하여 API 보호](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad)를 참조하세요.
-* **RDS** **(원격 데스크톱 서비스)** . 표준 RDS 배포에는 열린 인바운드 연결이 필요합니다. 하지만 [애플리케이션 프록시가 포함된 RDS 배포](application-proxy-integrate-with-remote-desktop-services.md)에는 커넥터 서비스를 실행하는 서버의 영구적인 아웃바운드 연결이 있습니다. 이렇게 하면 원격 데스크톱 서비스를 통해 온-프레미스 애플리케이션을 게시하여 최종 사용자에게 더 많은 애플리케이션을 제공할 수 있습니다. 또한 RDS에 대한 조건부 액세스 제어 및 2단계 인증 세트가 제한적으로 제공되어 배포의 공격 표면을 줄일 수 있습니다.
+* **원격 데스크톱 서비스** **(RDS)** . 표준 RDS 배포에는 열린 인바운드 연결이 필요합니다. 하지만 [애플리케이션 프록시가 포함된 RDS 배포](application-proxy-integrate-with-remote-desktop-services.md)에는 커넥터 서비스를 실행하는 서버의 영구적인 아웃바운드 연결이 있습니다. 이렇게 하면 원격 데스크톱 서비스를 통해 온-프레미스 애플리케이션을 게시하여 최종 사용자에게 더 많은 애플리케이션을 제공할 수 있습니다. 또한 RDS에 대한 조건부 액세스 제어 및 2단계 인증 세트가 제한적으로 제공되어 배포의 공격 표면을 줄일 수 있습니다.
 * **WebSocket을 사용하여 연결하는 애플리케이션 게시**. [Qlik Sense](application-proxy-qlik.md) 지원은 공개 미리 보기 상태이며 앞으로 다른 앱으로도 확장될 예정입니다.
 * **네이티브 클라이언트 앱이 프록시 애플리케이션과 상호 작용할 수 있도록 설정**. Azure AD 애플리케이션 프록시를 사용하여 웹 애플리케이션을 게시할 수 있지만 ADAL(Azure AD 인증 라이브러리)로 구성된 [네이티브 클라이언트 애플리케이션](application-proxy-configure-native-client-application.md)을 게시하는 데 사용할 수도 있습니다. 네이티브 클라이언트 애플리케이션은 디바이스에 설치되는 반면 웹앱은 브라우저를 통해 액세스되므로 웹앱과 다릅니다.
 

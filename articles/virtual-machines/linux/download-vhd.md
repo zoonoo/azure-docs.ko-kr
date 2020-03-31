@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: cynthn
 ms.openlocfilehash: 02c3ee483e6a31960fd5123070a49f568ac4c690
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78968794"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Azure에서 Linux VHD 다운로드
@@ -48,10 +48,10 @@ VHD를 다른 VM을 만들기 위한 이미지로 사용하려면 다음 단계�
 
 VHD를 기존 VM의 새 인스턴스에 대한 디스크 또는 데이터 디스크로 사용하려면 다음 단계를 완료합니다.
 
-1.  [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2.  왼쪽 메뉴에서 **Virtual Machines**를 선택합니다.
+1.  [Azure 포털에](https://portal.azure.com/)로그인합니다.
+2.  왼쪽 메뉴에서 **가상 컴퓨터를**선택합니다.
 3.  목록에서 VM을 선택합니다.
-4.  VM에 대 한 페이지에서 **중지**를 선택 합니다.
+4.  VM 페이지의 **중지를 선택합니다.**
 
     ![VM 중지](./media/download-vhd/export-stop.png)
 
@@ -59,21 +59,21 @@ VHD를 기존 VM의 새 인스턴스에 대한 디스크 또는 데이터 디스
 
 VHD 파일을 다운로드하려면 [SAS(공유 액세스 서명)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL을 생성해야 합니다. URL이 생성될 때 만료 시간이 URL에 할당됩니다.
 
-1.  VM에 대 한 페이지의 메뉴에서 **디스크**를 선택 합니다.
-2.  VM에 대 한 운영 체제 디스크를 선택 하 고 **디스크 내보내기**를 선택 합니다.
-3.  **URL 생성**을 선택 합니다.
+1.  VM에 대한 페이지 메뉴에서 디스크 를 **선택합니다.**
+2.  VM의 운영 체제 디스크를 선택한 다음 **디스크 내보내기**를 선택합니다.
+3.  **URL 생성을**선택합니다.
 
     ![URL 생성](./media/download-vhd/export-generate.png)
 
 ## <a name="download-vhd"></a>VHD 다운로드
 
-1.  생성 된 URL에서 **VHD 파일 다운로드**를 선택 합니다.
-VHD를 다운로드 하 ![**
-    ](./media/download-vhd/export-download.png)
+1.  생성된 URL에서 **VHD 파일 다운로드를**선택합니다.
+**
+    ![VHD 다운로드](./media/download-vhd/export-download.png)
 
-2.  다운로드를 시작 하려면 브라우저에서 **저장** 을 선택 해야 할 수도 있습니다. VHD 파일에 대한 기본 이름은 *abcd*입니다.
+2.  다운로드를 시작하려면 브라우저에서 **저장을** 선택해야 할 수 있습니다. VHD 파일에 대한 기본 이름은 *abcd*입니다.
 
-    ![브라우저에서 저장을 선택 합니다.](./media/download-vhd/export-save.png)
+    ![브라우저에서 저장 선택](./media/download-vhd/export-save.png)
 
 ## <a name="next-steps"></a>다음 단계
 

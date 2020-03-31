@@ -1,26 +1,26 @@
 ---
-title: PowerShell을 사용 하 여 Azure Service Fabric 배포
-description: Azure Service Fabric에서 응용 프로그램을 제거 하 고 배포 하는 방법과 Powershell에서 이러한 작업을 수행 하는 방법에 대해 알아봅니다.
+title: PowerShell을 사용 하 고 Azure 서비스 패브릭 배포
+description: Azure 서비스 패브릭에서 응용 프로그램을 제거하고 배포하는 방법과 Powershell에서 이러한 작업을 수행하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: e3fdd194f2949f1246e991968e02b3278f33f7db
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282511"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>PowerShell을 사용하여 애플리케이션 배포 및 제거
 
 > [!div class="op_single_selector"]
 > * [리소스 관리자](service-fabric-application-arm-resource.md)
-> * [PowerShell](service-fabric-deploy-remove-applications.md)
+> * [Powershell](service-fabric-deploy-remove-applications.md)
 > * [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 > * [FabricClient API](service-fabric-deploy-remove-applications-fabricclient.md)
 
 <br/>
 
-[응용 프로그램 유형이 패키지 된][10]후에는 Azure Service Fabric 클러스터에 배포할 준비가 된 것입니다. 배포에는 다음 세 단계가 포함됩니다.
+일단 [애플리케이션 형식이 패키지화되면][10] Azure Service Fabric 클러스터에 배포될 준비가 된 것입니다. 배포에는 다음 세 단계가 포함됩니다.
 
 1. 이미지 저장소에 애플리케이션 패키지를 업로드합니다.
 2. 이미지 저장소 상대 경로에 애플리케이션 유형을 등록합니다.
@@ -32,7 +32,7 @@ ms.locfileid: "79282511"
 2. 더 이상 필요하지 않은 경우 애플리케이션 유형을 등록 취소합니다.
 3. 이미지 저장소에서 애플리케이션 패키지를 제거합니다.
 
-로컬 개발 클러스터에서 Visual Studio를 사용하여 애플리케이션을 배포 및 디버그하는 경우 이전의 모든 단계는 PowerShell 스크립트를 통해 자동으로 처리됩니다.  이 스크립트는 애플리케이션 프로젝트의 *Scripts* 폴더에 있습니다. 이 문서에서는 Visual Studio 외부에서 동일한 작업을 수행할 수 있도록 스크립트에서 수행하는 작업에 대한 배경을 설명합니다. 
+로컬 개발 클러스터에서 Visual Studio를 사용하여 애플리케이션을 배포 및 디버그하는 경우 이전의 모든 단계는 PowerShell 스크립트를 통해 자동으로 처리됩니다.  이 스크립트는 응용 프로그램 프로젝트의 *스크립트* 폴더에 있습니다. 이 문서에서는 Visual Studio 외부에서 동일한 작업을 수행할 수 있도록 스크립트에서 수행하는 작업에 대한 배경을 설명합니다. 
 
 애플리케이션을 배포하는 또 다른 방법은 외부 프로비전을 사용하는 것입니다. 애플리케이션 패키지는 [`sfpkg`으로 패키지](service-fabric-package-apps.md#create-an-sfpkg)되거나 외부 저장소에 업로드될 수 있습니다. 이 경우 이미지 저장소에 업로드할 필요가 없습니다. 배포에는 다음 단계가 필요합니다.
 
@@ -103,7 +103,7 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
 부작용은 애플리케이션 유형 등록 및 등록 취소가 빠르다는 것입니다. 업로드 시간은 현재 느려질 수 있습니다. 패키지를 압축하는 시간이 포함되는 경우 특히 그렇습니다. 
 
 패키지를 압축하려면 동일한 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) 명령을 사용합니다. 압축은 업로드와 별도로 `SkipCopy` 플래그를 사용하거나 업로드 작업과 함께 수행할 수 있습니다. 압축된 패키지에 압축을 적용하면 아무런 변화가 없습니다.
-압축된 패키지를 풀려면 [ 스위치와 함께 ](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)Copy-ServiceFabricApplicationPackage`UncompressPackage` 명령을 사용합니다.
+압축된 패키지를 풀려면 `UncompressPackage` 스위치와 함께 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) 명령을 사용합니다.
 
 다음 cmdlet은 패키지를 이미지 저장소에 복사하지 않고 압축합니다. 이제 패키지에 `Code` 및 `Config` 패키지의 압축 파일이 포함됩니다. 애플리케이션 및 서비스 매니페스트는 많은 내부 작업(특정 유효성 검사를 위한 패키지 공유, 애플리케이션 유형 이름 및 버전 추출 등)에 필요하기 때문에 압축되지 않습니다. 매니페스트를 압축하면 이러한 작업이 비효율적으로 수행됩니다.
 
@@ -147,7 +147,7 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -ApplicationP
 *-ApplicationPackagePathInImageStore* 매개 변수를 지정하지 않으면 애플리케이션 패키지가 이미지 저장소의 “Debug” 폴더에 복사됩니다.
 
 >[!NOTE]
->**Copy-ServiceFabricApplicationPackage**는 PowerShell 세션이 Service Fabric 클러스터에 연결되는 경우 해당 이미지 저장소 연결 문자열을 자동으로 검색합니다. 5\.6보다 오래된 Service Fabric 버전에서는 **-ImageStoreConnectionString** 인수를 명시적으로 제공해야 합니다.
+>**Copy-ServiceFabricApplicationPackage**는 PowerShell 세션이 Service Fabric 클러스터에 연결되는 경우 해당 이미지 저장소 연결 문자열을 자동으로 검색합니다. 5.6보다 오래된 Service Fabric 버전에서는 **-ImageStoreConnectionString** 인수를 명시적으로 제공해야 합니다.
 >
 >```powershell
 >PS C:\> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -ApplicationPackagePathInImageStore MyApplicationV1 -ImageStoreConnectionString (Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest)) -TimeoutSec 1800
@@ -191,7 +191,7 @@ Register application type succeeded
 
 ### <a name="register-the-application-package-copied-to-an-external-store"></a>외부 저장소에 복사된 애플리케이션 패키지 등록
 
-Service Fabric 버전 6.1부터, 프로비전 기능은 외부 저장소에서 패키지를 다운로드하도록 지원합니다. 다운로드 URI는 HTTP 또는 HTTPS 프로토콜을 사용하여 애플리케이션 패키지를 다운로드할 수 있는 [`sfpkg` 애플리케이션 패키지](service-fabric-package-apps.md#create-an-sfpkg)의 경로를 나타냅니다. 패키지는 이전에 이 외부 위치에 업로드되었을 것입니다. URI는 Service Fabric이 파일을 다운로드할 수 있도록 읽기 액세스를 허용해야 합니다. `sfpkg` 파일 확장명은 ".sfpkg"여야 합니다. 프로비전 작업은 애플리케이션 매니페스트에 나오는 애플리케이션 유형 정보를 포함해야 합니다.
+Service Fabric 버전 6.1부터, 프로비전 기능은 외부 저장소에서 패키지를 다운로드하도록 지원합니다. 다운로드 URI는 HTTP 또는 [ `sfpkg` ](service-fabric-package-apps.md#create-an-sfpkg) HTTPS 프로토콜을 사용하여 응용 프로그램 패키지를 다운로드할 수 있는 응용 프로그램 패키지에 대한 경로를 나타냅니다. 패키지는 이전에 이 외부 위치에 업로드되었을 것입니다. URI는 Service Fabric이 파일을 다운로드할 수 있도록 읽기 액세스를 허용해야 합니다. `sfpkg` 파일 확장명은 ".sfpkg"여야 합니다. 프로비전 작업은 애플리케이션 매니페스트에 나오는 애플리케이션 유형 정보를 포함해야 합니다.
 
 ```powershell
 Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async
@@ -353,11 +353,11 @@ ImageStoreConnectionString은 클러스터 매니페스트에 있습니다.
 클라이언트 컴퓨터가 클러스터가 아닌 다른 지역에 있는 경우 해당 클러스터와 가깝거나 동일한 지역에 있는 클라이언트 컴퓨터를 사용하는 것이 좋습니다.
 - 외부 제한에 도달하고 있는지 확인합니다. 예를 들어 Azure Storage를 사용하도록 이미지 스토리지를 구성한 경우 업로드가 제한될 수 있습니다.
 
-문제: 패키지 업로드가 성공적으로 완료 되었지만 [register-servicefabricapplicationtype](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) 시간이 초과 되었습니다. 하려고
+문제: 패키지 업로드가 성공적으로 완료되었지만 [등록 서비스패브릭ApplicationType이](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) 시간 단축됩니다. 시도:
 - 이미지 저장소에 복사하기 전에 [패키지를 압축합니다](service-fabric-package-apps.md#compress-a-package).
 압축하면 파일의 크기와 수가 줄어들므로 Service Fabric에서 수행해야 하는 트래픽과 작업량도 줄어듭니다. 업로드 작업이 느려질 수 있지만(특히 압축 시간이 포함되는 경우), 애플리케이션 유형을 더 빠르게 등록 및 등록 취소할 수 있습니다.
 - [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)에 `TimeoutSec` 매개 변수를 사용하여 더 긴 시간 제한을 지정합니다.
-- `Async`Register-ServiceFabricApplicationType[에 ](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) 스위치를 지정합니다. 명령은 클러스터가 명령을 수락하고 애플리케이션 형식의 등록을 비동기적으로 계속하는 경우 반환합니다. 이러한 이유로 더 긴 시간 제한을 지정할 필요가 없습니다. [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) 명령은 성공적으로 등록된 모든 애플리케이션 유형 버전과 해당 등록 상태를 나열합니다. 이 명령을 사용하여 등록이 완료된 시기를 확인할 수 있습니다.
+- [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)에 `Async` 스위치를 지정합니다. 명령은 클러스터가 명령을 수락하고 애플리케이션 형식의 등록을 비동기적으로 계속하는 경우 반환합니다. 이러한 이유로 더 긴 시간 제한을 지정할 필요가 없습니다. [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) 명령은 성공적으로 등록된 모든 애플리케이션 유형 버전과 해당 등록 상태를 나열합니다. 이 명령을 사용하여 등록이 완료된 시기를 확인할 수 있습니다.
 
 ```powershell
 Get-ServiceFabricApplicationType
@@ -376,7 +376,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 다음을 시도해 보세요.
 - 이미지 저장소에 복사하기 전에 [패키지를 압축합니다](service-fabric-package-apps.md#compress-a-package). 압축하면 파일의 수가 줄어듭니다.
 - [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)에 `TimeoutSec` 매개 변수를 사용하여 더 긴 시간 제한을 지정합니다.
-- `Async`Register-ServiceFabricApplicationType[에 ](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) 스위치를 지정합니다. 명령은 클러스터가 명령을 수락하고 애플리케이션 형식의 등록을 비동기적으로 계속하는 경우 반환합니다.
+- [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)에 `Async` 스위치를 지정합니다. 명령은 클러스터가 명령을 수락하고 애플리케이션 형식의 등록을 비동기적으로 계속하는 경우 반환합니다.
 이러한 이유로 더 긴 시간 제한을 지정할 필요가 없습니다. [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) 명령은 성공적으로 등록된 모든 애플리케이션 유형 버전과 해당 등록 상태를 나열합니다. 이 명령을 사용하여 등록이 완료된 시기를 확인할 수 있습니다.
 
 ```powershell
@@ -392,7 +392,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 
 ## <a name="next-steps"></a>다음 단계
 
-[애플리케이션 패키지 작성](service-fabric-package-apps.md)
+[응용 프로그램 패키지](service-fabric-package-apps.md)
 
 [서비스 패브릭 애플리케이션 업그레이드](service-fabric-application-upgrade.md)
 

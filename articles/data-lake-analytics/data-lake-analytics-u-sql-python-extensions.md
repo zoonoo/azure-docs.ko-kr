@@ -10,15 +10,15 @@ ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
 ms.openlocfilehash: 0a49cbdb4caf474d0628fea3679ce712d37886e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60813411"
 ---
 # <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 Python 코드로 U-SQL 스크립트 확장
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 Azure Data Lake Analytics 계정에 Python 확장이 설치되어 있는지 확인하세요.
 
@@ -100,8 +100,8 @@ Python 3.5.1(Windows용으로 컴파일)만 지원됩니다.
 ### <a name="input-and-output-size-limitations"></a>입력 및 출력 크기 제한
 모든 정점에는 할당되는 메모리 양이 제한되어 있습니다. 현재 이 제한은 AU의 경우 6GB입니다. 입력 및 출력 DataFrames는 Python 코드의 메모리에 있어야 하므로 입력 및 출력의 총 크기는 6GB를 초과할 수 없습니다.
 
-## <a name="see-also"></a>참고 항목
-* [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
+## <a name="see-also"></a>참조
+* [Microsoft Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
 * [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
 * [Azure 데이터 레이크 분석 작업에 U-SQL 창 함수 사용](data-lake-analytics-use-window-functions.md)
 * [Azure Data Lake Tools for Visual Studio Code 사용](data-lake-analytics-data-lake-tools-for-vscode.md)

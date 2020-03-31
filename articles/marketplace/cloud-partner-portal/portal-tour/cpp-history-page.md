@@ -1,19 +1,18 @@
 ---
-title: Azure Marketplace에 대 한 감사 기록 페이지
-description: Azure Marketplace에 대 한 Cloud 파트너 포털의 감사 기록 페이지 개요입니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Azure 마켓플레이스에 대한 감사 기록 페이지
+description: Azure 마켓플레이스용 클라우드 파트너 포털의 감사 기록 페이지 개요입니다.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: pabutler
-ms.openlocfilehash: a09eca891c434a6bd836269908c3e2cf37fbd3f5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: cd9577a4bcdb1914ac0a7a23e4a98c31f6e43030
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821551"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288906"
 ---
 # <a name="audit-history-page"></a>감사 기록 페이지
 
@@ -22,7 +21,7 @@ ms.locfileid: "73821551"
 
 ## <a name="example-page"></a>예제 페이지
 
-다음 이미지는 **문자열에서 필터링된**감사 기록`contoso` 페이지입니다.
+다음 이미지는 `contoso` 문자열에서 필터링된 **감사 기록** 페이지입니다.
 
 ![감사 기록 페이지](./media/audit-history-page1.png)
 

@@ -16,10 +16,10 @@ ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58cddcde71e6e86b9abe07eb4200f13ad55ea659
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253664"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>사용자 개인 정보 및 Azure AD Connect Health 
@@ -35,7 +35,7 @@ Azure AD Connect Health는 GDPR 분류의 **데이터 프로세서** 범주에 �
 ## <a name="data-retention-policy"></a>데이터 보존 정책
 Azure AD Connect Health는 보고서를 생성하거나, 분석을 수행하거나, 30일이 지난 정보를 제공하지 않습니다. 따라서 Azure AD Connect Health는 30일이 지난 데이터를 저장, 처리 또는 유지하지 않습니다. 이러한 설계는 GDPR 규정, Microsoft 개인 정보 보호 준수 규정 및 Azure AD 데이터 보존 정책을 준수합니다. 
 
-활성 **상태 서비스 데이터가** 있는 서버는 지난 30 일 **이상 동안** 최신 상태가 아닌 경우에는 해당 시간 범위 동안 연결 상태에 도달 하지 않은 것입니다. 이러한 서버는 사용되지 않도록 설정되고 Connect Health 포털에 표시되지 않습니다. 서버를 다시 사용하도록 설정하려면 [상태 에이전트를 제거했다가 다시 설치](how-to-connect-health-agent-install.md)해야 합니다. 동일한 경고 유형을 갖는 **경고**는 여기에 해당되지 않습니다. 경고는 대상 서버에서 일부 데이터가 누락된 것을 나타냅니다. 
+활성 **상태 서비스 데이터가 최신 상태가 아닙니다.** **오류** 경고가 30일 넘게 연속해서 발생하는 서버에서는 이 기간 동안 데이터가 Connect Health에 도달하지 않은 것입니다. 이러한 서버는 사용되지 않도록 설정되고 Connect Health 포털에 표시되지 않습니다. 서버를 다시 사용하도록 설정하려면 [상태 에이전트를 제거했다가 다시 설치](how-to-connect-health-agent-install.md)해야 합니다. 동일한 경고 유형을 갖는 **경고**는 여기에 해당되지 않습니다. 경고는 대상 서버에서 일부 데이터가 누락된 것을 나타냅니다. 
  
 ## <a name="disable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Azure AD Connect Health에서 데이터 수집 및 모니터링 사용 안 함
 Azure AD Connect Health를 사용하면 모니터링되는 개별 서버 또는 모니터링되는 서비스의 인스턴스에 대한 데이터 수집을 중지할 수 있습니다. 예를 들어 Azure AD Connect Health를 사용하여 모니터링되는 개별 ADFS(Active Directory Federation Services) 서버의 데이터 수집을 중지할 수 있습니다. 또한 Azure AD Connect Health를 사용하여 모니터링 중인 전체 ADFS 인스턴스의 데이터 수집을 중지할 수도 있습니다. 중지하도록 선택하면 데이터 수집을 중지한 후 Azure AD Connect Health 포털에서 해당 서버가 삭제됩니다. 

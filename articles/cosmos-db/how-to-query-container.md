@@ -1,69 +1,103 @@
 ---
 title: Azure Cosmos DB에서 컨테이너 쿼리
-description: 파티션 내, 교차 파티션 및 부분 교차 파티션 쿼리를 사용 하 여 Azure Cosmos DB에서 컨테이너를 쿼리 하는 방법에 대해 알아봅니다.
+description: 파티션 내 및 파티션 간 쿼리를 사용하여 Azure Cosmos DB에서 컨테이너를 쿼리하는 방법에 대해 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 88ebb8bb80ec3406c98b77db481994d415b04373
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 299980b67caaea85fbfb40cb1a30ee50fa32d0f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872029"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131388"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너 쿼리
 
-이 문서에서는 Azure Cosmos DB에서 컨테이너(컬렉션, 그래프, 테이블)를 쿼리하는 방법을 설명합니다.
+이 문서에서는 Azure Cosmos DB에서 컨테이너(컬렉션, 그래프, 테이블)를 쿼리하는 방법을 설명합니다. 특히 Azure Cosmos DB에서 파티션 내 및 분할 간 쿼리가 작동하는 방식을 다룹니다.
 
 ## <a name="in-partition-query"></a>파티션 내 쿼리
 
-컨테이너에서 데이터를 쿼리 할 때 쿼리에 파티션 키 필터가 지정되어 있으면 Azure Cosmos DB가 쿼리를 자동으로 처리합니다. 필터에 지정된 파티션 키 값에 해당하는 파티션으로 쿼리를 라우팅합니다. 예를 들어 다음 쿼리는 파티션 키 값 `XMS-0001`에 해당하는 모든 문서를 포함하는 `DeviceId` 파티션으로 라우팅됩니다.
+컨테이너에서 데이터를 쿼리할 때 쿼리에 파티션 키 필터가 지정된 경우 Azure Cosmos DB는 자동으로 쿼리를 최적화합니다. 필터에 지정된 파티션 키 값에 해당하는 [실제 파티션으로](partition-data.md#physical-partitions) 쿼리를 라우팅합니다.
 
-```csharp
-// Query using partition key into a class called, DeviceReading
-IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
-    UriFactory.CreateDocumentCollectionUri("myDatabaseName", "myCollectionName"))
-    .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
+예를 들어 에 같음 필터가 `DeviceId`있는 아래 쿼리를 고려해 보십시오. 에 분할된 컨테이너에서 `DeviceId`이 쿼리를 실행하면 이 쿼리가 단일 물리적 파티션으로 필터링됩니다.
+
+```sql
+    SELECT * FROM c WHERE c.DeviceId = 'XMS-0001'
+```
+
+이전 예제와 마찬가지로 이 쿼리는 단일 파티션으로필터링됩니다. 추가 필터를 `Location` 추가해도 변경되지 않습니다.
+
+```sql
+    SELECT * FROM c WHERE c.DeviceId = 'XMS-0001' AND c.Location = 'Seattle'
+```
+
+다음은 파티션 키에 범위 필터가 있고 단일 물리적 파티션으로 범위가 조정되지 않는 쿼리입니다. 파티션 내 쿼리를 수행하려면 쿼리에 파티션 키가 포함된 같음 필터가 있어야 합니다.
+
+```sql
+    SELECT * FROM c WHERE c.DeviceId > 'XMS-0001'
 ```
 
 ## <a name="cross-partition-query"></a>파티션 간 쿼리
 
-다음 쿼리는 파티션 키(`DeviceId`)에 대한 필터가 없으므로 파티션의 인덱스에 대해 실행되는 모든 파티션으로 팬아웃됩니다. 파티션 간에 쿼리를 실행 하려면 `EnableCrossPartitionQuery`를 true로(또는 REST API의 경우 `x-ms-documentdb-query-enablecrosspartition` )로 설정합니다.
+다음 쿼리에는 파티션 키()에`DeviceId`대한 필터가 없습니다. 따라서 각 파티션의 인덱스에 대해 실행되는 모든 실제 파티션에 팬아웃해야 합니다.
 
-EnableCrossPartitionQuery 속성은 부울 값을 허용합니다. true로 설정된 경우 쿼리에 파티션 키가 없으면 Azure Cosmos DB가 쿼리를 파티션 전반에 팬 아웃합니다. 팬 아웃은 모든 파티션에 개별 쿼리를 발급하여 수행됩니다. 쿼리 결과를 읽으려면 클라이언트 애플리케이션에서 FeedResponse의 결과를 사용하고 ContinuationToken 속성을 확인해야 합니다. 모든 결과를 읽으려면 ContinuationToken이 null이 될 때까지 데이터를 계속 반복합니다. 
-
-```csharp
-// Query across partition keys into a class called, DeviceReading
-IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
-    UriFactory.CreateDocumentCollectionUri("myDatabaseName", "myCollectionName"),
-    new FeedOptions { EnableCrossPartitionQuery = true })
-    .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
+```sql
+    SELECT * FROM c WHERE c.Location = 'Seattle`
 ```
 
-Azure Cosmos DB는 SQL을 사용하여 컨테이너에 대해 집계 함수 COUNT, MIN, MAX 및 AVG를 지원합니다. 컨테이너에 대한 집계 함수는 SDK 버전 1.12.0 이상부터 지원됩니다. 쿼리는 단일 집계 연산자를 포함해야 하고 프로젝션에 단일 값을 포함해야 합니다.
+각 물리적 파티션에는 고유한 인덱스가 있습니다. 따라서 컨테이너에서 분할 간 쿼리를 실행하면 실제 *파티션당* 하나의 쿼리를 효과적으로 실행합니다. Azure Cosmos DB는 서로 다른 물리적 파티션에서 결과를 자동으로 집계합니다.
+
+서로 다른 물리적 파티션의 인덱스는 서로 독립적입니다. Azure 코스모스 DB에는 글로벌 인덱스가 없습니다.
 
 ## <a name="parallel-cross-partition-query"></a>병렬 파티션 간 쿼리
 
-Azure Cosmos DB SDK 1.9.0 이상은 병렬 쿼리 실행 옵션을 지원합니다. 병렬 파티션 간 쿼리를 사용하면 대기 시간이 짧아지고 파티션 간 쿼리를 수행할 수 있습니다. 예를 들어 다음 쿼리는 파티션에 걸쳐 병렬로 실행되도록 구성되어 있습니다.
-
-```csharp
-// Cross-partition Order By Query with parallel execution
-IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
-    UriFactory.CreateDocumentCollectionUri("myDatabaseName", "myCollectionName"),  
-    new FeedOptions { EnableCrossPartitionQuery = true, MaxDegreeOfParallelism = 10, MaxBufferedItemCount = 100})
-    .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100)
-    .OrderBy(m => m.MetricValue);
-```
+Azure Cosmos DB SDK 1.9.0 이상은 병렬 쿼리 실행 옵션을 지원합니다. 병렬 파티션 간 쿼리를 사용하면 대기 시간이 짧아지고 파티션 간 쿼리를 수행할 수 있습니다.
 
 다음 매개 변수를 조정하여 병렬 쿼리 실행을 관리할 수 있습니다.
 
-- **MaxDegreeOfParallelism**: 컨테이너의 파티션에 대한 최대 동시 네트워크 연결 수를 설정합니다. 이 속성을 -1로 설정하는 경우 SDK에서 병렬 처리 수준이 관리됩니다.  `MaxDegreeOfParallelism` 이 지정되지 않았거나 기본값인 0으로 설정된 경우 컨테이너의 파티션에 단일 네트워크 연결이 있습니다.
+- **MaxConcurrency**: 컨테이너의 파티션에 대한 최대 동시 네트워크 연결 수를 설정합니다. 이 속성을 `-1`로 설정하면 SDK가 병렬 처리 정도를 관리합니다. 을 `MaxConcurrency` 설정하면 `0`컨테이너의 파티션에 대한 단일 네트워크 연결이 있습니다.
 
 - **MaxBufferedItemCount**: 쿼리 대기 시간과 클라이언트 쪽 메모리 사용률을 조정합니다. 이 매개 변수를 생략하거나 -1로 설정하는 경우 SDK는 병렬 쿼리 실행 중에 버퍼링된 항목 수를 관리합니다.
 
-컬렉션의 상태가 동일한 경우 병렬 쿼리는 직렬 실행과 동일한 순서로 결과를 반환합니다. 정렬 연산자(ORDER BY, TOP)를 포함하는 교차 파티션 쿼리를 수행할 때, Azure Cosmos DB SDK는 여러 파티션에서 병렬로 쿼리를 실행합니다. 클라이언트 쪽에서 부분적으로 정렬된 결과를 병합하여 전역적으로 정렬된 결과를 생성합니다.
+Azure Cosmos DB의 크로스 파티션 쿼리 병렬화 기능으로 인해 쿼리 대기 시간은 일반적으로 시스템이 [물리적 파티션을](partition-data.md#physical-partitions)추가함에 따라 확장됩니다. 그러나 실제 파티션의 총 수가 증가함에 따라 RU 요금이 크게 증가합니다.
+
+분할 간 쿼리를 실행하면 기본적으로 개별 물리적 파티션당 별도의 쿼리를 수행합니다. 분할 간 쿼리쿼리는 인덱스를 사용하지만 사용 가능한 경우 파티션 내 쿼리만큼 효율적이지 않습니다.
+
+## <a name="useful-example"></a>유용한 예제
+
+파티션 간 쿼리를 더 잘 이해하는 비유는 다음과 같습니다.
+
+당신이 다른 아파트 단지에 패키지를 제공해야 배달 드라이버상상해 봅시다. 각 아파트 단지에는 거주자의 모든 단위 번호가 있는 숙소 목록이 있습니다. 각 아파트 단지를 실제 파티션과 비교할 수 있으며 각 목록을 실제 파티션의 인덱스와 비교할 수 있습니다.
+
+이 예제를 사용하여 파티션 내 및 파티션 간 쿼리를 비교할 수 있습니다.
+
+### <a name="in-partition-query"></a>파티션 내 쿼리
+
+배달 드라이버가 올바른 아파트 단지 (물리적 파티션)를 알고있는 경우, 그들은 즉시 올바른 건물로 구동 할 수 있습니다. 운전자는 아파트 단지의 거주자 단위 번호(인덱스) 목록을 확인하고 적절한 패키지를 신속하게 배달할 수 있습니다. 이 경우, 운전자는 아파트 단지로 운전하는 데 시간과 노력을 낭비하지 않고 패키지 수령인이 그곳에 살고 있는지 확인합니다.
+
+### <a name="cross-partition-query-fan-out"></a>파티션 간 쿼리(팬아웃)
+
+배달 기사가 올바른 아파트 단지 (물리적 파티션)를 모르는 경우 모든 단일 아파트 건물로 운전하고 거주자의 모든 단위 번호 (인덱스)로 목록을 확인해야합니다. 각 아파트 단지에 도착하면 각 거주자의 주소 목록을 계속 사용할 수 있습니다. 그러나, 그들은 모든 아파트 단지의 목록을 확인 해야합니다, 어떤 패키지 수령인이 거기에 살고 있는지 여부. 이것은 크로스 파티션 쿼리가 작동하는 방법입니다. 인덱스를 사용할 수 있지만(모든 단일 문을 두드리지 않아도 됨) 모든 실제 파티션에 대한 인덱스를 별도로 확인해야 합니다.
+
+### <a name="cross-partition-query-scoped-to-only-a-few-physical-partitions"></a>파티션 간 쿼리(몇 개의 실제 파티션으로만 범위 표시)
+
+배달 기사가 모든 소포 수령인이 특정 소수의 아파트 단지 내에 살고 있다는 것을 알고 있다면, 그들은 모든 아파트 단지로 운전할 필요가 없습니다. 일부 아파트 단지로 운전하는 것은 여전히 하나의 건물을 방문하는 것보다 더 많은 작업이 필요하지만, 배달 드라이버는 여전히 상당한 시간과 노력을 절약 할 수 있습니다. 쿼리에 `IN` 키워드가 있는 필터에 파티션 키가 있는 경우 관련 물리적 파티션의 인덱스만 데이터에 대해 확인합니다.
+
+## <a name="avoiding-cross-partition-queries"></a>파티션 간 쿼리 방지
+
+대부분의 컨테이너의 경우 일부 파티션 간 쿼리가 불가피합니다. 일부 교차 파티션 쿼리를 갖는 것은 괜찮습니다! 거의 모든 쿼리 작업은 파티션(논리 파티션 키와 실제 파티션 모두)에서 지원됩니다. 또한 Azure Cosmos DB에는 쿼리 엔진 및 클라이언트 SDK에 많은 최적화가 있으며 물리적 파티션 간에 쿼리 실행을 병렬화합니다.
+
+읽기가 많은 대부분의 시나리오의 경우 쿼리 필터에서 가장 일반적인 속성을 선택하는 것이 좋습니다. 또한 파티션 키가 다른 [파티션 키 선택 모범 사례를](partitioning-overview.md#choose-partitionkey)준수하는지 확인해야 합니다.
+
+파티션 간 쿼리를 피하는 것은 일반적으로 큰 컨테이너에서만 중요합니다. 실제 파티션의 항목이 쿼리 필터와 일치하지 않더라도 실제 파티션의 인덱스를 확인할 때마다 최소 2.5RU의 요금이 부과됩니다. 따라서 실제 파티션이 하나만 있는 경우 파티션 간 쿼리는 파티션 내 쿼리보다 훨씬 더 많은 RU를 사용하지 않습니다.
+
+실제 파티션 수는 프로비전된 RU의 양과 연결됩니다. 각 물리적 파티션은 최대 10,000개의 프로비저닝된 RU를 허용하며 최대 50GB의 데이터를 저장할 수 있습니다. Azure Cosmos DB는 자동으로 물리적 파티션을 관리합니다. 컨테이너의 실제 파티션 수는 프로비저닝된 처리량과 소비된 저장소에 따라 달라집니다.
+
+워크로드가 아래 조건을 충족하는 경우 파티션 간 쿼리를 사용하지 않아야 합니다.
+- 30,000개 이상의 RU 프로비저닝을 할 계획입니다.
+- 100GB 이상의 데이터를 저장할 계획입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

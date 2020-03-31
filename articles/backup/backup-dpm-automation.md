@@ -1,13 +1,13 @@
 ---
-title: PowerShell을 사용 하 여 DPM 워크 로드 백업
+title: PowerShell을 사용하여 DPM 워크로드 백업
 description: PowerShell을 사용하여 DPM(Data Protection Manager)에 대해 Azure Backup을 배포 및 관리하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.openlocfilehash: 06c138a4015a0b730369e091fc57a34d2190051d
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616728"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>PowerShell을 사용하여 DPM(Data Protection Manager) 서버용 Azure 백업 배포 및 관리
@@ -37,7 +37,7 @@ Sample DPM scripts: Get-DPMSampleScript
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-시작 하려면 [최신 Azure PowerShell를 다운로드](/powershell/azure/install-az-ps)하세요.
+시작하려면 [최신 Azure PowerShell 을 다운로드합니다.](/powershell/azure/install-az-ps)
 
 PowerShell로 다음과 같은 설정 및 등록 작업을 자동화할 수 있습니다.
 
@@ -63,7 +63,7 @@ PowerShell로 다음과 같은 설정 및 등록 작업을 자동화할 수 있�
     New-AzResourceGroup –Name "test-rg" –Location "West US"
     ```
 
-3. **AzRecoveryServicesVault** cmdlet을 사용 하 여 새 자격 증명 모음을 만듭니다. 리소스 그룹에 사용된 동일한 위치를 자격 증명 모음에도 지정해야 합니다.
+3. **New-AzRecoveryServicesVault** cmdlet을 사용하여 새 볼트를 만듭니다. 리소스 그룹에 사용된 동일한 위치를 자격 증명 모음에도 지정해야 합니다.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
@@ -83,9 +83,9 @@ PowerShell로 다음과 같은 설정 및 등록 작업을 자동화할 수 있�
 
 ## <a name="view-the-vaults-in-a-subscription"></a>구독의 자격 증명 모음 보기
 
-**AzRecoveryServicesVault** 를 사용 하 여 현재 구독의 모든 자격 증명 모음 목록을 볼 수 있습니다. 이 명령을 사용하여 새 자격 증명 모음이 만들어졌는지 확인하거나 구독에서 사용할 수 있는 자격 증명 모음을 확인할 수 있습니다.
+**Get-AzRecoveryServicesVault를** 사용하여 현재 구독의 모든 자격 증명 모음 목록을 볼 수 있습니다. 이 명령을 사용하여 새 자격 증명 모음이 만들어졌는지 확인하거나 구독에서 사용할 수 있는 자격 증명 모음을 확인할 수 있습니다.
 
-AzRecoveryServicesVault 및 구독의 모든 자격 증명 모음이 나열 된 명령을 실행 합니다.
+명령을 실행, Get-AzRecoveryServicesVault, 구독의 모든 볼트가 나열됩니다.
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -113,13 +113,13 @@ MARSAgentInstaller.exe /q
 
 그러면 에이전트가 모두 기본 옵션으로 설치됩니다. 설치는 백그라운드에서 몇 분 정도 소요됩니다. */nu* 옵션을 지정하지 않으면 설치 마지막에 **Windows 업데이트** 창이 열리고 업데이트가 있는지 확인합니다.
 
-설치된 프로그램 목록에 에이전트가 표시됩니다. 설치된 프로그램 목록을 보려면 **제어판** > **프로그램** > **프로그램 및 기능**으로 이동합니다.
+설치된 프로그램 목록에 에이전트가 표시됩니다. 설치된 프로그램 목록을 보려면 **제어판** > **프로그램** > **프로그램 및 기능으로**이동하십시오.
 
 ![에이전트 설치됨](./media/backup-dpm-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>설치 옵션
 
-명령줄을 통해 사용할 수 있는 모든 옵션을 보려면 다음 명령을 사용 합니다.
+명령줄을 통해 사용할 수 있는 모든 옵션을 보려면 다음 명령을 사용합니다.
 
 ```powershell
 MARSAgentInstaller.exe /?
@@ -127,7 +127,7 @@ MARSAgentInstaller.exe /?
 
 사용 가능한 옵션은 다음과 같습니다.
 
-| 옵션 | 세부 정보 | 기본 |
+| 옵션 | 세부 정보 | 기본값 |
 | --- | --- | --- |
 | /q |자동 설치 |- |
 | /p:"위치" |Azure Backup 에이전트의 설치 폴더에 대한 경로입니다. |C:\Program Files\Microsoft Azure Recovery Services Agent |
@@ -177,7 +177,7 @@ DPM 서버를 Recovery Services 자격 증명 모음에 등록하면 기본 구�
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 ```
 
-```$setting```Set-DPMCloudSubscriptionSetting[ cmdlet을 사용하여 이 로컬 PowerShell 개체 ](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019)에 대한 모든 수정을 수행한 다음 전체 개체를 DPM 및 Azure Backup에 커밋하여 저장합니다. ```–Commit``` 플래그를 사용하여 해당 변경 내용이 유지되도록 해야 합니다. 커밋하지 않으면 설정이 적용되지 않으며 Azure Backup에서 사용할 수 없습니다.
+[Set-DPMCloudSubscriptionSetting](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) cmdlet을 사용하여 이 로컬 PowerShell 개체 ```$setting```에 대한 모든 수정을 수행한 다음 전체 개체를 DPM 및 Azure Backup에 커밋하여 저장합니다. ```–Commit``` 플래그를 사용하여 해당 변경 내용이 유지되도록 해야 합니다. 커밋하지 않으면 설정이 적용되지 않으며 Azure Backup에서 사용할 수 없습니다.
 
 ```powershell
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
@@ -205,7 +205,7 @@ DPM 서버에서 실행 중인 Azure Backup 에이전트에는 클라우드로�
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
 ```
 
-위의 예제에서 스테이징 영역은 PowerShell 개체 *에서* C:\StagingArea```$setting```로 설정됩니다. 지정된 폴더가 이미 있어야 하며, 그렇지 않으면 구독 설정의 최종 커밋에 실패합니다.
+위의 예제에서 스테이징 영역은 PowerShell 개체 ```$setting```에서 *C:\StagingArea*로 설정됩니다. 지정된 폴더가 이미 있어야 하며, 그렇지 않으면 구독 설정의 최종 커밋에 실패합니다.
 
 ### <a name="encryption-settings"></a>암호화 설정
 
@@ -268,7 +268,7 @@ DPM 에이전트가 설치되어 있고 DPM 서버에 의해 관리되고 있는
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains "productionserver01"}
 ```
 
-이제 ```$server```Get-DPMDatasource[ cmdlet을 사용하여 ](https://docs.microsoft.com/powershell/module/dataprotectionmanager/get-dpmdatasource?view=systemcenter-ps-2019)에서 데이터 원본 목록을 가져옵니다. 이 예제에서는 백업을 위해 구성 하려는 *\\D:* 볼륨을 필터링 합니다. 그런 다음 이 데이터 원본은 [Add-DPMChildDatasource](https://docs.microsoft.com/powershell/module/dataprotectionmanager/add-dpmchilddatasource?view=systemcenter-ps-2019) cmdlet을 사용하여 보호 그룹에 추가됩니다. 추가하려면 *수정 가능한*```$MPG``` 보호 그룹 개체를 사용해야 합니다.
+이제 [Get-DPMDatasource](https://docs.microsoft.com/powershell/module/dataprotectionmanager/get-dpmdatasource?view=systemcenter-ps-2019) cmdlet을 사용하여 ```$server```에서 데이터 원본 목록을 가져옵니다. 이 예제에서는 볼륨 *D를\\ * 필터링합니다. 그런 다음 이 데이터 원본은 [Add-DPMChildDatasource](https://docs.microsoft.com/powershell/module/dataprotectionmanager/add-dpmchilddatasource?view=systemcenter-ps-2019) cmdlet을 사용하여 보호 그룹에 추가됩니다. *수정 가능한* 보호 그룹 개체를 ```$MPG``` 사용하여 추가해야 합니다.
 
 ```powershell
 $DS = Get-Datasource -ProductionServer $server -Inquire | Where-Object { $_.Name -contains "D:\" }
@@ -370,7 +370,7 @@ $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
 
 아래 예제에서는 백업 시점과 복구 대상을 결합하여 Hyper-V 가상 머신을 Azure Backup에서 복원하는 방법을 설명합니다. 이 예제에는 다음이 포함됩니다.
 
-* [New-DPMRecoveryOption](https://docs.microsoft.com/powershell/module/dataprotectionmanager/new-dpmrecoveryoption?view=systemcenter-ps-2019) cmdlet을 사용하여 복구 옵션 만들기
+* [새 DPMRecoveryOption](https://docs.microsoft.com/powershell/module/dataprotectionmanager/new-dpmrecoveryoption?view=systemcenter-ps-2019) cmdlet을 사용하여 복구 옵션을 만듭니다.
 * ```Get-DPMRecoveryPoint``` cmdlet을 사용하여 백업 시점 배열 가져오기
 * 복원할 백업 시점 선택
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 93681813c12f0df99909c849e57153e7a64c78fb
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 7f398012edc25ba6a04e230fa8049e7264f857bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79299314"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294518"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure 파일 동기화 프록시 및 방화벽 설정
 Azure 파일 동기화는 온-프레미스 서버를 Azure Files에 연결하여, 다중 사이트 동기화 및 클라우드 계층화 기능을 사용하도록 설정합니다. 따라서 온-프레미스 서버가 인터넷에 연결되어야 합니다. IT 관리자는 서버가 Azure 클라우드 서비스에 연결하는 최상의 경로를 결정해야 합니다.
@@ -89,13 +89,13 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 
 다음 표에서는 통신에 필요한 도메인에 대해 설명합니다.
 
-| 서비스 | 공용 클라우드 끝점 | Azure Government 엔드포인트 | 사용 |
+| 서비스 | 퍼블릭 클라우드 엔드포인트 | Azure Government 엔드포인트 | 사용 |
 |---------|----------------|---------------|------------------------------|
-| **Azure 리소스 관리자** | https://management.azure.com | https://management.usgovcloudapi.net | 초기 서버 등록 호출을 포함하는 모든 사용자 호출(예: PowerShell)은 이 URL로 이동되거나 이 URL을 통해 이동됩니다. |
-| **Azure Active Directory** | https://login.windows.net<br>https://login.microsoftonline.com | https://login.microsoftonline.us | Azure Resource Manager 호출은 인증된 사용자가 수행해야 합니다. 성공하기 위해 이 URL이 사용자 인증에 사용됩니다. |
-| **Azure Active Directory** | https://graph.windows.net/ | https://graph.windows.net/ | Azure 파일 동기화 배포의 일부로, 구독의 Azure Active Directory에 서비스 주체가 만들어집니다. 이 URL이 해당 작업에 사용됩니다. 이 보안 주체는 Azure 파일 동기화 서비스에 대한 최소한의 권한 집합을 위임하는 데 사용됩니다. Azure 파일 동기화의 초기 설정을 수행하는 사용자는 구독 소유자 권한이 있는 인증된 사용자여야 합니다. |
-| **Azure Storage** | &ast;.core.windows.net | &ast;core.usgovcloudapi.net | 서버는 파일을 다운로드할 때 스토리지 계정의 Azure 파일 공유와 직접 소통하면서 데이터 이동을 보다 효율적으로 수행합니다. 서버에는 대상으로 지정된 파일 공유 액세스만 허용하는 SAS 키가 있습니다. |
-| **Azure 파일 동기화** | &ast;.one.microsoft.com<br>&ast;afs.azure.net | &ast;afs.azure.us | 초기 서버 등록 후 서버는 해당 지역에서 Azure 파일 동기화 서비스 인스턴스에 대한 지역별 URL을 수신합니다. 서버는 이 URL을 사용하여 동기화를 처리하는 인스턴스와 직접 효율적으로 통신할 수 있습니다. |
+| **Azure 리소스 관리자** | `https://management.azure.com` | https://management.usgovcloudapi.net | 초기 서버 등록 호출을 포함하는 모든 사용자 호출(예: PowerShell)은 이 URL로 이동되거나 이 URL을 통해 이동됩니다. |
+| **Azure Active Directory** | https://login.windows.net<br>`https://login.microsoftonline.com` | https://login.microsoftonline.us | Azure Resource Manager 호출은 인증된 사용자가 수행해야 합니다. 성공하기 위해 이 URL이 사용자 인증에 사용됩니다. |
+| **Azure Active Directory** | https://graph.microsoft.com/ | https://graph.microsoft.com/ | Azure 파일 동기화 배포의 일부로, 구독의 Azure Active Directory에 서비스 주체가 만들어집니다. 이 URL이 해당 작업에 사용됩니다. 이 보안 주체는 Azure 파일 동기화 서비스에 대한 최소한의 권한 집합을 위임하는 데 사용됩니다. Azure 파일 동기화의 초기 설정을 수행하는 사용자는 구독 소유자 권한이 있는 인증된 사용자여야 합니다. |
+| **Azure 저장소** | &ast;.core.windows.net | &ast;core.usgovcloudapi.net | 서버는 파일을 다운로드할 때 스토리지 계정의 Azure 파일 공유와 직접 소통하면서 데이터 이동을 보다 효율적으로 수행합니다. 서버에는 대상으로 지정된 파일 공유 액세스만 허용하는 SAS 키가 있습니다. |
+| **Azure 파일 동기화** | &ast;.one.microsoft.com<br>&ast;.afs.azure.net | &ast;.afs.azure.us | 초기 서버 등록 후 서버는 해당 지역에서 Azure 파일 동기화 서비스 인스턴스에 대한 지역별 URL을 수신합니다. 서버는 이 URL을 사용하여 동기화를 처리하는 인스턴스와 직접 효율적으로 통신할 수 있습니다. |
 | **Microsoft PKI** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Azure 파일 동기화 에이전트가 설치되면 PKI URL을 사용하여 Azure 파일 동기화 서비스 및 Azure 파일 공유와 통신하는 데 필요한 중간 인증서를 다운로드합니다. OCSP URL은 인증서의 상태를 확인하는 데 사용됩니다. |
 
 > [!Important]
@@ -103,35 +103,35 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 
 &ast;.one.microsoft.com이 너무 광범위한 경우 Azure File Sync 인스턴스의 명시적인 지역별 인스턴스로의 통신만 허용하여 서버 통신을 제한할 수 있습니다. 선택할 인스턴스는 서버를 배포 및 등록한 스토리지 동기화 서비스의 지역에 따라 다릅니다. 이 지역을 아래 표에서는 "기본 엔드포인트 URL"이라고 부릅니다.
 
-BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 스토리지) 스토리지 계정에서 Azure 파일 공유를 지정했을 수도 있습니다. 이 경우 Azure 파일 공유는 지속적인 지역 정전 시 쌍을 이루는 지역에 장애 조치(failover)됩니다. Azure 파일 동기화는 동일한 지역 쌍을 스토리지로 사용합니다. 따라서 GRS 저장소 계정을 사용 하는 경우 추가 Url을 사용 하도록 설정 하 여 서버에서 Azure File Sync에 대 한 쌍을 이루는 지역과 통신할 수 있도록 해야 합니다. 아래 표에서는이 "쌍을 이루는 지역"을 호출 합니다. 마찬가지로 Traffic Manager 프로필 URL도 사용하도록 설정해야 합니다. 이렇게 하면 장애 조치 시 네트워크 트래픽을 쌍을 이루는 지역으로 원활하게 다시 라우팅할 수 있으며, 이것을 아래 표에서는 "검색 URL"이라고 부릅니다.
+BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 스토리지) 스토리지 계정에서 Azure 파일 공유를 지정했을 수도 있습니다. 이 경우 Azure 파일 공유는 지속적인 지역 정전 시 쌍을 이루는 지역에 장애 조치(failover)됩니다. Azure 파일 동기화는 동일한 지역 쌍을 스토리지로 사용합니다. 따라서 GRS 저장소 계정을 사용하는 경우 서버가 Azure File Sync에 대해 페어링된 지역과 대화할 수 있도록 추가 URL을 사용하도록 설정해야 합니다. 아래 표는 이 것을 "페어링된 지역"이라고 합니다. 마찬가지로 Traffic Manager 프로필 URL도 사용하도록 설정해야 합니다. 이렇게 하면 장애 조치 시 네트워크 트래픽을 쌍을 이루는 지역으로 원활하게 다시 라우팅할 수 있으며, 이것을 아래 표에서는 "검색 URL"이라고 부릅니다.
 
 | 클라우드  | 지역 | 기본 엔드포인트 URL | 쌍을 이루는 지역 | 검색 URL |
 |--------|--------|----------------------|---------------|---------------|
-| 공용 |오스트레일리아 동부 | https:\//kailani-aue.one.microsoft.com | 오스트레일리아 남동부 | https:\//tm-kailani-aue.one.microsoft.com |
-| 공용 |오스트레일리아 남동부 | https:\//kailani-aus.one.microsoft.com | 오스트레일리아 동부 | https:\//tm-kailani-aus.one.microsoft.com |
-| 공용 | 브라질 남부 | https:\//brazilsouth01.afs.azure.net | 미국 중남부 | https:\//tm-brazilsouth01.afs.azure.net |
-| 공용 | 캐나다 중부 | https:\//kailani-cac.one.microsoft.com | 캐나다 동부 | https:\//tm-kailani-cac.one.microsoft.com |
-| 공용 | 캐나다 동부 | https:\//kailani-cae.one.microsoft.com | 캐나다 중부 | https:\//tm-kailani.cae.one.microsoft.com |
-| 공용 | 인도 중부 | https:\//kailani-cin.one.microsoft.com | 인도 남부 | https:\//tm-kailani-cin.one.microsoft.com |
-| 공용 | 미국 중부 | https:\//kailani-cus.one.microsoft.com | 미국 동부 2 | https:\//tm-kailani-cus.one.microsoft.com |
-| 공용 | 동아시아 | https:\//kailani11.one.microsoft.com | 동남아시아 | https:\//tm-kailani11.one.microsoft.com |
-| 공용 | 미국 동부 | https:\//kailani1.one.microsoft.com | 미국 서부 | https:\//tm-kailani1.one.microsoft.com |
-| 공용 | 미국 동부 2 | https:\//kailani-ess.one.microsoft.com | 미국 중부 | https:\//tm-kailani-ess.one.microsoft.com |
-| 공용 | 일본 동부 | https:\//japaneast01.afs.azure.net | 일본 서부 | https:\//tm-japaneast01.afs.azure.net |
-| 공용 | 일본 서부 | https:\//japanwest01.afs.azure.net | 일본 동부 | https:\//tm-japanwest01.afs.azure.net |
-| 공용 | 한국 중부 | https:\//koreacentral01.afs.azure.net/ | 한국 남부 | https:\//tm-koreacentral01.afs.azure.net/ |
-| 공용 | 한국 남부 | https:\//koreasouth01.afs.azure.net/ | 한국 중부 | https:\//tm-koreasouth01.afs.azure.net/ |
-| 공용 | 미국 중북부 | https:\//northcentralus01.afs.azure.net | 미국 중남부 | https:\//tm-northcentralus01.afs.azure.net |
-| 공용 | 북유럽 | https:\//kailani7.one.microsoft.com | 서유럽 | https:\//tm-kailani7.one.microsoft.com |
-| 공용 | 미국 중남부 | https:\//southcentralus01.afs.azure.net | 미국 중북부 | https:\//tm-southcentralus01.afs.azure.net |
-| 공용 | 인도 남부 | https:\//kailani-sin.one.microsoft.com | 인도 중부 | https:\//tm-kailani-sin.one.microsoft.com |
-| 공용 | 동남아시아 | https:\//kailani10.one.microsoft.com | 동아시아 | https:\//tm-kailani10.one.microsoft.com |
-| 공용 | 영국 남부 | https:\//kailani-uks.one.microsoft.com | 영국 서부 | https:\//tm-kailani-uks.one.microsoft.com |
-| 공용 | 영국 서부 | https:\//kailani-ukw.one.microsoft.com | 영국 남부 | https:\//tm-kailani-ukw.one.microsoft.com |
-| 공용 | 미국 중서부 | https:\//westcentralus01.afs.azure.net | 미국 서부 2 | https:\//tm-westcentralus01.afs.azure.net |
-| 공용 | 서유럽 | https:\//kailani6.one.microsoft.com | 북유럽 | https:\//tm-kailani6.one.microsoft.com |
-| 공용 | 미국 서부 | https:\//kailani.one.microsoft.com | 미국 동부 | https:\//tm-kailani.one.microsoft.com |
-| 공용 | 미국 서부 2 | https:\//westus201.afs.azure.net | 미국 중서부 | https:\//tm-westus201.afs.azure.net |
+| Public |오스트레일리아 동부 | https:\//kailani-aue.one.microsoft.com | 오스트레일리아 남동부 | https:\//tm-kailani-aue.one.microsoft.com |
+| Public |오스트레일리아 남동부 | https:\//kailani-aus.one.microsoft.com | 오스트레일리아 동부 | https:\//tm-kailani-aus.one.microsoft.com |
+| Public | 브라질 남부 | https:\//brazilsouth01.afs.azure.net | 미국 중남부 | https:\//tm-brazilsouth01.afs.azure.net |
+| Public | 캐나다 중부 | https:\//kailani-cac.one.microsoft.com | 캐나다 동부 | https:\//tm-kailani-cac.one.microsoft.com |
+| Public | 캐나다 동부 | https:\//kailani-cae.one.microsoft.com | 캐나다 중부 | https:\//tm-kailani.cae.one.microsoft.com |
+| Public | 인도 중부 | https:\//kailani-cin.one.microsoft.com | 인도 남부 | https:\//tm-kailani-cin.one.microsoft.com |
+| Public | 미국 중부 | https:\//kailani-cus.one.microsoft.com | 미국 동부 2 | https:\//tm-kailani-cus.one.microsoft.com |
+| Public | 동아시아 | https:\//kailani11.one.microsoft.com | 동남아시아 | https:\//tm-kailani11.one.microsoft.com |
+| Public | 미국 동부 | https:\//kailani1.one.microsoft.com | 미국 서부 | https:\//tm-kailani1.one.microsoft.com |
+| Public | 미국 동부 2 | https:\//kailani-ess.one.microsoft.com | 미국 중부 | https:\//tm-kailani-ess.one.microsoft.com |
+| Public | 일본 동부 | https:\//japaneast01.afs.azure.net | 일본 서부 | https:\//tm-japaneast01.afs.azure.net |
+| Public | 일본 서부 | https:\//japanwest01.afs.azure.net | 일본 동부 | https:\//tm-japanwest01.afs.azure.net |
+| Public | 한국 중부 | https:\//koreacentral01.afs.azure.net/ | 한국 남부 | https:\//tm-koreacentral01.afs.azure.net/ |
+| Public | 한국 남부 | https:\//koreasouth01.afs.azure.net/ | 한국 중부 | https:\//tm-koreasouth01.afs.azure.net/ |
+| Public | 미국 중북부 | https:\//northcentralus01.afs.azure.net | 미국 중남부 | https:\//tm-northcentralus01.afs.azure.net |
+| Public | 북유럽 | https:\//kailani7.one.microsoft.com | 서유럽 | https:\//tm-kailani7.one.microsoft.com |
+| Public | 미국 중남부 | https:\//southcentralus01.afs.azure.net | 미국 중북부 | https:\//tm-southcentralus01.afs.azure.net |
+| Public | 인도 남부 | https:\//kailani-sin.one.microsoft.com | 인도 중부 | https:\//tm-kailani-sin.one.microsoft.com |
+| Public | 동남아시아 | https:\//kailani10.one.microsoft.com | 동아시아 | https:\//tm-kailani10.one.microsoft.com |
+| Public | 영국 남부 | https:\//kailani-uks.one.microsoft.com | 영국 서부 | https:\//tm-kailani-uks.one.microsoft.com |
+| Public | 영국 서부 | https:\//kailani-ukw.one.microsoft.com | 영국 남부 | https:\//tm-kailani-ukw.one.microsoft.com |
+| Public | 미국 중서부 | https:\//westcentralus01.afs.azure.net | 미국 서부 2 | https:\//tm-westcentralus01.afs.azure.net |
+| Public | 서유럽 | https:\//kailani6.one.microsoft.com | 북유럽 | https:\//tm-kailani6.one.microsoft.com |
+| Public | 미국 서부 | https:\//kailani.one.microsoft.com | 미국 동부 | https:\//tm-kailani.one.microsoft.com |
+| Public | 미국 서부 2 | https:\//westus201.afs.azure.net | 미국 중서부 | https:\//tm-westus201.afs.azure.net |
 | 정부 | US Gov 애리조나 | https:\//usgovarizona01.afs.azure.us | US Gov 텍사스 | https:\//tm-usgovarizona01.afs.azure.us |
 | 정부 | US Gov 텍사스 | https:\//usgovtexas01.afs.azure.us | US Gov 애리조나 | https:\//tm-usgovtexas01.afs.azure.us |
 
@@ -139,65 +139,132 @@ BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 스�
 
 - GRS(전역 중복 스토리지) 스토리지 계정을 사용하는 경우 세 URL을 사용하도록 설정합니다.
 
-**예:** `"West US"`에 스토리지 동기화 서비스를 배포하고 서버를 등록합니다. 여기서 서버가 통신할 수 있는 URL은 다음과 같습니다.
+**예:**`"West US"`에 스토리지 동기화 서비스를 배포하고 서버를 등록합니다. 여기서 서버가 통신할 수 있는 URL은 다음과 같습니다.
 
-> - https:\//kailani.one.microsoft.com (기본 끝점: 미국 서 부)
-> - https:\//kailani1.one.microsoft.com (페어링된 장애 조치 (failover) 지역: 미국 동부)
-> - https:\//tm-kailani.one.microsoft.com (주 지역의 검색 URL)
+> - https:\//kailani.one.microsoft.com(기본 끝점: 미국 서부)
+> - https:\//kailani1.one.microsoft.com(페어링된 장애 조치 지역: 미국 동부)
+> - https:\//tm-kailani.one.microsoft.com(기본 지역의 검색 URL)
 
-### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Azure File Sync IP 주소에 대 한 허용 목록
-온-프레미스 방화벽에서 Azure File Sync에 연결 하기 위해 허용 목록에 특정 IP 주소를 추가 해야 하는 경우 연결 하는 영역을 기반으로 다음 IP 주소 범위를 추가할 수 있습니다.
+### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Azure 파일 동기화 IP 주소에 대한 목록 허용
+Azure File Sync는 지정된 Azure 서비스에 대한 IP 주소 접두사 그룹을 나타내는 [서비스 태그](../../virtual-network/service-tags-overview.md)사용을 지원합니다. 서비스 태그를 사용하여 Azure File Sync 서비스와통신할 수 있는 방화벽 규칙을 만들 수 있습니다. Azure 파일 동기화에 대한 `StorageSyncService`서비스 태그는 .
 
-| 지역 | IP 주소 범위 |
-|--------|-------------------|
-| 미국 중부 | 52.176.149.179/32, 20.37.157.80/29 |
-| 미국 동부 2 | 40.123.47.110/32, 20.41.5.144/29 |
-| 미국 동부 | 104.41.148.238/32, 20.42.4.248/29 |
-| 미국 중북부 | 65.52.62.167/32, 40.80.188.24/29 |
-| 미국 중남부 | 104.210.219.252/32, 13.73.248.112/29 |
-| 미국 서부 2 | 52.183.27.204/32, 20.42.131.224/29 |
-| 미국 중서부 | 52.161.25.233/32, 52.150.139.104/29 |
-| 미국 서부 | 40.112.150.67/32, 40.82.253.192/29 |
-| 캐나다 중부 | 52.228.42.41/32, 52.228.81.248/29 |
-| 캐나다 동부 | 52.235.36.119/32, 40.89.17.232/29 |
-| 브라질 남부 | 191.237.253.115/32, 191.235.225.216/29 |
-| 북유럽 | 40.113.94.67/32, 20.38.85.152/29 |
-| 서유럽 | 104.40.191.8/32, 20.50.1.0/29 |
-| 프랑스 중부 | 52.143.166.54/32, 20.43.42.8/29 |
-| 프랑스 남부 | 52.136.131.99/32, 51.105.88.248/29 |
-| 영국 남부 | 51.140.67.72/32, 51.104.25.224/29 |
-| 영국 서부 | 51.140.202.34/32, 51.137.161.240/29 |
-| 스위스 북부 | 51.107.48.224/29 |
-| 스위스 서부 | 51.107.144.216/29 |
-| 노르웨이 서 부 | 51.120.224.216/29 |
-| 노르웨이 동부 | 51.120.40.224/29 |
-| 동아시아 | 23.102.225.54/32, 20.189.108.56/29 |
-| 동남아시아 | 13.76.81.46/32, 20.43.131.40/29 |
-| 오스트레일리아 중부 | 20.37.224.216/29 |
-| 오스트레일리아 중부 2 | 20.36.120.216/29 |
-| 오스트레일리아 동부 | 13.75.153.240/32, 20.37.195.96/29 |
-| 오스트레일리아 남동부 | 13.70.176.196/32, 20.42.227.128/29 |
-| 인도 남부 | 104.211.231.18/32, 20.41.193.160/29 |
-| 인도 서부 | 52.136.48.216/29 |
-| 일본 동부 | 104.41.161.113/32, 20.43.66.0/29 |
-| 일본 서부 | 23.100.106.151/32, 40.80.57.192/29 |
-| 한국 중부 | 52.231.67.75/32, 20.41.65.184/29 |
-| 한국 남부 | 52.231.159.38/32, 40.80.169.176/29 |
-| US DoD 동부 | 20.140.72.152/29 |
-| US Gov 애리조나 | 20.140.64.152/29 |
-| US Gov 애리조나 | 52.244.75.224/32, 52.244.79.140/32 |
-| US Gov 아이오와 | 52.244.79.140/32, 52.244.75.224/32 |
-| US Gov 텍사스 | 52.238.166.107/32, 52.238.79.29/32 |
-| US Gov 버지니아 | 13.72.17.152/32, 52.227.153.92/32 |
-| 남아프리카 북부 | 102.133.175.72/32 |
-| 남아프리카 서부 | 102.133.75.173/32, 102.133.56.128/29, 20.140.48.216/29 |
-| 아랍에미리트 중부 | 20.45.71.151/32, 20.37.64.216/29, 20.140.48.216/29 |
-| 아랍에미리트 북부 | 40.123.216.130/32, 20.38.136.224/29, 20.140.56.136/29 |
+Azure 내에서 Azure File Sync를 사용하는 경우 네트워크 보안 그룹에서 직접 서비스 태그 이름을 사용하여 트래픽을 허용할 수 있습니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [네트워크 보안 그룹을](../../virtual-network/security-overview.md)참조하십시오.
 
-## <a name="test-network-connectivity-to-service-endpoints"></a>서비스 끝점에 대 한 네트워크 연결 테스트
-서버를 Azure File Sync 서비스에 등록 한 후에는 테스트 StorageSyncNetworkConnectivity cmdlet 및 ServerRegistration을 사용 하 여이 서버와 관련 된 모든 끝점 (Url)과의 통신을 테스트할 수 있습니다. 이 cmdlet은 불완전 한 통신에서 서버가 Azure File Sync 완전히 작동 하지 않도록 하 고 프록시 및 방화벽 구성을 미세 조정 하는 데 사용할 수 있는 경우 문제를 해결 하는 데 도움이 됩니다.
+온-프레미스에서 Azure File Sync를 사용하는 경우 서비스 태그 API를 사용하여 방화벽의 허용 목록에 대한 특정 IP 주소 범위를 얻을 수 있습니다. 이 정보를 가져오는 방법에는 두 가지가 있습니다.
 
-네트워크 연결 테스트를 실행 하려면 Azure File Sync 에이전트 버전 9.1 이상을 설치 하 고 다음 PowerShell 명령을 실행 합니다.
+- 서비스 태그를 지원하는 모든 Azure 서비스에 대한 현재 IP 주소 범위는 JSON 문서 형식으로 Microsoft 다운로드 센터에 매주 게시됩니다. 각 Azure 클라우드에는 해당 클라우드와 관련된 IP 주소 범위가 있는 자체 JSON 문서가 있습니다.
+    - [Azure 공용](https://www.microsoft.com/download/details.aspx?id=56519)
+    - [Azure 미국 정부](https://www.microsoft.com/download/details.aspx?id=57063)
+    - [Azure 중국](https://www.microsoft.com/download/details.aspx?id=57062)
+    - [Azure 독일](https://www.microsoft.com/download/details.aspx?id=57064)
+- 서비스 태그 검색 API(미리 보기)를 사용하면 현재 서비스 태그 목록을 프로그래밍 방식으로 검색할 수 있습니다. 미리 보기에서 서비스 태그 검색 API는 Microsoft 다운로드 센터에 게시된 JSON 문서에서 반환된 정보보다 최신 정보가 아닌 정보를 반환할 수 있습니다. 자동화 기본 설정에 따라 API 표면을 사용할 수 있습니다.
+    - [나머지 API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
+    - [Azure 파워쉘](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
+    - [Azure CLI](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+
+서비스 태그 검색 API는 Microsoft 다운로드 센터에 게시된 JSON 문서만큼 자주 업데이트되지 않으므로 JSON 문서를 사용하여 온-프레미스 방화벽의 허용 목록을 업데이트하는 것이 좋습니다. 이 작업은 다음과 같이 수행할 수 있습니다.
+
+```PowerShell
+# The specific region to get the IP address ranges for. Replace westus2 with the desired region code 
+# from Get-AzLocation.
+$region = "westus2"
+
+# The service tag for Azure File Sync. Do not change unless you're adapting this
+# script for another service.
+$serviceTag = "StorageSyncService"
+
+# Download date is the string matching the JSON document on the Download Center. 
+$possibleDownloadDates = 0..7 | `
+    ForEach-Object { [System.DateTime]::Now.AddDays($_ * -1).ToString("yyyyMMdd") }
+
+# Verify the provided region
+$validRegions = Get-AzLocation | `
+    Where-Object { $_.Providers -contains "Microsoft.StorageSync" } | `
+    Select-Object -ExpandProperty Location
+
+if ($validRegions -notcontains $region) {
+    Write-Error `
+            -Message "The specified region $region is not available. Either Azure File Sync is not deployed there or the region does not exist." `
+            -ErrorAction Stop
+}
+
+# Get the Azure cloud. This should automatically based on the context of 
+# your Az PowerShell login, however if you manually need to populate, you can find
+# the correct values using Get-AzEnvironment.
+$azureCloud = Get-AzContext | `
+    Select-Object -ExpandProperty Environment | `
+    Select-Object -ExpandProperty Name
+
+# Build the download URI
+$downloadUris = @()
+switch($azureCloud) {
+    "AzureCloud" { 
+        $downloadUris = $possibleDownloadDates | ForEach-Object {  
+            "https://download.microsoft.com/download/7/1/D/71D86715-5596-4529-9B13-DA13A5DE5B63/ServiceTags_Public_$_.json"
+        }
+    }
+
+    "AzureUSGovernment" {
+        $downloadUris = $possibleDownloadDates | ForEach-Object { 
+            "https://download.microsoft.com/download/6/4/D/64DB03BF-895B-4173-A8B1-BA4AD5D4DF22/ServiceTags_AzureGovernment_$_.json"
+        }
+    }
+
+    "AzureChinaCloud" {
+        $downloadUris = $possibleDownloadDates | ForEach-Object { 
+            "https://download.microsoft.com/download/9/D/0/9D03B7E2-4B80-4BF3-9B91-DA8C7D3EE9F9/ServiceTags_China_$_.json"
+        }
+    }
+
+    "AzureGermanCloud" {
+        $downloadUris = $possibleDownloadDates | ForEach-Object { 
+            "https://download.microsoft.com/download/0/7/6/076274AB-4B0B-4246-A422-4BAF1E03F974/ServiceTags_AzureGermany_$_.json"
+        }
+    }
+
+    default {
+        Write-Error -Message "Unrecognized Azure Cloud: $_" -ErrorAction Stop
+    }
+}
+
+# Find most recent file
+$found = $false 
+foreach($downloadUri in $downloadUris) {
+    try { $response = Invoke-WebRequest -Uri $downloadUri -UseBasicParsing } catch { }
+    if ($response.StatusCode -eq 200) {
+        $found = $true
+        break
+    }
+}
+
+if ($found) {
+    # Get the raw JSON 
+    $content = [System.Text.Encoding]::UTF8.GetString($response.Content)
+
+    # Parse the JSON
+    $serviceTags = ConvertFrom-Json -InputObject $content -Depth 100
+
+    # Get the specific $ipAddressRanges
+    $ipAddressRanges = $serviceTags | `
+        Select-Object -ExpandProperty values | `
+        Where-Object { $_.id -eq "$serviceTag.$region" } | `
+        Select-Object -ExpandProperty properties | `
+        Select-Object -ExpandProperty addressPrefixes
+} else {
+    # If the file cannot be found, that means there hasn't been an update in
+    # more than a week. Please verify the download URIs are still accurate
+    # by checking https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+    Write-Verbose -Message "JSON service tag file not found."
+    return
+}
+```
+
+그런 다음 IP 주소 범위를 `$ipAddressRanges` 사용하여 방화벽을 업데이트할 수 있습니다. 방화벽/네트워크 어플라이언스의 웹 사이트에서 방화벽을 업데이트하는 방법에 대한 정보를 확인하십시오.
+
+## <a name="test-network-connectivity-to-service-endpoints"></a>서비스 엔드포인트에 대한 네트워크 연결 테스트
+서버가 Azure 파일 동기화 서비스에 등록되면 테스트-StorageSyncNetworkConnectivity cmdlet 및 ServerRegistration.exe를 사용하여 이 서버와 관련된 모든 끝점(URL)과의 통신을 테스트할 수 있습니다. 이 cmdlet은 불완전한 통신으로 서버가 Azure File Sync로 완전히 작동하지 못하게 하고 프록시 및 방화벽 구성을 미세 조정하는 데 사용할 수 있는 문제를 해결하는 데 도움이 될 수 있습니다.
+
+네트워크 연결 테스트를 실행하려면 Azure File Sync 에이전트 버전 9.1 이상을 설치하고 다음 PowerShell 명령을 실행합니다.
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Test-StorageSyncNetworkConnectivity
@@ -209,6 +276,6 @@ Test-StorageSyncNetworkConnectivity
 방화벽 규칙을 제한하는 도메인을 설정하는 것도 보안을 강화하는 방법이 될 수 있습니다. 이러한 방화벽 구성을 사용하는 경우 시간이 지남에 따라 URL이 추가되고 변경될 수 있다는 점에 유의해야 합니다. 이 문서를 정기적으로 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)
+- [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md)
 - [Azure 파일 동기화 배포](storage-sync-files-deployment-guide.md)
 - [Azure 파일 동기화 모니터링](storage-sync-files-monitoring.md)

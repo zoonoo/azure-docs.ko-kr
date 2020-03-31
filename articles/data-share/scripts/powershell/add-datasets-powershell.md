@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell 스크립트: Azure 데이터 공유에 blob 데이터 집합 추가 | Microsoft Docs'
-description: 이 PowerShell 스크립트는 기존 공유에 blob 데이터 집합을 추가 합니다.
+title: 'PowerShell 스크립트: Azure 데이터 공유에 Blob 데이터 집합 추가 | 마이크로 소프트 문서'
+description: 이 PowerShell 스크립트는 기존 공유에 Blob 데이터 집합을 추가합니다.
 services: data-share
 author: joannapea
 ms.service: data-share
@@ -10,15 +10,15 @@ ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
 ms.openlocfilehash: 95a10b112c9f6448c437f20ee95f808632a31d2d
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70307311"
 ---
-# <a name="use-powershell-to-create-a-data-share-in-azure"></a>PowerShell을 사용 하 여 Azure에서 데이터 공유 만들기
+# <a name="use-powershell-to-create-a-data-share-in-azure"></a>PowerShell을 사용하여 Azure에서 데이터 공유 만들기
 
-이 PowerShell 스크립트는 기존 데이터 공유에 blob 데이터 집합을 추가 합니다.
+이 PowerShell 스크립트는 기존 데이터 공유에 Blob 데이터 집합을 추가합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -42,13 +42,13 @@ New-AzDataShareDataSet -ResourceGroupName $resourceGroupName -AccountName $dataS
 
 이 스크립트는 다음 명령을 사용합니다. 
 
-| 명령 | 참고 |
+| 명령 | 메모 |
 |---|---|
-| [AzDataShareDataSet](/powershell/module/az.datashare/new-azdatasharedataset?view=azps-2.6.0) | 데이터 집합을 데이터 공유에 추가 합니다. |
+| [뉴 아즈데이터데이터데이터세트](/powershell/module/az.datashare/new-azdatasharedataset?view=azps-2.6.0) | 데이터 집합을 데이터 공유에 추가합니다. |
 |||
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/)를 참조하세요.
 
-추가 Azure 데이터 공유 PowerShell 스크립트 샘플은 [Azure 데이터 공유 powershell 샘플](../../samples-powershell.md)에서 찾을 수 있습니다.
+추가 Azure 데이터 공유 PowerShell 스크립트 샘플은 [Azure 데이터 공유 PowerShell 샘플에서](../../samples-powershell.md)찾을 수 있습니다.

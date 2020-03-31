@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.openlocfilehash: 5794a2c754e2082fdf45ad689bdb89ea494541c2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73679868"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Azure Data Factory의 필터 작업
@@ -38,14 +38,14 @@ ms.locfileid: "73679868"
 
 속성 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-name | `Filter` 작업의 이름입니다. | 문자열 | 예
-type | **필터**로 설정되어야 합니다. | 문자열 | 예
-condition | 입력을 필터링하는 데 사용할 조건입니다. | 식 | 예
-항목 | 필터를 적용해야 하는 입력 배열입니다. | 식 | 예
+name | `Filter` 작업의 이름입니다. | String | yes
+type | **필터**로 설정되어야 합니다. | String | yes
+condition(조건) | 입력을 필터링하는 데 사용할 조건입니다. | 식 | yes
+items | 필터를 적용해야 하는 입력 배열입니다. | 식 | yes
 
 ## <a name="example"></a>예제
 
-이 예제에서 파이프라인에는 **필터** 및 **ForEach**라는 두 개의 작업이 있습니다. 필터 작업은 3보다 큰 값의 항목에 대한 입력 배열을 필터링하도록 구성됩니다. 그런 다음 ForEach 활동은 필터링 된 값을 반복 하 고 변수 **테스트** 를 현재 값으로 설정 합니다.
+이 예제에서 파이프라인에는 **필터** 및 **ForEach**라는 두 개의 작업이 있습니다. 필터 작업은 3보다 큰 값의 항목에 대한 입력 배열을 필터링하도록 구성됩니다. ForEach 활동은 필터링된 값을 반복하고 변수 **테스트를** 현재 값으로 설정합니다.
 
 ```json
 {
@@ -115,9 +115,9 @@ condition | 입력을 필터링하는 데 사용할 조건입니다. | 식 | 예
 Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요. 
 
 - [If 조건 작업](control-flow-if-condition-activity.md)
-- [파이프라인 실행 작업](control-flow-execute-pipeline-activity.md)
-- [ForEach 작업](control-flow-for-each-activity.md)
-- [메타데이터 작업 가져오기](control-flow-get-metadata-activity.md)
+- [파이프라인 활동 실행](control-flow-execute-pipeline-activity.md)
+- [각 활동에 대해](control-flow-for-each-activity.md)
+- [메타데이터 활동 받기](control-flow-get-metadata-activity.md)
 - [조회 작업](control-flow-lookup-activity.md)
-- [웹 작업](control-flow-web-activity.md)
+- [웹 활동](control-flow-web-activity.md)
 - [Until 작업](control-flow-until-activity.md)

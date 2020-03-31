@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 76e34736238273f2af3fccae0ac2b5ed0ff491f0
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 0c619224201d6225d5e5c127b342f71f2f7fced9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128339"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535355"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>스토리지 계정 장애 조치(failover)(미리 보기) 시작
 
@@ -29,15 +29,15 @@ ms.locfileid: "79128339"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-저장소 계정에서 계정 장애 조치 (failover)를 수행 하려면 먼저 다음 단계를 수행 했는지 확인 합니다.
+저장소 계정에서 계정 장애 조치를 수행하기 전에 다음 단계를 수행했는지 확인합니다.
 
-- 스토리지 계정이 GRS(지역 중복 스토리지) 또는 RA-GRS(읽기 액세스 지역 중복 스토리지)를 사용하도록 구성되었는지 확인합니다. 지역 중복 저장소에 대 한 자세한 내용은 [Azure Storage 중복성](storage-redundancy.md)을 참조 하세요.
+- 스토리지 계정이 GRS(지역 중복 스토리지) 또는 RA-GRS(읽기 액세스 지역 중복 스토리지)를 사용하도록 구성되었는지 확인합니다. 지역 중복 저장소에 대한 자세한 내용은 [Azure 저장소 중복을](storage-redundancy.md)참조하십시오.
 
 ## <a name="important-implications-of-account-failover"></a>계정 장애 조치(failover)의 중요한 의미
 
 스토리지 계정에 대해 계정 장애 조치(failover)를 시작하면 보조 엔드포인트가 기본 엔드포인트가 되도록 보조 엔드포인트에 대한 DNS 레코드가 업데이트됩니다. 장애 조치(failover)를 시작하기 전에 스토리지 계정에 대한 잠재적 영향을 파악해야 합니다.
 
-장애 조치(failover)를 시작하기 전에 가능한 데이터 손실 범위를 예측하려면 **PowerShell cmdlet을 사용하여**마지막 동기화 시간`Get-AzStorageAccount` 속성을 확인하고 `-IncludeGeoReplicationStats` 매개 변수를 포함합니다. 그런 다음, 계정의 `GeoReplicationStats` 속성을 확인합니다. \
+장애 조치(failover)를 시작하기 전에 가능한 데이터 손실 범위를 예측하려면 `Get-AzStorageAccount` PowerShell cmdlet을 사용하여 **마지막 동기화 시간** 속성을 확인하고 `-IncludeGeoReplicationStats` 매개 변수를 포함합니다. 그런 다음, 계정의 `GeoReplicationStats` 속성을 확인합니다. \
 
 장애 조치(failover) 후에는 새로운 주 지역에서 스토리지 계정 유형이 LRS(로컬 중복 스토리지)로 자동 변환됩니다. 계정에 대해 GRS(지역 중복 스토리지) 또는 RA-GRS(읽기 액세스 지역 중복 스토리지)를 다시 사용할 수 있습니다. LRS에서 GRS 또는 RA-GRS로 변환하는 경우 추가 비용이 발생합니다. 자세한 내용은 [대역폭 가격 정보](https://azure.microsoft.com/pricing/details/bandwidth/)를 참조하세요.
 
@@ -59,14 +59,14 @@ Azure Portal에서 계정 장애 조치(failover)를 시작하려면 다음 단�
 
     ![계정 장애 조치(failover)에 대한 확인 대화 상자가 표시된 스크린샷](media/storage-initiate-account-failover/portal-failover-confirm.png)
 
-## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+## <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 PowerShell을 사용하여 계정 장애 조치(failover)를 시작하려면 먼저 6.0.1 미리 보기 모듈을 설치해야 합니다. 다음 단계에 따라 모듈을 설치합니다.
 
 1. 모든 이전 Azure PowerShell 설치를 제거합니다.
 
     - **설정**에 있는 **앱 및 기능** 설정을 사용하여 Windows에서 이전에 설치한 Azure PowerShell을 제거합니다.
-    - `%Program Files%\WindowsPowerShell\Modules`에서 모든 **Azure** 모듈을 제거 합니다.
+    - 에서 모든 Azure 모듈을 제거합니다. **Azure** `%Program Files%\WindowsPowerShell\Modules`
 
 1. 최신 버전의 PowerShellGet이 설치되어 있는지 확인합니다. Windows PowerShell 창을 열고 다음 명령을 실행하여 최신 버전을 설치합니다.
 
@@ -82,7 +82,7 @@ PowerShell을 사용하여 계정 장애 조치(failover)를 시작하려면 먼
     Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. 계정 장애 조치 (failover)를 지 원하는 Azure Storage 미리 보기 모듈을 설치 합니다.
+1. 계정 장애 조치(failover)를 지원하는 Azure 저장소 미리 보기 모듈을 설치합니다.
 
     ```powershell
     Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force 
@@ -100,7 +100,7 @@ Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <
 
 Azure CLI를 사용하여 계정 장애 조치(failover)를 시작하려면 다음 명령을 실행합니다.
 
-```cli
+```azurecli
 az storage account show \ --name accountName \ --expand geoReplicationStats
 az storage account failover \ --name accountName
 ```
@@ -110,5 +110,5 @@ az storage account failover \ --name accountName
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Storage의 재해 복구 및 계정 장애 조치(failover)(미리 보기)](storage-disaster-recovery-guidance.md)
-- [RA-GRS를 사용하여 항상 사용 가능한 애플리케이션 디자인](storage-designing-ha-apps-with-ragrs.md)
-- [자습서: Blob storage를 사용 하 여 고가용성 응용 프로그램 빌드](../blobs/storage-create-geo-redundant-storage.md) 
+- [RA-GRS를 사용하여 가용성이 높은 응용 프로그램 설계](storage-designing-ha-apps-with-ragrs.md)
+- [자습서: Blob 저장소를 사용 하 고 가용성이 높은 응용 프로그램을 빌드](../blobs/storage-create-geo-redundant-storage.md) 

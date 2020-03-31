@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory의 웹 활동
+title: Azure 데이터 팩터리의 웹 활동
 description: Data Factory에서 지원하는 제어 흐름 작업 중 하나인 웹 작업을 사용하여 파이프라인에서 REST 엔드포인트를 호출하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.openlocfilehash: c700c9786f3bec4c79cae904a95deb5fd1c670b4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260866"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory에서 웹 작업
 웹 작업은 Data Factory 파이프라인에서 사용자 지정 REST 엔드포인트를 호출하는 데 사용할 수 있습니다. 작업에서 사용하고 액세스하도록 데이터 세트 및 연결된 서비스를 전달할 수 있습니다.
 
 > [!NOTE]
-> 웹 활동은 공개적으로 노출 된 Url만 호출할 수 있습니다. 개인 가상 네트워크에서 호스트 되는 Url에 대해서는 지원 되지 않습니다.
+> 웹 활동은 공개적으로 노출된 URL만 호출할 수 있습니다. 개인 가상 네트워크에서 호스팅되는 URL에는 지원되지 않습니다.
 
 ## <a name="syntax"></a>구문
 
@@ -63,7 +63,7 @@ ms.locfileid: "79260866"
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | Description | 허용되는 값 | 필수
+속성 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
 name | 웹 작업의 이름입니다. | String | yes
 type | **WebActivity**로 설정해야 합니다. | String | yes
@@ -90,7 +90,7 @@ linkedServices | 엔드포인트에 전달되는 연결된 서비스 목록입�
 
 ## <a name="authentication"></a>인증
 
-다음은 웹 작업에서 지원 되는 인증 유형입니다.
+다음은 웹 활동에서 지원되는 인증 유형입니다.
 
 ### <a name="none"></a>None
 
@@ -132,7 +132,7 @@ PFX 파일의 base64로 인코딩된 콘텐츠 및 암호를 지정합니다.
 ```
 
 > [!NOTE]
-> 데이터 팩터리가 git 리포지토리로 구성 된 경우 기본 또는 클라이언트 인증서 인증을 사용 하도록 Azure Key Vault에 자격 증명을 저장 해야 합니다. Azure Data Factory는 git에 암호를 저장 하지 않습니다.
+> 데이터 팩터리가 git 리포지토리로 구성된 경우 기본 또는 클라이언트 인증서 인증을 사용하려면 자격 증명을 Azure Key Vault에 저장해야 합니다. Azure 데이터 팩터리는 git에 암호를 저장하지 않습니다.
 
 ## <a name="request-payload-schema"></a>요청 페이로드 스키마
 POST/PUT 메서드를 사용하는 경우 body 속성은 엔드포인트에 전송되는 페이로드를 나타냅니다. 연결된 서비스 및 데이터 세트를 페이로드의 일부로 전달할 수 있습니다. 페이로드 스키마는 다음과 같습니다.
@@ -254,7 +254,7 @@ public HttpResponseMessage Execute(JObject payload)
 ## <a name="next-steps"></a>다음 단계
 Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요.
 
-- [파이프라인 실행 작업](control-flow-execute-pipeline-activity.md)
-- [ForEach 작업](control-flow-for-each-activity.md)
-- [메타데이터 작업 가져오기](control-flow-get-metadata-activity.md)
+- [파이프라인 활동 실행](control-flow-execute-pipeline-activity.md)
+- [각 활동에 대해](control-flow-for-each-activity.md)
+- [메타데이터 활동 받기](control-flow-get-metadata-activity.md)
 - [조회 작업](control-flow-lookup-activity.md)

@@ -1,23 +1,23 @@
 ---
-title: Azure Logic Apps에서 Ethereum Blockchain 커넥터 사용-Azure Blockchain 서비스
+title: Azure 논리 앱과 함께 이더리움 블록체인 커넥터 사용 - Azure 블록체인 서비스
 description: Azure Logic Apps에서 Ethereum 블록체인 커넥터를 사용하여 스마트 계약 함수를 트리거하고 스마트 계약 이벤트에 응답합니다.
 ms.date: 10/14/2019
 ms.topic: article
 ms.reviewer: chrisseg
 ms.openlocfilehash: 4a9acfd6098ed45fd92c7e3047b5d1446eeddbd6
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74325214"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Azure Logic Apps에서 Ethereum 블록체인 커넥터 사용
 
-[Azure Logic Apps](https://docs.microsoft.com/connectors/blockchainethereum/)에서 [Ethereum 블록체인 커넥터](https://docs.microsoft.com/azure/logic-apps/)를 사용하여 스마트 계약 작업을 수행하고 스마트 계약 이벤트에 응답합니다. 예를 들어 블록체인 원장의 정보를 반환하는 REST 기반 마이크로서비스를 만들려고 한다고 가정해 보겠습니다. 논리 앱을 사용하면 블록체인 원장에 저장된 정보를 쿼리하는 HTTP 요청을 받을 수 있습니다.
+[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/)에서 [Ethereum 블록체인 커넥터](https://docs.microsoft.com/connectors/blockchainethereum/)를 사용하여 스마트 계약 작업을 수행하고 스마트 계약 이벤트에 응답합니다. 예를 들어 블록체인 원장의 정보를 반환하는 REST 기반 마이크로서비스를 만들려고 한다고 가정해 보겠습니다. 논리 앱을 사용하면 블록체인 원장에 저장된 정보를 쿼리하는 HTTP 요청을 받을 수 있습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-선택적 필수 조건 [빠른 시작: Visual Studio Code을 사용 하 여 Azure Blockchain Service consortium 네트워크에 연결](connect-vscode.md)합니다. 이 빠른 시작에서는 [Ethereum용 Azure Blockchain Development Kit](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)를 설치하고 블록체인 개발 환경을 설정하는 방법을 안내합니다.
+선택적 필수 구성 조건 [빠른 시작 완료: Visual Studio 코드를 사용하여 Azure 블록 체인 서비스 컨소시엄 네트워크에 연결합니다.](connect-vscode.md) 이 빠른 시작에서는 [Ethereum용 Azure Blockchain Development Kit](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)를 설치하고 블록체인 개발 환경을 설정하는 방법을 안내합니다.
 
 ## <a name="create-a-logic-app"></a>논리 앱 만들기
 
@@ -37,8 +37,8 @@ Ethereum 블록체인 커넥터에는 하나의 트리거와 여러 작업이 �
 
 워크플로에서 다음 상황이 발생하는 경우가 있습니다.
 
-* 블록체인에서 이벤트가 발생할 때 트리거하는 경우 [이벤트 트리거를 사용](#use-the-event-trigger)합니다.
-* 스마트 계약을 쿼리하거나 배포하는 경우 [작업을 사용](#use-actions)합니다.
+* 블록 체인에서 이벤트가 발생하면 [이벤트 트리거를 사용합니다.](#use-the-event-trigger)
+* 스마트 계약을 쿼리하거나 배포하는 경우 [작업 사용.](#use-actions)
 * 일반적인 시나리오를 따르는 경우 [개발자 키트를 사용하여 워크플로를 생성](#generate-a-workflow)합니다.
 
 ## <a name="use-the-event-trigger"></a>이벤트 트리거 사용
@@ -98,7 +98,7 @@ Ethereum Visual Studio Code 확장용 Azure Blockchain Development Kit는 일반
 * 보고서 게시
 * REST 기반 마이크로서비스
 
- Azure Blockchain Development Kit는 Truffle을 사용하여 블록체인 개발을 간소화합니다. 스마트 계약에 기반한 논리 앱을 생성하려면 스마트 계약에 대한 Truffle 솔루션이 필요합니다. 또한 Azure Blockchain Service 컨소시엄 네트워크에 연결해야 합니다. 자세한 내용은 [빠른 시작의 Visual Studio Code를 사용하여 Azure Blockchain Service 컨소시엄 네트워크에 연결](connect-vscode.md)을 참조하세요.
+ Azure Blockchain Development Kit는 Truffle을 사용하여 블록체인 개발을 간소화합니다. 스마트 계약에 기반한 논리 앱을 생성하려면 스마트 계약에 대한 Truffle 솔루션이 필요합니다. 또한 Azure Blockchain Service 컨소시엄 네트워크에 연결해야 합니다. 자세한 내용은 [Azure 블록 체인 서비스 컨소시엄 네트워크 퀵스타트에 연결하려면 Visual Studio 코드 사용을](connect-vscode.md)참조하십시오.
 
 예를 들어 다음 단계에서는 빠른 시작 **HelloBlockchain** 스마트 계약에 기반한 REST 기반 마이크로서비스 논리 앱을 생성합니다.
 
@@ -132,7 +132,7 @@ Ethereum Visual Studio Code 확장용 Azure Blockchain Development Kit는 일반
 
     ![HTTP POST URL이 있는 Logic Apps 디자이너 창](./media/ethereum-logic-app/post-url.png)
 
-1. cURL을 사용하여 HTTP POST 요청을 만듭니다. *\<HTTP POST URL\>* 자리 표시자 텍스트를 이전 단계의 URL로 바꿉니다.
+1. cURL을 사용하여 HTTP POST 요청을 만듭니다. 자리 표시자 텍스트 * \<HTTP\> POST URL을* 이전 단계의 URL로 바꿉습니다.
 
     ``` bash
     curl -d "{}" -H "Content-Type: application/json" -X POST "<HTTP POST URL>"
@@ -155,9 +155,9 @@ Azure Blockchain Service 멤버에 대한 연결을 설정하는 데 도움이 �
 
 | 속성 | 설명 |
 |----------|-------------|
-|**연결 이름** | API 연결의 이름입니다. 필수입니다. |
-|**Ethereum RPC 엔드포인트** | Azure Blockchain Service 트랜잭션 노드의 HTTP 주소입니다. 필수입니다. 자세한 내용은 [RPC 엔드포인트 가져오기](#get-the-rpc-endpoint)를 참조하세요. |
-|**프라이빗 키** | Ethereum 계정 프라이빗 키입니다. 트랜잭션에는 프라이빗 키 또는 계정 주소와 암호가 필요합니다. 자세한 내용은 [프라이빗 키 가져오기](#get-the-private-key)를 참조하세요. |
+|**연결 이름** | API 연결의 이름입니다. 필수 사항입니다. |
+|**이더리움 RPC 끝점** | Azure Blockchain Service 트랜잭션 노드의 HTTP 주소입니다. 필수 사항입니다. 자세한 내용은 [RPC 엔드포인트 가져오기](#get-the-rpc-endpoint)를 참조하세요. |
+|**개인 키** | Ethereum 계정 프라이빗 키입니다. 트랜잭션에는 프라이빗 키 또는 계정 주소와 암호가 필요합니다. 자세한 내용은 [프라이빗 키 가져오기](#get-the-private-key)를 참조하세요. |
 |**계정 주소** | Azure Blockchain Service 멤버의 계정 주소입니다. 트랜잭션에는 프라이빗 키 또는 계정 주소와 암호가 필요합니다. 자세한 내용은 [계정 주소 가져오기](#get-the-account-address)를 참조하세요. |
 |**계정 암호** | 계정 암호는 멤버를 만들 때 설정됩니다. 암호 재설정에 대한 자세한 내용은 [Ethereum 계정](consortium.md#ethereum-account)을 참조하세요.|
 
@@ -174,14 +174,14 @@ Azure Blockchain Service 멤버에 대한 연결을 설정하는 데 도움이 �
 
     RPC 엔드포인트가 클립보드에 복사됩니다.
 
-**Azure Portal을 사용하려면,**
+**Azure 포털을 사용하려면**
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com)로그인합니다.
 1. Azure Blockchain Service 멤버로 이동합니다. **트랜잭션 노드**와 기본 트랜잭션 노드 링크를 선택합니다.
 
     ![기본 노드가 선택된 트랜잭션 노드 페이지](./media/ethereum-logic-app/transaction-nodes.png)
 
-1. **연결 문자열** > **액세스 키**를 차례로 선택합니다.
+1. 연결 문자열**액세스 키 를** **선택합니다.** > 
 1. **HTTPS(액세스 키 1)** 또는 **HTTPS(액세스 키 2)** 에서 엔드포인트 주소를 복사합니다.
 
     ![연결 문자열 액세스 키가 있는 Azure Portal](./media/ethereum-logic-app/connection-string.png)
@@ -193,7 +193,7 @@ Azure Blockchain Service 멤버에 대한 연결을 설정하는 데 도움이 �
 트랜잭션을 블록체인에 보낼 때 Ethereum 계정의 프라이빗 키를 사용하여 인증할 수 있습니다. Ethereum 계정의 퍼블릭 키와 프라이빗 키는 12개 단어 니모닉에서 생성됩니다. Azure Blockchain Service 컨소시엄 멤버에 연결하면 Ethereum용 Azure Blockchain Development Kit에서 니모닉을 생성합니다. 개발 키트 확장을 사용하여 엔드포인트 주소를 가져올 수 있습니다.
 
 1. Visual Studio Code에서 명령 팔레트를 엽니다(F1).
-1. **Azure Blockchain: 개인 키 검색**을 선택 합니다.
+1. **Azure 블록 체인 선택: 개인 키 를 검색합니다.**
 1. 컨소시엄 멤버에 연결되면 저장한 니모닉을 선택합니다.
 
     ![니모닉을 선택하는 옵션이 있는 명령 팔레트](./media/ethereum-logic-app/private-key.png)
@@ -205,7 +205,7 @@ Azure Blockchain Service 멤버에 대한 연결을 설정하는 데 도움이 �
 트랜잭션을 블록체인에 보낼 때 멤버 계정과 암호를 사용하여 인증할 수 있습니다. 암호는 멤버를 만들 때 설정됩니다.
 
 1. Azure Portal에서 Azure Blockchain Service 개요 페이지로 이동합니다.
-1. **멤버 계정** 주소를 복사합니다.
+1. 회원 **계정** 주소를 복사합니다.
 
     ![멤버 계정 주소가 있는 개요 페이지](./media/ethereum-logic-app/member-account.png)
 

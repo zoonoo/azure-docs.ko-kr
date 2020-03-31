@@ -1,13 +1,13 @@
 ---
 title: Azure 리소스 검색
-description: 리소스 그래프 쿼리 언어를 사용 하 여 리소스를 탐색 하 고 연결 방법을 검색 하는 방법을 알아봅니다.
+description: 리소스 그래프 쿼리 언어를 사용하여 리소스를 탐색하고 리소스가 어떻게 연결되어 있는지 알아보세요.
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.openlocfilehash: 0c191915b8c558d80ffef554ef758a35157e035c
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76156984"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Resource Graph로 Azure 리소스 탐색
@@ -104,7 +104,7 @@ JSON 결과는 다음 예제와 비슷한 구조로 되어 있습니다.
 ]
 ```
 
-속성은 가상 머신 리소스 자체, SKU, OS, 디스크, 태그, 리소스 그룹 및 구독에 속하는 모든 항목에 대 한 추가 정보를 알려 줍니다.
+속성은 SKU, OS, 디스크, 태그, 리소스 그룹 및 멤버의 구독에 이르기까지 가상 시스템 리소스 자체에 대한 추가 정보를 알려줍니다.
 
 ### <a name="virtual-machines-by-location"></a>위치별 가상 머신
 
@@ -176,7 +176,7 @@ Resources
 ```
 
 > [!NOTE]
-> **aliases** 속성 **Microsoft.Compute/virtualMachines/sku.name**을 사용하여 SKU를 가져올 수도 있습니다. [별칭 표시](../samples/starter.md#show-aliases) 및 [고유 별칭 값 표시](../samples/starter.md#distinct-alias-values) 예를 참조 하세요.
+> **aliases** 속성 **Microsoft.Compute/virtualMachines/sku.name**을 사용하여 SKU를 가져올 수도 있습니다. [별칭 표시](../samples/starter.md#show-aliases) 및 [고유한 별칭 값](../samples/starter.md#distinct-alias-values) 예제 표시를 참조하십시오.
 
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
@@ -257,7 +257,7 @@ JSON 결과는 다음 예제와 비슷한 구조로 되어 있습니다.
 
 ## <a name="explore-virtual-machines-to-find-public-ip-addresses"></a>가상 머신을 탐색하여 공용 IP 주소 찾기
 
-이 쿼리 집합은 먼저 가상 컴퓨터에 연결 된 모든 NIC (네트워크 인터페이스) 리소스를 찾아 저장 합니다. 그런 다음 쿼리는 Nic 목록을 사용 하 여 공용 IP 주소인 각 IP 주소 리소스를 찾고 해당 값을 저장 합니다. 마지막으로 쿼리는 공용 IP 주소 목록을 제공 합니다.
+이 쿼리 집합은 먼저 가상 시스템에 연결된 모든 NIC(네트워크 인터페이스) 리소스를 찾아 저장합니다. 그런 다음 쿼리는 NIC 목록을 사용하여 공용 IP 주소인 각 IP 주소 리소스를 찾고 해당 값을 저장합니다. 마지막으로 쿼리는 공용 IP 주소 목록을 제공합니다.
 
 ```azurecli-interactive
 # Use Resource Graph to get all NICs and store in the 'nics.txt' file
@@ -275,7 +275,7 @@ $nics = Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virt
 $nics.nic
 ```
 
-다음 쿼리에서 파일 (Azure CLI) 또는 변수 (Azure PowerShell)를 사용 하 여 NIC에 연결 된 공용 IP 주소가 있는 관련 네트워크 인터페이스 리소스 세부 정보를 가져옵니다.
+다음 쿼리에서 파일(Azure CLI) 또는 변수(Azure PowerShell)를 사용하여 NIC에 연결된 공용 IP 주소가 있는 관련 네트워크 인터페이스 리소스 세부 정보를 가져옵니다.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'nics.txt' file to get all related public IP addresses and store in 'publicIp.txt' file
@@ -293,7 +293,7 @@ $ips = Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/netwo
 $ips.publicIp
 ```
 
-마지막으로, 파일에 저장 된 공용 IP 주소 리소스 목록 (Azure CLI) 또는 변수 (Azure PowerShell)를 사용 하 여 관련 개체와 표시에서 실제 공용 IP 주소를 가져옵니다.
+마지막으로 파일(Azure CLI) 또는 변수(Azure PowerShell)에 저장된 공용 IP 주소 리소스 목록을 사용하여 관련 개체에서 실제 공용 IP 주소를 가져옵니다.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'ips.txt' file to get the IP address of the public IP address resources
@@ -305,10 +305,10 @@ az graph query -q="Resources | where type =~ 'Microsoft.Network/publicIPAddresse
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip"
 ```
 
-`join` 연산자를 사용 하 여 단일 쿼리에서 이러한 단계를 수행 하는 방법을 보려면 [네트워크 인터페이스를 사용 하 여 가상 컴퓨터 나열 및 공용 IP](../samples/advanced.md#join-vmpip) 샘플을 참조 하세요.
+운영자가 단일 쿼리에서 이러한 단계를 수행하는 방법을 보려면 [네트워크 인터페이스 및 공용 IP](../samples/advanced.md#join-vmpip) 샘플이 있는 가상 컴퓨터 목록을 참조하십시오. `join`
 
 ## <a name="next-steps"></a>다음 단계
 
-- [쿼리 언어](query-language.md)에 대해 자세히 알아보기
-- [시작 쿼리에서](../samples/starter.md)사용 중인 언어를 참조 하세요.
-- [고급 쿼리에서](../samples/advanced.md)고급 사용을 참조 하세요.
+- [쿼리 언어에](query-language.md)대해 자세히 알아봅니다.
+- [시작 쿼리에서](../samples/starter.md)사용 되는 언어를 참조 하십시오.
+- [고급 쿼리에서](../samples/advanced.md)고급 용도를 참조하십시오.
