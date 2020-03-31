@@ -1,35 +1,36 @@
 ---
-title: '자습서: 일괄 처리 점수 매기기를 위한 ML 파이프라인'
+title: '자습서: 일괄 처리 채점용 ML 파이프라인'
 titleSuffix: Azure Machine Learning
-description: 이 자습서에서는 Azure Machine Learning의 이미지 분류 모델에서 일괄 처리 채점을 실행하기 위한 기계 학습 파이프라인을 빌드합니다. 기계 학습 파이프라인은 속도, 이식성 및 재사용을 통해 워크플로를 최적화하므로 인프라 및 자동화 대신 전문 지식, 즉 기계 학습에 집중할 수 있습니다.
+description: 이 자습서에서는 이미지 분류 모델에서 일괄 처리 채점을 수행하기 위한 기계 학습 파이프라인을 빌드합니다. Azure Machine Learning을 사용하면 인프라와 자동화 대신 기계 학습에 집중할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
-ms.reviewer: trbye
-ms.date: 02/10/2020
-ms.openlocfilehash: cb99861a53c6802598cf925121f1821f74e7d76f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.reviewer: laobri
+ms.date: 03/11/2020
+ms.openlocfilehash: 1ccd7a7f33c6ee5cab8b7173d8eb93365b6cb587
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355033"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472223"
 ---
-# <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>자습서: 일괄 처리 점수 매기기를 위한 Azure Machine Learning 파이프라인 빌드
+# <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>자습서: 일괄 처리 채점용 Azure Machine Learning 파이프라인 빌드
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 자습서에서는 Azure Machine Learning에서 파이프라인을 사용하여 일괄 처리 채점 작업을 실행합니다. 예제에서는 미리 학습된 [Inception-V3](https://arxiv.org/abs/1512.00567) 나선형 신경망 Tensorflow 모델을 사용하여 레이블이 지정되지 않은 이미지를 분류합니다. 파이프라인이 빌드되어 게시되면 모든 플랫폼의 모든 HTTP 라이브러리에서 해당 파이프라인을 트리거하는 데 사용할 수 있는 REST 엔드포인트를 구성합니다.
+Azure Machine Learning에서 파이프라인을 빌드하여 일괄 처리 채점 작업을 실행하는 방법을 알아봅니다. 기계 학습 파이프라인은 속도, 이식성 및 재사용을 통해 워크플로를 최적화하므로 인프라 및 자동화 대신 기계 학습에 집중할 수 있습니다. 파이프라인이 빌드되어 게시되면 모든 플랫폼의 모든 HTTP 라이브러리에서 해당 파이프라인을 트리거하는 데 사용할 수 있는 REST 엔드포인트를 구성합니다. 
 
-기계 학습 파이프라인은 속도, 이식성 및 재사용을 통해 워크플로를 최적화하므로 인프라 및 자동화 대신 전문 지식, 즉 기계 학습에 집중할 수 있습니다. [기계 학습 파이프라인에 대해 자세히 알아보세요](concept-ml-pipelines.md).
+이 예제에서는 Tensorflow에 구현된 미리 학습된 [Inception-V3](https://arxiv.org/abs/1512.00567) 나선형 신경망 모델을 사용하여 레이블이 지정되지 않은 이미지를 분류합니다. [기계 학습 파이프라인에 대해 자세히 알아보세요](concept-ml-pipelines.md).
 
 이 자습서에서는 다음 작업을 완료합니다.
 
 > [!div class="checklist"]
-> * 작업 영역 구성 및 샘플 데이터 다운로드
-> * 데이터를 가져오고 출력하는 데이터 개체 만들기
+> * 작업 영역 구성 
+> * 샘플 데이터 다운로드 및 저장
+> * 데이터를 가져오고 출력할 데이터 세트 개체 만들기
 > * 작업 영역에서 모델 다운로드, 준비 및 등록
 > * 컴퓨팅 대상 프로비저닝 및 채점 스크립트 만들기
 > * 비동기 일괄 처리 점수 매기기에 `ParallelRunStep` 클래스 사용
@@ -57,9 +58,9 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-### <a name="create-a-datastore-for-sample-images"></a>샘플 이미지용 데이터 저장소 만들기
+## <a name="create-a-datastore-for-sample-images"></a>샘플 이미지용 데이터 저장소 만들기
 
-`pipelinedata` 계정의 `sampledata` 퍼블릭 Blob 컨테이너에서 ImageNet 평가 퍼블릭 데이터 샘플을 가져옵니다. `register_azure_blob_container()`라는 이름의 작업 영역에서 데이터를 사용할 수 있도록 `images_datastore`를 호출합니다. 그런 다음, 작업 영역 기본 데이터 저장소를 출력 데이터 저장소로 설정합니다. 출력 데이터 저장소를 사용하여 파이프라인의 출력을 채점합니다.
+`pipelinedata` 계정의 `sampledata` 퍼블릭 Blob 컨테이너에서 ImageNet 평가 퍼블릭 데이터 샘플을 가져옵니다. `images_datastore`라는 이름의 작업 영역에서 데이터를 사용할 수 있도록 `register_azure_blob_container()`를 호출합니다. 그런 다음, 작업 영역 기본 데이터 저장소를 출력 데이터 저장소로 설정합니다. 출력 데이터 저장소를 사용하여 파이프라인의 출력을 채점합니다.
 
 ```python
 from azureml.core.datastore import Datastore
@@ -73,14 +74,14 @@ batchscore_blob = Datastore.register_azure_blob_container(ws,
 def_data_store = ws.get_default_datastore()
 ```
 
-## <a name="create-data-objects"></a>데이터 개체 만들기
+## <a name="create-dataset-objects"></a>데이터 세트 개체 만들기
 
 파이프라인을 빌드하는 경우 `Dataset` 개체는 작업 영역 데이터 저장소에서 데이터를 읽는 데 사용되고, `PipelineData` 개체는 파이프라인 단계 간에 중간 데이터를 전송하는 데 사용됩니다.
 
 > [!Important]
 > 이 자습서의 일괄 처리 채점 예제에서는 하나의 파이프라인 단계만 사용합니다. 여러 단계가 있는 사용 사례의 일반적인 흐름에 포함되는 단계는 다음과 같습니다.
 >
-> 1. `Dataset` 개체를 *입력*으로 사용하여 원시 데이터를 가져오고, 일부 변환을 수행한 다음, *개체를*출력`PipelineData`합니다.
+> 1. `Dataset` 개체를 *입력*으로 사용하여 원시 데이터를 가져오고, 일부 변환을 수행한 다음, `PipelineData` 개체를 *출력*합니다.
 >
 > 2. 이전 단계의 `PipelineData` *출력 개체*를 *입력 개체*로 사용합니다. 이후 단계에서 이 작업을 반복합니다.
 
@@ -97,7 +98,7 @@ output_dir = PipelineData(name="scores",
                           output_path_on_compute="batchscoring/results")
 ```
 
-다음으로 작업 영역에 데이터 집합을 등록 합니다.
+다음으로 작업 영역에 데이터 세트를 등록합니다.
 
 ```python
 
@@ -163,10 +164,10 @@ except ComputeTargetException:
 
 채점을 수행하려면 `batch_scoring.py`라는 일괄 처리 채점 스크립트를 만든 다음, 현재 디렉터리에 씁니다. 이 스크립트는 입력 이미지를 가져와서 분류 모델을 적용한 다음, 예측을 결과 파일에 출력합니다.
 
-`batch_scoring.py` 스크립트는 나중에 만든 `ParallelRunStep`에서 전달 되는 다음 매개 변수를 사용 합니다.
+`batch_scoring.py` 스크립트는 나중에 만든 `ParallelRunStep`에서 전달되는 다음 매개 변수를 사용합니다.
 
-- `--model_name`: 사용 되는 모델의 이름입니다.
-- `--labels_name`: `labels.txt` 파일을 보유 하는 `Dataset`의 이름입니다.
+- `--model_name`: 사용되는 모델의 이름입니다.
+- `--labels_name`: `labels.txt` 파일을 보유하는 `Dataset`의 이름입니다.
 
 파이프라인 인프라는 `ArgumentParser` 클래스를 사용하여 매개 변수를 파이프라인 단계에 전달합니다. 예를 들어 다음 코드에서 첫 번째 인수인 `--model_name`에는 `model_name` 속성 식별자가 지정됩니다. `init()` 함수에서 `Model.get_model_path(args.model_name)`는 이 속성에 액세스하는 데 사용됩니다.
 
@@ -259,9 +260,9 @@ def run(mini_batch):
 > [!TIP]
 > 이 자습서의 파이프라인은 한 단계만 포함하고 있으며 출력을 파일에 기록합니다. 다단계 파이프라인의 경우 `ArgumentParser`도 사용하여 이후 단계에 입력할 출력 데이터를 쓰는 디렉터리를 정의합니다. `ArgumentParser` 디자인 패턴을 사용하여 여러 파이프라인 단계 간에 데이터를 전달하는 예제는 이 [Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb)을 참조하세요.
 
-## <a name="build-and-run-the-pipeline"></a>파이프라인 빌드 및 실행
+## <a name="build-the-pipeline"></a>파이프라인 빌드
 
-파이프라인을 실행하기 전에 Python 환경을 정의하고 `batch_scoring.py` 스크립트에 필요한 종속성을 만드는 개체를 만듭니다. 필요한 주요 종속성은 Tensorflow 이지만 백그라운드 프로세스에 대 한 `azureml-defaults`를 설치 합니다. 종속성을 사용하여 `RunConfiguration` 개체를 만듭니다. 또한 Docker 및 Docker-GPU 지원도 지정합니다.
+파이프라인을 실행하기 전에 Python 환경을 정의하고 `batch_scoring.py` 스크립트에 필요한 종속성을 만드는 개체를 만듭니다. 필요한 기본 종속성은 Tensorflow이지만 백그라운드 프로세스를 위해 `azureml-defaults`도 설치합니다. 종속성을 사용하여 `RunConfiguration` 개체를 만듭니다. 또한 Docker 및 Docker-GPU 지원도 지정합니다.
 
 ```python
 from azureml.core import Environment
@@ -276,7 +277,7 @@ env.docker.base_image = DEFAULT_GPU_IMAGE
 
 ### <a name="create-the-configuration-to-wrap-the-script"></a>스크립트를 래핑하는 구성 만들기
 
-스크립트, 환경 구성 및 매개 변수를 사용하여 파이프라인 단계를 만듭니다. 작업 영역에 이미 연결 된 계산 대상을 지정 합니다.
+스크립트, 환경 구성 및 매개 변수를 사용하여 파이프라인 단계를 만듭니다. 작업 영역에 이미 연결된 컴퓨팅 대상을 지정합니다.
 
 ```python
 from azureml.contrib.pipeline.steps import ParallelRunConfig
@@ -303,7 +304,7 @@ parallel_run_config = ParallelRunConfig(
 * 입력 및 출력 데이터와 모든 사용자 지정 매개 변수
 * 단계 중에 실행할 스크립트 또는 SDK 논리에 대한 참조
 
-여러 클래스가 [`PipelineStep`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py) 부모 클래스에서 상속됩니다. 특정 프레임워크 또는 스택을 사용하여 단계를 빌드하는 클래스를 선택할 수 있습니다. 이 예제에서는 사용자 지정 Python 스크립트를 사용 하 여 단계 논리를 정의 하는 `ParallelRunStep` 클래스를 사용 합니다. 스크립트에 대한 인수가 단계에 대한 입력 또는 단계의 출력인 경우 해당 인수는 각각 *배열*및`arguments`*또는* 매개 변수에 `input`모두`output` 정의되어야 합니다. 
+여러 클래스가 [`PipelineStep`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py) 부모 클래스에서 상속됩니다. 특정 프레임워크 또는 스택을 사용하여 단계를 빌드하는 클래스를 선택할 수 있습니다. 다음 예제에서는 사용자 지정 Python 스크립트를 사용하여 단계 논리를 정의하는 `ParallelRunStep` 클래스를 사용합니다. 스크립트에 대한 인수가 단계에 대한 입력 또는 단계의 출력인 경우 해당 인수는 각각 `arguments` 배열 *및*`input` 또는 `output` 매개 변수에 *모두* 정의되어야 합니다. 
 
 둘 이상의 단계가 있는 시나리오에서는 `outputs` 배열의 개체 참조는 이후 파이프라인 단계에 대한 *입력*으로 사용할 수 있게 됩니다.
 
@@ -324,7 +325,7 @@ batch_score_step = ParallelRunStep(
 
 다른 단계 유형에 사용할 수 있는 모든 클래스의 목록은 [steps 패키지](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py)를 참조하세요.
 
-### <a name="run-the-pipeline"></a>파이프라인 실행
+## <a name="submit-the-pipeline"></a>파이프라인 제출
 
 이제 파이프라인을 실행합니다. 먼저, 만든 작업 영역 참조와 파이프라인 단계를 사용하여 `Pipeline` 개체를 만듭니다. `steps` 매개 변수는 단계의 배열입니다. 여기서는 하나의 일괄 처리 채점 단계만 있습니다. 여러 단계가 있는 파이프라인을 빌드하려면 이 배열에서 단계를 순서대로 배치합니다.
 
@@ -377,7 +378,7 @@ published_pipeline = pipeline_run.publish_pipeline(
 published_pipeline
 ```
 
-REST 엔드포인트에서 파이프라인을 실행하려면 OAuth2 전달자 유형의 인증 헤더가 필요합니다. 다음 예에서는 대화형 인증 (설명 용)을 사용 하지만 자동화 된 인증이 나 헤드리스 인증이 필요한 대부분의 프로덕션 시나리오에서는 [이 문서에 설명](how-to-setup-authentication.md)된 대로 서비스 주체 인증을 사용 합니다.
+REST 엔드포인트에서 파이프라인을 실행하려면 OAuth2 전달자 유형의 인증 헤더가 필요합니다. 다음 예제에서는 설명을 위해 대화형 인증을 사용하지만, 자동화된 인증 또는 헤드리스 인증이 필요한 대부분의 프로덕션 시나리오에서는 [이 문서에서 설명한 대로](how-to-setup-authentication.md) 서비스 주체 인증을 사용합니다.
 
 서비스 주체 인증에는 *앱 등록*을 *Azure Active Directory*에 만드는 작업이 포함됩니다. 먼저 클라이언트 비밀을 생성한 다음, 서비스 주체 *역할 액세스* 권한을 기계 학습 작업 영역에 부여합니다. 인증 흐름은 [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) 클래스를 사용하여 관리합니다. 
 
@@ -392,7 +393,7 @@ auth_header = interactive_auth.get_authentication_header()
 
 REST URL은 게시된 파이프라인 개체의 `endpoint` 속성에서 가져옵니다. 또한 이 REST URL은 Azure Machine Learning Studio의 작업 영역에서도 찾을 수 있습니다. 
 
-엔드포인트에 대한 HTTP POST 요청을 빌드합니다. 인증 헤더를 요청에 지정합니다. 실험 이름과 일괄 처리 크기 매개 변수가 있는 JSON 페이로드 개체를 추가합니다. 자습서의 앞부분에서 설명한 대로 `param_batch_size`는 단계 구성에서 `batch_scoring.py` 개체로 정의했으므로 `PipelineParameter` 스크립트에 전달됩니다.
+엔드포인트에 대한 HTTP POST 요청을 빌드합니다. 인증 헤더를 요청에 지정합니다. 실험 이름과 일괄 처리 크기 매개 변수가 있는 JSON 페이로드 개체를 추가합니다. 자습서의 앞부분에서 설명한 대로 `param_batch_size`는 단계 구성에서 `PipelineParameter` 개체로 정의했으므로 `batch_scoring.py` 스크립트에 전달됩니다.
 
 실행을 트리거하도록 요청합니다. 실행 ID의 값을 가져오기 위해 응답 사전에서 `Id` 키에 액세스하는 코드를 포함시킵니다.
 

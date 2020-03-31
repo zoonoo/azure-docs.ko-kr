@@ -1,5 +1,5 @@
 ---
-title: NSG 감사 자동화-보안 그룹 보기
+title: NSG 감사 자동화 - 보안 그룹 보기
 titleSuffix: Azure Network Watcher
 description: 이 페이지에서는 네트워크 보안 그룹의 감사를 구성하는 방법에 대한 설명을 제공합니다.
 services: network-watcher
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 59c1b6e6c281a736a79d110bd7d943344bcd5130
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840981"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Azure Network Watcher 보안 그룹 보기를 사용하여 NSG 감사 자동화

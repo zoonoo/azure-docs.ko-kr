@@ -1,33 +1,33 @@
 ---
-title: Advanced Threat Protection-Azure Portal-Azure Database for MariaDB
+title: 고급 위협 보호 - Azure 포털 - MariaDB용 Azure 데이터베이스
 description: Threat Protection은 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 1d6eafd38d418066ddf5933139bd4caf6e69ddea
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: de056f61337311642589ba937c6d9842d8354d36
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766976"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530141"
 ---
-# <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대 한 Advanced Threat Protection
+# <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>MariaDB용 Azure 데이터베이스에 대한 고급 위협 보호
 
-Azure Database for MariaDB에 대 한 Advanced Threat Protection은 비정상적인 활동을 감지 하 여 데이터베이스에 액세스 하거나 악용 하려는 비정상적인 시도를 감지 합니다.
+MariaDB용 Azure 데이터베이스에 대한 고급 위협 보호는 데이터베이스에 액세스하거나 악용하려는 비정상적인 시도를 나타내는 비정상적인 활동을 감지합니다.
 
-Advanced Threat Detection은 고급 보안 기능용 통합 패키지인 Advanced Data Security 제품의 일부입니다. 고급 위협 방지는 [Azure Portal](https://portal.azure.com)를 통해 액세스 하 고 관리할 수 있습니다.
+Advanced Threat Detection은 고급 보안 기능용 통합 패키지인 Advanced Data Security 제품의 일부입니다. 고급 위협 보호는 [Azure 포털을](https://portal.azure.com)통해 액세스하고 관리할 수 있습니다.
 
 > [!IMPORTANT]
-> Advanced Threat Protection은 공개 미리 보기로 제공 됩니다. 이 기능은 Azure Database for MariaDB가 범용 및 메모리 최적화 서버용으로 배포된 모든 Azure 지역에서 사용할 수 있습니다.
+> 고급 위협 보호는 공개 미리 보기입니다. 이 기능은 Azure Database for MariaDB가 범용 및 메모리 최적화 서버용으로 배포된 모든 Azure 지역에서 사용할 수 있습니다.
 
 > [!NOTE]
 > Advanced Threat Protection 기능을 사용할 수 **없는** Azure 정부 및 소버린 클라우드 지역은 US Gov 텍사스, US Gov 애리조나, US Gov 아이오와, US Gov 버지니아, US DoD 동부, US DoD 중부, 독일 중부, 독일 북부, 중국 동부, 중국 동부 2입니다. 전반적인 제품 사용 가능성을 확인하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 참조하세요.
 
 ## <a name="set-up-threat-detection"></a>위협 감지 설정
-1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal을 시작합니다.
-2. 보호 하려는 Azure Database for MariaDB 서버의 구성 페이지로 이동 합니다. 보안 설정에서 **Advanced Threat Protection(미리 보기)** 을 선택합니다.
+1. 에서 [https://portal.azure.com](https://portal.azure.com)Azure 포털을 시작합니다.
+2. 보호하려는 MariaDB 서버에 대한 Azure 데이터베이스의 구성 페이지로 이동합니다. 보안 설정에서 **Advanced Threat Protection(미리 보기)** 을 선택합니다.
 3. **Advanced Threat Protectio(미리 보기)** 구성 페이지에서 다음을 수행합니다.
 
    - 서버에서 Advanced Threat Protection을 사용하도록 설정.
@@ -62,5 +62,5 @@ SQL Database 위협 감지는 경고를 [Azure Security Center](https://azure.mi
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대한 자세한 정보
-* 가격 책정에 대 한 자세한 내용은 [Azure Database for MariaDB 가격 책정 페이지](https://azure.microsoft.com/pricing/details/mariadb/) 를 참조 하세요.  
+* [Azure 보안 센터에](https://docs.microsoft.com/azure/security-center/security-center-intro) 대해 자세히 알아보기
+* 가격 책정에 대한 자세한 내용은 [MariaDB 가격 책정 페이지의 Azure 데이터베이스를](https://azure.microsoft.com/pricing/details/mariadb/) 참조하십시오.  

@@ -4,10 +4,10 @@ description: Service Fabric 상태 저장 서비스는 가용성 높고, 확장 
 ms.topic: conceptual
 ms.date: 1/3/2019
 ms.openlocfilehash: 48fa682f4c017f66911729e1f581f3aa91cdc28d
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75609726"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure 서비스 패브릭 상태 저장 서비스의 신뢰할 수 있는 컬렉션 소개
@@ -36,7 +36,7 @@ ms.locfileid: "75609726"
 신뢰할 수 있는 컬렉션 API는 동시 컬렉션 API( **System.Collections.Concurrent** 네임스페이스에 있음)의 진화입니다.
 
 * 비동기: 동시 컬렉션과 달리 작업이 복제 및 유지되므로 작업을 반환합니다.
-* Out 매개 변수 없음: `ConditionalValue<T>`을 사용 하 여 출력 매개 변수 대신 `bool` 및 값을 반환 합니다. `ConditionalValue<T>`는 `Nullable<T>`과 유사하지만 T가 구조체일 필요는 없습니다.
+* out 매개 변수 `ConditionalValue<T>` 없음: `bool` out 매개 변수 대신 a 및 값을 반환하는 데 사용합니다. `ConditionalValue<T>`는 `Nullable<T>`과 유사하지만 T가 구조체일 필요는 없습니다.
 * 트랜잭션: 트랜잭션 개체를 사용하여 사용자가 트랜잭션의 여러 신뢰할 수 있는 컬렉션에 대한 작업을 그룹화하도록 지원합니다.
 
 오늘날 **Microsoft.ServiceFabric.Data.Collections** 은 다음과 같은 3가지 컬렉션을 포함합니다.
@@ -47,15 +47,15 @@ ms.locfileid: "75609726"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [신뢰할 수 있는 컬렉션 지침 및 권장 사항](service-fabric-reliable-services-reliable-collections-guidelines.md)
+* [신뢰할 수 있는 수집 지침 & 권장 사항](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [신뢰할 수 있는 컬렉션 작업](service-fabric-work-with-reliable-collections.md)
 * [트랜잭션 및 잠금](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * 데이터 관리
-  * [Backup 및 복원](service-fabric-reliable-services-backup-restore.md)
-  * [알림](service-fabric-reliable-services-notifications.md)
+  * [백업 및 복원](service-fabric-reliable-services-backup-restore.md)
+  * [알림을](service-fabric-reliable-services-notifications.md)
   * [신뢰할 수 있는 컬렉션 serialization](service-fabric-reliable-services-reliable-collections-serialization.md)
   * [Serialization 및 업그레이드](service-fabric-application-upgrade-data-serialization.md)
   * [신뢰할 수 있는 상태 관리자 구성](service-fabric-reliable-services-configuration.md)
 * 기타
-  * [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start.md)
+  * [신뢰할 수 있는 서비스 빠른 시작](service-fabric-reliable-services-quick-start.md)
   * [신뢰할 수 있는 컬렉션에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

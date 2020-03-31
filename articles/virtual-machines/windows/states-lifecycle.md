@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Windows VM의 수명 주기 및 상태
+title: Azure의 Windows VM의 수명 주기 및 상태
 description: VM이 언제든지 있을 수 있는 다양한 상태에 대한 설명을 포함하여 Azure에 있는 Windows VM의 수명 주기에 대해 간략히 설명합니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
 ms.openlocfilehash: f7823d0e34fb6a79e79e9feab8eea77785b3d0da
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74068220"
 ---
-# <a name="virtual-machines-lifecycle-and-states"></a>Virtual machines 수명 주기 및 상태
+# <a name="virtual-machines-lifecycle-and-states"></a>가상 머신 수명 주기 및 상태
 
 [!INCLUDE [virtual-machines-common-states-lifecycle](../../../includes/virtual-machines-common-states-lifecycle.md)]
 

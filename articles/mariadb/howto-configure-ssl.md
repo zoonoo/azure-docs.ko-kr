@@ -1,39 +1,39 @@
 ---
-title: SSL 구성-Azure Database for MariaDB
+title: 마리아DB에 대한 SSL - Azure 데이터베이스 구성
 description: SSL 연결을 올바르게 사용하기 위해 Azure Database for MariaDB 및 연결된 애플리케이션을 올바르게 구성하는 방법에 대한 지침
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: a0fb1bdf1aac9b3c5a2d8c83d0597326de38caaf
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 668b72fa89916de6d2aa5971543b0ec085de8263
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767367"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530685"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Azure Database for MariaDB에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성
 Azure Database for MariaDB는 SSL(Secure Sockets Layer)을 사용한 Azure Database for MariaDB 서버와 클라이언트 애플리케이션 간 연결을 지원합니다. 데이터베이스 서버와 클라이언트 애플리케이션 간 SSL 연결을 적용하면 서버와 애플리케이션 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.
 
 ## <a name="obtain-ssl-certificate"></a>SSL 인증서 받기
-[https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem)에서 SSL을 통해 Azure Database for MariaDB 서버와 통신하는 데 필요한 인증서를 다운로드하고 인증서 파일을 로컬 드라이브에 저장합니다(이 자습서에서는 c:\ssl을 예로 사용).
+MariaDB 서버의 Azure 데이터베이스와 SSL을 통해 통신하는 데 필요한 인증서를 [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) 다운로드하고 인증서 파일을 로컬 드라이브에 저장합니다(예: c:\ssl 사용).
 **Microsoft Internet Explorer 및 Microsoft Edge:** 다운로드가 완료된 후 인증서 이름을 BaltimoreCyberTrustRoot.crt.pem으로 변경합니다.
 
 ## <a name="bind-ssl"></a>SSL 바인딩
 
-### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>SSL을 통해 MySQL 워크 벤치를 사용 하 여 서버에 연결
+### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>SSL을 통해 MySQL 워크벤치를 사용하여 서버에 연결
 SSL을 통해 안전하게 연결하도록 MySQL Workbench를 구성합니다. 
 
 1. 새 연결 설정 대화 상자에서 **SSL** 탭으로 이동합니다. 
 
-1. **SSL 사용** 필드를 "필수"로 업데이트 합니다.
+1. **SSL 사용** 필드를 "필요"로 업데이트합니다.
 
-1. **SSL CA 파일:** 필드에 **baltimorecybertrustroot.crt.pem**의 파일 위치를 입력 합니다. 
+1. **SSL CA 파일:** 필드에 **BaltimoreCyberTrustRoot.crt.pem**의 파일 위치를 입력합니다. 
     
     ![SSL 구성 저장](./media/howto-configure-ssl/mysql-workbench-ssl.png)
 
-기존 연결의 경우 연결 아이콘을 마우스 오른쪽 단추로 클릭 하 여 SSL을 바인딩하고 편집을 선택할 수 있습니다. 그런 다음 **SSL** 탭으로 이동하고 인증서 파일을 바인딩합니다.
+기존 연결의 경우 연결 아이콘을 마우스 오른쪽 단추로 클릭하여 SSL을 바인딩하고 편집을 선택할 수 있습니다. 그런 다음 **SSL** 탭으로 이동하고 인증서 파일을 바인딩합니다.
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>SSL로 MySQL CLI를 사용하는 서버에 연결
 SSL 인증서를 바인딩하는 또 다른 방법은 다음 명령을 실행하여 MySQL 명령줄 인터페이스를 사용하는 것입니다. 
@@ -63,7 +63,7 @@ status
 ```
 출력을 검토하여 연결이 암호화되었는지 확인합니다. **SSL: 사용 중인 암호 그룹은 AES256-SHA**를 표시해야 합니다. 
 
-## <a name="sample-code"></a>샘플 코드
+## <a name="sample-code"></a>예제 코드
 애플리케이션에서 SSL을 통해 Azure Database for MariaDB에 대한 안전한 연결을 설정하려면 다음 코드 샘플을 참조하세요.
 
 ### <a name="php"></a>PHP
@@ -94,7 +94,7 @@ conn = pymysql.connect(user='myadmin@mydemoserver',
                        host='mydemoserver.mariadb.database.azure.com',
                        ssl={'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
 ```
-### <a name="ruby"></a>루비
+### <a name="ruby"></a>Ruby
 ```ruby
 client = Mysql2::Client.new(
         :host     => 'mydemoserver.mariadb.database.azure.com', 
@@ -171,7 +171,7 @@ properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
 ```
 
-### <a name="net-mysqlconnector"></a>.NET (MySqlConnector)
+### <a name="net-mysqlconnector"></a>.NET(마이Sql커넥터)
 ```csharp
 var builder = new MySqlConnectionStringBuilder
 {

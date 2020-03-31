@@ -16,16 +16,16 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
 ms.openlocfilehash: 2d746167f993438e5fce467365844df2078c08a6
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919314"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Azure 미디어 분석으로 얼굴 및 감정 검색
 
 > [!NOTE]
-> **Azure Media Face Detector** 미디어 프로세서는 사용 중지 됩니다. 사용 중지 날짜는 [레거시 구성 요소](legacy-components.md) 항목을 참조 하세요.
+> **Azure 미디어 얼굴 감지기** 미디어 프로세서는 사용 중지됩니다. 사용 중지 날짜에 대 한 레거시 구성 요소 항목을 참조 [합니다.](legacy-components.md)
 
 ## <a name="overview"></a>개요
 
@@ -55,7 +55,7 @@ ms.locfileid: "77919314"
 
 검색 및 추적된 얼굴은 개별적인 추적을 나타내는 얼굴 ID 번호뿐만 아니라 이미지 내에서 얼굴의 위치를 픽셀 단위로 나타내는 좌표(왼쪽, 위쪽, 너비 및 높이)와 함께 반환됩니다. 얼굴 ID 번호는 프레임 안에 정면 얼굴이 없거나 겹쳐진 상황에서 재설정될 가능성이 크므로 결과적으로 일부 사용자에게 여러 ID가 할당될 수 있습니다.
 
-## <a id="output_elements"></a>출력 JSON 파일의 요소
+## <a name="elements-of-the-output-json-file"></a><a id="output_elements"></a>출력 JSON 파일의 요소
 
 [!INCLUDE [media-services-analytics-output-json](../../../includes/media-services-analytics-output-json.md)]
 
@@ -83,7 +83,7 @@ ms.locfileid: "77919314"
 #### <a name="attribute-descriptions"></a>특성 설명
 | 특성 이름 | 설명 |
 | --- | --- |
-| 모드 |빠르게: 처리 속도는 빠르지만 정확도가 떨어집니다(기본값).|
+| Mode |빠르게: 처리 속도는 빠르지만 정확도가 떨어집니다(기본값).|
 
 ### <a name="json-output"></a>JSON 출력
 다음 JSON 출력 예는 잘린 상태입니다.
@@ -158,7 +158,7 @@ ms.locfileid: "77919314"
 #### <a name="attribute-descriptions"></a>특성 설명
 | 특성 이름 | 설명 |
 | --- | --- |
-| 모드 |얼굴: 얼굴만 감지합니다.<br/>PerFaceEmotion: 각 얼굴 감지에 대해 독립적으로 감정을 반환합니다.<br/>AggregateEmotion: 프레임의 모든 얼굴에 대한 평균 감정 값을 반환합니다. |
+| Mode |얼굴: 얼굴만 감지합니다.<br/>PerFaceEmotion: 각 얼굴 감지에 대해 독립적으로 감정을 반환합니다.<br/>AggregateEmotion: 프레임의 모든 얼굴에 대한 평균 감정 값을 반환합니다. |
 | AggregateEmotionWindowMs |AggregateEmotion 모드가 선택된 경우에 사용합니다. 각 집계 결과를 생성하는 데 사용되는 동영상의 길이를 밀리초 단위로 지정합니다. |
 | AggregateEmotionIntervalMs |AggregateEmotion 모드가 선택된 경우에 사용합니다. 집계 결과 생성 빈도를 지정합니다. |
 
@@ -348,7 +348,7 @@ ms.locfileid: "77919314"
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
+.NET 을 사용하면 Media Services 개발에 설명된 대로 개발 환경을 설정하고 app.config 파일을 연결 [정보로](media-services-dotnet-how-to-use.md)채웁니다. 
 
 #### <a name="example"></a>예제
 

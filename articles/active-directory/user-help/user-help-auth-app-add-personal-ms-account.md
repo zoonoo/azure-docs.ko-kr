@@ -1,6 +1,6 @@
 ---
-title: Microsoft Authenticator 앱에 개인 Microsoft 계정 추가-Azure AD
-description: 2 단계 인증을 사용 하는 동안 id를 확인 하기 위해 Outlook.com 또는 Xbox LIVE와 같은 개인 Microsoft 계정을 Microsoft Authenticator 앱에 추가 합니다.
+title: 마이크로소프트 인증자 응용 프로그램에 개인 Microsoft 계정을 추가 - Azure AD
+description: Outlook.com 또는 Xbox LIVE와 같은 개인 Microsoft 계정을 Microsoft 인증자 앱에 추가하여 2단계 확인을 사용하는 동안 사용자의 신원을 확인합니다.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,13 +12,13 @@ ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 289c00e28fd82b78b321732628ff85d22c64cabf
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062305"
 ---
-# <a name="add-personal-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 개인 Microsoft 계정 추가
+# <a name="add-personal-microsoft-accounts-to-the-microsoft-authenticator-app"></a>마이크로소프트 인증자 응용 프로그램에 개인 Microsoft 계정을 추가
 
 표준 2단계 인증 프로세스 및 암호 없는 휴대폰 로그인 방법에 모두 사용하도록 Microsoft Authenticator 앱에 Outlook.com 또는 Xbox LIVE와 같은 개인 Microsoft 계정을 추가합니다.
 
@@ -69,6 +69,6 @@ ms.locfileid: "77062305"
 
 - 앱에 계정을 추가한 후에는 디바이스에서 Authenticator 앱을 사용하여 로그인할 수 있습니다. 자세한 내용은 [앱을 사용하여 로그인](user-help-auth-app-sign-in.md)을 참조하세요.
 
-- 개인 Microsoft 계정에 대 한 확인 코드를 가져오는 데 문제가 있는 경우 [Microsoft 계정 보안 정보 & 확인 코드](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) 문서에서 **확인 코드 문제 해결** 섹션을 참조 하세요.
+- 개인 Microsoft 계정에 대한 확인 코드를 가져오는 데 문제가 있는 경우 Microsoft 계정 [보안 정보 & 확인 코드](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) 문서의 문제 해결 확인 코드 **문제** 섹션을 참조하세요.
 
 - iOS를 실행하는 디바이스의 경우에는 계정 자격 증명 및 관련 앱 설정(예: 계정 순서)을 클라우드에 백업할 수도 있습니다. 자세한 내용은 [Microsoft Authenticator 앱을 통한 백업 및 복구](user-help-auth-app-backup-recovery.md)를 참조하세요.

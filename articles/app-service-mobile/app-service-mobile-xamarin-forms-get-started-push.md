@@ -7,10 +7,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: f23ac2d693492695c398893c103d5a77a0e93129
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461473"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Xamarin.Forms 앱에 푸시 알림 추가
@@ -25,9 +25,9 @@ ms.locfileid: "77461473"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-iOS의 경우 [Apple 개발자 프로그램 멤버 자격](https://developer.apple.com/programs/ios/) 및 실제 iOS 디바이스가 필요합니다. [iOS 시뮬레이터는 푸시 알림을 지원하지 않습니다](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html).
+iOS의 경우 [Apple 개발자 프로그램 멤버 자격](https://developer.apple.com/programs/ios/) 및 실제 iOS 디바이스가 필요합니다. [iOS 시뮬레이터는 푸시 알림을 지원하지 않습니다.](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html)
 
-## <a name="configure-hub"></a>알림 허브 구성
+## <a name="configure-a-notification-hub"></a><a name="configure-hub"></a>알림 허브 구성
 
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
@@ -73,7 +73,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
 
 #### <a name="implementing-the-firebase-instance-id-service"></a>Firebase 인스턴스 ID 서비스 구현
 
-1. 새 클래스를 **로 명명된** Droid`FirebaseRegistrationService` 프로젝트에 추가하고 다음 `using` 문이 파일 맨 위에 있는지 확인합니다.
+1. 새 클래스를 `FirebaseRegistrationService`로 명명된 **Droid** 프로젝트에 추가하고 다음 `using` 문이 파일 맨 위에 있는지 확인합니다.
 
     ```csharp
     using System.Threading.Tasks;
@@ -116,7 +116,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
 
 #### <a name="registering-with-the-azure-notification-hub"></a>Azure 알림 허브 등록
 
-1. 새 클래스를 **로 명명된** Droid`AzureNotificationHubService` 프로젝트에 추가하고 다음 `using` 문이 파일 맨 위에 있는지 확인합니다.
+1. 새 클래스를 `AzureNotificationHubService`로 명명된 **Droid** 프로젝트에 추가하고 다음 `using` 문이 파일 맨 위에 있는지 확인합니다.
 
     ```csharp
     using System;
@@ -159,7 +159,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
 
 #### <a name="displaying-the-contents-of-a-push-notification"></a>푸시 알림의 콘텐츠 표시
 
-1. 새 클래스를 **로 명명된** Droid`FirebaseNotificationService` 프로젝트에 추가하고 다음 `using` 문이 파일 맨 위에 있는지 확인합니다.
+1. 새 클래스를 `FirebaseNotificationService`로 명명된 **Droid** 프로젝트에 추가하고 다음 `using` 문이 파일 맨 위에 있는지 확인합니다.
 
     ```csharp
     using Android.App;
@@ -222,10 +222,10 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
 처음 두 단계는 에뮬레이터에서 테스트할 때만 필요합니다.
 
 1. Google Play 서비스를 사용하여 구성된 디바이스 또는 에뮬레이터에서 배포하거나 디버깅하는지를 확인합니다. **재생** 앱이 디바이스 또는 에뮬레이터에 설치되었는지 보고 확인할 수 있습니다.
-2. **앱** > **설정** > **계정 추가**를 클릭하여 Android 디바이스에 Google 계정을 추가합니다. 그런 후 화면 지시에 따라 디바이스에 기존 Google 계정을 추가하거나 새 계정을 만듭니다.
+2. **앱** > **설정** > **계정 추가를**클릭하여 Android 기기에 Google 계정을 추가합니다. 그런 후 화면 지시에 따라 디바이스에 기존 Google 계정을 추가하거나 새 계정을 만듭니다.
 3. Visual Studio 또는 Xamarin Studio에서 **Droid** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭합니다.
 4. **실행**을 클릭하여 프로젝트를 빌드하고 Android 디바이스 또는 에뮬레이터에서 앱을 시작합니다.
-5. 앱에서 작업을 입력한 다음 더하기( **+** ) 아이콘을 클릭합니다.
+5. 앱에서 작업을 입력한 다음 더하기 ()**+** 아이콘을 클릭합니다.
 6. 항목이 추가될 때 알림을 받았는지 확인합니다.
 
 ## <a name="configure-and-run-the-ios-project-optional"></a>iOS 프로젝트 구성 및 실행(선택 사항)
@@ -319,7 +319,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
    > [!NOTE]
    > 앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
 
-3. 앱에서 작업을 입력한 다음 더하기( **+** ) 아이콘을 클릭합니다.
+3. 앱에서 작업을 입력한 다음 더하기 ()**+** 아이콘을 클릭합니다.
 4. 알림이 수신되는지 확인한 다음 **확인**을 클릭하여 알림을 해제합니다.
 
 ## <a name="configure-and-run-windows-projects-optional"></a>Windows 프로젝트 구성 및 실행(선택 사항)
@@ -376,7 +376,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
 
     이 메서드는 푸시 알림 채널을 가져오고 알림 허브에서 템플릿 알림을 수신하기 위해 템플릿을 등록합니다. *messageParam*을 지원하는 템플릿 알림이 이 클라이언트에 전달됩니다.
 
-3. App.xaml.cs에서 **한정자를 추가하여**OnLaunched`async` 이벤트 처리기 메서드 정의를 업데이트합니다. 그런 후 다음 코드 줄을 메서드의 끝에 추가합니다.
+3. App.xaml.cs에서 `async` 한정자를 추가하여 **OnLaunched** 이벤트 처리기 메서드 정의를 업데이트합니다. 그런 후 다음 코드 줄을 메서드의 끝에 추가합니다.
 
     ```csharp
     await InitNotificationsAsync();
@@ -390,8 +390,8 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
 #### <a name="test-push-notifications-in-your-windows-app"></a>Windows 앱에서 푸시 알림 테스트
 
 1. Visual Studio에서 Windows 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정**을 클릭합니다.
-2. **실행** 단추를 눌러 프로젝트를 빌드하고 앱을 시작합니다.
-3. 앱에서 새 todoitem에 대한 이름을 입력한 다음 더하기( **+** ) 아이콘을 클릭하여 추가합니다.
+2. **실행** 버튼을 눌러 프로젝트를 빌드하고 앱을 시작합니다.
+3. 앱에서 새 할 일 항목에 대한 이름을 입력한 다음**+** 더하기 () 아이콘을 클릭하여 추가합니다.
 4. 항목이 추가될 때 알림을 받았는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -399,7 +399,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
 푸시 알림에 대해 자세히 알아봅니다.
 
 * [Azure Mobile Apps에서 푸시 알림 보내기](https://developer.xamarin.com/guides/xamarin-forms/cloud-services/push-notifications/azure/)
-* [Firebase Cloud Messaging](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/firebase-cloud-messaging/)
+* [Firebase Cloud 메시징](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/firebase-cloud-messaging/)
 * [Firebase Cloud Messaging을 사용하여 원격 알림](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/remote-notifications-with-fcm/)
 * [푸시 알림 문제 진단](../notification-hubs/notification-hubs-push-notification-fixer.md)  
   디바이스에서 알림이 삭제되거나 끝나지 않는 다양한 이유가 있습니다. 이 항목에서는 푸시 알림 실패의 근본 원인을 분석 및 파악하는 방법을 보여 줍니다.
@@ -407,7 +407,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
 다음 자습서 중 하나를 계속 진행할 수도 있습니다.
 
 * [앱에 인증 추가](app-service-mobile-xamarin-forms-get-started-users.md)  
-  ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
+   ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 * [앱에 오프라인 동기화 사용](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   Mobile Apps 백 엔드를 사용하여 앱에 오프라인 지원을 추가하는 방법을 알아봅니다. 오프라인 동기화를 사용하면 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱&mdash;데이터 보기, 추가 또는 수정&mdash;과 같은 상호 작용을 수행할 수 있습니다.
 

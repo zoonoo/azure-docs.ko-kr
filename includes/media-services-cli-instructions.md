@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: db431d7815cfcc006563bd6da438154ef77ae6e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ebbac39c8850737ea6f9ef333e45d305a520655
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66814887"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79461217"
 ---
-## <a name="cli-shell"></a>CLI 셸
+## <a name="use-cli-shell"></a>CLI Shell 사용
 
 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)을 사용하여 CLI 명령을 실행하는 것이 좋습니다. **Cloud Shell**은 이 문서의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 계정에서 사용할 수 있도록 공용 Azure 도구가 Cloud Shell에 사전 설치 및 구성되어 있습니다. 작업 방식에 가장 적합한 셸 환경을 유연하게 선택할 수 있습니다. Linux 사용자는 Bash 환경을 선택할 수 있으며, Windows 사용자는 PowerShell을 선택할 수 있습니다.
 
@@ -43,8 +43,8 @@ CLI가 기본 브라우저를 열 수 있는 경우, 그렇게 하고 로그인 
 Linux/Mac 및 Windows OS의 절대 파일 경로
 
 * `@ "/usr/home/mytestfile.json"`
-*   `@"c:\tmp\user\mytestfile.json"`
+*    `@"c:\tmp\user\mytestfile.json"`
 
-명령이 파일 경로를 묻는 경우 `{file}`을 사용하세요. 예: `az ams transform create -a amsaccount -g resourceGroup -n custom --preset .\customPreset.json` <br/> 명령이 특정 파일을 로드하려는 경우 `@{file}`을 사용하세요. 예: `az ams account-filter create -a amsaccount -g resourceGroup -n filterName --tracks @tracks.json`
+명령이 파일 경로를 묻는 경우 `{file}`을 사용하세요. `az ams transform create -a amsaccount -g resourceGroup -n custom --preset .\customPreset.json`)을 입력합니다. <br/> 명령이 특정 파일을 로드하려는 경우 `@{file}`을 사용하세요. `az ams account-filter create -a amsaccount -g resourceGroup -n filterName --tracks @tracks.json`)을 입력합니다.
 
 [파일 업로드]: ./media/media-services-cli/upload-download-files.png

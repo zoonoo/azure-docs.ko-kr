@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f1605597c7716ba6a896c7ecdae968f07d66027b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663218"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Azure에서 관리 솔루션 디자인 및 빌드(Preview)
@@ -59,7 +59,7 @@ Log Analytics의 보기는 Log Analytics 리포지토리의 데이터를 시각�
 
 
 ## <a name="create-solution-file"></a>솔루션 파일 만들기
-솔루션에 포함될 구성 요소를 구성하고 테스트하면 [솔루션 파일을 만들 수 있습니다]( solutions-solution-file.md).  파일의 다른 리소스와 관계가 있는 [솔루션 리소스](../../azure-resource-manager/templates/template-syntax.md)를 포함하는 [Resource Manager 템플릿]( solutions-solution-file.md#solution-resource)에 솔루션 구성 요소를 구현합니다.  
+솔루션에 포함될 구성 요소를 구성하고 테스트하면 [솔루션 파일을 만들 수 있습니다]( solutions-solution-file.md).  파일의 다른 리소스와 관계가 있는 [솔루션 리소스]( solutions-solution-file.md#solution-resource)를 포함하는 [Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)에 솔루션 구성 요소를 구현합니다.  
 
 
 ## <a name="test-your-solution"></a>솔루션 테스트
@@ -68,8 +68,8 @@ Log Analytics의 보기는 Log Analytics 리포지토리의 데이터를 시각�
 ## <a name="publish-your-solution"></a>솔루션 게시
 솔루션을 완료하고 테스트한 후에는 다음 원본을 통해 고객이 솔루션을 사용할 수 있도록 할 수 있습니다.
 
-- **Azure 퀵 스타트 템플릿** -  [Azure 퀵 스타트 템플릿](https://azure.microsoft.com/resources/templates/)은 GitHub를 통해 커뮤니티에서 제공한 Resource Manager 템플릿 집합입니다.  [참여 가이드](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE)(영문)의 정보에 따라 솔루션을 사용할 수 있게 만들 수 있습니다.
-- **Azure Marketplace**.  [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)를 사용하면 다른 개발자, ISV 및 IT 전문가에게 솔루션을 배포하고 판매할 수 있습니다.  [Azure Marketplace에 제품을 게시하고 관리하는 방법](../../marketplace/marketplace-publishers-guide.md)에서 솔루션을 Azure Marketplace에 게시하는 방법에 대해 자세히 알아볼 수 있습니다.
+- **Azure 빠른 시작 템플릿 .**  [Azure 퀵 스타트 템플릿](https://azure.microsoft.com/resources/templates/)은 GitHub를 통해 커뮤니티에서 제공한 Resource Manager 템플릿 집합입니다.  [참여 가이드](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE)(영문)의 정보에 따라 솔루션을 사용할 수 있게 만들 수 있습니다.
+- **Azure 마켓플레이스**.  [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)를 사용하면 다른 개발자, ISV 및 IT 전문가에게 솔루션을 배포하고 판매할 수 있습니다.  [Azure Marketplace에 제품을 게시하고 관리하는 방법](../../marketplace/marketplace-publishers-guide.md)에서 솔루션을 Azure Marketplace에 게시하는 방법에 대해 자세히 알아볼 수 있습니다.
 
 
 

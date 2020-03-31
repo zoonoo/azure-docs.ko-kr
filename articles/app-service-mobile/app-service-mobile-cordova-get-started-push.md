@@ -1,5 +1,5 @@
 ---
-title: Apache Cordova 앱에 푸시 알림 추가
+title: 아파치 코르도바 응용 프로그램에 푸시 알림을 추가
 description: Mobile Apps를 사용하여 Apache Cordova 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다.
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.tgt_pltfrm: mobile-html
@@ -7,10 +7,10 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 08260437076728421cb6fa393f481d27b95b1782
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461609"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Apache Cordova 앱에 푸시 알림 추가
@@ -19,35 +19,35 @@ ms.locfileid: "77461609"
 
 ## <a name="overview"></a>개요
 
-이 자습서에서는 푸시 알림을 [Apache Cordova 빠른][5] 시작 프로젝트에 추가 하 여 레코드가 삽입 될 때마다 장치에 푸시 알림이 전송 됩니다.
+이 자습서에서는 푸시 알림을 [Apache Cordova 빠른 시작][5] 프로젝트에 추가하여 레코드가 삽입될 때마다 디바이스에 푸시 알림이 전송됩니다.
 
-다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 푸시 알림 확장 패키지가 필요합니다. 자세한 내용은 [Mobile Apps에 대 한 .net 백 엔드 서버 SDK 사용][1]을 참조 하세요.
+다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 푸시 알림 확장 패키지가 필요합니다. 자세한 내용은 [Mobile Apps용 .NET 백 엔드 서버 SDK 사용][1]을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a><a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 Visual Studio 2015를 사용하여 개발 된 Apache Cordova 애플리케이션이 있다고 가정합니다. 이 디바이스는 Google Android Emulator, Android 디바이스, Windows 디바이스 또는 iOS 디바이스에서 실행해야 합니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [Visual Studio Community 2015][2] 이상이 있는 PC
-* [Visual Studio Tools for Apache Cordova][4]
+* [Visual Studio Community 2015][2] 이상이 설치된 PC
+* [아파치 코르도바를 위한 비주얼 스튜디오 도구][4]
 * [활성 Azure 계정][3]
-* 완료 된 [Apache Cordova 빠른][5] 시작 프로젝트
-* 용 확인 된 전자 메일 주소를 사용 하는 [Google 계정][6]
-* Io [Apple 개발자 프로그램 멤버 자격][7] 및 ios 장치 (ios 시뮬레이터는 푸시 알림을 지원 하지 않음)
-* Windows [Microsoft Store 개발자 계정][8] 및 Windows 10 장치
+* 완료된 [Apache Cordova 빠른 시작][5] 프로젝트
+* (안드로이드) 확인된 이메일 주소가 있는 [Google 계정][6]
+* (iOS)[Apple 개발자 프로그램 멤버 자격][7] 및 iOS 디바이스(iOS 시뮬레이터는 푸시 알림을 지원하지 않음)
+* (Windows) [Microsoft Store 개발자 계정][8] 및 Windows 10 디바이스
 
-## <a name="configure-hub"></a>알림 허브 구성
+## <a name="configure-a-notification-hub"></a><a name="configure-hub"></a>알림 허브 구성
 
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-[이 섹션의 단계를 보여 주는 비디오를 시청][9]하세요.
+[이 섹션의 단계를 보여 주면 동영상을 시청할 수 있습니다.][9]
 
 ## <a name="update-the-server-project"></a>서버 프로젝트 업데이트
 
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-## <a name="add-push-to-app"></a>Cordova 앱 수정
+## <a name="modify-your-cordova-app"></a><a name="add-push-to-app"></a>Cordova 앱 수정
 
 Apache Cordova 앱 프로젝트가 푸시 알림을 처리할 준비가 되었는지 확인하려면 Cordova 푸시 플러그 인 및 플랫폼별 푸시 서비스를 설치합니다.
 
@@ -74,7 +74,7 @@ Apache Cordova 애플리케이션에서는 기본적으로 디바이스 또는 �
 
 **Visual Studio 내에서**
 
-1. 솔루션 탐색기에서 `config.xml` 파일을 엽니다. 다음으로, **플러그 인** > **사용자 지정**을 선택합니다. 그런 다음, **Git**를 설치 원본으로 선택합니다.
+1. 솔루션 탐색기에서 `config.xml` 파일을 엽니다. 다음, **플러그인** > **사용자 지정을**선택 합니다. 그런 다음, **Git**를 설치 원본으로 선택합니다.
 
 2. 소스로 `https://github.com/phonegap/phonegap-plugin-push`을 입력합니다.
 
@@ -93,7 +93,7 @@ Apache Cordova 애플리케이션에서는 기본적으로 디바이스 또는 �
 
 #### <a name="install-the-device-plugin"></a>디바이스 플러그 인 설치
 
-푸시 플러그 인을 설치할 때 사용한 것과 동일한 절차를 따릅니다. 코어 플러그 인 목록에서 디바이스 플러그 인을 추가합니다. (이를 찾으려면 **플러그 인** > **Core**를 선택 합니다.) 플랫폼 이름을 가져오려면이 플러그 인이 필요 합니다.
+푸시 플러그 인을 설치할 때 사용한 것과 동일한 절차를 따릅니다. 코어 플러그 인 목록에서 디바이스 플러그 인을 추가합니다. (그것을 찾으려면, **플러그인 코어를** > **Core**선택합니다.) 플랫폼 이름을 얻으려면이 플러그인이 필요합니다.
 
 #### <a name="register-your-device-when-the-application-starts"></a>애플리케이션 시작 시 디바이스 등록 
 
@@ -169,25 +169,25 @@ Apache Cordova 애플리케이션에서는 기본적으로 디바이스 또는 �
     pushRegistration.on('error', handleError);
     }
     ```
-3. 용 위의 코드에서 `Your_Project_ID`를 [Google 개발자 콘솔][18]의 앱에 대 한 숫자 프로젝트 ID로 바꿉니다.
+3. (안드로이드) 앞의 코드에서 Google `Your_Project_ID` [개발자 콘솔에서][18]앱의 숫자 프로젝트 ID로 바꿉니다.
 
 ## <a name="optional-configure-and-run-the-app-on-android"></a>(선택 사항) Android에서 앱 구성 및 실행
 
 이 섹션을 완료하여 Android에 대한 푸시 알림을 사용하도록 설정합니다.
 
-#### <a name="enable-gcm"></a>Firebase Cloud Messaging 사용
+#### <a name="enable-firebase-cloud-messaging"></a><a name="enable-gcm"></a>Firebase Cloud Messaging 사용
 
 처음에는 Google Android 플랫폼을 대상으로 하므로 Firebase Cloud Messaging을 사용하도록 설정해야 합니다.
 
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-#### <a name="configure-backend"></a>FCM을 사용하여 푸시 요청을 보내도록 모바일 앱 백 엔드 구성
+#### <a name="configure-the-mobile-app-back-end-to-send-push-requests-using-fcm"></a><a name="configure-backend"></a>FCM을 사용하여 푸시 요청을 보내도록 모바일 앱 백 엔드 구성
 
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
 #### <a name="configure-your-cordova-app-for-android"></a>Android용 Cordova 앱 구성
 
-Cordova 앱에서 **config.xml**을 엽니다. 그런 다음 `Your_Project_ID`를 [Google 개발자 콘솔][18]의 앱에 대 한 숫자 프로젝트 ID로 바꿉니다.
+코르도바 앱에서 **config.xml을 엽니다.** `Your_Project_ID` 를 [Google 개발자 콘솔][18]의 앱에 대한 숫자 프로젝트 ID로 바꿉니다.
 
 ```xml
 <plugin name="phonegap-plugin-push" version="1.7.1" src="https://github.com/phonegap/phonegap-plugin-push.git">
@@ -195,7 +195,7 @@ Cordova 앱에서 **config.xml**을 엽니다. 그런 다음 `Your_Project_ID`�
 </plugin>
 ```
 
-**index.js**를 엽니다. 그런 다음, 숫자 프로젝트 ID를 사용하도록 코드를 업데이트합니다.
+인덱스를 **엽니다.js**. 그런 다음, 숫자 프로젝트 ID를 사용하도록 코드를 업데이트합니다.
 
 ```javascript
 pushRegistration = PushNotification.init({
@@ -205,12 +205,12 @@ pushRegistration = PushNotification.init({
 });
 ```
 
-#### <a name="configure-device"></a>USB 디버깅을 위해 Android 디바이스 구성
+#### <a name="configure-your-android-device-for-usb-debugging"></a><a name="configure-device"></a>USB 디버깅을 위해 Android 디바이스 구성
 
 Android 디바이스에 애플리케이션을 배포하려면 먼저 USB 디버깅을 사용하도록 설정해야 합니다. Android 휴대폰에서 다음 단계를 수행합니다.
 
-1. **설정** > **전화 정보**로 이동합니다. 그런 다음, 개발자 모드가 사용하도록 설정될 때까지 **빌드 번호**를 누릅니다(약 7회).
-2. 다시 **설정** > **개발자 옵션**에서 **USB 디버깅**을 활성화합니다. 그런 다음, Android 휴대폰을 USB 케이블을 사용해 개발 PC에 연결합니다.
+1. 전화 에**대한** **설정으로** > 이동합니다. 그런 다음, 개발자 모드가 사용하도록 설정될 때까지 **빌드 번호**를 누릅니다(약 7회).
+2. **설정** > **개발자 옵션에서**USB **디버깅을**활성화합니다. 그런 다음, Android 휴대폰을 USB 케이블을 사용해 개발 PC에 연결합니다.
 
 이 방법은 Android 6.0(Marshmallow)을 실행하는 Google Nexus 5X를 사용하여 테스트되었습니다. 그러나 기술은 모든 최신 Android 릴리스에서 공통적입니다.
 
@@ -218,7 +218,7 @@ Android 디바이스에 애플리케이션을 배포하려면 먼저 USB 디버�
 
 푸시 플러그 인은 푸시 알림용으로 Google Play Services를 사용합니다.
 
-1. Visual Studio에서 **도구** > **Android** > **Android SDK Manager**를 선택합니다. 그런 다음, **추가** 폴더를 확장합니다. 다음 SDK 각각이 설치되어 있는지 확인하기 위해 적절 한 상자를 확인합니다.
+1. 비주얼 **스튜디오에서, 도구를** > 선택**안드로이드** > **안드로이드 SDK 관리자**. 그런 다음, **추가** 폴더를 확장합니다. 다음 SDK 각각이 설치되어 있는지 확인하기 위해 적절 한 상자를 확인합니다.
 
    * Android 2.3 이상
    * Google Repository 개정 27 이상
@@ -234,7 +234,7 @@ Android 디바이스에 애플리케이션을 배포하려면 먼저 USB 디버�
 
 * *실제 디바이스에서:* USB 케이블을 사용하여 Android 디바이스를 개발 컴퓨터에 연결합니다.  **Google Android Emulator** 대신 **디바이스**를 선택합니다. Visual Studio에서 디바이스에 애플리케이션을 배포하고 애플리케이션을 실행합니다. 이제 디바이스에서 애플리케이션과 상호 작용할 수 있습니다.
 
-  [Mobizen][20] 같은 화면 공유 응용 프로그램은 Android 응용 프로그램을 개발 하는 데 도움이 될 수 있습니다. Mobizen은 PC의 웹 브라우저에 Android 화면을 투영합니다.
+  [Mobizen][20]과 같은 화면 공유 애플리케이션을 사용하면 Android 애플리케이션을 개발하는 데 도움이 될 수 있습니다. Mobizen은 PC의 웹 브라우저에 Android 화면을 투영합니다.
 
 * *Android 에뮬레이터에서:* 에뮬레이터를 사용할 때 필요한 추가 구성 단계가 있습니다.
 
@@ -242,9 +242,9 @@ Android 디바이스에 애플리케이션을 배포하려면 먼저 USB 디버�
 
     ![Android Virtual Device Manager](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
 
-    더 빠른 x86 에뮬레이터를 사용 하려는 경우 [HAXM 드라이버를 설치][11]하 고 에뮬레이터를 사용 하도록 구성 합니다.
+    더 빠른 x86 에뮬레이터를 사용하려는 경우 [HAXM 드라이버를 설치][11]하고 해당 드라이버를 사용하도록 에뮬레이터를 구성합니다.
 
-    **앱** > **설정** > **계정 추가**를 선택하여 Android 디바이스에 Google 계정을 추가합니다. 그런 다음, 표시되는 메시지를 따릅니다.
+    **앱** > **설정** > **계정 추가를**선택하여 Android 기기에 Google 계정을 추가합니다. 그런 다음, 표시되는 메시지를 따릅니다.
 
     ![Android 디바이스에 Google 계정 추가](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
 
@@ -258,9 +258,9 @@ Android 디바이스에 애플리케이션을 배포하려면 먼저 USB 디버�
 
 #### <a name="install-and-run-the-ios-remote-build-agent-on-a-mac-or-cloud-service"></a>Mac 또는 클라우드 서비스에서 iOS remotebuild 에이전트를 설치하고 실행합니다.
 
-Visual Studio를 사용 하 여 iOS에서 Cordova 앱을 실행 하려면 먼저 [ios 설치 가이드][12] 의 단계를 진행 하 여 원격 빌드 에이전트를 설치 하 고 실행 합니다.
+Visual Studio를 사용하여 iOS에서 Cordova 앱을 실행하려면 먼저 [iOS 설치 가이드][12]의 단계에 따라 원격 빌드 에이전트를 설치하고 실행합니다.
 
-IOS용 앱을 빌드할 수 있는지 확인합니다. 설치 가이드의 단계는 Visual Studio에서 iOS용 앱을 빌드하는 데 필요합니다. Mac이 없는 경우 MacInCloud와 같은 서비스에서 remotebuild 에이전트를 사용하여 iOS를 빌드할 수 있습니다. 자세한 내용은 [클라우드에서 iOS 앱 실행][21]을 참조 하세요.
+IOS용 앱을 빌드할 수 있는지 확인합니다. 설치 가이드의 단계는 Visual Studio에서 iOS용 앱을 빌드하는 데 필요합니다. Mac이 없는 경우 MacInCloud와 같은 서비스에서 remotebuild 에이전트를 사용하여 iOS를 빌드할 수 있습니다. 자세한 내용은 [클라우드에서 iOS 앱 실행][21]을 참조하세요.
 
 > [!NOTE]
 > Xcode 7 이상에서는 iOS에 대한 푸시 플러그 인을 사용해야 합니다.
@@ -342,7 +342,7 @@ Visual Studio에서 저장소 옵션을 사용하려면 솔루션 플랫폼 목�
 }
 ```
 
-업데이트 후에 **build.json** 파일에는 다음 코드가 포함됩니다.
+업데이트 후 **build.json** 파일에는 다음 코드가 포함되어야 합니다.
 
 ```json
 "windows": {
@@ -369,10 +369,10 @@ Visual Studio에서 Windows 플랫폼이 배포 대상(예: **Windows-x64** 또�
 
 항목이 추가될 때 알림을 받았는지 확인합니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a><a name="next-steps"></a>다음 단계
 
 * 푸시 알림에 대한 자세한 내용은 [Notification Hubs][17]를 참조하세요.
-* 아직 수행 하지 않은 경우 Apache Cordova 앱에 [인증을 추가][14] 하 여 자습서를 계속 합니다.
+* 아직 Apache Cordova 앱에 [인증을 추가][14]하지 않은 경우 추가하여 자습서를 계속합니다.
 
 다음 SDK를 사용하는 방법을 알아봅니다.
 

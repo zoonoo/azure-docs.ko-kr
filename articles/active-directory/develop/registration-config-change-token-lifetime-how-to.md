@@ -1,5 +1,5 @@
 ---
-title: 사용자 지정 Azure AD 앱에 대 한 토큰 수명 기본값 변경 | Microsoft Docs
+title: 사용자 지정 Azure AD 앱의 토큰 수명 기본값 변경 | 마이크로 소프트 문서
 description: Azure AD에서 개발 중인 애플리케이션에 대한 토큰 수명 정책을 업데이트하는 방법
 services: active-directory
 documentationcenter: ''
@@ -16,15 +16,15 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
 ms.openlocfilehash: 431f18b9babb52b5000d3bf4cca75a0f5e29bb93
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76702813"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>사용자 지정 개발 애플리케이션에 대한 토큰 수명 기본값을 변경하는 방법
 
-이 문서에서는 Azure AD PowerShell을 사용 하 여 토큰 수명 정책을 설정 하는 방법을 보여 줍니다. Azure AD Premium을 사용하면 앱 개발자 및 테넌트 관리자가 기밀이 아닌 클라이언트에 대해 발급된 토큰의 수명을 구성할 수 있습니다. 토큰 수명 정책은 테넌트 전체 또는 액세스 중인 리소스에 설정됩니다.
+이 문서에서는 Azure AD PowerShell을 사용하여 토큰 수명 정책을 설정하는 방법을 보여 주며 있습니다. Azure AD Premium을 사용하면 앱 개발자 및 테넌트 관리자가 기밀이 아닌 클라이언트에 대해 발급된 토큰의 수명을 구성할 수 있습니다. 토큰 수명 정책은 테넌트 전체 또는 액세스 중인 리소스에 설정됩니다.
 
 1. 토큰 수명 정책을 설정하려면 [Azure AD PowerShell 모듈](https://www.powershellgallery.com/packages/AzureADPreview)을 다운로드해야 합니다.
 1. **Connect-AzureAD -Confirm** 명령을 실행합니다.

@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
 ms.openlocfilehash: 8f50b2ad34c705c8d3831d8243f136c41d750dc0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60691101"
 ---
 # <a name="set-up-a-capacity-pool"></a>용량 풀 설정
@@ -41,13 +41,13 @@ NetApp 계정을 만들어야 합니다.
     새 용량 풀 창이 나타납니다.
 
 3. 새 용량 풀에 대한 다음과 같은 정보를 제공합니다.  
-   * **Name**  
+   * **이름**  
      용량 풀의 이름을 지정합니다.  
      용량 풀 이름은 각 NetApp 계정에 대해 고유해야 합니다.
 
    * **서비스 수준**   
      이 필드는 용량 풀에 대한 대상 성능을 보여줍니다.  
-     용량 풀의 서비스 수준을 [**프리미엄**](azure-netapp-files-service-levels.md#Premium) 또는 [**표준**](azure-netapp-files-service-levels.md#Standard)으로 지정합니다.
+     용량 풀의 서비스 수준 지정: [**프리미엄**](azure-netapp-files-service-levels.md#Premium) 또는 [**표준**](azure-netapp-files-service-levels.md#Standard)입니다.
 
    * **크기**     
      구입하려는 용량 풀의 크기를 지정합니다.        

@@ -1,6 +1,6 @@
 ---
-title: 미리 보기-Azure Kubernetes 서비스 (AKS) 클러스터에 별색 노드 풀 추가
-description: Azure Kubernetes 서비스 (AKS) 클러스터에 별색 노드 풀을 추가 하는 방법에 대해 알아봅니다.
+title: 미리 보기 - AKS(Azure Kubernetes) 클러스터에 스팟 노드 풀 추가
+description: AKS(Azure Kubernetes) 클러스터에 스팟 노드 풀을 추가하는 방법에 대해 알아봅니다.
 services: container-service
 author: zr-msft
 ms.service: container-service
@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.author: zarhoads
 ms.openlocfilehash: 466ad7c88547b6676ba0ae263b74d14059322f1c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77622050"
 ---
-# <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>미리 보기-Azure Kubernetes 서비스 (AKS) 클러스터에 별색 노드 풀 추가
+# <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>미리 보기 - AKS(Azure Kubernetes) 클러스터에 스팟 노드 풀 추가
 
-별색 노드 풀은 [별색 가상 머신 확장 집합][vmss-spot]에 의해 지원 되는 노드 풀입니다. AKS 클러스터를 사용 하 여 노드에 스폿 Vm을 사용 하면 상당한 비용 절감으로 Azure에서 사용 되지 않는 용량을 활용할 수 있습니다. 사용 가능한 사용률 용량의 양은 노드 크기, 지역 및 시간을 포함 하 여 여러 요인에 따라 달라 집니다.
+스팟 노드 풀은 스팟 가상 [시스템 규모 집합으로][vmss-spot]백업되는 노드 풀입니다. AKS 클러스터가 있는 노드에 스팟 VM을 사용하면 Azure에서 사용되지 않는 용량을 크게 절약할 수 있습니다. 사용 가능한 미사용 용량의 양은 노드 크기, 지역 및 시간대를 비롯한 여러 요인에 따라 달라집니다.
 
-별색 노드 풀을 배포 하는 경우 Azure는 사용 가능한 용량이 있는 경우 별색 노드를 할당 합니다. 하지만 스폿 노드에 대 한 SLA는 없습니다. 별색 노드 풀을 지 원하는 스폿 확장 집합은 단일 장애 도메인에 배포 되며 고가용성을 보장 하지 않습니다. Azure에서 용량을 다시 필요로 하는 경우 언제 든 지 Azure 인프라에서 스폿 노드를 제거 합니다.
+스팟 노드 풀을 배포할 때 Azure는 사용 가능한 용량이 있는 경우 스팟 노드를 할당합니다. 그러나 스팟 노드에 대한 SLA는 없습니다. 스팟 노드 풀을 백업하는 스팟 스케일 집합은 단일 오류 도메인에 배포되며 고가용성 보장을 제공하지 않습니다. Azure에서 용량을 다시 필요로 할 때 언제든지 Azure 인프라는 스팟 노드를 제거합니다.
 
-지점 노드는 중단, 조기 종료 또는 제거를 처리할 수 있는 워크 로드에 적합 합니다. 예를 들어 일괄 처리 작업, 개발 및 테스트 환경, 대량 계산 워크 로드 등의 작업은 별색 노드 풀에서 예약 하는 것이 좋습니다.
+스팟 노드는 중단, 조기 종료 또는 제거를 처리할 수 있는 워크로드에 적합합니다. 예를 들어 일괄 처리 작업, 개발 및 테스트 환경 및 대규모 컴퓨팅 워크로드와 같은 워크로드는 스팟 노드 풀에서 예약할 수 있는 좋은 후보일 수 있습니다.
 
-이 문서에서는 기존 Azure Kubernetes 서비스 (AKS) 클러스터에 보조 노드 풀을 추가 합니다.
+이 문서에서는 기존 AKS(Azure Kubernetes Service) 클러스터에 보조 스팟 노드 풀을 추가합니다.
 
-이 문서에서는 Kubernetes 및 Azure Load Balancer 개념을 기본적으로 이해 하 고 있다고 가정 합니다. 자세한 내용은 [AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념][kubernetes-concepts]을 참조하세요.
+이 문서에서는 Kubernetes 및 Azure 로드 밸러서 개념에 대한 기본적인 이해를 가정합니다. 자세한 내용은 [AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념][kubernetes-concepts]을 참조하세요.
 
 이 기능은 현재 미리 보기로 제공됩니다.
 
@@ -32,34 +32,34 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-클러스터를 만들어 별색 노드 풀을 사용할 경우 해당 클러스터는 노드 풀 및 *표준* SKU 부하 분산 장치에 대 한 Virtual Machine Scale Sets도 사용 해야 합니다. 또한 클러스터를 만든 후에는 별색 노드 풀을 사용 하기 위해 추가 노드 풀을 추가 해야 합니다. 추가 노드 풀 추가는 이후 단계에서 설명 하지만 먼저 미리 보기 기능을 사용 하도록 설정 해야 합니다.
+스팟 노드 풀을 사용하는 클러스터를 만들 때 해당 클러스터는 노드 풀 및 *표준* SKU 로드 밸런서에 대해가상 시스템 규모 집합도 사용해야 합니다. 또한 스팟 노드 풀을 사용하려면 클러스터를 만든 후 추가 노드 풀을 추가해야 합니다. 추가 노드 풀 추가는 이후 단계에서 다루지만 먼저 미리 보기 기능을 사용하도록 설정해야 합니다.
 
 > [!IMPORTANT]
-> AKS preview 기능은 셀프 서비스 옵트인 (opt in)입니다. 커뮤니티에서 피드백 및 버그를 수집 하기 위해 제공 됩니다. 미리 보기에서 이러한 기능은 프로덕션 용도로 사용 되지 않습니다. 공개 미리 보기의 기능은 ' 최고 노력 ' 지원에 속합니다. AKS 기술 지원 팀의 지원은 업무 시간 (태평양 표준 시간대) 에서만 사용할 수 있습니다. 자세한 내용은 다음 지원 문서를 참조 하세요.
+> AKS 미리보기 기능은 셀프 서비스, 옵트인입니다. 커뮤니티에서 피드백과 버그를 수집하기 위해 제공됩니다. 미리 보기에서 이러한 기능은 프로덕션 용으로 사용할 수 없습니다. 공개 미리보기의 기능은 '최선의 노력'에 해당합니다. AKS 기술 지원 팀의 지원은 태평양 표준 시간대(태평양 표준 시간대) 동안에만 제공됩니다. 자세한 내용은 다음 지원 문서를 참조하십시오.
 >
 > * [AKS 지원 정책][aks-support-policies]
 > * [Azure 지원 FAQ][aks-faq]
 
-### <a name="register-spotpoolpreview-preview-feature"></a>Spotpoolpreview 미리 보기 기능 등록
+### <a name="register-spotpoolpreview-preview-feature"></a>스팟풀 미리보기 미리 보기 기능 등록
 
-별색 노드 풀을 사용 하는 AKS 클러스터를 만들려면 구독에서 *spotpoolpreview* 기능 플래그를 사용 하도록 설정 해야 합니다. 이 기능은 클러스터를 구성할 때 제공 되는 최신 서비스 기능 집합을 제공 합니다.
+스팟 노드 풀을 사용하는 AKS 클러스터를 만들려면 구독에서 *spotpoolpreview* 기능 플래그를 사용하도록 설정해야 합니다. 이 기능은 클러스터를 구성할 때 최신 서비스 향상 기능을 제공합니다.
 
 > [!CAUTION]
-> 구독에 기능을 등록 하면 현재 해당 기능을 등록 취소할 수 없습니다. 일부 미리 보기 기능을 사용 하도록 설정한 후에는 구독에서 만든 모든 AKS 클러스터에 대 한 기본값을 사용할 수 있습니다. 프로덕션 구독에서 미리 보기 기능을 사용 하도록 설정 하지 마세요. 별도의 구독을 사용 하 여 미리 보기 기능을 테스트 하 고 피드백을 수집 합니다.
+> 구독에 기능을 등록할 때 해당 기능을 현재 등록 취소할 수 없습니다. 일부 미리 보기 기능을 활성화하면 구독에서 만든 모든 AKS 클러스터에 기본값을 사용할 수 있습니다. 프로덕션 구독에서 미리 보기 기능을 사용하도록 설정하지 마십시오. 별도의 구독을 사용하여 미리 보기 기능을 테스트하고 피드백을 수집합니다.
 
-다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용 하 여 *spotpoolpreview* feature 플래그를 등록 합니다.
+다음 예제와 같이 az [피쳐 레지스터][az-feature-register] 명령을 사용하여 *spotpoolpreview 피쳐* 플래그를 등록합니다.
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "spotpoolpreview"
 ```
 
-상태가 *Registered*로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용 하 여 등록 상태를 확인할 수 있습니다.
+상태가 *Registered*로 표시되는 데 몇 분 정도 걸립니다. [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/spotpoolpreview')].{Name:name,State:properties.state}"
 ```
 
-준비가 되 면 [az provider register][az-provider-register] 명령을 사용 하 여 *ContainerService* 리소스 공급자 등록을 새로 고칩니다.
+준비가 되면 [az provider register][az-provider-register] 명령을 사용하여 *Microsoft.ContainerService* 리소스 공급자 등록을 새로 고칩니다.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -67,7 +67,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
 
-별색 노드 풀을 사용 하는 AKS 클러스터를 만들려면 *AKS-preview* CLI 확장 버전 0.4.32 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 *aks-preview* Azure CLI 확장을 설치한 다음 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
+스팟 노드 풀을 사용하는 AKS 클러스터를 만들려면 *aks 미리 보기* CLI 확장 버전 0.4.32 이상이 필요합니다. az 확장 [추가][az-extension-add] 명령을 사용하여 *aks 미리 보기* Azure CLI 확장을 설치한 다음 az [확장 업데이트][az-extension-update] 명령을 사용하여 사용 가능한 업데이트를 확인합니다.
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -79,22 +79,22 @@ az extension update --name aks-preview
 
 ### <a name="limitations"></a>제한 사항
 
-스폿 노드 풀로 AKS 클러스터를 만들고 관리 하는 경우 다음과 같은 제한 사항이 적용 됩니다.
+스팟 노드 풀을 사용하여 AKS 클러스터를 만들고 관리할 때 다음과 같은 제한 사항이 적용됩니다.
 
-* 별색 노드 풀은 클러스터의 기본 노드 풀 일 수 없습니다. 별색 노드 풀은 보조 풀에만 사용할 수 있습니다.
-* 별색 노드 풀은 cordon 및 드레이닝을 보장할 수 없으므로 별색 노드 풀을 업그레이드할 수 없습니다. Kubernetes 버전 업그레이드와 같은 작업을 수행 하려면 기존 별색 노드 풀을 새 항목으로 바꾸어야 합니다. 별색 노드 풀을 교체 하려면 Kubernetes의 다른 버전을 사용 하 여 새 별색 노드 풀을 만들고, 상태가 *Ready*가 될 때까지 기다린 후 이전 노드 풀을 제거 합니다.
-* 제어 평면과 노드 풀을 동시에 업그레이드할 수는 없습니다. 이러한 항목은 개별적으로 업그레이드 하거나, 제어 평면과 나머지 노드 풀을 동시에 업그레이드 하기 위해 별색 노드 풀을 제거 해야 합니다.
-* 별색 노드 풀은 Virtual Machine Scale Sets를 사용 해야 합니다.
-* ScaleSetPriority 또는 SpotMaxPrice를 만든 후에는 변경할 수 없습니다.
-* SpotMaxPrice를 설정 하는 경우 값은-1 이거나 최대 5 개의 소수 자릿수를 포함 하는 양수 값 이어야 합니다.
-* 별색 노드 풀에는 *kubernetes.azure.com/scalesetpriority:spot*, taint *kubernetes.azure.com/scalesetpriority=spot:NoSchedule*및 system pod에는 선호도가 포함 됩니다.
-* 별색 노드 풀에서 작업을 예약 하려면 [해당 toleration][spot-toleration] 를 추가 해야 합니다.
+* 스팟 노드 풀은 클러스터의 기본 노드 풀이 될 수 없습니다. 스팟 노드 풀은 보조 풀에만 사용할 수 있습니다.
+* 스팟 노드 풀은 코돈 및 드레인을 보장할 수 없으므로 스팟 노드 풀을 업그레이드할 수 없습니다. 기존 스팟 노드 풀을 Kubernetes 버전 업그레이드와 같은 작업을 수행할 새 스팟 노드 풀로 바꿔야 합니다. 스팟 노드 풀을 대체하려면 다른 버전의 Kubernetes로 새 스팟 노드 풀을 만들고 상태가 *준비될*때까지 기다린 다음 이전 노드 풀을 제거합니다.
+* 제어 평면과 노드 풀을 동시에 업그레이드할 수 없습니다. 제어 평면과 나머지 노드 풀을 동시에 업그레이드하려면 별도로 업그레이드하거나 스팟 노드 풀을 제거해야 합니다.
+* 스팟 노드 풀은 가상 시스템 배율 집합을 사용해야 합니다.
+* 생성 후 스케일셋우선순위 또는 스팟맥스프라이스를 변경할 수 없습니다.
+* 스팟맥스프라이스를 설정할 때 값은 -1이어야 하며 소수점 이하 의 소수점 이하 최대 5자리가 있는 양수 값이어야 합니다.
+* 스팟 노드 풀에는 *레이블 kubernetes.azure.com/scalesetpriority:spot,* 오염 *kubernetes.azure.com/scalesetpriority=spot:NoSchedule*및 시스템 포드에 안티 선호도가 있습니다.
+* 스팟 노드 풀에서 워크로드를 예약하려면 [해당 내약감을][spot-toleration] 추가해야 합니다.
 
-## <a name="add-a-spot-node-pool-to-an-aks-cluster"></a>AKS 클러스터에 스폿 노드 풀 추가
+## <a name="add-a-spot-node-pool-to-an-aks-cluster"></a>AKS 클러스터에 스팟 노드 풀 추가
 
-여러 노드 풀을 사용할 수 있는 기존 클러스터에 별색 노드 풀을 추가 해야 합니다. 여러 노드 풀로 AKS 클러스터를 만드는 방법에 대 한 자세한 내용은 [여기][use-multiple-node-pools]에서 사용할 수 있습니다.
+여러 노드 풀이 활성화된 기존 클러스터에 스팟 노드 풀을 추가해야 합니다. 여러 노드 풀이 있는 AKS 클러스터를 만드는 방법에 대한 자세한 내용은 [여기에서][use-multiple-node-pools]확인할 수 있습니다.
 
-[Az aks nodepool add][az-aks-nodepool-add]를 사용 하 여 노드 풀을 만듭니다.
+[az aks 노드풀 추가를][az-aks-nodepool-add]사용하여 노드 풀을 만듭니다.
 ```azurecli-interactive
 az aks nodepool add \
     --resource-group myResourceGroup \
@@ -109,24 +109,24 @@ az aks nodepool add \
     --no-wait
 ```
 
-기본적으로 여러 노드 풀을 사용 하 여 클러스터를 만들 때 AKS 클러스터에서 *우선 순위가* *Regular* 인 노드 풀을 만듭니다. 위의 명령은 *최우선 순위의* 기존 AKS 클러스터에 보조 노드 풀을 추가 *합니다.* *지점* *우선 순위* 는 노드 풀을 별색 노드 풀로 만듭니다. *제거 정책* 매개 변수는 위의 예제에서 기본값 인 *Delete* 로 설정 됩니다. [제거 정책을][eviction-policy] *삭제*로 설정 하면 노드 풀의 기본 확장 집합에 있는 노드가 제거 될 때 삭제 됩니다. 제거 정책을 *할당*취소로 설정할 수도 있습니다. 제거 정책을 *할당*취소로 설정 하면 제거 시 기본 확장 집합의 노드가 중지 된 할당 취소 상태로 설정 됩니다. 중지 됨-할당 취소 된 상태에 있는 노드는 계산 할당량에 대해 계산 되며, 클러스터 크기 조정 또는 업그레이드에 문제가 발생할 수 있습니다. *우선 순위* 및 *제거 정책* 값은 노드 풀을 만드는 동안에만 설정할 수 있습니다. 이러한 값은 나중에 업데이트할 수 없습니다.
+기본적으로 여러 노드 풀이 있는 클러스터를 만들 때 AKS 클러스터에서 *일반* 우선 *순위를* 가진 노드 풀을 만듭니다. 위의 명령은 *스팟*을 *우선적으로* 사용하여 기존 AKS 클러스터에 보조 노드 풀을 추가합니다. *스팟의* *우선 순위는* 노드 풀을 스팟 노드 풀로 만듭니다. *제거 정책* 매개 변수는 위의 예제에서 *삭제로* 설정됩니다.이 기본값입니다. [제거 정책을][eviction-policy] *Delete로*설정하면 노드 풀의 기본 배율 집합에 있는 노드가 제거될 때 삭제됩니다. 제거 정책을 *할당 하기로*설정할 수도 있습니다. 제거 정책을 *Deallocate로*설정하면 기본 축척 집합의 노드가 제거 시 할당 중지된 상태로 설정됩니다. 할당 할당 이 중지된 상태의 노드는 계산 할당량에 대해 계산 할당량에 대해 계산되며 클러스터 확장 또는 업그레이드에 문제가 발생할 수 있습니다. *우선 순위* 및 *제거 정책* 값은 노드 풀을 만드는 동안에만 설정할 수 있습니다. 이러한 값은 나중에 업데이트할 수 없습니다.
 
-또한이 명령은 [클러스터 autoscaler][cluster-autoscaler]사용 하도록 설정 합니다 .이는 별색 노드 풀에서 사용 하는 것이 좋습니다. 클러스터에서 실행 되는 작업에 따라 클러스터는 노드 풀의 노드 수를 확장 하 고 축소 autoscaler 합니다. 별색 노드 풀의 경우 클러스터 autoscaler 추가 노드가 여전히 필요한 경우 제거 후 노드 수를 확장 합니다. 노드 풀에 포함 될 수 있는 최대 노드 수를 변경 하는 경우 클러스터 autoscaler 연결 된 `maxCount` 값도 조정 해야 합니다. 클러스터 autoscaler를 사용 하지 않는 경우 제거 시 스폿 풀은 결국 0으로 줄어들고 추가 별색 노드를 수신 하기 위한 수동 작업이 필요 합니다.
+또한 이 명령을 사용하면 [스팟][cluster-autoscaler]노드 풀에 사용하는 것이 좋습니다. 클러스터에서 실행되는 워크로드에 따라 클러스터 자동 크기 조정기는 노드 풀의 노드 수를 확장하고 축소합니다. 스팟 노드 풀의 경우 클러스터 자동 크기 조정기는 추가 노드가 여전히 필요한 경우 제거 후 노드 수를 확장합니다. 노드 풀에 있을 수 있는 최대 노드 수를 변경하는 경우 `maxCount` 클러스터 자동 크기 조정기와 연결된 값도 조정해야 합니다. 클러스터 자동 크기 조정기를 사용하지 않는 경우 제거 시 스팟 풀은 결국 0으로 감소하고 추가 스팟 노드를 수신하기 위해 수동 작업이 필요합니다.
 
 > [!Important]
-> 일괄 처리 작업 및 테스트 환경과 같은 중단을 처리할 수 있는 별색 노드 풀 에서만 작업을 예약 합니다. 노드 제거를 처리할 수 있는 작업만 별색 노드 풀에서 예약 되도록 별색 노드 풀에 [taints 및 tolerations][taints-tolerations] 를 설정 하는 것이 좋습니다. 예를 들어 위의 command taint는 *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* 의 pod를 추가 하므로 해당 toleration가 있는만이 노드에 예약 됩니다.
+> 일괄 처리 작업 및 테스트 환경과 같은 중단을 처리할 수 있는 스팟 노드 풀에서만 워크로드를 예약합니다. 스팟 노드 풀에서 노드 제거를 처리할 수 있는 워크로드만 스팟 노드 풀에서 예약되도록 하기 위해 스팟 노드 풀에 [오염 및 내포를][taints-tolerations] 설정하는 것이 좋습니다. 예를 들어 위의 명령 ny 기본값은 *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* 오염을 추가하므로 해당 내약이 있는 포드만 이 노드에서 예약됩니다.
 
-## <a name="verify-the-spot-node-pool"></a>별색 노드 풀 확인
+## <a name="verify-the-spot-node-pool"></a>스팟 노드 풀 확인
 
-노드 풀이 별색 노드 풀로 추가 되었는지 확인 하려면 다음을 수행 합니다.
+노드 풀이 스팟 노드 풀로 추가되었는지 확인하려면 다음을 수행합니다.
 
 ```azurecli
 az aks nodepool show --resource-group myResourceGroup --cluster-name myAKSCluster --name spotnodepool
 ```
 
-*ScaleSetPriority* *있는지 확인 합니다.*
+*축척 확인우선 순위는* *스팟입니다.*
 
-Pod가 스폿 노드에서 실행 되도록 예약 하려면 스폿 노드에 적용 된 taint에 해당 하는 toleration를 추가 합니다. 다음 예제에서는 이전 단계에서 사용 된 *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* taint에 해당 하는 toleration를 정의 하는 yaml 파일의 일부를 보여 줍니다.
+스팟 노드에서 실행되도록 포드를 예약하려면 스팟 노드에 적용된 오염에 해당하는 내포를 추가합니다. 다음 예제에서는 이전 단계에서 사용된 *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* 오염에 해당하는 내포를 정의하는 yaml 파일의 일부를 보여 주습니다.
 
 ```yaml
 spec:
@@ -140,16 +140,16 @@ spec:
    ...
 ```
 
-이 toleration를 포함 하는 pod가 배포 되 면 Kubernetes가 taint가 적용 된 노드에서 pod를 예약할 수 있습니다.
+이 내포가 있는 포드가 배포되면 Kubernetes는 오염이 적용된 노드에서 포드를 성공적으로 예약할 수 있습니다.
 
-## <a name="max-price-for-a-spot-pool"></a>스폿 풀의 최대 가격
-[지점 인스턴스의 가격은][pricing-spot]지역 및 SKU를 기준으로 하는 변수입니다. 자세한 내용은 [Linux][pricing-linux] 및 [Windows][pricing-windows]가격 책정을 참조 하세요.
+## <a name="max-price-for-a-spot-pool"></a>스팟 풀의 최대 가격
+스팟 인스턴스의 가격은 지역 및 SKU에 따라 [가변적입니다.][pricing-spot] 자세한 내용은 [Linux][pricing-linux] 및 [Windows][pricing-windows]가격 책정을 참조하십시오.
 
-가변 가격 책정을 사용 하는 경우 최대 5 개의 소수 자릿수를 사용 하 여 미국 달러 (USD)로 최대 가격을 설정 하는 옵션을 사용할 수 있습니다. 예를 들어 값 *0.98765* 는 시간당 $0.98765 USD의 최대 가격이 됩니다. 최대 가격을 *-1*로 설정 하면 인스턴스는 가격에 따라 제거 되지 않습니다. 인스턴스의 가격은 사용 가능한 용량 및 할당량을 초과 하는 경우에 대비 하 여 현재 가격 또는 표준 인스턴스의 가격으로 사용 됩니다.
+가변 가격을 사용하면 최대 소수점 이하 장소를 사용하여 최대 가격(USD)으로 설정할 수 있습니다. 예를 들어 *값 0.98765는* 시간당 0.98765 USD의 최대 가격입니다. 최대 가격을 *-1로*설정하면 가격에 따라 인스턴스가 제거되지 않습니다. 인스턴스의 가격은 현재 스팟 가격 또는 표준 인스턴스의 가격 중 더 적은 가격이며, 사용 가능한 용량과 할당량이 있는 한 더 적습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 AKS 클러스터에 스폿 노드 풀을 추가 하는 방법을 알아보았습니다. 노드 풀에서 pod을 제어 하는 방법에 대 한 자세한 내용은 [AKS의 advanced scheduler 기능 모범 사례][operator-best-practices-advanced-scheduler]를 참조 하세요.
+이 문서에서는 AKS 클러스터에 스팟 노드 풀을 추가하는 방법을 배웠습니다. 노드 풀에서 포드를 제어하는 방법에 대한 자세한 내용은 [AKS의 고급 스케줄러 기능에 대한 모범 사례를][operator-best-practices-advanced-scheduler]참조하십시오.
 
 <!-- LINKS - External -->
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/

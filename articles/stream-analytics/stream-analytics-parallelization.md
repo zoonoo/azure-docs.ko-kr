@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: d1afb6037b5fc290de93faba405982ebd1fb68ea
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 31ac43ec796d305b8a8f4b62ea09481e262b6b3f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79254340"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80256983"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream Analytics에서 쿼리 병렬 처리 사용
 이 문서에서는 Azure Stream Analytics에서 병렬 처리 기능을 활용하는 방법을 보여 줍니다. 입력 파티션을 구성하고, 분석 쿼리 정의를 조정하여 Stream Analytics 작업의 크기를 조정하는 방법을 알아봅니다.
@@ -35,8 +35,8 @@ Stream Analytics 작업 크기 조정은 입력 또는 출력에 있는 파티�
 ### <a name="outputs"></a>outputs
 
 Stream Analytics로 작업할 때 다음 출력에서 분할을 활용할 수 있습니다.
--   Azure Data Lake 스토리지
--   Azure 기능
+-   Azure Data Lake Storage
+-   Azure Functions
 -   Azure 테이블
 -   Blob Storage(파티션 키를 명시적으로 설정할 수 있음)
 -   Cosmos DB(파티션 키를 명시적으로 설정해야 함)
@@ -58,9 +58,9 @@ Power BI는 분할을 지원하지 않습니다. 그러나 [이 섹션](#multi-s
 
 1. 쿼리 논리가 동일한 쿼리 인스턴스에서 처리되는 동일한 키에 따라 다른 경우 이벤트가 동일한 입력 파티션으로 이동하는지 확인해야 합니다. Event Hubs 또는 IoT Hub의 경우 이것은 이벤트 데이터에 **PartitionKey** 값 집합이 있어야 한다는 의미입니다. 또는 분할된 보낸 사람을 사용할 수 있습니다. Blob Storage의 경우 이것은 이벤트가 같은 파티션 폴더에 전송된다는 것을 의미합니다. 쿼리 논리가 동일한 쿼리 인스턴스에서 동일한 키를 처리할 필요가 없는 경우 이 요구 사항을 무시할 수 있습니다. 이 논리에 대한 예로 간단한 선택/프로젝트/필터 쿼리를 참조하세요.  
 
-2. 데이터가 입력 측에 배치되면 쿼리가 분할되었는지 확인해야 합니다. 그러려면 모든 단계에서 **PARTITION BY**를 사용해야 합니다. 여러 단계가 허용되지만 모두 동일한 키로 분할되어야 합니다. 호환성 수준 1.0 및 1.1에서 작업을 완전히 병렬 처리 하려면 분할 키를 **PartitionId** 로 설정 해야 합니다. Compatility 수준이 1.2 이상인 작업의 경우 사용자 지정 열을 입력 설정에서 파티션 키로 지정할 수 있으며 PARTITION BY 절이 없는 경우에도 작업은 자동으로 paralellized 됩니다. 이벤트 허브 출력의 경우 "파티션 키 열" 속성은 "PartitionId"를 사용 하도록 설정 해야 합니다.
+2. 데이터가 입력 측에 배치되면 쿼리가 분할되었는지 확인해야 합니다. 이렇게 하려면 모든 단계에서 **파티션 BY를** 사용해야 합니다. 여러 단계가 허용되지만 모두 동일한 키로 분할되어야 합니다. 호환성 수준 1.0 및 1.1에서 작업이 완전히 병렬처리되려면 파티션 키를 **Partitionid로** 설정해야 합니다. 호환성 수준이 1.2 이상인 작업의 경우 사용자 지정 열을 입력 설정에서 파티션 키로 지정할 수 있으며 PARTITION BY 절 없이도 작업이 자동으로 패러렐화됩니다. 이벤트 허브 출력의 경우 "PartitionId"를 사용하도록 속성 "파티션 키 열"을 설정해야 합니다.
 
-3. 대부분의 출력은 분할을 활용할 수 있지만 분할을 지원하지 않는 출력 형식을 사용하는 경우 작업이 완벽하게 병렬 처리되지 않습니다. 자세한 내용은 [출력 섹션](#outputs)을 참조하세요.
+3. 대부분의 출력은 분할을 활용할 수 있지만 분할을 지원하지 않는 출력 형식을 사용하는 경우 작업이 완벽하게 병렬 처리되지 않습니다. 이벤트 허브 출력의 경우 **파티션 키 열이** 쿼리 파티션 키와 동일하게 설정되어 있는지 확인합니다. 자세한 내용은 [출력 섹션](#outputs)을 참조하세요.
 
 4. 입력 파티션 수가 출력 파티션 수와 같아야 합니다. Blob Storage 출력은 파티션을 지원할 수 있고 업스트림 쿼리의 파티션 구성표를 상속합니다. Blob Storage에 대한 파티션 키가 지정되면 데이터는 입력 파티션별로 분할되므로 결과는 여전히 완전 병렬 상태입니다. 다음은 완전한 병렬 작업을 허용하는 파티션 값의 예입니다.
 
@@ -75,7 +75,7 @@ Power BI는 분할을 지원하지 않습니다. 그러나 [이 섹션](#multi-s
 ### <a name="simple-query"></a>단순 쿼리
 
 * 입력: 8개의 파티션이 있는 이벤트 허브
-* 출력: 8 개의 파티션이 있는 이벤트 허브 ("파티션 키 열"은 "PartitionId"를 사용 하도록 설정 해야 함)
+* 출력: 파티션이 8개인 이벤트 허브("파티션 키 열"을 사용하여 "PartitionId"를 사용하도록 설정해야 함)
 
 쿼리:
 
@@ -85,7 +85,7 @@ Power BI는 분할을 지원하지 않습니다. 그러나 [이 섹션](#multi-s
     WHERE TollBoothId > 100
 ```
 
-이 쿼리는 간단한 필터입니다. 따라서 이벤트 허브로 전송되는 입력을 분할하는 것에 대해 걱정하지 않아도 됩니다. 1\.2 이전의 호환성 수준이 있는 작업에는 **PARTITION By PartitionId** 절이 포함 되어 있으므로 이전에 #2 요구 사항을 충족 해야 합니다. 출력의 경우 파티션 키가 **PartitionId**로 설정되도록 작업에서 이벤트 허브 출력을 구성해야 합니다. 마지막 한 가지 검사는 입력 파티션 수가 출력 파티션 수와 같은지 확인하는 것입니다.
+이 쿼리는 간단한 필터입니다. 따라서 이벤트 허브로 전송되는 입력을 분할하는 것에 대해 걱정하지 않아도 됩니다. 1.2 이전의 호환성 수준이 있는 작업에는 **PARTITION BY PartitionId** 절이 포함되어야 하므로 이전 #2 요구 사항을 충족합니다. 출력의 경우 파티션 키가 **PartitionId**로 설정되도록 작업에서 이벤트 허브 출력을 구성해야 합니다. 마지막 한 가지 검사는 입력 파티션 수가 출력 파티션 수와 같은지 확인하는 것입니다.
 
 ### <a name="query-with-a-grouping-key"></a>그룹화 키가 있는 쿼리
 
@@ -114,7 +114,7 @@ Power BI는 분할을 지원하지 않습니다. 그러나 [이 섹션](#multi-s
 
 ### <a name="query-using-non-partitioned-output"></a>분할되지 않은 출력을 사용하여 쿼리
 * 입력: 8개의 파티션이 있는 이벤트 허브
-* 출력: Power BI
+* 출력: 전력 BI
 
 Power BI 출력은 현재 분할을 지원하지 않습니다. 따라서 이 시나리오는 병렬 처리가 적합하지 않습니다.
 
@@ -140,9 +140,9 @@ Power BI 출력은 현재 분할을 지원하지 않습니다. 따라서 이 시
 
 앞의 예제에서는 병렬 처리가 적합한 토폴로지를 준수(또는 준수하지 않는) 일부 Stream Analytics 작업을 보여 줍니다. 준수하는 경우 최대 규모의 가능성을 포함합니다. 이러한 프로필 중 하나에 적합하지 않는 작업의 경우 향후 업데이트에서 크기 조정 지침이 제공될 예정입니다. 현재는 다음 섹션에 있는 일반적인 지침을 사용하세요.
 
-### <a name="compatibility-level-12---multi-step-query-with-different-partition-by-values"></a>호환성 수준 1.2-값으로 다른 파티션이 있는 다단계 쿼리 
+### <a name="compatibility-level-12---multi-step-query-with-different-partition-by-values"></a>호환성 수준 1.2 - 다른 파티션 BY 값을 가진 다단계 쿼리 
 * 입력: 8개의 파티션이 있는 이벤트 허브
-* 출력: 8 개의 파티션이 있는 이벤트 허브 ("파티션 키 열"은 "TollBoothId"를 사용 하도록 설정 해야 함)
+* 출력: 파티션이 8개인 이벤트 허브("파티션 키 열"을 사용하여 "TollBoothId"를 사용하도록 설정해야 함)
 
 쿼리:
 
@@ -158,7 +158,7 @@ Power BI 출력은 현재 분할을 지원하지 않습니다. 따라서 이 시
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 ```
 
-호환성 수준 1.2은 기본적으로 병렬 쿼리 실행을 가능 하 게 합니다. 예를 들어, "TollBoothId" 열이 입력 파티션 키로 설정 되어 있으면 이전 섹션의 쿼리가 parttioned 됩니다. PARTITION BY ParttionId 절은 필요 하지 않습니다.
+호환성 수준 1.2는 기본적으로 병렬 쿼리 실행을 가능하게 합니다. 예를 들어 이전 섹션의 쿼리는 "TollBoothId" 열이 입력 파티션 키로 설정되어 있는 한 분할됩니다. 파티션 BY PartitionId 절은 필요하지 않습니다.
 
 ## <a name="calculate-the-maximum-streaming-units-of-a-job"></a>작업의 최대 스트리밍 단위 계산
 Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수는 작업에 대해 정의된 쿼리의 단계 수와 각 단계에 대한 파티션 수에 따라 결정됩니다.
@@ -190,7 +190,7 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
 
 * 입력 소스는 분할해야 합니다. 
 * 쿼리의 **SELECT** 문은 분할된 입력 원본에서 읽어와야 합니다.
-* 단계 내의 쿼리에는 **PARTITION BY** 키워드가 있어야 합니다.
+* 단계 내의 쿼리에는 **파티션 BY** 키워드가 있어야 합니다.
 
 쿼리가 분할되면 입력 이벤트가 처리되고 별도의 파티션 그룹에 집계되며 각 그룹에 대해 출력 이벤트가 생성됩니다. 결합된 집계를 원하는 경우 집계할 또 다른 분할되지 않은 단계를 만들어야 합니다.
 
@@ -248,39 +248,39 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
 
 ## <a name="achieving-higher-throughputs-at-scale"></a>대규모로 더 높은 처리량 달성
 
-[처리가 적합 병렬](#embarrassingly-parallel-jobs) 작업이 필요 하지만 대규모로 더 높은 처리량을 유지 하는 데 충분 하지 않습니다. 모든 저장소 시스템과 해당 Stream Analytics 출력에는 최대한의 쓰기 처리량을 얻는 방법에 대 한 변형이 있습니다. 모든 규모의 시나리오와 마찬가지로 올바른 구성을 사용 하 여 해결할 수 있는 몇 가지 과제가 있습니다. 이 섹션에서는 몇 가지 일반적인 출력에 대 한 구성에 대해 설명 하 고 초당 1K, 5K 및 10K 이벤트의 수집 비율을 유지 하는 샘플을 제공 합니다.
+[당황스러운 병렬](#embarrassingly-parallel-jobs) 작업이 필요하지만 대규모로 더 높은 처리량을 유지하기에는 충분하지 않습니다. 모든 스토리지 시스템과 해당 Stream Analytics 출력은 최상의 쓰기 처리량을 달성하는 방법에 따라 차이가 있습니다. 모든 규모의 시나리오와 마찬가지로 올바른 구성을 사용하여 해결할 수 있는 몇 가지 과제가 있습니다. 이 섹션에서는 몇 가지 일반적인 출력에 대한 구성에 대해 설명하고 초당 1K, 5K 및 10K 이벤트의 섭취 속도를 유지하기 위한 샘플을 제공합니다.
 
-다음 관찰에서는 이벤트 허브, Azure SQL DB 또는 Cosmos DB에 쓰는 기본 JavaScript UDF 인 상태 비저장 (통과) 쿼리를 사용 하는 Stream Analytics 작업을 사용 합니다.
+다음 관측값은 상태 비수기(통과) 쿼리가 있는 스트림 분석 작업을 사용하며, 이벤트 허브, Azure SQL DB 또는 Cosmos DB에 쓰는 기본 JavaScript UDF입니다.
 
 #### <a name="event-hub"></a>이벤트 허브
 
-|수집 률 (초당 이벤트 수) | 스트리밍 단위 | 출력 리소스  |
+|섭취 율(초당 이벤트) | 스트리밍 단위 | 출력 리소스  |
 |--------|---------|---------|
 | 1K     |    1    |  2 TU   |
 | 5K     |    6    |  6 TU   |
 | 10K    |    12   |  10 TU  |
 
-[이벤트 허브](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) 솔루션은 SU (스트리밍 단위) 및 처리량 측면에서 선형적으로 확장 되므로 Stream Analytics에서 데이터를 분석 하 고 스트리밍할 수 있는 가장 효율적이 고 성능이 뛰어난 방법입니다. 작업은 최대 200 m b/초 또는 하루 19조 이벤트를 처리 하는 데 약 192 SU로 확장 될 수 있습니다.
+[Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) 솔루션은 스트리밍 장치(SU) 및 처리량 측면에서 선형으로 확장되므로 Stream Analytics에서 데이터를 분석하고 스트리밍하는 가장 효율적이고 성능이 뛰어난 방법입니다. 작업을 최대 192SU까지 확장할 수 있으며, 이는 하루에 최대 200MB/s 또는 19조 개의 이벤트를 처리하는 것으로 변환됩니다.
 
 #### <a name="azure-sql"></a>Azure SQL
-|수집 률 (초당 이벤트 수) | 스트리밍 단위 | 출력 리소스  |
+|섭취 율(초당 이벤트) | 스트리밍 단위 | 출력 리소스  |
 |---------|------|-------|
 |    1K   |   3  |  S3   |
 |    5K   |   18 |  P4   |
 |    10K  |   36 |  P6   |
 
-[AZURE SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) 은 분할 상속 이라는 병렬 작성을 지원 하지만 기본적으로 사용 하도록 설정 되어 있지 않습니다. 그러나 완전히 병렬 쿼리와 함께 상속 분할을 사용 하도록 설정 하는 것 만으로는 처리량이 높아질 수 있습니다. SQL 쓰기 처리량은 SQL Azure 데이터베이스 구성 및 테이블 스키마에 따라 크게 달라 집니다. [SQL 출력 성능](./stream-analytics-sql-output-perf.md) 문서에는 쓰기 처리량을 최대화할 수 있는 매개 변수에 대 한 자세한 정보가 있습니다. [Azure SQL Database Azure Stream Analytics 출력](./stream-analytics-sql-output-perf.md#azure-stream-analytics) 에 설명 된 것 처럼이 솔루션은 8 개의 파티션을 초과 하는 완전히 병렬 파이프라인으로 선형으로 확장 되지 않으므로 SQL 출력 전에 다시 분할 해야 할 수 있습니다 [(참조)](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count). 프리미엄 Sku는 몇 분 마다 발생 하는 로그 백업에서 발생 하는 오버 헤드와 함께 높은 IO 비율을 유지 하는 데 필요 합니다.
+[Azure SQL은](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) 분할 상속이라고 하는 병렬 쓰기를 지원하지만 기본적으로 활성화되지는 않습니다. 그러나 완전히 병렬 쿼리와 함께 상속 분할을 사용하도록 설정하면 더 높은 처리량을 얻기에 충분하지 않을 수 있습니다. SQL 쓰기 처리량은 SQL Azure 데이터베이스 구성 및 테이블 스키마에 크게 의존합니다. [SQL 출력 성능](./stream-analytics-sql-output-perf.md) 문서에는 쓰기 처리량을 최대화할 수 있는 매개 변수에 대한 자세한 내용이 있습니다. Azure SQL Database 문서에 대한 [Azure Stream Analytics 출력에서](./stream-analytics-sql-output-perf.md#azure-stream-analytics) 설명한 것처럼 이 솔루션은 8개의 파티션을 초과하는 완전 병렬 파이프라인으로 선형으로 확장되지 않으며 SQL 출력 전에 다시 분할해야 할 수 있습니다(INTO 참조). [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 프리미엄 SCO는 몇 분마다 발생하는 로그 백업의 오버헤드와 함께 높은 IO 속도를 유지하는 데 필요합니다.
 
 #### <a name="cosmos-db"></a>Cosmos DB
-|수집 률 (초당 이벤트 수) | 스트리밍 단위 | 출력 리소스  |
+|섭취 율(초당 이벤트) | 스트리밍 단위 | 출력 리소스  |
 |-------|-------|---------|
-|  1K   |  3    | 20K  |
-|  5K   |  24   | 60K 이상  |
-|  10K  |  48   | 120K 이상 |
+|  1K   |  3    | 20K RU  |
+|  5K   |  24   | 60K RU  |
+|  10K  |  48   | 120K RU |
 
-Stream Analytics의 [Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) 출력이 [호환성 수준 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12)에서 네이티브 통합을 사용 하도록 업데이트 되었습니다. 호환성 수준 1.2을 사용 하면 처리량이 크게 향상 되 고 새 작업에 대 한 기본 호환성 수준인 1.1에 비해 사용이 감소 합니다. 솔루션은/deviceId에서 분할 된 CosmosDB 컨테이너를 사용 하 고 나머지 솔루션은 동일 하 게 구성 됩니다.
+스트림 분석에서 [코스모스 DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) 출력은 호환성 [수준 1.2에서](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12)네이티브 통합을 사용하도록 업데이트되었습니다 . 호환성 수준 1.2를 사용하면 처리량이 현저히 향상되고 새 작업의 기본 호환성 수준인 1.1에 비해 RU 소비가 줄어듭니다. 이 솔루션은 /deviceId에서 분할된 CosmosDB 컨테이너를 사용하며 나머지 솔루션은 동일하게 구성됩니다.
 
-[Azure 샘플 규모의 모든 스트리밍은](https://github.com/Azure-Samples/streaming-at-scale) 부하를 시뮬레이션 하 여 테스트 클라이언트를 입력으로 사용 하 여 공급 되는 이벤트 허브를 사용 합니다. 각 입력 이벤트는 구성 된 수집 속도를 처리량 속도 (1MB/s, 5MB/s 및 10MB)로 쉽게 변환 하는 1KB JSON 문서입니다. 이벤트는 최대 1K 장치에 대해 다음과 같은 JSON 데이터를 전송 하는 IoT 장치를 시뮬레이션 합니다.
+[Scale Azure 샘플의](https://github.com/Azure-Samples/streaming-at-scale) 모든 스트리밍은 테스트 클라이언트를 입력으로 시뮬레이션하여 공급되는 이벤트 허브를 사용합니다. 각 입력 이벤트는 구성된 처리 속도를 처리속도(1MB/s, 5MB/s 및 10MB/s)로 쉽게 변환하는 1KB JSON 문서입니다. 이벤트는 최대 1K 장치에 대해 다음과 같은 JSON 데이터(단축된 양식)를 보내는 IoT 장치를 시뮬레이션합니다.
 
 ```
 {
@@ -297,20 +297,20 @@ Stream Analytics의 [Cosmos DB](https://github.com/Azure-Samples/streaming-at-sc
 ```
 
 > [!NOTE]
-> 솔루션에서 사용 되는 다양 한 구성 요소 때문에 구성이 변경 될 수 있습니다. 보다 정확한 예측을 위해 시나리오에 맞게 예제를 사용자 지정 합니다.
+> 구성은 솔루션에 사용되는 다양한 구성 요소로 인해 변경될 수 있습니다. 보다 정확한 견적을 위해 시나리오에 맞게 샘플을 사용자 지정합니다.
 
 ### <a name="identifying-bottlenecks"></a>병목 상태 식별
 
-Azure Stream Analytics 작업의 메트릭 창을 사용 하 여 파이프라인의 병목 상태를 식별할 수 있습니다. 처리량 및 ["워터 마크 지연"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) 또는 **백로그 이벤트** 에 대 한 **입/출력 이벤트** 를 검토 하 여 작업이 입력 속도를 유지 하는지 확인 합니다. 이벤트 허브 메트릭에 대해 **제한 된 요청** 을 찾아 임계값 단위를 적절 하 게 조정 합니다. Cosmos DB 메트릭은 처리량에서 **파티션 키 범위별 최대** 사용량을 검토 하 여 파티션 키 범위를 균등 하 게 사용 하는지 확인 합니다. Azure SQL DB의 경우 **로그 IO** 및 **CPU**를 모니터링 합니다.
+Azure Stream Analytics 작업의 메트릭 창을 사용하여 파이프라인의 병목 현상을 식별합니다. 처리량및 ["워터마크 지연"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) 또는 **백로그 이벤트에** 대한 **입력/출력 이벤트를** 검토하여 작업이 입력 속도를 따라잡는지 확인합니다. 이벤트 허브 메트릭의 경우 **제한 요청을** 찾아 임계값 단위를 적절하게 조정합니다. Cosmos DB 메트릭의 경우 **처리량에서 파티션 키 범위당 최대 사용 RU/s를** 검토하여 파티션 키 범위가 균일하게 사용되도록 합니다. Azure SQL DB의 경우 **로그 IO** 및 **CPU를**모니터링합니다.
 
 ## <a name="get-help"></a>도움말 보기
 
-추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원은 [Azure 스트림 분석 포럼을](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
-* [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure 스트림 분석 사용 시작](stream-analytics-real-time-fraud-detection.md)
+* [Azure 스트림 분석 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->

@@ -1,5 +1,5 @@
 ---
-title: 데이터 파이프라인 모니터링 및 관리-Azure
+title: 데이터 파이프라인 모니터링 및 관리 - Azure
 description: 모니터링 및 관리 앱을 사용하여 Azure Data Factory 및 파이프라인을 모니터링하고 관리하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260372"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>모니터링 및 관리 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
@@ -159,7 +159,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 <table>
 <tr>
-    <th align="left">상태</th><th align="left">하위 상태</th><th align="left">Description</th>
+    <th align="left">상태</th><th align="left">하위 상태</th><th align="left">설명</th>
 </tr>
 <tr>
     <td rowspan="8">대기</td><td>ScheduleTime</td><td>활동 기간을 실행할 시간이 아직 되지 않습니다.</td>
@@ -286,7 +286,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 ## <a name="perform-batch-actions"></a>배치 작업 수행
 ### <a name="rerun-selected-activity-windows"></a>선택한 작업 창 다시 실행
-활동 기간을 선택하고 첫 번째 명령 모음 단추의 아래쪽 화살표를 클릭한 다음 **다시 실행** / **Rerun with upstream in pipeline**(파이프라인에서 업스트림으로 다시 실행)을 선택합니다. **Rerun with upstream in pipeline**(파이프라인에서 업스트림으로 다시 실행) 옵션을 선택하면 모든 업스트림 활동 기간이 다시 실행됩니다.
+활동 창을 선택하고 첫 번째 명령 모음 단추의 아래쪽 화살표를 클릭하고**파이프라인의 업스트림으로 다시** **실행을** / 선택합니다. **Rerun with upstream in pipeline**(파이프라인에서 업스트림으로 다시 실행) 옵션을 선택하면 모든 업스트림 활동 기간이 다시 실행됩니다.
     ![작업 창 다시 실행](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
 또한 목록에서 여러 개의 작업 창을 선택하고 동시에 다시 실행할 수 있습니다. 상태를 기준으로 활동 기간을 필터링(예: **실패**)한 다음, 활동 기간에 실패를 일으키는 문제를 해결한 후에 실패한 활동 기간을 다시 실행할 수 있습니다. 목록에서 작업 창을 필터링하는 자세한 내용은 다음 섹션을 참조합니다.  

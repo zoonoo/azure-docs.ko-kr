@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center에서 디스크 암호화 적용 | Microsoft Docs
-description: 이 문서에서는 Azure Security Center 권장 사항 **디스크 암호화 적용**을 구현하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure 보안 센터 권장 사항 **디스크 암호화 적용을**구현하는 방법을 보여 주며 있습니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
 ms.openlocfilehash: d0f96fe758966a435f8fb8e448e75cbb18b85122
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604517"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Azure Security Center에서 디스크 암호화 적용
@@ -45,9 +45,9 @@ Azure Security Center는 암호화되지 않은 Windows 또는 Linux VM 디스�
 
 [Azure PowerShell을 사용하여 Windows IaaS VM 암호화](../virtual-machines/windows/disk-encryption-powershell-quickstart.md)에서는 이러한 단계를 설명합니다. 이 항목에서는 디스크 암호화를 구성할 Windows 클라이언트 머신을 사용하고 있다고 가정합니다.
 
-Azure Virtual Machines에 대해 사용할 수 있는 방법은 여러 가지가 있습니다. 이미 Azure PowerShell 또는 Azure CLI에 대해 잘 알고 있다면 대체 방법을 사용하는 것을 선호할 수 있습니다. 이러한 대체 방법에 대한 자세한 내용은 [Azure Disk Encryption](../security/fundamentals/encryption-overview.md)을 참조하세요.
+Azure Virtual Machines에 대해 사용할 수 있는 방법은 여러 가지가 있습니다. 이미 Azure PowerShell 또는 Azure CLI에 대해 잘 알고 있다면 대체 방법을 사용하는 것을 선호할 수 있습니다. 이러한 다른 방법에 대한 자세한 내용은 [Azure 디스크 암호화](../security/fundamentals/encryption-overview.md)를 참조하십시오.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 이 문서에서는 보안 센터 권장 사항 "디스크 암호화 적용"을 구현하는 방법을 보여주었습니다. 디스크 암호화에 대해 자세히 알아보려면 다음을 참조하세요.
 
 * [Azure 주요 자격 증명으로 암호화 및 키 관리](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (비디오, 36분 39초) -- IaaS VM 및 Azure Key Vault에 디스크 암호화 관리를 사용하여 데이터를 세이프가드하는 방법 알아보기
@@ -56,10 +56,10 @@ Azure Virtual Machines에 대해 사용할 수 있는 방법은 여러 가지가
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) -- 보안 정책을 구성하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) –- Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md) -- 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아봅니다.
-* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) -- Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+* [Azure 보안 센터의 보안 상태 모니터링](security-center-monitoring.md) - Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
+* [Azure 보안 센터에서 보안 경고 관리 및 응답](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
+* [Azure 보안 센터에서 보안 권장 사항 관리](security-center-recommendations.md) - 권장 사항이 Azure 리소스를 보호하는 데 어떻게 도움이 되는지 알아봅니다.
+* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) -- Azure 보안 및 규정 준수에 대한 블로그 게시물을 찾습니다.
 
 <!--Image references-->
 [1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png

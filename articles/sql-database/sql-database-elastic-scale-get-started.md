@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 4577f611287a27366b1168e07565861c16fe0e38
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76987025"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Elastic Database 도구 시작하기
@@ -24,7 +24,7 @@ ms.locfileid: "76987025"
 
 ## <a name="elastic-database-tools-for-java"></a>Java용 Elastic Database 도구
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 * JDK(Java Developer Kit) 버전 1.8 이상
 * [Maven](https://maven.apache.org/download.cgi)
@@ -70,7 +70,7 @@ JAR 파일을 빌드하고 샘플 프로젝트를 시작하려면 다음을 수�
 
 ## <a name="elastic-database-tools-for-net"></a>.Net용 Elastic Database 도구
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 * C#이 있는 Visual Studio 2012 이상. [Visual Studio 다운로드](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)에서 무료 버전을 다운로드하세요.
 * NuGet 2.7 이상. 최신 버전을 설치하려면 [NuGet 설치](https://docs.nuget.org/docs/start-here/installing-nuget)를 참조하세요.
@@ -81,7 +81,7 @@ JAR 파일을 빌드하고 샘플 프로젝트를 시작하려면 다음을 수�
 
 샘플을 다운로드하고 실행하려면 다음 단계를 수행합니다. 
 
-1. [AZURE SQL 용 탄력적 DB 도구-시작 샘플](https://github.com/Azure/elastic-db-tools)을 다운로드 합니다. 선택한 위치에 샘플의 압축을 풉니다.
+1. Azure [SQL에 대한 탄력적 DB 도구](https://github.com/Azure/elastic-db-tools)다운로드 - 시작 하기 샘플 입니다. 선택한 위치에 샘플의 압축을 풉니다.
 
 2. 프로젝트를 만들려면 *C#* 디렉터리에서 *ElasticScaleStarterKit.sln* 솔루션을 엽니다.
 
@@ -120,7 +120,7 @@ Elastic Database 도구 라이브러리는 무료로 제공됩니다. Elastic Da
 
 예를 들어 샘플 애플리케이션이 새 데이터베이스를 만드는 경우 이 기능의 비용은 선택한 SQL Database 버전과 애플리케이션의 Azure 사용량에 따라 부과됩니다.
 
-가격 책정 정보는 [SQL Database 가격 책정 정보](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
+가격 정보는 [SQL 데이터베이스 가격 세부 정보를](https://azure.microsoft.com/pricing/details/sql-database/)참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

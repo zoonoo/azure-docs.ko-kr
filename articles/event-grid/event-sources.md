@@ -1,6 +1,6 @@
 ---
 title: Azure Event Grid 이벤트 원본
-description: Azure 구독, Container Registry, 사용자 지정 토픽, Event Hubs, IoT Hub, Key Vault, Media Services, 리소스 그룹, Service Bus, 저장소, 맵, 앱 구성, 신호 R, Machine Learning.
+description: Azure 구독, 컨테이너 레지스트리, 사용자 지정 토픽, 이벤트 허브, IoT Hub, 키 볼트, 미디어 서비스, 리소스 그룹, 서비스 버스, 저장소, 지도, 앱 구성, 신호 R, 기계 학습.
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
 ms.openlocfilehash: d4a426ea1432d0266b7ae9344afefe8ddac1d030
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265000"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure Event Grid의 이벤트 원본
@@ -24,7 +24,7 @@ ms.locfileid: "79265000"
 
 Azure 구독 이벤트를 구독하여 Azure 구독 전반에서 리소스의 변경 내용에 응답합니다.
 
-|제목 |Description  |
+|제목 |설명  |
 |---------|---------|
 | [자습서: Event Grid 및 Microsoft 팀을 사용한 Azure Automation](ensure-tags-exists-on-new-virtual-machines.md) |이벤트를 전송 하는 가상 머신을 만듭니다. 이벤트는 가상 머신에 태그를 지정하는 Automation Runbook을 트리거하고, Microsoft 팀 채널에 전송되는 메시지를 트리거합니다. |
 | [방법: 포털을 통해 이벤트 구독](subscribe-through-portal.md) | 포털을 사용하여 Azure 구독에 대한 이벤트를 구독합니다. |
@@ -36,7 +36,7 @@ Azure 구독 이벤트를 구독하여 Azure 구독 전반에서 리소스의 �
 
 Container Registry 이벤트를 구독하여 이미지에서 변경 내용에 응답합니다.
 
-|제목 |Description  |
+|제목 |설명  |
 |---------|---------|
 | [빠른 시작: 컨테이너 레지스트리 이벤트 전송](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Azure CLI를 사용하여 Container Registry 이벤트를 전송하는 방법을 보여줍니다. |
 | [이벤트 스키마](event-schema-container-registry.md) | Container Registry 이벤트에서 필드를 보여줍니다. |
@@ -45,7 +45,7 @@ Container Registry 이벤트를 구독하여 이미지에서 변경 내용에 �
 
 사용자 지정 토픽을 구독하여 애플리케이션 이벤트에 응답합니다.
 
-|제목  |Description  |
+|제목  |설명  |
 |---------|---------|
 | [빠른 시작: Azure CLI를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md) | Azure CLI를 사용하여 사용자 지정 이벤트를 전송하는 방법을 보여 줍니다. |
 | [빠른 시작: Azure PowerShell을 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart-powershell.md) | Azure PowerShell을 사용하여 사용자 지정 이벤트를 전송하는 방법을 보여 줍니다. |
@@ -65,7 +65,7 @@ Container Registry 이벤트를 구독하여 이미지에서 변경 내용에 �
 
 Event Hubs 이벤트를 구독하여 캡처 파일 이벤트에 응답합니다. Event Hubs는 이벤트 원본 또는 이벤트 처리기로 작동할 수 있습니다. 다음 아티클에서는 원본으로 Event Hubs를 사용하는 방법을 보여줍니다.
 
-|제목  |Description  |
+|제목  |설명  |
 |---------|---------|
 | [자습서: 데이터 웨어하우스로 빅 데이터 스트림](event-grid-event-hubs-integration.md) | Event Hubs가 캡처 파일을 만들 때 Event Grid는 함수 앱에 이벤트를 보냅니다. 앱은 캡처 파일을 검색하고 데이터를 데이터 웨어하우스에 마이그레이션합니다. |
 | [이벤트 스키마](event-schema-event-hubs.md) | Event Hubs 이벤트의 필드를 보여 줍니다. |
@@ -74,32 +74,32 @@ Event Hubs 이벤트를 구독하여 캡처 파일 이벤트에 응답합니다.
 
 ## <a name="iot-hub"></a>IoT Hub
 
-IoT Hub 이벤트를 구독 하 여 장치 생성, 삭제, 연결, 연결이 끊어진 및 원격 분석 이벤트에 응답 합니다.
+IoT Hub 이벤트를 구독하여 생성, 삭제, 연결, 연결 해제 및 원격 분석 이벤트에 응답합니다.
 
-|제목  |Description  |
+|제목  |설명  |
 |---------|---------|
 | [Logic Apps를 사용하여 Azure IoT Hub 이벤트에 관한 이메일 알림 보내기](publish-iot-hub-events-to-logic-apps.md) | 논리 앱은 사용자의 IoT Hub에 디바이스가 추가될 때마다 알림 이메일을 보냅니다. |
 | [작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응](../iot-hub/iot-hub-event-grid.md) | Event Grid와 IoT Hub 통합의 개요입니다. |
 | [이벤트 스키마](event-schema-iot-hub.md) | IoT Hub 이벤트의 필드를 보여 줍니다. |
 | [디바이스 연결 및 디바이스 연결 해제 이벤트 정렬](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | 디바이스 연결 상태 이벤트 정렬하는 방법을 보여 줍니다. |
 
-## <a name="key-vault-preview"></a>Key Vault (미리 보기)
+## <a name="key-vault-preview"></a>키 볼트(미리 보기)
 
 Event Grid와 Key Vault 통합은 현재 미리 보기로 제공됩니다. 
 
-암호가 만료 되거나 비밀이 만료 되거나 비밀에 새 버전을 사용할 수 있는 경우 알림을 받도록 Key Vault 이벤트를 구독 합니다. 
+비밀이 만료되거나, 비밀이 만료되거나, 비밀이 새 버전을 사용할 수 있을 때 알림을 받을 Key Vault 이벤트를 구독합니다. 
 
-|제목  |Description  |
+|제목  |설명  |
 |---------|---------|
-| [Azure Event Grid를 사용 하 여 Key Vault 이벤트 모니터링](../key-vault/event-grid-overview.md) | Event Grid와 Key Vault 통합에 대 한 개요입니다. |
-| [자습서: Event Grid를 사용 하 여 Key Vault 이벤트 만들기 및 모니터링](../key-vault/event-grid-tutorial.md) | Key Vault에 대 한 Event Grid 알림을 설정 하는 방법을 알아봅니다. |
-| [이벤트 스키마](event-schema-key-vault.md) | Key Vault 이벤트의 필드를 표시 합니다. |
+| [Azure 이벤트 그리드를 통해 주요 볼트 이벤트 모니터링](../key-vault/event-grid-overview.md) | 키 볼트와 이벤트 그리드 통합 개요 |
+| [자습서: 이벤트 그리드를 사용하여 키 볼트 이벤트 생성 및 모니터링](../key-vault/event-grid-tutorial.md) | 키 자격 증명 모음에 대한 이벤트 그리드 알림을 설정하는 방법에 대해 알아봅니다. |
+| [이벤트 스키마](event-schema-key-vault.md) | 키 볼트 이벤트의 필드를 표시합니다. |
 
 ## <a name="media-services"></a>Media Services
 
 Media Services 이벤트를 구독하여 작업 상태 이벤트에 응답합니다.
 
-|제목  |Description  |
+|제목  |설명  |
 |---------|---------|
 | [개요: Media Services 이벤트에 대응](../media-services/latest/reacting-to-media-services-events.md) | Event Grid와 Media Services 통합의 개요입니다. |
 | [자습서: CLI를 사용하여 Azure Media Services 이벤트를 사용자 지정 웹 엔드포인트로 라우팅](../media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Media Services에서 이벤트를 전송하는 방법을 보여 줍니다. |
@@ -109,9 +109,9 @@ Media Services 이벤트를 구독하여 작업 상태 이벤트에 응답합니
 
 리소스 그룹 이벤트를 구독하여 리소스 그룹 전반에서 리소스의 변경 내용에 응답합니다.
 
-|제목  |Description  |
+|제목  |설명  |
 |---------|---------|
-| [자습서: Azure Event Grid 및 Logic Apps를 사용하여 가상 머신 변경 내용 모니터링](monitor-virtual-machine-changes-event-grid-logic-app.md) | 논리 앱은 가상 머신의 변경 내용을 모니터링하고 이러한 변경에 대한 이메일을 보냅니다. |
+| [자습서: Azure 이벤트 그리드 및 논리 앱으로 가상 컴퓨터 변경 모니터링](monitor-virtual-machine-changes-event-grid-logic-app.md) | 논리 앱은 가상 머신의 변경 내용을 모니터링하고 이러한 변경에 대한 이메일을 보냅니다. |
 | [Azure CLI: 리소스 그룹에 대한 이벤트 구독](./scripts/event-grid-cli-resource-group.md)| 리소스 그룹에 대한 이벤트를 구독하는 샘플 스크립트입니다. WebHook에 이벤트를 보냅니다. |
 | [Azure CLI: 리소스 그룹에 대한 이벤트 구독 및 리소스에 대한 필터링](./scripts/event-grid-cli-resource-group-filter.md) | 리소스 그룹에 대한 이벤트를 구독하고 하나의 리소스에 대한 이벤트를 필터링하는 샘플 스크립트입니다. |
 | [PowerShell: 리소스 그룹에 대한 이벤트 구독](./scripts/event-grid-powershell-resource-group.md) | 리소스 그룹에 대한 이벤트를 구독하는 샘플 스크립트입니다. WebHook에 이벤트를 보냅니다. |
@@ -123,7 +123,7 @@ Media Services 이벤트를 구독하여 작업 상태 이벤트에 응답합니
 
 Service Bus 이벤트를 구독하여 활성 수신기 없이 메시지에 응답합니다.
 
-|제목  |Description  |
+|제목  |설명  |
 |---------|---------|
 | [자습서: Azure Service Bus-Azure Event Grid 통합 예제](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid는 Service Bus 토픽의 메시지를 함수 앱 및 논리 앱에 전송합니다. |
 | [개요: Azure Service Bus-Event Grid 통합](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Event Grid와 Service Bus 통합의 개요입니다. |
@@ -134,9 +134,9 @@ Service Bus 이벤트를 구독하여 활성 수신기 없이 메시지에 응�
 Blob Storage 이벤트를 구독하여 만든 blob 및 삭제된 이벤트에 대해 응답합니다.
 
 >[!NOTE]
-> **StorageV2(범용 v2)** 및 **BlobStorage** 종류의 스토리지 계정만 이벤트 통합을 지원합니다. **Storage (범용 v1)** 는 Event Grid와의 통합을 지원 *하지* 않습니다.
+> **StorageV2(범용 v2)** 및 **BlobStorage** 종류의 스토리지 계정만 이벤트 통합을 지원합니다. **저장소(범용 v1)는** 이벤트 그리드와의 통합을 지원하지 *않습니다.*
 
-|제목  |Description  |
+|제목  |설명  |
 |---------|---------|
 | [빠른 시작: Azure CLI를 사용하여 Blob Storage 이벤트를 사용자 지정 웹 엔드포인트로 라우팅](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Azure CLI를 사용하여 Blob Storage 이벤트를 WebHook로 전송하는 방법을 보여줍니다. |
 | [빠른 시작: PowerShell을 사용하여 Blob Storage 이벤트를 사용자 지정 웹 엔드포인트로 라우팅](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Azure PowerShell을 사용하여 Blob Storage 이벤트를 WebHook로 전송하는 방법을 보여줍니다. |
@@ -150,40 +150,40 @@ Blob Storage 이벤트를 구독하여 만든 blob 및 삭제된 이벤트에 �
 ## <a name="maps"></a>지도
 Azure Maps 이벤트를 구독하여 지오펜스 이벤트에 응답합니다. 예를 들어, 애플리케이션은 디바이스가 지오펜스에 들어오거나 나갈 때마다 이메일 알림을 제공할 수 있습니다.
 
-|제목  |Description  |
+|제목  |설명  |
 |---------|---------|
 | [Event Grid를 사용하여 Azure Maps 이벤트에 대응](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid와 Azure Maps 통합에 관한 개요입니다. |
-| [자습서: 지 오를 설정 합니다.](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 이 자습서에서는 Azure Maps를 사용하여 지오펜스를 설정하는 기본 단계를 안내합니다. Azure Event Grid를 사용하여 지오펜스 결과를 스트림하고, 지오펜스 결과를 기반으로 하는 알림을 설정합니다. |
+| [튜토리얼: 지오펜스 설정](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 이 자습서에서는 Azure Maps를 사용하여 지오펜스를 설정하는 기본 단계를 안내합니다. Azure Event Grid를 사용하여 지오펜스 결과를 스트림하고, 지오펜스 결과를 기반으로 하는 알림을 설정합니다. |
 | [이벤트 스키마](event-schema-azure-maps.md) | Azure Maps 이벤트의 필드를 표시합니다. |
 
 ## <a name="app-configuration"></a>앱 구성
-Azure 앱 구성 이벤트를 구독 하 여 키-값 수정 이벤트에 응답 합니다.
+Azure 앱 구성 이벤트를 구독하여 키 값 수정 이벤트에 응답합니다.
 
-|제목 | Description |
+|제목 | 설명 |
 |---------|---------|
-| [Event Grid를 사용 하 여 Azure 앱 구성 이벤트에 대응](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid와 Azure 앱 구성을 통합 하는 방법에 대 한 개요입니다. |
-| [빠른 시작: Azure CLI를 사용 하 여 Azure 앱 구성 이벤트를 사용자 지정 웹 끝점으로 라우팅](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Azure CLI를 사용 하 여 웹 후크로 Azure 앱 구성 이벤트를 보내는 방법을 보여 줍니다. |
-| [이벤트 스키마](event-schema-app-configuration.md) | Azure 앱 구성 이벤트의 필드를 표시 합니다. |
+| [이벤트 그리드를 사용하여 Azure 앱 구성 이벤트에 반응](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Azure 앱 구성을 이벤트 그리드와 통합하는 개요입니다. |
+| [빠른 시작: Azure CLI를 사용하여 사용자 지정 웹 끝점으로 Azure 앱 구성 이벤트를 라우팅합니다.](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Azure CLI를 사용하여 Azure 앱 구성 이벤트를 WebHook으로 보내는 방법을 보여 주며 |
+| [이벤트 스키마](event-schema-app-configuration.md) | Azure 앱 구성 이벤트의 필드를 표시합니다. |
 
 ## <a name="azure-signalr"></a>Azure SignalR
-Azure SignalR Service 이벤트를 구독 하 여 클라이언트 연결 이벤트에 응답 합니다.
+Azure SignalR 서비스 이벤트를 구독하여 클라이언트 연결 이벤트에 응답합니다.
 
-|제목 | Description |
+|제목 | 설명 |
 |---------|---------|
-| [Event Grid를 사용 하 여 Azure SignalR Service 이벤트에 대응](../azure-signalr/signalr-concept-event-grid-integration.md) | Azure SignalR Service를 Event Grid와 통합 하는 방법에 대 한 개요입니다. |
-| [Event Grid에 Azure SignalR Service 이벤트를 보내는 방법](../azure-signalr/signalr-howto-event-grid-integration.md) | Event Grid를 통해 Azure SignalR Service 이벤트를 응용 프로그램에 보내는 방법을 보여 줍니다. |
-| [이벤트 스키마](event-schema-azure-signalr.md) | Azure SignalR Service 이벤트의 필드를 표시 합니다. |
+| [이벤트 그리드를 사용하여 Azure SignalR 서비스 이벤트에 대응](../azure-signalr/signalr-concept-event-grid-integration.md) | Azure SignalR 서비스를 이벤트 그리드와 통합하는 개요입니다. |
+| [Azure SignalR 서비스 이벤트를 이벤트 그리드로 보내는 방법](../azure-signalr/signalr-howto-event-grid-integration.md) | 이벤트 그리드를 통해 응용 프로그램에 Azure SignalR 서비스 이벤트를 보내는 방법을 보여 주면 됩니다. |
+| [이벤트 스키마](event-schema-azure-signalr.md) | Azure SignalR 서비스 이벤트의 필드를 표시합니다. |
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 
-Azure Machine Learning 작업 영역 이벤트를 구독 하 여 모델 등록에 응답 합니다.
+Azure 기계 학습 작업 영역 이벤트를 구독하여 모델 등록에 응답합니다.
 
-| 제목 | Description |
+| 제목 | 설명 |
 | ----- | ----- |
-| [Azure Machine Learning 이벤트 사용](../machine-learning/concept-event-grid-integration.md) | Event Grid와 Azure Machine Learning 통합에 대 한 개요입니다. |
-| [Azure Machine Learning에 대 한 Azure Event Grid 이벤트 스키마](event-schema-machine-learning.md) | Azure Machine Learning 이벤트의 필드를 표시 합니다. |
+| [Azure 기계 학습 이벤트 사용](../machine-learning/concept-event-grid-integration.md) | Azure 기계 학습을 이벤트 그리드와 통합하는 개요입니다. |
+| [Azure 시스템 학습을 위한 Azure 이벤트 그리드 이벤트 스키마](event-schema-machine-learning.md) | Azure 기계 학습 이벤트의 필드를 표시합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-* Event Grid에 대한 소개는 [Event Grid 정보](overview.md)를 참조하세요.
+* 이벤트 그리드에 대한 소개는 [이벤트 그리드 소개를](overview.md)참조하십시오.
 * Event Grid를 빠르게 시작하려면 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요.

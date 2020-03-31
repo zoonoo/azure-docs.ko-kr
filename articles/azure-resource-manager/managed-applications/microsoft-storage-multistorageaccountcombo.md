@@ -1,15 +1,15 @@
 ---
-title: MultiStorageAccountCombo UI 요소
+title: 멀티스토리지계정컴보 UI 엘리먼트
 description: Azure Portal의 Microsoft.Storage.MultiStorageAccountCombo UI 요소에 대해 설명합니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 06412a1f08f1f242a3f3bd9be17b795ee09fcf9d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75651879"
 ---
 # <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Microsoft.Storage.MultiStorageAccountCombo UI 요소
@@ -64,7 +64,7 @@ ms.locfileid: "75651879"
 - 스토리지 계정 이름은 `count`에 따라 사전순으로 생성됩니다. 예를 들어 `count`가 10이면 스토리지 계정 이름은 두 자리 정수로 끝납니다(01, 02, 03).
 - `defaultValue.prefix`의 기본값은 **null**이고, `defaultValue.type`의 기본값은 **Premium_LRS**입니다.
 - `constraints.allowedTypes`에 지정되지 않은 형식은 숨겨지며, `constraints.excludedTypes`에 지정되지 않은 형식이 표시됩니다. `constraints.allowedTypes` 및 `constraints.excludedTypes`는 모두 선택 사항이지만 동시에 사용할 수는 없습니다.
-- 스토리지 계정 이름을 생성하는 것 외에도 `count`는 요소에 적절한 승수를 설정하는 데 사용됩니다. **2**와 같은 정적 값 또는 `[steps('step1').storageAccountCount]`와 같은 다른 요소의 동적 값을 지원합니다. 기본값은 **1**입니다.
+- 스토리지 계정 이름을 생성하는 것 외에도 `count`는 요소에 적절한 승수를 설정하는 데 사용됩니다. **2**와 같은 정적 값 또는 `[steps('step1').storageAccountCount]`와 같은 다른 요소의 동적 값을 지원합니다. 기본값은 **1입니다.**
 
 ## <a name="next-steps"></a>다음 단계
 

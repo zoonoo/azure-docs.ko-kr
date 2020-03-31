@@ -6,14 +6,14 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 91283b453e71e476d247e752b24e9eec0047a814
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 455d7a0c1b3826060ade1083ec6eea99e397574b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74776784"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79534850"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Database for MariaDB 디자인
 
@@ -44,7 +44,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) 명령을 사용하여 [Azure 리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다.
 
-다음 예제는 `westus` 위치에 `myresourcegroup`이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 `westus` 위치에 `myresourcegroup`이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
@@ -185,7 +185,7 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 
 `az mariadb server restore` 명령에는 다음 매개 변수가 필요합니다.
 
-| 설정 | 제안 값 | 설명  |
+| 설정 | 제안 값 | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  원본 서버가 존재하는 리소스 그룹입니다.  |
 | name | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |

@@ -1,6 +1,6 @@
 ---
-title: PowerShell을 사용 하 여 azure 방화벽 구성을 Azure 방화벽 정책 (미리 보기)으로 마이그레이션
-description: Azure 방화벽 구성을 Azure 방화벽 정책 (미리 보기)으로 마이그레이션하는 방법에 대해 알아봅니다.
+title: PowerShell을 사용하여 Azure 방화벽 구성을 Azure 방화벽 정책(미리 보기)으로 마이그레이션합니다.
+description: Azure 방화벽 구성을 Azure 방화벽 정책으로 마이그레이션하는 방법 알아보기(미리 보기)
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: victorh
 ms.openlocfilehash: 498863c98f308a9fd9b47f80328d572187475901
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77443111"
 ---
-# <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-preview-using-powershell"></a>Powershell을 사용 하 여 azure 방화벽 구성을 Azure 방화벽 정책 (미리 보기)으로 마이그레이션
+# <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-preview-using-powershell"></a>Powershell을 사용하여 Azure 방화벽 구성을 Azure 방화벽 정책(미리 보기)으로 마이그레이션합니다.
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-Azure PowerShell 스크립트를 사용 하 여 기존 Azure 방화벽 구성을 Azure 방화벽 정책 리소스로 마이그레이션할 수 있습니다. 그런 다음 Azure 방화벽 관리자를 사용 하 여 정책을 배포할 수 있습니다.
+Azure PowerShell 스크립트를 사용하여 기존 Azure 방화벽 구성을 Azure 방화벽 정책 리소스로 마이그레이션할 수 있습니다. 그런 다음 Azure 방화벽 관리자를 사용하여 정책을 배포할 수 있습니다.
 
-`AZFWMigrationScript.ps1` 스크립트는 ApplicationRuleCollections, NetworkRuleCollections 및 NatRuleCollections에 대해 각각 3 개의 RuleCollectionGroup 개체를 사용 하 여 FirewallPolicy를 만듭니다. 
+스크립트는 `AZFWMigrationScript.ps1` 각각 응용 프로그램 규칙 컬렉션, NetworkRuleCollection 및 NatRuleCollections에 대 한 세 개의 RuleCollectionGroup 개체와 방화벽 정책을 만듭니다. 
 
-RuleCollectionGroup는 향후 확장성을 위한 규칙 컬렉션을 위한 새로운 최상위 수준 그룹입니다. 위의 기본값을 사용 하는 것이 좋으며 포털에서 자동으로 수행 됩니다.
+RuleCollectionGroup은 향후 확장성을 위해 규칙 컬렉션에 대한 새로운 최상위 그룹입니다. 위의 기본값을 사용하는 것이 권장되며 포털에서 자동으로 수행됩니다.
 
-스크립트의 시작 부분에는 원본 방화벽 이름과 리소스 그룹 및 대상 정책 이름과 위치가 정의 되어 있습니다. 이러한 값을 조직에 적합 하 게 변경 합니다.
+스크립트의 시작 부분에서는 소스 방화벽 이름 및 리소스 그룹과 대상 정책 이름 및 위치를 정의합니다. 이러한 값을 조직에 적절히 변경합니다.
 
 ## <a name="migration-script"></a>마이그레이션 스크립트
 
-다음 스크립트를 수정 하 여 방화벽 구성을 마이그레이션합니다.
+다음 스크립트를 수정하여 방화벽 구성을 마이그레이션합니다.
 
 ```azurepowershell
 #Input params to be modified as needed
@@ -161,4 +161,4 @@ If ($azfw.NatRuleCollections.Count -gt 0) {
 ```
 ## <a name="next-steps"></a>다음 단계
 
-Azure 방화벽 관리자 배포에 대 한 자세한 내용은 [Azure 방화벽 관리자 미리 보기 배포 개요](deployment-overview.md)를 확인 하세요.
+Azure 방화벽 관리자 배포에 대해 자세히 알아보기: [Azure 방화벽 관리자 미리 보기 배포 개요.](deployment-overview.md)

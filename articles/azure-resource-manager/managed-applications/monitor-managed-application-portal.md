@@ -1,15 +1,15 @@
 ---
-title: Azure Portal를 사용 하 여 관리 되는 앱 모니터링
+title: Azure 포털을 사용하여 관리되는 앱 모니터링
 description: Azure Portal을 사용하여 관리되는 애플리케이션의 가용성과 경고를 모니터링하는 방법을 설명합니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: afe78dd00ecebdc54b6d73c4c8324729e117d95b
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75651749"
 ---
 # <a name="monitor-a-deployed-instance-of-a-managed-application"></a>관리되는 애플리케이션의 배포된 인스턴스 모니터링

@@ -6,14 +6,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: b7ca4677507f73467dddac09050f250ae34342a9
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: c0b2943e1f0d7f2386ec09da03d297a570eede7a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78329472"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80276481"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics 사용 시작 : 실시간 부정 행위 감지
 
@@ -29,7 +29,7 @@ ms.locfileid: "78329472"
 
 ## <a name="scenario-telecommunications-and-sim-fraud-detection-in-real-time"></a>시나리오: 실시간으로 통신 및 SIM 사기 감지
 
-통신 회사에는 많은 양의 들어오는 호출 데이터가 있습니다. 회사에서는 고객에게 사기성 호출을 알리거나 고객이 특정 번호에 대한 서비스를 종료할 수 있도록 실시간으로 사기성 호출을 감지하려고 합니다. SIM 사기의 한 유형으로, 지리적으로 다른 위치에서 동일한 ID로 동시에 여러 호출을 이루어지는 경우가 있습니다. 이러한 종류의 사기 행위를 감지 하려면 회사에서 들어오는 전화 레코드를 검사 하 고 특정 패턴 (이 경우 다른 국가/지역에서 동시에 발생 한 호출)을 확인 해야 합니다. 이 범주에 속하는 모든 전화 레코드는 후속 분석을 위해 스토리지에 기록됩니다.
+통신 회사에는 많은 양의 들어오는 호출 데이터가 있습니다. 회사에서는 고객에게 사기성 호출을 알리거나 고객이 특정 번호에 대한 서비스를 종료할 수 있도록 실시간으로 사기성 호출을 감지하려고 합니다. SIM 사기의 한 유형으로, 지리적으로 다른 위치에서 동일한 ID로 동시에 여러 호출을 이루어지는 경우가 있습니다. 이러한 유형의 사기를 감지하려면 회사는 들어오는 전화 기록을 검사하고 특정 패턴을 찾아야 합니다.이 경우 다른 국가/지역에서 동시에 걸려온 통화에 대해 검색해야 합니다. 이 범주에 속하는 모든 전화 레코드는 후속 분석을 위해 스토리지에 기록됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -55,9 +55,9 @@ Streaming Analytics 작업 결과를 확인하려면 Azure Blob Storage 컨테�
 ### <a name="create-a-namespace-and-event-hub"></a>네임스페이스 및 이벤트 허브 만들기
 이 절차에서는 이벤트 허브 네임스페이스를 먼저 만든 후 이벤트 허브를 해당 네임스페이스에 추가합니다. 이벤트 허브 네임스페이스는 관련된 이벤트 버스 인스턴스를 논리적으로 그룹화하는 데 사용됩니다. 
 
-1. Azure Portal에 로그인 하 고 화면 왼쪽 위에서 **리소스 만들기** 를 클릭 합니다.
+1. Azure 포털에 로그인하고 화면 왼쪽 상단에 있는 **리소스 만들기를** 클릭합니다.
 
-2. 왼쪽 메뉴에서 **모든 서비스**를 선택하고, **분석`*` 범주의** Event Hubs**옆에서**별표( **)** 를 선택합니다. 왼쪽 탐색 메뉴에서 **Event Hubs**가 **즐겨찾기**에 추가되었는지 확인합니다. 
+2. 왼쪽 메뉴에서 **모든 서비스**를 선택하고, **분석** 범주의 **Event Hubs** 옆에서 **별표(`*`)** 를 선택합니다. 왼쪽 탐색 메뉴에서 **Event Hubs**가 **즐겨찾기**에 추가되었는지 확인합니다. 
 
    ![Event Hubs 검색](./media/stream-analytics-real-time-fraud-detection/select-event-hubs-menu.png)
 
@@ -69,7 +69,7 @@ Streaming Analytics 작업 결과를 확인하려면 Azure Blob Storage 컨테�
     
 5. 구독을 선택하고 리소스 그룹을 만들거나 선택한 후 **만들기**를 클릭합니다.
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="Create event hub namespace in Azure portal" width="300px"/>
+    <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="Create event hub namespace in Azure portal" width="300px"/>
 
 6. 네임스페이스에서 배포를 완료했으면 Azure 리소스 목록에서 이벤트 허브 네임스페이스를 찾습니다. 
 
@@ -79,7 +79,7 @@ Streaming Analytics 작업 결과를 확인하려면 Azure Blob Storage 컨테�
  
 8. 새 이벤트 허브 이름을 `asa-eh-frauddetection-demo`로 지정합니다. 다른 이름을 사용할 수 있습니다. 이 경우 나중에 이름이 필요하기 때문에 메모해 둡니다. 지금 당장은 이벤트 허브에 다른 옵션을 설정하지 않아도 됩니다.
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
+    <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
     
 9. **만들기**를 클릭합니다.
 
@@ -87,32 +87,33 @@ Streaming Analytics 작업 결과를 확인하려면 Azure Blob Storage 컨테�
 
 프로세스에서 이벤트 허브로 데이터를 보낼 수 있으려면 이벤트 허브에 적절한 액세스 권한을 허용하는 정책이 있어야 합니다. 액세스 정책은 권한 부여 정보를 포함하는 연결 문자열을 생성합니다.
 
-1.  이벤트 네임스페이스 창에서 **이벤트 허브**를 클릭하고 새 이벤트 허브의 이름을 클릭합니다.
+1. 이벤트 네임스페이스 창에서 **이벤트 허브**를 클릭하고 새 이벤트 허브의 이름을 클릭합니다.
 
-2.  이벤트 허브 창에서 **공유 액세스 정책**을 클릭한 후 **+&nbsp;추가**를 클릭합니다.
+2. 이벤트 허브 창에서 **공유 액세스 정책을** 클릭한 다음 에 ** + &nbsp;추가를**클릭합니다.
 
-    >[!NOTE]
-    >이벤트 허브 네임스페이스가 아니라 이벤트 허브로 작업하고 있는지 확인합니다.
+    > [!NOTE]
+    > 이벤트 허브 네임스페이스가 아니라 이벤트 허브로 작업하고 있는지 확인합니다.
 
-3.  `asa-policy-manage-demo`클레임**에 대해** 라는 이름의 정책을 추가하고 **관리**를 선택합니다.
+3. **클레임**에 대해 `asa-policy-manage-demo`라는 이름의 정책을 추가하고 **관리**를 선택합니다.
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
+    <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  
-4.  **만들기**를 클릭합니다.
+4. **만들기**를 클릭합니다.
 
-5.  정책이 배포되었으면 공유 액세스 정책 목록에서 클릭합니다.
+5. 정책이 배포되었으면 공유 액세스 정책 목록에서 클릭합니다.
 
-6.  **CONNECTION STRING-PRIMARY KEY**로 레이블이 지정된 상자를 찾고 연결 문자열 옆의 복사 단추를 클릭합니다. 
+6. **CONNECTION STRING-PRIMARY KEY**로 레이블이 지정된 상자를 찾고 연결 문자열 옆의 복사 단추를 클릭합니다. 
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png" alt="Stream Analytics shared access policy" width="300px"/>
+    <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png" alt="Stream Analytics shared access policy" width="300px"/>
  
-7.  연결 문자열을 텍스트 편집기에 붙여넣습니다. 다음 섹션에서 몇 가지 편집을 수행한 후 이 연결 문자열이 필요합니다.
+7. 연결 문자열을 텍스트 편집기에 붙여넣습니다. 다음 섹션에서 몇 가지 편집을 수행한 후 이 연결 문자열이 필요합니다.
 
     연결 문자열은 다음과 같습니다.
 
-        Endpoint=sb://YOURNAME-eh-ns-demo.servicebus.windows.net/;SharedAccessKeyName=asa-policy-manage-demo;SharedAccessKey=Gw2NFZwU1Di+rxA2T+6hJYAtFExKRXaC2oSQa0ZsPkI=;EntityPath=asa-eh-frauddetection-demo
+    `Endpoint=sb://YOURNAME-eh-ns-demo.servicebus.windows.net/;SharedAccessKeyName=asa-policy-manage-demo;SharedAccessKey=Gw2NFZwU1Di+rxA2T+6hJYAtFExKRXaC2oSQa0ZsPkI=;EntityPath=asa-eh-frauddetection-demo`
 
     연결 문자열에는 세미콜론으로 구분된 여러 키-값 쌍이 포함되어 있습니다(`Endpoint`, `SharedAccessKeyName`, `SharedAccessKey` 및 `EntityPath`).  
+
 
 ## <a name="configure-and-start-the-event-generator-application"></a>이벤트 생성기 애플리케이션 구성 및 시작
 
@@ -129,20 +130,27 @@ TelcoGenerator 앱을 시작하기 전에 호출 레코드를 만든 이벤트 �
    * `EventHubName` 키 값을 이벤트 허브 이름으로 설정합니다(즉, 엔터티 경로 값).
    * `Microsoft.ServiceBus.ConnectionString` 키 값을 연결 문자열로 설정합니다. 
 
-   `<appSettings>` 섹션은 다음 예제와 같습니다. (쉽게 이해할 수 있도록 줄이 래핑되고 권한 부여 토큰에서 일부 문자를 제거했음)
+   이 `<appSettings>` 섹션은 다음과 같습니다.
 
-   ![TelcoGenerator 구성 파일이 이벤트 허브 이름 및 연결 문자열을 표시함](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
+    ```xml
+    <appSettings>
+     <!-- Service Bus specific app setings for messaging connections -->
+     <add key="EventHubName" value="asa-eh-ns-demo"/>
+     <add key="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://asa-eh-ns-demo.servicebus.windows.net/;SharedAccessKeyName=asa-policy-manage-demo;SharedAccessKey=GEcnTKf2//1MRn6SN1A2u0O76MP9pj3v0Ccyf1su4Zo="/>
+   </appSettings>
+    ```
  
 4. 파일을 저장합니다. 
 
 ### <a name="start-the-app"></a>앱 시작
-1.  명령 창을 열고 TelcoGenerator 앱이 압축 해제된 폴더로 변경합니다.
 
-2.  다음 명령을 입력합니다.
+1. 명령 창을 열고 TelcoGenerator 앱이 압축 해제된 폴더로 변경합니다.
 
-   ```cmd
-   telcodatagen.exe 1000 0.2 2
-   ```
+2. 다음 명령을 입력합니다.
+
+    ```console
+    telcodatagen.exe 1000 0.2 2
+    ```
 
    매개 변수는 다음과 같습니다. 
 
@@ -170,13 +178,13 @@ TelcoGenerator 앱을 시작하기 전에 호출 레코드를 만든 이벤트 �
 
 ### <a name="create-the-job"></a>작업 만들기 
 
-1. Azure Portal에서 **리소스 만들기** > **사물 인터넷** > **Stream Analytics 작업**을 차례로 클릭합니다.
+1. Azure 포털에서 > **리소스** > 사물 인터넷**스트림 분석 작업 만들기를**클릭합니다. **Create a resource**
 
 2. 작업 이름을 `asa_frauddetection_job_demo`로 지정하고 구독, 리소스 그룹 및 위치를 지정합니다.
 
     최상의 성능을 위해 동일한 지역에 작업 및 이벤트 허브를 배치하는 것이 좋으며 지역 간에 데이터를 전송하는 데 비용을 지불하지 않아도 됩니다.
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="Create Stream Analytics job in portal" width="300px"/>
+    <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="Create Stream Analytics job in portal" width="300px"/>
 
 3. **만들기**를 클릭합니다.
 
@@ -191,7 +199,7 @@ TelcoGenerator 앱을 시작하기 전에 호출 레코드를 만든 이벤트 �
  
 3. **스트림 입력 추가**를 클릭하고 **이벤트 허브**를 선택합니다. 그런 후 다음 정보로 새 입력 페이지를 채웁니다.
 
-   |**설정**  |**제안 값**  |**설명**  |
+   |**설정**  |**제안된 값**  |**설명**  |
    |---------|---------|---------|
    |입력 별칭  |  CallStream   |  작업의 입력을 식별하는 이름을 입력합니다.   |
    |Subscription   |  \<구독\> |  만든 이벤트 허브가 있는 Azure 구독을 선택합니다.   |
@@ -220,7 +228,7 @@ TelcoGenerator 앱을 시작하기 전에 호출 레코드를 만든 이벤트 �
 TelcoGenerator 앱은 호출 레코드를 이벤트 허브로 보내고 Stream Analytics 작업은 이벤트 허브에서 읽어오도록 구성됩니다. 쿼리로 작업을 테스트하여 올바르게 읽고 있는지 확인할 수 있습니다. Azure 콘솔에서 쿼리를 테스트하려면 샘플 데이터가 필요합니다. 이 연습에서는 이벤트 허브로 들어오는 스트림에서 샘플 데이터를 추출합니다.
 
 1. TelcoGenerator 앱이 실행 중이고 호출 레코드를 생성하고 있는지 확인합니다.
-2. 포털에서 Streaming Analytics 작업 창으로 돌아갑니다. (창을 닫은 경우 `asa_frauddetection_job_demo`모든 리소스**창에서** 검색)
+2. 포털에서 Streaming Analytics 작업 창으로 돌아갑니다. (창을 닫은 경우 **모든 리소스** 창에서 `asa_frauddetection_job_demo` 검색)
 3. **쿼리** 상자를 클릭합니다. Azure에서는 작업에 대해 구성된 입력 및 출력을 나열하고 데이터가 출력으로 전송됨에 따라 사용자가 입력 스트림을 변환하는 쿼리를 작성할 수 있도록 합니다.
 4. **쿼리** 창에서 `CallStream` 입력 옆에 있는 점을 클릭한 후 **입력의 샘플 데이터**를 선택합니다.
 
@@ -269,11 +277,11 @@ TelcoGenerator 앱은 호출 레코드를 이벤트 허브로 보내고 Stream A
 
 1. 코드 편집기에서 쿼리를 다음으로 변경합니다.
 
-   ```SQL
-   SELECT CallRecTime, SwitchNum, CallingIMSI, CallingNum, CalledNum 
-   FROM 
-       CallStream
-   ```
+    ```SQL
+    SELECT CallRecTime, SwitchNum, CallingIMSI, CallingNum, CalledNum 
+    FROM 
+        CallStream
+    ```
 
 2. **테스트**를 다시 클릭합니다. 
 
@@ -283,23 +291,23 @@ TelcoGenerator 앱은 호출 레코드를 이벤트 허브로 보내고 Stream A
 
 지역당 들어오는 호출의 수를 계산한다고 가정합니다. 스트리밍 데이터에서 개수와 같은 집계 함수를 수행하려는 경우 데이터 스트림 자체가 사실상 무한하므로 스트림을 temporal 단위로 분할해야 합니다. Streaming Analytics [window 함수](stream-analytics-window-functions.md)를 사용하여 이 작업을 수행합니다. 그런 다음 해당 창 내에서 데이터를 단위로 작업할 수 있습니다.
 
-이 변환의 경우 겹치지 않는 temporal 창 시퀀스를 원하며 각 창에는 그룹화 및 집계할 수 있는 불연속 데이터 집합이 있습니다. 이러한 형식의 창을 *연속 창*이라고 합니다. 연속 창 내에서 호출이 시작 된 국가/지역을 나타내는 `SwitchNum`으로 그룹화 된 들어오는 호출 수를 가져올 수 있습니다. 
+이 변환의 경우 겹치지 않는 temporal 창 시퀀스를 원하며 각 창에는 그룹화 및 집계할 수 있는 불연속 데이터 집합이 있습니다. 이러한 형식의 창을 *연속 창*이라고 합니다. 텀블링 창 내에서 호출이 시작된 국가/지역을 나타내는 `SwitchNum`수신 수신 호출수를 로 그룹화할 수 있습니다. 
 
 1. 코드 편집기에서 쿼리를 다음으로 변경합니다.
 
-        ```SQL
-        SELECT 
-            System.Timestamp as WindowEnd, SwitchNum, COUNT(*) as CallCount 
-        FROM
-            CallStream TIMESTAMP BY CallRecTime 
-        GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
-        ```
+    ```SQL
+    SELECT 
+        System.Timestamp as WindowEnd, SwitchNum, COUNT(*) as CallCount 
+    FROM
+        CallStream TIMESTAMP BY CallRecTime 
+    GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
+    ```
 
-    이 쿼리에서는 `Timestamp By` 절에 `FROM` 키워드를 사용하여 연속 창을 정의하는 데 사용할 입력 스트림의 타임스탬프 필드를 지정합니다. 이 경우 창은 각 레코드의 `CallRecTime` 필드에 따라 데이터를 세그먼트로 나눕니다. (이 필드를 지정하지 않으면 창 작업에서 각 이벤트가 이벤트 허브에 도착한 시간을 사용합니다.) [Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)에서 “도착 시간과 애플리케이션 시간”을 참조하세요. 
+    이 쿼리에서는 `FROM` 절에 `Timestamp By` 키워드를 사용하여 연속 창을 정의하는 데 사용할 입력 스트림의 타임스탬프 필드를 지정합니다. 이 경우 창은 각 레코드의 `CallRecTime` 필드에 따라 데이터를 세그먼트로 나눕니다. (이 필드를 지정하지 않으면 창 작업에서 각 이벤트가 이벤트 허브에 도착한 시간을 사용합니다.) [Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)에서 “도착 시간과 애플리케이션 시간”을 참조하세요. 
 
     프로젝션에는 각 창의 끝에 대한 타임스탬프를 반환하는 `System.Timestamp`가 포함됩니다. 
 
-    연속 창을 사용 하도록 지정 하려면 `GROUP BY` 절에 [TUMBLINGWINDOW](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) 함수를 사용 합니다. 함수에서 시간 단위(마이크로초에서 하루까지) 및 창 크기(단위 수)를 지정합니다. 이 예제에서 연속 창은 5 초 간격으로 구성 되므로 5 초 분량의 호출에 대 한 국가/지역 수를 가져옵니다.
+    텀블링 창을 사용하도록 지정하려면 절에서 [텀블링창](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) 함수를 `GROUP BY` 사용합니다. 함수에서 시간 단위(마이크로초에서 하루까지) 및 창 크기(단위 수)를 지정합니다. 이 예제에서는 텀블링 창이 5초 간격으로 구성되므로 5초마다 통화할 때마다 국가/지역별로 카운트를 얻을 수 있습니다.
 
 2. **테스트**를 다시 클릭합니다. 결과에서 **WindowEnd** 아래 타임스탬프가 5초 단위로 증가하는 것을 알 수 있습니다.
 
@@ -309,25 +317,25 @@ TelcoGenerator 앱은 호출 레코드를 이벤트 허브로 보내고 Stream A
 
 이 예제에서는 5초 이내에 서로 다른 위치에서 동일한 사용자로부터 발생한 호출을 사기성 있는 사용으로 간주합니다. 예를 들어 동일한 사용자가 미국 및 오스트레일리아에서 동시에 합법적으로 전화를 걸 수 없습니다. 
 
-이러한 경우를 확인하려면 스트리밍 데이터의 셀프 조인을 사용하여 `CallRecTime` 값에 따라 스트림을 셀프 조인합니다. 그런 다음 `CallingIMSI` 값 (원본 번호)이 동일 하지만 `SwitchNum` 값 (원본의 국가/지역)이 동일 하지 않은 호출 레코드를 찾을 수 있습니다.
+이러한 경우를 확인하려면 스트리밍 데이터의 셀프 조인을 사용하여 `CallRecTime` 값에 따라 스트림을 셀프 조인합니다. 그런 다음 `CallingIMSI` 값(원래 번호)이 같지만 `SwitchNum` 값(원산지 국가/지역)이 같지 않은 통화 레코드를 찾을 수 있습니다.
 
-스트리밍 데이터에 조인을 사용할 경우 조인은 일치하는 행이 시간상으로 얼마나 분리할 수 있는지 정도에 대한 몇 가지 한도를 제공해야 합니다. 앞에서 설명한 것 처럼 스트리밍 데이터는 사실상 무한 합니다. 관계에 대 한 시간 범위는 `DATEDIFF` 함수를 사용 하 여 조인의 `ON` 절 내에 지정 됩니다. 이 경우 조인은 호출 데이터의 5초 간격을 기준으로 합니다.
+스트리밍 데이터에 조인을 사용할 경우 조인은 일치하는 행이 시간상으로 얼마나 분리할 수 있는지 정도에 대한 몇 가지 한도를 제공해야 합니다. 앞서 언급했듯이 스트리밍 데이터는 사실상 끝이 없습니다. 관계에 대한 시간 경계는 함수를 `ON` 사용하여 조인 절 내에 지정됩니다. `DATEDIFF` 이 경우 조인은 호출 데이터의 5초 간격을 기준으로 합니다.
 
 1. 코드 편집기에서 쿼리를 다음으로 변경합니다. 
 
-        ```SQL
-        SELECT  System.Timestamp as Time, 
-            CS1.CallingIMSI, 
-            CS1.CallingNum as CallingNum1, 
-            CS2.CallingNum as CallingNum2, 
-            CS1.SwitchNum as Switch1, 
-            CS2.SwitchNum as Switch2 
-        FROM CallStream CS1 TIMESTAMP BY CallRecTime 
-            JOIN CallStream CS2 TIMESTAMP BY CallRecTime 
-            ON CS1.CallingIMSI = CS2.CallingIMSI 
-            AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5 
-        WHERE CS1.SwitchNum != CS2.SwitchNum
-        ```
+    ```SQL
+    SELECT  System.Timestamp as Time, 
+        CS1.CallingIMSI, 
+        CS1.CallingNum as CallingNum1, 
+        CS2.CallingNum as CallingNum2, 
+        CS1.SwitchNum as Switch1, 
+        CS2.SwitchNum as Switch2 
+    FROM CallStream CS1 TIMESTAMP BY CallRecTime 
+        JOIN CallStream CS2 TIMESTAMP BY CallRecTime 
+        ON CS1.CallingIMSI = CS2.CallingIMSI 
+        AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5 
+    WHERE CS1.SwitchNum != CS2.SwitchNum
+    ```
 
     이 쿼리는 조인에서 `DATEDIFF` 함수를 제외하고 SQL 조인과 유사합니다. 이 `DATEDIFF` 버전은 Streaming Analytics에 국한되며 `ON...BETWEEN` 절에 표시되어야 합니다. 매개 변수는 시간 단위(이 예제에서는 초)와 조인의 두 원본에 대한 별칭입니다. 표준 SQL `DATEDIFF` 함수와는 다릅니다.
 
@@ -339,7 +347,7 @@ TelcoGenerator 앱은 호출 레코드를 이벤트 허브로 보내고 Stream A
 
 3. **저장**을 클릭하여 셀프 조인 쿼리를 Streaming Analytics 작업의 일부로 저장합니다. (샘플 데이터를 저장하지 않음)
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png" alt="Save Stream Analytics query in portal" width="300px"/>
+    <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png" alt="Save Stream Analytics query in portal" width="300px"/>
 
 ## <a name="create-an-output-sink-to-store-transformed-data"></a>변환된 데이터를 저장할 출력 싱크 만들기
 
@@ -351,17 +359,17 @@ SQL Server Database, Table Storage, Data Lake Storage, Power BI 및 다른 이�
 
 ### <a name="create-an-azure-blob-storage-account"></a>Azure Blob Storage 계정 만들기
 
-1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **스토리지** > **스토리지 계정**을 선택합니다. 스토리지 계정 작업 페이지에서 **이름**을"asaehstorage"로 설정하고, **위치**는 "미국 동부"로 설정하고, **리소스 그룹**을 "asa-eh-ns-rg"로 설정합니다(향상된 성능을 위해 스트리밍 작업과 동일한 리소스 그룹의 스토리지 계정 호스트). 나머지 설정은 해당 기본값으로 유지할 수 있습니다.  
+1. Azure 포털의 왼쪽 위 모서리에서 > 리소스**저장소** > **저장소 계정** **만들기를**선택합니다. 스토리지 계정 작업 페이지에서 **이름**을"asaehstorage"로 설정하고, **위치**는 "미국 동부"로 설정하고, **리소스 그룹**을 "asa-eh-ns-rg"로 설정합니다(향상된 성능을 위해 스트리밍 작업과 동일한 리소스 그룹의 스토리지 계정 호스트). 나머지 설정은 해당 기본값으로 유지할 수 있습니다.  
 
    ![Azure Portal에서 스토리지 계정 만들기](./media/stream-analytics-real-time-fraud-detection/stream-analytics-storage-account-create.png)
 
-2. Azure Portal에서 Streaming Analytics 작업 창으로 돌아갑니다. (창을 닫은 경우 `asa_frauddetection_job_demo`모든 리소스**창에서** 검색)
+2. Azure Portal에서 Streaming Analytics 작업 창으로 돌아갑니다. (창을 닫은 경우 **모든 리소스** 창에서 `asa_frauddetection_job_demo` 검색)
 
 3. **작업 토폴로지** 섹션에서 **출력** 상자를 클릭합니다.
 
 4. **출력** 창에서 **추가**를 클릭하고 **Blob Storage**를 선택합니다. 그런 후 다음 정보로 새 출력 페이지를 채웁니다.
 
-   |**설정**  |**제안 값**  |**설명**  |
+   |**설정**  |**제안된 값**  |**설명**  |
    |---------|---------|---------|
    |출력 별칭  |  CallStream-FraudulentCalls   |  작업의 출력을 식별하는 이름을 입력합니다.   |
    |Subscription   |  \<구독\> |  만든 스토리지 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 스토리지 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 스토리지 계정을 만들었다고 가정합니다. |
@@ -412,7 +420,7 @@ Blob Storage에서 파일 내용을 검사할 때 다음과 같은 항목이 표
 
 ## <a name="get-support"></a>지원 받기
 
-추가 지원이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원은 [Azure 스트림 분석 포럼을](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -424,5 +432,5 @@ Blob Storage에서 파일 내용을 검사할 때 다음과 같은 항목이 표
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure 스트림 분석 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
