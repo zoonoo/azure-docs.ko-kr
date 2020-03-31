@@ -1,14 +1,14 @@
 ---
 title: DoD 영향 수준 4 청사진 샘플 컨트롤
 description: DoD 영향 수준 4 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure 정책에 매핑됩니다.
-ms.date: 02/09/2020
+ms.date: 03/06/2020
 ms.topic: sample
-ms.openlocfilehash: 15ab3bc8bf53d54161ecc3b1f0dc138c3ff923c1
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 001c838ed6a19269a6abbcebd59ee2e344b6a296
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77154711"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79415396"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>DoD 영향 수준 4 청사진 샘플의 컨트롤 매핑
 
@@ -83,6 +83,20 @@ Azure는 Azure의 리소스에 대한 액세스 권한이 있는 사용자를 �
 - 함수 앱에 대해 원격 디버깅을 해제해야 함
 - 웹 애플리케이션에 대해 원격 디버깅을 해제해야 함
 
+## <a name="ac-23-data-mining"></a>AC-23 데이터 마이닝
+
+이 청사진은 데이터 보안 알림이 제대로 사용되도록 설정하는 데 유용한 정책 정의를 제공합니다. 뿐만 아니라 이 청사진은 SQL Server에 감사 및 Advanced Data Security가 구성되도록 합니다.
+
+- SQL Server에서 Advanced Data Security를 사용하도록 설정해야 합니다.
+- SQL 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.
+- SQL Server의 Advanced Data Security 설정에서 Advanced Threat Protection 유형을 '모두'로 설정해야 합니다.
+- SQL 관리형 인스턴스의 Advanced Data Security 설정에서 Advanced Threat Protection 유형을 '모두'로 설정해야 합니다.
+- SQL Server의 고급 데이터 보안 설정에서 감사를 활성화해야 합니다.
+- SQL Server Advanced Data Security 설정에는 관리자 및 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다.
+- SQL 관리형 인스턴스 Advanced Data Security 설정에는 관리자 및 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다.
+- SQL Server에 대한 Advanced Data Security 설정에는 보안 경고를 받을 이메일 주소가 포함되어야 합니다.
+- SQL 관리형 인스턴스에 대한 Advanced Data Security 설정에는 보안 경고를 받을 이메일 주소가 포함되어야 합니다.
+
 ## <a name="au-3-2-content-of-audit-records--centralized-management-of-planned-audit-record-content"></a>AU-3 (2) 감사 레코드의 콘텐츠 | 계획된 감사 레코드 콘텐츠의 중앙 집중식 관리
 
 Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 영역에 저장되므로 중앙 집중식 구성 및 관리가 가능합니다. 이 청사진을 사용하면 Azure 가상 머신에서 Log Analytics 에이전트의 배포를 감사하고 적용하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 이벤트가 기록되도록 할 수 있습니다.
@@ -123,8 +137,6 @@ Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 �
 자세한 취약성 검색 및 모니터링을 위해 Azure Sentinel 및 Azure Security Center를 활용하는 것이 좋습니다.
 
 - \[미리 보기\]: Virtual Machines에서 취약성 평가를 사용하도록 설정해야 함
-- \[미리 보기\]: VM용 Azure Monitor 사용
-- \[미리 보기\]: VMSS(VM Scale Sets)에 Azure Monitor 사용
 - SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.
 - 진단 설정 감사
 - SQL 관리형 인스턴스에서 취약성 평가를 사용하도록 설정해야 합니다.
@@ -133,6 +145,8 @@ Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 �
 - SQL 데이터베이스의 취약성을 수정해야 합니다.
 - 취약성 평가 솔루션으로 취약성을 수정해야 합니다.
 - 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.
+- \[미리 보기\]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
+- \[미리 보기\]: VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
 
 ## <a name="au-12-audit-generation"></a>AU-12 감사 생성
 
@@ -236,6 +250,16 @@ Azure Site Recovery는 가상 머신에서 실행되는 워크로드를 기본 �
 - \[미리 보기\]: 암호 최소 길이가 14자로 제한되지 않는 Windows VM을 감사하기 위한 요구 사항 배포
 - \[미리 보기\]: 해독 가능한 암호화를 사용하여 암호를 저장하지 않는 Windows VM을 감사하기 위한 요구 사항 배포
 
+## <a name="ir-6-2-incident-reporting--vulnerabilities-related-to-incidents"></a>IR-6 (2) 인시던트 보고 | 인시던트 관련 취약성
+
+이 청사진은 가상 머신, 가상 머신 확장 집합 및 SQL 서버에 대한 취약성 평가를 분석하여 레코드를 감사하는 정책 정의를 제공합니다. 이러한 인사이트는 배포된 리소스의 보안 상태에 대한 실시간 정보를 제공하며, 업데이트 관리 작업의 우선 순위를 지정하는 데 도움이 될 수 있습니다.
+
+- 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.
+- 취약성 평가 솔루션으로 취약성을 수정해야 합니다.
+- 머신 보안 구성의 취약성을 수정해야 합니다.
+- 컨테이너 보안 구성의 취약성을 수정해야 합니다.
+- SQL 데이터베이스의 취약성을 수정해야 합니다.
+
 ## <a name="ra-5-vulnerability-scanning"></a>RA-5 취약성 검색
 
 이 청사진을 사용하면 Azure Security Center에서 운영 체제 취약성, SQL 취약성 및 가상 머신 취약성을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 정보 시스템 취약성을 관리할 수 있습니다. Azure Security Center는 배포된 Azure 리소스의 보안 상태에 대한 실시간 인사이트를 가질 수 있도록 하는 보고 기능을 제공합니다. 또한 이 청사진은 SQL 서버에서 Advanced Data Security를 감사하고 적용하는 정책 정의를 할당합니다. Advanced Data Security는 배포된 리소스의 취약성을 이해할 수 있는 취약성 평가 및 고급 위협 보호 기능이 포함되어 있습니다.
@@ -312,6 +336,30 @@ JIT(Just-In-Time) 가상 머신 액세스를 사용하면 Azure 가상 머신으
 - SQL 데이터베이스의 취약성을 수정해야 합니다.
 - 취약성 평가 솔루션으로 취약성을 수정해야 합니다.
 
+## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>SI-02 (06) 결함 수정 | 이전 버전의 소프트웨어/펌웨어 제거
+
+이 청사진은 애플리케이션에서 최신 버전의 .NET Framework, HTTP, Java, PHP, Python, TLS를 사용하도록 보장하는 데 유용한 정책 정의를 할당합니다. 또한 이 청사진은 Kubernetes Services가 취약하지 않은 버전으로 업그레이드되도록 하는 정책 정의를 할당합니다.
+
+- API 앱의 일부로 사용되는 경우 최신의 '.Net Framework' 버전인지 확인합니다.
+- 함수 앱의 일부로 사용되는 경우 최신의 '.Net Framework' 버전인지 확인합니다.
+- 웹앱의 일부로 사용되는 경우 최신의 '.Net Framework' 버전인지 확인합니다.
+- API 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.
+- 함수 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.
+- 웹앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.
+- API 앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.
+- 함수 앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.
+- 웹앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.
+- API 앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.
+- 함수 앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.
+- 웹앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.
+- API 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.
+- 함수 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.
+- 웹앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.
+- API 앱에서 최신 TLS 버전을 사용해야 합니다.
+- 함수 앱에서 최신 TLS 버전을 사용해야 합니다.
+- 웹앱에서 최신 TLS 버전을 사용해야 합니다.
+- \[미리 보기\]: Kubernetes Services를 취약하지 않은 Kubernetes 버전으로 업그레이드해야 함
+
 ## <a name="si-3-malicious-code-protection"></a>SI-3 악성 코드 방지
 
 이 청사진을 사용하면 Azure Security Center에서 가상 머신의 누락된 엔드포인트 보호를 모니터링하고 Microsoft 맬웨어 방지 솔루션을 Windows 가상 머신에 적용하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 악성 코드 방지를 포함하여 엔드포인트 보호를 관리할 수 있습니다.
@@ -347,6 +395,18 @@ JIT(Just-In-Time) 가상 머신 액세스를 사용하면 Azure 가상 머신으
 - SQL 서버에 위협 탐지 배포
 - 허용되는 위치
 - 리소스 그룹이 허용된 위치
+
+## <a name="si-4-12-information-system-monitoring--automated-alerts"></a>SI-4 (12) 정보 시스템 모니터링 | 자동화된 경고
+
+이 청사진은 데이터 보안 알림이 제대로 사용되도록 설정하는 데 유용한 정책 정의를 제공합니다. 또한 이 청사진은 Azure Security Center에 표준 가격 책정 계층이 사용되도록 합니다. 표준 가격 책정 계층은 Azure Security Center에서 네트워크 및 가상 머신에 대한 위협을 탐지하고 위협 인텔리전스, 변칙 검색 및 동작 분석을 제공합니다.
+
+- 심각도가 높은 경고에 대해 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다.
+- 구독에 대한 보안 연락처 이메일 주소를 제공해야 합니다. 
+- SQL 관리형 인스턴스 Advanced Data Security 설정에는 관리자 및 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다. 
+- SQL Server Advanced Data Security 설정에는 관리자 및 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다. 
+- 구독에 대한 보안 연락처 전화 번호를 제공해야 합니다.
+- SQL Server에 대한 Advanced Data Security 설정에는 보안 경고를 받을 이메일 주소가 포함되어야 합니다.
+- Security Center 표준 가격 책정 계층을 선택해야 합니다.
 
 ## <a name="si-4-18-information-system-monitoring--analyze-traffic--covert-exfiltration"></a>SI-4 (18) 정보 시스템 모니터링 | 트래픽 분석 / 비밀 반출
 

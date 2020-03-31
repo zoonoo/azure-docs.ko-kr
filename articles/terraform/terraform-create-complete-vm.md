@@ -3,13 +3,13 @@ title: 빠른 시작 - Azure에서 Terraform을 사용하여 완전한 Linux VM 
 description: 이 빠른 시작에서는 Azure에서 Terraform을 사용하여 완전한 Linux 가상 머신 환경을 만들고 관리합니다.
 keywords: azure devops terraform linux vm 가상 머신
 ms.topic: quickstart
-ms.date: 03/09/2020
-ms.openlocfilehash: 03974d68477855d4ff55b7179312c91ba7d0d055
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.date: 03/15/2020
+ms.openlocfilehash: f262734cc16d97e4d73af371410403a4cbb8815e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943517"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79415464"
 ---
 # <a name="quickstart-create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>빠른 시작: Azure에서 Terraform을 사용하여 전체 Linux 가상 머신 인프라 만들기
 
@@ -27,7 +27,7 @@ Terraform을 사용하면 Azure에서 완전한 인프라를 정의하고 만들
 
 Terraform 템플릿의 각 섹션을 살펴보겠습니다. 복사하여 붙여넣을 수 있는 [Terraform 템플릿](#complete-terraform-script)의 전체 버전을 확인할 수 있습니다.
 
-`provider` 섹션은 Azure 공급자를 사용하도록 Terraform에 알립니다. *subscription_id*, *client_id*, *client_secret* 및 *tenant_id*에 대한 값을 가져오려면 [Terraform 설치 및 구성](terraform-install-configure.md)을 참조하세요. 
+`provider` 섹션은 Azure 공급자를 사용하도록 Terraform에 알립니다. `subscription_id`, `client_id`, `client_secret` 및 `tenant_id`에 대한 값을 가져오려면 [Terraform 설치 및 구성](terraform-install-configure.md)을 참조하세요. 
 
 > [!TIP]
 > 값에 대한 환경 변수를 만들거나 [Azure Cloud Shell Bash 환경](/azure/cloud-shell/overview)을 사용하는 경우 이 섹션에서 변수 선언을 포함시킬 필요가 없습니다.
@@ -35,7 +35,7 @@ Terraform 템플릿의 각 섹션을 살펴보겠습니다. 복사하여 붙여�
 ```hcl
 provider "azurerm" {
     # The "feature" block is required for AzureRM provider 2.x. 
-    # If you are using version 1.x, the "features" block is not allowed.
+    # If you're using version 1.x, the "features" block is not allowed.
     version = "~>2.0"
     features {}
     
@@ -59,10 +59,10 @@ resource "azurerm_resource_group" "myterraformgroup" {
 }
 ```
 
-추가 섹션에서 *${azurerm_resource_group.myterraformgroup.name}* 을 사용하여 리소스 그룹을 참조합니다.
+추가 섹션에서 `${azurerm_resource_group.myterraformgroup.name}`을 사용하여 리소스 그룹을 참조합니다.
 
 ## <a name="create-virtual-network"></a>가상 네트워크 만들기
-다음 섹션에서는 *10.0.0.0/16* 주소 공간에 *myVnet*이라는 가상 네트워크를 만듭니다.
+다음 섹션에서는 `10.0.0.0/16` 주소 공간에 `myVnet`이라는 가상 네트워크를 만듭니다.
 
 ```hcl
 resource "azurerm_virtual_network" "myterraformnetwork" {
@@ -77,7 +77,7 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
 }
 ```
 
-다음 섹션에서는 *myVnet* 가상 네트워크에 *mySubnet*이라는 서브넷을 만듭니다.
+다음 섹션에서는 `myVnet` 가상 네트워크에 `mySubnet`이라는 서브넷을 만듭니다.
 
 ```hcl
 resource "azurerm_subnet" "myterraformsubnet" {
@@ -90,7 +90,7 @@ resource "azurerm_subnet" "myterraformsubnet" {
 
 
 ## <a name="create-public-ip-address"></a>공용 IP 주소 만들기
-인터넷을 통해 리소스에 액세스하려면 공용 IP 주소를 만들어 VM에 할당합니다. 다음 섹션에서는 *myPublicIP*라는 공용 IP 주소를 만듭니다.
+인터넷을 통해 리소스에 액세스하려면 공용 IP 주소를 만들어 VM에 할당합니다. 다음 섹션에서는 `myPublicIP`라는 공용 IP 주소를 만듭니다.
 
 ```hcl
 resource "azurerm_public_ip" "myterraformpublicip" {
@@ -107,7 +107,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 
 
 ## <a name="create-network-security-group"></a>네트워크 보안 그룹 만들기
-네트워크 보안 그룹은 VM 내/외부 네트워크 트래픽의 흐름을 제어합니다. 다음 섹션에서는 *myNetworkSecurityGroup*이라는 네트워크 보안 그룹을 만들고 TCP 포트 22에서 SSH 트래픽을 허용하는 규칙을 정의합니다.
+네트워크 보안 그룹은 VM 내/외부 네트워크 트래픽의 흐름을 제어합니다. 다음 섹션에서는 `myNetworkSecurityGroup`이라는 네트워크 보안 그룹을 만들고 TCP 포트 22에서 SSH 트래픽을 허용하는 규칙을 정의합니다.
 
 ```hcl
 resource "azurerm_network_security_group" "myterraformnsg" {
@@ -135,7 +135,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
 
 
 ## <a name="create-virtual-network-interface-card"></a>가상 네트워크 인터페이스 카드 만들기
-가상 NIC(네트워크 인터페이스 카드)는 지정된 가상 네트워크, 공용 IP 주소 및 네트워크 보안 그룹에 VM을 연결합니다. Terraform 템플릿의 다음 섹션에서는 사용자가 만든 가상 네트워킹 리소스에 연결된 *myNIC*라는 가상 NIC를 만듭니다.
+가상 NIC(네트워크 인터페이스 카드)는 지정된 가상 네트워크, 공용 IP 주소 및 네트워크 보안 그룹에 VM을 연결합니다. Terraform 템플릿의 다음 섹션에서는 사용자가 만든 가상 네트워킹 리소스에 연결된 `myNIC`라는 가상 NIC를 만듭니다.
 
 ```hcl
 resource "azurerm_network_interface" "myterraformnic" {
@@ -196,9 +196,9 @@ resource "azurerm_storage_account" "mystorageaccount" {
 
 ## <a name="create-virtual-machine"></a>가상 머신 만들기
 
-마지막 단계에서는 VM을 만들고 생성한 모든 리소스를 사용합니다. 다음 섹션에서는 *myVM*이라는 VM을 만들고 *myNIC*라는 가상 NIC를 연결합니다. 최신 *Ubuntu 16.04-LTS* 이미지를 사용하고, 암호 인증을 사용하지 않도록 설정된 *azureuser*라는 사용자가 만들어집니다.
+마지막 단계에서는 VM을 만들고 생성한 모든 리소스를 사용합니다. 다음 섹션에서는 `myVM`이라는 VM을 만들고 `myNIC`라는 가상 NIC를 연결합니다. 최신 `Ubuntu 16.04-LTS` 이미지를 사용하고, 암호 인증을 사용하지 않도록 설정된 `azureuser`라는 사용자가 만들어집니다.
 
- SSH 키 데이터는 *ssh_keys* 섹션에서 제공됩니다. *key_data* 필드에 유효한 공용 SSH 키를 제공합니다.
+ SSH 키 데이터는 `ssh_keys` 섹션에서 제공됩니다. `key_data` 필드에 공용 SSH 키를 제공합니다.
 
 ```hcl
 resource "azurerm_linux_virtual_machine" "myterraformvm" {
@@ -214,7 +214,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
         storage_account_type = "Premium_LRS"
     }
 
-    storage_image_reference {
+    source_image_reference {
         publisher = "Canonical"
         offer     = "UbuntuServer"
         sku       = "16.04.0-LTS"
@@ -242,13 +242,13 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
 
 ## <a name="complete-terraform-script"></a>전체 Terraform 스크립트
 
-이러한 모든 섹션을 함께 가져오거나 작동 중인 Terraform을 보려면 *terraform_azure.tf*라는 파일을 만들고 다음 콘텐츠를 붙여넣습니다.
+이러한 모든 섹션을 함께 가져오거나 작동 중인 Terraform을 보려면 `terraform_azure.tf`라는 파일을 만들고 다음 콘텐츠를 붙여 넣습니다.
 
 ```hcl
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
     # The "feature" block is required for AzureRM provider 2.x. 
-    # If you are using version 1.x, the "features" block is not allowed.
+    # If you're using version 1.x, the "features" block is not allowed.
     version = "~>2.0"
     features {}
 
@@ -418,7 +418,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
 terraform init
 ```
 
-다음 단계는 Terraform에서 템플릿을 검토하고 유효성을 검사하는 것입니다. 이 단계는 요청된 리소스를 Terraform에서 저장한 상태 정보와 비교한 후, 계획된 실행을 출력합니다. 리소스는 Azure에서 생성되지 *않습니다*.
+다음 단계는 Terraform에서 템플릿을 검토하고 유효성을 검사하는 것입니다. 이 단계는 요청된 리소스를 Terraform에서 저장한 상태 정보와 비교한 후, 계획된 실행을 출력합니다. 이 시점에서 Azure 리소스가 생성되지 않습니다.
 
 ```bash
 terraform plan

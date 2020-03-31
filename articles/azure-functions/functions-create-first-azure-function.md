@@ -1,31 +1,28 @@
 ---
-title: Azure Portal에서 첫 번째 서버리스 함수 만들기
+title: Azure Portal에서 첫 번째 Azure Function을 만듭니다.
 description: Azure Portal를 사용하여 서버를 사용하지 않는 실행을 위해 첫 번째 Azure Function을 만드는 방법을 알아봅니다.
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: quickstart
-ms.date: 03/28/2018
+ms.date: 03/06/2020
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 3e5513d8730f455b220fa480eb99ce9c29216210
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: e7bb5e7b387c3ab1140a3fe475911bd0e428e2a5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358350"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80057173"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure Portal에서 첫 번째 Azure Function을 만듭니다.
 
-Azure Functions를 사용하면 먼저 VM을 만들거나 웹 애플리케이션을 게시하지 않고도 [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 환경에서 코드를 실행할 수 있습니다. 이 문서에서는 Azure Portal에서 함수를 사용하여 "hello world" 함수를 만드는 방법을 보여 줍니다.
-
-![Azure Portal에서 함수 앱 만들기](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
+Azure Functions를 사용하면 먼저 VM(가상 머신)을 만들거나 웹 애플리케이션을 게시하지 않고도 서버리스 환경에서 코드를 실행할 수 있습니다. 이 문서에서는 Azure Portal에서 Azure Functions를 사용하여 "hello world" HTTP 트리거 함수를 만드는 방법을 보여 줍니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-> [!NOTE]
-> C# 개발자는 포털 대신 [Visual Studio 2019에서 첫 번째 함수를 만드는](functions-create-your-first-function-visual-studio.md) 방안을 생각해 보아야 합니다. 
+C# 개발자인 경우 포털 대신 [Visual Studio 2019에서 첫 번째 함수를 만드는](functions-create-your-first-function-visual-studio.md) 것이 좋습니다. 
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-Azure 계정을 사용하여 <https://portal.azure.com>에서 Azure Portal에 로그인합니다.
+Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그인합니다.
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 
@@ -35,7 +32,7 @@ Azure 계정을 사용하여 <https://portal.azure.com>에서 Azure Portal에 �
 
 다음으로 새 함수 앱에서 함수를 만듭니다.
 
-## <a name="create-function"></a>HTTP 트리거 함수 만들기
+## <a name="create-an-http-triggered-function"></a><a name="create-function"></a>HTTP 트리거 함수 만들기
 
 1. 새 함수 앱을 펼치고, **Functions** 옆에 있는 **+** 단추를 선택하고, **포털 내**를 선택한 다음, **계속**을 선택합니다.
 
@@ -45,17 +42,19 @@ Azure 계정을 사용하여 <https://portal.azure.com>에서 Azure Portal에 �
 
     ![Azure Portal에서 함수 빨리 시작하기.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-HTTP 트리거 함수에 대한 언어별 템플릿을 사용하여 함수가 만들어집니다.
+   HTTP 트리거 함수에 대한 언어별 템플릿을 사용하여 함수가 만들어집니다.
 
 이제 HTTP 요청을 전송하여 새 함수를 실행할 수 있습니다.
 
 ## <a name="test-the-function"></a>함수 테스트
 
-1. 새 함수에서 오른쪽 맨 위에 있는 **</> 함수 URL 가져오기**를 클릭하고 **기본값(함수 키)** 를 선택한 후 **복사**를 클릭합니다. 
+1. 새 함수에서 **</> 함수 URL 가져오기**를 선택합니다. 
+
+1. **함수 URL 가져오기** 대화 상자의 드롭다운 목록에서 **기본값(함수 키)** 을 선택한 다음, **복사**를 선택합니다. 
 
     ![Azure Portal에서 함수 URL 복사](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. 함수 URL을 브라우저의 주소 표시줄에 붙여 넣습니다. `&name=<yourname>` 쿼리 문자열을 이 URL의 마지막에 추가하고 키보드에서 `Enter` 키를 눌러 요청을 실행합니다. 브라우저에 함수에서 반환한 응답이 표시될 것입니다.  
+1. 함수 URL을 브라우저의 주소 표시줄에 붙여 넣습니다. `&name=<your_name>` 쿼리 문자열 값을 이 URL의 마지막에 추가하고 Enter 키를 눌러 요청을 실행합니다. 
 
     다음 예에서는 브라우저의 응답을 보여 줍니다.
 
@@ -63,7 +62,7 @@ HTTP 트리거 함수에 대한 언어별 템플릿을 사용하여 함수가 �
 
     요청 URL에는 기본적으로 HTTP를 통해 함수에 액세스하는 데 필요한 키가 포함됩니다.
 
-3. 함수가 실행되면 추적 정보가 로그에 기록됩니다. 이전 실행에서 추적 출력을 보려면 포털에서 함수로 돌아가 화면 맨 아래에서 위쪽 화살표를 클릭하여 **로그**를 확장합니다.
+1. 함수가 실행되면 추적 정보가 로그에 기록됩니다. 이전 실행에서 추적 출력을 보려면 포털에서 함수로 돌아가 화면 맨 아래에서 위쪽 화살표를 선택하여 **로그**를 확장합니다.
 
    ![Azure Portal에서 함수 로그 뷰어.](./media/functions-create-first-azure-function/function-view-logs.png)
 
@@ -73,8 +72,5 @@ HTTP 트리거 함수에 대한 언어별 템플릿을 사용하여 함수가 �
 
 ## <a name="next-steps"></a>다음 단계
 
-간단한 HTTP 트리거 함수가 있는 함수 앱을 만들었습니다.  
-
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-자세한 내용은 [Azure Functions HTTP 바인딩](functions-bindings-http-webhook.md)을 참조하세요.
