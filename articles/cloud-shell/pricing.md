@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
 ms.openlocfilehash: 2834bc7d9456c1177bdd2c235b8211a1edde6e42
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60199417"
 ---
-# <a name="pricing"></a>가격
+# <a name="pricing"></a>가격 책정
 다음은 Cloud Shell의 Bash와 Cloud Shell의 PowerShell에 적용되는 정보입니다.
 
 ## <a name="compute-cost"></a>컴퓨팅 비용

@@ -1,5 +1,5 @@
 ---
-title: Microsoft Translator에 연결
+title: Microsoft Translator 연결
 description: Microsoft Translator REST API 및 Azure Logic Apps로 텍스트 번역 및 다른 언어 작업 수행
 services: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/07/2016
 tags: connectors
 ms.openlocfilehash: ec809a897ce2579125c8797dc8c1d8c7d30a8f9c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789560"
 ---
 # <a name="get-started-with-the-microsoft-translator-connector"></a>Microsoft Translator 커넥터 시작

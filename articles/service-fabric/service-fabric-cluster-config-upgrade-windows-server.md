@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 8e7e01dac29cb9ba91c83270dac4e46c73b2089e
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75610128"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>독립 실행형 클러스터의 구성 업그레이드 
@@ -50,7 +50,7 @@ TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File
 TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File> -FabricRuntimePackagePath <Path to the .cab file which you want to test the configuration against>
 ```
 
-일부 구성 (예: 끝점, 클러스터 이름, 노드 IP 등)을 업그레이드할 수 없습니다. 새 클러스터 구성 JSON은 이전 구성에 대해 테스트 되 고 문제가 있는 경우 PowerShell 창에서 오류를 throw 합니다.
+엔드포인트, 클러스터 이름, 노드 IP 등과 같은 일부 구성은 업그레이드할 수 없습니다. 새 클러스터 구성 JSON은 이전 클러스터에 대해 테스트되며 문제가 있는 경우 PowerShell 창에서 오류를 발생시입니다.
 
 ## <a name="upgrade-the-cluster-configuration"></a>클러스터 구성 업그레이드
 클러스터 구성을 업그레이드하려면 [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade)를 실행합니다. 업그레이드 도메인으로 구성 업그레이드가 처리됩니다.
@@ -75,7 +75,7 @@ Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Confi
 
 ## <a name="next-steps"></a>다음 단계
 * [Service Fabric 클러스터 설정](service-fabric-cluster-fabric-settings.md) 중 일부를 사용자 지정하는 방법 알아보기
-* [클러스터를 확장 및 축소](service-fabric-cluster-scale-up-down.md)하는 방법 알아보기
+* [클러스터를 확장하고 확장하는](service-fabric-cluster-scale-up-down.md)방법에 대해 알아봅니다.
 * [애플리케이션 업그레이드](service-fabric-application-upgrade.md)에 대해 알아보기
 
 <!--Image references-->

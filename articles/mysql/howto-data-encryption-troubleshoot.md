@@ -1,62 +1,62 @@
 ---
-title: 데이터 암호화 문제 해결-Azure Database for MySQL
-description: Azure Database for MySQL에서 데이터 암호화 문제를 해결 하는 방법을 알아봅니다.
+title: 데이터 암호화 문제 해결 - MySQL용 Azure 데이터베이스
+description: MySQL용 Azure 데이터베이스에서 데이터 암호화 문제를 해결하는 방법 알아보기
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: 42956d115590fd322d2851fd546c505a76a851fa
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79297043"
 ---
-# <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>Azure Database for MySQL의 데이터 암호화 문제 해결
+# <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>MySQL용 Azure 데이터베이스에서 데이터 암호화 문제 해결
 
-이 문서에서는 고객이 관리 하는 키를 사용 하 여 데이터 암호화를 사용 하 여 구성 하는 경우 Azure Database for MySQL 발생할 수 있는 일반적인 문제를 식별 하 고 해결 하는 방법을 설명 합니다.
+이 문서에서는 고객 관리 키를 사용하여 데이터 암호화로 구성할 때 MySQL용 Azure Database에서 발생할 수 있는 일반적인 문제를 식별하고 해결하는 방법을 설명합니다.
 
 ## <a name="introduction"></a>소개
 
-Azure Key Vault에서 고객이 관리 하는 키를 사용 하도록 데이터 암호화를 구성 하는 경우 서버는 키에 대 한 지속적인 액세스를 요구 합니다. 서버 Azure Key Vault에서 고객이 관리 하는 키에 대 한 액세스 권한을 상실 하면 모든 연결을 거부 하 고, 적절 한 오류 메시지를 반환 하 고, Azure Portal에서 해당 상태를 ***액세스할*** 수 없음으로 변경 합니다.
+Azure Key Vault에서 고객 관리 키를 사용하도록 데이터 암호화를 구성할 때 서버는 키에 지속적으로 액세스해야 합니다. 서버가 Azure Key Vault에서 고객 관리 키에 액세스할 수 없게 되면 모든 연결을 거부하고 적절한 오류 메시지를 반환하며 Azure Portal에서 ***액세스할 수 없음으로*** 상태를 변경합니다.
 
-Azure Database for MySQL 서버에 액세스할 수 없는 경우 서버를 삭제 하 여 비용을 절감할 수 있습니다. 키 자격 증명 모음에 대 한 액세스가 복원 되 고 서버를 사용할 수 있을 때까지 서버에 대 한 다른 작업은 허용 되지 않습니다. 또한 고객이 관리 하는 키로 암호화 된 경우에는 액세스할 수 없는 서버에 대 한 `Yes`(고객 관리)에서 `No` (서비스 관리)로 데이터 암호화 옵션을 변경할 수 없습니다. 서버를 다시 액세스 하려면 키를 수동으로 다시 유효성을 다시 검사 해야 합니다. 이 작업은 고객이 관리 하는 키에 대 한 권한이 해지 되는 동안 무단 액세스 로부터 데이터를 보호 하는 데 필요 합니다.
+MySQL 서버에 액세스할 수 없는 Azure 데이터베이스가 더 이상 필요하지 않은 경우 이를 삭제하여 비용이 발생하는 것을 중지할 수 있습니다. 키 자격 증명 모음에 대한 액세스가 복원되고 서버를 사용할 수 있는 때까지 서버의 다른 작업은 허용되지 않습니다. 또한 고객 관리 키로 암호화된 경우 `Yes`액세스 불가능한 서버의 데이터 암호화 옵션을 (고객 관리)에서 `No` (서비스 관리)로 변경할 수 없습니다. 서버에 다시 액세스하려면 키를 수동으로 다시 유효성을 검사해야 합니다. 이 작업은 고객 관리 키에 대한 사용 권한이 해지되는 동안 무단 액세스로부터 데이터를 보호하는 데 필요합니다.
 
-## <a name="common-errors-that-cause-the-server-to-become-inaccessible"></a>서버에 액세스할 수 없게 하는 일반적인 오류
+## <a name="common-errors-that-cause-the-server-to-become-inaccessible"></a>서버에 액세스할 수 없게 만드는 일반적인 오류
 
-다음 잘못 된 구성을 사용 하면 Azure Key Vault 키를 사용 하는 데이터 암호화에 대부분의 문제가 발생 합니다.
+다음 의 잘못 구성으로 인해 Azure Key Vault 키를 사용하는 데이터 암호화에 대부분의 문제가 발생합니다.
 
-- 키 자격 증명 모음을 사용할 수 없거나 존재 하지 않습니다.
+- 키 자격 증명 모음을 사용할 수 없거나 존재하지 않습니다.
   - Key Vault를 실수로 삭제되었습니다.
   - 일시적인 네트워크 오류로 인해 Key Vault를 사용할 수 없습니다.
 
-- 키 자격 증명 모음에 액세스할 수 있는 권한이 없거나 키가 없습니다.
-  - 키가 만료 되었거나 실수로 삭제 되었거나 사용 하지 않도록 설정 되었습니다.
-  - Azure Database for MySQL 인스턴스의 관리 id가 실수로 삭제 되었습니다.
-  - Azure Database for MySQL 인스턴스의 관리 id에 키 권한이 부족 합니다. 예를 들어 사용 권한에는 Get, Wrap 및 Wrap이 포함 되지 않습니다.
-  - Azure Database for MySQL 인스턴스에 대 한 관리 id 권한이 해지 되었거나 삭제 되었습니다.
+- 키 자격 증명 모음에 액세스할 수 있는 권한이 없거나 키가 존재하지 않습니다.
+  - 키가 만료되었거나 실수로 삭제되거나 비활성화되었습니다.
+  - MySQL 인스턴스에 대한 Azure 데이터베이스의 관리되는 ID가 실수로 삭제되었습니다.
+  - MySQL 인스턴스에 대한 Azure 데이터베이스의 관리되는 ID에는 키 권한이 부족합니다. 예를 들어 권한에는 받기, 줄 바꿈 및 둘러싸기 해제가 포함되지 않습니다.
+  - MySQL 인스턴스에 대한 Azure 데이터베이스에 대한 관리되는 ID 사용 권한이 취소되거나 삭제되었습니다.
 
 ## <a name="identify-and-resolve-common-errors"></a>일반적인 오류 식별 및 해결
 
-### <a name="errors-on-the-key-vault"></a>키 자격 증명 모음에 대 한 오류
+### <a name="errors-on-the-key-vault"></a>키 자격 증명 모음의 오류
 
-#### <a name="disabled-key-vault"></a>비활성화 된 key vault
+#### <a name="disabled-key-vault"></a>비활성화된 키 자격 증명 모음
 
 - `AzureKeyVaultKeyDisabledMessage`
-- **설명**: Azure Key Vault 키가 사용 하지 않도록 설정 되어 있으므로 서버에서 작업을 완료할 수 없습니다.
+- **설명**: Azure 키 볼트 키가 비활성화되어 있으므로 서버에서 작업을 완료할 수 없습니다.
 
-#### <a name="missing-key-vault-permissions"></a>누락 된 키 자격 증명 모음 권한
+#### <a name="missing-key-vault-permissions"></a>키 자격 증명 모음 권한이 누락되었습니다.
 
 - `AzureKeyVaultMissingPermissionsMessage`
-- **설명**: 서버에 Azure Key Vault 하는 데 필요한 가져오기, 래핑 및 래핑 해제 권한이 없습니다. ID를 사용 하 여 서비스 사용자에 게 누락 된 사용 권한을 부여 합니다.
+- **설명**: 서버에 Azure 키 자격 증명 모음에 필요한 Get, Wrap 및 둘러싸기 사용 권한이 없습니다. 누락된 권한을 서비스 주체에게 ID로 부여합니다.
 
 ### <a name="mitigation"></a>완화 방법
 
-- 고객 관리 키가 키 자격 증명 모음에 있는지 확인 합니다.
+- 고객 관리 키가 키 자격 증명 모음에 있는지 확인합니다.
 - Key Vault를 식별하고 Azure Portal의 Key Vault로 이동합니다.
-- 키 URI가 존재 하는 키를 식별 하는지 확인 합니다.
+- 키 URI가 존재하는 키를 식별해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Database for MySQL에서 고객 관리 키를 사용 하 여 데이터 암호화를 설정 하려면 Azure Portal을 사용 합니다.](howto-data-encryption-portal.md)
+[Azure 포털을 사용하여 MySQL용 Azure 데이터베이스에서 고객 관리 키로 데이터 암호화 설정](howto-data-encryption-portal.md)

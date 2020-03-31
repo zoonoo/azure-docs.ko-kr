@@ -1,6 +1,6 @@
 ---
 title: Azure Event Hubs API 개요 | Microsoft Docs
-description: 이 문서에서는 Azure Event Hubs 서비스를 사용 하는 데 사용할 수 있는 Api (런타임 및 관리)에 대 한 개요를 제공 합니다.
+description: 이 문서에서는 Azure 이벤트 허브 서비스를 사용하기 위해 사용 가능한 API(런타임 및 관리)에 대한 개요를 제공합니다.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/02/2018
 ms.author: shvija
 ms.openlocfilehash: 08e10996f633d35ffbf946b61937a0e9a76f7227
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162228"
 ---
 # <a name="available-event-hubs-apis"></a>사용할 수 있는 Event Hubs API
@@ -47,7 +47,7 @@ ms.locfileid: "77162228"
 
 #### <a name="node"></a>노드
 
-[JavaScript 라이브러리](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs) 는 현재 미리 보기로 제공 되며 Microsoft 직원과 외부 참가자가 함께이 프로젝트로 유지 관리 됩니다. 소스 코드를 포함하는 모든 참가 프로그램은 언제든지 환영이며 검토해드립니다.
+[자바스크립트 라이브러리는](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs) 현재 미리 보기 중이며 Microsoft 직원 및 외부 기여자가 부수적인 프로젝트로 유지 관리합니다. 소스 코드를 포함하는 모든 참가 프로그램은 언제든지 환영이며 검토해드립니다.
 
 ## <a name="management-apis"></a>관리 API
 

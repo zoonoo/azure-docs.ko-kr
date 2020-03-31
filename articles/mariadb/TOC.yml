@@ -63,6 +63,8 @@
           href: concepts-data-access-security-private-link.md
         - name: 고급 위협 보호
           href: concepts-data-access-and-security-threat-protection.md
+        - name: 보안 기준
+          href: security-baseline.md
     - name: 비즈니스 연속성
       items:
         - name: 비즈니스 연속성 소개
@@ -138,6 +140,10 @@
           href: howto-auto-grow-storage-portal.md
         - name: Azure CLI
           href: howto-auto-grow-storage-cli.md
+    - name: 퍼블릭 네트워크 액세스 거부
+      items:
+        - name: Azure portal
+          href: howto-deny-public-network-access.md
     - name: 서버 로그 액세스
       items:
         - name: 느린 쿼리 로그
@@ -206,7 +212,7 @@
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/mariadb/'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/forums/en-US/home?forum=AzureDatabaseforMariaDB'

@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager 템플릿 샘플 - Azure Front Door Service
-description: Azure Front Door Service에 대한 Azure Resource Manager 템플릿 샘플
+title: Azure Resource Manager 템플릿 샘플 - Azure Front Door
+description: Azure Front Door에 대한 Azure Resource Manager 템플릿 샘플
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2018
 ms.author: sharadag
-ms.openlocfilehash: 2684c9852cb3e946d8ec1840fc166053204dfae0
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: de3b13162e7828542331e7e7a34d0101f7feaf71
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184605"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79471657"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Front Door에 대한 Azure Resource Manager 배포 모델 템플릿
 
-다음 표는 Azure Front Door Service에 대한 Azure Resource Manager 배포 모델 템플릿 링크를 포함합니다. 
+다음 표에는 Azure Front Door에 대한 Azure Resource Manager 배포 모델 템플릿 링크가 포함되어 있습니다. 
 
 | | |
 | ---| ---|
@@ -38,5 +38,5 @@ ms.locfileid: "74184605"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Front Door를 만드는 방법](quickstart-create-front-door.md)을 알아봅니다.
+- [Front Door를 만드는](quickstart-create-front-door.md) 방법을 알아봅니다.
 - [Front Door의 작동 원리](front-door-routing-architecture.md)를 알아봅니다.

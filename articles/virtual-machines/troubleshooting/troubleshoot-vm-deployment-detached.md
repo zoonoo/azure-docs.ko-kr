@@ -1,6 +1,6 @@
 ---
-title: 분리 된 디스크로 인 한 가상 컴퓨터 배포 문제 해결 | Microsoft Docs
-description: 분리 된 디스크로 인 한 가상 컴퓨터 배포 문제 해결
+title: 분리된 디스크로 인한 가상 시스템 배포 문제 해결 | 마이크로 소프트 문서
+description: 분리된 디스크로 인한 가상 시스템 배포 문제 해결
 services: virtual-machines-windows
 documentationCenter: ''
 author: v-miegge
@@ -13,17 +13,17 @@ ms.workload: infrastructure
 ms.date: 10/31/2019
 ms.author: vaaga
 ms.openlocfilehash: e049a2b914cbf9c4f0ca0f3a1dd0281d58f881b2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75486821"
 ---
-# <a name="troubleshoot-virtual-machine-deployment-due-to-detached-disks"></a>분리 된 디스크로 인 한 가상 컴퓨터 배포 문제 해결
+# <a name="troubleshoot-virtual-machine-deployment-due-to-detached-disks"></a>분리된 디스크로 인한 가상 시스템 배포 문제 해결
 
 ## <a name="symptom"></a>증상
 
-이전 데이터 디스크 분리에 실패 한 가상 컴퓨터를 업데이트 하려고 할 때이 오류 코드가 나타날 수 있습니다.
+이전 데이터 디스크 분리에 실패한 가상 컴퓨터를 업데이트하려고 할 때 이 오류 코드가 발생할 수 있습니다.
 
 ```
 Code=\"AttachDiskWhileBeingDetached\" 
@@ -32,11 +32,11 @@ Message=\"Cannot attach data disk '{disk ID}' to virtual machine '{vmName}' beca
 
 ## <a name="cause"></a>원인
 
-이 오류는 마지막 분리 작업이 실패 한 데이터 디스크를 다시 사용할 때 발생 합니다. 이 상태를 확인 하는 가장 좋은 방법은 오류가 발생 한 디스크를 분리 하는 것입니다.
+이 오류는 마지막 분리 작업이 실패한 데이터 디스크를 다시 연결하려고 할 때 발생합니다. 이 상태에서 벗어나는 가장 좋은 방법은 실패한 디스크를 분리하는 것입니다.
 
-## <a name="solution-1-powershell"></a>해결 방법 1: Powershell
+## <a name="solution-1-powershell"></a>솔루션 1: 파워쉘
 
-### <a name="step-1-get-the-virtual-machine-and-disk-details"></a>1 단계: 가상 컴퓨터 및 디스크 세부 정보 가져오기
+### <a name="step-1-get-the-virtual-machine-and-disk-details"></a>1단계: 가상 컴퓨터 및 디스크 세부 정보 가져오기
 
 ```azurepowershell-interactive
 PS D:> $vm = Get-AzureRmVM -ResourceGroupName "Example Resource Group" -Name "ERGVM999999" 
@@ -51,39 +51,39 @@ diskSizeGB   : 8
 toBeDetached : False 
 ```
 
-### <a name="step-2-set-the-flag-for-failing-disks-to-true"></a>2 단계: 실패 한 디스크에 대 한 플래그를 "true"로 설정 합니다.
+### <a name="step-2-set-the-flag-for-failing-disks-to-true"></a>2단계: 실패한 디스크에 대한 플래그를 "true"로 설정합니다.
 
-오류가 발생 한 디스크의 배열 인덱스를 가져오고 실패 한 디스크 ( **AttachDiskWhileBeingDetached** 오류가 발생 한 경우)에 대 한 **tobedetached** 플래그를 "true"로 설정 합니다. 이 설정은 가상 머신에서 디스크를 분리 하는 것을 의미 합니다. 오류가 발생 한 디스크 이름은 **errorMessage**에서 찾을 수 있습니다.
+실패한 디스크의 배열 인덱스를 얻고 실패한 디스크에 대한 **beBedetached** 플래그를 **"True"로** 설정합니다. 이 설정은 가상 컴퓨터에서 디스크를 분리하는 것을 의미합니다. 실패한 디스크 이름은 **errorMessage**.
 
-> ! 참고: Get 및 Put 호출에 지정 된 API 버전은 2019-03-01 이상 이어야 합니다.
+> ! 참고: Get 및 Put 호출에 대해 지정된 API 버전은 2019-03-01 이상이어야 합니다.
 
 ```azurepowershell-interactive
 PS D:> $vm.StorageProfile.DataDisks[0].ToBeDetached = $true 
 ```
 
-또는 아래 명령을 사용 하 여이 디스크를 분리할 수도 있습니다 .이는 2019 년 3 월 01 일 이전에 API 버전을 사용 하는 사용자에 게 유용 합니다.
+또는 아래 명령을 사용하여 이 디스크를 분리할 수도 있으며, 이는 2019년 3월 01일 이전에 API 버전을 사용하는 사용자에게 도움이 될 것입니다.
 
 ```azurepowershell-interactive
 PS D:> Remove-AzureRmVMDataDisk -VM $vm -Name "<disk ID>" 
 ```
 
-### <a name="step-3-update-the-virtual-machine"></a>3 단계: 가상 컴퓨터 업데이트
+### <a name="step-3-update-the-virtual-machine"></a>3단계: 가상 컴퓨터 업데이트
 
 ```azurepowershell-interactive
 PS D:> Update-AzureRmVM -ResourceGroupName "Example Resource Group" -VM $vm 
 ```
 
-## <a name="solution-2-rest"></a>해결 방법 2: REST
+## <a name="solution-2-rest"></a>솔루션 2: REST
 
-### <a name="step-1-get-the-virtual-machine-payload"></a>1 단계: 가상 컴퓨터 페이로드를 가져옵니다.
+### <a name="step-1-get-the-virtual-machine-payload"></a>1단계: 가상 시스템 페이로드를 가져옵니다.
 
 ```azurepowershell-interactive
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?$expand=instanceView&api-version=2019-03-01
 ```
 
-### <a name="step-2-set-the-flag-for-failing-disks-to-true"></a>2 단계: 실패 한 디스크에 대 한 플래그를 "true"로 설정 합니다.
+### <a name="step-2-set-the-flag-for-failing-disks-to-true"></a>2단계: 실패한 디스크에 대한 플래그를 "true"로 설정합니다.
 
-1 단계에서 반환 된 페이로드에서 실패 한 디스크에 대 한 **Tobedetached** 플래그를 true로 설정 합니다. 참고: Get 및 Put 호출에 지정 된 API 버전은 `2019-03-01` 이상 이어야 합니다.
+1단계에서 반환된 페이로드에서 실패한 디스크에 대한 **toBeDetached** 플래그를 true로 설정합니다. 참고: Get 및 Put 호출에 대해 지정된 `2019-03-01` API 버전은 더 이상이어야 합니다.
 
 **샘플 요청 본문**
 
@@ -143,11 +143,11 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 }
 ```
 
-또는 위의 페이로드에서 실패 한 데이터 디스크를 제거할 수도 있습니다 .이는 2019 년 3 월 01 일 이전에 API 버전을 사용 하는 사용자에 게 유용 합니다.
+또는 위의 페이로드에서 실패한 데이터 디스크를 제거할 수도 있으므로 2019년 3월 01일 이전에 API 버전을 사용하는 사용자에게 유용합니다.
 
-### <a name="step-3-update-the-virtual-machine"></a>3 단계: 가상 컴퓨터 업데이트
+### <a name="step-3-update-the-virtual-machine"></a>3단계: 가상 컴퓨터 업데이트
 
-2 단계에서 설정 된 요청 본문 페이로드를 사용 하 고 다음과 같이 가상 머신을 업데이트 합니다.
+2단계에서 설정된 요청 본문 페이로드를 사용하고 다음과 같이 가상 컴퓨터를 업데이트합니다.
 
 ```azurepowershell-interactive
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2019-03-01

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
 ms.openlocfilehash: b3c1abb7bff54e3e2d294b073b867c6c0e06f482
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75830074"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>PowerShell을 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 작업 실행
@@ -21,9 +21,9 @@ ms.locfileid: "75830074"
 
 이 문서에서는 Azure PowerShell을 사용하여 HDInsight 클러스터의 Hadoop에서 MapReduce 작업을 실행하는 예제를 제공합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* HDInsight의 Apache Hadoop 클러스터. [Azure Portal를 사용 하 여 Apache Hadoop 클러스터 만들기를](../hdinsight-hadoop-create-linux-clusters-portal.md)참조 하세요.
+* HDInsight의 Apache Hadoop 클러스터. [Azure 포털을 사용하여 아파치 하두롭 클러스터 만들기를](../hdinsight-hadoop-create-linux-clusters-portal.md)참조하십시오.
 
 * PowerShell [Az 모듈](https://docs.microsoft.com/powershell/azure/overview)이 설치되었습니다.
 
@@ -33,17 +33,17 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 
 다음 cmdlet은 원격 HDInsight 클러스터에서 MapReduce 작업을 실행할 때 사용됩니다.
 
-|Cmdlet | Description |
+|Cmdlet | 설명 |
 |---|---|
 |연결 AzAccount|Azure 구독에 대해 Azure PowerShell을 인증합니다.|
-|New-AzHDInsightMapReduceJobDefinition|지정 된 MapReduce 정보를 사용 하 여 새 *작업 정의* 를 만듭니다.|
-|Start-AzHDInsightJob|HDInsight에 작업 정의를 보내고 작업을 시작합니다. *작업* 개체가 반환됩니다.|
-|Wait-AzHDInsightJob|작업 개체를 사용하여 작업 상태를 확인합니다. 작업이 완료되거나 대기 시간이 초과될 때까지 기다립니다.|
-|Get-AzHDInsightJobOutput|작업의 출력을 검색하는 데 사용합니다.|
+|뉴 아즈HD인사이트맵감소작업정의|지정한 MapReduce 정보를 사용하여 새 *작업 정의*를 만듭니다.|
+|스타트-아즈HD인사이트잡|HDInsight에 작업 정의를 보내고 작업을 시작합니다. *작업* 개체가 반환됩니다.|
+|대기-아즈HD인사이트잡|작업 개체를 사용하여 작업 상태를 확인합니다. 작업이 완료되거나 대기 시간이 초과될 때까지 기다립니다.|
+|겟-아즈HD인사이트작업출력|작업의 출력을 검색하는 데 사용합니다.|
 
 다음 단계는 HDInsight 클러스터에서 작업을 실행하기 위해 이러한 cmdlet을 사용하는 방법에 대해 설명합니다.
 
-1. 편집기를 사용하여 다음 코드를 **mapreducejob.ps1**로 저장합니다.
+1. 편집기사용으로 다음 코드를 **mapreducejob.ps1로**저장합니다.
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 
@@ -51,7 +51,7 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 
         .\mapreducejob.ps1
 
-    스크립트를 실행할 때 HDInsight 클러스터의 이름과 클러스터 로그인을 입력 하 라는 메시지가 표시 됩니다. Azure 구독에서 인증을 받으라는 메시지도 표시될 수 있습니다.
+    스크립트를 실행하면 HDInsight 클러스터 이름과 클러스터 로그인메시지가 표시됩니다. Azure 구독에서 인증을 받으라는 메시지도 표시될 수 있습니다.
 
 3. 작업이 완료되면 다음 텍스트와 유사한 출력이 나타납니다.
 
@@ -81,7 +81,7 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 
 ## <a name="troubleshooting"></a>문제 해결
 
-작업이 완료될 때 정보가 반환되지 않으면 작업에 대한 오류를 봅니다. 이 작업에 대 한 오류 정보를 보려면 **mapreducejob.ps1** 파일의 끝에 다음 명령을 추가 합니다. 그런 다음 파일을 저장 하 고 스크립트를 다시 실행 합니다.
+작업이 완료될 때 정보가 반환되지 않으면 작업에 대한 오류를 봅니다. 이 작업에 대한 오류 정보를 보려면 **mapreducejob.ps1** 파일의 끝에 다음 명령을 추가합니다. 그런 다음 파일을 저장하고 스크립트를 다시 실행합니다.
 
 ```powershell
 # Print the output of the WordCount job.

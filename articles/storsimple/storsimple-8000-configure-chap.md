@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: efc116c278bfe72419800603a3b365f461fe0a28
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267964"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>StorSimple 디바이스에 대한 CHAP 구성
@@ -59,7 +59,7 @@ StorSimple 디바이스에서 CHAP 설정은 다음과 같은 방법으로 구�
    3. 암호를 확인합니다.
 
        ![CHAP 초기자](./media/storsimple-8000-configure-chap/configure-chap6.png)
-3. **저장**을 클릭합니다. 확인 메시지가 표시됩니다. **확인** 을 클릭하여 변경 내용을 저장합니다.
+3. **저장**을 클릭합니다. 확인 메시지가 표시됩니다. **확인**을 클릭하여 변경 내용을 저장합니다.
 
 #### <a name="to-configure-one-way-authentication-on-the-windows-host-server"></a>Windows 호스트 서버에서 일방 인증을 구성하려면
 1. Windows 호스트 서버에서 iSCSI 초기자를 시작합니다.
@@ -75,9 +75,9 @@ StorSimple 디바이스에서 CHAP 설정은 다음과 같은 방법으로 구�
    2. **고급**을 클릭합니다.
       
        ![대상 포털 검색](./media/storsimple-configure-chap/IC740945.png)
-4. **고급 설정** 대화 상자에서:
+4. **고급 설정** 대화 상자에서 다음을 수행합니다.
    
-   1. **CHAP 로그온 사용** 확인란을 선택합니다.
+   1. **CHAP 로그온 정보 사용** 확인란을 선택합니다.
    2. **이름** 필드에는 Azure Portal에서 CHAP 초기자에 지정한 사용자 이름을 입력합니다.
    3. **대상 암호** 필드에는 Azure Portal에서 CHAP 초기자에 지정한 암호를 입력합니다.
    4. **확인**을 클릭합니다.
@@ -101,19 +101,19 @@ Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 �
 1. Azure Portal에서 StorSimple 디바이스 관리자 서비스로 이동합니다. **디바이스**를 클릭하고 CHAP를 구성하려는 디바이스를 클릭하여 선택합니다. **디바이스 설정 &gt; 보안**으로 이동합니다. **보안 설정** 블레이드에서 **CHAP**를 클릭합니다.
    
     ![CHAP 대상](./media/storsimple-8000-configure-chap/configure-chap5.png)
-2. 이 페이지에서 아래로 스크롤하고 **CHAP 대상** 섹션에서 다음을 수행합니다.
+2. 이 페이지에서 아래쪽으로 스크롤한 다음 **CHAP 대상** 섹션에서 다음을 수행합니다.
    
    1. 디바이스에 대한 **역방향 CHAP 사용자 이름**을 입력합니다.
    2. 디바이스에 대한 **역방향 CHAP 암호**를 입력합니다.
    3. 암호를 확인합니다.
-3. **CHAP 초기자** 섹션에서 다음을 수행합니다.
+3. **CHAP 초기자 구성** 섹션에서 다음을 수행합니다.
    
    1. 디바이스에 대한 **사용자 이름**을 입력합니다.
    2. 디바이스에 대한 **암호**를 입력합니다.
    3. 암호를 확인합니다.
 
        ![CHAP 초기자](./media/storsimple-8000-configure-chap/configure-chap11.png)
-4. **저장**을 클릭합니다. 확인 메시지가 표시됩니다. **확인** 을 클릭하여 변경 내용을 저장합니다.
+4. **저장**을 클릭합니다. 확인 메시지가 표시됩니다. **확인**을 클릭하여 변경 내용을 저장합니다.
 
 #### <a name="to-configure-bidirectional-authentication-on-the-windows-host-server"></a>Windows 호스트 서버에서 양방향 인증을 구성하려면
 
@@ -131,7 +131,7 @@ Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 �
 7. **대상에 연결** 대화 상자에서 **고급**을 클릭합니다.
 8. **고급 속성** 대화 상자에서 다음을 수행합니다.
    
-   1. **CHAP 로그온 사용** 확인란을 선택합니다.
+   1. **CHAP 로그온 정보 사용** 확인란을 선택합니다.
    2. **이름** 필드에는 Azure Portal에서 CHAP 초기자에 지정한 사용자 이름을 입력합니다.
    3. **대상 암호** 필드에는 Azure Portal에서 CHAP 초기자에 지정한 암호를 입력합니다.
    4. **상호 인증 수행** 확인란을 선택합니다.
@@ -147,11 +147,11 @@ Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 �
 
 ![대상에 연결](./media/storsimple-configure-chap/IC740947.png)
 
-표시되는 **대상에 연결** 대화 상자에서 **즐겨찾는 대상 목록에 이 연결 추가** 확인란을 선택합니다. 이렇게 선택하면 컴퓨터를 다시 시작할 때마다 iSCSI 즐겨찾는 대상에 연결을 복원하는 시도가 수행됩니다.
+표시되는 **대상에 연결** 대화 상자에서 **즐겨찾는 대상 목록에 이 연결을 추가합니다.** 확인란을 선택합니다. 이렇게 선택하면 컴퓨터를 다시 시작할 때마다 iSCSI 즐겨찾는 대상에 연결을 복원하는 시도가 수행됩니다.
 
 ## <a name="errors-during-configuration"></a>구성 중 오류
 
-CHAP 구성이 올바르지 않은 경우 **인증 실패** 오류 메시지가 표시될 수 있습니다.
+CHAP 구성이 잘못된 경우 **인증 실패** 오류 메시지가 표시됩니다.
 
 ## <a name="verification-of-chap-configuration"></a>CHAP 구성 확인
 
@@ -163,7 +163,7 @@ CHAP 구성이 올바르지 않은 경우 **인증 실패** 오류 메시지가 
 3. **세부 정보**를 클릭합니다.
    
     ![iSCSI 초기자 속성 즐겨찾는 대상](./media/storsimple-configure-chap/IC740951.png)
-4. **즐겨찾는 대상 세부 정보** 대화 상자에서 **인증** 필드에 항목을 입력합니다. 구성이 성공하면 **CHAP**라는 텍스트가 표시되어야 합니다.
+4. **즐겨찾는 대상 세부 정보** 대화 상자에서 **인증** 필드의 항목을 확인합니다. 구성이 정상적으로 완료된 경우 이 필드에 **CHAP**가 표시됩니다.
    
     ![즐겨찾는 대상 세부 정보](./media/storsimple-configure-chap/IC740952.png)
 

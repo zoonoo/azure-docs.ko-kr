@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 979b390f65363b43f33ce2f09d26844c3cc1a2e8
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: c5d2bbe920f87421550fadf30a7e7e9d23931bfd
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759792"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80292478"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Azure VM에 대한 재해 복구 설정
 
@@ -75,7 +75,7 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 주소 범위에 대한 아웃바운드 연결
 
-NSG(네트워크 보안 그룹)를 사용하는 경우 Azure Storage, Azure Active Directory, Site Recovery 서비스 및 Site Recovery 모니터링에 액세스할 수 있는 서비스 태그 기반 NSG 규칙을 만듭니다. [자세히 알아보기](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
+NSG(네트워크 보안 그룹)를 사용하는 경우 Azure Storage, Azure Active Directory, Site Recovery 서비스 및 Site Recovery 모니터링에 액세스할 수 있는 서비스 태그 기반 NSG 규칙을 만듭니다. [자세히 알아보기](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
 ## <a name="verify-azure-vm-certificates"></a>Azure VM 인증서 확인
 

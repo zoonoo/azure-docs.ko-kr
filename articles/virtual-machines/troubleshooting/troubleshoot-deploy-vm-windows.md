@@ -1,6 +1,6 @@
 ---
 title: Azure에서 Windows 가상 머신 배포 문제 해결 | Microsoft Docs
-description: Azure Resource Manager 배포 모델에서 Windows 가상 머신 배포 문제를 해결 합니다.
+description: Azure 리소스 관리자 배포 모델에서 Windows 가상 시스템 문제를 배포하는 문제를 해결합니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -15,23 +15,23 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: cdbaeb5a97beba342bc471e75d1b07be0d0141ae
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921414"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Azure에서 Windows 가상 머신 배포 문제 해결
 
 Azure의 VM(가상 머신) 배포 문제를 해결하려면 일반적인 오류 및 해결 방법에 대한 [주요 문제](#top-issues)를 검토합니다.
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동하여 **지원 받기를**선택합니다.
 
 ## <a name="top-issues"></a>주요 문제
 [!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>클러스터가 요청된 VM 크기를 지원할 수 없습니다.
-\<속성 supportTopicIds = "123456789" resourceTags = "windows" productPesIds = "1234, 5678"/>
+\<속성 지원TopicIds="123456789" 리소스Tags="창" productPesIds="1234, 5678" />
 - 더 작은 VM 크기를 사용하여 요청을 다시 시도합니다.
 - 요청한 VM의 크기를 변경할 수 없으면:
     - 가용성 집합의 VM을 모두 중지합니다. **리소스 그룹** > 사용자의 리소스 그룹 > **리소스** > 사용자의 가용성 집합 > **Virtual Machines** > 사용자의 가상 머신 > **중지**를 클릭합니다.
@@ -40,7 +40,7 @@ Azure의 VM(가상 머신) 배포 문제를 해결하려면 일반적인 오류 
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>클러스터에 여유 리소스가 없습니다.
-\<속성 supportTopicIds = "123456789" resourceTags = "windows" productPesIds = "1234, 5678"/>
+\<속성 지원TopicIds="123456789" 리소스Tags="창" productPesIds="1234, 5678" />
 - 요청을 나중에 다시 시도하세요.
 - 새 VM이 다른 가용성 집합의 일부가 될 수 있다면
     - 동일한 지역의 다른 가용성 집합에 VM을 만듭니다.
@@ -62,13 +62,13 @@ Azure 하이브리드 사용 혜택을 사용하여 Windows 가상 머신을 배
 
 • 사용자 지정 VM을 업로드하거나 Resource Manager 템플릿 또는 Azure PowerShell을 사용하여 배포합니다.
 
-자세한 내용은 다음 참고 자료를 참조하십시오.
+자세한 내용은 다음 자료를 참조하세요.
 
  - [Azure 하이브리드 사용 혜택 개요](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
  - [다운로드 가능한 FAQ](https://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
 
- - [Window Server 및 Windows 클라이언트용 Azure Hybrid Use Benefit](../windows/hybrid-use-benefit-licensing.md)
+ - [Windows 서버 및 Windows 클라이언트에 대한 Azure 하이브리드 사용 이점.](../windows/hybrid-use-benefit-licensing.md)
 
  - [Azure에서 Hybrid Use Benefit을 사용하는 방법](https://blogs.msdn.microsoft.com/azureedu/2016/04/13/how-can-i-use-the-hybrid-use-benefit-in-azure)
 
@@ -123,4 +123,4 @@ VM을 실행하면 해당 VM이 실제 서버에 배포됩니다. Azure 지역�
 ## <a name="next-steps"></a>다음 단계
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다.
 
-또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다.
+또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동하여 **지원 받기를**선택합니다.

@@ -1,6 +1,6 @@
 ---
-title: Postman을 구성 하는 방법-Azure Digital Twins | Microsoft Docs
-description: Postman을 구성 하 고 사용 하 여 Azure Digital Twins Api를 테스트 하는 방법을 알아봅니다.
+title: 우체부 구성 방법 - Azure 디지털 트윈스 | 마이크로 소프트 문서
+description: Postman을 구성하고 사용하여 Azure 디지털 Twins API를 테스트하는 방법을 알아봅니다.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: 377639d7a88478308709743ab842db71028686ed
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: ffcfb4f6ec5f6c654d0b243af85034ab575e0d88
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023313"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297165"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Azure Digital Twins용 Postman을 구성하는 방법
 
@@ -29,25 +29,25 @@ ms.locfileid: "77023313"
 
 [Postman](https://www.getpostman.com/)은 유용한 데스크톱 및 플러그 인 기반 GUI에 대한 주요 HTTP 요청을 찾는 REST 테스트 도구입니다.
 
-Postman 클라이언트를 통해 솔루션 개발자는 HTTP 요청의 종류(*POST*, *GET*, *UPDATE*, *PATCH* 및 *DELETE*), 호출할 API 엔드포인트 및 SSL의 사용을 지정할 수 있습니다. Postman은 또한 HTTP 요청 헤더, 매개 변수, 양식 데이터 및 본문 추가를 지원합니다.
+Postman 클라이언트를 통해 솔루션 개발자는 HTTP*요청(POST,* *GET*, *UPDATE,* *PATCH*및 *DELETE),* 호출할 API 끝점 및 TLS 사용의 종류를 지정할 수 있습니다. Postman은 또한 HTTP 요청 헤더, 매개 변수, 양식 데이터 및 본문 추가를 지원합니다.
 
 ## <a name="configure-azure-active-directory-to-use-the-oauth-20-implicit-grant-flow"></a>OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory를 구성합니다.
 
-1. [빠른](quickstart-view-occupancy-dotnet.md#set-permissions-for-your-app) 시작의 단계에 따라 Azure Active Directory 응용 프로그램을 만들고 구성 합니다. 또는 기존 앱 등록을 다시 사용할 수 있습니다.
+1. [빠른 시작의](quickstart-view-occupancy-dotnet.md#set-permissions-for-your-app) 단계를 수행하여 Azure Active Directory 응용 프로그램을 만들고 구성합니다. 또는 기존 앱 등록을 다시 사용할 수 있습니다.
 
-    [새 Postman 리디렉션 URI를 구성 ![](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
+    [![새 우체부 리디렉션 URI 구성](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
 
-1. 이제 `https://www.getpostman.com/oauth2/callback`에 **리디렉션 URI** 를 추가 합니다.
+1. 이제 URI **리디렉션을** 에 `https://www.getpostman.com/oauth2/callback`추가합니다.
 
-1.  > **액세스 토큰** **암시적 부여** 확인란을 선택 하 여 OAuth 2.0 암시적 허용 흐름을 사용할 수 있습니다. **구성**을 선택한 다음 **저장**을 선택 합니다.
+1. OAuth 2.0 암시적 권한 부여 흐름을 사용할 수 있도록 **암시적 권한 부여** > **Access 토큰** 확인란을 선택합니다. **구성을**선택한 다음 **저장합니다.**
 
-1. Azure Active Directory 앱의 **클라이언트 ID** 를 복사 합니다.
+1. Azure Active Directory 앱의 **클라이언트 ID를** 복사합니다.
 
 ## <a name="obtain-an-oauth-20-token"></a>OAuth 2.0 토큰 가져오기
 
 [!INCLUDE [digital-twins-management-api](../../includes/digital-twins-management-api.md)]
 
-Azure Active Directory 토큰을 가져오기 위해 Postman을 설정 하 고 구성 합니다. 그런 다음, 획득한 토큰을 사용하여 Azure Digital Twins로 인증된 HTTP 요청을 만듭니다.
+Azure Active Directory 토큰을 가져오도록 Postman을 설정하고 구성합니다. 그런 다음, 획득한 토큰을 사용하여 Azure Digital Twins로 인증된 HTTP 요청을 만듭니다.
 
 1. **권한 부여 URL**이 올바른지 확인합니다. 다음과 같은 형식이어야 합니다.
 
@@ -55,27 +55,27 @@ Azure Active Directory 토큰을 가져오기 위해 Postman을 설정 하 고 �
     https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
-    | 이름  | 다음 항목으로 교체 | 예 |
+    | 이름  | 다음 항목으로 교체 | 예제 |
     |---------|---------|---------|
-    | YOUR_AZURE_TENANT | 테 넌 트 또는 조직의 이름입니다. Azure Active Directory 앱 등록의 영숫자 **테 넌 트 ID** 대신 사용자에 게 친숙 한 이름을 사용 합니다. | `microsoft` |
+    | YOUR_AZURE_TENANT | 테넌트 또는 조직의 이름입니다. Azure Active Directory 앱 등록의 영숫자 **테넌트 ID** 대신 사용자 친화적인 이름을 사용합니다. | `microsoft` |
 
 1. [www.getpostman.com](https://www.getpostman.com/)으로 이동하여 앱을 다운로드합니다.
 
-1. GET 요청을 수행 하려고 합니다. **권한 부여** 탭을 선택 하 고 OAuth 2.0을 선택한 다음 **새 액세스 토큰 가져오기**를 선택 합니다.
+1. GET 요청을 하고 싶습니다. 권한 **부여** 탭을 선택하고 OAuth 2.0을 선택한 다음 **새 액세스 토큰 받기를**선택합니다.
 
     | 필드  | 값 |
     |---------|---------|
     | 권한 부여 유형 | `Implicit` |
     | 콜백 URL | `https://www.getpostman.com/oauth2/callback` |
-    | 인증 URL | **1 단계의** **권한 부여 URL** 사용 |
-    | 클라이언트 ID | 이전 섹션에서 만들었거나 다시 사용한 Azure Active Directory 앱의 **응용 프로그램 ID** 를 사용 합니다. |
-    | 범위 | 비워 둠 |
-    | 상태 | 비워 둠 |
+    | 인증 URL | **1단계에서** **권한 부여 URL** 사용 |
+    | 클라이언트 ID | 이전 섹션에서 만들거나 다시 사용한 Azure Active Directory 앱에 **응용 프로그램 ID** 사용 |
+    | Scope | 비워 둠 |
+    | 시스템 상태 | 비워 둠 |
     | 클라이언트 인증 | `Send as Basic Auth header` |
 
 1. 클라이언트는 이제 다음과 같아야 합니다.
 
-    [![Postman 클라이언트 토큰 예제](media/how-to-configure-postman/configure-postman-oauth-token.png)](media/how-to-configure-postman/configure-postman-oauth-token.png#lightbox)
+    [![우체부 클라이언트 토큰 예제](media/how-to-configure-postman/configure-postman-oauth-token.png)](media/how-to-configure-postman/configure-postman-oauth-token.png#lightbox)
 
 1. **토큰 요청**을 선택합니다.
   
@@ -85,25 +85,25 @@ Azure Active Directory 토큰을 가져오기 위해 Postman을 설정 하 고 �
 
 이전 단계를 완료한 후 인증된 HTTP 다중 파트 POST 요청을 수행하도록 Postman을 구성합니다.
 
-1. **헤더** 탭에서 값 `multipart/mixed`를 사용 하 여 HTTP 요청 헤더 키 **콘텐츠 형식을** 추가 합니다.
+1. **헤더** 탭에서 HTTP 요청 헤더 키 **콘텐츠 유형값을** 추가합니다. `multipart/mixed`
 
-   [내용 유형을 multipart/mixed로 지정 ![](media/how-to-configure-postman/configure-postman-content-type.png)](media/how-to-configure-postman/configure-postman-content-type.png#lightbox)
+   [![콘텐츠 유형 다중 분할/혼합 지정](media/how-to-configure-postman/configure-postman-content-type.png)](media/how-to-configure-postman/configure-postman-content-type.png#lightbox)
 
 1. 텍스트가 아닌 데이터를 파일로 직렬화합니다. JSON 데이터는 JSON 파일로 저장됩니다.
-1. **본문** 탭에서 `form-data`를 선택 합니다. 
-1. **키** 이름을 할당 하 여 각 파일을 추가 하 고 `File`를 선택 합니다.
+1. **본문** 탭에서 `form-data`을 선택합니다. 
+1. **키** 이름을 할당하고 을 선택하여 `File`각 파일을 추가합니다.
 1. 그런 후 **파일 선택** 단추를 사용하여 각 파일을 선택합니다.
 
-   [![Postman 클라이언트 양식 본문 예제](media/how-to-configure-postman/configure-postman-form-body.png)](media/how-to-configure-postman/configure-postman-form-body.png#lightbox)
+   [![우체부 클라이언트 양식 본문 예제](media/how-to-configure-postman/configure-postman-form-body.png)](media/how-to-configure-postman/configure-postman-form-body.png#lightbox)
 
    >[!NOTE]
    > * Postman 클라이언트에서는 다중 파트 청크에 **Content-Type** 또는 **Content-Disposition**을 수동으로 할당할 필요가 없습니다.
    > * 각 파트에 대해 해당 헤더를 지정할 필요가 없습니다.
    > * 전체 요청에 대해서는 `multipart/mixed` 또는 다른 적절한 **Content-Type**을 선택해야 합니다.
 
-1. 마지막으로, **보내기** 를 선택 하 여 MULTIPART HTTP POST 요청을 제출 합니다. `200` 또는 `201`의 상태 코드는 성공적인 요청을 나타냅니다. 적절 한 응답 메시지가 클라이언트 인터페이스에 표시 됩니다.
+1. 마지막으로 **보내기를** 선택하여 다중 부분 HTTP POST 요청을 제출합니다. 요청의 `200` 상태 `201` 코드 또는 성공한 요청을 나타냅니다. 적절한 응답 메시지가 클라이언트 인터페이스에 나타납니다.
 
-1. API 끝점을 호출 하 여 HTTP POST 요청 데이터의 유효성을 검사 합니다. 
+1. API 끝점을 호출하여 HTTP POST 요청 데이터의 유효성을 검사합니다. 
 
    ```URL
    YOUR_MANAGEMENT_API_URL/spaces/blobs?includes=description

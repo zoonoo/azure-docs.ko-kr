@@ -1,5 +1,5 @@
 ---
-title: Dynamics 365에 연결
+title: 다이내믹스 365에 연결
 description: Dynamics 365(온라인) REST API 및 Azure Logic Apps로 레코드 만들기 및 관리
 services: logic-apps
 ms.suite: integration
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/18/2018
 tags: connectors
 ms.openlocfilehash: 9837b68fbfba783a468712d8ba1883b198af4954
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789880"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Dynamics 365 레코드 관리
@@ -21,15 +21,15 @@ ms.locfileid: "74789880"
 Azure Logic Apps 및 Dynamics 365 커넥터를 사용하여 Dynamics 365의 사용자 레코드에 따라 자동화된 작업 및 워크플로를 만들 수 있습니다. 워크플로는 Dynamics 365 계정에서 레코드 만들기, 항목 업데이트, 레코드 반환 등을 할 수 있습니다. 논리 앱에 작업을 포함시켜 Dynamics 365에서 응답을 가져오고 출력을 다른 작업에 사용할 수 있게 할 수 있습니다. 예를 들어, Dynamics 365에서 항목이 업데이트되면 Office 365를 사용하여 이메일을 보낼 수 있습니다.
 
 이 항목에서는 Dynamics 365에서 새 잠재 고객 레코드가 생성될 때마다 Dynamics 365에서 작업을 생성하는 논리 앱을 빌드하는 방법을 보여줍니다.
-논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
+논리 앱을 새로 접하는 경우 [Azure 논리 앱이란 무엇입니까?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * [Dynamics 365 계정](https://dynamics.microsoft.com)
 
-* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
+* [논리 앱을 만드는 방법에](../logic-apps/quickstart-create-first-logic-app-workflow.md) 대한 기본 지식
 
 * Dynamics 365 계정에 액세스하려는 논리 앱입니다. Dynamics 365 트리거를 통해 논리 앱을 시작하려면 [빈 논리 앱](../logic-apps/quickstart-create-first-logic-app-workflow.md)이 필요합니다.
 
@@ -49,11 +49,11 @@ Azure Logic Apps 및 Dynamics 365 커넥터를 사용하여 Dynamics 365의 사�
 
 1. 다음과 같은 트리거 세부 정보를 제공합니다.
 
-   | 자산 | 필수 | 설명 |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **조직 이름** | yes | 모니터링할 조직의 Dynamics 365 인스턴스의 이름, 예를 들어 "Contoso" |
    | **엔터티 이름** | yes | 모니터링할 엔터티의 이름, 예를 들어 "리드" | 
-   | **Frequency(빈도)** | yes | 트리거와 관련된 업데이트를 확인할 때 간격으로 사용할 시간 단위 |
+   | **주파수** | yes | 트리거와 관련된 업데이트를 확인할 때 간격으로 사용할 시간 단위 |
    | **간격** | yes | 다음 확인 때까지 경과할 초, 분, 시간, 일, 주, 달 수 |
    ||| 
 
@@ -71,7 +71,7 @@ Azure Logic Apps 및 Dynamics 365 커넥터를 사용하여 Dynamics 365의 사�
 
 1. 이러한 작업 세부 정보를 제공합니다.
 
-   | 자산 | 필수 | 설명 |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **조직 이름** | yes | 레코드를 만들려는 경우, 반드시 트리거의 동일한 인스턴스는 아니지만, 이 예제에서는 "Contoso"인 Dynamics 365 인스턴스 |
    | **엔터티 이름** | yes | 레코드를 만들려는 엔터티, 예를 들어 "작업" |
@@ -132,11 +132,11 @@ Dynamics 365 작업에서 데이터를 필터링하는 방법을 지정하려면
 | 필드 | 설명 |
 |-------|-------------|
 | **소유자** | 유효한 사용자 ID 또는 팀 레코드 ID여야 합니다. |
-| **소유자 유형** | `systemusers` 또는 `teams`이어야 합니다. |
+| **소유자 유형** | 또는 에 `systemusers` `teams`있어야 합니다. |
 | **관련 항목** | 계정 ID 또는 연락처 레코드 ID 등의 유효한 레코드 ID여야 합니다. |
-| **관련 유형** | `accounts` 또는 `contacts`와 같은 조회 유형 이어야 합니다. |
+| **관련 유형** | `accounts` 또는 `contacts`와 같은 조회 유형이어야 합니다. |
 | **고객** | 계정 ID 또는 연락처 레코드 ID 등의 유효한 레코드 ID여야 합니다. |
-| **고객 유형** | `accounts` 또는 `contacts`와 같은 조회 유형 이어야 합니다. |
+| **고객 유형** | `accounts` 또는 `contacts`와 같은 조회 유형이어야 합니다. |
 |||
 
 이 예제에서는 **새 레코드 만들기**라는 작업이 새 작업 레코드를 만듭니다.
@@ -159,7 +159,7 @@ Dynamics 365 작업에서 데이터를 필터링하는 방법을 지정하려면
 
 2. 작업 도구 모음에서 이러한 단계 중 하나를 선택합니다.
 
-   * **팝아웃**을 선택합니다. ![팝아웃 레코드](./media/connectors-create-api-crmonline/popout-record.png) 
+   * **팝 아웃을 선택합니다.** ![팝업 레코드](./media/connectors-create-api-crmonline/popout-record.png) 
    * 기본 이메일 프로그램에 전체 URL을 복사할 수 있도록 **이메일로 링크 보내기**를 선택합니다.
 
    `%7b` 및 `%7d` 인코딩 문자 간 URL에 레코드 ID가 표시됩니다.
@@ -186,7 +186,7 @@ Dynamics 365 작업에서 데이터를 필터링하는 방법을 지정하려면
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 OpenAPI (이전의 Swagger) 파일에 설명 된 대로 트리거, 작업 및 제한과 같은 기술 세부 정보는 [커넥터의 참조 페이지](/connectors/dynamicscrmonline/)를 참조 하세요.
+커넥터의 OpenAPI(이전 Swagger) 파일에서 설명한 대로 트리거, 작업 및 제한과 같은 기술적 세부 정보는 [커넥터의 참조 페이지를](/connectors/dynamicscrmonline/)참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

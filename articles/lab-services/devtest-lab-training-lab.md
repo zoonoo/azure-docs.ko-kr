@@ -1,6 +1,6 @@
 ---
 title: 학습에 Azure DevTest Labs 사용 | Microsoft 문서
-description: 이 문서에서는 Azure DevTest Labs 학습을 위한 랩을 설정 하기 위해 수행할 수 있는 자세한 단계를 제공 합니다.
+description: 이 문서에서는 Azure DevTest Labs에서 학습을 위한 랩을 설정하기 위해 수행할 수 있는 자세한 단계를 제공합니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 8f0a930d6e3c04548ade71f6d4e3294114eb60a2
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76759980"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>학습에 Azure DevTest Labs 사용
