@@ -1,29 +1,26 @@
 ---
-title: 개발자 용 Azure Active Directory (v1.0) 개요
+title: 개발자용 Azure Active Directory(v1.0) 개요
 description: 이 문서에서는 Azure Active Directory v1.0 엔드포인트 및 플랫폼을 사용하여 Microsoft 회사 및 학교 계정에 로그인하는 방법의 개요를 제공합니다.
 services: active-directory
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/24/2018
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 638c265fda3c8b331415d54047180b3c0ee2174a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ROBOTS: NOINDEX
+ms.openlocfilehash: ade350c91ebd2f3a68b52011e598f739a14c220f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79263531"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154494"
 ---
-# <a name="azure-active-directory-for-developers-v10-overview"></a>개발자 용 Azure Active Directory (v1.0) 개요
+# <a name="azure-active-directory-for-developers-v10-overview"></a>개발자용 Azure Active Directory(v1.0) 개요
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
@@ -38,9 +35,9 @@ Azure AD(Azure Active Directory)는 개발자가 Microsoft 회사 또는 학교 
 |[애플리케이션 유형](app-types.md) | Azure AD에서 지원하는 인증 시나리오에 대한 개요입니다. |
 | | |
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
-v1.0 빠른 시작 및 자습서에서는 ADAL(Azure AD 인증 라이브러리) SDK를 사용하여 선호하는 플랫폼에서 앱을 빌드하는 과정을 안내합니다. 시작하려면 **Microsoft ID 플랫폼(개발자용 Azure Active Directory)** 에서 **v1.0 빠른 시작** 및 [v1.0 자습서](index.yml)를 참조하세요.
+v1.0 빠른 시작 및 자습서에서는 ADAL(Azure AD 인증 라이브러리) SDK를 사용하여 선호하는 플랫폼에서 앱을 빌드하는 과정을 안내합니다. 시작하려면 [Microsoft ID 플랫폼(개발자용 Azure Active Directory)](index.yml)에서 **v1.0 빠른 시작** 및 **v1.0 자습서**를 참조하세요.
 
 ## <a name="how-to-guides"></a>방법 가이드
 
@@ -54,11 +51,11 @@ Azure AD의 가장 일반적인 작업에 대한 자세한 내용 및 연습은 
 | ----------------------------------------------------------------------------------| --- |
 | [인증 라이브러리(ADAL)](active-directory-authentication-libraries.md)   | Azure AD에서 제공하는 라이브러리 및 SDK에 대한 개요입니다. |
 | [코드 샘플](sample-v1-code.md)                                  | 모든 Azure AD 코드 샘플의 목록입니다. |
-| [용어 설명](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)                                      | 이 설명서에 사용된 용어 및 단어에 대한 정의입니다. |
+| [용어](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)                                      | 이 설명서에 사용된 용어 및 단어에 대한 정의입니다. |
 |  |  |
 
-## <a name="videos"></a>동영상
+## <a name="videos"></a>비디오
 
-새 Microsoft id 플랫폼으로 마이그레이션하는 데 도움이 필요한 경우 [개발자 플랫폼 비디오 Azure Active Directory](videos.md) 를 참조 하세요.
+새 Microsoft ID 플랫폼으로 마이그레이션하는 데 도움이 되는 [Azure Active Directory 개발자](videos.md) 플랫폼 비디오를 참조하십시오.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

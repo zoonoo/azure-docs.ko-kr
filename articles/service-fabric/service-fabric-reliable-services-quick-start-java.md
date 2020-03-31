@@ -6,15 +6,15 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
 ms.openlocfilehash: c3b301a7a9039f1fe8095950f0a5a4e23eb52a9b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614216"
 ---
-# <a name="get-started-with-reliable-services-in-java"></a>Java에서 Reliable Services 시작
+# <a name="get-started-with-reliable-services-in-java"></a>Java에서 신뢰할 수 있는 서비스 시작하기
 > [!div class="op_single_selector"]
-> * [Windows에서 C#](service-fabric-reliable-services-quick-start.md)
+> * [윈도우에서 C #](service-fabric-reliable-services-quick-start.md)
 > * [Linux에서 Java](service-fabric-reliable-services-quick-start-java.md)
 >
 >
@@ -197,7 +197,7 @@ ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddRelia
 * Service Fabric은 노드의 상태를 *복제*하고, 신뢰할 수 있는 해시 맵은 데이터를 각 복제본의 로컬 디스크에 저장합니다. 즉, 신뢰할 수 있는 해시 맵에 저장된 모든 항목이 *직렬화 가능* 상태가 됩니다. 
 * 신뢰할 수 있는 해시 맵의 트랜잭션을 커밋하면 고가용성을 위해 개체가 복제됩니다. 신뢰할 수 있는 해시 맵에 저장된 개체는 서비스의 로컬 메모리에 유지됩니다. 즉, 개체에 대한 로컬 참조가 있습니다.
   
-   트랜잭션의 신뢰할 수 있는 컬렉션에서 업데이트 작업을 수행하지 않고 해당 개체의 로컬 인스턴스를 변환하지 않는 것이 중요합니다. 개체의 로컬 인스턴스에 대한 변경 내용은 자동으로 복제되지 않기 때문입니다. 개체를 디렉터리에 다시 삽입하거나 디렉터리의 *update* 메서드 중 하나를 사용해야 합니다.
+   트랜잭션의 신뢰할 수 있는 컬렉션에서 업데이트 작업을 수행하지 않고 해당 개체의 로컬 인스턴스를 변환하지 않는 것이 중요합니다. 개체의 로컬 인스턴스에 대한 변경 내용은 자동으로 복제되지 않기 때문입니다. 객체를 사전에 다시 삽입하거나 사전의 *업데이트* 방법 중 하나를 사용해야 합니다.
 
 신뢰할 수 있는 상태 관리자는 사용자에 대한 신뢰할 수 있는 해시 맵을 관리합니다. 언제든지 서비스의 어느 위치에서든 신뢰할 수 있는 컬렉션에 대한 신뢰할 수 있는 상태 관리자를 요청할 수 있습니다. 신뢰할 수 있는 상태 관리자는 참조를 다시 가져오도록 합니다. 클래스 멤버 변수 또는 속성에서 신뢰할 수 있는 컬렉션 인스턴스에 대한 참조를 저장하지 않는 것이 좋습니다. 서비스 수명 주기에서 항상 참조가 인스턴스로 설정되어 있도록 특별히 주의해야 합니다. 신뢰할 수 있는 상태 관리자는 사용자를 위해 이 작업을 처리하고 반복 방문에 최적화됩니다.
 

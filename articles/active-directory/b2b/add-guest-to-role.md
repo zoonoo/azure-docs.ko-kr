@@ -1,5 +1,5 @@
 ---
-title: B2B 공동 작업 사용자를 역할에 추가-Azure Active Directory
+title: 역할에 B2B 공동 작업 사용자 추가 - Azure Active Directory
 description: Azure Active Directory의 역할에 게스트 사용자 추가
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 703e68994a9d156ccf3e74a5df4a2f4ee2f062cd
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74268544"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에서 파트너 조직의 사용자에게 권한 부여
@@ -25,15 +25,15 @@ Azure AD(Azure Active Directory) B2B 협업 사용자가 디렉터리에 게스�
 
 ## <a name="default-role"></a>기본 역할
 
-![기본 디렉터리 역할을 보여 주는 스크린샷](./media/add-guest-to-role/default-role.png)
+![기본 디렉터리 역할을 보여주는 스크린샷](./media/add-guest-to-role/default-role.png)
 
 ## <a name="global-administrator-role"></a>전역 관리자 역할
 
-![전역 관리자 역할을 보여 주는 스크린샷](./media/add-guest-to-role/global-admin-role.png)
+![글로벌 관리자 역할을 보여주는 스크린샷](./media/add-guest-to-role/global-admin-role.png)
 
 ## <a name="limited-administrator-role"></a>제한된 관리자 역할
 
-![제한 된 관리자 역할을 보여 주는 스크린샷](./media/add-guest-to-role/limited-admin-role.png)
+![제한된 관리자 역할을 보여주는 스크린샷](./media/add-guest-to-role/limited-admin-role.png)
 
 ## <a name="next-steps"></a>다음 단계
 

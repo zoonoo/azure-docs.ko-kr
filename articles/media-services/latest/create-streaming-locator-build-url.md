@@ -1,6 +1,6 @@
 ---
-title: 스트리밍 로케이터 및 빌드 Url 만들기-Azure Media Services
-description: 이 문서에서는 스트리밍 로케이터 및 빌드 Url을 만드는 방법을 보여 줍니다.
+title: 스트리밍 로케이터를 만들고 URL 빌드 - Azure 미디어 서비스
+description: 이 문서에서는 스트리밍 로케이터를 만들고 URL을 빌드하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
 ms.openlocfilehash: 2972c60aa5874c21a6f7bce21020ad58b5f3b556
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78304564"
 ---
-# <a name="create-a-streaming-locator-and-build-urls"></a>스트리밍 로케이터 및 빌드 Url 만들기
+# <a name="create-a-streaming-locator-and-build-urls"></a>스트리밍 로케이터 만들기 및 URL 빌드
 
-Azure Media Services에서 스트리밍 URL을 작성 하려면 먼저 [스트리밍 로케이터](streaming-locators-concept.md)를 만들어야 합니다. 그런 다음 [스트리밍 끝점](https://docs.microsoft.com/rest/api/media/streamingendpoints) 호스트 이름 및 **스트리밍 로케이터** 경로를 연결 합니다. 이 샘플에서는 *기본* **스트리밍 끝점이** 사용 됩니다. 미디어 서비스 계정을 처음 만들 때이 *기본* **스트리밍 끝점** 은 중지 됨 상태가 되므로 **시작** 을 호출 하 여 스트리밍을 시작 해야 합니다.
+Azure Media 서비스에서 스트리밍 URL을 빌드하려면 먼저 스트리밍 [로케이터를](streaming-locators-concept.md)만들어야 합니다. 그런 다음 스트리밍 [끝점](https://docs.microsoft.com/rest/api/media/streamingendpoints) 호스트 이름과 **스트리밍 로케이터** 경로를 연결합니다. 이 샘플에서는 *기본* **스트리밍 엔드포인트**가 사용됩니다. 미디어 서비스 계정을 처음 만들 때 이 *기본* **스트리밍 끝점은** 중지된 상태가 되므로 스트리밍을 시작하려면 **Start를** 호출해야 합니다.
 
-이 문서에서는 Java 및 .NET Sdk를 사용 하 여 스트리밍 로케이터를 만들고 스트리밍 URL을 작성 하는 방법을 보여 줍니다.
+이 문서에서는 Java 및 .NET SDK를 사용하여 스트리밍 로케이터를 만들고 스트리밍 URL을 빌드하는 방법을 보여 줍니다.
 
 ## <a name="prerequisite"></a>필수 요소 
 
@@ -85,7 +85,7 @@ private static List<String> getStreamingUrls(MediaManager manager, String resour
 }
 ```
 
-전체 코드 샘플을 참조 하세요. [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
+전체 코드 샘플 보기: [인코딩WITHMES사전정의사전설정](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
 
 ## <a name="net"></a>.NET
 
@@ -158,9 +158,9 @@ private static async Task<IList<string>> GetStreamingUrlsAsync(
 }
 ```
 
-전체 코드 샘플을 참조 하세요. [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
+전체 코드 샘플 보기: [인코딩WITHMES사전정의사전설정](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [.NET을 사용하여 필터 만들기](filters-dynamic-manifest-dotnet-howto.md)
 * [REST를 사용하여 필터 만들기](filters-dynamic-manifest-rest-howto.md)
@@ -168,4 +168,4 @@ private static async Task<IList<string>> GetStreamingUrlsAsync(
 
 ## <a name="next-steps"></a>다음 단계
 
-[DRM을 사용 하 여 콘텐츠를 보호](protect-with-drm.md)합니다.
+[DRM을 통해 콘텐츠를 보호합니다.](protect-with-drm.md)

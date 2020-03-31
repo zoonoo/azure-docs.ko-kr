@@ -1,5 +1,5 @@
 ---
-title: Azure Portal를 사용 하 여 가상 머신 프로 비전
+title: Azure 포털을 통해 가상 컴퓨터 프로비전
 description: 이 방법 가이드에서는 Azure Portal에서 Windows SQL Server 2017 가상 머신을 만드는 데 사용되는 옵션에 대해 설명합니다.
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 1fdf776570b6f10a363fb98dfe343387d86219d6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249790"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Windows SQL Server 가상 머신 프로비전하는 방법
@@ -33,13 +33,13 @@ ms.locfileid: "79249790"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a id="select"></a>SQL Server 가상 머신 갤러리 이미지
+## <a name="sql-server-virtual-machine-gallery-images"></a><a id="select"></a>SQL Server 가상 머신 갤러리 이미지
 
 SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구성된 여러 이미지 중 하나를 선택할 수 있습니다. 다음 단계에서는 SQL Server 2017 이미지 중 하나를 선택하는 방법을 보여줍니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
-1. **+ 추가**를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. **자세한 정보 표시**를 선택 하 여 추가 정보를 볼 수 있습니다. 
-1. **SQL 가상 컴퓨터** 타일의 SQL Server 이미지 검색 상자에 `2017`를 입력 하 고 드롭다운 메뉴에서 **무료 SQL Server 라이선스: SQL Server 2017 Developer on Windows Server 2016** 를 선택 합니다. 
+1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **Azure SQL**이 목록에 없는 경우 **모든 서비스**를 선택한 다음, 검색 상자에 Azure SQL을 입력합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
+1. **+ 추가**를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. **세부 정보 표시를**선택하여 추가 정보를 볼 수 있습니다. 
+1. SQL `2017` **가상 컴퓨터** 타일의 SQL Server 이미지 검색 상자를 입력한 다음 드롭다운에서 **무료 SQL Server 라이선스: SQL Server 2017 개발자 windows 서버 2016을** 선택합니다. 
 
 
    ![SQL VM 이미지 선택](media/virtual-machines-windows-portal-sql-server-provision/select-sql-vm-image-portal.png)
@@ -61,28 +61,28 @@ SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구�
 
 **기본** 탭에서 다음 정보를 제공합니다.
 
-* **프로젝트 세부 정보**아래에서 올바른 구독을 선택 했는지 확인 합니다. 
-*  **리소스 그룹** 섹션의 목록에서 기존 리소스 그룹을 선택 하거나 **새로 만들기** 를 선택 하 여 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 내 관련 리소스의 컬렉션입니다(가상 머신, 스토리지 계정, 가상 네트워크 등). 
+* **프로젝트 세부 정보에서**올바른 구독이 선택되었는지 확인합니다. 
+*  리소스 **그룹** 섹션에서 목록에서 기존 리소스 그룹을 선택하거나 **새** 리소스 그룹을 만들기를 선택합니다. 리소스 그룹은 Azure 내 관련 리소스의 컬렉션입니다(가상 머신, 스토리지 계정, 가상 네트워크 등). 
 
     ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
   > [!NOTE]
-  > 새 리소스 그룹을 사용하면 Azure에서 SQL Server 배포를 테스트하거나 알아보는 경우에 유용합니다. 테스트를 완료한 후 리소스 그룹을 삭제하면 VM과 해당 리소스 그룹과 연결된 모든 리소스가 자동으로 삭제됩니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../../../azure-resource-manager/management/overview.md)를 참조하세요.
+  > 새 리소스 그룹을 사용하면 Azure에서 SQL Server 배포를 테스트하거나 알아보는 경우에 유용합니다. 테스트를 완료한 후 리소스 그룹을 삭제하면 VM과 해당 리소스 그룹과 연결된 모든 리소스가 자동으로 삭제됩니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요를](../../../azure-resource-manager/management/overview.md)참조하십시오.
 
 
 * **인스턴스 세부 정보**에서
-    1. 고유한 **가상 머신 이름을**입력 합니다.  
+    1. 고유한 **가상 컴퓨터 이름을**입력합니다.  
     1. **영역**에 위치를 선택합니다. 
-    1. 이 가이드의 목적에 맞게 **가용성 옵션** 을 _인프라 중복성 필요 없음_으로 설정 된 상태로 둡니다. 가용성 옵션에 대한 자세한 내용을 알아보려면 [가용성](../../windows/availability.md)을 참조하세요. 
-    1. **이미지** 목록에서 _무료 SQL Server 라이선스: SQL Server 2017 Developer on Windows Server 2016_를 선택 합니다.  
+    1. 이 가이드의 목적을 위해 **가용성 옵션을** _필수 인프라 중복 없음으로_설정합니다. 가용성 옵션에 대한 자세한 내용을 알아보려면 [가용성](../../windows/availability.md)을 참조하세요. 
+    1. **이미지** 목록에서 무료 _SQL Server 라이센스: SQL Server 2017 Windows 서버 2016 개발자를_선택합니다.  
     1. 가상 머신의 **크기**에서 **크기 변경**을 선택하고 **A2 Basic** 제품을 선택합니다. 리소스를 다 사용했으면 예기치 않은 요금이 청구되지 않도록 리소스를 삭제하세요. 프로덕션 워크로드의 경우 [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)에서 권장하는 컴퓨터 크기 및 구성을 참조하세요.
 
     ![인스턴스 세부 정보](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
 
 > [!IMPORTANT]
-> **크기 선택** 창에 표시된 월별 예상 비용에는 SQL Server 라이선스 비용이 포함되지 않습니다. 이 예상 비용은 VM만의 비용입니다. SQL Server의 Express 및 개발자 버전의 경우, 이 예상 비용은 총 예상 비용입니다. 다른 버전의 경우 [Windows Virtual Machines 가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)를 참조하여 SQL Server의 대상 버전을 선택하세요. 또한 Azure Vm 및 [가상 컴퓨터 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) [SQL Server에 대 한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md) 을 참조 하세요.
+> **크기 선택** 창에 표시된 월별 예상 비용에는 SQL Server 라이선스 비용이 포함되지 않습니다. 이 예상 비용은 VM만의 비용입니다. SQL Server의 Express 및 개발자 버전의 경우, 이 예상 비용은 총 예상 비용입니다. 다른 버전의 경우 [Windows Virtual Machines 가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)를 참조하여 SQL Server의 대상 버전을 선택하세요. 또한 가상 컴퓨터에 [대한 SQL Server Azure VM](virtual-machines-windows-sql-server-pricing-guidance.md) 및 [크기에 대한](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)가격 책정 지침을 참조하십시오.
 
-* **관리자 계정**에 사용자 이름 및 암호를 제공 합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../../windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.
+* **관리자 계정에서**사용자 이름과 암호를 제공합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../../windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.
 
    ![관리자 계정](media/quickstart-sql-vm-create-portal/basics-administrator-account.png)
 
@@ -95,24 +95,24 @@ SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구�
 
 ### <a name="disks"></a>디스크
 
-**디스크 탭에서** 디스크 옵션을 구성 합니다. 
+**디스크** 탭에서 디스크 옵션을 구성합니다. 
 
-* **Os 디스크 유형**의 드롭다운에서 os에 사용할 디스크 유형을 선택 합니다. 프리미엄은 프로덕션 시스템에 권장 되지만 기본 VM에는 사용할 수 없습니다. 프리미엄 SSD를 활용 하려면 가상 머신 크기를 변경 합니다. 
-* **고급**아래에서 **Managed Disks**사용에서 **예** 를 선택 합니다.
+* **OS 디스크 유형에서**드롭다운에서 OS에 대해 원하는 디스크 유형을 선택합니다. 프로덕션 시스템에는 프리미엄이 권장되지만 기본 VM에는 사용할 수 없습니다. 프리미엄 SSD를 활용하려면 가상 컴퓨터 크기를 변경합니다. 
+* **고급**에서 관리디스크 사용 중 **예(예)를** **선택합니다.**
 
    > [!NOTE]
-   > SQL Server에 Managed Disks를 사용하는 것이 좋습니다. Managed Disks는 배후에서 스토리지를 처리해줍니다. 또한 Managed Disks가 있는 가상 머신이 동일한 가용성 집합에 속할 경우 Azure는 스토리지 리소스를 배포하여 적절한 중복성을 제공합니다. 자세한 내용은 [Azure Managed Disks 개요](../managed-disks-overview.md)를 참조 하세요. 가용성 집합의 Managed Disks에 대한 구체적인 내용을 보려면 [가용성 집합에서 VM에 Managed Disks 사용](../manage-availability.md)을 참조하세요.
+   > SQL Server에 Managed Disks를 사용하는 것이 좋습니다. Managed Disks는 배후에서 스토리지를 처리해줍니다. 또한 Managed Disks가 있는 가상 머신이 동일한 가용성 집합에 속할 경우 Azure는 스토리지 리소스를 배포하여 적절한 중복성을 제공합니다. 자세한 내용은 [Azure 관리 디스크 개요를](../managed-disks-overview.md)참조하십시오. 가용성 집합의 Managed Disks에 대한 구체적인 내용을 보려면 [가용성 집합에서 VM에 Managed Disks 사용](../manage-availability.md)을 참조하세요.
 
 ![SQL VM 디스크 설정](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-disks.png)
   
   
 ### <a name="networking"></a>네트워킹
 
-**네트워킹** 탭에서 네트워킹 옵션을 구성 합니다. 
+**네트워킹** 탭에서 네트워킹 옵션을 구성합니다. 
 
-* 새 **가상 네트워크**를 만들거나 SQL Server VM에 대 한 기존 vNet을 사용 합니다. **서브넷** 도 지정 합니다. 
+* 새 **가상 네트워크를**만들거나 SQL Server VM에 기존 vNet을 사용합니다. **서브넷도** 지정합니다. 
 
-* **NIC 네트워크 보안 그룹**에서 기본 보안 그룹 또는 고급 보안 그룹을 선택 합니다. 기본 옵션을 선택 하면 SQL Server VM에 대해 인바운드 포트를 선택할 수 있습니다 ( **기본** 탭에서 구성 된 것과 같은 값). 고급 옵션을 선택 하면 기존 네트워크 보안 그룹을 선택 하거나 새 그룹을 만들 수 있습니다. 
+* **NIC 네트워크 보안 그룹에서**기본 보안 그룹 또는 고급 보안 그룹을 선택합니다. 기본 옵션을 선택하면 SQL Server VM에 대한 인바운드 **포트(기본** 탭에서 구성된 값과 동일한 값)를 선택할 수 있습니다. 고급 옵션을 선택하면 기존 네트워크 보안 그룹을 선택하거나 새 네트워크 보안 그룹을 만들 수 있습니다. 
 
 * 네트웨크 설정을 변경해도 되고 기본 값을 그대로 유지해도 됩니다.
 
@@ -120,17 +120,17 @@ SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구�
 
 #### <a name="monitoring"></a>모니터링
 
-**모니터링** 탭에서 모니터링 및 자동 종료를 구성 합니다. 
+**모니터링** 탭에서 모니터링 및 자동 종료를 구성합니다. 
 
-* Azure는 VM에 대해 지정 된 것과 동일한 저장소 계정을 사용 하 여 기본적으로 **부트 진단을** 사용 하도록 설정 합니다. 여기에서 이러한 설정을 변경 하 고 **OS 게스트 진단을**사용 하도록 설정할 수 있습니다. 
-* 이 탭에서 **시스템 할당 관리 id** 및 **자동 종료** 를 사용 하도록 설정할 수 있습니다. 
+* Azure를 사용하면 VM에 대해 지정된 동일한 저장소 계정으로 기본적으로 **부팅 진단을** 수행할 수 있습니다. 여기에서 이러한 설정을 변경할 수 있을 뿐만 아니라 OS 게스트 진단을 사용할 수 **있습니다.** 
+* 이 탭에서 **시스템 할당된 관리 ID** 및 자동 **종료를** 활성화할 수도 있습니다. 
 
 ![SQL VM 관리 설정](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-management.png)
 
 
-## <a name="3-configure-sql-server-settings"></a>3. SQL Server 설정 구성
+## <a name="3-configure-sql-server-settings"></a>3. SQL 서버 설정 구성
 
-**SQL Server 설정** 탭에서 SQL Server에 대 한 특정 설정 및 최적화를 구성 합니다. SQL Server에 대해 구성할 수 있는 설정은 다음과 같습니다.
+SQL **Server 설정** 탭에서 SQL Server에 대한 특정 설정 및 최적화를 구성합니다. SQL Server에 대해 구성할 수 있는 설정은 다음과 같습니다.
 
 | 설정 |
 | --- |
@@ -139,13 +139,13 @@ SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구�
 | [Azure Key Vault 통합](#azure-key-vault-integration) |
 | [스토리지 구성](#storage-configuration) |
 | [자동화된 패치](#automated-patching) |
-| [자동화된 Backup](#automated-backup) |
+| [자동화된 백업](#automated-backup) |
 | [Machine Learning Services](#machine-learning-services) |
 
 
 ### <a name="connectivity"></a>연결
 
-**SQL 연결**에서 VM의 SQL Server 인스턴스에 대해 원하는 액세스 유형을 지정합니다. 이 연습에서는 **공개(인터넷)** 를 지정하여 인터넷 상의 컴퓨터 또는 서비스에서 SQL Server로의 연결을 허용합니다. 이 옵션을 선택 하면 Azure는 선택 된 포트에서 트래픽을 허용 하도록 방화벽 및 네트워크 보안 그룹을 자동으로 구성 합니다.
+**SQL 연결**에서 VM의 SQL Server 인스턴스에 대해 원하는 액세스 유형을 지정합니다. 이 연습에서는 **공개(인터넷)** 를 지정하여 인터넷 상의 컴퓨터 또는 서비스에서 SQL Server로의 연결을 허용합니다. 이 옵션을 선택하면 Azure는 선택한 포트의 트래픽을 허용하도록 방화벽과 네트워크 보안 그룹을 자동으로 구성합니다.
 
 > [!TIP]
 > 기본적으로 SQL Server는 잘 알려진 포트 **1433**에서 수신 대기합니다. 보안 향상을 위해 이전 대화 상자의 포트를 기본 이외 포트(예: 1401)를 수신하도록 변경하세요. 포트를 변경할 경우 SSMS와 같이 모든 클라이언트 도구의 해당 포트를 사용하여 연결해야 합니다.
@@ -165,21 +165,21 @@ SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구�
 
 ### <a name="authentication"></a>인증
 
-SQL Server 인증이 필요한 경우 **SQL Server 설정** 탭의 **SQL 인증** 에서 **사용** 을 클릭 합니다.
+SQL Server 인증이 필요한 경우 **SQL Server 설정** 탭에서 SQL **인증** 아래에서 **활성화를** 클릭합니다.
 
 ![SQL Server 인증](./media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-authentication.png)
 
 > [!NOTE]
 > 인터넷(공용 연결 옵션)을 통해 SQL Server에 액세스하려는 경우 여기에서 SQL 인증을 사용해야 합니다. SQL Server에 대한 공용 액세스를 위해서는 SQL 인증을 사용해야 합니다.
 
-SQL Server 인증을 사용하도록 설정하는 경우 **로그인 이름** 및 **암호**를 지정합니다. 이 로그인 이름은 SQL Server 인증 로그인 및 **sysadmin** 고정 서버 역할의 멤버로 구성 됩니다. 인증 모드에 대한 자세한 내용은 [인증 모드 선택](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode) 을 참조하세요.
+SQL Server 인증을 사용하도록 설정하는 경우 **로그인 이름** 및 **암호**를 지정합니다. 이 로그인 이름은 SQL Server 인증 로그인 및 **sysadmin** 고정 서버 역할의 구성원으로 구성됩니다. 인증 모드에 대한 자세한 내용은 [인증 모드 선택](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode) 을 참조하세요.
 
 SQL Server 인증을 사용하도록 설정하지 않으면, VM의 로컬 관리자 계정을 사용하여 SQL Server 인스턴스에 연결할 수 있습니다.
 
 
 ### <a name="azure-key-vault-integration"></a>Azure Key Vault 통합
 
-암호화를 위해 Azure에 보안 암호를 저장 하려면 **SQL Server 설정**을 선택 하 고 **azure key vault 통합**으로 스크롤합니다. **사용** 을 선택 하 고 요청 된 정보를 입력 합니다. 
+암호화를 위해 Azure에 보안 비밀을 저장하려면 **SQL Server 설정을**선택하고 Azure 키 자격 증명 모음 **통합으로**아래로 스크롤합니다. 요청한 정보 **입력을** 선택하고 입력합니다. 
 
 ![Azure Key Vault 통합](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-akv.png)
 
@@ -196,30 +196,30 @@ SQL Server 인증을 사용하도록 설정하지 않으면, VM의 로컬 관리
 
 ### <a name="storage-configuration"></a>스토리지 구성
 
-**SQL Server 설정** 탭의 **저장소 구성**에서 **구성 변경** 을 선택 하 여 성능 최적화 저장소 구성 페이지를 열고 저장소 요구 사항을 지정 합니다.
+SQL **Server 설정** 탭에서 **저장소 구성에서** **구성 변경을** 선택하여 성능 최적화된 저장소 구성 페이지를 열고 저장소 요구 사항을 지정합니다.
 
-![SQL VM 저장소 구성](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
+![SQL VM 스토리지 구성](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 **다음에 대해 스토리지 최적화**에서 다음 옵션 중 하나를 선택합니다.
 
 * **일반**은 기본 설정이며 대부분의 워크로드를 지원합니다.
-* **트랜잭션 처리** 는 기존의 데이터베이스 OLTP 워크 로드에 대 한 저장소를 최적화 합니다.
+* **트랜잭션 처리는** 기존 데이터베이스 OLTP 워크로드에 대한 저장소를 최적화합니다.
 * **데이터 웨어하우징** 은 분석 및 보고 워크로드용으로 스토리지를 최적화합니다.
 
-![SQL VM 저장소 구성](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
+![SQL VM 스토리지 구성](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
 
-기본값에서 값을 그대로 두거나 IOPS 요구에 맞게 저장소 토폴로지를 수동으로 변경할 수 있습니다. 자세한 내용은 [저장소 구성](virtual-machines-windows-sql-server-storage-configuration.md)을 참조 하세요. 
+값을 기본값으로 유지하도록 선택하거나 IOPS 요구에 맞게 저장소 토폴로지(topology)를 수동으로 변경할 수 있습니다. 자세한 내용은 [저장소 구성을](virtual-machines-windows-sql-server-storage-configuration.md)참조하십시오. 
 
 ### <a name="sql-server-license"></a>SQL Server 라이선스
-소프트웨어 보증 고객 인 경우 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/) 를 활용 하 여 고유한 SQL Server 라이선스를 가져오고 리소스를 절약할 수 있습니다. 
+소프트웨어 보증 고객인 경우 Azure 하이브리드 [혜택을](https://azure.microsoft.com/pricing/hybrid-benefit/) 활용하여 자체 SQL Server 라이선스를 가져오고 리소스를 절약할 수 있습니다. 
 
-![SQL VM 라이선스](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-license.png)
+![SQL VM 라이센스](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-license.png)
 
 ### <a name="automated-patching"></a>자동화된 패치
 
 **Automated patching**이 사용됩니다. Azure에서는 자동화된 패치를 통해 SQL Server와 운영 체제를 자동으로 패치합니다. 요일, 시간 및 유지 관리 기간에 대한 날짜를 지정합니다. Azure에서 유지 관리 기간에 패치를 수행합니다. 유지 관리 기간 일정에서는 VM 로캘 시간을 사용합니다. Azure에서 SQL Server와 운영 체제를 자동으로 패치하지 않으려면 **사용 안 함**을 클릭합니다.  
 
-![SQL VM 자동화 된 패치](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-automated-patching.png)
+![SQL VM 자동 패치](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-automated-patching.png)
 
 자세한 내용은 [Azure Virtual Machines에서 SQL Server의 자동화된 패치](virtual-machines-windows-sql-automated-patching.md)를 참조하세요.
 
@@ -235,16 +235,16 @@ SQL 자동화된 백업을 사용하도록 설정하면 다음 설정을 구성�
 * 시스템 데이터베이스 Backup
 * 백업 일정 구성
 
-백업을 암호화하려면 **사용**을 클릭합니다. 그 다음 **암호**를 지정합니다. Azure에서는 백업을 암호화할 인증서를 만들고 지정된 암호를 사용하여 인증서를 보호합니다. 기본적으로 일정은 자동으로 설정 되지만 **수동**을 선택 하 여 수동 일정을 만들 수 있습니다. 
+백업을 암호화하려면 **사용**을 클릭합니다. 그 다음 **암호**를 지정합니다. Azure에서는 백업을 암호화할 인증서를 만들고 지정된 암호를 사용하여 인증서를 보호합니다. 기본적으로 일정은 자동으로 설정되지만 **수동**을 선택하여 수동 일정을 만들 수 있습니다. 
 
-![SQL VM 자동화 된 백업](media/virtual-machines-windows-portal-sql-server-provision/automated-backup.png)
+![SQL VM 자동화 백업](media/virtual-machines-windows-portal-sql-server-provision/automated-backup.png)
 
 자세한 내용은 [Azure Virtual Machines에서 SQL Server에 대한 자동화된 백업](virtual-machines-windows-sql-automated-backup.md)을 참조하세요.
 
 
 ### <a name="machine-learning-services"></a>Machine Learning Services
 
-[Machine Learning Services](/sql/advanced-analytics/)를 사용 하도록 설정 하는 옵션이 있습니다. 이 옵션을 사용 하면 SQL Server 2017에서 Python 및 R에서 기계 학습을 사용할 수 있습니다. **SQL Server 설정** 창에서 **사용** 을 선택 합니다.
+[기계 학습 서비스를](/sql/advanced-analytics/)사용하도록 설정하는 옵션이 있습니다. 이 옵션을 사용하면 SQL Server 2017에서 파이썬 및 R과 함께 기계 학습을 사용할 수 있습니다. SQL 서버 **설정** 창에서 **활성화를** 선택합니다.
 
 
 ## <a name="4-review--create"></a>4. 검토 + 만들기
@@ -256,7 +256,7 @@ Azure Portal에서 배포를 모니터링할 수 있습니다. 화면 맨 위에
 > [!NOTE]
 > 배포 시간에 대한 정보를 제공하기 위해 SQL VM을 미국 동부 지역에 기본 설정을 사용하여 배포해 두었습니다. 이 테스트 배포를 완료하는 데 약 12분이 걸렸습니다. 사용자의 지역 및 선택한 설정에 따라서 배포 시간이 더 빠르거나 늦을 수 있습니다.
 
-## <a id="remotedesktop"></a> 원격 데스크톱을 사용하여 VM 열기
+## <a name="open-the-vm-with-remote-desktop"></a><a id="remotedesktop"></a>원격 데스크톱으로 VM 열기
 
 다음 단계를 사용하여 원격 데스크톱으로 SQL Server 가상 머신에 연결합니다.
 
@@ -266,7 +266,7 @@ SQL Server 가상 머신에 연결된 후에, SQL Server Management Studio를 �
 
 컴퓨터에 연결하면 요구 사항에 따라 컴퓨터와 SQL Server 설정을 직접 변경할 수 있습니다. 예를 들어, 방화벽 설정을 구성하거나 SQL Server 구성 설정을 변경할 수 있습니다.
 
-## <a id="connect"></a> 원격으로 SQL Server에 연결
+## <a name="connect-to-sql-server-remotely"></a><a id="connect"></a> 원격으로 SQL Server에 연결
 
 이 연습에서는 가상 머신과 **SQL Server 인증**에 대해 **공용** 액세스를 선택했습니다. 이러한 설정은 가상 머신이 인터넷을 통한 모든 클라이언트의 SQL Server 연결을 허용하도록 자동으로 구성합니다(올바른 SQL 로그인이 있다는 가정 하에).
 
@@ -278,7 +278,7 @@ SQL Server 가상 머신에 연결된 후에, SQL Server Management Studio를 �
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
   > [!NOTE]
-  > 이 예제에서는 공통 포트 1433을 사용 합니다. 그러나 SQL Server VM 배포 중에 다른 포트 (예: 1401)가 지정 된 경우에는이 값을 수정 해야 합니다. 
+  > 이 예제에서는 공통 포트 1433을 사용합니다. 그러나 SQL Server VM을 배포하는 동안 다른 포트(예: 1401)를 지정한 경우 이 값을 수정해야 합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -12,10 +12,10 @@ ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 03/12/2018
 ms.openlocfilehash: 39b8745b65eccd8e4d1b5986490e30be443ad656
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74913510"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Azure Data Factory에서 Databricks Notebook 작업으로 Databricks Notebook 실행
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/ingest-prepare-and-transform-using-azure-databricks-and-data-factory/player]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
   - **Azure Databricks 작업 영역**. [databricks 작업 영역을 만들거나](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) 기존 작업 영역을 사용합니다. Azure Databricks 작업 영역에 Python Notebook을 만듭니다. 그런 다음, Azure Data Factory를 사용하여 Notebook을 실행하고 매개 변수를 전달합니다.
 
@@ -92,7 +92,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     
     ![새 연결 만들기](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image6.png)
 
-1.  **새 연결된 서비스** 창에서 **컴퓨팅**\>**Azure Databricks**를 차례로 선택한 다음, **계속**을 선택합니다.
+1.  **새로 연결된 서비스** 창에서 **컴퓨팅** \> **Azure Databricks**를 차례로 선택한 다음, **계속**을 선택합니다.
     
     ![Databricks 연결된 서비스 지정](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image7.png)
 
@@ -223,7 +223,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 샘플의 파이프라인에서 Databricks Notebook 활동을 트리거하고 여기에 매개 변수를 전달합니다. 다음 방법에 대해 알아보았습니다.
+이 샘플의 파이프라인에서 Databricks Notebook 활동을 트리거하고 여기에 매개 변수를 전달합니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
   - 데이터 팩터리를 만듭니다.
 

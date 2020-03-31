@@ -1,13 +1,13 @@
 ---
-title: Container Instances에서 액세스
+title: 컨테이너 인스턴스에서 액세스
 description: Azure Active Directory 서비스 주체를 사용하여 Azure Container Instances에서 프라이빗 컨테이너 레지스트리에 있는 이미지에 대한 액세스 권한을 제공하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 04/23/2018
 ms.openlocfilehash: b1bc8119c495dea99c6bdc4923db198d041a1e9e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74456509"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Azure Container Instances의 Azure Container Registry를 사용하여 인증
@@ -45,7 +45,7 @@ az container create \
 GitHub에서 Azure CLI에 대한 이전 샘플 스크립트 및 Azure PowerShell에 대한 버전을 찾을 수 있습니다.
 
 * [Azure CLI][acr-scripts-cli]
-* [Azure PowerShell][acr-scripts-psh]
+* [Azure 파워쉘][acr-scripts-psh]
 
 ## <a name="next-steps"></a>다음 단계
 

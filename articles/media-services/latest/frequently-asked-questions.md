@@ -9,28 +9,28 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/09/2020
+ms.date: 03/18/2020
 ms.author: juliako
-ms.openlocfilehash: a2619293bf3641cdca370ff528a87ae879460a3b
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: 11123ee04dd02a60dff0b88e2e6e85fcd613a7d5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79086787"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80068004"
 ---
-# <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 질문과 대답
+# <a name="media-services-v3-frequently-asked-questions"></a>미디어 서비스 v3 자주 묻는 질문
 
 이 문서에서는 AMS(Azure Media Services) v3에 대해 자주 묻는 질문과 대답을 제공합니다.
 
 ## <a name="general"></a>일반
 
-### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Azure Media Services 리소스에 대 한 작업을 수행할 수 있는 Azure 역할은 무엇 인가요? 
+### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Azure 미디어 서비스 리소스에서 작업을 수행할 수 있는 Azure 역할은 무엇입니까? 
 
-[Media Services 계정에 대 한 RBAC (역할 기반 액세스 제어)를](rbac-overview.md)참조 하세요.
+[미디어 서비스 계정에 대한 역할 기반 액세스 제어(RBAC)를](rbac-overview.md)참조하십시오.
 
 ### <a name="how-do-you-stream-to-apple-ios-devices"></a>Apple iOS 디바이스에 스트리밍하려면 어떻게 하나요?
 
-경로 끝에 "(format = m3u8-aapl-v3-aapl)"가 있는지 확인 합니다 (URL의 "/매니페스트" 부분 뒤에) .이를 통해 스트리밍 원본 서버가 Apple iOS 네이티브 장치에서 사용 하기 위한 HLS 콘텐츠를 반환 하도록 지시할 수 있습니다 (자세한 내용은 [콘텐츠 배달](dynamic-packaging-overview.md)참조).
+경로 끝에 "(format=m3u8-aapl)"(URL의 "/매니페스트" 부분 후)가 있어 스트리밍 원본 서버에 Apple iOS 네이티브 장치에서 사용할 수 있도록 HLS 콘텐츠를 반환하도록 지시합니다(자세한 내용은 [콘텐츠 제공](dynamic-packaging-overview.md)참조).
 
 ### <a name="how-do-i-configure-media-reserved-units"></a>미디어 예약 단위를 구성하려면 어떻게 할까요?
 
@@ -40,25 +40,40 @@ Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분�
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>비디오 처리에 권장하는 방법은 무엇입니까?
 
-[Transforms](https://docs.microsoft.com/rest/api/media/transforms)는 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성하는 데 사용할 수 있습니다. 각 **변환**은 비디오 또는 오디오 파일을 처리하는 작업의 작성법 또는 워크플로를 설명합니다. [작업](https://docs.microsoft.com/rest/api/media/jobs) 은 지정 된 입력 비디오 또는 오디오 콘텐츠에 **변환을** 적용 하는 Media Services에 대 한 실제 요청입니다. 변환을 만든 후에는 Media Services API 또는 게시된 SDK를 사용하여 작업을 제출할 수 있습니다. 자세한 내용은 [Transform 및 Jobs](transforms-jobs-concept.md)를 참조하세요.
+[Transforms](https://docs.microsoft.com/rest/api/media/transforms)는 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성하는 데 사용할 수 있습니다. 각 **변환**은 비디오 또는 오디오 파일을 처리하는 작업의 작성법 또는 워크플로를 설명합니다. [작업은](https://docs.microsoft.com/rest/api/media/jobs) 지정된 입력 비디오 또는 오디오 콘텐츠에 **변환을** 적용하기 위해 미디어 서비스에 대한 실제 요청입니다. 변환을 만든 후에는 Media Services API 또는 게시된 SDK를 사용하여 작업을 제출할 수 있습니다. 자세한 내용은 [변환 및 작업](transforms-jobs-concept.md)을 참조하십시오.
 
 ### <a name="i-uploaded-encoded-and-published-a-video-what-would-be-the-reason-the-video-does-not-play-when-i-try-to-stream-it"></a>비디오를 업로드, 인코딩 및 게시합니다. 스트리밍하려고 할 때 어떤 이유로 비디오가 재생되지 않는 걸까요?
 
-가장 일반적인 이유 중 하나는 실행 중인 상태로 재생 하려고 하는 스트리밍 끝점이 없는 것입니다.
+가장 일반적인 이유 중 하나는 재생하려고 하는 스트리밍 엔드포인트가 실행 중 상태가 아니기 때문입니다.
 
 ### <a name="how-does-pagination-work"></a>페이지 매김은 어떻게 작동하나요?
 
 페이지 매김을 사용할 때는 항상 다음 링크를 사용하여 컬렉션을 열거하고, 특정 페이지 크기에 따라 달라지지 않아야 합니다. 자세한 내용과 예제는 [필터링, 정렬, 페이징](entities-overview.md)을 참조하세요.
 
-### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Azure Media Services v3에서 아직 사용할 수 없는 기능은 무엇입니까?
+### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Azure 미디어 서비스 v3에서 아직 사용할 수 없는 기능은 무엇입니까?
 
-자세한 내용은 [V2 api에 대 한 기능 간격](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis)을 참조 하세요.
+자세한 내용은 [v2 API에 대한 피쳐 간격을](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis)참조하십시오.
 
-### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>구독 간에 Media Services 계정을 이동 하는 프로세스는 무엇 인가요?  
+### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>구독 간에 미디어 서비스 계정을 이동하는 프로세스는 무엇입니까?  
 
-자세한 내용은 [구독 간 Media Services 계정 이동](media-services-account-concept.md)을 참조 하세요.
+자세한 내용은 [구독 간에 미디어 서비스 계정 이동을](media-services-account-concept.md)참조하십시오.
 
 ## <a name="live-streaming"></a>라이브 스트리밍 
+
+### <a name="how-to-stop-the-live-stream-after-the-broadcast-is-done"></a>방송이 끝난 후 라이브 스트림을 중지하는 방법은 무엇입니까?
+
+클라이언트 측이나 서버 측에서 접근할 수 있습니다.
+
+#### <a name="client-side"></a>클라이언트 측
+
+웹 응용 프로그램은 브라우저를 닫는 경우 브로드캐스트를 종료하려는 경우 사용자에게 메시지를 표시해야 합니다. 웹 응용 프로그램이 처리할 수 있는 브라우저 이벤트입니다.
+
+#### <a name="server-side"></a>서버 쪽
+
+이벤트 그리드 이벤트에 가입하여 라이브 이벤트를 모니터링할 수 있습니다. 자세한 내용은 [eventgrid 이벤트 스키마를](media-services-event-schemas.md#live-event-types)참조하십시오.
+
+* [Microsoft.Media.LiveEventEncoder](media-services-event-schemas.md#liveeventencoderdisconnected) 연결 해제 된 스트림 수준에 [가입](reacting-to-media-services-events.md) 하 고 라이브 이벤트를 중지 하 고 삭제 하려면 잠시 동안 아무 반복되지 않습니다 모니터링할 수 있습니다.
+* 또는 트랙 레벨 [하트비트](media-services-event-schemas.md#liveeventingestheartbeat) 이벤트를 [구독할](reacting-to-media-services-events.md) 수 있습니다. 모든 트랙에 수신 비트 레이트가 0으로 떨어지는 경우; 또는 마지막 타임 스탬프가 더 이상 증가하지 않습니다, 당신은 또한 안전하게 라이브 이벤트를 종료 할 수 있습니다. 하트 비트 이벤트는 모든 트랙에 대해 매 20 초마다 제공되므로 조금 더 자세한 내용이 될 수 있습니다.
 
 ###  <a name="how-to-insert-breaksvideos-and-image-slates-during-live-stream"></a>라이브 스트리밍 도중에 중단/비디오 및 이미지 슬레이트를 삽입하는 방법은 무엇입니까?
 
@@ -68,27 +83,27 @@ Media Services v3 라이브 인코딩은 아직 라이브 스트리밍 도중에
 
 ## <a name="content-protection"></a>콘텐츠 보호
 
-### <a name="should-i-use-an-aes-128-clear-key-encryption-or-a-drm-system"></a>AES-128 암호화 되지 않은 키 암호화 또는 DRM 시스템을 사용 해야 하나요?
+### <a name="should-i-use-an-aes-128-clear-key-encryption-or-a-drm-system"></a>AES-128 클리어 키 암호화 또는 DRM 시스템을 사용해야 합니까?
 
-고객들은 종종 AES 암호화 또는 DRM 시스템을 사용해야 할지 여부를 궁금해 합니다. 두 시스템 간의 주요 차이점은 AES 암호화를 사용 하는 경우 키가 전송 중에 암호화 되지만 추가 암호화 ("clear") 없이 암호화 되도록 콘텐츠 키가 TLS를 통해 클라이언트에 전송 된다는 것입니다. 따라서 콘텐츠를 해독 하는 데 사용 되는 키는 클라이언트 플레이어에서 액세스할 수 있으며, 클라이언트의 네트워크 추적에서 일반 텍스트로 볼 수 있습니다. AES-128 암호화 되지 않은 키 암호화는 뷰어가 신뢰할 수 있는 당사자 (예: 직원이 볼 수 있도록 회사 내에 배포 되는 회사 비디오 암호화) 인 사용 사례에 적합 합니다.
+고객들은 종종 AES 암호화 또는 DRM 시스템을 사용해야 할지 여부를 궁금해 합니다. 두 시스템의 주요 차이점은 AES 암호화를 사용하면 콘텐츠 키가 TLS를 통해 클라이언트로 전송되어 전송 중에 암호화되지만 추가 암호화없이("지우기")된다는 것입니다. 따라서 콘텐츠를 해독하는 데 사용되는 키는 클라이언트 플레이어가 액세스할 수 있으며 클라이언트의 네트워크 추적에서 일반 텍스트로 볼 수 있습니다. AES-128 clear 키 암호화는 뷰어가 신뢰할 수 있는 당사자인 사용 사례(예: 직원이 볼 수 있도록 회사 내에서 배포된 회사 비디오 암호화)에 적합합니다.
 
-PlayReady, Widevine 및와 같은 DRM 시스템은 모두 AES-128 암호화 되지 않은 키와 비교 하 여 콘텐츠를 암호 해독 하는 데 사용 되는 키에 대 한 추가 수준의 암호화를 제공 합니다. 콘텐츠 키는 TLS에서 제공 하는 전송 수준 암호화에 추가 하 여 DRM 런타임에 의해 보호 되는 키로 암호화 됩니다. 또한 암호 해독은 악의적인 사용자가 공격하기에 좀 더 어려운 운영 체제 수준의 보안 환경에서 처리됩니다. DRM은 뷰어가 신뢰할 만한 당사자가 아니고 가장 높은 수준의 보안이 필요한 사용 사례에 권장됩니다.
+PlayReady, 와이드바인 및 페어플레이와 같은 DRM 시스템은 모두 AES-128 클리어 키와 비교하여 콘텐츠를 해독하는 데 사용되는 키에 대한 추가 수준의 암호화를 제공합니다. 콘텐츠 키는 TLS에서 제공하는 전송 수준 암호화에 추가하여 DRM 런타임으로 보호되는 키로 암호화됩니다. 또한 암호 해독은 악의적인 사용자가 공격하기에 좀 더 어려운 운영 체제 수준의 보안 환경에서 처리됩니다. DRM은 뷰어가 신뢰할 만한 당사자가 아니고 가장 높은 수준의 보안이 필요한 사용 사례에 권장됩니다.
 
-### <a name="how-to-show-a-video-only-to-users-who-have-a-specific-permission-without-using-azure-ad"></a>Azure AD를 사용 하지 않고 특정 권한이 있는 사용자 에게만 비디오를 표시 하는 방법
+### <a name="how-to-show-a-video-only-to-users-who-have-a-specific-permission-without-using-azure-ad"></a>Azure AD를 사용하지 않고 특정 권한이 있는 사용자에게만 비디오를 표시하는 방법은 무엇입니까?
 
-특정 토큰 공급자 (예: Azure AD)를 사용할 필요가 없습니다. 비대칭 키 암호화를 사용 하 여 사용자 고유의 [JWT](https://jwt.io/) 공급자 (따라서 STS, 보안 토큰 서비스)를 만들 수 있습니다. 사용자 지정 STS에서 비즈니스 논리를 기준으로 클레임을 추가할 수 있습니다.
+Azure AD와 같은 특정 토큰 공급자를 사용할 필요가 없습니다. 비대칭 키 암호화를 사용하여 자체 [JWT](https://jwt.io/) 공급자(소위 STS, 보안 토큰 서비스)를 만들 수 있습니다. 사용자 지정 STS에서 비즈니스 논리에 따라 클레임을 추가할 수 있습니다.
 
-발급자, 대상 그룹 및 클레임이 모두 JWT와 ContentKeyPolicy에서 사용 되는 ContentKeyPolicyRestriction 사이에서 정확 하 게 일치 하는지 확인 합니다.
+발행자, 대상 및 클레임이 모두 JWT에 있는 내용과 ContentKeyPolicy에 사용되는 ContentKeyPolicy제한 사항 간에 정확히 일치하는지 확인합니다.
 
-자세한 내용은 [Media Services 동적 암호화를 사용 하 여 콘텐츠 보호](content-protection-overview.md)를 참조 하세요.
+자세한 내용은 [미디어 서비스 동적 암호화를 사용하여 콘텐츠 보호](content-protection-overview.md)를 참조하십시오.
 
 ### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>라이선스 또는 키를 요청하는 데 사용하기 전에 JWT 토큰을 가져올 수 있는 방법과 위치는 어떻게 되나요?
 
-1. 프로덕션의 경우 HTTPS 요청 시 JWT 토큰을 발급 하는 STS (보안 토큰 서비스) (웹 서비스)가 있어야 합니다. 테스트를 위해 **Program.cs**에 정의된 [GetTokenAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) 메서드에 표시된 코드를 사용할 수 있습니다.
+1. 프로덕션의 경우 HTTPS 요청에 따라 JWT 토큰을 발급하는 보안 토큰 서비스(웹 서비스)가 있어야 합니다. 테스트를 위해 [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs)에 정의된 **GetTokenAsync** 메서드에 표시된 코드를 사용할 수 있습니다.
 2. 사용자가 인증되면 플레이어에서 이러한 토큰에 대해 STS에 요청하고 토큰의 값으로 할당해야 합니다. [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/)를 사용할 수 있습니다.
 
-* 대칭 및 비대칭 키를 사용하여 STS를 실행하는 예제는 [https://aka.ms/jwt](https://aka.ms/jwt)를 참조하세요. 
-* 이러한 JWT 토큰을 사용하는 Azure Media Player를 기반으로 하는 플레이어의 예제는 [https://aka.ms/amtest](https://aka.ms/amtest)를 참조하세요("player_settings" 링크를 펼쳐 토큰 입력을 확인함).
+* 대칭 키와 비대칭 키를 사용 하 고 STS를 실행 하는 예제를 참조 [https://aka.ms/jwt](https://aka.ms/jwt)하십시오. 
+* 이러한 JWT 토큰을 사용하는 Azure Media Player를 기반으로 [https://aka.ms/amtest](https://aka.ms/amtest) 하는 플레이어의 예는 (토큰 입력을 보려면 "player_settings" 링크를 확장)을 참조하십시오.
 
 ### <a name="how-do-you-authorize-requests-to-stream-videos-with-aes-encryption"></a>AES 암호화를 사용하여 비디오를 스트림할 수 있도록 요청에 권한을 부여하려면 어떻게 할까요?
 
@@ -96,7 +111,7 @@ PlayReady, Widevine 및와 같은 DRM 시스템은 모두 AES-128 암호화 되�
 
 STS에서 사용자 프로필에 따라 서로 다른 클레임(예: "프리미엄 사용자", "기본 사용자", "평가판 사용자")을 추가합니다. JWT에서 서로 다른 클레임을 사용하면 사용자가 각각의 콘텐츠를 볼 수 있습니다. 물론 ContentKeyPolicyRestriction에는 서로 다른 콘텐츠/자산에 해당하는 RequiredClaims가 있습니다.
 
-[이 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)에 나와 있는 것 처럼 라이선스/키 제공을 구성 하 고 자산을 암호화 하는 Azure Media Services api를 사용 합니다.
+[이 샘플과](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)같이 라이선스/키 배달을 구성하고 자산을 암호화하는 데 Azure Media 서비스 API를 사용합니다.
 
 자세한 내용은 다음을 참조하세요.
 
@@ -118,7 +133,7 @@ ASP.NET 플레이어 애플리케이션은 HTTPS를 사용하는 것이 가장 �
 
 ### <a name="what-about-live-streaming"></a>라이브 스트리밍의 경우는 어떨까요?
 
-프로그램과 연결된 자산을 VOD 자산으로 처리하여 Media Services에서 라이브 스트리밍을 보호하는 데 정확히 동일한 디자인 및 구현을 사용할 수 있습니다. 라이브 콘텐츠의 다중 DRM 보호를 제공 하려면 자산을 라이브 출력과 연결 하기 전에 VOD 자산과 동일한 설정/처리를 자산에 적용 합니다.
+프로그램과 연결된 자산을 VOD 자산으로 처리하여 Media Services에서 라이브 스트리밍을 보호하는 데 정확히 동일한 디자인 및 구현을 사용할 수 있습니다. 라이브 콘텐츠의 다중 DRM 보호를 제공하려면 에셋을 라이브 출력과 연결하기 전에 VOD 자산인 것처럼 에셋에 동일한 설정/처리를 적용합니다.
 
 ### <a name="what-about-license-servers-outside-media-services"></a>Media Services 외부에서 라이선스 서버는 어떨까요?
 
@@ -134,13 +149,13 @@ ASP.NET 플레이어 애플리케이션은 HTTPS를 사용하는 것이 가장 �
 
 ### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>Azure Portal을 사용하여 v3 리소스를 관리할 수 있나요?
 
-현재 [Azure Portal](https://portal.azure.com/) 를 사용 하 여 다음을 수행할 수 있습니다.
+현재 [Azure 포털을](https://portal.azure.com/) 사용하여 다음을 수행할 수 있습니다.
 
-* Media Services v3 [라이브 이벤트](live-events-outputs-concept.md)관리 
-* v3 [자산](assets-concept.md)보기 (관리 안 함) 
-* [api에 액세스 하는 방법에 대 한 정보를 가져옵니다](access-api-portal.md). 
+* 미디어 서비스 v3 [라이브 이벤트](live-events-outputs-concept.md)관리 , 
+* 뷰(관리 안 됨) v3 [자산](assets-concept.md), 
+* [API 에 액세스하는 것에 대한 정보를 얻을 수 있습니다.](access-api-portal.md) 
 
-다른 모든 관리 작업 (예: [변환 및 작업](transforms-jobs-concept.md) 및 [콘텐츠 보호](content-protection-overview.md))의 경우 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
+다른 모든 관리 작업(예: [변환 및 작업](transforms-jobs-concept.md) 및 콘텐츠 [보호)의](content-protection-overview.md)경우 [REST API,](https://docs.microsoft.com/rest/api/media/) [CLI](https://aka.ms/ams-v3-cli-ref)또는 지원되는 [SDK](media-services-apis-overview.md#sdks)중 하나를 사용합니다.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>v3에 AssetFile 개념이 있나요?
 

@@ -1,20 +1,18 @@
 ---
-title: 클라우드 파트너 포털에서 사용자 관리 | Azure Marketplace
+title: 클라우드 파트너 포털의 사용자 관리 | Azure 마켓플레이스
 description: 클라우드 파트너 포털에서 사용자 관리
-services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
-manager: pbutlerm
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: b14d40e9b3a2aa1ca71335b60e97f15b3782698f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 441f466fcbeb05d06d565dbe1af237d01554d844
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823272"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280221"
 ---
 <a name="managing-users-on-cloud-partner-portal"></a>클라우드 파트너 포털에서 사용자 관리
 ======================================
@@ -55,7 +53,7 @@ o 클라우드 파트너 포털에 제공된 전자 메일 ID가 Microsoft의 �
 ----------------------------------------------------------------------------------------------------------------------------
 
 > [!NOTE]
-> 전자 메일이 소유자 또는 참가자로 추가 되는 ' 게시자 이름 '은 선택할 게시자의 드롭다운 목록에 표시 됩니다. '
+> 이메일이 소유자 또는 기고자로 추가되는 '게시자 이름'이 선택게시자의 드롭다운 목록에 표시됩니다.
 
 ![역할 할당 - 게시자 선택](./media/cloud-partner-portal-how-to-manage-users/assignselectpublisher.png)
 

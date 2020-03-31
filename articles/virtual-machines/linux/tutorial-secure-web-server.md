@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure에서 SSL 인증서로 Linux 웹 서버 보호'
+title: '자습서: Azure에서 TLS/SSL 인증서로 Linux 웹 서버 보호'
 description: 이 자습서에서는 Azure CLI를 사용하여 Azure Key Vault에 저장된 SSL 인증서로 NGINX 웹 서버를 실행하는 Linux 가상 머신을 보호하는 방법을 설명합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,21 +15,21 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: aaa3f32cc48c6d051a2ff2a959372886435e5dcb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b51d0747a4ffa08bc230b33cd416986dda1e1908
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976165"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154307"
 ---
-# <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>자습서: Key Vault에 저장된 SSL 인증서로 Azure에서 Linux 가상 머신의 웹 서버 보호
-웹 서버를 보호하기 위해 웹 트래픽을 암호화하는 데 SSL(Secure Sockets Layer) 인증서를 사용할 수 있습니다. 이러한 SSL 인증서는 Azure Key Vault에 저장될 수 있으며 Azure에서 Linux VM(가상 머신)에 인증서의 보안 배포를 허용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+# <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>자습서: Key Vault에 저장된 TLS/SSL 인증서로 Azure에서 Linux 가상 머신의 웹 서버 보호
+웹 서버를 보호하기 위해 이전에 SSL(Secure Sockets Layer)로 알려진 TLS(Transport Layer Security) 인증서를 사용하여 웹 트래픽을 암호화할 수 있습니다. 이러한 TLS/SSL 인증서는 Azure Key Vault에 저장될 수 있으며 Azure에서 Linux VM(가상 머신)에 인증서의 보안 배포를 허용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Key Vault 만들기
 > * Key Vault에 인증서 생성 또는 업로드
 > * VM 만들기 및 NGINX 웹 서버 설치
-> * VM에 인증서 삽입 및 SSL 바인딩으로 NGINX 구성
+> * VM에 인증서를 삽입하고 TLS 바인딩으로 NGINX 구성
 
 이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 내의 CLI를 사용합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요**를 선택합니다.
 
@@ -147,13 +147,13 @@ az vm open-port \
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Key Vault에 저장된 SSL 인증서를 사용하여 NGINX 웹 서버를 보호했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 Azure Key Vault에 저장된 TLS/SSL 인증서를 사용하여 NGINX 웹 서버를 보호했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure Key Vault 만들기
 > * Key Vault에 인증서 생성 또는 업로드
 > * VM 만들기 및 NGINX 웹 서버 설치
-> * VM에 인증서 삽입 및 SSL 바인딩으로 NGINX 구성
+> * VM에 인증서를 삽입하고 TLS 바인딩으로 NGINX 구성
 
 미리 빌드된 가상 머신 스크립트 샘플을 보려면 이 링크를 따릅니다.
 

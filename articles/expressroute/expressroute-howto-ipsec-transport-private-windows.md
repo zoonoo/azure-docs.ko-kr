@@ -1,5 +1,5 @@
 ---
-title: 'Azure Express 경로 개인 피어 링: IPsec 전송 모드 구성-Windows 호스트'
+title: 'Azure ExpressRoute 개인 피어링: IPsec 전송 모드 구성 - Windows 호스트'
 description: GPO 및 OU를 사용하는 ExpressRoute 프라이빗 피어링을 통해 Azure Windows VM과 온-프레미스 Windows 호스트 간에 IPsec 전송 모드를 사용하도록 설정하는 방법입니다.
 services: expressroute
 author: fabferri
@@ -9,10 +9,10 @@ ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18
 ms.openlocfilehash: 1bc33047d31262af443cddc418853fbacd88aec1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74022004"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>ExpressRoute 프라이빗 피어링을 위한 IPsec 전송 모드 구성
@@ -34,7 +34,7 @@ OU와 관련된 보안 정책은 GPO를 통해 컴퓨터로 푸시됩니다. 단
 
 다음 다이어그램은 상호 연결 및 할당된 IP 주소 공간을 보여 줍니다. Azure VM 및 온-프레미스 호스트에서 Windows 2016이 실행되고 있습니다. Azure VM 및 온-프레미스 host1은 동일한 도메인에 속합니다. Azure VM 및 온-프레미스 호스트는 DNS를 사용하여 이름을 제대로 확인할 수 있습니다.
 
-[![1]][1]
+[![1]][1개]
 
 이 다이어그램은 ExpressRoute 프라이빗 피어링을 통과하는 IPsec 터널을 보여 줍니다.
 
@@ -47,7 +47,7 @@ Windows에서 암호화는 IPsec 정책과 연관됩니다. IPsec 정책은 보�
 
 IPsec 정책을 구성할 때는 다음 IPsec 정책 용어를 이해하는 것이 중요합니다.
 
-* **IPsec 정책:** : 규칙 컬렉션입니다. 한 번에 하나의 정책만 활성 상태(“할당됨”)일 수 있습니다. 각 정책은 하나 이상의 규칙을 가질 수 있으며 모든 규칙을 동시에 활성화할 수 있습니다. 컴퓨터는 한 번에 하나의 활성 IPsec 정책에만 할당될 수 있습니다. 그러나 IPsec 정책 내에서 다양한 상황의 여러 작업을 정의할 수 있습니다. 각 IPsec 규칙 집합은 규칙이 적용되는 네트워크 트래픽 유형에 영향을 주는 필터 목록과 연결됩니다.
+* **IPsec 정책:**: 규칙 컬렉션입니다. 한 번에 하나의 정책만 활성 상태(“할당됨”)일 수 있습니다. 각 정책은 하나 이상의 규칙을 가질 수 있으며 모든 규칙을 동시에 활성화할 수 있습니다. 컴퓨터는 한 번에 하나의 활성 IPsec 정책에만 할당될 수 있습니다. 그러나 IPsec 정책 내에서 다양한 상황의 여러 작업을 정의할 수 있습니다. 각 IPsec 규칙 집합은 규칙이 적용되는 네트워크 트래픽 유형에 영향을 주는 필터 목록과 연결됩니다.
 
 * **필터 목록:** 필터 목록은 하나 이상의 필터 번들입니다. 하나의 목록에 여러 필터가 포함될 수 있습니다. 필터는 IP 주소 범위, 프로토콜 또는 특정 프로토콜 포트에 따라 통신이 허용될지, 보안이 유지될지 또는 차단될지를 정의합니다. 각 필터는 특정 조건 집합과 일치합니다. 특정 서브넷에서 특정 대상 포트의 특정 컴퓨터로 전송한 패킷을 예로 들 수 있습니다. 네트워크 조건이 하나 이상의 필터와 일치하면 필터 목록이 활성화됩니다. 각 필터는 특정 필터 목록 안에 정의됩니다. 필터 목록 간에 필터를 공유할 수 없습니다. 그러나 지정된 필터 목록을 여러 IPsec 정책에 통합할 수 있습니다. 
 
@@ -70,7 +70,7 @@ IPsec 정책을 구성할 때는 다음 IPsec 정책 용어를 이해하는 것�
 * 활성화된 ExpressRoute 회로가 있어야 합니다.
   * ExpressRoute 회로 생성에 대한 내용은 [ExpressRoute 회로 만들기](expressroute-howto-circuit-arm.md)를 참조하세요. 
   * 연결 제공자가 회로를 사용하도록 설정하는지 확인합니다. 
-  * 회로에 대해 구성된 Azure 프라이빗 피어링이 있는지 확인합니다. 라우팅 지침에 대한 문서는 [라우팅 구성](expressroute-howto-routing-arm.md) 을 참조하세요. 
+  * 회로에 대해 구성된 Azure 프라이빗 피어링이 있는지 확인합니다. 라우팅 지침은 [라우팅 구성](expressroute-howto-routing-arm.md) 문서를 참조하십시오. 
   * VNet 및 가상 네트워크 게이트웨이를 만들어서 완전히 프로비전해야 합니다. 지침에 따라 [ExpressRoute에 대한 가상 네트워크 게이트웨이를 만듭니다](expressroute-howto-add-gateway-resource-manager.md). ExpressRoute의 가상 네트워크 게이트웨이는 GatewayType으로 VPN이 아닌 'ExpressRoute'를 사용합니다.
 
 * ExpressRoute 가상 네트워크 게이트웨이가 ExpressRoute 회로에 연결되어 있어야 합니다. 자세한 내용은 [ExpressRoute 회로에 VNet 연결](expressroute-howto-linkvnet-arm.md)을 참조하세요.
@@ -99,19 +99,19 @@ IPsec 정책을 구성할 때는 다음 IPsec 정책 용어를 이해하는 것�
 
 * **Azure Windows VM:** vm1, vm2
 
-## <a name="creategpo"></a>1. GPO 만들기
+## <a name="1-create-a-gpo"></a><a name="creategpo"></a>1. GPO 만들기
 
 1. OU에 연결된 새 GPO를 만들려면 그룹 정책 관리 스냅인을 열고 GPO를 연결할 OU를 찾습니다. 이 예제에서 OU의 이름은 **IPSecOU**입니다. 
 
    [![9]][9]
-2. 그룹 정책 관리 스냅인에서 OU를 선택하고 마우스 오른쪽 단추를 클릭합니다. 드롭다운에서 “**이 도메인에서 GPO를 만들어 여기에 연결...** ”을 클릭합니다.
+2. 그룹 정책 관리 스냅인에서 OU를 선택하고 마우스 오른쪽 단추를 클릭합니다. 드롭다운에서 “**이 도메인에서 GPO를 만들어 여기에 연결...**”을 클릭합니다.
 
    [![10]][10]
 3. 나중에 쉽게 찾을 수 있도록 GPO의 이름을 직관적인 이름으로 지정합니다. **확인**을 클릭하여 GPO를 만들고 연결합니다.
 
    [![11]][11]
 
-## <a name="enablelink"></a>2. GPO 링크를 사용 하도록 설정
+## <a name="2-enable-the-gpo-link"></a><a name="enablelink"></a>2. GPO 링크 사용
 
 GPO를 OU에 적용하려면 GPO를 OU에만 연결한 후 반드시 링크를 사용하도록 설정해야 합니다.
 
@@ -120,7 +120,7 @@ GPO를 OU에 적용하려면 GPO를 OU에만 연결한 후 반드시 링크를 �
 
    [![12]][12]
 
-## <a name="filteraction"></a>3. IP 필터 작업을 정의 합니다.
+## <a name="3-define-the-ip-filter-action"></a><a name="filteraction"></a>3. IP 필터 작업 정의
 
 1. 드롭 다운에서 **Active Directory의 IP 보안 정책**을 마우스 오른쪽 단추로 클릭한 다음, **IP 필터 목록 및 필터 작업 관리...** 를 클릭합니다.
 
@@ -132,7 +132,7 @@ GPO를 OU에 적용하려면 GPO를 OU에만 연결한 후 반드시 링크를 �
 3. **IP 보안 필터 작업 마법사**에서 **다음**을 클릭합니다.
 
    [![17]][17]
-4. 필터 작업에 나중에 쉽게 찾을 수 있는 이름을 지정합니다. 이 예제에서 필터 작업 이름은 **myEncryption**입니다. 설명을 추가할 수도 있습니다. 그런 후에 **다음**을 클릭합니다.
+4. 필터 작업에 나중에 쉽게 찾을 수 있는 이름을 지정합니다. 이 예제에서 필터 작업 이름은 **myEncryption**입니다. 설명을 추가할 수도 있습니다. **다음**을 클릭합니다.
 
    [![18]][18]
 5. **보안 협상**을 사용하여 다른 컴퓨터와의 IPsec을 설정할 수 없는 경우 수행될 동작을 정의할 수 있습니다. **보안 협상**을 선택하고 **다음**을 클릭합니다.
@@ -151,7 +151,7 @@ GPO를 OU에 적용하려면 GPO를 OU에만 연결한 후 반드시 링크를 �
 
    [![23]][23]
 
-## <a name="filterlist1"></a>4. IP 필터 목록을 정의 합니다.
+## <a name="4-define-an-ip-filter-list"></a><a name="filterlist1"></a>4. IP 필터 목록 정의
 
 대상 포트 8080을 사용하여 암호화된 HTTP 트래픽을 지정하는 필터 목록을 만듭니다.
 
@@ -170,13 +170,13 @@ GPO를 OU에 적용하려면 GPO를 OU에만 연결한 후 반드시 링크를 �
 5. IP 트래픽의 원본 주소 **IP 주소 또는 서브넷:** 을 지정하고 **다음**을 클릭합니다.
 
    [![28]][28]
-6. **대상 주소:** IP 주소 또는 서브넷을 지정합니다. 그런 후에 **다음**을 클릭합니다.
+6. **대상 주소:** IP 주소 또는 서브넷을 지정합니다. **다음**을 클릭합니다.
 
    [![29]][29]
-7. **IP 프로토콜 유형** 페이지에서 **TCP**를 선택합니다. 그런 후에 **다음**을 클릭합니다.
+7. **IP 프로토콜 유형** 페이지에서 **TCP**를 선택합니다. **다음**을 클릭합니다.
 
    [![30]][30]
-8. **IP 프로토콜 포트** 페이지에서 **모든 포트에서** 및 **이 포트로:** 를 선택합니다. 텍스트 상자에 **8080**을 입력합니다. 이러한 설정은 대상 포트 8080의 HTTP 트래픽만 암호화되도록 지정합니다. 그런 후에 **다음**을 클릭합니다.
+8. **IP 프로토콜 포트** 페이지에서 **모든 포트에서** 및 **이 포트로:** 를 선택합니다. 텍스트 상자에 **8080**을 입력합니다. 이러한 설정은 대상 포트 8080의 HTTP 트래픽만 암호화되도록 지정합니다. **다음**을 클릭합니다.
 
    [![31]][31]
 9. IP 필터 목록을 봅니다.  IP 필터 목록 **azure-onpremises-HTTP8080**의 구성은 다음 조건과 일치하는 모든 트래픽의 암호화를 트리거합니다.
@@ -188,7 +188,7 @@ GPO를 OU에 적용하려면 GPO를 OU에만 연결한 후 반드시 링크를 �
 
    [![32]][32]
 
-## <a name="filterlist2"></a>5. IP 필터 목록을 편집 합니다.
+## <a name="5-edit-the-ip-filter-list"></a><a name="filterlist2"></a>5. IP 필터 목록 편집
 
 동일한 유형의 트래픽을 반대 방향으로(온-프레미스 호스트에서 Azure VM으로) 암호화하려면 두 번째 IP 필터가 필요합니다. 새 필터를 설정하는 프로세스는 첫 번째 IP 필터를 설정하는 데 사용한 것과 동일한 프로세스입니다. 유일한 차이점은 원본 서브넷 및 대상 서브넷입니다.
 
@@ -207,14 +207,14 @@ GPO를 OU에 적용하려면 GPO를 OU에만 연결한 후 반드시 링크를 �
 
 애플리케이션 보호를 위해 온-프레미스 위치와 Azure 서브넷 간에 암호화가 필요한 경우 기존 IP 필터 목록을 수정하는 대신, 새 IP 필터 목록을 추가할 수 있습니다. 두 IP 필터 목록을 동일한 IPsec 정책에 연결하면 다른 IP 필터 목록에 영향을 주지 않고 특정 IP 필터 목록을 수정하거나 제거할 수 있으므로 유연성이 개선됩니다.
 
-## <a name="ipsecpolicy"></a>6. IPsec 보안 정책 만들기 
+## <a name="6-create-an-ipsec-security-policy"></a><a name="ipsecpolicy"></a>6. IPsec 보안 정책 만들기 
 
 보안 규칙을 사용하여 IPsec 정책을 만듭니다.
 
 1. OU에 연결된 **Create an IPsec policy with security ru**(Active Directory의 IPSecurity 정책)을 선택합니다. 마우스 오른쪽 단추를 클릭하고 **IP 보안 정책 만들기**를 선택합니다.
 
    [![37]][37]
-2. 보안 정책 이름을 지정합니다. 예: **policy-azure-onpremises**. 그런 후에 **다음**을 클릭합니다.
+2. 보안 정책 이름을 지정합니다. 예: **policy-azure-onpremises**. **다음**을 클릭합니다.
 
    [![38]][38]
 3. 이 확인란을 선택하지 않고 **다음**을 클릭합니다.
@@ -224,7 +224,7 @@ GPO를 OU에 적용하려면 GPO를 OU에만 연결한 후 반드시 링크를 �
 
    [![40]][40]
 
-## <a name="editipsec"></a>7. IPsec 보안 정책을 편집 합니다.
+## <a name="7-edit-the-ipsec-security-policy"></a><a name="editipsec"></a>7. IPsec 보안 정책 편집
 
 이전에 구성한 **IP 필터 목록** 및 **필터 작업**을 IPsec 정책에 추가합니다.
 
@@ -261,7 +261,7 @@ GPO를 OU에 적용하려면 GPO를 OU에만 연결한 후 반드시 링크를 �
 
 IPsec 정책에 따르면 대상 포트 8080의 모든 HTTP 연결이 IPsec 전송 모드를 사용해야 합니다. HTTP는 일반 텍스트 프로토콜이므로 보안 정책을 사용하도록 설정하면 ExpressRoute 프라이빗 피어링을 통해 전송되는 데이터가 암호화됩니다. Active Directory에 대한 IP 보안 정책은 고급 보안이 포함된 Windows 방화벽 구성이 복잡해지는 결과를 가져오지만 IPsec 연결의 추가 사용자 지정을 허용합니다.
 
-## <a name="assigngpo"></a>8. OU에 IPsec GPO 할당
+## <a name="8-assign-the-ipsec-gpo-to-the-ou"></a><a name="assigngpo"></a>8. OU에 IPsec GPO 할당
 
 1. 정책을 확인합니다. 보안 그룹 정책이 정의되었지만 아직 할당되지 않았습니다.
 
@@ -271,7 +271,7 @@ IPsec 정책에 따르면 대상 포트 8080의 모든 HTTP 연결이 IPsec 전�
 
    [![50]][50]
 
-## <a name="checktraffic"></a> 트래픽 암호화 확인
+## <a name="check-traffic-encryption"></a><a name="checktraffic"></a> 트래픽 암호화 확인
 
 OU에 적용된 암호화 GPO를 확인하려면 모든 Azure VM 및 host1에 IIS를 설치합니다. 모든 IIS는 포트 8080에서 HTTP 요청에 응답하도록 사용자 지정됩니다.
 암호화를 확인하려면 OU의 모든 컴퓨터에 네트워크 스니퍼(Wireshark)를 설치할 수 있습니다.
@@ -314,7 +314,7 @@ $req = $null
 
 ## <a name="next-steps"></a>다음 단계
 
-ExpressRoute에 대한 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.
+익스프레스루트에 대한 자세한 내용은 [익스프레스루트 FAQ를](expressroute-faqs.md)참조하십시오.
 
 <!--Image References-->
 

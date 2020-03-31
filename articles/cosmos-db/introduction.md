@@ -6,20 +6,20 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: f322a240835d86697ae18c984700f22ca7b00145
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 2a09d5af013e804f33327855fb7b9f2104bc225c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882173"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215251"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 
 오늘날의 애플리케이션은 응답성이 뛰어나며 항상 온라인을 유지해야 합니다. 짧은 대기 시간 및 고가용성을 이루려면 이러한 애플리케이션의 인스턴스를 해당 사용자에서 가까운 데이터 센터에 배포해야 합니다. 애플리케이션은 최고 사용 시간의 큰 변화에 실시간으로 응답하고, 계속 증가하는 데이터 볼륨을 저장하며, 사용자가 이 데이터를 밀리초 단위로 사용할 수 있도록 해야 합니다.
 
-Azure Cosmos DB는 전 세계에 배포되는 Microsoft의 다중 모델 데이터베이스 서비스입니다. Cosmos DB에서 단추를 한 번만 클릭하면 전 세계의 수많은 Azure 지역에서 처리량과 스토리지의 크기를 탄력적이고 독립적으로 조정할 수 있습니다. SQL, MongoDB, Cassandra, Table 또는 Gremlin을 포함하여 선호하는 API를 사용하여 처리량과 스토리지의 크기를 탄력적으로 조정하고, 한 자릿수의 밀리초 단위로 빠르게 데이터에 액세스할 수 있는 이점을 활용합니다. Cosmos DB는 다른 데이터베이스 서비스에서 제공하지 않는 처리량, 대기 시간, 가용성 및 일관성 보장에 대한 포괄적인 [SLA(서비스 수준 계약)](https://aka.ms/acdbsla)를 제공합니다.
+Azure Cosmos DB는 전 세계에 배포되는 Microsoft의 다중 모델 데이터베이스 서비스입니다. Cosmos DB에서 단추를 한 번만 클릭하면 전 세계의 수많은 Azure 지역에서 처리량과 스토리지의 크기를 탄력적이고 독립적으로 조정할 수 있습니다. 다음과 같은 선호하는 API를 사용하여 처리량과 스토리지의 크기를 탄력적으로 조정하고, 한 자릿수의 밀리초 단위로 빠르게 데이터에 액세스할 수 있는 이점을 활용합니다. SQL, MongoDB, Cassandra, Tables 또는 Gremlin. Cosmos DB는 다른 데이터베이스 서비스에서 제공하지 않는 처리량, 대기 시간, 가용성 및 일관성 보장에 대한 포괄적인 [SLA(서비스 수준 계약)](https://aka.ms/acdbsla)를 제공합니다.
 
-Azure 구독, 요금 및 약정 없이 [무료로 Azure Cosmos DB를 사용해 볼 수 있습니다](https://azure.microsoft.com/try/cosmosdb/).
+Azure 구독, 비용 및 약정 없이 [Azure Cosmos DB 무료 체험](https://azure.microsoft.com/try/cosmosdb/)을 사용해 보거나, [Azure Cosmos DB 체험 계층](optimize-dev-test.md#azure-cosmos-db-free-tier)을 사용하여 처음에 400RU/초 및 5GB의 스토리지를 무료로 사용할 수 있는 계정을 얻을 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [무료로 Azure Cosmos DB 사용해 보기](https://azure.microsoft.com/try/cosmosdb/)

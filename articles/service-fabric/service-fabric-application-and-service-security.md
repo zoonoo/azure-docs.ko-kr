@@ -1,13 +1,13 @@
 ---
-title: Azure Service Fabric 응용 프로그램 보안에 대 한 자세한 정보
+title: Azure 서비스 패브릭 응용 프로그램 보안에 대해 알아보기
 description: Service Fabric에서 마이크로 서비스 애플리케이션을 안전하게 실행하는 방법의 개요 다른 보안 계정에서 서비스 및 시작 스크립트를 실행하고, 사용자를 인증하고 권한을 부여하고, 애플리케이션 암호를 관리하고, 서비스 통신의 보안을 유지하고, API 게이트웨이를 사용하고, 미사용 애플리케이션 데이터의 보안을 유지하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.openlocfilehash: 6c40bf66d1068310790d1440174eeb5b2a571154
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75452249"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric 애플리케이션 및 서비스 보안
@@ -25,7 +25,7 @@ API 수준 신뢰를 결정하는 첫 번째 단계는 인증입니다. 인증�
 
 서비스에 직접 액세스할 수 있는 경우 Azure Active Directory 또는 STS(보안 토큰 서비스)로 작동하는 전용 인증 마이크로 서비스와 같은 인증 서비스를 사용하여 사용자를 인증할 수 있습니다. 신뢰 결정은 보안 토큰 또는 쿠키와 함께 서비스 간에 공유됩니다. 
 
-ASP.NET Core의 경우 [사용자를 인증](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/)하는 기본 메커니즘이 ASP.NET Core ID 멤버 자격 시스템입니다. ASP.NET Core ID는 개발자가 구성한 데이터 저장소에 사용자 정보(로그인 정보, 역할 및 클레임 포함)를 저장합니다. ASP.NET Core ID는 2단계 인증을 지원합니다.  외부 인증 공급자도 지원 되므로 사용자는 Microsoft, Google, Facebook 또는 Twitter와 같은 공급자의 기존 인증 프로세스를 사용 하 여 로그인 할 수 있습니다.
+ASP.NET Core의 경우 [사용자를 인증](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/)하는 기본 메커니즘이 ASP.NET Core ID 멤버 자격 시스템입니다. ASP.NET Core ID는 개발자가 구성한 데이터 저장소에 사용자 정보(로그인 정보, 역할 및 클레임 포함)를 저장합니다. ASP.NET Core ID는 2단계 인증을 지원합니다.  외부 인증 공급자도 지원되므로 사용자는 Microsoft, Google, Facebook 또는 Twitter와 같은 공급자의 기존 인증 프로세스를 사용하여 로그인할 수 있습니다.
 
 ### <a name="authorization"></a>권한 부여
 인증 후에, 서비스는 사용자 액세스를 허가하거나 사용자가 수행할 수 있는 작업을 결정해야 합니다. 이 프로세스를 통해 전체가 아닌 일부 인증된 사용자만 서비스의 API를 사용할 수 있게 됩니다. 권한 부여는 인증과 일치하는 부분도 있고 독립된 부분도 있으며, 사용자가 누군지 확인하는 프로세스입니다. 인증으로 현재 사용자에 대해 하나 이상의 ID가 만들어질 수 있습니다.
@@ -42,7 +42,7 @@ API Management는 Service Fabric과 직접 통합되므로 다양한 라우팅 �
 ## <a name="manage-application-secrets"></a>애플리케이션 비밀 관리
 스토리지 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 모든 민감한 정보를 비밀로 처리할 수 있습니다. 이 문서에서는 Azure Key Vault를 사용하여 키와 비밀을 관리합니다. 하지만 애플리케이션에서 비밀을 *사용* 하는 것은 클라우드 플랫폼에 구애를 받지 않으므로 그 어디에 호스트된 클러스터에도 애플리케이션을 배포할 수 있습니다.
 
-서비스 구성 [패키지][config-package]를 통해 서비스 구성 설정을 관리 하는 것이 좋습니다. 구성 패키지는 관리되는 상태 유효성 검사 및 자동 롤백을 사용하여 롤링 업그레이드를 통해 버전이 관리되며 업데이트할 수 있습니다. 이 방법은 전역 서비스 중단 가능성을 줄이기 때문에 기본 설정으로 사용됩니다. 암호화된 비밀도 마찬가지입니다. 서비스 패브릭에는 인증서 암호화를 사용하여 구성 패키지 Settings.xml 파일의 값을 암호화 및 해독하는 기본 기능이 포함되어 있습니다.
+[서비스 구성 패키지][config-package]를 통해 서비스 구성 설정을 관리하는 방법이 권장됩니다. 구성 패키지는 관리되는 상태 유효성 검사 및 자동 롤백을 사용하여 롤링 업그레이드를 통해 버전이 관리되며 업데이트할 수 있습니다. 이 방법은 전역 서비스 중단 가능성을 줄이기 때문에 기본 설정으로 사용됩니다. 암호화된 비밀도 마찬가지입니다. 서비스 패브릭에는 인증서 암호화를 사용하여 구성 패키지 Settings.xml 파일의 값을 암호화 및 해독하는 기본 기능이 포함되어 있습니다.
 
 다음 다이어그램은 서비스 패브릭 애플리케이션에서 비밀 관리가 이루어지는 기본 흐름을 보여 줍니다.
 
@@ -55,7 +55,7 @@ API Management는 Service Fabric과 직접 통합되므로 다양한 라우팅 �
 3. 인증서를 사용하여 애플리케이션을 배포할 때 비밀 값을 암호화하여 서비스의 Settings.xml 구성 파일에 삽입합니다.
 4. 동일한 암호화 인증서로 암호를 해독하여 Settings.xml 파일에서 암호화된 값을 읽습니다. 
 
-[Azure Key Vault][key-vault-get-started] 은 인증서에 대 한 안전한 저장소 위치와 Azure의 Service Fabric 클러스터에 설치 된 인증서를 가져오는 방법으로 사용 됩니다. Azure에 배포하지 않는 경우 서비스 패브릭 애플리케이션의 비밀을 관리하기 위해 주요 자격 증명 모음을 사용할 필요가 없습니다.
+[Azure Key Vault][key-vault-get-started]는 인증서에 대한 안전한 스토리지 위치이자 Azure의 Service Fabric 클러스터에 설치된 인증서를 가져오는 수단으로 사용됩니다. Azure에 배포하지 않는 경우 서비스 패브릭 애플리케이션의 비밀을 관리하기 위해 주요 자격 증명 모음을 사용할 필요가 없습니다.
 
 예제를 보려면 [애플리케이션 비밀 관리](service-fabric-application-secret-management.md)를 참조하세요.
 

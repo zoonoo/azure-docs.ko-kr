@@ -1,6 +1,6 @@
 ---
-title: Azure 가상 머신에 모니터링 & 진단 추가
-description: Azure Resource Manager 템플릿을 사용 하 여 Azure 진단 확장을 사용 하 여 새 Windows 가상 머신을 만듭니다.
+title: Azure 가상 시스템에 모니터링 & 진단 추가
+description: Azure 리소스 관리자 템플릿을 사용하여 Azure 진단 확장이 있는 새 Windows 가상 컴퓨터를 만듭니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: sbtron
@@ -16,10 +16,10 @@ ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2490c3de60e0deac6a1a4ddc5abc95cb46e240b2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073836"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Windows VM 및 Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 사용
@@ -62,7 +62,7 @@ Windows 가상 머신에서 진단 확장을 사용하도록 설정하려면 진
 ]
 ```
 
-가상 머신의 리소스 노드 아래에 확장을 구성하는 대신 템플릿의 루트 리소스 노드에 확장 구성을 추가하는 것도 일반적인 방법입니다. 이런 방식의 경우 *name* 및 *type* 값을 통해 확장과 가상 머신 간의 계층적인 관계를 명시적으로 지정해야 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. 
+가상 머신의 리소스 노드 아래에 확장을 구성하는 대신 템플릿의 루트 리소스 노드에 확장 구성을 추가하는 것도 일반적인 방법입니다. 이 방법을 사용하면 *이름* 및 *형식* 값을 사용하여 확장과 가상 컴퓨터 간의 계층 관계를 명시적으로 지정해야 합니다. 예를 들어: 
 
 ```json
 "name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",
@@ -131,7 +131,7 @@ Virtual Machine Scale Sets 확장 구성은 *VirtualMachineProfile*의 *extensio
 위의 구성에서 Metrics 정의 XML 노드는 앞서 XML에서 *PerformanceCounter* 노드에 정의한 성능 카운터가 집계되고 저장되는 방식을 정의하기 때문에 중요한 구성 요소입니다. 
 
 > [!IMPORTANT]
-> 이러한 메트릭은 Azure 포털에서 모니터링 차트 및 경고를 실행합니다.  Azure 포털의 VM 모니터링 데이터를 확인하려는 경우 VM에 대한 진단 구성에 **resourceID** 및 *MetricAggregation*이 있는 **메트릭** 노드가 포함되어 있어야 합니다. 
+> 이러한 메트릭은 Azure 포털에서 모니터링 차트 및 경고를 실행합니다.  Azure 포털의 VM 모니터링 데이터를 확인하려는 경우 VM에 대한 진단 구성에 *resourceID* 및 **MetricAggregation**이 있는 **메트릭** 노드가 포함되어 있어야 합니다. 
 > 
 > 
 
@@ -179,4 +179,4 @@ MetricAggregation의 *PT1M* 및 *PT1H* 값은 각각 1분간의 집계와 1시�
 ## <a name="next-steps"></a>다음 단계
 * 진단 확장을 포함하는 Windows 가상 머신의 전체 샘플 템플릿은 [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)을 참조하세요.   
 * [Azure PowerShell](../windows/ps-template.md) 또는 [Azure 명령줄](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 Azure Resource Manager 템플릿 배포
-* [Azure 리소스 관리자 템플릿 작성](../../resource-group-authoring-templates.md)
+* [Azure 리소스 관리자 템플릿 작성에](../../resource-group-authoring-templates.md) 대해 자세히 알아보기

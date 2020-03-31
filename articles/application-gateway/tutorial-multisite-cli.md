@@ -1,5 +1,5 @@
 ---
-title: CLI Azure 애플리케이션 게이트웨이를 사용 하 여 여러 사이트 호스팅
+title: CLI - Azure 응용 프로그램 게이트웨이를 사용하여 여러 사이트 호스팅
 description: Azure CLI를 사용하여 여러 사이트를 호스팅하는 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 5edc2e5228146aee913027a83e495d94c003e237
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 0e58d9ecfbd0731fc9bf91664763e73d8c56e64a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74047345"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294762"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Azure CLI를 사용하여 여러 사이트를 호스팅하는 애플리케이션 게이트웨이 만들기
 
-Azure CLI를 사용하여 [애플리케이션 게이트웨이](application-gateway-multi-site-overview.md)를 만들 때 [여러 웹 사이트의 호스팅](application-gateway-introduction.md)을 구성할 수 있습니다. 이 자습서에서는 가상 머신 확장 집합을 사용하여 백 엔드 풀을 만듭니다. 그런 다음, 웹 트래픽이 풀에서 적절한 서버에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 자습서에서는 여러 도메인을 소유하고 있으며 *www.contoso.com* 및 *www.fabrikam.com*의 예를 사용한다고 가정합니다.
+Azure CLI를 사용하여 [애플리케이션 게이트웨이](application-gateway-multi-site-overview.md)를 만들 때 [여러 웹 사이트의 호스팅](application-gateway-introduction.md)을 구성할 수 있습니다. 이 자습서에서는 가상 머신 확장 집합을 사용하여 백 엔드 풀을 만듭니다. 그런 다음, 웹 트래픽이 풀에서 적절한 서버에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 자습서에서는 여러 도메인을 소유하고 있으며 `www.contoso.com` `www.fabrikam.com`및 의 예제를 사용합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -29,11 +29,11 @@ Azure CLI를 사용하여 [애플리케이션 게이트웨이](application-gatew
 
 ![다중 사이트 라우팅 예](./media/tutorial-multisite-cli/scenario.png)
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 찾으려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하십시오.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -47,7 +47,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기 
 
-*az network vnet create*를 사용하여 *myVNet*이라는 가상 네트워크와 [myAGSubnet](/cli/azure/network/vnet)이라는 서브넷을 만듭니다. 그런 후 *az network vnet subnet create*를 사용하여 백 엔드 서버에 필요한 [myBackendSubnet](/cli/azure/network/vnet/subnet)이라는 서브넷을 추가할 수 있습니다. *az network public-ip create*를 사용하여 [myAGPublicIPAddress](/cli/azure/network/public-ip)라는 IP 주소를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet)를 사용하여 *myVNet*이라는 가상 네트워크와 *myAGSubnet*이라는 서브넷을 만듭니다. 그런 후 [az network vnet subnet create](/cli/azure/network/vnet/subnet)를 사용하여 백 엔드 서버에 필요한 *myBackendSubnet*이라는 서브넷을 추가할 수 있습니다. [az network public-ip create](/cli/azure/network/public-ip)를 사용하여 *myAGPublicIPAddress*라는 IP 주소를 만듭니다.
 
 ```azurecli-interactive
 az network vnet create \
@@ -69,7 +69,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
-[az network application-gateway create](/cli/azure/network/application-gateway)를 사용하여 *myAppGateway*라는 애플리케이션 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myAGPublicIPAddress*에 할당됩니다. 
+[az 네트워크 응용 프로그램 게이트웨이 만들기를](/cli/azure/network/application-gateway) 사용하여 *myAppGateway*라는 응용 프로그램 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myAGPublicIPAddress*에 할당됩니다. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -97,7 +97,7 @@ az network application-gateway create \
 
 ### <a name="add-the-backend-pools"></a>백 엔드 풀 추가
 
-*az network application-gateway address-pool create* 명령을 사용하여 백 엔드 서버를 포함하는 데 필요한 *contosoPool* 및 [fabrikamPool](/cli/azure/network/application-gateway)이라는 백 엔드 풀을 추가합니다.
+[az network application-gateway address-pool create](/cli/azure/network/application-gateway) 명령을 사용하여 백 엔드 서버를 포함하는 데 필요한 *contosoPool* 및 *fabrikamPool*이라는 백 엔드 풀을 추가합니다.
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -112,9 +112,9 @@ az network application-gateway address-pool create \
 
 ### <a name="add-listeners"></a>수신기 추가
 
-애플리케이션 게이트웨이에서 트래픽을 백 엔드 풀로 적절히 라우팅할 수 있는 수신기가 필요합니다. 이 자습서에서는 두 도메인에 대해 두 개의 수신기를 만듭니다. 이 예제에서는 *www.contoso.com* 및 *www.fabrikam.com*의 도메인에 대해 수신기가 생성됩니다. 
+애플리케이션 게이트웨이에서 트래픽을 백 엔드 풀로 적절히 라우팅할 수 있는 수신기가 필요합니다. 이 자습서에서는 두 도메인에 대해 두 개의 수신기를 만듭니다. 이 예제에서는 *www.contoso.com* 및 [www.fabrikam.com](*www.fabrikam.com*)의 도메인에 대해 수신기가 생성됩니다. 
 
-*az network application-gateway http-listener create*를 사용하여 트래픽을 라우팅하는 데 필요한 *contosoListener* 및 [fabrikamListener](/cli/azure/network/application-gateway)라는 백 엔드 수신기를 추가합니다.
+[az network application-gateway http-listener create](/cli/azure/network/application-gateway)를 사용하여 트래픽을 라우팅하는 데 필요한 *contosoListener* 및 *fabrikamListener*라는 백 엔드 수신기를 추가합니다.
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -222,7 +222,7 @@ A 레코드를 사용할 경우 애플리케이션 게이트웨이를 다시 시
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http\://www.contoso.com.
+브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 와 같은\:http //www.contoso.com.
 
 ![애플리케이션 게이트웨이에서 contoso 사이트 테스트](./media/tutorial-multisite-cli/application-gateway-nginxtest1.png)
 
@@ -232,7 +232,7 @@ A 레코드를 사용할 경우 애플리케이션 게이트웨이를 다시 시
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 작업을 수행하는 방법을 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 네트워크 설정

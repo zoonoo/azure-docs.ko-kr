@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용 하 여 보조 사이트로 장애 조치 (failover) 후 IP 주소 지정 설정
+title: 장애 조치 후 Azure 사이트 복구를 사용하여 보조 사이트로 IP 주소 지정 설정
 description: Azure Site Recovery를 통해 재해 복구 및 장애 조치(failover) 후 보조 온-프레미스 사이트의 VM에 연결하도록 IP 주소 지정을 설정하는 방법을 설명합니다.
 author: rayne-wiselman
 manager: carmonm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: a61f7ff69e648262eb721eb61a98b09dbbee924c
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73961437"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>장애 조치(failover) 후 보조 온-프레미스 사이트에 연결하도록 IP 주소 지정 설정
@@ -50,18 +50,18 @@ System Center VMM(Virtual Machine Manager) 클라우드의 Hyper-V VM을 보조 
 - 장애 조치(failover)가 발생하면 서브넷이 연결된 VM과 함께 이동됩니다.
 - 이 방법의 주요 단점은 오류 발생 시 전체 서브넷을 이동해야 한다는 것입니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 전체 서브넷 장애 조치(failover)의 예는 다음과 같습니다. 
 
-- 장애 조치(failover) 전에는 기본 사이트에서 애플리케이션이 서브넷 192.168.1.0/24에서 실행됩니다.
+- 장애 조치(failover) 전에는 기본 사이트에 서브넷 192.168.1.0/24에서 실행되는 애플리케이션이 있습니다.
 - 장애 조치(failover) 중 이 서브넷의 모든 VM이 보조 사이트로 장애 조치(failover)되며 IP 주소는 유지됩니다. 
 - 서브넷 192.168.1.0/24에 있는 모든 VM이 이제 보조 사이트로 이동된 사실을 반영하여 모든 사이트 간의 경로를 수정해야 합니다.
 
-다음 그림에는 장애 조치(failover) 전과 후의 서브넷이 나와 있습니다.
+다음 그림은 장애 조치(failover) 전과 후의 서브넷을 보여 줍니다.
 
 
-**장애 조치(failover) 전**
+**장애 조치 전**
 
 ![장애 조치(failover) 전](./media/hyper-v-vmm-networking/network-design2.png)
 
@@ -105,7 +105,7 @@ VM을 보호하도록 설정한 후에는 다음 샘플 스크립트를 사용�
     Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
     ```
     
-### <a name="example"></a>예 
+### <a name="example"></a>예제 
 
 이 예제에서는 기본 사이트와 보조 사이트의 IP 주소가 다릅니다. 그리고 기본 사이트 또는 복구 사이트에서 호스트되는 애플리케이션이 액세스할 수 있는 세 번째 사이트도 있습니다.
 
@@ -116,7 +116,7 @@ VM을 보호하도록 설정한 후에는 다음 샘플 스크립트를 사용�
 - 이 시나리오에서는 전체 서브넷을 장애 조치(failover)할 필요가 없으며 VPN 또는 네트워크 경로를 다시 구성하기 위해 변경해야 하는 사항이 없습니다. 장애 조치(failover) 및 일부 DNS 업데이트를 수행하면 애플리케이션이 액세스 가능한 상태로 유지됩니다.
 - DNS가 동적 업데이트를 허용하도록 구성된 경우 장애 조치(failover) 후 시작되는 VM은 새 IP 주소를 사용하여 자체 등록됩니다.
 
-**장애 조치(failover) 전**
+**장애 조치 전**
 
 ![다른 IP 주소 - 장애 조치(failover) 전](./media/hyper-v-vmm-networking/network-design10.png)
 
@@ -127,5 +127,5 @@ VM을 보호하도록 설정한 후에는 다음 샘플 스크립트를 사용�
 
 ## <a name="next-steps"></a>다음 단계
 
-[장애 조치 실행](hyper-v-vmm-failover-failback.md)
+[장애 조치(Failover) 실행](hyper-v-vmm-failover-failback.md)
 

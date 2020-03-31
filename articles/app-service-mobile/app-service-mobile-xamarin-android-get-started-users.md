@@ -1,16 +1,16 @@
 ---
-title: Xamarin Android에서 인증 시작
-description: Mobile Apps를 사용 하 여 AAD, Google, Facebook, Twitter, Microsoft 등의 id 공급자를 통해 Xamarin Android 앱 사용자를 인증 하는 방법을 알아봅니다.
+title: 자마린 안드로이드에서 인증 시작하기
+description: AAD, 구글, 페이스 북, 트위터, 마이크로 소프트와 같은 ID 제공 업체와 자마린 안드로이드 응용 프로그램의 사용자를 인증하기 위해 모바일 앱을 사용하는 방법에 대해 알아봅니다.
 ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: fa70b7419e1877ab2daba49ad154cdfd5a8d2cba
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77458956"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Xamarin Android 앱에 인증 추가
@@ -21,10 +21,10 @@ ms.locfileid: "77458956"
 
 이 자습서는 모바일 앱 퀵 스타트를 기반으로 합니다. 또한 [Xamarin Android 앱 만들기]자습서를 먼저 완료해야 합니다. 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 인증 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
-## <a name="register"></a>인증을 위해 앱 등록 및 App Services 구성
+## <a name="register-your-app-for-authentication-and-configure-app-services"></a><a name="register"></a>인증을 위해 앱 등록 및 App Services 구성
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>허용되는 외부 리디렉션 URL에 앱 추가
+## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a><a name="redirecturl"></a>허용되는 외부 리디렉션 URL에 앱 추가
 
 보안 인증을 위해서는 앱에 대한 새로운 URL 체계를 정의해야 합니다. 이를 통해 인증 시스템은 인증 프로세스가 완료되면 앱으로 다시 리디렉션될 수 있습니다. 이 자습서에서는 전체적으로 URL 체계 _appname_을 사용합니다. 그러나 선택한 어떤 URL 체계도 사용 가능합니다. 이 체계는 모바일 애플리케이션에 고유해야 합니다. 서버 쪽에서 리디렉션을 사용하도록 설정하려면:
 
@@ -38,14 +38,14 @@ ms.locfileid: "77458956"
 
 5. **저장**을 클릭합니다.
 
-## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
+## <a name="restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>인증된 사용자에게 권한 제한
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 디바이스 또는 에뮬레이터에서 실행합니다. 앱 시작 후 상태 코드가 401(권한이 부여되지 않음)인 처리되지 않은 예외가 발생했는지 확인합니다. 이 예외는 앱이 인증되지 않은 사용자로 모바일 앱 백 엔드에 액세스하려고 시도합니다. *TodoItem* 테이블에서 이제 인증을 요구합니다.
 
 다음으로 클라이언트 앱을 업데이트하여 모바일 앱 백엔드에서 인증된 된 사용자를 사용하여 리소스를 요청합니다.
 
-## <a name="add-authentication"></a>앱에 인증 추가
+## <a name="add-authentication-to-the-app"></a><a name="add-authentication"></a>앱에 인증 추가
 앱은 데이터가 표시되기 전에 사용자가 **로그인** 단추를 탭하고 인증하는 것을 요구하도록 업데이트되었습니다.
 
 1. **TodoActivity** 클래스에 다음 코드를 추가합니다.

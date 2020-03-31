@@ -15,6 +15,8 @@
       href: web-query-data.md
 - name: 자습서
   items:
+    - name: 쿼리 쓰기
+      href: write-queries.md
     - name: E2E 프로그래밍 방식 Blob 수집
       items:
         - name: 'C#'
@@ -32,14 +34,22 @@
         - name: 데이터 수집 개요
           displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
           href: ingest-data-overview.md
+        - name: 데이터 수집 속성
+          href: ingestion-properties.md
+        - name: 데이터 수집 형식
+          href: ingestion-supported-formats.md
     - name: Kusto 쿼리 언어
       items:
         - name: 빠른 참조 가이드
           href: kql-quick-reference.md
     - name: 데이터 시각화 개요
       href: viz-overview.md
-    - name: 보안 개요
-      href: security.md
+    - name: 보안
+      items:
+        - name: 보안 개요
+          href: security.md
+        - name: 보안 기준
+          href: security-baseline.md
 - name: 방법 가이드
   items:
     - name: 클러스터 및 데이터베이스 만들기
@@ -60,6 +70,8 @@
           href: ingest-data-one-click.md
         - name: 스트리밍 수집
           href: ingest-data-streaming.md
+        - name: LightIngest 사용
+          href: lightingest.md
         - name: 이벤트 허브
           items:
             - name: Azure portal
@@ -106,8 +118,6 @@
           href: ingest-json-formats.md
     - name: 쿼리 데이터
       items:
-        - name: 쿼리 쓰기
-          href: write-queries.md
         - name: Azure Data Lake에서 데이터 쿼리
           href: data-lake-query-data.md
         - name: Azure Monitor에서 데이터 쿼리
@@ -158,12 +168,22 @@
           href: k2bridge.md
     - name: 보안
       items:
+        - name: 네트워크 격리(VNet)
+          items:
+            - name: VNet에서 클러스터 만들기 - 포털
+              href: vnet-create-cluster-portal.md
+            - name: VNet에 클러스터 배포
+              href: vnet-deployment.md
+            - name: 'VNet 클러스터 만들기, 연결 및 작업 문제 해결'
+              href: vnet-deploy-troubleshoot.md
         - name: 클러스터 보안 관리
           href: manage-cluster-security.md
         - name: 관리되는 ID 구성
           href: managed-identities.md
         - name: 고객 관리 키 구성
           items:
+            - name: 포털
+              href: customer-managed-keys-portal.md
             - name: 'C#'
               href: customer-managed-keys-csharp.md
             - name: Azure Resource Manager 템플릿
@@ -214,10 +234,6 @@
               href: delete-data.md
             - name: 중복 데이터 처리
               href: dealing-with-duplicates.md
-    - name: 배포
-      items:
-        - name: 가상 네트워크에 클러스터 배포
-          href: vnet-deployment.md
     - name: 모니터
       items:
         - name: 진단 로그를 사용하여 수집 모니터링
@@ -236,6 +252,12 @@
               href: data-factory-template.md
             - name: Azure Data Factory를 사용하여 제어 명령 실행
               href: data-factory-command-activity.md
+        - name: Microsoft Flow 커넥터
+          items:
+            - name: Microsoft Flow 커넥터
+              href: flow.md
+            - name: Microsoft Flow 커넥터 사용 예
+              href: flow-usage.md
         - name: Apache Spark 커넥터
           href: spark-connector.md
         - name: Python을 사용하여 Databricks에서 연결

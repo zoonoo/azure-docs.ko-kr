@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
 ms.openlocfilehash: fe79cf5af86e1f303e4735214b993d8db4488a25
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74793258"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 작업을 제어하는 조건문 만들기
@@ -22,11 +22,11 @@ ms.locfileid: "74793258"
 > [!TIP]
 > 다른 특정 값에 따라 다른 단계를 실행하려면 [*switch 문*](../logic-apps/logic-apps-control-flow-switch-statement.md)을 대신 사용합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
+* [논리 앱을 만드는 방법에](../logic-apps/quickstart-create-first-logic-app-workflow.md) 대한 기본 지식
 
 * 이 문서의 예를 수행하려면 Outlook.com 또는 Office 365 Outlook 계정으로 [이 샘플 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -36,7 +36,7 @@ ms.locfileid: "74793258"
 
 1. 원하는 위치에 조건을 추가합니다. 
 
-   단계 사이에 조건을 추가하려면 조건을 추가하려는 화살표 위로 포인터를 이동합니다. 표시되는 **더하기 기호**( **+** )를 선택한 다음, **작업 추가**를 선택합니다. 다음은 그 예입니다.
+   단계 사이에 조건을 추가하려면 조건을 추가하려는 화살표 위로 포인터를 이동합니다. 표시되는 **더하기** **+** 기호 ()를 선택한 다음 **작업 추가를**선택합니다. 예를 들어:
 
    ![단계 사이에 작업 추가](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
@@ -65,11 +65,11 @@ ms.locfileid: "74793258"
 
    ![완성된 조건](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
 
-   조건에 다른 행을 추가하려면 **추가** > **행 추가**를 선택합니다. 
-   하위 조건이 있는 그룹을 추가하려면 **추가** > **그룹 추가**를 선택합니다. 
+   조건에 다른 행을 추가하려면 > **행** **추가를**선택합니다. 
+   하위 조건이 있는 그룹을 추가하려면 > **그룹** **추가를**선택합니다. 
    기존 행을 그룹화하려면 해당 행의 확인란을 선택하고, 임의 행의 줄임표(...) 단추를 선택한 다음, **그룹 만들기**를 선택합니다.
 
-1. **If true** 및 **If false** 아래에서 조건이 충족되는지 여부에 따라 수행할 단계를 추가합니다. 다음은 그 예입니다.
+1. **If true** 및 **If false** 아래에서 조건이 충족되는지 여부에 따라 수행할 단계를 추가합니다. 예를 들어:
 
    !["If true" 및 "If false" 경로를 포함한 조건](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 

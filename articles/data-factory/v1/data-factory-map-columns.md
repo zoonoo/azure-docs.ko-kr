@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory의 데이터 집합 열 매핑
+title: Azure 데이터 팩터리에서 데이터 집합 열 매핑
 description: 원본 열을 대상 열에 매핑하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 6eb7012e28319ee6cc86de5ee56090743d681068
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74923879"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>원본 데이터 세트 열을 대상 데이터 세트 열에 매핑
 > [!NOTE]
-> 이 문서는 Data Factory 버전 1에 적용됩니다. 
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 
 
 열 매핑은 원본 테이블 맵의 “structure”에서 지정한 열을 싱크 테이블의 “structure”에서 지정한 열과 매핑하는 방법을 지정하는 데 사용할 수 있습니다. **columnMapping** 속성은 Copy 작업의 **typeProperties** 섹션에서 사용할 수 있습니다.
 

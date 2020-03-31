@@ -8,10 +8,10 @@ ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: 01abcc961d1c2ad9d3e2cf35f82e62929bc2fb89
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371140"
 ---
 # <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(사용되지 않음) Azure Container Service에서 Kubernetes 웹 UI 사용
@@ -65,7 +65,7 @@ az acs kubernetes browse -g [Resource Group] -n [Container service instance name
 
     애플리케이션을 만들기 시작할 수 있는 대화 상자가 열립니다.
 
-2. 이름 `hello-nginx`를 지정합니다. Docker의 [`nginx` 컨테이너](https://hub.docker.com/_/nginx/)를 사용하고 이 웹 서비스의 3개 복제본을 배포합니다.
+2. 이름 `hello-nginx`를 지정합니다. [ `nginx` Docker의 컨테이너를](https://hub.docker.com/_/nginx/) 사용하고 이 웹 서비스의 세 복제본을 배포합니다.
 
     ![Kubernetes 포드 만들기 대화 상자](./media/container-service-kubernetes-ui/nginx.png)
 

@@ -1,5 +1,5 @@
 ---
-title: VMware 재해 복구-Azure Site Recovery의 구성 서버 요구 사항
+title: Azure 사이트 복구에서 VMware 재해 복구 구성 서버 요구 사항
 description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로 VMware 재해 복구를 위해 구성 서버를 배포할 때 지원 및 요구 사항에 대해 설명합니다.
 author: rayne-wiselman
 manager: carmonm
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: 0b0942b517c8dc83c048bd1203a58d9861515dfb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257408"
 ---
 # <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위한 구성 서버 요구 사항

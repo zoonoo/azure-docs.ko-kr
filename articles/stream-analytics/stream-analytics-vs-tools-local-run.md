@@ -1,5 +1,5 @@
 ---
-title: Visual Studio에서 로컬로 테스트 Azure Stream Analytics 쿼리
+title: 시각적 스튜디오에서 로컬로 Azure 스트림 분석 쿼리 테스트
 description: 이 문서에서는 Visual Studio용 Azure Stream Analytics 도구를 사용하여 쿼리를 로컬로 테스트하는 방법을 설명합니다.
 author: su-jie
 ms.author: sujie
@@ -8,15 +8,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.openlocfilehash: 34c8555356d5c0142d7b677c8119fe66806ab064
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76834912"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Visual Studio를 사용하여 로컬로 Stream Analytics 쿼리 테스트
 
-Visual Studio 용 Azure Stream Analytics 도구를 사용 하 여 샘플 데이터 또는 [라이브 데이터](stream-analytics-live-data-local-testing.md)를 사용 하 여 Stream Analytics 작업을 로컬로 테스트할 수 있습니다. 
+Visual Studio용 Azure Stream Analytics 도구를 사용하여 샘플 데이터 또는 [라이브 데이터로](stream-analytics-live-data-local-testing.md)로컬에서 Stream Analytics 작업을 테스트할 수 있습니다. 
 
 이 [빠른 시작](stream-analytics-quick-create-vs.md)을 통해 Visual Studio를 사용하여 Stream Analytics 작업을 만드는 방법을 알아보세요.
 
@@ -58,7 +58,7 @@ Visual Studio에서 바로 출력을 테이블 형식으로 볼 수 있습니다
    
 
 ### <a name="sample-input"></a>샘플 입력
-입력 원본에서 로컬 파일로 샘플 입력 데이터를 수집할 수도 있습니다. 입력 구성 파일을 마우스 오른쪽 단추로 클릭하고 **샘플 데이터**를 선택합니다. 
+입력 원본에서 로컬 파일로 샘플 입력 데이터를 수집할 수도 있습니다. 입력 구성 파일을 마우스 오른쪽 단추로 클릭하고 **샘플 데이터를**선택합니다. 
 
 ![데이터 샘플링](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-01.png)
 

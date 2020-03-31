@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: ede1af4625d06af4e280eda86d09ae1db3dfdfd1
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70881034"
 ---
 # <a name="azure-dedicated-hsm-physical-security"></a>Azure Dedicated HSM 물리적 보안
@@ -58,5 +58,5 @@ HSM은 고객이 만든 가상 네트워크에 프로비전됩니다. 이 가상
 * [고가용성](high-availability.md)
 * [네트워킹](networking.md)
 * [지원 가능성](supportability.md)
-* [모니터링](monitoring.md)
+* <bpt i="1000001" x="1000001" type="formatting">{b&gt;</bpt>모니터링<ept i="1000001">&lt;b}</ept>
 * [배포 아키텍처](deployment-architecture.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 12b6c2abc9641f884cf1b90216cc1db0c53d0260
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e8a141710b9011fc46eb8df594725bf76c3d69cf
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75368728"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385132"
 ---
 # <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>PowerShell을 사용하여 다른 지역의 스토리지 계정으로 관리 스냅샷을 VHD로 내보내기/복사
 
@@ -43,8 +43,8 @@ ms.locfileid: "75368728"
 | 명령 | 메모 |
 |---|---|
 | [Grant-AzSnapshotAccess](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | 스토리지 계정에 스냅샷을 복사하는 데 사용되는 스냅샷의 SAS URI를 생성합니다. |
-| [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageContext) | 계정 이름과 키를 사용하여 스토리지 계정 컨텍스트를 만듭니다. 이 컨텍스트는 스토리지 계정에 대한 읽기/쓰기 작업을 수행하는 데 사용할 수 있습니다. |
-| [Start-AzureStorageBlobCopy](https://docs.microsoft.com/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | 스냅샷의 기본 VHD를 스토리지 계정에 복사합니다. |
+| [New-AzStorageContext](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontext) | 계정 이름과 키를 사용하여 스토리지 계정 컨텍스트를 만듭니다. 이 컨텍스트는 스토리지 계정에 대한 읽기/쓰기 작업을 수행하는 데 사용할 수 있습니다. |
+| [Start-AzStorageBlobCopy](https://docs.microsoft.com/powershell/module/az.storage/start-azstorageblobcopy) | 스냅샷의 기본 VHD를 스토리지 계정에 복사합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

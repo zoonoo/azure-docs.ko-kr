@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: rohink
 ms.openlocfilehash: 002f210048c18c6dd99dfb5981bacce8666ee563
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76936773"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Azure Portal에서 DNS 영역을 관리하는 방법
 
 > [!div class="op_single_selector"]
 > * [포털](dns-operations-dnszones-portal.md)
-> * [PowerShell](dns-operations-dnszones.md)
+> * [Powershell](dns-operations-dnszones.md)
 > * [Azure 클래식 CLI](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure CLI](dns-operations-dnszones-cli.md)
 
@@ -43,7 +43,7 @@ ms.locfileid: "76936773"
    |---|---|---|
    |**이름**|contoso.com|DNS 영역의 이름|
    |**구독**|[구독 이름]|DNS 영역을 만들 구독을 선택합니다.|
-   |**리소스 그룹**|**새로 만들기:** contosoDNSRG|리소스 그룹을 만듭니다. 리소스 그룹 이름은 선택한 구독 내에서 고유해야 합니다. 리소스 그룹에 대해 자세히 알아보려면 [Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) 개요 문서를 참조하세요.|
+   |**리소스 그룹**|**새로 만들기:** contosoDNSRG|리소스 그룹을 만듭니다. 리소스 그룹 이름은 선택한 구독 내에서 고유해야 합니다. 리소스 그룹에 대해 자세히 알아보려면 [리소스 관리자](../azure-resource-manager/management/overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) 개요 문서를 참조하세요.|
    |**위치**|미국 서부||
 
 > [!NOTE]
@@ -51,7 +51,7 @@ ms.locfileid: "76936773"
 
 ## <a name="list-dns-zones"></a>DNS 영역 나열
 
-Azure Portal에서 **더 많은 서비스** > **네트워킹** > **DNS 영역**으로 이동합니다. 각 DNS 영역은 자체 리소스이며, 레코드 집합의 수 및 이름 서버와 같은 정보를 이 보기에서 볼 수 있습니다. 열 **이름 서버**는 기본 보기에 없습니다. 이 열을 추가하려면 **열**을 클릭하고 **이름 서버**를 선택한 후 **완료**를 클릭합니다.
+Azure 포털에서 더 **많은 서비스** > **네트워킹** > **DNS 영역으로**이동합니다. 각 DNS 영역은 자체 리소스이며, 레코드 집합의 수 및 이름 서버와 같은 정보를 이 보기에서 볼 수 있습니다. 열 **이름 서버**는 기본 보기에 없습니다. 이 열을 추가하려면 **열**을 클릭하고 **이름 서버**를 선택한 후 **완료**를 클릭합니다.
 
 ![DNS 영역 나열](./media/dns-operations-dnszones-portal/listzones.png)
 

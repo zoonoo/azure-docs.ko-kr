@@ -1,7 +1,7 @@
 ---
-title: 로그를 사용 하 여 데이터 업로드 문제 해결
+title: 로그를 사용하여 데이터 업로드 문제 해결
 titleSuffix: Azure Data Box Disk
-description: 로그를 사용 하 여 Azure Data Box Disk 데이터를 업로드할 때 표시 되는 문제를 해결 하는 방법을 설명 합니다.
+description: Azure Data Box Disk에 데이터를 업로드할 때 보이는 로그 및 문제 해결 문제를 사용하는 방법을 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -10,43 +10,43 @@ ms.topic: article
 ms.date: 06/17/2019
 ms.author: alkohli
 ms.openlocfilehash: 7c14988706ef193ef5da868c55f6c4f55e7d98f9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260138"
 ---
-# <a name="understand-logs-to-troubleshoot-data-upload-issues-in-azure-data-box-disk"></a>Azure Data Box Disk에서 데이터 업로드 문제를 해결 하기 위한 로그 이해
+# <a name="understand-logs-to-troubleshoot-data-upload-issues-in-azure-data-box-disk"></a>Azure 데이터 상자 디스크에서 데이터 업로드 문제를 해결하기 위해 로그 이해
 
-이 문서는 Microsoft Azure Data Box Disk에 적용 되며 데이터를 Azure에 업로드할 때 표시 되는 문제에 대해 설명 합니다.
+이 문서는 Microsoft Azure 데이터 상자 디스크에 적용되며 Azure에 데이터를 업로드할 때 표시되는 문제를 설명합니다.
 
-## <a name="about-upload-logs"></a>로그 업로드 정보
+## <a name="about-upload-logs"></a>업로드 로그 소개
 
-데이터 센터에서 Azure에 데이터를 업로드 하면 각 저장소 계정에 대 한 `_error.xml` 및 `_verbose.xml` 파일이 생성 됩니다. 이러한 로그는 데이터를 업로드 하는 데 사용 된 것과 동일한 저장소 계정에 업로드 됩니다. 
+데이터가 데이터 센터의 Azure에 `_error.xml` 업로드되고 `_verbose.xml` 각 저장소 계정에 대해 파일이 생성되는 경우 이러한 로그는 데이터를 업로드하는 데 사용된 동일한 저장소 계정에 업로드됩니다. 
 
-두 로그는 모두 동일한 형식이 며 디스크에서 Azure Storage 계정으로 데이터를 복사 하는 동안 발생 한 이벤트에 대 한 XML 설명을 포함 합니다.
+두 로그는 모두 동일한 형식이며 디스크에서 Azure Storage 계정으로 데이터를 복사하는 동안 발생한 이벤트에 대한 XML 설명을 포함합니다.
 
-자세한 정보 표시 로그는 모든 blob 또는 파일에 대 한 복사 작업의 상태에 대 한 전체 정보를 포함 하는 반면 오류 로그에는 업로드 중에 오류가 발생 한 blob 또는 파일에 대 한 정보만 포함 됩니다.
+자세한 로그에는 모든 Blob 또는 파일에 대한 복사 작업 상태에 대한 전체 정보가 포함되어 있는 반면 오류 로그에는 업로드 중에 오류가 발생한 Blob 또는 파일에 대한 정보만 포함됩니다.
 
-오류 로그는 자세한 로그와 동일한 구조를 갖지만 성공적인 작업을 필터링 합니다.
+오류 로그는 자세한 로그와 동일한 구조를 가지고 있지만 성공적인 작업을 필터링합니다.
 
 ## <a name="download-logs"></a>로그 다운로드
 
-업로드 로그를 찾으려면 다음 단계를 수행 합니다.
+다음 단계를 수행하여 업로드 로그를 찾습니다.
 
-1. Azure에 데이터를 업로드할 때 오류가 발생 하는 경우 포털은 진단 로그가 있는 폴더에 대 한 경로를 표시 합니다.
+1. Azure에 데이터를 업로드할 때 오류가 있는 경우 포털은 진단 로그가 있는 폴더에 대한 경로를 표시합니다.
 
-    ![포털의 로그에 연결](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs.png)
+    ![포털의 로그 링크](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs.png)
 
-2. **Waies**이동 합니다.
+2. **웨이즈로**이동 .
 
-    ![오류 및 자세한 정보 표시 로그](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-1.png)
+    ![오류 및 자세한 로그](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-1.png)
 
-각 경우에 오류 로그와 자세한 로그를 볼 수 있습니다. 각 로그를 선택 하 고 로컬 복사본을 다운로드 합니다.
+각각의 경우 오류 로그와 자세한 로그가 표시됩니다. 각 로그를 선택하고 로컬 복사본을 다운로드합니다.
 
 ## <a name="sample-upload-logs"></a>샘플 업로드 로그
 
-`_verbose.xml` 예제는 다음과 같습니다. 이 경우에는 오류 없이 주문이 성공적으로 완료 되었습니다.
+의 `_verbose.xml` 샘플은 아래와 같습니다. 이 경우 오류 없이 주문이 성공적으로 완료되었습니다.
 
 ```xml
 
@@ -91,7 +91,7 @@ ms.locfileid: "79260138"
 </DriveLog>
 ```
 
-동일한 순서로 `_error.xml` 샘플은 다음과 같습니다.
+동일한 순서의 `_error.xml` 샘플은 아래와 같습니다.
 
 ```xml
 
@@ -110,13 +110,13 @@ ms.locfileid: "79260138"
 </DriveLog>
 ```
 
-아래에는 주문이 완료 되 고 오류가 발생 하는 `_error.xml` 예제가 나와 있습니다. 
+주문이 `_error.xml` 오류로 완료된 경우 의 샘플이 아래에 표시됩니다. 
 
-이 경우 오류 파일에 `Summary` 섹션과 모든 파일 수준 오류가 포함 된 다른 섹션이 있습니다. 
+이 경우 오류 파일에는 `Summary` 모든 파일 수준 오류가 포함된 섹션과 다른 섹션이 있습니다. 
 
-`Summary` `ValidationErrors` 및 `CopyErrors`를 포함 합니다. 이 경우 8 개의 파일이 나 폴더가 Azure에 업로드 되 고 유효성 검사 오류가 발생 하지 않습니다. 데이터가 Azure Storage 계정에 복사 되 면 5 개의 파일이 나 폴더가 성공적으로 업로드 됩니다. 나머지 3 개의 파일 또는 폴더는 Azure 컨테이너 명명 규칙에 따라 이름이 바뀌고 Azure에 성공적으로 업로드 됩니다.
+과 `Summary` `CopyErrors`를 `ValidationErrors` 포함합니다. 이 경우 8개의 파일 또는 폴더가 Azure에 업로드되었으며 유효성 검사 오류가 없습니다. 데이터가 Azure Storage 계정으로 복사되면 5개의 파일 또는 폴더가 성공적으로 업로드됩니다. 나머지 3개의 파일 또는 폴더는 Azure 컨테이너 명명 규칙에 따라 이름이 변경된 다음 Azure에 성공적으로 업로드되었습니다.
 
-파일 수준 상태는 blob을 업로드 하기 위해 수행 된 작업을 설명 하는 `BlobStatus`에 있습니다. 이 경우 데이터가 복사 된 폴더가 컨테이너의 Azure 명명 규칙을 준수 하지 않기 때문에 세 개의 컨테이너 이름이 바뀝니다. 이러한 컨테이너에서 업로드 된 blob의 경우 새 컨테이너 이름, Azure의 blob 경로, 잘못 된 원본 파일 경로 및 blob 크기가 포함 됩니다.
+파일 수준 상태는 `BlobStatus` Blob을 업로드하기 위해 수행된 모든 작업을 설명하는 것입니다. 이 경우 데이터가 복사된 폴더가 컨테이너에 대한 Azure 명명 규칙을 준수하지 않아 세 개의 컨테이너의 이름이 바뀝니다. 이러한 컨테이너에 업로드된 Blob의 경우 새 컨테이너 이름, Azure의 Blob 경로, 원래 잘못된 파일 경로 및 Blob 크기가 포함됩니다.
     
 ```xml
  <?xml version="1.0" encoding="utf-8"?>
@@ -154,33 +154,33 @@ ms.locfileid: "79260138"
 
 ## <a name="data-upload-errors"></a>데이터 업로드 오류
 
-Azure에 데이터를 업로드할 때 생성 되는 오류는 다음 표에 요약 되어 있습니다.
+Azure에 데이터를 업로드할 때 생성된 오류는 다음 표에 요약되어 있습니다.
 
-| 오류 코드 | Description                   |
+| 오류 코드 | 설명                   |
 |-------------|------------------------------|
-|`None` |  성공적으로 완료 되었습니다.           |
-|`Renamed` | Blob의 이름을 바꿨습니다.   |
-|`CompletedWithErrors` | 업로드가 완료 되었으나 오류가 발생 했습니다. 오류가 발생 한 파일에 대 한 세부 정보는 로그 파일에 포함 됩니다.  |
-|`Corrupted`|데이터 수집 중에 계산 된 CRC가 업로드 중에 계산 된 CRC와 일치 하지 않습니다.  |  
-|`StorageRequestFailed` | Azure storage 요청이 실패 했습니다.   |     
-|`LeasePresent` | 이 항목은 임대 되며 다른 사용자가 사용 하 고 있습니다. |
+|`None` |  성공적으로 완료되었습니다.           |
+|`Renamed` | Blob의 이름을 성공적으로 변경했습니다.   |
+|`CompletedWithErrors` | 오류로 완료된 업로드. 오류가 있는 파일의 세부 정보가 로그 파일에 포함됩니다.  |
+|`Corrupted`|데이터 수집 중에 계산된 CRC는 업로드 하는 동안 계산된 CRC와 일치하지 않습니다.  |  
+|`StorageRequestFailed` | Azure 저장소 요청이 실패했습니다.   |     
+|`LeasePresent` | 이 항목은 임대되며 다른 사용자가 사용하고 있습니다. |
 |`StorageRequestForbidden` |인증 문제로 인해 업로드할 수 없습니다. |
-|`ManagedDiskCreationTerminalFailure` | 관리 디스크로 업로드할 수 없습니다. 파일은 준비 저장소 계정에서 페이지 blob으로 사용할 수 있습니다. 페이지 blob을 관리 디스크로 수동으로 변환할 수 있습니다.  |
-|`DiskConversionNotStartedTierInfoMissing` | VHD 파일이 미리 생성 된 계층 폴더 외부에 복사 되었으므로 관리 디스크는 생성 되지 않았습니다. 파일은 주문 생성 중에 지정 된 대로 준비 저장소 계정에 페이지 blob으로 업로드 됩니다. 수동으로 관리 되는 디스크로 변환할 수 있습니다.|
-|`InvalidWorkitem` | Azure 명명 및 제한 규칙에 맞지 않으므로 데이터를 업로드할 수 없습니다.|
-|`InvalidPageBlobUploadAsBlockBlob` | 접두사가 `databoxdisk-invalid-pb-`된 컨테이너에 블록 blob으로 업로드 됩니다.|
-|`InvalidAzureFileUploadAsBlockBlob` | 접두사가 `databoxdisk-invalid-af`-인 컨테이너에 블록 blob으로 업로드 됩니다.|
-|`InvalidManagedDiskUploadAsBlockBlob` | 접두사가 `databoxdisk-invalid-md`-인 컨테이너에 블록 blob으로 업로드 됩니다.|
-|`InvalidManagedDiskUploadAsPageBlob` |접두사가 `databoxdisk-invalid-md-`있는 컨테이너에서 페이지 blob으로 업로드 됩니다. |
-|`MovedToOverflowShare` |원본 공유 크기가 최대 Azure 크기 제한을 초과 하 여 새 공유에 파일을 업로드 했습니다. 새 파일 공유 이름에는 원래 이름에 `-2`접미사가 붙습니다.   |
-|`MovedToDefaultAzureShare` |폴더에 포함 되지 않은 파일을 기본 공유로 업로드 했습니다. 공유 이름은 `databox-`로 시작 합니다. |
-|`ContainerRenamed` |이러한 파일의 컨테이너는 Azure 명명 규칙을 준수 하지 않으며 이름이 바뀝니다. 새 이름은 `databox-` 시작 하 고 원래 이름의 SHA1 해시를 접미사로 사용 합니다. |
-|`ShareRenamed` |이러한 파일에 대 한 공유는 Azure 명명 규칙을 준수 하지 않으며 이름이 바뀝니다. 새 이름은 `databox-` 시작 하 고 원래 이름의 SHA1 해시를 접미사로 사용 합니다. |
-|`BlobRenamed` |이러한 파일은 Azure 명명 규칙을 준수 하지 않으며 이름이 바뀌었습니다. 새 이름에 대 한 `BlobPath` 필드를 확인 합니다. |
-|`FileRenamed` |이러한 파일은 Azure 명명 규칙을 준수 하지 않으며 이름이 바뀌었습니다. 새 이름에 대 한 `FileStoragePath` 필드를 확인 합니다. |
-|`DiskRenamed` |이러한 파일은 Azure 명명 규칙을 준수 하지 않으며 이름이 바뀌었습니다. 새 이름에 대 한 `BlobPath` 필드를 확인 합니다. |
+|`ManagedDiskCreationTerminalFailure` | 관리 디스크로 업로드할 수 없습니다. 파일은 스테이징 저장소 계정에서 페이지 Blob로 사용할 수 있습니다. 페이지 Blob을 관리 디스크로 수동으로 변환할 수 있습니다.  |
+|`DiskConversionNotStartedTierInfoMissing` | VHD 파일이 미리 생성된 계층 폴더 외부에서 복사되었기 때문에 관리디스크가 만들어지지 않았습니다. 파일은 주문 생성 중에 지정된 대로 스테이징 저장소 계정에 페이지 Blob로 업로드됩니다. 수동으로 관리 디스크로 변환할 수 있습니다.|
+|`InvalidWorkitem` | Azure 명명 및 제한 규칙을 준수하지 않으므로 데이터를 업로드할 수 없습니다.|
+|`InvalidPageBlobUploadAsBlockBlob` | 접두사가 `databoxdisk-invalid-pb-`있는 컨테이너에 블록 Blob로 업로드됩니다.|
+|`InvalidAzureFileUploadAsBlockBlob` | 접두사가 `databoxdisk-invalid-af`있는 컨테이너에 블록 Blob로 업로드 -.|
+|`InvalidManagedDiskUploadAsBlockBlob` | 접두사가 `databoxdisk-invalid-md`있는 컨테이너에 블록 Blob로 업로드 -.|
+|`InvalidManagedDiskUploadAsPageBlob` |접두사가 `databoxdisk-invalid-md-`있는 컨테이너에 페이지 Blob로 업로드됩니다. |
+|`MovedToOverflowShare` |원래 공유 크기가 최대 Azure 크기 제한을 초과함에 따라 새 공유에 업로드된 파일입니다. 새 파일 공유 이름에는 원래 이름이 `-2`함께 고정되어 있습니다.   |
+|`MovedToDefaultAzureShare` |기본 공유에 폴더의 일부가 아닌 업로드된 파일입니다. 공유 이름은 에서 `databox-`시작합니다. |
+|`ContainerRenamed` |이러한 파일의 컨테이너는 Azure 명명 규칙을 준수하지 않았으며 이름이 바뀝니다. 새 이름은 원래 `databox-` 이름의 SHA1 해시로 시작되고 접미사가 붙어 있습니다. |
+|`ShareRenamed` |이러한 파일에 대한 공유는 Azure 명명 규칙을 준수하지 않았으며 이름이 바뀝니다. 새 이름은 원래 `databox-` 이름의 SHA1 해시로 시작되고 접미사가 붙어 있습니다. |
+|`BlobRenamed` |이러한 파일은 Azure 명명 규칙을 준수하지 않았으며 이름이 바뀌었습니다. `BlobPath` 필드에 새 이름이 있는지 확인합니다. |
+|`FileRenamed` |이러한 파일은 Azure 명명 규칙을 준수하지 않았으며 이름이 바뀌었습니다. `FileStoragePath` 필드에 새 이름이 있는지 확인합니다. |
+|`DiskRenamed` |이러한 파일은 Azure 명명 규칙을 준수하지 않았으며 이름이 바뀌었습니다. `BlobPath` 필드에 새 이름이 있는지 확인합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Data Box Disk 문제에 대 한 지원 티켓을 엽니다](data-box-disk-contact-microsoft-support.md).
+- [데이터 상자 디스크 문제에 대한 지원 티켓을 엽니다.](data-box-disk-contact-microsoft-support.md)

@@ -1,6 +1,6 @@
 ---
 title: Visual Studio 및 C#을 사용하는 Apache Storm 토폴로지 - Azure HDInsight
-description: C#으로 Storm 토폴로지를 만드는 방법을 알아봅니다. Visual studio 용 Hadoop 도구를 사용 하 여 Visual Studio에서 단어 개수 토폴로지를 만듭니다.
+description: C#으로 Storm 토폴로지를 만드는 방법을 알아봅니다. Visual Studio용 Hadoop 도구를 사용하여 Visual Studio에서 단어 수 토폴로지 만들기
 ROBOTS: NOINDEX
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/31/2019
 ms.openlocfilehash: 1903c2faab865152d1f3666f3c9dadd745058b56
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75612294"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Data Lake tools for Visual Studio를 사용하여 Apache Storm의 C# 토폴로지 개발
@@ -21,7 +21,7 @@ Visual Studio용 Azure Data Lake(Apache Hadoop) 도구를 사용하여 C# Apache
 
 또한 C# 및 Java 구성 요소를 사용하는 하이브리드 토폴로지를 만드는 방법에 대해서도 배웁니다.
 
-C#토폴로지에서는 .NET 4.5을 사용 하 고 Mono를 사용 하 여 HDInsight 클러스터에서 실행 합니다. 잠재적 호환성 문제에 대 한 자세한 내용은 [Mono 호환성](https://www.mono-project.com/docs/about-mono/compatibility/)을 참조 하세요. C# 토폴로지를 사용 하려면 프로젝트에서 사용 하는 `Microsoft.SCP.Net.SDK` NuGet 패키지를 0.10.0.6 이상 이상 버전으로 업데이트 해야 합니다. 패키지 버전은 HDInsight에 설치된 Storm의 주 버전과도 일치해야 합니다.
+C# 토폴로지는 .NET 4.5를 사용하고 모노를 사용하여 HDInsight 클러스터에서 실행합니다. 잠재적인 비호환성에 대한 자세한 내용은 [Mono 호환성](https://www.mono-project.com/docs/about-mono/compatibility/)을 참조하십시오. C# 토폴로지사용하려면 프로젝트에서 사용하는 `Microsoft.SCP.Net.SDK` NuGet 패키지를 0.10.0.6 이상 버전으로 업데이트해야 합니다. 패키지 버전은 HDInsight에 설치된 Storm의 주 버전과도 일치해야 합니다.
 
 | HDInsight 버전 | Apache Storm 버전 | SCP.NET 버전 | 기본 모노 버전 |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
@@ -29,13 +29,13 @@ C#토폴로지에서는 .NET 4.5을 사용 하 고 Mono를 사용 하 여 HDInsi
 | 3.5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
 | 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
 
-## <a name="prerequisite"></a>필수 조건
+## <a name="prerequisite"></a>필수 요소
 
 HDInsight의 Apache Storm 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**에 **Storm**을 선택합니다.
 
 ## <a name="install-visual-studio"></a>Visual Studio 설치
 
-[Visual Studio](https://visualstudio.microsoft.com/downloads/)를 C# 사용 하 여 SCP.NET로 토폴로지를 개발할 수 있습니다. 이 지침에서는 Visual Studio 2019을 사용 하지만 이전 버전의 Visual Studio를 사용할 수도 있습니다.
+[Visual Studio를](https://visualstudio.microsoft.com/downloads/)사용하여 SCP.NET 사용하여 C# 토폴로기를 개발할 수 있습니다. 여기서 지침은 Visual Studio 2019를 사용하지만 이전 버전의 Visual Studio를 사용할 수도 있습니다.
 
 ## <a name="install-data-lake-tools-for-visual-studio"></a>Data Lake Tools for Visual Studio 설치
 
@@ -47,11 +47,11 @@ Visual Studio에서 Storm 토폴로지를 제출하면 SCP.NET은 토폴로지 �
 
 1. 개발 환경에 JDK(Java Developer Kit) 7 이상을 설치합니다. Oracle JDK는 [Oracle](https://openjdk.java.net/)에서 가져올 수 있습니다. [다른 Java 배포](/java/azure/jdk/)를 사용할 수도 있습니다.
 
-2. `JAVA_HOME` 환경 변수를 Java가 포함 된 디렉터리로 설정 합니다.
+2. 환경 `JAVA_HOME` 변수를 Java가 포함된 디렉터리로 설정합니다.
 
-3. `%JAVA_HOME%\bin` 디렉터리를 포함 하도록 `PATH` 환경 변수를 설정 합니다.
+3. 디렉터리를 `PATH` 포함하도록 환경 `%JAVA_HOME%\bin` 변수를 설정합니다.
 
-다음 C# 콘솔 응용 프로그램을 빌드하고 실행 하 여 JAVA와 JDK가 올바르게 설치 되었는지 확인할 수 있습니다.
+다음 C# 콘솔 응용 프로그램을 빌드하고 실행하여 Java 및 JDK가 올바르게 설치되었는지 확인할 수 있습니다.
 
 ```csharp
 using System;
@@ -103,15 +103,15 @@ Data Lake Tools for Visual Studio는 다음 템플릿을 제공합니다.
 | Storm 샘플 |기본 단어 카운트 토폴로지 |
 
 > [!WARNING]  
-> 일부 템플릿은 Linux 기반 HDInsight에서 작동합니다. 템플릿에서 사용하는 NuGet 패키지는 Mono와 호환되지 않을 수 있습니다. 잠재적 문제를 식별 하려면 [Mono 호환성](https://www.mono-project.com/docs/about-mono/compatibility/) 및 [.net 이식성 분석기](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis)사용을 참조 하세요.
+> 일부 템플릿은 Linux 기반 HDInsight에서 작동합니다. 템플릿에서 사용하는 NuGet 패키지는 Mono와 호환되지 않을 수 있습니다. 잠재적인 문제를 식별하려면 [Mono 호환성을](https://www.mono-project.com/docs/about-mono/compatibility/) 참조하고 [.NET 이식성 분석기를](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis)사용합니다.
 
 이 문서의 단계에서는 기본 Storm 애플리케이션 프로젝트 형식을 사용하여 토폴로지를 만들 수 있습니다.
 
-### <a name="apache-hbase-templates"></a>Apache HBase 템플릿
+### <a name="apache-hbase-templates"></a>아파치 HBase 템플릿
 
 HBase 판독기 및 기록기 템플릿은 HBase Java API가 아니라 HBase REST API를 사용하여 HDInsight 클러스터의 HBase와 통신합니다.
 
-### <a name="eventhub-templates"></a>EventHub 템플릿
+### <a name="eventhub-templates"></a>이벤트 허브 템플릿
 
 > [!IMPORTANT]  
 > EventHub 판독기 템플릿에 포함된 Java 기반 EventHub spout 구성 요소는 HDInsight 버전 3.5 이상의 Storm에서 작동하지 않을 수 있습니다. 이 구성 요소의 업데이트 된 버전은 [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib)에 있습니다.
@@ -120,21 +120,21 @@ HBase 판독기 및 기록기 템플릿은 HBase Java API가 아니라 HBase RES
 
 ## <a name="create-a-c-topology"></a>C# 토폴로지 만들기
 
-Visual Studio에서 C# 토폴로지 프로젝트를 만들려면 다음을 수행 합니다.
+Visual Studio에서 C# 토폴로지 프로젝트를 만들려면 다음을 수행합니다.
 
 1. Visual Studio를 엽니다.
 
-1. **시작** 창에서 **새 프로젝트 만들기**를 선택 합니다.
+1. **시작** 창에서 **새 프로젝트 만들기**를 선택합니다.
 
-1. **새 프로젝트 만들기** 창에서로 스크롤하고 **스톰 응용 프로그램**을 선택 하 고 **다음**을 선택 합니다.
+1. 새 **프로젝트 만들기** 창에서 **스톰 응용 프로그램을**스크롤하고 선택한 다음 **다음을**선택합니다.
 
-1. **새 프로젝트 구성** 창에서 **프로젝트 이름** 으로 *WordCount*를 입력 하 고, 프로젝트의 **위치** 디렉터리 경로를 만든 다음, **만들기**를 선택 합니다.
+1. 새 프로젝트 구성 창에서 *WordCount의* **프로젝트 이름을** 입력하고 프로젝트의 **위치** 디렉터리 경로를 만들거나 만든 다음 **만들기를** **선택합니다.**
 
-    ![스톰 응용 프로그램, 새 프로젝트 구성 대화 상자, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png)
+    ![폭풍 응용 프로그램, 새 프로젝트 대화 상자 구성, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png)
 
 프로젝트를 만든 후에는 다음 파일이 있어야 합니다.
 
-* *Program.cs*: 프로젝트에 대 한 토폴로지 정의입니다. 기본적으로 하나의 Spout 및 하나의 Bolt로 구성된 기본 토폴로지가 만들어집니다.
+* *Program.cs*: 프로젝트의 토폴로지 정의입니다. 기본적으로 하나의 Spout 및 하나의 Bolt로 구성된 기본 토폴로지가 만들어집니다.
 
 * *Spout.cs*: 난수를 내보내는 예제 Spout입니다.
 
@@ -144,17 +144,17 @@ Visual Studio에서 C# 토폴로지 프로젝트를 만들려면 다음을 수�
 
 ### <a name="implement-the-spout"></a>spout 만들기
 
-다음으로 외부 원본에서 토폴로지의 데이터를 읽는 데 사용 되는 spout에 대 한 코드를 추가 합니다. 이 Spout는 문장을 토폴로지에 임의로 내보냅니다.
+다음으로 외부 소스에서 토폴로지에서 데이터를 읽는 데 사용되는 주전자에 대한 코드를 추가합니다. 이 Spout는 문장을 토폴로지에 임의로 내보냅니다.
 
 1. *Spout.cs*를 엽니다. spout의 주요 구성 요소:
 
-   * `NextTuple`: spout가 새 튜플을 내보낼 수 있는 경우 스톰에 의해 호출 됩니다.
+   * `NextTuple`: 주어가 새로운 투틀을 방출 할 수 있을 때 폭풍에 의해 호출됩니다.
 
-   * `Ack` (트랜잭션 토폴로지만 해당): spout에서 전송 된 튜플에 대 한 토폴로지의 다른 구성 요소에 의해 시작 된 승인을 처리 합니다. 튜플을 승인하면 spout가 다운스트림 구성 요소에 의해 성공적으로 처리되었음을 알 수 있습니다.
+   * `Ack`(트랜잭션 토폴로지만 해당): 주전자에서 전송된 투플에 대한 토폴로지의 다른 구성 요소에서 시작된 승인을 처리합니다. 튜플을 승인하면 spout가 다운스트림 구성 요소에 의해 성공적으로 처리되었음을 알 수 있습니다.
 
-   * `Fail` (트랜잭션 토폴로지만 해당): 토폴로지의 다른 구성 요소에 대 한 실패 처리 중인 튜플을 처리 합니다. `Fail` 메서드를 구현 하면 다시 처리 될 수 있도록 튜플을 다시 내보낼 수 있습니다.
+   * `Fail`(트랜잭션 토폴로지만 해당): 토폴로지의 다른 구성 요소를 실패 처리하는 투플을 처리합니다. 메서드를 `Fail` 구현하면 튜플을 다시 내보사하여 다시 처리할 수 있습니다.
 
-2. `Spout` 클래스의 내용을 다음 텍스트로 바꿉니다.
+2. 클래스의 내용을 다음 `Spout` 텍스트로 바꿉꿉입니다.
 
     ```csharp
     private Context ctx;
@@ -216,20 +216,20 @@ Visual Studio에서 C# 토폴로지 프로젝트를 만들려면 다음을 수�
 
 ### <a name="implement-the-bolts"></a>bolt 구현
 
-이제이 예제에서 두 개의 스톰 볼트를 만듭니다.
+이제 이 예제에서 두 개의 스톰 볼트를 만듭니다.
 
 1. 프로젝트에서 기존 *Bolt.cs* 를 삭제합니다.
 
-2. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **새 항목**을 선택합니다. 목록에서 **Storm Bolt**를 선택하고 이름으로 *Splitter.cs*를 입력합니다. 새 파일의 코드에서 네임 스페이스 이름을 `WordCount`로 변경 합니다. 그런 다음이 프로세스를 반복 하 여 *Counter.cs*라는 두 번째 볼트를 만듭니다.
+2. **솔루션 탐색기에서**프로젝트를 마우스 오른쪽 단추로 클릭하고**새 항목** **추가를** > 선택합니다. 목록에서 **Storm Bolt**를 선택하고 이름으로 *Splitter.cs*를 입력합니다. 새 파일의 코드에서 네임스페이스 이름을 `WordCount`로 변경합니다. 그런 다음 이 프로세스를 반복하여 *Counter.cs*라는 두 번째 볼트를 만듭니다.
 
-   * *Splitter.cs*: 문장을 개별 단어로 분리하는 Bolt를 구현하고 새로운 단어 스트림을 내보냅니다.
+   * *Splitter.cs*: 문장을 개별 단어로 분할하고 새로운 단어 스트림을 방출하는 볼트를 구현합니다.
 
-   * *Counter.cs*: 각 단어를 세는 Bolt를 구현하고 새로운 단어 스트림과 각 단어의 수를 내보냅니다.
+   * *Counter.cs*: 각 단어를 계산하는 볼트를 구현하고, 각 단어에 대한 단어와 카운트의 새로운 스트림을 방출한다.
 
      > [!NOTE]  
      > 이러한 Bolt는 스트림을 읽고 쓰지만 데이터베이스 또는 서비스와 같은 소스와 통신하는 데 Bolt를 사용할 수 있습니다.
 
-3. *Splitter.cs*를 엽니다. 기본적으로 `Execute`는 메서드가 하나 뿐입니다. `Execute` 메서드는 볼트가 처리할 튜플을 받을 때 호출 됩니다. 여기에서 들어오는 튜플을 읽고 처리하며 나가는 튜플을 내보낼 수 있습니다.
+3. *Splitter.cs*를 엽니다. 기본적으로 하나의 메서드만 `Execute`있습니다. 이 `Execute` 메서드는 볼트가 처리를 위해 튜플을 수신할 때 호출됩니다. 여기에서 들어오는 튜플을 읽고 처리하며 나가는 튜플을 내보낼 수 있습니다.
 
 4. `Splitter` 클래스의 콘텐츠를 다음 코드로 바꿉니다.
 
@@ -335,13 +335,13 @@ Visual Studio에서 C# 토폴로지 프로젝트를 만들려면 다음을 수�
 
 Spout 및 bolt는 그래프로 정렬되며, 이는 구성 요소 간에 데이터의 흐름 방식을 정의합니다. 이 토폴로지의 경우 그래프는 다음과 같습니다.
 
-![Spout 및 볼트 구성 요소 정렬 다이어그램, 폭풍 토폴로지](./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png)
+![주곡 및 볼트 구성 요소 배열 다이어그램, 스톰 토폴로지](./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png)
 
-Spout는 분할자 볼트의 인스턴스로 배포 되는 문장을 내보냅니다. Splitter bolt는 Counter bolt로 배포된 단어로 문장을 나눕니다.
+주어는 스플리터 볼트의 인스턴스에 배포되는 문장을 방출합니다. Splitter bolt는 Counter bolt로 배포된 단어로 문장을 나눕니다.
 
-카운터 인스턴스는 로컬 단어 수를 저장 하므로 특정 단어가 동일한 카운터 볼트 인스턴스로 흐르도록 합니다. 각 인스턴스는 특정 단어를 계속 추적합니다. Splitter bolt는 상태를 유지하지 않으므로 실제로 splitter의 어떤 인스턴스가 어떤 문장을 받는지 중요하지 않습니다.
+카운터 인스턴스는 단어 수를 로컬로 유지하므로 특정 단어가 동일한 카운터 볼트 인스턴스로 흐르도록 해야 합니다. 각 인스턴스는 특정 단어를 계속 추적합니다. Splitter bolt는 상태를 유지하지 않으므로 실제로 splitter의 어떤 인스턴스가 어떤 문장을 받는지 중요하지 않습니다.
 
-*Program.cs*를 엽니다. 중요 한 방법은 스톰에 제출 되는 토폴로지를 정의 하는 데 사용 되는 `GetTopologyBuilder`입니다. `GetTopologyBuilder`의 내용을 앞에서 설명한 토폴로지를 구현 하는 다음 코드로 바꿉니다.
+열기 *Program.cs*. 중요한 방법은 `GetTopologyBuilder`Storm에 제출되는 토폴로지의 정의에 사용되는 방법입니다. 앞에서 설명한 `GetTopologyBuilder` 토폴로지 구현을 위해 다음 코드의 내용을 바꿉니다.
 
 ```csharp
 // Create a new topology named 'WordCount'
@@ -403,47 +403,47 @@ return topologyBuilder;
 
 ## <a name="submit-the-topology"></a>토폴로지 제출
 
-이제 HDInsight 클러스터에 토폴로지를 제출할 준비가 되었습니다.
+이제 HDInsight 클러스터에 토폴로지 제출을 완료할 준비가 되었습니다.
 
-1. **보기** > **서버 탐색기**로 이동 합니다.
+1. **서버 탐색기** **보기로** > 이동합니다.
 
-1. **Azure**를 마우스 오른쪽 단추로 클릭 하 고 **Microsoft Azure 구독에 연결**...을 선택 하 여 로그인 프로세스를 완료 합니다.
+1. **Azure를**마우스 오른쪽 단추로 클릭하고 **Microsoft Azure 구독에 연결/를**선택하고 로그인 프로세스를 완료합니다.
 
-1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **HDInsight의 스톰에 제출을**선택 합니다.
+1. **솔루션 탐색기에서**프로젝트를 마우스 오른쪽 단추로 클릭하고 **HDInsight에서 폭풍에 제출을**선택합니다.
 
-1. **토폴로지 제출** 대화 상자의 **스톰 클러스터** 드롭다운 목록에서 HDInsight 클러스터의 스톰을 선택 하 고 **제출**을 선택 합니다. **출력** 창을 확인 하 여 전송의 성공 여부를 확인할 수 있습니다.
+1. **토폴로지 제출** 대화 상자에서 **폭풍 클러스터** 드롭다운 목록에서 HDInsight 클러스터에서 폭풍을 선택한 다음 **제출을**선택합니다. **출력** 창을 확인하여 제출이 성공했는지 확인할 수 있습니다.
 
-    토폴로지가 성공적으로 제출 되 면 클러스터에 대 한 **스톰 토폴로지 보기** 창이 표시 됩니다. 실행 중인 토폴로지에 대 한 정보를 보려면 목록에서 **WordCount** 토폴로지를 선택 합니다.
+    토폴로지가 성공적으로 제출되면 클러스터의 **Storm Topologies 보기** 창이 나타납니다. 목록에서 **WordCount** 토폴로지에서 실행 중인 토폴로지에 대한 정보를 확인합니다.
 
-    ![스톰 토폴로지 보기 창, HDInsight 클러스터, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/storm-topology-view.png)
+    ![스톰 토폴로지 뷰 윈도우, HDInsight 클러스터, 비주얼 스튜디오](./media/apache-storm-develop-csharp-visual-studio-topology/storm-topology-view.png)
 
     > [!NOTE]  
-    > **서버 탐색기**에서 **Storm 토폴로지**를 볼 수도 있습니다. **Azure** > **hdinsight**를 확장 하 고, hdinsight 클러스터의 스톰을 마우스 오른쪽 단추로 클릭 한 후 **스톰 토폴로지 보기**를 선택 합니다.
+    > **서버 탐색기**에서 **Storm 토폴로지**를 볼 수도 있습니다. **Azure** > **HDInsight를**확장하고 HDInsight 클러스터에서 폭풍을 마우스 오른쪽 단추로 클릭한 다음 스톰 **토폴로지 보기를**선택합니다.
 
-    토폴로지의 구성 요소에 대 한 정보를 보려면 다이어그램에서 구성 요소를 선택 합니다.
+    토폴로지의 구성요소에 대한 정보를 보려면 다이어그램에서 구성요소를 선택합니다.
 
-1. **토폴로지 요약** 섹션에서 **Kill** 을 선택 하 여 토폴로지를 중지 합니다.
+1. **토폴로지 요약** 섹션에서 **토폴로지** 중지를 선택합니다.
 
     > [!NOTE]  
     > Storm 토폴로지는 비활성화되거나 클러스터가 삭제될 때까지 계속 실행됩니다.
 
 ## <a name="transactional-topology"></a>트랜잭션 토폴로지
 
-이전 토폴로지는 비트랜잭션입니다. 토폴로지의 구성 요소는 메시지를 재생 하는 기능을 구현 하지 않습니다. 트랜잭션 토폴로지의 예를 보려면 프로젝트를 만들고 프로젝트 형식으로 **Storm 샘플**을 선택합니다.
+이전 토폴로지는 비트랜잭션입니다. 토폴로지의 구성 요소는 메시지를 재생하는 기능을 구현하지 않습니다. 트랜잭션 토폴로지의 예를 보려면 프로젝트를 만들고 프로젝트 형식으로 **Storm 샘플**을 선택합니다.
 
 트랜잭션 토폴로지는 데이터 재생을 지원하기 위해 다음과 같이 구현합니다.
 
-* **메타데이터 캐싱**: Spout는 내보낸 데이터에 대한 메타데이터를 저장해야 하므로 오류가 발생하는 경우 해당 데이터를 검색하고 다시 내보낼 수 있습니다. 샘플로 내보낸 데이터는 작기 때문에 각 튜플의 원시 데이터는 재생을 위해 사전에 저장됩니다.
+* **메타데이터 캐싱:** 주둥이는 내보낸 데이터에 대한 메타데이터를 저장해야 오류가 발생할 경우 데이터를 검색하고 다시 내보내야 합니다. 샘플로 내보낸 데이터는 작기 때문에 각 튜플의 원시 데이터는 재생을 위해 사전에 저장됩니다.
 
-* **Ack**: 토폴로지의 각 Bolt는 `this.ctx.Ack(tuple)`를 호출하여 튜플을 성공적으로 처리했음을 승인할 수 있습니다. 모든 볼트가 튜플을 승인한 경우 spout의 `Ack` 메서드가 호출 됩니다. `Ack` 메서드를 통해 Spout가 재생용으로 캐시된 데이터를 제거할 수 있습니다.
+* **Ack**: 토폴로지의 각 Bolt는 `this.ctx.Ack(tuple)`를 호출하여 튜플을 성공적으로 처리했음을 승인할 수 있습니다. 모든 볼트가 튜플을 승인하면 `Ack` 주어의 메서드가 호출됩니다. `Ack` 메서드를 통해 Spout가 재생용으로 캐시된 데이터를 제거할 수 있습니다.
 
 * **Fail**: 각 Bolt는 `this.ctx.Fail(tuple)`을 호출하여 튜플 처리에 실패했음을 나타냅니다. 캐시된 메타데이터를 사용하여 튜플을 재생할 수 있는 Spout의 `Fail` 메서드로 오류가 전파됩니다.
 
-* **Sequence ID**: 튜플을 내보낼 때 고유한 시퀀스 ID를 지정할 수 있습니다. 이 값은 재생 (`Ack` 및 `Fail`) 처리에 대 한 튜플을 식별 합니다. 예를 들어 **스톰 샘플** 프로젝트의 spout는 데이터를 내보낼 때 다음 메서드 호출을 사용 합니다.
+* **Sequence ID**: 튜플을 내보낼 때 고유한 시퀀스 ID를 지정할 수 있습니다. 이 값은 재생(및)`Ack` `Fail`처리를 위한 튜플을 식별합니다. 예를 들어 **Storm 샘플** 프로젝트의 주어는 데이터를 내보내는 경우 다음 메서드 호출을 사용합니다.
 
   `this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new Values(sentence), lastSeqId);`
 
-  이 코드는 `lastSeqId`에 포함 된 시퀀스 ID 값과 함께 문장을 포함 하는 튜플을 기본 스트림으로 내보냅니다. 이 예에서는 내보낸 모든 튜플에 대해 `lastSeqId`가 증가 합니다.
+  이 코드는 기본 스트림에 문장을 포함하는 튜플을 내보며, `lastSeqId`시퀀스 ID 값은 에 포함되어 있습니다. 이 `lastSeqId` 예제에서는 방사된 모든 튜플에 대해 증분됩니다.
 
 **Storm 샘플** 프로젝트에 설명된 대로 구성 요소가 트랜잭션인지 여부는 구성에 따라 런타임으로 설정할 수 있습니다.
 
@@ -453,13 +453,13 @@ return topologyBuilder;
 
 하이브리드 토폴로지의 예를 보려면 프로젝트를 만들고 **Storm 하이브리드 샘플**을 선택합니다. 이 샘플 형식은 다음 개념을 보여 줍니다.
 
-* **Java spout** 및  **C# 볼트**: `HybridTopology_javaSpout_csharpBolt` 클래스에서 정의 됩니다.
+* **Java 주어와** **C # 볼트** `HybridTopology_javaSpout_csharpBolt` : 클래스에 정의되어 있습니다.
 
-  트랜잭션 버전은 `HybridTopologyTx_javaSpout_csharpBolt` 클래스에서 정의 됩니다.
+  트랜잭션 버전은 클래스에 `HybridTopologyTx_javaSpout_csharpBolt` 정의되어 있습니다.
 
-* spout 및 **Java 볼트**: `HybridTopology_csharpSpout_javaBolt` 클래스에서 정의 됩니다. **C#**
+* **C # 주어와** **자바 볼트** `HybridTopology_csharpSpout_javaBolt` : 클래스에 정의.
 
-  트랜잭션 버전은 `HybridTopologyTx_csharpSpout_javaBolt` 클래스에서 정의 됩니다.
+  트랜잭션 버전은 클래스에 `HybridTopologyTx_csharpSpout_javaBolt` 정의되어 있습니다.
 
   > [!NOTE]  
   > 이 버전은 텍스트 파일에서 Clojure 코드를 Java 구성 요소로 사용하는 방법을 설명하기도 합니다.
@@ -469,28 +469,28 @@ return topologyBuilder;
 > [!NOTE]  
 > 필요한 모든 Java 파일이 *JavaDependency* 폴더에서 이 프로젝트의 일부로 제공됩니다.
 
-하이브리드 토폴로지를 만들고 제출할 때는 다음 사항을 고려 하세요.
+하이브리드 토폴로지생성 및 제출시 다음사항을 고려하십시오.
 
-* `JavaComponentConstructor`를 사용 하 여 spout 또는 볼트에 대 한 Java 클래스의 인스턴스를 만들 수 있습니다.
+* 주전자 또는 볼트에 대한 Java 클래스의 인스턴스를 만드는 데 사용합니다. `JavaComponentConstructor`
 
-* Java 개체에서 JSON으로 Java 구성 요소에서 데이터를 직렬화 하거나 제외 하려면 `microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer`을 사용 합니다.
+* Java `microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer` 개체에서 JSON으로 Java 구성 요소로 데이터를 직렬화하는 데 사용합니다.
 
-* 서버에 토폴로지를 제출할 때 **Java 파일 경로**를 지정하려면 **추가 구성** 옵션을 사용해야 합니다. 지정 된 경로는 Java 클래스를 포함 하는 JAR 파일이 있는 디렉터리 여야 합니다.
+* 서버에 토폴로지를 제출할 때 **Java 파일 경로**를 지정하려면 **추가 구성** 옵션을 사용해야 합니다. 지정된 경로는 Java 클래스를 포함하는 JAR 파일이 있는 디렉터리여야 합니다.
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
 
-SCP.Net 버전 0.9.4.203은 Event Hub Spout(Event Hubs로부터 읽는 Java Spout)로 작업하기 위한 새로운 클래스와 메서드를 소개합니다. 이벤트 허브 spout (예: **스톰 EventHub 판독기 샘플** 템플릿 사용)를 사용 하는 토폴로지를 만들 때는 다음 api를 사용 합니다.
+SCP.Net 버전 0.9.4.203은 Event Hub Spout(Event Hubs로부터 읽는 Java Spout)로 작업하기 위한 새로운 클래스와 메서드를 소개합니다. 이벤트 허브 주전자를 사용하는 토폴로지(예: **Storm EventHub Reader 샘플** 템플릿 사용)를 만들 때 다음 API를 사용합니다.
 
-* `EventHubSpoutConfig` 클래스: spout 구성 요소에 대 한 구성이 포함 된 개체를 만듭니다.
+* `EventHubSpoutConfig`클래스: 주전자 구성 요소에 대한 구성이 포함된 개체를 만듭니다.
 
-* `TopologyBuilder.SetEventHubSpout` 메서드: 토폴로지에 이벤트 허브 spout 구성 요소를 추가 합니다.
+* `TopologyBuilder.SetEventHubSpout`방법: 토폴로지에서 이벤트 허브 주전자 구성 요소를 추가합니다.
 
 > [!NOTE]  
-> Spout에서 생성 된 데이터를 serialize 하는 데에도 `CustomizedInteropJSONSerializer`를 사용 해야 합니다.
+> 주어에서 생성된 `CustomizedInteropJSONSerializer` 데이터를 직렬화하려면 이 방법을 사용해야 합니다.
 
 ## <a name="use-configurationmanager"></a>ConfigurationManager 사용
 
-Bolt 및 Spout 구성 요소에서 구성 값을 검색하는 데 **ConfigurationManager**를 사용하지 마세요. 이렇게 하면 null 포인터 예외가 발생할 수 있습니다. 대신, 프로젝트에 대 한 구성을 스톰 토폴로지에는 토폴로지 컨텍스트의 키 및 값 쌍으로 전달 합니다. 구성 값을 사용하는 각 구성 요소는 초기화 중에 컨텍스트에서 값을 검색해야 합니다.
+**ConfigurationManager를** 사용하여 볼트 및 주전자 구성 요소에서 구성 값을 검색하지 마십시오. 이렇게 하면 null 포인터 예외가 발생할 수 있습니다. 대신 토폴로지 컨텍스트에서 프로젝트의 구성을 Storm 토폴로지에 키 및 값 쌍으로 전달합니다. 구성 값을 사용하는 각 구성 요소는 초기화 중에 컨텍스트에서 값을 검색해야 합니다.
 
 다음 코드에서는 이러한 값을 검색하는 방법을 보여 줍니다.
 
@@ -532,57 +532,57 @@ SCP.NET의 최신 릴리스는 NuGet을 통해 패키지 업그레이드를 지�
 
 1. **솔루션 탐색기**에서 프로젝트의 이름을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 
-2. 패키지 관리자에서 **업데이트**를 선택합니다. SCP.NET 지원 패키지에 대 한 업데이트를 사용할 수 있는 경우 나열 됩니다. 패키지에 대해 **업데이트** 를 선택한 다음 **변경 내용 미리 보기** 대화 상자에서 **확인** 을 선택 하 여 설치 합니다.
+2. 패키지 관리자에서 **업데이트**를 선택합니다. SCP.NET 지원 패키지에 대한 업데이트를 사용할 수 있는 경우 나열됩니다. 패키지에 대한 **업데이트를** 선택한 다음 **변경 내용 미리 보기** 대화 상자에서 **확인을** 선택하여 설치합니다.
 
 > [!IMPORTANT]  
 > NuGet을 사용하지 않는 SCP.NET의 이전 버전으로 프로젝트를 만든 경우 다음 단계를 수행하여 최신 버전으로 업데이트해야 합니다.
 >
 > 1. **솔루션 탐색기**에서 프로젝트의 이름을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
-> 2. **검색** 필드를 사용 하 여 프로젝트에 `Microsoft.SCP.Net.SDK`를 검색 한 다음 추가 합니다.
+> 2. **검색** 필드를 사용하여 프로젝트에 검색한 다음 `Microsoft.SCP.Net.SDK` 추가합니다.
 
 ## <a name="troubleshoot-common-issues-with-topologies"></a>토폴로지의 일반적인 문제 해결
 
 ### <a name="null-pointer-exceptions"></a>Null 포인터 예외
 
-Linux 기반 HDInsight 클러스터에서 C# 토폴로지를 사용 하는 경우 **ConfigurationManager** 를 사용 하 여 런타임에 구성 설정을 읽는 spout 구성 요소에서 null 포인터 예외가 반환 될 수 있습니다.
+Linux 기반 HDInsight 클러스터에서 C# 토폴로지사용을 사용하는 경우 **ConfigurationManager를** 사용하여 런타임에 구성 설정을 읽는 볼트 및 주전자 구성 요소가 null 포인터 예외를 반환할 수 있습니다.
 
-프로젝트에 대한 구성이 토폴로지 컨텍스트의 키 및 값 쌍으로 Storm 토폴로지에 전달됩니다. 초기화 될 때 구성 요소에 전달 되는 사전 개체에서 검색할 수 있습니다.
+프로젝트에 대한 구성이 토폴로지 컨텍스트의 키 및 값 쌍으로 Storm 토폴로지에 전달됩니다. 초기화될 때 구성 요소에 전달되는 사전 개체에서 검색할 수 있습니다.
 
-자세한 내용은이 문서의 [Use ConfigurationManager](#use-configurationmanager) 섹션을 참조 하세요.
+자세한 내용은 이 문서의 [ConfigurationManager 사용](#use-configurationmanager) 섹션을 참조하십시오.
 
 ### <a name="systemtypeloadexception"></a>System.TypeLoadException
 
-Linux 기반 HDInsight 클러스터에서 C# 토폴로지를 사용 하는 경우 다음 오류가 발생할 수 있습니다.
+Linux 기반 HDInsight 클러스터에서 C# 토폴로지사용을 사용하는 경우 다음과 같은 오류가 발생할 수 있습니다.
 
 `System.TypeLoadException: Failure has occurred while loading a type.`
 
-이 오류는 Mono에서 지 원하는 .NET 버전과 호환 되지 않는 이진 파일을 사용할 때 발생 합니다.
+이 오류는 Mono가 지원하는 .NET 버전과 호환되지 않는 바이너리를 사용할 때 발생합니다.
 
 Linux 기반 HDInsight 클러스터의 경우 프로젝트에서 .NET 4.5에 대해 컴파일된 이진 파일을 사용하는지 확인하십시오.
 
 ### <a name="test-a-topology-locally"></a>로컬로 토폴로지 테스트
 
-토폴로지를 클러스터에 쉽게 배포할 수 있지만 경우에 따라 토폴로지를 로컬로 테스트 해야 할 수도 있습니다. 다음 단계를 사용 하 여이 문서의 예제 토폴로지를 개발 환경에서 로컬로 실행 하 고 테스트할 수 있습니다.
+클러스터에 토폴로지배포는 쉽지만 경우에 따라 토폴로지(topology)를 로컬로 테스트해야 할 수도 있습니다. 다음 단계를 사용하여 개발 환경에서 이 문서의 예제 토폴로지(topology)를 로컬로 실행하고 테스트합니다.
 
 > [!WARNING]  
 > 로컬 테스트는 기본 C# 전용 토폴로지에서만 작동합니다. 하이브리드 토폴로지나 여러 스트림을 사용하는 토폴로지에는 로컬 테스트를 사용할 수 없습니다.
 
-1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 프로젝트 속성에서 그런 다음 **출력 유형을** **콘솔 응용 프로그램**으로 변경 합니다.
+1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 프로젝트 속성에서. 그런 다음 **출력 유형을** 콘솔 응용 **프로그램으로**변경합니다.
 
-   ![HDInsight 스톰 응용 프로그램, 프로젝트 속성, 출력 형식](./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png)
+   ![HDInsight 스톰 응용 프로그램, 프로젝트 속성, 출력 유형](./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png)
 
    > [!NOTE]
    > 토폴로지를 클러스터로 배포하기 전에 **출력 유형**을 **클래스 라이브러리**로 다시 변경해야 합니다.
 
-1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **추가** > **새 항목**을 차례로 선택합니다. **클래스**를 선택하고 클래스 이름으로 *LocalTest.cs*를 입력합니다. 마지막으로 **추가**를 선택 합니다.
+1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **추가** > **새 항목**을 차례로 선택합니다. **클래스를**선택하고 *LocalTest.cs* 클래스 이름으로 입력합니다. 마지막으로 **추가**를 선택합니다.
 
-1. *LocalTest.cs*를 열고 맨 위에 다음 `using` 문을 추가 합니다.
+1. *LocalTest.cs*열고 맨 위에 `using` 다음 문을 추가합니다.
 
     ```csharp
     using Microsoft.SCP;
     ```
 
-1. `LocalTest` 클래스의 내용으로 다음 코드를 사용 합니다.
+1. 다음 코드를 `LocalTest` 클래스의 내용으로 사용합니다.
 
     ```csharp
     // Drives the topology components
@@ -661,9 +661,9 @@ Linux 기반 HDInsight 클러스터의 경우 프로젝트에서 .NET 4.5에 대
     }
     ```
 
-    코드 주석을 읽어보세요. 이 코드는 `LocalContext`를 사용 하 여 개발 환경에서 구성 요소를 실행 합니다. 구성 요소 간의 데이터 스트림을 로컬 드라이브의 텍스트 파일로 유지 합니다.
+    코드 주석을 읽어보세요. 이 코드는 개발 환경에서 구성 요소를 실행하는 데 사용됩니다. `LocalContext` 구성 요소 간에 로컬 드라이브의 텍스트 파일에 대한 데이터 스트림을 유지합니다.
 
-1. *Program.cs*를 열고 다음 코드를 `Main` 메서드에 추가 합니다.
+1. *Program.cs*열고 `Main` 메서드에 다음 코드를 추가합니다.
 
     ```csharp
     Console.WriteLine("Starting tests");
@@ -684,15 +684,15 @@ Linux 기반 HDInsight 클러스터의 경우 프로젝트에서 .NET 4.5에 대
     Console.ReadKey();
     ```
 
-1. 변경 내용을 저장 한 다음 **F5 키** 를 선택 하거나 **디버그** > **디버깅 시작** 을 선택 하 여 프로젝트를 시작 합니다. 콘솔 창이 나타나며 로그 상태가 테스트로 진행됩니다. `Tests finished` 표시 되 면 아무 키를 선택 하 여 창을 닫습니다.
+1. 변경 내용을 저장한 다음 **F5를** 선택하거나 **디버그** > **시작 디버깅을** 선택하여 프로젝트를 시작합니다. 콘솔 창이 나타나며 로그 상태가 테스트로 진행됩니다. `Tests finished` 나타나면 키를 선택하여 창을 닫습니다.
 
-1. **Windows 탐색기**를 사용하여 프로젝트가 포함된 디렉터리를 찾습니다. 예: *C:\\Users\\\<your_user_name >\\원본\\리포지토리\\WordCount\\WordCount*.) 그런 다음이 디렉터리에서 *Bin*을 열고 *디버그*를 선택 합니다. 테스트를 실행 *했을 때*생성 된 텍스트 파일 ( *문장과*, test.txt 및 *splitter .txt*)이 표시 됩니다. 각각의 텍스트 파일을 열고 데이터를 검사합니다.
+1. **Windows 탐색기**를 사용하여 프로젝트가 포함된 디렉터리를 찾습니다. (예: *C:\\\\\<사용자가 \\>\\소스\\\\repos WordCount 를 your_user_name*있습니다.) 그런 다음 이 디렉토리에서 *빈을*연 다음 *디버그를*선택합니다. 테스트가 실행될 때 생성된 텍스트 *파일이*표시됩니다. *counter.txt* *splitter.txt* 각각의 텍스트 파일을 열고 데이터를 검사합니다.
 
    > [!NOTE]  
-   > 문자열 데이터는 이러한 파일에 10진수 값의 배열로 유지됩니다. 예를 들어, **splitter .txt** 파일의 `[[97,103,111]]`은 *전*단어를 나타냅니다.
+   > 문자열 데이터는 이러한 파일에 10진수 값의 배열로 유지됩니다. 예를 들어 `[[97,103,111]]` **splitter.txt** 파일에서 *단어 를 나타냅니다.*
 
 > [!NOTE]  
-> HDInsight 클러스터에 배포 하기 전에 프로젝트 속성에서 **프로젝트 형식을** **클래스 라이브러리로** 다시 설정 해야 합니다.
+> HDInsight 클러스터의 Storm에 배포하기 전에 **프로젝트 유형을** 프로젝트 속성의 **클래스 라이브러리로** 다시 설정해야 합니다.
 
 ### <a name="log-information"></a>로그 정보
 
@@ -709,35 +709,35 @@ Linux 기반 HDInsight 클러스터의 경우 프로젝트에서 .NET 4.5에 대
 
 실행 중인 토폴로지에서 발행한 오류를 보려면 다음 단계를 따릅니다.
 
-1. **서버 탐색기**에서 HDInsight 클러스터의 스톰을 마우스 오른쪽 단추로 클릭 하 고 **스톰 토폴로지 보기**를 선택 합니다.
+1. **서버 탐색기에서**HDInsight 클러스터에서 폭풍을 마우스 오른쪽 버튼으로 클릭하고 **스톰 토폴로지 보기를 선택합니다.**
 
    **Spout** 및 **Bolts**의 경우 **마지막 오류** 열에 마지막 오류에 대한 정보가 있습니다.
 
-2. 오류가 나열 된 구성 요소에 대 한 **SPOUT id** 또는 **볼트 id** 를 선택 합니다. 세부 정보 페이지에는 페이지 아래쪽의 **오류** 섹션에 추가 오류 정보가 표시 됩니다.
+2. 오류가 나열된 구성 요소에 대해 **주유 ID** 또는 **볼트 ID를** 선택합니다. 세부 정보 페이지에는 페이지 하단의 **오류** 섹션에 추가 오류 정보가 표시됩니다.
 
-3. 더 많은 정보를 얻으려면 페이지의 **실행기** 섹션에서 **포트**를 선택하여 지난 몇 분 동안의 Storm 작업자 로그를 확인하십시오.
+3. 자세한 정보를 얻으려면 페이지의 **실행기** 섹션에서 **포트를** 선택하여 마지막 몇 분 동안 의 Storm 작업자 로그를 확인합니다.
 
 ### <a name="errors-submitting-topologies"></a>토폴로지 제출 중 오류
 
-HDInsight에 토폴로지를 제출 하는 동안 오류가 발생 하는 경우 HDInsight 클러스터에서 토폴로지 제출을 처리 하는 서버 쪽 구성 요소에 대 한 로그를 찾을 수 있습니다. 이러한 로그를 다운로드 하려면 명령줄에서 다음 명령을 사용 합니다.
+HDInsight에 토폴로지 제출 오류가 발생하면 HDInsight 클러스터에서 토폴로지 제출을 처리하는 서버 측 구성 요소에 대한 로그를 찾을 수 있습니다. 이러한 로그를 다운로드하려면 명령줄에서 다음 명령을 사용합니다.
 
 ```cmd
 scp sshuser@clustername-ssh.azurehdinsight.net:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
 ```
 
-*sshuser*를 클러스터의 SSH 사용자 계정으로 바꿉니다. *clustername*을 HDInsight 클러스터의 이름으로 바꿉니다. HDInsight에서 `scp` 및 `ssh` 사용에 대한 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+*sshuser*를 클러스터의 SSH 사용자 계정으로 바꿉니다. *클러스터 이름을* HDInsight 클러스터의 이름으로 바꿉니다. HDInsight에서 `scp` 및 `ssh` 사용에 대한 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 여러 가지 이유로 제출이 실패할 수 있습니다.
 
-* JDK가 설치 되지 않았거나 경로에 없습니다.
-* 필수 Java 종속성은 제출에 포함 되지 않습니다.
-* 종속성이 호환 되지 않습니다.
-* 토폴로지 이름이 중복 되었습니다.
+* JDK가 설치되지 않았거나 경로에 없습니다.
+* 필수 Java 종속성은 제출에 포함되지 않습니다.
+* 종속성은 호환되지 않습니다.
+* 토폴로지 이름이 중복됩니다.
 
-*Hdinsight-scpwebapi* 로그 파일에 `FileNotFoundException`포함 된 경우 다음 조건에 의해 예외가 발생할 수 있습니다.
+*hdinsight-scpwebapi.out* 로그 파일에 `FileNotFoundException`다음 조건으로 인해 예외가 발생할 수 있습니다.
 
-* JDK는 개발 환경의 경로에 없습니다. JDK가 개발 환경에 설치되어 있고 `%JAVA_HOME%/bin`이 경로에 있는지 확인합니다.
-* Java 종속성이 없습니다. 필요한 .jar 파일을 제출의 일부로 포함 하 고 있는지 확인 합니다.
+* JDK는 개발 환경의 경로에 있지 않습니다. JDK가 개발 환경에 설치되어 있고 `%JAVA_HOME%/bin`이 경로에 있는지 확인합니다.
+* Java 종속성이 누락되었습니다. 제출의 일부로 필요한 .jar 파일을 포함하고 있는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -751,16 +751,16 @@ HDInsight 사용 방법 및 HDInsight의 Storm에 대한 추가 샘플은 다음
 
 **Microsoft SCP.NET**
 
-* [Azure HDInsight의 Apache Storm에 대 한 SCP 프로그래밍 가이드](apache-storm-scp-programming-guide.md)
+* [Azure HDInsight의 아파치 스톰에 대한 SCP 프로그래밍 가이드](apache-storm-scp-programming-guide.md)
 
 **HDInsight의 Apache Storm**
 
 * [Azure HDInsight에서 Apache Storm 토폴로지 배포 및 관리](apache-storm-deploy-monitor-topology-linux.md)
-* [Azure HDInsight의 예제 Apache Storm 토폴로지](apache-storm-example-topology.md)
+* [Azure HDInsight에서 Apache Storm 토폴로지 예제](apache-storm-example-topology.md)
 
 **HDInsight의 Apache Hadoop**
 
-* [Azure HDInsight의 Apache Hive 및 HiveQL 무엇 인가요?](../hadoop/hdinsight-use-hive.md)
+* [Azure HDInsight에서 아파치 하이브와 하이브QL이란?](../hadoop/hdinsight-use-hive.md)
 * [HDInsight의 Apache Hadoop에서 MapReduce 사용](../hadoop/hdinsight-use-mapreduce.md)
 
 **HDInsight의 Apache HBase**

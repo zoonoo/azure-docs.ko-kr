@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 5625ff7e4fc51b9b6b894698719247902a480f44
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243940"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management 템플릿 데이터 모델 참조
@@ -29,7 +29,7 @@ ms.locfileid: "79243940"
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="reference"></a>참조
+## <a name="reference"></a>참고
 
 -   [API](#API)  
 -   [API 요약](#APISummary)  
@@ -38,30 +38,30 @@ ms.locfileid: "79243940"
 -   [코드 샘플](#Sample)  
 -   [설명](#Comment)  
 -   [필터링](#Filtering)  
--   [머리글](#Header)  
+-   [헤더](#Header)  
 -   [HTTP 요청](#HTTPRequest)  
 -   [HTTP 응답](#HTTPResponse)  
--   [문제점](#Issue)  
--   [연산](#Operation)  
+-   [문제](#Issue)  
+-   [작업](#Operation)  
 -   [작업 메뉴](#Menu)  
 -   [작업 메뉴 항목](#MenuItem)  
 -   [페이징](#Paging)  
 -   [매개 변수](#Parameter)  
 -   [Product](#Product)  
 -   [공급자](#Provider)  
--   [표현](#Representation)  
+-   [표시](#Representation)  
 -   [구독](#Subscription)  
 -   [구독 요약](#SubscriptionSummary)  
 -   [사용자 계정 정보](#UserAccountInfo)  
 -   [사용자 로그인](#UseSignIn)  
 -   [사용자 등록](#UserSignUp)  
   
-##  <a name="API"></a> API  
+##  <a name="api"></a><a name="API"></a>Api  
  `API` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|Type|Description|  
 |--------------|----------|-----------------|  
-|`id`|문자열|리소스 식별자. 현재 API Management 서비스 인스턴스 내의 API를 고유하게 식별합니다. 값은 `apis/{id}`가 API 식별자인 `{id}` 형식의 유효한 상대 URL입니다. 이 속성은 읽기 전용입니다.|  
+|`id`|문자열|리소스 식별자. 현재 API Management 서비스 인스턴스 내의 API를 고유하게 식별합니다. 값은 `{id}`가 API 식별자인 `apis/{id}` 형식의 유효한 상대 URL입니다. 이 속성은 읽기 전용입니다.|  
 |`name`|문자열|API 이름입니다. 비어 있지 않아야 합니다. 최대 길이는 100자입니다.|  
 |`description`|문자열|API에 대한 설명입니다. 비어 있지 않아야 합니다. HTML 서식 지정 태그를 포함할 수 있습니다. 최대 길이는 1000자입니다.|  
 |`serviceUrl`|문자열|이 API를 구현하는 백 엔드 서비스의 절대 URL입니다.|  
@@ -70,16 +70,16 @@ ms.locfileid: "79243940"
 |`authenticationSettings`|[권한 부여 서버 인증 설정](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|이 API에 포함된 인증 설정의 컬렉션입니다.|  
 |`subscriptionKeyParameterNames`|object|구독 키가 포함된 쿼리 및/또는 헤더 매개 변수에 대한 사용자 지정 이름을 지정하는 데 사용할 수 있는 선택적 속성입니다. 이 속성이 있으면 다음 두 속성 중 하나 이상을 포함해야 합니다.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
-##  <a name="APISummary"></a> API 요약  
+##  <a name="api-summary"></a><a name="APISummary"></a> API 요약  
  `API summary` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|Type|Description|  
 |--------------|----------|-----------------|  
-|`id`|문자열|리소스 식별자. 현재 API Management 서비스 인스턴스 내의 API를 고유하게 식별합니다. 값은 `apis/{id}`가 API 식별자인 `{id}` 형식의 유효한 상대 URL입니다. 이 속성은 읽기 전용입니다.|  
+|`id`|문자열|리소스 식별자. 현재 API Management 서비스 인스턴스 내의 API를 고유하게 식별합니다. 값은 `{id}`가 API 식별자인 `apis/{id}` 형식의 유효한 상대 URL입니다. 이 속성은 읽기 전용입니다.|  
 |`name`|문자열|API 이름입니다. 비어 있지 않아야 합니다. 최대 길이는 100자입니다.|  
 |`description`|문자열|API에 대한 설명입니다. 비어 있지 않아야 합니다. HTML 서식 지정 태그를 포함할 수 있습니다. 최대 길이는 1000자입니다.|  
   
-##  <a name="Application"></a> 애플리케이션  
+##  <a name="application"></a><a name="Application"></a>응용 프로그램  
  `application` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|Type|Description|  
@@ -97,7 +97,7 @@ ms.locfileid: "79243940"
 |`Attachments`|[첨부 파일](#Attachment) 엔터티의 컬렉션입니다.|스크린샷 또는 아이콘과 같은 애플리케이션에 대한 첨부 파일입니다.|  
 |`Icon`|[첨부 파일](#Attachment)|애플리케이션에 대한 아이콘입니다.|  
   
-##  <a name="Attachment"></a> 첨부 파일  
+##  <a name="attachment"></a><a name="Attachment"></a>첨부 파일  
  `attachment` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|Type|Description|  
@@ -107,7 +107,7 @@ ms.locfileid: "79243940"
 |`Type`|문자열|첨부 파일의 형식입니다.|  
 |`ContentType`|문자열|첨부 파일의 미디어 형식입니다.|  
   
-##  <a name="Sample"></a> 코드 샘플  
+##  <a name="code-sample"></a><a name="Sample"></a>코드 샘플  
   
 |속성|Type|Description|  
 |--------------|----------|-----------------|  
@@ -124,7 +124,7 @@ ms.locfileid: "79243940"
 |`headers`|[헤더](#Header) 엔터티의 컬렉션입니다.|이 작업에 대한 헤더입니다.|  
 |`parameters`|[매개 변수](#Parameter) 엔터티의 컬렉션입니다.|이 작업에 대해 정의된 매개 변수입니다.|  
   
-##  <a name="Comment"></a> 주석  
+##  <a name="comment"></a><a name="Comment"></a> 주석  
  `API` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|Type|Description|  
@@ -134,13 +134,13 @@ ms.locfileid: "79243940"
 |`DeveloperCompany`|문자열|개발자의 회사 이름입니다.|  
 |`PostedOn`|DateTime|의견이 게시된 날짜 및 시간입니다.|  
   
-##  <a name="Issue"></a> 문제  
+##  <a name="issue"></a><a name="Issue"></a>문제  
  `issue` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|Type|Description|  
 |--------------|----------|-----------------|  
 |`Id`|문자열|문제의 고유한 식별자입니다.|  
-|`ApiID`|문자열|이 문제가 보고 된 API에 대 한 ID입니다.|  
+|`ApiID`|문자열|이 문제가 보고된 API의 ID입니다.|  
 |`Title`|문자열|문제의 제목입니다.|  
 |`Description`|문자열|문제에 대한 설명입니다.|  
 |`SubscriptionDeveloperName`|문자열|문제를 보고한 개발자의 이름입니다.|  
@@ -150,7 +150,7 @@ ms.locfileid: "79243940"
 |`Attachments`|[첨부 파일](api-management-template-data-model-reference.md#Attachment) 엔터티의 컬렉션입니다.|문제에 대한 첨부 파일입니다.|  
 |`Services`|[API](#API) 엔터티의 컬렉션입니다.|문제를 정리하는 사용자가 구독한 API입니다.|  
   
-##  <a name="Filtering"></a> 필터링  
+##  <a name="filtering"></a><a name="Filtering"></a>필터링  
  `filtering` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|Type|Description|  
@@ -158,7 +158,7 @@ ms.locfileid: "79243940"
 |`Pattern`|문자열|검색 용어가 없는 경우 현재 검색 용어 또는 `null`입니다.|  
 |`Placeholder`|문자열|지정된 검색 용어가 없는 경우 검색 상자에 표시할 텍스트입니다.|  
   
-##  <a name="Header"></a> 헤더  
+##  <a name="header"></a><a name="Header"></a>헤더  
  이 섹션에서는 `parameter` 표현을 설명합니다.  
   
 |속성|Type|Description|  
@@ -171,7 +171,7 @@ ms.locfileid: "79243940"
 |`required`|boolean|필수 헤더인지 여부입니다.|  
 |`readOnly`|boolean|헤더가 읽기 전용인지 여부입니다.|  
   
-##  <a name="HTTPRequest"></a> HTTP 요청  
+##  <a name="http-request"></a><a name="HTTPRequest"></a>HTTP 요청  
  이 섹션에서는 `request` 표현을 설명합니다.  
   
 |속성|Type|Description|  
@@ -181,7 +181,7 @@ ms.locfileid: "79243940"
 |`parameters`|[매개 변수](#Parameter)의 배열|작업 요청 매개 변수의 컬렉션입니다.|  
 |`representations`|[표현](#Representation)의 배열|작업 요청 표현의 컬렉션입니다.|  
   
-##  <a name="HTTPResponse"></a> HTTP 응답  
+##  <a name="http-response"></a><a name="HTTPResponse"></a>HTTP 응답  
  이 섹션에서는 `response` 표현을 설명합니다.  
   
 |속성|Type|Description|  
@@ -190,12 +190,12 @@ ms.locfileid: "79243940"
 |`description`|문자열|작업 응답 설명입니다.|  
 |`representations`|[표현](#Representation)의 배열|작업 응답 표현의 컬렉션입니다.|  
   
-##  <a name="Operation"></a> 작업  
+##  <a name="operation"></a><a name="Operation"></a>작업  
  `operation` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|Type|Description|  
 |--------------|----------|-----------------|  
-|`id`|문자열|리소스 식별자. 현재 API Management 서비스 인스턴스 내의 작업을 고유하게 식별합니다. 값은 `apis/{aid}/operations/{id}`가 API 식별자이고 `{aid}`가 작업 식별자인 `{id}` 형식의 유효한 상대 URL입니다. 이 속성은 읽기 전용입니다.|  
+|`id`|문자열|리소스 식별자. 현재 API Management 서비스 인스턴스 내의 작업을 고유하게 식별합니다. 값은 `{aid}`가 API 식별자이고 `{id}`가 작업 식별자인 `apis/{aid}/operations/{id}` 형식의 유효한 상대 URL입니다. 이 속성은 읽기 전용입니다.|  
 |`name`|문자열|작업의 이름입니다. 비어 있지 않아야 합니다. 최대 길이는 100자입니다.|  
 |`description`|문자열|작업에 대한 설명입니다. 비어 있지 않아야 합니다. HTML 서식 지정 태그를 포함할 수 있습니다. 최대 길이는 1000자입니다.|  
 |`scheme`|문자열|이 API의 작업을 호출할 수 있는 프로토콜을 설명합니다. 허용되는 값은 `http`, `https` 또는 `http` 및 `https` 모두입니다.|  
@@ -205,7 +205,7 @@ ms.locfileid: "79243940"
 |`request`|[HTTP 요청](#HTTPRequest)|요청 세부 정보를 포함하는 엔터티입니다.|  
 |`responses`|[HTTP 응답](#HTTPResponse)의 배열|작업 [HTTP 응답](#HTTPResponse) 엔터티의 배열입니다.|  
   
-##  <a name="Menu"></a> 작업 메뉴  
+##  <a name="operation-menu"></a><a name="Menu"></a> 작업 메뉴  
  `operation menu` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|Type|Description|  
@@ -215,7 +215,7 @@ ms.locfileid: "79243940"
 |`Action`|문자열|메뉴 형식입니다.|  
 |`MenuItems`|[작업 메뉴 항목](#MenuItem) 엔터티의 컬렉션입니다.|현재 API에 대한 작업입니다.|  
   
-##  <a name="MenuItem"></a> 작업 메뉴 항목  
+##  <a name="operation-menu-item"></a><a name="MenuItem"></a> 작업 메뉴 항목  
  `operation menu item` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|Type|Description|  
@@ -224,7 +224,7 @@ ms.locfileid: "79243940"
 |`Title`|문자열|작업에 대한 설명입니다.|  
 |`HttpMethod`|문자열|작업의 Http 메서드입니다.|  
   
-##  <a name="Paging"></a> 페이징  
+##  <a name="paging"></a><a name="Paging"></a>페이징  
  `paging` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|Type|Description|  
@@ -235,7 +235,7 @@ ms.locfileid: "79243940"
 |`ShowAll`|boolean|단일 페이지에 모든 결과를 표시할지 여부입니다.|  
 |`PageCount`|number|결과의 페이지 수입니다.|  
   
-##  <a name="Parameter"></a> 매개 변수  
+##  <a name="parameter"></a><a name="Parameter"></a>매개 변수  
  이 섹션에서는 `parameter` 표현을 설명합니다.  
   
 |속성|Type|Description|  
@@ -248,12 +248,12 @@ ms.locfileid: "79243940"
 |`kind`|number|이 매개 변수가 경로 매개 변수(1) 또는 쿼리 문자열 매개 변수(2)인지 여부입니다.|  
 |`typeName`|문자열|매개 변수 유형입니다.|  
   
-##  <a name="Product"></a> 제품  
+##  <a name="product"></a><a name="Product"></a>제품  
  `product` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|Type|Description|  
 |--------------|----------|-----------------|  
-|`Id`|문자열|리소스 식별자. 현재 API Management 서비스 인스턴스 내의 제품을 고유하게 식별합니다. 값은 `products/{pid}`가 제품 식별자인 `{pid}` 형식의 유효한 상대 URL입니다. 이 속성은 읽기 전용입니다.|  
+|`Id`|문자열|리소스 식별자. 현재 API Management 서비스 인스턴스 내의 제품을 고유하게 식별합니다. 값은 `{pid}`가 제품 식별자인 `products/{pid}` 형식의 유효한 상대 URL입니다. 이 속성은 읽기 전용입니다.|  
 |`Title`|문자열|제품의 이름입니다. 비어 있지 않아야 합니다. 최대 길이는 100자입니다.|  
 |`Description`|문자열|제품에 대한 설명입니다. 비어 있지 않아야 합니다. HTML 서식 지정 태그를 포함할 수 있습니다. 최대 길이는 1000자입니다.|  
 |`Terms`|문자열|제품 사용 약관입니다. 제품을 구독하려는 개발자에게 표시되며 구독 프로세스를 완료하기 전에 이러한 약관에 동의해야 합니다.|  
@@ -261,7 +261,7 @@ ms.locfileid: "79243940"
 |`AllowMultipleSubscriptions`|boolean|사용자가 동시에 이 제품에 여러 구독을 소유할 수 있는지 여부를 지정합니다.|  
 |`MultipleSubscriptionsCount`|number|사용자가 동시에 가질 수 있는 이 제품의 최대 구독 수입니다.|  
   
-##  <a name="Provider"></a> 공급자  
+##  <a name="provider"></a><a name="Provider"></a>공급자  
  `provider` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|Type|Description|  
@@ -270,7 +270,7 @@ ms.locfileid: "79243940"
 |`AuthenticationType`|문자열|공급자 유형입니다. (Azure Active Directory, Facebook 로그인, Google 계정, Microsoft 계정, Twitter).|  
 |`Caption`|문자열|공급자의 표시 이름입니다.|  
   
-##  <a name="Representation"></a> 표현  
+##  <a name="representation"></a><a name="Representation"></a>표현  
  이 섹션에서는 `representation`을 설명합니다.  
   
 |속성|Type|Description|  
@@ -278,13 +278,13 @@ ms.locfileid: "79243940"
 |`contentType`|문자열|이 표현에 대한 등록된 또는 사용자 지정 콘텐츠 형식을 지정합니다(예: `application/xml`).|  
 |`sample`|문자열|표현의 예제입니다.|  
   
-##  <a name="Subscription"></a> 구독  
+##  <a name="subscription"></a><a name="Subscription"></a> 구독  
  `subscription` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|Type|Description|  
 |--------------|----------|-----------------|  
-|`Id`|문자열|리소스 식별자. 현재 API Management 서비스 인스턴스 내의 구독을 고유하게 식별합니다. 값은 `subscriptions/{sid}`가 구독 식별자인 `{sid}` 형식의 유효한 상대 URL입니다. 이 속성은 읽기 전용입니다.|  
-|`ProductId`|문자열|구독된 제품의 제품 리소스 식별자입니다. 값은 `products/{pid}`가 제품 식별자인 `{pid}` 형식의 유효한 상대 URL입니다.|  
+|`Id`|문자열|리소스 식별자. 현재 API Management 서비스 인스턴스 내의 구독을 고유하게 식별합니다. 값은 `{sid}`가 구독 식별자인 `subscriptions/{sid}` 형식의 유효한 상대 URL입니다. 이 속성은 읽기 전용입니다.|  
+|`ProductId`|문자열|구독된 제품의 제품 리소스 식별자입니다. 값은 `{pid}`가 제품 식별자인 `products/{pid}` 형식의 유효한 상대 URL입니다.|  
 |`ProductTitle`|문자열|제품의 이름입니다. 비어 있지 않아야 합니다. 최대 길이는 100자입니다.|  
 |`ProductDescription`|문자열|제품에 대한 설명입니다. 비어 있지 않아야 합니다. HTML 서식 지정 태그를 포함할 수 있습니다. 최대 길이는 1000자입니다.|  
 |`ProductDetailsUrl`|문자열|제품 세부 정보에 대한 상대 URL입니다.|  
@@ -304,15 +304,15 @@ ms.locfileid: "79243940"
 |`CancelUrl`|문자열|구독을 취소하는 상대 Url입니다.|  
 |`RenewUrl`|문자열|구독을 갱신하는 상대 Url입니다.|  
   
-##  <a name="SubscriptionSummary"></a> 구독 요약  
+##  <a name="subscription-summary"></a><a name="SubscriptionSummary"></a> 구독 요약  
  `subscription summary` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|Type|Description|  
 |--------------|----------|-----------------|  
-|`Id`|문자열|리소스 식별자. 현재 API Management 서비스 인스턴스 내의 구독을 고유하게 식별합니다. 값은 `subscriptions/{sid}`가 구독 식별자인 `{sid}` 형식의 유효한 상대 URL입니다. 이 속성은 읽기 전용입니다.|  
+|`Id`|문자열|리소스 식별자. 현재 API Management 서비스 인스턴스 내의 구독을 고유하게 식별합니다. 값은 `{sid}`가 구독 식별자인 `subscriptions/{sid}` 형식의 유효한 상대 URL입니다. 이 속성은 읽기 전용입니다.|  
 |`DisplayName`|문자열|구독의 표시 이름|  
   
-##  <a name="UserAccountInfo"></a> 사용자 계정 정보  
+##  <a name="user-account-info"></a><a name="UserAccountInfo"></a> 사용자 계정 정보  
  `user account info` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|Type|Description|  
@@ -325,7 +325,7 @@ ms.locfileid: "79243940"
 |`ProviderName`|문자열|인증 공급자 이름입니다.|  
 |`IsBasicAccount`|boolean|이 계정이 전자 메일 및 암호를 사용하여 등록된 경우 true이며 공급자를 사용하여 등록된 경우 false입니다.|  
   
-##  <a name="UseSignIn"></a> 사용자 로그인  
+##  <a name="user-sign-in"></a><a name="UseSignIn"></a> 사용자 로그인  
  `user sign in` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|Type|Description|  
@@ -343,7 +343,7 @@ ms.locfileid: "79243940"
 |`UserRegistrationTerms`|문자열|로그인하기 전에 사용자가 동의해야 하는 약관입니다.|  
 |`UserRegistrationTermsEnabled`|boolean|약관이 활성화되었는지 여부입니다.|  
   
-##  <a name="UserSignUp"></a> 사용자 등록  
+##  <a name="user-sign-up"></a><a name="UserSignUp"></a>사용자 등록  
  `user sign up` 엔터티에는 다음과 같은 속성이 있습니다.  
   
 |속성|Type|Description|  

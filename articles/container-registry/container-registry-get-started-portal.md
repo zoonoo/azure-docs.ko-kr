@@ -2,18 +2,18 @@
 title: 빠른 시작 - 포털에서 레지스트리 만들기
 description: Azure Portal을 사용하여 Azure Container Registry에서 프라이빗 Docker 레지스트리를 만드는 방법을 빠르게 알아봅니다.
 ms.topic: quickstart
-ms.date: 01/22/2019
+ms.date: 03/03/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 319fd670c8e82120ef63e94395f4d6809eeb2601
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 6fe6358655f50ab783b4017efa8ee1db351cd018
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611239"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79409276"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 프라이빗 컨테이너 레지스트리 만들기
 
-Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장하고 관리할 수 있는 Azure의 프라이빗 Docker 레지스트리입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Container Registry를 만듭니다. 그런 다음, Docker 명령을 사용하여 컨테이너 이미지를 레지스트리로 푸시하고, 마지막으로 레지스트리에서 이미지를 끌어와서 실행합니다.
+Azure 컨테이너 레지스트리는 프라이빗 Docker 컨테이너 이미지 및 관련 아티팩트를 저장하고 관리할 수 있는 Azure의 프라이빗 Docker 레지스트리입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Container Registry를 만듭니다. 그런 다음, Docker 명령을 사용하여 컨테이너 이미지를 레지스트리로 푸시하고, 마지막으로 레지스트리에서 이미지를 끌어와서 실행합니다.
 
 레지스트리에 로그인하여 컨테이너 이미지를 사용할 수 있도록 이 빠른 시작에서는 Azure CLI(버전 2.0.55 이상 권장)를 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
@@ -29,9 +29,11 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
 
 ![Azure Portal에서 컨테이너 레지스트리 만들기][qs-portal-01]
 
-**레지스트리 이름** 및 **리소스 그룹**에 대한 값을 입력합니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 이 빠른 시작에서는 `West US` 위치에 `myResourceGroup`이라는 새 리소스 그룹을 만들고, **SKU**로 '기본'을 선택합니다. **만들기**를 선택하여 ACR 인스턴스를 배포합니다.
+**기본** 탭에서 **리소스 그룹** 및 **레지스트리 이름**에 대한 값을 입력합니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 이 빠른 시작에서는 `West US` 위치에 `myResourceGroup`이라는 새 리소스 그룹을 만들고, **SKU**로 '기본'을 선택합니다. 
 
 ![Azure Portal에서 컨테이너 레지스트리 만들기][qs-portal-03]
+
+나머지 설정에 대해 기본값을 그대로 적용합니다. 그런 다음, **검토 + 만들기**를 선택합니다. 설정을 검토한 후 **만들기**를 선택합니다.
 
 이 빠른 시작에서는 Azure Container Registry에 대해 배우기 시작하는 개발자를 위해 비용 최적화된 옵션인 *기본* 레지스트리를 만듭니다. 사용 가능한 서비스 계층에 대한 자세한 내용은 [컨테이너 레지스트리 SKU][container-registry-skus]를 참조하세요.
 
@@ -39,11 +41,11 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
 
 ![Azure Portal의 컨테이너 레지스트리 개요][qs-portal-05]
 
-**로그인 서버**의 값을 기록해 둡니다. Azure CLI 또는 Docker를 사용하여 레지스트리를 작업할 때 다음 단계에서 이러한 값을 사용합니다.
+**로그인 서버**의 값을 기록해 둡니다. Docker를 사용하여 이미지를 밀어넣고 끌어올 때 다음 단계에서 이 값을 사용합니다.
 
 ## <a name="log-in-to-registry"></a>레지스트리에 로그인
 
-컨테이너 이미지를 밀어넣고 끌어오려면 먼저 ACR 인스턴스에 로그인해야 합니다. 운영 체제에서 명령 셸을 열고 Azure CLI에서 [az acr login][az-acr-login] 명령을 사용합니다(컨테이너 이름만 지정). 'azurecr.io'를 포함하지 마세요.)
+컨테이너 이미지를 밀어넣고 끌어오려면 먼저 ACR 인스턴스에 로그인해야 합니다. 운영 체제에서 명령 셸을 열고, Azure CLI에서 [az acr login][az-acr-login] 명령을 사용합니다. (로그인할 때 레지스트리 이름만 지정합니다. 'azurecr.io' 접미사는 포함하지 마세요.)
 
 ```azurecli
 az acr login --name <acrName>
@@ -57,7 +59,7 @@ az acr login --name <acrName>
 
 레지스트리의 이미지를 나열하려면 포털에서 레지스트리로 이동하여 **리포지토리**를 선택한 다음, `docker push`를 사용하여 만든 리포지토리를 선택합니다.
 
-이 예제에서 **helloworld** 리포지토리를 선택하고 **태그**에서 `v1` 태그가 지정된 이미지를 볼 수 있습니다.
+이 예제에서는 **hello-world** 리포지토리를 선택하고 **태그**에서 `v1` 태그가 지정된 이미지를 볼 수 있습니다.
 
 ![Azure Portal에 컨테이너 이미지 나열][qs-portal-09]
 

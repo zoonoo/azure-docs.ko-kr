@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 292b53fac6c970fb961e8ad4ce7774c080e52422
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: dbb9b0f865c7ec5d9d29e2310ae41abbec287bd6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718874"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79464965"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Azure VM에서 게스트 OS 방화벽 사용 안 함
 
@@ -27,7 +27,7 @@ ms.locfileid: "76718874"
 
 ## <a name="solution"></a>해결 방법
 
-이 문서에서 설명하는 프로세스는 문제를 해결하는 용도로 사용되므로 실제 문제 해결, 즉, 방화벽 규칙을 올바르게 설정하는 방법에 집중할 수 있습니다. Windows 방화벽 구성 요소를 사용 하도록 설정 하는 것이 좋습니다. 방화벽 규칙을 구성 하는 방법은 필요한 VM에 대 한 액세스 수준에 따라 달라 집니다.
+이 문서에서 설명하는 프로세스는 문제를 해결하는 용도로 사용되므로 실제 문제 해결, 즉, 방화벽 규칙을 올바르게 설정하는 방법에 집중할 수 있습니다. Windows 방화벽 구성 요소를 사용하도록 설정하는 것이 Microsoft 모범 사례입니다. 방화벽 규칙을 구성하는 방법은 필요한 VM에 대한 액세스 수준에 따라 다릅니다.
 
 ### <a name="online-solutions"></a>온라인 솔루션 
 
@@ -70,7 +70,7 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
     ```
 
 > [!Note]
-> 그룹 정책 개체를 통해 방화벽을 설정 하는 경우이 명령은 로컬 레지스트리 항목만 변경 하므로이 메서드는 작동 하지 않을 수 있습니다. 정책을 적용하면 이 변경 내용이 재정의됩니다. 
+> 방화벽이 그룹 정책 개체를 통해 설정되는 경우 이 명령은 로컬 레지스트리 항목만 변경하므로 이 방법이 작동하지 않습니다. 정책을 적용하면 이 변경 내용이 재정의됩니다. 
 
 #### <a name="mitigation-3-pstools-commands"></a>해결 방법 3: PSTools 명령
 
@@ -90,9 +90,9 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
 
 다음 단계에 따라 [원격 레지스트리](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry)를 사용합니다.
 
-1.  문제 해결을 위한 VM에서 레지스트리 편집기를 시작한 다음, **파일** > **네트워크 레지스트리 연결**로 이동합니다.
+1.  문제 해결 VM에서 레지스트리 편집기를 시작한 다음 **파일** > **연결 네트워크 레지스트리로**이동합니다.
 
-2.  *대상 컴퓨터*\SYSTEM 분기를 열고 다음 값을 지정 합니다.
+2.  *대상 컴퓨터*\SYSTEM 분기를 열고 다음 값을 지정합니다.
 
     ```
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\EnableFirewall           -->        0 
@@ -100,15 +100,15 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile\EnableFirewall         -->        0
     ```
 
-3.  서비스를 다시 시작합니다. 이 작업은 원격 레지스트리를 사용할 수 없으므로 서비스 제거 콘솔을 사용해야 합니다.
+3.  서비스를 다시 시작합니다. 원격 레지스트리를 사용하여 작업을 수행할 수 없으므로 원격 서비스 콘솔을 사용해야 합니다.
 
-4.  **Services.msc**의 인스턴스를 엽니다.
+4.  **Services.msc의**인스턴스를 엽니다.
 
 5.  **서비스(로컬)** 을 클릭합니다.
 
 6.  **다른 컴퓨터에 연결**을 선택합니다.
 
-7.  문제 VM의 **개인 IP 주소 (DIP)** 를 입력 합니다.
+7.  문제 VM의 **개인 IP 주소(DIP)를** 입력합니다.
 
 8.  로컬 방화벽 정책을 다시 시작합니다.
 

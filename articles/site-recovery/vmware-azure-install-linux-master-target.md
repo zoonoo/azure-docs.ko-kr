@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용 하 여 Linux VM 장애 복구를 위한 마스터 대상 서버 설치
+title: Azure 사이트 복구를 사용 하 여 Linux VM 장애 복구에 대 한 마스터 대상 서버 설치
 description: Azure Site Recovery를 사용한 VMware VM과 Azure 간 재해 복구 중에 온-프레미스 사이트로 장애 복구(failback)를 위한 Linux 마스터 대상 서버를 설치하는 방법을 알아봅니다.
 author: mayurigupta13
 services: site-recovery
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
 ms.openlocfilehash: 5b4d625d28584bb601905e9439c112c845219e54
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954370"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치
@@ -21,7 +21,7 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 보호된 가상 머신이 Windows 가상 머신인 경우 Windows 마스터 대상이 필요합니다. Linux 가상 머신인 경우 Linux 마스터 대상이 필요합니다. 다음 단계를 읽고 Linux 마스터 대상을 만들고 설치하는 방법에 대해 알아보세요.
 
 > [!IMPORTANT]
-> 9\.10.0 마스터 대상 서버 릴리스부터 최신 마스터 대상 서버는 Ubuntu 16.04 서버에만 설치할 수 있습니다. 새로운 설치는 CentOS6.6 서버에서 허용되지 않습니다. 그러나 9.10.0 버전을 사용하여 이전 마스터 대상 서버를 계속 업그레이드할 수 있습니다.
+> 9.10.0 마스터 대상 서버 릴리스부터 최신 마스터 대상 서버는 Ubuntu 16.04 서버에만 설치할 수 있습니다. 새로운 설치는 CentOS6.6 서버에서 허용되지 않습니다. 그러나 9.10.0 버전을 사용하여 이전 마스터 대상 서버를 계속 업그레이드할 수 있습니다.
 > LVM의 마스터 대상 서버는 지원되지 않습니다.
 
 ## <a name="overview"></a>개요
@@ -29,14 +29,14 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 
 이 문서의 마지막 부분 또는 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 의견이나 질문을 게시할 수 있습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 마스터 대상을 배포해야 하는 호스트를 선택하려면 기존 온-프레미스 가상 머신에 장애 복구를 수행할 것인지 아니면 새 가상 머신에 장애 복구를 수행할 것인지 결정합니다. 
     * 기존 가상 컴퓨터에서 수행하는 경우 마스터 대상의 호스트가 가상 컴퓨터의 데이터 저장소에 액세스할 수 있어야 합니다.
     * 온-프레미스 가상 머신이 없는 경우(대체 위치 복구의 경우) 마스터 대상과 동일한 호스트에 장애 복구(failback) 가상 머신이 생성됩니다. 아무 ESXi 호스트를 선택하여 마스터 대상을 설치할 수 있습니다.
 * 마스터 대상은 프로세스 서버 및 구성 서버와 통신할 수 있는 네트워크에 있어야 합니다.
 * 마스터 대상의 버전이 프로세스 서버 및 구성 서버의 버전과 같거나 그보다 이전 버전이어야 합니다. 예를 들어 구성 서버의 버전이 9.4인 경우 마스터 대상의 버전이 9.4 또는 9.3인 것은 괜찮지만 9.5는 안 됩니다.
-* 마스터 대상은 VMware 가상 컴퓨터만 될 수 있고 물리적 서버는 안 됩니다.
+* 마스터 대상은 VMware 가상 머신만 될 수 있고 물리적 서버는 안 됩니다.
 
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>마스터 대상 서버 만들기에 대한 크기 조정 지침
 
@@ -46,7 +46,7 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 - **보존 드라이브에 대한 추가 디스크 크기**: 1TB
 - **CPU 코어**: 코어 4개 이상
 
-지원 되는 Ubuntu 커널은 다음과 같습니다.
+다음 우분투 커널이 지원됩니다.
 
 
 |커널 시리즈  |최대 지원  |
@@ -62,7 +62,7 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 
 다음 단계를 통해 Ubuntu 16.04.2 64비트 운영 체제를 설치합니다.
 
-1.   [다운로드 링크](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso)로 이동 하 여 가장 가까운 미러를 선택 하 고 Ubuntu 16.04.2 최소 64 비트 ISO를 다운로드 합니다.
+1.   [다운로드 링크로](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso)이동, 가장 가까운 거울을 선택하고 우분투를 다운로드 16.04.2 최소 64 비트 ISO.
 DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스템을 시작합니다.
 
 1.  기본 설정 언어로 **영어**를 선택하고 **Enter** 키를 선택합니다.
@@ -83,7 +83,7 @@ DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스
 1. **아니요**(기본 옵션)를 선택하고 **Enter** 키를 선택합니다.
 
      ![키보드 구성](./media/vmware-azure-install-linux-master-target/image5.png)
-1. 키보드의 원본 국가/지역으로 **영어 (미국)** 를 선택 하 고 **enter 키**를 선택 합니다.
+1. 키보드의 원산지 국가/지역으로 **영어(미국)를** 선택한 다음 **Enter**를 선택합니다.
 
 1. 키보드 레이아웃으로 **영어(미국)** 를 선택하고 **Enter** 키를 선택합니다.
 
@@ -124,7 +124,7 @@ DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스
      ![업그레이드를 관리하는 방법 선택](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
     > [!WARNING]
-    > Azure Site Recovery 마스터 대상 서버에 Ubuntu의 매우 구체적인 버전이 필요하기 때문에 가상 머신에서 커널 업그레이드를 비활성화해야 합니다. 활성화한 경우 일반 업그레이드로 인해 마스터 대상 서버에 오작동이 발생합니다. **자동 업데이트 없음** 옵션을 선택했는지 확인합니다.
+    > Azure Site Recovery 마스터 대상 서버에 Ubuntu의 매우 구체적인 버전이 필요하기 때문에 가상 머신에서 커널 업그레이드를 비활성화해야 합니다. 활성화한 경우 일반 업그레이드로 인해 마스터 대상 서버에 오작동이 발생합니다. **자동 업데이트 없음** 옵션을 선택해야 합니다.
 
 1.  기본 옵션을 선택합니다. SSH 연결에 openSSH를 설정하려는 경우 **OpenSSH 서버** 옵션을 선택한 다음 **계속**을 선택합니다.
 
@@ -154,13 +154,13 @@ DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스
 
 Linux 가상 머신에 있는 각 SCSI 하드 디스크의 ID를 가져오려면 **disk.EnableUUID = TRUE** 매개 변수를 사용하도록 설정해야 합니다. 이 매개 변수를 사용하려면 다음 단계를 따르세요.
 
-1. 가상 컴퓨터를 종료합니다.
+1. 가상 머신을 종료합니다.
 
 2. 왼쪽 창에서 가상 머신의 항목을 마우스 오른쪽 단추로 클릭한 다음 **편집 설정**을 선택합니다.
 
 3. **옵션** 탭을 선택합니다.
 
-4. 왼쪽 창에서 **고급** > **일반**을 선택한 다음 화면의 오른쪽 아래에서 **구성 매개 변수** 단추를 선택합니다.
+4. 왼쪽 창에서 **고급** > **일반**을 선택한 다음 화면의 오른쪽 하단에 있는 구성 **매개 변수** 단추를 선택합니다.
 
     ![구성 매개 변수 열기](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
@@ -195,7 +195,7 @@ Azure Site Recovery 마스터 대상 서버에 Ubuntu의 매우 구체적인 버
 
 #### <a name="download-the-master-target-installation-packages"></a>마스터 대상 설치 패키지 다운로드
 
-[최신 Linux 마스터 대상 설치 비트를 다운로드합니다](https://aka.ms/latestlinuxmobsvc).
+[최신 리눅스 마스터 대상 설치 비트를 다운로드합니다.](https://aka.ms/latestlinuxmobsvc)
 
 Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
@@ -209,12 +209,12 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
 1. 프로세스 서버에서 **C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**로 이동합니다.
 
-2. 프로세스 서버에서 필요한 설치 프로그램 파일을 복사하고 홈 디렉터리에 **latestlinuxmobsvc.tar.gz**로 저장합니다.
+2. 프로세스 서버에서 필요한 설치 파일을 복사하고 홈 디렉토리에 **최신 linuxmobsvc.tar.gz로** 저장합니다.
 
 
 ### <a name="apply-custom-configuration-changes"></a>사용자 지정 구성 변경 내용 적용
 
-사용자 지정 구성 변경 내용을 적용 하려면 루트 사용자로 다음 단계를 사용 합니다.
+사용자 지정 구성 변경 내용을 적용하려면 ROOT 사용자로 다음 단계를 사용합니다.
 
 1. 다음 명령을 실행하여 바이너리를 untar합니다.
 
@@ -244,7 +244,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
     ![다중 경로 ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. 드라이브를 포맷 하 고 새 드라이브에 파일 시스템을 만듭니다. **mkfs. ext4/dev/mapper/\<보존 디스크의 다중 경로 id >** .
+3. 드라이브를 포맷한 다음 새 드라이브에 파일 시스템을 만듭니다: **mkfs.ext4\</dev/mapper/ 보존 디스크의 멀티경로 id>. **
     
     ![파일 시스템](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -261,7 +261,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
     
     **Insert** 키를 눌러 파일을 편집하기 시작합니다. 새 줄을 만들고 다음 텍스트를 삽입합니다. 이전 명령에서 강조 표시된 다중 경로 ID에 따라 디스크 다중 경로 ID를 편집합니다.
 
-    **/dev/mapper/\<보존 디스크 다중 경로 id >/mnt/retention ext4 rw 0 0**
+    **/dev/매퍼/리텐션\<디스크 멀티패스 id> /mnt/retention ext4 rw 0 0**
 
     **Esc** 키를 선택하고 **:wq**(쓰기 및 종료)를 입력하여 편집기 창을 닫습니다.
 
@@ -272,13 +272,13 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
 
 > [!NOTE]
-> 마스터 대상 서버를 설치하기 전에 로컬 호스트 이름을 모든 네트워크 어댑터와 연결된 IP 주소에 매핑하는 항목이 가상 머신의 **/etc/hosts** 파일에 포함되어 있는지 확인합니다.
+> 마스터 대상 서버를 설치하기 전에 가상 컴퓨터의 **/etc/hosts** 파일에 로컬 호스트 이름을 모든 네트워크 어댑터와 연결된 IP 주소에 매핑하는 항목이 포함되어 있는지 확인합니다.
 
 1. 구성 서버의 **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase**에서 암호를 복사합니다. 그리고 다음 명령을 실행하여 같은 로컬 디렉터리에서 **passphrase.txt**로 저장합니다.
 
     `echo <passphrase> >passphrase.txt`
 
-    예: 
+    예제: 
 
        `echo itUx70I47uxDuUVY >passphrase.txt`
     
@@ -289,7 +289,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
 
-    예: 
+    예제: 
     
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
@@ -320,7 +320,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
     ./install -q -d /usr/local/ASR -r MT -v VmWare
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
-    예: 
+    예제: 
 
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
@@ -335,7 +335,7 @@ VMware 도구 또는 open-vm-tools가 데이터 저장소를 찾을 수 있도�
 
 ### <a name="upgrade-the-master-target-server"></a>마스터 대상 서버 업그레이드
 
-설치 관리자를 실행합니다. 마스터 대상에 에이전트가 설치되어 있는지를 자동으로 검색합니다. 업그레이드 하려면 **Y**를 선택 합니다.  설치가 완료 되 면 다음 명령을 사용 하 여 설치 된 마스터 대상의 버전을 확인 합니다.
+설치 관리자를 실행합니다. 마스터 대상에 에이전트가 설치되어 있는지를 자동으로 검색합니다. 업그레이드하려면 **Y를**선택합니다.  설정이 완료된 후 다음 명령을 사용하여 설치된 마스터 대상의 버전을 확인합니다.
 
 `cat /usr/local/.vx_version`
 
@@ -354,7 +354,7 @@ VMware 도구 또는 open-vm-tools가 데이터 저장소를 찾을 수 있도�
 
 
 ## <a name="next-steps"></a>다음 단계
-마스터 대상의 설치 및 등록이 완료되면 구성 서버 개요 아래에 있는 **Site Recovery 인프라**의 **마스터 대상** 섹션에 마스터 대상이 표시된 것을 확인할 수 있습니다.
+마스터 대상의 설치 및 등록이 완료되면 구성 서버 개요 에서 마스터 **대상이** **사이트 복구 인프라의**마스터 대상 섹션에 나타나는 것을 볼 수 있습니다.
 
-이제 [다시 보호](vmware-azure-reprotect.md)와 장애 복구를 계속 진행할 수 있습니다.
+이제 [다시 보호를](vmware-azure-reprotect.md)진행하고 장애 조치(failback)를 진행할 수 있습니다.
 

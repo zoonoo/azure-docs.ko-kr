@@ -1,21 +1,21 @@
 ---
-title: Sys_schema Azure Database for MySQL 활용
-description: Sys_schema를 사용 하 여 성능 문제를 찾고 Azure Database for MySQL에서 데이터베이스를 유지 관리 하는 방법을 알아봅니다.
+title: sys_schema 활용 - MySQL용 Azure 데이터베이스
+description: sys_schema 사용하여 성능 문제를 찾고 MySQL용 Azure 데이터베이스에서 데이터베이스를 유지 관리하는 방법을 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 12/02/2019
-ms.openlocfilehash: 50552b87fad9d8f58ff8c48dc03463d4c901bf99
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
-ms.translationtype: MT
+ms.date: 3/18/2020
+ms.openlocfilehash: a35a586a519ff78e8b32d986b92bd008b2c6b858
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775948"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067875"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 성능 튜닝 및 데이터베이스 유지 관리를 위해 sys_schema를 사용하는 방법
 
-Mysql 5.5에서 먼저 제공 되는 MySQL performance_schema는 메모리 할당, 저장 된 프로그램, 메타 데이터 잠금 등의 많은 중요 한 서버 리소스에 대 한 계측을 제공 합니다. 그러나 performance_schema는 80 개 이상의 테이블을 포함 하 고 필요한 정보를 가져오기 위해서는 performance_schema 내의 테이블과 information_schema 테이블을 조인 해야 하는 경우가 많습니다. performance_schema 및 information_schema 모두를 기반으로 하는 sys_schema에는 읽기 전용 데이터베이스의 강력하고 [사용자에게 친숙한 보기](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) 컬렉션이 제공되며 Azure Database for MySQL 버전 5.7에서 완벽한 사용이 가능합니다.
+MySQL 5.5에서 처음 사용할 수 있는 MySQL performance_schema 메모리 할당, 저장된 프로그램, 메타데이터 잠금 등과 같은 많은 중요한 서버 리소스에 대한 계측을 제공합니다. 그러나 performance_schema 80개 이상의 테이블을 포함하고 있으며 필요한 정보를 얻으려면 performance_schema 내의 테이블과 information_schema 테이블을 조인해야 하는 경우가 많습니다. performance_schema 및 information_schema 모두를 기반으로 하는 sys_schema에는 읽기 전용 데이터베이스의 강력하고 [사용자에게 친숙한 보기](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) 컬렉션이 제공되며 Azure Database for MySQL 버전 5.7에서 완벽한 사용이 가능합니다.
 
 ![sys_schema의 버전](./media/howto-troubleshoot-sys-schema/sys-schema-views.png)
 
@@ -29,9 +29,9 @@ sys_schema에는 52개의 보기가 있고 각 보기에는 다음 접두사 중
 - User: 사용자별로 소비되고 그룹화된 리소스. 예: 파일 I/O, 연결 및 메모리.
 - Wait: 호스트 또는 사용자별로 그룹화된 대기 이벤트.
 
-이제 sys_schema의 몇 가지 일반적인 사용량 패턴을 살펴보겠습니다. 우선, 사용량 패턴을 **성능 튜닝** 및 **데이터베이스 유지 관리**라는 두 가지 범주로 그룹화하겠습니다.
+이제 sys_schema 몇 가지 일반적인 사용 패턴을 살펴보겠습니다. 우선 사용 패턴을 **성능 튜닝** 및 **데이터베이스 유지 관리의**두 가지 범주로 그룹화합니다.
 
-## <a name="performance-tuning"></a>퍼포먼스(성능) 조정
+## <a name="performance-tuning"></a>성능 튜닝
 
 ### <a name="sysuser_summary_by_file_io"></a>*sys.user_summary_by_file_io*
 
@@ -55,7 +55,7 @@ Azure Database for MySQL에서 스토리지와 관련된 IO 크기를 조정하�
 
 ![명령문 요약](./media/howto-troubleshoot-sys-schema/summary-by-statement.png)
 
-이 예제에서 Azure Database for MySQL이 slog 쿼리 로그를 44579번 플러시하는 데 53분이 소요되었습니다. 오랜 시간과 많은 IO가 소비되었습니다. Azure Portal에서 느린 쿼리 로그를 사용하지 않도록 설정하거나 느린 쿼리 로그의 빈도를 줄여서 이 작업을 줄일 수 있습니다.
+이 예제에서 Azure Database for MySQL이 slog 쿼리 로그를 44579번 플러시하는 데 53분이 소요되었습니다. 그것은 오랜 시간 많은 OS입니다. Azure Portal에서 느린 쿼리 로그를 사용하지 않도록 설정하거나 느린 쿼리 로그의 빈도를 줄여서 이 작업을 줄일 수 있습니다.
 
 ## <a name="database-maintenance"></a>데이터베이스 유지 관리
 

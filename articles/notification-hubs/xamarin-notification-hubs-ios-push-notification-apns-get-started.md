@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs를 사용하여 Xamarin.iOS에 푸시 알림 보내기 | Microsoft Docs
+title: Azure Notification Hubs를 사용하여 Xamarin에 푸시 알림 보내기 | Microsoft Docs
 description: 이 자습서에서 Azure Notification Hubs를 사용하여 Xamarin iOS 애플리케이션에 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 keywords: ios 푸시 알림, 푸시 메시지, 푸시 알림, 푸시 메시지
@@ -18,12 +18,12 @@ ms.date: 12/05/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 05/23/2019
-ms.openlocfilehash: e693d771d9a4726a1a9d698b5b7ed61d19197bdb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 07417427385806e61db0d7d83624d923e92eb693
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895029"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127002"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Xamarin.iOS 앱에 푸시 알림 보내기
 
@@ -44,7 +44,7 @@ ms.locfileid: "74895029"
 > * iOS 푸시 알림에 대해 알림 허브 구성
 > * 테스트 푸시 알림 보내기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Xcode][Install Xcode]

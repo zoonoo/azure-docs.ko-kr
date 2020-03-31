@@ -1,6 +1,6 @@
 ---
 title: HDInsight에서 ML 서비스 클러스터 관리 - Azure
-description: Azure HDInsight에서 ML 서비스 클러스터에 대 한 다양 한 작업을 관리 하는 방법을 알아봅니다.
+description: Azure HDInsight의 ML 서비스 클러스터에서 다양한 작업을 관리하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,30 +9,30 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.openlocfilehash: b2c16c27c0dfc0c30a99c52544cc4d2278eadfc7
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75647733"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 관리
 
-이 문서에서는 여러 동시 사용자 추가, ML 서비스 클러스터에 원격 연결, 계산 컨텍스트 변경 등의 작업을 수행 하기 위해 Azure HDInsight에서 기존 ML 서비스 클러스터를 관리 하는 방법에 대해 알아봅니다.
+이 문서에서는 Azure HDInsight의 기존 ML 서비스 클러스터를 관리하여 여러 동시 사용자를 추가, ML 서비스 클러스터에 원격으로 연결, 계산 컨텍스트 변경 등의 작업을 수행하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight의 ML Services 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**으로 **ML Services**를 선택합니다.
 
-* SSH (Secure Shell) 클라이언트: SSH 클라이언트는 HDInsight 클러스터에 원격으로 연결 하 고 클러스터에서 직접 명령을 실행 하는 데 사용 됩니다. 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+* SSH(보안 셸) 클라이언트: SSH 클라이언트는 HDInsight 클러스터에 원격으로 연결하여 클러스터에서 직접 명령을 실행하는 데 사용됩니다. 자세한 내용은 [HDInsight와 SSH 사용을 참조하십시오.](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="enable-multiple-concurrent-users"></a>여러 동시 사용자 사용
 
 RStudio Community 버전이 실행되는 에지 노드에 대해 더 많은 사용자를 추가하여 HDInsight의 ML 서비스 클러스터에 대해 여러 동시 사용자를 사용하도록 설정할 수 있습니다. HDInsight 클러스터를 만들 때 다음과 같이 두 사용자, 즉 HTTP 사용자와 SSH 사용자를 제공해야 합니다.
 
-![HDI Azure Portal 로그인 매개 변수](./media/r-server-hdinsight-manage/hdi-concurrent-users1.png)
+![HDI Azure 포털 로그인 매개 변수](./media/r-server-hdinsight-manage/hdi-concurrent-users1.png)
 
 - **클러스터 로그인 사용자 이름**: 사용자가 만든 HDInsight 클러스터를 보호하는 데 사용되는 HDInsight 게이트웨이를 통해 인증하기 위한 HTTP 사용자입니다. 이 HTTP 사용자는 Apache Ambari UI, Apache Hadoop YARN UI 및 다른 UI 구성 요소에 액세스하는 데 사용됩니다.
-- **SSH(보안 셸) 사용자 이름**: 보안 셸을 통해 클러스터에 액세스하는 SSH 사용자입니다. 이 사용자는 모든 헤드 노드, 작업자 노드 및 에지 노드에 대한 Linux 시스템의 사용자입니다. 따라서 보안 셸을 사용하여 원격 클러스터의 노드 중 하나에 액세스할 수 있습니다.
+- **보안 셸(SSH) 사용자 이름**: 보안 셸을 통해 클러스터에 액세스하는 SSH 사용자입니다. 이 사용자는 모든 헤드 노드, 작업자 노드 및 에지 노드에 대한 Linux 시스템의 사용자입니다. 따라서 보안 셸을 사용하여 원격 클러스터의 노드 중 하나에 액세스할 수 있습니다.
 
 HDInsight의 ML 서비스 클러스터에 사용되는 R Studio Server Community 버전은 로그인 메커니즘으로 Linux 사용자 이름과 암호만 허용하며, 토큰 전달은 지원하지 않습니다. 따라서 ML 서비스 클러스터에서 R Studio에 처음 액세스하려는 경우 두 번 로그인해야 합니다.
 
@@ -64,7 +64,7 @@ RStudio가 클러스터의 에지 노드에서 실행되므로 여기서는 다�
 
 다음 스크린샷은 출력을 보여 줍니다.
 
-![동시 사용자를 위한 스크린샷 출력](./media/r-server-hdinsight-manage/hdi-concurrent-users2.png)
+![스크린샷 출력 동시 사용자](./media/r-server-hdinsight-manage/hdi-concurrent-users2.png)
 
 “현재 Kerberos 암호:”를 묻는 메시지가 표시될 때 **Enter** 키를 누르기만 하면 무시됩니다. `useradd` 명령의 `-m` 옵션은 시스템에서 사용자의 홈 폴더를 만듦을 나타내며, 이 폴더는 RStudio Community 버전에 필요합니다.
 
@@ -106,7 +106,7 @@ RStudio가 클러스터의 에지 노드에서 실행되므로 여기서는 다�
 
 ## <a name="use-a-compute-context"></a>컴퓨팅 컨텍스트 사용
 
-컴퓨팅 컨텍스트를 사용하여 컴퓨팅을 이제 노드에서 로컬로 수행할지 여부 또는 HDInsight 클러스터의 노드 간에 분산할지 여부를 제어할 수 있습니다.  RStudio Server를 사용 하 여 계산 컨텍스트를 설정 하는 예제는 [Rstudio 서버를 사용 하 여 Azure HDInsight의 ML 서비스 클러스터에서 R 스크립트 실행](machine-learning-services-quickstart-job-rstudio.md)을 참조 하세요.
+컴퓨팅 컨텍스트를 사용하여 컴퓨팅을 이제 노드에서 로컬로 수행할지 여부 또는 HDInsight 클러스터의 노드 간에 분산할지 여부를 제어할 수 있습니다.  RStudio Server를 사용하여 계산 컨텍스트를 설정하는 예는 [RStudio Server를 사용하여 Azure HDInsight의 ML 서비스 클러스터에서 R 스크립트 실행을](machine-learning-services-quickstart-job-rstudio.md)참조하십시오.
 
 ## <a name="distribute-r-code-to-multiple-nodes"></a>여러 노드에 R 코드 분산
 
@@ -203,9 +203,9 @@ HDInsight ML 서비스를 사용하면 Spark 컴퓨팅 컨텍스트의 ScaleR �
    > [!NOTE]
    > 1. 기본적으로 모든 R 패키지는 설치된 ML Server의 버전과 일치하는 Microsoft MRAN 리포지토리의 스냅샷에서 설치됩니다. 최신 버전의 패키지를 설치하려는 경우 호환성 문제가 발생할 수 있습니다. 그러나 이 설치 유형은 패키지 목록의 첫 번째 요소로 `useCRAN`을 지정함으로써 가능합니다(예: `useCRAN bitops, stringr, arules`).  
    > 2. 일부 R 패키지에는 추가 Linux 시스템 라이브러리가 필요합니다. 편의상 HDInsight ML 서비스는 가장 인기 있는 상위 100개의 R 패키지에서 필요한 종속성을 사용하여 미리 설치되었습니다. 그러나 설치한 R 패키지에 더 많은 라이브러리가 필요한 경우 여기에 사용되는 기본 스크립트를 다운로드하고 시스템 라이브러리를 설치하는 단계를 추가해야 합니다. 그런 다음 수정된 스크립트를 Azure Storage의 공용 blob 컨테이너에 업로드하고 수정된 스크립트를 사용하여 패키지를 설치해야 합니다.
-   >    스크립트 작업 개발에 대한 자세한 내용은 [스크립트 작업 개발](../hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
+   >    스크립트 작업 개발에 대한 자세한 내용은 [스크립트 작업 개발을](../hdinsight-hadoop-script-actions-linux.md)참조하십시오.
 
-   ![스크립트 동작 Azure Portal 제출](./media/r-server-hdinsight-manage/submit-script-action.png)
+   ![Azure 포털 제출 스크립트 작업](./media/r-server-hdinsight-manage/submit-script-action.png)
 
 4. **만들기**를 선택하여 스크립트를 실행합니다. 스크립트가 완료되면 모든 작업자 노드에서 R 패키지를 사용할 수 있습니다.
 
