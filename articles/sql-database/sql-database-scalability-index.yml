@@ -3,7 +3,7 @@ documentType: LandingData
 title: 확장성
 metadata:
   title: Azure SQL Database - 확장성
-  meta.description: Learn how to scale your Azure SQL Database.
+  description: Azure SQL Database를 통해 컴퓨팅 능력을 추가(강화)하거나 데이터베이스 단위를 추가(스케일 아웃)하여 데이터베이스 크기를 쉽게 조정할 수 있는 방법을 알아봅니다.
   services: sql-database
   ms.subservice: scale-out
   author: jovanpop-msft
@@ -14,7 +14,7 @@ metadata:
   ms.devlang: null
   ms.topic: overview
   ms.date: 01/25/2019
-  ms.author: jovanpop-msft
+  ms.author: jovanpop
 sections:
   - items:
       - type: paragraph

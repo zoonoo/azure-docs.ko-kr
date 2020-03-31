@@ -265,6 +265,8 @@
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: 문제 해결
       items:
+        - name: 일시적인 아웃바운드 연결 오류 문제 해결
+          href: troubleshoot-intermittent-outbound-connection-errors.md
         - name: Visual Studio를 사용하여 문제 해결
           href: troubleshoot-dotnet-visual-studio.md
         - name: Node.js 앱 문제 해결

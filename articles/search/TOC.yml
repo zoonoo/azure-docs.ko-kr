@@ -21,6 +21,8 @@
           href: cognitive-search-quickstart-blob.md
         - name: 지식 저장소 만들기
           href: knowledge-store-create-portal.md
+        - name: Search 탐색기를 사용하여 쿼리
+          href: search-explorer.md
     - name: 'C#'
       href: search-get-started-dotnet.md
     - name: Java
@@ -231,10 +233,10 @@
           href: search-query-simple-examples.md
         - name: 전체 Lucene 구문 사용
           href: search-query-lucene-examples.md
-        - name: 검색 탐색기(포털) 사용
-          href: search-explorer.md
         - name: 특수 문자 및 부분 용어
           href: search-query-partial-matching.md
+        - name: Power Apps에서 쿼리
+          href: search-howto-powerapps.md
         - name: 구문 참조
           items:
             - name: 단순 쿼리 구문

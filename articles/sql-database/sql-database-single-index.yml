@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: 'Azure SQL Database: 단일 데이터베이스'
+title: Azure SQL Database
 metadata:
-  title: 설명서 - 단일 데이터베이스
-  meta.description: Learn how to use Azure SQL databases.
+  title: '설명서 - 단일 데이터베이스, 데이터베이스 서버, 탄력적 풀'
+  description: 'Azure SQL Database 단일 데이터베이스, 탄력적 풀 및 데이터베이스 서버에 대한 빠른 시작, 자습서 및 샘플을 찾습니다.'
   services: sql-database
   requires-business-manager-approval: false
   ms.service: sql-database
   ms.subservice: single-database
   ms.topic: overview
   author: jovanpop-msft
-  ms.author: jovanpop-msft
+  ms.author: jovanpop
   ms.reviewer: carlrab
   manager: craigg
   ms.date: 04/26/2019

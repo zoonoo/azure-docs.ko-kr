@@ -32,11 +32,23 @@
   items:
     - name: Azure 보안 기준 개요
       href: security-baselines-overview.md
+    - name: Azure Cache for Redis 보안 기준
+      href: ../../azure-cache-for-redis/security-baseline.md
     - name: Batch 보안 기준
       href: ../../batch/security-baseline.md
-    - name: Key Vault 보안 기준
-      href: ../../key-vault/security-baseline.md
+    - name: Container Registry 보안 기준
+      href: ../../container-registry/security-baseline.md
+    - name: Cosmos DB 보안 기준
+      href: ../../cosmos-db/security-baseline.md
     - name: HDInsight 보안 기준
       href: ../../hdinsight/security-baseline.md
+    - name: Key Vault 보안 기준
+      href: ../../key-vault/security-baseline.md
+    - name: MariaDB 보안 기준
+      href: ../../mariadb/security-baseline.md
+    - name: MySQL 보안 기준
+      href: ../../mysql/security-baseline.md
+    - name: PostgreSQL 보안 기준
+      href: ../../postgresql/security-baseline.md
     - name: SQL Database 보안 기준
       href: ../../sql-database/security-baseline.md

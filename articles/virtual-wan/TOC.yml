@@ -10,6 +10,8 @@
           href: migrate-from-hub-spoke-topology.md
         - name: 글로벌 전송 네트워크 아키텍처
           href: virtual-wan-global-transit-network-architecture.md
+        - name: 중국과 상호 연결
+          href: interconnect-china.md
 - name: 자습서
   items:
     - name: 사이트 간 연결 만들기
@@ -20,6 +22,8 @@
       href: virtual-wan-expressroute-portal.md
 - name: 개념
   items:
+    - name: 원격으로 작업
+      href: work-remotely-support.md
     - name: 위치 및 파트너
       items:
         - name: 허브 위치 및 파트너
@@ -28,8 +32,6 @@
           href: virtual-wan-configure-automation-providers.md
     - name: IPsec 정책
       href: virtual-wan-ipsec.md
-    - name: 지점 및 사이트 간 VPN 개요
-      href: ../vpn-gateway/point-to-site-about.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
 - name: 방법 가이드
   items:
     - name: 가상 네트워크 게이트웨이를 Virtual WAN에 연결
@@ -52,25 +54,31 @@
           href: virtual-wan-site-to-site-portal.md
     - name: 사용자 VPN(지점 및 사이트 간)
       items:
-        - name: 사용자 VPN(지점 및 사이트 간) 연결 만들기
+        - name: 사용자 VPN 연결 만들기
           href: virtual-wan-point-to-site-portal.md
-        - name: 사용자 VPN에 대한 인증서 구성
+        - name: 인증서 생성
           href: certificates-point-to-site.md
-        - name: 사용자 VPN에 대한 Azure AD 테넌트 구성
+        - name: Azure AD 테넌트 구성
           href: openvpn-azure-ad-tenant.md
-        - name: Always On VPN 사용자 터널 구성
-          href: ../vpn-gateway/vpn-gateway-howto-always-on-user-tunnel.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
-        - name: Always On VPN 디바이스 터널 구성
-          href: ../vpn-gateway/vpn-gateway-howto-always-on-device-tunnel.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
-        - name: 사용자 VPN에 대한 MFA(Multi-Factor Authentication) 사용
-          href: openvpn-azure-ad-mfa.md
-        - name: 사용자 VPN에 대한 Azure AD 인증 구성
-          href: virtual-wan-point-to-site-azure-ad.md
-        - name: 사용자 VPN에 대한 다중 애플리케이션 Azure AD 인증 구성
-          href: openvpn-azure-ad-tenant-multi-app.md
-        - name: 글로벌 및 허브 기반 사용자 VPN 프로필 다운로드
+        - name: 클라이언트 프로필
+          href: about-vpn-profile-download.md
+        - name: 글로벌 및 허브 기반 프로필
           href: global-hub-profile.md
-    - name: 라우팅 구성
+        - name: OpenVPN 클라이언트 구성
+          href: howto-openvpn-clients.md?
+        - name: Always On VPN 사용자 터널 구성
+          href: howto-always-on-user-tunnel.md
+        - name: Always On VPN 디바이스 터널 구성
+          href: howto-always-on-device-tunnel.md
+        - name: MFA(Multi-Factor Authentication) 사용
+          href: openvpn-azure-ad-mfa.md
+        - name: Azure AD 인증 구성
+          href: virtual-wan-point-to-site-azure-ad.md
+        - name: Windows 10용 Azure VPN Client 구성
+          href: openvpn-azure-ad-client.md
+        - name: 다중 애플리케이션 Azure AD 인증 구성
+          href: openvpn-azure-ad-tenant-multi-app.md
+    - name: 라우팅
       items:
         - name: 가상 허브에서 NVA로 트래픽 라우팅
           items:

@@ -24,6 +24,8 @@
           href: cloud-governed-management-for-on-premises.md
         - name: 강력한 ID 기반을 위한 4단계
           href: four-steps.md
+        - name: 하이브리드 ID 인증 방법 선택
+          href: choose-ad-authn.md
     - name: Azure AD Connect 및 Connect Health
       items:
         - name: Azure AD Connect 및 Connect Health란?
@@ -312,7 +314,9 @@
           href: tshoot-connect-attribute-not-syncing.md
         - name: 설치 문제
           href: tshoot-connect-install-issues.md
-- name: 참고 자료
+        - name: UPN 변경
+          href: howto-troubleshoot-upn-changes.md
+- name: 참조
   items:
     - name: 포트 및 프로토콜이 필요한 하이브리드 ID
       href: reference-connect-ports.md

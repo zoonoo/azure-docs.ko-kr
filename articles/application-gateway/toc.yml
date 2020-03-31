@@ -15,6 +15,9 @@
       href: quick-create-powershell.md
     - name: Application Gateway 만들기 - Azure CLI
       href: quick-create-cli.md
+    - name: Application Gateway 만들기 - ARM 템플릿
+      displayName: Resource Manager
+      href: quick-create-template.md
 - name: 자습서
   items:
     - name: SSL을 통한 보안
@@ -47,6 +50,8 @@
           href: application-gateway-components.md
         - name: 구성 개요
           href: configuration-overview.md
+    - name: 높은 트래픽 지원
+      href: high-traffic-support.md
     - name: v2 SKU 자동 크기 조정
       href: application-gateway-autoscaling-zone-redundant.md
     - name: 라우팅

@@ -1,14 +1,14 @@
 ---
 title: 정책 샘플의 인덱스
 description: Azure Policy에 대한 기본 제공 인덱스입니다. 범주 태그, 규정 준수, Key Vault, Kubernetes, 게스트 구성 등이 있습니다.
-ms.date: 01/31/2020
+ms.date: 03/25/2020
 ms.topic: sample
-ms.openlocfilehash: 11e36ba71e1b88f279e824948dffa809f16fd443
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: d990f911612c8e1f5ab7cdbdae7efe362aa70bb5
+ms.sourcegitcommit: 2a09565db8681cdb76607e7ed51eecf68f4ff8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/25/2020
-ms.locfileid: "77168041"
+ms.locfileid: "80257175"
 ---
 # <a name="azure-policy-samples"></a>Azure Policy 샘플
 
@@ -31,6 +31,10 @@ ms.locfileid: "77168041"
 - [Count 연산자](./pattern-count-operator.md)
 - [이니셔티브에서 정책 정의 그룹화](./pattern-group-with-initiative.md)
 - [deployIfNotExists를 사용하여 리소스 배포](./pattern-deploy-resources.md)
+
+## <a name="other-samples"></a>기타 샘플
+
+- [GitHub - 커뮤니티 정책 리포지토리](https://github.com/Azure/Community-Policy)
 
 ## <a name="next-steps"></a>다음 단계
 

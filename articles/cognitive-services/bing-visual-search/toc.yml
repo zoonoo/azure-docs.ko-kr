@@ -41,6 +41,10 @@
       href: tutorial-visual-search-image-upload.md
     - name: 이미지의 영역 자르기 및 검색
       href: tutorial-visual-search-crop-area-results.md
+    - name: 이전 검색에서 유사한 이미지 찾기
+      href: tutorial-visual-search-insights-token.md
+    - name: 단일 페이지 웹앱 만들기
+      href: tutorial-bing-visual-search-single-page-app.md
 - name: 샘플
   items:
     - name: 코드 샘플
@@ -63,10 +67,6 @@
     - name: 크기 조정 및 자르기 썸네일
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md
-    - name: 이미지 인사이트 토큰을 사용하여 이미지 검색
-      href: tutorial-visual-search-insights-token.md
-    - name: 단일 페이지 웹앱 만들기
-      href: tutorial-bing-visual-search-single-page-app.md
 - name: 참조
   items:
     - name: REST v7 API

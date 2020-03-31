@@ -3,7 +3,7 @@ documentType: LandingData
 title: 기능
 metadata:
   title: Azure SQL Database - 기능
-  meta.description: Learn about the features in Azure SQL Database.
+  description: 보다 강력한 작업을 수행하고 고급 시나리오를 구현할 수 있는 Azure SQL Database의 데이터베이스 기능을 검색합니다.
   services: sql-database
   author: jovanpop-msft
   manager: craigg
@@ -12,7 +12,7 @@ metadata:
   ms.devlang: null
   ms.topic: overview
   ms.date: 02/06/2019
-  ms.author: jovanpop-msft
+  ms.author: jovanpop
 sections:
   - items:
       - type: paragraph

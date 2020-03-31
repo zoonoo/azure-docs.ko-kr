@@ -1,102 +1,90 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: AKS(Azure Kubernetes Service)
+summary: AKS를 사용하면 Azure에서 프로덕션 준비 Kubernetes 클러스터를 빠르게 배포할 수 있습니다. 이러한 빠른 시작, 자습서 및 샘플과 함께 AKS를 사용하는 방법을 알아봅니다.
 metadata:
-  title: 'AKS(Azure Kubernetes Service) 설명서 - 자습서, API 참조 | Microsoft Docs'
-  meta.description: 'AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.'
-  description: 'AKS를 사용하면 Azure에서 프로덕션 준비 Kubernetes 클러스터를 빠르게 배포할 수 있습니다. 이러한 빠른 시작, 자습서 및 샘플과 함께 AKS를 사용하는 방법을 알아봅니다.'
-  services: container-service
-  author: georgewallace
-  manager: gwallace
+  title: AKS(Azure Kubernetes Service)
+  description: AKS를 사용하면 Azure에서 프로덕션 준비 Kubernetes 클러스터를 빠르게 배포할 수 있습니다. 이러한 빠른 시작, 자습서 및 샘플과 함께 AKS를 사용하는 방법을 알아봅니다.
+  ms.service: container-service
   ms.topic: landing-page
-  ms.date: 07-21-2017
-  ms.author: gwallace
-abstract:
-  description: 'AKS(Azure Kubernetes Service)는 호스팅된 Kubernetes 환경을 관리하므로 컨테이너 오케스트레이션에 대한 전문 지식 없이 컨테이너화된 애플리케이션을 빠르고 쉽게 배포하고 관리할 수 있습니다. 또한 애플리케이션을 오프라인으로 변경하지 않고 주문형 리소스를 프로비전하고, 업그레이드하고, 크기 조정하여 진행 중인 작업 및 유지 관리 부담을 제거합니다.'
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: AKS 클러스터를 배포하는 방법을 알아봅니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Azure CLI
-            href: /azure/aks/kubernetes-walkthrough
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Azure Portal
-            href: /azure/aks/kubernetes-walkthrough-portal
-      - type: paragraph
-        text: AKS를 사용하여 애플리케이션을 개발하고 디버그하는 방법을 알아봅니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_java.svg'
-            text: Java
-            href: ../dev-spaces/quickstart-java.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_NETcore.svg'
-            text: .NET 및 VS Code
-            href: ../dev-spaces/quickstart-netcore.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-            text: .NET 및 Visual Studio
-            href: ../dev-spaces/quickstart-netcore-visualstudio.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_nodejs.svg'
-            text: Node.js
-            href: ../dev-spaces/quickstart-nodejs.md
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: AKS 클러스터에서 애플리케이션을 배포하고 관리하며 업데이트하는 방법을 알아봅니다.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">애플리케이션에서 컨테이너 이미지 만들기</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Azure Container Registry에 컨테이너 이미지 업로드</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">AKS 클러스터 배포</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Kubernetes에서 컨테이너 이미지 실행</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-scale">애플리케이션 및 Kubernetes 인프라 크기 조정</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Kubernetes에서 실행 중인 애플리케이션 업데이트</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">AKS 클러스터 업그레이드</a>
-          - html: <a href="/azure/architecture/reference-architectures/microservices/aks">마이크로 서비스 참조 아키텍처 학습 및 구현</a>
-  - title: Microsoft Learn을 통해 기술 쌓기
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Azure의 컨테이너에 대한 소개
-            href: /learn/modules/intro-to-containers/
-            image:
-              src: /learn/achievements/intro-to-containers.svg
-              href: /learn/modules/intro-to-containers/
-          - title: Azure Container Instances를 사용하여 Docker 컨테이너 실행
-            href: /learn/modules/run-docker-with-azure-container-instances/
-            image:
-              src: /learn/achievements/run-docker-with-azure-container-instances.svg
-              href: /learn/modules/run-docker-with-azure-container-instances/
-          - title: Azure Container Registry를 사용하여 컨테이너 이미지 빌드 및 저장
-            href: /learn/modules/build-and-store-container-images/
-            image:
-              src: /learn/achievements/build-and-store-container-images.svg
-              href: /learn/modules/build-and-store-container-images/
-      - type: paragraph
-        text: <a href="/learn/browse/?products=azure-container-registry%2Cazure-container-instances">더 많은 대화형 학습 보기...</a>
-  - title: 참조
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 명령 줄
-            html: <p><a href="/cli/azure/aks">Azure CLI</a></p>
-          - title: 언어
-            html: <p><a href="/dotnet/api/overview/azure/containerservice">.NET</a></p><p><a href="/python/api/overview/azure/containerservice">Python</a></p><p><a href="/java/api/overview/azure/containerservice">Java</a></p><p><a href="/javascript/api/overview/azure/container-service">Node.JS</a></p>
-          - title: REST (영문)
-            html: <p><a href="/rest/api/aks">REST API</a></p>
+  author: laurenhughes
+  ms.author: lahugh
+  ms.date: 03/25/2020
+  ms.openlocfilehash: 7482eb14fb6bcb80bc8f8b9d06057287cb862a27
+  ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/27/2020
+  ms.locfileid: "80335999"
+landingContent:
+- title: AKS(Azure Kubernetes Service) 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: AKS란?
+      url: intro-kubernetes.md
+  - linkListType: concept
+    links:
+    - text: AKS에 대한 Kubernetes 핵심 개념
+      url: concepts-clusters-workloads.md
+    - text: 클러스터 및 워크로드
+      url: concepts-clusters-workloads.md
+    - text: 액세스 및 ID
+      url: concepts-identity.md
+    - text: 보안
+      url: concepts-security.md
+    - text: 네트워킹
+      url: concepts-network.md
+    - text: 스토리지
+      url: concepts-storage.md
+    - text: 확장
+      url: concepts-scale.md
+- title: 5분 내에 AKS 클러스터 배포
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure CLI
+      url: kubernetes-walkthrough.md
+    - text: Azure Portal
+      url: kubernetes-walkthrough-portal.md
+    - text: Resource Manager 템플릿
+      url: kubernetes-walkthrough-rm-template.md
+- title: AKS 및 Dev Spaces를 사용하여 애플리케이션 개발 및 디버그
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Java
+      url: ../dev-spaces/quickstart-java.md
+    - text: .NET 및 VS Code
+      url: ../dev-spaces/quickstart-netcore.md
+    - text: .NET 및 Visual Studio
+      url: ../dev-spaces/quickstart-netcore-visualstudio.md
+    - text: Node.js
+      url: ../dev-spaces/quickstart-nodejs.md
+- title: 애플리케이션 배포, 관리 및 업데이트
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 1. AKS를 위한 애플리케이션 준비
+      url: tutorial-kubernetes-prepare-app.md
+    - text: 2. Azure Container Registry 배포 및 사용
+      url: tutorial-kubernetes-prepare-acr.md
+    - text: 3. AKS 클러스터 배포
+      url: tutorial-kubernetes-deploy-cluster.md
+    - text: 4. 애플리케이션 실행
+      url: tutorial-kubernetes-deploy-application.md
+    - text: 5. 애플리케이션 확장
+      url: tutorial-kubernetes-scale.md
+    - text: 6. 애플리케이션 업데이트
+      url: tutorial-kubernetes-app-update.md
+    - text: 7. AKS에서 Kubernetes 업그레이드
+      url: tutorial-kubernetes-upgrade-cluster.md
+- title: Microsoft Learn을 통해 기술 쌓기
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Azure Kubernetes Service 소개
+      url: https://docs.microsoft.com/learn/modules/intro-to-azure-kubernetes-service/
+    - text: Azure의 컨테이너에 대한 소개
+      url: https://docs.microsoft.com/learn/modules/intro-to-containers/
+    - text: Azure Container Registry를 사용하여 컨테이너 이미지 빌드 및 저장
+      url: https://docs.microsoft.com/learn/modules/build-and-store-container-images/

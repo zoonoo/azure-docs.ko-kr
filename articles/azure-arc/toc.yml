@@ -14,6 +14,8 @@
       href: ./servers/onboard-service-principal.md
     - name: PowerShell DSC를 사용하여 Azure Arc에 머신 연결
       href: ./servers/onboard-dsc.md
+- name: 에이전트 관리
+  href: ./servers/manage-agent.md
 - name: 참조
   items:
     - name: Azure Connected Machine Agent CLI 인터페이스

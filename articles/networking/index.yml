@@ -1,6 +1,6 @@
 ### YamlMime:Hub
-title: 가상 네트워킹 설명서
-summary: Azure에서 사용할 수 있는 다양한 네트워킹 서비스에 대해 알아봅니다.
+title: Azure 네트워킹 설명서
+summary: Azure의 리소스에 대한 연결을 제공하고, 애플리케이션을 제공 및 보호하고, 다양한 Azure 네트워킹 서비스에 대해 알아봅니다.
 brand: azure
 metadata:
   title: 가상 네트워킹 설명서
@@ -12,12 +12,12 @@ metadata:
   ms.author: kumud
   manager: mtillman
   ms.date: 03/17/2020
-  ms.openlocfilehash: c0494f281d0e06b3af58c579437e6e83ab721711
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 5745c6c9a7f380d7e9b1d8d59d56a81581c66e14
+  ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "80128211"
+  ms.lasthandoff: 03/26/2020
+  ms.locfileid: "80294324"
 highlightedContent:
   items:
   - title: Azure 네트워킹이란?

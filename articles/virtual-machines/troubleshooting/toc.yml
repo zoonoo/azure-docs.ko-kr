@@ -69,18 +69,24 @@
           href: boot-diagnostics.md
         - name: BitLocker 오류
           href: troubleshoot-bitlocker-boot-error.md
-        - name: 파일 시스템 오류 확인
-          href: troubleshoot-check-disk-boot-error.md
         - name: 블루 스크린 오류
           href: troubleshoot-common-blue-screen-error.md
-        - name: VM 시작이 중단됨
-          href: troubleshoot-vm-boot-configure-update.md
+        - name: 파일 시스템 오류 확인
+          href: troubleshoot-check-disk-boot-error.md
+        - name: 중요 프로세스 사용 안 함
+          href: troubleshoot-guide-critical-process-died.md
         - name: 중요 서비스 실패
           href: troubleshoot-critical-service-failed-boot-error.md
+        - name: 부팅 가능한 디스크가 아님
+          href: troubleshoot-guide-not-bootable-disk.md
         - name: 다시 부팅 루프
           href: troubleshoot-reboot-loop.md
         - name: Windows 업데이트에서 중단
           href: troubleshoot-stuck-updating-boot-error.md
+        - name: VM 시작이 중단됨
+          href: troubleshoot-vm-boot-configure-update.md
+        - name: Windows 부팅 관리자로 인해 VM을 부팅할 수 없음
+          href: troubleshoot-guide-windows-boot-manager-menu.md
 - name: VM에 연결할 수 없습니다.
   items:
     - name: RDP

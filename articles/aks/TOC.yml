@@ -14,7 +14,8 @@
           href: kubernetes-walkthrough.md
         - name: Azure Portal 사용
           href: kubernetes-walkthrough-portal.md
-        - name: Resource Manager 템플릿 사용
+        - name: ARM 템플릿 사용
+          displayName: Resource Manager
           href: kubernetes-walkthrough-rm-template.md
     - name: 애플리케이션 개발
       expanded: true
@@ -73,6 +74,8 @@
       href: concepts-storage.md
     - name: 확장
       href: concepts-scale.md
+    - name: 노드 자동 복구
+      href: node-auto-repair.md
     - name: 모범 사례
       items:
         - name: 개요
@@ -123,6 +126,8 @@
           href: upgrade-cluster.md
         - name: 프로세스 노드 OS 업데이트
           href: node-updates-kured.md
+        - name: AKS 클러스터 구성
+          href: cluster-configuration.md
         - name: ACR을 AKS 클러스터와 통합
           href: cluster-container-registry-integration.md
         - name: 가상 노드 만들기
@@ -198,7 +203,7 @@
       items:
         - name: 서비스 주체 만들기
           href: kubernetes-service-principal.md
-        - name: 관리 ID 사용(미리 보기)
+        - name: 관리 ID 사용
           href: use-managed-identity.md
         - name: 클러스터 구성 파일에 대한 액세스 제한
           href: control-kubeconfig-access.md
@@ -216,6 +221,8 @@
           href: limit-egress-traffic.md
         - name: Azure Active Directory 통합 사용
           items:
+            - name: Azure AD 통합(미리 보기)
+              href: azure-ad-v2.md
             - name: Azure CLI 사용
               href: azure-ad-integration-cli.md
             - name: Azure Portal 사용
