@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 및 SQL Server를 사용 하는 Spark 커넥터
+title: Azure SQL 데이터베이스 및 SQL 서버를 사용하여 스파크 커넥터
 description: Azure SQL Database 및 SQL Server용 Spark 커넥터를 사용하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: denzilr
 ms.reviewer: carlrab
 ms.date: 09/25/2018
 ms.openlocfilehash: b22ec475c0281a54d65921bc450b35723aa23219
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471655"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Azure SQL Database 및 SQL Server용 Spark 커넥터를 통해 실시간 빅 데이터 분석 가속화

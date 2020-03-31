@@ -1,5 +1,5 @@
 ---
-title: Linux Vm에 대 한 Azure Key Vault 설정
+title: 리눅스 VM에 대 한 Azure 키 볼트 설정
 description: Azure CLI를 사용하여 Azure Resource Manager 가상 머신에서 사용할 Key Vault를 설정하는 방법을 설명합니다.
 author: singhkays
 manager: gwallace
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/24/2017
 ms.author: kasing
 ms.openlocfilehash: c9659c38e349bd62f22ed0d0839d97651b1b3b66
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944812"
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신용 Key Vault를 설정하는 방법
@@ -22,14 +22,14 @@ Azure Resource Manager 스택에서 암호/인증서는 Key Vault에서 제공�
 이러한 단계를 수행하려면 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인해야 합니다.
 
 ## <a name="create-a-key-vault"></a>주요 자격 증명 모음 만들기
-[az keyvault create](/cli/azure/keyvault)를 사용하여 주요 자격 증명 모음을 만들고 배포 정책을 할당합니다. 다음 예제에서는 `myKeyVault` 리소스 그룹에 `myResourceGroup`이라는 주요 자격 증명 모음을 만듭니다.
+[az keyvault create](/cli/azure/keyvault)를 사용하여 주요 자격 증명 모음을 만들고 배포 정책을 할당합니다. 다음 예제에서는 `myResourceGroup` 리소스 그룹에 `myKeyVault`이라는 주요 자격 증명 모음을 만듭니다.
 
 ```azurecli
 az keyvault create -l westus -n myKeyVault -g myResourceGroup --enabled-for-deployment true
 ```
 
 ## <a name="update-a-key-vault-for-use-with-vms"></a>VM과 함께 사용할 Key Vault를 업데이트합니다.
-[az keyvault update](/cli/azure/keyvault)를 사용하여 기존 주요 자격 증명 모음에 대한 배포 정책을 설정합니다. 다음에서는 `myKeyVault` 리소스 그룹에 `myResourceGroup`이라는 주요 자격 증명 모음을 업데이트합니다.
+[az keyvault update](/cli/azure/keyvault)를 사용하여 기존 주요 자격 증명 모음에 대한 배포 정책을 설정합니다. 다음에서는 `myResourceGroup` 리소스 그룹에 `myKeyVault`이라는 주요 자격 증명 모음을 업데이트합니다.
 
 ```azurecli
 az keyvault update -n myKeyVault -g myResourceGroup --set properties.enabledForDeployment=true

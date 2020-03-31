@@ -1,28 +1,28 @@
 ---
-title: 물리적 서버에 대 한 Azure Migrate 어플라이언스 설정
-description: 물리적 서버 평가를 위해 Azure Migrate 어플라이언스를 설정 하는 방법에 대해 알아봅니다.
+title: 물리적 서버에 대한 Azure 마이그레이션 어플라이언스 설정
+description: 물리적 서버 평가를 위해 Azure 마이그레이션 어플라이언스를 설정하는 방법에 대해 알아봅니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: b60a30e5e30ee81cbaca7d5e4691ccedac2462b6
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598173"
 ---
-# <a name="set-up-an-appliance-for-physical-servers"></a>물리적 서버용 어플라이언스 설정
+# <a name="set-up-an-appliance-for-physical-servers"></a>물리적 서버에 대한 어플라이언스 설정
 
-이 문서에서는 Azure Migrate: 서버 평가 도구를 사용 하 여 물리적 서버를 평가 하는 경우 Azure Migrate 어플라이언스를 설정 하는 방법을 설명 합니다.
+이 문서에서는 Azure 마이그레이션: 서버 평가 도구를 사용하여 실제 서버를 평가하는 경우 Azure 마이그레이션 어플라이언스를 설정하는 방법에 대해 설명합니다.
 
-Azure Migrate 어플라이언스는 Azure Migrate Server 평가에서 다음을 수행 하는 데 사용 하는 경량 어플라이언스입니다.
+Azure 마이그레이션 어플라이언스는 Azure 마이그레이션 서버 평가에서 다음을 수행하는 데 사용되는 경량 어플라이언스입니다.
 
-- 온-프레미스 서버를 검색 합니다.
-- 검색 된 서버에 대 한 메타 데이터 및 성능 데이터를 Azure Migrate 서버 평가로 보냅니다.
+- 온-프레미스 서버를 검색합니다.
+- 검색된 서버에 대한 메타데이터 및 성능 데이터를 Azure 마이그레이션 서버 평가로 보냅니다.
 
-Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-appliance.md) .
+Azure 마이그레이션 어플라이언스에 대해 [자세히 알아보세요.](migrate-appliance.md)
 
 
 ## <a name="appliance-deployment-steps"></a>어플라이언스 배포 단계
@@ -37,8 +37,8 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 
 어플라이언스에 대한 압축 파일을 다운로드합니다.
 
-1. **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 평가**에서 **검색**을 클릭 합니다.
-2. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **가상화되지 않음/기타**를 클릭합니다.
+1. **마이그레이션 목표** > **서버 Azure** > **마이그레이션: 서버 평가**, **검색**을 클릭합니다.
+2. **검색 컴퓨터에서** > **컴퓨터가 가상화되어 있습니까?** **Not virtualized/Other**
 3. **다운로드**를 클릭하여 압축 파일을 다운로드합니다.
 
     ![VM 다운로드](./media/tutorial-assess-physical/download-appliance.png)
@@ -52,7 +52,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 2. 다음 명령을 실행하여 VHD에 대한 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  최신 어플라이언스 버전의 경우 생성 된 해시가 이러한 [설정과](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security)일치 해야 합니다.
+3.  최신 어플라이언스 버전의 경우 생성된 해시가 이러한 [설정과](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security)일치해야 합니다.
 
 
 
@@ -85,27 +85,27 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 
 ### <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
 
-어플라이언스 VM이 필요한 [Azure url](migrate-appliance.md#url-access)에 연결할 수 있는지 확인 합니다.
+어플라이언스 VM이 필요한 [Azure URL에](migrate-appliance.md#url-access)연결할 수 있는지 확인합니다.
 
 ## <a name="configure-the-appliance"></a>어플라이언스 구성
 
 어플라이언스를 처음으로 설정합니다.
 
-1. VM에 연결할 수 있는 모든 컴퓨터에서 브라우저를 열고 어플라이언스 웹 앱의 URL ( **https://*어플라이언스 이름 또는 IP 주소*: 44368**)을 엽니다.
+1. VM에 연결할 수 있는 모든 컴퓨터에서 브라우저를 열고 어플라이언스 웹 앱의 URL을 엽니다: **https://*어플라이언스 이름 또는 IP 주소:* 44368**.
 
    또는 바탕 화면에서 앱 바로 가기를 클릭하여 앱을 열 수 있습니다.
 2. 웹앱 > **필수 구성 요소 설정**에서 다음을 수행합니다.
-    - **라이선스**: 사용 조건에 동의 하 고 타사 정보를 읽습니다.
-    - **연결**: 앱에서 VM이 인터넷에 연결 되어 있는지 확인 합니다. VM에서 프록시를 사용하는 경우:
+    - **라이센스**: 라이센스 약관을 수락하고 타사 정보를 읽습니다.
+    - **연결**: 앱에서 VM에 인터넷에 액세스할 수 있도록 합니다. VM에서 프록시를 사용하는 경우:
         - **프록시 설정**을 클릭하고, 프록시 주소와 수신 포트를 http://ProxyIPAddress 또는 http://ProxyFQDN 형식으로 지정합니다.
         - 프록시에 인증이 필요한 경우 자격 증명을 지정합니다.
         - HTTP 프록시만 지원됩니다.
-    - **시간 동기화**: 시간이 확인 됩니다. VM 검색이 제대로 작동하려면 어플라이언스의 시간이 인터넷 시간과 동기화되어야 합니다.
-    - **업데이트 설치**: Azure Migrate 서버 평가는 어플라이언스에 최신 업데이트가 설치 되어 있는지 확인 합니다.
+    - **시간 동기화**: 시간이 확인됩니다. VM 검색이 제대로 작동하려면 어플라이언스의 시간이 인터넷 시간과 동기화되어야 합니다.
+    - **업데이트 설치**: Azure 마이그레이션 서버 평가는 어플라이언스에 최신 업데이트가 설치되어 있는지 확인합니다.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Azure Migrate를 사용하여 어플라이언스 등록
 
-1. **로그인**을 클릭합니다. 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
+1. **Log In(로그인)** 을 클릭합니다. 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
 2. 새로 만들기 탭에서 Azure 자격 증명을 사용하여 로그인합니다.
     - 사용자 이름과 암호를 사용하여 로그인합니다.
     - PIN을 사용한 로그인은 지원되지 않습니다.
@@ -117,7 +117,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 
 ## <a name="start-continuous-discovery"></a>연속 검색 시작
 
-어플라이언스에서 물리적 서버로 연결 하 고 검색을 시작 합니다.
+어플라이언스에서 실제 서버에 연결하고 검색을 시작합니다.
 
 1. **자격 증명 추가**를 클릭하여 어플라이언스가 서버를 검색하는 데 사용할 계정 자격 증명을 지정합니다.  
 2. **운영 체제**, 자격 증명의 식별 이름, **사용자 이름** 및 **암호**를 지정하고 **추가**를 클릭합니다.
@@ -132,12 +132,12 @@ Windows 및 Linux 서버에 대해 각각 자격 증명 집합 하나를 추가�
 
 ## <a name="verify-servers-in-the-portal"></a>포털에서 서버 확인
 
-검색이 완료 되 면 서버가 포털에 표시 되는지 확인할 수 있습니다.
+검색이 완료되면 서버가 포털에 나타나는지 확인할 수 있습니다.
 
 1. Azure Migrate 대시보드를 엽니다.
-2. **Azure Migrate 서버** > **Azure Migrate: 서버 평가** 페이지에서 **검색 된 서버의**수를 표시 하는 아이콘을 클릭 합니다.
+2. **Azure 마이그레이션 - 서버** > **Azure 마이그레이션: 서버 평가** 페이지에서 검색된 서버의 수를 표시하는 **아이콘을 클릭합니다.**
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Migrate 서버 평가를 사용 하 여 [물리적 서버 평가](tutorial-assess-physical.md) 를 시험해 보세요.
+Azure 마이그레이션 서버 평가를 사용 하 고 [실제 서버의 평가를](tutorial-assess-physical.md) 사용 해 보십시오.

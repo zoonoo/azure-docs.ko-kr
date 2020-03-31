@@ -1,29 +1,29 @@
 ---
 title: AKS(Azure Kubernetes Service)에서 kubelet 로그 보기
-description: AKS (Azure Kubernetes Service) 노드에서 kubelet 로그의 문제 해결 정보를 보는 방법에 대해 알아봅니다.
+description: AZURE Kubernetes 서비스(AKS) 노드에서 쿠벨렛 로그에서 문제 해결 정보를 보는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: b7a74803af916f9e9de72dd528273007ce37832f
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77595385"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>AKS(Azure Kubernetes Service) 클러스터 노드에서 kubelet 로그 가져오기
 
-AKS 클러스터를 운영 하는 과정에서 로그를 검토 하 여 문제를 해결 해야 할 수도 있습니다. Azure Portal 기본 제공은 [AKS 클러스터의 컨테이너][azure-container-logs]또는 [AKS 마스터 구성 요소][aks-master-logs] 에 대 한 로그를 볼 수 있는 기능입니다. 경우에 따라 문제 해결을 위해 AKS 노드에서 *kubelet* 로그를 가져와야 할 수 있습니다.
+AKS 클러스터 운영의 일환으로 로그를 검토하여 문제를 해결해야 할 수 있습니다. Azure 포털에 기본 제공되는 기능은 AKS 클러스터에서 [AKS 마스터 구성 요소][aks-master-logs] 또는 컨테이너에 대한 로그를 볼 수 있는 [기능입니다.][azure-container-logs] 경우에 따라 문제 해결을 위해 AKS 노드에서 *kubelet* 로그를 가져와야 할 수도 있습니다.
 
-이 문서에서는 `journalctl`를 사용 하 여 AKS 노드의 *kubelet* 로그를 보는 방법을 보여 줍니다.
+이 문서에서는 AKS `journalctl` 노드에서 *kubelet* 로그를 보는 데 사용하는 방법을 보여 주며 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 [Azure CLI를 사용][aks-quickstart-cli] 하거나 [Azure Portal를 사용][aks-quickstart-portal]하 여 AKS 빠른 시작을 참조 하세요.
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
 ## <a name="create-an-ssh-connection"></a>SSH 연결 만들기
 
-먼저 *kubelet* 로그를 확인해야 하는 노드에 SSH 연결을 만듭니다. 이 작업은 [AKS (Azure Kubernetes Service) 클러스터 노드][aks-ssh] 문서에 대 한 SSH에 자세히 설명 되어 있습니다.
+먼저 *kubelet* 로그를 확인해야 하는 노드에 SSH 연결을 만듭니다. 이 작업 방법은 [AKS(Azure Kubernetes Service) 클러스터 노드에 대한 SSH 연결 만들기][aks-ssh] 문서에 자세히 설명되어 있습니다.
 
 ## <a name="get-kubelet-logs"></a>kubelet 로그 가져오기
 
@@ -61,7 +61,7 @@ I0508 12:28:58.344656    8672 kubelet_node_status.go:497] Using Node Hostname fr
 
 ## <a name="next-steps"></a>다음 단계
 
-Kubernetes 마스터에서 추가 문제 해결 정보를 요구 하는 경우 [AKS에서 Kubernetes 마스터 노드 로그 보기][aks-master-logs]를 참조 하세요.
+Kubernetes 마스터의 추가 문제 해결 정보가 필요하면 [ AKS에서 Kubernetes 마스터 노드 로그 보기][aks-master-logs]를 참조하세요.
 
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md

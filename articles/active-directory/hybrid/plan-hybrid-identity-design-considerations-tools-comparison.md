@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aed01ea11c1f53cb090d9c2e65ee23f521575649
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60456920"
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>하이브리드 ID 디렉터리 통합 도구 비교
@@ -28,7 +28,7 @@ ms.locfileid: "60456920"
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
 > [!NOTE]
-> Azure AD Connect는 이전에 DirSync 및 AAD 동기화로 릴리스된 구성 요소와 기능을 통합합니다. 이러한 도구는 이제 개별적으로 릴리스되지 않습니다. 향후의 모든 향상 기능은 Azure AD Connect 업데이트에 포함되므로, 최신 기능을 구할 위치를 항상 알 수 있습니다.
+> Azure AD Connect는 이전에 Dirsync 및 AAD 동기화로 릴리스된 구성 요소 및 기능을 통합합니다. 이러한 도구는 더 이상 개별적으로 릴리스되지 않으며 향후 모든 개선 사항은 Azure AD Connect 업데이트에 포함되므로 최신 기능을 얻을 위치를 항상 알 수 있습니다.
 > 
 > 디렉터리 동기화 및 Azure AD Sync는 사용되지 않습니다. 자세한 내용은 [여기](reference-connect-dirsync-deprecated.md)를 참조하세요.
 > 

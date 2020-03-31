@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 12/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 84734aefb72a3330d99c5707b461de2cd5e30484
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255003"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Azure Portal에서 StorSimple 디바이스 관리자 서비스를 사용하여 볼륨 복제
@@ -118,6 +118,6 @@ StorSimple 디바이스 관리자 서비스 **Backup 카탈로그** 블레이드
 프로덕션 환경에서 테스트 버그를 확인해야 합니다. 프로덕션 환경에서 볼륨의 클론을 만들고 이 클론의 클라우드 스냅샷을 만들어서 독립적으로 복제된 볼륨을 만듭니다. 이 시나리오에서는 영구 클론이 사용됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [백업 세트에서 StorSimple 볼륨을 복원](storsimple-8000-restore-from-backup-set-u2.md)하는 방법에 대해 알아봅니다.
+* [백업 세트에서 StorSimple 볼륨을 복원하는](storsimple-8000-restore-from-backup-set-u2.md)방법에 대해 알아봅니다.
 * [StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스를 관리](storsimple-8000-manager-service-administration.md)하는 방법을 알아봅니다.
 

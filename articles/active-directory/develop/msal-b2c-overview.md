@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2CLearn에서 MSAL 사용 | Microsoft
+title: Azure Active 디렉토리 B2CLearn과 함께 MSAL 사용 | Azure
 titleSuffix: Microsoft identity platform
 description: MSAL(Microsoft 인증 라이브러리)을 통해 애플리케이션은 Azure AD B2C와 상호 운용되고 보안 웹 API를 호출하기 위한 토큰을 획득할 수 있습니다. 이러한 웹 API에는 Microsoft Graph, 기타 Microsoft API, 타사 웹 API 또는 사용자의 웹 API가 있습니다.
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: e25564e64410701754390024a5bcfd39321343e2
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76696455"
 ---
 # <a name="use-microsoft-authentication-library-to-interoperate-with-azure-active-directory-b2c"></a>MSAL(Microsoft 인증 라이브러리)를 사용하여 Azure Active Directory B2C와 상호 운용
@@ -28,7 +28,7 @@ Azure AD B2C를 사용하면 UI를 브랜드를 반영하고 사용자 지정하
 
 이 자습서에서는 MSAL을 사용하여 Azure AD B2C와 상호 운용되는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 아직 고유한 [Azure AD B2C 테넌트](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant)를 만들지 않았다면 지금 만듭니다. 기존 Azure AD B2C 테넌트를 사용해도 됩니다.
 
@@ -40,7 +40,7 @@ Azure AD B2C를 사용하면 UI를 브랜드를 반영하고 사용자 지정하
 
 인증을 구현하려면 먼저 애플리케이션을 등록해야 합니다. 자세한 단계는 [애플리케이션 등록](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp#step-4-register-your-own-web-application-with-azure-ad-b2c)을 참조하세요.
 
-### <a name="step-2-download-the-sample-application"></a>2 단계: 샘플 응용 프로그램 다운로드
+### <a name="step-2-download-the-sample-application"></a>2단계: 샘플 응용 프로그램 다운로드
 
 샘플을 zip 파일로 다운로드하거나 GitHub에서 복제합니다.
 
@@ -48,11 +48,11 @@ Azure AD B2C를 사용하면 UI를 브랜드를 반영하고 사용자 지정하
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
 
-### <a name="step-3-configure-authentication"></a>3 단계: 인증 구성
+### <a name="step-3-configure-authentication"></a>3단계: 인증 구성
 
 1. 샘플에서 **index.html** 파일을 엽니다.
 
-1. 응용 프로그램을 등록 하는 동안 이전에 기록한 클라이언트 ID 및 키를 사용 하 여 샘플을 구성 합니다. 디렉터리 및 API의 이름으로 값을 바꿔서 코드의 다음 줄을 변경합니다.
+1. 응용 프로그램을 등록하는 동안 이전에 기록한 클라이언트 ID 및 키로 샘플을 구성합니다. 디렉터리 및 API의 이름으로 값을 바꿔서 코드의 다음 줄을 변경합니다.
 
    ```javascript
    // The current application coordinates were pre-registered in a B2C tenant.
@@ -80,7 +80,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 이 자습서의 [사용자 흐름](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) 이름은 **B2C_1_signupsignin1**입니다. 다른 사용자 흐름 이름을 사용하는 경우 **authority** 값을 해당 이름으로 설정합니다.
 
-### <a name="step-4-configure-your-application-to-use-b2clogincom"></a>4 단계: `b2clogin.com`을 사용 하도록 응용 프로그램 구성
+### <a name="step-4-configure-your-application-to-use-b2clogincom"></a>4단계: 사용할 응용 프로그램 구성`b2clogin.com`
 
 `login.microsoftonline.com` 대신 `b2clogin.com`을 리디렉션 URL로 사용할 수 있습니다. 등록 및 로그인을 위해 ID 공급자를 설정하는 경우 Azure AD B2C 애플리케이션에서 이 작업을 수행합니다.
 

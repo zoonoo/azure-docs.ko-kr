@@ -78,7 +78,17 @@
       href: 'https://arxiv.org/abs/1906.03821'
 - name: 리소스
   items:
-    - name: 가격
+    - name: 지원
+      items:
+        - name: 지원 받기
+          href: 'https://aka.ms/adsupport'
+        - name: 스택 오버플로
+          href: 'https://aka.ms/adso'
+        - name: MSDN
+          href: 'https://aka.ms/admsdn'
+        - name: 사용자 의견
+          href: 'https://aka.ms/aduservoice'
+    - name: 가격 책정
       href: 'https://aka.ms/adpricing'
     - name: 국가별 가용성
       href: 'https://aka.ms/adregion'
@@ -90,13 +100,3 @@
       href: 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
     - name: 규정 준수
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-- name: 지원
-  items:
-    - name: 지원 받기
-      href: 'https://aka.ms/adsupport'
-    - name: 스택 오버플로
-      href: 'https://aka.ms/adso'
-    - name: MSDN
-      href: 'https://aka.ms/admsdn'
-    - name: 사용자 의견
-      href: 'https://aka.ms/aduservoice'

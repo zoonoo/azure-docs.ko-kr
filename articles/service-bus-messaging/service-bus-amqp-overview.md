@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus의 AMQP 1.0 개요
-description: 개방형 표준 프로토콜인 고급 메시지 큐 프로토콜 (AMQP) Azure Service Bus 지 원하는 방법에 대해 알아봅니다.
+title: Azure 서비스 버스에서 AMQP 1.0 개요
+description: Azure Service Bus가 개방형 표준 프로토콜인 AMQP(고급 메시지 대기열 프로토콜)를 지원하는 방법을 알아봅니다.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 50d21cfe8136b9c794eae5104bbb34e28f7c1661
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76759315"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Service Bus의 AMQP 1.0 지원
@@ -77,7 +77,7 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 | C |Apache Qpid Proton-C |
 | PHP |Apache Qpid Proton-PHP |
 | Python |Apache Qpid Proton-Python |
-| C# |AMQP .NET Lite |
+| C# |AMQP .NET 라이트 |
 
 **그림 2: AMQP 1.0 클라이언트 라이브러리 테이블**
 

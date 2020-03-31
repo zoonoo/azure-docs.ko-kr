@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 7700f1c92aecab76dbc347814b7b161bc3d822a0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67182259"
 ---
 ### <a name="to-configure-and-register-the-device"></a>디바이스를 구성 및 등록하려면
@@ -61,19 +61,19 @@ ms.locfileid: "67182259"
 11. 보안상의 이유로 첫 번째 세션이 끝난 후 디바이스 관리자 암호가 만료되고 지금 암호를 변경해야 합니다. 메시지가 표시되면 디바이스 관리자 암호를 제공합니다. 유효한 디바이스 관리자 암호는 8자에서 15자 사이여야 합니다. 암호는 소문자, 대문자, 숫자 및 특수 문자 중 세 유형을 포함해야 합니다.
     
     <br/>![StorSimple 등록 디바이스 5](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice5_gov-include.png)
-12. 설치 마법사의 마지막 단계에서는 StorSimple 디바이스 관리자 서비스에 디바이스를 등록합니다. 이 경우 [2단계에서 가져온 서비스 등록 키가 필요합니다. 서비스 등록 키 가져오기](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key)로 이동합니다. 등록 키를 입력한 후 디바이스가 등록되려면 2~3분 정도 기다려야 할 수 있습니다.
+12. 설치 마법사의 마지막 단계에서는 StorSimple 디바이스 관리자 서비스에 디바이스를 등록합니다. 이 경우 [2단계: 서비스 등록 키 가져오기](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key)에서 얻은 서비스 등록 키가 필요합니다. 등록 키를 입력한 후 디바이스가 등록되려면 2~3분 정도 기다려야 할 수 있습니다.
     
     > [!NOTE]
     > Ctrl + C를 눌러 언제든지 설치 마법사를 종료할 수 있습니다. 모든 네트워크 설정(Data 0, 서브넷 마스크 및 게이트웨이 IP 주소)를 입력한 경우, 항목이 유지됩니다.
     
     ![StorSimple 등록 진행률](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegistrationProgress-gov-include.png)
-13. 디바이스를 등록한 후 서비스 데이터 암호화 키가 표시됩니다. 이 키를 복사하고 안전한 위치에 저장합니다. **이 키는 서비스 등록 키와 함께 StorSimple 디바이스 관리자 서비스에 추가 디바이스를 등록하는 데 필요합니다.** 이 키에 대한 자세한 내용은 [StorSimple 보안](../articles/storsimple/storsimple-8000-security.md) 을 참조하세요.
+13. 디바이스를 등록한 후 서비스 데이터 암호화 키가 표시됩니다. 이 키를 복사하고 안전한 위치에 저장합니다. **이 키는 StorSimple 디바이스 관리자 서비스에 추가 디바이스를 등록하기 위한 서비스 등록 키에 필요합니다.** 이 키에 대한 자세한 내용은 [StorSimple 보안](../articles/storsimple/storsimple-8000-security.md) 을 참조하세요.
     
     ![StorSimple 등록 디바이스 7](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice7_gov-include.png)
     > [!IMPORTANT]
     > 직렬 콘솔 창에서 텍스트를 복사하려면 해당 텍스트를 선택하면 됩니다. 그런 다음 클립보드 또는 임의의 텍스트 편집기에 붙여넣을 수 있습니다.
     > 
-    > **Ctrl+C**를 사용하여 서비스 데이터 암호화 키를 복사하지 마세요. **Ctrl+C**를 사용하면 설치 마법사가 종료됩니다. 결과적으로, 디바이스 관리자 암호는 변경되지 않으며 디바이스는 기본 암호로 되돌아갑니다.
+    > **Ctrl + C를** 사용하여 서비스 데이터 암호화 키를 복사하지 마십시오. **Ctrl + C를** 사용하면 설치 마법사를 종료합니다. 결과적으로, 디바이스 관리자 암호는 변경되지 않으며 디바이스는 기본 암호로 되돌아갑니다.
     
 14. 직렬 콘솔을 종료합니다.
 15. Azure Government 포털로 돌아가서 다음 단계를 완료합니다.
@@ -81,7 +81,7 @@ ms.locfileid: "67182259"
     1. StorSimple 디바이스 관리자 서비스로 이동합니다.
     2. **장치**를 클릭합니다. 디바이스 목록에서 배포 중인 디바이스를 식별합니다. 상태를 조회하여 디바이스가 서비스에 성공적으로 연결되었는지 확인합니다. 디바이스 상태는 **온라인**이어야 합니다.
             
-        디바이스 상태가 **오프라인**이면 디바이스가 온라인 상태가 될 때까지 몇 분 정도 기다립니다.
+        장치 상태가 **오프라인**이면 장치가 온라인이 될 때까지 몇 분 정도 기다립니다.
        
         몇 분 후 디바이스가 여전히 오프라인 상태인 경우, [StorSimple 디바이스에 대한 네트워킹 요구 사항](../articles/storsimple/storsimple-8000-system-requirements.md)에 설명된 대로 방화벽 네트워크가 구성되었는지 확인해야 합니다.
        

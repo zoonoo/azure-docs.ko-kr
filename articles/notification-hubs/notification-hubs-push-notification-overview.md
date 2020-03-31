@@ -13,16 +13,16 @@ ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/20/2020
+ms.date: 03/23/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/30/2019
-ms.openlocfilehash: dad71d473ecb6107a5cf0d8f5953667f07bfce5c
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: f5b59d1669d89c73b93199d1f833da149003d399
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526776"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80159339"
 ---
 # <a name="what-is-azure-notification-hubs"></a>Azure Notification Hubs란 무엇인가요?
 
@@ -42,7 +42,7 @@ Azure Notification Hubs는 알림을 모든 백 엔드(클라우드 또는 온-�
 푸시 알림은 앱 참여와 사용량이 증가하는 소비자 앱과 최신 비즈니스 정보를 전달하는 엔터프라이즈 앱에 매우 중요합니다. 모바일 디바이스에는 에너지 효율이 높고, 알림 보낸 사람에게는 유연하며, 해당 애플리케이션이 활성화되어 있지 않을 때 사용할 수 있으므로 최상의 앱-사용자 통신입니다.
 
 > [!NOTE]
-> Azure Notification Hubs는 VOIP(Voice Over Internet Protocol) 푸시 알림을 지원하지 않습니다.
+> Azure Notification Hubs는 공식적으로 VOIP(Voice Over Internet Protocol) 푸시 알림을 지원하지 않습니다. 그러나 Azure Notification Hubs를 통해 [이 문서에서는 APNS VOIP 알림을 사용하는 방법을 설명합니다](voip-apns.md).
 
 인기 있는 몇 가지 플랫폼의 푸시 알림에 대한 자세한 내용은 다음 항목을 참조하세요.
 

@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 02/08/2019
 ms.author: femila
 ms.openlocfilehash: 9acef524521e8fac6ce6f8f61e5ff3fbbb81d18d
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77486362"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-maps"></a>Azure Maps에 대한 Azure Event Grid 이벤트 스키마
@@ -22,7 +22,7 @@ ms.locfileid: "77486362"
 
 Azure Maps 계정은 다음과 같은 이벤트 유형을 내보냅니다.
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Maps.GeofenceEntered | 수신된 좌표가 지정된 지오펜스 외부에서 내부로 이동한 경우에 발생합니다. |
 | Microsoft.Maps.GeofenceExited | 수신된 좌표가 지정된 지오펜스 내부에서 외부로 이동한 경우에 발생합니다. |

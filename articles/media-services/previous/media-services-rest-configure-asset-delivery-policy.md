@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 09f0371bc189fcf7b25ec3261e2e1f5eaf1892ae
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78194495"
 ---
 # <a name="configuring-asset-delivery-policies"></a>자산 배달 정책 구성
@@ -29,7 +29,7 @@ ms.locfileid: "78194495"
 이 항목에서는 자산 배달 정책을 만들고 구성하는 이유와 방법을 설명합니다.
 
 > [!NOTE]
-> AMS 계정이 만들어질 때 **기본** 스트리밍 엔드포인트는 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트는 **실행** 상태에 있어야 합니다. 
+> AMS 계정이 생성되면 **기본** 스트리밍 끝점이 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점이 **실행 중** 상태여야 합니다. 
 >
 > 또한 동적 패키징 및 동적 암호화를 사용하려면 자산이 적응 비트 전송률 MP4 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합을 포함해야 합니다.
 
@@ -71,7 +71,7 @@ MPEG DASH
 AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
 
 ## <a name="clear-asset-delivery-policy"></a>자산 배달 정책 지우기
-### <a id="create_asset_delivery_policy"></a>자산 배달 정책 만들기
+### <a name="create-asset-delivery-policy"></a><a id="create_asset_delivery_policy"></a>자산 배달 정책 만들기
 다음 HTTP 요청은 동적 암호화를 적용하지 않고 MPEG DASH, HLS 및 부드러운 스트리밍 프로토콜 중 하나에서 스트림을 배달하도록 지정하는 자산 배달 정책을 만듭니다. 
 
 AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세한 정보는 [AssetDeliveryPolicy를 정의할 때 사용되는 형식](#types) 섹션을 참조하세요.   
@@ -120,7 +120,7 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
     "Created":"2015-02-08T06:21:27.6908329Z",
     "LastModified":"2015-02-08T06:21:27.6908329Z"}
 
-### <a id="link_asset_with_asset_delivery_policy"></a>자산을 자산 배달 정책과 연결
+### <a name="link-asset-with-asset-delivery-policy"></a><a id="link_asset_with_asset_delivery_policy"></a>자산을 자산 배달 정책과 연결
 다음 HTTP 요청은 지정된 자산을 자산 배달 정책에 연결합니다.
 
 요청:
@@ -147,7 +147,7 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
 ### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>EnvelopeEncryption 형식의 콘텐츠 키를 만들고 자산에 연결
 DynamicEnvelopeEncryption 배달 정책을 지정할 때 EnvelopeEncryption 형식의 콘텐츠 키에 자산을 연결해야 합니다. 자세한 내용은 [콘텐츠 키 만들기](media-services-rest-create-contentkey.md)를 참조하세요.
 
-### <a id="get_delivery_url"></a>배달 URL 가져오기
+### <a name="get-delivery-url"></a><a id="get_delivery_url"></a>배달 URL 받기
 이전 단계에서 만든 콘텐츠 키의 지정된 배달 방법에 대한 배달 URL을 가져옵니다. 클라이언트는 보호된 콘텐츠를 재생하기 위해 AES 키 또는 PlayReady 라이선스를 요청하여 반환된 URL을 사용합니다.
 
 HTTP 요청의 본문을 가져오려면 URL의 유형을 지정 합니다. PlayReady 사용하여 콘텐츠를 보호하는 경우 keyDeliveryType에 1을 사용({"keyDeliveryType":1})하여 Media Services PlayReady 라이선스 취득 URL을 요청합니다. 봉투 암호화를 사용하여 콘텐츠를 보호하는 경우 keyDeliveryType에 대해 2를 지정({"keyDeliveryType":2})하여 키 획득 URL 요청합니다.
@@ -260,7 +260,7 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
 
 Widevine DRM을 사용하여 콘텐츠를 보호하려는 경우 값 7인 WidevineLicenseAcquisitionUrl을 사용하도록 AssetDeliveryConfiguration 값을 업데이트하고 라이선스 배달 서비스의 URL을 지정합니다. AMS 파트너([Axinom](https://www.axinom.com), [EZDRM](https://ezdrm.com/), [castLabs](https://castlabs.com/company/partners/azure/))를 사용하여 Widevine 라이선스를 배달할 수 있습니다.
 
-예를 들면 다음과 같습니다. 
+예를 들어: 
 
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
 
@@ -272,7 +272,7 @@ Widevine DRM을 사용하여 콘텐츠를 보호하려는 경우 값 7인 Widevi
 ### <a name="link-asset-with-asset-delivery-policy"></a>자산을 자산 배달 정책과 연결
 [자산을 자산 배달 정책과 연결](#link_asset_with_asset_delivery_policy)
 
-## <a id="types"></a>AssetDeliveryPolicy를 정의할 때 사용되는 형식
+## <a name="types-used-when-defining-assetdeliverypolicy"></a><a id="types"></a>AssetDeliveryPolicy를 정의할 때 사용되는 형식
 
 ### <a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol
 
@@ -422,7 +422,7 @@ Widevine DRM을 사용하여 콘텐츠를 보호하려는 경우 값 7인 Widevi
         WidevineLicenseAcquisitionUrl
     }
 
-## <a name="additional-notes"></a>추가 참고 사항
+## <a name="additional-notes"></a>추가적인 참고 사항
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 

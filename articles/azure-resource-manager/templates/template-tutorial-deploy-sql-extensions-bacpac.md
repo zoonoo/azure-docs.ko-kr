@@ -5,18 +5,18 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 27ac4b67aa19aa59abe80ccf9409acf7b587a22b
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 8e65ebbfa0971bf2156165b55ca18eee3cc74bc9
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250104"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239269"
 ---
-# <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>자습서: Azure Resource Manager 템플릿을 사용하여 SQL BACPAC 파일 가져오기
+# <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>자습서: ARM 템플릿을 사용하여 SQL BACPAC 파일 가져오기
 
-Azure SQL Database 확장을 사용하여 Azure Resource Manager 템플릿을 통해 BACPAC 파일을 가져오는 방법에 대해 알아봅니다. 배포 아티팩트는 배포를 완료하는 데 필요한 기본 템플릿 파일 이외의 모든 파일입니다. BACPAC 파일은 아티팩트입니다. 
+Azure SQL Database 확장을 사용하여 ARM(Azure Resource Manager) 템플릿을 통해 BACPAC 파일을 가져오는 방법에 대해 알아봅니다. 배포 아티팩트는 배포를 완료하는 데 필요한 기본 템플릿 파일 이외의 모든 파일입니다. BACPAC 파일은 아티팩트입니다. 
 
-이 자습서에서는 Azure SQL Server, SQL Database를 배포하는 템플릿을 만들고 BACPAC 파일을 가져옵니다. Azure Resource Manager 템플릿을 사용하여 Azure 가상 머신 확장을 배포하는 방법에 대한 자세한 내용은 다음을 참조하세요. [자습서: Azure Resource Manager 템플릿을 사용하여 가상 머신 확장 배포](./template-tutorial-deploy-vm-extensions.md)
+이 자습서에서는 Azure SQL Server, SQL Database를 배포하는 템플릿을 만들고 BACPAC 파일을 가져옵니다. ARM 템플릿을 사용하여 Azure 가상 머신 확장을 배포하는 방법에 대한 자세한 내용은 [자습서: ARM 템플릿을 사용하여 가상 머신 확장 배포](./template-tutorial-deploy-vm-extensions.md)를 참조하세요.
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -33,20 +33,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-* Resource Manager Tools 확장이 있는 Visual Studio Code. [Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](./use-vs-code-to-create-template.md)를 참조하세요.
+* Resource Manager Tools 확장이 있는 Visual Studio Code. [Visual Studio Code를 사용하여 ARM 템플릿 만들기](./use-vs-code-to-create-template.md)를 참조하세요.
 * 보안을 강화하려면 Azure SQL Server 관리자 계정에 대해 생성된 암호를 사용하세요. 암호를 생성하는 데 사용할 수 있는 샘플은 다음과 같습니다.
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault는 암호화 키 및 기타 비밀을 보호하기 위한 것입니다. 자세한 내용은 [자습서: Resource Manager 템플릿 배포에 Azure Key Vault 통합](./template-tutorial-use-key-vault.md)을 참조하세요. 또한 3개월 마다 암호를 업데이트하는 것도 좋습니다.
+    Azure Key Vault는 암호화 키 및 기타 비밀을 보호하기 위한 것입니다. 자세한 내용은 [자습서: ARM 템플릿 배포에 Azure Key Vault 통합](./template-tutorial-use-key-vault.md)을 참조하세요. 또한 3개월 마다 암호를 업데이트하는 것도 좋습니다.
 
 ## <a name="prepare-a-bacpac-file"></a>BACPAC 파일 준비
 
 BACPAC 파일은 [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac)에서 공유됩니다. 사용자 고유의 파일을 만들려면 [Azure SQL 데이터베이스를 BACPAC 파일로 내보내기](../../sql-database/sql-database-export.md)를 참조하세요. 사용자 고유의 위치에 파일을 게시하기로 선택하는 경우 자습서의 뒷부분에서 템플릿을 업데이트해야 합니다.
 
-Resource Manager 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼저 Azure Storage 계정에 BACPAC 파일을 저장해야 합니다. 다음 PowerShell 스크립트는 다음 단계를 수행하여 BACPAC 파일을 준비합니다.
+ARM 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼저 Azure Storage 계정에 BACPAC 파일을 저장해야 합니다. 다음 PowerShell 스크립트는 다음 단계를 수행하여 BACPAC 파일을 준비합니다.
 
 * BACPAC 파일 다운로드
 * Azure Storage 계정 만들기

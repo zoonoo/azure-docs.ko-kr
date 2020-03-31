@@ -2,20 +2,20 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 0803a847e9e864b361917df9f1a9c6b059ca2fe9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 617ab4114fd200c0b4306e3c27825bafe06b1764
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79203425"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80240127"
 ---
 <a name="HOLTop"></a>
 
 #### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
 
-[v3 참조 설명서](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b2/azure.ai.textanalytics.html) | [v3 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3 패키지(PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
+[v3 참조 설명서](https://aka.ms/azsdk-python-textanalytics-ref-docs) | [v3 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3 패키지(PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 #### <a name="version-21"></a>[버전 2.1](#tab/version-2)
 
@@ -27,9 +27,9 @@ ms.locfileid: "79203425"
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
-* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Text Analytics 리소스를 만들어"  target="_blank">Text Analytics 리소스를 만들어<span class="docon docon-navigate-external x-hidden-focus"></span></a> 키와 엔드포인트를 가져옵니다. 
-    * 애플리케이션을 Text Analytics API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 작업은 나중에 빠른 시작에서 수행합니다.
-    * 평가판 가격 책정 계층을 사용하여 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Text Analytics 리소스를 만들어"  target="_blank">Text Analytics 리소스를 만들어<span class="docon docon-navigate-external x-hidden-focus"></span></a> 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+    * 애플리케이션을 Text Analytics API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
+    * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 
 ## <a name="setting-up"></a>설치
 

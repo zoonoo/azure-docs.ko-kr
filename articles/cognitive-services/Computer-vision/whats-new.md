@@ -10,16 +10,20 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 02/28/2020
 ms.author: pafarley
-ms.openlocfilehash: c154b75fc8f8a177ab73682fc2af77d1702ae075
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 82e9c9a6dd8dc18f186a21e72a1a3d205094b707
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78207866"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80155191"
 ---
 # <a name="whats-new-in-computer-vision"></a>Computer Vision의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목은 메모, 비디오, 블로그 게시물 및 기타 유형의 정보를 릴리스할 수 있습니다. 서비스를 최신 상태로 유지하려면 이 페이지에 책갈피를 설정합니다.
+
+## <a name="march-2020"></a>2020년 3월
+
+* 이제 TLS 1.2는 이 서비스에 대한 모든 HTTP 요청에 적용됩니다. 자세한 내용은 [Azure Cognitive Services 보안](../cognitive-services-security.md)을 참조하세요.
 
 ## <a name="january-2020"></a>2020년 1월
 

@@ -7,10 +7,10 @@ ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1426d6e770cca566c4b77ca4742e2f8a0fbb5465
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76715068"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Azure Functions에 대한 Twilio 바인딩
@@ -25,7 +25,7 @@ Twilio 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Twilio](https://www.nuge
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="packages---functions-2x-and-higher"></a>패키지-함수 2.x 이상
+## <a name="packages---functions-2x-and-higher"></a>패키지 - 기능 2.x 이상
 
 Twilio 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet 패키지 버전 3.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) GitHub 리포지토리에 있습니다.
 
@@ -33,9 +33,9 @@ Twilio 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Twilio](https://www.nuge
 
 <a id="example"></a>
 
-## <a name="example---functions-2x-and-higher"></a>예제-함수 2.x 이상
+## <a name="example---functions-2x-and-higher"></a>예 - 함수 2.x 이상
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 다음 예제에서는 큐 메시지에서 트리거되면 문자 메시지를 보내는 [C# 함수](functions-dotnet-class-library.md)를 보여 줍니다.
 
@@ -70,7 +70,7 @@ namespace TwilioQueueOutput
 
 이 예제에서는 메서드 반환 값과 `TwilioSms` 특성을 사용합니다. 또는 `out CreateMessageOptions` 매개 변수나, `ICollector<CreateMessageOptions>` 또는 `IAsyncCollector<CreateMessageOptions>` 매개 변수와 특성을 사용합니다.
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
 
 다음 예에서는 *function.json* 파일의 Twilio 출력 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 이 함수는 `out` 매개 변수를 사용하여 문자 메시지를 보냅니다.
 
@@ -156,7 +156,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOp
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
 다음 예에서는 Twilio 출력 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 함수](functions-reference-node.md)에서 테이블 출력 바인딩을 보여줍니다.
 
@@ -201,9 +201,9 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
-다음 예제에서는 다음 *node.js*에 정의 된 대로 출력 바인딩을 사용 하 여 SMS 메시지를 보내는 방법을 보여 줍니다.
+다음 예제에서는 다음 *function.js에*정의된 출력 바인딩을 사용하여 SMS 메시지를 보내는 방법을 보여 주며 있습니다.
 
 ```json
     {
@@ -217,7 +217,7 @@ module.exports = function (context, myQueueItem) {
     }
 ```
 
-Serialize 된 JSON 개체를 `func.Out` 매개 변수에 전달 하 여 SMS 메시지를 보낼 수 있습니다.
+직렬화된 JSON 개체를 매개 `func.Out` 변수에 전달하여 SMS 메시지를 보낼 수 있습니다.
 
 ```python
 import logging
@@ -239,9 +239,9 @@ def main(req: func.HttpRequest, twilioMessage: func.Out[str]) -> func.HttpRespon
     return func.HttpResponse(f"Message sent")
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
-다음 예제에서는 [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) 주석을 사용 하 여 SMS 메시지를 보내는 방법을 보여 줍니다. `to`, `from`및 `body`에 대 한 값은 프로그래밍 방식으로 재정의 하는 경우에도 특성 정의에 필요 합니다.
+다음 예제에서는 [TwilioSms출력](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) 주석을 사용하여 SMS 메시지를 보내는 방법을 보여 주며 있습니다. 에 `to` `from`대한 `body` 값은 프로그래밍 방식으로 재정의하는 경우에도 특성 정의에 필요합니다.
 
 ```java
 package com.function;
@@ -287,7 +287,7 @@ public class TwilioOutput {
 
 ## <a name="attributes-and-annotations"></a>특성 및 주석
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) 특성을 사용합니다.
 
@@ -305,38 +305,38 @@ public static CreateMessageOptions Run(
 
 전체 예제는 [C# 예제](#example)를 참조하세요.
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C# 스크립트](#tab/csharp-script)
 
-스크립트에서 C# 특성을 지원 하지 않습니다.
+특성은 C# 스크립트에서 지원되지 않습니다.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
 
-JavaScript에서는 특성을 지원 하지 않습니다.
+속성은 자바 스크립트에서 지원되지 않습니다.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
-Python에서 특성을 지원 하지 않습니다.
+특성은 파이썬에서 지원되지 않습니다.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
-[`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.outputbinding) 매개 변수에 [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) 주석을 저장 합니다. 여기에서 `T` `int`, `String`, `byte[]`또는 pojo 형식과 같은 네이티브 Java 형식일 수 있습니다.
+[TwilioSms출력](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.outputbinding) 주석을 매개 변수에 `T` 배치합니다. `int` `String` `byte[]`
 
 ---
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
-다음 표에서는 *function.json* 파일 및 `TwilioSms` 특성에 설정된 바인딩 구성 속성을 설명합니다.
+다음 표에서는 *function.json* 파일및 특성에서 설정한 바인딩 `TwilioSms` 구성 속성에 대해 설명합니다.
 
 | v1 function.json 속성 | v2 function.json 속성 | 특성 속성 |설명|
 |---------|---------|---------|----------------------|
-|**type**|**type**| `twilioSms`로 설정해야 합니다.|
+|**종류**|**종류**| `twilioSms`로 설정해야 합니다.|
 |**direction**|**direction**| `out`로 설정해야 합니다.|
-|**name**|**name**| Twilio SMS 텍스트 메시지에 대한 함수 코드에 사용되는 변수 이름입니다. |
-|**accountSid**|**accountSidSetting**| **AccountSidSetting**| 이 값은 Twilio 계정 Sid (`TwilioAccountSid`)를 포함 하는 앱 설정의 이름으로 설정 해야 합니다. 설정되지 않은 경우 기본 앱 설정 이름은 "AzureWebJobsTwilioAccountSid"입니다. |
-|**authToken**|**authTokenSetting**|**AuthTokenSetting**| 이 값은`TwilioAccountAuthToken`(Twilio authentication token)을 포함 하는 앱 설정의 이름으로 설정 해야 합니다. 설정되지 않은 경우 기본 앱 설정 이름은 "AzureWebJobsTwilioAuthToken"입니다. |
-|**to**| 해당 없음 - 코드에서 지정 | **수행할 작업**| 이 값은 SMS 텍스트 메시지가 전송된 전화 번호로 설정됩니다.|
-|**from**|**from** | **From**| 이 값은 SMS 텍스트 메시지를 보낸 전화 번호로 설정됩니다.|
-|**body**|**body** | **본문**| 이 값은 함수에 대한 코드에서 동적으로 설정할 필요가 없는 경우에 SMS 텍스트 메시지를 하드 코딩하는 데 사용할 수 있습니다. |  
+|**(이름)**|**(이름)**| Twilio SMS 텍스트 메시지에 대한 함수 코드에 사용되는 변수 이름입니다. |
+|**계정 시드**|**계정 시드 세팅**| **AccountSidSetting**| 이 값은 Twilio 계정 시드()를`TwilioAccountSid`포함하는 앱 설정의 이름으로 설정되어야 합니다. 설정되지 않은 경우 기본 앱 설정 이름은 "AzureWebJobsTwilioAccountSid"입니다. |
+|**authToken**|**authTokenSetting**|**인증 토큰 설정**| 이 값은 Twilio 인증 토큰()을`TwilioAccountAuthToken`포함하는 앱 설정의 이름으로 설정되어야 합니다. 설정되지 않은 경우 기본 앱 설정 이름은 "AzureWebJobsTwilioAuthToken"입니다. |
+|**받는 사람**| 해당 없음 - 코드에서 지정 | **받는 사람**| 이 값은 SMS 텍스트 메시지가 전송된 전화 번호로 설정됩니다.|
+|**보낸 사람**|**보낸 사람** | **보낸 사람**| 이 값은 SMS 텍스트 메시지를 보낸 전화 번호로 설정됩니다.|
+|**몸**|**몸** | **본문**| 이 값은 함수에 대한 코드에서 동적으로 설정할 필요가 없는 경우에 SMS 텍스트 메시지를 하드 코딩하는 데 사용할 수 있습니다. |  
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

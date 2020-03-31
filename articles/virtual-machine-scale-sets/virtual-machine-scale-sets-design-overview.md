@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Machine Scale Sets에 대 한 디자인 고려 사항
-description: Azure Virtual Machine Scale Sets에 대 한 디자인 고려 사항에 대해 알아봅니다. 확장 집합 기능과 VM 기능을 비교 합니다.
+title: Azure 가상 시스템 규모 집합에 대한 설계 고려 사항
+description: Azure 가상 시스템 확장 집합의 디자인 고려 사항에 대해 알아봅니다. 스케일 세트 피쳐를 VM 피쳐와 비교합니다.
 keywords: linux 가상 머신, 가상 머신 크기 집합
 author: mayanknayar
 tags: azure-resource-manager
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/01/2017
 ms.author: manayar
 ms.openlocfilehash: b427319fdba634ea3c61681baa30547450709dc1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250778"
 ---
 # <a name="design-considerations-for-scale-sets"></a>확장 집합 디자인 고려 사항
@@ -25,7 +25,7 @@ ms.locfileid: "79250778"
 
 ### <a name="scale-set-specific-features"></a>확장 집합 특정 기능
 
-- 확장 집합 구성을 지정하고 나면 추가 VM을 병렬로 배포하도록 *용량* 속성을 업데이트할 수 있습니다. 이 방법은 다수의 개별 VM을 병렬로 배포하는 작업을 오케스트레이션하는 스크립트를 작성하는 것보다 좋습니다.
+- 축척 집합 구성을 지정한 후에는 *용량* 속성을 업데이트하여 더 많은 VM을 병렬로 배포할 수 있습니다. 이 방법은 다수의 개별 VM을 병렬로 배포하는 작업을 오케스트레이션하는 스크립트를 작성하는 것보다 좋습니다.
 - [Azure 자동 크기 조정을 사용하여 확장 집합의 크기를 자동으로 조정](./virtual-machine-scale-sets-autoscale-overview.md)할 수 있지만 개별 VM의 경우는 불가능합니다.
 - [확장 집합 VM을 이미지로 다시 설치](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage)할 수 있지만 [개별 VM의 경우는 불가능합니다](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 - 안정성 향상과 배포 시간 단축을 위해 확장 집합 VM을 [오버프로비전](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning)할 수 있습니다. 이 작업을 수행하는 사용자 지정 코드를 작성하지 않는 한 개별 VM을 과도하게 프로비전할 수 없습니다.
