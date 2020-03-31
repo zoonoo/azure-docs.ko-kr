@@ -19,8 +19,6 @@
           href: connect-metamask.md
         - name: Geth 사용
           href: connect-geth.md
-        - name: Truffle 사용
-          href: connect-truffle.md
 - name: 자습서
   items:
     - name: 스마트 계약 만들기
@@ -77,7 +75,7 @@
       href: 'https://stackoverflow.com/questions/tagged/AzureBlockchainService'
     - name: 제품 사용자 의견
       href: 'https://feedback.azure.com/forums/921130-azure-blockchain-service'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/blockchain-service'
     - name: 지역 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=blockchainservice'

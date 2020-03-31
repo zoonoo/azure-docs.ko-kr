@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: b7a561907e3f1968eb9adead3606822d7a1321c8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266976"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>RDP를 사용한 Azure VM 연결 시의 인증 오류 문제 해결
@@ -31,15 +31,15 @@ ms.locfileid: "79266976"
 
 ### <a name="error-message-1"></a>오류 메시지 1
 
-**인증 오류가 발생 했습니다. 로컬 보안 기관에 연결할 수 없습니다.**
+**인증 오류가 발생했습니다. 현지 보안 기관에 연락할 수 없습니다.**
 
 ### <a name="error-message-2"></a>오류 메시지 2
 
-**연결 하려는 원격 컴퓨터에 네트워크 수준 인증 (NLA)가 필요 하지만 Windows 도메인 컨트롤러에 연결 하 여 NLA를 수행할 수 없습니다. 원격 컴퓨터의 관리자 인 경우 시스템 속성 대화 상자의 원격 탭에 있는 옵션을 사용 하 여 NLA를 사용 하지 않도록 설정할 수 있습니다.**
+**연결하려는 원격 컴퓨터에는 NLA(네트워크 수준 인증)가 필요하지만 NLA를 수행하기 위해 Windows 도메인 컨트롤러에 연결할 수 없습니다. 원격 컴퓨터의 관리자인 경우 시스템 속성 대화 상자의 원격 탭에서 옵션을 사용하여 NLA를 사용하지 않도록 설정할 수 있습니다.**
 
 ### <a name="error-message-3-generic-connection-error"></a>오류 메시지 3(일반 연결 오류)
 
-**이 컴퓨터는 원격 컴퓨터에 연결할 수 없습니다. 연결을 다시 시도 합니다. 문제가 계속 되 면 원격 컴퓨터 또는 네트워크 관리자의 소유자에 게 문의 하십시오.**
+**이 컴퓨터는 원격 컴퓨터에 연결할 수 없습니다. 문제가 계속되면 다시 연결해 보십시오.**
 
 ## <a name="cause"></a>원인
 
@@ -246,7 +246,7 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Prot
 > [!Note]
 > SCHANNEL 오류에 대한 게스트 OS 로그에서 SSH/TLS 버전 x.x를 가져옵니다.
 
-#### <a name="fips-compliant"></a> FIPS 호환 알고리즘 연결 확인
+#### <a name="check-fips-compliant-algorithms-connections"></a><a name="fips-compliant"></a> FIPS 호환 알고리즘 연결 확인
 
 FIPS 호환 알고리즘 연결만 사용하도록 원격 데스크톱을 적용할 수 있습니다. 이는 레지스트리 키를 사용하여 설정할 수 있습니다. 이렇게 하려면 관리자 권한으로 실행된 [명령 프롬프트] 창을 열고 다음 키를 쿼리합니다.
 

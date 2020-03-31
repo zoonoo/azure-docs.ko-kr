@@ -1,5 +1,5 @@
 ---
-title: Databricks Python을 사용 하 여 데이터 변환
+title: 데이터브릭스 파이썬으로 데이터 변환
 description: Databricks Python을 실행하여 데이터를 처리하거나 변환하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: anandsub
 ms.openlocfilehash: be2e389a0f103983a566a3f74d201e5589d84586
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74926730"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Azure Databricks에서 Python 작업을 실행하여 데이터 변환
 
-[Data Factory 파이프라인](concepts-pipelines-activities.md)의 Azure Databricks Python 작업은 Azure Databricks 클러스터에서 Python 파일을 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는  [데이터 변환 활동](transform-data.md)  문서에서 작성합니다. Azure Databricks은 Apache Spark을 실행 하기 위한 관리 되는 플랫폼입니다.
+[Data Factory 파이프라인](concepts-pipelines-activities.md)의 Azure Databricks Python 작업은 Azure Databricks 클러스터에서 Python 파일을 실행합니다. 이 문서에서는 데이터 변환 및 지원되는 변환 활동에 대한 일반적인 개요를 제공하는 [데이터 변환 활동](transform-data.md) 문서를 기반으로 합니다.Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다.
 
 11분 동안 이 기능의 소개 및 데모에 대한 다음 비디오를 시청하세요.
 
@@ -61,15 +61,15 @@ Databricks Python 작업에 대한 샘플 JSON 정의는 다음과 같습니다.
 
 다음 표에서는 JSON 정의에 사용하는 JSON 속성을 설명합니다.
 
-|자산|설명|필수|
+|속성|설명|필수|
 |---|---|---|
-|이름|파이프라인의 작업 이름입니다.|yes|
-|description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|아닙니다.|
+|name|파이프라인의 작업 이름입니다.|yes|
+|description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|예|
 |type|Databricks Python 작업의 경우 작업 형식은 DatabricksSparkPython입니다.|yes|
-|linkedServiceName|Python 작업이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은  [연결된 서비스 Compute](compute-linked-services.md)  문서를 참조하세요.|yes|
+|linkedServiceName|Python 작업이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 서비스](compute-linked-services.md) 계산 문서를 참조하십시오.|yes|
 |pythonFile|실행할 Python 파일의 URI입니다. DBFS 경로만이 지원됩니다.|yes|
-|parameters|Python 파일에 전달되는 명령줄 매개 변수입니다. 문자열의 배열입니다.|아닙니다.|
-|라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. <문자열, 개체>의 배열일 수 있습니다.|아닙니다.|
+|매개 변수|Python 파일에 전달되는 명령줄 매개 변수입니다. 문자열의 배열입니다.|예|
+|라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. <문자열, 개체>의 배열일 수 있습니다.|예|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Databricks 활동에 지원되는 라이브러리
 
@@ -111,14 +111,14 @@ Databricks Python 작업에 대한 샘플 JSON 정의는 다음과 같습니다.
 
 ## <a name="how-to-upload-a-library-in-databricks"></a>Databricks에서 라이브러리를 업로드하는 방법
 
-#### <a name="using-databricks-workspace-uihttpsdocsazuredatabricksnetuser-guidelibrarieshtmlcreate-a-library"></a>[Azure Databricks 작업 영역 UI 사용](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
+#### <a name="using-databricks-workspace-ui"></a>[Azure Databricks 작업 영역 UI 사용](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
 
 UI를 사용하여 추가된 라이브러리의 dbfs 경로를 얻으려면 [Databricks CLI(설치)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli)를 사용할 수 있습니다. 
 
-일반적으로 Jar 라이브러리는 UI를 사용하는 동안 dbfs:/FileStore/jars 아래에 저장됩니다. *databricks fs ls dbfs:/FileStore/jars* CLI를 통해 모두 나열할 수 있습니다. 
+일반적으로 Jar 라이브러리는 UI를 사용하는 동안 dbfs:/FileStore/jars 아래에 저장됩니다. 당신은 CLI를 통해 모든 나열 할 수 있습니다 : *데이터 브릭 fs ls dbfs :/FileStore / 항아리* 
 
 
 
-#### <a name="copy-library-using-databricks-clihttpsdocsazuredatabricksnetuser-guidedev-toolsdatabricks-clihtmlcopy-a-file-to-dbfs"></a>[Databricks CLI를 사용하여 라이브러리 복사](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
+#### <a name="copy-library-using-databricks-cli"></a>[Databricks CLI를 사용하여 라이브러리 복사](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
 
 예제: *databricks fs cp SparkPi-assembly-0.1.jar dbfs:/FileStore/jars*

@@ -1,5 +1,5 @@
 ---
-title: 'Azure VPN Gateway: 경로 기반 게이트웨이 만들기: PowerShell'
+title: 'Azure VPN 게이트웨이: 경로 기반 게이트웨이 만들기: PowerShell'
 description: PowerShell을 사용하여 빠르게 경로 기반 VPN 게이트웨이 만들기
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: 8a4bb9d2ac7b8124fa9b1e00f3ecceda4f4a4cdf
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77152961"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>PowerShell을 사용하여 경로 기반 VPN 게이트웨이 만들기
@@ -28,13 +28,13 @@ ms.locfileid: "77152961"
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 리소스 그룹을 만듭니다. PowerShell을 로컬로 실행 하는 경우 상승 된 권한으로 PowerShell 콘솔을 열고 `Connect-AzAccount` 명령을 사용 하 여 Azure에 연결 합니다.
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 리소스 그룹을 만듭니다. 로컬로 PowerShell을 실행하는 경우 권한 상승권한으로 PowerShell 콘솔을 `Connect-AzAccount` 열고 명령을 사용하여 Azure에 연결합니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name TestRG1 -Location EastUS
 ```
 
-## <a name="vnet"></a>가상 네트워크 만들기
+## <a name="create-a-virtual-network"></a><a name="vnet"></a>가상 네트워크 만들기
 
 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 **EastUS** 위치에 **VNet1**이라는 가상 네트워크를 만듭니다.
 
@@ -62,7 +62,7 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-## <a name="gwsubnet"></a>게이트웨이 서브넷 추가
+## <a name="add-a-gateway-subnet"></a><a name="gwsubnet"></a>게이트웨이 서브넷 추가
 
 게이트웨이 서브넷은 가상 네트워크 게이트웨이 서비스가 사용하는 예약된 IP 주소를 포함합니다. 다음 예제를 사용하여 게이트웨이 서브넷을 추가합니다.
 
@@ -84,7 +84,7 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0
 $vnet | Set-AzVirtualNetwork
 ```
 
-## <a name="PublicIP"></a>공용 IP 주소 요청
+## <a name="request-a-public-ip-address"></a><a name="PublicIP"></a>공용 IP 주소 요청
 
 VPN 게이트웨이에는 동적으로 할당된 공용 IP 주소가 있어야 합니다. VPN 게이트웨이에 대한 연결을 만들 때 사용자가 지정한 IP 주소입니다. 다음 예제를 사용하여 공용 IP 주소를 요청합니다.
 
@@ -92,7 +92,7 @@ VPN 게이트웨이에는 동적으로 할당된 공용 IP 주소가 있어야 �
 $gwpip= New-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
 ```
 
-## <a name="GatewayIPConfig"></a>게이트웨이 IP 주소 구성 만들기
+## <a name="create-the-gateway-ip-address-configuration"></a><a name="GatewayIPConfig"></a>게이트웨이 IP 주소 구성 만들기
 
 게이트웨이 구성은 사용할 공용 IP 주소 및 서브넷을 정의합니다. 다음 예제를 사용하여 게이트웨이 구성을 만듭니다.
 
@@ -101,7 +101,7 @@ $vnet = Get-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
 $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 ```
-## <a name="CreateGateway"></a>VPN 게이트웨이 만들기
+## <a name="create-the-vpn-gateway"></a><a name="CreateGateway"></a>VPN 게이트웨이 만들기
 
 VPN 게이트웨이를 만드는 데에는 45분 이상이 걸릴 수 있습니다. 게이트웨이가 완료되면 가상 네트워크와 VNet 간에 연결을 만들 수 있습니다. 또는 가상 네트워크와 온-프레미스 위치 간에 연결을 만듭니다. [New-AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway) cmdlet을 사용하여 VPN 게이트웨이를 만듭니다.
 
@@ -111,7 +111,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -VpnType RouteBased -GatewaySku VpnGw1
 ```
 
-## <a name="viewgw"></a>VPN 게이트웨이 보기
+## <a name="view-the-vpn-gateway"></a><a name="viewgw"></a>VPN 게이트웨이 보기
 
 [Get-AzVirtualNetworkGateway](/powershell/module/az.network/Get-azVirtualNetworkGateway) cmdlet을 사용하여 VPN 게이트웨이를 볼 수 있습니다.
 
@@ -164,7 +164,7 @@ BgpSettings            : {
      
 ```
 
-## <a name="viewgwpip"></a>공용 IP 주소 보기
+## <a name="view-the-public-ip-address"></a><a name="viewgwpip"></a>공용 IP 주소 보기
 
 VPN 게이트웨이의 공용 IP 주소를 보려면 [Get-AzPublicIpAddress](/powershell/module/az.network/Get-azPublicIpAddress) cmdlet을 사용합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: StorSimple 5000-7000 시리즈 장치에서 데이터 마이그레이션 옵션
+title: StorSimple 5000-7000 시리즈 장치의 데이터 마이그레이션 옵션
 description: StorSimple 5000-7000 시리즈에서 데이터를 마이그레이션하는 옵션에 대해 간략히 설명합니다.
 services: storsimple
 documentationcenter: NA
@@ -14,16 +14,16 @@ ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 44a05ecb273bdf7582300c3b6a9110e2ada0994c
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471825"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>StorSimple 5000-7000 시리즈에서 데이터를 마이그레이션하는 옵션 
 
 > [!IMPORTANT]
-> 2019 7 월 9 일에 StorSimple 5000/7000 시리즈는 EOS (지원 종료) 상태에 도달 합니다. StorSimple 5000/7000 시리즈 고객은 이 문서에 설명된 대안 제품 중 하나로 마이그레이션하는 것이 좋습니다.
+> 2019년 7월 9일, StorSimple 5000/7000 시리즈는 지원(EOS) 상태가 종료됩니다. StorSimple 5000/7000 시리즈 고객은 이 문서에 설명된 대안 제품 중 하나로 마이그레이션하는 것이 좋습니다.
 
 StorSimple 5000-7000 시리즈에 대한 지원은 2019년 7월에 [중단](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series)될 예정입니다. StorSimple 5000-7000 시리즈를 실행하고 있는 고객에게는 다른 Azure 자체 하이브리드 서비스로 업그레이드할 수 있는 옵션이 있습니다. 이 문서에서는 데이터를 마이그레이션하는 데 사용할 수 있는 Azure 하이브리드 옵션에 대해 설명합니다. 
 
@@ -57,19 +57,19 @@ StorSimple 5000-7000 고객은 Azure에서 데이터를 유지하기 위해 Panz
 
 Cohesity를 사용하면 현재 StorSimple 5000-7000에서 Azure의 Cohesity 데이터 플랫폼으로 데이터를 마이그레이션할 수 있습니다. Cohesity 데이터 플랫폼은 파일, 백업, 개체 및 VM을 단일 클라우드 네이티브 솔루션으로 통합하는 소프트웨어 정의 웹 규모 솔루션입니다. 데이터 플랫폼으로 마이그레이션한 후에는 단일 창을 통해 데이터와 앱을 관리, 보호하고 클라우드에서 코어로 프로비전할 수 있습니다. Cohesity를 사용하면 겨우 세 개의 노드로 시작합니다. 
 
-[Cohesity Data Platform으로의 마이그레이션](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html)에 대해 자세히 알아보세요.
+[응집력 있는 데이터 플랫폼으로의 마이그레이션에](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html)대해 자세히 알아보십시오.
 
-#### <a name="migrate-to-nasuni"></a>Nasuni로 마이그레이션
+#### <a name="migrate-to-nasuni"></a>나스니로 이주
 
-Nasuni를 사용 하면 StorSimple 5000-7000 고객이 Azure에서 데이터를 쉽게 마이그레이션하고 보관할 수 있습니다.  Nasuni는 Azure 기반 NAS 저장소 솔루션으로, 고객에 게 온-프레미스 솔루션에서 제공 하는 성능 및 보안을 클라우드 경제성 및 규모와 함께 제공 합니다.  Nasuni 및 Azure는 고성능 파일 저장소 외에도, 중앙 집중식 파일 저장소 관리를 사용 하 여 전 세계 데이터를 공유 하 고 공동 작업할 수 있도록 하는 동시에 백업 및 DR을 처리 합니다. 
+Nasuni를 사용하면 StorSimple 5000-7000 고객이 Azure에서 데이터를 마이그레이션하고 유지할 수 있습니다.  Nasuni는 선도적인 Azure 기반 NAS 스토리지 솔루션으로, 클라우드 경제성과 규모의 온프레미 솔루션에서 고객이 기대하는 성능과 보안을 제공합니다.  Nasuni와 Azure는 고성능 파일 저장소 외에도 백업 및 DR을 처리하는 동시에 중앙 집중식 파일 저장소 관리를 통해 전 세계의 데이터를 공유하고 공동 작업할 수 있습니다. 
 
-Nasuni를 통해 쉽게 마이그레이션할 수 있습니다. 지금 바로 시작 해 보세요. https://info.nasuni.com/nasuni-storsimple-migration
+Nasuni는 마이그레이션을 쉽게 할 수 있는 환경을 가지고 있습니다 .https://info.nasuni.com/nasuni-storsimple-migration
 
-#### <a name="migrate-to-talon-fast"></a>Talon FAST로 마이그레이션
+#### <a name="migrate-to-talon-fast"></a>탈론으로 빠르게 마이그레이션
 
-Talon를 사용 하면 StorSimple 5000-7000 고객은 보다 큰 함수를 사용 하 여 StorSimple 플랫폼 (무제한 클라우드 리소스에 의해 지원 되는 작은 현장 공간)에서 많은 혜택을 계속 활용할 수 있습니다.  Talon FAST 솔루션을 사용 하면 고객은 Azure에서 데이터를 마이그레이션 및 유지할 수 있으며, 이제는 훨씬 더 작은 소프트웨어 전용 온사이트 공간이 있고 전역 파일 잠금, 글로벌 네임 스페이스 및 다중 사이트 공동 작업과 같은 혜택을 추가 합니다.  Talon는 글로벌 고객과 협력 하 여 사용자 워크플로 또는 환경을 손상 시 키 지 않고 통합 된 Azure 기반 공간으로 온-프레미스 파일 서버 워크 로드를 마이그레이션하는 주요 Azure 에코 시스템 솔루션입니다.  
+Talon은 StorSimple 5000-7000 고객이 StorSimple 플랫폼(무제한 클라우드 리소스로 뒷받침되는 소규모 현장 풋프린트)에서 그토록 가치 있는 이점을 계속 활용할 수 있도록 합니다.  Talon FAST 솔루션을 통해 고객은 Azure에서 데이터를 마이그레이션하고 유지할 수 있으며, 이제 는 소프트웨어 전용 현장 공간을 더 작고 전역 파일 잠금, 글로벌 네임스페이스 및 다중 사이트 공동 작업과 같은 이점을 추가할 수 있습니다.  Talon은 글로벌 고객과 협력하여 사용자 워크플로나 환경을 손상시키지 않고 온-프레미스 파일 서버 워크로드를 통합된 Azure 기반 공간으로 마이그레이션하는 선도적인 Azure 에코시스템 솔루션입니다.  
 
-https://www.talonstorage.com/alliances/microsoft-storsimple에서 클라우드 통합 엔터프라이즈로 발전 하는 방법에 대해 자세히 알아보세요.
+에서 https://www.talonstorage.com/alliances/microsoft-storsimple클라우드 통합 엔터프라이즈로 발전하는 방법에 대해 자세히 알아봅니다.
 
 
 ## <a name="migration---frequently-asked-questions"></a>마이그레이션 - 질문과 대답

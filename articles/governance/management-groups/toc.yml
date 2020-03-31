@@ -14,3 +14,15 @@
       href: ./create.md
     - name: 리소스 관리
       href: ./manage.md
+- name: 참조
+  items:
+    - name: Azure CLI
+      href: /cli/azure/account/management-group
+    - name: Azure PowerShell
+      href: '/powershell/module/az.resources/#resources'
+    - name: Azure SDK for .NET
+      href: /dotnet/api/overview/azure/managementgroups
+    - name: Node용 Azure SDK
+      href: /javascript/api/@azure/arm-managementgroups/managementgroups
+    - name: REST (영문)
+      href: /rest/api/resources/managementgroups

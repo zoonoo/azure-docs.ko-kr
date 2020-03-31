@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1d3cd61ea3da88c4c5231f22c0e127508591fb8d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720472"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 수명 주기의 모델링 단계
@@ -57,7 +57,7 @@ ms.locfileid: "76720472"
 
 모델 학습 프로세스에는 다음 단계가 포함됩니다. 
 
-   * 모델링을 위해 학습 데이터 집합과 테스트 데이터 집합으로 **입력 데이터를 임의로 분할**합니다.
+   * 모델링을 위해 입력 데이터를 학습 데이터 집합 및 테스트 데이터 집합으로 임의로 **분할합니다.**
    * 학습 데이터 집합을 사용하여 **모델을 빌드**합니다.
    * 학습 및 테스트 데이터 집합을 **평가**합니다. 현재 데이터로 관심 있는 질문에 대답하는 데 관련된 다양한 튜닝 매개 변수(*매개 변수 스윕*이라고 함)와 함께 일련의 경쟁적인 컴퓨터 학습 알고리즘을 사용합니다.
    * 대체 방법 간의 성공 메트릭을 비교하여 질문에 대답하는 **"최상"의 솔루션을 결정**합니다.
@@ -72,9 +72,9 @@ ms.locfileid: "76720472"
 ## <a name="artifacts"></a>아티팩트
 이 단계에서 생성되는 아티팩트는 다음과 같습니다.
 
-   * [기능 집합](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): 모델링을 위해 개발된 기능은 **데이터 정의** 보고서의 **기능 집합** 섹션에 설명되어 있습니다. 여기에는 기능을 생성하는 코드에 대한 조언과 기능을 생성한 방법에 대한 설명이 있습니다.
+   * [기능 세트](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): 모델링을 위해 개발된 피쳐는 **데이터 정의** 보고서의 **기능 세트** 섹션에 설명되어 있습니다. 여기에는 기능을 생성하는 코드에 대한 조언과 기능을 생성한 방법에 대한 설명이 있습니다.
    * [모델 보고서](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): 시도하는 각 모델에 대해 각 실험에 대한 세부 정보를 제공하는 템플릿 기반 표준 보고서가 생성됩니다.
-   * **검사점 의사 결정**: 모델이 프로덕션에 대해 충분히 수행 되는지 여부를 평가 합니다. 몇 가지 주요 질문은 다음과 같습니다.
+   * **검사점 결정**: 모델이 프로덕션에 충분히 수행되는지 여부를 평가합니다. 몇 가지 주요 질문은 다음과 같습니다.
      * 테스트 데이터가 제공되면 질문에 대해 모델에서 매우 신뢰성 있게 대답합니까? 
      * 대안을 시도해야 할까요? 추가 데이터를 수집하고 더 많은 기능 엔지니어링을 수행하거나 다른 알고리즘으로 시험해 볼까요?
 

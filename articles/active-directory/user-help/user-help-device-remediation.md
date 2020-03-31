@@ -1,6 +1,6 @@
 ---
-title: "\"여기에서 가져올 수 없습니다\" 오류에 대 한 수정-Azure AD"
-description: "\"여기에서 가져올 수 없습니다\" 오류 메시지가 표시 되는 이유에 대 한 잠재적 수정 사항을 찾습니다."
+title: "\"여기에서 얻을 수 없습니다\" 오류에 대 한 수정 - Azure AD"
+description: "\"여기에서 얻을 수 없습니다\" 오류 메시지가 있는 이유에 대한 잠재적인 수정 사항을 찾아보십시오."
 services: active-directory
 author: curtand
 manager: daveba
@@ -14,13 +14,13 @@ ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: 2484de4e554d16ba049d206981a44654ede28a3f
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190035"
 ---
-# <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>"여기에서 가져올 수 없습니다." 오류 메시지에 대 한 가능한 해결 방법
+# <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>"여기에서 얻을 수 없습니다" 오류 메시지에 대 한 가능한 수정
 
 조직의 내부 웹앱 또는 서비스에 액세스하는 동안 **여기서는 거기에 접근할 수 없습니다.** 라는 오류 메시지가 표시될 수 있습니다. 이 메시지는 조직에서 디바이스가 조직 리소스에 액세스하지 못하도록 방지하는 정책을 설정했음을 의미합니다. 이 문제를 해결하기 위해 결과적으로 기술 지원 팀에 문의해야 할 수 있지만 먼저 다음 작업을 시도할 수 있습니다.
 
@@ -34,13 +34,13 @@ ms.locfileid: "77190035"
 ## <a name="make-sure-youre-using-a-supported-operating-system"></a>지원되는 운영 체제를 사용하고 있는지 확인
 다음을 포함하여 지원되는 운영 체제 버전을 실행하고 있는지 확인합니다.
 
-- **Windows 클라이언트** Windows 7 이상
+- **윈도우 클라이언트.** Windows 7 이상
 
-- **Windows Server** Windows Server 2008 R2 이상
+- **윈도우 서버.** Windows Server 2008 R2 이상
 
-- **macOS** macOS X 이상
+- **Macos.** macOS X 이상
 
-- **Android 및 iOS** 최신 버전의 Android 및 iOS 모바일 운영 체제
+- **안드로이드와 아이폰 OS.** 최신 버전의 Android 및 iOS 모바일 운영 체제
 
 이 문제를 해결하려면 지원되는 운영 체제를 설치하고 실행해야 합니다.
 
@@ -68,6 +68,6 @@ ms.locfileid: "77190035"
 - **작업할 개인 디바이스 등록** 일반적으로 휴대폰이나 태블릿에 해당하는 개인 디바이스를 조직의 네트워크에 등록합니다. 디바이스가 등록되면 조직의 제한된 리소스에 액세스할 수 있게 됩니다. 자세한 내용 및 단계별 지침은 [조직의 네트워크에 개인 디바이스 등록](user-help-register-device-on-network.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-- [MyApps 포털이란?](active-directory-saas-access-panel-introduction.md)
+- [MyApps 포털이란 무엇입니까?](active-directory-saas-access-panel-introduction.md)
 
 - [암호가 아닌 휴대폰을 사용하여 로그인](user-help-auth-app-sign-in.md)

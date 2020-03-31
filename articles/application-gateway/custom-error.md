@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/16/2019
 ms.author: victorh
 ms.openlocfilehash: ff11f686287498fe12b31d15a630178bb12035ad
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74129871"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Application Gateway 사용자 지정 오류 페이지 만들기
@@ -38,7 +38,7 @@ Application Gateway를 사용하면 기본 오류 페이지를 표시하는 대�
 - HTTP 응답 상태 코드.
 - 오류 페이지의 해당 위치. 
 - 위치에 대해 공개적으로 액세스 가능한 Azure Storage Blob.
-- \* .htm 또는 *.html 확장자 유형. 
+- * .htm 또는 *.html 확장자 유형. 
 
 오류 페이지의 크기는 1MB 미만이어야 합니다. 이미지가 오류 페이지에 링크된 경우, 사용자 지정 오류 페이지에서 공용으로 액세스 가능한 절대 URL 또는 base64 인코드된 이미지 인라인이어야 합니다. 이미지가 동일한 Blob 위치에 있는 상대 링크는 현재 지원되지 않습니다. 
 

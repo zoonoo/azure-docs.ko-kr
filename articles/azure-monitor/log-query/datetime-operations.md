@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: ea7c98a1b5b4059c5fea0cf1e8ea2ff5ef08d9d1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77655381"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 날짜/시간 값 사용
@@ -32,11 +32,11 @@ timespan은 10진수 다음에 시간 단위를 사용해서 표현됩니다.
 |:---|:---|
 |d           | 일          |
 |h           | hour         |
-|분           | minute       |
+|m           | minute       |
 |s           | second       |
 |ms          | 밀리초  |
 |microsecond | microsecond  |
-|틱(tick)        | 나노초   |
+|tick        | 나노초   |
 
 날짜/시간은 `todatetime` 연산자로 문자열을 캐스팅하여 만들 수 있습니다. 예를 들어 특정 시간 프레임에 전송된 VM 하트비트를 검토하려면 `between` 연산자를 사용하여 시간 범위를 지정합니다.
 
@@ -84,7 +84,7 @@ Event
 | extend timeAgo = now() - TimeGenerated 
 ```
 
-`timeAgo` 열에는 다음과 같은 값이 있습니다. “00:09:31.5118992”는 값이 hh:mm:ss.fffffff 형식으로 지정되었음을 의미합니다. 이러한 값을 시작 시간 이후에 경과한 분의 `numver` 형식으로 지정하려면 해당 값을 “1분”으로 나눕니다.
+열에는 `timeAgo` "00:09:31.5118992"와 같은 값이 있습니다. 이러한 값을 시작 시간 이후에 경과한 분의 `numver` 형식으로 지정하려면 해당 값을 “1분”으로 나눕니다.
 
 ```Kusto
 Event
@@ -146,13 +146,13 @@ Event
 
 ## <a name="related-functions"></a>관련 함수
 
-| 범주 | 기능 |
+| Category | 함수 |
 |:---|:---|
-| 데이터 형식 변환 | [system.xml.xmlconvert.todatetime](/azure/kusto/query/todatetimefunction)  [system.xml.xmlconvert.totimespan](/azure/kusto/query/totimespanfunction)  |
-| 값을 bin 크기로 반올림 | [bin](/azure/kusto/query/binfunction) |
-| 특정 날짜 또는 시간 가져오기 | [전에](/azure/kusto/query/agofunction) [지금](/azure/kusto/query/nowfunction)   |
+| 데이터 형식 변환 | [todatetime](/azure/kusto/query/todatetimefunction)  [totimespan](/azure/kusto/query/totimespanfunction)  |
+| 값을 bin 크기로 반올림 | [빈](/azure/kusto/query/binfunction) |
+| 특정 날짜 또는 시간 가져오기 | [ago](/azure/kusto/query/agofunction) [now](/azure/kusto/query/nowfunction)   |
 | 값의 부분 가져오기 | [datetime_part](/azure/kusto/query/datetime-partfunction) [getmonth](/azure/kusto/query/getmonthfunction) [monthofyear](/azure/kusto/query/monthofyearfunction) [getyear](/azure/kusto/query/getyearfunction) [dayofmonth](/azure/kusto/query/dayofmonthfunction) [dayofweek](/azure/kusto/query/dayofweekfunction) [dayofyear](/azure/kusto/query/dayofyearfunction) [weekofyear](/azure/kusto/query/weekofyearfunction) |
-| 상대 날짜 값 가져오기  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek startofmonth](/azure/kusto/query/startofweekfunction) [](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
+| 상대 날짜 값 가져오기  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>다음 단계
 Azure Monitor 로그 데이터에 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하는 방법에 대한 다른 단원을 참조하세요.

@@ -1,6 +1,6 @@
 ---
-title: SR-IOV를 사용 하 여 InifinBand 사용-Azure Virtual Machines | Microsoft Docs
-description: SR-IOV로 InfiniBand를 사용 하도록 설정 하는 방법에 대해 알아봅니다.
+title: SR-IOV - Azure 가상 머신으로 InifinBand 사용 | 마이크로 소프트 문서
+description: SR-IOV를 사용하여 인피니밴드를 활성화하는 방법에 대해 알아봅니다.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -13,33 +13,33 @@ ms.topic: article
 ms.date: 10/17/2019
 ms.author: amverma
 ms.openlocfilehash: 7f7907482da886d9da17ef1e7844b205f3e4b906
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74196777"
 ---
-# <a name="enable-infiniband-with-sr-iov"></a>SR-IOV를 사용 하 여 InfiniBand 사용
+# <a name="enable-infiniband-with-sr-iov"></a>SR-IOV를 사용하여 인피니밴드 사용
 
-Azure NC, ND 및 H 시리즈의 Vm은 모두 전용 InfiniBand 네트워크에서 지원 됩니다. 모든 RDMA 지원 크기는 Intel MPI를 사용 하 여 해당 네트워크를 활용할 수 있습니다. 일부 VM 시리즈는 SR-IOV를 통해 모든 MPI 구현 및 RDMA 동사를 확장 하 여 지원 합니다. RDMA 지원 Vm에는 [GPU 최적화](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) 및 [HPC (고성능 계산)](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) vm이 포함 됩니다.
+Azure NC, ND 및 H 시리즈는 모두 전용 InfiniBand 네트워크에 의해 지원됩니다. 모든 RDMA 지원 크기는 인텔 MPI를 사용하여 해당 네트워크를 활용할 수 있습니다. 일부 VM 계열은 SR-IOV를 통해 모든 MPI 구현 및 RDMA 동사에 대한 지원을 확장했습니다. RDMA 지원 VM에는 [GPU 최적화](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) 및 [고성능 컴퓨팅(HPC)](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) VM이 포함됩니다.
 
 ## <a name="choose-your-installation-path"></a>설치 경로 선택
 
-시작 하려면 가장 간단한 옵션은 InfiniBand에 대해 미리 구성 된 플랫폼 이미지를 사용 하는 것입니다 (사용 가능한 경우).
+시작하기 위해 가장 간단한 옵션은 사용 가능한 경우 InfiniBand에 대해 미리 구성된 플랫폼 이미지를 사용하는 것입니다.
 
-- **Hpc Iaas vm** – Hpc 용 iaas vm을 시작 하려면 가장 간단한 솔루션은 InfiniBand로 이미 구성 된 [CENTOS HPC 7.6 VM OS 이미지](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557)를 사용 하는 것입니다. 이 이미지는 이미 InfiniBand를 사용 하 여 구성 되었으므로 수동으로 구성할 필요가 없습니다. 호환 되는 Windows 버전은 [WINDOWS RDMA 지원 인스턴스](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)를 참조 하세요.
+- **HPC IaaS VM** – HPC용 IaaS VM을 시작하려면 가장 간단한 해결책은 이미 인피니밴드로 구성된 [CentOS-HPC 7.6 VM OS 이미지를](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557)사용하는 것입니다. 이 이미지는 이미 InfiniBand로 구성되어 있으므로 수동으로 구성할 필요가 없습니다. 호환되는 Windows 버전의 경우 [Windows RDMA 지원 인스턴스를](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)참조하십시오.
 
-- **Gpu IaaS vm** – [CENTOS HPC 7.6 VM OS 이미지](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557)를 제외 하 고 현재 gpu 최적화 vm에 대해 플랫폼 이미지가 미리 구성 되어 있지 않습니다. InfiniBand를 사용 하 여 사용자 지정 이미지를 구성 하려면 [수동으로 MELLANOX OFED 설치](#manually-install-mellanox-ofed)를 참조 하세요.
+- **GPU IaaS VM** – [센트로스-HPC 7.6 VM OS 이미지를](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557)제외한 GPU 최적화 VM을 위해 현재 플랫폼 이미지가 미리 구성되지 않았습니다. InfiniBand로 사용자 지정 이미지를 구성하려면 [수동으로 Mellanox OFED 설치를](#manually-install-mellanox-ofed)참조하십시오.
 
-사용자 지정 VM 이미지 또는 [GPU 최적화](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) vm을 사용 하는 경우 배포에 InfiniBandDriverLinux 또는 InfiniBandDriverWindows vm 확장을 추가 하 여 InfiniBand를 사용 하 여 구성 해야 합니다. [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) 및 [WINDOWS](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)에서 이러한 VM 확장을 사용 하는 방법에 대해 알아봅니다.
+사용자 지정 VM 이미지 또는 [GPU 최적화](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) 된 VM을 사용 하는 경우, 인피니 밴드 드라이버 리눅스 또는 InfiniBandDriverWindows VM 확장을 배포에 추가 하 여 InfiniBand로 구성 해야 합니다. [리눅스와](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) [윈도우와](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)이러한 VM 확장을 사용하는 방법에 대해 알아봅니다.
 
-## <a name="manually-install-mellanox-ofed"></a>수동으로 Mellanox OFED 설치
+## <a name="manually-install-mellanox-ofed"></a>수동으로 멜라녹스 OFED를 설치
 
-SR-IOV를 사용 하 여 InfiniBand를 수동으로 구성 하려면 다음 단계를 사용 합니다. 이 단계의 예제에서는 RHEL/CentOS에 대 한 구문을 보여 주지만 일반적인 단계는 Ubuntu (16.04, 18.04 19.04) 및 SLES (12 SP4 및 15)와 같은 호환 되는 운영 체제에 사용할 수 있습니다. 또한 수신함 드라이버가 작동 하지만, Mellanox OpenFabrics 드라이버에서 더 많은 기능을 제공 합니다.
+SR-IOV를 사용하여 InfiniBand를 수동으로 구성하려면 다음 단계를 따르라. 이 단계의 예제에서는 RHEL/CentOS에 대한 구문을 보여 주지만 단계는 일반적이며 우분투(16.04, 18.04 19.04) 및 SLES(12 SP4 및 15)와 같은 호환되는 운영 체제에 사용할 수 있습니다. 받은 편지함 드라이버도 작동하지만 Mellanox OpenFabrics 드라이버는 더 많은 기능을 제공합니다.
 
-Mellanox 드라이버에 대해 지원 되는 배포에 대 한 자세한 내용은 최신 [Mellanox openfabrics 드라이버](https://www.mellanox.com/page/products_dyn?product_family=26)를 참조 하세요. Mellanox OpenFabrics 드라이버에 대 한 자세한 내용은 [mellanox 사용자 가이드](https://docs.mellanox.com/category/mlnxofedib)를 참조 하세요.
+Mellanox 드라이버에 대한 지원되는 배포판에 대한 자세한 내용은 최신 [Mellanox OpenFabrics 드라이버를](https://www.mellanox.com/page/products_dyn?product_family=26)참조하십시오. 멜라녹스 오픈패브릭 드라이버에 대한 자세한 내용은 [멜라녹스 사용자 가이드를](https://docs.mellanox.com/category/mlnxofedib)참조하십시오.
 
-Linux에서 InfiniBand을 구성 하는 방법에 대 한 다음 예제를 참조 하세요.
+리눅스에서 InfiniBand를 구성하는 방법에 대한 다음 예제를 참조하십시오.
 
 ```bash
 # Modify the variable to desired Mellanox OFED version
@@ -53,11 +53,11 @@ sudo ./mlnxofedinstall
 popd
 ```
 
-Windows의 경우 [windows 용 MELLANOX OFED 드라이버](https://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34)를 다운로드 하 여 설치 합니다.
+윈도우의 경우, 다운로드 및 [윈도우 드라이버에 대한 ED의 멜라녹스를 설치합니다.](https://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34)
 
-## <a name="enable-ip-over-infiniband"></a>InfiniBand를 통해 IP 사용
+## <a name="enable-ip-over-infiniband"></a>인피니밴드를 통해 IP 활성화
 
-다음 명령을 사용 하 여 InfiniBand에서 IP를 사용 하도록 설정 합니다.
+다음 명령을 사용하여 InfiniBand를 통해 IP를 사용하도록 설정합니다.
 
 ```bash
 sudo sed -i -e 's/# OS.EnableRDMA=y/OS.EnableRDMA=y/g' /etc/waagent.conf
@@ -66,4 +66,4 @@ sudo systemctl restart waagent
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure의 [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) 에 대해 자세히 알아보세요.
+Azure에서 [HPC에](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) 대해 자세히 알아보세요.

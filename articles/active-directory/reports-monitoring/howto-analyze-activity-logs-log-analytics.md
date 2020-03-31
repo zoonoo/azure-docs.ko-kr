@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor 로그를 사용 하 여 활동 로그 분석 | Microsoft Docs
-description: Azure Monitor 로그를 사용 하 여 Azure Active Directory 활동 로그를 분석 하는 방법을 알아봅니다.
+title: Azure 모니터 로그를 사용하여 활동 로그 분석 | 마이크로 소프트 문서
+description: Azure 모니터 로그를 사용하여 Azure Active Directory 활동 로그를 분석하는 방법 알아보기
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,36 +18,36 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2d6212692465270182db541889bed5f03a08a345
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74008282"
 ---
-# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 Azure AD 활동 로그 분석
+# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 Azure AD 활동 로그 분석
 
-[Azure AD 활동 로그를 Azure Monitor 로그에 통합](howto-integrate-activity-logs-with-log-analytics.md)하면 Azure Monitor 로그의 기능을 사용하여 사용자 환경에 대한 인사이트를 얻을 수 있습니다. [Azure AD 활동 로그에 대한 Log Analytics 보기](howto-install-use-log-analytics-views.md)를 설치하여 사용자 환경의 감사 및 로그인 이벤트에 대한 미리 빌드된 보고서에 액세스할 수도 있습니다.
+[Azure AD 활동 로그를 Azure Monitor 로그에 통합](howto-integrate-activity-logs-with-log-analytics.md)하면 Azure Monitor 로그의 기능을 사용하여 사용자 환경에 대한 인사이트를 얻을 수 있습니다. [Azure AD 활동 로그에 대한 로그 분석 보기를](howto-install-use-log-analytics-views.md) 설치하여 환경의 감사 및 로그인 이벤트와 관련된 미리 빌드된 보고서에 액세스할 수 있습니다.
 
 이 문서에서는 Log Analytics 작업 영역에서 Azure AD 활동 로그를 분석하는 방법을 알아봅니다. 
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>선행 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 필수 조건을 충족하려면 다음이 필요합니다.
 
 * Azure 구독의 Log Analytics 작업 영역. [Log Analytics 작업 영역을 만드는 방법](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)을 알아봅니다.
 * 먼저 [Azure AD 활동 로그를 Log Analytics 작업 영역으로 라우팅](howto-integrate-activity-logs-with-log-analytics.md)하는 단계를 완료합니다.
-*  Log analytics 작업 영역에 대 한 [액세스](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions)
-* Azure Active Directory에서 다음 역할 (Azure Active Directory 포털을 통해 Log Analytics에 액세스 하는 경우)
+*  로그 분석 작업 영역에 [대한 액세스](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions)
+* Azure Active Directory의 다음 역할(Azure Active Directory 포털을 통해 로그 분석에 액세스하는 경우)
     - 보안 관리자
     - 보안 판독기
-    - 보고서 구독자
+    - 보고서를 읽는 사람
     - 전역 관리자
     
 ## <a name="navigate-to-the-log-analytics-workspace"></a>Log Analytics 작업 영역으로 이동
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
+1. [Azure 포털에](https://portal.azure.com)로그인합니다. 
 
 2. **Azure Active Directory**를 선택한 다음, **모니터링** 섹션에서 **로그**를 선택하여 Log Analytics 작업 영역을 엽니다. 작업 영역이 기본 쿼리로 열립니다.
 
@@ -108,11 +108,11 @@ Azure AD 활동 로그에서 미리 빌드된 로그 분석 보기를 다운로�
 * **로그인 이벤트**: 로그인 활동 모니터링(예: 애플리케이션, 사용자, 디바이스별 로그인)과 관련된 가장 적절한 보고서와 시간 경과에 따른 로그인 수를 추적하는 요약 보기가 표시됩니다.
 * **사용자 동의 수행**: 사용자 동의(예: 사용자에 의한 동의 허용, 동의한 사용자의 로그인 및 모든 동의 기반 애플리케이션에 대한 애플리케이션의 로그인)와 관련된 보고서가 표시됩니다. 
 
-[Azure AD 활동 로그에 대한 로그 분석 보기 설치 및 사용](howto-install-use-log-analytics-views.md) 방법에 대해 알아보세요. 
+[Azure AD 활동 로그에 대한 로그 분석 보기를 설치하고 사용하는](howto-install-use-log-analytics-views.md)방법에 대해 알아봅니다. 
 
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Monitor 로그에서 쿼리 시작](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
 * [Azure Portal에서 경고 그룹 만들기 및 관리](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)
-* [Azure Active Directory용 로그 분석 보기 설치 및 사용](howto-install-use-log-analytics-views.md)
+* [Azure Active Directory에 대한 로그 분석 보기 설치 및 사용](howto-install-use-log-analytics-views.md)

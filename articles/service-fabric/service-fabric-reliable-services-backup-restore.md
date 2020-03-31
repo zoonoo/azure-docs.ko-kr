@@ -1,15 +1,15 @@
 ---
 title: Service Fabric 백업 및 복원
-description: 안정적인 상태 저장 서비스 및 Reliable Actors의 백업 구성에 대 한 서비스인 Service Fabric 백업 및 복원에 대 한 개념 설명서입니다.
+description: 신뢰할 수 있는 상태 정보 및 신뢰할 수 있는 행위자의 백업을 구성하기 위한 서비스 패브릭 백업 및 복원에 대한 개념 문서입니다.
 author: mcoskun
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: mcoskun
 ms.openlocfilehash: ac6bb14517b67a4b308460583e8c9fb99a2df9f0
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75922786"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Reliable Services 및 Reliable Actors 백업 및 복원

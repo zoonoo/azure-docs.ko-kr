@@ -7,27 +7,29 @@
     - name: Bing Search API 비교
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: REST API 빠른 시작
+- name: 빠른 시작
   expanded: true
   items:
-    - name: 'C#'
-      href: quickstarts/csharp.md
-    - name: Java
-      href: quickstarts/java.md
-    - name: Node.js
-      href: quickstarts/nodejs.md
-    - name: PHP
-      href: quickstarts/php.md
-    - name: Python
-      href: quickstarts/python.md
-    - name: Ruby
-      href: quickstarts/ruby.md
-- name: 클라이언트 라이브러리
-  items:
-    - name: 'C#'
-      href: quickstarts/csharp-sdk.md
-    - name: Go
-      href: quickstarts/go-sdk.md
+    - name: REST API
+      items:
+        - name: 'C#'
+          href: quickstarts/csharp.md
+        - name: Java
+          href: quickstarts/java.md
+        - name: Node.js
+          href: quickstarts/nodejs.md
+        - name: PHP
+          href: quickstarts/php.md
+        - name: Python
+          href: quickstarts/python.md
+        - name: Ruby
+          href: quickstarts/ruby.md
+    - name: 클라이언트 라이브러리
+      items:
+        - name: 'C#'
+          href: quickstarts/csharp-sdk.md
+        - name: Go
+          href: quickstarts/go-sdk.md
 - name: 자습서
   items:
     - name: 단일 페이지 웹앱
@@ -63,7 +65,7 @@
       maintainContext: true
 - name: 리소스
   items:
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/598198-bing-autosuggest'

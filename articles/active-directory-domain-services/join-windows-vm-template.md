@@ -1,6 +1,6 @@
 ---
-title: 템플릿을 사용 하 여 Windows VM을 Azure AD DS에 가입 | Microsoft Docs
-description: Azure Resource Manager 템플릿을 사용 하 여 새 또는 기존 Windows Server VM을 Azure Active Directory Domain Services 관리 되는 도메인에 가입 하는 방법을 알아봅니다.
+title: 템플릿을 사용하여 Windows VM을 Azure AD DS에 조인 | 마이크로 소프트 문서
+description: Azure 리소스 관리자 템플릿을 사용하여 새 Windows 서버 또는 기존 Windows 서버 VM을 Azure Active Directory 도메인 관리 도메인에 조인하는 방법을 알아봅니다.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: iainfou
 ms.openlocfilehash: c9b25fe7bc47e05972aebb194e9d94c1ea6dd247
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78298737"
 ---
-# <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Azure Active Directory Domain Services 관리 되는 도메인에 Windows Server 가상 머신 연결
+# <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용하여 Windows Server 가상 시스템에 Azure Active Directory 도메인 서비스 관리 도메인에 가입
 
-Azure Vm (가상 머신)의 배포 및 구성을 자동화 하기 위해 리소스 관리자 템플릿을 사용할 수 있습니다. 이러한 템플릿을 사용 하면 매번 일관 된 배포를 만들 수 있습니다. 확장은 배포의 일부로 자동으로 VM을 구성 하기 위해 템플릿에 포함 될 수도 있습니다. 하나의 유용한 확장 프로그램은 Vm을 도메인에 가입 시킵니다 .이 도메인은 Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인과 함께 사용할 수 있습니다.
+Azure 가상 시스템(VM)의 배포 및 구성을 자동화하려면 리소스 관리자 템플릿을 사용할 수 있습니다. 이러한 템플릿을 사용하면 매번 일관된 배포를 만들 수 있습니다. 확장은 배포의 일부로 VM을 자동으로 구성하는 템플릿에 포함될 수도 있습니다. 유용한 확장 중 하나는 VM을 도메인에 조인하며 Azure Active Directory 도메인 서비스(Azure AD DS) 관리 도메인과 함께 사용할 수 있습니다.
 
-이 문서에서는 리소스 관리자 템플릿을 사용 하 여 Windows Server VM을 만들고 Azure AD DS 관리 되는 도메인에 가입 하는 방법을 보여 줍니다. 또한 Azure AD DS 도메인에 기존 Windows Server VM을 조인 하는 방법에 대해 알아봅니다.
+이 문서에서는 리소스 관리자 템플릿을 사용하여 Windows 서버 VM을 Azure AD DS 관리 도메인에 만들고 조인하는 방법을 보여 주며, 이 문서에서는 또한 기존 Windows 서버 VM을 Azure AD DS 도메인에 조인하는 방법에 대해서도 알아봅니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -34,13 +34,13 @@ Azure Vm (가상 머신)의 배포 및 구성을 자동화 하기 위해 리소�
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
     * 필요한 경우 첫 번째 자습서에서 [Azure Active Directory Domain Services 인스턴스를 만들고 구성합니다][create-azure-ad-ds-instance].
-* Azure AD DS 관리 되는 도메인의 일부인 사용자 계정
+* Azure AD DS 관리 도메인의 일부인 사용자 계정입니다.
 
-## <a name="azure-resource-manager-template-overview"></a>Azure Resource Manager 템플릿 개요
+## <a name="azure-resource-manager-template-overview"></a>Azure 리소스 관리자 템플릿 개요
 
-리소스 관리자 템플릿을 사용 하면 코드에서 Azure 인프라를 정의할 수 있습니다. 필수 리소스, 네트워크 연결 또는 Vm 구성은 모두 템플릿에 정의 될 수 있습니다. 이러한 템플릿은 매번 일관 되 고 재현 가능한 배포를 만들며 변경 시 버전을 지정할 수 있습니다. 자세한 내용은 [Azure Resource Manager 템플릿 개요][template-overview]를 참조 하세요.
+리소스 관리자 템플릿을 사용하면 코드에서 Azure 인프라를 정의할 수 있습니다. 필요한 리소스, 네트워크 연결 또는 VM 구성은 모두 템플릿에서 정의할 수 있습니다. 이러한 템플릿은 매번 일관되고 재현 가능한 배포를 만들며 변경할 때 버전이 작성될 수 있습니다. 자세한 내용은 [Azure 리소스 관리자 템플릿 개요를 참조하세요.][template-overview]
 
-각 리소스는 JavaScript Object Notation (JSON)를 사용 하 여 템플릿에 정의 됩니다. 다음 JSON 예제에서는 *virtualMachines/extensions* 리소스 유형을 사용 하 여 Active Directory 도메인 가입 확장을 설치 합니다. 매개 변수는 배포 시 지정 하는 데 사용 됩니다. 확장이 배포 되 면 VM이 지정 된 Azure AD DS 관리 되는 도메인에 가입 됩니다.
+각 리소스는 JSON(자바스크립트 개체 표기이)을 사용하는 템플릿에 정의됩니다. 다음 JSON 예제에서는 *Microsoft.Compute/가상 머신/확장* 리소스 형식을 사용하여 Active Directory 도메인 조인 확장을 설치합니다. 매개 변수는 배포 시 지정하는 데 사용됩니다. 확장이 배포되면 VM이 지정된 Azure AD DS 관리 도메인에 조인됩니다.
 
 ```json
  {
@@ -70,74 +70,74 @@ Azure Vm (가상 머신)의 배포 및 구성을 자동화 하기 위해 리소�
     }
 ```
 
-동일한 템플릿에서 VM을 만들지 않은 경우에도이 VM 확장을 배포할 수 있습니다. 이 문서의 예에서는 다음 두 가지 방법을 모두 보여 줍니다.
+이 VM 확장은 동일한 템플릿에서 VM을 만들지 않는 경우에도 배포할 수 있습니다. 이 문서의 예제에서는 다음 두 가지 방법을 모두 보여 주며 다음과 같은 방법을 모두 보여 주며 있습니다.
 
-* [Windows Server VM 만들기 및 관리 되는 도메인에 가입](#create-a-windows-server-vm-and-join-to-a-managed-domain)
-* [기존 Windows Server VM을 관리 되는 도메인에 가입](#join-an-existing-windows-server-vm-to-a-managed-domain)
+* [Windows 서버 VM을 만들고 관리되는 도메인에 가입](#create-a-windows-server-vm-and-join-to-a-managed-domain)
+* [관리되는 도메인에 기존 Windows Server VM 조인](#join-an-existing-windows-server-vm-to-a-managed-domain)
 
-## <a name="create-a-windows-server-vm-and-join-to-a-managed-domain"></a>Windows Server VM 만들기 및 관리 되는 도메인에 가입
+## <a name="create-a-windows-server-vm-and-join-to-a-managed-domain"></a>Windows 서버 VM을 만들고 관리되는 도메인에 가입
 
-Windows Server VM이 필요한 경우 리소스 관리자 템플릿을 사용 하 여 VM을 만들고 구성할 수 있습니다. VM을 배포 하면 VM을 Azure AD DS 관리 되는 도메인에 가입 시키기 위해 확장이 설치 됩니다. Azure AD DS 관리 되는 도메인에 가입 하려는 VM이 이미 있는 경우 [기존 Windows SERVER VM을 관리 되는 도메인에 가입](#join-an-existing-windows-server-vm-to-a-managed-domain)으로 건너뜁니다.
+Windows 서버 VM이 필요한 경우 리소스 관리자 템플릿을 사용하여 Windows 서버 VM을 만들고 구성할 수 있습니다. VM이 배포되면 확장이 설치되어 VM을 Azure AD DS 관리 도메인에 조인합니다. Azure AD DS 관리 도메인에 가입하려는 VM이 이미 있는 경우 [기존 Windows 서버 VM을 관리되는 도메인에 조인하려면](#join-an-existing-windows-server-vm-to-a-managed-domain)건너뜁니다.
 
-Windows Server VM을 만들려면 Azure AD DS 관리 되는 도메인에 가입 하 고 다음 단계를 완료 합니다.
+Windows 서버 VM을 만든 다음 Azure AD DS 관리 도메인에 조인하려면 다음 단계를 완료합니다.
 
-1. [빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)으로 이동 합니다. **Azure에 배포**하는 옵션을 선택 합니다.
-1. **사용자 지정 배포** 페이지에서 다음 정보를 입력 하 여 WINDOWS Server VM을 만들고 Azure AD DS 관리 되는 도메인에 가입 합니다.
+1. [빠른 시작 템플릿으로](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)이동합니다. **Azure에 배포할**옵션을 선택합니다.
+1. 사용자 **지정 배포** 페이지에서 다음 정보를 입력하여 Windows 서버 VM을 Azure AD DS 관리 도메인에 만들고 조인합니다.
 
     | 설정                   | 값 |
     |---------------------------|-------|
     | Subscription              | Azure AD Domain Services를 사용하도록 설정한 동일한 Azure 구독을 선택합니다. |
-    | Resource group            | VM에 대 한 리소스 그룹을 선택 합니다. |
-    | 위치                  | VM의 위치를 선택 합니다. |
-    | 기존 VNET 이름        | VM을 연결할 기존 가상 네트워크의 이름 (예: *Myvnet*)입니다. |
-    | 기존 서브넷 이름      | *작업 부하*와 같은 기존 가상 네트워크 서브넷의 이름입니다. |
-    | DNS 레이블 접두사          | VM에 사용할 DNS 이름 (예: *myvm*)을 입력 합니다. |
-    | VM 크기                   | *Standard_DS2_v2*와 같은 VM 크기를 지정 합니다. |
-    | 가입할 도메인            | Azure AD DS 관리 되는 도메인 DNS 이름 (예: *aaddscontoso.com*)입니다. |
-    | 도메인 사용자 이름           | `contosoadmin@aaddscontoso.com`와 같이 VM을 관리 되는 도메인에 연결 하는 데 사용 해야 하는 Azure AD DS 관리 되는 도메인의 사용자 계정. 이 계정은 Azure AD DS 관리 되는 도메인의 일부 여야 합니다. |
-    | 도메인 암호           | 이전 설정에 지정 된 사용자 계정의 암호입니다. |
-    | 선택적 OU 경로          | VM을 추가할 사용자 지정 OU입니다. 이 매개 변수에 대 한 값을 지정 하지 않으면 VM이 기본 *AAD DC 컴퓨터* OU에 추가 됩니다. |
-    | VM 관리자 사용자 이름         | VM에서 만들 로컬 관리자 계정을 지정 합니다. |
-    | VM 관리자 암호         | VM의 로컬 관리자 암호를 지정 합니다. 암호 무차별 암호 대입 공격 으로부터 보호 하기 위한 강력한 로컬 관리자 암호를 만듭니다. |
+    | Resource group            | VM에 대한 리소스 그룹을 선택합니다. |
+    | 위치                  | VM의 위치를 선택합니다. |
+    | 기존 VNET 이름        | vM을 연결하는 기존 가상 네트워크의 이름(예: *myVnet)* |
+    | 기존 서브넷 이름      | *워크로드와*같은 기존 가상 네트워크 서브넷의 이름입니다. |
+    | DNS 레이블 접두사          | *myvm과*같은 VM에 사용할 DNS 이름을 입력합니다. |
+    | VM 크기                   | *Standard_DS2_v2*와 같은 VM 크기를 지정합니다. |
+    | 가입할 도메인            | Azure AD DS 관리 도메인 DNS 이름(예: *aaddscontoso.com.* |
+    | 도메인 사용자 이름           | 와 같이 `contosoadmin@aaddscontoso.com`관리되는 도메인에 VM을 조인하는 데 사용해야 하는 Azure AD DS 관리 도메인의 사용자 계정입니다. 이 계정은 Azure AD DS 관리 도메인의 일부여야 합니다. |
+    | 도메인 암호           | 이전 설정에서 지정한 사용자 계정의 암호입니다. |
+    | OU 경로 옵션          | VM을 추가할 사용자 지정 OU입니다. 이 매개 변수에 대한 값을 지정하지 않으면 VM이 기본 *AAD DC 컴퓨터* OU에 추가됩니다. |
+    | VM 관리자 사용자 이름         | VM에서 만들 로컬 관리자 계정을 지정합니다. |
+    | VM 관리자 암호         | VM에 대한 로컬 관리자 암호를 지정합니다. 강력한 로컬 관리자 암호를 만들어 암호 무차별 암호 대입 공격으로부터 보호합니다. |
 
-1. 사용 약관을 검토 한 다음 **위에 명시 된 사용 약관에 동의 함**확인란을 선택 합니다. 준비가 되 면 **구매** 를 선택 하 여 VM을 만들고 Azure AD DS 관리 되는 도메인에 가입 합니다.
+1. 이용 약관을 검토한 다음 **위에 명시된 이용 약관에 동의하는지 확인란을**선택합니다. 준비가 되면 **구매를** 선택하여 VM을 만들고 Azure AD DS 관리 도메인에 조인합니다.
 
 > [!WARNING]
 > **암호 처리에 주의하세요.**
-> 템플릿 매개 변수 파일은 Azure AD DS 관리 되는 도메인의 일부인 사용자 계정에 대 한 암호를 요청 합니다. 이 파일에 값을 수동으로 입력 하지 말고 파일 공유 또는 다른 공유 위치에서 값에 액세스할 수 있도록 유지 합니다.
+> 템플릿 매개 변수 파일은 Azure AD DS 관리 도메인의 일부인 사용자 계정에 대한 암호를 요청합니다. 이 파일에 값을 수동으로 입력하고 파일 공유 또는 기타 공유 위치에 액세스할 수 있도록 두지 마십시오.
 
-배포가 성공적으로 완료 되는 데 몇 분 정도 걸립니다. 완료 되 면 Windows VM이 만들어지고 Azure AD DS 관리 되는 도메인에 가입 됩니다. 도메인 계정을 사용 하 여 VM을 관리 하거나 로그인 할 수 있습니다.
+배포가 성공적으로 완료되는 데 몇 분 정도 걸립니다. 작업이 완료되면 Windows VM이 만들어지고 Azure AD DS 관리 도메인에 조인됩니다. VM은 도메인 계정을 사용하여 관리하거나 로그인할 수 있습니다.
 
 ## <a name="join-an-existing-windows-server-vm-to-a-managed-domain"></a>관리되는 도메인에 기존 Windows Server VM 조인
 
-Azure AD DS 관리 되는 도메인에 가입 하려는 기존 VM 또는 vm 그룹이 있는 경우 리소스 관리자 템플릿을 사용 하 여 VM 확장만 배포할 수 있습니다.
+Azure AD DS 관리 도메인에 가입하려는 기존 VM 또는 VM 그룹이 있는 경우 리소스 관리자 템플릿을 사용하여 VM 확장을 배포할 수 있습니다.
 
-기존 Windows Server VM을 Azure AD DS 관리 되는 도메인에 연결 하려면 다음 단계를 완료 합니다.
+기존 Windows 서버 VM을 Azure AD DS 관리 도메인에 가입하려면 다음 단계를 완료하십시오.
 
-1. [빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)으로 이동 합니다. **Azure에 배포**하는 옵션을 선택 합니다.
-1. **사용자 지정 배포** 페이지에서 다음 정보를 입력 하 여 VM을 Azure AD DS 관리 되는 도메인에 가입 합니다.
+1. [빠른 시작 템플릿으로](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)이동합니다. **Azure에 배포할**옵션을 선택합니다.
+1. 사용자 **지정 배포** 페이지에서 VM을 Azure AD DS 관리 도메인에 조인하려면 다음 정보를 입력합니다.
 
     | 설정                   | 값 |
     |---------------------------|-------|
     | Subscription              | Azure AD Domain Services를 사용하도록 설정한 동일한 Azure 구독을 선택합니다. |
     | Resource group            | 기존 VM을 사용 하 여 리소스 그룹을 선택 합니다. |
-    | 위치                  | 기존 VM의 위치를 선택 합니다. |
-    | VM 목록                   | *MyVM1, myVM2*와 같이 Azure AD DS 관리 되는 도메인에 조인할 기존 VM의 쉼표로 구분 된 목록을 입력 합니다. |
-    | 도메인 가입 사용자 이름     | `contosoadmin@aaddscontoso.com`와 같이 VM을 관리 되는 도메인에 연결 하는 데 사용 해야 하는 Azure AD DS 관리 되는 도메인의 사용자 계정. 이 계정은 Azure AD DS 관리 되는 도메인의 일부 여야 합니다. |
-    | 도메인 가입 사용자 암호 | 이전 설정에 지정 된 사용자 계정의 암호입니다. |
-    | 선택적 OU 경로          | VM을 추가할 사용자 지정 OU입니다. 이 매개 변수에 대 한 값을 지정 하지 않으면 VM이 기본 *AAD DC 컴퓨터* OU에 추가 됩니다. |
+    | 위치                  | 기존 VM의 위치를 선택합니다. |
+    | VM 목록                   | *myVM1, myVM2*와 같은 Azure AD DS 관리 도메인에 가입하려면 기존 VM의 쉼표로 구분된 목록을 입력합니다. |
+    | 도메인 가입 사용자 이름     | 와 같이 `contosoadmin@aaddscontoso.com`관리되는 도메인에 VM을 조인하는 데 사용해야 하는 Azure AD DS 관리 도메인의 사용자 계정입니다. 이 계정은 Azure AD DS 관리 도메인의 일부여야 합니다. |
+    | 도메인 가입 사용자 암호 | 이전 설정에서 지정한 사용자 계정의 암호입니다. |
+    | OU 경로 옵션          | VM을 추가할 사용자 지정 OU입니다. 이 매개 변수에 대한 값을 지정하지 않으면 VM이 기본 *AAD DC 컴퓨터* OU에 추가됩니다. |
 
-1. 사용 약관을 검토 한 다음 **위에 명시 된 사용 약관에 동의 함**확인란을 선택 합니다. 준비가 되 면 **구매** 를 선택 하 여 VM을 Azure AD DS 관리 되는 도메인에 가입 합니다.
+1. 이용 약관을 검토한 다음 **위에 명시된 이용 약관에 동의하는지 확인란을**선택합니다. 준비가 되면 **구매를** 선택하여 VM을 Azure AD DS 관리 도메인에 조인합니다.
 
 > [!WARNING]
 > **암호 처리에 주의하세요.**
-> 템플릿 매개 변수 파일은 Azure AD DS 관리 되는 도메인의 일부인 사용자 계정에 대 한 암호를 요청 합니다. 이 파일에 값을 수동으로 입력 하지 말고 파일 공유 또는 다른 공유 위치에서 값에 액세스할 수 있도록 유지 합니다.
+> 템플릿 매개 변수 파일은 Azure AD DS 관리 도메인의 일부인 사용자 계정에 대한 암호를 요청합니다. 이 파일에 값을 수동으로 입력하고 파일 공유 또는 기타 공유 위치에 액세스할 수 있도록 두지 마십시오.
 
-배포가 성공적으로 완료 되는 데 몇 분 정도 걸립니다. 완료 되 면 지정 된 Windows Vm은 Azure AD DS 관리 되는 도메인에 가입 되며 도메인 계정을 사용 하 여 관리 하거나 로그인 할 수 있습니다.
+배포가 성공적으로 완료되는 데 몇 분 정도 걸립니다. 완료되면 지정된 Windows VM이 Azure AD DS 관리 도메인에 조인되며 도메인 계정을 사용하여 관리하거나 로그인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 템플릿을 사용 하 여 리소스를 구성 하 고 배포 하는 Azure Portal을 사용 했습니다. [Azure PowerShell][deploy-powershell] 또는 [Azure CLI][deploy-cli]를 사용 하 여 리소스 관리자 템플릿으로 리소스를 배포할 수도 있습니다.
+이 문서에서는 Azure 포털을 사용하여 템플릿을 사용하여 리소스를 구성하고 배포했습니다. [Azure PowerShell][deploy-powershell] 또는 [Azure CLI를][deploy-cli]사용하여 리소스 관리자 템플릿을 사용하여 리소스를 배포할 수도 있습니다.
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

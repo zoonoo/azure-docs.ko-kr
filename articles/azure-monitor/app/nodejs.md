@@ -4,43 +4,43 @@ description: Application Insights를 사용하여 Node.js 서비스의 성능을
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 320ec62e642155002e42c59d4656f51673249eb1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: MT
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670018"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights를 사용하여 Node.js 서비스 및 앱 모니터링
 
-[Azure 애플리케이션 Insights](../../azure-monitor/app/app-insights-overview.md) 는 배포 후에 백 엔드 서비스 및 구성 요소를 모니터링 하 여 성능 및 기타 문제를 검색 하 고 신속 하 게 진단할 수 있도록 합니다. 데이터 센터, Azure VM 및 웹앱, 다른 퍼블릭 클라우드에서도 호스팅되는 Node.js 서비스에 대한 Application Insights를 사용할 수 있습니다.
+[Azure Application Insights는](../../azure-monitor/app/app-insights-overview.md) 배포 후 백 엔드 서비스 및 구성 요소를 모니터링하여 성능 및 기타 문제를 검색하고 신속하게 진단할 수 있도록 지원합니다. 데이터 센터, Azure VM 및 웹앱, 다른 퍼블릭 클라우드에서도 호스팅되는 Node.js 서비스에 대한 Application Insights를 사용할 수 있습니다.
 
 모니터링 데이터를 수신, 저장 및 탐색하려면 코드에 SDK를 포함하고 Azure에서 해당 Application Insights 리소스를 설정합니다. SDK는 추가 분석 및 탐색을 위해 해당 리소스로 데이터를 보냅니다.
 
-Node.js SDK는 들어오고 나가는 HTTP 요청, 예외 및 여러 시스템 메트릭을 자동으로 모니터링할 수 있습니다. 0\.20 버전부터 SDK는 MongoDB, MySQL 및 Redis와 같은 몇 가지 일반적인 타사 패키지를 모니터링할 수 있습니다. 들어오는 HTTP 요청과 관련된 모든 이벤트는 좀 더 빠른 문제 해결을 위해 상호 관계가 지정됩니다.
+Node.js SDK는 들어오고 나가는 HTTP 요청, 예외 및 여러 시스템 메트릭을 자동으로 모니터링할 수 있습니다. 0.20 버전부터 SDK는 MongoDB, MySQL 및 Redis와 같은 몇 가지 일반적인 타사 패키지를 모니터링할 수 있습니다. 들어오는 HTTP 요청과 관련된 모든 이벤트는 좀 더 빠른 문제 해결을 위해 상호 관계가 지정됩니다.
 
 TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측면을 수동으로 계측하고 모니터링 할 수 있습니다. TelemetryClient API는 이 문서의 뒷부분에 더 자세히 설명합니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 앱 또는 서비스에 대한 모니터링을 설정하려면 다음 작업을 완료합니다.
 
 ### <a name="prerequisites"></a>사전 요구 사항
 
-시작 하기 전에 Azure 구독이 있는지 확인 하거나 [무료로 새로 가져오세요][azure-free-offer]. 조직에 이미 Azure 구독이 있는 경우 관리자는 [다음 지침][add-aad-user] 에 따라 사용자를 추가할 수 있습니다.
+시작하기 전에 Azure 구독이 있는지 확인하여 없는 경우 [무료 계정을 새로 만듭니다][azure-free-offer]. 조직에 이미 Azure 구독이 있으면 관리자가 [다음 지침][add-aad-user]에 따라 사용자를 구독에 추가할 수 있습니다.
 
 [azure-free-offer]: https://azure.microsoft.com/free/
 [add-aad-user]: https://docs.microsoft.com/azure/active-directory/active-directory-users-create-azure-portal
 
 
-### <a name="resource"></a> Application Insights 리소스 설정
+### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a> Application Insights 리소스 설정
 
 
-1. [Azure Portal][portal]에 로그인합니다.
-2. **리소스 만들기** > **개발자 도구** > **Application Insights**를 선택합니다. 리소스에는 원격 분석 데이터를 수신하기 위한 엔드포인트, 이 데이터 스토리지, 저장된 보고서 및 대시보드, 규칙 및 경고 구성이 포함됩니다.
+1. [Azure 포털에][portal]로그인합니다.
+2. **리소스** > 개발자 도구 응용**프로그램** > **인사이트**만들기를 선택합니다. 리소스에는 원격 분석 데이터를 수신하기 위한 엔드포인트, 이 데이터 스토리지, 저장된 보고서 및 대시보드, 규칙 및 경고 구성이 포함됩니다.
 
 3. 리소스 만들기 페이지의 **애플리케이션 유형** 상자에서 **Node.js Application**을 선택합니다. 앱 유형에 따라 생성되는 기본 대시보드 및 보고서가 결정됩니다. (모든 Application Insights 리소스는 모든 언어 및 플랫폼에서 데이터를 수집할 수 있습니다.)
 
-### <a name="sdk"></a> Node.js SDK 설정
+### <a name="set-up-the-nodejs-sdk"></a><a name="sdk"></a> Node.js SDK 설정
 
 데이터를 수집할 수 있도록 앱에 SDK를 포함합니다. 
 
@@ -64,17 +64,17 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
    appInsights.start();
    ```
    
-   ikey를 \_ 또는 `setup()`에 수동으로 전달하는 대신 APPINSIGHTS`new appInsights.TelemetryClient()`INSTRUMENTATIONKEY 환경 변수를 통해 제공할 수도 있습니다. 이렇게 하면 ikey가 커밋된 소스 코드의 영향을 받지 않으며 다른 환경에 다른 ikey를 지정할 수 있습니다.
+   ikey를 `setup()` 또는 `new appInsights.TelemetryClient()`에 수동으로 전달하는 대신 APPINSIGHTS\_INSTRUMENTATIONKEY 환경 변수를 통해 제공할 수도 있습니다. 이렇게 하면 ikey가 커밋된 소스 코드의 영향을 받지 않으며 다른 환경에 다른 ikey를 지정할 수 있습니다.
 
    추가 구성 옵션의 경우 다음 섹션을 참조하세요.
 
    `appInsights.defaultClient.config.disableAppInsights = true`를 설정하면 원격 분석을 전송하지 않고 SDK를 사용해 볼 수 있습니다.
 
-### <a name="monitor"></a> 앱 모니터링
+### <a name="monitor-your-app"></a><a name="monitor"></a>앱 모니터링
 
 SDK는 Node.js 런타임 및 일부 일반적인 타사 모듈에 대한 원격 분석을 자동으로 수집합니다. 애플리케이션을 사용하여 이 데이터를 생성합니다.
 
-그런 다음 [Azure Portal][portal] 에서 이전에 만든 Application Insights 리소스로 이동 합니다. **타임라인 개요**에서 먼저 몇 가지 데이터 요소를 찾습니다. 더 자세한 데이터를 보려면 차트에서 다른 구성 요소를 선택합니다.
+그런 다음, [Azure Portal][portal]에서 이전에 만든 Application Insights 리소스로 이동합니다. **타임라인 개요**에서 먼저 몇 가지 데이터 요소를 찾습니다. 더 자세한 데이터를 보려면 차트에서 다른 구성 요소를 선택합니다.
 
 앱에 대해 검색된 토폴로지를 보려면 **애플리케이션 맵** 단추를 선택합니다. 자세한 내용을 보려면 맵에서 구성 요소를 선택합니다.
 
@@ -92,7 +92,7 @@ SDK는 제출할 데이터를 일괄 처리하기 때문에 항목이 포털에 
 * 포털 리소스 보기에서 **새로 고침**을 클릭합니다. 차트는 자체에서 주기적으로 새로 고치지만, 수동으로 새로 고침하면 즉시 새로 고쳐집니다.
 * [필요한 발신 포트](../../azure-monitor/app/ip-addresses.md)가 열려 있는지 확인합니다.
 * [검색](../../azure-monitor/app/diagnostic-search.md)을 사용하여 특정 이벤트를 찾습니다.
-* [FAQ][FAQ]를 확인합니다.
+* 자주 [묻는 질문 (FAQ)을][FAQ]확인하십시오.
 
 
 ## <a name="sdk-configuration"></a>SDK 구성

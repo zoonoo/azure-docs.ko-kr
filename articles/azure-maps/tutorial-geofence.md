@@ -1,20 +1,20 @@
 ---
 title: '자습서: 지오펜스 생성 및 맵에서 디바이스 추적 | Microsoft Azure Maps'
 description: Microsoft Azure Maps 공간 서비스를 사용하여 지오펜스를 설정하고, 지오펜스와 관련된 디바이스를 추적하는 방법을 알아봅니다.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e0e918a2508bb65de176b030a73598e221aff676
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 126829f12d71e40511c26e781cb191988c1d031e
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77370206"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80333861"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 지오펜스 설정
 
@@ -150,13 +150,13 @@ Postman 앱이 설치되면 다음 단계에 따라 Azure Maps, 데이터 업로
    }
    ```
 
-5. 보내기를 클릭하고 응답 헤더를 검토합니다. 요청이 성공하면 **Location(위치)** 헤더에 상태 URI가 포함됩니다. 상태 URI의 형식은 다음과 같습니다. 
+5. 보내기를 클릭하고 응답 헤더를 검토합니다. 요청이 성공하면 **Location(위치)** 헤더에 상태 URI가 포함됩니다. 상태 URI의 형식은 다음과 같습니다. uploadStatusId 값은 { } 사이에 있지 않습니다. { }를 사용하여 사용자가 입력해야 하는 값 또는 사용자마다 다른 값을 표시하는 것이 일반적인 방법입니다.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-6. 상태 URI를 복사하고 구독 키를 추가합니다. 상태 URI 형식은 아래와 같아야 합니다. 아래 형식에서 {subscription-key}({ } 포함)를 구독 키로 변경합니다.
+6. 상태 URI를 복사하고 구독 키를 추가합니다. 상태 URI 형식은 아래와 같아야 합니다. 아래 형식에서 구독 키를 사용하여 { }를 포함하지 않는 {subscription-key}를 변경할 수 있습니다.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
@@ -166,7 +166,8 @@ Postman 앱이 설치되면 다음 단계에 따라 Azure Maps, 데이터 업로
 
    ```JSON
    {
-    "udid" : "{udId}"
+    "status": "Succeeded",
+    "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udId}?api-version=1.0"
    }
    ```
 

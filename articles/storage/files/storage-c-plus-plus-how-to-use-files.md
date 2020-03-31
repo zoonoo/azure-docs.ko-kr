@@ -8,10 +8,10 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 97af40bd1f57acb5b26d3b6216984dfb8e3a5181
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68699792"
 ---
 # <a name="develop-for-azure-files-with-c"></a>C++를 사용하여 Azure Files 개발
@@ -40,8 +40,8 @@ ms.locfileid: "68699792"
 
 Azure Storage Client 2.4.0 for C++를 설치하려면 다음 방법 중 하나를 사용할 수 있습니다.
 
-* **Linux:** [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 페이지의 지침을 따릅니다.
-* **Windows:** Visual Studio에서 **도구&gt; NuGet 패키지 관리자 &gt; 패키지 관리자 콘솔**을 클릭합니다. [NuGet 패키지 관리자 콘솔](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 에 다음 명령을 입력하고 **ENTER**를 누릅니다.
+* **Linux:**[Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 페이지의 지침을 따릅니다.
+* **Windows:** Visual Studio에서 **도구 &gt; NuGet 패키지 관리자 &gt; 패키지 관리자 콘솔**을 클릭합니다. [NuGet 패키지 관리자 콘솔](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 에 다음 명령을 입력하고 **ENTER**를 누릅니다.
   
 
 ```powershell
@@ -69,7 +69,7 @@ storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_sto
 
 ## <a name="connecting-to-an-azure-storage-account"></a>Azure Storage 계정에 연결
 
-**cloud_storage_account** 클래스를 사용하여 Storage 계정 정보를 나타낼 수 있습니다. 스토리지 연결 문자열에서 스토리지 계정 정보를 검색하려면 **구문 분석** 메서드를 사용할 수 있습니다.
+**cloud_storage_account** 클래스를 사용하여 저장소 계정 정보를 나타낼 수 있습니다. 스토리지 연결 문자열에서 스토리지 계정 정보를 검색하려면 **구문 분석** 메서드를 사용할 수 있습니다.
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -107,7 +107,7 @@ if (share.create_if_not_exists()) {
 
 ## <a name="delete-an-azure-file-share"></a>Azure 파일 공유 삭제
 
-공유 삭제는 cloud_file_share 개체에서 **delete_if_exists** 메서드를 호출하여 수행할 수 있습니다. 다음이 샘플 코드입니다.
+공유 삭제는 cloud_file_share 개체에서 **delete_if_exists** 메서드를 호출하여 수행됩니다. 다음이 샘플 코드입니다.
 
 ```cpp
 // Get a reference to the share.
@@ -189,7 +189,7 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
 
 Azure 파일 공유에는 파일이 상주할 수 있는 최소한의 루트 디렉터리가 포함되어 있습니다. 이 섹션에서는 로컬 스토리지에서 공유의 루트 디렉터리로 파일을 업로드하는 방법을 배웁니다.
 
-파일을 업로드하는 첫 번째 단계는 상주해야 하는 디렉터리에 대한 참조를 가져오는 것입니다. 공유 개체의 **get_root_directory_reference** 메서드를 호출하여 가져올 수 있습니다.
+파일을 업로드하는 첫 번째 단계는 상주해야 하는 디렉터리에 대한 참조를 가져오는 것입니다. 공유 개체의 **get_root_directory_reference** 메서드를 호출 하 여이 작업을 수행 합니다.
 
 ```cpp
 //Get a reference to the root directory for the share.
@@ -220,7 +220,7 @@ file4.upload_from_file(_XPLATSTR("DataFile.txt"));
 
 ## <a name="download-a-file"></a>파일 다운로드
 
-파일을 다운로드하려면 먼저 파일 참조를 검색한 다음 **download_to_stream** 메서드를 호출하여 파일 콘텐츠를 스트림 개체로 전송하며 이 개체를 로컬 파일에 저장할 수 있습니다. 또는 **download_to_file** 메서드를 사용하여 로컬 파일에 파일 콘텐츠를 다운로드할 수 있습니다. **download_text** 메서드를 사용하여 파일 콘텐츠를 텍스트 문자열로 다운로드할 수 있습니다.
+파일을 다운로드하려면 먼저 파일 참조를 검색한 다음 **download_to_stream** 메서드를 호출하여 파일 내용을 스트림 개체로 전송한 다음 로컬 파일로 유지합니다. 또는 **download_to_file** 메서드를 사용하여 로컬 파일에 파일 콘텐츠를 다운로드할 수 있습니다. **download_text** 메서드를 사용하여 파일 콘텐츠를 텍스트 문자열로 다운로드할 수 있습니다.
 
 다음 예제에서는 **download_to_stream** 및 **download_text** 메서드를 사용하여 이전 섹션에서 만든 파일을 다운로드하는 방법을 보여 줍니다.
 
@@ -369,5 +369,5 @@ Azure Storage에 대한 자세한 내용은 다음 리소스를 살펴보세요.
 
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
 * [C++ 형식의 Azure Storage 파일 서비스 샘플](https://github.com/Azure-Samples/storage-file-cpp-getting-started)
-* [Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
-* [Azure Storage 설명서](https://azure.microsoft.com/documentation/services/storage/)
+* [Azure 저장소 탐색기](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)

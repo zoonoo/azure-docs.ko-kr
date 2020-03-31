@@ -1,5 +1,5 @@
 ---
-title: 'Azure Express 경로: 클래식 Vnet을 리소스 관리자로 마이그레이션'
+title: 'Azure ExpressRoute: 클래식 VNet을 리소스 관리자로 마이그레이션'
 description: 이 페이지에서는 회로를 이동한 후에 ExpressRoute에 연결된 가상 네트워크를 Resource Manager로 마이그레이션하는 방법을 설명합니다.
 services: expressroute
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: cherylmc
 ms.openlocfilehash: 8033c80b72c19a9473ce7ecfaa8fe5a1da9f12ee
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77061322"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>ExpressRoute에 연결된 가상 네트워크를 클래식에서 Resource Manager로 마이그레이션
@@ -22,7 +22,7 @@ ms.locfileid: "77061322"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* 최신 버전의 Azure PowerShell 모듈이 있는지 확인 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. PowerShell 서비스 관리 모듈 (클래식 배포 모델에 필요 함)을 설치 하려면 [Azure PowerShell 서비스 관리 모듈 설치](/powershell/azure/servicemanagement/install-azure-ps)를 참조 하세요.
+* Azure PowerShell 모듈의 최신 버전이 있는지 확인합니다. 자세한 내용은 [Azure PowerShell을 설치하고 구성하는 방법을](/powershell/azure/overview)참조하세요. 기존 배포 모델에 필요한 PowerShell 서비스 관리 모듈을 설치하려면 [Azure PowerShell 서비스 관리 모듈 설치를](/powershell/azure/servicemanagement/install-azure-ps)참조하십시오.
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md), [라우팅 요구 사항](expressroute-routing.md) 및 [워크플로](expressroute-workflows.md)를 검토했는지 확인합니다.
 * [클래식에서 Resource Manager로 ExpressRoute 회로 이동](expressroute-move.md)에서 제공되는 정보를 검토합니다. 제한 및 제한 사항을 완전히 이해해야 합니다.
 * 클래식 배포 모델에서 회로가 완벽하게 작동되는지 확인합니다.
@@ -40,7 +40,7 @@ ms.locfileid: "77061322"
 * 동일한 구독에서 ExpressRoute 회로에 연결된 가상 네트워크, 게이트웨이 및 가상 네트워크 내 연결된 배포를 가동 중지 시간 없이 Resource Manager 환경으로 마이그레이션할 수 있습니다. 나중에 설명하는 단계에 따라 가상 네트워크, 게이트웨이 및 가상 네트워크 내 배포된 가상 머신과 같은 리소스를 마이그레이션할 수 있습니다. 마이그레이션하기 전에 가상 네트워크가 올바르게 구성되어 있는지 확인해야 합니다. 
 * ExpressRoute 회로와 다른 구독의 가상 네트워크, 게이트웨이 및 가상 네트워크 내 연결된 배포는 마이그레이션을 완료하는 데 가동 중지 시간이 필요합니다. 문서의 마지막 섹션에서는 리소스 마이그레이션을 위해 따라야 하는 단계를 설명합니다.
 * ExpressRoute 게이트웨이와 VPN Gateway가 모두 있는 가상 네트워크는 마이그레이션할 수 없습니다.
-* ExpressRoute 회로 구독 간 마이그레이션은 지원되지 않습니다. 자세한 내용은 [Microsoft 네트워크 이동 지원](../azure-resource-manager/management/move-support-resources.md#microsoftnetwork)을 참조 하세요.
+* ExpressRoute 회로 구독 간 마이그레이션은 지원되지 않습니다. 자세한 내용은 [Microsoft.Network 이동 지원을](../azure-resource-manager/management/move-support-resources.md#microsoftnetwork)참조하십시오.
 
 ## <a name="move-an-expressroute-circuit-from-classic-to-resource-manager"></a>클래식에서 Resource Manager로 ExpressRoute 회로 이동
 ExpressRoute 회로에 연결된 리소스를 마이그레이션하기 전에 ExpressRoute 회로를 클래식에서 Resource Manager 환경으로 이동해야 합니다. 이 작업을 완료하려면 다음 문서를 참조하세요.

@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/26/2019
+ms.date: 03/25/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47bd3b5da79bdb9c7dca75d521aa39d3652ab1ab
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 707b03d46615f3acfa0797d1dc0865d53ef75dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78945999"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282123"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Azure 리소스용 관리 ID란?
 
@@ -143,7 +143,7 @@ Linux VM에서 관리 ID를 사용하는 방법:
 * [Azure Data Factory](../../data-factory/data-factory-service-identity.md)
 
 
-## Azure 서비스에서 어떤 기능을 지원하나요?<a name="which-azure-services-support-managed-identity"></a>
+## <a name="what-azure-services-support-the-feature"></a>Azure 서비스에서 어떤 기능을 지원하나요?<a name="which-azure-services-support-managed-identity"></a>
 
 Azure 리소스에 대한 관리 ID는 Azure AD 인증을 지원하는 서비스를 인증하는 데 사용할 수 있습니다. Azure 리소스에 대한 관리 ID 기능을 지원하는 Azure 서비스 목록은 [Azure 리소스에 대한 관리 ID를 지원하는 서비스](services-support-msi.md)를 참조하세요.
 

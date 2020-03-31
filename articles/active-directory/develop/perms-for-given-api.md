@@ -1,5 +1,5 @@
 ---
-title: 지정 된 API에 대 한 권한 선택 | Microsoft Docs
+title: 지정된 API에 대한 권한 선택 | 마이크로 소프트 문서
 description: 개발하는 애플리케이션의 클라이언트 및 리소스 애플리케이션에 대한 사용 권한 요청 방법을 알아봅니다.
 services: active-directory
 author: rwike77
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ms.openlocfilehash: cf28677e143b66a16b69c4363602537073f0be5a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76704241"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>지정된 API에 대한 사용 권한을 선택하는 방법 

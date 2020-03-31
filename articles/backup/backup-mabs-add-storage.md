@@ -4,10 +4,10 @@ description: Azure Backup Server의 새로운 기능에 대해 알아봅니다. 
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: c6346d7b0275a00271c1787b378a63b8365edf2d
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74172372"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Azure Backup Server에 스토리지 추가
@@ -18,7 +18,7 @@ Azure Backup Server V2 이상은 스토리지를 50% 절약할 수 있고, 백�
 > Modern Backup Storage를 사용하려면 Windows Server 2016에서 Backup Server V2 또는 V3을, Windows Server 2019에서 V3을 실행해야 합니다.
 > Backup Server V2를 이전 버전의 Windows Server에서 실행하면 Azure Backup Server는 Modern Backup Storage를 사용할 수 없습니다. 대신에 Backup Server V1에서 보호하는 것처럼 워크로드를 보호합니다. 자세한 내용은 Backup Server 버전 [보호 매트릭스](backup-mabs-protection-matrix.md)를 참조하세요.
 >
-> 향상 된 백업 성능을 얻으려면 Windows Server 2019에서 계층화 된 저장소를 사용 하 여 MABS v3을 배포 하는 것이 좋습니다. 계층화 된 저장소를 구성 하는 단계에 대 한 자세한 내용은 DPM 문서 "[Tiered Storage으로 Mb 설정](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)"을 참조 하세요.
+> 향상된 백업 성능을 달성하려면 Windows Server 2019에 계층화 된 저장소가 있는 MABS v3를 배포하는 것이 좋습니다. 계층화 된 저장소를 구성 하는 단계에 대 한 DPM 문서["계층화 된 저장소와 MBS 설정](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" 참조 하십시오.
 
 ## <a name="volumes-in-backup-server"></a>Backup Server의 볼륨
 
@@ -36,7 +36,7 @@ Backup Server V2는 스토리지 볼륨을 허용합니다. 볼륨을 추가하�
 
 볼륨이 포함된 Backup Server V2 이상을 디스크 스토리지로 사용하면 스토리지를 지속적으로 제어할 수 있습니다. 볼륨은 단일 디스크일 수 있습니다. 하지만 나중에 스토리지를 확장하려는 경우에는 스토리지 공간을 사용하여 만들어진 디스크에서 볼륨을 만듭니다. 이렇게 하면 백업 스토리지용 볼륨을 확장하려는 경우 도움이 될 수 있습니다. 이 섹션에서는 이 설정을 통해 볼륨을 만드는 모범 사례를 제공합니다.
 
-1. 서버 관리자에서 **파일 및 Storage 서비스** > **볼륨** > **스토리지 풀**을 선택합니다. **실제 디스크**에서 **새 스토리지 풀**을 선택합니다.
+1. 서버 관리자에서 **파일 및 저장소 서비스** > **볼륨** > **저장소 풀을 선택합니다.** **실제 디스크**에서 **새 스토리지 풀**을 선택합니다.
 
     ![새 스토리지 풀 만들기](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
@@ -56,7 +56,7 @@ Backup Server V2는 스토리지 볼륨을 허용합니다. 볼륨을 추가하�
 
     ![새 볼륨 만들기](./media/backup-mabs-add-storage/mabs-add-storage-5.png)
 
-6. **서버 및 디스크 선택** 대화 상자에서 서버와 새 디스크를 선택합니다. 그다음에 **다음**을 선택합니다.
+6. **서버 및 디스크 선택** 대화 상자에서 서버와 새 디스크를 선택합니다. 그런 다음 **을 선택합니다.**
 
     ![서버 및 디스크 선택](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
 
@@ -64,8 +64,8 @@ Backup Server V2는 스토리지 볼륨을 허용합니다. 볼륨을 추가하�
 
 > [!NOTE]
 >
-> - 풀에 디스크를 하나만 추가 하 여 열 수를 1로 유지 합니다. 그런 다음 나중에 필요에 따라 디스크를 추가할 수 있습니다.
-> - 이동 시 저장소 풀에 여러 디스크를 추가 하면 디스크 수가 열 수로 저장 됩니다. 추가 된 디스크는 열 수의 배수 까지만 사용할 수 있습니다.
+> - 열 수를 1로 유지하려면 풀에 디스크를 하나만 추가합니다. 이후 필요에 따라 디스크를 추가할 수 있습니다.
+> - 한 번에 여러 디스크를 스토리지 풀에 추가하면 디스크 수가 열 수로 저장됩니다. 나중에 추가되는 디스크는 열 수의 배수만 될 수 있습니다.
 
 Backup Server에 볼륨을 추가하려면 **관리** 창에서 스토리지를 다시 검사하고 나서 **추가**를 선택합니다. Backup Server 스토리지에 추가할 수 있는 모든 볼륨 목록이 표시됩니다. 사용 가능한 볼륨이 선택한 볼륨 목록에 추가된 후 해당 볼륨에 이름을 지정하면 관리하는 데 도움이 될 수 있습니다. 이러한 볼륨의 형식을 ReFS로 지정하여 Backup Server에서 Modern Backup Storage의 이점을 활용할 수 있게 하려면 **확인**을 선택합니다.
 
@@ -77,7 +77,7 @@ Backup Server에 볼륨을 추가하려면 **관리** 창에서 스토리지를 
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-Azure Backup Server에서 저장소 풀의 볼륨 속성을 업데이트 하는 PowerShell cmdlet 업데이트-DPMDiskStorage를 사용 하 여 워크 로드 인식 저장소를 설정할 수 있습니다.
+Azure 백업 서버의 저장소 풀에서 볼륨의 속성을 업데이트하는 PowerShell cmdlet Update-DPMDiskStorage를 사용하여 워크로드 인식 저장소를 설정할 수 있습니다.
 
 구문
 
@@ -119,7 +119,7 @@ Backup Server에서 레거시 스토리지를 사용하려면 디스크를 추�
 
 디스크 스토리지를 추가하려면:
 
-1. 관리자 콘솔에서 **관리** > **디스크 스토리지** > **추가**를 선택합니다.
+1. 관리자 콘솔에서 **관리** > **디스크 저장소** > **추가**를 선택합니다.
 
     ![디스크 스토리지 추가 대화 상자](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 

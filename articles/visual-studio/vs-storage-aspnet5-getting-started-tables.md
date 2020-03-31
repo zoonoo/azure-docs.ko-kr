@@ -1,5 +1,5 @@
 ---
-title: Visual Studio를 사용 하 여 테이블 저장소 시작 (ASP.NET Core)
+title: Visual Studio(ASP.NET 코어)를 사용하여 테이블 스토리지 시작
 description: Visual Studio 연결 서비스를 사용하여 스토리지 계정에 연결한 후 Visual Studio ASP.NET Core 프로젝트에서 Azure Table Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
@@ -14,19 +14,19 @@ ms.date: 11/14/2017
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d209f8117b1e061877daf2f8d316bd01ed4f84cd
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72298823"
 ---
 # <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>Azure Table Storage 및 Visual Studio 연결된 서비스를 시작하는 방법
 
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-이 문서에서는 Visual Studio **연결된 서비스** 기능을 사용하여 ASP.NET Core 프로젝트에서 Azure 스토리지 계정을 만들거나 참조한 후 Visual Studio에서 Azure Table Storage 사용을 시작하는 방법에 대해 설명합니다. **연결된 서비스** 작업은 프로젝트의 Azure Storage에 액세스하는 데 적합한 NuGet 패키지를 설치하고 프로젝트 구성 파일에 스토리지 계정에 대한 연결 문자열을 추가합니다. (Azure Storage에 대한 일반적인 내용은 [스토리지 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.)
+이 문서에서는 Visual Studio **연결된 서비스** 기능을 사용하여 ASP.NET Core 프로젝트에서 Azure 스토리지 계정을 만들거나 참조한 후 Visual Studio에서 Azure Table Storage 사용을 시작하는 방법에 대해 설명합니다. **연결된 서비스** 작업은 프로젝트에 Azure 저장소에 액세스하기 위해 적절한 NuGet 패키지를 설치하고 저장소 계정에 대한 연결 문자열을 프로젝트 구성 파일에 추가합니다. Azure 저장소에 대한 일반 정보는 [저장소 설명서를](https://azure.microsoft.com/documentation/services/storage/) 참조하십시오.
 
-Azure Table Storage 서비스를 사용하면 많은 양의 구조화된 데이터를 저장할 수 있습니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다. Azure Table Storage를 사용하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Azure Table Storage 시작](../storage/storage-dotnet-how-to-use-tables.md)을 참조하세요.
+Azure Table Storage 서비스를 사용하면 많은 양의 구조화된 데이터를 저장할 수 있습니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다. Azure Table 저장소 사용에 대한 자세한 내용은 .NET 을 [사용하여 Azure Table 저장소시작](../storage/storage-dotnet-how-to-use-tables.md)을 참조하십시오.
 
 시작하려면 먼저 스토리지 계정에서 테이블을 만듭니다. 이 문서에서는 C#으로 테이블을 만드는 방법과 함께 테이블 항목 추가, 수정, 읽기 및 제거 같은 기본 큐 작업을 수행하는 방법을 설명합니다.  코드는 .NET용 Azure Storage 클라이언트 라이브러리를 사용합니다. ASP.NET에 대한 자세한 내용은 [ASP.NET(영문)](https://www.asp.net)을 참조하세요.
 

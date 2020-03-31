@@ -12,10 +12,10 @@ ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: b237f710866ad3960dd65902c0789228d8c391bc
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062322"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>수동으로 앱에 계정 추가
@@ -93,7 +93,7 @@ ms.locfileid: "77062322"
 
 5. 컴퓨터의 **백업 확인 방법 추가** 페이지에서 백업 확인 방법을 통해 제공된 Amazon 계정용 6자리 확인 코드를 입력한 다음, **코드 확인 후 계속하기**를 선택합니다.
 
-6. 거의 완료 페이지에서 컴퓨터를 신뢰할 수 있는 장치로 만들지 여부를 결정 한 다음, 파일을 선택 **합니다. 2 단계 인증을 설정**합니다.
+6. 거의 완료된 페이지에서 컴퓨터를 신뢰할 수 있는 장치로 만들지 여부를 결정한 다음 **가져오기를 선택합니다. 2단계 확인을 켭니다.**
 
     **고급 보안 설정** 페이지가 나타나고, 업데이트된 2단계 인증 세부 정보가 표시됩니다.
 
@@ -104,6 +104,6 @@ ms.locfileid: "77062322"
 
 - 앱에 계정을 추가한 후에는 디바이스에서 Microsoft Authenticator 앱을 사용하여 로그인할 수 있습니다. 자세한 내용은 [앱을 사용하여 로그인](user-help-auth-app-sign-in.md)을 참조하세요.
 
-- 개인 Microsoft 계정에 대 한 확인 코드를 가져오는 데 문제가 있는 경우 [Microsoft 계정 보안 정보 & 확인 코드](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) 문서에서 **확인 코드 문제 해결** 섹션을 참조 하세요.
+- 개인 Microsoft 계정에 대한 확인 코드를 가져오는 데 문제가 있는 경우 Microsoft 계정 [보안 정보 & 확인 코드](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) 문서의 문제 해결 확인 코드 **문제** 섹션을 참조하세요.
 
 - iOS를 실행하는 디바이스의 경우에는 계정 자격 증명 및 관련 앱 설정(예: 계정 순서)을 클라우드에 백업할 수도 있습니다. 자세한 내용은 [Microsoft Authenticator 앱을 통한 백업 및 복구](user-help-auth-app-backup-recovery.md)를 참조하세요.
