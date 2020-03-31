@@ -8,14 +8,14 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 03/23/2020
 ms.custom: mvc
-ms.openlocfilehash: 46bad14978957ab474cfc0eda3e523874246d3f3
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: d6af521238a034bc22612335119f08284b87eb4b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586226"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80132697"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행
 
@@ -58,6 +58,8 @@ ms.locfileid: "77586226"
 3. **검토 + 만들기**를 선택한 다음, **만들기**를 선택합니다. 작업 영역 생성에는 몇 분 정도가 소요됩니다. 작업 영역을 만드는 동안 **알림**에서 배포 상태를 볼 수 있습니다. 이 프로세스가 완료되면 사용자 계정이 작업 영역에서 관리 사용자로 자동으로 추가됩니다.
 
     ![Databricks 배포 타일](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Databricks 배포 타일")
+
+    작업 영역 배포가 실패해도 작업 영역은 여전히 실패한 상태로 생성됩니다. 실패한 작업 영역을 삭제하고 배포 오류를 해결하는 새 작업 영역을 만듭니다. 실패한 작업 영역을 삭제하면 관리되는 리소스 그룹과 성공적으로 배포된 리소스도 모두 삭제됩니다.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Databricks에서 Spark 클러스터 만들기
 

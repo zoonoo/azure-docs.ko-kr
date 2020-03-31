@@ -1,25 +1,25 @@
 ---
-title: 지 오 코딩 범위 | Microsoft Azure 맵
-description: 위치 주소를 위도 및 경도 좌표로 변환 하는 프로세스를 지 오 코딩 라고 합니다. 이 문서에서는 Microsoft Azure Maps에서 지 오 코딩 검사가 적용 되는 지역에 대해 알아봅니다.
-author: farah-alyasari
-ms.author: v-faalya
+title: 지오코딩 적용 범위 | 마이크로소프트 Azure 지도
+description: 위치 주소를 위도 및 경도 좌표로 변환하는 프로세스를 지오코딩이라고 합니다. 이 문서에서는 Microsoft Azure 지도에서 지오코딩 적용 범위가 있는 지역에 대해 알아봅니다.
+author: philmea
+ms.author: philmea
 ms.date: 12/31/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 149dd0a3e709bbf4660aaae176f76f560de873e2
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 9836bd35b16c4c308b7c9d096b104c0cec68a34c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210058"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335644"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure Maps 지오코딩 검사
 
-Azure Maps를 사용 하 여 위치를 검색 하는 경우 검색 서비스 (예: 검색 [주소 가져오기](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress))는 검색 용어를 사용 하 여 위도 및 경도 좌표를 반환 합니다. 이 프로세스를 지 오 코딩 라고 합니다. 그러나 Azure Maps은 모든 지역 및 국가에 대해 동일한 수준의 정보 및 정확도를 갖지 않습니다. 이 문서를 사용하여 각 지역에서 안정적으로 검색할 수 있는 위치 종류를 확인하세요. 
+Azure Maps를 사용하여 위치를 검색할 때 검색 서비스(예: [검색 주소 받기)는](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress)검색 어를 취하고 위도 및 경도 좌표를 반환합니다. 이 프로세스를 지오코딩이라고 합니다. 그러나 Azure Maps에는 모든 지역 및 국가에 대해 동일한 수준의 정보와 정확도가 없습니다. 이 문서를 사용하여 각 지역에서 안정적으로 검색할 수 있는 위치 종류를 확인하세요. 
 
-국가/지역에서 코드를 geocode는 기능은 지 오 코딩 서비스의도로 데이터 검사 및 지 오 코딩 정밀도에 따라 달라 집니다. 각 국가/지역에서 지 오 코딩 지원 수준을 지정 하는 데 사용 되는 분류는 다음과 같습니다.
+국가/지역의 지오코딩 기능은 도로 데이터 범위와 지오코딩 서비스의 지오코딩 정밀도에 따라 달라집니다. 다음 범주화는 각 국가/지역의 지오코딩 지원 수준을 지정하는 데 사용됩니다.
 * **주소 지점** - 주소 데이터는 주소 구획(속성 경계) 내에서 위도/경도 좌표로 확인할 수 있습니다. 정확하게 'Rooftop'으로 참조되는 경우도 있습니다. 주소에 대해 사용 가능한 가장 높은 수준의 정확도입니다. 
 * **번지** - 주소는 거리의 위도/경도 좌표에 보간됩니다.
 * **거리 수준** - 주소는 주소를 포함하는 거리의 위도/경도 좌표로 확인됩니다. 번지는 처리되지 않을 수 있습니다.
@@ -83,7 +83,7 @@ Azure Maps를 사용 하 여 위치를 검색 하는 경우 검색 서비스 (�
 | 미합중국                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 우루과이                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 베네수엘라                                           |                 |                |       ✓      |      ✓     |          ✓         |
-| 영국령 버진 아일랜드                              |                 |                |              |      ✓     |          ✓         |
+| 영국령 버진아일랜드                              |                 |                |              |      ✓     |          ✓         |
 | 미국령 버진 아일랜드                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 
 ## <a name="asia-pacific"></a>아시아 태평양
@@ -285,7 +285,7 @@ Azure Maps를 사용 하 여 위치를 검색 하는 경우 검색 서비스 (�
 | 수단                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | 스와질란드                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | 시리아                                               |                 |                |              |      ✓     |          ✓         |
-| 상투메 프린시페                               |                 |                |       ✓      |      ✓     |          ✓         |
+| 상 토메와 프린시페                               |                 |                |       ✓      |      ✓     |          ✓         |
 | 탄자니아                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | 토고                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | 튀니지                                             |        ✓        |                |       ✓      |      ✓     |          ✓         |

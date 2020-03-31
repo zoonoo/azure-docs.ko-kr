@@ -1,5 +1,5 @@
 ---
-title: Visual Studio를 사용 하 여 blob storage 시작 (WebJob 프로젝트)
+title: Visual Studio(WebJob 프로젝트)를 사용하여 Blob 저장소 시작
 description: Visual Studio 연결된 서비스를 사용하여 Azure 스토리지에 연결한 후 WebJob 프로젝트에서 Blob Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 90aa824b7df575eb2783ece5bd88322f0b55f0a2
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72299972"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure Blob Storage 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
@@ -29,7 +29,7 @@ ms.locfileid: "72299972"
 ## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>Blob이 만들어지거나 업데이트될 때 함수를 트리거하는 방법
 이 섹션에서는 **BlobTrigger** 특성을 사용하는 방법을 보여 줍니다.
 
- **참고:** WebJobs SDK는 로그 파일을 검사하여 새 Blob 또는 변경된 Blob을 확인합니다. 이 프로세스는 기본적으로 느리므로, BLOB을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다.  애플리케이션에서 BLOB을 즉시 처리해야 하는 경우 BLOB을 만들 때 큐 메시지를 만들고 BLOB을 처리하는 함수의 **BlobTrigger** 특성 대신 **QueueTrigger** 특성을 사용하는 것이 좋습니다.
+ **참고:** WebJobs SDK는 로그 파일을 검사하여 새 BLOB 또는 변경된 BLOB을 확인합니다. 이 프로세스는 기본적으로 느리므로, BLOB을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다.  애플리케이션에서 BLOB을 즉시 처리해야 하는 경우 BLOB을 만들 때 큐 메시지를 만들고 BLOB을 처리하는 함수의 **BlobTrigger** 특성 대신 **QueueTrigger** 특성을 사용하는 것이 좋습니다.
 
 ### <a name="single-placeholder-for-blob-name-with-extension"></a>확장명을 포함하는 Blob 이름에 대한 단일 자리 표시자
 다음 코드 샘플은 *입력* 컨테이너에 표시된 텍스트 Blob를 *출력* 컨테이너에 복사합니다.
@@ -79,9 +79,9 @@ ms.locfileid: "72299972"
 ## <a name="types-that-you-can-bind-to-blobs"></a>Blob에 바인딩할 수 있는 유형
 다음 유형에서 **BlobTrigger** 특성을 사용할 수 있습니다.
 
-* **string**
+* **문자열**
 * **TextReader**
-* **Stream**
+* **스트림**
 * **ICloudBlob**
 * **CloudBlockBlob**
 * **CloudPageBlob**
@@ -145,11 +145,11 @@ Azure 스토리지 계정으로 직접 작업하려는 경우 메서드 서명�
 
 포이즌 Blob에 대한 큐 메시지는 다음 속성을 포함하는 JSON 개체입니다.
 
-* FunctionId ( *{WebJob 이름}* 형식). 역함수. *{함수 이름}* . 예를 들면 다음과 같습니다. WebJob1.Functions.CopyBlob)
+* FunctionId(*{WebJob 이름}*.Functions.*{함수 이름}* 형식, 예: WebJob1.Functions.CopyBlob)
 * BlobType("BlockBlob" 또는 "PageBlob")
 * ContainerName
 * BlobName
-* ETag(Blob 버전 식별자, 예: “0x8D1DC6E70A277EF”)
+* ETag(Blob 버전 식별자, 예: "0x8D1DC6E70A277EF")
 
 다음 코드 샘플의 **CopyBlob** 함수에는 호출될 때마다 실패하게 만드는 코드가 있습니다. SDK에서 이 함수를 최대 재시도 횟수만큼 호출한 후에는 포이즌 Blob 큐에 메시지가 생성되고, 이 메시지가 **LogPoisonBlob** 함수에 의해 처리됩니다.
 
@@ -171,7 +171,7 @@ Azure 스토리지 계정으로 직접 작업하려는 경우 메서드 서명�
             logger.WriteLine("ETag: {0}", message.ETag);
         }
 
-SDK는 JSON 메시지를 자동으로 deserialize합니다. **PoisonBlobMessage** 클래스는 다음과 같습니다.
+SDK는 JSON 메시지를 자동으로 역직렬화합니다. **PoisonBlobMessage** 클래스는 다음과 같습니다.
 
         public class PoisonBlobMessage
         {
@@ -194,11 +194,11 @@ WebJobs SDK는 동일한 새 Blob 또는 업데이트된 Blob에 대해 **BlobTr
 
 Blob 수신 확인은 AzureWebJobsStorage 연결 문자열에 지정된 Azure 스토리지 계정의 *azure-webjobs-hosts* 라는 컨테이너에 저장됩니다. Blob 수신 확인에는 다음 정보가 포함됩니다.
 
-* Blob에 대해 호출 된 함수 (" *{WebJob 이름}* )입니다. 역함수. *{함수 이름}* ", 예: "WebJob1.Functions.CopyBlob")
+* Blob에 대해 호출된 함수("*{WebJob 이름}*.Functions.*{함수 이름}*", 예: "WebJob1.Functions.CopyBlob")
 * 컨테이너 이름
 * Blob 유형("BlockBlob" 또는 "PageBlob")
 * Blob 이름
-* ETag(Blob 버전 식별자, 예: “0x8D1DC6E70A277EF”)
+* ETag(Blob 버전 식별자, 예: "0x8D1DC6E70A277EF")
 
 Blob를 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해당 Blob에 대한 Blob 수신 확인을 수동으로 삭제하면 됩니다.
 

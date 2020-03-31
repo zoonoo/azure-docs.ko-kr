@@ -15,10 +15,10 @@ ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 87cd7c63939331190530a46071a6b4c40480562f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269758"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>미디어 인코더 Premium 워크플로 형식 및 코덱
@@ -28,13 +28,13 @@ ms.locfileid: "79269758"
 
 이 문서에는 **미디어 인코더 Premium 워크플로** 인코더의 공개 미리 보기 버전에서 지원하는 입력 및 출력 파일 형식과 코덱 목록이 포함되어 있습니다.
 
-[Media Encoder Premium Workflow 입력 형식 및 코덱](#input_formats)
+[미디어 인코더 프리미엄 워크플로 입력 형식 및 코덱](#input_formats)
 
 Media Encoder Premium Workflow 출력 형식 및 코덱
 
 **미디어 인코더 Premium 워크플로** 는 [이](#closed_captioning) 섹션에 설명된 선택 캡션을 지원합니다. 
 
-## <a id="input_formats"></a>미디어 인코더 Premium 워크플로 입력 형식 및 코덱
+## <a name="media-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>미디어 인코더 Premium 워크플로 입력 형식 및 코덱
 
 다음 섹션에는 이 미디어 프로세서에서 입력으로 지원되는 코덱 및 파일 형식이 나열되어 있습니다.
 
@@ -71,7 +71,7 @@ Media Encoder Premium Workflow 출력 형식 및 코덱
 * Windows Media 오디오
 * WAV/PCM
 
-## <a id="output_format"></a>미디어 인코더 Premium 워크플로 출력 형식 및 코덱
+## <a name="media-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>미디어 인코더 Premium 워크플로 출력 형식 및 코덱
 
 다음 섹션에는 이 미디어 프로세서에서 출력으로 지원되는 코덱 및 파일 형식이 나열되어 있습니다.
 
@@ -112,7 +112,7 @@ Media Encoder Premium Workflow 출력 형식 및 코덱
 >[!NOTE]
 >Dolby® Digital(AC3)로 인코딩하면 출력은 ISO MP4 파일에만 쓸 수 있습니다.
 
-## <a id="closed_captioning"></a>선택 캡션 지원
+## <a name="support-for-closed-captioning"></a><a id="closed_captioning"></a>선택 캡션 지원
 
 수집 시 **미디어 인코더 Premium 워크플로** 는 다음을 지원합니다.
 
@@ -139,7 +139,7 @@ Media Encoder Premium Workflow 출력 형식 및 코덱
 
 ## <a name="need-help"></a>도움 필요 시
 
-[새 지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)으로 이동하여 지원 티켓을 열 수 있습니다.
+[새 지원 요청으로](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) 이동하여 지원 티켓을 열 수 있습니다.
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

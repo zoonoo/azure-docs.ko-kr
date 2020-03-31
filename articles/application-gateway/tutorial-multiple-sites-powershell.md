@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용 하 여 여러 웹 사이트 호스트
+title: PowerShell을 사용하여 여러 웹 사이트 호스트
 titleSuffix: Azure Application Gateway
 description: Azure Powershell을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 432604dd3db1629a4c9b10d0d5c8649f3817d97f
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: e05d84e8e06dbe63a1bc8e8ae1d401f186baac77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673145"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80133055"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Azure PowerShell을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기
 
-Azure Powershell을 사용하여 [애플리케이션 게이트웨이](multiple-site-overview.md)를 만들 때 [여러 웹 사이트의 호스팅](overview.md)을 구성할 수 있습니다. 이 문서에서는 가상 머신 확장 집합을 사용하여 백 엔드 주소 풀을 정의합니다. 그런 다음, 웹 트래픽이 풀에서 적절한 서버에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 문서에서는 여러 도메인을 소유하고 있으며 *www.contoso.com* 및 *www.fabrikam.com*의 예제를 사용한다고 가정합니다.
+Azure Powershell을 사용하여 [애플리케이션 게이트웨이](multiple-site-overview.md)를 만들 때 [여러 웹 사이트의 호스팅](overview.md)을 구성할 수 있습니다. 이 문서에서는 가상 머신 확장 집합을 사용하여 백 엔드 주소 풀을 정의합니다. 그런 다음, 웹 트래픽이 풀에서 적절한 서버에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 문서에서는 여러 도메인을 소유하고 *있으며 www.contoso.com* 및 *www.fabrikam.com*예제를 사용한다고 가정합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -122,9 +122,9 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-listeners-and-rules"></a>수신기 및 규칙 만들기
 
-애플리케이션 게이트웨이가 백 엔드 주소 풀에 트래픽을 적절하게 라우팅하려면 수신기가 필요합니다. 이 문서에서는 두 도메인에 대해 두 개의 수신기를 만듭니다. *Contoso.com* 및 *fabrikam.com* 도메인에 대해 수신기가 생성 됩니다.
+애플리케이션 게이트웨이가 백 엔드 주소 풀에 트래픽을 적절하게 라우팅하려면 수신기가 필요합니다. 이 문서에서는 두 도메인에 대해 두 개의 수신기를 만듭니다. contoso.com *및* *fabrikam.com* 도메인에 대해 수신기가 만들어집니다.
 
-[New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener)를 사용하여 이전에 만든 프론트 엔드 구성 및 프론트 엔드 포트가 포함된 첫 번째 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. *New-AzApplicationGatewayRequestRoutingRule*을 사용하여 [contosoRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)이라는 기본 규칙을 만듭니다.
+[New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener)를 사용하여 이전에 만든 프론트 엔드 구성 및 프론트 엔드 포트가 포함된 첫 번째 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)을 사용하여 *contosoRule*이라는 기본 규칙을 만듭니다.
 
 ```azurepowershell-interactive
 $contosolistener = New-AzApplicationGatewayHttpListener `
@@ -276,7 +276,7 @@ for ($i=1; $i -le 2; $i++)
 
 ## <a name="create-cname-record-in-your-domain"></a>도메인에서 CNAME 레코드 만들기
 
-애플리케이션 게이트웨이가 해당 공용 IP 주소로 생성된 후 DNS 주소를 가져와 도메인에서 CNAME 레코드를 만드는 데 사용할 수 있습니다. [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하여 애플리케이션 게이트웨이의 DNS 주소를 가져올 수 있습니다. DNSSettings의 *fqdn* 값을 복사하여 만드는 CNAME 레코드의 값으로 사용합니다. 응용 프로그램 게이트웨이를 다시 시작할 때 VIP가 변경 될 수 있으므로-레코드를 사용 하는 것은 권장 되지 않습니다.
+애플리케이션 게이트웨이가 해당 공용 IP 주소로 생성된 후 DNS 주소를 가져와 도메인에서 CNAME 레코드를 만드는 데 사용할 수 있습니다. [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하여 애플리케이션 게이트웨이의 DNS 주소를 가져올 수 있습니다. DNSSettings의 *fqdn* 값을 복사하여 만드는 CNAME 레코드의 값으로 사용합니다. V1 SKU에서 응용 프로그램 게이트웨이를 다시 시작할 때 VIP가 변경될 수 있으므로 A 레코드를 사용하는 것은 권장되지 않습니다.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

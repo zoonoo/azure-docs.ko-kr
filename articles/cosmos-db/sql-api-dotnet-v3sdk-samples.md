@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 10/07/2019
 ms.author: sngun
 ms.openlocfilehash: 2a33a59ae0184e6c41fe7121560bc5df3a69cffd
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73888942"
 ---
 # <a name="azure-cosmos-dbnet-v3-sdk-microsoftazurecosmos-examples-for-the-sql-api"></a>SQL API에 대한 Azure Cosmos DB .NET V3 SDK(Microsoft.Azure.Cosmos) 예제
@@ -32,11 +32,11 @@ ms.locfileid: "73888942"
 * 각 예제 C# 프로젝트 파일에서 작업에 연결합니다.
 * 관련된 API 참조 콘텐츠에 대한 링크입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 개발 워크플로가 설치된 Visual Studio 2019
 
-- [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) **평가판**을 다운로드하여 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발**을 사용하도록 설정합니다.
+- **평가판** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하여 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발**을 사용하도록 설정합니다.
 
    [Microsoft.Azure.cosmos NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.cosmos/)
 

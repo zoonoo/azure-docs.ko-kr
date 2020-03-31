@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261022"
 ---
-# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: 준비 서버 및 재해 복구
+# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD 연결: 스테이징 서버 및 재해 복구
 스테이징 모드에 있는 서버로 서버를 활성화하기 전에 구성을 변경하고 변경을 미리 볼 수 있습니다. 또한 프로덕션 환경에 해당 변경 사항을 적용하기 전에 필요한지를 확인하기 위해 전체 가져오기 및 동기화를 실행할 수 있습니다.
 
 ## <a name="staging-mode"></a>스테이징 모드
@@ -42,7 +42,7 @@ ms.locfileid: "79261022"
 
 여전히 동기화 서비스 관리자를 사용하여 강제로 내보낼 수 있습니다.
 
-준비 모드의 서버는 계속 해 서 Active Directory 및 Azure AD에서 변경 사항을 받고 오류가 발생할 경우 다른 서버의 책임을 신속 하 게 가져올 수 있습니다. 기본 서버의 구성을 변경하는 경우 스테이징 모드에서 서버에 동일한 변경 내용을 적용해야 합니다.
+스테이징 모드의 서버는 Active Directory 및 Azure AD에서 계속 변경 사항을 수신하며 오류가 발생할 경우 다른 서버의 책임을 신속하게 인수할 수 있습니다. 기본 서버의 구성을 변경하는 경우 스테이징 모드에서 서버에 동일한 변경 내용을 적용해야 합니다.
 
 이전 동기화 기술에 대해 알고 있는 사용자의 경우 다른 서버에 자체 SQL 데이터베이스가 있으므로 스테이징 모드는 다릅니다. 이 아키텍처를 통해 스테이징 모드 서버를 다른 데이터 센터에서 찾을 수 있습니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "79261022"
 1. [준비](#prepare)
 2. [Configuration](#configuration)
 3. [가져오기 및 동기화](#import-and-synchronize)
-4. [Verify](#verify)
+4. [확인](#verify)
 5. [활성 서버 전환](#switch-active-server)
 
 #### <a name="prepare"></a>준비
@@ -60,11 +60,11 @@ ms.locfileid: "79261022"
    ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
 2. 시작 메뉴에서 로그오프/로그온하고 **동기화 서비스**를 선택합니다.
 
-#### <a name="configuration"></a>구성
+#### <a name="configuration"></a>Configuration
 주 서버에 사용자 지정 변경 내용을 적용했으며 구성을 스테이징 서버와 비교하려는 경우 [Azure AD Connect 구성 구조 분석](https://github.com/Microsoft/AADConnectConfigDocumenter)을 사용합니다.
 
 #### <a name="import-and-synchronize"></a>가져오기 및 동기화
-1. **커넥터**를 선택하고 **Active Directory Domain Services** 형식을 가진 첫 번째 커넥터를 선택합니다. **실행**을 클릭하고 **전체 가져오기** 및 **확인**을 선택합니다. 이 형식인 모든 커넥터에 해당 단계를 수행합니다.
+1. **커넥터**를 선택하고 **Active Directory 도메인 서비스** 유형의 첫 번째 커넥터를 선택합니다. **실행**을 클릭하고 **전체 가져오기** 및 **확인**을 선택합니다. 이 형식인 모든 커넥터에 해당 단계를 수행합니다.
 2. **Azure Active Directory(Microsoft)** 형식이 있는 커넥터를 선택합니다. **실행**을 클릭하고 **전체 가져오기** 및 **확인**을 선택합니다.
 3. 탭 커넥터가 여전히 선택되어있는지 확인합니다. **Active Directory Domain Services** 형식인 각 커넥터의 경우 **실행**을 클릭하고 **델타 동기화** 및 **확인**을 선택합니다.
 4. **Azure Active Directory(Microsoft)** 형식이 있는 커넥터를 선택합니다. **실행**을 클릭하고 **델타 동기화** 및 **확인**을 차례로 선택합니다.

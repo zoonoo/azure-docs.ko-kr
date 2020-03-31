@@ -1,28 +1,28 @@
 ---
-title: 클라우드에서 템플릿 재사용
+title: 클라우드 에서 템플릿 재사용
 description: 서로 다른 클라우드 환경에서 일관되게 작동하는 Azure Resource Manager 템플릿을 개발합니다. Azure Stack을 위해 새 템플릿을 만들거나, 기존 템플릿을 업데이트합니다.
 author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: fa0df19053c3c238e3c00c46733cb4626dd64072
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: c5095efef5d4bef44993bdd9cd52dbdef17378a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773137"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156109"
 ---
-# <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발
+# <a name="develop-arm-templates-for-cloud-consistency"></a>클라우드 일관성을 위한 ARM 템플릿 개발
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
-Azure의 핵심 이점은 일관성입니다. 한 위치에 대한 개발 투자를 다른 위치에서 다시 사용할 수 있습니다. 템플릿을 사용하면 전역 Azure, Azure 소버린 클라우드 및 Azure Stack을 비롯한 전체 환경에서 배포의 일관성이 유지되며 배포를 반복할 수 있습니다. 그러나 클라우드 간에 템플릿을 재사용하려면 이 가이드에서 설명하는 클라우드 특정 종속성을 고려해야 합니다.
+Azure의 핵심 이점은 일관성입니다. 한 위치에 대한 개발 투자를 다른 위치에서 다시 사용할 수 있습니다. ARM(Azure 리소스 관리자) 템플릿을 사용하면 전역 Azure, Azure 주권 클라우드 및 Azure 스택을 비롯한 환경 전반에서 배포를 일관되고 반복 가능하게 만듭니다. 그러나 클라우드 간에 템플릿을 재사용하려면 이 가이드에서 설명하는 클라우드 특정 종속성을 고려해야 합니다.
 
 Microsoft는 여러 위치에서 다음을 비롯한 지능형 엔터프라이즈 지원 클라우드 서비스를 제공합니다.
 
 * 전 세계 지역으로 확장되고 있는 Microsoft 관리 데이터 센터 네트워크에서 지원되는 전역 Azure 플랫폼
-* Azure 독일, Azure Government, Azure 중국 21Vianet과 같은 격리 된 소 버린 클라우드. 소버린 클라우드는 전역 Azure 고객이 액세스할 수 있는 우수한 기능을 대부분 포함하는 일관성 있는 플랫폼을 제공합니다.
+* Azure 독일, Azure 정부 및 Azure China 21Vianet과 같은 격리된 주권 클라우드입니다. 소버린 클라우드는 전역 Azure 고객이 액세스할 수 있는 우수한 기능을 대부분 포함하는 일관성 있는 플랫폼을 제공합니다.
 * 조직의 데이터 센터에서 Azure 서비스를 제공할 수 있게 해주는 하이브리드 클라우드 플랫폼인 Azure Stack 엔터프라이즈는 고유한 데이터 센터에서 Azure Stack을 설정하거나, 자체 시설(호스트된 지역이라고도 함)에서 Azure Stack을 실행하는 서비스 공급자의 Azure 서비스를 이용할 수 있습니다.
 
 이러한 모든 클라우드의 핵심은, Azure Resource Manager가 제공하는 API를 통해 다양한 사용자 인터페이스와 Azure 플랫폼 간에 통신할 수 있다는 것입니다. 이 API는 강력한 코드 인프라 기능을 제공합니다. Azure 클라우드 플랫폼에서 사용할 수 있는 모든 리소스 종류는 Azure Resource Manager를 통해 배포 및 구성할 수 있습니다. 단일 템플릿을 사용하여 전체 애플리케이션을 배포하고 작동 종료 상태로 구성할 수 있습니다.
@@ -33,7 +33,7 @@ Microsoft는 여러 위치에서 다음을 비롯한 지능형 엔터프라이�
 
 그러나 전역 클라우드, 소버린 클라우드, 호스트 클라우드 및 하이브리드 클라우드가 일관성 있는 서비스를 제공한다 해도 모든 클라우드가 동일하지는 않습니다. 따라서 특정 클라우드에서만 사용 가능한 기능에 대한 종속성이 있는 템플릿을 만들 수 있습니다.
 
-이 가이드의 나머지 부분에서는 Azure Stack용 Azure Resource Manager 템플릿을 새로 개발하거나 기존 템플릿을 업데이트하려는 경우, 고려할 영역을 설명합니다. 일반적으로 검사 목록에는 다음 항목이 포함되어야 합니다.
+이 가이드의 나머지 부분에서는 Azure Stack에 대한 기존 ARM 템플릿을 새로 개발하거나 업데이트할 때 고려해야 할 영역에 대해 설명합니다. 일반적으로 검사 목록에는 다음 항목이 포함되어야 합니다.
 
 * 템플릿의 함수, 엔드포인트, 서비스 및 기타 리소스를 대상 배포 위치에서 사용할 수 있는지 확인합니다.
 * 중첩된 템플릿 및 구성 아티팩트를 액세스 가능한 위치에 저장하여 클라우드 간에 액세스를 보장합니다.
@@ -41,17 +41,17 @@ Microsoft는 여러 위치에서 다음을 비롯한 지능형 엔터프라이�
 * 사용하는 템플릿 매개 변수가 대상 클라우드에서 작동하는지 확인합니다.
 * 대상 클라우드에서 리소스 특정 속성을 사용할 수 있는지 확인합니다.
 
-Azure Resource Manger 템플릿에 대한 소개는 [템플릿 배포](overview.md)를 참조하세요.
+ARM 템플릿에 대한 소개는 [템플릿 배포](overview.md)를 참조하십시오.
 
 ## <a name="ensure-template-functions-work"></a>템플릿 함수가 작동하는지 확인
 
-Resource Manager 템플릿의 기본 구문은 JSON입니다. 템플릿은 JSON의 상위 집합을 사용하여 식과 함수로 구문을 확장합니다. 템플릿 언어 프로세서는 추가 템플릿 함수를 지원하기 위해 자주 업데이트됩니다. 사용 가능한 템플릿 함수에 대한 자세한 설명은 [Azure Resource Manager 템플릿 함수](template-functions.md)를 참조하세요.
+ARM 템플릿의 기본 구문은 JSON입니다. 템플릿은 JSON의 상위 집합을 사용하여 식과 함수로 구문을 확장합니다. 템플릿 언어 프로세서는 추가 템플릿 함수를 지원하기 위해 자주 업데이트됩니다. 사용 가능한 템플릿 함수에 대한 자세한 설명은 [ARM 템플릿 함수를](template-functions.md)참조하십시오.
 
 Azure Resource Manager에 도입된 새 템플릿 함수는 소버린 클라우드 또는 Azure Stack에서 즉시 사용할 수 없습니다. 템플릿을 성공적으로 배포하려면 템플릿에 참조된 모든 함수를 대상 클라우드에서 사용할 수 있어야 합니다.
 
 Azure Resource Manager 기능은 항상 전역 Azure에 먼저 도입됩니다. 다음 PowerShell 스크립트를 사용하여 새로 도입된 템플릿 함수를 Azure Stack에서도 사용할 수 있는지 여부를 확인할 수 있습니다.
 
-1. GitHub 리포지토리의 복제본을 만듭니다. [https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions)
+1. GitHub 리포지토리의 복제본을 [https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions)만듭니다.
 
 1. 리포지토리의 로컬 복제본이 있으면 PowerShell을 사용하여 대상의 Azure Resource Manager에 연결합니다.
 
@@ -444,7 +444,7 @@ API 프로필은 템플릿의 필수 요소가 아닙니다. 요소를 추가해
 일반적으로, 템플릿에 하드 코딩된 엔드포인트를 사용하면 안 됩니다. 모범 사례는 reference 템플릿 함수를 사용하여 엔드포인트를 동적으로 검색하는 것입니다. 예를 들어, 가장 일반적으로 하드 코딩되는 엔드포인트는 스토리지 계정의 엔드포인트 네임스페이스입니다. 각 스토리지 계정에는 스토리지 계정 이름과 엔드포인트 네임스페이스를 연결하여 생성된 고유 FQDN이 있습니다. mystorageaccount1이라는 Blob Storage 계정은 클라우드에 따라 다른 FQDN을 생성합니다.
 
 * 전역 Azure 클라우드에 만든 경우, **mystorageaccount1.blob.core.windows.net**
-* Azure 중국 21Vianet 클라우드에서 만든 **mystorageaccount1.blob.core.chinacloudapi.cn** .
+* Azure China 21Vianet 클라우드에서 만들 때 **mystorageaccount1.blob.core.chinacloudapi.cn.**
 
 다음 reference 템플릿 함수는 스토리지 리소스 공급자에서 엔드포인트 네임스페이스를 검색합니다.
 
@@ -487,7 +487,7 @@ Azure는 다양한 VM 이미지를 제공합니다. Microsoft 및 파트너가 �
 az vm image list -all
 ```
 
-`-Location` 매개 변수를 통해 원하는 위치를 지정하여 Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher)를 사용하면 동일한 목록을 검색할 수 있습니다. 예:
+`-Location` 매개 변수를 통해 원하는 위치를 지정하여 Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher)를 사용하면 동일한 목록을 검색할 수 있습니다. 예를 들어:
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
@@ -497,7 +497,7 @@ Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | 
 
 Azure Stack이 이러한 VM 이미지를 사용할 수 있도록 설정하면 사용 가능한 모든 스토리지가 사용됩니다. 가장 작은 배율 단위까지 수용하기 위해, Azure Stack을 사용하여 환경에 추가할 이미지를 선택할 수 있습니다.
 
-다음 코드 샘플은 Azure Resource Manager 템플릿의 publisher, offer 및 SKU 매개 변수를 참조하는 일관된 방법을 보여 줍니다.
+다음 코드 샘플에서는 ARM 템플릿의 게시자, 제안 및 SKU 매개 변수를 참조하는 일관된 방법을 보여 줍니다.
 
 ```json
 "storageProfile": {
@@ -590,7 +590,7 @@ Get-AzureRmVMSize -Location "West Europe"
 az vm extension image list --location myLocation
 ```
 
-Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet을 실행하고 `-Location`을 사용하여 가상 머신 이미지의 위치를 지정할 수도 있습니다. 예:
+Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet을 실행하고 `-Location`을 사용하여 가상 머신 이미지의 위치를 지정할 수도 있습니다. 예를 들어:
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version
@@ -651,7 +651,7 @@ Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerS
 
 ## <a name="tips-for-testing-and-automation"></a>테스트 및 자동화에 대한 팁
 
-템플릿을 작성하는 동안 모든 관련 설정, 기능 및 제한 사항을 추적하는 것은 어렵습니다. 일반적인 방법은 다른 위치를 대상으로 지정하기 전에 단일 클라우드에 대해 템플릿을 개발하고 테스트하는 것입니다. 그러나 작성 프로세스에서 더 빨리 테스트를 수행할수록 개발 팀이 수행해야 하는 문제 해결 및 코드 재작성이 줄어듭니다. 위치 종속성으로 인해 실패한 배포의 문제를 해결하려면 시간이 오래 걸릴 수 있습니다. 이러한 이유 때문에 작성 주기에서 가능한 한 빨리 자동화된 테스트를 수행하는 것이 좋습니다. 궁극적으로 필요한 개발 시간과 리소스가 감소하고, 클라우드 일치 아티팩트의 가치가 더욱 증가할 것입니다.
+템플릿을 작성하는 동안 모든 관련 설정, 기능 및 제한 사항을 추적하는 것은 어렵습니다. 일반적인 방법은 다른 위치를 대상으로 지정하기 전에 단일 클라우드에 대해 템플릿을 개발하고 테스트하는 것입니다. 그러나 작성 프로세스에서 더 빨리 테스트를 수행할수록 개발 팀이 수행해야 하는 문제 해결 및 코드 재작성이 줄어듭니다. 위치 종속성으로 인해 실패한 배포의 문제를 해결하려면 시간이 오래 걸릴 수 있습니다. 따라서 작성 주기에서 가능한 한 빨리 자동 테스트를 하는 것이 좋습니다. 궁극적으로 필요한 개발 시간과 리소스가 감소하고, 클라우드 일치 아티팩트의 가치가 더욱 증가할 것입니다.
 
 다음 이미지는 IDE(통합 개발 환경)를 사용하는 팀의 일반적인 개발 프로세스 예를 보여 줍니다. 타임라인의 단계마다 다른 테스트 유형이 실행됩니다. 여기서는 두 개발자가 동일한 솔루션에서 작업 중이지만, 이 시나리오는 단일 개발자 또는 대규모 팀에도 똑같이 적용됩니다. 일반적으로 각 개발자가 중앙 리포지토리의 로컬 복사본을 만들어, 동일한 파일에서 작업하는 다른 사용자에게 영향을 주지 않고 로컬 복사본에서 작업할 수 있습니다.
 
@@ -668,4 +668,4 @@ Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerS
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Resource Manager 템플릿 고려 사항](/azure-stack/user/azure-stack-develop-templates)
-* [Azure Resource Manager 템플릿에 대한 모범 사례](template-syntax.md)
+* [ARM 템플릿에 대한 모범 사례](template-syntax.md)

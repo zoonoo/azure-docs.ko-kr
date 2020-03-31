@@ -1,21 +1,21 @@
 ---
 title: '빠른 시작: .NET용 Anomaly Detector 클라이언트 라이브러리를 사용하여 시계열 데이터에서 변칙 검색'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Anomaly Detector API를 사용하여 일괄 처리로 또는 스트리밍 데이터로 데이터 계열에서 변칙을 검색하는 방법을 보여줍니다.
+description: Anomaly Detector API를 사용하여 일괄 처리 또는 스트리밍 데이터로 데이터 계열의 변칙을 검색하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 11/19/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: fdb35edc35e07ed4ee718281942565a8f1d061d4
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 268ceee5504e6e48b9eb8fdae18564482480e250
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78402696"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80239128"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-net"></a>빠른 시작: .NET용 Anomaly Detector 클라이언트 라이브러리
 

@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure StorSimple 가상 배열 시스템 요구 사항
+title: 마이크로소프트 Azure StorSimple 가상 배열 시스템 요구 사항
 description: StorSimple 가상 배열의 소프트웨어 및 네트워킹 요구 사항에 대해 알아봅니다.
 author: alkohli
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 38f9c432191ac613c1c0f8c02458e8bc4bf8232a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 020208a8b67d248c02fc659d4dc48fa22d333839
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79267548"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298816"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple 가상 배열 시스템 요구 사항
 
@@ -89,7 +89,7 @@ Azure 블록 Blob Storage만 지원됩니다. 페이지 Blob은 지원되지 않
 ## <a name="networking-requirements"></a>네트워킹 요구 사항
 다음 테이블에는 iSCSI, SMB, 클라우드 또는 관리 트래픽을 고려하여 방화벽에서 열려야 하는 포트가 나열되어 있습니다. 이 테이블에서 *인* 또는 *인바운드*는 디바이스에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드*는 배포 후 데이터를 외부로 보내는 StorSimple 디바이스에서 방향을 참조합니다.
 
-| **포트 번호<sup>1</sup>** | **인 또는 아웃** | **포트 범위** | **필수** | **참고 사항** |
+| **포트 번호<sup>1</sup>** | **인 또는 아웃** | **포트 범위** | **필수** | **참고** |
 | --- | --- | --- | --- | --- |
 | TCP 80(HTTP) |아웃 |WAN |예 |업데이트 복구를 위한 인터넷 액세스에는 아웃바운드 포트가 사용됩니다. <br></br>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다. |
 | TCP 443(HTTPS) |아웃 |WAN |yes |아웃바운드 포트는 클라우드의 데이터에 액세스하는 데 사용됩니다. <br></br>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다. |
@@ -102,7 +102,7 @@ Azure 블록 Blob Storage만 지원됩니다. 페이지 Blob은 지원되지 않
 <sup>1</sup> 인바운드 포트는 공용 인터넷에서 열릴 필요가 없습니다.
 
 > [!IMPORTANT]
-> 방화벽이 StorSimple 디바이스 및 Azure 사이의 모든 SSL 트래픽을 수정하거나 암호를 해독하지 않도록 해야 합니다.
+> 방화벽이 StorSimple 장치와 Azure 간의 TLS 트래픽을 수정하거나 해독하지 않는지 확인합니다.
 > 
 > 
 

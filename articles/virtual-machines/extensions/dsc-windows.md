@@ -1,5 +1,5 @@
 ---
-title: Azure 필요한 상태 구성 확장 처리기
+title: Azure 원하는 상태 구성 확장 처리기
 description: DSC 확장을 사용하여 PowerShell DSC 구성을 Azure VM에 업로드하고 적용합니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
 ms.openlocfilehash: 592c731d1851ac36cf9b57864750df0603b6c3fd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253963"
 ---
 # <a name="powershell-dsc-extension"></a>Powershell DSC 확장
@@ -32,11 +32,11 @@ Microsoft는 Windows용 Powershell DSC 확장을 게시하고 지원합니다. �
 
 DSC 확장에서 지원하는 OS는 다음과 같습니다.
 
-Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows 클라이언트 7/8.1/10
+윈도우 서버 2019, 윈도우 서버 2016, 윈도우 서버 2012R2, 윈도우 서버 2012, 윈도우 서버 2008 R2 SP1, 윈도우 클라이언트 7/8.1/10
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
-Windows 용 DSC 확장을 사용 하려면 대상 가상 머신이 azure와 통신할 수 있어야 하 고, Azure 외부의 위치에 저장 되어 있는 경우 구성 패키지 (.zip 파일)의 위치와 통신할 수 있어야 합니다. 
+Windows용 DSC 확장은 대상 가상 시스템이 Azure 외부 위치에 저장된 경우 대상 가상 시스템이 Azure 및 구성 패키지(.zip 파일)의 위치와 통신할 수 있어야 합니다. 
 
 ## <a name="extension-schema"></a>확장 스키마
 
@@ -97,7 +97,7 @@ Windows 용 DSC 확장을 사용 하려면 대상 가상 머신이 azure와 통�
 
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 | 데이터 형식 |
+| 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2018-10-01 | date |
 | publisher | Microsoft.Powershell.DSC | 문자열 |
@@ -106,7 +106,7 @@ Windows 용 DSC 확장을 사용 하려면 대상 가상 머신이 azure와 통�
 
 ### <a name="settings-property-values"></a>settings(설정) 속성 값
 
-| 속성 | 데이터 형식 | Description
+| 이름 | 데이터 형식 | 설명
 | ---- | ---- | ---- |
 | settings.wmfVersion | 문자열 | VM에 설치해야 하는 Windows Management Framework의 버전을 지정합니다. 이 속성을 'latest'로 설정하면 최신 업데이트 버전의 WMF가 설치됩니다. 현재 이 속성에는 '4.0', '5.0' 및 'latest' 값만 사용할 수 있습니다. 가능한 값은 업데이트에 따라 달라집니다. 기본값은 'latest'입니다. |
 | settings.configuration.url | 문자열 | DSC 구성 zip 파일을 다운로드할 URL 위치를 지정합니다. 제공된 URL에 액세스하기 위해 SAS 토큰이 필요한 경우 protectedSettings.configurationUrlSasToken 속성을 SAS 토큰 값으로 설정해야 합니다. settings.configuration.script 및/또는 settings.configuration.function이 정의된 경우 이 속성이 필요합니다.
@@ -115,12 +115,12 @@ Windows 용 DSC 확장을 사용 하려면 대상 가상 머신이 azure와 통�
 | settings.configurationArguments | 컬렉션 | DSC 구성을 전달하려는 매개 변수를 정의합니다. 이 속성은 암호화되지 않습니다.
 | settings.configurationData.url | 문자열 | DSC 구성에 대한 입력으로 사용할 구성 데이터(.pds1) 파일을 다운로드할 URL을 지정합니다. 제공된 URL에 액세스하기 위해 SAS 토큰이 필요한 경우 protectedSettings.configurationDataUrlSasToken 속성을 SAS 토큰 값으로 설정해야 합니다.
 | settings.privacy.dataEnabled | 문자열 | 원격 분석 수집을 사용하거나 사용하지 않도록 설정합니다. 이 속성에는 Enable', 'Disable', " 또는 $null 값만 사용할 수 있습니다. 이 속성을 비워 두거나 null로 설정하면 원격 분석이 사용됩니다.
-| settings.advancedOptions.forcePullAndApply | Bool | 이 설정은 Azure Automation DSC를 사용 하 여 노드를 등록 하는 확장을 사용 하는 환경을 개선 하도록 설계 되었습니다.  값이 `$true`경우 확장은 성공/실패를 반환 하기 전에 서비스에서 끌어온 구성의 첫 번째 실행을 대기 합니다.  값이 $false로 설정 된 경우 확장에 의해 반환 되는 상태는 노드가 Azure Automation 상태 구성에 성공적으로 등록 되었는지 여부를 참조 하 고 등록 하는 동안 노드 구성이 실행 되지 않습니다.
+| settings.advancedOptions.forcePullAndApply | Bool | 이 설정은 Azure 자동화 DSC를 사용하여 노드를 등록하기 위해 확장 작업 환경을 개선하기 위해 설계되었습니다.  값이 `$true`있는 경우 확장은 성공/실패를 반환하기 전에 서비스에서 가져온 구성의 첫 번째 실행을 기다립니다.  값이 $false 설정된 경우 확장에서 반환되는 상태는 노드가 Azure 자동화 상태 구성에 성공적으로 등록되었는지 여부와 등록 중에 노드 구성이 실행되지 않는지 여부를 나타냅니다.
 | settings.advancedOptions.downloadMappings | 컬렉션 | WMF 및 .NET과 같은 종속성을 다운로드할 대체 위치를 정의합니다.
 
 ### <a name="protected-settings-property-values"></a>protectedSettings(보호된 설정) 속성 값
 
-| 속성 | 데이터 형식 | Description
+| 이름 | 데이터 형식 | 설명
 | ---- | ---- | ---- |
 | protectedSettings.configurationArguments | 문자열 | DSC 구성을 전달하려는 매개 변수를 정의합니다. 이 속성은 암호화됩니다. |
 | protectedSettings.configurationUrlSasToken | 문자열 | configuration.url에서 정의한 URL에 액세스하기 위해 SAS 토큰을 지정합니다. 이 속성은 암호화됩니다. |
@@ -131,7 +131,7 @@ Windows 용 DSC 확장을 사용 하려면 대상 가상 머신이 azure와 통�
 
 Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다.
 배포 후 구성이 필요한 하나 이상의 가상 머신을 배포하는 경우 템플릿을 사용하는 것이 좋습니다.
-Windows 용 DSC 확장을 포함 하는 샘플 리소스 관리자 템플릿은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91)에서 찾을 수 있습니다.
+Windows용 DSC 확장이 포함된 샘플 리소스 관리자 템플릿은 [Azure 빠른 시작 갤러리에서](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91)찾을 수 있습니다.
 
 ## <a name="troubleshoot-and-support"></a>문제 해결 및 지원
 
@@ -148,7 +148,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}
 ```
 
-확장 상태 파일에는 각 확장 실행에 대 한 자세한 오류 및 설명과 함께 하위 상태 및 상태 성공/오류 코드가 포함 됩니다.
+확장 상태 파일에는 각 확장 실행에 대한 자세한 오류 및 설명과 함께 하위 상태 및 상태 성공/오류 코드가 포함됩니다.
 ```
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}\Status\{0}.Status  -> {0} being the sequence number
 ```
@@ -170,6 +170,6 @@ C:\WindowsAzure\Logs\Plugins\{Extension_Name}\{Extension_Version}
 | 1100 | 인수 오류 | 사용자가 제공한 입력에 문제가 있음을 나타냅니다. 이 오류 메시지는 특정 예외에서 제공됩니다.|
 
 
-### <a name="support"></a>지원
+### <a name="support"></a>고객 지원팀
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
+이 문서의 어느 시점에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼의](https://azure.microsoft.com/support/forums/)Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동하여 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.

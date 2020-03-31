@@ -1,6 +1,6 @@
 ---
-title: 홈 영역 검색을 사용 하 여 로그인 자동 가속 구성
-description: 자동 가속 및 도메인 힌트를 포함 하 여 페더레이션 사용자에 대 한 Azure Active Directory 인증에 대 한 홈 영역 검색 정책을 구성 하는 방법에 대해 알아봅니다.
+title: 홈 영역 검색을 사용하여 로그인 자동 가속 구성
+description: 자동 가속 및 도메인 힌트를 포함하여 페더레이션된 사용자에 대해 Azure Active Directory 인증에 대한 홈 Realm 검색 정책을 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,15 +16,15 @@ ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60bfc964ffc394b3f79c9d279158003f383b7331
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78943436"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 애플리케이션에 대한 Azure Active Directory 로그인 동작 구성
 
-이 문서에서는 페더레이션된 사용자에 대 한 Azure Active Directory 인증 동작을 구성 하는 방법을 소개 합니다. 여기서는 페더레이션된 도메인의 사용자에 대한 자동 가속 및 인증 제한을 구성합니다.
+이 문서에서는 페더레이션된 사용자에 대한 Azure Active Directory 인증 동작 구성에 대한 소개를 제공합니다. 여기서는 페더레이션된 도메인의 사용자에 대한 자동 가속 및 인증 제한을 구성합니다.
 
 ## <a name="home-realm-discovery"></a>홈 영역 검색
 HRD(홈 영역 검색)는 Azure AD(Azure Active Directory)에서 로그인 시 사용자가 인증해야 하는 위치를 결정할 수 있게 하는 프로세스입니다.  사용자가 Azure AD 테넌트에 로그인하여 리소스 또는 Azure AD 일반 로그인 페이지에 액세스할 때 사용자는 UPN(사용자 이름)을 입력합니다. Azure AD는 이 기능을 사용하여 사용자가 로그인해야 하는 위치를 검색합니다. 
@@ -63,11 +63,11 @@ HRD(홈 영역 검색)는 Azure AD(Azure Active Directory)에서 로그인 시 �
 
 도메인 힌트 구문은 사용되는 프로토콜에 따라 다르며, 일반적으로 애플리케이션에서 구성됩니다.
 
-**WS-Federation**: 쿼리 문자열의 whr=contoso.com
+**WS-페더레이션**: 쿼리 문자열에서 whr=contoso.com입니다.
 
 **SAML**: 도메인 힌트가 포함된 SAML 인증 요청 또는 쿼리 문자열 whr=contoso.com
 
-**Open ID Connect**: 쿼리 문자열 domain_hint=contoso.com 
+**ID 연결 열기**: 쿼리 문자열 domain_hint=contoso.com입니다. 
 
 도메인 힌트가 애플리케이션의 인증 요청에 포함되고 테넌트가 해당 도메인과 페더레이션되면 Azure AD는 해당 도메인에 대해 구성된 IdP로 로그인을 리디렉션하려고 합니다. 
 
@@ -100,7 +100,7 @@ Azure Active Directory에서 지원하는 도메인 힌트를 사용한 자동 �
 
 한 번에 하나의 HRD 정책만 서비스 주체에서 활성화할 수 있습니다.  
 
-Azure Active Directory PowerShell cmdlet을 사용 하 여 HRD 정책을 만들고 관리할 수 있습니다.
+Azure Active Directory PowerShell cmdlet을 사용하여 HRD 정책을 만들고 관리할 수 있습니다.
 
 다음은 HRD 정책 정의의 예제입니다.
     
@@ -195,7 +195,7 @@ New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPass
 ```
 
 
-새 정책을 확인하고 해당 **ObjectID**를 가져오려면 다음 명령을 실행합니다.
+새 정책을 보고 **ObjectID를**얻으려면 다음 명령을 실행합니다.
 
 ``` powershell
 Get-AzureADPolicy
@@ -209,7 +209,7 @@ HRD 정책을 만든 후에 적용하려면 여러 애플리케이션 서비스 
 
 포털을 사용하거나 [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)를 쿼리할 수 있습니다. [Graph 탐색기 도구](https://developer.microsoft.com/graph/graph-explorer)로 이동하고 Azure AD 계정에 로그인하여 조직의 모든 서비스 주체를 확인할 수 있습니다. 
 
-PowerShell을 사용 하 고 있기 때문에 다음 cmdlet을 사용 하 여 서비스 주체 및 해당 Id를 나열할 수 있습니다.
+PowerShell을 사용 하므로 다음 cmdlet을 사용 하 여 서비스 주체와 해당 아이디를 나열할 수 있습니다.
 
 ``` powershell
 Get-AzureADServicePrincipal
@@ -268,5 +268,5 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>다음 단계
 - Azure AD에서 인증이 작동하는 방법에 대한 자세한 내용은 [Azure AD의 인증 시나리오](../develop/authentication-scenarios.md)를 참조하세요.
-- 사용자 Single Sign-On에 대 한 자세한 내용은 [Azure Active Directory의 응용 프로그램에 대 한 single sign-on을](what-is-single-sign-on.md)참조 하세요.
-- [Microsoft id 플랫폼](../develop/v2-overview.md) 을 방문 하 여 모든 개발자 관련 콘텐츠에 대 한 개요를 확인 하세요.
+- 사용자 단일 사인온에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램에 대한 단일 사인온을](what-is-single-sign-on.md)참조하십시오.
+- 모든 개발자 관련 콘텐츠에 대한 개요를 보려면 [Microsoft ID 플랫폼을](../develop/v2-overview.md) 방문하십시오.

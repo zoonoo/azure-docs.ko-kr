@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.openlocfilehash: 4fd71a7f322cb2672eb485f17e4de2619a7c2d2c
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270040"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Power BI를 사용하여 지식 저장소 연결
@@ -24,11 +24,11 @@ ms.locfileid: "78270040"
 
 + [Azure Portal에서 지식 저장소 만들기](knowledge-store-create-portal.md) 또는 [REST를 사용하여 Azure Cognitive Search 지식 저장소 만들기](knowledge-store-create-rest.md)의 단계에 따라 이 연습에서 사용되는 지식 저장소 샘플을 만듭니다. 또한 지식 저장소를 만들 때 사용한 Azure Storage 계정의 이름과 Azure Portal의 액세스 키가 필요합니다.
 
-+ [Power BI Desktop 설치](https://powerbi.microsoft.com/downloads/)
++ [전원 BI 데스크톱 설치](https://powerbi.microsoft.com/downloads/)
 
 ## <a name="sample-power-bi-template---azure-portal-only"></a>Power BI 템플릿 샘플 - Azure Portal만
 
-[Azure Portal을 사용하여 지식 저장소](knowledge-store-create-portal.md)를 만들 때 [데이터 가져오기](https://github.com/Azure-Samples/cognitive-search-templates) 마법사의 두 번째 페이지에서 **Power BI 템플릿**을 다운로드하는 옵션이 있습니다. 이 템플릿은 텍스트 기반 콘텐츠에 대한 WordCloud 및 Network Navigator와 같은 몇 가지 시각화를 제공합니다. 
+[Azure Portal을 사용하여 지식 저장소](knowledge-store-create-portal.md)를 만들 때 **데이터 가져오기** 마법사의 두 번째 페이지에서 [Power BI 템플릿](https://github.com/Azure-Samples/cognitive-search-templates)을 다운로드하는 옵션이 있습니다. 이 템플릿은 텍스트 기반 콘텐츠에 대한 WordCloud 및 Network Navigator와 같은 몇 가지 시각화를 제공합니다. 
 
 **인지 기술 추가** 페이지에서 **Power BI 템플릿 가져오기**를 클릭하여 해당하는 공용 GitHub 위치에서 템플릿을 검색하고 다운로드합니다. 마법사는 마법사에 지정된 지식 저장소 프로젝션에 캡처된 것처럼 데이터의 모양을 수용하도록 템플릿을 수정합니다. 이러한 이유로, 다운로드하는 템플릿은 다른 데이터 입력과 기술 선택을 가정하여 마법사를 실행할 때마다 달라집니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "78270040"
    
    + REST 연습의 경우 테이블 이름은 *hotelReviewsDocument*, *hotelReviewsPages*, *hotelReviewsKeyPhrases* 및 *hotelReviewsSentiment*입니다.
 
-1. **로드**를 클릭합니다.
+1. **로드를 클릭합니다.**
 
 1. 위쪽 리본에서 **쿼리** 편집을 클릭하여 **파워 쿼리 편집기**를 엽니다.
 

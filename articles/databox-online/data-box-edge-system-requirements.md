@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 458c062eef011363724cb894ce67ba75181ba8ba
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260229"
 ---
-# <a name="azure-data-box-edge-system-requirements"></a>Azure Data Box Edge 시스템 요구 사항
+# <a name="azure-data-box-edge-system-requirements"></a>Azure 데이터 박스 에지 시스템 요구 사항
 
 이 문서에서는 Microsoft Azure Data Box Edge 솔루션 및 Azure Data Box Edge에 연결하는 클라이언트에 대한 중요한 시스템 요구 사항을 설명합니다. Data Box Edge를 배포하기 전에 정보를 신중하게 검토하는 것이 좋습니다. 배포 및 후속 작업 중에 필요하면 이 정보를 다시 참조할 수 있습니다.
 
@@ -86,51 +86,51 @@ Data Box Edge 고정 IP 주소에 따라 대부분의 경우 자유롭게 아웃
 | https://\*.azurecr.io                     | 개인 및 타사 컨테이너 레지스트리(선택 사항) | 
 | https://\*.azure-devices.net              | IoT Hub 액세스(필수)                             | 
 
-### <a name="url-patterns-for-gateway-for-azure-government"></a>Azure Government 게이트웨이의 URL 패턴
+### <a name="url-patterns-for-gateway-for-azure-government"></a>Azure 정부를 위한 게이트웨이에 대 한 URL 패턴
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
 
-### <a name="url-patterns-for-compute-for-azure-government"></a>Azure Government 계산에 대 한 URL 패턴
+### <a name="url-patterns-for-compute-for-azure-government"></a>Azure 정부에 대 한 계산에 대 한 URL 패턴
 
 | URL 패턴                      | 구성 요소 또는 기능                     |  
 |----------------------------------|---------------------------------------------|
-| https:\//mcr.microsoft.com<br></br>https://\*cdn.mscr.com | Microsoft 컨테이너 레지스트리(필수)               |
-| https://\*azure-devices.us              | IoT Hub 액세스(필수)           |
-| https://\*azurecr.us                    | 개인 및 타사 컨테이너 레지스트리(선택 사항) | 
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft 컨테이너 레지스트리(필수)               |
+| https://\*.azure-devices.us              | IoT Hub 액세스(필수)           |
+| https://\*.azurecr.us                    | 개인 및 타사 컨테이너 레지스트리(선택 사항) | 
 
 ## <a name="internet-bandwidth"></a>인터넷 대역폭
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
-## <a name="compute-sizing-considerations"></a>계산 크기 조정 고려 사항
+## <a name="compute-sizing-considerations"></a>크기 조정 고려 사항 계산
 
-솔루션을 개발 하 고 테스트 하는 동안 사용자 환경을 사용 하 여 Data Box Edge 장치에 충분 한 용량이 있는지 확인 하 고 장치에서 최적의 성능을 얻을 수 있습니다.
+솔루션을 개발하고 테스트하는 동안 경험을 활용하여 Data Box Edge 장치에 충분한 용량이 있는지 확인하고 장치에서 최적의 성능을 얻을 수 있습니다.
 
-고려해 야 할 요인은 다음과 같습니다.
+고려해야 할 요소는 다음과 같습니다.
 
-- **컨테이너 세부** 정보-다음 사항을 고려 합니다.
+- **컨테이너 세부 사항** - 다음사항을 생각해 보십시오.
 
-    - 워크 로드에 얼마나 많은 컨테이너가 있나요? 많은 경량 컨테이너와 리소스를 많이 사용 하는 컨테이너를 포함할 수 있습니다.
-    - 이러한 컨테이너에 할당 된 리소스와 사용 중인 리소스는 무엇 인가요?
-    - 컨테이너를 공유 하는 계층은 몇 개입니까?
-    - 사용 하지 않는 컨테이너가 있나요? 중지 된 컨테이너는 여전히 디스크 공간을 차지 합니다.
-    - 컨테이너가 작성 된 언어는 무엇 인가요?
-- **처리 된 데이터 크기** -컨테이너에서 처리할 데이터의 양은 얼마 인가요? 이 데이터는 디스크 공간을 사용 하 고 데이터는 메모리에서 처리 되나요?
-- **예상 성능** -솔루션의 원하는 성능 특성은 무엇 인가요? 
+    - 워크로드에 몇 개의 컨테이너가 있습니까? 리소스를 많이 사용하는 컨테이너와 비교하여 경량 컨테이너가 많이 있을 수 있습니다.
+    - 이러한 컨테이너에 할당된 리소스와 사용 중인 리소스는 무엇입니까?
+    - 컨테이너가 공유하는 레이어는 몇 개입니까?
+    - 사용하지 않은 컨테이너가 있습니까? 중지된 컨테이너는 여전히 디스크 공간을 차지합니다.
+    - 컨테이너는 어떤 언어로 작성되어 있습니까?
+- **처리되는 데이터의 크기** - 컨테이너가 처리되는 데이터의 양? 이 데이터가 디스크 공간을 사용하거나 데이터가 메모리에서 처리되나요?
+- **예상 성능** - 솔루션의 원하는 성능 특성은 무엇입니까? 
 
-솔루션의 성능을 이해 하 고 구체화 하려면 다음을 사용할 수 있습니다.
+솔루션의 성능을 이해하고 구체화하려면 다음을 사용할 수 있습니다.
 
-- Azure Portal에서 사용할 수 있는 계산 메트릭입니다. Data Box Edge 리소스로 이동한 후 **모니터링 > 메트릭**으로 이동 합니다. 에 **지 계산 메모리 사용량과** 에 **지 계산-백분율 CPU** 를 확인 하 여 사용 가능한 리소스와 리소스가 사용 되는 방식을 파악 합니다.
-- 다음과 같이 장치의 PowerShell 인터페이스를 통해 사용할 수 있는 모니터링 명령입니다.
+- Azure 포털에서 사용할 수 있는 계산 메트릭입니다. 데이터 상자 에지 리소스로 이동한 다음 **모니터링 > 메트릭으로 이동합니다.** **Edge 계산 - 메모리 사용량** 및 **에지 계산 - 백분율 CPU를** 통해 사용 가능한 리소스와 리소스가 어떻게 소비되는지 파악합니다.
+- 장치의 PowerShell 인터페이스를 통해 사용할 수 있는 모니터링 명령은 다음과 같습니다.
 
-    - `dkrdbe stats` 하 여 컨테이너 리소스 사용 통계의 라이브 스트림을 가져옵니다. 명령은 CPU, 메모리 사용량, 메모리 제한 및 네트워크 IO 메트릭을 지원 합니다.
-    - 사용 된 디스크 공간 크기에 대 한 정보를 가져올 `dkrdbe system df`. 
-    - 사용 하지 않는 이미지를 정리 하 고 공간을 확보 `dkrdbe image prune` 합니다.
-    - `dkrdbe ps --size` 하 여 실행 중인 컨테이너의 대략적인 크기를 확인 합니다. 
+    - `dkrdbe stats`을 사용하여 컨테이너 리소스 사용 통계의 실시간 스트림을 얻을 수 있습니다. 이 명령은 CPU, 메모리 사용량, 메모리 제한 및 네트워크 IO 메트릭을 지원합니다.
+    - `dkrdbe system df`을 사용하던 디스크 공간의 양에 대한 정보를 얻을 수 있습니다. 
+    - `dkrdbe image prune`사용하지 않은 이미지를 정리하고 공간을 확보합니다.
+    - `dkrdbe ps --size`을 클릭하여 실행 중인 컨테이너의 대략적인 크기를 봅니다. 
 
-    사용 가능한 명령에 대 한 자세한 내용은 [계산 모듈 모니터링 및 문제 해결](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules)을 참조 하세요.
+    사용 가능한 명령에 대한 자세한 내용은 [계산 모듈 을 모니터링하고 문제 해결로 이동하십시오.](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules)
 
-마지막으로, 데이터 집합에 대 한 솔루션의 유효성을 검사 하 고 프로덕션 환경에 배포 하기 전에 Data Box Edge에 대 한 성능을 수량화 합니다.
+마지막으로 프로덕션 환경에서 배포하기 전에 데이터 집합에서 솔루션의 유효성을 검사하고 Data Box Edge의 성능을 정량화해야 합니다.
 
 
 ## <a name="next-step"></a>다음 단계

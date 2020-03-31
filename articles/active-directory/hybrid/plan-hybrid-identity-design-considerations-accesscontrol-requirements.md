@@ -18,17 +18,17 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84b786a1701892823554a83fa2015ac88d6eff4d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60295146"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 액세스 제어 요구 사항 확인
 또한 조직이 해당 하이브리드 ID 솔루션을 설계하는 경우 사용자는 이 기회를 사용하여 사용자가 사용할 수 있게 하려는 리소스에 대한 액세스 요구 사항을 검토할 수 있습니다. ID의 네 가지 기본 요소에 대한 데이터 액세스는 다음과 같습니다.
 
 * 관리
-* Authentication
+* 인증
 * 권한 부여
 * 감사
 
@@ -60,7 +60,7 @@ ms.locfileid: "60295146"
 * 조직은 온-프레미스 나 클라우드에 위치한 앱에 Single Sign-On을 사용합니까?
   * 사용한다면 하이브리드 ID 모델의 도입은 이 프로세스에 영향을 줍니까?
 
-## <a name="access-control"></a>Access Control
+## <a name="access-control"></a>액세스 제어
 인증 및 권한 부여는 사용자의 유효성 검사를 통해 회사 데이터에 액세스할 수 있도록 하는 핵심 요소이며 또한 관리 중인 리소스를 통해 이러한 사용자가 가질 액세스 수준 및 관리자가 가질 액세스 수준을 제어하는 것이 중요합니다. 하이브리드 ID 솔루션은 리소스, 위임 및 역할 기반 액세스 제어에 대한 세부적인 액세스를 제공할 수 있어야 합니다. 액세스 제어에 관하여 다음과 같은 질문에 응답해야 합니다.
 
 * 회사에는 상승된 권한이 있는 둘 이상의 사용자가 있어서 ID 시스템을 관리합니까?
@@ -74,7 +74,7 @@ ms.locfileid: "60295146"
   * 그렇다면 해당 대상 리소스는 어디에 위치합니까(온-프레미스 또는 클라우드)?
 
 > [!NOTE]
-> 각 답변을 주목하고 답변 이유를 이해해야 합니다. [데이터 보호 전략 정의](plan-hybrid-identity-design-considerations-data-protection-strategy.md) 에서는 사용할 수 있는 옵션과 각 옵션의 장점/단점을 살펴봅니다.  질문에 답변하여 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
+> 각 답변을 주목하고 답변 이유를 이해해야 합니다. [데이터 보호 전략 정의는](plan-hybrid-identity-design-considerations-data-protection-strategy.md) 사용 가능한 옵션과 각 옵션의 장점/단점을 다 수있습니다.  질문에 답변하여 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
 > 
 > 
 

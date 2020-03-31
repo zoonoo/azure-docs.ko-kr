@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: ff5897766bb56b76a34940ecd786773fd844a336
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fa94b93e081ab6334c39b848068f50682f5f1f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683107"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235063"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Azure CLI를 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하십시오. 
 
 ## <a name="create-a-route-table"></a>경로 테이블 만들기
 
@@ -51,11 +51,11 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
 az group create \
   --name myResourceGroup \
   --location eastus
-``` 
+```
 
 [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)를 사용하여 경로 테이블을 만듭니다. 다음 예제에서는 *myRouteTablePublic*이라는 경로 테이블을 만듭니다. 
 
-```azurecli-interactive 
+```azurecli-interactive
 # Create a route table
 az network route-table create \
   --resource-group myResourceGroup \
@@ -74,7 +74,7 @@ az network route-table route create \
   --address-prefix 10.0.1.0/24 \
   --next-hop-type VirtualAppliance \
   --next-hop-ip-address 10.0.2.4
-``` 
+```
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>서브넷에 경로 테이블 연결
 
@@ -123,7 +123,7 @@ NVA는 라우팅, 방화벽 또는 WAN 최적화와 같은 네트워크 기능�
 
 [az vm create](/cli/azure/vm)를 사용하여 *DMZ* 서브넷에서 NVA를 만듭니다. VM을 만들 때 Azure는 기본적으로 VM에 공용 IP 주소를 만들고 할당합니다. VM이 인터넷에서 연결될 필요가 없으므로 `--public-ip-address ""` 매개 변수는 Azure에서 VM에 공용 IP 주소를 만들고 할당하지 못하도록 지시합니다. 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.
 
-```azure-cli-interactive
+```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVmNva \
@@ -155,6 +155,7 @@ az vm extension set \
   --publisher Microsoft.Azure.Extensions \
   --settings '{"commandToExecute":"sudo sysctl -w net.ipv4.ip_forward=1"}'
 ```
+
 명령은 실행되기까지 최대 1분이 걸릴 수 있습니다.
 
 ## <a name="create-virtual-machines"></a>가상 머신 만들기
@@ -177,7 +178,7 @@ az vm create \
   --no-wait
 ```
 
-*개인* 서브넷에 VM을 만듭니다.
+*프라이빗* 서브넷에 VM을 만듭니다.
 
 ```azurecli-interactive
 az vm create \
@@ -192,7 +193,7 @@ az vm create \
 
 VM을 만드는 데 몇 분이 걸립니다. VM을 만든 후 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다. 
 
-```azurecli 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVmPrivate",
@@ -204,13 +205,14 @@ VM을 만드는 데 몇 분이 걸립니다. VM을 만든 후 Azure CLI는 다�
   "resourceGroup": "myResourceGroup"
 }
 ```
+
 **publicIpAddress**를 기록해 둡니다. 이 주소는 이후 단계에서 인터넷을 통해 VM에 액세스하는 데 사용됩니다.
 
 ## <a name="route-traffic-through-an-nva"></a>NVA를 통한 트래픽 라우팅
 
-다음 명령을 사용하여 *myVmPrivate* VM으로 SSH 세션을 만듭니다. 바꿉니다  *\<publicIpAddress >* VM의 공용 IP 주소를 사용 하 여 합니다. 위의 예제에서 IP 주소는 *13.90.242.231*입니다.
+다음 명령을 사용하여 *myVmPrivate* VM으로 SSH 세션을 만듭니다. * \<publicIpAddress>* VM의 공용 IP 주소로 바꿉니다. 위의 예제에서 IP 주소는 *13.90.242.231*입니다.
 
-```bash 
+```bash
 ssh azureuser@<publicIpAddress>
 ```
 
@@ -218,7 +220,7 @@ ssh azureuser@<publicIpAddress>
 
 다음 명령을 사용하여 *myVmPrivate* VM에 경로 추적을 설치합니다.
 
-```bash 
+```bash
 sudo apt-get install traceroute
 ```
 
@@ -230,7 +232,7 @@ traceroute myVmPublic
 
 응답은 다음 예제와 유사합니다.
 
-```bash
+```output
 traceroute to myVmPublic (10.0.0.4), 30 hops max, 60 byte packets
 1  10.0.0.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
 ```
@@ -239,13 +241,13 @@ traceroute to myVmPublic (10.0.0.4), 30 hops max, 60 byte packets
 
 *myVmPrivate* VM에서 *myVmPublic* VM으로 SSH하려면 다음 명령을 사용합니다.
 
-```bash 
+```bash
 ssh azureuser@myVmPublic
 ```
 
 다음 명령을 사용하여 *myVmPublic* VM에 경로 추적을 설치합니다.
 
-```bash 
+```bash
 sudo apt-get install traceroute
 ```
 
@@ -257,11 +259,12 @@ traceroute myVmPrivate
 
 응답은 다음 예제와 유사합니다.
 
-```bash
+```output
 traceroute to myVmPrivate (10.0.1.4), 30 hops max, 60 byte packets
 1  10.0.2.4 (10.0.2.4)  0.781 ms  0.780 ms  0.775 ms
 2  10.0.1.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
 ```
+
 첫 번째 홉이 NVA의 개인 IP 주소인 10.0.2.4인 것을 확인할 수 있습니다. 두 번째 홉은 *myVmPrivate* VM의 개인 IP 주소인 10.0.1.4입니다. 경로가 *myRouteTablePublic* 경로 테이블에 추가되고 *공용* 서브넷에 연결되었으므로 Azure는 트래픽을 직접 *프라이빗* 서브넷에 라우팅하는 대신 NVA를 통해 트래픽을 라우팅합니다.
 
 *myVmPublic* 및 *myVmPrivate* VM 모두에 대한 SSH 세션을 닫습니다.
@@ -270,7 +273,7 @@ traceroute to myVmPrivate (10.0.1.4), 30 hops max, 60 byte packets
 
 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group)를 사용하여 리소스 그룹 및 그룹에 포함된 모든 리소스를 제거합니다.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes
 ```
 

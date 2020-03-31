@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 01/29/2020
 ms.author: shvija
 ms.openlocfilehash: 808e813ad90626acec893a021634566f091c895f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
-ms.translationtype: MT
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76904492"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Event Hubs의 가용성 및 일관성
@@ -25,7 +25,7 @@ ms.locfileid: "76904492"
 ## <a name="overview"></a>개요
 Azure Event Hubs는 [파티셔닝 모델](event-hubs-scalability.md#partitions)을 사용하여 단일 이벤트 허브 내 가용성과 병렬 처리를 개선합니다. 예를 들어 이벤트 허브에 4개의 파티션이 있고 해당 파티션 중 하나가 부하 분산 작업 중 한 서버에서 다른 서버로 이동된 경우 여전히 나머지 3개의 파티션을 보내고 받을 수 있습니다. 또한 더 많은 파티션을 사용하면 더 많은 동시 읽기 권한자가 데이터를 처리할 수 있으므로 집계 처리량이 개선됩니다. 분산된 시스템에서 분할 및 순서 지정이 가진 의미를 이해하는 것은 솔루션 디자인의 중요한 측면입니다.
 
-순서 지정과 가용성 간의 균형을 잘 이해하려면 Brewer의 정리라고도 하는 [CAP 정리](https://en.wikipedia.org/wiki/CAP_theorem)를 참조하세요. 이 정리에서는 일관성, 가용성, 파티션 허용 오차를 선택할 때의 차이점을 다룹니다. 네트워크에서 분할한 시스템의 경우 항상 일관성과 가용성을 절충해야 합니다.
+주문과 가용성 사이의 장단점을 설명하려면 Brewer의 정리라고도 하는 [CAP 정리를](https://en.wikipedia.org/wiki/CAP_theorem)참조하십시오. 이 정리에서는 일관성, 가용성, 파티션 허용 오차를 선택할 때의 차이점을 다룹니다. 네트워크에서 분할한 시스템의 경우 항상 일관성과 가용성을 절충해야 합니다.
 
 Brewer의 정리는 일관성 및 가용성을 다음과 같이 정의합니다.
 * 파티션 허용 오차: 파티션 오류가 발생하는 경우 데이터 처리를 계속하는 데이터 처리 시스템의 기능입니다.
@@ -47,7 +47,7 @@ Event Hubs를 시작하는 가장 간단한 방법은 기본 동작을 사용하
 
 가동 시간을 극대화하는 동시에 순서도 지정할 수 있는 한 가지 솔루션은 이벤트 처리 애플리케이션의 일부로 이벤트를 집계하는 것입니다. 이 작업을 수행하는 가장 쉬운 방법은 이벤트에 사용자 지정 시퀀스 번호 속성 스탬프를 지정하는 것입니다. 다음은 예를 보여 주는 코드입니다.
 
-#### <a name="azuremessagingeventhubs-500-or-latertablatest"></a>[EventHubs (5.0.0 이상)](#tab/latest)
+#### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure.메시징.EventHubs(5.0.0 이상)](#tab/latest)
 
 ```csharp
 // create a producer client that you can use to send events to an event hub
@@ -73,7 +73,7 @@ await using (var producerClient = new EventHubProducerClient(connectionString, e
 }
 ```
 
-#### <a name="microsoftazureeventhubs-410-or-earliertabold"></a>[EventHubs (4.1.0 또는 이전 버전)](#tab/old)
+#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft.Azure.EventHubs(4.1.0 이상)](#tab/old)
 ```csharp
 // Create an Event Hubs client
 var client = new EventHubClient(connectionString, eventHubName);

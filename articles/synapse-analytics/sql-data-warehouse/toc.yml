@@ -16,12 +16,12 @@
       href: sql-data-warehouse-service-capacity-limits.md
     - name: FAQ
       href: sql-data-warehouse-overview-faq.md
-- name: 릴리스 정보
-  items:
-    - name: 최신 릴리스
-      href: release-notes-10-0-10106-0.md
-    - name: Gen2 영역 업그레이드 예약
-      href: gen2-migration-schedule.md
+    - name: 릴리스 정보
+      items:
+        - name: 최신 릴리스
+          href: release-notes-10-0-10106-0.md
+        - name: Gen2 영역 업그레이드 예약
+          href: gen2-migration-schedule.md
 - name: 빠른 시작
   expanded: true
   items:

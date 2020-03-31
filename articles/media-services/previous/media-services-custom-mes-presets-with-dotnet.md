@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
 ms.openlocfilehash: 39a1dd5c3d26eeb6545a96aa35f9457bd9859c21
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251246"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Media Encoder Standard 사전 설정 사용자 지정  
@@ -30,9 +30,9 @@ ms.locfileid: "79251246"
 이 문서에서는 [H264 다중 비트 전송률 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 기본 설정을 사용하고 레이어 수를 줄여 기본 설정을 사용자 지정하는 방법을 살펴봅니다. [Media Encoder Standard 기본 설정 사용자 지정](media-services-advanced-encoding-with-mes.md) 문서에서는 고급 인코딩 작업을 수행하는 데 사용할 수 있는 사용자 지정 기본 설정을 보여 줍니다.
 
 > [!NOTE]
-> 이 문서에 설명 된 사용자 지정 기본 설정은 [Media Services V3](https://docs.microsoft.com/azure/media-services/latest/) 변환 또는 CLI 명령에서 사용할 수 없습니다. 자세한 내용은 v 2 [에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
+> 이 문서에서 설명하는 사용자 지정 사전 설정은 [Media Services V3](https://docs.microsoft.com/azure/media-services/latest/) 변환 또는 CLI 명령에서 사용할 수 없습니다. 자세한 내용은 [v2에서 v3로의 마이그레이션 지침을](../latest/migrate-from-v2-to-v3.md) 참조하십시오.
 
-## <a id="customizing_presets"></a> MES 사전 설정 사용자 지정
+## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a> MES 사전 설정 사용자 지정
 
 ### <a name="original-preset"></a>원래 사전 설정
 
@@ -113,7 +113,7 @@ ms.locfileid: "79251246"
     }  
 ```
 
-## <a id="encoding_with_dotnet"></a>Media Services .NET SDK를 사용하여 Encoding
+## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Media Services .NET SDK를 사용하여 Encoding
 
 다음 코드 예제에서는 Media Services .NET SDK를 사용하여 다음 작업을 수행합니다.
 
@@ -132,7 +132,7 @@ ms.locfileid: "79251246"
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
+.NET 을 사용하면 Media Services 개발에 설명된 대로 개발 환경을 설정하고 app.config 파일을 연결 [정보로](media-services-dotnet-how-to-use.md)채웁니다. 
 
 #### <a name="example"></a>예제   
 
@@ -264,9 +264,9 @@ namespace CustomizeMESPresests
 }
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
-- [CLI를 사용 하 여 사용자 지정 변환을 사용 하 여 인코딩하는 방법](../latest/custom-preset-cli-howto.md)
+- [CLI를 사용하여 사용자 지정 변환으로 인코딩하는 방법](../latest/custom-preset-cli-howto.md)
 - [Media Services v3를 사용하여 인코딩](../latest/encoding-concept.md)
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로

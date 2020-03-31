@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric 컨테이너 응용 프로그램 매니페스트 예제
+title: Azure 서비스 패브릭 컨테이너 응용 프로그램 매니페스트 예제
 description: 다중 컨테이너 Service Fabric 애플리케이션에 대한 애플리케이션 및 서비스 매니페스트 설정을 구성하는 방법을 알아봅니다.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 5efdbd17db20e69ace33b379ddbb99b2c4a20e69
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258396"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>다중 컨테이너 애플리케이션 및 서비스 매니페스트 예제
@@ -17,9 +17,9 @@ ms.locfileid: "79258396"
 
 다음 기능이 표시됩니다.
 
-|매니페스트|기능|
+|file:///|기능|
 |---|---|
-|[애플리케이션 매니페스트](#application-manifest)| [환경 변수 재정의](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [컨테이너 포트-호스트 간 매핑 구성](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [컨테이너 레지스트리 인증 구성](service-fabric-get-started-containers.md#configure-container-repository-authentication), [리소스 거버넌스](service-fabric-resource-governance.md), [격리 모드 설정](service-fabric-get-started-containers.md#configure-isolation-mode), [OS 빌드별 컨테이너 이미지 지정](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
+|[응용 프로그램 매니페스트](#application-manifest)| [환경 변수 재정의](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [컨테이너 포트-호스트 간 매핑 구성](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [컨테이너 레지스트리 인증 구성](service-fabric-get-started-containers.md#configure-container-repository-authentication), [리소스 거버넌스](service-fabric-resource-governance.md), [격리 모드 설정](service-fabric-get-started-containers.md#configure-isolation-mode), [OS 빌드별 컨테이너 이미지 지정](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
 |[FrontEndService 서비스 매니페스트](#frontendservice-service-manifest)| [환경 변수 설정](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [엔드포인트 구성](service-fabric-get-started-containers.md#configure-communication), 컨테이너에 명령 전달, [컨테이너로 인증서 가져오기](service-fabric-securing-containers.md)| 
 |[BackEndService 서비스 매니페스트](#backendservice-service-manifest)|[환경 변수 설정](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [엔드포인트 구성](service-fabric-get-started-containers.md#configure-communication), [볼륨 드라이버 구성](service-fabric-containers-volume-logging-drivers.md)| 
 
@@ -342,7 +342,7 @@ EntryPoint에서 지정한 실행 파일은 일반적으로 장기 실행 서비
  자세한 내용은 [ContainerHost 요소](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)를 참조하세요.
 
 ### <a name="imagename-element"></a>ImageName 요소
-[https://hub.docker.com](https://hub.docker.com) 또는 Azure Container Registry의 리포지토리 및 이미지입니다. 자세한 내용은 [ImageName 요소](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)를 참조하세요.
+리포지토리 및 [https://hub.docker.com](https://hub.docker.com) 이미지 또는 Azure 컨테이너 레지스트리입니다. 자세한 내용은 [ImageName 요소](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)를 참조하세요.
 
 ### <a name="environmentvariables-element"></a>EnvironmentVariables 요소
 환경 변수를 컨테이너 또는 exe.에 전달합니다.  자세한 내용은 [EnvironmentVariables 요소](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)를 참조하세요.
@@ -386,7 +386,7 @@ EntryPoint에서 지정한 실행 파일은 일반적으로 장기 실행 서비
 자세한 내용은 [ContainerHost 요소](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)를 참조하세요.
 
 ### <a name="imagename-element"></a>ImageName 요소
-[https://hub.docker.com](https://hub.docker.com) 또는 Azure Container Registry의 리포지토리 및 이미지입니다. 자세한 내용은 [ImageName 요소](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)를 참조하세요.
+리포지토리 및 [https://hub.docker.com](https://hub.docker.com) 이미지 또는 Azure 컨테이너 레지스트리입니다. 자세한 내용은 [ImageName 요소](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)를 참조하세요.
 
 ### <a name="commands-element"></a>Commands 요소
 쉼표로 구분된 명령 목록을 컨테이너에 전달합니다. 자세한 내용은 [Commands 요소](service-fabric-service-model-schema-elements.md#CommandsElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)를 참조하세요.

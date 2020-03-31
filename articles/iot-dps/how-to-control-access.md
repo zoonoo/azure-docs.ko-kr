@@ -1,6 +1,6 @@
 ---
 title: IoT Device Provisioning Service의 보안 엔드포인트 | Microsoft Docs
-description: 개념-백 엔드 앱에 대 한 IoT 장치 프로 비전 서비스에 대 한 액세스를 제어 하는 방법입니다. 보안 토큰에 대한 정보가 포함됩니다.
+description: 개념 - 백 엔드 앱에 대한 DPS(IoT 장치 프로비저닝 서비스)에 대한 액세스를 제어하는 방법 보안 토큰에 대한 정보가 포함됩니다.
 author: wesmc7777
 manager: philmea
 ms.service: iot-dps
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
 ms.openlocfilehash: 2a7e0932d226b1533c039b8529c2c11de06cf525
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79285150"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service에 대한 액세스 제어
@@ -32,7 +32,7 @@ ms.locfileid: "79285150"
 
 [권한](#device-provisioning-service-permissions)은 다음과 같은 방식으로 부여할 수 있습니다.
 
-* **공유 액세스 권한 부여 정책**. 공유 액세스 정책은 모든 조합의 [권한](#device-provisioning-service-permissions)을 부여할 수 있습니다. [Azure Portal][lnk-management-portal]에서 또는 [장치 프로 비전 서비스 REST api][lnk-resource-provider-apis]를 사용 하 여 프로그래밍 방식으로 정책을 정의할 수 있습니다. 새로 만든 프로비전 서비스에는 다음과 같은 기본 정책이 있습니다.
+* **공유 액세스 권한 부여 정책**. 공유 액세스 정책은 모든 조합의 [권한](#device-provisioning-service-permissions)을 부여할 수 있습니다. [Azure Portal][lnk-management-portal]에서 또는 프로그래밍 방식으로 [Device Provisioning Service REST API][lnk-resource-provider-apis]를 사용하여 정책을 정의할 수 있습니다. 새로 만든 프로비전 서비스에는 다음과 같은 기본 정책이 있습니다.
 
 * **provisioningserviceowner**: 모든 사용 권한이 있는 정책입니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "79285150"
 Azure IoT Hub Device Provisioning Service는 공유 액세스 정책에 대한 토큰을 확인하여 엔드포인트에 대한 액세스를 부여합니다. 대칭 키와 같은 보안 자격 증명은 통신 중에 전송되지 않습니다.
 
 > [!NOTE]
-> 장치 프로 비전 서비스 리소스 공급자는 [Azure Resource Manager][lnk-azure-resource-manager]의 모든 공급자와 마찬가지로 Azure 구독을 통해 보안이 유지 됩니다.
+> Device Provisioning Service 리소스 공급자는 [Azure Resource Manager][lnk-azure-resource-manager]의 모든 공급자처럼 Azure 구독을 통해 보호됩니다.
 
 보안 토큰을 생성 및 사용하는 방법에 대한 자세한 내용은 다음 섹션을 참조하세요.
 
@@ -57,11 +57,11 @@ SharedAccessSignature sr =
 ```
 
 > [!NOTE]
-> [Azure IoT 장치 프로 비전 서비스 sdk][lnk-sdks] 는 서비스에 연결할 때 토큰을 자동으로 생성 합니다.
+> [Azure IoT Device Provisioning Service SDK][lnk-sdks]는 서비스에 연결할 때 토큰을 자동으로 생성합니다.
 
 ## <a name="security-tokens"></a>보안 토큰
 
-Device Provisioning Service는 네트워크에서 키가 전송되는 것을 피하기 위해 보안 토큰을 사용하여 서비스를 인증합니다. 또한 보안 토큰은 유효 기간 및 범위가 제한됩니다. [Azure IoT 장치 프로 비전 서비스 sdk][lnk-sdks] 는 특별 한 구성이 필요 하지 않고 토큰을 자동으로 생성 합니다. 일부 시나리오에서는 사용자가 보안 토큰을 직접 생성하고 사용해야 합니다. 이러한 시나리오에는 HTTP 화면의 직접 사용이 포함됩니다.
+Device Provisioning Service는 네트워크에서 키가 전송되는 것을 피하기 위해 보안 토큰을 사용하여 서비스를 인증합니다. 또한 보안 토큰은 유효 기간 및 범위가 제한됩니다. [Azure IoT Device Provisioning Service SDK][lnk-sdks]는 특별한 구성이 필요하지 않고 토큰을 자동으로 생성합니다. 일부 시나리오에서는 사용자가 보안 토큰을 직접 생성하고 사용해야 합니다. 이러한 시나리오에는 HTTP 화면의 직접 사용이 포함됩니다.
 
 ### <a name="security-token-structure"></a>보안 토큰 구조
 
@@ -75,7 +75,7 @@ Device Provisioning Service는 네트워크에서 키가 전송되는 것을 피
 
 다음은 예상 값입니다.
 
-| 값 | Description |
+| 값 | 설명 |
 | --- | --- |
 | {signature} |형식의 HMAC-SHA256 서명 문자열은 `{URL-encoded-resourceURI} + "\n" + expiry`입니다. **중요**: 키는 base64에서 디코딩되며 HMAC-SHA256 계산을 수행하는 데 키로 사용됩니다.|
 | {expiry} |1970년 1월 1일 epoch 0시 UTC 이후의 초 수에 대한 UTF8 문자열입니다. |
@@ -84,7 +84,7 @@ Device Provisioning Service는 네트워크에서 키가 전송되는 것을 피
 
 **접두사에 대한 참고**: 문자가 아니라 세그먼트에 의해 계산된 URI 접두사입니다. 예를 들어 `/a/b`는 `/a/b/c`에 대한 접두사이지만 `/a/bc`에 대한 접두사는 아닙니다.
 
-다음 Node.js 코드 조각은 입력 **의 토큰을 계산하는** generateSasToken`resourceUri, signingKey, policyName, expiresInMins`이라는 함수를 보여줍니다. 다음 섹션에서는 여러 토큰 사용 사례에 대해 서로 다른 입력을 초기화하는 방법을 자세히 설명합니다.
+다음 Node.js 코드 조각은 입력 `resourceUri, signingKey, policyName, expiresInMins`의 토큰을 계산하는 **generateSasToken**이라는 함수를 보여줍니다. 다음 섹션에서는 여러 토큰 사용 사례에 대해 서로 다른 입력을 초기화하는 방법을 자세히 설명합니다.
 
 ```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {

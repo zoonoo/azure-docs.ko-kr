@@ -1,17 +1,17 @@
 ---
-title: 메트릭 경고 구성-Azure Portal-Azure Database for MySQL
+title: 메트릭 경고 구성 - Azure 포털 - MySQL용 Azure 데이터베이스
 description: 이 문서에서는 Azure Portal에서 Azure Database for MySQL의 메트릭 경고를 구성 및 액세스하는 방법을 설명합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 487ca76115b93020a762cfa2afb5fd5a3be40a66
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: c917804b42bc987228bbb2542682fe9fb308a467
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770665"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067887"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Azure Portal을 사용하여 Azure Database for MySQL의 메트릭에 대한 경고를 설정합니다. 
 
@@ -48,7 +48,7 @@ ms.locfileid: "74770665"
    
    ![메트릭 선택](./media/howto-alert-on-metric/6-configure-signal-logic.png)
 
-7. **조건**(예: "보다 큼"), **임계값**(예: 85%), **시간 집계**, 경고를 트리거하기 전에 메트릭 규칙을 만족해야 하는 **기간**(예: "지난 30분") 및 **빈도**를 포함하는 경고 논리를 구성합니다.
+7. **조건**(예: "보다 큼"), **임계값**(예: 85%), **시간 집계**, 경고를 트리거하기 전에 메트릭 규칙을 만족해야 하는 **기간**(예: "지난 30 분 동안") 및 **주파수**.
    
    완료되면 **완료**를 선택합니다.
 

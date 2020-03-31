@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284513"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>X.509 CA 인증서를 사용하여 디바이스 인증
@@ -40,7 +40,7 @@ X.509 CA 인증서는 각 디바이스에 대한 인증서 체인 맨 위에 있
 
 시험적으로 사용하거나 폐쇄형 IoT 네트워크에서 사용하려는 경우에는 자체 서명된 X.509 CA를 만들 수도 있습니다.
 
-X.509 CA 인증서를 얻는 방법에 관계 없이 해당 개인 키 암호를 항상 보호 해야 합니다.  이러한 노력은 X.509 CA 인증에서 신뢰를 구축하는 데 필요합니다.
+X.509 CA 인증서를 얻는 방법에 관계없이 해당 개인 키를 항상 비밀로 유지하고 보호해야 합니다.  이러한 노력은 X.509 CA 인증에서 신뢰를 구축하는 데 필요합니다.
 
 이 기능 설명 전체에서 시험적으로 사용할 수 있는 [자체 서명된 CA 인증서를 만드는](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) 방법을 알아보세요.
 
@@ -50,7 +50,7 @@ X.509 CA 인증서의 소유자는 암호화 방식으로 중간 CA에 서명하
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
 
-장치 인증서 (리프 인증서 라고도 함)는 Azure IoT Hub에서 IoT 장치를 등록할 때 사용 된 **장치 ID** 로 설정 된 *주체 이름* 이어야 합니다. 이 설정은 인증에 필요 합니다.
+장치 인증서(리프 인증서라고도 함)는 Azure IoT Hub에서 IoT 장치를 등록할 때 사용된 **장치 ID로** *주체 이름이* 설정되어 있어야 합니다. 이 설정은 인증에 필요합니다.
 
 여기에서는 디바이스에 서명할 때 완료되는 [인증서 체인 생성](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) 방법을 알아봅니다.
 
@@ -62,7 +62,7 @@ X.509 CA 인증서의 소유자는 암호화 방식으로 중간 CA에 서명하
 
 소유 증명 단계에서는 사용자와 IoT Hub 간의 암호화 챌린지 및 응답 프로세스가 진행됩니다.  디지털 인증서 콘텐츠가 공용이어서 도청에 취약하다고 가정할 경우 IoT Hub는 사용자가 실제로 해당 CA 인증서를 소유하는지 확인하려고 할 것입니다.  이 작업은 CA 인증서의 해당 프라이빗 키로 서명해야 하는 임의 챌린지를 생성하여 수행할 수 있습니다.  앞서 권장한 것처럼 프라이빗 키를 기밀로 유지하고 보호한 경우 이 단계를 완료했다는 사실은 사용자만 알 수 있습니다. 프라이빗 키를 비밀로 유지하는 것이 이 방법에서 신뢰를 유지하는 기반입니다.  챌린지에 서명한 후에 결과를 포함하는 파일을 업로드하여 이 단계를 완료합니다.
 
-[CA 인증서를 등록](iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) 하는 방법에 대해 알아봅니다.
+[CA 인증서를 등록하는](iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) 방법에 대해 알아보십시오.
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>IoT Hub에서 디바이스를 만드는 방법
 

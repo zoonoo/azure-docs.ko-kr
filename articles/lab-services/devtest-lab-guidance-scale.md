@@ -14,10 +14,10 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 3a48cef2210721bf7116b1c4ad1169779288f47d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75644837"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Azure DevTest Labs 인프라 강화
@@ -46,7 +46,7 @@ ms.locfileid: "75644837"
 대기업에서는 구독 하나를 사용하는 방식을 효율적으로 관리할 수 없는 경우가 많습니다. 그러나 구독 수를 제한하는 경우에는 다음과 같은 이점이 제공됩니다.
 
 - **예측** - 기업의 구독 비용을 예측할 수 있습니다.  구독이 하나이면 모든 리소스가 단일 풀에 포함되므로 예산을 책정하기가 훨씬 쉬워집니다. 이 방식에서는 청구 주기의 특정 시점에 비용 제어 조치를 취할 시기를 더 간단하게 결정할 수 있습니다.
-- Vm, 아티팩트, 수식, 네트워크 구성, 권한, 정책 등의 **관리 용이성** 은 여러 구독에서 업데이트를 수행 하는 것과는 반대로 모든 업데이트가 하나의 구독에만 필요 하기 때문에 더 쉽습니다.
+- 모든 업데이트는 많은 구독에서 업데이트하는 대신 한 구독에서만 필요하므로 VM, 아티팩트, 수식, 네트워크 구성, 권한, 정책 등의 **관리 가** 용이합니다.
 - **네트워킹** - 온-프레미스 연결 기능이 필요한 기업의 경우 구독이 하나이면 네트워킹 작업이 훨씬 간소화됩니다. 추가 구독이 있으면 여러 구독에서 가상 네트워크를 연결해야 하는데(허브-스포크 모델), 그러려면 추가 구성과 관리를 수행해야 하며 IP 주소 공간도 추가로 필요합니다.
 - **팀 협업** - 모든 작업자가 같은 구독에서 작업을 하므로 협업을 더 쉽게 수행할 수 있습니다. 예를 들어 동료에게 VM을 다시 할당하거나 팀 리소스를 공유하는 등의 작업이 간소화됩니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "75644837"
 ## <a name="roles-and-responsibilities"></a>역할 및 책임
 DevTest Lab 개념 증명에는 각기 책임이 정의된 세 가지 기본 역할(구독 소유자, DevTest Labs 소유자, DevTest Labs 사용자)이 포함되며 필요에 따라 참가자도 포함될 수 있습니다.
 
-- **구독 소유자** – 구독 소유자는 사용자 할당, 정책 관리, 네트워킹 토폴로지 관리 & 만들기, 할당량 늘리기 요청 등을 포함 하 여 Azure 구독을 관리할 수 있는 권한을 가집니다. 자세한 내용은 [이 문서](../role-based-access-control/rbac-and-directory-admin-roles.md)를 참조 하세요.
+- **구독 소유자** - 구독 소유자는 사용자 할당, 정책 관리, 네트워킹 토폴로지 관리 & 만들기, 할당량 증가 요청 등을 포함하여 Azure 구독을 관리할 수 있는 권한이 있습니다. 자세한 내용은 [이 문서를](../role-based-access-control/rbac-and-directory-admin-roles.md)참조하십시오.
 - **DevTest Labs 소유자** - DevTest Labs 소유자에게는 랩에 대한 모든 관리 권한이 있습니다. 이 사용자는 사용자 추가/제거, 비용 설정 관리, 일반 랩 설정, 기타 VM/아티팩트 기반 작업을 담당합니다. 랩 소유자에게는 모든 DevTest Labs 사용자 권한도 있습니다.
 - **DevTest Labs 사용자** – DevTest Labs 사용자는 랩에서 가상 머신을 만들고 사용할 수 있습니다. 이 개별 사용자에게는 직접 만드는 VM에 대한 최소한의 관리 기능(VM 시작/중지/삭제/구성)이 제공됩니다. 하지만 다른 사용자의 VM을 관리할 수는 없습니다.
 

@@ -12,15 +12,15 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/17/2020
 ms.openlocfilehash: fe006cebe9aab30a6aaa0bdf2bf3362a494f64d7
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77426278"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>활성 지역 복제 만들기 및 사용
 
-활성 지역 복제는 동일 하거나 다른 데이터 센터 (지역)에 있는 SQL Database 서버에서 개별 데이터베이스의 읽기 가능한 보조 데이터베이스를 만들 수 있는 Azure SQL Database 기능입니다.
+활성 지역 복제는 동일하거나 다른 데이터 센터(영역)의 SQL Database 서버에서 개별 데이터베이스의 읽을 수 있는 보조 데이터베이스를 만들 수 있는 Azure SQL Database 기능입니다.
 
 > [!NOTE]
 > Managed Instance는 활성 지역 복제를 지원하지 않습니다. Managed Instance의 지리적 장애 조치(failover)에 대한 내용은 [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md)을 참조하세요.
@@ -36,7 +36,7 @@ ms.locfileid: "77426278"
 
 활성 지역 복제를 사용하여 서버 또는 탄력적 풀에 있는 개별 데이터베이스 또는 데이터베이스 집합의 복제 및 장애 조치를 관리할 수 있습니다. 다음을 사용하여 수행할 수 있습니다.
 
-- [Azure Portal](sql-database-geo-replication-portal.md)
+- [Azure 포털](sql-database-geo-replication-portal.md)
 - [PowerShell: 단일 데이터베이스](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 - [PowerShell: 탄력적 풀](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
 - [Transact-SQL: 단일 데이터베이스 또는 탄력적 풀](/sql/t-sql/statements/alter-database-azure-sql-database)
@@ -61,7 +61,7 @@ ms.locfileid: "77426278"
 - **데이터베이스 마이그레이션**: 활성 지역 복제를 사용하여 최소 가동 중지 시간으로 하나의 서버에서 다른 온라인으로 데이터베이스를 마이그레이션할 수 있습니다.
 - **애플리케이션 업그레이드**: 애플리케이션을 업그레이드하는 동안 추가 보조 데이터베이스를 장애 복구 복사본으로 만들 수 있습니다.
 
-실제 비즈니스 연속성을 달성하기 위해 데이터 센터 간에 데이터베이스 중복을 추가하는 것은 솔루션의 일부입니다. 치명적인 오류 후 애플리케이션(서비스) 엔드투엔드 복구에는 서비스 및 모든 종속성 서비스를 구성하는 모든 구성 요소의 복구가 필요합니다. 이러한 구성 요소의 예에는 클라이언트 소프트웨어(예: 사용자 지정 JavaScript를 사용한 브라우저), 웹 프런트 엔드, 스토리지 및 DNS가 포함됩니다. 모든 구성 요소는 동일한 오류에 탄력적이며 애플리케이션의 복구 시간 목표(RTO) 내에서 사용할 수 있는 것이 중요합니다. 따라서 모든 종속성 서비스를 확인하고 제고하는 보장 사항 및 기능을 이해해야 합니다. 그런 다음 의존하는 서비스 장애 조치 중 서비스 기능을 확인하도록 적절한 단계를 수행해야 합니다. 재해 복구를 위한 솔루션 설계에 대한 자세한 내용은 [활성 지역 복제를 사용하여 재해 복구를 위한 클라우드 솔루션 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)를 참조하세요.
+실제 비즈니스 연속성을 달성하기 위해 데이터 센터 간에 데이터베이스 중복을 추가하는 것은 솔루션의 일부입니다. 치명적인 오류 후 애플리케이션(서비스) 엔드투엔드 복구에는 서비스 및 모든 종속성 서비스를 구성하는 모든 구성 요소의 복구가 필요합니다. 이러한 구성 요소의 예에는 클라이언트 소프트웨어(예: 사용자 지정 JavaScript를 사용한 브라우저), 웹 프런트 엔드, 스토리지 및 DNS가 포함됩니다. 모든 구성 요소는 동일한 오류에 탄력적이며 애플리케이션의 복구 시간 목표(RTO) 내에서 사용할 수 있는 것이 중요합니다. 따라서 모든 종속성 서비스를 확인하고 제고하는 보장 사항 및 기능을 이해해야 합니다. 그런 다음 의존하는 서비스 장애 조치 중 서비스 기능을 확인하도록 적절한 단계를 수행해야 합니다. 재해 복구를 위한 솔루션 설계에 대한 자세한 내용은 [활성 지역 복제를 사용하여 재해 복구를 위한 클라우드 솔루션 설계를](sql-database-designing-cloud-solutions-for-disaster-recovery.md)참조하십시오.
 
 ## <a name="active-geo-replication-terminology-and-capabilities"></a>활성 지역 복제 용어 및 기능
 
@@ -76,16 +76,16 @@ ms.locfileid: "77426278"
 > [!NOTE]
 > 주 데이터베이스에 스키마 업데이트가 있는 경우 보조 데이터베이스에서 로그 재생이 지연됩니다. 후자의 경우 보조 데이터베이스에 대한 스키마 잠금이 필요합니다.
 > [!IMPORTANT]
-> 지역에서 복제를 사용 하 여 주 데이터베이스와 동일한 지역에 보조 데이터베이스를 만들 수 있습니다. 이 보조 데이터베이스를 사용 하 여 동일한 지역에서 읽기 전용 작업의 부하를 분산할 수 있습니다. 그러나 동일한 지역의 보조 데이터베이스는 추가 오류 복원 력을 제공 하지 않으므로 재해 복구를 위한 적절 한 장애 조치 (failover) 대상이 아닙니다. 또한 가용성 영역 격리를 보장 하지 않습니다. [영역 중복 구성을](sql-database-high-availability.md#zone-redundant-configuration) 통해 업무상 중요 한 또는 프리미엄 서비스 계층을 사용 하 여 가용성 영역 격리를 달성할 수 있습니다.   
+> 지역 복제를 사용하여 주 데이터베이스와 동일한 지역에서 보조 데이터베이스를 만들 수 있습니다. 이 보조 보조 를 사용하여 동일한 리전에서 읽기 전용 워크로드의 부하 를 분산할 수 있습니다. 그러나 동일한 지역의 보조 데이터베이스는 추가 오류 복원력을 제공하지 않으므로 재해 복구에 적합한 장애 조치 대상이 아닙니다. 또한 가용성 영역 격리를 보장하지 않습니다. [영역 중복 구성을](sql-database-high-availability.md#zone-redundant-configuration) 사용하여 비즈니스 중요 또는 프리미엄 서비스 계층을 사용하여 가용성 영역 격리를 달성합니다.   
 >
 
-- **계획된 장애 조치**
+- **계획된 장애 조치(failover)**
 
-  계획 된 장애 조치 (failover)는 전체 동기화가 완료 된 후 주 데이터베이스와 보조 데이터베이스의 역할을 전환 합니다. 데이터 손실을 초래 하지 않는 온라인 작업입니다. 작업 시간은 동기화 해야 하는 주 복제본의 트랜잭션 로그 크기에 따라 달라 집니다. 계획 된 장애 조치 (failover)는 데이터 손실이 허용 되지 않는 경우 프로덕션 환경에서 DR 드릴을 수행 하는 (a) 시나리오를 위해 설계 되었습니다. (b) 다른 지역으로 데이터베이스를 재배치 하려면 가동 중단이 완화 (장애 복구) 된 후 데이터베이스를 주 지역으로 반환 하는 경우 (c)
+  계획된 장애 조치(failover)는 전체 동기화가 완료된 후 기본 데이터베이스와 보조 데이터베이스의 역할을 전환합니다. 데이터 손실을 초래하지 않는 온라인 작업입니다. 작업 시간은 동기화해야 하는 주 에 있는 트랜잭션 로그 크기에 따라 다릅니다. 계획된 장애 조치(failover)는 다음과 같은 시나리오를 위해 설계되었습니다: (a) 데이터 손실이 허용되지 않을 때 프로덕션 환경에서 DR 드릴을 수행합니다. (b) 데이터베이스를 다른 지역으로 재배치하는 단계; (c) 가동 중단이 완화된 후 데이터베이스를 기본 지역으로 반환합니다(장애 조치).
 
-- **계획되지 않은 장애 조치**
+- **계획되지 않은 장애 조치(failover)**
 
-  계획되지 않은 장애 조치 또는 강제 장애 조치(failover)는 주 데이터베이스와의 동기화 없이 보조 역할을 주 역할로 즉시 전환합니다. 주 복제본에 커밋된 모든 트랜잭션은 손실 됩니다. 이 작업은 주 데이터베이스에 액세스할 수 없지만 데이터베이스 가용성을 신속 하 게 복원 해야 하는 경우 중단 시 복구 방법으로 설계 되었습니다. 원래 주 데이터베이스가 다시 온라인 상태가 되 면 자동으로 다시 연결 되 고 새 보조 데이터베이스가 됩니다. 장애 조치 (failover) 전에 동기화 되지 않은 모든 트랜잭션은 백업 파일에 유지 되지만 충돌을 피하기 위해 새 주 복제본과 동기화 되지 않습니다. 이러한 트랜잭션을 주 데이터베이스의 최신 버전과 수동으로 병합 해야 합니다.
+  계획되지 않은 장애 조치 또는 강제 장애 조치(failover)는 주 데이터베이스와의 동기화 없이 보조 역할을 주 역할로 즉시 전환합니다. 기본에 커밋되었지만 보조 로 복제되지 않은 모든 트랜잭션은 손실됩니다. 이 작업은 주 데이터베이스에 액세스할 수 없지만 데이터베이스 가용성을 신속하게 복원해야 하는 경우 가동 중단 중에 복구 방법으로 설계되었습니다. 원래 기본이 다시 온라인 상태가 되면 자동으로 다시 연결되고 새 보조 데이터베이스가 됩니다. 장애 조치 이전에 동기화되지 않은 모든 트랜잭션은 백업 파일에 유지되지만 충돌을 방지하기 위해 새 기본 트랜잭션과 동기화되지 않습니다. 이러한 트랜잭션은 기본 데이터베이스의 최신 버전과 수동으로 병합해야 합니다.
  
 - **여러 읽기 가능 보조 데이터베이스**
 
@@ -103,105 +103,105 @@ ms.locfileid: "77426278"
 
   보조 데이터베이스는 애플리케이션 또는 사용자에 의해 언제든지 주 데이터베이스 역할로 전환될 수 있습니다. 실제로 가동이 중단되면 보조 데이터베이스를 즉시 주 데이터베이스로 승격하는 "계획되지 않음" 옵션을 사용해야 합니다. 중지된 주 데이터베이스가 복구되어 작동 가능한 상태가 되면 시스템에서는 복구된 주 데이터베이스를 자동으로 보조 데이터베이스로 표시하고 새로운 주 데이터베이스와 함께 최신 상태로 전환합니다. 주 데이터베이스가 가장 최근의 변경 사항을 보조 데이터베이스로 복제하기 전에 중단될 경우 비동기 복제의 특성상 계획되지 않은 장애 조치(failover)가 진행되는 동안 소량의 데이터가 손실될 수 있습니다. 보조 데이터베이스가 여러 개 있는 주 데이터베이스가 중단되면 시스템에서 사용자의 개입 없이 자동으로 복제 관계를 다시 구성하고 남아 있는 보조 데이터베이스를 새로 승격되는 주 데이터베이스에 연결합니다. 장애 조치(failover)를 일으킨 작동 중단 상황이 완화된 후에는 애플리케이션을 주 지역으로 반환하는 것이 바람직할 수 있습니다. 장애 조치(failover)를 수행하려면 “계획됨” 옵션을 사용하여 명령을 호출해야 합니다.
 
-## <a name="preparing-secondary-database-for-failover"></a>장애 조치 (failover)를 위한 보조 데이터베이스 준비
+## <a name="preparing-secondary-database-for-failover"></a>장애 조치(failover)를 위한 보조 데이터베이스 준비
 
-장애 조치 (failover) 후 응용 프로그램이 새 주 데이터베이스에 즉시 액세스할 수 있도록 하려면 보조 서버와 데이터베이스에 대 한 인증 요구 사항이 올바르게 구성 되어 있는지 확인 합니다. 자세한 내용은 [재해 복구 후의 SQL Database 보안](sql-database-geo-replication-security-config.md)을 참조하세요. 장애 조치 (failover) 후 준수를 보장 하려면 보조 데이터베이스에 대 한 백업 보존 정책이 주 데이터베이스의 백업 보존 정책과 일치 하는지 확인 합니다. 이러한 설정은 데이터베이스에 포함 되지 않으며 복제 되지 않습니다. 기본적으로 보조 복제본은 7 일의 기본 PITR 보존 기간으로 구성 됩니다. 자세한 내용은 [SQL Database 자동화된 백업](sql-database-automated-backups.md)을 참조하세요.
+응용 프로그램이 장애 조치 후 새 주 데이터베이스에 즉시 액세스할 수 있도록 하려면 보조 서버 및 데이터베이스에 대한 인증 요구 사항이 제대로 구성되었는지 확인합니다. 자세한 내용은 [재해 복구 후의 SQL Database 보안](sql-database-geo-replication-security-config.md)을 참조하세요. 장애 조치 후 준수를 보장하려면 보조 데이터베이스의 백업 보존 정책이 주 데이터베이스의 백업 보존 정책과 일치하는지 확인합니다. 이러한 설정은 데이터베이스의 일부가 아니며 복제되지 않습니다. 기본적으로 보조 데이터베이스는 기본 PITR 보존 기간인 7일로 구성됩니다. 자세한 내용은 [SQL Database 자동화된 백업](sql-database-automated-backups.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 데이터베이스가 장애 조치 (failover) 그룹의 구성원 인 경우 지역에서 복제 faiover 명령을 사용 하 여 장애 조치 (failover)를 시작할 수 없습니다. 그룹에 대해 장애 조치 (failover) 명령을 사용 하는 것이 좋습니다. 개별 데이터베이스를 장애 조치 (failover) 해야 하는 경우 먼저 장애 조치 (failover) 그룹에서 제거 해야 합니다. 자세한 내용은 [장애 조치 (failover) 그룹](sql-database-auto-failover-group.md) 을 참조 하세요. 
+> 데이터베이스가 장애 조치 그룹의 구성원인 경우 지역 복제 faiover 명령을 사용하여 장애 복구를 시작할 수 없습니다. 그룹에 대해 장애 조치 명령을 사용하는 것이 좋습니다. 개별 데이터베이스를 장애 조치 해야 하는 경우 먼저 장애 조치 그룹에서 제거 해야 합니다. 자세한 내용은 [장애 조치 그룹을](sql-database-auto-failover-group.md) 참조하십시오. 
 
 
 ## <a name="configuring-secondary-database"></a>보조 데이터베이스 구성
 
-동일한 서비스 계층을 확보하려면 주 데이터베이스와 보조 데이터베이스 모두 필요합니다. 또한 보조 데이터베이스는 주 데이터베이스와 동일한 컴퓨팅 크기(DTU 또는 vCore 수)로 만드는 것이 좋습니다. 주 데이터베이스에 많은 쓰기 작업이 발생 하는 경우에는 계산 크기가 낮은 보조 데이터베이스를 사용할 수 없습니다. 이로 인해 보조 복제본과 잠재적인 비 가용성에 대 한 다시 실행 지연이 발생 합니다. 주 데이터베이스 뒤에 지연 보조 데이터베이스는 또한 강제 장애 조치 (failover)가 필요한 경우 큰 데이터 손실이 발생할 위험이 있습니다. 이러한 위험을 완화 하기 위해 활성 활성 지역 복제는 주 데이터베이스의 로그 속도를 제한 하 여 보조 데이터베이스를 파악할 수 있습니다. 불균형 보조 구성의 다른 결과는 장애 조치 (failover) 후 응용 프로그램의 성능이 새 주 서버의 계산 용량이 부족 하기 때문에 발생 하는 것입니다. 높은 계산에서 필요한 수준으로 업그레이드 해야 합니다 .이는 중단이 완화 될 때까지 가능 하지 않습니다. 
+동일한 서비스 계층을 확보하려면 주 데이터베이스와 보조 데이터베이스 모두 필요합니다. 또한 보조 데이터베이스는 주 데이터베이스와 동일한 컴퓨팅 크기(DTU 또는 vCore 수)로 만드는 것이 좋습니다. 기본 데이터베이스에 쓰기 워크로드가 많은 경우 계산 크기가 낮은 보조 데이터베이스는 이를 따라잡지 못할 수 있습니다. 이 경우 보조 및 잠재적인 가용성에 대한 재수행 지연이 발생합니다. 기본 데이터베이스보다 뒤쳐지는 보조 데이터베이스는 강제 장애 조치(failover)가 필요한 경우 큰 데이터 손실을 초래할 수 있습니다. 이러한 위험을 완화하기 위해 효과적인 활성 지역 복제는 보조 로그 속도를 제한하여 보조 데이터베이스가 따라잡을 수 있도록 합니다. 불균형한 보조 구성의 또 다른 결과는 장애 조치 후 새 주 시스템의 계산 용량 부족으로 인해 응용 프로그램의 성능이 저하된다는 것입니다. 필요한 수준으로 더 높은 컴퓨팅으로 업그레이드해야 하며, 이는 중단이 완화될 때까지 불가능합니다. 
 
 
 > [!IMPORTANT]
-> 보조 데이터베이스가 주 데이터베이스와 동일한 계산 크기로 구성 되지 않은 경우에는 게시 된 RPO = 5 초를 보장할 수 없습니다. 
+> 게시된 RPO = 보조 데이터베이스가 기본 데이터베이스와 동일한 계산 크기로 구성되지 않는 한 5초는 보장할 수 없습니다. 
 
 
-컴퓨팅 크기가 더 작은 보조 데이터베이스를 만들려는 경우 Azure Portal의 로그 IO 백분율 차트에서 복제 로드를 유지하는 데 필요한 보조 데이터베이스의 최소 컴퓨팅 크기를 추정하는 좋은 방법을 제공합니다. 예를 들어 주 데이터베이스가 P6(1000 DTU)이면 해당 로그 IO 백분율은 50%이고 보조 데이터베이스는 최소한 P4(500 DTU) 이상이어야 합니다. [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 또는 [ys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 데이터베이스 뷰를 사용하여 로그 IO 데이터를 검색할 수도 있습니다.  제한은 [dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 및 [sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 데이터베이스 뷰에서 HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO 대기 상태로 보고 됩니다. 
+컴퓨팅 크기가 더 작은 보조 데이터베이스를 만들려는 경우 Azure Portal의 로그 IO 백분율 차트에서 복제 로드를 유지하는 데 필요한 보조 데이터베이스의 최소 컴퓨팅 크기를 추정하는 좋은 방법을 제공합니다. 예를 들어 주 데이터베이스가 P6(1000 DTU)이면 해당 로그 IO 백분율은 50%이고 보조 데이터베이스는 최소한 P4(500 DTU) 이상이어야 합니다. [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 또는 [ys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 데이터베이스 뷰를 사용하여 로그 IO 데이터를 검색할 수도 있습니다.  제한은 [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 및 [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 데이터베이스 보기에서 HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO 대기 상태로 보고됩니다. 
 
 SQL Database 컴퓨팅 크기에 대한 자세한 내용은 [SQL Database 서비스 계층이란?](sql-database-purchase-models.md)를 참조하세요.
 
-## <a name="cross-subscription-geo-replication"></a>구독 간 지역에서 복제
+## <a name="cross-subscription-geo-replication"></a>교차 구독 지역 복제
 
-서로 다른 구독에 속한 두 데이터베이스 간에 활성 지역 복제를 설정 하려면 (동일한 테 넌 트에 있는지 여부에 관계 없이)이 섹션에 설명 된 특수 절차를 따라야 합니다.  이 절차는 SQL 명령을 기반으로 하며 다음이 필요 합니다. 
+서로 다른 구독에 속하는 두 데이터베이스 간에 활성 지역 복제를 설정하려면(동일한 테넌트 여부에 관계없이) 이 섹션에 설명된 특수 절차를 따라야 합니다.  이 절차는 SQL 명령을 기반으로 하며 다음이 필요합니다. 
 
 - 두 서버에서 권한 있는 로그인 만들기
-- 두 서버에서 변경을 수행 하는 클라이언트의 허용 목록에 IP 주소를 추가 합니다 (예: SQL Server Management Studio를 실행 하는 호스트의 IP 주소). 
+- 두 서버에서 변경을 수행하는 클라이언트의 허용 목록에 IP 주소를 추가합니다(예: SQL Server 관리 스튜디오를 실행하는 호스트의 IP 주소). 
 
-변경을 수행 하는 클라이언트에는 주 서버에 대 한 네트워크 액세스가 필요 합니다. 클라이언트의 동일한 IP 주소를 보조 서버의 허용 목록에 추가 해야 하지만, 보조 서버에 대 한 네트워크 연결은 반드시 필요한 것은 아닙니다. 
+변경 내용을 수행하는 클라이언트는 기본 서버에 대한 네트워크 액세스가 필요합니다. 클라이언트의 동일한 IP 주소를 보조 서버의 허용 목록에 추가해야 하지만 보조 서버에 대한 네트워크 연결이 반드시 필요한 것은 아닙니다. 
 
-### <a name="on-the-master-of-the-primary-server"></a>주 서버의 마스터
+### <a name="on-the-master-of-the-primary-server"></a>주 서버의 마스터에서
 
-1. 변경 작업을 수행 하는 클라이언트의 허용 목록에 IP 주소를 추가 합니다. 자세한 내용은 [방화벽 구성](sql-database-firewall-configure.md)을 참조 하세요. 
-1. 활성 지역 복제를 설정 하는 전용 로그인을 만들고 필요에 따라 자격 증명을 조정 합니다.
+1. 변경 내용을 수행하는 클라이언트의 허용 목록에 IP 주소를 추가합니다(자세한 내용은 [방화벽 구성](sql-database-firewall-configure.md)참조). 
+1. 활성 지역 복제를 설정하고 필요에 따라 자격 증명을 조정하는 전용 로그인을 만듭니다.
 
    ```sql
    create login geodrsetup with password = 'ComplexPassword01'
    ```
 
-1. 해당 사용자를 만들어 dbmanager 역할에 할당 합니다. 
+1. 해당 사용자를 만들고 dbmanager 역할에 할당합니다. 
 
    ```sql
    create user geodrsetup for login geodrsetup
    alter role geodrsetup dbmanager add member geodrsetup
    ```
 
-1. 이 쿼리를 사용 하 여 새 로그인의 SID를 기록해 둡니다. 
+1. 이 쿼리를 사용하여 새 로그인의 SID를 기록해 둡을 기록합니다. 
 
    ```sql
    select sid from sys.sql_logins where name = 'geodrsetup'
    ```
 
-### <a name="on-the-source-database-on-the-primary-server"></a>주 서버의 원본 데이터베이스
+### <a name="on-the-source-database-on-the-primary-server"></a>기본 서버의 원본 데이터베이스에서
 
-1. 동일한 로그인에 대 한 사용자 만들기:
+1. 동일한 로그인에 대한 사용자 만들기:
 
    ```sql
    create user geodrsetup for login geodrsetup
    ```
 
-1. 사용자를 db_owner 역할에 추가 합니다.
+1. db_owner 역할에 사용자를 추가합니다.
 
    ```sql
    alter role db_owner add member geodrsetup
    ```
 
-### <a name="on-the-master-of-the-secondary-server"></a>보조 서버의 마스터 
+### <a name="on-the-master-of-the-secondary-server"></a>보조 서버의 마스터에서 
 
-1. 변경 작업을 수행 하는 클라이언트의 허용 목록에 IP 주소를 추가 합니다. 주 서버의 정확한 IP 주소와 동일 해야 합니다. 
-1. 동일한 사용자 이름 및 SID를 사용 하 여 주 서버에서와 동일한 로그인을 만듭니다. 
+1. 변경 작업을 수행하는 클라이언트의 허용 목록에 IP 주소를 추가합니다. 기본 서버의 정확한 IP 주소와 같아야 합니다. 
+1. 동일한 사용자 이름 암호 및 SID를 사용하여 기본 서버에서와 동일한 로그인을 만듭니다. 
 
    ```sql
    create login geodrsetup with password = 'ComplexPassword01', sid=0x010600000000006400000000000000001C98F52B95D9C84BBBA8578FACE37C3E
    ```
 
-1. 해당 사용자를 만들어 dbmanager 역할에 할당 합니다.
+1. 해당 사용자를 만들고 dbmanager 역할에 할당합니다.
 
    ```sql
    create user geodrsetup for login geodrsetup;
    alter role dbmanager add member geodrsetup
    ```
 
-### <a name="on-the-master-of-the-primary-server"></a>주 서버의 마스터
+### <a name="on-the-master-of-the-primary-server"></a>주 서버의 마스터에서
 
-1. 새 로그인을 사용 하 여 주 서버의 마스터에 로그인 합니다. 
-1. 보조 서버에 원본 데이터베이스의 보조 복제본을 만듭니다 (필요에 따라 데이터베이스 이름 및 서버 이름 조정).
+1. 새 로그인을 사용하여 기본 서버의 마스터에 로그인합니다. 
+1. 보조 서버에서 원본 데이터베이스의 보조 복제본을 만듭니다(필요에 따라 데이터베이스 이름과 서버 이름 조정):
 
    ```sql
    alter database dbrep add secondary on server <servername>
    ```
 
-초기 설치 후에는 만든 사용자, 로그인 및 방화벽 규칙을 제거할 수 있습니다. 
+초기 설정 후 생성된 사용자, 로그인 및 방화벽 규칙을 제거할 수 있습니다. 
 
 
-## <a name="keeping-credentials-and-firewall-rules-in-sync"></a>자격 증명 및 방화벽 규칙을 동기화 상태로 유지
+## <a name="keeping-credentials-and-firewall-rules-in-sync"></a>자격 증명 및 방화벽 규칙의 동기화 유지
 
-지리적으로 복제 된 데이터베이스에는 [데이터베이스 수준 IP 방화벽 규칙](sql-database-firewall-configure.md) 을 사용 하는 것이 좋습니다. 이렇게 하면 모든 보조 데이터베이스가 주 데이터베이스와 동일한 IP 방화벽 규칙을 갖도록 하기 위해 데이터베이스를 사용 하 여 이러한 규칙을 복제할 수 있습니다. 이렇게 하면 고객이 주 데이터베이스 및 보조 데이터베이스를 호스팅하는 서버에서 수동으로 방화벽 규칙을 구성하고 유지 관리할 필요가 없습니다. 마찬가지로, 데이터 액세스에 [포함된 데이터베이스 사용자](sql-database-manage-logins.md)를 사용하면 주 데이터베이스와 보조 데이터베이스의 사용자 자격 증명이 항상 똑같기 때문에 장애 조치(failover) 시에 로그인과 암호가 불일치하여 중단되는 일이 없습니다. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)가 추가되면서 고객은 주 데이터베이스 및 보조 데이터베이스에 대한 사용자 액세스를 관리할 수 있으므로 데이터베이스의 자격 증명을 모두 관리할 필요가 없습니다.
+지리적 복제 데이터베이스에 [데이터베이스 수준 IP 방화벽 규칙을](sql-database-firewall-configure.md) 사용하여 이러한 규칙을 데이터베이스와 복제하여 모든 보조 데이터베이스가 기본 데이터베이스와 동일한 IP 방화벽 규칙을 갖도록 하는 것이 좋습니다. 이렇게 하면 고객이 주 데이터베이스 및 보조 데이터베이스를 호스팅하는 서버에서 수동으로 방화벽 규칙을 구성하고 유지 관리할 필요가 없습니다. 마찬가지로, 데이터 액세스에 [포함된 데이터베이스 사용자](sql-database-manage-logins.md)를 사용하면 주 데이터베이스와 보조 데이터베이스의 사용자 자격 증명이 항상 똑같기 때문에 장애 조치(failover) 시에 로그인과 암호가 불일치하여 중단되는 일이 없습니다. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)가 추가되면서 고객은 주 데이터베이스 및 보조 데이터베이스에 대한 사용자 액세스를 관리할 수 있으므로 데이터베이스의 자격 증명을 모두 관리할 필요가 없습니다.
 
-## <a name="upgrading-or-downgrading-primary-database"></a>주 데이터베이스 업그레이드 또는 다운 그레이드
+## <a name="upgrading-or-downgrading-primary-database"></a>기본 데이터베이스 업그레이드 또는 다운그레이드
 
 보조 데이터베이스와의 연결을 끊지 않고도 주 데이터베이스를 다른 컴퓨팅 크기(동일한 서비스 계층 내, 범용 및 중요 비즈니스용 사이 아님)로 업그레이드하거나 다운그레이드할 수 있습니다. 업그레이드하는 경우에는 보조 데이터베이스를 먼저 업그레이드한 다음에 주 데이터베이스를 업그레이드하는 것이 좋습니다. 다운그레이드하는 경우에는 반대 순서로 주 데이터베이스를 먼저 다운그레이드하고 보조 데이터베이스를 다운그레이드합니다. 데이터베이스를 다른 서비스 계층으로 업그레이드하거나 다운그레이드할 때 이 권장 사항이 적용됩니다.
 
@@ -209,7 +209,7 @@ SQL Database 컴퓨팅 크기에 대한 자세한 내용은 [SQL Database 서비
 > 장애 조치 그룹 구성의 일부로 보조 데이터베이스를 만든 경우 보조 데이터베이스를 다운그레이드하지 않는 것이 좋습니다. 이렇게 하면 장애 조치가 활성화된 후 데이터 계층에서 일반 워크로드를 처리할 수 있을 만큼 충분한 용량을 갖출 수 있습니다.
 
 > [!IMPORTANT]
-> 장애 조치 (failover) 그룹의 주 데이터베이스는 보조 데이터베이스가 상위 계층으로 먼저 확장 되지 않는 한 더 높은 계층으로 확장할 수 없습니다. 보조 데이터베이스의 크기를 조정 하기 전에 주 데이터베이스의 크기를 조정 하려고 하면 다음과 같은 오류가 표시 될 수 있습니다.
+> 장애 조치 그룹의 기본 데이터베이스는 보조 데이터베이스가 상위 계층으로 먼저 확장되지 않는 한 상위 계층으로 확장할 수 없습니다. 보조 데이터베이스의 크기를 조정하기 전에 기본 데이터베이스의 크기를 조정하려고 하면 다음과 같은 오류가 발생할 수 있습니다.
 >
 > `Error message: The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
 >
@@ -221,43 +221,43 @@ SQL Database 컴퓨팅 크기에 대한 자세한 내용은 [SQL Database 서비
 > [!NOTE]
 > **sp_wait_for_database_copy_sync**는 장애 조치 후 데이터 손실을 방지하지만 읽기 액세스를 위한 전체 동기화를 보장하지 않습니다. **sp_wait_for_database_copy_sync** 프로시저 호출로 인한 지연은 심각할 수 있으며 호출 시 트랜잭션 로그의 크기에 따라 달라집니다.
 
-## <a name="monitoring-geo-replication-lag"></a>지역에서 복제 지연 시간 모니터링
+## <a name="monitoring-geo-replication-lag"></a>지역 복제 지연 모니터링
 
-RPO와 관련 하 여 지연을 모니터링 하려면 주 데이터베이스에서 [dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) 의 *replication_lag_sec* 열을 사용 합니다. 주 데이터베이스에서 커밋되고 보조 데이터베이스에서 지속 되는 트랜잭션 간의 지연 시간 (초)을 보여 줍니다. 예를 들어 지연 값이 1 초 이면 주 복제본이 현재 가동 중단의 영향을 받을 수 있고 장애 조치 (failover)가 시작 됨을 의미 합니다. 최근 전환 중 1 초가 저장 되지 않습니다. 
+RPO와 관련하여 지연을 모니터링하려면 기본 데이터베이스에서 [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) *replication_lag_sec* 열을 사용합니다. 기본에서 커밋되고 보조 트랜잭션에 지속되는 트랜잭션 간에 몇 초 후기가 표시됩니다. 예를 들어 지연 값이 1초이면 이 순간의 중단에 의해 주 값이 영향을 받고 장애 조치(failover)가 시작되는 경우 가장 최근 전환중 1초가 저장되지 않음을 의미합니다. 
 
-보조 복제본에서 적용 된 주 데이터베이스의 변경 내용에 대해 지연 시간을 측정 하려면 (예: 보조 데이터베이스에서 읽기 가능) 보조 데이터베이스의 *last_commit* 시간을 주 데이터베이스의 동일한 값과 비교 합니다.
+보조 데이터베이스에 적용된 기본 데이터베이스의 변경 내용, 즉 보조 데이터베이스에서 읽을 수 있는 변경 내용과 관련하여 지연을 측정하려면 보조 데이터베이스의 *last_commit* 시간을 기본 데이터베이스의 동일한 값으로 비교합니다.
 
 > [!NOTE]
-> 주 데이터베이스에 대 한 *REPLICATION_LAG_SEC* NULL 값을 가지는 경우가 있습니다. 즉, 주 데이터베이스에서 현재 보조 복제본이 얼마나 떨어져 있는지 알 수 없습니다.   이는 일반적으로 프로세스가 다시 시작 된 후에 발생 하며 일시적인 상태 여야 합니다. *Replication_lag_sec* 에서 오랜 시간 동안 NULL을 반환 하는 경우 응용 프로그램을 경고 하는 것이 좋습니다. 영구적 연결 오류로 인해 보조 데이터베이스가 주 데이터베이스와 통신할 수 없음을 나타낼 수 있습니다. 보조 데이터베이스와 주 데이터베이스에서 *last_commit* 시간 사이의 차이를 일으킬 수 있는 조건도 있습니다. 예를 들어 변경 내용이 없는 긴 기간 후 주 복제본에서 커밋이 수행 되는 경우에는 0으로 빠르게 반환 하기 전에 차이가 큰 값으로 이동 합니다. 이러한 두 값 간의 차이가 오랜 시간 동안 크게 유지 되는 경우 오류 상태를 고려해 야 합니다.
+> 주 데이터베이스의 *replication_lag_sec* NULL 값을 가지는 경우가 있는데, 이는 주 데이터베이스가 현재 보조 데이터베이스의 정도를 알지 못한다는 것을 의미합니다.   이는 일반적으로 프로세스를 다시 시작한 후에 발생하며 일시적인 상태여야 합니다. *replication_lag_sec* 오랜 기간 동안 NULL을 반환하는 경우 응용 프로그램에 경고하는 것이 좋습니다. 영구 연결 실패로 인해 보조 데이터베이스가 주 데이터베이스와 통신할 수 없음을 나타냅니다. 또한 보조 데이터베이스와 기본 데이터베이스의 *last_commit* 시간 간의 차이를 유발할 수 있는 조건이 있습니다. 예를 들어 오랜 기간 동안 변경이 없는 후에 기본에서 커밋이 이루어지면 차이는 큰 값으로 이동한 후 0으로 빠르게 돌아갑니다. 이 두 값 간의 차이가 오랫동안 큰 상태로 유지될 때 오류 조건을 고려하십시오.
 
 
 ## <a name="programmatically-managing-active-geo-replication"></a>활성 지역 복제를 프로그래밍 방식으로 관리
 
 앞서 설명한 것처럼 Azure PowerShell 및 REST API를 사용하여 활성 지역 복제를 프로그래밍 방식으로 관리할 수 있습니다. 다음 표는 사용 가능한 명령의 집합을 보여 줍니다. 활성 지역 복제는 관리를 위해 [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) 및 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview)을 비롯한 Azure Resource Manager API 세트를 포함합니다. 이러한 API는 리소스 그룹을 사용해야 하며 RBAC(역할 기반 보안)를 지원합니다. 액세스 역할을 구현하는 방법에 대한 자세한 내용은 [Azure 역할 기반 Access Control](../role-based-access-control/overview.md)을 참조하세요.
 
-### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-sql: 단일 및 풀링된 데이터베이스의 장애 조치 (failover) 관리
+### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: 단일 및 풀풀데이터베이스의 장애 조치 관리
 
 > [!IMPORTANT]
 > 이러한 Transact-SQL 명령은 활성 지역 복제에만 적용되고 장애 조치(failover) 그룹에는 적용되지 않습니다. 따라서 장애 조치(failover) 그룹만 지원하는 Managed Instance에도 적용되지 않습니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작하려면 ADD SECONDARY ON SERVER 인수를 사용합니다. |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |장애 조치를 시작하기 위해 보조 데이터베이스를 기본 데이터베이스로 전환하려면 FAILOVER 또는 FORCE_FAILOVER_ALLOW_DATA_LOSS를 사용합니다. |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |SQL Database와 지정된 보조 데이터베이스 간의 데이터 복제를 종료하려면 REMOVE SECONDARY ON SERVER를 사용합니다. |
+| [데이터베이스 변경](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작하려면 ADD SECONDARY ON SERVER 인수를 사용합니다. |
+| [데이터베이스 변경](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |장애 조치를 시작하기 위해 보조 데이터베이스를 기본 데이터베이스로 전환하려면 FAILOVER 또는 FORCE_FAILOVER_ALLOW_DATA_LOSS를 사용합니다. |
+| [데이터베이스 변경](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |SQL Database와 지정된 보조 데이터베이스 간의 데이터 복제를 종료하려면 REMOVE SECONDARY ON SERVER를 사용합니다. |
 | [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Azure SQL Database 서버의 각 데이터베이스에 대한 모든 기존 복제 링크에 대한 정보를 반환합니다. |
 | [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |지정된 SQL Database의 복제 링크에 대한 마지막 복제 시간, 마지막 복제 지연 및 기타 정보를 가져옵니다. |
 | [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |복제 링크의 상태를 비롯한 모든 데이터베이스 작업에 대한 상태를 표시합니다. |
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |커밋된 모든 트랜잭션이 복제되고 활성 보조 데이터베이스에서 승인될 때까지 애플리케이션이 대기하도록 합니다. |
 |  | |
 
-### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: 단일 및 풀링된 데이터베이스의 장애 조치 (failover) 관리
+### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: 단일 및 풀풀된 데이터베이스의 장애 조치 관리
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> PowerShell Azure 리소스 관리자 모듈은 Azure SQL Database에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈용입니다. 이러한 cmdlet에 대 한 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조 합니다. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 거의 동일합니다.
 
-| Cmdlet | Description |
+| Cmdlet | 설명 |
 | --- | --- |
 | [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |하나 이상의 데이터베이스를 가져옵니다. |
 | [New-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작합니다. |
@@ -269,9 +269,9 @@ RPO와 관련 하 여 지연을 모니터링 하려면 주 데이터베이스에
 > [!IMPORTANT]
 > 샘플 스크립트는 [활성 지역 복제를 사용하여 단일 데이터베이스 구성 및 장애 조치(failover)](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) 및 [활성 지역 복제를 사용하여 풀링된 데이터베이스 구성 및 장애 조치(failover)](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)를 참조하세요.
 
-### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>REST API: 단일 및 풀링된 데이터베이스의 장애 조치 (failover) 관리
+### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>REST API: 단일 및 풀풀데이터베이스의 장애 조치 관리
 
-| API | Description |
+| API | 설명 |
 | --- | --- |
 | [데이터베이스 생성 또는 업데이트(createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |주 보조 데이터베이스 또는 보조 데이터베이스를 만들거나, 업데이트하거나, 복원합니다. |
 | [데이터베이스 만들기 또는 업데이트 상태 가져오기](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |만들기 작업 동안 상태를 반환합니다. |
@@ -289,6 +289,6 @@ RPO와 관련 하 여 지연을 모니터링 하려면 주 데이터베이스에
   - [활성 지역 복제를 사용하여 풀링된 데이터베이스 구성 및 장애 조치(Failover)](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
 - SQL Database는 자동 장애 조치(failover) 그룹도 지원합니다. 자세한 내용은 [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md) 사용을 참조하세요.
 - 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)
-- Azure SQL Database 자동화 백업에 대한 자세한 내용은 [SQL Database 자동화 백업](sql-database-automated-backups.md)을 참조하세요.
-- 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
+- Azure SQL Database 자동화된 백업에 대해 자세히 알아보려면 [SQL Database 자동화된 백업을](sql-database-automated-backups.md)참조하십시오.
+- 복구를 위해 자동화된 백업을 사용하는 방법에 대해 알아보려면 [서비스 시작 백업에서 데이터베이스 복원을](sql-database-recovery-using-backups.md)참조하십시오.
 - 새로운 주 서버 및 데이터베이스의 인증 요구 사항에 대해 알아보려면 [재해 복구 후의 SQL Database 보안](sql-database-geo-replication-security-config.md)을 참조하세요.

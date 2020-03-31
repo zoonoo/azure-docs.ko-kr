@@ -7,19 +7,19 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
-ms.topic: tutorial
-ms.date: 02/03/2020
+ms.topic: quickstart
+ms.date: 03/17/2020
 ms.author: juliako
-ms.openlocfilehash: 1f3d442ea7cf6d95427aaa9c072410119e2735af
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 22b06ce99333750d48d1cb65d9f60779572723b9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989810"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79499635"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>빠른 시작: 가입하고 첫 번째 비디오를 업로드하는 방법
 
-이 시작 자습서에서는 Video Indexer 웹 사이트에 로그인하고 첫 번째 비디오를 업로드하는 방법을 보여줍니다.
+이 시작 빠른 시작에서는 Video Indexer 웹 사이트에 로그인하고 첫 번째 비디오를 업로드하는 방법을 보여줍니다.
 
 Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결되는](connect-to-azure.md) Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 Azure Media Services 계정과 관련된 요금을 지불합니다. 
 
@@ -27,10 +27,10 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
 Video Indexer를 사용하여 개발을 시작하려면 [Video Indexer](https://www.videoindexer.com) 웹 사이트로 이동하고 가입합니다.
 
-## <a name="upload-a-video-using-the-video-indexer-website"></a>Video Indexer 웹 사이트를 사용하여 비디오 업로드
-
 > [!NOTE]
-> 비디오 이름은 80자를 넘지 않아야 합니다.
+> Video Indexer를 사용하기 시작하면 저장된 모든 데이터와 업로드된 콘텐츠가 Microsoft 관리 키를 사용하여 미사용으로 암호화됩니다.
+
+## <a name="upload-a-video-using-the-video-indexer-website"></a>Video Indexer 웹 사이트를 사용하여 비디오 업로드
 
 ### <a name="supported-file-formats-for-video-indexer"></a>Video Indexer에 대해 지원되는 파일 형식
 
@@ -40,6 +40,9 @@ Video Indexer와 함께 사용할 수 있는 파일 형식 목록은 [입력 컨
 
 1. [Video Indexer](https://www.videoindexer.ai/) 웹 사이트에서 로그인합니다.
 2. 비디오를 업로드하려면 **업로드** 단추나 링크를 누릅니다.
+
+    > [!NOTE]
+    > 비디오 이름은 80자를 넘지 않아야 합니다.
 
     ![업로드](./media/video-indexer-get-started/video-indexer-upload.png)
 

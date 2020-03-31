@@ -1,15 +1,15 @@
 ---
 title: Service Fabric Mesh에서 기존 .NET 앱 컨테이너화
-description: 전체 .NET framework를 사용 하는 ASP.NET 및 콘솔 프로젝트에 Service Fabric 메시 컨테이너 오케스트레이션 지원을 추가 합니다.
+description: 전체 .NET 프레임워크를 사용하는 ASP.NET 및 콘솔 프로젝트에 서비스 패브릭 메시 컨테이너 오케스트레이션 지원을 추가합니다.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/08/2018
 ms.topic: conceptual
 ms.openlocfilehash: d67ea5bb7df5910ec87e69adf3c414c303bf0182
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75462042"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Service Fabric Mesh에서 기존 .NET 앱 컨테이너화
@@ -21,7 +21,7 @@ Visual Studio 2017에서 전체 .NET Framework를 사용하는 ASP.NET 및 콘�
 > [!NOTE]
 > 현재 .NET **Core** 프로젝트가 지원되지 않습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 아직 없으면 시작하기 전에 [무료 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
 
