@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 05/20/2018
 ms.openlocfilehash: 5a2935d559a967151c5bdc01c4b0806fe52179b4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60629760"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>비정상적인 되풀이 작업 문제 해결
@@ -31,13 +31,13 @@ Azure Data Lake Tools for Visual Studio의 **관련 작업 보기**는 두 사�
 
 관련 작업 보기를 사용하여 되풀이 작업 문제를 해결하려면 먼저 Visual Studio에서 되풀이 작업을 찾은 후 관련 작업 보기를 열어야 합니다.
 
-### <a name="case-1-you-have-the-url-for-the-recurring-job"></a>사례 1: 되풀이 작업에 대 한 url
+### <a name="case-1-you-have-the-url-for-the-recurring-job"></a>사례 1: 되풀이 작업의 URL을 갖고 있는 경우
 
-**도구** > **Data Lake** > **작업 보기**를 통해 작업 URL을 붙여 넣어 Visual Studio에서 작업 보기를 열 수 있습니다. **관련 작업 보기**를 선택하여 관련 작업 보기를 엽니다.
+**도구** > **데이터 레이크** > **작업 보기를**통해 작업 URL을 붙여 시각적 스튜디오에서 작업 보기를 열 수 있습니다. **관련 작업 보기**를 선택하여 관련 작업 보기를 엽니다.
 
 ![Data Lake Analytics 도구의 관련 작업 보기 링크](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/view-related-job.png)
  
-### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>사례 2: 되풀이 작업에 있지만 URL이 아닌 파이프라인
+### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>사례 2: 되풀이 작업에 대한 파이프라인을 갖고 있지만 URL은 아닌 경우
 
 Visual Studio에서 서버 탐색기 > Azure Data Lake Analytics 계정 > **파이프라인**을 통해 파이프라인 브라우저를 열 수 있습니다. (서버 탐색기에서 이 노드를 찾을 수 없으면 [최신 플러그 인을 다운로드](https://aka.ms/adltoolsvs)합니다.) 
 

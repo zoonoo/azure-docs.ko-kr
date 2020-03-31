@@ -9,10 +9,10 @@ ms.date: 09/12/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1c2525b352c25f470814ce909a8d10ff821d9e32
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "70961609"
 ---
 CA 인증서를 생성합니다.
@@ -22,7 +22,7 @@ CA 인증서를 생성합니다.
   ipsec pki --self --in caKey.pem --dn "CN=VPN CA" --ca --outform pem > caCert.pem
   ```
 
-CA 인증서를 base64 형식으로 인쇄합니다. Azure에서 지원하는 형식입니다. [P2S 구성 단계의](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)일부로이 인증서를 Azure에 업로드 합니다.
+CA 인증서를 base64 형식으로 인쇄합니다. Azure에서 지원하는 형식입니다. [P2S 구성 단계의](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)일부로 이 인증서를 Azure에 업로드합니다.
 
   ```
   openssl x509 -in caCert.pem -outform der | base64 -w0 ; echo

@@ -1,14 +1,14 @@
 ---
-title: Azure 애플리케이션 정보를 사용 하 여 오류 및 예외 진단
+title: Azure 응용 프로그램 인사이트를 통해 오류 및 예외 진단
 description: 요청 원격 분석과 함께 ASP.NET 앱에서 예외를 캡처합니다.
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 24b7acfa6610c2040daf0f7d8d25f25391140303
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ccfcb354e27d36f40810b114a1729cf6addf8fb6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79276232"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294699"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Application Insights를 사용하여 웹앱에서 예외 진단
 라이브 웹앱의 예외는 [Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 보고됩니다. 클라이언트와 서버에서 실패한 요청을 예외 및 다른 이벤트와 상호 연결하여 원인을 신속하게 진단할 수 있습니다.
@@ -16,7 +16,7 @@ ms.locfileid: "79276232"
 ## <a name="set-up-exception-reporting"></a>예외 보고 설정
 * 서버 앱에서 예외를 보고하도록 하려면
   * Azure 웹앱: [Application Insights 확장](../../azure-monitor/app/azure-web-apps.md) 추가
-  * Azure VM 및 Azure 가상 머신 확장 집합 IIS에서 호스팅되는 앱: [응용 프로그램 모니터링 확장](../../azure-monitor/app/azure-vm-vmss-apps.md) 추가
+  * Azure VM 및 Azure 가상 시스템 규모 설정 IIS 호스팅 앱: [응용 프로그램 모니터링 확장 추가](../../azure-monitor/app/azure-vm-vmss-apps.md)
   * 앱 코드에서 [Application Insights SDK](../../azure-monitor/app/asp-net.md)를 설치합니다.
   * IIS 웹 서버: [Application Insights 에이전트](../../azure-monitor/app/monitor-performance-live-website-now.md)를 실행합니다.
   * Java 웹앱: [Java 에이전트](../../azure-monitor/app/java-agent.md) 설치
@@ -27,6 +27,8 @@ ms.locfileid: "79276232"
   * [Web API 1.*](#web-api-1x)
   * [Web API 2.*](#web-api-2x)
   * [WCF](#wcf)
+
+  이 문서는 특히 코드 예제 관점에서 .NET Framework 앱에 중점을 둡니다. .NET 프레임워크에서 작동하는 일부 메서드는 .NET 코어 SDK에서 사용되지 않습니다. .NET 코어 앱이 있는 경우 [.NET 코어 SDK 설명서를](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 참조하십시오.
 
 ## <a name="diagnosing-exceptions-using-visual-studio"></a>Visual Studio를 사용하여 예외 진단
 디버깅에 도움이 되도록 Visual Studio에서 앱 솔루션을 엽니다.
@@ -39,7 +41,7 @@ Visual Studio에서 Application Insights Search 창을 열고 앱에서 이벤�
 
 예외를 표시하도록 보고서를 필터링 할 수 있습니다.
 
-*예외를 표시 하지 않나요? [캡처 예외](#exceptions)를 참조 하세요.*
+*보여주는 예외가 없다? [예외 캡처를](#exceptions)참조하십시오.*
 
 예외 보고서를 클릭하여 해당 스택 추적을 표시합니다.
 스택 추적에서 라인 참조를 클릭하여 관련 코드 파일을 엽니다.
@@ -50,21 +52,21 @@ Visual Studio에서 Application Insights Search 창을 열고 앱에서 이벤�
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Azure 포털을 사용하여 오류 진단
 Application Insights는 APM 환경과 함께 제공되어 모니터링된 애플리케이션에서 실패를 진단하는 데 도움이 됩니다. 시작하려면 조사 섹션에 있는 Application Insights 리소스 메뉴에서 오류 옵션을 클릭합니다.
-사용자의 요청, 실패하는 횟수 및 사용자가 영향을 받는 횟수에 대한 오류 속도 추세를 표시하는 전체 화면 보기에 표시됩니다. 오른쪽에는 상위 3 개 응답 코드, 상위 3 개 예외 형식 및 상위 3 개 실패 종속성 유형을 비롯 하 여 선택한 실패 작업과 관련 된 가장 유용한 배포판 중 일부가 표시 됩니다.
+사용자의 요청, 실패하는 횟수 및 사용자가 영향을 받는 횟수에 대한 오류 속도 추세를 표시하는 전체 화면 보기에 표시됩니다. 오른쪽에는 상위 3개 응답 코드, 상위 3개 예외 유형 및 실패한 상위 3개 종속성 유형을 포함하여 선택한 실패 작업과 관련된 가장 유용한 배포판이 표시됩니다.
 
 ![오류 심사 보기(작업 탭)](./media/asp-net-exceptions/failures0719.png)
 
-한 번의 클릭으로 이러한 각 작업 하위 집합에 대 한 대표 샘플을 검토할 수 있습니다. 특히 예외를 진단 하려면 다음과 같이 종단 간 트랜잭션 세부 정보 탭에 표시 될 특정 예외 수를 클릭 하면 됩니다.
+그런 다음 한 번의 클릭으로 이러한 각 작업 하위 집합에 대한 대표 샘플을 검토할 수 있습니다. 특히 예외를 진단하기 위해 다음과 같은 종단 간 트랜잭션 세부 정보 탭으로 표시될 특정 예외의 개수를 클릭할 수 있습니다.
 
 ![종단 간 트랜잭션 세부 정보 탭](./media/asp-net-exceptions/end-to-end.png)
 
-**또는** 특정 실패 작업에 대 한 예외를 확인 하는 대신 위쪽의 예외 탭으로 전환 하 여 전체 예외 뷰에서 시작할 수 있습니다. 여기서 모니터링한 앱에 대해 수집된 모든 예외를 확인할 수 있습니다.
+**또는** 특정 실패한 작업의 예외를 보는 대신 맨 위에 있는 예외 탭으로 전환하여 예외의 전체 보기에서 시작할 수 있습니다. 여기서 모니터링한 앱에 대해 수집된 모든 예외를 확인할 수 있습니다.
 
-*예외를 표시 하지 않나요? [캡처 예외](#exceptions)를 참조 하세요.*
+*보여주는 예외가 없다? [예외 캡처를](#exceptions)참조하십시오.*
 
 
 ## <a name="custom-tracing-and-log-data"></a>사용자 지정 추적 및 로그 데이터
-진단 데이터 특성을 사용자 프로그램으로 불러오려면, 사용자 고유의 원격 분석 전송에 코드를 삽입합니다. 이는 요청, 페이지 보기 및 자동으로 수집 된 다른 데이터와 함께 진단 검색에 표시 됩니다.
+진단 데이터 특성을 사용자 프로그램으로 불러오려면, 사용자 고유의 원격 분석 전송에 코드를 삽입합니다. 이 요청, 페이지 보기 및 기타 자동으로 수집된 데이터와 함께 진단 검색에 표시됩니다.
 
 여러 옵션이 있습니다.
 
@@ -73,12 +75,12 @@ Application Insights는 APM 환경과 함께 제공되어 모니터링된 애플
 * [TrackException()](#exceptions) 은 스택 추적을 보냅니다. [예외에 대해 자세히 알아보세요](#exceptions).
 * 사용자가 이미 Log4Net 또는 NLog와 같은 로깅 프레임워크를 사용하는 경우, 요청과 예외 데이터와 함께 진단 검색 안에서 [이러한 로그를 캡처](asp-net-trace-logs.md)하고 볼 수 있습니다.
 
-이러한 이벤트를 보려면 왼쪽 메뉴에서 [검색](../../azure-monitor/app/diagnostic-search.md) 을 열고 드롭다운 메뉴 **이벤트 유형을**선택한 다음 사용자 지정 이벤트, 추적 또는 예외를 선택 합니다.
+이러한 이벤트를 보려면 왼쪽 메뉴에서 [검색을](../../azure-monitor/app/diagnostic-search.md) 열고 드롭다운 메뉴 **이벤트 유형을**선택한 다음 사용자 지정 이벤트, 추적 또는 예외를 선택합니다.
 
 ![드릴스루](./media/asp-net-exceptions/customevents.png)
 
 > [!NOTE]
-> 앱에서 다양한 원격 분석을 생성하는 경우 적응 샘플링 모듈은 이벤트의 대표적인 분수만 전송하여 포털에 전송되는 볼륨을 자동으로 줄입니다. 동일한 작업에 속하는 이벤트를 그룹으로 선택하거나 선택 취소되므로 관련된 이벤트를 탐색할 수 있습니다. [샘플링에 대해 알아봅니다.](../../azure-monitor/app/sampling.md)
+> 앱에서 다양한 원격 분석을 생성하는 경우 적응 샘플링 모듈은 이벤트의 대표적인 분수만 전송하여 포털에 전송되는 볼륨을 자동으로 줄입니다. 동일한 작업에 속하는 이벤트를 그룹으로 선택하거나 선택 취소되므로 관련된 이벤트를 탐색할 수 있습니다. [샘플링에 대해 자세히 알아보세요.](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -89,7 +91,7 @@ Application Insights는 APM 환경과 함께 제공되어 모니터링된 애플
 * 애플리케이션에 코드를 삽입하여 [Microsoft.ApplicationInsights.TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)를 호출합니다. 메시지 매개 변수의 POST 데이터를 보냅니다. 허용되는 크기에 제한이 있으므로 꼭 필요한 데이터만 보내야 합니다.
 * 실패한 요청을 조사할 때 연결된 추적을 찾습니다.
 
-## <a name="exceptions"></a> 예외 및 관련 진단 데이터 캡처
+## <a name="capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a> 예외 및 관련 진단 데이터 캡처
 처음에는 앱에서 실패를 유발하는 예외가 포털에 전부 표시되지 않을 것입니다. 웹 페이지에서 [JavaScript SDK](../../azure-monitor/app/javascript.md)를 사용 중이라면 브라우저 예외가 보일 것입니다. 하지만 대부분 서버 예외는 IIS에서 catch하며 서버 예외를 보려면 약간의 코드를 작성해야 합니다.
 
 다음을 수행할 수 있습니다.
@@ -155,14 +157,14 @@ Application Insights는 APM 환경과 함께 제공되어 모니터링된 애플
 ## <a name="browser-exceptions"></a>브라우저 예외
 대부분의 브라우저 예외가 보고됩니다.
 
-웹 페이지에 콘텐츠 배달 네트워크 또는 다른 도메인의 스크립트 파일이 포함되는 경우 스크립트 태그에 ```crossorigin="anonymous"``` 특성이 있고 서버에서 [CORS 헤더](https://enable-cors.org/)를 전송하는지 확인하세요. 이러한 리소스에서 처리되지 않은 JavaScript 예외에 대한 스택 추적 및 세부 정보를 가져올 수 있을 것입니다.
+웹 페이지에 콘텐츠 전송 네트워크 또는 기타 도메인의 스크립트 파일이 포함된 ```crossorigin="anonymous"```경우 스크립트 태그에 특성이 있는지 확인하고 서버에서 [CORS 헤더를](https://enable-cors.org/)보냅니다. 이러한 리소스에서 처리되지 않은 JavaScript 예외에 대한 스택 추적 및 세부 정보를 가져올 수 있을 것입니다.
 
-## <a name="reuse-your-telemetry-client"></a>원격 분석 클라이언트 다시 사용
+## <a name="reuse-your-telemetry-client"></a>원격 분석 클라이언트 재사용
 
 > [!NOTE]
-> TelemetryClient는 한 번 인스턴스화하고 응용 프로그램의 수명 내내 다시 사용 하는 것이 좋습니다.
+> 원격 분석 클라이언트는 한 번 인스턴스화하고 응용 프로그램의 수명 동안 다시 사용하는 것이 좋습니다.
 
-다음은 TelemetryClient를 올바르게 사용 하는 예제입니다.
+다음은 원격 분석 클라이언트를 올바르게 사용하는 예입니다.
 
 ```csharp
 public class GoodController : ApiController
@@ -197,7 +199,7 @@ public class GoodController : ApiController
 ## <a name="mvc"></a>MVC
 Application Insights 웹 SDK 버전 2.6(beta3 및 이후 버전)부터 Application Insights는 MVC 5 + 컨트롤러 메서드에서 자동으로 throw된 처리되지 않은 예외를 수집합니다. (다음 예제에 설명된 대로) 이전에 사용자 지정 처리기를 추가하여 이러한 예외를 추적한 경우 예외의 이중 추적을 방지하기 위해 제거할 수 있습니다.
 
-예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 다음은 그 예입니다.
+예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 예를 들어:
 
 * 컨트롤러 생성자에서 throw된 예외
 * 메시지 처리기에서 throw된 예외
@@ -253,7 +255,7 @@ HandleError 특성을 컨트롤러의 새 특성으로 바꿉니다.
     ...
 ```
 
-[샘플](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
+[예제](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
 
 #### <a name="mvc-3"></a>MVC 3
 Global.asax.cs에서 `AiHandleErrorAttribute` 를 글로벌 필터로 등록합니다.
@@ -268,7 +270,7 @@ Global.asax.cs에서 `AiHandleErrorAttribute` 를 글로벌 필터로 등록합�
      ...
 ```
 
-[샘플](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
+[예제](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
 
 #### <a name="mvc-4-mvc5"></a>MVC 4, MVC5
 FilterConfig.cs에서 AiHandleErrorAttribute를 글로벌 필터로 등록합니다.
@@ -284,12 +286,12 @@ FilterConfig.cs에서 AiHandleErrorAttribute를 글로벌 필터로 등록합니
     }
 ```
 
-[샘플](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
+[예제](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
 
 ## <a name="web-api"></a>Web API
 Application Insights 웹 SDK 버전 2.6(beta3 및 이후 버전)부터 Application Insights는 WebAPI 2+의 컨트롤러 메서드에서 자동으로 throw된 처리되지 않은 예외를 수집합니다. (다음 예제에 설명된 대로) 이전에 사용자 지정 처리기를 추가하여 이러한 예외를 추적한 경우 예외의 이중 추적을 방지하기 위해 제거할 수 있습니다.
 
-예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 다음은 그 예입니다.
+예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 예를 들어:
 
 * 컨트롤러 생성자에서 throw된 예외
 * 메시지 처리기에서 throw된 예외
@@ -352,7 +354,7 @@ System.Web.Http.Filters.ExceptionFilterAttribute를 재정의합니다.
     }
 ```
 
-[샘플](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
+[예제](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
 #### <a name="web-api-2x"></a>Web API 2.x
 IExceptionLogger를 추가로 구현합니다.
@@ -407,7 +409,7 @@ WebApiConfig에서 서비스에 추가합니다.
      }
 ```
 
-[샘플](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
+[예제](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
 
 또는 다음 방법을 사용해도 됩니다.
 
@@ -477,18 +479,18 @@ Add the attribute to the service implementations:
          ...
 ```
 
-[샘플](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
+[예제](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
 ## <a name="exception-performance-counters"></a>예외 성능 카운터
 서버에 [Application Insights 에이전트를 설치](../../azure-monitor/app/monitor-performance-live-website-now.md)한 경우 .NET에서 측정된 예외 속도 차트를 확인할 수 있습니다. 여기에는 처리된 .NET 예외와 처리되지 않은 .NET 예외가 모두 포함됩니다.
 
-메트릭 탐색기 탭을 열고 새 차트를 추가 하 고 성능 카운터 아래에 나열 된 **예외 속도**를 선택 합니다.
+메트릭 탐색기 탭을 열고 새 차트를 추가하고 성능 카운터 아래에 나열된 **예외 비율을**선택합니다.
 
 .NET Framework는 간격의 예외 수를 계산하고 간격의 길이로 나누어 속도를 계산합니다.
 
 TrackException 보고서를 계산하여 Application Insights 포털에서 계산되는 ‘예외’ 개수와는 다릅니다. 샘플링 간격이 다르며, SDK에서 처리된 예외 및 처리되지 않은 예외 둘 다에 대한 TrackException 보고서를 보내지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [REST, SQL 및 기타 종속성 호출 모니터링](../../azure-monitor/app/asp-net-dependencies.md)
+* [REST, SQL 및 종속성에 대한 기타 호출 모니터링](../../azure-monitor/app/asp-net-dependencies.md)
 * [페이지 로드 시간, 브라우저 예외 및 AJAX 호출 모니터링](../../azure-monitor/app/javascript.md)
 * [성능 카운터 모니터링](../../azure-monitor/app/performance-counters.md)

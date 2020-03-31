@@ -1,15 +1,15 @@
 ---
-title: Service Fabric 클러스터 리소스 관리자-응용 프로그램 그룹
+title: 서비스 패브릭 클러스터 리소스 관리자 - 응용 프로그램 그룹
 description: Service Fabric 클러스터 리소스 관리자에서 애플리케이션 그룹 기능 개요
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 988c7ce52125800c16aa785d5b1458604a927ecd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75452145"
 ---
 # <a name="introduction-to-application-groups"></a>애플리케이션 그룹 소개
@@ -28,7 +28,7 @@ Service Fabric의 Cluster Resource Manager는 일반적으로 부하([메트릭]
 
 <center>
 
-최대 노드 수를 정의 하는 ![응용 프로그램 인스턴스][Image1]
+![최대 노드 수를 정의하는 애플리케이션 인스턴스][Image1]
 </center>
 
 왼쪽 예제에서 애플리케이션에는 정의된 최대 노드 수가 없으며 세 가지 서비스가 있습니다. Cluster Resource Manager는 클러스터에서 최상의 균형을 달성하기 위해 6개의 사용 가능한 노드에 모든 복제본을 분산했습니다(기본 동작). 오른쪽 예제에서는 동일한 애플리케이션이 3개의 노드로 제한된 것을 확인할 수 있습니다.
@@ -69,7 +69,7 @@ await fc.ApplicationManager.UpdateApplicationAsync(adUpdate);
 - **노드 최대 용량** – 이 설정은 단일 노드의 애플리케이션에 대한 최대 총 부하를 지정합니다. 부하가 이 용량을 초과하면 Cluster Resource Manager는 부하가 감소되도록 복제본을 다른 노드로 이동합니다.
 
 
-PowerShell:
+Powershell:
 
 ``` posh
 New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -Metrics @("MetricName:Metric1,MaximumNodeCapacity:100,MaximumApplicationCapacity:1000")
@@ -110,8 +110,8 @@ await fc.ApplicationManager.CreateApplicationAsync(ad);
 
 <center>
 
-][Image2]
-예약 된 용량을 정의 하 ![응용 프로그램 인스턴스 </center>
+![예약된 용량을 정의하는 애플리케이션 인스턴스][Image2]
+</center>
 
 왼쪽 예에서 애플리케이션은 정의된 애플리케이션 용량이 없습니다. Cluster Resource Manager는 기본 규칙에 따라 모든 항목의 균형을 유지합니다.
 
@@ -150,7 +150,7 @@ Service Fabric은 2개의 노드에 Application1용으로 용량을 예약하고
 ## <a name="obtaining-the-application-load-information"></a>애플리케이션 부하 정보 얻기
 하나 이상의 메트릭에 대해 정의된 애플리케이션 용량이 정의된 각 애플리케이션의 경우 해당 서비스의 복제본에서 보고된 집계 부하에 대한 정보를 얻을 수 있습니다.
 
-PowerShell:
+Powershell:
 
 ``` posh
 Get-ServiceFabricApplicationLoadInformation –ApplicationName fabric:/MyApplication1
@@ -177,7 +177,7 @@ ApplicationLoad 쿼리는 애플리케이션에 대해 지정된 애플리케이
 * 애플리케이션 용량: 애플리케이션 부하의 허용되는 최대값.
 
 ## <a name="removing-application-capacity"></a>애플리케이션 용량 삭제
-애플리케이션 용량 매개 변수가 애플리케이션에 대해 설정되면 업데이트 애플리케이션 API 또는 PowerShell cmdlet을 사용하여 제거할 수 있습니다. 예:
+애플리케이션 용량 매개 변수가 애플리케이션에 대해 설정되면 업데이트 애플리케이션 API 또는 PowerShell cmdlet을 사용하여 제거할 수 있습니다. 예를 들어:
 
 ``` posh
 Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicationCapacity
@@ -206,7 +206,7 @@ Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicat
 - 클러스터 Resource Manager가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)
 - 처음부터 시작 및 [서비스 패브릭 클러스터 Resource Manager 소개](service-fabric-cluster-resource-manager-introduction.md)
 - 메트릭이 일반적으로 작동하는 방식에 대한 자세한 내용은 [서비스 패브릭 부하 메트릭](service-fabric-cluster-resource-manager-metrics.md)
-- Cluster Resource Manager에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [Service Fabric 클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md)에 대한 문서를 확인하세요.
+- Cluster Resource Manager에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 자세한 내용은 [서비스 패브릭 클러스터 설명에](service-fabric-cluster-resource-manager-cluster-description.md) 대한 이 문서를 확인하십시오.
 
 [Image1]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-max-nodes.png
 [Image2]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-reserved-capacity.png

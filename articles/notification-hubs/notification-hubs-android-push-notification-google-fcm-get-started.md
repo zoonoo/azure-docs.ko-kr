@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs 및 Firebase Cloud Messaging을 사용하여 Android에 푸시 알림 보내기 | Microsoft Docs
+title: Azure Notification Hubs 및 Firebase를 사용하여 Android에 푸시 알림 보내기 | Microsoft Docs
 description: 이 자습서에서 Azure Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 Android 디바이스로 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: android
@@ -18,14 +18,14 @@ ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 1af109405118754daa08adf848f1da3f04534455
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e0682a33540cafd8ebab1bb248d462b30ee4dc2a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387500"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127530"
 ---
-# <a name="tutorial-send-push-notifications-to-android-devices-using-google-firebase-cloud-messaging"></a>자습서: Google Firebase Cloud Messaging을 사용하여 Android 디바이스에 푸시 알림 보내기
+# <a name="tutorial-send-push-notifications-to-android-devices-using-firebase"></a>자습서: Firebase를 사용하여 Android 디바이스에 푸시 알림 보내기
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -42,9 +42,9 @@ ms.locfileid: "72387500"
 > * 허브에 앱을 연결합니다.
 > * 앱을 테스트합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/free/)을 참조하세요. 
+이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/free/)을 참조하세요. 
 
 또한 다음 항목이 필요합니다. 
 
@@ -86,7 +86,7 @@ ms.locfileid: "72387500"
 
 이제 허브가 Firebase Cloud Messaging과 함께 작동하도록 구성되었습니다. 디바이스에 알림을 보내고, 앱을 등록하여 알림을 수신하는 데 필요한 연결 문자열도 있습니다.
 
-## <a id="connecting-app"></a>알림 허브에 앱 연결
+## <a name="connect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>알림 허브에 앱 연결
 
 ### <a name="add-google-play-services-to-the-project"></a>프로젝트에 Google Play Services 추가
 

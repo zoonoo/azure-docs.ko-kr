@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
 ms.openlocfilehash: deb1ea8c7b41ad48bddebfbed1b15c667ee0071a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73483950"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
@@ -40,7 +40,7 @@ ms.locfileid: "73483950"
 
 ## <a name="provision-azure-services"></a>Azure 서비스 프로비전
 
-1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **작업 실행...**  - **cloud-provision**을 선택합니다.
+1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **작업 실행...** - **cloud-provision**을 선택합니다.
 
 2. **시작** 패널의 **터미널** 탭 아래에 진행률이 표시됩니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "73483950"
 
 ## <a name="deploy-function-app"></a>함수 앱 배포
 
-1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **작업 실행...**  - **cloud-deploy**를 선택합니다.
+1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **작업 실행...** - **cloud-deploy**를 선택합니다.
 
 2. 함수 앱 코드 업로드 프로세스를 마칠 때까지 기다립니다. *function app deploys: Done*(함수 앱 배포: 완료) 메시지가 표시됩니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "73483950"
 
 1. MXChip IoT DevKit를 컴퓨터에 연결합니다.
 
-2. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **작업 실행...**  - **config-device-connection**을 선택합니다.
+2. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **작업 실행...** - **config-device-connection**을 선택합니다.
 
 3. MXChip IoT DevKit에서 **A** 단추를 길게 누르고 **재설정** 단추를 누른 다음, **A** 단추를 놓으면 DekKit가 구성 모드로 전환됩니다.
 
@@ -77,7 +77,7 @@ ms.locfileid: "73483950"
 
 MXChip IoT DevKit를 컴퓨터에 연결한 상태로:
 
-1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭 하 고 **빌드 작업 실행** ...을 선택 합니다. Arduino 스케치가 컴파일되고 DevKit로 업로드 됩니다.
+1. Visual Studio 코드에서 **작업** 드롭다운 메뉴를 클릭하고 **빌드 빌드 실행을 선택합니다...** 아두 이노 스케치는 컴파일및 DevKit에 업로드됩니다.
 
 2. 스케치가 성공적으로 업로드되면 *Build & Upload Sketch: success*(스케치 빌드 및 업로드: 성공) 메시지가 표시됩니다.
 
@@ -106,7 +106,7 @@ MXChip IoT DevKit를 컴퓨터에 연결한 상태로:
 ![예제 테스트 절차](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> Azure Portal에서 디바이스 쌍의 원시 데이터를 확인할 수 있습니다. IoT Hub -\> IoT 디바이스 -\> *\<사용자의 디바이스\>*  -\> 디바이스 쌍
+> Azure 포털에서 장치 쌍의 원시 데이터를 볼\> 수 있습니다:\> IoT Hub - IoT 장치 - \> - * \<장치\> * 장치 트윈.
 
 ## <a name="next-steps"></a>다음 단계
 

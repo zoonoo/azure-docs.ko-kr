@@ -1,15 +1,15 @@
 ---
-title: InfoBox UI 요소
-description: Azure Portal에 대 한 Microsoft의 InfoBox UI 요소에 대해 설명 합니다. 를 사용 하 여 관리 되는 응용 프로그램을 배포할 때 텍스트 또는 경고를 추가 합니다.
+title: 인포박스 UI 엘리먼트
+description: Azure 포털에 대한 Microsoft.Common.InfoBox UI 요소에 대해 설명합니다. 관리되는 응용 프로그램을 배포할 때 텍스트 또는 경고를 추가하는 데 사용합니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: tomfitz
 ms.openlocfilehash: 6d1e4a84904ef7022d9ce85803bf10285bf0b8ac
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75652477"
 ---
 # <a name="microsoftcommoninfobox-ui-element"></a>Microsoft.Common.InfoBox UI 요소

@@ -1,25 +1,25 @@
 ---
-title: 자동 진공 최적화-Azure Database for PostgreSQL 단일 서버
-description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버에서 autovacuum을 최적화 하는 방법을 설명 합니다.
+title: 자동 진공 최적화 - PostgreSQL용 Azure 데이터베이스 - 단일 서버
+description: 이 문서에서는 PostgreSQL - 단일 서버에 대한 Azure 데이터베이스에서 자동 진공을 최적화하는 방법에 대해 설명합니다.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 1917bd6744e100db54fe959292e29486f8a1784b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74770189"
 ---
-# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에서 autovacuum 최적화
+# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>PostgreSQL - 단일 서버에 대한 Azure 데이터베이스에서 자동 진공 최적화
 이 문서에서는 Azure Database for PostgreSQL 서버에서 자동 진공을 효과적으로 최적화하는 방법을 설명합니다.
 
 ## <a name="overview-of-autovacuum"></a>자동 진공 개요
 PostgreSQL은 MVCC(다중 버전 동시성 제어)를 사용하여 데이터베이스 동시성을 향상합니다. 업데이트할 때마다 삽입 및 삭제가 발생하고, 삭제할 때마다 행이 삭제되도록 소프트 표시됩니다. 소프트 표시는 나중에 제거할 데드 튜플을 식별합니다. 이러한 작업을 수행하기 위해 PostgreSQL은 진공 작업을 실행합니다.
 
-진공 작업은 수동 또는 자동으로 트리거할 수 있습니다. 데이터베이스에서 많은 업데이트 또는 삭제 작업이 발생하는 경우 데드 튜플이 더 많습니다. 데이터베이스가 유휴 상태일 때 데드 튜플이 더 적습니다. 데이터베이스 부하가 많은 경우 더 자주 진공해야 하므로 ‘수동으로’ 진공 작업을 실행하는 것이 불편합니다.
+진공 작업은 수동 또는 자동으로 트리거할 수 있습니다. 데이터베이스에서 많은 업데이트 또는 삭제 작업이 발생하는 경우 데드 튜플이 더 많습니다. 데이터베이스가 유휴 상태일 때 데드 튜플이 더 적습니다. 데이터베이스 부하가 많은 경우 더 자주 진공해야 하므로 ‘수동으로’ 진공 작업을 실행하는 것이 불편합니다.**
 
 자동 진공은 구성할 수 있으며 튜닝의 이점을 활용할 수 있습니다. PostgreSQL이 제공하는 기본값은 모든 종류의 디바이스에서 제품이 작동하도록 합니다. 이러한 디바이스에는 Raspberry Pi가 포함됩니다. 이상적인 구성 값은 다음에 따라 다릅니다.
 - 사용 가능한 총 리소스 크기(예: SKU 및 스토리지 크기)
@@ -44,7 +44,7 @@ XYZ라는 테이블에 있는 데드 및 라이브 튜플 수를 식별하도록
 
 이전 질문에 따라 업데이트할 수 있는 일부 자동 진공 구성 매개 변수와 몇 가지 지침은 다음과 같습니다.
 
-매개 변수를 포함해야 합니다.|설명|기본값
+매개 변수|설명|기본값
 ---|---|---
 autovacuum_vacuum_threshold|한 테이블에서 진공 작업을 트리거하는 데 필요한 업데이트 또는 삭제된 튜플의 최소 개수를 지정합니다. 기본값은 50개 튜플입니다. 이 매개 변수는 postgresql.conf 파일 또는 서버 명령줄에서만 설정합니다. 개별 테이블에 대한 설정을 재정의하려면 테이블 스토리지 매개 변수를 변경합니다.|50
 autovacuum_vacuum_scale_factor|진공 작업을 트리거할지 여부를 결정할 때 autovacuum_vacuum_threshold에 추가할 테이블 크기의 비율을 지정합니다. 기본값은 0.2로, 테이블 크기의 20%입니다. 이 매개 변수는 postgresql.conf 파일 또는 서버 명령줄에서만 설정합니다. 개별 테이블에 대한 설정을 재정의하려면 테이블 스토리지 매개 변수를 변경합니다.|5%

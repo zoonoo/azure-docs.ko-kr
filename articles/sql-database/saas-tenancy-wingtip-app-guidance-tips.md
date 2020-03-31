@@ -1,5 +1,5 @@
 ---
-title: 다중 테 넌 트 앱 예제-정문 SaaS
+title: 다중 테넌트 앱 예제 - 윙팁 SaaS
 description: Azure SQL Database를 사용하는 샘플 다중 테넌트 애플리케이션인 Wingtip Tickets SaaS 예제를 설치 및 실행하기 위한 단계와 지침을 제공합니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 162d1f269c65ad98afa30e8e96370bbdceca99bd
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74132301"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Wingtip Tickets 샘플 SaaS 앱을 사용하기 위한 일반적인 지침
@@ -24,7 +24,7 @@ ms.locfileid: "74132301"
 
 ## <a name="download-and-unblock-the-wingtip-tickets-saas-scripts"></a>Wingtip Tickets SaaS 스크립트 다운로드 및 차단 해제
 
-zip 파일이 외부 원본에서 다운로드되고 추출될 때 Windows에서 실행 가능한 콘텐츠(스크립트, dll)를 차단할 수 있습니다. Zip 파일에서 스크립트를 추출할 경우 **아래 단계에 따라 추출하기 전에 .zip 파일을 차단 해제**하세요. 이렇게 하면 스크립트를 실행할 수 있습니다.
+zip 파일이 외부 원본에서 다운로드되고 추출될 때 Windows에서 실행 가능한 콘텐츠(스크립트, dll)를 차단할 수 있습니다. zip 파일에서 스크립트를 추출할 때 **추출하기 전에 .zip 파일의 차단을 해제하려면 아래 단계를 따릅니다.** 이렇게 하면 스크립트를 실행할 수 있습니다.
 
 1. 탐색하려는 데이터베이스 테넌트 패턴에 대해서는 Wingtip Tickets SaaS GitHub 리포지토리로 이동하세요.
     - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
@@ -37,7 +37,7 @@ zip 파일이 외부 원본에서 다운로드되고 추출될 때 Windows에서
 6. **확인**을 클릭합니다.
 7. 파일의 압축을 풉니다.
 
-스크립트는 *..\\Learning Modules* 폴더에 있습니다.
+스크립트는 *.에 있습니다. 학습 \\모듈* 폴더.
 
 
 ## <a name="working-with-the-wingtip-tickets-powershell-scripts"></a>Wingtip Tickets PowerShell 스크립트 작업
@@ -56,7 +56,7 @@ zip 파일이 외부 원본에서 다운로드되고 추출될 때 Windows에서
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>F5 키를 눌러 스크립트 실행
 
-여러 스크립트에서 *$PSScriptRoot*를 사용하여 폴더를 탐색할 수 있으며 *$PSScriptRoot*는 **F5** 키를 눌러 스크립트를 실행할 때만 평가됩니다.  선택 영역을 강조 표시 하 고 실행 (**F8**) 하면 오류가 발생할 수 있으므로 스크립트를 실행할 때 **f5** 키를 누릅니다.
+여러 스크립트에서 *$PSScriptRoot*를 사용하여 폴더를 탐색할 수 있으며 *$PSScriptRoot*는 **F5** 키를 눌러 스크립트를 실행할 때만 평가됩니다.선택 내용을 강조 표시하고 실행(**F8**)하면 오류가 발생할 수 있으므로 스크립트를 실행할 때는 **F5** 키를 누르세요.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>스크립트를 단계별로 실행하여 구현 검사
 
@@ -65,7 +65,7 @@ zip 파일이 외부 원본에서 다운로드되고 추출될 때 Windows에서
 PowerShell 스크립트 탐색 및 단계별 실행에 대한 팁
 
 - PowerShell ISE에서 **Demo-** 스크립트를 엽니다.
-- **F5** 키를 사용하여 실행하거나 계속합니다. 스크립트의 선택 항목을 실행할 때 **$PSScriptRoot**가 평가되지 않으므로 *F8* 키는 사용하지 않는 것이 좋습니다.
+- **F5** 키를 사용하여 실행하거나 계속합니다. 스크립트의 선택 항목을 실행할 때 *$PSScriptRoot*가 평가되지 않으므로 **F8** 키는 사용하지 않는 것이 좋습니다.
 - 행을 클릭하거나 선택하고 **F9** 키를 눌러 중단점을 배치합니다.
 - **F10**을 사용하여 함수 또는 스크립트 호출을 실행합니다.
 - **F11**을 사용하여 함수 또는 스크립트 호출 코드를 한 단계씩 실행합니다.
@@ -89,11 +89,11 @@ PowerShell 스크립트 탐색 및 단계별 실행에 대한 팁
     - **독립 실행형 애플리케이션:** 개별 테넌트의 서버(예: *contosoconcerthall-&lt;User&gt;.database.windows.net*)
     - **테넌트당 데이터베이스:** *tenants1-dpt-&lt;User&gt;.database.windows.net*
     - **다중 테넌트 데이터베이스:** *tenants1-mt-&lt;User&gt;.database.windows.net*
-2. **연결** > **데이터베이스 엔진...** 을 클릭합니다.
+2. 데이터베이스 엔진 **연결을** > **클릭합니다...**
 
    ![카탈로그 서버](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. 데모 자격 증명: Login = *developer*, Password = *P\@ssword1*
+3. 데모 자격 증명은 다음과 같습니다 : 로그인 = *개발자,* 암호 = *P\@ssword1*
 
     아래 이미지는 *테넌트당 데이터베이스* 패턴의 로그인을 보여줍니다.
     ![연결](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

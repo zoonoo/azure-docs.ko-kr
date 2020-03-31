@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 08/12/2019
 ms.author: cephalin
 ms.openlocfilehash: 92e39f128e90ba83a919388e217f0edc86f81770
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75769672"
 ---
-## <a name="rest"></a>REST API를 사용하여 ZIP 파일 배포 
+## <a name="deploy-zip-file-with-rest-apis"></a><a name="rest"></a>REST API를 사용하여 ZIP 파일 배포 
 
 [배포 서비스 REST API](https://github.com/projectkudu/kudu/wiki/REST-API)를 사용하여 .zip 파일을 Azure의 앱에 배포할 수 있습니다. 배포하려면 POST 요청을 https://<app_name>.scm.azurewebsites.net/api/zipdeploy에 보냅니다. POST 요청은 메시지 본문에 .zip 파일을 포함해야 합니다. 앱에 대한 배포 자격 증명은 HTTP 기본 인증을 사용하여 요청으로 제공됩니다. 자세한 내용은 [.zip 푸시 배포 참조](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)를 참조하세요. 
 
@@ -33,7 +33,7 @@ curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deploymen
 
 ### <a name="with-powershell"></a>PowerShell 사용
 
-다음 예제에서는 [AzWebapp](/powershell/module/az.websites/publish-azwebapp) 를 사용 하 여 .zip 파일을 업로드 합니다. `<group-name>`, `<app-name>` 및 `<zip-file-path>` 자리 표시자를 바꿉니다.
+다음 예제에서는 .zip 파일을 [게시-AzWebapp](/powershell/module/az.websites/publish-azwebapp) 업로드를 사용합니다. `<group-name>`, `<app-name>` 및 `<zip-file-path>` 자리 표시자를 바꿉니다.
 
 ```powershell
 Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <zip-file-path>
@@ -41,7 +41,7 @@ Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <
 
 이 요청은 업로드된 .zip 파일에서 푸시 배포를 트리거합니다. 
 
-현재 및 과거 배포를 검토하려면 다음 명령을 실행합니다. 다시 `<deployment-user>`, `<deployment-password>`및 `<app-name>` 자리 표시자를 바꿉니다.
+현재 및 과거 배포를 검토하려면 다음 명령을 실행합니다. 다시 `<deployment-user>`, 을 `<deployment-password>`바꾸고 `<app-name>` 및 자리 표시자.
 
 ```bash
 $username = "<deployment-user>"

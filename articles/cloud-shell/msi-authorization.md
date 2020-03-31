@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Shell 리소스에 관리 id 사용
+title: Azure 클라우드 셸의 리소스에 관리되는 ID 사용
 description: Azure Cloud Shell에서 MSI를 통해 코드 인증
 services: azure
 author: maertendMSFT
@@ -11,10 +11,10 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/14/2018
 ms.openlocfilehash: a5d49a16324a5a97f4a0507f9abf47ea602ea072
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72328706"
 ---
 # <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>Azure Cloud Shell에서 Azure 리소스에 대한 관리 ID 사용

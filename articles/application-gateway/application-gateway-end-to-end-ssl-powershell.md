@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
 ms.openlocfilehash: 7ba273cddb6cf41872c4db1c34560c104b992787
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72286459"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>PowerShell과 함께 Application Gateway를 사용하여 종단 간 SSL 구성
@@ -20,7 +20,7 @@ ms.locfileid: "72286459"
 
 Azure Application Gateway는 트래픽의 엔드투엔드 암호화를 지원합니다. Application Gateway는 애플리케이션 게이트웨이에서 SSL 연결을 종료합니다. 그러면 게이트웨이에서 트래픽에 라우팅 규칙을 적용하고, 패킷을 다시 암호화하고, 정의된 라우팅 규칙에 따라 적절한 백 엔드 서버에 패킷을 전달합니다. 웹 서버의 모든 응답은 동일한 프로세스를 거쳐 최종 사용자에게 돌아갑니다.
 
-Application Gateway가 사용자 지정 SSL 옵션 정의를 지원합니다. 또한 **TLSv1.0**/**TLSv1.1**/**TLSv1.2** 프로토콜 버전을 사용하지 않도록 설정할 수 있으며, 사용할 암호 그룹 및 기본 설정 순서도 정의할 수 있습니다. 구성 가능한 SSL 옵션에 대한 자세한 내용은 [SSL 정책 개요](application-gateway-SSL-policy-overview.md)를 참조하세요.
+Application Gateway가 사용자 지정 SSL 옵션 정의를 지원합니다. 또한 **TLSv1.0**, **TLSv1.1** 및 **TLSv1.2**와 같은 프로토콜 버전을 사용하지 않고 사용할 암호 그룹 및 기본 설정의 순서를 정의하도록 지원합니다. 구성 가능한 SSL 옵션에 대한 자세한 내용은 [SSL 정책 개요](application-gateway-SSL-policy-overview.md)를 참조하세요.
 
 > [!NOTE]
 > SSL 2.0 및 SSL 3.0은 기본적으로 사용할 수 없도록 설정되며 사용하도록 설정할 수 없습니다. 보안되지 않은 것으로 간주되며 Application Gateway와 함께 사용할 수 없습니다.
@@ -38,13 +38,13 @@ Application Gateway가 사용자 지정 SSL 옵션 정의를 지원합니다. �
 * **appgwsubnet** 및 **appsubnet**라는 두 개의 서브넷을 만듭니다.
 * SSL 프로토콜 버전 및 암호 그룹을 제한하는 엔드투엔드 SSL 암호화를 지원하는 소형 Application Gateway를 만듭니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Application Gateway를 사용하여 엔드투엔드 SSL을 구성하려면 게이트웨이에 사용할 인증서와 백 엔드 서버에 사용할 인증서가 필요합니다. 게이트웨이 인증서는 SSL 프로토콜 사양에 따라 대칭 키를 파생하는 데 사용됩니다. 이렇게 파생된 대칭 키는 게이트웨이로 전송되는 트래픽을 암호화하고 암호를 해독하는 데 사용됩니다. 게이트웨이 인증서는 개인 정보 교환(PFX) 형식이어야 합니다. 이 파일 형식을 사용하면 애플리케이션 게이트웨이에서 트래픽의 암호화 및 암호 해독을 수행하는 데 필요한 프라이빗 키를 내보낼 수 있습니다.
 
-종단 간 SSL 암호화의 경우 응용 프로그램 게이트웨이에서 백 엔드를 명시적으로 허용 해야 합니다. 백 엔드 서버의 공용 인증서를 Application Gateway에 업로드합니다. 인증서를 추가하면 Application Gateway가 알려진 백 엔드 인스턴스하고만 통신하게 됩니다. 그러면 엔드투엔드 통신의 보안이 유지됩니다.
+종단 간 SSL 암호화의 경우 백 엔드는 응용 프로그램 게이트웨이에서 명시적으로 허용되어야 합니다. 백 엔드 서버의 공용 인증서를 Application Gateway에 업로드합니다. 인증서를 추가하면 Application Gateway가 알려진 백 엔드 인스턴스하고만 통신하게 됩니다. 그러면 엔드투엔드 통신의 보안이 유지됩니다.
 
 구성 프로세스는 다음 섹션에 설명되어 있습니다.
 
@@ -167,14 +167,14 @@ Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다.
    > [!NOTE]
    > 기본 프로브는 공용 키를 백엔드의 IP 주소에 바인딩된 *기본* SSL에서 가져오고 프로브가 받는 공용 키 값과 여기서 사용자가 제공한 공용 키 값을 비교합니다. 
    > 
-   > 백 엔드에서 호스트 헤더와 SNI(서버 이름 표시)를 사용하는 경우 검색된 공개 키는 트래픽이 흐르는 의도된 사이트가 아닐 수 있습니다. 확실하지 않은 경우 백 엔드 서버에서 https://127.0.0.1/ 을 방문하여 *기본* SSL 바인딩에 사용되는 인증서를 확인하세요. 이 섹션에서는 해당 요청에서 공개 키를 사용합니다. HTTPS 바인딩에서 호스트 헤더 및 SNI를 사용하고, 수동 브라우저 요청에서 백 엔드 서버의 https://127.0.0.1/ 로 응답 및 인증서를 받지 않은 경우 기본 SSL 바인딩을 설정해야 합니다. 그렇게 하지 않으면 프로브가 실패하고 백 엔드가 허용 목록에 추가되지 않습니다.
+   > 백 엔드에서 호스트 헤더와 SNI(서버 이름 표시)를 사용하는 경우 검색된 공개 키는 트래픽이 흐르는 의도된 사이트가 아닐 수 있습니다. 확실하지 않은 경우 백 엔드 서버에서 https://127.0.0.1/을 방문하여 *기본* SSL 바인딩에 사용되는 인증서를 확인하세요. 이 섹션에서는 해당 요청에서 공개 키를 사용합니다. HTTPS 바인딩에서 호스트 헤더 및 SNI를 사용하고, 수동 브라우저 요청에서 백 엔드 서버의 https://127.0.0.1/로 응답 및 인증서를 받지 않은 경우 기본 SSL 바인딩을 설정해야 합니다. 그렇게 하지 않으면 프로브가 실패하고 백 엔드가 허용 목록에 추가되지 않습니다.
 
    ```powershell
    $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
    ```
 
    > [!NOTE]
-   > 이전 단계에서 제공 하는 인증서는 백 엔드에 있는 .pfx 인증서의 공개 키 여야 합니다. 백 엔드 서버에 설치된 인증서(루트 인증서 제외)를 CER(Claim, Evidence, Reasoning) 형식으로 내보내고 이 단계에서 사용합니다. 이 단계에서는 Application Gateway를 통해 백 엔드를 허용 목록에 추가합니다.
+   > 이전 단계에서 제공된 인증서는 백 엔드에 있는 .pfx 인증서의 공개 키여야 합니다. 백 엔드 서버에 설치된 인증서(루트 인증서 제외)를 CER(Claim, Evidence, Reasoning) 형식으로 내보내고 이 단계에서 사용합니다. 이 단계에서는 Application Gateway를 통해 백 엔드를 허용 목록에 추가합니다.
 
    Application Gateway v2 SKU를 사용하는 경우 인증 인증서 대신 신뢰할 수 있는 루트 인증서를 만듭니다. 자세한 내용은 [Application Gateway의 종단 간 SSL 개요](ssl-overview.md#end-to-end-ssl-with-the-v2-sku)를 참조하세요.
 
@@ -227,19 +227,19 @@ Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다.
 
 위의 모든 단계를 사용하여 Application Gateway를 만듭니다. 게이트웨이 만들기는 실행하는 데 시간이 오래 걸리는 과정입니다.
 
-V1 SKU의 경우 아래 명령을 사용 합니다.
+V1 SKU의 경우 아래 명령을 사용합니다.
 ```powershell
 $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
-V2 SKU의 경우 아래 명령을 사용 합니다.
+V2 SKU의 경우 아래 명령을 사용합니다.
 ```powershell
 $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting01 -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -TrustedRootCertificate $trustedRootCert01 -Verbose
 ```
 
-## <a name="apply-a-new-certificate-if-the-back-end-certificate-is-expired"></a>백 엔드 인증서가 만료 된 경우 새 인증서 적용
+## <a name="apply-a-new-certificate-if-the-back-end-certificate-is-expired"></a>백 엔드 인증서가 만료된 경우 새 인증서 적용
 
-이 절차를 사용 하 여 백 엔드 인증서가 만료 된 경우 새 인증서를 적용 합니다.
+백 엔드 인증서가 만료된 경우 이 절차를 사용하여 새 인증서를 적용합니다.
 
 1. 업데이트할 Application Gateway를 검색합니다.
 
@@ -247,33 +247,33 @@ $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -Resou
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
    
-2. 인증서의 공개 키를 포함 하는 .cer 파일의 새 인증서 리소스를 추가 하 고 응용 프로그램 게이트웨이에서 SSL 종료를 위해 수신기에 추가 된 것과 동일한 인증서를 사용할 수도 있습니다.
+2. .cer 파일에서 새 인증서 리소스를 추가합니다.
 
    ```powershell
    Add-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name 'NewCert' -CertificateFile "appgw_NewCert.cer" 
    ```
     
-3. 새 인증 인증서 개체를 변수로 가져옵니다 (TypeName: Microsoft.Azure.Commands.Network.Models.PSApplicationGatewayAuthenticationCertificate).
+3. 새 인증 인증서 개체를 변수로 가져옵니다(TypeName: Microsoft.Azure.Commands.Network.Model.Models.PSApplication게이트웨이인증인증서).
 
    ```powershell
    $AuthCert = Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name NewCert
    ```
  
- 4. **BackendHttp** 설정에 새 인증서를 할당 하 고 $AuthCert 변수를 참조 합니다. 변경 하려는 HTTP 설정 이름을 지정 합니다.
+ 4. 백 **엔드Http** 설정에 새 인증서를 할당 하 고 $AuthCert 변수와 함께 참조 합니다. (변경할 HTTP 설정 이름을 지정합니다.)
  
    ```powershell
    $out= Set-AzApplicationGatewayBackendHttpSetting -ApplicationGateway $gw -Name "HTTP1" -Port 443 -Protocol "Https" -CookieBasedAffinity Disabled -AuthenticationCertificates $Authcert
    ```
     
- 5. 응용 프로그램 게이트웨이에 대 한 변경 내용을 커밋하고 $out 변수에 포함 된 새 구성을 전달 합니다.
+ 5. 변경 내용이 응용 프로그램 게이트웨이에 커밋되고 포함된 새 구성을 $out 변수에 전달합니다.
  
    ```powershell
    Set-AzApplicationGateway -ApplicationGateway $gw  
    ```
 
-## <a name="remove-an-unused-expired-certificate-from-http-settings"></a>HTTP 설정에서 사용 되지 않은 만료 된 인증서 제거
+## <a name="remove-an-unused-expired-certificate-from-http-settings"></a>HTTP 설정에서 사용되지 않는 만료된 인증서 제거
 
-이 절차를 사용 하 여 HTTP 설정에서 사용 되지 않은 만료 된 인증서를 제거 합니다.
+이 절차를 사용하여 HTTP 설정에서 사용되지 않는 만료된 인증서를 제거합니다.
 
 1. 업데이트할 Application Gateway를 검색합니다.
 
@@ -281,19 +281,19 @@ $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -Resou
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
    
-2. 제거 하려는 인증 인증서의 이름을 나열 합니다.
+2. 제거할 인증 인증서의 이름을 나열합니다.
 
    ```powershell
    Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw | select name
    ```
     
-3. 응용 프로그램 게이트웨이에서 인증 인증서를 제거 합니다.
+3. 응용 프로그램 게이트웨이에서 인증 인증서를 제거합니다.
 
    ```powershell
    $gw=Remove-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name ExpiredCert
    ```
  
- 4. 변경 내용을 커밋합니다.
+ 4. 변경 을 커밋합니다.
  
    ```powershell
    Set-AzApplicationGateway -ApplicationGateway $gw

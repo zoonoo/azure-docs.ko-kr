@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
 ms.openlocfilehash: 7fafe177ea0c6c618dc4ab0727ba14c83cbb0102
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68965007"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>StorSimple 디바이스의 10GbE 네트워크 인터페이스에 대해 지원되는 하드웨어
@@ -32,12 +32,12 @@ ms.locfileid: "68965007"
 Microsoft는 다음과 같은 소형 폼팩터 플러그형(SFP) 트랜시버, 케이블 및 스위치가 디바이스와 최적으로 작동되도록 테스트했습니다. (새 하드웨어를 테스트하는 대로 다음 표가 업데이트됩니다.)
 
 ### <a name="sfp-transceivers"></a>SFP + 트랜시버
-| 계정을 | Model |
+| 계정을 | 모델 |
 | --- | --- |
 | 시스코 |SFP-10G-SR |
 
 ### <a name="cables"></a>케이블
-| S. 아니요. | 계정을 | Model |
+| S.는 아니요. | 계정을 | 모델 |
 | --- | --- | --- |
 | 1. |시스코 |SFP-H10GB-CU1M |
 | 2. |시스코 |SFP-H10GB-CU2M |
@@ -45,7 +45,7 @@ Microsoft는 다음과 같은 소형 폼팩터 플러그형(SFP) 트랜시버, �
 | 4. |Tripp-Lite |N820-05M (OM3) |
 
 ### <a name="switches"></a>스위치
-| S. 아니요. | 계정을 | Model |
+| S.는 아니요. | 계정을 | 모델 |
 | --- | --- | --- |
 | 1. |시스코 |N3K-C3172PQ-10GE |
 | 2. |시스코 |N3K-C3048-ZM-F |
@@ -61,9 +61,9 @@ Microsoft는 다음과 같은 소형 폼팩터 플러그형(SFP) 트랜시버, �
 | 스위치 운영 체제 버전 |JunOS 12.3R9.4 |
 | 블레이드 모델 |포트 등록(PIC 0) |
 | 송수신 장치 제조사 |Juniper |
-| 송수신 장치 모델 |부품 번호 740-021308 <br></br> 부품 번호 740-030658 |
+| 송수신 장치 모델 |부품 번호 740-021308 <br></br>  부품 번호 740-030658 |
 | 송수신 장치 펌웨어 버전 |Rev 01 버전 0.0(보고됨) |
-| 케이블 모델 |이중 점퍼 LC/LC 50/125μ, OM3, LSZH |
+| 케이블 모델 |양면 점퍼 LC/LC 50/125μ, OM3, LSZH |
 | StorSimple 모델 |8600 |
 | StorSimple 소프트웨어 버전 |6.3.9600.17491 |
 
@@ -73,7 +73,7 @@ Microsoft는 다음과 같은 소형 폼팩터 플러그형(SFP) 트랜시버, �
 ### <a name="cables-and-modules-supported-by-mellanox"></a>Mellanox에서 지원하는 케이블 및 모듈
 다음 표에서 Mellanox에서 지 원하는 케이블 및 모듈을 나열합니다. Microsoft에서 테스트하지 않았지만 StorSimple 디바이스와 작업할 수 있습니다.
 
-| S. 아니요. | 속도 | Model | Description | 계정을 |
+| S.는 아니요. | 속도 | 모델 | 설명 | 계정을 |
 | --- | --- | --- | --- | --- |
 | 1. |10GbE |CAB-SFP-SFP-1M |수동 구리 케이블 SFP+10Gb/s 1m |Arista |
 | 2. |10GbE |CAB-SFP-SFP-2M |수동 구리 케이블 SFP+10Gb/s 2m |Arista |
@@ -114,7 +114,7 @@ Microsoft는 다음과 같은 소형 폼팩터 플러그형(SFP) 트랜시버, �
 ### <a name="switches-supported-by-mellanox"></a>Mellanox에서 지원하는 스위치
 다음 표는 Mellanox에서 지원하는 스위치를 나열합니다. Microsoft에서 테스트하지 않았지만 StorSimple 디바이스와 작업할 수 있습니다.
 
-| S. 아니요. | 속도 | Model | Description | 계정을 |
+| S.는 아니요. | 속도 | 모델 | 설명 | 계정을 |
 | --- | --- | --- | --- | --- |
 | 1. |10GbE |516733-B21 |HP ProCurve 6120XG 10GbE 이더넷 블레이드 스위치 |HP |
 | 2. |10GbE |538113-B21 |HP 10GbE 통과 모듈(PTM) |HP |

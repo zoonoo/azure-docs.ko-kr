@@ -5,10 +5,10 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 239ea2eb4d5bc8d326d5ca503a18b149252dc1be
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69558808"
 ---
 > [!div class="op_single_selector"]
@@ -17,7 +17,7 @@ ms.locfileid: "69558808"
 > * [Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
 > * [Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
 
-백 엔드 앱 [은 장치 쌍 및][lnk-devtwin] [직접 메서드와][lnk-c2dmethod]같은 Azure IoT Hub 기본 형식을 사용 하 여 장치에서 장치 관리 작업을 원격으로 시작 하 고 모니터링할 수 있습니다. 이 자습서에서는 백 엔드 앱 및 디바이스 앱이 함께 작동하여 IoT Hub를 사용하여 원격 디바이스 다시 부팅을 시작하고 모니터링하는 방법을 보여 줍니다.
+백 엔드 앱은 Azure IoT Hub 기본 형식, 즉 [디바이스 쌍][lnk-devtwin] 및 [직접 메서드][lnk-c2dmethod]를 사용하여 디바이스에서 디바이스 관리 작업을 원격으로 시작하고 모니터링할 수 있습니다. 이 자습서에서는 백 엔드 앱 및 디바이스 앱이 함께 작동하여 IoT Hub를 사용하여 원격 디바이스 다시 부팅을 시작하고 모니터링하는 방법을 보여 줍니다.
 
 [!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor |의 로그인 로그 스키마 Microsoft Docs
-description: Azure Monitor에서 사용할 Azure AD 로그인 로그 스키마에 대해 설명 합니다.
+title: Azure 모니터의 로그인 로그 스키마 | 마이크로 소프트 문서
+description: Azure 모니터에서 사용할 Azure AD 로그인 로그 스키마 설명
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5525f2f8ab4ef83ba9c3aeeff945bc9d875600d5
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75748670"
 ---
-# <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Azure Monitor에서 Azure AD 로그인 로그 스키마 해석
+# <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Azure 모니터에서 Azure AD 로그인 로그 스키마 해석
 
 이 문서에서는 Azure Monitor에서 Azure AD(Azure Active Directory) 로그인 로그 스키마에 대해 설명합니다. 로그인 관련 정보는 대부분 `records` 개체의 *Properties* 특성에서 제공됩니다.
 
@@ -143,31 +143,31 @@ ms.locfileid: "75748670"
 
 ## <a name="field-descriptions"></a>필드 설명
 
-| 필드 이름 | Description |
+| 필드 이름 | 설명 |
 |------------|-------------|
-| 시간 | UTC 형식의 날짜 및 시간입니다. |
+| Time | UTC 형식의 날짜 및 시간입니다. |
 | ResourceId | 이 값이 매핑 해제되며 이 필드를 안전하게 무시할 수 있습니다.  |
 | OperationName | 로그인의 경우 이 값은 항상 *로그인 활동*입니다. |
 | OperationVersion | 클라이언트에서 요청한 REST API 버전입니다. |
-| 범주 | 로그인의 경우 이 값은 항상 *SignIn*입니다. | 
+| Category | 로그인의 경우 이 값은 항상 *SignIn*입니다. | 
 | TenantId | 로그와 연결된 테넌트 GUID입니다. |
 | ResultType | 로그인 작업의 결과는 *성공* 또는 *실패*일 수 있습니다. | 
 | ResultSignature | 로그인 작업에 대한 오류 코드(있는 경우)를 포함합니다. |
 | ResultDescription | 로그인 작업에 대한 오류 설명을 제공합니다. |
-| riskDetail | riskDetail | 위험한 사용자, 로그인 또는 위험 검색의 특정 상태 뒤에 ' reason '을 제공 합니다. 가능한 값은 다음과 같습니다. `none`, `adminGeneratedTemporaryPassword`, `userPerformedSecuredPasswordChange`, `userPerformedSecuredPasswordReset`, `adminConfirmedSigninSafe`, `aiConfirmedSigninSafe`, `userPassedMFADrivenByRiskBasedPolicy`, `adminDismissedAllRiskForUser`, `adminConfirmedSigninCompromised`, `unknownFutureValue`. `none` 값은 사용자에 대 한 작업이 수행 되지 않았거나 지금까지 로그인 하지 않았음을 의미 합니다. <br>**참고:** 이 속성에 대 한 자세한 내용은 Azure AD Premium P2 라이선스가 필요 합니다. 다른 라이선스는 `hidden`값을 반환 합니다. |
-| riskEventTypes | riskEventTypes | 로그인과 관련 된 위험 검색 유형입니다. 가능한 값은 `unlikelyTravel`, `anonymizedIPAddress`, `maliciousIPAddress`, `unfamiliarFeatures`, `malwareInfectedIPAddress`, `suspiciousIPAddress`, `leakedCredentials`, `investigationsThreatIntelligence`, `generic`및 `unknownFutureValue`입니다. |
-| riskLevelAggregated | riskLevel | 집계 된 위험 수준. 가능한 값은 `none`, `low`, `medium`, `high`, `hidden`및 `unknownFutureValue`입니다. `hidden` 값은 Azure AD ID 보호에 대해 사용자 또는 로그인을 사용할 수 없음을 의미 합니다. **참고:** 이 속성에 대 한 자세한 내용은 Azure AD Premium P2 고객만 사용할 수 있습니다. 다른 모든 고객은 `hidden`반환 됩니다. |
-| riskLevelDuringSignIn | riskLevel | 로그인 중의 위험 수준 가능한 값은 `none`, `low`, `medium`, `high`, `hidden`및 `unknownFutureValue`입니다. `hidden` 값은 Azure AD ID 보호에 대해 사용자 또는 로그인을 사용할 수 없음을 의미 합니다. **참고:** 이 속성에 대 한 자세한 내용은 Azure AD Premium P2 고객만 사용할 수 있습니다. 다른 모든 고객은 `hidden`반환 됩니다. |
-| riskState | riskState | 위험한 사용자, 로그인 또는 위험 검색의 상태를 보고 합니다. 가능한 값은 `none`, `confirmedSafe`, `remediated`, `dismissed`, `atRisk`, `confirmedCompromised`, `unknownFutureValue`입니다. |
+| 위험 세부 사항 | 위험 세부 사항 | 위험한 사용자, 로그인 또는 위험 검색의 특정 상태 뒤에 '이유'를 제공합니다. 가능한 값은 `none`다음과 `adminGeneratedTemporaryPassword` `userPerformedSecuredPasswordChange` `userPerformedSecuredPasswordReset` `adminConfirmedSigninSafe` `aiConfirmedSigninSafe` `userPassedMFADrivenByRiskBasedPolicy` `adminDismissedAllRiskForUser` `adminConfirmedSigninCompromised`같습니다. `unknownFutureValue` 이 `none` 값은 지금까지 사용자 또는 로그인에 대해 수행된 작업이 없음을 의미합니다. <br>**참고:** 이 속성에 대한 세부 정보에는 Azure AD 프리미엄 P2 라이선스가 필요합니다. 다른 라이선스는 값을 `hidden`반환합니다. |
+| 위험이벤트유형 | 위험이벤트유형 | 로그인과 관련된 위험 검색 유형입니다. 가능한 값은 `unlikelyTravel`다음과 `anonymizedIPAddress` `maliciousIPAddress` `unfamiliarFeatures` `malwareInfectedIPAddress` `suspiciousIPAddress` `leakedCredentials` `investigationsThreatIntelligence` `generic`같습니다. `unknownFutureValue` |
+| 리스크레벨집계 | 위험 수준 | 집계된 위험 수준입니다. 가능한 값은 `none`" `low` `medium`, `high` `hidden`에 `unknownFutureValue`이값은 , 이 `hidden` 값은 Azure AD ID 보호에 대해 사용자 또는 로그인이 활성화되지 않음을 의미합니다. **참고:** 이 속성에 대한 세부 정보는 Azure AD Premium P2 고객만 사용할 수 있습니다. 다른 모든 고객은 `hidden`반환됩니다. |
+| 리스크레벨로그인 | 위험 수준 | 로그인 중 위험 수준입니다. 가능한 값은 `none`" `low` `medium`, `high` `hidden`에 `unknownFutureValue`이값은 , 이 `hidden` 값은 Azure AD ID 보호에 대해 사용자 또는 로그인이 활성화되지 않음을 의미합니다. **참고:** 이 속성에 대한 세부 정보는 Azure AD Premium P2 고객만 사용할 수 있습니다. 다른 모든 고객은 `hidden`반환됩니다. |
+| 위험 상태 | 위험 상태 | 위험한 사용자의 상태, 로그인 또는 위험 검색을 보고합니다. 가능한 값은 `none`다음과 `confirmedSafe` `remediated` `dismissed`같습니다. `atRisk` `confirmedCompromised` `unknownFutureValue` |
 | DurationMs |  이 값이 매핑 해제되며 이 필드를 안전하게 무시할 수 있습니다. |
 | callerIpAddress | 요청한 클라이언트의 IP 주소입니다. | 
 | CorrelationId | 클라이언트에서 전달한 선택적 GUID입니다. 이 값은 클라이언트 쪽 작업을 서버 쪽 작업과 상관 관계를 지정하는 데 도움이 될 수 있으며, 서비스에 걸쳐 있는 로그를 추적하는 경우에 유용합니다. |
-| ID | 요청할 때 제공된 토큰의 ID입니다. 사용자 계정, 시스템 계정 또는 서비스 사용자일 수 있습니다. |
-| 수준 | 메시지의 형식을 제공합니다. 감사의 경우 항상 *Informational*입니다. |
+| Identity | 요청할 때 제공된 토큰의 ID입니다. 사용자 계정, 시스템 계정 또는 서비스 사용자일 수 있습니다. |
+| Level | 메시지의 형식을 제공합니다. 감사의 경우 항상 *Informational*입니다. |
 | 위치 | 로그인 활동의 위치를 제공합니다. |
-| 속성 | 로그인과 연결 된 모든 속성을 나열 합니다. 자세한 내용은 [MICROSOFT GRAPH API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)를 참조 하세요. 이 스키마는 읽기 쉽도록 하기 위해 로그인 리소스와 동일한 특성 이름을 사용합니다.
+| 속성 | 로그인과 연결된 모든 속성을 나열합니다. 자세한 내용은 [Microsoft 그래프 API 참조를](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)참조하십시오. 이 스키마는 읽기 쉽도록 하기 위해 로그인 리소스와 동일한 특성 이름을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Monitor에서 감사 로그 스키마 해석](reference-azure-monitor-audit-log-schema.md)
+* [Azure 모니터에서 감사 로그 스키마 해석](reference-azure-monitor-audit-log-schema.md)
 * [Azure 진단 로그에 대해 자세히 알아보기](../../azure-monitor/platform/platform-logs-overview.md)

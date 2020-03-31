@@ -1,5 +1,5 @@
 ---
-title: 'Azure Express 경로: ARP 테이블-문제 해결'
+title: 'Azure 익스프레스루트: ARP 테이블 - 문제 해결'
 description: 이 페이지는 ExpressRoute 회로의 ARP 테이블을 가져오는 방법을 안내합니다.
 services: expressroute
 author: ganesr
@@ -9,10 +9,10 @@ ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 4f1bd064dbc0909be3deba9180be1d8b3c066fd4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74076572"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Resource Manager 배포 모델에서 ARP 테이블 가져오기
@@ -61,7 +61,7 @@ ARP 테이블의 예:
 * 최신 Azure용 PowerShell 모듈(1.50 버전 이상)이 있어야 합니다.
 
 > [!NOTE]
-> 서비스 공급자가 계층 3을 제공 하 고 아래 포털/출력에서 ARP 테이블이 비어 있는 경우 포털의 새로 고침 단추를 사용 하 여 회로 구성을 새로 고칩니다. 이 작업은 회로에 올바른 라우팅 구성을 적용합니다. 
+> 서비스 공급자가 계층 3을 제공하고 아래 포털/출력에 ARP 테이블이 비어 있는 경우 포털의 새로 고침 단추를 사용하여 회로 구성을 새로 고칩니다. 이 작업은 회로에 올바른 라우팅 구성을 적용합니다. 
 >
 >
 
@@ -148,13 +148,13 @@ ARP 테이블의 예:
           0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 ### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>온-프레미스/연결 공급자 측에 문제가 있을 때 ARP 테이블
-온-프레미스 또는 연결 공급자에 문제가 있는 경우 하나의 항목만 ARP 테이블에 표시 되거나 온-프레미스 MAC 주소가 불완전 하 게 표시 되는 것을 볼 수 있습니다. Microsoft 측에서 사용된 MAC 주소와 IP 주소 사이의 매핑을 보여줍니다. 
+온-프레미스 또는 연결 공급자에 문제가 있는 경우 ARP 테이블에 하나의 항목만 표시되거나 온-프레미스 MAC 주소가 불완전하게 표시될 수 있습니다. Microsoft 측에서 사용된 MAC 주소와 IP 주소 사이의 매핑을 보여줍니다. 
   
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------    
          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
-or
+또는
        
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------   

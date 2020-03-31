@@ -1,15 +1,15 @@
 ---
-title: Traffic Manager를 사용 하 여 트래픽 제어
-description: Azure App Service와 통합할 때 Azure Traffic Manager를 구성 하는 모범 사례를 알아봅니다.
+title: 트래픽 관리자를 사용하여 트래픽 제어
+description: Azure 앱 서비스와 통합할 때 Azure 트래픽 관리자를 구성하는 모범 사례를 찾습니다.
 ms.assetid: dabda633-e72f-4dd4-bf1c-6e945da456fd
 ms.topic: article
 ms.date: 02/25/2016
 ms.custom: seodec18
 ms.openlocfilehash: 200effab70b369d69b4e89b1901578ecfe1a1b87
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74684098"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용하여 Azure App Service 트래픽 제어
@@ -32,7 +32,7 @@ Azure Traffic Manager는 4가지의 다른 라우팅 방법을 사용합니다. 
 자세한 내용은 [Traffic Manager 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md)을 참조하세요.
 
 ## <a name="app-service-and-traffic-manager-profiles"></a>App Service 및 Traffic Manager 프로필
-앱 트래픽 App Service 제어를 구성 하려면 앞에서 설명한 4 가지 부하 분산 방법 중 하나를 사용 하는 Azure Traffic Manager에서 프로필을 만든 다음, 트래픽을 제어 하려는 끝점 (이 경우 App Service)을 추가 합니다. profile. 앱 상태(실행 중, 중지됨 또는 삭제됨)가 정기적으로 프로필에 전달되므로 Azure Traffic Manager가 상태에 따라 트래픽을 보낼 수 있습니다.
+앱 서비스 앱 트래픽 제어를 구성하려면 앞에서 설명한 네 가지 로드 분산 방법 중 하나를 사용하는 Azure Traffic Manager에서 프로필을 만든 다음 트래픽을 제어할 끝점(이 경우 앱 서비스)을 추가합니다. 프로필. 앱 상태(실행 중, 중지됨 또는 삭제됨)가 정기적으로 프로필에 전달되므로 Azure Traffic Manager가 상태에 따라 트래픽을 보낼 수 있습니다.
 
 Azure에서 Azure Traffic Manager를 사용할 경우 다음 사항에 유의하십시오.
 

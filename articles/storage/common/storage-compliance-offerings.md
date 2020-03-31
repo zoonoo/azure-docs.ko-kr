@@ -9,19 +9,19 @@ ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
 ms.openlocfilehash: 1ad41b0b7391236a15b7c1be7d42ed81aaf5b51a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61483437"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Azure Storage 준수 제품
 
 Microsoft Azure 및 Azure Storage는 조직이 개인 데이터의 수집 및 사용을 규정하는 국가, 지역 및 산업별 요구 사항을 준수할 수 있도록 클라우드 서비스 공급자의 가장 포괄적인 인증 및 증명 모음을 제공합니다.
 
-아래에서 Azure Storage의 준수 제품을 검색하여 Azure Storage 서비스 사용 시 서비스를 규제할 수 있습니다. 다음 Azure Storage 제품에 적용 가능합니다. Blobs, Files, Queues, Tables, Disks, Cool Storage 및 Premium Storage.
+아래에서 Azure Storage의 준수 제품을 검색하여 Azure Storage 서비스 사용 시 서비스를 규제할 수 있습니다. Blobs, Files, Queues, Tables, Disks, Cool Storage 및 Premium Storage 같은 Azure Storage 제품에 적용 가능합니다.
 
-## <a name="global"></a>전역
+## <a name="global"></a>Global
 
 * [CSA-STAR-Attestation](https://www.microsoft.com/trustcenter/compliance/csa-star-attestation)
 * [CSA-Star-Certification](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)
@@ -79,7 +79,7 @@ Microsoft Azure 및 Azure Storage는 조직이 개인 데이터의 수집 및 �
 * [ENISA IAF(EU)](https://aka.ms/AzureCompliance)
 * [ENS(스페인)](https://www.microsoft.com/trustcenter/compliance/spainens)
 * [EU-Model-Clauses](https://www.microsoft.com/trustcenter/compliance/eu-model-clauses)
-* [EU-U.S. 개인 정보 보호](https://privacy.microsoft.com/en-US/microsoft-eu-us-privacy-shield)
+* [EU-미국 프라이버시 쉴드](https://privacy.microsoft.com/en-US/microsoft-eu-us-privacy-shield)
 * [GB 18030(중국)](https://www.trustcenter.cn/compliance/default.html#GB18030)
 * [GDPR(EU)](https://www.microsoft.com/trustcenter/privacy/gdpr)
 * [IT Grundschutz Workbook(독일)](https://www.microsoft.com/TrustCenter/Compliance/IT-Grundschutz)

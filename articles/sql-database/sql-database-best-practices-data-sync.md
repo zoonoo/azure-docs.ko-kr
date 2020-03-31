@@ -12,10 +12,10 @@ ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
 ms.openlocfilehash: ee929fa227cb105b73bc929c13a768aabef37ce3
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75771686"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL 데이터 동기화의 모범 사례 
@@ -25,9 +25,9 @@ ms.locfileid: "75771686"
 SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)를 참조하세요.
 
 > [!IMPORTANT]
-> Azure SQL 데이터 동기화는 이때 Azure SQL Database Managed Instance를 지원하지 **않습니다**.
+> Azure SQL Data Sync는 현재 Azure SQL 데이터베이스 관리 인스턴스를 지원하지 **않습니다.**
 
-## <a name="security-and-reliability"></a> 보안 및 안정성
+## <a name="security-and-reliability"></a><a name="security-and-reliability"></a> 보안 및 안정성
 
 ### <a name="client-agent"></a>클라이언트 에이전트
 
@@ -41,7 +41,7 @@ SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화를 �
 
 -   **동기화 설정의 경우**. 테이블 만들기/변경, 데이터베이스 변경, 프로시저 만들기, 스키마 선택/변경, 사용자 정의 형식 만들기.
 
--   **진행 중인 동기화의 경우**. 동기화를 위해 선택 된 테이블 및 동기화 메타 데이터와 추적 테이블에서 선택/삽입/업데이트/삭제 서비스에서 생성 된 저장 프로시저에 대 한 Execute 권한 사용자 정의 테이블 형식에 대 한 Execute 권한
+-   **진행 중인 동기화를 위해**. 동기화및동기화메타데이터 및추적테이블에서 선택/삽입/업데이트/삭제 서비스에서 만든 저장 프로시저에 대한 권한을 실행합니다. 사용자 정의 테이블 형식에 대한 권한을 실행합니다.
 
 -   **프로비전 해제의 경우**. 동기화 중 테이블 부분 변경, 동기화 메타데이터 테이블에서 선택/삭제, 동기화 추적 테이블, 저장 프로시저 및 사용자 정의 형식 제어.
 
@@ -52,7 +52,7 @@ Azure SQL Database는 단일 자격 증명 세트만 지원합니다. 이 제약
 
 ## <a name="setup"></a>설치 프로그램
 
-### <a name="database-considerations-and-constraints"></a> 데이터베이스 고려 사항 및 제약 조건
+### <a name="database-considerations-and-constraints"></a><a name="database-considerations-and-constraints"></a> 데이터베이스 고려 사항 및 제약 조건
 
 #### <a name="sql-database-instance-size"></a>SQL Database 인스턴스 크기
 
@@ -61,7 +61,7 @@ Azure SQL Database는 단일 자격 증명 세트만 지원합니다. 이 제약
 > [!IMPORTANT]
 > SQL 데이터 동기화는 각 데이터베이스와 함께 추가 메타데이터를 저장합니다. 필요한 공간을 계산할 때 이 메타데이터를 고려해야 합니다. 추가 오버 헤드의 양은 테이블 너비(예: 테이블이 좁으면 더 많은 오버헤드가 필요) 및 트래픽 양에 비례합니다.
 
-### <a name="table-considerations-and-constraints"></a> 테이블 고려 사항 및 제약 조건
+### <a name="table-considerations-and-constraints"></a><a name="table-considerations-and-constraints"></a> 테이블 고려 사항 및 제약 조건
 
 #### <a name="selecting-tables"></a>테이블 선택
 
@@ -77,7 +77,7 @@ SQL 데이터 동기화를 프로덕션에 사용하기 전에 초기 및 지속
 
 빈 테이블은 초기화 시 최상의 성능을 제공합니다. 대상 테이블이 비어 있으면 데이터 동기화에서 대량 삽입을 사용하여 데이터를 로드합니다. 그렇지 않으면 데이터 동기화에서 행 단위로 비교 및 삽입하여 충돌을 확인합니다. 하지만 성능 문제가 없는 경우 이미 데이터가 들어 있는 테이블 간에 동기화를 설정할 수 있습니다.
 
-### <a name="provisioning-destination-databases"></a> 대상 데이터베이스 프로비전
+### <a name="provisioning-destination-databases"></a><a name="provisioning-destination-databases"></a> 대상 데이터베이스 프로비전
 
 SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제공합니다.
 
@@ -94,14 +94,14 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 -   원본 테이블의 기존 트리거는 프로비전되지 않습니다.  
 -   보기 및 저장 프로시저는 대상 데이터베이스에 생성되지 않습니다.
 -   외래 키 제약 조건에 대한 UPDATE CASCADE 및 ON DELETE CASCADE 작업은 대상 테이블에서 다시 생성되지 않습니다.
--   전체 자릿수가 28 보다 큰 decimal 또는 numeric 열이 있는 경우 동기화 중에 SQL 데이터 동기화 변환 오버플로 문제가 발생할 수 있습니다. Decimal 또는 numeric 열의 전체 자릿수를 28 이하로 제한 하는 것이 좋습니다.
+-   정밀도가 28보다 큰 소수또는 숫자 열이 있는 경우 SQL Data Sync는 동기화 중에 변환 오버플로 문제가 발생할 수 있습니다. 소수점 또는 숫자 열의 정밀도를 28 이하로 제한하는 것이 좋습니다.
 
 #### <a name="recommendations"></a>권장 사항
 
 -   SQL 데이터 동기화 자동 프로비전 기능은 서비스를 시험해 보는 경우에만 사용합니다.  
 -   프로덕션의 경우 데이터베이스 스키마를 프로비전합니다.
 
-### <a name="locate-hub"></a> 허브 데이터베이스를 찾을 수 있는 위치
+### <a name="where-to-locate-the-hub-database"></a><a name="locate-hub"></a> 허브 데이터베이스를 찾을 수 있는 위치
 
 #### <a name="enterprise-to-cloud-scenario"></a>엔터프라이즈-클라우드 시나리오
 
@@ -118,7 +118,7 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 
 ## <a name="sync"></a>동기화
 
-### <a name="avoid-a-slow-and-costly-initial-synchronization"></a> 느리고 비용이 많이 드는 초기 동기화 방지
+### <a name="avoid-slow-and-costly-initial-sync"></a><a name="avoid-a-slow-and-costly-initial-synchronization"></a> 느리고 비용이 많이 드는 초기 동기화 방지
 
 이 섹션에서는 동기화 그룹의 초기 동기화에 대해 설명합니다. 꼭 필요한 시간과 비용보다 더 많은 시간과 비용이 드는 초기 동기화를 방지하는 방법을 알아봅니다.
 
@@ -132,13 +132,13 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 
 되도록이면 동기화 그룹의 여러 데이터베이스 중 특정 데이터베이스의 데이터부터 시작합니다.
 
-### <a name="design-to-avoid-synchronization-loops"></a> 동기화 루프를 방지하는 디자인
+### <a name="design-to-avoid-sync-loops"></a><a name="design-to-avoid-synchronization-loops"></a> 동기화 루프를 방지하는 디자인
 
 동기화 루프는 동기화 그룹 내에 순환 참조가 있을 때 발생합니다. 이 시나리오에서는 하나의 데이터베이스의 변경 내용이 동기화 그룹의 데이터베이스를 통해 끊임없이 순환하면서 복제됩니다.   
 
 동기화 루프는 성능 저하를 일으키고 상당히 많은 비용을 발생시킬 수 있으므로 피해야 합니다.
 
-### <a name="handling-changes-that-fail-to-propagate"></a> 전파되지 않는 변경 내용
+### <a name="changes-that-fail-to-propagate"></a><a name="handling-changes-that-fail-to-propagate"></a> 전파되지 않는 변경 내용
 
 #### <a name="reasons-that-changes-fail-to-propagate"></a>변경 내용이 전파되지 않는 이유
 
@@ -164,7 +164,7 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 
 ## <a name="maintenance"></a>유지 관리
 
-### <a name="avoid-out-of-date-databases-and-sync-groups"></a> 만료된 데이터베이스 및 동기화 그룹 방지
+### <a name="avoid-out-of-date-databases-and-sync-groups"></a><a name="avoid-out-of-date-databases-and-sync-groups"></a> 만료된 데이터베이스 및 동기화 그룹 방지
 
 동기화 그룹 내 동기화 그룹 또는 데이터베이스가 만료될 수 있습니다. 동기화 그룹의 상태가 **만료**인 경우 작동이 중지됩니다. 데이터베이스의 상태가 **만료**인 경우 데이터가 손실될 수 있습니다. 이 시나리오를 복구하기 보다는 예방하는 것이 좋습니다.
 
@@ -189,7 +189,7 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 -   실패한 행에 들어 있는 값을 포함하도록 외래 키를 업데이트합니다.
 -   대상 데이터베이스의 스키마 또는 외래 키와 호환되도록 실패한 행의 데이터 값을 업데이트합니다.
 
-### <a name="avoid-deprovisioning-issues"></a> 프로비전 해제 문제 방지
+### <a name="avoid-deprovisioning-issues"></a><a name="avoid-deprovisioning-issues"></a> 프로비전 해제 문제 방지
 
 특정 상황에서는 클라이언트 에이전트로 데이터베이스의 등록을 취소하면 동기화가 실패할 수 있습니다.
 
@@ -200,7 +200,7 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 3. 온-프레미스 데이터베이스를 로컬 에이전트 2에서 등록 취소하면 추적/메타 테이블이 온-프레미스 데이터베이스의 동기화 그룹에서 제거됩니다.
 4. “데이터베이스가 동기화에 대해 프로비전되지 않거나 동기화 구성 테이블에 대한 사용 권한이 없으므로 현재 작업을 완료할 수 없습니다.”라는 오류와 함께 동기화 그룹 A 작업에 실패합니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
 이 시나리오를 방지하려면 데이터베이스를 여러 에이전트에 등록하지 마세요.
 
@@ -210,7 +210,7 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 2. 데이터베이스를 제거한 각 동기화 그룹에 다시 추가합니다.  
 3. 영향을 받는 각 동기화 그룹을 배포합니다(이 작업은 데이터베이스를 프로비전).  
 
-### <a name="modifying-your-sync-group"></a> 동기화 그룹 수정
+### <a name="modifying-a-sync-group"></a><a name="modifying-your-sync-group"></a> 동기화 그룹 수정
 
 데이터베이스를 동기화 그룹에서 제거한 다음, 변경 내용 중 하나가 먼저 배포되기 전에는 동기화 그룹을 편집하지 마세요.
 
@@ -218,13 +218,13 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 
 데이터베이스를 제거한 후 변경 내용 중 하나가 먼저 배포되기 전에 동기화 그룹을 편집하려고 하면 해당 작업 또는 다른 작업이 실패합니다. 포털 인터페이스가 불일치 상태가 될 수 있습니다. 이 상황이 발생하면 페이지를 새로 고쳐서 올바른 상태로 복원할 수 있습니다.
 
-### <a name="avoid-schema-refresh-timeout"></a>스키마 새로 고침 제한 시간 방지
+### <a name="avoid-schema-refresh-timeout"></a>스키마 새로 고침 시간 시간 시간 제외
 
-동기화 할 복잡 한 스키마가 있는 경우 동기화 메타 데이터 데이터베이스에 더 낮은 SKU (예: 기본)가 있는 경우 스키마를 새로 고치는 동안 "작업 시간 제한"이 발생할 수 있습니다. 
+동기화할 복잡한 스키마가 있는 경우 동기화 메타데이터 데이터베이스에 SKU가 낮은 경우 스키마 새로 고침 중에 "작업 시간 지정"이 발생할 수 있습니다(예: 기본). 
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
-이 문제를 완화 하려면 S3와 같이 더 높은 SKU를 갖도록 동기화 메타 데이터 데이터베이스를 확장 하세요. 
+이 문제를 완화하려면 S3와 같은 SKU가 더 높아지도록 동기화 메타데이터 데이터베이스를 확장하십시오. 
 
 ## <a name="next-steps"></a>다음 단계
 SQL 데이터 동기화에 대한 자세한 내용은 다음 항목을 참조하세요.

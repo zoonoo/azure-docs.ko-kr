@@ -1,17 +1,17 @@
 ---
-title: Azure Kubernetes Service에 연결-Azure Database for MySQL
+title: Azure Kubernetes 서비스 - MySQL용 Azure 데이터베이스에 연결
 description: Azure Database for MySQL과 Azure Kubernetes Service를 연결하는 방법에 대한 자세한 정보
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 71b266231b7ed3012e5ea7f65fe9487eeb5fb358
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 9e020d34b6cfb8117ccff1114cc938c966126b77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773614"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537281"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Azure Kubernetes Service 및 Azure Database for MySQL 연결
 

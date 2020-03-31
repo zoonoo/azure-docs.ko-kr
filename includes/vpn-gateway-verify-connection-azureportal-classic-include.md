@@ -9,10 +9,10 @@ ms.date: 010/17/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 26e48d1af8e29c7d00a80910dcca62811da14822
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67673422"
 ---
 Azure Portal에서 연결로 이동하여 클래식 VNet VPN Gateway의 연결 상태를 볼 수 있습니다. 다음 단계에서는 연결로 이동하고 확인하는 한 가지 방법을 보여 줍니다.
@@ -27,4 +27,4 @@ Azure Portal에서 연결로 이동하여 클래식 VNet VPN Gateway의 연결 �
     ![연결 상태](./media/vpn-gateway-verify-connection-azureportal-classic/siteconnectstatus.png "연결 상태")
 5. 연결에 대한 추가 정보를 보려면 연결 이름을 클릭하여 **사이트 간 VPN 연결** 블레이드를 엽니다.
 
-    ![연결 상태 추가 정보](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "연결 상태 추가 정보")
+    ![연결 상태 더](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "연결 상태 더 많은 정보")
