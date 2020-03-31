@@ -58,22 +58,24 @@
       href: best-practices.md
     - name: 일반 조건부 액세스 정책
       items:
+        - name: 레거시 인증 차단
+          href: howto-conditional-access-policy-block-legacy.md
         - name: 관리자용 MFA 필요
           href: howto-conditional-access-policy-admin-mfa.md
         - name: Azure 관리용 MFA 필요
           href: howto-conditional-access-policy-azure-management.md
         - name: 모든 사용자용 MFA 필요
           href: howto-conditional-access-policy-all-users-mfa.md
-        - name: 레거시 인증 차단
-          href: howto-conditional-access-policy-block-legacy.md
         - name: 위험 기반 조건부 액세스
           href: howto-conditional-access-policy-risk.md
-        - name: MFA 등록을 위해 신뢰할 수 있는 위치 필요
+        - name: 보안 정보 등록 보호
           href: howto-conditional-access-policy-registration.md
         - name: 위치별 액세스 차단
           href: howto-conditional-access-policy-location.md
         - name: 준수 디바이스 필요
           href: howto-conditional-access-policy-compliant-device.md
+        - name: 액세스 차단
+          href: howto-conditional-access-policy-block-access.md
     - name: 레거시 인증 차단
       href: block-legacy-authentication.md
     - name: 승인된 클라이언트 앱 필요
@@ -94,6 +96,8 @@
       href: policy-migration-mfa.md
     - name: 문제 해결
       items:
+        - name: 로그인 문제 해결
+          href: troubleshoot-conditional-access.md
         - name: What If 도구를 사용하여 문제 해결
           href: troubleshoot-conditional-access-what-if.md
 - name: 리소스
@@ -102,7 +106,7 @@
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: 서비스 업데이트
       href: ../fundamentals/whats-new.md

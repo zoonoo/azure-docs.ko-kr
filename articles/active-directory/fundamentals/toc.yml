@@ -49,7 +49,7 @@
       href: active-directory-deployment-checklist-p2.md
     - name: 데이터 스토리지
       items:
-        - name: EU에 대한 ID 데이터 스토리지
+        - name: 유럽에 대한 ID 데이터 스토리지
           href: active-directory-data-storage-eu.md
         - name: 오스트레일리아 및 뉴질랜드의 ID 데이터 스토리지
           href: active-directory-data-storage-australia-newzealand.md

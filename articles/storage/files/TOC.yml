@@ -39,8 +39,11 @@
       href: storage-files-scale-targets.md
     - name: ID 기반 인증 및 권한 부여
       href: storage-files-active-directory-overview.md
-    - name: 미사용 암호화
+    - name: Azure Storage 미사용 데이터 암호화
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      items:
+        - name: Azure Key Vault를 사용하는 고객 관리형 키
+          href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: 규정 준수 제안
       href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: 개발
@@ -93,6 +96,10 @@
           href: storage-how-to-use-files-mac.md
     - name: 네트워크
       items:
+        - name: Azure Files 네트워크 엔드포인트 구성
+          href: storage-files-networking-endpoints.md
+        - name: Azure Files에 대한 DNS 전달 구성
+          href: storage-files-networking-dns.md
         - name: 사이트 간 VPN 구성
           href: storage-files-configure-s2s-vpn.md
         - name: Windows에서 지점 및 사이트 간 VPN 구성
@@ -117,12 +124,22 @@
           href: storage-sync-files-monitoring.md
     - name: 마이그레이션
       items:
-        - name: Azure 파일 동기화로 마이그레이션
-          href: storage-sync-offline-data-transfer.md
-        - name: StorSimple 8100 및 8600 마이그레이션 가이드
-          href: storage-files-migration-storsimple-8000.md
-        - name: StorSimple 1200 마이그레이션 가이드
-          href: storage-files-migration-storsimple-1200.md
+        - name: Azure 파일 공유로 마이그레이션
+          href: storage-files-migration-overview.md
+        - name: 하이브리드 배포 대상
+          items:
+            - name: Azure DataBox를 사용하여 대량 데이터를 Azure 파일 동기화로 마이그레이션
+              href: storage-sync-offline-data-transfer.md
+            - name: Azure 파일 동기화를 사용하여 Linux에서 하이브리드 파일 서버로 마이그레이션
+              href: storage-files-migration-linux-hybrid.md
+            - name: Azure 파일 동기화를 사용하여 온-프레미스 NAS에서 하이브리드 파일 서버로 마이그레이션
+              href: storage-files-migration-nas-hybrid.md
+        - name: StorSimple에서
+          items:
+            - name: StorSimple 8100 및 8600 마이그레이션 가이드
+              href: storage-files-migration-storsimple-8000.md
+            - name: StorSimple 1200 마이그레이션 가이드
+              href: storage-files-migration-storsimple-1200.md
     - name: 개발
       items:
         - name: 연결 문자열 구성

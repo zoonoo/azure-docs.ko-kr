@@ -3,7 +3,7 @@ title: Azure SQL Database 모니터링 및 성능 튜닝
 summary: Azure SQL Database는 데이터베이스를 모니터링하고 성능을 향상시키기 위해 메트릭과 진단 정보를 수집하는 데 도움이 되는 도구를 제공합니다.
 metadata:
   title: Azure SQL Database 모니터링 및 튜닝 설명서
-  description: Azure SQL Database는 데이터베이스를 모니터링하고 성능을 향상시키기 위해 메트릭과 진단 정보를 수집하는 데 도움이 되는 도구를 제공합니다.
+  description: 메트릭 및 진단을 수집하고 데이터베이스 성능을 향상시키는 데 도움이 되는 Azure SQL Database 모니터링 및 성능 조정 도구에 대해 알아봅니다.
   ms.service: sql-database
   ms.subservice: performance
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   author: CarlRabeler
   ms.author: carlrab
   ms.date: 03/10/2020
-  ms.openlocfilehash: 43f74ea126ab7e028b39a86e2eb1edad4cae41a2
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: bc2c2a64cfce8bde6f04835bf090b632b8839a6f
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "79208904"
+  ms.lasthandoff: 03/27/2020
+  ms.locfileid: "80373107"
 landingContent:
 - title: 모니터링 및 성능 튜닝 정보
   linkLists:

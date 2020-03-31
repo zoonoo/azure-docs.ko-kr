@@ -51,7 +51,7 @@
     - name: Azure App Service 및 Functions
       href: /azure/app-service/overview-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
     - name: Azure Event Hubs
-      href: /azure/event-hubs/authenticate-managed-identity.md?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+      href: /azure/event-hubs/authenticate-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
     - name: Azure Container Instances
       href: /azure/container-instances/container-instances-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
 - name: 방법 가이드
@@ -86,7 +86,7 @@
       items:
         - name: 액세스 토큰 획득
           href: how-to-use-vm-token.md
-        - name: 관리되는 ID를 사용하여 Powershell 및 CLI 로그인
+        - name: 관리 ID를 사용하여 PowerShell 및 CLI에 로그인
           href: how-to-use-vm-sign-in.md
         - name: Azure SDK와 함께 사용
           href: how-to-use-vm-sdk.md
