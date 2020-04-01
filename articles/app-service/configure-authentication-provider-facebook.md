@@ -1,22 +1,22 @@
 ---
 title: Facebook 인증 구성
-description: 앱 서비스 앱의 ID 공급자로 Facebook 인증을 구성하는 방법을 알아봅니다.
+description: 앱 서비스 또는 Azure Functions 앱의 ID 공급자로 Facebook 인증을 구성하는 방법에 대해 알아봅니다.
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
 ms.topic: article
 ms.date: 06/06/2019
-ms.custom: seodec18
-ms.openlocfilehash: cd9c8a1bab3616b9b4eb1fe97ee3a9b2307ba77b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 9a2d390a5647ed90284730e9186e981b8e699d10
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74671948"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80438011"
 ---
-# <a name="configure-your-app-service-app-to-use-facebook-login"></a>Facebook 로그인을 사용하도록 앱 서비스 앱 구성
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-facebook-login"></a>Facebook 로그인을 사용하도록 앱 서비스 또는 Azure Functions 앱 구성
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-이 문서에서는 Facebook을 인증 공급자로 사용하도록 Azure 앱 서비스를 구성하는 방법을 보여 주며 있습니다.
+이 문서에서는 Facebook을 인증 공급자로 사용하도록 Azure 앱 서비스 또는 Azure 함수를 구성하는 방법을 보여 주며 있습니다.
 
 이 문서의 절차를 완료하려면 확인된 이메일 주소와 휴대폰 번호가 있는 Facebook 계정이 필요합니다. 새 Facebook 계정을 만들려면 [facebook.com]으로 이동하세요.
 
@@ -78,4 +78,4 @@ ms.locfileid: "74671948"
 [Facebook 개발자]: https://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: https://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Azure 포털]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

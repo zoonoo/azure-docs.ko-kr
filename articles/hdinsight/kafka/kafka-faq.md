@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: ff4079263fd7afb02e132a798997687fad7e9961
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d27c648980338b3a9e12bd618eb4620fe9988fd7
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206982"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436903"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Azure HDInsight의 Apache Kafka에 대한 질문과 대답
 
@@ -50,7 +50,7 @@ HDInsight 카프카 클러스터에는 다음 리소스가 포함됩니다.
 
 ## <a name="is-my-data-encrypted-can-i-use-my-own-keys"></a>내 데이터가 암호화되어 있습니까? 내 키를 사용할 수 있습니까?
 
-관리 되는 디스크에 모든 Kafka 메시지는 [Azure 저장소 서비스 암호화 (SSE)](../../storage/common/storage-service-encryption.md)암호화 로 암호화 됩니다. 전송 중인 데이터(예: 클라이언트에서 브로커로 전송되는 데이터 및 다른 방법으로 전송되는 데이터)는 기본적으로 암호화되지 않습니다. [직접 SSL을 설정하여](./apache-kafka-ssl-encryption-authentication.md)이러한 트래픽을 암호화할 수 있습니다. 또한 HDInsight를 사용하면 자신의 키를 관리하여 미사용 데이터를 암호화할 수 있습니다. 자세한 내용은 [고객 관리 키 디스크 암호화를](../disk-encryption.md)참조하십시오.
+관리 되는 디스크에 모든 Kafka 메시지는 [Azure 저장소 서비스 암호화 (SSE)](../../storage/common/storage-service-encryption.md)암호화 로 암호화 됩니다. 전송 중인 데이터(예: 클라이언트에서 브로커로 전송되는 데이터 및 다른 방법으로 전송되는 데이터)는 기본적으로 암호화되지 않습니다. [직접 TLS를 설정하여](./apache-kafka-ssl-encryption-authentication.md)이러한 트래픽을 암호화할 수 있습니다. 또한 HDInsight를 사용하면 자신의 키를 관리하여 미사용 데이터를 암호화할 수 있습니다. 자세한 내용은 [고객 관리 키 디스크 암호화를](../disk-encryption.md)참조하십시오.
 
 ## <a name="how-do-i-connect-clients-to-my-cluster"></a>클러스터에 클라이언트를 연결하려면 어떻게 해야 합니까?
 
@@ -96,5 +96,5 @@ Azure 모니터를 사용하여 [Kafka 로그를 분석합니다.](./apache-kafk
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure HDInsight에서 아파치 카프카에 대한 보안 소켓 계층(SSL) 암호화 및 인증 설정](./apache-kafka-ssl-encryption-authentication.md)
+* [Azure HDInsight에서 아파치 카프카에 대한 TLS 암호화 및 인증 설정](./apache-kafka-ssl-encryption-authentication.md)
 * [MirrorMaker를 사용하여 HDInsight에서 Kafka와 함께 Apache Kafka 토픽 복제](./apache-kafka-mirroring.md)

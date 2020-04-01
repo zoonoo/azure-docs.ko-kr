@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/25/2020
-ms.openlocfilehash: 950bbc17af920f104f31af4d324f5546ff29217e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 822a981b84919670aa476567625cdf914206eaa8
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257957"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422174"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Azure 시냅스 분석(이전의 Azure SQL 데이터 웨어하우스)에서 데이터 복사 및 변환 
 
@@ -45,7 +45,7 @@ ms.locfileid: "80257957"
 > Azure Data Factory 통합 런타임을 사용하여 데이터를 복사하는 경우 Azure 서비스가 서버에 액세스할 수 있도록 [Azure SQL 서버 방화벽을](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) 구성합니다.
 > 자체 호스팅 통합 런타임을 사용하여 데이터를 복사하는 경우, 적절한 IP 범위를 허용하도록 Azure SQL Server 방화벽을 구성합니다. 이 범위에는 Azure Synapse 분석에 연결하는 데 사용되는 컴퓨터의 IP가 포함됩니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 > [!TIP]
 > 최상의 성능을 얻으려면 PolyBase를 사용하여 Azure 시냅스 분석에 데이터를 로드합니다. [PolyBase 사용으로 Azure 시냅스 분석 섹션에 데이터를 로드하는](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 세부 정보가 있습니다. 사용 사례가 있는 연습은 [Azure 데이터 팩터리에서 15분 미만의 Azure Synapse 분석에 1TB 로드를](load-azure-sql-data-warehouse.md)참조하십시오.
@@ -58,10 +58,10 @@ ms.locfileid: "80257957"
 
 Azure Synapse 분석 링크된 서비스에 대해 다음 속성이 지원됩니다.
 
-| 속성            | 설명                                                  | 필수                                                     |
+| 속성            | Description                                                  | 필수                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| type                | 형식 속성은 **AzureSqlDW로**설정해야 합니다.             | yes                                                          |
-| connectionString    | **연결String** 속성에 대 한 Azure Synapse 분석 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. 암호/서비스 주체 키를 Azure Key Vault에 넣고, SQL 인증인 경우 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 표 아래의 JSON 예제 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | yes                                                          |
+| type                | 형식 속성은 **AzureSqlDW로**설정해야 합니다.             | 예                                                          |
+| connectionString    | **연결String** 속성에 대 한 Azure Synapse 분석 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. 암호/서비스 주체 키를 Azure Key Vault에 넣고, SQL 인증인 경우 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 표 아래의 JSON 예제 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예                                                          |
 | servicePrincipalId  | 애플리케이션의 클라이언트 ID를 지정합니다.                         | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | tenant              | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
@@ -219,9 +219,9 @@ Azure Synapse 분석 링크된 서비스에 대해 다음 속성이 지원됩니
 
 Azure Synapse 분석 데이터 집합에 대해 다음 속성이 지원됩니다.
 
-| 속성  | 설명                                                  | 필수                    |
+| 속성  | Description                                                  | 필수                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| type      | 데이터 집합의 **형식** 속성은 **AzureSqlDWTable로**설정해야 합니다. | yes                         |
+| type      | 데이터 집합의 **형식** 속성은 **AzureSqlDWTable로**설정해야 합니다. | 예                         |
 | 스키마 | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
 | 테이블 | 테이블/뷰의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
 | tableName | 스키마가 있는 테이블/보기의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원됩니다. 새 워크로드의 `schema` 경우 `table`및 를 사용합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
@@ -255,9 +255,9 @@ Azure Synapse 분석 데이터 집합에 대해 다음 속성이 지원됩니다
 
 Azure Synapse Analytics의 데이터를 복사하려면 복사 활동 소스의 **형식** 속성을 **SqlDWSource**로 설정합니다. 다음 속성은 활동 복사 **원본** 섹션에서 지원됩니다.
 
-| 속성                     | 설명                                                  | 필수 |
+| 속성                     | Description                                                  | 필수 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| type                         | 복사 활동 소스의 **형식** 속성은 **SqlDWSource**로 설정해야 합니다. | yes      |
+| type                         | 복사 활동 소스의 **형식** 속성은 **SqlDWSource**로 설정해야 합니다. | 예      |
 | SqlReaderQuery               | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. | 예       |
 | sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. | 예       |
 | storedProcedureParameters    | 저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 예       |
@@ -364,9 +364,9 @@ Azure 데이터 팩터리는 SQL 데이터 웨어하우스에 데이터를 로�
 
 Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크 형식을 **SqlDWSink**로 설정합니다. 다음 속성은 활동 복사 **싱크** 섹션에서 지원됩니다.
 
-| 속성          | 설명                                                  | 필수                                      |
+| 속성          | Description                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| type              | 복사 활동 싱크의 **형식** 속성은 **SqlDWSink로**설정해야 합니다. | yes                                           |
+| type              | 복사 활동 싱크의 **형식** 속성은 **SqlDWSink로**설정해야 합니다. | 예                                           |
 | allowPolyBase     | PolyBase를 사용하여 SQL 데이터 웨어하우스에 데이터를 로드할지 여부를 나타냅니다. `allowCopyCommand`둘 `allowPolyBase` 다 사실이 될 수 없습니다. <br/><br/>제약 조건 및 세부 정보는 [PolyBase를 사용하여 Azure SQL Data Warehouse로 데이터 로드](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 섹션을 참조하세요.<br/><br/>허용된 값은 **참** 및 False(기본값)입니다. **False** | 아니요.<br/>폴리베이스를 사용할 때 적용합니다.     |
 | polyBaseSettings  | `allowPolybase` 속성이 **true로**설정될 때 지정할 수 있는 속성 그룹입니다. | 아니요.<br/>폴리베이스를 사용할 때 적용합니다. |
 | 허용복사 명령 | [COPY 문(미리](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) 보기)을 사용하여 데이터를 SQL 데이터 웨어하우스에 로드할지 여부를 나타냅니다. `allowCopyCommand`둘 `allowPolyBase` 다 사실이 될 수 없습니다. <br/><br/>COPY 문을 사용하여 제약 조건 및 세부 정보에 대한 [Azure SQL 데이터 웨어하우스 섹션에 데이터를 로드합니다.](#use-copy-statement)<br/><br/>허용된 값은 **참** 및 False(기본값)입니다. **False** | 아니요.<br>COPY를 사용할 때 적용하십시오. |
@@ -405,7 +405,7 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 
 다음 PolyBase 설정은 `polyBaseSettings` 복사 작업에서 지원됩니다.
 
-| 속성          | 설명                                                  | 필수                                      |
+| 속성          | Description                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | rejectValue       | 쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다.<br/><br/>[CREATE EXTERNAL TABLE(Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx)의 인수 섹션에서 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. <br/><br/>허용되는 값은 0(기본값), 1, 2 등입니다. | 예                                            |
 | rejectType        | **rejectValue** 옵션이 리터럴 값인지 또는 백분율인지를 지정합니다.<br/><br/>허용된 **Value** 값은 값(기본값) 및 **백분율입니다.** | 예                                            |
@@ -485,7 +485,7 @@ SQL 데이터 웨어하우스 PolyBase는 Azure Blob, Azure 데이터 레이크 
 
 ### <a name="staged-copy-by-using-polybase"></a>PolyBase를 사용한 준비된 복사
 
-원본 데이터가 PolyBase와 기본적으로 호환되지 않는 경우 중간 스테이징 Azure Blob 저장소 인스턴스를 통해 데이터 복사를 사용하도록 설정합니다(Azure Premium 저장소일 수 있음). 이 경우 Azure Data Factory는 PolyBase의 데이터 형식 요구 사항을 충족하도록 데이터를 자동으로 변환합니다. 그런 다음 PolyBase를 호출하여 데이터를 SQL 데이터 웨어하우스에 로드합니다. 마지막으로, Blob Storage에서 임시 데이터를 정리합니다. 준비 Azure Blob Storage 인스턴스를 통해 데이터를 복사하는 방법에 대한 자세한 내용은 [준비된 복사](copy-activity-performance.md#staged-copy)를 참조하세요.
+원본 데이터가 PolyBase와 기본적으로 호환되지 않는 경우 중간 스테이징 Azure Blob 저장소 인스턴스를 통해 데이터 복사를 사용하도록 설정합니다(Azure Premium 저장소일 수 있음). 이 경우 Azure Data Factory는 PolyBase의 데이터 형식 요구 사항을 충족하도록 데이터를 자동으로 변환합니다. 그런 다음 PolyBase를 호출하여 데이터를 SQL 데이터 웨어하우스에 로드합니다. 마지막으로, Blob Storage에서 임시 데이터를 정리합니다. 준비 Azure Blob Storage 인스턴스를 통해 데이터를 복사하는 방법에 대한 자세한 내용은 [준비된 복사](copy-activity-performance-features.md#staged-copy)를 참조하세요.
 
 이 기능을 사용하려면 중간 Blob 저장소가 있는 Azure 저장소 계정을 참조하는 Azure [Blob Storage 링크된 서비스를](connector-azure-blob-storage.md#linked-service-properties) 만듭니다. 그런 다음 `enableStaging` `stagingSettings` 다음 코드에 표시된 대로 복사 활동에 대한 및 속성을 지정합니다.
 
@@ -613,7 +613,7 @@ COPY 문을 사용하면 다음 구성을 지원합니다.
 2. 형식 설정은 다음과 같습니다.
 
    1. **마루의**경우 `compression` : **압축,** **스냅,** 또는 **GZip이**될 수 없습니다 .
-   2. **ORC의** `compression` 경우 : 압축, **zlib**또는 **스냅이**될 수 **없습니다.**
+   2. **ORC의** `compression` 경우 : **압축이** **```zlib```** 없음 , 또는 스냅이 될 수 **있습니다.**
    3. **구분된 텍스트의**경우 :
       1. `rowDelimiter`명시적으로 단일 **문자** 또는 **"\r\n"로**설정되어 있으며 기본값은 지원되지 않습니다.
       2. `nullValue`기본값으로 남아 있거나 빈 문자열("")으로 설정됩니다. **empty string**
@@ -628,7 +628,7 @@ COPY 문을 사용하면 다음 구성을 지원합니다.
 
 다음 COPY 문 설정은 `allowCopyCommand` 복사 활동에서 지원됩니다.
 
-| 속성          | 설명                                                  | 필수                                      |
+| 속성          | Description                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | 기본값 | SQL DW의 각 대상 열에 대한 기본값을 지정합니다.  속성의 기본값은 데이터 웨어하우스에 설정된 DEFAULT 제약 조건을 덮어쓰고 ID 열에는 기본값이 있을 수 없습니다. | 예 |
 | 추가 옵션 | [COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)문의 "With" 절에서 SQL DW COPY 문으로 직접 전달되는 추가 옵션. COPY 문 요구 사항에 맞게 필요에 따라 값을 인용합니다. | 예 |
@@ -705,7 +705,7 @@ Azure 시냅스 분석과 관련된 설정은 소스 변환의 **소스 옵션**
 
 * SQL 예제:```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**일괄 처리 크기**: 큰 데이터를 읽기에 청크하는 일괄 처리 크기를 입력합니다.
+**일괄 처리 크기**: 큰 데이터를 읽기에 청크하는 일괄 처리 크기를 입력합니다. 데이터 흐름에서 ADF는 이 설정을 사용하여 Spark 열 캐싱을 설정합니다. 이 필드는 Spark 기본값을 비워 두면 사용하는 옵션 필드입니다.
 
 **격리 수준**: 매핑 데이터 흐름의 SQL 원본에 대한 기본값은 커밋되지 않은 읽기입니다. 여기서 격리 수준을 다음 값 중 하나로 변경할 수 있습니다.
 * 커밋된 읽기

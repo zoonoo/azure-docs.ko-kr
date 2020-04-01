@@ -1,5 +1,5 @@
 ---
-title: Azure 가상 네트워크에 대한 IPv6 개요(미리 보기)
+title: Azure 가상 네트워크에 대한 IPv6 개요
 titlesuffix: Azure Virtual Network
 description: Azure 가상 네트워크의 IPv6 끝점 및 데이터 경로에 대한 IPv6 설명입니다.
 services: virtual-network
@@ -10,24 +10,22 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 12/19/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 9214886f468a4a052328a99289845361a059b650
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03b279ead6b1f5d26ae92b63a8780a61dfd711bb
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75780082"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420561"
 ---
-# <a name="what-is-ipv6-for-azure-virtual-network-preview"></a>Azure 가상 네트워크에 대한 IPv6란 무엇입니까? (미리 보기)
+# <a name="what-is-ipv6-for-azure-virtual-network"></a>Azure 가상 네트워크에 대한 IPv6란 무엇입니까?
 
 VNet(Azure 가상 네트워크용 IPv6)을 사용하면 가상 네트워크 내에서 와 인터넷에서 IPv6 및 IPv4 연결을 통해 Azure에서 응용 프로그램을 호스팅할 수 있습니다. 공용 IPv4 주소가 고갈되면서 이동성 및 사물 인터넷(IoT)을 위한 새로운 네트워크가 종종 IPv6에 구축됩니다. 오랫동안 확립된 ISP와 모바일 네트워크도 IPv6로 변환되고 있습니다. IPv4 전용 서비스는 기존 시장과 신흥 시장 모두에서 실질적인 불이익을 받을 수 있습니다. 듀얼 스택 IPv4/IPv6 연결을 사용하면 Azure 호스팅 서비스가 기존 IPv4 및 이러한 새로운 IPv6 장치 및 네트워크와 쉽게 연결할 수 있는 전 세계적으로 사용 가능한 이중 스택 서비스를 통해 이러한 기술 격차를 해소할 수 있습니다.
 
 Azure의 원래 IPv6 연결을 사용하면 Azure에서 호스팅되는 응용 프로그램에 대해 이중 스택(IPv4/IPv6) 인터넷 연결을 쉽게 제공할 수 있습니다. 인바운드 및 아웃바운드 시작 연결 모두에 대해 부하 균형 이IPv6 연결을 통해 VM을 간단하게 배포할 수 있습니다. 이 기능은 여전히 사용할 수 있으며 자세한 내용은 여기에서 확인할 수 [있습니다.](../load-balancer/load-balancer-ipv6-overview.md)
 Azure 가상 네트워크에 대한 IPv6는 훨씬 더 완전한 기능을 갖추고 있으며 전체 IPv6 솔루션 아키텍처를 Azure에 배포할 수 있습니다.
 
-> [!Important]
-> Azure 가상 네트워크에 대한 IPv6는 현재 공개 미리 보기 상태입니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 다음 다이어그램은 Azure의 간단한 이중 스택(IPv4/IPv6) 배포를 설명합니다.
 
@@ -69,12 +67,12 @@ Azure VNet용 IPv6에는 다음과 같은 기능이 포함되어 있습니다.
 - [가상 네트워크(VNET) 피어링(지역](virtual-network-peering-overview.md) 내 및 글로벌 피어링)을 사용하면 피어링된 네트워크의 VM에서 IPv4 및 IPv6 끝점을 모두 이중 스택 VNET를 연결할 수 있습니다. 배포를 듀얼 스택으로 전환할 때 IPv4 전용 VNET를 사용하여 듀얼 스택을 피어링할 수도 있습니다. 
 - IPv6 문제 해결 및 진단은 패킷 캡처, NSG 흐름 로그, 연결 문제 해결 및 연결 모니터링과 같은 로드 밸런서 메트릭/경고 및 네트워크 감시기 기능과 함께 사용할 수 있습니다.   
 
-## <a name="scope"></a>Scope
+## <a name="scope"></a>범위
 Azure VNET용 IPv6는 고객이 Azure에서 이중 스택(IPv4+IPv6) 응용 프로그램을 호스팅할 수 있도록 하는 기본 기능 집합입니다.  시간이 지남에 따라 더 많은 Azure 네트워킹 기능에 IPv6 지원을 추가하고 궁극적으로 Azure PaaS 서비스의 이중 스택 버전을 제공하려고 하지만 그 동안 모든 Azure PaaS 서비스는 듀얼 스택 가상 컴퓨터의 IPv4 끝점을 통해 액세스할 수 있습니다.   
 
 ## <a name="limitations"></a>제한 사항
 Azure 가상 네트워크 릴리스의 현재 IPv6에는 다음과 같은 제한 사항이 있습니다.
-- Azure 가상 네트워크용 IPv6(미리 보기)은 모든 글로벌 Azure 리전에서 사용할 수 있지만 아직 정부 클라우드에서는 전역 Azure에서만 사용할 수 있습니다.
+- Azure 가상 네트워크에 대한 IPv6는 모든 글로벌 Azure 리전에서 사용할 수 있지만 아직 정부 클라우드에서는 전역 Azure에서만 사용할 수 있습니다.
 - 익스프레스루트 및 VPN 게이트웨이는 IPv6가 활성화된 VNET에서 직접 또는 "UseRemoteGateway"로 피어를 사용하여 사용할 수 없습니다. 
 - Azure 플랫폼(AKS 등)은 컨테이너에 대한 IPv6 통신을 지원하지 않습니다.  
 

@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7b049c04913d3415074f46b9d90ec34be874a2da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25eda0ae2b0d873fe9850e5b886489a5f2590e69
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136709"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410622"
 ---
 # <a name="connection-strings"></a>연결 문자열
 
@@ -148,7 +148,7 @@ https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that
 
 연결 문자열은 다음 SDK 버전에서 지원됩니다.
 - .NET 및 .NET 코어 v2.12.0
-- 자바 v2.5.1
+- 자바 v2.5.1 및 자바 3.0
 - 자바 스크립트 v2.3.0
 - 노드JS v1.5.0
 - 파이썬 v1.0.0
@@ -161,7 +161,7 @@ https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that
 
 - 연결 문자열: `APPLICATIONINSIGHTS_CONNECTION_STRING`
 
-### <a name="net-sdk-example"></a>.Net SDK 예제
+# <a name="netnetcore"></a>[.NET/.NetCore](#tab/net)
 
 원격 분석 구성.연결 문자열:https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
@@ -194,10 +194,10 @@ var configuration = new TelemetryConfiguration
 ```
 
 
-### <a name="java-sdk-example"></a>자바 SDK 예제
+# <a name="java"></a>[Java](#tab/java)
 
 
-자바 명시적으로 설정 :
+자바 (v2.5.x) 명시적으로 설정 :
 ```java
 TelemetryConfiguration.getActive().setConnectionString("InstrumentationKey=00000000-0000-0000-0000-000000000000");
 ```
@@ -210,7 +210,7 @@ ApplicationInsights.xml
 </ApplicationInsights>
 ```
 
-### <a name="javascript-sdk-example"></a>자바 스크립트 SDK 예제
+# <a name="javascript"></a>[JavaScript](#tab/js)
 
 중요: 자바스크립트는 환경 변수의 사용을 지원하지 않습니다.
 
@@ -239,7 +239,7 @@ appInsights.loadAppInsights();
 appInsights.trackPageView();
 ```
 
-### <a name="node-sdk-example"></a>노드 SDK 예제
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -247,7 +247,7 @@ appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;");
 appInsights.start();
 ```
 
-### <a name="python-sdk-example"></a>파이썬 SDK 예제
+# <a name="python"></a>[Python](#tab/python)
 
 사용자가 환경 변수를 설정하는 것이 좋습니다.
 
