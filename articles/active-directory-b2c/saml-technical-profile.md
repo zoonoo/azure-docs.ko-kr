@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8c81d2bc499c3d9cae262ef62be2dac2d7280be7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 83a13e0b1bb4d55b889d96e42c8f3f18ce0f2b73
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78183842"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408935"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 SAML 기술 프로필 정의
 
@@ -90,11 +90,32 @@ Protocol 요소의 **Name** 특성은 `SAML2`로 설정해야 합니다.
 
 **OutputClaims** 요소는 `AttributeStatement` 섹션 아래에 SAML ID 공급자가 반환한 클레임 목록을 포함합니다. 정책에 정의된 클레임 이름을 ID 공급자에 정의된 이름에 매핑해야 할 수도 있습니다. `DefaultValue` 특성만 설정하면, ID 공급자가 반환하지 않은 클레임도 포함할 수 있습니다.
 
-**Subject**의 SAML 어설션 **NamedId**를 정규화된 클레임으로 읽으려면 클레임 **PartnerClaimType**을 `assertionSubjectName`으로 설정합니다. **NameId**가 어설션 XML의 첫 번째 값인지 확인합니다. 둘 이상의 어설션을 정의하면 Azure AD B2C가 마지막 어설션에서 주체 값을 선택합니다.
+### <a name="subject-name-output-claim"></a>제목 이름 출력 클레임
 
-**OutputClaimsTransformations** 요소는 출력 클레임을 수정하거나 새 출력 클레임을 생성하는 데 사용되는 **OutputClaimsTransformation** 요소 컬렉션을 포함할 수 있습니다.
+**제목에서** SAML 어설션 **NameId를** 정규화된 클레임으로 읽으려면 파트너 클레임 `SPNameQualifier` **ClaimType을** 특성값으로 설정합니다. 특성이 `SPNameQualifier`표시되지 않으면 파트너 **클레임 유형** 클레임을 `NameQualifier` 특성값으로 설정합니다. 
 
-다음 예제는 Facebook ID 공급자가 반환한 클레임을 보여 줍니다.
+
+SAML 어설션: 
+
+```XML
+<saml:Subject>
+  <saml:NameID SPNameQualifier="http://your-idp.com/unique-identifier" Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient">david@contoso.com</saml:NameID>
+    <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+      <SubjectConfirmationData InResponseTo="_cd37c3f2-6875-4308-a9db-ce2cf187f4d1" NotOnOrAfter="2020-02-15T16:23:23.137Z" Recipient="https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer" />
+    </SubjectConfirmation>
+  </saml:SubjectConfirmation>
+</saml:Subject>
+```
+
+출력 클레임:
+
+```XML
+<OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="http://your-idp.com/unique-identifier" />
+```
+
+SAML `SPNameQualifier` `NameQualifier` 어설션에 두 특성 또는 특성이 표시되지 않으면 `assertionSubjectName`파트너 클레임 **유형** 파트너를 로 설정합니다. **NameId**가 어설션 XML의 첫 번째 값인지 확인합니다. 둘 이상의 어설션을 정의하면 Azure AD B2C가 마지막 어설션에서 주체 값을 선택합니다.
+
+다음 예제에서는 SAML ID 공급자가 반환한 클레임을 보여 주며 있습니다.
 
 - **issuerUserId** 클레임은 **어설션에 매핑됩니다주제이름** 클레임입니다.
 - **first_name** 클레임은 **givenName** 클레임에 매핑됩니다.
@@ -119,11 +140,13 @@ Protocol 요소의 **Name** 특성은 `SAML2`로 설정해야 합니다.
 </OutputClaims>
 ```
 
+**OutputClaimsTransformations** 요소는 출력 클레임을 수정하거나 새 출력 클레임을 생성하는 데 사용되는 **OutputClaimsTransformation** 요소 컬렉션을 포함할 수 있습니다.
+
 ## <a name="metadata"></a>메타데이터
 
-| 특성 | 필수 | 설명 |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
-| PartnerEntity | yes | SAML ID 공급자의 메타데이터 URL입니다. ID 공급자 메타데이터를 복사하여 CDATA 요소 `<![CDATA[Your IDP metadata]]>` 내에 추가합니다. |
+| PartnerEntity | 예 | SAML ID 공급자의 메타데이터 URL입니다. ID 공급자 메타데이터를 복사하여 CDATA 요소 `<![CDATA[Your IDP metadata]]>` 내에 추가합니다. |
 | WantsSignedRequests | 예 | 기술 프로필에서 모든 발신 인증 요청에 서명을 해야 하는지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`입니다. 기본값은 `true`입니다. 값을 `true`로 설정하는 경우에는 **SamlMessageSigning** 암호화 키를 지정하고 모든 발신 인증 요청에 서명을 해야 합니다. 값을 `false`로 설정하는 경우에는 **SigAlg** 및 **Signature** 매개 변수(쿼리 문자열 또는 게시 매개 변수)가 요청에서 생략됩니다. 이 메타데이터는 메타데이터 **AuthnRequestsSigned** 특성도 제어합니다. 해당 특성은 ID 공급자와 공유되는 Azure AD B2C 기술 프로필의 메타데이터 출력입니다. 기술 프로필 메타데이터의 **WantsSignedRequests** 값이 `false` 설정되고 ID 공급자 메타데이터 **WantAuthnRequestSigned가** 지정되지 `false` 않은 경우 Azure AD B2C는 요청에 서명하지 않습니다. |
 | XmlSignatureAlgorithm | 예 | Azure AD B2C가 SAML 요청에 서명하는 데 사용하는 메서드입니다. 이 메타데이터는 SAML 요청의 **SigAlg** 매개 변수(쿼리 문자열 또는 게시 매개 변수) 값을 제어합니다. 가능한 값은 `Sha256`, `Sha384`, `Sha512` 또는 `Sha1`입니다. 양쪽의 서명 알고리즘을 같은 값으로 구성해야 합니다. 인증서가 지원하는 알고리즘만 사용하세요. |
 | WantsSignedAssertions | 예 | 기술 프로필에서 모든 수신 어설션에 서명을 해야 하는지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`입니다. 기본값은 `true`입니다. 값을 `true`로 설정하는 경우 ID 공급자가 Azure AD B2C로 전송하는 모든 어설션 섹션 `saml:Assertion`에 서명을 해야 합니다. 값을 `false`로 설정하는 경우에는 ID 공급자가 어설션에 서명을 하지 않아야 하며, 서명을 하더라도 Azure AD B2C가 서명의 유효성을 검사하지 않습니다. 이 메타데이터는 메타데이터 플래그 **WantsAssertionsSigned**도 제어합니다. 해당 플래그는 ID 공급자와 공유되는 Azure AD B2C 기술 프로필의 메타데이터 출력입니다. 어설션 유효성 검사를 사용하지 않도록 설정하는 경우에는 응답 서명 유효성 검사도 사용하지 않도록 설정하는 것이 좋습니다. 자세한 내용은 **ResponsesSigned**를 참조하세요. |
@@ -141,10 +164,10 @@ Protocol 요소의 **Name** 특성은 `SAML2`로 설정해야 합니다.
 
 암호화키 요소에는 다음 속성이 포함되어 **있습니다.**
 
-| 특성 |필수 | 설명 |
+| 특성 |필수 | Description |
 | --------- | ----------- | ----------- |
-| SamlMessageSigning |yes | SAML 메시지에 서명을 하는 데 사용할 X509 인증서(RSA 키 집합)입니다. Azure AD B2C는 이 키를 사용해 요청에 서명을 한 다음 ID 공급자에 요청을 전송합니다. |
-| SamlAssertionDecryption |yes | SAML 메시지의 암호를 해독하는 데 사용할 X509 인증서(RSA 키 집합)입니다. ID 공급자가 이 인증서를 제공해야 합니다. Azure AD B2C는 이 인증서를 사용하여 ID 공급자가 전송하는 데이터의 암호를 해독합니다. |
+| SamlMessageSigning |예 | SAML 메시지에 서명을 하는 데 사용할 X509 인증서(RSA 키 집합)입니다. Azure AD B2C는 이 키를 사용해 요청에 서명을 한 다음 ID 공급자에 요청을 전송합니다. |
+| SamlAssertionDecryption |예 | SAML 메시지의 암호를 해독하는 데 사용할 X509 인증서(RSA 키 집합)입니다. ID 공급자가 이 인증서를 제공해야 합니다. Azure AD B2C는 이 인증서를 사용하여 ID 공급자가 전송하는 데이터의 암호를 해독합니다. |
 | MetadataSigning |예 | SAML 메타데이터에 서명을 하는 데 사용할 X509 인증서(RSA 키 집합)입니다. Azure AD B2C는 이 키를 사용하여 메타데이터에 서명을 합니다.  |
 
 ## <a name="next-steps"></a>다음 단계

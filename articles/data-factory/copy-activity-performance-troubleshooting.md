@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 963b86852a7df557ad7179e444e7c3a2692f57d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a14f4d548053fb7aaf6f450176fdc49bc7b119bf
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531455"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421030"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>복사 작업 성능 문제 해결
 
@@ -50,7 +50,7 @@ ms.locfileid: "79531455"
 
 복사 활동 모니터링 보기 의 맨 아래에 있는 실행 세부 정보 및 기간은 복사 작업이 진행되는 주요 단계(이 문서의 시작 부분의 예제 참조)를 설명하며, 복사 성능 문제 해결에 특히 유용합니다. 복사 실행의 병목 현상은 가장 긴 기간의 병목 현상입니다. 각 단계의 정의에 대한 다음 표를 참조하고 [Azure IR에서 복사 활동 문제를 해결하고](#troubleshoot-copy-activity-on-azure-ir) 이러한 정보를 사용하여 자체 호스팅 [IR에서 복사 활동을 해결하는](#troubleshoot-copy-activity-on-self-hosted-ir) 방법을 알아봅니다.
 
-| 단계           | 설명                                                  |
+| 단계           | Description                                                  |
 | --------------- | ------------------------------------------------------------ |
 | 큐           | 복사 활동이 실제로 통합 런타임에서 시작될 때까지의 경과 시간입니다. |
 | 사전 복사 스크립트 | IR에서 시작하여 복사 활동 사이의 경과 시간 및 복사 활동 사이의 경과 시간은 싱크 데이터 저장소에서 복사 전 스크립트를 실행합니다. 데이터베이스 싱크에 대한 사전 복사 스크립트를 구성할 때 적용(예: Azure SQL Database에 데이터를 쓰는 경우 새 데이터를 복사하기 전에 정리). |
@@ -88,7 +88,7 @@ ms.locfileid: "79531455"
 
   - 복사 소스 및 싱크 패턴을 확인합니다. 
 
-    - 복사 패턴이 4개 이상의 데이터 통합 단위(DIUs)를 지원하는 경우 자세한 내용은 [이 섹션을](copy-activity-performance.md#data-integration-units) 참조하여 일반적으로 DI를 늘려 성능을 향상시켜 보십시오. 
+    - 복사 패턴이 4개 이상의 데이터 통합 단위(DIUs)를 지원하는 경우 자세한 내용은 [이 섹션을](copy-activity-performance-features.md#data-integration-units) 참조하여 일반적으로 DI를 늘려 성능을 향상시켜 보십시오. 
 
     - 그렇지 않으면 단일 대용량 데이터 집합을 여러 개의 작은 데이터 집합으로 분할하고 해당 복사 작업이 각 데이터 부분을 동시에 실행하도록 하는 것이 좋습니다. 조회/GetMetadata + ForEach + 복사를 통해 이 작업을 수행할 수 있습니다. 여러 [컨테이너에서 파일 복사,](solution-template-copy-files-multiple-containers.md) [Amazon S3에서 ADLS Gen2로 데이터 마이그레이션](solution-template-migration-s3-azure.md)또는 일반적인 예로 제어 테이블 솔루션 [템플릿을 사용하여 대량 복사를](solution-template-bulk-copy-with-control-table.md) 참조합니다.
 
@@ -102,7 +102,7 @@ ms.locfileid: "79531455"
 
   - 복사 소스 및 싱크 패턴을 확인합니다. 
 
-    - 복사 패턴이 4개 이상의 데이터 통합 단위(DIUs)를 지원하는 경우 자세한 내용은 [이 섹션을](copy-activity-performance.md#data-integration-units) 참조하여 일반적으로 DI를 늘려 성능을 향상시켜 보십시오. 
+    - 복사 패턴이 4개 이상의 데이터 통합 단위(DIUs)를 지원하는 경우 자세한 내용은 [이 섹션을](copy-activity-performance-features.md#data-integration-units) 참조하여 일반적으로 DI를 늘려 성능을 향상시켜 보십시오. 
 
     - 그렇지 않으면 [병렬 복사본을](copy-activity-performance-features.md)점진적으로 조정하면 병렬 복사본이 너무 많면 성능이 저하될 수 있습니다.
 
@@ -140,7 +140,7 @@ ms.locfileid: "79531455"
 
   - Azure 포털에서 자체 호스팅 IR의 CPU 및 메모리 사용 추세를 확인하십시오-> 데이터 팩터리 -> 개요 페이지입니다. CPU 사용량이 높거나 사용 가능한 메모리가 부족한 경우 [IR을 확장/축소하는](create-self-hosted-integration-runtime.md#high-availability-and-scalability) 것이 좋습니다.
 
-  - 적용되는 경우 커넥터별 데이터 로딩 모범 사례를 채택합니다. 예를 들어:
+  - 적용되는 경우 커넥터별 데이터 로딩 모범 사례를 채택합니다. 다음은 그 예입니다.
 
     - [오라클,](connector-oracle.md#oracle-as-source) [네테자,](connector-netezza.md#netezza-as-source) [테라데이타,](connector-teradata.md#teradata-as-source) [SAP HANA,](connector-sap-hana.md#sap-hana-as-source) [SAP 테이블](connector-sap-table.md#sap-table-as-source)및 [SAP 오픈 허브에서](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)데이터를 복사할 때 데이터 파티션 옵션을 사용하여 데이터를 병렬로 복사할 수 있습니다.
 

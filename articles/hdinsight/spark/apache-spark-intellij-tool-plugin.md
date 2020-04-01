@@ -1,23 +1,23 @@
 ---
-title: '자습서 - Azure Toolkit for IntelliJ: Spark 앱 - HDInsight'
-description: 자습서 - Azure Toolkit for IntelliJ를 사용하여 Scala로 작성된 Spark 애플리케이션을 개발한 후 HDInsight Spark 클러스터에 제출합니다.
+title: 'IntelliJ에 대한 Azure 도구 키트 : 스파크 응용 프로그램 - HDInsight'
+description: Azure Toolkit for IntelliJ를 사용하여 Scala로 작성된 Spark 애플리케이션을 개발한 후 HDInsight Spark 클러스터로 제출합니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 2631a0906a0f0886bdc106f1afef99860a6fe00b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
-ms.translationtype: HT
+ms.openlocfilehash: d80f4cb12c79519818f6eccb2bb565bac472b471
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223590"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397689"
 ---
-# <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>자습서: Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
+# <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
-이 자습서에서는 IntelliJ IDE용 **Azure Toolkit** 플러그 인을 사용하여 Azure HDInsight에서 Apache Spark 애플리케이션을 개발하는 방법을 보여 줍니다. [Azure HDInsight](../hdinsight-overview.md)는 Hadoop, Apache Spark, Apache Hive 및 Apache Kafka와 같은 오픈 소스 프레임워크를 사용할 수 있도록 하는 클라우드에서 관리되는 오픈 소스 분석 서비스입니다.
+이 문서에서는 IntelliJ IDE에 대한 Azure 도구 **키트** 플러그인을 사용하여 Azure HDInsight에서 아파치 스파크 응용 프로그램을 개발하는 방법을 보여 줍니다. [Azure HDInsight](../hdinsight-overview.md)는 Hadoop, Apache Spark, Apache Hive 및 Apache Kafka와 같은 오픈 소스 프레임워크를 사용할 수 있도록 하는 클라우드에서 관리되는 오픈 소스 분석 서비스입니다.
 
 다음과 같은 몇 가지 방식으로 **Azure Toolkit** 플러그 인을 사용할 수 있습니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "79223590"
 * Azure HDInsight Spark 클러스터 리소스에 액세스합니다.
 * Scala Spark 애플리케이션을 로컬로 개발 및 실행합니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 문서에서는 다음 방법을 설명합니다.
 > [!div class="checklist"]
 > * Azure Toolkit for IntelliJ 플러그 인 사용
 > * Apache Spark 애플리케이션 개발
@@ -35,7 +35,7 @@ ms.locfileid: "79223590"
 
 * HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
-* [Oracle Java Development 키트](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  이 자습서에서는 Java 버전 8.0.202를 사용합니다.
+* [Oracle Java Development 키트](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  이 문서에서는 Java 버전 8.0.202를 사용합니다.
 
 * IntelliJ IDEA. 이 문서에서는 [IntelliJ IDEA 커뮤니티 버전  2018.3.4](https://www.jetbrains.com/idea/download/)를 사용합니다.
 
@@ -77,7 +77,7 @@ Scala 플러그인을 설치하려면 다음 단계를 수행하세요.
 
     |  속성   | Description   |  
     | ----- | ----- |  
-    |프로젝트 이름| 이름을 입력합니다.  이 자습서에서는 `myApp`를 사용합니다.|  
+    |프로젝트 이름| 이름을 입력합니다.  이 문서에서는 `myApp`을 사용합니다.|  
     |프로젝트&nbsp;위치| 프로젝트를 저장하기를 원하는 위치를 입력합니다.|
     |프로젝트 SDK| IDEA를 처음 사용하는 경우에는 비어 있을 수 있습니다.  **새로 만들기...** 를 만들기 JDK로 이동합니다.|
     |Spark 버전|만들기 마법사는 Spark SDK 및 Scala SDK에 대해 적합한 버전을 통합합니다. Spark 클러스터 버전이 2.0 이전인 경우 **Spark 1.x**를 선택합니다. 그렇지 않으면 **Spark2.x**를 선택합니다. 이 예제에서는 **Spark 2.3.0(Scala 2.11.8)** 을 사용합니다.|
@@ -472,7 +472,7 @@ IntelliJ IDEA에서 만든 기존 Spark Scala 애플리케이션을 Azure Toolki
 
 1. **서비스**에서 **HDInsight 클러스터**를 선택합니다.
 
-1. 표시되는 HDInsight 클러스터 목록에서 이 자습서용으로 만든 클러스터 옆에 있는 **...** 를 선택합니다.
+1. 표시되는 HDInsight 클러스터 목록에서 이 문서에 대해 만든 클러스터 **옆의** 을 선택합니다.
 
 1. **삭제**를 선택합니다. **예**를 선택합니다.
 
@@ -480,7 +480,7 @@ IntelliJ IDEA에서 만든 기존 Spark Scala 애플리케이션을 Azure Toolki
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서를 통해, Azure Toolkit for IntelliJ 플러그 인을 사용하여 [Scala](https://www.scala-lang.org/)로 작성된 Apache Spark 애플리케이션을 개발한 후 IntelliJ IDE(통합 개발 환경)에서 직접 HDInsight Spark 클러스터에 제출하는 방법을 알아보았습니다. 다음 문서로 진행하여 Apache Spark에 등록된 데이터를 Power BI와 같은 BI 분석 도구로 가져오는 방법을 확인하세요.
+이 문서에서는 IntelliJ 플러그인용 Azure 도구 키트를 사용하여 [스칼라로](https://www.scala-lang.org/)작성된 아파치 스파크 응용 프로그램을 개발한 다음 IntelliJ 통합 개발 환경(IDE)에서 직접 HDInsight 스파크 클러스터에 제출하는 방법을 배웠습니다. 다음 문서로 진행하여 Apache Spark에 등록된 데이터를 Power BI와 같은 BI 분석 도구로 가져오는 방법을 확인하세요.
 
 > [!div class="nextstepaction"]
 > [Power BI를 사용하여 Apache Spark 데이터 분석](apache-spark-use-bi-tools.md)

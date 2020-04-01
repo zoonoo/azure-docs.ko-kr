@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 8bb77a217546f1abe2c28925e32464b8d61702b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 31587777ba22dd8b4cebf81f0ff98979bb30fade
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481282"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410710"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>활성 디렉터리(Azure AD) 응용 프로그램 프록시자주 묻는 질문
 
@@ -113,7 +113,7 @@ PrincipalsAllowedToDelegateToAccount 방법은 커넥터 서버가 웹 응용 �
 
 Azure [AD 응용 프로그램 프록시를 사용하여 원격 데스크톱 게시](application-proxy-integrate-with-remote-desktop-services.md)를 참조하십시오.
 
-### <a name="can-i-use-kerberos-constrained-delegation-in-the-remote-desktop-gateway-publishing-scenario"></a>원격 데스크톱 게이트웨이 게시 시나리오에서 Kerberos 제한된 위임을 사용할 수 있습니까?
+### <a name="can-i-use-kerberos-constrained-delegation-single-sign-on---windows-integrated-authentication-in-the-remote-desktop-gateway-publishing-scenario"></a>원격 데스크톱 게이트웨이 게시 시나리오에서 Kerberos 제한된 위임(단일 사인온 - Windows 통합 인증)을 사용할 수 있습니까?
 
 아니요, 이 시나리오는 지원되지 않습니다.  
 
@@ -121,7 +121,7 @@ Azure [AD 응용 프로그램 프록시를 사용하여 원격 데스크톱 게�
 
 예, 예상됩니다. 사전 인증 시나리오에는 타사 브라우저에서 지원되지 않는 ActiveX 컨트롤이 필요합니다.
 
-### <a name="is-the-remote-desktop-web-client-supported"></a>원격 데스크톱 웹 클라이언트가 지원되고 있습니까?
+### <a name="is-the-remote-desktop-web-client-html5-supported"></a>원격 데스크톱 웹 클라이언트(HTML5)가 지원되나요?
 
 아니요, 이 시나리오는 현재 지원되지 않습니다. 이 기능에 대한 업데이트는 [UserVoice](https://aka.ms/aadapuservoice) 피드백 포럼을 따르십시오.
 
@@ -135,6 +135,10 @@ Azure [AD 응용 프로그램 프록시를 사용하여 원격 데스크톱 게�
 
 Azure [AD 응용 프로그램 프록시를 사용하여 SharePoint에 대한 원격 액세스 활성화를](application-proxy-integrate-with-sharepoint-server.md)참조하십시오.
 
+### <a name="can-i-use-the-sharepoint-mobile-app-ios-android-to-access-a-published-sharepoint-server"></a>쉐어포인트 모바일 앱(iOS/Android)을 사용하여 게시된 SharePoint 서버에 액세스할 수 있습니까?
+
+[SharePoint 모바일 앱은](https://docs.microsoft.com/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) 현재 Azure Active Directory 사전 인증을 지원하지 않습니다.
+
 ## <a name="active-directory-federation-services-ad-fs-publishing"></a>AD FS(활성 디렉터리 페더레이션 서비스) 게시 
 
 ### <a name="can-i-use-azure-ad-application-proxy-as-ad-fs-proxy-like-web-application-proxy"></a>Azure AD 응용 프로그램 프록시를 웹 응용 프로그램 프록시와 같은 AD FS 프록시로 사용할 수 있습니까?
@@ -147,7 +151,7 @@ Azure [AD 응용 프로그램 프록시를 사용하여 SharePoint에 대한 원
 
 현재 WebSocket 프로토콜 지원은 아직 공개 미리 보기 중이며 다른 응용 프로그램에서는 작동하지 않을 수 있습니다. 일부 고객은 WebSocket 프로토콜을 다른 응용 프로그램과 혼합하여 성공했습니다. 이러한 시나리오를 테스트하는 경우 결과를 듣고 싶습니다. 의견을 보내주십시오. aadapfeedback@microsoft.com
 
-WINDOWS 관리 센터(WAC) 또는 원격 데스크톱 웹 클라이언트의 기능(이벤트로그, PowerShell 및 원격 데스크톱 서비스)은 현재 Azure AD 응용 프로그램 프록시를 통해 작동하지 않습니다.
+WINDOWS 관리 센터(WAC) 또는 원격 데스크톱 웹 클라이언트(HTML5)의 기능(이벤트로그, PowerShell 및 원격 데스크톱 서비스)은 현재 Azure AD 응용 프로그램 프록시를 통해 작동하지 않습니다.
 
 ## <a name="link-translation"></a>링크 번역
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 357075caaf91769026deb839e038e5d42fb63a38
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 60f85a30815bc1bace409b50af6332bb6622d7ca
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80054679"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477991"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿을 사용하여 로그 분석 작업 영역 관리
 
@@ -48,6 +48,9 @@ ms.locfileid: "80054679"
 
 다음 예제는 로컬 컴퓨터의 템플릿을 사용하여 작업 영역을 만듭니다. JSON 템플릿은 새 작업 영역의 이름과 위치만 요구하도록 구성됩니다. [액세스 제어 모드,](design-logs-deployment.md#access-control-mode)가격 책정 계층, 보존 및 용량 예약 수준과 같은 다른 작업 영역 매개 변수에 지정된 값을 사용합니다.
 
+> [!WARNING]
+> 다음 템플릿은 Log Analytics 작업 영역을 만들고 데이터 수집을 구성합니다. 이렇게 하면 결제 설정이 변경될 수 있습니다. [Azure 모니터 로그를 사용하여 사용량 및 비용 관리를](manage-cost-storage.md) 검토하여 Azure 환경에 적용하기 전에 Log Analytics 작업 영역에서 수집된 데이터에 대한 청구를 이해합니다.
+
 용량 예약의 경우 SKU `CapacityReservation` 및 속성에 `capacityReservationLevel`대한 GB 값을 지정하여 데이터를 수집하기 위해 선택한 용량 예약을 정의합니다. 다음 목록에서는 지원되는 값과 동작을 구성할 때 자세히 설명합니다.
 
 - 예약 한도를 설정한 후에는 31일 이내에 다른 SKU로 변경할 수 없습니다.
@@ -75,7 +78,7 @@ ms.locfileid: "80054679"
               "description": "Specifies the name of the workspace."
             }
         },
-      "pricingTier": {
+      "sku": {
         "type": "string",
         "allowedValues": [
           "pergb2018",
@@ -131,7 +134,7 @@ ms.locfileid: "80054679"
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-          "name": "[parameters('pricingTier')]"
+                    "name": "[parameters('sku')]"
                 },
                 "retentionInDays": 120,
                 "features": {
@@ -145,15 +148,15 @@ ms.locfileid: "80054679"
     }
     ```
 
-> [정보] 용량 예약 설정에 대 한, "sku"에서 다음 속성을 사용 합니다.
+   >[!NOTE]
+   >용량 예약 설정의 경우 "sku"에서 다음 속성을 사용합니다.
+   >* "이름": "용량 예약",
+   >* "용량 예약 수준": 100
 
->   "이름": "용량 예약",
+2. 요구 사항을 충족하도록 템플릿을 편집합니다. 매개 [변수를](../../azure-resource-manager/templates/parameter-files.md) 인라인 값으로 전달하는 대신 Resource Manager 매개 변수 파일을 만드는 것이 좋습니다. 지원되는 속성 및 값은 [Microsoft.OperationalInsights/workspaces 템플릿](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) 참조를 검토하세요. 
 
->   "용량 예약 수준": 100
-
-
-2. 요구 사항을 충족하도록 템플릿을 편집합니다. 지원되는 속성 및 값은 [Microsoft.OperationalInsights/workspaces 템플릿](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) 참조를 검토하세요. 
 3. 이 파일을 로컬 폴더에 **deploylaworkspacetemplate.json**으로 저장합니다.
+
 4. 이제 이 템플릿을 배포할 수 있습니다. PowerShell 또는 명령줄을 사용하여 작업 영역을 만들고 작업 영역 이름과 위치를 명령의 일부로 지정합니다. 작업 영역 이름은 모든 Azure 구독에서 전역적으로 고유해야 합니다.
 
    * PowerShell의 경우 템플릿이 포함된 폴더에서 다음 명령을 사용합니다.
@@ -176,7 +179,7 @@ ms.locfileid: "80054679"
 다음 템플릿 샘플에서는 다음 작업의 방법을 보여 줍니다.
 
 1. 작업 영역에 솔루션 추가
-2. 저장된 검색을 만듭니다. 배포가 저장된 검색을 실수로 무시하지 않도록 하려면 저장된 검색의 idempotncy를 재정의하고 유지하기 위해 "saveSearches" 리소스에 eTag 속성을 추가해야 합니다.
+2. 저장된 검색을 만듭니다. 배포가 저장된 검색을 실수로 재정의하지 않도록 하려면 저장된 검색의 idempotncy를 재정의하고 유지하기 위해 "saveSearches" 리소스에 eTag 속성을 추가해야 합니다.
 3. 컴퓨터 그룹 만들기
 4. Windows 에이전트가 설치된 컴퓨터에서 IIS 로그 수집 활성화
 5. Linux 컴퓨터에서 논리 디스크 성능 카운터 수집(사용된 Inode 비율, 사용 가능한 MB, 사용된 공간 비율, 초당 디스크 전송, 초당 디스크 읽기, 초당 디스크 쓰기)
@@ -197,7 +200,7 @@ ms.locfileid: "80054679"
         "description": "Workspace name"
       }
     },
-    "pricingTier": {
+    "sku": {
       "type": "string",
       "allowedValues": [
         "PerGB2018",
@@ -306,7 +309,7 @@ ms.locfileid: "80054679"
           "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
         "sku": {
-          "name": "[parameters('pricingTier')]"
+          "name": "[parameters('sku')]"
         }
       },
       "resources": [
@@ -605,7 +608,7 @@ ms.locfileid: "80054679"
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').customerId]"
     },
-    "pricingTier": {
+    "sku": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').sku.name]"
     },

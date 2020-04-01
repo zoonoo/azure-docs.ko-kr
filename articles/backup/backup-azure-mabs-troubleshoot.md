@@ -4,12 +4,12 @@ description: Azure Backup Server 설치, 등록 및 애플리케이션 워크로
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: cc0cf7e91c1aacbc637d33ab1e5546cc54836b28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: deff49a7d00a335c396a6fa36d3846ef353331c5
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673125"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421289"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Azure Backup Server 문제 해결
 
@@ -26,7 +26,7 @@ Microsoft Azure 백업 서버(MABS) 문제 해결을 시작하기 전에 아래 
 - 등록에 실패한 경우 Azure Backup Server를 설치하려는 서버가 다른 자격 증명 모음에 아직 등록되지 않았는지 확인합니다.
 - 푸시 설치에 실패할 경우 이미 DPM 에이전트가 있는지 확인합니다. 있는 경우 해당 에이전트를 제거하고 다시 설치
 - [다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure Backup을 방해하는지 확인](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)<br>
-- SQL 에이전트 서비스가 실행되고 있으며 MAB 서버에서 자동으로 설정되어 있는지 확인합니다.<br>
+- SQL 에이전트 서비스가 실행 중이고 MABS 서버에서 자동으로 설정되어 있는지 확인합니다.<br>
 
 ## <a name="invalid-vault-credentials-provided"></a>잘못된 자격 증명 모음이 제공되었습니다.
 
@@ -86,7 +86,7 @@ Microsoft Azure 백업 서버(MABS) 문제 해결을 시작하기 전에 아래 
 | 보호 그룹 구성 | DPM은 보호된 컴퓨터(보호된 컴퓨터 이름)에 애플리케이션 구성 요소를 열거할 수 없습니다. | 관련 데이터 원본/구성 요소 수준의 보호 그룹 구성 UI 화면에서 **새로 고침**을 선택합니다. |
 | 보호 그룹 구성 | 보호를 구성할 수 없음 | 보호된 서버가 SQL Server인 경우 [이 문서](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757977(v=sc.12))에 설명된 대로 보호된 컴퓨터에 대한 시스템 계정(NTAuthority\System)에 sysadmin 역할 권한이 제공되었는지 확인합니다.
 | 보호 그룹 구성 | 이 보호 그룹에 대한 스토리지 풀에 여유 공간이 부족합니다. | 스토리지 풀에 추가된 디스크는 [파티션을 포함하지 않아야 합니다](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)). 디스크에 있는 기존 볼륨을 모두 삭제합니다. 그런 다음 스토리지 풀에 추가합니다.|
-| 정책 변경 |백업 정책을 수정할 수 없습니다. 오류: 내부 서비스 오류 [0x29834]로 인해 현재 작업이 실패했습니다. 잠시 후 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. | **원인:**<br/>이 오류는 보안 설정이 활성화된 경우, 위에서 지정된 최소값 미만으로 보존 범위를 줄이려고 하는 경우 및 지원되지 않는 버전을 사용하는 경우 등 세 가지 조건에서 발생합니다. (지원되지 않는 버전은 Microsoft Azure Backup Server 버전 2.0.9052 및 Azure Backup Server 업데이트 1 미만입니다.) <br/>**권장 작업:**<br/> 정책 관련 업데이트를 계속하려면 보존 기간을 지정된 최소 보존 기간보다 길게 설정합니다. (최소 보존 기간은 일별 백업의 경우 7일, 주별 백업의 경우 4주, 월별 백업의 경우 3개월, 연도별 백업의 경우 1년입니다.) <br><br>그 외에도 권장되는 방법은 백업 에이전트 및 Azure Backup Server를 업데이트하여 모든 보안 업데이트를 적용하는 것입니다. |
+| 정책 변경 |백업 정책을 수정할 수 없습니다. 오류: 내부 서비스 오류 [0x29834]로 인해 현재 작업이 실패했습니다. 잠시 후 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. | **원인:**<br/>이 오류는 보안 설정이 활성화된 경우, 위에서 지정된 최소값 미만으로 보존 범위를 줄이려고 하는 경우 및 지원되지 않는 버전을 사용하는 경우 등 세 가지 조건에서 발생합니다. (지원되지 않는 버전은 Microsoft Azure Backup Server 버전 2.0.9052 및 Azure Backup Server 업데이트 1 미만입니다.) <br/>**권장 조치:**<br/> 정책 관련 업데이트를 계속하려면 보존 기간을 지정된 최소 보존 기간보다 길게 설정합니다. (최소 보존 기간은 일별 백업의 경우 7일, 주별 백업의 경우 4주, 월별 백업의 경우 3개월, 연도별 백업의 경우 1년입니다.) <br><br>그 외에도 권장되는 방법은 백업 에이전트 및 Azure Backup Server를 업데이트하여 모든 보안 업데이트를 적용하는 것입니다. |
 
 ## <a name="backup"></a>Backup
 
@@ -102,14 +102,14 @@ Microsoft Azure 백업 서버(MABS) 문제 해결을 시작하기 전에 아래 
 
 | 작업(Operation) | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-| 암호 변경 |입력한 보안 PIN이 잘못되었습니다. 이 작업을 완료하려면 올바른 보안 PIN을 입력합니다. |**원인:**<br/> 이 오류는 중요한 작업(예: 암호 변경)을 수행하는 동안 잘못되거나 만료된 보안 PIN을 입력하는 경우 발생합니다. <br/>**권장 작업:**<br/> 작업을 완료하려면 유효한 보안 PIN을 입력해야 합니다. PIN을 얻으려면 Azure Portal에 로그인한 다음, Recovery Services 자격 증명 모음으로 이동합니다. 그런 다음 **설정** > **속성으로** > **이동하여 보안 PIN을 생성합니다.** 이 PIN을 사용하여 암호를 변경합니다. |
-| 암호 변경 |작업이 실패했습니다. ID: 120002 |**원인:**<br/>이 오류는 보안 설정이 활성화된 경우, 또는 지원되지 않는 버전을 사용하는 중에 암호를 변경하려고 하는 경우 발생합니다.<br/>**권장 작업:**<br/> 암호를 변경하려면 먼저 백업 에이전트를 최소 버전인 2.0.9052로 업데이트해야 합니다. 또한 Azure Backup Server도 최소 업데이트 1로 업데이트한 다음, 유효한 보안 PIN을 입력해야 합니다. PIN을 얻으려면 Azure Portal에 로그인한 다음, Recovery Services 자격 증명 모음으로 이동합니다. 그런 다음 **설정** > **속성으로** > **이동하여 보안 PIN을 생성합니다.** 이 PIN을 사용하여 암호를 변경합니다. |
+| 암호 변경 |입력한 보안 PIN이 잘못되었습니다. 이 작업을 완료하려면 올바른 보안 PIN을 입력합니다. |**원인:**<br/> 이 오류는 중요한 작업(예: 암호 변경)을 수행하는 동안 잘못되거나 만료된 보안 PIN을 입력하는 경우 발생합니다. <br/>**권장 조치:**<br/> 작업을 완료하려면 유효한 보안 PIN을 입력해야 합니다. PIN을 얻으려면 Azure Portal에 로그인한 다음, Recovery Services 자격 증명 모음으로 이동합니다. 그런 다음 **설정** > **속성으로** > **이동하여 보안 PIN을 생성합니다.** 이 PIN을 사용하여 암호를 변경합니다. |
+| 암호 변경 |작업이 실패했습니다. ID: 120002 |**원인:**<br/>이 오류는 보안 설정이 활성화된 경우, 또는 지원되지 않는 버전을 사용하는 중에 암호를 변경하려고 하는 경우 발생합니다.<br/>**권장 조치:**<br/> 암호를 변경하려면 먼저 백업 에이전트를 최소 버전인 2.0.9052로 업데이트해야 합니다. 또한 Azure Backup Server도 최소 업데이트 1로 업데이트한 다음, 유효한 보안 PIN을 입력해야 합니다. PIN을 얻으려면 Azure Portal에 로그인한 다음, Recovery Services 자격 증명 모음으로 이동합니다. 그런 다음 **설정** > **속성으로** > **이동하여 보안 PIN을 생성합니다.** 이 PIN을 사용하여 암호를 변경합니다. |
 
 ## <a name="configure-email-notifications"></a>전자 메일 알림 구성
 
 | 작업(Operation) | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-| Office 365 계정을 사용하여 메일 알림 설정 |오류 ID: 2013| **원인:**<br> Office 365 계정을 사용하려고 합니다. <br>**권장 작업:**<ol><li> 가장 먼저 확인해야 할 것은 DPM 서버에 대해 "수신 커넥터에서 익명 릴레이 허용"이 Exchange에서 설정되어 있다는 것입니다. 이를 구성하는 방법에 대한 자세한 내용은 [수신 커넥터에서 익명 릴레이 허용](https://docs.microsoft.com/exchange/mail-flow/connectors/allow-anonymous-relay?view=exchserver-2019)을 참조하십시오.</li> <li> 내부 SMTP 릴레이를 사용할 수 없고 Office 365 서버를 사용하여 설정해야 할 경우 IIS가 릴레이가 되도록 설정할 수 있습니다. [IIS를 사용하여 SMTP를 O365로 릴레이하도록](https://docs.microsoft.com/exchange/mail-flow/test-smtp-with-telnet?view=exchserver-2019)DPM 서버를 구성합니다.<br><br>  도메인\사용자가 아닌\@사용자 domain.com *not* 형식을 사용해야 합니다.<br><br><li>DPM에서 로컬 서버 이름을 SMTP 서버(포트 587)로 사용하도록 지정합니다. 그런 다음, 메일을 가져올 사용자 메일을 가리킵니다.<li> DPM SMTP 설정 페이지의 사용자 이름과 암호는 DPM이 사용 설정되어 있는 도메인 계정용이어야 합니다. </li><br> SMTP 서버 주소를 변경할 경우 새 설정을 변경하고 설정 상자를 닫은 후 다시 열어 새 값이 적용되었는지 확인하세요.  단순히 변경 및 테스트한다고 해서 새 설정이 적용되는 것은 아니므로, 이 방법으로 테스트하는 것이 좋습니다.<br><br>이 과정 중 언제든지 DPM 콘솔을 닫고 다음 레지스트리 키를 편집하여 이러한 설정을 지울 수 있습니다. **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> SMTPPassword 및 SMTPUserName 키를 삭제합니다.** 다시 시작할 때 UI에 다시 추가할 수 있습니다.
+| Office 365 계정을 사용하여 메일 알림 설정 |오류 ID: 2013| **원인:**<br> Office 365 계정을 사용하려고 합니다. <br>**권장 조치:**<ol><li> 가장 먼저 확인해야 할 것은 DPM 서버에 대해 "수신 커넥터에서 익명 릴레이 허용"이 Exchange에서 설정되어 있다는 것입니다. 이를 구성하는 방법에 대한 자세한 내용은 [수신 커넥터에서 익명 릴레이 허용](https://docs.microsoft.com/exchange/mail-flow/connectors/allow-anonymous-relay?view=exchserver-2019)을 참조하십시오.</li> <li> 내부 SMTP 릴레이를 사용할 수 없고 Office 365 서버를 사용하여 설정해야 할 경우 IIS가 릴레이가 되도록 설정할 수 있습니다. [IIS를 사용하여 SMTP를 O365로 릴레이하도록](https://docs.microsoft.com/exchange/mail-flow/test-smtp-with-telnet?view=exchserver-2019)DPM 서버를 구성합니다.<br><br>  도메인\사용자가 아닌\@사용자 domain.com *not* 형식을 사용해야 합니다.<br><br><li>DPM에서 로컬 서버 이름을 SMTP 서버(포트 587)로 사용하도록 지정합니다. 그런 다음, 메일을 가져올 사용자 메일을 가리킵니다.<li> DPM SMTP 설정 페이지의 사용자 이름과 암호는 DPM이 사용 설정되어 있는 도메인 계정용이어야 합니다. </li><br> SMTP 서버 주소를 변경할 경우 새 설정을 변경하고 설정 상자를 닫은 후 다시 열어 새 값이 적용되었는지 확인하세요.  단순히 변경 및 테스트한다고 해서 새 설정이 적용되는 것은 아니므로, 이 방법으로 테스트하는 것이 좋습니다.<br><br>이 과정 중 언제든지 DPM 콘솔을 닫고 다음 레지스트리 키를 편집하여 이러한 설정을 지울 수 있습니다. **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> SMTPPassword 및 SMTPUserName 키를 삭제합니다.** 다시 시작할 때 UI에 다시 추가할 수 있습니다.
 
 ## <a name="common-issues"></a>일반적인 문제
 

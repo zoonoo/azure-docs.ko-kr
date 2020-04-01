@@ -10,12 +10,12 @@ ms.date: 03/19/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: bef3b53a160f17248c1a26e97bc85a86843cb3c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e7878cae7bc6aabf1db58bfd63338955b9e830d3
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061247"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478246"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure 키 자격 증명 모음을 사용하여 고객 관리 키 구성
 
@@ -32,7 +32,7 @@ Azure Storage 암호화를 사용하여 고객 관리 키를 사용하려면 키
 - [PowerShell에서 소프트 삭제를 사용하는 방법](../../key-vault/key-vault-soft-delete-powershell.md).
 - [CLI와 소프트 삭제를 사용하는 방법](../../key-vault/key-vault-soft-delete-cli.md).
 
-크기 2048의 RSA 키만 Azure 저장소 암호화를 통해 지원됩니다. 키에 대한 자세한 내용은 Azure [키 볼트 정보 키, 비밀 및 인증서의](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)키 자격 증명 모음 **키를** 참조하십시오.
+Azure 저장소 암호화를 통해 2048비트 RSA 및 RSA-HSM 키만 지원됩니다. 키에 대한 자세한 내용은 Azure [키 볼트 정보 키, 비밀 및 인증서의](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)키 자격 증명 모음 **키를** 참조하십시오.
 
 ## <a name="enable-customer-managed-keys"></a>고객 관리 키 사용
 

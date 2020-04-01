@@ -4,19 +4,19 @@ description: Azure의 Analysis Services 서버에서 데이터에 연결하고 �
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3231b46060cbb755ada000473c8fbe873cc51ef1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2875959a833134131fa6db6d51df0c2b47a39377
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73147306"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411308"
 ---
 # <a name="connecting-to-servers"></a>서버에 연결
 
-이 문서에서는 SQL Server 관리 스튜디오(SSMS) 또는 분석 서비스 프로젝트가 있는 Visual Studio와 같은 데이터 모델링 및 관리 응용 프로그램을 사용하거나 Microsoft Excel, Power BI와 같은 클라이언트 보고 응용 프로그램과 함께 서버에 연결하는 방법을 설명합니다. 데스크톱 또는 사용자 지정 응용 프로그램입니다. Azure Analysis Services에 연결에서 HTTPS를 사용합니다.
+이 문서에서는 SQL Server 관리 스튜디오(SSMS) 또는 분석 서비스 프로젝트가 있는 Visual Studio와 같은 데이터 모델링 및 관리 응용 프로그램을 사용하거나 Microsoft Excel, Power BI Desktop 또는 사용자 지정 응용 프로그램과 같은 클라이언트 보고 응용 프로그램과 함께 서버에 연결하는 방법을 설명합니다. Azure Analysis Services에 연결에서 HTTPS를 사용합니다.
 
 ## <a name="client-libraries"></a>클라이언트 라이브러리
 

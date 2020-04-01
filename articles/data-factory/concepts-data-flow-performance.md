@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 95a60abef283984d66736358d2d02048f08d700d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4baf7974bdb0a5efe4cb556e820e9d13aeac5d8a
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246996"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409852"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>데이터 흐름 성능 및 튜닝 가이드 매핑
 
@@ -69,7 +69,7 @@ ADF UX에서 데이터 흐름을 디자인하고 테스트할 때는 클러스�
 
 소스 변환의 **소스 옵션에서** 다음 설정은 성능에 영향을 줄 수 있습니다.
 
-* 일괄 처리 크기는 ADF가 행별 대신 메모리에 데이터를 저장하도록 지시합니다. 일괄 처리 크기는 선택적 설정이며 제대로 크기가 조정되지 않은 경우 계산 노드의 리소스가 부족할 수 있습니다.
+* 일괄 처리 크기는 ADF가 행별 대신 스파크 메모리에 데이터를 집합에 저장하도록 지시합니다. 일괄 처리 크기는 선택적 설정이며 제대로 크기가 조정되지 않은 경우 계산 노드의 리소스가 부족할 수 있습니다. 이 속성을 설정하지 않는 것은 Spark 캐싱 일괄 처리 기본값을 활용합니다.
 * 쿼리를 설정하면 처리를 위해 데이터 흐름에 도착하기 전에 원본에서 행을 필터링할 수 있습니다. 이렇게 하면 초기 데이터 수집이 빨라집니다. 쿼리를 사용하는 경우 READ UNCOMMITTED과 같은 Azure SQL DB에 대한 선택적 쿼리 힌트를 추가할 수 있습니다.
 * 커밋되지 않은 읽기는 소스 변환에서 더 빠른 쿼리 결과를 제공합니다.
 
@@ -77,7 +77,7 @@ ADF UX에서 데이터 흐름을 디자인하고 테스트할 때는 클러스�
 
 ### <a name="sink-batch-size"></a>싱크 배치 크기
 
-데이터 흐름의 행별 처리를 방지하려면 Azure SQL DB 및 Azure SQL DW 싱크에 대한 설정 탭에서 **일괄 처리 크기를** 설정합니다. 일괄 처리 크기를 설정하면 ADF는 제공된 크기에 따라 데이터베이스 쓰기를 일괄 처리합니다.
+데이터 흐름의 행별 처리를 방지하려면 Azure SQL DB 및 Azure SQL DW 싱크에 대한 설정 탭에서 **일괄 처리 크기를** 설정합니다. 일괄 처리 크기를 설정하면 ADF는 제공된 크기에 따라 데이터베이스 쓰기를 일괄 처리합니다. 이 속성을 설정하지 않는 것은 Spark 캐싱 일괄 처리 기본값을 활용합니다.
 
 ![싱크](media/data-flow/sink4.png "sink")
 

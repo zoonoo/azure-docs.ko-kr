@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 1d399ffec2cd702dcfa39310803bc780b85bfde1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a8124e9860ba5703e96f96c90bc0cf37e42baf9c
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77187453"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398352"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>.NET 코어(Microsoft.Azure.EventHubs)를 사용하여 Azure 이벤트 허브에서 이벤트를 보내거나 이벤트를 수신합니다.
 이 빠른 시작은 **Microsoft.Azure.EventHubs** .NET 코어 라이브러리를 사용하여 이벤트 허브에서 이벤트를 보내고 받는 방법을 보여 주며, 이 방법을 보여 주며, 이벤트 허브에서 이벤트를 보내고 받는 방법을 보여 주며,
 
 > [!WARNING]
-> 이 빠른 시작은 이전 **Microsoft.Azure.EventHubs** 패키지를 사용합니다. 최신 **Azure.Messaging.EventHubs 라이브러리를** 사용하는 빠른 시작은 [Azure.Messaging.EventHubs 라이브러리를 사용하여 이벤트 보내기 및 수신을](get-started-dotnet-standard-send-v2.md)참조하세요. 응용 프로그램을 이전 라이브러리를 새 라이브러리로 이동하려면 [Microsoft.Azure.EventHubs에서 Azure.Messaging.EventHubs로 마이그레이션하는 가이드를](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md)참조하십시오.
+> 이 빠른 시작은 이전 **Microsoft.Azure.EventHubs** 패키지를 사용합니다. 최신 **Azure.Messaging.EventHubs 라이브러리를** 사용하는 빠른 시작은 [Azure.Messaging.EventHubs 라이브러리를 사용하여 이벤트 보내기 및 수신을](get-started-dotnet-standard-send-v2.md)참조하세요. 응용 프로그램을 이전 라이브러리를 새 라이브러리로 이동하려면 [Microsoft.Azure.EventHubs에서 Azure.Messaging.EventHubs로 마이그레이션하는 가이드를](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)참조하십시오.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기 전에 [Event Hubs 개요](event-hubs-about.md)를 참조하세요. 

@@ -11,21 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/23/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 5dc231febc2e9b605b9e7f603f5d036b8a2c62eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f3f9b32ea55f0ceebf08b22ccc7e2ceec0b6227e
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240752"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420798"
 ---
-# <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli-preview"></a>Azure 가상 네트워크의 IPv4 응용 프로그램에 IPv6 추가 - Azure CLI(미리 보기)
+# <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli"></a>Azure 가상 네트워크의 IPv4 응용 프로그램에 IPv6 추가 - Azure CLI
 
 이 문서에서는 Azure CLI를 사용하는 표준 로드 밸런서에 대해 Azure 가상 네트워크에서 IPv4 공용 IP 주소를 사용하는 응용 프로그램에 IPv6 주소를 추가하는 방법을 보여 주십니다. 현재 업그레이드에는 가상 네트워크 및 서브넷, IPv4 + IPv6 프런트 엔드 구성이 있는 표준 로드 밸런서, IPv4 + IPv6 구성이 있는 NIC가 있는 VM, 네트워크 보안 그룹 및 공용 IP가 포함됩니다.
 
-> [!Important]
-> Azure 가상 네트워크에 대한 IPv6 지원은 현재 공개 미리 보기 상태입니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -33,29 +31,6 @@ ms.locfileid: "80240752"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-### <a name="register-the-service"></a>서비스 등록
-
-Azure에서 이중 스택 응용 프로그램을 배포하기 전에 다음 Azure CLI를 사용하여 이 미리 보기 기능에 대한 구독을 구성해야 합니다.
-
-```azurecli
-az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-
-기능 등록이 완료될 때까지 최대 30분이 걸립니다. 다음 Azure CLI 명령을 실행하여 등록 상태를 확인할 수 있습니다.
-
-```azurecli
-az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-
-등록이 완료되면 다음 명령을 실행합니다.
-
-```azurecli
-az provider register --namespace Microsoft.Network
-```
-
-### <a name="create-a-standard-load-balancer"></a>표준 Load Balancer 만들기
 이 문서에서는 [빠른 시작: 표준 로드 밸러커 만들기 - Azure CLI에](../load-balancer/quickstart-load-balancer-standard-public-cli.md)설명된 대로 표준 로드 밸러서를 배포했다고 가정합니다.
 
 ## <a name="create-ipv6-addresses"></a>IPv6 주소 만들기
@@ -173,8 +148,6 @@ az network nic ip-config create \
 
   ![Azure의 IPv6 듀얼 스택 가상 네트워크](./media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-vnet.png)
 
-> [!NOTE]
-> Azure 가상 네트워크에 대한 IPv6는 이 미리 보기 릴리스에 대해 읽기 전용으로 Azure 포털에서 사용할 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

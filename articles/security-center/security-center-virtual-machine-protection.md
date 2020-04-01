@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: bcf92838483fbb6b54802cc0d44cc44ea086d705
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93dde2e873a00303dcb8563caed4d56dbf11cc12
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79282641"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435642"
 ---
 # <a name="protect-your-machines-and-applications"></a>기계 및 애플리케이션 보호
 Azure Security Center에서 잠재적인 보안 취약점을 식별하면 리소스를 강화하고 보호하는 데 필요한 컨트롤을 구성하는 프로세스를 안내하는 권장 사항을 만듭니다.
@@ -84,18 +84,18 @@ VM 또는 컴퓨터에 대한 보안 세부 정보는 다음과 같습니다. �
 
 
 
-### <a name="virtual-machine-scale-sets"></a><a name="vmscale-sets"></a>가상 머신 스케일 세트
-보안 센터는 규모 집합이 있는지 여부를 자동으로 검색하고 Microsoft 모니터링 에이전트를 설치하는 것이 좋습니다.
+### <a name="virtual-machine-scale-sets"></a><a name="vmscale-sets"></a>가상 머신 크기 집합
+보안 센터는 확장 집합이 있는지 여부를 자동으로 검색하고 Log Analytics 에이전트를 설치하는 것이 좋습니다.
 
-Microsoft Monitoring Agent를 설치하려면 
+로그 분석 에이전트를 설치하려면 다음을 수행하십시오. 
 
 1. 권장 사항 **가상 머신 확장 집합에 모니터링 에이전트 설치**를 선택합니다. 모니터링되지 않는 확장 집합의 목록이 표시됩니다.
 
-1. 비정상 확장 집합을 선택합니다. 지침에 따라 기존의 채워진 작업 영역을 사용하여 모니터링 에이전트를 설치하거나 새로 만듭니다. 작업 영역 [가격 책정 계층](security-center-pricing.md)을 설정하지 않은 경우 설정합니다.
+1. 비정상 확장 집합을 선택합니다. 지침에 따라 기존의 채워진 작업 영역을 사용하여 모니터링 에이전트를 설치하거나 새로 만듭니다. 설정되지 않은 경우 작업 영역 [가격 책정 계층을](security-center-pricing.md) 설정해야 합니다.
 
    ![MMS 설치](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
-Microsoft 모니터링 에이전트를 자동으로 설치하도록 새 축척 집합을 설정하려면 다음을 수행하십시오.
+로그 분석 에이전트를 자동으로 설치하도록 새 축척 세트를 설정하려면 다음을 수행하십시오.
 1. Azure Policy로 이동한 후 **정의**를 클릭합니다.
 
 1. Windows 가상 **시스템 규모 집합에 대한 로그 분석 에이전트 배포** 정책을 검색하고 클릭합니다.
@@ -104,7 +104,7 @@ Microsoft 모니터링 에이전트를 자동으로 설치하도록 새 축척 �
 
 1. **범위** 및 **Log Analytics 작업 영역**을 설정하고 **할당**을 클릭합니다.
 
-Microsoft Monitoring Agent를 설치하도록 기존의 모든 확장 집합을 설정하려는 경우 Azure Policy에서 **수정**으로 이동한 후 기존 확장 집합에 기존 정책을 적용합니다.
+Azure Policy에서 로그 분석 에이전트를 설치하도록 모든 기존 축척 집합을 설정하려면 **업데이트 관리로** 이동하여 기존 확장 집합에 기존 정책을 적용합니다.
 
 
 
@@ -195,7 +195,7 @@ Docker를 실행하는 VM 중 하나를 클릭하면 Docker 버전 및 호스트
 
 Security Center는 Docker 구성을 검색하고 평가된 모든 실패 규칙 목록을 제공하여 구성 오류를 표시합니다. Security Center는 이러한 문제를 신속하게 해결하고 시간을 절약하기 위한 지침을 제공합니다. Security Center는 Docker 구성을 지속적으로 평가하고 최신 상태를 제공합니다.
 
-![컨테이너 탭](./media/security-center-container-recommendations/container-cis-benchmark.png)
+![컨테이너 탭](./media/security-center-virtual-machine-recommendations/container-cis-benchmark.png)
 
 
 ## <a name="next-steps"></a>다음 단계

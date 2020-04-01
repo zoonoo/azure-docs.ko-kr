@@ -3,12 +3,12 @@ title: Recovery Services 자격 증명 모음 개요
 description: Recovery Services 자격 증명 모음 및 Azure Backup 자격 증명 모음 간의 개요 및 비교입니다.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 94a3e5a0865bcc8c0a9ecb866ca013f20a558e1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6a359287533c9ffdd688b5285b24b9c70fa7b7f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673229"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436955"
 ---
 # <a name="recovery-services-vaults-overview"></a>Recovery Services 자격 증명 모음 개요
 
@@ -18,7 +18,7 @@ Azure 구독 내에서 지역당 구독당 최대 500개의 Recovery Services �
 
 ## <a name="comparing-recovery-services-vaults-and-backup-vaults"></a>Recovery Services 자격 증명 모음 및 Backup 자격 증명 모음 비교
 
-Backup 자격 증명 모음이 있으면 Recovery Services 자격 증명 모음으로 자동으로 업그레이드됩니다. 2017년 11월까지 모든 Backup 자격 증명 모음은 Recovery Services 자격 증명 모음으로 업그레이드됩니다.
+여전히 백업 자격 증명 모음이 있는 경우 복구 서비스 자격 증명 모음으로 자동 업그레이드됩니다. 2017년 11월까지 모든 Backup 자격 증명 모음은 Recovery Services 자격 증명 모음으로 업그레이드됩니다.
 
 Recovery Services 자격 증명은 Azure의 Azure Resource Manager 모델을 기준으로 하지만 Backup 자격 증명 모음은 Azure 서비스 관리자 모델을 기준으로 합니다. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 때 업그레이드 프로세스 전후의 백업 데이터는 그대로 유지됩니다. Recovery Services 자격 증명 모음은 다음과 같은 Backup 자격 증명 모음에 사용할 수 없는 기능을 제공합니다.
 
@@ -32,11 +32,19 @@ Recovery Services 자격 증명은 Azure의 Azure Resource Manager 모델을 기
 
 - **IaaS VM에 대한 인스턴트 복원**: Recovery Services 자격 증명 모음을 사용하여 전체 VM을 복원하지 않고 IaaS VM의 파일 및 폴더를 복원할 수 있습니다. 그러면 복원 시간이 빨라집니다. IaaS VM에 대한 인스턴트 복원은 Windows 및 Linux VM 모두에서 제공됩니다. [자세히 알아보기](backup-instant-restore-capability.md)
 
+## <a name="storage-settings-in-the-recovery-services-vault"></a>복구 서비스 자격 증명 모음의 저장소 설정
+
+Recovery Services 자격 증명 모음은 시간에 따라 생성된 모든 백업과 복구 지점을 저장하는 엔터티입니다. Recovery Services 자격 증명 모음에는 보호된 가상 머신과 연결된 백업 정책도 포함됩니다.
+
+Azure Backup은 볼트에 대한 저장소를 자동으로 처리합니다. 저장소 [설정을 변경할 수 있는](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy)방법을 알아봅니다.
+
+저장소 중복성에 대한 자세한 내용은 [지리적](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs) 및 [로컬](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs) 중복성에 대한 다음 문서를 참조하세요.
+
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>포털에서 Recovery Services 자격 증명 모음 관리
 
 Backup 서비스가 다른 Azure 서비스에 통합되기 때문에 Azure Portal에서 Recovery Services 자격 증명 모음을 쉽게 만들고 관리할 수 있습니다. 이 통합으로 인해 *대상 서비스의 컨텍스트에서* Recovery Services 자격 증명 모음을 만들거나 관리할 수 있습니다. 예를 들어 VM의 복구 지점을 보려면 해당 VM을 선택하고 작업 메뉴에서 **Backup**을 클릭합니다.
 
-![Recovery Services 자격 증명 모음 세부 정보 VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
+![복구 서비스 볼트 세부 정보 VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
 
 VM에 백업이 구성되지 않은 경우 백업을 구성하라는 메시지가 표시됩니다. 백업이 구성된 경우 복원 지점 목록을 포함하여 VM에 대한 백업 정보가 표시 됩니다.  
 

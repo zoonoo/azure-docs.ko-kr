@@ -3,14 +3,14 @@ title: 진단 설정을 통해 내보낼 수 있는 Azure Monitor 플랫폼 메�
 description: Azure Monitor의 각 리소스 유형별로 사용 가능한 메트릭 목록.
 services: azure-monitor
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 03/30/2020
 ms.subservice: metrics
-ms.openlocfilehash: 7a75655d1707dd2491065974ed8addc4c2da1a6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6be8cb1b7e74301d16a1174f5ca2b774334dac3f
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77661365"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422118"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>진단 설정을 통해 내보낼 수 있는 Azure Monitor 플랫폼 메트릭
 
@@ -24,7 +24,9 @@ Azure Monitor 백 엔드의 복잡성으로 인해 진단 설정을 사용하여
 
 ## <a name="change-to-behavior-for-nulls-and-zero-values"></a>눌 및 0 값에 대 한 동작으로 변경 
  
-진단 설정을 통해 내보낼 수 있는 플랫폼 메트릭의 경우 Azure Monitor에서 '0s'를 'Null'로 해석하는 몇 가지 메트릭이 있습니다. 이로 인해 실제 '0s'(리소스에서 내보낸 값)와 '0s'(Nulls) 해석 간에 약간의 혼동이 발생했습니다. 진단 설정을 통해 내보낸 **2020년 4월 1일부터** 기본 리소스에서 실제로 내보내지 않는 한 '0s'를 내보내지 않습니다. 참고:
+진단 설정을 통해 내보낼 수 있는 플랫폼 메트릭의 경우 Azure Monitor에서 '0s'를 'Null'로 해석하는 몇 가지 메트릭이 있습니다. 이로 인해 실제 '0s'(리소스에서 내보낸 값)와 '0s'(Nulls) 해석 간에 약간의 혼동이 발생했습니다. 곧 변경이 발생하고 진단 설정을 통해 내보낸 플랫폼 메트릭이 기본 리소스에서 실제로 내보내지 않는 한 더 이상 '0s'를 내보내지 않습니다. 변경은 2020년 4월 1일로 예정되었지만 COVID-19로 인해 우선 이동으로 인해 지연되었습니다. 
+
+참고:
 
 1.  리소스 그룹 또는 특정 리소스를 삭제하면 영향을 받는 리소스의 메트릭 데이터가 더 이상 진단 설정 내보내기 대상으로 전송되지 않습니다. 즉, 이벤트 허브, 저장소 계정 및 로그 분석 작업 영역에 더 이상 표시되지 않습니다.
 2.  이 개선 사항은 모든 퍼블릭 및 프라이빗 클라우드에서 사용할 수 있습니다.
@@ -49,7 +51,7 @@ Azure Monitor 백 엔드의 복잡성으로 인해 진단 설정을 사용하여
 > 아래 표아래에는 가로 스크롤 막대가 있을 수 있습니다. 정보가 누락되었다고 생각되면 스크롤 막대가 왼쪽끝까지 있는지 확인합니다.  
 
 
-| 진단 설정을 통해 내보낼 수 있습니까?  | 눌스 방출 |  ResourceType  |  메트릭  |  메트릭표시이름  |  단위  |  AggregationType | 
+| 진단 설정을 통해 내보낼 수 있습니까?  | 이미 NULL을 방출 |  ResourceType  |  메트릭  |  메트릭표시이름  |  단위  |  AggregationType | 
 |---|---| ---- | ----- | ------ | ---- | ---- | 
 | 예****  | 예 |  Microsoft.AnalysisServices/servers  |  CleanerCurrentPrice  |  메모리: 클리너 현재 가격  |  개수  |  평균 | 
 | 예****  | 예 |  Microsoft.AnalysisServices/servers  |  CleanerMemoryNonshrinkable  |  메모리: 클리너 메모리 축소 불가능  |  바이트  |  평균 | 
@@ -401,7 +403,7 @@ Azure Monitor 백 엔드의 복잡성으로 인해 진단 설정을 사용하여
 | **예**  | 예 |  Microsoft.ClassicStorage/storageAccounts  |  수신  |  수신  |  바이트  |  합계 | 
 | **예**  | 예 |  Microsoft.ClassicStorage/storageAccounts  |  SuccessE2ELatency  |  성공 E2E 대기 시간  |  밀리초  |  평균 | 
 | **예**  | 예 |  Microsoft.ClassicStorage/storageAccounts  |  SuccessServerLatency  |  성공 서버 대기 시간  |  밀리초  |  평균 | 
-| **예**  | 예 |  Microsoft.ClassicStorage/storageAccounts  |  의  |  의  |  개수  |  합계 | 
+| **예**  | 예 |  Microsoft.ClassicStorage/storageAccounts  |  트랜잭션  |  트랜잭션  |  개수  |  합계 | 
 | 예  | 예 |  Microsoft.ClassicStorage/storageAccounts  |  UsedCapacity  |  사용된 용량  |  바이트  |  평균 | 
 | **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/blobServices  |  가용성  |  가용성  |  백분율  |  평균 | 
 | 예  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/blobServices  |  BlobCapacity  |  Blob 용량  |  바이트  |  평균 | 
@@ -412,7 +414,7 @@ Azure Monitor 백 엔드의 복잡성으로 인해 진단 설정을 사용하여
 | **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/blobServices  |  수신  |  수신  |  바이트  |  합계 | 
 | **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/blobServices  |  SuccessE2ELatency  |  성공 E2E 대기 시간  |  밀리초  |  평균 | 
 | **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/blobServices  |  SuccessServerLatency  |  성공 서버 대기 시간  |  밀리초  |  평균 | 
-| **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/blobServices  |  의  |  의  |  개수  |  합계 | 
+| **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/blobServices  |  트랜잭션  |  트랜잭션  |  개수  |  합계 | 
 | **예**  | 예 |  마이크로 소프트.클래식 스토리지 / 스토리지계정 / 파일 서비스  |  가용성  |  가용성  |  백분율  |  평균 | 
 | **예**  | 예 |  마이크로 소프트.클래식 스토리지 / 스토리지계정 / 파일 서비스  |  송신  |  송신  |  바이트  |  합계 | 
 | 예  | 예 |  마이크로 소프트.클래식 스토리지 / 스토리지계정 / 파일 서비스  |  FileCapacity  |  파일 용량  |  바이트  |  평균 | 
@@ -424,7 +426,7 @@ Azure Monitor 백 엔드의 복잡성으로 인해 진단 설정을 사용하여
 | **예**  | 예 |  마이크로 소프트.클래식 스토리지 / 스토리지계정 / 파일 서비스  |  수신  |  수신  |  바이트  |  합계 | 
 | **예**  | 예 |  마이크로 소프트.클래식 스토리지 / 스토리지계정 / 파일 서비스  |  SuccessE2ELatency  |  성공 E2E 대기 시간  |  밀리초  |  평균 | 
 | **예**  | 예 |  마이크로 소프트.클래식 스토리지 / 스토리지계정 / 파일 서비스  |  SuccessServerLatency  |  성공 서버 대기 시간  |  밀리초  |  평균 | 
-| **예**  | 예 |  마이크로 소프트.클래식 스토리지 / 스토리지계정 / 파일 서비스  |  의  |  의  |  개수  |  합계 | 
+| **예**  | 예 |  마이크로 소프트.클래식 스토리지 / 스토리지계정 / 파일 서비스  |  트랜잭션  |  트랜잭션  |  개수  |  합계 | 
 | **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/큐서비스  |  가용성  |  가용성  |  백분율  |  평균 | 
 | **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/큐서비스  |  송신  |  송신  |  바이트  |  합계 | 
 | **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/큐서비스  |  수신  |  수신  |  바이트  |  합계 | 
@@ -433,7 +435,7 @@ Azure Monitor 백 엔드의 복잡성으로 인해 진단 설정을 사용하여
 | **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/큐서비스  |  QueueMessageCount  |  큐 메시지 수  |  개수  |  평균 | 
 | **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/큐서비스  |  SuccessE2ELatency  |  성공 E2E 대기 시간  |  밀리초  |  평균 | 
 | **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/큐서비스  |  SuccessServerLatency  |  성공 서버 대기 시간  |  밀리초  |  평균 | 
-| **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/큐서비스  |  의  |  의  |  개수  |  합계 | 
+| **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/큐서비스  |  트랜잭션  |  트랜잭션  |  개수  |  합계 | 
 | **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/테이블서비스  |  가용성  |  가용성  |  백분율  |  평균 | 
 | **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/테이블서비스  |  송신  |  송신  |  바이트  |  합계 | 
 | **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/테이블서비스  |  수신  |  수신  |  바이트  |  합계 | 
@@ -442,7 +444,7 @@ Azure Monitor 백 엔드의 복잡성으로 인해 진단 설정을 사용하여
 | **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/테이블서비스  |  TableCapacity  |  테이블 용량  |  바이트  |  평균 | 
 | **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/테이블서비스  |  TableCount  |  테이블 수  |  개수  |  평균 | 
 | **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/테이블서비스  |  TableEntityCount  |  테이블 엔터티 수  |  개수  |  평균 | 
-| **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/테이블서비스  |  의  |  의  |  개수  |  합계 | 
+| **예**  | 예 |  마이크로소프트.클래식스토리지/스토리지계정/테이블서비스  |  트랜잭션  |  트랜잭션  |  개수  |  합계 | 
 | **예**  | 예 |  Microsoft.CognitiveServices/accounts  |  BlockedCalls  |  차단된 호출  |  개수  |  합계 | 
 | **예**  | 예 |  Microsoft.CognitiveServices/accounts  |  문자 학습  |  훈련된 캐릭터  |  개수  |  합계 | 
 | **예**  | 예 |  Microsoft.CognitiveServices/accounts  |  CharactersTranslated  |  변환된 문자  |  개수  |  합계 | 
@@ -1432,7 +1434,7 @@ Azure Monitor 백 엔드의 복잡성으로 인해 진단 설정을 사용하여
 | **예**  | 예 |  Microsoft.Storage/storageAccounts  |  수신  |  수신  |  바이트  |  합계 | 
 | **예**  | 예 |  Microsoft.Storage/storageAccounts  |  SuccessE2ELatency  |  성공 E2E 대기 시간  |  밀리초  |  평균 | 
 | **예**  | 예 |  Microsoft.Storage/storageAccounts  |  SuccessServerLatency  |  성공 서버 대기 시간  |  밀리초  |  평균 | 
-| **예**  | 예 |  Microsoft.Storage/storageAccounts  |  의  |  의  |  개수  |  합계 | 
+| **예**  | 예 |  Microsoft.Storage/storageAccounts  |  트랜잭션  |  트랜잭션  |  개수  |  합계 | 
 | 예  | 예 |  Microsoft.Storage/storageAccounts  |  UsedCapacity  |  사용된 용량  |  바이트  |  평균 | 
 | **예**  | 예 |  Microsoft.Storage/storageAccounts/blobServices  |  가용성  |  가용성  |  백분율  |  평균 | 
 | 예  | 예 |  Microsoft.Storage/storageAccounts/blobServices  |  BlobCapacity  |  Blob 용량  |  바이트  |  평균 | 
@@ -1443,7 +1445,7 @@ Azure Monitor 백 엔드의 복잡성으로 인해 진단 설정을 사용하여
 | **예**  | 예 |  Microsoft.Storage/storageAccounts/blobServices  |  수신  |  수신  |  바이트  |  합계 | 
 | **예**  | 예 |  Microsoft.Storage/storageAccounts/blobServices  |  SuccessE2ELatency  |  성공 E2E 대기 시간  |  밀리초  |  평균 | 
 | **예**  | 예 |  Microsoft.Storage/storageAccounts/blobServices  |  SuccessServerLatency  |  성공 서버 대기 시간  |  밀리초  |  평균 | 
-| **예**  | 예 |  Microsoft.Storage/storageAccounts/blobServices  |  의  |  의  |  개수  |  합계 | 
+| **예**  | 예 |  Microsoft.Storage/storageAccounts/blobServices  |  트랜잭션  |  트랜잭션  |  개수  |  합계 | 
 | **예**  | 예 |  Microsoft.Storage/storageAccounts/fileServices  |  가용성  |  가용성  |  백분율  |  평균 | 
 | **예**  | 예 |  Microsoft.Storage/storageAccounts/fileServices  |  송신  |  송신  |  바이트  |  합계 | 
 | 예  | 예 |  Microsoft.Storage/storageAccounts/fileServices  |  FileCapacity  |  파일 용량  |  바이트  |  평균 | 
@@ -1455,7 +1457,7 @@ Azure Monitor 백 엔드의 복잡성으로 인해 진단 설정을 사용하여
 | **예**  | 예 |  Microsoft.Storage/storageAccounts/fileServices  |  수신  |  수신  |  바이트  |  합계 | 
 | **예**  | 예 |  Microsoft.Storage/storageAccounts/fileServices  |  SuccessE2ELatency  |  성공 E2E 대기 시간  |  밀리초  |  평균 | 
 | **예**  | 예 |  Microsoft.Storage/storageAccounts/fileServices  |  SuccessServerLatency  |  성공 서버 대기 시간  |  밀리초  |  평균 | 
-| **예**  | 예 |  Microsoft.Storage/storageAccounts/fileServices  |  의  |  의  |  개수  |  합계 | 
+| **예**  | 예 |  Microsoft.Storage/storageAccounts/fileServices  |  트랜잭션  |  트랜잭션  |  개수  |  합계 | 
 | **예**  | 예 |  Microsoft.Storage/storageAccounts/queueServices  |  가용성  |  가용성  |  백분율  |  평균 | 
 | **예**  | 예 |  Microsoft.Storage/storageAccounts/queueServices  |  송신  |  송신  |  바이트  |  합계 | 
 | **예**  | 예 |  Microsoft.Storage/storageAccounts/queueServices  |  수신  |  수신  |  바이트  |  합계 | 
@@ -1464,7 +1466,7 @@ Azure Monitor 백 엔드의 복잡성으로 인해 진단 설정을 사용하여
 | **예**  | 예 |  Microsoft.Storage/storageAccounts/queueServices  |  QueueMessageCount  |  큐 메시지 수  |  개수  |  평균 | 
 | **예**  | 예 |  Microsoft.Storage/storageAccounts/queueServices  |  SuccessE2ELatency  |  성공 E2E 대기 시간  |  밀리초  |  평균 | 
 | **예**  | 예 |  Microsoft.Storage/storageAccounts/queueServices  |  SuccessServerLatency  |  성공 서버 대기 시간  |  밀리초  |  평균 | 
-| **예**  | 예 |  Microsoft.Storage/storageAccounts/queueServices  |  의  |  의  |  개수  |  합계 | 
+| **예**  | 예 |  Microsoft.Storage/storageAccounts/queueServices  |  트랜잭션  |  트랜잭션  |  개수  |  합계 | 
 | **예**  | 예 |  Microsoft.Storage/storageAccounts/tableServices  |  가용성  |  가용성  |  백분율  |  평균 | 
 | **예**  | 예 |  Microsoft.Storage/storageAccounts/tableServices  |  송신  |  송신  |  바이트  |  합계 | 
 | **예**  | 예 |  Microsoft.Storage/storageAccounts/tableServices  |  수신  |  수신  |  바이트  |  합계 | 
@@ -1473,7 +1475,7 @@ Azure Monitor 백 엔드의 복잡성으로 인해 진단 설정을 사용하여
 | **예**  | 예 |  Microsoft.Storage/storageAccounts/tableServices  |  TableCapacity  |  테이블 용량  |  바이트  |  평균 | 
 | **예**  | 예 |  Microsoft.Storage/storageAccounts/tableServices  |  TableCount  |  테이블 수  |  개수  |  평균 | 
 | **예**  | 예 |  Microsoft.Storage/storageAccounts/tableServices  |  TableEntityCount  |  테이블 엔터티 수  |  개수  |  평균 | 
-| **예**  | 예 |  Microsoft.Storage/storageAccounts/tableServices  |  의  |  의  |  개수  |  합계 | 
+| **예**  | 예 |  Microsoft.Storage/storageAccounts/tableServices  |  트랜잭션  |  트랜잭션  |  개수  |  합계 | 
 | **예**  | 예 |  마이크로소프트.스토리지캐시/캐시  |  클라이언트IOPS  |  총 클라이언트 IOPS  |  개수  |  평균 | 
 | **예**  | 예 |  마이크로소프트.스토리지캐시/캐시  |  클라이언트 지연  |  평균 클라이언트 대기 시간  |  밀리초  |  평균 | 
 | **예**  | 예 |  마이크로소프트.스토리지캐시/캐시  |  클라이언트록IOPS  |  클라이언트 잠금 IOPS  |  초당 개수  |  평균 | 

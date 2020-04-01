@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 8317a13b9ef87679836f55627268deefa4500dce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0dbad1a94479430426dae47df7ca3a3ecd9dc980
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245474"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436192"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - 데이터 수집, 에이전트 및 작업 영역에 대한 질문
 
-보안 센터는 Azure 가상 시스템(VM), 가상 시스템 규모 집합, IaaS 컨테이너 및 비Azure 컴퓨터(온-프레미스 컴퓨터 포함)에서 데이터를 수집하여 보안 취약성 및 위협을 모니터링합니다. Microsoft Monitoring Agent를 사용하여 데이터를 수집합니다. Microsoft Monitoring Agent는 머신에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석용으로 작업 영역에 데이터를 복사합니다.
+보안 센터는 Azure 가상 시스템(VM), 가상 시스템 규모 집합, IaaS 컨테이너 및 비Azure 컴퓨터(온-프레미스 컴퓨터 포함)에서 데이터를 수집하여 보안 취약성 및 위협을 모니터링합니다. 데이터는 컴퓨터에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석을 위해 데이터를 작업 공간으로 복사하는 Log Analytics 에이전트를 사용하여 수집됩니다.
 
 
 ## <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>보안 센터에서 만든 작업 영역에 Azure Monitor 로그에 대한 요금이 청구되나요?
@@ -41,11 +41,11 @@ ms.locfileid: "79245474"
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 
-## <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-microsoft-monitoring-agent-installation"></a>Microsoft Monitoring Agent 설치의 자동 프로비전을 위한 VM의 요건은 무엇입니까?
+## <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-log-analytics-agent-installation"></a>Log Analytics 에이전트 설치의 자동 프로비저닝을 위한 VM의 자격요건은 무엇입니까?
 
 다음과 같은 경우 Windows 또는 Linux IaaS VM이 요건 충족됩니다.
 
-- Microsoft Monitoring Agent 확장이 VM에 현재 설치되어 있지 않습니다.
+- 로그 분석 에이전트 확장은 현재 VM에 설치되어 있지 않습니다.
 - VM이 실행 중인 상태입니다.
 - Windows 또는 Linux [Azure 가상 시스템 에이전트가](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) 설치됩니다.
 - VM이 웹 애플리케이션 방화벽이나 차세대 방화벽과 같은 어플라이언스로 사용되지 않습니다.
@@ -55,7 +55,7 @@ ms.locfileid: "79245474"
 
 **기본 작업 영역을 삭제하지 않는 것이 좋습니다.** Security Center는 기본 작업 영역을 사용하여 VM의 보안 데이터를 저장합니다. 작업 영역을 삭제하는 경우 Security Center는 이 데이터 및 일부 보안 권장 사항을 수집할 수 없고 경고를 사용할 수 없습니다.
 
-복구하려면 삭제된 작업 영역에 연결된 VM에서 Microsoft Monitoring Agent를 제거합니다. Security Center는 에이전트를 다시 설치하고 새 기본 작업 영역을 만듭니다.
+복구하려면 삭제된 작업 영역에 연결된 VM에서 로그 분석 에이전트를 제거합니다. Security Center는 에이전트를 다시 설치하고 새 기본 작업 영역을 만듭니다.
 
 ## <a name="how-can-i-use-my-existing-log-analytics-workspace"></a>기존 Log Analytics 작업 영역을 사용하려면 어떻게 해야 하나요?
 
@@ -77,7 +77,7 @@ ms.locfileid: "79245474"
 
 1. **저장**을 선택합니다. 모니터링되는 VM을 다시 구성할지 묻는 메시지가 표시됩니다.
 
-    - 새 작업 영역 설정을 **새 VM에만 적용**하려면 **아니요**를 선택합니다. 그러면 새 작업 영역 설정이 새 Agent 설치(Microsoft Monitoring Agent가 설치되어 있지 않은 새로 검색된 VM)에만 적용됩니다.
+    - 새 작업 영역 설정을 **새 VM에만 적용**하려면 **아니요**를 선택합니다. 새 작업 영역 설정은 새 에이전트 설치에만 적용됩니다. Log Analytics 에이전트가 설치되어 있지 않은 새로 발견된 VM입니다.
     - 새 작업 영역 설정을 **모든 VM에 적용하려면** **예를** 선택합니다. 이 경우에는 Security Center에서 만든 작업 영역에 연결된 모든 VM이 새 대상 작업 영역에 다시 연결됩니다.
 
     > [!NOTE]
@@ -85,7 +85,7 @@ ms.locfileid: "79245474"
 
     - 작업을 취소하려면 **취소를**선택합니다.
 
-## <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>Microsoft Monitoring Agent가 VM에 확장으로 이미 설치되어 있으면 어떻게 되나요?<a name="mmaextensioninstalled"></a>
+## <a name="what-if-the-log-analytics-agent-was-already-installed-as-an-extension-on-the-vm"></a>Log Analytics 에이전트가 VM의 확장으로 이미 설치된 경우 어떻게 해야 합니까?<a name="mmaextensioninstalled"></a>
 
 모니터링 에이전트를 확장으로 설치하면 확장 구성을 통해 단일 작업 영역에대해서만 보고할 수 있습니다. Security Center는 사용자 작업 영역에 대한 기존 연결을 재정의하지 않습니다. 보안 센터는 "보안" 또는 "SecurityCenterFree" 솔루션이 설치된 경우 이미 연결된 작업 영역에 VM의 보안 데이터를 저장합니다. 보안 센터는 이 프로세스의 확장 버전을 최신 버전으로 업그레이드할 수 있습니다.
 
@@ -93,9 +93,9 @@ ms.locfileid: "79245474"
 
 
 
-## <a name="what-if-a-microsoft-monitoring-agent-is-directly-installed-on-the-machine-but-not-as-an-extension-direct-agent"></a>Microsoft 모니터링 에이전트가 컴퓨터에 직접 설치되지만 확장(직접 에이전트)으로 설치되지 않은 경우 어떻게 해야 합니까?<a name="directagentinstalled"></a>
+## <a name="what-if-a-log-analytics-agent-is-directly-installed-on-the-machine-but-not-as-an-extension-direct-agent"></a>Log Analytics 에이전트가 컴퓨터에 직접 설치되지만 확장(직접 에이전트)으로 설치되지 않은 경우 어떻게 해야 합니까?<a name="directagentinstalled"></a>
 
-Microsoft 모니터링 에이전트가 Azure 확장이 아닌 VM에 직접 설치되는 경우 보안 센터는 Microsoft 모니터링 에이전트 확장을 설치하고 Microsoft 모니터링 에이전트를 최신 버전으로 업그레이드할 수 있습니다.
+Log Analytics 에이전트가 Azure 확장이 아닌 VM에 직접 설치되는 경우 보안 센터는 Log Analytics 에이전트 확장을 설치하고 Log Analytics 에이전트를 최신 버전으로 업그레이드할 수 있습니다.
 
 설치된 에이전트는 이미 구성된 작업 영역에 계속 보고되며 보안 센터에서 구성된 작업 영역에 도보고됩니다(Windows 컴퓨터에서 다중 호밍이 지원됨).
 
@@ -103,13 +103,13 @@ Microsoft 모니터링 에이전트가 Azure 확장이 아닌 VM에 직접 설�
 
 Linux 컴퓨터의 경우 에이전트 다중 호밍이 아직 지원되지 않으므로 기존 에이전트 설치가 감지되면 자동 프로비저닝이 발생하지 않고 컴퓨터의 구성이 변경되지 않습니다.
 
-2019년 3월 17일 이전에 보안 센터에 온보온된 구독의 기존 컴퓨터의 경우 기존 에이전트가 검색되면 Microsoft 모니터링 에이전트 확장이 설치되지 않고 컴퓨터가 영향을 받지 않습니다. 이러한 컴퓨터의 경우 "컴퓨터에서 모니터링 에이전트 상태 해결" 권장 사항을 참조하여 이러한 컴퓨터의 에이전트 설치 문제를 해결합니다.
+2019년 3월 17일 이전에 보안 센터에 온보온된 구독의 기존 컴퓨터의 경우 기존 에이전트가 검색되면 Log Analytics 에이전트 확장이 설치되지 않고 컴퓨터가 영향을 받지 않습니다. 이러한 컴퓨터의 경우 "컴퓨터에서 모니터링 에이전트 상태 해결" 권장 사항을 참조하여 이러한 컴퓨터의 에이전트 설치 문제를 해결합니다.
 
 자세한 내용은 다음 섹션을 참조하여 [시스템 센터 운영 관리자 또는 OMS 직접 에이전트가 VM에 이미 설치되어 있는 경우 어떻게 됩니까?](#scomomsinstalled)
 
 ## <a name="what-if-a-system-center-operations-manager-agent-is-already-installed-on-my-vm"></a>시스템 센터 운영 관리자 에이전트가 VM에 이미 설치되어 있는 경우 어떻게 해야 합니까?<a name="scomomsinstalled"></a>
 
-보안 센터는 Microsoft 모니터링 에이전트 확장 프로그램을 기존 시스템 센터 운영 관리자 에이전트에 나란히 설치합니다. 기존 에이전트는 시스템 센터 운영 관리자 서버에 정상적으로 계속 보고합니다. 운영 관리자 에이전트와 Microsoft 모니터링 에이전트는 이 프로세스 중에 최신 버전으로 업데이트되는 공통 런타임 라이브러리를 공유합니다. 참고 - Operations Manager 에이전트의 버전 2012가 설치된 경우 자동 프로비저닝을 켜지 마십시오(Operations Manager 서버가 버전 2012일 때 관리 기능이 손실될 수 있음).
+보안 센터는 기존 시스템 센터 운영 관리자 에이전트에 Log Analytics 에이전트 확장을 나란히 설치합니다. 기존 에이전트는 시스템 센터 운영 관리자 서버에 정상적으로 계속 보고합니다. Operations Manager 에이전트와 Log Analytics 에이전트는 공통 런타임 라이브러리를 공유하며, 이 라이브러리는 이 프로세스 중에 최신 버전으로 업데이트됩니다. 참고 - Operations Manager 에이전트의 버전 2012가 설치된 경우 자동 프로비저닝을 켜지 마십시오(Operations Manager 서버가 버전 2012일 때 관리 기능이 손실될 수 있음).
 
 
 ## <a name="what-is-the-impact-of-removing-these-extensions"></a>이러한 확장을 제거할 경우 어떤 영향이 있나요?
@@ -136,26 +136,26 @@ Microsoft Monitoring 확장을 제거하는 경우 Security Center는 VM의 보�
 
 다음에 해당하는 경우 자동 프로비전을 옵트아웃하는 것이 좋습니다.
 
-- Security Center에 의한 자동 에이전트 설치가 전체 구독에 적용됩니다. VM의 하위 집합에 자동 설치를 적용할 수 없습니다. Microsoft Monitoring Agent와 함께 설치할 수 없는 중요한 VM이 있는 경우 자동 프로비전을 옵트아웃해야 합니다.
-- MMA(Microsoft 모니터링 에이전트) 확장 프로그램을 설치하여 에이전트 의 버전을 업데이트합니다. 이는 직접 에이전트 및 시스템 센터 운영 관리자 에이전트(후자의 경우 운영 관리자와 MMA가 공통 런타임 라이브러리를 공유하며 프로세스에서 업데이트됩니다)에 적용됩니다. 설치된 Operations Manager 에이전트가 버전 2012이고 업그레이드된 경우 Operations Manager 서버가 버전 2012일 때 관리 기능이 손실될 수 있습니다. 설치된 Operations Manager 에이전트가 버전 2012인 경우 자동 프로비저닝을 선택 해제하는 것이 좋습니다.
-- 구독 외부에 사용자 지정 작업 영역(중앙 집중식 작업 영역)이 있는 경우 자동 프로비저닝을 옵트아웃해야 합니다. Microsoft Monitoring Agent 확장을 수동으로 설치하고 Security Center가 연결을 재정의하지 않고 작업 영역에 연결할 수 있습니다.
+- Security Center에 의한 자동 에이전트 설치가 전체 구독에 적용됩니다. VM의 하위 집합에 자동 설치를 적용할 수 없습니다. Log Analytics 에이전트와 함께 설치할 수 없는 중요한 VM이 있는 경우 자동 프로비저닝을 옵트아웃해야 합니다.
+- 로그 분석 에이전트 확장 프로그램을 설치하여 에이전트의 버전을 업데이트합니다. 이는 직접 에이전트 및 시스템 센터 운영 관리자 에이전트(후자의 경우 운영 관리자 및 Log Analytics 에이전트가 공통 런타임 라이브러리를 공유하며 프로세스에서 업데이트됩니다)에 적용됩니다. 설치된 Operations Manager 에이전트가 버전 2012이고 업그레이드된 경우 Operations Manager 서버가 버전 2012일 때 관리 기능이 손실될 수 있습니다. 설치된 Operations Manager 에이전트가 버전 2012인 경우 자동 프로비저닝을 선택 해제하는 것이 좋습니다.
+- 구독 외부에 사용자 지정 작업 영역(중앙 집중식 작업 영역)이 있는 경우 자동 프로비저닝을 옵트아웃해야 합니다. 로그 분석 에이전트 확장을 수동으로 설치하고 보안 센터에서 연결을 재정의하지 않고 작업 공간을 연결할 수 있습니다.
 - 구독 내에 자신의 사용자 지정 작업 영역이 있고 구독당 작업 영역을 여러 개 만들지 않으려는 경우 두 가지 옵션이 있습니다.
 
    1. 자동 프로비전을 옵트아웃할 수 있습니다. 마이그레이션 후 기본 작업 영역 설정을 [기존 Log Analytics 작업 영역을 사용하려면 어떻게 해야 하나요?](#how-can-i-use-my-existing-log-analytics-workspace)의 설명에 따라 설정합니다.
 
-   1. 또는 마이그레이션이 완료되고, Microsoft Monitoring Agent가 VM에 설치되고, VM이 생성된 작업 영역에 연결되도록 허용합니다. 그런 다음 이미 설치된 에이전트를 재구성하도록 선택하여 기본 작업 영역 설정을 설정하고 자신의 사용자 지정 작업 영역을 선택합니다. 자세한 내용은 [기존 Log Analytics 작업 영역을 사용하려면 어떻게 해야 하나요?](#how-can-i-use-my-existing-log-analytics-workspace)를 참조하세요.
+   1. 또는 마이그레이션이 완료되도록 허용하고, Log Analytics 에이전트를 VM에 설치하고, 생성된 작업 영역에 연결된 VM을 허용할 수 있습니다. 그런 다음 이미 설치된 에이전트를 재구성하도록 선택하여 기본 작업 영역 설정을 설정하고 자신의 사용자 지정 작업 영역을 선택합니다. 자세한 내용은 [기존 Log Analytics 작업 영역을 사용하려면 어떻게 해야 하나요?](#how-can-i-use-my-existing-log-analytics-workspace)를 참조하세요.
 
 
 ## <a name="what-are-the-implications-of-opting-out-of-automatic-provisioning"></a>자동 프로비전을 옵트아웃하는 의미는 무엇인가요?
 
-마이그레이션이 완료되면 보안 센터는 VM에서 보안 데이터를 수집할 수 없으며 일부 보안 권장 사항 및 경고를 사용할 수 없습니다. 옵트아웃하면 Microsoft 모니터링 에이전트를 수동으로 설치하십시오. [옵트아웃에 권장되는 단계](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning)를 참조하세요.
+마이그레이션이 완료되면 보안 센터는 VM에서 보안 데이터를 수집할 수 없으며 일부 보안 권장 사항 및 경고를 사용할 수 없습니다. 옵트아웃하면 Log Analytics 에이전트를 수동으로 설치하십시오. [옵트아웃에 권장되는 단계](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning)를 참조하세요.
 
 
 ## <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>자동 프로비전을 옵트아웃하는 경우 권장되는 단계는 무엇인가요?
 
-보안 센터가 VM에서 보안 데이터를 수집하고 권장 사항 및 경고를 제공할 수 있도록 Microsoft 모니터링 에이전트 확장을 수동으로 설치합니다. 설치 지침에 대해서는 [Windows VM용 에이전트 설치](../virtual-machines/extensions/oms-windows.md) 또는 [Linux VM용 에이전트 설치](../virtual-machines/extensions/oms-linux.md)를 참조하세요.
+보안 센터가 VM에서 보안 데이터를 수집하고 권장 사항 및 경고를 제공할 수 있도록 Log Analytics 에이전트 확장을 수동으로 설치합니다. 설치 지침에 대해서는 [Windows VM용 에이전트 설치](../virtual-machines/extensions/oms-windows.md) 또는 [Linux VM용 에이전트 설치](../virtual-machines/extensions/oms-linux.md)를 참조하세요.
 
-에이전트를 기존 사용자 지정 작업 영역이나 Security Center가 만든 작업 영역에 연결할 수 있습니다. 사용자 지정 작업 영역에 'Security' 또는 'SecurityCenterFree' 솔루션이 활성화되어 있지 않으면 솔루션을 적용해야 합니다. 적용하려면 사용자 지정 작업 영역 또는 구독을 선택하고 보안 정책 – 가격 책정 계층 페이지를 통해 가격 책정 **계층을 적용합니다.**
+에이전트를 기존 사용자 지정 작업 영역이나 Security Center가 만든 작업 영역에 연결할 수 있습니다. 사용자 지정 작업 영역에 '보안' 또는 'SecurityCenterFree' 솔루션이 활성화되어 있지 않은 경우 솔루션을 적용해야 합니다. 적용하려면 사용자 지정 작업 영역 또는 구독을 선택하고 보안 정책 – 가격 책정 계층 페이지를 통해 가격 책정 **계층을 적용합니다.**
 
    ![가격 책정 계층][1]
 
@@ -164,18 +164,18 @@ Security Center는 선택한 가격 책정 계층을 기반으로 작업 영역�
 
 ## <a name="how-do-i-remove-oms-extensions-installed-by-security-center"></a>Security Center에서 설치한 OMS 확장을 제거하려면 어떻게 할까요?<a name="remove-oms"></a>
 
-Microsoft Monitoring Agent를 수동으로 제거할 수 있습니다. Security Center 권장 사항 및 경고를 제한하기 때문에 권장되지는 않습니다.
+로그 분석 에이전트를 수동으로 제거할 수 있습니다. Security Center 권장 사항 및 경고를 제한하기 때문에 권장되지는 않습니다.
 
 > [!NOTE]
 > 데이터 수집을 사용하는 경우 Security Center는 에이전트를 제거한 후에 다시 설치합니다.  수동으로 에이전트를 제거하기 전에 데이터 수집을 사용하지 않도록 설정해야 합니다. 데이터 수집을 사용하지 않도록 설정하는 지침은 자동 에이전트 설치 및 작업 영역 생성을 중지하려면 어떻게 할까요?를 참조하세요.
 
 수동으로 에이전트를 제거하려면:
 
-1.  포털에서 **Log Analytics**을 엽니다.
+1.    포털에서 **Log Analytics**을 엽니다.
 
-1.  로그 분석 페이지에서 작업 영역을 선택합니다.
+1.    로그 분석 페이지에서 작업 영역을 선택합니다.
 
-1.  모니터링하지 않으려는 VM을 선택하고 연결 **끊을을**선택합니다.
+1.    모니터링하지 않으려는 VM을 선택하고 연결 **끊을을**선택합니다.
 
    ![에이전트 제거][3]
 
@@ -197,18 +197,18 @@ Microsoft Monitoring Agent를 수동으로 제거할 수 있습니다. Security 
 
 ## <a name="what-happens-when-data-collection-is-enabled"></a>데이터 수집을 사용하도록 설정하면 어떻게 될까요?
 
-자동 프로비저닝을 사용하도록 설정하면 Security Center는 지원되는 모든 Azure VM 및 새로 만든 Azure VM에 Microsoft Monitoring Agent를 프로비전합니다. 자동 프로비저닝을 권장하지만 수동 에이전트 설치도 가능합니다. [Microsoft Monitoring Agent 확장을 설치하는 방법을 알아봅니다](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
+자동 프로비저닝이 활성화되면 보안 센터는 지원되는 모든 Azure VM 및 생성된 새 VM에 로그 분석 에이전트를 프로비전합니다. 자동 프로비저닝을 권장하지만 수동 에이전트 설치도 가능합니다. [로그 분석 에이전트 확장을 설치하는 방법에 대해 알아봅니다.](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) 
 
-에이전트는 프로세스 생성 이벤트 4688 및 이벤트 4688 내의 *CommandLine* 필드를 활성화합니다. VM에서 생성된 새로운 프로세스는 이벤트 로그에서 기록되고 Security Center의 검색 서비스에 의해 모니터링됩니다. 각 새 프로세스에 대해 기록된 세부 정보에 대한 자세한 내용은 [4688의 설명 필드를](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields)참조하십시오. 또한 에이전트는 VM에서 생성되는 4688 이벤트를 수집하고 검색에 저장합니다.
+에이전트는 프로세스 생성 이벤트 4688 및 이벤트 4688 내의 *CommandLine* 필드를 활성화합니다. VM에서 생성된 새 프로세스는 EventLog에 의해 기록되고 보안 센터의 검색 서비스에서 모니터링됩니다. 각 새 프로세스에 대해 기록된 세부 정보에 대한 자세한 내용은 [4688의 설명 필드를](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields)참조하십시오. 또한 에이전트는 VM에서 생성되는 4688 이벤트를 수집하고 검색에 저장합니다.
 
 또한 에이전트는 [적응형 애플리케이션 제어](security-center-adaptive-application.md)에 데이터 수집을 사용하도록 설정하고, Security Center는 모든 애플리케이션을 허용하도록 감사 모드에서 로컬 AppLocker 정책을 구성합니다. 이 정책으로 인해 AppLocker는 이벤트를 생성한 다음 보안 센터에서 수집하고 활용합니다. 이 정책은 이미 AppLocker 정책이 구성된 컴퓨터에서는 구성할 수 없습니다. 
 
-Security Center가 VM에서 의심스러운 작업을 감지하면 고객은 경우 [보안 연락처 정보](security-center-provide-security-contact-details.md)가 제공된 경우 전자 메일을 통해 알림을 받습니다. 경고는 또한 Security Center의 보안 경고 대시보드에 표시됩니다.
+Security Center가 VM에서 의심스러운 작업을 감지하면 고객은 경우 [보안 연락처 정보](security-center-provide-security-contact-details.md)가 제공된 경우 전자 메일을 통해 알림을 받습니다. 보안 센터의 보안 경고 대시보드에도 경고가 표시됩니다.
 
 
 ## <a name="will-security-center-work-using-an-oms-gateway"></a>보안 센터가 OMS 게이트웨이를 사용하여 작동합니까?
 
-예. Azure 보안 센터는 Azure 모니터를 사용하여 Microsoft 모니터링 에이전트를 사용하여 Azure VM 및 서버에서 데이터를 수집합니다.
+예. Azure 보안 센터는 Azure 모니터를 사용하여 로그 분석 에이전트를 사용하여 Azure VM 및 서버에서 데이터를 수집합니다.
 데이터를 수집하려면 각 VM과 서버가 HTTPS를 사용하여 인터넷에 연결해야 합니다. 연결은 프록시를 사용하거나 [OMS 게이트웨이를](../azure-monitor/platform/gateway.md)통해 직접 연결될 수 있습니다.
 
 

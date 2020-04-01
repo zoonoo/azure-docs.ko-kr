@@ -3,12 +3,12 @@ title: Azure Application Insights를 사용하여 Node.js 서비스 모니터링
 description: Application Insights를 사용하여 Node.js 서비스의 성능을 모니터링하고 문제를 진단합니다.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 320ec62e642155002e42c59d4656f51673249eb1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 38336e3faf3764233dd94bffbfb24421e054496a
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670018"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411592"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights를 사용하여 Node.js 서비스 및 앱 모니터링
 
@@ -16,11 +16,11 @@ ms.locfileid: "77670018"
 
 모니터링 데이터를 수신, 저장 및 탐색하려면 코드에 SDK를 포함하고 Azure에서 해당 Application Insights 리소스를 설정합니다. SDK는 추가 분석 및 탐색을 위해 해당 리소스로 데이터를 보냅니다.
 
-Node.js SDK는 들어오고 나가는 HTTP 요청, 예외 및 여러 시스템 메트릭을 자동으로 모니터링할 수 있습니다. 0.20 버전부터 SDK는 MongoDB, MySQL 및 Redis와 같은 몇 가지 일반적인 타사 패키지를 모니터링할 수 있습니다. 들어오는 HTTP 요청과 관련된 모든 이벤트는 좀 더 빠른 문제 해결을 위해 상호 관계가 지정됩니다.
+Node.js SDK는 들어오고 나가는 HTTP 요청, 예외 및 여러 시스템 메트릭을 자동으로 모니터링할 수 있습니다. 버전 0.20부터 SDK는 MongoDB, MySQL 및 Redis와 같은 일반적인 [타사 패키지를](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules)모니터링할 수도 있습니다. 들어오는 HTTP 요청과 관련된 모든 이벤트는 좀 더 빠른 문제 해결을 위해 상호 관계가 지정됩니다.
 
 TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측면을 수동으로 계측하고 모니터링 할 수 있습니다. TelemetryClient API는 이 문서의 뒷부분에 더 자세히 설명합니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 앱 또는 서비스에 대한 모니터링을 설정하려면 다음 작업을 완료합니다.
 
@@ -35,7 +35,7 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 ### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a> Application Insights 리소스 설정
 
 
-1. [Azure 포털에][portal]로그인합니다.
+1. [Azure Portal][portal]에 로그인합니다.
 2. **리소스** > 개발자 도구 응용**프로그램** > **인사이트**만들기를 선택합니다. 리소스에는 원격 분석 데이터를 수신하기 위한 엔드포인트, 이 데이터 스토리지, 저장된 보고서 및 대시보드, 규칙 및 경고 구성이 포함됩니다.
 
 3. 리소스 만들기 페이지의 **애플리케이션 유형** 상자에서 **Node.js Application**을 선택합니다. 앱 유형에 따라 생성되는 기본 대시보드 및 보고서가 결정됩니다. (모든 Application Insights 리소스는 모든 언어 및 플랫폼에서 데이터를 수집할 수 있습니다.)

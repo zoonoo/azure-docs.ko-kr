@@ -1,5 +1,5 @@
 ---
-title: StorSimple 가상 배열 업데이트 릴리스 정보| Microsoft Docs
+title: StorSimple 가상 배열 업데이트 0.2 & 0.1 릴리스 정보
 description: 업데이트 0.2 및 0.1을 실행하는 StorSimple 가상 배열에 대한 중대한 미해결 문제 및 해결책을 설명합니다.
 services: storsimple
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
-ms.openlocfilehash: aad60024187ca180c002f119f4b975e8f69796e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95386f36340aca470769c920e40bbb70e09d34fc
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60629291"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397875"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>StorSimple 가상 배열 업데이트 0.2 및 0.1 릴리스 정보
 ## <a name="overview"></a>개요

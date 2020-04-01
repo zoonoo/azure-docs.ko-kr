@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 3/18/2020
-ms.openlocfilehash: a35a586a519ff78e8b32d986b92bd008b2c6b858
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.date: 3/30/2020
+ms.openlocfilehash: 59b8753007c3b9130c397dda30c571580cbb5326
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067875"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411083"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 성능 튜닝 및 데이터베이스 유지 관리를 위해 sys_schema를 사용하는 방법
 
@@ -60,6 +60,9 @@ Azure Database for MySQL에서 스토리지와 관련된 IO 크기를 조정하�
 ## <a name="database-maintenance"></a>데이터베이스 유지 관리
 
 ### <a name="sysinnodb_buffer_stats_by_table"></a>*sys.innodb_buffer_stats_by_table*
+
+[!IMPORTANT]
+> 이 보기를 쿼리하면 성능에 영향을 미칠 수 있습니다. 사용량이 많은 업무 시간에는 이 문제 해결을 수행하는 것이 좋습니다.
 
 InnoDB 버퍼 풀은 메모리에 상주하며 DBMS와 스토리지 사이의 주요 캐시 매커니즘입니다. InnoDB 버퍼 풀의 크기는 성능 계층에 연결되어 있고 다른 제품 SKU를 선택하지 않으면 변경할 수 없습니다. 운영 체제의 메모리와 마찬가지로 새로운 데이터를 위한 공간을 확보하기 위해 오래된 페이지가 스왑 아웃(swap out)됩니다. 어떤 테이블이 대부분의 InnoDB 버퍼 풀 메모리를 소비하는지 찾아내려면 *sys.innodb_buffer_stats_by_table* 보기를 쿼리합니다.
 

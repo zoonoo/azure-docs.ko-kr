@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 08/28/2019
 ms.author: labrenne
-ms.openlocfilehash: 2cff6a0e48fc7bf58a642f509fcda6b114e002ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95f27d913cd288c186bae1a6375212b072f50bb4
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022939"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422429"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>공유 이미지 갤러리를 사용하여 사용자 지정 풀 만들기
 
@@ -38,6 +38,9 @@ Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에�
 * **보다 쉬운 관리를 위한 이미지 버전 관리 및 그룹화.** 이미지 그룹화 정의에는 이미지가 만들어진 이유, 사용 하는 OS 및 이미지 사용에 대 한 정보가 포함 되어 있습니다. 이미지를 그룹화하면 이미지 관리가 더 쉬워집니다. 자세한 내용은 [이미지 정의를](../virtual-machines/windows/shared-image-galleries.md#image-definitions)참조하십시오.
 
 ## <a name="prerequisites"></a>사전 요구 사항
+
+> [!NOTE]
+> Azure AD를 사용하여 인증해야 합니다. 공유 키 인증을 사용하는 경우 인증 오류가 발생합니다.  
 
 * **Azure Batch 계정.** 일괄 처리 계정을 만들려면 [Azure 포털](quick-create-portal.md) 또는 [Azure CLI를](quick-create-cli.md)사용하여 일괄 처리 빠른 시작을 참조하세요.
 
@@ -86,6 +89,9 @@ Azure에서 다음 에서 관리되는 이미지를 준비할 수 있습니다.
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Azure CLI를 사용하여 공유 이미지에서 풀 만들기
 
 Azure CLI를 사용하여 공유 이미지에서 풀을 `az batch pool create` 만들려면 명령을 사용합니다. 필드에서 공유 이미지 ID를 지정합니다. `--image` OS 유형과 SKU가 지정된 버전과 일치하는지 확인합니다.`--node-agent-sku-id`
+
+> [!NOTE]
+> Azure AD를 사용하여 인증해야 합니다. 공유 키 인증을 사용하는 경우 인증 오류가 발생합니다.  
 
 ```azurecli
 az batch pool create \

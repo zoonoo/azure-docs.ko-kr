@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: edaa585ffb3448a80b021aa924a9d654ac829931
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12c750f96b8852cdd6a6039ebfa750c2ee792a6b
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79096288"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396713"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>저장소 또는 Azure 이벤트 허브로 Azure 활동 로그 내보내기
 
 > [!IMPORTANT]
-> Azure 활동 로그를 Azure 저장소 및 Azure 이벤트 허브로 보내는 메서드가 [진단 설정으로](diagnostic-settings.md)변경되었습니다. 이 문서에서는 더 이상 사용되지 않는 프로세스에 있는 레거시 메서드에 대해 설명합니다. Azure 활동 로그 컬렉션 및 [내보내기로](diagnostic-settings-legacy.md) 업데이트를 참조하여 비교합니다.
+> Azure 활동 로그를 Azure 저장소 및 Azure 이벤트 허브로 보내는 메서드가 [진단 설정으로](diagnostic-settings.md)변경되었습니다. 이 문서에서는 더 이상 사용되지 않는 프로세스에 있는 레거시 메서드에 대해 설명합니다. 비교를 위해 [Azure 모니터의 Azure 활동 로그 수집 및 분석용](activity-log-collect.md) 업데이트를 참조하십시오.
 
 
-[Azure 활동 로그는](platform-logs-overview.md) Azure 구독에서 발생한 구독 수준 이벤트에 대한 통찰력을 제공합니다. Azure Portal에서 활동 로그를 보거나 Azure Monitor에서 수집한 다른 데이터로 분석할 수 있는 로그 분석 작업 영역으로 복사하는 것 외에도 로그 프로필을 만들어 활동 로그를 Azure 저장소 계정에 보관하거나 이벤트 허브.
+[Azure 활동 로그는](platform-logs-overview.md) Azure 구독에서 발생한 구독 수준 이벤트에 대한 통찰력을 제공합니다. Azure Portal에서 활동 로그를 보거나 Azure Monitor에서 수집한 다른 데이터로 분석할 수 있는 로그 분석 작업 영역으로 복사하는 것 외에도 로그 프로필을 만들어 활동 로그를 Azure 저장소 계정에 보관하거나 이벤트 허브로 스트리밍할 수 있습니다.
 
 ## <a name="archive-activity-log"></a>아카이브 활동 로그
 활동 로그를 저장소 계정에 보관하면 감사, 정적 분석 또는 백업을 위해 로그 데이터를 90일 이상(보존 정책을 완전히 제어)으로 유지하려는 경우에 유용합니다. 활동 로그 이벤트는 90일 동안 Azure 플랫폼에 유지되므로 90일 이하의 이벤트만 유지하면 저장소 계정에 보관을 설정할 필요가 없습니다.
@@ -117,13 +117,13 @@ Azure 포털에서 **이벤트 허브로 내보내기** 옵션을 사용하여 �
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | 속성 | 필수 | 설명 |
+    | 속성 | 필수 | Description |
     | --- | --- | --- |
-    | 이름 |yes |로그 프로필의 이름입니다. |
+    | 속성 |예 |로그 프로필의 이름입니다. |
     | StorageAccountId |예 |활동 로그를 저장해야 하는 저장소 계정의 리소스 ID입니다. |
     | serviceBusRuleId |예 |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. 이 형식은 다음과 같은 `{service bus resource ID}/authorizationrules/{key name}`문자열입니다. |
-    | 위치 |yes |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
-    | RetentionInDays |yes |1에서 365 사이의 저장소 계정에 이벤트를 유지해야 하는 일 수입니다. 0 값은 로그를 무기한 저장합니다. |
+    | 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
+    | RetentionInDays |예 |1에서 365 사이의 저장소 계정에 이벤트를 유지해야 하는 일 수입니다. 0 값은 로그를 무기한 저장합니다. |
     | Category |예 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 _쓰기,_ _삭제_및 _작업_입니다. |
 
 ### <a name="example-script"></a>예제 스크립트
@@ -160,14 +160,14 @@ Azure 포털에서 **이벤트 허브로 내보내기** 옵션을 사용하여 �
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
-    | 속성 | 필수 | 설명 |
+    | 속성 | 필수 | Description |
     | --- | --- | --- |
-    | name |yes |로그 프로필의 이름입니다. |
-    | storage-account-id |yes |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
-    | 위치 |yes |활동 로그 이벤트를 수집할 공백으로 구분된 지역 목록입니다. `az account list-locations --query [].name`을 사용하여 구독에 대한 모든 지역 목록을 볼 수 있습니다. |
-    | 일 |yes |이벤트를 보존해야 하는 일 수(1일에서 365일 사이)입니다. 0 값은 로그를 무기한(영원히) 저장합니다.  0이면 활성화된 매개 변수를 false로 설정해야 합니다. |
-    |사용 | yes |True 또는 False입니다.  보존 정책을 사용하거나 비활성화하는 데 사용합니다.  True이면 일 매개 변수 0보다 큰 값이어야 합니다.
-    | 범주 |yes |수집해야 할 공백으로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
+    | name |예 |로그 프로필의 이름입니다. |
+    | storage-account-id |예 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
+    | 위치 |예 |활동 로그 이벤트를 수집할 공백으로 구분된 지역 목록입니다. `az account list-locations --query [].name`을 사용하여 구독에 대한 모든 지역 목록을 볼 수 있습니다. |
+    | 일 |예 |이벤트를 보존해야 하는 일 수(1일에서 365일 사이)입니다. 0 값은 로그를 무기한(영원히) 저장합니다.  0이면 활성화된 매개 변수를 false로 설정해야 합니다. |
+    |사용 | 예 |True 또는 False입니다.  보존 정책을 사용하거나 비활성화하는 데 사용합니다.  True이면 일 매개 변수 0보다 큰 값이어야 합니다.
+    | 범주 |예 |수집해야 할 공백으로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
 
 
 

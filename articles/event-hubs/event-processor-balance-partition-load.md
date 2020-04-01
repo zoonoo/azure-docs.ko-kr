@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2020
 ms.author: shvija
-ms.openlocfilehash: 1244fe64d0c23782fdae7a0f92415bada4bef55a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf90120157bf64bd62a3b5ec9d8a6b2c6260e024
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76907657"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398308"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>응용 프로그램의 여러 인스턴스에서 파티션 로드 균형 조정
 이벤트 처리 응용 프로그램을 확장하려면 응용 프로그램의 여러 인스턴스를 실행하고 부하를 서로 분산시킬 수 있습니다. 이전 버전에서 [EventProcessorHost를](event-hubs-event-processor-host.md) 사용하면 프로그램의 여러 인스턴스와 수신 시 검사점 이벤트 간의 부하 균형을 조정할 수 있습니다. 최신 버전(5.0 이후), **EventProcessorClient(.NET** 및 Java) 또는 **EventHubConsumerClient(파이썬** 및 자바스크립트)에서 동일한 작업을 수행할 수 있습니다. 개발 모델은 이벤트를 사용하여 더 간단해지됩니다. 이벤트 처리기를 등록하여 관심 있는 이벤트를 구독합니다.
 
-이 문서에서는 여러 인스턴스를 사용하여 이벤트 허브에서 이벤트를 읽은 다음 이벤트 프로세서 클라이언트의 기능에 대한 세부 정보를 제공하는 샘플 시나리오에 대해 설명합니다. 동일한 이벤트 허브와 소비자 그룹을 사용하는 소비자입니다.
+이 문서에서는 여러 인스턴스를 사용하여 이벤트 허브에서 이벤트를 읽은 다음 이벤트 프로세서 클라이언트의 기능에 대한 세부 정보를 제공하는 샘플 시나리오에 대해 설명하며, 이를 통해 한 번에 여러 파티션에서 이벤트를 수신하고 동일한 이벤트 허브 및 소비자 그룹을 사용하는 다른 소비자와의 로드 밸런스를 제공할 수 있습니다.
 
 > [!NOTE]
 > Event Hubs의 크기를 조정하는 핵심은 분할된 소비자라는 개념입니다. [경쟁하는 소비자](https://msdn.microsoft.com/library/dn568101.aspx) 패턴과 달리 분할된 소비자 패턴을 사용하면 경합 병목 상태를 제거하고 종단 간 병렬 처리를 용이하게 하여 대규모 크기 조정이 가능해집니다.
@@ -83,6 +83,13 @@ ms.locfileid: "76907657"
 
 이벤트를 처리된 것으로 표시하기 위해 검사점을 수행하면 검사점 저장소의 항목이 이벤트의 오프셋 및 시퀀스 번호로 추가되거나 업데이트됩니다. 사용자는 검사점 업데이트 빈도를 결정해야 합니다. 성공적으로 처리된 각 이벤트 후에 업데이트하면 기본 검사점 저장소에 쓰기 작업을 트리거할 때 성능및 비용에 영향을 미칠 수 있습니다. 또한 모든 단일 이벤트를 검사하는 것은 서비스 버스 큐가 이벤트 허브보다 더 나은 옵션이 될 수 있는 큐에 대기중인 메시징 패턴을 나타냅니다. Event Hubs의 기본 개념은 대규모로 "최소한 한 번" 제공받는다는 것입니다. 다운스트림 시스템 멱등원을 만들어서 쉽게 오류로부터 복구하거나 여러 번 수신되는 동일한 이벤트에서 해당 결과를 다시 시작할 수 있습니다.
 
+> [!NOTE]
+> Azure Blob Storage를 Azure에서 일반적으로 사용할 수 있는 버전보다 다른 버전의 저장소 Blob SDK를 지원하는 환경에서 검사점 저장소로 사용하는 경우 코드를 사용하여 저장소 서비스 API 버전을 해당 환경에서 지원하는 특정 버전으로 변경해야 합니다. 예를 들어 [Azure 스택 허브 버전 2002에서 이벤트 허브를](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)실행 하는 경우 저장소 서비스에 대 한 사용 가능한 가장 높은 버전은 버전 2017-11-09입니다. 이 경우 코드를 사용하여 저장소 서비스 API 버전을 2017-11-09로 지정해야 합니다. 특정 저장소 API 버전을 대상으로 지정하는 방법에 대한 예제는 GitHub에서 다음 샘플을 참조하십시오. 
+> - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
+> - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithOlderStorageVersion.java)
+> - [자바 스크립트](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.js) 또는 [타이프 스크립트](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.ts)
+> - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/event_processor_blob_storage_example_with_storage_api_version.py)
+
 ## <a name="thread-safety-and-processor-instances"></a>스레드 안전성 및 프로세서 인스턴스
 
 기본적으로 이벤트 프로세서 또는 소비자는 스레드가 안전하며 동기 방식으로 작동합니다. 파티션에 대해 이벤트가 도착하면 이벤트를 처리하는 함수가 호출됩니다. 메시지 펌프가 다른 스레드의 백그라운드에서 계속 실행됨에 따라 이 함수에 대한 후속 메시지와 호출이 백그라운드에서 큐에 대기합니다. 스레드 보안은 스레드로부터 안전한 컬렉션에 대한 필요성을 제거하고 성능을 크게 향상시킵니다.
@@ -93,4 +100,4 @@ ms.locfileid: "76907657"
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
 - [Java](event-hubs-java-get-started-send.md)
 - [Python](get-started-python-send-v2.md)
-- [자바 스크립트](get-started-node-send-v2.md)
+- [JavaScript](get-started-node-send-v2.md)

@@ -12,12 +12,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 34057f1962338927a252011dccc56ed6a77bec47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f9fb250109a1c9000eae8da0d6337c96f19f0f89
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69636034"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410552"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>PHP에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
 이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. Twilio 및 응용 프로그램에서 음성 및 SMS 사용에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하십시오.
@@ -138,7 +138,7 @@ PHP용 Twilio 라이브러리를 설치하고 나면 PHP 파일의 맨 위에 **
 
 언급한 대로 이 코드는 Twilio 제공 사이트를 사용하여 TwiML 응답을 반환합니다. 고유한 사이트를 대신 사용하여 TwiML 응답을 제공할 수 있습니다. 자세한 내용은 [고유한 웹 사이트에서 TwiML 응답을 제공하는 방법](#howto_provide_twiml_responses)을 참조하십시오.
 
-* **참고**: SSL 인증서 유효성 검사 오류를 해결하려면 [http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation]을 참조하세요. 
+* **참고**: TLS/SSL 인증서 유효성 검사 오류 문제를 해결하려면[http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation] 
 
 ## <a name="how-to-send-an-sms-message"></a><a id="howto_send_sms"></a>방법: SMS 메시지 보내기
 다음은 **Services_Twilio** 클래스를 사용하여 SMS 메시지를 보내는 방법을 보여 줍니다. **보낸** 전화 번호는 SMS 메시지를 보낼 평가판 계정에 대 한 Twilio에 의해 제공 됩니다. 코드를 실행하기 전에 Twilio 계정에 대한 **To** 번호를 확인해야 합니다.

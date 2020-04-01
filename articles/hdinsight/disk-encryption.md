@@ -7,16 +7,16 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: fd5308574e84ab6d2e30b9352254683b2d1d6fdd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c0521f384a333c3054397fb0ec7c2ab907e54f67
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78403564"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411760"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>고객 관리형 키 디스크 암호화
 
-Azure HDInsight는 HDInsight 클러스터 가상 머신에 연결된 관리 디스크 및 리소스 디스크의 데이터에 대한 고객 관리 키 암호화를 지원합니다. 이 기능을 사용하면 Azure Key Vault를 사용하여 HDInsight 클러스터에서 미사용 데이터를 보호하는 암호화 키를 관리할 수 있습니다. 
+Azure HDInsight는 HDInsight 클러스터 가상 머신에 연결된 관리 디스크 및 리소스 디스크의 데이터에 대한 고객 관리 키 암호화를 지원합니다. 이 기능을 사용하면 Azure Key Vault를 사용하여 HDInsight 클러스터에서 미사용 데이터를 보호하는 암호화 키를 관리할 수 있습니다.
 
 HDInsight의 모든 관리 디스크는 Azure SSE(스토리지 서비스 암호화)로 보호됩니다. 기본적으로 해당 디스크의 데이터는 Microsoft 관리 키를 사용하여 암호화됩니다. HDInsight에 대해 고객 관리 키를 사용하도록 설정하는 경우 Azure Key Vault를 사용하여 해당 키를 사용하고 관리할 수 있는 HDInsight의 암호화 키를 제공합니다.
 
@@ -86,7 +86,7 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 1. 액세스 **추가 정책** 페이지에서 다음 정보를 제공합니다.
 
-    |속성 |설명|
+    |속성 |Description|
     |---|---|
     |주요 권한|**[받기]** 키 **둘러싸기**및 **둘러싸기 키를**선택합니다.|
     |비밀 권한|**[ 받기**] **및** **삭제를**선택한다.|
@@ -146,6 +146,42 @@ az hdinsight rotate-disk-encryption-key \
 --name MyCluster \
 --resource-group MyResourceGroup
 ```
+
+## <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
+
+리소스 관리자 템플릿을 사용하여 고객 관리 키를 사용하려면 다음 변경 내용으로 템플릿을 업데이트합니다.
+
+1. **azuredeploy.json** 파일에서 리소스에 다음 속성을 추가합니다" 개체:
+
+    ```json
+       "diskEncryptionProperties":
+         {
+                 "vaultUri": "[parameters('diskEncryptionVaultUri')]",
+                  "keyName": "[parameters('diskEncryptionKeyName')]",
+                  "keyVersion": "[parameters('diskEncryptionKeyVersion')]",
+                   "msiResourceId": "[parameters('diskEncryptionMsiResourceId')]"
+         }
+
+1. In the **azuredeploy.parameters.json** file, add the following parameters. You can get the values of these parameters from the Key Vault URI and the managed Identity. For example, if you have the following URI and identity values,
+    * Sample key vault URI: https://<KeyVault_Name>.vault.azure.net/keys/clusterkey/<Cluster_Key_Value>
+    * Sample user-assigned managed identity: "/subscriptions/<subscriptionID>/resourcegroups/<ResourceGroup_Name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI_Name>
+
+    The parameters in the **azuredeploy.parameters.json** file are:
+
+    ```json
+   "diskEncryptionVaultUri": {
+            "value": "https://<KeyVault_Name>.vault.azure.net"
+        },
+        "diskEncryptionKeyName": {
+            "value": "clusterkey"
+        },
+        "diskEncryptionKeyVersion": {
+            "value": "<Cluster_Key_Value>"
+        },
+        "diskEncryptionMsiResourceId": {
+            "value": "/subscriptions/<subscriptionID>/resourcegroups/<ResourceGroup_Name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI_Name>"
+        }
+    ```
 
 ## <a name="faq-for-customer-managed-key-encryption"></a>고객 관리 키 암호화를 위한 FAQ
 

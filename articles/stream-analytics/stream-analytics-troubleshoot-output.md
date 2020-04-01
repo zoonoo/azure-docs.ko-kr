@@ -6,46 +6,38 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: d40157523a074547885a14a3d92379f8e8b6f351
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 305632a0faa1eb7e217e86d36c5159e557df7aaf
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79254288"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409261"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure Stream Analytics 출력 문제 해결
 
-이 페이지는 출력 연결 관련 일반 문제 및 해당 문제를 해결하는 방법을 설명합니다.
+이 문서에서는 Azure Stream Analytics 출력 연결의 일반적인 문제, 출력 문제 해결 방법 및 문제를 해결하는 방법에 대해 설명합니다. 많은 문제 해결 단계를 수행하려면 Stream Analytics 작업에 진단 로그를 사용하도록 설정해야 합니다. 진단 로그를 사용하도록 설정하지 않은 경우 [진단 로그를 사용하여 Azure Stream 분석 문제를 해결합니다.](stream-analytics-job-diagnostic-logs.md)
 
 ## <a name="output-not-produced-by-job"></a>작업에 의해 생성되지 않은 출력
+
 1.  각 출력에 대해 **테스트 연결** 단추를 사용하여 출력에 대한 연결을 확인합니다.
 
 2.  **모니터** 탭에서 [**모니터링 메트릭을**](stream-analytics-monitoring.md) 살펴봅니다. 값이 집계되므로 메트릭이 몇 분 지연됩니다.
-    - 입력 이벤트가 0보다 큰 경우, 작업은 입력 데이터를 읽을 수 있습니다. 입력 이벤트가 0보다 크지 않으면 다음을 수행합니다.
-      - 데이터 원본에 유효한 데이터가 있는지 확인하려면 [Service Bus 탐색기](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a)를 사용하여 확인합니다. 이 확인은 작업이 입력으로 이벤트 허브를 사용하는 경우 적용됩니다.
-      - 데이터 serialization 형식과 데이터 인코딩이 예상대로인지 확인합니다.
-      - 작업이 이벤트 허브를 사용하는 경우 메시지의 본문이 *Null*인지 확인합니다.
+   * 입력 이벤트가 0보다 크면 작업이 입력 데이터를 읽을 수 있습니다. 입력 이벤트가 0보다 크지 않으면 작업 입력에 문제가 있는 것입니다. [입력 연결 문제를](stream-analytics-troubleshoot-input.md) 해결하는 방법을 알아보려면 입력 연결 문제를 해결합니다.
+   * 데이터 변환 오류가 0보다 크고 상승 해도 데이터 변환 오류에 대한 자세한 내용은 [Azure Stream Analytics 데이터 오류를](data-errors.md) 참조하세요.
+   * 런타임 오류가 0보다 큰 경우 작업은 데이터를 수신할 수 있지만 쿼리를 처리하는 동안 오류가 생성됩니다. 오류를 찾으려면 [감사 로그](../azure-resource-manager/management/view-activity-logs.md)로 이동하여 *실패* 상태를 필터링합니다.
+   * InputEvents가 0보다 크고 출력 이벤트가 0이면 다음 중 하나가 true입니다.
+      * 쿼리 처리로 제로 출력 이벤트가 발생했습니다.
+      * 이벤트 또는 필드가 잘못 되어 쿼리 처리 후 출력이 0이 될 수 있습니다.
+      * 작업이 연결 또는 인증 이유로 데이터를 출력 싱크에 푸시할 수 없습니다.
 
-    - 데이터 변환 오류가 0보다 크며 증가하는 경우 다음을 의미할 수 있습니다.
-      - 출력 이벤트가 대상 싱크의 스키마를 따르지 않습니다.
-      - 이벤트 스키마가 쿼리에서 이벤트의 정의 또는 예상 스키마와 일치하지 않을 수도 있습니다.
-      - 이벤트에서 일부 필드의 데이터 형식이 예상과 일치하지 않을 수도 있습니다.
-
-    - 런타임 오류가 0보다 큰 경우 작업이 데이터를 수신할 수 있지만 쿼리를 처리하는 동안 오류가 발생함을 의미합니다.
-      - 오류를 찾으려면 [감사 로그](../azure-resource-manager/management/view-activity-logs.md)로 이동하여 *실패* 상태를 필터링합니다.
-
-    - InputEvents가 0보다 크고 OutputEvents가 0인 경우 다음 중 하나를 의미합니다.
-      - 쿼리 처리로 제로 출력 이벤트가 발생했습니다.
-      - 이벤트 또는 그 필드가 잘못되어 쿼리 처리 후 제로 출력이 발생할 수 있습니다.
-      - 작업이 연결 또는 인증 이유로 데이터를 출력 싱크에 푸시할 수 없습니다.
-
-    - 이전에 언급한 모든 오류 사례에서 작업 로그 메시지는 쿼리 논리가 모든 이벤트를 필터링하는 경우 외에 추가 정보(발생하는 상황 포함)를 설명합니다. 여러 이벤트 처리에서 오류가 발생하면 Stream Analytics는 작업 로그에 10분 이내 동일한 형식의 첫 세 개의 오류 메시지를 기록합니다. 그런 다음, “오류가 너무 빠르게 발생하고 억제되고 있습니다.”라는 메시지로 동일한 추가 오류를 표시하지 않습니다.
+   이전에 언급한 모든 오류 사례에서 작업 로그 메시지는 쿼리 논리가 모든 이벤트를 필터링하는 경우 외에 추가 정보(발생하는 상황 포함)를 설명합니다. 여러 이벤트를 처리하면 오류가 생성되면 10분마다 오류가 집계됩니다.
 
 ## <a name="job-output-is-delayed"></a>작업 출력이 지연됨
 
 ### <a name="first-output-is-delayed"></a>첫 번째 출력이 지연됨
+
 Stream Analytics 작업이 시작되면 입력 이벤트가 읽히지만 특정 상황에서 출력 생성이 지연될 수 있습니다.
 
 temporal 쿼리 요소의 시간 값이 크면 출력이 지연의 원인이 될 수 있습니다. 큰 시간 범위에 대해 정확한 출력을 생성하기 위해, 스트리밍 작업은 가능한 한 최신 시간(최대 7일 전)의 데이터를 읽어서 시간 범위를 채웁니다. 이 시간 동안 해결되지 않은 입력 이벤트의 보완 읽기가 완료될 때까지 출력이 생성되지 않습니다. 시스템이 스트리밍 작업을 업그레이드하여 작업을 다시 시작하면 이 문제가 드러날 수 있습니다. 이러한 업그레이드는 일반적으로 몇 달에 한 번 발생합니다.
@@ -69,6 +61,7 @@ temporal 쿼리 요소의 시간 값이 크면 출력이 지연의 원인이 될
    - 분석 함수의 경우 이벤트마다 출력이 생성되며 지연은 없습니다.
 
 ### <a name="output-falls-behind"></a>출력 지연
+
 작업이 정상적으로 작동하는 동안 작업 출력이 지연되는 경우(대기 시간이 점점 길어지면) 다음 요인을 검토하여 근본 원인을 찾아낼 수 있습니다.
 - 다운스트림 싱크의 제한 여부
 - 업스트림 소스의 제한 여부
@@ -88,11 +81,11 @@ SQL 테이블에 UNIQUE KEY 제약 조건이 설정되고 SQL 테이블에 중�
 
 * 기본 키에서 IGNORE_DUP_KEY 또는 ALTER INDEX를 사용하는 고유한 제약 조건을 설정할 수 없습니다. 인덱스를 삭제하고 다시 만들어야 합니다.  
 * 고유 인덱스에 ALTER INDEX를 사용하여 IGNORE_DUP_KEY 옵션을 설정할 수 있습니다. PRIMARY KEY/UNIQUE 제약 조건과 다르게 CREATE INDEX 또는 INDEX 정의를 사용하여 만듭니다.  
+
 * 이러한 인덱스에 고유성을 적용할 수 없기 때문에 IGNORE_DUP_KEY는 열 저장소 인덱스에 적용되지 않습니다.  
 
 ## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>열 이름은 Azure 스트림 분석에 의해 소문자로 지정됩니다.
 원래 호환성 수준(1.0)을 사용하는 경우 Azure Stream Analytics는 열 이름을 소문자로 변경하는 데 사용했습니다. 이 동작은 이후 호환성 수준에서 해결되었습니다. 케이스를 보존하기 위해 고객에게 호환성 수준 1.1 이상으로 이동하는 것이 좋습니다. Azure Stream Analytics [작업에 대한 호환성 수준에 대한](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level)자세한 정보를 찾을 수 있습니다.
-
 
 ## <a name="get-help"></a>도움말 보기
 

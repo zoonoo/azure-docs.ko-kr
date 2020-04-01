@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 972b5415b85e82a5afdaf7d85d3a3bcb9e144d4d
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 5d947cf41e13abdea9a2fd29f8a740d0c101dc6f
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384945"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397906"
 ---
 # <a name="workflow-automation"></a>워크플로 자동화
 
@@ -96,10 +96,11 @@ Logic App 인스턴스에 전달된 보안 경고 또는 권장 사항 이벤트
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 논리 앱을 만들고, 보안 센터에서 수동으로 실행하고, 실행을 자동화하는 것에 대해 배웠습니다. 
+이 문서에서는 논리 앱을 만들고, 보안 센터에서 실행을 자동화하고, 수동으로 실행하는 것에 대해 배웠습니다. 
 
-기타 관련 자료는 다음 문서를 참조하십시오. 
+기타 관련 자료는 다음을 참조하십시오. 
 
+- [워크플로 자동화를 사용하여 보안 응답을 자동화하는 방법에 대한 Microsoft Learn 모듈](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
 - [Azure Security Center의 보안 권장 사항](security-center-recommendations.md)
 - [Azure Security Center의 보안 경고](security-center-alerts-overview.md)
 - [Azure Logic Apps 정보](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)

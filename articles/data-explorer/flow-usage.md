@@ -7,12 +7,12 @@ ms.reviewer: dorcohen
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/15/2020
-ms.openlocfilehash: 759ea9800a0ed051fed887adfb10b06f7a53b72f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 796b37f98fed7e389fa71a15b5e6697a14db1a16
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79529206"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397203"
 ---
 # <a name="microsoft-flow-connector-preview-usage-examples"></a>마이크로소프트 흐름 커넥터 (미리 보기) 사용 예제
 
@@ -119,7 +119,9 @@ Kusto 쿼리의 결과 값을 다음 작업에 대한 입력으로 사용할 수
     * *Body* 필드에 필요한 본문을 삽입하여 쿼리의 시각화된 결과가 전자 메일 본문에 포함되도록 합니다.
     * 전자 메일에 첨부 파일을 추가하려면 첨부 파일 이름 및 첨부 파일 콘텐츠를 추가합니다.
     
-    ![여러 첨부 파일로 이메일 전송](./media/flow-usage/flow-emailmultipleattachments.png)
+    ![여러 첨부 파일로 이메일 전송](./media/flow-usage/flow-email-multiple-attachments.png)
+
+    전자 메일 작업 만들기에 대한 자세한 지침은 [이메일 Kusto 쿼리 결과를](flow.md#email-kusto-query-results)참조하십시오. 
 
 결과:
 

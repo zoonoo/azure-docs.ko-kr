@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/02/2019
-ms.openlocfilehash: e98ff7fd914bb86cae256bb1bf6c19086758d463
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 65e51258b3a24b14b5171968645e88420e92dd5a
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371556"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421066"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 SAP 테이블의 데이터 복사
 
@@ -62,7 +62,7 @@ SAP 테이블에서 지원되는 모든 싱크 데이터 저장소에 데이터�
   - RFC(원격 함수 호출) 대상 사용에 대한 권한 부여.
   - S_SDSAUTH 권한 부여 개체의 실행 활동에 대한 사용 권한입니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -72,25 +72,25 @@ SAP 테이블에서 지원되는 모든 싱크 데이터 저장소에 데이터�
 
 SAP BW 오픈 허브 연결 서비스에 대해 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| `type` | 합니다 `type` 속성으로 설정 되어 있어야 `SapTable`합니다. | yes |
+| `type` | 합니다 `type` 속성으로 설정 되어 있어야 `SapTable`합니다. | 예 |
 | `server` | SAP 인스턴스가 있는 서버의 이름입니다.<br/>SAP 응용 프로그램 서버에 연결하는 데 사용합니다. | 예 |
 | `systemNumber` | SAP 시스템의 시스템 번호입니다.<br/>SAP 응용 프로그램 서버에 연결하는 데 사용합니다.<br/>허용된 값: 문자열로 표시되는 두 자리 소수 자릿수입니다. | 예 |
 | `messageServer` | SAP 메시지 서버의 호스트 이름입니다.<br/>SAP 메시지 서버에 연결하는 데 사용합니다. | 예 |
 | `messageServerService` | 메시지 서버의 서비스 이름 또는 포트 번호입니다.<br/>SAP 메시지 서버에 연결하는 데 사용합니다. | 예 |
 | `systemId` | 테이블이 있는 SAP 시스템의 ID입니다.<br/>SAP 메시지 서버에 연결하는 데 사용합니다. | 예 |
 | `logonGroup` | SAP 시스템의 로그온 그룹입니다.<br/>SAP 메시지 서버에 연결하는 데 사용합니다. | 예 |
-| `clientId` | SAP 시스템의 클라이언트 ID입니다.<br/>허용된 값: 문자열로 표시되는 세 자리 소수 자릿수입니다. | yes |
+| `clientId` | SAP 시스템의 클라이언트 ID입니다.<br/>허용된 값: 문자열로 표시되는 세 자리 소수 자릿수입니다. | 예 |
 | `language` | SAP 시스템에서 사용하는 언어입니다.<br/>기본값은 `EN`입니다.| 예 |
-| `userName` | SAP 서버에 액세스할 수 있는 사용자의 이름입니다. | yes |
-| `password` | 사용자의 암호입니다. 이 필드를 데이터 `SecureString` 팩터리에 안전하게 저장할 유형으로 표시하거나 [Azure Key Vault에 저장된 비밀을 참조합니다.](store-credentials-in-key-vault.md) | yes |
+| `userName` | SAP 서버에 액세스할 수 있는 사용자의 이름입니다. | 예 |
+| `password` | 사용자의 암호입니다. 이 필드를 데이터 `SecureString` 팩터리에 안전하게 저장할 유형으로 표시하거나 [Azure Key Vault에 저장된 비밀을 참조합니다.](store-credentials-in-key-vault.md) | 예 |
 | `sncMode` | 테이블이 있는 SAP 서버에 액세스하는 SNC 활성화 표시기입니다.<br/>SNC를 사용하여 SAP 서버에 연결하려는 경우 사용합니다.<br/>허용된 `0` 값은 (꺼져, `1` 기본값) 또는 (켜기)입니다. | 예 |
 | `sncMyName` | 테이블이 있는 SAP 서버에 액세스하기 위한 이니시에이터의 SNC 이름입니다.<br/>사용 `sncMode` 중일 때 적용됩니다. | 예 |
 | `sncPartnerName` | 테이블이 있는 SAP 서버에 액세스하려면 통신 파트너의 SNC 이름입니다.<br/>사용 `sncMode` 중일 때 적용됩니다. | 예 |
 | `sncLibraryPath` | 테이블이 있는 SAP 서버에 액세스하려면 외부 보안 제품의 라이브러리입니다.<br/>사용 `sncMode` 중일 때 적용됩니다. | 예 |
 | `sncQop` | 적용 할 보호 수준의 SNC 품질.<br/>켜기 `sncMode` 때 적용됩니다. <br/>허용된 `1` 값은 `2` (인증), `3` (무결성), (개인 정보 보호), `8` (기본값), `9` (최대). | 예 |
-| `connectVia` | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [필수 구성 조건의](#prerequisites)앞에서 설명한 것처럼 자체 호스팅 통합 런타임이 필요합니다. |yes |
+| `connectVia` | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [필수 구성 조건의](#prerequisites)앞에서 설명한 것처럼 자체 호스팅 통합 런타임이 필요합니다. |예 |
 
 **예 1: SAP 응용 프로그램 서버에 연결**
 
@@ -180,10 +180,10 @@ SAP BW 오픈 허브 연결 서비스에 대해 다음 속성이 지원됩니다
 
 SAP BW Open Hub 연결 서비스에서 데이터를 복사하려면 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| `type` | 합니다 `type` 속성으로 설정 되어 있어야 `SapTableResource`합니다. | yes |
-| `tableName` | 데이터를 복사할 SAP 테이블의 이름입니다. | yes |
+| `type` | 합니다 `type` 속성으로 설정 되어 있어야 `SapTableResource`합니다. | 예 |
+| `tableName` | 데이터를 복사할 SAP 테이블의 이름입니다. | 예 |
 
 ### <a name="example"></a>예제
 
@@ -212,9 +212,9 @@ SAP BW Open Hub 연결 서비스에서 데이터를 복사하려면 다음 속�
 
 SAP 테이블에서 데이터를 복사하려면 다음 속성이 지원됩니다.
 
-| 속성                         | 설명                                                  | 필수 |
+| 속성                         | Description                                                  | 필수 |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
-| `type`                             | 합니다 `type` 속성으로 설정 되어 있어야 `SapTableSource`합니다.         | yes      |
+| `type`                             | 합니다 `type` 속성으로 설정 되어 있어야 `SapTableSource`합니다.         | 예      |
 | `rowCount`                         | 검색할 행 수입니다.                              | 예       |
 | `rfcTableFields`                   | SAP 테이블에서 복사할 필드(열)입니다. `column0, column1`)을 입력합니다. | 예       |
 | `rfcTableOptions`                  | SAP 테이블의 행을 필터링하는 옵션입니다. `COLUMN0 EQ 'SOMEVALUE'`)을 입력합니다. 이 문서의 후반부에서 SAP 쿼리 연산자 테이블도 참조하십시오. | 예       |
@@ -230,11 +230,11 @@ SAP 테이블에서 데이터를 복사하려면 다음 속성이 지원됩니�
 <br/>
 >`partitionOption` `partitionUpperBound` `partitionLowerBound``maxPartitionsNumber`예를 들어, 각 파티션의 행 수는 이 수식으로 계산됩니다. `partitionOnInt`<br/>
 <br/>
->복사 속도를 높이기 위해 데이터 파티션을 병렬로 로드하려면 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 복사 활동의 설정에 의해 병렬 정도가 제어됩니다. 예를 들어 4로 `parallelCopies` 설정하면 Data Factory는 지정된 파티션 옵션 및 설정에 따라 4개의 쿼리를 동시에 생성하고 실행하며 각 쿼리는 SAP 테이블에서 데이터의 일부를 검색합니다. 속성 값의 `maxPartitionsNumber` 배수를 만드는 것이 좋습니다. `parallelCopies` 파일 기반 데이터 저장소에 데이터를 복사할 때 여러 파일(폴더 이름만 지정)으로 폴더에 쓰도록 명령되며, 이 경우 단일 파일에 쓰는 것보다 성능이 더 좋습니다.
+>복사 속도를 높이기 위해 데이터 파티션을 병렬로 로드하려면 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 복사 활동의 설정에 의해 병렬 정도가 제어됩니다. 예를 들어 4로 `parallelCopies` 설정하면 Data Factory는 지정된 파티션 옵션 및 설정에 따라 4개의 쿼리를 동시에 생성하고 실행하며 각 쿼리는 SAP 테이블에서 데이터의 일부를 검색합니다. 속성 값의 `maxPartitionsNumber` 배수를 만드는 것이 좋습니다. `parallelCopies` 파일 기반 데이터 저장소에 데이터를 복사할 때 여러 파일(폴더 이름만 지정)으로 폴더에 쓰도록 명령되며, 이 경우 단일 파일에 쓰는 것보다 성능이 더 좋습니다.
 
 에서 `rfcTableOptions`다음과 같은 일반적인 SAP 쿼리 연산자에서 행을 필터링할 수 있습니다.
 
-| 연산자 | 설명 |
+| 연산자 | Description |
 | :------- | :------- |
 | `EQ` | 같음 |
 | `NE` | 같지 않음 |

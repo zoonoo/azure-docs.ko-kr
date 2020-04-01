@@ -5,12 +5,12 @@ ms.date: 01/23/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 00fc3a01e6f42c2704af9dbc807dce193ff2971c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 658910dc4291375c7b2ab22e88c599b970b885af
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80117148"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419110"
 ---
 표준화된 VM(가상 머신) 이미지를 통해 조직은 클라우드로 마이그레이션하고 배포의 일관성을 보장할 수 있습니다. 이미지에는 일반적으로 미리 정의된 보안 및 구성 설정과 필요한 소프트웨어가 포함됩니다. 자체 이미징 파이프라인을 설정하려면 시간, 인프라 및 설정이 필요하지만 Azure VM Image Builder를 사용하면 이미지를 설명하는 간단한 구성을 제공하고 서비스에 제출하고 이미지가 빌드되고 배포됩니다.
  
@@ -51,7 +51,7 @@ AIB는 Azure 마켓플레이스 기본 OS 이미지를 지원합니다.
 - 센트로스 7.6, 7.7
 - SLES 12 SP4
 - SLES 15, SLES 15 SP1
-- 가상 데스크톱(EVD)을 위한 윈도우 10 RS5 엔터프라이즈/전문가/엔터프라이즈 
+- 윈도우 10 RS5 엔터프라이즈/엔터프라이즈 멀티 세션/전문가
 - Windows 2016
 - 윈도우 2019
 
@@ -78,7 +78,7 @@ Azure 이미지 빌더는 Azure 리소스 공급자가 액세스할 수 있는 �
 
 ## <a name="permissions"></a>사용 권한
 
-Azure VM 이미지 빌더가 관리되는 이미지 또는 공유 이미지 갤러리에 이미지를 배포할 수 있도록 하려면 서비스 "Azure 가상 시스템 이미지 빌더"(앱 ID: cf32a0cc-373c-473c-9156-0db111f6a6dfc)에 대한 '기여자' 권한을 제공해야 합니다. )을 사용합니다. 
+Azure VM 이미지 빌더가 관리되는 이미지 또는 공유 이미지 갤러리에 이미지를 배포할 수 있도록 하려면 리소스 그룹에 서비스 "Azure 가상 시스템 이미지 빌더"(앱 ID: cf32a0cc-373c-373c-9156-9156-0db111f6a6dfc)에 대한 '기여자' 권한을 제공해야 합니다. 
 
 기존 사용자 지정 관리 되는 이미지 또는 이미지 버전을 사용 하는 경우 Azure 이미지 빌더 해당 리소스 그룹에 대 한 '리더' 액세스의 최소 필요 합니다.
 

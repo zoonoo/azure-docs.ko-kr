@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: d1cd4691586b27282d221a19c5fb7a1af034ed6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d5c74ac760b5746d37468d692c2a46d5aedbee72
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80125154"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436172"
 ---
 # <a name="azure-kubernetes-services-integration-with-security-center"></a>Azure Kubernetes 서비스 보안 센터와의 통합
 
@@ -35,7 +35,7 @@ Azure Security Center의 표준 [계층(가격 책정](security-center-pricing.m
 
 두 서비스를 함께 사용하면 다음을 수행할 수 있습니다.
 
-* **보안 권장 사항** - 보안 센터는 AKS 리소스를 식별하고 클러스터에서 개별 가상 머신에 이르기까지 분류합니다. 그런 다음 리소스당 보안 권장 사항을 볼 수 있습니다. 자세한 내용은 참조 권장 사항 [목록에서](recommendations-reference.md#recs-computeapp)컨테이너 권장 사항을 참조하십시오. 
+* **보안 권장 사항** - 보안 센터는 AKS 리소스를 식별하고 클러스터에서 개별 가상 머신에 이르기까지 분류합니다. 그런 다음 리소스당 보안 권장 사항을 볼 수 있습니다. 자세한 내용은 참조 권장 사항 [목록에서](recommendations-reference.md#recs-containers)컨테이너 권장 사항을 참조하십시오. 
 
 * **환경 강화** - 보안 센터는 Kubernetes 클러스터 및 Docker 구성의 구성을 지속적으로 모니터링합니다. 그런 다음 업계 표준을 반영하는 보안 권장 사항을 생성합니다.
 

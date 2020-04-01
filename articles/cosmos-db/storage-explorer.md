@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: fd044d4f32aefc00e1b04f7060e0fc0dc74fd6c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 914551bab47ad9db4e0bca4d53226fbae74b92f3
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72882361"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411663"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Azure Storage Explorer 를 사용하여 데이터 작업
 
@@ -215,14 +215,14 @@ Storage Explorer의 Azure Cosmos DB에서 나타나는 일반적인 문제에 �
 
 + IT 부서와 같은 누군가가 HTTPS 트래픽을 가로채고 암호를 해독한 다음 자체 서명된 인증서를 사용하여 암호화하는 *투명한 프록시*뒤에 있습니다.
 
-+ 수신한 HTTPS 메시지에 자체 서명된 SSL 인증서를 삽입하는 바이러스 백신 소프트웨어와 같은 소프트웨어를 실행하고 있습니다.
++ 수신하는 HTTPS 메시지에 자체 서명된 TLS/SSL 인증서를 삽입하는 바이러스 백신 소프트웨어와 같은 소프트웨어를 실행 중인 것입니다.
 
 Storage Explorer가 이러한 "자체 서명된 인증서" 중 하나를 발견하면 수신하는 HTTPS 메시지가 변조되었는지 여부를 더 이상 알지 못합니다. 자체 서명된 인증서의 복사본을 갖고 있는 경우 Storage Explorer에 해당 인증서를 신뢰하도록 지시할 수 있습니다. 인증서를 주입하는 주체가 누구인지 모른다면 다음 단계를 수행하여 알아낼 수 있습니다.
 
-1. OpenSSL을 설치합니다.
+1. OpenSSL 설치
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html)(라이트 버전도 사용 가능)
      - Mac 및 Linux: 운영 체제에 포함되어야 합니다.
-2. OpenSSL을 실행합니다.
+2. 오픈SSL 실행
     - Windows: 설치 디렉터리, **/bin/** 으로 이동한 다음, **openssl.exe**를 두 번 클릭합니다.
     - Mac 및 Linux: 터미널에서 **openssl**을 실행합니다.
 3. `s_client -showcerts -connect microsoft.com:443` 실행

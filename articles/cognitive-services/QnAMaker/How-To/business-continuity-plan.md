@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: f920a789f1ec631c5d70863b10d8364b3eb81b6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2100426923418104c31933bf9d1406a6441d3841
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77650472"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410922"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>QnA Maker 서비스를 위한 비즈니스 연속성 계획 만들기
 
@@ -33,7 +33,7 @@ ms.locfileid: "77650472"
 
 4. 기본 및 보조 스택이 설치되면 [트래픽 관리자](https://docs.microsoft.com/azure/traffic-manager/)를 사용하여 두 개의 엔드포인트를 구성하고 라우팅 메서드를 설정합니다.
 
-5. 트래픽 관리자 끝점에 대한 보안 소켓 계층(SSL) 인증서를 만들어야 합니다. 앱 서비스에서 [SSL 인증서를 바인딩합니다](https://docs.microsoft.com/azure/app-service/configure-ssl-bindings).
+5. 트래픽 관리자 끝점에 대한 보안 소켓 계층(SSL)이라고 도던 전송 계층 보안(TLS)을 만들어야 합니다. 앱 서비스에서 [TLS/SSL 인증서를 바인딩합니다.](https://docs.microsoft.com/azure/app-service/configure-ssl-bindings)
 
 6. 마지막으로, 봇 또는 앱에서 트래픽 관리자 엔드포인트를 사용합니다.
 

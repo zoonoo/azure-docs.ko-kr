@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ee3b5bd3278412949074b77f9d1c53d63a467280
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 403ca480bcf0743d81e375c122c888db96bbf543
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78189398"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408710"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책에 대한 개발자 참고 사항
 
@@ -59,68 +59,82 @@ Azure Active Directory B2C의 사용자 지정 정책 구성을 일반적으로 
 
 사용자 지정 정책/ID 경험 프레임워크 기능은 지속적으로 빠르게 개발되고 있습니다. 다음 표는 기능 및 구성 요소 가용성의 인덱스입니다.
 
-### <a name="identity-providers-tokens-protocols"></a>ID 공급자, 토큰, 프로토콜
+
+### <a name="protocols-and-authorization-flows"></a>프로토콜 및 권한 부여 흐름
 
 | 기능 | 개발 | 미리 보기 | GA | 메모 |
 |-------- | :-----------: | :-------: | :--: | ----- |
-| IDP-OpenIDConnect |  |  | X | 예를 들어, 구글 +.  |
-| IDP-OAUTH2 |  |  | X | 예를 들어, 페이스 북.  |
-| IDP-OAUTH1 (트위터) |  | X |  | 예를 들어, 트위터. |
-| IDP-OAUTH1 (전 트위터) |  |  |  | 지원되지 않음 |
-| IDP-SAML |  |   | X | 예를 들어, 세일즈포스, ADFS. |
-| IDP-WSFED | X |  |  |  |
-| 의존 파티 OAUTH1 |  |  |  | 지원되지 않습니다. |
-| 의존 파티 OAUTH2 |  |  | X |  |
-| 신뢰 당사자 OIDC |  |  | X |  |
-| 신뢰 당사자 SAML |  |X  |  |  |
-| 신뢰 당사자 WSFED | X |  |  |  |
-| 기본 및 인증서 인증을 갖춘 REST API |  |  | X | 예를 들어 Azure 논리 앱입니다. |
+| [OAuth2 권한 부여 코드](authorization-code-flow.md) |  |  | X |  |
+| PKCE를 가진 OAuth2 권한 부여 코드 |  |  | X | 모바일 애플리케이션만  |
+| [OAuth2 암시적 흐름](implicit-flow-single-page-application.md) |  |  | X |  |
+| [OAuth2 리소스 소유자 암호 자격 증명](ropc-custom.md) |  | X |  |  |
+| [OIDC 커넥트](openid-connect.md) |  |  | X |  |
+| [삼L2](connect-with-saml-service-providers.md)  |  |X  |  | POST 및 리디렉션 바인딩. |
+| OAuth1 |  |  |  | 지원되지 않습니다. |
+| WSFed | X |  |  |  |
+
+### <a name="identify-providers-federation"></a>공급자 페더레이션 식별 
+
+| 기능 | 개발 | 미리 보기 | GA | 메모 |
+|-------- | :-----------: | :-------: | :--: | ----- |
+| [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | 예를 들어, 구글 +.  |
+| [OAuth2](oauth2-technical-profile.md) |  |  | X | 예를 들어, 페이스 북.  |
+| [OAuth1](oauth1-technical-profile.md) |  | X |  | 예를 들어, 트위터. |
+| [삼L2](saml-technical-profile.md) |  |   | X | 예를 들어, 세일즈포스, ADFS. |
+| WSFed| X |  |  |  |
+
+
+### <a name="rest-api-integration"></a>REST API 통합
+
+| 기능 | 개발 | 미리 보기 | GA | 메모 |
+|-------- | :-----------: | :-------: | :--: | ----- |
+| [기본 인증이 있는 REST API](secure-rest-api.md#http-basic-authentication) |  |  | X |  |
+| [클라이언트 인증서 인증을 가진 REST API](secure-rest-api.md#https-client-certificate-authentication) |  |  | X |  |
+| [OAuth2 베어러 인증과 REST API](secure-rest-api.md#oauth2-bearer-authentication) |  | X |  |  |
 
 ### <a name="component-support"></a>구성 요소 지원
 
 | 기능 | 개발 | 미리 보기 | GA | 메모 |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Azure Multi Factor Authentication |  |  | X |  |
-| 로컬 디렉터리로서의 Azure Active Directory |  |  | X |  |
+| [전화 팩터 인증](phone-factor-technical-profile.md) |  |  | X |  |
+| [Azure MFA 인증](multi-factor-auth-technical-profile.md) |  | X |  |  |
+| [일회용 암호](one-time-password-technical-profile.md) |  | X |  |  |
+| [로컬 디렉터리로 Azure Active Directory](active-directory-technical-profile.md) |  |  | X |  |
 | 전자 메일 확인을 위한 Azure 전자 메일 하위 시스템 |  |  | X |  |
-| 다중 언어 지원|  |  | X |  |
-| 조건자 유효성 검사 |  |  | X | 예를 들어 암호의 복잡성이 있습니다. |
-| 타사 이메일 서비스 제공업체 사용 |  |X  |  |  |
+| [타사 이메일 서비스 제공업체](custom-email.md) |  |X  |  |  |
+| [다중 언어 지원](localization.md)|  |  | X |  |
+| [조건자 유효성 검사](predicates.md) |  |  | X | 예를 들어 암호의 복잡성이 있습니다. |
+| [컨트롤 표시](display-controls.md) |  |X  |  |  |
 
-### <a name="content-definition"></a>콘텐츠 정의
+
+### <a name="page-layout-versions"></a>페이지 레이아웃 버전
 
 | 기능 | 개발 | 미리 보기 | GA | 메모 |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| 오류 페이지, api.error |  |  | X |  |
-| IDP 선택 페이지, api.idpselections |  |  | X |  |
-| 등록을 위한 IDP 선택, api.idpselections.signup |  |  | X |  |
-| 암호 찾기, api.localaccountpasswordreset |  |  | X |  |
-| 로컬 계정 로그인, api.localaccountsignin |  |  | X |  |
-| 로컬 계정 등록, api.localaccountsignup |  |  | X |  |
-| MFA 페이지, api.phonefactor |  |  | X |  |
-| 자체 주장 소셜 계정 가입, api.selfasserted |  |  | X |  |
-| 자체 어설션 프로필 업데이트, api.selfasserted.profileupdate |  |  | X |  |
-| 통합 등록 또는 로그인 페이지, api.signorsign, 매개 변수 "disableSignup" |  |  | X |  |
-| 자바 스크립트 / 페이지 레이아웃 |  | X |  |  |
+| [2.0.0](page-layout.md#200) |  | X |  |  |
+| [1.2.0](page-layout.md#120) |  | X |  |  |
+| [1.1.0](page-layout.md#110) |  |  | X |  |
+| [1.0.0](page-layout.md#100) |  |  | X |  |
+| [자바 스크립트 지원](javascript-samples.md) |  | X |  |  |
 
 ### <a name="app-ief-integration"></a>App-IEF 통합
 
 | 기능 | 개발 | 미리 보기 | GA | 메모 |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| 쿼리 문자열 매개 변수 domain_hint |  |  | X | 클레임으로 사용할 수 있으며 IDP로 전달할 수 있습니다. |
-| 쿼리 문자열 매개 변수 login_hint |  |  | X | 클레임으로 사용할 수 있으며 IDP로 전달할 수 있습니다. |
-| client_assertion을 통해 UserJourney에 JSON 삽입 | X |  |  | 더 이상 사용되지 않습니다. |
-| UserJourney에 Id_token_hint로 JSON 삽입 |  | X |  | JSON을 통과하기 위한 전진 접근 방식입니다. |
-| IDP 토큰을 응용 프로그램에 전달 |  | X |  | 예를 들어, 페이스 북에서 응용 프로그램에. |
+| 쿼리 문자열 매개 변수`domain_hint` |  |  | X | 클레임으로 사용할 수 있으며 IDP로 전달할 수 있습니다. |
+| 쿼리 문자열 매개 변수`login_hint` |  |  | X | 클레임으로 사용할 수 있으며 IDP로 전달할 수 있습니다. |
+| 를 통해 사용자 여정에 JSON 삽입`client_assertion` | X |  |  | 더 이상 사용되지 않습니다. |
+| 사용자 여정에 JSON을 삽입합니다.`id_token_hint` |  | X |  | JSON을 통과하기 위한 전진 접근 방식입니다. |
+| [ID 공급자 토큰을 응용 프로그램에 전달](idp-pass-through-custom.md) |  | X |  | 예를 들어, 페이스 북에서 응용 프로그램에. |
 
 ### <a name="session-management"></a>세션 관리
 
 | 기능 | 개발 | 미리 보기 | GA | 메모 |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| SSO 세션 공급자 |  |  | X |  |
-| 외부 로그인 세션 공급자 |  |  | X |  |
-| SAML SSO 세션 공급자 |  |  | X |  |
-| 기본 SSO 세션 공급자 |  |  | X |  |
+| [기본 SSO 세션 공급자](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
+| [외부 로그인 세션 공급자](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
+| [SAML SSO 세션 공급자](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
+
 
 ### <a name="security"></a>보안
 
@@ -128,16 +142,19 @@ Azure Active Directory B2C의 사용자 지정 정책 구성을 일반적으로 
 |-------- | :-----------: | :-------: | :--: | ----- |
 | 정책 키 - 생성, 수동, 업로드 |  |  | X |  |
 | 정책 키 - RSA/Cert, 비밀 |  |  | X |  |
-| 정책 업로드 |  |  | X |  |
+
 
 ### <a name="developer-interface"></a>개발자 인터페이스
 
 | 기능 | 개발 | 미리 보기 | GA | 메모 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Azure Portal-IEF UX |  |  | X |  |
-| Application Insights UserJourney 로그 |  | X |  | 개발 중 문제 해결에 사용됩니다.  |
-| 응용 프로그램 인사이트 이벤트 로그(오케스트레이션 단계를 통해) |  | X |  | 프로덕션 환경에서 사용자 흐름을 모니터링하는 데 사용됩니다. |
+| 정책 업로드 |  |  | X |  |
+| [애플리케이션 인사이트 사용자 여정 로그](troubleshoot-with-application-insights.md) |  | X |  | 개발 중 문제 해결에 사용됩니다.  |
+| [애플리케이션 인사이트 이벤트 로그](application-insights-technical-profile.md) |  | X |  | 프로덕션 환경에서 사용자 흐름을 모니터링하는 데 사용됩니다. |
+
 
 ## <a name="next-steps"></a>다음 단계
 
-[사용자 지정 정책 및 사용자 흐름과의 차이점에](custom-policy-overview.md)대해 자세히 알아봅니다.
+- Azure [AD B2C에서 사용할 수 있는 Microsoft 그래프 작업](microsoft-graph-operations.md) 확인
+- [사용자 지정 정책 및 사용자 흐름과의 차이점에](custom-policy-overview.md)대해 자세히 알아봅니다.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 87c3a3a904705b9fcb702c4745c4c80a4b447e69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e50d6d0623e87dfa68a7cc9744c3f595ff0179c6
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476725"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396376"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션의 사용자 인터페이스 사용자 지정
 
@@ -30,7 +30,7 @@ ms.locfileid: "79476725"
 
 [!INCLUDE [active-directory-b2c-html-how-to](../../includes/active-directory-b2c-html-how-to.md)]
 
-## <a name="4-modify-the-extensions-file"></a>4. 확장 파일 수정
+### <a name="4-modify-the-extensions-file"></a>4. 확장 파일 수정
 
 UI 사용자 지정을 구성하려면 기본 파일에서 확장 파일로 **ContentDefinition** 및 해당 자식 요소를 복사합니다.
 
@@ -60,9 +60,9 @@ UI 사용자 지정을 구성하려면 기본 파일에서 확장 파일로 **Co
 
 1. 확장 파일을 저장합니다.
 
-## <a name="5-upload-and-test-your-updated-custom-policy"></a>5. 업데이트된 사용자 지정 정책을 업로드하고 테스트합니다.
+### <a name="5-upload-and-test-your-updated-custom-policy"></a>5. 업데이트된 사용자 지정 정책을 업로드하고 테스트합니다.
 
-### <a name="51-upload-the-custom-policy"></a>5.1 사용자 지정 정책 업로드
+#### <a name="51-upload-the-custom-policy"></a>5.1 사용자 지정 정책 업로드
 
 1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
 1. **Azure AD B2C를**검색하고 선택합니다.
@@ -70,7 +70,7 @@ UI 사용자 지정을 구성하려면 기본 파일에서 확장 파일로 **Co
 1. **사용자 지정 정책 업로드를 선택합니다.**
 1. 이전에 변경한 확장 파일을 업로드합니다.
 
-### <a name="52-test-the-custom-policy-by-using-run-now"></a>5.2 **지금 실행을** 사용하여 사용자 지정 정책 테스트
+#### <a name="52-test-the-custom-policy-by-using-run-now"></a>5.2 **지금 실행을** 사용하여 사용자 지정 정책 테스트
 
 1. 업로드한 정책을 선택한 다음 지금 **실행을**선택합니다.
 1. 이메일 주소를 사용하여 등록할 수 있습니다.

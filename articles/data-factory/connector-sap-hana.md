@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/17/2020
-ms.openlocfilehash: fa165c21622110bb18476efdebf3264a11e26ad7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e1a3ff32956e8a8530684ba7f300f06d0c032227
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79265884"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421124"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP HANA에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -64,13 +64,13 @@ SAP HANA 데이터베이스에서 지원되는 모든 싱크 데이터 저장소
 
 SAP HANA 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **SapHana**로 설정해야 합니다. | yes |
-| connectionString | **기본 인증** 또는 **Windows 인증을**사용하여 SAP HANA에 연결하는 데 필요한 정보를 지정합니다. 다음 샘플을 참조하세요.<br>연결 문자열에서 서버/포트는 필수(기본 포트는 30015)이며 기본 인증을 사용할 때 사용자 이름과 암호가 필수입니다. 추가 고급 설정은 [SAP HANA ODBC 연결 속성을](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>) 참조하십시오.<br/>Azure Key Vault에 암호를 입력하고 연결 문자열에서 암호 구성을 가져올 수도 있습니다. 자세한 내용은 Azure Key Vault 문서의 [자격 증명 저장을](store-credentials-in-key-vault.md) 참조하십시오. | yes |
+| type | 형식 속성은 **SapHana**로 설정해야 합니다. | 예 |
+| connectionString | **기본 인증** 또는 **Windows 인증을**사용하여 SAP HANA에 연결하는 데 필요한 정보를 지정합니다. 다음 샘플을 참조하세요.<br>연결 문자열에서 서버/포트는 필수(기본 포트는 30015)이며 기본 인증을 사용할 때 사용자 이름과 암호가 필수입니다. 추가 고급 설정은 [SAP HANA ODBC 연결 속성을](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>) 참조하십시오.<br/>Azure Key Vault에 암호를 입력하고 연결 문자열에서 암호 구성을 가져올 수도 있습니다. 자세한 내용은 Azure Key Vault 문서의 [자격 증명 저장을](store-credentials-in-key-vault.md) 참조하십시오. | 예 |
 | userName | Windows 인증을 사용할 때 사용자 이름을 지정합니다. 예: `user@domain.com` | 예 |
 | password | 사용자 계정으로 password를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임입니다.](concepts-integration-runtime.md) [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |yes |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임입니다.](concepts-integration-runtime.md) [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
 
 **예: 기본 인증 사용**
 
@@ -145,9 +145,9 @@ SAP HANA 연결된 서비스에 다음 속성이 지원됩니다.
 
 SAP HANA의 데이터를 복사하려면 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 형식 속성을 다음과 같은 **SapHanaTable** 으로 설정해야 합니다. | yes |
+| type | 데이터 집합의 형식 속성을 다음과 같은 **SapHanaTable** 으로 설정해야 합니다. | 예 |
 | 스키마 | SAP HANA 데이터베이스의 스키마 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 | 테이블 | SAP HANA 데이터베이스의 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
@@ -184,11 +184,11 @@ SAP HANA의 데이터를 복사하려면 다음 속성이 지원됩니다.
 
 SAP HANA의 데이터를 복사하려면 복사 활동 **소스** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 활동 소스의 형식 속성을 설정해야 **합니다.** | yes |
-| Query | SAP HANA 인스턴스에서 데이터를 읽을 SQL 쿼리를 지정합니다. | yes |
-| 파티션옵션 | SAP HANA에서 데이터를 수집하는 데 사용되는 데이터 분할 옵션을 지정합니다. [SAP HANA](#parallel-copy-from-sap-hana) 섹션에서 병렬 복사에 대해 자세히 알아보십시오.<br>허용 값은 **다음과** 같습니다 없음(기본값), **물리적파티션OfTable,** **SapHanaDynamicRange**. [SAP HANA](#parallel-copy-from-sap-hana) 섹션에서 병렬 복사에 대해 자세히 알아보십시오. `PhysicalPartitionsOfTable`테이블에서 데이터를 복사할 때만 사용할 수 있지만 쿼리는 사용할 수 없습니다. <br>파티션 옵션이 활성화되면(즉, `None`그렇지 않음) SAP HANA에서 데이터를 동시에 로드하는 병렬 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 처리 정도는 복사 활동의 설정에 의해 제어됩니다. | False |
+| type | 복사 활동 소스의 형식 속성을 설정해야 **합니다.** | 예 |
+| Query | SAP HANA 인스턴스에서 데이터를 읽을 SQL 쿼리를 지정합니다. | 예 |
+| 파티션옵션 | SAP HANA에서 데이터를 수집하는 데 사용되는 데이터 분할 옵션을 지정합니다. [SAP HANA](#parallel-copy-from-sap-hana) 섹션에서 병렬 복사에 대해 자세히 알아보십시오.<br>허용 값은 **다음과** 같습니다 없음(기본값), **물리적파티션OfTable,** **SapHanaDynamicRange**. [SAP HANA](#parallel-copy-from-sap-hana) 섹션에서 병렬 복사에 대해 자세히 알아보십시오. `PhysicalPartitionsOfTable`테이블에서 데이터를 복사할 때만 사용할 수 있지만 쿼리는 사용할 수 없습니다. <br>파티션 옵션이 활성화되면(즉, `None`그렇지 않음) SAP HANA에서 데이터를 동시에 로드하는 병렬 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 처리 정도는 복사 활동의 설정에 의해 제어됩니다. | False |
 | 파티션설정 | 데이터 분할에 대한 설정 그룹을 지정합니다.<br>파티션 옵션이 `SapHanaDynamicRange`있는 경우 적용합니다. | False |
 | 파티션열이름 | 병렬 복사본에 파티션에서 사용할 원본 열의 이름을 지정합니다. 지정하지 않으면 인덱스 또는 테이블의 기본 키가 자동으로 감지되어 파티션 열로 사용됩니다.<br>파티션 옵션이 `SapHanaDynamicRange`있는 경우 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 `?AdfHanaDynamicRangePartitionCondition` 경우 WHERE 절에 연결합니다. [SAP HANA 섹션의 병렬 복사본 예제를](#parallel-copy-from-sap-hana) 참조하십시오. | 파티션을 `SapHanaDynamicRange` 사용할 때 예. |
 | packetSize | 데이터를 여러 블록으로 분할하도록 네트워크 패킷 크기(킬로바이트)를 지정합니다. 복사할 데이터가 많은 경우 패킷 크기를 늘리면 대부분의 경우 SAP HANA의 읽기 속도가 빨라진다. 패킷 크기를 조정할 때 성능 테스트를 권장합니다. | 아니요.<br>기본값은 2048(2MB)입니다. |
@@ -233,7 +233,7 @@ SAP HANA의 데이터를 복사하려면 복사 활동 **소스** 섹션에서 �
 
 ![파티션 옵션의 스크린샷](./media/connector-sap-hana/connector-sap-hana-partition-options.png)
 
-분할된 복사본을 사용하도록 설정하면 Data Factory는 SAP HANA 원본에 대해 병렬 쿼리를 실행하여 파티션별로 데이터를 검색합니다. 평행 정도는 복사 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 활동의 설정에 의해 제어됩니다. 예를 들어 4로 `parallelCopies` 설정하면 Data Factory는 지정된 파티션 옵션 및 설정에 따라 4개의 쿼리를 동시에 생성하고 실행하며 각 쿼리는 SAP HANA에서 데이터 일부를 검색합니다.
+분할된 복사본을 사용하도록 설정하면 Data Factory는 SAP HANA 원본에 대해 병렬 쿼리를 실행하여 파티션별로 데이터를 검색합니다. 평행 정도는 복사 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 활동의 설정에 의해 제어됩니다. 예를 들어 4로 `parallelCopies` 설정하면 Data Factory는 지정된 파티션 옵션 및 설정에 따라 4개의 쿼리를 동시에 생성하고 실행하며 각 쿼리는 SAP HANA에서 데이터 일부를 검색합니다.
 
 특히 SAP HANA에서 많은 양의 데이터를 수집할 때 데이터 분할과 병렬 복사를 사용하도록 설정하는 것이 좋습니다. 다음은 다양한 시나리오에 대한 권장 구성입니다. 파일 기반 데이터 저장소에 데이터를 복사할 때 폴더에 여러 파일(폴더 이름만 지정)으로 쓰는 것이 좋습니다.
 

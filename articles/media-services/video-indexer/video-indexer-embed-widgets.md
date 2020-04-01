@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: e475c1bc1878c6b5a0efbbe41f2a3a0fe86bcff2
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.openlocfilehash: 6ed5c509cf310b743e4ef52f411dfa34e5db09c1
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389378"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411621"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>앱에 비디오 인덱서 위젯 포함
 
@@ -29,7 +29,7 @@ ms.locfileid: "80389378"
 
 인지 인사이트 위젯에는 비디오 인덱싱 프로세스에서 추출한 모든 시각적 인사이트가 포함되어 있습니다. 인지 인사이트 위젯은 다음과 같은 선택적 URL 매개 변수를 지원합니다.
 
-|이름|정의|Description|
+|속성|정의|Description|
 |---|---|---|
 |`widgets` | 쉼표로 구분된 문자열 | 렌더링하려는 인사이트를 제어할 수 있습니다.<br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` 사람 및 키워드 UI 인사이트만 렌더링합니다.<br/>사용 가능한 옵션 : 사람, 애니메이션캐릭터, 키워드, 라벨, 감정, 감정, 주제, 키프레임, 성적 증명서, ocr, 스피커, 장면, 및 명명 엔터티.|
 |`controls`|쉼표로 구분된 문자열|렌더링할 컨트롤을 제어할 수 있습니다.<br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` 검색 옵션 및 다운로드 버튼만 렌더링합니다.<br/>사용 가능한 옵션: 검색, 다운로드, 사전 설정, 언어.|
@@ -41,7 +41,7 @@ ms.locfileid: "80389378"
 
 플레이어 위젯을 사용하여 적응형 비트 레이트(bit rate)를 사용하여 비디오를 스트리밍할 수 있습니다. 플레이어 위젯은 다음과 같은 선택적 URL 매개 변수를 지원합니다.
 
-|이름|정의|Description|
+|속성|정의|Description|
 |---|---|---|
 |`t` | 시작시간부터 초 | 플레이어가 지정된 시점부터 재생을 시작합니다.<br/> 예: `t=60`. |
 |`captions` | 언어 코드 | 캡션 메뉴에서 사용할 수 있도록 위젯 로드 중에 지정된 언어로 **캡션을** 가져옵니다.<br/> 예: `captions=en-US`. |
@@ -54,7 +54,7 @@ ms.locfileid: "80389378"
 
 편집기 위젯을 사용하여 새 프로젝트를 만들고 비디오의 인사이트를 관리할 수 있습니다. 편집기 위젯은 다음과 같은 선택적 URL 매개 변수를 지원합니다.
 
-|이름|정의|Description|
+|속성|정의|Description|
 |---|---|---|
 |`accessToken`<sup>*</sup> | String | 위젯을 포함하는 데 사용되는 계정에만 있는 동영상에 대한 액세스를 제공합니다.<br> 편집기 위젯에는 `accessToken` 매개 변수가 필요합니다. |
 |`language` | 언어 코드 | 플레이어 언어를 제어합니다. 기본값은 `en-US`입니다.<br/>예: `language=de-DE`. |
@@ -66,16 +66,12 @@ ms.locfileid: "80389378"
 
 1. [비디오 인덱서](https://www.videoindexer.ai/) 웹 사이트에 로그인합니다.
 2. 작업할 비디오를 선택합니다.
-3. 비디오 아래에 표시되는 **포함** 단추를 선택합니다.
-
-    ![비디오 인덱서에 포함 버튼](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
+3. 비디오 아래에 나타나는**</>** 임베드 버튼()을 선택합니다.
 
     **포함** 단추를 선택한 후 앱에 포함할 위젯을 선택할 수 있습니다.
 4. 원하는 위젯 유형을 선택합니다(인지**인사이트,** **플레이어**또는 **편집기).**
- 
-5. 포함 코드를 복사한 다음 앱에 추가합니다.
-
-    ![앱용 코드 포함-비디오 인덱서](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
+5. 포함 코드를 복사합니다(포함 & **공유** 대화 상자에 **포함된 코드 복사에** 나타납니다).
+6. 앱에 코드를 추가합니다.
 
 > [!NOTE]
 > 동영상 URL을 공유하는 데 문제가 있는 `location` 경우 링크에 매개변수를 추가합니다. 매개 변수는 비디오 [인덱서가 있는 Azure 영역으로](regions.md)설정해야 합니다. 예: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`
@@ -239,7 +235,7 @@ Azure Media Player 이외의 비디오 플레이어를 사용하는 경우 통�
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords`
 
-iframe 창의 제목도 iframe URL에 `&title=<YourTitle>`을 제공하여 사용자 지정할 수 있습니다. (HTML <title> 값을 사용자 지정합니다.)
+iframe 창의 제목도 iframe URL에 `&title=<YourTitle>`을 제공하여 사용자 지정할 수 있습니다. (HTML `<title>` 값을 사용자 지정합니다.)
    
 예를 들어 iframe 창에 "MyInsights"라는 제목을 지정하려는 경우 URL은 다음과 같습니다.
 
@@ -257,7 +253,7 @@ Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하�
 
 기본적으로 비디오 인덱서 플레이어는 비디오의 자막을 기반으로 하는 자막을 자동 생성했습니다. 자막은 동영상이 업로드될 때 선택된 소스 언어로 동영상에서 추출됩니다.
 
-다른 언어로 포함하려는 경우 &캡션=< 언어 코드를 포함 플레이어 URL에 추가할 수 > 있습니다. 캡션을 기본적으로 표시하려면 showCaptions=true를 &전달할 수 있습니다.
+다른 언어로 포함하려는 경우 포함 된 플레이어 `&captions=<Language Code>` URL에 추가할 수 있습니다. 캡션을 기본적으로 표시하려면 showCaptions=true를 &전달할 수 있습니다.
 
 그러면 포함 URL이 다음과 같습니다.
 

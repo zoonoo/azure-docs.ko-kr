@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 02/04/2020
+ms.date: 03/31/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 27860b8761c565c45a604253efdff5f77606606e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 195f4b5057c0e2d644ab44cc4c32e97c8662d36d
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061310"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422793"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Azure 저장소에 대한 고급 위협 보호 구성
 
@@ -24,7 +24,7 @@ Azure Storage에 대한 고급 위협 보호는 저장소 계정에 액세스하
 보안 경고는 활동의 이상 징후가 발생할 때 트리거됩니다. 이러한 보안 경고는 [Azure Security Center와](https://azure.microsoft.com/services/security-center/)통합되며 의심스러운 활동에 대한 세부 정보와 위협을 조사하고 해결하는 방법에 대한 권장 사항과 함께 구독 관리자에게 전자 메일을 통해 전송됩니다.
 
 > [!NOTE]
-> Azure 저장소에 대한 고급 위협 보호는 현재 Blob 저장소에서만 사용할 수 있습니다. Azure 정부 및 주권 클라우드 지역에서는 사용할 수 없습니다. 무료 30일 평가판을 포함한 가격 세부 정보는 [Azure 보안 센터 가격 페이지를]( https://azure.microsoft.com/pricing/details/security-center/)참조하십시오.
+> Azure 저장소에 대한 고급 위협 보호는 현재 Blob 저장소에서만 사용할 수 있습니다. 이 서비스는 미국 정부 클라우드에서 사용할 수 있지만 다른 주권 또는 Azure 정부 클라우드 지역에서는 사용할 수 없습니다. 무료 30일 평가판을 포함한 가격 세부 정보는 [Azure 보안 센터 가격 페이지를](https://azure.microsoft.com/pricing/details/security-center/)참조하십시오.
 
 Azure Storage에 대한 고급 위협 보호는 위협 탐지를 위해 Blob 저장소에 대한 읽기, 쓰기 및 삭제 요청의 진단 로그를 인제합니다. 고급 위협 보호에서 경고를 조사하려면 저장소 분석 로깅을 사용하여 관련 저장소 활동을 볼 수 있습니다. 자세한 내용은 [Azure 포털의 저장소 계정 모니터링에서](storage-monitor-storage-account.md#configure-logging) **로깅 구성을** 참조하십시오.
 
@@ -80,14 +80,14 @@ Azure 정책을 사용하여 특정 구독 또는 리소스 그룹의 저장소 
 
     ![정책 정의 페이지](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### <a name="rest-api"></a>[나머지 API](#tab/rest-api)
+### <a name="rest-api"></a>[REST API](#tab/rest-api)
 
 Rest API 명령을 사용하여 특정 저장소 계정에 대한 고급 위협 보호 설정을 만들거나 업데이트하거나 가져옵니다.
 
 * [고급 위협 보호 - 만들기](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
 * [고급 위협 보호 - 받기](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
 
-### <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 다음 PowerShell cmdlet을 사용합니다.
 

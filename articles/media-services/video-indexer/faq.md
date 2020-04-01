@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 03/30/2020
 ms.author: juliako
-ms.openlocfilehash: eacbeca275192e1a68b6682c3036da2d5c09bd54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd41596b6631bb63e1625325f8bec065b43881cd
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77619886"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421392"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>비디오 인덱서 자주 묻는 질문
 
@@ -175,6 +175,12 @@ Video Indexer API는 권한 부여 API 및 작업 API를 포함합니다. 권한
 ### <a name="how-often-do-i-need-to-get-a-new-access-token-when-do-access-tokens-expire"></a>얼마나 자주 새 액세스 토큰을 가져와야 하나요? 액세스 토큰은 언제 만료되나요?
 
 액세스 토큰은 1시간마다 만료되므로 매 시간마다 새 액세스 토큰을 생성해야 합니다. 
+
+### <a name="what-are-the-login-options-to-video-indexer-developer-portal"></a>비디오 인덱서 개발자 포털에 대한 로그인 옵션은 무엇입니까?
+
+Azure AD, 마이크로소프트 계정, 구글 계정 또는 페이스북 계정을 사용하여 로그인할 수 있습니다. 
+
+ID 공급자를 사용하여 이메일 계정을 등록한 후에는 다른 ID 공급자와 함께 이 이메일 계정을 사용할 수 없습니다.
 
 ## <a name="billing-questions"></a>대금 청구 관련 질문
 

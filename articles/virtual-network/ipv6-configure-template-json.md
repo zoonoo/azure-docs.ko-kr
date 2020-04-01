@@ -1,5 +1,5 @@
 ---
-title: Azure 가상 네트워크에서 기본 로드 밸런서를 사용 하 여 IPv6 듀얼 스택 응용 프로그램 배포 - 리소스 관리자 템플릿 (미리 보기)
+title: Azure 가상 네트워크에서 기본 로드 밸런서를 사용 하 여 IPv6 듀얼 스택 응용 프로그램 배포 - 리소스 관리자 템플릿
 titlesuffix: Azure Virtual Network
 description: 이 문서에서는 Azure 리소스 관리자 VM 템플릿을 사용하여 Azure 가상 네트워크에서 IPv6 이중 스택 응용 프로그램을 배포하는 방법을 보여 주며 있습니다.
 services: virtual-network
@@ -10,18 +10,18 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 06/26/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: b397c874045a89f5992aeadacfbbd4434a486977
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c2f66d92597801aa7c6b0b32f86f594d3effb05
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70012829"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420594"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-with-basic-load-balancer-in-azure---template-preview"></a>Azure에서 기본 로드 밸런서를 사용 하 여 IPv6 듀얼 스택 응용 프로그램을 배포 - 템플릿 (미리 보기)
+# <a name="deploy-an-ipv6-dual-stack-application-with-basic-load-balancer-in-azure---template"></a>Azure에서 기본 로드 밸런서를 사용 하 여 IPv6 듀얼 스택 응용 프로그램을 배포 - 템플릿
 
-이 문서에서는 적용되는 Azure 리소스 관리자 VM 템플릿의 일부와 함께 IPv6 구성 작업 목록을 제공합니다. 이 문서에서 설명한 템플릿을 사용하여 IPv4 및 IPv6 서브넷이 있는 듀얼 스택 가상 네트워크, 듀얼(IPv4 + IPv6) 프런트 엔드 구성이 있는 기본 로드 밸러저, VM을 포함하는 기본 로드 밸러서가 포함된 기본 로드 밸랜서가 포함된 이중 스택(IPv4 + IPv6) 응용 프로그램을 배포합니다. 이중 IP 구성, 네트워크 보안 그룹 및 공용 IP가 있는 NIC입니다.
+이 문서에서는 적용되는 Azure 리소스 관리자 VM 템플릿의 일부와 함께 IPv6 구성 작업 목록을 제공합니다. 이 문서에서 설명한 템플릿을 사용하여 IPv4 및 IPv6 서브넷이 있는 듀얼 스택 가상 네트워크, 듀얼(IPv4 + IPv6) 프런트 엔드 구성이 있는 기본 로드 밸런서, 이중 IP 구성, 네트워크 보안 그룹 및 공용 IP가 있는 NIC가 있는 VM을 포함하는 기본 로드 밸런서가 포함된 기본 로드 밸런서가 있는 이중 스택(IPv4 + IPv6) 응용 프로그램을 배포합니다.
 
 표준 로드 밸런서를 사용하여 이중 스택(IPV4 + IPv6) 응용 프로그램을 배포하려면 [표준 로드 밸런서 - 템플릿을 사용하여 IPv6 이중 스택 응용 프로그램 배포를](ipv6-configure-standard-load-balancer-template-json.md)참조하십시오.
 

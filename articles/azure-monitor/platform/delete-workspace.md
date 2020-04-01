@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/14/2020
-ms.openlocfilehash: ead0ac04fbd2244fce97dd043ebd44f24fb0f67f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dceb3db4572ecdaf504745dba1099a5eccead43
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80054928"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80395778"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Azure 로그 분석 작업 영역 삭제 및 복구
 
@@ -56,6 +56,17 @@ Log Analytics 작업 영역을 삭제하면 삭제가 우발적이든 의도적�
 ```PowerShell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
+
+### <a name="troubleshooting"></a>문제 해결
+
+로그 분석 작업 영역을 삭제하려면 '로그 분석 기여자' 권한이 있어야 합니다.<br>
+작업 영역을 만들 때 *'이 작업 영역 이름이 이미 사용 중이라는*오류 메시지가 나타납니다.
+* 작업 영역 이름을 사용할 수 없으며 조직의 다른 사용자 또는 다른 고객이 사용하고 있습니다.
+* 작업 영역은 지난 14일 동안 삭제되었으며 해당 이름은 소프트 삭제 기간 동안 예약된 것으로 유지됩니다. 소프트 삭제를 재정의하고 작업 영역을 즉시 삭제하고 동일한 이름으로 새 작업 영역을 만들려면 다음 단계를 수행하여 먼저 작업 영역을 복구하고 영구 삭제를 수행합니다.<br>
+   1. 작업 영역을 [복구합니다.](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace)
+   2. 작업 영역을 [영구적으로 삭제합니다.](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete)
+   3. 동일한 작업 영역 이름을 사용하여 새 작업 영역을 만듭니다.
+
 
 ## <a name="permanent-workspace-delete"></a>영구 작업 영역 삭제
 소프트 삭제 방법은 동일한 설정 및 작업 영역 이름으로 배포를 반복해야 하는 개발 및 테스트와 같은 일부 시나리오에 적합하지 않을 수 있습니다. 이러한 경우 작업 영역을 영구적으로 삭제하고 소프트 삭제 기간을 "재정의"할 수 있습니다. 영구 작업 영역 삭제 작업은 작업 영역 이름을 해제하고 동일한 이름을 사용하여 새 작업 영역을 만들 수 있습니다.

@@ -6,13 +6,13 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/27/2020
-ms.openlocfilehash: a8b382663b56d7481da876979e33194fb0ac533d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: e69f3d7350d0da9f364983eae0935532b576bd76
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77925801"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411467"
 ---
 # <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Azure 리소스 관리자 템플릿을 사용하는 온보드 업데이트 관리 솔루션
 
@@ -25,7 +25,7 @@ ms.locfileid: "77925801"
 
 템플릿은 하나 이상의 Azure 또는 비 Azure VM의 온보딩을 자동화하지 않습니다.
 
-구독의 지원되는 지역에 Log Analytics 작업 영역 및 자동화 계정이 이미 배포된 경우 해당 계정이 연결되지 않고 작업 영역에 업데이트 관리 솔루션이 배포되지 않은 경우 이 템플릿을 사용하여 성공적으로 만들어집니다. 업데이트 관리 솔루션을 배포합니다. 
+구독의 지원되는 지역에 Log Analytics 작업 영역 및 자동화 계정이 이미 배포된 경우 해당 계정이 연결되지 않고 작업 영역에 업데이트 관리 솔루션이 아직 배포되지 않은 경우 이 템플릿을 사용하여 링크를 성공적으로 만들고 업데이트 관리 솔루션을 배포합니다. 
 
 ## <a name="api-versions"></a>API 버전
 
@@ -56,6 +56,7 @@ JSON 템플릿은 사용자 환경에서 표준 구성으로 사용될 수 있�
 
 * sku - 2018년 4월 가격 책정 모델에서 배포된 새로운 GB당 가격 책정 계층이 기본값
 * 데이터 보존 - 기본값30일로
+* 용량 예약 - 기본값100GB
 
 >[!WARNING]
 >새 2018년 4월 가격 책정 모델을 선택한 구독에서 Log Analytics 작업 영역을 만들거나 구성할 때 유효한 유일한 Log Analytics 가격 책정 계층은 **PerGB2018**입니다.
@@ -79,7 +80,7 @@ JSON 템플릿은 사용자 환경에서 표준 구성으로 사용될 수 있�
                 "description": "Workspace name"
             }
         },
-        "pricingTier": {
+        "sku": {
             "type": "string",
             "allowedValues": [
                 "pergb2018",
@@ -168,7 +169,8 @@ JSON 템플릿은 사용자 환경에서 표준 구성으로 사용될 수 있�
             "apiVersion": "2017-03-15-preview",
             "location": "[parameters('location')]",
             "properties": {
-                "sku": { 
+                "sku": {
+                    "Name": "[parameters('sku')]",
                     "name": "CapacityReservation",
                     "capacityReservationLevel": 100
                 },
@@ -231,13 +233,13 @@ JSON 템플릿은 사용자 환경에서 표준 구성으로 사용될 수 있�
     }
     ```
 
-2. 요구 사항을 충족하도록 템플릿을 편집합니다.
+2. 요구 사항을 충족하도록 템플릿을 편집합니다. 매개 [변수를](../azure-resource-manager/templates/parameter-files.md) 인라인 값으로 전달하는 대신 Resource Manager 매개 변수 파일을 만드는 것이 좋습니다.
 
 3. 이 파일을 deployUMSolutiontemplate.json으로 로컬 폴더에 저장합니다.
 
 4. 이제 이 템플릿을 배포할 수 있습니다. PowerShell 또는 Azure CLI를 사용할 수 있습니다. 작업 영역 및 자동화 계정 이름을 묻는 메시지가 표시되면 모든 Azure 구독에서 전역적으로 고유한 이름을 제공합니다.
 
-    **Powershell**
+    **PowerShell**
 
     ```powershell
     New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deployUMSolutiontemplate.json

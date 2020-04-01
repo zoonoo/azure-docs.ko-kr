@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 03/30/2020
 ms.author: jgao
-ms.openlocfilehash: 7ff91545b1b7ab1920f437e0c3a5410270efaac5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ef1c3d3fe0fd1ecad95e027b06ce14fd70d4d3f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153253"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437871"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트 사용(미리 보기)
 
@@ -42,7 +42,7 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용하는 방법에 �
 - **대상 리소스 그룹에 대한 기여자의 역할을 가진 사용자 할당된 관리 ID입니다.** 이 ID는 배포 스크립트를 실행하는 데 사용됩니다. 리소스 그룹 외부에서 작업을 수행하려면 추가 권한을 부여해야 합니다. 예를 들어 새 리소스 그룹을 만들려는 경우 구독 수준에 ID를 할당합니다.
 
   > [!NOTE]
-  > 배포 스크립트 엔진은 백그라운드에서 저장소 계정과 컨테이너 인스턴스를 만듭니다.  구독이 Azure 저장소 계정(Microsoft.Storage) 및 Azure 컨테이너 인스턴스(Microsoft.ContainerInstance) 리소스를 등록하지 않은 경우 구독 수준에서 기여자의 역할을 가진 사용자 할당된 관리 ID가 필요합니다. 공급자.
+  > 배포 스크립트 엔진은 백그라운드에서 저장소 계정과 컨테이너 인스턴스를 만듭니다.  구독이 Azure 저장소 계정(Microsoft.Storage) 및 Azure 컨테이너 인스턴스(Microsoft.ContainerInstance) 리소스 공급자를 등록하지 않은 경우 구독 수준에서 기여자의 역할을 가진 사용자 할당된 관리 ID가 필요합니다.
 
   ID를 만들려면 Azure 포털을 사용하거나 [Azure CLI를 사용하거나 Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) [PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)을 사용하여 [사용자 할당된 관리되는 ID 만들기를](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)참조하십시오. 이 ID는 템플릿을 배포할 때 필요합니다. ID의 형식은 다음과 같습니다.
 
@@ -52,7 +52,7 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용하는 방법에 �
 
   다음 CLI 또는 PowerShell 스크립트를 사용하여 리소스 그룹 이름과 ID 이름을 제공하여 ID를 가져옵니다.
 
-  # <a name="cli"></a>[Cli](#tab/CLI)
+  # <a name="cli"></a>[CLI](#tab/CLI)
 
   ```azurecli-interactive
   echo "Enter the Resource Group name:" &&
@@ -62,7 +62,7 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용하는 방법에 �
   az identity show -g jgaoidentity1008rg -n jgaouami --query id
   ```
 
-  # <a name="powershell"></a>[Powershell](#tab/PowerShell)
+  # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
   ```azurepowershell-interactive
   $idGroup = Read-Host -Prompt "Enter the resource group name for the managed identity"
@@ -101,6 +101,12 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용하는 방법에 �
     "forceUpdateTag": 1,
     "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
     "arguments": "[concat('-name ', parameters('name'))]",
+    "environmentVariables": [
+      {
+        "name": "someSecret",
+        "secureValue": "if this is really a secret, don't put it here... in plain text..."
+      }
+    ],
     "scriptContent": "
       param([string] $name)
       $output = 'Hello {0}' -f $name
@@ -126,6 +132,7 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용하는 방법에 �
 - **forceUpdateTag**: 템플릿 배포 간에 이 값을 변경하면 배포 스크립트가 다시 실행됩니다. 매개 변수의 defaultValue로 설정해야 하는 newGuid() 또는 utcNow() 함수를 사용합니다. 자세한 내용은 [스크립트를 두 번 이상 실행](#run-script-more-than-once)을 참조하세요.
 - **azPowerShellVersion**/**azCliVersion**: 사용할 모듈 버전을 지정합니다. 지원되는 PowerShell 및 CLI 버전 목록은 [필수 구성 조건](#prerequisites)을 참조하십시오.
 - 인수 : 매개 변수 값을 **지정합니다.** 값은 공백으로 구분됩니다.
+- 환경변수 : 스크립트에 전달할 환경 변수를 **지정합니다.** 자세한 내용은 [배포 스크립트 개발을](#develop-deployment-scripts)참조하십시오.
 - **스크립트콘텐츠**: 스크립트 컨텐더를 지정합니다. 외부 스크립트를 실행하려면 `primaryScriptUri` 대신 사용합니다. 예제에서는 [인라인 스크립트 사용](#use-inline-scripts) 및 [외부 스크립트 사용을](#use-external-scripts)참조하십시오.
 - **primaryScriptUri**: 지원되는 파일 확장이 있는 기본 배포 스크립트에 공개적으로 액세스할 수 있는 URL을 지정합니다.
 - **지원ScriptUris**: 또는 `ScriptContent` `PrimaryScriptUri`중 하나에서 호출되는 파일을 지원하는 공개적으로 액세스할 수 있는 URL의 배열을 지정합니다.
@@ -173,7 +180,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="use-external-scripts"></a>외부 스크립트 사용
 
-인라인 스크립트 외에도 외부 스크립트 파일을 사용할 수도 있습니다. **ps1** 파일 확장력이 있는 기본 PowerShell 스크립트만 지원됩니다. CLI 스크립트의 경우 스크립트가 유효한 bash 스크립트인 경우 기본 스크립트에는 확장(또는 확장 없이)이 있을 수 있습니다. 외부 스크립트 파일을 사용하려면 `primaryScriptUri`을 로 바꿉습니다. `scriptContent` 예를 들어:
+인라인 스크립트 외에도 외부 스크립트 파일을 사용할 수도 있습니다. **ps1** 파일 확장력이 있는 기본 PowerShell 스크립트만 지원됩니다. CLI 스크립트의 경우 스크립트가 유효한 bash 스크립트인 경우 기본 스크립트에는 확장(또는 확장 없이)이 있을 수 있습니다. 외부 스크립트 파일을 사용하려면 `primaryScriptUri`을 로 바꿉습니다. `scriptContent` 다음은 그 예입니다.
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -234,7 +241,7 @@ PowerShell 배포 스크립트와 달리 CLI/bash 지원은 스크립트 출력�
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>보안 문자열을 배포 스크립트에 전달
 
-컨테이너 인스턴스에서 환경 변수를 설정하면 컨테이너가 실행하는 애플리케이션 또는 스크립트의 동적 구성을 제공할 수 있습니다. 배포 스크립트는 Azure 컨테이너 인스턴스와 동일한 방식으로 보안되지 않은 환경 변수를 처리합니다. 자세한 내용은 [컨테이너 인스턴스의 환경 변수 설정을](../../container-instances/container-instances-environment-variables.md#secure-values)참조하십시오.
+컨테이너 인스턴스에서 환경 변수(EnvironmentVariable)를 설정하면 컨테이너에서 실행하는 응용 프로그램 또는 스크립트의 동적 구성을 제공할 수 있습니다. 배포 스크립트는 Azure 컨테이너 인스턴스와 동일한 방식으로 보안되지 않은 환경 변수를 처리합니다. 자세한 내용은 [컨테이너 인스턴스의 환경 변수 설정을](../../container-instances/container-instances-environment-variables.md#secure-values)참조하십시오.
 
 ## <a name="debug-deployment-scripts"></a>디버그 배포 스크립트
 

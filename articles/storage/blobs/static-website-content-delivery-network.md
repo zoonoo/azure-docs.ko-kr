@@ -7,16 +7,16 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 01/22/2020
-ms.openlocfilehash: aaf61ccbb3577036c614aa6196d2af57124550fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8eeff5187d27cb75b9e55eba8311dede8970bc4a
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76908554"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435228"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>정적 웹 사이트를 Azure CDN과 통합
 
-[Azure 콘텐츠 배달 네트워크(CDN)를](../../cdn/cdn-overview.md) 활성화하여 Azure 저장소 계정에서 호스팅되는 정적 웹 [사이트에서](storage-blob-static-website.md) 콘텐츠를 캐시할 수 있습니다. Azure CDN을 사용하여 정적 웹 사이트에 대한 사용자 지정 도메인 끝점을 구성하고, 사용자 지정 SSL 인증서를 프로비전하고, 사용자 지정 다시 작성 규칙을 구성할 수 있습니다. Azure CDN을 구성하면 추가 비용이 발생하지만 전세계 어디에서나 웹 사이트에 대해 일관되게 낮은 대기 시간을 제공합니다. 또한 Azure CDN은 고유한 인증서를 사용하여 SSL 암호화를 제공합니다. 
+[Azure 콘텐츠 배달 네트워크(CDN)를](../../cdn/cdn-overview.md) 활성화하여 Azure 저장소 계정에서 호스팅되는 정적 웹 [사이트에서](storage-blob-static-website.md) 콘텐츠를 캐시할 수 있습니다. Azure CDN을 사용하여 정적 웹 사이트에 대한 사용자 지정 도메인 끝점을 구성하고, 사용자 지정 TLS/SSL 인증서를 프로비전하고, 사용자 지정 다시 작성 규칙을 구성할 수 있습니다. Azure CDN을 구성하면 추가 비용이 발생하지만 전세계 어디에서나 웹 사이트에 대해 일관되게 낮은 대기 시간을 제공합니다. 또한 Azure CDN은 사용자 고유의 인증서와 함께 TLS 암호화를 제공합니다. 
 
 Azure CDN 가격 책정에 대한 정보는 [Azure CDN 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
 

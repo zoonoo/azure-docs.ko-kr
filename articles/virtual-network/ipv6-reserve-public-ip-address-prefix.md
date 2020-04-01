@@ -10,20 +10,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 76d1ba2717ac3c8ac8e86687ef1754a8790f3e4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a0dd56842174d89688c862397c373326ef50d1f
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72595078"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420537"
 ---
 # <a name="reserve-public-ipv6-address-prefix"></a>공용 IPv6 주소 접두사 예약
 VNet(Azure 가상 네트워크용 IPv6)을 사용하면 가상 네트워크 내에서 와 인터넷에서 IPv6 및 IPv4 연결을 통해 Azure에서 응용 프로그램을 호스팅할 수 있습니다. 개별 IPv6 주소를 예약하는 것 외에도 사용할 수 있도록 연속범위의 Azure IPv6 주소(IP 접두사라고 함)를 예약할 수 있습니다. 이 문서에서는 Azure PowerShell 및 CLI를 사용하여 IPv6 공용 IP 주소 및 주소 범위를 만드는 방법에 대해 설명합니다.
 
-> [!Important]
-> Azure 가상 네트워크에 대한 IPv6는 현재 공개 미리 보기 상태입니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="create-a-single-reserved-ipv6-public-ip"></a>예약된 단일 IPv6 공용 IP 만들기
 

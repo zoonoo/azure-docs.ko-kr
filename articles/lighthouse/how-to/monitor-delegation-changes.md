@@ -1,14 +1,14 @@
 ---
 title: 관리 테넌트의 위임 변경 사항 모니터링
 description: 고객 테넌트에서 관리 테넌트에 이르는 위임 활동을 모니터링하는 방법을 알아봅니다.
-ms.date: 03/16/2020
+ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 99aa05cb73326e441c0473855c27dc71212cf415
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82c41c392210e088c85af510b9698e0140f660e5
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79478228"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421900"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>관리 테넌트의 위임 변경 사항 모니터링
 
@@ -73,7 +73,7 @@ az role assignment create --assignee 00000000-0000-0000-0000-000000000000 --role
 
 모니터링 리더가 관리 테넌트의 루트 범위에 대한 액세스 권한을 가진 새 서비스 주체 계정을 만든 후에는 테넌트의 위임 활동을 쿼리하고 보고하는 데 사용할 수 있습니다. 
 
-아래 샘플에서는 Azure PowerShell을 사용하여 추가되거나 제거된 위임(또는 성공하지 않은 시도)에 대한 지난 1일 간의 활동 및 보고서를 쿼리합니다. [테넌트 활동 로그](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) 데이터를 쿼리한 다음 다음 값을 생성하여 추가되거나 제거된 위임에 대해 보고합니다.
+[이 Azure PowerShell 스크립트는](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/tools/monitor-delegation-changes) 추가되거나 제거된 위임(또는 성공하지 않은 시도)에 대한 지난 1일 간의 활동 및 보고서를 쿼리하는 데 사용할 수 있습니다. [테넌트 활동 로그](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) 데이터를 쿼리한 다음 다음 값을 생성하여 추가되거나 제거된 위임에 대해 보고합니다.
 
 - **위임된 ResourceId**: 위임된 구독 또는 리소스 그룹의 ID
 - **고객테넌티드**: 고객 테넌트 ID

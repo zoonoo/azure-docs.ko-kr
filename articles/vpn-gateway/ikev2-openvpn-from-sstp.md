@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 03/30/2020
 ms.author: alzam
-ms.openlocfilehash: 60c3a7f4f12993f475b3d03fd0915971d7673a5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5500d993a4bf3c664f14182d983f9abed8ebb08a
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80143106"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398370"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>SSTP에서 OpenVPN 프로토콜 또는 IKEv2로 전환
 
@@ -33,7 +33,7 @@ P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 
 >P2S용 IKEv2 및 OpenVPN은 Resource Manager 배포 모델에서만 사용할 수 있습니다. 클래식 배포 모델에서는 사용할 수 없습니다. 기본 게이트웨이 SKU는 IKEv2 또는 OpenVPN 프로토콜을 지원하지 않습니다. 기본 SKU를 사용하는 경우 프로덕션 SKU 가상 네트워크 게이트웨이를 삭제하고 다시 만들어야 합니다.
 >
 
-## <a name="migrating-from-sspt-to-ikev2-or-openvpn"></a>SSPT에서 IKEv2 또는 OpenVPN으로 마이그레이션
+## <a name="migrating-from-sstp-to-ikev2-or-openvpn"></a>SSTP에서 IKEv2 또는 OpenVPN으로 마이그레이션
 
 VPN 게이트웨이에 128개 이상의 동시 P2S 연결을 지원하려고 하지만 SSTP를 사용하는 경우가 있을 수 있습니다. 이러한 경우 IKEv2 또는 OpenVPN 프로토콜로 이동해야 합니다.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: 3cd330e9c4ceba2feeb7a74cafe9f094fd03d690
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ef7e5d869ab2d7e085cbf861bfc32e57b1fad4b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79249166"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408484"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링하는 항목
 이 문서에서는 Azure Monitor에서 모니터링하는 다양한 응용 프로그램 및 서비스에 대해 설명합니다. 
@@ -23,7 +23,7 @@ ms.locfileid: "79249166"
 
 Insights는 특정 응용 프로그램 및 서비스에 대한 맞춤형 모니터링 환경을 제공합니다. 로그와 메트릭을 모두 수집하고 분석합니다.
 
-| 인사이트 | 설명 |
+| 인사이트 | Description |
 |:---|:---|
 | [Application Insights](app/app-insights-overview.md) | 모든 플랫폼에서 라이브 웹 응용 프로그램을 모니터링하는 확장 가능한 응용 프로그램 성능 관리(APM) 서비스입니다. |
 | [컨테이너용 Azure 모니터](insights/container-insights-overview.md) | Azure 컨테이너 인스턴스 또는 관리되는 Kubernetes 클러스터에 배포된 컨테이너 워크로드의 성능을 모니터링합니다. |
@@ -37,7 +37,7 @@ Insights는 특정 응용 프로그램 및 서비스에 대한 맞춤형 모니�
 
 솔루션은 특정 응용 프로그램 또는 서비스에 맞게 사용자 지정된 로그 쿼리 및 보기를 기반으로 합니다. 로그만 수집하고 분석하며 시간이 지남에 따라 통찰력을 위해 더 이상 사용되지 않습니다.
 
-| 해결 방법 | 설명 |
+| 해결 방법 | Description |
 |:---|:---|
 | [에이전트 상태](insights/solution-agenthealth.md) | 로그 분석 에이전트의 상태 및 구성을 분석합니다. |
 | [경고 관리](platform/alert-management-solution.md) | 시스템 센터 운영 관리자, Nagios 또는 Zabbix에서 수집한 경고를 분석합니다. |
@@ -54,130 +54,130 @@ Insights는 특정 응용 프로그램 및 서비스에 대한 맞춤형 모니�
 
 | 서비스 | 메트릭 | 로그 | 인사이트 | 메모 |
 |:---|:---|:---|:---|:---|
-|Active Directory | 예 | yes | [예](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
+|Active Directory | 예 | 예 | [예](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
 |Active Directory B2C | 예 | 예 | 예 |  |
-|Active Directory Domain Services | 예 | yes | 예 |  |
-|활동 로그 | 예 | yes | 예 | |
+|Active Directory Domain Services | 예 | 예 | 예 |  |
+|활동 로그 | 예 | 예 | 예 | |
 |고급 위협 보호 | 예 | 예 | 예 |  |
 |Advisor | 예 | 예 | 예 |  |
 |AI 작성기 | 예 | 예 | 예 |  |
-|Analysis Services | yes | yes | 예 |  |
+|Analysis Services | 예 | 예 | 예 |  |
 |API for FHIR | 예 | 예 | 예 |  |
-|API Management | yes | yes | 예 |  |
-|App Service | yes | yes | 예 |  |
+|API Management | 예 | 예 | 예 |  |
+|App Service | 예 | 예 | 예 |  |
 |AppConfig | 예 | 예 | 예 |  |
-|Application Gateway | yes | yes | 예 |  |
+|Application Gateway | 예 | 예 | 예 |  |
 |증명 서비스 | 예 | 예 | 예 |  |
-|Automation | yes | yes | 예 |  |
+|Automation | 예 | 예 | 예 |  |
 |Azure 서비스 관리자(RDFE) | 예 | 예 | 예 |  |
-|Backup | 예 | yes | 예 |  |
+|Backup | 예 | 예 | 예 |  |
 |Bastion | 예 | 예 | 예 |  |
-|Batch | yes | yes | 예 |  |
+|Batch | 예 | 예 | 예 |  |
 |Batch AI | 예 | 예 | 예 |  |
-|Blockchain Service | 예 | yes | 예 |  |
+|Blockchain Service | 예 | 예 | 예 |  |
 |Blueprints | 예 | 예 | 예 |  |
 |Bot 서비스 | 예 | 예 | 예 |  |
-|Cloud Services | yes | yes | 예 | 게스트 운영 체제 및 워크플로를 모니터링하는 데 필요한 에이전트입니다.  |
+|Cloud Services | 예 | 예 | 예 | 게스트 운영 체제 및 워크플로를 모니터링하는 데 필요한 에이전트입니다.  |
 |Cloud Shell | 예 | 예 | 예 |  |
-|Cognitive Services | yes | yes | 예 |  |
-|Container Instances | yes | 예 | 예 |  |
-|Container Registry | yes | yes | 예 |  |
-|CDN(콘텐츠 배달 네트워크) | 예 | yes | 예 |  |
-|Cosmos DB | yes | yes | [예](insights/cosmosdb-insights-overview.md) |  |
+|Cognitive Services | 예 | 예 | 예 |  |
+|Container Instances | 예 | 예 | 예 |  |
+|Container Registry | 예 | 예 | 예 |  |
+|CDN(콘텐츠 배달 네트워크) | 예 | 예 | 예 |  |
+|Cosmos DB | 예 | 예 | [예](insights/cosmosdb-insights-overview.md) |  |
 |Cost Management | 예 | 예 | 예 |  |
 |Data Box | 예 | 예 | 예 |  |
 |데이터 카탈로그 Gen2 | 예 | 예 | 예 |  |
-|데이터 탐색기 | yes | yes | 예 |  |
-|Data Factory | yes | yes | 예 |  |
-|데이터 팩토리 v2 | 예 | yes | 예 |  |
+|Data Explorer | 예 | 예 | 예 |  |
+|Data Factory | 예 | 예 | 예 |  |
+|데이터 팩토리 v2 | 예 | 예 | 예 |  |
 |Data Share | 예 | 예 | 예 |  |
-|Database for MariaDB | yes | yes | 예 |  |
-|Database for MySQL | yes | yes | 예 |  |
-|Database for PostgreSQL | yes | yes | 예 |  |
+|Database for MariaDB | 예 | 예 | 예 |  |
+|Database for MySQL | 예 | 예 | 예 |  |
+|Database for PostgreSQL | 예 | 예 | 예 |  |
 |Database Migration Service | 예 | 예 | 예 |  |
-|Databricks | 예 | yes | 예 |  |
-|DDoS Protection | yes | yes | 예 |  |
+|Databricks | 예 | 예 | 예 |  |
+|DDoS Protection | 예 | 예 | 예 |  |
 |DevOps | 예 | 예 | 예 |  |
-|DNS | yes | 예 | 예 |  |
+|DNS | 예 | 예 | 예 |  |
 |도메인 이름 | 예 | 예 | 예 |  |
 |DPS | 예 | 예 | 예 |  |
 |역학 365 고객 참여 | 예 | 예 | 예 |  |
 |역학 365 재무 및 운영 | 예 | 예 | 예 |  |
-|Event Grid | yes | 예 | 예 |  |
-|Event Hubs | yes | yes | 예 |  |
-|ExpressRoute | yes | yes | 예 |  |
-|방화벽 | yes | yes | 예 |  |
-|Front Door | yes | yes | 예 |  |
-|함수 | yes | yes | 예 |  |
-|HDInsight | 예 | yes | 예 |  |
+|Event Grid | 예 | 예 | 예 |  |
+|Event Hubs | 예 | 예 | 예 |  |
+|ExpressRoute | 예 | 예 | 예 |  |
+|방화벽 | 예 | 예 | 예 |  |
+|Front Door | 예 | 예 | 예 |  |
+|Functions | 예 | 예 | 예 |  |
+|HDInsight | 예 | 예 | 예 |  |
 |HPC Cache | 예 | 예 | 예 |  |
-|정보 보호 | 예 | yes | 예 |  |
-|Intune | 예 | yes | 예 |  |
+|정보 보호 | 예 | 예 | 예 |  |
+|Intune | 예 | 예 | 예 |  |
 |IoT Central | 예 | 예 | 예 |  |
-|IoT Hub | yes | yes | 예 |  |
-|Key Vault | yes | yes | 예 |  |
+|IoT Hub | 예 | 예 | 예 |  |
+|Key Vault | 예 | 예 | 예 |  |
 |AKS(Azure Kubernetes Service) | 예 | 예 | [예](insights/container-insights-overview.md)  |  |
-|Load Balancer | yes | yes | 예 |  |
-|Logic Apps | yes | yes | 예 |  |
+|Load Balancer | 예 | 예 | 예 |  |
+|Logic Apps | 예 | 예 | 예 |  |
 |Machine Learning Service | 예 | 예 | 예 |  |
 |Managed Applications  | 예 | 예 | 예 |  |
 |지도  | 예 | 예 | 예 |  |
-|Media Services | yes | yes | 예 |  |
+|Media Services | 예 | 예 | 예 |  |
 |Microsoft Flow | 예 | 예 | 예 |  |
 |Microsoft Managed Desktop | 예 | 예 | 예 |  |
 |Microsoft PowerApps | 예 | 예 | 예 |  |
 |Microsoft Social Engagement | 예 | 예 | 예 |  |
-|Microsoft Stream | yes | yes | 예 |  |
+|Microsoft Stream | 예 | 예 | 예 |  |
 |마이그레이션 | 예 | 예 | 예 |  |
-|Multi-Factor Authentication | 예 | yes | 예 |  |
-|Network Watcher | yes | yes | 예 |  |
-|Notification Hubs | yes | 예 | 예 |  |
+|Multi-Factor Authentication | 예 | 예 | 예 |  |
+|Network Watcher | 예 | 예 | 예 |  |
+|Notification Hubs | 예 | 예 | 예 |  |
 |공개 데이터 세트 | 예 | 예 | 예 |  |
 |정책 | 예 | 예 | 예 |  |
-|Power BI | yes | yes | 예 |  |
+|Power BI | 예 | 예 | 예 |  |
 |Power BI Embedded | 예 | 예 | 예 |  |
 |Private Link | 예 | 예 | 예 |  |
 |프로젝트 스풀 커뮤니케이션 플랫폼 | 예 | 예 | 예 |  |
 |Red Hat OpenShift | 예 | 예 | 예 |  |
-|Redis Cache | yes | yes | 예 |  |
+|Redis Cache | 예 | 예 | 예 |  |
 |Resource Graph | 예 | 예 | 예 |  |
 |리소스 관리자 | 예 | 예 | 예 |  |
 |소매 검색 – 빙에 의해 | 예 | 예 | 예 |  |
-|검색 | yes | yes | 예 |  |
-|Service Bus | yes | yes | 예 |  |
-|Service Fabric | 예 | yes | 예 | 게스트 운영 체제 및 워크플로를 모니터링하는 데 필요한 에이전트입니다.  |
+|검색 | 예 | 예 | 예 |  |
+|Service Bus | 예 | 예 | 예 |  |
+|Service Fabric | 예 | 예 | 예 | 게스트 운영 체제 및 워크플로를 모니터링하는 데 필요한 에이전트입니다.  |
 |가입 포털 | 예 | 예 | 예 |  |
-|Site Recovery | 예 | yes | 예 |  |
+|Site Recovery | 예 | 예 | 예 |  |
 |스프링 클라우드 서비스 | 예 | 예 | 예 |  |
-|SQL Data Warehouse | yes | yes | 예 |  |
-|SQL Database | yes | yes | 예 |  |
-|SQL Server Stretch Database | yes | yes | 예 |  |
+|SQL Data Warehouse | 예 | 예 | 예 |  |
+|SQL Database | 예 | 예 | 예 |  |
+|SQL Server Stretch Database | 예 | 예 | 예 |  |
 |스택 | 예 | 예 | 예 |  |
-|스토리지 | yes | 예 | [예](insights/storage-insights-overview.md) |  |
+|스토리지 | 예 | 예 | [예](insights/storage-insights-overview.md) |  |
 |스토리지 캐시 | 예 | 예 | 예 |  |
 |스토리지 동기화 서비스 | 예 | 예 | 예 |  |
-|Stream Analytics | yes | yes | 예 |  |
-|Time Series Insights | yes | yes | 예 |  |
+|Stream Analytics | 예 | 예 | 예 |  |
+|Time Series Insights | 예 | 예 | 예 |  |
 |TINA | 예 | 예 | 예 |  |
-|Traffic Manager | yes | yes | 예 |  |
+|Traffic Manager | 예 | 예 | 예 |  |
 |범용 인쇄 | 예 | 예 | 예 |  |
-|Virtual Machine Scale Sets | 예 | yes | [예](insights/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 필요한 에이전트입니다. |
-|Virtual Machines | yes | yes | [예](insights/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 필요한 에이전트입니다. |
-|Virtual Network | yes | yes | [예](insights/network-insights-overview.md) |  |
-|가상 네트워크 - NSG 흐름 로그 | 예 | yes | 예 |  |
-|VPN Gateway | yes | yes | 예 |  |
+|Virtual Machine Scale Sets | 예 | 예 | [예](insights/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 필요한 에이전트입니다. |
+|Virtual Machines | 예 | 예 | [예](insights/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 필요한 에이전트입니다. |
+|Virtual Network | 예 | 예 | [예](insights/network-insights-overview.md) |  |
+|가상 네트워크 - NSG 흐름 로그 | 예 | 예 | 예 |  |
+|VPN Gateway | 예 | 예 | 예 |  |
 |Windows Virtual Desktop | 예 | 예 | 예 |  |
 
 
 ## <a name="product-integrations"></a>제품 통합
 다음 표의 서비스 및 솔루션은 Azure Monitor에서 수집한 다른 로그 데이터로 분석할 수 있도록 데이터를 Log Analytics 작업 영역에 저장합니다.
 
-| 제품/서비스 | 설명 |
+| 제품/서비스 | Description |
 |:---|:---|
 | [Azure 자동화](/azure/automation/) | 운영 체제 업데이트를 관리하고 Windows 및 Linux 컴퓨터에서 변경 내용을 추적합니다. [변경 정보 추적](../automation/change-tracking.md) 및 업데이트 [관리를](../automation/automation-update-management.md)참조하십시오. |
 | [Azure 정보 보호](https://docs.microsoft.com/azure/information-protection/) | 문서와 전자 메일을 분류하고 선택적으로 보호합니다. [Azure 정보 보호를 위한 중앙 보고를](https://docs.microsoft.com/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports)참조하십시오. |
 | [Azure 보안 센터](/azure/security-center/) | 보안 이벤트를 수집 및 분석하고 위협 분석을 수행합니다. [Azure 보안 센터에서 데이터 수집](/azure/security-center/security-center-enable-data-collection) 참조 |
-| [푸른 파수꾼](/azure/sentinel/) | Office 365 및 Amazon 웹 서비스 클라우드 트레일을 비롯한 다양한 소스에 연결합니다. [데이터 원본 연결을](/azure/sentinel/connect-data-sources)참조하십시오. |
+| [Azure Sentinel](/azure/sentinel/) | Office 365 및 Amazon 웹 서비스 클라우드 트레일을 비롯한 다양한 소스에 연결합니다. [데이터 원본 연결을](/azure/sentinel/connect-data-sources)참조하십시오. |
 | [Key Vault 분석](insights/azure-key-vault.md) | Azure 키 볼트 감사이벤트 로그를 분석합니다. |
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Azure Monitor에 로그를 보내는 진단 설정을 만듭니다. [Intune(미리 보기)에서 로그 데이터를 저장소, 이벤트 허브 또는 로그 분석으로 보내기](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor)를 참조하십시오.  |
 | 네트워크  | [네트워크 성능 모니터](insights/network-performance-monitor.md) - 서비스 및 애플리케이션 엔드포인트에 대한 네트워크 연결 및 성능을 모니터링합니다.<br>[Azure 응용 프로그램 게이트웨이](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) - Azure 응용 프로그램 게이트웨이에서 로그 및 메트릭을 분석합니다.<br>[트래픽 분석](/azure/network-watcher/traffic-analytics) - NSG(네트워크 감시자 네트워크 보안 그룹) 흐름 로그를 분석하여 Azure 클라우드의 트래픽 흐름에 대한 통찰력을 제공합니다. |
@@ -194,11 +194,11 @@ Insights는 특정 응용 프로그램 및 서비스에 대한 맞춤형 모니�
 ## <a name="other-solutions"></a>기타 솔루션
 다른 솔루션은 다른 응용 프로그램 및 서비스를 모니터링하는 데 사용할 수 있지만 활성 개발이 중지되어 모든 지역에서 사용하지 못할 수 있습니다. Azure Log Analytics 데이터 수집 서비스 수준 계약에 의해 처리됩니다.
 
-| 해결 방법 | 설명 |
+| 해결 방법 | Description |
 |:---|:---|
 | [Active 디렉터리 상태 확인](insights/ad-assessment.md) | Active Directory 환경의 위험과 상태를 평가합니다. |
 | [활성 디렉터리 복제 상태](insights/ad-replication-status.md) | Active Directory 환경을 정기적으로 모니터링하여 복제 실패가 있는지 확인합니다. |
-| [활동 로그 분석](platform/activity-log-view.md#activity-logs-analytics-monitoring-solution) | 미리 정의된 로그 쿼리 및 보기를 사용하여 활동 로그 항목을 분석합니다. |
+| [활동 로그 분석](platform/activity-log-view.md#azure-portal) | 활동 로그 항목을 봅니다. |
 | [DNS 분석(미리 보기)](insights/dns-analytics.md) | DNS 서버에서 Windows DNS 분석 및 감사 로그 및 기타 관련 데이터를 수집, 분석 및 상호 연관시다. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | 여러 배포에서 클라우드 파운드리 시스템 상태 및 성능 메트릭을 수집, 보기 및 분석합니다. |
 | [컨테이너](insights/containers.md) | Docker 및 Windows 컨테이너 호스트를 보고 관리합니다. |
@@ -209,7 +209,7 @@ Insights는 특정 응용 프로그램 및 서비스에 대한 맞춤형 모니�
 
 ## <a name="third-party-integration"></a>타사 통합
 
-| 해결 방법 | 설명 |
+| 해결 방법 | Description |
 |:---|:---|
 | [ITSM](platform/itsmc-overview.md) | ITSMC(IT 서비스 관리 커넥터)를 사용하면 Azure와 지원되는 ITSM(IT 서비스 관리) 제품/서비스를 연결할 수 있습니다.  |
 

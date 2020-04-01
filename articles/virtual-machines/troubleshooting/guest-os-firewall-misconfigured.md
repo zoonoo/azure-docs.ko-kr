@@ -1,6 +1,6 @@
 ---
 title: Azure VM 게스트 OS 방화벽이 잘못 구성됨 | Microsoft Docs
-description: ''
+description: 직렬 콘솔 또는 오프라인 메서드를 사용하여 원격 Azure VM에서 잘못 구성된 게스트 운영 체제 방화벽을 진단하고 수정하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 8f04d943e1db49beed13c183fbd06e401546fc03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6f42bdf462ac5261f77bc05c62e50500345fe37
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71153887"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422544"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Azure VM 게스트 OS 방화벽이 잘못 구성됨
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: 5a4f7e31cb17f47e8796ab99c1f8a089339903df
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 514c1466bc1a686adfc3e07e1f19bd566e979dc1
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74888430"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420886"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Azure Media Services v3의 할당량 및 제한 사항
 
@@ -26,10 +26,10 @@ ms.locfileid: "74888430"
 | --- | --- | 
 | Azure Media Services 계정당 자산 | 1,000,000|
 | 동적 매니페스트 필터|100|
-| 작업당 JobInputs | 50(고정)|
-| 작업당 JobOutputs | 20(고정) |
-| 변환의 변환출력 | 20(고정) |
-| JobInput당 파일|10(고정)|
+| 작업당 작업 입력 | 50(고정)|
+| 작업당 작업 출력 | 20(고정) |
+| 변환에서 출력 변환 | 20(고정) |
+| 작업 입력당 파일|10(고정)|
 | 파일 크기| 일부 시나리오에서는 Media Services에서 처리를 위해 지원되는 최대 파일 크기에 제한이 있습니다. <sup>(1)</sup> |
 | Media Services 계정 작업당 작업 | 500,000<sup>(2)</sup>(고정)|
 | Media Services 계정당 Live Events |5|

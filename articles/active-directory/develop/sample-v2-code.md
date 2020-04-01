@@ -17,12 +17,12 @@ ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 2420c98a95eb9e5cdfee36bbd9bec20d22ad24ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8f69096544b0c3b51513d0cb5c4330fcbb1c18c
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460605"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419822"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft ID 플랫폼 코드 샘플(v2.0 끝점)
 
@@ -44,13 +44,13 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 이 샘플에서는 Microsoft ID 플랫폼으로 보호되는 단일 페이지 응용 프로그램을 작성하는 방법을 보여 주며 이 샘플을 보여 준다. 이 샘플은 MSAL.js의 맛 중 하나를 사용합니다.
 
-| 플랫폼 | 설명 | 링크 |
+| 플랫폼 | Description | 링크 |
 | -------- | --------------------- | -------- |
 | ![이 이미지는 자바 스크립트](media/sample-v2-code/logo_js.png) 로고 [자바 스크립트 (msal.js)를](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) 보여줍니다 | Microsoft Graph 호출 |[javascript-graphapi-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) |
 | ![이 이미지는 자바 스크립트](media/sample-v2-code/logo_js.png) 로고 [자바 스크립트 (msal.js)를](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) 보여줍니다 | B2C 통화 |[b2c 자바 스크립트 - msal - 단일 페이지 앱](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) |
-| ![이 이미지는 각도 JS](media/sample-v2-code/logo_angular.png) 로고 [자바 스크립트 (MSAL 각도JS)를](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs) 보여줍니다| Microsoft Graph 호출  | [MsalAngularjsDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/MsalAngularjsDemoApp)
-| ![이 이미지는 각도 로고](media/sample-v2-code/logo_angular.png) 자바 스크립트 [(MSAL 각도)를](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) 보여줍니다| Microsoft Graph 호출  | [자바 스크립트 - 단일 페이지 앱 각도](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) |
-| ![이 이미지는 각도 로고](media/sample-v2-code/logo_angular.png) 자바 스크립트 [(MSAL 각도)를](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) 보여줍니다 | B2C 통화 |[액티브 디렉토리 b2c 자바 스크립트 각도 스파](https://github.com/Azure-Samples/active-directory-b2c-javascript-angular-spa) |
+| ![이 이미지는 자바 스크립트](media/sample-v2-code/logo_js.png) 로고 [자바 스크립트 (msal.js)를](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) 보여줍니다 | 자체 웹 API 호출 |[자바 스크립트 - 단일 페이지 앱 - 도트넷 - 웹 피피 - v2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |
+| ![이 이미지는 각도 로고](media/sample-v2-code/logo_angular.png) 자바 스크립트 [(MSAL 각도)를](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) 보여줍니다| Microsoft Graph 호출  | [액티브 디렉토리 자바 스크립트 - 단일 페이지 앱 각도](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) |
+| ![이 이미지는 각도 로고](media/sample-v2-code/logo_angular.png) 자바 스크립트 [(MSAL 각도)를](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) 보여줍니다 | B2C 통화 |[액티브 디렉토리 b2c 자바 스크립트 각도 스파](https://github.com/Azure-Samples/active-directory-b2c-javascript-angular-spa) |
 
 ## <a name="web-applications"></a>웹 애플리케이션
 

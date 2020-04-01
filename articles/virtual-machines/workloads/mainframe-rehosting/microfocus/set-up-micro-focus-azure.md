@@ -8,22 +8,25 @@ ms.author: edprice
 manager: edprice
 editor: edprice
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 03/30/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: a5426c3cd7552b24739f9a20e01d5a4b42bd383c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b3fa5faccf17df17bc4f7cc2d8b023b868fdbe1
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68834561"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411186"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Azure에 마이크로 포커스 엔터프라이즈 서버 4.0 및 엔터프라이즈 개발자 4.0 설치
 
 이 문서에서는 Azure에서 [마이크로 포커스 엔터프라이즈 서버 4.0](https://www.microfocus.com/documentation/enterprise-developer/es30/) 및 마이크로 포커스 엔터프라이즈 개발자 [4.0을](https://www.microfocus.com/documentation/enterprise-developer/ed_30/) 설정하는 방법을 보여 주며 있습니다.
 
 Azure의 일반적인 워크로드는 개발 및 테스트 환경입니다. 이 시나리오는 매우 비용 효율적이고 배포및 분해가 용이하기 때문에 일반적입니다. 엔터프라이즈 서버를 통해 Micro Focus는 사용 가능한 가장 큰 메인프레임 리호스팅 플랫폼 중 하나를 만들었습니다. Windows 또는 Linux 가상 시스템(VM)을 사용하여 Azure에서 저렴한 x86 플랫폼에서 z/OS 워크로드를 실행할 수 있습니다.
+
+> [!NOTE]
+> 출시 예정: Azure VM에서 [마이크로 포커스 엔터프라이즈 서버 5.0을](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) 설정하는 방법에 대한 지침입니다.
 
 이 설정은 이미 설치된 Microsoft SQL Server 2017을 사용하여 Azure 마켓플레이스에서 Windows Server 2016 이미지를 실행하는 Azure VM을 사용합니다. 이 설정은 Azure 스택에도 적용됩니다.
 

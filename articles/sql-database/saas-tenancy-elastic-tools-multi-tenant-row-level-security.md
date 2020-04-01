@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: a5fe5d6d4076c5d82d33737d05bb95ede0a89c00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4cf260620d4e907fdb9190a052155fa22f1c7985
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73822026"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398336"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 애플리케이션
 
@@ -253,7 +253,7 @@ GO
 ```
 
 > [!TIP]
-> 복잡한 프로젝트에서 수백 개의 테이블에 조건자를 추가하는 것은 지루한 작업이 될 수 있습니다. 자동으로 보안 정책을 생성하고 스키마의 모든 테이블에는 조건자를 추가하는 도우미 저장 프로시저가 있습니다. 자세한 내용은 [모든 테이블에 행 수준 보안 적용 – 도우미 스크립트(블로그)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-to-all-tables-helper-script)에서 블로그 게시물을 참조하세요.
+> 복잡한 프로젝트에서 수백 개의 테이블에 조건자를 추가하는 것은 지루한 작업이 될 수 있습니다. 자동으로 보안 정책을 생성하고 스키마의 모든 테이블에는 조건자를 추가하는 도우미 저장 프로시저가 있습니다. 자세한 내용은 [모든 테이블에 행 수준 보안 적용 – 도우미 스크립트(블로그)](https://techcommunity.microsoft.com/t5/sql-server/apply-row-level-security-to-all-tables-helper-script/ba-p/384360)에서 블로그 게시물을 참조하세요.
 
 이제 샘플 애플리케이션을 다시 실행하면 각 테넌트는 자신에게 속한 행만 보게 됩니다. 또한 애플리케이션에서는 현재 분할된 데이터베이스에 연결된 테넌트 이외의 다른 테넌트에 속한 행을 삽입할 수 없습니다. 또한 앱은 표시되는 행의 TenantId를 업데이트할 수 없습니다. 앱에서 두 작업을 시도하면 DbUpdateException이 발생합니다.
 
