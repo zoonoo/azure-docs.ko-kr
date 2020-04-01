@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: a55ef4f814c0d13a6efbeeb8cd9a5565d2869432
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3893c8d19c89b639e0584f203cbcd1adf7e2dee
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78183298"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474836"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 
@@ -32,7 +32,7 @@ Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문�
 ## <a name="known-issues"></a><a id="issues"/>알려진 문제
 ### <a name="media-services-general-issues"></a><a id="general_issues"/>Media Services 관련 일반 문제
 
-| 문제 | 설명 |
+| 문제 | Description |
 | --- | --- |
 | REST API에 다양한 일반 HTTP 헤더가 제공되지 않습니다. |REST API를 사용하여 Media Services 애플리케이션을 개발하는 경우 CLIENT-REQUEST-ID, REQUEST-ID, RETURN-CLIENT-REQUEST-ID를 비롯한 몇 가지 일반 HTTP 헤더 필드가 지원되지 않습니다. 이 헤더는 이후 업데이트에서 추가될 예정입니다. |
 | 퍼센트 인코딩은 허용되지 않습니다. |Media Services는 스트리밍 콘텐츠의 URL을 작성할 때 속성의 값을 사용합니다(예: `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. 이름 속성 값에는 !* '();:@&=+$,/?%#[]"와 같은 [퍼센트 인코딩 예약 문자](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 "." 하나만 사용할 수 있습니다. |
@@ -344,9 +344,9 @@ Media Services .NET SDK의 현재 버전은 3.1.0.1입니다.
 * PlayReady 라이선스 템플릿에 BeginDate 및 ExpirationDate에 대한 상대적 오프셋이 추가되었습니다.
 
 ## <a name="november-2014-release"></a><a id="november_changes_14"></a>2014년 11월 릴리스
-* 이제 Media Services를 사용하여 라이브 부드러운 스트리밍(fMP4) 콘텐츠를 SSL 연결을 통해 수집할 수 있습니다. SSL을 통해 수집하려면 수집 URL을 HTTPS로 업데이트해야 합니다. 현재 Media Services는 사용자 지정 도메인을 사용하는 SSL을 지원하지 않습니다. 라이브 스트리밍에 대한 자세한 내용은 [Azure Media Services 라이브 스트리밍 사용](https://msdn.microsoft.com/library/azure/dn783466.aspx)을 참조하세요.
-* 현재 SSL 연결을 통해 RTMP 라이브 스트림을 수집할 수 없습니다.
-* 콘텐츠를 배달하는 출발점이 될 스트리밍 엔드포인트가 2014년 9월 10일 이후에 만들어진 경우에만 SSL을 통해 스트리밍할 수 있습니다. 스트리밍 URL이 2014년 9월 10일 이후에 만들어진 스트리밍 엔드포인트를 기반으로 하는 경우 URL에는 "streaming.mediaservices.windows.net"(새 형식)이 포함됩니다. "origin.mediaservices.windows.net"(이전 형식)이 포함된 스트리밍 URL은 SSL을 지원하지 않습니다. URL이 이전 형식인 경우 SSL을 통해 스트리밍하려면 [새 스트리밍 엔드포인트를 만듭니다.](media-services-portal-manage-streaming-endpoints.md) SSL을 통해 콘텐츠를 스트리밍하려면 새 스트리밍 엔드포인트를 기준으로 하는 URL을 사용합니다.
+* 이제 미디어 서비스를 사용하여 TLS 연결을 통해 라이브 스무스 스트리밍(fMP4) 콘텐츠를 섭취할 수 있습니다. TLS를 통해 인제스트하려면 인제스트 URL을 HTTPS로 업데이트해야 합니다. 현재 미디어 서비스는 사용자 지정 도메인을 통해 TLS를 지원하지 않습니다. 라이브 스트리밍에 대한 자세한 내용은 [Azure Media Services 라이브 스트리밍 사용](https://msdn.microsoft.com/library/azure/dn783466.aspx)을 참조하세요.
+* 현재 TLS 연결을 통해 RTMP 라이브 스트림을 사용할 수 없습니다.
+* 콘텐츠를 전달하는 스트리밍 끝점이 2014년 9월 10일 이후에 생성된 경우에만 TLS를 통해 스트리밍할 수 있습니다. 스트리밍 URL이 2014년 9월 10일 이후에 만들어진 스트리밍 엔드포인트를 기반으로 하는 경우 URL에는 "streaming.mediaservices.windows.net"(새 형식)이 포함됩니다. "origin.mediaservices.windows.net"(이전 형식)이 포함된 스트리밍 URL은 TLS를 지원하지 않습니다. URL이 이전 형식이고 TLS를 통해 스트리밍하려는 경우 [새 스트리밍 끝점을 만듭니다.](media-services-portal-manage-streaming-endpoints.md) TLS를 통해 콘텐츠를 스트리밍하려면 새 스트리밍 끝점을 기반으로 URL을 사용합니다.
 
 ### <a name="media-services-net-sdk"></a><a id="oct_sdk"></a>Media Services .NET SDK
 이제 .NET용 Media Services SDK 확장의 버전이 2.0.0.3입니다.

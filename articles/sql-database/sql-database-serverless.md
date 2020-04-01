@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 3/11/2020
-ms.openlocfilehash: 5c36dbfbe63314ef97edfa3dfbaae34667db002d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a72d3dc7f7b3fddf66df8111b1e92116a62883a
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79268705"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474014"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL 데이터베이스 서버가 없는
 
@@ -151,7 +151,7 @@ SQL 캐시는 프로비저닝된 데이터베이스와 동일한 방식으로 �
 
 ### <a name="customer-managed-transparent-data-encryption-byok"></a>고객이 관리하는 투명 데이터 암호화(BYOK)
 
-고객이 [관리하는 투명 데이터](transparent-data-encryption-byok-azure-sql.md) 암호화(BYOK)를 사용하고 키 삭제 또는 해지가 발생할 때 서버없는 데이터베이스가 자동으로 일시 중지된 경우 데이터베이스는 자동 일시 중지 상태로 유지됩니다.  이 경우 다음 번 다시 시작하려고 하면 약 10분 이후에 상태가 액세스할 수 없게 될 때까지 데이터베이스가 일시 중지된 상태로 유지됩니다.  데이터베이스에 액세스할 수 없게 되면 복구 프로세스는 프로비저닝된 계산 데이터베이스와 동일합니다.  키 삭제 또는 해지가 발생할 때 서버리스 데이터베이스가 온라인 상태가 되면 프로비저닝된 계산 데이터베이스와 동일한 방식으로 약 10분 이내에 데이터베이스에 액세스할 수 없게 됩니다.
+고객이 [관리하는 투명 데이터](transparent-data-encryption-byok-azure-sql.md) 암호화(BYOK)를 사용하고 키 삭제 또는 해지가 발생할 때 서버없는 데이터베이스가 자동으로 일시 중지된 경우 데이터베이스는 자동 일시 중지 상태로 유지됩니다.  이 경우 데이터베이스를 다음에 다시 시작하면 약 10분 이후에 해당 상태가 액세스할 수 없게 될 때까지 데이터베이스가 온라인 상태로 유지됩니다.  데이터베이스에 액세스할 수 없게 되면 복구 프로세스는 프로비저닝된 계산 데이터베이스와 동일합니다.  키 삭제 또는 해지가 발생할 때 서버리스 데이터베이스가 온라인 상태가 되면 프로비저닝된 계산 데이터베이스와 동일한 방식으로 약 10분 이내에 데이터베이스에 액세스할 수 없게 됩니다.
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>서버리스 컴퓨팅 계층으로 온보딩
 
@@ -279,7 +279,7 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 서버없는 데이터베이스의 앱 패키지 및 사용자 풀의 리소스 사용량을 모니터링하기위한 메트릭은 다음 표에 나열됩니다.
 
-|엔터티|메트릭|설명|Units|
+|엔터티|메트릭|Description|Units|
 |---|---|---|---|
 |앱 패키지|app_cpu_percent|앱에 허용되는 최대 vCore 수에 대한 앱에서 사용한 vCore 수의 백분율입니다.|백분율|
 |앱 패키지|app_cpu_billed|보고 기간 동안 앱에 대해 요금이 청구되는 컴퓨팅의 양입니다. 이 기간 동안에 대한 지불 금액은 이 메트릭과 vCore 단가를 곱한 값입니다. <br><br>이 메트릭의 값은 시간이 지남에 따라 사용된 최대 CPU와 사용된 초당 메모리를 집계하여 결정됩니다. 사용된 양이 최소 vCore 수 및 최소 메모리로 설정된 최소 프로비저닝된 양보다 적으면 최소 프로비저닝된 양에 대한 요금이 청구됩니다.청구의 목적으로 CPU를 메모리와 비교하기 위해 메모리는 vCore당 메모리 양(GB 단위)을 3GB로 다시 조정하여 vCore 단위로 정규화됩니다.|vCore 시간(초)|

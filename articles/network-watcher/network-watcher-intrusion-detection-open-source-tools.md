@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 781f3788c9001276315a2baed7060450fa00d77a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1bd823d94552d1e920b367b6576b0e3bb74aefb2
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76845026"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474918"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Network Watcher 및 오픈 소스 도구를 사용하여 네트워크 침입 검색 수행
 
@@ -38,7 +38,7 @@ ms.locfileid: "76845026"
 
 ### <a name="install-suricata"></a>Suricata 설치
 
-설치의 다른 모든 메서드는 https://suricata.readthedocs.io/en/latest/install.html을 방문하세요.
+설치의 다른 모든 메서드는 https://suricata.readthedocs.io/en/suricata-5.0.2/quickstart.html#installation을 방문하세요.
 
 1. VM의 명령줄 터미널에서 다음 명령을 실행합니다.
 
@@ -76,7 +76,7 @@ tail -f /var/log/suricata/fast.log
 
 ### <a name="set-up-the-elastic-stack"></a>탄력적 스택 설정
 
-Suricata에서 생성하는 로그에는 네트워크에서 발생하는 작업에 대한 유용한 정보가 포함되지만 이러한 로그 파일은 읽고 이해하기 어렵습니다. Suricata를 탄력적 스택과 연결하여 로그에서 정보를 검색하고, 그래프화하며 분석하고 정보를 끌어낼 수 있는 Kibana 대시보드를 만들 수 있습니다.
+Suricata가 생성하는 로그에는 네트워크에서 일어나는 일에 대한 중요한 정보가 포함되어 있지만 이러한 로그 파일은 읽고 이해하기가 가장 쉬운 것은 아닙니다. Suricata를 탄력적 스택과 연결하여 로그에서 정보를 검색하고, 그래프화하며 분석하고 정보를 끌어낼 수 있는 Kibana 대시보드를 만들 수 있습니다.
 
 #### <a name="install-elasticsearch"></a>Elasticsearch 설치
 
@@ -274,7 +274,7 @@ Logstash 설치에 대한 추가 정보는 [공식 설명서](https://www.elasti
 
     ![이미지 7][7]
 
-사용자 지정 시각화 및 대시보드 만들기에 대한 자세한 내용은 [Kibana의 공식적인 설명서](https://www.elastic.co/guide/en/kibana/current/introduction.html)를 참조하세요.
+사용자 지정 시각화 및 대시보드 만들기에 대한 자세한 설명서는 [Kibana의 공식 설명서를](https://www.elastic.co/guide/en/kibana/current/introduction.html)참조하십시오.
 
 ## <a name="conclusion"></a>결론
 

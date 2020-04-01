@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2b21061e8a939b91c637ef05bbe6375c0b3f82e8
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 2b09a7765cff20fb49ce6ab3d1e7bce2e15f0e9e
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80383976"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475204"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Azure 앱 서비스에 대한 Windows Java 앱 구성
 
@@ -74,7 +74,7 @@ Azure 앱 서비스는 Azure 포털 및 CLI를 통해 즉시 튜닝 및 사용�
 
 - [앱 설정 구성](configure-common.md#configure-app-settings)
 - [사용자 지정 도메인 설정](app-service-web-tutorial-custom-domain.md)
-- [SSL 바인딩 구성](configure-ssl-bindings.md)
+- [TLS 바인딩 구성](configure-ssl-bindings.md)
 - [CDN 추가](../cdn/cdn-add-to-web-app.md)
 - [쿠두 사이트 구성](https://github.com/projectkudu/kudu/wiki/Configurable-settings)
 
@@ -183,7 +183,7 @@ public int getServerPort()
 
 ### <a name="configure-tlsssl"></a>TLS/SSL 구성
 
-[Azure App Service에서 SSL 바인딩이 있는 사용자 지정 DNS 이름 보안의](configure-ssl-bindings.md) 지침에 따라 기존 SSL 인증서를 업로드하고 응용 프로그램의 도메인 이름에 바인딩합니다. 기본적으로 애플리케이션에서 HTTP 연결을 계속 허용합니다. 자습서의 단계에 따라 SSL 및 TLS를 적용하세요.
+[Azure App Service에서 TLS 바인딩이 있는 사용자 지정 DNS 이름 보안의](configure-ssl-bindings.md) 지침에 따라 기존 TLS/SSL 인증서를 업로드하고 응용 프로그램의 도메인 이름에 바인딩합니다. 기본적으로 애플리케이션에서 HTTP 연결을 계속 허용합니다. 자습서의 단계에 따라 SSL 및 TLS를 적용하세요.
 
 ### <a name="use-keyvault-references"></a>키볼트 참조 사용
 

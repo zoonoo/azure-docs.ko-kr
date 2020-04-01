@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 0c2190c29054301a8e21a9a27eb078802fbc9612
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: da476dc14949ebab1a054a9624d91acb25b9f2b4
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350854"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474472"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>결과 집합 캐싱을 사용한 성능 조정  
 결과 집합 캐싱을 사용하도록 설정하면 SQL Analytics는 반복적으로 사용하기 위해 사용자 데이터베이스의 쿼리 결과를 자동으로 캐시합니다.  이렇게 하면 후속 쿼리 실행이 지속된 캐시에서 직접 결과를 얻을 수 있으므로 다시 계산할 필요가 없습니다.   결과 집합 캐싱은 쿼리 성능을 향상시키고 계산 리소스 사용량을 줄입니다.  또한 캐시된 결과 집합을 사용하는 쿼리는 동시성 슬롯을 사용하지 않으므로 기존 동시성 제한에 포함되지 않습니다. 보안을 위해 사용자는 캐시된 결과를 만드는 사용자와 동일한 데이터 액세스 권한이 있는 경우에만 캐시된 결과에 액세스할 수 있습니다.  
@@ -65,10 +65,10 @@ WHERE request_id  = <'request_id'>;
 - 새 쿼리와 결과 집합 캐시를 생성한 이전 쿼리가 정확히 일치합니다.
 - 캐시된 결과 집합이 생성된 테이블에는 데이터 또는 스키마 변경 내용이 없습니다.
 
-이 명령을 실행하여 결과 캐시 적중 또는 누락으로 쿼리를 실행했는지 확인합니다. 캐시 적중이 있는 경우 result_cache_hit는 1을 반환합니다.
+이 명령을 실행하여 결과 캐시 적중 또는 누락으로 쿼리를 실행했는지 확인합니다. result_set_cache 열은 캐시 적중의 경우 1, 캐시 누락의 경우 0, 결과 집합 캐싱이 사용되지 않은 이유로 음수 값을 반환합니다. 자세한 내용은 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016-au7) 확인하십시오.
 
 ```sql
-SELECT request_id, command, result_cache_hit FROM sys.dm_pdw_exec_requests 
+SELECT request_id, command, result_set_cache FROM sys.dm_pdw_exec_requests
 WHERE request_id = <'Your_Query_Request_ID'>
 ```
 

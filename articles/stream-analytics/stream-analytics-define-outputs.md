@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: e0b4bcac8494f136dde21b03422e12b72cecb8f3
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 4517f85fae278bd8bc15a9586d9dc0202e7dfe56
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366435"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475234"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력 이해
 
@@ -33,7 +33,7 @@ ms.locfileid: "80366435"
 
 다음 표에는 데이터 레이크 저장소 Gen 1 출력을 구성하기 위한 속성 이름과 해당 설명이 나열되어 있습니다.   
 
-| 속성 이름 | 설명 |
+| 속성 이름 | Description |
 | --- | --- |
 | 출력 별칭 | 쿼리에서 쿼리 출력을 Data Lake Store로 전달하는 데 사용되는 친숙한 이름입니다. |
 | Subscription | Azure Data Lake 저장소 계정이 포함된 구독입니다. |
@@ -55,7 +55,7 @@ Azure SQL [데이터베이스 관리 인스턴스를](https://docs.microsoft.com
 
 다음 표에는 SQL Database 출력을 만들기 위한 속성 이름과 해당 설명이 나열되어 있습니다.
 
-| 속성 이름 | 설명 |
+| 속성 이름 | Description |
 | --- | --- |
 | 출력 별칭 |쿼리 출력을 이 데이터베이스로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
 | 데이터베이스 | 출력을 보내는 데이터베이스의 이름입니다. |
@@ -74,7 +74,7 @@ Azure Blob 저장소는 클라우드에 많은 양의 비정형 데이터를 저
 
 다음 표에는 Blob 또는 ADLS Gen2 출력을 만들기 위한 속성 이름과 해당 설명이 나열되어 있습니다.
 
-| 속성 이름       | 설명                                                                      |
+| 속성 이름       | Description                                                                      |
 | ------------------- | ---------------------------------------------------------------------------------|
 | 출력 별칭        | 쿼리 출력을 이 Blob Storage로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
 | 스토리지 계정     | 출력을 보내는 저장소 계정의 이름입니다.               |
@@ -107,7 +107,7 @@ Blob 저장소를 출력으로 사용하는 경우 다음과 같은 경우 Blob�
 
 이벤트 허브의 데이터 스트림을 출력으로 구성하려면 몇 가지 매개 변수가 필요합니다.
 
-| 속성 이름 | 설명 |
+| 속성 이름 | Description |
 | --- | --- |
 | 출력 별칭 | 쿼리에서 쿼리 출력을 이 이벤트 허브로 전달하는 데 사용되는 친숙한 이름입니다. |
 | 이벤트 허브 네임스페이스 | 메시징 엔터티 집합에 대한 컨테이너입니다. 새 이벤트 허브를 만들 때 이벤트 허브 네임스페이스도 만들었습니다. |
@@ -129,7 +129,7 @@ Blob 저장소를 출력으로 사용하는 경우 다음과 같은 경우 Blob�
 
 다음 표에는 Power BI 출력을 구성하기 위한 속성 이름과 해당 설명이 나열되어 있습니다.
 
-| 속성 이름 | 설명 |
+| 속성 이름 | Description |
 | --- | --- |
 | 출력 별칭 |쿼리에서 쿼리 출력을 이 Power BI 출력으로 전달하는 데 사용되는 친숙한 이름을 제공합니다. |
 | 그룹 작업 영역 |다른 Power BI 사용자와 데이터를 공유하려면 Power BI 계정 내의 그룹을 선택하거나 그룹에 쓰지 않으려는 경우 **내 작업 영역을** 선택할 수 있습니다. 기존 그룹을 업데이트하려면 Power BI 인증을 갱신해야 합니다. |
@@ -180,15 +180,15 @@ DateTime | String | String |  DateTime | String
 
 다음 표에는 테이블 출력을 만들기 위한 속성 이름과 해당 설명이 나열되어 있습니다.
 
-| 속성 이름 | 설명 |
+| 속성 이름 | Description |
 | --- | --- |
 | 출력 별칭 |쿼리 출력을 이 Table Storage로 보내기 위해 쿼리에서 사용되는 이름입니다. |
 | 스토리지 계정 |출력을 보내는 저장소 계정의 이름입니다. |
 | Storage 계정 키 |스토리지 계정과 연결된 선택키입니다. |
 | 테이블 이름 |테이블의 이름입니다. 테이블이 없으면 테이블이 만들어집니다. |
 | 파티션 키 |파티션 키가 포함된 출력 열의 이름입니다. 파티션 키는 엔터티의 기본 키의 첫 번째 부분을 구성하는 테이블 내의 파티션에 대한 고유 식별자입니다. 크기가 최대 1KB일 수 있는 문자열 값입니다. |
-| 행 키. |행 키가 포함된 출력 열의 이름입니다. 행 키는 파티션 내의 엔터티에 대한 고유 식별자입니다. 엔터티의 기본 키에서 두 번째 부분을 형성합니다. 행 키는 크기가 최대 1KB일 수 있는 문자열 값입니다. |
-| Batch 크기 |배치 작업에 대한 레코드 수입니다. 기본값(100)은 대부분의 작업에 충분합니다. 이 설정을 수정하는 방법에 대한 자세한 내용은 [테이블 일괄 처리 작업 사양을](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) 참조하십시오. |
+| 행 키. |행 키가 포함된 출력 열의 이름입니다. 행 키는 파티션 내의 엔터티에 대한 고유 식별자입니다. 엔터티의 기본 키의 두 번째 부분을 형성합니다. 행 키는 크기가 최대 1KB일 수 있는 문자열 값입니다. |
+| Batch 크기 |배치 작업에 대한 레코드 수입니다. 기본값(100)은 대부분의 작업에 충분합니다. 이 설정을 수정하는 방법에 대한 자세한 내용은 [테이블 일괄 처리 작업 사양을](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.tablebatchoperation) 참조하십시오. |
 
 ## <a name="service-bus-queues"></a>Service Bus 큐
 
@@ -198,7 +198,7 @@ DateTime | String | String |  DateTime | String
 
 다음 표에는 큐 출력을 만들기 위한 속성 이름과 해당 설명이 나열되어 있습니다.
 
-| 속성 이름 | 설명 |
+| 속성 이름 | Description |
 | --- | --- |
 | 출력 별칭 |쿼리에서 쿼리 출력을 이 Service Bus 큐로 전달하는 데 사용되는 친숙한 이름입니다. |
 | Service Bus 네임스페이스 |메시징 엔터티 집합에 대한 컨테이너입니다. |
@@ -219,7 +219,7 @@ DateTime | String | String |  DateTime | String
 
 다음 표에는 Service Bus 토픽 출력을 만들기 위한 속성 이름과 해당 설명이 나열되어 있습니다.
 
-| 속성 이름 | 설명 |
+| 속성 이름 | Description |
 | --- | --- |
 | 출력 별칭 |쿼리에서 이 Service Bus 항목으로 쿼리 출력을 지시하는 데 사용되는 친숙한 이름입니다. |
 | Service Bus 네임스페이스 |메시징 엔터티 집합에 대한 컨테이너입니다. 새 이벤트 허브를 만들 때 Service Bus 네임스페이스도 만들었습니다. |
@@ -245,7 +245,7 @@ DateTime | String | String |  DateTime | String
 
 다음 표에서는 Azure Cosmos DB 출력을 만드는 속성에 대해 설명합니다.
 
-| 속성 이름 | 설명 |
+| 속성 이름 | Description |
 | --- | --- |
 | 출력 별칭 | Stream Analytics 쿼리에서 이 출력을 참조할 별칭입니다. |
 | sink | Azure 코스모스 DB. |
@@ -256,14 +256,14 @@ DateTime | String | String |  DateTime | String
 | 컨테이너 이름 | Cosmos DB에 있어야 하는 사용할 컨테이너 이름입니다. 예제:  <br /><ul><li> _MyContainer_: "MyContainer"라는 컨테이너가 있어야 합니다.</li>|
 | 문서 ID |(선택 사항) 삽입 또는 업데이트 작업의 기반이 되는 기본 키를 지정하는 데 사용되는 출력 이벤트의 필드 이름입니다.
 
-## <a name="azure-functions"></a>Azure Functions
+## <a name="azure-functions"></a>Azure 기능
 Azure Functions는 인프라를 명시적으로 프로비전하거나 관리할 필요 없이 온디맨드 코드를 실행하는 데 사용할 수 있는 서버리스 컴퓨팅 서비스입니다. Azure 또는 파트너 서비스에서 발생하는 이벤트에 의해 트리거되는 코드를 구현할 수 있습니다. 트리거에 응답하는 Azure Functions의 이 기능은 Azure Stream Analytics에 대한 자연스러운 출력입니다. 이 출력 어댑터를 사용하면 사용자가 스트림 분석을 Azure Functions에 연결하고 다양한 이벤트에 대한 응답으로 스크립트 또는 코드 조각을 실행할 수 있습니다.
 
 스트림 분석의 Azure 함수 출력은 현재 Azure 중국 21Vianet 및 Azure 독일(T-시스템 인터내셔널) 리전에서 사용할 수 없습니다.
 
 Azure Stream Analytics는 HTTP 트리거를 통해 Azure Functions를 호출합니다. Azure Functions 출력 어댑터는 다음과 같은 구성 가능한 속성에서 사용할 수 있습니다.
 
-| 속성 이름 | 설명 |
+| 속성 이름 | Description |
 | --- | --- |
 | 함수 앱 |Azure Functions 앱의 이름입니다. |
 | 함수 |Azure Functions 앱의 함수 이름입니다. |
@@ -273,7 +273,7 @@ Azure Stream Analytics는 HTTP 트리거를 통해 Azure Functions를 호출합�
 
 Azure Stream Analytics는 성공적으로 처리된 일괄 처리에 대해 Functions 앱에서 HTTP 상태 200을 기대합니다.
 
-Azure Stream Analytics에서 Azure 함수에서 413("요청 엔터티 너무 큰") 예외를 받으면 Azure 함수에 보내는 일괄 처리의 크기가 줄어듭니다. Azure 함수 코드에서 이 예외를 사용하여 Azure Stream Analytics가 너무 큰 일괄 처리를 전송하지 않도록 합니다. 또한 함수에 사용된 최대 일괄 처리 수 및 크기 값이 Stream Analytics 포털에 입력된 값과 일치하는지 확인합니다.
+Azure Stream Analytics에서 Azure 함수에서 413("요청 엔터티 너무 큰") 예외를 받으면 Azure 함수에 보내는 일괄 처리의 크기가 줄어듭니다. Azure 함수 코드에서 이 예외를 사용하여 Azure Stream Analytics에서 대형 일괄 처리를 보내지 않도록 합니다. 또한 함수에 사용된 최대 일괄 처리 수 및 크기 값이 Stream Analytics 포털에 입력된 값과 일치하는지 확인합니다.
 
 > [!NOTE]
 > 테스트 연결 중에 Stream Analytics는 Azure Functions에 빈 일괄 처리를 전송하여 두 기능 간의 연결이 작동하는지 테스트합니다. Functions 앱에서 빈 일괄 처리 요청을 처리하여 테스트 연결이 통과되었는지 확인합니다.
@@ -324,16 +324,16 @@ Azure Stream Analytics에서 Azure 함수에서 413("요청 엔터티 너무 큰
 
 | 출력 형식 | 분할 지원 | 파티션 키  | 출력 기록기 수 |
 | --- | --- | --- | --- |
-| Azure Data Lake Store | yes | 경로 접두사 패턴에서 {date} 및 {time} 토큰을 사용합니다. YYYY/MM/DD, DD/MM/YYY또는 MM-DD-YYYY와 같은 날짜 형식을 선택합니다. HH는 시간 형식에 사용됩니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
+| Azure Data Lake Store | 예 | 경로 접두사 패턴에서 {date} 및 {time} 토큰을 사용합니다. YYYY/MM/DD, DD/MM/YYY또는 MM-DD-YYYY와 같은 날짜 형식을 선택합니다. HH는 시간 형식에 사용됩니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
 | Azure SQL Database | 예, 활성화해야 합니다. | 쿼리의 파티션 BY 절을 기반으로 합니다. | 분할 상속 옵션이 활성화되면 완전히 병렬화 가능한 쿼리에 대한 입력 [분할을 따릅니다.](stream-analytics-scale-jobs.md) Azure SQL Database에 데이터를 로드할 때 더 나은 쓰기 처리량 성능을 달성하는 방법에 대해 자세히 알아보려면 [Azure Stream Analytics 출력을 Azure SQL Database에](stream-analytics-sql-output-perf.md)참조하세요. |
-| Azure Blob 스토리지 | yes | 경로 패턴에서 이벤트 필드의 {date} 및 {time} 토큰을 사용합니다. YYYY/MM/DD, DD/MM/YYY또는 MM-DD-YYYY와 같은 날짜 형식을 선택합니다. HH는 시간 형식에 사용됩니다. 단일 사용자 지정 이벤트 특성 {fieldname} 또는 {datetime:\<specifier>}로 Blob 출력을 분할할 수 있습니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
-| Azure Event Hubs | yes | yes | 파티션 맞춤에 따라 달라집니다.<br /> 이벤트 허브 출력에 대한 파티션 키가 업스트림(이전) 쿼리 단계와 동일하게 정렬되면 기록기 수는 이벤트 허브 출력의 파티션 수와 동일합니다. 각 작성자는 [EventHubSender 클래스를](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) 사용하여 특정 파티션에 이벤트를 보냅니다. <br /> 이벤트 허브 출력에 대한 파티션 키가 업스트림(이전) 쿼리 단계와 정렬되지 않은 경우 기록기 수는 이전 단계의 파티션 수와 동일합니다. 각 작성기는 **EventHubClient에서** [SendBatchAsync 클래스를](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) 사용하여 모든 출력 파티션에 이벤트를 보냅니다. |
+| Azure Blob 스토리지 | 예 | 경로 패턴에서 이벤트 필드의 {date} 및 {time} 토큰을 사용합니다. YYYY/MM/DD, DD/MM/YYY또는 MM-DD-YYYY와 같은 날짜 형식을 선택합니다. HH는 시간 형식에 사용됩니다. 단일 사용자 지정 이벤트 특성 {fieldname} 또는 {datetime:\<specifier>}로 Blob 출력을 분할할 수 있습니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
+| Azure Event Hubs | 예 | 예 | 파티션 맞춤에 따라 달라집니다.<br /> 이벤트 허브 출력에 대한 파티션 키가 업스트림(이전) 쿼리 단계와 동일하게 정렬되면 기록기 수는 이벤트 허브 출력의 파티션 수와 동일합니다. 각 작성자는 [EventHubSender 클래스를](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) 사용하여 특정 파티션에 이벤트를 보냅니다. <br /> 이벤트 허브 출력에 대한 파티션 키가 업스트림(이전) 쿼리 단계와 정렬되지 않은 경우 기록기 수는 이전 단계의 파티션 수와 동일합니다. 각 작성기는 **EventHubClient에서** [SendBatchAsync 클래스를](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) 사용하여 모든 출력 파티션에 이벤트를 보냅니다. |
 | Power BI | 예 | None | 해당 사항 없음 |
-| Azure Table Storage | yes | 모든 출력 열입니다.  | [완전히 병렬 처리된 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
-| Azure Service Bus 항목 | yes | 자동으로 선택됩니다. 파티션 수는 서비스 버스 [SKU 및 크기를](../service-bus-messaging/service-bus-partitioning.md)기준으로 합니다. 파티션 키는 각 파티션에 대한 고유 정수 값입니다.| 출력 항목의 파티션 수와 동일합니다.  |
-| Azure Service Bus 큐 | yes | 자동으로 선택됩니다. 파티션 수는 서비스 버스 [SKU 및 크기를](../service-bus-messaging/service-bus-partitioning.md)기준으로 합니다. 파티션 키는 각 파티션에 대한 고유 정수 값입니다.| 출력 큐의 파티션 수와 동일합니다. |
-| Azure Cosmos DB | yes | 쿼리의 파티션 BY 절을 기반으로 합니다. | [완전히 병렬 처리된 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
-| Azure Functions | yes | 쿼리의 파티션 BY 절을 기반으로 합니다. | [완전히 병렬 처리된 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
+| Azure Table Storage | 예 | 모든 출력 열입니다.  | [완전히 병렬 처리된 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
+| Azure Service Bus 항목 | 예 | 자동으로 선택됩니다. 파티션 수는 서비스 버스 [SKU 및 크기를](../service-bus-messaging/service-bus-partitioning.md)기준으로 합니다. 파티션 키는 각 파티션에 대한 고유 정수 값입니다.| 출력 항목의 파티션 수와 동일합니다.  |
+| Azure Service Bus 큐 | 예 | 자동으로 선택됩니다. 파티션 수는 서비스 버스 [SKU 및 크기를](../service-bus-messaging/service-bus-partitioning.md)기준으로 합니다. 파티션 키는 각 파티션에 대한 고유 정수 값입니다.| 출력 큐의 파티션 수와 동일합니다. |
+| Azure Cosmos DB | 예 | 쿼리의 파티션 BY 절을 기반으로 합니다. | [완전히 병렬 처리된 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
+| Azure 기능 | 예 | 쿼리의 파티션 BY 절을 기반으로 합니다. | [완전히 병렬 처리된 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
 
 쿼리에서 `INTO <partition count>` [(INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)참조) 절을 사용하여 출력 작성기 수를 제어할 수도 있으므로 원하는 작업 토폴로지 달성에 도움이 될 수 있습니다. 출력 어댑터가 분할되지 않은 경우 한 입력 파티션에 데이터가 없으면 지연 도착 시간까지 지연될 수 있습니다. 이러한 경우 출력이 단일 기록기에 병합되어 파이프라인에 병목 현상이 발생할 수 있습니다. 늦은 도착 정책에 대한 자세한 내용은 [Azure Stream Analytics 이벤트 주문 고려 사항을 참조하세요.](stream-analytics-out-of-order-and-late-events.md)
 
@@ -342,18 +342,18 @@ Azure Stream Analytics는 가변 크기 일괄 처리를 사용하여 이벤트�
 
 다음 표는 출력 일괄 처리에 대한 몇 가지 고려 사항에 대해 설명합니다.
 
-| 출력 형식 | 최대 메시지 크기 | 일괄 처리 크기 최적화 |
+| 출력 형식 |    최대 메시지 크기 | 일괄 처리 크기 최적화 |
 | :--- | :--- | :--- |
 | Azure Data Lake Store | [데이터 레이크 스토리지 제한을](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits)참조하십시오. | 쓰기 작업당 최대 4MB를 사용합니다. |
 | Azure SQL Database | 최대 일괄 처리 수를 사용하여 구성 할 수 있습니다. 기본적으로 단일 벌크 삽입당 최대 10,000개 및 최소 행 100개입니다.<br />[Azure SQL 제한을](../sql-database/sql-database-resource-limits.md)참조하십시오. |  모든 일괄 처리는 처음에 최대 배치 수로 대량 삽입됩니다. 일괄 처리는 SQL에서 다시 시도할 수 있는 오류에 따라 절반(최소 일괄 처리 수까지)으로 분할됩니다. |
 | Azure Blob 스토리지 | [Azure 저장소 제한을](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)참조하십시오. | 최대 Blob 블록 크기는 4MB입니다.<br />최대 Blob 복 수는 50,000개입니다. |
-| Azure Event Hubs  | 메시지당 256KB 또는 1MB입니다. <br />[이벤트 허브 제한을](../event-hubs/event-hubs-quotas.md)참조하십시오. |  입력/출력 분할이 정렬되지 않으면 각 이벤트가 개별적으로 `EventData` 압축되어 최대 메시지 크기까지 일괄 처리로 전송됩니다. 사용자 지정 [메타데이터 속성을](#custom-metadata-properties-for-output) 사용하는 경우에도 마찬가지입니다. <br /><br />  입력/출력 분할이 정렬되면 여러 이벤트가 최대 메시지 `EventData` 크기까지 단일 인스턴스로 압축되어 전송됩니다. |
+| Azure Event Hubs    | 메시지당 256KB 또는 1MB입니다. <br />[이벤트 허브 제한을](../event-hubs/event-hubs-quotas.md)참조하십시오. |    입력/출력 분할이 정렬되지 않으면 각 이벤트가 개별적으로 `EventData` 압축되어 최대 메시지 크기까지 일괄 처리로 전송됩니다. 사용자 지정 [메타데이터 속성을](#custom-metadata-properties-for-output) 사용하는 경우에도 마찬가지입니다. <br /><br />  입력/출력 분할이 정렬되면 여러 이벤트가 최대 메시지 `EventData` 크기까지 단일 인스턴스로 압축되어 전송됩니다.    |
 | Power BI | [전원 BI 나머지 API 제한을](https://msdn.microsoft.com/library/dn950053.aspx)참조하십시오. |
 | Azure Table Storage | [Azure 저장소 제한을](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)참조하십시오. | 기본값은 단일 트랜잭션당 엔터티 100개입니다. 필요에 따라 더 작은 값으로 구성할 수 있습니다. |
-| Azure Service Bus 큐   | 표준 계층의 메시지당 256KB, 프리미엄 계층의 경우 1MB입니다.<br /> [서비스 버스 제한을](../service-bus-messaging/service-bus-quotas.md)참조하십시오. | 메시지당 단일 이벤트를 사용합니다. |
+| Azure Service Bus 큐    | 표준 계층의 메시지당 256KB, 프리미엄 계층의 경우 1MB입니다.<br /> [서비스 버스 제한을](../service-bus-messaging/service-bus-quotas.md)참조하십시오. | 메시지당 단일 이벤트를 사용합니다. |
 | Azure Service Bus 항목 | 표준 계층의 메시지당 256KB, 프리미엄 계층의 경우 1MB입니다.<br /> [서비스 버스 제한을](../service-bus-messaging/service-bus-quotas.md)참조하십시오. | 메시지당 단일 이벤트를 사용합니다. |
-| Azure Cosmos DB   | [Azure 코스모스 DB 제한을](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cosmos-db-limits)참조하십시오. | 일괄 처리 크기 및 쓰기 빈도Azure Cosmos DB 응답에 따라 동적으로 조정됩니다. <br /> 스트림 애널리틱스의 제한은 미리 정해져 있지 않습니다. |
-| Azure Functions   | | 기본 일괄 처리 크기는 262,144바이트(256KB)입니다. <br /> 일괄 처리당 기본 이벤트 수는 100입니다. <br /> 일괄 처리 크기는 구성 가능하며 Stream Analytics [출력 옵션](#azure-functions)에서 증가 또는 감소될 수 있습니다.
+| Azure Cosmos DB    | [Azure 코스모스 DB 제한을](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cosmos-db-limits)참조하십시오. | 일괄 처리 크기 및 쓰기 빈도Azure Cosmos DB 응답에 따라 동적으로 조정됩니다. <br /> 스트림 애널리틱스의 제한은 미리 정해져 있지 않습니다. |
+| Azure 기능    | | 기본 일괄 처리 크기는 262,144바이트(256KB)입니다. <br /> 일괄 처리당 기본 이벤트 수는 100입니다. <br /> 일괄 처리 크기는 구성 가능하며 Stream Analytics [출력 옵션](#azure-functions)에서 증가 또는 감소될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]

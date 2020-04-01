@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 2148ce41267627d9d6e0437897a99a8dbdbe0746
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 18c1d8b42dc73951901ec4ae9b79715ddbd47617
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80382769"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474032"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Azure Database for MySQL 데이터 내부 복제를 구성하는 방법
 
-이 문서에서는 마스터 서버와 복제본 서버를 구성하여 Azure Database for MySQL 서비스에서 데이터 내부 복제를 설정하는 방법을 알아봅니다. 데이터 내부 복제를 사용하면 다른 클라우드 공급자가 호스팅하는 가상 머신 또는 데이터베이스 서비스에서 온-프레미스를 실행하는 마스터 MySQL 서버의 데이터를 Azure Database for MySQL 서비스에 있는 복제본으로 동기화할 수 있습니다. 
+이 문서에서는 마스터 및 복제본 서버를 구성하여 MySQL용 Azure 데이터베이스에서 데이터 인 복제를 설정하는 방법에 대해 설명합니다. 이 문서에서는 MySQL 서버 및 데이터베이스에 대한 사전 경험이 있다고 가정합니다.
 
-이 문서에서는 이전에 MySQL 서버 및 데이터베이스를 사용한 경험이 몇 번이라도 있다고 가정합니다.
+MySQL 서비스에 대한 Azure 데이터베이스에서 복제본을 만들려면 Data-in Replication은 마스터 MySQL 서버온-프레미스, 가상 컴퓨터(VM) 또는 클라우드 데이터베이스 서비스의 데이터를 동기화합니다.
 
 이 문서의 단계를 수행하기 전에 데이터 입력 복제의 [제한 사항 및 요구 사항을](concepts-data-in-replication.md#limitations-and-considerations) 검토합니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "80382769"
 
    예를 들어 마스터 서버가 포트 3306에서 인바운드 및 아웃바운드 트래픽을 모두 허용하고 마스터 서버에 **공용 IP 주소가**있는지, DNS가 공개적으로 액세스할 수 있는지 또는 정규화된 도메인 이름(FQDN)이 있는지 확인합니다. 
    
-   다른 컴퓨터에서 호스팅되는 MySQL 명령줄 또는 Azure 포털에서 사용할 수 있는 [Azure Cloud Shell과](https://docs.microsoft.com/azure/cloud-shell/overview) 같은 도구에서 연결을 시도하여 마스터 서버에 대한 연결을 테스트합니다. 
+   다른 컴퓨터에서 호스팅되는 MySQL 명령줄과 같은 도구또는 Azure 포털에서 사용할 수 있는 [Azure Cloud Shell과](https://docs.microsoft.com/azure/cloud-shell/overview) 같은 도구에서 연결을 시도하여 마스터 서버에 대한 연결을 테스트합니다.
 
 2. 이진 로깅 켜기
 
@@ -71,7 +71,7 @@ ms.locfileid: "80382769"
 
 4. 새 복제 역할 만들기 및 권한 설정
 
-   마스터 서버에서 복제 권한으로 구성된 사용자 계정을 만듭니다. 이 작업은 MySQL Workbench와 같은 도구 또는 SQL 명령을 통해 수행할 수 있습니다. 사용자를 만들 때 지정해야 하므로 SSL을 사용하여 복제할지 여부를 고려합니다. 마스터 서버에서 [사용자 계정을 추가](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html)하는 방법을 이해하려면 MySQL 설명서를 참조하세요. 
+   마스터 서버에서 복제 권한으로 구성된 사용자 계정을 만듭니다. 이 작업은 MySQL Workbench와 같은 도구 또는 SQL 명령을 통해 수행할 수 있습니다. 사용자를 만들 때 지정해야 하므로 SSL을 사용하여 복제할지 여부를 고려합니다. 마스터 서버에서 [사용자 계정을 추가](https://dev.mysql.com/doc/refman/5.7/en/user-names.html)하는 방법을 이해하려면 MySQL 설명서를 참조하세요. 
 
    아래 명령에서 새로 생성된 복제 역할은 마스터 서버 자체를 호스트하는 머신뿐 아니라 모든 머신에서 마스터 서버에 액세스할 수 있습니다. 이 작업은 create user 명령에 “syncuser@’%’”를 지정하여 수행합니다. [계정 이름 지정](https://dev.mysql.com/doc/refman/5.7/en/account-names.html)에 대한 자세한 내용은 MySQL 설명서를 참조하세요.
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/01/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7ca6882aea7225dcb97c9f913267b2543de07fef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a73c1998203a8696b67a5e7eb3af23898239265
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80133131"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477628"
 ---
 # <a name="use-an-app-service-environment"></a>App Service 환경 사용
 
@@ -88,7 +88,7 @@ ASE에서 앱 서비스 계획을 최대 100개의 인스턴스까지 확장할 
 
 ## <a name="ip-addresses"></a>IP 주소
 
-앱 서비스는 앱에 전용 IP 주소를 할당할 수 있습니다. 이 기능은 기존 사용자 지정 SSL 인증서를 Azure 앱 서비스에 바인딩할 때 설명한 대로 IP 기반 [SSL을 구성한][ConfigureSSL]후 사용할 수 있습니다. ILB ASE에서는 IP 기반 SSL에 사용할 IP 주소를 더 추가할 수 없습니다.
+앱 서비스는 앱에 전용 IP 주소를 할당할 수 있습니다. 이 기능은 [기존 사용자 지정 TLS/SSL 인증서를 Azure 앱 서비스에 바인딩할][ConfigureSSL]때 설명한 대로 IP 기반 SSL을 구성한 후 사용할 수 있습니다. ILB ASE에서는 IP 기반 SSL에 사용할 IP 주소를 더 추가할 수 없습니다.
 
 외부 ASE를 사용하면 다중 테넌트 앱 서비스와 동일한 방식으로 앱에 대한 IP 기반 SSL을 구성할 수 있습니다. ASE에는 항상 하나의 예비 주소가 있으며 최대 30개의 IP 주소가 있습니다. 하나를 사용할 때마다 다른 주소가 추가되므로 항상 주소를 쉽게 사용할 수 있습니다. 다른 IP 주소를 할당하려면 시간 지연이 필요합니다. 이 지연으로 인해 IP 주소를 빠르게 연속해서 추가할 수 없습니다.
 

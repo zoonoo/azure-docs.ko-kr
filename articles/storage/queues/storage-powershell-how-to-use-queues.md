@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: bd2f372bdcb949b64f748d186a9b060bb9cbec4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 96828a854c340b89c26023ce60f9c85dd1bb4cdd
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77087061"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473919"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Queue Storage 작업 수행
 
@@ -103,7 +103,7 @@ Get-AzStorageQueue -Context $ctx | Select-Object Name
 
 ## <a name="add-a-message-to-a-queue"></a>큐에 메시지 추가
 
-큐의 실제 메시지에 영향을 미치는 작업은 PowerShell에 노출된 대로 .NET 스토리지 클라이언트 라이브러리를 사용합니다. 큐에 메시지를 추가하려면 메시지 개체의 새 인스턴스인 [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message) 클래스를 만듭니다. 다음으로 AddMessage 메서드를 [호출합니다.](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage) 문자열(UTF-8 형식) 또는 바이트 배열에서 CloudQueueMessage를 만들 수 있습니다.
+큐의 실제 메시지에 영향을 미치는 작업은 PowerShell에 노출된 대로 .NET 스토리지 클라이언트 라이브러리를 사용합니다. 큐에 메시지를 추가하려면 메시지 개체의 새 인스턴스인 [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage) 클래스를 만듭니다. 다음으로 AddMessage 메서드를 [호출합니다.](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage) 문자열(UTF-8 형식) 또는 바이트 배열에서 CloudQueueMessage를 만들 수 있습니다.
 
 다음 예제에서는 큐에 메시지를 추가하는 방법을 보여 줍니다.
 

@@ -4,10 +4,10 @@ description: 리소스가 비준수인 경우 여러 가지 이유가 있을 수
 ms.date: 04/26/2019
 ms.topic: how-to
 ms.openlocfilehash: c931831ddf3cc727b9861e75969eac3bf00c9e45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 03/30/2020
 ms.locfileid: "79264636"
 ---
 # <a name="determine-causes-of-non-compliance"></a>규정 비준수의 원인 확인
@@ -214,7 +214,7 @@ _시각적 차이_는 리소스 변경 내용을 식별하는 데 도움이 됩�
 
 - Azure 정책 [샘플의 예제를 검토합니다.](../samples/index.md)
 - [Azure Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
-- [정책 효과 이해 검토](../concepts/effects.md).
+- [정책 효과 이해](../concepts/effects.md)를 검토합니다.
 - [프로그래밍 방식으로 정책을 만드는](programmatically-create.md)방법을 이해합니다.
 - [규정 준수 데이터를 얻는](get-compliance-data.md)방법에 대해 알아봅니다.
 - [비준수 리소스를 수정하는](remediate-resources.md)방법에 대해 알아봅니다.

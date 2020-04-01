@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 01/21/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: c4402c1ce2f051c8d1911e7c0332d4cac787ce1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cc1863ff4200ee4cca94f18e3adfffa7ea42db96
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77613203"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476004"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>관리되는 도메인의 암호 및 계정 잠금 정책
 
@@ -32,7 +32,7 @@ Azure Active Directory 도메인 서비스(Azure AD DS)에서 사용자 보안�
 이 문서를 완료하려면 다음과 같은 리소스와 권한이 필요합니다.
 
 * 활성화된 Azure 구독.
-  * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+  * Azure 구독이 없는 경우 [계정을 만듭니다.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
   * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
@@ -105,20 +105,20 @@ Azure에서 응용 프로그램을 빌드하고 실행할 때 사용자 지정 �
     * Azure AD DS 관리 도메인에서 수동으로 만든 사용자에게만 암호 복잡성, 연령 또는 만료 시간과 같은 설정입니다.
     * 계정 잠금 설정은 모든 사용자에게 적용되지만 Azure AD 자체가 아닌 관리되는 도메인 내에서만 적용됩니다.
 
-    ![사용자 지정 세분화된 암호 정책 만들기](./media/how-to/custom-fgpp.png)
+    ![사용자 지정 세분화된 암호 정책 만들기](./media/password-policy/custom-fgpp.png)
 
 1. 선택 취소 **실수로 삭제되지 않도록 보호.** 이 옵션을 선택하면 FGPP를 저장할 수 없습니다.
 1. 에 **직접 적용** 섹션에서 **추가** 단추를 선택합니다. 사용자 **또는 그룹 선택** 대화 상자에서 **위치** 단추를 선택합니다.
 
-    ![사용자 및 그룹을 선택하여 암호 정책을 적용합니다.](./media/how-to/fgpp-applies-to.png)
+    ![사용자 및 그룹을 선택하여 암호 정책을 적용합니다.](./media/password-policy/fgpp-applies-to.png)
 
 1. 암호 정책은 그룹에만 적용할 수 있습니다. **위치** 대화 상자에서 *aaddscontoso.com*같은 도메인 이름을 확장한 다음 **AADDC 사용자와**같은 OU를 선택합니다. 적용하려는 사용자 그룹을 포함하는 사용자 지정 OU가 있는 경우 해당 OU를 선택합니다.
 
-    ![그룹이 속한 OU를 선택합니다.](./media/how-to/fgpp-container.png)
+    ![그룹이 속한 OU를 선택합니다.](./media/password-policy/fgpp-container.png)
 
 1. 정책을 적용할 그룹의 이름을 입력한 다음 **이름 확인을** 선택하여 그룹이 있는지 확인합니다.
 
-    ![FGPP를 적용할 그룹을 검색하고 선택합니다.](./media/how-to/fgpp-apply-group.png)
+    ![FGPP를 적용할 그룹을 검색하고 선택합니다.](./media/password-policy/fgpp-apply-group.png)
 
 1. 선택한 그룹의 이름이 바로 **적용** 섹션에 표시되면 **확인을** 선택하여 사용자 지정 암호 정책을 저장합니다.
 

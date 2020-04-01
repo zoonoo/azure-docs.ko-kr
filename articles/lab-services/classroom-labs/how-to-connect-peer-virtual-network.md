@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 03/31/2020
 ms.author: spelluru
-ms.openlocfilehash: d2115b1dc7e9f3150e44eb5ee9417e88ebeaa279
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56c31e03eeec0c81207dc402e864eadec2d768bd
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370841"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474067"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Azure Lab 서비스의 피어 가상 네트워크와 랩 네트워크 연결 
 이 문서에서는 랩 네트워크를 다른 네트워크로 피어링하는 것에 대한 정보를 제공합니다. 
@@ -38,6 +38,8 @@ ms.locfileid: "80370841"
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>랩 계정 생성 시 구성
 새 랩 계정을 만드는 동안 **고급** 탭의 **피어 가상 네트워크** 드롭다운 목록에 표시되는 기존 가상 네트워크를 선택할 수 있습니다. 선택한 가상 네트워크가 랩 계정으로 생성된 랩에 연결(피어) 됩니다. 이 변경 이후에 만들어진 랩의 모든 가상 컴퓨터는 피어있는 가상 네트워크의 리소스에 액세스할 수 있습니다. 
+
+랩에 대한 가상 시스템의 **주소 범위를** 제공하는 조항도 있습니다. 주소 범위가 제공되면 랩 계정 아래의 모든 가상 컴퓨터가 해당 주소 범위에 만들어집니다. 주소 범위는 CIDR 표기형(예: 10.20.0.0/20)이어야 하며 기존 주소 범위와 겹치지 않아야 합니다. 주소 범위를 제공할 때는 랩에서 생성할 가상 컴퓨터의 수를 생각하고 이를 수용할 수 있는 주소 범위를 제공하는 것이 중요합니다. 지정된 범위의 경우 수용할 수 있는 랩 수가 표시됩니다.
 
 ![피어로 VNet 선택](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer.png)
 

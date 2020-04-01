@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 07a96fdd6350d8db38a92c23e510afb05f7416fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1837d342c4476633ee33a8579abe7389ac9bbddf
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79277753"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476820"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Azure에서 Durable Functions의 인스턴스 관리
 
@@ -39,12 +39,12 @@ Azure [Functions에](durable-functions-overview.md) 대해 지속형 함수 확�
 
 다음 코드는 새 오케스트레이션 인스턴스를 시작하는 예제 함수입니다.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
-[FunctionName("HelloWorldManualStart")]
+[FunctionName("HelloWorldQueueTrigger")]
 public static async Task Run(
-    [ManualTrigger] string input,
+    [QueueTrigger("start-queue")] string input,
     [DurableClient] IDurableOrchestrationClient starter,
     ILogger log)
 {
@@ -56,7 +56,7 @@ public static async Task Run(
 > [!NOTE]
 > 이전 C# 코드는 내구성 함수 2.x용입니다. 지속 함수 1.x의 경우 `OrchestrationClient` 특성 대신 `DurableClient` 특성을 사용해야 `IDurableOrchestrationClient`하며. `DurableOrchestrationClient` 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 <a name="javascript-function-json"></a>달리 명시되지 않는 한 이 페이지의 예제에서는 다음 function.json과 함께 HTTP 트리거를 사용합니다.
 
@@ -155,13 +155,13 @@ func durable start-new --function-name HelloWorld --input @counter-data.json --t
 
 이 메서드는 인스턴스가 `undefined` 없는 경우 (.NET) 또는 (자바스크립트)를 반환합니다. `null`
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("GetStatus")]
 public static async Task Run(
     [DurableClient] IDurableOrchestrationClient client,
-    [ManualTrigger] string instanceId)
+    [QueueTrigger("check-status-queue")] string instanceId)
 {
     DurableOrchestrationStatus status = await client.GetStatusAsync(instanceId);
     // do something based on the current status.
@@ -171,7 +171,7 @@ public static async Task Run(
 > [!NOTE]
 > 이전 C# 코드는 내구성 함수 2.x용입니다. 지속 함수 1.x의 경우 `OrchestrationClient` 특성 대신 `DurableClient` 특성을 사용해야 `IDurableOrchestrationClient`하며. `DurableOrchestrationClient` 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -220,7 +220,7 @@ func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
 
 `GetStatusAsync`(.NET) 또는 `getStatusAll`(JavaScript) 메서드를 사용하여 모든 오케스트레이션 인스턴스의 상태를 쿼리할 수 있습니다. .NET에서 취소하려는 경우 `CancellationToken` 객체를 전달할 수 있습니다. 이 메서드는 매개 변수가 있는 `GetStatusAsync` 메서드와 속성이 동일한 개체를 반환합니다.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("GetAllStatus")]
@@ -240,7 +240,7 @@ public static async Task Run(
 > [!NOTE]
 > 이전 C# 코드는 내구성 함수 2.x용입니다. 지속 함수 1.x의 경우 `OrchestrationClient` 특성 대신 `DurableClient` 특성을 사용해야 `IDurableOrchestrationClient`하며. `DurableOrchestrationClient` 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -278,7 +278,7 @@ func durable get-instances
 
 `GetStatusAsync` (.NET) 또는 `getStatusBy` (JavaScript) 메서드를 사용하여 미리 정의된 필터 집합과 일치하는 오케스트레이션 인스턴스 목록을 가져옵니다.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("QueryStatus")]
@@ -306,7 +306,7 @@ public static async Task Run(
 > [!NOTE]
 > 이전 C# 코드는 내구성 함수 2.x용입니다. 지속 함수 1.x의 경우 `OrchestrationClient` 특성 대신 `DurableClient` 특성을 사용해야 `IDurableOrchestrationClient`하며. `DurableOrchestrationClient` 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -357,13 +357,13 @@ func durable get-instances --created-after 2018-03-10T13:57:31Z --created-before
 
 `TerminateAsync` [오케스트레이션 클라이언트 바인딩의](durable-functions-bindings.md#orchestration-client) `terminate` (.NET) 또는 (JavaScript) 메서드를 사용하여 인스턴스를 종료할 수 있습니다. 두 매개 변수는 `instanceId` 로그와 인스턴스 상태에 기록되는 `reason` 문자열과 문자열입니다.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("TerminateInstance")]
 public static Task Run(
     [DurableClient] IDurableOrchestrationClient client,
-    [ManualTrigger] string instanceId)
+    [QueueTrigger("terminate-queue")] string instanceId)
 {
     string reason = "It was time to be done.";
     return client.TerminateAsync(instanceId, reason);
@@ -373,7 +373,7 @@ public static Task Run(
 > [!NOTE]
 > 이전 C# 코드는 내구성 함수 2.x용입니다. 지속 함수 1.x의 경우 `OrchestrationClient` 특성 대신 `DurableClient` 특성을 사용해야 `IDurableOrchestrationClient`하며. `DurableOrchestrationClient` 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -422,13 +422,13 @@ func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was ti
 * **EventName**: 보낼 이벤트의 이름입니다.
 * **EventData**: 인스턴스에 보낼 JSON 직렬화 가능 페이로드입니다.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RaiseEvent")]
 public static Task Run(
     [DurableClient] IDurableOrchestrationClient client,
-    [ManualTrigger] string instanceId)
+    [QueueTrigger("event-queue")] string instanceId)
 {
     int[] eventData = new int[] { 1, 2, 3 };
     return client.RaiseEventAsync(instanceId, "MyEvent", eventData);
@@ -438,7 +438,7 @@ public static Task Run(
 > [!NOTE]
 > 이전 C# 코드는 내구성 함수 2.x용입니다. 지속 함수 1.x의 경우 `OrchestrationClient` 특성 대신 `DurableClient` 특성을 사용해야 `IDurableOrchestrationClient`하며. `DurableOrchestrationClient` 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -484,11 +484,11 @@ func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
 
 다음은 이 API를 사용하는 방법을 보여 주는 예제 HTTP 트리거 함수입니다.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
 
@@ -558,7 +558,7 @@ function.json 구성에 대한 [인스턴스 시작을](#javascript-function-jso
 
 함수는 다음 예제와 같이 이러한 개체의 인스턴스를 외부 시스템으로 보내 해당 오케스트레이션의 이벤트를 모니터링하거나 발생시킬 수 있습니다.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("SendInstanceInfo")]
@@ -580,7 +580,7 @@ public static void SendInstanceInfo(
 > [!NOTE]
 > 이전 C# 코드는 내구성 함수 2.x용입니다. 지속 `DurableActivityContext` 함수 1.x의 `IDurableActivityContext`경우 은 대신 속성을 사용해야 `OrchestrationClient` `DurableClient` `DurableOrchestrationClient` `IDurableOrchestrationClient`하며. 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -616,13 +616,13 @@ function.json 구성에 대한 [인스턴스 시작을](#javascript-function-jso
 > [!NOTE]
 > *되감기* 기능은 지속형 타이머를 사용하는 오케스트레이션 인스턴스되감기를 지원하지 않습니다.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RewindInstance")]
 public static Task Run(
     [DurableClient] IDurableOrchestrationClient client,
-    [ManualTrigger] string instanceId)
+    [QueueTrigger("rewind-queue")] string instanceId)
 {
     string reason = "Orchestrator failed and needs to be revived.";
     return client.RewindAsync(instanceId, reason);
@@ -632,7 +632,7 @@ public static Task Run(
 > [!NOTE]
 > 이전 C# 코드는 내구성 함수 2.x용입니다. 지속 함수 1.x의 경우 `OrchestrationClient` 특성 대신 `DurableClient` 특성을 사용해야 `IDurableOrchestrationClient`하며. `DurableOrchestrationClient` 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -668,19 +668,19 @@ func durable rewind --id 0ab8c55a66644d68a3a8b220b12d209c --reason "Orchestrator
 
 이 메서드에는 두 개의 오버로드가 있습니다. 첫 번째 오버로드는 오케스트레이션 인스턴스의 ID에 의해 기록을 제거합니다.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
 public static Task Run(
     [DurableClient] IDurableOrchestrationClient client,
-    [ManualTrigger] string instanceId)
+    [QueueTrigger("purge-queue")] string instanceId)
 {
     return client.PurgeInstanceHistoryAsync(instanceId);
 }
 ```
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -697,7 +697,7 @@ function.json 구성에 대한 [인스턴스 시작을](#javascript-function-jso
 
 다음 예제에서는 지정된 시간 간격 이후에 완료된 모든 오케스트레이션 인스턴스의 기록을 지우는 타이머 트리거 함수를 보여 주며, 이 함수는 타이머 트리거함수입니다. 이 경우 30일 이상 전에 완료된 모든 인스턴스에 대한 데이터가 제거됩니다. 오전 12시에 하루에 한 번 실행될 예정입니다.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
@@ -718,7 +718,7 @@ public static Task Run(
 > [!NOTE]
 > 이전 C# 코드는 내구성 함수 2.x용입니다. 지속 함수 1.x의 경우 `OrchestrationClient` 특성 대신 `DurableClient` 특성을 사용해야 `IDurableOrchestrationClient`하며. `DurableOrchestrationClient` 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 메서드는 `purgeInstanceHistoryBy` 여러 인스턴스에 대한 인스턴스 기록을 조건부로 제거하는 데 사용할 수 있습니다.
 

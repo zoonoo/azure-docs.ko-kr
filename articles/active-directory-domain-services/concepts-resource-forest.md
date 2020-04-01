@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: a583e32cbc3d58d5dfc5616335b2f38ad20fac14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e0e5dde246dbcd5e5cb2e4ae923872a59a539d87
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74233611"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476410"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Azure Active 디렉터리 도메인 서비스에 대한 리소스 포리스트 개념 및 기능
 

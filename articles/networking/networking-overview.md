@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 90eddea839d2f6ae5235ac6a391b40dd667ab401
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c6b845eda1df39ccf5e4b2b1d6a615f3bc932b66
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257838"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474944"
 ---
 # <a name="azure-networking-services-overview"></a>Azure 네트워킹 서비스 개요
 
@@ -27,16 +27,16 @@ Azure의 네트워킹 서비스는 함께 또는 별도로 사용할 수 있는 
 
 ## <a name="connectivity-services"></a><a name="connect"></a>연결 서비스
  
-이 섹션에서는 Azure 리소스 간의 연결, 온-프레미스 네트워크에서 Azure 리소스로의 연결, Azure - VNet(가상 네트워크), 가상 WAN, ExpressRoute, VPN 게이트웨이에서 분기 간 연결을 제공하는 서비스에 대해 설명합니다. 가상 네트워크 NAT 게이트웨이, Azure DNS, Azure 피어링 서비스 및 Azure 요새입니다.
+이 섹션에서는 Azure 리소스 간의 연결, 온-프레미스 네트워크에서 Azure 리소스로의 연결, Azure - VNet(가상 네트워크), 가상 WAN, ExpressRoute, VPN 게이트웨이, 가상 네트워크 NAT 게이트웨이, Azure DNS, Azure 피어링 서비스 및 Azure Bastion에서 분기연결을 제공하는 서비스에 대해 설명합니다.
 
 |서비스|왜 사용합니까?|시나리오|
 |---|---|---|
 |[가상 네트워크](#vnet)|Azure 리소스가 서로 인터넷 및 온-프레미스 네트워크와 안전하게 통신할 수 있도록 합니다.| <p>[네트워크 트래픽 필터링](../virtual-network/tutorial-filter-network-traffic.md)</p> <p>[네트워크 트래픽 라우팅](../virtual-network/tutorial-create-route-table-portal.md)</p> <p>[리소스에 대한 네트워크 액세스 제한](../virtual-network/tutorial-restrict-network-access-to-resources.md)</p> <p>[가상 네트워크 연결](../virtual-network/tutorial-connect-virtual-networks-portal.md)</p>|
-|[익스프레스루트](#expressroute)|온-프레미스 네트워크를 연결 공급자가 용이하게 하는 개인 연결을 통해 Microsoft 클라우드로 확장합니다.|<p>[익스프레스루트 회로 생성 및 수정](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)</p> <p>[ExpressRoute 회로의 피어링 만들기 및 수정](../expressroute/expressroute-howto-routing-portal-resource-manager.md)</p> <p>[VNet을 ExpressRoute 회로에 연결](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)</p> <p>[ExpressRoute 회로에 대한 경로 필터 구성 및 관리](../expressroute/how-to-routefilter-portal.md)</p>|
-|[VPN 게이트웨이](#vpngateway)|Azure 가상 네트워크와 공용 인터넷을 통해 온-프레미스 위치 간에 암호화된 트래픽을 보냅니다.|<p>[사이트 간 연결](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[VNet-VNet 연결](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[지점 간 연결](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
-|[Virtual WAN](#virtualwan)|Azure에 대한 분기 연결을 최적화하고 자동화합니다. Azure 지역은 분기를 연결하도록 선택할 수 있는 허브 역할을 합니다.|<p>[사이트 간 연결,](../virtual-wan/virtual-wan-site-to-site-portal.md) [익스프레스루트 연결](../virtual-wan/virtual-wan-expressroute-portal.md)</p>|
+|[ExpressRoute](#expressroute)|온-프레미스 네트워크를 연결 공급자가 용이하게 하는 개인 연결을 통해 Microsoft 클라우드로 확장합니다.|<p>[ExpressRoute 회로 만들기 및 수정](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)</p> <p>[ExpressRoute 회로의 피어링 만들기 및 수정](../expressroute/expressroute-howto-routing-portal-resource-manager.md)</p> <p>[VNet을 ExpressRoute 회로에 연결](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)</p> <p>[ExpressRoute 회로에 대한 경로 필터 구성 및 관리](../expressroute/how-to-routefilter-portal.md)</p>|
+|[VPN Gateway](#vpngateway)|Azure 가상 네트워크와 공용 인터넷을 통해 온-프레미스 위치 간에 암호화된 트래픽을 보냅니다.|<p>[사이트 간 연결](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[VNet-VNet 연결](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[지점 및 사이트 간 연결](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
+|[가상 WAN](#virtualwan)|Azure에 대한 분기 연결을 최적화하고 자동화합니다. Azure 지역은 분기를 연결하도록 선택할 수 있는 허브 역할을 합니다.|<p>[사이트 간 연결,](../virtual-wan/virtual-wan-site-to-site-portal.md) [익스프레스루트 연결](../virtual-wan/virtual-wan-expressroute-portal.md)</p>|
 |[Azure DNS](#dns)|Microsoft Azure 인프라를 사용하여 이름 확인을 제공하는 DNS 도메인을 호스팅합니다.|<p>[Azure DNS에서 도메인 호스트](../dns/dns-delegate-domain-azure-dns.md)</p><p>[웹 앱에 대한 DNS 레코드 만들기](../dns/dns-web-sites-custom-domain.md)</p> <p>[트래픽 관리자에 대한 별칭 레코드 만들기](../dns/tutorial-alias-tm.md)</p> <p>[공용 IP 주소에 대한 별칭 레코드 만들기](../dns/tutorial-alias-pip.md)</p> <p>[영역 리소스 레코드에 대한 별칭 레코드 만들기](../dns/tutorial-alias-rr.md)</p>|
-|[Azure Bastion](#bastion)|SSL을 통해 Azure Portal에서 가상 머신에 안전하고 원활한 RDP/SSH 연결을 직접 구성합니다. Azure Bastion을 통해 연결할 때 가상 시스템에 공용 IP 주소가 필요하지 않습니다.|<p>[Azure 요새 호스트 만들기](../bastion/bastion-create-host-portal.md)</p><p>[SSH를 사용하여 리눅스 VM에 연결](../bastion/bastion-connect-vm-ssh.md)</p><p>[RDP를 사용하여 Windows VM에 연결](../bastion/bastion-connect-vm-rdp.md)</p>|
+|[Azure Bastion](#bastion)|TLS를 통해 Azure 포털에서 가상 시스템에 직접 안전하고 원활한 RDP/SSH 연결을 구성합니다. Azure Bastion을 통해 연결할 때 가상 시스템에 공용 IP 주소가 필요하지 않습니다.|<p>[Azure Bastion 호스트 만들기](../bastion/bastion-create-host-portal.md)</p><p>[SSH를 사용하여 리눅스 VM에 연결](../bastion/bastion-connect-vm-ssh.md)</p><p>[RDP를 사용하여 Windows VM에 연결](../bastion/bastion-connect-vm-rdp.md)</p>|
 |[가상 네트워크 NAT 게이트웨이](#nat)|NAT 게이트웨이를 만들어 가상 시스템에 대한 아웃바운드 연결을 제공합니다.|<p>[NAT 게이트웨이 만들기](../virtual-network/quickstart-create-nat-gateway-portal.md)</p>|
 |[Azure 피어링 서비스(미리 보기)](#azurepeeringservice)|서비스 프로바이더와 협력하여 공용 네트워크를 통해 Microsoft 클라우드로 의 한 최적의 신뢰할 수 있는 라우팅을 제공합니다.|<p>[Azure 피어링 서비스 등록](../peering-service/azure-portal.md)</p>|
 ||||
@@ -52,12 +52,12 @@ Azure Virtual Network(VNet)는 Azure의 프라이빗 네트워크의 기본 구�
 
 자세한 내용은 [Azure 가상 네트워크란 무엇입니까?](../virtual-network/virtual-networks-overview.md)
 
-### <a name="expressroute"></a><a name="expressroute"></a>익스프레스루트
+### <a name="expressroute"></a><a name="expressroute"></a>ExpressRoute
 ExpressRoute를 사용하면 연결 공급자가 지원하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. 이 연결은 프라이빗 전용입니다. 트래픽은 인터넷을 통해 이동하지 않습니다. ExpressRoute를 사용하면 Microsoft Azure, Office 365 및 Dynamics 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.  자세한 내용은 [ExpressRoute란 무엇입니까?](../expressroute/expressroute-introduction.md)
 
 ![Azure ExpressRoute](./media/networking-overview/expressroute-connection-overview.png)
 
-### <a name="vpn-gateway"></a><a name="vpngateway"></a>VPN 게이트웨이
+### <a name="vpn-gateway"></a><a name="vpngateway"></a>VPN Gateway
 VPN 게이트웨이를 사용하면 온-프레미스 위치에서 가상 네트워크에 대한 암호화된 크로스-프레미스 연결을 만들거나 VNet 간에 암호화된 연결을 만들 수 있습니다. VPN 게이트웨이 연결에는 사이트 간, 지점 간 또는 VNet에서 VNet으로 의 다양한 구성이 제공됩니다.
 다음 다이어그램은 동일한 가상 네트워크에 대한 여러 사이트 간 VPN 연결을 보여 줍니다.
 
@@ -65,7 +65,7 @@ VPN 게이트웨이를 사용하면 온-프레미스 위치에서 가상 네트�
 
 다양한 유형의 VPN 연결에 대한 자세한 내용은 [VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 참조하십시오.
 
-### <a name="virtual-wan"></a><a name="virtualwan"></a>Virtual WAN
+### <a name="virtual-wan"></a><a name="virtualwan"></a>가상 WAN
 Azure Virtual WAN은 Azure를 통해 최적화된 자동 분기 연결을 제공하는 네트워킹 서비스입니다. Azure 지역은 분기를 연결하도록 선택할 수 있는 허브 역할을 합니다. 또한 Azure 백본을 활용하여 분기를 연결하고 분기 및 VNet 간 연결을 설정할 수 있습니다. Azure Virtual WAN은 사이트 간 VPN, ExpressRoute, 지점 간 사용자 VPN과 같은 많은 Azure 클라우드 연결 서비스를 단일 운영 인터페이스로 통합합니다. Azure VNet에 대한 연결은 가상 네트워크 연결을 사용하여 설정합니다. 자세한 내용은 [Azure 가상 WAN이란 무엇입니까?](../virtual-wan/virtual-wan-about.md)
 
 ![Virtual WAN 다이어그램](./media/networking-overview/virtualwan1.png)
@@ -74,7 +74,7 @@ Azure Virtual WAN은 Azure를 통해 최적화된 자동 분기 연결을 제공
 Azure DNS는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공하는 DNS 도메인에 대한 호스팅 서비스입니다. Azure에 도메인을 호스트하면 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다. 자세한 내용은 [Azure DNS란 무엇입니까?](../dns/dns-overview.md)
 
 ### <a name="azure-bastion"></a><a name="bastion"></a>Azure Bastion
-Azure Bastion 서비스는 가상 네트워크 내에서 프로비저닝하는 새로운 완전 플랫폼 관리형 PaaS 서비스입니다. SSL을 통해 Azure Portal에서 직접 가상 머신에 안전하고 원활한 RDP/SSH 연결을 제공합니다. Azure Bastion을 통해 연결하는 경우에는 가상 머신에 공용 IP 주소가 필요하지 않습니다. 자세한 내용은 [Azure 요새란 무엇입니까?](../bastion/bastion-overview.md)
+Azure Bastion 서비스는 가상 네트워크 내에서 프로비저닝하는 새로운 완전 플랫폼 관리형 PaaS 서비스입니다. TLS를 통해 Azure 포털에서 가상 시스템에 직접 안전하고 원활한 RDP/SSH 연결을 제공합니다. Azure Bastion을 통해 연결하는 경우에는 가상 머신에 공용 IP 주소가 필요하지 않습니다. 자세한 내용은 [Azure 요새란 무엇입니까?](../bastion/bastion-overview.md)
 
 ![Azure 요새 아키텍처](./media/networking-overview/architecture.png)
 
@@ -88,7 +88,7 @@ Azure 피어링 서비스는 Office 365, Dynamics 365, SaaS(서비스로서의 �
 
 ## <a name="application-protection-services"></a><a name="protect"></a>응용 프로그램 보호 서비스
 
-이 섹션에서는 네트워크 리소스를 보호하는 데 도움이 되는 Azure의 네트워킹 서비스에 대해 설명합니다 - Azure에서 이러한 네트워킹 서비스의 조합 또는 이러한 네트워킹 서비스를 사용하여 응용 프로그램을 보호 - 개인 링크, DDoS 보호, 방화벽, 네트워크 보안 그룹, 웹 응용 프로그램 방화벽 및 가상 네트워크 끝점.
+이 섹션에서는 Azure의 네트워킹 서비스- Azure에서 이러한 네트워킹 서비스의 중 또는 이러한 네트워킹 서비스를 사용하여 응용 프로그램을 보호합니다.
 
 |서비스|왜 사용합니까?|시나리오|
 |---|---|---|
@@ -97,9 +97,9 @@ Azure 피어링 서비스는 Office 365, Dynamics 365, SaaS(서비스로서의 �
 |[Azure Firewall](#firewall)|Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리되는 클라우드 기반 네트워크 보안 서비스입니다. 고가용성 및 무제한 클라우드 확장성이 내장되어 있는 서비스 형태의 완전한 상태 저장 방화벽입니다.|<p>[Vnet에 Azure 방화벽 배포](../firewall/tutorial-firewall-deploy-portal.md)</p> <p>[- 하이브리드 네트워크에 Azure 방화벽 배포](../firewall/tutorial-hybrid-ps.md)</p> <p>[Azure 방화벽 DNAT를 사용하여 인바운드 트래픽 필터링](../firewall/tutorial-firewall-dnat.md)</p>|
 |[네트워크 보안 그룹](#nsg)|모든 네트워크 트래픽 흐름에 대한 VM/서브넷의 전체 세분화된 분산 엔드 노드 제어|[네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/tutorial-filter-network-traffic.md)|
 |[가상 네트워크 서비스 엔드포인트](#serviceendpoints)|일부 Azure 서비스 리소스에 대한 네트워크 액세스를 가상 네트워크 서브넷으로 제한할 수 있습니다.|[PaaS 리소스에 대한 네트워크 액세스 제한](../virtual-network/tutorial-restrict-network-access-to-resources-powershell.md)|
-[Private Link](#privatelink)|가상 네트워크의 개인 끝점을 통해 Azure PaaS 서비스(예: Azure 저장소 및 SQL 데이터베이스) 및 Azure 호스팅 고객 소유/파트너 서비스에 액세스할 수 있습니다.|<p>[전용 끝점 만들기](../private-link/create-private-endpoint-portal.md)</p><p>[비공개 링크 서비스 만들기](../private-link/create-private-link-service-portal.md)</p>|
+[Private Link](#privatelink)|가상 네트워크의 개인 끝점을 통해 Azure PaaS 서비스(예: Azure 저장소 및 SQL 데이터베이스) 및 Azure 호스팅 고객 소유/파트너 서비스에 액세스할 수 있습니다.|<p>[프라이빗 엔드포인트 만들기](../private-link/create-private-endpoint-portal.md)</p><p>[비공개 링크 서비스 만들기](../private-link/create-private-link-service-portal.md)</p>|
 |||
-### <a name="ddos-protection"></a><a name="ddosprotection"></a>DDoS 보호 
+### <a name="ddos-protection"></a><a name="ddosprotection"></a>DDoS Protection 
 [Azure DDoS 보호는](../virtual-network/manage-ddos-protection.md) 가장 정교한 DDoS 위협에 대한 대책을 제공합니다. 이 서비스는 가상 네트워크에 배포된 응용 프로그램 및 리소스에 대해 향상된 DDoS 완화 기능을 제공합니다. 또한 Azure DDoS 보호를 사용하는 고객은 적극적인 공격 중에 DDoS 전문가를 참여시키기 위해 DDoS 신속 응답 지원에 액세스할 수 있습니다.
 
 ![DDoS Protection](./media/networking-overview/ddos-protection.png)
@@ -141,14 +141,14 @@ VNet(Virtual Network) 서비스 엔드포인트는 직접 연결을 통해 가�
 
 |서비스|왜 사용합니까?|시나리오|
 |---|---|---|
-|[콘텐츠 전송 네트워크](#cdn)|사용자에게 고대역폭 콘텐츠를 제공합니다. CDN은 최종 사용자와 가까운 POP(현재 위치 시점) 위치에 있는 에지 서버에 캐시된 콘텐츠를 저장하여 대기 시간을 최소화합니다.|<p>[웹 앱에 CDN 추가](../cdn/cdn-add-to-web-app.md)</p> <p>[- HTTPS를 통해 Azure CDN 사용자 정의 도메인을 사용하여 액세스 저장소 Blobs](..//cdn/cdn-storage-custom-domain-https.md)</p> <p>[Azure CDN 끝점에 사용자 지정 도메인 추가](../cdn/cdn-map-content-to-custom-domain.md)</p> <p>[Azure CDN 사용자 지정 도메인에서 HTTPS 구성](../cdn/cdn-custom-ssl.md?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate)</p>|
-|[Azure Front Door Service](#frontdoor)|최고의 성능을 최적화하고 고가용성을 위해 즉각적인 글로벌 장애 조치(failover)를 최적화하여 웹 트래픽에 대한 글로벌 라우팅을 정의, 관리 및 모니터링할 수 있습니다.|<p>[Azure 정문 서비스에 사용자 지정 도메인 추가](../frontdoor/front-door-custom-domain.md)</p> <p>[Front Door 사용자 지정 도메인에서 HTTPS 구성](../frontdoor/front-door-custom-domain-https.md)</p><p>[지역 필터링 웹 응용 프로그램 방화벽 정책 설정](../frontdoor/front-door-tutorial-geo-filtering.md)|
-|[트래픽 관리자](#trafficmanager)|고가용성 및 응답성을 제공하면서 DNS를 기반으로 트래픽을 글로벌 Azure 리전의 서비스에 배포합니다.|<p> [짧은 대기 시간을 위해 트래픽 라우팅](../traffic-manager/tutorial-traffic-manager-improve-website-response.md)</p><p>[우선순위 엔드포인트로 트래픽 라우팅](../traffic-manager/traffic-manager-configure-priority-routing-method.md)</p><p> [가중된 엔드포인트를 사용하여 트래픽 제어](../traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing.md)</p><p>[끝점의 지리적 위치를 기반으로 트래픽 경로](../traffic-manager/traffic-manager-configure-geographic-routing-method.md)</p> <p> [사용자의 서브넷에 따라 트래픽 라우팅](../traffic-manager/tutorial-traffic-manager-subnet-routing.md)</p>|
-|[로드 밸러저](#loadbalancer)|가용성 영역과 VNet에 트래픽을 라우팅하여 지역 부하 분산을 제공합니다. 리소스 간 및 리소스 간에 트래픽을 라우팅하여 지역 응용 프로그램을 빌드하여 내부 부하 분산을 제공합니다.|<p> [VM에 내부 트래픽 부하 분산](../load-balancer/tutorial-load-balancer-standard-manage-portal.md)</p> <p>[가상 네트워크 내의 VM 에서 부하 균형 트래픽](../load-balancer/tutorial-load-balancer-basic-internal-portal.md)<p>[특정 VM의 특정 포트로 트래픽을 전달](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)</p><p> [로드 분산 및 아웃바운드 규칙 구성](../load-balancer/configure-load-balancer-outbound-cli.md)</p>|
-|[애플리케이션 게이트웨이](#applicationgateway)|Azure Application Gateway는 웹 애플리케이션에 대한 트래픽을 관리할 수 있도록 하는 웹 트래픽 부하 분산 장치입니다.|<p>[Azure Application Gateway를 통해 웹 트래픽 보내기](../application-gateway/quick-create-portal.md)</p><p>[SSL 종료를 사용하여 애플리케이션 게이트웨이 구성](../application-gateway/create-ssl-portal.md)</p><p>[URL 경로 기반 리디렉션으로 애플리케이션 게이트웨이 만들기](../application-gateway/create-url-route-portal.md) </p>|
+|[Content Delivery Network](#cdn)|사용자에게 고대역폭 콘텐츠를 제공합니다. CDN은 최종 사용자와 가까운 POP(현재 위치 시점) 위치에 있는 에지 서버에 캐시된 콘텐츠를 저장하여 대기 시간을 최소화합니다.|<p>[웹 앱에 CDN 추가](../cdn/cdn-add-to-web-app.md)</p> <p>[- HTTPS를 통해 Azure CDN 사용자 정의 도메인을 사용하여 액세스 저장소 Blobs](..//cdn/cdn-storage-custom-domain-https.md)</p> <p>[Azure CDN 끝점에 사용자 지정 도메인 추가](../cdn/cdn-map-content-to-custom-domain.md)</p> <p>[Azure CDN 사용자 지정 도메인에서 HTTPS 구성](../cdn/cdn-custom-ssl.md?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate)</p>|
+|[Azure Front Door Service](#frontdoor)|최고의 성능을 최적화하고 고가용성을 위해 즉각적인 글로벌 장애 조치(failover)를 최적화하여 웹 트래픽에 대한 글로벌 라우팅을 정의, 관리 및 모니터링할 수 있습니다.|<p>[Azure Front Door Service에 사용자 지정 도메인 추가](../frontdoor/front-door-custom-domain.md)</p> <p>[Front Door 사용자 지정 도메인에서 HTTPS 구성](../frontdoor/front-door-custom-domain-https.md)</p><p>[지역 필터링 웹 응용 프로그램 방화벽 정책 설정](../frontdoor/front-door-tutorial-geo-filtering.md)|
+|[Traffic Manager](#trafficmanager)|고가용성 및 응답성을 제공하면서 DNS를 기반으로 트래픽을 글로벌 Azure 리전의 서비스에 배포합니다.|<p> [짧은 대기 시간을 위해 트래픽 라우팅](../traffic-manager/tutorial-traffic-manager-improve-website-response.md)</p><p>[우선순위 엔드포인트로 트래픽 라우팅](../traffic-manager/traffic-manager-configure-priority-routing-method.md)</p><p> [가중된 엔드포인트를 사용하여 트래픽 제어](../traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing.md)</p><p>[끝점의 지리적 위치를 기반으로 트래픽 경로](../traffic-manager/traffic-manager-configure-geographic-routing-method.md)</p> <p> [사용자의 서브넷에 따라 트래픽 라우팅](../traffic-manager/tutorial-traffic-manager-subnet-routing.md)</p>|
+|[Load Balancer](#loadbalancer)|가용성 영역과 VNet에 트래픽을 라우팅하여 지역 부하 분산을 제공합니다. 리소스 간 및 리소스 간에 트래픽을 라우팅하여 지역 응용 프로그램을 빌드하여 내부 부하 분산을 제공합니다.|<p> [VM에 내부 트래픽 부하 분산](../load-balancer/tutorial-load-balancer-standard-manage-portal.md)</p> <p>[가상 네트워크 내의 VM 에서 부하 균형 트래픽](../load-balancer/tutorial-load-balancer-basic-internal-portal.md)<p>[특정 VM의 특정 포트로 트래픽을 전달](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)</p><p> [로드 분산 및 아웃바운드 규칙 구성](../load-balancer/configure-load-balancer-outbound-cli.md)</p>|
+|[Application Gateway](#applicationgateway)|Azure Application Gateway는 웹 애플리케이션에 대한 트래픽을 관리할 수 있도록 하는 웹 트래픽 부하 분산 장치입니다.|<p>[Azure Application Gateway를 통해 웹 트래픽 보내기](../application-gateway/quick-create-portal.md)</p><p>[자습서: Azure 포털을 사용하여 TLS 종료를 사용하여 응용 프로그램 게이트웨이를 구성합니다.](../application-gateway/create-ssl-portal.md)</p><p>[URL 경로 기반 리디렉션으로 애플리케이션 게이트웨이 만들기](../application-gateway/create-url-route-portal.md) </p>|
 |
 
-### <a name="content-delivery-network"></a><a name="cdn"></a>콘텐츠 전송 네트워크
+### <a name="content-delivery-network"></a><a name="cdn"></a>Content Delivery Network
 Azure CDN(콘텐츠 전송 네트워크)은 전 세계에 전략적으로 배치된 물리적 노드에서 콘텐츠를 캐싱하여 사용자에게 고대역폭 콘텐츠를 신속하게 전송할 수 있는 글로벌 솔루션을 개발자에게 제공합니다. Azure CDN에 대한 자세한 내용은 [Azure 콘텐츠 배달 네트워크를](../cdn/cdn-overview.md) 참조하십시오.
 
 ![Azure CDN](./media/networking-overview/cdn-overview.png)
@@ -157,7 +157,7 @@ Azure CDN(콘텐츠 전송 네트워크)은 전 세계에 전략적으로 배치
 Azure Front Door Service를 사용하면 최적의 성능과 고가용성을 지원하는 즉시 글로벌 장애 조치(failover)를 최적으로 구현하여 웹 트래픽의 글로벌 라우팅을 정의, 관리, 모니터링할 수 있습니다. Front Door를 사용하면 글로벌(다중 지역) 소비자 및 기업 애플리케이션을 글로벌 Azure 잠재 고객에게 도달하는 견고한 고성능의 맞춤형 최신 애플리케이션, API 및 콘텐츠로 변환할 수 있습니다. 자세한 내용은 [Azure 정문](../frontdoor/front-door-overview.md)을 참조하십시오.
 
 
-### <a name="traffic-manager"></a><a name="trafficmanager"></a>트래픽 관리자
+### <a name="traffic-manager"></a><a name="trafficmanager"></a>Traffic Manager
 
 Azure Traffic Manager는 트래픽을 전 세계 Azure 지역의 서비스에 적절하게 분산하는 한편, 고가용성과 빠른 응답성을 제공하는 DNS 기반 트래픽 부하 분산 장치입니다. 트래픽 관리자는 우선 순위, 가중치, 성능, 지리적, 다중 값 또는 서브넷과 같은 트래픽을 분산하는 다양한 트래픽 라우팅 방법을 제공합니다. 트래픽 라우팅 방법에 대한 자세한 내용은 [트래픽 관리자 라우팅 방법을](../traffic-manager/traffic-manager-routing-methods.md)참조하십시오.
 
@@ -167,7 +167,7 @@ Azure Traffic Manager는 트래픽을 전 세계 Azure 지역의 서비스에 �
 
 트래픽 관리자에 대한 자세한 내용은 [Azure 트래픽 관리자란 무엇입니까?](../traffic-manager/traffic-manager-overview.md)
 
-### <a name="load-balancer"></a><a name="loadbalancer"></a>로드 밸러저
+### <a name="load-balancer"></a><a name="loadbalancer"></a>Load Balancer
 Azure Load Balancer는 모든 UDP 및 TCP 프로토콜에 대해 대기 시간이 낮은 고성능 계층 4 부하 분산을 제공합니다. 인바운드 및 아웃 바운드 연결을 관리합니다. 내부 부하가 분산된 공용 엔드포인트를 구성할 수 있습니다. 서비스 가용성 관리 옵션을 검색하는 TCP 및 HTTP 상태를 사용하여 백 엔드 풀 대상에 인바운드 연결을 매핑하는 규칙을 정의할 수 있습니다. Load Balancer에 대한 자세한 내용은 [Load Balancer 개요](../load-balancer/load-balancer-overview.md) 문서를 참고하세요.
 
 다음 그림에서는 외부 및 내부 부하 분산 장치를 모두 활용하는 인터넷 연결 다중 계층 애플리케이션을 보여줍니다.
@@ -175,7 +175,7 @@ Azure Load Balancer는 모든 UDP 및 TCP 프로토콜에 대해 대기 시간�
 ![Azure 로드 밸러커 예제](./media/networking-overview/load-balancer.png)
 
 
-### <a name="application-gateway"></a><a name="applicationgateway"></a>애플리케이션 게이트웨이
+### <a name="application-gateway"></a><a name="applicationgateway"></a>Application Gateway
 Azure Application Gateway는 웹 애플리케이션에 대한 트래픽을 관리할 수 있도록 하는 웹 트래픽 부하 분산 장치입니다. 응용 프로그램 제공 컨트롤러(ADC)는 응용 프로그램에 다양한 계층 7 로드 밸런싱 기능을 제공합니다. 자세한 내용은 [Azure 응용 프로그램 게이트웨이란 무엇입니까?](../application-gateway/overview.md)
 
 다음 다이어그램은 응용 프로그램 게이트웨이를 통한 URL 경로 기반 라우팅을 보여 주며 있습니다.
@@ -188,7 +188,7 @@ Azure Application Gateway는 웹 애플리케이션에 대한 트래픽을 관�
 |서비스|왜 사용합니까?|시나리오|
 |---|---|---|
 |[Network Watcher](#networkwatcher)|연결 문제를 모니터링하고 문제를 해결하고, VPN, NSG 및 라우팅 문제를 진단하고, VM에서 패킷을 캡처하고, Azure Functions 및 논리 앱을 사용하여 트리거링 진단 도구를 자동화하는 데 도움이 됩니다.|<p>[VM 트래픽 필터 문제 진단](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md)</p><p>[VM 라우팅 문제 진단](../network-watcher/diagnose-vm-network-routing-problem.md)</p><p>[VM 간의 통신 모니터링](../network-watcher/connection-monitor.md)</p><p>[네트워크 간 통신 문제 진단](../network-watcher/diagnose-communication-problem-between-networks.md)</p><p>[VM과 주고 받는 네트워크 트래픽 로깅](../network-watcher/network-watcher-nsg-flow-logging-portal.md)</p>|
-|[익스프레스루트 모니터](#expressroutemonitor)|네트워크 성능, 가용성 및 활용도에 대한 실시간 모니터링을 제공하고, 네트워크 토폴로지의 자동 검색을 돕고, 더 빠른 오류 격리를 제공하고, 일시적인 네트워크 문제를 감지하고, 과거 네트워크 성능을 분석하는 데 도움이 됩니다. 다중 구독을 지원합니다.|<p>[ExpressRoute에 대한 네트워크 성능 모니터 구성](../expressroute/how-to-npm.md)</p><p>[ExpressRoute 모니터링, 메트릭 및 경고](../expressroute/expressroute-monitoring-metrics-alerts.md)</p>|
+|[익스프레스루트 모니터](#expressroutemonitor)|네트워크 성능, 가용성 및 활용도에 대한 실시간 모니터링 제공, 네트워크 토폴로지 자동 검색 지원, 오류 격리 속도 향상, 일시적 네트워크 문제 감지, 과거 네트워크 성능 특성 분석, 다중 구독 지원|<p>[ExpressRoute에 대한 네트워크 성능 모니터 구성](../expressroute/how-to-npm.md)</p><p>[ExpressRoute 모니터링, 메트릭 및 경고](../expressroute/expressroute-monitoring-metrics-alerts.md)</p>|
 |[Azure Monitor](#azuremonitor)|응용 프로그램이 수행하는 방식을 이해하고 응용 프로그램에 영향을 미치는 문제와 해당 응용 프로그램이 의존하는 리소스를 사전에 식별합니다.|<p>[Traffic Manager의 메트릭 및 경고](../traffic-manager/traffic-manager-metrics-alerts.md)</p><p>[표준 로드 밸러커에 대한 Azure 모니터 진단](../load-balancer/load-balancer-standard-diagnostics.md)</p><p>[Azure Firewall 로그 및 메트릭 모니터링](../firewall/tutorial-diagnostics.md)</p><p>[Azure 웹 애플리케이션 방화벽 모니터링 및 로깅](../frontdoor/waf-front-door-monitor.md)</p>|
 |[가상 네트워크 탭](#vnettap)|패킷 수집기로 가상 머신 네트워크 트래픽의 지속적인 스트리밍 제공, 네트워크 및 애플리케이션 성능 관리 솔루션 및 보안 분석 도구 지원|[VNet TAP 리소스 만들기](../virtual-network/tutorial-tap-virtual-network-cli.md)|
 |

@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/06/2019
-ms.openlocfilehash: 3b0b38b767495b1a06405f0d41222b73baee8d53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.openlocfilehash: f290b08d1f625600d03c9540b28c289e9b449471
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277076"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475166"
 ---
 # <a name="co-sell-option-in-partner-center"></a>파트너 센터의 공동 판매 옵션
 
@@ -22,11 +22,11 @@ ms.locfileid: "80277076"
 
 | **오퍼 유형** | **파트너 센터에서 공동 판매 페이지 사용 가능** |
 |    -----------------------    |    -----------------------------  |
-| 서비스로서의 소프트웨어(SaaS) |     2020년 2월 경 일반 공급 가능      |
+| 서비스로서의 소프트웨어(SaaS) |     2020년 4월 경 일반 공급     |
 | PowerApps를 & 고객 참여를 위한 Dynamics 365      |     지금 사용 가능      |
 | Dynamics 365 for Operations     |     지금 사용 가능       |
-| Dynamics 365 Business Central      |  2020년 2월 경 일반 공급 가능     |
-| Azure 애플리케이션     |     2020년 2월 경 일반 공급 가능     |
+| Dynamics 365 Business Central      |  2020년 4월 경 일반 공급    |
+| Azure 애플리케이션     |     2020년 4월 경 일반 공급     |
 | Azure Virtual Machine      |     공지 예정       |
 | Azure 컨테이너     |     공지 예정       |
 | 컨설팅 서비스      |     공지 예정       |

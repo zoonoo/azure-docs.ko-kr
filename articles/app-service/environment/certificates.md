@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 65fc4ed25b0fd360de8e3b1439d1766485eb2e58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba1d06ce83d50b6f0db84d1e423e66eae98f665d
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74688636"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477507"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>인증서 및 App Service Environment 
 
@@ -22,7 +22,7 @@ ASE는 단일 테넌트 시스템입니다. 단일 테넌트이므로 다중 테
 
 ## <a name="ilb-ase-certificates"></a>ILB ASE 인증서 
 
-외부 ASE를 사용하는 경우 앱이 [appname].[asename].p.azurewebsites.net에서 연결됩니다. 기본적으로 모든 ASE, 심지어 ILB ASE도 해당 형식에 따라 인증서를 사용하여 만들어집니다. ILB ASE가 있는 경우 ILB ASE를 만들 때 지정한 도메인 이름에 따라 앱이 연결됩니다. 앱에서 SSL을 지원하려면 인증서를 업로드해야 합니다. 내부 인증 기관을 사용하거나, 외부 발급자로부터 인증서를 구입하거나, 자체 서명된 인증서를 사용하는 등의 방법으로 유효한 SSL 인증서를 구합니다. 
+외부 ASE를 사용하는 경우 앱이 [appname].[asename].p.azurewebsites.net에서 연결됩니다. 기본적으로 모든 ASE, 심지어 ILB ASE도 해당 형식에 따라 인증서를 사용하여 만들어집니다. ILB ASE가 있는 경우 ILB ASE를 만들 때 지정한 도메인 이름에 따라 앱이 연결됩니다. 앱이 TLS를 지원하려면 인증서를 업로드해야 합니다. 내부 인증 기관을 사용하거나 외부 발급자로부터 인증서를 구입하거나 자체 서명된 인증서를 사용하여 유효한 TLS/SSL 인증서를 획득합니다. 
 
 ILB ASE를 사용하여 인증서를 구성하는 두 가지 옵션이 있습니다.  ILB ASE에 대한 와일드카드 기본 인증서를 설정하거나 ASE의 개별 웹앱에 인증서를 설정할 수 있습니다.  선택한 항목에 관계없이 다음 인증서 특성을 올바르게 구성해야 합니다.
 
@@ -58,7 +58,7 @@ ASE에서 호스팅되는 앱은 다중 테넌트 App Service에서 사용할 �
 - IP 기반 SSL - 외부 ASE에서만 지원되며,  ILB ASE는 IP 기반 SSL을 지원하지 않습니다.
 - KeyVault 호스팅 인증서 
 
-이러한 인증서를 업로드하고 관리하는 방법에 대한 지침은 [Azure App Service의 SSL 인증서 추가에서](../configure-ssl-certificate.md)확인할 수 있습니다.  웹앱에 할당한 사용자 지정 도메인 이름과 일치하도록 인증서를 간단히 구성하는 경우 이러한 지침만으로도 충분합니다. 기본 도메인 이름을 사용하여 ILB ASE 웹앱에 대한 인증서를 업로드하는 경우 앞에서 설명한 대로 인증서의 SAN에 scm 사이트를 지정합니다. 
+이러한 인증서를 업로드하고 관리하는 방법에 대한 지침은 [Azure 앱 서비스의 TLS/SSL 인증서 추가에서](../configure-ssl-certificate.md)확인할 수 있습니다.  웹앱에 할당한 사용자 지정 도메인 이름과 일치하도록 인증서를 간단히 구성하는 경우 이러한 지침만으로도 충분합니다. 기본 도메인 이름을 사용하여 ILB ASE 웹앱에 대한 인증서를 업로드하는 경우 앞에서 설명한 대로 인증서의 SAN에 scm 사이트를 지정합니다. 
 
 ## <a name="tls-settings"></a>TLS 설정 
 

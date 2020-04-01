@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 572fec4d6e47efd734bc84a40dc974c79bd619fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d55e08fecbd1338284607ac59fe354c6fa8cb1ea
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76262982"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478810"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>지속성 함수의 영구 오케스트레이션(Azure Functions)
 
@@ -33,7 +33,7 @@ ms.locfileid: "76262982"
 
 영구 오케스트레이션을 위한 한 가지 사용 사례는 무한정 주기적으로 작업해야 하는 코드입니다.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]
@@ -53,7 +53,7 @@ public static async Task Run(
 > [!NOTE]
 > 이전 C# 예제는 지속 기능 2.x에 대 한 입니다. 지속 기능 1.x의 경우 `DurableOrchestrationContext` `IDurableOrchestrationContext`을 대신 사용해야 합니다. 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -81,7 +81,7 @@ module.exports = df.orchestrator(function*(context) {
 > [!NOTE]
 > 단일 토사조가 실행되고 있는지 확인해야 하는 경우 오케스트레이션을 `id` 시작할 때 동일한 인스턴스를 유지하는 것이 중요합니다. 자세한 내용은 [인스턴스 관리](durable-functions-instance-management.md)를 참조하세요.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Trigger_Eternal_Orchestration")]
@@ -90,8 +90,8 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
     [DurableClient] IDurableOrchestrationClient client)
 {
     string instanceId = "StaticId";
-    // Null is used as the input, since there is no input in "Periodic_Cleanup_Loop".
-    await client.StartNewAsync("Periodic_Cleanup_Loop", instanceId, null); 
+
+    await client.StartNewAsync("Periodic_Cleanup_Loop", instanceId); 
     return client.CreateCheckStatusResponse(request, instanceId);
 }
 ```
@@ -99,7 +99,7 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
 > [!NOTE]
 > 이전 코드는 지속 기능 2.x용입니다. 지속 함수 1.x의 경우 `OrchestrationClient` 특성 대신 `DurableClient` 특성을 사용해야 `IDurableOrchestrationClient`하며. `DurableOrchestrationClient` 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");

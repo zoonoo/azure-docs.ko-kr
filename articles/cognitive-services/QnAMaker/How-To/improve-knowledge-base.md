@@ -2,13 +2,13 @@
 title: 기술 자료 개선 - QnA Maker
 description: 적극적인 학습을 통해 지식 기반의 품질을 향상시킵니다. 기존 질문을 제거하거나 변경하지 않고 검토, 수락 또는 거부, 추가합니다.
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: 8b2176731ce456b70521cc9208435d0b19943ab8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.openlocfilehash: 1eb0ed42f700c14350a5e4f1eff9b7592cbf8ef6
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80053079"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474893"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>기술 자료에서 적극적인 학습 제안 질문 수락
 
@@ -127,7 +127,7 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|HTTP 요청 속성|이름|Type|목적|
+|HTTP 요청 속성|속성|Type|목적|
 |--|--|--|--|
 |URL 경로 매개 변수|기술 자료 ID|문자열|기술 자료를 위한 GUID입니다.|
 |사용자 지정 하위 도메인|QnAMaker 리소스 이름|문자열|리소스 이름은 QnA Maker의 사용자 지정 하위 도메인으로 사용됩니다. 이 정보는 기술 보고서를 게시한 후 설정 페이지에서 사용할 수 있습니다. 로 `host`나열됩니다.|
@@ -203,7 +203,7 @@ Azure [Bot 샘플에서](https://aka.ms/activelearningsamplebot)이러한 두 �
 
 ### <a name="example-c-code-for-train-api-with-bot-framework-4x"></a>봇 프레임워크 4.x를 사용하면 TRAIN API에 대한 예제 C# 코드
 
-다음 코드는 Train API를 사용하여 QnA Maker에 정보를 다시 보내는 방법을 보여 줍니다. 이 [전체 코드 샘플은](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-activelearning/csharp_dotnetcore) GitHub에서 사용할 수 있습니다.
+다음 코드는 Train API를 사용하여 QnA Maker에 정보를 다시 보내는 방법을 보여 줍니다.
 
 ```csharp
 public class FeedbackRecords
@@ -266,7 +266,7 @@ public async static void CallTrain(string endpoint, FeedbackRecords feedbackReco
 
 ### <a name="example-nodejs-code-for-train-api-with-bot-framework-4x"></a>봇 프레임워크 4.x를 사용하면 TRAIN API에 대한 Node.js 코드 예제
 
-다음 코드는 Train API를 사용하여 QnA Maker에 정보를 다시 보내는 방법을 보여 줍니다. 이 [전체 코드 샘플은](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs) GitHub에서 사용할 수 있습니다.
+다음 코드는 Train API를 사용하여 QnA Maker에 정보를 다시 보내는 방법을 보여 줍니다.
 
 ```javascript
 async callTrain(stepContext){
@@ -331,7 +331,7 @@ async callTrain(stepContext){
 ```
 
 또한 다운로드 변경 API를 사용하여 REST 또는 언어 기반 SDK를 사용하여 이러한 변경 사항을 검토할 수도 있습니다.
-* [나머지 API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
+* [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
 * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
 
 
@@ -339,7 +339,7 @@ async callTrain(stepContext){
 
 
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 
 활성 학습 사용 시의 모범 사례는 [모범 사례](../Concepts/best-practices.md#active-learning)를 참조하세요.
 

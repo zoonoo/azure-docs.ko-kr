@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 30696c5dcb3353ea468aa78dbc107dae4d292edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4dfc6793bba473c4046863937baa292dde7bf421
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334439"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478694"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Azure 지도 모빌리티 서비스의 데이터 구조
 
@@ -31,13 +31,13 @@ ms.locfileid: "80334439"
 
 ## <a name="stop-ids"></a>중지 아이디
 
-대중 교통 정류장은 [GFTS(일반 대중 교통 피드 사양)](https://gtfs.org/) ID와 Azure Maps 중지 ID의 두 가지 유형의 ID로 참조할 수 있습니다. GFTS ID를 stopKey라고 하며 Azure Maps 중지 ID를 stopID라고 합니다. 대중 교통 정류장을 자주 참조할 때는 Azure Maps 중지 ID를 사용하는 것이 좋습니다. stopID는 물리적 정지가 존재하는 한 더 안정적이고 동일하게 유지될 가능성이 높습니다. GTFS 중지 ID가 더 자주 업데이트됩니다. 예를 들어 GTFS 중지 ID는 GTFS 공급자 요청또는 새 GTFS 버전이 릴리스될 때 업데이트할 수 있습니다. 물리적 정지는 변경되지 않았지만 GTFS 중지 ID는 변경될 수 있습니다.
+대중 교통 정류장은 [GFTS(일반 대중 교통 피드 사양)](http://gtfs.org/) ID와 Azure Maps 중지 ID의 두 가지 유형의 ID로 참조할 수 있습니다. GFTS ID를 stopKey라고 하며 Azure Maps 중지 ID를 stopID라고 합니다. 대중 교통 정류장을 자주 참조할 때는 Azure Maps 중지 ID를 사용하는 것이 좋습니다. stopID는 물리적 정지가 존재하는 한 더 안정적이고 동일하게 유지될 가능성이 높습니다. GTFS 중지 ID가 더 자주 업데이트됩니다. 예를 들어 GTFS 중지 ID는 GTFS 공급자 요청또는 새 GTFS 버전이 릴리스될 때 업데이트할 수 있습니다. 물리적 정지는 변경되지 않았지만 GTFS 중지 ID는 변경될 수 있습니다.
 
 시작하려면 근처 대중 교통 [API를](https://aka.ms/AzureMapsMobilityNearbyTransit)사용하여 근처의 대중 교통 정류장을 요청할 수 있습니다.
 
 ## <a name="line-groups-and-lines"></a>선 그룹 및 선
 
-모빌리티 서비스는 선 및 선 그룹에 대한 병렬 데이터 모델을 사용합니다. 이 모델은 [GTFS](https://gtfs.org/) 경로 및 이동 데이터에서 상속된 변경 내용을 보다 잘 처리하는 데 사용됩니다.
+모빌리티 서비스는 선 및 선 그룹에 대한 병렬 데이터 모델을 사용합니다. 이 모델은 [GTFS](http://gtfs.org/) 경로 및 이동 데이터에서 상속된 변경 내용을 보다 잘 처리하는 데 사용됩니다.
 
 
 ### <a name="line-groups"></a>선 그룹

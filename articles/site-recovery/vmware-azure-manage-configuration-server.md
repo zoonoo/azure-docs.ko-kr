@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 93b10d56ae34ebdfe78dd20705634dea58721274
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 692834903899448707200b24a955301e29e14f90
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79257278"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478460"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>VMware VM/물리적 서버 재해 복구를 위한 구성 서버 관리
 
@@ -138,7 +138,7 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
 
 ## <a name="upgrade-the-configuration-server"></a>구성 서버 업그레이드
 
-구성 서버를 업데이트하려면 업데이트 롤업을 실행합니다. 업데이트는 N-4 버전까지 적용할 수 있습니다. 예를 들어:
+구성 서버를 업데이트하려면 업데이트 롤업을 실행합니다. 업데이트는 N-4 버전까지 적용할 수 있습니다. 다음은 그 예입니다.
 
 - 9.7, 9.8, 9.9 또는 9.10을 실행 중인 경우 9.11로 바로 업그레이드할 수 있습니다.
 - 9.6 이하를 실행 중이고 9.11로 업그레이드하려는 경우 먼저 9.7 버전으로 업그레이드한 후 9.11로 업그레이드해야 합니다.
@@ -270,9 +270,9 @@ ProxyPassword="Password"
 3. 암호 파일을 생성하려면 **genpassphrase.exe -v > MobSvc.passphrase**를 실행합니다.
 4. 암호는 **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**에 있는 파일에 저장됩니다.
 
-## <a name="renew-ssl-certificates"></a>SSL 인증서 갱신
+## <a name="renew-tlsssl-certificates"></a>TLS/SSL 인증서 갱신
 
-구성 서버에는 기본 제공 웹 서버가 있습니다. 이 서버는 Mobility Service, 프로세스 서버 및 마스터 대상 서버의 작업을 오케스트레이션합니다. 웹 서버는 SSL 인증서를 사용하여 클라이언트를 인증합니다. 인증서는 3년 후에 만료되며 언제든지 갱신할 수 있습니다.
+구성 서버에는 기본 제공 웹 서버가 있습니다. 이 서버는 Mobility Service, 프로세스 서버 및 마스터 대상 서버의 작업을 오케스트레이션합니다. 웹 서버는 TLS/SSL 인증서를 사용하여 클라이언트를 인증합니다. 인증서는 3년 후에 만료되며 언제든지 갱신할 수 있습니다.
 
 ### <a name="check-expiry"></a>만료 확인
 

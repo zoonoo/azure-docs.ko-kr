@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 2c6e35b1e7d160064998004f87c5b14d0eaeac5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0670331d2338b4b6419ffbff1452b5fbac91029f
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127664"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478839"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>논리 앱 REST API를 사용하여 통합 서비스 환경(ISE) 만들기
 
 이 문서에서는 논리 앱 및 통합 계정이 [Azure 가상 네트워크에](../virtual-network/virtual-networks-overview.md)액세스해야 하는 시나리오에 대해 Logic Apps REST API를 통해 [ISE(통합 *서비스 환경)를* ](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 만드는 방법을 보여 줍니다. ISE는 전용 저장소 및 "글로벌" 다중 테넌트 논리 앱 서비스와 별도로 유지되는 기타 리소스를 사용하는 격리된 환경입니다. 이러한 격리로 인해 다른 Azure 테넌트가 앱 성능에 줄 수 있는 영향이 감소됩니다. ISE는 또한 사용자 고유의 정적 IP 주소를 제공합니다. 이러한 IP 주소는 공용 다중 테넌트 서비스의 논리 앱에서 공유하는 정적 IP 주소와 는 별개입니다.
 
-대신 Azure 포털을 사용하여 ISE를 만들려면 [Azure 논리 앱에서 Azure 가상 네트워크에 연결 을](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)참조하십시오.
+샘플 Azure 리소스 관리자 빠른 [시작 템플릿을](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) 사용하거나 [Azure 포털을](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)사용하여 ISE를 만들 수도 있습니다.
 
 > [!IMPORTANT]
 > ISE에서 실행되는 논리 앱, 기본 제공 트리거, 기본 제공 작업 및 커넥터는 소비 기반 가격 책정 계획과 다른 가격 책정 계획을 사용합니다. ISEs의 가격 책정 및 청구 작동 방식은 [논리 앱 가격 책정 모델을](../logic-apps/logic-apps-pricing.md#fixed-pricing)참조하십시오. 가격 책정 요금은 [논리 앱 가격 책정을](../logic-apps/logic-apps-pricing.md)참조하십시오.

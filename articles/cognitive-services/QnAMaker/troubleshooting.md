@@ -4,12 +4,12 @@ description: QnA Maker 서비스와 관련하여 가장 자주 묻는 질문의 
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: diberry
-ms.openlocfilehash: e002efe74bf7bcd3d944b01b0a25a731a2db3f66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 310cfe0cc8c1f647c09b8e0efb435a1ab326ff62
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284265"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474950"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>QnA 제조업체의 문제 해결
 
@@ -30,7 +30,7 @@ QnA Maker 서비스와 관련하여 가장 자주 묻는 질문의 선별된 목
 <details>
 <summary><b>QnAMaker 서비스 엔드포인트를 얻는 방법</b></summary>
 
-**답변**: QnAMaker 서비스 끝점은 QnAMaker 지원 또는 UserVoice에 문의 할 때 디버깅 목적으로 유용합니다. 끝점은 이 양식의 https://your-resource-name.azurewebsites.netURL입니다.
+**답변**: QnAMaker 서비스 끝점은 QnAMaker 지원 또는 UserVoice에 문의 할 때 디버깅 목적으로 유용합니다. 끝점은 이 양식의 `https://your-resource-name.azurewebsites.net`URL입니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 QnAMaker 서비스(리소스 그룹)로 이동
 

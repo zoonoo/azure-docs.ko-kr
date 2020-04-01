@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: cbe01ee9b8edeab349db484cea6c25dca32bf213
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7064101c21c11b48d8616dbeaa2fd9075660fd3b
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218020"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473459"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>API 관리를 사용하여 Azure 기계 학습 스튜디오(클래식) 웹 서비스 관리
 
@@ -38,7 +38,7 @@ Azure API Management는 사용자 액세스, 사용 제한 및 대시보드 모�
 
 API Management 인스턴스를 사용하여 Azure Machine Learning 웹 서비스를 관리할 수 있습니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. + 리소스 만들기 를 **선택합니다.**
 3. 검색 상자에 "API Management"를 입력한 다음 "API Management" 리소스를 선택합니다.
 4. **만들기**를 클릭합니다.
@@ -169,7 +169,7 @@ API를 만들려면:
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>부록 A - 간단한 AzureML 웹 서비스 만들기 및 테스트
 ### <a name="creating-the-experiment"></a>실험 만들기
-간단한 AzureML 실험을 만들고 웹 서비스로 배포하는 단계는 다음과 같습니다. 웹 서비스에서는 임의 텍스트 열을 입력으로 사용하고 정수로 표시되는 기능 집합을 반환합니다. 예를 들어:
+간단한 AzureML 실험을 만들고 웹 서비스로 배포하는 단계는 다음과 같습니다. 웹 서비스에서는 임의 텍스트 열을 입력으로 사용하고 정수로 표시되는 기능 집합을 반환합니다. 다음은 그 예입니다.
 
 | 텍스트 | 해시된 텍스트 |
 | --- | --- |
@@ -217,7 +217,7 @@ API를 만들려면:
 ![yes-to-publish](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>웹 서비스 테스트
-AzureML 웹 서비스는 RSS(요청/응답 서비스) 및 BES(일괄 처리 실행 서비스) 엔드포인트로 구성됩니다. RSS는 동기 실행에 사용됩니다. BES는 비동기 작업 실행에 사용됩니다. 다음 샘플 Python 소스로 웹 서비스를 테스트하려면 Python용 Azure SDK를 다운로드해야 할 수 있습니다( [Python을 설치하는 방법](/azure/python/python-sdk-azure-install)참조).
+AzureML 웹 서비스는 RSS(요청/응답 서비스) 및 BES(일괄 처리 실행 서비스) 엔드포인트로 구성됩니다. RSS는 동기 실행에 사용됩니다. BES는 비동기 작업 실행에 사용됩니다. 다음 샘플 Python 소스로 웹 서비스를 테스트하려면 Python용 Azure SDK를 다운로드해야 할 수 있습니다( [Python을 설치하는 방법](/azure/developer/python/azure-sdk-install)참조).
 
 또한 다음 샘플 원본에 대한 실험의 **workspace**, **service** 및 **api_key**가 필요합니다. 웹 서비스 대시보드에서 실험의 **요청/응답** 또는 **Batch 실행**을 클릭하여 workspace 및 service를 찾을 수 있습니다.
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 786b21e7571ed173d2da90f587a5b76d8c92a13d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95a70a1d0c4367adb1dd276bff1b1eb20caafc59
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279729"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473370"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure DDoS Protection 표준 관리
 
@@ -29,7 +29,7 @@ DDoS(배포된 서비스 거) 보호를 사용 및 사용하지 않도록 설정
 
 이 자습서의 단계를 완료하기 전에 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 할당된 계정 또는 [사용 권한](#permissions)에 나열된 적절한 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)로 Azure Portal(https://portal.azure.com)에 로그인합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 만드세요.
 
 ## <a name="create-a-ddos-protection-plan"></a>DDoS 보호 계획 만들기
 
@@ -44,7 +44,7 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
 
     |설정        |값                                              |
     |---------      |---------                                          |
-    |이름           | myDdosProtectionPlan                              |
+    |속성           | myDdosProtectionPlan                              |
     |Subscription   | 구독을 선택합니다.                         |
     |Resource group | **새로 만들기**를 선택하고, *myResourceGroup*을 입력합니다. |
     |위치       | 미국 동부                                           |
@@ -57,7 +57,7 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
 
     | 설정         | 값                                                        |
     | ---------       | ---------                                                    |
-    | 이름            | myVirtualNetwork                                             |
+    | 속성            | myVirtualNetwork                                             |
     | Subscription    | 구독을 선택합니다.                                    |
     | Resource group  | 기존 에서 **를 선택한**다음 **myResourceGroup을** 선택합니다. |
     | 위치        | 미국 동부                                                      |
@@ -73,7 +73,7 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
 4. **설정** 아래에서 **DDoS 보호**를 선택합니다.
 5. **표준**을 선택합니다. **DDoS 보호 계획** 아래에서 기존 DDoS 보호 계획 또는 1단계에서 만든 계획을 선택한 다음, **저장**을 선택합니다. 선택한 계획은 가상 네트워크와 동일하거나 다른 구독에 있을 수 있지만, 두 구독은 모두 동일한 Azure Active Directory 테넌트에 연결되어야 합니다.
 
-**명령을** 
+**명령** 
 - Azure CLI: [az 네트워크 ddos-보호 만들기](https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest#az-network-ddos-protection-create)
 - 파워쉘: [뉴 아즈도스보호플랜](https://docs.microsoft.com/powershell/module/Az.Network/New-AzDdosProtectionPlan?view=azps-2.8.0)
  
@@ -84,7 +84,7 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
 2. **설정** 아래에서 **DDoS 보호**를 선택합니다.
 3. **DDoS 보호 계획** 아래에서 **기본**을 선택한 다음, **저장**을 선택합니다.
 
-**명령을** 
+**명령** 
 - Azure CLI: [az 네트워크 ddos-보호 삭제](https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest#az-network-ddos-protection-delete)
 - 파워쉘: [제거-아즈도스보호플랜](https://docs.microsoft.com/powershell/module/az.network/remove-azddosprotectionplan?view=azps-3.2.0)
 
@@ -107,7 +107,7 @@ Azure Monitor 경고 구성을 사용하면 공격 중에 활성 완화가 있�
 
     |설정                  |값                                                                                               |
     |---------                |---------                                                                                           |
-    |이름                     | myDdosAlert                                                                                        |
+    |속성                     | myDdosAlert                                                                                        |
     |Subscription             | 경고를 받으려는 공용 IP 주소가 포함된 구독을 선택합니다.        |
     |Resource group           | 경고를 받으려는 공용 IP 주소가 포함된 리소스 그룹을 선택합니다.      |
     |리소스                 | 경고를 받으려는 공용 IP 주소가 포함된 공용 IP 주소를 선택합니다. DDoS는 가상 네트워크 내의 리소스에 할당된 공용 IP 주소를 모니터링합니다. 가상 네트워크에 공용 IP 주소가 있는 리소스가 없으면 먼저 공용 IP 주소를 사용하여 리소스를 만들어야 합니다. Azure App Service 환경 및 Azure VPN Gateway를 제외하고 [Azure 서비스에 대한 가상 네트워크](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)에 나열된 Resource Manager(클래식이 아님)를 통해 배포된 모든 리소스의 공용 IP 주소를 모니터링할 수 있습니다. 이 자습서를 계속 진행하려면 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신을 빠르게 만들면 됩니다.                   |
@@ -202,7 +202,7 @@ Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 �
 - 프로토콜 유형 
 - 완화 중에 수행된 작업
 
-
+공격 분석은 공용 IP 주소의 가상 네트워크에서 DDoS 보호 표준을 사용하도록 설정한 경우에만 작동합니다. 
 
 ## <a name="validate-ddos-detection"></a>DDoS 탐지 유효성 검사
 
@@ -230,7 +230,7 @@ DDoS 공격 탐지 및 완화에 대해 표시되는 두 가지 특정 경고가
 
 DDoS 보호 계획을 사용하려면 다음 표에 나열된 적절한 작업이 할당된 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정을 할당해야 합니다.
 
-| 작업                                            | 이름                                     |
+| 작업                                            | 속성                                     |
 | ---------                                         | -------------                            |
 | Microsoft.Network/ddosProtectionPlans/read        | DDoS 보호 계획 읽기              |
 | Microsoft.Network/ddosProtectionPlans/write       | DDoS 보호 계획 만들기 또는 업데이트  |

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 02/19/2020
+ms.date: 03/31/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 89240102837b65ed2a09d9f4865ad47ee5d5afa2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 91d285e2a839a7d6266c5d58f52901a48a7a8c84
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80154562"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473178"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 인증 및 권한 부여 오류 코드
 
@@ -39,7 +39,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 
 ## <a name="aadsts-error-codes"></a>AADSTS 오류 코드
 
-| Error | 설명 |
+| Error | Description |
 |---|---|
 | AADSTS16000 | SelectUserAccount - 이것은 Azure AD에 의해 throw된 인터럽트로, 사용자가 여러 개의 유효한 SSO 세션 중에서 선택할 수 있는 UI가 나타납니다. 이 오류는 매우 일반적이며 `prompt=none`이 지정된 경우 애플리케이션에 반환될 수 있습니다. |
 | AADSTS16001 | UserAccountSelectionInvalid - 사용자가 세션 선택 논리가 거부한 타일을 클릭하면 이 오류가 표시됩니다. 이 오류가 트리거되면 사용자는 업데이트된 타일/세션 목록에서 선택하거나 다른 계정을 선택하여 복구할 수 있습니다. 이 오류는 코드 결함 또는 경합 상태로 인해 발생할 수 있습니다. |
@@ -271,6 +271,8 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS700020 | InteractionRequired - 액세스 권한 부여에는 상호 작용이 필요합니다. |
 | AADSTS700022 | InvalidMultipleResourcesScope - 입력 매개 변수 범위에 대해 제공한 값이 둘 이상의 리소스를 포함하므로 잘못되었습니다. |
 | AADSTS700023 | InvalidResourcelessScope - 액세스 토큰을 요청할 때 입력 매개 변수 범위에 대해 제공한 값이 잘못되었습니다. |
+| AADSTS7000222| 유효하지 않은ClientSecret만료키제공 - 제공된 클라이언트 비밀 키가 만료됩니다. Azure Portal을 방문하여 앱에 대한 새 키를 만들거나 보안 을 추가하기 위해 인증서 자격 증명을 사용하는 것이 좋습니다.https://aka.ms/certCreds |
+| AADSTS700005 | 유효하지 않은GrantRedeem대하여잘못된테넌트 - 제공된 권한 부여 코드는 다른 테넌트에 대해 사용하기 위한 것이므로 거부됩니다. OAuth2 권한 부여 코드는 획득한 테넌트(/공통 또는 /{테넌트-ID})에 대해 적절한 경우 동일한 테넌트에 대해 사용해야 합니다. |
 | AADSTS1000000 | UserNotBoundError - 바인딩 API를 사용하려면 Azure AD 사용자가 외부 IDP에도 인증해야 하는데, 아직 인증하지 않았습니다. |
 | AADSTS1000002 | BindCompleteInterruptError - 바인딩이 성공적으로 완료되었지만 사용자에게 알려야 합니다. |
 | AADSTS7000112 | 무단 클라이언트응용 프로그램 사용 안 함 - 응용 프로그램을 사용할 수 없습니다. |

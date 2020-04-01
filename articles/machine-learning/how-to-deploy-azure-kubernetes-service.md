@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 01/16/2020
-ms.openlocfilehash: db2e80ebb6cbe5f31f2d99a1403a15daf38fd877
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 792964f28ddb3fcb10932b8de9499a9c7027960f
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76722410"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475389"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes 서비스 클러스터에 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -131,7 +131,7 @@ AKS 클러스터를 작업 공간에 연결할 때 `cluster_purpose` 매개 변�
 > [!WARNING]
 > 작업 영역에서 동일한 AKS 클러스터에 대한 여러 개의 동시 첨부 파일을 만들지 마십시오. 예를 들어 두 개의 서로 다른 이름을 사용하여 하나의 AKS 클러스터를 작업 영역에 연결합니다. 각 새 첨부 파일은 이전 기존 첨부 파일을 중단합니다.
 >
-> SSL 또는 다른 클러스터 구성 설정을 변경하기 위해 AKS 클러스터를 다시 연결하려면 먼저 [AksCompute.detach()를](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--)사용하여 기존 첨부 파일을 제거해야 합니다.
+> TLS 또는 다른 클러스터 구성 설정을 변경하기 위해 AKS 클러스터를 다시 연결하려면 먼저 [AksCompute.detach()를](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--)사용하여 기존 첨부 파일을 제거해야 합니다.
 
 Azure CLI 또는 포털을 사용하여 AKS 클러스터를 만드는 방법에 대한 자세한 내용은 다음 문서를 참조하십시오.
 
@@ -348,7 +348,7 @@ print(token)
 * [가상 네트워크에서 실험 및 추론 보안](how-to-enable-virtual-network.md)
 * [사용자 지정 Docker 이미지를 사용하여 모델을 배포하는 방법](how-to-deploy-custom-docker-image.md)
 * [배포 문제 해결](how-to-troubleshoot-deployment.md)
-* [SSL을 사용하여 Azure Machine Learning 웹 서비스 보호](how-to-secure-web-service.md)
+* [TLS를 사용하여 Azure 기계 학습을 통해 웹 서비스 보호](how-to-secure-web-service.md)
 * [웹 서비스로 배포된 ML 모델 사용](how-to-consume-web-service.md)
 * [Application Insights를 사용하여 Azure Machine Learning 모델 모니터링](how-to-enable-app-insights.md)
 * [프로덕션 환경에서 모델용 데이터 수집](how-to-enable-data-collection.md)
