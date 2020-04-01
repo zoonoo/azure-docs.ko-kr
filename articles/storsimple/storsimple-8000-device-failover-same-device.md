@@ -1,5 +1,5 @@
 ---
-title: 동일한 StorSimple 8000 장치에 대한 장애 조치 및 재해 복구
+title: 튜토리얼 - 동일한 장치에 StorSimple 물리적 장치를 통해 실패
 description: StorSimple 디바이스를 동일한 디바이스로 장애 조치(failover)하는 방법을 알아봅니다.
 services: storsimple
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2017
 ms.author: alkohli
-ms.openlocfilehash: c8fe2d7ec7649f47f6cb9c8ae2c83f19c15691b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dde01f9b91ff5a04ddb3fcc8d5f0c535278b0539
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77471808"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398087"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>StorSimple 물리적 디바이스를 동일한 디바이스로 장애 조치(failover)
 

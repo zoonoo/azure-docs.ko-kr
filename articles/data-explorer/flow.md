@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: dorcohen
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 03/15/2020
-ms.openlocfilehash: 7745888dcaa1324d4a9d956e93d0504c8da8c026
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/25/2020
+ms.openlocfilehash: 198b78d5bab15057fdb6c7f6d4e8fff9f77d496e
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501778"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397127"
 ---
 # <a name="microsoft-flow-connector-preview"></a>마이크로소프트 흐름 커넥터 (미리 보기)
 
@@ -116,7 +116,7 @@ Azure 데이터 탐색기 커넥터를 열면 흐름에 추가할 수 있는 세
 ### <a name="run-query-and-list-results"></a>쿼리 및 목록 결과 실행
 
 > [!Note]
-> 쿼리가 점으로 시작하는 경우(제어 [명령즉),](https://docs.microsoft.com/azure/kusto/management/index)컨트롤 [실행 명령을](#run-control-command-and-visualize-results) 사용하고 결과를 시각화합니다.
+> 쿼리가 점으로 시작하는 [경우(제어 명령즉)](https://docs.microsoft.com/azure/kusto/management/index)컨트롤 실행 명령을 사용하고 [결과를 시각화합니다.](#run-control-command-and-visualize-results)
 
 이 작업은 Kusto 클러스터에 쿼리를 보냅니다. 이후에 추가되는 작업은 쿼리 결과의 각 줄을 반복합니다.
 
@@ -130,7 +130,7 @@ Azure 데이터 탐색기 커넥터를 열면 흐름에 추가할 수 있는 세
 ### <a name="run-query-and-visualize-results"></a>쿼리 실행 및 결과 시각화
         
 > [!Note]
-> 쿼리가 점으로 시작하는 경우(제어 [명령즉),](https://docs.microsoft.com/azure/kusto/management/index)컨트롤 [실행 명령을](#run-control-command-and-visualize-results) 사용하고 결과를 시각화합니다.
+> 쿼리가 점으로 시작하는 [경우(제어 명령즉)](https://docs.microsoft.com/azure/kusto/management/index)컨트롤 실행 명령을 사용하고 [결과를 시각화합니다.](#run-control-command-and-visualize-results)
         
 실행 쿼리를 사용하고 결과 작업을 시각화하여 Kusto 쿼리 결과를 테이블 또는 차트로 시각화합니다. 예를 들어 이 흐름을 사용하여 전자 메일로 매일 ICM 보고서를 수신합니다. 
     
@@ -147,17 +147,21 @@ Azure 데이터 탐색기 커넥터를 열면 흐름에 추가할 수 있는 세
 
 1. **+ 새 단계를** 선택하여 흐름에 새 단계를 추가합니다.
 1. 검색 필드에서 Office 365를 입력하고 **Office 365 Outlook을**선택합니다.
-1. **이메일 보내기**를 선택합니다.
+1. **전자 메일 보내기(V2)를**선택합니다.
 1. 이메일 보고서를 보낼 위치에 이메일 주소를 입력합니다.
 1. 이메일의 제목을 입력합니다.
-1. *[몸체]* 필드에서 동적 콘텐츠 필드에서 **Body**를 선택합니다.
+1. **코드 보기를 선택합니다.**
+1. *[몸체]* 필드에 커서를 배치하고 **동적 콘텐츠 추가를**선택합니다.
+1. **BodyHtml을**선택합니다.
+    ![메일 보내기](./media/flow/flow-send-email.png)
 1. **고급 옵션 표시**를 선택합니다.
 1. 첨부 *파일 이름 -1* 필드에서 **첨부 파일 이름을**선택합니다.
 1. 첨부 *파일 콘텐츠* 필드에서 **첨부 파일 컨텐트를**선택합니다.
+1. 필요한 경우 첨부 파일을 더 추가합니다. 
 1. 필요한 경우 중요도 수준을 설정합니다.
 1. **저장**을 선택합니다.
 
-![메일 보내기](./media/flow/flow-sendemail.png)
+![메일 보내기](./media/flow/flow-add-attachments.png)
 
 ## <a name="check-if-your-flow-succeeded"></a>흐름이 성공했는지 확인
 

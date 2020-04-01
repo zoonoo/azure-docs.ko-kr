@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f655b7793bfbb5bbeddfc2f1f8e7bc973dabeb4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd3881617227430488f8dd3f2f3d24072b24b8ce
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74687369"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478734"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>App Service Environment v1 소개
 
@@ -48,7 +48,7 @@ App Service Environment의 모든 컴퓨팅 리소스는 전적으로 단일 구
 
 App Service Environment는 1~3개 작업자 컴퓨팅 리소스 풀뿐만 아니라 프런트 엔드 컴퓨팅 리소스 풀로 구성됩니다.
 
-프런트 엔드 풀에는 App Service Environment 내의 앱 요청에 대한 자동 부하 분산뿐 아니라 SSL 종료를 담당하는 컴퓨팅 리소스가 포함되어 있습니다.
+프런트 엔드 풀에는 TLS 종료를 담당하는 컴퓨팅 리소스와 앱 서비스 환경 내에서 앱 요청의 자동 로드 분산이 포함됩니다.
 
 각 작업자 풀에는 하나 이상의 Azure App Service 앱을 포함하는 [App Service 계획][AppServicePlan]에 할당된 컴퓨팅 리소스가 있습니다.  App Service Environment에는 최대 세 가지 작업자 풀을 둘 수 있으므로 작업자 풀마다 다른 컴퓨팅 리소스를 유연하게 선택할 수 있습니다.  
 

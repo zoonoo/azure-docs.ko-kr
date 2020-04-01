@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jonbeck
-ms.openlocfilehash: b900a95df00ccdd0ad9b5bee3887364195c7d1c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df22c857571e51bb886ff1d25db185a306999540
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78226724"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420867"
 ---
-# <a name="high-performance-compute-vm-sizes"></a>고성능 컴퓨팅 VM 크기
+# <a name="high-performance-computing-vm-sizes"></a>고성능 컴퓨팅 VM 크기
 
 Azure H 시리즈 가상 머신(VM)은 다양한 실제 HPC 워크로드에 대해 리더십 수준의 성능, MPI 확장성 및 비용 효율성을 제공하도록 설계되었습니다.
 
@@ -34,37 +34,28 @@ Azure H 시리즈 가상 머신(VM)은 다양한 실제 HPC 워크로드에 대�
 
 [H 시리즈](h-series.md) VM은 높은 CPU 주파수 또는 코어 요구 사항당 큰 메모리로 구동되는 애플리케이션에 최적화되어 있습니다. H 시리즈 VM은 8 또는 16 인텔 제온 E5 2667 v3 프로세서 코어, CPU 코어당 7 또는 14GB의 RAM을 갖추고 있으며 하이퍼스레딩이 없습니다. H 시리즈는 일관된 RDMA 성능을 위해 비차단 지방 트리 구성에 56Gb/sec Mellanox FDR InfiniBand를 제공합니다. H 시리즈 VM은 인텔 MPI 5.x 및 MS-MPI를 지원합니다.
 
-## <a name="deployment-considerations"></a>배포 고려 사항
-
-- **Azure 구독** - 몇몇 계산 집약적 인스턴스를 배포하려면 종량제 구독 또는 기타 구매 옵션을 고려합니다. [Azure 무료 계정](https://azure.microsoft.com/free/)을 사용하는 경우, 제한된 수의 Azure 컴퓨팅 코어만 사용할 수 있습니다.
-
-- **가격 책정 및 가용성** - 이러한 VM 크기는 표준 가격 책정 계층에만 제공됩니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/) 에서 Azure 지역의 가용성을 확인하세요.
-- **코어 할당량** – 기본값에서 Azure 구독의 코어 할당량을 늘려야 합니다. 구독에 따라서도 H 시리즈를 포함하여 특정 VM 크기 제품군에 배포할 수 있는 코어 수가 제한될 수 있습니다. 할당량 증가를 요청하려면 온라인 [고객 지원 요청을](../azure-supportability/how-to-create-azure-support-request.md) 무료로 엽니다. (기본 제한은 구독 범주에 따라 달라질 수 있습니다.)
-
-  > [!NOTE]
-  > 대규모 용량이 필요한 경우 Azure 지원에 문의합니다. Azure 할당량은 신용 제한이며 용량 보증이 아닙니다. 할당량에 관계 없이 사용하는 코어에 대해서만 요금이 청구됩니다.
-  
-- **가상 네트워크** - Azure [가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/) 는 계산 집약적 인스턴스를 사용할 필요가 없습니다. 하지만 많은 배포에서 온-프레미스 리소스에 액세스해야 하는 경우 적어도 클라우드 기반 Azure 가상 네트워크 또는 사이트 간 연결이 필요합니다. 필요한 경우 인스턴스를 배포할 새 가상 네트워크를 만듭니다. 선호도 그룹에서 가상 네트워크에 계산 집약적 VM을 추가하는 것은 지원되지 않습니다.
-- **크기 조정** - 특수한 하드웨어로 인해 동일한 크기의 제품군(H 시리즈 또는 계산 집약적 A 시리즈) 내에서만 계산 집약적 인스턴스의 크기를 조정할 수 있습니다. 예를 들어 H 시리즈 VM 크기는 한 H 시리즈에서 다른 H 시리즈로만 조정할 수 있습니다. 또한 계산 집약적이지 않은 크기에서 계산 집약적 크기로 조정하는 것은 지원되지 않습니다.  
-
 > [!NOTE]
 > A8 – A11 VM은 2021년 3월에 출시될 예정입니다. 자세한 내용은 [HPC 마이그레이션 가이드를](https://azure.microsoft.com/resources/hpc-migration-guide/)참조하십시오.
 
 ## <a name="rdma-capable-instances"></a>RDMA 지원 인스턴스
 
-컴퓨팅 집약적 인스턴스(A8, A9, H16r, H16mr, HB 및 HC)의 하위 집합은 RDMA(원격 직접 메모리 액세스) 연결을 위한 네트워크 인터페이스를 갖추고 있습니다. NC24rs 구성(NC24rs_v2 및 NC24rs_v3)과 같이 'r'로 지정된 선택된 N 시리즈 크기도 RDMA가 지원됩니다. 이 인터페이스는 다른 VM 크기에서 사용할 수 있는 표준 Azure 네트워크 인터페이스 외에 추가로 사용됩니다.
+대부분의 HPC VM 크기(HBv2, HB, HC, H16r, H16mr, A8 및 A9)는 RDMA(원격 직접 메모리 액세스) 연결을 위한 네트워크 인터페이스를 갖추고 있습니다. 선택된 [N 시리즈](NC24rshttps://docs.microsoft.com/azure/virtual-machines/nc-series) 구성(NC24rs_v3, NC24rs_v2 및 NC24r)와 같은 'r'로 지정된 크기도 RDMA가 가능합니다. 이 인터페이스는 다른 VM 크기에서 사용할 수 있는 표준 Azure 네트워크 인터페이스에 추가됩니다.
 
-이 인터페이스를 통해 RDMA 지원 인스턴스는 HB, HC, H16r, H16mr 및 RDMA 지원 N 시리즈 가상 머신의 EDR 속도, A8 및 A9 가상 머신의 QDR 속도에 대해 EDR 속도로 작동하는 InfiniBand(IB) 네트워크를 통해 통신할 수 있습니다. 이러한 RDMA 기능은 특정 MPI(Message Passing Interface) 애플리케이션의 확장성 및 성능을 향상시킬 수 있습니다. 속도에 대한 자세한 내용은 이 페이지의 표에서 자세한 내용을 참조하십시오.
+이 인터페이스를 통해 RDMA 지원 인스턴스는 HBv2의 HDR 속도, HB, HC, H16r, H16mr 및 RDMA 지원 N 시리즈 가상 머신의 FDR 속도, A8 및 A9 VM용 QDR 레이트에서 작동하는 인피니밴드(IB) 네트워크를 통해 통신할 수 있습니다. 이러한 RDMA 기능은 특정 MPI(Message Passing Interface) 애플리케이션의 확장성 및 성능을 향상시킬 수 있습니다. 속도에 대한 자세한 내용은 이 페이지의 표에서 자세한 내용을 참조하십시오.
 
 > [!NOTE]
-> Azure에서 IB를 통해 IP는 SR-IOV 지원 VM(인피니밴드의 SR-IOV, 현재 HB 및 HC)에서만 지원됩니다. IB를 통해 RDMA는 모든 RDMA 지원 인스턴스에 대해 지원됩니다.
-- **운영 체제** - 위의 모든 HPC 시리즈 VM에 윈도우 서버 2016. Windows Server 2012 R2, Windows 서버 2012는 SR-IOV가 아닌 VM에서도 지원됩니다(따라서 HB 및 HC 제외).
+> Azure HPC에는 InfiniBand에서 SR-IOV를 사용하도록 설정했는지 여부에 따라 두 가지 클래스의 VM이 있습니다. 현재 인피니밴드 지원 VM용 SR-IOV는 HBv2, HB, HC 및 NCv3입니다. 인피니밴드 지원 VM의 나머지 는 SR-IOV가 활성화되어 있지 않습니다.
+> IB를 통해 RDMA는 모든 RDMA 지원 VM에 대해 지원됩니다.
+> IB를 통해 IP는 SR-IOV 지원 VM에서만 지원됩니다.
 
-- **MPI** - Azure(HB, HC)에서 SR-IOV를 활성화한 VM 크기를 사용하면 MPI의 거의 모든 맛을 Mellanox OFED와 함께 사용할 수 있습니다.
-SR-IOV가 아닌 VM에서 지원되는 MPI 구현은 MICROSOFT 네트워크 Direct(ND) 인터페이스를 사용하여 인스턴스 간에 통신합니다. 따라서, 만 마이크로 소프트 MPI (MS-MPI) 2012 R2 이상 및 인텔 MPI 5.x 버전이 지원됩니다. 인텔 MPI 런타임 라이브러리의 이후 버전(2017년, 2018년)은 Azure RDMA 드라이버와 호환되거나 호환되지 않을 수 있습니다.
+- **운영 체제** - 리눅스는 매우 잘 같은 CentOS, RHEL, 우분투, SUSE와 같은 배포판, HPC VM에 대한 지원됩니다. Windows 지원과 관련하여 Windows Server 2016은 모든 HPC 시리즈 VM에서 지원됩니다. Windows Server 2012 R2, Windows 서버 2012는 SR-IOV가 아닌 VM에서도 지원됩니다.
 
-- **인피니밴드드라이버윈도우 VM 확장** - RDMA 지원 VM에서 인피니밴드드라이버윈도우 확장을 추가하여 인피니밴드를 활성화합니다. 이 Windows VM 확장은 RDMA 연결을 위해 Windows 네트워크 직접 드라이버(SR-IOV VM이 아닌) 또는 Mellanox OFED 드라이버(SR-IOV VM)를 설치합니다.
-A8 및 A9 인스턴스의 특정 배포에서는 HpcVmDriver 확장이 자동으로 추가됩니다. HpcVmDriver VM 확장은 더 이상 사용되지 않습니다. 업데이트되지 않습니다. VM에 VM 확장을 추가해야 하는 경우 [Azure PowerShell](/powershell/azure/overview) cmdlet을 사용할 수 있습니다. 
+- **MPI** - SR-IOV는 Azure에서 VM 크기를 활성화 (HBv2, HB, HC, NCv3) MPI의 거의 모든 맛을 멜라녹스 OFED와 함께 사용할 수 있습니다.
+SR-IOV가 아닌 VM에서 지원되는 MPI 구현은 Microsoft 네트워크 Direct(ND) 인터페이스를 사용하여 VM 간에 통신합니다. 따라서, 만 마이크로 소프트 MPI (MS-MPI) 2012 R2 이상 및 인텔 MPI 5.x 버전이 지원됩니다. 인텔 MPI 런타임 라이브러리의 이후 버전(2017년, 2018년)은 Azure RDMA 드라이버와 호환되거나 호환되지 않을 수 있습니다.
+
+- **인피니밴드드라이버<리눅스 | 윈도우> VM 확장** - RDMA 지원 VM에, 리눅스에<인피니 밴드 드라이버를 추가 | 윈도우> 확장을 사용 하 게 InfiniBand. 리눅스에서, 인피니 밴드 드라이버 리눅스 VM 확장RDMA 연결을 위해 (SR-IOV VM에) ED 드라이버의 멜라녹스를 설치합니다. 윈도우에서 InfiniBandDriverWindows VM 확장은 RDMA 연결을 위해 Windows 네트워크 직접 드라이버(SR-IOV VM이 아닌) 또는 멜라녹스 OFED 드라이버(SR-IOV VM)를 설치합니다.
+A8 및 A9 인스턴스의 특정 배포에서는 HpcVmDriver 확장이 자동으로 추가됩니다. HpcVmDriver VM 확장은 더 이상 사용되지 않습니다. 업데이트되지 않습니다.
+VM에 VM 확장을 추가해야 하는 경우 [Azure PowerShell](/powershell/azure/overview) cmdlet을 사용할 수 있습니다. 
 
   다음 명령은 *미국 서부* 지역의 *myResourceGroup이라는* 리소스 그룹에 배포된 *myVM이라는* 기존 RDMA 지원 VM에 최신 버전 1.0 InfiniBandDriverWindows 확장을 설치합니다.
 
@@ -99,17 +90,33 @@ A8 및 A9 인스턴스의 특정 배포에서는 HpcVmDriver 확장이 자동으
 
 Azure에서는 다음을 비롯한 RDMA 네트워크를 사용하여 통신할 수 있는 Windows HPC VM의 클러스터를 만드는 몇 가지 옵션을 제공합니다. 
 
-- **가상 머신** - Azure Resource Manager 배포 모델을 사용하는 경우 동일한 가용성 집합에서 RDMA 가능 HPC VM을 배포합니다. 클래식 배포 모델을 사용하는 경우 동일한 클라우드 서비스에서 VM을 배포합니다. 
+- **가상 시스템** - 동일한 규모 집합 또는 가용성 집합(Azure Resource Manager 배포 모델을 사용하는 경우)에 RDMA 지원 HPC VM을 배포합니다. 클래식 배포 모델을 사용하는 경우 동일한 클라우드 서비스에서 VM을 배포합니다.
 
-- **가상 시스템 크기 집합** - 가상 시스템 크기 집합에서 배포를 단일 배치 그룹으로 제한해야 합니다. 예를 들어, Resource Manager 템플릿에서 `singlePlacementGroup` 속성을 `true`로 설정합니다. 
+- **가상 시스템 크기 집합** - VMSS(가상 시스템 확장 집합)에서 배포를 단일 배치 그룹으로 제한해야 합니다. 예를 들어, Resource Manager 템플릿에서 `singlePlacementGroup` 속성을 `true`로 설정합니다. 속성과 함께 `singlePlacementGroup` 스펀할 수 있는 최대 VMSS `true` 크기는 기본적으로 100VM로 제한됩니다. 단일 VMSS 테넌트에서 HPC 작업 규모 요구사항이 100VM보다 높은 경우 증가를 요청하고 [온라인 고객 지원 요청을](../azure-supportability/how-to-create-azure-support-request.md) 무료로 열 수 있습니다.
 
-- **가상 시스템 간의 MPI** - 가상 시스템(VM) 간에 MPI 통신이 필요한 경우 VM이 동일한 가용성 집합또는 가상 컴퓨터와 동일한 규모 집합에 있는지 확인합니다.
+- **가상 시스템 간의 MPI** - 가상 시스템(예: MPI 통신 사용)이 가상 시스템(VM) 간에 필요한 경우 VM이 동일한 가상 시스템 규모 집합 또는 가용성 집합에 있는지 확인합니다.
 
-- **Azure CycleCloud** - [Azure CycleCloud](/azure/cyclecloud/)에서 HPC 클러스터를 만들어서 Windows 노드에서 MPI 작업을 실행합니다.
+- **Azure CycleCloud** - [Azure CycleCloud에서](/azure/cyclecloud/) HPC 클러스터를 만들어 MPI 작업을 실행합니다.
 
-- **Azure Batch** - [Azure Batch](/azure/batch/) 풀을 만들어서 Windows Server 컴퓨팅 노드에서 MPI 워크로드를 실행합니다. 자세한 내용은 [Batch 풀에서 RDMA 가능 또는 GPU 가능 인스턴스 사용](../batch/batch-pool-compute-intensive-sizes.md)을 참조하세요. 또한 Batch에서 컨테이너 기반 워크로드를 실행하는 방법은 [Batch Shipyard](https://github.com/Azure/batch-shipyard) 프로젝트를 참조하세요.
+- **Azure 일괄 처리** - MPI 워크로드를 실행하기 위해 [Azure 일괄 처리](/azure/batch/) 풀을 만듭니다. Azure Batch에서 MPI 애플리케이션 실행할 때 계산 집약적 인스턴스를 사용하려면 [다중 인스턴스 작업을 사용하여 Azure Batch에서 MPI(메시지 전달 인터페이스) 애플리케이션 실행](../batch/batch-mpi.md)을 참조하세요.
 
 - **Microsoft HPC 팩** - [HPC 팩에는](https://docs.microsoft.com/powershell/high-performance-computing/overview) RDMA 지원 Linux VM에 배포할 때 Azure RDMA 네트워크를 사용하는 MS-MPI용 런타임 환경이 포함되어 있습니다. 예를 들어 배포를 참조하여 [MpI 응용 프로그램을 실행하기 위해 HPC 팩을 사용하여 Linux RDMA 클러스터 를 설정합니다.](https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-linux-openfoam)
+
+## <a name="deployment-considerations"></a>배포 고려 사항
+
+- **Azure 구독** - 몇몇 계산 집약적 인스턴스를 배포하려면 종량제 구독 또는 기타 구매 옵션을 고려합니다. [Azure 무료 계정](https://azure.microsoft.com/free/)을 사용하는 경우, 제한된 수의 Azure 컴퓨팅 코어만 사용할 수 있습니다.
+
+- **가격 책정 및 가용성** - 이러한 VM 크기는 표준 가격 책정 계층에만 제공됩니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/) 에서 Azure 지역의 가용성을 확인하세요.
+
+- **코어 할당량** – 기본값에서 Azure 구독의 코어 할당량을 늘려야 합니다. 구독에 따라서도 H 시리즈를 포함하여 특정 VM 크기 제품군에 배포할 수 있는 코어 수가 제한될 수 있습니다. 할당량 증가를 요청하려면 온라인 [고객 지원 요청을](../azure-supportability/how-to-create-azure-support-request.md) 무료로 엽니다. (기본 제한은 구독 범주에 따라 달라질 수 있습니다.)
+
+  > [!NOTE]
+  > 대규모 용량이 필요한 경우 Azure 지원에 문의합니다. Azure 할당량은 신용 제한이며 용량 보증이 아닙니다. 할당량에 관계 없이 사용하는 코어에 대해서만 요금이 청구됩니다.
+  
+- **가상 네트워크** - Azure [가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/) 는 계산 집약적 인스턴스를 사용할 필요가 없습니다. 하지만 많은 배포에서 온-프레미스 리소스에 액세스해야 하는 경우 적어도 클라우드 기반 Azure 가상 네트워크 또는 사이트 간 연결이 필요합니다. 필요한 경우 인스턴스를 배포할 새 가상 네트워크를 만듭니다. 선호도 그룹에서 가상 네트워크에 계산 집약적 VM을 추가하는 것은 지원되지 않습니다.
+
+- **크기 조정** - 특수한 하드웨어로 인해 동일한 크기의 제품군(H 시리즈 또는 계산 집약적 A 시리즈) 내에서만 계산 집약적 인스턴스의 크기를 조정할 수 있습니다. 예를 들어 H 시리즈 VM 크기는 한 H 시리즈에서 다른 H 시리즈로만 조정할 수 있습니다. 또한 계산 집약적이지 않은 크기에서 계산 집약적 크기로 조정하는 것은 지원되지 않습니다.  
+
 
 ## <a name="other-sizes"></a>기타 크기
 
@@ -122,8 +129,6 @@ Azure에서는 다음을 비롯한 RDMA 네트워크를 사용하여 통신할 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- Windows 서버에서 HPC 팩을 사용하여 계산 집약적인 인스턴스를 사용하는 검사 목록은 [MPI 응용 프로그램을 실행하기 위해 HPC 팩을 사용하여 Linux RDMA 클러스터 를 설정합니다.](https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-linux-openfoam)
-
-- Azure Batch에서 MPI 애플리케이션 실행할 때 계산 집약적 인스턴스를 사용하려면 [다중 인스턴스 작업을 사용하여 Azure Batch에서 MPI(메시지 전달 인터페이스) 애플리케이션 실행](../batch/batch-mpi.md)을 참조하세요.
+- Azure에 대한 HPC 응용 프로그램 최적화및 [HPC 워크로드] (https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/overview) 
 
 - [ACU(Azure 컴퓨팅 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.

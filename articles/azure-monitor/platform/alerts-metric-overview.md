@@ -4,12 +4,12 @@ description: 메트릭 경고로 수행할 수 있는 작업과 Azure Monitor에
 ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: b6d8bc69a407838025c5e78e0a1c773ab457c409
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a6860cad077b597df923274f8971f5652d4ba9e3
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480235"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397984"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
 
@@ -140,6 +140,10 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 - 구독의 모든 가상 머신(한 Azure 지역에 있는)
 
 여러 리소스를 모니터링하는 메트릭 경고 규칙을 만드는 작업은 단일 리소스를 모니터링하는 [다른 메트릭 경고를 만드는](alerts-metric.md) 것과 같습니다. 차이점은 모니터링하려는 모든 리소스를 사용자가 선택한다는 것입니다. [Azure Resource Manager 템플릿](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources)을 통해 이러한 규칙을 만들 수도 있습니다. 모니터링되는 각 리소스에 대한 개별 알림을 받게 됩니다.
+
+> [!NOTE]
+>
+> 여러 리소스를 모니터링하는 메트릭 경고 규칙에서는 하나의 조건만 허용됩니다.
 
 ## <a name="typical-latency"></a>일반적인 대기 시간
 

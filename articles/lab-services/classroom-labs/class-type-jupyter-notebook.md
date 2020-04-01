@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: dfb133f9aa3dd9b76f8b4ea4c6188cfaf9a67b75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 371c2186d44469a22b138255fb513761a9be4437
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77444114"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478227"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>파이썬 및 주피터 노트북으로 데이터 과학을 가르치는 실험실 설정
 
@@ -26,7 +26,7 @@ ms.locfileid: "77444114"
 
 ## <a name="lab-configuration"></a>랩 구성
 
-이 랩을 설정하려면 Azure 구독 및 랩 계정을 시작해야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독을 받으면 Azure Lab 서비스에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정을 만드는 자세한 내용은 [랩 계정을 설정하는 자습서를](tutorial-setup-lab-account.md)참조하십시오.  기존 랩 계정을 사용할 수도 있습니다.
+이 랩을 설정하려면 Azure 구독 및 랩 계정을 시작해야 합니다. Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://azure.microsoft.com/free/) 만드세요. Azure 구독을 받으면 Azure Lab 서비스에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정을 만드는 자세한 내용은 [랩 계정을 설정하는 자습서를](tutorial-setup-lab-account.md)참조하십시오.  기존 랩 계정을 사용할 수도 있습니다.
 
 ### <a name="lab-account-settings"></a>랩 계정 설정
 
@@ -34,10 +34,10 @@ ms.locfileid: "77444114"
 
 | 랩 계정 설정 | Instructions |
 | ------------------- | ------------ |
-| 마켓플레이스 이미지 | 랩 계정 내에서 사용할 수 있도록 [데이터 과학 가상 컴퓨터 - Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) 이미지를 사용하도록 설정합니다. |
+| 마켓플레이스 이미지 | 랩 계정 내에서 사용할 수 있도록 [데이터 과학 가상 컴퓨터 - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) 이미지를 사용하도록 설정합니다. |
 
 >[!TIP]
->이 문서에서는 Windows Server 운영 체제를 사용하는 템플릿 컴퓨터를 구성하는 데 중점을 둡니다.  또한 Azure 마켓플레이스의 [데이터 과학 가상 머신(CentOS)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm) 또는 [리눅스용 데이터 과학 가상 머신(우분투)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) 이미지를 사용하여 Python 및 Jupyter 노트북을 사용하여 데이터 과학 클래스를 설정할 수도 있습니다.
+>이 문서에서는 Windows Server 운영 체제를 사용하는 템플릿 컴퓨터를 구성하는 데 중점을 둡니다.  또한 Azure 마켓플레이스의 [데이터 과학 가상 머신(우분투)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) 이미지를 사용하여 파이썬 및 Jupyter 노트북을 사용하여 데이터 과학 클래스를 설정할 수도 있습니다.
 
 ### <a name="lab-settings"></a>랩 설정
 
@@ -50,7 +50,7 @@ ms.locfileid: "77444114"
 
 ## <a name="template-machine"></a>템플릿 기계
 
-[데이터 과학 가상 머신 - Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) 이미지는 이러한 유형의 클래스에 필요한 딥 러닝 프레임워크와 도구를 제공합니다.  이미지에는 Jupyter 노트북과 비주얼 스튜디오 코드가 포함되어 있습니다.  [Jupyter Notebooks는](http://jupyter-notebook.readthedocs.io) 데이터 과학자가 원시 데이터를 취하고 계산을 실행하고 동일한 환경에서 결과를 볼 수 있게 해주는 웹 응용 프로그램입니다.  템플릿 컴퓨터의 경우 웹 응용 프로그램이 로컬로 실행됩니다.  [Visual Studio 코드는](https://code.visualstudio.com/) 노트북을 작성하고 테스트할 때 풍부한 대화형 환경을 제공하는 IDE입니다.  자세한 내용은 [Visual Studio 코드의 Jupyter 노트북 작업을](https://code.visualstudio.com/docs/python/jupyter-support)참조하십시오.
+[데이터 과학 가상 머신 - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) 이미지는 이러한 유형의 클래스에 필요한 딥 러닝 프레임워크와 도구를 제공합니다.  이미지에는 Jupyter 노트북과 비주얼 스튜디오 코드가 포함되어 있습니다.  [Jupyter Notebooks는](http://jupyter-notebook.readthedocs.io) 데이터 과학자가 원시 데이터를 취하고 계산을 실행하고 동일한 환경에서 결과를 볼 수 있게 해주는 웹 응용 프로그램입니다.  템플릿 컴퓨터의 경우 웹 응용 프로그램이 로컬로 실행됩니다.  [Visual Studio 코드는](https://code.visualstudio.com/) 노트북을 작성하고 테스트할 때 풍부한 대화형 환경을 제공하는 IDE입니다.  자세한 내용은 [Visual Studio 코드의 Jupyter 노트북 작업을](https://code.visualstudio.com/docs/python/jupyter-support)참조하십시오.
 
 클래스를 설정하는 나머지 작업은 로컬 전자 필기장을 제공하는 것입니다.  Azure 기계 학습 샘플을 사용하는 방법에 대한 지침은 [Jupyter 노트북으로 환경을 구성하는 방법을 참조하세요.](../../machine-learning/how-to-configure-environment.md#jupyter)  템플릿 컴퓨터에서 사용자 고유의 전자 필기장을 제공할 수도 있습니다.  템플릿이 게시되면 전자 필기장이 모든 학생 컴퓨터에 복사됩니다.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 25e2b488d3b6e7e5cabd1a71d1489efaf01231b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0383a512dfb7c2bb1ae2422b9ade1e3c7387a70c
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73748541"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478313"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>구성 서버 문제 해결
 
@@ -42,7 +42,7 @@ ms.locfileid: "73748541"
     3. [Site Recovery 폴더에 나열된 폴더가 바이러스 백신 프로그램](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program)에서 제외되고 바이러스 백신 소프트웨어에서 제외되도록 해야 합니다.
     4. 네트워크 문제가 해결되면 [구성 서버에 원본 머신 등록](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server)의 지침에 따라 등록을 다시 시도합니다.
 
-6. 문자열 **게시 요청: (7) - 서버에 연결할 수 없는** 경우 동일한 로그 파일에서 문자열 요청을 찾습니다: **(60) - 피어 인증서는 지정된 CA 인증서로 인증할 수 없습니다.** 이 오류는 구성 서버 인증서가 만료되었거나 원본 머신이 TLS 1.0 이상 SSL 프로토콜을 지원하지 않기 때문에 발생할 수 있습니다. 또한 방화벽이 원본 머신과 구성 서버 간의 SSL 통신을 차단하면 발생할 수 있습니다. 문자열이 검색되면: 
+6. 문자열 **게시 요청: (7) - 서버에 연결할 수 없는** 경우 동일한 로그 파일에서 문자열 요청을 찾습니다: **(60) - 피어 인증서는 지정된 CA 인증서로 인증할 수 없습니다.** 구성 서버 인증서가 만료되었거나 원본 컴퓨터가 TLS 1.0 이상 프로토콜을 지원하지 않기 때문에 이 오류가 발생할 수 있습니다. 방화벽이 원본 컴퓨터와 구성 서버 간의 TLS 통신을 차단하는 경우에도 발생할 수 있습니다. 문자열이 검색되면: 
     1. 해결을 위해, 원본 머신의 웹 브라우저를 사용하여 구성 서버 IP 주소에 연결합니다. https:\/\/<configuration server IP address\>:443/ URI를 사용합니다. 원본 머신이 포트 443을 통해 구성 서버에 연결할 수 있는지 확인합니다.
     2. 원본 머신이 구성 서버와 통신하기 위해 원본 머신에서 방화벽 규칙을 추가하거나 제거해야 하는지 확인합니다. 사용하는 방화벽 소프트웨어가 다양하기 때문에, 필요한 방화벽 구성을 모두 나열할 수는 없습니다. 연결 문제가 있으면 네트워크 관리자와 협력하여 차단을 해제하십시오.
     3. [Site Recovery 폴더에 나열된 폴더가 바이러스 백신 프로그램](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program)에서 제외되고 바이러스 백신 소프트웨어에서 제외되도록 해야 합니다.  

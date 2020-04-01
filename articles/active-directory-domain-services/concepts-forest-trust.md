@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 8b79e0fb24c15d2e9f16640e90d62f7df5c21f32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 903881a1d15c1f043e381f50e5b69d661cd08192
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74233702"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476429"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Azure Active Directory 도메인 서비스의 리소스 포리스트에 대한 트러스트 관계 작동 방식
 
@@ -146,7 +146,7 @@ NTLM 인증 프로토콜은 클라이언트 인증 및 권한 부여 정보에 �
     * 그렇다면 인증 요청을 트러스트 경로의 다음 도메인에 전달합니다. 이 도메인 컨트롤러는 사용자의 자격 증명을 자체 보안 계정 데이터베이스에 대해 확인하여 프로세스를 반복합니다.
     * 이 경우 클라이언트에게 로그온 거부 메시지를 보냅니다.
 
-### <a name="kerberos-based-processing-of-authentication-requests-over-forest-trusts"></a>포리스트 트러스트를 통해 인증 요청의 Kerberos 기반 처리
+### <a name="kerberos-based-processing-of-authentication-requests-over-forest-trusts"></a>포리스트 트러스트를 통해 인증 요청처리Kerberos 기반 처리
 
 포리스트 트러스트에 의해 두 포리스트가 연결되면 Kerberos V5 또는 NTLM 프로토콜을 사용하여 만든 인증 요청을 포리스트 간에 라우팅하여 두 포리스트의 리소스에 대한 액세스를 제공할 수 있습니다.
 

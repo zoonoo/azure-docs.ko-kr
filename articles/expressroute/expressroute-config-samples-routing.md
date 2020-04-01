@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 12/06/2018
-ms.author: cherylmc
-ms.openlocfilehash: 2c37dadeb669fb88f858b5487379828a8dddec6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/26/2020
+ms.author: osamaz
+ms.openlocfilehash: 5304aefaf3ad70bb552b4b0d1b26fcce9867c9c0
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74076658"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397742"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>라우팅 설정 및 관리를 위한 라우터 구성 샘플
 이 페이지는 ExpressRoute를 사용하여 작업할 때 Cisco IOS-XE 및 Juniper MX 시리즈 라우터에 대한 인터페이스 및 라우팅 구성 샘플을 제공합니다. 이러한 샘플은 참조용이므로 그대로 사용해서는 안 됩니다. 사용 중인 네트워크에 적절하게 구성하려면 공급업체와 작업하면 됩니다. 
@@ -91,6 +91,25 @@ Microsoft에 연결하는 모든 라우터에서 피어링별로 하위 인터�
     !
     route-map <MS_Prefixes_Inbound> permit 10
      match ip address prefix-list <MS_Prefixes>
+    !
+
+### <a name="5-configuring-bfd"></a>5. BFD 구성
+
+두 위치에서 BFD를 구성합니다. 인터페이스 수준에서 하나, 다른 하나는 BGP 수준에서. 아래 예는 QinQ 인터페이스입니다. 
+
+    interface GigabitEthernet<Interface_Number>.<Number>
+     bfd interval 300 min_rx 300 multiplier 3
+     encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
+     ip address <IPv4_Address><Subnet_Mask>
+    
+    router bgp <Customer_ASN>
+     bgp log-neighbor-changes
+     neighbor <IP#2_used_by_Azure> remote-as 12076
+     !        
+     address-family ipv4
+      neighbor <IP#2_used_by_Azure> activate
+      neighbor <IP#2_used_by_Azure> fall-over bfd
+     exit-address-family
     !
 
 
@@ -173,7 +192,7 @@ Microsoft에 연결하는 모든 라우터에서 피어링별로 하위 인터�
     }
 
 
-### <a name="4-route-maps"></a>4. 경로 지도
+### <a name="4-route-policies"></a>4. 경로 정책
 경로 맵과 접두사 목록을 사용하여 네트워크에 전파되는 접두사를 필터링할 수 있습니다. 아래의 샘플을 사용하여 이 작업을 수행할 수 있습니다. 적절한 접두사 목록이 설정되어 있어야 합니다.
 
     policy-options {
@@ -203,6 +222,24 @@ Microsoft에 연결하는 모든 라우터에서 피어링별로 하위 인터�
         }                                   
     }
 
+### <a name="4-configuring-bfd"></a>4. BFD 구성
+프로토콜 BGP 섹션에서만 BFD를 구성합니다.
+
+    protocols {
+        bgp { 
+            group <Group_Name> { 
+                peer-as 12076;              
+                neighbor <IP#2_used_by_Azure>;
+                bfd-liveness-detection {
+                       minimum-interval 3000;
+                       multiplier 3;
+                }
+            }                               
+        }                                   
+    }
+
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md) 를 참조하세요.
+
+
 

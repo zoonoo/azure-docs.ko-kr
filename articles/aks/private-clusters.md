@@ -4,12 +4,12 @@ description: 개인 Azure Kubernetes 서비스(AKS) 클러스터를 만드는 �
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: cdefcfe460a97f647afa05947e92fae0c4d07001
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87f52c5a749b531e5b0656e0b30ff0fe9c1a57bf
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79499295"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398070"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>프라이빗 Azure Kubernetes 서비스 클러스터 만들기
 
@@ -80,6 +80,18 @@ AKS 클러스터와 동일한 VNET에서 VM을 만드는 것이 가장 쉬운 �
 7. 왼쪽 창에서 **피어링을 선택합니다.**  
 8. **추가를**선택하고 VM의 가상 네트워크를 추가한 다음 피어링을 만듭니다.  
 9. VM이 있는 가상 네트워크로 이동하여 **피어링을**선택하고 AKS 가상 네트워크를 선택한 다음 피어링을 만듭니다. 주소가 AKS 가상 네트워크와 VM의 가상 네트워크 간섭범위인 경우 피어링이 실패합니다. 자세한 내용은 [가상 네트워크 피어링][virtual-network-peering]을 참조하십시오.
+
+## <a name="hub-and-spoke-with-custom-dns"></a>허브 및 사용자 지정 DNS로 말하기
+
+[허브 및 스포크 아키텍처는](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) 일반적으로 Azure에서 네트워크를 배포하는 데 사용됩니다. 이러한 배포의 대부분은 스포크 VNet의 DNS 설정이 온-프레미스 및 Azure 기반 DNS 확인을 허용하도록 중앙 DNS 전달자를 참조하도록 구성됩니다. 이러한 네트워킹 환경에 AKS 클러스터를 배포할 때 고려해야 할 몇 가지 특별한 고려 사항이 있습니다.
+
+![개인 클러스터 허브 및 스포크](media/private-clusters/aks-private-hub-spoke.png)
+
+1. 기본적으로 개인 클러스터가 프로비전될 때 클러스터 관리 리소스 그룹에 개인 끝점(1)과 개인 DNS 영역(2)이 만들어집니다. 클러스터는 개인 영역에서 A 레코드를 사용하여 API 서버에 통신하기 위해 개인 끝점의 IP를 확인합니다.
+
+2. 개인 DNS 영역은 클러스터 노드가 연결된 VNet에만 연결됩니다(3). 즉, 개인 끝점은 연결된 VNet의 호스트만 확인할 수 있습니다. VNet(기본값)에서 사용자 지정 DNS가 구성되지 않은 시나리오에서는 링크로 인해 개인 DNS 영역에서 레코드를 확인할 수 있는 DNS의 경우 호스트 포인트 168.63.129.16에서 문제 없이 작동합니다.
+
+3. 클러스터를 포함하는 VNet에 사용자 지정 DNS 설정(4)이 있는 시나리오에서는 개인 DNS 영역이 사용자 지정 DNS 확인자(5)를 포함하는 VNet에 연결되지 않는 한 클러스터 배포가 실패합니다. 이 링크는 Azure Policy 또는 기타 이벤트 기반 배포 메커니즘(예: Azure Event Grid 및 Azure Functions)을 사용하여 영역을 만들 때 클러스터 프로비저닝 중에 또는 자동화를 통해 개인 영역을 만든 후 수동으로 만들 수 있습니다.
 
 ## <a name="dependencies"></a>종속성  
 

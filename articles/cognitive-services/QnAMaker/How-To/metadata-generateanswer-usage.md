@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 03/31/2020
 ms.author: diberry
-ms.openlocfilehash: 6a8cbabfd4e47c50d2c2e6f4a23c50a931e645a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9beb6dbbba1c5855b8bfa97fc02f50aa59225d78
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79221448"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474861"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>생성답변 API 및 메타데이터로 답변 받기
 
@@ -46,7 +46,7 @@ QnA 엔터티마다 고유한 영구 ID가 있습니다. ID를 사용하여 특�
 [QnA Maker 포털에서](https://www.qnamaker.ai)또는 [API를](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish)사용하여 기술 자료를 게시한 후 생성Answer 끝점의 세부 정보를 얻을 수 있습니다.
 
 엔드포인트 세부 정보를 가져오려면 다음을 수행합니다.
-1. 에 로그인합니다. [https://www.qnamaker.ai](https://www.qnamaker.ai)
+1. [https://www.qnamaker.ai](https://www.qnamaker.ai)에 로그인합니다.
 1. **내 기술 기반에서**기술 자료에 대한 **코드 보기를** 선택합니다.
     ![내 지식 자료의 스크린샷](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. GenerateAnswer 엔드포인트 세부 정보를 가져옵니다.
@@ -146,8 +146,6 @@ var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnCont
 
 이전 JSON은 임계값 점수가 30% 이상인 답변만 요청했습니다.
 
-지원 봇에는 이 [코드의 예가](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-support/csharp_dotnetcore/Service/SupportBotService.cs#L418) 있습니다.
-
 ## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Node.js의 봇과 함께 QnA 메이커 사용
 
 봇 프레임워크는 [getAnswer API를](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-)사용하여 QnA Maker의 속성에 대한 액세스를 제공합니다.
@@ -165,8 +163,6 @@ var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOpt
 ```
 
 이전 JSON은 임계값 점수가 30% 이상인 답변만 요청했습니다.
-
-지원 봇에는 이 [코드의 예가](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/dialogHelper.js#L36) 있습니다.
 
 <a name="metadata-example"></a>
 

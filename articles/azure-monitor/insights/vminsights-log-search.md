@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 71258b04bad9a7aec4e86564d51d1d6f3f8cac76
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 61a71539dc034a216689eafd8991df60db96d2a4
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283806"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396919"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>VM용 Azure Monitor에서 로그를 쿼리하는 방법
 
@@ -47,7 +47,7 @@ VM용 Azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로세스 �
 
 비용 및 복잡성을 관리하기 위해 연결 레코드는 개별 물리적 네트워크 연결을 나타내지 않습니다. 여러 물리적 네트워크 연결은 논리적 연결로 그룹화됩니다. 그런 다음, 각 테이블에 반영됩니다.  즉, *VMConnection* 테이블의 레코드는 관찰되는 개별 물리적 연결이 아닌 논리적 그룹화를 나타냅니다. 지정된 1분 간격 동안 다음 특성에 대해 동일한 값을 공유하는 물리적 네트워크 연결이 *VMConnection*의 단일 논리적 레코드에 집계됩니다. 
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |Direction |연결 방향으로 값은 *인바운드* 또는 *아웃바운드*입니다. |
 |컴퓨터 |컴퓨터 FQDN |
@@ -59,7 +59,7 @@ VM용 Azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로세스 �
 
 그룹화의 영향을 고려하기 위해 그룹화된 물리적 연결 수에 대한 정보가 다음과 같은 레코드 속성에서 제공됩니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |LinksEstablished |보고 기간 동안 설정된 물리적 네트워크 연결의 수 |
 |LinksTerminated |보고 기간 동안 종료된 물리적 네트워크 연결의 수 |
@@ -70,7 +70,7 @@ VM용 Azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로세스 �
 
 연결 수 메트릭 외에도 지정된 논리적 연결 또는 네트워크 포트에 전송 및 수신된 데이터의 볼륨에 대한 정보도 다음과 같은 레코드 속성에 포함됩니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |BytesSent |보고 기간 동안 전송된 총 바이트 수 |
 |BytesReceived |보고 기간 동안 수신된 총 바이트 수 |
@@ -98,7 +98,7 @@ VM용 Azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로세스 �
 
 또한 *VMConnection*은 다음과 같은 레코드 속성에서 각 연결 레코드의 원격 끝에 대한 지리적 위치 정보를 포함합니다. 
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |RemoteCountry |RemoteIp를 호스팅하는 국가/지역의 이름입니다.  예를 들어, *미국* |
 |RemoteLatitude |지리적 위치 위도입니다. 예: *47.68* |
@@ -108,11 +108,11 @@ VM용 Azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로세스 �
 
 *VMConnection* 테이블의 모든 RemoteIp 속성을 알려진 악의적인 활동의 IP 집합에 대해 검사합니다. RemoteIp가 악성으로 식별되면 다음과 같은 속성이 다음과 같은 레코드 속성에서 채워집니다(IP가 악성으로 간주되지 않으면 비어 있음).
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |MaliciousIp |RemoteIp 주소 |
 |IndicatorThreadType |검색된 위협 표시기가 *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist* 값 중 하나입니다.   |
-|설명 |관찰된 위협에 대한 설명입니다. |
+|Description |관찰된 위협에 대한 설명입니다. |
 |TLPLevel |TLP(Traffic Light Protocol) 수준은 정의된 *White*, *Green*, *Amber*, *Red* 값 중 하나입니다. |
 |신뢰도 |값은 *0 - 100*입니다. |
 |심각도 |값은 *0 - 5*입니다. 여기서 *5*는 가장 심각하고 *0*은 심각하지 않습니다. 기본값은 *3*입니다.  |
@@ -128,7 +128,7 @@ VM용 Azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로세스 �
 
 VMBoundPort의 모든 레코드는 다음 필드로 식별됩니다. 
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |Process | 포트가 연결된 프로세스(또는 프로세스 그룹)의 ID입니다.|
 |Ip | 포트 IP 주소(와일드카드 IP, *0.0.0.0)* |
@@ -156,7 +156,7 @@ ID 포트는 위의 다섯 개 필드에서 파생되며 PortId 속성에 저장
 
 *VMComputer* 유형이 있는 레코드에는 종속성 에이전트가 있는 서버에 대한 인벤토리 데이터가 있습니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |TenantId | 작업 영역의 고유 식별자 |
 |SourceSystem | *Insights* | 
@@ -218,7 +218,7 @@ ID 포트는 위의 다섯 개 필드에서 파생되며 PortId 속성에 저장
 
 *VMProcess* 유형이 있는 레코드에는 종속성 에이전트가 있는 서버에서 TCP에 연결된 프로세스에 대한 인벤토리 데이터가 있습니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |TenantId | 작업 영역의 고유 식별자 |
 |SourceSystem | *Insights* | 
@@ -233,7 +233,7 @@ ID 포트는 위의 다섯 개 필드에서 파생되며 PortId 속성에 저장
 |그룹 | 프로세스 그룹 이름입니다. 동일한 그룹의 프로세스는 논리적으로 관련되어 있습니다(예: 동일한 제품 또는 시스템 구성 요소의 일부). |
 |StartTime | 프로세스 풀 시작 시간 |
 |퍼스트 피드 | 프로세스 풀의 첫 번째 PID |
-|설명 | 프로세스 설명 |
+|Description | 프로세스 설명 |
 |CompanyName | 회사의 이름 |
 |InternalName | 내부 이름 |
 |ProductName | 제품 이름 |
@@ -265,7 +265,7 @@ let Today = now(); VMComputer | extend DaysSinceBoot = Today - BootTime | summar
 ### <a name="summary-of-azure-vms-by-image-location-and-sku"></a>이미지, 위치 및 SKU별 Azure VM 요약
 
 ```kusto
-VMComputer | where AzureLocation != "" | summarize by ComputerName, AzureImageOffering, AzureLocation, AzureImageSku
+VMComputer | where AzureLocation != "" | summarize by Computer, AzureImageOffering, AzureLocation, AzureImageSku
 ```
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>관리되는 모든 컴퓨터의 실제 메모리 용량 나열
@@ -283,7 +283,7 @@ VMComputer | summarize arg_max(TimeGenerated, *) by _ResourceId | project Comput
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>명령줄에서 "sql"로 모든 프로세스 찾기
 
 ```kusto
-VMComputer | where CommandLine contains_cs "sql" | summarize arg_max(TimeGenerated, *) by _ResourceId
+VMProcess | where CommandLine contains_cs "sql" | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>리소스 이름으로 컴퓨터(가장 최근 레코드) 찾기
@@ -307,7 +307,7 @@ VMProcess | where Machine == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summariz
 ### <a name="list-all-computers-running-sql-server"></a>SQL Server를 실행하는 모든 컴퓨터 나열
 
 ```kusto
-VMComputer | where AzureResourceName in ((search in (VMProcess) "\*sql\*" | distinct Machine)) | distinct Computer
+VMComputer | where AzureResourceName in ((search in (VMProcess) "*sql*" | distinct Machine)) | distinct Computer
 ```
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>내 데이터 센터에서 curl의 고유한 제품 버전 모두 나열
@@ -319,7 +319,7 @@ VMProcess | where ExecutableName == "curl" | distinct ProductVersion
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>CentOS를 실행하는 모든 컴퓨터의 컴퓨터 그룹 만들기
 
 ```kusto
-VMComputer | where OperatingSystemFullName contains_cs "CentOS" | distinct ComputerName
+VMComputer | where OperatingSystemFullName contains_cs "CentOS" | distinct Computer
 ```
 
 ### <a name="bytes-sent-and-received-trends"></a>보내고 받은 바이트 수 추세
@@ -434,7 +434,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 *InsightsMetrics* 유형이 있는 레코드에는 가상 시스템의 게스트 운영 체제의 성능 데이터가 있습니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |TenantId | 작업 영역에 대한 고유 식별자 |
 |SourceSystem | *Insights* | 
@@ -442,7 +442,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 |Computer | 컴퓨터 FQDN | 
 |원본 | *vm.azm.ms* |
 |네임스페이스 | 성능 카운터의 범주 | 
-|이름 | 성능 카운터의 이름입니다. |
+|속성 | 성능 카운터의 이름입니다. |
 |Val | 수집된 값 | 
 |태그들 | 레코드에 대한 관련 세부 정보입니다. 다른 레코드 유형과 함께 사용되는 태그는 아래 표를 참조하십시오.  |
 |AgentId | 각 컴퓨터 에이전트에 대한 고유 식별자 |
@@ -451,7 +451,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 *InsightsMetrics* 테이블에 현재 수집된 성능 카운터는 다음 표에 나열됩니다.
 
-| 네임스페이스 | 이름 | 설명 | 단위 | 태그들 |
+| 네임스페이스 | 속성 | Description | 단위 | 태그들 |
 |:---|:---|:---|:---|:---|
 | Computer    | Heartbeat             | 컴퓨터 하트비트                        | | |
 | 메모리      | 사용 가능한 MB           | 사용 가능한 메모리 바이트                    | 바이트          | 메모리크기MB - 총 메모리 크기|

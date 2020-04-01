@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 7e1ea234bde96ce84259841bbc592bf6373bc639
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c01f5f41e61cd65855789bb753a7a297fe475885
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "71802804"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396339"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>QnA Maker 및 LUIS와 함께 봇을 사용하여 기술 자료 배포
 QnA Maker 기술 자료가 확장되면 단일 모놀리식 집합으로 유지 관리하기가 어려워지며, 기술 자료를 보다 작은 논리적 청크로 분할해야 합니다.
@@ -37,13 +37,13 @@ QnA Maker에서 간단하게 여러 기술 자료를 만들 수 있지만, 들�
 1. [앱을 만듭니다.](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app)
 1. 각 QnA Maker 기술 자료에 대해 [의도를 추가](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents)합니다. 예제 발언은 QnA Maker 기술 자료의 질문과 일치해야 합니다.
 1. [LUIS 앱을 학습](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train)하고 [LUIS 앱을 게시](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp)합니다.
-1. **관리** 섹션에서 LUIS 앱 ID, LUIS 끝점 키 및 [사용자 지정 도메인 이름을](../../cognitive-services-custom-subdomains.md)기록합니다. 나중에 이러한 값이 필요합니다. 
+1. **관리** 섹션에서 LUIS 앱 ID, LUIS 끝점 키 및 [사용자 지정 도메인 이름을](../../cognitive-services-custom-subdomains.md)기록합니다. 나중에 이러한 값이 필요합니다.
 
 ## <a name="create-qna-maker-knowledge-bases"></a>QnA Maker 기술 자료 만들기
 
 1. [QnA 메이커에](https://qnamaker.ai)로그인합니다.
 1. LUIS 앱의 각 의도에 대해 기술 자료를 [만듭니다](https://www.qnamaker.ai/Create).
-1. 기술 자료를 테스트하고 게시합니다. 각 KB를 게시할 때 KB ID, 리소스 _이름(.azurewebsites.net/qnamaker_이전의 사용자 지정 하위 도메인) 및 권한 부여 끝점 키를 기록합니다. 나중에 이러한 값이 필요합니다. 
+1. 기술 자료를 테스트하고 게시합니다. 각 KB를 게시할 때 KB ID, 리소스 _이름(.azurewebsites.net/qnamaker_이전의 사용자 지정 하위 도메인) 및 권한 부여 끝점 키를 기록합니다. 나중에 이러한 값이 필요합니다.
 
     이 문서에서는 기술 자료가 모두 동일한 Azure QnA Maker 구독에서 생성된다고 가정합니다.
 
@@ -60,7 +60,7 @@ QnA Maker에서 간단하게 여러 기술 자료를 만들 수 있지만, 들�
 
 ## <a name="change-code-in-basicluisdialogcs"></a>BasicLuisDialog.cs에서 코드 변경
 1. Azure Portal에서 웹앱 봇 탐색의 **봇 관리** 섹션에서 **빌드**를 선택합니다.
-2. **온라인 코드 편집기 열기**를 선택합니다. 새 브라우저 탭에서 온라인 편집 환경이 열립니다. 
+2. **온라인 코드 편집기 열기**를 선택합니다. 새 브라우저 탭에서 온라인 편집 환경이 열립니다.
 3. **WWWROOT** 섹션에서 **Dialogs** 디렉터리를 선택하고 **BasicLuisDialog.cs**를 엽니다.
 4. **BasicLuisDialog.cs** 파일 맨 위에 종속성을 추가합니다.
 
@@ -155,7 +155,7 @@ QnA Maker에서 간단하게 여러 기술 자료를 만들 수 있지만, 들�
     ```
 
 
-7. BasicLuisDialog 클래스를 수정합니다. 각 LUIS 의도에는 **LuisIntent**로 데코레이트된 메서드가 있습니다. 데코레이션에 대한 매개 변수는 실제 LUIS 의도 이름입니다. 가독성 및 유지 관리를 위해 데코레이트된 메서드 이름으로 LUIS 의도 이름을 사용하는 것이 _좋지만_ 디자인 타임이나 런타임에 동일할 필요는 없습니다.  
+7. BasicLuisDialog 클래스를 수정합니다. 각 LUIS 의도에는 **LuisIntent**로 데코레이트된 메서드가 있습니다. 데코레이션에 대한 매개 변수는 실제 LUIS 의도 이름입니다. 가독성 및 유지 관리를 위해 데코레이트된 메서드 이름으로 LUIS 의도 이름을 사용하는 것이 _좋지만_ 디자인 타임이나 런타임에 동일할 필요는 없습니다.
 
     ```csharp
     [Serializable]
@@ -170,7 +170,7 @@ QnA Maker에서 간단하게 여러 기술 자료를 만들 수 있지만, 들�
         // assumes all KBs are created with same Azure service
         static string qnamaker_endpointKey = "<QnA Maker endpoint KEY>";
         static string qnamaker_resourceName = "my-qnamaker-s0-s";
-        
+
         // QnA Maker Human Resources Knowledge base
         static string HR_kbID = "<QnA Maker KNOWLEDGE BASE ID>";
 
@@ -240,4 +240,4 @@ Azure Portal에서 **웹 채팅에서 테스트**를 선택하여 봇을 테스�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [QnA Maker를 위한 비즈니스 연속성 플랜 만들기](../How-To/business-continuity-plan.md)
+> [기술 기반을 파워 가상 에이전트와 통합](integrate-with-power-virtual-assistant-fallback-topic.md)

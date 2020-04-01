@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: dfb6d72b3f8f61e1350101173ecec6134a614edf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4838597c50898748eb4b33e81ff22eaeea37b30
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74687147"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476898"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>ILB App Service Environment와 Azure Application Gateway 통합 #
 
@@ -20,7 +20,7 @@ ms.locfileid: "74687147"
 
 웹 애플리케이션 방화벽을 통해 SQL 삽입, 사이트 간 스크립팅, 맬웨어 업로드 및 애플리케이션 DDoS와 기타 공격을 차단하기 위해 인바운드 웹 트래픽을 검사하여 웹 애플리케이션을 보호할 수 있습니다. 데이터 손실 방지 DLP (Data Loss Prevention)에 대한 백엔드 웹 서버로부터의 응답도 검사합니다. Azure 마켓플레이스에서 WAF 디바이스를 얻을 수 있거나 [Azure Application Gateway][appgw]를 사용할 수 있습니다.
 
-Azure Application Gateway는 7계층 부하 분산, SSL 오프로딩 및 WAF(웹 애플리케이션 방화벽) 보호를 제공하는 가상 어플라이언스입니다. 공용 IP 주소에서 수신 대기하고, 트래픽을 애플리케이션 엔드포인트로 라우팅할 수 있습니다. 여기서는 WAF가 구성된 애플리케이션 게이트웨이를 ILB App Service Environment의 앱과 통합하는 방법에 대해 설명합니다.  
+Azure 응용 프로그램 게이트웨이는 계층 7 로드 분산, TLS/SSL 오프로드 및 웹 응용 프로그램 방화벽(WAF) 보호를 제공하는 가상 어플라이언스입니다. 공용 IP 주소에서 수신 대기하고, 트래픽을 애플리케이션 엔드포인트로 라우팅할 수 있습니다. 여기서는 WAF가 구성된 애플리케이션 게이트웨이를 ILB App Service Environment의 앱과 통합하는 방법에 대해 설명합니다.  
 
 애플리케이션 게이트웨이와 ILB App Service Environment의 통합은 앱 수준입니다. ILB App Service Environment에서 애플리케이션 게이트웨이를 구성하는 경우 ILB App Service Environment의 특정 앱에 대해 이를 구성합니다. 이 기술을 사용하면 단일 ILB App Service Environment에서 안전한 다중 테넌트 애플리케이션을 호스트할 수 있습니다.  
 

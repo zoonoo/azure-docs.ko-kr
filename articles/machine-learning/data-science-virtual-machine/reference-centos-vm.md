@@ -8,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: db49a9f5e0e6675d93cb58d6af9c92fac21e8b74
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 05da812023e7525b87a3d7ef1ce1940339f99791
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77525841"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475487"
 ---
 # <a name="reference-centos-linux-data-science-virtual-machine"></a>참조: CentOS (리눅스) 데이터 과학 가상 머신
 
@@ -49,7 +49,7 @@ Linux DSVM에 포함된 주요 소프트웨어 구성 요소는 다음과 같습
 
 Linux DSVM은 이 부담을 크게 줄일 수 있습니다. Linux DSVM을 사용하여 분석 프로젝트를 바로 시작합니다. Linux DSVM은 R, Python, SQL, Java 및 C++를 포함하여 다양한 언어로 작업을 수행하는 데 도움이 됩니다. Eclipse는 코드를 개발하고 테스트하는 데 사용하기 쉬운 IDE를 제공합니다. DSVM에 포함된 Azure SDK는 Linux에서 Microsoft 클라우드 플랫폼에 다양한 서비스를 사용하여 애플리케이션을 빌드하는 데 도움이 됩니다. Ruby, Perl, PHP 및 Node.js를 포함한 다른 언어는 미리 설치되어 있습니다.
 
-DSVM 이미지에는 소프트웨어 요금이 부과되지 않습니다. DSVM 이미지를 사용하여 프로비저닝하는 가상 머신의 크기에 따라 평가되는 Azure 하드웨어 사용 요금만 지불합니다. 컴퓨팅 요금에 대한 자세한 내용은 Azure Marketplace의 [Linux(CentOS)용 Data Science Virtual Machine 목록](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/)을 참조하세요.
+DSVM 이미지에는 소프트웨어 요금이 부과되지 않습니다. DSVM 이미지를 사용하여 프로비저닝하는 가상 머신의 크기에 따라 평가되는 Azure 하드웨어 사용 요금만 지불합니다. 계산 요금에 대한 자세한 내용은 Azure Marketplace의 [Linux 목록을 위한 데이터 과학 가상 컴퓨터를](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) 참조하십시오.
 
 
 ## <a name="machine-learning-server"></a>Machine Learning Server
@@ -176,7 +176,7 @@ PostgresSQL 오픈 소스 데이터베이스는 서비스가 실행되고 initdb
 SQuirreL SQL은 다양한 데이터베이스(SQL Server, PostgresSQL 및 MySQL 포함)에 연결하고 SQL 쿼리를 실행할 수 있는 그래픽 SQL 클라이언트입니다. 예를 들어 데스크톱 아이콘을 사용하여 그래픽 데스크톱 세션에서(예: X2Go 클라이언트를 통해) SQuirreL SQL을 실행할 수 있습니다. 또는 셸에서 다음 명령을 사용하여 클라이언트를 실행할 수 있습니다.
 
 ```bash
-/usr/local/squirrel-sql-3.7/squirrel-sql.sh /usr/local/squirrel-sql-3.7/squirrel-sql.sh
+/usr/local/squirrel-sql-3.7/squirrel-sql.sh    /usr/local/squirrel-sql-3.7/squirrel-sql.sh
 ```
 
 SQuirrel SQL을 처음 사용하기 전에 드라이버 및 데이터베이스 별칭을 설정합니다. JDBC 드라이버는 /usr/share/java/jdbcdrivers에 있습니다.
@@ -330,7 +330,7 @@ rattle()
 > [!NOTE]
 > 패키지를 시스템 디렉터리(기본값)에 설치할 수 있는 권한이 없는 경우 R 콘솔 창에 패키지를 개인 라이브러리에 설치하라는 메시지가 표시될 수 있습니다. 이러한 메시지가 표시되면 **y**를 입력합니다.
 
-1. **실행**을 선택합니다.
+1. **실행을 선택합니다.**
 1. 날씨 데이터 세트 예제를 로드하라는 대화 상자가 표시됩니다. **예**를 선택하여 예제를 로드합니다.
 1. **모델** 탭을 선택합니다.
 1. **실행**을 선택하여 의사 결정 트리를 작성합니다.

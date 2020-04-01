@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 4b2b388fb736997010a6cbbdf93b23b77c7ef3a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 51985c5fa4b2296e43c0a062d0af84a1bb51e89c
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77603980"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397750"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>적시에 액세스하여 관리 포트 보안
 
@@ -202,55 +202,39 @@ PowerShell을 통해 Just-In-Time VM 액세스 솔루션을 사용하려면 공�
 
 다음 예제에서는 특정 VM의 Just-In-Time VM 액세스 정책을 설정하고 다음 내용을 설정합니다.
 
-1.  포트 22 및 3389를 닫습니다.
+1.    포트 22 및 3389를 닫습니다.
 
-2.  승인된 요청에 대해 열 수 있도록 최대 기간을 3시간으로 설정합니다.
-3.  액세스를 요청하는 사용자가 소스 IP 주소를 제어하고 승인된 Just-In-Time 액세스 요청 시 성공적인 세션을 설정할 수 있도록 허용합니다.
+2.    승인된 요청에 대해 열 수 있도록 최대 기간을 3시간으로 설정합니다.
+3.    액세스를 요청하는 사용자가 소스 IP 주소를 제어하고 승인된 Just-In-Time 액세스 요청 시 성공적인 세션을 설정할 수 있도록 허용합니다.
 
 이 작업을 완수하려면 PowerShell에서 다음을 실행하세요.
 
-1.  VM에 대한 Just-In-Time VM 액세스 정책을 보유하는 변수를 할당합니다.
+1.    VM에 대한 Just-In-Time VM 액세스 정책을 보유하는 변수를 할당합니다.
 
-        $JitPolicy = (@{
-         id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
-        ports=(@{
-             number=22;
-             protocol="*";
-             allowedSourceAddressPrefix=@("*");
-             maxRequestAccessDuration="PT3H"},
-             @{
-             number=3389;
-             protocol="*";
-             allowedSourceAddressPrefix=@("*");
-             maxRequestAccessDuration="PT3H"})})
+        $JitPolicy = (@{ id="/구독/구독ID/리소스그룹/리소스그룹/공급자/Microsoft.Compute/가상 머신/VMNAME" 포트=(@{ 번호=22;        프로토콜="*";        허용소스주소사전=@"");*        maxRequestAccessDuration="PT3H"}, @{ 번호=3389;        프로토콜="*";        허용소스주소사전=@"");*        maxRequestAccessDuration="PT3H"}}))))
 
-2.  VM Just-In-Time VM 액세스 정책을 배열에 삽입합니다.
+2.    VM Just-In-Time VM 액세스 정책을 배열에 삽입합니다.
     
         $JitPolicyArr=@($JitPolicy)
 
-3.  선택한 VM에서 Just-In-Time VM 액세스 정책을 구성합니다.
+3.    선택한 VM에서 Just-In-Time VM 액세스 정책을 구성합니다.
     
-        Set-AzJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
+        Set-AzJitNetworkAccessPolicy -Kind "기본" -위치 "위치" -이름 "기본" -ResourceGroup "RESOURCEGROUP" -가상 머신 $JitPolicyArr 
 
 ### <a name="request-access-to-a-vm-via-powershell"></a>PowerShell을 통해 VM에 대한 액세스 요청
 
 다음 예제에서는 포트 22를 특정 IP 주소 및 특정 시간 동안 열도록 요청된 특정 VM에 대한 Just-In-Time VM 액세스 요청을 확인할 수 있습니다.
 
 PowerShell에서 다음 내용을 실행하세요.
-1.  VM 요청 액세스 속성을 구성합니다.
+1.    VM 요청 액세스 속성을 구성합니다.
 
-        $JitPolicyVm1 = (@{
-          id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
-        ports=(@{
-           number=22;
-           endTimeUtc="2018-09-17T17:00:00.3658798Z";
-           allowedSourceAddressPrefix=@("IPV4ADDRESS")})})
-2.  VM 액세스 요청 매개 변수를 배열에 삽입합니다.
+        $JitPolicyVm1 = (@{ id="/SUBSCRIPTIONID/resourceGroup/RESOURCEGROUP/공급자/Microsoft.Compute/가상 머신/VMNAME" 포트=(@{ 번호=22;      endTimeUtc="2018-09-17T17:00:00.3658798Z";      허용소스주소사전수정=@("IPV4ADDRESS")}})))))
+2.    VM 액세스 요청 매개 변수를 배열에 삽입합니다.
 
         $JitPolicyArr=@($JitPolicyVm1)
-3.  액세스 요청을 보냅니다(1단계에서 얻은 리소스 ID 사용).
+3.    액세스 요청을 보냅니다(1단계에서 얻은 리소스 ID 사용).
 
-        Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
+        시작-AzJitNetworkAccessPolicy -ResourceId "/구독/구독ID/리소스 그룹/리소스 그룹/공급자/Microsoft.Security/위치/위치/jitNetworkAccessPolicy/기본값" -가상머신 $JitPolicyArr
 
 자세한 내용은 [PowerShell cmdlet 설명서를](https://docs.microsoft.com/powershell/scripting/developer/cmdlet/cmdlet-overview)참조하십시오.
 
@@ -271,6 +255,7 @@ JIT 정책을 업데이트할 때마다 정리 도구가 자동으로 실행되�
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
+- Microsoft 학습 모듈 [Azure 보안 센터를 통해 서버 및 VM을 무차별 대입 및 맬웨어 공격으로부터 보호](https://docs.microsoft.com/learn/modules/secure-vms-with-azure-security-center/)
 - [보안 정책 설정](tutorial-security-policy.md) — Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성하는 방법을 알아봅니다.
 - [보안 권장 사항 관리](security-center-recommendations.md) - 권장 사항이 Azure 리소스를 보호하는 데 어떻게 도움이 되는지 알아봅니다.
 - [보안 상태 모니터링](security-center-monitoring.md) - Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.

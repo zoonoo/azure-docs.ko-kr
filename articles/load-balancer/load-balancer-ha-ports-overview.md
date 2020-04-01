@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: 5ada709350802344bfa65cce269735baa416edf6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d3bd1156de4aed7d1ea5c530605697f2dc80d63c
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80234442"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476985"
 ---
 # <a name="high-availability-ports-overview"></a>고가용성 포트 개요
 
@@ -95,7 +95,7 @@ HA 포트가 있는 단일 내부 표준 로드 밸런서와 함께 백 엔드 �
 ## <a name="limitations"></a>제한 사항
 
 - HA 포트 로드 밸런싱 규칙은 내부 표준 부하 밸런서에만 사용할 수 있습니다.
-- HA 포트 부하 분산 규칙과 비 HA 포트 부하 분산 규칙을 함께 사용할 수는 없습니다.
+- HA 포트 로드 밸런싱 규칙과 동일한 백 엔드 ipconfigurations를 가리키는 비 HA 포트 로드 밸런싱 규칙의 결합은 지원되지 않습니다.
 - 기존 IP 조각은 HA 포트 로드 밸런싱 규칙에 의해 첫 번째 패킷과 동일한 대상으로 전달됩니다.  UDP 또는 TCP 패킷을 조각화하는 IP는 지원되지 않습니다.
 - 흐름 대칭(주로 NVA 시나리오의 경우)은 위의 다이어그램에 표시된 대로 사용되고 HA 포트 로드 밸런싱 규칙을 사용하는 경우에만 백 엔드 인스턴스 및 단일 NIC(및 단일 IP 구성)에서 지원됩니다. 다른 시나리오에서는 제공되지 않습니다. 즉, 둘 이상의 Load Balancer 리소스와 해당 규칙이 독립적인 의사 결정을 하며 조정되지 않음을 의미합니다. [네트워크 가상 어플라이언스](#nva)에 대한 설명과 다이어그램을 참조하세요. 여러 NIC를 사용하거나 공용 및 내부 로드 밸런서 간에 NVA를 끼우는 경우 흐름 대칭을 사용할 수 없습니다.  회신이 동일한 NVA에 도착할 수 있도록 수신 흐름을 어플라이언스의 IP로 소스 NAT 처리하여 이 문제를 해결할 수 있습니다.  그러나 위의 다이어그램에 표시된 참조 아키텍처와 단일 NIC를 사용하는 것이 좋습니다.
 

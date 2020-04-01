@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 916c828365c8f9f50f408bd6c51182bb6e89605f
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 113ab07af8ada16c0779da510c5f5b1f1f5a290b
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384197"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398230"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>센서 파트너로부터 센서 데이터 얻기
 
@@ -37,43 +37,44 @@ Azure FarmBeats를 사용하면 IoT 장치 및 센서의 스트리밍 데이터�
  - 클라이언트 암호
  - EventHub 연결 문자열
 
-다음 단계에 따라 위의 정보를 생성할 수 있습니다.(FarmBeats가 배포된 Azure 구독에 액세스해야 하므로 이러한 단계는 Azure에서 수행해야 합니다.)
+위의 정보를 생성하려면 아래 단계에 따라 다음 단계를 수행하십시오.
+
+> [!NOTE]
+> FarmBeats가 배포된 Azure 구독에 액세스하려면 Azure에서 이러한 단계를 완료해야 합니다.
 
 1. [https://manage.visualstudio.com](https://portal.azure.com/) 에 로그인합니다.
 
-2. **FarmBeats 버전 1.2.7 이상에 있는 경우 단계 2a, 2b 및 2c를 건너뛰고 3단계로 이동하십시오.**. . FarmBeats UI의 오른쪽 상단에 있는 설정 아이콘을 클릭하여 FarmBeats 버전을 확인할 수 있습니다.
+2. **FarmBeats 버전 1.2.7 이상에 있는 경우 a, b 및 c 단계를 건너뛰고 3단계로 이동합니다.** FarmBeats UI의 오른쪽 상단 모서리에 있는 **설정** 아이콘을 선택하여 FarmBeats 버전을 확인할 수 있습니다.
 
-2a. Azure Active Directory -> 앱 등록으로 이동
+      a.  Azure **Active 디렉터리** > **앱 등록으로** 이동
 
-2b. FarmBeats 배포의 일부로 만든 앱 등록을 클릭합니다. FarmBeats 데이터 허브와 이름이 동일합니다.
+      b. FarmBeats 배포의 일부로 만든 **앱 등록을** 선택합니다. FarmBeats 데이터 허브와 이름이 동일합니다.
 
-2c. "API 노출" -> 클릭 "클라이언트 응용 프로그램 추가" 클릭 하고 **04bb07795-8ddb-461a-bbee-02f9e1bf7b46를** 입력 하 고 "범위 승인"을 확인 합니다. 이렇게 하면 아래 단계를 수행하기 위해 Azure CLI(클라우드 셸)에 액세스할 수 있습니다.
+      다. **API > 클라이언트** **응용 프로그램 추가를** 선택하고 **04bb07795-8ddb-461a-bbee-02f9e1bf7b46을** 입력하고 **범위 승인을**선택합니다. 이렇게 하면 Azure CLI(클라우드 셸)에 액세스하여 다음 단계를 수행할 수 있습니다.
 
 3. Cloud Shell을 엽니다. 이 옵션은 Azure 포털의 오른쪽 위 모서리에 있는 도구 모음에서 사용할 수 있습니다.
 
     ![Azure 포털 도구 모음](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-5. 환경이 **PowerShell으로**설정되어 있는지 확인합니다. 기본적으로 Bash로 설정됩니다.
+4. 환경이 **PowerShell으로**설정되어 있는지 확인합니다. 기본적으로 Bash로 설정됩니다.
 
     ![파워쉘 툴바 설정](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-6. 홈 디렉토리로 이동합니다.
+5. 홈 디렉토리로 이동합니다.
 
-   ```azurepowershell-interactive 
-
+    ```azurepowershell-interactive 
     cd  
-
     ```
 
-7. 다음 명령을 실행합니다. 이렇게 하면 홈 디렉터리로 스크립트가 다운로드됩니다.
+6. 다음 명령을 실행합니다. 이렇게 하면 홈 디렉터리로 스크립트가 다운로드됩니다.
 
     ```azurepowershell-interactive 
 
-    wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1 
+    wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1
 
     ```
 
-8. 다음 스크립트를 실행합니다. 스크립트는 Azure Active Directory -> 개요 페이지에서 가져올 수 있는 테넌트 ID를 요청합니다.
+7. 다음 스크립트를 실행합니다. 스크립트는 **Azure Active Directory** > **개요** 페이지에서 가져올 수 있는 테넌트 ID를 요청합니다.
 
     ```azurepowershell-interactive 
 
@@ -81,7 +82,7 @@ Azure FarmBeats를 사용하면 IoT 장치 및 센서의 스트리밍 데이터�
 
     ```
 
-9. 화면의 지침에 따라 API **끝점,** **테넌트 ID,** **클라이언트 ID,** **클라이언트 보안**및 EventHub 연결 문자열에 대한 값을 **캡처합니다.**
+8. 화면의 지침에 따라 API **끝점,** **테넌트 ID,** **클라이언트 ID,** **클라이언트 보안**및 EventHub 연결 문자열에 대한 값을 **캡처합니다.**
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>생성된 자격 증명을 사용하여 장치 데이터 통합
 
@@ -91,16 +92,16 @@ Azure FarmBeats를 사용하면 IoT 장치 및 센서의 스트리밍 데이터�
  - 클라이언트 ID
  - 클라이언트 암호
  - 테넌트 ID
- 
-FarmBeats를 연결하기 위해 장치 파트너에게 이 정보를 제공해야 합니다. 동일한 작업을 수행하려면 장치 파트너 포털로 이동합니다. 예를 들어, 데이비스 인스트루먼트, 기말교 또는 페슬 인스트루먼트(Metos.at)의 장치를 사용하는 경우 아래에 언급된 해당 페이지로 이동하십시오.
 
-[데이비스 인스트루먼트](https://weatherlink.github.io/azure-farmbeats/setup)
+FarmBeats를 연결하기 위해 장치 파트너에게 이 정보를 제공해야 합니다. 동일한 작업을 수행하려면 장치 파트너 포털로 이동합니다. 예를 들어, Davis Instruments의 장치를 사용하는 경우, 기말용 또는 페슬 인스트루먼트(Metos.at)는 아래에 언급된 대로 해당 페이지로 이동합니다.
 
-[기형적 인](https://app.teralytic.com/)
+1. [데이비스 인스트루먼트](https://weatherlink.github.io/azure-farmbeats/setup)
 
-[페슬 인스트루먼트](https://ng.fieldclimate.com/user-api-services)
+2. [기형적 인](https://app.teralytic.com/)
 
- 장치 공급자가 성공적인 통합을 확인합니다. 확인 후 Azure FarmBeats의 모든 장치 및 센서를 볼 수 있습니다.
+3. [페슬 인스트루먼트](https://ng.fieldclimate.com/user-api-services)
+
+장치 공급자가 성공적인 통합을 확인합니다. 확인 후 Azure FarmBeats의 모든 장치 및 센서를 볼 수 있습니다.
 
 ## <a name="view-devices-and-sensors"></a>장치 및 센서 보기
 
@@ -113,7 +114,7 @@ FarmBeats를 연결하기 위해 장치 파트너에게 이 정보를 제공해�
 - **노드**: 하나 이상의 센서가 연결된 장치입니다.
 - **게이트웨이**: 하나 이상의 노드가 연결된 장치입니다.
 
-다음 단계를 수행합니다.
+다음 단계를 수행하세요.
 
 1. 홈 페이지에서 메뉴에서 **장치를** 선택합니다.
   **장치** 페이지에는 장치 유형, 모델, 상태, 팜에 배치된 팜 및 메타데이터의 마지막 업데이트 날짜가 표시됩니다. 기본적으로 팜 열은 *NULL로*설정됩니다. 팜에 장치를 할당하도록 선택할 수 있습니다. 자세한 내용은 [장치 할당](#assign-devices)을 참조하십시오.
@@ -123,7 +124,7 @@ FarmBeats를 연결하기 위해 장치 파트너에게 이 정보를 제공해�
 
 ### <a name="view-sensors"></a>센서 보기
 
-다음 단계를 수행합니다.
+다음 단계를 수행하세요.
 
 1. 홈 페이지에서 메뉴에서 **센서를** 선택합니다.
   **센서** 페이지에는 센서 유형, 연결된 팜, 상위 장치, 포트 이름, 포트 유형 및 마지막으로 업데이트된 상태에 대한 세부 정보가 표시됩니다.
@@ -147,11 +148,12 @@ FarmBeats를 연결하기 위해 장치 파트너에게 이 정보를 제공해�
     ![장치 연결 창](./media/get-sensor-data-from-sensor-partner/associate-devices-1.png)
 
 6. 각 장치를 다른 팜에 연결하려면 **Farm에 할당** 열에서 드롭다운 화살표를 선택하고 각 장치 행에 대한 팜을 선택합니다.
+
 7. 장치 할당을 완료하려면 **할당을** 선택합니다.
 
 ### <a name="visualize-sensor-data"></a>센서 데이터 시각화
 
-다음 단계를 수행합니다.
+다음 단계를 수행하세요.
 
 1. 홈 페이지에서 **메뉴에서 팜을** 선택하여 **팜** 페이지를 봅니다.
 2. 센서 데이터를 보려는 **팜을** 선택합니다.
@@ -161,7 +163,7 @@ FarmBeats를 연결하기 위해 장치 파트너에게 이 정보를 제공해�
 
 ## <a name="delete-a-sensor"></a>센서 삭제
 
-다음 단계를 수행합니다.
+다음 단계를 수행하세요.
 
 1. 홈 페이지에서 메뉴에서 **센서를** 선택하여 **센서** 페이지를 봅니다.
 2. 삭제할 장치를 선택하고 확인 창에서 **삭제를** 선택합니다.
@@ -172,7 +174,7 @@ FarmBeats를 연결하기 위해 장치 파트너에게 이 정보를 제공해�
 
 ## <a name="delete-devices"></a>디바이스 삭제
 
-다음 단계를 수행합니다.
+다음 단계를 수행하세요.
 
 1. 홈 페이지에서 메뉴에서 **장치를** 선택하여 **장치** 페이지를 봅니다.
 2. 삭제할 장치를 선택하고 확인 창에서 **삭제를** 선택합니다.

@@ -3,15 +3,15 @@ title: Azure의 마이크로 포커스 개발/테스트 환경 | 마이크로 �
 description: Azure 가상 머신(VM)에서 마이크로 포커스 솔루션을 사용하여 IBM z/OS 메인프레임 워크로드를 다시 호스팅합니다.
 author: njray
 ms.author: sread
-ms.date: 04/02/2019
+ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: d83b4c89d0f37e2217974d6d1ed32ac73d8fa4df
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 62d3f7cc75a887605cdd3c19ac2e45990e541d5e
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60498902"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410997"
 ---
 # <a name="micro-focus-devtest-environments-on-azure"></a>Azure에서 마이크로 포커스 개발/테스트 환경
 
@@ -20,6 +20,9 @@ ms.locfileid: "60498902"
 마이크로 포커스는 강력한 메인프레임 마이그레이션 및 재호스팅 도구를 제공하기 위해 Microsoft와 파트너십을 맺고 있습니다. Azure 및 Microsoft Windows 플랫폼에서 개발, 테스트 및 프로덕션 시나리오에서 메인프레임 응용 프로그램을 실행할 수 있습니다.
 
 Micro Focus는 기존 코볼 및 PL/I 비즈니스 응용 프로그램을 Azure로 확장하는 개발 재호스팅 및 테스트 재호스팅 솔루션을 제공합니다.
+
+> [!NOTE]
+> 출시 예정: Azure VM에서 [마이크로 포커스 엔터프라이즈 서버 5.0을](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) 설정하는 방법에 대한 지침입니다.
 
 **다음 단계**
 

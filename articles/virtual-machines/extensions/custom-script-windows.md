@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 698fab470cdc8b8d04fa4319fd71c31b58d1c5a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c7cad2dfdcd55073a1cf09d79e5223b666ced5f
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066884"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478159"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows용 사용자 지정 스크립트 확장
 
@@ -106,11 +106,11 @@ GitHub 또는 Azure Storage와 같은 외부스크립트를 외부로 다운로�
 > 한 번에 하나의 확장 버전만 VM에 설치할 수 있으며 동일한 VM에 대해 동일한 리소스 관리자 템플릿에서 사용자 지정 스크립트를 두 번 지정하면 실패합니다.
 
 > [!NOTE]
-> 이 스키마는 VirtualMachine 리소스 내에서 또는 독립 실행형 리소스로 사용할 수 있습니다. 이 확장이 ARM 템플릿에서 독립 실행형 리소스로 사용되는 경우 리소스 이름은 이 형식 "virtualMachineName/extensionName"이어야 합니다. 
+> 이 스키마는 VirtualMachine 리소스 내에서 또는 독립 실행형 리소스로 사용할 수 있습니다. 이 확장이 ARM 템플릿에서 독립 실행형 리소스로 사용되는 경우 리소스 이름은 이 형식 "virtualMachineName/extensionName"이어야 합니다.
 
 ### <a name="property-values"></a>속성 값
 
-| 이름 | 값/예제 | 데이터 형식 |
+| 속성 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute | 문자열 |
@@ -146,6 +146,8 @@ GitHub 또는 Azure Storage와 같은 외부스크립트를 외부로 다운로�
 공용 설정은 스크립트를 실행할 VM에 일반 텍스트로 보내집니다.  보호된 설정은 Azure 및 VM에만 알려진 키를 사용하여 암호화됩니다. 설정이 전송될 때 VM에 저장됩니다. 암호화된 값의 암호를 해독하는 데 사용되는 인증서는 VM에 저장되고, 필요한 경우 런타임 시 설정의 암호를 해독하는 데 사용됩니다.
 
 ####  <a name="property-managedidentity"></a>속성: 관리되는 정체성
+> [!NOTE]
+> 이 속성은 보호된 설정에서만 **지정해야 합니다.**
 
 사용자 정의 스크립트 (버전 1.10 이후) "fileUris" 설정에서 제공 하는 URL에서 파일을 다운로드 하기 위한 [관리된 ID를](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 지원 합니다. CustomScript를 사용하면 사용자가 SAS 토큰 또는 저장소 계정 키와 같은 비밀을 전달할 필요 없이 Azure Storage 개인 Blob 또는 컨테이너에 액세스할 수 있습니다.
 
@@ -330,7 +332,7 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 
 `commandToExecute` 명령을 실행하는 경우 확장에서 이 디렉터리(예: `...\Downloads\2`)를 현재 작업 디렉터리로 설정합니다. 이 프로세스로 `fileURIs` 속성을 통해 다운로드된 파일을 배치하는 상대 경로를 사용할 수 있습니다. 예제는 아래 테이블을 참조하세요.
 
-시간이 지남에 따라 절대 다운로드 경로가 달라질 수 있으므로 가능한 경우 `commandToExecute` 문자열에서 상대 스크립트/파일 경로를 옵트인하는 것이 좋습니다. 예를 들어:
+시간이 지남에 따라 절대 다운로드 경로가 달라질 수 있으므로 가능한 경우 `commandToExecute` 문자열에서 상대 스크립트/파일 경로를 옵트인하는 것이 좋습니다. 다음은 그 예입니다.
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""

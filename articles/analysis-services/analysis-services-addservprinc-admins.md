@@ -4,16 +4,16 @@ description: Azure 분석 서비스 서버 관리자 역할에 자동화 서비�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1370f65405963ebf825e986e6801607a0d96156e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 925fbbb51ac240b96486a2c0aa09c850a8d164bc
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78298091"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408640"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>서버 관리자 역할에 서비스 사용자 추가 
 
@@ -39,7 +39,7 @@ SQL 서버 관리 스튜디오(SSMS)를 사용하여 서버 관리자를 구성�
     
     ![서비스 사용자 계정 검색](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
-## <a name="using-a-resource-manager-template"></a>리소스 관리자 템플릿 사용
+## <a name="using-a-resource-manager-template"></a>Resource Manager 템플릿 사용
 
 Azure 리소스 관리자 템플릿을 사용하여 분석 서비스 서버를 배포하여 서버 관리자를 구성할 수도 있습니다. 배포를 실행하는 ID는 [RBAC(Azure 역할 기반 액세스 제어)의](../role-based-access-control/overview.md)리소스에 대한 **기여자** 역할에 속해야 합니다.
 

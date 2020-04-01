@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 242fc115c5b2324c770de480fb19985e8b874893
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 290467d5d20a74f8b8b2c23f6da0dcadfd74cc56
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371254"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411021"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>애플리케이션 게이트웨이에 대한 자주 묻는 질문
 
@@ -142,7 +142,7 @@ v2 SKU의 경우에는 여러 장애 도메인과 업데이트 도메인에 새 
 
 예.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>Application Gateway가 가상 네트워크에서 항상 배포되나요?
 
@@ -353,11 +353,11 @@ Kubernetes를 사용하면 `deployment` `service` 클러스터 내부에 포드 
 
 응용 프로그램 게이트웨이는 세 개의 로그를 제공합니다. 
 
-* **ApplicationGatewayAccessLog**: 액세스 로그에는 응용 프로그램 게이트웨이 프런트 엔드에 제출된 각 요청이 포함됩니다. 데이터에는 호출자의 IP, 요청된 URL, 응답 대기 시간, 반환 코드 및 바이트가 포함됩니다. 액세스 로그는 300초마다 수집됩니다. 응용 프로그램 게이트웨이당 하나의 레코드가 포함되어 있습니다.
+* **ApplicationGatewayAccessLog**: 액세스 로그에는 응용 프로그램 게이트웨이 프런트 엔드에 제출된 각 요청이 포함됩니다. 데이터에는 호출자의 IP, 요청된 URL, 응답 대기 시간, 반환 코드 및 바이트가 포함됩니다. 응용 프로그램 게이트웨이당 하나의 레코드가 포함되어 있습니다.
 * **ApplicationGatewayPerformanceLog**: 성능 로그는 각 응용 프로그램 게이트웨이에 대한 성능 정보를 캡처합니다. 정보에는 바이트의 처리량, 제공된 총 요청, 실패한 요청 수 및 정상 및 비정상 백 엔드 인스턴스 수가 포함됩니다.
 * **ApplicationGatewayFirewallLog**: WAF로 구성하는 응용 프로그램 게이트웨이의 경우 방화벽 로그에 검색 모드 또는 예방 모드를 통해 기록되는 요청이 포함되어 있습니다.
 
-자세한 내용은 [응용 프로그램 게이트웨이에 대한 백 엔드 상태, 진단 로그 및 메트릭을](application-gateway-diagnostics.md)참조하십시오.
+모든 로그는 60초마다 수집됩니다. 자세한 내용은 [응용 프로그램 게이트웨이에 대한 백 엔드 상태, 진단 로그 및 메트릭을](application-gateway-diagnostics.md)참조하십시오.
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>내 백 엔드 풀 멤버가 정상인지 어떻게 알 수 있나요?
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 11/04/2019
-ms.openlocfilehash: a58959904559cd3b2cec27762f2df93cfea72abd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fef3f0347d963b8a7d5fe2f1ca771293e9c3d2a9
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75540530"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475508"
 ---
 # <a name="how-to-define-a-machine-learning-task"></a>기계 학습 작업을 정의하는 방법 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -76,6 +76,6 @@ Azure 기계 학습 스튜디오에서 자동화된 ML 실험 실행 생성의 �
 
 + Azure 기계 학습에서 [자동화된 ml에](concept-automated-ml.md) 대해 자세히 알아봅니다.
 + Azure 기계 [학습에서 시계열 예측 모델 자동 학습에](how-to-auto-train-forecast.md) 대해 자세히 알아보기
-+ [자동화된 기계 학습 분류](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/model-explanation) 자습서를 사용해 보십시오.
-+ [자동화된 기계 학습 회귀](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/model-explanation) 샘플 전자 필기장을 사용해 보십시오.
++ [자동화된 기계 학습 분류](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb) 자습서를 사용해 보십시오.
++ [자동화된 기계 학습 회귀](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb) 샘플 전자 필기장을 사용해 보십시오.
 

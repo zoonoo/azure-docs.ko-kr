@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 6de37daa0b9e0ebc711a5dacbdce352e3675a3db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54e44a12f593d2074eefe5b2ff890863db3199f7
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79257746"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478944"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>VMware VM 또는 물리적 머신을 Azure로 장애 조치(failover) 시 발생하는 오류 해결
 
@@ -128,7 +128,7 @@ RDP를 사용하여 컴퓨터에 연결할 수 있지만 직렬 콘솔을 열 �
 
 이 문제는 장애 조치(failover)가 발생한 가상 컴퓨터를 다시 보호하려고 할 때 Azure 포털의 데이터 스토어를 볼 수 없을 때 표시됩니다. 이는 마스터 대상이 Azure 사이트 복구에 추가된 vCenters 에서 가상 컴퓨터로 인식되지 않기 때문입니다.
 
-vitual 컴퓨터를 다시 보호하는 방법에 대한 자세한 내용은 [Azure에 장애 조치 후 온-프레미스 사이트에 다시 보호 및 장애 복구 컴퓨터를](vmware-azure-reprotect.md)참조하십시오.
+가상 시스템 다시 보호에 대한 자세한 내용은 [Azure에 장애 조치 후 온-프레미스 사이트에 다시 보호 및 장애 복구 컴퓨터를 참조하세요.](vmware-azure-reprotect.md)
 
 이 문제를 해결하려면
 
@@ -138,7 +138,7 @@ vitual 컴퓨터를 다시 보호하는 방법에 대한 자세한 내용은 [Az
 > 
 > 패브릭 검색 및 새로 고침 작업을 완료하는 데 최대 30분이 걸릴 수 있습니다. 
 
-## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>CS와 리눅스 마스터 대상 등록 SSL 오류 35 실패 
+## <a name="linux-master-target-registration-with-cs-fails-with-a-tls-error-35"></a>CS와 리눅스 마스터 대상 등록 TLS 오류 와 함께 실패 35 
 
 마스터 대상에서 인증된 프록시를 사용하도록 설정하여 구성 서버를 사용한 Azure 사이트 복구 마스터 대상 등록이 실패합니다. 
  

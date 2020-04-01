@@ -1,5 +1,5 @@
 ---
-title: StorSimple 8000 시리즈 디바이스 요약 사용 | Microsoft Docs
+title: StorSimple 장치 관리자 서비스에서 장치 요약 사용
 description: StorSimple 디바이스 관리자 서비스 디바이스 요약과 이를 사용하여 스토리지 메트릭 및 연결된 초기자를 보고 일련 번호 및 IQN을 찾는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 1d88af2c0739c30b2562bad7660015b890e8159c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7801cdc6573799330e5173db82dead8d4f2cd83f
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60578319"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398245"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>StorSimple 디바이스 관리자 서비스에서 디바이스 요약 사용
 

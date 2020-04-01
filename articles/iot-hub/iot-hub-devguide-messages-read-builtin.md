@@ -8,23 +8,23 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: e7b8f8a33b741a8dcf2d1a68ae3cf86d6e3687eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a2674ca0f4808cb6f01781565e57369ca5d3ac37
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284604"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478776"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>기본 제공 엔드포인트에서 디바이스-클라우드 메시지 읽기
 
 기본적으로 메시지는 [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)와 호환되는 기본 제공 서비스 연결 엔드포인트(**messages/events**)로 라우팅됩니다. 이 엔드포인트는 현재 [AMQP](https://www.amqp.org/) 프로토콜을 통해서만 포트 5671에 노출됩니다. IoT Hub는 다음 속성을 노출하여 기본 제공 Event Hub와 호환되는 메시징 엔드포인트 **messages/events**를 제어할 수 있게 합니다.
 
-| 속성            | 설명 |
+| 속성            | Description |
 | ------------------- | ----------- |
 | **파티션 수** | 이 속성을 만들 때 설정하여 장치 간 이벤트 생성을 위한 [파티션](../event-hubs/event-hubs-features.md#partitions) 수를 정의합니다. |
 | **보존 시간**  | 이 속성은 IoT Hub에서 메시지를 보존할 일 수를 지정합니다. 기본값은 1일이지만 7일로 늘릴 수 있습니다. |
 
-IoT Hub를 사용하면 기본 제공 이벤트 허브에서 최대 7일 동안 데이터를 보존할 수 있습니다. IoT Hub를 만드는 동안 보존 시간을 설정할 수 있습니다. IoT Hub의 데이터 보존 시간은 IoT 허브 계층 및 단위 유형에 따라 다릅니다. 크기 면에서 기본 제공 이벤트 허브는 최대 메시지 크기의 메시지를 최소 24시간 의 할당량까지 유지할 수 있습니다. 예를 들어, 1S1 단위의 IoT Hub는 각각 4k 크기의 400K 메시지를 유지하기에 충분한 스토리지를 제공합니다. 기기에서 더 작은 메시지를 보내는 경우 사용 되는 저장소의 양에 따라 더 이상(최대 7일) 동안 보관될 수 있습니다. 지정된 보존 시간 동안 데이터를 최소한으로 유지합니다.
+IoT Hub를 사용하면 기본 제공 이벤트 허브에서 최대 7일 동안 데이터를 보존할 수 있습니다. IoT Hub를 만드는 동안 보존 시간을 설정할 수 있습니다. IoT Hub의 데이터 보존 시간은 IoT 허브 계층 및 단위 유형에 따라 다릅니다. 크기 면에서 기본 제공 이벤트 허브는 최대 메시지 크기의 메시지를 최소 24시간 의 할당량까지 유지할 수 있습니다. 예를 들어, 1S1 단위의 IoT Hub는 각각 4k 크기의 400K 메시지를 유지하기에 충분한 스토리지를 제공합니다. 기기에서 더 작은 메시지를 보내는 경우 사용 되는 저장소의 양에 따라 더 이상(최대 7일) 동안 보관될 수 있습니다. 지정된 보존 시간 동안 데이터를 최소한으로 유지합니다. 메시지는 만료되며 보존 시간이 경과한 후에는 액세스할 수 없습니다. 
 
 또한 IoT Hub를 사용하면 기본 제공 디바이스-클라우드 수신 엔드포인트에서 소비자 그룹을 관리할 수 있습니다. 각 IoT Hub에 대해 최대 20개의 소비자 그룹을 가질 수 있습니다.
 
@@ -74,7 +74,7 @@ IoT Hub가 노출하는 기본 제공 이벤트 허브 호환 엔드포인트와
 * [타임 시리즈 인사이트](https://docs.microsoft.com/azure/time-series-insights/). [IT 허브 이벤트 소스를 타임시리즈 인사이트 환경에 추가를](../time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md)참조하십시오.
 * [Apache Storm spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). GitHub의 [spout 원본](https://github.com/apache/storm/tree/master/external/storm-eventhubs) 을 볼 수 있습니다.
 * [아파치 스파크 통합](../hdinsight/spark/apache-spark-eventhub-streaming.md).
-* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
+* [Azure 데이터 브릭 .](https://docs.microsoft.com/azure/azure-databricks/)
 
 ## <a name="next-steps"></a>다음 단계
 

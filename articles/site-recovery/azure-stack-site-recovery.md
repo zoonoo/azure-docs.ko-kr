@@ -1,23 +1,18 @@
 ---
 title: Azure Site Recovery를 사용하여 Azure로 Azure Stack VM 복제 | Microsoft Docs
 description: Azure Site Recovery 서비스를 사용하여 Azure에 Azure Stack VM에 대한 재해 복구를 설정하는 방법을 알아봅니다.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.topic: conceptual
-ms.service: site-recovery
 ms.date: 08/05/2019
-ms.author: raynew
-ms.openlocfilehash: 15cd729063545914f791de39a075af9084f72bef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab35463ca8c3b29e6b4ae8abc781a7081091b214
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75426560"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478504"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure에 Azure Stack VM 복제
 
-이 문서에서는 [Azure Site Recovery 서비스](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 Azure에 재해 복구 Azure Stack VM을 설정하는 방법을 알아봅니다.
+이 문서에서는 [Azure Site Recovery 서비스](site-recovery-overview.md)를 사용하여 Azure에 재해 복구 Azure Stack VM을 설정하는 방법을 알아봅니다.
 
 Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에 기여하는 서비스입니다. 이 서비스는 예상된 및 예기치 않은 중단이 발생할 때 VM 워크로드를 계속 사용할 수 있도록 합니다.
 
@@ -45,9 +40,9 @@ Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에
 
 **위치** | **구성 요소** |**세부 정보**
 --- | --- | ---
-**구성 서버** | 단일 Azure Stack VM에서 실행됩니다. | 각 구독에서 구성 서버 VM을 설정합니다. 이 VM은 다음 Site Recovery 구성 요소를 실행합니다.<br/><br/> - 구성 서버: 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다. - 프로세스 서버:복제 게이트웨이 역할을 합니다. 복제 데이터를 수신하고, 캐싱, 압축 및 암호화를 사용하여 최적화하며, Azure Storage로 보냅니다.<br/><br/> 복제하려는 VM이 아래에 설명된 제한을 초과하는 경우 별도의 독립 실행형 프로세스 서버를 설정할 수 있습니다. [자세히 알아봅니다](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-process-server-scale).
-**모빌리티 서비스** | 복제하려는 각 VM에 설치됩니다. | 이 문서의 단계에서는 복제가 사용되도록 설정될 경우 VM에 모바일 서비스가 자동으로 설치되도록 계정을 준비합니다. 이 서비스를 자동으로 설치하지 않으려는 경우 다양한 다른 방법을 사용할 수 있습니다. [자세히 알아봅니다](https://docs.microsoft.com/azure/site-recovery/vmware-azure-install-mobility-service).
-**Azure** | Azure에는 Recovery Services 스토리지, 스토리지 계정 및 가상 네트워크가 필요합니다. |  복제된 데이터는 스토리지 계정에 저장됩니다. 장애 조치(Failover)가 발생하면 Azure VM이 Azure 네트워크에 추가됩니다. 
+**구성 서버** | 단일 Azure Stack VM에서 실행됩니다. | 각 구독에서 구성 서버 VM을 설정합니다. 이 VM은 다음 Site Recovery 구성 요소를 실행합니다.<br/><br/> - 구성 서버: 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다. - 프로세스 서버:복제 게이트웨이 역할을 합니다. 복제 데이터를 수신하고, 캐싱, 압축 및 암호화를 사용하여 최적화하며, Azure Storage로 보냅니다.<br/><br/> 복제하려는 VM이 아래에 설명된 제한을 초과하는 경우 별도의 독립 실행형 프로세스 서버를 설정할 수 있습니다. [자세히 알아보기](vmware-azure-set-up-process-server-scale.md).
+**모빌리티 서비스** | 복제하려는 각 VM에 설치됩니다. | 이 문서의 단계에서는 복제가 사용되도록 설정될 경우 VM에 모바일 서비스가 자동으로 설치되도록 계정을 준비합니다. 이 서비스를 자동으로 설치하지 않으려는 경우 다양한 다른 방법을 사용할 수 있습니다. [자세히 알아보기](vmware-azure-install-mobility-service.md).
+**Azure** | Azure에는 Recovery Services 스토리지, 스토리지 계정 및 가상 네트워크가 필요합니다. |  복제된 데이터는 스토리지 계정에 저장됩니다. 장애 조치(Failover)가 발생하면 Azure VM이 Azure 네트워크에 추가됩니다.
 
 
 복제는 다음과 같이 작동합니다.
@@ -68,8 +63,8 @@ Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에
 **요구 사항** | **세부 정보**
 --- | ---
 **Azure 구독 계정** | Azure 구독이 없는 경우 [무료 계정을](https://azure.microsoft.com/pricing/free-trial/)만듭니다.
-**Azure 계정 권한** | 사용하는 Azure 계정에는 다음 권한이 필요합니다.<br/><br/> - 복구 서비스 자격 증명 모음 만들기<br/><br/> - 시나리오에 사용하는 리소스 그룹 및 가상 네트워크에 가상 머신 만들기<br/><br/> - 지정한 저장소 계정에 쓰기<br/><br/> 다음 사항에 유의하세요.<br/><br/> - 계정을 만들면 구독 관리자로서 모든 작업을 수행할 수 있습니다.<br/><br/> - 기존 구독을 사용하고 관리자가 아닌 경우 관리자와 협력하여 소유자 또는 기여자 권한을 할당받아야 합니다.<br/><br/> - 보다 세부적인 권한이 필요한 경우 [이 문서](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control)를 검토합니다. 
-**Azure Stack VM** | 테넌트 구독에서 Site Recovery 구성 서버로 배포될 Azure Stack VM이 필요합니다. 
+**Azure 계정 권한** | 사용하는 Azure 계정에는 다음 권한이 필요합니다.<br/><br/> - 복구 서비스 자격 증명 모음 만들기<br/><br/> - 시나리오에 사용하는 리소스 그룹 및 가상 네트워크에 가상 머신 만들기<br/><br/> - 지정한 저장소 계정에 쓰기<br/><br/> 다음 사항에 유의하세요.<br/><br/> - 계정을 만들면 구독 관리자로서 모든 작업을 수행할 수 있습니다.<br/><br/> - 기존 구독을 사용하고 관리자가 아닌 경우 관리자와 협력하여 소유자 또는 기여자 권한을 할당받아야 합니다.<br/><br/> - 보다 세부적인 권한이 필요한 경우 [이 문서](site-recovery-role-based-linked-access-control.md)를 검토합니다.
+**Azure Stack VM** | 테넌트 구독에서 Site Recovery 구성 서버로 배포될 Azure Stack VM이 필요합니다.
 
 
 ### <a name="prerequisites-for-the-configuration-server"></a>구성 서버 필수 조건
@@ -77,7 +72,7 @@ Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에
 [!INCLUDE [site-recovery-config-server-reqs-physical](../../includes/site-recovery-config-server-reqs-physical.md)]
 
 
- 
+
 ## <a name="step-1-prepare-azure-stack-vms"></a>1단계: Azure Stack VM 준비
 
 ### <a name="verify-the-operating-system"></a>운영 체제 확인
@@ -89,7 +84,7 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 --- | ---
 **64비트 Windows** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2(SP1)
 **CentOS** | 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.3
-**우분투** | 14.04 LTS 서버, 16.04 LTS 서버. [지원되는 커널](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#ubuntu-kernel-versions) 검토
+**우분투** | 14.04 LTS 서버, 16.04 LTS 서버. [지원되는 커널](vmware-physical-azure-support-matrix.md#ubuntu-kernel-versions) 검토
 
 ### <a name="prepare-for-mobility-service-installation"></a>모바일 서비스 설치 준비
 
@@ -109,7 +104,7 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
     - 이 작업을 수행하려면 **wf.msc**를 실행하여 Windows 방화벽 콘솔을 엽니다. 인바운드 **규칙** > **새 규칙을**마우스 오른쪽 단추로 클릭합니다. **미리 정의**를 선택하고 목록에서 **파일 및 프린터 공유**를 선택합니다. 마법사를 완료하고 연결을 허용하도록 선택한 후 **마침**을 선택합니다.
     - 도메인 컴퓨터에 대해 GPO를 사용하여 이 작업을 수행할 수 있습니다.
 
-    
+
 #### <a name="linux-machines"></a>Linux 컴퓨터
 
 - Linux 컴퓨터와 프로세스 서버 간에 네트워크가 연결되어 있는지 확인합니다.
@@ -143,7 +138,7 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>2단계: 자격 증명 모음을 만들기 및 복제 목표 선택
 
 1. Azure 포털에서 > 리소스 관리 > 도구 백업 및 사이트**복구** **만들기를****선택합니다.**
-2. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 
+2. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다.
 3. **리소스 그룹**에서 리소스 그룹을 만들거나 선택합니다. **contosoRG**를 사용합니다.
 4. **위치**에서 Azure 지역을 입력합니다. **서유럽**를 사용합니다.
 5. 대시보드에서 볼트에 빠르게 액세스하려면 **대시보드에** > 대한 핀을**선택합니다.**
@@ -158,7 +153,7 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 2. **시작**에서 Site Recovery를 선택합니다. 그런 다음, **인프라 준비**를 선택합니다.
 3. **보호 목표에서** > **컴퓨터가 있는 위치:** **온-프레미스를**선택합니다.
 4. **컴퓨터를 복제할 위치를 선택하세요.** 에서 **Azure**를 선택합니다.
-5. **컴퓨터가 가상화되어 있습니까?** 에서 **가상화되지 않음/기타**를 선택합니다. 그런 다음 **확인을**선택합니다.
+5. **컴퓨터가 가상화되어 있습니까?** 에서 **가상화되지 않음/기타**를 선택합니다. 그런 다음, **확인**을 선택합니다.
 
     ![보호 목표](./media/azure-stack-site-recovery/protection-goal.png)
 
@@ -182,15 +177,15 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 
 구성 서버를 설치 및 등록하려면 구성 서버에 사용하려는 VM에 대해 RDP 연결을 수행하고 통합 설치 프로그램을 실행합니다.
 
-시작하기 전에 클록이 VM의 [시간 서버와 동기화](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service)되었는지 확인합니다. 이 시간이 로컬 시간보다 5분 넘게 차이를 보이면 설치는 실패합니다.
+시작하기 전에 클록이 VM의 [시간 서버와 동기화](/windows-server/networking/windows-time-service/windows-time-service-top)되었는지 확인합니다. 이 시간이 로컬 시간보다 5분 넘게 차이를 보이면 설치는 실패합니다.
 
 이제 다음과 같이 구성 서버를 설치합니다.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> 명령줄을 통해 구성 서버를 설치할 수도 있습니다. [자세히 알아봅니다](physical-manage-configuration-server.md#install-from-the-command-line).
-> 
+> 명령줄을 통해 구성 서버를 설치할 수도 있습니다. [자세히 알아보기](physical-manage-configuration-server.md#install-from-the-command-line).
+>
 > 포털에 계정 이름이 표시되는 데 15분 이상 걸릴 수 있습니다. 즉시 업데이트하려면 Configuration Server***서버 이름*** > **새로 고침 서버를** **선택합니다.** > 
 
 ## <a name="step-4-set-up-the-target-environment"></a>4단계: 대상 환경 설정
@@ -249,9 +244,9 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 
 > [!NOTE]
 > VM에 대한 복제를 사용하도록 설정되면 Site Recovery에서 모바일 서비스를 설치합니다.
-> 
+>
 > 변경 내용이 적용되어 포털에 표시되는 데 15분 이상 걸릴 수 있습니다.
-> 
+>
 > 추가하는 VM을 모니터링하려면 **구성 서버에서** > 마지막으로 검색된 VM 에 대한 마지막으로 검색된 시간을**확인합니다.** 예약된 검색을 기다리지 않고 VM을 추가하려면 구성 서버를 강조 표시하고(클릭하지 않음) **새로 고침**을 선택합니다.
 
 
@@ -261,16 +256,16 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 
 ### <a name="verify-machine-properties"></a>컴퓨터 속성 확인
 
-테스트 장애 조치(failover)를 실행하기 전에 먼저 컴퓨터 속성을 확인하고 [Azure 요구 사항](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements)을 준수하는지 확인합니다. 다음과 같이 속성을 확인하고 수정할 수 있습니다.
+테스트 장애 조치(failover)를 실행하기 전에 먼저 컴퓨터 속성을 확인하고 [Azure 요구 사항](vmware-physical-azure-support-matrix.md#azure-vm-requirements)을 준수하는지 확인합니다. 다음과 같이 속성을 확인하고 수정할 수 있습니다.
 
 1. **보호된 항목**에서 **복제된 항목** > VM을 클릭합니다.
 2. **복제된 항목** 창에 VM 정보, 상태 및 최신 사용 가능한 복구 지점의 요약이 제공됩니다. 자세한 내용을 보려면 **속성**을 클릭합니다.
 3. **컴퓨팅 및 네트워크**에서 필요에 따라 설정을 수정합니다.
 
-    - Azure VM 이름, 리소스 그룹, 대상 크기, [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md) 및 관리 디스크 설정을 수정할 수 있습니다.
+    - Azure VM 이름, 리소스 그룹, 대상 크기, [가용성 집합](/azure/virtual-machines/windows/tutorial-availability-sets) 및 관리 디스크 설정을 수정할 수 있습니다.
     - 네트워크 설정을 보고 수정할 수도 있습니다. 여기에는 장애 조치(Failover) 후에 Azure VM이 가입되는 네트워크/서브넷과 VM에 할당될 IP 주소가 포함됩니다.
 1. **디스크**에서 VM의 운영 체제 및 데이터 디스크에 대한 정보를 확인합니다.
-   
+
 
 ### <a name="run-a-test-failover"></a>테스트 장애 조치(failover) 실행
 
@@ -288,19 +283,19 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 VM에 대해 테스트 장애 조치(Failover)를 다음과 같이 실행합니다.
 
 1. **설정에서** > **복제된 항목을**클릭하여 VM > **+테스트 장애 조치(failover)를 클릭합니다.**
-2. 이 연습에서는 **가장 최근에 처리됨** 복구 지점을 사용하도록 선택합니다. 
+2. 이 연습에서는 **가장 최근에 처리됨** 복구 지점을 사용하도록 선택합니다.
 3. **테스트 장애 조치(Failover)** 에서 대상 Azure 네트워크를 선택합니다.
 4. **확인**을 클릭하여 장애 조치(failover)를 시작합니다.
 5. VM을 클릭하여 해당 속성을 열어 진행률을 추적합니다. 또는 *자격 증명 모음 이름* > **설정** > **작업** >**Site Recovery 작업**에서 **테스트 장애 조치(Failover)** 작업을 클릭합니다.
 6. 장애 조치가 완료되면 Azure Portal > **Virtual Machines**에서 Azure VM 복제본이 표시됩니다. VM이 크기가 적당하고 올바른 네트워크에 연결되어 있으며 실행 중인지 확인합니다.
-7. 이제 Azure에서 복제된 VM에에 연결할 수 있습니다. [자세히 알아봅니다](https://docs.microsoft.com/azure/site-recovery/site-recovery-test-failover-to-azure#prepare-to-connect-to-azure-vms-after-failover).
+7. 이제 Azure에서 복제된 VM에에 연결할 수 있습니다. [자세히 알아보기](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 8. 테스트 장애 조치(failover) 중에 만든 Azure VM을 삭제하려면 VM에서 **테스트 장애 조치(failover) 정리**를 클릭합니다. **참고**에서 테스트 장애 조치와 연관된 모든 관측 내용을 기록하고 저장합니다.
 
 ## <a name="fail-over-and-fail-back"></a>장애 조치(Failover) 및 장애 복구
 
 복제를 설정하고 훈련을 실행하여 모든 항목이 제대로 작동되는지 확인한 후에는 필요에 따라 컴퓨터를 Azure로 장애 조치(Failover)할 수 있습니다.
 
-장애 조치(Failover) 후에 Azure의 컴퓨터에 연결하려는 경우, 장애 조치(Failover)를 실행하기 전에 [연결을 준비](https://docs.microsoft.com/azure/site-recovery/site-recovery-test-failover-to-azure#prepare-to-connect-to-azure-vms-after-failover)합니다.
+장애 조치(Failover) 후에 Azure의 컴퓨터에 연결하려는 경우, 장애 조치(Failover)를 실행하기 전에 [연결을 준비](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)합니다.
 
 그런 후 다음과 같이 장애 조치(Failover)를 실행합니다.
 
@@ -308,7 +303,7 @@ VM에 대해 테스트 장애 조치(Failover)를 다음과 같이 실행합니�
 1. **설정에서** > **복제된 항목을**클릭하여 **장애 조치**>.
 2. 사용할 복구 지점을 선택합니다.
 3. **테스트 장애 조치(Failover)** 에서 대상 Azure 네트워크를 선택합니다.
-4. **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다.** 를 선택합니다. 이 설정을 사용하여 Site Recovery는 장애 조치(Failover)를 시작하기 전에 원본 컴퓨터를 종료하려고 합니다. 그렇지만 종료가 실패하는 경우에도 장애 조치(Failover)는 계속됩니다. 
+4. **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다.** 를 선택합니다. 이 설정을 사용하여 Site Recovery는 장애 조치(Failover)를 시작하기 전에 원본 컴퓨터를 종료하려고 합니다. 그렇지만 종료가 실패하는 경우에도 장애 조치(Failover)는 계속됩니다.
 5. **확인**을 클릭하여 장애 조치(failover)를 시작합니다. 작업 페이지에서 장애 조치 진행률을 따를 수 **있습니다.**
 6. 장애 조치가 완료되면 Azure Portal > **Virtual Machines**에서 Azure VM 복제본이 표시됩니다. 장애 조치(Failover) 후에 연결할 준비가 된 경우 VM이 크기가 적당하고 올바른 네트워크에 연결되어 있으며 실행 중인지 확인합니다.
 7. VM을 확인한 후에 **커밋**을 클릭하여 장애 조치를 완료합니다. 그러면 사용 가능한 복구 지점이 모두 삭제됩니다.
@@ -321,18 +316,18 @@ VM에 대해 테스트 장애 조치(Failover)를 다음과 같이 실행합니�
 
 기본 사이트가 다시 작동되고 실행되면 Azure에서 Azure Stack으로 장애 복구(failback)할 수 있습니다. 이렇게 하려면 Azure VM VHD를 다운로드하고 Azure Stack에 업로드해야 합니다.
 
-1. VHD를 다운로드할 수 있도록 Azure VM을 종료합니다. 
+1. VHD를 다운로드할 수 있도록 Azure VM을 종료합니다.
 2. VHD 다운로드를 시작하려면 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 설치합니다.
 3. Azure Portal에서 VM으로 이동합니다(VM 이름 사용).
 4. **디스크**에서 디스크 이름을 클릭하고 설정을 수집합니다.
 
-    - 예를 들어 테스트에서 사용되는 VHD URI https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd를 분석하여 VHD 다운로드에 사용되는 다음 입력 매개 변수를 가져올 수 있습니다.
+    - 예를 들어 테스트에서 사용되는 VHD URI `https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd`를 분석하여 VHD 다운로드에 사용되는 다음 입력 매개 변수를 가져올 수 있습니다.
         - 스토리지 계정: 502055westcentralus
         - 컨테이너: wahv9b8d2ceb284fb59287
         - VHD 이름: copied-3676553984.vhd
 
 5. 이제 Azure Storage Explorer를 사용하여 VHD를 다운로드합니다.
-6. [이러한 단계](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm)를 사용하여 VHD를 Azure Stack으로 업로드합니다.
+6. [이러한 단계](/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm)를 사용하여 VHD를 Azure Stack으로 업로드합니다.
 7. 기존 VM 또는 새 VM에서 업로드한 VHD를 연결합니다.
 8. OS 디스크가 올바른지 확인하고 VM을 시작합니다.
 

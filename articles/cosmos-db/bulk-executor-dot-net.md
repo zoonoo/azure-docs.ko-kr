@@ -6,17 +6,22 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/01/2019
+ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: d7600267dcd196a9a5c06c29774ea21d582cd7ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40ef05107f20a3396f6710f894a2dbad2d7fa6c9
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246878"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478855"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>대량 실행기 .NET 라이브러리를 사용하여 Azure Cosmos DB에서 대량 작업을 수행합니다.
+
+> [!NOTE]
+> 이 문서에서 설명하는 이 대량 실행기 라이브러리는 .NET SDK 2.x 버전을 사용하는 응용 프로그램에 대해 유지됩니다. 새 응용 프로그램의 경우 [.NET SDK 버전 3.x에서](tutorial-sql-api-dotnet-bulk-import.md) 직접 사용할 수 있는 **대량 지원을** 사용할 수 있으며 외부 라이브러리가 필요하지 않습니다. 
+
+> 현재 대량 실행기 라이브러리를 사용하고 있으며 최신 SDK에서 대량 지원으로 마이그레이션할 계획인 경우 [마이그레이션 가이드의](how-to-migrate-from-bulk-executor-library.md) 단계를 사용하여 응용 프로그램을 마이그레이션합니다.
 
 이 자습서에서는 대량 실행기 .NET 라이브러리를 사용하여 Azure Cosmos 컨테이너로 문서를 가져오고 업데이트하는 방법에 대한 지침을 제공합니다. 대량 실행기 라이브러리와 대량 처리량 및 저장소를 활용하는 데 어떻게 도움이 되는지 자세히 알아보려면 [대량 실행기 라이브러리 개요](bulk-executor-overview.md) 문서를 참조하세요. 이 자습서에서는 임의로 생성된 문서를 Azure Cosmos 컨테이너로 대량 으로 가져오는 샘플 .NET 응용 프로그램을 볼 수 있습니다. 가져온 후에는 특정 문서 필드에서 수행할 작업으로 패치를 지정하여 가져온 데이터를 대량으로 업데이트할 수 있는 방법을 보여 줍니다.
 
@@ -26,7 +31,7 @@ ms.locfileid: "79246878"
 
 * 아직 Visual Studio 2019가 설치되어 있지 않은 경우 [Visual Studio 2019 커뮤니티 에디션을](https://www.visualstudio.com/downloads/)다운로드하여 사용할 수 있습니다. Visual Studio 설정 중에 "Azure 개발"을 사용하도록 설정해야 합니다.
 
-* Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
+* Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 만드세요.
 
 * Azure 구독, 요금 및 약정 없이 [무료로 Azure Cosmos DB를 사용해 볼 수 있습니다](https://azure.microsoft.com/try/cosmosdb/). 또는 끝점에서 [Azure Cosmos DB 에뮬레이터를](https://docs.microsoft.com/azure/cosmos-db/local-emulator) `https://localhost:8081` 사용할 수 있습니다. 기본 키는 [인증 요청](local-emulator.md#authenticating-requests)에 제공됩니다.
 
@@ -40,7 +45,7 @@ ms.locfileid: "79246878"
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
-복제된 리포지토리에는 두 개의 샘플 "대량 수입 샘플" 및 "대량 업데이트 샘플"이 포함되어 있습니다. 샘플 애플리케이션 중 하나를 열고, Azure Cosmos DB 계정의 연결 문자열로 App.config 파일에서 연결 문자열을 업데이트하고, 솔루션을 빌드하고 실행할 수 있습니다.
+복제된 리포지토리에는 두 개의 샘플 "대량 수입 샘플" 및 "대량 업데이트 샘플"이 포함되어 있습니다. 샘플 응용 프로그램 중 하나를 열고 Azure Cosmos DB 계정의 연결 문자열을 사용하여 App.config 파일의 연결 문자열을 업데이트하고 솔루션을 빌드하고 실행할 수 있습니다.
 
 "대량 수입 샘플" 응용 프로그램은 임의의 문서를 생성하고 Azure Cosmos 계정으로 대량 으로 가져옵니다. “BulkUpdateSample” 애플리케이션은 특정 문서 필드에서 수행할 작업으로 패치를 지정하여 가져온 문서를 대량으로 업데이트합니다. 다음 섹션에서는 이러한 각 샘플 앱에서 코드를 검토하겠습니다.
 
@@ -48,7 +53,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 
 1. “BulkImportSample” 폴더로 이동하고 “BulkImportSample.sln” 파일을 엽니다.  
 
-2. 다음 코드에 나와 있는 것처럼 Azure Cosmos DB의 연결 문자열이 App.config 파일에서 검색됩니다.  
+2. Azure Cosmos DB의 연결 문자열은 다음 코드와 같이 App.config 파일에서 검색됩니다.  
 
    ```csharp
    private static readonly string EndpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];

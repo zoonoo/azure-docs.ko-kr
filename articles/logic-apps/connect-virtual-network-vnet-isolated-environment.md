@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: fedc1f6ce8fbaeaf0d2cae3a1b04169192868e61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6683c1b78b0e7ecba162026708c83843e2c08180
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270694"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478877"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -32,7 +32,7 @@ ISE는 실행 기간, 저장소 보존, 처리량, HTTP 요청 및 응답 시간
 * ISE를 만듭니다.
 * ISE에 용량을 추가합니다.
 
-또한 고객 관리 키 설정을 포함하여 논리 앱 REST API를 사용하여 ISE를 만들 수도 있습니다.
+[샘플 Azure 리소스 관리자 퀵스타트 템플릿을](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) 사용하거나 고객 관리 키 설정을 포함하여 Logic Apps REST API를 사용하여 ISE를 만들 수도 있습니다.
 
 * [논리 앱 REST API를 사용하여 통합 서비스 환경(ISE) 만들기](../logic-apps/create-integration-service-environment-rest-api.md)
 * [ISEs의 미사용 데이터를 암호화하도록 고객 관리 키 설정](../logic-apps/customer-managed-keys-integration-service-environment.md)
@@ -133,17 +133,17 @@ ISE에 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 
    ![환경 세부 정보 제공](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
-   | **구독** | yes | <*Azure 구독 이름*> | 환경에 사용할 Azure 구독 |
-   | **리소스 그룹** | yes | <*Azure-리소스 그룹 이름*> | 환경을 만들려는 새 또는 기존 Azure 리소스 그룹 |
-   | **통합 서비스 환경 이름** | yes | <*환경 이름*> | 문자, 숫자, 하이픈 (),`-`밑줄 (),`_`및 마침표 ()만`.`포함 할 수있는 ISE 이름. |
-   | **위치** | yes | <*Azure 데이터 센터-지역*> | 환경을 배포할 Azure 데이터 센터 지역 |
-   | **Sku** | yes | **프리미엄** 또는 **개발자(SLA 없음)** | ISE SKU를 만들고 사용할 수 있습니다. 이러한 SCO 간의 차이점은 [ISE SCO를](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)참조하십시오. <p><p>**중요**: 이 옵션은 ISE 생성 시에만 사용할 수 있으며 나중에 변경할 수 없습니다. |
-   | **추가 용량** | 프리미엄: <br>yes <p><p>개발자: <br>해당 없음 | 프리미엄: <br>0에서 10까지 <p><p>개발자: <br>해당 없음 | 이 ISE 리소스에 사용할 추가 처리 단위의 수입니다. 생성 후 용량을 추가하려면 [ISE 용량 추가](../logic-apps/ise-manage-integration-service-environment.md#add-capacity)를 참조하십시오. |
-   | **액세스 끝점** | yes | **내부** 또는 **외부** | ISE에 사용할 액세스 끝점의 유형입니다. 이러한 끝점은 ISE의 논리 앱에 대한 요청 또는 웹후크 트리거가 가상 네트워크 외부에서 전화를 받을 수 있는지 여부를 결정합니다. <p><p>선택 영역은 논리 앱에서 입력 및 출력을 보고 액세스할 수 있는 방식에도 영향을 줍니다. 자세한 내용은 [ISE 끝점 액세스를](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)참조하십시오. <p><p>**중요**: 이 옵션은 ISE 생성 시에만 사용할 수 있으며 나중에 변경할 수 없습니다. |
-   | **가상 네트워크** | yes | <*Azure 가상 네트워크 이름*> | 해당 환경의 논리 앱이 가상 네트워크에 액세스할 수 있도록 환경을 삽입하려는 Azure 가상 네트워크입니다. 네트워크가 없는 경우 [먼저 Azure 가상 네트워크를 만듭니다.](../virtual-network/quick-create-portal.md) <p><p>**중요**: *ISE를* 만들 때만 이 주입을 수행할 수 있습니다. |
-   | **서브넷** | yes | <*서브넷 리소스 목록*> | ISE에는 사용자 환경에서 리소스를 만들고 배포하기 위해 4개의 *빈* 서브넷이 필요합니다. 각 서브넷을 만들려면 [이 테이블 아래의 단계를 따릅니다](#create-subnet). |
+   | **구독** | 예 | <*Azure 구독 이름*> | 환경에 사용할 Azure 구독 |
+   | **리소스 그룹** | 예 | <*Azure-리소스 그룹 이름*> | 환경을 만들려는 새 또는 기존 Azure 리소스 그룹 |
+   | **통합 서비스 환경 이름** | 예 | <*환경 이름*> | 문자, 숫자, 하이픈 (),`-`밑줄 (),`_`및 마침표 ()만`.`포함 할 수있는 ISE 이름. |
+   | **위치** | 예 | <*Azure 데이터 센터-지역*> | 환경을 배포할 Azure 데이터 센터 지역 |
+   | **Sku** | 예 | **프리미엄** 또는 **개발자(SLA 없음)** | ISE SKU를 만들고 사용할 수 있습니다. 이러한 SCO 간의 차이점은 [ISE SCO를](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)참조하십시오. <p><p>**중요**: 이 옵션은 ISE 생성 시에만 사용할 수 있으며 나중에 변경할 수 없습니다. |
+   | **추가 용량** | 프리미엄: <br>예 <p><p>개발자: <br>해당 없음 | 프리미엄: <br>0에서 10까지 <p><p>개발자: <br>해당 없음 | 이 ISE 리소스에 사용할 추가 처리 단위의 수입니다. 생성 후 용량을 추가하려면 [ISE 용량 추가](../logic-apps/ise-manage-integration-service-environment.md#add-capacity)를 참조하십시오. |
+   | **액세스 끝점** | 예 | **내부** 또는 **외부** | ISE에 사용할 액세스 끝점의 유형입니다. 이러한 끝점은 ISE의 논리 앱에 대한 요청 또는 웹후크 트리거가 가상 네트워크 외부에서 전화를 받을 수 있는지 여부를 결정합니다. <p><p>선택 영역은 논리 앱에서 입력 및 출력을 보고 액세스할 수 있는 방식에도 영향을 줍니다. 자세한 내용은 [ISE 끝점 액세스를](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)참조하십시오. <p><p>**중요**: 이 옵션은 ISE 생성 시에만 사용할 수 있으며 나중에 변경할 수 없습니다. |
+   | **가상 네트워크** | 예 | <*Azure 가상 네트워크 이름*> | 해당 환경의 논리 앱이 가상 네트워크에 액세스할 수 있도록 환경을 삽입하려는 Azure 가상 네트워크입니다. 네트워크가 없는 경우 [먼저 Azure 가상 네트워크를 만듭니다.](../virtual-network/quick-create-portal.md) <p><p>**중요**: *ISE를* 만들 때만 이 주입을 수행할 수 있습니다. |
+   | **서브넷** | 예 | <*서브넷 리소스 목록*> | ISE에는 사용자 환경에서 리소스를 만들고 배포하기 위해 4개의 *빈* 서브넷이 필요합니다. 각 서브넷을 만들려면 [이 테이블 아래의 단계를 따릅니다](#create-subnet). |
    |||||
 
    <a name="create-subnet"></a>
@@ -156,7 +156,7 @@ ISE에 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 
    * [클래스리스 도메인 간 라우팅(CIDR) 형식과](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 클래스 B 주소 공간을 사용합니다.
 
-   * 각 서브넷에는 `/27` *최소*32개의 주소가 필요하기 때문에 주소 공간에서 최소한 a를 사용합니다. 예를 들어:
+   * 각 서브넷에는 `/27` *최소*32개의 주소가 필요하기 때문에 주소 공간에서 최소한 a를 사용합니다. 다음은 그 예입니다.
 
      * `10.0.0.0/28`주소가 16개에 불과하고<sup>2(32-28)가</sup> 2<sup>4</sup> 또는 16이기 때문에 너무 작습니다.
 

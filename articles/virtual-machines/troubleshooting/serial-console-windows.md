@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 87ccb1c4995337b385f685797980a9fc3962bc6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 68089a86b8b832638abd30aa7c36aa1c5bd84225
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79267002"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410128"
 ---
 # <a name="azure-serial-console-for-windows"></a>윈도우용 Azure 직렬 콘솔
 
@@ -60,7 +60,7 @@ Azure의 최신 Windows 서버 이미지에는 기본적으로 [SAC(특수 관�
 
 1. 원격 데스크톱을 사용하여 Windows 가상 머신에 연결합니다.
 1. 관리자 명령 프롬프트에서 다음 명령을 실행합니다.
-    - `bcdedit /ems {current} on`
+    - `bcdedit /ems {current} on`또는 `bcdedit /ems '{current}' on` PowerShell을 사용하는 경우
     - `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 1. 시스템을 다시 부팅하여 SAC 콘솔을 사용하도록 설정합니다.
 
@@ -102,15 +102,15 @@ Windows 부팅 로더 프롬프트를 사용하도록 설정하여 직렬 콘솔
 
     ![SAC에 연결](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
-1.  `cmd`를 입력하여 CMD 인스턴스가 있는 채널을 만듭니다.
+1.    `cmd`를 입력하여 CMD 인스턴스가 있는 채널을 만듭니다.
 
-1.  바로 `ch -si 1` 가기 `<esc>+<tab>` 키를 입력하거나 눌러 CMD 인스턴스를 실행하는 채널로 전환합니다.
+1.    바로 `ch -si 1` 가기 `<esc>+<tab>` 키를 입력하거나 눌러 CMD 인스턴스를 실행하는 채널로 전환합니다.
 
-1.  **Enter** 키를 누른 다음, 관리자 권한으로 로그인 자격 증명을 입력합니다.
+1.    **Enter** 키를 누른 다음, 관리자 권한으로 로그인 자격 증명을 입력합니다.
 
-1.  유효한 자격 증명을 입력하면 CMD 인스턴스가 열립니다.
+1.    유효한 자격 증명을 입력하면 CMD 인스턴스가 열립니다.
 
-1.  PowerShell 인스턴스를 시작하려면 CMD 인스턴스에서 `PowerShell`을 입력하고 **Enter** 키를 누릅니다.
+1.    PowerShell 인스턴스를 시작하려면 CMD 인스턴스에서 `PowerShell`을 입력하고 **Enter** 키를 누릅니다.
 
     ![PowerShell 인스턴스 열기](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 

@@ -3,12 +3,12 @@ title: Azure 파일 공유 백업 소개
 description: 복구 서비스 자격 증명 모음에서 Azure 파일 공유를 백업하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 0e17b05a3febaa673fb29d45c2bcef25e2996df8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: fd5bb51b2c7b5c09e9d859b69c3094eb50c205b5
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78386721"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396273"
 ---
 # <a name="about-azure-file-share-backup"></a>Azure 파일 공유 백업 소개
 
@@ -43,6 +43,15 @@ Azure 파일 공유 백업은 클라우드에서 데이터를 보호하고 온-�
 6. 원본 파일 공유에서 사용할 수 있는 스냅숏에서 Azure 파일 공유 내용(개별 파일 또는 전체 공유)을 복원할 수 있습니다. 작업이 트리거되면 스냅숏 URL이 메타데이터 저장소에서 검색되고 데이터가 나열되고 원본 스냅숏에서 선택한 대상 파일 공유로 전송됩니다.
 
 7. 백업 및 복원 작업 모니터링 데이터는 Azure 백업 모니터링 서비스로 푸시됩니다. 이렇게 하면 단일 대시보드에서 파일 공유에 대한 클라우드 백업을 모니터링할 수 있습니다. 또한 백업 상태의 영향을 받는 경우 경고 또는 전자 메일 알림을 구성할 수도 있습니다. 전자 메일은 Azure 전자 메일 서비스를 통해 전송됩니다.
+
+## <a name="backup-costs"></a>백업 비용
+
+Azure File 공유 백업은 스냅숏 기반 솔루션이며 스냅숏에 대해 발생하는 저장소 요금은 [여기에](https://azure.microsoft.com/pricing/details/storage/files/)언급된 가격 세부 정보에 따라 Azure 파일 사용량과 함께 청구됩니다.
+
+그러나 백업 솔루션을 활용하기 위한 보호된 인스턴스 요금은 [Azure 파일 백업](https://azure.microsoft.com/pricing/details/backup/) 섹션에 설명된 가격 책정 모델에 따라 다다. 현재 실제 가격은 미국 중서부에 대해서만 업데이트되었습니다. 다른 지역의 경우 일부 지역별 가격으로 곧 정확한 가격이 업데이트되지만 동일한 가격 책정 모델을 사용할 수 있습니다.
+
+>[!NOTE]
+>미리 보기 중에는 "보호된 인스턴스 요금"이 없으며 [여기에](https://azure.microsoft.com/pricing/details/storage/files/)언급된 가격에 따라 스냅샷에 대해서만 요금이 부과됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: bc3d35830d833c0223a400140c53e583d2f6ed37
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79f85261115dbddcb0b04cd2863a90912de2ab87
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475428"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474913"
 ---
 # <a name="app-service-networking-features"></a>앱 서비스 네트워킹 기능
 
@@ -81,7 +81,7 @@ Azure 앱 서비스 규모 단위는 각 배포의 많은 고객을 지원합니
 * 앱에 대한 IP 기반 SSL 요구 사항 지원
 * 다른 사람과 공유되지 않는 앱전용 주소 설정
 
-[IP 기반 SSL 구성에][appassignedaddress]대한 자습서를 사용하여 앱에서 주소를 설정하는 방법을 알아볼 수 있습니다. 
+[Azure 앱 서비스에서 TLS/SSL 인증서 추가에][appassignedaddress]대한 자습서를 사용하여 앱에서 주소를 설정하는 방법을 알아볼 수 있습니다. 
 
 ### <a name="access-restrictions"></a>액세스 제한 
 

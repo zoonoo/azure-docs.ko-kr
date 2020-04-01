@@ -1,5 +1,5 @@
 ---
-title: StorSimple 8000 시리즈 디바이스에 대한 장애 조치 및 재해 복구
+title: StorSimple 8000 시리즈 장치에 대한 장애 조치 및 재해 복구
 description: 자체적으로, 다른 실제 디바이스 또는 클라우드 어플라이언스로 StorSimple 디바이스의 장애를 조치하는 방법을 알아봅니다.
 services: storsimple
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: c1acc084d5abe3385fe311873dfd64c9009e83f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 179bc5cdf982792f41e0dec209341f346959a31a
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79254964"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397519"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스에 대한 장애 조치 및 재해 복구
 

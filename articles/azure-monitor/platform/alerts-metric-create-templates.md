@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 2/24/2020
 ms.subservice: alerts
-ms.openlocfilehash: 2f6e9cd4e7a035e6555b2241613cb9c46c3be550
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe1f1d2700619bfcac4512bb0e631262edf8401c
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274984"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398090"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
 
@@ -1518,6 +1518,10 @@ az group deployment create \
 - 하나 이상의 리소스 그룹에 있는 모든 가상 머신(한 Azure 지역에 있는) 모니터링
 - 구독의 모든 가상 시스템(하나의 Azure 리전에서)을 모니터링합니다.
 - 구독의 가상 컴퓨터 목록(한 Azure 리전)을 모니터링합니다.
+
+> [!NOTE]
+>
+> 여러 리소스를 모니터링하는 메트릭 경고 규칙에서는 하나의 조건만 허용됩니다.
 
 ### <a name="static-threshold-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>하나 이상의 리소스 그룹에 있는 모든 가상 머신에 대한 정적 임계값 경고
 

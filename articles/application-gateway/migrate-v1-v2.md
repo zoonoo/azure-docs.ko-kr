@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 9909c46015fffb3bea3eef094599312e28b935c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 96f3825288846e86771ef3907eb4da4e58630df3
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77046190"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475184"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Azure 응용 프로그램 게이트웨이 및 웹 응용 프로그램 방화벽을 v1에서 v2로 마이그레이션
 
@@ -40,6 +40,7 @@ Azure PowerShell 스크립트는 다음을 수행하는 데 사용할 수 있습
 * V1 게이트웨이에 대해 FIPS 모드를 사용하도록 설정한 경우 새 v2 게이트웨이로 마이그레이션되지 않습니다. FIPS 모드는 v2에서 지원되지 않습니다.
 * v2는 IPv6를 지원하지 않으므로 IPv6 사용 가능한 v1 게이트웨이는 마이그레이션되지 않습니다. 스크립트를 실행하면 완료되지 않을 수 있습니다.
 * v1 게이트웨이에 개인 IP 주소만 있는 경우 스크립트는 새 v2 게이트웨이에 대한 공용 IP 주소와 개인 IP 주소를 만듭니다. v2 게이트웨이는 현재 개인 IP 주소만 지원하지 않습니다.
+* 문자, 숫자, 하이픈 및 밑줄 이외의 이름이 포함된 헤더는 응용 프로그램에 전달되지 않습니다. 헤더 값이 아닌 헤더 이름에만 적용됩니다. 이것은 v1에서 주요 변경 되었습니다.
 
 ## <a name="download-the-script"></a>스크립트 다운로드
 

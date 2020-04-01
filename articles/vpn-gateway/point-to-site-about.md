@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: 78ed07560fdb15efb2de13c194549f5b433b775a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 381aad5d0a56362d9966ed54b931a8478f2f6bf2
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77500611"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410494"
 ---
 # <a name="about-point-to-site-vpn"></a>지점 및 사이트 간 VPN 연결 정보
 
@@ -22,9 +22,9 @@ P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 
 
 지점 및 사이트 간 VPN에서는 다음 프로토콜 중 하나를 사용할 수 있습니다.
 
-* **OpenVPN® 프로토콜,** SSL/TLS 기반 VPN 프로토콜. 대부분의 방화벽은 SSL이 사용하는 TCP 포트 443 아웃바운드를 열기 때문에 SSL VPN 솔루션은 방화벽에 침투할 수 있습니다. OpenVPN은 안드로이드, iOS (버전 11.0 이상), 윈도우, 리눅스 및 Mac 장치 (OSX 버전 10.13 이상)에서 연결하는 데 사용할 수 있습니다.
+* **OpenVPN® 프로토콜,** SSL/TLS 기반 VPN 프로토콜. 대부분의 방화벽은 TLS가 사용하는 TCP 포트 443 아웃바운드를 열기 때문에 TLS VPN 솔루션은 방화벽에 침투할 수 있습니다. OpenVPN은 안드로이드, iOS (버전 11.0 이상), 윈도우, 리눅스 및 Mac 장치 (OSX 버전 10.13 이상)에서 연결하는 데 사용할 수 있습니다.
 
-* SSTP(Secure Socket Tunneling Protocol) - 독점적인 SSL 기반 VPN 프로토콜입니다. 대부분의 방화벽은 SSL이 사용하는 TCP 포트 443 아웃바운드를 열기 때문에 SSL VPN 솔루션은 방화벽에 침투할 수 있습니다. SSTP는 Windows 디바이스에서만 지원됩니다. Azure는 SSTP가 설치된 모든 Windows 버전(Windows 7 이상)을 지원합니다.
+* 보안 소켓 터널링 프로토콜(SSTP) 독점 TLS 기반 VPN 프로토콜입니다. 대부분의 방화벽은 TLS가 사용하는 TCP 포트 443 아웃바운드를 열기 때문에 TLS VPN 솔루션은 방화벽에 침투할 수 있습니다. SSTP는 Windows 디바이스에서만 지원됩니다. Azure는 SSTP가 설치된 모든 Windows 버전(Windows 7 이상)을 지원합니다.
 
 * IKEv2 VPN - 표준 기반 IPsec VPN 솔루션입니다. IKEv2 VPN은 Mac 디바이스(OSX 버전 10.11 이상)에서 연결하는 데 사용할 수 있습니다.
 

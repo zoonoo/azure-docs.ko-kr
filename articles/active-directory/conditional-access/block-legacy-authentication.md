@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 03/31/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76dd07a59a9fa7c0d6231a766ff4090c11f9f5bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 957aa77e18ea8f910f258d1dc59de0d093b0eab6
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80331920"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476636"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>방법: 조건부 액세스를 사용하여 Azure AD에 대한 레거시 인증 차단   
 
@@ -92,7 +92,7 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 
 ### <a name="block-legacy-authentication"></a>레거시 인증 차단 
 
-조건부 액세스 정책에서 리소스에 액세스하는 데 사용되는 클라이언트 앱에 연결된 조건을 설정할 수 있습니다. **모바일 앱 및 데스크톱 클라이언트**에 대해 **기타 클라이언트**를 선택하여 레거시 인증을 사용하는 앱으로 앱의 범위를 좁힐 수 있습니다.
+조건부 액세스 정책에서 리소스에 액세스하는 데 사용되는 클라이언트 앱에 연결된 조건을 설정할 수 있습니다. 클라이언트 앱 조건을 사용하면 모바일 앱 및 데스크톱 클라이언트에서 **Exchange ActiveSync 클라이언트** 및 기타 **클라이언트를** 선택하여 레거시 인증을 사용하는 앱으로 범위를 좁힐 수 **있습니다.**
 
 ![기타 클라이언트](./media/block-legacy-authentication/01.png)
 

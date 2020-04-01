@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aa2e2fb4eb6e269f45494db6d87eef40182971a2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 37d1c181c18f69c040040da2be138eaad3a61693
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346936"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396849"
 ---
 # <a name="secure-your-restful-services"></a>RESTful 서비스 보안 
 
@@ -43,7 +43,7 @@ HTTP 기본 인증은 [RFC 2617에](https://tools.ietf.org/html/rfc2617)정의�
 
 HTTP 기본 인증으로 REST API 기술 프로필을 구성하려면 다음 암호화 키를 만들어 사용자 이름과 암호를 저장합니다.
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 디렉터리를 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 1. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.
@@ -132,7 +132,7 @@ HTTP 기본 인증으로 REST API 기술 프로필을 구성하려면 다음 암
 
 ### <a name="add-a-client-certificate-policy-key"></a>클라이언트 인증서 정책 키 추가
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 디렉터리를 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 1. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.
@@ -186,6 +186,8 @@ HTTP 기본 인증으로 REST API 기술 프로필을 구성하려면 다음 암
 
 ## <a name="oauth2-bearer-authentication"></a>OAuth2 베어러 인증 
 
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
+
 베어러 토큰 인증은 [OAuth2.0 권한 부여 프레임워크: 보유자 토큰 사용(RFC 6750)에](https://www.rfc-editor.org/rfc/rfc6750.txt)정의되어 있습니다. 전달자 토큰 인증에서 Azure AD B2C는 권한 부여 헤더에 토큰을 가진 HTTP 요청을 보냅니다.
 
 ```http
@@ -196,6 +198,7 @@ Authorization: Bearer <token>
 
 - **베어러 토큰**. 나머지 기술 프로필에서 베어러 토큰을 보낼 수 있도록 정책은 먼저 보유자 토큰을 획득한 다음 RESTful 기술 프로필에서 사용해야 합니다.  
 - **정적 베어러 토큰**. REST API가 장기 액세스 토큰을 발행할 때 이 방법을 사용합니다. 정적 베어러 토큰을 사용하려면 정책 키를 만들고 RESTful 기술 프로필에서 정책 키에 대한 참조를 만듭니다. 
+
 
 ## <a name="using-oauth2-bearer"></a>OAuth2 베어러 사용  
 
@@ -303,7 +306,7 @@ ServiceUrl의 경우 테넌트 이름을 Azure AD 테넌트의 이름으로 바�
 
 베어러 토큰 값을 저장하는 정책 키를 만듭니다.
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 디렉터리를 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 1. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.

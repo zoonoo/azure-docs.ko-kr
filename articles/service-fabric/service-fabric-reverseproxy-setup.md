@@ -4,12 +4,12 @@ description: Azure 서비스 패브릭 응용 프로그램에 대한 역방향 �
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: 131440036896d323cbf821d7a220328456e1db36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e3edb0fe238dcaddb7d99cc68660591f081581c
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75645449"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476680"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric에서 역방향 프록시 설정 및 구성
 역방향 프록시는 Service Fabric 클러스터에서 실행되는 마이크로 서비스를 통해 http 엔드포인트가 있는 다른 서비스를 검색하고 통신할 수 있도록 하는 선택적 Azure Service Fabric 서비스입니다. 자세한 내용은 [Azure Service Fabric의 역방향 프록시](service-fabric-reverseproxy.md)를 참조하세요. 이 문서에서는 클러스터에서 역방향 프록시를 설정하고 구성하는 방법에 대해 설명합니다. 
@@ -23,7 +23,7 @@ Azure Portal에서는 새 Service Fabric 클러스터를 만들 때 역방향 �
 1. **2단계: 클러스터 구성**의 **노드 유형 구성** 아래에서 **역방향 프록시 사용**을 선택합니다.
 
    ![포털에서 역방향 프록시 사용](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
-2. (선택 사항) 보안 역방향 프록시를 구성하려면 SSL 인증서를 구성해야 합니다. **3단계: 보안**에 있는 **클러스터 보안 설정 구성**의 **구성 형식** 아래에서 **사용자 지정**을 선택합니다. 그런 다음, **역방향 프록시 SSL 인증서** 아래에서 **역방향 프록시의 SSL 인증서 포함**을 선택하고 인증서 세부 정보를 입력합니다.
+2. (선택 사항) 보안 역방향 프록시를 구성하려면 TLS/SSL 인증서를 구성해야 합니다. **3단계: 보안**에 있는 **클러스터 보안 설정 구성**의 **구성 형식** 아래에서 **사용자 지정**을 선택합니다. 그런 다음, **역방향 프록시 SSL 인증서** 아래에서 **역방향 프록시의 SSL 인증서 포함**을 선택하고 인증서 세부 정보를 입력합니다.
 
    ![포털에서 보안 역방향 프록시 구성](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 
@@ -74,7 +74,7 @@ Resource Manager 템플릿이 준비되면 다음 단계를 사용하여 역방�
         ...
     }
     ```
-3. 역방향 프록시에 대한 포트에 SSL 인증서를 구성하려면 **Microsoft.ServiceFabric/clusters** [리소스 종류 섹션](../resource-group-authoring-templates.md)에서 해당 인증서를 ***reverseProxyCertificate*** 속성에 추가합니다.
+3. 역방향 프록시에 대한 포트에서 TLS/SSL 인증서를 구성하려면 **Microsoft.ServiceFabric/클러스터** [리소스 유형 섹션의](../resource-group-authoring-templates.md) ***reverseProxyCertificate*** 속성에 인증서를 추가합니다.
 
     ```json
     {

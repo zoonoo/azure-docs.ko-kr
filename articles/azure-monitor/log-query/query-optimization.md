@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/28/2019
-ms.openlocfilehash: c32731ce2de2b0f886a1e21ee8ccad3996e395eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2019
+ms.openlocfilehash: 29d5213b8eecd94ed8c8ce565972c9f98872a362
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480269"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411425"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Azure 모니터에서 로그 쿼리 최적화
 Azure 모니터 로그는 [Azure 데이터 탐색기(ADX)를](/azure/data-explorer/) 사용하여 로그 데이터를 저장하고 해당 데이터를 분석하기 위한 쿼리를 실행합니다. ADX 클러스터를 생성, 관리 및 유지 관리하고 로그 분석 워크로드에 맞게 최적화합니다. 쿼리를 실행하면 쿼리가 최적화되고 작업 영역 데이터를 저장하는 적절한 ADX 클러스터로 라우팅됩니다. Azure 모니터 로그와 Azure 데이터 탐색기 모두 많은 자동 쿼리 최적화 메커니즘을 사용합니다. 자동 최적화는 상당한 향상을 제공하지만 쿼리 성능을 크게 향상시킬 수 있는 경우도 있습니다. 이 문서에서는 성능 고려 사항과 이를 해결하기 위한 몇 가지 기술에 대해 설명합니다.
@@ -57,7 +57,7 @@ Log Analytics에서 쿼리를 실행한 후 쿼리 결과 위의 아래쪽 화�
 - 데이터 검색 - 이전 데이터를 검색하면 최근 데이터를 검색하는 것보다 더 많은 시간이 소비됩니다.
 - 데이터 처리 – 데이터의 논리 및 평가. 
 
-쿼리 처리 노드에 소요된 시간 이외에 Azure Monitor Logs에서 보내는 추가 시간이 있습니다: 사용자를 인증하고 이 데이터에 액세스하고, 데이터 저장소를 찾고, 쿼리를 구문 분석하고, 쿼리 처리를 할당할 수 있는지 확인합니다. 노드. 이 시간은 쿼리 총 CPU 시간에 포함되지 않습니다.
+쿼리 처리 노드에 소요된 시간 이외에 Azure Monitor Logs에서 보내는 추가 시간이 있습니다: 사용자를 인증하고 이 데이터에 액세스하고, 데이터 저장소를 찾고, 쿼리를 구문 분석하고, 쿼리 처리 노드를 할당할 수 있는지 확인합니다. 이 시간은 쿼리 총 CPU 시간에 포함되지 않습니다.
 
 ### <a name="early-filtering-of-records-prior-of-using-high-cpu-functions"></a>높은 CPU 기능을 사용하기 전에 레코드조기 필터링
 
@@ -156,6 +156,21 @@ Heartbeat
 > [!NOTE]
 > 이 표시기는 즉시 클러스터의 CPU만 표시합니다. 다중 지역 쿼리에서는 지역 중 하나만 나타냅니다. 다중 작업 영역 쿼리에서는 모든 작업 영역이 포함되지 않을 수 있습니다.
 
+### <a name="avoid-full-xml-and-json-parsing-when-string-parsing-works"></a>문자열 구문 분석이 작동할 때 전체 XML 및 JSON 구문 분석 방지
+XML 또는 JSON 개체의 전체 구문 분석은 높은 CPU 및 메모리 리소스를 소비할 수 있습니다. 대부분의 경우 하나 또는 두 개의 매개 변수만 필요하고 XML 또는 JSON 개체가 간단하면 [구문 분석 연산자](/azure/kusto/query/parseoperator) 또는 기타 텍스트 구문 분석 기술을 사용하여 문자열로 구문 분석하는 것이 더 [쉽습니다.](/azure/azure-monitor/log-query/parse-text) XML 또는 JSON 개체의 레코드 수가 증가함에 따라 성능 향상이 더 중요해질 것입니다. 레코드 수가 수천만 에 도달할 때 필수적입니다.
+
+예를 들어 다음 쿼리는 전체 XML 구문 분석 작업을 수행하지 않고 위의 쿼리와 정확히 동일한 결과를 반환합니다. FilePath 요소와 같은 XML 파일 구조에 대한 몇 가지 가정을 FileHash 다음으로 해석하고 그 중 어느 것도 특성을 가지고 있지 않습니다. 
+
+```Kusto
+//even more efficient
+SecurityEvent
+| where EventID == 8002 //Only this event have FileHash
+| where EventData !has "%SYSTEM32" //Early removal of unwanted records
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" *
+| summarize count() by FileHash, FilePath
+| where FileHash != "" // No need to filter out %SYSTEM32 here as it was removed before
+```
+
 
 ## <a name="data-used-for-processed-query"></a>처리된 쿼리에 사용되는 데이터
 
@@ -246,7 +261,7 @@ Perf
 ) on Computer
 ```
 
-이러한 실수가 발생하는 일반적인 경우는 [arg_max()가](/azure/kusto/query/arg-max-aggfunction) 가장 최근의 발생을 찾는 데 사용되는 경우입니다. 예를 들어:
+이러한 실수가 발생하는 일반적인 경우는 [arg_max()가](/azure/kusto/query/arg-max-aggfunction) 가장 최근의 발생을 찾는 데 사용되는 경우입니다. 다음은 그 예입니다.
 
 ```Kusto
 Perf

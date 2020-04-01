@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
-ms.openlocfilehash: d5d48a2fc7aca184cf8b6e7761584a8800ca5151
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 393c3a06a2366a7d6947faf8bbfe038d6c5982fc
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77160069"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419655"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>단일 페이지 응용 프로그램: API를 호출하는 토큰을 획득합니다.
 
@@ -42,7 +42,7 @@ Azure AD에 대한 자동 토큰 요청은 만료된 Azure AD 세션 또는 암�
 
 ## <a name="acquire-a-token-with-a-pop-up-window"></a>팝업 창으로 토큰 획득
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 코드는 앞서 설명한 패턴과 팝업 환경을 위한 메서드를 결합합니다.
 
@@ -76,20 +76,40 @@ MSAL 각도 래퍼는 HTTP 인터셉터를 제공하며, 이 인터셉터는 자
 구성 옵션에서 API에 대한 범위를 `protectedResourceMap` 지정할 수 있습니다. `MsalInterceptor`토큰을 자동으로 획득할 때 이러한 범위를 요청합니다.
 
 ```javascript
-//In app.module.ts
+// app.module.ts
 @NgModule({
-  imports: [ MsalModule.forRoot({
-                clientID: 'your_app_id',
-                protectedResourceMap: {"https://graph.microsoft.com/v1.0/me", ["user.read", "mail.send"]}
-            })]
-         })
-
-providers: [ ProductService, {
-        provide: HTTP_INTERCEPTORS,
-        useClass: MsalInterceptor,
-        multi: true
+  declarations: [
+    // ...
+  ],
+  imports: [
+    // ...
+    MsalModule.forRoot({
+      auth: {
+        clientId: 'Enter_the_Application_Id_Here',
+      }
+    },
+    {
+      popUp: !isIE,
+      consentScopes: [
+        'user.read',
+        'openid',
+        'profile',
+      ],
+      protectedResourceMap: [
+        ['https://graph.microsoft.com/v1.0/me', ['user.read']]
+      ]
+    })
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MsalInterceptor,
+      multi: true
     }
-   ],
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 ```
 
 자동 토큰 획득의 성공과 실패를 위해 MSAL Angular는 구독할 수 있는 콜백을 제공합니다. 구독을 취소하는 것도 중요합니다.
@@ -103,7 +123,7 @@ providers: [ ProductService, {
 
 ngOnDestroy() {
    this.broadcastService.getMSALSubject().next(1);
-   if(this.subscription) {
+   if (this.subscription) {
      this.subscription.unsubscribe();
    }
  }
@@ -115,7 +135,7 @@ ngOnDestroy() {
 
 ## <a name="acquire-a-token-with-a-redirect"></a>리디렉션으로 토큰 획득
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 패턴은 앞서 설명한 대로 이지만 대화식으로 토큰을 획득 하는 리디렉션 메서드와 함께 표시 됩니다. 앞에서 설명한 대로 리디렉션 콜백을 등록해야 합니다.
 
@@ -149,16 +169,16 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 
 - 응용 프로그램에 대한 토큰에 추가 클레임을 포함합니다.
 - Azure AD에서 토큰에 반환하는 특정 클레임의 동작을 변경합니다.
-- 애플리케이션에 대한 사용자 지정 클레임을 추가하고 액세스합니다. 
+- 애플리케이션에 대한 사용자 지정 클레임을 추가하고 액세스합니다.
 
 에서 `IdToken`선택적 클레임을 요청하려면 문자열화된 클레임 개체를 `claimsRequest` `AuthenticationParameters.ts` 클래스 필드에 보낼 수 있습니다.
 
 ```javascript
-"optionalClaims":  
+"optionalClaims":
    {
       "idToken": [
             {
-                  "name": "auth_time", 
+                  "name": "auth_time",
                   "essential": true
              }
       ],

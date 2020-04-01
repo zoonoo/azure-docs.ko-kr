@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 456f379e2b3c2ff411b196d45aef4663fddb0fe6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fda49ae31d7598497a3128a846a3f4e12e84ffe1
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245409"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435901"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>보안 센터 기능의 은퇴 (7 월 2019)
 
@@ -43,7 +43,7 @@ ms.locfileid: "79245409"
 
 ## <a name="events-dashboard"></a>이벤트 대시보드<a name="menu_events"></a>
 
-보안 센터는 Microsoft 모니터링 에이전트를 사용하여 컴퓨터에서 다양한 보안 관련 구성 및 이벤트를 수집합니다. 이러한 이벤트는 작업 영역에 저장합니다. [이벤트 대시보드를](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) 사용하면 이 데이터를 볼 수 있으며 Log Analytics에 대한 진입점을 제공합니다.
+보안 센터는 Log Analytics 에이전트를 사용하여 컴퓨터에서 다양한 보안 관련 구성 및 이벤트를 수집합니다. 이러한 이벤트는 작업 영역에 저장합니다. [이벤트 대시보드를](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) 사용하면 이 데이터를 볼 수 있으며 Log Analytics에 대한 진입점을 제공합니다.
 
 작업 영역을 선택할 때 나타난 이벤트 대시보드는 모두 폐기되었습니다.
 

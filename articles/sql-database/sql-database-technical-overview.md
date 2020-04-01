@@ -12,16 +12,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 209b4136678e6f04666b4a2b6180f4768bf6afc4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0d50ddbbeeaed48c14d07c42588efcbb20bb7d79
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500820"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411167"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Azure SQL Database 서비스란?
 
-Azure SQL Database는 관리되는 서비스로 제공되는 범용 관계형 데이터베이스입니다. 이를 통해 Azure의 응용 프로그램 및 솔루션에 대해 가용성이 높은 고성능 데이터 저장소 계층을 만들 수 있습니다. SQL Database는 그래프, JSON, 공간 및 XML과 같은 관계형 데이터와 [비관계형 구조를](sql-database-multi-model-features.md)모두 처리할 수 있으므로 다양한 최신 클라우드 응용 프로그램에 적합한 선택이 될 수 있습니다.
+Azure SQL Database는 사용자의 개입 없이도 업그레이드, 패치, 백업 및 모니터링과 같은 데이터베이스 관리 기능 대부분을 처리하는 완전히 관리되는 PaaS(Platform as a Service) 데이터베이스 엔진입니다. Azure SQL Database는 SQL Server 데이터베이스 엔진의 안정적인 최신 버전에서 항상 실행되고 99.99% 가용성이 있는 OS가 패치됩니다. Azure SQL 데이터베이스에 내장된 PaaS 기능을 사용하면 비즈니스에 중요한 도메인별 데이터베이스 관리 및 최적화 활동에 집중할 수 있습니다.
+
+Azure SQL Database를 사용하면 Azure의 응용 프로그램 및 솔루션에 대해 가용성이 높고 고성능 데이터 저장소 계층을 만들 수 있습니다. SQL Database는 그래프, JSON, 공간 및 XML과 같은 관계형 데이터와 [비관계형 구조를](sql-database-multi-model-features.md)모두 처리할 수 있으므로 다양한 최신 클라우드 응용 프로그램에 적합한 선택이 될 수 있습니다.
 
 Microsoft [SQL Server 데이터베이스 엔진의](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json)최신 안정 버전을 기반으로 합니다. [고성능 인메모리 기술](sql-database-in-memory.md) 및 [지능형 쿼리](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json)처리와 같은 고급 쿼리 처리 기능을 사용할 수 있습니다. 실제로 SQL Server의 최신 기능은 먼저 SQL Database에 릴리스된 다음 SQL Server 자체에 릴리스됩니다. 수백만 개의 데이터베이스에서 테스트된 패치 또는 업그레이드에 대한 오버헤드없이 최신 SQL Server 기능을 사용할 수 있습니다. 
 
@@ -68,7 +70,7 @@ SQL Database는 다음과 같은 구매 모델을 제공합니다.
 Azure SQL Database는 다양한 유형의 응용 프로그램에 맞게 설계된 세 가지 서비스 계층을 제공합니다.
 - 일반적인 워크로드를 위해 설계된 [범용/표준](sql-database-service-tier-general-purpose.md) 서비스 계층입니다. 예산 중심의 균형 잡힌 컴퓨팅 및 스토리지 옵션을 제공합니다.
 - 트랜잭션 속도가 높고 대기 시간이 가장 낮은 I/O를 가진 OLTP 애플리케이션을 위해 설계된 [비즈니스 크리티컬/프리미엄](sql-database-service-tier-business-critical.md) 서비스 계층입니다. 여러 격리된 복제본을 사용하여 오류에 대한 가장 높은 복원력을 제공합니다.
-- 초대형 OLTP 데이터베이스와 스토리지를 자동으로 확장하고 유동적으로 계산할 수 있도록 설계된 [하이퍼스케일](sql-database-service-tier-hyperscale.md) 서비스 계층입니다.    
+- 초대형 OLTP 데이터베이스와 스토리지를 자동으로 확장하고 컴퓨팅을 유동적으로 확장할 수 있도록 설계된 [하이퍼스케일](sql-database-service-tier-hyperscale.md) 서비스 계층입니다.    
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>리소스 사용률 극대화를 위한 탄력적 풀
 
@@ -107,11 +109,11 @@ Azure는 수천 개의 데이터베이스 상태를 모니터링할 수 있는 �
 
 ## <a name="availability-capabilities"></a>가용성 기능
 
-기존 SQL Server 환경에서는 일반적으로 로컬로 두 대 이상의 컴퓨터를 설정합니다. 이러한 컴퓨터는 단일 컴퓨터 또는 구성 요소의 오류로부터 보호하기 위해 정확하고 동기적으로 유지 관리되는 데이터 복사본을 가지고 있습니다. 이 환경은 고가용성을 제공하지만 데이터 센터를 파괴하는 자연 재해로부터 보호하지는 않습니다.
+Azure SQL Database를 사용하면 중단 중에 비즈니스를 계속 운영할 수 있습니다. 기존 SQL Server 환경에서는 일반적으로 로컬로 두 대 이상의 컴퓨터를 설정합니다. 이러한 컴퓨터는 단일 컴퓨터 또는 구성 요소의 오류로부터 보호하기 위해 정확하고 동기적으로 유지 관리되는 데이터 복사본을 가지고 있습니다. 이 환경은 고가용성을 제공하지만 데이터 센터를 파괴하는 자연 재해로부터 보호하지는 않습니다.
 
 재해 복구는 치명적인 이벤트가 지리적으로 지역화되어 데이터 복사본이 있는 다른 컴퓨터 나 컴퓨터 집합을 멀리 있게 한다고 가정합니다. SQL Server에서 비동기 모드에서 실행되는 항상 사용 가능 그룹을 사용하여 이 기능을 사용할 수 있습니다. 사람들은 트랜잭션을 커밋하기 전에 복제가 발생할 때까지 기다리지 않으려하므로 계획되지 않은 장애 조치(failover)를 수행하면 데이터가 손실될 수 있습니다.
 
-프리미엄 및 비즈니스 크리티컬 서비스 계층의 데이터베이스는 이미 가용성 그룹의 동기화와 [매우 유사한 작업을 수행합니다.](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) 낮은 서비스 계층의 데이터베이스는 [서로 다르지만 동등한 메커니즘을](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability)사용하여 저장소를 통해 중복성을 제공합니다. 내장 된 논리는 단일 시스템 오류로부터 보호하는 데 도움이됩니다. 활성 지역 복제 기능을 사용하면 전체 지역이 파괴된 재해로부터 보호할 수 있습니다.
+프리미엄 및 비즈니스 크리티컬 서비스 계층의 데이터베이스는 이미 가용성 그룹의 동기화와 [비슷한 작업을 수행합니다.](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) 낮은 서비스 계층의 데이터베이스는 [서로 다르지만 동등한 메커니즘을](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability)사용하여 저장소를 통해 중복성을 제공합니다. 내장 된 논리는 단일 시스템 오류로부터 보호하는 데 도움이됩니다. 활성 지역 복제 기능을 사용하면 전체 지역이 파괴된 재해로부터 보호할 수 있습니다.
 
 Azure 가용성 영역은 단일 지역 내의 단일 데이터 센터 건물의 중단을 방지하려고 합니다. 건물에 대한 전력 또는 네트워크 손실을 방지할 수 있습니다. SQL Database에서 다른 사용 가능 영역(다른 건물, 효과적으로)에 다른 복제본을 배치합니다.
 
@@ -173,7 +175,7 @@ SQL Database는 응용 프로그램이 다양한 보안 및 규정 준수 요구
 - [데이터 검색 및 분류](sql-database-data-discovery-and-classification.md):
 
   이 기능은 데이터베이스의 중요한 데이터를 검색, 분류, 레이블 지정 및 보호하기 위해 Azure SQL Database에 기본 제공된 기능을 제공합니다. 데이터베이스 분류 상태에 대한 가시성을 제공하고 데이터베이스 내 및 테두리 를 넘어 중요한 데이터에 대한 액세스를 추적합니다.
-- [취약성 평가](sql-vulnerability-assessment.md):
+- [취약점 평가](sql-vulnerability-assessment.md):
 
   이 서비스는 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정하는 데 도움이 됩니다. 보안 상태에 대한 가시성을 제공하고, 보안 문제를 해결하고 데이터베이스 보안을 강화하기 위한 실행 가능한 단계를 포함합니다.
 - [위협 탐지](sql-database-threat-detection.md):

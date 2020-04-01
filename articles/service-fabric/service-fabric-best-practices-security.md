@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: dcdc338bdcdb2c04f6b8894ccb358bc773b95c07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa8bb41684271c7d4ebe90e31ce8019994fc1f41
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258929"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478748"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric 보안 
 
@@ -208,7 +208,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 [직접 기준을 만드는 대신 Microsoft 보안 기준과 같이 광범위하게 알려져 있고 잘 테스트된 업계 표준 구성을 구현하는 것이 좋습니다.](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines) 가상 시스템 크기 조정 집합에서 이러한 프로비전옵션을 제공하는 옵션은 Azure 원하는 상태 구성(DSC) 확장 처리기를 사용하여 VM이 온라인 상태가 되면 구성하여 프로덕션 소프트웨어를 실행하는 것입니다.
 
 ## <a name="azure-firewall"></a>Azure Firewall
-[Azure 방화벽은 Azure 가상 네트워크 리소스를 보호하는 관리되는 클라우드 기반 네트워크 보안 서비스입니다. 그것은 내장 된 고가용성과 무제한 클라우드 확장성을 가진 서비스로 완전히 상태 이 면 방화벽입니다.](https://docs.microsoft.com/azure/firewall/overview) 이렇게 하면 아웃바운드 HTTP/S 트래픽을 와일드카드를 포함하여 정규화된 도메인 이름(FQDN)의 지정된 목록으로 제한할 수 있습니다. 이 기능에는 SSL 종료가 필요하지 않습니다. Windows 업데이트에 대한 [Azure 방화벽 FQDN 태그를](https://docs.microsoft.com/azure/firewall/fqdn-tags) 활용하고 Microsoft Windows Update 끝점에 대한 네트워크 트래픽을 활성화하는 것이 방화벽을 통해 흐를 수 있습니다. [템플릿을 사용하여 Azure 방화벽 배포는](https://docs.microsoft.com/azure/firewall/deploy-template) Microsoft.Network/azureFirewalls 리소스 템플릿 정의에 대한 샘플을 제공합니다. 서비스 패브릭 응용 프로그램에 공통되는 방화벽 규칙은 클러스터 가상 네트워크에 대해 다음을 허용하는 것입니다.
+[Azure 방화벽은 Azure 가상 네트워크 리소스를 보호하는 관리되는 클라우드 기반 네트워크 보안 서비스입니다. 그것은 내장 된 고가용성과 무제한 클라우드 확장성을 가진 서비스로 완전히 상태 이 면 방화벽입니다.](https://docs.microsoft.com/azure/firewall/overview) 이렇게 하면 아웃바운드 HTTP/S 트래픽을 와일드카드를 포함하여 정규화된 도메인 이름(FQDN)의 지정된 목록으로 제한할 수 있습니다. 이 기능은 TLS/SSL 종료가 필요하지 않습니다. Windows 업데이트에 대한 [Azure 방화벽 FQDN 태그를](https://docs.microsoft.com/azure/firewall/fqdn-tags) 활용하고 Microsoft Windows Update 끝점에 대한 네트워크 트래픽을 활성화하는 것이 방화벽을 통해 흐를 수 있습니다. [템플릿을 사용하여 Azure 방화벽 배포는](https://docs.microsoft.com/azure/firewall/deploy-template) Microsoft.Network/azureFirewalls 리소스 템플릿 정의에 대한 샘플을 제공합니다. 서비스 패브릭 응용 프로그램에 공통되는 방화벽 규칙은 클러스터 가상 네트워크에 대해 다음을 허용하는 것입니다.
 
 - *download.microsoft.com
 - *servicefabric.azure.com

@@ -3,12 +3,12 @@ title: MABS를 통해 Hyper-V 가상 시스템 백업
 description: 이 문서에는 MABS(Microsoft Azure 백업 서버)를 사용하여 가상 컴퓨터를 백업하고 복구하는 절차가 포함되어 있습니다.
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: 00d1dd04522c51e4d68450a7b8f25d7159d63724
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71cf446472ef0cf4f50bf64e47d359ea08ccc087
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78255060"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420413"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Azure 백업 서버를 통해 Hyper-V 가상 시스템 백업
 
@@ -99,83 +99,6 @@ MABS는 다음과 같이 VSS를 사용 하 고 백업을 수행 합니다. 이 �
 9. **일관성 확인 옵션** 페이지에서 일관성 확인을 자동화할 방법을 선택합니다. 복제본 데이터에 불일치가 있는 경우에만 또는 일정에 따라 일관성 확인을 실행하도록 활성화할 수 있습니다. 자동 일관성 확인을 구성하지 않더라도 언제든지 보호 그룹을 마우스 오른쪽 단추로 클릭하고 **일관성 확인 수행**을 선택하여 수동으로 확인할 수 있습니다.
 
     보호 그룹을 만든 후에 데이터의 최초 복제가 선택한 방법에 따라 발생합니다. 최초 복제 후에는 보호 그룹 설정에 따라 각 백업이 실행됩니다. 백업된 데이터를 복구해야 하는 경우 다음을 기록합니다.
-
-## <a name="back-up-virtual-machines-configured-for-live-migration"></a>실시간 마이그레이션을 위해 구성된 가상 컴퓨터 백업
-
-가상 시스템이 라이브 마이그레이션에 관여하는 경우 MABS는 Hyper-V 호스트에 MABS 보호 에이전트가 설치되어 있는 한 가상 시스템을 계속 보호합니다. MABS가 가상 컴퓨터를 보호하는 방법은 관련된 라이브 마이그레이션 유형에 따라 다릅니다.
-
-**클러스터 내의 라이브 마이그레이션** - 클러스터 내에서 가상 시스템이 마이그레이션을 감지하고 사용자 개입없이 새 클러스터 노드에서 가상 컴퓨터를 백업하는 경우 저장소 위치가 변경되지 않았기 때문에 MABS는 빠른 전체 백업을 계속합니다.
-
-**클러스터 외부의 실시간 마이그레이션** - 가상 시스템이 독립 실행형 서버, 다른 클러스터 또는 독립 실행형 서버와 클러스터 간에 마이그레이션되는 경우 MABS는 마이그레이션을 감지하고 사용자 개입 없이 가상 컴퓨터를 백업할 수 있습니다.
-
-### <a name="requirements-for-maintaining-protection"></a>보호를 유지하기 위한 요구 사항
-
-다음은 실시간 마이그레이션 중에 보호를 유지하기 위한 요구 사항입니다.
-
-- 가상 시스템의 Hyper-V 호스트는 SP1을 통해 최소 시스템 센터 2012를 실행하는 VMM 서버의 시스템 센터 VMM 클라우드에 있어야 합니다.
-
-- MABS 보호 에이전트는 모든 Hyper-V 호스트에 설치되어야 합니다.
-
-- MABS 서버는 VMM 서버에 연결되어 있어야 합니다. VMM 클라우드의 모든 Hyper-V 호스트 서버도 MABS 서버에 연결되어야 합니다. 이를 통해 MABS는 VMM 서버와 통신할 수 있으므로 MABS는 가상 시스템이 현재 실행 중인 Hyper-V 호스트 서버를 찾고 해당 Hyper-V 서버에서 새 백업을 만들 수 있습니다. Hyper-V 서버에 연결을 설정할 수 없는 경우 MABS 보호 에이전트에 연결할 수 없다는 메시지와 함께 백업에 실패합니다.
-
-- 모든 MABS 서버, VMM 서버 및 Hyper-V 호스트 서버는 동일한 도메인에 있어야 합니다.
-
-### <a name="details-about-live-migration"></a>실시간 마이그레이션에 대한 세부 정보
-
-실시간 마이그레이션 중의 백업은 다음을 참조하세요.
-
-- 라이브 마이그레이션이 저장소를 전송하는 경우 MABS는 가상 시스템의 전체 일관성 검사를 수행한 다음 빠른 전체 백업을 계속합니다. 스토리지의 실시간 마이그레이션이 발생하면 Hyper-V는 가상 하드 디스크(VHD) 또는 VHDX를 재구성하여 MABS 백업 데이터의 크기가 일회성으로 급증합니다.
-
-- 가상 보호를 사용하고 TCP Chimney 오프로드를 사용하지 않도록 가상 머신 호스트에서 자동 탑재를 설정합니다.
-
-- MABS는 포트 6070을 DPM-VMM 도우미 서비스를 호스팅하기 위한 기본 포트로 사용합니다. 레지스트리를 변경하려면
-
-    1. **HKLM\소프트웨어\마이크로소프트 데이터 보호 관리자\구성으로**이동 합니다.
-    2. 32비트 DWORD 값 DpmVMmHelperServicePort를 만들고 레지스트리 키의 일부로 업데이트된 포트 번호를 작성합니다.
-    3. ```<Install directory>\Azure Backup Server\DPM\DPM\VmmHelperService\VmmHelperServiceHost.exe.config```를 열고 포트 번호를 6070에서 새 포트로 변경합니다. 예: ```<add baseAddress="net.tcp://localhost:6080/VmmHelperService/" />```
-    4. DPM-VMM 도우미 서비스를 다시 시작하고 DPM 서비스를 다시 시작합니다.
-
-### <a name="set-up-protection-for-live-migration"></a>Set up protection for live migration
-
-실시간 마이그레이션에 대한 보호를 설정하려면
-
-1. MABS 서버와 스토리지를 설정하고 VMM 클라우드의 모든 Hyper-V 호스트 서버 또는 클러스터 노드에 MABS 보호 에이전트를 설치합니다. 클러스터에서 SMB 저장소를 사용하는 경우 모든 클러스터 노드에 MABS 보호 에이전트를 설치합니다.
-
-2. MABS가 VMM 서버와 통신할 수 있도록 VMM 콘솔을 MABS 서버에 클라이언트 구성 요소로 설치합니다. 콘솔은 VMM 서버에서 실행 중인 것과 동일한 버전이어야 합니다.
-
-3. MABSMachineName$ 계정을 VMM 관리 서버의 읽기 전용 관리자 계정으로 할당합니다.
-
-4. `Set-DPMGlobalProperty` PowerShell cmdlet을 사용하여 모든 Hyper-V 호스트 서버를 모든 MABS 서버에 연결합니다. cmdlet은 여러 MABS 서버 이름을 허용합니다. 사용할 형식: `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. 자세한 내용은 [설정-DPMGlobalProperty](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmglobalproperty?view=systemcenter-ps-2019)를 참조하십시오.
-
-5. VMM 클라우드에 있는 Hyper-V 호스트에서 실행 중인 모든 가상 컴퓨터가 VMM에서 검색된 후 보호 그룹을 설정하고 보호하려는 가상 컴퓨터를 추가합니다. 가상 시스템 이동성 시나리오에서 보호를 위해 보호 그룹 수준에서 자동 일관성 검사를 사용하도록 설정해야 합니다.
-
-6. 설정을 구성한 후 가상 시스템이 한 클러스터에서 다른 클러스터로 마이그레이션될 때 모든 백업이 예상대로 계속됩니다. 다음과 같이 예상 대로 실시간 마이그레이션이 사용되는지 확인할 수 있습니다.
-
-   1. DPM-VMM 도우미 서비스가 실행 중인지 확인합니다. 그렇지 않은 경우 시작하십시오.
-
-   2. Microsoft SQL 서버 관리 스튜디오를 열고 MABS 데이터베이스(DPMDB)를 호스트하는 인스턴스에 연결합니다. DPMDB에서 다음과 같은 쿼리를 실행합니다. `SELECT TOP 1000 [PropertyName] ,[PropertyValue] FROM[DPMDB].[dbo].[tbl_DLS_GlobalSetting]`.
-
-      이 쿼리에는 에서 `KnownVMMServer`라는 속성이 포함되어 있습니다. 이 값은 `Set-DPMGlobalProperty` cmdlet에 제공한 값과 같아야 합니다.
-
-   3. 다음 쿼리를 실행하여 특정 가상 머신에 대한 `PhysicalPathXML`의 *VMMIdentifier* 매개 변수 유효성을 검사합니다. `VMName`을(를) 가상 머신의 이름으로 바꿉니다.
-
-      ```sql
-      select cast(PhysicalPath as XML) from tbl_IM_ProtectedObject where DataSourceId in (select datasourceid from tbl_IM_DataSource   where DataSourceName like '%<VMName>%')
-      ```
-
-   4. 이 쿼리에서 반환한 .xml 파일을 열고 *VMMIdentifier* 필드에 값이 있는지 확인합니다.
-
-### <a name="run-manual-migration"></a>수동 마이그레이션 실행
-
-이전 섹션의 단계를 완료하고 MABS 요약 관리자 작업이 완료되면 마이그레이션이 활성화됩니다. 기본적으로 이 작업은 자정에 시작되고 매일 아침에 실행됩니다. 수동 마이그레이션을 실행하려는 경우 모든 것이 예상대로 작동하는지 확인하려면 다음을 수행합니다.
-
-1. SQL Server 관리 Studio를 열고 MABS 데이터베이스를 호스트하는 인스턴스에 연결합니다.
-
-2. `SELECT SCH.ScheduleId FROM tbl_JM_JobDefinition JD JOIN tbl_SCH_ScheduleDefinition SCH ON JD.JobDefinitionId = SCH.JobDefinitionId WHERE JD.Type = '282faac6-e3cb-4015-8c6d-4276fcca11d4' AND JD.IsDeleted = 0 AND SCH.IsDeleted = 0`쿼리를 실행합니다. 이 쿼리는 **ScheduleID**를 반환합니다. 다음 단계에서 사용하므로 이 ID를 적어 둡니다.
-
-3. SQL Server Management Studio에서 **SQL Server 에이전트**를 확장한 후 **작업**을 확장합니다. 적어 둔 **ScheduleID**를 마우스 오른쪽 단추로 클릭한 후 **작업 시작 단계**를 선택합니다.
-
-백업 성능은 작업이 실행될 때 영향을 받습니다. 배포의 크기 및 규모가 이 작업을 완료하는 데 걸리는 시간을 결정합니다.
 
 ## <a name="back-up-replica-virtual-machines"></a>복제본 가상 컴퓨터 백업
 

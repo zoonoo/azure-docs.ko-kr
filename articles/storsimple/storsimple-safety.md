@@ -1,5 +1,5 @@
 ---
-title: StorSimple 디바이스에 대한 안정성 | Microsoft Docs
+title: StorSimple 장치를 안전하게 설치하고 작동
 description: 안전성 규칙, 지침 및 고려 사항을 설명하고 StorSimple 디바이스를 안전하게 설치하고 작동하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
 ms.author: alkohli
-ms.openlocfilehash: 4622a8575d7b6a38226ee3a980c05f143c128356
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 480875c17d5ff5bb5c0d42d827b5477f45bf30f4
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68963530"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396458"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>StorSimple 디바이스의 안전한 설치 및 작동
 
@@ -33,7 +33,7 @@ ms.locfileid: "68963530"
 ## <a name="safety-icon-conventions"></a>안전성 아이콘 표시 규칙
 다음은 Microsoft Azure StorSimple 디바이스를 설정 및 실행할 때 관찰되는 안전 주의 사항을 검토할 때 표시되는 아이콘입니다.
 
-| 아이콘 | 설명 |
+| 아이콘 | Description |
 |:--- |:--- |
 | ![위험 아이콘](./media/storsimple-safety/IC740879.png) **위험!** |피하지 않을 경우 사망 또는 심각한 부상을 당하는 위험한 상황을 나타냅니다. 이 위험도 표시는 가장 극단적인 상황으로 제한됩니다. |
 | ![경고](./media/storsimple-safety/IC740879.png) 아이콘 **경고!** |피하지 않을 경우 사망 또는 심각한 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
@@ -70,7 +70,7 @@ ms.locfileid: "68963530"
 전기 연결에서 과열 또는 화재 가능성을 줄이려면:
 
 * 기술 사양에 상세히 기술된 요구 사항을 충족하기 위해 전기 과부하 보호 기능과 함께 적합한 전원을 제공하십시오.
-* 두 갈래의 전원 코드("Y" 리드)를 사용하지 마십시오.
+* 분기전원 코드("Y" 리드)를 사용하지 마십시오.
 * 해당 안전, 배기 가스 및 열 요구 사항을 준수하기 위해 커버를 제거하지 말고 모든 베이를 플러그인 모듈 또는 드라이브 블랭크로 채워야 합니다.
 * 장비가 제조업체에서 지정한 방식으로 사용되어야 합니다. 제조업체에서 지정하지 않은 방식으로 이 장비를 사용할 경우 장비에서 제공하는 보호 기능이 작동하지 않을 수 있습니다.
 
@@ -99,7 +99,7 @@ ms.locfileid: "68963530"
 
 * 랙은 안전한 배전 시스템을 포함해야 합니다. 인클로저에 과전류 보호 기능을 제공해야 하며 설치된 인클로저 총 수에 의해 과부하되어서는 안 됩니다. 명판에 표시된 정격 소비 전력을 확인해야 합니다.
 * 배전 시스템에서는 랙에 있는 각 인클로저에 신뢰할 수 있는 접지를 제공해야 합니다.
-* 배전 시스템의 설계에서는 모든 인클로저의 모든 전원 공급 장치로부터 나오는 전체 접지 누설 전류를 고려해야 합니다. 각 인클로저의 각 전원 공급 장치에는 60Hz, 264볼트에서 최대 1.0mA의 접지 누설 전류를 포함합니다. 랙에 “누설 전류 높음. 전기를 연결하기 전에 접지(어스) 연결이 필요합니다."라는 레이블이 필요할 수 있습니다.
+* 배전 시스템의 설계에서는 모든 인클로저의 모든 전원 공급 장치로부터 나오는 전체 접지 누설 전류를 고려해야 합니다. 각 인클로저의 각 전원 공급 장치에는 60Hz, 264볼트에서 최대 1.0mA의 접지 누설 전류를 포함합니다. 랙에 "높은 누설 전류"로 라벨이 필요할 수 있습니다. 보급품을 연결하기 전에 접지(접지) 연결이 필수적입니다."
 * 인클로저와 함께 구성된 랙은 UL 60950-1 및 IEC 60950-1/EN 60950-1의 안전 요구 사항을 충족해야 합니다.
 
 ![참고 아이콘](./media/storsimple-safety/IC740881.png) **고지:**

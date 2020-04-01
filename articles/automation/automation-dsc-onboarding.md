@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: 0bf70b73098427847c73b4dd962d56d44fe6ee2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 554a4c64700bb189b4b9f085bd7c259312a36b4b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283211"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410945"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드
 
@@ -107,7 +107,7 @@ PowerShell의 [레지스터-AzAutomationDscNode](/powershell/module/az.automatio
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 
-   - 자동화 계정의 등록 키 및 등록 URL을 찾으려면 이 문서의 경우 등록 섹션을 [사용하여 온보딩을 참조하십시오.](#onboarding-securely-using-registration)
+   - 자동화 계정의 등록 키 및 등록 URL을 찾으려면 이 문서의 등록 섹션을 [사용하여 온보딩을 안전하게](#onboarding-securely-using-registration) 참조하십시오.
 
 3. PowerShell DSC 로컬 구성 관리자(LCM) 기본값이 사용 사례와 일치하지 않거나 Azure 자동화 상태 구성에만 보고하는 컴퓨터를 온보딩하려는 경우 4-7단계를 따릅니다. 그렇지 않으면 7단계로 직접 진행합니다.
 

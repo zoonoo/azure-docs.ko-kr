@@ -3,12 +3,12 @@ title: Azure 서비스 패브릭 클러스터 설정 변경
 description: 이 문서에서는 사용자 지정할 수 있는 패브릭 설정 및 패브릭 업그레이드 정책에 대해 설명합니다.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: a4e64a4db70d419a3ef6441545d53abd298c85bb
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8ca40791e625f1ea5904c4e2516e3f211ba551cf
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346802"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477902"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
@@ -55,10 +55,10 @@ ms.locfileid: "80346802"
 | **매개 변수** | **허용된 값** | **업그레이드 정책** | **지침 또는 간략한 설명** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int, 기본값: 0|정적|BackupRestoreService의 MinReplicaSetSize입니다. |
-|PlacementConstraints|string, 기본값: ""|정적|  BackupRestore 서비스의 PlacementConstraints입니다. |
+|PlacementConstraints|string, 기본값: ""|정적|    BackupRestore 서비스의 PlacementConstraints입니다. |
 |SecretEncryptionCertThumbprint|string, 기본값: ""|동적|비밀 암호화 X509 인증서의 지문 |
-|SecretEncryptionCertX509StoreName|string, 기본값: "My"|   동적|    백업/복원 서비스에서 사용하는 저장소 자격 증명을 암호화 및 암호 해독하는 데 사용되는 X.509 인증서 저장소의 자격 증명 이름 암호화 및 암호 해독용 인증서를 나타냅니다. |
-|TargetReplicaSetSize|int, 기본값: 0|정적| BackupRestoreService의 TargetReplicaSetSize입니다. |
+|SecretEncryptionCertX509StoreName|문자열, 기본값은 "내"입니다.|    동적|    백업/복원 서비스에서 사용하는 저장소 자격 증명을 암호화 및 암호 해독하는 데 사용되는 X.509 인증서 저장소의 자격 증명 이름 암호화 및 암호 해독용 인증서를 나타냅니다. |
+|TargetReplicaSetSize|int, 기본값은 0입니다.|정적| BackupRestoreService의 TargetReplicaSetSize입니다. |
 
 ## <a name="clustermanager"></a>ClusterManager
 
@@ -147,8 +147,8 @@ ms.locfileid: "80346802"
 | **매개 변수** | **허용된 값** | **업그레이드 정책** | **지침 또는 간략한 설명** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int, 기본값: 0|정적|EventStore 서비스의 MinReplicaSetSize입니다. |
-|PlacementConstraints|string, 기본값: ""|정적|  EventStore 서비스의 PlacementConstraints입니다. |
-|TargetReplicaSetSize|int, 기본값: 0|정적| EventStore 서비스의 TargetReplicaSetSize입니다. |
+|PlacementConstraints|string, 기본값: ""|정적|    EventStore 서비스의 PlacementConstraints입니다. |
+|TargetReplicaSetSize|int, 기본값은 0입니다.|정적| EventStore 서비스의 TargetReplicaSetSize입니다. |
 
 ## <a name="fabricclient"></a>FabricClient
 
@@ -270,7 +270,7 @@ ms.locfileid: "80346802"
 |CommonNameNtlmPasswordSecret|SecureString, 기본값: Common::SecureString("")| 정적|NTLM 인증을 사용할 때 생성된 동일한 암호에 대한 시드로 사용되는 암호 비밀 |
 |디스크스페이스 상태보고간격닫기토아웃디스크스페이스 |시간 범위, 기본값은 일반::시간 범위::From분(5)입니다.|동적|시간 간격은 초 단위로 지정합니다. 디스크가 공간이 부족할 때 상태 이벤트를 보고하기 위한 디스크 공간 검사 사이의 시간 간격입니다. |
 |디스크 스페이스 상태보고간격여유디스크스페이스 |TimeSpan, 기본값: Common::TimeSpan::FromMinutes(15)|동적|시간 간격은 초 단위로 지정합니다. 디스크에 충분한 공간이 있을 때 상태 이벤트를 보고하기 위한 디스크 공간 검사 사이의 시간 간격입니다. |
-|인에이블이미지스토어건강보고 |bool, 기본값: TRUE |정적|파일 저장소 서비스가 해당 상태를 보고해야 하는지 여부를 결정하는 구성입니다. |
+|인에이블이미지스토어건강보고 |bool, 기본값: TRUE    |정적|파일 저장소 서비스가 해당 상태를 보고해야 하는지 여부를 결정하는 구성입니다. |
 |프리 디스크 스페이스 알림크기인KB|int64, 기본값은\*25 1024입니다. |동적|상태 경고가 발생할 수 있는 아래의 여유 디스크 공간 크기입니다. 이 구성 및 FreeDiskSpaceNotification임계값설정의 최소값은 상태 경고 의 전송을 결정하는 데 사용됩니다. |
 |프리디스크스페이스알림임계값백분율|이중, 기본값은 0.02입니다. |동적|상태 경고가 발생할 수 있는 아래의 여유 디스크 공간의 백분율입니다. 이 구성 및 FreeDiskSpaceNotificationInMB 구성의 최소 값은 상태 경고 의 전송을 결정하는 데 사용됩니다. |
 |GenerateV1CommonNameAccount| bool, 기본값: TRUE|정적|사용자 이름 V1 생성 알고리즘을 사용하여 계정을 생성할지 여부를 지정합니다. Service Fabric 버전 6.1부터 v2 생성으로 계정이 항상 생성됩니다. V1 계정은 V2 생성을 지원하지 않는 버전(6.1 이전)에서 업그레이드하거나 이 버전으로 업그레이드할 때 필요합니다.|
@@ -320,7 +320,7 @@ ms.locfileid: "80346802"
 |MaxPercentDeltaUnhealthyNodes|int, 기본값: 10|정적|클러스터 업그레이드 상태 평가 정책이며, 클러스터가 정상적으로 작동하는 데 허용되는 델타 비정상 노드에 대한 최대 백분율입니다. |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes|int, 기본값: 15|정적|클러스터 업그레이드 상태 평가 정책이며, 클러스터가 정상적으로 작동하는 데 허용되는 업그레이드 도메인의 델타 비정상 노드에 대한 최대 백분율입니다. |
 
-## <a name="hosting"></a>호스팅
+## <a name="hosting"></a>Hosting
 
 | **매개 변수** | **허용된 값** | **업그레이드 정책** | **지침 또는 간략한 설명** |
 | --- | --- | --- | --- |
@@ -340,7 +340,7 @@ ms.locfileid: "80346802"
 |CreateFabricRuntimeTimeout|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(120)|동적| 시간 간격은 초 단위로 지정합니다. 동기화 FabricCreateRuntime 호출에 대한 시간 제한 값입니다. |
 |DefaultContainerRepositoryAccountName|string, 기본값: ""|정적|ApplicationManifest.xml에 지정된 자격 증명 대신 사용하는 기본 자격 증명 |
 |DefaultContainerRepositoryPassword|string, 기본값: ""|정적|ApplicationManifest.xml에 지정된 자격 증명 대신 사용하는 기본 암호 자격 증명|
-|DefaultContainerRepositoryPasswordType|string, 기본값: ""|정적|비어 있지 않은 문자열인 경우 이 값은 "Encrypted" 또는 "SecretsStoreRef"일 수 있습니다.|
+|DefaultContainerRepositoryPasswordType|string, 기본값: ""|정적|문자열이 비어 있지 않은 경우 값은 "암호화" 또는 "SecretsStoreRef"일 수 있습니다.|
 |DefaultDns서치서프릭스비어|bool, 기본값: FALSE|정적|기본적으로 서비스 이름은 컨테이너 서비스에 대한 SF DNS 이름에 추가됩니다. 이 기능은 확인 경로에서 기본적으로 SF DNS 이름에 아무 것도 추가되지 않도록 이 동작을 중지합니다.|
 |DeploymentMaxFailureCount|int, 기본값: 20| 동적|노드에서 애플리케이션의 배포가 실패하기 전에 DeploymentMaxFailureCount 시간 동안 해당 애플리케이션의 배포가 다시 시도됩니다.| 
 |DeploymentMaxRetryInterval| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(3600)|동적| 시간 간격은 초 단위로 지정합니다. 배포에 대한 최대 다시 시도 간격입니다. 모든 연속 실패에서 다시 시도 간격은 Min(DeploymentMaxRetryInterval, 연속 실패 횟수 * DeploymentRetryBackoffInterval)으로 계산됩니다. |
@@ -568,8 +568,8 @@ ms.locfileid: "80346802"
 |TraceCRMReasons |bool, 기본값: true |동적|CRM에서 작업 이벤트 채널로의 이동을 발급한 이유를 추적할지 여부를 지정합니다. |
 |UpgradeDomainConstraintPriority | int, 기본값: 1| 동적|업그레이드 도메인 제약 조건의 우선 순위를 결정합니다(0: 하드, 1: 소프트, 음수: 무시) |
 |UseMoveCostReports | bool, 기본값: false | 동적|점수 매기기 함수의 비용 요소를 무시하도록 LB에 지시합니다. 보다 효율적인 분산 배치를 위해 잠재적으로 많은 수의 이동이 발생합니다. |
-|UseSeparateSecondaryLoad | bool, 기본값: true | 동적|다른 보조 로드를 사용할지 여부를 결정하는 설정 |
-|사용분리보조이동비용|Bool, 기본값: FALSE | 동적|PLB가 각 노드에서 보조 에 대해 다른 이동 비용을 사용해야 하는지 여부를 결정하는 설정UseSeparateSecondaryMoveCost가 꺼져 있는 경우: - 한 노드에서 보조 보조에 대한 보고된 이동 비용은 각 보조 노드(다른 모든 노드에서)에 대해 과다한 이동 비용을 초래할 수 있습니다. UseSeparateSecondaryMoveCost 켜져 있습니다: - 한 노드에서 보조 에 대한 보고된 이동 비용은 해당 보조 노드에만 적용됩니다(다른 노드의 보조 데이터베이스에는 영향을 미치지 않음) - 복제본 충돌이 발생하는 경우 - 서비스에 지정된 기본 이동 비용으로 새 복제본이 만들어집니다. 수준 - PLB가 기존 복제본을 이동하는 경우 이동 비용이 함께 진행됩니다. |
+|UseSeparateSecondaryLoad | bool, 기본값: true | 동적|보조 복제본에 별도의 로드를 사용해야 하는지 여부를 결정하는 설정입니다. |
+|사용분리보조이동비용 | bool, 기본값: false | 동적|보조 복제본에 별도의 이동 비용을 사용해야 하는지 여부를 결정하는 설정입니다. |
 |ValidatePlacementConstraint | bool, 기본값: true |동적| 서비스의 ServiceDescription을 업데이트할 때 서비스에 대한 PlacementConstraint 식의 유효성을 검사할지 여부를 지정합니다. |
 |유효성 검사기본 배치제약조건| Bool, 기본값: TRUE |동적|서비스에 대한 배치 제약 표현식이 장애 조치(failover)의 기본 기본 설정에 대해 평가되는지 여부를 지정합니다. |
 |VerboseHealthReportLimit | int, 기본값: 20 | 동적|상태 경고를 보고하기 전에 복제본이 배치되지 않아야 하는 횟수를 정의합니다(자세한 상태 보고를 사용하도록 설정한 경우). |
@@ -685,13 +685,13 @@ ms.locfileid: "80346802"
 |SettingsX509StoreName| string, 기본값: "MY"| 동적|패브릭에서 구성을 보호하는 데 사용하는 X509 인증서 저장소 |
 |UseClusterCertForIpcServerTlsSecurity|bool, 기본값: FALSE|정적|클러스터 인증서를 사용하여 IPC 서버 TLS 전송 단위의 보안을 유지하는지 여부 |
 |X509Folder|string, 기본값: /var/lib/waagent|정적|X509 인증서와 프라이빗 키가 있는 폴더 |
-|TLS1_2_CipherList| 문자열| 정적|빈 문자열이 아닌 문자열로 설정된 경우; TLS1.2 및 아래의 지원되는 암호 목록을 재정의합니다. 지원되는 암호 목록 및 TLS1.2에 대한 강력한 암호 목록의 목록 형식 예제를 검색하기 위한 'openssl 암호' 설명서를 참조하십시오: "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES26:ECDHE-RSA-AES26 ECDHE-RSA-AES-128-GCM-SHA256:ECDHE-ECDSA-AES256-CBC-SHA384:ECDHE-ECDSA-AES12 8-CBC-SHA256:ECDHE-RSA-AES256-CBC-SHA384:ECDHE-RSA-AES128-CBC-SHA256"은 리눅스에만 적용됩니다. |
+|TLS1_2_CipherList| 문자열| 정적|빈 문자열이 아닌 문자열로 설정된 경우; TLS1.2 및 아래의 지원되는 암호 목록을 재정의합니다. 지원되는 암호 목록을 검색하기 위한 'openssl-암호' 설명서와 TLS1.2에 대한 강력한 암호 목록의 목록 형식 예제를 참조하십시오. SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES-128-GCM-SHA256:ECDHE-ECDSA-AES256-CBC-SHA384:ECDHE-ECDSA-AES128-C BC-SHA256:ECDHE-RSA-AES256-CBC-SHA384:ECDHE-RSA-AES128-CBC-SHA256"은 리눅스에만 적용됩니다. |
 
 ## <a name="securityadminclientx509names"></a>Security/AdminClientX509Names
 
 | **매개 변수** | **허용된 값** | **업그레이드 정책** | **지침 또는 간략한 설명** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, 기본값: None|동적|"Name" 및 "Value" 쌍의 목록입니다. 각 "Name"은 주체 일반 이름 또는 관리자 클라이언트 작업에 대해 권한이 있는 X509 인증서의 DnsName입니다. 지정된 “Name”의 경우 “Value”는 발급자 고정을 위해 쉼표로 구분된 인증서 지문 목록입니다. 비어있지 않은 경우 관리자 클라이언트 인증서의 직접 발급자가 목록에 있어야 합니다. |
+|PropertyGroup|X509NameMap, 기본값: None|동적|"이름" 및 "값" 쌍의 목록입니다. 각 "이름"은 관리자 클라이언트 작업에 대해 권한이 부여된 X509 인증서의 공통 이름 또는 DnsName입니다. 지정된 "이름"의 경우 "Value"는 발급자 고정을 위한 별도의 인증서 지문 목록입니다. |
 
 ## <a name="securityclientaccess"></a>보안/ClientAccess
 
@@ -806,7 +806,7 @@ ms.locfileid: "80346802"
 
 | **매개 변수** | **허용된 값** | **업그레이드 정책** | **지침 또는 간략한 설명** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, 기본값: None|동적|"Name" 및 "Value" 쌍의 목록입니다. 각 "Name"은 주체 일반 이름 또는 클라이언트 작업에 대해 권한이 있는 X509 인증서의 DnsName입니다. 지정된 “Name”의 경우 “Value”는 발급자 고정을 위해 쉼표로 구분된 인증서 지문 목록입니다. 비어있지 않은 경우 클라이언트 인증서의 직접 발급자가 목록에 있어야 합니다.|
+|PropertyGroup|X509NameMap, 기본값: None|동적|"이름" 및 "값" 쌍의 목록입니다. 각 "이름"은 클라이언트 작업에 대해 승인된 X509 인증서의 일반적인 이름 또는 DnsName입니다. 지정된 "이름"의 경우 "Value"는 발급자 고정을 위한 별도의 인증서 지문 목록입니다.|
 
 ## <a name="securityclustercertificateissuerstores"></a>Security/ClusterCertificateIssuerStores
 
@@ -818,7 +818,7 @@ ms.locfileid: "80346802"
 
 | **매개 변수** | **허용된 값** | **업그레이드 정책** | **지침 또는 간략한 설명** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, 기본값: None|동적|"Name" 및 "Value" 쌍의 목록입니다. 각 "Name"은 주체 일반 이름 또는 클러스터 작업에 대해 권한이 있는 X509 인증서의 DnsName입니다. 지정된 “Name”의 경우 “Value”는 발급자 고정을 위해 쉼표로 구분된 인증서 지문 목록입니다. 비어있지 않은 경우 클러스터 인증서의 직접 발급자가 목록에 있어야 합니다.|
+|PropertyGroup|X509NameMap, 기본값: None|동적|"이름" 및 "값" 쌍의 목록입니다. 각 "이름"은 클러스터 작업에 대해 승인된 X509 인증서의 공통 이름 또는 DnsName입니다. 지정된 "이름","Value"는 발급자 고정을 위한 인증서 지문의 쉼표 별도 목록입니다( 비어 있지 않은 경우) 클러스터 인증서의 직접 발급자가 목록에 있어야 합니다.|
 
 ## <a name="securityservercertificateissuerstores"></a>Security/ServerCertificateIssuerStores
 
@@ -830,7 +830,7 @@ ms.locfileid: "80346802"
 
 | **매개 변수** | **허용된 값** | **업그레이드 정책** | **지침 또는 간략한 설명** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, 기본값: None|동적|"Name" 및 "Value" 쌍의 목록입니다. 각 "Name"은 주체 일반 이름 또는 서버 작업에 대해 권한이 있는 X509 인증서의 DnsName입니다. 지정된 “Name”의 경우 “Value”는 발급자 고정을 위해 쉼표로 구분된 인증서 지문 목록입니다. 비어있지 않은 경우 서버 인증서의 직접 발급자가 목록에 있어야 합니다.|
+|PropertyGroup|X509NameMap, 기본값: None|동적|"이름" 및 "값" 쌍의 목록입니다. 각 "이름"은 서버 작업에 대해 권한이 부여된 X509 인증서의 일반적인 이름 또는 DnsName입니다. 지정된 "이름"의 경우 "Value"는 발급자 고정을 위한 별도의 인증서 지문 목록입니다.|
 
 ## <a name="setup"></a>설치 프로그램
 
