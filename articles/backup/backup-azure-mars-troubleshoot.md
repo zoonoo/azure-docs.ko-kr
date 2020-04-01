@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup 에이전트의 설치 및 등록 
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 24169356600c25e664221af397051bb0fec3e459
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a15f8a4531bc31dab5b99e125454b0d9c4fd4521
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673084"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421267"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Microsoft Azure 복구 서비스(MARS) 에이전트 문제 해결
 
@@ -132,6 +132,13 @@ Set-ExecutionPolicy Unrestricted
 
 > [!TIP]
 > 변경 내용이 일관되게 적용되도록 하려면 이전 단계를 수행한 후 서버를 다시 시작합니다.
+
+## <a name="resource-not-provisioned-in-service-stamp"></a>서비스 스탬프에 프로비전되지 않은 리소스
+
+Error | 가능한 원인 | 권장 작업
+--- | --- | ---
+내부 서비스 오류 "서비스 스탬프에 프로비전되지 않은 리소스"로 인해 현재 작업이 실패했습니다. 잠시 후 작업을 다시 시도하세요. (ID: 230006) | 보호된 서버의 이름이 바뀌었습니다. | <li> 서버이름을 볼트에 등록된 원래 이름으로 다시 바꿉니다. <br> <li> 새 이름으로 서버를 볼트에 다시 등록합니다.
+
 
 ## <a name="troubleshoot-restore-problems"></a>복원 문제 해결
 

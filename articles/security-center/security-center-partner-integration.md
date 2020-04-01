@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 23a00c766dbb38853c57c91e7f59ec364390c44b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f7a1eccd76313c5b3bc74a5b5ebdbcd202ca6841
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245383"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435758"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
@@ -36,7 +36,7 @@ Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게
 현재 통합 보안 솔루션에는 [Qualys](https://www.qualys.com/public-cloud/#azure) 및 [Rapid7](https://www.rapid7.com/products/insightvm/) 및 Microsoft 응용 프로그램 게이트웨이 웹 응용 프로그램 방화벽의 취약성 평가가 포함됩니다.
 
 > [!NOTE]
-> 대부분의 보안 공급업체는 어플라이언스에서 실행되는 외부 에이전트를 금지하기 때문에 보안 센터는 파트너 가상 어플라이언스에 Microsoft 모니터링 에이전트를 설치하지 않습니다.
+> 대부분의 보안 공급업체는 어플라이언스에서 실행되는 외부 에이전트를 금지하기 때문에 보안 센터는 파트너 가상 어플라이언스에 Log Analytics 에이전트를 설치하지 않습니다.
 >
 >
 
@@ -47,7 +47,7 @@ Security Center에서 배포된 Azure 보안 솔루션은 자동으로 연결됩
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>통합된 Azure 보안 솔루션 및 다른 데이터 원본 관리
 
-1. [Azure 포털에](https://azure.microsoft.com/features/azure-portal/)로그인합니다.
+1. [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에 로그인합니다.
 
 2. **Microsoft Azure 메뉴**에서 **Security Center**를 선택합니다. **Security Center - 개요**가 열립니다.
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: b0b9d62e8761cfb67d0642d8e5a97e7d1f05af12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e0a5e89f256b562ce5f702e9ff1388cb4d021bf5
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064447"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437684"
 ---
 # <a name="ingest-historical-telemetry-data"></a>기록 원격 분석 데이터 수집
 
@@ -37,37 +37,48 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용하도록 설정해야
 > [!NOTE]
 > 다음 단계를 수행하려면 관리자여야 합니다.
 
-1. zip [파일을](https://aka.ms/farmbeatspartnerscriptv2)다운로드하여 로컬 드라이브로 추출합니다. zip 파일 안에 하나의 파일이 있습니다.
+1. [https://manage.visualstudio.com](https://portal.azure.com/) 에 로그인합니다.
 
-2. Azure Active https://portal.azure.com/ **Directory** > 앱 등록에 로그인하여**이동합니다.**
+2. **FarmBeats 버전 1.2.7 이상에 있는 경우 a, b 및 c 단계를 건너뛰고 3단계로 이동합니다.** FarmBeats UI의 오른쪽 상단 모서리에 있는 **설정** 아이콘을 선택하여 FarmBeats 버전을 확인할 수 있습니다.
 
-3. FarmBeats 배포의 일부로 만든 **앱 등록을** 선택합니다. FarmBeats Datahub와 이름이 동일합니다.
+      a.  Azure **Active 디렉터리** > **앱 등록으로** 이동
 
-4. **API > 클라이언트** **응용 프로그램 추가를** 선택하고 **04b07795-8ddb-461a-bbee-02f9e1bf7b46을** 입력하고 **범위 승인을**확인합니다. 이렇게 하면 Azure CLI(클라우드 셸)에 대한 액세스 권한을 부여하여 다음 단계를 수행할 수 있습니다.
+      b. FarmBeats 배포의 일부로 만든 **앱 등록을** 선택합니다. FarmBeats 데이터 허브와 이름이 동일합니다.
 
-5. Cloud Shell을 엽니다. 이 옵션은 Azure 포털의 오른쪽 위 모서리에 있는 도구 모음에서 사용할 수 있습니다.
+      다. **API > 클라이언트** **응용 프로그램 추가를** 선택하고 **04bb07795-8ddb-461a-bbee-02f9e1bf7b46을** 입력하고 **범위 승인을**선택합니다. 이렇게 하면 Azure CLI(클라우드 셸)에 액세스하여 다음 단계를 수행할 수 있습니다.
+
+3. Cloud Shell을 엽니다. 이 옵션은 Azure 포털의 오른쪽 위 모서리에 있는 도구 모음에서 사용할 수 있습니다.
 
     ![Azure 포털 도구 모음](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-6. 환경이 **PowerShell으로**설정되어 있는지 확인합니다. 기본적으로 Bash로 설정됩니다.
+4. 환경이 **PowerShell으로**설정되어 있는지 확인합니다. 기본적으로 Bash로 설정됩니다.
 
     ![파워쉘 툴바 설정](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-7. Cloud Shell 인스턴스에서 1단계에서 파일을 업로드합니다.
+5. 홈 디렉토리로 이동합니다.
 
-    ![도구 모음 단추 업로드](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
+    ```azurepowershell-interactive 
+    cd  
+    ```
 
-8. 파일이 업로드된 디렉터리로 이동합니다. 기본적으로 파일은 사용자 이름으로 홈 디렉토리에 업로드됩니다.
+6. 다음 명령을 실행합니다. 이렇게 하면 홈 디렉터리로 스크립트가 다운로드됩니다.
 
-9. 다음 스크립트를 실행합니다. 스크립트는 **Azure Active Directory** > **개요 페이지에서**가져올 수 있는 테넌트 ID를 요청합니다.
+    ```azurepowershell-interactive 
 
-    ```azurepowershell-interactive
+    wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1
+
+    ```
+
+7. 다음 스크립트를 실행합니다. 스크립트는 **Azure Active Directory** > **개요** 페이지에서 가져올 수 있는 테넌트 ID를 요청합니다.
+
+    ```azurepowershell-interactive 
 
     ./generatePartnerCredentials.ps1   
 
     ```
 
-10. 화면의 지침에 따라 API **끝점,** **테넌트 ID,** **클라이언트 ID,** **클라이언트 보안**및 EventHub 연결 문자열에 대한 값을 **캡처합니다.**
+8. 화면의 지침에 따라 API **끝점,** **테넌트 ID,** **클라이언트 ID,** **클라이언트 보안**및 EventHub 연결 문자열에 대한 값을 **캡처합니다.**
+
 
 ## <a name="create-device-or-sensor-metadata"></a>장치 또는 센서 메타데이터 만들기
 
@@ -90,8 +101,8 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용하도록 설정해야
 |          제조업체            |         제조업체 이름    |
 |  Productcode                    |  장치 제품 코드 또는 모델 이름 또는 번호. 예를 들어, 엔비로모니터#6800.  |
 |            포트          |     디지털 또는 아날로그 포트 이름 및 유형입니다.
-|     이름                 |  리소스를 식별하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.
-      설명     | 모델에 대한 의미 있는 설명을 제공합니다.
+|     속성                 |  리소스를 식별하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.
+      Description     | 모델에 대한 의미 있는 설명을 제공합니다.
 |    속성          |    제조업체의 추가 속성입니다.   |
 |    **디바이스**             |                      |
 |   장치 모델 ID     |     연결된 장치 모델의 ID입니다.  |
@@ -99,8 +110,8 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용하도록 설정해야
 |  ReportingInterval        |   보고 간격을 초 단위로 보고합니다.
 |  위치            |  장치 위도(-90 ~ +90), 경도(-180 ~ 180) 및 고도(미터).   
 |부모장치 ID       |    이 장치가 연결된 상위 장치의 ID입니다. 예를 들어 게이트웨이에 연결된 노드입니다. 노드에는 게이트웨이로 parentDeviceId가 있습니다.  |
-|    이름            | 리소스를 식별하는 이름입니다. 장치 파트너는 파트너 측의 장치 이름과 일치하는 이름을 보내야 합니다. 파트너 장치 이름이 사용자 정의된 경우 동일한 사용자 정의 이름을 FarmBeats에 전파해야 합니다.|
-|     설명       |      의미 있는 설명을 제공합니다. |
+|    속성            | 리소스를 식별하는 이름입니다. 장치 파트너는 파트너 측의 장치 이름과 일치하는 이름을 보내야 합니다. 파트너 장치 이름이 사용자 정의된 경우 동일한 사용자 정의 이름을 FarmBeats에 전파해야 합니다.|
+|     Description       |      의미 있는 설명을 제공합니다. |
 |     속성    |  제조업체의 추가 속성입니다.
 |     **센서 모델**        |          |
 |       유형(아날로그, 디지털)          |      아날로그이든 디지털이든 센서의 유형입니다.       |
@@ -108,11 +119,11 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용하도록 설정해야
 |     Productcode| 제품 코드 또는 모델 이름 또는 번호. 예를 들어, RS-CO2-N01. |
 |       센서> 이름 측정       | 센서 측정값의 이름입니다. 소문자만 지원됩니다. 다른 깊이에서 측정할 때 깊이를 지정합니다. 예를 들어, soil_moisture_15cm. 이 이름은 원격 분석 데이터와 일치해야 합니다.  |
 |          센서데이터유형에> 측정       |원격 분석 데이터 형식입니다. 현재 이중이 지원됩니다.|
-|    센서측정 > 유형    |센서 원격 분석 데이터의 측정 유형입니다. 시스템 정의 유형은 주변 온도, CO2, 깊이, 전기 전도성, 잎습성, 길이, 액체 레벨, 질산염, O2, PH, 인산염, PointInTime, 칼륨, 압력, RainGauge, 상대 습도, 염분, 토양 모이스처, 토양 온도, 태양 복사, 상태, 시간 지속 시간, UVRadiation, UVIndex, 볼륨, 윈드 방향, 윈드 런, 윈드 스피드, 회피, PAR. 더 추가하려면 /ExtendedType API를 참조하십시오.|
-|        센서측정 > 유닛              | 센서 원격 분석 데이터의 단위입니다. 시스템 정의 단위는 NoUnit, 섭씨, 화씨, 켈빈, 랭킨, 파스칼, 수은, PSI, 밀리미터, 센티미터, 미터, 인치, 피트, 마일, 킬로미터, 마일퍼아워, 마일스퍼초, 킬로미터퍼초, 미터퍼시, 미터퍼초, 도, 와츠퍼스퀘어미터, 킬로와츠퍼스퀘어미터, 밀리와츠퍼스퀘어미터, 밀리줄스퍼스퀘어미터, 볼륨워터콘텐츠, 백분율, 파트퍼백만, 마이크로몰, 마이크로퍼퍼, 마이크로퍼퍼 MilliSiemensPerCentiMeter, 센티바, 데시지멘스퍼미터, 킬로스칼, 볼륨트리션콘텐츠, 리터, 밀리리터, 초, 유닉스타임스탬프, 마이크로몰퍼미터스퀘어퍼초, 인치퍼아워, 더 추가하려면 /ExtendedType API를 참조하십시오.|
+|    센서측정 > 유형    |센서 원격 분석 데이터의 측정 유형입니다. 시스템 정의 유형은 앰비언트온도, CO2, 깊이, 전기전도도, 잎습지, 길이, 액체 레벨, 질산염, O2, PH, 인산염, PointInTime, 칼륨, 압력, 레인게이지, 상대 습도, 염도, 토양 모이스처, 토양 온도, 태양 복사, 상태, 시간 지속 시간, UV사, UVIndex, 볼륨, 풍향, 풍진, 풍진, 풍진, 풍진, 풍진, 풍사이다. 더 추가하려면 /ExtendedType API를 참조하십시오.|
+|        센서측정 > 유닛              | 센서 원격 분석 데이터의 단위입니다. 시스템 정의 단위는 NoUnit, 섭씨, 화씨, 켈빈, 랭킨, 파스칼, 수은, PSI, 밀리미터, 센티미터, 미터, 인치, 피트, 마일, 킬로미터, 마일스퍼아워, 마일스퍼아시, 마일스퍼초, 킬로미터초, 미터퍼아워, 미터퍼초, 도, 와츠퍼스퀘어미터, 킬로와츠퍼스퀘어미터, 밀리와츠퍼스퀘어센티미터, 밀리줄스퍼스퀘어센티미터, 볼륨리터콘텐츠, 백분율, 파트퍼백만, 마이크로몰, 마이크로몰, 마이크로몰퍼리터, 지멘스퍼스퀘어미터퍼몰, 밀리시멘스퍼센티미터, 센티바, 데시지멘스퍼미터, 킬로파스칼, 체피트리니언콘텐츠, 리터, 밀리리터, 초, 유닉스타임스탬프, 마이크로몰퍼미터스퀘어퍼초, 인치퍼아워 추가하려면 /ExtendedType API를 참조하십시오.|
 |    센서측정> 집계유형    |  값은 없음, 평균, 최대값, 최소 값 또는 StandardDeviation일 수 있습니다.  |
-|          이름            | 리소스를 식별하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.  |
-|    설명        | 모델에 대한 의미 있는 설명을 제공합니다.|
+|          속성            | 리소스를 식별하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.  |
+|    Description        | 모델에 대한 의미 있는 설명을 제공합니다.|
 |   속성       |  제조업체의 추가 속성입니다.|
 |    **센서**      |          |
 | 하드웨어 ID          |   제조업체에서 설정한 센서의 고유 ID입니다.|
@@ -120,8 +131,8 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용하도록 설정해야
 | 위치          |  센서 위도(-90 ~ +90), 경도(-180 ~ 180) 및 고도(미터).|
 |   포트 > 이름        |  센서가 장치에 연결된 포트의 이름 및 유형입니다. 이 이름은 장치 모델에 정의된 것과 같아야 합니다.|
 |    DeviceID  |    센서가 연결된 장치의 ID입니다. |
-| 이름            |   리소스를 식별할 이름입니다. 예를 들어 센서 이름 또는 제품 이름, 모델 번호 또는 제품 코드.|
-|    설명      | 의미 있는 설명을 제공합니다.|
+| 속성            |   리소스를 식별할 이름입니다. 예를 들어 센서 이름 또는 제품 이름, 모델 번호 또는 제품 코드.|
+|    Description      | 의미 있는 설명을 제공합니다.|
 |    속성        |제조업체의 추가 속성입니다.|
 
 개체에 대한 자세한 내용은 [Swagger](https://aka.ms/FarmBeatsDatahubSwagger)를 참조하십시오.
@@ -351,11 +362,11 @@ write_client.stop()
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": "<values>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         }
       ]
     }
@@ -429,11 +440,11 @@ write_client.stop()
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         }
       ]
     }

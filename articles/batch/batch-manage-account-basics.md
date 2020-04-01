@@ -11,15 +11,15 @@ ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 03/30/2020
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4df2ec0439e659fd8dc1448c6209c9718114791
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ecae47f6aa0ab3f179632467b7da7805f06162d6
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79479793"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397256"
 ---
 # <a name="manage-your-batch-account"></a>일괄 처리 계정 관리
 
@@ -39,7 +39,7 @@ Batch 계정을 사용하면 Azure에서 대규모 병렬 및 고성능 컴퓨�
 
 - 작업 수 및 유형 
 
-- 입력 및 데이터의 출력. 작업을 관리하기 위해 추가 소프트웨어를 설치할 필요가 없습니다.
+- 데이터의 입력 및 출력입니다. 작업을 관리하기 위해 추가 소프트웨어를 설치할 필요가 없습니다.
 
 - Batch 계정을 만들 때 이름을 할당하라는 메시지가 표시됩니다. 이 이름은 ID이며 할당된 후에는 변경할 수 없습니다.
 

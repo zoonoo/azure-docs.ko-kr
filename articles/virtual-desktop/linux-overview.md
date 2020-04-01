@@ -8,23 +8,31 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 967fd1fa182b7c8e581fd74cc287c5a6ba0e4038
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c5de43ed29856451ad67e02a426b07cc34a0d54
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127833"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422426"
 ---
 # <a name="linux-support"></a>Linux 지원
 
-Windows 가상 데스크톱용 Linux SDK를 사용하여 독립 실행형 Windows 가상 데스크톱 클라이언트를 빌드할 수 있습니다. 클라이언트 응용 프로그램에서 Windows 가상 데스크톱 지원을 활성화하는 데 사용할 수도 있습니다. 이 빠른 가이드는 리눅스 SDK가 무엇이며 어떻게 사용하기 시작하는지 설명합니다.
+파트너는 Windows 가상 데스크톱용 Linux SDK를 사용하여 독립 실행형 Windows 가상 데스크톱 클라이언트를 빌드할 수 있습니다. 클라이언트 응용 프로그램에서 Windows 가상 데스크톱 지원을 활성화하는 데 사용할 수도 있습니다. 이 빠른 가이드는 리눅스 SDK가 무엇이며 어떻게 사용하기 시작하는지 설명합니다.
+
+## <a name="connect-with-your-linux-device"></a>리눅스 장치와 연결
+
+다음 파트너는 Linux 장치에 대한 Windows 가상 데스크톱 클라이언트를 승인했습니다.
+
+|파트너|파트너 문서|파트너 지원|
+|:------|:--------------------|:--------------|
+|![IGEL 로고](./media/partners/igel.png)|[IGEL 클라이언트 문서](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[IGEL 지원](https://www.igel.com/support/)|
 
 ## <a name="what-is-the-linux-sdk"></a>리눅스 SDK는 무엇입니까?
 
 SDK API를 사용하여 리소스 피드를 검색하고, 데스크톱 또는 원격 응용 프로그램 세션에 연결하고, 타사 클라이언트가 지원하는 많은 리디렉션을 사용할 수 있습니다.
 
 > [!NOTE]
-> SDK는 현재 개발 중입니다. 사용 가능한 경우 SDK에 액세스하는 지침으로 이 문서를 업데이트합니다.
+> SDK는 현재 개발 중입니다. 이 문서는 일반적으로 사용할 수 있는 경우 SDK에 액세스하는 지침으로 업데이트됩니다.
 
 ### <a name="supported-linux-distributions"></a>지원되는 Linux 배포판
 

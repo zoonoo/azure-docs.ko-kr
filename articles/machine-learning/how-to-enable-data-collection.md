@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c481a2e12d83e865025cd90e59e0eba572ad9a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 44acc81df9eb6dc6a6af28b5b0f4730aa93adffc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75771396"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475435"
 ---
 # <a name="collect-data-for-models-in-production"></a>프로덕션 환경에서 모델용 데이터 수집
 
@@ -60,7 +60,7 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
+- Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://aka.ms/AMLFree) 만드세요.
 
 - AzureMachine 학습 작업 영역, 스크립트가 포함된 로컬 디렉터리 및 파이썬용 Azure 기계 학습 SDK를 설치해야 합니다. 설치하는 방법에 대해 알아보려면 [개발 환경을 구성하는 방법을](how-to-configure-environment.md)참조하세요.
 
@@ -129,11 +129,7 @@ Azure 기계 학습 또는 기타 도구를 통해 배포하는 모델에 관계
 
    ![서비스 편집](././media/how-to-enable-data-collection/EditService.PNG)
 
-1. **고급 설정에서** **모델 데이터 수집 을 선택합니다.**
-
-    [![데이터 수집 선택](./media/how-to-enable-data-collection/CheckDataCollection.png)](././media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
-
-   **AppInsights 진단 활성화를** 선택하여 서비스 상태를 추적할 수도 있습니다.
+1. **고급 설정에서** **응용 프로그램 인사이트 진단 및 데이터 수집 활성화를 선택합니다.**
 
 1. 변경 내용을 적용하려면 **업데이트를** 선택합니다.
 
@@ -151,9 +147,7 @@ Azure 기계 학습 또는 기타 도구를 통해 배포하는 모델에 관계
 
    [![편집 옵션 선택](././media/how-to-enable-data-collection/EditService.PNG)](./././media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
-1. **고급 설정에서는** **모델 데이터 수집 활성화를**선택 취소합니다.
-
-    [![데이터 수집 확인란 지우기](./media/how-to-enable-data-collection/UncheckDataCollection.png)](././media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
+1. **고급 설정에서** **응용 프로그램 인사이트 진단 및 데이터 수집 을 사용하도록 설정합니다.**
 
 1. **업데이트**를 선택하여 변경 내용을 적용합니다.
 

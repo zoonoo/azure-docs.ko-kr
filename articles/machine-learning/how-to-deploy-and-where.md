@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 02/27/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 96d9a0722ae04dc150b639dced34fa290da93630
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0deace98c5be0b2ce2f29abce4c8a804145afdb1
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80159418"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475612"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -537,9 +537,9 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
 
-### <a name="securing-deployments-with-ssl"></a>SSL을 통해 배포 보안
+### <a name="securing-deployments-with-tls"></a>TLS를 통해 배포 보안
 
-웹 서비스 배포를 보호하는 방법에 대한 자세한 내용은 [SSL 사용을 참조하여 웹 서비스를 보호합니다.](how-to-secure-web-service.md#enable)
+웹 서비스 배포를 보호하는 방법에 대한 자세한 내용은 [TLS 및 배포 를 활성화](how-to-secure-web-service.md#enable)를 참조하십시오.
 
 ### <a name="local-deployment"></a><a id="local"></a>로컬 배포
 
@@ -576,13 +576,13 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 
 다음 표는 다양한 서비스 상태에 대해 설명합니다.
 
-| 웹 서비스 상태 | 설명 | 최종 상태?
+| 웹 서비스 상태 | Description | 최종 상태?
 | ----- | ----- | ----- |
 | 전환 | 서비스는 배포 중입니다. | 예 |
 | 비정상 | 서비스가 배포되었지만 현재 연결할 수 없습니다.  | 예 |
 | 예약 할 수 없습니다. | 리소스 부족으로 현재 서비스를 배포할 수 없습니다. | 예 |
-| 실패 | 오류 또는 충돌로 인해 서비스가 배포되지 않았습니다. | yes |
-| Healthy | 서비스가 정상이며 끝점을 사용할 수 있습니다. | yes |
+| 실패 | 오류 또는 충돌로 인해 서비스가 배포되지 않았습니다. | 예 |
+| Healthy | 서비스가 정상이며 끝점을 사용할 수 있습니다. | 예 |
 
 ### <a name="compute-instance-web-service-devtest"></a><a id="notebookvm"></a>인스턴스 웹 서비스 계산(개발/테스트)
 
@@ -907,6 +907,24 @@ service_name = 'my-sklearn-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
+참고: predict_proba 지원하는 모델은 기본적으로 해당 메서드를 사용합니다. 이를 재정의하여 예측을 사용하려면 POST 본문을 다음과 같이 수정할 수 있습니다.
+```python
+import json
+
+
+input_payload = json.dumps({
+    'data': [
+        [ 0.03807591,  0.05068012,  0.06169621, 0.02187235, -0.0442235,
+         -0.03482076, -0.04340085, -0.00259226, 0.01990842, -0.01764613]
+    ],
+    'method': 'predict'  # If you have a classification model, the default behavior is to run 'predict_proba'.
+})
+
+output = service.run(input_payload)
+
+print(output)
+```
+
 참고: 이러한 종속성은 미리 빌드된 sklearn 추론 컨테이너에 포함됩니다.
 
 ```yaml
@@ -943,7 +961,7 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-패키지를 만든 후 이미지를 로컬 `package.pull()` Docker 환경으로 끌어올 수 있습니다. 이 명령의 출력에는 이미지 이름이 표시됩니다. 예를 들어: 
+패키지를 만든 후 이미지를 로컬 `package.pull()` Docker 환경으로 끌어올 수 있습니다. 이 명령의 출력에는 이미지 이름이 표시됩니다. 다음은 그 예입니다. 
 
 `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 
@@ -1154,7 +1172,7 @@ def run(request):
 
 * [사용자 지정 Docker 이미지를 사용하여 모델을 배포하는 방법](how-to-deploy-custom-docker-image.md)
 * [배포 문제 해결](how-to-troubleshoot-deployment.md)
-* [SSL을 사용하여 Azure Machine Learning 웹 서비스 보호](how-to-secure-web-service.md)
+* [TLS를 사용하여 Azure 기계 학습을 통해 웹 서비스 보호](how-to-secure-web-service.md)
 * [웹 서비스로 배포된 Azure Machine Learning 모델 사용](how-to-consume-web-service.md)
 * [Application Insights를 사용하여 Azure Machine Learning 모델 모니터링](how-to-enable-app-insights.md)
 * [프로덕션 환경에서 모델용 데이터 수집](how-to-enable-data-collection.md)

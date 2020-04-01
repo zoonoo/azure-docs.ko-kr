@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에서 클러스터에 대한 여러 �
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: 2045cb9a175bead3abf5b53120b9fe381a17b04b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 607419787bc0bab243d6cc2b8cbaa0ec22921e87
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80047719"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422324"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스(AKS)에서 클러스터에 대한 여러 노드 풀 생성 및 관리
 
@@ -33,8 +33,8 @@ Azure CLI 버전 2.2.0 이상 설치 및 구성이 필요합니다. `az --versio
 * AKS 클러스터는 표준 SKU 로드 밸런서를 사용하여 여러 노드 풀을 사용해야 하며 기본 SKU 로드 밸런서에서는 이 기능이 지원되지 않습니다.
 * AKS 클러스터는 노드에 가상 시스템 배율 집합을 사용해야 합니다.
 * 노드 풀의 이름은 소문자 숫자 문자만 포함할 수 있으며 소문자로 시작해야 합니다. Linux 노드 풀의 경우 길이는 1에서 12자 사이여야 하며 Windows 노드 풀의 경우 길이는 1에서 6자 사이여야 합니다.
-* 모든 노드 풀은 동일한 가상 네트워크 및 서브넷에 있어야 합니다.
-* 클러스터 생성 시간에 여러 노드 풀을 만들 때 노드 풀에서 사용되는 모든 Kubernetes 버전은 제어 평면에 대한 버전 집합과 일치해야 합니다. 이 버전은 노드 풀 당 작업을 사용하여 클러스터를 프로비전한 후 업데이트할 수 있습니다.
+* 모든 노드 풀은 동일한 가상 네트워크에 있어야 합니다.
+* 클러스터 생성 시간에 여러 노드 풀을 만들 때 노드 풀에서 사용되는 모든 Kubernetes 버전은 제어 평면에 대한 버전 집합과 일치해야 합니다. 노드 풀 당 작업을 사용하여 클러스터를 프로비전한 후 업데이트할 수 있습니다.
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
@@ -120,6 +120,29 @@ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluste
 
 > [!TIP]
 > 노드 풀을 추가할 때 *VmSize가* 지정되지 않은 경우 기본 크기는 Windows 노드 풀의 *Standard_DS2_v3* Linux 노드 풀의 *Standard_DS2_v2.* *OrchestratorVersion를* 지정하지 않으면 컨트롤 평면과 동일한 버전으로 기본설정됩니다.
+
+### <a name="add-a-node-pool-with-a-unique-subnet-preview"></a>고유한 서브넷이 있는 노드 풀 추가(미리 보기)
+
+워크로드를 사용하려면 논리적 격리를 위해 클러스터의 노드를 별도의 풀로 분할해야 할 수 있습니다. 이 격리는 클러스터의 각 노드 풀전용 별도의 서브넷으로 지원될 수 있습니다. 이렇게 하면 노드 풀간에 분할할 비연속 가상 네트워크 주소 공간이 있는 등의 요구 사항을 해결할 수 있습니다.
+
+#### <a name="limitations"></a>제한 사항
+
+* 노드풀에 할당된 모든 서브넷은 동일한 가상 네트워크에 속해야 합니다.
+* 시스템 포드는 coreDNS를 통해 DNS 해상도와 같은 중요한 기능을 제공하기 위해 클러스터의 모든 노드에 액세스할 수 있어야 합니다.
+* 노드 풀당 고유한 서브넷 할당은 미리 보기 중에 Azure CNI로 제한됩니다.
+* 미리 보기 중에 노드 풀당 고유한 서브넷이 있는 네트워크 정책을 사용하는 것은 지원되지 않습니다.
+
+전용 서브넷이 있는 노드 풀을 만들려면 노드 풀을 만들 때 서브넷 리소스 ID를 추가 매개 변수로 전달합니다.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name mynodepool \
+    --node-count 3 \
+    --kubernetes-version 1.15.5
+    --vnet-subnet-id <YOUR_SUBNET_RESOURCE_ID>
+```
 
 ## <a name="upgrade-a-node-pool"></a>노드 풀 업그레이드
 
@@ -695,18 +718,22 @@ az group deployment create \
 
 리소스 관리자 템플릿에서 정의한 노드 풀 설정 및 작업에 따라 AKS 클러스터를 업데이트하는 데 몇 분 정도 걸릴 수 있습니다.
 
-## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>노드 풀에서 노드당 공용 IP 할당
+## <a name="assign-a-public-ip-per-node-for-a-node-pool-preview"></a>노드 풀에 대해 노드당 공용 IP 할당(미리 보기)
 
 > [!WARNING]
 > 노드당 공용 IP를 할당하는 미리 보기 중에 VM 프로비저닝과 충돌할 수 있는 로드 밸런서 규칙으로 인해 *AKS의 표준 로드 밸런서 SKU와* 함께 사용할 수 없습니다. 이러한 제한으로 인해 Windows 에이전트 풀은 이 미리 보기 기능에서 지원되지 않습니다. 미리 보기에서 노드당 공용 IP를 할당해야 하는 경우 *기본 로드 밸런서 SKU를* 사용해야 합니다.
 
-AKS 노드는 통신을 위해 자체 공용 IP 주소를 요구하지 않습니다. 그러나 일부 시나리오에서는 노드 풀의 노드에 자체 공용 IP 주소가 있어야 할 수 있습니다. 예를 들어 콘솔이 홉을 최소화하기 위해 클라우드 가상 머신에 직접 연결해야 하는 게임입니다. 이 시나리오는 별도의 미리 보기 기능인 노드 공용 IP(미리 보기)에 등록하여 수행할 수 있습니다.
+AKS 노드는 통신을 위해 자체 공용 IP 주소를 요구하지 않습니다. 그러나 시나리오에서는 자체 전용 공용 IP 주소를 수신하기 위해 노드 풀의 노드가 필요할 수 있습니다. 일반적인 시나리오는 콘솔이 홉을 최소화하기 위해 클라우드 가상 머신에 직접 연결해야 하는 게임 워크로드입니다. 이 시나리오는 미리 보기 기능인 노드 공용 IP(미리 보기)에 등록하여 AKS에서 수행할 수 있습니다.
+
+다음 Azure CLI 명령을 실행하여 노드 공용 IP 기능에 등록합니다.
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-등록에 성공한 후 [위와](#manage-node-pools-using-a-resource-manager-template) 동일한 지침에 따라 Azure 리소스 관리자 템플릿을 배포하고 부울 값 속성을 `enableNodePublicIP` 에이전트PoolProfiles에 추가합니다. 값을 `true` 지정하지 않은 것처럼 `false` 기본적으로 설정합니다. 이 속성은 만들기 시간 전용 속성이며 2019-06-01의 최소 API 버전이 필요합니다. 이는 Linux 및 Windows 노드 풀모두에 적용할 수 있습니다.
+등록에 성공한 후 [위와](#manage-node-pools-using-a-resource-manager-template) 동일한 지침에 따라 Azure 리소스 관리자 `enableNodePublicIP` 템플릿을 배포하고 에이전트PoolProfiles에 부울 속성을 추가합니다. 값을 `true` 지정하지 않은 것처럼 `false` 기본적으로 설정합니다. 
+
+이 속성은 만들기 시간 전용 속성이며 2019-06-01의 최소 API 버전이 필요합니다. 이는 Linux 및 Windows 노드 풀모두에 적용할 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: e62f6f8df51c6acf4e2ad8e28e431d264c2c99e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a4ae2932f8d294ecf71de0ae405204a1f4d7b4d
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037251"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436938"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에서 Azure Storage 사용
 
@@ -40,7 +40,7 @@ Apache Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 �
 
 ## <a name="access-files-from-within-cluster"></a>클러스터 내에서 파일에 액세스
 
-HDInsight 클러스터에서 Data Lake Storage의 파일에 액세스할 수 있는 방법은 여러 가지입니다. URI 체계는 암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SSL로 암호화된 액세스(*wasbs*가 있음)를 제공합니다. Azure의 동일한 지역에 있는 데이터에 액세스하는 경우에도 가능하면 *wasbs*를 사용하는 것이 좋습니다.
+HDInsight 클러스터에서 Data Lake Storage의 파일에 액세스할 수 있는 방법은 여러 가지입니다. URI 스키마는 암호화되지 않은 *액세스(wasb:* 접두사 있음) 및 TLS 암호화된 *액세스(wasbs 있음)를*제공합니다. Azure의 동일한 지역에 있는 데이터에 액세스하는 경우에도 가능하면 *wasbs*를 사용하는 것이 좋습니다.
 
 * **정규화된 이름 사용**. 이 방법의 경우 액세스할 파일에 대한 전체 경로를 제공합니다.
 
@@ -128,9 +128,9 @@ Microsoft는 Azure 저장소에서 작업할 수 있는 다음 도구를 제공�
 
 | 도구 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure 포털](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
-| [Azure 파워쉘](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
+| [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [아즈카피](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
 
 ## <a name="identify-storage-path-from-ambari"></a>암바리에서 스토리지 경로 식별

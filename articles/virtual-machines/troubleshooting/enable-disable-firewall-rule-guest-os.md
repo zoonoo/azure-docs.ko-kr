@@ -1,6 +1,6 @@
 ---
 title: Azure VM의 게스트 OS에서 방화벽 규칙 사용 또는 사용 안 함 | Microsoft Docs
-description: ''
+description: 온라인 또는 오프라인 원격 도구 또는 레지스트리 설정을 사용하여 원격 Azure VM에서 게스트 OS 방화벽 규칙을 사용하거나 사용하지 않도록 설정하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 782240c51833fc841af9f4260860db4c03897c03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e93dbd085ce99b8d555d6b9bb04e7eb6f60de0ee
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71086442"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422889"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Azure VM 게스트 OS에서 방화벽 규칙 사용 또는 사용 안 함
 

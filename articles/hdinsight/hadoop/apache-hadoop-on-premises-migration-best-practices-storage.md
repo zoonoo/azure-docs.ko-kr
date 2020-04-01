@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: b68e438a01f9f771c16fc712597308089f628f62
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f19d4adad675cdf95f59aca0f752f46211b75e8f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409476"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436932"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>온-프레미스 아파치 하두롭 클러스터를 Azure HDInsight로 마이그레이션
 
@@ -33,7 +33,7 @@ Azure 저장소는 지리적으로 복제할 수 있습니다. 지역에서 복�
 
 Azure Storage에 저장된 데이터에 액세스하는 데 다음 형식 중 하나를 사용할 수 있습니다.
 
-|데이터 액세스 형식 |설명 |
+|데이터 액세스 형식 |Description |
 |---|---|
 |`wasb:///`|암호화되지 않은 통신을 사용하여 기본 스토리지에 액세스합니다.|
 |`wasbs:///`|암호화된 통신을 사용하여 기본 스토리지에 액세스합니다.|
@@ -52,7 +52,7 @@ Azure Storage는 [Blob 개체에 대해 소프트 삭제를](../../storage/blobs
 
 Java 트러스트 저장소로 인증서를 가져오는 데 다음 메서드를 사용할 수 있습니다.
 
-파일에 Azure Blob SSL 인증서 다운로드
+파일에 Azure Blob TLS/SSL 인증서 다운로드
 
 ```bash
 echo -n | openssl s_client -connect <storage-account>.blob.core.windows.net:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > Azure_Storage.cer
@@ -155,7 +155,7 @@ HDInsight는 기본적으로 클러스터와 연결된 Azure Storage 계정의 �
 
 1. [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) 파일을 열고 다음 값을 변경합니다.
 
-    |토큰 속성|설명|
+    |토큰 속성|Description|
     |---|---|
     |policy_name|만들려는 저장된 정책에 사용할 이름입니다.|
     |storage_account_name|사용자 스토리지 계정의 이름입니다.|

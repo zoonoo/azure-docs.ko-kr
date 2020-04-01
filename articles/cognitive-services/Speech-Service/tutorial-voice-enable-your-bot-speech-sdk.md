@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: dapine
-ms.openlocfilehash: 96d2c2e5e3772575e681d2db079ab0122b7014e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c2d74eb7e46d9909d87a7ccadadd6129a3d48d8
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80348545"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397892"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>튜토리얼: 음성 SDK를 사용하여 봇을 음성 으로 활성화
 
@@ -104,7 +104,7 @@ ms.locfileid: "80348545"
 
 이 시점에서 리소스**그룹(SpeechEchoBot-ResourceGroup)에**음성 리소스가 있는지 확인합니다.
 
-| 이름 | Type  | 위치 |
+| 속성 | Type  | 위치 |
 |------|-------|----------|
 | 스피치에코봇튜토리얼-스피치 | Cognitive Services | 미국 서부 |
 
@@ -125,7 +125,7 @@ ms.locfileid: "80348545"
 
 이 시점에서 리소스**그룹(SpeechEchoBot-ResourceGroup)에**두 가지 리소스가 있는지 확인합니다.
 
-| 이름 | Type  | 위치 |
+| 속성 | Type  | 위치 |
 |------|-------|----------|
 | 스피치에코봇튜토리얼-앱서비스플랜 | App Service 계획 | 미국 서부 |
 | 스피치에코봇튜토리얼-스피치 | Cognitive Services | 미국 서부 |
@@ -164,7 +164,7 @@ ms.locfileid: "80348545"
 1. 봇 [프레임워크 에뮬레이터](https://github.com/Microsoft/BotFramework-Emulator/releases/latest) 버전 4.3.0 이상 설치
 2. 봇 프레임워크 에뮬레이터를 실행하고 봇을 엽니다.
    * **파일** -> **열기 봇**.
-3. 봇의 URL을 입력합니다. 예를 들어:
+3. 봇의 URL을 입력합니다. 다음은 그 예입니다.
 
    ```
    http://localhost:3978/api/messages
@@ -207,7 +207,7 @@ ms.locfileid: "80348545"
 1. 기본 브라우저가 열리고 "봇이 준비되었습니다!"라는 페이지가 표시되어야 합니다.
 1. 이 시점에서 Azure 포털에서 리소스 그룹 **SpeechEchoBot자습서-리소스 그룹을** 확인하고 세 가지 리소스가 있는지 확인합니다.
 
-| 이름 | Type  | 위치 |
+| 속성 | Type  | 위치 |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | 미국 서부 |
 | 스피치에코봇튜토리얼-앱서비스플랜 | App Service 계획 | 미국 서부 |
@@ -248,7 +248,7 @@ ms.locfileid: "80348545"
 
 이 시점에서 Azure 포털에서 리소스 그룹 **SpeechEchoBot자습서-리소스 그룹을** 확인합니다. 이제 네 가지 리소스가 표시됩니다.
 
-| 이름 | Type  | 위치 |
+| 속성 | Type  | 위치 |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | 미국 서부 |
 | 스피치에코봇튜토리얼-앱서비스플랜 | App Service 계획 | 미국 서부 |
@@ -336,7 +336,7 @@ Windows 음성 도우미 클라이언트에는 봇에 대한 연결을 구성하
     },
     "replyToId":"67c823b4-4c7a-4828-9d6e-0b84fd052869",
     "serviceUrl":"urn:botframework:websocket:directlinespeech",
-    "speak":"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Echo: Hello and welcome.</voice></speak>",
+    "speak":"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='Microsoft Server Speech Text to Speech Voice (en-US, AriaRUS)'>Echo: Hello and welcome.</voice></speak>",
     "text":"Echo: Hello and welcome.",
     "timestamp":"2019-07-19T20:03:51.1939097Z",
     "type":"message"

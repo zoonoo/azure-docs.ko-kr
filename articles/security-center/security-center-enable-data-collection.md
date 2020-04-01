@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 5236fd89ed99ca14bb7fc24e40ef79e12e5177d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61d0a57c541837ab3aebf65e47d757f7ecbe7e40
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245500"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435992"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Security Center에서 데이터 수집
 보안 센터는 Azure 가상 시스템(VM), 가상 시스템 규모 집합, IaaS 컨테이너 및 비Azure(온-프레미스 포함) 컴퓨터에서 데이터를 수집하여 보안 취약성 및 위협을 모니터링합니다. 데이터는 컴퓨터에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석을 위해 데이터를 작업 공간으로 복사하는 Log Analytics 에이전트를 사용하여 수집됩니다. 이러한 데이터의 예로는 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, 머신 이름, IP 주소, 로그인된 사용자를 들 수 있습니다. 또한 로그 분석 에이전트는 작업 영역에 크래시 덤프 파일을 복사합니다.
@@ -306,7 +306,7 @@ Log 분석 에이전트를 수동으로 설치할 수 있으므로 보안 센터
 
 - 모니터링되지 않는 VM 및 컴퓨터 문제를 식별하려면 다음을 수행하십시오.
 
-    머신에서 Microsoft Monitoring Agent 확장을 실행하지 않으면 Security Center에서 VM 또는 컴퓨터를 모니터링하지 않습니다. 컴퓨터에 OMS 직접 에이전트 또는 시스템 센터 운영 관리자 에이전트와 같은 로컬 에이전트가 이미 설치되어 있을 수 있습니다. 이러한 에이전트가 설치된 머신은 Security Center에서 완전히 지원되지 않으므로 모니터링되지 않는 것으로 식별됩니다. Security Center의 모든 기능을 최대한 활용하려면 Microsoft Monitoring Agent 확장이 필요합니다.
+    컴퓨터가 Log 분석 에이전트 확장을 실행하지 않는 경우 보안 센터에서 VM 또는 컴퓨터를 모니터링하지 않습니다. 컴퓨터에 OMS 직접 에이전트 또는 시스템 센터 운영 관리자 에이전트와 같은 로컬 에이전트가 이미 설치되어 있을 수 있습니다. 이러한 에이전트가 설치된 머신은 Security Center에서 완전히 지원되지 않으므로 모니터링되지 않는 것으로 식별됩니다. 보안 센터의 모든 기능을 최대한 활용하려면 Log Analytics 에이전트 확장이 필요합니다.
 
     보안 센터에서 자동 프로비저닝을 위해 초기화된 VM 및 컴퓨터를 성공적으로 모니터링할 수 없는 이유에 대한 자세한 내용은 [에이전트 상태 모니터링 문제를](security-center-troubleshooting-guide.md#mon-agent)참조하십시오.
 

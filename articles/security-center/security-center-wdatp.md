@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: 13852acb39a420e2f0da84e18bef4df823c1fa78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5136a00421aebaa72998b1dfcdf75feb935851c6
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206268"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435450"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Azure 보안 센터를 갖춘 Microsoft Defender 고급 위협 보호
 
@@ -62,7 +62,7 @@ Azure 보안 센터는 [Microsoft Defender 고급 위협](https://www.microsoft.
 1. **온보딩** 영역에서 데이터를 저장할 작업 영역을 선택하거나 만듭니다. <br>
 2. 일부 작업 영역이 표시되지 않으면 권한이 부족하기 때문일 수 있습니다. 작업 영역이 Azure 보안 표준 계층으로 설정되어 있는지 확인하세요. 자세한 내용은 [보안 강화를 위해 보안 센터의 표준 계층으로 업그레이드를](security-center-pricing.md)참조하십시오.
     
-3. Microsoft 모니터링 에이전트를 설치하는 방법에 대한 지침을 보려면 **서버 추가를** 선택합니다. 
+3. 로그 분석 에이전트를 설치하는 방법에 대한 지침을 보려면 **서버 추가를** 선택합니다. 
 
 4. 온보딩 후 **Compute 및 앱에서**컴퓨터를 모니터링할 수 있습니다.
 

@@ -1,22 +1,22 @@
 ---
 title: Google 인증 구성
-description: 앱 서비스 앱의 ID 공급자로 Google 인증을 구성하는 방법을 알아보세요.
+description: 앱 서비스 또는 Azure Functions 앱의 ID 공급자로 Google 인증을 구성하는 방법을 알아봅니다.
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.topic: article
 ms.date: 09/02/2019
-ms.custom: seodec18
-ms.openlocfilehash: 81ce3e393d308323c8d5a3d688c16c9b45e7be9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: bb6b8eebef3247cf2c39ed4b111296e1e0521a74
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74670822"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437985"
 ---
-# <a name="configure-your-app-service-app-to-use-google-login"></a>Google 로그인을 사용하도록 앱 서비스 앱 구성
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-google-login"></a>Google 로그인을 사용하도록 앱 서비스 또는 Azure Functions 앱 구성
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-이 항목에서는 Google을 인증 공급자로 사용하도록 Azure App Service를 구성하는 방법을 보여 줍니다.
+이 항목에서는 Google을 인증 공급자로 사용하도록 Azure 앱 서비스 또는 Azure 함수를 구성하는 방법을 보여 주며 있습니다.
 
 이 항목의 절차를 완료하려면 검증된 메일 주소가 포함된 Google 계정이 있어야 합니다. 새 Google 계정을 만들려면 [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302)으로 이동하세요.
 
@@ -63,5 +63,5 @@ ms.locfileid: "74670822"
 
 [Google apis]: https://go.microsoft.com/fwlink/p/?LinkId=268303
 
-[Azure 포털]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 

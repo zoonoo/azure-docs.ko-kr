@@ -3,12 +3,12 @@ title: Azure 마이그레이션 어플라이언스 FAQ
 description: Azure 마이그레이션 어플라이언스에 대한 일반적인 질문에 대한 답변을 가져옵니다.
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 2ef7de3b31cb11a71ec9379232fc5ff1022cf666
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a08423637f255b973f52616f53172ef6e48d0804
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336980"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437606"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure 마이그레이션 어플라이언스: 일반적인 질문
 
@@ -94,6 +94,9 @@ Azure 마이그레이션으로 전송되는 데이터의 볼륨은 여러 매개
 
 ## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Azure 마이그레이션 프로젝트에 여러 어플라이언스가 있을 수 있습니까?
 프로젝트에 여러 어플라이언스가 연결될 수 있습니다. 그러나 어플라이언스는 하나의 프로젝트와만 연결할 수 있습니다. 
+
+## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>Azure 마이그레이션 어플라이언스/복제 어플라이언스가 동일한 vCenter에 연결할 수 있습니까?
+예. Azure 마이그레이션 어플라이언스(평가 및 에이전트 없는 VMware 마이그레이션에 사용됨)와 복제 어플라이언스(VMware VM의 에이전트 기반 마이그레이션에 사용)를 동일한 vCenter 서버에 모두 추가할 수 있습니다.
 
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>어플라이언스를 통해 얼마나 많은 VM 또는 서버를 검색할 수 있습니까?

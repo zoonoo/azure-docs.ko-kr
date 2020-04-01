@@ -1,6 +1,6 @@
 ---
 title: Azure VM에서 게스트 OS 방화벽 사용 안 함 | Microsoft Docs
-description: ''
+description: 게스트 운영 체제 방화벽이 VM에 대한 부분 또는 전체 트래픽을 필터링하는 상황을 해결하는 해결 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: dbb9b0f865c7ec5d9d29e2310ae41abbec287bd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4cd1595d963330bd5decb366310bf5e97f59bc8
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79464965"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422373"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Azure VM에서 게스트 OS 방화벽 사용 안 함
 

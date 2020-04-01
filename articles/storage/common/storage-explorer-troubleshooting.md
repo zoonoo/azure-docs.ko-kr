@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: aec8048c7ef2eb0d944cdd2a863e23578f4f87e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db36033ea524603416f16db27f40d5eefb8bf613
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77561683"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437114"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer 문제 해결 가이드
 
@@ -76,7 +76,7 @@ RBAC 역할에는 관리 또는 데이터 계층 액세스에 대한 사용 권�
 인증서 오류는 일반적으로 다음 상황 중 하나에서 발생합니다.
 
 - 앱은 _투명한 프록시를_통해 연결되며, 이는 서버(예: 회사 서버)가 HTTPS 트래픽을 가로채고 해독한 다음 자체 서명된 인증서를 사용하여 암호화하는 것을 의미합니다.
-- 수신하는 HTTPS 메시지에 자체 서명된 SSL 인증서를 삽입하는 응용 프로그램을 실행하고 있습니다. 인증서를 삽입하는 응용 프로그램의 예로는 바이러스 백신 및 네트워크 트래픽 검사 소프트웨어가 있습니다.
+- 자체 서명된 TLS/SSL 인증서를 수신하는 HTTPS 메시지에 삽입하는 응용 프로그램을 실행중입니다. 인증서를 삽입하는 응용 프로그램의 예로는 바이러스 백신 및 네트워크 트래픽 검사 소프트웨어가 있습니다.
 
 Storage Explorer에서 자체 서명되거나 신뢰할 수 없는 인증서가 있으면 수신된 HTTPS 메시지가 변경되었는지 여부를 더 이상 알 수 없습니다. 자체 서명된 인증서의 복사본이 있는 경우 Storage Explorer에 다음 단계를 수행하여 인증서를 신뢰하도록 지시할 수 있습니다.
 

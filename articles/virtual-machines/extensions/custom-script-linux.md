@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: b75b232c048a1ea49256b12ce1b65c4bd87a1cf0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 75970783a9408df0a8c128fb9540606e4e4a62f3
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535445"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478163"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 2 사용
 사용자 지정 스크립트 확장 버전 2는 Azure 가상 머신에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트를 Azure Storage 또는 기타 액세스가 가능한 인터넷 위치에서 다운로드하거나 확장 런타임을 제공할 수 있습니다. 
@@ -110,7 +110,7 @@ ms.locfileid: "79535445"
 
 ### <a name="property-values"></a>속성 값
 
-| 이름 | 값/예제 | 데이터 형식 | 
+| 속성 | 값/예제 | 데이터 형식 | 
 | ---- | ---- | ---- |
 | apiVersion | 2019-03-01 | date |
 | publisher | Microsoft.Compute.Extensions | 문자열 |
@@ -209,6 +209,8 @@ CustomScript는 다음 알고리즘을 사용하여 스크립트를 실행합니
  1. _/bin/sh -c /var/lib/waagent/custom-script/#/script.sh를 사용하여 스크립트 실행
 
 ####  <a name="property-managedidentity"></a>속성: 관리되는 정체성
+> [!NOTE]
+> 이 속성은 보호된 설정에서만 **지정해야 합니다.**
 
 사용자 정의 스크립트 (버전 2.1 이후) "fileUris" 설정에서 제공 하는 URL에서 파일을 다운로드 하기 위한 [관리된 ID를](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 지원 합니다. CustomScript를 사용하면 사용자가 SAS 토큰 또는 저장소 계정 키와 같은 비밀을 전달할 필요 없이 Azure Storage 개인 Blob 또는 컨테이너에 액세스할 수 있습니다.
 
@@ -466,4 +468,3 @@ info:    vm extension get command OK
 
 ## <a name="next-steps"></a>다음 단계
 코드, 현재 문제 및 버전을 보려면 [custom-script-extension-linux 리포지토리](https://github.com/Azure/custom-script-extension-linux)를 참조하세요.
-

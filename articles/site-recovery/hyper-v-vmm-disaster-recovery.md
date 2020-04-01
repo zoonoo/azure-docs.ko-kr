@@ -4,16 +4,15 @@ description: Azure Site Recovery를 사용하여 온-프레미스 사이트 간�
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
-ms.custom: MVC
-ms.openlocfilehash: 8d89c7eda845f0e5ed9bc8ccc7b6b3812ba275f9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
-ms.translationtype: HT
+ms.openlocfilehash: f7de3c28463a86852cba03713ca4c500e7ca0339
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74132997"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437499"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>보조 온-프레미스 사이트에 Hyper-V VM 재해 복구 설정
 
@@ -45,7 +44,7 @@ ms.locfileid: "74132997"
 
 - 장애 조치 후 VM을 적절한 대상 VM 네트워크에 연결합니다. 
 - 복제본 VM을 대상 Hyper-V 호스트 서버에 최적으로 배치합니다. 
-- 네트워크 매핑을 구성하지 않으면 장애 조치 후 복제본 VM이 VM 네트워크에 연결되지 않습니다.
+- 네트워크 매핑을 구성하지 않으면 장애 조치(failover) 후 복제본 VM이 VM 네트워크에 연결되지 않습니다.
 
 VMM을 다음과 같이 준비합니다.
 

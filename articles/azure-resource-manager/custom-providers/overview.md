@@ -5,12 +5,12 @@ author: jjbfour
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: fd21117219ea3db6946e7a1b889d92702af65b58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 68b8bd187d58cd71778b8a922684cc3817a0715d
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75650488"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398470"
 ---
 # <a name="azure-custom-resource-providers-overview"></a>Azure 사용자 지정 리소스 공급자 개요
 
@@ -53,7 +53,7 @@ Azure 사용자 지정 리소스 공급자는 Azure와 끝점 간에 계약을 �
 }
 ```
 
-속성 | 필수 | 설명
+속성 | 필수 | Description
 ---|---|---
 name | *예* | 엔드포인트 정의의 이름입니다. Azure는 이 이름을 API를 통해 '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/{endpointDefinitionName}' 아래에 노출합니다.
 routingType | *아니요* | **끝점을**사용하여 계약 유형을 결정합니다. 지정하지 않는 경우 기본값은 "Proxy"입니다.
@@ -82,7 +82,7 @@ routingType | *아니요* | **끝점을**사용하여 계약 유형을 결정합
 
 위의 샘플에 대해 Azure에 추가된 API:
 
-HttpMethod | 샘플 URI | 설명
+HttpMethod | 샘플 URI | Description
 ---|---|---
 PUT | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{사용자 지정 리소스 이름}?api 버전=2018-09-01-미리 보기 | 새 리소스를 만들기 위해 Azure REST API 호출을 클릭합니다.
 Delete | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{사용자 지정 리소스 이름}?api 버전=2018-09-01-미리 보기 | Azure REST API호출을 통해 기존 리소스를 삭제합니다.
@@ -112,7 +112,7 @@ GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>pro
 
 위의 샘플에 대해 Azure에 추가된 API:
 
-HttpMethod | 샘플 URI | 설명
+HttpMethod | 샘플 URI | Description
 ---|---|---
 POST | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomAction?api 버전=2018-09-01-미리 보기 | 작업을 활성화하기 위한 Azure REST API 호출입니다.
 

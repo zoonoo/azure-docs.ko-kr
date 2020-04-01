@@ -11,44 +11,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/17/2019
+ms.date: 04/01/2020
 ms.author: kumud
-ms.openlocfilehash: 96ede56e7b21d2447d238306e00f2c4fbca56f04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6b61e27324220fc78ace3e964aed98f9ba114d3
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76122256"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420941"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Azure - PowerShell(미리 보기)에서 IPv6 듀얼 스택 응용 프로그램 배포
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell"></a>Azure - PowerShell에서 IPv6 듀얼 스택 응용 프로그램 배포
 
-이 문서에서는 듀얼 스택 가상 네트워크 및 서브넷, 듀얼(IPv4 + IPv6) 프런트 엔드 구성이 있는 표준 로드 밸러저, NIC가 있는 VM을 포함하는 Azure의 표준 로드 밸러서를 사용하여 이중 스택(IPv4 + IPv6) 응용 프로그램을 배포하는 방법을 보여 주며, 이중 IP 구성, 네트워크 보안 그룹 및 공용 IP를 통합할 수 있습니다.
-
-> [!Important]
-> Azure 가상 네트워크에 대한 IPv6 지원은 현재 공개 미리 보기 상태입니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+이 문서에서는 듀얼 스택 가상 네트워크 및 서브넷, 듀얼(IPv4 + IPv6) 프런트 엔드 구성이 있는 표준 로드 밸런서, 듀얼 IP 구성이 있는 NIC가 있는 VM, 네트워크 보안 그룹 및 공용 IP가 있는 VM을 포함하는 Azure의 표준 로드 밸런서를 사용하여 이중 스택(IPv4 + IPv6) 응용 프로그램을 배포하는 방법을 보여 주십니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 문서에는 Azure PowerShell 모듈 버전 6.9.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
-
-## <a name="prerequisites"></a>사전 요구 사항
-Azure에서 이중 스택 응용 프로그램을 배포하기 전에 다음 Azure PowerShell을 사용하여 이 미리 보기 기능에 대한 구독을 구성해야 합니다.
-
-다음과 같이 등록하십시오.
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
-```
-기능 등록이 완료될 때까지 최대 30분이 걸립니다. 다음과 같은 Azure PowerShell 명령을 실행하여 등록 상태를 확인할 수 있습니다.
-```azurepowershell
-Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
-```
-등록이 완료되면 다음 명령을 실행합니다.
-
-```azurepowershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-```
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -273,7 +251,7 @@ $vnet = New-AzVirtualNetwork `
     -PrivateIpAddressVersion IPv4 `
     -LoadBalancerBackendAddressPool $backendPoolv4 `
     -PublicIpAddress  $RdpPublicIP_1
-    
+      
   $Ip6Config=New-AzNetworkInterfaceIpConfig `
     -Name dsIp6Config `
     -Subnet $vnet.subnets[0] `
@@ -374,8 +352,6 @@ foreach ($NIC in $NICsInRG) {
 
   ![Azure의 IPv6 듀얼 스택 가상 네트워크](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 
-> [!NOTE]
-> Azure 가상 네트워크에 대한 IPv6는 이 미리 보기 릴리스에 대해 읽기 전용으로 Azure 포털에서 사용할 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -11,49 +11,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/17/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: b9021784216f02fb117f6e63e150b37b07755912
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 396c37d4c8de6a890102e435c5ec6cc70b598638
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239862"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421026"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli-preview"></a>기본 로드 밸런서 - CLI(미리 보기)를 사용하여 IPv6 듀얼 스택 응용 프로그램 배포
+# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli"></a>기본 로드 밸런서 - CLI를 사용하여 IPv6 듀얼 스택 응용 프로그램 배포
 
-이 문서에서는 듀얼 스택 서브넷이 있는 듀얼 스택 가상 네트워크, 듀얼(IPv4 + IPv6) 프런트 엔드 구성이 있는 기본 로드 밸러저, NIC가 있는 VM을 포함하는 Azure CLI를 사용하는 기본 로드 밸러서를 사용하여 이중 스택(IPv4 + IPv6) 응용 프로그램을 배포하는 방법을 보여 주는 문서에서는 이중 IP 구성, 이중 네트워크 보안 그룹 규칙 및 이중 공용 IP가 있습니다.
+이 문서에서는 듀얼 스택 서브넷이 있는 듀얼 스택 가상 네트워크, 듀얼(IPv4 + IPv6) 프런트 엔드 구성이 있는 기본 로드 밸런서, 듀얼 IP 구성이 있는 NIC가 있는 VM, 이중 IP 구성, 이중 네트워크 보안 그룹 규칙 및 이중 공용 IP를 포함하는 Azure CLI를 사용하는 기본 로드 밸런서를 사용하여 이중 스택(IPv4 + IPv6) 응용 프로그램을 배포하는 방법을 보여 주십니다.
 
 표준 로드 밸런서를 사용하여 이중 스택(IPV4 + IPv6) 응용 프로그램을 배포하려면 [Azure CLI를 사용하는 표준 로드 밸런서를 사용하여 IPv6 이중 스택 응용 프로그램 배포를](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md)참조하십시오.
 
-> [!Important]
-> Azure 가상 네트워크에 대한 IPv6 듀얼 스택은 현재 공개 미리 보기상태입니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 지금 만드세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 대신 로컬로 Azure CLI를 설치하고 사용하기로 결정한 경우 이 빠른 시작을 위해 Azure CLI 버전 2.0.49 이상을 사용해야 합니다. 설치된 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드 정보는 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
-
-## <a name="prerequisites"></a>사전 요구 사항
-Azure 가상 네트워크 기능에 대한 IPv6를 사용하려면 다음과 같이 Azure CLI를 사용하여 구독을 구성해야 합니다.
-
-```azurecli
-az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-기능 등록이 완료될 때까지 최대 30분이 걸립니다. 다음 Azure CLI 명령을 실행하여 등록 상태를 확인할 수 있습니다.
-
-```azurecli
-az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-
-등록이 완료되면 다음 명령을 실행합니다.
-
-```azurecli
-az provider register --namespace Microsoft.Network
-```
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -387,8 +365,6 @@ az vm create \
 
   ![Azure의 IPv6 듀얼 스택 가상 네트워크](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 
-> [!NOTE]
-> Azure 가상 네트워크에 대한 IPv6는 이 미리 보기 릴리스에 대해 읽기 전용으로 Azure 포털에서 사용할 수 있습니다.
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

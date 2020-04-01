@@ -2,13 +2,13 @@
 title: 템플릿 기능 - 리소스
 description: Azure Resource Manager 템플릿에서 리소스에 대한 값을 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: e9e1d700282652304f0bede5e697ba8625f5a5d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.openlocfilehash: 641602218aa19b790eb6e7feabdb7b46a520b590
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156296"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478266"
 ---
 # <a name="resource-functions-for-arm-templates"></a>ARM 템플릿에 대한 리소스 기능
 
@@ -38,9 +38,9 @@ extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ..
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| resourceId |yes |문자열 |확장 리소스가 적용되는 리소스의 리소스 ID입니다. |
-| resourceType |yes |문자열 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
-| resourceName1 |yes |문자열 |리소스의 이름입니다. |
+| resourceId |예 |문자열 |확장 리소스가 적용되는 리소스의 리소스 ID입니다. |
+| resourceType |예 |문자열 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
+| resourceName1 |예 |문자열 |리소스의 이름입니다. |
 | resourceName2 |예 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
 
 리소스 유형에 더 많은 세그먼트가 포함된 경우 리소스 이름을 매개 변수로 계속 추가합니다.
@@ -118,8 +118,8 @@ list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| resourceName 또는 resourceIdentifier |yes |문자열 |리소스에 대한 고유 식별자. |
-| apiVersion |yes |문자열 |리소스 런타임 상태의 API 버전입니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
+| resourceName 또는 resourceIdentifier |예 |문자열 |리소스에 대한 고유 식별자. |
+| apiVersion |예 |문자열 |리소스 런타임 상태의 API 버전입니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
 | functionValues |예 |object | 함수에 대한 값이 있는 개체입니다. 스토리지 계정의 **listAccountSas** 같은 매개 변수 값을 가진 개체를 받는 것을 지원하는 함수에 대해 이 개체를 제공합니다. 함수 값을 전달하는 예제가 이 문서에 나와 있습니다. |
 
 ### <a name="valid-uses"></a>유효한 사용
@@ -170,8 +170,8 @@ list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
 | Microsoft.DocumentDB/databaseAccounts | [목록 키](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
-| 마이크로소프트.이벤트 그리드/도메인 | [목록 키](/rest/api/eventgrid/domains/listsharedaccesskeys) |
-| Microsoft.EventGrid/topics | [목록 키](/rest/api/eventgrid/topics/listsharedaccesskeys) |
+| 마이크로소프트.이벤트 그리드/도메인 | [목록 키](/rest/api/eventgrid/version2019-06-01/domains/listsharedaccesskeys) |
+| Microsoft.EventGrid/topics | [목록 키](/rest/api/eventgrid/version2019-06-01/topics/listsharedaccesskeys) |
 | Microsoft.EventHub/namespaces/authorizationRules | [listkeys](/rest/api/eventhub/namespaces/listkeys) |
 | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub/disasterrecoveryconfigs/listkeys) |
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub/eventhubs/listkeys) |
@@ -366,7 +366,7 @@ providers(providerNamespace, [resourceType])
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |yes |문자열 |공급자의 네임스페이스입니다. |
+| providerNamespace |예 |문자열 |공급자의 네임스페이스입니다. |
 | resourceType |예 |문자열 |지정된 네임스페이스 내의 리소스 유형입니다. |
 
 ### <a name="return-value"></a>반환 값
@@ -443,7 +443,7 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| resourceName 또는 resourceIdentifier |yes |문자열 |리소스의 이름 또는 고유 식별자입니다. 현재 템플릿의 리소스를 참조할 경우 리소스 이름만 매개 변수로 지정합니다. 이전에 배포된 리소스를 참조하거나 리소스 이름이 모호한 경우 리소스 ID를 제공합니다. |
+| resourceName 또는 resourceIdentifier |예 |문자열 |리소스의 이름 또는 고유 식별자입니다. 현재 템플릿의 리소스를 참조할 경우 리소스 이름만 매개 변수로 지정합니다. 이전에 배포된 리소스를 참조하거나 리소스 이름이 모호한 경우 리소스 ID를 제공합니다. |
 | apiVersion |예 |문자열 |지정된 리소스의 API 버전입니다. 리소스가 동일한 템플릿 내에서 프로비전되지 않은 경우 이 매개 변수를 포함합니다. 일반적으로 **yyyy-mm-dd** 형식입니다. 리소스에 대한 유효한 API 버전은 [템플릿 참조](/azure/templates/)를 참조하십시오. |
 | 'Full' |예 |문자열 |전체 리소스 개체를 반환할지 여부를 지정하는 값입니다. `'Full'`을 지정하지 않으면 리소스의 속성 개체만 반환됩니다. 전체 개체에는 리소스 ID 및 위치와 같은 값이 포함됩니다. |
 
@@ -530,7 +530,7 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 
 **{리소스-공급자-네임스페이스}/{부모-리소스 유형}/{부모-리소스 이름}[/{자식-리소스 유형}/{자식-리소스 이름}]**
 
-예를 들어:
+다음은 그 예입니다.
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt`는 올바릅니다. `Microsoft.Compute/virtualMachines/extensions/myVM/myExt`는 올바르지 않습니다.
 
@@ -760,8 +760,8 @@ resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [
 |:--- |:--- |:--- |:--- |
 | subscriptionId |예 |문자열(GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. 리소스 그룹 또는 구독의 범위에서 배포할 때만 이 값을 제공합니다. |
 | resourceGroupName |예 |문자열 |기본값은 현재 리소스 그룹입니다. 다른 리소스 그룹에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. 리소스 그룹의 범위에 배포할 때만 이 값을 제공합니다. |
-| resourceType |yes |문자열 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
-| resourceName1 |yes |문자열 |리소스의 이름입니다. |
+| resourceType |예 |문자열 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
+| resourceName1 |예 |문자열 |리소스의 이름입니다. |
 | resourceName2 |예 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
 
 리소스 유형에 더 많은 세그먼트가 포함된 경우 리소스 이름을 매개 변수로 계속 추가합니다.
@@ -896,7 +896,7 @@ resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
@@ -959,8 +959,8 @@ subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceN
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |예 |문자열(GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
-| resourceType |yes |문자열 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
-| resourceName1 |yes |문자열 |리소스의 이름입니다. |
+| resourceType |예 |문자열 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
+| resourceName1 |예 |문자열 |리소스의 이름입니다. |
 | resourceName2 |예 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
 
 리소스 유형에 더 많은 세그먼트가 포함된 경우 리소스 이름을 매개 변수로 계속 추가합니다.
@@ -1042,8 +1042,8 @@ tenantResourceId(resourceType, resourceName1, [resourceName2], ...)
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| resourceType |yes |문자열 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
-| resourceName1 |yes |문자열 |리소스의 이름입니다. |
+| resourceType |예 |문자열 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
+| resourceName1 |예 |문자열 |리소스의 이름입니다. |
 | resourceName2 |예 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
 
 리소스 유형에 더 많은 세그먼트가 포함된 경우 리소스 이름을 매개 변수로 계속 추가합니다.

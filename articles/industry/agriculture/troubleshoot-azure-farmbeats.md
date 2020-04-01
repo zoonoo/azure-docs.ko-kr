@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a429a1e454e73a1a9d544e308e5b2d60052d91a9
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 7a31eece6629558b14b614853addce59642e698b
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349767"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422718"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
@@ -38,7 +38,9 @@ ms.locfileid: "80349767"
 **시정 조치**:
 
 1. FarmBeats Datahub 리소스 그룹으로 이동합니다.   
+
 2. **이벤트** 허브(DatafeedEventHubNamespace)를 선택한 다음 들어오는 메시지 수를 확인합니다.
+
 3. 다음 중 하나를 수행합니다.   
    - *들어오는 메시지가 없는*경우 장치 파트너에게 문의하십시오.  
    - *수신 메시지가*있는 경우 farmbeatssupport@microsoft.com에 문의하십시오. Datahub 및 가속기 로그와 캡처된 원격 분석을 연결합니다.
@@ -52,6 +54,7 @@ ms.locfileid: "80349767"
 **시정 조치**:
 
 1. 파트너 등록을 올바르게 수행했는지 확인 - datahub swagger로 이동하여 이를 확인하고 /파트너 API로 이동하여 Get을 수행하고 파트너가 등록되었는지 확인할 수 있습니다. 그렇지 않은 경우 [다음 단계를](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) 수행하여 파트너를 추가합니다.
+
 2. 올바른 원격 분석 메시지 형식을 사용했습니까?
 
 ```json
@@ -83,9 +86,12 @@ ms.locfileid: "80349767"
 
 1. 데이터허브 스와거에서 파트너 API로 이동합니다.
 2. **실행** > **해보고** >  **받기를**선택합니다.
-3. 관심 있는 센서 파트너의 파트너 ID를 기록합니다.
-4. 파트너 API로 돌아가서 **ID>\<받기를 **선택합니다.
-5. 3단계에서 파트너 ID를 지정한 다음 **실행을**선택합니다.
+
+> [!NOTE]
+> 관심 있는 센서 파트너의 파트너 ID입니다.
+
+3. 파트너 API로 돌아가서 **ID>\<받기를 **선택합니다.
+4. 3단계에서 파트너 ID를 지정한 다음 **실행을**선택합니다.
 
    API 응답에는 이벤트 허브 연결 문자열이 있어야 합니다.
 
@@ -240,7 +246,7 @@ ms.locfileid: "80349767"
 
 ### <a name="collect-azure-data-factory-job-logs-in-datahub"></a>Datahub에서 Azure 데이터 팩터리 작업 로그 수집
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **검색** 상자에서 FarmBeats Datahub 리소스 그룹을 검색합니다.
 
     > [!NOTE]
@@ -258,7 +264,7 @@ ms.locfileid: "80349767"
 
 ### <a name="collect-azure-data-factory-job-logs-in-accelerator"></a>액셀러레이터에서 Azure 데이터 팩터리 작업 로그 수집
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **검색** 상자에서 FarmBeats 가속기 리소스 그룹을 검색합니다.
 
     > [!NOTE]
@@ -275,7 +281,7 @@ ms.locfileid: "80349767"
 
 ### <a name="collect-datahub-app-service-logs"></a>데이터 허브 앱 서비스 로그 수집
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **검색** 상자에서 FarmBeats Datahub 리소스 그룹을 검색합니다.
 
     > [!NOTE]
@@ -291,7 +297,7 @@ ms.locfileid: "80349767"
 
 ### <a name="collect-accelerator-app-service-logs"></a>액셀러레이터 앱 서비스 로그 수집
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **검색** 상자에서 FarmBeats 가속기 리소스 그룹을 검색합니다.
 
     > [!NOTE]

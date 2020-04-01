@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/13/2019
-ms.openlocfilehash: a04ca3768ade6058c59393591c252bc4347a3663
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: c2690ad7cc4dcaa295bfb08b8c0396438ada0807
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275205"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437535"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 모니터링 솔루션
 모니터링 솔루션은 Azure의 서비스를 활용하여 특정 애플리케이션이나 서비스의 작업에 대한 추가 인사이트를 제공합니다. 이 문서에서는 Azure 모니터링 솔루션에 대해 간략하게 설명하고 모니터링 솔루션을 설치 및 사용하는 방법을 자세히 알아봅니다.
@@ -83,11 +83,7 @@ Microsoft 및 파트너의 모니터링 솔루션은 [Azure Marketplace](https:/
 * 솔루션에서 Automation 계정을 요구하는 경우 Log Analytics 작업 영역과 Automation 계정이 서로 연결되어야 합니다. Log Analytics 작업 영역은 하나의 Automation 계정에만 연결되고, Automation 계정은 하나의 Log Analytics 작업 영역에만 연결될 수 있습니다.
 * 연결하려면 Log Analytics 작업 영역 및 Automation 계정은 동일한 리소스 그룹 및 지역에 있어야 합니다. 미국 동부 지역에 있는 작업 영역과 미국 동부 2에 있는 Automation 계정의 경우는 예외입니다.
 
-### <a name="create-a-link-between-a-log-analytics-workspace-and-automation-account"></a>Log Analytics 작업 영역 및 Automation 계정 간의 링크 만들기
-Log Analytics 작업 영역 및 Automation 계정을 지정하는 방법은 솔루션의 설치 방법에 따라 달라집니다.
-
-* Azure 마켓플레이스를 통해 솔루션을 설치하면 작업 영역 및 자동화 계정에 대한 메시지가 표시됩니다. 작업 영역과 계정이 아직 서로 연결되지 않았으면 둘 사이에 연결이 만들어집니다.
-* Azure Marketplace의 외부 솔루션의 경우 솔루션을 설치하기 전에 Log Analytics 작업 영역 및 Automation 계정을 연결해야 합니다. Azure Marketplace에서 솔루션을 선택하고 Log Analytics 작업 영역 및 Automation 계정을 선택하여 이를 수행할 수 있습니다. Log Analytics 작업 영역 및 Automation 계정을 선택하는 즉시 연결이 만들어지기 때문에 솔루션을 직접 설치할 필요가 없습니다. 링크가 만들어지면 솔루션의 해당 Log Analytics 작업 영역 및 Automation 계정을 사용할 수 있습니다.
+Azure 마켓플레이스를 통해 솔루션을 설치하면 작업 영역 및 자동화 계정에 대한 메시지가 표시됩니다. 작업 영역과 계정이 아직 서로 연결되지 않았으면 둘 사이에 연결이 만들어집니다.
 
 ### <a name="verify-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Log Analytics 작업 영역 및 Automation 계정 간의 링크 확인
 다음 절차를 통해 Log Analytics 작업 영역 및 Automation 계정 간의 링크를 확인할 수 있습니다.

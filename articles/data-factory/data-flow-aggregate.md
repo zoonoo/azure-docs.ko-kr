@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
-ms.openlocfilehash: 1830a16108e6d8bb251d7ca45ae471e2f606874b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4b076d96cad280c4da6c2424f056c2216c47602
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240597"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408863"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 집계 변환 
 
@@ -94,6 +94,15 @@ MoviesYear aggregate(
                 groupBy(year),
                 avgrating = avg(toInteger(Rating))
             ) ~> AvgComedyRatingByYear
+```
+
+![데이터 흐름 스크립트 집계](media/data-flow/aggdfs1.png "데이터 흐름 스크립트 집계")
+
+```MoviesYear```: 파생된 열 정의 연도 ```AvgComedyRatingByYear```및 제목 열 : 연도별로 ```avgrating```그룹화된 코미디의 평균 등급에 대한 집계 변환 : 집계 된 값을 보유하도록 생성되는 새 열의 이름
+
+```
+MoviesYear aggregate(groupBy(year),
+    avgrating = avg(toInteger(Rating))) ~> AvgComedyRatingByYear
 ```
 
 ## <a name="next-steps"></a>다음 단계

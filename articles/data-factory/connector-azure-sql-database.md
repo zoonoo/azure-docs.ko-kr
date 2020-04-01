@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: 52928b9a4d77a99f3d8b160713c7b4a7cade2d4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f5065a0f4a2a96a747a45f64e00e86f7990bfb8
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80238764"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437788"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Azure SQL 데이터베이스에서 데이터 복사 및 변환
 
@@ -48,7 +48,7 @@ ms.locfileid: "80238764"
 > Azure Data Factory 통합 런타임을 사용하여 데이터를 복사하는 경우 Azure 서비스가 서버에 액세스할 수 있도록 [Azure SQL Server 방화벽을](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) 구성합니다.
 > 자체 호스팅 통합 런타임을 사용하여 데이터를 복사하는 경우 적절한 IP 범위를 허용하도록 Azure SQL Server 방화벽을 구성합니다. 이 범위에는 Azure SQL 데이터베이스에 연결하는 데 사용되는 컴퓨터의 IP가 포함됩니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -58,10 +58,10 @@ ms.locfileid: "80238764"
 
 Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | **type** 속성은 **AzureSqlDatabase**로 설정해야 합니다. | yes |
-| connectionString | **연결String** 속성에 대 한 Azure SQL Database 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다. <br/>Azure 키 자격 증명 모음에 암호 또는 서비스 주체 키를 넣을 수도 있습니다. SQL 인증인 경우 연결 `password` 문자열에서 구성을 가져옵니다. 자세한 내용은 Azure Key Vault의 테이블 및 [스토어 자격 증명 다음의](store-credentials-in-key-vault.md)JSON 예제를 참조하십시오. | yes |
+| type | **type** 속성은 **AzureSqlDatabase**로 설정해야 합니다. | 예 |
+| connectionString | **연결String** 속성에 대 한 Azure SQL Database 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다. <br/>Azure 키 자격 증명 모음에 암호 또는 서비스 주체 키를 넣을 수도 있습니다. SQL 인증인 경우 연결 `password` 문자열에서 구성을 가져옵니다. 자세한 내용은 Azure Key Vault의 테이블 및 [스토어 자격 증명 다음의](store-credentials-in-key-vault.md)JSON 예제를 참조하십시오. | 예 |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예. 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString으로** 표시하여 Azure 데이터 팩터리에 안전하게 저장하거나 [Azure 키 자격 증명 모음에 저장된 비밀을 참조합니다.](store-credentials-in-key-vault.md) | 예. 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 |
 | tenant | 응용 프로그램이 있는 도메인 이름 또는 테넌트 ID와 같은 테넌트 정보를 지정합니다. Azure 포털의 오른쪽 위 모서리에 마우스를 가져가서 검색합니다. | 예. 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 |
@@ -143,7 +143,7 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
 4. 일반적으로 SQL 사용자나 기타 사용자에 대해 수행하듯이 서비스 주체에 필요한 권한을 부여합니다. 다음 코드를 실행합니다. 자세한 옵션은 [이 문서](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)를 참조하세요.
 
     ```sql
-    EXEC sp_addrolemember [role name], [your application name];
+    ALTER ROLE [role name] ADD MEMBER [your application name];
     ```
 
 5. Azure Data Factory에서 Azure SQL Database 연결된 서비스를 구성합니다.
@@ -190,7 +190,7 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
 3. 일반적으로 SQL 사용자 및 다른 사용자에 대해 수행하는 것처럼 데이터 팩터리 관리 ID에 필요한 사용 권한을 부여합니다. 다음 코드를 실행합니다. 자세한 옵션은 [이 문서](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)를 참조하세요.
 
     ```sql
-    EXEC sp_addrolemember [role name], [your Data Factory name];
+    ALTER ROLE [role name] ADD MEMBER [your Data Factory name];
     ```
 
 4. Azure Data Factory에서 Azure SQL Database 연결된 서비스를 구성합니다.
@@ -219,9 +219,9 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
 
 Azure SQL Database 데이터 집합에 대해 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 **type** 속성을 **AzureSqlTable**로 설정해야 합니다. | yes |
+| type | 데이터 세트의 **type** 속성을 **AzureSqlTable**로 설정해야 합니다. | 예 |
 | 스키마 | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
 | 테이블 | 테이블/뷰의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
 | tableName | 스키마가 있는 테이블/보기의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원됩니다. 새 워크로드의 `schema` 경우 `table`및 를 사용합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
@@ -255,9 +255,9 @@ Azure SQL Database 데이터 집합에 대해 다음 속성이 지원됩니다.
 
 Azure SQL Database에서 데이터를 복사하려면 복사 활동 **원본** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 활동 원본의 **형식** 속성을 **AzureSqlSource**로 설정해야 합니다. "SqlSource" 형식은 이전 버전과의 호환성을 위해 계속 지원됩니다. | yes |
+| type | 복사 활동 원본의 **형식** 속성을 **AzureSqlSource**로 설정해야 합니다. "SqlSource" 형식은 이전 버전과의 호환성을 위해 계속 지원됩니다. | 예 |
 | SqlReaderQuery | 이 속성은 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `select * from MyTable`입니다. | 예 |
 | sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. | 예 |
 | storedProcedureParameters | 저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름과 대/소문자는 저장된 프로시저 매개 변수의 이름과 대/소문자를 일치해야 합니다. | 예 |
@@ -362,9 +362,9 @@ GO
 
 Azure SQL Database에 데이터를 복사하려면 복사 활동 **싱크** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 활동 싱크의 **형식** 속성을 **AzureSqlSink로**설정해야 합니다. "SqlSink" 형식은 이전 버전과의 호환성을 위해 계속 지원됩니다. | yes |
+| type | 복사 활동 싱크의 **형식** 속성을 **AzureSqlSink로**설정해야 합니다. "SqlSink" 형식은 이전 버전과의 호환성을 위해 계속 지원됩니다. | 예 |
 | writeBatchSize | *일괄 처리당*SQL 테이블에 삽입할 행 수입니다.<br/> 허용되는 값은 **정수**(행 수)입니다. 기본적으로 Azure Data Factory는 행 크기에 따라 적절한 일괄 처리 크기를 동적으로 결정합니다. | 예 |
 | writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다.<br/> 허용된 값은 **시간 범위입니다.** 예를 들어 "00:30:00"(30분)입니다. | 예 |
 | preCopyScript | Azure SQL Database에 데이터를 작성하기 전에 실행할 복사 활동에 대한 SQL 쿼리를 지정합니다. 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 예 |

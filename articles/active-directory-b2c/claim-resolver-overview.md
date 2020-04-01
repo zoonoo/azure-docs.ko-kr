@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cba97b84f77bd4e2d4cfd97601fa4f8637105eb4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1c4bbd98682d964cfdf72031c7d6cb77cf42a809
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051416"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396079"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 클레임 해결 프로그램 정보
 
@@ -76,7 +76,7 @@ Azure Active Directory B2C(Azure AD B2C) [사용자 지정 정책의](custom-pol
 | {OIDC:Prompt} | `prompt` 쿼리 문자열 매개 변수입니다. | 로그인 |
 | {OIDC:리디렉션유리} |`redirect_uri` 쿼리 문자열 매개 변수입니다. | https://jwt.ms |
 | {OIDC:Resource} |`resource` 쿼리 문자열 매개 변수입니다. | 해당 없음 |
-| {OIDC:scope} |`scope` 쿼리 문자열 매개 변수입니다. | openid |
+| {OIDC:범위} |`scope` 쿼리 문자열 매개 변수입니다. | openid |
 | {OIDC:사용자 이름}| [리소스 소유자 암호 자격 증명은](ropc-custom.md) 사용자의 사용자 이름을 플로우합니다.| emily@contoso.com| 
 
 ### <a name="context"></a>Context
@@ -162,7 +162,7 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userLanguage" DefaultValue="{Culture:LCID}" AlwaysUseDefaultValue="true" />
     <InputClaim ClaimTypeReferenceId="policyName" DefaultValue="{Policy:PolicyId}" AlwaysUseDefaultValue="true" />
-    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:scope}" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:Scope}" AlwaysUseDefaultValue="true" />
     <InputClaim ClaimTypeReferenceId="clientId" DefaultValue="{OIDC:ClientId}" AlwaysUseDefaultValue="true" />
   </InputClaims>
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
@@ -175,7 +175,7 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 
 ### <a name="dynamic-ui-customization"></a>동적 UI 사용자 지정
 
-Azure AD B2C를 사용하면 쿼리 문자열 매개 변수를 HTML 콘텐츠 정의 끝점으로 전달하여 페이지 콘텐츠를 동적으로 렌더링할 수 있습니다. 예를 들어, 이렇게 하면 웹 또는 모바일 응용 프로그램에서 전달하는 사용자 지정 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지의 배경 이미지를 수정할 수 있습니다. 자세한 내용은 [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](custom-policy-ui-customization.md)(Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 동적으로 UI 구성)를 참조하세요. 언어 매개 변수를 기반으로 HTML 페이지를 지역화하거나 클라이언트 ID를 기반으로 콘텐츠를 변경할 수도 있습니다.
+Azure AD B2C를 사용하면 쿼리 문자열 매개 변수를 HTML 콘텐츠 정의 끝점으로 전달하여 페이지 콘텐츠를 동적으로 렌더링할 수 있습니다. 예를 들어 이 기능을 사용하면 웹 또는 모바일 응용 프로그램에서 전달하는 사용자 지정 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지의 백그라운드 이미지를 수정할 수 있습니다. 자세한 내용은 [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri)(Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 동적으로 UI 구성)를 참조하세요. 언어 매개 변수를 기반으로 HTML 페이지를 지역화하거나 클라이언트 ID를 기반으로 콘텐츠를 변경할 수도 있습니다.
 
 다음 예제에서는 **campaignId라는** 쿼리 문자열 매개 변수에 의 `Hawaii`값으로 **app** 전달 합니다. **language** `en-US`
 

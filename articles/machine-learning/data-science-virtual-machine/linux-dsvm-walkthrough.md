@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 9857de0470baa35dcc8005e1622e5e593da95751
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d15d53816d916bd28841aae39255685524faa2d
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128360"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477856"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Azure의 Linux 데이터 과학 가상 머신을 통한 데이터 과학
 
@@ -29,9 +29,9 @@ ms.locfileid: "80128360"
 Linux DSVM을 사용하려면 먼저 다음과 같은 필수 구성 조건이 있어야 합니다.
 
 * **Azure 구독**. Azure 구독을 받으려면 [오늘 무료 Azure 계정 만들기를](https://azure.microsoft.com/free/)참조하십시오.
-* [**리눅스 데이터 과학 가상 머신**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). 가상 컴퓨터 프로비저닝에 대한 자세한 내용은 [Linux 데이터 과학 가상 컴퓨터 프로비저닝을](linux-dsvm-intro.md)참조하십시오.
+* [**리눅스 데이터 과학 가상 머신**](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu). 가상 컴퓨터 프로비저닝에 대한 자세한 내용은 [Linux 데이터 과학 가상 컴퓨터 프로비저닝을](linux-dsvm-intro.md)참조하십시오.
 * [**X2Go는**](https://wiki.x2go.org/doku.php) 열려있는 XFCE 세션과 컴퓨터에 설치. 자세한 내용은 [X2Go 클라이언트 설치 및 구성을](linux-dsvm-intro.md#x2go)참조하십시오.
-* DSVM의 Firefox 웹 브라우저에서 보다 원활한 스크롤 환경을 위해 `gfx.xrender.enabled` `about:config`에서 플래그를 전환합니다. [자세히 알아봅니다](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). 또한 로 `mousewheel.enable_pixel_scrolling` `False`설정하는 것을 고려하십시오. [자세히 알아봅니다](https://support.mozilla.org/questions/981140).
+* DSVM의 Firefox 웹 브라우저에서 보다 원활한 스크롤 환경을 위해 `gfx.xrender.enabled` `about:config`에서 플래그를 전환합니다. [자세히 알아보기](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). 또한 로 `mousewheel.enable_pixel_scrolling` `False`설정하는 것을 고려하십시오. [자세히 알아보기](https://support.mozilla.org/questions/981140).
 * **Azure 기계 학습 계정**. 아직 계정이 없는 경우 [Azure 기계 학습 홈 페이지에서](https://azure.microsoft.com/free/services/machine-learning//)새 계정에 등록합니다.
 
 ## <a name="download-the-spambase-dataset"></a>spambase 데이터 세트 다운로드
@@ -385,7 +385,7 @@ Rattle은 탭 기반 인터페이스를 사용합니다. 대부분의 탭은 데
 
 1. 파일을 로드하려면 **데이터** 탭을 선택합니다.
 1. **파일 이름**옆의 선택기를 선택한 다음 **spambaseHeaders.data를 선택합니다.**
-1. 파일을 로드하려면 **실행을 선택합니다.** 식별된 데이터 형식을 포함하여 각 열에 대한 요약이 표시됩니다. 입력, 대상 또는 기타 유형의 변수인지 여부; 및 고유 값의 수입니다.
+1. 파일을 로드하려면 **실행**을 선택합니다. 식별된 데이터 형식을 포함하여 각 열에 대한 요약이 표시됩니다. 입력, 대상 또는 기타 유형의 변수인지 여부; 및 고유 값의 수입니다.
 1. Rattle은 **spam** 열을 대상으로 제대로 식별합니다. **스팸** 열을 선택한 다음 **대상 데이터 유형을** **Categoric로**설정합니다.
 
 데이터를 탐색하려면
@@ -398,12 +398,12 @@ Rattle은 탭 기반 인터페이스를 사용합니다. 대부분의 탭은 데
 
 1. **배포**를 선택합니다.
 1. **word_freq_remove** 및 **word_freq_you**위해 **히스토그램을**선택합니다.
-1. **실행**을 선택합니다. 단일 그래프 창에서 두 밀도 플롯을 모두 볼 _수_ 있으며, 이 경우 제거하는 _것보다_전자 메일에 훨씬 더 자주 표시되는 단어가 분명합니다.
+1. **실행을 선택합니다.** 단일 그래프 창에서 두 밀도 플롯을 모두 볼 _수_ 있으며, 이 경우 제거하는 _것보다_전자 메일에 훨씬 더 자주 표시되는 단어가 분명합니다.
 
 **상관 관계** 플롯도 흥미롭습니다. 플롯을 작성하려면 다음을 수행합니다.
 
 1. **유형의**경우 **상관 관계를**선택합니다.
-1. **실행**을 선택합니다.
+1. **실행을 선택합니다.**
 1. 권장 최대 변수는 40개라는 경고 메시지가 표시됩니다. 도표를 보려면 **예** 를 선택합니다.
 
 몇 가지 흥미로운 상관 관계가 있습니다: _기술은_ _HP와_ _실험실과_밀접한 상관 관계가 있습니다. 또한 데이터 집합 기증자의 영역 번호가 _650이기_ 때문에 650과 밀접한 상관 관계가 있습니다.
@@ -425,7 +425,7 @@ Rattle은 몇 가지 일반적인 문제를 처리하기 위해 데이터 세트
 * word_freq_business
 * spam
 
-**클러스터** 탭으로 돌아갑니다. **KMeans를**선택한 다음 클러스터 수를 **4로** **설정합니다.** **실행**을 선택합니다. 결과가 출력 창에 표시됩니다. 한 클러스터는 _조지와_ _hp의_높은 주파수를 가지고 있으며, 아마도 합법적 인 비즈니스 이메일입니다.
+**클러스터** 탭으로 돌아갑니다. **KMeans를**선택한 다음 클러스터 수를 **4로** **설정합니다.** **실행을 선택합니다.** 결과가 출력 창에 표시됩니다. 한 클러스터는 _조지와_ _hp의_높은 주파수를 가지고 있으며, 아마도 합법적 인 비즈니스 이메일입니다.
 
 기본 의사 결정 트리 기계 학습 모델을 구축하려면 다음을 수행하십시오.
 
@@ -437,7 +437,7 @@ Rattle은 몇 가지 일반적인 문제를 처리하기 위해 데이터 세트
 Rattle의 유용한 기능은 여러 기계 학습 방법을 실행하고 신속하게 평가할 수 있다는 것입니다. 단계는 다음과 같습니다.
 
 1. **유형의**경우 **모두**를 선택합니다.
-1. **실행**을 선택합니다.
+1. **실행을 선택합니다.**
 1. Rattle 실행이 완료되면 **SVM과**같은 **유형** 값을 선택하고 결과를 볼 수 있습니다.
 1. **평가** 탭을 사용하여 유효성 검사 집합에서 모델의 성능을 비교할 수도 있습니다. 예를 들어 **오류 매트릭스** 선택에는 유효성 검사 세트의 각 모델에 대한 혼동 행렬, 전체 오류 및 평균 클래스 오류가 표시됩니다. ROC 곡선을 플롯하고, 감도 해석을 실행하고, 다른 유형의 모델 평가를 수행할 수도 있습니다.
 

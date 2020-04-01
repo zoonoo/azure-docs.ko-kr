@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 63b947a27c3aa24b42252bf33febd031f7caefbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46994413ba765e18a826eebfe85a38bb65efc749
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79282693"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435611"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure Security Center 계획 및 작업 가이드
 이 가이드는 Azure 보안 센터를 사용하려는 정보 기술(IT) 전문가, IT 설계자, 정보 보안 분석가 및 클라우드 관리자를 위한 것입니다.
@@ -40,7 +40,7 @@ ms.locfileid: "79282693"
 
 ![역할](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-이러한 개인들은 보안 센터를 통해 다양한 책임에 부합할 수 있습니다. 예를 들어:
+이러한 개인들은 보안 센터를 통해 다양한 책임에 부합할 수 있습니다. 다음은 그 예입니다.
 
 **Jeff(워크로드 소유자)**
 
@@ -131,15 +131,15 @@ Security Center는 각 Azure 구독에 대한 기본 보안 정책을 자동으�
 보안 정책을 구성하기 전에 각각의 [보안 권장 사항](https://docs.microsoft.com/azure/security-center/security-center-recommendations)을 검토하여 이들 정책이 다양한 구독 및 리소스 그룹에 적합한지 판단합니다. 보안 권장 사항을 확인하기 위해 취해야 하는 조치 및 조직에서 새 권장 사항을 모니터링하고 필요한 단계를 수행하는 담당자를 알아야 합니다.
 
 ## <a name="data-collection-and-storage"></a>데이터 수집 및 스토리지
-Azure 보안 센터는 Azure Monitor 서비스에서 사용하는 것과 동일한 에이전트인 Microsoft 모니터링 에이전트를 사용하여 가상 컴퓨터에서 보안 데이터를 수집합니다. 이 에이전트에서 [수집된 데이터](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)는 Log Analytics 작업 영역에 저장됩니다.
+Azure Security Center는 Azure Monitor 서비스에서 사용하는 것과 동일한 에이전트인 로그 분석 에이전트를 사용하여 가상 컴퓨터에서 보안 데이터를 수집합니다. 이 에이전트에서 [수집된 데이터](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)는 Log Analytics 작업 영역에 저장됩니다.
 
 ### <a name="agent"></a>에이전트
 
-자동 프로비전이 보안 정책에서 활성화된 경우 Microsoft Monitoring Agent([Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) 또는 [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)용)는 지원되는 모든 Azure VM 및 새로 만들어진 VM에 설치됩니다. VM 또는 컴퓨터가 Microsoft Monitoring Agent에 이미 설치된 경우 Azure Security Center는 현재 설치된 에이전트를 활용합니다. 에이전트의 프로세스는 사용자 작업에 영향을 미치지 않으며 VM의 성능에도 거의 영향을 미치지 않습니다.
+보안 정책에서 자동 프로비저닝을 사용하도록 설정하면 [로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) 분석 에이전트(Windows 또는 [Linux용)가](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)지원되는 모든 Azure VM 및 새 Azure VM에 설치됩니다. VM 또는 컴퓨터에 Log Analytics 에이전트가 이미 설치되어 있는 경우 Azure Security Center는 현재 설치된 에이전트를 활용합니다. 에이전트의 프로세스는 사용자 작업에 영향을 미치지 않으며 VM의 성능에도 거의 영향을 미치지 않습니다.
 
-Windows용 Microsoft Monitoring Agent는 TCP 포트 443을 사용해야 합니다. 추가 세부 정보는 [문제 해결 문서](security-center-troubleshooting-guide.md)를 참조하세요.
+Windows용 로그 분석 에이전트는 TCP 포트 443을 사용해야 합니다. 추가 세부 정보는 [문제 해결 문서](security-center-troubleshooting-guide.md)를 참조하세요.
 
-데이터 수집을 사용하지 않으려는 특정 지점의 경우 보안 정책에서 수집을 해제할 수 있습니다. 그러나 Microsoft 모니터링 에이전트는 다른 Azure 관리 및 모니터링 서비스에서 사용할 수 있으므로 보안 센터에서 데이터 수집을 해제하면 에이전트가 자동으로 제거되지 않습니다. 필요한 경우 에이전트를 수동으로 제거할 수 있습니다.
+데이터 수집을 사용하지 않으려는 특정 지점의 경우 보안 정책에서 수집을 해제할 수 있습니다. 그러나 Log Analytics 에이전트는 다른 Azure 관리 및 모니터링 서비스에서 사용할 수 있으므로 보안 센터에서 데이터 수집을 해제하면 에이전트가 자동으로 제거되지 않습니다. 필요한 경우 에이전트를 수동으로 제거할 수 있습니다.
 
 > [!NOTE]
 > 지원되는 VM 목록을 찾으려면 [Azure 보안 센터에서 자주 묻는 질문(FAQ)을](faq-vms.md)참조하십시오.
@@ -148,7 +148,7 @@ Windows용 Microsoft Monitoring Agent는 TCP 포트 443을 사용해야 합니�
 
 작업 영역은 데이터에 대한 컨테이너 역할을 하는 Azure 리소스입니다. 사용자나 조직의 다른 구성원이 여러 개의 작업 영역을 사용하여 IT 인프라 전체 또는 일부에서 수집되는 각 데이터 집합을 관리할 수 있습니다.
 
-(Azure Security Center 대신) Microsoft Monitoring Agent에서 수집된 데이터는 VM의 지역을 고려하여 Azure 구독 또는 새 작업 영역에 연결된 기존 Log Analytics 작업 영역 중 하나에 저장됩니다.
+Azure 보안 센터를 대신하여 로그 분석 에이전트에서 수집한 데이터는 Azure 구독과 연결된 기존 Log Analytics 작업 영역 또는 VM의 지리적 위치를 고려하여 새 작업 영역에 저장됩니다.
 
 Azure Portal에서 Azure Security Center에서 만든 항목을 포함하여 Log Analytics 작업 영역 목록을 찾아볼 수 있습니다. 새 작업 영역에 관련된 리소스 그룹이 만들어질 수 있습니다. 둘 다 다음과 같은 명명 규칙을 따릅니다.
 

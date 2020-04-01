@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 860b1a579d9c8cee6c6e80ae4c4e7fdd7949d5c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e17a004ff866f3915000fb72b6770757062cf83
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71300593"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422908"
 ---
 # <a name="copy-data-to-azure-data-explorer-by-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 데이터를 Azure 데이터 탐색기로 복사합니다. 
 
@@ -44,7 +44,7 @@ Azure 데이터 탐색기로 데이터를 로드할 때 데이터 팩터리는 �
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
-1. [Azure 포털에](https://ms.portal.azure.com)로그인합니다.
+1. [Azure Portal](https://ms.portal.azure.com)에 로그인합니다.
 
 1. 왼쪽 창에서 > 리소스**분석** > **데이터 팩터리** **만들기를**선택합니다.
 
@@ -59,7 +59,7 @@ Azure 데이터 탐색기로 데이터를 로드할 때 데이터 팩터리는 �
    | **이름** | 상자에 데이터 팩터리의 전역 고유 이름을 입력합니다. 오류가 발생하면 데이터 *팩터리 \"이름\" LoadADXDemo을 사용할 수 없으며*데이터 팩터리의 다른 이름을 입력합니다. 데이터 팩터리 아티팩트 의 이름 지정에 대한 규칙은 [데이터 팩터리 이름 지정 규칙을](/azure/data-factory/naming-rules)참조하십시오.|
    | **구독** | 드롭다운 목록에서 데이터 팩터리를 만들 Azure 구독을 선택합니다. |
    | **리소스 그룹** | 새 을 **선택한**다음 새 리소스 그룹의 이름을 입력합니다. 리소스 그룹이 이미 있는 경우 **기존 을 선택합니다.** |
-   | **버전** | 드롭다운 목록에서 **V2**를 선택합니다. |  
+   | **버전** | 드롭다운 목록에서 **V2**를 선택합니다. |    
    | **위치** | 드롭다운 목록에서 데이터 팩터리의 위치를 선택합니다. 지원되는 위치만 목록에 표시됩니다. 데이터 팩터리에서 사용하는 데이터 저장소는 다른 위치 나 지역에 존재할 수 있습니다. |
 
 1. **만들기**를 선택합니다.
@@ -78,7 +78,7 @@ Azure 데이터 탐색기로 데이터를 로드할 때 데이터 팩터리는 �
 
 다음 방법 중 하나에서 데이터를 로드할 수 있습니다.
 
-* Azure Data Factory 사용자 인터페이스에서 왼쪽 창에서 [Azure Data Factory UI를 사용하여 데이터 팩터리 만들기의](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory)"데이터 팩터리 만들기" 섹션에 표시된 것처럼 **작성자** 아이콘을 선택합니다.
+* Azure 데이터 팩터리 사용자 인터페이스에서 왼쪽 창에서 **작성자** 아이콘을 선택합니다. Azure [데이터 팩터리 UI를 사용하여 데이터 팩터리 만들기의](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory)"데이터 팩터리 만들기" 섹션에 표시됩니다.
 * 에 표시된 대로 Azure 데이터 팩터리 복사 데이터 도구에서 [데이터 복사 도구를 사용하여 데이터를 복사합니다.](/azure/data-factory/quickstart-create-data-factory-copy-data-tool)
 
 ### <a name="copy-data-from-amazon-s3-source"></a>아마존 S3에서 데이터 복사 (소스)
@@ -124,7 +124,7 @@ Azure 데이터 탐색기로 데이터를 로드할 때 데이터 팩터리는 �
 
    ![원본 데이터 저장소 생성된 연결](media/data-factory-load-data/source-data-store-created-connection.png)
 
-1. 입력 **파일 또는 폴더** 창 선택에서 다음을 수행합니다.
+1. 입력 **파일 또는 폴더** 창 선택에서 다음 단계를 수행합니다.
 
     a. 복사할 파일 이나 폴더를 찾아 본 다음 선택 합니다.
 
@@ -142,9 +142,12 @@ Azure 데이터 탐색기로 데이터를 로드할 때 데이터 팩터리는 �
 
 새 Azure Data 탐색기 링크 된 서비스는 이 섹션에 지정된 Azure Data 탐색기 대상 테이블 (싱크)에 데이터를 복사하기 위해 만들어집니다.
 
+> [!NOTE]
+> Azure [Data Factory 명령 활동을](data-factory-command-activity.md) 사용하여 Azure Data Explorer 컨트롤 명령을 실행하고 와 같은 `.set-or-replace` [쿼리 명령에서 수집을](/azure/kusto/management/data-ingestion/ingest-from-query)사용합니다.
+
 #### <a name="create-the-azure-data-explorer-linked-service"></a>Azure 데이터 탐색기 연결 서비스 만들기
 
-Azure 데이터 탐색기 연결 된 서비스를 만들려면 다음을 수행 합니다.
+Azure 데이터 탐색기 연결된 서비스를 만들려면 다음 단계를 수행합니다.
 
 1. 기존 데이터 저장소 연결을 사용하거나 새 데이터 저장소를 지정하려면 **대상 데이터 저장소** 창에서 새 연결 **만들기를**선택합니다.
 
@@ -154,13 +157,13 @@ Azure 데이터 탐색기 연결 된 서비스를 만들려면 다음을 수행 
 
     ![새 연결 서비스 창](media/data-factory-load-data/adx-select-new-linked-service.png)
 
-1. 새 **연결된 서비스(Azure 데이터 탐색기)** 창에서 다음을 수행합니다.
+1. 새 **연결된 서비스(Azure 데이터 탐색기)** 창에서 다음 단계를 수행합니다.
 
     ![Azure 데이터 탐색기 새 연결 된 서비스 창](media/data-factory-load-data/adx-new-linked-service.png)
 
    a. **이름** 상자에 Azure 데이터 탐색기 링크된 서비스의 이름을 입력합니다.
 
-   b. **계정 선택 방법에서**다음 중 하나를 수행합니다. 
+   b. **계정 선택 방법에서**다음 옵션 중 하나를 선택합니다. 
 
     * **Azure 구독에서** 선택한 다음 드롭다운 목록에서 Azure **구독** 및 **클러스터를**선택합니다. 
 
@@ -186,7 +189,7 @@ Azure 데이터 탐색기 연결 된 서비스를 만들려면 다음을 수행 
 
 #### <a name="configure-the-azure-data-explorer-data-connection"></a>Azure 데이터 탐색기 데이터 연결 구성
 
-연결된 서비스 연결을 만든 후 **대상 데이터 저장소** 창이 열리고 만든 연결을 사용할 수 있습니다. 연결을 구성하려면 다음을 수행합니다.
+연결된 서비스 연결을 만든 후 **대상 데이터 저장소** 창이 열리고 만든 연결을 사용할 수 있습니다. 연결을 구성하려면 다음 단계를 수행합니다.
 
 1. **다음**을 선택합니다.
 
@@ -214,7 +217,7 @@ Azure 데이터 탐색기 연결 된 서비스를 만들려면 다음을 수행 
 
     ![대상 데이터 집합 "열 매핑" 창](media/data-factory-load-data/destination-dataset-column-mapping.png)
 
-1. **설정** 창에서 다음을 수행합니다.
+1. **설정** 창에서 다음 단계를 수행합니다.
 
     a. **내결함성 설정에서**관련 설정을 입력합니다.
 

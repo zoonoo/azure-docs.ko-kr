@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: e348180eb94c1703ceecf2f2b00ab942ba5ff0ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 395f4b5481fcf2028d6bfe736e58c3174a0c80b2
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536329"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435340"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Azure 보안 센터의 위협 보호
 
@@ -73,9 +73,9 @@ Azure 보안 센터는 Azure 서비스와 통합하여 Windows 기반 컴퓨터�
 
 보안 센터는 가장 일반적인 Linux 감사 프레임워크 중 하나인 **감사를**사용하여 Linux 시스템에서 감사 레코드를 수집합니다. 메인 라인 커널에 살고 있습니다. 
 
-* **Linux 감사 경고 및 Microsoft 모니터링 에이전트(MMA) 통합** <a name="linux-auditd"></a> - 감사된 시스템은 시스템 호출을 모니터링하는 커널 수준 하위 시스템으로 구성됩니다. 지정된 규칙 집합으로 필터링하고 소켓에 메시지를 씁니다. 보안 센터는 감사된 패키지의 기능을 MMA(Microsoft 모니터링 에이전트) 내에 통합합니다. 이 통합을 사용하면 전제 조건 없이 지원되는 모든 Linux 배포판에서 감사된 이벤트를 수집할 수 있습니다.  
+* **Linux 감사 경고 및 로그 분석 에이전트 통합** <a name="linux-auditd"></a> - 감사된 시스템은 시스템 호출을 모니터링하는 커널 수준 하위 시스템으로 구성됩니다. 지정된 규칙 집합으로 필터링하고 소켓에 메시지를 씁니다. 보안 센터는 Log Analytics 에이전트 내에서 감사된 패키지의 기능을 통합합니다. 이 통합을 사용하면 전제 조건 없이 지원되는 모든 Linux 배포판에서 감사된 이벤트를 수집할 수 있습니다.
 
-    감사된 레코드는 Linux MMA 에이전트를 사용하여 수집, 보강 및 이벤트로 집계됩니다. 보안 센터는 지속적으로 클라우드 및 온-프레미스 리눅스 컴퓨터에서 악의적인 동작을 감지 하는 리눅스 신호를 사용 하 여 새로운 분석을 추가 합니다. Windows 기능과 마찬가지로 이러한 분석은 의심스러운 프로세스, 의심스러운 로그인 시도, 커널 모듈 로드 및 기타 활동에 걸쳐 있습니다. 이러한 활동은 컴퓨터가 공격을 받고 있거나 위반되었음을 나타낼 수 있습니다.  
+    감사된 레코드는 Linux 에이전트용 로그 분석 에이전트를 사용하여 이벤트로 수집, 보강 및 집계됩니다. 보안 센터는 지속적으로 클라우드 및 온-프레미스 리눅스 컴퓨터에서 악의적인 동작을 감지 하는 리눅스 신호를 사용 하 여 새로운 분석을 추가 합니다. Windows 기능과 마찬가지로 이러한 분석은 의심스러운 프로세스, 의심스러운 로그인 시도, 커널 모듈 로드 및 기타 활동에 걸쳐 있습니다. 이러한 활동은 컴퓨터가 공격을 받고 있거나 위반되었음을 나타낼 수 있습니다.  
 
     Linux 경고 목록은 [경고 참조 테이블을](alerts-reference.md#alerts-linux)참조하십시오.
 

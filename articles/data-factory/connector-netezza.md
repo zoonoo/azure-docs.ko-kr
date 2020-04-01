@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: c51469997af23be7a5e1b88677ecadb37e10ac64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c7e17f7c4493560bd6118b8d4837fd795a6ab0c8
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244538"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422855"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Netezza에서 데이터 복사
 
@@ -43,7 +43,7 @@ Azure Data Factory는 연결을 허용하는 기본 제공 드라이버를 제�
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 .NET SDK, Python SDK, Azure PowerShell, REST API 또는 Azure Resource Manager 템플릿을 통해 복사 작업을 사용하는 파이프라인을 만들 수 있습니다. 복사 작업이 포함된 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](quickstart-create-data-factory-dot-net.md)를 참조하세요.
 
@@ -53,15 +53,15 @@ Azure Data Factory는 연결을 허용하는 기본 제공 드라이버를 제�
 
 다음 속성은 Netezza 연결 서비스에 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | **형식** 속성은 **Netezza**로 설정되어야 합니다. | yes |
-| connectionString | Netezza에 연결할 ODBC 연결 문자열입니다. <br/>Azure Key Vault에 암호를 넣고, 연결 문자열에서 `pwd` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | yes |
+| type | **형식** 속성은 **Netezza**로 설정되어야 합니다. | 예 |
+| connectionString | Netezza에 연결할 ODBC 연결 문자열입니다. <br/>Azure Key Vault에 암호를 넣고, 연결 문자열에서 `pwd` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [필수 구성 조건](#prerequisites) 섹션에서 자세히 알아보십시오. 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |예 |
 
 일반적인 연결 문자열은 `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`입니다. 다음 표에서는 설정 가능한 여러 속성을 설명합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | SecurityLevel | 드라이버가 데이터 저장소에 연결하는 데 사용하는 보안(SSL/TLS) 수준입니다. 예: `SecurityLevel=preferredSecured`. 지원되는 값은 다음과 같습니다.<br/>- **Only unsecured**(**onlyUnSecured**): 드라이버가 SSL을 사용하지 않습니다.<br/>- **Preferred unsecured(preferredUnSecured)(기본값)**: 서버가 선택 사항을 제공하면 드라이버는 SSL을 사용하지 않습니다. <br/>- **기본 보안(기본 설정)**: 서버가 선택 을 제공하는 경우 드라이버는 SSL을 사용합니다. <br/>- **Only secured(onlySecured)**: SSL 연결을 사용할 수 있는 경우가 아니면 드라이버가 연결되지 않습니다. | 예 |
 | CaCertFile | 서버에 사용되는 SSL 인증서의 전체 경로입니다. 예: `CaCertFile=<cert path>;`| 예(SSL을 사용하는 경우) |
@@ -118,9 +118,9 @@ Azure Data Factory는 연결을 허용하는 기본 제공 드라이버를 제�
 
 Netezza에서 데이터를 복사하려면 데이터 세트의 **형식** 속성을 **NetezzaTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 형식 속성을 다음으로 설정해야 **합니다.** | yes |
+| type | 데이터 집합의 형식 속성을 다음으로 설정해야 **합니다.** | 예 |
 | 스키마 | 스키마의 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
 | 테이블 | 테이블 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
 | tableName | 스키마가 있는 테이블의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원됩니다. 새 `schema` `table` 워크로드에 사용하고 사용합니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -154,11 +154,11 @@ Netezza에서 데이터를 복사하려면 데이터 세트의 **형식** 속성
 
 Netezza에서 데이터를 복사하려면 복사 작업의 **원본** 형식을 **NetezzaSource**로 설정합니다. 다음 속성은 활동 복사 **원본** 섹션에서 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 **형식** 속성을 **NetezzaSource**로 설정해야 합니다. | yes |
+| type | 복사 작업 원본의 **형식** 속성을 **NetezzaSource**로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
-| 파티션옵션 | Netezza에서 데이터를 로드하는 데 사용되는 데이터 분할 옵션을 지정합니다. <br>허용 값은 **None** 없음(기본값), **데이터 슬라이스**및 **동적 범위**입니다.<br>파티션 옵션이 활성화되면(즉, `None`그렇지 않음) Netezza 데이터베이스에서 데이터를 동시에 로드하는 병렬 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 처리 정도는 복사 활동을 설정하여 제어됩니다. | 예 |
+| 파티션옵션 | Netezza에서 데이터를 로드하는 데 사용되는 데이터 분할 옵션을 지정합니다. <br>허용 값은 **None** 없음(기본값), **데이터 슬라이스**및 **동적 범위**입니다.<br>파티션 옵션이 활성화되면(즉, `None`그렇지 않음) Netezza 데이터베이스에서 데이터를 동시에 로드하는 병렬 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 처리 정도는 복사 활동을 설정하여 제어됩니다. | 예 |
 | 파티션설정 | 데이터 분할에 대한 설정 그룹을 지정합니다. <br>파티션 옵션이 아닌 `None`경우 적용합니다. | 예 |
 | 파티션열이름 | 병렬 복사본에 대한 범위 분할에서 사용할 **정수 형식의** 원본 열 이름을 지정합니다. 지정하지 않으면 테이블의 기본 키가 자동으로 감지되어 파티션 열로 사용됩니다. <br>파티션 옵션이 `DynamicRange`있는 경우 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 `?AdfRangePartitionColumnName` 경우 WHERE 절에 연결합니다. [네테자 섹션에서 병렬 복사본의 예제를](#parallel-copy-from-netezza) 참조하십시오. | 예 |
 | 파티션어바운드 | 데이터를 복사할 파티션 열의 최대값입니다. <br>파티션 옵션이 `DynamicRange`있는 경우 적용합니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절을 연결합니다. `?AdfRangePartitionUpbound` 예를 들어 [Netezza](#parallel-copy-from-netezza) 섹션의 병렬 복사본을 참조하십시오. | 예 |
@@ -202,7 +202,7 @@ Netezza에서 데이터를 복사하려면 복사 작업의 **원본** 형식을
 
 ![파티션 옵션의 스크린샷](./media/connector-netezza/connector-netezza-partition-options.png)
 
-분할된 복사본을 사용하도록 설정하면 Data Factory는 Netezza 원본에 대해 병렬 쿼리를 실행하여 파티션별로 데이터를 로드합니다. 평행 정도는 복사 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 활동의 설정에 의해 제어됩니다. 예를 들어 4로 `parallelCopies` 설정하면 Data Factory는 지정된 파티션 옵션 및 설정에 따라 4개의 쿼리를 동시에 생성하고 실행하며 각 쿼리는 Netezza 데이터베이스에서 데이터의 일부를 검색합니다.
+분할된 복사본을 사용하도록 설정하면 Data Factory는 Netezza 원본에 대해 병렬 쿼리를 실행하여 파티션별로 데이터를 로드합니다. 평행 정도는 복사 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 활동의 설정에 의해 제어됩니다. 예를 들어 4로 `parallelCopies` 설정하면 Data Factory는 지정된 파티션 옵션 및 설정에 따라 4개의 쿼리를 동시에 생성하고 실행하며 각 쿼리는 Netezza 데이터베이스에서 데이터의 일부를 검색합니다.
 
 Netezza 데이터베이스에서 많은 양의 데이터를 로드할 때 특히 데이터 분할과 병렬 복사본을 사용하도록 설정하는 것이 좋습니다. 다음은 다양한 시나리오에 대한 권장 구성입니다. 파일 기반 데이터 저장소에 데이터를 복사할 때 여러 파일(폴더 이름만 지정)으로 폴더에 쓰도록 명령되며, 이 경우 단일 파일에 쓰는 것보다 성능이 더 좋습니다.
 

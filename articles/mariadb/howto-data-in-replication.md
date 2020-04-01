@@ -5,19 +5,21 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 51b800dde140affd222f2bdb341c0fbf3a57d8cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 3/30/2020
+ms.openlocfilehash: 332feffead74174ba0b9b278d8de1c5957d5b9e6
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530158"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422464"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>MariaDB에 대한 Azure 데이터베이스에서 데이터 인 복제 구성
 
 이 문서에서는 마스터 및 복제서버를 구성하여 MariaDB용 Azure 데이터베이스에서 데이터 인 복제를 설정하는 방법에 대해 설명합니다. 이 문서에서는 MariaDB 서버 및 데이터베이스에 대한 사전 경험이 있다고 가정합니다.
 
 MariaDB 서비스에 대한 Azure 데이터베이스에서 복제본을 만들려면 Data-in Replication은 마스터 MariaDB 서버온-프레미스, 가상 시스템(VM) 또는 클라우드 데이터베이스 서비스의 데이터를 동기화합니다.
+
+이 문서의 단계를 수행하기 전에 데이터 입력 복제의 [제한 사항 및 요구 사항을](concepts-data-in-replication.md#limitations-and-considerations) 검토합니다.
 
 > [!NOTE]
 > 마스터 서버가 버전 10.2 이상인 경우 [전역 트랜잭션 ID를](https://mariadb.com/kb/en/library/gtid/)사용하여 데이터 인 복제를 설정하는 것이 좋습니다.
@@ -36,11 +38,21 @@ MariaDB 서비스에 대한 Azure 데이터베이스에서 복제본을 만들�
     
     사용자 계정은 마스터 서버에서 복제서버로 복제되지 않습니다. 복제본 서버에 대한 사용자 액세스를 제공하려면 MariaDB 서버에 대해 새로 만든 Azure Database에서 모든 계정과 해당 권한을 수동으로 만들어야 합니다.
 
+3. 마스터 서버의 IP 주소를 복제본의 방화벽 규칙에 추가합니다. 
+
+   [Azure Portal](howto-manage-firewall-portal.md) 또는 [Azure CLI](howto-manage-firewall-cli.md)를 사용하여 방화벽 규칙을 업데이트합니다.
+
 ## <a name="configure-the-master-server"></a>마스터 서버 구성
 
 다음 단계는 데이터 인 복제를 위해 온-프레미스, VM 또는 클라우드 데이터베이스 서비스에서 호스팅되는 MariaDB 서버를 준비하고 구성합니다. MariaDB 서버는 데이터 인 복제의 마스터입니다.
 
-1. 이진 로깅을 켭니다.
+1. 계속하기 전에 [마스터 서버 요구 사항을](concepts-data-in-replication.md#requirements) 검토합니다. 
+
+   예를 들어 마스터 서버가 포트 3306에서 인바운드 및 아웃바운드 트래픽을 모두 허용하고 마스터 서버에 **공용 IP 주소가**있는지, DNS가 공개적으로 액세스할 수 있는지 또는 정규화된 도메인 이름(FQDN)이 있는지 확인합니다. 
+   
+   다른 컴퓨터에서 호스팅되는 MySQL 명령줄과 같은 도구또는 Azure 포털에서 사용할 수 있는 [Azure Cloud Shell과](https://docs.microsoft.com/azure/cloud-shell/overview) 같은 도구에서 연결을 시도하여 마스터 서버에 대한 연결을 테스트합니다.
+
+2. 이진 로깅을 켭니다.
     
     마스터에서 바이너리 로깅이 활성화되어 있는지 확인하려면 다음 명령을 입력합니다.
 
@@ -52,7 +64,7 @@ MariaDB 서비스에 대한 Azure 데이터베이스에서 복제본을 만들�
 
    값을 `log_bin` `OFF`반환하는 경우 이진 로깅을 `log_bin=ON` 켜지 않도록 **my.cnf** 파일을 편집합니다. 변경 이 적용되도록 서버를 다시 시작합니다.
 
-2. 마스터 서버 설정을 구성합니다.
+3. 마스터 서버 설정을 구성합니다.
 
     데이터 인 복제는 마스터 `lower_case_table_names` 서버와 복제본 서버 간에 매개 변수가 일관되어야 합니다. `lower_case_table_names` 매개 변수는 `1` MariaDB에 대 한 Azure 데이터베이스에서 기본적으로 설정 됩니다.
 
@@ -60,7 +72,7 @@ MariaDB 서비스에 대한 Azure 데이터베이스에서 복제본을 만들�
    SET GLOBAL lower_case_table_names = 1;
    ```
 
-3. 새 복제 역할을 만들고 사용 권한을 설정합니다.
+4. 새 복제 역할을 만들고 사용 권한을 설정합니다.
 
    복제 권한으로 구성된 마스터 서버에서 사용자 계정을 만듭니다. SQL 명령 또는 MySQL 워크벤치를 사용하여 계정을 만들 수 있습니다. SSL을 사용하여 복제하려는 경우 사용자 계정을 만들 때 이를 지정해야 합니다.
    
@@ -105,7 +117,7 @@ MariaDB 서비스에 대한 Azure 데이터베이스에서 복제본을 만들�
    ![복제 슬레이브](./media/howto-data-in-replication/replicationslave.png)
 
 
-4. 마스터 서버를 읽기 전용 모드로 설정합니다.
+5. 마스터 서버를 읽기 전용 모드로 설정합니다.
 
    데이터베이스를 덤프하기 전에 서버를 읽기 전용 모드로 배치해야 합니다. 읽기 전용 모드에서 마스터는 쓰기 트랜잭션을 처리할 수 없습니다. 비즈니스 에 영향을 미치지 않도록 사용량이 많은 시간에 읽기 전용 창을 예약합니다.
 
@@ -114,7 +126,7 @@ MariaDB 서비스에 대한 Azure 데이터베이스에서 복제본을 만들�
    SET GLOBAL read_only = ON;
    ```
 
-5. 현재 바이너리 로그 파일 이름 및 오프셋을 가져옵니다.
+6. 현재 바이너리 로그 파일 이름 및 오프셋을 가져옵니다.
 
    현재 바이너리 로그 파일 이름과 오프셋을 확인하려면 명령을 [`show master status`](https://mariadb.com/kb/en/library/show-master-status/)실행합니다.
     
@@ -127,7 +139,7 @@ MariaDB 서비스에 대한 Azure 데이터베이스에서 복제본을 만들�
 
    이진 파일 이름은 이후 단계에서 사용되므로 참고하십시오.
    
-6. GTID 위치(선택 사항, GTID로 복제에 필요)를 가져옵니다.
+7. GTID 위치(선택 사항, GTID로 복제에 필요)를 가져옵니다.
 
    함수를 [`BINLOG_GTID_POS`](https://mariadb.com/kb/en/library/binlog_gtid_pos/) 실행하여 해당 binlog 파일 이름 및 오프셋에 대한 GTID 위치를 가져옵니다.
   
@@ -196,7 +208,7 @@ MariaDB 서비스에 대한 Azure 데이터베이스에서 복제본을 만들�
 
        ```sql
        SET @cert = '-----BEGIN CERTIFICATE-----
-       PLACE YOUR PUBLIC KEY CERTIFICATE'S CONTEXT HERE
+       PLACE YOUR PUBLIC KEY CERTIFICATE\'S CONTEXT HERE
        -----END CERTIFICATE-----'
        ```
 

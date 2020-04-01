@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
-ms.openlocfilehash: ad7d171cb115729e174090c1c80915abbde5999f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b905c75e920577e46017caeb456f8237421086b2
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80238740"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421201"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Open Hub를 통해 SAP Business Warehouse에서 데이터 복사
 
@@ -104,16 +104,16 @@ ADF SAP BW 오픈 허브 커넥터는 `excludeLastRequest` `baseRequestId` 두 �
 
 SAP Business Warehouse Open Hub 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성을 설정 해야 **합니다.** | yes |
-| 서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | yes |
-| systemNumber | SAP BW 시스템의 시스템 번호.<br/>허용되는 값: 문자열로 표현되는 두 자리 10진수 | yes |
-| clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID.<br/>허용되는 값: 문자열로 표현되는 세 자리 10진수 | yes |
+| type | 형식 속성을 설정 해야 **합니다.** | 예 |
+| 서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | 예 |
+| systemNumber | SAP BW 시스템의 시스템 번호.<br/>허용되는 값: 문자열로 표현되는 두 자리 10진수 | 예 |
+| clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID.<br/>허용되는 값: 문자열로 표현되는 세 자리 10진수 | 예 |
 | 언어 | SAP 시스템에서 사용하는 언어입니다. | No(기본값: **EN**)|
-| userName | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름입니다. | yes |
-| password | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임입니다.](concepts-integration-runtime.md) [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |yes |
+| userName | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름입니다. | 예 |
+| password | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임입니다.](concepts-integration-runtime.md) [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
 
 **예제:**
 
@@ -146,10 +146,10 @@ SAP Business Warehouse Open Hub 연결된 서비스에 지원되는 속성은 �
 
 SAP BW Open Hub 간에 데이터를 복사하려면 데이터 세트의 형식 속성을 **SapOpenHubTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 이 속성은 **SapOpenHubTable**로 설정해야 합니다.  | yes |
-| openHubDestinationName | 복사할 데이터가 있는 Open Hub 대상의 이름입니다. | yes |
+| type | 이 속성은 **SapOpenHubTable**로 설정해야 합니다.  | 예 |
+| openHubDestinationName | 복사할 데이터가 있는 Open Hub 대상의 이름입니다. | 예 |
 
 데이터 집합을 `excludeLastRequest` `baseRequestId` 설정하고 있는 경우 계속 지원되지만 앞으로 활동 소스에서 새 모델을 사용하는 것이 좋습니다.
 
@@ -180,16 +180,16 @@ SAP BW Open Hub 간에 데이터를 복사하려면 데이터 세트의 형식 �
 
 SAP BW Open Hub에서 데이터를 복사하려면 복사 활동 **소스** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 활동 소스의 **형식** 속성은 **SapOpenHubSource**로 설정해야 합니다. | yes |
+| type | 복사 활동 소스의 **형식** 속성은 **SapOpenHubSource**로 설정해야 합니다. | 예 |
 | excludeLastRequest | 마지막 요청의 레코드를 제외할지 여부입니다. | 아니오(기본값은 **true)** |
 | baseRequestId | 델타 로드의 요청 ID입니다. 설정하는 경우 requestId가 이 속성의 값**보다 큰** 데이터만 검색됩니다.  | 예 |
 
 >[!TIP]
 >항상 테이블의 기존 데이터를 모두 로드하고 덮어쓰거나, 테스트를 위해 DTP를 한 번만 실행하는 등 Open Hub 테이블에 단일 요청 ID를 통해 생성된 데이터만 포함되는 경우에는 "excludeLastRequest" 옵션 선택을 취소하여 데이터를 외부로 복사해야 합니다.
 
-데이터 로드 속도를 높이려면 복사 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 활동을 설정하여 SAP BW Open Hub에서 데이터를 병렬로 로드할 수 있습니다. 예를 들어 4로 `parallelCopies` 설정하면 Data Factory는 4개의 RFC 호출을 동시에 실행하고 각 RFC 호출은 DTP 요청 ID 및 패키지 ID로 분할된 SAP BW Open Hub 테이블에서 데이터 일부를 검색합니다. 이는 고유 DTP 요청 ID + 패키지 ID 수가 `parallelCopies`의 값보다 큰 경우에 적용됩니다. 파일 기반 데이터 저장소에 데이터를 복사할 때 여러 파일(폴더 이름만 지정)으로 폴더에 쓰도록 명령되며, 이 경우 단일 파일에 쓰는 것보다 성능이 더 좋습니다.
+데이터 로드 속도를 높이려면 복사 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 활동을 설정하여 SAP BW Open Hub에서 데이터를 병렬로 로드할 수 있습니다. 예를 들어 4로 `parallelCopies` 설정하면 Data Factory는 4개의 RFC 호출을 동시에 실행하고 각 RFC 호출은 DTP 요청 ID 및 패키지 ID로 분할된 SAP BW Open Hub 테이블에서 데이터 일부를 검색합니다. 이는 고유 DTP 요청 ID + 패키지 ID 수가 `parallelCopies`의 값보다 큰 경우에 적용됩니다. 파일 기반 데이터 저장소에 데이터를 복사할 때 여러 파일(폴더 이름만 지정)으로 폴더에 쓰도록 명령되며, 이 경우 단일 파일에 쓰는 것보다 성능이 더 좋습니다.
 
 **예제:**
 

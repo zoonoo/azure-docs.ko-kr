@@ -4,12 +4,12 @@ description: Azure Backup Server를 사용하여 Azure 백업에 Exchange 서버
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 9e623b1bdce93c340ccd0e61f9f5145e7154beff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d7d28d813df82a5e1ea0fe424bba2ef5a9a2684
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78295847"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421344"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Azure Backup Server를 사용하여 Azure에 Exchange 서버 백업
 
@@ -34,7 +34,7 @@ Exchange 서버에서 MABS 보호 에이전트를 설치하려면 다음 단계�
 4. 보호하려는 Exchange 서버 데이터베이스를 선택하고 **다음**을 클릭합니다.
 
    > [!NOTE]
-   > Exchange 2013을 보호하는 경우 [Exchange 2013 필수 구성 요소](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/dn751029(v=sc.12))를 확인합니다.
+   > Exchange 2013을 보호하는 경우 [Exchange 2013 필수 구성 요소](https://docs.microsoft.com/system-center/dpm/back-up-exchange?view=sc-dpm-2016)를 확인합니다.
    >
    >
 
@@ -53,7 +53,7 @@ Exchange 서버에서 MABS 보호 에이전트를 설치하려면 다음 단계�
     이 옵션을 선택하면 Exchange 서버에서 **eseutil** 명령을 실행하여 생성되는 I/O 트래픽을 방지하기 위해 MABS에서 백업 일관성 검사가 실행됩니다.
 
    > [!NOTE]
-   > 이 옵션을 사용하려면 MAB 서버에서 C:\Program Files\Microsoft Azure Backup\DPM\DPM\bin 디렉터리로 Ese.dll 및 Eseutil.exe 파일을 복사해야 합니다. 그렇지 않으면 다음 오류가 트리거됩니다.  
+   > 이 옵션을 사용하려면 MABS 서버의 Ese.dll 및 Eseutil.exe 파일을 C:\프로그램 파일\Microsoft Azure 백업\DPM\DPM\bin 디렉토리에 복사해야 합니다. 그렇지 않으면 다음 오류가 트리거됩니다.  
    > ![eseutil 오류](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
@@ -66,12 +66,12 @@ Exchange 서버에서 MABS 보호 에이전트를 설치하려면 다음 단계�
    >
 10. **단기 백업**에 대한 목표를 구성하고 **다음**을 클릭합니다.
 11. 사용 가능한 디스크 공간을 검토하고 **다음**을 클릭합니다.
-12. MAB 서버가 초기 복제를 만들 시기를 선택하고 **다음**을 클릭합니다.
+12. MABS 서버가 초기 복제를 생성할 시간을 선택한 다음 다음 을 **클릭합니다.**
 13. 일관성 확인 옵션을 선택하고 **다음**을 클릭합니다.
-14. Azure에 백업하려는 데이터베이스를 선택하고 **다음**을 클릭합니다. 예를 들어:
+14. Azure에 백업하려는 데이터베이스를 선택하고 **다음**을 클릭합니다. 다음은 그 예입니다.
 
     ![온라인 보호 데이터 지정](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. **Azure Backup**에 대한 일정을 정의하고 **다음**을 클릭합니다. 예를 들어:
+15. **Azure Backup**에 대한 일정을 정의하고 **다음**을 클릭합니다. 다음은 그 예입니다.
 
     ![온라인 백업 일정 지정](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

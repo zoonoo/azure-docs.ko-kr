@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: e4103f8360f6fa80470b0f8002a61f8ac903bd8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b94725d4d3eb9fd6f13a39d00486b4ab085b9ef9
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255432"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473941"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Blob 스토리지에 대한 성능 및 확장성 검사 목록
 
@@ -267,7 +267,7 @@ Blob을 빠르게 업로드하려면 먼저 하나의 Blob을 업로드할지 �
 단일 큰 Blob을 빠르게 업로드하려면 클라이언트 응용 프로그램이 블록 이나 페이지를 병렬로 업로드할 수 있습니다. Azure Storage 클라이언트 라이브러리는 병렬로 업로드를 지원합니다. 예를 들어 다음 속성을 사용하여 .NET 또는 Java에서 허용되는 동시 요청 수를 지정할 수 있습니다. 지원되는 다른 언어에 대한 클라이언트 라이브러리는 유사한 옵션을 제공합니다.
 
 - .NET의 경우 [BlobRequestOptions.병렬 작업스레드카운트](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount) 속성을 설정합니다.
-- 자바/안 드 로이드에 대 한 [호출 BlobRequestOptions.setConcurrentRequestCount (최종 정수 동시 요청 카운트)](/java/api/com.microsoft.azure.storage.blob._blob_request_options.setconcurrentrequestcount) 메서드.
+- 자바/안 드 로이드에 대 한 [호출 BlobRequestOptions.setConcurrentRequestCount (최종 정수 동시 요청 카운트)](/java/api/com.microsoft.azure.storage.blob.blobrequestoptions.setconcurrentrequestcount) 메서드.
 
 ### <a name="upload-many-blobs-quickly"></a>많은 Blob을 빠르게 업로드
 

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 71056fd04069b861b37a595b1a4f2a8bba4a01ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 105a3996753a1d1c2d71846cc8bad574e4498acf
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75689970"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478617"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Azure Cache for Redis의 모범 사례 
 이러한 모범 사례를 따르면 Redis 인스턴스에 대한 Azure 캐시의 성능과 비용 효율적인 사용을 최대화할 수 있습니다.
@@ -52,14 +52,14 @@ Redis 서버 인스턴스 내에서 메모리 사용량과 관련된 몇 가지 
  * [양상추 (자바)](https://gist.github.com/warrenzhu25/181ccac7fa70411f7eb72aff23aa8a6a#file-azure-redis-lettuce-best-practices-md)
  * [제디스 (자바)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
  * [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
- * [Php](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
+ * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
  * [Asp.Net 세션 상태 공급자](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
 
 ## <a name="when-is-it-safe-to-retry"></a>언제 다시 시도하는 것이 안전합니까?
 불행히도 쉬운 대답은 없습니다.  각 응용 프로그램은 다시 시도할 수 있는 작업과 다시 시도할 수 없는 작업을 결정해야 합니다.  각 작업에는 서로 다른 요구 사항과 키 간 종속성이 있습니다.  다음은 고려할 수 있는 몇 가지 사항입니다.
 
- * Redis가 실행하도록 요청한 명령을 성공적으로 실행하더라도 클라이언트 측 오류를 얻을 수 있습니다.  예를 들어:
+ * Redis가 실행하도록 요청한 명령을 성공적으로 실행하더라도 클라이언트 측 오류를 얻을 수 있습니다.  다음은 그 예입니다.
      - 시간 정은 클라이언트 측 개념입니다.  작업이 서버에 도달하면 클라이언트가 대기를 포기하더라도 서버가 명령을 실행합니다.  
      - 소켓 연결에서 오류가 발생하면 작업이 실제로 서버에서 실행되었는지 알 수 없습니다.  예를 들어 서버가 요청을 처리한 후 클라이언트가 응답을 받기 전에 연결 오류가 발생할 수 있습니다.
  *  실수로 동일한 작업을 두 번 실행하면 응용 프로그램이 어떻게 반응합니까?  예를 들어 정수를 한 번이 아닌 두 번 증분하면 어떻게 됩니까?  응용 프로그램이 여러 위치에서 동일한 키로 작성합니까?  재시도 논리가 앱의 다른 부분에서 설정한 값을 덮어쓰는 경우 어떻게 해야 합니까?
@@ -67,7 +67,7 @@ Redis 서버 인스턴스 내에서 메모리 사용량과 관련된 몇 가지 
 오류 조건에서 코드의 작동 방식을 테스트하려면 [재부팅 기능을](cache-administration.md#reboot)사용하는 것이 좋습니다. 재부팅을 사용하면 연결 블립이 응용 프로그램에 미치는 영향을 확인할 수 있습니다.
 
 ## <a name="performance-testing"></a>성능 테스트
- * 먼저 자체 perf 테스트를 작성하기 전에 가능한 처리량/대기 시간을 확인할 수 있습니다. ** `redis-benchmark.exe` **  Redis-벤치마크 문서는 [여기에서 찾을](https://redis.io/topics/benchmarks)수 있습니다.  redis-benchmarkSL을 지원 하지 않습니다., 그래서 테스트를 실행 하기 전에 [포털을 통해 비 SSL 포트를 사용 하도록](cache-configure.md#access-ports) 해야 합니다.  [redis-benchmark.exe의 윈도우 호환 버전은 여기에서 찾을 수 있습니다](https://github.com/MSOpenTech/redis/releases)
+ * 먼저 자체 perf 테스트를 작성하기 전에 가능한 처리량/대기 시간을 확인할 수 있습니다. ** `redis-benchmark.exe` **  Redis-벤치마크 문서는 [여기에서 찾을](https://redis.io/topics/benchmarks)수 있습니다.  redis-benchmarkTTLS를 지원 하지 않습니다., 그래서 테스트를 실행 하기 전에 [포털을 통해 비 TLS 포트를 사용 하도록](cache-configure.md#access-ports) 해야 합니다.  [redis-benchmark.exe의 윈도우 호환 버전은 여기에서 찾을 수 있습니다](https://github.com/MSOpenTech/redis/releases)
  * 테스트에 사용되는 클라이언트 VM은 Redis 캐시 **인스턴스와 동일한 지역에** 있어야 합니다.
  * **Dv2 VM 시리즈는** 더 나은 하드웨어를 가지고 있으며 최상의 결과를 제공할 수 있으므로 클라이언트에 사용하는 것이 좋습니다.
  * 사용하는 클라이언트 VM에 테스트 중인*캐시만큼의 계산및 대역폭이* 있는지 확인합니다. 

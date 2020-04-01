@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 4edafc0c07e967acfabf7fdc5b58c481b2cfccc3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb3484d013314897ea2e9157b642d8f2b85dcd60
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75436020"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437643"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Azure HDInsight에서 엔터프라이즈 보안 패키지 클러스터 생성 및 구성
 
@@ -154,12 +154,12 @@ Active Directory 테넌트 관리자를 만듭니다.
 
 1. 새 사용자에 대한 다음 세부 정보를 입력합니다.
 
-    **Identity**
+    **ID**
 
-    |속성 |설명 |
+    |속성 |Description |
     |---|---|
     |사용자 이름|텍스트 상자에 `fabrikamazureadmin`를 입력합니다. 도메인 이름 드롭다운 목록에서`hdifabrikam.com`|
-    |이름| `fabrikamazureadmin`를 입력합니다.|
+    |속성| `fabrikamazureadmin`를 입력합니다.|
 
     **암호**
     1. **암호를 만들수 있도록 선택합니다.**
@@ -316,7 +316,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 ```
 
 > [!NOTE]  
-> 유효한 공개 키 암호화 표준(PKCS) \#10 요청을 만드는 모든 유틸리티 또는 응용 프로그램을 사용하여 SSL 인증서 요청을 형성할 수 있습니다.
+> 유효한 공개 키 암호화 표준(PKCS) \#10 요청을 만드는 모든 유틸리티 또는 응용 프로그램을 사용하여 TLS/SSL 인증서 요청을 형성할 수 있습니다.
 
 인증서가 컴퓨터의 **개인** 저장소에 설치되어 있는지 확인합니다.
 
@@ -358,7 +358,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
         | 프로토콜 | 모두 |
         | 작업 | Allow |
         | 우선 순위 | \<원하는 번호> |
-        | 이름 | Port_LDAP_636 |
+        | 속성 | Port_LDAP_636 |
 
     !["인바운드 보안 규칙 추가" 대화 상자](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 

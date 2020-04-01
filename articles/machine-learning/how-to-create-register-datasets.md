@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: c78c1d3ce6dae874ace2abfa8b2bbec6d489538a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4025c620aea49dfb26ab203630c121d29d88d9d7
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536482"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474538"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure 기계 학습 데이터 집합 만들기
 
@@ -52,7 +52,7 @@ Azure 기계 학습 데이터 집합을 사용하면 다음을 수행할 수 있
  
 팬더를 사용 하는 경우, 그 모든 사용 하기 때문에 1 vCPU 를 가질 이유가 있다. 단일 Azure 기계 학습 계산 인스턴스/노드에서 Modin 및 Dask/Ray를 통해 여러 vCPU에 쉽게 병렬화하고, 필요한 `import pandas as pd` 경우 `import modin.pandas as pd`을 로 변경하기만 하면 큰 클러스터로 확장할 수 있습니다. 
  
-데이터에 대해 충분히 큰 가상을 얻을 수 없는 경우 Spark 또는 Dask와 같은 프레임워크를 사용하여 데이터 '메모리 부족'에 대한 처리를 수행합니다( 즉, 데이터 프레임이 파티션별로 RAM 파티션에 로드되고 처리됨)과 최종 결과가 있습니다. 마지막에 모였다. 너무 느린 경우 Spark 또는 Dask를 사용하면 대화식으로 계속 사용할 수 있는 클러스터로 확장할 수 있습니다. 
+데이터에 대해 충분히 큰 가상을 얻을 수 없는 경우 Spark 또는 Dask와 같은 프레임워크를 사용하여 데이터 '메모리 부족'에 대한 처리를 수행합니다( 즉, 데이터 프레임이 파티션별로 RAM 파티션에 로드되고 처리됨)과 최종 결과가 최종 결과에 수집됩니다. 너무 느린 경우 Spark 또는 Dask를 사용하면 대화식으로 계속 사용할 수 있는 클러스터로 확장할 수 있습니다. 
 
 ## <a name="dataset-types"></a>데이터 세트 형식
 
@@ -108,6 +108,7 @@ weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 > 저장소가 가상 네트워크 또는 방화벽 뒤에 있는 경우 SDK를 통한 데이터 집합 생성만 지원됩니다. 데이터 집합을 만들려면 매개 변수와 `validate=False` `infer_column_types=False` 메서드를 `from_delimited_files()` 포함해야 합니다. 이렇게 하면 초기 유효성 검사가 무시되고 이러한 보안 파일에서 데이터 집합을 만들 수 있습니다. 
 
 ```Python
+from azureml.core import Dataset
 from azureml.data.dataset_factory import DataType
 
 # create a TabularDataset from a delimited file behind a public web url and convert column "Survived" to boolean
@@ -118,7 +119,7 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-| |승객 ID|Survived|Pclass|이름|섹스|Age|시브 스프 (것)와 같은|양피지|티켓|요금|오두막|착수
+| |승객 ID|Survived|Pclass|속성|섹스|Age|시브 스프 (것)와 같은|양피지|티켓|요금|오두막|착수
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|False|3|브라운드, 오웬 해리스 씨|male|22.0|1|0|A/5 21171|7.2500||S
 1|2|True|1|커밍스, 존 브래들리 부인 (피렌체 브릭스|female|38.0|1|0|PC 17599|71.2833|C85|C

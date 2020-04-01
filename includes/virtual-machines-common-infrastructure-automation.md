@@ -4,19 +4,19 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 9cbc48d8bca2f7491d0464be1c5bd64054927dc9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2eb503b58f1679d138b6a1dd9304896be098ad6
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77608742"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419222"
 ---
 Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리하려면 일종의 자동화가 필요합니다. 완벽한 Azure 인프라 배포 및 관리 수명 주기를 자동화할 수 있는 다양한 도구와 솔루션이 있습니다. 이 문서에서는 Azure에서 사용할 수 있는 인프라 자동화 도구 중 일부를 소개합니다. 이러한 도구는 일반적으로 다음 방법 중 하나에 적합합니다.
 
 - VM 구성 자동화
-    - 도구에는 [Ansible](#ansible), [Chef](#chef) 및 [Puppet](#puppet)이 포함됩니다.
+    - 도구에는 [Ansible,](#ansible) [Chef,](#chef) [Puppet](#puppet)및 Azure 리소스 [관리자 템플릿이](#azure-resource-manager-template)포함됩니다.
     - VM 사용자 지정과 관련된 도구에는 Linux VM용 [cloud-init](#cloud-init), [PowerShell DSC(Desired State Configuration)](#powershell-dsc) 및 모든 Azure VM을 위한 [Azure 사용자 지정 스크립트 확장](#azure-custom-script-extension)이 포함됩니다.
- 
+
 - 인프라 관리 자동화
     - 도구에는 사용자 지정 VM 이미지 빌드를 자동화하는 [Packer](#packer) 및 인프라 빌드 프로세스를 자동화하는 [Terraform](#terraform)이 포함됩니다.
     - [Azure Automation](#azure-automation)은 Azure와 온-프레미스 인프라에 걸쳐 작업을 수행할 수 있습니다.
@@ -56,7 +56,8 @@ Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리�
 
 Cloud-init는 배포에서도 작동합니다. 예를 들어, 패키지를 설치하는 데 **apt-get install** 또는 **yum install**은 사용하지 않습니다. 대신 설치할 패키지 목록을 정의할 수 있습니다. cloud-init에서 선택한 배포판의 기본 패키지 관리 도구를 자동으로 사용합니다.
 
-Azure Marketplace에서 cloud-init 활성화 이미지를 사용할 수 있도록 하기 위해 승인된 Linux 배포판 파트너와 적극적으로 공조하고 있습니다. 이러한 이미지를 사용하면 VM 및 가상 머신 확장 집합에서 cloud-init 배포 및 구성 작업을 원활하게 진행할 수 있습니다. Azure의 cloud-Init에 대한 자세한 정보
+Azure Marketplace에서 cloud-init 활성화 이미지를 사용할 수 있도록 하기 위해 승인된 Linux 배포판 파트너와 적극적으로 공조하고 있습니다. 이러한 이미지를 사용하면 VM 및 가상 머신 확장 집합에서 cloud-init 배포 및 구성 작업을 원활하게 진행할 수 있습니다.
+Azure의 cloud-Init에 대한 자세한 정보
 
 - [Azure에서 Linux 가상 컴퓨터에 cloud-init 지원](../articles/virtual-machines/linux/using-cloud-init.md)
 - [cloud-init를 사용한 자동화된 VM 구성에 대한 자습서 진행](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md)
@@ -75,7 +76,7 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 
 ## <a name="azure-custom-script-extension"></a>Azure 사용자 지정 스크립트 확장
-[Linux](../articles/virtual-machines/linux/extensions-customscript.md) 또는 [Windows](../articles/virtual-machines/windows/extensions-customscript.md)용 Azure 사용자 지정 스크립트 확장은 Azure VM에서 스크립트를 다운로드하고 실행합니다. 이 확장은 VM을 만들 때 또는 VM 사용 중 언제든지 사용할 수 있습니다. 
+[Linux](../articles/virtual-machines/linux/extensions-customscript.md) 또는 [Windows](../articles/virtual-machines/windows/extensions-customscript.md)용 Azure 사용자 지정 스크립트 확장은 Azure VM에서 스크립트를 다운로드하고 실행합니다. 이 확장은 VM을 만들 때 또는 VM 사용 중 언제든지 사용할 수 있습니다.
 
 스크립트는 Azure Storage 또는 GitHub 리포지토리 등의 공개 위치에서 다운로드할 수 있습니다. 사용자 지정 스크립트 확장을 사용하면 원본 VM에서 실행되는 모든 언어로 스크립트를 작성할 수 있습니다. 이러한 스크립트는 애플리케이션을 설치하거나 필요에 따라 VM을 구성하는 데 사용할 수 있습니다. 자격 증명을 보호하기 위해 암호와 같은 중요한 정보를 보호된 구성에 저장할 수 있습니다. 이러한 자격 증명은 VM 내부에서만 암호 해독됩니다.
 
@@ -130,6 +131,17 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 - [Jenkins, GitHub 및 Docker를 사용하여 Azure에서 Linux VM의 개발 인프라 만들기](../articles/jenkins/tutorial-jenkins-github-docker-cicd.md)
 
+
+## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
+[Azure 리소스 관리자는](../articles/azure-resource-manager/templates/overview.md) Azure에 대한 배포 및 관리 서비스입니다. Azure 구독에서 리소스를 만들고, 업데이트하고, 삭제할 수 있는 관리 계층을 제공합니다. 배포 이후 액세스 제어, 잠금 및 태그와 같은 관리 기능을 사용하여 리소스를 보호하고 구성합니다.
+
+방법 배우기:
+
+- [리소스 관리자 템플릿을 사용하여 스팟 VM을 배포합니다.](../articles/virtual-machines/linux/spot-template.md)
+- [C# 및 리소스 관리자 템플릿을 사용하여 Azure 가상 컴퓨터를 배포합니다.](../articles/virtual-machines/windows/csharp-template.md)
+- [리소스 관리자 템플릿에서 Windows 가상 컴퓨터를 만듭니다.](../articles/virtual-machines/windows/ps-template.md)
+- [VM 에 대한 템플릿을 다운로드합니다.](../articles/virtual-machines/windows/download-template.md)
+- [Azure 이미지 빌더 템플릿을 만듭니다.](../articles/virtual-machines/linux/image-builder-json.md)
 
 ## <a name="next-steps"></a>다음 단계
 Azure에서 인프라 자동화 도구를 사용하기 위한 옵션은 다양합니다. 필요한 요구 사항과 환경에 가장 적합한 솔루션을 자유롭게 사용할 수 있습니다. Azure에 기본 제공된 일부 도구를 시작 및 사용하려면 [Linux](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md) 또는 [Windows](../articles/virtual-machines/windows/tutorial-automate-vm-deployment.md) VM의 사용자 지정을 자동화하는 방법을 참조하세요.

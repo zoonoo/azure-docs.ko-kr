@@ -3,12 +3,12 @@ title: Azure 서비스 패브릭 클러스터 배포 계획
 description: Azure에 대한 프로덕션 서비스 패브릭 클러스터 배포를 계획하고 준비하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 1762a6975448301957579b3437a8af5c89b3accd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad6a7a6ea9a90bea4a3b6bc553da67a46144dc03
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78193479"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422274"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>클러스터 배포 계획 및 준비
 
@@ -86,6 +86,16 @@ Azure Service Fabric을 사용하면 Windows Server 또는 Linux를 실행하는
             }
         }
     ```
+
+> [!NOTE]
+> OS 업그레이드의 경우 OS 디스크가 손실되므로 사용자 응용 프로그램에는 OS 디스크에 종속성/파일/아티팩트가 없어야 합니다.
+> 따라서 [패치오케스트라를](https://github.com/microsoft/Service-Fabric-POA) 사용하지 않는 것이 좋습니다임시 디스크응용 프로그램.
+>
+
+> [!NOTE]
+> 임시 디스크를 사용하기 위해 기존 비임시 VMSS를 업그레이드할 수 없습니다.
+> 마이그레이션하려면 임시 디스크가 있는 새 nodeType을 [추가하고](./virtual-machine-scale-set-scale-node-type-scale-out.md) 워크로드를 새 nodeType으로 이동하여 기존 nodeType을 [제거해야](./service-fabric-how-to-remove-node-type.md) &.
+>
 
 자세한 정보 및 추가 구성 옵션은 [Azure VM에 대한 임시 OS 디스크를](../virtual-machines/windows/ephemeral-os-disks.md) 참조하십시오. 
 

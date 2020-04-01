@@ -1,5 +1,5 @@
 ---
-title: 권한 관리에서 리소스 를 관리하기 & 만들기 - Azure AD
+title: 권한 부여 관리에서 리소스 카탈로그를 관리하기 & 만들기 - Azure AD
 description: Azure Active Directory 권한 관리에서 새 리소스 컨테이너를 만들고 패키지에 액세스하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 03/22/2020
 ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbafb0c506fd34e975efbe08c75c15c8c0b3888e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ffa6f2fbdcde41d81e268779c3a0586bd8310792
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128949"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437548"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리에서 리소스 카탈로그 생성 및 관리
 

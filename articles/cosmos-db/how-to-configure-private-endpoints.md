@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: thweiss
-ms.openlocfilehash: 944341b1ef88c7e3d64a74536720eb9fb1d17321
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a6a1560e169c51256c198868dc7293a020189f4
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80152743"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421429"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Azure 코스모스 계정에 대한 Azure 개인 링크 구성
 
@@ -24,7 +24,7 @@ Azure 개인 링크를 사용하여 개인 끝점을 통해 Azure Cosmos 계정�
 이 문서에서는 개인 끝점을 만드는 단계를 설명합니다. 자동 승인 방법을 사용하고 있다고 가정합니다.
 
 > [!NOTE]
-> 개인 엔드포인트 지원은 현재 게이트웨이 연결 모드에만 지원되는 지역에서 일반적으로 사용할 수 있습니다. 직접 모드의 경우 미리 보기 기능으로 사용할 수 있습니다.
+> 개인 엔드포인트 지원은 현재 게이트웨이 연결 모드에서만 일반적으로 사용할 수 있습니다. 직접 모드의 경우 미리 보기 기능으로 사용할 수 있습니다.
 
 ## <a name="create-a-private-endpoint-by-using-the-azure-portal"></a>Azure 포털을 사용하여 개인 끝점 만들기
 
@@ -44,7 +44,7 @@ Azure 개인 링크를 사용하여 개인 끝점을 통해 Azure Cosmos 계정�
     | Subscription | 구독을 선택합니다. |
     | Resource group | 리소스 그룹을 선택합니다.|
     | **인스턴스 세부 정보** |  |
-    | 이름 | 개인 끝점에 대한 이름을 입력합니다. 이 이름을 가져온 경우 고유한 이름을 만듭니다. |
+    | 속성 | 개인 끝점에 대한 이름을 입력합니다. 이 이름을 가져온 경우 고유한 이름을 만듭니다. |
     |지역| 비공개 링크를 배포할 지역을 선택합니다. 가상 네트워크가 있는 동일한 위치에 개인 끝점을 만듭니다.|
     |||
 1. **다음 을 선택합니다.**
@@ -401,7 +401,7 @@ $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpoint
 $deploymentOutput
 ```
 
-PowerShell 스크립트에서 변수에는 `GroupId` 하나의 값만 포함될 수 있습니다. 이 값은 계정의 API 유형입니다. 허용된 값은 `MongoDB` `Cassandra`" `Gremlin` `Sql`, `Table`" 및 . 일부 Azure Cosmos 계정 유형은 여러 API를 통해 액세스할 수 있습니다. 예를 들어:
+PowerShell 스크립트에서 변수에는 `GroupId` 하나의 값만 포함될 수 있습니다. 이 값은 계정의 API 유형입니다. 허용된 값은 `MongoDB` `Cassandra`" `Gremlin` `Sql`, `Table`" 및 . 일부 Azure Cosmos 계정 유형은 여러 API를 통해 액세스할 수 있습니다. 다음은 그 예입니다.
 
 * 그렘린 API 계정은 그렘린 및 SQL API 계정 모두에서 액세스할 수 있습니다.
 * 테이블 API 계정은 테이블 및 SQL API 계정 모두에서 액세스할 수 있습니다.
@@ -639,14 +639,9 @@ Azure Cosmos 계정에 영역을 추가하거나 제거하려면 해당 계정�
 
 Azure Cosmos 계정으로 개인 링크를 사용하는 경우 다음과 같은 제한 사항이 적용됩니다.
 
-* Azure Cosmos 계정 및 가상 네트워크에 대한 개인 링크 지원은 특정 지역에서만 사용할 수 있습니다. 지원되는 지역 목록은 비공개 링크 문서의 [사용 가능한 지역](../private-link/private-link-overview.md#availability) 섹션을 참조하십시오. 
-
-  > [!NOTE]
-  > 개인 끝점을 만들려면 가상 네트워크와 Azure Cosmos 계정이 모두 지원되는 지역에 있는지 확인합니다.
-
 * 직접 모드 연결을 사용하여 Azure Cosmos 계정과 개인 링크를 사용하는 경우 TCP 프로토콜만 사용할 수 있습니다. HTTP 프로토콜은 아직 지원되지 않습니다.
 
-* 개인 엔드포인트 지원은 현재 게이트웨이 연결 모드에만 지원되는 지역에서 일반적으로 사용할 수 있습니다. 직접 모드의 경우 미리 보기 기능으로 사용할 수 있습니다.
+* 개인 엔드포인트 지원은 현재 게이트웨이 연결 모드에서만 일반적으로 사용할 수 있습니다. 직접 모드의 경우 미리 보기 기능으로 사용할 수 있습니다.
 
 * MongoDB 계정에 Azure Cosmos DB의 API를 사용하는 경우 서버 버전 3.6의 계정(즉, 형식의 `*.mongo.cosmos.azure.com`끝점을 사용하는 계정)에 대해서만 개인 끝점이 지원됩니다. 개인 링크는 서버 버전 3.2의 계정에 대해 지원되지 않습니다(즉, `*.documents.azure.com`형식의 끝점을 사용하는 계정). 비공개 링크를 사용하려면 이전 계정을 새 버전으로 마이그레이션해야 합니다.
 

@@ -3,21 +3,24 @@ title: Azure 가상 머신에서 마이크로 포커스 엔터프라이즈 개�
 description: Azure 가상 시스템(VM)에서 마이크로 포커스 BankDemo 응용 프로그램을 실행하여 마이크로 포커스 엔터프라이즈 서버 및 엔터프라이즈 개발자를 사용하는 방법을 알아봅니다.
 author: sread
 ms.author: sread
-ms.date: 04/02/2019
+ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 4491fc137c2c85e2be605f5e58fde6fd422efbbe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db9d6bab2f383102434512aa63d7566cff1f579b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67621329"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411080"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Azure에서 마이크로 포커스 엔터프라이즈 개발자4.0을 위한 마이크로 포커스 CICS BankDemo 설정
 
 Azure에서 마이크로 포커스 엔터프라이즈 서버 4.0 및 엔터프라이즈 개발자 4.0을 설정하면 IBM z/OS 워크로드의 배포를 테스트할 수 있습니다. 이 문서에서는 엔터프라이즈 개발자와 함께 제공되는 샘플 응용 프로그램인 CICS BankDemo를 설정하는 방법을 보여 주며 있습니다.
 
 IC는 많은 온라인 메인프레임 애플리케이션에서 사용하는 거래 플랫폼인 고객 정보 제어 시스템을 의미합니다. BankDemo 응용 프로그램은 엔터프라이즈 서버 및 엔터프라이즈 개발자가 작동하는 방법과 녹색 화면 터미널로 완성된 실제 응용 프로그램을 관리하고 배포하는 방법을 학습하는 데 적합합니다.
+
+> [!NOTE]
+> 출시 예정: Azure VM에서 [마이크로 포커스 엔터프라이즈 서버 5.0을](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) 설정하는 방법에 대한 지침입니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

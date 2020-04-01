@@ -1,6 +1,6 @@
 ---
 title: Azure VM 게스트 OS 방화벽이 인바운드 트래픽 차단 | Microsoft Docs
-description: ''
+description: 게스트 운영 체제 방화벽이 인바운드 트래픽을 차단하는 RDP(원격 데스크톱 포털) 연결 문제를 해결하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 0cbd1a24f5c460e248d55777735da6809befba63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1b80fc997a4b3d2b472717b1ec2f379a4e958d8c
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72028803"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422550"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Azure VM 게스트 OS 방화벽이 인바운드 트래픽 차단
 

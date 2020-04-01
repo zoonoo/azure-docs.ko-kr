@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: de1c1b93b813f71b321da0625bc60e0762a859c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 181f43e060e3b4b41babeee375365a97e1d224aa
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70207952"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411279"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "70207952"
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [나머지](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [대량 실행기 - .NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -318,7 +318,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 ### <a name=""></a><a name="1.11.0"/>1.11.0</a>
 * 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다.
 * 파티션 간 쿼리에 대한 병렬 처리 수준을 제어하기 위한 옵션을 추가했습니다.
-* Azure Cosmos DB 에뮬레이터에 대해 실행하는 경우 SSL 유효성 검사를 비활성화하기 위한 옵션을 추가했습니다.
+* Azure Cosmos DB 에뮬레이터에 대해 실행할 때 TLS 확인을 사용하지 않도록 설정하는 옵션이 추가되었습니다.
 * 분할된 컬렉션에 대한 최소 처리량이 10,100RU/s에서 2500RU/s로 감소됩니다.
 * 단일 파티션 컬렉션에 대한 연속 토큰 버그를 수정했습니다. GitHub 문제 #107.
 * 단일 매개 변수인 0을 처리하는 도중 executeStoredProcedure 버그를 수정했습니다. GitHub 문제 #155.
@@ -328,7 +328,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 * 사소한 코드 정리입니다.
 
 ### <a name=""></a><a name="1.10.1"/>1.10.1</a>
-* SDK를 사용하여 에뮬레이터를 대상으로 지정할 때(hostname=localhost) SSL 유효성 검사를 사용하지 않도록 설정됩니다.
+* SDK를 사용하여 에뮬레이터(hostname=localhost)를 대상으로 사용할 때 TLS 확인을 사용하지 않도록 설정합니다.
 * 저장된 프로시저가 실행되는 동안 스크립트 로깅을 사용할 수 있도록 지원이 추가되었습니다.
 
 ### <a name=""></a><a name="1.10.0"/>1.10.0</a>

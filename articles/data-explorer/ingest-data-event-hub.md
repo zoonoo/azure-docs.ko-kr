@@ -7,20 +7,20 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: bb9357ca4388bd1fb7ae3e3704cf4112d07c1105
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bce92eeed669628fa1b6318abd6b0c13f7e84848
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77188197"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411213"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Event Hub에서 Azure Data Explorer로 데이터 수집
 
 > [!div class="op_single_selector"]
 > * [포털](ingest-data-event-hub.md)
-> * [C #](data-connection-event-hub-csharp.md)
+> * [C#](data-connection-event-hub-csharp.md)
 > * [Python](data-connection-event-hub-python.md)
-> * [Azure 리소스 관리자 템플릿](data-connection-event-hub-resource-manager.md)
+> * [Azure Resource Manager 템플릿](data-connection-event-hub-resource-manager.md)
 
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기에서는 빅 데이스트리터 밍 플랫폼이자 이벤트 수집 서비스인 이벤트 허브에서 데이터를 수집(로드)하는 기능을 제공합니다. [Event Hubs](/azure/event-hubs/event-hubs-about)에서는 초당 수백만 개의 이벤트를 거의 실시간으로 처리할 수 있습니다. 이 문서에서는 이벤트 허브를 만들고 Azure Data Explorer에서 연결하고 시스템을 통한 데이터 흐름을 확인합니다.
 
@@ -33,7 +33,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털에](https://portal.azure.com/)로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-an-event-hub"></a>이벤트 허브 만들기
 
@@ -57,7 +57,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 
     다음 표에 나와 있지 않은 모든 설정에는 기본값을 사용하세요.
 
-    **설정** | **제안된 값** | **필드 설명**
+    **설정** | **제안 값** | **필드 설명**
     |---|---|---|
     | Subscription | 사용자의 구독 | 이벤트 허브에 사용할 Azure 구독을 선택합니다.|
     | Resource group | *test-hub-rg* | 새 리소스 그룹을 만듭니다. |
@@ -71,7 +71,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 
 1. 프로비전 프로세스를 모니터링하려면 도구 모음에서 **알림**을 선택합니다. 배포가 정상적으로 완료되려면 몇 분 정도 걸릴 수 있지만 이제 다음 단계를 진행해도 됩니다.
 
-    ![공지](media/ingest-data-event-hub/notifications.png)
+    ![알림](media/ingest-data-event-hub/notifications.png)
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Azure 데이터 탐색기에서 대상 테이블 만들기
 
@@ -92,7 +92,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 1. 다음 명령을 창에 복사하고, **실행**을 선택하여 들어오는 JSON 데이터를 테이블(TestTable)의 열 이름과 데이터 형식에 매핑합니다.
 
     ```Kusto
-    .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
+    .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp", "Properties": {"Path": "$.timeStamp"}},{"column":"Name", "Properties": {"Path":"$.name"}} ,{"column":"Metric", "Properties": {"Path":"$.metric"}}, {"column":"Source", "Properties": {"Path":"$.source"}}]'
     ```
 
 ## <a name="connect-to-the-event-hub"></a>이벤트 허브에 연결
@@ -111,7 +111,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 
     **데이터 원본:**
 
-    **설정** | **제안된 값** | **필드 설명**
+    **설정** | **제안 값** | **필드 설명**
     |---|---|---|
     | 데이터 연결 이름 | *test-hub-connection* | Azure 데이터 탐색기에서 만들 연결의 이름입니다.|
     | 이벤트 허브 네임스페이스 | 고유한 네임스페이스 이름 | 앞에서 선택한 네임스페이스를 식별하는 이름입니다. |
@@ -126,7 +126,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
     수집된 데이터를 라우팅하기 위한 옵션으로는 *고정* 라우팅과 *동적* 라우팅이라는 두 가지 옵션이 있습니다. 
     이 문서에서는 고정 라우팅을 사용합니다. 이 경우 테이블 이름, 데이터 형식 및 매핑을 직접 지정합니다. 따라서 **내 데이터에 라우팅 정보 포함**을 선택 취소한 상태로 둡니다.
 
-     **설정** | **제안된 값** | **필드 설명**
+     **설정** | **제안 값** | **필드 설명**
     |---|---|---|
     | 테이블 | *TestTable* | **TestDatabase**에 만든 테이블입니다. |
     | 데이터 형식 | *JSON* | 지원되는 형식은 아브로, CSV, JSON, 멀티 라인 JSON, PSV, SOHSV, SCSV, TSV, TSVE, TXT, ORC 및 PARQUET입니다. |

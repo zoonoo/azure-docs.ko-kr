@@ -11,12 +11,12 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: c7459c4dc700f034feafbf133b831a52b9233d11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df7db30e987c408ff158acfc468010948c821b8d
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77020168"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397529"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Azure Batch CLI 템플릿 및 파일 전송 사용
 
@@ -28,7 +28,7 @@ Azure CLI로 JSON 템플릿 파일을 만들어서 Batch 풀, 작업 및 태스�
 
 Azure CLI로 확장하면 개발자가 아닌 사용자가 엔드투엔드 Batch를 사용할 수 있습니다. CLI 명령만을 사용하여 풀을 만들고, 입력 데이터를 업로드하고, 작업 및 관련된 작업을 만들고, 결과 출력 데이터를 다운로드할 수 있습니다. 추가 코드가 필요하지 않습니다. CLI 명령을 직접 실행하거나 스크립트에 통합합니다.
 
-Batch 템플릿은 풀, 작업, 태스크 및 기타 항목을 생성할 때 속성 값을 지정하는 JSON 파일에 대한 [Azure CLI의 기존 Batch 지원](batch-cli-get-started.md#json-files-for-resource-creation)에 기반하여 빌드됩니다. Batch 템플릿은 다음과 같은 기능을 추가합니다.
+일괄 처리 템플릿은 JSON 파일에 대한 [Azure CLI의](batch-cli-get-started.md#json-files-for-resource-creation) 기존 Batch 지원을 기반으로 풀, 작업, 작업 및 기타 항목을 만들 때 속성 값을 지정합니다. Batch 템플릿은 다음과 같은 기능을 추가합니다.
 
 -   매개 변수를 정의할 수 있습니다. 템플릿을 사용하는 경우 템플릿 본문에 지정된 다른 항목 속성 값을 사용하여 해당 항목을 만들도록 매개 변수 값을 지정합니다. Batch 및 Batch에서 실행하는 애플리케이션을 이해하는 사용자는 템플릿을 만들고 풀, 작업 및 태스크 속성 값을 지정할 수 있습니다. Batch 및/또는 애플리케이션에 덜 익숙한 사용자는 정의된 매개 변수에 대한 값을 지정해야 합니다.
 
@@ -68,11 +68,11 @@ Azure Batch 템플릿은 Azure Resource Manager 템플릿과 기능 및 구문 �
 
 -   **매개 변수**
 
-    -   템플릿이 사용될 때 제공해야 하는 매개 변수 값으로 속성 값을 본문 섹션에서 지정할 수 있습니다. 예를 들어 풀에 대한 전체 정의를 본문에 배치하고 하나의 매개 변수만을 풀 ID에 정의할 수 있습니다. 따라서 풀을 만드는 데 풀 ID 문자열을 제공해야 합니다.
+    -   템플릿이 사용될 때 제공해야 하는 매개 변수 값으로 속성 값을 본문 섹션에서 지정할 수 있습니다. 예를 들어 풀에 대한 전체 정의를 본문에 배치할 수 `poolId`있으며 에 대해 정의된 매개 변수는 하나만 있습니다. 따라서 풀 ID 문자열만 제공해야 풀을 만들 수 있습니다.
         
     -   Batch 및 Batch에서 실행할 애플리케이션에 대한 지식이 있는 사용자가 템플릿 본문을 작성할 수 있습니다. 템플릿이 사용될 때 작성자 정의 매개 변수에 대한 값만을 제공해야 합니다. 따라서 깊이 있는 Batch 및/또는 애플리케이션 지식이 없는 사용자는 템플릿을 사용할 수 있습니다.
 
--   **변수**
+-   **variables**
 
     -   간단하거나 복잡한 매개 변수 값을 한 곳에서 지정하거나 템플릿 본문에 있는 하나 이상의 위치에서 사용할 수 있습니다. 변수는 템플릿의 크기를 단순화하고 줄일 뿐만 아니라 속성을 변경하도록 하나의 위치를 가지고 관리할 수 있도록 합니다.
 
@@ -143,7 +143,7 @@ Azure Batch 템플릿은 Azure Resource Manager 템플릿과 기능 및 구문 �
 az batch pool create --template pool-ffmpeg.json
 ```
 
-CLI는 `poolId` 및 `nodeCount` 매개 변수에 대한 값을 제공하라는 메시지를 표시합니다. JSON 파일의 매개 변수를 제공할 수도 있습니다. 예를 들어:
+CLI는 `poolId` 및 `nodeCount` 매개 변수에 대한 값을 제공하라는 메시지를 표시합니다. JSON 파일의 매개 변수를 제공할 수도 있습니다. 다음은 그 예입니다.
 
 ```json
 {

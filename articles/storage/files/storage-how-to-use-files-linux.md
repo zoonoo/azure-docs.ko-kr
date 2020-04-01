@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2dc78c25c2cf63a510b9451c8d694795cd8a91eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 72264755d5f0379f0ffb07852f48885126a36898
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060953"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411596"
 ---
 # <a name="use-azure-files-with-linux"></a>Linux에서 Azure Files 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 [SMB 커널 클라이언트](https://wiki.samba.org/index.php/LinuxCIFS)를 사용하여 Linux 배포판에 탑재할 수 있습니다. 이 문서에서는 Azure 파일 공유를 탑재하는 두 가지 방법을 보여 줍니다. 하나는 요청 시 `mount` 명령을 사용하여 탑재하고, 다른 하나는 `/etc/fstab`에 항목을 만들어 부팅 시 탑재하는 방법입니다.
@@ -194,26 +194,73 @@ Azure 파일 공유를 사용하여 작업을 완료하면 `sudo umount $mntPath
     > [!Note]  
     > 위의 마운트 명령은 SMB 3.0이 있는 마운트입니다. Linux 배포판에서 암호화를 통해 SMB 3.0을 지원하지 않거나 SMB 2.1만 지원하는 경우 저장소 계정과 동일한 지역 내에서만 Azure VM에서 마운트할 수 있습니다. 암호화를 사용하여 SMB 3.0을 지원하지 않는 Linux 배포판에 Azure 파일 공유를 탑재하려면 [저장소 계정에 대해 전송 중에 암호화를 사용하지 않도록 설정해야](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)합니다.
 
+### <a name="using-autofs-to-automatically-mount-the-azure-file-shares"></a>자동 fs를 사용하여 Azure 파일 공유를 자동으로 마운트합니다.
+
+1. **자동 패키지가 설치되어 있는지 확인합니다.**  
+
+    autofs 패키지는 원하는 Linux 배포판의 패키지 관리자를 사용하여 설치할 수 있습니다. 
+
+    **Ubuntu** 및 **Debian 기반** 배포판에서는 `apt` 패키지 관리자를 사용합니다.
+    ```bash
+    sudo apt update
+    sudo apt install autofs
+    ```
+    **페도라에서,** **레드 햇 엔터프라이즈 리눅스 8 +** 및 **CentOS 8 +** 패키지 관리자를 `dnf` 사용:
+    ```bash
+    sudo dnf install autofs
+    ```
+    이전 버전의 **Red Hat 엔터프라이즈 Linux** 및 `yum` **CentOS에서는**패키지 관리자를 사용합니다.
+    ```bash
+    sudo yum install autofs 
+    ```
+    **openSUSE**에서는 `zypper` 패키지 관리자를 사용합니다.
+    ```bash
+    sudo zypper install autofs
+    ```
+2. **공유에 대한 마운트 지점 만들기**:
+   ```bash
+    sudo mkdir /fileshares
+    ```
+3. **크레타 새로운 사용자 정의 자동 자동 구성 파일**
+    ```bash
+    sudo vi /etc/auto.fileshares
+    ```
+4. **/etc/auto.fileshares에 다음 항목을 추가합니다.**
+   ```bash
+   echo "$fileShareName -fstype=cifs,credentials=$smbCredentialFile :$smbPath"" > /etc/auto.fileshares
+   ```
+5. **/etc/auto.master에 다음 항목을 추가합니다.**
+   ```bash
+   /fileshares /etc/auto.fileshares --timeout=60
+   ```
+6. **자동 자동 시작**
+    ```bash
+    sudo systemctl restart autofs
+    ```
+7.  **공유에 대해 지정된 폴더에 액세스**
+    ```bash
+    cd /fileshares/$filesharename
+    ```
 ## <a name="securing-linux"></a>Linux 보안
 Linux에서 Azure 파일 공유를 탑재하려면 포트 445에 액세스할 수 있어야 합니다. 많은 조직에서 SMB 1에 내재된 보안 위험 때문에 포트 445를 차단합니다. CIFS(일반 인터넷 파일 시스템)라고도 하는 SMB 1은 많은 Linux 배포판에 포함된 레거시 파일 시스템 프로토콜입니다. SMB 1은 구식 프로토콜로 비효율적이며 무엇보다도 보안성이 떨어집니다. 좋은 소식은 Azure Files가 SMB 1을 지원하지 않으며 Linux 커널 버전 4.18부터 시작하여 Linux에서 SMB 1을 비활성화할 수 있다는 것입니다. 프로덕션 환경에서 SMB 파일 공유를 사용하기 전에 Linux 클라이언트에서 SMB 1을 사용하지 않도록 설정하는 [것이 좋습니다.](https://aka.ms/stopusingsmb1)
 
-Linux 커널 4.18부터 시작하여 레거시 이유로 호출되는 `cifs` SMB 커널 모듈은 새 모듈 매개 변수(다양한 외부 문서에서 *parm라고도* 함)를 노출합니다. `disable_legacy_dialects` Linux 커널 4.18에 도입되었지만 일부 공급업체에서는 이러한 변경 내용을 지원하는 이전 커널로 백업했습니다. 편의를 위해 다음 표에서는 일반적인 Linux 배포판에서 이 모듈 매개 변수의 가용성을 자세히 설명합니다.
+Linux 커널 4.18부터 시작하여 레거시 이유로 호출되는 `cifs` SMB 커널 모듈은 새 모듈 매개 변수(다양한 외부 설명서에서 *parm라고도* 함)를 `disable_legacy_dialects`노출합니다. Linux 커널 4.18에 도입되었지만 일부 공급업체에서는 이러한 변경 내용을 지원하는 이전 커널로 백업했습니다. 편의를 위해 다음 표에서는 일반적인 Linux 배포판에서 이 모듈 매개 변수의 가용성을 자세히 설명합니다.
 
 | 배포 | SMB 1을 비활성화할 수 있습니다. |
 |--------------|-------------------|
 | 우분투 14.04-16.04 | 예 |
-| Ubuntu 18.04 | yes |
-| 우분투 19.04+ | yes |
+| Ubuntu 18.04 | 예 |
+| 우분투 19.04+ | 예 |
 | 데비안 8-9 | 예 |
-| 데비안 10+ | yes |
-| 페도라 29+ | yes |
+| 데비안 10+ | 예 |
+| 페도라 29+ | 예 |
 | CentOS 7 | 예 | 
-| 센트로스 8+ | yes |
+| 센트로스 8+ | 예 |
 | 레드 햇 엔터프라이즈 리눅스 6.x-7.x | 예 |
-| 레드 햇 엔터프라이즈 리눅스 8+ | yes |
+| 레드 햇 엔터프라이즈 리눅스 8+ | 예 |
 | 오픈수스 도약 15.0 | 예 |
-| 오픈수스 도약 15.1+ | yes |
-| 오픈수즈 텀블위드 | yes |
+| 오픈수스 도약 15.1+ | 예 |
+| 오픈수즈 텀블위드 | 예 |
 | 수지 리눅스 엔터프라이즈 11.x-12.x | 예 |
 | 수지 리눅스 엔터프라이즈 15 | 예 |
 | 수지 리눅스 엔터프라이즈 15.1 | 예 |

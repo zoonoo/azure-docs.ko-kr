@@ -6,15 +6,15 @@ author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 03/30/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: a2f3dbf58363331cf6b1b05e759d246e68e7e7a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e254e2a06ea5a0d886072f4e9e3b7d275e4860e
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77471213"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422836"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>PowerShell을 사용하여 Azure 데이터 레이크 저장소 Gen2의 디렉터리, 파일 및 ACL관리(미리 보기)
 
@@ -35,27 +35,27 @@ ms.locfileid: "77471213"
 
 ## <a name="install-powershell-modules"></a>PowerShell 모듈 설치
 
-1. 다음 명령을 사용하여 설치한 PowerShell `5.1` 버전이 더 높은지 확인합니다. 
+1. 다음 명령을 사용하여 설치한 PowerShell `5.1` 버전이 더 높은지 확인합니다.    
 
-    ```powershell
-    echo $PSVersionTable.PSVersion.ToString() 
-    ```
+   ```powershell
+   echo $PSVersionTable.PSVersion.ToString() 
+   ```
     
-    PowerShell 버전을 업그레이드하려면 [기존 Windows PowerShell 업그레이드를](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) 참조하세요.
+   PowerShell 버전을 업그레이드하려면 [기존 Windows PowerShell 업그레이드를](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) 참조하세요.
     
-2. 최신 **PowershellGet** 모듈을 설치합니다. 그런 다음 Powershell 콘솔을 닫고 다시 엽니다.
+2. 최신 **PowershellGet** 모듈을 설치합니다. 그런 다음 PowerShell 콘솔을 닫고 다시 엽니다.
 
-    ```powershell
-    install-Module PowerShellGet –Repository PSGallery –Force 
-    ```
+   ```powershell
+   install-Module PowerShellGet –Repository PSGallery –Force 
+   ```
 
-3.  **Az.Storage** 미리 보기 모듈을 설치합니다.
+3. **Az.Storage** 미리 보기 모듈을 설치합니다.
 
-    ```powershell
-    install-Module Az.Storage -Repository PSGallery -RequiredVersion 1.9.1-preview –AllowPrerelease –AllowClobber –Force 
-    ```
+   ```powershell
+   Install-Module az.storage -RequiredVersion 1.13.3-preview -Repository PSGallery -AllowClobber -AllowPrerelease -Force 
+   ```
 
-    PowerShell 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 모듈을](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0) 참조하십시오.
+   PowerShell 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 모듈을](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0) 참조하십시오.
 
 ## <a name="connect-to-the-account"></a>계정에 연결
 
@@ -129,10 +129,10 @@ $dirname = "my-directory/"
 $dir =  Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
 $dir.ACL
 $dir.Permissions
-$dir.Directory.PathProperties.Group
-$dir.Directory.PathProperties.Owner
-$dir.Directory.Metadata
-$dir.Directory.Properties
+$dir.Group
+$dir.Owner
+$dir.Metadata
+$dir.Properties
 ```
 
 ## <a name="rename-or-move-a-directory"></a>디렉터리 이름 바꾸기 또는 이동
@@ -148,13 +148,16 @@ $dirname2 = "my-new-directory/"
 Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -DestFileSystem $filesystemName -DestPath $dirname2
 ```
 
+> [!NOTE]
+> 프롬프트 없이 덮어쓰려면 `-Force` 매개 변수를 사용합니다.
+
 이 예제는 명명된 `my-directory` 디렉터리를 `my-directory-2` 명명된 `my-subdirectory`의 하위 디렉터리로 이동합니다. 이 예제는 하위 디렉터리에도 umask를 적용합니다.
 
 ```powershell
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
 $dirname2 = "my-directory-2/my-subdirectory/"
-Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname1 -DestFileSystem $filesystemName -DestPath $dirname2 -Umask --------x -PathRenameMode Posix
+Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname1 -DestFileSystem $filesystemName -DestPath $dirname2
 ```
 
 ## <a name="delete-a-directory"></a>디렉터리 삭제
@@ -186,24 +189,24 @@ Get-AzDataLakeGen2ItemContent -Context $ctx -FileSystem $filesystemName -Path $f
 
 ## <a name="list-directory-contents"></a>디렉터리 콘텐츠 나열
 
-`Get-AzDataLakeGen2ChildItem` cmdlet을 사용하여 디렉터리 내용을 나열합니다.
+`Get-AzDataLakeGen2ChildItem` cmdlet을 사용하여 디렉터리 내용을 나열합니다. 선택적 매개 변수를 `-OutputUserPrincipalName` 사용하여 개체 ID 대신 사용자의 이름을 얻을 수 있습니다.
 
 이 예제에는 .라는 `my-directory`디렉터리의 내용이 나열됩니다.
 
 ```powershell
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
-Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname
+Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -OutputUserPrincipalName
 ```
 
-이 예제에서는 `ACL`에 `Permissions` `Group` `Owner` 대한 값을 반환하지 않습니다. 이러한 값을 얻으려면 매개 `-FetchPermission` 변수를 사용합니다. 
+이 예제에서는 `ACL`에 `Permissions` `Group` `Owner` 대한 값을 반환하지 않습니다. 이러한 값을 얻으려면 매개 `-FetchProperty` 변수를 사용합니다. 
 
-다음 예제에서는 동일한 디렉터리내용을 나열하지만 매개 변수를 `-FetchPermission` `ACL`사용하여 `Permissions`에 `Group` `Owner` 대한 값을 반환합니다. 
+다음 예제에서는 동일한 디렉터리내용을 나열하지만 매개 변수를 `-FetchProperty` `ACL`사용하여 `Permissions`에 `Group` `Owner` 대한 값을 반환합니다. 
 
 ```powershell
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
-$properties = Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -Recurse -FetchPermission
+$properties = Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -Recurse -FetchProperty
 $properties.ACL
 $properties.Permissions
 $properties.Group
@@ -246,10 +249,10 @@ $file = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $
 $file
 $file.ACL
 $file.Permissions
-$file.File.PathProperties.Group
-$file.File.PathProperties.Owner
-$file.File.Metadata
-$file.File.Properties
+$file.Group
+$file.Owner
+$file.Metadata
+$file.Properties
 ```
 
 ## <a name="delete-a-file"></a>파일 삭제
@@ -268,14 +271,23 @@ Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $file
 
 ## <a name="manage-access-permissions"></a>액세스 권한 관리
 
-디렉터리 및 파일의 액세스 권한을 얻, 설정 및 업데이트할 수 있습니다.
+파일 시스템, 디렉터리 및 파일의 액세스 권한을 얻습니다.
 
 > [!NOTE]
 > Azure Active Directory(Azure AD)를 사용하여 명령을 승인하는 경우 보안 주체가 저장소 [Blob 데이터 소유자 역할을](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)할당했는지 확인합니다. ACL 사용 권한이 적용되는 방법과 이를 변경하는 효과에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어를](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)참조하십시오.
 
-### <a name="get-directory-and-file-permissions"></a>디렉터리 및 파일 사용 권한 받기
+### <a name="get-permissions"></a>권한 받기
 
 cmdlet을 사용하여 디렉터리 또는 파일의 ACL을 `Get-AzDataLakeGen2Item`가져옵니다.
+
+
+이 예제는 **파일 시스템의** ACL을 가져옵니다 및 콘솔에 ACL을 인쇄 합니다.
+
+```powershell
+$filesystemName = "my-file-system"
+$filesystem = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName
+$filesystem.ACL
+```
 
 이 예제에서는 **디렉터리의**ACL을 가져옵니다.
 
@@ -300,18 +312,30 @@ $file.ACL
 
 이 예제에서는 소유 사용자에게 사용 권한을 읽고, 쓰고, 실행합니다. 소유 그룹에는 읽기 및 실행 권한만 있습니다. 액세스 제어 목록에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어를](data-lake-storage-access-control.md)참조하십시오.
 
-### <a name="set-directory-and-file-permissions"></a>디렉터리 및 파일 사용 권한 설정
+### <a name="set-or-update-permissions"></a>사용 권한 설정 또는 업데이트
 
-cmdlet을 `New-AzDataLakeGen2ItemAclObject` 사용하여 소유 사용자, 소유 그룹 또는 다른 사용자에 대한 ACL을 만듭니다. 그런 다음 `Update-AzDataLakeGen2Item` cmdlet을 사용하여 ACL을 커밋합니다.
+cmdlet을 `set-AzDataLakeGen2ItemAclObject` 사용하여 소유 사용자, 소유 그룹 또는 다른 사용자에 대한 ACL을 만듭니다. 그런 다음 `Update-AzDataLakeGen2Item` cmdlet을 사용하여 ACL을 커밋합니다.
+
+이 예제에서는 소유 사용자, 소유 그룹 또는 다른 사용자에 대한 **파일 시스템의** ACL을 설정하고 콘솔에 ACL을 인쇄합니다.
+
+```powershell
+$filesystemName = "my-file-system"
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission -wx -InputObject $acl
+Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Acl $acl
+$filesystem = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
+$filesystem.ACL
+```
 
 이 예제에서는 소유 사용자, 소유 그룹 또는 다른 사용자에 대한 **디렉터리의** ACL을 설정하고 콘솔에 ACL을 인쇄합니다.
 
 ```powershell
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission "-wx" -InputObject $acl
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission -wx -InputObject $acl
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
 $dir = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
 $dir.ACL
@@ -321,9 +345,9 @@ $dir.ACL
 ```powershell
 $filesystemName = "my-file-system"
 $filePath = "my-directory/upload.txt"
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission "-wx" -InputObject $acl
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission "-wx" -InputObject $acl
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $filePath -Acl $acl
 $file = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $filePath
 $file.ACL
@@ -335,71 +359,6 @@ $file.ACL
 
 이 예제에서는 소유 사용자 및 소유 그룹에는 읽기 및 쓰기 권한만 있습니다. 다른 모든 사용자에게는 쓰기 및 실행 권한이 있습니다. 액세스 제어 목록에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어를](data-lake-storage-access-control.md)참조하십시오.
 
-### <a name="update-directory-and-file-permissions"></a>디렉터리 및 파일 사용 권한 업데이트
-
-cmdlet을 `Get-AzDataLakeGen2Item` 사용하여 디렉터리 또는 파일의 ACL을 가져옵니다. 그런 다음 `New-AzDataLakeGen2ItemAclObject` cmdlet을 사용하여 새 ACL 항목을 만듭니다. cmdlet을 `Update-AzDataLakeGen2Item` 사용하여 새 ACL을 적용합니다.
-
-이 예제는 그룹 쓰기 및 디렉터리에 대 한 실행 권한을 부여 합니다.
-
-```powershell
-$filesystemName = "my-file-system"
-$dirname = "my-directory/"
-$Id = "xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-
-# Get the directory ACL
-$acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname).ACL
-
-# Create the new ACL object.
-[Collections.Generic.List[System.Object]]$aclnew =$acl
-
-# To avoid duplicate ACL, remove the ACL entries that will be added later.
-foreach ($a in $aclnew)
-{
-    if ($a.AccessControlType -eq "group" -and $a.DefaultScope -eq $true-and $a.EntityId -eq $id)
-    {
-        $aclnew.Remove($a);
-        break;
-    }
-}
-
-# Add ACL Entries
-$aclnew = New-AzDataLakeGen2ItemAclObject -AccessControlType group -EntityId $id -Permission "-wx" -DefaultScope -InputObject $aclnew
-
-# Update ACL on server
-Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $aclnew  
-
-```
-
-이 예제는 그룹에 파일에 대한 쓰기 및 실행 권한을 제공합니다.
-
-```powershell
-$filesystemName = "my-file-system"
-$fileName = "my-directory/upload.txt"
-$Id = "xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-
-# Get the file ACL
-$acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileName).ACL
-
-# Create the new ACL object.
-[Collections.Generic.List[System.Object]]$aclnew =$acl
-
-# To avoid duplicate ACL, remove the ACL entries that will be added later.
-foreach ($a in $aclnew)
-{
-    if ($a.AccessControlType -eq "group" -and $a.DefaultScope -eq $true-and $a.EntityId -eq $id)
-    {
-        $aclnew.Remove($a);
-        break;
-    }
-}
-
-# Add ACL Entries
-$aclnew = New-AzDataLakeGen2ItemAclObject -AccessControlType group -EntityId $id -Permission "-wx" -DefaultScope -InputObject $aclnew
-
-# Update ACL on server
-Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileName -Acl $aclnew 
-
-```
 
 ### <a name="set-permissions-on-all-items-in-a-file-system"></a>파일 시스템의 모든 항목에 대한 사용 권한 설정
 
@@ -407,10 +366,10 @@ cmdlet과 `Get-AzDataLakeGen2Item` 함께 `-Recurse` 및 매개 변수를 사용
 
 ```powershell
 $filesystemName = "my-file-system"
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission "-wx" -InputObject $acl
-Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse -FetchPermission | Update-AzDataLakeGen2Item -Acl $acl
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission -wx -InputObject $acl
+Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse -FetchProperty | Update-AzDataLakeGen2Item -Acl $acl
 ```
 <a id="gen1-gen2-map" />
 

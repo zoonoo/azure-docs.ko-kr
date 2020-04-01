@@ -3,12 +3,12 @@ title: 고급 응용 프로그램 업그레이드 항목
 description: 이 문서에서는 서비스 패브릭 애플리케이션 업그레이드와 관련된 고급 항목을 다룹니다.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 09f3fdf1f26a13c6722eb039e132256f33be38ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 182ab6dc1663e160561b8941ebf3a36b5af3d950
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76845439"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422802"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>서비스 패브릭 응용 프로그램 업그레이드: 고급 항목
 
@@ -20,9 +20,9 @@ ms.locfileid: "76845439"
 
 ## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>상태 비수기 서비스 계획된 가동 중지 시간 동안 연결 중단 방지(미리 보기)
 
-응용 프로그램/클러스터 업그레이드 또는 노드 비활성화와 같은 계획된 상태 비누비 인스턴스 가동 중단 의 경우 종료 후 노출된 끝점이 제거되어 연결이 끊어질 수 있습니다.
+응용 프로그램/클러스터 업그레이드 또는 노드 비활성화와 같은 계획된 상태 비해제 인스턴스 가동 중단의 경우 인스턴스가 다운된 후 노출된 끝점이 제거되어 강제 연결 클로저가 발생하므로 연결이 끊어질 수 있습니다.
 
-이를 방지하려면 서비스 구성에서 복제본 *인스턴스 닫기 지연 기간을* 추가하여 *RequestDrain(미리* 보기) 기능을 구성합니다. 이렇게 하면 지연 타이머가 인스턴스를 닫기 *시작하기 전에* 상태 비해제 인스턴스에서 보급하는 끝점이 제거됩니다. 이 지연을 통해 인스턴스가 실제로 중단되기 전에 기존 요청을 정상적으로 드레인할 수 있습니다. 클라이언트는 콜백 함수를 통해 끝점 변경에 대한 알림을 받게 되므로 끝점을 다시 해결하고 인스턴스에 새 요청을 보내지 않도록 할 수 있습니다.
+이를 방지하려면 서비스 구성에 *인스턴스 닫기 지연 기간을* 추가하여 *RequestDrain(미리* 보기) 기능을 구성하여 클러스터 내의 다른 서비스에서 요청을 수신하는 동안 드레인을 허용하고 역방향 프록시를 사용하거나 끝점을 업데이트하기 위해 알림 모델과 함께 확인 API를 사용합니다. 이렇게 하면 인스턴스를 닫기 전에 지연이 시작되기 *전에* 상태 비해제 인스턴스에서 보급하는 끝점이 제거됩니다. 이 지연을 통해 인스턴스가 실제로 중단되기 전에 기존 요청을 정상적으로 드레인할 수 있습니다. 클라이언트는 지연을 시작할 때 콜백 함수를 통해 끝점 변경에 대한 알림을 받게 되므로 끝점을 다시 해결하고 중단되는 인스턴스에 새 요청을 보내지 않도록 할 수 있습니다.
 
 ### <a name="service-configuration"></a>서비스 구성
 
@@ -50,24 +50,8 @@ ms.locfileid: "76845439"
 
 ### <a name="client-configuration"></a>클라이언트 구성
 
-끝점이 변경되면 알림을 받으려면 클라이언트는 다음과 같이`ServiceManager_ServiceNotificationFilterMatched`콜백()을 등록할 수 있습니다. 
-
-```csharp
-    var filterDescription = new ServiceNotificationFilterDescription
-    {
-        Name = new Uri(serviceName),
-        MatchNamePrefix = true
-    };
-    fbClient.ServiceManager.ServiceNotificationFilterMatched += ServiceManager_ServiceNotificationFilterMatched;
-    await fbClient.ServiceManager.RegisterServiceNotificationFilterAsync(filterDescription);
-
-private static void ServiceManager_ServiceNotificationFilterMatched(object sender, EventArgs e)
-{
-      // Resolve service to get a new endpoint list
-}
-```
-
-변경 알림은 끝점이 변경되고 클라이언트가 끝점을 다시 해결해야 하며 곧 중단될 때 더 이상 보급되지 않는 끝점을 사용하지 않음을 나타냅니다.
+끝점이 변경되면 알림을 받으려면 클라이언트가 호출 을 등록해야 [합니다.](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription)
+변경 알림은 끝점이 변경되었으며 클라이언트가 끝점을 다시 해결해야 하며 곧 중단될 때 더 이상 보급되지 않는 끝점을 사용하지 않음을 나타냅니다.
 
 ### <a name="optional-upgrade-overrides"></a>선택적 업그레이드 재정의
 
@@ -80,6 +64,16 @@ Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManife
 ```
 
 지연 기간은 호출된 업그레이드 인스턴스에만 적용되며 개별 서비스 지연 구성은 변경되지 않습니다. 예를 들어 미리 구성된 업그레이드 지연을 `0` 건너뛰기 위해 지연을 지정하는 데 사용할 수 있습니다.
+
+> [!NOTE]
+> Azure Load 밸러버의 요청에 대해 요청을 드레인하는 설정은 적용되지 않습니다. 호출 서비스에서 불만 확인 기반 해결을 사용하는 경우 설정이 적용되지 않습니다.
+>
+>
+
+> [!NOTE]
+> 이 기능은 클러스터 코드 버전이 7.1.XXX 이상인 경우 위에서 언급한 대로 Update-ServiceFabricService cmdlet을 사용하여 기존 서비스에서 구성할 수 있습니다.
+>
+>
 
 ## <a name="manual-upgrade-mode"></a>수동 업그레이드 모드
 

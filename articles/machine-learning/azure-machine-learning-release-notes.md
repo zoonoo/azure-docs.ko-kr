@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: 70e8bf95022f88dab54fa13769df4b051cf41c92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b55c351927a56afce697d07f41bfbe668144d68d
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247149"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475511"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure 기계 학습 릴리스 정보
 
@@ -401,7 +401,7 @@ ms.locfileid: "80247149"
 
 ### <a name="azure-machine-learning-sdk-for-python-v1074"></a>파이썬 v1.0.74에 대한 Azure 기계 학습 SDK
 
-  + **미리 보기 기능**
+  + **기능 미리 보기**
     + **azureml-contrib-dataset**
       + azureml-contrib 데이터 집합을 가져온 후 `Dataset.Labeled.from_json_lines` 레이블이 `._Labeled` 지정된 데이터 집합을 만드는 대신 호출할 수 있습니다.
       + 다운로드 `to_pandas_dataframe` 옵션을 사용하여 레이블이 지정된 데이터 집합을 호출할 때 기존 파일을 덮어쓸지 여부를 지정할 수 있습니다.
@@ -455,7 +455,7 @@ ms.locfileid: "80247149"
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스합니다.
 
-| 웹 기반 도구 | 설명 | 버전 |
+| 웹 기반 도구 | Description | 버전 |
 |-|-|-|
 | 노트북 VM(미리 보기) | 완벽하게 관리되는 클라우드 기반 워크스테이션 | 기본 & 엔터프라이즈 |
 | [자동화된 기계 학습(미리](tutorial-first-experiment-automated-ml.md) 보기) | 기계 학습 모델 개발 자동화를 위한 코드 경험 없음 | Enterprise |
@@ -494,7 +494,7 @@ Azure 기계 학습은 이제 이벤트 그리드의 리소스 공급자이며 A
   + Azure 기계 학습에서 두 개의 새 버전(SKU 와 교환)을 발표합니다. 이 릴리스를 사용하면 이제 기본 또는 엔터프라이즈 Azure 기계 학습 작업 영역을 만들 수 있습니다. 모든 기존 작업 영역은 기본 값으로 기본값으로 기본값으로 설정되며 Azure 포털 또는 스튜디오로 이동하여 언제든지 작업 영역을 업그레이드할 수 있습니다. Azure 포털에서 기본 또는 엔터프라이즈 작업 영역을 만들 수 있습니다. 자세한 내용은 [설명서를](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) 참조하십시오. SDK에서 작업 영역 의 버전은 작업 영역 개체의 "sku" 속성을 사용하여 결정할 수 있습니다.
   + 또한 Azure Machine Learning Compute를 개선했습니다 - 이제 Azure Monitor에서 클러스터에 대한 메트릭(예: 총 노드, 실행 중인 노드, 총 코어 할당량)을 볼 수 있으며 디버깅을 위한 진단 로그를 볼 수 있습니다. 또한 클러스터에서 현재 실행 중이거나 대기 중인 실행및 클러스터의 다양한 노드의 IP와 같은 세부 정보를 볼 수도 있습니다. 포털에서 또는 SDK 또는 CLI에서 해당 함수를 사용하여 이러한 기능을 볼 수 있습니다.
 
-  + **미리 보기 기능**
+  + **기능 미리 보기**
     + Azure 기계 학습 계산에서 로컬 SSD의 디스크 암호화에 대한 미리 보기 지원을 릴리스합니다. 이 기능을 사용하려면 구독을 화이트리스트에 올리려면 기술 지원 티켓을 올립니다.
     + Azure 기계 학습 일괄 처리 추론의 공개 미리 보기입니다. Azure 기계 학습 일괄 처리 추론은 시간에 민감하지 않은 대규모 추론 작업을 대상으로 합니다. 일괄 처리 추론은 비동기 응용 프로그램에 대한 비교할 수 없는 처리량으로 비용 효율적인 추론 계산 크기 조정을 제공합니다. 대량의 데이터 컬렉션에 대한 높은 처리량, 화재 및 잊어버린 추론에 최적화되어 있습니다.
     + [**azureml-contrib-dataset**](https://docs.microsoft.com/python/api/azureml-contrib-dataset)
@@ -624,7 +624,7 @@ Azure 기계 학습은 이제 이벤트 그리드의 리소스 공급자이며 A
     + 실행에 자식이 너무 많으면 요청이 실패하는 run.get_metrics 버그를 수정했습니다.
     + 실행에 자식이 너무 많으면 요청이 실패하는 [run.get_metrics](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run#get-metrics-name-none--recursive-false--run-type-none--populate-false-) 버그를 수정했습니다.
     + Arcadia 클러스터에서 인증에 대한 지원이 추가되었습니다.
-    + 실험 개체를 만들면 실행 기록 추적을 위해 Azure 기계 학습 작업 영역에서 실험을 얻거나 만듭니다. 실험 ID와 보관된 시간은 생성 시 실험 개체에 채워집니다. 예: 실험 = 실험 (작업 공간, "새로운 실험") experiment_id = experiment.id archive() 및 reactivate() 는 실험을 숨기고 복원하기 위해 실험을 호출하여 UX에 표시되거나 기본적으로 호출에서 반환되는 함수입니다. 을 사용하여 실험을 나열합니다. 보관된 실험과 이름이 같은 새 실험을 만든 경우 새 이름을 전달하여 다시 활성화할 때 보관된 실험의 이름을 바꿀 수 있습니다. 지정된 이름으로 하나의 활성 실험만 있을 수 있습니다. 예: 실험1 = 실험(작업 공간, "활성 실험") experiment1.archive() # 보관된 이름과 동일한 이름으로 새 활성 실험 을 만듭니다. 실험2. = 실험(작업 공간, "활성 실험") experiment1.reactivate(new_name="이전 활성 실험") 실험의 정적 메서드 목록()은 이름 필터 및 ViewType 필터를 취할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL" 예제: archived_experiments = Experiment.list(작업 공간, view_type=ARCHIVED_ONLY") all_first_experiments = Experiment.list(작업 공간, 이름="첫 번째 실험", view_type="ALL")
+    + 실험 개체를 만들면 실행 기록 추적을 위해 Azure 기계 학습 작업 영역에서 실험을 얻거나 만듭니다. 실험 ID와 보관된 시간은 생성 시 실험 개체에 채워집니다. 예: 실험 = 실험(작업 공간, "새 실험") experiment_id = experiment.id archive() 및 reactivate())는 실험을 숨기고 복원하기 위해 실험을 URL에 표시하거나 목록 실험에 기본적으로 반환할 수 있는 함수입니다. 보관된 실험과 이름이 같은 새 실험을 만든 경우 새 이름을 전달하여 다시 활성화할 때 보관된 실험의 이름을 바꿀 수 있습니다. 지정된 이름으로 하나의 활성 실험만 있을 수 있습니다. 예: 실험1 = 실험(작업 공간, "활성 실험") experiment1.archive() # 보관된 이름과 동일한 이름으로 새 활성 실험 을 만듭니다. 실험2. = 실험(작업 공간, "활성 실험") experiment1.reactivate(new_name="이전 활성 실험") 실험의 정적 메서드 목록()은 이름 필터 및 ViewType 필터를 취할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL" 예제: archived_experiments = Experiment.list(작업 공간, view_type=ARCHIVED_ONLY") all_first_experiments = Experiment.list(작업 공간, 이름="첫 번째 실험", view_type="ALL")
     + 모델 배포 및 서비스 업데이트에 대한 환경 사용 지원
   + **azureml-데이터 드리프트**
     + DataDriftDector 클래스의 표시 특성은 더 이상 선택적 인수 'with_details'를 지원하지 않습니다. 표시 특성은 피처 열의 데이터 드리프트 계수 및 데이터 드리프트 기여만 표시합니다.
@@ -708,7 +708,7 @@ Azure 기계 학습은 이제 이벤트 그리드의 리소스 공급자이며 A
   + **[azureml 기차 - 오토ml](/python/api/azureml-train-automl-runtime/)**
     + ADB 및 HDI에 대한 ONNX 변환 지원이 추가되었습니다.
 
-+ **미리 보기 기능**
++ **기능 미리 보기**
   + **azureml 기차 - 오토ml**
   + **[azureml 기차 - 오토ml](/python/api/azureml-train-automl-runtime/)**
     + 텍스트 위화자로 지원되는 BERT 및 BiLSTM(미리 보기만)
@@ -798,8 +798,8 @@ Azure 기계 학습은 이제 이벤트 그리드의 리소스 공급자이며 A
     + 타임스탬프 열을 찾을 수 없는 경우 는 미세 타임스탬프 열을 할당하지 않고 타임직렬 관련 API를 호출하거나 할당된 타임스탬프 열을 삭제하면 삭제됩니다.
     + 시간 직렬 열은 형식이 Date인 열로 할당되어야 하며, 그렇지 않으면 예외가 예상됩니다.
     + API 'with_timestamp_columns'를 할당하는 시간 렬부 열은 이전에 할당된 타임스탬프 열을 지우는 None 값 미세/거친 타임스탬프 열 이름을 사용할 수 있습니다.
-    + 제거 목록에서 타임스탬프 열을 제외하거나 타임스탬프를 해제할 없음 값을 사용하여 호출 with_time_stamp한 후 삭제를 수행할 수 있음을 사용자에게 표시하여 굵은 그레인 또는 미세한 타임스탬프 열을 삭제하면 예외가 throw됩니다. 열
-    + 굵은 그레인 또는 미세한 타임스탬프 열이 Keep 열 목록에 포함되지 않은 경우 예외가 throw되며, 유지 열 목록에 타임스탬프 열을 포함하거나 없음을 with_time_stamp 호출한 후 유지할 수 있음을 사용자에게 표시합니다. 타임스탬프 열을 해제할 수 있습니다.
+    + 삭제 목록에서 타임스탬프 열을 제외하거나 타임스탬프 열을 해제할 없음 값이 있는 호출 with_time_stamp 후 삭제할 수 있음을 사용자에게 표시하여 굵은 그레인 또는 미세한 타임스탬프 열을 삭제하면 예외가 throw됩니다.
+    + 굵은 그레인 또는 미세한 타임스탬프 열이 keep 열 목록에 포함되지 않은 경우 예외가 발생하며, 유지 열 목록에 타임스탬프 열을 포함하거나 타임스탬프 열을 해제할 수 있는 없음 값을 사용하여 with_time_stamp 호출한 후 유지할 수 있음을 사용자에게 표시합니다.
     + 등록된 모델의 크기에 대한 로깅을 추가했습니다.
   + **azureml-explain-model**
     + "패키징" 파이썬 패키지가 설치되지 않은 경우 콘솔에 경고가 인쇄된 수정사항: "지원되는 lightgbm 버전보다 오래된 버전을 사용하여 2.2.1보다 큰 버전으로 업그레이드하십시오."
@@ -925,13 +925,13 @@ Azure 기계 학습은 이제 이벤트 그리드의 리소스 공급자이며 A
     + 데이터 및 개체만 필요로 하는 a를 `RawDataContext` 만들도록 인터페이스를 `AutoMLBaseSettings` 업데이트했습니다.
     +  AutoML 사용자가 예측할 때 충분히 길지 않은 교육 시리즈를 삭제할 수 있도록 허용합니다. - AutoML 사용자가 예측 할 때 학습 세트에 존재하지 않는 테스트 집합에서 그레인을 삭제할 수 있도록 허용합니다.
   + **azure-cli-ml**
-    + 이제 Microsoft에서 생성된 인증서와 고객 인증서모두에 대해 AKS 클러스터에 배포된 점수 매기기 끝점에 대한 SSL 인증서를 업데이트할 수 있습니다.
+    + 이제 Microsoft에서 생성된 인증서와 고객 인증서 모두에 대해 AKS 클러스터에 배포된 점수 매기기 끝점에 대한 TLS/SSL 인증서를 업데이트할 수 있습니다.
   + **azureml-automl-core**
     + 레이블이 없는 행이 제대로 제거되지 않은 AutoML에서 문제가 해결되었습니다.
     + AutoML에서 향상된 오류 로깅; 이제 전체 오류 메시지가 항상 로그 파일에 기록됩니다.
     + 을 포함하도록 `azureml-defaults` `azureml-explain-model` `azureml-dataprep`패키지 고정을 업데이트했습니다. AutoML은 더 이상 패키지 불일치에 `azureml-train-automl` 대해 경고하지 않습니다(패키지 제외).
     + CV 분할의 `timeseries` 크기가 같지 않은 문제를 해결하여 Bin 계산에 실패하게 했습니다.
-    + 교차 유효성 검사 학습 유형에 대한 앙상블 반복을 실행할 때 전체 데이터 집합에서 학습된 모델을 다운로드하는 데 문제가 발생하면 모델 가중치와 투표에 공급되는 모델 간에 불일치가 발생했습니다. 앙상블.
+    + 교차 유효성 검사 학습 유형에 대한 앙상블 반복을 실행할 때 전체 데이터 집합에서 학습된 모델을 다운로드하는 데 문제가 발생하면 모델 가중치와 투표 앙상블에 공급되는 모델 간에 불일치가 발생했습니다.
     + 학습 및/또는 유효성 검사 레이블(y 및 y_valid)이 팬더 데이터 프레임의 형태로 제공되지만 numpy 배열로 제공되지 않을 때 발생하는 오류를 수정했습니다.
     + 입력 테이블의 부울 열에서 None이 발생했을 때 예측 작업문제를 수정했습니다.
     + AutoML 사용자가 예측할 때 충분히 길지 않은 교육 시리즈를 삭제할 수 있도록 허용합니다. - AutoML 사용자가 예측 할 때 학습 세트에 존재하지 않는 테스트 집합에서 그레인을 삭제할 수 있도록 허용합니다.
@@ -956,7 +956,7 @@ Azure 기계 학습은 이제 이벤트 그리드의 리소스 공급자이며 A
     + 데이터 집합 파이썬 SDK에서 HTTP CSV / tsv 파일을 가져 오기지원.
     + 작업 영역을 더 이상 사용되지 않습니다.setup() 메서드입니다. 사용자에게 표시되는 경고 메시지는 create() 또는 get()/from_config())를 대신 사용하는 것이 좋습니다.
     + 추가 Environment.add_private_pip_wheel())을 추가하여 개인 사용자 `whl`지정 파이썬 패키지를 작업 영역에 업로드하고 이를 사용하여 환경을 구축/구체화할 수 있습니다.
-    + 이제 Microsoft에서 생성된 인증서와 고객 인증서모두에 대해 AKS 클러스터에 배포된 점수 매기기 끝점에 대한 SSL 인증서를 업데이트할 수 있습니다.
+    + 이제 Microsoft에서 생성된 인증서와 고객 인증서 모두에 대해 AKS 클러스터에 배포된 점수 매기기 끝점에 대한 TLS/SSL 인증서를 업데이트할 수 있습니다.
   + **azureml-explain-model**
     + 업로드시 설명에 모델 ID를 추가하기 위해 매개 변수를 추가했습니다.
     + 메모리 `is_raw` 및 업로드의 설명에 태그 추가.
@@ -1156,7 +1156,7 @@ Azure 기계 학습은 이제 이벤트 그리드의 리소스 공급자이며 A
 ## <a name="2019-07-09"></a>2019-07-09
 
 ### <a name="visual-interface"></a>시각적 인터페이스
-+ **미리 보기 기능**
++ **기능 미리 보기**
   + 시각적 인터페이스에 "R 스크립트 실행" 모듈이 추가되었습니다.
 
 ### <a name="azure-machine-learning-sdk-for-python-v1048"></a>파이썬 v1.0.48에 대한 Azure 기계 학습 SDK
@@ -1167,7 +1167,7 @@ Azure 기계 학습은 이제 이벤트 그리드의 리소스 공급자이며 A
     + 이 새로운 패키지를 사용하면 열려 있는 데이터 집합을 Azure 기계 학습 작업 영역에서 데이터 집합으로 등록하고 Dataset에서 제공하는 모든 기능을 활용할 수 있습니다.
     + 또한 팬더/SPARK 데이터 프레임으로 열린 데이터 집합을 사용 하 고 날씨와 같은 일부 데이터 집합에 대 한 위치 조인 같은 기존 기능 도 포함 됩니다.
 
-+ **미리 보기 기능**
++ **기능 미리 보기**
     + HyperDriveConfig는 이제 파이프라인을 사용하여 하이퍼매개 변수 튜닝을 지원하는 매개 변수로 파이프라인 개체를 허용할 수 있습니다.
 
 + **버그 수정 및 개선 사항**
@@ -1247,7 +1247,7 @@ Azure Databricks를 사용하는 일부 고객에게 문제가 발생했기 때�
   + 모든 파이프라인 단계에 대해 더 이상 사용되지 hash_paths 매개 변수
   + Model.register는 이제 `child_paths` 매개 변수를 사용하여 여러 개별 파일을 단일 모델로 등록하는 것을 지원합니다.
 
-+ **미리 보기 기능**
++ **기능 미리 보기**
     + 점수 설명자는 이제 보다 안정적인 직렬화 및 직렬화를 위해 conda 및 pip 정보를 선택적으로 저장할 수 있습니다.
     + 자동 기능 선택기에 대한 버그 수정.
     + mlflow.azureml.build_image 새 api에 업데이트되었습니다.
@@ -1288,7 +1288,7 @@ Azure Databricks를 사용하는 일부 고객에게 문제가 발생했기 때�
     + 기능 스위핑을 위해 KMeans 클러스터링이 활성화되었습니다.
   + AmlCompute 할당량 승인이 더 빨라졌습니다! 이제 임계값 내에서 할당량 요청을 승인하는 프로세스를 자동화했습니다. 할당량 작동 방식에 대한 자세한 내용은 [할당량을 관리하는 방법을](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas)알아봅니다.
 
-+ **미리 보기 기능**
++ **기능 미리 보기**
     + Azureml-mlflow 패키지[(예 : 노트북)를](https://aka.ms/azureml-mlflow-examples)통해 [MLflow](https://mlflow.org) 1.0.0 추적과 통합.
     + 실행으로 주피터 노트북을 제출합니다. [API 참조 문서](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
     + azureml-contrib-datadrift 패키지[(예 노트북)를](https://aka.ms/azureml-datadrift-example)통해 [데이터 드리프트 검출기의](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) 공개 미리보기. 데이터 드리프트는 시간이 지남에 따라 모델 정확도가 저하되는 가장 큰 이유 중 하나입니다. 프로덕션 환경에서 모델에 제공된 데이터가 모델이 학습된 데이터와 다른 경우에 발생합니다. AML 데이터 드리프트 검출기는 고객이 데이터 드리프트를 모니터링하고 드리프트가 감지될 때마다 경고를 전송하는 데 도움이 됩니다.
@@ -1877,7 +1877,7 @@ Azure 기계 학습용 Azure 포털에는 다음과 같은 업데이트가 있�
   * log_table() 및 log_row()가 [실행] 세부 정보에서 지원됩니다.
   * 1, 2 또는 3개의 숫자 열과 선택적 범주별 열이 있는 테이블과 행에 대한 그래프를 자동으로 만듭니다.
 
-+ **자동화된 Machine Learning**
++ **자동화된 기계 학습**
   * 오류 처리 및 설명서가 향상되었습니다.
   * 실행 속성 검색 성능 문제가 해결되었습니다.
   * 계속 실행 문제가 해결되었습니다.

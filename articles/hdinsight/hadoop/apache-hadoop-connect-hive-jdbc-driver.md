@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 7d1a77800093ae01bc4eb1e1269d1e9a60f9ce26
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8129239f152f6b359b930e56466052da12ef4d42
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77616667"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437024"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>HDInsight에서 JDBC 드라이버를 통해 Apache Hive 쿼리
 
@@ -31,7 +31,7 @@ Hive JDBC 인터페이스에 대한 자세한 내용은 [HiveJDBCInterface](http
 
 ## <a name="jdbc-connection-string"></a>JDBC 연결 문자열
 
-Azure의 HDInsight 클러스터에 대한 JDBC 연결은 포트 443을 통해 이루어지며 SSL을 사용하여 트래픽이 보호됩니다. 클러스터가 뒤에 있는 공용 게이트웨이는 HiveServer2에서 실제로 수신하는 포트로 트래픽을 리디렉션합니다. 다음 연결 문자열은 HDInsight에 사용할 형식을 보여줍니다.
+Azure의 HDInsight 클러스터에 대한 JDBC 연결은 포트 443을 통해 이루어지며 TLS/SSL을 사용하여 트래픽이 보호됩니다. 클러스터가 뒤에 있는 공용 게이트웨이는 HiveServer2에서 실제로 수신하는 포트로 트래픽을 리디렉션합니다. 다음 연결 문자열은 HDInsight에 사용할 형식을 보여줍니다.
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
@@ -85,7 +85,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     |속성 | 값 |
     |---|---|
-    |이름|Hive|
+    |속성|Hive|
     |URL 예|jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2|
     |추가 클래스 경로|**추가** 단추를 사용하여 이전에 다운로드한 모든 jar 파일을 추가합니다.|
     |클래스 이름|org.아파치.hive.jdbc.HiveDriver|
@@ -102,7 +102,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     |속성 |값 |
     |---|---|
-    |이름|HDInsight의 Hive|
+    |속성|HDInsight의 Hive|
     |드라이버|드롭다운을 사용하여 **Hive** 드라이버를 선택합니다.|
     |URL|jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/기본값;전송모드=http;ssl=true;httpPath=/hive2. **CLUSTERNAME**을 HDInsight 클러스터의 이름으로 바꿉니다.|
     |사용자 이름|HDInsight 클러스터의 클러스터 로그인 계정 이름입니다. 기본값은 **관리자입니다.**|

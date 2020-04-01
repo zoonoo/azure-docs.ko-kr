@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: ea0a9de5dde02b45ae34e3e98e24b31fd01fa713
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f782985d975dd137aa2da48d12757685b47e62b1
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235818"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421258"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에서 Gen2로 데이터 복사
 
@@ -33,7 +33,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* Azure 구독 Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://azure.microsoft.com/free/) 만드세요.
 * 데이터가 있는 Azure Data Lake Storage Gen1 계정
 * 데이터 레이크 저장소 Gen2를 사용하도록 설정한 Azure 저장소 계정입니다. 저장소 계정이 없는 경우 계정을 [만듭니다.](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)
 
@@ -135,7 +135,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
 17. 데이터가 Azure Data Lake Storage Gen2 계정에 복사되었는지 확인합니다.
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 
 일반적으로 Azure Data Lake Storage Gen1에서 Azure Data Lake Storage Gen2로업그레이드를 평가하려면 [Azure Data Lake Storage Gen1에서 Azure Data Lake Storage Gen2로 빅 데이터 분석 솔루션 업그레이드를](../storage/blobs/data-lake-storage-upgrade.md)참조하세요. 다음 섹션에서는 데이터 레이크 스토리지 Gen1에서 데이터 레이크 스토리지 Gen2로 데이터 업그레이드를 위해 데이터 팩터리를 사용하는 모범 사례를 소개합니다.
 
@@ -146,7 +146,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
 개념 증명을 사용하여 종단 간 솔루션을 확인하고 사용자 환경에서 복사 처리량을 테스트합니다. 주요 개념 증명 단계: 
 
-1. 단일 복사 활동이 있는 하나의 데이터 팩터리 파이프라인을 만들어 데이터 레이크 저장소 Gen1에서 데이터 레이크 저장소 Gen2에 여러 개의 데이터를 복사하여 복사 성능 기준을 얻습니다. 데이터 [통합 단위(DIUs)를](copy-activity-performance.md#data-integration-units) 128로 시작합니다. 
+1. 단일 복사 활동이 있는 하나의 데이터 팩터리 파이프라인을 만들어 데이터 레이크 저장소 Gen1에서 데이터 레이크 저장소 Gen2에 여러 개의 데이터를 복사하여 복사 성능 기준을 얻습니다. 데이터 [통합 단위(DIUs)를](copy-activity-performance-features.md#data-integration-units) 128로 시작합니다. 
 2. 1단계에서 얻는 복사 처리량을 기반으로 전체 데이터 마이그레이션에 필요한 예상 시간을 계산합니다. 
 3. (선택 사항) 제어 테이블을 만들고 마이그레이션할 파일을 분할할 파일 필터를 정의합니다. 파일을 분할하는 방법은 다음과 같은 것입니다. 
 

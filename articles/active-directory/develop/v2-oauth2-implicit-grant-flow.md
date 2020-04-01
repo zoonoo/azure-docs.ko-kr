@@ -17,12 +17,12 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e3f021fd888bbb408fa66964c54d22f0d68e84e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 53d498f4aed8ec86cc57c35824a9fb8aa471dc1d
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297689"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419676"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft ID 플랫폼 및 암시적 부여 흐름
 
@@ -32,7 +32,7 @@ Microsoft ID 플랫폼 끝점을 사용하면 Microsoft의 개인 및 직장 또
 * 대다수 권한 부여 서버 및 ID 공급자는 CORS 요청을 지원하지 않습니다.
 * 앱에서 멀어지는 전체 페이지 브라우저 리디렉션은 사용자 환경에 특히 방해가 됩니다.
 
-이러한 응용 프로그램(AngularJS, Ember.js, React.js 등)의 경우 Microsoft ID 플랫폼은 OAuth 2.0 암시적 부여 흐름을 지원합니다. 암시적 흐름은 [OAuth 2.0 사양(영문)](https://tools.ietf.org/html/rfc6749#section-4.2)에 설명되어 있습니다. 주요 이점은 백 엔드 서버 자격 증명 교환을 수행하지 않고도 앱이 Microsoft ID 플랫폼에서 토큰을 얻을 수 있다는 것입니다. 따라서 앱은 사용자 로그인, 세션 유지 관리, 다른 웹 API에 대한 토큰 가져오기를 모두 클라이언트 JavaScript 코드 내에서 수행할 수 있습니다. 암시적 흐름을 사용하는 경우 보안과 관련된 몇 가지 중요 사항(특히 [클라이언트](https://tools.ietf.org/html/rfc6749#section-10.3) 및 [사용자 가장](https://tools.ietf.org/html/rfc6749#section-10.3) 관련 사항)을 고려해야 합니다.
+이러한 응용 프로그램(각도, Ember.js, React.js 등)의 경우 Microsoft ID 플랫폼은 OAuth 2.0 암시적 부여 흐름을 지원합니다. 암시적 흐름은 [OAuth 2.0 사양(영문)](https://tools.ietf.org/html/rfc6749#section-4.2)에 설명되어 있습니다. 주요 이점은 백 엔드 서버 자격 증명 교환을 수행하지 않고도 앱이 Microsoft ID 플랫폼에서 토큰을 얻을 수 있다는 것입니다. 따라서 앱은 사용자 로그인, 세션 유지 관리, 다른 웹 API에 대한 토큰 가져오기를 모두 클라이언트 JavaScript 코드 내에서 수행할 수 있습니다. 암시적 흐름을 사용하는 경우 보안과 관련된 몇 가지 중요 사항(특히 [클라이언트](https://tools.ietf.org/html/rfc6749#section-10.3) 및 [사용자 가장](https://tools.ietf.org/html/rfc6749#section-10.3) 관련 사항)을 고려해야 합니다.
 
 이 문서에서는 응용 프로그램의 프로토콜에 대해 직접 프로그래밍하는 방법을 설명합니다.  가능하면 지원되는 MSAL(Microsoft 인증 라이브러리)을 사용하여 [토큰을 획득하고 보안웹 API를 호출하는](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows)것이 좋습니다.  또한 [MSAL을 사용하는 샘플 앱을](sample-v2-code.md)살펴보십시오.
 
@@ -54,7 +54,7 @@ JavaScript 기반 접근 방법을 극한까지 확장하는 애플리케이션�
 * 토큰을 원래 호출과 교차할 필요 없이 신뢰성 있게 가져올 수 있음 - 토큰을 반환하는 리디렉션 URI의 필수 등록을 통해 토큰이 이동되지 않도록 보증
 * JavaScript 애플리케이션이 대상으로 하는 웹 API 수만큼 액세스 토큰을 필요한 대로 가져올 수 있음 - 도메인에 대한 제한 없음
 * 세션 또는 로컬 스토리지와 같은 HTML5 기능이 토큰 캐싱 및 수명 관리를 완전히 제어할 수 있으면서도 쿠키 관리는 앱에서 신경쓸 필요가 없음
-* 액세스 토큰이 교차 사이트 요청 위조(CSRF) 공격에 취약하지 않음
+* 액세스 토큰은 CSRF(교차 사이트 요청 위조) 공격에 취약하지 않습니다.
 
 암시적 허용 흐름은 대부분 보안상의 이유로 새로 고침 토큰을 발급하지 않습니다. 새로 고침 토큰은 액세스 토큰만큼 좁게 범위가 좁지 않으므로 유출 될 경우 훨씬 더 많은 피해를 입힙니다. 암시적 흐름에서 토큰은 URL에 전달되므로 권한 부여 코드 부여보다 가로채기 위험이 높습니다.
 
@@ -66,9 +66,9 @@ JavaScript 기반 접근 방법을 극한까지 확장하는 애플리케이션�
 
 암시적 허용은 다른 허용보다 더 많은 위험을 초래하며, 주의해야 하는 영역은 잘 문서화되어 있습니다(예: [암시적 흐름에서 리소스 소유자를 가장하는 액세스 토큰 오용][OAuth2-Spec-Implicit-Misuse] 및 [OAuth 2.0 위협 모델 및 보안 고려 사항][OAuth2-Threat-Model-And-Security-Implications]). 그러나 더 높은 위험 프로필은 주로 원격 리소스에서 브라우저에 제공한 활성 코드를 실행하는 애플리케이션을 사용하도록 설정하는 것을 의미한다는 사실 때문입니다. SPA 아키텍처를 계획하는 경우 백 엔드 구성 요소가 없거나 JavaScript를 통해 웹 API를 호출하려고 하므로 토큰 획득을 위해 암시적 흐름을 사용하는 것이 좋습니다.
 
-애플리케이션이 네이티브 클라이언트인 경우 암시적 흐름은 그다지 적합하지 않습니다. 네이티브 클라이언트 상황에서 Azure AD 세션 쿠키가 없으면 오래 지속되는 세션을 유지 관리하는 수단에서 애플리케이션을 사용하지 않게 됩니다. 즉 애플리케이션은 새 리소스에 대한 액세스 토큰을 가져올 때 사용자에게 반복해서 메시지를 표시합니다.
+응용 프로그램이 네이티브 클라이언트인 경우 암시적 흐름은 적합하지 않습니다. 네이티브 클라이언트 상황에서 Azure AD 세션 쿠키가 없으면 오래 지속되는 세션을 유지 관리하는 수단에서 애플리케이션을 사용하지 않게 됩니다. 즉 애플리케이션은 새 리소스에 대한 액세스 토큰을 가져올 때 사용자에게 반복해서 메시지를 표시합니다.
 
-백 엔드가 포함된 웹 애플리케이션을 개발하고 해당 백 엔드 코드에서 API를 사용하는 경우에도 암시적 흐름은 그다지 적합하지 않습니다. 다른 권한 부여는 훨씬 더 많은 전원을 제공합니다. 예를 들어 OAuth2 클라이언트 자격 증명 부여는 사용자 위임이 아니라 애플리케이션 자체에 할당된 사용 권한을 반영하는 토큰을 가져올 수 있는 기능을 제공합니다. 즉 클라이언트는 사용자가 세션에 있지 않은 경우 등에도 리소스에 대한 프로그래밍 방식의 액세스를 유지하는 기능을 갖습니다. 뿐만 아니라 이러한 부여는 더 높은 보안성 보증을 제공합니다. 예를 들어 액세스 토큰은 사용자 브라우저를 통해 전송되지 않고 브라우저 기록 등에 저장되는 위험을 감수하지 않습니다. 또한 클라이언트 애플리케이션은 토큰을 요청할 때 강력한 인증을 수행할 수 있습니다.
+백 엔드가 포함된 웹 애플리케이션을 개발하고 해당 백 엔드 코드에서 API를 사용하는 경우에도 암시적 흐름은 그다지 적합하지 않습니다. 다른 권한 부여는 훨씬 더 많은 전원을 제공합니다. 예를 들어 OAuth2 클라이언트 자격 증명 부여는 사용자 위임이 아니라 애플리케이션 자체에 할당된 사용 권한을 반영하는 토큰을 가져올 수 있는 기능을 제공합니다. 즉 클라이언트는 사용자가 세션에 있지 않은 경우 등에도 리소스에 대한 프로그래밍 방식의 액세스를 유지하는 기능을 갖습니다. 뿐만 아니라 이러한 부여는 더 높은 보안성 보증을 제공합니다. 예를 들어 액세스 토큰은 사용자 브라우저를 통해 전송되지 않으며 브라우저 기록에 저장될 위험이 없습니다. 또한 클라이언트 애플리케이션은 토큰을 요청할 때 강력한 인증을 수행할 수 있습니다.
 
 [OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
 [OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819
@@ -103,7 +103,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > 암시적 흐름을 사용하여 로그인을 테스트하려면 <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank"> https://login.microsoftonline.com/common/oauth2/v2.0/authorize..을 클릭합니다.</a> 로그인한 후 브라우저가 주소 `https://localhost/myapp/` 표시줄에 `id_token` 있는 것으로 리디렉션되어야 합니다.
 >
 
-| 매개 변수 |  | 설명 |
+| 매개 변수 |  | Description |
 | --- | --- | --- |
 | `tenant` | required |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
 | `client_id` | required | [Azure 포털 - 앱에](https://go.microsoft.com/fwlink/?linkid=2083908) 할당된 앱 등록 페이지인 응용 프로그램(클라이언트) ID입니다. |
@@ -133,7 +133,7 @@ GET https://localhost/myapp/#
 &state=12345
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | `access_token` |`response_type`이 `token`을 포함하는 경우 포함됩니다. 앱에서 요청한 액세스 토큰입니다. 액세스 토큰은 디코딩되거나 검사해서는 안 되며 불투명 문자열로 처리되어야 합니다. |
 | `token_type` |`response_type`이 `token`을 포함하는 경우 포함됩니다. 항상 `Bearer`입니다. |
@@ -152,7 +152,7 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | `error` |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -161,7 +161,7 @@ error=access_denied
 
 이제 단일 페이지 앱에 사용자를 서명했기 때문에 [Microsoft 그래프와](https://developer.microsoft.com/graph)같은 Microsoft ID 플랫폼에서 보안되는 웹 API를 호출하기 위한 액세스 토큰을 자동으로 얻을 수 있습니다. `token` response_type을 사용하여 토큰을 이미 받았더라도 이 방법을 사용하여 사용자가 다시 로그인하도록 리디렉션하지 않고 추가 리소스에 대한 토큰을 얻을 수 있습니다.
 
-일반 OpenID 연결/OAuth 흐름에서는 Microsoft ID 플랫폼 `/token` 끝점에 요청을 수행 하여 이 작업을 수행합니다. 그러나 Microsoft ID 플랫폼 끝점은 CORS 요청을 지원하지 않으므로 AJAX에서 토큰을 받고 새로 고치기 위해 호출하는 것은 문제가 되지 않습니다. 그 대신, 숨겨진 iFrame에 암시적 흐름을 사용하여 다른 웹 API에 대한 새 토큰을 가져올 수 있습니다. 
+일반 OpenID 연결/OAuth 흐름에서는 Microsoft ID 플랫폼 `/token` 끝점에 요청을 수행 하여 이 작업을 수행합니다. 그러나 Microsoft ID 플랫폼 끝점은 CORS 요청을 지원하지 않으므로 AJAX에서 토큰을 받고 새로 고치기 위해 호출하는 것은 문제가 되지 않습니다. 그 대신, 숨겨진 iFrame에 암시적 흐름을 사용하여 다른 웹 API에 대한 새 토큰을 가져올 수 있습니다.
 
 ```
 // Line breaks for legibility only
@@ -170,7 +170,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=token
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read 
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &response_mode=fragment
 &state=12345
 &nonce=678910
@@ -201,7 +201,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &scope=https%3A%2F%2Fgraph.microsoft.com%2Fdirectory.read
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | `access_token` |`response_type`이 `token`을 포함하는 경우 포함됩니다. Microsoft Graph의 경우 앱에서 요청한 액세스 토큰입니다. 액세스 토큰은 디코딩되거나 검사해서는 안 되며 불투명 문자열로 처리되어야 합니다. |
 | `token_type` | 항상 `Bearer`입니다. |
@@ -220,7 +220,7 @@ error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | `error` |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -239,7 +239,7 @@ OpenID Connect를 `end_session_endpoint` 사용하면 앱에서 Microsoft ID 플
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
 ```
 
-| 매개 변수 |  | 설명 |
+| 매개 변수 |  | Description |
 | --- | --- | --- |
 | `tenant` |required |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
 | `post_logout_redirect_uri` | 권장 | 로그아웃이 완료된 후 사용자가 반환되어야 하는 URL입니다. 이 값은 애플리케이션에 대해 등록된 리디렉션 URI 중 하나와 일치해야 합니다. 포함되지 않은 경우 사용자에게 Microsoft ID 플랫폼 끝점에 의해 일반 메시지가 표시됩니다. |

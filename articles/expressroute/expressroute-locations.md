@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/25/2020
 ms.author: cherylmc
-ms.openlocfilehash: 41e12a93f333936468cbdfbe7aa6bfa6e0b7e8ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6482040f0d50f08f04ea87384a99af556f694075
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278754"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478803"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -98,7 +98,7 @@ ExpressRoute 위치(피어링 위치 또는 모임 위치라고도 함)는 Micro
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |지원됨 |지원됨 |암스테르담, 암스테르담2, 시카고, 더블린, 프랑크푸르트, 런던, 런던2, 뉴포트, 뉴욕, 오사카, 파리, 실리콘 밸리, 실리콘 밸리2, 싱가포르2, 도쿄, 워싱턴 DC |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |지원됨 |지원됨 |시카고, 실리콘밸리, 워싱턴 DC |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |지원됨 |지원됨 |시카고, 덴버, 로스앤젤레스, 뉴욕, 실리콘 밸리, 실리콘 밸리2, 워싱턴 DC, 워싱턴 DC2 |
-| **[드-CIX](https://www.de-cix.net/en/de-cix-service-world/directcloud/find-a-cloud-service/detail/microsoft-azure)** | 지원됨 |지원됨 |암스테르담2, 프랑크푸르트, 마르세유|
+| **[드-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange/find-a-cloud-service/detail/microsoft-azure)** | 지원됨 |지원됨 |암스테르담2, 프랑크푸르트, 마르세유|
 | **[데볼리 (주)](https://devoli.com/expressroute)** | 지원됨 |지원됨 | 오클랜드, 멜버른, 시드니 |
 | **뒤 데이터 메나** |지원됨 |지원됨 | 두바이2 |
 | **eir** |지원됨 |지원됨 |더블린|
@@ -125,7 +125,7 @@ ExpressRoute 위치(피어링 위치 또는 모임 위치라고도 함)는 Micro
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |지원됨 |지원됨 |암스테르담, 시카고, 댈러스, 런던, 뉴포트(웨일스), 상파울루, 시애틀, 실리콘밸리, 싱가포르, 워싱턴 DC |
 | **LG CNS** |지원됨 |지원됨 |부산, 서울 |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |지원됨 |지원됨 |케이프타운, 요하네스버그 |
-| **[메가 포트](https://www.megaport.com/services/microsoft-expressroute/)** |지원됨 |지원됨 |암스테르담, 애틀랜타, 오클랜드, 시카고, 달라스, 덴버, 두바이2, 더블린, 프랑크푸르트, 제네바, 홍콩 특별 행정구, 라스베이거스, 런던, 런던2, 로스앤젤레스, 멜버른, 마이애미, 몬트리올, 뉴욕, 오슬로, 퍼스, 퀘벡 시티, 샌안토니오, 시애틀, 실리콘 밸리, 싱가포르, 싱가포르2, 시드니, 시드니2, 도쿄, 토론토, 워싱턴 DC, 취리히 |
+| **[메가 포트](https://www.megaport.com/services/microsoft-expressroute/)** |지원됨 |지원됨 |암스테르담, 애틀랜타, 오클랜드, 시카고, 달라스, 덴버, 두바이2, 더블린, 프랑크푸르트, 제네바, 홍콩 특별 행정구, 라스베이거스, 런던, 런던2, 로스앤젤레스, 멜버른, 마이애미, 몬트리올, 뉴욕, 오슬로, 퍼스, 퀘벡 시티, 샌안토니오, 시애틀, 실리콘 밸리, 싱가포르, 싱가포르2, 시드니2, 시드니2, 시드니2, 토론토 |
 | **[Mtn](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** |지원됨 |지원됨 |London |
 | **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |지원됨 |지원됨 |댈러스, 로스앤젤레스, 마이애미, 상파울루, 워싱턴 D.C. |
 | **[차세대 데이터](https://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |지원됨 |지원됨 |뉴포트(웨일스) |
@@ -241,7 +241,7 @@ Azure 국가 클라우드는 서로 및 전역 상용 Azure에서 격리됩니�
 | **[Altice Business](https://golightpath.com/transport)** |Equinix |뉴욕, 워싱턴 DC |
 | **[아르테리아 네트웍스](https://www.arteria-net.com/business/service/cloud/sca/)** |Equinix |도쿄 |
 | **[Axtel](https://alestra.mx/landing/expressrouteazure/)** |Equinix |댈러스|
-| **[빈필드 메트로커넥트](https://www.beanfield.com/business/cloud-connect)** |Megaport |Toronto|
+| **[빈필드 메트로커넥트](https://www.beanfield.com/business/cloud-exchange)** |Megaport |Toronto|
 | **[Bezeq International Ltd.](https://www.bezeqint.net/english)** | euNetworks | London |
 | **[BICS](https://bics.com/bics-solutions-suite/cloud-connect/)** | Equinix | 암스테르담, 프랑크푸르트, 런던, 싱가포르, 워싱턴 DC |
 | **[BroadBand Tower, Inc.](https://www.bbtower.co.jp/product-service/data-center/network/dcconnect-for-azure/)** | Equinix | 도쿄 |
@@ -264,7 +264,7 @@ Azure 국가 클라우드는 서로 및 전역 상용 Azure에서 격리됩니�
 | **[걸프 브리지 인터내셔널](https://www.gbiinc.com/microsoft-azure-expressroute/)** | Equinix | 암스테르담 |
 | **[HSO](https://www.hso.co.uk/products/cloud-direct)** |Equinix | 런던, 슬라우 |
 | **[IVedha Inc](http://www.ivedha.com/cloud/manage-azure-cloud/express-route-4/)**| Equinix | Toronto |
-| **[카알람 텔레콤 바레인 B.S.C.](http://www.kalaam-telecom.com/en/inbusiness/expressroute.html)**| Level 3 Communications |암스테르담 |
+| **[카알람 텔레콤 바레인 B.S.C.](http://www.kalaam-telecom.com/azure/)**| Level 3 Communications |암스테르담 |
 | **LGA Telecom** |Equinix |싱가포르|
 | **[Macroview Telecom](http://www.macroview.com/en/scripts/catitem.php?catid=solution&sectionid=expressroute)** |Equinix |홍콩 특별 행정구 
 | **[Macquarie Telecom Group](https://macquariegovernment.com/secure-cloud/secure-cloud-exchange/)** | Megaport | 시드니 |

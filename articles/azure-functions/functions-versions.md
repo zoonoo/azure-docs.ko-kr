@@ -3,12 +3,12 @@ title: Azure Functions 런타임 버전 개요
 description: Azure Functions는 여러 버전의 런타임을 지원합니다. 버전 간 차이점과 적합한 버전을 선택하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 21a7b25087efd5d4adf2154c935636c263df9afd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e90752e89be7e381b06f8a87f76f123f0e4a8e3a
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276557"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422487"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 런타임 버전 개요
 
@@ -18,7 +18,7 @@ Azure Functions 런타임의 주요 버전은 런타임의 기반이 되는 .NET
 | --------------- | ------------- | ------------ |
 | 3.x | GA | .NET Core 3.1 | 
 | 2.x | GA | .NET Core 2.2 |
-| 1.x | GA<sup>2</sup> | .NET 프레임워크 4.6<sup>3</sup> |
+| 1.x | GA<sup>2</sup> | .NET 프레임워크 4.7.2<sup>3</sup> |
 
 <sup>1</sup> GA 릴리스는 프로덕션 시나리오에 지원됩니다.   
 <sup>2</sup> 버전 1.x는 유지 보수 모드에 있습니다. 향상된 기능은 이후 버전에서만 제공됩니다.   
