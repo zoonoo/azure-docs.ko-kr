@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 176cd9b0bf72a123bc644ebc27ee0e091aa54e97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9de94dab7000cee90f4448aa6d81196d3865e021
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245188"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474417"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP 주소 유형 및 Azure에서 할당 메서드
 
@@ -99,7 +99,7 @@ SKU 도입 전에 생성된 모든 공용 IP 주소는 기본 SKU 공용 IP 주�
 * Azure 리소스와 통신하도록 방화벽 규칙을 업데이트해야 하는 경우
 * DNS 이름을 확인, IP 주소를 변경하려면 A 레코드를 업데이트해야 하는 경우
 * Azure 리소스가 IP 기반 보안 모델을 사용하는 다른 앱 또는 서비스와 통신하는 경우
-* IP 주소에 연결된 SSL 인증서를 사용하는 경우
+* IP 주소에 연결된 TLS/SSL 인증서를 사용합니다.
 
 > [!NOTE]
 > Azure는 각 Azure 클라우드 지역의 고유한 범위에서 공용 IP 주소를 할당합니다. Azure [공용](https://www.microsoft.com/download/details.aspx?id=56519), [US 정부](https://www.microsoft.com/download/details.aspx?id=57063), [중국](https://www.microsoft.com/download/details.aspx?id=57062) 및 [독일](https://www.microsoft.com/download/details.aspx?id=57064) 클라우드의 범위(접두사) 목록을 다운로드할 수 있습니다.
@@ -121,7 +121,7 @@ SKU 도입 전에 생성된 모든 공용 IP 주소는 기본 SKU 공용 IP 주�
 
 ### <a name="internet-facing-load-balancers"></a>인터넷 연결 부하 분산 장치
 
-공용 IP 주소를 부하 분산 장치 **프런트 엔드** 구성에 할당하여 [SKU](#sku) 또는 [Azure Load Balancer](../load-balancer/load-balancer-overview.md)와 연결할 수 있습니다. 공용 IP 주소는 부하가 분산된 VIP(가상 IP 주소)로 사용됩니다. 부하 분산 장치 프런트 엔드에 동적 또는 정적 공용 IP 주소를 할당할 수 있습니다. 또한 부하 분산 장치 프런트 엔드에 여러 공용 IP 주소를 할당하여 SSL 기반 웹 사이트를 사용하는 다중 테넌트 환경과 같은 [다중 VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 시나리오를 구현할 수도 있습니다. Azure Load Balancer SKU에 대한 자세한 내용은 [Azure Load Balancer 표준 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+공용 IP 주소를 부하 분산 장치 **프런트 엔드** 구성에 할당하여 [SKU](#sku) 또는 [Azure Load Balancer](../load-balancer/load-balancer-overview.md)와 연결할 수 있습니다. 공용 IP 주소는 부하가 분산된 VIP(가상 IP 주소)로 사용됩니다. 부하 분산 장치 프런트 엔드에 동적 또는 정적 공용 IP 주소를 할당할 수 있습니다. 또한 TLS 기반 웹 사이트가 있는 다중 테넌트 환경과 같은 [다중 VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 시나리오를 로드 밸런서 프런트 엔드에 여러 공용 IP 주소를 할당할 수도 있습니다. Azure Load Balancer SKU에 대한 자세한 내용은 [Azure Load Balancer 표준 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
 ### <a name="vpn-gateways"></a>VPN 게이트웨이
 
@@ -136,9 +136,9 @@ SKU 도입 전에 생성된 모든 공용 IP 주소는 기본 SKU 공용 IP 주�
 
 | 최상위 리소스 | IP 주소 연결 | 동적 | 정적 |
 | --- | --- | --- | --- |
-| 가상 머신 |Linux |yes |yes |
-| 인터넷 연결 부하 분산 장치 |프런트 엔드 구성 |yes |yes |
-| VPN 게이트웨이 |게이트웨이 IP 구성 |yes |예 |
+| 가상 머신 |Linux |예 |예 |
+| 인터넷 연결 부하 분산 장치 |프런트 엔드 구성 |예 |예 |
+| VPN 게이트웨이 |게이트웨이 IP 구성 |예 |예 |
 | 프런트 엔드 |프런트 엔드 구성 |예(V1에만 해당) |예(V2에만 해당) |
 
 ## <a name="private-ip-addresses"></a>개인 IP 주소
@@ -180,9 +180,9 @@ Azure 관리 DNS 서버를 사용하여 구성된 가상 머신은 동일한 가
 
 | 최상위 리소스 | IP 주소 연결 | 동적 | 정적 |
 | --- | --- | --- | --- |
-| 가상 머신 |Linux |yes |yes |
-| 부하 분산 장치 |프런트 엔드 구성 |yes |yes |
-| 프런트 엔드 |프런트 엔드 구성 |yes |yes |
+| 가상 머신 |Linux |예 |예 |
+| 부하 분산 장치 |프런트 엔드 구성 |예 |예 |
+| 프런트 엔드 |프런트 엔드 구성 |예 |예 |
 
 ## <a name="limits"></a>제한
 IP 주소 지정에 적용되는 제한은 Azure에서 [네트워킹에 대한 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) 전체 집합에 나와 있습니다. 제한은 지역별, 구독별로 적용됩니다. 비즈니스에 따라 최대 한도까지 기본 제한을 증가시키려면 [지원에 문의](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 하세요.

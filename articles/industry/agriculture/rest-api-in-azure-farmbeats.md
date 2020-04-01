@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: 318b3e3f774a4381434fd56154f4c0d95c28c7a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 717a09d8377a7b95fe24300cc65222f307e7419f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79479518"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437517"
 ---
 # <a name="references"></a>참조
 
@@ -33,7 +33,7 @@ FarmBeats API에는 Swagger 기술 문서가 포함되어 있습니다. 모든 A
 
 다음 표에서는 FarmBeats Datahub의 모든 개체와 리소스를 요약합니다.
 
-| 개체 및 리소스 | 설명
+| 개체 및 리소스 | Description
 --- | ---|
 팜 | 팜은 FarmBeats 시스템 내의 실제 관심 위치에 해당합니다. 각 팜에는 팜 이름과 고유한 팜 ID가 있습니다. |
 디바이스  | 장치는 팜에 있는 물리적 장치에 해당합니다. 각 장치에는 고유한 장치 ID가 있습니다. 장치는 일반적으로 팜 ID가 있는 팜에 프로비전됩니다.
@@ -111,7 +111,7 @@ REST GET 호출의 경우 요청 URI에 하나 이상의 쿼리 매개 변수를
 
 Azure FarmBeats Datahub API는 표준 HTTP 오류를 반환합니다. 가장 일반적인 오류 코드는 다음과 같습니다.
 
- |오류 코드             | 설명 |
+ |오류 코드             | Description |
  |---                    | --- |
  |200                    | Success |
  |201                    | 성공 만들기(게시물) |
@@ -162,7 +162,7 @@ Azure FarmBeats API는 Azure Active Directory에서 사용자 또는 앱 등록�
     - **개요로**돌아가서 **로컬 디렉터리에서 응용 프로그램 관리**옆에 있는 링크를 선택합니다.
     - **속성으로** 이동하여 **개체 ID를**캡처합니다.
 
-4. [Datahub Swagger로](https://<yourdatahub>.azurewebsites.net/swagger/index.html) 이동하여 다음을 수행합니다.
+4. Datahub Swagger(https://<yourdatahub>.azurewebsites.net/swagger/index.html)로 이동하여 다음을 수행합니다.
     - **역할 할당 API로 이동합니다.**
     - POST를 수행하여 방금 만든 **개체 ID에** 대한 **RoleAssignment** 개체를 만듭니다.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: a25bbd0f14d38a70624dbc58755c0e814753a181
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 987cdd76ba533fa0ae4b37c2755fe84a00d14de5
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77604188"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435857"
 ---
 # <a name="azure-security-center-data-security"></a>Azure Security Center 데이터 보안
 고객이 위협을 방지, 감지 및 대응하는 데 도움을 주기 위해 Azure Security Center에서는 구성 정보, 메타데이터, 이벤트 로그, 크래시 덤프 파일 등을 포함한 보안 관련 데이터를 수집하고 처리합니다. Microsoft는 코딩부터 서비스에 이르기까지 엄격한 규정 준수 및 보안 지침을 따릅니다.
@@ -71,8 +71,8 @@ Azure Security Center는 크래시 덤프 파일의 임시 복사본을 수집�
 
 ## <a name="managing-data-collection-from-virtual-machines"></a>가상 머신에서 데이터 컬렉션 관리
 
-Azure에서 Security Center를 사용하는 경우 각 Azure 구독에 대해 데이터 수집이 활성화됩니다. 또한 Azure Security Center의 보안 정책 섹션에서 구독에 대한 데이터 수집을 설정할 수 있습니다. 데이터 수집이 활성화되면 Azure Security Center는 지원되는 모든 기존 가상 머신 및 새로 만든 Azure 가상 머신에 Microsoft Monitoring Agent를 프로비전합니다.
-Microsoft Monitoring 에이전트는 다양한 보안 관련 구성 및 이벤트를 검사하여 ETW([Windows용 이벤트 추적](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx))로 보냅니다. 또한 운영 체제는 컴퓨터를 실행하는 동안 이벤트 로그 이벤트를 발생시킵니다. 이러한 데이터의 예: 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 프로세스 실행, 컴퓨터 이름, IP 주소, 로그인된 사용자 및 테넌트 ID입니다. Microsoft Monitoring Agent는 이벤트 로그 항목을 읽으며 ETW는 이를 추적하고 분석을 위해 작업 영역에 복사합니다. 또한 Microsoft Monitoring Agent는 크래시 덤프 파일을 작업 영역으로 복사하고, 프로세스 생성 이벤트를 활성화하고, 명령줄 감사를 활성화합니다.
+Azure에서 Security Center를 사용하는 경우 각 Azure 구독에 대해 데이터 수집이 활성화됩니다. 또한 Azure Security Center의 보안 정책 섹션에서 구독에 대한 데이터 수집을 설정할 수 있습니다. 데이터 수집이 켜져 있으면 Azure Security Center는 기존에 지원되는 모든 Azure 가상 컴퓨터와 생성된 새 가상 시스템에 로그 분석 에이전트를 프로비전합니다.
+Log Analytics 에이전트는 다양한 보안 관련 구성 및 이벤트를 [WINDOWS용 이벤트](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) 추적(ETW) 추적으로 검사합니다. 또한 운영 체제는 컴퓨터를 실행하는 동안 이벤트 로그 이벤트를 발생시킵니다. 이러한 데이터의 예: 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 프로세스 실행, 컴퓨터 이름, IP 주소, 로그인된 사용자 및 테넌트 ID입니다. Log Analytics 에이전트는 이벤트 로그 항목 및 ETW 추적을 읽고 분석을 위해 작업 영역에 복사합니다. 또한 Log Analytics 에이전트는 크래시 덤프 파일을 작업 영역에 복사하고, 프로세스 생성 이벤트를 활성화하고, 명령줄 감사를 사용하도록 설정합니다.
 
 Azure Security Center를 무료로 사용하는 경우 보안 정책의 가상 머신에서 데이터 수집을 해제할 수도 있습니다. 데이터 수집은 표준 계층의 구독에 필요합니다. VM 디스크 스냅샷 및 아티팩트 컬렉션은 데이터 수집이 사용하지 않도록 설정된 경우에도 여전히 사용하도록 설정됩니다.
 

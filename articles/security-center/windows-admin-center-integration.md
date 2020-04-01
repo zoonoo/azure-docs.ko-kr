@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 5467794bf246fab4ff7ded9c445dbeee0c4093b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cbbdf724b9d7fe4948553e7526410b994f491b49
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79139626"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435252"
 ---
 # <a name="integrate-azure-security-center-with-windows-admin-center"></a>Azure 보안 센터를 Windows 관리 센터와 통합
 
@@ -48,7 +48,7 @@ Windows 관리 센터에서 Azure 보안 센터로 서버를 성공적으로 온
     * 서버에는 보고할 작업 영역과 연결된 구독이 있습니다.
     * 보안 센터의 표준 계층 로그 분석 솔루션은 작업 영역에서 활성화됩니다. 이 솔루션은 이 작업 영역에 보고하는 *모든* 서버 및 가상 시스템에 대한 보안 센터의 표준 계층 기능을 제공합니다.
     * 보안 센터의 가상 컴퓨터에 대한 표준 계층 가격 책정은 구독에서 활성화됩니다.
-    * MMA(Microsoft 모니터링 에이전트)는 서버에 설치되고 선택한 작업 영역에 보고하도록 구성됩니다. 서버가 이미 다른 작업 영역에 보고하는 경우 새로 선택한 작업 영역에도 보고하도록 구성됩니다.
+    * Log 분석 에이전트가 서버에 설치되고 선택한 작업 영역에 보고하도록 구성됩니다. 서버가 이미 다른 작업 영역에 보고하는 경우 새로 선택한 작업 영역에도 보고하도록 구성됩니다.
 
     > [!NOTE]
     > 권장 사항이 표시되려면 온보딩 후 시간이 걸릴 수 있습니다. 실제로 서버 활동에 따라 *경고를* 받지 못할 수 있습니다. 경고가 올바르게 작동하는지 테스트하는 테스트 경고를 생성하려면 [경고 유효성 검사 절차의](security-center-alert-validation.md)지침을 따르십시오.

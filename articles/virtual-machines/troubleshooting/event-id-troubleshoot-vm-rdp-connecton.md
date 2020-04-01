@@ -1,6 +1,6 @@
 ---
 title: 이벤트 ID로 Azure VM RDP 연결 문제 해결 | Microsoft Docs
-description: ''
+description: 이벤트 아이디를 사용하여 RdP(원격 데스크톱 프로토콜) Azure 가상 시스템(VM)에 대한 연결을 방지하는 다양한 문제를 해결합니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 166648402eec7f8033c090a3f7862a902bae4be6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2073d5f91b26cd2ae53e3291a6d1dad4d711b66d
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71154202"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437057"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>이벤트 ID로 Azure VM RDP 연결 문제 해결 
 
@@ -63,7 +63,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **키워드:**      고전적인 <br />
 **사용자:**          해당/A <br />
 **컴퓨터:**      *컴퓨터* <br />
-**설명:** RD 세션 호스트 서버가 SSL 연결에서 RD 세션 호스트 서버 인증에 사용할 만료된 자체 서명된 인증서를 바꾸지 못했습니다. 관련 상태 코드는 '액세스가 거부되었습니다.'입니다.
+**설명:** Rd 세션 호스트 서버가 TLS 연결에서 RD 세션 호스트 서버 인증에 사용되는 만료된 자체 서명된 인증서를 교체하지 못했습니다. 관련 상태 코드는 '액세스가 거부되었습니다.'입니다.
 
 **로그 이름:**      시스템 <br />
 **원본:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
@@ -74,7 +74,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **키워드:**      고전적인 <br />
 **사용자:**          해당/A <br />
 **컴퓨터:**      *컴퓨터* <br />
-**설명:** RD 세션 호스트 서버가 SSL 연결에서 RD 세션 호스트 서버 인증에 사용할 새 자체 서명된 인증서를 만들지 못했습니다. 관련 상태 코드는 '개체가 이미 있습니다.'입니다.
+**설명:** RD 세션 호스트 서버는 TLS 연결에서 RD 세션 호스트 서버 인증에 사용할 새 자체 서명 인증서를 생성하지 못했으며, 관련 상태 코드가 이미 존재했다.
 
 **로그 이름:**      시스템 <br />
 **원본:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
@@ -85,7 +85,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **키워드:**      고전적인 <br />
 **사용자:**          해당/A <br />
 **컴퓨터:**      *컴퓨터* <br />
-**설명:** RD 세션 호스트 서버가 SSL 연결에서 RD 세션 호스트 서버 인증에 사용할 새 자체 서명된 인증서를 만들지 못했습니다. 관련 상태 코드는 '키 집합이 없습니다.'입니다.
+**설명:** RD 세션 호스트 서버가 TLS 연결에서 RD 세션 호스트 서버 인증에 사용할 새 자체 서명 인증서를 만들지 못했습니다. 관련 상태 코드는 '키 집합이 없습니다.'입니다.
 
 다음 명령을 실행하여 36872 및 36870 SCHANNEL 오류 이벤트를 확인할 수도 있습니다.
 
@@ -103,7 +103,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **키워드:**       <br />
 **사용자:** SYSTEM <br />
 **컴퓨터:**      *컴퓨터* <br />
-**설명:** SSL 서버 자격 증명 프라이빗 키에 액세스하려고 시도하는 동안 심각한 오류가 발생했습니다. 암호화 모듈에서 반환된 오류 코드는 0x8009030D입니다.  <br />
+**설명:** TLS 서버 자격 증명 개인 키에 액세스하려고 할 때 치명적인 오류가 발생했습니다. 암호화 모듈에서 반환된 오류 코드는 0x8009030D입니다.  <br />
 내부 오류 상태는 10001입니다.
 
 ### <a name="cause"></a>원인
@@ -186,9 +186,9 @@ Start-Service -Name "SessionEnv"
 
 RDP를 사용하여 VM에 대한 액세스를 다시 시도합니다.
 
-#### <a name="update-secure-sockets-layer-ssl-certificate"></a>SSL(Secure Sockets Layer) 인증서 업데이트
+#### <a name="update-tlsssl-certificate"></a>TLS/SSL 인증서 업데이트
 
-SSL 인증서를 사용하도록 VM을 설정하는 경우 다음 명령을 실행하여 지문을 가져옵니다. 그런 다음, 인증서의 지문과 동일한지 확인합니다.
+TLS/SSL 인증서를 사용하도록 VM을 설정한 경우 다음 명령을 실행하여 지문을 가져옵니다. 그런 다음, 인증서의 지문과 동일한지 확인합니다.
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SSLCertificateSHA1Hash

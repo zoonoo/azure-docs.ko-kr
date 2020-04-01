@@ -1,22 +1,22 @@
 ---
 title: Microsoft 인증 구성
-description: 앱 서비스 앱의 ID 공급자로 Microsoft 계정 인증을 구성하는 방법을 알아봅니다.
+description: 앱 서비스 또는 Azure Functions 앱의 ID 공급자로 Microsoft 계정 인증을 구성하는 방법에 대해 알아봅니다.
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
 ms.date: 08/08/2019
-ms.custom: seodec18
-ms.openlocfilehash: 95c603d4a10eb0e4d0817e20755c0f9b36baa96f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: ea745aa00f8990a2d1232a19780fdc70e2f78996
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76842336"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437957"
 ---
-# <a name="configure-your-app-service-app-to-use-microsoft-account-login"></a>Microsoft 계정 로그인을 사용하도록 앱 서비스 앱 구성
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Microsoft 계정 로그인을 사용하도록 앱 서비스 또는 Azure Functions 앱 구성
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-이 항목에서는 AAD를 사용하여 개인 Microsoft 계정 로그인을 지원하도록 Azure 앱 서비스를 구성하는 방법을 보여 주며 있습니다.
+이 항목에서는 AAD를 사용하여 개인 Microsoft 계정 로그인을 지원하도록 Azure 앱 서비스 또는 Azure 함수를 구성하는 방법을 보여 주며 있습니다.
 
 > [!NOTE]
 > 개인 Microsoft 계정과 조직 계정 모두 AAD ID 공급자를 사용합니다. 지금은 두 유형의 로그인을 모두 지원하도록 이 ID 공급자를 구성할 수 없습니다.
@@ -61,4 +61,4 @@ ms.locfileid: "76842336"
 <!-- URLs. -->
 
 [My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
-[Azure 포털]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 60beccc2f2679a18903b74b84f48afebfb3b69da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 45276884d59ac8d1d876e2225ac02bb51c3f74fc
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257754"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437723"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -88,7 +88,7 @@ PaaS 서비스에 안전하게 액세스하려면 서비스 엔드포인트를 �
 
 Azure PowerShell *할 당 취소* 및 *할당* 메서드를 사용할 수 있습니다.
 
-예를 들어:
+다음은 그 예입니다.
 
 ```azurepowershell
 # Stop an existing firewall
@@ -209,3 +209,7 @@ $fw.ThreatIntelWhitelist.IpAddress = @("ip1", "ip2", …)
 
 Set-AzFirewall -AzureFirewall $fw
 ```
+
+## <a name="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic"></a>Azure 방화벽에 대한 규칙이 해당 트래픽을 허용하지 않는 경우에도 TCP ping 및 유사한 도구가 대상 FQDN에 성공적으로 연결할 수 있는 이유는 무엇입니까?
+
+TCP ping이 실제로 대상 FQDN에 연결되지 않습니다. 이는 Azure 방화벽의 투명 프록시가 아웃바운드 트래픽에 대해 포트 80/443에서 수신을 수신하기 때문에 발생합니다. TCP ping은 방화벽과의 연결을 설정한 다음 패킷을 삭제하고 연결을 기록합니다. 이 동작은 보안에 영향을 주지 않습니다. 그러나 혼동을 피하기 위해 이 동작의 잠재적인 변경 사항을 조사하고 있습니다. 

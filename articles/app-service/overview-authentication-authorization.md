@@ -1,22 +1,22 @@
 ---
 title: 인증 및 권한 부여
-description: Azure App Service의 기본 제공 인증 및 권한 부여 지원에 대해 알아보고 무단 액세스에 대해 앱을 보호하는 방법을 알아보십시오.
+description: Azure App Service 및 Azure Functions의 기본 제공 인증 및 권한 부여 지원에 대해 알아보고 무단 액세스에 대해 앱을 보호하는 방법을 알아보십시오.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: mahender
-ms.custom: seodec18
-ms.openlocfilehash: 825d113bbe081ba6fb85da19ff6449824db92d10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: f16b10f13c945dd7f1ae4fdc3f4e02dcd7c5a018
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475394"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437954"
 ---
-# <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 인증 및 권한 부여
+# <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Azure 앱 서비스 및 Azure 함수의 인증 및 권한 부여
 
 > [!NOTE]
-> 현재 AAD V2(MSAL 포함)는 Azure 앱 서비스 및 Azure 함수에 대해 지원되지 않습니다. 업데이트를 다시 확인하시기 바랍니다.
+> 현재 Azure [Active Directory v2.0(MSAL](../active-directory/develop/v2-overview.md) 포함)은 Azure 앱 서비스 및 Azure 함수에 대해 지원되지 않습니다. [MSAL](../active-directory/develop/msal-overview.md) 업데이트를 다시 확인하시기 바랍니다.
 >
 
 Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므로 웹앱, RESTful API 및 모바일 백 엔드에 코드를 최소한으로 작성하거나 코드를 작성하지 않고 사용자를 로그인시켜 데이터에 액세스할 수 있으며 [Azure Functions](../azure-functions/functions-overview.md)도 사용할 수 있습니다. 이 문서는 App Service가 앱의 인증 및 권한 부여를 단순화하는 방법에 대해 설명합니다.
@@ -24,7 +24,7 @@ Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므�
 안전한 인증 및 권한 부여에는 페더레이션, 암호화, [JSON 웹 토큰(JWT)](https://wikipedia.org/wiki/JSON_Web_Token) 관리, [부여 유형](https://oauth.net/2/grant-types/) 등 보안에 대한 깊은 이해가 필요합니다. App Service가 이러한 유틸리티를 제공하기 때문에, 고객에게 비즈니스 가치를 제공하는 데 더 많은 시간과 에너지를 투자할 수 있습니다.
 
 > [!IMPORTANT]
-> AuthN/AuthO에 앱 서비스를 사용할 필요는 없습니다. 선택한 웹 프레임워크에서 번들 보안 기능을 사용하거나 직접 유틸리티를 작성할 수 있습니다. 그러나 Chrome 80은 쿠키용 SameSite(2020년 3월 경 출시일)의 [구현을 주요 변경 중이며,](https://www.chromestatus.com/feature/5088147346030592) 클라이언트 Chrome 브라우저가 업데이트될 때 교차 사이트 쿠키 게시에 의존하는 사용자 지정 원격 인증 또는 기타 시나리오가 중단될 수 있습니다. 해결 방법은 다른 브라우저에 대해 서로 다른 SameSite 동작을 지원해야 하기 때문에 복잡합니다. 
+> 인증 및 권한 부여를 위해 이 기능을 사용할 필요는 없습니다. 선택한 웹 프레임워크에서 번들 보안 기능을 사용하거나 직접 유틸리티를 작성할 수 있습니다. 그러나 Chrome 80은 쿠키용 SameSite(2020년 3월 경 출시일)의 [구현을 주요 변경 중이며,](https://www.chromestatus.com/feature/5088147346030592) 클라이언트 Chrome 브라우저가 업데이트될 때 교차 사이트 쿠키 게시에 의존하는 사용자 지정 원격 인증 또는 기타 시나리오가 중단될 수 있습니다. 해결 방법은 다른 브라우저에 대해 서로 다른 SameSite 동작을 지원해야 하기 때문에 복잡합니다. 
 >
 > ASP.NET 코어 2.1 이상 버전 앱 서비스에서 호스팅하는 이 주요 변경 내용은 이미 패치되어 Chrome 80 및 이전 브라우저를 적절하게 처리합니다. 또한 ASP.NET 프레임워크 4.7.2에 대한 동일한 패치가 2020년 1월 내내 앱 서비스 인스턴스에 배포됩니다. 앱이 패치를 받았는지 확인하는 방법을 포함하여 자세한 내용은 [Azure App Service SameSite 쿠키 업데이트를](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/)참조하십시오.
 >
@@ -46,11 +46,11 @@ Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므�
 
 모듈은 애플리케이션 코드와 별도로 실행되며 앱 설정을 사용하여 구성됩니다. SDK, 특정 언어 또는 애플리케이션 코드의 변경이 필요하지 않습니다. 
 
-### <a name="user-claims"></a>사용자 클레임
+### <a name="userapplication-claims"></a>사용자/애플리케이션 클레임
 
-모든 언어 프레임워크의 경우 App Service는 요청 헤더에 코드를 삽입하여 사용자의 클레임을 코드에 사용할 수 있게 합니다. ASP.NET 4.6 응용 프로그램의 경우 App Service는 인증된 사용자의 클레임을 사용하여 [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current)를 채우기 때문에 `[Authorize]` 특성을 비롯한 표준 .NET 코드 패턴을 따를 수 있습니다. 마찬가지로 PHP 앱의 경우, App Service는 `_SERVER['REMOTE_USER']` 변수를 채웁니다. Java 앱의 경우 [Tomcat 서볼릿에서 클레임에 액세스할 수](containers/configure-language-java.md#authenticate-users-easy-auth)있습니다.
+모든 언어 프레임워크에 대해 App Service는 요청 헤더에 삽입하여 코드에서 사용할 수 있는 들어오는 토큰(인증된 최종 사용자 또는 클라이언트 응용 프로그램의 클레임)에서 클레임을 만듭니다. ASP.NET 4.6 응용 프로그램의 경우 App Service는 인증된 사용자의 클레임을 사용하여 [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current)를 채우기 때문에 `[Authorize]` 특성을 비롯한 표준 .NET 코드 패턴을 따를 수 있습니다. 마찬가지로 PHP 앱의 경우, App Service는 `_SERVER['REMOTE_USER']` 변수를 채웁니다. Java 앱의 경우 [Tomcat 서볼릿에서 클레임에 액세스할 수](containers/configure-language-java.md#authenticate-users-easy-auth)있습니다.
 
-Azure `ClaimsPrincipal.Current` [Functions의](../azure-functions/functions-overview.md)경우 .NET 코드에 대해 하이드레이션되지 않지만 요청 헤더에서 사용자 클레임을 찾을 수 있습니다.
+Azure `ClaimsPrincipal.Current` [Functions의](../azure-functions/functions-overview.md)경우 .NET 코드에 대해 채워지지 않지만 요청 헤더에서 사용자 클레임을 `ClaimsPrincipal` 찾거나 요청 컨텍스트에서 또는 바인딩 매개 변수를 통해 개체를 얻을 수 있습니다. 자세한 내용은 [클라이언트 ID 작업을](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) 참조하십시오.
 
 자세한 내용은 [사용자 클레임 액세스](app-service-authentication-how-to.md#access-user-claims)를 참조하세요.
 
@@ -63,13 +63,13 @@ App Service는 웹앱, API 또는 기본 모바일 앱의 사용자와 연결된
 
 일반적으로 애플리케이션에서 이러한 토큰을 수집, 저장 및 새로 고치는 코드를 작성해야 합니다. 토큰 저장소를 사용하면 토큰이 필요할 때 [토큰을 가져오고](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) 토큰이 무효화되면 [App Service에 알려 이를 새로 고치도록](app-service-authentication-how-to.md#refresh-identity-provider-tokens) 해야 합니다. 
 
-인증된 세션에 캐시된 ID 토큰, 액세스 토큰 및 새로 고침 토큰은 연결된 사용자만 액세스할 수 있습니다.  
+ID 토큰, 액세스 토큰 및 새로 고침 토큰은 인증된 세션에 대해 캐시되며 연결된 사용자만 액세스할 수 있습니다.  
 
 앱에서 토큰을 사용할 필요가 없는 경우 토큰 저장소를 사용하지 않도록 설정할 수 있습니다.
 
 ### <a name="logging-and-tracing"></a>로깅 및 추적
 
-[애플리케이션 로깅을 사용하도록 설정](troubleshoot-diagnostic-logs.md)하면 로그 파일에서 인증 및 권한 추적을 바로 볼 수 있습니다. 예상치 못한 인증 오류가 표시되면 기존 애플리케이션 로그를 보고 모든 세부 정보를 편리하게 찾을 수 있습니다. [실패한 요청 추적](troubleshoot-diagnostic-logs.md)을 사용하면 실패한 요청에서 인증 및 권한 부여 모듈이 수행한 역할을 정확히 볼 수 있습니다. 추적 로그에서 `EasyAuthModule_32/64`라는 모듈에 대한 참조를 찾습니다. 
+[애플리케이션 로깅을 사용하도록 설정](troubleshoot-diagnostic-logs.md)하면 로그 파일에서 인증 및 권한 추적을 바로 볼 수 있습니다. 예상하지 못했던 인증 오류가 표시되면 기존 응용 프로그램 로그를 확인하여 모든 세부 정보를 편리하게 찾을 수 있습니다. [실패한 요청 추적](troubleshoot-diagnostic-logs.md)을 사용하면 실패한 요청에서 인증 및 권한 부여 모듈이 수행한 역할을 정확히 볼 수 있습니다. 추적 로그에서 `EasyAuthModule_32/64`라는 모듈에 대한 참조를 찾습니다. 
 
 ## <a name="identity-providers"></a>ID 공급자
 
@@ -93,7 +93,7 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 - 공급자 SDK 사용: 애플리케이션은 사용자를 수동으로 공급자에 로그인시킨 다음, 유효성 검사를 위해 인증 토큰을 App Service에 제출합니다. 이는 일반적으로 공급자의 로그인 페이지를 사용자에게 제공할 수 없는 브라우저리스 앱을 사용하는 경우입니다. 애플리케이션 코드는 로그인 프로세스를 관리하므로 _클라이언트 방향 흐름_ 또는 _클라이언트 흐름_이라고도 합니다. 이러한 경우는 REST API, [Azure Functions](../azure-functions/functions-overview.md) 및 JavaScript 브라우저 클라이언트뿐만 아니라 로그인 프로세스에서 더 많은 유연성이 필요한 브라우저 앱에도 적용됩니다. 공급자의 SDK를 사용하여 사용자를 로그인시키는 네이티브 모바일 앱에도 적용됩니다.
 
 > [!NOTE]
-> App Service의 신뢰할 수 있는 브라우저 앱에서 호출하여 App Service의 또 다른 REST API를 호출하거나 서버 방향 흐름을 사용하여 [Azure Functions](../azure-functions/functions-overview.md)를 인증할 수 있습니다. 자세한 내용은 [App Service에서 인증 및 권한 부여 사용자 지정](app-service-authentication-how-to.md)을 참조하세요.
+> 앱 서비스의 신뢰할 수 있는 브라우저 앱에서 앱 서비스 또는 [Azure 함수의](../azure-functions/functions-overview.md) 다른 REST API로의 호출은 서버 지향 흐름을 사용하여 인증할 수 있습니다. 자세한 내용은 [App Service에서 인증 및 권한 부여 사용자 지정](app-service-authentication-how-to.md)을 참조하세요.
 >
 
 아래 표는 인증 흐름 단계를 보여줍니다.

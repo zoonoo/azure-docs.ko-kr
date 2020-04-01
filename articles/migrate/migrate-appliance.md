@@ -3,12 +3,12 @@ title: Azure Migrate 어플라이언스
 description: 서버 평가 및 마이그레이션에 사용되는 Azure 마이그레이션 어플라이언스에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: 1bb3372467919f1471fa9577cd60e9cecaf1750d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bccf4738d46b65f2d149eafc8e69591141d7d073
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336930"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437584"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
@@ -70,7 +70,7 @@ Azure 마이그레이션 어플라이언스는 다음 시나리오에서 사용�
 **지원되는 배포** | PowerShell 설치 스크립트를 사용하여 전용 물리적 컴퓨터 또는 VM으로 배포합니다.
 **프로젝트 지원** |  어플라이언스는 단일 프로젝트와 연결할 수 있습니다. <br/> 어플라이언스 의 수는 단일 프로젝트와 연결할 수 있습니다.<br/> 
 **검색 제한** | 어플라이언스는 최대 250개의 물리적 서버를 검색할 수 있습니다.
-**파워쉘 스크립트** | 포털의 압축된 폴더에서 스크립트(AzureMigrateInstaller.ps1)를 다운로드합니다. [자세히 알아봅니다](tutorial-assess-physical.md#set-up-the-appliance). 또는 [직접 다운로드합니다.](https://go.microsoft.com/fwlink/?linkid=2105112)<br/><br/> 다운로드 크기는 59.7 MB입니다.
+**파워쉘 스크립트** | 포털의 압축된 폴더에서 스크립트(AzureMigrateInstaller.ps1)를 다운로드합니다. [자세히 알아보기](tutorial-assess-physical.md#set-up-the-appliance). 또는 [직접 다운로드합니다.](https://go.microsoft.com/fwlink/?linkid=2105112)<br/><br/> 다운로드 크기는 59.7 MB입니다.
 **소프트웨어/하드웨어** |  어플라이언스는 Windows Server 2016, 32GB RAM, 8vCPU, 약 80GB의 디스크 저장소 및 외부 가상 스위치가 있는 컴퓨터에서 실행되어야 합니다.<br/> 어플라이언스는 정적 또는 동적 IP 주소가 필요하며 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> 실제 컴퓨터에서 어플라이언스를 실행하는 경우 Windows Server 2016을 실행하고 하드웨어 요구 사항을 충족하는지 확인합니다. 
 **해시 값** | PowerShell 스크립트 해시 값을 [확인합니다.](deploy-appliance-script.md#verify-file-security)
 
@@ -79,14 +79,14 @@ Azure 마이그레이션 어플라이언스는 다음 시나리오에서 사용�
 Azure 마이그레이션 어플라이언스는 인터넷에 연결해야 합니다.
 
 - 어플라이언스를 배포할 때 Azure Migrate는 아래 표에 요약된 URL에 대한 연결 검사를 수행합니다.
-- URL 기반 프록시를 사용하여 인터넷에 연결하는 경우 이러한 URL에 대한 액세스를 허용하여 URL을 조회하는 동안 받은 CNAME 레코드를 프록시에서 확인합니다.
+- URL 기반 프록시를 사용하여 인터넷에 연결하는 경우 이러한 URL에 대한 액세스를 허용해야 하며, URL을 조회하는 동안 받은 CNAME 레코드를 프록시에서 확인할 수 있어야 합니다.
 
-**Url** | **세부 정보**  
+**URL** | **세부 정보**  
 --- | --- |
 *.portal.azure.com  | Azure Portal로 이동합니다.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Azure 구독에 로그인합니다.
-*.microsoftonline.com <br/> *.microsoftonline-p.com | Azure 마이그레이션과 통신할 어플라이언스에 대한 Active Directory 앱을 만듭니다.
-management.azure.com | Azure 마이그레이션 서비스와 통신할 어플라이언스에 대한 Active Directory 앱을 만듭니다.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | 어플라이언스가 Azure 마이그레이션과 통신할 수 있도록 Azure Active Directory(AD) 앱을 만듭니다.
+management.azure.com | 어플라이언스에 대한 Azure AD 앱을 만들어 Azure 마이그레이션 서비스와 통신합니다.
 dc.services.visualstudio.com | 내부 모니터링에 사용되는 앱 로그를 업로드합니다.
 *.vault.azure.net | Azure 키 자격 증명 모음에서 비밀을 관리합니다.
 aka.ms/* | 일명 링크에 대한 액세스를 허용합니다. Azure 마이그레이션 어플라이언스 업데이트에 사용됩니다.
@@ -144,7 +144,7 @@ IPv6 주소 | vm.Guest.Net
 읽기 처리량(초당 MB) | net.received.average
 쓰기 처리량(초당 MB) | net.transmitted.average
 **인벤토리 경로 세부 정보** | 
-이름 | container.GetType().Name
+속성 | container.GetType().Name
 자식 개체 유형 | container.ChildType
 참조 세부 정보 | container.MoRef
 부모 세부 정보 | Container.Parent

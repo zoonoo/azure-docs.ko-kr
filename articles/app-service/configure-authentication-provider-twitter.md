@@ -1,22 +1,22 @@
 ---
 title: Twitter 인증 구성
-description: 앱 서비스 앱의 ID 공급자로 트위터 인증을 구성하는 방법을 알아보세요.
+description: 앱 서비스 또는 Azure Functions 앱의 ID 공급자로 트위터 인증을 구성하는 방법을 알아봅니다.
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
 ms.topic: article
 ms.date: 02/28/2020
-ms.custom: seodec18
-ms.openlocfilehash: 794f671b36b5aeb9f19cf5d80e488500cedb1098
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 3f85f30e0a64b6e39b905fc05503a445aa5876ba
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78207145"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437991"
 ---
-# <a name="configure-your-app-service-app-to-use-twitter-login"></a>트위터 로그인을 사용하도록 앱 서비스 앱 구성
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-twitter-login"></a>트위터 로그인을 사용하도록 앱 서비스 또는 Azure Functions 앱 구성
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-이 문서에서는 트위터를 인증 공급자로 사용하도록 Azure 앱 서비스를 구성하는 방법을 보여 주며 있습니다.
+이 문서에서는 트위터를 인증 공급자로 사용하도록 Azure 앱 서비스 또는 Azure 함수를 구성하는 방법을 보여 주며 있습니다.
 
 이 문서의 절차를 완료하려면 확인된 이메일 주소와 전화 번호가 있는 트위터 계정이 필요합니다. 새 Twitter 계정을 만들려면 [twitter.com]으로 이동합니다.
 
@@ -69,5 +69,5 @@ ms.locfileid: "78207145"
 
 [Twitter 개발자]: https://go.microsoft.com/fwlink/p/?LinkId=268300
 [twitter.com]: https://go.microsoft.com/fwlink/p/?LinkID=268287
-[Azure 포털]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md

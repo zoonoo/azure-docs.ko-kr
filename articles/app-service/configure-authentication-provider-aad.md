@@ -1,22 +1,26 @@
 ---
 title: Azure AD 인증 구성
-description: Azure Active Directory 인증을 앱 서비스 앱의 ID 공급자로 구성하는 방법을 알아봅니다.
+description: 앱 서비스 또는 Azure Functions 앱의 ID 공급자로 Azure Active Directory 인증을 구성하는 방법을 알아봅니다.
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 09/03/2019
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: fdad1f820d006c39fa135a29a5ec7377c47591f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b42f0966288e4ee72b689ddce6313a41e91f13e
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80046454"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80438028"
 ---
-# <a name="configure-your-app-service-app-to-use-azure-ad-login"></a>Azure AD 로그인을 사용하도록 앱 서비스 앱 구성
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Azure AD 로그인을 사용하도록 앱 서비스 또는 Azure Functions 앱 구성
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-이 문서에서는 Azure Active Directory(Azure AD)를 인증 공급자로 사용하도록 Azure 앱 서비스를 구성하는 방법을 보여 주며 있습니다.
+이 문서에서는 Azure App Service 또는 Azure 함수를 인증 공급자로 Azure Active Directory(Azure AD)를 사용하도록 구성하는 방법을 보여 주며 있습니다.
+
+> [!NOTE]
+> 현재 Azure [Active Directory v2.0(MSAL](../active-directory/develop/v2-overview.md) 포함)은 Azure 앱 서비스 및 Azure 함수에 대해 지원되지 않습니다. [MSAL](../active-directory/develop/msal-overview.md) 업데이트를 다시 확인하시기 바랍니다.
+>
 
 앱 및 인증을 설정할 때 다음 모범 사례를 따르십시오.
 
@@ -72,7 +76,8 @@ ms.locfileid: "80046454"
 1. **URI 리디렉션에서** **웹을** 선택하고 `<app-url>/.auth/login/aad/callback`을 입력합니다. `https://contoso.azurewebsites.net/.auth/login/aad/callback`)을 입력합니다. 
 1. **만들기**를 선택합니다.
 1. 앱 등록을 만든 후 **나중에 응용 프로그램(클라이언트) ID와** **디렉터리(테넌트) ID를** 복사합니다.
-1. **브랜딩**을 선택합니다. **홈 페이지 URL에서**앱 서비스 앱의 URL을 입력하고 **저장을**선택합니다.
+1. **인증**을 선택합니다. **암시적 부여에서** **ID 토큰을** 사용하여 앱 서비스에서 OpenID Connect 사용자 로그인을 허용합니다.
+1. (선택 사항) 브랜딩 을 **선택합니다.** **홈 페이지 URL에서**앱 서비스 앱의 URL을 입력하고 **저장을**선택합니다.
 1. **API** > **집합**노출을 선택합니다. 앱 서비스 앱의 URL에 붙여넣은 다음 **저장을**선택합니다.
 
    > [!NOTE]
@@ -93,10 +98,10 @@ ms.locfileid: "80046454"
 1. **인증 공급자**에서 **Azure Active Directory**를 선택합니다.
 1. **관리 모드에서** **고급** 을 선택하고 다음 표에 따라 앱 서비스 인증을 구성합니다.
 
-    |필드|설명|
+    |필드|Description|
     |-|-|
     |클라이언트 ID| 앱 등록의 **응용 프로그램(클라이언트) ID를** 사용합니다. |
-    |발급자 ID| 을 `https://login.microsoftonline.com/<tenant-id>`사용하고 * \<테넌트 id>* 앱 등록의 **디렉터리(테넌트) ID로** 바꿉니다. |
+    |발급자 URL| 을 `https://login.microsoftonline.com/<tenant-id>`사용하고 * \<테넌트 id>* 앱 등록의 **디렉터리(테넌트) ID로** 바꿉니다. 이 값은 사용자를 올바른 Azure AD 테넌트로 리디렉션하고 적절한 메타데이터를 다운로드하여 적절한 토큰 서명 키 및 토큰 발급자 클레임 값을 결정하는 데 사용됩니다. |
     |클라이언트 보안(선택 사항)| 앱 등록에서 생성한 클라이언트 비밀을 사용합니다.|
     |허용된 토큰 잠재고객| 클라우드 또는 서버 앱이고 웹 앱에서 인증 토큰을 허용하려는 경우 여기에 웹 앱의 **응용 프로그램 ID URI를** 추가합니다. 구성된 **클라이언트 ID는** *항상* 암시적으로 허용된 대상으로 간주됩니다. |
 
@@ -106,21 +111,21 @@ ms.locfileid: "80046454"
 
 ## <a name="configure-a-native-client-application"></a>네이티브 클라이언트 애플리케이션 구성
 
-네이티브 클라이언트를 등록하여 **Active Directory 인증 라이브러리와**같은 클라이언트 라이브러리를 사용하여 인증을 허용할 수 있습니다.
+네이티브 클라이언트를 등록하여 **Active Directory 인증 라이브러리와**같은 클라이언트 라이브러리를 사용하여 앱에서 호스팅되는 Web API에 대한 인증을 허용할 수 있습니다.
 
 1. Azure [포털에서] **Active Directory** > 앱 등록**새 등록을****선택합니다.** > 
 1. 응용 **프로그램 등록** 페이지에서 앱 등록의 **이름을** 입력합니다.
 1. **URI 리디렉션에서** **공용 클라이언트(모바일 & 데스크톱)를** `<app-url>/.auth/login/aad/callback`선택하고 URL을 입력합니다. `https://contoso.azurewebsites.net/.auth/login/aad/callback`)을 입력합니다.
 
     > [!NOTE]
-    > Windows 응용 프로그램의 경우 [패키지 SID를](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) URI로 사용합니다.
+    > Microsoft Store 응용 프로그램의 경우 [패키지 SID를](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) URI로 대신 사용합니다.
 1. **만들기**를 선택합니다.
 1. 앱 등록을 만든 후 응용 **프로그램(클라이언트) ID**값을 복사합니다.
 1. **API 권한** > 선택**권한 권한** > **내 API**추가 .
 1. 앱 서비스 앱에 대해 이전에 만든 앱 등록을 선택합니다. 앱 등록이 표시되지 않으면 [앱 서비스 앱에 대한 Azure AD에서 앱 등록 만들기에서](#register) **user_impersonation** 범위를 추가했는지 확인합니다.
 1. **user_impersonation**을 선택한 다음 **권한 추가를 선택합니다.**
 
-이제 App Service 앱에 액세스할 수 있는 네이티브 클라이언트 애플리케이션을 구성했습니다.
+이제 사용자를 대신하여 앱 서비스 앱에 액세스할 수 있는 네이티브 클라이언트 응용 프로그램을 구성했습니다.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>다음 단계
 
@@ -128,4 +133,4 @@ ms.locfileid: "80046454"
 
 <!-- URLs. -->
 
-[Azure 포털]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/13/2019
+ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e3a240901ffca2c126e2b61eaee0cf287cc31d6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 595762e6e8f22dddff30f1cff8c4bb79e89624b1
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127498"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473857"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>원격 데스크톱 클라이언트 문제 해결
 
@@ -21,21 +21,15 @@ ms.locfileid: "79127498"
 
 ## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Windows 7 또는 Windows 10용 원격 데스크톱 클라이언트가 응답을 중지하거나 열 수 없습니다.
 
-다음 PowerShell cmdlet을 사용하여 OOB(대역 외) 클라이언트 레지스트리를 정리합니다.
+버전 1.2.790부터 는 정보 페이지에서 사용자 데이터를 재설정하거나 명령을 사용할 수 있습니다.
 
-```PowerShell
-Remove-ItemProperty 'HKCU:\Software\Microsoft\Terminal Server Client\Default' - Name FeedURLs
+다음 명령을 사용하여 사용자 데이터를 제거하고, 기본 설정을 복원하고, 모든 작업 영역의 구독을 취소합니다.
 
-#Remove RdClientRadc registry key
-Remove-Item 'HKCU:\Software\Microsoft\RdClientRadc' -Recurse
-
-#Remove all files under %appdata%\RdClientRadc
-Remove-Item C:\Users\pavithir\AppData\Roaming\RdClientRadc\* -Recurse
+```cmd
+msrdcw.exe /reset [/f]
 ```
 
-**%AppData%\RdClientRadc로** 이동하여 모든 콘텐츠를 삭제합니다.
-
-제거 하 고 윈도 즈에 대 한 원격 데스크톱 클라이언트를 다시 설치 7 그리고 윈도우 10.
+이전 버전의 원격 데스크톱 클라이언트를 사용하는 경우 클라이언트를 제거하고 다시 설치하는 것이 좋습니다.
 
 ## <a name="web-client-wont-open"></a>웹 클라이언트가 열리지 않습니다.
 

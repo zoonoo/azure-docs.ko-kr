@@ -3,12 +3,12 @@ title: Microsoft Azure 복구 서비스(MARS) 에이전트 설치
 description: Windows 컴퓨터를 백업하기 위해 MICROSOFT Azure 복구 서비스(MARS) 에이전트를 설치하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: b9a6791709d5aff82d11bbf10e5f084fd8c1a000
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d3932b66dbc41ff2631e2cccbe716c0877a509d3
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247762"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422925"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Azure 백업 MARS 에이전트 설치
 
@@ -36,6 +36,7 @@ Azure Backup은 MARS 에이전트를 사용하여 온-프레미스 컴퓨터 및
 * 지원되는 내용과 MARS 에이전트가 [백업할 수](backup-support-matrix-mars-agent.md) 있는 내용을 검토합니다.
 * 서버 또는 클라이언트를 Azure에 백업해야 하는 경우 Azure 계정이 있는지 확인합니다. 계정이 없는 경우 단 몇 분 만에 [무료](https://azure.microsoft.com/free/) 계정을 만들 수 있습니다.
 * 백업하려는 컴퓨터에서 인터넷 액세스를 확인합니다.
+* MARS 에이전트의 설치 및 구성을 수행하는 사용자가 보호할 서버에 로컬 관리자 권한이 있는지 확인합니다.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

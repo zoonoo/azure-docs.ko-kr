@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 11/04/2019
-ms.openlocfilehash: ec2d9152bf8d3d7c60f00e902f155212ee1b81cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: f9ca75943eaec2ae018b54145d872fc09294035e
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270421"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398175"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure 기계 학습에서 계산 대상이란 무엇입니까? 
 
@@ -48,12 +48,14 @@ Azure 기계 학습은 다양한 계산 리소스에 따라 다양한 지원을 
 
 관리되는 계산 리소스는 Azure 기계 학습에 의해 만들어지고 관리됩니다. 이 계산은 기계 학습 워크로드에 최적화되어 있습니다. Azure 기계 학습 계산 클러스터 및 [계산 인스턴스는](concept-compute-instance.md) 관리되는 유일한 계산입니다. 나중에 관리되는 계산 리소스를 추가로 추가할 수 있습니다.
 
-Azure 기계 학습 계산 인스턴스(미리 보기)를 만들거나 다음에서 클러스터를 계산할 수 있습니다.
+Azure 기계 학습 계산 인스턴스(미리 보기)를 만들거나 다음 에서 클러스터를 계산할 수 있습니다.
+* Azure Machine Learning Studio
+* Azure portal
+* 파이썬 SDK [컴퓨트인스턴스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) 및 [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) 클래스
+* [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets)
+* Resource Manager 템플릿
 
-| | Azure Machine Learning Studio | Azure portal | SDK) | Resource Manager 템플릿 | CLI |
-|---| ----- | ----- | ----- | ----- | ----- |
-| 컴퓨팅 인스턴스 | 예 | 예 | 예 | 예 |  |
-| 컴퓨팅 클러스터 | 예 | 예 | 예 | 예 | 예 |
+[Azure CLI](tutorial-train-deploy-model-cli.md#create-the-compute-target-for-training)에 대한 기계 학습 확장을 사용하여 계산 클러스터를 만들 수도 있습니다.
 
 이러한 계산 리소스를 만들면 다른 종류의 계산 대상과 달리 작업 영역의 일부가 자동으로 생성됩니다.
 

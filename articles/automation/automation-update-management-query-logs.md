@@ -3,14 +3,14 @@ title: Azure 업데이트 관리 로그 쿼리
 description: 이 문서에서는 로그 분석 작업 영역에서 업데이트 관리에 대한 로그를 쿼리하는 방법을 설명합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 03/11/2020
+ms.date: 03/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: f31168d47f31d8e740c95cb3d9e449f473cc78dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 863016bbeda9b4aec3bf2b4e12830bd30098150f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79216840"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437850"
 ---
 # <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Azure 모니터 로그의 업데이트 관리에 대한 쿼리 업데이트 레코드
 
@@ -26,7 +26,7 @@ Windows 및 Linux VM용 업데이트 관리에서 수집한 레코드및 로그 
 
 컴퓨터에서 필요한 업데이트를 `RequiredUpdate` 나타내는 유형이 있는 레코드가 만들어집니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | 설명 | 
+| 속성 | Description | 
 |----------|-------------|
 | Computer | 보고 시스템의 정규화된 도메인 이름입니다. |
 | KBID | Windows 업데이트에 대한 기술 자료 문서 ID입니다. |
@@ -47,7 +47,7 @@ Windows 및 Linux VM용 업데이트 관리에서 수집한 레코드및 로그 
 
 사용 가능한 업데이트와 `Update` 컴퓨터에 대한 설치 상태를 나타내는 유형이 있는 레코드가 만들어집니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | 설명 | 
+| 속성 | Description | 
 |----------|-------------|
 | 승인 소스 | Windows 운영 체제에만 적용됩니다. 값은 *마이크로 소프트 업데이트입니다*. |
 | 승인됨 | *참* 또는 *거짓* |
@@ -84,7 +84,7 @@ Windows 및 Linux VM용 업데이트 관리에서 수집한 레코드및 로그 
 
 컴퓨터의 업데이트 에이전트에 대한 세부 정보를 제공하는 유형이 `UpdateAgent` 있는 레코드가 만들어집니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | 설명 | 
+| 속성 | Description | 
 |----------|-------------|
 | 에이지오브데니드실종필수업데이트 | | 
 | AutomaticUpdateEnabled | | 
@@ -105,7 +105,7 @@ Windows 및 Linux VM용 업데이트 관리에서 수집한 레코드및 로그 
 
 컴퓨터별로 예약된 `UpdateRunProgress` 배포의 업데이트 배포 상태를 제공하는 유형이 있는 레코드가 만들어집니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | 설명 | 
+| 속성 | Description | 
 |----------|-------------|
 | Computer | 보고 시스템의 정규화된 도메인 이름입니다. |
 | 컴퓨터 환경 | *Azure* 또는 *비Azure*. | 
@@ -137,14 +137,14 @@ Windows 및 Linux VM용 업데이트 관리에서 수집한 레코드및 로그 
 
 컴퓨터별로 업데이트 요약을 제공하는 유형이 `UpdateSummary` 있는 레코드가 만들어집니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | 설명 | 
+| 속성 | Description | 
 |----------|-------------|
 | Computer | 보고 시스템의 정규화된 도메인 이름입니다. |
 | 컴퓨터 환경 | *Azure* 또는 *비Azure*. | 
 | CriticalUpdatesMissing | 해당되는 중요 업데이트가 누락된 횟수입니다. | 
 | ManagementGroupName | 운영 관리자 관리 그룹 또는 로그 분석 작업 영역의 이름입니다. |
 | NETRuntimeVersion | Windows 컴퓨터에 설치된 .NET 프레임워크 버전입니다. |
-| OldestMissingSecurityUpdateBucket | 값은 다음과 같습니다.<br> *최근*<br> *30일 전*<br> *60일 전*<br> *더 오래된 버전* | 
+| OldestMissingSecurityUpdateBucket | 값은 다음과 같습니다.<br> *최근* 의 경우 값이 30일 미만인 경우<br> *30일 전*<br> *60일 전*<br> *90일 전*<br> *120일 전*<br> *150일 전*<br> *180일 전*<br> 값이 180일을 초과하는 경우 *이전* | 
 | OldestMissingSecurityUpdateInDays | 설치되지 않은 해당 업데이트가 검색된 가장 오래된 업데이트의 총 일 수입니다. |
 | OsVersion | 운영 체제의 버전입니다. |
 | OtherUpdatesMissing | 검색된 업데이트 수가 누락되었습니다. |

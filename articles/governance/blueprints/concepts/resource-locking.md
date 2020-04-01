@@ -1,18 +1,21 @@
 ---
 title: 리소스 잠금 이해
 description: 블루프린트를 할당할 때 리소스를 보호하기 위해 Azure Blueprints의 잠금 옵션에 대해 알아봅니다.
-ms.date: 02/27/2020
+ms.date: 03/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: b810e8d4ddd263f9e651704d1bf9b785ce0202db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 86897ae6665f7a339b51aaae5f1c00144d8b7309
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78199702"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437743"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Azure Blueprints의 리소스 잠금 이해
 
 일관성 있는 환경을 원하는 규모로 만든다고 해도 해당 일관성을 유지할 수 있는 메커니즘이 있어야 환경을 적절하게 활용할 수 있습니다. 이 문서에서는 Azure Blueprints에서 리소스 잠금이 작동하는 방식에 대해 설명합니다. 리소스 잠금 및 _거부 할당_응용 프로그램의 예를 보려면 새 [리소스 보호](../tutorials/protect-new-resources.md) 자습서를 참조하십시오.
+
+> [!NOTE]
+> Azure Blueprint에서 배포한 리소스 잠금은 Blueprint 할당에 의해 배포된 리소스에만 적용됩니다. 이미 있는 리소스 그룹에 있는 리소스와 같은 기존 리소스에는 잠금이 추가되지 않습니다.
 
 ## <a name="locking-modes-and-states"></a>잠금 모드 및 상태
 
@@ -21,7 +24,7 @@ ms.locfileid: "78199702"
 
 Blueprint 할당에서 아티팩트로 만든 리소스에는 **잠기지 않음,** **읽기 전용 읽기,** **편집/삭제/** 삭제 할 수 없음 의 네 가지 상태가 **있습니다.** 각 아티팩트 형식은 **잠겨있지 않음** 상태일 수 있습니다. 다음 표를 사용하여 리소스의 상태를 확인할 수 있습니다.
 
-|Mode|아티팩트 리소스 형식|시스템 상태|설명|
+|Mode|아티팩트 리소스 형식|시스템 상태|Description|
 |-|-|-|-|
 |잠그지 않음|*|잠겨있지 않음|리소스는 청사진에 의해 보호되지 않습니다. 이 상태는 또한 청사진 할당 외부에서 **읽기 전용** 또는 **삭제 안 함** 리소스 그룹 아티팩트에 추가된 리소스에 사용됩니다.|
 |읽기 전용|Resource group|편집/삭제할 수 없음|리소스 그룹이 읽기 전용이며 리소스 그룹의 태그를 수정할 수 없습니다. **잠겨 있지 않음** 리소스는 이 리소스 그룹에서 추가, 이동, 변경 또는 삭제할 수 있습니다.|

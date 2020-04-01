@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: af1032de9aabac45ad7a86cfe1f36ed2c04c0f71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1c5bdd1d210a1933699cad52dbf123b50048e01
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75444613"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421323"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>가상 네트워크(VNet)에서 Azure Cosmos DB 액세스
 
@@ -34,7 +34,7 @@ ms.locfileid: "75444613"
 
 ### <a name="will-virtual-network-acls-and-ip-firewall-reject-requests-or-connections"></a>가상 네트워크 ACL 및 IP 방화벽은 요청 또는 연결을 거부하나요? 
 
-IP 방화벽 또는 가상 네트워크 액세스 규칙이 추가되면 허용된 원본의 요청만 유효한 응답을 가져옵니다. 다른 요청은 거부되며 403(금지됨)이 수신됩니다. Azure Cosmos 계정의 방화벽을 연결 수준 방화벽과 구별하는 것이 중요합니다. 원본은 여전히 서비스에 연결할 수 있으며 연결 자체는 거부되지 않습니다.
+IP 방화벽 또는 가상 네트워크 액세스 규칙이 추가되면 허용된 원본의 요청만 유효한 응답을 가져옵니다. 다른 요청은 거부되며 403(금지됨)이 수신됩니다. Azure Cosmos 계정의 방화벽을 연결 수준 방화벽과 구별하는 것이 중요합니다. 소스는 여전히 서비스에 연결할 수 있으며 연결 자체는 거부되지 않습니다.
 
 ### <a name="my-requests-started-getting-blocked-when-i-enabled-service-endpoint-to-azure-cosmos-db-on-the-subnet-what-happened"></a>서비스 엔드포인트를 서브넷의 Azure Cosmos DB에 대해 사용하도록 설정했을 때 내 요청이 차단되기 시작했습니다. 어떻게 된 건가요?
 
@@ -50,7 +50,7 @@ Azure Cosmos 계정에 VNet 서비스 끝점을 추가한 후 계정 설정을 �
 Azure Cosmos 계정에 추가된 가상 네트워크 및 해당 서브넷만 액세스할 수 있습니다. 피어링된 가상 네트워크 내 서브넷이 계정에 추가될 때까지는 피어링된 해당 VNet이 계정에 액세스할 수 없습니다.
 
 ### <a name="what-is-the-maximum-number-of-subnets-allowed-to-access-a-single-cosmos-account"></a>단일 Cosmos 계정에 액세스할 수 있는 최대 서브넷 수는? 
-현재 Azure Cosmos 계정에 허용되는 서브넷은 최소 64개에 해당할 수 있습니다.
+현재 Azure Cosmos 계정에 허용되는 서브넷은 최소 256개에 해당합니다.
 
 ### <a name="can-i-enable-access-from-vpn-and-express-route"></a>VPN 및 Express Route의 액세스를 사용하도록 설정할 수 있나요? 
 온-프레미스에서 익스프레스 경로를 통해 Azure Cosmos 계정에 액세스하려면 Microsoft 피어링을 사용하도록 설정해야 합니다. IP 방화벽 또는 가상 네트워크 액세스 규칙을 입력한 후에는 Azure Cosmos 계정 IP 방화벽에서 Microsoft 피어링에 사용되는 공용 IP 주소를 추가하여 Azure Cosmos 계정에 대한 온-프레미스 서비스 액세스를 허용할 수 있습니다. 
@@ -59,7 +59,7 @@ Azure Cosmos 계정에 추가된 가상 네트워크 및 해당 서브넷만 액
 NSG 규칙은 가상 네트워크를 사용하여 서브넷 간의 연결을 제한하는 데 사용됩니다. 서브넷에 Azure Cosmos DB에 대한 서비스 엔드포인트를 추가한 경우 Azure Cosmos 계정에 대한 NSG에서 아웃바운드 연결을 열 필요가 없습니다. 
 
 ### <a name="are-service-endpoints-available-for-all-vnets"></a>모든 VNet에서 서비스 엔드포인트를 사용할 수 있나요?
-아니요, Azure Resource Manager 가상 네트워크만 서비스 엔드포인트를 사용하도록 설정할 수 있습니다. 클래식 가상 네트워크는 서비스 엔드포인트를 지원하지 않습니다.
+아니요, Azure Resource Manager 가상 네트워크만 서비스 엔드포인트를 사용하도록 설정할 수 있습니다. 클래식 가상 네트워크는 서비스 끝점을 지원하지 않습니다.
 
 ### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Azure Cosmos DB에 대해 서비스 엔드포인트 액세스가 가능하면 "공용 Azure 데이터 센터 내에서 연결을 허용"해도 되나요?  
 Azure Cosmos DB 계정이 Azure 데이터 팩터리, Azure 인지 검색 또는 지정된 Azure 지역에 배포된 모든 서비스와 같은 다른 Azure 자사 서비스에서 액세스하도록 하려는 경우에만 필요합니다.

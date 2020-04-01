@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: f9043ae1414b63f25583d52100774f3e87754a74
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54263a8be900ed381d8450b460e5cf9e6117ac54
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77661842"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436130"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>FAQ - Azure 보안 센터에 대한 일반적인 질문
 
 ## <a name="what-is-azure-security-center"></a>Azure Security Center란?
 Azure Security Center를 사용하면 리소스 보안에 대한 가시성을 높이고 제어하여 위협을 방지, 탐지 및 대응할 수 있습니다. 이는 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
 
-보안 센터는 Microsoft 모니터링 에이전트를 사용하여 데이터를 수집하고 저장합니다. 자세한 내용은 [Azure 보안 센터의 데이터 수집을](security-center-enable-data-collection.md)참조하십시오.
+보안 센터는 로그 분석 에이전트를 사용하여 데이터를 수집하고 저장합니다. 자세한 내용은 [Azure 보안 센터의 데이터 수집을](security-center-enable-data-collection.md)참조하십시오.
 
 
 ## <a name="how-do-i-get-azure-security-center"></a>Azure Security Center를 이용하려면 어떻게 해야 하나요?

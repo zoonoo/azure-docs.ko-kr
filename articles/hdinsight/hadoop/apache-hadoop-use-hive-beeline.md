@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 77a451cb9f6598bbe7013f4215cfa7cab40186bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f2b192765aab4c7cf18c62988ae2f6080b4b17c
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037537"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436894"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive와 Apache Beeline 클라이언트 사용
 
@@ -65,7 +65,7 @@ Ambari에서 JDBC URL을 찾으려면 다음을 수행하십시오.
 
 ### <a name="over-public-or-private-endpoints"></a>공용 또는 비공개 끝점 초과
 
-공용 또는 개인 끝점을 사용하여 클러스터에 연결할 때 클러스터 로그인 계정 `admin`이름(기본값)과 암호를 제공해야 합니다. 예를 들어 클라이언트 시스템에서 Beeline을 사용하여 `clustername.azurehdinsight.net` 주소에 연결합니다. 이 연결은 포트를 `443`통해 이루어지며 SSL을 사용하여 암호화됩니다.
+공용 또는 개인 끝점을 사용하여 클러스터에 연결할 때 클러스터 로그인 계정 `admin`이름(기본값)과 암호를 제공해야 합니다. 예를 들어 클라이언트 시스템에서 Beeline을 사용하여 `clustername.azurehdinsight.net` 주소에 연결합니다. 이 연결은 포트를 `443`통해 이루어지며 TLS/SSL을 사용하여 암호화됩니다.
 
 `clustername`을 HDInsight 클러스터 이름으로 바꿉니다. `admin`을 클러스터의 클러스터 로그인 계정으로 바꿉니다. ESP 클러스터의 경우 전체 UPN(예: user@domain.com)을 사용합니다. `password`를 클러스터 로그인 계정의 암호로 바꿉니다.
 
@@ -199,7 +199,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
     이러한 명령문은 다음과 같은 작업을 수행합니다.
 
-    |인수를 제거합니다. |설명 |
+    |인수를 제거합니다. |Description |
     |---|---|
     |DROP TABLE|테이블이 있으면 삭제됩니다.|
     |외부 테이블 만들기|Hive에서 **외부** 테이블을 만듭니다. 외부 테이블만 테이블 정의를 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.|
@@ -262,7 +262,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
     이러한 명령문은 다음과 같은 작업을 수행합니다.
 
-    |인수를 제거합니다. |설명 |
+    |인수를 제거합니다. |Description |
     |---|---|
     |테이블 만들기 존재하지 않는 경우|테이블이 아직 존재하지 않으면 테이블이 만들어집니다. **외부** 키워드가 사용되지 않으므로 이 문은 내부 테이블을 만듭니다. 내부 테이블은 Hive 데이터 웨어하우스에 저장되며 Hive에 서 완전히 관리됩니다.|
     |ORC로 저장|데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. ORC 형식은 Hive 데이터를 저장하기 위해 고도로 최적화되고 효율적인 형식입니다.|

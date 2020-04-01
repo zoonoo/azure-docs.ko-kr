@@ -3,12 +3,12 @@ title: 효과 작동 방식 이해
 description: Azure 정책 정의에는 규정 준수를 관리하고 보고하는 방법을 결정하는 다양한 효과가 있습니다.
 ms.date: 03/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 631c941173a500a4159a37c7c31107b9a6eab872
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0330cb5c732921efda3627dec92e486657097d82
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239976"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422447"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
@@ -158,7 +158,7 @@ Azure Resource Manager를 통해 리소스를 만들거나 업데이트하도록
 
 **운영** 속성에는 다음과 같은 옵션이 있습니다.
 
-|작업(Operation) |설명 |
+|작업(Operation) |Description |
 |-|-|
 |추가 Or바꾸기 |태그가 이미 다른 값으로 있는 경우에도 정의된 태그와 값을 리소스에 추가합니다. |
 |추가 |정의된 태그와 값을 리소스에 추가합니다. |
@@ -432,15 +432,15 @@ DeployIfNotExists 효과의 **세부 정보** 속성에는 일치할 관련 리�
 
 ## <a name="enforceopaconstraint"></a>시행OPA제약
 
-이 효과는 의 `Microsoft.Kubernetes.Data`정책 정의 *모드와* 함께 사용됩니다. [OPA 제약 프레임워크로](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) 정의된 게이트키퍼 v3 입학 제어 규칙을 OPA(개방형 [정책 에이전트)에](https://www.openpolicyagent.org/) Azure의 Kubernetes 클러스터로 전달하는 데 사용됩니다.
+이 효과는 의 `Microsoft.Kubernetes.Data`정책 정의 *모드와* 함께 사용됩니다. [OPA 제약 프레임워크로](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) 정의된 게이트키퍼 v3 입학 제어 규칙을 개방형 [정책](https://www.openpolicyagent.org/) 에이전트(OPA)에 Azure의 자체 관리 Kubernetes 클러스터로 전달하는 데 사용됩니다.
 
 > [!NOTE]
-> [Kubernetes에 대 한 Azure 정책은](aks-engine.md) 미리 보기에 기본 제공 정책 정의 만 지원 됩니다.
+> [AKS 엔진에 대한 Azure 정책은](aks-engine.md) 공개 미리 보기에 있으며 기본 제공 정책 정의만 지원합니다.
 
 ### <a name="enforceopaconstraint-evaluation"></a>시행OPA제약 평가
 
 개방형 정책 에이전트 승인 컨트롤러는 클러스터에 대한 새 요청을 실시간으로 평가합니다.
-15분마다 클러스터의 전체 검색이 완료되고 결과가 Azure Policy에 보고됩니다.
+5분마다 클러스터의 전체 검색이 완료되고 결과가 Azure Policy에 보고됩니다.
 
 ### <a name="enforceopaconstraint-properties"></a>EnforceOPA제약 속성
 
@@ -455,7 +455,7 @@ EnforceOPAConstraint 효과의 **세부 정보** 속성에는 게이트키퍼 v3
 
 ### <a name="enforceopaconstraint-example"></a>시행OPA제약 예제
 
-예: 게이트키퍼 v3 입학 제어 규칙으로 Kubernetes에서 컨테이너 CPU 및 메모리 리소스 제한을 설정합니다.
+예: 게이트키퍼 v3 입학 제어 규칙으로 AKS 엔진에서 컨테이너 CPU 및 메모리 리소스 제한을 설정합니다.
 
 ```json
 "if": {
@@ -490,8 +490,8 @@ EnforceOPAConstraint 효과의 **세부 정보** 속성에는 게이트키퍼 v3
 
 이 효과는 의 `Microsoft.ContainerService.Data`정책 정의 *모드와* 함께 사용됩니다. Azure [Kubernetes 서비스에서](../../../aks/intro-kubernetes.md) [Rego에서](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) [OPA(개방형 정책 에이전트)로](https://www.openpolicyagent.org/) 정의된 게이트키퍼 v2 입학 제어 규칙을 전달하는 데 사용됩니다.
 
-> [!IMPORTANT]
-> [Kubernetes에 대 한 Azure 정책은](rego-for-aks.md) 미리 보기에 기본 제공 정책 정의 만 지원 됩니다. 기본 제공 정책은 **Kubernetes** 범주에 있습니다. **강제 RegoPolicy** 효과 및 관련 **Kubernetes 서비스** 범주 정책 은 더 이상 _사용되지_않습니다. 대신 업데이트된 [EnforceOPAConstraint](#enforceopaconstraint) 효과를 사용합니다.
+> [!NOTE]
+> [AKS에 대 한 Azure 정책은](rego-for-aks.md) 제한 된 미리 보기에 기본 제공 정책 정의 지원
 
 ### <a name="enforceregopolicy-evaluation"></a>적용RegoPolicy 평가
 
@@ -540,7 +540,7 @@ EnforceRegoPolicy 효과의 **세부 정보** 속성에는 게이트키퍼 v2 �
 
 ## <a name="layering-policies"></a>레이어링 정책
 
-리소스는 여러 할당에서 영향을 받을 수 있습니다. 이러한 할당은 동일한 범위 또는 서로 다른 범위에 있을 수 있습니다. 이러한 각 할당은 정의된 다른 효과를 가질 수 있습니다. 각 정책에 대한 조건 및 효과는 독립적으로 평가됩니다. 예를 들어:
+리소스는 여러 할당에서 영향을 받을 수 있습니다. 이러한 할당은 동일한 범위 또는 서로 다른 범위에 있을 수 있습니다. 이러한 각 할당은 정의된 다른 효과를 가질 수 있습니다. 각 정책에 대한 조건 및 효과는 독립적으로 평가됩니다. 다음은 그 예입니다.
 
 - 정책 1
   - 리소스 위치를 'westus'로 제한
