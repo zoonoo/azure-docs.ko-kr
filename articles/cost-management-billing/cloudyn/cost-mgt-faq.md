@@ -1,24 +1,26 @@
 ---
-title: Azure의 Cloudyn에 대한 질문과 대답 | Microsoft Docs
+title: Azure의 Cloudyn에 대한 질문과 대답
 description: 이 문서에서는 Cloudyn에 대한 일반적인 질문에 대한 답변을 제공합니다.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
-ms.topic: troubleshooting
+ms.date: 03/12/2020
+ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 5c770d83d59edf0a56184f8eea0bda6b0603893c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: b1ec81ea135079defb390becc025f51cde2dad7f
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76770072"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411252"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Cloudyn에 대한 질문과 대답
 
 이 문서에서는 Cloudyn에 대한 몇 가지 일반적인 질문을 다룹니다. Cloudyn에 대한 질문이 있을 경우 [Cloudyn에 대 한 FAQ](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-cloudyn-cost-management?forum=Cloudyn)로 문의할 수 있습니다.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>간접 기업의 일반적인 설정 문제를 해결하는 방법은 무엇일까요?
 
@@ -46,7 +48,7 @@ Cloudyn을 설정하기 위해 Azure Enterprise Agreement API 키를 생성하�
 
 부서 관리자, 계정 소유자 및 엔터프라이즈 관리자에게 청구 API로 _요금 보기_ 권한을 부여해야 할 수도 있습니다.
 
-## <a name="why-dont-i-see-optimizer-recommendations"></a>Optimizer 권장 사항 표시되지 않는 이유
+## <a name="why-dont-i-see-optimizer-recommendations"></a>Optimizer 권장 사항이 표시되지 않는 이유는 무엇인가요?
 
 권장 사항 정보는 활성화된 계정에만 사용할 수 있습니다. 다음을 포함하여, *활성화되지 않은* 계정에 대해서는 **Optimizer** 보고서 카테고리에 권장 사항 정보가 표시되지 않습니다.
 
@@ -58,13 +60,13 @@ Optimizer 권장 사항 데이터가 표시되지 않는다면 계정이 비활�
 
 계정을 활성화하려면
 
-1.  Cloudyn 포털의 오른쪽 위에서 **설정**을 클릭하고 **클라우드 계정**을 선택합니다.
-2.  Microsoft Azure 계정 탭에서 **활성화되지 않은** 구독이 있는 계정을 찾습니다.
-3.  활성화되지 않은 계정의 오른쪽에서 연필 모양인 **편집** 기호를 클릭합니다.
-4.  테넌트 ID와 등급 ID가 자동으로 검색됩니다. **다음**을 클릭합니다.
-5.  Azure Portal로 리디렉션됩니다. 포털에 로그인하고 Cloudyn Collector에게 Azure 데이터 액세스 권한을 부여합니다.
-6.  다음으로 Cloudyn 계정 관리 페이지로 리디렉션되며 해당 구독이 **활성** 계정 상태로 업데이트됩니다. 녹색 확인 표시가 기호가 나타납니다.
-7.  하나 이상의 구독에 대해 녹색 확인 표시가 나타나지 않는다면 해당 구독에 대해 판독기 앱(CloudynCollector)을 만들 권한이 없는 것입니다. 구독에 대해 더 높은 권한이 있는 사용자가 3, 4단계를 반복해야 합니다.  
+1.    Cloudyn 포털의 오른쪽 위에서 **설정**을 클릭하고 **클라우드 계정**을 선택합니다.
+2.    Microsoft Azure 계정 탭에서 **활성화되지 않은** 구독이 있는 계정을 찾습니다.
+3.    활성화되지 않은 계정의 오른쪽에서 연필 모양인 **편집** 기호를 클릭합니다.
+4.    테넌트 ID와 등급 ID가 자동으로 검색됩니다. **다음**을 클릭합니다.
+5.    Azure Portal로 리디렉션됩니다. 포털에 로그인하고 Cloudyn Collector에게 Azure 데이터 액세스 권한을 부여합니다.
+6.    다음으로 Cloudyn 계정 관리 페이지로 리디렉션되며 해당 구독이 **활성** 계정 상태로 업데이트됩니다. 녹색 확인 표시가 기호가 나타납니다.
+7.    하나 이상의 구독에 대해 녹색 확인 표시가 나타나지 않는다면 해당 구독에 대해 판독기 앱(CloudynCollector)을 만들 권한이 없는 것입니다. 구독에 대해 더 높은 권한이 있는 사용자가 3, 4단계를 반복해야 합니다.  
 
 이전 단계를 완료한 후 하루 이틀 안에 Optimizer 권장 사항을 볼 수 있습니다. 그러나 전체 최적화 데이터를 사용할 수 있으려면 최대 5일까지 소요됩니다.
 
@@ -95,7 +97,7 @@ Cloudyn의 메일 주소를 Azure의 기본 주소에서 변경하면 계정이 
 
 Cloudyn 포털에 로그인할 수 없는 경우 올바른 URL을 사용하여 Cloudyn에 로그인했는지 확인합니다. [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade)를 사용합니다.
 
-Cloudyn 직접 URL https://app.cloudyn.com 은 사용하지 마세요.
+Cloudyn 직접 URL `https://app.cloudyn.com`은 사용하지 마세요.
 
 ## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>Azure 자격 증명으로 활성화되지 않은 계정을 활성화하는 방법
 
