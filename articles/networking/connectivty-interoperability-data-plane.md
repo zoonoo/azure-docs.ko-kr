@@ -1,5 +1,5 @@
 ---
-title: 'Azure 백 엔드 연결 기능의 상호 운용성: 데이터 평면 분석 | Microsoft Docs'
+title: 'Azure의 상호 운용성 : 데이터 평면 분석'
 description: 이 문서에서는 ExpressRoute, 사이트 간 VPN 및 Azure의 가상 네트워크 피어링 간의 상호 운용성을 분석하는 데 사용할 수 있는 테스트 설정의 데이터 평면 분석에 대해 설명합니다.
 documentationcenter: na
 services: networking
@@ -10,14 +10,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 815976c672272270e465610e17fef3aea79387f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe7b74b0d4d065d4f222fefbbdc4a1d434d1163b
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77526640"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518258"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Azure 백 엔드 연결 기능의 상호 운용성: 데이터 평면 분석
+# <a name="interoperability-in-azure--data-plane-analysis"></a>Azure의 상호 운용성 : 데이터 평면 분석
 
 이 문서에서는 [테스트 설정][Setup]의 데이터 평면 분석에 대해 설명합니다. 테스트 설정의 [테스트 설정 구성][Configuration] 및 [제어 평면 분석][Control-Analysis]을 검토할 수도 있습니다.
 
@@ -164,7 +164,7 @@ VNet(가상 네트워크) 피어링은 피어링된 두 VNet 간의 네트워크
 
     Trace complete.
 
-이 경로 추적에서 첫 번째 홉은 MSEE에 대한 허브 VNet의 ExpressRoute 게이트웨이 터널 엔드포인트입니다. 두 번째 및 세 번째 홉은 CE 라우터와 온-프레미스 위치 1 LAN IP입니다. 이러한 IP 주소는 허브/스포크 VNet에서 보급되지 않습니다. 네 번째 홉은 온-프레미스 위치 1의 VM입니다.
+이 추적 경로에서 첫 번째 홉은 MSEE에 대한 허브 VNet의 ExpressRoute 게이트웨이 터널 끝점입니다. 두 번째 및 세 번째 홉은 CE 라우터와 온-프레미스 위치 1 LAN IP입니다. 이러한 IP 주소는 허브/스포크 VNet에서 보급되지 않습니다. 네 번째 홉은 온-프레미스 위치 1의 VM입니다.
 
 ### <a name="path-to-on-premises-location-2"></a>온-프레미스 위치 2 경로
 
@@ -182,7 +182,7 @@ VNet(가상 네트워크) 피어링은 피어링된 두 VNet 간의 네트워크
 
     Trace complete.
 
-이 경로 추적에서 첫 번째 홉은 MSEE에 대한 허브 VNet의 ExpressRoute 게이트웨이 터널 엔드포인트입니다. 두 번째 및 세 번째 홉은 CE 라우터와 온-프레미스 위치 2 LAN IP입니다. 이러한 IP 주소는 허브/스포크 VNet에서 보급되지 않습니다. 네 번째 홉은 온-프레미스 위치 2의 VM입니다.
+이 추적 경로에서 첫 번째 홉은 MSEE에 대한 허브 VNet의 ExpressRoute 게이트웨이 터널 끝점입니다. 두 번째 및 세 번째 홉은 CE 라우터와 온-프레미스 위치 2 LAN IP입니다. 이러한 IP 주소는 허브/스포크 VNet에서 보급되지 않습니다. 네 번째 홉은 온-프레미스 위치 2의 VM입니다.
 
 ### <a name="path-to-the-remote-vnet"></a>원격 VNet 경로
 
@@ -198,7 +198,7 @@ VNet(가상 네트워크) 피어링은 피어링된 두 VNet 간의 네트워크
 
     Trace complete.
 
-이 경로 추적에서 첫 번째 홉은 MSEE에 대한 허브 VNet의 ExpressRoute 게이트웨이 터널 엔드포인트입니다. 두 번째 홉은 원격 VNet의 게이트웨이 IP입니다. 두 번째 홉 IP 범위는 허브/스포크 VNet 내에서 보급되지 않습니다. 세 번째 홉은 원격 VNet의 VM입니다.
+이 추적 경로에서 첫 번째 홉은 MSEE에 대한 허브 VNet의 ExpressRoute 게이트웨이 터널 끝점입니다. 두 번째 홉은 원격 VNet의 게이트웨이 IP입니다. 두 번째 홉 IP 범위는 허브/스포크 VNet 내에서 보급되지 않습니다. 세 번째 홉은 원격 VNet의 VM입니다.
 
 ## <a name="data-path-from-the-branch-vnet"></a>분기 VNet에서 오는 데이터 경로
 
@@ -304,7 +304,7 @@ Network Watcher는 Azure 중심 보기만 제공합니다. 온-프레미스 관�
 
 ![4][4]
 
-앞서 설명했듯이, 테스트 설정은 온-프레미스 위치 1과 허브 VNet 간의 ExpressRoute에 대한 백업 연결로 사이트 간 VPN을 사용합니다. 백업 데이터 경로를 테스트하기 위해 온-프레미스 위치 1 기본 CE 라우터와 해당 MSEE 간의 ExpressRoute 연결 장애를 유도해 보겠습니다. ExpressRoute 연결 장애를 유도하기 위해 MSEE를 지향하는 CE 인터페이스를 종료합니다.
+앞서 설명했듯이, 테스트 설정은 온-프레미스 위치 1과 허브 VNet 간의 ExpressRoute에 대한 백업 연결로 사이트 간 VPN을 사용합니다. 백업 데이터 경로를 테스트하려면 온-프레미스 위치 1 기본 CE 라우터와 해당 MSEE 간에 ExpressRoute 링크 오류를 유도해 보겠습니다. ExpressRoute 연결 장애를 유도하기 위해 MSEE를 지향하는 CE 인터페이스를 종료합니다.
 
     C:\Users\rb>tracert 10.10.30.4
 

@@ -6,18 +6,17 @@ services: virtual-network
 documentationcenter: na
 author: KumudD
 ms.service: virtual-network
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: a22adef5510e24c2dc07ffb39c9687d500644f8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ed4ce6befda76069e965501a320dc110129a024
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066448"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521023"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>네트워크 보안 그룹을 만들기, 변경 또는 삭제
 
@@ -356,7 +355,7 @@ ms.locfileid: "80066448"
 
 ### <a name="network-security-group"></a>네트워크 보안 그룹
 
-| 작업                                                        |   이름                                                                |
+| 작업                                                        |   속성                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/read                  |   네트워크 보안 그룹 가져오기                                          |
 | Microsoft.Network/networkSecurityGroups/write                 |   네트워크 보안 그룹 만들기 또는 업데이트                             |
@@ -365,7 +364,7 @@ ms.locfileid: "80066448"
 
 ### <a name="network-security-group-rule"></a>네트워크 보안 그룹 규칙
 
-| 작업                                                        |   이름                                                                |
+| 작업                                                        |   속성                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/rules/read            |   규칙 가져오기                                                            |
 | Microsoft.Network/networkSecurityGroups/rules/write           |   규칙 만들기 또는 업데이트                                               |
@@ -373,7 +372,7 @@ ms.locfileid: "80066448"
 
 ### <a name="application-security-group"></a>애플리케이션 보안 그룹
 
-| 작업                                                                     | 이름                                                     |
+| 작업                                                                     | 속성                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |
 | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | IP 구성을 애플리케이션 보안 그룹에 조인|
 | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | 보안 규칙을 애플리케이션 보안 그룹에 조인    |

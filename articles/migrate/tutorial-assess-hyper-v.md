@@ -1,22 +1,19 @@
 ---
 title: Azure Migrate를 사용하여 Hyper-V VM 평가 및 Azure로 마이그레이션 | Microsoft Docs
-description: Azure Migrate를 사용하여 Azure로 마이그레이션할 온-프레미스 Hyper-V VM을 평가하는 방법을 설명합니다.
+description: Azure Migrate 서버 평가를 사용하여 Azure로 마이그레이션할 온-프레미스 Hyper-V VM을 평가하는 방법을 설명합니다.
 ms.topic: tutorial
-ms.date: 01/23/2020
+ms.date: 03/23/2020
 ms.custom: mvc
-ms.openlocfilehash: e4c505d74ff3bebc21f696b1c4b894afcdaa9974
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: cb3c29e01b7917a6d639b6b2a53fc2842efc2172
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222010"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80336767"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Azure Migrate 서버 평가를 사용하여 Hyper-V VM 평가
 
-이 문서에서는 Azure Migrate: 서버 평가 도구를 사용하여 온-프레미스 VMware VM을 평가하는 방법을 보여 줍니다.
-
-[Azure Migrate](migrate-services-overview.md)는 앱, 인프라 및 워크로드를 검색, 평가 및 Microsoft Azure로 마이그레이션하는 데 도움이 되는 도구의 허브를 제공합니다. 허브에는 Azure Migrate 도구와 타사 ISV(독립 소프트웨어 공급업체) 제품이 포함되어 있습니다.
-
+이 문서에서는 [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) 도구를 사용하여 온-프레미스 Hyper-V VM을 평가하는 방법을 보여줍니다.
 
 
 이 자습서는 Hyper-V VM을 평가하고 Azure로 마이그레이션하는 방법을 보여 주는 시리즈의 두 번째 자습서입니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
@@ -38,9 +35,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 - 이 시리즈의 첫 번째 자습서를 [완료](tutorial-prepare-hyper-v.md)합니다. 그렇지 않으면 이 자습서의 지침이 작동하지 않습니다.
 - 첫 번째 자습서에서 수행해야 하는 작업은 다음과 같습니다.
-    - Azure Migrate에 대한 [Azure 권한을 설정](tutorial-prepare-hyper-v.md#prepare-azure)합니다.
-    - 평가할 [Hyper-V 클러스터, 호스트 및 VM을 준비](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment)합니다.
-    - Hyper-V VM 검색 및 평가에 사용되는 Azure Migrate 어플라이언스의 [배포를 준비](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment)합니다.
+    - Azure Migrate를 사용할 수 있게 [Azure를 준비](tutorial-prepare-hyper-v.md#prepare-azure)합니다.
+    - [Hyper-V 준비](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) 호스트 및 VM 평가.
+    - [Hyper-V 평가용 Azure Migrate 어플라이언스를 배포하기 위해 필요한 내용을 ](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment)확인합니다.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Azure Migrate 프로젝트 설정
 
@@ -52,22 +49,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 4. **시작**에서**도구 추가**를 클릭합니다.
 5. **프로젝트 마이그레이션** 탭에서 Azure 구독을 선택하고, 아직 없는 경우 리소스 그룹을 만듭니다.
-6. **프로젝트 세부 정보**에서 프로젝트 이름과 프로젝트를 만들려는 지역을 지정합니다.
-
-
-    ![Azure Migrate 프로젝트 만들기](./media/tutorial-assess-hyper-v/migrate-project.png)
-
-    Azure Migrate 프로젝트는 다음 지역에서 만들 수 있습니다.
-
-    **지리** | **지역**
-    --- | ---
-    아시아  | 동남아시아
-    유럽 | 북유럽 또는 서유럽
-    United Kingdom |  영국 남부 또는 영국 서부
-    미국 | 미국 동부, 미국 서부 2 또는 미국 중서부
+6. **프로젝트 세부 정보**에서 프로젝트 이름과 프로젝트를 만들려는 지역을 지정합니다. Azure Migrate 프로젝트를 만들 수 있는 지역을 [검토](migrate-support-matrix.md#supported-geographies)합니다.
 
     - 프로젝트 지역은 온-프레미스 VM에서 수집된 메타데이터를 저장하는 데만 사용됩니다.
     - 다른 Azure 대상 지역은 VM을 마이그레이션할 때 선택할 수 있습니다. 모든 Azure 지역이 마이그레이션 대상으로 지원됩니다.
+
+    ![Azure Migrate 프로젝트 만들기](./media/tutorial-assess-hyper-v/migrate-project.png)
 
 7. **다음**을 클릭합니다.
 8. **평가 도구 선택**에서 **Azure Migrate: 서버 평가** > **다음**을 차례로 선택합니다.
@@ -78,18 +65,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 10. **검토 + 도구 추가**에서 설정을 검토하고, **도구 추가**를 클릭합니다.
 11. Azure Migrate 프로젝트가 배포될 때까지 몇 분 정도 기다립니다. 프로젝트 페이지로 이동합니다. 프로젝트가 표시되지 않으면 Azure Migrate 대시보드의 **서버**에서 액세스할 수 있습니다.
 
+## <a name="set-up-the-azure-migrate-appliance"></a>Azure Migrate 어플라이언스 설정
 
+Azure Migrate:server Assessment는 간단한 Azure Migrate 어플라이언스를 사용합니다. 어플라이언스는 VM 검색을 수행하고 VM 메타데이터 및 성능 데이터를 Azure Migrate에 보냅니다.
+- 다운로드한 Hyper-V VHD를 사용하여 Hyper-V VM에서 어플라이언스를 설정할 수 있습니다. 또는 PowerShell 설치 관리자 스크립트를 사용하여 VM 또는 물리적 머신에서 어플라이언스를 설정할 수 있습니다.
+- 이 자습서에서는 VHD를 사용합니다. 스크립트를 사용하여 어플라이언스를 설정하려면 [이 문서](deploy-appliance-script.md)를 검토하세요.
 
-
-## <a name="set-up-the-appliance-vm"></a>어플라이언스 VM 설정
-
-Azure Migrate 서버 평가는 경량 Hyper-V VM 어플라이언스를 실행합니다.
-
-- 이 어플라이언스는 VM 검색을 수행하고 VM 메타데이터 및 성능 데이터를 Azure Migrate: 서버 평가를 사용하여 만들 수 있는 평가에는 두 가지 유형이 있습니다.
-- 어플라이언스를 설정하려면 다음을 수행합니다.
-    - Azure Portal에서 압축된 Hyper-V VHD를 다운로드합니다.
-    - 어플라이언스를 만들고, Azure Migrate 서버 평가에 연결할 수 있는지 확인합니다.
-    - 어플라이언스를 처음으로 구성하고, Azure Migrate 프로젝트에 등록합니다.
+어플라이언스를 만든 후 Azure Migrate:Server Assessment에 연결하여, 처음으로 구성하고, Azure Migrate 프로젝트에 등록할 수 있는지 확인합니다.
 
 ### <a name="download-the-vhd"></a>VHD 다운로드
 
@@ -150,6 +132,9 @@ Azure Migrate 서버 평가는 경량 Hyper-V VM 어플라이언스를 실행합
 ### <a name="configure-the-appliance"></a>어플라이언스 구성
 
 어플라이언스를 처음으로 설정합니다.
+
+> [!NOTE]
+> 다운로드한 VHD 대신 [PowerShell 스크립트](deploy-appliance-script.md)를 사용하여 어플라이언스를 설정하는 경우 이 절차의 처음 두 단계는 관련이 없습니다.
 
 1. Hyper-V 관리자 > **Virtual Machines**에서 마우스 오른쪽 단추로 VM > **연결**을 클릭합니다.
 2. 어플라이언스에 대한 언어, 표준 시간대 및 암호를 제공합니다.

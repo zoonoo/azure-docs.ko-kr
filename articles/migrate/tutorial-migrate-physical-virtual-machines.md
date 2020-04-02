@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Migrate를 사용하여 물리적 머신�
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.custom: MVC
-ms.openlocfilehash: 908a5915cbb7f5aeb9f641da18024d5dbf497707
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 51ce45b091fe2d8845963953c2c50cd7be618f58
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134932"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80297993"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>물리적 서버로 머신을 Azure에 마이그레이션
 
@@ -149,7 +149,8 @@ Azure Migrate 프로젝트를 설정한 다음, Azure Migrate 서버 마이그�
     ![공급자 다운로드](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
 10. 어플라이언스 설정 파일 및 키 파일을 어플라이언스용으로 만든 Windows Server 2016 머신에 복사합니다.
-11. 다음 절차에서 설명한 대로 복제 어플라이언스 설치 파일을 실행합니다.
+11. 다음 절차에서 설명한 대로 복제 어플라이언스 설치 파일을 실행합니다. 설치가 완료되면 어플라이언스 구성 마법사가 자동으로 시작됩니다(어플라이언스의 바탕 화면에서 만든 cspsconfigtool 바로 가기를 사용하여 마법사를 수동으로 시작할 수도 있음). 마법사의 계정 관리 탭을 사용하여 모바일 서비스의 푸시 설치에 사용할 계정 세부 정보를 추가합니다. 이 자습서에서는 복제할 머신에 Mobility Service를 수동으로 설치하므로 이 단계에서 더미 계정을 만들고 계속 진행합니다.
+
 12. 설치 후에 어플라이언스가 다시 시작되면 **머신 검색**의 **구성 서버 선택**에서 새 어플라이언스를 선택하고 **등록 완료**를 클릭합니다. 등록 완료에서는 복제 어플라이언스를 준비하기 위한 몇 가지 최종 작업이 수행됩니다.
 
     ![등록 완료](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
@@ -223,7 +224,7 @@ Azure Migrate 프로젝트를 설정한 다음, Azure Migrate 서버 마이그�
 2. **복제** > **원본 설정** > **머신이 가상화되어 있나요?** 에서 **가상화되지 않음/기타**를 선택합니다.
 3. **온-프레미스 어플라이언스**에서 설정한 Azure Migrate 어플라이언스의 이름을 선택합니다.
 4. **프로세스 서버**에서 복제 어플라이언스의 이름을 선택합니다.
-6. **게스트 자격 증명**에서 Mobility Service의 강제 설치에 사용할 VM 관리자 계정을 지정합니다. 이 자습서에서는 Mobility Service를 수동으로 설치하므로 더미 계정을 추가할 수 있습니다. 그런 다음, **다음: 가상 머신**을 클릭합니다.
+6. **게스트 자격 증명**에서 모바일 서비스를 수동으로 설치하는 데 사용되는 더미 계정을 지정합니다(푸시 설치는 Physical에서 지원되지 않음). 그런 다음, **다음: 가상 머신**을 클릭합니다.
 
     ![VM 복제](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 
@@ -314,14 +315,19 @@ Azure Migrate 프로젝트를 설정한 다음, Azure Migrate 서버 마이그�
 
 2. **머신 복제 중**에서 마우스 오른쪽 단추로 VM > **마이그레이션**을 차례로 클릭합니다.
 3. **마이그레이션** > **가상 머신을 종료하고 데이터 손실 없이 계획된 마이그레이션을 수행하시겠습니까?** 에서 **예** > **확인**을 차례로 선택합니다.
-    - 기본적으로 Azure Migrate는 온-프레미스 VM을 종료하고, 요청 시 복제를 실행하여 마지막 복제가 수행된 이후 발생한 모든 VM 변경 내용을 동기화합니다. 이렇게 하면 데이터가 손실되지 않습니다.
     - VM을 종료하지 않으려면 **아니요**를 선택합니다.
+
+    참고: 물리적 서버 마이그레이션의 경우 애플리케이션을 마이그레이션 창 의 일부로 중단(애플리케이션에서 연결을 허용하지 않음)한 다음, 마이그레이션이 완료되기 전에 마이그레이션을 시작하는 것이 좋습니다(서버를 계속 실행해야 하므로 나머지 변경 내용을 동기화할 수 있음).
+
 4. VM에 대한 마이그레이션 작업이 시작됩니다. Azure 알림에서 작업을 추적합니다.
 5. 작업이 완료되면 **Virtual Machines** 페이지에서 VM을 보고 관리할 수 있습니다.
 
 ## <a name="complete-the-migration"></a>마이그레이션 완료
 
-1. 마이그레이션이 완료되면 마우스 오른쪽 단추로 VM > **마이그레이션 중지**를 차례로 클릭합니다. 그러면 온-프레미스 머신에 대한 복제가 중지되고, VM에 대한 복제 상태 정보가 정리됩니다.
+1. 마이그레이션이 완료되면 마우스 오른쪽 단추로 VM > **마이그레이션 중지**를 차례로 클릭합니다. 다음을 수행합니다.
+    - 온-프레미스 머신에 대한 복제를 중지합니다.
+    - Azure Migrate의 **서버 복제** 수에서 머신을 제거합니다. Server Migration에 연결합니다.
+    - 머신에 대한 복제 상태 정보를 정리합니다.
 2. Azure VM [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) 또는 [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) 에이전트를 마이그레이션된 머신에 설치합니다.
 3. 데이터베이스 연결 문자열 업데이트, 웹 서버 구성 등의 마이그레이션 후 앱 조정을 수정합니다.
 4. 이제 Azure에서 실행 중인 마이그레이션된 애플리케이션에서 최종 애플리케이션 및 마이그레이션 수용 테스트를 수행합니다.
