@@ -15,20 +15,20 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 1ad76ce6e2e7bab20c1ca1c1bc327d74cb55c1e5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e9df6d2e7a8219d16e7b60f7c3b8d826a87e6110
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79473492"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348847"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 동적 구성 사용
 
-ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 플러그형 구성 시스템이 있습니다. 애플리케이션을 다시 시작하지 않고 변경 내용을 즉시 처리할 수 있습니다. ASP.NET Core는 강력한 형식의 .NET 클래스에 대한 구성 설정 바인딩을 지원합니다. 다양한 `IOptions<T>` 패턴을 사용하여 코드에 삽입합니다. 기본 데이터가 변경되면 특히 이러한 패턴 중 하나인 `IOptionsSnapshot<T>`는 애플리케이션의 구성을 자동으로 다시 로드합니다. 애플리케이션의 컨트롤러에 `IOptionsSnapshot<T>`을 삽입하여 Azure App Configuration에 저장된 최신 구성에 액세스할 수 있습니다.
+ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 플러그형 구성 시스템이 있습니다. 애플리케이션을 다시 시작하지 않고 변경 내용을 동적으로 처리할 수 있습니다. ASP.NET Core는 강력한 형식의 .NET 클래스에 대한 구성 설정 바인딩을 지원합니다. 다양한 `IOptions<T>` 패턴을 사용하여 코드에 삽입합니다. 기본 데이터가 변경되면 특히 이러한 패턴 중 하나인 `IOptionsSnapshot<T>`는 애플리케이션의 구성을 자동으로 다시 로드합니다. 애플리케이션의 컨트롤러에 `IOptionsSnapshot<T>`을 삽입하여 Azure App Configuration에 저장된 최신 구성에 액세스할 수 있습니다.
 
-미들웨어를 사용하여 구성 설정 세트를 동적으로 새로 고치도록 App Configuration ASP.NET Core 클라이언트 라이브러리를 설정할 수도 있습니다. 웹앱이 계속해서 요청을 받는 한 구성 설정은 구성 저장소로 계속 업데이트됩니다.
+미들웨어를 사용하여 구성 설정 세트를 동적으로 새로 고치도록 App Configuration ASP.NET Core 클라이언트 라이브러리를 설정할 수도 있습니다. 웹앱에서 요청을 받는 동안에는 구성 설정이 매번 구성 저장소로 업데이트됩니다.
 
-설정을 업데이트하고 구성 저장소에 대한 너무 많은 호출을 피하기 위해 각 설정에 대해 캐시를 사용합니다. 설정의 캐시된 값이 만료될 때까지 새로 고침 작업은 구성 저장소에서 값이 변경된 경우에도 값을 업데이트하지 않습니다. 각 요청의 기본 만료 시간은 30초지만, 필요한 경우 재정의할 수 있습니다.
+App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 각 설정을 자동으로 캐시합니다. 구성 저장소에서 값이 변경되는 경우에도 새로 고침 작업은 설정의 캐시된 값이 만료될 때까지 기다린 후에 해당 설정을 업데이트합니다. 기본 캐시 만료 시간은 30초입니다. 필요한 경우 이 만료 시간을 재정의할 수 있습니다.
 
 이 자습서에서는 코드에서 동적 구성 업데이트를 구현하는 방법을 보여줍니다. 빠른 시작에 소개된 웹앱을 기반으로 합니다. 계속 진행하기 전에 먼저 [App Configuration을 사용하여 ASP.NET Core 앱 만들기](./quickstart-aspnet-core-app.md)를 완료합니다.
 
@@ -47,6 +47,16 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 계속 진행하기 전에 먼저 [App Configuration을 사용하여 ASP.NET Core 앱 만들기](./quickstart-aspnet-core-app.md)를 완료합니다.
+
+## <a name="add-a-sentinel-key"></a>Sentinel 키 추가
+
+*Sentinel 키*는 구성이 변경될 때 신호를 보내는 데 사용되는 특수 키입니다. 앱은 Sentinel 키에 대한 변경을 모니터링합니다. 변경이 검색되면 모든 구성 값을 새로 고칩니다. 이 방법은 모든 키의 변경을 모니터링하는 것과 비교하여 앱의 App Configuration에 대한 전체 요청 수를 줄입니다.
+
+1. Azure Portal에서 **구성 탐색기 > 만들기 > 키-값**을 차례로 선택합니다.
+
+1. **키**에 대해 *TestApp:Settings:Sentinel*을 입력합니다. **값**에 대해 1을 입력합니다. **레이블** 및 **콘텐츠 형식**은 비워 둡니다.
+
+1. **적용**을 선택합니다.
 
 ## <a name="reload-data-from-app-configuration"></a>App Configuration에서 데이터 다시 로드
 
@@ -71,11 +81,10 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
                 {
                     options.Connect(settings["ConnectionStrings:AppConfig"])
                            .ConfigureRefresh(refresh =>
-                           {
-                               refresh.Register("TestApp:Settings:BackgroundColor")
-                                      .Register("TestApp:Settings:FontColor")
-                                      .Register("TestApp:Settings:Message");
-                           });
+                                {
+                                    refresh.Register("TestApp:Settings:Sentinel", refreshAll: true)
+                                           .SetCacheExpiration(new TimeSpan(0, 5, 0));
+                                });
                 });
             })
             .UseStartup<Startup>();
@@ -91,21 +100,27 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
                 {
                     var settings = config.Build();
                     config.AddAzureAppConfiguration(options =>
-                    {   
+                    {
                         options.Connect(settings["ConnectionStrings:AppConfig"])
-                            .ConfigureRefresh(refresh =>
-                                {
-                                    refresh.Register("TestApp:Settings:BackgroundColor")
-                                            .Register("TestApp:Settings:FontColor")
-                                            .Register("TestApp:Settings:Message");
-                                });
+                               .ConfigureRefresh(refresh =>
+                                    {
+                                        refresh.Register("TestApp:Settings:Sentinel", refreshAll: true)
+                                               .SetCacheExpiration(new TimeSpan(0, 5, 0));
+                                    });
                     });
                 })
             .UseStartup<Startup>());
     ```
     ---
 
-    `ConfigureRefresh` 메서드는 새로 고침 작업이 트리거될 때 App Configuration 저장소로 구성 데이터를 업데이트하는 데 사용되는 설정을 지정하는 데 사용됩니다. 새로 고침 작업을 실제로 트리거하려면, 변경이 발생할 때 구성 데이터를 새로 고치도록 새로 고침 미들웨어를 애플리케이션에 대해 구성해야 합니다.
+    `ConfigureRefresh` 메서드는 새로 고침 작업이 트리거될 때 App Configuration 저장소로 구성 데이터를 업데이트하는 데 사용되는 설정을 지정하는 데 사용됩니다. `Register` 메서드에 대한 `refreshAll` 매개 변수는 Sentinel 키가 변경되면 모든 구성 값을 새로 고쳐야 함을 나타냅니다.
+
+    또한 `SetCacheExpiration` 메서드는 기본 캐시 만료 시간(30초)을 재정의하여 5분으로 대신 지정합니다. 이렇게 하면 App Configuration에 대한 요청 수가 줄어듭니다.
+
+    > [!NOTE]
+    > 테스트를 위해 캐시 만료 시간을 줄이려고 할 수도 있습니다.
+
+    새로 고침 작업을 실제로 트리거하려면 변경이 발생할 때 애플리케이션에서 구성 데이터를 새로 고치도록 새로 고침 미들웨어를 구성해야 합니다. 이후 단계에서 이를 수행하는 방법을 살펴볼 수 있습니다.
 
 2. 새 `Settings` 클래스를 정의하고 구현하는 *Settings.cs* 파일을 추가합니다.
 
@@ -202,10 +217,7 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
     ```
     ---
     
-    미들웨어는 `Program.cs`의 `AddAzureAppConfiguration` 메서드에 지정된 새로 고침 구성을 사용하여 ASP.NET Core 웹앱에서 받은 각 요청에 대해 새로 고침을 트리거합니다. 각 요청마다 새로 고침 작업이 트리거되고 클라이언트 라이브러리는 등록된 구성 설정의 캐시된 값이 만료되었는지 확인합니다. 만료된 캐시된 값의 경우 설정 값이 App Configuration 저장소로 업데이트되고 나머지 값은 그대로 유지됩니다.
-    
-    > [!NOTE]
-    > 구성 설정에 대한 기본 캐시 만료 시간은 30초이지만 `ConfigureRefresh` 메서드에 대한 인수로 전달된 옵션 이니셜라이저의 `SetCacheExpiration` 메서드를 호출하여 재정의할 수 있습니다.
+    미들웨어는 `Program.cs`의 `AddAzureAppConfiguration` 메서드에 지정된 새로 고침 구성을 사용하여 ASP.NET Core 웹앱에서 받은 각 요청에 대해 새로 고침을 트리거합니다. 각 요청에 대해 새로 고침 작업이 트리거되고 클라이언트 라이브러리에서 등록된 구성 설정의 캐시된 값이 만료되었는지 확인합니다. 만료되면 새로 고쳐집니다.
 
 ## <a name="use-the-latest-configuration-data"></a>최신 구성 데이터 사용
 
@@ -282,7 +294,7 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
         }
         h1 {
             color: @ViewData["FontColor"];
-            font-size: @ViewData["FontSize"];
+            font-size: @ViewData["FontSize"]px;
         }
     </style>
     <head>
@@ -300,30 +312,27 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
 
         dotnet build
 
-2. 빌드가 성공적으로 완료되면 다음 명령을 실행하여 웹앱을 로컬로 실행합니다.
+1. 빌드가 성공적으로 완료되면 다음 명령을 실행하여 웹앱을 로컬로 실행합니다.
 
         dotnet run
-
-3. 브라우저 창을 열고, 로컬로 호스팅되는 웹앱에 대한 기본 URL인 `http://localhost:5000`으로 이동합니다.
+1. 브라우저 창을 열고, `dotnet run` 출력에 표시된 URL로 이동합니다.
 
     ![로컬로 빠른 시작 앱 시작](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스**를 선택하고, 빠른 시작에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스**를 선택하고, 빠른 시작에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
 
-5. **구성 탐색기**를 선택하고, 다음 키의 값을 업데이트합니다.
+1. **구성 탐색기**를 선택하고, 다음 키의 값을 업데이트합니다.
 
     | 키 | 값 |
     |---|---|
     | TestApp:Settings:BackgroundColor | green |
     | TestApp:Settings:FontColor | lightGray |
     | TestApp:Settings:Message | 이제 라이브 업데이트를 사용하여 Azure App Configuration 데이터 업데이트! |
+    | TestApp:Settings:Sentinel | 2 |
 
-6. 새 구성 설정을 확인하려면 브라우저 페이지를 새로 고칩니다. 변경 내용이 반영되려면 브라우저 페이지를 두 번 이상 새로 고쳐야 할 수 있습니다.
+1. 새 구성 설정을 확인하려면 브라우저 페이지를 새로 고칩니다. 변경 내용을 반영하려면 두 번 이상 새로 고쳐야 할 수 있습니다.
 
-    ![로컬로 빠른 시작 앱 새로 고침](./media/quickstarts/aspnet-core-app-launch-local-after.png)
-    
-    > [!NOTE]
-    > 구성 설정은 기본 만료 시간 30초로 캐시되기 때문에 App Configuration 저장소의 설정이 변경되면 캐시가 만료되어야만 웹앱에 반영됩니다.
+    ![로컬로 업데이트된 빠른 시작 앱 시작](./media/quickstarts/aspnet-core-app-launch-local-after.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -331,7 +340,7 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 ASP.NET Core 웹앱을 사용하도록 설정하여 App Configuration에서 구성 설정을 동적으로 새로 고칩니다. Azure 관리 ID를 사용하여 App Configuration에 대한 액세스를 간소화하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
+이 자습서에서는 ASP.NET Core 웹앱을 사용하도록 설정하여 App Configuration에서 구성 설정을 동적으로 새로 고칩니다. Azure 관리 ID를 사용하여 App Configuration에 대한 액세스를 간소화하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [관리 ID 통합](./howto-integrate-azure-managed-service-identity.md)

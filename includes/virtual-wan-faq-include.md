@@ -5,16 +5,52 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 10/17/2019
+ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 09fe8396b6f0033a2c01d1ef056060a855b23d0a
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: ad821036047dcf46821b2b2722e3dd17f8e318c2
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76761463"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80386125"
 ---
+### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Azure Virtual WAN을 사용하려면 사용자에게 SD-WAN/VPN 디바이스를 사용하는 허브 및 스포크가 있어야 하나요?
+
+Virtual WAN은 단일 창에 기본 제공되는 다양한 기능, 즉 사이트/사이트 간 VPN 연결, 사용자/P2S 연결, ExpressRoute 연결, Virtual Network 연결, VPN ExpressRoute 상호 연결, VNET 간 전이적 연결, 중앙 집중식 라우팅, Azure 방화벽 및 방화벽 관리자 보안, 모니터링, ExpressRoute 암호화, 기타 다양한 기능을 제공합니다. Virtual WAN 사용을 시작하는 데에는 이러한 사용 사례 중 일부만 필요합니다. 하나의 사용 사례만으로도 간단히 시작할 수 있습니다. Virtual WAN 아키텍처는 분기(VPN/SD-WAN 디바이스), 사용자(Azure VPN 클라이언트, openVPN 또는 IKEv2 클라이언트), ExpressRoute 회로, Virtual Networks가 가상 허브의 스포크 역할을 하는 허브 및 스포크 아키텍처이며, 크기 조정 및 성능이 기본적으로 제공됩니다. 모든 허브가 표준 Virtual WAN에서 풀 메시로 연결되므로 사용자는 Microsoft 백본을 임의(모든 스포크) 연결에 쉽게 사용할 수 있습니다. SD-WAN/VPN 디바이스를 사용하는 허브 및 스포크의 경우 사용자는 Azure Virtual WAN 포털에서 수동으로 설정하거나 Virtual WAN 파트너 CPE(SD-WAN/VPN)를 사용하여 Azure에 대한 연결을 설정할 수 있습니다. Virtual WAN 파트너는 디바이스 정보를 Azure로 내보내고, Azure 구성을 다운로드하고, Azure Virtual WAN 허브에 대한 연결을 설정하는 기능인 연결 자동화를 제공합니다. 지점 및 사이트 간/사용자 VPN 연결의 경우 [Azure VPN 클라이언트](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN 또는 IKEv2 클라이언트를 지원합니다. 
+
+### <a name="what-client-does-the-azure-virtual-wan-user-vpn-point-to-site-support"></a>Azure Virtual WAN 사용자 VPN(지점 및 사이트 간)에서 지원하는 클라이언트는 무엇인가요?
+
+Virtual WAN은 [Azure VPN 클라이언트](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN 클라이언트 또는 모든 IKEv2 클라이언트를 지원합니다. Azure VPN 클라이언트는 Azure AD 인증을 지원합니다. 최소 Windows 10 클라이언트 OS 버전 17763.0 이상이 필요합니다.  OpenVPN 클라이언트는 인증서 기반 인증을 지원할 수 있습니다. 게이트웨이에서 인증서 기반 인증을 선택하면 디바이스에 다운로드할 .ovpn 파일이 표시됩니다. IKEv2는 인증서 및 RADIUS 인증을 모두 지원합니다. 
+
+### <a name="for-user-vpn-point-to-site--why-is-the-p2s-client-pool-split-into-two-routes"></a>사용자 VPN(지점 및 사이트 간)의 경우 P2S 클라이언트 풀이 두 경로로 분할되는 이유는 무엇인가요?
+
+각 게이트웨이에는 두 개의 인스턴스가 있습니다. 각 게이트웨이 인스턴스가 연결된 클라이언트에 대해 독립적으로 클라이언트 IP를 할당할 수 있도록 분할이 수행되고, 가상 네트워크로부터의 트래픽이 게이트웨이 간 인스턴스 홉을 방지하기 위해 올바른 게이트웨이 인스턴스로 다시 라우팅됩니다.
+
+### <a name="how-do-i-add-dns-servers-for-p2s-clients"></a>P2S 클라이언트용 DNS 서버를 추가하려면 어떻게 하나요?
+
+P2S 클라이언트용 DNS 서버를 추가하는 두 가지 옵션이 있습니다.
+
+1. Microsoft에서 지원 티켓을 열고 DNS 서버를 허브에 추가하도록 합니다.
+2. 또는 Azure VPN 클라이언트를 Windows 10에 사용하는 경우 다운로드한 프로필 XML 파일을 수정하고 **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** 태그를 추가한 후에 가져올 수 있습니다.
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <dnsservers>
+        <dnsserver>x.x.x.x</dnsserver>
+        <dnsserver>y.y.y.y</dnsserver>
+    </dnsservers>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
+### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>사용자 VPN(지점 및 사이트 간)의 경우 지원되는 클라이언트 수는 어떻게 되나요?
+
+각 사용자 VPN P2S 게이트웨이에는 두 개의 인스턴스가 있으며, 각 인스턴스는 배율 단위가 변경될 때 특정 사용자를 지원합니다. 1-3 배율 단위는 500개, 4-6 배율 단위는 1,000개, 7-10 배율 단위는 5,000개, 11 이상 배율 단위는 최대 10,000개의 연결을 지원합니다. 예를 들어 사용자가 1 배율 단위를 선택한다고 가정해 보겠습니다. 각 배율 단위는 배포된 액티브-액티브 게이트웨이를 의미하며, 각 인스턴스(이 경우 2)에서 최대 500개의 연결을 지원합니다. 게이트웨이당 500개 * 2의 연결을 가져올 수 있지만 추천되는 연결 수를 초과하는 경우 추가 500개에 대한 연결이 중단될 수 있는 인스턴스를 처리해야 할 수 있으므로 이 배율 단위에 대해 500개 대신 1,000개를 계획한다는 의미가 아닙니다.
+
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Azure 가상 네트워크 게이트웨이(VPN Gateway)와 Azure Virtual WAN VPN Gateway의 차이는 무엇인가요?
 
 Virtual WAN은 대규모 사이트 간 연결을 제공하며 처리량, 확장성 및 사용 편의성을 높여 줍니다. 사이트를 Virtual WAN VPN Gateway에 연결할 경우 게이트웨이 유형 'VPN'을 사용하는 일반 가상 네트워크 게이트웨이와는 다릅니다. 마찬가지로, ExpressRoute 회로를 Virtual WAN 허브에 연결할 경우 게이트웨이 유형 'ExpressRoute'를 사용하는 일반 가상 네트워크 게이트웨이와는 달리 ExpressRoute 게이트웨이에 다른 리소스를 사용합니다. Virtual WAN은 VPN과 ExpressRoute 모두에 최대 20Gbps의 집계 처리량을 지원합니다. Virtual WAN에는 또한 CPE 분기 디바이스 파트너의 에코시스템 연결을 위한 자동화 기능이 있습니다. CPE 분기 디바이스에는 Azure Virtual WAN을 자동으로 프로비저닝하고 연결하는 기본 자동화 기능이 있습니다. 이러한 디바이스는 SD-WAN 및 VPN 파트너의 증가하는 에코시스템에서 사용할 수 있습니다. [선호 파트너 목록](../articles/virtual-wan/virtual-wan-locations-partners.md)을 참조하세요.
