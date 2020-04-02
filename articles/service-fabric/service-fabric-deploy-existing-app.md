@@ -2,15 +2,16 @@
 title: Azure 서비스 패브릭에 기존 실행 형 배포
 description: Service Fabric 클러스터에 배포할 수 있도록 기존 애플리케이션을 게스트 실행 파일로 패키징하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 07/02/2017
-ms.openlocfilehash: cdbc965d0e8ec4a8f42fbe438b8ac6ddfe05a1b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: c6c6bc0369593c177b74261da1fd8c15dd73fcb3
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75377109"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520480"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>기존 실행 파일을 Service Fabric으로 패키징 및 배포
+
 기존 실행 파일을 [게스트 실행 파일](service-fabric-guest-executables-introduction.md)로 패키징할 경우 Visual Studio 프로젝트 템플릿을 사용하거나 [애플리케이션 패키지를 수동으로 만들도록](#manually) 선택할 수 있습니다. Visual Studio를 사용하면 새 프로젝트 템플릿에 의해 애플리케이션 패키지 구조 및 매니페스트 파일이 생성됩니다.
 
 > [!TIP]
@@ -18,6 +19,7 @@ ms.locfileid: "75377109"
 >
 
 ## <a name="use-visual-studio-to-package-and-deploy-an-existing-executable"></a>Visual Studio를 사용하여 기존 실행 파일 패키징 및 배포
+
 Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 배포할 수 있도록 서비스 패브릭 서비스 템플릿을 제공합니다.
 
 1. **새 프로젝트** **파일을** > 선택하고 서비스 패브릭 응용 프로그램을 만듭니다.
@@ -37,6 +39,13 @@ Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 
 
 예제 연습은 [Visual Studio를 사용하여 첫 번째 게스트 실행 파일 애플리케이션 만들기](quickstart-guest-app.md)를 참조하세요.
 
+### <a name="packaging-multiple-executables-with-visual-studio"></a>비주얼 스튜디오로 여러 실행 파일 패키징
+
+Visual Studio를 사용하여 여러 게스트 실행 파일이 포함된 응용 프로그램 패키지를 생성할 수 있습니다. 첫 번째 게스트 실행 프로그램을 추가한 후 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **>새 서비스 패브릭 추가 서비스를** 선택하여 두 번째 게스트 실행 프로젝트를 솔루션에 추가합니다.
+
+> [!NOTE]
+> Visual Studio 솔루션을 구축하는 Visual Studio 프로젝트에서 원본을 연결하려는 경우 애플리케이션 패키지는 원본의 변경 내용으로 최신 상태로 업데이트됩니다.
+
 ## <a name="use-yeoman-to-package-and-deploy-an-existing-executable-on-linux"></a>Yeoman을 사용하여 Linux에서 기존 실행 파일 패키징 및 배포
 
 Linux에서 실행되는 게스트를 만들고 배포하는 절차는 csharp 또는 java 애플리케이션 배포와 동일합니다.
@@ -47,9 +56,17 @@ Linux에서 실행되는 게스트를 만들고 배포하는 절차는 csharp �
 
 Yeoman은 설치 및 제거 스크립트와 함께 해당 애플리케이션과 매니페스트 파일로 애플리케이션 패키지를 만듭니다.
 
+### <a name="packaging-multiple-executables-using-yeoman-on-linux"></a>리눅스에서 Yeoman을 사용하여 여러 실행 파일 패키징
+
+`yo`을 사용하여 만든 애플리케이션에 다른 서비스를 추가하려면 다음 단계를 수행합니다.
+
+1. 기존 애플리케이션의 루트로 디렉터리를 변경합니다.  예를 들어 `MyApplication`이 Yeoman에서 만든 애플리케이션인 경우 `cd ~/YeomanSamples/MyApplication`입니다.
+2. `yo azuresfguest:AddService`를 실행하고 필요한 세부 정보를 제공합니다.
+
 <a id="manually"></a>
 
 ## <a name="manually-package-and-deploy-an-existing-executable"></a>기존 실행 파일을 수동으로 패키징하고 배포하기
+
 게스트 실행 파일을 수동으로 패키징하는 과정은 다음과 같은 일반 단계를 기반으로 합니다.
 
 1. 패키지 디렉터리 구조를 만듭니다.
@@ -57,14 +74,12 @@ Yeoman은 설치 및 제거 스크립트와 함께 해당 애플리케이션과 
 3. 서비스 매니페스트 파일을 편집합니다.
 4. 애플리케이션 매니페스트 파일을 편집합니다.
 
-<!--
->[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](https://aka.ms/servicefabricpacktool).
--->
-
 ### <a name="create-the-package-directory-structure"></a>패키지 디렉터리 구조 만들기
+
 [Azure 서비스 패브릭 앱 패키지에](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps)설명된 대로 디렉터리 구조를 만들어 시작할 수 있습니다.
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>애플리케이션의 코드 및 구성 파일 추가
+
 디렉터리 구조를 만든 후에 애플리케이션의 코드 및 구성 파일을 코드 및 구성 디렉터리 아래에 추가할 수 있습니다. 코드 또는 구성 디렉터리 아래에 하위 디렉터리 또는 추가 디렉터리를 만들 수도 있습니다.
 
 Service Fabric은 애플리케이션 루트 디렉터리의 내용에 대한 `xcopy`를 수행하므로 두 상위 디렉터리인 code 및 settings를 만들지 않고도 사용할 수 있는 미리 정의된 구조가 없습니다. 하지만 원한다면 다른 이름을 선택할 수 있습니다. 자세한 내용은 다음 섹션을 참조하세요.
@@ -75,6 +90,7 @@ Service Fabric은 애플리케이션 루트 디렉터리의 내용에 대한 `xc
 >
 
 ### <a name="edit-the-service-manifest-file"></a>서비스 매니페스트 파일 편집
+
 다음 정보를 포함하도록 서비스 매니페스트 파일을 편집하는 것이 다음 단계입니다.
 
 * 서비스 형식 이름 서비스 패브릭이 서비스를 식별하기 위해 사용하는 ID입니다.
@@ -114,6 +130,7 @@ Service Fabric은 애플리케이션 루트 디렉터리의 내용에 대한 `xc
 다음 섹션에서 업데이트해야 하는 파일의 다른 부분을 살펴보겠습니다.
 
 #### <a name="update-servicetypes"></a>ServiceTypes 업데이트
+
 ```xml
 <ServiceTypes>
   <StatelessServiceType ServiceTypeName="NodeApp" UseImplicitHost="true" />
@@ -133,6 +150,7 @@ CodePackage 요소는 서비스 코드의 위치(및 버전)을 지정합니다.
 `Name` 요소는 서비스 코드가 들어 있는 애플리케이션 패키지의 디렉터리 이름을 지정하는 데 사용됩니다. `CodePackage`에도 `version` 특성이 있습니다. 이 요소는 코드 버전을 지정하는 데 사용할 수 있으며, Service Fabric에서 애플리케이션 수명 주기 관리 인프라를 사용하여 서비스 코드를 업그레이드하는 데 사용할 수도 있습니다.
 
 #### <a name="optional-update-setupentrypoint"></a>선택 사항: SetupEntryPoint 업데이트
+
 ```xml
 <SetupEntryPoint>
    <ExeHost>
@@ -147,6 +165,7 @@ SetupEntryPoint가 하나밖에 없으므로 애플리케이션의 설치에 여
 앞의 예제에서 SetupEntryPoint는 코드 디렉터리의 `scripts` 하위 디렉터리에 있는 `LaunchConfig.cmd`라는 배치 파일을 실행합니다(WorkingFolder 요소가 CodeBase로 설정되어 있다고 가정).
 
 #### <a name="update-entrypoint"></a>EntryPoint 업데이트
+
 ```xml
 <EntryPoint>
   <ExeHost>
@@ -171,12 +190,14 @@ SetupEntryPoint가 하나밖에 없으므로 애플리케이션의 설치에 여
 WorkingFolder는 애플리케이션 또는 초기화 스크립트에서 상대 경로를 사용할 수 있도록 올바른 작업 디렉터리를 설정하는 데 유용합니다.
 
 #### <a name="update-endpoints-and-register-with-naming-service-for-communication"></a>통신을 위해 엔드포인트를 업데이트하고 명명 서비스에 등록
+
 ```xml
 <Endpoints>
    <Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />
 </Endpoints>
 
 ```
+
 앞의 예제에서 `Endpoint` 요소는 애플리케이션에서 수신 대기할 수 있는 엔드포인트를 지정합니다. 이 예제에서 Node.js 애플리케이션은 포트 3000의 http에 수신 대기합니다.
 
 또한 다른 서비스가 이 서비스에 대한 엔드포인트 주소를 검색할 수 있도록 Service Fabric에 이 엔드포인트를 명명 서비스에 게시하도록 요청할 수 있습니다. 이렇게 하면 게스트 실행 파일인 서비스 간에 통신을 할 수 있습니다.
@@ -189,9 +210,11 @@ WorkingFolder는 애플리케이션 또는 초기화 스크립트에서 상대 �
    <Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000"  UriScheme="http" PathSuffix="myapp/" Type="Input" />
 </Endpoints>
 ```
+
 이 주소를 [역방향 프록시](service-fabric-reverseproxy.md)와 사용하여 서비스 간에 통신할 수 있습니다.
 
 ### <a name="edit-the-application-manifest-file"></a>애플리케이션 매니페스트 파일 편집
+
 `Servicemanifest.xml` 파일을 구성했으면 `ApplicationManifest.xml` 파일을 변경하여 올바른 서비스 유형 및 이름이 사용되는지 확인해야 합니다.
 
 ```xml
@@ -204,6 +227,7 @@ WorkingFolder는 애플리케이션 또는 초기화 스크립트에서 상대 �
 ```
 
 #### <a name="servicemanifestimport"></a>ServiceManifestImport
+
 `ServiceManifestImport` 요소에서 앱에 포함할 서비스를 하나 이상 지정할 수 있습니다. 서비스는 `ServiceManifest.xml` 파일이 있는 디렉터리의 이름을 지정하는 `ServiceManifestName`으로 참조됩니다.
 
 ```xml
@@ -213,6 +237,7 @@ WorkingFolder는 애플리케이션 또는 초기화 스크립트에서 상대 �
 ```
 
 ## <a name="set-up-logging"></a>로깅 설정
+
 게스트 실행 파일의 경우 애플리케이션 및 구성 스크립트가 오류를 표시하는지 알아보기 위해 콘솔 로그를 볼 수 있으므로 유용합니다.
 콘솔 리디렉션은 `ConsoleRedirection` 요소를 사용하여 `ServiceManifest.xml` 파일에 구성할 수 있습니다.
 
@@ -241,6 +266,7 @@ WorkingFolder는 애플리케이션 또는 초기화 스크립트에서 상대 �
 로그 파일은 서비스의 작업 디렉터리 중 하나에 저장됩니다. 파일이 어디에 있는지 확인하려면 Service Fabric Explorer를 사용하여 서비스가 실행 중인 노드와 현재 사용 중인 작업 디렉터리를 확인해야 합니다. 이 프로세스는 이 문서의 뒷부분에서 다루겠습니다.
 
 ## <a name="deployment"></a>배포
+
 마지막 단계는 [애플리케이션을 배포](service-fabric-deploy-remove-applications.md)하는 것입니다. 다음 PowerShell 스크립트는 로컬 개발 클러스터에 애플리케이션을 배포하고 새 Service Fabric 서비스를 시작하는 방법을 보여 줍니다.
 
 ```powershell
@@ -281,14 +307,14 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 
 ![디스크 상의 위치](./media/service-fabric-deploy-existing-app/locationondisk2.png)
 
-서버 탐색기를 사용하여 디렉터리를 찾아보면 다음 스크린샷과 같이 작업 디렉터리 및 서비스의 로그 폴더를 찾을 수 있습니다. 
+서버 탐색기를 사용하여 디렉터리를 찾아보면 다음 스크린샷과 같이 작업 디렉터리 및 서비스의 로그 폴더를 찾을 수 있습니다.
 
 ![로그 위치](./media/service-fabric-deploy-existing-app/loglocation.png)
 
 ## <a name="next-steps"></a>다음 단계
+
 이 문서에서는 게스트 실행 파일을 패키징하고 서비스 패브릭에 배포하는 방법을 배웠습니다. 관련 정보 및 작업에 대해 다음 문서를 참조하세요.
 
 * 패키징 도구 시험판의 링크를 포함하여 [게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [REST를 사용하여 이름 지정 서비스를 통해 통신하는 두 게스트 실행 파일(C# 및 nodejs)의 샘플](https://github.com/Azure-Samples/service-fabric-containers)
-* [여러 개의 게스트 실행 파일 배포](service-fabric-deploy-multiple-apps.md)
 * [Visual Studio를 사용하여 처음으로 Service Fabric 애플리케이션 만들기](service-fabric-tutorial-create-dotnet-app.md)

@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: ''
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: a51b30ad2af29871ed6998e60bb64adf91dfdbbd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 91259e10966173cb701b867f5b3ed362112beef3
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76514377"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382786"
 ---
-# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---cli"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - CLI
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---azure-cli"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - Azure CLI
 
 이 자습서는 Azure Media Services 및 Azure CLI를 사용하여 다양한 브라우저 및 디바이스에서 비디오를 쉽게 인코딩하고 스트리밍하는 방법을 보여줍니다. Azure Blob 스토리지에서 HTTPS 또는 SAS URL, 파일 경로를 사용하여 입력 콘텐츠를 지정할 수 있습니다.
 
@@ -40,7 +40,7 @@ Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azur
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-```azurecli
+```azurecli-interactive
 az group create -n amsResourceGroup -l westus2
 ```
 
@@ -48,15 +48,15 @@ az group create -n amsResourceGroup -l westus2
 
 이 예제에서는 범용 v2, 표준 LRS 계정을 만듭니다.
 
-스토리지 계정을 실험하려면 `--sku Standard_LRS`를 사용합니다. 프로덕션용 SKU를 선택하는 경우 비즈니스 연속성을 위해 지리적 복제를 제공하는 `--sku Standard_RAGRS`를 사용하는 것이 좋습니다. 자세한 내용은 [스토리지 계정](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest)을 참조하세요.
- 
-```azurecli
+스토리지 계정을 실험하려면 `--sku Standard_LRS`를 사용합니다. 프로덕션용 SKU를 선택하는 경우 비즈니스 연속성을 위해 지리적 복제를 제공하는 `--sku Standard_RAGRS`를 사용하는 것이 좋습니다. 자세한 내용은 [스토리지 계정](/cli/azure/storage/account)을 참조하세요.
+
+```azurecli-interactive
 az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_LRS -l westus2 -g amsResourceGroup
 ```
 
 ### <a name="create-an-azure-media-services-account"></a>Azure Media Services 계정 만들기
 
-```azurecli
+```azurecli-interactive
 az ams account create --n amsaccount -g amsResourceGroup --storage-account amsstorageaccount -l westus2
 ```
 
@@ -85,14 +85,13 @@ az ams account create --n amsaccount -g amsResourceGroup --storage-account amsst
 
 다음 Azure CLI 명령은 기본 **스트리밍 엔드포인트**를 시작합니다.
 
-```azurecli
+```azurecli-interactive
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
 ```
 
 다음과 같은 응답이 표시됩니다.
 
 ```
-az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
 {
   "accessControl": null,
   "availabilitySetName": null,
@@ -129,7 +128,7 @@ az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
 
 **Transform**(변환)을 만들어 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성합니다. 다음 예제에서는 적응 비트 전송률 인코딩을 수행합니다. 그런 다음, 만든 변환 아래에서 작업을 제출합니다. 해당 작업은 지정된 비디오 또는 오디오 콘텐츠 입력에 변환을 적용하도록 요구하는 Media Services에 대한 요청입니다.
 
-```azurecli
+```azurecli-interactive
 az ams transform create --name testEncodingTransform --preset AdaptiveStreaming --description 'a simple Transform for Adaptive Bitrate Encoding' -g amsResourceGroup -a amsaccount
 ```
 
@@ -161,7 +160,7 @@ az ams transform create --name testEncodingTransform --preset AdaptiveStreaming 
 
 인코딩 작업의 출력으로 사용할 출력 **자산**을 만듭니다.
 
-```azurecli
+```azurecli-interactive
 az ams asset create -n testOutputAssetName -a amsaccount -g amsResourceGroup
 ```
 
@@ -195,8 +194,8 @@ az ams asset create -n testOutputAssetName -a amsaccount -g amsResourceGroup
 
   "="을 `output-assets`에 추가합니다.
 
-```azurecli
-az ams job start --name testJob001 --transform-name testEncodingTransform --base-uri 'https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/' --files 'Ignite-short.mp4' --output-assets testOutputAssetName= -a amsaccount -g amsResourceGroup 
+```azurecli-interactive
+az ams job start --name testJob001 --transform-name testEncodingTransform --base-uri 'https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/' --files 'Ignite-short.mp4' --output-assets testOutputAssetName= -a amsaccount -g amsResourceGroup
 ```
 
 다음과 같은 응답이 표시됩니다.
@@ -238,7 +237,7 @@ az ams job start --name testJob001 --transform-name testEncodingTransform --base
 
 5분 후에 작업 상태를 확인합니다. "마침"이어야 합니다. 완료되지 않으면 몇 분 후에 다시 확인합니다. 완료되었으면 다음 단계로 이동한 후 **스트리밍 로케이터**를 만듭니다.
 
-```azurecli
+```azurecli-interactive
 az ams job show -a amsaccount -g amsResourceGroup -t testEncodingTransform -n testJob001
 ```
 
@@ -248,7 +247,7 @@ az ams job show -a amsaccount -g amsResourceGroup -t testEncodingTransform -n te
 
 ### <a name="create-a-streaming-locator"></a>스트리밍 로케이터 만들기
 
-```azurecli
+```azurecli-interactive
 az ams streaming-locator create -n testStreamingLocator --asset-name testOutputAssetName --streaming-policy-name Predefined_ClearStreamingOnly  -g amsResourceGroup -a amsaccount 
 ```
 
@@ -274,7 +273,7 @@ az ams streaming-locator create -n testStreamingLocator --asset-name testOutputA
 
 ### <a name="get-streaming-locator-paths"></a>스트리밍 로케이터 경로 가져오기
 
-```azurecli
+```azurecli-interactive
 az ams streaming-locator get-paths -a amsaccount -g amsResourceGroup -n testStreamingLocator
 ```
 
@@ -311,13 +310,14 @@ az ams streaming-locator get-paths -a amsaccount -g amsResourceGroup -n testStre
 
 HLS(HTTP 라이브 스트리밍) 경로를 복사합니다. 이 예제의 경우 `/e01b2be1-5ea4-42ca-ae5d-7fe704a5962f/ignite.ism/manifest(format=m3u8-aapl)`입니다.
 
-## <a name="build-the-url"></a>URL 작성 
+## <a name="build-the-url"></a>URL 작성
 
 ### <a name="get-the-streaming-endpoint-host-name"></a>스트리밍 엔드포인트 호스트 이름 가져오기
 
-```azurecli
+```azurecli-interactive
 az ams streaming-endpoint list -a amsaccount -g amsResourceGroup -n default
 ```
+
 `hostName` 값을 복사합니다. 이 예제의 경우 `amsaccount-usw22.streaming.media.azure.net`입니다.
 
 ### <a name="assemble-the-url"></a>URL 어셈블
@@ -344,13 +344,12 @@ az ams streaming-endpoint list -a amsaccount -g amsResourceGroup -n default
 
 이 자습서를 위해 만든 Media Services 및 스토리지 계정을 비롯하여 리소스 그룹의 어떠한 리소스도 더 이상 필요하지 않은 경우 리소스 그룹을 삭제합니다.
 
-다음 CLI 명령을 실행합니다.
+다음 Azure CLI 명령을 실행합니다.
 
-```azurecli
+```azurecli-interactive
 az group delete --name amsResourceGroup
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
 [Media Services 개요](media-services-overview.md)
-

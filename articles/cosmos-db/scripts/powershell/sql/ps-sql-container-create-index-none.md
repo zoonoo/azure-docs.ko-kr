@@ -1,20 +1,20 @@
 ---
-title: Azure Cosmos 계정에 인덱스가 없는 경우 컨테이너를 만드는 PowerShell 스크립트
-description: Azure PowerShell 스크립트 샘플 - Azure Cosmos 계정에서 해제된 컨테이너 인덱싱 만들기
+title: Azure Cosmos DB 계정에서 인덱싱이 해제된 컨테이너를 만드는 PowerShell 스크립트
+description: Azure PowerShell 스크립트 샘플 - Azure Cosmos DB 계정에서 인덱싱이 해제된 컨테이너 만들기
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 05/06/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
-ms.openlocfilehash: 13bec89b0c6f713a4b8c66f7bab6cda3d6513ef9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e4cf09ede1ea532d784b6d486cdb54d510d13652
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441378"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365637"
 ---
-# <a name="create-a-container-indexing-turned-off-in-an-azure-cosmos-account-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos 계정에서 해제된 컨테이너 인덱싱 만들기
+# <a name="create-a-container-with-indexing-turned-off-in-an-azure-cosmos-db-account-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos DB 계정에서 인덱싱이 해제된 컨테이너 만들기
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,7 +22,7 @@ ms.locfileid: "75441378"
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-container-create-index-none.ps1 "Create a container indexing turned off in an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-container-create-index-none.ps1 "Create a container with indexing turned off in an Azure Cosmos DB account")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -38,8 +38,11 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 | 명령 | 메모 |
 |---|---|
-|**Azure 리소스**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | 리소스를 만듭니다. |
+|**Azure Cosmos DB**| |
+| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | 새 Cosmos DB 계정을 만듭니다. |
+| [Set-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqldatabase) | 기존 Cosmos DB SQL 데이터베이스를 업데이트하거나 새로 만듭니다. |
+| [New-AzCosmosDBSqlIndexingPolicy](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlindexingpolicy) | Set-AzCosmosDBSqlContainer의 매개 변수로 사용되는 PSSqlIndexingPolicy 형식의 새 개체를 만듭니다. |
+| [Set-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqlcontainer) | 기존 Cosmos DB SQL 컨테이너를 업데이트하거나 새로 만듭니다. |
 |**Azure 리소스 그룹**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: takamath
-ms.openlocfilehash: 2ddc56c60c547bd4ce48d620a83fb79246762bfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 86304fc7776f49c999924b8609f2d26120cee372
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69642488"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549092"
 ---
 # <a name="enable-browser-connection-on-lab-virtual-machines"></a>랩 가상 컴퓨터에서 브라우저 연결 사용 
 
 DevTest Labs는 브라우저를 통해 가상 컴퓨터에 연결할 수 있는 [Azure Bastion과](https://docs.microsoft.com/azure/bastion/)통합됩니다. 먼저 랩 가상 컴퓨터에서 브라우저 연결을 사용하도록 설정해야 합니다.
 
-랩의 소유자는 브라우저를 통해 모든 랩 가상 컴퓨터에 액세스하도록 설정할 수 있습니다. 다른 클라이언트, 에이전트 또는 소프트웨어가 필요하지 않습니다. Azure Bastion은 SSL을 통해 Azure 포털에서 직접 가상 시스템에 안전하고 원활한 RDP/SSH 연결을 제공합니다. Azure Bastion을 통해 연결할 때 가상 컴퓨터에 공용 IP 주소가 필요하지 않습니다. 자세한 내용은 [Azure 요새란 무엇입니까?](../bastion/bastion-overview.md)
+랩의 소유자는 브라우저를 통해 모든 랩 가상 컴퓨터에 액세스하도록 설정할 수 있습니다. 다른 클라이언트, 에이전트 또는 소프트웨어가 필요하지 않습니다. Azure Bastion은 TLS를 통해 Azure 포털에서 직접 가상 시스템에 안전하고 원활한 RDP/SSH 연결을 제공합니다. Azure Bastion을 통해 연결할 때 가상 컴퓨터에 공용 IP 주소가 필요하지 않습니다. 자세한 내용은 [Azure 요새란 무엇입니까?](../bastion/bastion-overview.md)
 
 > [!NOTE]
 > 랩 가상 컴퓨터에서 브라우저 연결을 사용하도록 설정하면 미리 보기가 있습니다.
@@ -38,7 +38,7 @@ VNet에서 배스션 호스트를 배포하는 방법을 알아보려면 [Azure 
 
 연구소를 Bastion에 구성된 VNet과 연결하는 방법을 알아보려면 [Azure DevTest Labs의 가상 네트워크 구성을](devtest-lab-configure-vnet.md)참조하십시오. 배스션 호스트가 배포된 VNet과 해당 호스트에 **AzureBastionSubnet이 있는 VNet을** 선택합니다. 세부 단계는 다음과 같습니다. 
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽 탐색 메뉴에서 **모든 서비스를** 선택합니다. 
 1. 목록에서 **개발자 테스트 랩을 선택합니다.** 
 1. 랩 목록에서 *랩을 선택합니다.* 

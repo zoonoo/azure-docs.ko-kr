@@ -9,12 +9,12 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: bd1c2ca182ae8be8425246f691dca805bf38637b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1ad7677607d625f673546a6ea29ea58b80a8d1b5
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064027"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546746"
 ---
 # <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Azure 기계 학습 디자이너로 데이터 가져오기(미리 보기)
 
@@ -60,7 +60,7 @@ ms.locfileid: "80064027"
 
 ## <a name="supported-sources"></a>지원되는 소스
 
-이 섹션에서는 디자이너가 지원하는 데이터 원본을 나열합니다. 데이터는 데이터 스토어 또는 [테이블 형식 데이터 집합에서](how-to-create-register-datasets.md#dataset-types)디자이너로 들어옵니다.
+이 섹션에서는 디자이너가 지원하는 데이터 원본을 나열합니다. 데이터는 데이터 스토어 또는 테이블 형식 [데이터 집합에서](how-to-create-register-datasets.md#dataset-types)디자이너로 제공됩니다.
 
 ### <a name="datastore-sources"></a>데이터 스토어 원본
 지원되는 데이터 스토어 원본 목록은 [Azure 저장소 서비스의 Access 데이터를](how-to-access-data.md#supported-data-storage-service-types)참조하십시오.

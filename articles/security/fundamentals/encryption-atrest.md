@@ -3,7 +3,7 @@ title: Microsoft Azure 미사용 데이터 암호화 | Microsoft Docs
 description: 이 문서에서는 Microsoft Azure 미사용 데이터 암호화 개요, 전체 기능 및 일반적인 고려 사항을 제공합니다.
 services: security
 documentationcenter: na
-author: barclayn
+author: msmbaldwin
 manager: barbkess
 editor: TomSh
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2020
-ms.author: barclayn
-ms.openlocfilehash: d8aa643dcf9734ac983c9c4c0d53bda24ce4688d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mbaldwin
+ms.openlocfilehash: 42b83963dc4996a7347d57be712451086fa79b26
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80125079"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548618"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 미사용 데이터 암호화
 
@@ -262,77 +262,77 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **서비스 관리 키를 사용하는 서버 쪽**     | **고객 관리 키를 사용하는 서버 측**             | **클라이언트 관리 키를 사용하는 클라이언트 측**      |
 | **AI 및 Machine Learning**      |                    |                    |                    |
-| Azure Cognitive Search           | yes                | yes                | -                  |
-| Azure Machine Learning           | yes                | yes                | -                  |
-| Azure Machine Learning Studio    | yes                | 미리 보기, RSA 2048비트 | -               |
-| Power BI                         | yes                | 미리 보기, RSA 2048비트 | -                  |
+| Azure Cognitive Search           | 예                | 예                | -                  |
+| Azure Machine Learning           | 예                | 예                | -                  |
+| Azure Machine Learning Studio    | 예                | 미리 보기, RSA 2048비트 | -               |
+| Power BI                         | 예                | 미리 보기, RSA 2048비트 | -                  |
 | **분석**                    |                    |                    |                    |
-| Azure Stream Analytics           | yes                | -                  | -                  |
-| Event Hubs                       | yes                | 예, 모든 RSA 길이. | -                  |
-| 함수                        | yes                | 예, 모든 RSA 길이. | -                  |
-| Azure Analysis Services          | yes                | -                  | -                  |
-| Azure Data Catalog               | yes                | -                  | -                  |
-| 아파치 카프카 온 애저 HD인사이트  | yes                | 모든 RSA 길이.   | -                  |
-| Azure 모니터 응용 프로그램 인사이트 | yes                | yes                | -                  |
-| Azure 모니터 로그 분석 | yes                | yes                | -                  |
-| Azure Data Explorer              | yes                | yes                | -                  |
-| Azure 데이터 팩터리               | yes                | yes                | -                  |
-| Azure Data Lake Store            | yes                | 예, RSA 2048비트  | -                  |
+| Azure Stream Analytics           | 예                | -                  | -                  |
+| Event Hubs                       | 예                | 예, 모든 RSA 길이. | -                  |
+| Functions                        | 예                | 예, 모든 RSA 길이. | -                  |
+| Azure Analysis Services          | 예                | -                  | -                  |
+| Azure Data Catalog               | 예                | -                  | -                  |
+| 아파치 카프카 온 애저 HD인사이트  | 예                | 모든 RSA 길이.   | -                  |
+| Azure 모니터 응용 프로그램 인사이트 | 예                | 예                | -                  |
+| Azure 모니터 로그 분석 | 예                | 예                | -                  |
+| Azure Data Explorer              | 예                | 예                | -                  |
+| Azure 데이터 팩터리               | 예                | 예                | -                  |
+| Azure Data Lake Store            | 예                | 예, RSA 2048비트  | -                  |
 | **컨테이너**                   |                    |                    |                    |
-| Azure Kubernetes Service         | yes                | yes                | -                  |
-| Container Instances              | yes                | yes                | -                  |
-| Container Registry               | yes                | yes                | -                  |
+| Azure Kubernetes Service         | 예                | 예                | -                  |
+| Container Instances              | 예                | 예                | -                  |
+| Container Registry               | 예                | 예                | -                  |
 | **계산**                      |                    |                    |                    |
-| Virtual Machines                 | yes                | 예, RSA 2048비트  | -                  |
-| 가상 머신 스케일 세트        | yes                | 예, RSA 2048비트  | -                  |
-| SAP HANA                         | yes                | 예, RSA 2048비트  | -                  |
-| App Service                      | yes                | yes                | -                  |
-| Automation                       | yes                | yes                | -                  |
-| Azure Portal                     | yes                | yes                | -                  |
-| Logic Apps                       | yes                | yes                | -                  |
-| Azure 관리되는 애플리케이션       | yes                | yes                | -                  |
-| Service Bus                      | yes                | yes                | -                  |
-| Site Recovery                    | yes                | yes                | -                  |
+| Virtual Machines                 | 예                | 예, RSA 2048비트  | -                  |
+| 가상 머신 스케일 세트        | 예                | 예, RSA 2048비트  | -                  |
+| SAP HANA                         | 예                | 예, RSA 2048비트  | -                  |
+| App Service                      | 예                | 예                | -                  |
+| Automation                       | 예                | 예                | -                  |
+| Azure Portal                     | 예                | 예                | -                  |
+| Logic Apps                       | 예                | 예                | -                  |
+| Azure 관리되는 애플리케이션       | 예                | 예                | -                  |
+| Service Bus                      | 예                | 예                | -                  |
+| Site Recovery                    | 예                | 예                | -                  |
 | **데이터베이스**                    |                    |                    |                    |
-| Virtual Machines의 SQL Server   | yes                | 예, RSA 2048비트  | yes                |
-| Azure SQL Database               | yes                | 예, RSA 2048비트  | yes                |
-| MariaDB에 대한 Azure SQL 데이터베이스   | yes                | -                  | -                  |
-| MySQL용 Azure SQL 데이터베이스     | yes                | yes                | -                  |
-| 포스트그레SQL용 Azure SQL 데이터베이스 | yes               | yes                | -                  |
-| Azure Synapse Analytics          | yes                | 예, RSA 2048비트  | -                  |
-| SQL Server Stretch Database      | yes                | 예, RSA 2048비트  | yes                |
-| Table Storage                    | yes                | yes                | yes                |
-| Azure Cosmos DB                  | yes                | yes                | -                  |
-| Azure Databricks                 | yes                | yes                | -                  |
-| **데브옵스 (주)데브옵스**                       |                    |                    |                    |
-| Azure DevOps                     | yes                | -                  | yes                |
-| Azure Repos                      | yes                | -                  | yes                |
-| **Identity**                     |                    |                    |                    |
-| Azure Active Directory           | yes                | -                  | -                  |
-| Azure Active Directory Domain Services | yes          | 예, RSA 2048비트  | -                  |
+| Virtual Machines의 SQL Server   | 예                | 예, RSA 2048비트  | 예                |
+| Azure SQL Database               | 예                | 예, RSA 2048비트  | 예                |
+| MariaDB에 대한 Azure SQL 데이터베이스   | 예                | -                  | -                  |
+| MySQL용 Azure SQL 데이터베이스     | 예                | 예                | -                  |
+| 포스트그레SQL용 Azure SQL 데이터베이스 | 예               | 예                | -                  |
+| Azure Synapse Analytics          | 예                | 예, RSA 2048비트  | -                  |
+| SQL Server Stretch Database      | 예                | 예, RSA 2048비트  | 예                |
+| Table Storage                    | 예                | 예                | 예                |
+| Azure Cosmos DB                  | 예                | 예                | -                  |
+| Azure Databricks                 | 예                | 예                | -                  |
+| **DevOps**                       |                    |                    |                    |
+| Azure DevOps                     | 예                | -                  | 예                |
+| Azure Repos                      | 예                | -                  | 예                |
+| **ID**                     |                    |                    |                    |
+| Azure Active Directory           | 예                | -                  | -                  |
+| Azure Active Directory Domain Services | 예          | 예, RSA 2048비트  | -                  |
 | **통합**                  |                    |                    |                    |
-| Service Bus                      | yes                | yes                | yes                |
-| Event Grid                       | yes                | -                  | -                  |
-| API Management                   | yes                | -                  | -                  |
+| Service Bus                      | 예                | 예                | 예                |
+| Event Grid                       | 예                | -                  | -                  |
+| API Management                   | 예                | -                  | -                  |
 | **IoT 서비스**                 |                    |                    |                    |
-| IoT Hub                          | yes                | yes                | yes                |
+| IoT Hub                          | 예                | 예                | 예                |
 | **관리 및 거버넌스**    |                    |                    |                    |
-| Azure Site Recovery              | yes                | -                  | -                  |
+| Azure Site Recovery              | 예                | -                  | -                  |
 | **미디어**                        |                    |                    |                    |
-| Media Services                   | yes                | -                  | yes                |
+| Media Services                   | 예                | -                  | 예                |
 | **스토리지**                      |                    |                    |                    |
-| Blob Storage                     | yes                | 예, RSA 2048비트  | yes                |
-| 디스크 스토리지                     | yes                | yes                | -                  |
-| 관리되는 디스크 스토리지             | yes                | yes                | -                  |
-| File Storage                     | yes                | 예, RSA 2048비트  | -                  |
-| Queue Storage                    | yes                | yes                | yes                |
-| Avere vFXT                       | yes                | -                  | -                  |
-| Azure NetApp Files               | yes                | -                  | -                  |
-| Archive Storage                  | yes                | 예, RSA 2048비트  | -                  |
-| StorSimple                       | yes                | 예, RSA 2048비트  | yes                |
-| Azure Backup                     | yes                | yes                | yes                |
-| Data Box                         | yes                | -                  | yes                |
-| Data Box Edge                    | yes                | yes                | -                  |
+| Blob Storage                     | 예                | 예, RSA 2048비트  | 예                |
+| 디스크 스토리지                     | 예                | 예                | -                  |
+| 관리되는 디스크 스토리지             | 예                | 예                | -                  |
+| File Storage                     | 예                | 예, RSA 2048비트  | -                  |
+| Queue Storage                    | 예                | 예                | 예                |
+| Avere vFXT                       | 예                | -                  | -                  |
+| Azure NetApp Files               | 예                | -                  | -                  |
+| Archive Storage                  | 예                | 예, RSA 2048비트  | -                  |
+| StorSimple                       | 예                | 예, RSA 2048비트  | 예                |
+| Azure Backup                     | 예                | 예                | 예                |
+| Data Box                         | 예                | -                  | 예                |
+| Data Box Edge                    | 예                | 예                | -                  |
 
 ## <a name="conclusion"></a>결론
 

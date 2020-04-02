@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 02/27/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 0deace98c5be0b2ce2f29abce4c8a804145afdb1
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: f6bab532b872a0974993f708edcb252d8bb54432
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475612"
+ms.locfileid: "80529703"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -578,9 +578,9 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 
 | 웹 서비스 상태 | Description | 최종 상태?
 | ----- | ----- | ----- |
-| 전환 | 서비스는 배포 중입니다. | 예 |
-| 비정상 | 서비스가 배포되었지만 현재 연결할 수 없습니다.  | 예 |
-| 예약 할 수 없습니다. | 리소스 부족으로 현재 서비스를 배포할 수 없습니다. | 예 |
+| 전환 | 서비스는 배포 중입니다. | 아니요 |
+| 비정상 | 서비스가 배포되었지만 현재 연결할 수 없습니다.  | 아니요 |
+| 예약 할 수 없습니다. | 리소스 부족으로 현재 서비스를 배포할 수 없습니다. | 아니요 |
 | 실패 | 오류 또는 충돌로 인해 서비스가 배포되지 않았습니다. | 예 |
 | Healthy | 서비스가 정상이며 끝점을 사용할 수 있습니다. | 예 |
 
@@ -1167,6 +1167,11 @@ def run(request):
 > ```shell
 > pip install azureml-contrib-services
 > ```
+
+
+> [!WARNING]
+> Azure 기계 학습은 POST 및 GET 요청만 채점 서비스를 실행하는 컨테이너로 라우팅합니다. 이로 인해 OPTIONS 요청을 사용하여 CORS 요청을 사전 비행하기 위해 브라우저에 오류가 발생할 수 있습니다.
+> 
 
 ## <a name="next-steps"></a>다음 단계
 

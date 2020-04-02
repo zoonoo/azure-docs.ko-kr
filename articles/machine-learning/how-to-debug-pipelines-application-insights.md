@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: 교육 및 일괄 점수 매기기 파이프라인에 로깅을 추가하고 애플리케이션 인사이트에서 기록된 결과를 확인합니다.
 services: machine-learning
 author: aburek
-ms.author: anrode
+ms.author: cgronlun
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 85dcd9ef98deb2ea0117f2db280e49c4a57bf00f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 217a89f6ede4e4b1d2182eed79b088808432044f
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76776301"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529371"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines-in-application-insights"></a>애플리케이션 인사이트에서 머신 러닝 파이프라인 디버그 및 문제 해결
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "76776301"
   ```
 * 응용 [프로그램 인사이트 인스턴스](../azure-monitor/app/opencensus-python.md) 만들기(이 문서에는 리소스에 대한 연결 문자열 을 가져오는 방법에 대한 정보도 포함되어 있습니다).
 
-## <a name="getting-started"></a>시작
+## <a name="getting-started"></a>시작하기
 
 이 섹션은 Azure 기계 학습 파이프라인에서 OpenCensus를 사용하는 데 관련된 소개입니다. 자세한 자습서는 [OpenCensus Azure 모니터 내보내기를](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure) 참조하십시오.
 

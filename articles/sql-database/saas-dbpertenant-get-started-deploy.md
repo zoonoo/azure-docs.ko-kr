@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 31f712f80ee2492e4bbaec99bd093d46f9d04e6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3182daa4ebf3becc824b600d1e487e12b875b275
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73824006"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529664"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>SQL Database로 테넌트별 데이터베이스 패턴을 사용하는 다중 테넌트 SaaS 앱 배포 및 탐색
 
@@ -126,9 +126,9 @@ Wingtip 애플리케이션에서는  [*Azure Traffic Manager*](../traffic-manag
 
     이전 형식의 부분을 다음 표에서 설명합니다.
 
-    | URL 부분        | 설명       |
+    | URL 부분        | Description       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | Wingtip 앱의 이벤트 부분입니다.<br /><br /> *-dpt*는 Wingtip Tickets의 *테넌트당 데이터베이스* 구현을 다른 구현과 구분합니다. 다른 구현의 예로는 테넌트당 *단일* 앱(*-sa*) 또는 *다중 테넌트 데이터베이스*(*-mt*) 구현 등이 있습니다. |
+    | 이벤트.윙팁-dpt | Wingtip 앱의 이벤트 부분입니다.<br /><br /> *-dpt*는 Wingtip Tickets의 *테넌트당 데이터베이스* 구현을 다른 구현과 구분합니다. 다른 구현의 예로는 테넌트당 *단일* 앱(*-sa*) 또는 *다중 테넌트 데이터베이스*(*-mt*) 구현 등이 있습니다. |
     | . * &lt;사용자&gt;* | 예제에서 *af1*입니다. |
     | .trafficmanager.net/ | Traffic Manager, 기준 URL입니다. |
     | fabrikamjazzclub | Fabrikam Jazz Club이라는 테넌트를 식별합니다. |

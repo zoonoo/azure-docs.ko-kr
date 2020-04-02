@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 894fa2f3cda798a409db3ee8e9761c1702baf955
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bc1dd56cd024ee65e29f227f4ec11cde436e388d
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2020
-ms.locfileid: "79216131"
+ms.locfileid: "80294771"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Linux 가상 머신 만들기
 
@@ -40,7 +40,7 @@ Bash 셸을 열고 [ssh-keygen](https://www.ssh.com/ssh/keygen/)을 사용하여
 1. `ssh-keygen -t rsa -b 2048`을 입력하여 ssh 키를 만듭니다. 
 1. 키 쌍을 저장할 파일을 입력하라는 메시지가 표시됩니다. **Enter**를 눌러 기본 위치(대괄호 안에 나열됨)로 저장합니다. 
 1. 암호를 입력하라는 메시지가 표시됩니다. SSH 키에 대한 암호를 입력하거나 **Enter**를 눌러 암호 없이 계속할 수 있습니다.
-1. `ssh-keygen` 명령은 `id_rsa`에서 `~/.ssh directory`의 기본 이름으로 공개 및 프라이빗 키를 생성합니다. 명령이 공개 키의 전체 경로를 반환합니다. `cat`를 입력하여 공개 키의 경로를 통해 `cat ~/.ssh/id_rsa.pub`의 해당 콘텐츠를 표시합니다.
+1. `ssh-keygen` 명령은 `~/.ssh directory`에서 `id_rsa`의 기본 이름으로 공개 및 프라이빗 키를 생성합니다. 명령이 공개 키의 전체 경로를 반환합니다. `cat ~/.ssh/id_rsa.pub`를 입력하여 공개 키의 경로를 통해 `cat`의 해당 콘텐츠를 표시합니다.
 1. 이 명령의 출력을 복사하고 이 문서의 뒷부분에서 사용할 수 있는 위치에 저장합니다. 이는 공용 키로서, 관리자 계정이 VM에 로그인하도록 구성할 때 필요합니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
@@ -56,7 +56,7 @@ Bash 셸을 열고 [ssh-keygen](https://www.ssh.com/ssh/keygen/)을 사용하여
 
     ![VM에 대한 새 리소스 그룹 만들기](./media/quick-create-portal/project-details.png)
 
-1. **인스턴스 세부 정보** 아래에서 *가상 머신 이름*에 **myVM**을 입력하고 *지역*에 **미국 동부**를 선택한 후 *이미지*로 **Ubuntu 18.04 LTS**를 선택합니다. 다른 기본값을 그대로 둡니다.
+1. **인스턴스 세부 정보** 아래에서 **가상 머신 이름**에 *myVM*을 입력하고 **지역**에 *미국 동부*를 선택한 후 **이미지**로 *Ubuntu 18.04 LTS*를 선택합니다. 다른 기본값을 그대로 둡니다.
 
     ![인스턴스 세부 정보 섹션](./media/quick-create-portal/instance-details.png)
 
@@ -64,7 +64,7 @@ Bash 셸을 열고 [ssh-keygen](https://www.ssh.com/ssh/keygen/)을 사용하여
 
     ![관리자 계정](./media/quick-create-portal/administrator-account.png)
 
-1. **인바운드 포트 규칙** > **공용 인바운드 포트** 아래에서 **선택한 포트 허용**을 선택한 다음, 드롭다운에서 **SSH(22)** 및 **HTTP(80)** 를 선택합니다. 
+1. **인바운드 포트 규칙** > **공용 인바운드 포트**에서 **선택된 포트 허용을** 선택한 다음, 드롭다운에서 **SSH(22)** 및 **HTTP(80)** 를 선택합니다. 
 
     ![RDP 및 HTTP에 대한 포트 열기](./media/quick-create-portal/inbound-port-rules.png)
 
@@ -83,13 +83,13 @@ VM과의 SSH 연결을 만듭니다.
 
     ![포털 9](./media/quick-create-portal/portal-quick-start-9.png)
 
-2. **가상 머신 연결** 페이지에서 포트 22를 통해 IP 주소로 연결하는 기본 옵션을 유지합니다. **VM 로컬 계정을 사용하여 로그인**에 연결 명령이 표시됩니다. 명령을 복사하는 단추를 선택합니다. 다음 예제에서는 SSH 연결 명령의 모양을 보여줍니다.
+2. **가상 머신 연결** 페이지에서 포트 22를 통해 IP 주소로 연결하는 기본 옵션을 유지합니다. **VM 로컬 계정을 사용하여 로그인**에 연결 명령이 표시됩니다. 명령을 복사하는 단추를 선택합니다. 다음 예제에서는 SSH 연결 명령의 형식을 보여줍니다.
 
     ```bash
     ssh azureuser@10.111.12.123
     ```
 
-3. SSH 키 쌍을 만들 때 사용한 것과 동일한 Bash 셸을 사용하여(예: `>_` 선택 또는 https://shell.azure.com/bash) 로 이동하여 Cloud Shell을 다시 열 수 있음) SSH 연결 명령을 셸에 붙여넣어 SSH 세션을 만듭니다.
+3. SSH 키 쌍을 만들 때 사용한 것과 동일한 Bash 셸을 사용하여(예: `>_` 선택 또는 `https://shell.azure.com/bash`로 이동하여 Cloud Shell을 다시 열 수 있음) SSH 연결 명령을 셸에 붙여넣어 SSH 세션을 만듭니다.
 
 ## <a name="install-web-server"></a>웹 서버 설치
 

@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 04/01/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: c5f65adfe401f2f6e99234d08b8e8dabeff7d5db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1ee8e90d1d690315b2727a050e0383d7d28dc03
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264116"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546149"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
@@ -99,7 +99,7 @@ Windows 제어판에서 액세스할 수 있는 [사용자 인증서](/dotnet/fr
 
 1. 인증서 를 보려면 인증서 - 왼쪽 창의 **현재 사용자는** **개인** 디렉토리를 확장합니다.
 1. 만든 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업 >내보내기를**선택합니다.
-1. 인증서 내보내기 마법사를 따릅니다.  개인 키를 내보내고 인증서 파일에 대한 암호를 지정하고 파일로 내보냅니다.
+1. 인증서 내보내기 마법사를 따릅니다.  개인 키를 내보내지 말고 로 내보내지 마십시오. CER 파일.
 
 인증서를 업로드하려면 다음 을 수행하십시오.
 
@@ -148,7 +148,7 @@ Azure AD 테넌트에 응용 프로그램을 등록하고 응용 프로그램에
 1. 왼쪽 창에서 사용자 **설정을**선택합니다.
 1. **앱 등록** 설정을 확인합니다. 이 값은 관리자만 설정할 수 있습니다. **예**로 설정하면 Azure AD 테넌트의 모든 사용자가 앱을 등록할 수 있습니다.
 
-앱 등록 설정이 **아니요**로 설정되어 있으면 관리자 역할이 있는 사용자만 이러한 유형의 애플리케이션을 등록할 수 있습니다. Azure AD에서 사용 가능한 관리자 역할 및 각 역할에 제공되는 특정 권한에 대한 자세한 내용은 [사용 가능한 역할](../users-groups-roles/directory-assign-admin-roles.md#available-roles) 및 [역할 권한](../users-groups-roles/directory-assign-admin-roles.md#role-permissions)을 참조하세요. 계정에 사용자 역할이 할당되었지만 앱 등록 설정이 관리자 사용자로 제한되는 경우 관리자에게 앱 등록의 모든 측면을 만들고 관리할 수 있는 관리자 역할 중 하나를 할당하거나 사용자가 등록할 수 있도록 하도록 요청합니다. 애플 리 케이 션.
+앱 등록 설정이 **아니요**로 설정되어 있으면 관리자 역할이 있는 사용자만 이러한 유형의 애플리케이션을 등록할 수 있습니다. Azure AD에서 사용 가능한 관리자 역할 및 각 역할에 제공되는 특정 권한에 대한 자세한 내용은 [사용 가능한 역할](../users-groups-roles/directory-assign-admin-roles.md#available-roles) 및 [역할 권한](../users-groups-roles/directory-assign-admin-roles.md#role-permissions)을 참조하세요. 계정에 사용자 역할이 할당되었지만 앱 등록 설정이 관리자 사용자로 제한되는 경우 관리자에게 앱 등록의 모든 측면을 만들고 관리할 수 있는 관리자 역할 중 하나를 할당하거나 사용자가 앱을 등록할 수 있도록 하도록 요청합니다.
 
 ### <a name="check-azure-subscription-permissions"></a>Azure 구독 권한 확인
 

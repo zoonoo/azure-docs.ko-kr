@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 03/27/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3a54b096019e9e38bc800ae313016a430062dab
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 46c48d6f7d751e6d767921fad21e6213c6b1203b
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74964330"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384027"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>자습서: Azure Active Directory와 Atlassian Cloud 통합
 
@@ -31,7 +30,7 @@ ms.locfileid: "74964330"
 * 사용자가 자신의 Azure AD 계정으로 Atlassian Cloud에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -47,7 +46,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 * Atlassian Cloud에서 **SP 및 IDP** 시작 SSO를 지원합니다.
 * Atlassian가 [자동 사용자 프로비저닝 및 프로비전 해제](atlassian-cloud-provisioning-tutorial.md) 지원
-
+* Atlassian Cloud가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 ## <a name="adding-atlassian-cloud-from-the-gallery"></a>갤러리에서 Atlassian Cloud 추가
 
 Azure AD에 Atlassian Cloud와 Azure AD를 통합하도록 구성하려면 갤러리의 Atlassian Cloud를 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -93,7 +92,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     d. **릴레이 상태** 텍스트 상자에서 `https://<instancename>.atlassian.net` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 위의 값은 실제가 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값은 이 자습서의 뒷부분의 **Atlassian Cloud Single Sign-On 구성**에 설명된 **Atlassian Cloud SAML 구성** 화면에서 얻을 수 있습니다.
+    > 위의 값은 실제가 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 실제 값은 이 자습서의 **Atlassian Cloud SSO 구성**의 7단계 뒤부분에 설명된 **Atlassian Cloud SAML 구성** 화면에서 얻을 수 있습니다.
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
@@ -222,8 +221,12 @@ Azure AD 사용자가 Atlassian Cloud에 로그인하도록 하려면 Atlassian 
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Azure AD에서 Atlassian Cloud 사용해보기](https://aad.portal.azure.com/)
+
+- [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [고급 표시 유형 및 컨트롤을 사용하여 Atlassian Cloud를 보호하는 방법](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

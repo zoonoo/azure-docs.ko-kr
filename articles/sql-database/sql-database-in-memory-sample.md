@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: e7e7fc44d5f8b46a66c698d3a33ceeab5b8625c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b707d67c88eb550d397134b2294c1c5b0e1f7f7d
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73810334"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528209"
 ---
 # <a name="in-memory-sample"></a>메모리 내 샘플
 
@@ -41,7 +41,7 @@ Azure SQL Database에서 메모리 내 기술을 사용하면 애플리케이션
 메모리 내 OLTP의 경우 더 간단하지만 시각적으로 뛰어난 성능 데모는 다음을 참조하세요.
 
 - 릴리스: [in-memory-oltp-demo-v1.0](https://github.com/Microsoft/sql-server-samples/releases/tag/in-memory-oltp-demo-v1.0)
-- 소스 코드: [in-memory-oltp-demo-source-code](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/in-memory/ticket-reservations)
+- 소스 코드: [in-memory-oltp-demo-source-code](https://github.com/microsoft/sql-server-samples/tree/master/samples/features/in-memory-database)
 
 #### <a name="installation-steps"></a>설치 단계
 
@@ -51,7 +51,7 @@ Azure SQL Database에서 메모리 내 기술을 사용하면 애플리케이션
 
 3. [메모리 내 OLTP Transact-SQL 스크립트](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) 를 클립보드에 복사합니다. T-SQL 스크립트는 1단계에서 만든 AdventureWorksLT 샘플 데이터베이스에서 필요한 메모리 내 개체를 만듭니다.
 
-4. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다. `MEMORY_OPTIMIZED = ON` 절 CREATE TABLE 문이 중요합니다. 예를 들어:
+4. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다. `MEMORY_OPTIMIZED = ON` 절 CREATE TABLE 문이 중요합니다. 다음은 그 예입니다.
 
 
 ```sql
@@ -393,7 +393,7 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 
 #### <a name="deeper-information"></a>자세한 정보
 
-- [쿼럼이 SQL Database의 메모리 내 OLTP을 사용하여 DTU를 70% 줄이는 동시에 키 데이터베이스의 워크로드를 두 배로 증가시키는 방법에 대해 알아보기](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+- [SQL 데이터베이스의 메모리 내 OLTP를 사용하여 DTU를 70% 줄이면서 쿼럼이 키 데이터베이스의 워크로드를 두 배로 늘리는 방법에 대해 알아봅니다.](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 - [Azure SQL Database의 메모리 내 OLTP 블로그 게시물](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
@@ -413,7 +413,7 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 
 #### <a name="tools"></a>도구
 
-- [Azure 포털](https://portal.azure.com/)
+- [Azure portal](https://portal.azure.com/)
 
 - [SQL 서버 관리 스튜디오(SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 

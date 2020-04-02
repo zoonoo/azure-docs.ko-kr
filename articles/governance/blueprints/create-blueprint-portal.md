@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: 포털에서 청사진 만들기'
 description: 이 빠른 시작에서는 Azure Blueprints를 사용하여 Azure Portal을 통해 아티팩트를 만들고 정의하고 배포합니다.
-ms.date: 11/21/2019
+ms.date: 03/25/2020
 ms.topic: quickstart
-ms.openlocfilehash: fa9eb8285086e35f8b23798c41a09529d0f49582
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 457f4f9c53f45077129b291c904bc1580b6d965e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356078"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282055"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>빠른 시작: 포털에서 청사진 정의 및 할당
 
@@ -29,6 +29,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    또는 **시작** 페이지에서 **만들기**를 선택하여 청사진 만들기로 즉시 이동할 수도 있습니다.
 
    ![청사진 정의 페이지에서 청사진 만들기](./media/create-blueprint-portal/create-blueprint-button.png)
+
+1. 기본 제공 청사진 목록의 맨 위에 있는 카드에서 **빈 청사진으로 시작**을 선택합니다.
 
 1. **MyBlueprint**와 같은 **청사진 이름**을 제공합니다. (최대 48개의 문자 및 숫자를 사용하지만 공백 또는 특수 문자를 포함하지 않습니다.) **청사진 설명**은 지금은 비워 둡니다.
 

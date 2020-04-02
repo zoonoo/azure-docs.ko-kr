@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 05db717f5d3adc2429431503f588f2cc7f79aef6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e00fee8841a2d5a817a00b942bfe0733a80b2cfc
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266781"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546336"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Windows VM용 Azure 디스크 암호화 
 
@@ -30,11 +30,13 @@ Azure [CLI 빠른 시작 또는](disk-encryption-cli-quickstart.md) Azure Powers
 
 ## <a name="supported-vms-and-operating-systems"></a>지원되는 VM 및 운영 체제
 
-### <a name="supported-vm-sizes"></a>지원되는 VM 크기
+### <a name="supported-vms"></a>지원되는 VM
 
 Windows VM은 [다양한 크기로](sizes-general.md)제공됩니다. Azure 디스크 암호화는 [기본, A 시리즈 VM](https://azure.microsoft.com/pricing/details/virtual-machines/series/)또는 메모리가 2GB 미만인 가상 컴퓨터에서는 사용할 수 없습니다.
 
 Azure 디스크 암호화는 프리미엄 저장소가 있는 VM에서도 사용할 수 있습니다.
+
+Azure 디스크 암호화는 [세대 2 VM)](generation-2.md#generation-1-vs-generation-2-capabilities)및 [Lsv2 시리즈 VM에서](../lsv2-series.md)사용할 수 없습니다. 추가 예외는 [Azure 디스크 암호화: 지원되지 않는 시나리오를](disk-encryption-windows.md#unsupported-scenarios)참조하십시오.
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
 
@@ -57,7 +59,7 @@ Azure 디스크 암호화를 사용하려면 VM이 다음 네트워크 끝점 �
 
 ## <a name="group-policy-requirements"></a>그룹 정책 요구 사항
 
-Azure 디스크 암호화는 Windows VM용 BitLocker 외부 키 보호를 사용합니다. 도메인 가입 VM의 경우 TPM 보호기를 적용하는 그룹 정책을 푸시하지 않습니다. "호환되는 TPM이 없이 BitLocker 허용"에 대한 그룹 정책 정보는 [BitLocker 그룹 정책 참조](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1)를 참조하세요.
+Azure 디스크 암호화는 Windows VM용 BitLocker 외부 키 보호를 사용합니다. 도메인 가입 VM의 경우 TPM 보호기를 적용하는 그룹 정책을 푸시하지 않습니다. "호환되는 TPM 없이 BitLocker 허용"에 대한 그룹 정책에 대한 자세한 내용은 [BitLocker 그룹 정책 참조를](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1)참조하십시오.
 
 사용자 지정 그룹 정책이 있는 도메인 에 대한 BitLocker 정책에는 다음 설정이 포함되어야 합니다 [>.](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings) BitLocker에 대한 사용자 지정 그룹 정책 설정이 호환되지 않으면 Azure Disk Encryption이 실패합니다. 올바른 정책 설정이 없는 머신에서 새 정책을 적용하고, 새 정책을 강제로 업데이트한(gpupdate.exe /force) 다음, 다시 시작해야 할 수 있습니다.
 

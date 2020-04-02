@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: f50115732940eab14db30842be85b47cb4a552e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 88d25083a1105023279f3907a4573319fabe087c
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299517"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520756"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Azure 관리 디스크의 서버 측 암호화
 
@@ -68,7 +68,7 @@ Azure 관리 디스크의 기본 암호화 모듈에 대한 자세한 내용은 
 
 - 디스크에 이 기능을 사용하도록 설정하면 비활성화할 수 없습니다.
     이 방법을 해결해야 하는 경우 모든 데이터를 고객 관리 키를 사용하지 않는 완전히 다른 관리 디스크에 [복사해야](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) 합니다.
-- 크기 2080의 ["소프트" 및 "하드" RSA 키만](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) 지원되며 다른 키나 크기는 지원되지 않습니다.
+- 크기 2048의 ["소프트" 및 "하드" RSA 키만](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) 지원되며 다른 키나 크기는 지원되지 않습니다.
 - 서버 측 암호화 및 고객 관리 키를 사용하여 암호화된 사용자 지정 이미지에서 생성된 디스크는 동일한 고객 관리 키를 사용하여 암호화되어야 하며 동일한 구독에 있어야 합니다.
 - 서버 측 암호화 및 고객 관리 키로 암호화된 디스크에서 생성된 스냅숏은 동일한 고객 관리 키로 암호화해야 합니다.
 - 서버 측 암호화 및 고객 관리 키를 사용하여 암호화된 사용자 지정 이미지는 공유 이미지 갤러리에서 사용할 수 없습니다.

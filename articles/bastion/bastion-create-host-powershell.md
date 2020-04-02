@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: c3e4c2f2bac45f2e366764473a34b0536bb4cc44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43d834f0c834696cd4a836466c9663fe7c31a392
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76990456"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520511"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 요새 호스트 만들기
 
@@ -35,7 +35,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
    ```azurepowershell-interactive
    $subnetName = "AzureBastionSubnet"
    $subnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
-   $vnet = New-AzVirtualNetwork -Name "myVnet" -ResourceGroupName " myBastionRG " -Location "westeurope" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
+   $vnet = New-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myBastionRG" -Location "westeurope" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
    ```
 
 2. Azure 요새에 대한 공용 IP 주소를 만듭니다. 공용 IP는 RDP/SSH가 액세스할 수 있는 바스티온 리소스(포트 443을 통해)를 처리하는 공용 IP 주소입니다. 공용 IP 주소는 만드는 Bastion 리소스와 동일한 지역에 있어야 합니다.
@@ -47,7 +47,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 3. 가상 네트워크의 AzureBastionSubnet에서 새 Azure 요새 리소스를 만듭니다. Bastion 리소스를 만들고 배포하는 데 약 5분이 걸립니다.
 
    ```azurepowershell-interactive
-   $bastion = New-AzBastion -ResourceGroupName " myBastionRG " -Name "myBastion" -PublicIpAddress $publicip -VirtualNetwork $vnet
+   $bastion = New-AzBastion -ResourceGroupName "myBastionRG" -Name "myBastion" -PublicIpAddress $publicip -VirtualNetwork $vnet
    ```
 
 ## <a name="next-steps"></a>다음 단계

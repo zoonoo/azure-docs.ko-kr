@@ -1,20 +1,20 @@
 ---
-title: Azure Cosmos DB SQL(Core) API에 대해 프로비저닝된 처리량(RU/s)을 가져오는 PowerShell 스크립트
-description: Azure PowerShell 스크립트 - SQL(Core)용 Azure Cosmos DB 프로비저닝된 처리량 가져오기(RU/s) API
+title: Azure Cosmos DB SQL API 데이터베이스 또는 컨테이너에 대한 처리량(RU/s)을 가져오는 PowerShell 스크립트
+description: Azure Cosmos DB SQL API 데이터베이스 또는 컨테이너에 대한 처리량(RU/s)을 가져오는 Azure PowerShell 스크립트
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 07/03/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
-ms.openlocfilehash: 9b4450e18aa2666806faf2c0baed8af2285e69dc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f471b1d41314728a6c6f0c5d2ab981891e2caa87
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441342"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365603"
 ---
-# <a name="get-the-provisioned-throughput-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Azure Cosmos DB - SQL(Core) API용 데이터베이스 또는 컨테이너에 대한 프로비저닝된 처리량 가져오기(RU/s)
+# <a name="get-throughput-rus-for-azure-cosmos-db-sql-api-database-or-container"></a>Azure Cosmos DB SQL API 데이터베이스 또는 컨테이너에 대한 처리량(RU/s) 가져오기
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,7 +22,7 @@ ms.locfileid: "75441342"
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-ru-get.ps1 "Get throughput for a database or container for SQL (Core) API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-ru-get.ps1 "Get throughput (RU/s) for Azure Cosmos DB SQL API database or container")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -38,8 +38,9 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 | 명령 | 메모 |
 |---|---|
-|**Azure 리소스**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | 리소스를 만듭니다. |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBSqlDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabasethroughput) | Azure Cosmos DB SQL API 데이터베이스에 프로비저닝된 처리량을 가져옵니다. |
+| [Get-AzCosmosDBSqlContainerThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainerthroughput) | Azure Cosmos DB SQL API 컨테이너에 프로비저닝된 처리량을 가져옵니다. |
 |**Azure 리소스 그룹**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||

@@ -10,12 +10,12 @@ ms.date: 02/24/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b0f2ad7566d0204871a9c6441315d6201662d92b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 53eca8a0b9e7cc9abb8f89cd56fca5df28f2de0f
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77616299"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521937"
 ---
 # <a name="authorizing-access-to-data-in-azure-storage"></a>Azure 저장소의 데이터에 대한 액세스 권한 부여
 
@@ -33,7 +33,7 @@ ms.locfileid: "77616299"
 
 각 권한 부여 옵션은 아래에 간략하게 설명되어 있습니다.
 
-- Blob 및 큐에 대한 **Azure Active Directory(Azure AD) 통합입니다.** Azure AD는 스토리지 계정의 리소스에 대한 클라이언트 액세스를 자세히 제어하기 위해 RBAC(역할 기반 액세스 제어)를 제공합니다. Blob 및 큐에 대한 Azure AD 통합에 대한 자세한 내용은 [Azure Active Directory를 사용하여 Azure Blob 및 큐에 대한 액세스 권한 부여를](storage-auth-aad.md)참조하세요.
+- Blob 및 큐에 대한 **Azure Active Directory(Azure AD) 통합입니다.** Azure AD는 저장소 계정의 리소스에 대한 클라이언트의 액세스를 제어하기 위한 RBAC(역할 기반 액세스 제어)를 제공합니다. Blob 및 큐에 대한 Azure AD 통합에 대한 자세한 내용은 [Azure Active Directory를 사용하여 Azure Blob 및 큐에 대한 액세스 권한 부여를](storage-auth-aad.md)참조하세요.
 
 - Azure 파일에 대한 **Azure Active Directory 도메인 서비스(Azure AD DS) 인증입니다.** Azure 파일은 Azure AD DS를 통해 SMB(서버 메시지 블록)에 대한 ID 기반 권한 부여를 지원합니다. 저장소 계정에서 Azure Files 리소스에 대한 클라이언트의 액세스를 세분화된 제어에 RBAC를 사용할 수 있습니다. 도메인 서비스를 사용하는 Azure Files 인증에 대한 자세한 내용은 [개요를](../files/storage-files-active-directory-overview.md)참조하십시오.
 

@@ -14,26 +14,27 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: d6720200da341ee466339edde6dded02dd4fddc6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5d1dc90832a399aa9ee253b2c7962b8536c1926a
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74970111"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80383007"
 ---
-# <a name="cli-example-upload-a-local-file-to-a-container"></a>CLI 예: 컨테이너에 로컬 파일 업로드 
+# <a name="azure-cli-example-upload-a-local-file-to-a-container"></a>Azure CLI 예제: 컨테이너에 로컬 파일 업로드
 
 이 문서의 Azure CLI 스크립트는 로컬 파일을 스토리지 컨테이너에 업로드하는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>사전 요구 사항
 
-[Media Services 계정 만들기](create-account-cli-how-to.md)
+* [Media Services 계정 만들기](create-account-cli-how-to.md)
+* [자산 관리](manage-asset-concept.md)를 검토합니다.
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>예제 스크립트
 
-```Azure CLI 
+```azurecli-interactive
 #!/bin/bash
 # Update the following variables for your own settings:
 storageAccountName=build2018storage

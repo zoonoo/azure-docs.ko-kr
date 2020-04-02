@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/10/2020
+ms.date: 03/31/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ec32990513d9199c4aaccf1bcfcbf76f348f877b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d224bd9e9e7b1f8fc9eb45d85e78811d8642fc78
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75867509"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519556"
 ---
 # <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Azure 포털을 사용하여 Blob 및 큐 데이터에 대한 액세스를 위해 RBAC 역할을 할당합니다.
 
@@ -23,13 +23,13 @@ Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)]
 
 RBAC 역할이 Azure AD 보안 보안 주체에 할당되면 Azure는 해당 보안 보안 주체에 대한 해당 리소스에 대한 액세스 권한을 부여합니다. 액세스 권한은 구독, 리소스 그룹, 스토리지 계정 또는 개별 컨테이너나 큐의 수준에 범위를 지정할 수 있습니다. Azure AD 보안 주체는 Azure 리소스에 대한 사용자, 그룹, 응용 프로그램 서비스 주체 또는 [관리되는 ID일](../../active-directory/managed-identities-azure-resources/overview.md)수 있습니다.
 
-이 문서에서는 Azure 포털을 사용하여 RBAC 역할을 할당하는 방법을 설명합니다. Azure 포털은 RBAC 역할을 할당하고 저장소 리소스에 대한 액세스를 관리하기 위한 간단한 인터페이스를 제공합니다. Azure 명령줄 도구 또는 Azure 저장소 관리 API를 사용하여 Blob 및 큐 리소스에 RBAC 역할을 할당할 수도 있습니다. 저장소 리소스에 대한 RBAC 역할에 대한 자세한 내용은 Azure Active Directory 를 [사용하여 Azure Blob 및 큐에 대한 인증 액세스를](storage-auth-aad.md)참조하세요. 
+이 문서에서는 Azure 포털을 사용하여 RBAC 역할을 할당하는 방법을 설명합니다. Azure 포털은 RBAC 역할을 할당하고 저장소 리소스에 대한 액세스를 관리하기 위한 간단한 인터페이스를 제공합니다. Azure 명령줄 도구 또는 Azure 저장소 관리 API를 사용하여 Blob 및 큐 리소스에 RBAC 역할을 할당할 수도 있습니다. 저장소 리소스에 대한 RBAC 역할에 대한 자세한 내용은 Azure Active Directory 를 [사용하여 Azure Blob 및 큐에 대한 인증 액세스를](storage-auth-aad.md)참조하세요.
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>Blob 및 큐의 RBAC 역할
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>리소스 범위 결정 
+## <a name="determine-resource-scope"></a>리소스 범위 결정
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
@@ -52,11 +52,11 @@ RBAC 역할이 Azure AD 보안 보안 주체에 할당되면 Azure는 해당 보
 
 보안 주체에 역할을 할당하기 전에 부여할 권한의 범위를 고려해야 합니다. 리소스 [범위 결정](#determine-resource-scope) 섹션을 검토하여 적절한 범위를 결정합니다.
 
-여기에 표시된 프로시저는 컨테이너로 범위가 지정된 역할을 할당하지만 큐로 범위가 지정된 역할을 할당하기 위해 동일한 단계를 수행할 수 있습니다. 
+여기에 표시된 프로시저는 컨테이너로 범위가 지정된 역할을 할당하지만 큐로 범위가 지정된 역할을 할당하기 위해 동일한 단계를 수행할 수 있습니다.
 
 1. Azure [포털에서](https://portal.azure.com)저장소 계정으로 이동하여 계정에 대한 **개요를** 표시합니다.
-1. 서비스 아래에서 **Blob**을 선택합니다. 
-1. 역할을 할당하려는 컨테이너를 찾아 컨테이너의 설정을 표시합니다. 
+1. 서비스 아래에서 **Blob**을 선택합니다.
+1. 역할을 할당하려는 컨테이너를 찾아 컨테이너의 설정을 표시합니다.
 1. 컨테이너에 대한 액세스 제어 설정을 표시하려면 **IAM(액세스 제어)을** 선택합니다. **역할 할당** 탭을 선택하여 역할 할당 목록을 봅니다.
 
     ![컨테이너 액세스 제어 설정을 보여주는 스크린샷](media/storage-auth-aad-rbac-portal/portal-access-control-for-storage.png)

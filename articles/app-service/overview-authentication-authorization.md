@@ -5,18 +5,23 @@ ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: mahender
-ms.custom: fasttrack-edit
-ms.openlocfilehash: f16b10f13c945dd7f1ae4fdc3f4e02dcd7c5a018
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.custom:
+- seodec18
+- fasttrack-edit
+ms.openlocfilehash: 0fe436b1da551bbc8a0064cb3cfdff864d8f9eb8
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437954"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520688"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Azure 앱 서비스 및 Azure 함수의 인증 및 권한 부여
 
 > [!NOTE]
 > 현재 Azure [Active Directory v2.0(MSAL](../active-directory/develop/v2-overview.md) 포함)은 Azure 앱 서비스 및 Azure 함수에 대해 지원되지 않습니다. [MSAL](../active-directory/develop/msal-overview.md) 업데이트를 다시 확인하시기 바랍니다.
+>
+> [!NOTE]
+> 현재 ASP.NET Core는 현재 인증/권한 부여 기능을 통해 현재 사용자를 채우는 것을 지원하지 않습니다.
 >
 
 Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므로 웹앱, RESTful API 및 모바일 백 엔드에 코드를 최소한으로 작성하거나 코드를 작성하지 않고 사용자를 로그인시켜 데이터에 액세스할 수 있으며 [Azure Functions](../azure-functions/functions-overview.md)도 사용할 수 있습니다. 이 문서는 App Service가 앱의 인증 및 권한 부여를 단순화하는 방법에 대해 설명합니다.
@@ -132,11 +137,17 @@ Azure [포털에서](https://portal.azure.com)들어오는 요청이 인증되�
 > [!CAUTION]
 > 이러한 방식으로 액세스를 제한하는 것은 앱에 대한 모든 호출에 적용되며, 이는 많은 단일 페이지 응용 프로그램과 마찬가지로 공개적으로 사용 가능한 홈 페이지를 원하는 앱에는 바람직하지 않을 수 있습니다.
 
+> [!NOTE]
+> 인증/권한 부여는 이전에 Easy Auth로 알려졌습니다.
+>
+
 ## <a name="more-resources"></a>추가 리소스
 
 [자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여(Windows)](app-service-web-tutorial-auth-aad.md)  
 [자습서: Azure App Service에서 Linux용 엔드투엔드 사용자 인증 및 권한 부여](containers/tutorial-auth-aad.md)  
-[App Service의 인증 및 권한 부여 사용자 지정](app-service-authentication-how-to.md)
+[앱 서비스](app-service-authentication-how-to.md)
+[.NET 코어 통합에서](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
+인증 및 권한 부여를 사용자 지정하여[.NET Core(제3자)와 함께 작동하는 Azure App Service 인증](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication) 받기
 
 공급자별 방법 가이드:
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: b2af392dc4dc848a099b8297bb58e7d4a7104fa6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3aee30e8ad82f9657c3bc9e97a7657a1e8c7989d
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76964042"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548922"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>IoT Edge 장치에 보안 모듈 배포
 
@@ -96,7 +96,7 @@ ms.locfileid: "76964042"
 1. 모듈 **트윈 설정** 탭에서 다음 구성을 추가합니다.
       
     ``` json
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{}
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
     ```
 
 1. **업데이트를**선택합니다.
@@ -167,7 +167,7 @@ ms.locfileid: "76964042"
    
 1. 다음 컨테이너가 실행 되고 있는지 확인합니다.
    
-   | 이름 | IMAGE |
+   | 속성 | IMAGE |
    | --- | --- |
    | azureiot보안 | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | 에지 허브 | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |

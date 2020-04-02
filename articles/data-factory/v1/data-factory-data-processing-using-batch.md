@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: afc7a7406831568304c2ebd8d9a6c72b497e04e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a6540b5784a76acfc248fb15feb1aaf39420845
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75972872"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546938"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리
 > [!NOTE]
@@ -430,7 +430,7 @@ public IDictionary<string, string> Execute(
     } while (continuationToken != null);
 
     ```
-   자세한 내용은 [ListBlobsSegmented](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobssegmented) 메서드에 대한 설명서를 참조하세요.
+   자세한 내용은 [ListBlobsSegmented](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented) 메서드에 대한 설명서를 참조하세요.
 
 1. Blob 집합을 진행하는 코드는 논리적으로 do-while 루프 안으로 들어갑니다. **Execute** 메서드에서 do-while 루프는 **Calculate**라는 메서드로 Blob 목록을 전달합니다. 이 메서드는 **output** 이라는 문자열 변수를 반환하는데, 이는 세그먼트에서 모든 Blob을 반복한 결과입니다.
 
@@ -965,7 +965,7 @@ Data Factory 및 Batch 기능에 대한 자세한 내용을 보려면 이 샘플
 * [Azure 및 Power BI: 기본 개요](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>참조
-* [Azure 데이터 팩터리](https://azure.microsoft.com/documentation/services/data-factory/)
+* [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
   * [Data Factory 서비스 소개](data-factory-introduction.md)
   * [Data Factory 시작](data-factory-build-your-first-pipeline.md)

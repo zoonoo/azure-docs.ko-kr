@@ -4,16 +4,16 @@ description: 배포 매니페스트에서 배포할 모듈을 선언하는 방�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 05/28/2019
+ms.date: 03/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8eb24fe878638853cd8519c08045552a91f0c190
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a4b90d8b6fe67de26c8e652e0dc5b62cc27023f
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271396"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545623"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>IoT Edge에서 모듈을 배포하고 경로를 설정하는 방법 알아보기
 
@@ -141,7 +141,7 @@ IoT Edge 허브는 모듈, IoT Hub 및 리프 디바이스 간의 통신을 관�
 
 원본 속성은 다음 값 중 하나일 수 있습니다.
 
-| 원본 | 설명 |
+| 원본 | Description |
 | ------ | ----------- |
 | `/*` | 모든 모듈 또는 리프 디바이스의 모든 디바이스-클라우드 메시지 또는 쌍 변경 알림 |
 | `/twinChangeNotifications` | 모든 모듈 또는 리프 디바이스에서 발생하는 모든 쌍 변경(보고된 속성) |
@@ -177,7 +177,7 @@ FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 
 싱크 속성은 다음 값 중 하나일 수 있습니다.
 
-| sink | 설명 |
+| sink | Description |
 | ---- | ----------- |
 | `$upstream` | 메시지를 IoT Hub로 보냅니다. |
 | `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | 특정 모듈의 특정 입력으로 메시지 보내기 |
@@ -252,6 +252,9 @@ IoT Edge 허브는 `storeAndForwardConfiguration.timeToLiveSecs` [IoT Edge 허�
             "type": "docker",
             "status": "running",
             "restartPolicy": "always",
+            "env": {
+              "tempLimit": {"value": "100"}
+            },
             "settings": {
               "image": "myacr.azurecr.io/filtermodule:latest",
               "createOptions": "{}"

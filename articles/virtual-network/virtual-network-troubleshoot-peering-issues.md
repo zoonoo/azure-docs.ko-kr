@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 1fddbe908ccebc1384dcccde0810366f1a6d5da7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 662619e101b45d1dd8b34ea97e31f214b254124a
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73796247"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521875"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>가상 네트워크 피어링 문제 해결
 
@@ -234,6 +234,15 @@ NVA 장치 설정 및 라우팅 문제 해결에 대한 도움말은 [Azure의 �
 ### <a name="failed-to-peer-a-databricks-virtual-network"></a>Databricks 가상 네트워크를 피어에 연결하지 못했습니다.
 
 이 문제를 해결하려면 **Azure Databricks에서**가상 네트워크 피어링을 구성한 다음 **Resource ID를**사용하여 대상 가상 네트워크를 지정합니다. 자세한 내용은 [원격 가상 네트워크에 대한 데이터브릭 스 가상 네트워크 피어를](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2)참조하십시오.
+
+### <a name="the-remote-virtual-network-lacks-a-gateway"></a>원격 가상 네트워크에 게이트웨이가 없습니다.
+
+이 문제는 다른 테넌트와 가상 네트워크를 피어로 `Use Remote Gateways`피어내고 나중에 구성하려고 할 때 발생합니다. Azure 포털의 제한사항은 다른 테넌트의 가상 네트워크에서 가상 네트워크 게이트웨이의 존재를 확인할 수 없다는 것입니다.
+
+이 문제를 해결하는 방법에는 두 가지가 있습니다.
+
+ * 피어링을 삭제하고 새 `Use Remote Gateways` 피어링을 만들 때 옵션을 활성화합니다.
+ * Azure 포털 대신 PowerShell 또는 CLI를 `Use Remote Gateways`사용하여 을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: sngun
-ms.openlocfilehash: 68a9a7d5f90831bb2e0c9284cb71ae4b92edffad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee2743af2f8499aec04d8b6b733e1ba4c2a82083
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131415"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546069"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 및 .NET에 대한 성능 팁
 
@@ -80,7 +80,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 |게이트웨이  |   HTTPS    |  모든 SDK    |   SQL (443), 몽고DB (10250, 10255, 10256), 표 (443), 카산드라 (10350), 그래프 (443)    |
 |직접    |     TCP    |  .NET SDK    | 10000 ~20000 범위의 포트 |
 
-Azure Cosmos DB는 HTTPS를 통해 간단하고 개방적인 RESTful 프로그래밍 모델을 제공합니다. 또한 통신 모델이 RESTful이며 .NET 클라이언트 SDK를 통해 사용할 수 있는 효율적인 TCP 프로토콜도 제공합니다. TCP 프로토콜은 초기 인증 및 트래픽 암호화에 SSL을 사용합니다. 최상의 성능을 위해 가능한 경우 TCP 프로토콜을 사용 합니다.
+Azure Cosmos DB는 HTTPS를 통해 간단하고 개방적인 RESTful 프로그래밍 모델을 제공합니다. 또한 통신 모델이 RESTful이며 .NET 클라이언트 SDK를 통해 사용할 수 있는 효율적인 TCP 프로토콜도 제공합니다. TCP 프로토콜은 초기 인증 및 트래픽 암호화에 TLS를 사용합니다. 최상의 성능을 위해 가능한 경우 TCP 프로토콜을 사용 합니다.
 
 SDK V3의 경우 에서 `CosmosClient` `CosmosClientOptions`인스턴스를 만들 때 연결 모드를 구성합니다. 직접 모드가 기본값임을 기억하십시오.
 
@@ -206,7 +206,7 @@ readDocument.RequestDiagnosticsString
 > [!NOTE] 
 > 이 `maxItemCount` 속성은 페이지 만 을 사용해서는 안됩니다. 주요 용도는 단일 페이지에서 반환되는 최대 항목 수를 줄여 쿼리 성능을 향상시키는 것입니다.  
 
-사용 가능한 Azure Cosmos DB SDK를 사용하여 페이지 크기를 설정할 수도 있습니다. [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) 속성을 `FeedOptions` 사용하면 열거 작업에서 반환할 최대 항목 수를 설정할 수 있습니다. -1로 `maxItemCount` 설정하면 SDK는 문서 크기에 따라 자동으로 최적의 값을 찾습니다. 예를 들어:
+사용 가능한 Azure Cosmos DB SDK를 사용하여 페이지 크기를 설정할 수도 있습니다. [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) 속성을 `FeedOptions` 사용하면 열거 작업에서 반환할 최대 항목 수를 설정할 수 있습니다. -1로 `maxItemCount` 설정하면 SDK는 문서 크기에 따라 자동으로 최적의 값을 찾습니다. 다음은 그 예입니다.
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 75cef47c1ed2b6da054442a4a1215141e67ad1b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c994caf094918b39204437b5194d81a64affc66
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79498582"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545669"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB의 다양한 API에 대한 질문과 대답
 
@@ -219,7 +219,7 @@ MongoDB용 Azure Cosmos DB의 API는 응용 프로그램이 MongoDB용 기존 �
 
 Cosmos 데이터베이스를 Azure Cosmos DB의 API for MongoDB에 연결하는 가장 빠른 방법은 [Azure Portal](https://portal.azure.com)로 이동하는 것입니다. 계정으로 이동하여 왼쪽 탐색 메뉴에서 **빠른 시작**을 클릭합니다. 빠른 시작은 데이터베이스에 연결하는 코드 조각을 얻는 가장 좋은 방법입니다.
 
-Azure Cosmos DB에는 엄격한 보안 요구 사항과 표준이 적용됩니다. Azure Cosmos DB 계정에는 SSL을 통한 인증 및 보안 통신이 필요하므로 TLSv1.2를 사용해야 합니다.
+Azure Cosmos DB에는 엄격한 보안 요구 사항과 표준이 적용됩니다. Azure Cosmos DB 계정에는 TLS를 통한 인증 및 보안 통신이 필요하므로 TLSv1.2를 사용해야 합니다.
 
 자세한 내용은 [Cosmos 데이터베이스를 Azure Cosmos DB의 API for MongoDB에 연결](connect-mongodb-account.md)을 참조하세요.
 
@@ -227,7 +227,7 @@ Azure Cosmos DB에는 엄격한 보안 요구 사항과 표준이 적용됩니�
 
 Azure Cosmos DB의 API for MongoDB는 일반적인 MongoDB 오류 코드 외에도 자체적인 특정 오류 코드를 갖고 있습니다.
 
-| Error               | 코드  | 설명  | 해결 방법  |
+| Error               | 코드  | Description  | 해결 방법  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | 소비된 총 요청 단위 수는 컨테이너에 대한 프로비저닝된 요청 단위 비율보다 많으며 제한되었습니다. | Azure Portal에서 컨테이너 또는 컨테이너 집합에 할당된 처리량을 크기 조정하거나 다시 시도하는 것이 좋습니다. |
 | ExceededMemoryLimit | 16501 | 다중 테넌트 서비스로써 작업이 클라이언트의 메모리 할당량을 초과했습니다. | [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에서 보다 제한적인 쿼리 조건을 통해 작업 범위를 줄이거나 고객 지원에 문의하세요. <br><br><em> &nbsp; &nbsp;예: &nbsp; &nbsp;db.getCollection('사용자').aggregate(]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {이름: "앤디"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {나이: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])</em>) |
@@ -292,7 +292,7 @@ Azure Cosmos DB가 SAS(공유 액세스 서명)을 지원하지만 새 테이블
 
 다음 방법 중 하나로 사용자 의견을 공유할 수 있습니다.
 
-* [사용자 의견](https://feedback.azure.com/forums/263030-azure-cosmos-db)
+* [사용자 음성](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow는 프로그래밍 질문에 가장 적합합니다. 질문이 [주제와 관련된](https://stackoverflow.com/help/on-topic) 것인지 확인하고 [질문에 대해 분명하고 답변할 수 있도록 가능한 한 자세하게 제공하세요](https://stackoverflow.com/help/how-to-ask).
 

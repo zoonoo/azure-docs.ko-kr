@@ -1,30 +1,25 @@
 ---
-title: Azure 스팟 VM(미리 보기)을 사용하는 축척 집합 만들기
+title: Azure 스팟 VM을 사용하는 축척 집합 만들기
 description: 스팟 VM을 사용하여 비용을 절감하는 Azure 가상 시스템 크기 집합을 만드는 방법에 대해 알아봅니다.
 author: cynthn
-tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.topic: conceptual
-ms.date: 02/11/2020
+ms.topic: article
+ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 37e914fe6bafe9587be525faf3e01c897cdd8230
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7bd22032a554c83a2ea2323ffdb3ae52dfe4faf
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77162687"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545932"
 ---
-# <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>미리 보기: 가상 시스템 규모 집합에 대한 Azure 스팟 VM 
+# <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>가상 시스템 규모 집합을 위한 Azure 스팟 VM 
 
 확장 집합에서 Azure Spot을 사용하면 사용하지 않는 용량을 크게 절약할 수 있습니다. Azure에서 용량을 다시 필요로 하는 모든 시점에서 Azure 인프라는 Spot 인스턴스를 제거합니다. 따라서 스팟 인스턴스는 일괄 처리 작업, 개발/테스트 환경, 대규모 컴퓨팅 워크로드 등과 같은 중단을 처리할 수 있는 워크로드에 적합합니다.
 
 사용 가능한 용량의 양은 크기, 지역, 시간대 등에 따라 달라질 수 있습니다. 크기 조정 집합에 스팟 인스턴스를 배포할 때 Azure는 사용 가능한 용량이 있는 경우에만 인스턴스를 할당하지만 이러한 인스턴스에 대한 SLA는 없습니다. 스팟 스케일 세트는 단일 오류 도메인에 배포되며 고가용성 보장을 제공하지 않습니다.
 
-> [!IMPORTANT]
-> 스팟 인스턴스는 현재 공개 미리 보기상태입니다.
-> 이 미리 보기 버전은 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
->
 
 ## <a name="pricing"></a>가격 책정
 
@@ -47,9 +42,9 @@ ms.locfileid: "77162687"
 ## <a name="deploying-spot-vms-in-scale-sets"></a>스케일 세트에 스팟 VM 배포
 
 배율 집합에 스팟 VM을 배포하려면 새 *우선 순위* 플래그를 *스팟으로*설정할 수 있습니다. 스케일 세트의 모든 VM은 스팟으로 설정됩니다. 스팟 VM을 사용하여 축척 세트를 만들려면 다음 방법 중 하나를 사용합니다.
-- [Azure 포털](#portal)
+- [Azure portal](#portal)
 - [Azure CLI](#azure-cli)
-- [Azure 파워쉘](#powershell)
+- [Azure PowerShell](#powershell)
 - [Azure 리소스 관리자 템플릿](#resource-manager-templates)
 
 ## <a name="portal"></a>포털
@@ -159,8 +154,8 @@ $vmssConfig = New-AzVmssConfig `
 
 | Azure 채널               | Azure 스팟 VM 가용성       |
 |------------------------------|-----------------------------------|
-| 기업 계약         | yes                               |
-| 종량제 통화 요금                | yes                               |
+| 기업 계약         | 예                               |
+| 종량제 통화 요금                | 예                               |
 | CSP(클라우드 서비스 공급자) | [파트너에게 문의하기](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | 이점                     | 사용할 수 없음                     |
 | 스폰서                    | 사용할 수 없음                     |
@@ -172,6 +167,5 @@ $vmssConfig = New-AzVmssConfig `
 **A:** Q&`azure-spot` [A.](https://docs.microsoft.com/answers/topics/azure-spot.html) 
 
 ## <a name="next-steps"></a>다음 단계
-스팟 VM을 사용하여 배율 집합을 만들었으니 스팟 을 [사용하여 자동 축척 템플릿을](https://github.com/Azure/vm-scale-sets/tree/master/preview/lowpri)배포해 보십시오.
 
 가격 책정에 대한 자세한 내용은 [가상 머신 확장 집합 가격 페이지](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)를 확인하세요.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: dcf9a278bfc0ede844f8eb59e3a256e40a47c57d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 904f93aa705a4e327f29bbec109bdf3b937f6c70
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282429"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519475"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure Import/Export 서비스: 질문과 대답
 
@@ -72,7 +72,7 @@ Azure Import/Export 서비스를 사용하여 Azure Storage에 데이터를 전�
 하나의 가져오기 또는 내보내기 작업은 단일 작업에서 10개의 드라이브만을 참조할 수 있습니다. 10개가 넘는 드라이브를 운송하려면 여러 개의 작업을 만들어야 합니다. 동일한 작업과 연결된 드라이브는 동일한 패키지에 함께 발송되어야 합니다.
 데이터 용량이 여러 디스크 가져오기 작업에 걸쳐 있는 경우 자세한 내용과 지침은 Microsoft 지원에 문의하십시오.
 
-### <a name="the-uploaded-blob-shows-status-as-lease-expired-what-should-i-do"></a>업로드된 Blob은 상태를 “임대 만료”로 표시합니다. 어떻게 해야 하나요?
+### <a name="the-uploaded-blob-shows-status-as-lease-expired-what-should-i-do"></a>업로드된 Blob은 상태를 “임대 만료”로 표시합니다.   어떻게 해야 합니까?
 
 "임대 만료됨" 필드를 무시할 수 있습니다. Import/Export 기능은 업로드 중에 Blob을 임대하여 다른 프로세스가 동시에 Blob을 업데이트할 수 없도록 합니다. 임대 만료는 Import/Export 기능이 더 이상 해당 Blob에 업로드하지 않으므로 사용자가 Blob을 사용할 수 있음을 의미합니다.
 
@@ -99,18 +99,20 @@ FedEx, DHL, UPS 또는 US 우편 서비스와 같이 알려진 모든 운송업�
 > [!NOTE]
 > 인도의 데이터 센터는 드라이브를 반환하기 위해 레터헤드(배달 challan)에 신고서를 보내야 합니다. 필요한 엔트리 패스를 준비하려면 선택한 이동통신사와 픽업을 예약하고 세부 정보를 데이터 센터와 공유해야 합니다.
 
-### <a name="are-there-any-restrictions-with-shipping-my-drive-internationally"></a>국제적으로 드라이브를 운송하는 데 제한 사항이 있나요?
+### <a name="are-there-any-restrictions-with-shipping-and-returning-my-drive-internationally"></a>드라이브를 국제적으로 배송 및 반품하는 데 제한이 있습니까?
 
 배송하는 실제 미디어는 국경을 지나야 할 수 있습니다. 실제 미디어와 데이터를 관련 법률에 따라 가져오거나 내보내도록 해야 합니다. 실제 미디어를 배송하기 전에 관리자에게 미디어 및 데이터를 확인된 데이터 센터에 합법적으로 배송할 수 있는지 확인하세요. 이렇게 하면 해당 품목이 시기 적절하게 Microsoft에 도착될 수 있습니다.
+
+업로드가 완료되면 드라이브(들)를 국제 주소로 반납하는 프로세스가 현지 배송에 필요한 일반적인 2~3일보다 더 오래 걸릴 수 있습니다. Azure 포털에 패키징으로 나열된 단계에서 데이터 박스 팀은 발송물이 다양한 국제 가져오기 및 내보내기 요구 사항을 준수하도록 올바른 문서가 제공되도록 합니다.
 
 ### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>데이터 센터에 디스크를 제공하기 위한 특별한 요구 사항이 있습니까?
 
 요구 사항은 특정 Azure 데이터 센터 제한에 따라 다릅니다.
 
-- 보안상의 이유로 소포에 Microsoft 데이터 센터 인바운드 ID 번호를 작성해야 하는 몇 가지 사이트가 있습니다. 드라이브 또는 디스크를 데이터 센터로 발송하기 전에 Azure DataBox Operations()에adbops@microsoft.com문의하여 이 번호를 가져옵니다. 이 번호가 없으면 패키지가 거부됩니다.
+- 보안상의 이유로 Microsoft 데이터 센터 인바운드 ID 번호를 소포에 작성해야 하는 오스트레일리아, 독일 및 영국 남부와 같은 몇 가지 사이트가 있습니다. 드라이브 또는 디스크를 데이터 센터로 발송하기 전에 Azure DataBox Operations()에adbops@microsoft.com문의하여 이 번호를 가져옵니다. 이 번호가 없으면 패키지가 거부됩니다.
 - 인도의 데이터 센터는 정부 신분증 또는 증명서 번호와 같은 운전자의 개인 정보를 요구합니다. (예: PAN, AADHAR, DL), 이름, 연락처 및 자동차 플레이트 번호로 게이트 진입 패스를 가져옵니다. 배송 지연을 방지하려면 해당 항공사에 이러한 요구 사항에 대해 알려주십시오.
 
-### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>작업을 만들 때 배송지 주소가 스토리지 계정 위치와는 다른 위치입니다. 어떻게 해야 하나요?
+### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>작업을 만들 때 배송지 주소가 스토리지 계정 위치와는 다른 위치입니다.   어떻게 해야 합니까?
 
 일부 스토리지 계정 위치는 대체 배송 위치로 매핑됩니다. 이전에 사용 가능했던 배송 위치 또한 일시적으로 대체 위치로 매핑될 수 있습니다. 드라이브를 발송하기 전에 작업을 만들 때 제공한 배송지 주소를 항상 확인합니다.
 

@@ -16,12 +16,12 @@ ms.date: 02/26/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 364b0268be99685b18db175ffbabd9350531d500
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5fa241a261b8dcb21dd39b5dacacac9aa4889304
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80048884"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519661"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>권한 있는 ID 관리에서 Azure AD 역할에 대한 PowerShell
 
@@ -96,6 +96,8 @@ cmdlet은 아래 와 같은 역할 할당 개체 목록을 생성합니다. 주�
     $schedule.Type = "Once"
     $schedule.StartDateTime = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
     $schedule.endDateTime = "2020-07-25T20:49:11.770Z"
+> [!Note]
+> endDateTime 값이 null로 설정된 경우 영구 할당을 나타냅니다.
 
 ## <a name="activate-a-role-assignment"></a>역할 할당 활성화
 

@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 89df941eb6ebaad6e078c278f1ed883db5528c7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b892b1f4ff73679ab425d0e97f5361e0f3712252
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77152563"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549180"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Azure Cosmos DB 및 Async Java에 대한 성능 팁
 
@@ -112,7 +112,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
         + **효율적인 TCP 데이터 전송을 위해 응용 프로그램에서 다중 스레딩 사용** - 요청을 한 후 응용 프로그램은 다른 스레드에서 데이터를 수신하도록 구독해야 합니다. 이렇게 하지 않고 의도하지 않은 "반이중" 작업이 수행되고 후속 요청이 이전 요청의 회신을 기다리지 않고 차단됩니다.
 
-        + **전용 스레드에서 계산 집약적인 워크로드 수행** - 이전 팁과 유사한 이유로 복잡한 데이터 처리와 같은 작업은 별도의 스레드에 배치하는 것이 가장 좋습니다. 다른 데이터 저장소에서 데이터를 가져오는 요청(예: 스레드가 Azure Cosmos DB 및 Spark 데이터 저장소를 동시에 사용하는 경우)은 대기 시간이 증가할 수 있으며 다른 데이터 저장소의 응답을 기다리는 추가 스레드를 생성하는 것이 좋습니다. 데이터 저장소를 저장할 수 있습니다.
+        + **전용 스레드에서 계산 집약적인 워크로드 수행** - 이전 팁과 유사한 이유로 복잡한 데이터 처리와 같은 작업은 별도의 스레드에 배치하는 것이 가장 좋습니다. 다른 데이터 저장소에서 데이터를 가져오는 요청(예: 스레드가 Azure Cosmos DB 및 Spark 데이터 저장소를 동시에 사용하는 경우)은 대기 시간이 증가할 수 있으며 다른 데이터 저장소의 응답을 기다리는 추가 스레드를 생성하는 것이 좋습니다.
 
             + 비동기 자바 SDK의 기본 네트워크 IO는 Netty가 관리하며, [Netty IO 스레드를 차단하는 코딩 패턴을 피하기 위한 다음 팁을](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread)참조하십시오.
 
@@ -230,9 +230,9 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     * - nofile 100000
     ```
 
-* **netty에 네이티브 SSL 구현 사용**
+* **netty에 네이티브 TLS/SSL 구현 사용**
 
-    Netty는 더 나은 성능을 달성하기 위해 SSL 구현 스택에 직접 OpenSSL을 사용할 수 있습니다. 이 구성이 없으면 Netty는 Java의 기본 SSL 구현으로 돌아갑니다.
+    Netty는 TLS 구현 스택에 OpenSSL을 직접 사용하여 더 나은 성능을 달성할 수 있습니다. 이 구성이 없으면 netty는 Java의 기본 TLS 구현으로 대체됩니다.
 
     Ubuntu의 경우:
     ```bash

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: e2ba5301b81b1a6f5de696ab4587cd8ff43e3c68
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: 270ff3c3e8e4cffbb1f4b1987ee497530d0c0982
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462567"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546257"
 ---
 # <a name="adjust-capacity-in-azure-cognitive-search"></a>Azure 인지 검색에서 용량 조정
 
@@ -27,7 +27,7 @@ ms.locfileid: "77462567"
 
 |||
 |-|-|
-|*파티션을* | 읽기/쓰기 작업(예: 인덱스를 다시 작성하거나 새로 고치는 경우)을 위한 인덱스 스토리지 및 I/O를 제공합니다. 각 파티션에는 총 인덱스의 공유가 있습니다. 세 개의 파티션을 할당하면 인덱스가 세 부분으로 나뉩니다. |
+|*파티션* | 읽기/쓰기 작업(예: 인덱스를 다시 작성하거나 새로 고치는 경우)을 위한 인덱스 스토리지 및 I/O를 제공합니다. 각 파티션에는 총 인덱스의 공유가 있습니다. 세 개의 파티션을 할당하면 인덱스가 세 부분으로 나뉩니다. |
 |*복제본* | 검색 서비스의 인스턴스로 쿼리 작업을 부하 분산하는 데 주로 사용됩니다. 각 복제본은 인덱스의 복사본 하나입니다. 세 개의 복제본을 할당하는 경우 쿼리 요청을 처리하는 데 사용할 수 있는 인덱스 복사본 3개가 있습니다.|
 
 ## <a name="when-to-add-nodes"></a>노드를 추가하는 경우
@@ -38,7 +38,8 @@ ms.locfileid: "77462567"
 
 일반적으로 검색 응용 프로그램은 특히 서비스 작업이 쿼리 워크로드에 편향되어 있는 경우 파티션보다 더 많은 복제본이 필요한 경향이 있습니다. [고가용성](#HA) 섹션에 그 이유가 설명되어 있습니다.
 
-복제본이나 파티션을 더 추가하면 서비스 실행 비용이 증가합니다. [가격 계산기를](https://azure.microsoft.com/pricing/calculator/) 확인하여 노드를 추가하는 데 따른 청구 의미를 이해해야 합니다. [아래 차트는](#chart) 특정 구성에 필요한 검색 단위 수를 상호 참조하는 데 도움이 될 수 있습니다.
+> [!NOTE]
+> 복제본이나 파티션을 더 추가하면 서비스 실행 비용이 증가하고 결과 정렬 방식에 약간의 차이가 발생할 수 있습니다. [가격 계산기를](https://azure.microsoft.com/pricing/calculator/) 확인하여 노드를 추가하는 데 따른 청구 의미를 이해해야 합니다. [아래 차트는](#chart) 특정 구성에 필요한 검색 단위 수를 상호 참조하는 데 도움이 될 수 있습니다. 추가 복제본이 쿼리 처리에 미치는 영향에 대한 자세한 내용은 [정렬 결과](search-pagination-page-layout.md#ordering-results)참조
 
 ## <a name="how-to-allocate-replicas-and-partitions"></a>복제본 및 파티션을 할당하는 방법
 
@@ -85,10 +86,10 @@ ms.locfileid: "77462567"
 | **복제본 1개** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
 | **복제본 2개** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
 | **복제본 3개** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
-| **복제본 4개** |4 SU |8 SU |12 SU |16 SU |24 SU |해당 없음 |
-| **복제본 5개** |5 SU |10 SU |15 SU |20 SU |30 SU |해당 없음 |
-| **복제본 6개** |6 SU |12 SU |18 SU |24 SU |36 SU |해당 없음 |
-| **복제본 12개** |12 SU |24 SU |36 SU |해당 없음 |해당 없음 |해당 없음 |
+| **복제본 4개** |4 SU |8 SU |12 SU |16 SU |24 SU |N/A |
+| **복제본 5개** |5 SU |10 SU |15 SU |20 SU |30 SU |N/A |
+| **복제본 6개** |6 SU |12 SU |18 SU |24 SU |36 SU |N/A |
+| **복제본 12개** |12 SU |24 SU |36 SU |N/A |N/A |N/A |
 
 SU, 가격 책정 및 용량에 대해서는 Azure Websites에 자세히 설명되어 있습니다. 자세한 내용은 [가격 정보](https://azure.microsoft.com/pricing/details/search/)를 참조하세요.
 

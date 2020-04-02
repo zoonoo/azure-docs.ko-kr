@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff1b37c3053ffa91dcb432cd97a7dd6fd71dad1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d058ff5f9863642f73725db3472c942161447f25
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79250427"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548446"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>리눅스 VM에 대 한 Azure 디스크 암호화 
 
@@ -32,7 +32,7 @@ Azure Disk Encryption은 조직의 보안 및 규정 준수 약정에 따라 데
 
 ## <a name="supported-vms-and-operating-systems"></a>지원되는 VM 및 운영 체제
 
-### <a name="supported-vm-sizes"></a>지원되는 VM 크기
+### <a name="supported-vms"></a>지원되는 VM
 
 Linux VM은 [다양한 크기로](sizes.md)제공됩니다. [기본, A 시리즈 VM](https://azure.microsoft.com/pricing/details/virtual-machines/series/)또는 이러한 최소 메모리 요구 사항을 충족하지 않는 가상 컴퓨터에서는 Azure 디스크 암호화를 사용할 수 없습니다.
 
@@ -44,7 +44,9 @@ Linux VM은 [다양한 크기로](sizes.md)제공됩니다. [기본, A 시리즈
 
 Linux 가상 시스템에서 OS 디스크 암호화 프로세스가 완료되면 메모리를 적게 사용하여 실행되도록 VM을 구성할 수 있습니다. 
 
-Azure 디스크 암호화는 프리미엄 저장소가 있는 VM에서도 사용할 수 있습니다. 
+Azure 디스크 암호화는 프리미엄 저장소가 있는 VM에서도 사용할 수 있습니다.
+
+Azure 디스크 암호화는 [세대 2 VM)](generation-2.md#generation-1-vs-generation-2-capabilities)및 [Lsv2 시리즈 VM에서](../lsv2-series.md)사용할 수 없습니다. 추가 예외는 [Azure 디스크 암호화: 지원되지 않는 시나리오를](disk-encryption-linux.md#unsupported-scenarios)참조하십시오.
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
 

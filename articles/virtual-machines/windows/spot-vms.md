@@ -1,22 +1,20 @@
 ---
 title: Azure 스팟 VM 사용
 description: 스팟 VM을 사용하여 비용을 절감하는 방법을 알아봅니다.
-services: virtual-machines-windows
 author: cynthn
-manager: gwallace
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 11/20/2019
+ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 4acbab324c63cf0184f5384e6af5e9418ca06677
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd59ccba74b2813b2d38073cac35ba80d97cf4d1
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74782100"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548141"
 ---
-# <a name="preview-use-spot-vms-in-azure"></a>미리 보기: Azure에서 스팟 VM 사용
+# <a name="use-spot-vms-in-azure"></a>Azure에서 스팟 VM 사용
 
 [!INCLUDE [common-spot-vms](../../../includes/virtual-machines-common-spot-vms.md)]  
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: 9f694f3f0ec740d0a4e8dc4e6bf8845c408802c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61a85b2554bbd69541b3081f72525d2b7deed625
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75897846"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529226"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Azure 서비스가 서버에 액세스하도록 허용하지 않고 Azure SQL 데이터베이스를 가져오거나 내보내기
 
@@ -24,7 +24,7 @@ ms.locfileid: "75897846"
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털에](https://portal.azure.com/)로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-the-azure-virtual-machine"></a>Azure 가상 시스템 만들기
 
@@ -61,7 +61,7 @@ ms.locfileid: "75897846"
 
 4. **가상 머신에 연결** 양식을 닫습니다.
 5. VM에 연결하려면 다운로드한 RDP 파일을 엽니다.
-6. 메시지가 표시되면 **연결**을 선택합니다. Mac의 Mac 앱 스토어에서 이 [원격 데스크톱 클라이언트](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12)와 같은 RDP 클라이언트가 필요합니다.
+6. 메시지가 표시되면 **연결**을 선택합니다. Mac의 Mac 앱 스토어에서 이 [원격 데스크톱 클라이언트](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12)와 같은 RDP 클라이언트가 필요합니다.
 
 7. 가상 머신을 만들 때 지정한 사용자 이름 및 암호를 입력하고 **확인**을 선택합니다.
 

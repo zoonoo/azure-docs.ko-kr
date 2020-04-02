@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: f1fdb9dffbe06430ea7e3eb9339e23f5239e4e36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb78d84aa0f9a2832b6599edeac9d50e0e226437
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76310835"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546346"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>클러스터 구성에 대한 세밀한 역할 기반 액세스로 마이그레이션
 
@@ -29,7 +29,7 @@ ms.locfileid: "76310835"
 | 역할                                  | 이전의                                                                                        | 앞으로 나아가기       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
 | 판독기                                | - 비밀을 포함하여 액세스 읽기                                                                   | - 비밀을 **제외한** 액세스 읽기 |           |   |   |
-| HDInsight 클러스터 운영자<br>(새 역할) | 해당 없음                                                                                              | - 읽기 / 쓰기 액세스, 비밀을 포함         |   |   |
+| HDInsight 클러스터 운영자<br>(새 역할) | N/A                                                                                              | - 읽기 / 쓰기 액세스, 비밀을 포함         |   |   |
 | 참가자                           | - 읽기 / 쓰기 액세스, 비밀을 포함<br>- 모든 유형의 Azure 리소스를 만들고 관리합니다.     | 변경 내용 없음 |
 | 소유자                                 | - 읽기 / 비밀을 포함한 액세스 쓰기<br>- 모든 자원에 대한 전체 액세스<br>- 다른 사람에게 액세스 위임 | 변경 내용 없음 |
 
@@ -131,8 +131,8 @@ ms.locfileid: "76310835"
 
 Java용 HDInsight SDK 버전 [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/1.0.0/jar) 이상으로 업데이트합니다. 이러한 변경 의 영향을 받는 메서드를 사용하는 경우 최소한의 코드 수정이 필요할 수 있습니다.
 
-- [`ConfigurationsInner.get`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.get)더 이상 저장소 키(코어 사이트) 또는 HTTP 자격 증명(게이트웨이)과 같은 **중요한 매개 변수를 반환하지** 않습니다.
-- [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update)이제 더 이상 사용되지 않습니다.
+- `ConfigurationsInner.get`더 이상 저장소 키(코어 사이트) 또는 HTTP 자격 증명(게이트웨이)과 같은 **중요한 매개 변수를 반환하지** 않습니다.
+- `ConfigurationsInner.update`이제 더 이상 사용되지 않습니다.
 
 ### <a name="sdk-for-go"></a>이동을위한 SDK
 
@@ -193,9 +193,9 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 ### <a name="why-do-i-see-insufficient-privileges-to-complete-the-operation-when-running-the-azure-cli-command-to-assign-the-hdinsight-cluster-operator-role-to-another-user-or-service-principal"></a>다른 사용자 또는 서비스 주체에 HDInsight 클러스터 운영자 역할을 할당하기 위해 Azure CLI 명령을 실행할 때 "작업을 완료하기에 부족한 권한"이 표시되는 이유는 무엇입니까?
 
-명령을 실행하는 사용자 또는 서비스 주체는 소유자 역할을 하는 것 외에도 할당자의 개체 아이디를 조회할 수 있는 충분한 AAD 권한이 있어야 합니다. 이 메시지는 AAD 권한이 부족했음을 나타냅니다. `-–assignee` 인수를 교체하고 `–assignee-object-id` 이름 대신 매개 변수(또는 관리되는 ID의 경우 주체 ID)로 지정인의 개체 ID를 제공합니다. 자세한 내용은 az 역할 [할당 생성 설명서의](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) 선택적 매개 변수 섹션을 참조하십시오.
+명령을 실행하는 사용자 또는 서비스 주체는 소유자 역할을 하는 것 외에도 할당자의 개체 를 조회할 수 있는 충분한 Azure AD 권한이 있어야 합니다. 이 메시지는 Azure AD 권한이 부족했음을 나타냅니다. `-–assignee` 인수를 교체하고 `–assignee-object-id` 이름 대신 매개 변수(또는 관리되는 ID의 경우 주체 ID)로 지정인의 개체 ID를 제공합니다. 자세한 내용은 az 역할 [할당 생성 설명서의](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) 선택적 매개 변수 섹션을 참조하십시오.
 
-그래도 작동하지 않으면 AAD 관리자에게 문의하여 올바른 권한을 획득하십시오.
+그래도 작동하지 않으면 Azure AD 관리자에게 문의하여 올바른 권한을 획득하십시오.
 
 ### <a name="what-will-happen-if-i-take-no-action"></a>아무 조치도 취하지 않으면 어떻게 됩니까?
 

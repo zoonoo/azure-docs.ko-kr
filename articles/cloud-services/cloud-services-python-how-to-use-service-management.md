@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: 50501413a63921a9a34be1c04ed259990922b686
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae44ce77ce480cc1bc56ead5547e003d7d4bb39c
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70141478"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547591"
 ---
 # <a name="use-service-management-from-python"></a>Python에서 서비스 관리 사용
 이 가이드에서는 Python에서 프로그래밍 방식으로 일반 서비스 관리 작업을 수행하는 방법을 보여 줍니다. [Python용 Azure SDK](https://github.com/Azure/azure-sdk-for-python)의 **ServiceManagementService** 클래스는 [Azure Portal][management-portal]에서 사용할 수 있는 대부분의 서비스 관리 관련 기능에 대해 프로그래밍 방식의 액세스를 지원합니다. 클라우드 서비스, 배포, 데이터 관리 서비스, 가상 머신 만들기, 업데이트 및 삭제에 이 기능을 사용할 수 있습니다. 이 기능은 서비스 관리에 프로그래밍 방식으로 액세스해야 하는 애플리케이션을 빌드하는 데 유용할 수 있습니다.
@@ -30,10 +30,10 @@ Azure Service Management API는 [Azure Portal][management-portal]을 통해 사�
 서비스 관리 API를 사용하려면 [Azure 계정을 만들어야](https://azure.microsoft.com/pricing/free-trial/)합니다.
 
 ## <a name="concepts"></a><a name="Concepts"> </a>개념
-Python용 Azure SDK는 REST API인 [Service Management API][svc-mgmt-rest-api]를 래핑합니다. 모든 API 작업은 SSL을 통해 수행되고 X.509 v3 인증서를 사용하여 서로 인증됩니다. 관리 서비스는 Azure에서 실행되는 서비스 내에서 액세스할 수 있습니다. HTTPS 요청을 보내고 HTTPS 응답을 받을 수 있는 애플리케이션에서 인터넷을 통해 직접 액세스할 수도 있습니다.
+Python용 Azure SDK는 REST API인 [Service Management API][svc-mgmt-rest-api]를 래핑합니다. 모든 API 작업은 TLS를 통해 수행되며 X.509 v3 인증서를 사용하여 상호 인증됩니다. 관리 서비스는 Azure에서 실행되는 서비스 내에서 액세스할 수 있습니다. HTTPS 요청을 보내고 HTTPS 응답을 받을 수 있는 애플리케이션에서 인터넷을 통해 직접 액세스할 수도 있습니다.
 
-## <a name="installation"></a><a name="Installation"> </a>설치 중
-이 문서에서 설명한 모든 기능은 `azure-servicemanagement-legacy` 패키지에서 사용할 수 있으며, 이 패키지는 pip를 사용하여 설치할 수 있습니다. (예를 들어 Python을 처음 사용한다면) 설치에 관한 자세한 내용은 [Python 설치 및 Azure SDK](/azure/python/python-sdk-azure-install)를 참조하세요.
+## <a name="installation"></a><a name="Installation"> </a>설치
+이 문서에서 설명한 모든 기능은 `azure-servicemanagement-legacy` 패키지에서 사용할 수 있으며, 이 패키지는 pip를 사용하여 설치할 수 있습니다. (예를 들어 Python을 처음 사용한다면) 설치에 관한 자세한 내용은 [Python 설치 및 Azure SDK](/azure/developer/python/azure-sdk-install)를 참조하세요.
 
 ## <a name="connect-to-service-management"></a><a name="Connect"> </a>서비스 관리에 연결
 서비스 관리 엔드포인트에 연결하려면 Azure 구독 ID 및 유효한 관리 인증서가 있어야 합니다. [Azure Portal][management-portal]을 통해 구독 ID를 얻을 수 있습니다.

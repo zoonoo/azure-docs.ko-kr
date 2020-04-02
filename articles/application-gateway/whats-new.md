@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 4/30/2019
+ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: c6d4d290493bbd234ab048e613b88f8857513cc8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1cfa2ab1d8bf096b1821f7473d9808801b47c547
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78299558"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371176"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Azure Application Gateway의 새로운 소식
 
@@ -27,6 +27,7 @@ Azure Application Gateway는 지속적으로 업데이트됩니다. 최신 개�
 
 |기능  |Description  |추가된 날짜  |
 |---------|---------|---------|
+| v2의 UDR(사용자 정의 경로)(미리 보기) |이제 Application Gateway v2 SKU의 일부 시나리오에서 사용자 정의 경로가 지원됩니다. 자세한 내용은 [Application Gateway 구성 개요](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet)를 참조하세요. |2020년 3월 |
 |선호도 쿠키 변경 내용 |쿠키 기반 선호도를 사용하도록 설정하면 Application Gateway는 기존 ApplicationGatewayAffinity 쿠키 외에도 *ApplicationGatewayAffinityCORS*라는 다른 동일한 쿠키를 삽입합니다. *ApplicationGatewayAffinityCORS*에 추가된 두 개의 특성이 있으므로(*SameSite=None; Secure*) 원본 간 요청에 대해서도 고정 세션이 유지됩니다. 자세한 내용은 [Application Gateway 쿠키 기반 선호도](configuration-overview.md#cookie-based-affinity)를 참조하세요. |2020년 2월 |
 |프로브 향상 |Application Gateway v2 SKU의 사용자 지정 프로브 향상을 통해 [프로브 구성](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#create-probe-for-application-gateway-v2-sku)을 간소화하고, [주문형 백 엔드 상태 테스트](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#test-backend-health-with-the-probe)를 용이하게 하고, 백 엔드 상태 문제를 해결하는 데 도움이 되도록 [추가 진단 정보](https://docs.microsoft.com/azure/application-gateway/application-gateway-backend-health-troubleshooting#error-messages)를 추가했습니다.  |2019년 10월 |
 |추가 메트릭 |Applicaiton Gateway v2 SKU를 모니터링하는 데 도움이 되도록 다음과 같은 새 메트릭을 추가했습니다. [타이밍 관련 메트릭](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#timing-metrics), 백 엔드 응답 상태, 받은 바이트 수, 보낸 바이트 수, 클라이언트 TLS 프로토콜, 현재 컴퓨팅 단위 등의 새 메트릭을 추가했습니다. [Application Gateway V2 SKU에서 지원하는 메트릭](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-supported-by-application-gateway-v2-sku)을 참조하세요. |2019년 8월 |

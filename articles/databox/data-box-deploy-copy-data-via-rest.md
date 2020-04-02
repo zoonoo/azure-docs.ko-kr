@@ -1,5 +1,5 @@
 ---
-title: '자습서: REST Api를 사용 하 여 Blob storage에 복사'
+title: '자습서: REST API를 사용하여 Blob 스토리지에 복사'
 titleSuffix: Azure Data Box
 description: REST API를 통해 Azure Data Box Blob 스토리지에 데이터를 복사하는 방법 알아보기
 services: databox
@@ -9,20 +9,21 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: alkohli
-ms.openlocfilehash: b7d58bb13644c992894510f26a4848ea80c9df00
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: 7642c009a5bcd1d00efb432975fff5a65c7ba340
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380165"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80297191"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>자습서: REST Api를 통해 Azure Data Box Blob storage로 데이터 복사  
+# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>자습서: REST API를 통해 Azure Data Box Blob 스토리지에 데이터 복사  
 
 이 자습서에서는 *http* 또는 *https*를 사용한 REST API를 통해 Azure Data Box Blob 스토리지에 연결하는 절차를 설명합니다. 연결한 후에는 데이터를 Data Box Blob 스토리지에 복사하고 배송할 Data Box를 준비하는 데 필요한 단계에 대해서도 설명합니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
+>
 > * 사전 요구 사항
 > * *http* 또는 *https*를 통해 Data Box Blob 스토리지에 연결
 > * Data Box에 데이터 복사
@@ -31,7 +32,7 @@ ms.locfileid: "78380165"
 
 시작하기 전에 다음 사항을 확인합니다.
 
-1. [자습서: 설정 Azure Data Box](data-box-deploy-set-up.md)를 완료 했습니다.
+1. [자습서: Azure Data Box 설정](data-box-deploy-set-up.md)을 완료했습니다.
 2. Data Box를 받았고 포털의 주문 상태가 **배달됨**입니다.
 3. [Data Box Blob 스토리지의 시스템 요구 사항](data-box-system-requirements-rest.md)을 검토했으며 API, SDK 및 도구의 지원 버전에 대해 잘 알고 있습니다.
 4. Data Box에 복사할 데이터가 포함된 호스트 컴퓨터에 액세스했습니다. 호스트 컴퓨터는 다음 사항이 필수입니다.
@@ -91,7 +92,7 @@ Azure Portal을 사용하여 인증서를 다운로드합니다.
  
 ### <a name="import-certificate"></a>인증서 가져오기 
 
-HTTPS를 통해 Data Box Blob 스토리지에 액세스하려면 디바이스의 SSL 인증서가 필요합니다. 이 인증서를 클라이언트 애플리케이션에서 사용할 수 있게 만드는 방법은 애플리케이션마다 그리고 운영 체제와 배포판마다 다릅니다. 어떤 애플리케이션은 시스템의 인증서 저장소로 인증서를 가져온 후 인증서에 액세스할 수 있고, 어떤 애플리케이션은 이 메커니즘을 사용하지 않습니다.
+HTTPS를 통해 Data Box Blob 스토리지에 액세스하려면 디바이스의 TLS/SSL 인증서가 필요합니다. 이 인증서를 클라이언트 애플리케이션에서 사용할 수 있게 만드는 방법은 애플리케이션마다 그리고 운영 체제와 배포판마다 다릅니다. 일부 애플리케이션은 시스템의 인증서 저장소로 인증서를 가져온 후에 인증서에 액세스할 수 있는 반면 다른 애플리케이션은 해당 메커니즘을 사용하지 않습니다.
 
 이 섹션에는 일부 애플리케이션과 관련된 정보가 설명되어 있습니다. 다른 애플리케이션에 대한 자세한 내용은 사용하시는 애플리케이션 및 운영 체제에 대한 설명서를 참조하세요.
 
@@ -108,16 +109,16 @@ HTTPS를 통해 Data Box Blob 스토리지에 액세스하려면 디바이스의
 
 #### <a name="use-windows-server-ui"></a>Windows Server UI 사용
 
-1.  `.cer` 파일을 마우스 오른쪽 단추로 클릭하고 **인증서 설치**를 선택합니다. 그러면 인증서 가져오기 마법사가 시작됩니다.
-2.  **저장소 위치**에 대해 **로컬 컴퓨터**를 선택하고 **다음**을 클릭합니다.
+1.   `.cer` 파일을 마우스 오른쪽 단추로 클릭하고 **인증서 설치**를 선택합니다. 그러면 인증서 가져오기 마법사가 시작됩니다.
+2.   **저장소 위치**에 대해 **로컬 컴퓨터**를 선택하고 **다음**을 클릭합니다.
 
     ![PowerShell을 사용하여 인증서 가져오기](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
 
-3.  **모든 인증서를 다음 저장소에 저장**을 선택하고 **찾아보기**를 클릭합니다. 원격 호스트의 루트 저장소로 이동한 후 **다음**을 클릭합니다.
+3.   **모든 인증서를 다음 저장소에 저장**을 선택하고 **찾아보기**를 클릭합니다. 원격 호스트의 루트 저장소로 이동한 후 **다음**을 클릭합니다.
 
     ![PowerShell을 사용하여 인증서 가져오기](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
-4.  **Finish**를 클릭합니다. 가져오기에 성공했음을 알리는 메시지가 나타납니다.
+4.   **Finish**를 클릭합니다. 가져오기에 성공했음을 알리는 메시지가 나타납니다.
 
     ![PowerShell을 사용하여 인증서 가져오기](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
@@ -149,8 +150,9 @@ RHEL, Fedora 및 CentOS의 최신 버전은 `update-ca-trust` 명령을 사용�
 
 Data Box Blob 스토리지에 연결한 후 다음 단계는 데이터를 복사하는 것입니다. 데이터를 복사하기 전에, 다음 고려 사항을 검토합니다.
 
--  데이터를 복사하는 동안 데이터 크기가 [Azure Storage 및 Data Box 제한](data-box-limits.md)에 설명된 크기 제한을 준수해야 합니다.
-- Data Box에 의해 업로드되는 데이터가 Data Box 외부의 다른 애플리케이션에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
+* 데이터를 복사하는 동안 데이터 크기가 [Azure Storage 및 Data Box 제한](data-box-limits.md)에 설명된 크기 제한을 준수해야 합니다.
+* Data Box에 의해 업로드되는 데이터가 Data Box 외부의 다른 애플리케이션에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
+* Data Box에서 Azure Storage로 데이터를 전송했음을 확인할 수 있을 때까지 원본 데이터의 복사본을 유지하세요.
 
 이 자습서에서는 Data Box Blob 스토리지에 데이터를 복사하는 데 AzCopy를 사용합니다. Azure Storage Explorer(GUI 기반 도구를 선호하는 경우) 또는 파트너 소프트웨어를 사용하여 데이터를 복사할 수도 있습니다.
 

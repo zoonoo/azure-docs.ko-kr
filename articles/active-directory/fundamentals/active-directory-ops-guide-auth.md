@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: bc5824fcb62477d4e6dc6c2b7390b1bfa916094f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b4ec003888d75a582d25feef8ed2ce010fa7996
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77368047"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546244"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory 인증 관리 작업 참조 가이드
 
@@ -101,7 +101,7 @@ Azure Active Directory를 관리하려면 롤아웃 프로젝트의 일부가 �
 
 ![암호 해시 동기화 흐름](./media/active-directory-ops-guide/active-directory-ops-img5.png)
 
-인증 옵션을 더 잘 이해하려면 [Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택을](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)참조하십시오.
+인증 옵션을 더 잘 이해하려면 [Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택을](https://docs.microsoft.com/azure/active-directory/hybrid/choose-ad-authn)참조하십시오.
 
 ### <a name="programmatic-usage-of-credentials"></a>자격 증명의 프로그래밍 방식 사용
 
@@ -115,7 +115,7 @@ PowerShell을 사용하는 Azure AD 스크립트 또는 Microsoft 그래프 API�
 
 ### <a name="on-premises-authentication"></a>온-프레미스 인증
 
-통합 된 Windows 인증 (IWA) 또는 원활한 단일 사인 온 (SSO) 암호 해시 동기화 또는 통과 인증으로 관리 되는 인증으로 페더레이션 된 인증회사 네트워크 내에서 최고의 사용자 경험 온-프레미스 도메인 컨트롤러에 대한 가시선. 자격 증명 프롬프트 피로를 최소화하고 사용자가 피싱 공격에 빠질 위험을 줄입니다. PHS 또는 PTA를 사용하여 클라우드 관리 인증을 이미 사용하고 있지만 온-프레미스에서 인증할 때 사용자가 암호를 입력해야 하는 경우 [즉시 원활한 SSO를 배포해야](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)합니다. 반면에 현재 클라우드 관리 인증으로 마이그레이션할 계획으로 페더레이션된 경우 마이그레이션 프로젝트의 일부로 원활한 SSO를 구현해야 합니다.
+IWA(통합 Windows 인증) 또는 암호 해시 동기화 또는 통과 인증을 통한 관리형 인증(SSO)을 통한 페더레이션 인증은 온-프레미스 도메인 컨트롤러에 대한 가시선이 있는 회사 네트워크 내부에서 최상의 사용자 환경입니다. 자격 증명 프롬프트 피로를 최소화하고 사용자가 피싱 공격에 빠질 위험을 줄입니다. PHS 또는 PTA를 사용하여 클라우드 관리 인증을 이미 사용하고 있지만 온-프레미스에서 인증할 때 사용자가 암호를 입력해야 하는 경우 [즉시 원활한 SSO를 배포해야](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)합니다. 반면에 현재 클라우드 관리 인증으로 마이그레이션할 계획으로 페더레이션된 경우 마이그레이션 프로젝트의 일부로 원활한 SSO를 구현해야 합니다.
 
 ### <a name="device-trust-access-policies"></a>장치 신뢰 액세스 정책
 
@@ -205,7 +205,7 @@ Azure AD의 [명명된 위치를](https://docs.microsoft.com/azure/active-direct
 
 우선 순위에 따라 아래 표를 사용하여 조직의 요구 사항에 가장 적합한 권장 솔루션을 찾습니다.
 
-| **Priority** | **시나리오** | **추천** |
+| **Priority** | **시나리오** | **권장** |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | 1 | PHS 또는 PTA를 사용하고 명명된 위치가 정의되지 않은 경우 | 위험 이벤트 탐지를 개선하기 위해 명명된 위치 정의 |
 | 2 | 페더레이션되어 있고 "insideCorporateNetwork" 클레임을 사용하지 않고 명명된 위치가 정의되지 않은 경우 | 위험 이벤트 탐지를 개선하기 위해 명명된 위치 정의 |
@@ -230,11 +230,11 @@ Azure AD는 모든 로그인 및 모든 사용자에 대한 위험을 계산할 
 
 Microsoft Intune 응용 프로그램 관리(MAM)는 Outlook Mobile과 같은 호환 되는 클라이언트 모바일 응용 프로그램에 저장소 암호화, PIN, 원격 저장소 정리 등과 같은 데이터 보호 컨트롤을 푸시하는 기능을 제공합니다. 또한 승인되거나 호환되는 앱에서 Exchange Online과 같은 클라우드 서비스에 [대한 액세스를 제한하기](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) 위해 조건부 액세스 정책을 만들 수 있습니다.
 
-직원이 Exchange Online 또는 SharePoint Online과 같은 회사 리소스에 액세스하기 위해 Office 모바일 앱과 같은 MAM 지원 응용 프로그램을 설치하고 BYOD(자체 장치 가져오기)도 지원하는 경우 관리하기 위해 응용 프로그램 MAM 정책을 배포하는 것이 좋습니다. MDM 등록없이 개인 소유 장치의 응용 프로그램 구성을 한 다음 MAM 지원 클라이언트에서만 액세스를 허용하도록 조건부 액세스 정책을 업데이트합니다.
+직원이 Exchange Online 또는 SharePoint Online과 같은 회사 리소스에 액세스하기 위해 Office 모바일 앱과 같은 MAM 지원 응용 프로그램을 설치하고 BYOD(자체 장치 가져오기)를 지원하는 경우 MDM 등록 없이 개인 소유 장치에서 응용 프로그램 구성을 관리하는 응용 프로그램 MAM 정책을 배포한 다음 조건부 액세스 정책을 업데이트하여 MAM 지원 클라이언트의 액세스만 허용하는 것이 좋습니다.
 
 ![조건부 액세스 권한 부여 제어](./media/active-directory-ops-guide/active-directory-ops-img12.png)
 
-직원이 회사 리소스에 대해 MAM 지원 응용 프로그램을 설치하고 Intune Managed 장치에서 액세스가 제한되는 경우 응용 프로그램 MAM 정책을 배포하여 개인 장치에 대한 응용 프로그램 구성을 관리하고 조건부 액세스 정책을 업데이트하여 MAM 지원 클라이언트의 액세스만 허용합니다.
+직원이 회사 리소스에 대해 MAM 지원 응용 프로그램을 설치하고 Intune Managed 장치에서 액세스가 제한되는 경우 응용 프로그램 MAM 정책을 배포하여 개인 장치에 대한 응용 프로그램 구성을 관리하고 MAM 지원 클라이언트의 액세스만 허용하도록 조건부 액세스 정책을 업데이트해야 합니다.
 
 ### <a name="conditional-access-implementation"></a>조건부 액세스 구현
 
@@ -309,7 +309,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 | | 메일.읽기.공유 |
 | | 메일.읽기 쓰기 |
 
-- 앱은 로그인한 사용자의 전체 사용자 사칭을 허용했습니다. 예를 들어:
+- 앱은 로그인한 사용자의 전체 사용자 사칭을 허용했습니다. 다음은 그 예입니다.
 
 |리소스 | 사용 권한 |
 | :- | :- |
@@ -329,7 +329,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 #### <a name="user-settings"></a>사용자 설정
 
 - **외부 사용자** - 팀, Power BI, Sharepoint Online 및 Azure 정보 보호와 같은 서비스를 통해 기업에서 외부 공동 작업을 유기적으로 발생할 수 있습니다. 사용자가 시작한 외부 공동 작업을 제어하는 명시적 제약 조건이 있는 경우 [Azure AD 권한 관리](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) 또는 헬프 데스크를 통한 제어된 작업을 사용하여 외부 사용자를 사용하도록 설정하는 것이 좋습니다. 서비스에 대한 유기적 외부 공동 작업을 허용하지 않으려면 [구성원이 외부 사용자를 완전히 초대하지 못하도록 차단할](https://docs.microsoft.com/azure/active-directory/b2b/delegate-invitations)수 있습니다. 또는 외부 사용자 초대에서 [특정 도메인을 허용하거나 차단할](https://docs.microsoft.com/azure/active-directory/b2b/allow-deny-list) 수도 있습니다.
-- **앱 등록** - 앱 등록이 활성화되면 최종 사용자는 응용 프로그램을 자체적으로 온보보드하고 데이터에 대한 액세스 권한을 부여할 수 있습니다. 앱 등록의 일반적인 예로는 Outlook 플러그인또는 Alexa 및 Siri와 같은 음성 비서가 이메일과 캘린더를 읽거나 대신 전자 메일을 보낼 수 있도록 하는 사용자가 있습니다. 고객이 앱 등록을 해제하기로 결정한 경우 InfoSec 및 IAM 팀은 관리자 계정으로 응용 프로그램을 등록해야 하므로 예외(비즈니스 요구 사항에 따라 필요한 앱 등록)의 관리에 참여해야 합니다. 프로세스를 운영하기 위해 프로세스를 설계해야 할 가능성이 큽니다.
+- **앱 등록** - 앱 등록이 활성화되면 최종 사용자는 응용 프로그램을 자체적으로 온보보드하고 데이터에 대한 액세스 권한을 부여할 수 있습니다. 앱 등록의 일반적인 예로는 Outlook 플러그인또는 Alexa 및 Siri와 같은 음성 비서가 이메일과 캘린더를 읽거나 대신 전자 메일을 보낼 수 있도록 하는 사용자가 있습니다. 고객이 앱 등록을 해제하기로 결정한 경우 InfoSec 및 IAM 팀은 관리자 계정으로 응용 프로그램을 등록해야 하므로 예외(비즈니스 요구 사항에 따라 필요한 앱 등록)의 관리에 참여해야 하며 프로세스를 운영하기 위한 프로세스를 설계해야 할 가능성이 큽니다.
 - **관리 포털** - 조직은 Azure 포털에서 Azure AD 블레이드를 잠그면 관리자가 Azure 포털에서 Azure AD 관리에 액세스할 수 없고 혼동할 수 없습니다. Azure AD 관리 포털의 사용자 설정으로 이동하여 액세스를 제한합니다.
 
 ![관리 포털 제한 액세스](./media/active-directory-ops-guide/active-directory-ops-img13.png)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: a1dbabafe32e013d526ed88a83e446ee765cdb7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3b738d95b5b777f1cf0329fb3c1bc3e2860421e
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76045876"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545965"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
@@ -47,7 +47,7 @@ Azure의 인프라는 수백만 고객을 동시에 호스팅하는 애플리케
 ### <a name="features-to-secure-the-azure-platform"></a>Azure 플랫폼을 보호하는 기능
 다음 기능은 Azure 플랫폼이 안전한 방식으로 관리된다는 확신을 제공하기 위해 검토할 수 있는 기능입니다. Microsoft가 보안 플랫폼, 개인 정보 & 제어, 규정 준수 및 투명성이라는 네 가지 영역에서 고객 신뢰 문제를 해결하는 방법에 대한 추가 드릴다운을 위해 링크가 제공되었습니다.
 
-| [보안 플랫폼](https://www.microsoft.com/trustcenter/Security/default.aspx)  | [개인 정보 보호 및 제어](https://www.microsoft.com/trustcenter/Privacy/default.aspx)  |[준수](https://www.microsoft.com/trustcenter/Compliance/default.aspx)   | [투명도](https://www.microsoft.com/trustcenter/Transparency/default.aspx) |
+| [보안 플랫폼](https://www.microsoft.com/trustcenter/Security/default.aspx)  | [개인 정보 보호 및 제어](https://www.microsoft.com/trustcenter/Privacy/default.aspx)  |[규정 준수](https://www.microsoft.com/trustcenter/Compliance/default.aspx)   | [투명도](https://www.microsoft.com/trustcenter/Transparency/default.aspx) |
 | :-- | :-- | :-- | :-- |
 | [보안 개발 주기](https://www.microsoft.com/sdl/)(영문), 내부 감사 | [항상 사용자 데이터 관리](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data)(영문) | [보안 센터](https://www.microsoft.com/trustcenter/default.aspx) |[Microsoft Azure 서비스에서 고객 데이터를 보호하는 방법](https://www.microsoft.com/trustcenter/Transparency/default.aspx)(영문) |
 | [필수 보안 교육, 백그라운드 검사](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx)(영문) |  [데이터 위치에서 제어](https://www.microsoft.com/trustcenter/Privacy/Where-your-data-is-located) |  [일반 컨트롤 허브](https://www.microsoft.com/trustcenter/Common-Controls-Hub)(영문) |[Microsoft Azure 서비스에서 데이터 위치를 관리하는 방법](https://azuredatacentermap.azurewebsites.net/)(영문)|
@@ -73,7 +73,7 @@ Azure의 인프라는 수백만 고객을 동시에 호스팅하는 애플리케
 
 Azure Resource Manager 템플릿 기반 배포를 사용하면 표준 보안 제어 설정을 표준화된 템플릿 기반 배포에 통합할 수 있기 때문에 Azure에 배포된 솔루션의 보안을 향상시킬 수 있습니다. 이렇게 하면 수동 배포 중에 발생할 수 있는 보안 구성 오류의 위험이 줄어듭니다.
 
-### <a name="application-insights"></a>애플리케이션 정보
+### <a name="application-insights"></a>Application Insights
 [응용 프로그램 인사이트는](https://docs.microsoft.com/azure/application-insights/) 웹 개발자를 위한 확장 가능한 응용 프로그램 성능 관리(APM) 서비스입니다. Application Insights를 사용하면 라이브 웹 애플리케이션을 모니터링하고 성능 이상을 자동으로 검색할 수 있습니다. 사용자가 문제를 진단하고 사용자가 실제로 앱을 사용하여 수행할 작업을 이해하는 데 도움이 되는 강력한 분석 도구가 포함되어 있습니다. 테스트 중인 경우 및 게시하거나 배포한 후에 실행 중인 모든 시간 동안 애플리케이션을 모니터링합니다.
 
 예를 들어 Application Insights는 많은 사용자를 가져오는 시간, 앱이 얼마나 반응하는지, 종속된 외부 서비스에서 얼마나 잘 제공되는지를 보여주는 차트 및 테이블을 만듭니다.
@@ -233,11 +233,11 @@ Microsoft [Azure Application Gateway](../../application-gateway/overview.md)는 
 
 ![Application Gateway](./media/overview/azure-security-fig2.png)
 
-Application Gateway에 CPU 집약적인 SSL 종료를 오프로드하여("SSL 오프로드"또는 "SSL 브리징"이라고도 함) 웹 팜 생산성을 최적화할 수 있습니다. 또한 들어오는 트래픽의 라운드 로빈 배포, 쿠키 기반 세션 선호도, URL 경로 기반 라우팅 및 단일 Application Gateway 뒤에 여러 웹 사이트를 호스팅할 수 있는 기능을 포함한 다른 계층 7 라우팅 기능도 제공합니다. Azure Application Gateway는 계층 7 부하 분산 장치입니다.
+이를 통해 CPU 집약적인 TLS 종료를 응용 프로그램 게이트웨이("TLS 오프로드" 또는 "TLS 브리징"이라고도 함)로 오프로드하여 웹 팜 생산성을 최적화할 수 있습니다. 또한 들어오는 트래픽의 라운드 로빈 배포, 쿠키 기반 세션 선호도, URL 경로 기반 라우팅 및 단일 Application Gateway 뒤에 여러 웹 사이트를 호스팅할 수 있는 기능을 포함한 다른 계층 7 라우팅 기능도 제공합니다. Azure Application Gateway는 계층 7 부하 분산 장치입니다.
 
 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다.
 
-애플리케이션은 HTTP 부하 분산, 쿠키 기반 세션 선호도, [SSL(Secure Sockets Layer)](../../application-gateway/tutorial-restrict-web-traffic-powershell.md) 오프로드, 사용자 지정 상태 프로브, 다중 사이트 지원 및 기타를 포함하여 많은 ADC 기능을 제공합니다.
+응용 프로그램은 HTTP 로드 균형 조정, 쿠키 기반 세션 선호도, [TLS 오프로드,](../../application-gateway/tutorial-restrict-web-traffic-powershell.md)사용자 지정 상태 프로브, 다중 사이트 지원 등을 비롯한 많은 응용 프로그램 배달 컨트롤러(ADC) 기능을 제공합니다.
 
 ### <a name="web-application-firewall"></a>웹 애플리케이션 방화벽
 웹 애플리케이션 방화벽은 표준 ADC 기능을 위해 애플리케이션 게이트웨이를 사용하는 웹 애플리케이션에 보호를 제공하는 [Azure Application Gateway](../../application-gateway/overview.md)의 기능입니다. 웹 애플리케이션 방화벽은 대부분의 OWASP Top 10 일반 웹 취약점으로부터 보호함으로써 이 기능을 수행합니다.

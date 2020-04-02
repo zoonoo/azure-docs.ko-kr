@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 1b87fa795047070db9a10ceec4b69dd6f7c042a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d43650fc3dbd5fc1aabe676a4f2631e1655b25e5
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79217184"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547949"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>매핑 데이터 흐름의 데이터 변환 표현식 
 
@@ -105,6 +105,12 @@ ___
 <code><b>coalesce(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
 입력 집합에서 첫 번째 null 값이 아닌 값을 반환합니다. 모든 입력은 동일한 형식이어야 합니다.* ``coalesce(10, 20) -> 10``
 * ``coalesce(toString(null), toString(null), 'dumbo', 'bo', 'go') -> 'dumbo'``
+___
+### <code>columnNames</code>
+<code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
+스트림에 대한 모든 출력 열을 가져옵니다. 선택적 스트림 이름을 두 번째 인수로 전달할 수 있습니다.
+* ``columnNames()``
+* ``columnNames('DeriveStream')``
 ___
 ### <code>compare</code>
 <code><b>compare(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => integer</b></code><br/><br/>

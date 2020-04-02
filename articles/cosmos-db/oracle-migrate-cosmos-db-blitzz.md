@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: fe132ee6ab90fdae99463f11ecf46f352690b810
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43d15a7252819a3e4f7635e37458b75e9b7ecca7
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69984356"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546278"
 ---
 # <a name="migrate-data-from-oracle-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>블리츠를 사용하여 오라클에서 Azure 코스모스 DB 카산드라 API 계정으로 데이터 마이그레이션
 
@@ -36,7 +36,7 @@ Blitzz의 마이그레이션 솔루션은 복잡한 운영 워크로드를 마�
 
 * 내결함성이 있으며 시스템의 하드웨어 또는 소프트웨어 오류 발생 시에도 정확히 한 번 데이터를 전송할 수 있습니다.
 
-* SSL, 암호화 와 같은 다양한 보안 방법을 사용하여 전송 중에 데이터를 보호합니다.
+* TLS/SSL, 암호화와 같은 다양한 보안 방법을 사용하여 전송 중에 데이터를 보호합니다.
 
 * PL/SQL로 작성된 복잡한 비즈니스 논리를 Azure Cosmos DB의 동등한 비즈니스 논리로 변환하는 서비스를 제공합니다.
 
@@ -44,7 +44,7 @@ Blitzz의 마이그레이션 솔루션은 복잡한 운영 워크로드를 마�
 
 이 섹션에서는 Blitzz를 설정하고 Oracle 데이터베이스에서 Azure Cosmos DB로 데이터를 마이그레이션하는 데 필요한 단계를 설명합니다.
 
-1. Blitzz 복제본을 설치하려는 컴퓨터에서 보안 인증서를 추가합니다. 이 인증서는 Blitzz 복제본에서 지정된 Azure Cosmos DB 계정과 SSL 연결을 설정하는 데 필요합니다. 다음 단계로 인증서를 추가할 수 있습니다.
+1. Blitzz 복제본을 설치하려는 컴퓨터에서 보안 인증서를 추가합니다. 이 인증서는 Blitzz 복제본에서 지정된 Azure Cosmos DB 계정과 TLS 연결을 설정하는 데 필요합니다. 다음 단계로 인증서를 추가할 수 있습니다.
 
    ```bash
    wget https://cacert.omniroot.com/bc2025.crt

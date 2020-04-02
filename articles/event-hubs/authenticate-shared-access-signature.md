@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: spelluru
-ms.openlocfilehash: d17026dba26b3c1cb846d60967180c29563c425d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82773ab6decfe15ee1a9d839a1f10a158ae72c42
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74545582"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521313"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>공유 액세스 서명(SAS)을 사용하여 이벤트 허브 리소스에 대한 액세스 인증
 공유 액세스 서명(SAS)을 사용하면 공유 액세스 서명이 있는 클라이언트에 부여한 액세스 유형을 세부적으로 제어할 수 있습니다. 다음은 SAS에서 설정할 수 있는 몇 가지 컨트롤입니다. 
@@ -33,7 +33,7 @@ ms.locfileid: "74545582"
 
 
 ## <a name="configuring-for-sas-authentication"></a>SAS 인증 구성
-EventHubs 공유 액세스 권한 부여 규칙을 이벤트 허브 네임스페이스 또는 엔터티(Kafka 사용 네임스페이스에 대한 이벤트 허브의 이벤트 허브에서 이벤트 허브 또는 카프카 토픽)를 구성할 수 있습니다. 소비자 그룹에 대한 공유 액세스 권한 부여 규칙을 구성하는 것은 현재 지원되지 않지만 네임스페이스 또는 엔터티에 구성된 규칙을 사용하여 소비자 그룹에 대한 액세스를 보호할 수 있습니다. 
+EventHubs 공유 액세스 권한 부여 규칙을 이벤트 허브 네임스페이스 또는 엔터티(이벤트 허브의 이벤트 허브 인스턴스 또는 Kafka Topic)에서 구성할 수 있습니다. 소비자 그룹에 대한 공유 액세스 권한 부여 규칙을 구성하는 것은 현재 지원되지 않지만 네임스페이스 또는 엔터티에 구성된 규칙을 사용하여 소비자 그룹에 대한 액세스를 보호할 수 있습니다. 
 
 다음 이미지는 샘플 엔터티에 권한 부여 규칙이 적용되는 방법을 보여 주며 있습니다. 
 

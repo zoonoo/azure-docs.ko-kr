@@ -1,17 +1,17 @@
 ---
-title: Azure 모범 사례의 관리 솔루션 | Microsoft Docs
-description: ''
+title: Azure 모범 사례의 관리 솔루션
+description: 이 문서에서는 관리 솔루션 파일을 만드는 방법에 대한 팁을 알아봅니다. 데이터 원본, Runbook, 보기 및 경고로 작업하는 방법을 알아봅겠습니다.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: 837fb87d73698961ec1550b122840563d1707f8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7cb300297336edcce4294b800520ad570b12bcde
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663201"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548156"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Azure에서 관리 솔루션을 만들기 위한 모범 사례(미리 보기)
 > [!NOTE]
@@ -31,7 +31,7 @@ ms.locfileid: "77663201"
 - Log Analytics 리포지토리에 데이터를 쓰는 Runbook이 사용할 솔루션에 [IngestionAPI 모듈](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5)을 포함합니다.  솔루션이 제거되더라도 유지되도록 해당 리소스를 [참조](solutions-solution-file.md#solution-resource)하도록 솔루션을 구성합니다.  이렇게 하면 여러 솔루션이 모듈을 공유할 수 있습니다.
 - [Automation 변수](../../automation/automation-schedules.md)를 사용하여 나중에 변경하려고 할 수 있는 값을 솔루션에 추가합니다.  솔루션이 변수를 포함하도록 구성되더라도 해당 값을 여전히 변경할 수 있습니다.
 
-## <a name="views"></a>뷰
+## <a name="views"></a>보기
 - 모든 솔루션은 사용자 포털에 표시되는 단일 보기를 포함해야 합니다.  보기에는 다른 데이터 집합을 나타내는 여러 [시각화 요소](../../azure-monitor/platform/view-designer-parts.md)가 포함될 수 있습니다.
 - 솔루션의 모든 보기에 [데이터 흐름 확인](../../azure-monitor/platform/view-designer-tiles.md) 메시지를 추가하여 필요한 데이터를 수집하기 위해 구성해야 하는 데이터 원본을 사용자에게 지시합니다.
 - 솔루션이 제거되면 제거될 수 있게 보기를 [포함](solutions-solution-file.md#solution-resource)하도록 솔루션을 구성합니다.

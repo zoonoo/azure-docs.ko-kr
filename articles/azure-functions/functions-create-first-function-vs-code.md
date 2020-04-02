@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: cf71f051b014c6ce56290acda5c4b931c23934e2
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 6f1c211a8110d95adb5e6802313c5b7deafe3864
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208951"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80276464"
 ---
 # <a name="quickstart-create-an-azure-functions-project-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure Functions 프로젝트 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "77208951"
 + [Node.js](https://nodejs.org/), 활성 LTS 및 유지 관리 LTS 버전(10.14.1 권장). `npm --version` 명령을 사용하여 버전을 확인합니다.
 ::: zone-end 
 ::: zone pivot="programming-language-python"
-+ Azure Functions에서 지원되는 [Python 3.7](https://www.python.org/downloads/release/python-375/) 또는 [Python 3.6](https://www.python.org/downloads/release/python-368/). Python 3.8은 아직 지원되지 않습니다. 
++ [Python 3.8](https://www.python.org/downloads/release/python-381/), [Python 3.7](https://www.python.org/downloads/release/python-375/), [Python 3.6](https://www.python.org/downloads/release/python-368/)은 Azure Functions(x64)에서 지원됩니다.
 ::: zone-end   
 ::: zone pivot="programming-language-powershell"
 + [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
@@ -41,7 +41,7 @@ ms.locfileid: "77208951"
 ::: zone-end  
 + [지원되는 플랫폼](https://code.visualstudio.com/docs/supporting/requirements#_platforms) 중 하나인 [Visual Studio Code](https://code.visualstudio.com/).  
 ::: zone pivot="programming-language-csharp"  
-+ Visual Studio Code용 [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).  
++ Visual Studio Code용 [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).  
 ::: zone-end  
 ::: zone pivot="programming-language-python"
 + Visual Studio Code용 [Python 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.python).  
@@ -52,7 +52,7 @@ ms.locfileid: "77208951"
 
 + Visual Studio Code용 [Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). 
 
-## <a name="create-an-azure-functions-project"></a>로컬 프로젝트 만들기 
+## <a name="create-your-local-project"></a><a name="create-an-azure-functions-project"></a>로컬 프로젝트 만들기 
 
 이 섹션에서는 Visual Studio Code를 사용하여 선택한 언어로 로컬 Azure Functions 프로젝트를 만듭니다. 이 문서의 뒷부분에서 함수 코드를 Azure에 게시합니다. 
 

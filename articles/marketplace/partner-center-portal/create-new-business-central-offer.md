@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 9a167ac1cc9b9ca8cc8951f14f43ba4cf5d10551
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 908d0fb9d494ec048e6b254f91ec1faf56b47c90
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294422"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529409"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>새로운 다이내믹스 365 비즈니스 센트럴 오퍼 만들기
 
@@ -120,7 +120,7 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 > [!NOTE]
 > 오퍼 리스팅 콘텐츠(예: 설명, 문서, 스크린샷, 이용 약관 등)는 "이 응용 프로그램은 [영어 이외의 언어]에서만 사용할 수 있습니다"라는 문구로 시작되는 한 영어로 작성할 필요가 없습니다. 또한 오퍼 리스팅 콘텐츠에 사용된 언어 이외의 언어로 콘텐츠를 제공하는 *유용한 링크 URL을* 제공하는 것도 허용됩니다.
 
-### <a name="name"></a>이름
+### <a name="name"></a>속성
 
 여기에 입력한 이름은 고객에게 쿠폰 목록의 제목으로 표시됩니다. 이 필드는 **오퍼 별칭에** 대해 입력한 텍스트로 미리 채워지지만 이 값을 변경할 수 있습니다. 이 이름은 상표가 지정될 수 있으며 상표 또는 저작권 기호가 포함될 수 있습니다. 이름은 50자를 초과할 수 없으며 이모티콘을 포함할 수 없습니다.
 
@@ -128,7 +128,7 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 마켓플레이스 검색 결과에 사용될 수 있는 제품(최대 100자)에 대한 간략한 설명을 제공합니다.
 
-### <a name="description"></a>설명
+### <a name="description"></a>Description
 
 오퍼에 대한 더 긴 설명을 제공합니다(최대 3,000자). 이 설명은 마켓플레이스 목록 개요의 고객에게 표시됩니다. 오퍼의 가치 제안, 주요 혜택, 카테고리 및/또는 산업 협회, 인앱 구매 기회 및 필요한 공개를 포함합니다. 
 
@@ -207,7 +207,7 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 쿠폰의 작동 방식을 보여 주는 스크린샷을 추가합니다. 최소 3개의 스크린샷이 필요하며 최대 5개의 스크린샷을 추가할 수 있습니다. 모든 스크린샷은 1280 x 720 픽셀이어야 합니다.
 
-#### <a name="videos"></a>비디오
+#### <a name="videos"></a>동영상
 
 선택적으로 쿠폰을 보여주는 동영상을 최대 5개까지 추가할 수 있습니다. 이 동영상은 YouTube 및/또는 Vimeo에서 호스팅되어야 합니다. 각 동영상에 대해 동영상 이름, URL 및 동영상의 축소판 이미지(1280 x 720픽셀)를 입력합니다.
 
@@ -267,7 +267,7 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 ### <a name="url-to-app-installation"></a>앱 설치에 대한 URL
 
-위에서 **연결을** 선택한 경우 여기에서 앱 설치에 대한 URL을 제공합니다.
+위에서 **연결을** 선택한 경우 여기에서 앱 설치에 대한 URL을 제공합니다. 설치가 필요하지 않은 연결된 서비스의 경우 서비스 방문 페이지 또는 가입 페이지의 URL을 제공합니다.
 
 ## <a name="test-drive-technical-configuration"></a>테스트 드라이브 기술 구성
 

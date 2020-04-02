@@ -1,18 +1,18 @@
 ---
-title: Azure Cosmos DB SQL(Core) API에 대한 작업을 나열하고 가져오는 PowerShell 스크립트
-description: Azure PowerShell 스크립트 - SQL(Core) API용 Azure Cosmos DB 작업 나열 및 가져오기
+title: Azure Cosmos DB SQL API 리소스를 나열하고 가져오는 PowerShell 스크립트
+description: Azure PowerShell 스크립트 - SQL API용 Azure Cosmos DB 작업 나열 및 가져오기
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
-ms.openlocfilehash: 1590136aa000538f6d176364fca22b353d4a48a0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 51880e12f5f422acc0df05fa40da5f40f0ede3d3
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75445019"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365968"
 ---
 # <a name="list-and-get-databases-and-containers-for-azure-cosmos-db---sql-core-api"></a>Azure Cosmos DB - SQL(Core) API용 데이터베이스 및 컨테이너 나열 및 가져오기
 
@@ -22,7 +22,7 @@ ms.locfileid: "75445019"
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-list-get.ps1 "List or get databases or containers for SQL (Core) API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-list-get.ps1 "List and get databases and containers for SQL API")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -38,8 +38,10 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 | 명령 | 메모 |
 |---|---|
-|**Azure 리소스**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | 리소스를 만듭니다. |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Cosmos DB 계정을 나열하거나 지정된 Cosmos DB 계정을 가져옵니다. |
+| [Get-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabase) | 계정의 Cosmos DB Databases를 나열하거나 계정에 지정된 Cosmos DB Databases를 가져옵니다. |
+| [Get-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainer) | 데이터베이스의 Cosmos DB 컨테이너를 나열하거나 데이터베이스에 지정된 Cosmos DB 컨테이너를 가져옵니다. |
 |**Azure 리소스 그룹**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||

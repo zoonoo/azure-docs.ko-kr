@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 8f3a6f002fbebe215699c9b97a6dce63177c446f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d926a9f686f0f4c39203b8a217a7c608cfad926e
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77599328"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548111"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>연결 모니터를 통한 네트워크 연결 모니터링(미리 보기)
 
@@ -155,17 +155,17 @@ Azure 포털에서 연결 모니터를 만들려면 다음 단계를 따르십�
 ```armclient
 $connectionMonitorName = "sampleConnectionMonitor"
 
-$ARM = "[https://](https://apac01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fbrazilus.management.azure.com&amp;data=02%7C01%7CManasi.Sant%40microsoft.com%7Cd900da4ed7f24366842108d68022159b%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636837281231186904&amp;sdata=qHL8zWjkobY9MatRpAVbODwboKSQAqqEFOMnjmfyOnU%3D&amp;reserved=0)management.azure.com"
+$ARM = "https://management.azure.com"
 
-$SUB = "subscriptions/\&lt;subscription id 1\&gt;"
+$SUB = "subscriptions/<subscription id 1>;"
 
-$NW = "resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatchers/NetworkWatcher\_centraluseuap"
+$NW = "resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatchers/NetworkWatcher\_<region>"
 
 $body =
 
 "{
 
-location: 'eastus',
+location: '<region>',
 
 properties: {
 
@@ -173,7 +173,7 @@ endpoints: [{
 
 name: 'workspace',
 
-resourceId: '/subscriptions/\&lt;subscription id\&gt;/resourcegroups/\&lt;resource group\&gt;/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace',
+resourceId: '/subscriptions/<subscription id>/resourcegroups/<resource group>/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace',
 
 filter: {
 
@@ -181,7 +181,7 @@ filter: {
 
 type: 'AgentAddress',
 
-address: '\&lt;FQDN of your on-premises agent'
+address: '<FQDN of your on-premises agent>'
 
 }]
 
@@ -193,7 +193,7 @@ address: '\&lt;FQDN of your on-premises agent'
 
 name: 'vm1',
 
-resourceId: '/subscriptions/\&lt;subscription id\&gt;/resourceGroups/\&lt;resource group\&gt;/providers/Microsoft.Compute/virtualMachines/\&lt;vm-name\&gt;'
+resourceId: '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<vm-name>'
 
 },
 
@@ -201,7 +201,7 @@ resourceId: '/subscriptions/\&lt;subscription id\&gt;/resourceGroups/\&lt;resour
 
 name: 'vm2',
 
-resourceId: '/subscriptions/\&lt;subscription id\&gt;/resourceGroups/\&lt;resource group\&gt;/providers/Microsoft.Compute/virtualMachines/\&lt;vm-name\&gt;'
+resourceId: '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<vm-name>'
 
    },
 
@@ -209,7 +209,7 @@ resourceId: '/subscriptions/\&lt;subscription id\&gt;/resourceGroups/\&lt;resour
 
 name: 'azure portal'
 
-address: '\&lt;URL\&gt;'
+address: '<URL>'
 
    },
 
@@ -217,7 +217,7 @@ address: '\&lt;URL\&gt;'
 
     name: 'ip',
 
-     address: '\&lt;IP\&gt;'
+     address: '<IP>'
 
  }
 
@@ -239,6 +239,8 @@ address: '\&lt;URL\&gt;'
 
     name: 'Connectivty from Azure VM 1 to Azure VM 2',
 
+   // Choose your protocol
+   
     testConfigurations: ['http', 'https', 'tcpDisabled', 'icmpDisabled'],
 
     sources: ['vm1'],
@@ -255,15 +257,15 @@ address: '\&lt;URL\&gt;'
 
     name: 'http',
 
-    testFrequencySec: 60,
+    testFrequencySec: <frequency>,
 
     protocol: 'HTTP',
 
     successThreshold: {
 
-     checksFailedPercent: 50,
+     checksFailedPercent: <threshold for checks failed %>,
 
-     roundTripTimeMs: 3.4
+     roundTripTimeMs: <threshold for RTT>
 
     }
 
@@ -271,7 +273,7 @@ address: '\&lt;URL\&gt;'
 
     name: 'https',
 
-    testFrequencySec: 60,
+    testFrequencySec: <frequency>,
 
     protocol: 'HTTP',
 
@@ -283,9 +285,9 @@ address: '\&lt;URL\&gt;'
 
     successThreshold: {
 
-     checksFailedPercent: 50,
+     checksFailedPercent: <choose your checks failed threshold>,
 
-     roundTripTimeMs: 3.4
+     roundTripTimeMs: <choose your RTT threshold>
 
     }
 
@@ -293,7 +295,7 @@ address: '\&lt;URL\&gt;'
 
     name: 'tcpEnabled',
 
-    testFrequencySec: 30,
+    testFrequencySec: <frequency>,
 
     protocol: 'TCP',
 
@@ -305,9 +307,9 @@ address: '\&lt;URL\&gt;'
 
     successThreshold: {
 
-     checksFailedPercent: 30,
+     checksFailedPercent: <choose your checks failed threshold>,
 
-     roundTripTimeMs: 5.2
+     roundTripTimeMs: <choose your RTT threshold>
 
     }
 
@@ -315,15 +317,15 @@ address: '\&lt;URL\&gt;'
 
     name: 'icmpEnabled',
 
-    testFrequencySec: 90,
+    testFrequencySec: <frequency>,
 
     protocol: 'ICMP',
 
     successThreshold: {
 
-     checksFailedPercent: 50,
+     checksFailedPercent: <choose your checks failed threshold>,
 
-     roundTripTimeMs: 3.4
+     roundTripTimeMs: <choose your RTT threshold>
 
     }
 
@@ -331,7 +333,7 @@ address: '\&lt;URL\&gt;'
 
     name: 'icmpDisabled',
 
-    testFrequencySec: 120,
+    testFrequencySec: <frequency>,
 
     protocol: 'ICMP',
 
@@ -343,9 +345,9 @@ address: '\&lt;URL\&gt;'
 
     successThreshold: {
 
-     checksFailedPercent: 50,
+     checksFailedPercent: <choose your checks failed threshold>,
 
-     roundTripTimeMs: 3.4
+     roundTripTimeMs: <choose your RTT threshold>
 
     }
 
@@ -353,7 +355,7 @@ address: '\&lt;URL\&gt;'
 
     name: 'tcpDisabled',
 
-    testFrequencySec: 45,
+    testFrequencySec: <frequency>,
 
     protocol: 'TCP',
 
@@ -367,9 +369,9 @@ address: '\&lt;URL\&gt;'
 
     successThreshold: {
 
-     checksFailedPercent: 30,
+     checksFailedPercent: <choose your checks failed threshold>,
 
-     roundTripTimeMs: 5.2
+     roundTripTimeMs: <choose your RTT threshold>
 
     }
 
@@ -614,7 +616,7 @@ RTT의 추세와 테스트에 대한 실패한 검사의 백분율을 보려면 
 
 메트릭을 사용하는 경우 리소스 유형을 Microsoft.Network/networkWatchers/연결모니터로 설정합니다.
 
-| 메트릭 | 표시 이름 | 단위 | 집계 유형 | 설명 | 차원 |
+| 메트릭 | 표시 이름 | 단위 | 집계 유형 | Description | 차원 |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | 실패한 프로브 % | 백분율 | 평균 | 연결 모니터링 프로브의 백분율이 실패했습니다. | 치수 없음 |
 | AverageRoundtripMs | 평균. 왕복 시간 (ms) | 밀리초 | 평균 | 소스와 대상 간에 전송되는 연결 모니터링 프로브에 대한 평균 네트워크 RTT입니다. |             치수 없음 |

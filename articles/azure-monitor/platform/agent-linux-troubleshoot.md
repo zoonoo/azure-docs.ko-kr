@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 24aa3462aef4f719e93d17389ff342084f6c7864
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2343de97d06abdefed2c2977a7341aa411429319
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77668760"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520733"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
@@ -76,7 +76,7 @@ ms.locfileid: "77668760"
 | --- | --- |
 | 2 | omsadmin 스크립트에 잘못된 옵션이 제공되었습니다. `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` 명령을 실행하여 사용 방법을 확인하세요. |
 | 3 | omsadmin 스크립트에 잘못된 구성이 제공되었습니다. `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` 명령을 실행하여 사용 방법을 확인하세요. |
-| 4 | omsadmin 스크립트에 잘못된 프록시가 제공되었습니다. 프록시를 확인하고 [HTTP 프록시 사용에 대한 설명서](log-analytics-agent.md#network-firewall-requirements)를 읽어보세요. |
+| 4 | omsadmin 스크립트에 잘못된 프록시가 제공되었습니다. 프록시를 확인하고 [HTTP 프록시 사용에 대한 설명서](log-analytics-agent.md#firewall-requirements)를 읽어보세요. |
 | 5 | Azure 모니터에서 받은 403 HTTP 오류입니다. omsadmin 스크립트의 전체 출력에서 자세한 내용을 확인하세요. |
 | 6 | Azure 모니터에서 받은 200이 아닌 HTTP 오류입니다. omsadmin 스크립트의 전체 출력에서 자세한 내용을 확인하세요. |
 | 7 | Azure 모니터에 연결할 수 없습니다. omsadmin 스크립트의 전체 출력에서 자세한 내용을 확인하세요. |
@@ -157,15 +157,8 @@ OMS 출력 플러그 인을 사용하는 대신 데이터 항목을 `stdout`으�
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
 
 2. [프록시 설정 업데이트](agent-manage.md#update-proxy-settings) 섹션을 검토하여 프록시 서버를 통해 통신하도록 에이전트를 제대로 구성했는지 확인합니다.    
-* 다음 Azure 모니터 끝점이 화이트리스트에 있는지 다시 한 번 확인합니다.
 
-    |에이전트 리소스| 포트 | Direction |
-    |------|---------|----------|  
-    |*.ods.opinsights.azure.com | 포트 443| 인바운드 및 아웃바운드 |  
-    |*.oms.opinsights.azure.com | 포트 443| 인바운드 및 아웃바운드 |  
-    |\*.blob.core.windows.net | 포트 443| 인바운드 및 아웃바운드 |  
-
-    Azure 자동화 하이브리드 Runbook Worker를 사용하여 사용자 환경에서 Runbook 또는 관리 솔루션을 사용하기 위해 자동화 서비스에 연결하고 등록하려는 경우 [하이브리드 Runbook Worker에 대한 네트워크 구성에](../../automation/automation-hybrid-runbook-worker.md#network-planning)설명된 포트 번호 및 URL에 액세스할 수 있어야 합니다. 
+3. Azure Monitor [네트워크 방화벽 요구 사항](log-analytics-agent.md#firewall-requirements) 목록에 설명된 끝점이 허용 목록에 올바르게 추가되어 있는지 다시 한 번 확인합니다. Azure 자동화를 사용하는 경우 필요한 네트워크 구성 단계도 위에 연결됩니다.
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>문제: 등록하는 동안 403 오류 발생
 

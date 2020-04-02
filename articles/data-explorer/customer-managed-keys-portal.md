@@ -7,19 +7,19 @@ ms.reviewer: itsagui
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: c014ed2c25711677617d3bf8ff5d2f0f968a3b14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 180196f2c368207b76811700fd845406098600df
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80301045"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529431"
 ---
 # <a name="configure-customer-managed-keys-using-the-azure-portal"></a>Azure 포털을 사용하여 고객 관리 키 구성
 
 > [!div class="op_single_selector"]
 > * [포털](customer-managed-keys-portal.md)
-> * [C #](customer-managed-keys-csharp.md)
-> * [Azure 리소스 관리자 템플릿](customer-managed-keys-resource-manager.md)
+> * [C#](customer-managed-keys-csharp.md)
+> * [Azure Resource Manager 템플릿](customer-managed-keys-resource-manager.md)
 
 [!INCLUDE [data-explorer-configure-customer-managed-keys](../../includes/data-explorer-configure-customer-managed-keys.md)]
 
@@ -46,7 +46,7 @@ ms.locfileid: "80301045"
 
     ![고객 관리 키 저장](media/customer-managed-keys-portal/cmk-encryption-setting.png)
 
-Azure Data Explorer 클러스터에 대해 고객 관리 키를 사용하도록 설정하면 클러스터에 할당된 ID가 존재하지 않는 경우 시스템에 할당된 ID를 생성하게 됩니다. 또한 선택한 키 자격 증명 모음에서 Azure Data Explorer 클러스터에 필요한 보기 권한을 제공하고 키 자격 증명 모음 속성을 가져옵니다. 
+Azure Data Explorer 클러스터에 대해 고객 관리 키를 사용하도록 설정하면 클러스터에 할당된 ID가 존재하지 않는 경우 시스템에 할당된 ID를 생성하게 됩니다. 또한 선택한 키 볼트에서 Azure 데이터 탐색기 클러스터에 필요한 get, wrapKey 및 unwarpKey 권한을 제공하고 키 자격 증명 모음 속성을 가져옵니다. 
 
 > [!NOTE]
 > **끄기를** 선택하여 고객이 관리하는 키를 만든 후 제거합니다.

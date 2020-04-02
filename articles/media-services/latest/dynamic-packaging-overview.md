@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/09/2020
+ms.date: 03/17/2020
 ms.author: juliako
-ms.openlocfilehash: d408a862c18038f64b816bb54fc235d1b9d84179
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
-ms.translationtype: MT
+ms.openlocfilehash: ae049d7486007696d8038eb4e6593cf996df659e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967970"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80372603"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Media Services v3의 동적 패키징
 
@@ -28,9 +28,9 @@ Microsoft Azure Media Services를 사용하여 많은 미디어 원본 파일 �
 Media Services에서 [스트리밍 엔드포인트](streaming-endpoint-concept.md)는 라이브 및 주문형 콘텐츠를 클라이언트 플레이어 앱에 직접 배달할 수 있는 원본 서비스와 동적(적시) 패키징을 나타냅니다. 또한 다음 섹션에 설명된 일반적인 스트리밍 미디어 프로토콜중 하나를 사용합니다. 동적 패키징은 모든 스트리밍 엔드포인트(표준 또는 프리미엄)에 표준으로 제공되는 기능입니다.
 
 > [!NOTE]
-> [Azure Portal](https://portal.azure.com/) 를 사용 하 여 V3 [라이브 이벤트](live-events-outputs-concept.md)를 관리 하 고, v3 [자산](assets-concept.md)을 보고, api 액세스에 대 한 정보를 가져올 수 있습니다. 다른 모든 관리 작업 (예: 변환 및 작업)의 경우에는 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
+> [Azure Portal](https://portal.azure.com/)을 사용하여 v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리하고, v3 [자산](assets-concept.md)을 보고, API 액세스에 대한 정보를 가져올 수 있습니다. 다른 모든 관리 작업(예제: 변환 및 작업)의 경우 [REST API](https://docs.microsoft.com/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.
 
-## <a name="a-iddelivery-protocolsto-prepare-your-source-files-for-delivery"></a><a id="delivery-protocols"/>전송할 원본 파일 준비
+## <a name="to-prepare-your-source-files-for-delivery"></a><a id="delivery-protocols"/>전송할 원본 파일 준비
 
 동적 패키징을 활용하려면 mezzanine(원본) 파일을 여러 개의 비트 전송률 MP4(ISO 기본 미디어 14496-12) 파일 세트로 [인코딩](encoding-concept.md)해야 합니다. Media Services 동적 패키징에 필요한 인코딩된 MP4 및 스트리밍 구성 파일이 포함된 [자산](assets-concept.md)이 있어야 합니다. 이 MP4 파일 세트에서 동적 패키징을 사용하여 아래에 설명된 스트리밍 미디어 프로토콜을 통해 비디오를 전송할 수 있습니다.
 
@@ -71,11 +71,14 @@ Media Services 동적 암호화를 사용하여 콘텐츠를 보호하려는 경
 |부드러운 스트리밍| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`||
 |부드러운 스트리밍 2.0(레거시 매니페스트)|기본적으로 부드러운 스트리밍 매니페스트 형식에는 반복 태그(r 태그)가 포함됩니다. 그러나 일부 플레이어는 `r-tag`를 지원하지 않습니다. 이러한 플레이어를 사용하는 클라이언트는 r 태그를 사용하지 않도록 설정하는 형식을 사용할 수 있습니다.<br/><br/>`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=fmp4-v20)`|
 
+> [!NOTE]
+> 부드러운 스트리밍을 위해서는 오디오와 비디오가 모두 스트림에 있어야 합니다.
+
 ## <a name="on-demand-streaming-workflow"></a>주문형 스트리밍 워크플로
 
 다음 단계에서는 Azure Media Services의 표준 인코더와 함께 동적 패키징이 사용되는 일반적인 Media Services 스트리밍 워크플로를 보여 줍니다.
 
-1. QuickTime/MOV 또는 MXF 파일과 같은 입력 파일을 업로드합니다. 이 파일을 mezzanine 또는 원본 파일이라고도 합니다. 지원되는 형식의 목록은 [미디어 인코더 표준에서 지원하는 형식](media-encoder-standard-formats.md)을 참조하세요.
+1. QuickTime/MOV 또는 MXF 파일과 같은 입력 파일을 업로드합니다. 이 파일을 mezzanine 또는 원본 파일이라고도 합니다. 지원되는 형식의 목록은 [표준 인코더에서 지원하는 형식](media-encoder-standard-formats.md)을 참조하세요.
 1. Mezzanine 파일을 H.264/AAC MP4 적응 비트 전송률 세트로 [인코딩](#encode-to-adaptive-bitrate-mp4s)합니다.
 1. 적응 비트 전송률 MP4 세트가 포함된 출력 자산을 게시합니다. 스트리밍 로케이터를 만들어 게시합니다.
 1. 다양한 형식(HLS, MPEG-DASH 및 부드러운 스트리밍)을 대상으로 하는 URL을 작성합니다. **스트리밍 엔드포인트**는 다양한 형식에 대한 정확한 매니페스트 및 요청의 서비스를 담당합니다.
@@ -92,11 +95,11 @@ Media Services 동적 암호화를 사용하여 콘텐츠를 보호하려는 경
 * [기본 제공 사전 설정을 사용하여 로컬 파일 인코딩](job-input-from-local-file-how-to.md)
 * [특정 시나리오 또는 디바이스 요구 사항을 대상으로 사용자 지정 사전 설정 빌드](customize-encoder-presets-how-to.md)
 
-Media Encoder Standard [형식 및 코덱](media-encoder-standard-formats.md) 목록을 참조하세요.
+표준 인코더 [형식 및 코덱](media-encoder-standard-formats.md) 목록을 참조하세요.
 
 ## <a name="live-streaming-workflow"></a>라이브 스트리밍 워크플로
 
-라이브 이벤트는 *통과* (온-프레미스 라이브 인코더는 다중 비트 전송률 스트림) 또는 *라이브 인코딩* (온-프레미스 라이브 인코더가 단일 비트 전송률 스트림을 보냄)으로 설정할 수 있습니다. 
+라이브 이벤트는 *통과*(온-프레미스 라이브 인코더가 다중 비트 전송률 스트림을 전송) 또는 *라이브 인코딩*(온-프레미스 라이브 인코더가 단일 비트 전송률 스트림을 전송)으로 설정할 수 있습니다. 
 
 동적 패키징을 사용한 라이브 스트리밍의 일반적인 워크플로는 다음과 같습니다.
 
@@ -123,7 +126,7 @@ Media Services v3의 라이브 스트리밍에 대 한 정보는 [라이브 스�
 > [!NOTE]
 > 최대 4K의 해상도와 최대 60 프레임/초의 프레임 속도는 동적 패키징을 통해 테스트되었습니다. [프리미엄 인코더](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow)는 레거시 v2 API를 통해 H.265로의 인코딩을 지원합니다.
 
-## <a name="a-idaudio-codecsaudio-codecs-supported-by-dynamic-packaging"></a><a id="audio-codecs"/>동적 패키징으로 지원되는 오디오 코덱
+## <a name="audio-codecs-supported-by-dynamic-packaging"></a><a id="audio-codecs"/>동적 패키징으로 지원되는 오디오 코덱
 
 동적 패키징은 다음 프로토콜로 인코딩된 오디오를 지원합니다.
 
@@ -243,7 +246,7 @@ MPD(MPEG-DASH Media Presentation Description)라고도 하는 MPEG-DASH 매니�
 
 ### <a name="naming-of-tracks-in-the-manifest"></a>매니페스트에서 트랙 이름 지정
 
-Ism 파일에 오디오 트랙 이름이 지정 된 경우 Media Services는 특정 오디오 트랙에 대 한 치적 측정 단위 정보를 지정 하는 `AdaptationSet` 내에 `Label` 요소를 추가 합니다. 출력 대시 매니페스트의 예는 다음과 같습니다.
+오디오 트랙 이름이 .ism 파일에 지정되면 Media Services에서 `Label` 요소를 `AdaptationSet` 내에 추가하여 특정 오디오 트랙에 대한 텍스트 정보를 지정합니다. 출력 DASH 매니페스트의 예제는 다음과 같습니다.
 
 ```xml
 <AdaptationSet codecs="mp4a.40.2" contentType="audio" lang="en" mimeType="audio/mp4" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
@@ -265,7 +268,7 @@ Ism 파일에 오디오 트랙 이름이 지정 된 경우 Media Services는 특
 
 #### <a name="smooth-streaming-manifest"></a>부드러운 스트리밍 매니페스트
 
-부드러운 스트리밍 스트림을 재생 하는 경우 매니페스트는 해당 오디오 트랙에 대 한 `Accessibility` 및 `Role` 특성에 값을 전달 합니다. 예를 들어 `StreamIndex` 요소에 `Role="alternate" Accessibility="description"`를 추가 하 여 오디오 설명 임을 나타낼 수 있습니다.
+부드러운 스트리밍 스트림을 재생하는 경우 매니페스트는 해당 오디오 트랙에 대한 `Accessibility` 및 `Role` 특성에 값을 전달합니다. 예를 들어 `StreamIndex` 요소에 `Role="alternate" Accessibility="description"`을 추가하여 오디오 설명임을 나타낼 수 있습니다.
 
 #### <a name="dash-manifest"></a>DASH 매니페스트
 
@@ -290,7 +293,7 @@ HLS v7 이상의 경우 `(format=m3u8-cmaf)` 해당 재생 목록은 오디오 �
 
 ## <a name="dynamic-encryption"></a>동적 암호화
 
-*동적 암호화* 를 사용 하 여 AES-128 또는 세 가지 주요 DRM (디지털 권한 관리) 시스템 (Microsoft PlayReady, Google Widevine 및 Apple)으로 라이브 또는 주문형 콘텐츠를 동적으로 암호화할 수 있습니다. 또한 Media Services는 인증된 클라이언트에 AES 키 및 DRM 라이선스를 전달하는 서비스를 제공합니다. 자세한 정보는 [동적 암호화](content-protection-overview.md)를 참조하세요.
+*동적 암호화*를 사용하여 AES-128 또는 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나에서 라이브 또는 주문형 콘텐츠를 동적으로 암호화할 수 있습니다. 동적 암호화된 라이브 콘텐츠 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에 AES 키 및 DRM 라이선스를 전달하는 서비스를 제공합니다. 자세한 정보는 [동적 암호화](content-protection-overview.md)를 참조하세요.
 
 > [!NOTE]
 > Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.

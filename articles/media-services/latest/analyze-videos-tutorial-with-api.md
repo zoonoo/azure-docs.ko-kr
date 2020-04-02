@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 02/02/2020
+ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: abd4a3a3a3e8494ea325e65a78eea7fb56b78f94
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b7864d89cc14a1473fd43e94bfe74c368bcb391d
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76988365"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80349489"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>자습서: Media Services v3으로 비디오 분석
 
@@ -92,6 +92,8 @@ Media Services v3에서는 Azure Storage API를 사용하여 파일을 업로드
 
 * 자산 만들기
 * [스토리지에 있는 자산 컨테이너](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)에 대해 쓰기가 가능한 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 가져오기
+
+    자산의 [ListContainerSas](https://docs.microsoft.com/rest/api/media/assets/listcontainersas) 함수를 사용하여 SAS URL을 가져오는 경우 각 스토리지 계정에 대해 두 개의 스토리지 계정 키가 있으므로 이 함수는 여러 SAS URL을 반환합니다. 스토리지 계정에는 스토리지 계정 키를 원활하게 회전할 수 있도록 두 개의 키가 있습니다(예: 다른 키를 사용하는 동안 하나를 변경한 다음, 새 키를 사용하여 다른 키를 회전). 첫 번째 SAS URL은 스토리지 key1 및 두 번째 스토리지 key2를 나타냅니다.
 * SAS URL을 사용하여 스토리지의 컨테이너에 파일 업로드
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]

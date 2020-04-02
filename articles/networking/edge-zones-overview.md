@@ -7,12 +7,12 @@ ms.service: vnf-manager
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: ganesr
-ms.openlocfilehash: 4666022fc62fcb423906b46f0ff2274a2191f341
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: d04032075166d2edd273c7f22bfb0d54aeccd8b3
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437619"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545812"
 ---
 # <a name="about-azure-edge-zones---preview"></a>Azure 에지 영역 소개 - 미리 보기
 
@@ -73,9 +73,6 @@ Azure Edge 영역은 다음 대도시에서 사용할 수 있습니다.
 에지 존은 다음 사업자와 협력하여 제공됩니다.
 
 - AT&T (애틀랜타, 댈러스, 로스앤젤레스)
-- 에티살라트 주
-- Rogers
-- Vodafone
 
 ## <a name="azure-private-edge-zones"></a><a name="private-edge-zones"></a>Azure 프라이빗 에지 영역
 

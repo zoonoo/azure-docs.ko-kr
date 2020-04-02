@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 03/31/2020
 ms.author: b-juche
-ms.openlocfilehash: b2000c3fd3d64793f797e997d8f3c10eaed5d7aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ad9e13667791c38a8bf8be01919bcdbd0032102
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409598"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519599"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -45,7 +45,7 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
     |    광고 웹 서비스    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
     |    DNS                |    53        |    UDP           |
-    |    ICMPv4             |    해당 없음       |    에코 응답    |
+    |    ICMPv4             |    N/A       |    에코 응답    |
     |    Kerberos           |    464       |    TCP           |
     |    Kerberos           |    464       |    UDP           |
     |    Kerberos           |    88        |    TCP           |
@@ -74,6 +74,14 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 
     AD 사이트 및 서비스에 대한 [사이트 토폴로지 설계를](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) 참조하십시오. 
     
+* Azure NetApp 파일은 DES, Kerberos AES 128 및 Kerberos AES 256 암호화 유형(가장 안전하지 않은 암호화에서 가장 안전한 암호화 유형)을 지원합니다. Active Directory에 가입하는 데 사용되는 사용자 자격 증명에는 Active Directory에 대해 활성화된 기능과 일치하는 가장 높은 해당 계정 옵션이 사용되어야 합니다.   
+
+    예를 들어 Active Directory에 AES-128 기능만 있는 경우 사용자 자격 증명에 대해 AES-128 계정 옵션을 사용하도록 설정해야 합니다. Active Directory에 AES-256 기능이 있는 경우 AES-256 계정 옵션(AES-128도 지원)을 사용하도록 설정해야 합니다. Active Directory에 Kerberos 암호화 기능이 없는 경우 Azure NetApp 파일은 기본적으로 DES를 사용합니다.  
+
+    Active Directory 사용자 및 컴퓨터 MMC 콘솔의 속성에서 계정 옵션을 활성화할 수 있습니다.   
+
+    ![활성 디렉터리 사용자 및 컴퓨터 MMC](../media/azure-netapp-files/ad-users-computers-mmc.png)
+
 추가 광고 정보에 대한 Azure NetApp 파일 [SMB 자주 묻는 질문(FAQ)을](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs) 참조하십시오. 
 
 ## <a name="decide-which-domain-services-to-use"></a>사용할 도메인 서비스 결정 

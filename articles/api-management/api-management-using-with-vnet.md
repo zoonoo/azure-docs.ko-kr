@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/09/2020
 ms.author: apimpm
-ms.openlocfilehash: dcc2c38238f707a5d43cde03502c589add9461b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 462a44f7766e0ec52ba7156d6de5ae5261e21376
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335918"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547360"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 비인터넷 라우팅 가능 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -102,7 +102,7 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 * **사용자 지정 DNS 서버 설치**: API Management 서비스는 여러 API 서비스에 따라 달라집니다. API Management가 사용자 지정 DNS 서버를 사용하는 VNET에서 호스트되는 경우 해당 Azure 서비스의 호스트 이름을 확인해야 합니다. 사용자 지정 DNS 설정에 대한 [이](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 지침을 따르세요. 아래의 포트 테이블 및 기타 네트워크 요구 사항을 참조하세요.
 
 > [!IMPORTANT]
-> VNET에 사용자 지정 DNS 서버를 사용하려는 경우에는 API Management 서비스를 배포하기 **전에** 설정해야 합니다. 그렇지 않으면 DNS 서버를 변경할 때마다 [네트워크 구성 작업 적용](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/ApiManagementService/ApplyNetworkConfigurationUpdates)을 실행하여 API Management 서비스를 업데이트해야 합니다.
+> VNET에 사용자 지정 DNS 서버를 사용하려는 경우에는 API Management 서비스를 배포하기 **전에** 설정해야 합니다. 그렇지 않으면 DNS 서버를 변경할 때마다 [네트워크 구성 작업 적용](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/ApiManagementService/ApplyNetworkConfigurationUpdates)을 실행하여 API Management 서비스를 업데이트해야 합니다.
 
 * **API Management에 필요한 포트**: API Management가 배포된 인바운드 및 아웃바운드 트래픽은 [네트워크 보안 그룹][Network Security Group]을 사용하여 제어할 수 있습니다. 이러한 포트를 사용할 수 없는 경우 API Management가 정상적으로 작동하지 않고 액세스하지 못하게 될 수 있습니다. 이러한 포트가 하나 이상 차단되는 것은 VNET에서 API Management를 사용하는 경우 가장 일반적인 잘못된 구성 문제입니다.
 
@@ -133,6 +133,8 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 + **DNS 액세스**: DNS 서버와의 통신을 위해서는 53 포트에서 아웃바운드 액세스가 필요합니다. 사용자 지정 DNS 서버가 VPN 게이트웨이의 다른 쪽 끝에 있는 경우 API Management를 호스팅하는 서브넷에서 DNS 서버에 연결할 수 있어야 합니다.
 
 + **메트릭 및 상태 모니터링**: Azure Monitoring 엔드포인트에 대한 아웃바운드 네트워크 연결은 다음 도메인에서 확인합니다.
+
++ **지역 서비스 태그**": 스토리지, SQL 및 EventHubs 서비스 태그에 대한 아웃바운드 연결을 허용하는 NSG 규칙은 API 관리 인스턴스를 포함하는 리전(예: 미국 서부 지역의 API 관리 인스턴스에 대한 Storage.WestUS)을 포함하는 지역에 해당하는 해당 태그의 지역 버전을 사용할 수 있습니다. 다중 지역 배포에서 각 지역의 NSG는 해당 지역의 서비스 태그에 대한 트래픽을 허용해야 합니다.
 
     | Azure 환경 | 엔드포인트                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -170,7 +172,7 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
   > [!IMPORTANT]
   > 연결을 검증한 후에는 서브넷에 배포된 리소스를 모두 제거한 다음 API Management를 서비넷으로 배포합니다.
 
-* **증분 업데이트**: 네트워크를 변경할 때 [NetworkStatus API를](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/networkstatus)참조하여 API 관리 서비스가 종속된 중요한 리소스에 대한 액세스 권한을 잃지 않았는지 확인합니다. 연결 상태는 15분마다 업데이트되어야 합니다.
+* **증분 업데이트**: 네트워크를 변경할 때 [NetworkStatus API를](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/networkstatus)참조하여 API 관리 서비스가 종속된 중요한 리소스에 대한 액세스 권한을 잃지 않았는지 확인합니다. 연결 상태는 15분마다 업데이트되어야 합니다.
 
 * **리소스 탐색 링크**: 리소스 관리자 스타일 Vnet 서브넷으로 배포할 경우 API Management는 리소스 탐색 링크를 만들어 서브넷을 보유합니다. 서브넷에 니미 다른 공급자의 리소스가 포함된 경우에는 배포가 **실패**합니다. 마찬가지로 API Management 서비스를 다른 서브넷으로 이동하거나 삭제할 경우에는 해당 리소스 탐색 링크가 삭제됩니다.
 

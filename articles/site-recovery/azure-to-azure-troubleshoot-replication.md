@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.openlocfilehash: 67b68cc8a1db4a058675dc51fb3805093c455908
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5389c064e137358670aecabe97f1cea38dfbcbf
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80276668"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549266"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Azure VM 재해 복구에서 복제 문제 해결
 
@@ -81,7 +81,7 @@ Site Recovery는 복제된 데이터를 캐시 스토리지 계정으로 보냅�
 
 ### <a name="network-connectivity"></a>네트워크 연결
 
-사이트 복구 복제가 작동하려면 VM이 특정 URL 또는 IP 범위에 아웃바운드 연결을 제공해야 합니다. 방화벽 뒤에 VM이 있거나 NSG(네트워크 보안 그룹) 규칙을 사용하여 아웃바운드 연결을 제어할 수 있습니다. 이 경우 문제가 발생할 수 있습니다. 모든 URL이 연결되었는지 확인하려면 [Site Recovery URL에 대한 아웃바운드 연결](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)을 참조하세요.
+사이트 복구 복제가 작동하려면 VM이 특정 URL 또는 IP 범위에 아웃바운드 연결을 제공해야 합니다. 방화벽 뒤에 VM이 있거나 NSG(네트워크 보안 그룹) 규칙을 사용하여 아웃바운드 연결을 제어할 수 있습니다. 이 경우 문제가 발생할 수 있습니다. 모든 URL이 연결되었는지 확인하려면 [Site Recovery URL에 대한 아웃바운드 연결](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls)을 참조하세요.
 
 ## <a name="error-id-153006---no-app-consistent-recovery-point-available-for-the-vm-in-the-past-x-minutes"></a>오류 ID 153006 - 지난 "X" 분에서 VM에 사용할 수 있는 앱 일관된 복구 지점이 없습니다.
 

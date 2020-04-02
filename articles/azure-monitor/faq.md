@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/26/2020
-ms.openlocfilehash: 777e4e1f8fdd05345d949fe8c78b4a5b1953b8b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 306d847c2bc5af72d37dbf8bf472a5bae63e9fd5
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298257"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528497"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure 모니터 자주 묻는 질문
 
@@ -177,7 +177,7 @@ WireData
 
 
 ### <a name="what-are-the-firewall-requirements-for-azure-monitor-agents"></a>Azure Monitor 에이전트에 대한 방화벽 요구 사항은 무엇입니까?
-방화벽 요구 사항에 대한 자세한 내용은 [네트워크 방화벽 요구](platform/log-analytics-agent.md#network-firewall-requirements)사항을 참조하십시오.
+방화벽 요구 사항에 대한 자세한 내용은 [네트워크 방화벽 요구](platform/log-analytics-agent.md#firewall-requirements)사항을 참조하십시오.
 
 
 ## <a name="visualizations"></a>시각화
@@ -186,7 +186,7 @@ WireData
 
 뷰 디자이너는 Log Analytics 작업 영역에서 기여자 권한이 이상인 사용자에게만 제공됩니다.
 
-## <a name="application-insights"></a>애플리케이션 정보
+## <a name="application-insights"></a>Application Insights
 
 ### <a name="configuration-problems"></a>구성 문제
 *다음을 설정하는 데 문제가 있습니다.*
@@ -259,7 +259,7 @@ WireData
 
 웹앱에서 Application Insights를 구성하기 위해 IIS 웹 서버에서 사용할 수 있는 데스크톱 앱입니다. 원격 분석을 수집하지 않으며 앱을 구성하지 않는 경우 중지할 수 있습니다. 
 
-[자세히 알아봅니다](app/monitor-performance-live-website-now.md#questions).
+[자세히 알아보기](app/monitor-performance-live-website-now.md#questions).
 
 ### <a name="what-telemetry-is-collected-by-application-insights"></a>어떤 원격 분석이 Application Insights에서 수집되나요?
 
@@ -284,7 +284,7 @@ WireData
 
 * [Azure 진단](platform/diagnostics-extension-to-application-insights.md)
 * [Analytics로 가져오기](platform/data-collector-api.md)
-* [Log Analytics](platform/data-collector-api.md)
+* [로그 분석](platform/data-collector-api.md)
 * [Logstash](platform/data-collector-api.md)
 
 ### <a name="can-i-filter-out-or-modify-some-telemetry"></a>일부 원격 분석을 필터링하거나 수정할 수 있나요?
@@ -305,7 +305,7 @@ WireData
 * 응용 프로그램 인사이트에서 IP 주소 및 지리적 위치 데이터가 수집되는 방법에 대한 자세한 내용은 이 [문서를](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection)참조하십시오.
 
 
-`ClientIpHeaderTelemetryInitializer`를 구성하여 다른 헤더에서 IP 주소를 가져올 수 있습니다. 예를 들어 일부 시스템에서는 프록시, 부하 분산 장치 또는 CDN에 의해 `X-Originating-IP`로 이동됩니다. [자세히 알아봅니다](https://apmtips.com/blog/2016/07/05/client-ip-address/).
+`ClientIpHeaderTelemetryInitializer`를 구성하여 다른 헤더에서 IP 주소를 가져올 수 있습니다. 예를 들어 일부 시스템에서는 프록시, 부하 분산 장치 또는 CDN에 의해 `X-Originating-IP`로 이동됩니다. [자세히 알아보기](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
 [Power BI를 사용](app/export-power-bi.md )하여 요청 원격 분석을 지도에 표시할 수 있습니다.
 
@@ -718,7 +718,7 @@ Azure VM의 개요 페이지에는 게스트 VM에서 작업의 호스트 측정
 ## <a name="next-steps"></a>다음 단계
 여기서 질문에 대한 답변이 없는 경우 다음 포럼을 참조하여 추가 질문과 답변을 참조할 수 있습니다.
 
-- [Log Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)
+- [로그 분석](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)
 - [Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
 
 Azure 모니터에 대한 일반적인 피드백은 [피드백 포럼을](https://feedback.azure.com/forums/34192--general-feedback)방문하십시오.

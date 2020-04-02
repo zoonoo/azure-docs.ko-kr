@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/24/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 758e6123fd09df1e3f8b2e883a729b9fec4328d1
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 8bcf59ee863bb2fd2a3213480372ad215c2fc00d
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80367292"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528581"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>연결된 컴퓨터 에이전트 관리 및 유지 관리
 
@@ -61,6 +61,9 @@ Windows Installer 패키지의 명령줄 옵션에 익숙하지 않은 경우 [M
 ### <a name="linux-agent"></a>Linux 에이전트
 
 Linux 컴퓨터의 에이전트를 최신 버전으로 업데이트하려면 두 가지 명령이 포함됩니다. 하나의 명령은 리포지토리에서 사용 가능한 최신 패키지 목록으로 로컬 패키지 인덱스를 업데이트하고 다른 명령은 로컬 패키지를 업그레이드합니다. 
+
+> [!NOTE]
+> 에이전트를 업그레이드하려면 *루트* 액세스 권한이 있거나 Sudo를 사용하여 권한이 높은 계정이 있어야 합니다.
 
 #### <a name="upgrade-ubuntu"></a>업그레이드 우분투
 
@@ -112,13 +115,11 @@ Linux 컴퓨터의 에이전트를 최신 버전으로 업데이트하려면 두
 
 ## <a name="remove-the-agent"></a>에이전트 제거
 
-다음 절차 중 하나를 사용하여 이 섹션에 설명된 명령줄 또는 설치 마법사를 사용하여 Windows 또는 Linux 에이전트를 제거합니다. 에이전트를 제거하기 전에 먼저 다음 단계를 완료하여 서버용 Azure Arc에서 컴퓨터를 분리(미리 보기)합니다. 
-
-1. [Azure Portal](https://aka.ms/hybridmachineportal)로 이동하여 서버용 Azure Arc를 엽니다.
-
-2. 목록에서 머신을 선택하고, 줄임표 (**...**)를 선택한 다음, **삭제**를 선택합니다.
+다음 방법 중 하나를 수행하여 컴퓨터에서 Windows 또는 Linux 연결된 컴퓨터 에이전트를 제거합니다. 에이전트를 제거해도 서버용 Arc(미리 보기)로 컴퓨터를 등록 취소하지 않으므로 Azure에서 컴퓨터를 더 이상 관리할 필요가 없을 때 수행하는 별도의 프로세스입니다.
 
 ### <a name="windows-agent"></a>Windows 에이전트
+
+다음 두 방법 모두 에이전트를 제거하지만 컴퓨터에서 *C:\프로그램 파일\AzureConnectedMachineAgent* 폴더를 제거하지는 않습니다.
 
 #### <a name="uninstall-from-control-panel"></a>제어판에서 제거
 
@@ -158,6 +159,9 @@ Linux 컴퓨터의 에이전트를 최신 버전으로 업데이트하려면 두
 
 ### <a name="linux-agent"></a>Linux 에이전트
 
+> [!NOTE]
+> 에이전트를 제거하려면 *루트* 액세스 권한이 있거나 Sudo를 사용하여 권한이 높은 계정이 있어야 합니다.
+
 Linux 에이전트를 제거하려면 사용할 명령은 Linux 운영 체제에 따라 다릅니다.
 
 - 우분투의 경우 다음 명령을 실행합니다.
@@ -177,3 +181,11 @@ Linux 에이전트를 제거하려면 사용할 명령은 Linux 운영 체제에
     ```bash
     sudo zypper remove azcmagent
     ```
+
+## <a name="unregister-machine"></a>컴퓨터 등록 취소
+
+Azure에서 지원 서비스를 사용하여 컴퓨터 관리를 중지하려는 경우 다음 단계를 수행하여 서버에 대한 Arc for server(미리 보기)를 사용하여 컴퓨터를 등록 취소합니다. 컴퓨터에서 연결된 컴퓨터 에이전트를 제거하기 전이나 후에 이러한 단계를 수행할 수 있습니다.
+
+1. [Azure Portal](https://aka.ms/hybridmachineportal)로 이동하여 서버용 Azure Arc를 엽니다.
+
+2. 목록에서 머신을 선택하고, 줄임표 (**...**)를 선택한 다음, **삭제**를 선택합니다.

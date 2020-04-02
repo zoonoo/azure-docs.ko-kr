@@ -15,12 +15,12 @@ ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 8aedc78772858815a18425fb1e6cb36a4600f647
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 09d5b7a126a1b8832bfe40e2e25dd4000d5d9155
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385098"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548280"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Azure RBAC 문제 해결
 
@@ -80,7 +80,7 @@ $ras.Count
 
 ## <a name="access-denied-or-permission-errors"></a>액세스 거부 또는 권한 오류
 
-- 리소스를 만들려고 할 때 사용 권한 오류 "개체 ID가 있는 클라이언트에 범위 에 대한 작업을 수행할 수 있는 권한이 없습니다(코드: AuthorizationFailed)"라는 오류가 발생하면 현재 쓰기 역할이 할당된 사용자와 함께 로그인되어 있는지 확인합니다. 선택한 범위의 리소스에 대한 사용 권한을 부여합니다. 예를 들어 리소스 그룹의 가상 머신을 관리하려면 리소스 그룹(또는 부모 범위)에 대한 [가상 머신 기여자](built-in-roles.md#virtual-machine-contributor) 역할이 필요합니다. 각 기본 제공 역할의 권한 목록은 [Azure 리소스의 기본 제공 역할](built-in-roles.md)을 참조하세요.
+- 리소스를 만들려고 할 때 "개체 ID가 있는 클라이언트에 범위(코드: AuthorizationFailed)"라는 사용 권한 오류가 발생하면 선택한 범위에서 리소스에 대한 쓰기 권한이 할당된 역할을 할당받은 사용자와 함께 현재 로그인되어 있는지 확인합니다. 예를 들어 리소스 그룹의 가상 머신을 관리하려면 리소스 그룹(또는 부모 범위)에 대한 [가상 머신 기여자](built-in-roles.md#virtual-machine-contributor) 역할이 필요합니다. 각 기본 제공 역할의 권한 목록은 [Azure 리소스의 기본 제공 역할](built-in-roles.md)을 참조하세요.
 - 지원 티켓을 만들거나 업데이트하려고 할 때 "지원 요청을 만들 수 있는 권한이 없습니다"라는 권한이 있는 경우 [지원 요청 기고자와](built-in-roles.md#support-request-contributor)같이 `Microsoft.Support/supportTickets/write` 권한이 할당된 역할이 할당된 사용자와 현재 로그인되어 있는지 확인합니다.
 
 ## <a name="role-assignments-with-unknown-security-principal"></a>알 수 없는 보안 주체가 있는 역할 할당
@@ -179,7 +179,7 @@ Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 �
 
 다음 항목을 사용하려면 웹 사이트를 포함하는 전체 **리소스 그룹**에 대한 **쓰기** 권한이 필요합니다.  
 
-* SSL 인증서 및 바인딩(SSL 인증서는 같은 리소스 그룹과 지리적 위치의 사이트 간에 공유될 수 있음)  
+* TLS/SSL 인증서 및 바인딩(TLS/SSL 인증서는 동일한 리소스 그룹의 사이트 와 지리적 위치 간에 공유할 수 있음)  
 * 경고 규칙  
 * 자동 크기 조정 설정  
 * Application Insights 구성 요소  

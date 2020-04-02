@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: 6bc636b751d12bdb576e54f26536ac0045839229
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 090446d286b38a0bfcbde4ed9e77235050b36417
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70137334"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547707"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "70137334"
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [나머지](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [대량 실행기 - .NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -84,7 +84,7 @@ ms.locfileid: "70137334"
 
 ### <a name="210"></a><a name="2.1.0"/>2.1.0
 * 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다.
-* Cosmos DB 에뮬레이터에 대해 실행하는 경우 SSL 유효성 검사를 비활성화하기 위한 옵션을 추가했습니다.
+* 코스모스 DB 에뮬레이터를 상대로 실행할 때 TLS 확인을 비활성화하는 옵션이 추가되었습니다.
 * 종속 요청 모듈이 정확히 2.10.0이어야 하는 제한을 제거했습니다.
 * 분할된 컬렉션에 대한 최소 처리량이 10,100RU/s에서 2500RU/s로 감소됩니다.
 * 저장된 프로시저가 실행되는 동안 스크립트 로깅을 사용할 수 있도록 지원이 추가되었습니다.

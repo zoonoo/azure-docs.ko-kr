@@ -11,15 +11,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 0fbe27fb5ed61cc187c679f9cb7420f0b444aa60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f351bba9cd474eab0774efa5ffbd2b24499d105b
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77615927"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520963"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -40,8 +40,8 @@ Azure의 Instance Metadata Service는 [Azure Resource Manager](https://docs.micr
 -----------------------------------------------|-----------------------------------------------|-----------------
 [일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
-[Azure 중국 21Vianet](https://www.azure.cn/)                                            | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
-[Azure 독일](https://azure.microsoft.com/overview/clouds/germany/)                    | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
+[Azure China 21Vianet](https://www.azure.cn/)                                            | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
 
 버전 2019-11-01은 현재 배포중이며 모든 지역에서 제공되지 않을 수 있습니다.
 
@@ -110,7 +110,7 @@ API | 기본 데이터 형식 | 다른 형식
 /scheduledevents | json : | none
 /attested | json : | none
 
-기본이 아닌 응답 형식에 액세스하려면 요청된 형식을 요청의 쿼리 문자열 매개 변수로 지정합니다. 예를 들어:
+기본이 아닌 응답 형식에 액세스하려면 요청된 형식을 요청의 쿼리 문자열 매개 변수로 지정합니다. 다음은 그 예입니다.
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
@@ -126,7 +126,7 @@ Instance Metadata Service 엔드포인트는 라우팅이 불가능한 IP 주소
 
 ### <a name="error"></a>Error
 
-찾을 수 없는 데이터 요소 또는 형식이 잘못된 요청이 있으면 Instance Metadata Service는 표준 HTTP 오류를 반환합니다. 예를 들어:
+찾을 수 없는 데이터 요소 또는 형식이 잘못된 요청이 있으면 Instance Metadata Service는 표준 HTTP 오류를 반환합니다. 다음은 그 예입니다.
 
 HTTP 상태 코드 | 이유
 ----------------|-------
@@ -451,7 +451,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 다음 API는 메타데이터 끝점을 통해 사용할 수 있습니다.
 
-데이터 | 설명 | 도입된 버전
+데이터 | Description | 도입된 버전
 -----|-------------|-----------------------
 attested | [증명된 데이터](#attested-data) 참조 | 2018-10-01
 ID | Azure 리소스에 대한 관리 ID입니다. [액세스 토큰 획득](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)을 참조하세요. | 2018-02-01
@@ -465,7 +465,7 @@ scheduledevents | [예정된 이벤트](scheduled-events.md) 참조 | 2017-08-01
 > [!NOTE]
 > 메타데이터 끝점을 통해 인스턴스/계산을 통해 다음 범주에 액세스합니다.
 
-데이터 | 설명 | 도입된 버전
+데이터 | Description | 도입된 버전
 -----|-------------|-----------------------
 아즈환경 | VM이 실행 중인 Azure 환경 | 2018-10-01
 customData | 이 기능은 현재 사용 안 되지 않습니다 및 사용할 수 있게 되면이 설명서를 업데이트 합니다. | 2019-02-01
@@ -498,7 +498,7 @@ vmSize | [VM 사이즈](sizes.md) | 2017-04-02
 > [!NOTE]
 > 메타데이터 끝점을 통해 인스턴스/네트워크/인터페이스를 통해 다음 범주에 액세스합니다.
 
-데이터 | 설명 | 도입된 버전
+데이터 | Description | 도입된 버전
 -----|-------------|-----------------------
 ipv4/privateIpAddress | VM의 로컬 IPv4 주소 | 2017-04-02
 ipv4/publicIpAddress | VM의 공용 IPv4 주소 | 2017-04-02
@@ -727,8 +727,8 @@ Azure 환경의 지역 및 값은 다음과 같습니다.
 ---------|-----------------
 [일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | Azure퍼블릭 클라우드
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUS정부 클라우드
-[Azure 중국 21Vianet](https://azure.microsoft.com/global-infrastructure/china)          | AzureChinaCloud
-[Azure 독일](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
+[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china)          | AzureChinaCloud
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
 ### <a name="getting-the-tags-for-the-vm"></a>VM에 대한 태그 얻기
 
@@ -820,7 +820,7 @@ Verification successful
 }
 ```
 
-데이터 | 설명
+데이터 | Description
 -----|------------
 nonce | 사용자가 요청과 함께 선택적 문자열을 제공했습니다. 요청에 nonce를 제공하지 않은 경우 현재 UTC 타임스탬프가 반환됩니다.
 계획 | Azure Marketplace 이미지의 VM에 대한 [플랜](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)에는 이름, 제품 및 게시자가 포함됩니다.
@@ -841,8 +841,8 @@ sku | VM 이미지에 대한 특정 SKU,`2019-11-01`
 ---------|-----------------
 [일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | *metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | *.metadata.azure.us
-[Azure 중국 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | *.metadata.azure.cn
-[Azure 독일](https://azure.microsoft.com/overview/clouds/germany/)                    | *.metadata.microsoftazure.de
+[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | *.metadata.azure.cn
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | *.metadata.microsoftazure.de
 
 서명에 사용되는 인증서와 관련된 알려진 문제가 있습니다. 인증서가 퍼블릭 클라우드와 `metadata.azure.com` 정확히 일치하지 않을 수 있습니다. 따라서 인증 유효성 검사는 모든 `.metadata.azure.com` 하위 도메인에서 공통 이름을 허용 해야 합니다.
 
@@ -856,11 +856,15 @@ openssl x509 -noout -issuer -in signer.pem
 openssl x509 -noout -subject -in intermediate.pem
 # Verify the issuer for the intermediate certificate
 openssl x509 -noout -issuer -in intermediate.pem
-# Verify the certificate chain
+# Verify the certificate chain, for Azure China 21Vianet the intermediate certificate will be from DigiCert Global Root CA
 openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
 
-유효성 검사 중 네트워크 제약 조건으로 인해 중간 인증서를 다운로드할 수 없는 경우 중간 인증서를 고정할 수 있습니다. 그러나 Azure는 표준 PKI 관행에 따라 인증서를 롤오버합니다. 고정된 인증서는 롤오버가 발생할 때 업데이트해야 합니다. 중간 인증서를 업데이트하기 위한 변경이 계획될 때마다 Azure 블로그가 업데이트되고 Azure 고객에게 알림이 전송됩니다. 중간 인증서는 [여기에서](https://www.microsoft.com/pki/mscorp/cps/default.htm)찾을 수 있습니다. 각 리전에 대한 중간 인증서는 다를 수 있습니다.
+유효성 검사 중 네트워크 제약 조건으로 인해 중간 인증서를 다운로드할 수 없는 경우 중간 인증서를 고정할 수 있습니다. 그러나 Azure는 표준 PKI 관행에 따라 인증서를 롤오버합니다. 롤오버가 발생하면 고정된 인증서를 업데이트해야 합니다. 중간 인증서를 업데이트하기 위한 변경이 계획될 때마다 Azure 블로그가 업데이트되고 Azure 고객에게 알림이 전송됩니다. 중간 인증서는 [여기에서](https://www.microsoft.com/pki/mscorp/cps/default.htm)찾을 수 있습니다. 각 리전에 대한 중간 인증서는 다를 수 있습니다.
+
+> [!NOTE]
+> Azure China 21Vianet의 중간 인증서는 볼티모어 대신 DigiCert 글로벌 루트 CA에서 발급됩니다.
+또한 루트 체인 권한 변경의 일부로 Azure China의 중간 인증서를 고정한 경우 중간 인증서를 업데이트해야 합니다.
 
 ### <a name="failover-clustering-in-windows-server"></a>Windows Server의 장애 조치(failover) 클러스터링
 
@@ -915,7 +919,7 @@ VM의 저장소 프로필은 이미지 참조, OS 디스크 및 데이터 디스
 
 이미지 참조 개체에는 OS 이미지에 대한 다음 정보가 포함되어 있습니다.
 
-데이터    | 설명
+데이터    | Description
 --------|-----------------
 id      | 리소스 ID
 제품   | 플랫폼 또는 마켓플레이스 이미지 제공
@@ -925,7 +929,7 @@ sku     | 이미지 스쿠
 
 OS 디스크 개체에는 VM에서 사용하는 OS 디스크에 대한 다음 정보가 포함되어 있습니다.
 
-데이터    | 설명
+데이터    | Description
 --------|-----------------
 캐싱 | 캐싱 요구 사항
 createOption | VM이 생성된 방법에 대한 정보
@@ -940,7 +944,7 @@ Vhd     | 가상 하드 디스크
 
 데이터 디스크 배열에는 VM에 연결된 데이터 디스크 목록이 포함되어 있습니다. 각 데이터 디스크 개체에는 다음 정보가 포함됩니다.
 
-데이터    | 설명
+데이터    | Description
 --------|-----------------
 캐싱 | 캐싱 요구 사항
 createOption | VM이 생성된 방법에 대한 정보

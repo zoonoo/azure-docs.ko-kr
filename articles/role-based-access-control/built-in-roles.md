@@ -15,12 +15,12 @@ ms.date: 03/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: ba07a0b0d3be0366179bba14c786fafad8753dd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fe3b94463da07304f2c853910ac5d2a6771d070
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280697"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545651"
 ---
 # <a name="azure-built-in-roles"></a>Azure 기본 제공 역할
 
@@ -34,7 +34,7 @@ ms.locfileid: "80280697"
 
 
 > [!div class="mx-tableFixed"]
-> | 기본 제공 역할 | 설명 | ID |
+> | 기본 제공 역할 | Description | ID |
 > | --- | --- | --- |
 > | **일반** |  |  |
 > | [참가자](#contributor) | 리소스에 대한 액세스 권한을 부여하는 것을 제외한 모든 것을 관리할 수 있습니다. | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -80,7 +80,7 @@ ms.locfileid: "80280697"
 > | [스토리지 큐 데이터 메시지 프로세서](#storage-queue-data-message-processor) | Azure 저장소 큐에서 메시지를 엿보, 검색 및 삭제합니다. 지정된 데이터 작업에 필요한 작업을 확인하려면 [Blob 및 큐 데이터 작업을 호출할 수 있는 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)참조하세요. | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | [스토리지 큐 데이터 메시지 발신자](#storage-queue-data-message-sender) | Azure 저장소 큐에 메시지를 추가합니다. 지정된 데이터 작업에 필요한 작업을 확인하려면 [Blob 및 큐 데이터 작업을 호출할 수 있는 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)참조하세요. | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | [스토리지 큐 데이터 리더](#storage-queue-data-reader) | Azure 저장소 큐 및 큐 메시지를 읽고 나열합니다. 지정된 데이터 작업에 필요한 작업을 확인하려면 [Blob 및 큐 데이터 작업을 호출할 수 있는 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)참조하세요. | 19e7f393-937e-4f77-808e-94535e297925 |
-> | **웹** |  |  |
+> | **Web** |  |  |
 > | [Azure Maps 데이터 판독기(미리 보기)](#azure-maps-data-reader-preview) | Azure 맵 계정에서 맵 관련 데이터를 읽을 수 있는 액세스 권한을 부여합니다. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | [Search 서비스 기여자](#search-service-contributor) | Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | [웹 계획 참가자](#web-plan-contributor) | 웹 사이트의 웹 계획을 관리할 수 있지만 액세스할 수는 없습니다. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
@@ -139,7 +139,7 @@ ms.locfileid: "80280697"
 > | [지능형 시스템 계정 기여자](#intelligent-systems-account-contributor) | 인텔리전트 시스템 계정을 관리할 수 있지만 액세스할 수는 없습니다. | 03a6d094-3444-4b3d-88af-7477090a9e5e |
 > | [논리 앱 기여자](#logic-app-contributor) | 논리 앱을 관리할 수 있지만 논리 앱에 대한 액세스는 변경할 수 없습니다. | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
 > | [논리 앱 연산자](#logic-app-operator) | 논리 앱을 읽고, 활성화하고, 비활성화할 수 있지만 편집하거나 업데이트할 수는 없습니다. | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
-> | **Identity** |  |  |
+> | **ID** |  |  |
 > | [관리 ID 기여자](#managed-identity-contributor) | 사용자 할당 ID를 만들고, 읽고, 업데이트하고, 삭제합니다. | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
 > | [관리 ID 운영자](#managed-identity-operator) | 사용자 할당 ID를 읽고 할당합니다. | f1a07417-d97a-45cb-824c-7a7467783830 |
 > | **보안** |  |  |
@@ -151,7 +151,7 @@ ms.locfileid: "80280697"
 > | [보안 평가 기여자](#security-assessment-contributor) | 평가를 보안 센터로 푸시할 수 있습니다. | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | [보안 관리자(레거시)](#security-manager-legacy) | 레거시 역할입니다. 대신 보안 관리자를 사용하십시오. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | [보안 판독기](#security-reader) | 권장 사항 및 경고를 보고, 보안 정책을 보고, 보안 상태를 볼 수 있지만 변경할 수는 없습니다. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
-> | **데브옵스 (주)데브옵스** |  |  |
+> | **DevOps** |  |  |
 > | [데브테스트 랩 사용자](#devtest-labs-user) | Azure DevTest Labs의 가상 머신을 연결, 시작, 다시 시작 및 종료할 수 있습니다. | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | [랩 작성자](#lab-creator) | Azure Lab 계정 하에서 관리 랩을 만들고, 관리하고, 삭제할 수 있습니다. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
 > | **모니터** |  |  |
@@ -4644,7 +4644,7 @@ Cognitive Services의 키를 읽고 나열할 수 있습니다.
 > | Microsoft.ApiManagement/service/managedeployments/action | SKU/단위를 변경하고 API Management 서비스의 지역별 배포를 추가 또는 제거합니다. |
 > | Microsoft.ApiManagement/service/read | API Management 서비스 인스턴스에 대한 메타데이터 읽기 |
 > | Microsoft.ApiManagement/service/restore/action | 사용자가 제공한 스토리지 계정의 지정된 컨테이너에서 API Management 서비스 복원 |
-> | Microsoft.ApiManagement/service/updatecertificate/action | API Management 서비스에 대한 SSL 인증서를 업로드합니다. |
+> | Microsoft.ApiManagement/service/updatecertificate/action | API 관리 서비스에 대한 TLS/SSL 인증서 업로드 |
 > | Microsoft.ApiManagement/service/updatehostname/action | API Management 서비스에 대한 사용자 지정 도메인 이름 설정, 업데이트 또는 제거합니다. |
 > | Microsoft.ApiManagement/service/write | API 관리 서비스 인스턴스 생성 또는 업데이트 |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
@@ -5328,7 +5328,7 @@ EventGrid 이벤트 구독을 읽을 수 있습니다.
 }
 ```
 
-## <a name="identity"></a>Identity
+## <a name="identity"></a>ID
 
 
 ### <a name="managed-identity-contributor"></a>관리 ID 참가자

@@ -1,19 +1,19 @@
 ---
 title: Azure Portal에서 검색 인덱스 만들기
 titleSuffix: Azure Cognitive Search
-description: 이 포털 빠른 시작에서 데이터 가져오기 마법사를 사용하여 Azure Cognitive Search에서 첫 번째 검색 인덱스를 만들고, 로드하고, 쿼리하는 방법을 알아봅니다.
+description: 이 Azure Portal 빠른 시작에서 데이터 가져오기 마법사를 사용하여 Azure Cognitive Search에서 첫 번째 검색 인덱스를 생성, 로드 및 쿼리합니다.
 author: tchristiani
 manager: nitinme
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/10/2020
-ms.openlocfilehash: 6a3bbdae0d3fa898621c1c805388252beb891ecf
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8324ca0184c508591fa4568175bad0f606f952a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290431"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369464"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]

@@ -1,19 +1,19 @@
 ---
 title: 부트스트랩을 사용하여 Azure HDInsight 클러스터 구성 사용자 지정
-description: .Net, PowerShell 및 리소스 관리자 템플릿을 사용하여 프로그래밍 방식으로 HDInsight 클러스터 구성을 사용자 지정하는 방법을 알아봅니다.
+description: .NET, PowerShell 및 리소스 관리자 템플릿을 사용하여 프로그래밍 방식으로 HDInsight 클러스터 구성을 사용자 지정하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 11/21/2019
-ms.openlocfilehash: e641340ac04415ee4a20cda2bc09bbdbef9802a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 796dbc53d1adf310028e06dea319b9a60d5cf54b
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272527"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529359"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정
 
@@ -125,6 +125,18 @@ Resource Manager 템플릿에서 부트스트랩을 사용할 수 있습니다.
 ```
 
 ![Hadoop은 클러스터 부트스트랩 Azure 리소스 관리자 템플릿을 사용자 지정합니다.](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+
+샘플 리소스 관리자 템플릿 코드 조각을 통해 spark2 기본값의 구성을 전환하여 저장소에서 이벤트 로그를 주기적으로 정리합니다.  
+
+```json
+"configurations": {
+    "spark2-defaults": {
+        "spark.history.fs.cleaner.enabled": "true",
+        "spark.history.fs.cleaner.interval": "7d",
+        "spark.history.fs.cleaner.maxAge": "90d"
+    }
+}
+```
 
 ## <a name="see-also"></a>참조
 

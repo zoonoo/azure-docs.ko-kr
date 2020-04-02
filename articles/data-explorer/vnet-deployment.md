@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: dbc17620cda836ec0ac5c4ebc5a709fb0605c958
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1ad8390bc5db72636c637c2ffb817e34674d0fa
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240035"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548843"
 ---
 # <a name="deploy-azure-data-explorer-cluster-into-your-virtual-network"></a>Azure 데이터 탐색기 클러스터를 가상 네트워크에 배포
 
@@ -171,7 +171,7 @@ Azure 데이터 탐색기 클러스터를 호스트하는 데 사용되는 서�
 | 서유럽 | 23.97.212.5 |
 | 인도 서부 | 23.99.5.162 |
 | 미국 서부 | 23.99.5.162 |
-| 미국 서부 2 | 23.99.5.162 |    
+| 미국 서부 2 | 23.99.5.162, 104.210.32.14 |    
 
 #### <a name="azure-monitor-configuration-endpoint-addresses"></a>Azure 모니터 구성 끝점 주소
 
@@ -250,7 +250,7 @@ crl3.digicert.com:80
 
 예를 들어 **미국 서부** 지역의 경우 다음 DR을 정의해야 합니다.
 
-| 이름 | 주소 접두사 | 다음 홉 |
+| 속성 | 주소 접두사 | 다음 홉 |
 | --- | --- | --- |
 | ADX_Management | 13.64.38.225/32 | 인터넷 |
 | ADX_Monitoring | 23.99.5.162/32 | 인터넷 |

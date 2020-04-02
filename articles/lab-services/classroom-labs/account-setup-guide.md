@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/18/2020
 ms.author: spelluru
-ms.openlocfilehash: 7b9ef32f16369bbb6c5bb69ef500ec8bb90fde20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 88b37ea4ff717689f05afbb41d33a56a8cbb2c22
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370869"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547613"
 ---
 # <a name="lab-account-setup-guide"></a>랩 계정 설정 가이드
 
@@ -90,7 +90,7 @@ Azure Marketplace는 랩 작성자가 랩을 만드는 데 이미지를 사용�
    - [리소스 그룹](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#resource-group)
    - [랩 계정](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#lab-account)
    - [교실 랩](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#classroom-lab)
-   - [지역 선택\위치](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regions-or-locations)
+   - [지역 선택\위치](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regionslocations)
    - [리소스에 대한 이름 지정 지침](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#naming)
 
 2. **랩 작성자 역할에 사용자 추가**

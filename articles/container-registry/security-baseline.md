@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2970ebf42acb87e93f8b827b3687b219da5867c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9225cfd9793a84f371387d6450a3dfa80ba74de3
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80244293"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547534"
 ---
 # <a name="azure-security-baseline-for-azure-container-registry"></a>Azure 컨테이너 레지스트리에 대한 Azure 보안 기준
 
@@ -68,7 +68,6 @@ NSG 흐름 로그를 활성화하는 방법:https://docs.microsoft.com/azure/net
 Azure 보안 센터 Just In Time 네트워크 액세스를 사용하여 제한된 기간 동안 승인된 IP 주소로 끝점 의 노출을 제한하도록 NSG를 구성할 수 있습니다. 또한 Azure 보안 센터 적응형 네트워크 강화를 사용하여 실제 트래픽 및 위협 인텔리전스를 기반으로 포트 및 소스 IP를 제한하는 NSG 구성을 권장합니다.
 
 DDoS 보호를 구성하는 방법:https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
-
 
 Azure 방화벽을 배포하는 방법:https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 

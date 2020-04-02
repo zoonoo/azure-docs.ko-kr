@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: sngun
-ms.openlocfilehash: 184fc65dae57292243be9abdca71a129512b3d0b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5a0b0f71a72ea76940450f73354fda230e09c5c
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252047"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521040"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Azure에서 진단 설정을 사용하여 Azure Cosmos DB 데이터 모니터링
 
@@ -34,25 +34,31 @@ Azure의 진단 설정은 리소스 로그를 수집하는 데 사용됩니다. 
 
  * **DataPlaneRequests**: Azure Cosmos DB의 SQL, 그래프, 몽고DB, 카산드라 및 테이블 API 계정을 포함하는 모든 API에 백 엔드 요청을 로그온하려면 이 옵션을 선택합니다. 참고할 주요 속성은 `statusCode` `clientIPaddress`" `Requestcharge` `partitionID`및 .
 
-    ```
+    ```json
     { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
     ```
 
-* **MongoRequests**: MongoDB에 대한 Azure Cosmos DB의 API에 요청을 제공하기 위해 프런트 엔드에서 사용자 시작 요청을 로깅하려면 이 옵션을 선택하면 이 로그 형식은 다른 API 계정에 사용할 수 없습니다. MongoDB 요청은 MongoRequests 및 DataPlaneRequests에 표시됩니다. 주의해야 할 주요 `Requestcharge` `opCode`속성은 다음과 같습니다.
+* **MongoRequests**: MongoDB에 대한 Azure Cosmos DB의 API에 요청을 제공하기 위해 프런트 엔드에서 사용자 시작 요청을 기록하려면 이 옵션을 선택합니다. 이 로그 유형은 다른 API 계정에서 사용할 수 없습니다. 주의해야 할 주요 `Requestcharge` `opCode`속성은 다음과 같습니다. 진단 로그에서 MongoRequests를 사용하도록 설정하면 DataPlaneRequests를 해제해야 합니다. API에서 요청한 모든 요청에 대해 하나의 로그가 표시됩니다.
 
-    ```
+    ```json
     { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
     ```
 
+* **CassandraRequests**: 카산드라에 대한 Azure Cosmos DB의 API에 요청을 제공하기 위해 프런트 엔드에서 사용자 시작 요청을 기록하려면 이 옵션을 선택합니다. 이 로그 유형은 다른 API 계정에서 사용할 수 없습니다. 주의해야 할 주요 `operationName` `requestCharge`속성은 " `piiCommandText` 진단 로그에서 CassandraRequests를 사용하도록 설정하면 DataPlaneRequests를 해제해야 합니다. API에서 요청한 모든 요청에 대해 하나의 로그가 표시됩니다.
+
+   ```json
+   { "time": "2020-03-30T23:55:10.9579593Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "CassandraRequests", "operationName": "QuerySelect", "properties": {"activityId": "6b33771c-baec-408a-b305-3127c17465b6","opCode": "<empty>","errorCode": "-1","duration": "0.311900","requestCharge": "1.589237","databaseName": "system","collectionName": "local","retryCount": "<empty>","authorizationTokenType": "PrimaryMasterKey","address": "104.42.195.92","piiCommandText": "{"request":"SELECT key from system.local"}","userAgent": """"}}
+   ```
+
 * **쿼리런타임통계**: 실행된 쿼리 텍스트를 기록하려면 이 옵션을 선택합니다. 이 로그 유형은 SQL API 계정에서만 사용할 수 있습니다.
 
-    ```
+    ```json
     { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
     ```
 
 * **파티션키통계**: 파티션 키의 통계를 기록하려면 이 옵션을 선택합니다. 이는 현재 파티션 키의 저장소 크기(KB)로 표시됩니다. 이 문서의 Azure 진단 쿼리 섹션을 [사용하여 문제 해결을](#diagnostic-queries) 확인합니다. 예를 들어 "PartitionKeyStatistics"를 사용하는 쿼리입니다. 로그는 대부분의 데이터 저장소를 차지하는 처음 세 개의 파티션 키에 대해 내보내입니다. 이 로그에는 구독 ID, 지역 이름, 데이터베이스 이름, 컬렉션 이름, 파티션 키 및 KB의 저장소 크기와 같은 데이터가 포함됩니다.
 
-    ```
+    ```json
     { "time": "2019-10-11T02:33:24.2018744Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "PartitionKeyStatistics", "properties": {"subscriptionId": "<your_subscription_ID>","regionName": "West US 2","databaseName": "KustoQueryResults","collectionname": "CapacityMetrics","partitionkey": "["CapacityMetricsPartition.136"]","sizeKb": "2048270"}}
     ```
 

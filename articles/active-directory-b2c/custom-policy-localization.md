@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1401cbe1920c7c6df804aadbba1751612ba9cf06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be12bce8fa29076621bec35228838a4ebdd97433
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79126784"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545862"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 응용 프로그램의 사용자 인터페이스를 지역화합니다.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C(Azure AD B2C)의 언어 사용자 지정을 사용하면 고객의 요구에 맞게 다양한 언어를 수용할 수 있습니다. Microsoft에서 36개 언어로 번역을 제공하지만, 사용자가 특정 언어로 고유한 번역을 제공할 수도 있습니다. 단일 언어로만 환경이 제공되더라도 페이지에 있는 텍스트를 사용자 지정할 수 있습니다. 
+Azure Active Directory B2C(Azure AD B2C)의 언어 사용자 지정을 사용하면 고객의 요구에 맞게 다양한 언어를 수용할 수 있습니다. Microsoft는 [36개 언어에](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-language-customization#supported-languages)대한 번역을 제공하지만 모든 언어에 대해 고유한 번역을 제공할 수도 있습니다. 단일 언어로만 환경이 제공되더라도 페이지에 있는 텍스트를 사용자 지정할 수 있습니다. 
 
 이 문서에서는 사용자 경험에 대한 정책에서 여러 로캘 또는 언어를 지원하는 방법을 보여 줍니다. 지역화에는 지원되는 언어의 명시적 목록을 설정하고, 언어별 문자열 및 컬렉션을 제공하고, 페이지의 [콘텐츠 정의를](contentdefinitions.md) 편집하는 세 단계가 필요합니다. 
 
@@ -252,7 +252,7 @@ Azure Active Directory B2C(Azure AD B2C)의 언어 사용자 지정을 사용하
 1. 업로드한 정책을 선택한 다음 지금 **실행을**선택합니다.
 1. 지역화된 등록 또는 로그인 페이지를 볼 수 있어야 합니다.
 1. 등록 링크를 클릭하면 지역화된 등록 페이지를 볼 수 있습니다.
-1. 브라우저 기본 언어를 스페인어로 전환합니다. 또는 권한 부여 요청에 쿼리 `ui_locales` 문자열 매개 변수를 추가할 수 있습니다. 예를 들어: 
+1. 브라우저 기본 언어를 스페인어로 전환합니다. 또는 권한 부여 요청에 쿼리 `ui_locales` 문자열 매개 변수를 추가할 수 있습니다. 다음은 그 예입니다. 
 
 ```http
 https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es

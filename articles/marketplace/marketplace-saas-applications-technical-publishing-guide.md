@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: kevidal
-ms.openlocfilehash: 2c1cb755b62812336a306994f6820573130815e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 641297ea74a08dea163cf768b8e9b245348824a4
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288362"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80544293"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS 애플리케이션 제품 게시 가이드
 
@@ -25,17 +25,17 @@ SaaS 애플리케이션은 모두 Azure 상점에서 사용할 수 있습니다.
 
 | 상점 옵션 | 나열 | 평가판/거래 |  
 | --- | --- | --- |  
-| AppSource | 예(연락처) | 예(PowerBI/Dynamics) |
-| Azure 마켓플레이스 | 예 | 예(SaaS 앱) |   
+| AppSource | 예 | 예 |
+| Azure 마켓플레이스 | 아니요 | 예 |   
 
 **목록:** 나열 게시 옵션은 연락처 제품 형식으로 이루어지고 평가판 또는 거래 수준의 참여가 불가능할 때 사용됩니다. 이 방식은 마켓 내 솔루션의 게시자가 비즈니스 수익을 창출하는 거래를 할 수 있는 잠재 고객을 바로 받을 수 있다는 장점이 있습니다.  
 **평가판/트랜잭션:** 고객은 솔루션에 대한 평가판을 직접 구입하거나 요청할 수 있습니다. 평가판 환경을 제공하면 고객에게 제공되는 참여 수준이 높아지고 고객이 솔루션을 구입하기 전에 탐색할 수 있습니다. 평가판 환경을 사용할 경우 상점에서 홍보할 기회를 갖고 고객 참여를 통해 보다 풍부하고 많은 잠재 고객을 창출할 수 있습니다. 체험의 경우 적어도 체험 기간 동안 무료 지원이 포함되어야 합니다.  
 
 | SaaS 앱 제품 | 비즈니스 요구 사항 | 기술적인 요구 사항 |  
 | --- | --- | --- |  
-| **문의** | yes | 예 |  
-| **PowerBI/Dynamics** | yes | 예(Azure AD 통합) |  
-| **SaaS 앱**| yes | 예(Azure AD 통합) |     
+| **문의** | 예 | 예 |  
+| **PowerBI/Dynamics** | 예 | 예(Azure AD 통합) |  
+| **SaaS 앱**| 예 | 예(Azure AD 통합) |     
 
 ## <a name="saas-list"></a>SaaS 목록
 
@@ -95,7 +95,7 @@ SaaS 애플리케이션에 대한 기술 요구 사항은 간단합니다. 게�
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Azure Active Directory를 사용하여 체험 지원  
 
-Microsoft는 Azure AD를 사용하여 모든 마켓플레이스 사용자를 인증하므로 인증된 사용자가 마켓플레이스에서 평가판 목록을 클릭하고 평가판 환경으로 리디렉션되면 사용자를 평가판에 직접 프로비전할 수 있습니다. 추가 로그인 단계입니다. 인증 중에 Azure AD에서 앱이 수신하는 토큰에는 앱에서 사용자 계정을 만드는 데 사용할 수 있는 귀중한 사용자 정보가 포함되어 있으므로, 프로비전 환경을 자동화하고 변환 가능성을 높일 수 있습니다. 토큰에 대한 자세한 내용은 [샘플 토큰](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)을 참조하세요.
+Microsoft는 Azure AD를 사용하여 모든 마켓플레이스 사용자를 인증하므로 인증된 사용자가 마켓플레이스에서 평가판 목록을 클릭하고 평가판 환경으로 리디렉션되면 추가 로그인 단계 없이 사용자를 평가판에 직접 프로비전할 수 있습니다. 인증 중에 Azure AD에서 앱이 수신하는 토큰에는 앱에서 사용자 계정을 만드는 데 사용할 수 있는 귀중한 사용자 정보가 포함되어 있으므로, 프로비전 환경을 자동화하고 변환 가능성을 높일 수 있습니다. 토큰에 대한 자세한 내용은 [샘플 토큰](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)을 참조하세요.
 
 Azure AD를 사용하면 다음과 같이 앱 또는 평가판에 대한 원클릭 인증을 사용할 수 있습니다.  
 * 고객이 Marketplace의 환경에서 평가판으로 간단히 전환할 수 있습니다.  

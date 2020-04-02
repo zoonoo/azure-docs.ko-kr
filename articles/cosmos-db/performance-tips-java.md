@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 3b7d221c2afc952f40da035c6e2c282b3b932aa5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a20b7d91a927d48a14812110ca714491cd726071
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69616767"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548771"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Java용 Azure Cosmos DB에 대한 성능 팁
 
@@ -38,7 +38,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
       게이트웨이 모드는 모든 SDK 플랫폼에서 지원되며 기본 구성입니다.  엄격한 방화벽으로 제한된 회사 네트워크 내에서 애플리케이션을 실행하는 경우, 표준 HTTPS 포트 및 단일 엔드포인트를 사용하기 때문에 게이트웨이가 최상의 선택입니다. 그러나 게이트웨이 모드의 경우 성능 유지를 위해 Azure Cosmos DB에서 데이터를 읽거나 쓸 때마다 네트워크 홉이 추가됩니다. 이 때문에 DirectHttps 모드는 네트워크 홉이 적기 때문에 더 나은 성능을 제공합니다. 
 
-      Java SDK는 전송 프로토콜로 HTTPS를 사용합니다. HTTPS는는 초기 인증 및 암호화 트래픽에 SSL을 사용합니다. Java SDK를 사용하는 경우 HTTPS 포트 443만 열어야 합니다. 
+      Java SDK는 전송 프로토콜로 HTTPS를 사용합니다. HTTPS는 초기 인증 및 트래픽 암호화를 위해 TLS를 사용합니다. Java SDK를 사용하는 경우 HTTPS 포트 443만 열어야 합니다. 
 
       연결 모드는 ConnectionPolicy 매개 변수로 DocumentClient 인스턴스를 생성하는 도중 구성됩니다. 
 

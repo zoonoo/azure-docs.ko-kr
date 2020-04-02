@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d9cff47c61fc08305427b25f949884b1ef089fd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca3a79b0d31cc18b8ff77f02ce4ce3d517d7a638
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289668"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548692"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>MariaDB에 대 한 Azure 데이터베이스에 대 한 Azure 보안 기준
 
@@ -894,9 +894,9 @@ Azure 관리 ID와 통합하는 방법:https://docs.microsoft.com/azure/azure-ap
 
 **지침**: MariaDB 서버용 Azure 데이터베이스는 현재 데이터베이스에 액세스하기 위해 Azure Active Directory 인증을 지원하지 않습니다.  MariaDB 서버에 대 한 Azure 데이터베이스를 만드는 동안 관리자 사용자에 대 한 자격 증명을 제공 합니다. 이 관리자는 추가 MariaDB 사용자를 만드는 데 사용할 수 있습니다.  
 
-Azure App 서비스에서 실행 중인 Azure 가상 컴퓨터 또는 웹 응용 프로그램에서 MariaDB 서버에 대한 Azure 데이터베이스에 액세스하는 데 사용중인 경우 Azure Key Vault와 함께 관리되는 서비스 ID를 사용하여 MariaDB용 Azure 데이터베이스에 대한 자격 증명을 저장하고 검색합니다. 서버.  키 볼트 소프트 삭제가 활성화되어 있는지 확인합니다.
+Azure App 서비스에서 실행 중인 Azure 가상 시스템 또는 웹 응용 프로그램의 경우 MariaDB 서버에 대한 Azure 데이터베이스에 액세스하는 데 사용되며 Azure 키 자격 증명과 함께 관리되는 서비스 ID를 사용하여 MariaDB 서버에 대한 Azure 데이터베이스에 대한 자격 증명을 저장하고 검색합니다.  키 볼트 소프트 삭제가 활성화되어 있는지 확인합니다.
 
-관리되는 ID를 사용하여 Azure Active Directory(AD)에서 자동으로 관리되는 ID를 Azure 서비스에 제공합니다. 관리되는 ID를 사용하면 코드의 자격 증명 없이 키 볼트를 포함하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있습니다. 관리되는 ID를 https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmHow 구성하는 방법: Azure 관리 ID와 통합하려면 다음https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+관리되는 ID를 사용하여 Azure Active Directory(AD)에서 자동으로 관리되는 ID를 Azure 서비스에 제공합니다. 관리되는 ID를 사용하면 코드의 자격 증명 없이 키 볼트를 포함하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있습니다. 관리되는 ID를 https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm구성하는 방법: . Azure 관리 ID와 통합하는 방법: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity.
 
 
 

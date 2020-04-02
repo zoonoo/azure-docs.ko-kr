@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 0303f09e5e704a18576bf50d1f00007f7f86f320
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 563aa701c1403a1ef26c6073496e7e59c7c5096c
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279248"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521851"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙
 
@@ -40,7 +40,7 @@ WAF는 다음과 같은 웹 취약점으로부터 보호합니다.
 
 CRS 3.1에는 다음 표와 같이 13개의 규칙 그룹이 포함됩니다. 각 그룹에는 비활성화할 수 있는 여러 규칙이 포함되어 있습니다.
 
-|규칙 그룹|설명|
+|규칙 그룹|Description|
 |---|---|
 |**[일반](#general-31)**|일반 그룹|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-31)**|잠금 방법(PUT, PATCH)|
@@ -60,7 +60,7 @@ CRS 3.1에는 다음 표와 같이 13개의 규칙 그룹이 포함됩니다. �
 
 CRS 3.0에는 다음 표와 같이 12개의 규칙 그룹이 포함됩니다. 각 그룹에는 비활성화할 수 있는 여러 규칙이 포함되어 있습니다.
 
-|규칙 그룹|설명|
+|규칙 그룹|Description|
 |---|---|
 |**[일반](#general-30)**|일반 그룹|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-30)**|잠금 방법(PUT, PATCH)|
@@ -79,7 +79,7 @@ CRS 3.0에는 다음 표와 같이 12개의 규칙 그룹이 포함됩니다. �
 
 CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 각 그룹에는 비활성화할 수 있는 여러 규칙이 포함되어 있습니다.
 
-|규칙 그룹|설명|
+|규칙 그룹|Description|
 |---|---|
 |**[crs_20_protocol_violations](#crs20)**|프로토콜 위반(예: 잘못된 문자 또는 요청 본문이 있는 GET)으로부터 보호|
 |**[crs_21_protocol_anomalies](#crs21)**|잘못된 헤더 정보로부터 보호|
@@ -100,20 +100,20 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="p-x-ms-format-detectionnonegeneralp"></a><a name="general-31"></a> <p x-ms-format-detection="none">일반</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |200004|가능한 다중 파트 일치하지 않는 경계.|
 
 ### <a name="p-x-ms-format-detectionnonerequest-911-method-enforcementp"></a><a name="crs911-31"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |911100|정책에서 허용하지 않는 메서드|
 
 
 ### <a name="p-x-ms-format-detectionnonerequest-913-scanner-detectionp"></a><a name="crs913-31"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |913100|보안 스캐너와 연결된 사용자-에이전트 발견|
 |913101|스크립팅/일반 HTTP 클라이언트와 연결된 사용자-에이전트 발견|
@@ -124,7 +124,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="p-x-ms-format-detectionnonerequest-920-protocol-enforcementp"></a><a name="crs920-31"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |920100|잘못된 HTTP 요청 줄|
 |920120|다중 파트/양식 데이터 바이패스 시도|
@@ -176,7 +176,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="p-x-ms-format-detectionnonerequest-921-protocol-attackp"></a><a name="crs921-31"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |921110|HTTP 요청 밀반입 공격|
 |921120|HTTP 응답 분할 공격|
@@ -190,7 +190,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="p-x-ms-format-detectionnonerequest-930-application-attack-lfip"></a><a name="crs930-31"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |930100|경로 탐색 공격(/../)|
 |930110|경로 탐색 공격(/../)|
@@ -199,7 +199,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="p-x-ms-format-detectionnonerequest-931-application-attack-rfip"></a><a name="crs931-31"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |931100|가능한 원격 파일 포함(RFI) 공격 = IP 주소를 사용하는 URL 매개 변수|
 |931110|가능한 원격 파일 포함(RFI) 공격 = 일반 RFI 취약한 매개 변수 이름이 URL 페이로드에 사용됨|
@@ -208,7 +208,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="p-x-ms-format-detectionnonerequest-932-application-attack-rcep"></a><a name="crs932-31"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |932100|원격 명령 실행: 유닉스 명령 주입|
 |932105|원격 명령 실행: 유닉스 명령 주입|
@@ -226,7 +226,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="p-x-ms-format-detectionnonerequest-933-application-attack-phpp"></a><a name="crs933-31"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |933100|PHP 삽입 공격 = 여는/닫는 태그 발견|
 |933110|PHP 삽입 공격 = PHP 스크립트 파일 업로드 발견|
@@ -245,7 +245,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="p-x-ms-format-detectionnonerequest-941-application-attack-xssp"></a><a name="crs941-31"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |941100|libinjection을 통한 XSS 공격 감지됨|
 |941101|libinjection을 통한 XSS 공격 감지됨|
@@ -277,10 +277,11 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="p-x-ms-format-detectionnonerequest-942-application-attack-sqlip"></a><a name="crs942-31"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |942100|libinjection을 통한 SQL 삽입 공격 감지됨|
 |942110|SQL 주입 공격: 일반적인 주입 테스트 감지|
+|942120|SQL 주입 공격: SQL 연산자가 검색되었습니다.|
 |942130|SQL 주입 공격: SQL Tautology 가 검색되었습니다.|
 |942140|SQL 삽입 공격 = 일반 DB 이름 감지됨|
 |942150|SQL 삽입 공격|
@@ -326,7 +327,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="p-x-ms-format-detectionnonerequest-943-application-attack-session-fixationp"></a><a name="crs943-31"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |943100|가능한 세션 고정 공격 = HTML의 쿠키 값 설정|
 |943110|가능한 세션 고정 공격 = 오프-도메인 참조 페이지가 있는 SessionID 매개 변수 이름|
@@ -334,7 +335,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="p-x-ms-format-detectionnonerequest-944-application-attack-session-javap"></a><a name="crs944-31"></a> <p x-ms-format-detection="none">요청-944-응용 프로그램-공격-세션-JAVA</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |944120|페이로드 실행 및 원격 명령 실행 가능|
 |944130|의심스러운 Java 클래스|
@@ -346,20 +347,20 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="p-x-ms-format-detectionnonegeneralp"></a><a name="general-30"></a> <p x-ms-format-detection="none">일반</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |200004|가능한 다중 파트 일치하지 않는 경계.|
 
 ### <a name="p-x-ms-format-detectionnonerequest-911-method-enforcementp"></a><a name="crs911-30"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |911100|정책에서 허용하지 않는 메서드|
 
 
 ### <a name="p-x-ms-format-detectionnonerequest-913-scanner-detectionp"></a><a name="crs913-30"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |913100|보안 스캐너와 연결된 사용자-에이전트 발견|
 |913110|보안 스캐너와 연결된 요청 헤더 발견|
@@ -369,7 +370,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="p-x-ms-format-detectionnonerequest-920-protocol-enforcementp"></a><a name="crs920-30"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |920100|잘못된 HTTP 요청 줄|
 |920130|요청 본문을 구문 분석하지 못했습니다.|
@@ -415,7 +416,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="p-x-ms-format-detectionnonerequest-921-protocol-attackp"></a><a name="crs921-30"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |921100|HTTP 요청 스머글링 공격.|
 |921110|HTTP 요청 밀반입 공격|
@@ -430,7 +431,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="p-x-ms-format-detectionnonerequest-930-application-attack-lfip"></a><a name="crs930-30"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |930100|경로 탐색 공격(/../)|
 |930110|경로 탐색 공격(/../)|
@@ -439,7 +440,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="p-x-ms-format-detectionnonerequest-931-application-attack-rfip"></a><a name="crs931-30"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |931100|가능한 원격 파일 포함(RFI) 공격 = IP 주소를 사용하는 URL 매개 변수|
 |931110|가능한 원격 파일 포함(RFI) 공격 = 일반 RFI 취약한 매개 변수 이름이 URL 페이로드에 사용됨|
@@ -448,7 +449,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="p-x-ms-format-detectionnonerequest-932-application-attack-rcep"></a><a name="crs932-30"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |932120|원격 명령 실행 = Windows PowerShell 명령 발견|
 |932130|원격 명령 실행 = Unix 셸 식 발견|
@@ -459,7 +460,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="p-x-ms-format-detectionnonerequest-933-application-attack-phpp"></a><a name="crs933-30"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |933100|PHP 삽입 공격 = 여는/닫는 태그 발견|
 |933110|PHP 삽입 공격 = PHP 스크립트 파일 업로드 발견|
@@ -475,7 +476,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="p-x-ms-format-detectionnonerequest-941-application-attack-xssp"></a><a name="crs941-30"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |941100|libinjection을 통한 XSS 공격 감지됨|
 |941110|XSS 필터 - 범주 1 = 스크립트 태그 벡터|
@@ -502,7 +503,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="p-x-ms-format-detectionnonerequest-942-application-attack-sqlip"></a><a name="crs942-30"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |942100|libinjection을 통한 SQL 삽입 공격 감지됨|
 |942110|SQL 주입 공격: 일반적인 주입 테스트 감지|
@@ -534,7 +535,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="p-x-ms-format-detectionnonerequest-943-application-attack-session-fixationp"></a><a name="crs943-30"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |943100|가능한 세션 고정 공격 = HTML의 쿠키 값 설정|
 |943110|가능한 세션 고정 공격 = 오프-도메인 참조 페이지가 있는 SessionID 매개 변수 이름|
@@ -546,7 +547,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="crs_20_protocol_violations"></a><a name="crs20"></a> crs_20_protocol_violations
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |960911|잘못된 HTTP 요청 줄|
 |981227|Apache 오류 = 요청에 잘못된 URI가 있습니다.|
@@ -572,7 +573,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="crs_21_protocol_anomalies"></a><a name="crs21"></a>crs_21_protocol_anomalies
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |960008|호스트 헤더가 누락된 요청|
 |960007|빈 호스트 헤더|
@@ -585,7 +586,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="crs_23_request_limits"></a><a name="crs23"></a>crs_23_request_limits
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |960209|인수 이름이 너무 김|
 |960208|인수 값이 너무 김|
@@ -596,7 +597,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="crs_30_http_policy"></a><a name="crs30"></a>crs_30_http_policy
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |960032|정책에서 허용하지 않는 메서드|
 |960010|요청 콘텐츠 유형이 정책에서 허용되지 않음|
@@ -606,7 +607,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="crs_35_bad_robots"></a><a name="crs35"></a>crs_35_bad_robots
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |990002|요청에 보안 스캐너가 사이트를 스캔한 것으로 표시됨|
 |990901|요청에 보안 스캐너가 사이트를 스캔한 것으로 표시됨|
@@ -615,7 +616,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="crs_40_generic_attacks"></a><a name="crs40"></a>crs_40_generic_attacks
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |960024|메타 문자 이상 감지 경고 - 반복적인 단어가 아닌 문자|
 |950008|문서화되지 않은 ColdFusion 태그의 삽입|
@@ -644,7 +645,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="crs_41_sql_injection_attacks"></a><a name="crs41sql"></a>crs_41_sql_injection_attacks
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |981231|SQL 주석 시퀀스가 감지됨.|
 |981260|SQL 16진수 Encoding이 식별됨|
@@ -681,7 +682,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="crs_41_xss_attacks"></a><a name="crs41xss"></a>crs_41_xss_attacks
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |973336|XSS 필터 - 범주 1 = 스크립트 태그 벡터|
 |973338|XSS 필터 - 범주 3 = Javascript URI 벡터|
@@ -786,13 +787,13 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함됩니다. 
 
 ### <a name="crs_42_tight_security"></a><a name="crs42"></a>crs_42_tight_security
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |950103|경로 조작 공격|
 
 ### <a name="crs_45_trojans"></a><a name="crs45"></a>crs_45_trojans
 
-|RuleId|설명|
+|RuleId|Description|
 |---|---|
 |950110|백도어 액세스|
 |950921|백도어 액세스|

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 1ca03cde57a9496054d0860fbb70bd286caabe46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d52d8e6d0f6e3325b5c5cdc9a2e21654e6a2b621
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79533252"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520731"
 ---
 # <a name="log-analytics-agent-overview"></a>로그 분석 에이전트 개요
 Azure Log Analytics 에이전트는 모든 클라우드, 온-프레미스 컴퓨터 및 시스템 센터 [운영 관리자에서](https://docs.microsoft.com/system-center/scom/)모니터링하는 가상 시스템 전반에 걸쳐 포괄적인 관리를 위해 개발되었습니다. Windows 및 Linux 에이전트는 모니터링 솔루션에 정의된 고유한 로그 또는 메트릭뿐만 아니라 Azure Monitor의 Log Analytics 작업 영역으로 서로 다른 소스에서 수집된 데이터를 보냅니다. 또한 Log Analytics 에이전트는 [VM용 Azure 모니터, Azure](../insights/vminsights-enable-overview.md) [보안 센터](/azure/security-center/)및 [Azure 자동화와](../../automation/automation-intro.md)같은 Azure 모니터에서 인사이트 및 기타 서비스를 지원합니다.
@@ -39,7 +39,7 @@ Log Analytics 에이전트에 대한 비용은 없지만 수집된 데이터에 
 ## <a name="data-collected"></a>수집되는 데이터
 다음 표에는 연결된 모든 에이전트에서 수집하도록 Log Analytics 작업 영역을 구성할 수 있는 데이터 유형이 나열되어 있습니다. 로그 애널리틱스 에이전트를 사용하여 다른 종류의 데이터를 수집하는 인사이트, 솔루션 및 기타 솔루션 목록은 [Azure Monitor에서 모니터링하는 내용을](../monitor-reference.md) 참조하십시오.
 
-| 데이터 원본 | 설명 |
+| 데이터 원본 | Description |
 | --- | --- |
 | [윈도우 이벤트 로그](data-sources-windows-events.md) | Windows 이벤트 로깅 시스템으로 전송되는 정보입니다. |
 | [syslog](data-sources-syslog.md)                     | Linux 이벤트 로깅 시스템으로 전송된 정보입니다. |
@@ -70,7 +70,7 @@ Log Analytics 에이전트를 사용하여 데이터를 수집하는 경우 에�
 
 Log Analytics 에이전트를 설치하고 요구 사항에 따라 컴퓨터를 Azure Monitor에 연결하는 여러 가지 방법이 있습니다. 다음 표는 조직에서 어떤 방법이 가장 적합한지 결정하기 위해 각 방법을 설명합니다.
 
-|원본 | 방법 | 설명|
+|원본 | 방법 | Description|
 |-------|-------------|-------------|
 |Azure VM| [Azure 포털에서 수동으로](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json) | Log 분석 작업 영역에서 배포할 VM을 지정합니다. |
 | | Azure CLI 또는 Azure 리소스 관리자 템플릿을 사용하여 [Windows](../../virtual-machines/extensions/oms-windows.md) 또는 [Linux용](../../virtual-machines/extensions/oms-linux.md) 로그 분석 VM 확장 | 이 확장은 Azure Virtual Machines에 Log Analytics 에이전트를 설치하고 기존 Azure Monitor 작업 영역에 등록합니다. |
@@ -126,7 +126,7 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 
 다음 표에서는 에이전트가 설치될 지원되는 Linux 배포판에 필요한 패키지를 강조 표시됩니다.
 
-|필수 패키지 |설명 |최소 버전 |
+|필수 패키지 |Description |최소 버전 |
 |-----------------|------------|----------------|
 |Glibc |    GNU C 라이브러리 | 2.5-12 
 |Openssl    | OpenSSL 라이브러리 | 1.0.x 또는 1.1.x |
@@ -156,23 +156,27 @@ Windows 에이전트는 2020년 5월 18일에 SHA-2 서명을 독점적으로 �
 
 
 ## <a name="network-requirements"></a>네트워크 요구 사항
-Linux 및 Windows 에이전트는 TCP 포트 443을 통해 Azure Monitor 서비스에 아웃바운드를 통신하고 컴퓨터가 방화벽 또는 프록시 서버를 통해 인터넷을 통해 통신하는 경우 아래 요구 사항을 검토하여 네트워크 구성을 이해합니다. 필수. IT 보안 정책으로 네트워크의 컴퓨터가 인터넷에 연결할 수 없는 경우 Log [Analytics 게이트웨이를](gateway.md) 설정한 다음 게이트웨이를 통해 Azure Monitor 로그에 연결하도록 에이전트를 구성할 수 있습니다. 그런 다음 에이전트는 작업 영역에서 활성화한 데이터 수집 규칙 및 모니터링 솔루션에 따라 구성 정보를 수신하고 수집된 데이터를 보낼 수 있습니다.
+Linux 및 Windows 에이전트는 TCP 포트 443을 통해 Azure Monitor 서비스에 아웃바운드를 통신하고 컴퓨터가 방화벽 또는 프록시 서버를 통해 인터넷을 통해 통신하는 경우 아래 요구 사항을 검토하여 필요한 네트워크 구성을 이해합니다. IT 보안 정책으로 네트워크의 컴퓨터가 인터넷에 연결할 수 없는 경우 Log [Analytics 게이트웨이를](gateway.md) 설정한 다음 게이트웨이를 통해 Azure Monitor 로그에 연결하도록 에이전트를 구성할 수 있습니다. 그런 다음 에이전트는 작업 영역에서 활성화한 데이터 수집 규칙 및 모니터링 솔루션에 따라 구성 정보를 수신하고 수집된 데이터를 보낼 수 있습니다.
 
 ![Log Analytics 에이전트 통신 다이어그램](./media/log-analytics-agent/log-analytics-agent-01.png)
 
+다음 표에는 Linux 및 Windows 에이전트가 Azure Monitor 로그와 통신하는 데 필요한 프록시 및 방화벽 구성 정보가 나열되어 있습니다.
 
-## <a name="network-firewall-requirements"></a>네트워크 방화벽 요구 사항
-아래 정보는 Linux 및 Windows 에이전트가 Azure Monitor 로그와 통신하는 데 필요한 프록시 및 방화벽 구성 정보를 나열합니다.  
+### <a name="firewall-requirements"></a>방화벽 요구 사항
 
 |에이전트 리소스|포트 |Direction |HTTPS 검사 무시|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |포트 443 |아웃바운드|yes |  
-|*.oms.opinsights.azure.com |포트 443 |아웃바운드|yes |  
-|\*.blob.core.windows.net |포트 443 |아웃바운드|yes |  
+|*.ods.opinsights.azure.com |포트 443 |인바운드 및 아웃바운드:|예 |  
+|*.oms.opinsights.azure.com |포트 443 |인바운드 및 아웃바운드:|예 |  
+|\*.blob.core.windows.net |포트 443 |인바운드 및 아웃바운드:|예 |
+|* .azure-automation.net |포트 443 |인바운드 및 아웃바운드:|예 |
+|*.azure.com |포트 443|인바운드 및 아웃바운드:|예 |
 
 Azure 정부에 필요한 방화벽 정보는 [Azure 정부 관리를](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs)참조하십시오. 
 
 Azure 자동화 하이브리드 Runbook Worker를 사용하여 사용자 환경에서 Runbook 또는 관리 솔루션을 사용하기 위해 자동화 서비스에 연결하고 등록하려는 경우 [하이브리드 Runbook Worker에 대한 네트워크 구성에](../../automation/automation-hybrid-runbook-worker.md#network-planning)설명된 포트 번호 및 URL에 액세스할 수 있어야 합니다. 
+
+### <a name="proxy-configuration"></a>프록시 구성
 
 Windows 및 Linux 에이전트는 HTTPS 프로토콜을 사용하여 프록시 서버 또는 로그 분석 게이트웨이를 통해 Azure 모니터로 통신할 수 있도록 지원합니다.  익명 및 기본 인증(사용자 이름/암호)이 둘 다 지원됩니다.  서비스에 직접 연결된 Windows 에이전트의 경우, 프록시 구성은 설치 중이나 제어판 또는 PowerShell을 사용하여 [배포 후](agent-manage.md#update-proxy-settings)에 지정됩니다.  
 
@@ -183,7 +187,7 @@ Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](agent-manage.
 > [!NOTE]
 > 프록시 서버에 인증할 필요가 없는 경우에도 Linux 에이전트는 의사 사용자/암호를 제공해야 합니다. 이는 사용자 이름 또는 암호일 수 있습니다.
 
-|속성| 설명 |
+|속성| Description |
 |--------|-------------|
 |프로토콜 | https |
 |사용자 | 프록시 인증을 위한 선택적 사용자 이름 |

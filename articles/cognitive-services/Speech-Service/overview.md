@@ -8,42 +8,45 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 02/10/2020
+ms.date: 03/12/2020
 ms.author: dapine
-ms.openlocfilehash: 7ddfae430e6aa4ec9549e40c937e5edcfd927f6d
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 353e66c2d4ebb288244866b12a32e9acb7c765e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77119916"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371566"
 ---
 # <a name="what-is-the-speech-service"></a>Speech Service란?
 
 Speech Service는 음성 텍스트 변환, 텍스트 음성 변환 및 음성 번역을 단일 Azure 구독에 통합한 것입니다. [Speech SDK](speech-sdk-reference.md), [Speech Devices SDK](https://aka.ms/sdsdk-quickstart) 또는 [REST API](rest-apis.md)를 사용하여 애플리케이션, 도구 및 디바이스에 음성을 쉽게 추가할 수 있습니다.
 
 > [!IMPORTANT]
-> Speech Service는 Bing Speech API, Translator Speech 및 Custom Speech를 대체했습니다. 마이그레이션 지침에 대해서는 _방법 가이드 > 마이그레이션_을 참조하세요.
+> Speech Service는 Bing Speech API 및 Translator Speech를 대체했습니다. 마이그레이션 지침에 대해서는 _방법 가이드 > 마이그레이션_을 참조하세요.
 
 Speech Service를 구성하는 기능은 다음과 같습니다. 이 표의 링크를 사용하여 각 기능의 일반적인 사용 사례를 알아보거나 API 참조를 검색할 수 있습니다.
 
 | 서비스 | 기능 | Description | SDK) | REST (영문) |
-| ------- | ------- | ----------- | --- | ---- |
-| [음성 텍스트 변환](speech-to-text.md) | 음성 텍스트 변환 | 음성 텍스트 변환은 오디오 스트림을 애플리케이션, 도구 또는 디바이스가 사용하거나 표시할 수 있는 텍스트로 실시간으로 기록합니다. [LUIS(Language Understanding)](https://docs.microsoft.com/azure/cognitive-services/luis/)에서 음성 텍스트 변환을 사용하여 기록된 음성에서 사용자 의도를 파생시키고 음성 명령 작업에 따라 행동합니다. | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [일괄 처리 기록](batch-transcription.md) | 일괄 처리 기록을 사용하면 대량의 비동기 음성 텍스트 변환 기록을 수행할 수 있습니다. 이 서비스는 사용자 지정 및 모델 관리와 같은 엔드포인트를 사용하는 REST 기반 서비스입니다. | 예 | [예](https://westus.cris.ai/swagger/ui/index) |
-| | [다중 디바이스 대화](multi-device-conversation.md) | 대화의 다중 디바이스 또는 클라이언트를 연결하여 음성 또는 텍스트 기반 메시지를 전송하고 전사 및 번역을 간편하게 지원합니다.| yes | 예 |
-| | [대화 전사](conversation-transcription-service.md) | 실시간 음성 인식, 화자 식별 및 다이어리화를 가능하게 해줍니다. 화자를 구별하는 기능을 사용하여 직접 만남을 전사하는 데 이상적입니다. | yes | 예 |
+|---------|---------|-------------|-----|------|
+| [음성 텍스트 변환](speech-to-text.md) | 실시간 음성 텍스트 변환 | 음성 텍스트 변환은 오디오 스트림 또는 로컬 파일을 애플리케이션, 도구 또는 디바이스가 사용하거나 표시할 수 있는 텍스트로 실시간으로 변환합니다. [LUIS(Language Understanding)](https://docs.microsoft.com/azure/cognitive-services/luis/)에서 음성 텍스트 변환을 사용하여 기록된 음성에서 사용자 의도를 파생시키고 음성 명령 작업에 따라 행동합니다. | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [Batch 음성 텍스트 변환](batch-transcription.md) | Batch 음성 텍스트 변환에서는 Azure Blob Storage에 저장된 대용량 음성 오디오 데이터의 비동기 음성 텍스트 변환 기록을 사용할 수 있습니다. 음성 오디오를 텍스트로 변환하는 것 외에도 Batch 음성 텍스트 변환에서는 다이어리화 및 감정 분석도 가능합니다. | 예 | [예](https://westus.cris.ai/swagger/ui/index) |
+| | [다중 디바이스 대화](multi-device-conversation.md) | 대화의 다중 디바이스 또는 클라이언트를 연결하여 음성 또는 텍스트 기반 메시지를 전송하고 전사 및 번역을 간편하게 지원합니다.| 예 | 예 |
+| | [대화 전사](conversation-transcription-service.md) | 실시간 음성 인식, 화자 식별 및 다이어리화를 가능하게 해줍니다. 화자를 구별하는 기능을 사용하여 직접 만남을 전사하는 데 이상적입니다. | 예 | 예 |
 | | [Custom Speech 모델 만들기](#customize-your-speech-experience) | 고유한 환경에서 인식 및 기록을 위해 음성 텍스트 변환을 사용하는 경우 사용자 지정 음향, 언어 및 발음 모델을 만들고 학습하여 주변 소음 또는 산업용 어휘를 처리할 수 있습니다. | 예 | [예](https://westus.cris.ai/swagger/ui/index) |
 | [텍스트 음성 변환](text-to-speech.md) | 텍스트 음성 변환 | 텍스트 음성 변환은 [SSML(Speech Synthesis Markup Language)](speech-synthesis-markup.md)을 사용하여 입력 텍스트를 인간과 유사한 합성 음성으로 변환합니다. 표준 음성 및 인공신경망 음성 중에서 선택합니다([언어 지원](language-support.md) 참조). | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [사용자 지정 음성 만들기](#customize-your-speech-experience) | 브랜드 또는 제품에 고유한 사용자 지정 음성 글꼴을 만듭니다. | 예 | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Speech Translation](speech-translation.md) | 음성 번역 | 음성 번역을 사용하면 음성에 대한 실시간 엔드투엔드 다중 언어 번역을 애플리케이션, 도구 및 디바이스에 추가할 수 있습니다. 이 서비스는 음성을 음성으로 변환 및 음성을 텍스트로 변환을 위해 사용합니다. | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | 예 |
 | [음성 도우미](voice-assistants.md) | 음성 도우미 | Speech Service를 사용하는 음성 도우미를 사용하면 개발자가 자신의 애플리케이션과 환경에 맞게 자연스럽고 인간적인 대화형 인터페이스를 만들 수 있습니다. 음성 도우미는 작업 완료를 위해 Bot Framework의 Direct Line Speech 채널 또는 통합 사용자 지정 명령(미리 보기) 서비스를 사용하는 도우미 구현과 디바이스 사이에 빠르고 안정적인 상호 작용을 제공합니다. | [예](voice-assistants.md) | 예 |
 
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+
 ## <a name="try-the-speech-service"></a>Speech Service 사용해 보기
 
 각각이 10분 이내에 코드를 실행할 수 있게 디자인된 가장 인기 있는 프로그래밍 언어로 빠른 시작을 제공합니다. 이 표에는 각 기능에 대해 가장 인기 있는 빠른 시작이 포함되어 있습니다. 왼쪽 탐색 영역을 사용하여 추가 언어 및 플랫폼을 확인하세요.
 
 | 음성 텍스트 변환(SDK) | 텍스트 음성 변환(SDK) | 번역(SDK) |
-| -------------------- | -------------------- | ----------------- |
+|----------------------|----------------------|-------------------|
 | [오디오 파일에서 음성 인식](quickstarts/speech-to-text-from-file.md) | [오디오 파일로 음성 합성](quickstarts/text-to-speech-audio-file.md) | [음성을 텍스트로 변환](quickstarts/translate-speech-to-text.md) |
 | [마이크에서 음성 인식](quickstarts/speech-to-text-from-microphone.md) | [스피커로 음성 합성](quickstarts/text-to-speech.md) | [음성을 여러 대상 언어로 번역](quickstarts/translate-speech-to-text-multiple-languages.md) |
 | [Blob 스토리지에 저장된 음성 인식](quickstarts/from-blob.md) | [긴 형식의 오디오에 대한 비동기 합성](quickstarts/text-to-speech/async-synthesis-long-form-audio.md) | [음성을 음성으로 번역](quickstarts/translate-speech-to-speech.md) |

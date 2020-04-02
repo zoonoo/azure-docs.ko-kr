@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: 4025c620aea49dfb26ab203630c121d29d88d9d7
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: f02046d1e2ee558ca4ea4472a03fddb5d0a6a16f
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474538"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549316"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure 기계 학습 데이터 집합 만들기
 
@@ -82,7 +82,7 @@ Python SDK를 사용하여 [Azure 데이터 스토어에서](how-to-access-data.
 
 #### <a name="create-a-tabulardataset"></a>테이블 형식데이터 집합 만들기
 
-클래스의 [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) 메서드를 `TabularDatasetFactory` 사용하여 .csv 또는 .tsv 형식으로 파일을 읽고 등록되지 않은 TabularDataset을 만듭니다. 여러 파일에서 읽는 경우 결과가 하나의 테이블 형식 표현으로 집계됩니다. 
+클래스의 [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-) 메서드를 `TabularDatasetFactory` 사용하여 .csv 또는 .tsv 형식으로 파일을 읽고 등록되지 않은 TabularDataset을 만듭니다. 여러 파일에서 읽는 경우 결과가 하나의 테이블 형식 표현으로 집계됩니다. 
 
 ```Python
 from azureml.core import Workspace, Datastore, Dataset
@@ -164,7 +164,7 @@ sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'
 
 TabularDataset에서 데이터 또는 경로 패턴 데이터가 저장되는 모든 위치에서 타임스탬프를 지정하여 시간계 계열 특성을 활성화할 수 있습니다. 이 사양은 시간에 따라 쉽고 효율적인 필터링을 허용합니다.
 
-클래스의 [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) 메서드를`TabularDataset` 사용하여 타임스탬프 열을 지정하고 시간별로 필터링을 사용하도록 설정합니다. 자세한 내용은 [NOAA 날씨 데이터가 있는 표 열열 관련 API 데모를](https://aka.ms/azureml-tsd-notebook)참조하십시오.
+클래스의 [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) 메서드를`TabularDataset` 사용하여 타임스탬프 열을 지정하고 시간별로 필터링을 사용하도록 설정합니다. 자세한 내용은 [NOAA 날씨 데이터가 있는 표 열열 관련 API 데모를](https://aka.ms/azureml-tsd-notebook)참조하십시오.
 
 ```Python
 # create a TabularDataset with time series trait

@@ -1,15 +1,15 @@
 ---
 title: Azure 블록체인 서비스 제한
 description: Azure 블록 체인 서비스의 서비스 및 기능 제한 개요
-ms.date: 11/22/2019
+ms.date: 03/30/2020
 ms.topic: conceptual
-ms.reviewer: janders
-ms.openlocfilehash: f4001ee520f3f3136d1bac5ca047c80526fc92e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: ravastra
+ms.openlocfilehash: c728e617ac37795988cd596c7cb0c5025aac4ccf
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74455652"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529569"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Azure 블록 체인 서비스의 한계
 
@@ -23,6 +23,10 @@ Azure 블록 체인 서비스에는 구성원이 가질 수있는 노드 수, �
 |:---|:---:|:---:|
 | Basic | 10 | 1 |
 | Standard | 10 | 2 |
+
+컨소시엄 네트워크에는 두 개 이상의 Azure 블록 체인 서비스 표준 계층 노드가 있어야 합니다. 표준 계층 노드에는 두 개의 유효성 검사기 노드가 포함됩니다. [이스탄불 비잔틴 내결함성 합의를](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus)충족하려면 4개의 유효성 검사기 노드가 필요합니다.
+
+기본 계층은 개발, 테스트 및 개념 증명을 위한 것입니다. 프로덕션 등급 배포에 표준 계층을 사용합니다. 또한 블록 체인 데이터 관리자를 사용하거나 대량의 개인 거래를 보내는 경우 *표준* 계층을 사용해야합니다.
 
 멤버 를 만든 후 기본 및 표준 사이의 가격 책정 계층을 변경하는 것은 지원되지 않습니다.
 

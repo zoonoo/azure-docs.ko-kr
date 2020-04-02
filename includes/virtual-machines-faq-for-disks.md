@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/13/2019
+ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 53bbee6dd75e045c2a7e95c88a0138c9859d12db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad36547b0cf9457d7ff4fdd919a0bb1362539eb5
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80374098"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80522697"
 ---
 이 문서에서는 Azure Managed Disks 및 Azure 프리미엄 SD 디스크에 대해 몇몇 자주 묻는 질문과 대답을 설명합니다.
 
@@ -328,7 +328,7 @@ Azure 리소스 관리자 템플릿, SDK, PowerShell 또는 CLI를 사용하여 
 
 **Managed Disks에 이전에 암호화된 스토리지 계정에 있는 관리되지 않는 디스크가 있는 VM을 마이그레이션할 수 있나요?**
 
-yes
+예
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks 및 Storage 서비스 암호화
 
@@ -369,7 +369,7 @@ Azure Portal, Azure CLI 및 PowerShell에서 Managed Disk를 만든 시간을 �
 
 **Managed Disks에 이전에 암호화된 스토리지 계정에 있는 관리되지 않는 디스크가 있는 VM을 변환할 수 있나요?**
 
-yes
+예
 
 **Managed Disk 또는 스냅샷에서 내보낸 VHD도 암호화되나요?**
 
@@ -409,11 +409,11 @@ DS 시리즈의 캐시 및 로컬 SSD에 대한 결합 제한은 코어당 4,000
 
 **적용 가능한 프리미엄 SSD 디스크 크기에 대한 버스팅 기능을 지원하는 지역은 무엇입니까?**
 
-버스팅 기능은 현재 미국 Azure 서부에서 지원됩니다.
+버스팅 기능은 현재 Azure 퍼블릭 클라우드의 모든 지역에서 지원되며, 곧 주권 클라우드에 대한 지원이 지원됩니다. 
 
 **어떤 지역에서 지원되는 4/8/16 GiB 관리 디스크 크기(P1/P2/P3, E1/E2/E3)는 지원됩니까?**
 
-이러한 새 디스크 크기는 현재 미국 Azure 서부에서 지원됩니다.
+이러한 새 디스크 크기는 현재 Azure Public Cloud의 모든 리전에서 지원되며 곧 주권 클라우드에 대한 지원이 지원됩니다. 
 
 **관리되지 않는 디스크 또는 페이지 Blob에서 P1/P2/P3 디스크 크기를 지원합니까?**
 

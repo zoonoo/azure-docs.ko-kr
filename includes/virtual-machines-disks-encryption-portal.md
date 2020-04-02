@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3ba5d74aa245fbcd9d43f2b4398387d7f59e202c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6077db0a09b09f7e4bfb859902da53b173845e55
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299516"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520751"
 ---
 ### <a name="portal"></a>포털
 
@@ -42,7 +42,7 @@ ms.locfileid: "79299516"
 
     ![키 볼트 리소스 설정 창의 스크린샷입니다. 설정 내부의 생성/가져오기 단추를 표시합니다.](media/virtual-machines-disk-encryption-portal/sse-key-vault-generate-settings.png)
 
-1. 키 **유형을** **RSA및** **RSA 키 크기로** 모두 **2080으로**설정합니다.
+1. 키 **유형을** **RSA및** **RSA 키 크기로** 모두 **2048로**설정합니다.
 1. 원하는 대로 나머지 선택 항목을 입력한 다음 **만들기를**선택합니다.
 
     ![생성/가져오기 버튼을 선택하면 나타나는 키 블레이드 만들기의 스크린샷](media/virtual-machines-disk-encryption-portal/sse-create-a-key-generate.png)

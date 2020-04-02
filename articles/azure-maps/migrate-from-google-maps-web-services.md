@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: fae9b8a2101329383cc90c8f7f0ff225e3a9059c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d2f25f2b786686b8af9bad4ea8ce3c8aea9b589f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77913821"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371471"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Google Maps에서 웹 서비스 마이그레이션
 
@@ -75,7 +75,7 @@ Azure Maps는 다음과 같은 주소를 지오코딩하는 여러 가지 방법
 검색 서비스를 사용하는 방법의 예제는 [여기](how-to-search-for-address.md)에 설명되어 있습니다. [검색 관련 모범 사례](how-to-use-best-practices-for-search.md)를 검토해야 합니다.
 
 > [!TIP]
-> 요청 URL에 `&amp;typeahead=true`를 추가하여 자동 완성 모드에서 자유 형식 주소 지오코딩 및 유사 항목 검색 API를 사용할 수 있습니다. 이렇게 하면 입력 텍스트가 일부일 가능성이 높다는 사실을 서버에 알리고 검색이 예측 모드로 전환됩니다.
+> 요청 URL에 `&typeahead=true`를 추가하여 자동 완성 모드에서 자유 형식 주소 지오코딩 및 유사 항목 검색 API를 사용할 수 있습니다. 이렇게 하면 입력 텍스트가 일부일 가능성이 높다는 사실을 서버에 알리고 검색이 예측 모드로 전환됩니다.
 
 ## <a name="reverse-geocode-a-coordinate"></a>좌표 역방향 지오코딩
 
@@ -126,7 +126,7 @@ Azure Maps는 관심 지점에 대한 여러 검색 API를 제공합니다.
 현재 Azure Maps에는 Google Maps의 Text Search API와 비슷한 API가 없습니다.
 
 > [!TIP]
-> POI 검색, POI 범주 검색 및 유사 항목 검색 API는 요청 URL에 `&amp;typeahead=true`를 추가하여 자동 완성 모드에서 사용할 수 있습니다. 이렇게 하면 입력 텍스트가 일부일 가능성이 높다는 사실을 서버에 알립니다. API는 예측 모드에서 검색을 수행합니다.
+> POI 검색, POI 범주 검색 및 유사 항목 검색 API는 요청 URL에 `&typeahead=true`를 추가하여 자동 완성 모드에서 사용할 수 있습니다. 이렇게 하면 입력 텍스트가 일부일 가능성이 높다는 사실을 서버에 알립니다. API는 예측 모드에서 검색을 수행합니다.
 
 [검색 관련 모범 사례](how-to-use-best-practices-for-search.md) 설명서를 검토하세요.
 
@@ -221,6 +221,8 @@ Azure Maps 라우팅 API에는 Google Maps에서 사용할 수 없는 추가 기
 - 최대 차량 속도를 지정합니다.
 
 이 외에도 Azure Maps의 경로 서비스는 [라우팅할 수 있는 범위 계산](https://docs.microsoft.com/rest/api/maps/route/getrouterange)을 지원합니다. 라우팅 가능 범위를 계산하는 것을 동시선(isochrone)이라고도 합니다. 이를 위해서는 원점에서 어느 방향으로든 이동할 수 있는 영역을 포함하는 다각형을 생성해야 합니다. 모두 지정된 길이의 시간 또는 지정된 양의 연료 또는 충전량 하에서 고려해야 합니다.
+
+[라우팅 모범 사례](how-to-use-best-practices-for-routing.md) 설명서를 검토하세요.
 
 ## <a name="retrieve-a-map-image"></a>맵 이미지 검색
 
@@ -437,6 +439,8 @@ Azure Maps는 거리 행렬 API를 제공합니다. 이 API를 사용하여, 거
 > [!TIP]
 > Azure Maps 라우팅 API에서 사용 가능한 모든 고급 라우팅 옵션은 Azure Maps 거리 행렬 API에서 지원됩니다. 고급 라우팅 옵션에는 트럭 라우팅, 엔진 사양 등이 포함됩니다.
 
+[라우팅 모범 사례](how-to-use-best-practices-for-routing.md) 설명서를 검토하세요.
+
 ## <a name="get-a-time-zone"></a>표준 시간대 가져오기
 
 Azure Maps는 좌표의 표준 시간대를 검색할 수 있는 API를 제공합니다. Azure Maps 표준 시간대 API는 Google Maps의 표준 시간대 API와 비슷합니다.
@@ -476,6 +480,7 @@ Azure Maps는 다음 프로그래밍 언어를 위한 클라이언트 라이브�
 
 - [검색 관련 모범 사례](how-to-use-best-practices-for-search.md)
 - [주소 검색](how-to-search-for-address.md)
+- [라우팅 모범 사례](how-to-use-best-practices-for-routing.md)
 - [Azure Maps REST 서비스 API 참조 설명서](https://docs.microsoft.com/rest/api/maps/)
 
 ## <a name="next-steps"></a>다음 단계
@@ -486,7 +491,10 @@ Azure Maps REST 서비스에 대해 자세히 알아보세요.
 > [검색 서비스 사용 모범 사례](how-to-use-best-practices-for-search.md)
 
 > [!div class="nextstepaction"]
-> [서비스 모듈(Web SDK)을 사용하는 방법](how-to-use-services-module.md)
+> [라우팅 서비스 사용 모범 사례](how-to-use-best-practices-for-search.md)
+
+> [!div class="nextstepaction"]
+> [서비스 모듈(Web SDK)을 사용하는 방법](how-to-use-best-practices-for-routing.md)
 
 > [!div class="nextstepaction"]
 > [코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-maps)

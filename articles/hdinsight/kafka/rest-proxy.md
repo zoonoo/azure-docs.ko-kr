@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: d99a3b803b80dc41990a63e647d3ba928deb31af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 8997b385960c58b17747dfcfced74010af80550b
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198908"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548194"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>REST 프록시를 사용하여 Azure HDInsight에서 아파치 카프카 클러스터와 상호 작용
 
@@ -20,7 +20,7 @@ ms.locfileid: "77198908"
 
 ## <a name="rest-api-reference"></a>REST API 참조
 
-카프카 REST API에서 지원하는 작업의 전체 사양에 대한 자세한 내용은 [HDInsight 카프카 REST 프록시 API 참조를](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy)참조하십시오.
+카프카 REST API에서 지원하는 작업의 전체 사양은 [HDInsight 카프카 REST 프록시 API 참조를](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy)참조하십시오.
 
 ## <a name="background"></a>배경
 
@@ -34,9 +34,9 @@ REST 프록시를 사용 하 여 HDInsight Kafka 클러스터를 만들면 Azure
 
 ### <a name="security"></a>보안
 
-Kafka REST 프록시에 대한 액세스는 Azure Active Directory 보안 그룹으로 관리됩니다. REST 프록시를 사용하도록 설정한 Kafka 클러스터를 만들 때 REST 끝점에 액세스할 수 있어야 하는 Azure Active Directory 보안 그룹을 제공합니다. REST 프록시에 액세스해야 하는 Kafka 클라이언트(응용 프로그램)는 그룹 소유자가 이 그룹에 등록해야 합니다. 그룹 소유자는 포털또는 Powershell을 통해 이 작업을 수행할 수 있습니다.
+Kafka REST 프록시에 대한 액세스는 Azure Active Directory 보안 그룹으로 관리됩니다. REST 프록시를 사용하도록 설정한 Kafka 클러스터를 만들 때 REST 끝점에 액세스할 수 있어야 하는 Azure Active Directory 보안 그룹을 제공합니다. REST 프록시에 액세스해야 하는 Kafka 클라이언트(응용 프로그램)는 그룹 소유자가 이 그룹에 등록해야 합니다. 그룹 소유자는 포털또는 PowerShell을 통해 이 작업을 수행할 수 있습니다.
 
-REST 프록시 끝점에 요청을 하기 전에 클라이언트 응용 프로그램은 올바른 보안 그룹의 구성원자격을 확인하기 위해 OAuth 토큰을 받아야 합니다. OAuth 토큰을 얻는 방법을 보여 주는 [아래의 클라이언트 응용 프로그램 샘플을](#client-application-sample) 찾아보십시오. 클라이언트 응용 프로그램에 OAuth 토큰이 있으면 REST 프록시에 대한 HTTP 요청에서 해당 토큰을 전달해야 합니다.
+REST 프록시 끝점에 요청을 하기 전에 클라이언트 응용 프로그램은 올바른 보안 그룹의 구성원자격을 확인하기 위해 OAuth 토큰을 받아야 합니다. OAuth 토큰을 얻는 방법을 보여 주는 클라이언트 [응용 프로그램 샘플을](#client-application-sample) 아래에서 찾습니다. 클라이언트 응용 프로그램에 OAuth 토큰이 있으면 REST 프록시에 대한 HTTP 요청에서 해당 토큰을 전달해야 합니다.
 
 > [!NOTE]  
 > [Azure Active Directory 그룹을 사용하여 앱 및 리소스 액세스 관리를](../../active-directory/fundamentals/active-directory-manage-groups.md)참조하여 AAD 보안 그룹에 대해 자세히 알아봅니다. OAuth 토큰의 작동 방식에 대한 자세한 내용은 [OAuth 2.0 코드 권한 부여 흐름을 사용하여 Azure Active Directory 웹 응용 프로그램에 대한 액세스 권한 부여를](../../active-directory/develop/v1-protocols-oauth-code.md)참조하십시오.
@@ -44,7 +44,12 @@ REST 프록시 끝점에 요청을 하기 전에 클라이언트 응용 프로�
 ## <a name="prerequisites"></a>사전 요구 사항
 
 1. Azure AD에 애플리케이션을 등록합니다. Kafka REST 프록시와 상호 작용하기 위해 작성하는 클라이언트 응용 프로그램은 이 응용 프로그램의 ID와 비밀을 사용하여 Azure를 인증합니다.
-1. Azure AD 보안 그룹을 만들고 Azure AD에 등록한 응용 프로그램을 보안 그룹에 추가합니다. 이 보안 그룹은 REST 프록시와 상호 작용할 수 있는 응용 프로그램을 제어하는 데 사용됩니다. Azure AD 그룹 만들기에 대한 자세한 내용은 [Azure Active Directory를 사용하여 기본 그룹 만들기 및 구성원 추가를](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)참조합니다.
+
+1. Azure AD 보안 그룹을 만들고 Azure AD에 등록한 응용 프로그램을 그룹의 "구성원"으로 보안 그룹에 추가합니다. 이 보안 그룹은 REST 프록시와 상호 작용할 수 있는 응용 프로그램을 제어하는 데 사용됩니다. Azure AD 그룹 만들기에 대한 자세한 내용은 [Azure Active Directory를 사용하여 기본 그룹 만들기 및 구성원 추가를](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)참조합니다.
+
+    그룹이 "보안" ![보안 그룹 형식인지 확인합니다.](./media/rest-proxy/rest-proxy-group.png)
+
+    응용 프로그램이 그룹 ![유효성 검사 멤버의 멤버임을 확인합니다.](./media/rest-proxy/rest-proxy-membergroup.png)
 
 ## <a name="create-a-kafka-cluster-with-rest-proxy-enabled"></a>REST 프록시를 사용하도록 설정한 Kafka 클러스터 만들기
 
@@ -69,11 +74,11 @@ REST 프록시 끝점에 요청을 하기 전에 클라이언트 응용 프로�
 1. 파이썬이 설치된 컴퓨터에서 샘플 코드를 저장합니다.
 1. 실행 `pip3 install adal` 및 `pip install msrestazure`을 실행하여 필요한 파이썬 종속성을 설치합니다.
 1. 코드 수정 섹션 *이러한 속성을 구성하고* 환경에 대한 다음 속성을 업데이트합니다.
-    1.  *테넌트 ID* - 구독이 있는 Azure 테넌트입니다.
-    1.  *클라이언트 ID* - 보안 그룹에 등록한 응용 프로그램의 ID입니다.
-    1.  *클라이언트 보안* - 보안 그룹에 등록한 응용 프로그램의 비밀
-    1.  *Kafkarest_endpoint* – [배포 섹션에](#create-a-kafka-cluster-with-rest-proxy-enabled)설명된 대로 클러스터 개요의 "속성" 탭에서 이 값을 가져옵니다. 다음 형식이어야 합니다.`https://<clustername>-kafkarest.azurehdinsight.net`
-3. 명령줄에서 실행하여 파이썬 파일을 실행합니다.`python <filename.py>`
+    1.    *테넌트 ID* - 구독이 있는 Azure 테넌트입니다.
+    1.    *클라이언트 ID* - 보안 그룹에 등록한 응용 프로그램의 ID입니다.
+    1.    *클라이언트 보안* - 보안 그룹에 등록한 응용 프로그램의 비밀
+    1.    *Kafkarest_endpoint* – [배포 섹션에](#create-a-kafka-cluster-with-rest-proxy-enabled)설명된 대로 클러스터 개요의 "속성" 탭에서 이 값을 가져옵니다. 다음 형식이어야 합니다.`https://<clustername>-kafkarest.azurehdinsight.net`
+1. 명령줄에서 실행하여 파이썬 파일을 실행합니다.`python <filename.py>`
 
 이 코드는 다음을 수행합니다.
 
@@ -124,6 +129,12 @@ request_url = kafkarest_endpoint + getstatus
 # sending get request and saving the response as response object
 response = requests.get(request_url, headers={'Authorization': accessToken})
 print(response.content)
+```
+
+curl 명령을 사용하여 Azure for REST 프록시에서 토큰을 얻는 방법에 대한 다른 샘플을 아래에서 찾아보십시오. 토큰을 `resource=https://hib.azurehdinsight.net` 받는 동안 지정된 것이 필요합니다.
+
+```cmd
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=<clientid>&client_secret=<clientsecret>&grant_type=client_credentials&resource=https://hib.azurehdinsight.net' 'https://login.microsoftonline.com/<tenantid>/oauth2/token'
 ```
 
 ## <a name="next-steps"></a>다음 단계

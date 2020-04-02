@@ -1,20 +1,20 @@
 ---
-title: Azure Cosmos DB SQL(Core) API에 대한 RU/s를 업데이트하는 PowerShell 스크립트
-description: PowerShell 스크립트-SQL(Core) API를 사용하여 Azure Cosmos 데이터베이스 또는 컨테이너의 처리량 업데이트
+title: Azure Cosmos DB SQL API 데이터베이스 또는 컨테이너에 대한 처리량(RU/s)을 업데이트하는 PowerShell 스크립트
+description: Azure Cosmos DB SQL API 데이터베이스 또는 컨테이너에 대한 처리량(RU/s)을 업데이트하는 PowerShell 스크립트
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 12/02/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
-ms.openlocfilehash: 70dd5810d3549f19075b437044ce0dd332c45c49
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 950a76c2caaffe6eef578d5614e9469c5942e08c
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75444965"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365978"
 ---
-# <a name="update-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Azure Cosmos DB - SQL(Core) API용 데이터베이스 또는 컨테이너에 대한 업데이트 RU/s
+# <a name="update-throughput-rus-for-an-azure-cosmos-db-sql-api-database-or-container"></a>Azure Cosmos DB SQL API 데이터베이스 또는 컨테이너에 대한 처리량(RU/s) 업데이트
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,7 +22,7 @@ ms.locfileid: "75444965"
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-ru-update.ps1 "Update throughput on a database or container for SQL (Core) API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-ru-update.ps1 "Update throughput (RU/s) for an Azure Cosmos DB SQL API Database or Container")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -38,8 +38,10 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 | 명령 | 메모 |
 |---|---|
-|**Azure 리소스**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | 리소스를 만듭니다. |
+|**Azure Cosmos DB**| |
+| [Set-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqldatabase) | 기존 Cosmos DB SQL 데이터베이스를 업데이트하거나 새로 만듭니다. |
+| [Get-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainer) | Cosmos DB SQL 컨테이너를 가져옵니다. |
+| [Set-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqlcontainer) | 기존 Cosmos DB SQL 컨테이너를 업데이트하거나 새로 만듭니다. |
 |**Azure 리소스 그룹**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||

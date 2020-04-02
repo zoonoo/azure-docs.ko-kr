@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
-ms.date: 12/05/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 4f81f278c87b096b2dae844252229fb1dee45599
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ef10dd7566d74a112a849f500da1831bc8ccb682
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75445056"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365695"
 ---
 # <a name="update-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Azure Cosmos DB - Cassandra API용 키스페이스 또는 테이블에 대한 업데이트 RU/s
 
@@ -38,8 +38,12 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 | 명령 | 메모 |
 |---|---|
-|**Azure 리소스**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | 리소스를 만듭니다. |
+|**Azure Cosmos DB**| |
+| [Set-AzCosmosDBCassandraKeyspace](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbcassandrakeyspace) | Cosmos DB Cassandra API 키스페이스를 만들거나 업데이트합니다. |
+| [New-AzCosmosDBCassandraClusterKey](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbcassandraclusterkey) | 새 CosmosDB Cassandra 클러스터 키를 만듭니다. |
+| [New-AzCosmosDBCassandraColumn](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbcassandracolumn) | 새 CosmosDB Cassandra 열을 만듭니다. |
+| [New-AzCosmosDBCassandraSchema](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbcassandraschema) | 새 CosmosDB Cassandra 스키마를 만듭니다. |
+| [Set-AzCosmosDBCassandraTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbcassandratable) | Cosmos DB Cassandra API 테이블을 만들거나 업데이트합니다. |
 |**Azure 리소스 그룹**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||

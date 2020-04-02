@@ -8,12 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d37abd1b5d212c3d920cb68b6236029b2112ae24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8e453336005f3389f67e9571fac438bfc340c1b
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74113265"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549022"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>다중 테넌트 SaaS 응용 프로그램 및 Azure 인지 검색을 위한 디자인 패턴
 다중 테넌트 애플리케이션은 다른 테넌트의 데이터를 보거나 공유할 수 없는 임의 개수의 테넌트에 동일한 서비스와 기능을 제공하는 애플리케이션입니다. 이 문서에서는 Azure Cognitive Search로 빌드된 다중 테넌트 응용 프로그램에 대한 테넌트 격리 전략에 대해 설명합니다.
@@ -51,7 +51,7 @@ Azure Cognitive Search의 S3 가격 책정 계층에는 다중 테넌트 시나�
 
 S3 HD는 파티션을 사용하여 인덱스를 확장할 수 있는 기능을 단일 서비스에서 더 많은 인덱스를 호스트할 수 있는 기능과 교환하여 단일 검색 서비스에서 관리되는 여러 작은 인덱스의 압축을 허용합니다.
 
-구체적으로, S3 서비스는 1~200개의 인덱스를 함께 사용하여 최대 14억 개의 문서를 호스트할 수 있습니다. 반면, S3 HD는 개별 인덱스에 대해 최대 100만 개의 문서만 허용하지만 파티션당 최대 1000개(서비스당 최대 3000개)의 인덱스를 처리할 수 있으며, 파티션당 총 문서 수는 2억 개(서비스당 최대 6억 개)입니다.
+S3 서비스는 고정된 수의 인덱스(최대 200개)를 호스트하고 새 파티션이 서비스에 추가될 때 각 인덱스의 크기를 가로로 확장할 수 있도록 설계되었습니다. S3 HD 서비스에 파티션을 추가하면 서비스가 호스팅할 수 있는 최대 인덱스 수가 증가합니다. 개별 S3HD 인덱스의 이상적인 최대 크기는 약 50 ~ 80GB이지만 시스템에 의해 부과된 각 인덱스에 대한 하드 크기 제한은 없습니다.
 
 ## <a name="considerations-for-multitenant-applications"></a>다중 테넌트 애플리케이션에 대한 고려 사항
 다중 테넌트 애플리케이션은 다양한 테넌트 간에 일정 수준의 개인 정보를 유지하면서 테넌트 간에 리소스를 효과적으로 배포해야 합니다. 이러한 애플리케이션에 대한 아키텍처를 디자인할 때 다음과 같은 사항을 고려해야 합니다.

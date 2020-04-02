@@ -1,28 +1,23 @@
 ---
 title: 포함 파일
 description: 포함 파일
-services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 7cfa6e9810057493cc3007eec7fd1668a70c727e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d56964b7415e4ca5903950cd46c02b3c27f62d5e
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77179024"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547399"
 ---
 스팟 VM을 사용하면 사용되지 않는 용량을 크게 절감할 수 있습니다. Azure에서 용량을 다시 필요로 하는 모든 시점에서 Azure 인프라는 스팟 VM을 제거합니다. 따라서 스팟 VM은 일괄 처리 작업, 개발/테스트 환경, 대규모 컴퓨팅 워크로드 등과 같은 중단을 처리할 수 있는 워크로드에 적합합니다.
 
 사용 가능한 용량의 양은 크기, 지역, 시간대 등에 따라 달라질 수 있습니다. 스팟 VM을 배포할 때 Azure는 사용 가능한 용량이 있는 경우 VM을 할당하지만 이러한 VM에 대한 SLA는 없습니다. 스팟 VM은 고가용성 보장을 제공하지 않습니다. Azure에서 용량을 다시 필요로 하는 모든 시점에서 Azure 인프라는 30초 전에 스팟 VM을 제거합니다. 
 
-> [!IMPORTANT]
-> 스팟 인스턴스는 현재 공개 미리 보기상태입니다.
-> 이 미리 보기 버전은 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
->
 
 ## <a name="eviction-policy"></a>퇴거 정책
 
@@ -90,8 +85,8 @@ VM은 용량 또는 설정한 최대 가격에 따라 제거될 수 있습니다
 
 | Azure 채널               | Azure 스팟 VM 가용성       |
 |------------------------------|-----------------------------------|
-| 기업 계약         | yes                               |
-| 종량제 통화 요금                | yes                               |
+| 기업 계약         | 예                               |
+| 종량제 통화 요금                | 예                               |
 | CSP(클라우드 서비스 공급자) | [파트너에게 문의하기](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | 이점                     | 사용할 수 없음                     |
 | 스폰서                    | 사용할 수 없음                     |

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 03/25/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c18613233d6dec59c76db120ed7f089dfbb5fbac
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8fe6c857e5b0c2f48f27c167c177dbf1f4651986
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77046732"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384112"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>자습서: ServiceNow와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -93,11 +93,18 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![펜 아이콘이 강조 표시된 SAML로 Single Sign-On 설정 페이지의 스크린샷](common/edit-urls.png)
 
-4. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    a. **로그온 URL**에 `https://<instance-name>.service-now.com/navpage.do` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL**에 `https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>` 패턴을 사용하는 URL을 입력합니다.
 
     b. **식별자(엔터티 ID)** 에 `https://<instance-name>.service-now.com` 패턴을 사용하는 URL을 입력합니다.
+
+    다. **회신 URL**에 다음 URL 중 하나를 입력합니다.
+
+    |||
+    |-|-|
+    | `https://instancename.service-now.com/navpage.do` |
+    | `https://instancename.service-now.com/customer.do` | 
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 자습서 뒷부분에 설명된 실제 로그온 URL 및 식별자로 업데이트해야 합니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -160,9 +167,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    a. **로그온 URL**에 `https://<instance-name>.service-now.com/navpage.do` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL**에 `https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>` 패턴을 사용하는 URL을 입력합니다.
 
     b. **식별자(엔터티 ID)** 에 `https://<instance-name>.service-now.com` 패턴을 사용하는 URL을 입력합니다.
+
+    다. **회신 URL**에 다음 URL 중 하나를 입력합니다.
+
+    |||
+    |-|-|
+    | `https://instancename.service-now.com/navpage.do` |
+    | `https://instancename.service-now.com/customer.do` |
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 자습서 뒷부분에 설명된 실제 로그온 URL 및 식별자로 업데이트해야 합니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -183,7 +197,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. ServiceNow 애플리케이션에 관리자 권한으로 로그온합니다.
 
-2. 다음 단계를 따라 **통합 - 여러 공급 기업 Single Sign-On 설치 관리자** 플러그 인을 활성화합니다.
+1. 다음 단계를 따라 **통합 - 여러 공급 기업 Single Sign-On 설치 관리자** 플러그 인을 활성화합니다.
 
     a. 왼쪽 창의 검색 상자에서 **시스템 정의** 섹션을 검색한 다음, **플러그 인**을 선택합니다.
 
@@ -201,11 +215,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
      ![[활성화]가 강조 표시된 [플러그 인 활성화] 대화 상자의 스크린샷](./media/servicenow-tutorial/tutorial_activate1.png "플러그 인 활성화")
 
-3. 왼쪽 창의 검색 창에서 **여러 공급자 SSO** 섹션을 검색한 다음, **속성**을 선택합니다.
+1. 왼쪽 창의 검색 창에서 **여러 공급자 SSO** 섹션을 검색한 다음, **속성**을 선택합니다.
 
     ![[여러 공급자 SSO] 및 [속성] 섹션이 강조 표시된 여러 공급자 SSO 섹션의 스크린샷](./media/servicenow-tutorial/tutorial_servicenow_06.png "앱 URL 구성")
 
-4. **여러 공급자 SSO 속성** 대화 상자에서 다음 단계를 수행합니다.
+1. **여러 공급자 SSO 속성** 대화 상자에서 다음 단계를 수행합니다.
 
     ![[여러 공급자 SSO 속성] 대화 상자의 스크린샷](./media/servicenow-tutorial/ic7694981.png "앱 URL 구성")
 
@@ -215,11 +229,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     * **여러 공급자 SSO 통합에 디버그 로깅 사용**을 **예**로 선택합니다.
 
-    * **...하는 사용자 테이블의 필드**에 **user_name**을 입력합니다.
+    * **...하는 사용자 테이블의 필드**에 **이메일**을 입력합니다.
   
     * **저장**을 선택합니다.
 
-6. ServiceNow를 자동 또는 수동으로 구성할 수 있습니다. ServiceNow를 자동으로 구성하려면 다음 단계를 따릅니다.
+1. ServiceNow를 자동 또는 수동으로 구성할 수 있습니다. ServiceNow를 자동으로 구성하려면 다음 단계를 따릅니다.
 
     1. Azure Portal의 **ServiceNow** Single-Sign On 페이지로 돌아갑니다.
 
@@ -274,11 +288,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
              ![[연결 테스트]가 강조 표시된 페이지의 스크린샷](./media/servicenow-tutorial/tutorial_activate2.png "플러그 인 활성화")
 
+             > [!NOTE]
+             > 테스트 연결이 실패하고 이 연결을 활성화할 수 없는 경우 ServiceNow는 재정의 스위치를 제공합니다. **검색 탐색**에 **Sys_properties.LIST**를 입력하면 새 시스템 속성 페이지가 열립니다. 여기서 이름이 **glide.authenticate.multisso.test.connection.mandatory**인 **datatype**을 **True/False**로 새 속성을 만든 다음, **값**을 **False**로 설정해야 합니다.
+
+             > ![[테스트 결과] 페이지의 스크린샷](./media/servicenow-tutorial/testconnection-fail.png "Single Sign-On 구성")
+        
           1. 자격 증명을 입력하라는 메시지가 표시되면 입력합니다. 그러면 다음 페이지가 표시됩니다. **SSO 로그아웃 테스트 결과** 오류가 발생할 수 있습니다. 오류를 무시하고 **활성화**를 선택합니다.
 
              ![[테스트 결과] 페이지의 스크린샷](./media/servicenow-tutorial/servicenowactivate.png "Single Sign-On 구성")
   
-6. **ServiceNow**를 수동으로 구성하려면 다음 단계를 따릅니다.
+1. **ServiceNow**를 수동으로 구성하려면 다음 단계를 따릅니다.
 
     1. ServiceNow 애플리케이션에 관리자 권한으로 로그온합니다.
 
@@ -319,12 +338,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
         * **NameID 정책**이 `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` 값으로 설정되어 있는지 확인합니다.
 
-        * **고급**을 선택합니다. ServiceNow 배포에서 사용자를 고유하게 식별하는 데 사용되는 필드에 따라 **사용자 필드**에 **이메일** 또는 **사용자 이름**을 입력합니다.
+        * **고급**을 선택합니다. **사용자 필드**에 **이메일**을 입력합니다.
 
             > [!NOTE]
             > Azure AD 사용자 ID(사용자 계정 이름) 또는 이메일 주소를 SAML 토큰의 고유 식별자로 내보내도록 Azure AD를 구성할 수 있습니다. 이렇게 하려면 Azure Portal에서 **ServiceNow** > **특성** > **Single Sign-On** 섹션으로 이동한 다음, 원하는 필드를 **nameidentifier** 특성에 매핑합니다. Azure AD에서 선택한 특성에 대해 저장되는 값(예: 사용자 계정 이름)은 입력하는 필드에 대해 ServiceNow에 저장된 값(예: user_name)과 일치해야 합니다.
 
         * 페이지의 오른쪽 위 모서리에서 **연결 테스트**를 선택합니다.
+
+          > [!NOTE]
+          > 테스트 연결이 실패하고 이 연결을 활성화할 수 없는 경우 ServiceNow는 재정의 스위치를 제공합니다. **검색 탐색**에 **Sys_properties.LIST**를 입력하면 새 시스템 속성 페이지가 열립니다. 여기서 이름이 **glide.authenticate.multisso.test.connection.mandatory**인 **datatype**을 **True/False**로 새 속성을 만든 다음, **값**을 **False**로 설정해야 합니다.
+
+          > ![[테스트 결과] 페이지의 스크린샷](./media/servicenow-tutorial/testconnection-fail.png "Single Sign-On 구성")
 
         * 자격 증명을 입력하라는 메시지가 표시되면 입력합니다. 그러면 다음 페이지가 표시됩니다. **SSO 로그아웃 테스트 결과** 오류가 발생할 수 있습니다. 오류를 무시하고 **활성화**를 선택합니다.
 
@@ -420,7 +444,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     d. **클록 스큐**로 **60**을 입력합니다.
 
-    e. ServiceNow 배포에서 사용자를 고유하게 식별하는 데 사용되는 필드에 따라 **사용자 필드**에 **email** 또는 **user_name**을 입력합니다.
+    e. **사용자 필드**에 **이메일**을 입력합니다.
 
     > [!NOTE]
     > Azure AD 사용자 ID(사용자 계정 이름) 또는 이메일 주소를 SAML 토큰의 고유 식별자로 내보내도록 Azure AD를 구성할 수 있습니다. 이렇게 하려면 Azure Portal에서 **ServiceNow** > **특성** > **Single Sign-On** 섹션으로 이동한 다음, 원하는 필드를 **nameidentifier** 특성에 매핑합니다. Azure AD에서 선택한 특성에 대해 저장되는 값(예: 사용자 계정 이름)은 입력하는 필드에 대해 ServiceNow에 저장된 값(예: user_name)과 일치해야 합니다.
@@ -450,7 +474,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     *  **사용자 이름**을 입력합니다(예: B.simon@contoso.com).
 
     *  **외부 로그인 사용**을 선택합니다. 로그인하는 Azure AD 페이지로 리디렉션됩니다.
-    
+
     *  자격 증명을 입력합니다. 타사 인증 또는 다른 보안 기능이 설정된 경우 사용자가 그에 따라 적절하게 대응해야 합니다. 애플리케이션 **홈페이지**가 표시됩니다.
 
         ![애플리케이션 홈페이지의 스크린샷](./media/servicenow-tutorial/test02.png)
@@ -467,6 +491,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 - [Azure AD에서 ServiceNow 사용해보기](https://aad.portal.azure.com)
 
-- [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/protect-servicenow)
 
-- [고급 표시 유형 및 컨트롤을 사용하여 ServiceNow를 보호하는 방법](https://docs.microsoft.com/cloud-app-security/protect-servicenow)
+- [고급 표시 유형 및 컨트롤을 사용하여 ServiceNow를 보호하는 방법](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

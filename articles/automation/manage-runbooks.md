@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ad8c05b3347ed4741d574a5e6bcc1d928db08411
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad2a34691a00f217db6cf6835eefed18c8862d32
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366839"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547928"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Azure Automation에서 Runbook 관리
 
@@ -128,6 +128,19 @@ $RGName = "ResourceGroup"
 Publish-AzAutomationRunbook -AutomationAccountName $automationAccountName `
 -Name $runbookName -ResourceGroupName $RGName
 ```
+
+### <a name="schedule-a-runbook-in-the-azure-portal"></a>Azure 포털에서 Runbook 예약
+
+Runbook이 게시되면 작업을 예약할 수 있습니다.
+
+1. Azure Portal에서 Runbook을 엽니다.
+2. **리소스** **에서 일정을 선택합니다.**
+3. **일정 추가를 선택합니다.**
+4. 실행책 예약 창에서 **Runbook에 일정 링크를 선택합니다.**
+5. 일정 창에서 **새 일람표 만들기를** 선택합니다.
+6. 새 일정 창에 이름, 설명 및 기타 매개 변수를 입력합니다. 
+7. 일정이 만들어지면 강조 표시하고 **확인을**클릭합니다. 이제 Runbook에 연결되어야 합니다.
+8. 사서함에서 Runbook 상태를 알리는 전자 메일을 찾습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

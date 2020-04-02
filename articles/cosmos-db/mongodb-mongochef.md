@@ -8,12 +8,12 @@ ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18
-ms.openlocfilehash: 9b8c3a36dbdd3a14d0bd325c22421033a1765df3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 84b703cceeb130b177b8ab32281ef616b1ec632b
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063690"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548832"
 ---
 # <a name="connect-to-an-azure-cosmos-account-using-studio-3t"></a>Studio 3T를 사용하여 Azure 코스모스 계정에 연결
 
@@ -21,9 +21,6 @@ Studio 3T를 사용하여 MongoDB용 Azure 코스모스 DB의 API에 연결하�
 
 * [다운로드 및 스튜디오 3T를](https://studio3t.com/)설치합니다.
 * Azure Cosmos 계정의 [연결 문자열](connect-mongodb-account.md) 정보를 갖습니다.
-
-> [!NOTE]
-> 현재 로보 3T v1.2 및 하위 버전은 몽고DB용 코스모스 DB의 API로 지원됩니다.
 
 ## <a name="create-the-connection-in-studio-3t"></a>Studio 3T에서 연결 만들기
 

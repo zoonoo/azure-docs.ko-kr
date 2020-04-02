@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: 4b1c1a963b065411f1a0ab84141bdf1835930ebb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0fe20c90cf857ce09a83c6ac53e6fe77eb512153
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74973546"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528203"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>테스트 및 프로토타입 생성을 위한 공용 데이터 집합
 
@@ -31,7 +31,7 @@ ms.locfileid: "74973546"
 | [NASA에서 지구 과학 데이터](https://earthdata.nasa.gov/) | 농업, 대기, 생물권, 기후, 빙설권, 인간 차원, 수권, 지표면, 대양, 태양-지구 상호 작용 등을 포괄하는 32,000가지 이상의 데이터 컬렉션입니다. | 데이터 집합은 다양한 형식으로 제공됩니다. |
 | [항공사 항공편 지연 및 기타 교통 데이터](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "미국 교통부(DOT) 교통통계국(BTS)은 대형 항공사가 운항하는 국내선의 정시 성과를 추적합니다. 정시 운항, 취소 또는 우회 항공편의 수에 대한 요약 정보가 표로 요약되어 이 웹 사이트에 게시됩니다." | 파일은 CSV 형식입니다. |
 | [교통 사고 사망률 - 미국 FARS(사망률 분석 보고 시스템)](https://www.nhtsa.gov/FARS) | "FARS는 교통 사고로 인한 심각한 부상과 관련된 연간 데이터를 NHTSA, 의회 및 미국인에게 제공하는 전국 인구 조사입니다." | "FARS 쿼리 시스템을 사용하여 온라인으로 실행되는 사망률 데이터를 만들 수 있습니다. 또는 FTP 사이트에서 1975부터 현재까지의 모든 FARS 데이터를 다운로드할 수 있습니다." |
-| [유해 화학물 데이터 - EPA Toxicity ForeCaster(ToxCast™) 데이터](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | "EPA에서 제공하는 수천 가지 화학물에 대한 최신의 업데이트된 고효율 독성물 데이터입니다. 이 데이터는 EPA의 ToxCast 연구를 통해 생성된 것입니다." | 데이터 집합은 스프레드시트, R 패키지 및 MySQL 데이터베이스 파일을 비롯한 다양한 형식으로 제공됩니다. |
+| [독성 화학 데이터 - EPA 독성 포피캐스터&trade;(톡스캐스트) 데이터](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | "EPA에서 제공하는 수천 가지 화학물에 대한 최신의 업데이트된 고효율 독성물 데이터입니다. 이 데이터는 EPA의 ToxCast 연구를 통해 생성된 것입니다." | 데이터 집합은 스프레드시트, R 패키지 및 MySQL 데이터베이스 파일을 비롯한 다양한 형식으로 제공됩니다. |
 | [유해 화학물 데이터 - NIH Tox21 데이터 챌린지 2014](https://tripod.nih.gov/tox21/challenge/) | "2014 Tox21 데이터 챌린지는 과학자들이 Toxicology in the 21st Century(21세기 독성학 이니셔티브)를 통해 테스트되는 화학물 및 화합물이 독성 효과를 통해 생물학적 경로를 중단시킬 수 있는 가능성을 이해하도록 하기 위해 고안되었습니다." | 데이터 집합은 SMILES 및 SDF 형식으로 사용할 수 있습니다. 데이터는 "10,000개 이하의 합성물(Tox21 10K)로 이루어진 Tox21 컬렉션에 대한 분석 활동 데이터 및 화학물 구조"를 제공합니다. |
 | [NCBI의 생명 공학 및 게놈 데이터](https://www.ncbi.nlm.nih.gov/guide/data-software/) | 유전자, 게놈 및 단백질을 포함하는 여러 데이터 집합입니다. | 데이터 집합은 텍스트, XML, BLAST 및 기타 형식으로 제공됩니다. BLAST 앱을 사용할 수 있습니다. |
 
@@ -41,7 +41,6 @@ ms.locfileid: "74973546"
 |---|---|---|
 | [뉴욕시 택시 데이터](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | “택시 여정 레코드에는 승차 및 하차 날짜/시간, 승차 및 하단 위치, 이동 거리, 항목별 요금, 요율 종류, 지불 유형 및 운전자가 보고한 승객 수를 캡처하는 필드가 포함됩니다.” | 데이터 집합은 월별 CSV 파일 형식입니다. |
 | [Microsoft Research 데이터 집합 - "연구를 위한 데이터 과학"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | 인간-컴퓨터 간 상호 작용, 오디오/비디오, 데이터 마이닝/정보 검색, 지리 공간/위치, 자연어 처리 및 로봇 공학/컴퓨터 비전을 아우르는 여러 데이터 집합이 제공됩니다. | 데이터 집합은 다운로드할 수 있게 다양한 형식으로 압축되어 있습니다. |
-| [공용 게놈 데이터](https://www.completegenomics.com/public-data/) | "전체 인간 게놈의 다양한 데이터 세트는 어떤 게놈 연구를 향상시키기 위해 공공 사용을 위해 자유롭게 사용할 수 있습니다 ..." 공급자, 완전한 유전체학, 개인 영리 기업입니다. | 압축을 푼 데이터 집합은 UNIX 텍스트 형식입니다. 분석 도구를 사용할 수도 있습니다. |
 | [개방형 과학 데이터 클라우드 데이터](https://www.opensciencedatacloud.org/projects/) | "개방형 과학 데이터 클라우드는 테라바이트 및 페타바이트 크기의 과학 데이터 세트를 저장, 공유 및 분석하기 위한 리소스를 포함하는 과학 커뮤니티를 제공합니다."| 데이터 집합은 다양한 형식으로 제공됩니다. |
 | [전 세계 기후 데이터 - WorldClim](https://worldclim.org/) | "WorldClim은 약 1km2의 공간 해상도를 갖는 글로벌 기후 계층(표 형식의 날씨 데이터) 집합입니다. 이러한 데이터는 매핑 및 공간 모델링에 사용할 수 있습니다." | 이러한 파일에는 지리 공간 데이터가 포함됩니다. 자세한 내용은 [데이터 형식](https://worldclim.org/formats1)을 참조하세요. |
 | [인간 사회 관련 데이터 - GDELT 프로젝트](https://www.gdeltproject.org/data.html) | "GDELT 프로젝트는 현존하는 가장 크고 가장 포괄적이고 해상도가 가장 높은 개방형 인간 사회 데이터베이스입니다." | 원시 데이터 파일은 CSV 형식입니다. |

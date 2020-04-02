@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/28/2020
+ms.date: 03/31/2020
 ms.author: radeltch
-ms.openlocfilehash: 5e3512ce86bdf96a5e6cfcf0e4459b656a5ac5bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1ae2c3c949e8bdbf30c8bef496177d56cd2dcbd
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77565862"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521403"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux의 Azure VM에 있는 SAP HANA의 고가용성
 
@@ -263,9 +263,13 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
    sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   논리 볼륨을 만듭니다. `-i` 스위치 없이 `lvcreate`를 사용하는 경우 선형 볼륨이 만들어집니다. I/O 성능 향상을 위해 `-i` 인수가 기본 물리적 볼륨 수와 동일한 스트라이프 볼륨을 만드는 것이 좋습니다. 이 문서에서는 2개의 물리적 볼륨이 데이터 볼륨에 사용되므로 `-i` 스위치 인수가 **2**로 설정됩니다. 로그 볼륨에 1개의 물리적 볼륨이 사용되므로 `-i` 스위치는 명시적으로 사용하지 않습니다. 각 데이터, 로그 또는 공유 볼륨에 대해 하나 이상의 물리적 볼륨을 사용하는 경우 `-i` 스위치를 사용하고 기본 물리적 볼륨 수로 설정합니다.
+   논리 볼륨을 만듭니다. `-i` 스위치 없이 `lvcreate`를 사용하는 경우 선형 볼륨이 만들어집니다. 더 나은 I/O 성능을 위해 스트라이프 볼륨을 만들고 스트라이프 크기를 [SAP HANA VM 저장소 구성에](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)설명된 값에 정렬하는 것이 좋습니다. 인수는 `-i` 기본 물리적 볼륨의 수여야 `-I` 하며 인수는 스트라이프 크기입니다. 이 문서에서는 2개의 물리적 볼륨이 데이터 볼륨에 사용되므로 `-i` 스위치 인수가 **2**로 설정됩니다. 데이터 볼륨의 스트라이프 크기는 **256KiB입니다.** 하나의 물리적 볼륨이 로그 볼륨에 `-i` `-I` 사용되므로 로그 볼륨 명령에 명시적으로 사용되는 스위치나 스위치가 없습니다.  
 
-   <pre><code>sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
+   > [!IMPORTANT]
+   > 각 데이터, 로그 또는 공유 볼륨에 대해 하나 이상의 물리적 볼륨을 사용하는 경우 `-i` 스위치를 사용하고 기본 물리적 볼륨 수로 설정합니다. 스트라이프 `-I` 볼륨을 작성할 때 스위치를 사용하여 스트라이프 크기를 지정합니다.  
+   > 스트라이프 크기 및 디스크 수를 포함한 권장 스토리지 구성은 [SAP HANA VM 스토리지 구성을](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 참조하십시오.  
+
+   <pre><code>sudo lvcreate <b>-i 2</b> <b>-I 256</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
    sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
    sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
    sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data

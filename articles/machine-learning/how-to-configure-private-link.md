@@ -10,16 +10,18 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: c6593a2746e628c89e20f6ef92a1430bd294e4fe
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: fb70600ad245968377cdebd23a7b531e552bb546
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80438308"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529311"
 ---
-# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Azure 기계 학습 작업 영역에 대한 Azure 개인 링크 구성
+# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Azure 기계 학습 작업 영역에 대한 Azure 개인 링크 구성(미리 보기)
 
-이 문서에서는 Azure 기계 학습 작업 영역에서 Azure 개인 링크를 사용하는 방법을 알아봅니다. Azure 개인 링크를 사용하면 개인 끝점을 사용하여 작업 영역에 연결할 수 있습니다. 개인 끝점은 가상 네트워크 내의 개인 IP 주소 집합입니다. 그런 다음 개인 IP 주소에서만 발생하도록 작업 영역에 대한 액세스를 제한할 수 있습니다. 개인 링크는 데이터 유출의 위험을 줄이는 데 도움이 됩니다. 개인 끝점에 대한 자세한 내용은 [Azure 개인 링크](/azure/private-link/private-link-overview) 문서를 참조하세요.
+이 문서에서는 Azure 기계 학습 작업 영역에서 Azure 개인 링크를 사용하는 방법을 알아봅니다. 이 기능은 현재 미리 보기 중이며 미국 동부, 미국 서부 2, 미국 중남부 지역에서 사용할 수 있습니다. 
+
+Azure 개인 링크를 사용하면 개인 끝점을 사용하여 작업 영역에 연결할 수 있습니다. 개인 끝점은 가상 네트워크 내의 개인 IP 주소 집합입니다. 그런 다음 개인 IP 주소에서만 발생하도록 작업 영역에 대한 액세스를 제한할 수 있습니다. 개인 링크는 데이터 유출의 위험을 줄이는 데 도움이 됩니다. 개인 끝점에 대한 자세한 내용은 [Azure 개인 링크](/azure/private-link/private-link-overview) 문서를 참조하세요.
 
 > [!IMPORTANT]
 > Azure 개인 링크는 작업 영역 을 삭제하거나 계산 리소스를 관리하는 것과 같은 Azure 제어 평면(관리 작업)에는 영향을 주지 않습니다. 예를 들어 계산 대상을 생성, 업데이트 또는 삭제합니다. 이러한 작업은 공용 인터넷을 통해 정상적으로 수행됩니다.

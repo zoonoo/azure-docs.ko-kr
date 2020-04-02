@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 11/26/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: cc126af67a0d8627d61e595cee56f3df8973340d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 160873fe889d7eccc7efd08b4767854a5b24c484
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77613050"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518967"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Azure AD에서 Azure Active Directory 도메인 서비스로 범위별 동기화 구성
 
@@ -42,18 +42,20 @@ Azure 포털 또는 PowerShell을 사용하여 범위별 동기화 설정을 구
 
 | 작업 | | |
 |--|--|--|
-| Azure AD DS 관리 도메인 만들기 및 범위 별 동기화 구성 | [Azure 포털](#enable-scoped-synchronization-using-the-azure-portal) | [Powershell](#enable-scoped-synchronization-using-powershell) |
-| 범위 별 동기화 수정 | [Azure 포털](#modify-scoped-synchronization-using-the-azure-portal) | [Powershell](#modify-scoped-synchronization-using-powershell) |
-| 범위 지정 동기화 사용 안 함 | [Azure 포털](#disable-scoped-synchronization-using-the-azure-portal) | [Powershell](#disable-scoped-synchronization-using-powershell) |
+| Azure AD DS 관리 도메인 만들기 및 범위 별 동기화 구성 | [Azure portal](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
+| 범위 별 동기화 수정 | [Azure portal](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
+| 범위 지정 동기화 사용 안 함 | [Azure portal](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
-> 동기화 범위를 변경하면 Azure AD DS 관리 도메인이 모든 데이터를 다시 동기화합니다.
+> 동기화 범위를 변경하면 Azure AD DS 관리 도메인이 모든 데이터를 다시 동기화합니다. 고려 사항은 다음과 같습니다.
 > 
 >  * Azure AD DS 관리 도메인의 동기화 범위를 변경하면 전체 재동기화가 발생합니다.
 >  * Azure AD DS 관리 도메인에 더 이상 필요하지 않은 개체가 삭제됩니다. 새 개체는 관리되는 도메인에서 만들어집니다.
 >  * 다시 동기화를 완료하는 데 시간이 오래 걸릴 수 있습니다. 동기화 시간은 Azure AD DS 관리 도메인 및 Azure AD 디렉터리에서 사용자, 그룹 및 그룹 구성원 자격과 같은 개체 수에 따라 달라집니다. 수십만 개의 많은 개체가 있는 큰 디렉터리의 경우 다시 동기화에 며칠이 걸릴 수 있습니다.
 
 ## <a name="enable-scoped-synchronization-using-the-azure-portal"></a>Azure 포털을 사용하여 범위 별 동기화 를 활성화합니다.
+
+Azure 포털에서 범위 지정 동기화를 사용하려면 다음 단계를 완료합니다.
 
 1. [자습서를 수행하여 Azure AD DS 인스턴스를 만들고 구성합니다.](tutorial-create-instance-advanced.md) 동기화 범위를 제외한 모든 필수 구성 및 배포 단계를 완료합니다.
 1. 동기화 단계에서 **범위를** 선택한 다음 Azure AD 그룹을 선택하여 Azure AD DS 인스턴스와 동기화합니다.
@@ -173,7 +175,7 @@ Write-Output "******************************************************************
 
 ## <a name="enable-scoped-synchronization-using-powershell"></a>PowerShell을 사용하여 범위 별 동기화 활성화
 
-PowerShell을 사용하여 이 단계 집합을 완료합니다. [PowerShell을 사용하여 Azure Active Directory Domain Services를 사용](powershell-create-instance.md)하도록 설정하려면 지침을 참조하세요. 이 문서의 몇 단계는 범위 동기화를 구성하기 위해 약간 수정되었습니다.
+PowerShell을 사용하여 다음 단계를 완료합니다. [PowerShell을 사용하여 Azure Active Directory Domain Services를 사용](powershell-create-instance.md)하도록 설정하려면 지침을 참조하세요. 이 문서의 몇 단계는 범위 동기화를 구성하기 위해 약간 수정되었습니다.
 
 1. PowerShell을 사용하여 Azure AD DS를 사용하도록 설정하려면 문서에서 다음 작업을 완료합니다. 실제로 관리되는 도메인을 만드는 단계에서 중지합니다. Azure AD DS 관리 도메인을 만드는 범위 별 동기화를 구성합니다.
 

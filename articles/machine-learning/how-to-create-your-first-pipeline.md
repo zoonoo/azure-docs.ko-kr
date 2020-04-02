@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2f62be94c901b383e34608508baa87ea37c893af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa0a5bfe921687ad964e9321e3874de37ccf9b98
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79283603"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549307"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure 기계 학습 SDK를 사용하여 기계 학습 파이프라인 생성 및 실행
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -86,7 +86,7 @@ def_blob_store.upload_files(
     overwrite=True)
 ```
 
-파이프라인은 하나 이상의 단계로 구성됩니다. 단계는 컴퓨팅 대상에서 실행되는 단위입니다. 단계는 데이터 원본을 사용하고 “중간” 데이터를 생성할 수 있습니다. 단계는 모델, 모델과 종속 파일이 있는 디렉터리 또는 임시 데이터와 같은 데이터를 만들 수 있습니다. 그런 다음, 파이프라인의 다른 후속 단계에서 이 데이터를 사용할 수 있습니다.
+파이프라인은 하나 이상의 단계로 구성됩니다. 단계는 컴퓨팅 대상에서 실행되는 단위입니다. 단계는 데이터 원본을 사용하고 "중간" 데이터를 생성할 수 있습니다. 단계는 모델, 모델과 종속 파일이 있는 디렉터리 또는 임시 데이터와 같은 데이터를 만들 수 있습니다. 그런 다음, 파이프라인의 다른 후속 단계에서 이 데이터를 사용할 수 있습니다.
 
 파이프라인을 데이터에 연결하는 방법에 대한 자세한 내용은 [데이터에 액세스하는 방법](how-to-access-data.md) 및 데이터 [집합을 등록하는 방법](how-to-create-register-datasets.md)문서를 참조하십시오. 
 
@@ -118,7 +118,7 @@ output_data1 = PipelineData(
 
 파일 또는 파일 집합에 테이블 형식 데이터가 저장된 경우 [TabularDataset을](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 보다 `DataReference`효율적으로 대체할 수 있습니다. `TabularDataset`개체는 버전 전환, diffs 및 요약 통계를 지원합니다. `TabularDataset`s는 (파이썬 생성기와 같은) 느리게 평가되며 분할하거나 필터링하여 하위 집합하는 것이 효율적입니다. 클래스는 `FileDataset` 하나 이상의 파일을 나타내는 유사한 게으른 평가 된 데이터를 제공합니다. 
 
-from_delimited_files 와 `TabularDataset` 같은 [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-)using 메서드를 만듭니다.
+from_delimited_files 와 `TabularDataset` 같은 [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-)using 메서드를 만듭니다.
 
 ```python
 from azureml.data import TabularDataset
@@ -174,7 +174,7 @@ else:
     print(compute_target.status.serialize())
 ```
 
-### <a name="azure-databricks"></a><a id="databricks"></a>Azure 데이터 브릭
+### <a name="azure-databricks"></a><a id="databricks"></a>Azure Databricks
 
 Azure Databricks는 Azure 클라우드의 Apache Spark 기반 환경입니다. 이 환경은 Azure Machine Learning 파이프라인 사용 시 컴퓨팅 대상으로 사용할 수 있습니다.
 
@@ -389,7 +389,7 @@ pipeline_run1.wait_for_completion()
 * 컨테이너 레지스트리에서 계산 대상에 각 단계에 대 한 Docker 이미지를 다운로드 합니다.
 * 개체가 단계에 지정된 `DataReference` 경우 데이터스토어를 마운트합니다. 탑재가 지원되지 않는 경우 데이터가 대신 컴퓨팅 대상에 복사됩니다.
 * 단계 정의에 지정된 컴퓨팅 대상에서 단계를 실행합니다. 
-* 단계에서 지정한 로그, stdout, stderr, 메트릭, 출력 등의 아티팩트를 만듭니다. 그런 다음, 이러한 아티팩트가 업로드되어 사용자의 기본 데이터 저장소에 보관됩니다.
+* 단계에서 지정한 로그, stdout, stderr, 메트릭, 출력 등의 아티팩트를 만듭니다. 그런 다음 이러한 아티팩트가 업로드되어 사용자의 기본 데이터 스토어에 보관됩니다.
 
 ![실험을 파이프라인으로 실행하는 다이어그램](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 

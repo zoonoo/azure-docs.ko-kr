@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ed64ee3d0e024c32be08ed4e010a6933033c3f87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e96f9484c103ebe75e21705b94cf35b9e16c54f
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476521"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529327"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Windows VM에 대한 Azure Disk Encryption 시나리오
 
@@ -131,7 +131,7 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-
 
 다음 표에서는 기존 또는 실행 중인 VM에 대한 Resource Manager 템플릿 매개 변수를 나열합니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | vmName | 암호화 작업을 실행할 VM의 이름. |
 | keyVaultName | BitLocker 키가 업로드될 Key Vault의 이름. cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` 또는 Azure CLI 명령 `az keyvault list --resource-group "MyKeyVaultResourceGroup"`을 사용하여 가져올 수 있습니다.|
@@ -251,6 +251,8 @@ Azure 디스크 암호화는 다음 시나리오, 기능 및 기술에 대해 �
 - 임시 OS 디스크.
 - DFS, GFS, DRDB 및 CephFS와 같은 공유/분산 파일 시스템의 암호화(이에 국한되지 않음).
 - 암호화된 VM을 다른 구독으로 이동합니다.
+- Gen2 VM(참조: [Azure에서 2세대 VM에 대한 지원)](generation-2.md#generation-1-vs-generation-2-capabilities)
+- Lsv2 시리즈 VM (참조: [Lsv2 시리즈)](../lsv2-series.md)
 
 ## <a name="next-steps"></a>다음 단계
 

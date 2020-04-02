@@ -12,12 +12,12 @@ ms.date: 10/22/2018
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bd305d2943d1b12756171748f28d32300081d71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42337fe958a881ee263d16c866dda69f13fe09c1
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443400"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519617"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>최종 사용자가 응용 프로그램에 동의하는 방식 구성
 
@@ -143,9 +143,53 @@ Azure AD PowerShell 미리 보기[모듈(AzureADPreview)을](https://docs.micros
     }
     ```
 
+## <a name="configure-risk-based-step-up-consent"></a>위험 기반 단계별 동의 구성
+
+위험 기반 단계별 동의는 [불법 동의 요청을](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants)하는 악성 앱에 대한 사용자 노출을 줄이는 데 도움이 됩니다. Microsoft에서 위험한 최종 사용자 동의 요청을 감지하면 대신 관리자 동의를 위한 "단계별" 요청이 필요합니다. 이 기능은 기본적으로 활성화되어 있지만 최종 사용자 동의가 활성화된 경우에만 동작이 변경됩니다.
+
+위험한 동의 요청이 감지되면 동의 프롬프트에 관리자 승인이 필요하다는 메시지가 표시됩니다. 관리자 [동의 요청 워크플로를](configure-admin-consent-workflow.md) 사용하도록 설정하면 사용자는 동의 프롬프트에서 직접 추가 검토를 위해 관리자에게 요청을 보낼 수 있습니다. 활성화되지 않으면 다음 메시지가 표시됩니다.
+
+* **AADSTS90094:** &lt;clientAppDisplayName은&gt; 관리자만 부여할 수 있는 조직의 리소스에 액세스할 수 있는 권한이 필요합니다. 사용하기 전에 이 앱에 대한 사용 권한을 부여하려면 관리자에게 문의하세요.
+
+이 경우 감사 이벤트는 "응용 프로그램 관리", 활동 유형 "응용 프로그램에 대한 동의"의 범주 및 "위험한 응용 프로그램이 검색됨"의 상태 이유로 기록됩니다.
+
+> [!IMPORTANT]
+> 관리자는 특히 Microsoft에서 위험을 감지한 경우 승인하기 전에 모든 동의 요청을 신중하게 [평가해야](manage-consent-requests.md#evaluating-a-request-for-tenant-wide-admin-consent) 합니다.
+
+### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>PowerShell을 사용하여 위험 기반 단계별 동의를 비활성화하거나 다시 활성화
+
+Azure AD PowerShell 미리 보기[모듈(AzureADPreview)을](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)사용하여 Microsoft가 위험을 감지하는 경우 필요한 관리자 동의에 대한 단계업을 비활성화하거나 이전에 비활성화된 경우 다시 활성화할 수 있습니다.
+
+이 작업은 [PowerShell을 사용하여 그룹 소유자 동의를 구성하지만](#configure-group-owner-consent-using-powershell)다른 설정 값을 대체하는 경우 위에 표시된 것과 동일한 단계를 사용하여 수행할 수 있습니다. 단계에는 세 가지 차이점이 있습니다. 
+
+1. 위험 기반 단계별 동의에 대한 설정 값 이해:
+
+    | 설정       | Type         | Description  |
+    | ------------- | ------------ | ------------ |
+    | _블록사용자동의위험한앱_   | 부울 |  위험한 요청이 감지되면 사용자 동의가 차단될지 나타내는 플래그입니다. |
+
+2. 3단계에서 다음 값을 대체합니다.
+
+    ```powershell
+    $riskBasedConsentEnabledValue = $settings.Values | ? { $_.Name -eq "BlockUserConsentForRiskyApps" }
+    ```
+3. 5단계에서 다음 중 하나를 대체합니다.
+
+    ```powershell
+    # Disable risk-based step-up consent entirely
+    $riskBasedConsentEnabledValue.Value = "False"
+    ```
+
+    ```powershell
+    # Re-enable risk-based step-up consent, if disabled previously
+    $riskBasedConsentEnabledValue.Value = "True"
+    ```
+
 ## <a name="next-steps"></a>다음 단계
 
 [관리자 동의 워크플로 구성](configure-admin-consent-workflow.md)
+
+[응용 프로그램에 대한 동의를 관리하고 동의 요청을 평가하는 방법 알아보기](manage-consent-requests.md)
 
 [응용 프로그램에 대한 테넌트 전체 관리자 동의 부여](grant-admin-consent.md)
 

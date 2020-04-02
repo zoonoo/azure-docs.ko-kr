@@ -7,29 +7,29 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: f9592f5d2666684e0cf5eef687b1e69cfb55066c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 900bf815917a4b7c9841860d663a2183b1ab71b3
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065558"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529681"
 ---
 # <a name="configure-managed-identities-for-your-azure-data-explorer-cluster"></a>Azure 데이터 탐색기 클러스터에 대해 관리되는 ID 구성
 
 [Azure Active Directory에서 관리되는 ID를](/azure/active-directory/managed-identities-azure-resources/overview) 사용하면 클러스터가 Azure 키 자격 증명 모음과 같은 다른 AAD 보호 리소스에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리되며 비밀을 프로비전하거나 회전할 필요가 없습니다. 이 문서에서는 Azure Data Explorer 클러스터에 대해 관리되는 ID를 만드는 방법을 보여 주며, 이 문서에서는 관리되는 ID 구성은 현재 [클러스터에 대한 고객 관리 키를 사용하도록 설정하기](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault)위해서만 지원됩니다.
 
 > [!Note]
-> Azure Data Explorer에 대한 관리되는 ID는 앱이 구독 또는 테넌트 간에 마이그레이션되는 경우 예상대로 작동하지 않습니다. 앱은 기능을 [비활성화하고](#remove-a-system-assigned-identity) [다시 활성화하여](#add-a-system-assigned-identity) 수행할 수 있는 새 ID를 얻어야 합니다. 새 ID를 사용하려면 다운스트림 리소스의 액세스 정책도 업데이트해야 합니다.
+> Azure Data Explorer에 대한 관리되는 ID는 구독 또는 테넌트 간에 Azure Data Explorer 클러스터가 마이그레이션되는 경우 예상대로 작동하지 않습니다. 앱은 기능을 [비활성화하고](#disable-a-system-assigned-identity) [다시 활성화하여](#add-a-system-assigned-identity) 수행할 수 있는 새 ID를 얻어야 합니다. 새 ID를 사용하려면 다운스트림 리소스의 액세스 정책도 업데이트해야 합니다.
 
 ## <a name="add-a-system-assigned-identity"></a>시스템 할당된 ID 추가
                                                                                                     
 클러스터에 연결된 시스템 할당 ID를 할당하고 클러스터가 삭제되면 삭제됩니다. 클러스터는 하나의 시스템 할당 ID만 가질 수 있습니다. 시스템 할당된 ID로 클러스터를 만들려면 클러스터에 추가 속성을 설정해야 합니다. 시스템 할당 된 ID는 아래에 설명 된 C #, ARM 템플릿 또는 Azure 포털을 사용 하 여 추가 됩니다.
 
-# <a name="azure-portal"></a>[Azure 포털](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 ### <a name="add-a-system-assigned-identity-using-the-azure-portal"></a>Azure 포털을 사용하여 시스템 할당된 ID 추가
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 #### <a name="new-azure-data-explorer-cluster"></a>새 Azure 데이터 탐색기 클러스터
 
@@ -56,7 +56,7 @@ ms.locfileid: "80065558"
 
     ![시스템 할당된 ID](media/managed-identities/system-assigned-identity-on.png)
 
-# <a name="c"></a>[C #](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 ### <a name="add-a-system-assigned-identity-using-c"></a>C를 사용하여 시스템 할당 ID 추가 #
 
@@ -129,7 +129,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자�
 }    
 ```
 
-예를 들어:
+다음은 그 예입니다.
 
 ```json
 {
@@ -164,15 +164,15 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자�
 
 ---
 
-## <a name="remove-a-system-assigned-identity"></a>시스템 할당 된 ID 제거
+## <a name="disable-a-system-assigned-identity"></a>시스템 할당 된 ID를 사용 하지 않도록 설정
 
 시스템 할당 된 ID를 제거 하면 AAD에서 삭제 됩니다. 클러스터 리소스가 삭제되면 AAD에서 시스템 할당ID도 자동으로 제거됩니다. 기능을 사용하지 않도록 설정하여 시스템 할당 ID를 제거할 수 있습니다.  시스템 할당 된 ID는 아래에 설명 된 대로 C #, ARM 템플릿 또는 Azure 포털을 사용 하 여 제거 됩니다.
 
-# <a name="azure-portal"></a>[Azure 포털](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
-### <a name="remove-a-system-assigned-identity-using-the-azure-portal"></a>Azure 포털을 사용하여 시스템 할당된 ID 제거
+### <a name="disable-a-system-assigned-identity-using-the-azure-portal"></a>Azure 포털을 사용하여 시스템 할당 된 ID를 사용 하지 않도록 설정 합니다.
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. 포털의 왼쪽 창에서 **설정** > **ID를** 선택합니다.
 1. **Id** 창 > **시스템 할당** 탭에서:
     1. **상태** 슬라이더를 **끄기로**이동합니다.
@@ -181,7 +181,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자�
 
     ![시스템 할당된 ID 끄기](media/managed-identities/system-assigned-identity.png)
 
-# <a name="c"></a>[C #](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 ### <a name="remove-a-system-assigned-identity-using-c"></a>C를 사용하여 시스템 할당 된 ID 제거 #
 

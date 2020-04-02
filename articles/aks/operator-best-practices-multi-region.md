@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 894ec4e543f0c68cc652141d2c1578cda61d7f42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c1f0bb715b3c3bf9b3a3350ab11e26834aa84c8
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77594751"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528652"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 비즈니스 연속성 및 재해 복구 모범 사례
 
@@ -59,7 +59,7 @@ AKS 지역 가용성 및 페어링된 영역은 공동 고려 사항입니다. �
 
 ### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Azure 정문 서비스를 사용 하 고 계층 7 응용 프로그램 라우팅
 
-트래픽 관리자는 DNS(계층 3)를 사용하여 트래픽을 셰이프합니다. [Azure 정문 서비스는](https://docs.microsoft.com/azure/frontdoor/front-door-overview) HTTP/HTTPS(계층 7) 라우팅 옵션을 제공합니다. Azure 정문 서비스의 추가 기능에는 SSL 종료, 사용자 지정 도메인, 웹 응용 프로그램 방화벽, URL 다시 쓰기 및 세션 선호도가 포함됩니다. 애플리케이션 트래픽 요구 사항을 검토하여 어떤 솔루션이 가장 적합한지 알아보세요.
+트래픽 관리자는 DNS(계층 3)를 사용하여 트래픽을 셰이프합니다. [Azure 정문 서비스는](https://docs.microsoft.com/azure/frontdoor/front-door-overview) HTTP/HTTPS(계층 7) 라우팅 옵션을 제공합니다. Azure 정문 서비스의 추가 기능에는 TLS 종료, 사용자 지정 도메인, 웹 응용 프로그램 방화벽, URL 다시 쓰기 및 세션 선호도가 포함됩니다. 애플리케이션 트래픽 요구 사항을 검토하여 어떤 솔루션이 가장 적합한지 알아보세요.
 
 ### <a name="interconnect-regions-with-global-virtual-network-peering"></a>글로벌 가상 네트워크 피어링과 상호 연결 지역
 
@@ -122,7 +122,7 @@ AKS에 애플리케이션을 배포하고 실행하려면 컨테이너 이미지
 Azure 관리 디스크를 사용하는 경우 다음과 같은 복제 및 DR 솔루션을 선택할 수 있습니다.
 
 * [벨레로 온 Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
-* [Azure 사이트 복구](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
+* [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
 
 ### <a name="application-based-asynchronous-replication"></a>애플리케이션 기반 비동기 복제
 

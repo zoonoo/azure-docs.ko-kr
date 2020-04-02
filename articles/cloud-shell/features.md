@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 0aa71e4b78df8087093f183b146c525d2a8a0f99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 78275211b77cb34cf9aa92e44778e5d4d81fffed
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366243"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521007"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Azure Cloud Shell에 대한 기능 및 도구
 
@@ -44,7 +44,7 @@ Cloud Shell은 Azure CLI 및 Azure PowerShell에 대한 계정 액세스를 안�
 
 ### <a name="azure-drive-azure"></a>Azure 드라이브(Azure:)
 
-Azure Cloud Shell의 PowerShell은 Azure 드라이브(`Azure:`)에서 시작됩니다.
+클라우드 셸의 PowerShell은 Azure`Azure:`드라이브()를 제공합니다. 을 사용하여 홈 디렉터리로 다시 Azure 드라이브로 `cd Azure:` 전환할 수 있습니다. `cd  ~`
 Azure 드라이브는 파일 시스템 탐색과 비슷하게 Compute, 네트워크, Storage 등과 같은 Azure 리소스를 쉽게 검색 및 탐색할 수 있습니다.
 사용하는 드라이브에 관계 없이 이러한 리소스를 관리하기 위해 친숙한 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure)을 계속 사용할 수 있습니다.
 Azure Portal에서 또는 Azure PowerShell cmdlet을 통해 직접 만들어진 Azure 리소스에 대한 변경 내용은 Azure 드라이브에 반영됩니다.  `dir -Force`를 실행하여 리소스를 새로 고칠 수 있습니다.
@@ -69,7 +69,7 @@ Cloud Shell은 Terraform, Ansible, Chef InSpec 같은 오픈 소스 도구를 �
 
 ## <a name="tools"></a>도구
 
-|Category   |이름   |
+|Category   |속성   |
 |---|---|
 |Linux 도구            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
 |Azure 도구            |[Azure CLI](https://github.com/Azure/azure-cli) 및 [Azure 클래식 CLI](https://github.com/Azure/azure-xplat-cli)<br> [아즈카피](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [Azure Functions CLI](https://github.com/Azure/azure-functions-core-tools)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
@@ -78,7 +78,7 @@ Cloud Shell은 Terraform, Ansible, Chef InSpec 같은 오픈 소스 도구를 �
 |빌드 도구            |make<br> maven<br> npm<br> pip         |
 |컨테이너             |[Docker 컴퓨터](https://github.com/docker/machine)<br> [쿠베틀 (것)들](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [투구](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
 |데이터베이스              |MySQL 클라이언트<br> PostgreSql 클라이언트<br> [sqlcmd 유틸리티](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|기타                  |iPython 클라이언트<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [테라폼](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [퍼펫 볼트](https://puppet.com/docs/bolt/latest/bolt.html)<br> [하시코프 패커](https://www.packer.io/)|
+|기타                  |iPython 클라이언트<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [퍼펫 볼트](https://puppet.com/docs/bolt/latest/bolt.html)<br> [하시코프 패커](https://www.packer.io/)|
 
 ## <a name="language-support"></a>언어 지원
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 78a290b1e2984719645fb4d4ff253ab021a0826e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: acf3e6273f98d98d5da55cfb5b044677116c44dc
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299042"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520804"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Azure 포털을 사용 하 여 MySQL에 대 한 Azure 데이터베이스에 대 한 데이터 암호화
 
@@ -65,7 +65,7 @@ Azure 포털을 사용하여 MySQL용 Azure 데이터베이스에 대한 데이�
 
 4. 임시 파일(임시 파일 포함)이 완전히 암호화되도록 하려면 서버를 다시 시작합니다.
 
-## <a name="restore-or-create-a-replica-of-the-server"></a>서버의 복제본 복원 또는 만들기
+## <a name="using-data-encryption-for-restore-or-replica-servers"></a>복원 또는 복제 서버에 데이터 암호화 사용
 
 MySQL용 Azure 데이터베이스가 키 볼트에 저장된 고객의 관리 키로 암호화된 후 새로 만든 서버 복사본도 암호화됩니다. 로컬 또는 지역 복원 작업을 통해 또는 복제본(로컬/지역 간) 작업을 통해 이 새 복사본을 만들 수 있습니다. 따라서 암호화된 MySQL 서버의 경우 다음 단계를 사용하여 암호화된 복원된 서버를 만들 수 있습니다.
 
@@ -93,132 +93,6 @@ MySQL용 Azure 데이터베이스가 키 볼트에 저장된 고객의 관리 �
 4. 서비스 주체를 등록한 후 키를 다시 유효성을 다시 검사하고 서버가 정상적인 기능을 다시 시작합니다.
 
    ![복원된 기능을 보여주는 MySQL용 Azure 데이터베이스의 스크린샷](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
-
-
-## <a name="using-an-azure-resource-manager-template-to-enable-data-encryption"></a>Azure 리소스 관리자 템플릿을 사용하여 데이터 암호화 사용
-
-Azure 포털 외에도 새 서버및 기존 서버에 대한 Azure 리소스 관리자 템플릿을 사용하여 MySQL 서버용 Azure 데이터베이스에서 데이터 암호화를 활성화할 수도 있습니다.
-
-### <a name="for-a-new-server"></a>새 서버의 경우
-
-미리 만들어진 Azure Resource Manager 템플릿 중 하나를 사용하여 데이터 암호화를 사용하도록 설정한 서버프로 프로비전: [데이터 암호화 예제](https://github.com/Azure/azure-mysql/tree/master/arm-templates/ExampleWithDataEncryption)
-
-이 Azure 리소스 관리자 템플릿은 MySQL 서버에 대한 Azure 데이터베이스를 만들고 **KeyVault** 및 **Key를** 매개 변수로 사용하여 서버에서 데이터 암호화를 활성화합니다.
-
-### <a name="for-an-existing-server"></a>기존 서버의 경우
-또한 Azure 리소스 관리자 템플릿을 사용하여 MySQL 서버에 대한 기존 Azure 데이터베이스에서 데이터 암호화를 활성화할 수 있습니다.
-
-* 속성 개체의 속성 에서 이전에 복사한 Azure `keyVaultKeyUri` Key Vault 키의 URI를 전달합니다.
-
-* *2020-01-01-미리 보기를* API 버전으로 사용합니다.
-
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "location": {
-      "type": "string"
-    },
-    "serverName": {
-      "type": "string"
-    },
-    "keyVaultName": {
-      "type": "string",
-      "metadata": {
-        "description": "Key vault name where the key to use is stored"
-      }
-    },
-    "keyVaultResourceGroupName": {
-      "type": "string",
-      "metadata": {
-        "description": "Key vault resource group name where it is stored"
-      }
-    },
-    "keyName": {
-      "type": "string",
-      "metadata": {
-        "description": "Key name in the key vault to use as encryption protector"
-      }
-    },
-    "keyVersion": {
-      "type": "string",
-      "metadata": {
-        "description": "Version of the key in the key vault to use as encryption protector"
-      }
-    }
-  },
-  "variables": {
-    "serverKeyName": "[concat(parameters('keyVaultName'), '_', parameters('keyName'), '_', parameters('keyVersion'))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.DBforMySQL/servers",
-      "apiVersion": "2017-12-01",
-      "kind": "",
-      "location": "[parameters('location')]",
-      "identity": {
-        "type": "SystemAssigned"
-      },
-      "name": "[parameters('serverName')]",
-      "properties": {
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-05-01",
-      "name": "addAccessPolicy",
-      "resourceGroup": "[parameters('keyVaultResourceGroupName')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.DBforMySQL/servers', parameters('serverName'))]"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": [
-            {
-              "type": "Microsoft.KeyVault/vaults/accessPolicies",
-              "name": "[concat(parameters('keyVaultName'), '/add')]",
-              "apiVersion": "2018-02-14-preview",
-              "properties": {
-                "accessPolicies": [
-                  {
-                    "tenantId": "[subscription().tenantId]",
-                    "objectId": "[reference(resourceId('Microsoft.DBforMySQL/servers/', parameters('serverName')), '2017-12-01', 'Full').identity.principalId]",
-                    "permissions": {
-                      "keys": [
-                        "get",
-                        "wrapKey",
-                        "unwrapKey"
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "name": "[concat(parameters('serverName'), '/', variables('serverKeyName'))]",
-      "type": "Microsoft.DBforMySQL/servers/keys",
-      "apiVersion": "2020-01-01-preview",
-      "dependsOn": [
-        "addAccessPolicy",
-        "[resourceId('Microsoft.DBforMySQL/servers', parameters('serverName'))]"
-      ],
-      "properties": {
-        "serverKeyType": "AzureKeyVault",
-        "uri": "[concat(reference(resourceId(parameters('keyVaultResourceGroupName'), 'Microsoft.KeyVault/vaults/', parameters('keyVaultName')), '2018-02-14-preview', 'Full').properties.vaultUri, 'keys/', parameters('keyName'), '/', parameters('keyVersion'))]"
-      }
-    }
-  ]
-}
-
-```
 
 ## <a name="next-steps"></a>다음 단계
 

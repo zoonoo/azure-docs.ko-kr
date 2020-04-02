@@ -1,5 +1,5 @@
 ---
-title: 자동화에서 보안 자산의 암호화
+title: Azure 자동화에서 보안 자산 암호화
 description: Azure 자동화는 여러 수준의 암호화를 사용하여 안전한 자산을 보호합니다. 기본적으로 암호화는 Microsoft에서 관리하는 키를 사용하여 수행됩니다. 고객은 암호화를 위해 고객 관리 키를 사용하도록 자동화 계정을 구성할 수 있습니다. 이 문서에서는 두 암호화 모드의 세부 정보와 둘 사이를 전환하는 방법에 대해 설명합니다.
 services: automation
 ms.service: automation
@@ -9,18 +9,18 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: 3c21e2fcdde9bffac91af56d49dfa0bf336e8c0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b1d194209122fa71272243c80a2d4c57f6834a1
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78246243"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547750"
 ---
-# <a name="secure-assets-in-azure-automation"></a>Azure 자동화의 안전한 자산
+# <a name="encrypt-secure-assets-in-azure-automation"></a>Azure 자동화에서 보안 자산 암호화
 
 Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 여러 수준의 암호화를 사용하여 Azure 자동화에서 보호됩니다. 암호화에 사용되는 최상위 키를 기반으로 암호화에 대한 두 가지 모델이 있습니다.
--   Microsoft 에서 관리하는 키 사용
--   고객 관리 키 사용
+-    Microsoft 에서 관리하는 키 사용
+-    고객 관리 키 사용
 
 ## <a name="microsoft-managed-keys"></a>마이크로소프트가 관리하는 키
 
@@ -40,7 +40,7 @@ Azure 키 자격 증명 모음을 사용하여 고객 관리 키를 저장합니
 
 새 자동화 계정은 항상 Microsoft에서 관리하는 키를 사용하여 암호화됩니다. 계정이 생성될 때 고객 관리 키를 사용하도록 설정할 수 없습니다. 고객 관리 키는 Azure Key Vault에 저장되며 키 자격 증명 모음에는 자동화 계정과 연결된 관리되는 ID에 키 권한을 부여하는 액세스 정책이 제공되어야 합니다. 관리되는 ID는 저장소 계정을 만든 후에만 사용할 수 있습니다.
 
-Azure Automation에 사용되는 키를 수정하면 고객 관리 키를 사용 또는 비활성화하거나, 키 버전을 업데이트하거나, 다른 키를 지정하여 자산 암호화를 보호하는 경우 계정 암호화 키의 암호화가 변경되지만 보안 자산은 Azure 자동화 계정을 다시 암호화할 필요가 없습니다.
+Azure Automation보안 자산 암호화에 사용되는 키를 수정할 때 고객 관리 키를 사용 또는 비활성화하거나, 키 버전을 업데이트하거나, 다른 키를 지정하여 계정 암호화 키를 변경하지만 Azure Automation 계정의 보안 자산을 다시 암호화할 필요가 없습니다.
 
 다음 세 섹션에서는 자동화 계정에 대해 고객 관리 키를 사용하도록 설정하는 메커니즘을 설명합니다. 
 

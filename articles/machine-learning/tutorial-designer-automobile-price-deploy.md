@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: aeccd604a4dae3b2ca83f5b599d9a6857acee34a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c3ca37fd47b6551a95f9a491053ec7863acd1eeb
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79037182"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389395"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>자습서: 디자이너(미리 보기)를 사용하여 Machine Learning 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -57,6 +57,8 @@ ms.locfileid: "79037182"
     >
 
 1. **제출**을 선택하고 1부에서 사용한 것과 동일한 컴퓨팅 대상 및 실험을 사용합니다.
+
+    첫 번째 실행인 경우 파이프라인이 실행을 완료하는 데 최대 20분이 걸릴 수 있습니다. 기본 컴퓨팅 설정의 최소 노드 크기는 0입니다. 즉, 디자이너가 유휴 상태가 된 후에 리소스를 할당해야 합니다. 컴퓨팅 리소스가 이미 할당되었기 때문에 반복되는 파이프라인 실행은 시간이 덜 걸립니다. 또한 디자이너는 각 모듈에 대해 캐시된 결과를 사용하여 효율성을 더욱 향상시킵니다.
 
 1. **배포**를 선택합니다.
 

@@ -2,18 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: virtual-machines
-author: barclayn
+author: msmbaldwin
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/13/2019
-ms.author: barclayn
+ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: d0ede337f2ae17f28cd02df7ed35919bd9955e7a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df577ab2b5e9658fd55324c8fd6fd008621b4d46
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74048554"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545891"
 ---
 이 문서에는 Azure 가상 시스템에 대한 보안 권장 사항이 포함되어 있습니다. 다음 권장 사항을 준수하여 공동 책임에 대한 모델에 설명된 보안 의무를 이행하는 데 도움을 줍니다. 또한 권장 사항은 웹 앱 솔루션에 대한 전반적인 보안을 개선하는 데도 도움이 됩니다. Microsoft가 서비스 공급자 의 책임을 수행하기 위해 수행하는 일에 대한 자세한 내용은 [클라우드 컴퓨팅에 대한 공유 책임을](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)참조하십시오.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
-ms.openlocfilehash: 5c79642d287224cd15531701d7cc87ebfd72eb69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eec07a01edc6b126bb7cd3a814912ea5c5b14195
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588045"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529090"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>위협 인텔리전스 제공업체의 데이터 연결
 
@@ -42,6 +42,10 @@ Azure Sentinel을 사용하면 조직에서 사용하는 위협 지표를 가져
 - [MISP 오픈 소스 위협 인텔리전스 플랫폼](https://www.misp-project.org/)
     
     MICROSOFT 그래프 보안 API로 위협 지표를 마이그레이션하는 MISP 인스턴스를 클라이언트에 제공하는 샘플 스크립트는 [MISP에서 Microsoft 그래프 보안 스크립트로](https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP)이동합니다.
+
+- [아노말리 위협스트림](https://www.anomali.com/products/threatstream)
+
+    ThreatStream 통합자 및 확장 및 ThreatStream 인텔리전스를 Microsoft 그래프 보안 API에 연결하는 방법에 대한 지침을 다운로드하려면 [ThreatStream 다운로드](https://ui.threatstream.com/downloads) 페이지를 참조하십시오.
 
 - [팔로 알토 네트웍스 마인멜드](https://www.paloaltonetworks.com/products/secure-the-network/subscriptions/minemeld)
     

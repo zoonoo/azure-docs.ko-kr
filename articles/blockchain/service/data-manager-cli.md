@@ -1,15 +1,15 @@
 ---
 title: Azure CLI - Azure 블록 체인 서비스를 사용하여 블록 체인 데이터 관리자 구성
 description: Azure CLI를 사용하여 Azure 블록 체인 서비스에 대한 블록 체인 데이터 관리자 생성 및 관리
-ms.date: 11/04/2019
+ms.date: 03/30/2020
 ms.topic: article
-ms.reviewer: chroyal
-ms.openlocfilehash: a8061aad6d6a1513de70e7c2bc57aa109c666611
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: ravastra
+ms.openlocfilehash: 5ceca96f760ab62ca7f3df9ad26139b9b4a3e5be
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74455933"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529584"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Azure CLI를 사용하여 Blockchain Data Manager 구성
 
@@ -26,7 +26,7 @@ Azure 블록 체인 서비스에 대한 블록 체인 데이터 관리자를 구
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 최신 [Azure CLI를](https://docs.microsoft.com/cli/azure/install-azure-cli) 설치하고 `az login`를 사용하여 로그인했습니다.
-* [빠른 시작 완료: Visual Studio 코드를 사용하여 Azure 블록 체인 서비스 컨소시엄 네트워크에 연결](connect-vscode.md)
+* [빠른 시작 완료: Visual Studio 코드를 사용하여 Azure 블록 체인 서비스 컨소시엄 네트워크에 연결합니다.](connect-vscode.md) 블록체인 데이터 관리자를 사용할 때는 Azure 블록체인 서비스 *표준* 계층을 사용하는 것이 좋습니다.
 * 이벤트 [그리드 주제](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) 만들기
 * [Azure Event Grid의 이벤트 처리기](../../event-grid/event-handlers.md) 알아보기
 
@@ -59,7 +59,7 @@ az resource create \
                    --properties <watcher resource properties>
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |-----------|-------------|
 | resource-group | 블록 체인 데이터 관리자 인스턴스를 만들 리소스 그룹 이름입니다. |
 | name | 블록체인 데이터 관리자 인스턴스의 이름입니다. |
@@ -79,7 +79,7 @@ JSON 구성 예제는 **미국 동부** 지역에서 블록 체인 관리자 인
 }
 ```
 
-| 요소 | 설명 |
+| 요소 | Description |
 |---------|-------------|
 | 위치 | 감시자 리소스를 만들 수 있는 지역 |
 | properties | 감시자 리소스를 만들 때 설정할 속성 |
@@ -121,7 +121,7 @@ az resource create \
                    --properties <input resource properties>
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |-----------|-------------|
 | resource-group | 입력 리소스를 만들 리소스 그룹 이름입니다. |
 | name | 입력의 이름입니다. |
@@ -147,7 +147,7 @@ az resource create \
 }
 ```
 
-| 요소 | 설명 |
+| 요소 | Description |
 |---------|-------------|
 | 위치 | 입력 리소스를 만들 수 있는 지역입니다. |
 | 입력 유형 | Azure 블록 체인 서비스 멤버의 원장 유형입니다. 현재 **이더리움이** 지원됩니다. |
@@ -193,7 +193,7 @@ az resource create \
                    --properties <output resource properties>
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |-----------|-------------|
 | resource-group | 출력 리소스를 만들 리소스 그룹 이름입니다. |
 | name | 출력의 이름입니다. |
@@ -219,7 +219,7 @@ JSON 구성 예제는 이벤트 그리드 *East US* 항목이라는 \<이벤트 
 }
 ```
 
-| 요소 | 설명 |
+| 요소 | Description |
 |---------|-------------|
 | 위치 | 출력 리소스를 만들 수 있는 지역입니다. |
 | 출력 유형 | 출력 유형입니다. 현재 **EventGrid가** 지원됩니다. |
@@ -270,7 +270,7 @@ az resource create \
                    --properties <Application resource properties>
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |-----------|-------------|
 | resource-group | 응용 프로그램 리소스를 만들 리소스 그룹 이름입니다. |
 | name | 응용 프로그램의 이름입니다. |
@@ -301,7 +301,7 @@ az resource create \
 }
 ```
 
-| 요소 | 설명 |
+| 요소 | Description |
 |---------|-------------|
 | 위치 | 응용 프로그램 리소스를 만들 수 있는 지역입니다. |
 | 아티팩트 유형 | 애플리케이션의 유형입니다. 현재 **이더리움스마트계약이** 지원됩니다. |
@@ -345,7 +345,7 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/<Watcher name>
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |-----------|-------------|
 | action | **시작을** 사용하여 감시자 실행을 실행합니다. |
 | ids | 감시자 리소스 ID. 구독 \<\>ID, \<리소스\>그룹 \<및\> Watcher 이름을 감시자 리소스의 값으로 바꿉니다.|
@@ -370,7 +370,7 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/<Watcher name>
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |-----------|-------------|
 | action | **중지를** 사용하여 감시자가 중지됩니다. |
 | ids | 감시자의 이름입니다. 구독 \<\>ID, \<리소스\>그룹 \<및\> Watcher 이름을 감시자 리소스의 값으로 바꿉니다. |
@@ -396,7 +396,7 @@ az resource delete \
                    --resource-type Microsoft.Blockchain/watchers
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |-----------|-------------|
 | resource-group | 삭제할 감시자의 리소스 그룹 이름입니다. |
 | name | 삭제할 감시자의 이름입니다. |

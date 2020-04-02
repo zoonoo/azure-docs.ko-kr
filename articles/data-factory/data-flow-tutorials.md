@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 03/04/2020
-ms.openlocfilehash: bb996b0abc16a3d6171c8f7ab2ac0e64dd0c1075
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.date: 03/24/2020
+ms.openlocfilehash: cc0feff48e7da35535e30c6741994f48750d931a
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096805"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80293498"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>데이터 흐름 매핑 비디오 자습서
 
@@ -107,6 +107,8 @@ ms.locfileid: "79096805"
 
 [로깅 및 감사](https://www.youtube.com/watch?v=UC__LOyuf8M)
 
+[런타임 시 데이터 흐름 클러스터 크기를 동적으로 최적화](https://www.youtube.com/watch?v=jWSkJdtiJNM)
+
 ## <a name="mapping-data-flow-scenarios"></a>매핑 데이터 흐름 시나리오
 
 [유사 항목 조회](http://youtu.be/7gdwExjHBbw)
@@ -148,3 +150,5 @@ ms.locfileid: "79096805"
 [배열 및 Case 문 분할](https://www.youtube.com/watch?v=DHNH8ZO7YjI)
 
 [문자열 보간 및 매개 변수를 사용하는 재미](https://youtu.be/hb3-cn2CMgM)
+
+[Data Flow 스크립트 소개: 복사, 붙여넣기, 코드 조각](https://www.youtube.com/watch?v=3_1I4XdoBKQ)

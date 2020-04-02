@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: enewman
-ms.openlocfilehash: c52a1212d160adce3a0a0638164833bc2907a856
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1aaf588f61b329fa3b838b8a92f3e287897315b
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76515006"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521178"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Azure 랩 서비스에서 Windows 템플릿 컴퓨터를 설정하는 가이드
 
@@ -185,7 +185,7 @@ Set-ExecutionPolicy default -Force
 3. 드롭다운 메뉴에서 **다운로드** 및 업데이트를 선택합니다.
 4. 업데이트 받기 버튼을 **클릭합니다.**
 
-Powershell을 사용하여 이미 설치된 Microsoft 스토어 응용 프로그램을 업데이트할 수도 있습니다.
+PowerShell을 사용하여 이미 설치된 Microsoft 스토어 응용 프로그램을 업데이트할 수도 있습니다.
 
 ```powershell
 (Get-WmiObject -Namespace "root\cimv2\mdm\dmmap" -Class "MDM_EnterpriseModernAppManagement_AppManagement01").UpdateScanMethod()
@@ -234,3 +234,6 @@ Windows 스토어 앱을 통해 가르치는 데 일반적으로 사용되는 �
 ## <a name="conclusion"></a>결론
 
 이 문서에서는 효과적인 클래스에 대 한 Windows 템플릿 VM을 준비 하는 선택적 단계를 보여 주었다.  단계에는 OneDrive 설치 및 Office 365 설치, Windows용 업데이트 설치 및 Microsoft 스토어 앱에 대 한 업데이트 설치 가 포함 됩니다.  또한 클래스에 가장 적합한 일정에 대한 업데이트를 설정하는 방법에 대해서도 설명했습니다.  
+
+## <a name="next-steps"></a>다음 단계
+비용 관리에 도움이 되는 Windows 종료 동작을 제어하는 방법에 대한 도움말: [Windows 종료 동작 제어 가이드](how-to-windows-shutdown.md) 참조

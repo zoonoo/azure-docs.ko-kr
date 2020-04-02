@@ -8,17 +8,17 @@ author: asudbring
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 411c06e19b932b441f27a3c7578d847c6dfc1f7a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55fa14f367dbf24e951fde8e9075a34499a510b1
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336999"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547068"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -40,7 +40,7 @@ Azure에서는 SNAT(원본 네트워크 주소 변환)를 사용하여 이 기�
 
 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 사용하는 경우 Azure Load Balancer 및 관련 리소스가 명시적으로 정의됩니다.  현재 Azure는 Azure Resource Manager 리소스에 대한 아웃바운드 연결을 달성할 수 있는 세 가지 방법을 제공합니다. 
 
-| SKU | 시나리오 | 방법 | IP 프로토콜 | 설명 |
+| SKU | 시나리오 | 방법 | IP 프로토콜 | Description |
 | --- | --- | --- | --- | --- |
 | 표준, 기본 | [1. 인스턴스 수준 공용 IP 주소가 있는 VM(로드 밸런서 유무)](#ilpip) | SNAT, 포트 가장 사용 안 함 | TCP, UDP, ICMP, ESP | Azure는 인스턴스 NIC의 IP 구성에 할당된 공용 IP를 사용합니다. 인스턴스에 있는 모든 삭제 포트를 사용할 수 있습니다. 표준 로드 밸런서를 사용하는 경우 공용 IP가 가상 시스템에 할당된 경우 [아웃바운드 규칙이](load-balancer-outbound-rules-overview.md) 지원되지 않습니다. |
 | 표준, 기본 | [2. VM과 연결된 공용 로드 밸런서(인스턴스의 공용 IP 주소 없음)](#lb) | Load Balancer 프런트 엔드를 사용하여 포트를 가장하는(PAT) SNAT | TCP, UDP |Azure는 공용 Load Balancer 프런트 엔드의 공용 IP 주소를 여러 개인 IP 주소와 공유합니다. Azure는 프런트 엔드의 삭제 포트를 PAT에 사용합니다. [아웃바운드 규칙을](load-balancer-outbound-rules-overview.md) 사용하여 아웃바운드 연결을 명시적으로 정의해야 합니다. |

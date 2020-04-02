@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: 33005bc286f7dc2c0ebed74bd9df0309e71346f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f501eb55f72811063ddf1d8e02a0ce2137d598f3
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73824827"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546307"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>원격 모니터링 솔루션 가속기 개요
 
@@ -125,9 +125,6 @@ ASA 작업은 스토리지 및 분석을 위해 원격 분석을 연결된 디�
 ### <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
 [Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/)는 솔루션 가속기에 연결된 디바이스의 원격 분석을 저장합니다. 또한 솔루션 웹 UI에서 디바이스 원격 분석을 시각화하고 쿼리할 수 있습니다.
-
-> [!NOTE]
-> Time Series Insights는 현재 Azure 중국 클라우드에서 사용할 수 없습니다. Azure China 클라우드에서 새 원격 모니터링 솔루션 가속기를 배포하는 경우 모든 스토리지에 Cosmos DB를 사용합니다.
 
 ### <a name="configuration-microservice"></a>구성 마이크로 서비스
 

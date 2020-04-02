@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f16f6ef38b221e525340858fc7ba131f8a1bdf5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10fc822f9f36512405dd4e3b5aba6270b53e163f
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289577"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549039"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>이벤트 허브에 대한 Azure 보안 기준
 
@@ -72,7 +72,7 @@ Azure 보안 센터에서 제공하는 네트워크 보안 이해:https://docs.m
 
 **지침**: 이벤트 허브와 연결된 가상 네트워크에서 DDoS 보호 표준을 사용하여 분산 서비스 거부(DDoS) 공격방지를 수행합니다. Azure 보안 센터 통합 위협 인텔리전스를 사용하여 알려진 악성 또는 사용되지 않는 인터넷 IP 주소와의 통신을 거부합니다.
 
-DDoS 보호를 구성하는 방법:https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
+DDoS 보호를 구성하는 방법:[https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](/azure/virtual-network/manage-ddos-protection)
 
 Azure 보안 센터 통합 위협 인텔리전스에 대한 자세한 내용은 다음을 참조하십시오.https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
@@ -106,7 +106,7 @@ https://azuremarketplace.microsoft.com/marketplace/?term=Firewall
 
 지정된 IP 주소에 대해 이벤트 허브에 방화벽 규칙을 추가하는 방법:
 
- https://docs.microsoft.com/azure/event-hubs/event-hubs-tutorial-virtual-networks-firewalls#add-firewall-for-specified-ip
+ https://docs.microsoft.com/azure/event-hubs/event-hubs-ip-filtering
 
 **Azure 보안 센터 모니터링**: 아직 사용할 수 없습니다.
 
@@ -140,7 +140,7 @@ Azure 정책을 구성하고 관리하는 방법:https://docs.microsoft.com/azur
 
 
 
-네트워킹을 위한 Azure 정책 샘플:https://docs.microsoft.com/azure/governance/policy/samples/#network
+네트워킹을 위한 Azure 정책 샘플:https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network
 
 
 
@@ -373,10 +373,7 @@ Azure에서 MFA를 활성화하는 방법:https://docs.microsoft.com/azure/activ
 
 **지침**: 환경에서 의심스럽거나 안전하지 않은 활동이 발생할 때 로그 및 경고를 생성하기 위해 AD(Azure Active Directory) 권한 ID 관리(PIM)를 사용합니다. Azure AD 위험 검색을 사용하여 위험한 사용자 동작에 대한 경고 및 보고서를 볼 수 있습니다. 추가 로깅을 위해 Azure Security Center 위험 감지 경고를 Azure Monitor로 보내고 작업 그룹을 사용하여 사용자 지정 경고/알림을 구성합니다.
 
-
-
 권한 있는 ID 관리(PIM)를 배포하는 방법:https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
-
 
 Azure AD 위험 감지 이해:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
@@ -780,7 +777,7 @@ Azure 리소스 관리자에 대한 액세스를 차단하기 위해 조건부 �
 
 - 이벤트 허브는 가상 네트워크 서비스 엔드포인트를 사용해야 함
 
-이벤트 허브 네임스페이스에 대한 Azure https://docs.microsoft.com/en-\ 기본 제공 정책: us/azure/거버넌스/정책/샘플/기본 제공 정책#이벤트 허브
+이벤트 허브 네임스페이스에 대한 Azure 기본 제공 정책:https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
 
 사용 가능한 Azure 정책 별칭을 보는 방법:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
@@ -961,7 +958,7 @@ Microsoft 맬웨어 방지는 Azure 서비스(예: Redis용 Azure 캐시)를 지
 
 **지침**: Azure 이벤트 허브에 대한 지역 재해 복구를 구성합니다. (가용성 영역을 사용하지 않는 경우)전체 Azure 지역 또는 데이터 센터에서 가동 중지 시간이 발생하면 데이터 처리가 다른 지역 또는 데이터 센터에서 계속 작동되는 것이 중요합니다. 따라서 지오 재해 복구 및 지리적 복제는 모든 기업에서 중요한 기능입니다. Azure Event Hubs는 네임스페이스 수준에서 지리적 재해 복구 및 지리적 복제를 둘 다 지원합니다. 
 
-Azure 이벤트 허브에 대한 지역 재해 복구 이해:https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#availability-zones-preview
+Azure 이벤트 허브에 대한 지역 재해 복구 이해:https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#availability-zones
 
 **Azure 보안 센터 모니터링**: 현재 사용할 수 없음
 

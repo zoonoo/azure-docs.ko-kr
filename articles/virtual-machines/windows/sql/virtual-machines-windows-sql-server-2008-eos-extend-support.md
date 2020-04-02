@@ -14,12 +14,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6c27fa8f80140e6db92ea0f998852507260cc278
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: faaff9e9ad5982efac6409f2284158a3d0711331
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80159543"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548399"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Azure를 사용하여 SQL Server 2008 및 SQL Server 2008 R2에 대한 지원을 확장합니다.
 
@@ -66,7 +66,7 @@ SQL Server는 복구를 보장하기 위해 앱 일관된 Azure 사이트 복구
 
 Azure VM의 EOS SQL Server에 대한 재해 복구 솔루션은 다음과 같습니다.
 
-- **SQL Server 백업**: Azure Backup을 사용하여 EOS SQL Server 2008 및 2008 R2를 15분 RPO 및 시점 복구로 랜섬웨어, 우발적인 삭제 및 손상으로부터 보호합니다. 자세한 내용은 [이 문서를](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#scenario-support)참조하십시오.
+- **SQL Server 백업**: Azure Backup을 사용하여 EOS SQL Server 2008 및 2008 R2를 15분 RPO 및 시점 복구로 랜섬웨어, 우발적인 삭제 및 손상으로부터 보호합니다. 자세한 내용은 [이 문서를](https://docs.microsoft.com/azure/backup/sql-support-matrix#scenario-support)참조하십시오.
 - **로그 전달**: RTO를 줄이기 위해 연속 복원을 사용하여 다른 영역 또는 Azure 영역에서 로그 전달 복제본을 만들 수 있습니다. 로그 전달을 수동으로 구성해야 합니다.
 - **Azure 사이트 복구**: Azure 사이트 복구 복제를 통해 영역과 지역 간에 VM을 복제할 수 있습니다. SQL Server는 재해 발생 시 복구를 보장하기 위해 앱 일관된 스냅숏이 필요합니다. Azure 사이트 복구는 EOS SQL Server 재해 복구를 위한 최소 1시간 RPO 및 2시간(SQL 서버 복구 시간 포함) RTO를 제공합니다.
 

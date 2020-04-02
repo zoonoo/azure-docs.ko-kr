@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 5620d1cdc7dc71bdac17057b9a13a74150b12d5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eb96cb32c05d2ba3fbd38e72c16540d947436117
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77612523"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519050"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>자습서: Azure Active Directory 도메인 서비스에서 온-프레미스 도메인에 아웃바운드 포리스트 트러스트 만들기(미리 보기)
 
@@ -31,14 +31,14 @@ ms.locfileid: "77612523"
 > * Azure AD DS에서 단방향 아웃바운드 포리스트 트러스트 만들기
 > * 인증 및 리소스 액세스에 대한 신뢰 관계를 테스트하고 유효성 을 검사합니다.
 
-Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
 * 활성화된 Azure 구독.
-    * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * Azure 구독이 없는 경우 [계정을 만듭니다.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure Active Directory 도메인 서비스 관리 도메인 리소스 포리스트를 사용 하 여 만들어지고 Azure AD 테넌트에서 구성 되었습니다.
@@ -59,7 +59,7 @@ Azure AD DS에서 포리스트 트러스트를 구성하기 전에 Azure 와 온
 
 * 개인 IP 주소를 사용합니다. 동적 IP 주소 할당을 사용하여 DHCP에 의존하지 마십시오.
 * 가상 네트워크 피어링 및 라우팅이 Azure와 온-프레미스 간에 성공적으로 통신할 수 있도록 IP 주소 공간이 겹치지 않도록 합니다.
-* Azure 가상 네트워크에는 사이트 간(S2S) VPN 또는 ExpressRoute 연결을 구성하기 위해 게이트웨이 서브넷이 필요합니다.
+* Azure 가상 네트워크에는 [Azure 사이트 간(S2S) VPN][vpn-gateway] 또는 [ExpressRoute][expressroute] 연결을 구성하기 위해 게이트웨이 서브넷이 필요합니다.
 * 시나리오를 지원하기에 충분한 IP 주소가 있는 서브넷을 만듭니다.
 * Azure AD DS에 자체 서브넷이 있는지 확인하고 이 가상 네트워크 서브넷을 응용 프로그램 VM 및 서비스와 공유하지 마십시오.
 * 피어있는 가상 네트워크는 전이되지 않습니다.
@@ -74,7 +74,7 @@ Azure AD DS에서 포리스트 트러스트를 구성하기 전에 Azure 와 온
 1. 시작 선택 **| 관리 도구 | DNS**
 1. *myAD01과*같은 오른쪽 선택 DNS 서버, **속성** 선택
 1. **전달자를**선택한 다음 **편집하여** 추가 전달자를 추가합니다.
-1. Azure AD DS 관리 도메인의 IP 주소(예: *10.0.1.4* 및 *10.0.1.5)를*추가합니다.
+1. Azure AD DS 관리 도메인의 IP 주소(예: *10.0.2.4* 및 *10.0.2.5)를*추가합니다.
 
 ## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>온-프레미스 도메인에서 인바운드 포리스트 트러스트 만들기
 
@@ -85,10 +85,6 @@ Azure AD DS에서 포리스트 트러스트를 구성하기 전에 Azure 와 온
 1. 시작 선택 **| 관리 도구 | 활성 디렉터리 도메인 및 트러스트**
 1. *onprem.contoso.com*등 오른쪽 선택 도메인, **속성** 선택
 1. 트러스트 탭을 선택한 다음 **새 트러스트를** **선택합니다.**
-
-   > [!NOTE]
-   > **트러스트** 메뉴 옵션이 표시되지 않으면 **속성** 에서 *포리스트 형식의*을 확인합니다. *리소스* 포리스트만 트러스트를 만들 수 있습니다. 포리스트 형식이 *사용자인*경우 트러스트를 만들 수 없습니다. 현재 Azure AD DS 관리 도메인의 포리스트 유형을 변경할 수 있는 방법은 없습니다. 관리되는 도메인을 삭제하고 리소스 포리스트로 다시 만들어야 합니다.
-
 1. Azure AD DS 도메인 이름에 이름을 입력(예: *aaddscontoso.com)* 다음을 **선택합니다.**
 1. **포리스트 트러스트를**만드는 옵션을 선택한 다음 **받는 트러스트를** 만드는 한 가지 방법을 만듭니다.
 1. **이 도메인에 대해서만**트러스트를 만들도록 선택합니다. 다음 단계에서는 Azure AD DS 관리 도메인에 대한 Azure 포털에서 트러스트를 만듭니다.
@@ -104,12 +100,16 @@ Azure 포털에서 Azure AD DS 관리 도메인에 대한 아웃바운드 트러
 
 1. Azure 포털에서 **Azure AD 도메인 서비스를**검색하고 선택한 다음 *관리되는* 도메인(예: aaddscontoso.com
 1. Azure AD DS 관리 도메인의 왼쪽에 있는 메뉴에서 트러스트를 선택한 다음 + 트러스트 **추가를** **선택합니다.**
+
+   > [!NOTE]
+   > **트러스트** 메뉴 옵션이 표시되지 않으면 **속성** 에서 *포리스트 형식의*을 확인합니다. *리소스* 포리스트만 트러스트를 만들 수 있습니다. 포리스트 형식이 *사용자인*경우 트러스트를 만들 수 없습니다. 현재 Azure AD DS 관리 도메인의 포리스트 유형을 변경할 수 있는 방법은 없습니다. 관리되는 도메인을 삭제하고 리소스 포리스트로 다시 만들어야 합니다.
+
 1. 신뢰를 식별하는 표시 이름을 입력한 다음 온-프레미스에서 신뢰할 수 있는 포리스트 DNS 이름(예: *onprem.contoso.com*
 1. 이전 섹션에서 온-프레미스 AD DS 도메인에 대 한 인바운드 포리스트 트러스트를 구성할 때 사용 된 동일한 신뢰 암호를 제공 합니다.
-1. 온-프레미스 AD DS 도메인에 대해 *10.0.2.4 및 10.0.2.5와* 같은 두 개 이상의 DNS 서버를 제공합니다. *10.0.2.5*
+1. 온-프레미스 AD DS 도메인에 대해 *10.1.1.4* 및 *10.1.1.5와* 같은 두 개 이상의 DNS 서버를 제공합니다.
 1. 준비가 되면 아웃바운드 포리스트 트러스트 **저장**
 
-    [Azure 포털에서 아웃바운드 포리스트 트러스트 만들기](./media/create-forest-trust/portal-create-outbound-trust.png)
+    ![Azure 포털에서 아웃바운드 포리스트 트러스트 만들기](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
 
 ## <a name="validate-resource-authentication"></a>리소스 인증 유효성 검사
 
@@ -126,11 +126,7 @@ Azure 포털에서 Azure AD DS 관리 도메인에 대한 아웃바운드 트러
 
 Windows Server 가상 컴퓨터가 Azure AD DS 리소스 도메인에 조인되어 있어야 합니다. 이 가상 컴퓨터를 사용하여 온-프레미스 사용자가 가상 컴퓨터에서 인증할 수 있는 테스트를 합니다.
 
-1. 원격 데스크톱 및 Azure AD DS 관리자 자격 증명을 사용하여 Azure AD DS 리소스 포리스트에 가입한 Windows 서버 VM에 연결합니다. NLA(네트워크 수준 인증) 오류가 발생하면 사용한 사용자 계정이 도메인 사용자 계정이 아닌지 확인합니다.
-
-    > [!NOTE]
-    > Azure AD 도메인 서비스에 가입한 VM에 안전하게 연결하려면 지원되는 Azure 지역에서 [Azure 요새 호스트 서비스를](https://docs.microsoft.com/azure/bastion/bastion-overview) 사용할 수 있습니다.
-
+1. [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) 및 Azure AD DS 관리자 자격 증명을 사용하여 Azure AD DS 리소스 포리스트에 가입한 Windows 서버 VM에 연결합니다.
 1. 명령 프롬프트를 `whoami` 열고 명령을 사용하여 현재 인증된 사용자의 고유 이름을 표시합니다.
 
     ```console
@@ -152,10 +148,7 @@ Azure AD DS 리소스 포리스트에 가입된 Windows Server VM을 사용하�
 
 #### <a name="enable-file-and-printer-sharing"></a>파일 및 프린터 공유 사용
 
-1. 원격 데스크톱 및 Azure AD DS 관리자 자격 증명을 사용하여 Azure AD DS 리소스 포리스트에 가입한 Windows 서버 VM에 연결합니다. NLA(네트워크 수준 인증) 오류가 발생하면 사용한 사용자 계정이 도메인 사용자 계정이 아닌지 확인합니다.
-
-    > [!NOTE]
-    > Azure AD 도메인 서비스에 가입한 VM에 안전하게 연결하려면 지원되는 Azure 지역에서 [Azure 요새 호스트 서비스를](https://docs.microsoft.com/azure/bastion/bastion-overview) 사용할 수 있습니다.
+1. [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) 및 Azure AD DS 관리자 자격 증명을 사용하여 Azure AD DS 리소스 포리스트에 가입한 Windows 서버 VM에 연결합니다.
 
 1. **Windows 설정을**열고 네트워크 및 공유 **센터를 검색하고**선택합니다.
 1. 고급 공유 설정 변경 옵션을 **선택합니다.**
@@ -221,3 +214,5 @@ Azure AD DS의 포리스트 형식에 대한 자세한 개념 정보는 [리소�
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance-advanced]: tutorial-create-instance-advanced.md
 [howto-change-sku]: change-sku.md
+[vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
+[expressroute]: ../expressroute/expressroute-introduction.md

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1aed1b0a13482bc932024a9d2a131ec5f1d948ba
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d3d6b33211f6f247d9f30c0f162b388085faabe6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78186899"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80332542"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Azure Active Directory B2C의 기술 및 기능 개요
 
@@ -195,7 +195,7 @@ Azure AD B2C의 사용자 언어 지정을 사용하면 고객의 요구 사항�
 * Azure AD B2C에서 새 계정을 디렉터리에 만든 후에
 * Azure AD B2C에서 액세스 토큰을 발급하기 전에
 
-Azure AD B2C에서 RESTful API 통합에 대한 사용자 지정 정책을 사용하는 방법을 알아보려면 [Azure AD B2C 사용자 경험에서 REST API 클레임 교환 통합](rest-api-claims-exchange-dotnet.md)을 참조하세요.
+Azure AD B2C에서 RESTful API 통합에 대한 사용자 지정 정책을 사용하는 방법을 알아보려면 [Azure AD B2C 사용자 지정 정책에서 REST API 클레임 교환 통합](custom-policy-rest-api-intro.md)을 참조하세요.
 
 ## <a name="protect-customer-identities"></a>고객 ID 보호
 

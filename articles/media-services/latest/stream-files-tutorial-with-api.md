@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: f8ff3dc71727abf9e276cccc951c4d1143f4200d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: 4e40d26e392219fb751328bc54855d87e80bae19
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359518"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80346003"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>자습서: Media Services v3로 비디오 업로드, 인코딩 및 스트리밍
+# <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>자습서: Media Services v3를 사용하여 비디오 업로드, 인코딩 및 스트리밍
 
 > [!NOTE]
 > 이 자습서에서 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 예제를 사용하지만, 일반적인 단계는 [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) 또는 지원되는 기타 [SDK](media-services-apis-overview.md#sdks)와 동일합니다.
@@ -40,7 +40,7 @@ Azure Media Services를 사용하면 다양한 브라우저 및 디바이스에�
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Visual Studio가 설치되지 않은 경우 [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)을 받을 수 있습니다.
 - [Media Services 계정 만들기](create-account-cli-how-to.md)<br/>리소스 그룹 이름 및 Media Services 계정 이름에 사용한 값을 기억해 두세요.
@@ -60,7 +60,7 @@ Azure Media Services를 사용하면 다양한 브라우저 및 디바이스에�
 
 ## <a name="examine-the-code-that-uploads-encodes-and-streams"></a>업로드, 인코딩 및 스트림하는 코드 검사
 
-이 섹션에서는 [UploadEncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs) 프로젝트의 *Program.cs* 파일에 정의된 함수를 살펴봅니다.
+이 섹션에서는 *UploadEncodeAndStreamFiles* 프로젝트의 [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs) 파일에 정의된 함수를 살펴봅니다.
 
 샘플은 다음 작업을 수행합니다.
 
@@ -72,7 +72,7 @@ Azure Media Services를 사용하면 다양한 브라우저 및 디바이스에�
 6. **스트리밍 로케이터**를 만듭니다.
 7. 스트리밍 URL을 빌드합니다.
 
-### <a name="a-idstart_using_dotnet-start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />.NET SDK로 Media Services API 사용하기
+### <a name="start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />.NET SDK로 Media Services API 사용하기
 
 .NET으로 Media Services API를 사용하려면 **AzureMediaServicesClient** 개체를 만들어야 합니다. 개체를 만들려면 Azure AD를 사용하여 클라이언트가 Azure에 연결하는 데 필요한 자격 증명을 제공해야 합니다. 아티클의 시작 부분에서 복제한 코드에서 **GetCredentialsAsync** 함수는 로컬 구성 파일에 제공된 자격 증명에 따라 ServiceClientCredentials 개체를 만듭니다.
 
@@ -87,7 +87,9 @@ Media Services v3에서는 Azure Storage API를 사용하여 파일을 업로드
 다음 함수는 아래와 같은 작업을 수행합니다.
 
 * **자산** 만들기
-* [스토리지에 있는 자산 컨테이너](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)에 대해 쓰기가 가능한 [SAS URL](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container) 가져오기
+* [스토리지에 있는 자산 컨테이너](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)에 대해 쓰기가 가능한 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 가져오기
+
+    자산의 [ListContainerSas](https://docs.microsoft.com/rest/api/media/assets/listcontainersas) 함수를 사용하여 SAS URL을 가져오는 경우 각 스토리지 계정에 대해 두 개의 스토리지 계정 키가 있으므로 이 함수는 여러 SAS URL을 반환합니다. 스토리지 계정에는 스토리지 계정 키를 원활하게 회전할 수 있도록 두 개의 키가 있습니다(예: 다른 키를 사용하는 동안 하나를 변경한 다음, 새 키를 사용하여 다른 키를 회전). 첫 번째 SAS URL은 스토리지 key1 및 두 번째 스토리지 key2를 나타냅니다.
 * SAS URL을 사용하여 스토리지의 컨테이너에 파일 업로드
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -126,7 +128,7 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
 
 Event Grid는 고가용성, 일관된 성능 및 동적 확장을 위해 설계되었습니다. Event Grid를 사용하면 앱이 사용자 지정 원본뿐만 아니라 거의 모든 Azure 서비스의 이벤트에 대해 수신 대기하고 대응할 수 있습니다. 간단한 HTTP 기반 반응형 이벤트 처리는 이벤트의 지능형 필터링 및 라우팅을 통해 효율적인 솔루션을 구축하는 데 도움이 됩니다.  [이벤트를 사용자 지정 웹 엔드포인트로 라우팅](job-state-events-cli-how-to.md)을 참조하세요.
 
-**작업**은 일반적으로 **예약됨**, **큐에 대기됨**, **처리 중**, **마침**(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중**이 표시되고, 취소가 완료되면 **취소됨**이 표시됩니다.
+**작업**은 일반적으로 **예약됨**, **대기**, **처리 중**, **마침**(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중**이 표시되고, 취소가 완료되면 **취소됨**이 표시됩니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#WaitForJobToFinish)]
 
@@ -153,7 +155,7 @@ Event Grid는 고가용성, 일관된 성능 및 동적 확장을 위해 설계�
 
 ### <a name="get-streaming-urls"></a>스트리밍 URL 얻기
 
-[스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators)가 생성되었으므로 **GetStreamingURLs**에 표시된 것처럼 스트리밍 URL을 가져올 수 있습니다. URL을 빌드하려면 [스트리밍 엔드포인트](https://docs.microsoft.com/rest/api/media/streamingendpoints) 호스트 이름과 **스트리밍 로케이터** 경로를 연결해야 합니다. 이 샘플에서는 *기본* **스트리밍 끝점이** 사용 됩니다. 미디어 서비스 계정을 처음 만들 때이 *기본* **스트리밍 끝점** 은 중지 됨 상태가 되므로 **Start**를 호출 해야 합니다.
+[스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators)가 생성되었으므로 **GetStreamingURLs**에 표시된 것처럼 스트리밍 URL을 가져올 수 있습니다. URL을 빌드하려면 [스트리밍 엔드포인트](https://docs.microsoft.com/rest/api/media/streamingendpoints) 호스트 이름과 **스트리밍 로케이터** 경로를 연결해야 합니다. 이 샘플에서는 *기본* **스트리밍 엔드포인트**가 사용됩니다. Media Service 계정을 처음으로 만들면 이 *기본* **스트리밍 엔드포인트**가 중지된 상태이므로 **Start**를 호출해야 합니다.
 
 > [!NOTE]
 > 이 메서드에서는 출력 자산에 대한 **스트리밍 로케이터**를 만들 때 사용된 locatorName이 필요합니다.

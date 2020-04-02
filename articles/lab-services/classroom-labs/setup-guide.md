@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/18/2020
 ms.author: spelluru
-ms.openlocfilehash: d58e11551c2857c269e8985e81f84138f6d389ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b87107545761e10c6fb648e54064fbafbdbacd52
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370818"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546000"
 ---
 # <a name="classroom-lab-setup-guide"></a>교실 랩 설정 가이드
 
@@ -79,7 +79,7 @@ ms.locfileid: "80370818"
 학생에게는 랩의 수명 동안 할당된 자신의 VM이 할당됩니다.  다음을 선택할 수 있습니다.
 
 - VM에 직접 저장합니다.
-- OneDrive, GitHub 등과 같은 외부 저장소에 저장합니다.
+- OneDrive, GitHub 등과 같은 외부 위치에 저장합니다.
 
 OneDrive를 사용하려면 랩 VM의 학생에 대해 자동으로 구성하도록 선택할 수 있습니다.  이에 대한 추가 정보는 아래에 제공됩니다.
 
@@ -133,7 +133,7 @@ Linux VM의 경우 학생은 SSH 또는 RDP를 사용할 수 있습니다.   RDP
         > [!NOTE]
         > 설치한 OS 유형에 따라 VM을 시작하는 데 몇 분 정도 걸릴 수 있습니다.  랩 VM을 예약된 시간 동안 사용할 수 있도록 하려면 VM을 30분 전에 시작하여 VM을 실행하고 사용할 준비가 되었는지 확인하는 것이 좋습니다.
 
-   - [사용자에 대한 할당량을 설정하고](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users) [특정 사용자에 대한 추가 할당량 설정](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-additional-quota-for-a-specific-user)
+   - [사용자에 대한 할당량을 설정하고](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users) [특정 사용자에 대한 추가 할당량 설정](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-additional-quotas-for-specific-users)
   
    - [연결 해제 시 자동 종료 사용](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
 

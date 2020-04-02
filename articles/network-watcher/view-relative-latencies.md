@@ -1,5 +1,5 @@
 ---
-title: 특정 위치에서 Azure 지역에 연결할 때의 상대적 대기 시간 보기 | Microsoft Docs
+title: 특정 위치에서 Azure 지역에 대한 상대 대기 시간 보기
 description: 특정 위치에서 Azure 지역에 연결할 때 인터넷 공급자 간 상대적 대기 시간을 확인하는 방법을 알아봅니다.
 services: network-watcher
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: c3a85de3a201a89d6d9500e4f4b2df9e667e3537
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39f81731f20566d1a39f3f0931ff52c4e8b43ec0
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840539"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521388"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>특정 위치에서 Azure 지역에 연결할 때의 상대적 대기 시간 보기
 
 > [!WARNING]
 > 이 기능은 현재 미리 보기 중이며 안정성을 위해 테스트 중입니다.
 
-이 자습서에서는 Azure [Network Watcher](network-watcher-monitoring-overview.md) 서비스를 사용하여 사용자 인구 통계를 기준으로 애플리케이션 또는 서비스를 배포할 Azure 지역을 결정하는 데 도움을 얻는 방법을 알아봅니다. 또한 이 서비스를 사용하여 Azure에 대한 서비스 공급자 연결을 평가할 수 있습니다.  
+이 자습서에서는 Azure [Network Watcher](network-watcher-monitoring-overview.md) 서비스를 사용하여 사용자 인구 통계를 기준으로 애플리케이션 또는 서비스를 배포할 Azure 지역을 결정하는 데 도움을 얻는 방법을 알아봅니다. 또한 Azure에 대한 서비스 공급자의 연결을 평가하는 데 사용할 수 있습니다.  
         
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -45,7 +45,7 @@ New-AzNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatch
 
 ## <a name="compare-relative-network-latencies-to-a-single-azure-region-from-a-specific-location"></a>특정 위치에서 단일 Azure 지역에 연결할 때의 상대적 네트워크 대기 시간 비교
 
-서비스 공급자를 평가하거나, 특정 위치에서 서비스가 배포된 Azure 지역에 연결할 때 "사이트가 느림"과 같은 문제를 해결합니다. 예를 들어, 다음 명령은 2017년 12월 13~15일 동안 미국 워싱턴주와 미국 서부 2 Azure 지역 간의 평균 상대 인터넷 서비스 공급자 대기 시간을 반환합니다.
+서비스 공급자를 평가하거나 특정 위치에서 서비스가 배포된 Azure 지역으로 "사이트가 느렸습니다"와 같은 문제를 보고하는 사용자 문제를 해결합니다. 예를 들어, 다음 명령은 2017년 12월 13~15일 동안 미국 워싱턴주와 미국 서부 2 Azure 지역 간의 평균 상대 인터넷 서비스 공급자 대기 시간을 반환합니다.
 
 ```powershell
 Get-AzNetworkWatcherReachabilityReport `

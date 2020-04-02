@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 9bbd62bc05e03641c2abe9308d9238bef23877c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9184808b71cce03882022fd37967fe421e64062
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71104975"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548979"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git을 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법
 
@@ -148,7 +148,7 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 
 로컬 Git 리포지토리의 파일 및 폴더에는 서비스 인스턴스에 관한 구성 정보가 포함되어 있습니다.
 
-| 항목 | 설명 |
+| 항목 | Description |
 | --- | --- |
 | 루트 api 관리 폴더 |서비스 인스턴스에 대한 최상의 구성 포함 |
 | apis 폴더 |서비스 인스턴스의 apis에 대한 구성 포함 |
@@ -223,7 +223,7 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 `apis` 폴더에는 다음 항목을 포함한 서비스 인스턴스의 각 API에 대한 폴더가 포함되어 있습니다.
 
 * `apis\<api name>\configuration.json` - API에 대한 구성이며 백 엔드 서비스 URL 및 작업에 관한 정보를 포함하고 있습니다. 이는 `application/json` 형식의 `export=true`을 사용한 [특정 API 가져오기](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apis/get)를 호출하려는 경우 반환되는 것과 같은 정보입니다.
-* `apis\<api name>\api.description.html` - API에 대한 설명이며 [API 엔터티](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property)의 `description` 속성에 해당합니다.
+* `apis\<api name>\api.description.html` - API에 대한 설명이며 [API 엔터티](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.entityproperty)의 `description` 속성에 해당합니다.
 * `apis\<api name>\operations\` - 이 폴더는 작업을 API에 매핑하는 `<operation name>.description.html` 파일을 포함하고 있습니다. 각 파일은 REST API에서 [작업 엔터티](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties)의 `description` 속성에 매핑되는 API의 단일 작업에 대한 설명을 포함하고 있습니다.
 
 ### <a name="groups-folder"></a>groups 폴더

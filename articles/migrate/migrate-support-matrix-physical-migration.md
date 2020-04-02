@@ -2,13 +2,14 @@
 title: Azure 마이그레이션의 물리적 서버 마이그레이션 지원
 description: Azure 마이그레이션에서 물리적 서버 마이그레이션에 대한 지원에 대해 알아봅니다.
 ms.topic: conceptual
+ms.custom: fasttrack-edit
 ms.date: 01/07/2020
-ms.openlocfilehash: e55cf6dddbc8dafd33b444e4a0dbe378d807aea1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f8b94ab77a1eef8e771384f5d69da98a1d7ae6c
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79269550"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520275"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>물리적 서버 마이그레이션을 위한 지원 매트릭스
 
@@ -43,7 +44,7 @@ ms.locfileid: "79269550"
 **네트워크/스토리지** | 최신 정보는 사이트 복구의 [네트워크](../site-recovery/vmware-physical-azure-support-matrix.md#network) 및 [저장소](../site-recovery/vmware-physical-azure-support-matrix.md#storage) 필수 구성 조건을 검토합니다. Azure 마이그레이션은 동일한 네트워크/저장소 요구 사항을 제공합니다.
 **Azure 요구 사항** | 최신 정보는 [Azure 네트워크,](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover) [저장소](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)및 사이트 복구에 대한 계산 요구 사항을 [검토합니다.](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) Azure 마이그레이션에는 물리적 서버 마이그레이션에 대한 동일한 요구 사항이 있습니다.
 **모빌리티 서비스** | 마이그레이션하려는 각 컴퓨터에 모빌리티 서비스 에이전트를 설치해야 합니다.
-**UEFI 부츠** | Azure에서 마이그레이션된 컴퓨터는 BIOS 부팅 Azure VM으로 자동으로 변환됩니다.<br/><br/> OS 디스크에는 최대 4개의 파티션이 있어야 하며 볼륨은 NTFS로 포맷되어야 합니다.
+**UEFI 부츠** | Azure에서 마이그레이션된 컴퓨터는 BIOS 부팅 Azure VM으로 자동으로 변환됩니다. Windows Server 2012를 실행하는 서버만 나중에 지원됩니다.<br/><br/> OS 디스크에는 최대 4개의 파티션이 있어야 하며 볼륨은 NTFS로 포맷되어야 합니다.
 **대상 디스크** | 컴퓨터는 Azure에서 관리되는 디스크(표준 HDD, 프리미엄 SSD)로만 마이그레이션할 수 있습니다.
 **디스크 크기** | 2 TB OS 디스크; 데이터 디스크의 경우 8TB입니다.
 **디스크 제한** |  컴퓨터당 최대 63개의 디스크.
@@ -85,7 +86,7 @@ Azure에 복제된 모든 온-프레미스 VM은 이 테이블에 요약된 Azur
 FC 디스크 | 지원되지 않습니다. | 지원되지 않는 경우 확인이 실패합니다.
 BitLocker | 지원되지 않습니다. | 컴퓨터의 복제를 사용하도록 설정하기 전에 Bitlocker를 사용하지 않도록 설정해야 합니다.
 VM 이름 | 1~63자 사이입니다.<br/> 문자, 숫자 및 하이픈으로 제한됩니다.<br/><br/> 컴퓨터 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. |  Site Recovery에서 컴퓨터 속성의 값을 업데이트합니다.
-마이그레이션 후 연결-Windows | 마이그레이션 후 Windows를 실행하는 Azure VM에 연결하려면 다음을 수행하십시오.<br/> - 마이그레이션 전에 온-프레미스 VM에서 RDP를 사용할 수 있습니다. **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 허용되는지 확인합니다.<br/> 사이트 간 VPN 액세스를 위해 RDP를 사용하도록 설정하고 **Windows 방화벽에서** -> RDP허용**앱 및** 도메인 및 **개인** 네트워크에 대한 기능을 허용합니다. 또한 운영 체제의 SAN 정책이 **OnlineAll로**설정되어 있는지 확인합니다. [자세히 알아봅니다](prepare-for-migration.md). |
+마이그레이션 후 연결-Windows | 마이그레이션 후 Windows를 실행하는 Azure VM에 연결하려면 다음을 수행하십시오.<br/> - 마이그레이션 전에 온-프레미스 VM에서 RDP를 사용할 수 있습니다. **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 허용되는지 확인합니다.<br/> 사이트 간 VPN 액세스를 위해 RDP를 사용하도록 설정하고 **Windows 방화벽에서** -> RDP허용**앱 및** 도메인 및 **개인** 네트워크에 대한 기능을 허용합니다. 또한 운영 체제의 SAN 정책이 **OnlineAll로**설정되어 있는지 확인합니다. [자세히 알아보기](prepare-for-migration.md). |
 마이그레이션 후 연결-리눅스 | SSH를 사용하여 마이그레이션한 후 Azure VM에 연결하려면 다음을 수행합니다.<br/> 온-프레미스 컴퓨터에서 마이그레이션하기 전에 보안 셸 서비스가 시작으로 설정되어 있는지, 방화벽 규칙에서 SSH 연결을 허용하는지 확인합니다.<br/> 장애 조치 후 Azure VM에서 VM을 통해 실패한 네트워크 보안 그룹 규칙및 연결된 Azure 서브넷에 대한 SSH 포트에 대한 들어오는 연결을 허용합니다. 또한 VM에 대한 공용 IP 주소를 추가합니다. |  
 
 

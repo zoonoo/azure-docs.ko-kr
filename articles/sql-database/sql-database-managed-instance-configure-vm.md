@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: 7273c7b1dbf5eb6c855b95a8661f38bd4bd14af7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b5dce0b43fac7cfd0e974f26451338ca1541f8f
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73839043"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528414"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database Managed Instance에 연결하도록 Azure VM 구성
 
@@ -28,7 +28,7 @@ ms.locfileid: "73839043"
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털에](https://portal.azure.com/)로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-new-subnet-in-the-managed-instance-vnet"></a>Managed Instance VNet에 새 서브넷 만들기
 
@@ -44,7 +44,7 @@ ms.locfileid: "73839043"
 
 3. 이 표의 정보를 사용하여 양식을 작성합니다.
 
-   | 설정| 제안 값 | 설명 |
+   | 설정| 제안 값 | Description |
    | ---------------- | ----------------- | ----------- |
    | **이름** | 유효한 이름|유효한 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요.|
    | **주소 범위(CIDR 블록)** | 유효 범위 | 이 빠른 시작에는 기본값이 적합합니다.|
@@ -73,7 +73,7 @@ SQL Managed Instance가 프라이빗 Virtual Network에 배치되므로 SQL Serv
 
 2. 다음 표의 정보를 사용하여 양식을 작성합니다.
 
-   | 설정| 제안 값 | 설명 |
+   | 설정| 제안 값 | Description |
    | ---------------- | ----------------- | ----------- |
    | **구독** | 유효한 구독 | 새 리소스를 만들 권한이 있는 구독이어야 합니다. |
    | **리소스 그룹** |[Managed Instance 만들기](sql-database-managed-instance-get-started.md) 빠른 시작에서 지정한 리소스 그룹입니다.|이 리소스 그룹은 VNet이 있는 리소스 그룹이어야 합니다.|
@@ -120,7 +120,7 @@ SQL Managed Instance가 프라이빗 Virtual Network에 배치되므로 SQL Serv
 
 4. **가상 머신에 연결** 양식을 닫습니다.
 5. VM에 연결하려면 다운로드한 RDP 파일을 엽니다.
-6. 메시지가 표시되면 **연결**을 선택합니다. Mac의 Mac 앱 스토어에서 이 [원격 데스크톱 클라이언트](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12)와 같은 RDP 클라이언트가 필요합니다.
+6. 메시지가 표시되면 **연결**을 선택합니다. Mac의 Mac 앱 스토어에서 이 [원격 데스크톱 클라이언트](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12)와 같은 RDP 클라이언트가 필요합니다.
 
 7. 가상 머신을 만들 때 지정한 사용자 이름 및 암호를 입력하고 **확인**을 선택합니다.
 

@@ -3,12 +3,13 @@ title: Azure에서 HTTP 요청에 응답하는 함수 만들기
 description: 명령줄에서 함수를 만든 다음, 로컬 프로젝트를 Azure Functions의 서버리스 호스팅에 게시하는 방법을 알아봅니다.
 ms.date: 01/28/2020
 ms.topic: quickstart
-ms.openlocfilehash: f2ec642a477348923e8f587879d4804c07fff5a0
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+zone_pivot_groups: programming-languages-set-functions
+ms.openlocfilehash: 89b6a9f31414cbaa9cc92c1a0d881a1354180990
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096251"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282735"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>빠른 시작: Azure에서 HTTP 요청에 응답하는 함수 만들기
 
@@ -35,7 +36,7 @@ ms.locfileid: "79096251"
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-+ Azure Functions에서 지원되는 [Python 3.8](https://www.python.org/downloads/release/python-382/), [Python 3.7](https://www.python.org/downloads/release/python-375/), [Python 3.6](https://www.python.org/downloads/release/python-368/) 
++ Azure Functions(x64)에서 지원되는 [Python 3.8](https://www.python.org/downloads/release/python-382/), [Python 3.7](https://www.python.org/downloads/release/python-375/), [Python 3.6](https://www.python.org/downloads/release/python-368/).
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 + [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
@@ -57,7 +58,7 @@ ms.locfileid: "79096251"
 ::: zone pivot="programming-language-python"
 + `python --version`(Linux/MacOS) 또는 `py --version`(Windows)을 실행하여 Python 버전이 3.8.x, 3.7.x 또는 3.6.x로 보고되는지 확인합니다.
 
-## <a name="create-venv"></a>가상 환경 만들기 및 활성화
+## <a name="create-and-activate-a-virtual-environment"></a><a name="create-venv"></a>가상 환경 만들기 및 활성화
 
 적절한 폴더에서 다음 명령을 실행하여 `.venv`라는 가상 환경을 만들고 활성화합니다. Azure Functions에서 지원하는 Python 3.8, 3.7 또는 3.6을 사용해야 합니다.
 

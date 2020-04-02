@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: d0e66cefac496f3a54690b17a1e3de705f39c7fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 861961bb66adc7ed9509eab973516a964cb67492
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80337034"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521059"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>메트릭, 경고 및 리소스 상태를 사용하는 표준 Load Balancer 진단
 
@@ -35,7 +35,7 @@ Azure 로드 밸러블러는 Azure 포털의 Azure 메트릭을 통해 다차원
 
 다양한 표준 Load Balancer 구성에서는 다음 메트릭을 제공합니다.
 
-| 메트릭 | 리소스 유형 | 설명 | 권장 집계 |
+| 메트릭 | 리소스 유형 | Description | 권장 집계 |
 | --- | --- | --- | --- |
 | 데이터 경로 가용성(VIP 가용성)| 공용 및 내부 부하 분산 장치 | 표준 Load Balancer는 지역 내에서 부하 분산 장치 프런트 엔드로, 마지막으로 VM을 지원하는 SDN 스택으로 데이터 경로를 연속적으로 실행합니다. 정상 인스턴스가 남아 있는 한 측정은 애플리케이션 부하가 분산된 트래픽과 동일한 경로를 따릅니다. 고객이 사용하는 데이터 경로의 유효성도 검사합니다. 측정은 애플리케이션에 표시되지 않으며 다른 작업을 방해하지 않습니다.| 평균 |
 | 상태 프로브 상태(DIP 가용성) | 공용 및 내부 부하 분산 장치 | 표준 Load Balancer는 구성 설정에 따라 애플리케이션 엔드포인트의 상태를 모니터링하는 분산된 상태 검색 서비스를 사용합니다. 이 메트릭은 부하 분산 장치 풀에서 각 인스턴스 엔드포인트의 집계 또는 엔드포인트당 필터링된 보기를 제공합니다. 상태 프로브 구성에 표시된 대로 Load Balancer에서 애플리케이션의 상태를 보는 방법을 확인할 수 있습니다. |  평균 |
@@ -71,6 +71,21 @@ Azure 포털은 메트릭 페이지를 통해 로드 밸러터 메트릭을 노�
 
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>일반적인 진단 시나리오 및 권장 보기
 
+### <a name="configure-alerts-for-multi-dimensional-metrics"></a>다차원 메트릭에 대한 경고 구성 ###
+
+Azure 표준 로드 밸러저는 다차원 메트릭에 대해 쉽게 구성할 수 있는 경고를 지원합니다. 특정 메트릭에 대한 사용자 지정 임계값을 구성하여 다양한 수준의 심각도가 있는 경고를 트리거하여 터치없는 리소스 모니터링 환경을 제공합니다.
+
+경고를 구성하려면
+1. 로드 밸러블러용 경고 서브블레이드로 이동
+1. 새 경고 규칙 만들기
+    1.  경고 조건 구성
+    1.  (선택 사항) 자동 복구를 위한 작업 그룹 추가
+    1.  직관적인 반응을 가능하게 하는 경고 심각도, 이름 및 설명 할당
+
+
+  >[!NOTE]
+  >경고 상태 구성 창에는 신호 기록에 대한 시간계가 표시됩니다. 이 타임계를 백 엔드 IP와 같은 차원별로 필터링하는 옵션이 있습니다. 이렇게 하면 시간열 그래프가 필터링되지만 경고 자체는 **필터링되지 않습니다.** 특정 백 엔드 IP 주소에 대한 경고를 구성할 수 없습니다.
+  
 #### <a name="is-the-data-path-up-and-available-for-my-load-balancer-vip"></a>이 데이터 경로가 작동되며 부하 분산 장치 VIP에 사용할 수 있나요?
 
 VIP 가용성 메트릭은 지역 내에서 VM이 있는 Compute 호스트로의 데이터 경로 상태를 설명합니다. 메트릭은 Azure 인프라의 상태를 반영한 것입니다. 이 메트릭으로 다음을 수행할 수 있습니다.
@@ -223,7 +238,7 @@ SYN 패킷 메트릭은 특정 프런트 엔드와 관련해서 도착했거나 
  
 다음 표에는 다양한 리소스 상태와 해당 설명이 나와 있습니다. 
 
-| Resource Health 상태 | 설명 |
+| Resource Health 상태 | Description |
 | --- | --- |
 | 사용 가능 | 표준 로드 밸러버 리소스는 정상이며 사용할 수 있습니다. |
 | 사용할 수 없음 | 표준 로드 밸러버 리소스가 정상적이지 않습니다. **Azure 모니터** > 메트릭을 선택하여 상태를**진단합니다.**<br>(사용할*수 없는* 상태는 리소스가 표준 로드 밸러버와 연결되지 않음을 의미할 수도 있습니다.) |

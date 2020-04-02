@@ -3,16 +3,16 @@ title: 제한 및 할당량 IoT 플러그 앤 플레이 미리보기 | 마이크
 description: IoT 플러그 앤 플레이 미리 보기를 사용할 때 적용되는 제한, 할당량 및 제한을 이해합니다.
 author: miagdp
 ms.author: miag
-ms.date: 12/26/2019
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 48ecaaba6d956efd9da75d0582fa06d231cb3f80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cce99b7d9de09134fd01afb36c41bce3966e8536
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75531380"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518182"
 ---
 # <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>IoT 플러그 앤 플레이 미리 보기 제한, 할당량 및 스로틀
 
@@ -27,19 +27,19 @@ ms.locfileid: "75531380"
 | 허브당 등록할 수 있는 장치 기능 모델(DPM) 또는 인터페이스 수 | 1500 ||
 | 장치당 등록할 수 있는 최대 인터페이스 수 | 40 ||
 | 장치당 등록할 수 있는 최대 DcM 수 | 1 ||
-| 인터페이스/DCM 파일의 최대 크기 | 512 문자 ||
+| 인터페이스/DCM 파일의 최대 크기 | 512KB ||
 | 인터페이스 이름의 최대 크기 | 256 문자 ||
 | 속성 이름의 최대 크기  | 64바이트, 깊이 7수준(첫 번째 수준은 `$iotin`예약됨) | 허용된 문자: a-z, A-Z, 0-9(첫 번째 문자가 아님) 및 밑줄. |
 | 속성 값의 최대 크기 | 512바이트 ||
 | 명령 이름의 최대 크기 | 100바이트 ||
 | 디바이스 쌍 크기 | [IoT 허브 제한과](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) 동일 ||
-| SKU 에서 해결 API 호출(단위에 관계 없이) | 초당 100요청 ||
+| SKU 에서 해결 API 호출(단위에 관계 없이) | 초당 요청 100개 ||
 
 ## <a name="model-repository"></a>모델 리포지토리
 
 공개 미리 보기의 경우 모델 리포지토리에 다음과 같은 제한 및 할당량이 적용됩니다.
 
-| 제한, 제한 및 제한| 값 |
+| 제한, 제한 및 제한 | 값 |
 |-----|-----|
 | Azure Active Directory 테넌트당 회사 모델 리포지토리 수 | 1 |
 | 모델 리포지토리당 권한 부여 키 수 | 10  |

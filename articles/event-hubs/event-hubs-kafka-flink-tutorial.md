@@ -1,6 +1,6 @@
 ---
 title: Apache Kafka용 Apache Flink 사용 - Azure Event Hubs | Microsoft Docs
-description: 이 문서에서는 Apache Kafka를 사용하는 Azure Event Hub에 Apache Flink를 연결하는 방법에 대한 정보를 제공합니다.
+description: 이 문서에서는 아파치 Flink를 Azure 이벤트 허브에 연결하는 방법에 대한 정보를 제공합니다.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: db877279bcfa7e132841e342cfc25b66bb3ec384
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ab542e1328bb986f53d31e2eca75007cf1e0c75
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283602"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521795"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Apache Kafka용 Azure Event Hubs에서 Apache Flink 사용
 이 자습서에서는 프로토콜 클라이언트를 변경하거나 자체 클러스터를 실행하지 않고 Apache Flink를 이벤트 허브에 연결하는 방법을 보여 줍니다. Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다.
@@ -48,7 +48,7 @@ Apache Kafka를 사용하는 주요 이점 중 하나는 연결할 수 있는 �
 
 ## <a name="create-an-event-hubs-namespace"></a>Event Hubs 네임스페이스 만들기
 
-Event Hubs 서비스에서 보내거나 받으려면 Event Hubs 네임스페이스가 필요합니다. Event Hubs Kafka 엔드포인트를 가져오는 방법에 대한 내용은 [Kafka 지원 Event Hubs 만들기](event-hubs-create.md)를 참조하세요. 나중에 사용하기 위해 Event Hubs 연결 문자열을 복사합니다.
+Event Hubs 서비스에서 보내거나 받으려면 Event Hubs 네임스페이스가 필요합니다. 네임스페이스 및 이벤트 허브를 만드는 방법에 대한 지침은 [이벤트 허브 만들기를](event-hubs-create.md) 참조하십시오. 나중에 사용하기 위해 Event Hubs 연결 문자열을 복사합니다.
 
 ## <a name="clone-the-example-project"></a>프로젝트 예제 복제
 
@@ -88,11 +88,11 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="FlinkTestProducer"
 ```
 
-이제 생산자에서 `test` 항목의 Kafka 지원 Event Hub에 이벤트를 보내기 시작하고 해당 이벤트를 표준 출력으로 출력합니다.
+이제 생산자는 토픽에서 `test` 이벤트 허브로 이벤트를 보내고 이벤트를 stdout에 인쇄하기 시작합니다.
 
 ## <a name="run-flink-consumer"></a>Flink 소비자 실행
 
-제공된 소비자 예제를 사용하여 Kafka 지원 Event Hubs로부터 메시지를 받습니다.
+제공된 소비자 예제를 사용하여 이벤트 허브에서 메시지를 받습니다. 
 
 ### <a name="provide-an-event-hubs-kafka-endpoint"></a>Event Hubs Kafka 엔드포인트 제공
 
@@ -136,7 +136,7 @@ Event Hubs 및 Kafka용 Event Hubs에 대해 자세히 알아보려면 다음 �
 
 - [Event Hubs에 대해 알아봅니다](event-hubs-what-is-event-hubs.md).
 - [Apache Kafka용 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)
-- [Kafka 사용 Event Hubs 만드는 방법](event-hubs-create.md)
+- [이벤트 허브 만들기](event-hubs-create.md)
 - [Kafka 애플리케이션에서 이벤트 허브로 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 - [이벤트 허브에서 Kafka broker 미러링](event-hubs-kafka-mirror-maker-tutorial.md)
 - [이벤트 허브에 Apache Spark 연결](event-hubs-kafka-spark-tutorial.md)

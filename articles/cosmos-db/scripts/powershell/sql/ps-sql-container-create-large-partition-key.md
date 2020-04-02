@@ -1,20 +1,20 @@
 ---
-title: 큰 파티션 키를 사용하여 Azure Cosmos 컨테이너를 만드는 PowerShell 스크립트
-description: Azure PowerShell 스크립트 샘플 - Azure Cosmos 계정에서 큰 파티션 키로 컨테이너 만들기
+title: 큰 파티션 키를 사용하여 Azure Cosmos DB 컨테이너를 만드는 PowerShell 스크립트
+description: Azure PowerShell 스크립트 샘플 - Azure Cosmos DB 계정에서 큰 파티션 키로 컨테이너 만들기
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 07/03/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
-ms.openlocfilehash: ecc5e7c13d898f89bbd6b542faf69834de26e0e0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7746154fe89b655d09345a2de655fa85a0d4cbae
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75444976"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365930"
 ---
-# <a name="create-a-container-with-a-large-partition-key-in-an-azure-cosmos-account-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos 계정에서 큰 파티션 키로 컨테이너 만들기
+# <a name="create-a-container-with-a-large-partition-key-in-an-azure-cosmos-db-account-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos DB 계정에서 큰 파티션 키로 컨테이너 만들기
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -38,8 +38,10 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 | 명령 | 메모 |
 |---|---|
-|**Azure 리소스**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | 리소스를 만듭니다. |
+|**Azure Cosmos DB**| |
+| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | 새 Cosmos DB 계정을 만듭니다. |
+| [Set-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqldatabase) | 기존 Cosmos DB SQL 데이터베이스를 업데이트하거나 새로 만듭니다. |
+| [Set-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqlcontainer) | 기존 Cosmos DB SQL 컨테이너를 업데이트하거나 새로 만듭니다. |
 |**Azure 리소스 그룹**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||

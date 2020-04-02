@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/17/2020
-ms.openlocfilehash: fe006cebe9aab30a6aaa0bdf2bf3362a494f64d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b80b58d64ea27df95c2704243d8a89fa6ca12e2a
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77426278"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548502"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>활성 지역 복제 만들기 및 사용
 
@@ -146,7 +146,7 @@ SQL Database 컴퓨팅 크기에 대한 자세한 내용은 [SQL Database 서비
 
    ```sql
    create user geodrsetup for login geodrsetup
-   alter role geodrsetup dbmanager add member geodrsetup
+   alter role dbmanager add member geodrsetup
    ```
 
 1. 이 쿼리를 사용하여 새 로그인의 SID를 기록해 둡을 기록합니다. 
@@ -240,7 +240,7 @@ RPO와 관련하여 지연을 모니터링하려면 기본 데이터베이스에
 > [!IMPORTANT]
 > 이러한 Transact-SQL 명령은 활성 지역 복제에만 적용되고 장애 조치(failover) 그룹에는 적용되지 않습니다. 따라서 장애 조치(failover) 그룹만 지원하는 Managed Instance에도 적용되지 않습니다.
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
 | [데이터베이스 변경](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작하려면 ADD SECONDARY ON SERVER 인수를 사용합니다. |
 | [데이터베이스 변경](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |장애 조치를 시작하기 위해 보조 데이터베이스를 기본 데이터베이스로 전환하려면 FAILOVER 또는 FORCE_FAILOVER_ALLOW_DATA_LOSS를 사용합니다. |
@@ -257,7 +257,7 @@ RPO와 관련하여 지연을 모니터링하려면 기본 데이터베이스에
 > [!IMPORTANT]
 > PowerShell Azure 리소스 관리자 모듈은 Azure SQL Database에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈용입니다. 이러한 cmdlet에 대 한 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조 합니다. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 거의 동일합니다.
 
-| Cmdlet | 설명 |
+| Cmdlet | Description |
 | --- | --- |
 | [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |하나 이상의 데이터베이스를 가져옵니다. |
 | [New-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작합니다. |
@@ -271,7 +271,7 @@ RPO와 관련하여 지연을 모니터링하려면 기본 데이터베이스에
 
 ### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>REST API: 단일 및 풀풀데이터베이스의 장애 조치 관리
 
-| API | 설명 |
+| API | Description |
 | --- | --- |
 | [데이터베이스 생성 또는 업데이트(createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |주 보조 데이터베이스 또는 보조 데이터베이스를 만들거나, 업데이트하거나, 복원합니다. |
 | [데이터베이스 만들기 또는 업데이트 상태 가져오기](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |만들기 작업 동안 상태를 반환합니다. |

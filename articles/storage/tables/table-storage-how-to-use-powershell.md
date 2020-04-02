@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: tables
-ms.openlocfilehash: f1846fae4cbf473df688a2b184c307d72ab2f8d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 746044aa835df52e61c234c8b5ca61164fffbbc5
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76721475"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545961"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Table Storage 작업 수행 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -117,7 +117,7 @@ $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
 ## <a name="reference-cloudtable-property-of-a-specific-table"></a>특정 테이블의 참조 CloudTable 속성
 
 > [!IMPORTANT]
-> **AzTable** PowerShell 모듈로 작업할 때CloudTable 사용이 필수입니다. 이 개체에 대한 참조를 얻으려면 **Get-AzTableTable** 명령을 호출합니다. 이 명령은 테이블이 아직 없는 경우에도 테이블을 만듭니다.
+> **AzTable** PowerShell 모듈로 작업할 때CloudTable 사용이 필수입니다. 이 개체에 대한 참조를 얻으려면 **Get-AzStorageTable** 명령을 호출합니다. 이 명령은 테이블이 아직 없는 경우에도 테이블을 만듭니다.
 
 **AzTable을**사용하여 테이블에서 작업을 수행하려면 특정 테이블의 CloudTable 속성에 대한 참조가 필요합니다.
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 541fcdd966ec1e0443fa6211d894bab3ed965f93
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 177973cf766a6215453f3062c0fb206961649272
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74870329"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80295518"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>자습서: SQL API를 사용하여 Azure Cosmos DB 전역 배포 설정
 
@@ -167,11 +167,11 @@ AsyncDocumentClient client =
 
 
 * 모든 PUT, POST 및 DELETE 요청은 표시된 쓰기 URI로 이동해야 합니다.
-* 모든 GET과 다른 읽기 전용 요청(예: 쿼리)은 클라이언트가 선택한 엔드포인트로 이동할 수 있습니다.
+* 모든 GET 및 다른 읽기 전용 요청(예: 쿼리)은 클라이언트가 선택한 엔드포인트로 이동할 수 있습니다.
 
 읽기 전용 지역에 대한 쓰기 요청은 HTTP 오류 코드 403(“사용 권한 없음”)과 함께 실패합니다.
 
-클라이언트의 최초 검색 단계 이후에 쓰기 지역이 변경되면 나중에 이전 쓰기 지역에 쓰려고 하면 HTTP 오류 코드 403(“사용 권한 없음”)과 함께 실패합니다. 클라이언트는 업데이트된 쓰기 지역을 가져오려면 지역 목록을 다시 가져와야 합니다.
+클라이언트의 최초 검색 단계 이후에 쓰기 지역이 변경되면 나중에 이전 쓰기 지역에 쓰려고 하면 HTTP 오류 코드 403("사용 권한 없음")과 함께 실패합니다. 클라이언트는 업데이트된 쓰기 지역을 가져오려면 지역 목록을 다시 가져와야 합니다.
 
 이것으로 끝이며, 이 자습서를 완료했습니다! [Azure Cosmos DB의 일관성 수준](consistency-levels.md)을 참조하여 전역적으로 복제한 계정의 일관성을 관리하는 방법에 대해 알아볼 수 있습니다. 그리고 Azure Cosmos DB에서 전역 데이터베이스 복제가 작동하는 방법에 대한 자세한 내용은 [Azure Cosmos DB를 사용하여 전역적으로 데이터 배포](distribute-data-globally.md)를 참조하세요.
 

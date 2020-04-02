@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 0447e87fd8685188af8008995ba938092f2b87fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0547f254a64cecc7072ee9ff79eb50204b34bc17
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80293604"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548857"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>사용자 지정 루트 CA를 사용 하 고 Azure 응용 프로그램 게이트웨이 자체 서명 된 인증서를 생성 합니다.
 
@@ -262,12 +262,13 @@ Add-AzApplicationGatewayRequestRoutingRule `
 
 Set-AzApplicationGateway -ApplicationGateway $gw 
 ```
+
 ### <a name="verify-the-application-gateway-backend-health"></a>응용 프로그램 게이트웨이 백 엔드 상태 확인
 
 1. 응용 프로그램 게이트웨이의 **백 엔드 상태** 보기를 클릭하여 프로브가 정상인지 확인합니다.
-1.    HTTPS 프로브의 상태가 **정상임을** 확인해야 합니다.
+1. HTTPS 프로브의 상태가 **정상임을** 확인해야 합니다.
 
-    ![HTTPS 프로브](media/self-signed-certificates/https-probe.png)
+![HTTPS 프로브](media/self-signed-certificates/https-probe.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,19 +1,19 @@
 ---
-title: Azure Cosmos 계정을 업데이트하는 PowerShell 스크립트
-description: Azure PowerShell 스크립트 샘플 - Azure Cosmos 계정 업데이트 또는 지역 수정
+title: Azure Cosmos 계정에서 기본 일관성 수준을 업데이트하는 PowerShell 스크립트
+description: Azure PowerShell 스크립트 샘플 - PowerShell을 사용하여 Azure Cosmos DB 계정의 기본 일관성 수준 업데이트
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 09/20/2019
+ms.date: 03/21/2020
 ms.author: mjbrown
-ms.openlocfilehash: 075c33b0818aa3ec8b16158f538ae302446ff5f7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d3df2e91624f9b5d82d534a1d525fa6866f1a489
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75445036"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366077"
 ---
-# <a name="update-an-azure-cosmos-account-or-modify-regions-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos 계정 업데이트 또는 지역 수정
+# <a name="update-the-regions-on-an-azure-cosmos-db-account-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos DB 계정의 지역 업데이트
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -24,9 +24,9 @@ ms.locfileid: "75445036"
 > [!NOTE]
 > 동일한 작업에서 지역을 수정하고 다른 Cosmos 계정 속성을 변경할 수 없습니다. 이러한 작업은 두 가지 별도의 작업으로 수행되어야 합니다.
 > [!NOTE]
-> 이 샘플에서는 SQL(Core) API 계정을 사용하는 방법을 보여 줍니다. 이 샘플을 다른 API에 사용하려면 관련 속성을 복사하고 API별 스크립트에 적용합니다.
+> 이 샘플에서는 SQL API 계정을 사용하는 방법을 보여줍니다. 이 샘플을 다른 API에 사용하려면 관련 속성을 복사하고 API별 스크립트에 적용합니다.
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update.ps1 "Add a region to an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update.ps1 "Update an Azure Cosmos DB account")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -42,11 +42,10 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 | 명령 | 메모 |
 |---|---|
-|**Azure 리소스**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | 리소스를 만듭니다. |
-| [집합 AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | 리소스를 업데이트합니다. |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Cosmos DB 계정을 나열하거나 지정된 Cosmos DB 계정을 가져옵니다. |
+| [Update-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbaccountfailoverpriority) | Cosmos DB 계정을 업데이트합니다. |
 |**Azure 리소스 그룹**| |
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||
 

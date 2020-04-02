@@ -1,15 +1,15 @@
 ---
 title: Azure 포털을 사용하여 블록 체인 데이터 관리자 구성 - Azure 블록 체인 서비스
 description: Azure 포털을 사용하여 Azure 블록 체인 서비스에 대한 블록 체인 데이터 관리자를 만들고 관리합니다.
-ms.date: 11/04/2019
+ms.date: 03/30/2020
 ms.topic: article
-ms.reviewer: chroyal
-ms.openlocfilehash: 03c22a7a23f1579a846746f21ce048b3425399c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: ravastra
+ms.openlocfilehash: beacef0660a253c90afb507618e8a1742f0c9d2d
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273164"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529609"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Azure Portal을 사용하여 Blockchain Data Manager 구성
 
@@ -22,7 +22,7 @@ Azure 블록 체인 서비스에 대한 블록 체인 데이터 관리자를 구
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 빠른 [시작 완료: Azure 포털](create-member.md) 또는 빠른 시작을 사용하여 블록 체인 멤버 [만들기: Azure CLI를 사용하여 Azure 블록 체인 서비스 블록 체인 멤버 만들기](create-member-cli.md)
+* [빠른 시작 완료: Azure 포털](create-member.md) 또는 빠른 시작을 사용하여 블록 체인 멤버 [만들기: Azure CLI를 사용하여 Azure 블록 체인 서비스 블록 체인 멤버 만들기.](create-member-cli.md) 블록체인 데이터 관리자를 사용할 때는 Azure 블록체인 서비스 *표준* 계층을 사용하는 것이 좋습니다.
 * 이벤트 [그리드 주제](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) 만들기
 * [Azure Event Grid의 이벤트 처리기](../../event-grid/event-handlers.md) 알아보기
 
@@ -32,7 +32,7 @@ Blockchain Data Manager 인스턴스는 Azure Blockchain Service 트랜잭션 �
 
 아웃바운드 연결은 블록체인 데이터를 Azure Event Grid로 보냅니다. 인스턴스를 만들 때 단일 아웃바운드 연결을 구성합니다. Blockchain Data Manager는 지정된 Blockchain Data Manager 인스턴스에 대한 여러 개의 Event Grid 항목 아웃바운드 연결을 지원합니다. 블록체인 데이터는 단일 대상 또는 여러 대상으로 보낼 수 있습니다. 다른 대상을 추가하려면 인스턴스에 아웃바운드 연결을 추가하기만 하면 됩니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 블록 체인 데이터 관리자에 연결하려는 Azure 블록 체인 서비스 멤버로 이동하십시오. **Blockchain Data Manager**를 선택합니다.
 1. **추가**를 선택합니다.
 
@@ -40,9 +40,9 @@ Blockchain Data Manager 인스턴스는 Azure Blockchain Service 트랜잭션 �
 
     다음 세부 정보를 입력합니다.
 
-    설정 | 설명
+    설정 | Description
     --------|------------
-    이름 | 연결된 Blockchain Data Manager의 고유 이름을 입력합니다. 블록체인 데이터 관리자 이름은 소문자와 숫자를 포함할 수 있으며 최대 길이는 20자입니다.
+    속성 | 연결된 Blockchain Data Manager의 고유 이름을 입력합니다. 블록체인 데이터 관리자 이름은 소문자와 숫자를 포함할 수 있으며 최대 길이는 20자입니다.
     트랜잭션 노드 | 트랜잭션 노드를 선택합니다. 읽은 액세스 권한이 있는 트랜잭션 노드만 나열됩니다.
     연결 이름 | 블록체인 트랜잭션 데이터가 전송되는 아웃바운드 연결의 고유 이름을 입력합니다.
     Event Grid 엔드포인트 | 블록체인 데이터 관리자 인스턴스와 동일한 구독에서 이벤트 그리드 항목을 선택합니다.
@@ -108,9 +108,9 @@ Blockchain Data Manager을 사용하려면 애플리케이션을 추가할 때 U
 
     ![스토리지 계정 컨테이너 만들기](./media/data-manager-portal/create-container.png)
 
-    | 필드 | 설명 |
+    | 필드 | Description |
     |-------|-------------|
-    | 이름  | 컨테이너 이름을 지정합니다. 예: *smartcontract* |
+    | 속성  | 컨테이너 이름을 지정합니다. 예: *smartcontract* |
     | 공용 액세스 수준 | *프라이빗(익명 액세스 없음)* 선택 |
 
 1. **확인**을 선택하여 컨테이너를 만듭니다.
@@ -144,9 +144,9 @@ Blockchain Data Manager을 사용하려면 애플리케이션을 추가할 때 U
 
     블록체인 애플리케이션의 이름과 스마트 계약 ABI 및 바이트 코드 URL을 입력합니다.
 
-    설정 | 설명
+    설정 | Description
     --------|------------
-    이름 | 추적할 블록체인 애플리케이션의 고유 이름을 입력합니다.
+    속성 | 추적할 블록체인 애플리케이션의 고유 이름을 입력합니다.
     계약 ABI | 계약 ABI 파일의 URL 경로입니다. 자세한 내용은 [계약 ABI 및 바이트 코드 URL 만들기](#create-contract-abi-and-bytecode-url)를 참조하세요.
     계약 바이트 코드 | 바이트 코드 파일의 URL 경로입니다. 자세한 내용은 [계약 ABI 및 바이트 코드 URL 만들기](#create-contract-abi-and-bytecode-url)를 참조하세요.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 author: timsander1
 ms.author: tisande
-ms.openlocfilehash: 120c8c45999e6d4071fc397d6e585d7d2f83aebc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 68b880957754439b3b88a0cccff2218a5942f967
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131452"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548807"
 ---
 # <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 MongoDB용 API에서 Robo 3T 사용
 
@@ -20,6 +20,9 @@ Robo 3T를 사용하여 Cosmos 계정에 연결하려면 다음을 수행해야 
 
 * [Robo 3T](https://robomongo.org/) 다운로드 및 설치
 * Cosmos DB [연결 문자열](connect-mongodb-account.md) 정보 확보
+
+> [!NOTE]
+> 현재 로보 3T v1.2 및 하위 버전은 몽고DB용 코스모스 DB의 API로 지원됩니다.
 
 ## <a name="connect-using-robo-3t"></a>Robo 3T를 사용하여 연결
 

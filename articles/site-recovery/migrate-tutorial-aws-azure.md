@@ -9,16 +9,21 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4a1952f5ece4c021834fb98f8a09f1a2738e6469
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 929bc0695bda2e64f77f7e9286e06cee787822ba
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72789383"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80388970"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services)에서 Azure로 VM 마이그레이션
 
-이 자습서에서는 Azure Site Recovery를 사용하여 AWS(Amazon Web Services) VM(가상 머신)을 Azure VM으로 마이그레이션하는 방법을 설명합니다. AWS EC2 인스턴스를 Azure로 마이그레이션할 때 VM은 온-프레미스의 물리적 컴퓨터처럼 처리됩니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 Azure Site Recovery를 사용하여 AWS(Amazon Web Services) VM(가상 머신)을 Azure VM으로 마이그레이션하는 방법을 보여줍니다. AWS EC2 인스턴스를 Azure로 마이그레이션할 때 VM은 온-프레미스의 물리적 컴퓨터처럼 처리됩니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
+
+
+> [!TIP]
+> 이제 Azure Site Recovery 서비스 대신 Azure Migrate 서비스를 사용하여 AWS VM을 Azure로 마이그레이션해야 합니다. [자세히 알아보기](../migrate/tutorial-migrate-physical-virtual-machines.md).
+
 
 > [!div class="checklist"]
 > * 필수 조건 확인
@@ -31,9 +36,6 @@ ms.locfileid: "72789383"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
-
-> [!NOTE]
-> 이제 Azure Migrate 서비스를 사용하여 AWS 인스턴스를 Azure로 마이그레이션할 수 있습니다. [자세히 알아보기](../migrate/tutorial-migrate-physical-virtual-machines.md).
 
 ## <a name="prerequisites"></a>사전 요구 사항
 - 마이그레이션할 VM이 지원되는 OS 버전을 실행하고 있는지 확인합니다. 지원되는 버전은 다음과 같습니다. 

@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/12/2020
-ms.openlocfilehash: 8b471dd509dca02ab2a66d70dbc7fac9988f1afe
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0488002352d222abb0166737f9a042060b1a1bb1
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79472240"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389429"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>자습서: 디자이너(미리 보기)를 사용하여 자동차 가격 예측
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -103,7 +103,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
 1. **자동차 가격 데이터(원시)** 모듈을 선택합니다.
 
-1. 캔버스의 오른쪽에 있는 모듈 세부 정보 창에서 **출력**을 선택합니다.
+1. 캔버스 오른쪽에 있는 모듈 세부 정보 창에서 **출력 + 로그**를 선택합니다.
 
 1. 그래프 아이콘을 선택하여 데이터를 시각화합니다.
 
@@ -269,7 +269,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
 ## <a name="submit-the-pipeline"></a>파이프라인 제출
 
-파이프라인이 모두 설정되었으므로 파이프라인 실행을 제출 제출하여 기계 학습 모델을 학습시킬 수 있습니다. 디자이너에서 파이프라인을 빌드하는 동안 언제든지 파이프라인 실행을 제출할 수 있습니다. 이를 통해 진행 중인 작업을 확인하고 파이프라인이 예상대로 작동하는지 확인할 수 있습니다.
+파이프라인이 모두 설정되었으므로 파이프라인 실행을 제출 제출하여 기계 학습 모델을 학습시킬 수 있습니다. 개발 중에 파이프라인에 대한 변경 내용을 검토하는 데 사용할 수 있는 임의의 지점에서 유효한 파이프라인 실행을 제출할 수 있습니다.
 
 1. 캔버스 위쪽에서 **제출**을 선택합니다.
 
@@ -283,6 +283,8 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
     1. **제출**을 선택합니다.
     
     캔버스의 오른쪽 위에서 실행 상태와 세부 정보를 볼 수 있습니다.
+    
+    첫 번째 실행인 경우 파이프라인이 실행을 완료하는 데 최대 20분이 걸릴 수 있습니다. 기본 컴퓨팅 설정의 최소 노드 크기는 0입니다. 즉, 디자이너가 유휴 상태가 된 후에 리소스를 할당해야 합니다. 컴퓨팅 리소스가 이미 할당되었기 때문에 반복되는 파이프라인 실행은 시간이 덜 걸립니다. 또한 디자이너는 각 모듈에 대해 캐시된 결과를 사용하여 효율성을 더욱 향상시킵니다.
 
 ### <a name="view-scored-labels"></a>채점된 레이블 보기
 
@@ -290,7 +292,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
 1. **모델 점수 매기기** 모듈을 선택하여 출력을 확인합니다.
 
-1. 캔버스의 오른쪽에 있는 모듈 세부 정보 창에서 **출력** > 그래프 아이콘 ![시각화 아이콘](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png)을 선택하여 결과를 봅니다.
+1. 캔버스의 오른쪽에 있는 모듈 세부 정보 창에서 **출력 + 로그** > 그래프 아이콘 ![시각화 아이콘](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png)을 선택하여 결과를 봅니다.
 
     여기서는 테스트 데이터에서 예측된 가격과 실제 가격을 확인할 수 있습니다.
 
@@ -302,7 +304,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
 1. **모델 평가** 모듈을 선택하여 출력을 확인합니다.
 
-1. 캔버스의 오른쪽에 있는 모듈 세부 정보 창에서 **출력** > 그래프 아이콘 ![시각화 아이콘](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png)을 선택하여 결과를 봅니다.
+1. 캔버스의 오른쪽에 있는 모듈 세부 정보 창에서 **출력 + 로그** > 그래프 아이콘 ![시각화 아이콘](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png)을 선택하여 결과를 봅니다.
 
 모델에 대한 다음 통계가 표시됩니다.
 

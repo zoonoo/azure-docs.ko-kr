@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: edeafb5730f06dac22fd9919ca42ea388d5fd0f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1aa3537679ee37cbc6085344d2f31ae4043d32bb
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79277181"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520666"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Table Storage 바인딩
 
@@ -36,7 +36,7 @@ Table Storage 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Storage](https://
 
 Azure Table Storage 입력 바인딩을 사용하여 Azure Storage 계정에서 테이블을 읽을 수 있습니다.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ### <a name="one-entity"></a>하나의 엔터티
 
@@ -310,7 +310,7 @@ CloudTable을 사용하는 방법에 대한 자세한 내용은 [Azure Table Sto
 `CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
 
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 코드](functions-reference-node.md)에서 테이블 입력 바인딩을 보여줍니다. 함수는 큐 트리거를 사용하여 단일 테이블 행을 읽습니다. 
 
@@ -474,7 +474,7 @@ public Person[] get(
 
 ## <a name="input---attributes-and-annotations"></a>입력 - 속성 및 주석
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
  [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서는 다음 특성을 사용하여 테이블 입력 바인딩을 구성합니다.
 
@@ -536,7 +536,7 @@ public Person[] get(
 
 특성은 C# 스크립트에서 지원되지 않습니다.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 속성은 자바 스크립트에서 지원되지 않습니다.
 
@@ -554,7 +554,7 @@ public Person[] get(
 
 다음 표에서는 *function.json* 파일및 특성에서 설정한 바인딩 `Table` 구성 속성에 대해 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**종류** | 해당 없음 | `table`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다.|
 |**direction** | 해당 없음 | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다. |
@@ -564,13 +564,13 @@ public Person[] get(
 |**로키** |**로우키** | (선택 사항) 읽을 테이블 엔터티의 행 키입니다. 이 속성을 사용하는 방법에 대한 지침은 [사용](#input---usage) 섹션을 참조하세요.| 
 |**테이크** |**테이크 (것)** | (선택 사항) JavaScript에서 읽을 수 있는 엔터티의 최대 수입니다. 이 속성을 사용하는 방법에 대한 지침은 [사용](#input---usage) 섹션을 참조하세요.| 
 |**필터** |**필터** | (선택 사항) JavaScript에서 테이블 입력에 대한 OData 필터 식입니다. 이 속성을 사용하는 방법에 대한 지침은 [사용](#input---usage) 섹션을 참조하세요.| 
-|**연결** |**연결** | 이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 "MyStorage"로 설정하면 `connection` 함수 런타임에서 "MyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.|
+|**연결** |**연결** | 이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 이 설정은 "AzureWebJobs" 접두사 앱 설정 또는 연결 문자열 이름의 이름일 수 있습니다. 예를 들어 설정 이름이 "AzureWebJobsMyStorage"인 경우 여기에서 "MyStorage"를 지정할 수 있습니다. 함수 런타임은 "AzureWebJobsMyStorage"라는 앱 설정을 자동으로 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="input---usage"></a>입력 - 사용
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 * **에서 한 행 읽기**
 
@@ -596,7 +596,7 @@ public Person[] get(
   > [!NOTE]
   > `IQueryable`은 [Functions v2 런타임](functions-versions.md)에서 지원되지 않습니다. 대신 Azure Storage SDK를 사용하여 테이블을 읽는 [CloudTable paramName 메서드 매개 변수를 사용](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable)합니다. `CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 `filter` 및 `take` 속성을 설정합니다. `partitionKey` 또는 `rowKey`를 설정하지 않습니다. `context.bindings.<BINDING_NAME>`을 사용하여 입력 테이블 엔터티(또는 여러 엔터티)에 액세스합니다. 역직렬화된 개체는 `RowKey` 및 `PartitionKey` 속성을 가집니다.
 
@@ -617,7 +617,7 @@ Azure Table Storage 출력 바인딩을 사용하여 Azure Storage 계정에서 
 > [!NOTE]
 > 이 출력 바인딩은 기존 엔터티 업데이트를 지원하지 않습니다. [Azure Storage SDK](../cosmos-db/tutorial-develop-table-dotnet.md#delete-an-entity)에서 `TableOperation.Replace` 작업을 사용하여 기존 엔터티를 업데이트합니다.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 다음 예제에서는 단일 테이블 행을 쓰기 위해 HTTP 트리거를 사용하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. 
 
@@ -696,7 +696,7 @@ public class Person
 
 ```
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 함수](functions-reference-node.md)에서 테이블 출력 바인딩을 보여줍니다. 함수는 여러 테이블 엔터티를 씁니다.
 
@@ -883,7 +883,7 @@ public class AddPersons {
 
 ## <a name="output---attributes-and-annotations"></a>출력 - 특성 및 주석
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs)를 사용합니다.
 
@@ -921,7 +921,7 @@ public static MyPoco TableOutput(
 
 특성은 C# 스크립트에서 지원되지 않습니다.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 속성은 자바 스크립트에서 지원되지 않습니다.
 
@@ -941,7 +941,7 @@ Java [함수 런타임 라이브러리에서](/java/api/overview/azure/functions
 
 다음 표에서는 *function.json* 파일및 특성에서 설정한 바인딩 `Table` 구성 속성에 대해 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**종류** | 해당 없음 | `table`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다.|
 |**direction** | 해당 없음 | `out`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다. |
@@ -955,7 +955,7 @@ Java [함수 런타임 라이브러리에서](/java/api/overview/azure/functions
 
 ## <a name="output---usage"></a>출력 - 사용
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 메서드 `ICollector<T> paramName` 매개 변수를 사용하거나 `IAsyncCollector<T> paramName` `T` `PartitionKey` 및 `RowKey` 속성을 포함하는 위치에 대해 출력 테이블 엔터티에 액세스합니다. 이러한 속성은 종종 `ITableEntity` 구현 하거나 `TableEntity`상속 을 함께 합니다.
 
@@ -967,7 +967,7 @@ Java [함수 런타임 라이브러리에서](/java/api/overview/azure/functions
 
 또는 Azure Storage `CloudTable` SDK를 사용하여 메서드 매개 변수를 사용하여 테이블에 쓸 수 있습니다. `CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 *function.json*의 `context.bindings.<name>` `<name>` `name` 속성에 지정된 값을 사용하여 출력 이벤트에 액세스합니다.
 

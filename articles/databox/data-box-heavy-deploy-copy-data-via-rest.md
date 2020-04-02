@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 43f6404a483cad8377e70591f5454180f0dd07a6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9f3ba0a7e9f7cf72b0eade16679d980fe2207f98
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77560340"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80297223"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>자습서: REST API를 통해 Azure Data Box Blob 스토리지에 데이터 복사  
 
@@ -98,7 +98,7 @@ Azure Portal을 사용하여 인증서를 다운로드합니다.
  
 ### <a name="import-certificate"></a>인증서 가져오기 
 
-HTTPS를 통해 Data Box Blob 스토리지에 액세스하려면 디바이스의 SSL 인증서가 필요합니다. 이 인증서를 클라이언트 애플리케이션에서 사용할 수 있게 만드는 방법은 애플리케이션마다 그리고 운영 체제와 배포판마다 다릅니다. 어떤 애플리케이션은 시스템의 인증서 저장소로 인증서를 가져온 후 인증서에 액세스할 수 있고, 어떤 애플리케이션은 이 메커니즘을 사용하지 않습니다.
+HTTPS를 통해 Data Box Blob 스토리지에 액세스하려면 디바이스의 TLS/SSL 인증서가 필요합니다. 이 인증서를 클라이언트 애플리케이션에서 사용할 수 있게 만드는 방법은 애플리케이션마다 그리고 운영 체제와 배포판마다 다릅니다. 어떤 애플리케이션은 시스템의 인증서 저장소로 인증서를 가져온 후 인증서에 액세스할 수 있고, 어떤 애플리케이션은 이 메커니즘을 사용하지 않습니다.
 
 이 섹션에는 일부 애플리케이션과 관련된 정보가 설명되어 있습니다. 다른 애플리케이션에 대한 자세한 내용은 사용하시는 애플리케이션 및 운영 체제에 대한 설명서를 참조하세요.
 

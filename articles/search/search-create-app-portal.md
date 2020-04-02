@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/05/2019
-ms.openlocfilehash: 9ed62ea6fdfc0732128ed340cc0bc48481eb73ec
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 03/25/2020
+ms.openlocfilehash: 248ef093601eda7a180a6465ccb97e6fc1c9fe41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76841083"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369718"
 ---
 # <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>빠른 시작: 포털에서 검색 앱 만들기(Azure Cognitive Search)
 
@@ -23,13 +23,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-현재 이 빠른 시작을 위해 [최신 버전의 Microsoft Edge](https://www.microsoft.com/edge)로 업그레이드하거나 Google의 Chrome 브라우저를 사용하는 것이 좋습니다.
+이 빠른 시작을 위해 [최신 버전의 Microsoft Edge](https://www.microsoft.com/edge)로 업그레이드하거나 Google의 Chrome 브라우저를 사용합니다.
 
 [Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
 
 애플리케이션의 기반으로 사용할 [인덱스를 만듭니다](search-create-index-portal.md). 
 
-이 빠른 시작에서는 미리 보기 이미지가 있으므로 기본 제공 부동산 샘플 데이터와 인덱스를 사용합니다. 이 연습에 사용되는 인덱스를 만들려면 **데이터 가져오기** 마법사를 실행하여 *realestate-us-sample* 데이터 원본을 선택합니다.
+이 빠른 시작에서는 미리 보기 이미지가 있으므로 기본 제공 부동산 샘플 데이터와 인덱스를 사용합니다(마법사에서 결과 페이지에 이미지 추가를 지원함). 이 연습에 사용되는 인덱스를 만들려면 **데이터 가져오기** 마법사를 실행하여 *realestate-us-sample* 데이터 원본을 선택합니다.
 
 ![샘플 데이터에 대한 데이터 원본 페이지](media/search-create-app-portal/import-data-realestate.png)
 

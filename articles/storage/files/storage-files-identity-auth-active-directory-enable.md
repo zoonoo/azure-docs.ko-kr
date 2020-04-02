@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 04/01/2020
 ms.author: rogarana
-ms.openlocfilehash: b7820bc3d1b14e87064e4120edcffb6762041db9
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: dbcc204f71a9bfe4f48f51ab6af36014e130cb7f
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411474"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548942"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Azure 파일 공유에 대한 SMB를 통해 Active Directory 인증 사용
 
@@ -63,11 +63,7 @@ Azure 파일 공유에 대한 AD 인증을 사용하도록 설정하기 전에 �
 
 ## <a name="regional-availability"></a>국가별 가용성
 
-Azure 파일 AD 인증(미리 보기)은 [대부분의 공용 지역에서](https://azure.microsoft.com/global-infrastructure/regions/)사용할 수 있습니다.
-
-Azure 파일 AD 인증은 다음 에서 사용할 수 없습니다.
-- 미국 서부
-
+Azure 파일 AD 인증(미리 보기)은 [퍼블릭 클라우드의 모든 리전에서](https://azure.microsoft.com/global-infrastructure/regions/)사용할 수 있습니다.
 
 ## <a name="workflow-overview"></a>워크플로 개요
 

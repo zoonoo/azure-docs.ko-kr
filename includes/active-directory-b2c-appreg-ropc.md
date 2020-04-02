@@ -5,18 +5,18 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: 03329252c0ed4231585d1717d9361a2aef35b36f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cea3245176e6c38137d68e3ad4b47477bedc78be
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78187005"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529176"
 ---
 Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 현재 **애플리케이션** 환경 또는 새로운 통합 **앱 등록(미리 보기)** 환경을 사용할 수 있습니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregintro).
 
 #### <a name="applications"></a>[애플리케이션](#tab/applications/)
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 1. **애플리케이션**을 선택하고 **추가**를 선택합니다.
@@ -27,7 +27,7 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 현재 **애
 
 #### <a name="app-registrations-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 1. **앱 등록(미리 보기)** 을 선택한 다음, **새 등록**을 선택합니다.
@@ -37,4 +37,10 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 현재 **애
 1. **관리**에서 **인증**을 선택합니다.
 1. **새 환경을 체험해 보세요.**(표시되는 경우)를 선택합니다.
 1. **기본 클라이언트 유형에서** **예를** 선택하여 응용 프로그램을 공용 클라이언트로 처리합니다. 이 설정은 ROPC 흐름에 필요합니다.
+1. **저장**을 선택합니다.
+1. 왼쪽 메뉴에서 **매니페스트를** 선택하여 매니페스트 편집기를 엽니다. 
+1. **oauth2AllowImplicitFlow** 속성을 *true로*설정합니다.
+    ```json
+    "oauth2AllowImplicitFlow": true,
+    ```
 1. **저장**을 선택합니다.

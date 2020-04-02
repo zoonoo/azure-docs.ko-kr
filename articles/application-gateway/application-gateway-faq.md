@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 04/01/2020
 ms.author: victorh
-ms.openlocfilehash: 290467d5d20a74f8b8b2c23f6da0dcadfd74cc56
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: d9691a6fd5c320242b9677776cbd08be4f800921
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411021"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80544498"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>애플리케이션 게이트웨이에 대한 자주 묻는 질문
 
@@ -112,7 +112,15 @@ v2 SKU를 사용하는 대부분의 배포는 프로비전하는 데 약 6분이
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>Exchange Server를 응용 프로그램 게이트웨이의 백 엔드로 사용할 수 있습니까?
 
-아니요. 응용 프로그램 게이트웨이는 SMTP, IMAP 및 POP3와 같은 전자 메일 프로토콜을 지원하지 않습니다. 
+아니요. 응용 프로그램 게이트웨이는 SMTP, IMAP 및 POP3와 같은 전자 메일 프로토콜을 지원하지 않습니다.
+
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>v1 SKU에서 v2 SKU로 마이그레이션할 수 있는 지침이 있습니까?
+
+예. 자세한 내용은 [Azure 응용 프로그램 게이트웨이 및 웹 응용 프로그램 방화벽을 v1에서 v2로 마이그레이션합니다.](migrate-v1-v2.md)
+
+### <a name="will-the-application-gateway-v1-sku-continue-to-be-supported"></a>응용 프로그램 게이트웨이 v1 SKU가 계속 지원되나요?
+
+예. 응용 프로그램 게이트웨이 v1 SKU는 계속 지원됩니다. 그러나 해당 SKU의 기능 업데이트를 활용하려면 v2로 이동하는 것이 좋습니다. 자세한 내용은 [자동 크기 조정 및 영역 중복 응용 프로그램 게이트웨이 v2를](application-gateway-autoscaling-zone-redundant.md)참조하십시오.
 
 ## <a name="performance"></a>성능
 
@@ -203,10 +211,6 @@ IP 연결이 있는 한 애플리케이션 게이트웨이는 IP에 있는 가�
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>공용 및 개인 용 수신기 모두에 동일한 포트를 사용할 수 있습니까?
 
 아니요.
-
-### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>v1 SKU에서 v2 SKU로 마이그레이션할 수 있는 지침이 있습니까?
-
-예. 자세한 내용은 [Azure 응용 프로그램 게이트웨이 및 웹 응용 프로그램 방화벽을 v1에서 v2로 마이그레이션합니다.](migrate-v1-v2.md)
 
 ### <a name="does-application-gateway-support-ipv6"></a>애플리케이션 게이트웨이가 IPv6를 지원합니까?
 
@@ -329,10 +333,6 @@ WAF는 현재 [CRS 2.2.9,](../web-application-firewall/ag/application-gateway-cr
 ### <a name="does-waf-support-ddos-protection"></a>WAF가 DDoS 보호를 지원합니까?
 
 예. 응용 프로그램 게이트웨이가 배포된 가상 네트워크에서 DDoS 보호를 활성화할 수 있습니다. 이 설정을 사용하면 Azure DDoS 보호 서비스가 응용 프로그램 게이트웨이 가상 IP(VIP)도 보호합니다.
-
-### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>v1 SKU에서 v2 SKU로 마이그레이션할 수 있는 지침이 있습니까?
-
-예. 자세한 내용은 [Azure 응용 프로그램 게이트웨이 및 웹 응용 프로그램 방화벽을 v1에서 v2로 마이그레이션합니다.](migrate-v1-v2.md)
 
 ## <a name="configuration---ingress-controller-for-aks"></a>구성 - AKS용 컨트롤러 를 가져옵니다.
 

@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dff3be9a9bc7fd897f340e5fe6a4775a4914810
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea14e02920cf7ba6c5e0a7b415cb92137c915576
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65824950"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519698"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>애플리케이션에 대한 동의를 수행할 때 예기치 않은 오류
 
@@ -33,8 +33,11 @@ Azure Active Directory와 통합되는 많은 애플리케이션을 작동시키
 
 ## <a name="requesting-not-authorized-permissions-error"></a>권한 없는 사용 권한 요청 오류
 * **AADSTS90093:** &lt;clientAppDisplayName&gt;은 사용 권한이 부여되지 않은 하나 이상의 사용 권한을 요청합니다. 사용자 대신 이 애플리케이션에 동의할 수 있는 관리자에게 문의합니다.
+* **AADSTS90094:** &lt;clientAppDisplayName은&gt; 관리자만 부여할 수 있는 조직의 리소스에 액세스할 수 있는 권한이 필요합니다. 사용하기 전에 이 앱에 대한 사용 권한을 부여하려면 관리자에게 문의하세요.
 
 이 오류는 회사 관리자가 아닌 사용자가 관리자만이 부여할 수 있는 사용 권한을 요청하는 애플리케이션을 사용하려고 할 때 발생합니다. 해당 조직을 대신하여 애플리케이션에 대한 액세스 권한을 부여하는 관리자가 이 오류를 해결할 수 있습니다.
+
+이 오류는 Microsoft에서 사용 권한 요청이 위험하다는 것을 감지하여 사용자가 응용 프로그램에 동의하지 못하는 경우에도 발생할 수 있습니다. 이 경우 감사 이벤트는 "응용 프로그램 관리", 활동 유형 "응용 프로그램에 대한 동의"의 범주 및 "위험한 응용 프로그램이 검색됨"의 상태 이유로 기록됩니다.
 
 ## <a name="policy-prevents-granting-permissions-error"></a>사용 권한 부여를 방지하는 정책 오류
 * **AADSTS90093:**&lt;tenantDisplayName&gt;의 관리자는 사용 권한이 요청하는 &lt;앱의 이름&gt;을 부여하지 못하도록 방지하는 정책을 설정했습니다. 사용자 대신 이 앱에 대한 권한을 부여할 수 있는 &lt;tenantDisplayName&gt;의 관리자에게 문의하세요.

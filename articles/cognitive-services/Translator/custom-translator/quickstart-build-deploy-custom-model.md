@@ -9,14 +9,14 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: 82f2acb811bcb239f6329ab8d8b4008e13ac6490
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: a22ae3b4b11a4eac7da147cf3ad896bbad435448
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75446742"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80370258"
 ---
-# <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>빠른 시작: 번역을 위한 사용자 지정 모델 빌드, 배포 및 사용
+# <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>빠른 시작: 번역용 사용자 지정 모델 빌드, 배포 및 사용
 
 이 문서에서는 Custom Translator를 사용하여 번역 시스템을 구축하는 단계별 지침을 제공합니다.
 
@@ -26,7 +26,21 @@ ms.locfileid: "75446742"
 
 2. Azure Portal 통해 Translator Text API 구독. Custom Translator에서 작업 영역과 연결할 Translator Text API 구독 키가 필요합니다. [Translator Text API에 등록하는 방법](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup)을 참조하세요.
 
-3. 위의 두 가지 조건이 모두 준비되면 [Custom Translator](https://portal.customtranslator.azure.ai) 포털에 로그인합니다. Custom Translator 포털에서, Microsoft Translator Text API 구독 키를 작업 영역과 연결할 수 있는 [설정] 페이지로 이동합니다.
+3. 위의 두 가지가 모두 있는 경우 [사용자 지정 변환기](https://portal.customtranslator.azure.ai) 포털에 로그인하여 작업 영역, 프로젝트, 파일 업로드 및 모델 만들기/배포를 만듭니다.
+
+## <a name="create-a-workspace"></a>작업 영역 만들기
+
+첫 사용자인 경우 서비스 약관에 동의하여 작업 영역을 만들고, 작업 영역을 Microsoft Translator Text API 구독과 연결하라는 메시지가 표시됩니다.
+
+![작업 영역 만들기](media/quickstart/terms-of-service.png)
+![작업 영역 만들기](media/quickstart/create-workspace-1.png)
+![작업 영역 만들기](media/quickstart/create-workspace-2.png)
+![작업 영역 만들기](media/quickstart/create-workspace-3.png)
+![작업 영역 만들기](media/quickstart/create-workspace-4.png)
+![작업 영역만들기](media/quickstart/create-workspace-5.png)
+![작업 영역 만들기](media/quickstart/create-workspace-6.png)
+
+이후에 Custom Translator 포털 방문 시 작업 영역을 관리하고, 추가 작업 영역을 만들고, Microsoft Translator Text API 구독 키를 작업 영역에 연결하고, 공동 소유자를 추가하고, 구독 키를 변경할 수 있는 설정 페이지로 이동합니다.
 
 ## <a name="create-a-project"></a>프로젝트 만들기
 

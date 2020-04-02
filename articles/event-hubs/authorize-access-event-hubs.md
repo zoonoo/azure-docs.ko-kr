@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: d4304abf0ca089fbbea86f12cd03dea836db612e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f44be4e1d3d1186f0122bd4669ae800ab42e31d6
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77368361"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521302"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Azure Event Hubs에 대한 액세스 권한 부여
 이벤트 허브에서 이벤트/데이터를 게시하거나 사용할 때마다 클라이언트가 Event Hubs 리소스에 액세스하려고 합니다. 서비스가 클라이언트가 데이터를 게시/사용하는 데 필요한 권한이 있는지 확인할 수 있도록 보안 리소스에 대한 모든 요청이 승인되어야 합니다. 
@@ -39,7 +39,7 @@ Azure AD인증에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 Azure AD에서 반환하는 OAuth 2.0 토큰을 사용하여 사용자 또는 응용 프로그램에 권한을 부여하면 SAS(공유 액세스 서명)를 통해 뛰어난 보안과 사용 편의성을 제공합니다. Azure AD를 사용하면 코드와 함께 액세스 토큰을 저장하고 잠재적인 보안 취약점을 위험에 빠뜨릴 필요가 없습니다. SAS(공유 액세스 시그니처)를 계속 사용하여 이벤트 허브 리소스에 대한 세분화된 액세스 권한을 부여할 수 있지만 Azure AD는 SAS 토큰을 관리하거나 손상된 SAS를 취소할 필요 없이 유사한 기능을 제공합니다. 
 
-기본적으로 모든 이벤트 허브 리소스는 보호되며 계정 소유자만 사용할 수 있습니다. 위에 설명된 권한 부여 전략을 사용하여 클라이언트에게 이벤트 허브 리소스에 대한 액세스 권한을 부여할 수 있지만. Azure 리소스 관리자 배포 모델로 만든 이벤트 허브 리소스만 Azure AD 권한 부여를 지원합니다. 가능한 한 보안 및 사용 편의성을 극대화하기 위해 Azure AD를 사용하는 것이 좋습니다.
+기본적으로 모든 이벤트 허브 리소스는 보호되며 계정 소유자만 사용할 수 있습니다. 위에 설명된 권한 부여 전략을 사용하여 클라이언트에게 이벤트 허브 리소스에 대한 액세스 권한을 부여할 수 있지만. 가능한 한 보안 및 사용 편의성을 극대화하기 위해 Azure AD를 사용하는 것이 좋습니다.
 
 SAS를 사용한 권한 부여에 대한 자세한 내용은 [공유 액세스 서명을 사용하여 이벤트 허브 리소스에 대한 액세스 권한 부여를](authorize-access-shared-access-signature.md)참조하십시오.
 

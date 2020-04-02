@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
-ms.openlocfilehash: 80ec9b2bbf10d8f500e7f9e0369faca3b9663633
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79a821a4c8fe4cb2d048f0dcb0a6e091462a1779
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74129393"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548804"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>Azure Databricks에서 데이터 원본에 연결
 
@@ -39,7 +39,7 @@ ms.locfileid: "74129393"
 
     이 링크는 지정된 컨테이너의 SAS 또는 액세스 키를 사용하여 Azure Databricks에서 Azure Blob Storage에 직접 액세스하는 방법의 예제를 제공합니다. 또한 RDD API를 사용하여 Azure Databricks에서 Azure Blob Storage에 액세스하는 방법에 대한 정보를 제공합니다.
 
-- [Azure 코스모스 DB](/azure/databricks/data/data-sources/azure/cosmosdb-connector)
+- [Azure Cosmos DB](/azure/databricks/data/data-sources/azure/cosmosdb-connector)
 
     이 링크는 Azure Databricks에서 [Azure Cosmos DB Spark 커넥터](https://github.com/Azure/azure-cosmosdb-spark)를 사용하여 Azure Cosmos DB의 데이터에 액세스하는 방법에 대한 지침을 제공합니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "74129393"
 
     이 링크는 Azure Databricks에서 [Azure Event Hubs Spark 커넥터](https://github.com/Azure/azure-event-hubs-spark)를 사용하여 Azure Event Hubs의 데이터에 액세스하는 방법에 대한 지침을 제공합니다.
 
-- [Azure SQL Data Warehouse](/azure/databricks/data/data-sources/azure/sql-data-warehouse)
+- [Azure SQL Data Warehouse](/azure/synapse-analytics/sql-data-warehouse/)
 
     이 링크는 Azure SQL Data Warehouse 커넥터를 사용하여 Azure Databricks에서 연결하는 방법에 대한 지침을 제공합니다.
     

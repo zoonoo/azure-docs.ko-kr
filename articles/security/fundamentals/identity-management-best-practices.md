@@ -3,7 +3,7 @@ title: Azure ID 및 액세스 보안 모범 사례 | Microsoft Docs
 description: 이 문서에서는 기본 제공 Azure 기능을 사용한 ID 관리 및 액세스 제어에 대한 몇 가지 모범 사례를 제공합니다.
 services: security
 documentationcenter: na
-author: barclayn
+author: terrylanfear
 manager: RKarlin
 editor: TomSh
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
-ms.author: barclayn
-ms.openlocfilehash: 52ef3a9b1df058d5d2e954b424094f9dbaeba15b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: terrylan
+ms.openlocfilehash: ffd9919092cdf2481767e58f10ba6525d56ca4a8
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73053352"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548451"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management 및 액세스 제어 보안 모범 사례
 
@@ -269,7 +269,7 @@ RBAC와 같은 기능을 사용하여 데이터 액세스 제어를 적용하지
 **모범 사례:** 모든 중요한 관리자 계정이 암호가 없는(기본 설정) 또는 다단계 인증이 필요합니다.
 **세부 정보**: [Microsoft 인증자 앱을](/azure/active-directory/authentication/howto-authentication-phone-sign-in) 사용하여 암호를 사용하지 않고 모든 Azure AD 계정에 로그인합니다. [비즈니스용 Windows Hello와](/windows/security/identity-protection/hello-for-business/hello-identity-verification)마찬가지로 Microsoft 인증자는 키 기반 인증을 사용하여 장치에 연결된 사용자 자격 증명을 활성화하고 생체 인증 또는 PIN을 사용합니다.
 
-하나 이상의 Azure AD 관리자 역할(글로벌 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online)에 영구적으로 할당된 모든 개별 사용자에 대해 로그인 시 Azure 다단계 인증 필요 관리자. [관리자 계정에 대해 다단계 인증을](/azure/active-directory/authentication/howto-mfa-userstates) 활성화하고 관리자 계정 사용자가 등록되었는지 확인합니다.
+하나 이상의 Azure AD 관리자 역할(글로벌 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online 관리자)에 영구적으로 할당된 모든 개별 사용자에 대해 로그인 시 Azure 다단계 인증이 필요합니다. [관리자 계정에 대해 다단계 인증을](/azure/active-directory/authentication/howto-mfa-userstates) 활성화하고 관리자 계정 사용자가 등록되었는지 확인합니다.
 
 **모범 사례:** 중요한 관리자 계정의 경우 프로덕션 작업이 허용되지 않는 관리자 워크스테이션(예: 검색 및 전자 메일)이 있습니다. 이렇게 하면 관리자 계정이 검색 및 전자 메일을 사용하는 공격 벡터로부터 보호되고 주요 사고의 위험이 현저히 낮아집니다.
 **세부 정보**: 관리자 워크스테이션을 사용합니다. 워크스테이션 보안 수준을 선택합니다.

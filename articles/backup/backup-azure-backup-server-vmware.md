@@ -3,12 +3,12 @@ title: Azure Backup Server를 사용하여 VMware VM 백업
 description: 이 문서에서는 Azure 백업 서버를 사용하여 VMware vCenter/ESXi 서버에서 실행 중인 VM웨어 VM을 백업하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: df85cba42118a2e814a4a1c8338f3927e4d75f36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 951016d393b095b0329ff18861421402e0e18a1a
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273476"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529500"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup Server를 사용하여 VMware VM 백업
 
@@ -130,41 +130,52 @@ v-Center Server/ESXi 호스트에 액세스할 수 있는 권한을 가진 사�
 
 ### <a name="role-permissions"></a>역할 권한
 
-| **vCenter 6.5 이상 사용자 계정에 대한 권한**        | **vCenter 6.0 사용자 계정에 대한 권한**               | **vCenter 5.5 사용자 계정에 대한 권한** |
-| ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------- |
-| Datastore.AllocateSpace                                      |                                                           |                                             |
-| Datastore.Browse datastore                                   | Datastore.AllocateSpace                                   | Network.Assign                              |
-| Datastore.Low-level file operations                          | Global.Manage custom attributes                           | Datastore.AllocateSpace                     |
-| Datastore cluster.Configure a datatstore cluster             | Global.Set custom attribute                               | VirtualMachine.Config.ChangeTracking        |
-| Global.Disable methods                                       | Host.Local operations.Create virtual machine              | VirtualMachine.State.RemoveSnapshot         |
-| Global.Enable methods                                        | Network. Assign network                                   | VirtualMachine.State.CreateSnapshot         |
-| Global.Licenses                                              | Resource. Assign virtual machine to resource pool         | VirtualMachine.Provisioning.DiskRandomRead  |
-| Global.Log event                                             | Virtual machine.Configuration.Add new disk                | VirtualMachine.Interact.PowerOff            |
-| Global.Manage custom attributes                              | Virtual machine.Configuration.Advanced                    | VirtualMachine.Inventory.Create             |
-| Global.Set custom attribute                                  | Virtual machine.Configuration.Disk change tracking        | VirtualMachine.Config.AddNewDisk            |
-| Network.Assign network                                       | Virtual machine.Configuration.Host USB device             | VirtualMachine.Config.HostUSBDevice         |
-| Resource. Assign virtual machine to resource pool            | Virtual machine.Configuration.Query unowned files         | VirtualMachine.Config.AdvancedConfig        |
-| Virtual machine.Configuration.Add new disk                   | Virtual machine.Configuration.Swapfile placement          | VirtualMachine.Config.SwapPlacement         |
-| Virtual machine.Configuration.Advanced                       | Virtual machine.Interaction.Power Off                     | Global.ManageCustomFields                   |
-| Virtual machine.Configuration.Disk change tracking           | Virtual machine.Inventory. 새로 만들기                     |                                             |
-| Virtual machine.Configuration.Disk lease                     | Virtual machine.Provisioning.Allow disk access            |                                             |
-| Virtual machine.Configuration.Extend virtual disk            | Virtual machine.Provisioning. Allow read-only disk access |                                             |
-| Virtual machine.Guest Operations.Guest Operation Modifications | Virtual machine.Snapshot management.Create snapshot       |                                             |
-| Virtual machine.Guest Operations.Guest Operation Program Execution | Virtual machine.Snapshot management.Remove Snapshot       |                                             |
-| Virtual machine.Guest Operations.Guest Operation Queries     |                                                           |                                             |
-| Virtual machine .Interaction .Device connection              |                                                           |                                             |
-| Virtual machine .Interaction .Guest operating system management by VIX API |                                                           |                                             |
-| Virtual machine .Inventory.Register                          |                                                           |                                             |
-| Virtual machine .Inventory.Remove                            |                                                           |                                             |
-| Virtual machine .Provisioning.Allow disk access              |                                                           |                                             |
-| Virtual machine .Provisioning.Allow read-only disk access    |                                                           |                                             |
-| Virtual machine .Provisioning.Allow virtual machine download |                                                           |                                             |
-| Virtual machine .Snapshot management. 스냅샷 만들기        |                                                           |                                             |
-| Virtual machine .Snapshot management.Remove Snapshot         |                                                           |                                             |
-| Virtual machine .Snapshot management.Revert to snapshot      |                                                           |                                             |
-| vApp.Add virtual machine                                     |                                                           |                                             |
-| vApp.Assign resource pool                                    |                                                           |                                             |
-| vApp.Unregister                                              |                                                           |                                             |
+| **vCenter 6.7 사용자 계정에 대한 권한**              | **vCenter 6.5 사용자 계정에 대한 권한**             |
+| --------------------------------------------------------- | -------------------------------------------------------- |
+| 데이터스토어.공간 할당                                  | 데이터스토어.공간 할당                                 |
+| 글로벌.로그 이벤트                                          | 글로벌.로그 이벤트                                         |
+| 전역.사용자 지정 특성 관리                           | 전역.사용자 지정 특성 관리                          |
+| Network.Assign                                            | Network.Assign                                           |
+| Resource. 리소스 풀에 가상 컴퓨터 할당        | Resource. 리소스 풀에 가상 컴퓨터 할당       |
+| 가상 머신.구성.AddNewDisk                   | 가상 머신.구성.AddNewDisk                  |
+| 가상 머신.구성. 장치 추가 또는 제거       | 가상 머신.구성. 장치 추가 또는 제거      |
+| 가상 머신.구성.고급                     | 가상 머신.구성.고급                    |
+| 가상 머신.구성.디스크 변경 변경 추적 을 전환 | 가상 머신.구성.디스크 변경 추적       |
+| 가상 머신.구성.호스트 USB 장치 구성   | 가상 머신.구성.호스트 USB 장치            |
+| 가상 머신.구성.검색되지 않은 파일 쿼리         | 가상 머신.구성.검색되지 않은 파일 쿼리        |
+| 가상 머신.구성.변경 스왑 파일 배치   | 가상 머신.구성.스왑 파일 배치         |
+| 가상 머신.상호 작용.전원 끄기                      | 가상 머신.상호 작용.전원 끄기                     |
+| 가상 머신.인벤토리.새 만들기                       | 가상 머신.인벤토리.새 만들기                      |
+| 가상 머신.프로비저닝.디스크 액세스 허용            | 가상 머신.프로비저닝.디스크 액세스 허용           |
+| 가상 머신.프로비저닝.파일 액세스 허용            | 가상 머신.프로비저닝.파일 액세스 허용           |
+| 가상 머신.프로비저닝.읽기 전용 디스크 액세스 허용  | 가상 머신.프로비저닝.읽기 전용 디스크 액세스 허용 |
+| 가상 머신.스냅샷 관리.스냅샷 만들기       | 가상 머신.스냅샷 관리.스냅샷 만들기      |
+| 가상 머신.스냅샷 관리.스냅샷 제거       | 가상 머신.스냅샷 관리.스냅샷 제거      |
+
+<br>
+
+| **vCenter 6.0 사용자 계정에 대한 권한**                | **vCenter 5.5 사용자 계정에 대한 권한** |
+| ---------------------------------------------------------- | ------------------------------------------- |
+| Datastore.AllocateSpace                                    | Network.Assign                              |
+| 전역.사용자 지정 특성 관리                           | Datastore.AllocateSpace                     |
+| 전역.사용자 지정 특성 설정                               | VirtualMachine.Config.ChangeTracking        |
+| Host.Local 작업. 가상 컴퓨터 만들기              | VirtualMachine.State.RemoveSnapshot         |
+| Network.  Assign network                                   | VirtualMachine.State.CreateSnapshot         |
+| Resource.  Assign virtual machine to resource pool         | VirtualMachine.Provisioning.DiskRandomRead  |
+| 가상 머신. 구성.새 디스크 추가                | VirtualMachine.Interact.PowerOff            |
+| 가상 머신. 구성.고급                    | VirtualMachine.Inventory.Create             |
+| 가상 머신. 구성.디스크 변경 추적        | VirtualMachine.Config.AddNewDisk            |
+| 가상 머신. 구성.호스트 USB 장치             | VirtualMachine.Config.HostUSBDevice         |
+| 가상 머신. Configuration.Kr 소유되지 않은 파일 쿼리         | VirtualMachine.Config.AdvancedConfig        |
+| 가상 머신. 구성.스왑파일 배치          | VirtualMachine.Config.SwapPlacement         |
+| 가상 머신. 상호 작용.전원 끄기                     | Global.ManageCustomFields                   |
+| 가상 머신. 인벤토리. 새로 만들기                     |                                             |
+| 가상 머신. 프로비저닝.디스크 액세스 허용            |                                             |
+| 가상 머신. 프로 비전. Allow read-only disk access |                                             |
+| 가상 머신. 스냅샷 관리. 스냅샷 만들기       |                                             |
+| 가상 머신. 스냅샷 관리. 스냅샷 제거       |                                             |
+
+
 
 ## <a name="create-a-vmware-account"></a>VMware 계정 만들기
 

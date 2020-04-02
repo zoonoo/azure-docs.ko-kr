@@ -9,12 +9,12 @@ ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 398e63ec9a8b9e1b16d8ffcee538351fc6572de9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 9edeecdfb0c0e7ef0ef6e9d1704d81b844ac8c53
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387052"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80293765"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>빠른 시작: Azure Portal 및 Event Grid를 사용하여 사용자 지정 이벤트를 웹 엔드포인트로 라우팅
 
@@ -128,7 +128,7 @@ Event Grid 항목을 구독하여 Event Grid에 추적하려는 이벤트와 이
 ### <a name="azure-powershell"></a>Azure PowerShell
 두 번째 예제에서는 PowerShell을 사용하여 비슷한 단계를 수행합니다.
 
-1. Azure Portal에서 **Cloud Shell**을 선택하거나 https://shell.azure.com/) 으로 이동합니다. Cloud Shell 창의 왼쪽 위 모서리에서 **PowerShell**을 선택합니다. Azure CLI 섹션에서 샘플 **Cloud Shell** 창 이미지를 확인합니다.
+1. Azure Portal에서 **Cloud Shell**을 선택하거나 `https://shell.azure.com/`으로 이동합니다. Cloud Shell 창의 왼쪽 위 모서리에서 **PowerShell**을 선택합니다. Azure CLI 섹션에서 샘플 **Cloud Shell** 창 이미지를 확인합니다.
 2. 다음 변수를 설정합니다. 각 명령을 복사하고 붙여넣은 후, 명령을 실행하기 전에 **항목 이름** 및 **리소스 그룹 이름**을 업데이트합니다.
 
     ```powershell

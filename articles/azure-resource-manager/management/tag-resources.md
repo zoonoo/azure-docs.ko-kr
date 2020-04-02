@@ -2,13 +2,13 @@
 title: 논리적 조직에 대한 리소스, 리소스 그룹 및 구독에 태그
 description: 태그를 적용하여 대금 청구 및 관리를 위해 Azure 리소스를 구성하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 03/20/2020
-ms.openlocfilehash: ffc97df0923e26c3abf0eed8e7810f3b1dc61ed2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 76f9f61b3fe7002508bbd884f427efcfee698579
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132159"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548488"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>태그를 사용하여 Azure 리소스 및 관리 계층 을 구성합니다.
 
@@ -20,7 +20,7 @@ Azure 리소스, 리소스 그룹 및 구독에 태그를 적용하여 논리적
 
 ## <a name="required-access"></a>필수 액세스
 
-리소스에 태그를 적용하려면 **Microsoft.Resources/태그** 리소스 유형에 대한 쓰기 액세스 권한이 있어야 합니다. **태그 기여자** 역할을 사용하면 엔터티 자체에 액세스하지 않고도 엔터티에 태그를 적용할 수 있습니다.
+리소스에 태그를 적용하려면 **Microsoft.Resources/태그** 리소스 유형에 대한 쓰기 액세스 권한이 있어야 합니다. [태그 기여자](../../role-based-access-control/built-in-roles.md#tag-contributor) 역할을 사용하면 엔터티 자체에 액세스하지 않고도 엔터티에 태그를 적용할 수 있습니다. 현재 태그 기여자 역할은 포털을 통해 리소스 또는 리소스 그룹에 태그를 적용할 수 없습니다. 포털을 통해 구독에 태그를 적용할 수 있습니다. PowerShell 및 REST API를 통해 모든 태그 작업을 지원합니다.  
 
 또한 [기여자](../../role-based-access-control/built-in-roles.md#contributor) 역할은 모든 엔터티에 태그를 적용하는 데 필요한 액세스 권한을 부여합니다. 하나의 리소스 형식에만 태그를 적용하려면 해당 리소스에 대한 기여자 역할을 사용합니다. 예를 들어, 가상 머신에 태그를 적용하려면 [가상 머신 기여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)를 사용합니다.
 
@@ -28,7 +28,7 @@ Azure 리소스, 리소스 그룹 및 구독에 태그를 적용하여 논리적
 
 ### <a name="apply-tags"></a>태그 적용
 
-Azure PowerShell은 태그를 적용하기 위한 두 가지 [명령(새-AzTag](/powershell/module/az.resources/new-aztag) 및 [Update-AzTag)](/powershell/module/az.resources/update-aztag)명령을 제공합니다. 이러한 명령을 사용하려면 Azure PowerShell 3.6.1 이상이어야 합니다.
+Azure PowerShell은 태그를 적용하기 위한 두 가지 [명령(새-AzTag](/powershell/module/az.resources/new-aztag) 및 [Update-AzTag)](/powershell/module/az.resources/update-aztag)명령을 제공합니다. Az.Resources 모듈 1.12.0 이상이어야 합니다. 을 통해 버전을 `Get-Module Az.Resources`확인할 수 있습니다. 해당 모듈을 설치하거나 [Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 이상을 설치할 수 있습니다.
 
 **New-AzTag는** 리소스, 리소스 그룹 또는 구독의 모든 태그를 대체합니다. 명령을 호출할 때 태그하려는 엔터티의 리소스 ID를 전달합니다.
 

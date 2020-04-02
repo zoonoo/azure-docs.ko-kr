@@ -9,33 +9,36 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 7abbdf03e85f425f65a45e6640b82529c2b9c84f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b95a3e32bc2b8df3d02453e42fa9bbc3719134b
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77614058"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519116"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD 도메인 서비스 관리 도메인에 조직 단위(OU) 만들기
 
 AD DS(Active Directory 도메인 서비스)의 조직 단위(OUs)를 사용하면 사용자 계정, 서비스 계정 또는 컴퓨터 계정과 같은 개체를 논리적으로 그룹화할 수 있습니다. 그런 다음 관리자를 특정 OUs에 할당하고 그룹 정책을 적용하여 대상 구성 설정을 적용할 수 있습니다.
 
-Azure AD DS 관리 도메인에는 두 개의 기본 제공 *O-AADDC 컴퓨터* 및 *AADDC 사용자*가 포함됩니다. *AADDC 컴퓨터* OU에는 관리되는 도메인에 조인된 모든 컴퓨터에 대한 컴퓨터 개체가 포함되어 있습니다. *AADDC 사용자* OU에는 Azure AD 테넌트에서 동기화된 사용자 및 그룹이 포함됩니다. Azure AD DS를 사용하는 워크로드를 만들고 실행할 때 응용 프로그램이 자신을 인증하기 위한 서비스 계정을 만들어야 할 수 있습니다. 이러한 서비스 계정을 구성하려면 Azure AD DS 관리 도메인에서 사용자 지정 OU를 만든 다음 해당 OU 내에서 서비스 계정을 만듭니다.
+Azure AD DS 관리 도메인에는 다음과 같은 두 가지 기본 제공 US가 포함됩니다.
+
+* *AADDC 컴퓨터* - 관리되는 도메인에 조인된 모든 컴퓨터에 대한 컴퓨터 개체가 포함되어 있습니다.
+* *AADDC 사용자* - Azure AD 테넌트에서 동기화된 사용자 및 그룹을 포함합니다.
+
+Azure AD DS를 사용하는 워크로드를 만들고 실행할 때 응용 프로그램이 자신을 인증하기 위한 서비스 계정을 만들어야 할 수 있습니다. 이러한 서비스 계정을 구성하려면 Azure AD DS 관리 도메인에서 사용자 지정 OU를 만든 다음 해당 OU 내에서 서비스 계정을 만듭니다.
 
 하이브리드 환경에서 온-프레미스 AD DS 환경에서 만든 US는 Azure AD DS와 동기화되지 않습니다. Azure AD DS 관리 도메인은 플랫 OU 구조를 사용합니다. 모든 사용자 계정 및 그룹은 계층적 OU 구조를 구성한 경우에도 다른 온-프레미스 도메인 또는 포리스트에서 동기화되더라도 *AADDC Users* 컨테이너에 저장됩니다.
 
 이 문서에서는 Azure AD DS 관리 도메인에서 OU를 만드는 방법을 보여 줍니다.
-
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서를 완료하려면 다음과 같은 리소스와 권한이 필요합니다.
 
 * 활성화된 Azure 구독.
-    * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * Azure 구독이 없는 경우 [계정을 만듭니다.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
@@ -68,19 +71,19 @@ Azure AD DS 관리 도메인에서 사용자 지정 OUs를 만들면 사용자 �
 1. OUs를 만들고 관리하려면 관리 도구 목록에서 **Active Directory 관리 센터를** 선택합니다.
 1. 왼쪽 창에서 *aaddscontoso.com*와 같은 Azure AD DS 관리 도메인을 선택합니다. 기존 US 및 리소스 목록이 표시됩니다.
 
-    ![활성 디렉터리 관리 센터에서 Azure AD DS 관리 도메인 선택](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
+    ![활성 디렉터리 관리 센터에서 Azure AD DS 관리 도메인 선택](./media/create-ou/create-ou-adac-overview.png)
 
 1. **작업** 창은 활성 디렉터리 관리 센터의 오른쪽에 표시됩니다. *aaddscontoso.com*같은 도메인에서 새 **> 조직 단위를**선택합니다.
 
-    ![활성 디렉터리 관리 센터에서 새 OU를 만드는 옵션을 선택합니다.](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
+    ![활성 디렉터리 관리 센터에서 새 OU를 만드는 옵션을 선택합니다.](./media/create-ou/create-ou-adac-new-ou.png)
 
 1. 조직 **단위 만들기** 대화 상자에서 MyCustomOu 와 같은 새 OU의 **이름을** *지정합니다.* 서비스 계정에 대한 사용자 지정 *OU와*같은 OU에 대한 간략한 설명을 제공합니다. 원하는 경우 OU에 대한 **관리별** 필드를 설정할 수도 있습니다. 사용자 지정 OU를 만들려면 **확인을**선택합니다.
 
-    ![활성 디렉터리 관리 센터에서 사용자 지정 OU 만들기](./media/active-directory-domain-services-admin-guide/create-ou-dialog.png)
+    ![활성 디렉터리 관리 센터에서 사용자 지정 OU 만들기](./media/create-ou/create-ou-dialog.png)
 
 1. Active Directory 관리 센터로 돌아가면 사용자 지정 OU가 나열되어 있으며 사용할 수 있습니다.
 
-    ![Active Directory 관리 센터에서 사용할 수 있는 사용자 지정 OU](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
+    ![Active Directory 관리 센터에서 사용할 수 있는 사용자 지정 OU](./media/create-ou/create-ou-done.png)
 
 ## <a name="next-steps"></a>다음 단계
 

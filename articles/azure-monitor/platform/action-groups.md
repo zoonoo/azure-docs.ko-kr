@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 2/18/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 6ba48f3c40e45afa02e03a7589e968cca723118e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9bc191bb27ebb0bac631ef5cfa8ddc34bbd8214e
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79249517"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520900"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 구독에서는 작업 그룹을 2,000개까지 구성할 수 있습니다.
@@ -52,7 +52,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 
     1. **이름**: 이 작업에 대한 고유 식별자를 입력합니다.
 
-    1. **작업 유형**: 이메일/SMS/푸시/음성, 논리 앱, 웹후크, ITSM 또는 Automation Runbook을 선택합니다.
+    1. 작업 유형 : 자동화 실행책, Azure 함수, 전자 메일 Azure 리소스 관리자 역할, 전자 메일/SMS/푸시/음성, ITSM, 논리 앱, 보안 웹후크, 웹후크를 **선택합니다.**
 
     1. **세부 정보**: 작업 유형에 따라 전화 번호, 이메일 주소, 웹후크 URI, Azure 앱, ITSM 연결 또는 Automation Runbook을 입력합니다. ITSM 작업의 경우 **작업 항목** 및 ITSM 도구에 필요한 다른 필드를 추가로 지정합니다.
     

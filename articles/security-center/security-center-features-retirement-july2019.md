@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: fda49ae31d7598497a3128a846a3f4e12e84ffe1
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 1f923db5c730f6dec15f4fc211ab7acbd009ac7f
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435901"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521427"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>보안 센터 기능의 은퇴 (7 월 2019)
 
@@ -169,7 +169,7 @@ Azure Sentinel 사용에 관심이 없는 경우 Azure Monitor 로그 경고를 
 
 Azure Security Center는 OS를 강화하기 위해 [150개 이상의 추천 규칙](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) 세트를 적용하여 보안 구성을 모니터링합니다. 이러한 규칙은 방화벽, 감사, 암호 정책 등과 관련이 있습니다. 컴퓨터에 취약한 구성이 있는 것으로 확인되면 Security Center에서 보안 권장 사항이 생성됩니다. [보안 구성 편집 화면에서는](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) 고객이 보안 센터에서 기본 OS 보안 구성을 사용자 지정할 수 있습니다.
 
-이 미리 보기 기능을 사용 중지했습니다. 사용 중지 날짜 이후에 보안 구성을 기본값으로 다시 설정하려면 [다음 지침을](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20samples/Reset%20security%20configurations%20customization)사용하여 API 또는 Powershell을 통해 다시 설정합니다.
+이 미리 보기 기능을 사용 중지했습니다. 사용 중지 날짜 이후에 보안 구성을 기본값으로 다시 설정하려면 [다음 지침을](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/Reset%20security%20configurations%20customization)사용하여 API 또는 Powershell을 통해 다시 설정합니다.
 
 ![보안 구성 편집][17]
 

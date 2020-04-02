@@ -1,19 +1,19 @@
 ---
-title: IP 방화벽을 사용하여 Azure Cosmos 계정을 만드는 PowerShell 스크립트
-description: Azure PowerShell 스크립트 샘플 - IP 방화벽을 사용하여 Azure Cosmos 계정 만들기
+title: IP 방화벽을 사용하여 Azure Cosmos DB 계정을 만드는 PowerShell 스크립트
+description: Azure PowerShell 스크립트 샘플 - IP 방화벽을 사용하여 Azure Cosmos DB 계정 만들기
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 09/20/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6f018815bb8afd50bd9f21f8c088fd688ace1174
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f01e8e818a1b3cf4f999afa1e0801b2341ede2bf
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75445080"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365682"
 ---
-# <a name="create-an-azure-cosmos-account-with-ip-firewall"></a>IP 방화벽을 사용하여 Azure Cosmos 계정 만들기
+# <a name="create-an-azure-cosmos-db-account-with-ip-firewall"></a>IP 방화벽을 사용하여 Azure Cosmos DB 계정 만들기
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -40,10 +40,9 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 | 명령 | 메모 |
 |---|---|
-|**Azure 리소스**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | 리소스를 만듭니다. |
+|**Azure Cosmos DB**| |
+| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | 새 Cosmos DB 계정을 만듭니다. |
 |**Azure 리소스 그룹**| |
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||
 
