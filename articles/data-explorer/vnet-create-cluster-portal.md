@@ -7,12 +7,12 @@ ms.reviewer: basaba
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/24/2020
-ms.openlocfilehash: 4dff471fa0f2194756409e01512ed223a1d46024
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 99c32122fc48aaea7428fa559d7289713849f34e
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80241440"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548892"
 ---
 # <a name="create-an-azure-data-explorer-cluster-in-your-virtual-network"></a>가상 네트워크에서 Azure 데이터 탐색기 클러스터 만들기
 
@@ -21,7 +21,7 @@ Azure Data Explorer는 가상 네트워크(VNet)의 서브넷에 클러스터배
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* [Azure 포털에](https://portal.azure.com/)로그인합니다.
+* [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-network-security-group-nsg"></a>NSG(네트워크 보안 그룹 만들기)
 
@@ -36,11 +36,11 @@ Azure Data Explorer는 가상 네트워크(VNet)의 서브넷에 클러스터배
 
    ![NSG 양식 만들기](media/vnet-create-cluster-portal/network-security-group.png)
 
-    **설정** | **제안된 값** | **필드 설명**
+    **설정** | **제안 값** | **필드 설명**
     |---|---|---|
     | Subscription | 사용자의 구독 | 클러스터에 사용할 Azure 구독을 선택합니다.|
     | Resource group | 리소스 그룹 | 기존 리소스 그룹을 사용하거나 새 리소스 그룹을 만듭니다. |
-    | 이름 | AzureDataExplorerNsg | 리소스 그룹에서 NSG(네트워크 보안 그룹)를 식별하는 이름을 선택합니다.  |
+    | 속성 | AzureDataExplorerNsg | 리소스 그룹에서 NSG(네트워크 보안 그룹)를 식별하는 이름을 선택합니다.  |
     | 지역 | *미국 서부* | 요구에 가장 적합한 지역을 선택합니다.
     | | | |
 
@@ -55,7 +55,7 @@ Azure Data Explorer는 가상 네트워크(VNet)의 서브넷에 클러스터배
 
     ![NSG 인바운드 규칙 양식 만들기](media/vnet-create-cluster-portal/nsg-inbound-rule.png)
 
-    **설정** | **제안된 값** 
+    **설정** | **제안 값** 
     |---|---|
     | 원본 | 서비스 태그
     | 원본 서비스 태그 | AzureData탐색기관리
@@ -65,10 +65,10 @@ Azure Data Explorer는 가상 네트워크(VNet)의 서브넷에 클러스터배
     | 프로토콜 | TCP
     | 작업 | Allow
     | 우선 순위 | 100
-    | 이름 | 허용Azure데이터익분기관리
+    | 속성 | 허용Azure데이터익분기관리
     | | |
     
-1. [VNet 배포에 대한 종속성에](/azure/data-explorer/vnet-deloyment#dependencies-for-vnet-deployment)따라 모든 인바운드 및 아웃바운드 종속성에 대해 이전 두 단계를 반복합니다. 또는 아웃바운드 규칙을 단일 규칙으로 대체하여 포트 443 및 80에 대한 *인터넷을* 허용할 수 있습니다.
+1. [VNet 배포에 대한 종속성에](/azure/data-explorer/vnet-deployment#dependencies-for-vnet-deployment)따라 모든 인바운드 및 아웃바운드 종속성에 대해 이전 두 단계를 반복합니다. 또는 아웃바운드 규칙을 단일 규칙으로 대체하여 포트 443 및 80에 대한 *인터넷을* 허용할 수 있습니다.
     
     인바운드 및 아웃바운드 종속성에 대한 NSG 규칙은 다음과 같아야 합니다.
 
@@ -85,11 +85,11 @@ Azure Data Explorer는 가상 네트워크(VNet)의 서브넷에 클러스터배
    
    ![공용 IP 양식 만들기](media/vnet-create-cluster-portal/public-ip-blade.png)
 
-    **설정** | **제안된 값** | **필드 설명**
+    **설정** | **제안 값** | **필드 설명**
     |---|---|---|
     | IP 버전 | IPv4 | IP 버전을 선택합니다. IPv4만 지원합니다.|
     | SKU | Standard | 쿼리(엔진) URI 끝점에 대한 **표준이** 필요합니다. |
-    | 이름 | 엔진 핍 | 리소스 그룹에서 공용 IP 주소를 식별하는 이름을 선택합니다.
+    | 속성 | 엔진 핍 | 리소스 그룹에서 공용 IP 주소를 식별하는 이름을 선택합니다.
     | Subscription | 사용자의 구독 | 공용 IP에 사용할 Azure 구독을 선택합니다.|
     | Resource group | 리소스 그룹 | 기존 리소스 그룹을 사용하거나 새 리소스 그룹을 만듭니다. |
     | 위치 | *미국 서부* | 요구에 가장 적합한 지역을 선택합니다.
@@ -112,16 +112,16 @@ Azure Data Explorer는 가상 네트워크(VNet)의 서브넷에 클러스터배
 
    ![가상 네트워크 양식 만들기](media/vnet-create-cluster-portal/vnet-blade.png)
 
-    **설정** | **제안된 값** | **필드 설명**
+    **설정** | **제안 값** | **필드 설명**
     |---|---|---|
     | Subscription | 사용자의 구독 | 클러스터에 사용할 Azure 구독을 선택합니다.|
     | Resource group | 리소스 그룹 | 기존 리소스 그룹을 사용하거나 새 리소스 그룹을 만듭니다. |
-    | 이름 | AzureData익탐색기 | 리소스 그룹에서 가상 네트워크를 식별하는 이름을 선택합니다.
+    | 속성 | AzureData익탐색기 | 리소스 그룹에서 가상 네트워크를 식별하는 이름을 선택합니다.
     | 지역 | *미국 서부* | 요구에 가장 적합한 지역을 선택합니다.
     | | | |
 
     > [!NOTE]
-    > 프로덕션 워크로드의 경우 [VNet의 계획 서브넷 크기에 따라 서브넷 크기를 계획합니다.](/azure/data-explorer/vnet-deloyment#plan-subnet-size-in-your-vnet)
+    > 프로덕션 워크로드의 경우 [VNet의 계획 서브넷 크기에 따라 서브넷 크기를 계획합니다.](/azure/data-explorer/vnet-deployment#plan-subnet-size-in-your-vnet)
 
 1. **검토 + 만들기**를 선택하여 클러스터 세부 정보를 검토하고 **만들기**를 선택하여 클러스터를 프로비저닝합니다.
 
@@ -145,7 +145,7 @@ Azure Data Explorer는 가상 네트워크(VNet)의 서브넷에 클러스터배
 
    ![클러스터 vnet 양식 만들기](media/vnet-create-cluster-portal/create-cluster-form-vnet.png)
 
-    **설정** | **제안된 값** | **필드 설명**
+    **설정** | **제안 값** | **필드 설명**
     |---|---|---|
     | Subscription | 사용자의 구독 | 네트워킹 리소스에 사용할 Azure 구독을 선택합니다.|
     | Virtual Network | AzureData익탐색기 | 이전 단계에서 만든 가상 네트워크를 선택합니다.

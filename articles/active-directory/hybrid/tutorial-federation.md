@@ -14,14 +14,14 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a51175d192a5afb1f84f8d0ed2de9796f198f82d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7a123a85d653415f7b067e0c144c90ed79f2d081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "60296747"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80330988"
 ---
-# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>자습서: 클라우드에 단일 AD 포리스트 환경 페더레이션
+# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>자습서: 단일 AD 포리스트 환경을 클라우드로 페더레이션
 
 ![생성](media/tutorial-federation/diagram.png)
 
@@ -88,7 +88,7 @@ Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive
 5. **지금 설치**를 클릭합니다.
 6. 라이선스 키를 입력하고 **다음**을 클릭합니다.
 7. **사용 약관에 동의에 확인 표시를 한 후 **다음**을 클릭합니다.
-8. **사용자 지정: Windows만 설치(고급)** 를 선택합니다.
+8. **사용자 지정:  Windows만 설치(고급)** 선택
 9. **다음**을 클릭합니다.
 10. 설치가 완료되고 나면 가상 머신을 다시 시작하고, 로그인한 후, Windows 업데이트를 실행하여 VM이 최신 버전이 되도록 합니다.  최신 업데이트를 설치합니다.
 
@@ -184,7 +184,7 @@ Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogo
 ```
 
 ## <a name="create-a-certificate-for-ad-fs"></a>AD FS용 인증서 만들기
-이제 AD FS에서 사용할 SSL 인증서를 만듭니다.  이 인증서는 테스트에만 사용되는 자체 서명된 인증서입니다.  프로덕션 환경에서는 자체 서명된 인증서를 사용하지 않는 것이 좋습니다. 다음을 수행합니다.
+이제 AD FS에서 사용할 TLS/SSL 인증서를 만듭니다.  이 인증서는 테스트에만 사용되는 자체 서명된 인증서입니다.  프로덕션 환경에서는 자체 서명된 인증서를 사용하지 않는 것이 좋습니다. 다음을 수행합니다.
 
 1. 관리자 권한으로 PowerShell ISE를 엽니다.
 2. 다음 스크립트를 실행합니다.

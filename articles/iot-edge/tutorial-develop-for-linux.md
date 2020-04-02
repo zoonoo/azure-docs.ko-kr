@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4a127c8c77f97708729cf91d6ced214e98924fb6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 478d9c0485125870f8d5ffb4132f46476b4bb4ef
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78943021"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384367"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>자습서: Linux 디바이스를 위한 IoT Edge 모듈 개발
 
@@ -90,6 +90,7 @@ IoT Edge 모듈은 컨테이너로 패키지되므로, 개발 머신에 컨테�
 * [Mac용 Docker Desktop 설치](https://docs.docker.com/docker-for-mac/install/)
 
 * 여러 Linux 플랫폼의 설치 정보에 대해서는 [Docker CE 정보](https://docs.docker.com/install/)를 참조하세요.
+  * WSL(Linux용 Windows 하위 시스템)의 경우 Windows용 Docker Desktop을 설치합니다.
 
 ## <a name="set-up-vs-code-and-tools"></a>VS Code 및 도구 설정
 

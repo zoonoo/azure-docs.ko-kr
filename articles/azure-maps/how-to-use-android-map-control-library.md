@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 55bfb5030d0a168e7556240212fcd5f3be30a289
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e0f0f311b7ec8adae6ddb25e01046141adadfa4
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335357"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548547"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Azure 지도 Android SDK로 시작하기
 
@@ -267,6 +267,29 @@ mapControl.onReady(map -> {
 </center>
 
 지원되는 언어 및 지역 보기의 전체 목록은 [여기](supported-languages.md)에 설명되어 있습니다.
+
+## <a name="navigating-the-map"></a>지도 탐색
+
+맵을 확대/축소, 패닝, 회전 및 투구할 수 있는 방법에는 여러 가지가 있습니다. 다음은 맵을 탐색하는 모든 다른 방법에 대해 자세히 설명합니다.
+
+**지도 확대/축소**
+
+- 두 손가락으로 맵을 터치하고 함께 꼬집어 축소하거나 손가락을 펴서 확대합니다.
+- 맵을 두 번 탭하여 한 레벨을 확대합니다.
+- 두 손가락으로 두 번 탭하여 맵을 한 수준으로 확대합니다.
+- 두 번 누릅니다. 두 번째 탭에서 손가락을 지도에서 길게 누르고 위로 드래그하여 확대하거나 축소할 수 있습니다.
+
+**맵 이동**
+
+- 지도를 터치하고 어떤 방향으로 드래그합니다.
+
+**맵 회전**
+
+- 두 손가락으로지도를 터치하고 회전.
+
+**지도 피치**
+
+- 두 손가락으로지도를 터치하고 함께 위 또는 아래로 드래그합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

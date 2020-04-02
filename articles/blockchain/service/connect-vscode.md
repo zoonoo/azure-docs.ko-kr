@@ -1,15 +1,15 @@
 ---
 title: Visual Studio Code를 사용하여 Azure Blockchain Service에 연결
 description: Visual Studio Code에서 Ethereum용 Azure Blockchain Development Kit 확장을 사용하여 Azure Blockchain Service 컨소시엄 네트워크에 연결합니다.
-ms.date: 12/05/2019
+ms.date: 03/26/2020
 ms.topic: quickstart
-ms.reviewer: chrisseg
-ms.openlocfilehash: 1bcdfdafa9253fc4dc20ccb7cc237cb794b0af53
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.reviewer: caleteet
+ms.openlocfilehash: 269a3e419186daddf1e6a41a54e52e688f4bc7e3
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74977081"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348577"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-to-an-azure-blockchain-service-consortium-network"></a>빠른 시작: Visual Studio Code를 사용하여 Azure Blockchain Service 컨소시엄 네트워크에 연결
 
@@ -22,7 +22,7 @@ ms.locfileid: "74977081"
 * [빠른 시작: Azure Portal을 사용하여 블록체인 멤버 만들기](create-member.md) 또는 [빠른 시작: Azure CLI를 사용하여 Azure Blockchain Service 블록체인 멤버 만들기](create-member-cli.md)를 완료합니다.
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 * [Etherum용 Azure Blockchain Development Kit 확장](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
-* [Node.js 10.15.x 이상](https://nodejs.org/download)
+* [Node.js 10.15.x 이상](https://nodejs.org)
 * [Git 2.10.x 이상](https://git-scm.com)
 * [Python 2.7.15](https://www.python.org/downloads/release/python-2715/) python.exe를 경로에 추가합니다. Azure Blockchain Development Kit에는 경로의 Python 버전 2.7.15가 필요합니다.
 * [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)

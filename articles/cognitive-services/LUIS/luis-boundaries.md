@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 11/07/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: d584b00caef628eb9dfd085b1fdce2bb7b353988
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c021e68f8b76d8b0d3e6e9ff21c242580f53313
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79221346"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520952"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS 모델 및 키에 대한 경계
 LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도, 엔터티 및 기능을 제어하는 [모델 경계](#model-boundaries)입니다. 두 번째 영역은 키 유형을 기반으로 하는 [할당량 한도](#key-limits)입니다. 세 번째 경계 영역은 LUIS 웹 사이트를 제어하기 위한 [키보드 조합](#keyboard-controls)입니다. 네 번째 영역은 LUIS 작성 웹 사이트와 LUIS [엔드포인트](luis-glossary.md#endpoint) API 간의 [세계 지역 매핑](luis-reference-regions.md)입니다.
@@ -40,7 +40,7 @@ LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도
 | [미리 보기 - 동적 목록 엔터티](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|쿼리 예측 끝점 요청당 ~1k 의 2개 목록|
 | [패턴](luis-concept-patterns.md)|애플리케이션당 500개 패턴.<br>패턴의 최대 길이는 400자입니다.<br>패턴당 3개의 Pattern.any 엔터티<br>패턴에 최대 2개의 선택적 중첩 텍스트|
 | [Pattern.any](./luis-concept-entity-types.md)|애플리케이션당 100개, 패턴당 3개의 pattern.any 엔터티 |
-| [구문 목록][phrase-list]|500 개의 구문 목록. 서로 교환할 수 없는 구문 목록에는 최대 5,000개의 구가 있습니다. 교환 가능한 구문 목록에는 최대 50,000개의 구가 있습니다. 500,000개의 구문 적용당 최대 총 구수입니다.|
+| [구문 목록][phrase-list]|500 개의 구문 목록. 모델로 인해 10개의 전역 구 목록이 피쳐 제한으로 나열됩니다. 서로 교환할 수 없는 구문 목록에는 최대 5,000개의 구가 있습니다. 교환 가능한 구문 목록에는 최대 50,000개의 구가 있습니다. 500,000개의 구문 적용당 최대 총 구수입니다.|
 | [미리 빌드된 엔터티](./luis-prebuilt-entities.md) | 제한 없음|
 | [정규식 엔터티](./luis-concept-entity-types.md)|20개 엔터티<br>정규식 엔터티 패턴당 최대 500자|
 | [역할](luis-concept-roles.md)|애플리케이션당 300개 역할. 엔터티당 10개 역할|
@@ -102,7 +102,7 @@ LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도
 
 ## <a name="keyboard-controls"></a>키보드 제어
 
-|키보드 입력 | 설명 |
+|키보드 입력 | Description |
 |--|--|
 |Control+E|발화 목록에서 토큰과 엔터티 간 전환|
 

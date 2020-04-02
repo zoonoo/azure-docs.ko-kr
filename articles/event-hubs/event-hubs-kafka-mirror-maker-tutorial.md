@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 6dc902b6a26c175713381b4fce88934dca3f409e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e0339cf4431d3ed36f50b43134803079e30b101
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283585"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521752"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Apache Kafka용 Event Hubs에서 Kafka MirrorMaker 사용
 
-다음 자습서에서는 Kafka MirrorMaker를 사용하여 Kafka 지원 이벤트 허브에 Kafka broker를 미러링하는 방법을 보여 줍니다.
+이 자습서에서는 Kafka MirrorMaker를 사용하여 이벤트 허브에서 Kafka 브로커를 미러리는 방법을 보여 주십니다.
 
    ![Event Hubs를 사용하는 Kafka MirrorMaker](./media/event-hubs-kafka-mirror-maker-tutorial/evnent-hubs-mirror-maker1.png)
 
@@ -38,7 +38,7 @@ ms.locfileid: "80283585"
 ## <a name="introduction"></a>소개
 최신 클라우드 크기 조정 앱에 대한 주요 고려 사항 중 하나는 서비스를 중단하지 않고 인프라를 업데이트, 개선 및 변경하는 기능입니다. 이 자습서에서는 이벤트 허브와 Kafka MirrorMaker가 이벤트 허브 서비스에서 Kafka 입력 스트림을 "미러링"하여 기존 Kafka 파이프라인을 Azure에 통합하는 방법을 보여 주며 이 자습서를 보여 주며, 이 자습서에서는 기존 Kafka 파이프라인을 Azure에 통합할 수 있습니다. 
 
-Azure Event Hubs Kafka 엔드포인트를 사용하면 Kafka 프로토콜(즉, Kafka 클라이언트)을 사용하여 Azure Event Hubs에 연결할 수 있습니다. Kafka 애플리케이션을 최소한으로 변경하면 Azure Event Hubs에 연결하여 Azure 에코시스템의 이점을 누릴 수 있습니다. Kafka 지원 Event Hubs는 현재 Kafka 버전 1.0 이상을 지원합니다.
+Azure Event Hubs Kafka 엔드포인트를 사용하면 Kafka 프로토콜(즉, Kafka 클라이언트)을 사용하여 Azure Event Hubs에 연결할 수 있습니다. Kafka 애플리케이션을 최소한으로 변경하면 Azure Event Hubs에 연결하여 Azure 에코시스템의 이점을 누릴 수 있습니다. 이벤트 허브는 현재 카프카 버전 1.0 이상지원합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -56,11 +56,11 @@ Azure Event Hubs Kafka 엔드포인트를 사용하면 Kafka 프로토콜(즉, K
 
 ## <a name="create-an-event-hubs-namespace"></a>Event Hubs 네임스페이스 만들기
 
-Event Hubs 서비스와 통신하려면 Event Hubs 네임스페이스가 필요합니다. Event Hubs Kafka 엔드포인트를 가져오는 방법에 대한 지침은 [Kafka 지원 Event Hub 만들기](event-hubs-create.md)를 참조하세요. 나중에 사용하기 위해 Event Hubs 연결 문자열을 복사합니다.
+Event Hubs 서비스와 통신하려면 Event Hubs 네임스페이스가 필요합니다. 네임스페이스 및 이벤트 허브를 만드는 방법에 대한 지침은 [이벤트 허브 만들기를](event-hubs-create.md) 참조하십시오. 나중에 사용하기 위해 Event Hubs 연결 문자열을 복사합니다.
 
 ## <a name="clone-the-example-project"></a>프로젝트 예제 복제
 
-이제 Kafka 지원 Event Hubs 연결 문자열이 있으므로 Kafka용 Azure Event Hubs 리포지토리를 복제하고 `mirror-maker` 하위 폴더로 이동합니다.
+이제 이벤트 허브 연결 문자열이 있으므로 Kafka 리포지토리에 대한 Azure 이벤트 허브를 복제하고 `mirror-maker` 하위 폴더로 이동합니다.
 
 ```shell
 git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
@@ -118,7 +118,7 @@ bin/kafka-mirror-maker.sh --consumer.config source-kafka.config --num.streams 1 
 
 이벤트가 이벤트 허브에 도달하고 있는지 확인하려면 [Azure Portal의](https://azure.microsoft.com/features/azure-portal/)침투 통계를 참조하거나 이벤트 허브에 대해 소비자를 실행합니다.
 
-MirrorMaker를 실행하면, Kafka 클러스터 및 미러된 Kafka 지원 이벤트 허브 서비스 모두에서 원본 Kafka 클러스터에 보낸 모든 이벤트를 받습니다. MirrorMaker 및 Event Hubs Kafka 엔드포인트를 사용하면, 기존 클러스터를 변경하거나 진행 중인 데이터 흐름을 중단하지 않고도 기존 Kafka 파이프라인을 관리되는 Azure Event Hubs 서비스로 마이그레이션할 수 있습니다.
+MirrorMaker가 실행되면 카프카 클러스터로 전송된 모든 이벤트는 Kafka 클러스터와 미러된 이벤트 허브모두에서 수신됩니다. MirrorMaker 및 Event Hubs Kafka 엔드포인트를 사용하면, 기존 클러스터를 변경하거나 진행 중인 데이터 흐름을 중단하지 않고도 기존 Kafka 파이프라인을 관리되는 Azure Event Hubs 서비스로 마이그레이션할 수 있습니다.
 
 ## <a name="samples"></a>샘플
 GitHub에서 다음 샘플을 참조하십시오.

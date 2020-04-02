@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 5da0297dd97c8263bdc47f1d5a3d7d2d1f835e4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82608c98fc8ea15167b690547906c2238b1b3c04
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298826"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80544335"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>StorSimple 가상 배열 모범 사례
 
@@ -161,8 +161,8 @@ StorSimple 가상 배열이 파일 서버로 구성되면 공유를 프로비전
 
 * 계층화 공유의 프로비전된 크기와 관련된 파일 크기가 계층화 성능에 영향을 줄 수 있습니다. 대용량 파일로 작업하면 계층이 느려질 수 있습니다. 대용량 파일로 작업할 때 가장 큰 파일은 공유 크기의 3% 미만인 것이 좋습니다.
 * 가상 배열에 최대 16개 볼륨/공유를 만들 수 있습니다. 로컬로 고정 및 계층화된 볼륨/공유의 크기 한도의 경우 언제나 [StorSimple 가상 배열 제한](storsimple-ova-limits.md)을 참조하세요.
-* 볼륨을 만들 때에는 향후 성장뿐 아니라 예상 데이터 사용량을 고려해야 합니다. 볼륨은 나중에 확장할 수 없습니다.
-* 볼륨을 만든 후 StorSimple 볼륨의 크기를 축소할 수 없습니다.
+* 볼륨을 만들 때에는 향후 성장뿐 아니라 예상 데이터 사용량을 고려해야 합니다. 볼륨 또는 공유는 나중에 확장할 수 없습니다.
+* 볼륨/공유가 생성된 후에는 StorSimple에서 볼륨/공유 크기를 축소할 수 없습니다.
 * StorSimple 의 계층화 볼륨에 쓸 경우 볼륨 데이터가 특정 임계값(볼륨에 대해 예약된 로컬 공간에 비례)에 도달하면 IO가 제한됩니다. 이 볼륨에 계속 쓰면 IO가 현저하게 느려집니다. 프로비전된 용량을 초과하여 계층화 볼륨에 계속 쓸 수는 있지만(당사에서는 사용자가 프로비전된 용량을 초과하여 쓰는 것을 적극적으로 제지하지 않음) 용량을 초과하여 사용한 영향에 대해 알리는 경고 알림이 표시됩니다. 경고가 표시되면 볼륨 데이터 삭제(볼륨 확장은 현재 지원되지 않음) 등의 문제 해결 조치를 수행해야 합니다.
 * 재해 복구 사용 사례의 경우 허용되는 공유/볼륨의 수가 16개이고 병렬로 처리할 수 있는 최대 공유/볼륨 수가 16이므로 공유/볼륨의 수와 RPO 및 RTO 사이에는 아무 관계가 없습니다.
 

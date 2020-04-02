@@ -1,20 +1,19 @@
 ---
-title: Azure Cosmos DB Gremlin API에 대한 처리량(RU/s)을 가져오는 PowerShell 스크립트
-description: Azure PowerShell 스크립트 - Gremlin API용 Azure Cosmos DB 처리량 가져오기(RU/s)
+title: Azure Cosmos 계정의 지역을 업데이트하는 PowerShell 스크립트
+description: Azure PowerShell 스크립트 샘플 - Azure Cosmos 계정 지역 업데이트
 author: markjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
 ms.topic: sample
-ms.date: 03/18/2020
+ms.date: 03/21/2020
 ms.author: mjbrown
-ms.openlocfilehash: fa376aff9c127d5792da9e0489079ca3a1c67cf2
+ms.openlocfilehash: 4a8e24b4445e2bf29b35e87600de260c523d4376
 ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366026"
+ms.locfileid: "80367176"
 ---
-# <a name="get-throughput-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Azure Cosmos DB - Gremlin API용 데이터베이스 또는 그래프에 대한 처리량 가져오기(RU/s)
+# <a name="update-an-azure-cosmos-accounts-regions-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos 계정 지역 업데이트
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,7 +21,12 @@ ms.locfileid: "80366026"
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/gremlin/ps-gremlin-ru-get.ps1 "Get throughput on a database or graph for Gremlin API")]
+> [!NOTE]
+> 동일한 작업에서 지역을 수정하고 다른 Cosmos 계정 속성을 변경할 수 없습니다. 이러한 작업은 두 가지 별도의 작업으로 수행되어야 합니다.
+> [!NOTE]
+> 이 샘플에서는 SQL(Core) API 계정을 사용하는 방법을 보여 줍니다. 이 샘플을 다른 API에 사용하려면 관련 속성을 복사하고 API별 스크립트에 적용합니다.
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update-region.ps1 "Update Azure Cosmos account regions")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -38,9 +42,8 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 | 명령 | 메모 |
 |---|---|
-|**Azure Cosmos DB**| |
-| [Get-AzCosmosDBGremlinDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabasethroughput) | 지정된 Gremlin API Database의 처리량 값을 가져옵니다. |
-| [Get-AzCosmosDBGremlinGraphThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraphthroughput) | 지정된 Gremlin API Graph의 처리량 값을 가져옵니다. |
+|**Azure 리소스**| |
+| [집합 AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | 리소스를 업데이트합니다. |
 |**Azure 리소스 그룹**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||

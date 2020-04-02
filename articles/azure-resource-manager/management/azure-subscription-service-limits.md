@@ -3,12 +3,12 @@ title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 이 문서에는 최대 값과 함께 제한을 늘리는 방법에 대한 정보가 포함되어 있습니다.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 325f7b3d03435945779c1f42e13681dcfd9604b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 397d6a719f64a49208e651469fab9cf841ccd4ad
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334874"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521348"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
@@ -155,7 +155,7 @@ Azure 기계 학습 계산 할당량에 대한 최신 값은 [Azure 기계 학�
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-workspaces.md)]
 
-### <a name="application-insights"></a>애플리케이션 정보
+### <a name="application-insights"></a>Application Insights
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-app-insights.md)]
 
@@ -244,7 +244,11 @@ Azure 리소스 관리자 배포 모델 대신 클래식 배포 모델을 사용
 
 ## <a name="media-services-limits"></a>Media Services 제한
 
-[!INCLUDE [azure-mediaservices-limits](../../../includes/azure-mediaservices-limits.md)]
+[!INCLUDE [azure-mediaservices-limits](../../../includes/media-servieces-limits-quotas-constraints.md)]
+
+### <a name="media-services-v2-legacy"></a>Media Services v2(레거시)
+
+미디어 서비스 v2(레거시)와 관련된 제한은 [미디어 서비스 v2(레거시)를](https://docs.microsoft.com/azure/media-services/previous/media-services-quotas-and-limitations) 참조하십시오.
 
 ## <a name="mobile-services-limits"></a>Mobile Services 제한
 

@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 7e8a1793a329a863c9df97ae5ddcbee6cef10e8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4819eaf2a65cf542029cf36f262d0cea5be75f2e
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76964346"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521955"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 
@@ -129,7 +129,7 @@ Azure-SSIS IR을 만드는 사용자에게는 다음 권한이 있어야 합니�
 
 가상 네트워크에 가입하는 동안 Azure-SSIS IR에 대한 정적 공용 IP 주소를 가져오려면 다음 요구 사항을 충족하는지 확인하십시오.
 
-- 다른 Azure 리소스와 아직 연결되지 않은 사용하지 않은 두 가지를 제공해야 합니다. Azure-SSIS IR을 주기적으로 업그레이드할 때 추가 가 사용됩니다.
+- 다른 Azure 리소스와 아직 연결되지 않은 사용하지 않은 두 가지를 제공해야 합니다. Azure-SSIS IR을 주기적으로 업그레이드할 때 추가 가 사용됩니다. 하나의 공용 IP 주소는 활성 Azure-SSIS IRs 간에 공유할 수 없습니다.
 
 - 둘 다 표준 형식의 정적 이어야 합니다. 자세한 내용은 [공용 IP 주소의 SCO를](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) 참조하십시오.
 
@@ -191,10 +191,55 @@ Azure Batch 관리 서비스와 Azure-SSIS IR 간의 인바운드 트래픽은 �
 > [!NOTE]
 > 이 방법은 추가 유지 관리 비용이 발생합니다. Azure-SSIS IR을 위반하지 않도록 정기적으로 IP 범위를 확인하고 UDR에 새 IP 범위를 추가합니다. 서비스 태그에 새 IP가 나타나면 IP가 적용되므로 IP 범위를 매월 확인하는 것이 좋습니다. 
 
+UDR 규칙을 더 쉽게 설정하려면 Powershell 스크립트를 실행하여 Azure 일괄 처리 관리 서비스에 대한 UDR 규칙을 추가할 수 있습니다.
+```powershell
+$Location = "[location of your Azure-SSIS IR]"
+$RouteTableResourceGroupName = "[name of Azure resource group that contains your Route Table]"
+$RouteTableResourceName = "[resource name of your Azure Route Table ]"
+$RouteTable = Get-AzRouteTable -ResourceGroupName $RouteTableResourceGroupName -Name $RouteTableResourceName
+$ServiceTags = Get-AzNetworkServiceTag -Location $Location
+$BatchServiceTagName = "BatchNodeManagement." + $Location
+$UdrRulePrefixForBatch = $BatchServiceTagName
+if ($ServiceTags -ne $null)
+{
+    $BatchIPRanges = $ServiceTags.Values | Where-Object { $_.Name -ieq $BatchServiceTagName }
+    if ($BatchIPRanges -ne $null)
+    {
+        Write-Host "Start to add rule for your route table..."
+        for ($i = 0; $i -lt $BatchIPRanges.Properties.AddressPrefixes.Count; $i++)
+        {
+            $UdrRuleName = "$($UdrRulePrefixForBatch)_$($i)"
+            Add-AzRouteConfig -Name $UdrRuleName `
+                -AddressPrefix $BatchIPRanges.Properties.AddressPrefixes[$i] `
+                -NextHopType "Internet" `
+                -RouteTable $RouteTable `
+                | Out-Null
+            Write-Host "Add rule $UdrRuleName to your route table..."
+        }
+        Set-AzRouteTable -RouteTable $RouteTable
+    }
+}
+else
+{
+    Write-Host "Failed to fetch service tags, please confirm that your Location is valid."
+}
+```
+
 아웃바운드 트래픽을 허용하는 방화벽 어플라이언스의 경우 NSG 아웃바운드 규칙의 요구 사항과 동일한 포트 아래로 아웃바운드를 허용해야 합니다.
 -   Azure 클라우드 서비스로 대상을 가진 포트 443.
 
-    Azure 방화벽을 사용하는 경우 AzureCloud Service Tag를 사용하여 네트워크 규칙을 지정할 수 있으며, 그렇지 않으면 방화벽 어플라이언스의 모든 대상을 허용할 수 있습니다.
+    Azure 방화벽을 사용하는 경우 AzureCloud 서비스 태그를 사용하여 네트워크 규칙을 지정할 수 있습니다. 다른 유형의 방화벽의 경우 포트 443에 대한 대상을 모두 허용하거나 Azure 환경의 유형에 따라 FQDNs 미만을 허용할 수 있습니다.
+    | Azure 환경 | 엔드포인트                                                                                                                                                                                                                                                                                                                                                              |
+    |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Azure 공용      | <ul><li><b>Azure 데이터 팩터리(관리)</b></li><li style="list-style-type:none"><ul><li>\*.frontend.clouddatahub.net</li></ul></li><li><b>Azure 저장소(관리)</b></li><li style="list-style-type:none"><ul><li>\*.blob.core.windows.net</li><li>\*.table.core.windows.net</li></ul></li><li><b>Azure 컨테이너 레지스트리(사용자 지정 설정)</b></li><li style="list-style-type:none"><ul><li>\*.azurecr.io</li></ul></li><li><b>이벤트 허브(로깅)</b></li><li style="list-style-type:none"><ul><li>\*.servicebus.windows.net</li></ul></li><li><b>마이크로소프트 로깅 서비스(내부 사용)</b></li><li style="list-style-type:none"><ul><li>gcs.prod.monitoring.core.windows.net</li><li>prod.warmpath.msftcloudes.com</li><li>azurewatsonanalysis-prod.core.windows.net</li></ul></li></ul> |
+    | Azure Government  | <ul><li><b>Azure 데이터 팩터리(관리)</b></li><li style="list-style-type:none"><ul><li>\*.frontend.datamovement.azure.us</li></ul></li><li><b>Azure 저장소(관리)</b></li><li style="list-style-type:none"><ul><li>\*.blob.core.usgovcloudapi.net</li><li>\*.table.core.usgovcloudapi.net</li></ul></li><li><b>Azure 컨테이너 레지스트리(사용자 지정 설정)</b></li><li style="list-style-type:none"><ul><li>\*.azurecr.us</li></ul></li><li><b>이벤트 허브(로깅)</b></li><li style="list-style-type:none"><ul><li>\*.servicebus.usgovcloudapi.net</li></ul></li><li><b>마이크로소프트 로깅 서비스(내부 사용)</b></li><li style="list-style-type:none"><ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>azurewatsonanalysis.usgovcloudapp.net</li></ul></li></ul> |
+    | Azure China 21Vianet     | <ul><li><b>Azure 데이터 팩터리(관리)</b></li><li style="list-style-type:none"><ul><li>\*frontend.datamovement.azure.cn</li></ul></li><li><b>Azure 저장소(관리)</b></li><li style="list-style-type:none"><ul><li>\*.blob.core.chinacloudapi.cn</li><li>\*.table.core.chinacloudapi.cn</li></ul></li><li><b>Azure 컨테이너 레지스트리(사용자 지정 설정)</b></li><li style="list-style-type:none"><ul><li>\*.azurecr.cn</li></ul></li><li><b>이벤트 허브(로깅)</b></li><li style="list-style-type:none"><ul><li>\*.servicebus.chinacloudapi.cn</li></ul></li><li><b>마이크로소프트 로깅 서비스(내부 사용)</b></li><li style="list-style-type:none"><ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>azurewatsonanalysis.chinacloudapp.cn</li></ul></li></ul>
+
+    Azure 저장소, Azure 컨테이너 레지스트리 및 이벤트 허브의 FQDN에 관해서는 이러한 끝점에 대한 네트워크 트래픽이 방화벽 어플라이언스로 라우팅되는 대신 Azure 백본 네트워크를 통과하도록 가상 네트워크에 대해 다음 서비스 끝점을 사용하도록 선택할 수도 있습니다.
+    -  Microsoft.Storage
+    -  Microsoft.ContainerRegistry
+    -  Microsoft.EventHub
+
 
 -   포트 80 CRL 다운로드 사이트로 대상.
 
@@ -219,7 +264,7 @@ Azure Batch 관리 서비스와 Azure-SSIS IR 간의 인바운드 트래픽은 �
     Azure 방화벽을 사용하는 경우 저장소 서비스 태그를 사용하여 네트워크 규칙을 지정할 수 있으며, 그렇지 않으면 대상을 방화벽 어플라이언스의 특정 Azure 파일 저장소 URL로 허용할 수 있습니다.
 
 > [!NOTE]
-> Azure SQL 및 Storage의 경우 서브넷에서 가상 네트워크 서비스 끝점을 구성하는 경우 동일한 리전의 Azure-SSIS IR 및 Azure SQL 간의 트래픽 \ 동일한 리전 또는 쌍을 이루는 지역의 Azure Storage가 Microsoft Azure 백본 네트워크로 직접 라우팅됩니다. 방화벽 어플라이언스 대신에 방화벽 어플라이언스를 선택합니다.
+> Azure SQL 및 Storage의 경우 서브넷에서 가상 네트워크 서비스 끝점을 구성하는 경우 동일한 리전 또는 페어링된 지역의 Azure Storage에서 Azure-SSIS IR 및 Azure SQL 간의 트래픽이 방화벽 어플라이언스 대신 Microsoft Azure 백본 네트워크로 직접 라우팅됩니다.
 
 Azure-SSIS IR의 아웃바운드 트래픽을 검사할 기능이 필요하지 않은 경우 경로를 적용하여 모든 트래픽을 다음 홉 유형 **인터넷으로**강제 할 수 있습니다.
 
@@ -241,7 +286,7 @@ Azure-SSIS IR은 가상 네트워크와 동일한 리소스 그룹에 특정 네
 > [!NOTE]
 > 이제 Azure-SSIS IR에 대해 고유한 정적 공용 IP 주소를 가져올 수 있습니다. 이 시나리오에서는 Azure 로드 밸런서 및 네트워크 보안 그룹 가상 네트워크 대신 정적 공용 IP 주소와 동일한 리소스 그룹 에서만 만듭니다.
 
-이러한 리소스는 Azure-SSIS IR이 시작될 때 만들어집니다. Azure-SSIS IR이 중지되면 삭제됩니다. Azure-SSIS IR에 대해 고유한 정적 공용 IP 주소를 가져오는 경우 Azure-SSIS IR이 중지되면 삭제되지 않습니다. Azure-SSIS IR이 중지되지 않도록 하려면 다른 리소스에서 이러한 네트워크 리소스를 다시 사용하지 마십시오. 
+이러한 리소스는 Azure-SSIS IR이 시작될 때 만들어집니다. Azure-SSIS IR이 중지되면 삭제됩니다. Azure-SSIS IR에 대해 자체 정적 공용 IP 주소를 가져오는 경우 Azure-SSIS IR이 중지되면 자체 정적 공용 IP 주소가 삭제되지 않습니다. Azure-SSIS IR이 중지되지 않도록 하려면 다른 리소스에서 이러한 네트워크 리소스를 다시 사용하지 마십시오.
 
 가상 네트워크/정적 공용 IP 주소가 속한 리소스 그룹/구독에 리소스 잠금이 없는지 확인합니다. 읽기 전용/삭제 잠금을 구성하면 Azure-SSIS IR을 시작하고 중지하면 실패하거나 응답이 중지됩니다.
 
@@ -249,6 +294,8 @@ Azure-SSIS IR은 가상 네트워크와 동일한 리소스 그룹에 특정 네
 - Microsoft.Network/LoadBalancers 
 - Microsoft.Network/NetworkSecurityGroups 
 - Microsoft.Network/PublicIPAddresses 
+
+구독의 리소스 할당량이 위의 세 네트워크 리소스에 충분한지 확인합니다. 특히 가상 네트워크에서 생성된 각 Azure-SSIS IR에 대해 위의 세 네트워크 리소스 각각에 대해 두 개의 무료 할당량을 예약해야 합니다. Azure-SSIS IR을 주기적으로 업그레이드할 때 추가 할당량이 사용됩니다.
 
 ### <a name="faq"></a><a name="faq"></a> FAQ
 
@@ -262,7 +309,7 @@ Azure-SSIS IR은 가상 네트워크와 동일한 리소스 그룹에 특정 네
 
   이제 Azure-SSIS IR에 대해 고유한 정적 공용 IP 주소를 가져올 수 있습니다. 이 경우 데이터 원본에 대한 방화벽의 허용 목록에 IP 주소를 추가할 수 있습니다. 시나리오에 따라 Azure-SSIS IR에서 데이터 액세스를 보호하기 위해 아래의 다른 옵션을 고려할 수도 있습니다.
 
-  - 데이터 원본이 온-프레미스 네트워크에 가상 네트워크를 연결하고 Azure-SSIS IR을 가상 네트워크 서브넷에 연결한 후 해당 서브넷의 개인 IP 주소 범위를 방화벽의 데이터 원본 허용 목록에 추가할 수 있습니다. .
+  - 데이터 원본이 온-프레미스 네트워크에 가상 네트워크를 연결하고 Azure-SSIS IR을 가상 네트워크 서브넷에 연결한 후 해당 서브넷의 개인 IP 주소 범위를 방화벽의 데이터 원본 허용 목록에 추가할 수 있습니다.
   - 데이터 원본이 가상 네트워크 서비스 끝점을 지원하는 Azure 서비스인 경우 가상 네트워크 서브넷에서 가상 네트워크 서비스 엔드포인트를 구성하고 Azure-SSIS IR을 해당 서브넷에 조인할 수 있습니다. 그런 다음 해당 서브넷이 있는 가상 네트워크 규칙을 데이터 원본의 방화벽에 추가할 수 있습니다.
   - 데이터 원본이 Azure 가 아닌 클라우드 서비스인 경우 UDR을 사용하여 정적 공용 IP 주소를 통해 Azure-SSIS IR에서 NVA/Azure 방화벽으로 아웃바운드 트래픽을 라우팅할 수 있습니다. 그런 다음 NVA/Azure 방화벽의 정적 공용 IP 주소를 데이터 원본에 대한 방화벽의 허용 목록에 추가할 수 있습니다.
   - 위의 옵션 중 어느 것도 요구 사항을 충족하지 않는 경우 [Azure-SSIS IR에 대한 프록시로 자체 호스팅](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)IR을 구성하는 것이 좋습니다. 그런 다음 자체 호스팅 IR을 호스팅하는 컴퓨터의 정적 공용 IP 주소를 데이터 원본에 대한 방화벽의 허용 목록에 추가할 수 있습니다.
@@ -288,7 +335,7 @@ Azure-SSIS IR을 가상 네트워크에 연결하기 전에 가상 네트워크�
 
 1. Microsoft Edge 또는 Google Chrome을 시작합니다. 현재 이러한 웹 브라우저만 데이터 팩터리 UI를 지원합니다. 
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
 1. **더 많은 서비스를 선택합니다.** **가상 네트워크**를 필터링하여 선택합니다. 
 
@@ -318,7 +365,7 @@ Azure-SSIS IR에 가입하기 전에 포털을 사용하여 클래식 가상 네
 
 1. Microsoft Edge 또는 Google Chrome을 시작합니다. 현재 이러한 웹 브라우저만 데이터 팩터리 UI를 지원합니다. 
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
 1. **더 많은 서비스를 선택합니다.** **가상 네트워크(클래식)** 를 필터링하여 선택합니다. 
 

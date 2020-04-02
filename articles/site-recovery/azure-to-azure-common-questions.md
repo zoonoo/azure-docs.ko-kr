@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3d71301534d56ef8eca68951c8c9f9a1570b3a6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d3bcc32dc8f1412a5adbc175a5f8618628bce83
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282259"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547882"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>일반적인 질문: Azure-Azure 재해 복구
 
@@ -93,7 +93,7 @@ Azure-Azure 디스크 복구 솔루션을 사용하여 리전 내에서 VM을 �
 
 ### <a name="does-site-recovery-require-internet-connectivity"></a>Site Recovery에 인터넷 연결이 필요한가요?
 
-아니요, 사이트 복구에는 인터넷 연결이 필요하지 않습니다. 그러나 [Azure VM 재해 복구의 네트워킹에서](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)언급한 대로 사이트 복구 URL 및 IP 범위에 액세스해야 합니다.
+아니요, 사이트 복구에는 인터넷 연결이 필요하지 않습니다. 그러나 [Azure VM 재해 복구의 네트워킹에서](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls)언급한 대로 사이트 복구 URL 및 IP 범위에 액세스해야 합니다.
 
 ### <a name="can-i-replicate-an-application-that-has-a-separate-resource-group-for-separate-tiers"></a>별도의 계층에 대해 별도의 리소스 그룹이 있는 응용 프로그램을 복제할 수 있습니까?
 

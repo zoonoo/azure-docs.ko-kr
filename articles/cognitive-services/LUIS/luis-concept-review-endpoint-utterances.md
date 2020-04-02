@@ -1,22 +1,14 @@
 ---
 title: 사용자 발언 검토 - LUIS
-titleSuffix: Azure Cognitive Services
 description: 활성 학습을 사용하여 올바른 의도 및 엔터티에 대한 엔드포인트 발언을 검토하세요. LUIS는 알 수 없는 엔드포인트 발언을 선택합니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: diberry
-ms.openlocfilehash: 375d4b4e7c3fcafbdfde1ff447bedc3e16aff2f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 8d267fc441dc2cbf7f8ae3746486d5e7be55f135
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79221320"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546861"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>엔드포인트 발언을 검토하여 활성 학습을 사용하도록 설정하는 데 관한 개념입니다.
 활성 학습은 예측 정확도를 향상시키는 세 가지 전략 중 하나이며 구현하기에 가장 쉽습니다. 활성 학습을 사용하여 올바른 의도 및 엔터티에 대한 엔드포인트 발언을 검토하세요. LUIS는 알 수 없는 엔드포인트 발언을 선택합니다.
@@ -30,8 +22,10 @@ ms.locfileid: "79221320"
 ## <a name="single-pool-for-utterances-per-app"></a>앱당 발언을 위한 단일 풀
 **엔드포인트 발언 검토** 목록은 버전에 따라 달라지지 않습니다. 적극적으로 편집 중인 발언의 버전이나 엔드포인트에서 게시된 앱 버전에 관계없이 검토할 단일 발언 풀이 있습니다.
 
+REST [API에서](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/58b6f32139e2bb139ce823c9)버전 이름은 필수이며 응용 프로그램에 존재해야 하지만 해당 유효성 검사 를 넘어서는 사용되지 않습니다. 검토 발언은 전체 응용 프로그램에 적용됩니다. 한 _버전에서_발언을 제거하면 모든 버전이 영향을 받습니다.
+
 ## <a name="where-are-the-utterances-from"></a>발화를 가져오는 위치
-엔드포인트 발화는 애플리케이션 HTTP 엔드포인트의 최종 사용자 쿼리에서 가져옵니다. 앱이 게시되지 않았거나 아직 적중을 받지 않은 경우에는 검토할 발화가 없습니다. 특정 의도 또는 엔터티에 대한 엔드포인트 적중이 수신되지 않은 경우에는 검토할 해당 적중이 포함된 발화가 없습니다.
+끝점 발언은 응용 프로그램의 HTTP 끝점의 최종 사용자 쿼리에서 가져온 것입니다. 앱이 게시되지 않았거나 아직 적중을 받지 않은 경우에는 검토할 발화가 없습니다. 특정 의도 또는 엔터티에 대한 엔드포인트 적중이 수신되지 않은 경우에는 검토할 해당 적중이 포함된 발화가 없습니다.
 
 ## <a name="schedule-review-periodically"></a>주기적으로 검토 예약
 제안된 발화를 매일 검토할 필요는 없지만 정기적인 LUIS 유지 관리에 포함해야 합니다.

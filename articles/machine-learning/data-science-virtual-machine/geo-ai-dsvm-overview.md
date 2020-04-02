@@ -10,16 +10,16 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 03/05/2018
-ms.openlocfilehash: f5a094613b8722f96fccd1d1a6df359fa9b0ebd4
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 2cefd3c7f85e043497084e2cd2b906bd546ca10d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526064"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282276"
 ---
 # <a name="what-is-the-geo-artificial-intelligence-data-science-virtual-machine"></a>지리적 AI Data Science Virtual Machine이란?
 
-지리적 AI Data Science Virtual Machine(지리적 AI Data Science VM 또는 Geo-DSVM이라고도 함)은 DSVM(Azure Data Science Virtual Machine)에서 지리 공간적 분석 기능을 제공합니다. 특히 이 VM은 ERSI에서 시장 선도적인 [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) 지리 정보 시스템을 추가하여 [DSVM](overview.md)의 AI 및 데이터 과학 도구 키트를 확장합니다.
+지리적 AI Data Science Virtual Machine(지리적 AI Data Science VM 또는 Geo-DSVM이라고도 함)은 DSVM(Azure Data Science Virtual Machine)에서 지리 공간적 분석 기능을 제공합니다. 특히 이 VM은 ESRI에서 시장 선도적인 [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) 지리 정보 시스템을 추가하여 [DSVM](overview.md)의 AI 및 데이터 과학 도구 키트를 확장합니다.
 
  지리적 AI Data Science VM은 ESRI와 Microsoft의 협업에서 제공되는 제품입니다. 결과적으로 다음과 같은 기능을 제공하는 강력한 환경이 제공됩니다.
 

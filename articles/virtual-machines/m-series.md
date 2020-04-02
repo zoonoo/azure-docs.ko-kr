@@ -5,20 +5,20 @@ services: virtual-machines
 author: ayshakeen
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 02/05/2019
-ms.author: lahugh
-ms.openlocfilehash: e8952218675493710cbdd1f92661e9a9c077f34c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.author: jushiman
+ms.openlocfilehash: 3e0552570d5bdb7f812852cd058710b833b7fdd4
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78164052"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521333"
 ---
 # <a name="m-series"></a>M 시리즈
 
-M 시리즈는 vCPU 수(최대 128vCPU)와 다량의 메모리(최대 3.8TiB)를 제공합니다. 또한 vCPU 수가 많고 메모리가 많은 매우 큰 데이터베이스 나 다른 응용 프로그램에도 적합합니다. M 시리즈 크기는 인텔® 제온® CPU E7-8890 v3 @ 2.50GHz를 기반으로합니다.
+M 시리즈는 vCPU 수(최대 128vCPU)와 다량의 메모리(최대 3.8TiB)를 제공합니다. 또한 vCPU 수가 많고 메모리가 많은 매우 큰 데이터베이스 나 다른 응용 프로그램에도 적합합니다. M&reg; 시리즈 크기는 인텔 제온&reg; CPU E7-8890 v3 @ 2.50GHz 및&reg; 인텔&reg; 제온 플래티넘 8280M 2.7GHz (캐스케이드 레이크)에서 모두 지원됩니다.
 
-M 시리즈 VM의 기능 인텔® 하이퍼 스레딩 기술
+M 시리즈 VM의 기능&reg; 인텔 하이퍼 스레딩 기술.
 
 ACU: 160-180
 

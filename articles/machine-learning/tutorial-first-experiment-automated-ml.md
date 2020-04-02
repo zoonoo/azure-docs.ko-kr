@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.author: tzvikei
-author: tsikiksr
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 02/04/2020
-ms.openlocfilehash: 96af942ab68d4ae738df56bf94d8410ee5d8cc34
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 03/04/2020
+ms.openlocfilehash: b5a335a3f215ad5883b1b223245ca9d3f9967c3b
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79129676"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366529"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>자습서: Azure Machine Learning에서 자동화된 ML을 사용하여 분류 모델 만들기
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -53,7 +53,7 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 
 모든 기술 수준의 데이터 과학 전문가용 데이터 과학 시나리오를 수행하기 위한 기계 학습 도구를 포함하는 통합 웹 인터페이스인 https://ml.azure.com 에서 Azure Machine Learning을 통해 다음 실험 설정 및 실행 단계를 완료합니다. 이 인터페이스는 Internet Explorer 브라우저에서 지원되지 않습니다.
 
-1. https://ml.azure.com 에서 Azure Machine Learning에 로그인합니다.
+1. [Azure Machine Learning](https://ml.azure.com)에 로그인합니다.
 
 1. 해당 구독과 직접 만든 작업 영역을 선택합니다.
 
@@ -201,9 +201,9 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 
 ### <a name="delete-the-deployment-instance"></a>배포 인스턴스 삭제
 
-다른 자습서에서 사용하거나 탐색할 수 있도록 리소스 그룹과 작업 영역을 유지하려면 https://ml.azure.com/ 에서 Azure Machine Learning의 배포 인스턴스만 삭제합니다. 
+다른 자습서에서 사용하거나 탐색할 수 있도록 리소스 그룹과 작업 영역을 유지하려면 https:\//ml.azure.com/의 Azure Machine Learning에서 배포 인스턴스만 삭제합니다. 
 
-1. https://ml.azure.com/ 에서 Azure Machine Learning으로 이동합니다. 작업 영역으로 이동한 다음, 왼쪽 **자산** 창 아래에서 **엔드포인트**를 선택합니다. 
+1. [Azure Machine Learning](https://ml.azure.com/)으로 이동합니다. 작업 영역으로 이동한 다음, 왼쪽 **자산** 창 아래에서 **엔드포인트**를 선택합니다. 
 
 1. 삭제하려는 배포를 선택하고 **삭제**를 선택합니다. 
 

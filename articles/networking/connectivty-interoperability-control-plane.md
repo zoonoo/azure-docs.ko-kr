@@ -1,5 +1,5 @@
 ---
-title: 'Azure 백 엔드 연결 기능의 상호 운용성: 제어 평면 분석 | Microsoft Docs'
+title: 'Azure의 상호 운용성 : 제어 평면 분석'
 description: 이 문서에서는 ExpressRoute, 사이트 간 VPN 및 Azure의 가상 네트워크 피어링 간의 상호 운용성을 분석하는 데 사용할 수 있는 테스트 설정의 제어 평면 분석에 대해 설명합니다.
 documentationcenter: na
 services: networking
@@ -10,14 +10,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 4921e4c4fc0da95250a0171c66d6a69093b10687
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e41bc86533815c394077bf5276d930fe958cd19
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873848"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518283"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Azure 백 엔드 연결 기능의 상호 운용성: 제어 평면 분석
+# <a name="interoperability-in-azure--control-plane-analysis"></a>Azure의 상호 운용성 : 제어 평면 분석
 
 이 문서에서는 [테스트 설정][Setup]의 제어 평면 분석에 대해 설명합니다. 테스트 설정의 [테스트 설정 구성][Configuration] 및 [데이터 평면 분석][Data-Analysis]을 검토할 수도 있습니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "74873848"
 
 ![1][1]
 
-VNet의 Azure ExpressRoute 게이트웨이의 ASN이 Microsoft MSEE(Microsoft Enterprise Edge Router)의 ASN과 다른 것을 알 수 있습니다. ExpressRoute 게이트웨이는 프라이빗 ASN(**65515**의 값)을 사용하며 MSEE는 공용 ASN(**12076**의 값)을 전역적으로 사용합니다. 익스프레스루트 피어링을 구성할 때 MSEE는 피어이므로 **12076을** 피어 ASN으로 사용합니다. Azure 쪽의 경우 MSEE는 ExpressRoute 게이트웨이를 사용하여 eBGP 피어링을 설정합니다. MSEE가 각 ExpressRoute 피어링에 대해 설정하는 이중 eBGP 피어링은 제어 평면 수준에서 투명합니다. 따라서 ExpressRoute 경로 테이블을 볼 때 VNet의 접두사에 대해 VNet의 ExpressRoute 게이트웨이 ASN이 표시됩니다. 
+VNet의 Azure ExpressRoute 게이트웨이의 ASN이 Microsoft MSEE(Microsoft Enterprise Edge Router)의 ASN과 다른 것을 알 수 있습니다. ExpressRoute 게이트웨이는 프라이빗 ASN(**65515**의 값)을 사용하며 MSEE는 공용 ASN(**12076**의 값)을 전역적으로 사용합니다. 익스프레스루트 피어링을 구성할 때 MSEE는 피어이므로 **12076을** 피어 ASN으로 사용합니다. Azure 쪽의 경우 MSEE는 ExpressRoute 게이트웨이를 사용하여 eBGP 피어링을 설정합니다. MSEE가 각 ExpressRoute 피어링에 대해 설정하는 이중 eBGP 피어링은 제어 평면 수준에서 투명합니다. 따라서 ExpressRoute 경로 테이블을 볼 때 VNet의 접두사에 대한 VNet의 ExpressRoute 게이트웨이 ASN이 표시됩니다. 
 
 다음 그림에는 예제 ExpressRoute 경로 테이블을 보여줍니다. 
 
@@ -45,7 +45,7 @@ Azure 내에서 ASN은 피어링 관점에서만 중요합니다. 기본적으�
 
 ## <a name="on-premises-location-1-and-the-branch-vnet-perspective-via-a-site-to-site-vpn"></a>사이트 간 VPN을 통한 온-프레미스 위치 1 및 분기 VNet 관점
 
-온-프레미스 위치 1과 분기 VNet은 사이트 간 VPN 연결을 통해 허브 VNet의 VPN Gateway에 연결됩니다. 다음 다이어그램에 나와 있는 것처럼 동일한 토폴로지 측면을 공유합니다.
+온-프레미스 위치 1과 브랜치 VNet은 모두 사이트 간 VPN 연결을 통해 허브 VNet의 VPN 게이트웨이에 연결됩니다. 다음 다이어그램에 나와 있는 것처럼 동일한 토폴로지 측면을 공유합니다.
 
 ![3][3]
 
