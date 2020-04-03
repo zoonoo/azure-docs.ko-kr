@@ -235,12 +235,80 @@
           displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
 - name: 참조
   items:
+    - name: 개발자 참조
+      items:
+        - name: 개요
+          href: developer-reference-resource.md
+          displayName: 'SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot'
+        - name: Azure CLI
+          href: 'https://go.microsoft.com/fwlink/?linkid=2092156'
+        - name: Azure RM PowerShell
+          href: 'https://go.microsoft.com/fwlink/?linkid=2092157'
+        - name: REST API
+          items:
+            - name: V3 제작 REST API(미리 보기)
+              href: 'https://aka.ms/luis-apim-v3-authoring'
+            - name: V3 예측 REST API
+              href: 'https://aka.ms/luis-apim-v3-prediction'
+            - name: V2 제작 REST API
+              href: 'https://go.microsoft.com/fwlink/?linkid=2092087'
+            - name: V2 예측 REST API
+              href: 'https://go.microsoft.com/fwlink/?linkid=2092356'
+            - name: HTTP 코드
+              displayName: '400, 401, 403, 409, 410, 414, 429'
+              href: luis-reference-response-codes.md
+        - name: SDK
+          items:
+            - name: 'C#'
+              items:
+                - name: NuGet - 작성
+                  href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/'
+                - name: NuGet - 런타임
+                  href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/'
+                - name: 참조
+                  href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet'
+                - name: 샘플
+                  href: 'https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS'
+            - name: Go
+              items:
+                - name: SDK - 작성
+                  href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/authoring'
+                - name: SDK - 런타임
+                  href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/runtime'
+                - name: 참조
+                  href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis/'
+            - name: Java
+              items:
+                - name: Maven - 제작
+                  href: 'https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring'
+                - name: Maven - 런타임
+                  href: 'https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime'
+                - name: 참조
+                  href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable'
+                - name: 샘플
+                  href: 'https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Language/LanguageUnderstanding'
+            - name: Node.js
+              items:
+                - name: NPM - 제작
+                  href: 'https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring'
+                - name: NPM - 런타임
+                  href: 'https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime'
+                - name: 샘플
+                  href: 'https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples/luis'
+            - name: Python
+              items:
+                - name: Pip SDK
+                  href: 'https://pypi.org/project/azure-cognitiveservices-language-luis/'
+                - name: 참조
+                  href: 'https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python'
+                - name: 샘플
+                  href: 'https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/language/luis'
     - name: 사용자 개인 정보
       href: luis-user-privacy.md
     - name: 영역
       href: luis-reference-regions.md
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
-    - name: 경계
+    - name: 제한
       href: luis-boundaries.md
     - name: 애플리케이션 설정
       href: luis-reference-application-settings.md
@@ -302,74 +370,6 @@
       href: reference-pattern-syntax.md
     - name: 데이터
       href: luis-reference-prebuilt-sentiment.md
-- name: 개발자 참조
-  items:
-    - name: 개요
-      href: developer-reference-resource.md
-      displayName: 'SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot'
-    - name: Azure CLI
-      href: 'https://go.microsoft.com/fwlink/?linkid=2092156'
-    - name: Azure RM PowerShell
-      href: 'https://go.microsoft.com/fwlink/?linkid=2092157'
-    - name: REST API
-      items:
-        - name: V3 제작 REST API(미리 보기)
-          href: 'https://aka.ms/luis-apim-v3-authoring'
-        - name: V3 예측 REST API
-          href: 'https://aka.ms/luis-apim-v3-prediction'
-        - name: V2 제작 REST API
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092087'
-        - name: V2 예측 REST API
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092356'
-        - name: HTTP 코드
-          displayName: '400, 401, 403, 409, 410, 414, 429'
-          href: luis-reference-response-codes.md
-    - name: SDK
-      items:
-        - name: 'C#'
-          items:
-            - name: NuGet - 작성
-              href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/'
-            - name: NuGet - 런타임
-              href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/'
-            - name: 참조
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet'
-            - name: 샘플
-              href: 'https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS'
-        - name: Go
-          items:
-            - name: SDK - 작성
-              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/authoring'
-            - name: SDK - 런타임
-              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/runtime'
-            - name: 참조
-              href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis/'
-        - name: Java
-          items:
-            - name: Maven - 제작
-              href: 'https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring'
-            - name: Maven - 런타임
-              href: 'https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime'
-            - name: 참조
-              href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable'
-            - name: 샘플
-              href: 'https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Language/LanguageUnderstanding'
-        - name: Node.js
-          items:
-            - name: NPM - 제작
-              href: 'https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring'
-            - name: NPM - 런타임
-              href: 'https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime'
-            - name: 샘플
-              href: 'https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples/luis'
-        - name: Python
-          items:
-            - name: Pip SDK
-              href: 'https://pypi.org/project/azure-cognitiveservices-language-luis/'
-            - name: 참조
-              href: 'https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python'
-            - name: 샘플
-              href: 'https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/language/luis'
 - name: 관련 항목
   items:
     - name: Azure Bot Service
@@ -420,7 +420,5 @@
       href: 'https://blog.botframework.com/category/luis/'
     - name: 기술 자료
       href: 'https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service'
-- name: 동영상
-  href: 'whats-new.md#videos'
 - name: LUIS 포털
   href: 'https://www.luis.ai'
