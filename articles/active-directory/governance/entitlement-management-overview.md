@@ -16,12 +16,12 @@ ms.date: 03/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 477bb5430214b497f90e3cb6d5df69f9fcf4035f
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 65100e8584eba5c31edc2f9fd8c57ad8bd14c0d1
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546153"
+ms.locfileid: "80582535"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Azure AD 권한 관리란?
 
@@ -38,12 +38,12 @@ Azure AD 권한 관리를 사용하면 내부 사용자와 해당 리소스에 �
 - 사용자는 어떤 액세스 권한을 가져야 하는지 알 수 없으며, 액세스 권한을 승인할 수 있는 적절한 개인을 찾는 데 어려움을 겪을 수 있습니다.
 - 사용자가 리소스에 대한 액세스 권한을 찾고 받으면 비즈니스 목적에 필요한 것보다 더 오래 액세스권한을 보유할 수 있습니다.
 
-이러한 문제는 공급망 조직이나 다른 비즈니스 파트너의 외부 사용자와 같이 다른 조직에서 액세스해야 하는 사용자에게 는 더욱 복잡해지습니다. 다음은 그 예입니다.
+이러한 문제는 공급망 조직이나 다른 비즈니스 파트너의 외부 사용자와 같이 다른 조직에서 액세스해야 하는 사용자에게 는 더욱 복잡해지습니다. 예를 들어:
 
 - 다른 조직의 디렉토리에 있는 특정 개인을 초대할 수 있는 사람은 아무도 알 지 못할 수 있습니다.
 - 이러한 사용자를 초대할 수 있더라도 해당 조직의 어느 누구도 사용자의 모든 액세스를 일관되게 관리하지 않아도 됩니다.
 
-Azure AD 권한 관리는 이러한 문제를 해결하는 데 도움이 될 수 있습니다.  고객이 Azure AD 권한 부여 관리를 어떻게 사용하고 있는지 자세히 알아보려면 [Avanade 사례 연구](https://aka.ms/AvanadeELMCase) 및 [Centrica 사례 연구를](https://aka.ms/CentricaELMCase)읽을 수 있습니다.  이 비디오에서는 권한 관리 및 권한 관리에 대한 개요를 제공합니다.
+Azure AD 권한 관리는 이러한 문제를 해결하는 데 도움이 될 수 있습니다.  고객이 Azure AD 권한 부여 관리를 어떻게 사용하고 있는지 자세히 알아보려면 [Avanade 사례 연구](https://customers.microsoft.com/story/avanade-professional-services-azure-canada) 및 [Centrica 사례 연구를](https://customers.microsoft.com/story/757467-centrica-energy-azure)읽을 수 있습니다.  이 비디오에서는 권한 관리 및 권한 관리에 대한 개요를 제공합니다.
 
 >[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
 
@@ -71,7 +71,7 @@ Azure AD 권한 관리는 이러한 문제를 해결하는 데 도움이 될 수
 - 페더레이션/단일 사인온 및/또는 프로비저닝을 지원하는 SaaS 응용 프로그램 및 사용자 지정 통합 응용 프로그램을 포함한 Azure AD 엔터프라이즈 응용 프로그램에 할당
 - 쉐어포인트 온라인 사이트의 멤버십
 
-Azure AD 보안 그룹 또는 Office 365 그룹에 의존하는 다른 리소스에 대한 액세스를 제어할 수도 있습니다.  다음은 그 예입니다.
+Azure AD 보안 그룹 또는 Office 365 그룹에 의존하는 다른 리소스에 대한 액세스를 제어할 수도 있습니다.  예를 들어:
 
 - 액세스 패키지에서 Azure AD 보안 그룹을 사용하고 해당 그룹에 대한 [그룹 기반 라이선스를](../users-groups-roles/licensing-groups-assign.md) 구성하여 사용자에게 Microsoft Office 365에 대한 라이선스를 제공할 수 있습니다.
 - 액세스 패키지에서 Azure AD 보안 그룹을 사용하고 해당 그룹에 대한 Azure [역할 할당을](../../role-based-access-control/role-assignments-portal.md) 만들어 사용자에게 Azure 리소스를 관리할 수 있는 액세스 권한을 부여할 수 있습니다.
@@ -114,7 +114,7 @@ Azure AD 보안 그룹 또는 Office 365 그룹에 의존하는 다른 리소스
 
 권한 관리 및 해당 설명서를 더 잘 이해하려면 다음 용어 목록을 다시 참조할 수 있습니다.
 
-| 용어 | Description |
+| 용어 | 설명 |
 | --- | --- |
 | 액세스 패키지 | 팀 또는 프로젝트에 필요하고 정책에 따라 관리되는 리소스 번들입니다. 액세스 패키지는 항상 카탈로그에 포함됩니다. 사용자가 액세스를 요청해야 하는 시나리오에 대한 새 액세스 패키지를 만듭니다.  |
 | 액세스 요청 | 액세스 패키지의 리소스에 액세스하기 위한 요청입니다. 요청은 일반적으로 승인 워크플로를 거칩니다.  승인되면 요청하는 사용자는 액세스 패키지 할당을 받습니다. |

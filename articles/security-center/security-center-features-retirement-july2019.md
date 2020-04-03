@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 1f923db5c730f6dec15f4fc211ab7acbd009ac7f
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 4a760fe1e5df7cf614a68f8fa8a05926326d3edf
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521427"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583230"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>보안 센터 기능의 은퇴 (7 월 2019)
 
@@ -97,7 +97,7 @@ Azure Log Analytics 네이티브 기능을 사용하여 작업 공간에서 검�
 
 ## <a name="security-events-map"></a>보안 이벤트 맵<a name="menu_securityeventsmap"></a>
 
-보안 센터는 보안 위협을 식별하는 데 도움이 되는 [보안 경고 맵을](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) 제공합니다. 해당 맵의 **보안 이벤트 맵으로 이동** 버튼은 선택한 작업 영역에서 원시 보안 이벤트를 볼 수 있는 대시보드를 엽니다.
+보안 센터는 보안 위협을 식별하는 데 도움이 되는 보안 경고 맵을 제공합니다. 해당 맵의 **보안 이벤트 맵으로 이동** 버튼은 선택한 작업 영역에서 원시 보안 이벤트를 볼 수 있는 대시보드를 엽니다.
 
 **보안 이벤트로 이동 단추** 및 작업 영역별 대시보드를 제거했습니다.
 
@@ -136,7 +136,7 @@ Azure Sentinel 사용에 관심이 없는 경우 Azure Monitor 로그 경고를 
 
 ## <a name="security-alerts-investigation"></a>보안 경고 조사<a name="menu_investigate"></a>
 
-보안 [센터의 조사 기능을](https://docs.microsoft.com/azure/security-center/security-center-investigation) 사용하면 잠재적인 보안 인시던트를 분류할 수 있습니다. 이 기능을 사용하면 인시던트 범위를 이해하고 근본 원인을 추적할 수 있습니다. [Azure Sentinel에서](https://azure.microsoft.com/services/azure-sentinel/)향상된 환경으로 대체되었기 때문에 보안 센터에서 이 기능을 제거했습니다.
+보안 센터의 조사 기능을 사용하면 잠재적인 보안 인시던트를 분류할 수 있습니다. 이 기능을 사용하면 인시던트 범위를 이해하고 근본 원인을 추적할 수 있습니다. [Azure Sentinel에서](https://azure.microsoft.com/services/azure-sentinel/)향상된 환경으로 대체되었기 때문에 보안 센터에서 이 기능을 제거했습니다.
 
 ![보안 인시던트][14]
 

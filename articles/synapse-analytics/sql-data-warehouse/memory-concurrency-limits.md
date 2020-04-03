@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c868d8c159bca0c8462acde48225dc45003cf84e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: c427c832eb613dddbff33ef6e67af63112e2f136
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350998"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586062"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Azure 시냅스 분석에 대한 메모리 및 동시성 제한
 Azure Synapse Analytics의 다양한 성능 수준 및 리소스 클래스에 할당된 메모리 및 동시성 제한을 봅니다.  
@@ -73,7 +73,7 @@ Azure Synapse Analytics의 다양한 성능 수준 및 리소스 클래스에 �
 ||||
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>리소스 클래스의 동시성 최대값
-각 쿼리를 효율적으로 실행할 수 있는 충분한 리소스가 있는지 확인하기 위해 Azure Synapse의 SQL Analytics는 각 쿼리에 동시성 슬롯을 할당하여 리소스 사용률을 추적합니다. 시스템은 중요도 및 동시성 슬롯에 따라 쿼리를 큐에 넣습니다. 쿼리는 충분한 동시성 슬롯을 사용할 수 있을 때까지 큐에서 대기합니다. [중요도](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) 및 동시성 슬롯은 CPU 우선 순위를 결정합니다. 자세한 내용은 [워크로드 분석](analyze-your-workload.md)을 참조하세요.
+각 쿼리에 효율적으로 실행할 수 있는 충분한 리소스가 있는지 확인하기 위해 각 쿼리에 동시성 슬롯을 할당하여 리소스 사용률을 추적합니다. 시스템은 중요도 및 동시성 슬롯에 따라 쿼리를 큐에 넣습니다. 쿼리는 충분한 동시성 슬롯을 사용할 수 있을 때까지 큐에서 대기합니다. [중요도](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) 및 동시성 슬롯은 CPU 우선 순위를 결정합니다. 자세한 내용은 [워크로드 분석](analyze-your-workload.md)을 참조하세요.
 
 **정적 리소스 클래스**
 

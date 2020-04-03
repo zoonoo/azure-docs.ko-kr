@@ -69,6 +69,8 @@
   items:
     - name: Batch 계정 관리
       items:
+        - name: 계정 관리
+          href: batch-manage-account-basics.md
         - name: 포털을 사용하여 Batch 계정 관리
           href: batch-account-create-portal.md
         - name: Batch Management .NET을 사용하여 배치 계정 관리
@@ -83,8 +85,12 @@
           href: batch-aad-auth-management.md
         - name: Batch를 사용하여 Key Vault에 안전하게 액세스
           href: credential-access-key-vault.md
+    - name: 애플리케이션 패키지 사용
+      href: batch-application-packages.md
     - name: 파일 및 애플리케이션을 풀 노드에 복사
       items:
+        - name: 풀 노드에 애플리케이션 및 데이터 복사
+          href: batch-applications-to-pool-nodes.md
         - name: 애플리케이션 패키지 사용
           href: batch-application-packages.md
         - name: 리소스 파일 만들기
@@ -245,7 +251,7 @@
       href: 'https://blogs.technet.microsoft.com/windowshpc/'
     - name: Azure의 HPC
       href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/batch/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

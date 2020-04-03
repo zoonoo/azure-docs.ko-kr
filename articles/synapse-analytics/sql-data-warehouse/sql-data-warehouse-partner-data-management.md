@@ -11,15 +11,16 @@ ms.date: 04/17/2018
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 05d5e4f7334c6a9ef7a4f9e8ce7acbdf007a6a44
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: f3d5076b8ca4e1c79451bfe3bcd1dbe554b17a88
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351446"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586469"
 ---
 # <a name="azure-synapse-analytics-data-management-partners"></a>Azure 시냅스 분석 데이터 관리 파트너
-Azure Synapse의 SQL Analytics 기능을 사용하여 데이터 웨어하우스 솔루션을 만들려면 다양한 업계 최고의 도구를 선택할 수 있습니다. 이 문서에서는 Azure Synapse를 지원하는 데이터 관리 도구 및 솔루션을 통해 Microsoft 파트너 회사를 강조합니다.
+
+Azure Synapse의 Synapse SQL 풀 기능을 사용하여 데이터 웨어하우스 솔루션을 만들려면 다양한 업계 최고의 도구를 선택할 수 있습니다. 이 문서에서는 Azure Synapse를 지원하는 데이터 관리 도구 및 솔루션을 통해 Microsoft 파트너 회사를 강조합니다.
 
 ## <a name="data-management-partners"></a>데이터 관리 파트너
 | 파트너 | 설명 | 웹 사이트/제품 링크 |

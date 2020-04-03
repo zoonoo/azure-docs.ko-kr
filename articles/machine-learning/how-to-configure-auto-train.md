@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4cf940e38a84ea2eeb1896c8f7c628c8d5734374
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03e1d4aa74d2f71ab2f32ac55f4ad3d46f672f5c
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247132"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618548"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -166,7 +166,7 @@ automl_config = AutoMLConfig(task = "classification")
       automl_regressor = AutoMLConfig(
       task='regression',
       experiment_timeout_minutes=60,
-      whitelist_models=['kNN regressor'],
+      whitelist_models=['KNN'],
       primary_metric='r2_score',
       training_data=train_data,
       label_column_name=label,
@@ -245,7 +245,7 @@ automl_config = AutoMLConfig(task = 'forecasting',
 
 ### <a name="ensemble-configuration"></a><a name="ensemble"></a>앙상블 구성
 
-앙상블 모델은 기본적으로 활성화되어 있으며 자동화된 기계 학습 실행에서 최종 실행 반복으로 나타납니다. 현재 지원되는 앙상블 방법은 투표 및 스태킹입니다. 투표는 가중치 가중치 평균을 사용하여 소프트 투표로 구현되고, 스태킹 구현은 첫 번째 레이어가 투표 앙상블과 동일한 모델을 가지며 두 번째 레이어 모델이 최적의 조합을 찾는 데 사용되는 두 계층 구현을 사용합니다. 첫 번째 레이어에서 모델을 볼 수 있습니다. ONNX 모델을 사용 **중이거나** 모델 설명기능을 사용하도록 설정한 경우 스태킹이 비활성화되고 투표만 사용됩니다.
+앙상블 모델은 기본적으로 활성화되어 있으며 자동화된 기계 학습 실행에서 최종 실행 반복으로 나타납니다. 현재 지원되는 앙상블 방법은 투표 및 스태킹입니다. 투표는 가중 평균을 사용하여 소프트 투표로 구현되고, 스태킹 구현은 첫 번째 레이어가 투표 앙상블과 동일한 모델을 가지며, 두 번째 레이어 모델은 첫 번째 레이어에서 모델의 최적의 조합을 찾는 데 사용되는 두 계층 구현을 사용한다. ONNX 모델을 사용 **중이거나** 모델 설명기능을 사용하도록 설정한 경우 스태킹이 비활성화되고 투표만 사용됩니다.
 
 기본 스택 앙상블 동작을 변경 `kwargs` 하기 `AutoMLConfig` 위해 개체에서와 같이 제공할 수 있는 여러 기본 인수가 있습니다.
 
@@ -414,7 +414,7 @@ best_run, fitted_model = automl_run.get_output()
    |입력|입력 기능의 데이터 형식을 검색했습니다.|
    |Dropped|입력 기능이 삭제되었는지 또는 사용되었는지 를 나타냅니다.|
    |엔지니어링 특징 카운트|자동화된 피쳐 엔지니어링 변환을 통해 생성된 피쳐 수입니다.|
-   |변형|엔지니어링피쳐를 생성하기 위해 입력 피쳐에 적용된 변환 목록입니다.|
+   |변환|엔지니어링피쳐를 생성하기 위해 입력 피쳐에 적용된 변환 목록입니다.|
    
 ### <a name="customize-feature-engineering"></a>피처 엔지니어링 사용자 지정
 피쳐 엔지니어링을 사용자 `"featurization": FeaturizationConfig`지정하려면 을 지정합니다.

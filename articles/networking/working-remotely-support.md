@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: rambala
-ms.openlocfilehash: 78081329b70edff5ed2c728cb2f7c3e562a44e56
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: bcdd938365e50da1f5ae0e830e86692f1b915123
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346282"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618924"
 ---
 # <a name="working-remotely-using-azure-networking-services"></a>Azure 네트워킹 서비스를 사용하여 원격으로 작업
 
@@ -29,8 +29,6 @@ ms.locfileid: "80346282"
 
 네트워크 플래너는 서로 다른 트래픽 유형에 서로 다른 네트워크 처리 우선 순위와 일부 스마트 부하 리디렉션/배포가 필요하다는 점을 염두에 두어 병목 현상을 완화하고 네트워크 혼잡을 완화할 수 있습니다. 예를 들어, 의사-환자 상호 작용의 실시간 텔레메데신 트래픽은 매우 중요하고 지연/지터에 민감하다. 반면 저장소 간에 동일한 트래픽을 복제하는 것은 민감한 지연이 아닙니다. 이전 트래픽은 더 높은 서비스 품질의 최적의 네트워크 경로를 통해 라우팅되어야 합니다. 이후 트래픽을 최적이 아닌 경로를 통해 라우팅하는 것이 허용되는 반면.
 
->[!NOTE] 
->이 문서의 끝으로 원격으로 작업하는 사용자를 지원하기 위해 다양한 Azure 네트워킹 기능 및 에코시스템을 활용하는 문서에 대한 링크가 나열됩니다.
 
 
 ## <a name="sharing-our-best-practices---azure-network-is-designed-for-elasticity-and-high-availability"></a>모범 사례 공유 - Azure 네트워크는 탄력성 및 고가용성을 위해 설계되었습니다.
@@ -45,17 +43,18 @@ Microsoft 네트워크는 요구 사항을 충족하고 Skype 및 Teams, CDN, �
 
 ## <a name="enable-employees-to-work-remotely"></a>직원들이 원격으로 작업할 수 있도록 지원
 
-Azure VPN 게이트웨이는 P2S(사이트 간) 및 S2S(사이트 간) VPN 연결을 모두 지원합니다. Azure VPN 게이트웨이를 사용하면 직원의 연결을 확장하여 Azure 배포 된 리소스와 온-프레미스 리소스 모두에 안전하게 액세스할 수 있습니다. 자세한 내용은 [사용자가 원격으로 작업할 수 있도록 하는 방법을 참조하세요.](https://go.microsoft.com/fwlink/?linkid=2123770) 
+Azure VPN 게이트웨이는 P2S(사이트 간) 및 S2S(사이트 간) VPN 연결을 모두 지원합니다. Azure VPN 게이트웨이를 사용하면 직원의 연결을 확장하여 Azure 배포 된 리소스와 온-프레미스 리소스 모두에 안전하게 액세스할 수 있습니다. 자세한 내용은 [사용자가 원격으로 작업할 수 있도록 하는 방법을 참조하세요.](../vpn-gateway/work-remotely-support.md) 
 
-보안 소켓 터널링 프로토콜(SSTP)을 사용하는 경우 동시 연결 수는 128개로 제한됩니다. 더 많은 연결을 얻으려면 OpenVPN 또는 IKEv2로 전환하는 것이 좋습니다. 자세한 내용은 [SSTP에서 OpenVPN 프로토콜 또는 IKEv2로의 전환을](https://go.microsoft.com/fwlink/?linkid=2124112)참조하십시오.
+보안 소켓 터널링 프로토콜(SSTP)을 사용하는 경우 동시 연결 수는 128개로 제한됩니다. 더 많은 연결을 얻으려면 OpenVPN 또는 IKEv2로 전환하는 것이 좋습니다. 자세한 내용은 [SSTP에서 OpenVPN 프로토콜 또는 IKEv2로의 전환을](../vpn-gateway/ikev2-openvpn-from-sstp.md
+)참조하십시오.
 
-Azure에 배포된 리소스에 액세스하려면 원격 개발자는 VPN 연결 대신 Azure Bastion 솔루션을 사용하여 VM에 대한 공용 IP를 사용하지 않고도 안전한 쉘 액세스(RDP 또는 SSH)를 얻을 수 있습니다. 자세한 내용은 [Azure 요새를 사용하여 원격으로 작업을](https://go.microsoft.com/fwlink/?linkid=2123939)참조하세요.
+Azure에 배포된 리소스에 액세스하려면 원격 개발자는 VPN 연결 대신 Azure Bastion 솔루션을 사용하여 VM에 대한 공용 IP를 사용하지 않고도 안전한 쉘 액세스(RDP 또는 SSH)를 얻을 수 있습니다. 자세한 내용은 [Azure 요새를 사용하여 원격으로 작업을](../bastion/work-remotely-support.md)참조하세요.
 
-대규모 VPN 연결을 집계하기 위해 서로 다른 온-프레미스 글로벌 위치, 다른 지역 허브 및 스포크 가상 네트워크의 리소스 간 연결을 지원하고 여러 홈 광대역 네트워크의 활용도를 최적화합니다. Azure 가상 WAN을 사용할 수 있습니다. 자세한 내용은 [가정의 필요 사항에서 일하기 위해 고군분투하는 것을 참조하십시오. Azure 가상 WAN이 도움이 될 수 있는 곳은 다음과 같습니다.](https://go.microsoft.com/fwlink/?linkid=2123769)
+대규모 VPN 연결을 집계하고, 서로 다른 온-프레미스 글로벌 위치, 다른 지역 허브 및 스포크 가상 네트워크의 리소스 간 연결을 지원하고, 여러 홈 광대역 네트워크의 활용도를 최적화하기 위해 Azure Virtual WAN을 사용할 수 있습니다. 자세한 내용은 [가정의 필요 사항에서 일하기 위해 고군분투하는 것을 참조하십시오. Azure 가상 WAN이 도움이 될 수 있는 곳은 다음과 같습니다.](../virtual-wan/work-remotely-support.md)
 
 원격 인력을 지원하는 또 다른 방법은 Azure 방화벽으로 보호되는 Azure 가상 네트워크에서 호스팅되는 VDI(가상 데스크톱 인프라)를 배포하는 것입니다. 예를 들어 WVD(Windows 가상 데스크톱)는 Azure에서 실행되는 데스크톱 및 앱 가상화 서비스입니다. Windows Virtual Desktop을 사용하면 추가 게이트웨이 서버를 실행할 필요 없이 Azure 구독에서 확장 가능하고 유연한 환경을 설정할 수 있습니다. 가상 네트워크의 WVD 가상 시스템에 대해서만 책임이 있습니다. 자세한 내용은 [Azure 방화벽 원격 작업 지원을](../firewall/remote-work-support.md)참조하십시오. 
 
-Azure에는 풍부한 에코 시스템 파트너 집합도 있습니다. Azure의 파트너 네트워크 가상 어플라이언스도 VPN 연결을 확장하는 데 도움을 줄 수 있습니다. 자세한 내용은 [원격 작업에 대한 NVA(네트워크 가상 어플라이언스) 고려 사항을](https://go.microsoft.com/fwlink/?linkid=2123771)참조하십시오.
+Azure에는 풍부한 에코 시스템 파트너 집합도 있습니다. Azure의 파트너 네트워크 가상 어플라이언스도 VPN 연결을 확장하는 데 도움을 줄 수 있습니다. 자세한 내용은 [원격 작업에 대한 NVA(네트워크 가상 어플라이언스) 고려 사항을](../vpn-gateway/nva-work-remotely-support.md)참조하십시오.
 
 ## <a name="extend-employees-connection-to-access-globally-distributed-resources"></a>전 세계에 분산된 리소스에 액세스하기 위해 직원의 연결 확장
 
@@ -71,7 +70,7 @@ Azure에는 풍부한 에코 시스템 파트너 집합도 있습니다. Azure�
 
 ## <a name="scale-customer-connectivity-to-frontend-resources"></a>프런트 엔드 리소스에 대한 고객 연결 확장
 
-더 많은 사람들이 온라인에 접속하는 동안 많은 기업 웹 사이트가 고객 트래픽을 증가시켰습니다. Azure 응용 프로그램 게이트웨이는 증가된 프런트 엔드 워크로드를 관리하는 데 도움이 될 수 있습니다. 자세한 내용은 [응용 프로그램 게이트웨이 트래픽 이량 지원](https://go.microsoft.com/fwlink/?linkid=2123940)을 참조하십시오.
+더 많은 사람들이 온라인에 접속하는 동안 많은 기업 웹 사이트가 고객 트래픽을 증가시켰습니다. Azure 응용 프로그램 게이트웨이는 증가된 프런트 엔드 워크로드를 관리하는 데 도움이 될 수 있습니다. 자세한 내용은 [응용 프로그램 게이트웨이 트래픽 이량 지원](../application-gateway/high-traffic-support.md)을 참조하십시오.
 
 ## <a name="microsoft-support-for-multi-cloud-traffic"></a>멀티 클라우드 트래픽에 대한 Microsoft 지원
 
@@ -83,13 +82,13 @@ Azure에는 풍부한 에코 시스템 파트너 집합도 있습니다. Azure�
 
 | **기술** | **마지막 업데이트** |
 | --- | --- |
-| [사용자가 원격으로 작업할 수 있도록 하는 방법](https://go.microsoft.com/fwlink/?linkid=2123770) | 2020년 3월 23일 |
-| [가정의 필요에서 일하기 위해 고군분투? Azure 가상 WAN이 도움을 줄 수 있는 곳은 다음과 같습니다.](https://go.microsoft.com/fwlink/?linkid=2123769) | 2020년 3월 23일 |
-| [애플리케이션 게이트웨이 트래픽 높은 지원](https://go.microsoft.com/fwlink/?linkid=2123940) | 2020년 3월 23일 |
-| [원격 작업에 대한 네트워크 가상 어플라이언스(NVA) 고려 사항](https://go.microsoft.com/fwlink/?linkid=2123771)| 2020년 3월 23일 |
+| [사용자가 원격으로 작업할 수 있도록 하는 방법](../vpn-gateway/work-remotely-support.md) | 2020년 3월 23일 |
+| [가정의 필요에서 일하기 위해 고군분투? Azure 가상 WAN이 도움을 줄 수 있는 곳은 다음과 같습니다.](../virtual-wan/work-remotely-support.md) | 2020년 3월 23일 |
+| [Application Gateway 높은 트래픽 지원](../application-gateway/high-traffic-support.md) | 2020년 3월 23일 |
+| [원격 작업에 대한 네트워크 가상 어플라이언스(NVA) 고려 사항](../vpn-gateway/nva-work-remotely-support.md)| 2020년 3월 23일 |
 | [SSTP에서 OpenVPN 프로토콜 또는 IKEv2로 전환](https://go.microsoft.com/fwlink/?linkid=2124112) | 2020년 3월 23일 |
-| [Azure 요새를 사용하여 원격으로 작업](https://go.microsoft.com/fwlink/?linkid=2123939) | 2020년 3월 23일 |
-| [Azure ExpressRoute를 사용하여 원격 사용자를 지원하는 하이브리드 연결을 만듭니다.](https://go.microsoft.com/fwlink/?linkid=2123768) | 2020년 3월 23일 |
+| [Azure 요새를 사용하여 원격으로 작업](../bastion/work-remotely-support.md) | 2020년 3월 23일 |
+| [Azure ExpressRoute를 사용하여 원격 사용자를 지원하는 하이브리드 연결을 만듭니다.](../expressroute/work-remotely-support.md) | 2020년 3월 23일 |
 | [Azure 방화벽 원격 작업 지원](../firewall/remote-work-support.md)|2020년 3월 25일|
 
 <!--Link References-->

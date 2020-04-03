@@ -5,14 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 04/01/2020
 ms.author: dsindona
-ms.openlocfilehash: 8ef117425f945d14db535ea3ecedc50d18819868
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1245ed89376de4ce777137d8427e03487d0432ab
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280170"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586105"
 ---
 # <a name="cloud-partner-portal-migration-to-partner-center"></a>파트너 센터로 클라우드 파트너 포털 마이그레이션
 
@@ -20,14 +20,13 @@ ms.locfileid: "80280170"
 
 | **오퍼 유형** | **클라우드 파트너 포털에서 파트너 센터로 마이그레이션된 오퍼 관리** | **파트너 센터에서 공동 판매 담보를 업데이트할 수 있는 기능** |
 |    -----------------------    |    -----------------------------  |  -----------------------------  |
-| 서비스로서의 소프트웨어(SaaS) |     지금 사용 가능       |   2020년 2월 경 일반 공급 가능      |
+| 서비스로서의 소프트웨어(SaaS) |     지금 사용 가능       |   일반 공급 가능 여부 2020년 4월      |
 | PowerApps를 & 고객 참여를 위한 Dynamics 365      |     지금 사용 가능        |   지금 사용 가능      |
 | Dynamics 365 for Operations     |     지금 사용 가능       |   지금 사용 가능     |
-| Dynamics 365 Business Central      |     지금 사용 가능        |   2020년 2월 경 일반 공급 가능     |
-| Azure 애플리케이션     |     일반 공급 가능 여부 2019년 12월       |   2020년 2월 경 일반 공급 가능     |
-| Azure Virtual Machine      |     공지 예정       |   공지 예정    |
-| Azure 컨테이너     |     공지 예정       |   공지 예정     |
-| 컨설팅 서비스      |     공지 예정       |   공지 예정     |
-| IoT 에지 모듈      |     공지 예정       |   공지 예정     |
-| 전원 BI 서비스 앱     |     공지 예정       |   공지 예정     |
-|  |  |
+| Dynamics 365 Business Central      |     지금 사용 가능        |   일반 공급 가능 여부 2020년 4월     |
+| Azure 애플리케이션     |     지금 사용 가능       |   일반 공급 가능 여부 2020년 4월     |
+| Azure Virtual Machine      |     일반 공급 가능 4월-2020년 5월       |   공지 예정    |
+| Azure 컨테이너     |     일반 공급 가능 4월-2020년 5월       |   공지 예정     |
+| 컨설팅 서비스      |     일반 공급 가능 4월-2020년 5월       |   공지 예정     |
+| IoT 에지 모듈      |     일반 공급 가능 4월-2020년 5월       |   공지 예정     |
+| 전원 BI 서비스 앱     |     일반 공급 가능 4월-2020년 5월       |   공지 예정     |

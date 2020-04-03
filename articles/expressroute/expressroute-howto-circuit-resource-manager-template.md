@@ -2,26 +2,25 @@
 title: 'Azure 익스프레스라우팅 템플릿: 익스프레스라우팅 회로 만들기'
 description: ExpressRoute 회로를 생성, 프로비전, 삭제 및 프로비저닝 해제합니다.
 services: expressroute
-author: cherylmc
+author: charwen
 ms.service: expressroute
 ms.topic: article
 ms.date: 11/13/2019
-ms.author: cherylmc
-ms.reviewer: ganesr
-ms.openlocfilehash: 78da84a462566cca1a2800174849159ace8dd6dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: charwen
+ms.openlocfilehash: ac2fb2f884feb0fbe6fbb1731ebe7c8bdad5114b
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75981145"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616520"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Azure 리소스 관리자 템플릿을 사용하여 ExpressRoute 회로 만들기
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](expressroute-howto-circuit-portal-resource-manager.md)
-> * [Powershell](expressroute-howto-circuit-arm.md)
+> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
-> * [Azure 리소스 관리자 템플릿](expressroute-howto-circuit-resource-manager-template.md)
+> * [Azure Resource Manager 템플릿](expressroute-howto-circuit-resource-manager-template.md)
 > * [비디오 - Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [파워 쉘 (클래식)](expressroute-howto-circuit-classic.md)
 >
@@ -64,7 +63,7 @@ Azure PowerShell을 사용하여 Azure 리소스 관리자 템플릿을 배포�
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * **SKU 계층은** ExpressRoute 회로가 [로컬,](expressroute-faqs.md#expressroute-local)표준 또는 [프리미엄인지](expressroute-faqs.md#expressroute-premium)여부를 결정합니다. *로컬,* *표준* 또는 *프리미엄을*지정할 수 있습니다.
+   * **SKU 계층은** ExpressRoute 회로가 [로컬,](expressroute-faqs.md#expressroute-local)표준 또는 [프리미엄인지](expressroute-faqs.md#expressroute-premium)여부를 결정합니다. *로컬*, *표준 또는 *프리미엄을*지정할 수 있습니다.
    * **SKU 제품군은** 청구 유형을 결정합니다. 무제한 *데이터* 요금제에 대해 계량 데이터 및 무제한 데이터 요금제에 대해 *무제한 데이터를* 지정할 수 있습니다. 청구서 유형을 *Metereddata*에서 *Unlimiteddata*로 변경할 수 있지만, *Unlimiteddata*에서 *Metereddata*로는 변경할 수 없습니다. *로컬* 회로는 *무제한 데이터만* 입니다.
    * **피어링 위치**는 Microsoft와 피어링하는 물리적 위치입니다.
 

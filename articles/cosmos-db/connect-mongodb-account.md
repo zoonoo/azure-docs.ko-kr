@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: e3ab6282a3c61e12dce5dd17bc0859c0d73a7724
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cba16d79b6506f9809a76f0128938a68afd15c92
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051698"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617046"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Azure Cosmos DB에 MongoDB 애플리케이션 연결
 
@@ -51,11 +51,11 @@ MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure Cosmos DB에 연�
 ## <a name="connection-string-requirements"></a>연결 문자열 요구 사항
 
 > [!Important]
-> Azure Cosmos DB에는 엄격한 보안 요구 사항과 표준이 있습니다. Azure Cosmos DB 계정에는 *SSL*을 통한 인증 및 보안 통신이 필요합니다. 
+> Azure Cosmos DB에는 엄격한 보안 요구 사항과 표준이 있습니다. Azure Cosmos DB 계정에는 *TLS를*통한 인증 및 보안 통신이 필요합니다. 
 >
 >
 
-Azure Cosmos DB는 두 가지 특정 요구 사항을 포함한 표준 MongoDB 연결 문자열 URI 형식을 지원합니다. Azure Cosmos DB 계정에는 인증 및 SSL을 통한 보안 통신이 필요합니다. 따라서 연결 문자열 형식은 다음과 같습니다.
+Azure Cosmos DB는 표준 MongoDB 연결 문자열 URI 형식을 지원하며 몇 가지 특정 요구 사항인 Azure Cosmos DB 계정에는 TLS를 통한 인증 및 보안 통신이 필요합니다. 따라서 연결 문자열 형식은 다음과 같습니다.
 
     mongodb://username:password@host:port/[database]?ssl=true
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: c98da4b41da183f56d80fad1e8c01706d1cfcf23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b54f9f3466fe5f7e2da622077f53575d6f43f72d
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970503"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585952"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Azure Disk Encryption 샘플 스크립트 
 
@@ -80,7 +80,7 @@ Azure Disk Encryption에 대한 필수 구성 요소에 이미 익숙한 경우 
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>OS 디스크 암호화를 위한 필수 조건
 
-* VM은 [Azure 디스크 암호화 지원 운영 체제에](disk-encryption-overview.md#supported-vm-sizes) 나열된 대로 OS 디스크 암호화와 호환되는 배포를 사용해야 합니다. 
+* VM은 [Azure 디스크 암호화 지원 운영 체제에](disk-encryption-overview.md#supported-vms) 나열된 대로 OS 디스크 암호화와 호환되는 배포를 사용해야 합니다. 
 * Azure Resource Manager의 Marketplace 이미지에서 VM을 만들어야 합니다.
 * 4GB 이상의 RAM이 있는 Azure VM(권장 크기는 7GB)이 있어야 합니다.
 * (RHEL 및 CentOS) SELinux를 사용하지 않도록 설정합니다. SELinux를 사용하지 않도록 설정하려면 VM에 대한 [SELinux 사용자 및 관리자 가이드](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux)에서 "4.4.2. SELinux 사용 안 함"을 참조하세요.
@@ -294,7 +294,7 @@ Azure로 작업할 암호화를 구성하려면 다음 단계를 수행합니다
    ```bash
     if [ 1 ]; then
    ```
-4. /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh를 편집하고 “# Open LUKS device”에 추가합니다.
+4. 편집 /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh 및 "# 오픈 LUKS 장치"에 부속:
 
     ```bash
     MountPoint=/tmp-keydisk-mount
@@ -375,7 +375,7 @@ Azure로 작업할 암호화를 구성하려면 다음 단계를 수행합니다
    ```bash
     if [ 1 ]; then
    ```
-4. /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh를 편집하고 “# Open LUKS device” 뒤에 다음을 추가합니다.
+4. 편집 /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh 및 "# 오픈 LUKS 장치" 후 다음을 부속:
     ```bash
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
@@ -396,7 +396,7 @@ Azure로 작업할 암호화를 구성하려면 다음 단계를 수행합니다
     fi
     done
     ```    
-5. "/usr/sbin/dracut -f -v"를 실행하여 initrd를 업데이트합니다.
+5. "/usr/sbin/드라컷 -f-v"를 실행하여 initrd를 업데이트합니다.
 
     ![CentOS 7 설치 - /usr/sbin/dracut -f -v 실행](./media/disk-encryption/centos-encrypt-fig5.png)
 

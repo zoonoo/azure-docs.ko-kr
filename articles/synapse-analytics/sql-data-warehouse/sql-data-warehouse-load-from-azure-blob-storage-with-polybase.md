@@ -1,6 +1,6 @@
 ---
-title: Contoso 소매 데이터를 SQL 분석 데이터 웨어하우스에 로드
-description: PolyBase 및 T-SQL 명령을 사용하여 Contoso 소매 데이터에서 두 개의 테이블을 Azure SQL Analytics에 로드합니다.
+title: Contoso 소매 데이터를 시냅스 SQL 데이터 웨어하우스에 로드
+description: PolyBase 및 T-SQL 명령을 사용하여 Contoso 소매 데이터에서 두 개의 테이블을 시냅스 SQL에 로드합니다.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 62105b783577d70ae975cf514304d2c564357641
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 7460a59dd2a7a5906a483195929136391657fa50
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351475"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583999"
 ---
-# <a name="load-contoso-retail-data-to-a-sql-analytics-data-warehouse"></a>Contoso 소매 데이터를 SQL 분석 데이터 웨어하우스에 로드
+# <a name="load-contoso-retail-data-to-a-synapse-sql-data-warehouse"></a>Contoso 소매 데이터를 시냅스 SQL 데이터 웨어하우스에 로드
 
-이 자습서에서는 PolyBase 및 T-SQL 명령을 사용하여 Contoso 소매 데이터에서 두 테이블을 SQL Analytics 데이터 웨어하우스에 로드하는 방법을 배웁니다. 
+이 자습서에서는 PolyBase 및 T-SQL 명령을 사용하여 Contoso 소매 데이터에서 두 개의 테이블을 시냅스 SQL 데이터 웨어하우스에 로드하는 방법을 배웁니다.
 
 이 자습서에서는 다음 작업을 수행합니다.
 
@@ -30,11 +30,11 @@ ms.locfileid: "80351475"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 자습서를 실행하려면 SQL Analytics 데이터 웨어하우스가 이미 있는 Azure 계정이 필요합니다. 프로비저닝된 데이터 웨어하우스가 없는 경우 [데이터 웨어하우스 만들기 및 서버 수준 방화벽 규칙 설정](create-data-warehouse-portal.md)을 참조하십시오.
+이 자습서를 실행하려면 Synapse SQL 데이터 웨어하우스가 이미 있는 Azure 계정이 필요합니다. 프로비저닝된 데이터 웨어하우스가 없는 경우 [데이터 웨어하우스 만들기 및 서버 수준 방화벽 규칙 설정](create-data-warehouse-portal.md)을 참조하십시오.
 
 ## <a name="configure-the-data-source"></a>데이터 원본 구성
 
-PolyBase는 T-SQL 외부 개체를 사용하여 외부 데이터의 위치와 특성을 정의합니다. 외부 개체 정의는 SQL Analytics 데이터 웨어하우스에 저장됩니다. 데이터는 외부에 저장됩니다.
+PolyBase는 T-SQL 외부 개체를 사용하여 외부 데이터의 위치와 특성을 정의합니다. 외부 개체 정의는 Synapse SQL 데이터 웨어하우스에 저장됩니다. 데이터는 외부에 저장됩니다.
 
 ## <a name="create-a-credential"></a>자격 증명 만들기
 
@@ -121,7 +121,7 @@ GO
 
 ## <a name="create-the-external-tables"></a>외부 테이블 만들기
 
-다음 스크립트를 실행하여 DimProduct 및 FactOnlineSales 외부 테이블을 만듭니다. 여기서 수행되는 모든 작업을 수행하면 열 이름과 데이터 형식을 정의하고 Azure Blob 저장소 파일의 위치 및 형식으로 바인딩할 수 있습니다. 정의는 SQL Analytics 데이터 웨어하우스에 저장되며 데이터는 여전히 Azure 저장소 Blob에 있습니다.
+다음 스크립트를 실행하여 DimProduct 및 FactOnlineSales 외부 테이블을 만듭니다. 여기서 수행되는 모든 작업을 수행하면 열 이름과 데이터 형식을 정의하고 Azure Blob 저장소 파일의 위치 및 형식으로 바인딩할 수 있습니다. 정의는 데이터 웨어하우스에 저장되며 데이터는 여전히 Azure 저장소 Blob에 있습니다.
 
 **위치** 매개 변수는 Azure Storage Blob의 루트 폴더 아래에 있는 폴더입니다. 각 테이블은 서로 다른 폴더에 있습니다.
 
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Columnstore 압축을 최적화합니다.
 
-기본적으로 SQL Analytics 데이터 웨어하우스는 테이블을 클러스터된 열저장소 인덱스로 저장합니다. 로드를 완료한 후 데이터 행 일부는 columnstore로 압축되지 않을 수 있습니다.  이런 일이 일어날 수있는 다른 이유가 있습니다. 자세한 내용은 [Columnstore 인덱스 관리](sql-data-warehouse-tables-index.md)를 참조하세요.
+기본적으로 Synapse SQL 데이터 웨어하우스는 테이블을 클러스터된 열저장소 인덱스로 저장합니다. 로드를 완료한 후 데이터 행 일부는 columnstore로 압축되지 않을 수 있습니다.  이런 일이 일어날 수있는 다른 이유가 있습니다. 자세한 내용은 [Columnstore 인덱스 관리](sql-data-warehouse-tables-index.md)를 참조하세요.
 
 로드 후 쿼리 성능과 columnstore 압축을 최적화하려면 모든 행을 압축하기 위해 columnstore 인덱스를 강제 적용할 테이블을 다시 빌드합니다. 
 

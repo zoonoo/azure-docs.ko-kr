@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: 692f70e4666416f34a6e3f32fd5804d4aeb63a5b
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: d7ce77404359b32effcc7a5da3f9429e9fdf7005
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477835"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618573"
 ---
 # <a name="azure-cognitive-services-support-and-feedback-options"></a>Azure 코그너티브 서비스 지원 및 피드백 옵션
 
-Azure Cognitive 서비스의 기능을 살펴보기 시작했습니다. 응용 프로그램에서 새 기능을 구현하고 있을 수 있습니다. 또는 서비스를 사용한 후 서비스를 개선하는 방법에 대한 제안이 있습니까? 다음은 지원을 받고, 최신 상태를 유지하고, 코그너티브 서비스에 대한 피드백을 제공할 수 있는 옵션입니다.
+Azure Cognitive 서비스의 기능을 살펴보기 시작했습니다. 응용 프로그램에서 새 기능을 구현하고 있을 수 있습니다. 또는 서비스를 사용한 후 서비스를 개선하는 방법에 대한 제안이 있습니까? 다음은 지원을 받고, 최신 상태를 유지하고, 피드백을 제공하고, 코그너티브 서비스에 대한 버그를 보고할 수 있는 옵션입니다.
 
 ## <a name="get-support"></a>지원 받기
 
@@ -30,7 +30,7 @@ Azure Cognitive 서비스의 기능을 살펴보기 시작했습니다. 응용 �
 
 지금 클라우드를 시작하려는 개발자든 비즈니스에 중요한 전략적 애플리케이션을 배포하려는 대규모 조직이든 관계없이 가장 적합한 [Azure 지원 옵션 및 플랜 선택](https://azure.microsoft.com/support/plans)의 범위를 탐색합니다. Azure 고객은 Azure Portal에서 지원 요청을 만들고 관리할 수 있습니다.
 
-* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [미국 정부의 Azure Portal](https://portal.azure.us)
 
 ### <a name="search"></a>검색
@@ -83,7 +83,7 @@ Azure 블로그의 새 릴리스 또는 뉴스의 기능에 대한 정보를 유
 
  - [Custom Vision](custom-vision-service/release-notes.md)
  - [Face](face/releasenotes.md)
- - [언어 이해(LUIS)](luis/whats-new.md)
+ - [언어 이해(LUIS)](LUIS/whats-new.md)
  - [Speech Services](speech-service/releasenotes.md)
  - [음성 서비스 SDK](speech-service/devices-sdk-release-notes.md)
  - [텍스트 분석](text-analytics/whats-new.md)

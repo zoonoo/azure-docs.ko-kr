@@ -9,18 +9,18 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 11/17/2019
 ms.author: yelevin
-ms.openlocfilehash: 7d42ff28ddd2d883feb25139096d781efe64d50f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b82ddfef57efaaca0ae43750cd306a63a772b911
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588572"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616818"
 ---
 # <a name="connect-data-from-azure-ad-identity-protection"></a>Azure AD ID 보호의 데이터 연결
 
 
 
-[Azure AD ID 보호에서](https://docs.microsoft.com/azure/information-protection/reports-aip) Azure Sentinel로 로그를 스트리밍하여 Azure Sentinel로 경고를 스트리밍하여 대시보드를 보고, 사용자 지정 경고를 만들고, 조사를 개선할 수 있습니다. Azure Active Directory ID 보호는 위험 사용자, 위험 검색 및 취약점에 대한 통합 보기를 제공하며, 위험을 즉시 수정하고 향후 이벤트를 자동으로 수정하도록 정책을 설정할 수 있습니다. 이 서비스는 소비자 신원을 보호하는 Microsoft의 경험을 바탕으로 구축되었으며 하루에 130억 개 이상의 로그인으로 신호로부터 엄청난 정확도를 얻을 수 있습니다. 
+[Azure AD ID 보호에서](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection) Azure Sentinel로 로그를 스트리밍하여 Azure Sentinel로 경고를 스트리밍하여 대시보드를 보고, 사용자 지정 경고를 만들고, 조사를 개선할 수 있습니다. Azure Active Directory ID 보호는 위험 사용자, 위험 검색 및 취약점에 대한 통합 보기를 제공하며, 위험을 즉시 수정하고 향후 이벤트를 자동으로 수정하도록 정책을 설정할 수 있습니다. 이 서비스는 소비자 신원을 보호하는 Microsoft의 경험을 바탕으로 구축되었으며 하루에 130억 개 이상의 로그인으로 신호로부터 엄청난 정확도를 얻을 수 있습니다. 
 
 
 ## <a name="prerequisites"></a>사전 요구 사항

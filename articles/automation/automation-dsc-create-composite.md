@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 05f0a81a738688df15ea9060071d9e266b54b7d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a39b038d31d1b4a614ff0acf7df2586706bb0404
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136658"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585525"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>구성을 복합 리소스로 변환
 
@@ -50,7 +50,7 @@ cmdlet은 구성 내용을 로드하고 매개 변수 목록을 가져오고 필
 모듈을 생성한 후에는 변경을 수행할 때마다 버전을 증분하고 릴리스 메모를 추가하고 [PowerShellGet 리포지토리에](https://powershellexplained.com/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo)게시할 수 있습니다.
 
 구성(또는 여러 구성)을 포함하는 복합 리소스 모듈을 만든 후에는 Azure의 [컴포저블 작성 환경에서](/azure/automation/compose-configurationwithcompositeresources) 이를 사용하거나 [DSC 구성 스크립트에](/powershell/scripting/dsc/configurations/configurations) 추가하여 MOF 파일을 생성하고 [MOF 파일을 Azure 자동화에 업로드할](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)수 있습니다.
-그런 다음 [온-프레미스](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) 또는 [Azure에서](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) 서버를 등록하여 구성을 가져옵니다.
+그런 다음 [온-프레미스](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) 또는 [Azure에서](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms) 서버를 등록하여 구성을 가져옵니다.
 프로젝트에 대한 최신 업데이트는 PowerShell 갤러리에서 구성가져오기 프로세스를 자동화하기 위해 Azure Automation용 [Runbook을](https://www.powershellgallery.com/packages?q=DscGallerySamples) 게시했습니다.
 
 DSC에 대한 복합 리소스 생성자동화를 시도하려면 [PowerShell 갤러리를](https://www.powershellgallery.com/packages/compositeresource/) 방문하여 솔루션을 다운로드하거나 "프로젝트 사이트"를 클릭하여 [설명서를](https://github.com/microsoft/compositeresource)봅니다.

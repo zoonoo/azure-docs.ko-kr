@@ -1,6 +1,6 @@
 ---
 title: Azure 데이터 레이크 저장소의 자습서 로드 데이터
-description: PolyBase 외부 테이블을 사용하여 SQL 분석을 위해 Azure Data Lake Storage의 데이터를 로드합니다.
+description: PolyBase 외부 테이블을 사용하여 시냅스 SQL용 Azure 데이터 레이크 저장소의 데이터를 로드합니다.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,14 +11,15 @@ ms.date: 03/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: b9e28f41b251ea526044bf88dc3e79c0374fe369
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 7d599ce121b4c53662b91e5aab94130b0f3f4458
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350361"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583931"
 ---
-# <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>SQL 분석을 위해 Azure 데이터 레이크 스토리지에서 데이터 로드
+# <a name="load-data-from-azure-data-lake-storage-for-synapse-sql"></a>시냅스 SQL용 Azure 데이터 레이크 스토리지의 데이터 로드
+
 이 가이드에서는 PolyBase 외부 테이블을 사용하여 Azure Data Lake Storage에서 데이터를 로드하는 방법을 간략하게 설명합니다. Data Lake Storage에 저장된 데이터에 대해 adhoc 쿼리를 실행할 수 있지만 최상의 성능을 위해 데이터를 가져오는 것이 좋습니다. 
 
 > [!NOTE]  
@@ -30,7 +31,7 @@ ms.locfileid: "80350361"
 > * 데이터 레이크 스토리지 디렉토리에 연결합니다.
 > * 데이터 웨어하우스에 데이터를 로드합니다.
 
-Azure 구독이 없는 경우 시작하기 전에 [무료 계정을 만드세요.](https://azure.microsoft.com/free/)
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 다운로드하여 설치합니다.

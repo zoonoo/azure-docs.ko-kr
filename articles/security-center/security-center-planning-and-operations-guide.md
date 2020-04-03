@@ -1,5 +1,5 @@
 ---
-title: 보안 센터 계획 및 작업 가이드| Microsoft Docs
+title: 보안 센터 계획 및 운영 가이드
 description: 이 문서는 Azure Security Center 도입 전 계획과 일상 운영과 관련한 고려 사항을 지원합니다.
 services: security-center
 author: memildin
@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 46994413ba765e18a826eebfe85a38bb65efc749
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 8244a0f164c8578bf9f79e4b66beb529b6a15f67
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435611"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586010"
 ---
-# <a name="azure-security-center-planning-and-operations-guide"></a>Azure Security Center 계획 및 작업 가이드
+# <a name="planning-and-operations-guide"></a>계획 및 운영 가이드
 이 가이드는 Azure 보안 센터를 사용하려는 정보 기술(IT) 전문가, IT 설계자, 정보 보안 분석가 및 클라우드 관리자를 위한 것입니다.
 
 
@@ -40,7 +40,7 @@ ms.locfileid: "80435611"
 
 ![역할](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-이러한 개인들은 보안 센터를 통해 다양한 책임에 부합할 수 있습니다. 다음은 그 예입니다.
+이러한 개인들은 보안 센터를 통해 다양한 책임에 부합할 수 있습니다. 예를 들어:
 
 **Jeff(워크로드 소유자)**
 
@@ -135,7 +135,7 @@ Azure Security Center는 Azure Monitor 서비스에서 사용하는 것과 동�
 
 ### <a name="agent"></a>에이전트
 
-보안 정책에서 자동 프로비저닝을 사용하도록 설정하면 [로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) 분석 에이전트(Windows 또는 [Linux용)가](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)지원되는 모든 Azure VM 및 새 Azure VM에 설치됩니다. VM 또는 컴퓨터에 Log Analytics 에이전트가 이미 설치되어 있는 경우 Azure Security Center는 현재 설치된 에이전트를 활용합니다. 에이전트의 프로세스는 사용자 작업에 영향을 미치지 않으며 VM의 성능에도 거의 영향을 미치지 않습니다.
+보안 정책에서 자동 프로비저닝을 사용하도록 설정하면 [로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) 분석 에이전트(Windows 또는 [Linux용)가](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)지원되는 모든 Azure VM 및 새 Azure VM에 설치됩니다. VM 또는 컴퓨터에 Log Analytics 에이전트가 이미 설치되어 있는 경우 Azure Security Center는 현재 설치된 에이전트를 활용합니다. 에이전트의 프로세스는 비침습적설계이며 VM 성능에 미치는 영향이 매우 적습니다.
 
 Windows용 로그 분석 에이전트는 TCP 포트 443을 사용해야 합니다. 추가 세부 정보는 [문제 해결 문서](security-center-troubleshooting-guide.md)를 참조하세요.
 
@@ -181,7 +181,7 @@ Security Center 개요는 모든 Azure 리소스 및 연결된 모든 비 Azure 
 
 **감지** 섹션은 더 대응적인 부분으로, 지금 발생 중이거나 과거에 발생하여 Security Center 컨트롤과 타사 시스템에서 감지된 문제와 관련한 경고입니다. 보안 경고 타일에는 매일 발견된 경고 수와 다양한 심각도 범주(낮음, 중간, 높음) 간의 분포를 나타내는 막대 그래프가 표시됩니다. 보안 경고에 대한 자세한 내용은 [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)을 읽어보세요.
 
-[위협 인텔리전스](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) 옵션을 일별 보안 작업의 일부로 방문할 계획입니다. 거기에서 특정 컴퓨터가 봇네트의 일부인지 식별하는 등 환경에 대한 보안 위협을 식별할 수 있습니다.
+위협 인텔리전스 옵션을 일별 보안 작업의 일부로 방문할 계획입니다. 거기에서 특정 컴퓨터가 봇네트의 일부인지 식별하는 등 환경에 대한 보안 위협을 식별할 수 있습니다.
 
 ### <a name="monitoring-for-new-or-changed-resources"></a>새 또는 변경된 리소스 모니터링
 대부분의 Azure 환경은 동적이며 리소스가 정기적으로 만들어지고, 위 또는 아래로 스펀징되고, 다시 구성되고, 변경됩니다. Security Center는 이러한 새 리소스의 보안 상태에 대한 정보를 얻는 데 도움이 됩니다.
@@ -213,7 +213,7 @@ Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자�
 ## <a name="incident-response"></a>사고 대응
 보안 센터는 위협이 발생하면 감지하여 사용자에게 경고합니다. 조직에서는 새 보안 경고를 모니터링하고 필요에 따라 조치를 통해 추가적인 조사를 수행하거나 공격에 대처해야 합니다. 보안 센터 위협 보호의 작동 방식에 대한 자세한 내용은 [Azure Security Center가 위협을 감지하고 대응하는 방법을](security-center-alerts-overview.md#detect-threats)참조하십시오.
 
-이 문서가 인시던트 대응 계획을 직접 작성하는 데 도움을 주려는 목적은 아니지만 인시던트 대응 단계에 대한 기반으로 클라우드 수명 주기에 Microsoft Azure 보안 응답을 사용합니다. 단계는 다음 다이어그램에 나와 있습니다.
+이 문서에는 고유한 인시던트 대응 계획을 만드는 데 도움이 되는 의도는 없지만 클라우드 수명 주기에서 Microsoft Azure 보안 응답을 인시던트 대응 단계의 기초로 사용할 예정입니다. 단계는 다음 다이어그램에 나와 있습니다.
 
 ![의심되는 활동](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
 
@@ -235,7 +235,7 @@ Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자�
 
 이 페이지에서는 공격 발생 시간, 소스 호스트 이름, 대상 VM과 관련한 자세한 내용을 표시하며 권장 단계를 제공합니다. 경우에 따라 공격의 소스 정보가 비어 있을 수 있습니다. 이러한 동작 유형에 대한 자세한 내용은 [Azure Security Center 경고에 누락된 원본 정보](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) 를 참고하세요.
 
-또한 이 페이지에서 [조사](https://docs.microsoft.com/azure/security-center/security-center-investigation)를 시작하여 공격의 타임라인, 공격 발생 방법, 잠재적으로 손상된 시스템, 사용된 자격 증명을 이해하고 전체 공격 체인의 그래프 표현을 확인할 수도 있습니다.
+또한 이 페이지에서 조사를 시작하여 공격의 타임라인, 공격 발생 방법, 잠재적으로 손상된 시스템, 사용된 자격 증명을 이해하고 전체 공격 체인의 그래프 표현을 확인할 수도 있습니다.
 
 손상된 시스템을 식별하면 이전에 만든 [워크플로 자동화를](workflow-automation.md) 실행할 수 있습니다. 이러한 절차는 한 번 경고에 의해 트리거된 보안 센터에서 실행할 수 있는 프로시저 모음입니다.
 

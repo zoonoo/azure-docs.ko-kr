@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: 2df83e3b62994381895315b2ef100299e40b745e
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 9fa93af72c2869efd7b6d2f1e8b96b0e667f8b16
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366504"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607544"
 ---
 # <a name="sql-database-release-notes"></a>SQL 데이터베이스 릴리스 정보
 
@@ -78,6 +78,7 @@ H1 2019의 관리형 인스턴스 배포 모델에서 다음 기능을 사용할
 
 |문제  |검색된 날짜  |상태  |해결된 날짜  |
 |---------|---------|---------|---------|
+|[관리되는 인스턴스에 적용되지 않는 리소스 그룹에 대한 사용 권한](#permissions-on-resource-group-not-applied-to-managed-instance)|2020년 2월|해결 방법을 가지고 있습니다.||
 |[장애 조치 그룹에 대한 포털을 통한 수동 장애 조치 제한](#limitation-of-manual-failover-via-portal-for-failover-groups)|2020년 1월|해결 방법을 가지고 있습니다.||
 |[SQL 에이전트 역할에는 비시스템 관리자 로그인에 대한 명시적 EXECUTE 권한이 필요합니다.](#in-memory-oltp-memory-limits-are-not-applied)|2019년 12월|해결 방법을 가지고 있습니다.||
 |[에이전트 프로세스 를 다시 시작하여 SQL 에이전트 작업을 중단할 수 있습니다.](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|2019년 12월|해결 안 됩니다.|2020년 3월|
@@ -101,6 +102,12 @@ H1 2019의 관리형 인스턴스 배포 모델에서 다음 기능을 사용할
 |원본 데이터베이스에 메모리 내 OLTP 개체가 포함된 경우 비즈니스 중요 계층에서 범용 계층으로 의 한 시점 데이터베이스 복원이 성공하지 못합니다.||해결됨|2019년 10월|
 |보안 연결을 사용하는 외부(Azure가 아닌) 메일 서버가 있는 데이터베이스 메일 기능||해결됨|2019년 10월|
 |관리되는 인스턴스에서 지원되지 않는 포함된 데이터베이스||해결됨|2019년 8월|
+
+### <a name="permissions-on-resource-group-not-applied-to-managed-instance"></a>관리되는 인스턴스에 적용되지 않는 리소스 그룹에 대한 사용 권한
+
+RG(리소스 그룹)에 적용될 때 관리되는 인스턴스 기여자 RBAC 역할은 관리되는 인스턴스에 적용되지 않으며 영향을 주지 않습니다.
+
+**해결:** 구독 수준에서 사용자에 대 한 관리 인스턴스 기여자 역할을 설정 합니다.
 
 ### <a name="limitation-of-manual-failover-via-portal-for-failover-groups"></a>장애 조치 그룹에 대한 포털을 통한 수동 장애 조치 제한
 

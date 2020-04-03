@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b7df3c07518a9211bd1abf785e3f4954c41ebffc
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: cf6f53639cff23a9e709b44a1ddf1332df2164b7
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529459"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586038"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Linux VM에 대한 Azure Disk Encryption 시나리오
 
@@ -194,7 +194,7 @@ Azure에서 실행 중인 가상 컴퓨터에서 암호화를 사용하도록 [�
 
 다음 표에서는 기존 또는 실행 중인 VM에 대한 Resource Manager 템플릿 매개 변수를 나열합니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | vmName | 암호화 작업을 실행할 VM의 이름. |
 | keyVaultName | 암호화 키를 업로드해야 하는 키 자격 증명 모음의 이름입니다. cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` 또는 Azure CLI 명령을 `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`사용하여 얻을 수 있습니다.|
@@ -407,6 +407,8 @@ Azure 디스크 암호화는 다음 Linux 시나리오, 기능 및 기술에 대
 - DFS, GFS, DRDB 및 CephFS와 같은 공유/분산 파일 시스템의 암호화(이에 국한되지 않음).
 - 암호화된 VM을 다른 구독으로 이동합니다.
 - 커널 크래시 덤프(kdump).
+- 오라클 ACFS(ASM 클러스터 파일 시스템)
+- Gen2 VM(참조: [Azure에서 2세대 VM에 대한 지원)](generation-2.md#generation-1-vs-generation-2-capabilities)
 - Lsv2 시리즈 VM (참조: [Lsv2 시리즈)](../lsv2-series.md)
 
 ## <a name="next-steps"></a>다음 단계

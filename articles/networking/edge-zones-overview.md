@@ -5,14 +5,14 @@ services: vnf-manager
 author: ganesr
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 04/02/2020
 ms.author: ganesr
-ms.openlocfilehash: d04032075166d2edd273c7f22bfb0d54aeccd8b3
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 2f2311adc231eac4260e26f0d5d1f2115f43d2eb
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545812"
+ms.locfileid: "80618708"
 ---
 # <a name="about-azure-edge-zones---preview"></a>Azure 에지 영역 소개 - 미리 보기
 
@@ -132,11 +132,13 @@ Azure 프라이빗 에지 존을 사용하면 Azure에서 응용 프로그램을
 | 글로벌 SI 및 운영자 | 이동 통신사 |
 | --- | --- |
 | 암독스 (주)                       | 에티살라트 주             |
-| 아메리칸 타워               | Rogers               |
-| 익스피토 ()에페토 ()에                       | 싱텔 (주)              |
-| 페더레이션 무선           | Vodafone             |
-| Infosys                      |      *                |
-| 테크 마히드라                |      *                |
+| 아메리칸 타워               | NTT 통신   |
+| 센추리 링크                 | Proximus             |
+| 익스피토 ()에페토 ()에                       | Rogers               |
+| 페더레이션 무선           | SK텔레콤           |
+| Infosys                      | Telefonica           |
+| 테크 마히드라                | Telstra              |
+|        *                     | Vodafone             |
 
 파트너가 되는 방법에 대한 자세한 내용은 [프라이빗 에지 존 팀에 연락하십시오.](https://aka.ms/EdgeZonesPartner)
 

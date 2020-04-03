@@ -3,12 +3,12 @@ title: 보안 기능 개요
 description: 백업 데이터를 보호하고 비즈니스의 보안 요구 사항을 충족하는 데 도움이 되는 Azure Backup의 보안 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 91a0f29862b0c9c35e562c143e28ebbc6c39cf94
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 2eec3ee50f1de695b5432ee50b0900e35b81a6eb
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80423185"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585827"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Azure 백업의 보안 기능 개요
 
@@ -66,6 +66,8 @@ Azure 백업 서비스는 Microsoft Azure 복구 서비스(MARS) 에이전트를
 * 암호 변경과 같은 중요한 작업이 수행될 때마다 추가적인 인증 계층이 제공됩니다. 이 유효성 검사는 유효한 Azure 자격 증명을 가진 사용자만 이러한 작업을 수행할 수 있는지 확인합니다. [공격을 방지하는 기능에 대해 자세히 알아보십시오.](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#prevent-attacks)
 
 * 삭제된 백업 데이터는 삭제일로부터 14일 동안 추가로 유지됩니다. 이렇게 하면 지정된 기간 내에 데이터를 복구할 수 있으므로 공격이 발생하더라도 데이터 손실이 발생하지 않습니다. 또한 데이터 손상으로부터 보호하기 위해 더 많은 수의 최소 복구 지점이 유지됩니다. [삭제된 백업 데이터 복구에 대해 자세히 알아봅니다.](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#recover-deleted-backup-data)
+
+* Microsoft Azure 복구 서비스(MARS) 에이전트를 사용하여 백업된 데이터의 경우 Azure Backup에 업로드하기 전에 데이터가 암호화되고 Azure Backup에서 다운로드한 후에만 해독되도록 하는 암호가 사용됩니다. 암호 세부 정보는 암호를 만든 사용자와 암호로 구성된 에이전트만 사용할 수 있습니다. 아무것도 전송되거나 서비스와 공유되지 않습니다. 이렇게 하면 실수로 노출된 데이터(예: 네트워크의 중간자 공격)가 암호 없이 사용할 수 없으며 암호가 네트워크에서 전송되지 않기 때문에 데이터의 완전한 보안을 보장합니다.
 
 ## <a name="compliance-with-standardized-security-requirements"></a>표준화된 보안 요구 사항 준수
 

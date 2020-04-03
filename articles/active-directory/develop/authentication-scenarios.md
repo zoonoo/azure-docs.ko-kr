@@ -13,12 +13,12 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: f8f5ab99086ee38e2f56247ce31f8ac0e7affc81
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6191e67f097b5ab471c5b31eff11a0e570d1c990
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128999"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617035"
 ---
 # <a name="authentication-basics"></a>인증 기본 사항
 
@@ -32,7 +32,7 @@ ms.locfileid: "80128999"
 
 앱은 여러 앱에서 사용자를 추가하거나 제거해야 할 때 관리 부담이 큰 자체 사용자 이름과 암호 정보를 각각 유지하는 앱을 만드는 대신 중앙 집중식 ID 공급자에 해당 책임을 위임할 수 있습니다.
 
-Azure Active Directory(Azure AD)는 클라우드의 중앙 집중식 ID 공급자입니다. 인증 및 권한 부여를 위임하면 사용자가 특정 위치에 있어야 하는 조건부 액세스 정책, 다단계 인증 사용, 사용자가 한 번 로그인한 다음 자동으로 로그인할 수 있는 등의 시나리오가 가능합니다. 중앙 집중식 디렉터리를 공유하는 모든 웹 앱에 로그인합니다. 이 기능을 단일 사인온(SSO)이라고 합니다.
+Azure Active Directory(Azure AD)는 클라우드의 중앙 집중식 ID 공급자입니다. 인증 및 권한 부여를 위임하면 사용자가 특정 위치에 있어야 하는 조건부 액세스 정책, 다단계 인증 사용, 사용자가 한 번 로그인한 다음 동일한 중앙 집중식 디렉터리를 공유하는 모든 웹 앱에 자동으로 로그인할 수 있는 조건부 액세스 정책과 같은 시나리오가 가능합니다. 이 기능을 단일 사인온(SSO)이라고 합니다.
 
 중앙 집중식 ID 공급자는 엔터프라이즈 네트워크에서 반드시 로그인할 필요는 없는 전 세계에 사용자가 있는 앱에 더욱 중요합니다. Azure AD는 사용자를 인증하고 액세스 토큰을 제공합니다. [액세스 토큰은](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#access-token) 권한 부여 서버에서 발급되는 보안 토큰입니다. 여기에는 토큰이 의도된 사용자 및 앱에 대한 정보가 포함됩니다. 웹 API 및 기타 보호된 리소스에 액세스하는 데 사용할 수 있습니다.
 
@@ -170,7 +170,7 @@ Microsoft ID 플랫폼에서 [응용 프로그램 개체는](https://docs.micros
 사용자 인증은 브라우저를 통해 수행됩니다. OpenID 프로토콜은 표준 HTTP 프로토콜 메시지를 사용합니다.
 * 웹 앱은 AZURE AD를 사용하기 위해 브라우저로 HTTP 302(리디렉션)를 보냅니다.
 * 사용자가 인증되면 Azure AD는 브라우저를 통한 리디렉션을 사용하여 토큰을 웹 앱으로 보냅니다.
-* 리디렉션은 리디렉션 URI의 형태로 웹 앱에서 제공됩니다. 이 리디렉션 URI는 Azure AD 응용 프로그램 개체에 등록 됩니다. 응용 프로그램이 여러 URL에 배포될 수 있으므로 여러 리디렉션 URI가 있을 수 있습니다. 따라서 웹 앱은 사용할 리디렉션 URi를 지정해야 합니다.
+* 리디렉션은 리디렉션 URI의 형태로 웹 앱에서 제공됩니다. 이 리디렉션 URI는 Azure AD 응용 프로그램 개체에 등록 됩니다. 응용 프로그램이 여러 URL에 배포될 수 있으므로 여러 리디렉션 URI가 있을 수 있습니다. 따라서 웹 앱은 사용할 리디렉션 URI도 지정해야 합니다.
 * Azure AD는 웹 앱에서 전송하는 리디렉션 URI가 앱에 등록된 리디렉션 URI 중 하나인지 확인합니다.
 
 ## <a name="desktop-and-mobile-app-sign-in-flow-with-azure-ad"></a>Azure AD를 사용하여 데스크톱 및 모바일 앱 로그인 흐름

@@ -4,12 +4,12 @@ description: Azure Active Directory 지원 AZURE Kubernetes 서비스(AKS) 클�
 services: container-service
 ms.topic: article
 ms.date: 02/02/2019
-ms.openlocfilehash: 0476acadf5af3a3e2c470fe6c08ebbd355653e22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: de57a46f92fab2486aa7722daf8745a01be1f4f6
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596592"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617591"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Kubernetes Service와 Azure Active Directory 통합
 
@@ -116,9 +116,9 @@ AKS 클러스터에 대한 Azure AD 인증을 제공하기 위해 두 개의 Azu
     다. 리디렉션 URI 유형에 대한 **웹을** 선택한 다음 와 같은 *https://aksazureadclient*URI 형식의 값을 입력합니다.
 
     >[!NOTE]
-    >컨테이너에 대한 Azure Monitor를 지원하는 새 RBAC 지원 클러스터를 만드는 경우 다음 두 개의 리디렉션 URL을 이 목록에 **웹** 응용 프로그램 유형으로 추가합니다. 첫 번째 기본 URL `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` 값이어야 하며 두 `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`번째 기본 URL 값이어야 합니다.
+    >컨테이너에 대한 Azure Monitor를 지원하는 새 RBAC 지원 클러스터를 만드는 경우 다음 두 개의 리디렉션 URL을 이 목록에 **웹** 응용 프로그램 유형으로 추가합니다. 첫 번째 기본 URL `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` 값이어야 하며 두 번째 기본 URL 값은`https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`
     >
-    >Azure China에서 이 기능을 사용하는 경우 첫 번째 기본 `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` URL 값이어야 하며 `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`두 번째 기본 URL 값이어야 합니다.
+    >Azure China에서 이 기능을 사용하는 경우 첫 번째 기본 `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` URL 값이어야 하며 두 번째 기본 URL 값은`https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`
     >
     >자세한 내용은 컨테이너에 대한 Azure [Monitor의 라이브 데이터(미리 보기) 기능을 설정하는 방법과](../azure-monitor/insights/container-insights-livedata-setup.md) [AD 통합 인증 구성](../azure-monitor/insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication) 섹션에서 인증을 구성하는 단계를 참조하세요.
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: a0bc6aef1becd53217be0eeb8c865b5c78a5d69f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b46c9f8b0cad74f3a4e9be8903270a60993c01f4
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239457"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585894"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>새 응용 프로그램 게이트웨이를 사용하여 AGIC(응용 프로그램 게이트웨이 인그레스 컨트롤러) 설치 하는 방법
 
@@ -71,7 +71,7 @@ ms.locfileid: "80239457"
 ## <a name="deploy-components"></a>구성 요소 배포
 이 단계에서는 구독에 다음 구성 요소를 추가합니다.
 
-- [Azure Kubernetes 서비스](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes)
 - [애플리케이션 게이트웨이](https://docs.microsoft.com/azure/application-gateway/overview) v2
 - [서브넷 2개가 있는](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) [가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
 - [공용 IP 주소](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
@@ -263,7 +263,7 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
 
 
    > [!NOTE]
-   > 및 ID 만들기 단계 중에 생성된 값이며 다음 명령을 사용하여 다시 가져올 수 있습니다. [Create an Identity](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-new.md#create-an-identity) `identityResourceID` `identityClientID`
+   > 및 구성 요소 배포 단계 중에 생성된 값이며 다음 명령을 사용하여 다시 가져올 수 있습니다. [Deploy Components](ingress-controller-install-new.md#deploy-components) `identityResourceID` `identityClientID`
    > ```azurecli
    > az identity show -g <resource-group> -n <identity-name>
    > ```

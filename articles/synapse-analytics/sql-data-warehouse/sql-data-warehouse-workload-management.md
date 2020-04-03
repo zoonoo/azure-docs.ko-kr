@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 1809902fb153c5c9c83a9d00b6f817fde975d0fe
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 06fc9edd55aa51c985cbb981fc5a6892d0ca75e5
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349907"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583116"
 ---
 # <a name="what-is-workload-management"></a>워크로드 관리란?
 
@@ -36,11 +36,12 @@ ms.locfileid: "80349907"
 
 
 ## <a name="workload-management-concepts"></a>워크로드 관리 개념
-과거에는 Azure Synapse의 SQL Analytics의 경우 [리소스 클래스를](resource-classes-for-workload-management.md)통해 쿼리 성능을 관리했습니다.  역할 멤버 자격에 따라 쿼리에 메모리를 할당할 수 있는 리소스 클래스입니다.  리소스 클래스의 주요 과제는 일단 구성되면 워크로드를 제어할 거버넌스나 기능이 없다는 것입니다.  
+
+과거에는 Azure Synapse의 Synapse SQL 풀에서 리소스 [클래스를](resource-classes-for-workload-management.md)통해 쿼리 성능을 관리했습니다.  역할 멤버 자격에 따라 쿼리에 메모리를 할당할 수 있는 리소스 클래스입니다.  리소스 클래스의 주요 과제는 일단 구성되면 워크로드를 제어할 거버넌스나 기능이 없다는 것입니다.  
 
 예를 들어 임시 사용자 역할 멤버 자격을 smallrc에 부여하면 해당 사용자가 시스템에서 메모리의 100%를 사용할 수 있습니다.  리소스 클래스에서는 중요한 워크로드에 리소스를 예약하고 사용할 수 있는지 확인할 수 없습니다.
 
-Azure Synapse의 SQL Analytics 워크로드 관리는 [워크로드 분류,](sql-data-warehouse-workload-classification.md) [워크로드 중요도](sql-data-warehouse-workload-importance.md) 및 [워크로드 격리의](sql-data-warehouse-workload-isolation.md)세 가지 상위 개념으로 구성됩니다.  이러한 기능을 통해 워크로드가 시스템 리소스를 활용하는 방법을 보다 세한 제어할 수 있습니다.
+Azure Synapse의 Synapse SQL 풀 워크로드 관리는 워크로드 [분류,](sql-data-warehouse-workload-classification.md) [워크로드 중요도](sql-data-warehouse-workload-importance.md) 및 [워크로드 격리의](sql-data-warehouse-workload-isolation.md)세 가지 상위 개념으로 구성됩니다.  이러한 기능을 통해 워크로드가 시스템 리소스를 활용하는 방법을 보다 세한 제어할 수 있습니다.
 
 워크로드 분류는 워크로드 그룹에 요청을 할당하고 중요도 수준을 설정하는 개념입니다.  지금까지 이 할당은 [sp_addrolemember](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management#change-a-users-resource-class)사용하여 역할 구성원 자격을 통해 수행되었습니다.  이제 [워크로드 분류 만들기](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)를 통해 이 작업을 수행할 수 있습니다.  분류 기능은 레이블, 세션 및 요청을 분류하는 시간과 같은 다양한 옵션 집합을 제공합니다.
 

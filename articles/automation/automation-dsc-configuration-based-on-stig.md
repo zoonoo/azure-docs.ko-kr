@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 275b3bd25f931b73e8a378433899ef9ade4d47c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6d257198fcae54b1214d77f6b905d876d2687f5
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76028283"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585540"
 ---
 # <a name="configuration-based-on-stig"></a>STIG 기반 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "76028283"
 PowerSTIG는 하나의 대용량 파일에서 전체 설정 범위를 해결하는 대신 구성의 각 영역을 처리하는 [복합 리소스를](https://github.com/microsoft/powerstig#powerstigdsc) 제공하여 문제를 해결합니다.
 
 구성이 생성되면 [DSC 구성 스크립트를](/powershell/scripting/dsc/configurations/configurations) 사용하여 MOF 파일을 생성하고 [MOF 파일을 Azure 자동화](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)에 업로드할 수 있습니다.
-그런 다음 [온-프레미스](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) 또는 [Azure에서](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) 서버를 등록하여 구성을 가져옵니다.
+그런 다음 [온-프레미스](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) 또는 [Azure에서](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms) 서버를 등록하여 구성을 가져옵니다.
 
 PowerSTIG를 사용해 보십시오. [PowerShell Gallery](https://www.powershellgallery.com) [documentation](https://github.com/microsoft/powerstig)
 

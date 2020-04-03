@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: bc5c983bc98c3b62df977c6765978cd45cd3c93b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e4f1141a9d4bd58451782e8412063a22565556d
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500041"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584526"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>미디어 서비스 엔터티의 필터링, 순서 정렬 및 페이징
 
@@ -188,4 +188,4 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 * [스트리밍 정책 목록](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
 * [목록 스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
 * [파일 스트리밍](stream-files-dotnet-quickstart.md)
-* [할당량 및 제한 사항](limits-quotas-constraints.md)
+* [할당량 및 제한](limits-quotas-constraints.md)

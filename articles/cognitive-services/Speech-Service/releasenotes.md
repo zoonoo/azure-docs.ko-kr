@@ -1,27 +1,59 @@
 ---
-title: 릴리스 정보 - 음성 서비스
+title: 릴리스 노트 - 음성 서비스
 titleSuffix: Azure Cognitive Services
 description: 음성 서비스 기능 릴리스, 개선 사항, 버그 수정 및 알려진 문제의 실행 중인 로그입니다.
 services: cognitive-services
-author: brianem
+author: oliversc
 manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.author: brianem
+ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: cbe9c7cbd0f402e38d1163050d77b055f89948ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7bab0a28ba2b75903b6bdf4708e6aa0a98bdc9e5
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79221266"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607410"
 ---
 # <a name="release-notes"></a>릴리스 정보
+## <a name="speech-sdk-1110-2020-march-release"></a>음성 SDK 1.11.0: 2020-3월 릴리스
+
+**새로운 기능**
+
+- 리눅스 : 레드 햇 엔터프라이즈 리눅스 (RHEL)/CentOS 7 x64 음성 SDK에 대한 시스템을 구성하는 방법에 대한 [지침에](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-rhel-centos-7) 대한 지원을 추가했습니다.
+- 리눅스: 리눅스 ARM32 및 ARM64에 .NET 코어 C #에 대한 지원을 추가했습니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=linux)를 읽어보세요. 
+- C#, C++: `UtteranceId` `ConversationTranscriptionResult`모든 중간 및 최종 음성 인식 결과에서 일관된 ID를 추가했습니다. C [#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription.conversationtranscriptionresult?view=azure-dotnet), [C ++](https://docs.microsoft.com/cpp/cognitive-services/speech/transcription-conversationtranscriptionresult)에 대한 세부 정보 .
+- 파이썬 : `Language ID`에 대한 지원을 추가했습니다. [GitHub 리포지토리에서](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console)speech_sample.py를 참조하십시오.
+- Windows: 모든 win32 콘솔 응용 프로그램에 대해 Windows 플랫폼에 압축된 오디오 입력 형식 지원을 추가했습니다. 자세한 내용은 [여기 .](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams) 
+- 자바 스크립트 : NodeJS에서 음성 합성 (텍스트 - 음성 변환)을 지원합니다. 자세한 내용은 [여기를 참조하십시오.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech) 
+- 자바 스크립트 : 모든 송신 및 수신 된 메시지를 검사 할 수 있도록 새 API를 추가합니다. 자세한 내용은 [여기를 참조하십시오.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript) 
+        
+**버그 수정**
+
+- C #, C ++: `SendMessageAsync` 이제 이진 메시지를 이진 문자로 전송하는 문제를 수정했습니다. C [#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.sendmessageasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Connection_SendMessageAsync_System_String_System_Byte___System_UInt32_), [C ++](https://docs.microsoft.com/cpp/cognitive-services/speech/connection)에 대한 세부 정보 .
+- C#, C++: 개체 앞에 `Connection MessageReceived` `Connection` 삭제된 경우 `Recognizer` 이벤트를 사용하면 충돌이 발생할 수 있는 문제를 수정했습니다. C [#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.messagereceived?view=azure-dotnet), [C ++](https://docs.microsoft.com/cpp/cognitive-services/speech/connection#messagereceived)에 대한 세부 정보 .
+- Android: 마이크의 오디오 버퍼 크기가 800ms에서 100ms로 감소하여 대기 시간을 개선했습니다.
+- 안드로이드 : [issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/563) 안드로이드 스튜디오에서 x86 안드로이드 에뮬레이터문제를 수정했습니다.
+- 자바 스크립트 : API와 중국의 `fromSubscription` 지역에 대한 지원을 추가했습니다. 자세한 내용은 [여기 .](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#fromsubscription-string--string-) 
+- 자바 스크립트: NodeJS의 연결 오류에 대한 오류 정보를 추가합니다.
+        
+**샘플**
+
+- Unity: 의도 인식 공개 샘플이 수정되어 LUIS json 가져오기가 실패했습니다. 자세한 내용은 [여기 .](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/369)
+- 파이썬 : `Language ID`샘플이 추가되었습니다. 자세한 내용은 [여기 .](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py)
+    
+**Covid19 요약 테스트**
+
+지난 몇 주 동안 원격으로 작업했기 때문에 평소처럼 수동 장치 확인 테스트를 수행할 수 없었습니다. 이 것의 예는 리눅스, iOS 및 macOS에서 마이크 입력 및 스피커 출력을 테스트하는 것입니다. 이러한 플랫폼에서 아무 것도 망칠 수 있다고 생각되는 변경 사항을 변경하지 않았으며 자동화된 테스트는 모두 통과했습니다. 우리가 뭔가를 놓친 드문 경우에, 우리는 [GitHub에](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?page=2&q=is%3Aissue+is%3Aopen)알려주시기 바랍니다 .<br> 지속적인 지원에 감사드립니다. 언제나 처럼, [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?page=2&q=is%3Aissue+is%3Aopen) 또는 스택 [오버플로에](https://stackoverflow.microsoft.com/questions/tagged/731)질문 또는 피드백을 게시 하십시오.<br>
+건강을 유지!
+
 ## <a name="speech-sdk-1100-2020-february-release"></a>음성 SDK 1.10.0: 2020-2월 릴리스
 
 **새로운 기능**
+
  - 파이썬의 새로운 3.8 릴리스를 지원하기 위해 파이썬 패키지를 추가했습니다.
  - 레드 햇 엔터프라이즈 리눅스 (RHEL)/CentOS 8 x64 지원 (C ++, C #, 자바, 파이썬).
    > [!NOTE] 
@@ -33,6 +65,7 @@ ms.locfileid: "79221266"
  - Updated speech recognition models for 19 locales for an average word error rate reduction of 18.6% (es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN, zh-HK, nb-NO, fi-FL, ru-RU, pl-PL, ca-ES, zh-TW, th-TH, pt-PT, tr-TR). 새로운 모델은 받아쓰기, 콜 센터 전사 및 비디오 인덱싱 시나리오를 비롯한 여러 도메인에서 상당한 개선을 가져왔습니다.
 
 **버그 수정**
+
  - JAVA API에서 대화 전사가 제대로 기다리지 않는 버그를 수정했습니다. 
  - 자마린 [GitHub 문제에](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/363) 대한 안드로이드 x86 에뮬레이터 수정
  - 누락 추가(받기 | 설정)오디오 구성에 속성 메서드
@@ -41,9 +74,11 @@ ms.locfileid: "79221266"
  - 유니버설 Windows 응용 프로그램의 ID 생성은 이제 적절히 고유한 GUID 알고리즘을 사용합니다. 이전에는 의도치 않게 대규모 상호 작용 집합에 대한 충돌을 발생시키는 스텁 구현으로 기본 설정되었습니다.
  
  **샘플**
+ 
  - [Unity 마이크 및 푸시 모드 스트리밍과](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/unity/from-unitymicrophone) 함께 음성 SDK를 사용하기 위한 Unity 샘플
 
 **기타 변경 사항**
+
  - [리눅스에 대 한 업데이트 된 OpenSSL 구성 설명서](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-openssl-linux)
 
 ## <a name="speech-sdk-190-2020-january-release"></a>음성 SDK 1.9.0: 2020-1월 릴리스
@@ -59,13 +94,11 @@ ms.locfileid: "79221266"
 - 자바 스크립트 : `FromHost API` 온 프렘 컨테이너 와 주권 구름과 함께 사용하기 쉽도록 지원을 추가했습니다. [여기에](speech-container-howto.md)설명서를 참조하십시오.
 - 자바 스크립트 : `NODE_TLS_REJECT_UNAUTHORIZED` 우리는 지금 [orgads에서](https://github.com/orgads)기여 덕분에 영광 . 자세한 내용은 [여기](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75)를 참조하세요.
 
-
 **호환성이 손상되는 변경**
 
 - `OpenSSL`버전 1.1.1b로 업데이트되었으며 Linux용 음성 SDK 코어 라이브러리에 정적으로 연결됩니다. 시스템의 `OpenSSL` `/usr/lib/ssl` 디렉터리에 받은 편지함이 설치되지 않은 경우 중단될 수 있습니다. 이 문제를 해결하려면 음성 SDK 문서에서 [설명서를](how-to-configure-openssl-linux.md) 확인하십시오.
 - 음성 데이터가 2분 이상인 `WordLevelTimingResult.Offset` `WordLevelTimingResults` 경우 `int` `long` 액세스를 허용하도록 C#에 대해 반환되는 데이터 형식을 변경했습니다.
 - `PushAudioInputStream`이제 `PullAudioInputStream` wav 헤더 정보를 생성할 때 `AudioStreamFormat`선택적으로 지정한 을 기반으로 음성 서비스로 보냅니다. 이제 고객은 [지원되는 오디오 입력 형식을](how-to-use-audio-input-streams.md)사용해야 합니다. 다른 형식은 최적이 아닌 인식 결과를 얻거나 다른 문제를 일으킬 수 있습니다. 
-
 
 **버그 수정**
 
@@ -81,13 +114,11 @@ ms.locfileid: "79221266"
 - JavaScript: 1.7에 추가된 대로 서비스 속성 설정에 대한 지원이 추가되었습니다.
 - JavaScript: 연결 오류로 인해 웹소켓이 계속 실패하여 다시 연결시도가 발생할 수 있는 문제를 수정했습니다.
 
-
 **샘플**
 
 - [여기에](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/sdkdemo)안드로이드에 대한 키워드 인식 샘플을 추가했습니다.
 - 여기에 서버 시나리오에 대한 TTS 샘플을 [추가했습니다.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs)
 - [여기에](quickstarts/multi-device-conversation.md)C # 및 C ++에 대한 다중 장치 대화 빠른 시작이 추가되었습니다.
-
 
 **기타 변경 사항**
 

@@ -1,6 +1,6 @@
 ---
 title: CREATE TABLE AS SELECT (CTAS)
-description: 솔루션 개발을 위한 SQL 애널리틱스의 CTAS(SELECT) 생성 테이블의 설명 및 예제입니다.
+description: 솔루션 개발을 위한 Synapse SQL의 CTAS(SELECT) 만들기 테이블의 설명 및 예제입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,24 +11,24 @@ ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
-ms.openlocfilehash: bb9ff52bd7d2e4cfd1a1df4d780a4c369380284f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e5dc8835a6d5f235cf269edd4e9f069c904e1b7e
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350612"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582159"
 ---
-# <a name="create-table-as-select-ctas-in-sql-analytics"></a>SQL 분석에서 선택(CTAS)으로 테이블 만들기
+# <a name="create-table-as-select-ctas"></a>CREATE TABLE AS SELECT (CTAS)
 
-이 문서에서는 솔루션 개발을 위한 SQL 분석에서 CTAS(선택)로 테이블 만들기에 대해 설명합니다. 코드 예제도 제공합니다.
+이 문서에서는 솔루션 개발을 위한 Synapse SQL의 CTAS(SELECT) T-SQL 문으로 테이블을 만듭니다. 코드 예제도 제공합니다.
 
 ## <a name="create-table-as-select"></a>CREATE TABLE AS SELECT
 
-[CTAS(선택)로 테이블 만들기](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 는 사용 가능한 가장 중요한 T-SQL 기능 중 하나입니다. CTAS는 SELECT 문의 출력을 기반으로 새 테이블을 만드는 병렬 작업입니다. CTAS는 단일 명령으로 데이터를 만들고 테이블에 삽입하는 가장 간단하고 빠른 방법입니다.
+[CTAS(선택)로 테이블 만들기](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 는 사용 가능한 가장 중요한 T-SQL 기능 중 하나입니다. CTAS는 SELECT 문의 출력을 기반으로 새 테이블을 만드는 병렬 작업입니다. CTAS는 단일 명령으로 데이터를 만들고 테이블에 삽입하는 가장 간단하고 빠른 방법입니다.
 
 ## <a name="selectinto-vs-ctas"></a>선택... 인투 vs. CTAS
 
-CTAS는 SELECT의 보다 사용자 정의 가능한 [버전입니다... INTO](/sql/t-sql/queries/select-into-clause-transact-sql) 문.
+CTAS는 SELECT의 보다 사용자 정의 가능한 [버전입니다... INTO](/sql/t-sql/queries/select-into-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 문.
 
 다음은 간단한 SELECT의 예입니다... 에:
 
@@ -123,7 +123,7 @@ DROP TABLE FactInternetSales_old;
 
 ## <a name="use-ctas-to-work-around-unsupported-features"></a>CTAS를 사용하여 지원되지 않는 기능 해결
 
-CTAS를 사용하여 아래에 나열된 지원되지 않는 여러 기능을 해결할 수도 있습니다. 이 메서드는 코드가 규정을 준수할 뿐만 아니라 SQL Analytics에서 더 빠르게 실행되는 경우가 많기 때문에 종종 유용할 수 있습니다. 이 성능은 완전히 병렬화된 설계의 결과입니다. 시나리오는 다음과 같습니다.
+CTAS를 사용하여 아래에 나열된 지원되지 않는 여러 기능을 해결할 수도 있습니다. 이 메서드는 코드가 규정을 준수할 뿐만 아니라 Synapse SQL에서 더 빠르게 실행되는 경우가 많기 때문에 종종 유용할 수 있습니다. 이 성능은 완전히 병렬화된 설계의 결과입니다. 시나리오는 다음과 같습니다.
 
 * UPDATE에 대한 ANSI JOINS
 * DELETE에 대한 ANSI JOIN
@@ -174,7 +174,7 @@ ON    [acs].[EnglishProductCategoryName]    = [fis].[EnglishProductCategoryName]
 AND    [acs].[CalendarYear]                = [fis].[CalendarYear];
 ```
 
-SQL Analytics는 명령문 절에 ANSI `FROM` `UPDATE` 조인을 지원하지 않으므로 수정하지 않고는 이전 예제를 사용할 수 없습니다.
+Synapse SQL은 명령문 `FROM` 절에서 ANSI `UPDATE` 조인을 지원하지 않으므로 수정하지 않고는 이전 예제를 사용할 수 없습니다.
 
 CTAS와 암시적 조인의 조합을 사용하여 이전 예제를 대체할 수 있습니다.
 
@@ -208,7 +208,7 @@ DROP TABLE CTAS_acs;
 
 ## <a name="ansi-join-replacement-for-delete-statements"></a>Delete 문에 대한 ANSI 조인 대체
 
-경우에 따라 데이터를 삭제하는 가장 좋은 방법은 특히 `DELETE` ANSI 조인 구문을 사용하는 문에 CTAS를 사용하는 것입니다. SQL Analytics는 명령문 절에 ANSI `FROM` 조인을 `DELETE` 지원하지 않기 때문입니다. 데이터를 삭제하는 대신 보관할 데이터를 선택합니다.
+경우에 따라 데이터를 삭제하는 가장 좋은 방법은 특히 `DELETE` ANSI 조인 구문을 사용하는 문에 CTAS를 사용하는 것입니다. 이는 Synapse SQL이 명령문 절에서 ANSI 조인을 `FROM` `DELETE` 지원하지 않기 때문입니다. 데이터를 삭제하는 대신 보관할 데이터를 선택합니다.
 
 다음은 변환된 `DELETE` 문의 예입니다.
 
@@ -412,7 +412,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 CTAS에서 형식 일관성 및 nullability 속성을 유지하는 것이 엔지니어링 모범 사례임을 확인할 수 있습니다. 계산의 무결성을 유지하는 데 도움이 되며 파티션 전환이 가능하도록 보장합니다.
 
-CTAS는 SQL 분석에서 가장 중요한 문 중 하나입니다. 완전하게 이해해야 합니다. [CTAS 설명서를](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)참조하십시오.
+CTAS는 시냅스 SQL에서 가장 중요한 문 중 하나입니다. 완전하게 이해해야 합니다. [CTAS 설명서를](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: fb2f9ff5af68575d9f9d29e9a6aca83d603395b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ff9e62ed145b7892d2997193dae8e171ae49c98
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77672415"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585375"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>진단 설정을 만들어 Azure에서 플랫폼 로그 및 메트릭을 수집합니다.
 Azure 활동 로그 및 리소스 로그를 포함한 [Azure의 플랫폼 로그는](platform-logs-overview.md) Azure 리소스 및 해당 플랫폼에 대한 자세한 진단 및 감사 정보를 제공합니다. 이 문서에서는 플랫폼 로그를 다른 대상으로 보내기 위한 진단 설정을 만들고 구성하는 방법에 대한 세부 정보를 제공합니다.
@@ -53,7 +53,7 @@ Azure 포털에서 Azure 모니터 메뉴 또는 리소스에 대한 메뉴에�
     
         ![진단 설정](media/diagnostic-settings/menu-monitor.png)
 
-    - 활동 로그의 경우 **Azure 모니터** 메뉴에서 **활동 로그를 클릭한** 다음 **진단 설정을**클릭합니다. 활동 로그에 대한 레거시 구성을 비활성화해야 합니다. 자세한 내용은 [기존 설정 사용 안 함(설정)을](diagnostic-settings-legacy.md#disable-existing-settings) 참조하십시오.
+    - 활동 로그의 경우 **Azure 모니터** 메뉴에서 **활동 로그를 클릭한** 다음 **진단 설정을**클릭합니다. 활동 로그에 대한 레거시 구성을 비활성화해야 합니다. 자세한 내용은 [기존 설정 사용 안 함(설정)을](/azure/azure-monitor/platform/activity-log-collect#collecting-activity-log) 참조하십시오.
 
         ![진단 설정](media/diagnostic-settings/menu-activity-log.png)
 

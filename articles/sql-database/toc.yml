@@ -58,8 +58,6 @@
       href: sql-database-managed-instance-quickstart-guide.md
 - name: 개념
   items:
-    - name: 일반 기능 설명서
-      href: sql-database-paas-index.yml
     - name: 기능 비교
       href: sql-database-features.md
     - name: 방법 가이드
@@ -280,8 +278,6 @@
                   href: sql-database-xevent-code-ring-buffer.md
     - name: 확장성
       items:
-        - name: 확장성 설명서
-          href: sql-database-scalability-index.yml
         - name: 강화/축소
           href: sql-database-scale-resources.md
         - name: 읽기 확장
@@ -310,8 +306,6 @@
           href: sql-database-elastic-transactions-overview.md
     - name: 데이터베이스 기능
       items:
-        - name: 데이터베이스 기능 설명서
-          href: sql-database-features-index.yml
         - name: 다중 모델 기능
           href: sql-database-multi-model-features.md
         - name: 메모리 내
@@ -685,7 +679,6 @@
         - name: 코드 샘플
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: SQL 관리형 인스턴스
-  href: sql-database-managed-instance-index.yml
   items:
     - name: 개요
       items:

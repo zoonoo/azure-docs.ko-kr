@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
-ms.openlocfilehash: a813c77e81e51bfe13e75ed6c8d0e24b4d0fa645
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c80056fd62173ff1e5a6ed3979adba71b7706cc
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "66392916"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582770"
 ---
 # <a name="streaming-policies"></a>스트리밍 정책
 
@@ -34,7 +34,7 @@ Azure Media Services v3에서 [스트리밍 정책](https://docs.microsoft.com/r
 
 > [!IMPORTANT]
 > * 날짜/시간 형식의 **스트리밍 정책** 속성은 언제나 UTC 형식입니다.
-> * Media Services 계정에 대한 제한된 정책 세트를 설계하고 동일한 옵션이 필요할 때마다 스트리밍 로케이터에 해당 세트를 다시 사용하는 것이 좋습니다. 자세한 내용은 [할당량 및 제한 사항](limits-quotas-constraints.md)을 참조하세요.
+> * Media Services 계정에 대한 제한된 정책 세트를 설계하고 동일한 옵션이 필요할 때마다 스트리밍 로케이터에 해당 세트를 다시 사용하는 것이 좋습니다. 자세한 내용은 [할당량 및 제한을](limits-quotas-constraints.md)참조하십시오.
 
 ## <a name="decision-tree"></a>의사 결정 트리
 

@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 02/08/2019
-ms.openlocfilehash: 41dd336bdb74fbe745ab48ebd3c168af0492ae2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a048ddefbcd76193436da13cd3ba68b8b6ffb0a
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75691011"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607587"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스, 풀링된 데이터베이스 및 인스턴스 데이터베이스와 함께 트랜잭션 복제
 
@@ -51,10 +51,10 @@ ms.locfileid: "75691011"
 
 | 역할 | 단일 및 풀링된 데이터베이스 | 인스턴스 데이터베이스 |
 | :----| :------------- | :--------------- |
-| **게시자** | 예 | yes | 
-| **배포자** | 예 | yes|
-| **끌어오기 구독자** | 예 | yes|
-| **밀어넣기 구독자**| yes | yes|
+| **게시자** | 예 | 예 | 
+| **배포자** | 예 | 예|
+| **끌어오기 구독자** | 예 | 예|
+| **밀어넣기 구독자**| 예 | 예|
 | &nbsp; | &nbsp; | &nbsp; |
 
   >[!NOTE]
@@ -65,11 +65,11 @@ ms.locfileid: "75691011"
 
 | 복제 | 단일 및 풀링된 데이터베이스 | 인스턴스 데이터베이스|
 | :----| :------------- | :--------------- |
-| [**표준 거래**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | 예(구독자로) | yes | 
-| [**스냅숏**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | 예(구독자로) | yes|
+| [**표준 거래**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | 예(구독자로) | 예 | 
+| [**스냅숏**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | 예(구독자로) | 예|
 | [**복제 병합**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | 예 | 예|
 | [**피어-투-피어**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | 예 | 예|
-| [**양방향**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | 예 | yes|
+| [**양방향**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | 예 | 예|
 | [**업데이터 구독**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | 예 | 예|
 | &nbsp; | &nbsp; | &nbsp; |
 
@@ -80,7 +80,7 @@ ms.locfileid: "75691011"
   ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>인스턴스 데이터베이스 및 온-프레미스 시스템에 대한 지원 가능성 매트릭스
   예를 들어 데이터베이스의 복제 지원 성 매트릭스는 SQL Server 온-프레미스용과 동일합니다. 
   
-| **게시자**   | **배포자** | **구독자** |
+| **게시자**   | **배포자** | **가입자** |
 | :------------   | :-------------- | :------------- |
 | SQL Server 2019 | SQL Server 2019 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/>  |
 | SQL Server 2017 | SQL Server 2019 <br/>SQL Server 2017 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
@@ -95,7 +95,7 @@ ms.locfileid: "75691011"
 - 연결은 복제 참가자 간에 SQL 인증을 사용합니다. 
 - 복제에 사용되는 작업 디렉터리의 Azure Storage 계정 공유 
 - Azure 파일 공유에 액세스하려면 관리되는 인스턴스 서브넷의 보안 규칙에서 포트 445(TCP 아웃바운드)를 열어야 합니다. 
-- 게시자/배포자가 관리되는 인스턴스에 있고 구독자가 온-프레미스인 경우 포트 1433(TCP 아웃바운드)을 열어야 합니다.
+- 게시자/배포자가 관리되는 인스턴스에 있고 구독자가 없는 경우 포트 1433(TCP 아웃바운드)을 열어야 합니다. 포트 1433 **대상 서비스 태그에** 대한 `allow_linkedserver_outbound` 관리되는 인스턴스 NSG 아웃바운드 `virtualnetwork` 보안 `internet`규칙을 에서 로 변경해야 할 수도 있습니다. 
 - 모든 유형의 복제 참가자(게시자, 배포자, 끌어오기 구독자 및 푸시 구독자)는 관리되는 인스턴스에 배치할 수 있지만 게시자와 배포자는 클라우드 또는 온-프레미스 모두에 있어야 합니다.
 - 게시자, 배포자 및/또는 구독자가 서로 다른 가상 네트워크에 있는 경우 게시자와 배포자 간에 VPN 피어링이 있거나 배포자와 구독자 간에 VPN 피어링이 있도록 각 엔터티 간에 VPN 피어링을 설정해야 합니다. 
 
@@ -124,7 +124,7 @@ ms.locfileid: "75691011"
 
 ### <a name="publisher-with-remote-distributor-on-a-managed-instance"></a>관리되는 인스턴스에 원격 배포자를 사용하여 게시자
 
-이 구성에서 한 관리 인스턴스는 많은 소스 관리 인스턴스를 제공하고 관리되는 인스턴스, 단일 데이터베이스, 풀된 데이터베이스 또는 또는 하나 또는 여러 대상에 변경 내용을 배포할 수 있는 다른 관리되는 인스턴스에 배치된 배포자에 변경 내용을 게시합니다. SQL 서버.
+이 구성에서 관리되는 인스턴스 는 많은 소스 관리 인스턴스를 제공하고 관리되는 인스턴스, 단일 데이터베이스, 풀된 데이터베이스 또는 SQL Server에서 하나 또는 여러 대상에 변경 내용을 배포할 수 있는 다른 관리되는 인스턴스에 배치된 배포자에 변경 내용을 게시합니다.
 
 ![게시자 및 배포자에 대한 별도 인스턴스](media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
 

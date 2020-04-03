@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 9252e3e41d0c639231a2abe20202499c6b3ee32a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5820778d46f5701b82bb289192350a9e13739d37
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75444850"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619436"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 
@@ -22,11 +22,11 @@ ms.locfileid: "75444850"
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.js](sql-api-sdk-node.md)
+> * [Node.JS](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [나머지](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [대량 실행기 - .NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -34,9 +34,9 @@ ms.locfileid: "75444850"
 
 |   |   |
 |---|---|
-|**SDK 다운로드**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
+|**SDK 다운로드**|[Nuget](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**API 문서**|[피드 프로세서 라이브러리 API 참조 문서 변경](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**시작**|[변경 피드 프로세서 .NET SDK 시작](change-feed.md)|
+|**시작하기**|[변경 피드 프로세서 .NET SDK 시작](change-feed.md)|
 |**현재 지원되는 프레임워크**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [마이크로소프트 .NET 코어](https://www.microsoft.com/net/download/core) |
 
 > [!NOTE]
@@ -45,6 +45,10 @@ ms.locfileid: "75444850"
 ## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="v2-builds"></a>v2 빌드
+
+### <a name="230"></a><a name="2.3.0"/>2.3.0
+* 새 메서드와 `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` 해당 공용 `ICheckpointPartitionProcessorFactory`인터페이스를 추가했습니다. 이렇게 하면 인터페이스를 `IPartitionProcessor` 구현하여 기본 제공 검사점 메커니즘을 사용할 수 있습니다. 새 팩터리는 해당 메서드도 매개 `Create` 변수를 사용 `ILeaseCheckpointer` 한다는 점을 제외 하 고 기존 `IPartitionProcessorFactory`팩터리와 비슷합니다.
+* 두 방법 중 하나만 `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory`동일한 `ChangeFeedProcessorBuilder` 인스턴스에 사용할 수 있습니다.
 
 ### <a name="228"></a><a name="2.2.8"/>2.2.8
 * 안정성 및 진단성 개선:
@@ -88,7 +92,7 @@ ms.locfileid: "75444850"
 
 ### <a name="220"></a><a name="2.2.0"/>2.2.0
 * 분할된 임대 컬렉션에 대한 지원이 추가되었습니다. 파티션 키는 /id로 정의되어야 합니다.
-* 주요 변경 내용: IChangeFeedDocumentClient 인터페이스 및 ChangeFeedDocumentClient 클래스의 메서드는 RequestOptions 및 CancellationToken 매개 변수를 포함하도록 변경되었습니다. IChangeFeedDocumentClient는 변경 피드 프로세서와 함께 사용할 문서 클라이언트의 사용자 지정 구현을 제공할 수 있는 고급 확장성 지점입니다(예: DocumentClient 장식 및 추가 추적, 오류 처리를 수행하기 위해 문서에 대한 모든 호출을 가로채기) 등. 이 업데이트를 사용 하 고 IChangeFeedDocumentClient를 구현 하는 코드를 변경 해야 구현에 새 매개 변수를 포함 하 고 있습니다.
+* 주요 변경 내용: IChangeFeedDocumentClient 인터페이스 및 ChangeFeedDocumentClient 클래스의 메서드는 RequestOptions 및 CancellationToken 매개 변수를 포함하도록 변경되었습니다. IChangeFeedDocumentClient는 변경 피드 프로세서와 함께 사용할 문서 클라이언트의 사용자 지정 구현을 제공할 수 있는 고급 확장성 지점입니다(예: DocumentClient 장식 및 추가 추적, 오류 처리 등을 수행하기 위해 문서에 대한 모든 호출을 가로채기). 이 업데이트를 사용 하 고 IChangeFeedDocumentClient를 구현 하는 코드를 변경 해야 구현에 새 매개 변수를 포함 하 고 있습니다.
 * 사소한 진단 개선 사항입니다.
 
 ### <a name="210"></a><a name="2.1.0"/>2.1.0
@@ -182,6 +186,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.3.0](#2.3.0) |2020년 4월 2일 |--- |
 | [2.2.8](#2.2.8) |2019년 10월 28일 |--- |
 | [2.2.7](#2.2.7) |2019년 5월 14일 |--- |
 | [2.2.6](#2.2.6) |2019년 1월 29일 |--- |
@@ -202,6 +207,6 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요.

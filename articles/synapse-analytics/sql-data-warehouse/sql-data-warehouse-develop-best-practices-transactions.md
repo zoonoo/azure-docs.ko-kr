@@ -1,6 +1,6 @@
 ---
 title: 트랜잭션 최적화
-description: SQL Analytics에서 트랜잭션 코드의 성능을 최적화하는 동시에 긴 롤백에 대한 위험을 최소화하는 방법을 알아봅니다.
+description: Synapse SQL에서 트랜잭션 코드의 성능을 최적화하는 동시에 긴 롤백에 대한 위험을 최소화하는 방법을 알아봅니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,26 +11,29 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 700f4717db652d678255aaa9fce6ff8b8ff3b52f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: d97a388477c895a4a8632d7ab3d06dc4c8982857
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350581"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582136"
 ---
-# <a name="optimizing-transactions-in-sql-analytics"></a>SQL 분석에서 트랜잭션 최적화
-SQL Analytics에서 트랜잭션 코드의 성능을 최적화하는 동시에 긴 롤백에 대한 위험을 최소화하는 방법을 알아봅니다.
+# <a name="optimizing-transactions-in-synapse-sql"></a>시냅스 SQL에서 트랜잭션 최적화
+
+Synapse SQL에서 트랜잭션 코드의 성능을 최적화하는 동시에 긴 롤백에 대한 위험을 최소화하는 방법을 알아봅니다.
 
 ## <a name="transactions-and-logging"></a>트랜잭션 및 로깅
-트랜잭션은 관계형 데이터베이스 엔진의 중요한 구성 요소입니다. SQL Analytics는 데이터를 수정하는 동안 트랜잭션을 사용합니다. 이러한 트랜잭션은 명시적일 수도 있고 암시적일 수도 있습니다. 단일 INSERT, UPDATE 및 DELETE 문은 모두 암시적 트랜잭션의 예입니다. 명시적 트랜잭션은 BEGIN TRAN, COMMIT TRAN 또는 ROLLBACK TRAN을 사용합니다. 명시적 트랜잭션은 일반적으로 여러 수정 문을 단일 원자 단위에 서로 연결되도록 해야 하는 경우에 사용됩니다. 
 
-SQL Analytics는 트랜잭션 로그를 사용하여 데이터베이스에 변경 내용을 커밋합니다. 각 분산에는 고유한 트랜잭션 로그가 있습니다. 트랜잭션 로그 쓰기는 자동입니다. 구성이 필요 없습니다. 그러나 이 프로세스는 쓰기를 보장하지만 시스템에 오버헤드가 발생합니다. 트랜잭션 측면에서 효율적인 코드를 작성하면 이 영향을 최소화할 수 있습니다. 트랜잭션 측면에서 효율적인 코드는 크게 두 범주로 나눌 수 있습니다.
+트랜잭션은 관계형 데이터베이스 엔진의 중요한 구성 요소입니다. 트랜잭션은 데이터 수정 중에 사용됩니다. 이러한 트랜잭션은 명시적일 수도 있고 암시적일 수도 있습니다. 단일 INSERT, UPDATE 및 DELETE 문은 모두 암시적 트랜잭션의 예입니다. 명시적 트랜잭션은 BEGIN TRAN, COMMIT TRAN 또는 ROLLBACK TRAN을 사용합니다. 명시적 트랜잭션은 일반적으로 여러 수정 문을 단일 원자 단위에 서로 연결되도록 해야 하는 경우에 사용됩니다. 
+
+데이터베이스의 변경 내용은 트랜잭션 로그를 사용하여 추적됩니다. 각 분산에는 고유한 트랜잭션 로그가 있습니다. 트랜잭션 로그 쓰기는 자동입니다. 구성이 필요 없습니다. 그러나 이 프로세스는 쓰기를 보장하지만 시스템에 오버헤드가 발생합니다. 트랜잭션 측면에서 효율적인 코드를 작성하면 이 영향을 최소화할 수 있습니다. 트랜잭션 측면에서 효율적인 코드는 크게 두 범주로 나눌 수 있습니다.
 
 * 가능하면 항상 최소한의 로깅 구문 사용
 * 한 트랜잭션이 오래 실행되지 않도록 범위가 지정된 배치 사용
 * 지정된 파티션에 대규모 수정을 위한 파티션 전환 패턴 사용
 
 ## <a name="minimal-vs-full-logging"></a>최소 로깅 및 전체 로깅 비교
+
 트랜잭션 로그를 사용하여 모든 행 변경을 추적하는 전체 로깅 작업과는 달리, 최소 로깅 작업은 규모 할당 및 메타 데이터 변경 내용만 추적합니다. 따라서 최소 로깅은 장애 발생 후 또는 명시적 요청을 위해 트랜잭션을 롤백(ROLLBACK TRAN)하는 데 필요한 정보만 로깅합니다. 최소 로깅 작업은 트랜잭션 로그에서 추적하는 정보의 양이 훨씬 적기 때문에 비슷한 크기의 전체 로깅 작업보다 성능이 우수합니다. 뿐만 아니라 트랜잭션 로그에 전달되는 쓰기 작업이 적기 때문에 훨씬 적은 양의 로그 데이터가 생성되고 따라서 I/O가 훨씬 효율적입니다.
 
 트랜잭션 안전성 제한은 전체 로깅 작업에만 적용됩니다.
@@ -41,6 +44,7 @@ SQL Analytics는 트랜잭션 로그를 사용하여 데이터베이스에 변�
 > 
 
 ## <a name="minimally-logged-operations"></a>최소 로깅 작업
+
 다음은 최소한으로 로깅 가능한 작업입니다.
 
 * [CTAS](sql-data-warehouse-develop-ctas.md)(CREATE TABLE AS SELECT)
@@ -78,14 +82,13 @@ CTAS 및 INSERT...SELECT는 둘 다 대량 로드 작업입니다. 그러나 둘
 보조 또는 비클러스터형 인덱스를 업데이트하는 모든 쓰기 작업은 항상 전체 로깅됩니다.
 
 > [!IMPORTANT]
-> SQL 분석 데이터베이스에는 60개의 배포판이 있습니다. 따라서 모든 행이 균등하게 분산되고 단일 파티션에 도착한다고 가정하면, 클러스터형 Columnstore 인덱스에 쓸 때 최소한으로 로깅하려면 배치에 6,144,000개 이상의 행이 포함되어야 합니다. 테이블이 분할되어 있고, 삽입되는 행이 파티션 경계에 걸쳐 있는 경우에는 데이터가 균등하게 분산된다는 가정하에 파티션 경계당 6,144,000개의 행이 필요합니다. 삽입 작업을 분산에 최소한으로 로깅하려면 각 분산의 각 파티션이 행 임계값 102,400을 독립적으로 초과해야 합니다.
-> 
+> Synapse SQL 풀 데이터베이스에는 60개의 배포가 있습니다. 따라서 모든 행이 균등하게 분산되고 단일 파티션에 도착한다고 가정하면, 클러스터형 Columnstore 인덱스에 쓸 때 최소한으로 로깅하려면 배치에 6,144,000개 이상의 행이 포함되어야 합니다. 테이블이 분할되어 있고, 삽입되는 행이 파티션 경계에 걸쳐 있는 경우에는 데이터가 균등하게 분산된다는 가정하에 파티션 경계당 6,144,000개의 행이 필요합니다. 삽입 작업을 분산에 최소한으로 로깅하려면 각 분산의 각 파티션이 행 임계값 102,400을 독립적으로 초과해야 합니다.
 > 
 
 클러스터형 인덱스가 포함된 비어 있지 않은 테이블로 데이터를 로드하면 전체 로깅 행과 최소 로깅 행이 모두 포함되는 경우가 종종 있습니다. 클러스터형 인덱스는 균형 잡힌 페이지 트리(b-트리)입니다. 쓰여지고 있는 페이지가 이미 다른 트랜잭션의 행을 포함하고 있으면 쓰기 작업이 전체 로깅됩니다. 그러나 페이지가 비어 있으면 해당 페이지에 대한 쓰기 작업이 최소한으로 로깅됩니다.
 
 ## <a name="optimizing-deletes"></a>삭제 최적화
-DELETE는 전체 로깅 작업입니다.  테이블 또는 파티션에서 대량의 데이터를 삭제해야 하는 경우 보관하려는 데이터에 대해 최소 로깅 작업으로 실행할 수 있는 `SELECT` 를 사용하는 것이 적절한 경우가 많습니다.  데이터를 선택하려면 [CTAS](sql-data-warehouse-develop-ctas.md)를 사용하여 새 테이블을 만듭니다.  새 테이블을 만든 후에는 [RENAME](/sql/t-sql/statements/rename-transact-sql)을 사용하여 이전 테이블을 새로 만든 테이블로 교체합니다.
+DELETE는 전체 로깅 작업입니다.  테이블 또는 파티션에서 대량의 데이터를 삭제해야 하는 경우 보관하려는 데이터에 대해 최소 로깅 작업으로 실행할 수 있는 `SELECT` 를 사용하는 것이 적절한 경우가 많습니다.  데이터를 선택하려면 [CTAS](sql-data-warehouse-develop-ctas.md)를 사용하여 새 테이블을 만듭니다.  새 테이블을 만든 후에는 [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 사용하여 이전 테이블을 새로 만든 테이블로 교체합니다.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -116,7 +119,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
 ## <a name="optimizing-updates"></a>업데이트 최적화
-UPDATE는 전체 로깅 작업입니다.  테이블이나 파티션에서 많은 수의 행을 업데이트해야 하는 경우 [CTAS와](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 같이 최소로 기록된 작업을 사용하는 것이 훨씬 더 효율적일 수 있습니다.
+UPDATE는 전체 로깅 작업입니다.  테이블이나 파티션에서 많은 수의 행을 업데이트해야 하는 경우 [CTAS와](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 같이 최소로 기록된 작업을 사용하는 것이 훨씬 더 효율적일 수 있습니다.
 
 아래 예에서는 최소 로깅이 가능하도록 전체 테이블 업데이트가 CTAS로 변환되었습니다.
 
@@ -177,7 +180,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> SQL Analytics 워크로드 관리 기능을 사용하면 큰 테이블을 다시 만들 수 있습니다. 자세한 내용은 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 참조하세요.
+> 큰 테이블을 다시 만들면 Synapse SQL 풀 워크로드 관리 기능을 사용할 수 있습니다. 자세한 내용은 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 참조하세요.
 > 
 > 
 
@@ -405,7 +408,8 @@ END
 ```
 
 ## <a name="pause-and-scaling-guidance"></a>일시 중지 및 크기 조정 지침
-SQL Analytics를 사용하면 필요에 따라 SQL 풀을 [일시 중지, 다시 시작 및 확장할](sql-data-warehouse-manage-compute-overview.md) 수 있습니다. SQL 풀을 일시 중지하거나 확장할 때는 모든 기내 트랜잭션이 즉시 종료된다는 것을 이해하는 것이 중요합니다. 열려 있는 트랜잭션이 롤백됩니다. 일시 중지 또는 규모 조정 작업을 수행하기 전에 워크로드에서 실행 시간이 길고 불완전한 데이터 수정 작업을 실행하면 이 작업을 실행 취소해야 합니다. 이렇게 취소하면 SQL 풀을 일시 중지하거나 확장하는 데 걸리는 시간에 영향을 미칠 수 있습니다. 
+
+Synapse SQL을 사용하면 필요에 따라 SQL 풀을 [일시 중지, 다시 시작 및 확장할](sql-data-warehouse-manage-compute-overview.md) 수 있습니다. SQL 풀을 일시 중지하거나 확장할 때는 모든 기내 트랜잭션이 즉시 종료된다는 것을 이해하는 것이 중요합니다. 열려 있는 트랜잭션이 롤백됩니다. 일시 중지 또는 규모 조정 작업을 수행하기 전에 워크로드에서 실행 시간이 길고 불완전한 데이터 수정 작업을 실행하면 이 작업을 실행 취소해야 합니다. 이렇게 취소하면 SQL 풀을 일시 중지하거나 확장하는 데 걸리는 시간에 영향을 미칠 수 있습니다. 
 
 > [!IMPORTANT]
 > `UPDATE` 및 `DELETE`는 전체 로깅 작업이므로 이러한 실행 취소/다시 실행 작업이 최소 로깅에 비해 훨씬 오래 걸릴 수 있습니다. 
@@ -414,9 +418,10 @@ SQL Analytics를 사용하면 필요에 따라 SQL 풀을 [일시 중지, 다시
 
 가장 좋은 시나리오는 SQL 풀을 일시 중지하거나 크기 조정하기 전에 플라이트 데이터 수정 트랜잭션을 완료하도록 하는 것입니다. 그러나 이 시나리오가 항상 실용적이지는 않습니다. 긴 롤백의 위험을 완화하기 위해 다음 옵션 중 하나를 고려해 볼 수 있습니다.
 
-* [CTAS를](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 사용하여 장기 실행 작업 다시 작성
+* [CTAS를](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 사용하여 장기 실행 작업 다시 작성
 * 작업을 청크로 나누어서 행의 하위 집합에서 작동
 
 ## <a name="next-steps"></a>다음 단계
-격리 수준 및 트랜잭션 제한에 대해 자세히 알아보려면 [SQL Analytics의 트랜잭션을](sql-data-warehouse-develop-transactions.md) 참조하십시오.  기타 모범 사례의 개요에 대해서는 [SQL Data Warehouse 모범 사례](sql-data-warehouse-best-practices.md)를 참조하세요.
+
+격리 수준 및 트랜잭션 제한에 대해 자세히 알아보려면 [Synapse SQL의 트랜잭션을](sql-data-warehouse-develop-transactions.md) 참조하십시오.  기타 모범 사례의 개요에 대해서는 [SQL Data Warehouse 모범 사례](sql-data-warehouse-best-practices.md)를 참조하세요.
 

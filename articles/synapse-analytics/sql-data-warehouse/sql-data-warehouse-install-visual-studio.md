@@ -1,6 +1,6 @@
 ---
 title: Visual Studio 2019 설치
-description: SQL 분석을 위한 비주얼 스튜디오 및 SQL 서버 개발 도구(SSDT) 설치
+description: 시냅스 SQL용 비주얼 스튜디오 및 SQL 서버 개발 도구(SSDT) 설치
 services: synapse-analytics
 ms.custom: vs-azure, azure-synapse
 ms.workload: azure-vs
@@ -12,12 +12,12 @@ ms.subservice: ''
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d0a1772706fa838f51322d5f5d5bd1b46eb9144a
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: aa2f903611f52f8f7a8ede0040b592a7dddd0e89
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351621"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584464"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>비주얼 스튜디오 2019 시작
 Visual Studio **2019** SQL 서버 데이터 도구(SSDT)는 다음을 수행할 수 있는 단일 도구입니다.
@@ -34,7 +34,7 @@ Visual Studio **2019** SQL 서버 데이터 도구(SSDT)는 다음을 수행할 
 
 ## <a name="unsupported-features-in-ssdt"></a>SSDT에서 지원되지 않는 기능
 
-SQL Analytics용 기능 릴리스에 SSDT에 대한 지원이 포함되지 않을 수 있습니다. 다음 기능은 현재 지원되지 않습니다.
+Synapse SQL에 대한 기능 릴리스에 SSDT에 대한 지원이 포함되지 않을 수 있습니다. 다음 기능은 현재 지원되지 않습니다.
 
 - [구체화된 뷰(진행](https://docs.microsoft.com/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest) 중)
 - [정렬된 클러스터된 열 저장소 인덱스(진행](https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest#examples--and-) 중)

@@ -1,7 +1,6 @@
 ---
 title: 데이터베이스 보안
-description: SQL 분석의 SQL 풀 리소스에서 데이터베이스를 보호하고 솔루션을 개발하기 위한 팁입니다.
-services: synapse-analytics
+description: Synapse SQL 풀 리소스에서 데이터베이스를 보호하고 솔루션을 개발하기 위한 팁입니다.
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
@@ -12,14 +11,15 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6ae9580803563971764eec4bd18fcc2430cee06d
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 46d32fdca615833bd602480ac182585da898ab98
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350192"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586434"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Azure 시냅스에서 데이터베이스 보호
+
 > [!div class="op_single_selector"]
 > * [보안 개요](sql-data-warehouse-overview-manage-security.md)
 > * [인증](sql-data-warehouse-authentication.md)
@@ -28,9 +28,10 @@ ms.locfileid: "80350192"
 > 
 > 
 
-이 문서에서는 SQL 분석 내에서 SQL 풀을 보호하는 기본 사항을 안내합니다. 특히 이 문서에서는 SQL 풀을 사용하여 프로비저닝된 데이터베이스에서 액세스를 제한하고, 데이터를 보호하고, 활동을 모니터링하기 위한 리소스를 시작하게 됩니다.
+이 문서에서는 Synapse SQL 풀 을 보호하는 기본 사항을 안내합니다. 특히 이 문서에서는 SQL 풀을 사용하여 프로비저닝된 데이터베이스에서 액세스를 제한하고, 데이터를 보호하고, 활동을 모니터링하기 위한 리소스를 시작하게 됩니다.
 
 ## <a name="connection-security"></a>연결 보안
+
 연결 보안은 방화벽 규칙 및 연결 암호화를 사용하여 데이터베이스에 대한 연결을 제한하고 보호하는 방법을 가리킵니다.
 
 방화벽 규칙은 서버와 데이터베이스 모두에서 명시적으로 삭제되지 않은 IP 주소의 연결 시도를 거부하는 데 사용됩니다. 애플리케이션 또는 클라이언트 컴퓨터의 공용 IP 주소에서 연결할 수 있도록 허용하려면 먼저 Azure Portal, REST API 또는 PowerShell을 사용하여 서버 수준 방화벽 규칙을 만들어야 합니다. 
@@ -42,11 +43,12 @@ Azure Synapse 애널리틱스는 서버 수준 IP 방화벽 규칙을 사용합�
 SQL 풀에 대한 연결은 기본적으로 암호화됩니다.  암호화를 사용하지 않도록 연결 설정을 수정해도 무시됩니다.
 
 ## <a name="authentication"></a>인증
+
 인증은 데이터베이스에 연결할 때 사용자의 ID를 증명하는 방법을 가리킵니다. SQL 풀은 현재 사용자 이름과 암호, Azure Active Directory를 통해 SQL Server 인증을 지원합니다. 
 
 데이터베이스의 논리 서버를 만들 때 사용자 이름 및 암호를 사용하여 "서버 관리자" 로그인을 지정했습니다. 이러한 자격 증명을 사용하면, SQL Server 인증을 통해 해당 서버의 모든 데이터베이스에 데이터베이스 소유자 또는 "dbo"로 인증할 수 있습니다.
 
-그러나 조직의 사용자는 다른 계정으로 인증하는 것이 좋습니다. 이렇게 하면 애플리케이션에 부여되는 사용 권한을 제한하여 애플리케이션 코드가 SQL 삽입 공격에 취약한 경우 악의적인 활동의 위험을 줄일 수 있습니다. 
+그러나 가장 좋은 방법은 조직의 사용자가 다른 계정을 사용하여 인증해야 합니다. 이렇게 하면 애플리케이션에 부여되는 사용 권한을 제한하여 애플리케이션 코드가 SQL 삽입 공격에 취약한 경우 악의적인 활동의 위험을 줄일 수 있습니다. 
 
 SQL Server 인증 사용자를 만들려면 서버 관리자 로그인을 사용하여 서버의 **master** 데이터베이스에 연결하고 새 서버 로그인을 만듭니다.  마스터 데이터베이스에서도 사용자를 만드는 것이 좋습니다. 마스터에서 사용자를 만들면 데이터베이스 이름을 지정하지 않아도 사용자가 SSMS 등의 도구를 사용하여 로그인할 수 있습니다.  또한 개체 탐색기를 사용하여 SQL server의 모든 데이터베이스를 볼 수 있습니다.
 

@@ -4,24 +4,24 @@ description: 앱 서비스 환경에서 앱을 만들고 게시하고 확장하�
 author: ccompy
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 01/01/2020
+ms.date: 3/26/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 8a73c1998203a8696b67a5e7eb3af23898239265
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 4565580feeddc2df8f6ed3011302016bb39977b4
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477628"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586129"
 ---
 # <a name="use-an-app-service-environment"></a>App Service 환경 사용
 
 ASE(앱 서비스 환경)는 고객의 Azure 가상 네트워크 인스턴스에서 서브넷에 Azure 앱 서비스를 배포하는 것입니다. ASE는 다음으로 구성됩니다.
 
-- **프런트 엔드**: 앱 서비스 환경에서 HTTP 또는 HTTPS가 종료되는 위치입니다.
-- **작업자**: 앱을 호스팅하는 리소스입니다.
+- **프런트 엔드**: 앱 서비스 환경에서 HTTP 또는 HTTPS가 종료되는 경우
+- **작업자**: 앱을 호스팅하는 리소스
 - **데이터베이스**: 환경을 정의하는 정보를 보유합니다.
-- **저장소**: 고객이 게시한 앱을 호스팅하는 데 사용됩니다.
+- **스토리지**: 고객이 게시한 앱을 호스팅하는 데 사용됩니다.
 
 앱 액세스를 위해 외부 또는 내부 가상 IP(VIP)가 있는 ASE를 배포할 수 있습니다. 외부 VIP가 있는 배포를 일반적으로 *외부 ASE라고*합니다. 내부 VIP가 있는 배포를 ILB(내부 로드 밸런서)를 사용하기 때문에 *ILB ASE라고* 합니다. ILB ASE에 대해 자세히 알아보려면 [ILB ASE 만들기 및 사용][MakeILBASE]을 참조하세요.
 
@@ -120,6 +120,22 @@ ILB ASE를 만드는 방법에 대한 자세한 내용은 [ILB ASE 만들기 및
 
 SCM URL은 Kudu 콘솔에 액세스하거나 웹 배포를 사용하여 앱을 게시하는 데 사용됩니다. Kudu 콘솔에 대한 자세한 내용은 [Azure App Service용 Kudu 콘솔][Kudu]을 참조하세요. Kudu 콘솔은 디버깅, 파일 업로드, 파일 편집 등을 위한 웹 UI를 제공합니다.
 
+### <a name="dns-configuration"></a>DNS 구성 
+
+외부 ASE를 사용하면 ASE에서 만든 앱이 Azure DNS에 등록됩니다. ILB ASE를 사용하면 자신의 DNS를 관리해야 합니다. 
+
+ILB ASE로 DNS를 구성하려면 다음을 수행하십시오.
+
+    create a zone for <ASE name>.appserviceenvironment.net
+    create an A record in that zone that points * to the ILB IP address
+    create an A record in that zone that points @ to the ILB IP address
+    create a zone in <ASE name>.appserviceenvironment.net named scm
+    create an A record in the scm zone that points * to the ILB IP address
+
+ASE 기본 도메인 접미사에 대한 DNS 설정은 앱이 해당 이름으로만 액세스할 수 있도록 제한하지 않습니다. ILB ASE에서 앱에 대한 유효성 검사 없이 사용자 지정 도메인 이름을 설정할 수 있습니다. *contoso.net라는*영역을 만들려면 ILB IP 주소를 가리키도록 할 수 있습니다. 사용자 지정 도메인 이름은 앱 요청에 대해 작동하지만 scm 사이트에는 작동하지 않습니다. scm 사이트는 * &lt;appname&gt;.scm에서만&lt; 사용할 수 있습니다. asename&gt;.appserviceenvironment.net*. 
+
+영역이라는 이름이 *지정되었습니다.&lt; asename&gt;.appserviceenvironment.net* 는 전 세계적으로 고유합니다. 2019년 5월 이전에는 고객이 ILB ASE의 도메인 접미사를 지정할 수 있었습니다. 도메인 접미사에 *.contoso.com* 사용하려는 경우 scm 사이트를 포함할 수 있습니다. 그 모델에는 어려움이 있었습니다. 기본 SSL 인증서, scm 사이트에 대한 단일 사인온 부족 및 와일드카드 인증서 사용 요구 사항을 관리합니다. ILB ASE 기본 인증서 업그레이드 프로세스도 중단되어 응용 프로그램이 다시 시작되었습니다. 이러한 문제를 해결하기 위해 ILB ASE 동작은 ASE 이름과 Microsoft 소유 접미사를 사용하여 도메인 접미사를 사용하도록 변경되었습니다. ILB ASE 비헤이비어의 변경은 2019년 5월 이후에 이루어진 ILB ASE에만 영향을 미칩니다. 기존 ILB ASE는 ASE 및 해당 DNS 구성의 기본 인증서를 계속 관리해야 합니다.
+
 ## <a name="publishing"></a>게시
 
 ASE에서 다중 테넌트 앱 서비스와 마찬가지로 다음 방법으로 게시할 수 있습니다.
@@ -132,7 +148,7 @@ ASE에서 다중 테넌트 앱 서비스와 마찬가지로 다음 방법으로 
 
 외부 ASE를 사용하면 이러한 게시 옵션이 모두 동일한 방식으로 작동합니다. 자세한 내용은 [Azure App Service의 배포][AppDeploy]를 참조하세요.
 
-게시는 ILB ASE와 크게 다르며, 게시 끝점은 모두 ILB를 통해서만 사용할 수 있습니다. ILB는 Virtual Network의 ASE 서브넷에 있는 프라이빗 IP에 있습니다. ILB에 대한 네트워크 액세스 권한이 없는 경우 해당 ASE에 앱을 게시할 수 없습니다. [ILB ASE 만들기 및 사용에서][MakeILBASE]설명한 대로 시스템의 앱에 대해 DNS를 구성해야 합니다. 이 요구 사항에는 SCM 끝점이 포함됩니다. 끝점이 제대로 정의되지 않으면 게시할 수 없습니다. IID는 ILB에 직접 게시할 수 있는 네트워크 액세스 권한이 있어야 합니다.
+ILB ASE를 사용하면 게시 끝점은 ILB를 통해서만 사용할 수 있습니다. ILB는 Virtual Network의 ASE 서브넷에 있는 프라이빗 IP에 있습니다. ILB에 대한 네트워크 액세스 권한이 없는 경우 해당 ASE에 앱을 게시할 수 없습니다. [ILB ASE 만들기 및 사용에서][MakeILBASE]설명한 대로 시스템의 앱에 대해 DNS를 구성해야 합니다. 이 요구 사항에는 SCM 끝점이 포함됩니다. 끝점이 제대로 정의되지 않으면 게시할 수 없습니다. IID는 ILB에 직접 게시할 수 있는 네트워크 액세스 권한이 있어야 합니다.
 
 추가 변경 없이 GitHub 및 Azure DevOps와 같은 인터넷 기반 CI 시스템은 게시 끝점에 인터넷에 액세스할 수 없기 때문에 ILB ASE에서 작동하지 않습니다. ILB ASE를 포함하는 가상 네트워크에 자체 호스팅 릴리스 에이전트를 설치하여 Azure DevOps에서 ILB ASE에 게시를 활성화할 수 있습니다. 또는 Dropbox와 같은 끌어오기 모델을 사용하는 CI 시스템을 사용할 수도 있습니다.
 
@@ -169,7 +185,18 @@ ASE에 로깅을 사용하려면 다음을 수행하십시오.
 
 ![ASE 진단 로그 설정][4]
 
-로그 애널리틱스와 통합하는 경우 ASE 포털에서 로그를 선택하고 **AppServiceEnvironmentPlatformLog에**대한 쿼리를 만들어 **로그를** 볼 수 있습니다.
+로그 애널리틱스와 통합하는 경우 ASE 포털에서 로그를 선택하고 **AppServiceEnvironmentPlatformLog에**대한 쿼리를 만들어 **로그를** 볼 수 있습니다. 로그는 ASE에 트리거되는 이벤트가 있는 경우에만 내보내집니다. ASE에 이러한 이벤트가 없는 경우 로그가 없습니다. Log Analytics 작업 영역에서 로그의 예를 빠르게 보려면 ASE의 앱 서비스 계획 중 하나를 사용하여 확장 작업을 수행합니다. 그런 다음 **AppServiceEnvironmentPlatformLogs에** 대한 쿼리를 실행하여 이러한 로그를 볼 수 있습니다. 
+
+**경고 만들기**
+
+로그에 대한 경고를 만들려면 [Azure Monitor를 사용하여 로그 경고를 만들기, 보기 및 관리의 지침을 따릅니다.][logalerts] 개요:
+
+* ASE 포털에서 경고 페이지 열기
+* **새 경고 규칙** 선택
+* 리소스를 선택하여 로그 분석 작업 영역으로
+* 사용자 지정 로그 검색으로 조건을 설정하여 "AppServiceEnvironmentPlatformLogs | ResultDescription에는 "크기 조정이 시작되었습니다" 또는 원하는 것이 포함되어 있습니다. 임계값을 적절하게 설정합니다. 
+* 원하는 대로 작업 그룹을 추가하거나 만듭니다. 작업 그룹은 전자 메일 또는 SMS 메시지 전송과 같은 경고에 대한 응답을 정의하는 위치입니다.
+* 경고의 이름을 지정하고 저장합니다.
 
 ## <a name="upgrade-preference"></a>업그레이드 환경 설정
 
@@ -245,3 +272,4 @@ ASE를 삭제하려면 다음을 수행합니다.
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[logalerts]: ../../azure-monitor/platform/alerts-log.md

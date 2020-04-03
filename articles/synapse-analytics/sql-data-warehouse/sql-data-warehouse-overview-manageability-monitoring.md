@@ -1,6 +1,6 @@
 ---
 title: 관리 용이성 및 모니터링 - 개요
-description: SQL 풀을 사용하여 리소스 사용, 로그 및 쿼리 활동, 권장 사항 및 데이터 보호(백업 및 복원)에 대한 모니터링 및 관리 개요
+description: Synapse SQL 풀을 사용하여 리소스 사용률, 로그 및 쿼리 활동, 권장 사항 및 데이터 보호(백업 및 복원)에 대한 모니터링 및 관리 개요
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 08/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 26e74b7b2cabfe7080c624569b5e2189a86770ea
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e41bf003af7d0926aab04ffed86bf6ec5031c4f7
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350307"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586414"
 ---
-# <a name="manageability-and-monitoring-with-sql-pool"></a>SQL 풀로 관리 및 모니터링
+# <a name="manageability-and-monitoring-with-synapse-sql-pool"></a>시냅스 SQL 풀로 관리 및 모니터링
 
-SQL 분석을 사용하면 SQL 풀을 통해 데이터 웨어하우스를 프로비전할 수 있습니다. 다음 문서는 데이터 웨어하우스를 관리하고 모니터링하는 데 도움이 됩니다. 또한 데이터 웨어하우스의 사용 및 성능을 최적화하는 방법에 대해서도 알아봅니다.
+Synapse SQL을 사용하면 SQL 풀을 통해 데이터 웨어하우스를 프로비전할 수 있습니다. 다음 문서는 데이터 웨어하우스를 관리하고 모니터링하는 데 도움이 됩니다. 또한 데이터 웨어하우스의 사용 및 성능을 최적화하는 방법에 대해서도 알아봅니다.
 
 ## <a name="overview"></a>개요
 

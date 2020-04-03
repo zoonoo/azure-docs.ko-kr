@@ -1,6 +1,6 @@
 ---
 title: 워크로드 모니터링 - Azure 포털
-description: Azure 포털을 사용하여 SQL 분석 모니터링
+description: Azure 포털을 사용하여 시냅스 SQL 모니터링
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: ''
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 344e2cd03408b5bd1e966abc8abb72bce6078acc
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 64e61b00ecebec82b465cb13c6df0e323f6c7777
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350341"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586547"
 ---
 # <a name="monitor-workload---azure-portal"></a>워크로드 모니터링 - Azure 포털
 
-이 문서에서는 Azure 포털을 사용하여 워크로드를 모니터링하는 방법을 설명합니다. 여기에는 [SQL Analytics에](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/)대한 로그 분석을 사용하여 쿼리 실행 및 워크로드 추세를 조사하기 위해 Azure Monitor 로그를 설정하는 것이 포함됩니다.
+이 문서에서는 Azure 포털을 사용하여 워크로드를 모니터링하는 방법을 설명합니다. 여기에는 [Synapse SQL에](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/)대한 로그 분석을 사용하여 쿼리 실행 및 워크로드 추세를 조사하기 위해 Azure Monitor Log를 설정하는 것이 포함됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

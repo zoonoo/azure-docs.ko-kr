@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service) 클러스터에서 고정 공용 IP �
 services: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 10422595b85c71020225df694778e6b8ae7e0185
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e79bbe76a751097acd5c9d3c42dbd4020b6866b
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78191353"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617283"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 고정 공용 IP 주소를 사용하여 수신 컨트롤러 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "78191353"
 
 이 문서에서는 Helm을 사용하여 NGINX 수신 컨트롤러, cert-manager 및 샘플 웹앱을 설치합니다. Helm의 최신 릴리스를 사용 중이어야 합니다. 업그레이드 지침은 Helm [설치 문서를][helm-install]참조하십시오. Helm 구성 및 사용에 대한 자세한 내용은 [AKS(Azure Kubernetes Service)에서 Helm을 사용하여 응용 프로그램 설치를][use-helm]참조하십시오.
 
-또한 이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하십시오.
+또한 이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ## <a name="create-an-ingress-controller"></a>수신 컨트롤러 만들기
 
@@ -48,7 +48,12 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeRes
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
 ```
 
-이제 Helm을 사용하여 *nginx-ingress* 차트를 배포합니다. `--set controller.service.loadBalancerIP` 매개 변수를 추가하고, 이전 단계에서 만든 고유한 공용 IP 주소를 지정합니다. 중복성을 추가하기 위해 NGINX 수신 컨트롤러의 두 복제본이 `--set controller.replicaCount` 매개 변수와 함께 배포됩니다. 수신 컨트롤러의 복제본을 실행하는 이점을 최대한 활용하려면 AKS 클러스터에 둘 이상의 노드가 있어야 합니다.
+이제 Helm을 사용하여 *nginx-ingress* 차트를 배포합니다. 중복성을 추가하기 위해 NGINX 수신 컨트롤러의 두 복제본이 `--set controller.replicaCount` 매개 변수와 함께 배포됩니다. 수신 컨트롤러의 복제본을 실행하는 이점을 최대한 활용하려면 AKS 클러스터에 둘 이상의 노드가 있어야 합니다.
+
+송신 컨트롤러가 받는 컨트롤러 서비스에 할당할 로드 밸런서의 정적 IP 주소와 공용 IP 주소 리소스에 적용되는 DNS 이름 레이블을 모두 인식하도록 Helm 릴리스에 두 개의 추가 매개 변수를 전달해야 합니다. HTTPS 인증서가 올바르게 작동하려면 DNS 이름 레이블을 사용하여 받는 컨트롤러 IP 주소에 대한 FQDN을 구성합니다.
+
+1. 매개 `--set controller.service.loadBalancerIP` 변수를 추가합니다. 이전 단계에서 만든 공용 IP 주소를 지정합니다.
+1. 매개 `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` 변수를 추가합니다. 이전 단계에서 만든 공용 IP 주소에 적용할 DNS 이름 레이블을 지정합니다.
 
 수신 컨트롤러도 Linux 노드에서 예약해야 합니다. 현재 AKS에서 미리 보기 중인 Windows Server 노드는 inress 컨트롤러를 실행해서는 안 됩니다. `--set nodeSelector` 매개 변수를 사용하여 노드 선택기를 지정하면 Linux 기반 노드에서 NGINX 수신 컨트롤러를 실행하도록 Kubernetes 스케줄러에 지시할 수 있습니다.
 
@@ -57,6 +62,8 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 
 > [!TIP]
 > 클러스터의 컨테이너에 대한 요청에 대한 [클라이언트 소스 IP 보존을][client-source-ip] 사용하려면 Helm 설치 명령에 추가합니다. `--set controller.service.externalTrafficPolicy=Local` 클라이언트 소스 IP는 *X-전달-For*아래의 요청 헤더에 저장됩니다. 클라이언트 소스 IP 보존을 사용하도록 설정된 usingres s 컨트롤러를 사용하는 경우 SSL 통과가 작동하지 않습니다.
+
+다음 스크립트를 받는 컨트롤러의 **IP 주소와** FQDN 접두사에 사용할 **고유한 이름으로** 업데이트합니다.
 
 ```console
 # Create a namespace for your ingress resources
@@ -69,6 +76,7 @@ helm install nginx-ingress stable/nginx-ingress \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set controller.service.loadBalancerIP="40.121.63.72"
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="demo-aks-ingress"
 ```
 
 NGINX 수신 컨트롤러에 대해 Kubernetes 부하 분산 장치 서비스를 만든 경우 다음 예제 출력에 표시된 대로 고정 IP 주소를 할당합니다.
@@ -83,27 +91,14 @@ nginx-ingress-default-backend               ClusterIP      10.0.95.248   <none> 
 
 아직 수신 규칙이 만들어지지 않았으므로 공용 IP 주소를 검색하면 NGINX 수신 컨트롤러의 기본 404 페이지가 표시됩니다. 수신 규칙은 다음 단계에서 구성됩니다.
 
-## <a name="configure-a-dns-name"></a>DNS 이름 구성
-
-HTTPS 인증서가 올바르게 작동하려면 수신 컨트롤러 IP 주소에 대한 FQDN을 구성합니다. 수신 컨트롤러의 IP 주소와 FQDN에 사용할 고유 이름으로 다음 스크립트를 업데이트합니다.
+다음과 같이 공용 IP 주소에서 FQDN을 쿼리하여 DNS 이름 레이블이 적용되었는지 확인할 수 있습니다.
 
 ```azurecli-interactive
 #!/bin/bash
-
-# Public IP address of your ingress controller
-IP="40.121.63.72"
-
-# Name to associate with public IP address
-DNSNAME="demo-aks-ingress"
-
-# Get the resource-id of the public ip
-PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
-
-# Update public ip address with DNS name
-az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
+az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query $("[?name=='myAKSPublicIP'].[dnsSettings.fqdn]") -o tsv
 ```
 
-이제 FQDN을 통해 수신 컨트롤러에 액세스할 수 있습니다.
+이제 IP 주소 또는 FQDN을 통해 인서스 컨트롤러에 액세스할 수 있습니다.
 
 ## <a name="install-cert-manager"></a>cert-manager 설치
 

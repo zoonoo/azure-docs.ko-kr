@@ -3,12 +3,12 @@ title: Azure 컨테이너 레지스트리의 리포지토리에 대한 사용 �
 description: 레지스트리의 특정 리포지토리로 범위가 조정된 권한이 있는 토큰을 만들어 이미지를 가져오거나 푸시하거나 다른 작업을 수행합니다.
 ms.topic: article
 ms.date: 02/13/2020
-ms.openlocfilehash: 7d390bf4d97561e374c70f184534ac4f98a40611
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9004c45401833d3070266055dd7eb99a2bb43bde
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77444310"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618836"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>리포지토리 범위 의 사용 권한이 있는 토큰 만들기
 
@@ -27,6 +27,7 @@ ms.locfileid: "77444310"
 
 * 이 기능은 **프리미엄** 컨테이너 레지스트리에서만 사용할 수 있습니다. 레지스트리 서비스 계층 및 제한에 대한 자세한 내용은 [Azure 컨테이너 레지스트리 SCO를](container-registry-skus.md)참조하십시오.
 * 현재 서비스 주체 또는 관리되는 ID와 같은 Azure Active Directory ID에 리포지토리 범위 의 사용 권한을 할당할 수 없습니다.
+* [익명 끌어오기 액세스에](container-registry-faq.md#how-do-i-enable-anonymous-pull-access)대해 활성화된 레지스트리에서 범위 맵을 만들 수 없습니다.
 
 ## <a name="concepts"></a>개념
 
@@ -59,7 +60,7 @@ ms.locfileid: "77444310"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* **Azure CLI** - 토큰을 만들고 관리하는 Azure CLI 명령은 Azure CLI 버전 2.0.76 이상에서 사용할 수 있습니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하십시오.
+* **Azure CLI** - 토큰을 만들고 관리하는 Azure CLI 명령은 Azure CLI 버전 2.0.76 이상에서 사용할 수 있습니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 * **Docker** - 레지스트리를 사용하여 이미지를 가져오거나 푸시하려면 로컬 Docker 설치가 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 시스템에 대한 설치 지침을 제공합니다.
 * **컨테이너 레지스트리** - 레지스트리가 없는 경우 Azure 구독에서 프리미엄 컨테이너 레지스트리를 만들거나 기존 레지스트리를 업그레이드합니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다. 
 

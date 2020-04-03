@@ -11,21 +11,22 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: a5bb048a2368f60a83e70dcd6d1ce663ce70a885
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 2113e5ac3563a22c5f2c6b755230b05fb9a2cb35
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350929"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583868"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>순서가 지정된 클러스터형 columnstore 인덱스를 사용한 성능 조정  
 
-사용자가 SQL Analytics에서 columnstore 테이블을 쿼리할 때 최적화 프로그램은 각 세그먼트에 저장된 최소 값과 최대 값을 확인합니다.  쿼리 조건자의 범위를 벗어난 세그먼트는 디스크에서 메모리로 읽히지 않습니다.  읽을 세그먼트 의 수와 총 크기가 작은 경우 쿼리는 더 빠른 성능을 얻을 수 있습니다.   
+사용자가 Synapse SQL 풀에서 열저장소 테이블을 쿼리할 때 최적화 프로그램은 각 세그먼트에 저장된 최소 값과 최대 값을 확인합니다.  쿼리 조건자의 범위를 벗어난 세그먼트는 디스크에서 메모리로 읽히지 않습니다.  읽을 세그먼트 의 수와 총 크기가 작은 경우 쿼리는 더 빠른 성능을 얻을 수 있습니다.   
 
-## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>정렬 된 것 과 비 정렬 된 클러스터된 열 저장소 인덱스 
-기본적으로 인덱스 옵션 없이 만든 각 SQL Analytics 테이블에 대해 내부 구성 요소(인덱스 빌더)는 정렬되지 않은 클러스터된 열저장소 인덱스(CCI)를 만듭니다.  각 열의 데이터는 별도의 CCI 행 그룹 세그먼트로 압축됩니다.  각 세그먼트의 값 범위에는 메타데이터가 있으므로 쿼리 조건자의 범위를 벗어난 세그먼트는 쿼리 실행 중에 디스크에서 읽히지 않습니다.  CCI는 최고 수준의 데이터 압축을 제공하며 쿼리를 더 빠르게 실행할 수 있도록 읽을 세그먼트의 크기를 줄입니다. 그러나 인덱스 빌더는 데이터를 세그먼트로 압축하기 전에 데이터를 정렬하지 않으므로 값 범위가 겹치는 세그먼트가 발생할 수 있으므로 쿼리가 디스크에서 더 많은 세그먼트를 읽고 완료하는 데 시간이 오래 걸릴 수 있습니다.  
+## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>정렬 된 것 과 비 정렬 된 클러스터된 열 저장소 인덱스
 
-정렬된 CCI를 만들 때 SQL Analytics 엔진은 인덱스 빌더가 인덱스 세그먼트로 압축하기 전에 메모리의 기존 데이터를 순서 키로 정렬합니다.  정렬된 데이터를 사용하면 세그먼트 중복이 줄어들어 쿼리가 보다 효율적인 세그먼트 제거를 할 수 있으므로 디스크에서 읽을 세그먼트 수가 적기 때문에 성능이 빨라집니다.  모든 데이터를 한 번에 메모리에 정렬할 수 있는 경우 세그먼트 중복을 방지할 수 있습니다.  SQL Analytics 테이블의 데이터 크기가 큰 점을 감안할 때 이 시나리오는 자주 발생하지 않습니다.  
+기본적으로 인덱스 옵션 없이 만든 각 테이블에 대해 내부 구성 요소(인덱스 빌더)는 순서가 지정되지 않은 클러스터된 열저장소 인덱스(CCI)를 만듭니다.  각 열의 데이터는 별도의 CCI 행 그룹 세그먼트로 압축됩니다.  각 세그먼트의 값 범위에는 메타데이터가 있으므로 쿼리 조건자의 범위를 벗어난 세그먼트는 쿼리 실행 중에 디스크에서 읽히지 않습니다.  CCI는 최고 수준의 데이터 압축을 제공하며 쿼리를 더 빠르게 실행할 수 있도록 읽을 세그먼트의 크기를 줄입니다. 그러나 인덱스 빌더는 데이터를 세그먼트로 압축하기 전에 데이터를 정렬하지 않으므로 값 범위가 겹치는 세그먼트가 발생할 수 있으므로 쿼리가 디스크에서 더 많은 세그먼트를 읽고 완료하는 데 시간이 오래 걸릴 수 있습니다.  
+
+정렬된 CCI를 만들 때 Synapse SQL 엔진은 인덱스 빌더가 인덱스 세그먼트로 압축하기 전에 메모리의 기존 데이터를 순서 키로 정렬합니다.  정렬된 데이터를 사용하면 세그먼트 중복이 줄어들어 쿼리가 보다 효율적인 세그먼트 제거를 할 수 있으므로 디스크에서 읽을 세그먼트 수가 적기 때문에 성능이 빨라집니다.  모든 데이터를 한 번에 메모리에 정렬할 수 있는 경우 세그먼트 중복을 방지할 수 있습니다.  데이터 웨어하우스의 큰 테이블로 인해 이 시나리오는 자주 발생하지 않습니다.  
 
 열의 세그먼트 범위를 확인하려면 테이블 이름과 열 이름으로 이 명령을 실행합니다.
 
@@ -49,7 +50,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> 정렬된 CCI 테이블에서 동일한 DML 일괄 처리 또는 데이터 로드 작업으로 인해 발생하는 새 데이터가 해당 일괄 처리 내에서 정렬되며 테이블의 모든 데이터에 대한 전역 정렬이 없습니다.  사용자는 정렬된 CCI를 다시 빌드하여 테이블의 모든 데이터를 정렬할 수 있습니다.  SQL 분석에서 열 저장소 인덱스 REBUILD는 오프라인 작업입니다.  분할된 테이블의 경우 REBUILD는 한 번에 하나의 파티션을 수행합니다.  다시 빌드중인 파티션의 데이터는 "오프라인"이며 해당 파티션에 대해 REBUILD가 완료될 때까지 사용할 수 없습니다. 
+> 정렬된 CCI 테이블에서 동일한 DML 일괄 처리 또는 데이터 로드 작업으로 인해 발생하는 새 데이터가 해당 일괄 처리 내에서 정렬되며 테이블의 모든 데이터에 대한 전역 정렬이 없습니다.  사용자는 정렬된 CCI를 다시 빌드하여 테이블의 모든 데이터를 정렬할 수 있습니다.  Synapse SQL에서 열 저장소 인덱스 REBUILD는 오프라인 작업입니다.  분할된 테이블의 경우 REBUILD는 한 번에 하나의 파티션을 수행합니다.  다시 빌드중인 파티션의 데이터는 "오프라인"이며 해당 파티션에 대해 REBUILD가 완료될 때까지 사용할 수 없습니다. 
 
 ## <a name="query-performance"></a>쿼리 성능
 
@@ -115,14 +116,15 @@ CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX O
 AS SELECT * FROM ExampleTable
 OPTION (MAXDOP 1);
 ```
-- SQL Analytics 테이블에 데이터를 로드하기 전에 정렬 키별로 데이터를 미리 정렬합니다.
 
+- 테이블에 로드하기 전에 정렬 키로 데이터를 미리 정렬합니다.
 
 다음은 위의 권장 사항에 따라 세그먼트가 겹치지 않는 정렬된 CCI 테이블 분포의 예입니다. 주문한 CCI 테이블은 MAXDOP 1 및 xlargerc를 사용하는 20GB 힙 테이블의 CTAS를 통해 DWU1000c 데이터베이스에 생성됩니다.  CCI는 중복없이 BIGINT 열에 주문됩니다.  
 
 ![Segment_No_Overlapping](./media/performance-tuning-ordered-cci/perfect-sorting-example.png)
 
 ## <a name="create-ordered-cci-on-large-tables"></a>큰 테이블에서 정렬된 CCI 만들기
+
 정렬된 CCI를 만드는 것은 오프라인 작업입니다.  파티션이 없는 테이블의 경우 정렬된 CCI 생성 프로세스가 완료될 때까지 사용자가 데이터에 액세스할 수 없습니다.   분할된 테이블의 경우 엔진이 파티션별로 정렬된 CCI 파티션을 생성하므로 사용자는 정렬된 CCI 생성이 진행되지 않는 파티션의 데이터에 계속 액세스할 수 있습니다.   이 옵션을 사용하여 큰 테이블에서 주문한 CCI 생성 중에 가동 중지 시간을 최소화할 수 있습니다. 
 
 1.    대상 큰 테이블(Table_A)에 파티션을 만듭니다.
@@ -135,6 +137,7 @@ OPTION (MAXDOP 1);
 ## <a name="examples"></a>예
 
 **A. 주문된 열및 주문 서수 확인:**
+
 ```sql
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
 FROM sys.index_columns i 
@@ -143,6 +146,7 @@ WHERE column_store_order_ordinal <>0
 ```
 
 **B. 열 서수 변경을 수행하려면 주문 목록에서 열을 추가 또는 제거하거나 CCI에서 정렬된 CCI로 변경합니다.**
+
 ```sql
 CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales
 ORDER (ProductKey, SalesAmount)
@@ -150,4 +154,5 @@ WITH (DROP_EXISTING = ON)
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 더 많은 개발 팁은 [개발 개요](sql-data-warehouse-overview-develop.md)를 참조하세요.

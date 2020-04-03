@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 7e00d03a8b3ec7ef56935ff7714fd932bc343cd3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02d9ce87d45c5f1c9a123aae18f7d710b268f03e
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79277441"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582249"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Service 버스 출력 Azure 함수에 대 한 바인딩
 
@@ -21,7 +21,7 @@ Azure Service Bus 출력 바인딩을 사용하여 큐 또는 토픽 메시지�
 
 ## <a name="example"></a>예제
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 다음 예제에서는 Service Bus 큐 메시지를 보내는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
@@ -86,7 +86,7 @@ public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<str
 }
 ```
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 예에서는 *function.json* 파일의 Service Bus 출력 바인딩 및 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 함수는 타이머 트리거를 사용하여 15초마다 큐 메시지를 보냅니다.
 
@@ -227,7 +227,7 @@ Java 함수는 서비스 버스 토픽에 쓸 수도 있습니다. 다음 예제
 
 ## <a name="attributes-and-annotations"></a>특성 및 주석
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [ServiceBusAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs)를 사용합니다.
 
@@ -261,7 +261,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 
 특성은 C# 스크립트에서 지원되지 않습니다.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 속성은 자바 스크립트에서 지원되지 않습니다.
 
@@ -275,7 +275,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 
 ---
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 다음 표에서는 *function.json* 파일및 특성에서 설정한 바인딩 `ServiceBus` 구성 속성에 대해 설명합니다.
 
@@ -295,7 +295,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 
 Azure Functions 1.x에서 큐가 존재하지 않고 `accessRights`를 `manage`로 설정한 경우 런타임은 큐를 만듭니다. 함수 버전 2.x 이상에서는 큐 또는 토픽이 이미 있어야 합니다. 존재하지 않는 큐 또는 토픽을 지정하면 함수가 실패합니다. 
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 출력 바인딩에 다음 매개 변수 형식을 사용합니다.
 
@@ -329,7 +329,7 @@ C# 함수로 작업할 때:
 
 * 세션 ID에 액세스하려면 형식에 [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) 바인딩하고 `sessionId` 속성을 사용합니다.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 을 사용하여 `context.bindings.<name from function.json>`큐 또는 토픽에 액세스합니다. 에 문자열, 바이트 배열 또는 JavaScript 개체(JSON로 연호화된)를 `context.binding.<name>`할할 수 있습니다.
 
@@ -345,7 +345,7 @@ C# 함수로 작업할 때:
 
 ## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
 
-| 바인딩 | 참고 |
+| 바인딩 | 참조 |
 |---|---|
 | Service Bus | [Service Bus 오류 코드](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
 | Service Bus | [Service Bus 한도](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
@@ -383,6 +383,7 @@ C# 함수로 작업할 때:
 
 |속성  |기본값 | 설명 |
 |---------|---------|---------|
+|prefetchCount|0|메시지 수신자가 동시에 요청할 수 있는 메시지 수를 가져옵니다.|
 |maxAutoRenewDuration|00:05:00|메시지 잠금이 자동으로 갱신되는 최대 기간입니다.|
 |autoComplete|true|트리거가 메시지를 즉시 완료(자동 완성)로 표시할지 또는 함수가 완료를 호출할 때까지 기다릴지 여부입니다.|
 |maxConcurrentCalls|16|메시지 펌프가 시작되어야 하는 콜백에 대한 최대 동시 호출 수입니다. 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다. 런타임이 큐 또는 토픽 메시지를 한 번에 하나만 처리하도록 하려면, `maxConcurrentCalls`를 1로 설정합니다. |

@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f73fbbc42085b3a0cb6ab7dd1c0e32838a166ccf
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 39501cef3bb2f7e4a0e061968520f687cf97ecc5
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350644"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584213"
 ---
 # <a name="continuous-integration-and-deployment-for-data-warehousing"></a>데이터 웨어하우징을 위한 지속적인 통합 및 배포
 
@@ -62,7 +62,7 @@ ms.locfileid: "80350644"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [SQL 분석 MPP 아키텍처](massively-parallel-processing-mpp-architecture.md) 살펴보기
+- [시냅스 SQL 풀 MPP 아키텍처](massively-parallel-processing-mpp-architecture.md) 살펴보기
 - 빠르게 [SQL 풀 만들기](create-data-warehouse-portal.md)
 - [샘플 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)
 - [비디오](/azure/sql-data-warehouse/sql-data-warehouse-videos) 살펴보기

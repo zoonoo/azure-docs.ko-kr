@@ -1,6 +1,6 @@
 ---
-title: SQL 분석 권장 사항
-description: SQL 분석 권장 사항 및 생성 방법에 대해 알아보기
+title: 시냅스 SQL 권장 사항
+description: Synapse SQL 권장 사항 및 생성 방법에 대해 알아보기
 services: synapse-analytics
 author: kevinvngo
 manager: craigg-msft
@@ -11,18 +11,18 @@ ms.date: 02/05/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 6d57fdb035e076c75363d23fbf36d39eeb72bb3f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: c4bbd98cc28b242be5310fab76521a80de8fcb7c
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350685"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584118"
 ---
-# <a name="sql-analytics-recommendations"></a>SQL 분석 권장 사항
+# <a name="synapse-sql-recommendations"></a>시냅스 SQL 권장 사항
 
-이 문서에서는 Azure Advisor를 통해 제공되는 SQL 분석 권장 사항에 대해 설명합니다.  
+이 문서에서는 Azure Advisor를 통해 제공되는 시냅스 SQL 권장 사항에 대해 설명합니다.  
 
-SQL Analytics는 데이터 웨어하우스 워크로드가 성능에 지속적으로 최적화되도록 권장 사항을 제공합니다. 권장 사항은 [Azure Advisor와](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) 긴밀하게 통합되어 [Azure 포털](https://aka.ms/Azureadvisor)내에서 직접 모범 사례를 제공합니다. SQL Analytics는 원격 분석을 수집하고 활성 워크로드에 대한 권장 사항을 매일 주기로 표시합니다. 지원되는 권장 사항 시나리오는 권장 작업을 적용하는 방법과 함께 아래에 설명되어 있습니다.
+Synapse SQL은 데이터 웨어하우스 워크로드가 성능에 지속적으로 최적화되도록 권장 사항을 제공합니다. 권장 사항은 [Azure Advisor와](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) 긴밀하게 통합되어 [Azure 포털](https://aka.ms/Azureadvisor)내에서 직접 모범 사례를 제공합니다. Synapse SQL은 원격 분석을 수집하고 일일 흐름에 따라 활성 워크로드에 대한 권장 사항을 표시합니다. 지원되는 권장 사항 시나리오는 권장 작업을 적용하는 방법과 함께 아래에 설명되어 있습니다.
 
 당신은 [당신의 추천을 오늘 확인할](https://aka.ms/Azureadvisor) 수 있습니다! 현재 이 기능은 Gen2 데이터 웨어하우스에만 적용됩니다. 
 

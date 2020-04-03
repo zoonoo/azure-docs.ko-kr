@@ -4,18 +4,18 @@ description: Azure Monitor의 작업 규칙과 구성 및 관리 방법을 이�
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 0498325984641641d6dfc9ee6b89f66800b5c7d2
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 6585890395d7656f239ac3098cd374ecd4757842
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546476"
+ms.locfileid: "80618979"
 ---
 # <a name="action-rules-preview"></a>작업 규칙(미리 보기)
 
 작업 규칙은 Azure 리소스 관리자 범위(Azure 구독, 리소스 그룹 또는 대상 리소스)에서 작업을 정의하거나 억제하는 데 도움이 됩니다. 이러한 필터에는 수행할 경고 인스턴스의 특정 하위 집합을 좁히는 데 도움이 되는 다양한 필터가 있습니다.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4qXeL]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rBZ2]
 
 ## <a name="why-and-when-should-you-use-action-rules"></a>작업 규칙을 사용해야 하는 이유와 시기는 무엇입니까?
 
@@ -104,7 +104,7 @@ Azure Monitor의 경고 방문 페이지에서 **작업 관리를** 선택하여
 마지막으로 작업 규칙에 대한 다음 세부 정보를 구성합니다.
 * 속성
 * 저장되는 리소스 그룹
-* Description 
+* 설명 
 
 ## <a name="example-scenarios"></a>예제 시나리오
 
@@ -150,7 +150,7 @@ Contoso는 [구독 수준에서 메트릭 경고를 정의했습니다.](https:/
 
 여기에서 옆에 있는 확인란을 선택하여 규모에 따라 작업 규칙을 활성화, 비활성화 또는 삭제할 수 있습니다. 작업 규칙을 선택하면 구성 페이지가 열립니다. 이 페이지에서는 작업 규칙의 정의를 업데이트하고 활성화하거나 사용하지 않도록 설정하는 데 도움이 됩니다.
 
-## <a name="best-practices"></a>최선의 구현 방법
+## <a name="best-practices"></a>모범 사례
 
 [결과 수](alerts-unified-log.md) 옵션으로 만든 로그 경고는 전체 검색 결과(여러 컴퓨터에 걸쳐 있을 수 있음)를 사용하여 단일 경고 인스턴스를 생성합니다. 이 시나리오에서 작업 규칙 **경고 컨텍스트 (페이 로드)** 필터를 사용 하는 경우 일치 하는 한 경고 인스턴스에 작동 합니다. 앞에서 설명한 시나리오 2에서 생성된 로그 경고에 대한 검색 결과에 **컴퓨터-01과** **Computer-02가**모두 포함된 경우 전체 알림이 표시되지 않습니다. **Computer-02에** 대해 생성된 알림이 전혀 없습니다.
 

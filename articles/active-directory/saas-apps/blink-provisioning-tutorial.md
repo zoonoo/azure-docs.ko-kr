@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 455036652836c6cfd2055e9a747f30b6dfe41295
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b19052b8a71b582b47308c41d170f50352d643e2
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77059133"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618352"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 깜박임 구성
 
-이 자습서의 목적은 깜박임 및 Azure Active Directory(Azure AD)에서 수행할 단계를 보여 주어 사용자 및/또는 그룹을 깜박임에 자동으로 프로비전 및 프로비저닝 해제하도록 Azure AD를 구성합니다.
+이 자습서의 목적은 깜박임 및 Azure Active Directory(Azure AD)에서 수행할 단계를 보여 주어 사용자를 깜박임에 자동으로 프로비전 및 프로비전 해제하도록 Azure AD를 구성하도록 하는 것입니다.
 
 > [!NOTE]
 > 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요.
@@ -41,9 +41,9 @@ ms.locfileid: "77059133"
 
 ## <a name="assigning-users-to-blink"></a>깜박임에 사용자 할당
 
-Azure Active Directory는 *할당이라는* 개념을 사용하여 선택한 앱에 대한 액세스 권한을 받아야 하는 사용자를 결정합니다. 자동 사용자 프로비저닝의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당된 사용자 및/또는 그룹만 동기화됩니다.
+Azure Active Directory는 *할당이라는* 개념을 사용하여 선택한 앱에 대한 액세스 권한을 받아야 하는 사용자를 결정합니다. 자동 사용자 프로비저닝의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당된 사용자 및/또는 그룹 구성원만 동기화됩니다.
 
-자동 사용자 프로비저닝을 구성하고 활성화하기 전에 Azure AD의 깜박임에 액세스해야 하는 사용자 및/또는 그룹을 결정해야 합니다. 결정되면 다음 지침에 따라 이러한 사용자 및/또는 그룹을 깜박임에 할당할 수 있습니다.
+자동 사용자 프로비저닝을 구성하고 활성화하기 전에 Azure AD에서 깜박임에 액세스해야 하는 사용자 및/또는 그룹 구성원을 결정해야 합니다. 결정되면 다음 지침에 따라 이러한 사용자 및/또는 그룹을 깜박임에 할당할 수 있습니다.
 * [엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## <a name="important-tips-for-assigning-users-to-blink"></a>깜박임에 사용자를 할당하기 위한 중요한 팁
@@ -54,7 +54,7 @@ Azure Active Directory는 *할당이라는* 개념을 사용하여 선택한 앱
 
 ## <a name="setup-blink-for-provisioning"></a>프로비저닝을 위한 설정 깜박임
 
-1. SCIM 토큰을 support@joinblink.com 요청하려면 [지원 사례](https://help.joinblink.com/hc/requests/new) 또는 전자 메일 **깜박임 지원을** 기록합니다. .
+1. SCIM 토큰을 support@joinblink.com 요청하려면 [지원 사례](https://support.joinblink.com) 또는 전자 메일 **깜박임 지원을** 기록합니다. .
 
 2.  SCIM 인증 토큰 을 **복사합니다.** 이 값은 Azure 포털에서 깜박임 응용 프로그램의 프로비저닝 탭의 비밀 토큰 필드에 입력됩니다.
 
@@ -82,14 +82,14 @@ Azure AD를 사용하여 자동 사용자 프로비전을 위해 Blink를 구성
 
 ## <a name="configuring-automatic-user-provisioning-to-blink"></a>깜박임에 대한 자동 사용자 프로비저닝 구성 
 
-이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당을 기반으로 Blink에서 사용자 및/또는 그룹을 생성, 업데이트 및 비활성화하도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
+이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당을 기반으로 Blink에서 사용자를 생성, 업데이트 및 비활성화하도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
 
 > [!TIP]
 > 깜박임 단일 [사인온 자습서에서](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial)제공된 지침에 따라 깜박임에 대해 SAML 기반 단일 사인온을 사용하도록 선택할 수도 있습니다. 단일 사인온은 자동 사용자 프로비저닝과 독립적으로 구성할 수 있지만 이 두 기능은 서로 보완합니다.
 
 ### <a name="to-configure-automatic-user-provisioning-for-blink-in-azure-ad"></a>Azure AD에서 깜박임에 대한 자동 사용자 프로비저닝을 구성하려면 다음을 수행합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다. **엔터프라이즈 응용 프로그램을**선택한 다음 모든 응용 프로그램을 **선택합니다.**
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램을**선택한 다음 모든 응용 프로그램을 **선택합니다.**
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -137,14 +137,14 @@ Azure AD를 사용하여 자동 사용자 프로비전을 위해 Blink를 구성
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
-이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. 동기화 세부 **정보** 섹션을 사용하여 진행 상황을 모니터링하고 깜박임에서 Azure AD 프로비저닝 서비스에서 수행하는 모든 작업을 설명하는 프로비저닝 활동 보고서에 대한 링크를 따를 수 있습니다.
+이 작업은 **설정** 섹션의 **Scope에** 정의된 모든 사용자의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. 동기화 세부 **정보** 섹션을 사용하여 진행 상황을 모니터링하고 깜박임에서 Azure AD 프로비저닝 서비스에서 수행하는 모든 작업을 설명하는 프로비저닝 활동 보고서에 대한 링크를 따를 수 있습니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [엔터프라이즈 앱용 사용자 계정 프로비저닝 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 

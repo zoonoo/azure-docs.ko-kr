@@ -2,17 +2,17 @@
 title: '가상 컴퓨터로 복사 및 붙여넣기: Azure 요새'
 description: 이 문서에서는 Bastion을 사용하여 Azure VM을 복사하고 붙여넣습니다.
 services: bastion
-author: cherylmc
+author: charwen
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: cherylmc
-ms.openlocfilehash: 0aaf816cdfe7d42fd345eb4f010cf47b1615f462
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: charwen
+ms.openlocfilehash: 0af0fdfa1b0bcbb06d9424390e7ca8c8f406bcb3
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76989538"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619312"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>복사하여 가상 시스템에 붙여넣기: Azure 요새
 

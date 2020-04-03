@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 766615a92e616a254cca4b2b3ce1ccde40118275
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 9ce87bac6fbcc3833684dc540c542bc14c9b4955
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350241"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586516"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure 시냅스 분석(이전 SQL DW) 자주 묻는 질문
 
@@ -29,9 +29,9 @@ A. Azure Synapse는 데이터 웨어하우징 및 빅 데이터 분석을 통합
 
 A. Azure 시냅스는 SQL DW(Azure SQL 데이터 웨어하우스)를 발전시켰습니다. 업계 를 선도하는 동일한 데이터 웨어하우스를 완전히 새로운 차원의 성능과 기능으로 끌어올렸습니다. Azure Synapse를 사용하여 프로덕션 환경에서 기존 데이터 웨어하우스 워크로드를 계속 실행하고 미리 보기중인 새로운 기능의 이점을 자동으로 활용할 수 있습니다. 자세한 내용은 [Azure 시냅스 분석](sql-data-warehouse-overview-what-is.md)기능을 참조하십시오.
 
-17. SQL 분석이란 무엇입니까?
+17. 시냅스 SQL 풀이란?
 
-A. SQL Analytics는 Azure Synapse에서 일반적으로 사용할 수 있는 엔터프라이즈 데이터 웨어하우징 기능을 가리킵니다. 자세한 내용은 Azure [시냅스 분석](sql-data-warehouse-overview-what-is.md)입니다.
+A. 시냅스 SQL 풀은 Azure Synapse에서 일반적으로 사용할 수 있는 엔터프라이즈 데이터 웨어하우징 기능을 말합니다. 자세한 내용은 Azure [시냅스 분석](sql-data-warehouse-overview-what-is.md)입니다.
 
 17. Azure 시냅스로 시작하려면 어떻게 해야 합니까?
 
@@ -49,7 +49,7 @@ A. SOC 및 ISO와 같은 제품에 대한 다양한 규정 준수 제안에 대�
 
 A. 예! Power BI는 Azure Synapse를 사용하여 직접 쿼리를 지원하지만 많은 수의 사용자 또는 실시간 데이터를 위한 것은 아닙니다. Power BI 성능을 추가로 최적화하려면 Azure 분석 서비스 또는 분석 서비스 IaaS 위에 Power BI를 사용하는 것이 좋습니다.
 
-17. SQL 분석 용량 제한이란 무엇입니까?
+17. Synapse SQL 풀 용량 제한은 무엇입니까?
 
 A. 현재 [용량 제한](sql-data-warehouse-service-capacity-limits.md) 페이지를 참조하세요. 
 
@@ -83,16 +83,15 @@ A. 많은 기능이 지원됩니다. 지원되지 않는 기능은 [지원되지
 
 ## <a name="tooling-and-administration"></a>도구 및 관리
 
-17. SQL 애널리틱스가 REST API를 지원합니까?
+17. 시냅스 SQL 풀은 REST API를 지원합니까?
 
-A. 예. SQL 데이터베이스와 함께 사용할 수 있는 대부분의 REST 기능은 SQL 분석에서도 사용할 수 있습니다. REST 설명서 페이지 또는 [MSDN](https://msdn.microsoft.com/library/azure/mt163685.aspx)에서 이 API 정보를 찾을 수 있습니다.
-
+A. 예. SQL 데이터베이스와 함께 사용할 수 있는 대부분의 REST 기능은 Synapse SQL 풀에서도 사용할 수 있습니다. REST 설명서 페이지 또는 [MSDN](https://msdn.microsoft.com/library/azure/mt163685.aspx)에서 이 API 정보를 찾을 수 있습니다.
 
 ## <a name="loading"></a>로드
 
 17. 어떤 클라이언트 드라이버가 지원되나요?
 
-A. SQL 분석에 대한 드라이버 지원은 연결 문자열 페이지에서 찾을 수 [있습니다.](sql-data-warehouse-connection-strings.md)
+A. Synapse SQL 풀에 대한 드라이버 지원은 연결 문자열 페이지에서 찾을 수 [있습니다.](sql-data-warehouse-connection-strings.md)
 
 Q: PolyBase에서 지원하는 파일 형식은 무엇입니까?
 
@@ -108,7 +107,8 @@ A: 아니요, PolyBase는 저장소 구성 요소와만 상호 작용합니다.
 
 Q: HDI에 연결할 수 있나요?
 
-A: HDI는 HDFS 계층으로 ADLS 또는 WASB를 사용할 수 있습니다. HDFS 계층이 있는 경우 해당 데이터를 SQL Analytics 데이터 웨어하우스에 로드할 수 있습니다. 그러나 HDI 인스턴스로의 푸시다운 계산을 생성할 수 없습니다. 
+A: HDI는 HDFS 계층으로 ADLS 또는 WASB를 사용할 수 있습니다. HDFS 계층이 있는 경우 해당 데이터를 시냅스 SQL 풀에 로드할 수 있습니다. 그러나 HDI 인스턴스로의 푸시다운 계산을 생성할 수 없습니다. 
 
 ## <a name="next-steps"></a>다음 단계
+
 Azure 시냅스 전체에 대한 자세한 내용은 [개요](sql-data-warehouse-overview-faq.md) 페이지를 참조하세요.

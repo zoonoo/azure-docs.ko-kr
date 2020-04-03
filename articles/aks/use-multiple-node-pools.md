@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에서 클러스터에 대한 여러 �
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: 607419787bc0bab243d6cc2b8cbaa0ec22921e87
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 87f066ed17e5274439082956803d269bdd5853f5
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422324"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616513"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스(AKS)에서 클러스터에 대한 여러 노드 풀 생성 및 관리
 
@@ -22,7 +22,7 @@ AZURE Kubernetes 서비스(AKS)에서 동일한 구성의 노드가 *노드 풀�
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-Azure CLI 버전 2.2.0 이상 설치 및 구성이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하십시오.
+Azure CLI 버전 2.2.0 이상 설치 및 구성이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -41,7 +41,7 @@ Azure CLI 버전 2.2.0 이상 설치 및 구성이 필요합니다. `az --versio
 시작하려면 단일 노드 풀을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 [az 그룹 만들기][az-group-create] 명령을 사용 하 여 *eastus* 지역에서 *myResourceGroup* 라는 리소스 그룹을 만듭니다. 그런 다음 [az aks create][az-aks-create] 명령을 사용하여 *myAKSCluster라는* AKS 클러스터가 만들어집니다. *1.15.7의* *--kubernetes 버전에서는* 다음 단계에서 노드 풀을 업데이트하는 방법을 보여 줄 수 있습니다. [지원되는 Kubernetes 버전을][supported-versions]지정할 수 있습니다.
 
 > [!NOTE]
-> 여러 노드 풀을 사용할 때 *기본* 로드 밸로이터 SKU가 **지원되지 않습니다.** 기본적으로 AKS 클러스터는 Azure CLI 및 Azure 포털의 *표준* 로드 밸런서 SKU를 사용 하 여 만들어집니다.
+> 여러 노드 풀을 사용할 때 *기본* 로드 밸로이터 SKU가 **지원되지 않습니다.** 기본적으로 AKS 클러스터는 Azure CLI 및 Azure 포털의 *표준* 로드 밸런서 SKU로 만들어집니다.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -420,7 +420,7 @@ Kubernetes 스케줄러는 taint 및 toleration을 사용하여 노드에서 실
 
 고급 Kubernetes 예약 기능을 사용하는 방법에 대한 자세한 내용은 [AKS의 고급 스케줄러 기능에 대한 모범 사례를][taints-tolerations] 참조하십시오.
 
-이 예제에서는 --node-taints 명령을 사용하여 GPU 기반 노드에 오염을 적용합니다. 이전 `kubectl get nodes` 명령의 출력에서 GPU 기반 노드의 이름을 지정합니다. taint은 *키:값으로* 적용된 다음 일정 옵션으로 적용됩니다. 다음 예제에서는 *sku=gpu* 쌍을 사용 하 고 그렇지 않으면 *NoSchedule* 기능을 가지고 있는 포드를 정의 합니다.
+이 예제에서는 --node-taints 명령을 사용하여 GPU 기반 노드에 오염을 적용합니다. 이전 `kubectl get nodes` 명령의 출력에서 GPU 기반 노드의 이름을 지정합니다. 오염은 *키= 값* 쌍으로 적용된 다음 일정 옵션으로 적용됩니다. 다음 예제에서는 *sku=gpu* 쌍을 사용 하 고 그렇지 않으면 *NoSchedule* 기능을 가지고 있는 포드를 정의 합니다.
 
 ```console
 az aks nodepool add --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
@@ -480,7 +480,7 @@ Events:
   Normal  Started    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Started container
 ```
 
-이 오염이 적용된 포드만 *gpunodepool의*노드에서 예약할 수 있습니다. 다른 모든 포드는 *nodepool1* 노드 풀에서 예약됩니다. 추가 노드 풀을 만드는 경우 추가 오염 및 내포를 사용하여 해당 노드 리소스에서 예약할 수 있는 포드를 제한할 수 있습니다.
+이 내포가 적용된 포드만 *gpunodepool의*노드에서 예약할 수 있습니다. 다른 모든 포드는 *nodepool1* 노드 풀에서 예약됩니다. 추가 노드 풀을 만드는 경우 추가 오염 및 내포를 사용하여 해당 노드 리소스에서 예약할 수 있는 포드를 제한할 수 있습니다.
 
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>노드 풀에 대한 오염, 레이블 또는 태그 지정
 

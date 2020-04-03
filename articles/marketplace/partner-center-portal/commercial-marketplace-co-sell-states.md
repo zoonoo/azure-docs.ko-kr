@@ -1,26 +1,26 @@
 ---
-title: 공동 판매 주 코드 | Azure 마켓플레이스
-description: 오퍼의 공동 판매 페이지에서 연락처 정보를 제공할 때 이러한 주/도 코드를 사용합니다.
+title: 주 및 지방 공동 판매 코드 | Azure 마켓플레이스
+description: 오퍼의 공동 판매 페이지에서 연락처 정보를 제공할 때 이러한 주 및 지방 코드를 사용합니다.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.openlocfilehash: f87014a599afd6d1c56d175b92d4da1ea49d9470
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 782f2d6facb28630989f086a68c551314e02e48e
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277042"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619356"
 ---
-# <a name="co-sell-state-codes"></a>공동 판매 상태 코드
+# <a name="co-sell-state-and-province-codes"></a>주 및 지방 코드 공동 판매
 
 해당하는 경우 다음 코드를 사용하여 [오퍼의 공동 판매 페이지에서 연락처 정보를 제공할](commercial-marketplace-co-sell.md#contacts)때 주/도 정보를 제공합니다.
 
-## <a name="stateprovince-table"></a>시/도 표
+## <a name="us-states-and-territories"></a>미국 주 및 지역
 
-|   시/도 이름               |   코드    |
+|   주 및 지역 이름          |   코드    |
 |-------------------------------------|-----------|
 | Alabama                             | 미국-알     |
 | Alaska                              | US-AK     |
@@ -78,7 +78,40 @@ ms.locfileid: "80277042"
 | 북마리아나 제도            | 미국-MP     |
 | 푸에르토리코                         | 미국-PR     |
 | 미국령 해외 제도 | US-UM    |
-|미국령 버진 아일랜드                 | US-VI     |
+| 미국령 버진 아일랜드                 | US-VI    |
+
+## <a name="canadian-provinces-and-territories"></a>캐나다 주 및 영토
+
+|   지방 및 영토 이름       |   코드    |
+|-------------------------------------|-----------|
+| Alberta                             |  CA-AB    |
+| British Columbia                    |  CA-BC    |
+| Manitoba                            |  CA-MB    |
+| New Brunswick                       |  CA-NB    |
+| Newfoundland and Labrador           |  CA-NL    |
+| Nova Scotia                         |  CA-NS    |
+| Ontario                             |  CA-ON    |
+| Prince Edward Island                |  CA-PE    |
+| Quebec                              |  CA-QC    |
+| Saskatchewan                        |  CA-SK    |
+| Northwest Territories               |  CA-NT    |
+| Nunavut                             |  CA-NU    |
+| Yukon                               |  CA-YT    |
+
+
+## <a name="australian-states-and-territories"></a>오스트레일리아 주 및 영토
+
+|   주 및 지역 이름          |   코드    |
+|-------------------------------------|-----------|
+| 뉴사우스웨일스                     |  AU-NSW   |
+| Queensland                          |  AU-QLD   |
+| South Australia                     |  AU-SA    |
+| Tasmania                            |  AU-TAS   |
+| 빅토리아                            |  AU-VIC   |
+| Western Australia                   |  AU-WA    |
+| Australian Capital Territory        |  AU-ACT   |
+| Northern Territory                  |  AU-NT    |
+
 
 ## <a name="next-steps"></a>다음 단계
 

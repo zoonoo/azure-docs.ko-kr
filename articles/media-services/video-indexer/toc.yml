@@ -97,7 +97,7 @@
   items:
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/media-services/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'
@@ -111,3 +111,5 @@
       href: release-notes.md
     - name: 사용자 의견
       href: 'https://cognitive.uservoice.com/forums/598144-video-indexer'
+    - name: 블로그
+      href: 'https://azure.microsoft.com/blog/tag/video-indexer/'

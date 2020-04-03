@@ -1,6 +1,6 @@
 ---
 title: T-SQL 문
-description: SQL 분석에서 지원되는 T-SQL 문에 대한 설명서에 대한 링크입니다.
+description: Synapse SQL 풀에서 지원되는 T-SQL 문에 대한 설명서에 대한 링크입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,17 +11,19 @@ ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 53609049f69f0a3d50430ef512a5bf4a8ffd6d82
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 011a850a44948bf5eee28a40d59dcf7672d866e8
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351346"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586360"
 ---
-# <a name="t-sql-statements-supported-in-sql-analytics"></a>SQL 분석에서 지원되는 T-SQL 문
-SQL 분석에서 지원되는 T-SQL 문에 대한 설명서에 대한 링크입니다.
+# <a name="t-sql-statements-supported-in-synapse-sql-pool"></a>시냅스 SQL 풀에서 지원되는 T-SQL 문
+
+Synapse SQL 풀에서 지원되는 T-SQL 문에 대한 설명서에 대한 링크입니다.
 
 ## <a name="data-definition-language-ddl-statements"></a>데이터 정의 언어(DDL) 문
+
 * [데이터베이스 변경](https://msdn.microsoft.com/library/mt204042.aspx)
 * [ALTER INDEX](https://msdn.microsoft.com/library/ms188388.aspx)
 * [구체화된 뷰 변경(미리](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) 보기) 
@@ -39,7 +41,7 @@ SQL 분석에서 지원되는 T-SQL 문에 대한 설명서에 대한 링크입�
 * [구체화된 뷰를 선택으로 만들기(미리](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest) 보기) 
 * [CREATE PROCEDURE](https://msdn.microsoft.com/library/ms187926.aspx)
 * [CREATE SCHEMA](https://msdn.microsoft.com/library/ms189462.aspx)
-* [CREATE STATISTICS](https://msdn.microsoft.com/library/ms188038.aspx)
+* [통계 만들기](https://msdn.microsoft.com/library/ms188038.aspx)
 * [테이블 만들기](https://msdn.microsoft.com/library/mt203953.aspx)
 * [CREATE TABLE AS SELECT](https://msdn.microsoft.com/library/mt204041.aspx)
 * [뷰 만들기](https://msdn.microsoft.com/library/ms187956.aspx)
@@ -52,7 +54,7 @@ SQL 분석에서 지원되는 T-SQL 문에 대한 설명서에 대한 링크입�
 * [DROP STATISTICS](https://msdn.microsoft.com/library/ms175075.aspx)
 * [드롭 테이블](https://msdn.microsoft.com/library/ms173790.aspx)
 * [DROP SCHEMA](https://msdn.microsoft.com/library/ms186751.aspx)
-* [DROP VIEW](https://msdn.microsoft.com/library/ms173492.aspx)
+* [드롭 뷰](https://msdn.microsoft.com/library/ms173492.aspx)
 * [워크로드 분류자 삭제](/sql/t-sql/statements/drop-workload-classifier-transact-sql)
 * [이름을 바꿀](https://msdn.microsoft.com/library/mt631611.aspx)
 * [RESULT_SET_CACHING 설정](/sql/t-sql/statements/set-result-set-caching-transact-sql) 
@@ -60,11 +62,13 @@ SQL 분석에서 지원되는 T-SQL 문에 대한 설명서에 대한 링크입�
 * [업데이트 통계](https://msdn.microsoft.com/library/ms187348.aspx)
 
 ## <a name="data-manipulation-language-dml-statements"></a>데이터 조작 언어(DML) 문
+
 * [삭제](https://msdn.microsoft.com/library/ms189835.aspx)
 * [삽입](https://msdn.microsoft.com/library/ms174335.aspx)
 * [업데이트](https://msdn.microsoft.com/library/ms177523.aspx)
 
 ## <a name="database-console-commands"></a>데이터베이스 콘솔 명령
+
 * [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
 * [DBCC 드롭결과셋캐시(미리](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest) 보기)
 * [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/mt204018.aspx)
@@ -77,6 +81,7 @@ SQL 분석에서 지원되는 T-SQL 문에 대한 설명서에 대한 링크입�
 * [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/mt204043.aspx)
 
 ## <a name="query-statements"></a>쿼리 문
+
 * [선택](https://msdn.microsoft.com/library/ms189499.aspx)
 * [common_table_expression](https://msdn.microsoft.com/library/ms175972.aspx)
 * [EXCEPT 및 INTERSECT](https://msdn.microsoft.com/library/ms188055.aspx)
@@ -87,7 +92,7 @@ SQL 분석에서 지원되는 T-SQL 문에 대한 설명서에 대한 링크입�
 * [HAVING](https://msdn.microsoft.com/library/ms180199.aspx)
 * [ORDER BY](https://msdn.microsoft.com/library/ms188385.aspx)
 * [옵션](https://msdn.microsoft.com/library/ms190322.aspx)
-* [UNION](https://msdn.microsoft.com/library/ms180026.aspx)
+* [연합](https://msdn.microsoft.com/library/ms180026.aspx)
 * [어디](https://msdn.microsoft.com/library/ms188047.aspx)
 * [TOP](https://msdn.microsoft.com/library/ms189463.aspx)
 * [별칭 지정](https://msdn.microsoft.com/library/mt631614.aspx)
@@ -95,6 +100,7 @@ SQL 분석에서 지원되는 T-SQL 문에 대한 설명서에 대한 링크입�
 * [하위 쿼리](https://msdn.microsoft.com/library/mt631613.aspx)
 
 ## <a name="security-statements"></a>보안 문
+
 * 사용 권한: [GRANT](https://msdn.microsoft.com/library/ms187965.aspx), [DENY](https://msdn.microsoft.com/library/ms188338.aspx), [REVOKE](https://msdn.microsoft.com/library/ms187728.aspx)
 * [ALTER AUTHORIZATION](https://msdn.microsoft.com/library/ms187359.aspx)
 * [ALTER CERTIFICATE](https://msdn.microsoft.com/library/ms189511.aspx)
@@ -120,4 +126,5 @@ SQL 분석에서 지원되는 T-SQL 문에 대한 설명서에 대한 링크입�
 * [OPEN MASTER KEY](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## <a name="next-steps"></a>다음 단계
-자세한 참조 정보는 [SQL 분석의 T-SQL 언어 요소](sql-data-warehouse-reference-tsql-language-elements.md)및 [SQL 분석의 시스템 보기를](sql-data-warehouse-reference-tsql-system-views.md)참조하십시오.
+
+자세한 참조 정보는 [시냅스 SQL 풀의 T-SQL 언어 요소](sql-data-warehouse-reference-tsql-language-elements.md)및 [시냅스 SQL 풀의 시스템 보기를](sql-data-warehouse-reference-tsql-system-views.md)참조하십시오.

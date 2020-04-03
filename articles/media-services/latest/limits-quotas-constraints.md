@@ -1,6 +1,6 @@
 ---
-title: Azure 미디어 서비스의 할당량 및 제한 사항
-description: 이 항목에서는 Microsoft Azure 미디어 서비스의 할당량 및 제한 사항에 대해 설명합니다.
+title: Azure 미디어 서비스의 할당량 및 제한
+description: 이 항목에서는 Microsoft Azure 미디어 서비스의 할당량 및 제한에 대해 설명합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 04/01/2020
 ms.author: juliako
-ms.openlocfilehash: 6fb2f8f9172533a2c7f4aa03e99bd08e16a1f1dc
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 2d4f5f83335f6f115362bcf66cf69d7f9de7eaa5
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545921"
+ms.locfileid: "80582314"
 ---
 # <a name="azure-media-services-quotas-and-limits"></a>Azure 미디어 서비스 할당량 및 제한
 
@@ -79,7 +79,7 @@ ms.locfileid: "80545921"
 | 라이브 이벤트당 라이브 출력 |3 <sup>(5)</sup> |
 | 최대 라이브 출력 지속 시간 | 25시간 |
 
-<sup>4</sup> 라이브 이벤트 제한사항에 대한 자세한 내용은 [라이브 이벤트 유형 비교 및 제한 을](live-event-types-comparison.md)참조하십시오.
+<sup>4</sup> 라이브 이벤트 제한에 대한 자세한 내용은 [라이브 이벤트 유형 비교 및 제한을](live-event-types-comparison.md)참조하십시오.
 
 <sup>5</sup> 라이브 출력은 생성 시 시작되고 삭제되면 중지됩니다.
 
@@ -87,7 +87,7 @@ ms.locfileid: "80545921"
 
 | 리소스 | 기본 제한 | 
 | --- | --- | 
-| 미디어 서비스 계정당 [스트리밍 끝점(중지](streaming-endpoint-concept.md) 또는 실행)|2(고정)|
+| 미디어 서비스 계정당 [스트리밍 끝점(중지](streaming-endpoint-concept.md) 또는 실행)|2 |
 | [동적 매니페스트 필터](filters-dynamic-manifest-overview.md)|100|
 | [스트리밍 정책](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | 한 번에 에셋과 연결된 고유 [스트리밍 로케이터](streaming-locators-concept.md) | 100<sup>(7)</sup> (고정) |

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: b5a85f8ae1564d724b826c809261e56577f4783a
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 47502e693b897a57517d267924cc6c2752c10440
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435539"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585335"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Security Center 문제 해결 가이드
 
@@ -81,7 +81,7 @@ Security Center에서 수행되는 대부분의 문제 해결은 실패한 구�
 
 **모니터링 상태**는 Security Center에서 자동 프로비전을 위해 초기화된 VM 및 컴퓨터를 성공적으로 모니터링할 수 없는 이유를 정의합니다. 다음 표에서는 **모니터링 상태** 값, 설명 및 해결 단계를 보여 줍니다.
 
-| 모니터링 상태 | Description | 해결 단계: |
+| 모니터링 상태 | 설명 | 해결 단계: |
 |---|---|---|
 | 보류 중인 에이전트 설치 | 로그 분석 에이전트 설치가 계속 실행되고 있습니다.  설치하는 데 몇 시간이 걸릴 수 있습니다. | 자동 설치가 완료될 때까지 기다립니다. |
 | 전원 상태 끄기 | VM이 중지됩니다.  로그 분석 에이전트는 실행 중인 VM에만 설치할 수 있습니다. | VM을 다시 시작합니다. |
@@ -136,7 +136,7 @@ Security Center 대시보드를 로드하는 문제가 있는 경우 Security Ce
 
 ![Microsoft 지원](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 이 문서에서는 Azure Security Center에서 보안 정책을 구성하는 방법을 배웠습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -148,7 +148,6 @@ Security Center 대시보드를 로드하는 문제가 있는 경우 Security Ce
 * [Azure Security Center에서 경고 유효성 검사](security-center-alert-validation.md)
 * [Azure Security Center의 이메일 알림](security-center-provide-security-contact-details.md)
 * [Azure Security Center에서 보안 인시던트 처리](security-center-incident.md)
-* [Azure Security Center에서 인시던트 및 경고 조사](security-center-investigation.md)
 * [Azure 보안 센터 검색 기능](security-center-detection-capabilities.md)
 * [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) — 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure 보안 센터 FAQ](faq-general.md) — 서비스 사용에 대한 자주 묻는 질문 찾기

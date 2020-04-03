@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 145439ebedd2ddf7c081339146010c66f37fe1af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c9933e75a39af43af9e2745d5f7732d40027b34
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136537"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582467"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Azure Active Directory에서 암호 없는 인증 배포 계획
 
@@ -59,7 +59,7 @@ Microsoft의 암호 없는 인증 방법은 다양한 시나리오를 사용할 
 | **웹 앱 로그인**: <br> 모바일 또는 비창 장치에서 | **예** | **아니요** | **아니요** |
 | **컴퓨터 로그인:** <br> Windows 이외의 컴퓨터 | **아니요** | **아니요** | **아니요** |
 
-조직에 가장 적합한 방법을 선택하는 방법에 대한 자세한 내용은 [암호없는 방법 결정을](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless#deciding-a-passwordless-method)참조하십시오.
+조직에 가장 적합한 방법을 선택하는 방법에 대한 자세한 내용은 [암호없는 방법 결정을](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#choose-a-passwordless-method)참조하십시오.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -93,11 +93,11 @@ Windows Hello의 전제 조건은 온-프레미스, 하이브리드 또는 클�
 
 다음 표에서는 이 프로젝트 중에 구현할 사용 사례를 간략하게 설명합니다.
 
-| 영역 | 설명 |
+| Area | 설명 |
 | --- | --- |
 | **액세스** | 암호 없는 로그인은 회사 네트워크 내부 또는 외부의 회사 또는 개인 장치에서 사용할 수 있습니다. |
 | **감사** | 사용 현황 데이터는 관리자가 거의 실시간으로 감사할 수 있습니다. <br> 사용 현황 데이터는 적어도 29일마다 회사 시스템에 다운로드하거나 SIEM 도구가 사용됩니다. |
-| **거 버 넌 스** | 적절한 인증 방법 및 관련 그룹에 대한 사용자 할당의 수명 주기가 정의되고 모니터링됩니다. |
+| **거버넌스** | 적절한 인증 방법 및 관련 그룹에 대한 사용자 할당의 수명 주기가 정의되고 모니터링됩니다. |
 | **보안** | 적절한 인증 방법에 대한 액세스는 사용자 및 그룹 할당을 통해 제어됩니다. <br> 권한이 있는 사용자만 암호 없는 로그인을 사용할 수 있습니다. |
 | **성능** | 액세스 할당 전파 타임라인이 문서화되고 모니터링됩니다. <br> 로그인 시간은 사용 편의성을 위해 측정됩니다. |
 | **사용자 경험** | 사용자는 모바일 호환성을 알고 있습니다. <br> 사용자는 인증자 앱 암호 없는 로그인을 구성할 수 있습니다. |
@@ -132,7 +132,7 @@ Microsoft는 다단계 인증 [통신 템플릿,](https://aka.ms/mfatemplates)SS
 
 마이크로 소프트 인증 앱은 구글 플레이 또는 애플 앱 스토어에서 무료로 다운로드할 수 있습니다. [Microsoft 인증자 앱 다운로드에 대해 자세히 알아보십시오.](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6) 사용자가 Microsoft 인증자 앱을 다운로드해 보라고 합니다. 지침에 따라 전화 로그인을 활성화합니다. 
 
-그것은 강력한에 어떤 iOS 또는 안 드 로이드 전화 집니다., 암호없는 자격 증명. 사용자는 휴대폰에 알림을 받고 화면에 표시된 번호를 휴대폰의 번호와 일치한 다음 생체 인식 또는 PIN을 사용하여 확인하여 모든 플랫폼 또는 브라우저에 로그인합니다. [Microsoft 인증자 앱의 작동 방식에 대한 자세한 내용을 참조하십시오.](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless#user-using-microsoft-authenticator-for-passwordless-sign-in) 
+그것은 강력한에 어떤 iOS 또는 안 드 로이드 전화 집니다., 암호없는 자격 증명. 사용자는 휴대폰에 알림을 받고 화면에 표시된 번호를 휴대폰의 번호와 일치한 다음 생체 인식 또는 PIN을 사용하여 확인하여 모든 플랫폼 또는 브라우저에 로그인합니다. [Microsoft 인증자 앱의 작동 방식에 대한 자세한 내용을 참조하십시오.](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#microsoft-authenticator-app)
 
 ![인증자 앱으로 로그인](./media/howto-authentication-passwordless-deployment/passwordless-dp-sign-in.png)
 

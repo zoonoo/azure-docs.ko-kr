@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: f075362f976e6abb26c9781c4b0cdeb7912c0862
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 75363212684bb09e84a4bc4881af26e6d2a8e7e3
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76514037"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585283"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Azure 모니터를 통해 미디어 서비스 메트릭 및 진단 로그 모니터링
 
@@ -54,7 +54,7 @@ ms.locfileid: "76514037"
 |스트리밍정책할당량|스트리밍 정책 할당량|계정의 스트리밍 정책 할당량입니다.|
 |스트리밍정책할당량사용비율|스트리밍 정책 할당량 사용 백분율|이미 사용된 스트리밍 정책 할당량의 백분율입니다.|
 
-또한 계정 [할당량 및 제한 사항도](limits-quotas-constraints.md)검토해야 합니다.
+또한 계정 [할당량 및 한도를](limits-quotas-constraints.md)검토해야 합니다.
 
 ### <a name="streaming-endpoint"></a>스트리밍 엔드포인트
 
@@ -92,7 +92,7 @@ ms.locfileid: "76514037"
 
 ### <a name="key-delivery"></a>키 배달
 
-|이름|설명|
+|속성|설명|
 |---|---|
 |주요 배송 서비스 요청|키 배달 서비스 요청 정보를 표시하는 로그입니다. 자세한 내용은 [스키마](media-services-diagnostic-logs-schema.md)를 참조하십시오.|
 

@@ -3,14 +3,14 @@ title: 질문과 대답
 description: Azure 컨테이너 레지스트리 서비스와 관련하여 자주 묻는 질문에 대한 답변
 author: sajayantony
 ms.topic: article
-ms.date: 07/02/2019
+ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: c0d51c9c31e4e6859eaedce371efeafaa5fd4f46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7452b5dd3c952a13a28566914d2fe513689d4751
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78403218"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618805"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure 컨테이너 레지스트리에 대해 자주 묻는 질문
 
@@ -104,7 +104,8 @@ az role assignment create --role "Reader" --assignee user@contoso.com --scope /s
 - [TLS 1.2를 활성화 하는 방법?](#how-to-enable-tls-12)
 - [Azure 컨테이너 레지스트리가 콘텐츠 트러스트를 지원합니까?](#does-azure-container-registry-support-content-trust)
 - [레지스트리 리소스를 관리할 수 있는 권한 없이 이미지를 가져오거나 푸시할 수 있는 액세스 권한을 부여하려면 어떻게 해야 합니까?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
-- [레지스트리에 대한 자동 이미지 격리를 사용하려면 어떻게 해야 합니까?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
+- [레지스트리에 대한 자동 이미지 격리를 사용하도록 설정하려면 어떻게 해야 합니까?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
+- [익명 끌어오기 액세스를 사용하도록 설정하려면 어떻게 해야 합니까?](#how-do-i-enable-anonymous-pull-access)
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Docker 레지스트리 HTTP API V2에 액세스하려면 어떻게 해야 합니까?
 
@@ -251,13 +252,18 @@ ACR은 서로 다른 수준의 권한을 제공하는 [사용자 지정 역할�
 
 이미지 격리는 현재 ACR의 미리 보기 기능입니다. 레지스트리의 격리 모드를 활성화하여 보안 검사를 성공적으로 통과한 이미지만 일반 사용자에게 표시되도록 할 수 있습니다. 자세한 내용은 [ACR GitHub 리포지토리를](https://github.com/Azure/acr/tree/master/docs/preview/quarantine)참조하십시오.
 
+### <a name="how-do-i-enable-anonymous-pull-access"></a>익명 끌어오기 액세스를 사용하도록 설정하려면 어떻게 해야 합니까?
+
+익명(public) 끌어오기 액세스에 대한 Azure 컨테이너 레지스트리를 설정하는 것은 현재 미리 보기 기능입니다. 공용 액세스를 활성화하려면 에서 https://aka.ms/acr/support/create-ticket지원 티켓을 열십시오. 자세한 내용은 [Azure 피드백 포럼을](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries)참조하십시오.
+
+
 ## <a name="diagnostics-and-health-checks"></a>진단 및 상태 확인
 
 - [상태 확인`az acr check-health`](#check-health-with-az-acr-check-health)
 - [도커 풀 오류: net/http: 연결을 기다리는 동안 취소된 요청(헤더를 기다리는 동안 Client.Timeout초과)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [docker 푸시가 성공하지만 도커 풀에 오류가 발생하지 않음: 무단: 인증 필요](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
 - [`az acr login`성공하지만, 도커 명령오류가 발생하면 무단: 인증이 필요합니다.](#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
-- [도커 데몬의 디버그 로그 사용 및 받기](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
+- [도커 데몬의 디버그 로그 사용 및 받기](#enable-and-get-the-debug-logs-of-the-docker-daemon)    
 - [새 사용자 권한은 업데이트 후 즉시 적용되지 않을 수 있습니다.](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [직접 REST API 호출에서 인증 정보가 올바른 형식으로 제공되지 않습니다.](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Azure 포털에 내 모든 리포지토리 또는 태그가 나열되지 않는 이유는 무엇입니까?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
@@ -323,13 +329,13 @@ unauthorized: authentication required
 
 예를 들어 `docker push myregistry.azurecr.io/myimage:latest`레지스트리 리소스 이름이 대문자이거나 대/소문자와 같은 `myRegistry`대/소문자인 경우에도 모든 소문자 서버 URL을 사용해야 합니다.
 
-### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Docker 데몬의 디버그 로그 사용 및 받기  
+### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Docker 데몬의 디버그 로그 사용 및 받기    
 
 `debug` 옵션으로 시작합니다. `dockerd` 먼저 Docker 데몬 구성 파일`/etc/docker/daemon.json`()이 존재하지 않는 경우 `debug` 만들고 옵션을 추가합니다.
 
 ```json
-{   
-    "debug": true   
+{    
+    "debug": true    
 }
 ```
 
@@ -339,12 +345,12 @@ unauthorized: authentication required
 sudo service docker restart
 ```
 
-자세한 내용은 Docker [설명서에서](https://docs.docker.com/engine/admin/#enable-debugging)찾을 수 있습니다. 
+자세한 내용은 Docker [설명서에서](https://docs.docker.com/engine/admin/#enable-debugging)찾을 수 있습니다.    
 
- * 로그는 시스템에 따라 다른 위치에서 생성될 수 있습니다. 예를 들어, 우분투 14.04의 `/var/log/upstart/docker.log`경우.   
+ * 로그는 시스템에 따라 다른 위치에서 생성될 수 있습니다. 예를 들어, 우분투 14.04의 `/var/log/upstart/docker.log`경우.    
 자세한 내용은 [Docker 설명서를](https://docs.docker.com/engine/admin/#read-the-logs) 참조하십시오.    
 
- * Windows용 도커의 경우 로그는 %LOCALAPPDATA%/도커/에서 생성됩니다. 그러나 아직 모든 디버그 정보가 포함되어 있지 않을 수 있습니다.   
+ * Windows용 도커의 경우 로그는 %LOCALAPPDATA%/도커/에서 생성됩니다. 그러나 아직 모든 디버그 정보가 포함되어 있지 않을 수 있습니다.    
 
    전체 데몬 로그에 액세스하려면 몇 가지 추가 단계가 필요할 수 있습니다.
 
@@ -487,10 +493,10 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 | Git 서비스 | 소스 컨텍스트 | 수동 빌드 | 커밋 트리거를 통한 자동 빌드 |
 |---|---|---|---|
-| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | yes | yes |
-| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | yes | yes |
-| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | yes | 예 |
-| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | yes | 예 |
+| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | 예 | 예 |
+| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | 예 | 예 |
+| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | 예 | 예 |
+| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | 예 | 예 |
 
 ## <a name="run-error-message-troubleshooting"></a>오류 메시지 문제 해결 실행
 

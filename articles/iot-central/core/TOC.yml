@@ -81,14 +81,10 @@
           href: howto-create-personal-dashboards.md
         - name: 작업 실행
           href: howto-run-a-job.md
-        - name: 버전 디바이스 템플릿
-          href: howto-version-device-template.md
     - name: 변환
       items:
         - name: Azure에서 대상으로 데이터 내보내기
           href: howto-export-data.md
-        - name: IoT Central API 살펴보기
-          href: 'https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/'
         - name: 규칙에서 웹후크 만들기
           href: howto-create-webhooks.md
         - name: 규칙에서 Azure Monitor 작업 그룹 연결

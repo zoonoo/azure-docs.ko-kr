@@ -2,17 +2,17 @@
 title: '바스티온: Azure 요새를 사용하여 원격으로 작업'
 description: 이 페이지에서는 COVID-19 전염병으로 인해 Azure Bastion을 활용하여 원격으로 작업을 활성화하는 방법에 대해 설명합니다.
 services: bastion
-author: cherylmc
+author: mialdrid
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mialdrid
-ms.openlocfilehash: c0bba2560cccc208e2384421218ecebdfef65236
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 182195190fed70b46185f98f595de6b6c32bbffe
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80333059"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619391"
 ---
 # <a name="working-remotely-using-azure-bastion"></a>Azure 요새를 사용하여 원격으로 작업
 

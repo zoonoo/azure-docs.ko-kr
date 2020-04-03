@@ -3,7 +3,7 @@
   items:
     - name: 개요
       items:
-        - name: Azure Dev Spaces 정보
+        - name: Azure Dev Spaces란?
           href: about.md
     - name: 빠른 시작
       items:

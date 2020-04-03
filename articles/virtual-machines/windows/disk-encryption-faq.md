@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: ea2a66a6b012664a9596a02ea32c1a0b677ee3ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5cc6a3d8d736209f762959bca6f8ad379c14203f
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74384259"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582705"
 ---
 # <a name="azure-disk-encryption-for-windows-vms-faq"></a>Windows VM FAQ용 Azure 디스크 암호화
 
@@ -36,7 +36,7 @@ Azure 디스크 암호화를 사용하여 VM 디스크를 암호화하는 데는
 
 ## <a name="what-vm-sizes-and-operating-systems-support-azure-disk-encryption"></a>Azure 디스크 암호화를 지원하는 VM 크기와 운영 체제는 무엇입니까?
 
-Azure 디스크 암호화 개요 문서에는 Azure 디스크 [암호화를](disk-encryption-overview.md) 지원하는 [VM 크기](disk-encryption-overview.md#supported-vm-sizes) 및 [VM 운영 체제가](disk-encryption-overview.md#supported-operating-systems) 나열됩니다.
+Azure 디스크 암호화 개요 문서에는 Azure 디스크 [암호화를](disk-encryption-overview.md) 지원하는 [VM 크기](disk-encryption-overview.md#supported-vms) 및 [VM 운영 체제가](disk-encryption-overview.md#supported-operating-systems) 나열됩니다.
 
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Azure Disk Encryption을 사용하여 부팅 볼륨과 데이터 볼륨을 모두 암호화할 수 있나요?
 
@@ -53,7 +53,7 @@ OS 볼륨을 암호화한 후에는 OS 볼륨에서 암호화를 사용하지 �
 비밀을 회전하려면 원래 디스크 암호화를 활성화하기 위해 사용한 것과 동일한 명령을 호출하여 다른 Key Vault를 지정합니다. 키 암호화 키를 회전하려면 원래 디스크 암호화를 사용하도록 설정하되 새 키 암호화를 지정하는 데 사용한 것과 동일한 명령을 호출합니다. 
 
 >[!WARNING]
-> - 이 VM을 암호화하기 위해 Azure AD 자격 증명을 지정하여 [Azure AD 앱에서](disk-encryption-windows-aad.md) 이전에 Azure 디스크 암호화를 사용한 경우 이 옵션을 계속 사용하여 VM을 암호화해야 합니다. 이는 지원되는 시나리오가 아니므로 이 암호화된 VM에서는 Azure Disk Encryption을 사용할 수 없습니다. 즉, 이 암호화된 VM을 위해 AAD 애플리케이션에서 전환하는 기능은 아직 지원되지 않습니다.
+> - 이 VM을 암호화하기 위해 Azure AD 자격 증명을 지정하여 [Azure AD 앱에서](disk-encryption-windows-aad.md) 이전에 Azure 디스크 암호화를 사용한 경우 이 옵션을 계속 사용하여 VM을 암호화해야 합니다. 이 암호화된 VM에서는 Azure Disk 암호화를 사용할 수 없으며, 이는 지원되는 시나리오가 아니므로 이 암호화된 VM에 대한 AAD 응용 프로그램에서 전환하는 것은 아직 지원되지 않습니다.
 
 ## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>원래 키 암호화 키를 사용하지 않은 경우 키 암호화 키를 추가하거나 제거하려면 어떻게 해야 합니까?
 

@@ -4,16 +4,16 @@ description: Azure IoT Edge 솔루션을 개발에서 프로덕션까지 수행�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/09/2019
+ms.date: 4/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5320c9d7f1ea5ae882c67ee631f5bbafbf97b039
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd24631f8e6b4f3f87438bf22654016dd7699950
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530872"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618312"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -134,11 +134,25 @@ timeToLiveSecs 매개 변수의 기본값은 7200초로, 2시간입니다.
   * 컨테이너 레지스트리에 대한 액세스 관리
   * 태그를 사용하여 버전 관리
 
-### <a name="manage-access-to-your-container-registry"></a>컨테이너 레지스트리에 대한 액세스 관리
+### <a name="manage-access-to-your-container-registry-with-a-service-principal"></a>서비스 주체를 사용하여 컨테이너 레지스트리에 대한 액세스 관리
 
 프로덕션 IoT Edge 디바이스에 모듈을 배포하기 전에 외부 사용자가 컨테이너 이미지를 액세스하거나 변경할 수 없도록 컨테이너 레지스트리에 대한 액세스를 제어해야 합니다. 공용이 아닌 프라이빗 컨테이너 레지스트리를 사용하여 컨테이너 이미지를 관리합니다.
 
-자습서 및 기타 설명서에서는 개발 머신에서 사용한 것과 동일한 컨테이너 레지스트리 자격 증명을 IoT Edge 디바이스에서 사용하도록 안내합니다. 이러한 지침은 테스트 및 개발 환경을 보다 쉽게 설정하도록 돕기 위한 것이며, 프로덕션 시나리오에서 따르면 안 됩니다. Azure Container Registry는 애플리케이션이나 서비스가 IoT Edge 디바이스처럼 자동화된 방식이나 기타 무인 방식으로 컨테이너 이미지를 끌어올 때 [서비스 주체를 사용한 인증](../container-registry/container-registry-auth-service-principal.md)을 권장합니다. 컨테이너 레지스트리에 대한 읽기 전용 권한을 가진 서비스 주체를 만들고 해당 사용자 이름 및 암호를 배포 매니페스트에 제공합니다.
+자습서 및 기타 설명서에서는 개발 머신에서 사용한 것과 동일한 컨테이너 레지스트리 자격 증명을 IoT Edge 디바이스에서 사용하도록 안내합니다. 이러한 지침은 테스트 및 개발 환경을 보다 쉽게 설정하도록 돕기 위한 것이며, 프로덕션 시나리오에서 따르면 안 됩니다. Azure 컨테이너 레지스트리는 응용 프로그램 또는 서비스가 IoT Edge 장치와 마찬가지로 자동화된 또는 무인 방식으로 컨테이너 이미지를 가져올 때 [서비스 주체로 인증할](../container-registry/container-registry-auth-service-principal.md) 것을 권장합니다.
+
+서비스 주체를 만들려면 서비스 주체 만들기에 설명된 대로 두 [스크립트를 실행합니다.](../container-registry/container-registry-auth-aci.md#create-a-service-principal) 이러한 스크립트는 다음과 같은 작업을 수행합니다.
+
+* 첫 번째 스크립트는 서비스 주체를 만듭니다. 서비스 주체 ID와 서비스 주체 암호를 출력합니다. 이러한 값을 레코드에 안전하게 저장합니다.
+
+* 두 번째 스크립트는 서비스 주체에게 부여할 역할 할당을 생성하며, 필요한 경우 이후에 실행할 수 있습니다. `role` 매개 변수에 **acrPull** 사용자 역할을 적용하는 것이 좋습니다. 역할 목록은 [Azure 컨테이너 레지스트리 역할 및 사용 권한을 참조합니다.](../container-registry/container-registry-roles.md)
+
+서비스 주체를 사용하여 인증하려면 첫 번째 스크립트에서 얻은 서비스 주체 ID와 암호를 제공합니다.
+
+* 사용자 이름 또는 클라이언트 ID의 경우 서비스 주체 ID를 지정합니다.
+
+* 암호 또는 클라이언트 보안 암호의 경우 서비스 주 암호를 지정합니다.
+
+Azure CLI를 사용하여 컨테이너 인스턴스를 시작하는 예는 [서비스 주체를 사용하여 인증을](../container-registry/container-registry-auth-aci.md#authenticate-using-the-service-principal)참조하십시오.
 
 ### <a name="use-tags-to-manage-versions"></a>태그를 사용하여 버전 관리
 

@@ -1,6 +1,6 @@
 ---
 title: 테이블 인덱싱
-description: SQL 분석에서 테이블을 인덱싱하기 위한 권장 사항 및 예제입니다.
+description: Synapse SQL 풀에서 테이블을 인덱싱하기 위한 권장 사항 및 예제입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ced965f94808bdc672f694bede5c239178891f97
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: d5acc2b69ed521af4fd4777dc9f3496290078379
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351281"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583279"
 ---
-# <a name="indexing-tables-in-sql-analytics"></a>SQL 분석의 테이블 인덱싱
+# <a name="indexing-tables-in-synapse-sql-pool"></a>시냅스 SQL 풀의 테이블 인덱싱
 
-SQL 분석에서 테이블을 인덱싱하기 위한 권장 사항 및 예제입니다.
+Synapse SQL 풀에서 테이블을 인덱싱하기 위한 권장 사항 및 예제입니다.
 
 ## <a name="index-types"></a>인덱스 형식
 
-SQL Analytics는 [클러스터된 columnstore 인덱스,](/sql/relational-databases/indexes/columnstore-indexes-overview) [클러스터된 인덱스 및 클러스터되지 않은 인덱스](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described)및 [힙이라고도](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes)하는 비인덱스 옵션을 비롯한 여러 인덱싱 옵션을 제공합니다.  
+Synapse SQL 풀은 [클러스터된 columnstore 인덱스,](/sql/relational-databases/indexes/columnstore-indexes-overview) [클러스터된 인덱스 및 클러스터되지 않은 인덱스](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described)및 [힙이라고도](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes)하는 비인덱스 옵션을 비롯한 여러 인덱싱 옵션을 제공합니다.  
 
-인덱스가 있는 테이블을 만들려면 [SQL 분석 만들기](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) 설명서를 참조하십시오.
+인덱스가 있는 테이블을 만들려면 [테이블 만들기(Synapse SQL 풀) 설명서를](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) 참조하십시오.
 
 ## <a name="clustered-columnstore-indexes"></a>클러스터형 columnstore 인덱스
 
-기본적으로 SQL Analytics는 테이블에 인덱스 옵션이 지정되지 않은 경우 클러스터된 열저장소 인덱스를 만듭니다. 클러스터형 columnstore 테이블은 가장 높은 수준의 데이터 압축 뿐만 아니라 전반적으로 최적의 쿼리 성능을 제공합니다.  클러스터형 columnstore 테이블은 일반적으로 클러스터형 인덱스 또는 힙 테이블보다 나은 성능을 제공하며 대형 테이블에 적합합니다.  이러한 이유로, 클러스터형 columnstore는 테이블 인덱싱 방법을 잘 모를 경우에 시작하기 가장 좋습니다.  
+기본적으로 Synapse SQL 풀은 테이블에 인덱스 옵션이 지정되지 않은 경우 클러스터된 열저장소 인덱스를 만듭니다. 클러스터형 columnstore 테이블은 가장 높은 수준의 데이터 압축 뿐만 아니라 전반적으로 최적의 쿼리 성능을 제공합니다.  클러스터형 columnstore 테이블은 일반적으로 클러스터형 인덱스 또는 힙 테이블보다 나은 성능을 제공하며 대형 테이블에 적합합니다.  이러한 이유로, 클러스터형 columnstore는 테이블 인덱싱 방법을 잘 모를 경우에 시작하기 가장 좋습니다.  
 
 클러스터형 columnstore 테이블을 만들려면 WITH 절에 CLUSTERED COLUMNSTORE INDEX를 지정하거나 WITH 절을 제외합니다.
 
@@ -52,7 +52,7 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 
 ## <a name="heap-tables"></a>힙 테이블
 
-SQL Analytics에서 데이터를 일시적으로 방문하면 힙 테이블을 사용하면 전체 프로세스가 더 빨라질 수 있습니다. 즉, 힙에 로드하는 것이 인덱스 테이블에 로드하는 것보다 더 빠르며 경우에 따라 캐시에서 후속 읽기가 수행될 수도 있습니다.  더 많은 변환을 실행하기 전에 준비만을 위해 데이터를 로드하는 경우 테이블을 힙 테이블에 로드하면 데이터를 클러스터형 columnstore 테이블에 로드할 때보다 훨씬 빠릅니다. 또한 데이터를 [임시 테이블](sql-data-warehouse-tables-temporary.md)에 로드하면 테이블을 영구 스토리지에 로드하는 것보다 빠릅니다.  
+Synapse SQL 풀에서 데이터를 일시적으로 방문하는 경우 힙 테이블을 사용하면 전체 프로세스가 더 빨라질 수 있습니다. 즉, 힙에 로드하는 것이 인덱스 테이블에 로드하는 것보다 더 빠르며 경우에 따라 캐시에서 후속 읽기가 수행될 수도 있습니다.  더 많은 변환을 실행하기 전에 준비만을 위해 데이터를 로드하는 경우 테이블을 힙 테이블에 로드하면 데이터를 클러스터형 columnstore 테이블에 로드할 때보다 훨씬 빠릅니다. 또한 데이터를 [임시 테이블](sql-data-warehouse-tables-temporary.md)에 로드하면 테이블을 영구 스토리지에 로드하는 것보다 빠릅니다.  
 
 6천만 개 미만의 작은 조회 테이블의 경우 힙 테이블이 적합합니다.  클러스터 열 저장소 테이블은 6천만 개 이상의 행이 있으면 최적의 압축을 얻기 시작합니다.
 
@@ -190,7 +190,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 
 ### <a name="memory-pressure-when-index-was-built"></a>인덱스를 작성했을 때 메모리 부족
 
-압축된 행 그룹당 행 수는 행의 너비와 행 그룹을 처리하는 데 사용할 수 있는 메모리 양에 직접적으로 관련되어 있습니다.  메모리 부족 상황에서 행이 columnstore 테이블에 기록되는 경우 columnstore 세그먼트 품질이 저하될 수 있습니다.  따라서 columnstore 인덱스가 테이블에 쓰는 세션에 가능한 한 많은 메모리에 대한 액세스 권한을 부여하는 것이 가장 좋습니다.  메모리와 동시성 간에는 적절한 메모리 할당에 대한 지침은 테이블의 각 행의 데이터, 시스템에 할당된 SQL Analytics 단위 및 세션에 제공할 수 있는 동시성 슬롯 수에 따라 달라집니다. 테이블에 데이터를 기록할 수 있습니다.
+압축된 행 그룹당 행 수는 행의 너비와 행 그룹을 처리하는 데 사용할 수 있는 메모리 양에 직접적으로 관련되어 있습니다.  메모리 부족 상황에서 행이 columnstore 테이블에 기록되는 경우 columnstore 세그먼트 품질이 저하될 수 있습니다.  따라서 columnstore 인덱스가 테이블에 쓰는 세션에 가능한 한 많은 메모리에 대한 액세스 권한을 부여하는 것이 가장 좋습니다.  메모리 및 동시성은 서로 상쇄되므로 적합한 메모리 할당 지침은 테이블의 각 행에 포함된 데이터, 시스템에 할당한 데이터 웨어하우스 단위 및 테이블에 데이터를 쓰는 세션에 제공할 수 있는 동시 슬롯 수에 따라 좌우됩니다.
 
 ### <a name="high-volume-of-dml-operations"></a>많은 양의 DML 작업
 
@@ -204,13 +204,13 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 
 ### <a name="small-or-trickle-load-operations"></a>작거나 지속적인 로드 작업
 
-SQL Analytics 데이터베이스로 흐르는 작은 로드를 트리클 로드라고도 합니다. 이들은 일반적으로 시스템에 의해 수집되는 거의 일정한 데이터 스트림을 나타냅니다. 그러나 이 스트림은 거의 지속적이므로 행의 볼륨은 특별히 크지 않습니다. 종종 데이터가 columnstore 형식으로 직접 로드하는 데 필요한 임계값보다 훨씬 큽니다.
+Synapse SQL 풀로 흐르는 작은 로드를 트리클 로드라고도 합니다. 이들은 일반적으로 시스템에 의해 수집되는 거의 일정한 데이터 스트림을 나타냅니다. 그러나 이 스트림은 거의 지속적이므로 행의 볼륨은 특별히 크지 않습니다. 종종 데이터가 columnstore 형식으로 직접 로드하는 데 필요한 임계값보다 훨씬 큽니다.
 
 이러한 상황에서는 데이터를 로드하기 전에 Azure Blob Storage에 먼저 데이터를 배치하고 누적되도록 합니다. 이 기술을 *마이크로 일괄 처리*라고 합니다.
 
 ### <a name="too-many-partitions"></a>너무 많은 파티션
 
-클러스터형 columnstore 테이블에 분할이 미치는 영향도 고려해야 합니다.  분할하기 전에 SQL Analytics는 이미 데이터를 60개의 데이터베이스로 나눕니다.  분할을 수행하면 데이터가 좀 더 세분화됩니다.  데이터를 분할하는 경우 클러스터형 columnstore 인덱스의 이점을 얻기 위해 **각** 파티션에는 1백만 개 이상의 행을 포함하는 것이 좋습니다.  테이블을 100개의 파티션으로 분할하는 경우 테이블에 클러스터된 columnstore 인덱스(60개의 *배포판 100개 파티션 1백만* 행)의 이점을 누리려면 최소 60억 개의 행이 필요합니다. 100개 파티션 테이블에 60억 개의 행이 없으면 파티션 수를 줄이거나 대신 힙 테이블을 사용하는 것이 좋습니다.
+클러스터형 columnstore 테이블에 분할이 미치는 영향도 고려해야 합니다.  분할하기 전에 Synapse SQL 풀은 이미 데이터를 60개의 데이터베이스로 나눕니다.  분할을 수행하면 데이터가 좀 더 세분화됩니다.  데이터를 분할하는 경우 클러스터형 columnstore 인덱스의 이점을 얻기 위해 **각** 파티션에는 1백만 개 이상의 행을 포함하는 것이 좋습니다.  테이블을 100개의 파티션으로 분할하는 경우 테이블에 클러스터된 columnstore 인덱스(60개의 *배포판 100개 파티션 1백만* 행)의 이점을 누리려면 최소 60억 개의 행이 필요합니다. 100개 파티션 테이블에 60억 개의 행이 없으면 파티션 수를 줄이거나 대신 힙 테이블을 사용하는 것이 좋습니다.
 
 테이블에 일부 데이터가 로드된 경우 아래 단계에 따라 테이블을 식별한 후 차선에 해당하는 클러스터형 columnstore 인덱스로 테이블을 다시 작성합니다.
 
@@ -252,7 +252,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-SQL 분석에서 인덱스를 다시 빌드하는 것은 오프라인 작업입니다.  인덱스를 다시 빌드하는 방법에 대한 자세한 내용은 [Columnstore 인덱스 조각 모음](/sql/relational-databases/indexes/columnstore-indexes-defragmentation) 및 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql)의 ALTER INDEX REBUILD 섹션을 참조하세요.
+Synapse SQL 풀에서 인덱스를 다시 빌드하는 것은 오프라인 작업입니다.  인덱스를 다시 빌드하는 방법에 대한 자세한 내용은 [Columnstore 인덱스 조각 모음](/sql/relational-databases/indexes/columnstore-indexes-defragmentation) 및 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql)의 ALTER INDEX REBUILD 섹션을 참조하세요.
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>3단계: 클러스터형 columnstore 세그먼트 품질이 향상되었는지 확인
 
@@ -283,7 +283,7 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
-CTAS를 사용하여 파티션을 다시 만드는 것에 대한 자세한 내용은 [SQL Analytics의 파티션 사용을](sql-data-warehouse-tables-partition.md)참조하십시오.
+CTAS를 사용하여 파티션을 다시 만드는 것에 대한 자세한 내용은 [Synapse SQL 풀에서 파티션 사용을](sql-data-warehouse-tables-partition.md)참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

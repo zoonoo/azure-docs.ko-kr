@@ -1,19 +1,19 @@
 ---
-title: Azure 앱 구성 동기화를 사용하여 GitHub 작업 사용
-description: GitHub 작업을 사용하여 GitHub 리포지토리를 업데이트할 때 앱 구성 인스턴스에 대한 업데이트를 트리거합니다.
+title: GitHub 리포지토리를 앱 구성에 동기화
+description: GitHub 작업을 사용하여 GitHub 리포지토리를 업데이트할 때 앱 구성 인스턴스를 자동으로 업데이트합니다.
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 46d4aa4d4d37e9cac928e8d1a9e5e77ca0f30f18
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 602ccddf97938022df3c5903b573608558fe5d35
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384061"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585490"
 ---
-# <a name="sync-your-app-configuration-instance-using-github-actions"></a>GitHub Actions를 사용하여 App Configuration 인스턴스 동기화
+# <a name="sync-your-github-repository-to-app-configuration"></a>GitHub 리포지토리를 앱 구성에 동기화
 
 기존 소스 제어 방법을 계속 사용하려는 팀은 GitHub 작업을 사용하여 GitHub 리포지토리를 앱 구성 저장소와 자동으로 동기화할 수 있습니다. 이렇게 하면 다음과 같은 앱 구성 이점을 얻는 동시에 평소와 같이 구성 파일을 변경할 수 있습니다. <br>
 &nbsp;&nbsp;&nbsp;&nbsp;• 코드 외부의 중앙 집중식 구성 <br>
@@ -130,7 +130,7 @@ jobs:
 ## <a name="use-max-depth-to-limit-github-action"></a>최대 깊이를 사용하여 GitHub 작업을 제한합니다.
 중첩된 JSON 특성의 기본 동작은 전체 개체를 병합하는 것입니다.  아래 JSON은 이 키-값 쌍을 정의합니다.
 
-| Key | 값 |
+| 키 | 값 |
 | --- | --- |
 | 개체:내부:내부 키 | 내부 가치 |
 
@@ -173,7 +173,7 @@ jobs:
 
 깊이가 2인 경우 위의 예제에서는 이제 다음 키-값 쌍을 반환합니다.
 
-| Key | 값 |
+| 키 | 값 |
 | --- | --- |
 | 오브젝트:내부 | {"내부키":"내부 가치"} |
 
@@ -186,10 +186,10 @@ jobs:
 
 | 입력 이름 | 필수 여부 | 값 |
 |----|----|----|
-| 구성파일 | yes | 리포지토리의 구성 파일에 대한 상대 경로입니다.  Glob 패턴은 지원되며 여러 파일을 포함할 수 있습니다. |
-| format | yes | 구성 파일의 파일 형식입니다.  유효한 형식은 다음과 같습니다: JSON, YAML, 속성. |
-| connectionString | yes | 앱 구성 인스턴스에 대한 연결 문자열입니다. 연결 문자열은 GitHub 리포지토리에 비밀로 저장되어야 하며 보안 이름만 워크플로에 사용해야 합니다. |
-| 구분 기호 | yes | 구성 파일을 키-값 쌍으로 병합할 때 사용됩니다.  유효한 값은 다음과 같습니다. , ; : - _ __ / |
+| 구성파일 | 예 | 리포지토리의 구성 파일에 대한 상대 경로입니다.  Glob 패턴은 지원되며 여러 파일을 포함할 수 있습니다. |
+| format | 예 | 구성 파일의 파일 형식입니다.  유효한 형식은 다음과 같습니다: JSON, YAML, 속성. |
+| connectionString | 예 | 앱 구성 인스턴스에 대한 연결 문자열입니다. 연결 문자열은 GitHub 리포지토리에 비밀로 저장되어야 하며 보안 이름만 워크플로에 사용해야 합니다. |
+| 구분 기호 | 예 | 구성 파일을 키-값 쌍으로 병합할 때 사용됩니다.  유효한 값은 다음과 같습니다. , ; : - _ __ / |
 | 접두사 | 예 | 키의 시작 부분에 추가할 접두사입니다. |
 | label | 예 | 키-값 쌍을 설정할 때 사용되는 레이블입니다. 지정되지 않은 경우 null 레이블이 사용됩니다. |
 | strict | 예 | 엄격 모드가 활성화되어 있는지 여부를 결정하는 부울 값입니다. 기본값은 False입니다. |

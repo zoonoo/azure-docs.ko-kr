@@ -9,16 +9,19 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 55e6bbc338c1ac6f9ef935b4a3a05c32f2b5e9f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 225221635f978e3d70cec4ce7e9d78d6b100b4fd
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72755219"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618766"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Azure Key Vault를 사용하여 Azure Cosmos 키 보호 
 
-애플리케이션에 Azure Cosmos DB를 사용하는 경우 앱의 구성 파일 내에 있는 엔드포인트와 키를 사용하여 데이터베이스, 컬렉션, 문서에 액세스할 수 있습니다.  그러나 모든 사용자가 일반 텍스트 형식으로 사용할 수 있으므로 애플리케이션 코드에 키와 URL을 직접 입력하는 것은 안전하지 않습니다. 안전한 메커니즘을 통해 엔드포인트와 키를 사용하도록 만들 수 있습니다. 이 경우 Azure Key Vault가 애플리케이션 비밀을 안전하게 저장하고 관리하는 데 도움을 줄 수 있습니다.
+>[!IMPORTANT]
+> Azure Cosmos DB 키에 액세스하는 데 권장되는 솔루션은 [시스템에서 할당된 관리되는 ID를](managed-identity-based-authentication.md)사용하는 것입니다. 서비스가 관리 되는 ID를 활용할 수 없는 경우 [cert 기반 솔루션을](certificate-based-authentication.md)사용 합니다. 관리되는 ID 솔루션과 인증서 기반 솔루션이 모두 요구 사항을 충족하지 못하는 경우 아래키 자격 증명 모음 솔루션을 사용하십시오.
+
+응용 프로그램에 Azure Cosmos DB를 사용하는 경우 앱의 구성 파일 내의 끝점과 키를 사용하여 데이터베이스, 컬렉션, 문서에 액세스할 수 있습니다.  그러나 모든 사용자가 일반 텍스트 형식으로 사용할 수 있으므로 키와 URL을 응용 프로그램 코드에 직접 넣는 것은 안전하지 않습니다. 안전한 메커니즘을 통해 엔드포인트와 키를 사용하도록 만들 수 있습니다. 이 경우 Azure Key Vault가 애플리케이션 비밀을 안전하게 저장하고 관리하는 데 도움을 줄 수 있습니다.
 
 Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다음 단계가 필요합니다.
 
@@ -30,7 +33,7 @@ Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다�
 
 ## <a name="create-a-key-vault"></a>주요 자격 증명 모음 만들기
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.  
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.  
 2. **[리소스 만들기] > [보안] > [Key Vault]** 를 선택합니다.  
 3. **Key Vault 만들기** 섹션에서 다음 정보를 제공합니다.  
    * **이름:** Key Vault의 고유한 이름을 제공합니다.  

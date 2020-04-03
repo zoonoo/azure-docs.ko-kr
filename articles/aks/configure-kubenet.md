@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/26/2019
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 3fe1d36b859884ab19a645e5693c7e7931fe5c2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 119265efa7b6504f3faf2e89cb68b9e9bd70bf9f
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368471"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617254"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
@@ -25,7 +25,7 @@ ms.locfileid: "79368471"
 * AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
 * 동일한 서브넷에 둘 이상의 AKS 클러스터를 만들지 마세요.
 * `169.254.0.0/16`AKS 클러스터는 Kubernetes `172.30.0.0/16` `172.31.0.0/16` `192.0.2.0/24` 서비스 주소 범위에 대해 을 사용할 수 없습니다.
-* AKS 클러스터에서 사용되는 서비스 주체에는 가상 네트워크 내의 서브넷에 대해 [네트워크 참가자](../role-based-access-control/built-in-roles.md#network-contributor) 이상의 권한이 있어야 합니다. 기본 제공 네트워크 참가자 역할을 사용하는 대신 [사용자 지정 역할](../role-based-access-control/custom-roles.md)을 정의하려는 경우 다음 권한이 필요합니다.
+* AKS 클러스터에서 사용하는 서비스 주체는 가상 네트워크 내의 서브넷에 네트워크 [기여자](../role-based-access-control/built-in-roles.md#network-contributor) 역할이 있어야 합니다. 기본 제공 네트워크 참가자 역할을 사용하는 대신 [사용자 지정 역할](../role-based-access-control/custom-roles.md)을 정의하려는 경우 다음 권한이 필요합니다.
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
@@ -91,7 +91,7 @@ AKS 클러스터에 사용할 네트워크 플러그 인을 선택할 때는 일
 
 ## <a name="create-a-virtual-network-and-subnet"></a>가상 네트워크 및 서브넷 만들기
 
-*kubenet*과 사용자 고유의 가상 네트워크 서브넷을 사용하려면 먼저 [az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *동쪽* 위치에 *myResourceGroup이라는* 리소스 그룹을 만듭니다.
+*kubenet*과 사용자 고유의 가상 네트워크 서브넷을 사용하려면 먼저 [az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -195,7 +195,7 @@ az aks create \
     --client-secret <password>
 ```
 
-AKS 클러스터를 만들면 네트워크 보안 그룹 및 경로 테이블이 생성됩니다. 이러한 네트워크 리소스는 AKS 제어 평면에서 관리합니다. 네트워크 보안 그룹은 노드의 가상 NIC와 자동으로 연결됩니다. 경로 테이블은 가상 네트워크 서브넷과 자동으로 연결됩니다. 네트워크 보안 그룹 규칙 및 라우팅 테이블은 서비스를 만들고 노출할 때 자동으로 업데이트됩니다.
+AKS 클러스터를 만들면 네트워크 보안 그룹 및 경로 테이블이 생성됩니다. 이러한 네트워크 리소스는 AKS 제어 평면에서 관리합니다. 네트워크 보안 그룹은 노드의 가상 NIC와 자동으로 연결됩니다. 경로 테이블은 가상 네트워크 서브넷과 자동으로 연결됩니다. 서비스를 만들고 노출할 때 네트워크 보안 그룹 규칙 및 경로 테이블이 자동으로 업데이트됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

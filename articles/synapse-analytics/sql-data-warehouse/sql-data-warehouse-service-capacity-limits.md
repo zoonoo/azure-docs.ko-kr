@@ -1,6 +1,6 @@
 ---
 title: 용량 제한 - Azure 시냅스 분석(이전 SQL DW)
-description: Azure Synapse에서 SQL 분석의 다양한 구성 요소에 대해 허용되는 최대값입니다.
+description: Azure Synapse의 시냅스 SQL 풀의 다양한 구성 요소에 대해 허용되는 최대값입니다.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: a0343dd55149fa3c2c17af1f246595a56e4c6ec2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: f35a5da15ca1a672046844282626a6cb7b8ecbdf
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350073"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583522"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Azure 시냅스 분석(이전 SQL DW) 용량 제한
 
@@ -54,7 +54,7 @@ Azure Synapse의 다양한 구성 요소에 허용되는 최대값입니다.
 | 통계 |통계 개체 당 열. |32 |
 | 통계 |테이블 당 열에 만든 통계. |30,000 |
 | 저장 프로시저 |최대 수준의 중첩. |8 |
-| 보기 |뷰당 열 수 |1,024 |
+| View |뷰당 열 수 |1,024 |
 ||||
 
 ## <a name="loads"></a>로드

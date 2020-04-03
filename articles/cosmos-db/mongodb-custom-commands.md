@@ -6,22 +6,22 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
-ms.openlocfilehash: f57b274715eb1c8a4d517f5655c09c366574d412
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f99c4d096bcbe1fbdc42cac80a491d6017266cb2
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75445215"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583574"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB 확장 명령을 사용하여 MongoDB용 Azure Cosmos DB의 API에 저장된 데이터를 관리합니다. 
 
-Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. 오픈 소스 [MongoDB 클라이언트 드라이버를](https://docs.mongodb.org/ecosystem/drivers)사용하여 MongoDB에 대한 Azure 코스모스 DB의 API와 통신할 수 있습니다. MongoDB용 Azure Cosmos DB의 API를 사용하면 [MongoDB 와이어 프로토콜을](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)준수하여 기존 클라이언트 드라이버를 사용할 수 있습니다.
+Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. 오픈 소스 [MongoDB 클라이언트 드라이버를](https://docs.mongodb.org/ecosystem/drivers)사용하여 MongoDB에 대한 Azure Cosmos DB의 API와 통신할 수 있습니다. MongoDB용 Azure Cosmos DB의 API를 사용하면 [MongoDB 와이어 프로토콜을](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)준수하여 기존 클라이언트 드라이버를 사용할 수 있습니다.
 
-MongoDB용 Azure Cosmos DB의 API를 사용하면 투자를 유지하면서 글로벌 배포, 자동 샤딩, 고가용성, 대기 시간 보장, 자동, 미사용 암호화, 백업 등과 같은 Cosmos DB의 이점을 누릴 수 있습니다. 당신의 MongoDB 응용 프로그램에서.
+MongoDB에 대한 Azure Cosmos DB의 API를 사용하면 MongoDB 앱에 대한 투자를 유지하면서 글로벌 배포, 자동 샤딩, 고가용성, 대기 시간 보장, 자동, 미사용 암호화, 백업 등과 같은 Cosmos DB의 이점을 누릴 수 있습니다.
 
 ## <a name="mongodb-protocol-support"></a>MongoDB 프로토콜 지원
 
-기본적으로 MongoDB용 Azure Cosmos DB의 API는 MongoDB 서버 버전 3.2와 호환되며 자세한 내용은 [지원되는 기능 및 구문을](mongodb-feature-support.md)참조하십시오. MongoDB 버전 3.4에 추가된 기능 또는 쿼리 연산자는 현재 MongoDB용 Azure Cosmos DB의 API에서 미리 보기로 사용할 수 있습니다. 다음 확장 명령은 MongoDB에 대한 Azure Cosmos DB의 API에 저장된 데이터에 대해 CRUD 작업을 수행할 때 Azure Cosmos DB 특정 기능을 지원합니다.
+기본적으로 MongoDB용 Azure Cosmos DB의 API는 MongoDB 서버 버전 3.2와 호환되며 자세한 내용은 [지원되는 기능 및 구문을](mongodb-feature-support.md)참조하십시오. MongoDB 버전 3.4에 추가된 기능 또는 쿼리 연산자는 현재 MongoDB용 Azure Cosmos DB의 API에서 미리 보기로 사용할 수 있습니다. 다음 확장 명령은 MongoDB에 대한 Azure Cosmos DB의 API에 저장된 데이터에 대해 CRUD 작업을 수행할 때 특정 Azure Cosmos DB 기능을 지원합니다.
 
 * [데이터베이스 만들기](#create-database)
 * [데이터베이스 업데이트](#update-database)
@@ -43,7 +43,7 @@ MongoDB용 Azure Cosmos DB의 API를 사용하면 투자를 유지하면서 글�
 
 다음 표는 명령 내의 매개 변수에 대해 설명합니다.
 
-|**필드**|**유형** |**설명** |
+|**필드**|**Type** |**설명** |
 |---------|---------|---------|
 | customAction   |  문자열  |   사용자 지정 명령의 이름은 "CreateDatabase"여야 합니다.      |
 | 제공Throughput | int  | 데이터베이스에 설정한 프로비전된 처리량입니다. 이 매개 변수는 선택 사항입니다. |
@@ -85,7 +85,7 @@ db.runCommand({customAction: "CreateDatabase", offerThroughput: 1000 });
 
 다음 표는 명령 내의 매개 변수에 대해 설명합니다.
 
-|**필드**|**유형** |**설명** |
+|**필드**|**Type** |**설명** |
 |---------|---------|---------|
 | customAction    |    문자열     |   사용자 지정 명령의 이름입니다. "업데이트데이터베이스"여야 합니다.      |
 |  제공Throughput   |  int       |     데이터베이스에 설정하려는 새 프로비전된 처리량입니다.    |
@@ -118,7 +118,7 @@ get 데이터베이스 확장 명령은 데이터베이스 개체를 반환합�
 다음 표는 명령 내의 매개 변수에 대해 설명합니다.
 
 
-|**필드**|**유형** |**설명** |
+|**필드**|**Type** |**설명** |
 |---------|---------|---------|
 |  customAction   |   문자열      |   사용자 지정 명령의 이름입니다. "GetDatabase"여야 합니다.|
         
@@ -126,7 +126,7 @@ get 데이터베이스 확장 명령은 데이터베이스 개체를 반환합�
 
 명령이 성공하면 응답에는 다음 필드가 있는 문서가 포함됩니다.
 
-|**필드**|**유형** |**설명** |
+|**필드**|**Type** |**설명** |
 |---------|---------|---------|
 |  `ok`   |   `int`     |   응답 상태입니다. 1 == 성공. 0 == 실패.      |
 | `database`    |    `string`        |   데이터베이스의 이름입니다.      |
@@ -160,12 +160,12 @@ db.runCommand({customAction: "GetDatabase"});
 
 다음 표는 명령 내의 매개 변수에 대해 설명합니다.
 
-|**필드**|**유형** |**설명** |
-|---------|---------|---------|
-| customAction    | 문자열 | 사용자 지정 명령의 이름입니다. "CreateCollection"이어야 합니다.     |
-| collection      | 문자열 | 컬렉션의 이름입니다.                                   |
-| 제공Throughput | int    | 데이터베이스에 설정할 프로비전된 처리량입니다. 선택적 매개 변수입니다. |
-| 샤드키        | 문자열 | 샤드 키 경로를 사용하여 샤드 컬렉션을 만듭니다. 선택적 매개 변수입니다. |
+| **필드** | **Type** | **필수** | **설명** |
+|---------|---------|---------|---------|
+| customAction | 문자열 | 필수 | 사용자 지정 명령의 이름입니다. "CreateCollection"이어야 합니다.|
+| collection | 문자열 | 필수 | 컬렉션의 이름입니다. 특수 문자는 허용되지 않습니다.|
+| 제공Throughput | int | 옵션* | 데이터베이스에 설정할 프로비전된 처리량입니다. 이 매개 변수가 제공되지 않으면 기본값인 최소 400RU/s로 설정됩니다. * 10,000 RU/s를 초과하는 처리량을 지정하려면 매개 변수가 `shardKey` 필요합니다.|
+| 샤드키 | 문자열 | 옵션* | 샤드 컬렉션의 샤드 키로 가는 경로입니다. 에서 10,000개 이상의 RU/s를 설정하는 `offerThroughput`경우 이 매개 변수가 필요합니다.  이 값을 지정하면 삽입된 모든 문서에 이 값이 필요합니다. |
 
 ### <a name="output"></a>출력
 
@@ -184,7 +184,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 
 **샤드 컬렉션 만들기**
 
-"testCollection" 이름과 프로비전된 처리량 1000루션으로 샤드 컬렉션을 만들려면 다음 명령을 사용하십시오.
+"testCollection" 이름과 프로비전된 처리량 1000루션, 샤드키 속성 "a.b"로 샤드 컬렉션을 만들려면 다음 명령을 사용합니다.
 
 ```shell
 use test
@@ -205,7 +205,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 
 다음 표는 명령 내의 매개 변수에 대해 설명합니다.
 
-|**필드**|**유형** |**설명** |
+|**필드**|**Type** |**설명** |
 |---------|---------|---------|
 |  customAction   |   문자열      |   사용자 지정 명령의 이름입니다. "업데이트 컬렉션"이어야 합니다.      |
 |  collection   |   문자열      |   컬렉션의 이름입니다.       |
@@ -240,7 +240,7 @@ get 컬렉션 사용자 지정 명령은 컬렉션 개체를 반환합니다.
 다음 표는 명령 내의 매개 변수에 대해 설명합니다.
 
 
-|**필드**|**유형** |**설명** |
+|**필드**|**Type** |**설명** |
 |---------|---------|---------|
 | customAction    |   문자열      |   사용자 지정 명령의 이름입니다. "GetCollection"이어야 합니다.      |
 | collection    |    문자열     |    컬렉션의 이름입니다.     |
@@ -250,7 +250,7 @@ get 컬렉션 사용자 지정 명령은 컬렉션 개체를 반환합니다.
 명령이 성공하면 응답에 다음 필드가 있는 문서가 포함되어 있습니다.
 
 
-|**필드**|**유형** |**설명** |
+|**필드**|**Type** |**설명** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   응답 상태입니다. 1 == 성공. 0 == 실패.      |
 | `database`    |    `string`     |   데이터베이스의 이름입니다.      |
@@ -275,7 +275,7 @@ db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 
 지정하지 않으면 사용자 지정 응답에는 다음 필드가 있는 문서가 포함됩니다.
 
-|**필드**|**유형** |**설명** |
+|**필드**|**Type** |**설명** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   응답 상태입니다. 1 == 성공. 0 == 실패.      |
 | `code`    |   `int`      |   명령이 실패했을 때만 반환됩니다(예: 확인 == 0). MongoDB 오류 코드가 포함되어 있습니다. 선택적 응답 매개 변수입니다.      |

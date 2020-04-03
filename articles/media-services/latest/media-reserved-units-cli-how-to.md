@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9f0a7425fc09d391828a748832f662f02c6022cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79f2df0f94b212ea45c01c825b23f1dbb4cc40db
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970774"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582283"
 ---
 # <a name="scaling-media-processing"></a>미디어 처리 크기 조정
 
@@ -71,7 +71,7 @@ az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
 
 [비디오 분석](analyze-videos-tutorial-with-api.md) 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-* [할당량 및 제한 사항](limits-quotas-constraints.md)
+* [할당량 및 제한](limits-quotas-constraints.md)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: ebcda6026f79bc88df91471d8be88316ba57bfc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d3a85e6fcc5b9d1c5ca1511cd7edd05ff5d9ae4
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65411383"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582693"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>스트리밍 끝점(원점) 오류 
 
@@ -198,11 +198,11 @@ ms.locfileid: "65411383"
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [인코딩 오류 코드](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
 - [Azure Media Services 개념](concepts-overview.md)
-- [할당량 및 제한 사항](limits-quotas-constraints.md)
+- [할당량 및 제한](limits-quotas-constraints.md)
 
 ## <a name="next-steps"></a>다음 단계
 

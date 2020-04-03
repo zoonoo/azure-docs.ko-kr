@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: fcdb8af770fa0068e8413d4609a56223a9a20ce2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 9136fd702fad5c12a8ec97a68ff8a592a203d7d2
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345890"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582208"
 ---
 # <a name="manage-assets"></a>자산 관리
 
@@ -60,9 +60,9 @@ Azure 미디어 서비스에서 [자산은](https://docs.microsoft.com/rest/api/
 
     **AssetContainerSas.listContainerSas는** 설정 `expiryTime`한 [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) 매개 변수를 사용합니다. 시간은 24시간 < 설정해야 합니다.
 
-    [ListContainerSasInput각](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) 저장소 계정에 대해 두 개의 저장소 계정 키가 있기 때문에 여러 SAS URL을 반환합니다. 저장소 계정에는 저장소 계정 키를 원활하게 회전할 수 있기 때문에 두 개의 키가 있습니다(예: 다른 키를 사용하는 동안 하나를 변경한 다음 새 키를 사용하여 시작하고 다른 키를 회전). 첫 번째 SAS URL은 저장소 키1 및 두 번째 저장소 키2를 나타냅니다.
+    [ListContainerSasInput각](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) 저장소 계정에 대해 두 개의 저장소 계정 키가 있기 때문에 여러 SAS URL을 반환합니다. 저장소 계정에는 장애 조치 및 저장소 계정 키의 원활한 회전에 도움이 되므로 두 개의 키가 있습니다. 첫 번째 SAS URL은 첫 번째 저장소 계정 키를 나타내고 두 번째 SAS URL은 두 번째 키를 나타냅니다.
 3. Azure 저장소 API 또는 SDK(예: [저장소 REST API](../../storage/common/storage-rest-api-auth.md) 또는 [.NET SDK)를](../../storage/blobs/storage-quickstart-blobs-dotnet.md)사용하여 자산을 자산 컨테이너에 업로드합니다.
-4. Media Services v3 API를 사용하여 "입력" 자산을 처리하는 Transform 및 Job을 만듭니다. 자세한 내용은 [변환 및 작업](transform-concept.md)을 참조하십시오.
+4. Media Services v3 API를 사용하여 "입력" 자산을 처리하는 Transform 및 Job을 만듭니다. 자세한 내용은 [Transform 및 Jobs](transform-concept.md)를 참조하세요.
 5. "출력" 자산의 콘텐츠를 스트리밍합니다.
 
 ### <a name="create-a-new-asset"></a>새 자산 만들기
@@ -100,7 +100,7 @@ curl -X PUT \
  Asset asset = await client.Assets.CreateOrUpdateAsync(resourceGroupName, accountName, assetName, new Asset());
 ```
 
-### <a name="see-also"></a>참조
+### <a name="see-also"></a>참고 항목
 
 * [로컬 파일에서 작업 입력 만들기](job-input-from-local-file-how-to.md)
 * [HTTPS URL에서 작업 입력 만들기](job-input-from-http-how-to.md)
@@ -129,7 +129,7 @@ Media Services에서 비디오를 처리할 때(예: 인코딩 또는 분석) [�
 
 자세한 내용은 다음을 참조하세요.
 
-[자습서: 미디어 서비스 v3를 통해 비디오를 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)
+[자습서: Media Services v3를 사용하여 비디오 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)
 
 ## <a name="download-results-of-a-job-from-an-output-asset"></a>출력 자산에서 작업 결과 다운로드
 

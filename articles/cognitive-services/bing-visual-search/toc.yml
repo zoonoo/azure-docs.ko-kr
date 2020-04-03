@@ -24,17 +24,11 @@
           href: quickstarts/ruby.md
         - name: Go 사용
           href: quickstarts/go.md
-    - name: SDK)
+    - name: 클라이언트 라이브러리
       expanded: true
       items:
-        - name: 'C# 사용'
-          href: visual-search-sdk-c-sharp.md
-        - name: Node.js 사용
-          href: visual-search-sdk-node.md
-        - name: Python 사용
-          href: visual-search-sdk-python.md
-        - name: Java 사용
-          href: visual-search-sdk-java.md
+        - name: Bing Visual Search 클라이언트 라이브러리
+          href: ./quickstarts/client-libraries.md
 - name: 자습서
   items:
     - name: 이미지 업로드

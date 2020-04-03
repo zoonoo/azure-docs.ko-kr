@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: c8eba538a7015648611e6054ce85b381dcfc9105
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a80fb97810fee04a4eb50c43178c168e66f29173
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76761001"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618722"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>서비스 버스에 대한 진단 로그 사용
 
@@ -37,7 +37,7 @@ Azure Service Bus는 현재 Azure Service Bus 네임스페이스에서 수행되
 
 운영 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함됩니다.
 
-| 이름 | 설명 |
+| 속성 | 설명 |
 | ------- | ------- |
 | ActivityId | 지정된 활동을 식별하는 데 사용되는 내부 ID |
 | EventName | 작업 이름 |
@@ -74,12 +74,12 @@ Azure Service Bus는 현재 Azure Service Bus 네임스페이스에서 수행되
 
 다음 관리 작업은 운영 로그에 캡처됩니다. 
 
-| Scope | 작업(Operation)|
+| 범위 | 작업(Operation)|
 |-------| -------- |
-| 네임스페이스 | <ul> <li> 네임스페이스 만들기</li> <li> 네임스페이스 업데이트 </li> <li> 네임스페이스 삭제 </li>  </ul> | 
-| 큐 | <ul> <li> 큐 만들기</li> <li> 큐 업데이트</li> <li> 큐 삭제 </li> </ul> | 
-| 항목 | <ul> <li> 토픽 만들기 </li> <li> 토픽 업데이트 </li> <li> 토픽 삭제 </li> </ul> |
-| Subscription | <ul> <li> 구독 만들기 </li> <li> 구독 업데이트 </li> <li> 구독 삭제 </li> </ul> |
+| 네임스페이스 | <ul> <li> 네임스페이스 만들기</li> <li> 네임스페이스 업데이트 </li> <li> 네임스페이스 삭제 </li> <li> 네임스페이스 공유 액세스 정책 업데이트 </li> </ul> | 
+| 큐 | <ul> <li> 큐 만들기</li> <li> 큐 업데이트</li> <li> 큐 삭제 </li> <li> 자동 삭제 삭제 큐 </li> </ul> | 
+| 항목 | <ul> <li> 토픽 만들기 </li> <li> 토픽 업데이트 </li> <li> 토픽 삭제 </li> <li> 자동 삭제 항목 삭제 항목 </li> </ul> |
+| Subscription | <ul> <li> 구독 만들기 </li> <li> 구독 업데이트 </li> <li> 구독 삭제 </li> <li> 자동 삭제 구독 삭제 </li> </ul> |
 
 > [!NOTE]
 > 현재 *읽기* 작업은 운영 로그에서 추적되지 않습니다.

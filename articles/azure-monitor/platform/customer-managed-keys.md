@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 03/26/2020
-ms.openlocfilehash: c8743385f8c3c801b2f06e4a30a8672d1d80acc4
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 18c926d16319eb8a8736a51d5f10e434b94d0ebe
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422527"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582495"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Azure 모니터 고객 관리 키 구성 
 
@@ -50,11 +50,11 @@ Azure Monitor Storage가 랩 핑 및 래핑 해제 작업을 위해 키 볼트�
 
 Azure Monitor는 시스템 할당된 관리되는 ID를 활용하여 Azure 키 자격 증명 모음에 대한 액세스 권한을 부여합니다.시스템 할당된 관리되는 ID는 단일 Azure 리소스에만 연결할 수 있습니다. Azure Monitor 데이터 저장소(ADX 클러스터)의 ID는 클러스터 수준에서 지원되며 CMK 기능이 전용 ADX 클러스터에서 제공되도록 합니다. 여러 작업 공간에서 CMK를 지원하기 위해 새 로그 분석*리소스(클러스터)는*키 볼트와 로그 분석 작업 영역 간의 중간 ID 연결로 수행됩니다. 이 개념은 시스템에서 할당된 ID 제약 조건을 준수하며 ADX 클러스터와 로그 분석 *클러스터* 리소스 간에 ID가 유지되고 연결된 모든 작업 영역의 데이터는 Key Vault 키로 보호됩니다. 언더레이 ADX 클러스터 저장소는\' *클러스터* 리소스와 연결된 관리되는 ID를 사용하여 Azure Active Directory를 통해 Azure 키 자격 증명 모음을 인증하고 액세스합니다.
 
-![CMK 개요](media/customer-managed-keys/cmk-overview.png)
-1.  고객의 키 볼트.
-2.  키 볼트에 대한 권한으로 ID를 관리하는 고객의 로그 분석 *클러스터* 리소스 - ID는 데이터 저장소(ADX 클러스터) 수준에서 지원됩니다.
-3.  Azure 모니터 전용 ADX 클러스터입니다.
-4.  CMK 암호화를 위해 *클러스터* 리소스에 연결된 고객의 작업 영역입니다.
+![CMK 개요](media/customer-managed-keys/cmk-overview-8bit.png)
+1.    고객의 키 볼트.
+2.    키 볼트에 대한 권한으로 ID를 관리하는 고객의 로그 분석 *클러스터* 리소스 - ID는 데이터 저장소(ADX 클러스터) 수준에서 지원됩니다.
+3.    Azure 모니터 전용 ADX 클러스터입니다.
+4.    CMK 암호화를 위해 *클러스터* 리소스에 연결된 고객의 작업 영역입니다.
 
 ## <a name="encryption-keys-management"></a>암호화 키 관리
 
@@ -92,7 +92,7 @@ Azure Monitor는 시스템 할당된 관리되는 ID를 활용하여 Azure 키 �
 > [!IMPORTANT]
 > 모든 API 요청은 요청 헤더에 Bearer 권한 부여 토큰을 포함해야 합니다.
 
-다음은 그 예입니다.
+예를 들어:
 
 ```rst
 GET
@@ -210,7 +210,7 @@ Authorization: Bearer <token>
 - 키 사용 권한: '받기', '키 줄 바꿈' 및 '키 둘러싸기 해제' 권한을 선택합니다.
 - 보안 주체 선택: 이전 단계에서 응답에서 반환된 보안 주체 id 값을 입력합니다.
 
-![키 볼트 권한 부여](media/customer-managed-keys/grant-key-vault-permissions.png)
+![키 볼트 권한 부여](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
 
 *Get* 권한은 키 자격 증명 모음이 복구 가능한 것으로 구성되어 있는지 확인하여 키및 Azure Monitor 데이터에 대한 액세스를 보호하는 데 필요합니다.
 

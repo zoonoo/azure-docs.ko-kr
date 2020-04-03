@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 7661981f07799592f9fdfcab3fb402336d48b4d4
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 67f863826a2e9eb1bffcb316754ad5c40a2f2bb1
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349969"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583144"
 ---
 # <a name="azure-synapse-analytics-workload-classification"></a>Azure 시냅스 분석 워크로드 분류
 
-이 문서에서는 Azure Synapse에서 SQL Analytics를 사용하여 들어오는 요청에 워크로드 그룹과 중요도를 할당하는 워크로드 분류 프로세스에 대해 설명합니다.
+이 문서에서는 Azure Synapse의 Synapse SQL 풀을 사용하여 들어오는 요청에 워크로드 그룹과 중요도를 할당하는 워크로드 분류 프로세스에 대해 설명합니다.
 
 ## <a name="classification"></a>분류
 
@@ -36,7 +36,7 @@ ms.locfileid: "80349969"
 
 ## <a name="classification-process"></a>분류 프로세스
 
-Azure Synapse에서 SQL 분석에 대한 분류는 [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)사용하여 해당 리소스 클래스가 할당된 역할에 사용자를 할당하여 수행됩니다. 리소스 클래스에 로그인을 넘어 요청을 특성화하는 기능은 이 기능을 사용하여 제한됩니다. 이제 [CREATE 워크로드 분류자](/sql/t-sql/statements/create-workload-classifier-transact-sql) 구문에서 보다 풍부한 분류 방법을 사용할 수 있습니다.  이 구문을 통해 SQL Analytics 사용자는 `workload_group` 매개 변수를 통해 요청에 할당되는 중요도 및 시스템 리소스의 양을 할당할 수 있습니다. 
+Azure Synapse의 Synapse SQL 풀에 대한 분류는 [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)사용하여 해당 리소스 클래스가 할당된 역할에 사용자를 할당하여 오늘 달성됩니다. 리소스 클래스에 로그인을 넘어 요청을 특성화하는 기능은 이 기능을 사용하여 제한됩니다. 이제 [CREATE 워크로드 분류자](/sql/t-sql/statements/create-workload-classifier-transact-sql) 구문에서 보다 풍부한 분류 방법을 사용할 수 있습니다.  이 구문을 통해 Synapse SQL 풀 사용자는 `workload_group` 매개 변수를 통해 요청에 할당되는 중요도 및 시스템 리소스의 양을 할당할 수 있습니다. 
 
 > [!NOTE]
 > 분류는 요청별로 평가됩니다. 단일 세션의 여러 요청을 다르게 분류할 수 있습니다.
@@ -87,7 +87,7 @@ JOIN    sys.database_principals AS m ON rm.member_principal_id = m.principal_id
 WHERE   r.name IN ('mediumrc','largerc','xlargerc','staticrc10','staticrc20','staticrc30','staticrc40','staticrc50','staticrc60','staticrc70','staticrc80');
 
 --for each row returned run
-sp_droprolemember ‘[Resource Class]’, membername
+sp_droprolemember '[Resource Class]', membername
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
-ms.openlocfilehash: b0dc974185ad616d57327e9cc3743db9ecb20e54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 803783eddfbffd5c3dbab7353ee00dd7f11a09e5
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78302732"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618895"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: 클러스터 생성 오류
 
@@ -157,7 +157,7 @@ NSG(네트워크 보안 그룹)의 방화벽 규칙이 중요한 Azure 상태 �
 
 ---
 
-## <a name="error-code-storagepermissionsblockedformsi"></a>오류 코드: 저장소권한차단ForMsi  
+## <a name="error-code-storagepermissionsblockedformsi"></a>오류 코드: 저장소권한차단ForMsi
 
 ### <a name="error"></a>Error
 
@@ -178,11 +178,11 @@ ID를 관리하는 데 필요한 권한을 제공하지 않았습니다. 사용�
 
 ---
 
-## <a name="error-code-invalidnetworksecuritygroupsecurityrules"></a>오류 코드: 잘못된 네트워크 보안그룹 보안규칙  
+## <a name="error-code-invalidnetworksecuritygroupsecurityrules"></a>오류 코드: 잘못된 네트워크 보안그룹 보안규칙
 
 ### <a name="error"></a>Error
 
-"네트워크 보안 그룹의 보안 규칙 /\<구독\>/ 리소스 그룹 /\> <리소스 그룹 이름 기본 /\<공급자 /\> Microsoft.Network / networkSecurityGroups\</\>네트워크 보안\<그룹\> 이름 서브넷 / 구독 / 구독ID / 리소스 그룹 / 리소스\<그룹 이름 RG - westeurope-vnet - tomtom-default / 공급자 / Microsoft.Network / 가상 네트워크 / 가상 네트워크\>이름/서브넷/서브넷\<\> 이름은 필요한 인바운드 및/또는 아웃바운드 연결을 허용하지 않습니다. 자세한 내용은 Azure [HDInsight에 대한 가상 네트워크 계획을](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)방문하거나 지원팀에 문의하십시오."
+"네트워크 보안 그룹의 보안 규칙 /\<\>구독ID / 리소스 그룹 /\> <리소스 그룹 이름 기본 /\<공급자 /\> Microsoft.Network / networkSecurityGroups / 네트워크 보안 그룹 이름은\<서브넷 / 구독 / 구독ID\>/ 리소스 그룹 /\<리소스 그룹 이름\> RG - westeurope-vnet - tomtom-default / 공급자 / Microsoft.Network / 가상 네트워크 / 가상 네트워크\<\>/ 서브 넷 /\<서브 넷 / 서브 넷 이름에서 사용되지\> 않습니다. 자세한 내용은 Azure [HDInsight에 대한 가상 네트워크 계획을](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)방문하거나 지원팀에 문의하십시오."
 
 ### <a name="cause"></a>원인
 
@@ -195,12 +195,12 @@ ID를 관리하는 데 필요한 권한을 제공하지 않았습니다. 사용�
 - HDInsight에 사용할 Azure 지역을 식별하고 해당 지역의 IP 주소의 안전한 목록을 만듭니다. 자세한 내용은 [상태 및 관리 서비스: 특정 지역](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses#health-and-management-services-specific-regions)을 참조하십시오.
 - HDInsight에 필요한 IP 주소를 식별합니다. 자세한 내용은 [HDInsight 관리 IP 주소를](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)참조하십시오.
 - HDInsight를 설치하려는 서브넷에 대한 네트워크 보안 그룹을 만들거나 수정합니다. 네트워크 보안 그룹의 경우 IP 주소에서 포트 443에서 인바운드 트래픽을 허용합니다. 이 구성을 통해 HDInsight 관리 서비스가 가상 네트워크 외부에서 클러스터에 도달할 수 있습니다.
-  
+
 ---
 
 ## <a name="error-code-cluster-setup-failed-to-install-components-on-one-or-more-hosts"></a>오류 코드: 클러스터 설정이 하나 이상의 호스트에 구성 요소를 설치하지 못했습니다.
 
-###  <a name="error"></a>Error
+### <a name="error"></a>Error
 
 "클러스터 설정이 하나 이상의 호스트에 구성 요소를 설치하지 못했습니다. 요청을 다시 시도하십시오."
 
@@ -211,6 +211,42 @@ ID를 관리하는 데 필요한 권한을 제공하지 않았습니다. 사용�
 ### <a name="resolution"></a>해결 방법
 
 클러스터 배포에 영향을 줄 수 있는 Azure 중단에 대해 [Azure 상태](https://status.azure.com) 페이지를 확인합니다. 중단이 없는 경우 클러스터 배포를 다시 시도합니다.
+
+---
+
+## <a name="error-code-failedtoconnectwithclustererrorcode"></a>오류 코드: FailedToConnect클러스터오류코드
+
+### <a name="error"></a>Error
+
+클러스터 관리 끝점에 연결할 수 없습니다. 나중에 다시 시도하십시오.
+
+### <a name="cause"></a>원인
+
+클러스터를 만들 때 HDInsight 서비스가 클러스터에 연결할 수 없습니다.
+
+### <a name="resolution"></a>해결 방법
+
+사용자 지정 VNet 네트워크 보안 그룹(NSG) 및 사용자 정의 경로(DR)를 사용하는 경우 클러스터가 HDInsight 관리 서비스와 통신할 수 있는지 확인합니다. 자세한 내용은 [HDInsight 관리 IP 주소를](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)참조하십시오.
+
+---
+
+## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>오류 코드: 정책 위반으로 인해 배포가<Resource URI>실패했습니다. 정책 식별자: '[{"policyAssignment":{"name":"":"/공급자/Microsoft.ManagementGroups/공급자/공급자.권한<Policy Name> <Management Group Name> 부여/정책할당/<Policy Name>"},"정책정의":<Policy Definition>
+
+### <a name="cause"></a>원인
+
+구독 기반 Azure 정책은 공용 IP 주소 생성을 거부할 수 있습니다. HDInsight 클러스터를 생성하려면 두 개의 공용 IP가 필요합니다.
+
+다음 정책은 일반적으로 클러스터 생성에 영향을 미칩니다.
+
+* 구독 내에서 IP 주소 또는 로드 밸러버를 만들지 않는 정책입니다.
+* 저장소 계정을 만들지 못하게 하는 정책입니다.
+* IP 주소 또는 로드 밸러저와 같은 네트워킹 리소스를 삭제하지 않는 정책입니다.
+
+### <a name="resolution"></a>해결 방법
+
+HDInsight 클러스터를 만드는 동안 구독 기반 Azure 정책을 삭제하거나 사용하지 않도록 설정합니다.
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 

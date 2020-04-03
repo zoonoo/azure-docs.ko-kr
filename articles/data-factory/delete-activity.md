@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: d061a132699e733e78a7d717ee32222b158d73b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f265cdc955becd53ae7ba61ad827b2be69b92907
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927529"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618277"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Azure Data Factory의 삭제 작업
 
 Azure Data Factory에서 활동 삭제를 사용하여 온-프레미스 저장소 저장소 또는 클라우드 저장소 저장소에서 파일 또는 폴더를 삭제할 수 있습니다. 파일이 더 이상 필요하지 않을 때 파일을 정리하거나 보관하려면 이 작업을 사용합니다.
 
 > [!WARNING]
-> 삭제된 파일이나 폴더는 복원할 수 없습니다. 따라서 삭제 작업을 사용하여 파일이나 폴더를 삭제할 때는 주의해야 합니다.
+> 삭제된 파일이나 폴더는 저장소에 소프트 삭제가 활성화되어 있는 경우 복원할 수 없습니다. 따라서 삭제 작업을 사용하여 파일이나 폴더를 삭제할 때는 주의해야 합니다.
 
 ## <a name="best-practices"></a>모범 사례
 
@@ -82,7 +82,7 @@ Azure Data Factory에서 활동 삭제를 사용하여 온-프레미스 저장�
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| 데이터 세트 | 삭제할 파일이나 폴더를 결정하기 위한 데이터 세트 참조를 제공합니다. | yes |
+| 데이터 세트 | 삭제할 파일이나 폴더를 결정하기 위한 데이터 세트 참조를 제공합니다. | 예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 파일을 재귀적으로 삭제할지 여부를 나타냅니다.  | 아니요. 기본값은 `false`입니다. |
 | maxConcurrentConnections | 폴더 또는 파일 삭제를 위해 동시에 스토리지 저장소에 연결할 수 있는 연결 수입니다.   |  아니요. 기본값은 `1`입니다. |
 | enablelogging | 삭제된 폴더 또는 파일 이름을 기록해야 하는지 여부를 나타냅니다. true이면 로그 파일을 읽어 삭제 작업 동작을 추적할 수 있도록 로그 파일을 저장할 스토리지 계정을 추가로 제공해야 합니다. | 예 |
@@ -116,7 +116,7 @@ Azure Data Factory에서 활동 삭제를 사용하여 온-프레미스 저장�
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>샘플 로그 샘플 로그 파일
 
-| 이름 | Category | 상태 | Error |
+| 속성 | Category | 상태 | Error |
 |:--- |:--- |:--- |:--- |
 | 테스트1/yy.json | 파일 | Deleted |  |
 | test2/hello789.txt | 파일 | Deleted |  |

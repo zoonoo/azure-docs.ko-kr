@@ -377,7 +377,7 @@
       href: media-services-community.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/media-services/'
     - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=media-services'
@@ -401,7 +401,7 @@
           href: 'https://aka.ms/ams-v3-ruby-sdk'
     - name: Azure Media Services 탐색기
       href: 'https://github.com/Azure/Azure-Media-Services-Explorer'
-    - name: 할당량 및 제한 사항
+    - name: 할당량 및 제한
       href: limits-quotas-constraints.md
     - name: Azure 클라우드 및 지역
       href: azure-clouds-regions.md

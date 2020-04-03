@@ -4,12 +4,12 @@ description: Kubernetes의 기본 클러스터 및 워크로드 구성 요소와
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: bcf56aa89a42d65fdb7bf03696faad13c64cbc8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 019c886aba1c8fe34211e73e4d960b14e79303b9
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259644"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617431"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념
 
@@ -65,9 +65,9 @@ AKS는 전용 API 서버, 스케줄러 등을 갖춘 단일 테넌트 제어 평
 
 ![Kubernetes 노드용 Azure 가상 머신 및 지원 리소스](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
-노드의 Azure VM 크기는 CPU 수, 메모리 크기, 사용 가능한 스토리지(예: 고성능 SSD 또는 일반 HDD)의 크기 및 유형을 정의합니다. 대용량의 CPU와 메모리 또는 고성능 스토리지가 필요한 애플리케이션이 요구되는 경우 노드 크기를 적절히 계획합니다. 요구에 맞게 AKS 클러스터의 노드 수를 확장할 수도 있습니다.
+노드의 Azure VM 크기는 CPU 수, 메모리 크기, 사용 가능한 스토리지(예: 고성능 SSD 또는 일반 HDD)의 크기 및 유형을 정의합니다. 대용량의 CPU와 메모리 또는 고성능 스토리지가 필요한 애플리케이션이 요구되는 경우 노드 크기를 적절히 계획합니다. 수요를 충족하도록 AKS 클러스터의 노드 수를 확장할 수도 있습니다.
 
-AKS에서 클러스터의 노드에 대한 VM 이미지는 현재 우분투 리눅스 또는 Windows Server 2019를 기반으로 합니다. AKS 클러스터를 만들거나 노드 수를 확장하면 Azure 플랫폼에서 요청된 수의 VM을 만들고 구성합니다. 수행할 수동 구성이 없습니다. 에이전트 노드는 표준 가상 컴퓨터로 청구되므로 사용 중인 VM 크기에 대한 [할인(Azure 예약][reservation-discounts]포함)이 자동으로 적용됩니다.
+AKS에서 클러스터의 노드에 대한 VM 이미지는 현재 우분투 리눅스 또는 Windows Server 2019를 기반으로 합니다. AKS 클러스터를 만들거나 노드 수를 확장할 때 Azure 플랫폼은 요청된 VM 수를 만들고 구성합니다. 수행할 수동 구성이 없습니다. 에이전트 노드는 표준 가상 컴퓨터로 청구되므로 사용 중인 VM 크기에 대한 [할인(Azure 예약][reservation-discounts]포함)이 자동으로 적용됩니다.
 
 다른 호스트 OS, 컨테이너 런타임을 사용하거나 사용자 지정 패키지를 포함해야 하는 경우 [aks-engine][aks-engine]을 사용하여 사용자 고유의 Kubernetes 클러스터를 배포할 수 있습니다. 업스트림 `aks-engine`은 AKS 클러스터에서 공식적으로 지원되기 전에 기능을 릴리스하고 구성 옵션을 제공합니다. 예를 들어 Moby 이외의 컨테이너 런타임을 사용하려는 경우 `aks-engine` 현재 요구 사항을 충족하는 Kubernetes 클러스터를 구성하고 배포하는 데 사용할 수 있습니다.
 
@@ -96,7 +96,7 @@ kubectl describe node [NODE_NAME]
 
 1. kubelet 데몬은 컨테이너 생성 및 종료를 관리하기 위해 모든 Kubernetes 에이전트 노드에 설치됩니다. 기본적으로 AKS에서 이 데몬은 다음과 같은 제거 규칙을 가지며,<사용 *가능하며,* 이는 노드가 항상 항상 750Mi 할당 가능 이상이어야 함을 의미합니다.  호스트가 사용 가능한 메모리 임계값 보다 낮으면 kubelet은 실행 중인 포드 중 하나를 종료하여 호스트 컴퓨터에서 메모리를 확보하고 보호합니다. 이는 사용 가능한 메모리가 750Mi 임계값을 초과하면 반응적 동작입니다.
 
-2. 두 번째 값은 쿠벨렛 데몬이 제대로 작동하기 위한 메모리 예약의 점진적 비율입니다(kube-reserved).
+2. 두 번째 값은 쿠벨렛 데몬이 제대로 작동하기 위한 메모리 예약의 회귀 비율입니다(kube-reserved).
     - 처음 4GB 메모리의 25%
     - 다음 4GB 메모리의 20% (최대 8GB)
     - 다음 8GB 메모리의 10% (최대 16GB)

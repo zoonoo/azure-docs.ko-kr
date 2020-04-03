@@ -1,6 +1,6 @@
 ---
 title: T-SQL 루프 사용
-description: 솔루션을 개발하기 위해 Azure SQL Data Warehouse에서 Transact-SQL 루프를 사용하여 커서를 대체하는 방법에 대한 팁입니다.
+description: T-SQL 루프를 사용하고 Synapse SQL 풀에서 커서를 대체하는 솔루션 개발을 위한 팁입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,24 +11,28 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: afb2160cb9b4e34d3d17db86bac9cd3be79886d0
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 4cec4801f2a15ebf858f50377c9718fdacac4e29
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351585"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618995"
 ---
-# <a name="using-t-sql-loops-in-sql-data-warehouse"></a>SQL Data Warehouse의 T-SQL 루프 사용
-솔루션을 개발하기 위해 Azure SQL Data Warehouse에서 Transact-SQL 루프를 사용하여 커서를 대체하는 방법에 대한 팁입니다.
+# <a name="using-t-sql-loops-in-synapse-sql-pool"></a>시냅스 SQL 풀에서 T-SQL 루프 사용
+이 문서에는 T-SQL 루프를 사용하고 커서를 대체하는 SQL 풀 솔루션 개발에 대한 팁이 포함되어 있습니다.
 
 ## <a name="purpose-of-while-loops"></a>WHILE 루프의 목적
 
-SQL Data Warehouse는 명령문 블록을 반복 실행하기 위한 [WHILE](/sql/t-sql/language-elements/while-transact-sql) 루프를 지원합니다. 이 WHILE 루프는 지정한 조건이 true이거나 코드가 BREAK 키워드를 사용하여 루프를 명시적으로 종료할 때까지 계속됩니다. 루프는 SQL 코드에 정의된 커서를 대체하는 데 유용합니다. 다행히 SQL 코드로 작성된 거의 모든 커서는 빠른 정방향 읽기 전용 변형만 존재합니다. 따라서 [WHILE] 루프는 커서를 대체하는 좋은 대안입니다.
+Synapse SQL 풀은 반복실행 문 블록을 위한 [WHILE](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver15) 루프를 지원합니다. 이 WHILE 루프는 지정한 조건이 true이거나 코드가 BREAK 키워드를 사용하여 루프를 명시적으로 종료할 때까지 계속됩니다. 
 
-## <a name="replacing-cursors-in-sql-data-warehouse"></a>SQL Data Warehouse에서 커서 대체
-그러나 계속 진행하기 전에 먼저 스스로 질문해 보아야 합니다. "집합 기반 작업을 사용하도록 이 커서를 다시 작성할 수 있습니까?" 대부분의 경우 다시 작성할 수 있으며 종종 가장 좋은 방법이기도 합니다. 집합 기반 작업은 흔히 행별 반복 접근 방식보다 더 빠르게 수행됩니다.
+루프는 SQL 코드에 정의된 커서를 대체하는 데 유용합니다. 다행히 SQL 코드로 작성된 거의 모든 커서는 빠른 정방향 읽기 전용 변형만 존재합니다. 따라서 WHILE 루프는 커서를 교체하는 훌륭한 대안입니다.
 
-빠른 정방향 읽기 전용 커서는 루핑 구성으로 쉽게 대체할 수 있습니다. 다음은 간단한 예제입니다. 이 코드 예제는 데이터베이스의 모든 테이블에 대한 통계를 업데이트합니다. 루프의 테이블을 반복하여 각 명령이 순차적으로 실행됩니다.
+## <a name="replacing-cursors-in-synapse-sql-pool"></a>Synapse SQL 풀에서 커서 교체
+그러나 먼저 머리에서 다이빙하기 전에 다음과 같은 질문을 스스로에게 물어봐야합니다: "이 커서를 다시 작성하여 집합 기반 작업을 사용할 수 있습니까?" 
+
+대부분의 경우 대답은 '예'이며 가장 좋은 방법입니다. 집합 기반 작업은 흔히 행별 반복 접근 방식보다 더 빠르게 수행됩니다.
+
+빠른 정방향 읽기 전용 커서는 루핑 구성으로 쉽게 대체할 수 있습니다. 다음 예제는 간단한 예제입니다. 이 코드 예제는 데이터베이스의 모든 테이블에 대한 통계를 업데이트합니다. 루프의 테이블을 반복하여 각 명령이 순차적으로 실행됩니다.
 
 첫째, 개별 문을 식별하는 데 사용되는 고유한 행 번호를 포함하는 임시 테이블을 만듭니다.
 

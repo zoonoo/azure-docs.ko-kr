@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a7f27215c7ba053933d9d12658253ea92aefa526
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: ace4bc2e46d9e1926da18dedb163657d4f343979
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351122"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586318"
 ---
 # <a name="data-warehouse-units-dwus"></a>데이터 웨어하우스 단위(DWUs)
 
@@ -24,7 +24,7 @@ ms.locfileid: "80351122"
 
 ## <a name="what-are-data-warehouse-units"></a>데이터 웨어하우스 장치란?
 
-[SQL 풀은](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse) [SQL Analytics를](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse)사용할 때 프로비전되는 분석 리소스의 컬렉션을 나타냅니다. 분석 리소스는 CPU, 메모리 및 IO의 조합으로 정의됩니다. 이 세 가지 리소스는 DW(데이터 웨어하우스 단위)라고 하는 계산 척도 단위로 번들로 제공됩니다. DWU는 컴퓨팅 리소스 및 성능의 추상적이고 정규화된 측정값을 나타냅니다. 서비스 수준이 변경되면 시스템에서 사용할 수 있는 DW의 수가 변경되어 시스템의 성능과 비용이 조정됩니다.
+[Synapse SQL 풀은](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) 프로비전중인 분석 리소스의 컬렉션을 나타냅니다. 분석 리소스는 CPU, 메모리 및 IO의 조합으로 정의됩니다. 이 세 가지 리소스는 DW(데이터 웨어하우스 단위)라고 하는 계산 척도 단위로 번들로 제공됩니다. DWU는 컴퓨팅 리소스 및 성능의 추상적이고 정규화된 측정값을 나타냅니다. 서비스 수준이 변경되면 시스템에서 사용할 수 있는 DW의 수가 변경되어 시스템의 성능과 비용이 조정됩니다.
 
 더 높은 성능을 위해 데이터 웨어하우스 단위 수를 늘릴 수 있습니다. 성능이 저하되면 데이터 웨어하우스 단위를 줄입니다. 스토리지 및 컴퓨팅 비용은 별도로 청구되므로 데이터 웨어하우스 단위를 변경해도 스토리지 비용에 영향을 미치지 않습니다.
 

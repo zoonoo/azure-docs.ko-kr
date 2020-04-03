@@ -11,12 +11,12 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: a640f2f260c94cd7502aa79badb32bd26abebb11
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 81191fd3b654f612f2621757f3006268276477de
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350315"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586544"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>columnstore의 행 그룹 품질 최대화
 
@@ -89,7 +89,7 @@ To view an estimate of the memory requirements to compress a rowgroup of maximum
 
 긴 문자열은 텍스트 압축용으로 고안된 압축 방법으로 압축됩니다. 이 압축 방법은 *사전*을 사용하여 텍스트 패턴을 저장합니다. 사전의 최대 크기는 16MB입니다. 행 그룹에는 긴 문자열 각각에 대해 사전이 한 개만 있습니다.
 
-columnstore 메모리 요구 사항에 대한 심층적인 설명은 [비디오 SQL Analytics 크기 조정: 구성 및 지침을](https://channel9.msdn.com/Events/Ignite/2016/BRK3291)참조하십시오.
+columnstore 메모리 요구 사항에 대한 심층적인 논의는 [Synapse SQL 크기 조정 비디오: 구성 및 지침을](https://channel9.msdn.com/Events/Ignite/2016/BRK3291)참조하십시오.
 
 ## <a name="ways-to-reduce-memory-requirements"></a>메모리 요구 사항을 줄이는 방법
 
@@ -141,4 +141,4 @@ DWU 크기와 사용자 리소스 클래스를 함께 사용하여 사용자 쿼
 
 ## <a name="next-steps"></a>다음 단계
 
-SQL 분석의 성능을 향상시키는 더 많은 방법을 찾으려면 [성능 개요를](cheat-sheet.md)참조하세요.
+Synapse SQL의 성능을 향상시키는 더 많은 방법을 찾으려면 [성능 개요를](cheat-sheet.md)참조하세요.

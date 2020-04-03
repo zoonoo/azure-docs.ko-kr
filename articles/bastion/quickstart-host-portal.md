@@ -2,17 +2,17 @@
 title: '빠른 시작: 개인 IP 주소를 사용하여 가상 시스템에 연결: Azure Bastion'
 description: 이 문서에서는 가상 컴퓨터에서 Azure Bastion 호스트를 만들고 개인 IP 주소를 사용하여 안전하게 연결하는 방법을 알아봅니다.
 services: bastion
-author: cherylmc
+author: charwen
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: cherylmc
-ms.openlocfilehash: 0b4f0a1fa4f9cce05aa544bb24e045209a6d24ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: charwen
+ms.openlocfilehash: a420a3253040fff8b767a81f298ede283c1d214b
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79137461"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619263"
 ---
 # <a name="quickstart-connect-to-a-virtual-machine-using-a-private-ip-address-and-azure-bastion"></a>빠른 시작: 개인 IP 주소와 Azure 요새를 사용하여 가상 시스템에 연결
 
@@ -27,7 +27,7 @@ ms.locfileid: "79137461"
 
 |**이름** | **값** |
 | --- | --- |
-| 이름 |  VNet1바스티션 |
+| 속성 |  VNet1바스티션 |
 | 지역 | eastus |
 | 가상 네트워크 |  VNet1 |
 | + 서브넷 이름 | AzureBastionSubnet |

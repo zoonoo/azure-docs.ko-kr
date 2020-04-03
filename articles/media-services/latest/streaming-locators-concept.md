@@ -11,18 +11,18 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
-ms.openlocfilehash: 3a9568e1a0307cd1713c511ef42c065424306548
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41b2d0ad1e072fb2bf5860ae80f8f25f886b37f7
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78302885"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582684"
 ---
 # <a name="streaming-locators"></a>스트리밍 로케이터
 
 출력 자산의 비디오를 재생할 클라이언트에 사용할 수 있도록 하려면 [스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators)를 만든 다음, 스트리밍 URL을 빌드해야 합니다. URL을 빌드하려면 스트리밍 엔드포인트 호스트 이름과 스트리밍 로케이터 경로를 연결해야 합니다. .NET 샘플은 [스트리밍 로케이터 가져오기](stream-files-tutorial-with-api.md#get-a-streaming-locator)를 참조하세요.
 
-**스트리밍 로케이터를** 만드는 프로세스를 게시라고 합니다. 기본적으로 스트리밍 **로케이터는** API 호출을 한 직후에 유효하며 선택적 시작 및 종료 시간을 구성하지 않는 한 API 호출이 삭제될 때까지 지속됩니다. 
+**스트리밍 로케이터**를 만드는 과정을 게시라고 합니다. 기본적으로 스트리밍 **로케이터는** API 호출을 한 직후에 유효하며 선택적 시작 및 종료 시간을 구성하지 않는 한 API 호출이 삭제될 때까지 지속됩니다. 
 
 **스트리밍 로케이터를**만들 때 **자산** 이름과 **스트리밍 정책** 이름을 지정해야 합니다. 자세한 내용은 아래 항목을 참조하세요.
 
@@ -36,7 +36,7 @@ ms.locfileid: "78302885"
 
 * **스트리밍 로케이터는** 업데이터로 처리되지 않습니다. 
 * 날짜/시간 형식의 **스트리밍 로케이터** 속성은 언제나 UTC 형식입니다.
-* Media Services 계정에 대한 제한된 정책 세트를 설계하고 동일한 옵션이 필요할 때마다 스트리밍 로케이터에 해당 세트를 다시 사용하는 것이 좋습니다. 자세한 내용은 [할당량 및 제한 사항](limits-quotas-constraints.md)을 참조하세요.
+* Media Services 계정에 대한 제한된 정책 세트를 설계하고 동일한 옵션이 필요할 때마다 스트리밍 로케이터에 해당 세트를 다시 사용하는 것이 좋습니다. 자세한 내용은 [할당량 및 제한을](limits-quotas-constraints.md)참조하십시오.
 
 ## <a name="create-streaming-locators"></a>스트리밍 로케이터 만들기  
 
@@ -98,7 +98,7 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
 |Java|[에셋 스트리밍로케이터](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [자산](assets-concept.md)
 * [스트리밍 정책](streaming-policy-concept.md)

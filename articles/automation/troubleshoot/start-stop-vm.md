@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 97ea98fc38fc8d06dc1bc65ee057241da6f15488
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73a9680cc570179c47b527a4844488da69193cb3
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78851387"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586091"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>작업 시간 외 VM 시작/중지 문제 해결
 
@@ -137,7 +137,7 @@ VM 시작/중지 솔루션을 구성했지만 구성된 일부 VM이 시작 또�
 
 다음 목록에서 문제의 잠재적인 해결 방법이나 검색 위치를 확인합니다.
 
-* 작업 시간 외 VM 시작/중지 솔루션의 [시퀀스 시나리오](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags)를 사용하는 경우 시작 또는 중지하려는 각 VM에 적절한 태그가 있는지 확인해야 합니다. 시작하려는 VM에는 `sequencestart` 태그가 있는지, 중지하려는 VM에는 `sequencestop` 태그가 있는지 확인합니다. 두 태그 값은 모두 양의 정수여야 합니다. 다음 예제와 비슷한 쿼리를 사용하여 모든 VM과 태그 및 해당 값을 검색할 수 있습니다.
+* 작업 시간 외 VM 시작/중지 솔루션의 [시퀀스 시나리오](../automation-solution-vm-management.md)를 사용하는 경우 시작 또는 중지하려는 각 VM에 적절한 태그가 있는지 확인해야 합니다. 시작하려는 VM에는 `sequencestart` 태그가 있는지, 중지하려는 VM에는 `sequencestop` 태그가 있는지 확인합니다. 두 태그 값은 모두 양의 정수여야 합니다. 다음 예제와 비슷한 쿼리를 사용하여 모든 VM과 태그 및 해당 값을 검색할 수 있습니다.
 
   ```powershell-interactive
   Get-AzureRmResource | ? {$_.Tags.Keys -contains "SequenceStart" -or $_.Tags.Keys -contains "SequenceStop"} | ft Name,Tags
@@ -187,7 +187,7 @@ VM의 잘못된 태그 지정 때문입니다.
 2. 시작 또는 중지할 VM의 리소스 그룹이 상황에 따라 `External_Start_ResourceGroupNames` 또는 `External_Stop_ResourceGroupNames` 변수에 있는지 확인합니다.
 3. WHATIF 매개 변수를 True로 설정하여 `SequencedStartStop_Parent` Runbook을 실행하는 방식으로 변경 내용을 미리 보면서 테스트합니다.
 
-이 솔루션을 사용하여 VM을 순서대로 시작 및 중지하는 방법에 대한 자세한 내용 및 추가 지침을 보려면 [순서대로 VM 시작 및 중지](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags)를 참조하세요.
+이 솔루션을 사용하여 VM을 순서대로 시작 및 중지하는 방법에 대한 자세한 내용 및 추가 지침을 보려면 [순서대로 VM 시작 및 중지](../automation-solution-vm-management.md)를 참조하세요.
 
 ## <a name="scenario-startstop-vm-job-fails-with-403-forbidden-status"></a><a name="403"></a>시나리오: VM 시작/중지 403 금지 된 상태로 실패 합니다.
 

@@ -11,17 +11,19 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 08df8266cc3ef8ba1b20efcf135e502a9df69e80
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 587b2aa23aa822f44d7763cbfec21eb36055b091
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351482"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583721"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Azure 시냅스 분석 데이터 통합 파트너
-Azure Synapse의 SQL Analytics 기능을 사용하여 데이터 웨어하우스 솔루션을 만들려면 업계 를 선도하는 다양한 도구 중에서 선택할 수 있습니다. 이 문서에서는 Azure Synapse를 지원하는 공식 데이터 통합 솔루션을 사용하여 Microsoft 파트너 회사를 강조합니다.
+
+Azure Synapse의 Synapse SQL 풀 기능을 사용하여 데이터 웨어하우스 솔루션을 만들려면 업계 를 선도하는 다양한 도구 중에서 선택할 수 있습니다. 이 문서에서는 Azure Synapse를 지원하는 공식 데이터 통합 솔루션을 사용하여 Microsoft 파트너 회사를 강조합니다.
 
 ## <a name="data-integration-partners"></a>데이터 통합 파트너
+
 | 파트너 | 설명 | 웹 사이트/제품 링크 |
 | ------- | ----------- | -------------------- |
 | ![Alooma](./media/sql-data-warehouse-partner-data-integration/alooma_logo.png) |**Alooma**<br> Alooma는 데이터 팀이 다양한 데이터 사일로에서 Azure Synapse 데이터 웨어하우스로 데이터를 실시간으로 통합, 보강 및 스트리밍할 수 있는 ETL(추출, 변환 및 로드) 솔루션입니다. |[제품 페이지](https://www.alooma.com/) |

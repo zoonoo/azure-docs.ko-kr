@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 88d25083a1105023279f3907a4573319fabe087c
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 912677a10d7098b891a4f6972b61761cd72cf292
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520756"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585936"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Azure 관리 디스크의 서버 측 암호화
 
@@ -34,7 +34,11 @@ Azure 관리 디스크의 기본 암호화 모듈에 대한 자세한 내용은 
 
 ## <a name="customer-managed-keys"></a>고객 관리형 키
 
-고유한 키를 사용하여 각 관리 디스크 수준에서 암호화를 관리하도록 선택할 수 있습니다. 고객 관리 키가 있는 관리 디스크에 대한 서버 측 암호화는 Azure Key Vault와 통합된 환경을 제공합니다. [RSA 키를](../../key-vault/key-vault-hsm-protected-keys.md) 키 볼트로 가져오거나 Azure 키 자격 증명 모음에서 새 RSA 키를 생성할 수 있습니다. Azure 관리 디스크는 봉투 암호화를 사용하여 완전히 투명한 방식으로 암호화 및 암호 [해독을](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique)처리합니다. [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 기반 데이터 암호화 키(DEK)를 사용하여 데이터를 암호화하며, 이 키는 키를 사용하여 보호됩니다. DEK를 암호화하고 해독하기 위해 키를 사용하려면 키 볼트의 관리 디스크에 대한 액세스 권한을 부여해야 합니다. 이렇게 하면 데이터와 키를 완전히 제어할 수 있습니다. 언제든지 키를 비활성화하거나 관리 디스크에 대한 액세스를 취소할 수 있습니다. 또한 Azure Key Vault 모니터링을 사용하여 암호화 키 사용량을 감사하여 관리되는 디스크 또는 기타 신뢰할 수 있는 Azure 서비스만 키에 액세스하고 있는지 확인할 수 있습니다.
+고유한 키를 사용하여 각 관리 디스크 수준에서 암호화를 관리하도록 선택할 수 있습니다. 고객 관리 키가 있는 관리 디스크에 대한 서버 측 암호화는 Azure Key Vault와 통합된 환경을 제공합니다. [RSA 키를](../../key-vault/key-vault-hsm-protected-keys.md) 키 볼트로 가져오거나 Azure 키 자격 증명 모음에서 새 RSA 키를 생성할 수 있습니다. 
+
+Azure 관리 디스크는 봉투 암호화를 사용하여 완전히 투명한 방식으로 암호화 및 암호 [해독을](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique)처리합니다. [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 기반 데이터 암호화 키(DEK)를 사용하여 데이터를 암호화하며, 이 키는 키를 사용하여 보호됩니다. 저장소 서비스는 RSA 암호화를 사용하여 데이터 암호화 키를 생성하고 고객 관리 키로 암호화합니다. 봉투 암호화를 사용하면 VM에 영향을 주지 않고 규정 준수 정책에 따라 주기적으로 키를 회전(변경)할 수 있습니다. 키를 회전하면 저장소 서비스는 새 고객 관리 키로 데이터 암호화 키를 다시 암호화합니다. 
+
+DEK를 암호화하고 해독하기 위해 키를 사용하려면 키 볼트의 관리 디스크에 대한 액세스 권한을 부여해야 합니다. 이렇게 하면 데이터와 키를 완전히 제어할 수 있습니다. 언제든지 키를 비활성화하거나 관리 디스크에 대한 액세스를 취소할 수 있습니다. 또한 Azure Key Vault 모니터링을 사용하여 암호화 키 사용량을 감사하여 관리되는 디스크 또는 기타 신뢰할 수 있는 Azure 서비스만 키에 액세스하고 있는지 확인할 수 있습니다.
 
 프리미엄 SSD, 표준 SSD 및 표준 HDD의 경우: 키를 비활성화하거나 삭제하면 해당 키를 사용하는 디스크가 있는 모든 VM이 자동으로 종료됩니다. 그런 다음 키를 다시 사용하거나 새 키를 할당하지 않으면 VM을 사용할 수 없습니다.
 
@@ -187,6 +191,32 @@ az disk create -n $diskName -g $rgName -l $location --encryption-type Encryption
 diskId=$(az disk show -n $diskName -g $rgName --query [id] -o tsv)
 
 az vm disk attach --vm-name $vmName --lun $diskLUN --ids $diskId 
+
+```
+
+#### <a name="change-the-key-of-a-diskencryptionset-to-rotate-the-key-for-all-the-resources-referencing-the-diskencryptionset"></a>DiskEncryptionSet을 참조하는 모든 리소스에 대한 키를 회전하도록 DiskEncryptionSet의 키를 변경합니다.
+
+```azurecli
+
+rgName=yourResourceGroupName
+keyVaultName=yourKeyVaultName
+keyName=yourKeyName
+diskEncryptionSetName=yourDiskEncryptionSetName
+
+
+keyVaultId=$(az keyvault show --name $keyVaultName--query [id] -o tsv)
+
+keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
+
+az disk-encryption-set update -n keyrotationdes -g keyrotationtesting --key-url $keyVaultKeyUrl --source-vault $keyVaultId
+
+```
+
+#### <a name="find-the-status-of-server-side-encryption-of-a-disk"></a>디스크의 서버 측 암호화 상태 찾기
+
+```azurecli
+
+az disk show -g yourResourceGroupName -n yourDiskName --query [encryption.type] -o tsv
 
 ```
 

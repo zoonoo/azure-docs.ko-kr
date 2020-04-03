@@ -11,20 +11,20 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a382ef2d93f10e69569ecbbed1399f256a7afbb3
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: d10a642f9309e4bb93368564488fc75be15fa27c
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351213"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586071"
 ---
 # <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Azure 시냅스 분석에서 워크로드 분석
 
-Azure 시냅스 분석에서 SQL 분석 워크로드를 분석하는 기술입니다.
+Azure 시냅스 분석에서 시냅스 SQL 워크로드를 분석하는 기술입니다.
 
 ## <a name="resource-classes"></a>리소스 클래스
 
-SQL Analytics는 쿼리에 시스템 리소스를 할당하는 리소스 클래스를 제공합니다.  리소스 클래스에 대한 자세한 내용은 [리소스 클래스 & 워크로드 관리를](resource-classes-for-workload-management.md)참조하십시오.  쿼리에 할당된 리소스 클래스에 현재 사용 가능한 리소스보다 더 많은 리소스가 필요한 경우 쿼리가 대기합니다.
+Synapse SQL은 쿼리에 시스템 리소스를 할당하는 리소스 클래스를 제공합니다.  리소스 클래스에 대한 자세한 내용은 [리소스 클래스 & 워크로드 관리를](resource-classes-for-workload-management.md)참조하십시오.  쿼리에 할당된 리소스 클래스에 현재 사용 가능한 리소스보다 더 많은 리소스가 필요한 경우 쿼리가 대기합니다.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>큐에 대기 중인 쿼리 검색 및 다른 DMV
 
@@ -63,7 +63,7 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-SQL 분석에는 다음과 같은 대기 유형이 있습니다.
+시냅스 SQL에는 다음과 같은 대기 유형이 있습니다.
 
 * **LocalQueriesConcurrencyResourceType**: 동시성 슬롯 프레임워크 외부에 존재하는 쿼리. `SELECT @@VERSION` 과 같은 DMV 쿼리 및 시스템 함수는 로컬 쿼리의 예입니다.
 * **UserConcurrencyResourceType**: 동시성 슬롯 프레임워크 내에 존재하는 쿼리. 최종 사용자 테이블에 대한 쿼리는 이 리소스 형식을 사용하는 예를 나타냅니다.
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>다음 단계
 
-데이터베이스 사용자 및 보안 관리에 대한 자세한 내용은 [SQL Analytics의 데이터베이스 보안](sql-data-warehouse-overview-manage-security.md)을 참조하십시오. 더 큰 리소스 클래스가 클러스터된 columnstore 인덱스 품질을 향상할 방법에 대한 자세한 내용은 [인덱스를 다시 빌드하여 세그먼트 품질 개선](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)을 참조하세요.
+데이터베이스 사용자 및 보안 관리에 대한 자세한 내용은 [Synapse SQL의 데이터베이스 보안](sql-data-warehouse-overview-manage-security.md)을 참조하십시오. 더 큰 리소스 클래스가 클러스터된 columnstore 인덱스 품질을 향상할 방법에 대한 자세한 내용은 [인덱스를 다시 빌드하여 세그먼트 품질 개선](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)을 참조하세요.

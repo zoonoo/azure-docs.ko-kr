@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 9e254e2a06ea5a0d886072f4e9e3b7d275e4860e
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 9be3b2c9b2624d4cd758081703373a433861e4a7
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422836"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585305"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>PowerShell을 사용하여 Azure 데이터 레이크 저장소 Gen2의 디렉터리, 파일 및 ACL관리(미리 보기)
 
@@ -46,7 +46,7 @@ ms.locfileid: "80422836"
 2. 최신 **PowershellGet** 모듈을 설치합니다. 그런 다음 PowerShell 콘솔을 닫고 다시 엽니다.
 
    ```powershell
-   install-Module PowerShellGet –Repository PSGallery –Force 
+   Install-Module PowerShellGet –Repository PSGallery –Force 
    ```
 
 3. **Az.Storage** 미리 보기 모듈을 설치합니다.
@@ -377,7 +377,7 @@ Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse -
 
 다음 표에서는 데이터 레이크 저장소 Gen1에 사용된 cmdlet이 데이터 레이크 저장소 Gen2의 cmdlet에 어떻게 매핑되는지 보여 줍니다.
 
-|데이터 레이크 스토리지 Gen1 cmdlet| 데이터 레이크 스토리지 Gen2 cmdlet| 메모 |
+|데이터 레이크 스토리지 Gen1 cmdlet| 데이터 레이크 스토리지 Gen2 cmdlet| 참고 |
 |--------|---------|-----|
 |겟 아즈데이데이레이크스토어차일드아이템|겟-아즈데이레이크겐2차일드아이템|기본적으로 Get-AzDataLakeGen2ChildItem cmdlet은 첫 번째 수준의 하위 항목만 나열합니다. -Recurse 매개 변수는 자식 항목을 재귀적으로 나열합니다. |
 |겟-아즈데이터레이크스토어아이템<br>겟-아즈데이터레이크스토어항목항목<br>겟-아즈데이데이레이크스토어아이템 오너<br>겟-아즈데이터레이크스토어아이템허가|겟-아즈데이레이크겐2항목|Get-AzDataLakeGen2Item cmdlet의 출력 항목에는 Acl, 소유자, 그룹, 권한 등 이러한 속성이 있습니다.|
@@ -390,7 +390,7 @@ Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse -
 
 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Azure 저장소와 함께 Azure PowerShell 을 사용 하 여](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)입니다.

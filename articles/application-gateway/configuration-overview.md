@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: f31c24c96732ec3311ea904fc9c63344e2d14109
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f08cfab8f8de9183e6bee241959f7feabc31c8e3
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371249"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585914"
 ---
 # <a name="application-gateway-configuration-overview"></a>애플리케이션 게이트웨이 구성 개요
 
@@ -50,7 +50,7 @@ NSG(네트워크 보안 그룹)는 응용 프로그램 게이트웨이에서 지
 
 - 응용 프로그램 게이트웨이 v1 SKU의 경우 TCP 포트 65503-65534에서 들어오는 인터넷 트래픽을 허용해야 하며, 대상 서브넷이 있는 v2 SKU의 경우 TCP 포트 65200-65535를 **임의로** 허용하고 **게이트웨이 관리자** 서비스 태그로 소스로 원본을 제공해야 합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 Azure 인증서에 의해 보호(잠기)됩니다. 이러한 게이트웨이의 고객을 포함한 외부 엔터티는 이러한 끝점에서 통신할 수 없습니다.
 
-- 아웃바운드 인터넷 연결은 차단할 수 없습니다. NSG의 기본 아웃바운드 규칙은 인터넷 연결을 허용합니다. 다음을 수행하는 것이 좋습니다.
+- 아웃바운드 인터넷 연결은 차단할 수 없습니다. NSG의 기본 아웃바운드 규칙은 인터넷 연결을 허용합니다. 다음을 권장합니다.
 
   - 기본 아웃바운드 규칙을 제거하지 마십시오.
   - 아웃바운드 연결을 거부하는 다른 아웃바운드 규칙을 만들지 마십시오.
@@ -167,8 +167,6 @@ v2 SKU의 경우 다중 사이트 리스너가 기본 리스너보다 전에 처
 HTTP 또는 HTTPS를 선택합니다.
 
 - HTTP를 선택하면 클라이언트와 응용 프로그램 게이트웨이 간의 트래픽이 암호화되지 않습니다.
-
-- [TLS 종료](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssltls-termination) 또는 종단 간 [TLS 암호화를](https://docs.microsoft.com/azure/application-gateway/ssl-overview)원하는 경우 HTTPS를 선택합니다. 클라이언트와 응용 프로그램 게이트웨이 간의 트래픽이 암호화됩니다. 그리고 TLS 연결은 응용 프로그램 게이트웨이에서 종료됩니다. 종단 간 TLS 암호화를 원하는 경우 HTTPS를 선택하고 **백 엔드 HTTP** 설정을 구성해야 합니다. 이렇게 하면 응용 프로그램 게이트웨이에서 백 엔드로 이동할 때 트래픽이 다시 암호화됩니다.
 
 - [TLS 종료](features.md#secure-sockets-layer-ssltls-termination) 또는 종단 간 [TLS 암호화를](https://docs.microsoft.com/azure/application-gateway/ssl-overview)원하는 경우 HTTPS를 선택합니다. 클라이언트와 응용 프로그램 게이트웨이 간의 트래픽이 암호화됩니다. 그리고 TLS 연결은 응용 프로그램 게이트웨이에서 종료됩니다. 종단 간 TLS 암호화를 원하는 경우 HTTPS를 선택하고 **백 엔드 HTTP** 설정을 구성해야 합니다. 이렇게 하면 응용 프로그램 게이트웨이에서 백 엔드로 이동할 때 트래픽이 다시 암호화됩니다.
 
@@ -296,7 +294,7 @@ HTTP-HTTPS 리디렉션에 대한 자세한 내용은 다음을 참조하십시�
 
 ### <a name="cookie-based-affinity"></a>쿠키 기반 선호도
 
-Azure 응용 프로그램 게이트웨이는 사용자 세션을 유지 관리하기 위해 게이트웨이 관리 쿠키를 사용합니다. 사용자가 응용 프로그램 게이트웨이에 첫 번째 요청을 보낼 때 세션 세부 정보를 포함하는 해시 값으로 응답에서 선호도 쿠키를 설정하여 선호도 쿠키를 전달하는 후속 요청이 동일한 백 엔드 서버로 라우팅되도록 합니다. 끈적거림을 유지합니다. 
+Azure 응용 프로그램 게이트웨이는 사용자 세션을 유지 관리하기 위해 게이트웨이 관리 쿠키를 사용합니다. 사용자가 응용 프로그램 게이트웨이에 첫 번째 요청을 보낼 때 세션 세부 정보를 포함하는 해시 값으로 응답에서 선호도 쿠키를 설정하여 선호도 쿠키를 전달하는 후속 요청이 끈적거림을 유지하기 위해 동일한 백 엔드 서버로 라우팅됩니다. 
 
 이 기능은 사용자 세션을 동일한 서버에 유지하려는 경우와 세션 상태가 사용자 세션의 서버에 로컬로 저장될 때 유용합니다. 응용 프로그램에서 쿠키 기반 선호도를 처리할 수 없는 경우 이 기능을 사용할 수 없습니다. 이를 사용하려면 클라이언트가 쿠키를 지원하는지 확인합니다.
 

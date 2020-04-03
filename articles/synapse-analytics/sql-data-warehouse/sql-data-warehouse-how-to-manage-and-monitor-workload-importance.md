@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: fdac8ebc56291292559f6718de5f0092c7d8e063
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 114f8d637a927a899807a676fb3e1b45f5c7687c
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350463"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585757"
 ---
 # <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Azure 시냅스 분석에서 워크로드 중요도 관리 및 모니터링
 
-DMV 및 카탈로그 보기를 사용하여 Azure Synapse에서 SQL 분석 요청 수준 중요도를 관리하고 모니터링합니다.
+DMV 및 카탈로그 보기를 사용하여 Azure Synapse에서 시냅스 SQL 요청 수준 중요도를 관리하고 모니터링합니다.
 
 ## <a name="monitor-importance"></a>중요도 모니터링
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 22a24d01f606cd3f76a0de950351feb3d964da54
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 2db7a25f3f463e9210544354395c9d33a75f633c
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478925"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619368"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>알려진 문제 및 Azure 기계 학습 문제 해결
 
@@ -48,16 +48,6 @@ Azure Machine Learning을 사용할 때 발생할 수 있는 [리소스 할당�
     pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
     ```
 
-* **오류 메시지: azureml-dataprep-네이티브에 대해 일치하는 분포를 찾을 수 없습니다.**
-
-    아나콘다의 파이썬 3.7.4 배포판에는 azureml-sdk 설치를 중단하는 버그가 있습니다. 이 문제는 이 [GitHub 문제에서](https://github.com/ContinuumIO/anaconda-issues/issues/11195) 설명합니다.
-    
-    이 명령은 다음 명령을 사용하여 새 Conda 환경을 만들어 해결할 수 있습니다.
-    ```bash
-    conda create -n <env-name> python=3.7.3
-    ```
-    파이썬 3.7.3을 사용하여 콘다 환경을 생성하며 3.7.4에 설치 문제가 없습니다.
-
 * **패키지 설치 시 데이터 브릭 실패**
 
     더 많은 패키지를 설치할 때 Azure 컴퓨터 학습 SDK 설치가 Azure Databricks에서 실패합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지하려면 라이브러리 버전을 고정하여 패키지를 설치합니다. 이 문제는 Azure 기계 학습 SDK가 아닌 데이터 브릭과 관련이 있습니다. 다른 라이브러리에서도 이 문제가 발생할 수 있습니다. 예제:
@@ -89,10 +79,9 @@ Azure Machine Learning을 사용할 때 발생할 수 있는 [리소스 할당�
 
 * **Databricks FailToSendFeather**: Azure `FailToSendFeather` Databricks 클러스터에서 데이터를 읽을 때 오류가 표시되면 다음 해결 방법을 참조하십시오.
     
-        * Upgrade `azureml-sdk[automl]` package to the latest version.
-        * Add `azureml-dataprep` version 1.1.8 or above.
-        * Add `pyarrow` version 0.11 or above.
-        `
+    * 패키지를 `azureml-sdk[automl]` 최신 버전으로 업그레이드합니다.
+    * 버전 `azureml-dataprep` 1.1.8 이상을 추가합니다.
+    * 버전 `pyarrow` 0.11 이상을 추가합니다.
 
 ## <a name="create-and-manage-workspaces"></a>작업 영역 만들기 및 관리
 
@@ -113,9 +102,7 @@ Azure Machine Learning을 사용할 때 발생할 수 있는 [리소스 할당�
 
 데이터 전송과 같은 다른 워크로드에 파일 공유를 사용하는 경우 파일 공유를 실행 을 제출하는 데 자유롭게 사용할 수 있도록 Blob을 사용하는 것이 좋습니다. 워크로드를 서로 다른 두 작업 영역으로 나눌 수도 있습니다.
 
-### <a name="datasets-and-data-preparation"></a>데이터 집합 및 데이터 준비
-
-이러한 문제는 Azure 기계 학습 데이터 집합에 대한 알려진 문제입니다.
+### <a name="passing-data-as-input"></a>데이터를 입력으로 전달
 
 *  **TypeError: FileNot: 이러한 파일 또는 디렉터리 없음**: 제공한 파일 경로가 파일이 있는 위치가 아닌 경우 이 오류가 발생합니다. 파일을 참조하는 방식이 계산 대상에 데이터 집합을 탑재한 위치와 일치하는지 확인해야 합니다. 결정적 상태를 보장하려면 데이터 집합을 계산 대상에 장착할 때 추상 경로를 사용하는 것이 좋습니다. 예를 들어 다음 코드에서는 계산 대상의 파일 시스템의 루트 아래에 데이터 집합을 `/tmp`탑재합니다. 
     
@@ -128,8 +115,7 @@ Azure Machine Learning을 사용할 때 발생할 수 있는 [리소스 할당�
 
     선행 방향 슬래시 '/'를 포함하지 않으면 데이터 집합을 탑재할 위치를 나타내기 위해 `/mnt/batch/.../tmp/dataset` 계산 대상에 작업 디렉토리를 접두사를 지정해야 합니다.
 
-### <a name="data-labeling-projects-issues"></a>데이터 라벨링 프로젝트 문제
-
+### <a name="data-labeling-projects"></a>데이터 라벨링 프로젝트
 
 |문제  |해결 방법  |
 |---------|---------|
@@ -138,9 +124,9 @@ Azure Machine Learning을 사용할 때 발생할 수 있는 [리소스 할당�
 |이미지를 검토할 때 새로 레이블이 지정된 이미지는 표시되지 않습니다.     |   레이블이 지정된 모든 이미지를 로드하려면 **첫 번째** 단추를 선택합니다. **첫 번째** 단추는 목록의 맨 앞으로 돌아가지만 레이블이 지정된 모든 데이터를 로드합니다.      |
 |개체 감지에 레이블을 지정하는 동안 Esc 키를 누르면 왼쪽 위 모서리에 0 크기 레이블이 만들어집니다. 이 상태에서 레이블을 제출하지 못합니다.     |   옆에 있는 크로스 마크를 클릭하여 레이블을 삭제합니다.  |
 
-## <a name="azure-machine-learning-designer-issues"></a>Azure 기계 학습 디자이너 문제
+## <a name="azure-machine-learning-designer"></a>Azure Machine Learning 디자이너
 
-디자이너와 알려진 문제.
+알려진 문제:
 
 * **긴 계산 준비 시간**: 처음 연결하거나 계산 대상을 만들 때 몇 분 또는 더 오래 될 수 있습니다. 
 

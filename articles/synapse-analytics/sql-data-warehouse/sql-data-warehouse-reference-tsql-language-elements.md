@@ -1,6 +1,6 @@
 ---
 title: T-SQL 언어 요소
-description: SQL 분석에서 지원되는 T-SQL 문에 대한 설명서에 대한 링크입니다.
+description: Synapse SQL 풀에서 지원되는 T-SQL 문에 대한 설명서에 대한 링크입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,17 +11,19 @@ ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 040a6d519896d71227777168ea9de9612f97ca6e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: f27a0a351e4a446dc950ac13f850bd14b2b3c65a
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351424"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586407"
 ---
-# <a name="t-sql-language-elements-supported-in-sql-analytics"></a>SQL 분석에서 지원되는 T-SQL 언어 요소
-SQL 분석에서 지원되는 T-SQL 언어 요소에 대한 설명서에 대한 링크입니다.
+# <a name="t-sql-language-elements-supported-in-synapse-sql-pool"></a>시냅스 SQL 풀에서 지원되는 T-SQL 언어 요소
+
+Synapse SQL 풀에서 지원되는 T-SQL 언어 요소에 대한 설명서에 대한 링크입니다.
 
 ## <a name="core-elements"></a>핵심 요소
+
 * [구문 규칙](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
 * [개체 이름 지정 규칙](https://msdn.microsoft.com/library/ms175874.aspx)
 * [예약 키워드](https://msdn.microsoft.com/library/ms189822.aspx)
@@ -37,6 +39,7 @@ SQL 분석에서 지원되는 T-SQL 언어 요소에 대한 설명서에 대한 
 * [사용](https://msdn.microsoft.com/library/ms188366.aspx)
 
 ## <a name="batches-control-of-flow-and-variables"></a>일괄 처리, 흐름 제어 및 변수
+
 * [BEGIN...END](https://msdn.microsoft.com/library/ms190487.aspx)
 * [휴식](https://msdn.microsoft.com/library/ms181271.aspx)
 * [선언@local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
@@ -48,6 +51,7 @@ SQL 분석에서 지원되는 T-SQL 언어 요소에 대한 설명서에 대한 
 * [동안](https://msdn.microsoft.com/library/ms178642.aspx)
 
 ## <a name="operators"></a>연산자
+
 * [+(더하기)](https://msdn.microsoft.com/library/ms178565.aspx)
 * [+ (문자열 연결)](https://msdn.microsoft.com/library/ms177561.aspx)
 * [- (음수)](https://msdn.microsoft.com/library/ms189480.aspx)
@@ -57,6 +61,7 @@ SQL 분석에서 지원되는 T-SQL 언어 요소에 대한 설명서에 대한 
 * [모듈로](https://msdn.microsoft.com/library/ms190279.aspx)
 
 ## <a name="wildcard-characters-to-match"></a>일치하는 와일드 카드 문자
+
 * [=(같음)](https://msdn.microsoft.com/library/ms175118.aspx)
 * [> (다음보다 큼)](https://msdn.microsoft.com/library/ms178590.aspx)
 * [< (다음보다 적음)](https://msdn.microsoft.com/library/ms179873.aspx)
@@ -66,14 +71,15 @@ SQL 분석에서 지원되는 T-SQL 언어 요소에 대한 설명서에 대한 
 * [!= (같지 않음)](https://msdn.microsoft.com/library/ms190296.aspx)
 * [및](https://msdn.microsoft.com/library/ms188372.aspx)
 * [BETWEEN](https://msdn.microsoft.com/library/ms187922.aspx)
-* [EXISTS](https://msdn.microsoft.com/library/ms188336.aspx)
+* [존재](https://msdn.microsoft.com/library/ms188336.aspx)
 * [에서](https://msdn.microsoft.com/library/ms177682.aspx)
 * [[아님] NULL](https://msdn.microsoft.com/library/ms188795.aspx)
 * [LIKE](https://msdn.microsoft.com/library/ms179859.aspx)
-* [그렇지 않습니다.](https://msdn.microsoft.com/library/ms189455.aspx)
+* [NOT](https://msdn.microsoft.com/library/ms189455.aspx)
 * [또는](https://msdn.microsoft.com/library/ms188361.aspx)
 
 ### <a name="bitwise-operators"></a>비트 연산자
+
 * [&(비트 단위 AND)](https://msdn.microsoft.com/library/ms174965.aspx)
 * [| (비트 와이즈 OR)](https://msdn.microsoft.com/library/ms186714.aspx)
 * [^ (비트 단독 OR)](https://msdn.microsoft.com/library/ms190277.aspx)
@@ -82,7 +88,8 @@ SQL 분석에서 지원되는 T-SQL 언어 요소에 대한 설명서에 대한 
 * [|=(비트 단위 OR EQUALS)](https://msdn.microsoft.com/library/cc627409.aspx)
 * [&=(비트 단위 AND EQUALS)](https://msdn.microsoft.com/library/cc627427.aspx)
 
-## <a name="functions"></a>함수
+## <a name="functions"></a>Functions
+
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)
 * [@@ERROR](https://msdn.microsoft.com/library/ms188790.aspx)
 * [@@LANGUAGE](https://msdn.microsoft.com/library/ms177557.aspx)
@@ -91,7 +98,7 @@ SQL 분석에서 지원되는 T-SQL 언어 요소에 대한 설명서에 대한 
 * [@@VERSION](https://msdn.microsoft.com/library/ms177512.aspx)
 * [아 bs](https://msdn.microsoft.com/library/ms189800.aspx)
 * [Acos](https://msdn.microsoft.com/library/ms178627.aspx)
-* [Ascii](https://msdn.microsoft.com/library/ms177545.aspx)
+* [ASCII](https://msdn.microsoft.com/library/ms177545.aspx)
 * [Asin](https://msdn.microsoft.com/library/ms181581.aspx)
 * [ATAN](https://msdn.microsoft.com/library/ms181746.aspx)
 * [ATN2](https://msdn.microsoft.com/library/ms173854.aspx)
@@ -226,13 +233,16 @@ SQL 분석에서 지원되는 T-SQL 언어 요소에 대한 설명서에 대한 
 * [년](https://msdn.microsoft.com/library/ms186313.aspx)
 * [XACT_STATE](https://msdn.microsoft.com/library/ms189797.aspx)
 
-## <a name="transactions"></a>의
+## <a name="transactions"></a>트랜잭션
+
 * [트랜잭션을](https://msdn.microsoft.com/library/mt204031.aspx)
 
 ## <a name="diagnostic-sessions"></a>진단 세션
+
 * [CREATE DIAGNOSTICS SESSION](https://msdn.microsoft.com/library/mt204029.aspx)
 
 ## <a name="procedures"></a>절차
+
 * [sp_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx)
 * [sp_columns](https://msdn.microsoft.com/library/ms176077.aspx)
 * [sp_configure](https://msdn.microsoft.com/library/ms188787.aspx)
@@ -256,6 +266,7 @@ SQL 분석에서 지원되는 T-SQL 언어 요소에 대한 설명서에 대한 
 * [sp_unprepare](https://msdn.microsoft.com/library/ff848735.aspx)
 
 ## <a name="set-statements"></a>SET 문
+
 * [SET ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
 * [SET ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
 * [SET ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
@@ -278,5 +289,6 @@ SQL 분석에서 지원되는 T-SQL 언어 요소에 대한 설명서에 대한 
 * [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>다음 단계
-자세한 참조 정보는 [SQL 분석의 T-SQL 문](sql-data-warehouse-reference-tsql-statements.md)및 [SQL 분석의 시스템 보기를](sql-data-warehouse-reference-tsql-system-views.md)참조하십시오.
+
+자세한 참조 정보는 [Synapse SQL 풀의 T-SQL 문](sql-data-warehouse-reference-tsql-statements.md)및 [시냅스 SQL 풀의 시스템 보기를](sql-data-warehouse-reference-tsql-system-views.md)참조하십시오.
 

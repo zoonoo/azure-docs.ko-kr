@@ -8,20 +8,19 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 10/7/2019
+ms.date: 04/01/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afb295ca561bfa69805362182dc60ce908e1f206
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01956c2fee1c15bc86e8d80aa05c70db647bf593
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80331149"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616876"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
-
 
 이 문서는 릴리스된 버전을 추적하고 최신 버전에 변경 내용을 이해할 수 있도록 도와줍니다.
 
@@ -34,7 +33,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 다운로드| [Azure AD 연결 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
->Azure AD Connect의 새 버전을 릴리스하는 것은 서비스의 작동 기능을 보장하기 위해 몇 가지 품질 관리 단계가 필요한 프로세스이며, 이 프로세스를 거치는 동안 새 릴리스의 버전 번호와 릴리스 상태가 업데이트됩니다. 을 클릭합니다.
+>Azure AD Connect의 새 버전을 릴리스하는 것은 서비스의 작동 기능을 보장하기 위해 몇 가지 품질 관리 단계가 필요한 프로세스이며, 이 프로세스를 거치는 동안 새 릴리스의 버전 번호와 릴리스 상태가 최신 상태를 반영하도록 업데이트됩니다.
 이 프로세스를 거치는 동안 릴리스의 버전 번호는 "1.3.X.0"과 같이 마이너 릴리스 번호 위치에 "X"로 표시됩니다. 릴리스 프로세스가 완료되면 릴리스 버전 번호가 가장 최근에 릴리스된 버전으로 업데이트되고 릴리스 상태가 "다운로드 및 자동 업그레이드용으로 릴리스"로 업데이트됩니다.
 일부 버전의 Azure AD Connect는 자동 업그레이드에 사용할 수 있습니다. 릴리스 상태는 릴리스가 자동 업그레이드 또는 다운로드에만 사용할 수 있는지 여부를 나타냅니다. 자동 업그레이드가 Azure AD Connect 서버에서 활성화된 경우 해당 서버는 자동으로 자동 업그레이드용으로 릴리스되는 최신 버전의 Azure AD Connect로 업그레이드됩니다. 일부 Azure AD Connect 구성을 자동 업그레이드에 사용할 수 있습니다. [자동 업그레이드](how-to-connect-install-automatic-upgrade.md)에 대한 자세한 내용은 이 링크 참조
 
@@ -43,11 +42,36 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 >
 > 최적의 지원 환경을 받으려면 최신 버전의 Azure AD Connect를 실행해야 합니다. 
 >
->사용되지 않는 버전의 Azure AD Connect를 실행하는 경우 최신 보안 수정, 성능 향상, 문제 해결 및 진단 도구 및 서비스 향상이 없을 수 있으며 지원이 필요한 경우 해당 수준을 제공하지 못할 수 있습니다. 조직에 필요한 서비스를 제공합니다.
+>사용되지 않는 버전의 Azure AD Connect를 실행하는 경우 최신 보안 수정, 성능 향상, 문제 해결 및 진단 도구 및 서비스 향상이 없을 수 있으며 지원이 필요한 경우 조직에 필요한 서비스 수준을 제공하지 못할 수 있습니다.
 >
 >동기화를 위해 Azure AD Connect를 사용하도록 설정한 경우 이전 버전 중 하나를 실행할 때 예정된 사용 중단에 대해 경고하는 상태 알림이 곧 자동으로 수신되기 시작합니다.
 >
 >Azure AD Connect를 최신 버전으로 업그레이드하는 방법에 대해 자세히 알아보려면 [이 문서를](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) 참조하십시오.
+
+
+## <a name="15180"></a>1.5.18.0
+
+### <a name="release-status"></a>릴리스 상태
+2020년 04월 02일: 다운로드용으로 출시
+
+### <a name="functional-changes-adsyncautoupgrade"></a>기능 변경 ADSync자동 업그레이드 
+
+- 그룹 개체에 대한 mS-DS-일관성 Guid 기능에 대한 지원이 추가되었습니다. 이렇게 하면 AD의 포리스트 간에 그룹을 이동하거나 AD 그룹 objectID가 변경된 Azure AD로 그룹을 다시 연결할 수 있습니다(예: 재해 후 AD 서버가 다시 빌드되는 경우). 자세한 내용은 [포리스트 간의 그룹 이동을](how-to-connect-migrate-groups.md)참조하십시오.
+- mS-DS-ConsistencyGuid 특성은 al 동기화된 그룹에 자동으로 설정되며 이 기능을 활성화하기 위해 아무 것도 수행할 필요가 없습니다. 
+- 더 이상 사용되지 않으므로 Get-ADSyncRunProfile을 제거했습니다. 
+- AD DS 커넥터 계정에 엔터프라이즈 관리자 또는 도메인 관리자 계정을 사용하여 더 많은 컨텍스트를 제공하려고 할 때 표시되는 경고를 변경했습니다. 
+- 커넥터 공간에서 개체를 제거하기 위해 새 cmdlet을 추가하여 이전 CSDelete.exe 도구가 제거되고 새 Remove-ADSyncCSObject cmdlet으로 대체됩니다. 제거-ADSyncCSObject cmdlet은 CsObject를 입력으로 사용합니다. 이 개체는 Get-ADSyncCSObject cmdlet을 사용하여 검색할 수 있습니다.
+
+>[!NOTE]
+>이전 CSDelete.exe 도구가 제거되고 새 Remove-ADSyncCSObject cmdlet으로 대체되었습니다. 
+
+### <a name="fixed-issues"></a>해결된 문제
+
+- Azure AD Connect 마법사를 다시 실행한 후 기능을 사용하지 않도록 설정한 경우 그룹 쓰기 제거 포리스트/OU 선택기에서 버그가 수정되었습니다. 
+- 필요한 DCOM 레지스트리 값이 새 도움말 링크와 함께 누락된 경우 표시되는 새 오류 페이지를 도입했습니다. 로그 파일에도 정보가 기록됩니다. 
+- 사용 전에 계정이 모든 서비스 복제본에 전파되지 않았기 때문에 디렉터리 확장 또는 PHS를 사용하도록 설정하는 데 실패할 수 있는 Azure Active Directory 동기화 계정을 만드는 문제를 해결했습니다. 
+- 서로게이트 문자를 올바르게 처리하지 않는 동기화 오류 압축 유틸리티의 버그를 수정했습니다. 
+- 자동 업그레이드에서 서버를 스케줄러 일시 중단 상태로 둔 버그를 수정했습니다. 
 
 ## <a name="14380"></a>1.4.38.0
 ### <a name="release-status"></a>릴리스 상태
@@ -68,7 +92,8 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 2019년 11월 08일: 다운로드용으로 출시되었습니다. 자동 업그레이드를 통해 사용할 수 없습니다.
 
 >[!IMPORTANT]
->Azure AD Connect의 이 릴리스에서 내부 스키마 변경으로 인해 MSOnline PowerShell을 사용하여 ADFS 신뢰 관계 구성 설정을 관리하는 경우 MSOnline PowerShell 모듈을 버전 1.1.183.57 이상으로 업데이트해야 합니다.
+>Azure AD Connect의 이 릴리스에서 내부 스키마 변경으로 인해 MSOnline PowerShell을 사용하여 AD FS 신뢰 관계 구성 설정을 관리하는 경우 MSOnline PowerShell 모듈을 버전 1.1.183.57 이상으로 업데이트해야 합니다.
+
 ### <a name="fixed-issues"></a>해결된 문제
 
 이 버전은 기존 하이브리드 Azure AD 조인 장치에 대한 문제를 해결합니다. 이 릴리스에는 이 문제를 해결하는 새 장치 동기화 규칙이 포함되어 있습니다.
@@ -105,10 +130,10 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 - 고객은 MIIS_Service 대한 더 이상 사용되지 않는 WMI 끝점이 제거되었음을 알려야 합니다. 이제 모든 WMI 작업은 PS cmdlet을 통해 수행해야 합니다.
 - AZUREADSSOACC 개체에 제한된 위임을 재설정하여 보안 향상
 - 동기화 규칙을 추가/편집할 때 커넥터 스키마에 있지만 커넥터에 추가되지 않은 규칙에 사용되는 특성이 있는 경우 특성이 커넥터에 자동으로 추가됩니다. 규칙이 영향을 미치는 개체 형식에 대해도 마찬가지입니다. 커넥터에 추가된 항목이 있으면 다음 동기화 주기에서 커넥터가 전체 가져오기로 표시됩니다.
-- 엔터프라이즈 또는 도메인 관리자를 커넥터 계정으로 사용하면 새 AAD 연결 배포에서 더 이상 지원되지 않습니다. 커넥터 계정으로 엔터프라이즈 또는 도메인 관리자를 사용 하 여 현재 AAD 연결 배포는이 릴리스에 의해 영향을 받지 않습니다.
+- 엔터프라이즈 또는 도메인 관리자를 커넥터 계정으로 사용하면 새 Azure AD 연결 배포에서 더 이상 지원되지 않습니다. 커넥터 계정으로 엔터프라이즈 또는 도메인 관리자를 사용 하 여 현재 AAD 연결 배포는이 릴리스에 의해 영향을 받지 않습니다.
 - 동기화 관리자에서 전체 동기화는 규칙 만들기/편집/삭제에서 실행됩니다. 전체 가져오기 또는 전체 동기화가 실행될 경우 사용자에게 알리는 규칙 변경에 팝업이 나타납니다.
 - '연결 > 속성에 > 커넥터' 페이지에 암호 오류에 대한 완화 단계가 추가되었습니다.
-- 커넥터 속성 페이지에서 동기화 서비스 관리자에 대한 사용 중단 경고를 추가했습니다. 이 경고는 AADC 마법사를 통해 변경해야 한다는 것을 사용자에게 알게 합니다.
+- 커넥터 속성 페이지에서 동기화 서비스 관리자에 대한 사용 중단 경고를 추가했습니다. 이 경고는 Azure AD Connect 마법사를 통해 변경해야 한다는 것을 사용자에게 알려줍니다.
 - 사용자의 암호 정책 문제에 대한 새 오류가 추가되었습니다.
 - 도메인 및 OU 필터에 의한 그룹 필터링의 잘못된 구성을 방지합니다. 그룹 필터링은 입력한 그룹의 도메인/OU가 이미 필터링되어 문제가 해결될 때까지 사용자가 앞으로 이동하지 못하도록 하는 경우 오류가 표시됩니다.
 - 사용자는 동기화 서비스 관리자 UI에서 Active Directory 도메인 서비스 또는 Windows Azure Active Directory에 대한 커넥터를 더 이상 만들 수 없습니다.
@@ -139,9 +164,9 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 >[!IMPORTANT]
 >이전 버전에서 1.3.21.0으로 Azure AD Connect를 업그레이드하는 경우 O365 포털이 Azure AD Connect를 성공적으로 업그레이드하더라도 업데이트된 버전을 반영하지 않는 것으로 알려진 문제가 있습니다.
 >
-> 이 문제를 해결하려면 **AdSync** 모듈을 가져온`Set-ADSyncDirSyncConfiguration` 다음 Azure AD Connect 서버에서 powershell cmdlet을 실행해야 합니다.  다음 단계를 사용할 수 있습니다.
+> 이 문제를 해결하려면 **AdSync** 모듈을 가져온`Set-ADSyncDirSyncConfiguration` 다음 Azure AD Connect 서버에서 PowerShell cmdlet을 실행해야 합니다.  다음 단계를 사용할 수 있습니다.
 >
->1. 관리 모드에서 파워셸 열기
+>1. 관리 모드에서 PowerShell을 엽니다.
 >2. `Import-Module "ADSync"`을 실행합니다.
 >3. `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`을 실행합니다.
  
@@ -151,7 +176,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 
 ### <a name="fixed-issues"></a>해결된 문제 
 
-- Microsoft Azure Active Directory Connect 빌드 1.3.20.0에 있는 권한 취약성의 상승이 수정되었습니다.  특정 조건에서 이 취약점을 사용하면 공격자가 권한 있는 계정의 컨텍스트에서 두 개의 powershell cmdlet을 실행하고 권한 있는 작업을 수행할 수 있습니다.  이 보안 업데이트는 이러한 cmdlet을 사용하지 않도록 설정하여 문제를 해결합니다. 자세한 내용은 [보안 업데이트를](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1000)참조하십시오.
+- Microsoft Azure Active Directory Connect 빌드 1.3.20.0에 있는 권한 취약성의 상승이 수정되었습니다.  특정 조건에서 이 취약점으로 인해 공격자는 권한 있는 계정의 컨텍스트에서 두 개의 PowerShell cmdlet을 실행하고 권한 있는 작업을 수행할 수 있습니다.  이 보안 업데이트는 이러한 cmdlet을 사용하지 않도록 설정하여 문제를 해결합니다. 자세한 내용은 [보안 업데이트를](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1000)참조하십시오.
 
 ## <a name="13200"></a>1.3.20.0 
 
@@ -256,8 +281,8 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 
 
 - 호스트된 음성 메일이 예상대로 작동하도록 특성 쓰기 저장 기능이 변경되었습니다.  특정 시나리오에서 Azure AD는 null 값을 사용하여 쓰기 저장하는 동안 msExchUcVoicemailSettings 특성을 덮어썼습니다.  이제 클라우드 값이 설정되지 않으면 Azure AD는 이 특성의 온-프레미스 값을 더 이상 지우지 않습니다.
-- Azure AD 연결 문제를 조사하고 식별하는 진단 기능이 Azure AD Connect 마법사에 추가되었습니다. 이러한 진단 기능은 Test- AdSyncAzureServiceConnectivity Cmdlet을 사용하여 Powershell을 통해 직접 실행할 수도 있습니다. 
-- AD 연결 문제를 조사하고 식별하는 진단 기능이 Azure AD Connect 마법사에 추가되었습니다. 이러한 진단 기능은 ADConnectivityTools Powershell 모듈의 Start-ConnectivityValidation 함수를 사용하여 Powershell을 통해 직접 실행할 수도 있습니다.  자세한 내용은 [ADConnectivityTool PowerShell 모듈이란?](how-to-connect-adconnectivitytools.md)을 참조하세요.
+- Azure AD 연결 문제를 조사하고 식별하는 진단 기능이 Azure AD Connect 마법사에 추가되었습니다. 이러한 동일한 진단은 테스트-AdSyncAzureServiceConnectivity Cmdlet을 사용하여 PowerShell을 통해 직접 실행할 수도 있습니다. 
+- AD 연결 문제를 조사하고 식별하는 진단 기능이 Azure AD Connect 마법사에 추가되었습니다. 이러한 진단은 ADConnectivityTools PowerShell 모듈의 시작 연결 유효성 검사 기능을 사용하여 PowerShell을 통해 직접 실행할 수도 있습니다.  자세한 내용은 [ADConnectivityTool PowerShell 모듈이란?](how-to-connect-adconnectivitytools.md)을 참조하세요.
 - 하이브리드 Azure Active Directory 조인 및 디바이스 쓰기 저장에 대한 AD 스키마 버전 사전 검사가 추가되었습니다. 
 - 디렉터리 확장 페이지 특성 검색이 대/소문자를 구분하지 않도록 변경되었습니다.
 -   TLS 1.2에 대한 전체 지원이 추가되었습니다. 이 릴리스는 사용되지 않는 다른 모든 프로토콜을 지원하며, Azure AD Connect가 설치된 머신에서 오직 TLS 1.2만 사용됩니다.  자세한 내용은 [Azure AD Connect에 대한 TLS 1.2 적용](reference-connect-tls-enforcement.md)을 참조하세요.
@@ -496,7 +521,7 @@ Azure AD Connect 버전 1.1.654.0 이상에서는 Azure AD Connect가 AD DS 계�
 *   특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다. SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
 *   다음과 같은 특정 권한을 할당합니다.
 
-Type     | 이름                          | 액세스 권한               | 적용 대상
+Type     | 속성                          | 액세스 권한               | 적용 대상
 ---------|-------------------------------|----------------------|--------------|
 Allow    | SYSTEM                        | 모든 권한         | 이 개체  |
 Allow    | 엔터프라이즈 관리자             | 모든 권한         | 이 개체  |
@@ -652,7 +677,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 ### <a name="ad-fs-management"></a>AD FS 관리
 #### <a name="fixed-issues"></a>해결된 문제
-* AD 준비 powershell 모듈에서 Initialize-ADSyncNGCKeysWriteBack cmdlet은 디바이스 등록 컨테이너에 잘못 ACL을 적용하였으므로 기존 권한만 상속합니다.  이는 동기화 서비스 계정에 올바른 권한이 있도록 업데이트되었습니다.
+* AD 준비 PowerShell 모듈의 초기화-ADSyncNGCKeysWrite백 cmdlet이 장치 등록 컨테이너에 ACL을 잘못 적용했기 때문에 기존 권한만 상속합니다.  이는 동기화 서비스 계정에 올바른 권한이 있도록 업데이트되었습니다.
 
 #### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 * AAD 연결 확인 ADFS 로그인 작업은 ADFS에서 토큰 검색뿐 아니라 Microsoft Online에 대한 로그인을 확인하도록 업데이트되었습니다.
@@ -1260,7 +1285,7 @@ Azure AD Sync에서 Azure AD Connect로 이름을 변경했습니다.
 * [Express 설정](how-to-connect-install-express.md) 설치
 * [AD FS 구성](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) 가능
 * [DirSync에서 업그레이드](how-to-dirsync-upgrade-get-started.md) 가능
-* [실수로 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md)
+* [실수로 인한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md)
 * [스테이징 모드](how-to-connect-sync-staging-server.md)
 
 **새로운 미리 보기 기능:**

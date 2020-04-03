@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1a77a366ee8e06b2d8c47eb3b47eeaf9ae809598
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 644ea1c00af7e71ff56852298fff18e5293c137b
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76028293"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585567"
 ---
 # <a name="configuration-data-at-scale"></a>규모에 맞는 구성 데이터
 
@@ -45,7 +45,7 @@ Datum은 다른 구성 관리 플랫폼의 훌륭한 아이디어를 기반으�
 그런 다음 cmdlet이 제공되어 각 파일의 정보를 서버 또는 서버 역할의 단일 보기로 [통합하여](https://github.com/gaelcolas/Datum#datum-tree) 구성 데이터 파일을 생성합니다.
 
 데이터 파일이 생성되면 [DSC 구성 스크립트와](/powershell/scripting/dsc/configurations/write-compile-apply-configuration) 함께 MOF 파일을 생성하고 [MOF 파일을 Azure 자동화](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)에 업로드할 수 있습니다.
-그런 다음 [온-프레미스](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) 또는 [Azure에서](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) 서버를 등록하여 구성을 가져옵니다.
+그런 다음 [온-프레미스](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) 또는 [Azure에서](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms) 서버를 등록하여 구성을 가져옵니다.
 
 Datum을 사용해 보십시오. [PowerShell Gallery](https://www.powershellgallery.com/packages/datum/) [documentation](https://github.com/gaelcolas/Datum#2-getting-started--concepts)
 
