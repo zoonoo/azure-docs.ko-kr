@@ -9,12 +9,12 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: a6c7639cb4988eb13dfaa1c151085cda6e53b5d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4ca76f4be9d00e185f8774fc33296d1af1aeece
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68614499"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585494"
 ---
 # <a name="remediate-non-compliant-dsc-servers"></a>비준수 DSC 서버 수정
 
@@ -40,7 +40,7 @@ Update-DscConfiguration -Wait -Verbose
 Linux 서버에서도 유사한 기능을 현재 사용할 수 없습니다.
 유일한 옵션은 등록 프로세스를 반복하는 것입니다.
 Azure 노드의 경우 포털에서 또는 Az 자동화 cmdlet을 사용하여 드리프트 보정을 수행할 수 있습니다.
-이 프로세스에 대한 자세한 내용은 [Azure 자동화 상태 구성에 의해 관리를 위한 시스템 온보딩](/azure/automation/automation-dsc-onboarding#azure-portal)페이지에 설명되어 있습니다.
+이 프로세스에 대한 자세한 내용은 [Azure 자동화 상태 구성에 의해 관리를 위한 시스템 온보딩](/azure/automation/automation-dsc-onboarding#onboard-a-vm-using-azure-portal)페이지에 설명되어 있습니다.
 하이브리드 노드의 경우 포함된 파이썬 스크립트를 사용하여 드리프트 보정을 수행할 수 있습니다.
 [리눅스 리포지토리에 대한 PowerShell DSC의 설명서를](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer)참조하십시오.
 

@@ -5,18 +5,18 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: f83faf05eb7099557d5b653e0b24591062c44d11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 514cc25e1959145c65fe60cd3054cec4ed28f44d
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368454"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617417"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증
 
-AKS(Azure Kubernetes Service)에서 ACR(Azure Container Registry)을 사용할 때는 인증 메커니즘을 설정해야 합니다. 이 문서에서는 이러한 두 Azure 서비스 간에 인증을 구성하는 예제를 제공합니다.
+AKS(Azure Kubernetes Service)에서 ACR(Azure Container Registry)을 사용할 때는 인증 메커니즘을 설정해야 합니다. 이 문서에서는 이러한 두 Azure 서비스 간에 인증을 구성하는 예제를 제공합니다. 
 
-Azure CLI를 사용하여 몇 가지 간단한 명령으로 AKS를 ACR 통합으로 설정할 수 있습니다.
+Azure CLI를 사용하여 몇 가지 간단한 명령으로 AKS를 ACR 통합으로 설정할 수 있습니다. 이 통합은 AKS 클러스터에 연결된 서비스 주체에 AcrPull 역할을 할당합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -33,7 +33,7 @@ AKS 클러스터를 처음 만드는 동안 AKS 및 ACR 통합을 설정할 수 
 
 ```azurecli
 # set this to the name of your Azure Container Registry.  It must be globally unique
-MYACR=myContainerRegistry
+$MYACR=myContainerRegistry
 
 # Run the following line to create an Azure Container Registry if you do not already have one
 az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic

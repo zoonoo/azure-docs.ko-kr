@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/10/2020
+ms.date: 04/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 590f129d0ce41c3a8afc80340f26bc31c2fc789a
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: f24c89a53af5e618d64b78d6001040190c1f339c
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478191"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618340"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>PowerShell을 사용하여 Azure 키 자격 증명 모음을 사용하여 고객 관리 키 구성
 
@@ -63,7 +63,7 @@ PowerShell을 사용하여 기존 키 자격 증명 모음에서 소프트 삭�
 Set-AzKeyVaultAccessPolicy `
     -VaultName $keyVault.VaultName `
     -ObjectId $storageAccount.Identity.PrincipalId `
-    -PermissionsToKeys wrapkey,unwrapkey,get,recover
+    -PermissionsToKeys wrapkey,unwrapkey,get
 ```
 
 ## <a name="create-a-new-key"></a>새 키 만들기

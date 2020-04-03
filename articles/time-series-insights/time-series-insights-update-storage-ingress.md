@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2f12cf303c58f0fa614c59ffe643c6c2ee5d2415
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8987cbe6860422ff92119a9f3b13a0a365e6d1a4
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78246197"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618314"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 데이터 스토리지 및 수신
 
@@ -39,7 +39,7 @@ Time Series Insights 데이터 인서빙 정책은 데이터를 어디에서 sou
 
 Azure Time Series 인사이트 미리 보기는 다음 이벤트 소스를 지원합니다.
 
-- [Azure IoT 허브](../iot-hub/about-iot-hub.md)
+- [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
 
 Azure Time Series Insights 미리 보기는 인스턴스당 최대 두 개의 이벤트 소스를 지원합니다.
@@ -91,7 +91,7 @@ Azure Time Series 인사이트 미리 보기 시작 제한사항은 아래에 �
 
 *  **장치 수** × **이벤트 방출 빈도** × 각 이벤트의 **크기.**
 
-기본적으로 타임시리즈 인사이트 미리 보기는 **시간시리즈 인사이트 환경당 최대 1MB(초당 MBps)의**속도로 들어오는 데이터를 수집할 수 있습니다.
+기본적으로 타임시리즈 인사이트 미리 보기는 **시간시리즈 인사이트 환경당 최대 1MB(초당 MBps)의**속도로 들어오는 데이터를 수집할 수 있습니다. [허브 파티션당](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress#hub-partitions-and-per-partition-limits)추가 제한 사항이 있습니다.
 
 > [!TIP] 
 > * 요청시 최대 16MBps의 속도를 섭취하기 위한 환경 지원을 제공할 수 있습니다.
@@ -99,7 +99,7 @@ Azure Time Series 인사이트 미리 보기 시작 제한사항은 아래에 �
  
 * **예 1:**
 
-    Contoso Shipping에는 분당 3회 이벤트를 방출하는 100,000개의 장치가 있습니다. 이벤트 크기는 200바이트입니다. 4개의 파티션이 있는 이벤트 허브를 타임시리즈 Insights 이벤트 소스로 사용하고 있습니다.
+    Contoso Shipping에는 분당 3회 이벤트를 방출하는 100,000개의 장치가 있습니다. 이벤트 크기는 200바이트입니다. 4개의 파티션이 있는 Iot Hub를 타임시리즈 인사이트 이벤트 소스로 사용하고 있습니다.
 
     * 자신의 타임 시리즈 인사이트 환경에 대한 섭취 속도는 다음과 될 것입니다 : **100,000 장치 * 200 바이트 / 이벤트 * (3/60 이벤트 / 초) = 1 MBps.**
     * 파티션당 섭취 속도는 0.25MBps입니다.
@@ -107,11 +107,11 @@ Azure Time Series 인사이트 미리 보기 시작 제한사항은 아래에 �
 
 * **예제 2:**
 
-    Contoso 플릿 애널리틱스에는 매초 이벤트를 방출하는 60,000개의 장치가 있습니다. 그들은 타임 시리즈 인사이트 이벤트 소스로 4의 IoT Hub 24 파티션 수를 사용하고 있습니다. 이벤트 크기는 200바이트입니다.
+    Contoso 플릿 애널리틱스에는 매초 이벤트를 방출하는 60,000개의 장치가 있습니다. 파티션 수가 4인 이벤트 허브를 타임시리즈 Insights 이벤트 소스로 사용하고 있습니다. 이벤트 크기는 200바이트입니다.
 
-    * 환경 사용률은 **20,000개 장치 * 200바이트/이벤트 * 이벤트/초 1회 = 4MBps입니다.**
-    * 파티션당 속도는 1MBps입니다.
-    * Contoso 플릿 애널리틱스는 Azure 포털을 통해 열렬 인사이트에 요청을 제출하여 해당 환경에 대한 수집 속도를 높일 수 있습니다.
+    * 환경 사용률은 **60,000개의 장치 * 200바이트/이벤트 * 이벤트/초 1회 = 12MBps입니다.**
+    * 파티션당 속도는 3MBps입니다.
+    * Contoso 플릿 애널리틱스의 수집 속도는 환경 및 파티션 제한을 초과합니다. Azure 포털을 통해 Time Series Insights에 요청을 제출하여 해당 환경에 대한 처리 속도를 높이고 미리 보기 한도 내에 있을 파티션이 많은 이벤트 허브를 만들 수 있습니다.
 
 #### <a name="hub-partitions-and-per-partition-limits"></a>허브 파티션 및 파티션당 제한
 

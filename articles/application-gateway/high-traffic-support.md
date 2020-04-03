@@ -7,18 +7,21 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: e3f8445f68ec959ce1bb0d1ba4029807bd25907a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 65f404b52a5fc06d8fa5bb5aad291e57fde8caba
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257430"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617195"
 ---
-# <a name="application-gateway-high-traffic-support"></a>애플리케이션 게이트웨이 트래픽 높은 지원 
+# <a name="application-gateway-high-traffic-support"></a>Application Gateway 높은 트래픽 지원
 
-이 문서에서는 COVID-19 상황과 같이 트래픽이 많은 시나리오로 인해 추가 트래픽을 처리하도록 응용 프로그램 게이트웨이를 설정하는 데 도움이 되는 몇 가지 권장 지침을 설명합니다. WAF(웹 응용 프로그램 방화벽)가 있는 응용 프로그램 게이트웨이를 사용하여 웹 응용 프로그램에 대한 트래픽을 확장 가능하고 안전하게 관리할 수 있습니다. 
+>[!NOTE]
+> 이 문서에서는 COVID-19 위기로 인해 발생할 수 있는 트래픽량이 많기 때문에 추가 트래픽을 처리하도록 응용 프로그램 게이트웨이를 설정하는 데 도움이 되는 몇 가지 권장 지침을 설명합니다.
 
-다음 제안사항을 통해 추가 트래픽을 처리하기 위해 WAF를 사용하여 응용 프로그램 게이트웨이를 설정할 수 있습니다. 
+WAF(웹 응용 프로그램 방화벽)가 있는 응용 프로그램 게이트웨이를 사용하여 웹 응용 프로그램에 대한 트래픽을 확장 가능하고 안전하게 관리할 수 있습니다.
+
+다음 제안사항을 통해 추가 트래픽을 처리하기 위해 WAF를 사용하여 응용 프로그램 게이트웨이를 설정할 수 있습니다.
 
 ## <a name="use-the-v2-sku-over-v1-for-its-autoscaling-capabilities-and-performance-benefits"></a>v2 SKU를 v1 이상 사용하여 자동 크기 조정 기능 및 성능 이점을 제공합니다.
 v2 SKU는 트래픽이 증가함에 따라 애플리케이션 게이트웨이를 확장할 수 있도록 자동 크기 조정을 제공합니다. 또한 v1과 비교할 때 5배 향상된 TLS 오프로드 성능, 더 빠른 배포 및 업데이트 시간, 영역 중복성 등과 같은 기타 중요한 성능 이점을 제공합니다. 자세한 내용은 [v2 설명서를](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)참조하십시오. 

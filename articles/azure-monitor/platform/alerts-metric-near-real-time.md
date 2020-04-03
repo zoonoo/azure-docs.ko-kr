@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 3/5/2020
 ms.subservice: alerts
-ms.openlocfilehash: 62c1e29b668c3ef58b0e26e2749c55b913279425
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: c036fa3708d718d6199d27989e60b11015a1227e
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545686"
+ms.locfileid: "80585865"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure Monitor의 메트릭 경고에 대해 지원되는 리소스
 
@@ -31,16 +31,16 @@ ms.locfileid: "80545686"
 |리소스 유형  |지원되는 차원 |다중 리소스 경고| 사용 가능한 메트릭|
 |---------|---------|-----|----------|
 |Microsoft.ApiManagement/service | 예| 예 | [API Management](../../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice)|
-|마이크로소프트.앱플랫폼/봄 |아니요| 예|
+|마이크로소프트.앱플랫폼/봄 |예| 예|
 |Microsoft.Automation/automationAccounts | 예| 예 | [자동화 계정](../../azure-monitor/platform/metrics-supported.md#microsoftautomationautomationaccounts)|
-|Microsoft.Batch/batchAccounts | N/A| 아니요 | [일괄 처리 계정](../../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts)|
+|Microsoft.Batch/batchAccounts | N/A| 예 | [일괄 처리 계정](../../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts)|
 |Microsoft.Cache/Redis|예| 예 |[Azure Cache for Redis](../../azure-monitor/platform/metrics-supported.md#microsoftcacheredis)|
-|마이크로소프트.클래식스토리지/스토리지계정/mmxclassic|아니요|예|
-|마이크로 소프트.클래식 스토리지 / 스토리지계정 / mmxclassic / blob서비스|아니요|예|
-|마이크로 소프트.클래식 스토리지 / 스토리지계정 / mmxclassic / 파일 서비스|아니요|예|
-|마이크로소프트.클래식스토리지/스토리지계정/mmxclassic/큐서비스|아니요|예|
-|마이크로 소프트.클래식 스토리지 / 스토리지계정 / mmxclassic / 테이블서비스|아니요|예| |
-|Microsoft.CognitiveServices/accounts| N/A | 아니요 | [Cognitive Services](../../azure-monitor/platform/metrics-supported.md#microsoftcognitiveservicesaccounts)|
+|마이크로소프트.클래식스토리지/스토리지계정/mmxclassic|예|예|
+|마이크로 소프트.클래식 스토리지 / 스토리지계정 / mmxclassic / blob서비스|예|예|
+|마이크로 소프트.클래식 스토리지 / 스토리지계정 / mmxclassic / 파일 서비스|예|예|
+|마이크로소프트.클래식스토리지/스토리지계정/mmxclassic/큐서비스|예|예|
+|마이크로 소프트.클래식 스토리지 / 스토리지계정 / mmxclassic / 테이블서비스|예|예| |
+|Microsoft.CognitiveServices/accounts| N/A | 예 | [Cognitive Services](../../azure-monitor/platform/metrics-supported.md#microsoftcognitiveservicesaccounts)|
 |Microsoft.Compute/virtualMachines |예 | 예 | [Virtual Machines](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)|
 |Microsoft.Compute/virtualMachineScaleSets |N/A | 예 |[가상 머신 크기 집합](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)|
 |Microsoft.ContainerInstance/containerGroups | 예| 예 | [컨테이너 그룹](../../azure-monitor/platform/metrics-supported.md#microsoftcontainerinstancecontainergroups)|
@@ -48,45 +48,45 @@ ms.locfileid: "80545686"
 |마이크로소프트.데이터박스에지/데이터박스에지디바이스 | 예 | 예 | |
 |Microsoft.DataFactory/datafactories| 예| 예 | [데이터 팩터리 V1](../../azure-monitor/platform/metrics-supported.md#microsoftdatafactorydatafactories)|
 |Microsoft.DataFactory/factories |예 | 예 |[데이터 팩터리 V2](../../azure-monitor/platform/metrics-supported.md#microsoftdatafactoryfactories)|
-|마이크로소프트.데이터 쉐어/계정 |아니요| 예|
-|Microsoft.DBforMySQL/servers |N/A| 아니요 |[MySQL용 DB](../../azure-monitor/platform/metrics-supported.md#microsoftdbformysqlservers)|
-|Microsoft.DBforPostgreSQL/servers |N/A | 아니요 | [PostgreSQL용 DB](../../azure-monitor/platform/metrics-supported.md#microsoftdbforpostgresqlservers)|
-|Microsoft.Devices/IotHubs | N/A | 아니요 |[IoT 허브 메트릭](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs)|
-|Microsoft.Devices/provisioningServices| 예 | 아니요 |[DPS 메트릭](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesprovisioningservices)|
-|마이크로소프트.이벤트 그리드/도메인|아니요|예| |
-|Microsoft.EventGrid/topics |예 | 아니요 |[이벤트 그리드 토픽](../../azure-monitor/platform/metrics-supported.md#microsofteventgridtopics)|
-|Microsoft.EventHub/clusters |예| 아니요 |[이벤트 허브 클러스터](../../azure-monitor/platform/metrics-supported.md#microsofteventhubclusters)|
-|Microsoft.EventHub/namespaces |예| 아니요 |[Event Hubs](../../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces)|
+|마이크로소프트.데이터 쉐어/계정 |예| 예|
+|Microsoft.DBforMySQL/servers |N/A| 예 |[MySQL용 DB](../../azure-monitor/platform/metrics-supported.md#microsoftdbformysqlservers)|
+|Microsoft.DBforPostgreSQL/servers |N/A | 예 | [PostgreSQL용 DB](../../azure-monitor/platform/metrics-supported.md#microsoftdbforpostgresqlservers)|
+|Microsoft.Devices/IotHubs | N/A | 예 |[IoT 허브 메트릭](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs)|
+|Microsoft.Devices/provisioningServices| 예 | 예 |[DPS 메트릭](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesprovisioningservices)|
+|마이크로소프트.이벤트 그리드/도메인|예|예| |
+|Microsoft.EventGrid/topics |예 | 예 |[이벤트 그리드 토픽](../../azure-monitor/platform/metrics-supported.md#microsofteventgridtopics)|
+|Microsoft.EventHub/clusters |예| 예 |[이벤트 허브 클러스터](../../azure-monitor/platform/metrics-supported.md#microsofteventhubclusters)|
+|Microsoft.EventHub/namespaces |예| 예 |[Event Hubs](../../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces)|
 |Microsoft.KeyVault/vaults| 예 |예 |[보관소](../../azure-monitor/platform/metrics-supported.md#microsoftkeyvaultvaults)|
-|Microsoft.Logic/workflows |N/A | 아니요 |[Logic Apps](../../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows) |
-|Microsoft.MachineLearningServices/workspaces|예| 아니요 | [기계 학습](../../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
-|Microsoft.NetApp/netAppAccounts/capacityPools |예| 아니요 | [Azure NetApp 용량 풀](../../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypools) |
-|마이크로소프트.넷앱/넷앱계정/용량풀/볼륨 |예| 아니요 | [Azure 넷앱 볼륨](../../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) |
-|Microsoft.Network/applicationGateways|N/A| 아니요 |  |
-|Microsoft.Network/dnsZones | N/A| 아니요 | [DNS 영역](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones) |
-|Microsoft.Network/expressRouteCircuits | N/A | 아니요 |[ExpressRoute 회로](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkexpressroutecircuits) |
-|Microsoft.Network/loadBalancers (표준 SKU 전용)| 예| 아니요 | [로드 밸러저](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) |
-|마이크로소프트.네트워크/낫게이트웨이|아니요|예|
-|마이크로소프트.네트워크/프라이빗엔드포인트|아니요|예|
-|마이크로소프트.네트워크/개인링크서비스|아니요|예|
-|Microsoft.Network/publicipaddresses |N/A | 아니요 |[공용 IP 주소](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkpublicipaddresses)|
-|Microsoft.Network/trafficManagerProfiles | 예 | 아니요 | [트래픽 관리자 프로필](../../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
-|Microsoft.OperationalInsights/workspaces| 예 | 아니요 | [Log Analytics 작업 영역](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)|
-|Microsoft.Relay/namespaces | 예 | 아니요 | [릴레이](../../azure-monitor/platform/metrics-supported.md#microsoftrelaynamespaces)|
-|마이크로소프트.피어링/피어링서비스|아니요|예|
-|Microsoft.PowerBIDedicated/capacities | N/A | 아니요 | [용량](../../azure-monitor/platform/metrics-supported.md#microsoftpowerbidedicatedcapacities)|
-|Microsoft.Search/searchServices |N/A|아니요 | [Search 서비스](../../azure-monitor/platform/metrics-supported.md#microsoftsearchsearchservices)|
-|Microsoft.ServiceBus/namespaces |예| 아니요 |[Service Bus](../../azure-monitor/platform/metrics-supported.md#microsoftservicebusnamespaces)|
-|Microsoft.Sql/servers/elasticPools |    아니요 | 예 |
-|Microsoft.Sql/servers/databases    | 아니요 | 예 |
+|Microsoft.Logic/workflows |N/A | 예 |[Logic Apps](../../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows) |
+|Microsoft.MachineLearningServices/workspaces|예| 예 | [기계 학습](../../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
+|Microsoft.NetApp/netAppAccounts/capacityPools |예| 예 | [Azure NetApp 용량 풀](../../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypools) |
+|마이크로소프트.넷앱/넷앱계정/용량풀/볼륨 |예| 예 | [Azure 넷앱 볼륨](../../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) |
+|Microsoft.Network/applicationGateways|N/A| 예 |  |
+|Microsoft.Network/dnsZones | N/A| 예 | [DNS 영역](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones) |
+|Microsoft.Network/expressRouteCircuits | N/A | 예 |[ExpressRoute 회로](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft.Network/loadBalancers (표준 SKU 전용)| 예| 예 | [로드 밸러저](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) |
+|마이크로소프트.네트워크/낫게이트웨이|예|예|
+|마이크로소프트.네트워크/프라이빗엔드포인트|예|예|
+|마이크로소프트.네트워크/개인링크서비스|예|예|
+|Microsoft.Network/publicipaddresses |N/A | 예 |[공용 IP 주소](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.Network/trafficManagerProfiles | 예 | 예 | [트래픽 관리자 프로필](../../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
+|Microsoft.OperationalInsights/workspaces| 예 | 예 | [Log Analytics 작업 영역](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)|
+|Microsoft.Relay/namespaces | 예 | 예 | [릴레이](../../azure-monitor/platform/metrics-supported.md#microsoftrelaynamespaces)|
+|마이크로소프트.피어링/피어링서비스|예|예|
+|Microsoft.PowerBIDedicated/capacities | N/A | 예 | [용량](../../azure-monitor/platform/metrics-supported.md#microsoftpowerbidedicatedcapacities)|
+|Microsoft.Search/searchServices |N/A|예 | [Search 서비스](../../azure-monitor/platform/metrics-supported.md#microsoftsearchsearchservices)|
+|Microsoft.ServiceBus/namespaces |예| 예 |[Service Bus](../../azure-monitor/platform/metrics-supported.md#microsoftservicebusnamespaces)|
+|Microsoft.Sql/servers/elasticPools |    예 | 예 |
+|Microsoft.Sql/servers/databases    | 예 | 예 |
 |Microsoft.Storage/storageAccounts |예 | 예 | [저장소 계정](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccounts)|
 |Microsoft.Storage/storageAccounts/services | 예| 예 | [Blob 서비스](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices), [파일 서비스](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices), [큐 서비스](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices) 및 [테이블 서비스](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices)|
-|Microsoft.StreamAnalytics/streamingjobs |N/A| 아니요 | [Stream Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftstreamanalyticsstreamingjobs)|
+|Microsoft.StreamAnalytics/streamingjobs |N/A| 예 | [Stream Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftstreamanalyticsstreamingjobs)|
 |마이크로소프트.마이크로소프트.VM웨어클라우드심플/가상머신 |예|예 |[CloudSimple Virtual Machines](../../azure-monitor/platform/metrics-supported.md#microsoftvmwarecloudsimplevirtualmachines)|
 |Microsoft.Web/hostingEnvironments/multiRolePools | 예 | 예 | [앱 서비스 환경 다중 역할 풀](../../azure-monitor/platform/metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft.Web/hostingEnvironments/workerPools | 예 | 예 | [앱 서비스 환경 작업자 풀](../../azure-monitor/platform/metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
 |Microsoft.Web/serverfarms | 예 | 예 | [앱 서비스 계획](../../azure-monitor/platform/metrics-supported.md#microsoftwebserverfarms)|
-|Microsoft.Web/sites | 예 | 예 | [App Services](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites)|
+|Microsoft.Web/sites | 예 | 예 | [App Services](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-excluding-functions) 및 [Functions](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-functions)|
 |Microsoft.Web/sites/slots | 예 | 예 | [App Service 슬롯](../../azure-monitor/platform/metrics-supported.md#microsoftwebsitesslots)|
 
 ## <a name="payload-schema"></a>페이로드 스키마

@@ -2,17 +2,17 @@
 title: Azure Bastion 진단 로그 사용 및 작업
 description: 이 문서에서는 Azure Bastion 진단 로그를 사용하도록 설정하고 작업하는 방법을 알아봅니다.
 services: bastion
-author: cherylmc
+author: charwen
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: cherylmc
-ms.openlocfilehash: 2167a17d5d388c97ad357398c4ac2676e43be5a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: charwen
+ms.openlocfilehash: 97f0cdb1e93ef2ad06d2daa04b2f4893fd5dfac2
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76989453"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619274"
 ---
 # <a name="enable-and-work-with-bastion-diagnostic-logs"></a>바스티온 진단 로그 사용 및 작업
 

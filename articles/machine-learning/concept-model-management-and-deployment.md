@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 40e335ee0377c560b15a588269cbdb39cdebca82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5aaf8adf33d27f8ebb99c8ca3a873d958632a4f
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477360"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616841"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MlOps: Azure 기계 학습을 통해 모델 관리, 배포 및 모니터링
 
@@ -24,7 +24,7 @@ ms.locfileid: "79477360"
 
 ## <a name="what-is-mlops"></a>MLOps란?
 
-MOP(기계 학습 운영)는 워크플로의 효율성을 높이는 [DevOps](https://azure.microsoft.com/overview/what-is-devops/) 원칙및 관행을 기반으로 합니다. 예를 들어 지속적인 통합, 제공 및 배포를 예로 들 수 있습니다. MLOps는 다음을 목표로 이러한 보안 주체를 기계 학습 프로세스에 적용합니다.
+MOP(기계 학습 운영)는 워크플로의 효율성을 높이는 [DevOps](https://azure.microsoft.com/overview/what-is-devops/) 원칙및 관행을 기반으로 합니다. 예를 들어 지속적인 통합, 제공 및 배포를 예로 들 수 있습니다. MLOps는 다음을 목표로 기계 학습 프로세스에 이러한 원칙을 적용합니다.
 
 * 모델의 빠른 실험 및 개발
 * 모델의 생산 에 대한 빠른 배포

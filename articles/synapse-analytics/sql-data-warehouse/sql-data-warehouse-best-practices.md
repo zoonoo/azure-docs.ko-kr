@@ -10,16 +10,16 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d0b32fb2b52d2dbb126053247cff83f05781ba5e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 44dbc03a41cfde94c344ae331b21d7536778050c
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350879"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619110"
 ---
 # <a name="best-practices-for-sql-analytics-in-azure-synapse-analytics-formerly-sql-dw"></a>Azure 시냅스 분석의 SQL 분석에 대한 모범 사례(이전 SQL DW)
 
-이 문서는 [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse) 배포에서 최적의 성능을 달성하는 데 도움이 되는 모범 사례 모음입니다.  이 문서의 목적은 몇 가지 기본 지침을 제공하고 중요한 초점 영역을 강조하는 것입니다.  각 섹션에서는 개념을 소개한 다음 개념을 보다 심층적인 세부 기사로 설명합니다. 주제의 순서는 중요도의 순서입니다. 
+이 문서는 [SQL Analytics](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) 배포에서 최적의 성능을 달성하는 데 도움이 되는 모범 사례 모음입니다.  이 문서의 목적은 몇 가지 기본 지침을 제공하고 중요한 초점 영역을 강조하는 것입니다.  각 섹션에서는 개념을 소개한 다음 개념을 보다 심층적인 세부 기사로 설명합니다. 주제의 순서는 중요도의 순서입니다. 
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>일시 중지 및 규모 조정으로 비용 절감
 
@@ -115,7 +115,7 @@ DDL을 정의할 때 데이터를 지원하는 가장 작은 데이터 형식을
 
 고품질 columnstore 세그먼트는 중요하므로 데이터를 로드하기 위해 중간 또는 큰 리소스 클래스에 있는 사용자 아이디를 사용하는 것이 좋습니다. 낮은 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)를 사용하면 로드하는 사용자에게 더 큰 리소스 클래스를 할당하려는 것입니다.
 
-columnstore 테이블은 일반적으로 테이블당 1백만 개 이상의 행이 있고 각 SQL Analytics 테이블이 60개의 테이블로 분할될 때까지 압축된 columnstore 세그먼트로 데이터를 푸시하지 않으므로, 일반적으로 열저장소 테이블은 쿼리에 도움이 되지 않습니다. 테이블에는 6천만 개 이상의 행이 있습니다.  6천만 개 미만의 행이 있는 테이블의 경우 columnstore 인덱스를 포함하는 것이 적절하지 않을 수 있습니다.  오히려 상황을 악화시킬 수 있습니다.  
+columnstore 테이블은 일반적으로 테이블당 1백만 개 이상의 행이 있고 각 SQL Analytics 테이블이 60개의 테이블로 분할될 때까지 압축된 columnstore 세그먼트로 데이터를 푸시하지 않으므로 일반적으로 테이블에 6천만 개 이상의 행이 있는 경우를 제외하면 columnstore 테이블은 쿼리에 이점을 주지 않습니다.  6천만 개 미만의 행이 있는 테이블의 경우 columnstore 인덱스를 포함하는 것이 적절하지 않을 수 있습니다.  오히려 상황을 악화시킬 수 있습니다.  
 
 또한 데이터를 분할하는 경우 클러스터형 columnstore 인덱스의 이점을 얻기 위해 각 파티션에는 100개의 행을 포함하는 것이 좋습니다.  테이블에 파티션 수가 100개라면 클러스터형 columnstore에서 이점을 얻으려면 60억 개 이상의 행을 포함해야 합니다(60개 배포 * 100개 파티션 * 1백만 행).  
 

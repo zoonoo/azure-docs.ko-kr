@@ -2,17 +2,17 @@
 title: Azure 요새 세션 모니터링 및 관리 | 마이크로 소프트 문서
 description: 이 문서에서는 진행 중인 세션을 선택하고 강제로 연결을 끊거나 삭제하는 방법을 알아봅니다.
 services: bastion
-author: cherylmc
+author: charwen
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: cherylmc
-ms.openlocfilehash: f56a724174b81966642b2870360014597436eade
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: charwen
+ms.openlocfilehash: 6bf80be4868295145fa79ae29d5322181b6131d1
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76981092"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619187"
 ---
 # <a name="session-monitoring-and-management-for-azure-bastion"></a>Azure 요새에 대한 세션 모니터링 및 관리
 

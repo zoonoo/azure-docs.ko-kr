@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mjbrown
-ms.openlocfilehash: 30991f17970eefe1a140cdd70e1f6b305160349c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 345fc329df1c57cab7dd66c609bf3701fa3a6124
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79537332"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619137"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 보안 - 개요
 
@@ -48,7 +48,7 @@ ms.locfileid: "79537332"
 명백해 보일지 모르지만, 최근의 [대규모 데이터베이스 침해](https://thehackernews.com/2017/01/mongodb-database-security.html)는 다음과 같은 요구 사항의 간단하지만 민감한 중요성을 상기시켜 줍니다.
 
 - 최신 상태로 유지되는 패치된 서버
-- HTTPS(기본값)/SSL 암호화
+- 기본/TLS 암호화에 의한 HTTPS
 - 강력한 암호를 사용하는 관리 계정
 
 ## <a name="how-does-azure-cosmos-db-secure-my-database"></a>Azure 코스모스 DB가 내 데이터베이스를 보호하는 방법
@@ -76,7 +76,7 @@ ms.locfileid: "79537332"
 |HTTPS/SSL/TLS 암호화|Azure 코스모스 DB에 대한 모든 연결은 HTTPS를 지원합니다. Azure 코스모스 DB는 TLS 1.2도 지원합니다.<br>최소 TLS 버전 서버 측을 적용할 수 있습니다. 이렇게 하려면 다음 [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com)연락처로 문의하십시오.|
 |휴지 상태의 암호화|Azure Cosmos DB에 저장된 모든 데이터는 미사용 암호화됩니다. 자세한 내용은 [Azure Cosmos DB 미사용 암호화](./database-encryption-at-rest.md)를 참조하세요.|
 |패치된 서버|관리되는 데이터베이스인 Azure Cosmos DB를 사용하면 직접 서버를 관리하고 패치를 적용하지 않아도 자동으로 처리됩니다.|
-|강력한 암호를 사용하는 관리 계정|이 요구 사항은 당연하게 여겨질 수 있지만, 일부 경쟁업체와 달리 Azure Cosmos DB에서는 관리 계정에 반드시 암호가 있어야 합니다.<br><br> SSL 및 HMAC 비밀 기반 인증을 통한 보안이 기본적으로 반영됩니다.|
+|강력한 암호를 사용하는 관리 계정|이 요구 사항은 당연하게 여겨질 수 있지만, 일부 경쟁업체와 달리 Azure Cosmos DB에서는 관리 계정에 반드시 암호가 있어야 합니다.<br><br> TLS 및 HMAC 비밀 기반 인증을 통한 보안은 기본적으로 베이크됩니다.|
 |보안 및 데이터 보호 인증서| 최신 인증 목록에 대한 자세한 내용은 전체 [Azure 규정 준수 사이트와](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) 모든 인증이 있는 최신 Azure 규정 준수 [문서(Cosmos](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 검색)를 참조하십시오. 더 집중된 읽기에 대 한 4 월 25, 2018 게시물 [Azure #CosmosDB: 안전, 개인, SOCS를 포함 하는 준수 1/2 유형 2, HITRUST, PCI DSS 수준 1, ISO 27001, HIPAA, FedRAMP 높은, 그리고 많은 다른 사람.
 
 다음 스크린샷은 감사 로깅 및 활동 로그를 사용하여 계정을 어떻게 모니터링할 수 있는지 보여 줍니다. ![Azure Cosmos DB에 대한 활동 로그](./media/database-security/nosql-database-security-application-logging.png)

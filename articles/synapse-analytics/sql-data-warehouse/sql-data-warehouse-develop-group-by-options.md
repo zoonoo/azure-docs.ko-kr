@@ -1,6 +1,6 @@
 ---
 title: 옵션별 그룹 사용
-description: 솔루션 개발을 위한 Azure SQL Data Warehouse의 GROUP BY 옵션 구현을 위한 팁.
+description: Synapse SQL 풀의 옵션별로 그룹을 구현하기 위한 팁입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,28 +11,28 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f77445e80e701053b7fbfa1aa559248cf505353c
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 28ac075d043f7605b6dfdac6879063fbe9308123
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350521"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619056"
 ---
-# <a name="group-by-options-in-sql-data-warehouse"></a>SQL Data Warehouse의 GROUP BY 옵션
-솔루션 개발을 위한 Azure SQL Data Warehouse의 GROUP BY 옵션 구현을 위한 팁.
+# <a name="group-by-options-in-synapse-sql-pool"></a>시냅스 SQL 풀의 옵션별로 그룹화
+
+이 문서에서는 SQL 풀에서 옵션별로 그룹을 구현하는 팁을 찾을 수 있습니다.
 
 ## <a name="what-does-group-by-do"></a>GROUP BY의 기능
 
-[GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL 절을 사용하여 데이터를 요약 행 집합으로 집계합니다. GROUP BY에는 SQL Data Warehouse가 지원하지 않는 옵션이 몇 가지 있습니다. 이러한 옵션에는 해결 방법이 있습니다.
-
-이들 옵션은
+[GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL 절을 사용하여 데이터를 요약 행 집합으로 집계합니다. GROUP BY에는 SQL 풀에서 지원하지 않는 몇 가지 옵션이 있습니다. 이러한 옵션에는 다음과 같은 해결 방법을 포함합니다.
 
 * GROUP BY with ROLLUP
 * GROUPING SETS
 * GROUP BY with CUBE
 
 ## <a name="rollup-and-grouping-sets-options"></a>롤업 및 그룹화 집합 옵션
-여기서 가장 간단한 옵션은 명시적 구문에 의존하는 대신 UNION ALL을 사용하여 롤업을 수행하는 것입니다. 결과는 완전히 동일합니다.
+
+여기서 가장 간단한 옵션은 명시적 구문에 의존하지 않고 UNION ALL을 사용하여 롤업을 수행하는 것입니다. 결과는 정확히 동일합니다.
 
 다음은 ROLLUP 옵션과 함께GROUP BY 문을 사용하는 예제입니다.
 ```sql
@@ -84,11 +84,11 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 GROUPING SETS를 바꾸려면 샘플 원칙이 적용됩니다. 보려는 집계 수준에 대한 UNION ALL 섹션만 만들면 됩니다.
 
 ## <a name="cube-options"></a>큐브 옵션
-UNION ALL 접근방식을 사용하여 GROUP BY WITH CUBE를 만들 수 있습니다. 문제는 코드가 금세 번거롭고 다루기 힘들게 될 수 있다는 것입니다. 이 문제를 완화하기 위해 보다 발전된 접근 방식을 사용할 수 있습니다.
+UNION ALL 접근 방식을 사용하여 큐브를 사용하여 그룹 BY 를 만들 수 있습니다. 문제는 코드가 금세 번거롭고 다루기 힘들게 될 수 있다는 것입니다. 이 문제를 완화하려면 이 고급 방법을 사용할 수 있습니다.
 
-위의 예제를 사용해 보겠습니다.
+이전 예제를 사용 하 여 첫 번째 단계는 우리가 만들 려는 집계의 모든 수준을 정의 하는 '큐브'를 정의 하는 것입니다. 
 
-첫 번째 단계는 만들고자 하는 집계의 모든 수준을 정의하는 ‘큐브'를 정의하는 것입니다. 파생된 테이블 두 개의 CROSS JOIN에 주목해야 합니다. 이렇게 하면 필요한 모든 수준이 생성됩니다. 코드의 나머지 부분은 사실상 서식 지정을 위한 것입니다.
+이 모든 레벨을 생성하기 때문에 두 파생 테이블의 CROSS JOIN을 기록하십시오. 나머지 코드는 서식을 지정하기 위한 것입니다.
 
 ```sql
 CREATE TABLE #Cube
@@ -119,7 +119,7 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-다음은 CTAS의 결과를 보여줍니다.
+다음 이미지는 CTAS의 결과를 보여 주며, 그 결과는 다음과 같은 것입니다.
 
 ![큐브별로 그룹화](./media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
 
@@ -146,7 +146,7 @@ WITH
 ;
 ```
 
-세 번째 단계는 집계를 수행하는 열의 큐브를 반복하는 것입니다. 쿼리는 #Cube 임시 테이블의 모든 행에 대해 한 번 실행하며 결과를 #Results 임시 테이블에 저장합니다.
+세 번째 단계는 집계를 수행하는 열의 큐브를 반복하는 것입니다. 쿼리는 #Cube 임시 테이블의 모든 행에 대해 한 번 실행됩니다. 결과는 #Results 임시 테이블에 저장됩니다.
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -170,7 +170,7 @@ BEGIN
 END
 ```
 
-마지막으로 #Results 임시 테이블을 읽어서 결과를 반환할 수 있습니다.
+마지막으로 #Results 임시 테이블을 읽고 결과를 반환할 수 있습니다.
 
 ```sql
 SELECT *
@@ -179,7 +179,7 @@ ORDER BY 1,2,3
 ;
 ```
 
-코드를 섹션으로 분할하고 반복 구성을 생성하면 코드의 관리 및 유지 관리가 더 쉬워집니다.
+코드를 섹션으로 나누고 루프 생성 구문 생성을 통해 코드를 보다 관리 및 유지 관리가 용이하게 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 더 많은 개발 팁은 [개발 개요](sql-data-warehouse-overview-develop.md)를 참조하세요.

@@ -5,12 +5,12 @@ author: kavyako
 ms.topic: conceptual
 ms.date: 08/10/2017
 ms.author: kavyako
-ms.openlocfilehash: 4cfeaf34a39231ffa91ea970a61f66632bae40c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61a8d1e766ea576f7d2984add239b0da7e2e8183
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79282251"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617122"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>역방향 프록시를 사용하여 보안 서비스 연결
 
@@ -77,7 +77,7 @@ Service Fabric에서 역방향 프록시를 구성하려면 [Azure Service Fabri
 
    서비스 일반 이름 및 발급자 지문 목록을 지정하려면 아래 표시된 것처럼 **fabricSettings** 아래에 [**ApplicationGateway/Http/ServiceCommonNameAndIssuer**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttpservicecommonnameandissuer) 섹션을 추가합니다. 여러 인증서 일반 이름 및 발급자 지문 쌍을 **매개 변수** 배열에 추가할 수 있습니다. 
 
-   엔드포인트 역방향 프록시가 연결되어 일반 이름과 발급자 지문이 여기에 지정된 값과 일치하는 인증서가 제시되면 SSL 채널이 설정됩니다. 
+   끝점 역방향 프록시가 연결하여 일반적인 이름과 발급자 지문이 여기에 지정된 값과 일치하는 인증서를 제시하면 TLS 채널이 설정됩니다.
    인증서 세부 정보가 일치하지 않으면 502(잘못된 게이트웨이) 상태 코드와 함께 역방향 프록시가 클라이언트 요청에 대해 실패합니다. HTTP 상태 줄에 "잘못된 SSL 인증서"라는 구문이 포함됩니다. 
 
    ```json
@@ -143,7 +143,7 @@ Service Fabric에서 역방향 프록시를 구성하려면 [Azure Service Fabri
    }
    ```
 
-   이 구성 항목 목록에 서버 인증서의 지문이 있으면 역방향 프록시가 SSL 연결에 성공합니다. 그렇지 않으면 연결을 종료하고 502(잘못된 게이트웨이)와 함께 클라이언트의 요청에 실패합니다. HTTP 상태 줄에 "잘못된 SSL 인증서"라는 구문이 포함됩니다.
+   서버 인증서의 지문이 이 구성 항목에 나열되면 역방향 프록시가 TLS 연결에 성공합니다. 그렇지 않으면 연결을 종료하고 502(잘못된 게이트웨이)와 함께 클라이언트의 요청에 실패합니다. HTTP 상태 줄에 "잘못된 SSL 인증서"라는 구문이 포함됩니다.
 
 ## <a name="endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints"></a>서비스가 보안 엔드포인트와 비보안 엔드포인트를 노출할 때 엔드포인트 선택 논리
 Service Fabric은 서비스에 대한 다중 엔드포인트 구성을 지원합니다. 자세한 내용은 [서비스 매니페스트에서 리소스 지정](service-fabric-service-manifest-resources.md)을 참조하세요.
@@ -173,12 +173,12 @@ Service Fabric은 서비스에 대한 다중 엔드포인트 구성을 지원합
 > **SecureOnlyMode**에서 작동할 때 클라이언트가 HTTP(비보안) 엔드포인트에 해당하는 **ListenerName**을 지정한 경우 역방향 프록시는 404(찾을 수 없음) HTTP 상태 코드와 함께 요청에 실패합니다.
 
 ## <a name="setting-up-client-certificate-authentication-through-the-reverse-proxy"></a>역방향 프록시를 통한 클라이언트 인증서 인증 설정
-SSL 종료는 역방향 프록시에서 발생하며 모든 클라이언트 인증서 데이터가 손실됩니다. 서비스가 클라이언트 인증서 인증을 수행하려면 [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) 섹션에서 **ForwardClientCertificate** 설정을 지정합니다.
+TLS 종료는 역방향 프록시에서 발생하며 모든 클라이언트 인증서 데이터가 손실됩니다. 서비스가 클라이언트 인증서 인증을 수행하려면 [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) 섹션에서 **ForwardClientCertificate** 설정을 지정합니다.
 
-1. **ForwardClientCertificate**가 **false**로 설정되면 역방향 프록시가 클라이언트와의 SSL 핸드셰이크 중 클라이언트 인증서를 요청하지 않습니다.
+1. **ForwardClientCertificate이** **false로**설정된 경우 역방향 프록시는 클라이언트와의 TLS 핸드셰이크 중에 클라이언트 인증서를 요청하지 않습니다.
 기본 동작입니다.
 
-2. **ForwardClientCertificate**가 **true**로 설정되면 역방향 프록시가 클라이언트와의 SSL 핸드셰이크 중 클라이언트 인증서를 요청합니다.
+2. **ForwardClientCertificate이** **true로**설정된 경우 역방향 프록시는 클라이언트와의 TLS 핸드셰이크 중에 클라이언트의 인증서를 요청합니다.
 그런 다음 **X-Client-Certificate**라는 사용자 지정 HTTP 헤더에 클라이언트 인증서 데이터를 전달합니다. 헤더 값은 클라이언트 인증서의 base64로 인코딩된 PEM 형식의 문자열입니다. 서비스는 인증서 데이터를 검사한 후 요청에 성공하거나/적절한 상태 코드와 함께 실패할 수 있습니다.
 클라이언트가 인증서를 제시하지 않으면 역방향 프록시는 빈 헤더를 전달하고 서비스에서 처리하도록 합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: '자습서: 뉴욕 택시 데이터 로드'
-description: 자습서에서는 Azure 포털 및 SQL 서버 관리 스튜디오를 사용하여 SQL 분석에 대한 전역 Azure Blob에서 뉴욕 택시 데이터를 로드합니다.
+description: 자습서에서는 Azure 포털 및 SQL 서버 관리 스튜디오를 사용하여 Synapse SQL에 대한 전역 Azure Blob에서 뉴욕 택시 데이터를 로드합니다.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f1614538f6ab735720d090f66fee0e017e96cf72
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e17b5be0f4f3d568bd5ec836659c4444b384b2fa
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346734"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583755"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>자습서: 뉴욕 택시 데이터 집합 로드
 
@@ -32,7 +32,7 @@ ms.locfileid: "80346734"
 > * 로드될 때 데이터의 진행 상태 확인
 > * 새로 로드한 데이터에 대한 통계 만들기
 
-Azure 구독이 없는 경우 시작하기 전에 [무료 계정을 만드세요.](https://azure.microsoft.com/free/)
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -41,15 +41,15 @@ Azure 구독이 없는 경우 시작하기 전에 [무료 계정을 만드세요
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+[Azure 포털에](https://portal.azure.com/)로그인합니다.
 
 ## <a name="create-a-blank-database"></a>빈 데이터베이스 만들기
 
-SQL 풀은 정의된 [계산 리소스](memory-concurrency-limits.md)집합으로 만들어집니다. 데이터베이스는 [Azure 리소스 그룹](../../azure-resource-manager/management/overview.md) 및 [Azure SQL 논리 서버](../../sql-database/sql-database-features.md)에 생성됩니다. 
+SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세트로 생성됩니다. 데이터베이스는 [Azure 리소스 그룹](../../azure-resource-manager/management/overview.md) 및 [Azure SQL 논리 서버](../../sql-database/sql-database-features.md)에 생성됩니다. 
 
 다음 단계에 따라 빈 데이터베이스를 만듭니다. 
 
-1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
+1. Azure 포털의 왼쪽 위 모서리에 **있는 리소스 만들기를** 선택합니다.
 
 2. **새** 페이지에서 **데이터베이스를** 선택하고 **새** 페이지의 **추천** 에서 **Azure 시냅스 분석을** 선택합니다.
 
@@ -57,18 +57,18 @@ SQL 풀은 정의된 [계산 리소스](memory-concurrency-limits.md)집합으�
 
 3. 다음 정보로 양식을 작성합니다. 
 
-   | 설정            | 제안 값       | 설명                                                  |
+   | 설정            | 제안 값       | Description                                                  |
    | ------------------ | --------------------- | ------------------------------------------------------------ |
-   | *이름**            | mySampleDataWarehouse | 유효한 데이터베이스 이름은 [데이터베이스 식별자를](/sql/relational-databases/databases/database-identifiers)참조하십시오. |
+   | *이름**            | mySampleDataWarehouse | 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
    | **구독**   | 사용자의 구독     | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
    | **리소스 그룹** | myResourceGroup       | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
-   | **소스 선택**  | 빈 데이터베이스        | 빈 데이터베이스를 만들려면 지정합니다. 데이터 웨어하우스는 데이터베이스의 한 종류입니다. |
+   | **원본 선택**  | 빈 데이터베이스        | 빈 데이터베이스를 만들려면 지정합니다. 데이터 웨어하우스는 데이터베이스의 한 종류입니다. |
 
     ![데이터 웨어하우스 만들기](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
 4. 새 데이터베이스에 대한 새 서버를 만들고 구성하려면 **서버**를 선택합니다. 다음 정보로 **새 서버 폼**을 작성합니다. 
 
-    | 설정                | 제안 값          | 설명                                                  |
+    | 설정                | 제안 값          | Description                                                  |
     | ---------------------- | ------------------------ | ------------------------------------------------------------ |
     | **서버 이름**        | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
     | **서버 관리자 로그인** | 유효한 이름           | 유효한 로그인 이름은 [데이터베이스 식별자를](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)참조하십시오. |
@@ -90,7 +90,7 @@ SQL 풀은 정의된 [계산 리소스](memory-concurrency-limits.md)집합으�
 
 11. 양식을 완료한 후 **만들기를** 선택하여 데이터베이스를 프로비전합니다. 프로비전하는 데 몇 분이 걸립니다. 
 
-12. 도구 모음에서 **알림을** 선택하여 배포 프로세스를 모니터링합니다.
+12. 도구 모음에서 **알림**을 선택하여 배포 프로세스를 모니터링합니다.
   
      ![알림](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
 
@@ -111,7 +111,7 @@ SQL 풀은 정의된 [계산 리소스](memory-concurrency-limits.md)집합으�
 
     ![서버 설정](./media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
 
-5. **방화벽 설정 표시를**선택합니다. SQL Database 서버에 대한 **방화벽 설정** 페이지가 열립니다. 
+5. **방화벽 설정 표시**를 선택합니다. SQL Database 서버에 대한 **방화벽 설정** 페이지가 열립니다. 
 
     ![서버 방화벽 규칙](./media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
 
@@ -119,7 +119,7 @@ SQL 풀은 정의된 [계산 리소스](memory-concurrency-limits.md)집합으�
 
 5. **저장**을 선택합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
 
-6. **확인**을 선택한 다음, **방화벽 설정** 페이지를 닫습니다.
+6. **확인을** 선택한 다음 **방화벽 설정** 페이지를 닫습니다.
 
 이제 이 IP 주소를 사용하여 SQL 서버 및 해당 데이터 웨어하우스에 연결할 수 있습니다. SQL Server Management Studio 또는 원하는 다른 도구에서 연결이 제대로 작동합니다. 연결할 때 이전에 만든 ServerAdmin 계정을 사용합니다.  
 
@@ -130,7 +130,7 @@ SQL 풀은 정의된 [계산 리소스](memory-concurrency-limits.md)집합으�
 
 Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 나중에 서버에 연결할 때 이 정규화된 이름을 사용합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
 2. 왼쪽 메뉴에서 **Azure 시냅스 분석을** 선택하고 **Azure 시냅스 분석** 페이지에서 데이터베이스를 선택합니다. 
 3. 데이터베이스의 경우 Azure Portal의 **개요** 창에서 **서버 이름**을 찾고 복사합니다. 이 예제에서 정규화된 이름은 mynewserver-20180430.database.windows.net입니다. 
 
@@ -144,7 +144,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 2. **서버에 연결** 대화 상자에 다음 정보를 입력합니다.
 
-    | 설정        | 제안 값                            | 설명                                                  |
+    | 설정        | 제안 값                            | Description                                                  |
     | -------------- | ------------------------------------------ | ------------------------------------------------------------ |
     | 서버 유형    | 데이터베이스 엔진                            | 이 값은 필수입니다.                                       |
     | 서버 이름    | 정규화된 서버 이름            | 이름은 **mynewserver-20180430.database.windows.net**과 비슷해야 합니다. |
@@ -179,7 +179,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
     ```
 
-3. **실행**을 선택합니다.
+3. **실행을 선택합니다.**
 
 4. 마우스 오른쪽 단추로 **mySampleDataWarehouse**를 클릭하고 **새 쿼리**를 선택합니다. 새 쿼리 창이 열립니다.  
 
@@ -193,7 +193,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
     ```
 
-6. **실행**을 선택합니다.
+6. **실행을 선택합니다.**
 
 ## <a name="connect-to-the-server-as-the-loading-user"></a>로드 사용자 권한으로 서버에 연결
 

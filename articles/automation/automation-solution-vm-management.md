@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: cef3176c99cd57ae229b602feb3c825081fcfe3e
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 906c7728365cc902549bd46c57972e1c90af979c
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548364"
+ms.locfileid: "80607470"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Automation의 작업 시간 외 VM 시작/중지 솔루션
 
@@ -107,7 +107,7 @@ VM 시작/중지 솔루션에 대해 별도의 자동화 계정을 사용하는 
 
 모든 부모 Runbook에는 _WhatIf_ 매개 변수가 포함됩니다. 이 매개 변수가 **True**로 설정되면 _WhatIf_는 _WhatIf_ 매개 변수 없이 실행될 때 Runbook이 수행하는 정확한 동작에 대한 자세한 설명을 지원하며, 올바른 VM이 대상으로 지정되었는지 확인합니다. Runbook은 _WhatIf_ 매개 변수가 **False**로 설정된 경우에만 정의된 작업을 수행합니다.
 
-|Runbook | 매개 변수 | Description|
+|Runbook | 매개 변수 | 설명|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | 부모 Runbook에서 호출됩니다. 이 Runbook은 AutoStop 시나리오에서 리소스 기준으로 경고를 만듭니다.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True 또는 False  | 대상 구독 또는 리소스 그룹에서 VM에 대해 Azure 경고 규칙을 만들거나 업데이트합니다. <br> VMList: 쉼표로 구분된 VM 목록입니다. 예: _vm1, vm2, vm3_.<br> *WhatIf*는 Runbook 논리를 실행하지 않고 유효성을 검사합니다.|
@@ -116,7 +116,7 @@ VM 시작/중지 솔루션에 대해 별도의 자동화 계정을 사용하는 
 |AutoStop_VM_Child_ARM | WebHookData |부모 Runbook에서 호출됩니다. 경고 규칙은 이 Runbook을 호출하여 VM을 중지합니다.  |
 |ScheduledStartStop_Base_Classic | CloudServiceName<br> 작업: 시작 또는 중지<br> VMList  | 이 Runbook은 클라우드 서비스에서 클래식 VM 그룹에서 작업 시작 또는 중지를 수행하는 데 사용됩니다.<br> VMList: 쉼표로 구분된 VM 목록입니다. 예: _vm1, vm2, vm3_. |
 |ScheduledStartStop_Child | VMName <br> 작업: 시작 또는 중지 <br> ResourceGroupName | 부모 Runbook에서 호출됩니다. 예약된 중지에서 시작 또는 중지 작업을 실행합니다.|
-|ScheduledStartStop_Child_Classic | VMName<br> 작업: 시작 또는 중지<br> ResourceGroupName | 부모 Runbook에서 호출됩니다. 클래식 VM에 대해 예약된 중지에 대해 시작 또는 중지 작업을 실행합니다. |
+|ScheduledStartStop_Child_Classic | VMName<br> 작업: 시작 또는 중지<br> ResourceGroupName | 부모 Runbook에서 호출됩니다. 클래식 VM에 대해 예약된 중지에 대한 시작 또는 중지 작업을 실행합니다. |
 |ScheduledStartStop_Parent | 작업: 시작 또는 중지 <br>VMList <br> WhatIf: True 또는 False | 이 설정은 구독에 있는 모든 VM에 영향을 줍니다. 이러한 대상이 지정된 리소스 그룹에서만 실행되도록 **External_Start_ResourceGroupNames** 및 **External_Stop_ResourceGroupNames**를 편집합니다. **External_ExcludeVMNames** 변수를 업데이트하여 특정 VM을 제외할 수도 있습니다.<br> VMList: 쉼표로 구분된 VM 목록입니다. 예: _vm1, vm2, vm3_.<br> _WhatIf_는 Runbook 논리를 실행하지 않고 유효성을 검사합니다.|
 |SequencedStartStop_Parent | 작업: 시작 또는 중지 <br> WhatIf: True 또는 False<br>VMList| 시작/중지 활동을 시퀀스화하려는 각 VM에서 **시퀀스 시작** 및 **시퀀스 중지라는** 태그를 만듭니다. 이 태그 이름은 대/소문자를 구분합니다. 태그 값은 시작하거나 중지하려는 순서에 해당하는 양의 정수(1, 2, 3)여야 합니다. <br> VMList: 쉼표로 구분된 VM 목록입니다. 예: _vm1, vm2, vm3_. <br> _WhatIf_는 Runbook 논리를 실행하지 않고 유효성을 검사합니다. <br> **참고**: VM은 Azure Automation 변수에 External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames 및 External_ExcludeVMNames으로 정의된 리소스 그룹 내에 있어야 합니다. 작업이 적용되려면 적절한 태그가 있어야 합니다.|
 
@@ -124,7 +124,7 @@ VM 시작/중지 솔루션에 대해 별도의 자동화 계정을 사용하는 
 
 다음 표에는 Automation 계정에서 만든 변수가 나열되어 있습니다. **External** 접두사가 붙은 변수만 수정합니다. 변수의 접두사를 **Internal**로 수정하면 원치 않는 결과로 이어집니다.
 
-|변수 | Description|
+|변수 | 설명|
 |---------|------------|
 |External_AutoStop_Condition | 경고를 트리거하기 전에 조건을 구성하는 데 필요한 조건부 연산자입니다. 사용 가능한 값은 **GreaterThan**, **GreaterThanOrEqual**, **LessThan** 및 **LessThanOrEqual**입니다.|
 |External_AutoStop_Description | CPU %가 임계값을 초과하는 경우 VM을 중지하도록 경고합니다.|
@@ -140,8 +140,8 @@ VM 시작/중지 솔루션에 대해 별도의 자동화 계정을 사용하는 
 |External_Stop_ResourceGroupNames | 중지 작업의 대상이 될 하나 이상의 리소스 그룹을 쉼표로 구분해서 지정합니다.|
 |External_WaitTimeForVMRetrySeconds |시퀀스 시작/중지 실행책에 대한 VM에서 수행될 작업에 대한 대기 시간(초)입니다.<br> 기본값은 2100초이며 최대 값 10800 또는 3시간으로 구성을 지원합니다.|
 |Internal_AutomationAccountName | Automation 계정의 이름을 지정합니다.|
-|Internal_AutoSnooze_ARM_WebhookURI | 클래식 VM에 대 한 자동 중지 시나리오에 대 한 호출 된 Webhook URI를 지정 합니다.|
-|Internal_AutoSnooze_WebhookUri | AutoStop 시나리오에 대해 호출되는 Webhook URI를 지정합니다.|
+|Internal_AutoSnooze_ARM_WebhookURI | VM에 대 한 자동 중지 시나리오에 대 한 호출 된 Webhook URI를 지정 합니다.|
+|Internal_AutoSnooze_WebhookUri | 클래식 VM에 대 한 자동 중지 시나리오에 대 한 호출 된 Webhook URI를 지정 합니다.|
 |Internal_AzureSubscriptionId | Azure 구독 ID를 지정합니다.|
 |Internal_ResourceGroupName | Automation 계정 리소스 그룹 이름을 지정합니다.|
 
@@ -157,7 +157,7 @@ VM 시작/중지 솔루션에 대해 별도의 자동화 계정을 사용하는 
 
 일정 작업이 겹칠 수 있기 때문에 모든 일정을 사용하도록 설정해서는 안 됩니다. 그에 맞게 수행하고 수정할 최적화를 결정하는 것이 가장 좋습니다. 추가 설명을 보려면 개요 섹션에서 예제 시나리오를 참조하세요.
 
-|일정 이름 | 빈도 | Description|
+|일정 이름 | 빈도 | 설명|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | 8시간마다 | AutoStop_CreateAlert_Parent Runbook을 8시간 간격으로 실행합니다. 그러면 Azure Automation 변수에서 External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames 및 External_ExcludeVMNames에서 VM 기반 값이 중지됩니다. 또는 VMList 매개 변수를 사용하여 쉼표로 구분된 VM 목록을 지정할 수 있습니다.|
 |Scheduled_StopVM | 사용자 정의, 매일 | 매일 지정된 시간에 _Stop_ 매개 변수를 사용하여 Scheduled_Parent Runbook이 실행됩니다.자산 변수를 통해 정의된 규칙을 충족하는 모든 VM이 자동으로 중지됩니다.관련된 일정 **Scheduled-StartVM**을 사용하도록 설정합니다.|

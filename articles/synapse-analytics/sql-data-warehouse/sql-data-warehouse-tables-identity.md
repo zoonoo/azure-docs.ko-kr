@@ -1,6 +1,6 @@
 ---
 title: ID를 사용하여 서로게이트 키 만들기
-description: ID 속성을 사용하여 SQL Analytics의 테이블에서 서로게이트 키를 만드는 권장 사항 및 예제입니다.
+description: IDENTITY 속성을 사용하여 Synapse SQL 풀의 테이블에서 서로게이트 키를 만드는 권장 사항 및 예제입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,24 +11,24 @@ ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ab8f4a64f7273f0fa15c20f324e132003d5afe32
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: d4a9880ed7ab26d0127026f49c0bc781cfc2a941
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351304"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586325"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-sql-analytics"></a>ID를 사용하여 SQL 분석에서 서로게이트 키 만들기
+# <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>ID를 사용하여 시냅스 SQL 풀에서 서로게이트 키 만들기
 
-ID 속성을 사용하여 SQL Analytics의 테이블에서 서로게이트 키를 만드는 권장 사항 및 예제입니다.
+IDENTITY 속성을 사용하여 Synapse SQL 풀의 테이블에서 서로게이트 키를 만드는 권장 사항 및 예제입니다.
 
 ## <a name="what-is-a-surrogate-key"></a>서로게이트 키란 무엇입니까?
 
-테이블의 서로게이트 키는 각 행에 대해 고유 식별자가 있는 열입니다. 이 키는 테이블 데이터에서 생성되지 않습니다. 데이터 모델러들은 SQL Analytics 모델을 디자인할 때 테이블에 서로게이트 키를 만드는 것을 좋아합니다. 로드 성능에 영향을 주지 않고 간단하고 효과적으로 이 목표를 달성하기 위해 IDENTITY 속성을 사용할 수 있습니다.  
+테이블의 서로게이트 키는 각 행에 대해 고유 식별자가 있는 열입니다. 이 키는 테이블 데이터에서 생성되지 않습니다. 데이터 웨어하우스 모델을 설계하는 경우 데이터 모델러는 해당 테이블에 서로게이트 키를 만들려고 합니다. 로드 성능에 영향을 주지 않고 간단하고 효과적으로 이 목표를 달성하기 위해 IDENTITY 속성을 사용할 수 있습니다.  
 
 ## <a name="creating-a-table-with-an-identity-column"></a>IDENTITY 열이 있는 테이블 만들기
 
-IDENTITY 속성은 부하 성능에 영향을 주지 않고 SQL Analytics 데이터베이스의 모든 배포에 걸쳐 확장되도록 설계되었습니다. 따라서 IDENTITY를 구현하여 이러한 목표를 달성합니다.
+IDENTITY 속성은 부하 성능에 영향을 주지 않고 Synapse SQL 풀의 모든 배포에서 확장되도록 설계되었습니다. 따라서 IDENTITY를 구현하여 이러한 목표를 달성합니다.
 
 다음 문과 유사한 구문을 사용하여 테이블을 처음 만드는 경우 테이블이 IDENTITY 속성을 가졌다고 정의할 수 있습니다.
 
@@ -50,7 +50,7 @@ WITH
 
 ### <a name="allocation-of-values"></a>값 할당
 
-IDENTITY 속성은 서로게이트 값을 할당한 순서를 보장하지 않습니다. 해당 순서는 SQL Server 및 Azure SQL Database의 동작을 반영합니다. 그러나 SQL 분석에서는 보증이 없는 것이 더 두드러집니다.
+IDENTITY 속성은 서로게이트 값을 할당한 순서를 보장하지 않습니다. 해당 순서는 SQL Server 및 Azure SQL Database의 동작을 반영합니다. 그러나 Synapse SQL 풀에서는 보증이 없는 것이 더 두드러집니다.
 
 다음 예제는 그림입니다.
 
@@ -100,7 +100,7 @@ CTAS(CREATE TABLE AS SELECT)의 경우 SELECT..INTO에서 설명한 동일한 SQ
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>IDENTITY 열에 값을 명시적으로 삽입
 
-SQL 애널리틱스는 구문을 지원합니다. `SET IDENTITY_INSERT <your table> ON|OFF` 이 구문을 사용하여 명시적으로 값을 IDENTITY 열에 삽입할 수 있습니다.
+시냅스 SQL 풀은 구문을 지원합니다. `SET IDENTITY_INSERT <your table> ON|OFF` 이 구문을 사용하여 명시적으로 값을 IDENTITY 열에 삽입할 수 있습니다.
 
 많은 데이터 모델러는 해당 차원에 있는 특정 행에 미리 정의된 음수 값을 사용하려고 합니다. 예를 들어 -1 또는 "알 수 없는 멤버" 행입니다.
 
@@ -161,7 +161,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > 현재 IDENTITY 열이 있는 테이블에 데이터를 로드 하는 경우 `CREATE TABLE AS SELECT`를 사용할 수 없습니다.
 >
 
-데이터 로드에 대한 자세한 내용은 SQL 분석 및 [로드 모범 사례에](guidance-for-loading-data.md) [대한 ELT(추출, 로드 및 변환) 설계를](design-elt-data-loading.md) 참조하십시오.
+데이터 로드에 대한 자세한 내용은 Synapse SQL 풀및 [로드 모범 사례에](guidance-for-loading-data.md) [대한 ELT(추출, 로드 및 변환) 설계를](design-elt-data-loading.md) 참조하십시오.
 
 ## <a name="system-views"></a>시스템 뷰
 
@@ -195,7 +195,7 @@ IDENTITY 속성을 사용할 수 없는 경우:
 - 열이 배포 키인 경우
 - 테이블이 외부 테이블인 경우
 
-SQL 분석에서는 다음 관련 기능이 지원되지 않습니다.
+Synapse SQL 풀에서는 다음과 같은 관련 함수가 지원되지 않습니다.
 
 - [ID()](/sql/t-sql/functions/identity-function-transact-sql)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql)

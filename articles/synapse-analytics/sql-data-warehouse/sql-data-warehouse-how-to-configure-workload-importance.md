@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 85fa6a989ae1a6214392914ffd46cd12af27a8d2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 4aa0e7da1e77334a8b9048dab4a461133f220bd1
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350486"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582459"
 ---
 # <a name="configure-workload-importance-in-azure-synapse-analytics"></a>Azure 시냅스 분석에서 워크로드 중요도 구성
 
-Azure Synapse에 대한 SQL 분석의 중요도를 설정하면 쿼리 일정에 영향을 줍니다. 중요도가 높은 쿼리는 중요도가 낮은 쿼리 보다 앞에 실행되도록 예약됩니다. 쿼리에 중요도를 지정하려면 워크로드 분류기를 만들어야 합니다.
+Azure Synapse에 대한 Synapse SQL에서 중요도를 설정하면 쿼리 일정에 영향을 줍니다. 중요도가 높은 쿼리는 중요도가 낮은 쿼리 보다 앞에 실행되도록 예약됩니다. 쿼리에 중요도를 지정하려면 워크로드 분류기를 만들어야 합니다.
 
 ## <a name="create-a-workload-classifier-with-importance"></a>중요도가 있는 워크로드 분류기 만들기
 

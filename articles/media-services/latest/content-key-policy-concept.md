@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 7ddef1e78b4f8f62145e10b4cabc4537e28aba2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85a9cad80156dc6ac40e78610c91805d485ff3df
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74969907"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585986"
 ---
 # <a name="content-key-policies"></a>콘텐츠 키 정책
 
@@ -32,7 +32,7 @@ Microsoft Azure Media Services를 사용하면 Advanced Encryption Standard (AES
 > [!IMPORTANT]
 > 다음 권장 사항을 검토하십시오.
 
-* Media Service 계정에 대한 제한된 정책 집합을 디자인하고 동일한 옵션이 필요할 때마다 스트리밍 로케이터에 다시 사용해야 합니다. 자세한 내용은 [할당량 및 제한 사항](limits-quotas-constraints.md)을 참조하세요.
+* Media Service 계정에 대한 제한된 정책 집합을 디자인하고 동일한 옵션이 필요할 때마다 스트리밍 로케이터에 다시 사용해야 합니다. 자세한 내용은 [할당량 및 제한을](limits-quotas-constraints.md)참조하십시오.
 * 콘텐츠 키 정책은 업데이터로 설정됩니다. 키 배달 캐시가 업데이트되고 업데이트된 정책을 선택하는 데 최대 15분이 걸릴 수 있습니다. 
 
    정책을 업데이트하면 캐시된 콘텐츠를 사용하는 고객에게 재생 문제가 발생할 수 있는 기존 CDN 캐시를 덮어쓰게 됩니다.  

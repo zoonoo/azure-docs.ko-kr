@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 01/21/2020
-ms.openlocfilehash: b9fdd1b25e53e1cdc8aa76564304a61adaa8d804
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 06242af6cb00e3adebbc80da722898fb8e348e36
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79268783"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585367"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 인스턴스란 무엇입니까?
 
@@ -46,28 +46,28 @@ Managed Instance는 Azure SQL Database와 SQL Server 데이터베이스 엔진 �
 | --- | --- |
 |하드웨어를 구입하고 관리할 필요가 없음 <br>기본 인프라 관리를 위한 오버헤드가 없음 <br>신속한 프로비전 및 서비스 크기 조정 <br>자동 패치 적용 및 버전 업그레이드 <br>다른 PaaS 데이터 서비스와 통합 |99.99% 작동 시간 SLA  <br>기본 제공 [고가용성](sql-database-high-availability.md) <br>[자동화된 백업](sql-database-automated-backups.md)으로 보호되는 데이터 <br>고객이 구성 가능한 백업 보존 기간 <br>사용자가 시작하는 [백업](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[특정 시점 데이터베이스 복원](sql-database-recovery-using-backups.md#point-in-time-restore) 기능 |
 |**보안 및 규정 준수** | **관리**|
-|격리된[환경(VNet 통합,](sql-database-managed-instance-connectivity-architecture.md)단일 테넌트 서비스, 전용 컴퓨팅 및 스토리지) <br>[투명 데이터 암호화(TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD 인증](sql-database-aad-authentication.md), Single Sign-On 지원 <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD 서버 주체(로그인)</a>  <br>Azure SQL 데이터베이스와 동일한 표준 준수 <br>[SQL 감사](sql-database-managed-instance-auditing.md) <br>[Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) |서비스 프로비전 및 크기 조정을 자동화하는 Azure Resource Manager API <br>수동 서비스 프로비전 및 크기 조정을 위한 Azure Portal 기능 <br>데이터 마이그레이션 서비스
+|격리된[환경(VNet 통합,](sql-database-managed-instance-connectivity-architecture.md)단일 테넌트 서비스, 전용 컴퓨팅 및 스토리지) <br>[투명 데이터 암호화(TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD 인증](sql-database-aad-authentication.md), Single Sign-On 지원 <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD 서버 주체(로그인)</a>  <br>Azure SQL 데이터베이스와 동일한 표준 준수 <br>[SQL 감사](sql-database-managed-instance-auditing.md) <br>[고급 위협 보호](sql-database-managed-instance-threat-detection.md) |서비스 프로비전 및 크기 조정을 자동화하는 Azure Resource Manager API <br>수동 서비스 프로비전 및 크기 조정을 위한 Azure Portal 기능 <br>데이터 마이그레이션 서비스
 
 > [!IMPORTANT]
 > Azure SQL Database(모든 배포 옵션)는 여러 규정 준수 표준에 대해 인증되었습니다. 자세한 내용은 최신 SQL 데이터베이스 준수 인증 목록을 찾을 수 있는 [Microsoft Azure 트러스트 센터를](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 참조하십시오.
 
 Managed Instance의 주요 기능을 다음 표에서 볼 수 있습니다.
 
-|기능 | 설명|
+|기능 | Description|
 |---|---|
 | SQL Server 버전/빌드 | SQL Server 데이터베이스 엔진(안정적인 최신 버전) |
-| 관리되는 자동 백업 | yes |
-| 기본 제공 인스턴스/데이터베이스 모니터링 및 메트릭 | yes |
-| 자동 소프트웨어 패치 | yes |
-| 최신 데이터베이스 엔진 기능 | yes |
+| 관리되는 자동 백업 | 예 |
+| 기본 제공 인스턴스/데이터베이스 모니터링 및 메트릭 | 예 |
+| 자동 소프트웨어 패치 | 예 |
+| 최신 데이터베이스 엔진 기능 | 예 |
 | 데이터베이스당 데이터 파일(행) 수 | 여러 접두사 |
 | 데이터베이스당 로그 파일(로그) 수 | 1 |
-| VNet - Azure Resource Manager 배포 | yes |
+| VNet - Azure Resource Manager 배포 | 예 |
 | VNet - 클래식 배포 모델 | 예 |
-| 포털 지원 | yes|
+| 포털 지원 | 예|
 | 기본 제공 통합 서비스(SSIS) | 아니요 - SSIS는 [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)의 일부입니다. |
 | 기본 제공 분석 서비스(SSAS) | 아니요 - SSAS는 별도의 [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview)입니다. |
-| 기본 제공 보고 서비스(SSRS) | 아니요 - Power BI 또는 SSRS IaaS를 사용합니다. |
+| 기본 제공 보고 서비스(SSRS) | 아니오 - [대신 Power BI 가식 보고서를](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) 사용하거나 Azure VM에서 SSRS를 호스트합니다. 관리되는 인스턴스는 SSRS를 서비스로 실행할 수 없지만 SQL Server 인증을 사용하여 외부 보고 서버에 대한 SSRS 2019 카탈로그 데이터베이스를 호스트할 수 있습니다. |
 |||
 
 ## <a name="vcore-based-purchasing-model"></a>vCore 기반 구매 모델
@@ -150,7 +150,7 @@ Azure [가상 네트워크(VNet) 내의 배포를](../virtual-network/virtual-ne
 |배포 |비어 없는 서브넷에서 다른 하드웨어 생성의 첫 번째 인스턴스(예: Gen 4 인스턴스가 있는 서브넷의 첫 번째 Gen 5 인스턴스)|가상 클러스터 생성*|90%의 운영이 4시간 만에 완료됩니다.|
 |배포 |빈 서브넷 또는 비어 없는 서브넷에서 4개의 vCores를 처음 생성합니다.|가상 클러스터 생성**|90%의 운영이 4시간 만에 완료됩니다.|
 |배포 |비어 없는 서브넷 내의 후속 인스턴스 생성(2, 3번째 인스턴스 등)|가상 클러스터 크기 조정|2.5시간 만에 90%의 작업 완료|
-|**업데이트** |인스턴스 속성 변경(관리자 암호, AAD 로그인, Azure 하이브리드 혜택 플래그)|해당 없음|최대 1분|
+|**업데이트** |인스턴스 속성 변경(관리자 암호, AAD 로그인, Azure 하이브리드 혜택 플래그)|N/A|최대 1분|
 |업데이트 |인스턴스 스토리지 확장/축소(범용 서비스 계층)|데이터베이스 파일 첨부|90%의 운영이 5분 만에 완료됩니다.|
 |업데이트 |인스턴스 스토리지 확장/축소(비즈니스 크리티컬 서비스 계층)|- 가상 클러스터 크기 조정<br>- 항상 가용성 그룹 시드|90%의 작업이 2.5시간 + 모든 데이터베이스를 시드하는 시간(220GB/시간)에 완료됩니다.|
 |업데이트 |인스턴스 계산(vCores) 확장 및 축소(범용)|- 가상 클러스터 크기 조정<br>- 데이터베이스 파일 첨부|2.5시간 만에 90%의 작업 완료|
@@ -189,10 +189,10 @@ Category  |작업(Operation)  |취소 가능  |예상 취소 기간  |
 |---------|---------|---------|---------|
 |배포 |인스턴스 생성 |예 |  |
 |업데이트 |인스턴스 스토리지 확장/축소(범용) |예 |  |
-|업데이트 |인스턴스 스토리지 확장/축소(비즈니스 중요) |yes |90%의 운영이 5분 만에 완료됩니다. |
-|업데이트 |인스턴스 계산(vCores) 확장 및 축소(범용) |yes |90%의 운영이 5분 만에 완료됩니다. |
-|업데이트 |인스턴스 계산(vCores) 확장 및 축소(비즈니스 중요) |yes |90%의 운영이 5분 만에 완료됩니다. |
-|업데이트 |인스턴스 서비스 계층 변경(비즈니스 크리티컬에 대한 범용 목적 및 그 반대의 경우도 마찬가지) |yes |90%의 운영이 5분 만에 완료됩니다. |
+|업데이트 |인스턴스 스토리지 확장/축소(비즈니스 중요) |예 |90%의 운영이 5분 만에 완료됩니다. |
+|업데이트 |인스턴스 계산(vCores) 확장 및 축소(범용) |예 |90%의 운영이 5분 만에 완료됩니다. |
+|업데이트 |인스턴스 계산(vCores) 확장 및 축소(비즈니스 중요) |예 |90%의 운영이 5분 만에 완료됩니다. |
+|업데이트 |인스턴스 서비스 계층 변경(비즈니스 크리티컬에 대한 범용 목적 및 그 반대의 경우도 마찬가지) |예 |90%의 운영이 5분 만에 완료됩니다. |
 |DELETE |인스턴스 삭제 |예 |  |
 |DELETE |가상 클러스터 삭제(사용자가 시작한 작업) |예 |  |
 
@@ -247,7 +247,7 @@ Azure SQL Database는 데이터를 보호하는 데 사용할 수 있는 일단�
 
 ## <a name="azure-active-directory-integration"></a>Azure Active Directory 통합
 
-Managed Instance 배포 옵션은 기존 SQL 서버 데이터베이스 엔진 로그인 및 AAD(Azure Active Directory)와 통합된 로그인을 지원합니다. Azure AD 서버 보안 주체(로그인)(**공개 미리 보기**)는 온-프레미스 환경에서 사용 중인 온-프레미스 데이터베이스 로그인의 Azure 클라우드 버전입니다. Azure AD 서버 주체(로그인)를 사용하면 Azure Active Directory 테넌트의 사용자 및 그룹을 동일한 관리되는 데이터베이스 쿼리를 포함하여 모든 인스턴스 수준 작업을 수행할 수 있는 실제 인스턴스 범위의 보안 주체로 지정할 수 있습니다. 인스턴스.
+Managed Instance 배포 옵션은 기존 SQL 서버 데이터베이스 엔진 로그인 및 AAD(Azure Active Directory)와 통합된 로그인을 지원합니다. Azure AD 서버 보안 주체(로그인)(**공개 미리 보기**)는 온-프레미스 환경에서 사용 중인 온-프레미스 데이터베이스 로그인의 Azure 클라우드 버전입니다. Azure AD 서버 주체(로그인)를 사용하면 Azure Active Directory 테넌트의 사용자 및 그룹을 동일한 관리되는 인스턴스 내의 데이터베이스 간 쿼리를 포함하여 모든 인스턴스 수준 작업을 수행할 수 있는 실제 인스턴스 범위의 보안 주체로 지정할 수 있습니다.
 
 **외부 공급자에서**Azure AD 서버 주체(로그인)를 만들기 위해 새 구문이 도입됩니다. 구문에 대한 자세한 내용은 <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">LOGIN 만들기를</a>참조하고 관리되는 인스턴스 아티클에 [대한 Azure Active Directory 관리자 프로비저닝을 검토합니다.](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)
 
