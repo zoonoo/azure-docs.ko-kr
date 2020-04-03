@@ -155,7 +155,7 @@ az keyvault key purge --name ContosoFirstKey --vault-name ContosoVault
 
 #### <a name="set-a-key-vault-access-policy"></a>Key Vault 액세스 정책 설정
 
-다음 명령은 user@contoso.com제거*를 포함하여* ContosoVault**의 키에 대해 여러 가지 작업을 사용하는**  사용 권한을 부여합니다.
+다음 명령은 **제거**를 포함하여 *ContosoVault*의 키에 대해 여러 가지 작업을 사용하는 user@contoso.com 사용 권한을 부여합니다.
 
 ```azurecli
 az keyvault set-policy --name ContosoVault --key-permissions get create delete list update import backup restore recover purge
