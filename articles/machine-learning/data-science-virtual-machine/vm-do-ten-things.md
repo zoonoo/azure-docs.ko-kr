@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 147f43148c0f804adf70f1a792ba1b8a772fdae4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8da8cd7110cd17d0aadd52cce1263c7c0fcfdf5c
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294485"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632161"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows 데이터 과학 Virtual Machine으로 할 수 있는 10가지 작업
 
@@ -803,16 +803,6 @@ pd.read_sql(queryString, connection)
 ```
 
 ![테이블에서 데이터의 상위 행](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
-
-#### <a name="read-data-from-hdi-by-using-azure-machine-learning-studio-classic-reader-module"></a>Azure 기계 학습 스튜디오(클래식): 리더 모듈을 사용하여 HDI에서 데이터 읽기
-
-Azure 기계 학습 스튜디오(클래식)의 판독기 모듈을 사용하여 Hadoop 클러스터의 데이터베이스에 액세스할 수도 있습니다. HDI 클러스터 및 Azure 저장소 계정의 자격 증명을 연결하여 HDI 클러스터의 데이터베이스를 사용하여 기계 학습 모델을 구축할 수 있습니다.
-
-![판독기 모듈 속성](./media/vm-do-ten-things/AML_Reader_Hive.PNG)
-
-그런 다음 점수가 매겨짐된 데이터 집합을 볼 수 있습니다.
-
-![채점된 데이터 세트 보기](./media/vm-do-ten-things/AML_Model_Results.PNG)
 
 ### <a name="azure-sql-data-warehouse-and-databases"></a>Azure SQL 데이터 웨어하우스 및 데이터베이스
 Azure SQL 데이터 웨어하우스는 엔터프라이즈급 SQL Server 환경을 갖춘 서비스로서의 탄력적 데이터 웨어하우스입니다.

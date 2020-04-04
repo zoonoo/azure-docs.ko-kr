@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 64e61b00ecebec82b465cb13c6df0e323f6c7777
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 9eacb813c3ddce028fcd9b24c86c6d32ed7a7584
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586547"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633218"
 ---
 # <a name="monitor-workload---azure-portal"></a>워크로드 모니터링 - Azure 포털
 
@@ -24,11 +24,11 @@ ms.locfileid: "80586547"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
-- SQL 풀: SQL 풀에 대한 로그를 수집합니다. 프로비전된 SQL 풀이 없는 경우 [SQL 풀 만들기의](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial)지침을 참조하십시오.
+- SQL 풀: SQL 풀에 대한 로그를 수집합니다. 프로비전된 SQL 풀이 없는 경우 [SQL 풀 만들기의](load-data-from-azure-blob-storage-using-polybase.md)지침을 참조하십시오.
 
 ## <a name="create-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
 
-Log Analytics 작업 영역의 찾아보기 블레이드로 이동하여 작업 영역 만들기 
+Log Analytics 작업 영역의 찾아보기 블레이드로 이동하여 작업 영역 만들기
 
 ![Log Analytics 작업 영역](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspaces.png)
 
@@ -36,7 +36,7 @@ Log Analytics 작업 영역의 찾아보기 블레이드로 이동하여 작업 
 
 ![분석 작업 영역 추가](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
 
-작업 영역에 대한 자세한 내용은 다음 [설명서를](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace#create-a-workspace)참조하십시오.
+작업 영역에 대한 자세한 내용은 다음 [설명서를](../../azure-monitor/learn/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace)참조하십시오.
 
 ## <a name="turn-on-diagnostic-logs"></a>진단 로그 켜기
 
@@ -47,7 +47,6 @@ SQL 풀에서 로그를 내보도록 진단 설정을 구성합니다. 로그는
 - [sys.dm_pdw_dms_workers](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?view=aps-pdw-2016-au7)
 - [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?view=aps-pdw-2016-au7)
 - [sys.dm_pdw_sql_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?view=aps-pdw-2016-au7)
-
 
 ![진단 로그를 사용하도록 설정](./media/sql-data-warehouse-monitor-workload-portal/enable_diagnostic_logs.png)
 
@@ -64,39 +63,38 @@ SQL 풀에서 로그를 내보도록 진단 설정을 구성합니다. 로그는
 - 로그 경고 만들기
 - 쿼리 결과를 대시보드에 고정
 
-로그 쿼리 기능에 대한 자세한 내용은 다음 [설명서를](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language)참조하십시오.
+로그 쿼리 기능에 대한 자세한 내용은 다음 [설명서를](../../azure-monitor/log-query/query-language.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)참조하십시오.
 
 ![로그 분석 작업 영역 편집기](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_editor.png)
-
-
 
 ![로그 분석 작업 영역 쿼리](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_queries.png)
 
 ## <a name="sample-log-queries"></a>샘플 로그 쿼리
 
-
-
 ```Kusto
-//List all queries 
+//List all queries
 AzureDiagnostics
 | where Category contains "ExecRequests"
 | project TimeGenerated, StartTime_t, EndTime_t, Status_s, Command_s, ResourceClass_s, duration=datetime_diff('millisecond',EndTime_t, StartTime_t)
 ```
+
 ```Kusto
 //Chart the most active resource classes
 AzureDiagnostics
 | where Category contains "ExecRequests"
 | where Status_s == "Completed"
 | summarize totalQueries = dcount(RequestId_s) by ResourceClass_s
-| render barchart 
+| render barchart
 ```
+
 ```Kusto
 //Count of all queued queries
 AzureDiagnostics
-| where Category contains "waits" 
+| where Category contains "waits"
 | where Type_s == "UserConcurrencyResourceType"
 | summarize totalQueuedQueries = dcount(RequestId_s)
 ```
+
 ## <a name="next-steps"></a>다음 단계
 
 Azure 모니터 로그를 설정하고 구성한 이제 [Azure 대시보드를 사용자 지정하여](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) 팀 간에 공유합니다.

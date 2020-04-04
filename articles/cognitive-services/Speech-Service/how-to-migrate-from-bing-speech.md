@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: b95e16f2d8257bfffcaf2524fe7f8ce6be565689
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7b78bdb070cdf1364fe7fbdc75f175be7ce145ff
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80366589"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656461"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Bing 음성에서 음성 서비스로 마이그레이션
 
@@ -25,7 +25,7 @@ ms.locfileid: "80366589"
 
 단일 음성 서비스 구독 키는 다음 기능에 대한 액세스 권한을 부여합니다. 각 기능은 별도로 측정되므로 사용하는 기능에 대해서만 요금이 청구됩니다.
 
-* [음성-텍스트](speech-to-text.md)
+* [음성 텍스트 변환](speech-to-text.md)
 * [음성 텍스트 변환 사용자 지정](https://cris.ai)
 * [텍스트 음성 변환](text-to-speech.md)
 * [사용자 지정 텍스트 음성 변환](how-to-customize-voice-font.md)
@@ -79,7 +79,7 @@ Speech Devices SDK를 시작하려면
 1. 음성 서비스 [빠른 시작 가이드](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) 및 [자습서를](how-to-recognize-intents-from-speech-csharp.md)통해 작업 . 또한 [코드 샘플](samples.md)을 살펴보고 새 API를 경험합니다.
 1. 음성 서비스를 사용하도록 응용 프로그램을 업데이트합니다.
 
-## <a name="support"></a>고객 지원팀
+## <a name="support"></a>지원
 
 Bing Speech 고객은 [지원 티켓](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 개설하여 고객 지원 서비스에 문의해야 합니다. 지원을 받으려면 [기술 지원 플랜](https://azure.microsoft.com/support/plans/)이 필요한 경우에도 Microsoft로 연락 주시면 됩니다.
 
@@ -90,7 +90,7 @@ Bing Speech 고객은 [지원 티켓](https://ms.portal.azure.com/#blade/Microso
 * [무료 음성 서비스를 사용해보십시오.](get-started.md)
 * [빠른 시작: Speech SDK를 사용하여 UWP 앱에서 음성 인식](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [음성 서비스 릴리스 노트](releasenotes.md)
 * [음성 서비스란?](overview.md)
-* [음성 서비스 및 음성 SDK 문서](speech-sdk.md#get-the-sdk)
+* [음성 서비스 및 음성 SDK 문서](speech-sdk.md#get-the-speech-sdk)

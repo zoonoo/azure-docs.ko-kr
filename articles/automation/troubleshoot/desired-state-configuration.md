@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 99220fdf5dfb47f235637f83ba9be4ec015758bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f33dc9528d5f7043dda2c6fad207a9a51347a2b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294434"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631487"
 ---
 # <a name="troubleshoot-issues-with-azure-automation-desired-state-configuration-dsc"></a>Azure 자동화 원하는 상태 구성(DSC)의 문제 해결
 
@@ -48,7 +48,7 @@ xDscDiagnostics 사용에 대한 자세한 내용은 [xDscDiagnostics 사용을 
 
 ### <a name="3-ensure-that-nodes-and-the-automation-workspace-have-required-modules"></a>3. 노드 및 자동화 작업 영역에 모듈이 필요한지 확인
 
-DSC는 노드에 설치된 모듈에 따라 다릅니다. Azure 자동화 상태 구성을 사용하는 경우 필수 모듈을 [가져오기 모듈에](../shared-resources/modules.md#import-modules)나열된 단계를 사용하여 자동화 계정으로 가져옵니다. 구성은 특정 버전의 모듈에 종속될 수도 있습니다. 자세한 내용은 [문제 해결 모듈을](shared-resources.md#modules)참조하십시오.
+DSC는 노드에 설치된 모듈에 따라 다릅니다. Azure 자동화 상태 구성을 사용하는 경우 필수 모듈을 [가져오기 모듈에](../shared-resources/modules.md#importing-modules)나열된 단계를 사용하여 자동화 계정으로 가져옵니다. 구성은 특정 버전의 모듈에 종속될 수도 있습니다. 자세한 내용은 [문제 해결 모듈을](shared-resources.md#modules)참조하십시오.
 
 ## <a name="common-errors-when-working-with-dsc"></a>DSC로 작업할 때 일반적인 오류
 

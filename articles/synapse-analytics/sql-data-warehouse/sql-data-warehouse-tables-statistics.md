@@ -1,6 +1,6 @@
 ---
 title: 통계 작성, 업데이트
-description: Azure SQL Data Warehouse의 테이블에서 쿼리 최적화 통계 생성 및 업데이트에 대한 예제와 권장 사항입니다.
+description: Synapse SQL 풀의 테이블에 쿼리 최적화 통계를 만들고 업데이트하기 위한 권장 사항 및 예제입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,33 +11,42 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a6bdf9bcf2dfbb28244162bc7d88ced9194d0ac6
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8ecd0909176560e6b51bcb8449cb681558d96f90
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351179"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80628643"
 ---
-# <a name="table-statistics-in-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스의 테이블 통계
+# <a name="table-statistics-in-synapse-sql-pool"></a>시냅스 SQL 풀의 테이블 통계
 
-Azure SQL Data Warehouse의 테이블에서 쿼리 최적화 통계 생성 및 업데이트에 대한 예제와 권장 사항입니다.
+이 문서에서는 SQL 풀의 테이블에 대한 쿼리 최적화 통계를 만들고 업데이트하기 위한 권장 사항 및 예제를 찾을 수 있습니다.
 
 ## <a name="why-use-statistics"></a>통계를 사용하는 이유
 
-Azure SQL Data Warehouse에서 데이터에 대해 더 많이 알수록 데이터에 대한 쿼리를 더 빠르게 실행할 수 있습니다. SQL 데이터 웨어하우스에 데이터를 로드한 후 데이터에 대한 통계를 수집하는 것은 쿼리를 최적화하기 위해 수행할 수 있는 가장 중요한 일 중 하나입니다. SQL Data Warehouse 쿼리 최적화 프로그램은 비용 기반 최적화 프로그램입니다. 다양한 쿼리 계획의 비용을 비교한 다음 가장 낮은 비용으로 계획을 선택합니다. 대부분의 경우 가장 빠르게 실행할 계획을 선택합니다. 예를 들어 최적화 프로그램이 쿼리를 필터링하는 날짜를 예측하면 한 행이 하나의 계획을 반환합니다. 선택한 날짜가 1백만 개의 행을 반환할 것으로 예상되면 다른 계획이 반환됩니다.
+SQL 풀이 데이터에 대해 더 많이 알수록 데이터에 대한 쿼리를 더 빠르게 실행할 수 있습니다. SQL 풀에 데이터를 로드한 후 데이터에 대한 통계를 수집하는 것은 쿼리를 최적화하기 위해 수행할 수 있는 가장 중요한 방법 중 하나입니다.
+
+SQL 풀 쿼리 최적화 프로그램은 비용 기반 최적화 프로그램입니다. 다양한 쿼리 계획의 비용을 비교한 다음 가장 낮은 비용으로 계획을 선택합니다. 대부분의 경우 가장 빠르게 실행할 계획을 선택합니다.
+
+예를 들어 최적화 프로그램이 쿼리를 필터링하는 날짜를 예측하면 한 행이 하나의 계획을 반환합니다. 선택한 날짜가 1백만 개의 행을 반환할 것으로 예상되면 다른 계획이 반환됩니다.
 
 ## <a name="automatic-creation-of-statistic"></a>통계의 자동 생성
 
-데이터베이스 AUTO_CREATE_STATISTICS 옵션이 켜지면 SQL Data Warehouse에서 들어오는 사용자 쿼리를 분석하여 누락된 통계를 분석합니다. 통계가 없는 경우 쿼리 최적화 프로그램은 쿼리 조건자 또는 조인 조건의 개별 열에 대한 통계를 만들어 쿼리 계획에 대한 카디널리티 예측을 개선합니다. 통계 자동 생성은 현재 기본적으로 설정됩니다.
+데이터베이스 AUTO_CREATE_STATISTICS 옵션이 켜지면 SQL 풀은 들어오는 사용자 쿼리를 분석하여 누락된 통계를 분석합니다.
 
-다음 명령을 실행하여 데이터 웨어하우스가 AUTO_CREATE_STATISTICS 구성되었는지 확인할 수 있습니다.
+통계가 없는 경우 쿼리 최적화 프로그램은 쿼리 조건자 또는 조인 조건의 개별 열에 대한 통계를 만들어 쿼리 계획에 대한 카디널리티 예측을 개선합니다.
+
+> [!NOTE]
+> 통계 자동 생성은 현재 기본적으로 설정됩니다.
+
+다음 명령을 실행하여 SQL 풀이 AUTO_CREATE_STATISTICS 구성되었는지 확인할 수 있습니다.
 
 ```sql
 SELECT name, is_auto_create_stats_on
 FROM sys.databases
 ```
 
-데이터 웨어하우스에 AUTO_CREATE_STATISTICS 구성되지 않은 경우 다음 명령을 실행하여 이 속성을 사용하도록 설정하는 것이 좋습니다.
+SQL 풀에 AUTO_CREATE_STATISTICS 구성되지 않은 경우 다음 명령을 실행하여 이 속성을 사용하도록 설정하는 것이 좋습니다.
 
 ```sql
 ALTER DATABASE <yourdatawarehousename>
@@ -56,7 +65,9 @@ SET AUTO_CREATE_STATISTICS ON
 > [!NOTE]
 > 통계 자동 생성은 임시 또는 외부 테이블에 만들어집니다.
 
-통계의 자동 생성은 동기적으로 수행되므로 열에 통계가 없는 경우 쿼리 성능이 약간 저하될 수 있습니다. 단일 열에 대한 통계를 만드는 시간은 테이블의 크기에 따라 다릅니다. 특히 성능 벤치마킹에서 측정 가능한 성능 저하를 방지하려면 시스템을 프로파일링하기 전에 벤치마크 워크로드를 실행하여 통계가 먼저 생성되었는지 확인해야 합니다.
+통계의 자동 생성은 동기적으로 수행되므로 열에 통계가 없는 경우 쿼리 성능이 약간 저하될 수 있습니다. 단일 열에 대한 통계를 만드는 시간은 테이블의 크기에 따라 다릅니다.
+
+측정 가능한 성능 저하를 방지하려면 시스템을 프로파일링하기 전에 벤치마크 워크로드를 실행하여 통계가 먼저 생성되었는지 확인해야 합니다.
 
 > [!NOTE]
 > 통계 생성은 다른 사용자 컨텍스트에서 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) 기록됩니다.
@@ -67,11 +78,15 @@ SET AUTO_CREATE_STATISTICS ON
 DBCC SHOW_STATISTICS (<table_name>, <target>)
 ```
 
-table_name 표시할 통계가 포함된 테이블의 이름입니다. 외부 테이블은 사용할 수 없습니다. 대상은 통계 정보를 표시할 대상 인덱스, 통계 또는 열의 이름입니다.
+table_name 표시할 통계가 포함된 테이블의 이름입니다. 이 테이블은 외부 테이블이 될 수 없습니다. 대상은 통계 정보를 표시할 대상 인덱스, 통계 또는 열의 이름입니다.
 
-## <a name="updating-statistics"></a>통계 업데이트
+## <a name="update-statistics"></a>통계 업데이트
 
-모범 사례 중 하나는 새로운 날짜가 추가되는 날마다 날짜 열에 통계를 업데이트하는 것입니다. 새 행이 데이터 웨어하우스에 로드될 때마다 새 부하 날짜나 트랜잭션 날짜가 추가됩니다. 이렇게 하면 데이터 분포가 변경되며 통계는 최신 상태가 아닙니다. 반대로 고객 테이블의 국가/지역 열에 대한 통계는 일반적으로 값 분포가 변경되지 않으므로 업데이트할 필요가 없습니다. 고객 간의 배포가 상수라고 가정하는 경우, 테이블 변형에 새 행을 추가하면 데이터 배포를 변경하지 않습니다. 그러나 데이터 웨어하우스에 국가/지역만 포함하고 새 국가/지역에서 데이터를 가져와 여러 국가/지역의 데이터가 저장되는 경우 국가/지역 열에 대한 통계를 업데이트해야 합니다.
+모범 사례 중 하나는 새로운 날짜가 추가되는 날마다 날짜 열에 통계를 업데이트하는 것입니다. 새 행이 SQL 풀에 로드될 때마다 새 로드 날짜 또는 트랜잭션 날짜가 추가됩니다. 이러한 추가 는 데이터 분포를 변경 하 고 통계를 최신 상태로 만듭니다.
+
+값 분포가 일반적으로 변경되지 않으므로 고객 테이블의 국가/지역 열에 대한 통계를 업데이트할 필요가 없습니다. 고객 간의 배포가 상수라고 가정하는 경우, 테이블 변형에 새 행을 추가하면 데이터 배포를 변경하지 않습니다.
+
+그러나 SQL 풀에 국가/지역만 포함되고 새 국가/지역의 데이터를 가져와 여러 국가/지역의 데이터가 저장되는 경우 국가/지역 열에 대한 통계를 업데이트해야 합니다.
 
 통계를 업데이트하는 권장 사항은 다음과 같습니다.
 
@@ -82,9 +97,14 @@ table_name 표시할 통계가 포함된 테이블의 이름입니다. 외부 �
 
 쿼리 문제를 해결할 때 가장 먼저 묻는 질문 중 하나는 **"통계가 최신 상태입니까?"** 입니다.
 
-이 질문은 데이터의 기간에 따라 응답할 수 있는 질문은 아닙니다. 기본 데이터에 중대한 변경이 없는 경우 최신 통계 개체가 오래되었을 수 있습니다. 행 수가 상당히 변경되었거나 열에 대한 값의 분포에 중대한 변경이 있는 경우 *통계를 업데이트해야 하는 시간*입니다.
+이 질문은 데이터의 나이에 의해 대답 할 수있는 것이 아닙니다. 기본 데이터에 중대한 변경이 없는 경우 최신 통계 개체가 오래되었을 수 있습니다.
 
-마지막으로 통계가 업데이트된 이후 테이블 내의 데이터가 변경되었는지 확인하는 동적 관리 보기가 없습니다. 통계의 나이를 알면 그림의 일부를 제공할 수 있습니다. 다음 쿼리를 사용하여 각 테이블에서 통계가 마지막으로 업데이트된 시간을 확인할 수 있습니다.
+> [!TIP]
+> 행 수가 상당히 변경되었거나 열에 대한 값의 분포에 중대한 변경이 있는 경우 *통계를 업데이트해야 하는 시간*입니다.
+
+마지막으로 통계가 업데이트된 이후 테이블 내의 데이터가 변경되었는지 확인하는 동적 관리 보기가 없습니다. 통계의 나이를 알면 그림의 일부를 제공할 수 있습니다.
+
+다음 쿼리를 사용하여 각 테이블에서 통계가 마지막으로 업데이트된 시간을 확인할 수 있습니다.
 
 > [!NOTE]
 > 열에 대한 값 분포에 중대한 변화가 있는 경우 마지막으로 업데이트된 시간에 관계없이 통계를 업데이트해야 합니다.
@@ -116,21 +136,27 @@ WHERE
     st.[user_created] = 1;
 ```
 
-예를 들어 데이터 **웨어하우스의 날짜 열에는** 일반적으로 자주 통계 업데이트가 필요합니다. 새 행이 데이터 웨어하우스에 로드될 때마다 새 부하 날짜나 트랜잭션 날짜가 추가됩니다. 이렇게 하면 데이터 분포가 변경되며 통계는 최신 상태가 아닙니다. 반대로, 고객 테이블의 성별 열에 대한 통계는 업데이트할 필요가 없습니다. 고객 간의 배포가 상수라고 가정하는 경우, 테이블 변형에 새 행을 추가하면 데이터 배포를 변경하지 않습니다. 그러나 데이터 웨어하우스에 성별이 하나만 있고 새로운 요구 사항으로 인해 성별이 여러 개인 경우, 성별 열에 대한 통계를 업데이트해야 합니다.
+예를 들어 SQL **풀의 날짜 열에는** 일반적으로 자주 통계 업데이트가 필요합니다. 새 행이 SQL 풀에 로드될 때마다 새 로드 날짜 또는 트랜잭션 날짜가 추가됩니다. 이러한 추가 는 데이터 분포를 변경 하 고 통계를 최신 상태로 만듭니다.
+
+반대로, 고객 테이블의 성별 열에 대한 통계는 업데이트할 필요가 없습니다. 고객 간의 배포가 상수라고 가정하는 경우, 테이블 변형에 새 행을 추가하면 데이터 배포를 변경하지 않습니다.
+
+SQL 풀에 성별이 하나만 있고 새 요구 사항으로 인해 여러 성별이 발생하는 경우 성별 열에 대한 통계를 업데이트해야 합니다.
 
 자세한 내용은 [통계](/sql/relational-databases/statistics/statistics)에 대한 일반 가이드를 참조하세요.
 
 ## <a name="implementing-statistics-management"></a>통계 관리 구현
 
-로드가 끝날 때 통계가 업데이트되도록 데이터 로드 프로세스를 확장하는 것이 좋습니다. 데이터 로드는 테이블이 값의 크기 및/또는 배포를 자주 변경하는 경우입니다. 따라서 일부 관리 프로세스를 구현할 수 있는 논리 위치입니다.
+로드가 끝날 때 통계가 업데이트되도록 데이터 로드 프로세스를 확장하는 것이 좋습니다.
+
+데이터 로드는 테이블이 값의 크기 및/또는 배포를 자주 변경하는 경우입니다. 데이터 로드는 일부 관리 프로세스를 구현하는 논리적 장소입니다.
 
 로드 프로세스 중에 통계를 업데이트하기 위해 제공되는 지침 원칙은 다음과 같습니다.
 
-* 로드된 각 테이블에 하나 이상의 업데이트된 통계 개체가 있는지 확인합니다. 이렇게 하면 통계 업데이트의 일부로 테이블 크기(행 수 및 페이지 수) 정보가 업데이트됩니다.
-* JOIN, GROUP BY, ORDER BY 및 DISTINCT 절에 참여하는 열에 집중합니다.
-* 이러한 값은 통계 히스토그램에 포함되지 않으므로 트랜잭션 날짜와 같은 "오름차순 키" 열을 더 자주 업데이트하는 것이 좋습니다.
-* 정적 배포 열은 자주 업데이트하지 않는 것이 좋습니다.
-* 각 통계 개체는 순서대로 업데이트됩니다. `UPDATE STATISTICS <TABLE_NAME>`을 구현하는 것만이 항상 이상적인 것은 아닙니다(특히 통계 개체가 많이 있는 광범위한 테이블의 경우).
+- 로드된 각 테이블에 하나 이상의 업데이트된 통계 개체가 있는지 확인합니다. 이렇게 하면 통계 업데이트의 일부로 테이블 크기(행 수 및 페이지 수) 정보가 업데이트됩니다.
+- JOIN, GROUP BY, ORDER BY 및 DISTINCT 절에 참여하는 열에 집중합니다.
+- 이러한 값은 통계 히스토그램에 포함되지 않으므로 트랜잭션 날짜와 같은 "오름차순 키" 열을 더 자주 업데이트하는 것이 좋습니다.
+- 정적 배포 열은 자주 업데이트하지 않는 것이 좋습니다.
+- 각 통계 개체는 순서대로 업데이트됩니다. `UPDATE STATISTICS <TABLE_NAME>`을 구현하는 것만이 항상 이상적인 것은 아닙니다(특히 통계 개체가 많이 있는 광범위한 테이블의 경우).
 
 자세한 내용은 [카디널리티 예측](/sql/relational-databases/performance/cardinality-estimation-sql-server)을 참조합니다.
 
@@ -140,15 +166,15 @@ WHERE
 
 ### <a name="create-single-column-statistics-with-default-options"></a>기본 옵션으로 단일 열 통계 만들기
 
-열에서 통계를 만들려면, 통계 개체에 대한 이름과 열 이름을 제공하면 됩니다.
+열에 통계를 만들려면 통계 개체의 이름과 열 이름을 제공합니다.
 
-이 구문은 모든 기본 옵션을 사용합니다. 기본적으로 SQL 데이터 웨어하우스는 통계를 만들 때 테이블의 **20%를** 샘플링합니다.
+이 구문은 모든 기본 옵션을 사용합니다. 기본적으로 SQL 풀은 통계를 만들 때 테이블의 **20%를** 샘플링합니다.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
-예를 들어:
+다음은 그 예입니다.
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
@@ -164,7 +190,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
-예를 들어:
+다음은 그 예입니다.
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
@@ -205,7 +231,7 @@ CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < 
 
 ### <a name="create-multi-column-statistics"></a>여러 열 통계 만들기
 
-여러 열 통계 개체를 만들려면 이전 예제를 사용하지만 더 많은 열을 지정하기만 하면 됩니다.
+다중 열 통계 개체를 만들려면 이전 예제를 사용하지만 더 많은 열을 지정합니다.
 
 > [!NOTE]
 > 쿼리 결과에서 행 수를 예측하는 데 사용되는 히스토그램은 통계 개체 정의에 나열된 첫 번째 열에 대해서만 사용할 수 있습니다.
@@ -242,7 +268,7 @@ CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 
 ### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>저장된 프로시저를 사용하여 데이터베이스의 모든 열에서 통계를 만듭니다.
 
-SQL Data Warehouse에는 SQL Server의 sp_create_stats에 해당하는 시스템 저장 프로시저가 없습니다. 이 저장된 프로시저는 아직 통계가 없는 데이터베이스의 모든 열에 단일 열 통계 개체를 만듭니다.
+SQL 풀에는 SQL Server의 sp_create_stats 해당하는 시스템 저장 프로시저가 없습니다. 이 저장된 프로시저는 아직 통계가 없는 데이터베이스의 모든 열에 단일 열 통계 개체를 만듭니다.
 
 다음 예제는 데이터베이스 설계를 시작하는 데 도움이 됩니다. 사용자의 요구에 맞게 자유롭게 적용합니다.
 
@@ -338,19 +364,17 @@ DROP TABLE #stats_ddl;
 EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
 ```
 
-전체 검색을 사용하여 테이블의 모든 열에서 통계를 만들려면 다음 프로시저를 호출합니다.
+fullscan을 사용하여 테이블의 모든 열에 대한 통계를 만들려면 이 프로시저를 호출합니다.
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 2, NULL;
 ```
 
-테이블의 모든 열에서 샘플링된 통계를 만들려면 3을 입력하고 샘플 퍼센트를 입력합니다. 이 프로시저는 20%의 샘플 속도를 사용합니다.
+테이블의 모든 열에서 샘플링된 통계를 만들려면 3을 입력하고 샘플 퍼센트를 입력합니다. 이 절차는 20%의 샘플 레이트(sample rate)를 사용합니다.
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 ```
-
-모든 열에 대한 샘플링된 통계를 만들려면
 
 ## <a name="examples-update-statistics"></a>예제: 통계 업데이트
 
@@ -367,13 +391,13 @@ EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-예를 들어:
+다음은 그 예입니다.
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ```
 
-특정 통계 개체를 업데이트하여 통계를 관리하는 데 필요한 리소스와 시간을 최소화할 수 있습니다. 이를 위해 업데이트할 최상의 통계 개체를 선택해야 합니다.
+특정 통계 개체를 업데이트하여 통계를 관리하는 데 필요한 리소스와 시간을 최소화할 수 있습니다. 이렇게 하려면 업데이트할 최상의 통계 개체를 선택해야 합니다.
 
 ### <a name="update-all-statistics-on-a-table"></a>테이블에 대한 모든 통계 업데이트
 
@@ -383,7 +407,7 @@ UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-예를 들어:
+다음은 그 예입니다.
 
 ```sql
 UPDATE STATISTICS dbo.table1;
@@ -392,7 +416,7 @@ UPDATE STATISTICS dbo.table1;
 업데이트 통계 문은 사용하기 쉽습니다. 테이블에 대한 *모든* 통계를 업데이트하므로 필요한 것보다 더 많은 작업을 수행할 수 있습니다 성능이 문제가 되지 않는 경우 통계가 최신 상태임을 보장하는 가장 쉽고 완벽한 방법입니다.
 
 > [!NOTE]
-> 테이블에 대한 모든 통계를 업데이트하는 경우 SQL Data Warehouse는 각 통계 개체에 대한 테이블을 검색하여 샘플링합니다. 테이블이 크고 많은 열과 통계가 있는 경우 필요에 따라 개별 통계를 업데이트하는 것이 더 효율적일 수 있습니다.
+> 테이블의 모든 통계를 업데이트할 때 SQL 풀은 각 통계 개체에 대한 테이블을 샘플링하는 검사를 수행합니다. 테이블이 크고 많은 열과 통계가 있는 경우 필요에 따라 개별 통계를 업데이트하는 것이 더 효율적일 수 있습니다.
 
 `UPDATE STATISTICS` 프로시저의 구현은 [임시 테이블](sql-data-warehouse-tables-temporary.md)을 참조하세요. 구현 방법은 앞의 `CREATE STATISTICS` 프로시저와 약간 다르지만 그 결과는 동일합니다.
 
@@ -473,7 +497,10 @@ DBCC SHOW_STATISTICS()는 통계 개체 내에 있는 데이터를 보여줍니�
 - 밀도 벡터
 - 히스토그램
 
-통계에 대한 헤더 메타데이터입니다. 히스토그램은 통계 개체의 첫 번째 키 열에 값의 분포를 표시합니다. 밀도 벡터는 열 간 상관 관계를 측정합니다. SQL Data Warehouse는 통계 개체의 데이터 중 하나를 사용하여 카디널리티 예상치를 계산합니다.
+통계에 대한 헤더 메타데이터입니다. 히스토그램은 통계 개체의 첫 번째 키 열에 값의 분포를 표시합니다. 밀도 벡터는 열 간 상관 관계를 측정합니다.
+
+> [!NOTE]
+> SQL 풀은 통계 개체의 데이터를 사용하여 카디널리티 추정을 계산합니다.
 
 ### <a name="show-header-density-and-histogram"></a>헤더, 밀도 및 히스토그램 표시
 
@@ -483,7 +510,7 @@ DBCC SHOW_STATISTICS()는 통계 개체 내에 있는 데이터를 보여줍니�
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-예를 들어:
+다음은 그 예입니다.
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -497,7 +524,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
-예를 들어:
+다음은 그 예입니다.
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
@@ -505,7 +532,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 
 ## <a name="dbcc-show_statistics-differences"></a>DBCC SHOW_STATISTICS() 차이점
 
-DBCC SHOW_STATISTICS()는 SQL Server와 비교하여 SQL Data Warehouse에서 다음과 같이 더 엄격하게 구현됩니다.
+DBCC SHOW_STATISTICS()는 SQL Server와 비교하여 SQL 풀에서 더 엄격하게 구현됩니다.
 
 - 문서화되지 않은 기능은 지원되지 않습니다.
 - Stats_stream은 사용할 수 없습니다.

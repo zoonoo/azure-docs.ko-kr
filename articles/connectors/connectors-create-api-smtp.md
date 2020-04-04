@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: 60acd128495176cd0a90418c61edf53bdcd88e5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1cfc53dcd730262101c0e879e0419ba3f2db4d38
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77647570"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656993"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 SMTP 계정에서 이메일 보내기
 
@@ -51,12 +51,12 @@ Azure Logic Apps 및 SMTP(Simple Mail Transfer Protocol) 커넥터를 사용하�
 
    | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
-   | **연결 이름** | yes | SMTP 서버에 대한 연결의 이름 | 
-   | **SMTP 서버 주소** | yes | SMTP 서버에 대한 주소 | 
-   | **사용자 이름** | yes | SMTP 계정에 대한 사용자 이름 | 
-   | **암호** | yes | SMTP 계정에 대한 암호 | 
+   | **연결 이름** | 예 | SMTP 서버에 대한 연결의 이름 | 
+   | **SMTP 서버 주소** | 예 | SMTP 서버에 대한 주소 | 
+   | **사용자 이름** | 예 | SMTP 계정에 대한 사용자 이름 | 
+   | **암호** | 예 | SMTP 계정에 대한 암호 | 
    | **SMTP 서버 포트** | 예 | 사용하려는 SMTP 서버의 특정 포트 | 
-   | **SSL을 사용합니까?** | 예 | SSL 암호화를 설정하거나 해제합니다. | 
+   | **SSL을 사용합니까?** | 예 | TLS/SSL 암호화를 켜거나 끕니다. | 
    |||| 
 
 1. 선택한 작업에 필요한 정보를 입력합니다. 

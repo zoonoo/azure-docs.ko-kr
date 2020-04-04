@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: beb69edc57b5a13db0f6d2e5e1536804f3472aff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54f77f55a127cd712d43419eb6a85fd5d93a478c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75421909"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652170"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>자동화에서 Azure 모니터 로그로 작업 상태 및 작업 스트림 전달
 
@@ -30,58 +30,32 @@ Automation에서는 Log Analytics 작업 영역으로 Runbook 작업 상태 및 
 
 * [Azure PowerShell의](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)최신 릴리스.
 * Log Analytics 작업 영역. 자세한 내용은 [Azure Monitor 로그 시작 을](../log-analytics/log-analytics-get-started.md)참조하십시오.
-* Azure Automation 계정에 대한 ResourceId
+* Azure 자동화 계정의 리소스 ID입니다.
 
-Azure Automation 계정에 대한 ResourceId를 찾으려면:
+다음 명령을 사용하여 Azure 자동화 계정의 리소스 ID를 찾습니다.
 
 ```powershell-interactive
 # Find the ResourceId for the Automation Account
 Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
 ```
 
-Log Analytics 작업 영역에 대한 ResourceId를 찾으려면 다음 PowerShell을 실행합니다.
+로그 분석 작업 영역의 리소스 ID를 찾으려면 다음 PowerShell 명령을 실행합니다.
 
 ```powershell-interactive
 # Find the ResourceId for the Log Analytics workspace
 Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
-두 개 이상의 Automation 계정 또는 작업 영역이 있는 경우 이전 명령의 출력에서 구성해야 하는 *이름*을 찾고 *ResourceId* 값을 복사합니다.
+이전 명령의 출력에 자동화 계정 또는 작업 영역이 두 개 이상 있는 경우 리소스 ID의 값을 구성하고 복사해야 하는 이름을 찾습니다.
 
-Automation 계정의 *Name*을 찾으려면 Azure Portal의 **Automation 계정** 블레이드에서 Automation 계정을 선택한 다음 **모든 설정**을 선택합니다. **계정 설정** 아래에 있는 **모든 설정** 블레이드에서 **속성**을 선택합니다.  **속성** 블레이드에서 이들 값을 기록할 수 있습니다.<br> ![Automation 계정 속성](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png)을 참조하세요.
+1. Azure 포털에서 **자동화 계정** 블레이드에서 자동화 계정을 선택하고 **모든 설정을**선택합니다. 
+2. 모든 **설정** 블레이드에서 **계정 설정에서** **속성을**선택합니다.  
+3. **속성** 블레이드에서 이러한 값을 기록합니다.<br> ![자동화 계정](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png)속성 .
 
-## <a name="set-up-integration-with-azure-monitor-logs"></a>Azure 모니터 로그와의 통합 설정
-
-1. 컴퓨터의 **시작** 화면에서 **Windows PowerShell**을 시작합니다.
-2. 다음 PowerShell을 실행하고, 이전 단계의 값을 사용하여 `[your resource id]` 및 `[resource id of the log analytics workspace]`의 값을 편집합니다.
-
-   ```powershell-interactive
-   $workspaceId = "[resource id of the log analytics workspace]"
-   $automationAccountId = "[resource id of your automation account]"
-
-   Set-AzDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
-   ```
-
-이 스크립트를 실행한 후 새 JobLogs 또는 JobStream이 작성되는 Azure Monitor 로그에서 레코드를 보기 시작하려면 1시간이 걸릴 수 있습니다.
-
-로그를 보려면 로그 분석 로그 검색에서 다음 쿼리를 실행합니다.`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
-
-### <a name="verify-configuration"></a>구성 확인
-
-Automation 계정이 Log Analytics 작업 영역으로 로그를 보내는지 확인하려면 다음 PowerShell을 사용하여 Automation 계정에서 진단이 올바르게 구성되었는지 확인합니다.
-
-```powershell-interactive
-Get-AzDiagnosticSetting -ResourceId $automationAccountId
-```
-
-출력에서 다음을 확인합니다.
-
-* *로그*아래에서 *Enabled값은* *True입니다.*
-* *WorkspaceId의* 값은 로그 분석 작업 영역의 ResourceId로 설정됩니다.
 
 ## <a name="azure-monitor-log-records"></a>Azure Monitor 로그 레코드
 
-Azure 자동화의 진단은 Azure Monitor 로그에 두 가지 유형의 레코드를 만들고 **AzureDiagnostics로**태그가 지정됩니다. 다음 쿼리는 Azure Monitor 로그에 업그레이드된 쿼리 언어를 사용합니다. 레거시 쿼리 언어와 새 Azure Kusto 쿼리 언어 간의 일반적인 쿼리에 대한 자세한 내용은 [레거시를 방문하여 새 Azure Kusto 쿼리 언어 치트 시트를](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language) 방문합니다.
+Azure 자동화 진단은 `AzureDiagnostics`Azure Monitor 로그에서 두 가지 유형의 레코드를 만듭니다. 다음 섹션의 테이블은 Azure Automation에서 생성하는 레코드의 예와 로그 검색 결과에 나타나는 데이터 형식입니다.
 
 ### <a name="job-logs"></a>작업 로그
 
@@ -89,44 +63,72 @@ Azure 자동화의 진단은 Azure Monitor 로그에 두 가지 유형의 레코
 | --- | --- |
 | TimeGenerated |runbook 작업이 실행된 날짜 및 시간입니다. |
 | RunbookName_s |runbook의 이름입니다. |
-| Caller_s |작업을 시작한 사람입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다. |
-| Tenant_g | 호출자에 대한 테넌트를 식별하는 GUID입니다. |
-| JobId_g |runbook 작업의 ID인 GUID입니다. |
+| Caller_s |작업을 시작한 호출자입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다. |
+| Tenant_g | 호출자의 테넌트를 식별하는 GUID입니다. |
+| JobId_g |Runbook 작업을 식별하는 GUID입니다. |
 | ResultType |runbook 작업의 상태입니다. 가능한 값은 다음과 같습니다.<br>- 신규<br>- 생성됨<br>- 시작됨<br>- 중지됨<br>- 일시 중단됨<br>- 실패<br>- 완료됨 |
 | Category | 데이터 유형의 분류입니다. Automation의 경우 값은 JobLogs입니다. |
-| OperationName | Azure에서 수행되는 작업 유형을 지정합니다. Automation의 경우 이 값은 Job입니다. |
-| 리소스 | Automation 계정의 이름입니다. |
-| SourceSystem | Azure 모니터 로그가 데이터를 수집한 방법 Azure 진단의 경우 항상 *Azure*입니다. |
-| ResultDescription |runbook 작업 결과 상태를 설명합니다. 가능한 값은 다음과 같습니다.<br>- 작업 시작<br>- 작업 실패<br>- Job Completed입니다. |
-| CorrelationId |runbook 작업의 상관 관계 ID인 GUID입니다. |
-| ResourceId |Runbook의 Azure Automation 계정 리소스 ID를 지정합니다. |
-| SubscriptionId | Automation 계정에 대한 Azure 구독 ID(GUID)입니다. |
-| ResourceGroup | Automation 계정에 대한 리소스 그룹의 이름입니다. |
-| ResourceProvider | MICROSOFT.AUTOMATION |
-| ResourceType | AUTOMATIONACCOUNTS |
-
+| OperationName | Azure에서 수행되는 작업 유형입니다. Automation의 경우 이 값은 Job입니다. |
+| 리소스 | 자동화 계정의 이름 |
+| SourceSystem | Azure 모니터 로그가 데이터를 수집하는 데 사용하는 시스템입니다. 값은 항상 Azure 진단에 대 한 Azure입니다. |
+| ResultDescription |Runbook 작업 결과 상태입니다. 가능한 값은 다음과 같습니다.<br>- 작업 시작<br>- 작업 실패<br>- Job Completed입니다. |
+| CorrelationId |Runbook 작업의 상관 관계 GUID입니다. |
+| ResourceId |Runbook의 Azure 자동화 계정 리소스 ID입니다. |
+| SubscriptionId | 자동화 계정에 대한 Azure 구독 GUID입니다. |
+| ResourceGroup | 자동화 계정의 리소스 그룹의 이름입니다. |
+| ResourceProvider | 리소스 공급자입니다. 값은 마이크로소프트입니다. 자동화. |
+| ResourceType | 리소스 형식입니다. 값은 자동화 계정입니다. |
 
 ### <a name="job-streams"></a>작업 스트림
 | 속성 | 설명 |
 | --- | --- |
 | TimeGenerated |runbook 작업이 실행된 날짜 및 시간입니다. |
 | RunbookName_s |runbook의 이름입니다. |
-| Caller_s |작업을 시작한 사람입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다. |
+| Caller_s |작업을 시작한 호출자입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다. |
 | StreamType_s |작업 스트림의 유형입니다. 가능한 값은 다음과 같습니다.<br>- 진행<br>- 출력<br>- 경고<br>- 오류<br>- 디버그<br>- Verbose입니다. |
-| Tenant_g | 호출자에 대한 테넌트를 식별하는 GUID입니다. |
-| JobId_g |runbook 작업의 ID인 GUID입니다. |
+| Tenant_g | 호출자의 테넌트를 식별하는 GUID입니다. |
+| JobId_g |Runbook 작업을 식별하는 GUID입니다. |
 | ResultType |runbook 작업의 상태입니다. 가능한 값은 다음과 같습니다.<br>- 진행 중 |
 | Category | 데이터 유형의 분류입니다. Automation의 경우 값은 JobStreams입니다. |
-| OperationName | Azure에서 수행되는 작업 유형을 지정합니다. Automation의 경우 이 값은 Job입니다. |
-| 리소스 | Automation 계정의 이름입니다. |
-| SourceSystem | Azure 모니터 로그가 데이터를 수집한 방법 Azure 진단의 경우 항상 *Azure*입니다. |
-| ResultDescription |runbook의 출력 스트림을 포함합니다. |
-| CorrelationId |runbook 작업의 상관 관계 ID인 GUID입니다. |
-| ResourceId |Runbook의 Azure Automation 계정 리소스 ID를 지정합니다. |
-| SubscriptionId | Automation 계정에 대한 Azure 구독 ID(GUID)입니다. |
-| ResourceGroup | Automation 계정에 대한 리소스 그룹의 이름입니다. |
-| ResourceProvider | MICROSOFT.AUTOMATION |
-| ResourceType | AUTOMATIONACCOUNTS |
+| OperationName | Azure에서 수행된 작업 유형입니다. Automation의 경우 이 값은 Job입니다. |
+| 리소스 | 자동화 계정의 이름입니다. |
+| SourceSystem | Azure 모니터 로그가 데이터를 수집하는 데 사용하는 시스템입니다. 값은 항상 Azure 진단에 대 한 Azure입니다. |
+| ResultDescription |Runbook의 출력 스트림을 포함하는 설명입니다. |
+| CorrelationId |Runbook 작업의 상관 관계 GUID입니다. |
+| ResourceId |Runbook의 Azure 자동화 계정 리소스 ID입니다. |
+| SubscriptionId | 자동화 계정에 대한 Azure 구독 GUID입니다. |
+| ResourceGroup | 자동화 계정의 리소스 그룹의 이름입니다. |
+| ResourceProvider | 리소스 공급자입니다. 값은 마이크로소프트입니다. 자동화. |
+| ResourceType | 리소스 형식입니다. 값은 자동화 계정입니다. |
+
+## <a name="setting-up-integration-with-azure-monitor-logs"></a>Azure 모니터 로그와의 통합 설정
+
+1. 컴퓨터의 **시작** 화면에서 Windows PowerShell을 시작합니다.
+2. 다음 PowerShell 명령을 실행하고 이전 섹션의 `[your resource ID]` `[resource ID of the log analytics workspace]` 값과 에 대한 값을 편집합니다.
+
+   ```powershell-interactive
+   $workspaceId = "[resource ID of the log analytics workspace]"
+   $automationAccountId = "[resource ID of your Automation account]"
+
+   Set-AzDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
+   ```
+
+이 스크립트를 실행한 후 새 `JobLogs` 레코드 또는 `JobStreams` 작성 중인 Azure Monitor 로그에서 레코드를 보기 시작하기 까지 1시간이 걸릴 수 있습니다.
+
+로그를 보려면 로그 분석 로그 검색에서 다음 쿼리를 실행합니다.`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+
+### <a name="verify-configuration"></a>구성 확인
+
+자동화 계정이 Log Analytics 작업 영역으로 로그를 보내고 있는지 확인하려면 다음 PowerShell 명령을 사용하여 자동화 계정에 진단이 올바르게 구성되어 있는지 확인합니다.
+
+```powershell-interactive
+Get-AzDiagnosticSetting -ResourceId $automationAccountId
+```
+
+출력에서 다음을 확인합니다.
+
+* 아래 `Logs`의 `Enabled` 값은 True입니다.
+* `WorkspaceId`로그 분석 `ResourceId` 작업 영역의 값으로 설정됩니다.
 
 ## <a name="viewing-automation-logs-in-azure-monitor-logs"></a>Azure 모니터 로그에서 자동화 로그 보기
 
@@ -135,39 +137,44 @@ Azure 자동화의 진단은 Azure Monitor 로그에 두 가지 유형의 레코
 로그를 보려면 다음 쿼리를 실행합니다. `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Runbook 작업이 실패하거나 일시 중단된 경우 전자 메일 보내기
+
 고객이 자주 묻는 질문 중 하나는 Runbook 작업에 문제가 발생한 경우 이메일 또는 텍스트를 보낼 수 있는지 여부입니다.
 
-경고 규칙을 만들려면 경고를 호출해야 하는 runbook 작업 레코드에 대한 로그 검색을 만드는 것으로 시작합니다. **경고** 단추를 클릭하여 경고 규칙을 만들고 구성합니다.
+경고 규칙을 만들려면 경고를 호출해야 하는 Runbook 작업 레코드에 대한 로그 검색을 만들어 시작합니다. **경고** 단추를 클릭하여 경고 규칙을 만들고 구성합니다.
 
 1. 로그 분석 작업 영역 개요 페이지에서 **로그 보기를 클릭합니다.**
-2. 쿼리 필드에 다음 검색을 입력하여 경고에 대한 로그 검색 쿼리를 만듭니다. `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` 다음을 사용하여 RunbookName별로 그룹화할 수도 있습니다.`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. 다음 검색을 쿼리 필드에 입력하여 경고에 대한 로그 검색 쿼리를 만듭니다.`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`<br><br>다음을 사용하여 Runbook 이름으로 그룹화할 수도 있습니다.`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
-   둘 이상의 Automation 계정 또는 구독에서 작업 영역으로의 로그를 설정한 경우 구독 또는 Automation 계정별로 경고를 그룹화할 수 있습니다. Automation 계정 이름은 JobLogs 검색의 리소스 필드에서 찾을 수 있습니다.
+   둘 이상의 Automation 계정 또는 구독에서 작업 영역으로의 로그를 설정한 경우 구독 또는 Automation 계정별로 경고를 그룹화할 수 있습니다. 자동화 계정 이름은 의 `Resource` 검색 필드에서 찾을 `JobLogs`수 있습니다.
 3. **규칙 만들기** 화면을 열려면 페이지 위쪽에서 **+ 새 경고 규칙**을 클릭합니다. 경고 구성 옵션에 자세한 내용은 [Azure의 로그 경고](../azure-monitor/platform/alerts-unified-log.md)를 참조하세요.
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>오류와 함께 완료된 모든 작업 찾기
-오류에 대한 경고 외에도, runbook 작업에 대해 비종료 오류가 발생하는 경우를 확인할 수 있습니다. 이러한 경우에 PowerShell은 오류 스트림을 생성하지만 비종료 오류가 발생해도 작업이 일시 중단되거나 실패하지 않습니다.
+
+오류에 대한 경고 외에도, runbook 작업에 대해 비종료 오류가 발생하는 경우를 확인할 수 있습니다. 이러한 경우 PowerShell은 오류 스트림을 생성하지만 종료되지 않는 오류로 인해 작업이 일시 중단되거나 실패하지는 않습니다.
 
 1. 로그 분석 작업 영역에서 **로그를 클릭합니다.**
-2. 쿼리 필드에서 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g`를 입력하고 **검색** 단추를 클릭합니다.
+2. 쿼리 필드에 을 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g`입력합니다.
+3. **검색** 버튼을 클릭합니다.
 
 ### <a name="view-job-streams-for-a-job"></a>작업에 대한 작업 스트림 보기
+
 작업을 디버깅할 때 작업 스트림을 살펴볼 수도 있습니다. 다음 쿼리는 GUID가 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0인 단일 작업의 모든 스트림을 보여 줍니다.
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and JobId_g == "2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0" | sort by TimeGenerated asc | project ResultDescription`
 
 ### <a name="view-historical-job-status"></a>기록 작업 상태 보기
-마지막으로 시간별 작업 기록을 시각화할 수 있습니다. 이 쿼리를 사용하여 시간이 지남에 따른 작업 상태를 검색할 수 있습니다.
+
+마지막으로 시간이 지남에 따라 작업 기록을 시각화할 수 있습니다. 이 쿼리를 사용하여 시간이 지남에 따른 작업 상태를 검색할 수 있습니다.
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`
 <br> ![Log Analytics 기록 작업 상태 차트](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
-## <a name="remove-diagnostic-settings"></a>진단 설정 제거
+## <a name="removing-diagnostic-settings"></a>진단 설정 제거
 
-Automation 계정에서 진단 설정을 제거하려면 다음 명령을 실행합니다.
+자동화 계정에서 진단 설정을 제거하려면 다음 명령을 실행합니다.
 
 ```powershell-interactive
-$automationAccountId = "[resource id of your automation account]"
+$automationAccountId = "[resource ID of your Automation account]"
 
 Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 ```

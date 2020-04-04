@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f508cac23d997b7595fcc7a4606608aa2dc15fc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b8023c0927c05d3952bd9f3a51e99e85154552fd
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128226"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656368"
 ---
 # <a name="connect-with-the-web-client"></a>웹 클라이언트를 사용하여 연결
 
@@ -45,4 +45,4 @@ HTML5 지원 브라우저가 작동해야 하지만 다음 운영 체제 및 브
 
 ## <a name="next-steps"></a>다음 단계
 
-웹 클라이언트를 사용하는 방법에 대해 자세히 알아보려면 [웹 클라이언트시작](https://go.microsoft.com/fwlink/?linkid=2120256)을 체크 아웃하십시오.
+웹 클라이언트를 사용하는 방법에 대해 자세히 알아보려면 [웹 클라이언트시작](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client)을 체크 아웃하십시오.

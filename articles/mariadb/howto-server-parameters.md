@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 243530b4badb9b19d288a91f247eefbcf622fb87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/1/2020
+ms.openlocfilehash: 9d057a4be02d8d93d3ef02ee3153baebe9146ff1
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536414"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632708"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB에서 서버 매개 변수를 구성하는 방법
 
@@ -68,10 +68,10 @@ InnoDB 버퍼 풀 및 최대 연결은 구성할 수 없으며 [가격 책정 �
 
 ### <a name="populating-the-time-zone-tables"></a>표준 시간대 테이블 채우기
 
-MySQL 명령줄 또는 MySQL Workbench와 같은 도구에서 `az_load_timezone` 저장 프로시저를 호출하면 서버의 표준 시간대 테이블을 채울 수 있습니다.
+MySQL 명령줄 또는 MySQL Workbench와 같은 도구에서 `mysql.az_load_timezone` 저장 프로시저를 호출하면 서버의 표준 시간대 테이블을 채울 수 있습니다.
 
 > [!NOTE]
-> MySQL Workbench에서 `az_load_timezone` 명령을 실행하는 경우, 먼저 `SET SQL_SAFE_UPDATES=0;`을 사용하여 안전한 업데이트 모드를 꺼야 할 수 있습니다.
+> MySQL Workbench에서 `mysql.az_load_timezone` 명령을 실행하는 경우, 먼저 `SET SQL_SAFE_UPDATES=0;`을 사용하여 안전한 업데이트 모드를 꺼야 할 수 있습니다.
 
 ```sql
 CALL mysql.az_load_timezone();

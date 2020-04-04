@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: dfdfa9f69e00aa644c21fc96cb70e9fa460ca0c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a282a412823207e5f662441158000e8c6121796
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77211709"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637921"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 웹앱을 배포하는 방법에 대한 지침
 
@@ -109,7 +109,7 @@ Resource Manager 템플릿에서 MSDeploy를 사용하는 경우 배포 오류 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-템플릿에 SSL 바인딩에 대한 [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) 리소스가 포함되어 있고 인증서가 Key Vault에 저장되어 있는 경우, App Service ID가 인증서에 액세스할 수 있는지 확인해야 합니다.
+템플릿에 TLS/SSL 바인딩을 위한 [Microsoft.Web/인증서](/azure/templates/microsoft.web/certificates) 리소스가 포함되어 있고 인증서가 키 볼트에 저장된 경우 앱 서비스 ID가 인증서에 액세스할 수 있는지 확인해야 합니다.
 
 전역 Azure에서 App Service 서비스 주체의 ID는 **abfa0a7c-a6b6-4736-8310-5855508787cd**입니다. App Service 서비스 주체에 Key Vault에 대한 액세스를 허용하려면 다음을 사용합니다.
 

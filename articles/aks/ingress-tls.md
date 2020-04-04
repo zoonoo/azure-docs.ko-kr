@@ -4,12 +4,12 @@ description: AZURE Kubernetes 서비스(AKS) 클러스터에서 자동 TLS 인�
 services: container-service
 ms.topic: article
 ms.date: 01/29/2020
-ms.openlocfilehash: 4d0edcac86bebb77495907ec43debf077448b8ac
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: ece117d60ae3d7fd70c0972bb463340c5d38c9e1
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617239"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637256"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러 만들기
 
@@ -163,7 +163,7 @@ spec:
 발급자를 만들려면 `kubectl apply` 명령을 사용합니다.
 
 ```console
-kubectl apply -f cluster-issuer.yaml --namespace ingress-basic
+kubectl apply -f cluster-issuer.yaml
 ```
 
 ## <a name="run-demo-applications"></a>데모 애플리케이션 실행

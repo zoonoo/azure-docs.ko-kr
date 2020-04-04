@@ -4,19 +4,19 @@ description: LDAP 인증 및 Azure Multi-Factor Authentication 서버 배포.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf7a5400fce2fce1b75cbd579830f929fcc0d0dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2df89a764bc9b92a830b13e4216412694bb95523
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79454468"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653026"
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP 인증 및 Azure Multi-Factor Authentication 서버
 
@@ -79,5 +79,5 @@ Azure Multi-Factor Authentication이 LDAP 인증을 받도록 구성된 경우 �
 LDAP 클라이언트를 구성하려면 다음 지침을 사용합니다.
 
 * 어플라이언스, 서버 또는 애플리케이션이 마치 LDAP 디렉터리인 것처럼 LDAP를 통해 Azure Multi-Factor Authentication 서버를 인증하도록 구성합니다. 일반적으로 LDAP 디렉터리에 직접 연결하기 위해 사용하는 설정과 동일한 설정을 사용합니다. 단 Azure Multi-Factor Authentication 서버에 사용할 서버 이름 또는 IP 주소는 그렇지 않습니다.
-* LDAP 디렉터리를 사용하여 사용자 자격 증명의 유효성을 검사할 시간이 있도록 LDAP 제한 시간을 30~60초로 구성하고 2단계 검증을 수행하고 응답을 받고 LDAP 액세스 요청에 응답합니다.
+* LDAP 디렉터리로 사용자의 자격 증명을 확인하고, 2단계 확인을 수행하고, 응답을 받고, LDAP 액세스 요청에 응답할 시간이 있도록 LDAP 시간 시간을 30-60초로 구성합니다.
 * LDAPS를 사용하는 경우 LDAP 쿼리를 만드는 어플라이언스 또는 서버는 Azure 다단계 인증 서버에 설치된 TLS/SSL 인증서를 신뢰해야 합니다.

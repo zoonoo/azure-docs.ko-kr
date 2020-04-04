@@ -1,6 +1,6 @@
 ---
 title: 연결 문자열
-description: SQL Data Warehouse용 연결 문자열
+description: 시냅스 SQL 풀에 대한 연결 문자열
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,15 +11,17 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f64c584ea5a32f371f84facc195cd02ef6ffdff0
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 4c3f73fb763fa28ac826ebb97c3c325a2408542c
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350616"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633586"
 ---
-# <a name="connection-strings-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse용 연결 문자열
-[ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] 및 [JDBC][JDBC]와 같은 여러 가지 다양한 애플리케이션 프로토콜을 사용하여 SQL Data Warehouse에 연결할 수 있습니다. 다음은 각 프로토콜에 대한 연결 문제열의 몇 가지 예입니다.  또한 Azure 포털을 사용하여 연결 문자열을 빌드할 수도 있습니다.  Azure Portal을 사용하여 연결 문자열을 빌드하려면 데이터베이스 블레이드로 이동한 후 *Essentials* 링크에서 *데이터베이스 연결 문자열 표시*를 클릭합니다.
+# <a name="connection-strings-for-synapse-sql-pool"></a>시냅스 SQL 풀에 대한 연결 문자열
+[ADO.NET,](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx) [ODBC,](https://msdn.microsoft.com/library/jj730314.aspx) [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)및 [JDBC와](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx)같은 여러 가지 응용 프로그램 프로토콜을 사용하여 SQL 풀에 연결할 수 있습니다. 다음은 각 프로토콜에 대한 연결 문제열의 몇 가지 예입니다.  또한 Azure 포털을 사용하여 연결 문자열을 빌드할 수도 있습니다.  
+
+Azure Portal을 사용하여 연결 문자열을 빌드하려면 데이터베이스 블레이드로 이동한 후 *Essentials* 링크에서 *데이터베이스 연결 문자열 표시*를 클릭합니다.
 
 ## <a name="sample-adonet-connection-string"></a>샘플 ADO.NET 연결 문자열
 ```csharp
@@ -47,17 +49,4 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 > 
 
 ## <a name="next-steps"></a>다음 단계
-Visual Studio 및 다른 애플리케이션으로 데이터 웨어하우스 쿼리를 시작하려면 [Visual Studio를 사용하여 쿼리][Query with Visual Studio]를 참조하세요.
-
-<!--Image references-->
-
-<!--Azure.com references-->
-[Query with Visual Studio]:sql-data-warehouse-query-visual-studio.md
-
-<!--MSDN references-->
-[ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
-[ODBC]: https://msdn.microsoft.com/library/jj730314.aspx
-[PHP]: https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396
-[JDBC]: https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx
-
-<!--Other references-->
+Visual Studio 및 기타 응용 프로그램으로 SQL 풀쿼리를 시작하려면 [Visual Studio를 사용하여 쿼리를](sql-data-warehouse-query-visual-studio.md)참조하십시오.

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 3/11/2020
-ms.openlocfilehash: 00b9da150569db2972289468b1405e5087ee3321
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 4/3/2020
+ms.openlocfilehash: 07f29a01ae0128ba0a35504dea54ba1ae2dde944
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549149"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657072"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL 데이터베이스 서버가 없는
 
@@ -157,7 +157,7 @@ SQL 캐시는 프로비저닝된 데이터베이스와 동일한 방식으로 �
 
 새 데이터베이스를 만들거나 기존 데이터베이스를 서버없는 계산 계층으로 이동하는 것은 프로비저닝된 계산 계층에서 새 데이터베이스를 만드는 것과 동일한 패턴을 따르며 다음 두 단계를 포함합니다.
 
-1. 서비스 목표 이름을 지정합니다. 서비스 목표는 서비스 계층, 하드웨어 생성 및 최대 vCore를 규정합니다. 다음 표에는 서비스 목표 옵션이 나와 있습니다.
+1. 서비스 목표를 지정합니다. 서비스 목표는 서비스 계층, 하드웨어 생성 및 최대 vCore를 규정합니다. 다음 표에는 서비스 목표 옵션이 나와 있습니다.
 
    |서비스 목표 이름|서비스 계층|하드웨어 세대|최대 vCore 수|
    |---|---|---|---|
@@ -176,12 +176,12 @@ SQL 캐시는 프로비저닝된 데이터베이스와 동일한 방식으로 �
    |매개 변수|값 선택|기본값|
    |---|---|---|---|
    |최소 vCores|구성된 최대 vCores에 따라 다름 - [리소스 제한을](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5)참조하십시오.|0.5개 vCore|
-   |자동 일시 중지 지연|최소: 60분(1시간)<br>최대: 10080분 (7일)<br>증분: 60분<br>자동 일시 중지 사용 안 함: -1|60분|
+   |자동 일시 중지 지연|최소: 60분(1시간)<br>최대: 10080분 (7일)<br>증분: 10분<br>자동 일시 중지 사용 안 함: -1|60분|
 
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>서버리스 컴퓨팅 계층에서 새 데이터베이스 만들기 
 
-다음 예제에서는 서버리스 계산 계층에 새 데이터베이스를 만듭니다. 이 예제에서는 min vCores, 최대 vCores 및 자동 일시 중지 지연을 명시적으로 지정합니다.
+다음 예제에서는 서버리스 계산 계층에 새 데이터베이스를 만듭니다.
 
 #### <a name="use-azure-portal"></a>Azure Portal 사용
 
@@ -205,7 +205,7 @@ az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### <a name="use-transact-sql-t-sql"></a>거래-SQL(T-SQL) 사용
 
-다음 예제에서는 서버리스 계산 계층에 새 데이터베이스를 만듭니다.
+T-SQL을 사용하는 경우 최소 vcore 및 자동 일시 중지 지연에 기본값이 적용됩니다.
 
 ```sql
 CREATE DATABASE testdb
@@ -216,7 +216,7 @@ CREATE DATABASE testdb
 
 ### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>데이터베이스를 프로비저닝된 계산 계층에서 서버없는 계산 계층으로 이동
 
-다음 예제는 프로비저닝된 계산 계층에서 서버리스 계산 계층으로 데이터베이스를 이동합니다. 이 예제에서는 min vCores, 최대 vCores 및 자동 일시 중지 지연을 명시적으로 지정합니다.
+다음 예제는 프로비저닝된 계산 계층에서 서버리스 계산 계층으로 데이터베이스를 이동합니다.
 
 #### <a name="use-powershell"></a>PowerShell 사용
 
@@ -237,7 +237,7 @@ az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### <a name="use-transact-sql-t-sql"></a>거래-SQL(T-SQL) 사용
 
-다음 예제는 프로비저닝된 계산 계층에서 서버리스 계산 계층으로 데이터베이스를 이동합니다.
+T-SQL을 사용하는 경우 최소 vcore 및 자동 일시 중지 지연에 기본값이 적용됩니다.
 
 ```sql
 ALTER DATABASE testdb 
@@ -279,7 +279,7 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 서버없는 데이터베이스의 앱 패키지 및 사용자 풀의 리소스 사용량을 모니터링하기위한 메트릭은 다음 표에 나열됩니다.
 
-|엔터티|메트릭|Description|Units|
+|엔터티|메트릭|설명|단위|
 |---|---|---|---|
 |앱 패키지|app_cpu_percent|앱에 허용되는 최대 vCore 수에 대한 앱에서 사용한 vCore 수의 백분율입니다.|백분율|
 |앱 패키지|app_cpu_billed|보고 기간 동안 앱에 대해 요금이 청구되는 컴퓨팅의 양입니다. 이 기간 동안에 대한 지불 금액은 이 메트릭과 vCore 단가를 곱한 값입니다. <br><br>이 메트릭의 값은 시간이 지남에 따라 사용된 최대 CPU와 사용된 초당 메모리를 집계하여 결정됩니다. 사용된 양이 최소 vCore 수 및 최소 메모리로 설정된 최소 프로비저닝된 양보다 적으면 최소 프로비저닝된 양에 대한 요금이 청구됩니다.청구의 목적으로 CPU를 메모리와 비교하기 위해 메모리는 vCore당 메모리 양(GB 단위)을 3GB로 다시 조정하여 vCore 단위로 정규화됩니다.|vCore 시간(초)|

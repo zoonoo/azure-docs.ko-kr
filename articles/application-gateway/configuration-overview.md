@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: f08cfab8f8de9183e6bee241959f7feabc31c8e3
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 89d894a5125a16f95e6ef8a15c2503d48f3a8e55
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585914"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632184"
 ---
 # <a name="application-gateway-configuration-overview"></a>애플리케이션 게이트웨이 구성 개요
 
@@ -118,7 +118,7 @@ NSG(네트워크 보안 그룹)는 응용 프로그램 게이트웨이에서 지
 
   **시나리오 1**: 가상 어플라이언스용 UDR
 
-  가상 어플라이언스, 허브/스포크 가상 네트워크 또는 온-프레미스(강제 터널링)를 통해 0.0.0.0/0을 리디렉션해야 하는 모든 시나리오는 v2 공개 미리 보기에 는 지원되지 않습니다. 
+  가상 어플라이언스, 허브/스포크 가상 네트워크 또는 온-프레미스(강제 터널링)를 통해 0.0.0.0/0을 리디렉션해야 하는 모든 시나리오는 V2에서 지원되지 않습니다.
 
 ## <a name="front-end-ip"></a>프런트 엔드 IP
 

@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0a54d7490fb306bfbc8e1b111e7b7d64c09d2292
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92ac0417e9d8adca168dd68e1721a1c9c890de1c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276609"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656955"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 크기 조정 및 호스팅
 
@@ -109,7 +109,7 @@ Always On이 설정된 경우에도 개별 함수의 실행 시간 초과는 [ho
 
 ## <a name="determine-the-hosting-plan-of-an-existing-application"></a>기존 응용 프로그램의 호스팅 계획 결정
 
-함수 앱에서 사용하는 호스팅 계획을 결정하려면 [Azure Portal](https://portal.azure.com)의 함수 앱에 대한 **개요** 탭에서 **App Service 계획/가격 책정 계층**을 참조하세요. App Service 계획의 경우 가격 책정 계층도 표시됩니다.
+함수 앱에서 사용하는 호스팅 계획을 확인하려면 [Azure 포털의](https://portal.azure.com)함수 앱에 대한 **개요** 탭에서 **앱 서비스 계획을** 참조하십시오. 가격 책정 계층을 보려면 앱 **서비스 계획의**이름을 선택한 다음 왼쪽 창에서 **속성을** 선택합니다.
 
 ![포털에서 크기 조정 계획 보기](./media/functions-scale/function-app-overview-portal.png)
 
@@ -124,7 +124,7 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 ## <a name="storage-account-requirements"></a>Storage 계정 요구 사항
 
-어떤 계획에서든 함수 앱에는 Azure Blob, 큐, 파일 및 테이블 저장소를 지원하는 일반 Azure Storage 계정이 필요합니다. Functions는 트리거 관리 및 함수 실행 기록과 같은 작업에 Azure Storage를 사용하지만 일부 스토리지 계정은 큐와 테이블을 지원하지 않기 때문입니다. Blob 전용 스토리지 계정(Premium Storage 포함) 및 영역 중복 스토리지 복제가 사용되는 범용 스토리지 계정을 포함한 계정은 함수 앱을 만들 때 기존 **스토리지 계정** 선택 항목에서 필터링됩니다.
+어떤 계획에서든 함수 앱에는 Azure Blob, 큐, 파일 및 테이블 저장소를 지원하는 일반 Azure Storage 계정이 필요합니다. Azure Functions는 트리거 관리 및 로깅 함수 실행과 같은 작업에 Azure Storage를 의존하지만 일부 저장소 계정은 큐 및 테이블을 지원하지 않기 때문입니다. Blob 전용 스토리지 계정(Premium Storage 포함) 및 영역 중복 스토리지 복제가 사용되는 범용 스토리지 계정을 포함한 계정은 함수 앱을 만들 때 기존 **스토리지 계정** 선택 항목에서 필터링됩니다.
 
 함수 앱에서 사용하는 동일한 저장소 계정을 트리거 및 바인딩에서 사용하여 응용 프로그램 데이터를 저장할 수도 있습니다. 그러나 저장소 집약적인 작업의 경우 별도의 저장소 계정을 사용해야 합니다.  
 

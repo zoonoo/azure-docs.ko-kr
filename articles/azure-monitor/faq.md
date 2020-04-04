@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/26/2020
-ms.openlocfilehash: 306d847c2bc5af72d37dbf8bf472a5bae63e9fd5
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: db63ce2d56eb78bf6b361d530511b6902c1cb6d5
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80528497"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637780"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure 모니터 자주 묻는 질문
 
@@ -177,7 +177,7 @@ WireData
 
 
 ### <a name="what-are-the-firewall-requirements-for-azure-monitor-agents"></a>Azure Monitor 에이전트에 대한 방화벽 요구 사항은 무엇입니까?
-방화벽 요구 사항에 대한 자세한 내용은 [네트워크 방화벽 요구](platform/log-analytics-agent.md#firewall-requirements)사항을 참조하십시오.
+방화벽 요구 사항에 대한 자세한 내용은 [네트워크 방화벽 요구](platform/log-analytics-agent.md#network-requirements)사항을 참조하십시오.
 
 
 ## <a name="visualizations"></a>시각화
@@ -284,7 +284,7 @@ WireData
 
 * [Azure 진단](platform/diagnostics-extension-to-application-insights.md)
 * [Analytics로 가져오기](platform/data-collector-api.md)
-* [로그 분석](platform/data-collector-api.md)
+* [Log Analytics](platform/data-collector-api.md)
 * [Logstash](platform/data-collector-api.md)
 
 ### <a name="can-i-filter-out-or-modify-some-telemetry"></a>일부 원격 분석을 필터링하거나 수정할 수 있나요?
@@ -718,7 +718,7 @@ Azure VM의 개요 페이지에는 게스트 VM에서 작업의 호스트 측정
 ## <a name="next-steps"></a>다음 단계
 여기서 질문에 대한 답변이 없는 경우 다음 포럼을 참조하여 추가 질문과 답변을 참조할 수 있습니다.
 
-- [로그 분석](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)
+- [Log Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)
 - [Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
 
 Azure 모니터에 대한 일반적인 피드백은 [피드백 포럼을](https://feedback.azure.com/forums/34192--general-feedback)방문하십시오.

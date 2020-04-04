@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 04/03/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: fc1eb1836badc3ced688750bbc7c7a164773d022
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3d5a4ddf863115747c27efbca1808d51444aac8c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77152672"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656161"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Azure 인지 검색의 간단한 쿼리 구문
 
@@ -68,9 +68,15 @@ NOT 연산자는 빼기 기호입니다. 예를 들어, `wifi –luxury`는 `wif
 > [!NOTE]  
 >  `searchMode` 옵션은 `+` 또는 `|` 연산자가 없는 경우 NOT 연산자가 있는 용어가 쿼리의 다른 용어와 AND로 연결될지 또는 OR로 연결될지를 제어합니다. 앞서 설명한 것처럼 `searchMode`를 `any`(기본값) 또는 `all`로 설정할 수 있습니다. `any`를 사용하는 경우 더 많은 결과를 포함하여 쿼리 재현율을 높이고, 기본적으로 `-`은 "OR NOT"으로 해석됩니다. 예를 들어, `wifi -luxury`는 용어 `wifi`를 포함하는 문서 또는 용어 `luxury`를 포함하지 않는 문서를 검색합니다. `all`을 사용하는 경우 더 적은 수의 결과를 포함하여 쿼리 정확도를 높이고, 기본적으로 "AND NOT"으로 해석됩니다. 예를 들어 `wifi -luxury`는 용어 `wifi`를 포함하고 용어 "luxury"를 포함하지 않는 문서를 검색합니다. 이러한 동작이 `-` 연산자의 좀 더 간단한 동작일 것입니다. 따라서 재현율이 아니라 정확도에 따라 최적화하려고 *하며* 사용자가 검색에서 `-` 연산자를 자주 사용하는 경우 `searchMode=any` 대신 `searchMode=all`을 사용하는 것이 좋습니다.
 
-## <a name="suffix-operator"></a>접미사 연산자 
+<a name="prefix-search"></a>
 
-접미사 연산자는 별표입니다. `*` 예를 들어, `lux*`는 대/소문자를 무시하고 `lux`로 시작하는 용어가 포함된 문서를 검색합니다.  
+## <a name="suffix--operator-for-prefix-search"></a>접두사 `*` 검색을 위한 접미사 연산자
+
+접미사 연산자는 별표입니다. `*` 예를 들어, `cap*`는 대/소문자를 무시하고 `cap`로 시작하는 용어가 포함된 문서를 검색합니다. 
+
+필터와 마찬가지로 접두사 쿼리는 정확한 일치를 찾습니다. 따라서 관련성 점수가 없습니다(모든 결과는 1.0의 검색 점수를 받습니다). 특히 인덱스가 크고 접두사가 적은 수의 문자로 구성된 경우 접두사 쿼리속도가 느려질 수 있습니다. 
+
+문자열의 마지막 부분과 일치하는 접미사 쿼리를 실행하려면 와일드카드 [검색및](query-lucene-syntax.md#bkmk_wildcard) 전체 Lucene 구문을 사용합니다.
 
 ## <a name="phrase-search-operator"></a>구 검색 연산자 
 
@@ -90,7 +96,7 @@ NOT 연산자는 빼기 기호입니다. 예를 들어, `wifi –luxury`는 `wif
 > [!NOTE]  
 >  이스케이프는 토큰을 유지하지만, 분석 모드에 따라 텍스트 분석 시 토큰이 분할될 수 있습니다. 자세한 내용은 [언어 지원 &#40;Azure 인지 검색 REST API&#41;](index-add-language-analyzers.md) 를 참조하십시오.  
 
-## <a name="see-also"></a>참조  
+## <a name="see-also"></a>참고 항목  
 
 + [Azure 인지 검색 REST API&#41;&#40;문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
 + [Lucene 쿼리 구문](query-lucene-syntax.md)

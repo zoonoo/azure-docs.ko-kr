@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
-ms.openlocfilehash: 94ca609d9dc070e6e2b4dc878ecd8dfaf9331ede
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b61b51e79c71736e18aaa63ab032c05c512c8d7
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77648175"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656342"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 FTP 파일 만들기, 모니터링 및 관리
 
@@ -27,7 +27,7 @@ Azure Logic Apps 및 FTP 커넥터를 사용하면 다음과 같이 다른 작�
 
 ## <a name="limitations"></a>제한 사항
 
-* FTP 커넥터는 SSL(FTPS)을 통해 명시적 FTP만 지원하며 암시적 FTPS와 호환되지 않습니다.
+* FTP 커넥터는 TLS/SSL(FTPS)을 통해 명시적 FTP만 지원하며 암시적 FTPS와 호환되지 않습니다.
 
 * 기본적으로 FTP 작업은 *50MB 이하의*파일을 읽거나 쓸 수 있습니다. 50MB를 초과하는 파일을 처리하기 위해 FTP 작업은 [메시지 청크를](../logic-apps/logic-apps-handle-large-messages.md)지원합니다. **파일 콘텐츠 받기** 작업은 암시적으로 청크를 사용합니다.
 

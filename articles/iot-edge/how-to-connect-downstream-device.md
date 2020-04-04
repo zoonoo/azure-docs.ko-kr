@@ -8,12 +8,12 @@ ms.date: 12/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6ddda38d887cdfe30b449847e2f625ba17f33898
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ff9415ca20b859468528b56d27355430c4fc5a0f
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76510807"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652061"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결
 
@@ -182,7 +182,7 @@ Windows 호스트에서 OpenSSL 또는 다른 TLS 라이브러리를 사용하�
 
 이 섹션에서는 Azure IoT Python 디바이스 클라이언트를 IoT Edge 게이트웨이에 연결하기 위한 샘플 애플리케이션을 소개합니다.
 
-1. 파이썬 샘플에 대한 [Azure IoT 장치 SDK에서](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios) **send_message** 대한 샘플을 가져옵니다.
+1. 파이썬 샘플에 대한 [Azure IoT 장치 SDK에서](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios) **send_message** 대한 샘플을 가져옵니다.
 2. IoT Edge 컨테이너 또는 디버그 시나리오에서 실행 중인 경우 `EdgeHubConnectionString` 및 `EdgeModuleCACertificateFile` 환경 변수가 설정되어 있는지 확인합니다.
 3. 디바이스에서 샘플을 실행하는 방법에 대한 지침은 SDK 설명서를 참조하세요.
 

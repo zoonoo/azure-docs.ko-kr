@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: eddfcacd01a67fffa8e3e992e021ed1771d25944
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61c2b914671020b822814fc283b5f2641c2e787b
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471339"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657451"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>HDInsight에 대한 Azure 보안 기준선
 
@@ -1316,7 +1316,7 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 Azure 키 자격 증명 모음에서 소프트 삭제를 사용하도록 설정하는 방법:
 
-https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
+https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete
 
 **Azure 보안 센터 모니터링**: 현재 사용할 수 없음
 

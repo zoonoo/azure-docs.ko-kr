@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 02/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 21fa1c4faa4a080b9b495e1481fdadcd7e8bea10
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: a8d6d25a2ba7f0040b13982f14f3d6081ac32f15
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619469"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637988"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Azure Automation의 Az 모듈 지원
 
@@ -18,20 +18,27 @@ Azure 자동화는 Runbook에서 [Azure PowerShell Az 모듈의](/powershell/azu
 
 ## <a name="considerations"></a>고려 사항
 
-Azure 자동화에서 롤업 Az 모듈을 사용할 때 고려해야 할 사항이 많이 있습니다. Runbook 및 모듈은 자동화 계정의 상위 수준 솔루션에서 사용할 수 있습니다. Runbook을 편집하거나 모듈을 업그레이드하면 Runbook에 문제가 발생할 수 있습니다. 새 Az 모듈을 가져오기 전에 별도의 자동화 계정에서 모든 Runbook 및 솔루션을 신중하게 테스트해야 합니다. 모듈을 수정하면 [시작/중지](automation-solution-vm-management.md) 솔루션에 부정적인 영향을 줄 수 있습니다. 솔루션이 포함된 자동화 계정의 모듈 및 runbook을 변경하는 것은 권장되지 않습니다. 이 동작은 Az 모듈과 관련이 없습니다. 자동화 계정에 변경 사항을 도입할 때 고려해야 합니다.
+Azure 자동화에서 Az 모듈을 사용할 때 고려해야 할 몇 가지 사항이 있습니다.
 
-자동화 계정에서 Az 모듈을 가져오면 Runbook에서 사용하는 PowerShell 세션에서 모듈을 자동으로 가져오지 않습니다. 다음과 같은 상황에서 모듈을 PowerShell 세션으로 가져올 수 있습니다.
+* 자동화 계정의 상위 수준 솔루션은 Runbook 및 모듈을 사용할 수 있습니다. 따라서 Runbook을 편집하거나 모듈을 업그레이드하면 솔루션에 문제가 발생할 수 있습니다. 새 Az 모듈을 가져오기 전에 별도의 자동화 계정에서 모든 Runbook 및 솔루션을 신중하게 테스트해야 합니다. 
 
-* Runbook이 모듈에서 cmdlet을 호출할 때
-* runbook이 `Import-Module` cmdlet을 통해 모듈을 명시적으로 가져오는 경우
-* Runbook이 모듈에 따라 다른 모듈을 가져오는 경우
+* 모듈을 수정하면 [시작/중지](automation-solution-vm-management.md) 솔루션에 부정적인 영향을 줄 수 있습니다. 
+
+* 자동화 계정에서 Az 모듈을 가져오면 Runbook에서 사용하는 PowerShell 세션에서 모듈을 자동으로 가져오지 않습니다. 다음과 같은 상황에서 모듈을 PowerShell 세션으로 가져올 수 있습니다.
+
+    * Runbook이 모듈에서 cmdlet을 호출할 때
+    * runbook이 `Import-Module` cmdlet을 통해 모듈을 명시적으로 가져오는 경우
+    * Runbook이 모듈에 따라 다른 모듈을 가져오는 경우
+
+> [!NOTE]
+> 솔루션이 포함된 자동화 계정의 모듈 및 runbook을 변경하는 것은 권장되지 않습니다. 이 조항은 Az 모듈에만 국한되지 않습니다. 자동화 계정에 변경 사항을 도입할 때 고려해야 합니다.
 
 > [!IMPORTANT]
 > 자동화 계정의 Runbook이 Az 모듈또는 [AzureRM](https://www.powershellgallery.com/packages/AzureRM/6.13.1) 모듈을 모두 가져오지 만 둘 다 PowerShell 세션으로 가져오는지 확인합니다. Runbook이 AzureRM 모듈보다 앞서 Az 모듈을 가져오면 Runbook이 완료됩니다. 그러나 작업 스트림에 [Get_SerializationSettings](troubleshoot/runbooks.md#get-serializationsettings) cmdlet을 참조하는 오류가 나타나고 cmdlet이 제대로 실행되지 않을 수 있습니다. Runbook이 Az 모듈 보다 AzureRM 모듈을 가져오는 경우 Runbook도 완료됩니다. 그러나 이 경우 작업 스트림에서 Az와 AzureRM을 동일한 세션에서 가져오거나 동일한 Runbook에서 사용할 수 없다는 오류가 발생합니다.
 
 ## <a name="migrating-to-az-modules"></a>Az 모듈로 마이그레이션
 
-테스트 자동화 계정에서 Az 모듈로의 마이그레이션을 테스트하는 것이 좋습니다. 이 계정을 만든 후에는 이 섹션의 지침을 사용하여 모듈을 사용할 수 있습니다.
+테스트 자동화 계정에서 Az 모듈로의 마이그레이션을 테스트하는 것이 좋습니다. 계정을 만든 후에는 이 섹션의 지침을 사용하여 모듈을 사용할 수 있습니다.
 
 ### <a name="stop-and-unschedule-all-runbooks-that-use-azurerm-modules"></a>AzureRM 모듈을 사용하는 모든 Runbook을 중지하고 예약 취소
 

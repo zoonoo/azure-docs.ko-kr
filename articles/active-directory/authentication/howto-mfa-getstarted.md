@@ -4,19 +4,19 @@ description: 마이크로소프트 Azure 다단계 인증 배포 계획
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6da67589b15b4ab043510c0375c26c12f645adb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8ae58482ced524958ffcdd6094ae57856d088eaf
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263882"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653951"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>클라우드 기반 Azure Multi-Factor Authentication 배포 계획
 
@@ -220,7 +220,7 @@ Azure AD 테넌트에서 실수로 잠기지 않도록 하는 것이 중요합�
 
 ### <a name="create-conditional-access-policy"></a>조건부 액세스 정책 만들기
 
-1. 전역 관리자 계정을 사용하여 [Azure 포털에](https://portal.azure.com) 로그인합니다.
+1. 전역 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure **Active 디렉터리** > **보안** > **조건부 액세스로**이동합니다.
 1. **새 정책**을 선택합니다.
    ![파일럿 그룹의 Azure 포털 사용자에 대해 MFA를 사용하도록 설정하는 조건부 액세스 정책 만들기](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
@@ -277,7 +277,7 @@ NPS 인스턴스가 배포되어 있고 이미 사용 중이면 [기존 NPS 인�
 
 MFA에 등록되지 않은 사용자가 인증하려고 할 때 어떤 일이 발생하는지 선택합니다. 레지스트리 경로의 `HKLM\Software\Microsoft\AzureMFA` `REQUIRE_USER_MATCH` 레지스트리 설정을 사용하여 기능 동작을 제어합니다. 이 설정에는 단일 구성 옵션이 있습니다.
 
-| Key | 값 | 기본값 |
+| 키 | 값 | 기본값 |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | 참 / 거짓 | 설정되지 않음(TRUE와 동일) |
 
@@ -347,7 +347,7 @@ Azure MFA에 대한 보고서
 
 Azure 다단계 인증은 Azure 포털을 통해 보고서를 제공합니다.
 
-| 보고서 | 위치 | 설명 |
+| 보고서 | 위치 | Description |
 | --- | --- | --- |
 | 사용량 및 사기 행위 경고 | Azure AD > 로그인 | 지정된 날짜 범위 동안 제출된 사기 행위 경고의 기록을 비롯한 전체 사용량, 사용자 요약 및 사용자 세부 정보에 대한 정보를 제공합니다. |
 

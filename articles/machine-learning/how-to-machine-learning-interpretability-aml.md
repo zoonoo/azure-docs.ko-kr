@@ -8,35 +8,47 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
-ms.reviewer: trbye
-ms.date: 10/25/2019
-ms.openlocfilehash: a479982eeac325c9774e3858ec51643e8ba699c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: Luis.Quintanilla
+ms.date: 04/02/2020
+ms.openlocfilehash: 1ff42149ccb629a0a7094e6dfede422d4dd7f61f
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064052"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632036"
 ---
 # <a name="model-interpretability-for-local-and-remote-runs"></a>로컬 및 원격 실행을 위한 해석 가능성 모델링
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 Azure 기계 학습 파이썬 SDK의 해석 가능성 패키지를 사용하여 모델이 예측을 한 이유를 이해하는 방법을 배웁니다. 다음 방법을 알아봅니다.
+이 방법 가이드에서는 Azure 기계 학습 파이썬 SDK의 해석 가능성 패키지를 사용하여 다음 작업을 수행하는 방법을 배웁니다.
 
-* 로컬 및 원격 컴퓨팅 리소스에서 학습된 기계 학습 모델을 해석합니다.
-* Azure 실행 기록에 로컬 및 전역 설명을 저장합니다.
-* [Azure 기계 학습 스튜디오에서](https://ml.azure.com)해석 성 시각화보기.
-* 모델에 점수 매기기 설명기를 배포합니다.
 
-자세한 내용은 [Azure 기계 학습의 모델 해석 가능성을](how-to-machine-learning-interpretability.md)참조하십시오.
+* 개인 컴퓨터에서 전체 모델 동작 또는 개별 예측을 로컬로 설명합니다.
 
-## <a name="local-interpretability"></a>로컬 해석 가능성
+* 엔지니어링 된 기능에 대한 해석 기술을 활성화합니다.
 
-다음 예제에서는 Azure 서비스에 문의하지 않고 로컬로 해석 가능성 패키지를 사용하는 방법을 보여 주습니다.
+* Azure에서 전체 모델 및 개별 예측에 대한 동작을 설명합니다.
 
-1. 필요한 경우 `pip install azureml-interpret` 해석 가능 패키지를 얻는 데 사용합니다.
+ 
+* 시각화 대시보드를 사용하여 모델 설명과 상호 작용할 수 있습니다.
 
-1. 로컬 Jupyter 노트북에서 샘플 모델을 학습합니다.
+* 추론 하는 동안 설명을 관찰 하기 위해 모델 함께 점수 설명기를 배포 합니다.
+
+
+
+지원되는 해석 기술 및 기계 학습 모델에 대한 자세한 내용은 Azure 기계 학습 및 [샘플 노트북의](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) [모델 해석 가능성을](how-to-machine-learning-interpretability.md) 참조하십시오.
+
+## <a name="generate-feature-importance-value-on-your-personal-machine"></a>개인 기기에서 기능 중요도 가치 생성 
+다음 예제에서는 Azure 서비스에 연결하지 않고 개인 컴퓨터에서 해석 가능성 패키지를 사용하는 방법을 보여 줍니다.
+
+1. 설치 `azureml-interpret` `azureml-interpret-contrib` 및 패키지.
+    ```bash
+    pip install azureml-interpret
+    pip install azureml-interpret-contrib
+    ```
+
+2. 로컬 Jupyter 노트북에서 샘플 모델을 학습합니다.
 
     ```python
     # load breast cancer dataset, a well-known small dataset that comes with scikit-learn
@@ -56,7 +68,7 @@ ms.locfileid: "80064052"
     model = clf.fit(x_train, y_train)
     ```
 
-1. 설명자가 로컬로 호출합니다.
+3. 설명자가 로컬로 호출합니다.
    * 설명자 개체를 초기화하려면 모델 및 일부 학습 데이터를 설명자의 생성자에게 전달합니다.
    * 설명 및 시각화를 보다 유익하게 만들려면 분류를 수행하는 경우 피처 이름 및 출력 클래스 이름을 전달하도록 선택할 수 있습니다.
 
@@ -111,9 +123,9 @@ ms.locfileid: "80064052"
                              classes=classes)
     ```
 
-### <a name="overall-global-feature-importance-values"></a>전반적으로 전역 기능 중요도 값
+### <a name="explain-the-entire-model-behavior-global-explanation"></a>전체 모델 동작 설명(전역 설명) 
 
-전역 피쳐 중요도 값을 얻는 데 도움이 되는 다음 예제를 참조하십시오.
+집계(전역) 피쳐 중요도 값을 얻는 데 도움이 되는 다음 예제를 참조하십시오.
 
 ```python
 
@@ -132,9 +144,8 @@ dict(zip(sorted_global_importance_names, sorted_global_importance_values))
 global_explanation.get_feature_importance_dict()
 ```
 
-### <a name="instance-level-local-feature-importance-values"></a>인스턴스 수준, 로컬 기능 중요도 값
-
-개별 인스턴스 또는 인스턴스 그룹에 대한 설명을 호출하여 로컬 기능 중요도 값을 가져옵니다.
+### <a name="explain-an-individual-prediction-local-explanation"></a>개별 예측 설명(로컬 설명)
+개별 인스턴스 또는 인스턴스 그룹에 대한 설명을 호출하여 서로 다른 데이터 포인트의 개별 기능 중요도 값을 가져옵니다.
 > [!NOTE]
 > `PFIExplainer`로컬 설명을 지원하지 않습니다.
 
@@ -147,67 +158,7 @@ sorted_local_importance_names = local_explanation.get_ranked_local_names()
 sorted_local_importance_values = local_explanation.get_ranked_local_values()
 ```
 
-## <a name="interpretability-for-remote-runs"></a>원격 실행을 위한 해석 가능성
-
-다음 예제에서는 클래스를 `ExplanationClient` 사용하여 원격 실행에 대한 모델 해석을 활성화하는 방법을 보여 주며 있습니다. 다음을 제외한 로컬 프로세스와 개념적으로 유사합니다.
-
-* 원격 `ExplanationClient` 실행에서 해석 가능성 컨텍스트를 업로드합니다.
-* 나중에 로컬 환경에서 컨텍스트를 다운로드합니다.
-
-1. 필요한 경우 `pip install azureml-contrib-interpret` 필요한 패키지를 받으세요.
-
-1. 로컬 Jupyter 노트북에 학습 스크립트를 만듭니다. `train_explain.py`)을 입력합니다.
-
-    ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
-    from azureml.core.run import Run
-    from interpret.ext.blackbox import TabularExplainer
-
-    run = Run.get_context()
-    client = ExplanationClient.from_run(run)
-
-    # write code to get and split your data into train and test sets here
-    # write code to train your model here 
-
-    # explain predictions on your local machine
-    # "features" and "classes" fields are optional
-    explainer = TabularExplainer(model, 
-                                 x_train, 
-                                 features=feature_names, 
-                                 classes=classes)
-
-    # explain overall model predictions (global explanation)
-    global_explanation = explainer.explain_global(x_test)
-    
-    # uploading global model explanation data for storage or visualization in webUX
-    # the explanation can then be downloaded on any compute
-    # multiple explanations can be uploaded
-    client.upload_model_explanation(global_explanation, comment='global explanation: all features')
-    # or you can only upload the explanation object with the top k feature info
-    #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
-    ```
-
-1. Azure 기계 학습 계산을 계산 대상으로 설정하고 교육 실행을 제출합니다. 지침에 [대한 모델 학습에 대한 계산 대상 설정을](how-to-set-up-training-targets.md#amlcompute) 참조하십시오. [예제 전자 필기장이](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) 도움이 될 수도 있습니다.
-
-1. 해당 지역의 Jupyter 노트북에서 설명을 다운로드하십시오.
-
-    ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
-    
-    client = ExplanationClient.from_run(run)
-    
-    # get model explanation data
-    explanation = client.download_model_explanation()
-    # or only get the top k (e.g., 4) most important features with their importance values
-    explanation = client.download_model_explanation(top_k=4)
-    
-    global_importance_values = explanation.get_ranked_global_values()
-    global_importance_names = explanation.get_ranked_global_names()
-    print('global importance values: {}'.format(global_importance_values))
-    print('global importance names: {}'.format(global_importance_names))
-    ```
-
-## <a name="raw-feature-transformations"></a>원시 기능 변환
+### <a name="raw-feature-transformations"></a>원시 기능 변환
 
 엔지니어링된 기능이 아닌 변형되지 않은 원시 기능에 대한 설명을 얻을 수 있습니다. 이 옵션의 경우 기능 변환 파이프라인을 `train_explain.py`의 설명자에게 전달합니다. 그렇지 않으면 설명자는 엔지니어링된 기능에 대한 설명을 제공합니다.
 
@@ -281,31 +232,96 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
                                      transformations=transformations)
 ```
 
+## <a name="generate-feature-importance-values-via-remote-runs"></a>원격 실행을 통해 기능 중요도 값 생성
+
+다음 예제에서는 클래스를 `ExplanationClient` 사용하여 원격 실행에 대한 모델 해석을 활성화하는 방법을 보여 주며 있습니다. 다음과 같은 경우를 제외하고는 개념적으로 로컬 프로세스와 유사합니다.
+
+* 원격 `ExplanationClient` 실행에서 해석 가능성 컨텍스트를 업로드합니다.
+* 나중에 로컬 환경에서 컨텍스트를 다운로드합니다.
+
+1. 설치 `azureml-interpret` `azureml-interpret-contrib` 및 패키지.
+    ```bash
+    pip install azureml-interpret
+    pip install azureml-interpret-contrib
+    ```
+1. 로컬 Jupyter 노트북에 학습 스크립트를 만듭니다. `train_explain.py`)을 입력합니다.
+
+    ```python
+    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+    from azureml.core.run import Run
+    from interpret.ext.blackbox import TabularExplainer
+
+    run = Run.get_context()
+    client = ExplanationClient.from_run(run)
+
+    # write code to get and split your data into train and test sets here
+    # write code to train your model here 
+
+    # explain predictions on your local machine
+    # "features" and "classes" fields are optional
+    explainer = TabularExplainer(model, 
+                                 x_train, 
+                                 features=feature_names, 
+                                 classes=classes)
+
+    # explain overall model predictions (global explanation)
+    global_explanation = explainer.explain_global(x_test)
+    
+    # uploading global model explanation data for storage or visualization in webUX
+    # the explanation can then be downloaded on any compute
+    # multiple explanations can be uploaded
+    client.upload_model_explanation(global_explanation, comment='global explanation: all features')
+    # or you can only upload the explanation object with the top k feature info
+    #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
+    ```
+
+1. Azure 기계 학습 계산을 계산 대상으로 설정하고 교육 실행을 제출합니다. 지침에 [대한 모델 학습에 대한 계산 대상 설정을](how-to-set-up-training-targets.md#amlcompute) 참조하십시오. [예제 전자 필기장이](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) 도움이 될 수도 있습니다.
+
+1. 해당 지역의 Jupyter 노트북에서 설명을 다운로드하십시오.
+
+    ```python
+    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+    
+    client = ExplanationClient.from_run(run)
+    
+    # get model explanation data
+    explanation = client.download_model_explanation()
+    # or only get the top k (e.g., 4) most important features with their importance values
+    explanation = client.download_model_explanation(top_k=4)
+    
+    global_importance_values = explanation.get_ranked_global_values()
+    global_importance_names = explanation.get_ranked_global_names()
+    print('global importance values: {}'.format(global_importance_values))
+    print('global importance names: {}'.format(global_importance_names))
+    ```
+
+
 ## <a name="visualizations"></a>시각화
 
 로컬 Jupyter 노트북에서 설명을 다운로드한 후 시각화 대시보드를 사용하여 모델을 이해하고 해석할 수 있습니다.
 
-### <a name="global-visualizations"></a>글로벌 시각화
+### <a name="understand-entire-model-behavior-global-explanation"></a>전체 모델 동작 이해(전역 설명) 
 
-다음 플롯은 예측 및 설명과 함께 학습된 모델에 대한 전역 보기를 제공합니다.
+다음 플롯은 예측 및 설명과 함께 학습된 모델의 전체 보기를 제공합니다.
 
 |플롯|설명|
 |----|-----------|
 |데이터 탐색| 예측 값과 함께 데이터 집합의 개요를 표시합니다.|
-|글로벌 중요성|상위 K(구성 가능한 K)의 중요한 피처를 전역적으로 표시합니다. 기본 모델의 전역 동작을 이해하는 데 도움이 됩니다.|
+|글로벌 중요성|집계는 모델의 전체 상위 K(구성 가능한 K)의 중요한 피처를 표시하기 위해 개별 데이터 포인트의 중요도 값을 특징으로 합니다. 기본 모델의 전반적인 동작을 이해하는 데 도움이 됩니다.|
 |설명 탐색|기능이 모델의 예측 값 의 변화 또는 예측 값의 확률에 미치는 영향을 보여 줍니다. 기능 상호 작용의 영향을 표시합니다.|
-|요약 중요도|모든 데이터 포인트에서 로컬 기능 중요도 값을 사용하여 예측 값에 대한 각 피처의 영향 분포를 표시합니다.|
+|요약 중요도|모든 데이터 포인트에서 개별 피쳐 중요도 값을 사용하여 각 피쳐가 예측 값에 미치는 영향의 분포를 표시합니다. 이 다이어그램을 사용하여 기능 값이 예측 값에 영향을 미치는 방향을 조사합니다.
+|
 
 [![시각화 대시보드 글로벌](./media/how-to-machine-learning-interpretability-aml/global-charts.png)](./media/how-to-machine-learning-interpretability-aml/global-charts.png#lightbox)
 
-### <a name="local-visualizations"></a>로컬 시각화
+### <a name="understand-individual-predictions-local-explanation"></a>개별 예측 이해(현지 설명) 
 
-플롯의 개별 데이터 점을 선택하여 모든 데이터 포인트에 대한 로컬 피쳐 중요도 플롯을 로드할 수 있습니다.
+전체 플롯의 개별 데이터 점을 클릭하여 모든 데이터 포인트에 대한 개별 피쳐 중요도 플롯을 로드할 수 있습니다.
 
 |플롯|설명|
 |----|-----------|
-|지역 적 중요성|상위 K(구성 가능한 K)의 중요한 피처를 전역적으로 표시합니다. 특정 데이터 포인트에서 기본 모델의 로컬 동작을 보여 줍니다.|
-|섭동 탐색|선택한 데이터 포인트의 피처 값을 변경하고 예측 값에 대한 결과 변경 사항을 관찰할 수 있습니다.|
+|지역 적 중요성|개별 예측에 대한 상위 K(구성 가능한 K) 중요한 피처를 표시합니다. 특정 데이터 포인트에서 기본 모델의 로컬 동작을 보여 줍니다.|
+|섭동 탐색(분석하는 경우 는 무엇인가)|선택한 데이터 포인트의 피처 값을 변경하고 예측 값에 대한 결과 변경 사항을 관찰할 수 있습니다.|
 |개인 조건부 기대 (ICE)| 피처 값을 최소값에서 최대값으로 변경할 수 있습니다. 피쳐가 변경될 때 데이터 포인트의 예측이 어떻게 변경되는지 보여 줍니다.|
 
 [![시각화 대시보드 로컬 기능 중요도](./media/how-to-machine-learning-interpretability-aml/local-charts.png)](./media/how-to-machine-learning-interpretability-aml/local-charts.png#lightbox)
@@ -343,14 +359,9 @@ ExplanationDashboard(global_explanation, model, x_test)
 
 ### <a name="visualization-in-azure-machine-learning-studio"></a>Azure 기계 학습 스튜디오의 시각화
 
-원격 해석 [단계를](#interpretability-for-remote-runs) 완료하면 [Azure 기계 학습 스튜디오에서](https://ml.azure.com)시각화 대시보드를 볼 수 있습니다. 이 대시보드는 위에서 설명한 시각화 대시보드의 더 간단한 버전입니다. 그것은 단지 두 개의 탭을 지원합니다 :
+원격 해석 [가능성](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) 단계(생성된 설명을 Azure 기계 학습 실행 기록에 업로드)를 완료하면 [Azure 기계 학습 스튜디오에서](https://ml.azure.com)시각화 대시보드를 볼 수 있습니다. 이 대시보드는 위에서 설명한 시각화 대시보드의 간단한 버전입니다(설명 탐색 및 ICE 플롯은 실시간 계산을 수행할 수 있는 스튜디오에서 활성 계산이 없기 때문에 비활성화됨).
 
-|플롯|설명|
-|----|-----------|
-|글로벌 중요성|상위 K(구성 가능한 K)의 중요한 피처를 전역적으로 표시합니다. 기본 모델의 전역 동작을 이해하는 데 도움이 됩니다.|
-|요약 중요도|모든 데이터 포인트에서 로컬 기능 중요도 값을 사용하여 예측 값에 대한 각 피처의 영향 분포를 표시합니다.|
-
-전역 설명과 로컬 설명을 모두 사용할 수 있는 경우 데이터는 두 탭을 모두 채웁니다. 전역 설명만 사용할 수 있는 경우 중요도 요약 탭이 비활성화됩니다.
+데이터 집합, 전역 및 로컬 설명을 사용할 수 있는 경우 데이터는 모든 탭을 채웁니다(교란 탐색 및 ICE 제외). 전역 설명만 사용할 수 있는 경우 요약 중요도 탭 및 모든 로컬 설명 탭이 비활성화됩니다.
 
 다음 경로 중 하나를 따라 Azure 기계 학습 스튜디오에서 시각화 대시보드에 액세스합니다.
 
@@ -367,7 +378,7 @@ ExplanationDashboard(global_explanation, model, x_test)
 
 ## <a name="interpretability-at-inference-time"></a>추론 시간에 통역성
 
-설명기를 원래 모델과 함께 배포하고 추론 시간에 사용하여 로컬 설명 정보를 제공할 수 있습니다. 또한 추론 시간에 해석 성능을 향상시키기 위해 경량 점수 설명자를 제공합니다. 경량 점수 설명기를 배포하는 프로세스는 모델을 배포하는 것과 유사하며 다음 단계를 포함합니다.
+설명기를 원래 모델과 함께 배포하고 추론 시간에 사용하여 새 새 데이터 포인트에 대한 개별 기능 중요도 값(로컬 설명)을 제공할 수 있습니다. 또한 추론 시간에 해석 성능을 향상시키기 위해 경량 점수 설명자를 제공합니다. 경량 점수 설명기를 배포하는 프로세스는 모델을 배포하는 것과 유사하며 다음 단계를 포함합니다.
 
 1. 설명 개체를 만듭니다. 예를 들어 다음을 `TabularExplainer`사용할 수 있습니다.
 
@@ -385,7 +396,7 @@ ExplanationDashboard(global_explanation, model, x_test)
 1. 설명 개체를 사용하여 점수 매기기 설명기를 만듭니다.
 
    ```python
-   from azureml.contrib.interpret.scoring.scoring_explainer import KernelScoringExplainer, save
+   from azureml.interpret.scoring.scoring_explainer import KernelScoringExplainer, save
 
    # create a lightweight explainer at scoring time
    scoring_explainer = KernelScoringExplainer(explainer)
@@ -411,7 +422,7 @@ ExplanationDashboard(global_explanation, model, x_test)
 1. 선택적 단계로 클라우드에서 채점 설명자를 검색하고 설명을 테스트할 수 있습니다.
 
    ```python
-   from azureml.contrib.interpret.scoring.scoring_explainer import load
+   from azureml.interpret.scoring.scoring_explainer import load
 
    # retrieve the scoring explainer model from cloud"
    scoring_explainer_model = Model(ws, 'my_scoring_explainer')
@@ -559,3 +570,6 @@ ExplanationDashboard(global_explanation, model, x_test)
 ## <a name="next-steps"></a>다음 단계
 
 [모델 해석성에 대해 자세히 알아보기](how-to-machine-learning-interpretability.md)
+
+[Azure 기계 학습 해석 가능성 샘플 노트북 확인](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
+

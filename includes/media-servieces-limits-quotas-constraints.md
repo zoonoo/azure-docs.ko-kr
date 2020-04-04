@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 03/31/2020
 ms.author: juliako
-ms.openlocfilehash: 654af2c9e57bca9368eb0a5cdf32e692852ba522
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 99aeb5384b317d1b4d291c769b5402e829247b30
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80573287"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656191"
 ---
 > [!NOTE]
 > 고정되지 않은 리소스의 경우 지원 티켓을 열어 할당량 증가를 요청합니다. 더 높은 한도를 얻기 위해 Azure Media Services 계정을 추가로 만들지 마십시오.
@@ -26,7 +26,7 @@ ms.locfileid: "80573287"
 | --- | --- | 
 | 미디어 서비스 계정당 자산 | 1,000,000|
 
-### <a name="storage-limits"></a>스토리지 제한
+### <a name="storage-media-limits"></a>스토리지(미디어) 제한
 
 | 리소스 | 기본 제한 | 
 | --- | --- | 

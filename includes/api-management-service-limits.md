@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 01/10/2020
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 2d4c8c2c831bd6ef16f60c34a6353f4a742798f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5608683578a796ae0fffff7544a749043e8698fd
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76159715"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656204"
 ---
 | 리소스 | 제한 |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -38,7 +38,7 @@ ms.locfileid: "76159715"
 <sup>2개</sup> 단위 캐시당 크기는 가격 책정 계층에 따라 다릅니다. 가격 책정 계층 및 확장 한도를 보려면 [API 관리 가격 책정을](https://azure.microsoft.com/pricing/details/api-management/)참조하십시오.<br/>
 <sup>3개</sup> 연결은 백 엔드에서 명시적으로 닫히지 않는 한 풀리고 다시 사용됩니다.<br/>
 <sup>4개</sup> 이 제한은 기본, 표준 및 프리미엄 계층의 단위당 입니다. 개발자 계층은 1,024로 제한됩니다. 이 제한은 소비 계층에는 적용되지 않습니다.<br/>
-<sup>5개</sup> 이 제한은 기본, 표준 및 프리미엄 계층에 적용됩니다. 소비 계층에서 정책 문서 크기는 4KiB로 제한됩니다.<br/>
+<sup>5개</sup> 이 제한은 기본, 표준 및 프리미엄 계층에 적용됩니다. 소비 계층에서 정책 문서 크기는 16 KiB로 제한됩니다.<br/>
 <sup>6개</sup> 이 리소스는 프리미엄 계층에서만 사용할 수 있습니다.<br/>
 <sup>7명</sup> 이 리소스는 소비 계층에만 적용됩니다.<br/>
 <sup>8개</sup> 소비 계층에만 적용됩니다. 최대 2048바이트의 긴 쿼리 문자열을 포함합니다.<br/>

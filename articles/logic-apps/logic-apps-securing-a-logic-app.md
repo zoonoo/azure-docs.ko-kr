@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: cc349e5851627ee830196982509f91a83198dfe0
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 4fc4960eb3af8a3d3c9902c9b24505bb5610b709
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349588"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657169"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure 논리 앱의 보안 액세스 및 데이터
 
@@ -27,7 +27,7 @@ Azure Logic Apps에서 액세스를 제어하고 데이터를 보호하려면 �
 
 ## <a name="access-to-request-based-triggers"></a>요청 기반 트리거에 대한 액세스
 
-논리 앱에서 요청 [또는](../connectors/connectors-native-reqres.md) [Webhook](../connectors/connectors-native-webhook.md) 트리거와 같은 수신 호출 또는 요청을 받는 요청 기반 트리거를 사용하는 경우 권한이 부여된 클라이언트만 논리 앱을 호출할 수 있도록 액세스를 제한할 수 있습니다. 논리 앱에서 받은 모든 요청은 SSL(Secure Sockets Layer) 프로토콜을 사용하여 암호화되고 보안이 유지됩니다.
+논리 앱에서 요청 [또는](../connectors/connectors-native-reqres.md) [Webhook](../connectors/connectors-native-webhook.md) 트리거와 같은 수신 호출 또는 요청을 받는 요청 기반 트리거를 사용하는 경우 권한이 부여된 클라이언트만 논리 앱을 호출할 수 있도록 액세스를 제한할 수 있습니다. 논리 앱에서 수신된 모든 요청은 이전에 SSL(보안 소켓 계층), 프로토콜이라고 하는 전송 계층 보안(TLS)으로 암호화되고 보호됩니다.
 
 다음은 이 트리거 유형에 대한 액세스를 보호하는 데 도움이 되는 옵션입니다.
 
@@ -613,7 +613,7 @@ HTTP 및 HTTPS 끝점은 다양한 종류의 인증을 지원합니다. 이러�
 | [클라이언트 인증서](#client-certificate-authentication) | Azure API 관리, Azure 앱 서비스, HTTP, HTTP + Swagger, HTTP 웹후크 |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API 관리, Azure 앱 서비스, Azure 기능, HTTP, HTTP + Swagger, HTTP 웹후크 |
 | [원시](#raw-authentication) | Azure API 관리, Azure 앱 서비스, Azure 기능, HTTP, HTTP + Swagger, HTTP 웹후크 |
-| [관리 ID](#managed-identity-authentication) | Azure API 관리, Azure 앱 서비스, Azure 기능, HTTP, HTTP + Swagger, HTTP 웹후크 |
+| [관리되는 ID](#managed-identity-authentication) | Azure API 관리, Azure 앱 서비스, Azure 기능, HTTP, HTTP + Swagger, HTTP 웹후크 |
 |||
 
 <a name="basic-authentication"></a>
@@ -622,11 +622,11 @@ HTTP 및 HTTPS 끝점은 다양한 종류의 인증을 지원합니다. 이러�
 
 [기본](../active-directory-b2c/secure-rest-api.md) 옵션을 사용할 수 있는 경우 다음 속성 값을 지정합니다.
 
-| 속성 (디자이너) | Property(JSON) | 필수 | 값 | 설명 |
+| 속성 (디자이너) | Property(JSON) | 필수 | 값 | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **인증** | `type` | yes | Basic | 사용할 인증 유형 |
-| **사용자** | `username` | yes | <*사용자 이름*>| 대상 서비스 엔드포인트에 대한 액세스를 인증하는 사용자 이름입니다. |
-| **암호** | `password` | yes | <*암호*> | 대상 서비스 엔드포인트에 대한 액세스를 인증하는 암호입니다. |
+| **인증** | `type` | 예 | Basic | 사용할 인증 유형 |
+| **사용자 이름** | `username` | 예 | <*사용자 이름*>| 대상 서비스 엔드포인트에 대한 액세스를 인증하는 사용자 이름입니다. |
+| **암호** | `password` | 예 | <*암호*> | 대상 서비스 엔드포인트에 대한 액세스를 인증하는 암호입니다. |
 ||||||
 
 [보안 매개 변수를](#secure-action-parameters) 사용하여 중요한 정보를 처리하고 보호하는 경우(예: [배포 자동화를 위한 Azure Resource Manager 템플릿)](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)표현식을 사용하여 런타임에 이러한 매개 변수 값에 액세스할 수 있습니다. 이 예제 HTTP 작업 정의는 `type` `Basic` 인증을 다음과 같이 지정하고 [parameters() 함수를](../logic-apps/workflow-definition-language-functions-reference.md#parameters) 사용하여 매개 변수 값을 가져옵니다.
@@ -653,10 +653,10 @@ HTTP 및 HTTPS 끝점은 다양한 종류의 인증을 지원합니다. 이러�
 
 클라이언트 [인증서](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) 옵션을 사용할 수 있는 경우 다음 속성 값을 지정합니다.
 
-| 속성 (디자이너) | Property(JSON) | 필수 | 값 | 설명 |
+| 속성 (디자이너) | Property(JSON) | 필수 | 값 | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **인증** | `type` | yes | **클라이언트 인증서** <br>또는 <br>`ClientCertificate` | SSL(Secure Sockets Layer) 클라이언트 인증서에 사용할 인증 유형입니다. 자체 서명된 인증서가 지원되지만 SSL에 대한 자체 서명된 인증서는 지원되지 않습니다. |
-| **Pfx** | `pfx` | yes | <*인코딩된 pfx 파일 콘텐츠*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 <p><p>PFX 파일을 base64 인코딩 형식으로 변환하려면 다음 단계를 수행하여 PowerShell을 사용할 수 있습니다. <p>1. 인증서 내용을 변수에 저장합니다. <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. `ToBase64String()` 함수를 사용하여 인증서 내용을 변환하고 해당 콘텐츠를 텍스트 파일에 저장합니다. <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
+| **인증** | `type` | 예 | **클라이언트 인증서** <br>또는 <br>`ClientCertificate` | TLS/SSL 클라이언트 인증서에 사용할 인증 유형입니다. 자체 서명된 인증서가 지원되지만 TLS/SSL에 대한 자체 서명된 인증서는 지원되지 않습니다. |
+| **Pfx** | `pfx` | 예 | <*인코딩된 pfx 파일 콘텐츠*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 <p><p>PFX 파일을 base64 인코딩 형식으로 변환하려면 다음 단계를 수행하여 PowerShell을 사용할 수 있습니다. <p>1. 인증서 내용을 변수에 저장합니다. <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. `ToBase64String()` 함수를 사용하여 인증서 내용을 변환하고 해당 콘텐츠를 텍스트 파일에 저장합니다. <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **암호** | `password`| 예 | <*암호 - 대 pfx 파일*> | PFX 파일에 액세스하기 위한 암호 |
 |||||
 
@@ -684,7 +684,7 @@ HTTP 및 HTTPS 끝점은 다양한 종류의 인증을 지원합니다. 이러�
 * [Azure API 관리에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스에 대한 보안 향상](../api-management/api-management-howto-mutual-certificates.md)
 * [클라이언트 인증서를 사용하여 RESTfuL 서비스에 대한 보안 향상](../active-directory-b2c/secure-rest-api.md)
 * [애플리케이션 인증을 위한 인증서 자격 증명](../active-directory/develop/active-directory-certificate-credentials.md)
-* [Azure App Service의 애플리케이션 코드에서 SSL 인증서 사용](../app-service/configure-ssl-certificate-in-code.md)
+* [Azure 앱 서비스의 코드에서 TLS/SSL 인증서 사용](../app-service/configure-ssl-certificate-in-code.md)
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
@@ -692,14 +692,14 @@ HTTP 및 HTTPS 끝점은 다양한 종류의 인증을 지원합니다. 이러�
 
 Active [Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) 옵션을 사용할 수 있는 경우 다음 속성 값을 지정합니다.
 
-| 속성 (디자이너) | Property(JSON) | 필수 | 값 | 설명 |
+| 속성 (디자이너) | Property(JSON) | 필수 | 값 | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **인증** | `type` | yes | **Active Directory OAuth** <br>또는 <br>`ActiveDirectoryOAuth` | 사용할 인증 유형입니다. 논리 앱은 현재 [OAuth 2.0 프로토콜을](../active-directory/develop/v2-overview.md)따릅니다. |
+| **인증** | `type` | 예 | **Active Directory OAuth** <br>또는 <br>`ActiveDirectoryOAuth` | 사용할 인증 유형입니다. 논리 앱은 현재 [OAuth 2.0 프로토콜을](../active-directory/develop/v2-overview.md)따릅니다. |
 | **Authority** | `authority` | 예 | <*권한용 URL 토큰 발급자*> | 인증 토큰을 제공하는 기관의 URL입니다. 이 값은 기본적으로 `https://login.windows.net`입니다. |
-| **테넌트** | `tenant` | yes | <*테넌트 ID*> | Azure AD 테넌트의 테넌트 ID |
-| **관객** | `audience` | yes | <*권한 부여할 리소스*> | 권한 부여에 사용할 리소스(예: `https://management.core.windows.net/`) |
-| **클라이언트 ID** | `clientId` | yes | <*클라이언트 ID*> | 권한 부여를 요청하는 앱에 대한 클라이언트 ID |
-| **자격 증명 유형** | `credentialType` | yes | 인증서 <br>또는 <br>비밀 | 클라이언트가 권한 부여를 요청하는 데 사용하는 자격 증명 유형입니다. 이 속성 및 값논리 앱의 기본 정의에 나타나지 않지만 선택한 자격 증명 유형에 대해 나타나는 속성을 결정합니다. |
+| **테넌트** | `tenant` | 예 | <*테넌트 ID*> | Azure AD 테넌트의 테넌트 ID |
+| **관객** | `audience` | 예 | <*권한 부여할 리소스*> | 권한 부여에 사용할 리소스(예: `https://management.core.windows.net/`) |
+| **클라이언트 ID** | `clientId` | 예 | <*클라이언트 ID*> | 권한 부여를 요청하는 앱에 대한 클라이언트 ID |
+| **자격 증명 유형** | `credentialType` | 예 | 인증서 <br>또는 <br>비밀 | 클라이언트가 권한 부여를 요청하는 데 사용하는 자격 증명 유형입니다. 이 속성 및 값논리 앱의 기본 정의에 나타나지 않지만 선택한 자격 증명 유형에 대해 나타나는 속성을 결정합니다. |
 | **비밀** | `secret` | 예, 하지만 "비밀" 자격 증명 유형에 대해서만 | <*클라이언트 비밀*> | 권한 부여를 요청하는 클라이언트 비밀 |
 | **Pfx** | `pfx` | 예. 하지만 "인증서" 자격 증명 유형에 대해서만 | <*인코딩된 pfx 파일 콘텐츠*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 |
 | **암호** | `password` | 예. 하지만 "인증서" 자격 증명 유형에 대해서만 | <*암호 - 대 pfx 파일*> | PFX 파일에 액세스하기 위한 암호 |
@@ -746,10 +746,10 @@ Authorization: OAuth realm="Photos",
 
 원시 인증을 지원하는 트리거 또는 작업에서 다음 속성 값을 지정합니다.
 
-| 속성 (디자이너) | Property(JSON) | 필수 | 값 | 설명 |
+| 속성 (디자이너) | Property(JSON) | 필수 | 값 | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **인증** | `type` | yes | Raw | 사용할 인증 유형 |
-| **값** | `value` | yes | <*권한 부여-헤더-값*> | 인증에 사용할 권한 부여 헤더 값 |
+| **인증** | `type` | 예 | Raw | 사용할 인증 유형 |
+| **값** | `value` | 예 | <*권한 부여-헤더-값*> | 인증에 사용할 권한 부여 헤더 값 |
 ||||||
 
 [보안 매개 변수를](#secure-action-parameters) 사용하여 중요한 정보를 처리하고 보호하는 경우(예: [배포 자동화를 위한 Azure Resource Manager 템플릿)](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)표현식을 사용하여 런타임에 이러한 매개 변수 값에 액세스할 수 있습니다. 이 예제 HTTP 작업 정의는 `type` `Raw`인증을 로 지정하고 [parameters() 함수를](../logic-apps/workflow-definition-language-functions-reference.md#parameters) 사용하여 매개 변수 값을 가져옵니다.
@@ -781,11 +781,11 @@ Authorization: OAuth realm="Photos",
 
 1. 관리되는 ID를 사용하려는 트리거 또는 작업에서 다음 속성 값을 지정합니다.
 
-   | 속성 (디자이너) | Property(JSON) | 필수 | 값 | 설명 |
+   | 속성 (디자이너) | Property(JSON) | 필수 | 값 | Description |
    |---------------------|-----------------|----------|-------|-------------|
-   | **인증** | `type` | yes | **관리되는 ID** <br>또는 <br>`ManagedServiceIdentity` | 사용할 인증 유형 |
-   | **관리되는 ID** | `identity` | yes | * **시스템 할당된 관리되는 ID** <br>또는 <br>`SystemAssigned` <p><p>* *<사용자 할당 된 ID 이름*> | 사용할 관리되는 ID |
-   | **관객** | `audience` | yes | <*대상 리소스 ID*> | 액세스하려는 대상 리소스의 리소스 ID입니다. <p>예를 들어 `https://storage.azure.com/` 인증에 대한 액세스 토큰을 모든 저장소 계정에 대해 유효하게 만듭니다. 그러나 특정 저장소 계정에 `https://fabrikamstorageaccount.blob.core.windows.net` 대한 루트 서비스 URL을 지정할 수도 있습니다. <p>**참고:** **Audience** 속성은 일부 트리거 또는 동작에 숨겨져 있을 수 있습니다. 이 속성을 표시하려면 트리거 또는 작업에서 **새 매개 변수 추가** 목록을 열고 **잠재고객**을 선택합니다. <p><p>**중요**: 이 대상 리소스 ID가 필요한 후행 슬래시를 포함하여 Azure AD가 기대하는 값과 *정확히 일치하는지* 확인합니다. 따라서 모든 `https://storage.azure.com/` Azure Blob Storage 계정에 대한 리소스 ID에는 후행 슬래시가 필요합니다. 그러나 특정 저장소 계정에 대 한 리소스 ID 후행 슬래시를 필요로 하지 않습니다. 이러한 리소스 아이디를 찾으려면 [Azure AD를 지원하는 Azure 서비스를](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)참조하십시오. |
+   | **인증** | `type` | 예 | **관리 ID** <br>또는 <br>`ManagedServiceIdentity` | 사용할 인증 유형 |
+   | **관리 ID** | `identity` | 예 | * **시스템 할당된 관리되는 ID** <br>또는 <br>`SystemAssigned` <p><p>* *<사용자 할당 된 ID 이름*> | 사용할 관리되는 ID |
+   | **관객** | `audience` | 예 | <*대상 리소스 ID*> | 액세스하려는 대상 리소스의 리소스 ID입니다. <p>예를 들어 `https://storage.azure.com/` 인증에 대한 액세스 토큰을 모든 저장소 계정에 대해 유효하게 만듭니다. 그러나 특정 저장소 계정에 `https://fabrikamstorageaccount.blob.core.windows.net` 대한 루트 서비스 URL을 지정할 수도 있습니다. <p>**참고:** **Audience** 속성은 일부 트리거 또는 동작에 숨겨져 있을 수 있습니다. 이 속성을 표시하려면 트리거 또는 작업에서 **새 매개 변수 추가** 목록을 열고 **잠재고객**을 선택합니다. <p><p>**중요**: 이 대상 리소스 ID가 필요한 후행 슬래시를 포함하여 Azure AD가 기대하는 값과 *정확히 일치하는지* 확인합니다. 따라서 모든 `https://storage.azure.com/` Azure Blob Storage 계정에 대한 리소스 ID에는 후행 슬래시가 필요합니다. 그러나 특정 저장소 계정에 대 한 리소스 ID 후행 슬래시를 필요로 하지 않습니다. 이러한 리소스 아이디를 찾으려면 [Azure AD를 지원하는 Azure 서비스를](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)참조하십시오. |
    |||||
 
    [보안 매개 변수를](#secure-action-parameters) 사용하여 중요한 정보를 처리하고 보호하는 경우(예: [배포 자동화를 위한 Azure Resource Manager 템플릿)](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)표현식을 사용하여 런타임에 이러한 매개 변수 값에 액세스할 수 있습니다. 이 예제 HTTP 작업 정의는 `type` `ManagedServiceIdentity` 인증을 다음과 같이 지정하고 [parameters() 함수를](../logic-apps/workflow-definition-language-functions-reference.md#parameters) 사용하여 매개 변수 값을 가져옵니다.

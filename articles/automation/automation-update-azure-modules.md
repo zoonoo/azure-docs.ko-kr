@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3d7eaae452f307b350c111452b819576cf7f17e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 721bb3579fec10df88be471d67f68c0846aa9432
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75420477"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632122"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법
 
-자동화 계정의 Azure 모듈을 업데이트하려면 오픈 소스로 사용할 수 있는 [Azure 모듈 Runbook 업데이트를](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)사용해야 합니다. **Update-AutomationAzureModulesForAccount** Runbook을 사용하여 Azure 모듈을 업데이트하려면 GitHub의 [Azure 모듈 Runbook 리포지토리 업데이트](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)에서 다운로드합니다. 그런 다음, Automation 계정으로 가져오거나 스크립트로 실행할 수 있습니다. 자동화 계정에서 Runbook을 가져오는 방법을 알아보려면 [runbook 가져오기](manage-runbooks.md#import-a-runbook)를 참조하십시오.
+자동화 계정의 Azure 모듈을 업데이트하려면 오픈 소스로 사용할 수 있는 [Azure 모듈 Runbook 업데이트를](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)사용해야 합니다. **Update-AutomationAzureModulesForAccount** Runbook을 사용하여 Azure 모듈을 업데이트하려면 GitHub의 [Azure 모듈 Runbook 리포지토리 업데이트](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)에서 다운로드합니다. 그런 다음, Automation 계정으로 가져오거나 스크립트로 실행할 수 있습니다. 자동화 계정에서 Runbook을 가져오는 방법을 알아보려면 [runbook 가져오기](manage-runbooks.md#importing-a-runbook)를 참조하십시오.
 
 가장 일반적인 AzureRM PowerShell 모듈은 기본적으로 각 자동화 계정에서 제공됩니다. Azure 팀은 Azure 모듈을 정기적으로 업데이트하므로 최신 상태로 유지하려면 [업데이트-AutomationAzureModulesForAccount](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) 런북을 사용하여 자동화 계정의 모듈을 업데이트할 수 있습니다.
 

@@ -4,19 +4,19 @@ description: Windows 로그인 화면에서 잊어버린 암호를 사용하여 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1f0e5242d87bc68efd92a52619e8d48cff9ac87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a8675756aeef1140dbebd94023d7f7fb4c7af99
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77370062"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652251"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>방법: Windows 로그인 화면에서 암호 재설정 사용
 
@@ -80,7 +80,7 @@ Intune을 사용하여 로그인 화면에서 암호 재설정을 사용하도�
       - **값**을 **1**로 설정
       - **확인**을 클릭합니다.
    - **확인**을 클릭합니다.
-1. **만들기를 클릭합니다.**
+1. **만들기**
 1. 이 정책은 특정 사용자, 장치 또는 그룹에 할당할 수 있습니다. 자세한 내용은 [Microsoft Intune의 사용자 및 장치 프로필 할당](https://docs.microsoft.com/intune/device-profile-assign)문서에서 찾을 수 있습니다.
 
 ### <a name="enable-for-windows-10-using-the-registry"></a>레지스트리를 사용하여 Windows 10용 으로 사용
@@ -97,7 +97,7 @@ Azure AD 감사 로그에는 암호 재설정이 발생하는 IP 주소 및 Clie
 
 ![Azure AD 감사 로그의 Windows 7 암호 재설정 예](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-사용자가 Windows 10 장치의 로그인 화면에서 암호를 재설정하면 권한이 낮은 임시 계정이라고 하는 `defaultuser1` 임시 계정이 만들어집니다. 이 계정은 암호 재설정 프로세스를 안전하게 유지하는 데 사용됩니다. 계정 자체는 무작위로 생성된 암호를 가지고 있으며, 디바이스 로그인 시 표시되지 않으며, 사용자가 암호를 설정하면 자동으로 제거됩니다. 여러 `defaultuser` 프로필이 존재할 수 있지만 무시해도 됩니다.
+사용자가 Windows 10 장치의 로그인 화면에서 암호를 재설정하면 권한이 낮은 임시 계정이라고 하는 `defaultuser1` 임시 계정이 만들어집니다. 이 계정은 암호 재설정 프로세스를 안전하게 유지하는 데 사용됩니다. 계정 자체에 임의로 생성된 암호가 있고, 장치 로그인에 표시되지 않으며, 사용자가 암호를 재설정한 후 자동으로 제거됩니다. 여러 `defaultuser` 프로필이 존재할 수 있지만 무시해도 됩니다.
 
 ## <a name="windows-7-8-and-81-password-reset"></a>윈도우 7, 8, 8.1 암호 재설정
 
@@ -128,8 +128,8 @@ Azure AD 감사 로그에는 암호 재설정이 발생하는 IP 주소 및 Clie
 
 #### <a name="silent-installation"></a>자동 설치
 
-- 자동 설치의 경우 "msiexec /i SsprWindowsLogon.PROD.msi /qn" 명령을 사용합니다.
-- 자동 제거의 경우 "msiexec /x SsprWindowsLogon.PROD.msi /qn" 명령을 사용합니다.
+- 자동 설치를 위해 명령 "msiexec /i SsprWindowsLogon.PROD.msi/qn" 명령을 사용합니다.
+- 자동 제거를 위해 명령 "msiexec/x SsprWindowsLogon.PROD.msi/qn" 명령을 사용합니다.
 
 #### <a name="troubleshooting-windows-7-8-and-81-password-reset"></a>Windows 7, 8 및 8.1 암호 재설정 문제 해결
 
@@ -141,8 +141,8 @@ Azure AD 감사 로그에는 암호 재설정이 발생하는 IP 주소 및 Clie
 
 `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
-- 자세한 로깅을 사용하려면 `REG_DWORD: “EnableLogging”`을 만들고 1로 설정합니다.
-- 자세한 로깅을 사용하지 않으려면 0으로 `REG_DWORD: “EnableLogging”` 변경합니다.
+- 자세한 로깅을 사용하려면 `REG_DWORD: "EnableLogging"`을 만들고 1로 설정합니다.
+- 자세한 로깅을 사용하지 않으려면 0으로 `REG_DWORD: "EnableLogging"` 변경합니다.
 
 ## <a name="what-do-users-see"></a>사용자에게 표시되는 내용
 

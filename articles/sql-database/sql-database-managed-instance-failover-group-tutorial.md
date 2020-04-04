@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: bf83155e971061f22e5f5fc33d216b58621c9249
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f1a56fa6ea38acd8061180407eb47fe416b61e9
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462652"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631710"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>자습서: 장애 조치 그룹에 SQL Database 관리 인스턴스 추가
 
@@ -42,11 +42,11 @@ ms.locfileid: "77462652"
 - Azure 구독 아직 계정이 없는 경우 [무료 계정을 만드세요.](https://azure.microsoft.com/free/)
 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 자습서를 완료하려면 다음 항목이 있는지 확인합니다.
 
 - Azure 구독 아직 계정이 없는 경우 [무료 계정을 만드세요.](https://azure.microsoft.com/free/)
-- [Azure 파워쉘](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 ---
 
@@ -75,7 +75,7 @@ Azure 포털을 사용하여 리소스 그룹 및 기본 관리 인스턴스를 
 1. 나머지 설정을 기본값으로 그대로 두고 **검토 + 만들기를** 선택하여 관리되는 인스턴스 설정을 검토합니다. 
 1. 기본 관리 인스턴스를 만들려면 **만들기를** 선택합니다. 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 PowerShell을 사용하여 리소스 그룹과 기본 관리 인스턴스를 만듭니다. 
 
@@ -433,7 +433,7 @@ Azure 포털을 사용하여 관리되는 인스턴스를 만드는 경우 기�
 
     ![보조 가상 네트워크 값](media/sql-database-managed-instance-failover-group-tutorial/secondary-virtual-network.png)
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 이 단계는 Azure 포털을 사용하여 관리되는 인스턴스를 배포하는 경우에만 필요합니다. PowerShell을 사용하는 경우 3단계로 건너뜁니다. 
 
@@ -482,7 +482,7 @@ Azure 포털을 사용하여 보조 관리형 인스턴스를 만듭니다.
 1. **검토 + 만들기를** 선택하여 보조 관리 인스턴스의 설정을 검토합니다. 
 1. 보조 관리 인스턴스를 만들려면 **만들기를** 선택합니다. 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 PowerShell을 사용하여 보조 관리 형 인스턴스를 만듭니다. 
 
@@ -756,10 +756,10 @@ Azure 포털을 사용하여 기본 관리 인스턴스의 가상 네트워크�
     | --- | --- |
     | **구독** |  기본 관리 인스턴스가 있는 구독입니다. |
     | **이름** | 와 같은 `primary-mi-gateway`가상 네트워크 게이트웨이의 이름입니다. | 
-    | **지역** | 보조 관리 인스턴스가 있는 지역입니다. |
+    | **지역** | 기본 관리 인스턴스가 있는 지역입니다. |
     | **게이트웨이 유형** | **VPN을**선택합니다. |
     | **VPN 유형** | **경로 기반** 선택 |
-    | **Sku**| 기본값을 `VpnGw1`그대로 둡니다. |
+    | **SKU**| 기본값을 `VpnGw1`그대로 둡니다. |
     | **위치**| 기본 관리 인스턴스 및 기본 가상 네트워크가 있는 위치입니다.   |
     | **가상 네트워크**| `vnet-sql-mi-primary`과 같은 섹션 2에서 만든 가상 네트워크를 선택합니다. |
     | **공용 IP 주소**| **새로 만들기**를 선택합니다. |
@@ -773,7 +773,7 @@ Azure 포털을 사용하여 기본 관리 인스턴스의 가상 네트워크�
 1. 새 가상 네트워크 게이트웨이를 만들려면 **만들기를** 선택합니다. 
 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 PowerShell을 사용하여 기본 관리 인스턴스의 가상 네트워크에 대한 게이트웨이를 만듭니다. 
 
@@ -841,7 +841,7 @@ Azure 포털을 사용하여 이전 섹션의 단계를 반복하여 보조 관�
    | **지역** | 보조 관리 인스턴스가 있는 지역입니다. |
    | **게이트웨이 유형** | **VPN을**선택합니다. |
    | **VPN 유형** | **경로 기반** 선택 |
-   | **Sku**| 기본값을 `VpnGw1`그대로 둡니다. |
+   | **SKU**| 기본값을 `VpnGw1`그대로 둡니다. |
    | **위치**| 보조 관리 인스턴스 및 보조 가상 네트워크가 있는 위치입니다.   |
    | **가상 네트워크**| `vnet-sql-mi-secondary`과 같은 섹션 2에서 만든 가상 네트워크를 선택합니다. |
    | **공용 IP 주소**| **새로 만들기**를 선택합니다. |
@@ -851,7 +851,7 @@ Azure 포털을 사용하여 이전 섹션의 단계를 반복하여 보조 관�
    ![보조 게이트웨이 설정](media/sql-database-managed-instance-failover-group-tutorial/settings-for-secondary-gateway.png)
 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 PowerShell을 사용하여 보조 관리 인스턴스의 가상 네트워크에 대한 게이트웨이를 만듭니다. 
 
@@ -933,7 +933,7 @@ Azure 포털을 사용하여 두 게이트웨이를 연결합니다.
 1. **요약** 탭에서 양방향 연결의 설정을 검토한 다음 **확인을** 선택하여 연결을 만듭니다. 
 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 PowerShell을 사용하여 두 게이트웨이를 연결합니다. 
 
@@ -984,7 +984,7 @@ Azure 포털을 사용하여 장애 조치 그룹을 만듭니다.
 1. 장애 조치 그룹 배포가 완료되면 장애 조치 **그룹** 페이지로 돌아갑니다. 
 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 PowerShell을 사용하여 장애 조치 그룹을 만듭니다. 
 
    ```powershell-interactive
@@ -1027,7 +1027,7 @@ Azure 포털을 사용하여 장애 조치(failover)를 테스트합니다.
 1. 새 _보조_ 관리형 인스턴스로 이동하여 **장애 조치(Failover)를** 다시 선택하여 기본 인스턴스를 기본 역할로 다시 실패시합니다. 
 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 PowerShell을 사용하여 장애 조치(failover)를 테스트합니다. 
 
    ```powershell-interactive
@@ -1083,7 +1083,7 @@ PowerShell을 사용하여 장애 조치(failover)를 테스트합니다.
 1. 나머지 리소스를 삭제합니다. 텍스트 상자에서 `yes`를 입력하여 리소스를 삭제할지 확인한 다음, **삭제**를 선택합니다. 
 1. **리소스 그룹 삭제**를 선택하고, 리소스 그룹 이름(`myResourceGroup`)을 입력한 다음, **삭제**를 선택하여 해당 리소스 그룹을 삭제합니다. 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 리소스 그룹을 두 번 제거해야 합니다. 리소스 그룹을 처음으로 제거하면 관리형 인스턴스와 가상 클러스터가 제거되지만, `Remove-AzResourceGroup : Long running operation failed with status 'Conflict'.` 오류 메시지와 함께 실패하게 됩니다. Remove-AzResourceGroup 명령을 한 번 더 실행하여 리소스 그룹뿐 아니라 나머지 리소스를 모두 제거합니다.
 
@@ -1104,7 +1104,7 @@ Write-host "Removing residual resources and resouce group..."
 
 ## <a name="full-script"></a>전체 스크립트
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 [!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-managed-instance-to-failover-group-az-ps.ps1 "Add managed instance to a failover group")]
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.

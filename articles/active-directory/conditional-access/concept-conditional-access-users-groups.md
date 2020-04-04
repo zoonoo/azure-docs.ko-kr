@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 04/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36898e75680771a9cb084fa142bb635ddbf51c70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43ae866959dd2112bacbb6b56e5683e7b3b851a0
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77192130"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631905"
 ---
 # <a name="conditional-access-users-and-groups"></a>조건부 액세스: 사용자 및 그룹
 
@@ -44,7 +44,7 @@ ms.locfileid: "77192130"
 
 ## <a name="exclude-users"></a>사용자 제외
 
-제외는 일반적으로 비상 액세스 또는 브레이크 글라스 계정에 사용됩니다. 긴급 액세스 계정에 대한 자세한 정보와 중요한 이유에 대한 자세한 내용은 다음 문서에서 찾을 수 있습니다. 
+조직에서 사용자 또는 그룹을 포함 하거나 제외 하는 경우 사용자 또는 그룹 정책에서 제외 됩니다. 제외는 일반적으로 비상 액세스 또는 브레이크 글라스 계정에 사용됩니다. 긴급 액세스 계정에 대한 자세한 정보와 중요한 이유에 대한 자세한 내용은 다음 문서에서 찾을 수 있습니다. 
 
 * [Azure AD에서 응급 액세스 계정 관리](../users-groups-roles/directory-emergency-access.md)
 * [Azure Active Directory를 사용하여 복원력 있는 액세스 제어 관리 전략 수립](../authentication/concept-resilient-controls.md)
@@ -57,6 +57,16 @@ ms.locfileid: "77192130"
    - 관리자가 할당을 결정하는 데 사용되는 특정 Azure AD 디렉터리 역할을 선택할 수 있습니다. 예를 들어 조직은 전역 관리자 역할을 할당한 사용자에 대해 보다 제한적인 정책을 만들 수 있습니다.
 - 개요
    - 특정 사용자 집합을 타겟팅할 수 있습니다. 예를 들어 조직은 HR 앱이 클라우드 앱으로 선택될 때 HR 부서의 모든 구성원이 포함된 그룹을 선택할 수 있습니다. 그룹은 동적 또는 할당된 보안 및 배포 그룹을 포함하여 Azure AD의 어떤 그룹 유형이라도 상관 없습니다.
+
+### <a name="preventing-administrator-lockout"></a>관리자 잠금 방지
+
+**모든 사용자** 및 **모든 앱에**적용되는 정책을 만들 때 관리자가 디렉터리에서 자신을 잠그지 못하도록 하려면 다음 경고가 표시됩니다.
+
+> 자신을 잠그지 마십시오! 작은 사용자 집합에 정책을 먼저 적용하여 예상대로 작동하는지 확인하는 것이 좋습니다. 또한 이 정책에서 관리자를 하나 이상 제외하는 것이 좋습니다. 이렇게 하면 계속 액세스할 수 있으며 변경이 필요한 경우 정책을 업데이트할 수 있습니다. 영향을 받는 사용자 및 앱을 검토하십시오.
+
+기본적으로 정책은 정책에서 현재 사용자를 제외하는 옵션을 제공하지만 다음 이미지와 같이 관리자가 이 기본값을 재정의할 수 있습니다. 
+
+![경고, 자신을 잠그지 마십시오!](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
 
 ## <a name="next-steps"></a>다음 단계
 

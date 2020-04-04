@@ -11,18 +11,19 @@ ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 47ee6f7627602732800949bcb9701045fcbff1a8
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: b24706943cdf59fba89a8007c4914b628b9e34d5
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583171"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632974"
 ---
-# <a name="troubleshooting-synapse-sql-pool-in-azure-synapse-analytics"></a>Azure 시냅스 분석에서 시냅스 SQL 풀 문제 해결
+# <a name="troubleshooting-sql-analytics-in-azure-synapse"></a>Azure 시냅스에서 SQL 분석 문제 해결
 
 이 문서에서는 일반적인 문제 해결 질문을 나열합니다.
 
 ## <a name="connecting"></a>Connecting
+
 | 문제                                                        | 해결 방법                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | 'NT AUTHORITY\ANONYMOUS LOGON' 사용자에 대해 로그인 실패 (Microsoft SQL Server, 오류: 18456) | 이 오류는 Azure AD 사용자가 마스터 데이터베이스에 연결하려고 하지만 마스터에 있는 사용자가 없을 때 발생합니다.  이 문제를 해결하려면 연결 시 연결할 SQL 풀을 지정하거나 사용자를 마스터 데이터베이스에 추가합니다.  자세한 내용은 [보안 개요](sql-data-warehouse-overview-manage-security.md) 문서를 참조하세요. |
@@ -32,6 +33,7 @@ ms.locfileid: "80583171"
 | 도구 또는 드라이버에 연결할 수 없음                           | 시냅스 SQL 풀은 [SSMS,](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) [Visual Studio용 SSDT](sql-data-warehouse-install-visual-studio.md)또는 [sqlcmd를](sql-data-warehouse-get-started-connect-sqlcmd.md) 사용하여 데이터를 쿼리하는 것이 좋습니다. 드라이버 및 Azure 시냅스 연결에 대한 자세한 내용은 [Azure 시냅스 드라이버](sql-data-warehouse-connection-strings.md) 및 [Azure 시냅스](sql-data-warehouse-connect-overview.md) 에 연결 문서를 참조하세요. |
 
 ## <a name="tools"></a>도구
+
 | 문제                                                        | 해결 방법                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Visual Studio 개체 탐색기 Azure AD 사용자가 없습니다.           | 이것은 알려진 문제이며  해결 방법으로 [sys.database_principals](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?view=sql-server-ver15)에서 사용자를 봅니다.  시냅스 SQL 풀에서 Azure Active Directory를 사용하는 방법에 대해 자세히 알아보려면 [Azure 시냅스](sql-data-warehouse-authentication.md) 인증을 참조하십시오. |
@@ -39,6 +41,7 @@ ms.locfileid: "80583171"
 | SSMS에서 스크립트 생성 실패                               | "종속 개체에 대한 스크립트 생성" 옵션이 "True"로 설정된 경우 Synapse SQL 풀에 대한 스크립트 생성이 실패합니다. 해결 방법은 사용자가 수동으로 **도구 > 옵션->SQL Server 개체 탐색기 -> 종속 옵션에 대 한 스크립트를 생성 하 고 false로 설정** 해야 합니다. |
 
 ## <a name="performance"></a>성능
+
 | 문제                                                        | 해결 방법                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | 쿼리 성능 문제 해결                            | 특정 쿼리 문제를 해결하려는 경우 [쿼리 모니터링 방법 알아보기](sql-data-warehouse-manage-monitor.md#monitor-query-execution)문서부터 참조합니다. |
@@ -50,15 +53,16 @@ ms.locfileid: "80583171"
 | 인덱스 품질 저하로 인한 쿼리 성능 저하     | 경우에 따라 [columnstore 인덱스 품질 저하](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality)로 인해 쿼리가 느려질 수 있습니다.  자세한 내용 및 [세그먼트 품질을 개선하기 위해 인덱스 다시 작성](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)방법에 대해서는 이 문서를 참조하세요. |
 
 ## <a name="system-management"></a>시스템 관리
+
 | 문제                                                        | 해결 방법                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Msg 40847: 서버가 허용되는 데이터베이스 트랜잭션 단위 할당량인 45000을 초과하므로 작업을 수행할 수 없습니다. | 만들려는 데이터베이스의 [DWU](what-is-a-data-warehouse-unit-dwu-cdwu.md)를 줄이거나 또는 [할당량 증가를 요청](sql-data-warehouse-get-started-create-support-ticket.md)합니다. |
-| 공간 사용률 조사                              | 시스템의 공간 사용률을 이해하려면 [테이블 크기]( ../../sql-data-warehouse/sql-data-warehouse-tables-overview.md#table-size-queries) 를 참조하세요. |
+| 공간 사용률 조사                              | 시스템의 공간 사용률을 이해하려면 [테이블 크기](sql-data-warehouse-tables-overview.md#table-size-queries) 를 참조하세요. |
 | 테이블 관리 도움말                                    | 테이블 관리에 대한 도움이 필요한 경우 [테이블 개요](sql-data-warehouse-tables-overview.md) 문서를 참조하세요.  이 문서에는 [테이블 데이터 유형](sql-data-warehouse-tables-data-types.md), [테이블 배포](sql-data-warehouse-tables-distribute.md), [테이블 인덱싱](sql-data-warehouse-tables-index.md),  [테이블 분할](sql-data-warehouse-tables-partition.md), [테이블 통계 유지 관리](sql-data-warehouse-tables-statistics.md) 및 [임시 테이블](sql-data-warehouse-tables-temporary.md)과 같이 좀 더 자세한 항목으로 연결되는 링크가 포함되어 있습니다. |
 | Azure 포털에서 투명 데이터 암호화(TDE) 진행률 표시줄이 업데이트되지 않음 | [powershell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption)을 통해 TDE의 상태를 볼 수 있습니다. |
 
-
 ## <a name="differences-from-sql-database"></a>SQL Database와의 차이점
+
 | 문제                                 | 해결 방법                                                   |
 | :------------------------------------ | :----------------------------------------------------------- |
 | 지원되지 않는 SQL Database 기능     | [지원되지 않는 테이블 기능](sql-data-warehouse-tables-overview.md#unsupported-table-features)을 참조하세요. |
@@ -69,6 +73,7 @@ ms.locfileid: "80583171"
 | UDF가 SELECT 문을 지원하지 않음 | 이 문제가 UDF의 현재 제한 사항입니다.  지원되는 구문에 대해서는 [CREATE FUNCTION](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=aps-pdw-2016-au7) 을 참조하세요. |
 
 ## <a name="next-steps"></a>다음 단계
+
 문제 해결 방법을 찾는 데 도움이 필요한 경우 다음과 같은 리소스를 사용해 보세요.
 
 * [블로그](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)

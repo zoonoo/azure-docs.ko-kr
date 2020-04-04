@@ -11,12 +11,12 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4390ed39c86e041d3fbd776415f0ffbe71f605bd
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 68d53d2a33b7ab705dfa88f03618a5d5a3d1bced
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350160"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633035"
 ---
 # <a name="geo-restore-for-sql-pool"></a>SQL 풀에 대한 지리적 복원
 
@@ -38,12 +38,12 @@ ms.locfileid: "80350160"
 
 1. 시작하기 전에 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)을 설치해야 합니다.
 2. PowerShell을 엽니다.
-2. Azure 계정에 연결하고 사용자 계정과 연결된 모든 구독을 나열합니다.
-3. 복원할 데이터 웨어하우스가 포함된 구독을 선택합니다.
-4. 복구할 데이터 웨어하우스를 가져옵니다.
-5. 데이터 웨어하우스에 대한 복구 요청을 만듭니다.
-6. 지역 복원된 데이터 웨어하우스의 상태를 확인합니다.
-7. 복원이 완료된 후에 데이터 웨어하우스를 구성하려면 [복구 후 데이터베이스 구성]( ../../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery)을 참조하세요.
+3. Azure 계정에 연결하고 사용자 계정과 연결된 모든 구독을 나열합니다.
+4. 복원할 데이터 웨어하우스가 포함된 구독을 선택합니다.
+5. 복구할 데이터 웨어하우스를 가져옵니다.
+6. 데이터 웨어하우스에 대한 복구 요청을 만듭니다.
+7. 지역 복원된 데이터 웨어하우스의 상태를 확인합니다.
+8. 복원이 완료된 후에 데이터 웨어하우스를 구성하려면 [복구 후 데이터베이스 구성]( ../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery)을 참조하세요.
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
@@ -77,24 +77,25 @@ $GeoRestoredDatabase.status
 아래 설명된 단계에 따라 지리적 백업에서 SQL 풀을 복원합니다.
 
 1. [Azure 포털](https://portal.azure.com/) 계정에 로그인합니다.
-1. **+ 리소스 만들기**를 클릭합니다. 
+2. **+ 리소스 만들기**를 클릭합니다.
 
-![새로운 DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
+   ![새로운 DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
 3. **데이터베이스를 클릭한** 다음 **Azure 시냅스 분석(이전 SQL DW)**.
 
-![새로운 DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
+   ![새로운 DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
 
 4. 기본 탭에서 요청한 정보를 입력하고 **다음: 추가 설정을** **클릭합니다.**
 
-![기본 사항](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+   ![기본 사항](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
 5. 기존 데이터 매개 **변수를 사용하여** **백업을** 선택하고 스크롤 아래로 스크롤 옵션에서 적절한 백업을 선택합니다. **검토 + 만들기를**클릭합니다.
- 
-![백업(backup)](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
+
+   ![백업(backup)](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 
 6. 데이터 웨어하우스가 복원되면 **상태가** 온라인 상태인지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 - [기존 SQL 풀 복원](sql-data-warehouse-restore-active-paused-dw.md)
 - [삭제된 SQL 풀 복원](sql-data-warehouse-restore-deleted-dw.md)

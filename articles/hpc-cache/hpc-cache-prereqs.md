@@ -4,14 +4,14 @@ description: Azure HPC 캐시 를 사용하기 위한 필수 구성 조건
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: 40d282ad30a800a5e5a36a8d2211ec8da7ce63ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6da35cb60dc5f22be01ae25393bd62327db64867
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271851"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655656"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC 캐시에 대한 필수 구성 조건
 
@@ -113,7 +113,7 @@ NFS 스토리지 시스템(예: 온-프레미스 하드웨어 NAS 시스템)을 
 
   ``rpcinfo`` 쿼리에서 반환되는 모든 포트가 Azure HPC 캐시의 서브넷에서 무제한 트래픽을 허용하는지 확인합니다.
 
-  * `rpcinfo` 명령에서 반환되는 포트 외에도 일반적으로 사용되는 포트에서 인바운드 및 아웃바운드 트래픽을 허용하는지 확인합니다.
+  * `rpcinfo` 명령을 사용할 수 없는 경우 일반적으로 사용되는 포트에서 인바운드 및 아웃바운드 트래픽을 허용하는지 확인합니다.
 
     | 프로토콜 | 포트  | 서비스  |
     |----------|-------|----------|
@@ -122,6 +122,8 @@ NFS 스토리지 시스템(예: 온-프레미스 하드웨어 NAS 시스템)을 
     | TCP/UDP  | 4045  | nlockmgr |
     | TCP/UDP  | 4046  | 장착 된   |
     | TCP/UDP  | 4047  | 상태   |
+
+    일부 시스템은 이러한 서비스에 대해 서로 다른 포트 번호를 사용하며, 스토리지 시스템의 설명서를 참조하십시오.
 
   * 방화벽 설정을 확인하여 이러한 모든 필수 포트에서 트래픽을 허용하는지 확인합니다. Azure에서 사용되는 방화벽과 데이터 센터의 온-프레미스 방화벽을 확인해야 합니다.
 
@@ -132,7 +134,7 @@ NFS 스토리지 시스템(예: 온-프레미스 하드웨어 NAS 시스템)을 
 
   NFS 저장소 대상 [문제 해결 문서에서](troubleshoot-nas.md#enable-export-listing)디렉터리 목록 액세스에 대해 자세히 알아봅니다.
 
-* **루트 액세스:** 캐시는 백 엔드 시스템에 사용자 ID 0으로 연결됩니다. 저장소 시스템에서 다음 설정을 확인합니다.
+* **루트** 액세스(읽기/쓰기): 캐시가 백 엔드 시스템에 사용자 ID 0으로 연결됩니다. 저장소 시스템에서 다음 설정을 확인합니다.
   
   * `no_root_squash`을 사용하도록 설정합니다. 이 옵션을 사용하면 원격 루트 사용자가 루트가 소유한 파일에 액세스할 수 있습니다.
 

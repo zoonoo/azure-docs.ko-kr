@@ -1,6 +1,6 @@
 ---
 title: 문제 해결 - Azure Automation Hybrid Runbook Worker
-description: 이 문서에서는 Azure Automation Hybrid Runbook Worker 문제 해결 정보를 제공합니다.
+description: 이 문서에서는 Azure 자동화 하이브리드 Runbook 작업자 문제 해결에 대한 정보를 제공합니다.
 services: automation
 ms.service: automation
 ms.subservice: ''
@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 33e3e162892f1e2a148258273160ca26fa9c2efd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2587af0ada18b5c4271e7411783fe60211a3479
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153525"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637851"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Hybrid Runbook Worker 문제 해결
 
@@ -131,7 +131,9 @@ At line:3 char:1
 #### <a name="cause"></a>원인
 
 가능한 원인은 다음과 같습니다.
+
 * 에이전트 설정에 잘못 입력된 작업 영역 ID 또는 작업 영역 키(기본)가 있습니다. 
+
 * 하이브리드 Runbook 작업자는 구성을 다운로드할 수 없으며 계정 연결 오류가 발생합니다. Azure에서 솔루션을 활성화하면 Log Analytics 작업 영역과 자동화 계정을 연결하기 위한 특정 지역만 지원합니다. 컴퓨터에 잘못된 날짜 및/또는 시간이 설정되어 있는 것일 수도 있습니다. 시간이 현재 시간에서 +/-15분이면 온보딩이 실패합니다.
 
 #### <a name="resolution"></a>해결 방법
@@ -143,7 +145,7 @@ At line:3 char:1
 
 로그 분석 작업 영역 및 자동화 계정은 연결된 지역에 있어야 합니다. 지원되는 지역 목록은 [Azure 자동화 및 로그 분석 작업 영역 매핑을](../how-to/region-mappings.md)참조하십시오.
 
-컴퓨터의 날짜 및 표준 시간대를 업데이트해야 할 수도 있습니다. 사용자 지정 시간 범위를 선택하는 경우 해당 범위가 현지 표준 시간대와 다를 수 있는 UTC에 있는지 확인합니다.
+컴퓨터의 날짜 및/또는 표준 시간대를 업데이트해야 할 수도 있습니다. 사용자 지정 시간 범위를 선택하는 경우 해당 범위가 현지 표준 시간대와 다를 수 있는 UTC에 있는지 확인합니다.
 
 ## <a name="linux"></a>Linux
 
@@ -220,6 +222,35 @@ PowerShell: `Get-Service healthservice`에서 다음 명령을 입력하여 에�
 로그는 **C:\ProgramData\Microsoft 시스템 센터\오케스트레이터\7.2\SMA\샌드박스에서**각 하이브리드 작업자에 로컬로 저장됩니다. **응용 프로그램 및 서비스 로그\Microsoft-SMA\운영** 및 응용 프로그램 및 **서비스 로그\운영 관리자** 이벤트 로그에 경고 또는 오류 이벤트가 있는지 확인할 수 있습니다. 이러한 로그는 Azure Automation에 대한 역할의 온보딩에 영향을 주는 연결 또는 기타 유형의 문제 또는 정상적인 작업에서 발생한 문제를 나타냅니다. 로그 분석 에이전트의 문제 해결에 대한 추가 도움말은 [로그 분석 Windows 에이전트의 문제 해결을](../../azure-monitor/platform/agent-windows-troubleshoot.md)참조하세요.
 
 하이브리드 작업자는 클라우드에서 실행 중인 Runbook 작업이 출력 및 메시지를 보내는 것과 동일한 방식으로 [Runbook 출력 및 메시지를](../automation-runbook-output-and-messages.md) Azure Automation에 보냅니다. Runbook과 마찬가지로 자세한 내용 및 진행률 스트림을 활성화할 수 있습니다.
+
+### <a name="scenario-orchestratorsandboxexe-cant-connect-to-office-365-through-proxy"></a><a name="no-orchestrator-sandbox-connect-O365"></a>시나리오: Orchestrator.Sandbox.exe 프록시를 통해 Office 365에 연결할 수 없습니다.
+
+#### <a name="issue"></a>문제
+
+Windows 하이브리드 Runbook 작업자에서 실행 중인 스크립트는 오케스트레이터 샌드박스의 Office 365에 예상대로 연결할 수 없습니다. 스크립트는 연결을 위해 [Connect-MsolService를](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) 사용하고 있습니다. 
+
+**Orchestrator.Sandbox.exe.config를** 조정하여 프록시 및 바이패스 목록을 설정해도 샌드박스가 여전히 제대로 연결되지 않습니다. 동일한 프록시 및 바이패스 목록 설정이 있는 **Powershell_ise.exe.config** 파일이 예상대로 작동하는 것 같습니다. SMA(서비스 관리 자동화) 로그 및 PowerShell 로그는 프록시에 대한 정보를 제공하지 않습니다.
+
+#### <a name="cause"></a>원인
+
+서버의 ADFS(Active Directory Federation Services)에 대한 연결은 프록시를 우회할 수 없습니다. PowerShell 샌드박스는 기록된 사용자로 실행됩니다. 그러나 오케스트레이터 샌드박스는 사용자 지정이 매우 많으며 **Orchestrator.Sandbox.exe.config** 파일 설정을 무시할 수 있습니다. 그것은 기계 또는 MMA 프록시 설정을 처리하기위한 특별한 코드를 가지고 있지만, 다른 사용자 정의 프록시 설정을 처리하기위한. 
+
+#### <a name="resolution"></a>해결 방법
+
+PowerShell cmdlet에 대 한 MSOnline 모듈 대신 Azure AD 모듈을 사용 하 여 스크립트를 마이그레이션 하 여 오케스트레이터 샌드 박스에 대 한 문제를 해결할 수 있습니다. [오케스트레이터에서 Azure 자동화(베타)로 마이그레이션을](https://docs.microsoft.com/azure/automation/automation-orchestrator-migration)참조하십시오.
+
+MSOnline 모듈 cmdlet을 계속 사용하려면 스크립트를 변경하여 [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7)을 사용합니다. `ComputerName` 및 `Credential` 매개변수에 대한 값을 지정합니다. 
+
+```powershell
+$Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential
+Invoke-Command -ComputerName $env:COMPUTERNAME -Credential $Credential 
+{ Connect-MsolService … }
+```
+
+이 코드 변경은 지정된 자격 증명의 컨텍스트에서 완전히 새로운 PowerShell 세션을 시작합니다. 활성 사용자를 인증하는 프록시 서버를 통해 트래픽이 흐르도록 해야 합니다.
+
+>[!NOTE]
+>이 솔루션을 사용하면 샌드박스 구성 파일을 조작할 필요가 없습니다. 구성 파일이 스크립트로 작업하는 데 성공하더라도 하이브리드 Runbook 작업자 에이전트가 업데이트될 때마다 파일이 지워집니다.
 
 ### <a name="scenario-hybrid-runbook-worker-not-reporting"></a><a name="corrupt-cache"></a>시나리오: 하이브리드 Runbook 작업자가 보고하지 않음
 

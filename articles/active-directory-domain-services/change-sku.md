@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: b65310569e95173b88dd0aa0dfe1dbacd86cc8fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32f8f157abaf5076911c3908a83be4a644e09656
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79126713"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655594"
 ---
 # <a name="change-the-sku-for-an-existing-azure-ad-domain-services-managed-domain"></a>기존 Azure AD 도메인 서비스 관리 도메인에 대한 SKU 변경
 
@@ -28,7 +28,7 @@ Azure Active Directory 도메인 서비스(Azure AD DS)에서 사용 가능한 �
 이 문서를 완료하려면 다음과 같은 리소스와 권한이 필요합니다.
 
 * 활성화된 Azure 구독.
-    * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * Azure 구독이 없는 경우 [계정을 만듭니다.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
@@ -38,7 +38,7 @@ Azure Active Directory 도메인 서비스(Azure AD DS)에서 사용 가능한 �
 
 Azure AD DS 관리 도메인이 배포된 후 SCO를 위 또는 아래로 변경할 수 있습니다. 그러나 리소스 포리스트(현재 미리 보기)를 사용하고 Azure AD DS에서 온-프레미스 AD DS 환경으로 의 한방향 아웃바운드 포리스트 트러스트를 만든 경우 SKU 변경 작업에 몇 가지 제한 사항이 있습니다. *프리미엄* 및 *엔터프라이즈* SCO는 만들 수 있는 트러스트 수에 대한 제한을 정의합니다. 현재 구성한 것보다 낮은 최대 제한으로 SKU로 변경할 수 없습니다.
 
-예를 들어:
+다음은 그 예입니다.
 
 * *프리미엄* SKU에서 두 개의 포리스트 트러스트를 만든 경우 *표준* SKU로 변경할 수 없습니다. *표준* SKU는 포리스트 트러스트를 지원하지 않습니다.
 * 또는 *프리미엄* SKU에서 7개의 트러스트를 만든 경우 *엔터프라이즈* SKU로 변경할 수 없습니다. *엔터프라이즈* SKU는 최대 5개의 트러스트를 지원합니다.

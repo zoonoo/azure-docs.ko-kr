@@ -11,13 +11,14 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: juliako
-ms.openlocfilehash: 2d4f5f83335f6f115362bcf66cf69d7f9de7eaa5
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: e9855a02a57d71793f3a5d6c5ce01cbfda341b70
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582314"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632219"
 ---
+<!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Azure 미디어 서비스 할당량 및 제한
 
 이 문서에서는 할당량이라고도 하는 가장 일반적인 Microsoft Azure 미디어 서비스 제한 중 일부를 나열합니다.

@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 635b65d16ae9a59816506023d323243f043ce7da
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e1d0c5cd850fa0dbacf104d3fcd72d83007df878
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350383"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632243"
 ---
 # <a name="restore-an-existing-sql-pool"></a>기존 SQL 풀 복원
 
@@ -51,7 +51,7 @@ ms.locfileid: "80350383"
 
 7. 복원된 SQL 풀이 온라인 상태입니다.
 
-8. 복원이 완료되면 복구 후 데이터베이스를 구성하여 복구된 SQL [풀을 구성할](../../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery)수 있습니다.
+8. 복원이 완료되면 복구 후 데이터베이스를 구성하여 복구된 SQL [풀을 구성할](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery)수 있습니다.
 
 ```Powershell
 
@@ -89,7 +89,7 @@ $RestoredDatabase.status
 
 ## <a name="restore-an-existing-sql-pool-through-the-azure-portal"></a>Azure 포털을 통해 기존 SQL 풀 복원
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 복원할 SQL 풀로 이동합니다.
 3. [개요] 블레이드의 위쪽에서 **복원**을 선택합니다.
 
@@ -100,7 +100,6 @@ $RestoredDatabase.status
     ![자동 복원 지점](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
 ## <a name="next-steps"></a>다음 단계
+
 - [삭제된 SQL 풀 복원](sql-data-warehouse-restore-deleted-dw.md)
 - [지리적 백업 SQL 풀에서 복원](sql-data-warehouse-restore-from-geo-backup.md)
-
- 

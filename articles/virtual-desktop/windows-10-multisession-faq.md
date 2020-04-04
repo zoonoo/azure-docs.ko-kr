@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4301aaed0152e07eb2a941b56637239b66c33878
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7ea99e2ee8e2882c211ee17acec70222dc058a8
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127366"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637091"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Windows 10 Enterprise 다중 세션 FAQ
 
@@ -39,7 +39,7 @@ Windows 10 엔터프라이즈 다중 세션은 Azure용 Windows 가상 데스크
 
 Windows 10 Windows 10 Enterprise 다중 세션을 사용하여 Azure에서 가상 컴퓨터(VM)를 시작하고 LOB 응용 프로그램을 설치하고 sysprep/generalize를 한 다음 Azure 포털을 사용하여 이미지를 만들어 사용자 지정할 수 있습니다.  
  
-시작하려면 Windows 10 Windows 10 엔터프라이즈 다중 세션을 사용하여 Azure에서 VM을 만듭니다. Azure에서 VM을 시작하는 대신 VHD를 직접 다운로드할 수 있습니다. 그 후, 다운로드 한 VHD를 사용 하 여 새로운 세대를 만들 수 있습니다 10 하이퍼-V를 사용 하 여 PC.
+시작하려면 Windows 10 엔터프라이즈 다중 세션을 사용하여 Azure에서 VM을 만듭니다. Azure에서 VM을 시작하는 대신 VHD를 직접 다운로드할 수 있습니다. 그 후, 다운로드 한 VHD를 사용 하 여 새로운 세대를 만들 수 있습니다 10 하이퍼-V를 사용 하 여 PC.
 
 LOB 응용 프로그램을 설치하고 이미지를 sysprep하여 필요에 맞게 이미지를 사용자 정의할 수 있습니다. 사용자 지정이 완료되면 내부의 VHD를 사용하여 Azure에 이미지를 업로드합니다. 그런 다음 Azure 마켓플레이스에서 Windows 가상 데스크톱을 얻고 이를 사용하여 사용자 지정된 이미지가 있는 새 호스트 풀을 배포합니다.
  

@@ -8,15 +8,15 @@ ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: iainfou
-ms.openlocfilehash: d12dd0c79f2e9c1d2b0cc17956a0bb8d8fa35865
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 81eec19cb4af3a6b668bbfc26105085b4eec2a19
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78299145"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655138"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Red Hat Enterprise Linux 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입
 
@@ -29,7 +29,7 @@ ms.locfileid: "78299145"
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
 * 활성화된 Azure 구독.
-    * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * Azure 구독이 없는 경우 [계정을 만듭니다.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
@@ -42,9 +42,9 @@ Azure에 기존 RHEL Linux VM이 있는 경우 SSH를 사용하여 연결한 다
 
 RHEL Linux VM을 만들어야 하거나 이 문서에서 사용할 테스트 VM을 만들려면 다음 방법 중 하나를 사용할 수 있습니다.
 
-* [Azure 포털](../virtual-machines/linux/quick-create-portal.md)
+* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
-* [Azure 파워쉘](../virtual-machines/linux/quick-create-powershell.md)
+* [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 VM을 만들 때 가상 네트워크 설정에 주의를 기울여 VM이 Azure AD DS 관리 도메인과 통신할 수 있는지 확인합니다.
 

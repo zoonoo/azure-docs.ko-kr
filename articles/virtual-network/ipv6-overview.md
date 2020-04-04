@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 03b279ead6b1f5d26ae92b63a8780a61dfd711bb
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 887f9e100a60561271a4c15777e7131ea1f1f722
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80420561"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631441"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>Azure 가상 네트워크에 대한 IPv6란 무엇입니까?
 
@@ -57,7 +57,8 @@ Azure VNet용 IPv6에는 다음과 같은 기능이 포함되어 있습니다.
     - 아웃바운드 연결에 대한 완전한 선언적 제어를 제공하여 이 기능을 특정 요구에 맞게 확장하고 조정하는 선택적 아웃바운드 규칙입니다.
     - 단일 로드 밸런서가 여러 개의 IPv6 공용 IP 주소를 사용할 수 있도록 하는 선택적 다중 프런트 엔드 구성- 동일한 프런트 엔드 프로토콜 및 포트를 프런트 엔드 주소에서 재사용할 수 있습니다.
     - 로드 밸런싱 규칙의 *부동 IP* 기능을 사용하여 백 엔드 인스턴스에서 선택적 IPv6 포트를 재사용할 수 있습니다. 
-- [표준 IPv6 내부 로드 밸러버](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) 지원으로 Azure VNET 내에서 복원력 있는 다중 계층 응용 프로그램을 만듭니다.  
+    - 참고: 부하 분산은 프로토콜 변환을 수행하지 않습니다(NAT64 없음). 
+- [표준 IPv6 내부 로드 밸러버](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) 지원으로 Azure VNET 내에서 복원력 있는 다중 계층 응용 프로그램을 만듭니다.   
 - 레거시 배포와의 호환성을 위한 기본 IPv6 공용 로드 밸런서 지원
 - [예약된 IPv6 공용 IP 주소 및 주소 범위는](ipv6-public-ip-address-prefix.md) 안정적이고 예측 가능한 IPv6 주소를 제공하여 회사 및 고객을 위해 Azure 호스팅 응용 프로그램의 허용 목록을 쉽게 지정할 수 있습니다.
 - 인스턴스 수준 공용 IP는 개별 VM에 직접 IPv6 인터넷 연결을 제공합니다.
@@ -72,8 +73,9 @@ Azure VNET용 IPv6는 고객이 Azure에서 이중 스택(IPv4+IPv6) 응용 프�
 
 ## <a name="limitations"></a>제한 사항
 Azure 가상 네트워크 릴리스의 현재 IPv6에는 다음과 같은 제한 사항이 있습니다.
-- Azure 가상 네트워크에 대한 IPv6는 모든 글로벌 Azure 리전에서 사용할 수 있지만 아직 정부 클라우드에서는 전역 Azure에서만 사용할 수 있습니다.
-- 익스프레스루트 및 VPN 게이트웨이는 IPv6가 활성화된 VNET에서 직접 또는 "UseRemoteGateway"로 피어를 사용하여 사용할 수 없습니다. 
+- Azure 가상 네트워크에 대한 IPv6는 모든 배포 방법을 사용하여 모든 글로벌 Azure 상용 지역에서 사용할 수 있습니다.  미국 정부 클라우드의 배포는 일시적으로 ARM(JSON) 템플릿, 명령줄 인터페이스(CLI) 및 Powershell으로 제한됩니다.  미국 정부 클라우드 포털의 IPv6 지원은 곧 사용할 수 있습니다.  
+- ExpressRoute 게이트웨이는 IPv6가 활성화된 VNET에서 IPv4 전용 트래픽에 사용할 수 있습니다.  IPv6 트래픽에 대한 지원은 로드맵에 있습니다.   
+- VPN 게이트웨이는 IPv6가 활성화된 VNET에서 직접 또는 "UseRemoteGateway"로 피어를 사용하여 사용할 수 없습니다.
 - Azure 플랫폼(AKS 등)은 컨테이너에 대한 IPv6 통신을 지원하지 않습니다.  
 
 ## <a name="pricing"></a>가격 책정

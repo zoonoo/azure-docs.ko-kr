@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ea9bfd21e7f3b92c99600a2492a809a0fc051ed9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b9b33076a2c2cea27fea181b760a721488682c9
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80159619"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657015"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>윈도우 가상 데스크톱에 마이크로 소프트 팀 사용
 
@@ -33,15 +33,25 @@ Windows 가상 데스크톱에서 Microsoft 팀을 사용하려면 다음 을 �
 
 Windows 가상 데스크톱 환경에서 최적화되지 않은 Microsoft 팀을 사용하여 Microsoft Teams의 전체 채팅 및 공동 작업 기능과 오디오 통화를 활용할 수 있습니다. 최적화되지 않은 호출은 호스트 CPU를 더 많이 사용하기 때문에 통화의 오디오 품질은 호스트 구성에 따라 달라집니다.
 
+### <a name="prepare-your-image-for-teams"></a>팀을 위한 이미지 준비
+
+컴퓨터별 팀 설치를 활성화하려면 호스트에서 다음 레지스트리 키를 설정합니다.
+
+```shell
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams\IsWVDEnvironment]
+  Type: REG_DWORD
+  Value: 0x1
+```
+
 ### <a name="install-microsoft-teams"></a>마이크로소프트 팀 설치
 
-Windows 가상 데스크톱 환경에 Microsoft 팀을 설치하려면 다음을 수행하십시오.
+컴퓨터별 설치를 사용하여 Teams 데스크톱 앱을 배포할 수 있습니다. Windows 가상 데스크톱 환경에 Microsoft 팀을 설치하려면 다음을 수행하십시오.
 
 1. 사용자 환경에 맞는 [Teams MSI 패키지를](https://docs.microsoft.com/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm) 다운로드하십시오. 64비트 운영 체제에서 64비트 설치 프로그램을 사용하는 것이 좋습니다.
 2. 이 명령을 실행하여 호스트 VM에 MSI를 설치합니다.
 
       ```shell
-      msiexec /i <msi_name> /l*v < install_logfile_name> ALLUSER=1
+      msiexec /i <msi_name> /l*v < install_logfile_name> ALLUSERS=1
       ```
 
       이렇게 하면 프로그램 파일 또는 프로그램 파일(x86)에 팀이 설치됩니다. 다음에 로그인하고 Teams를 시작할 때 앱에서 자격 증명을 요청합니다.
@@ -56,4 +66,4 @@ Windows 가상 데스크톱 환경에 Microsoft 팀을 설치하려면 다음을
       ```
 
       > [!NOTE]
-      > MSI가 ALLUSER=1을 설정한 팀을 설치하면 자동 업데이트가 비활성화됩니다. 한 달에 한 번 이상 팀을 업데이트하는 것이 좋습니다.
+      > MSI가 ALLUSERS=1을 설정한 팀을 설치하면 자동 업데이트가 비활성화됩니다. 한 달에 한 번 이상 팀을 업데이트하는 것이 좋습니다.

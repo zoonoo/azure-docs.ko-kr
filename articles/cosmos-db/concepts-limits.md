@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/27/2020
-ms.openlocfilehash: bd384f2b4dd879c30fafd2b765dd9ba0efb12447
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.date: 04/03/2020
+ms.openlocfilehash: 343e94fe681d398b695e0e24c22544bca470d75a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348401"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652182"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure 코스모스 DB 서비스 할당량
 
@@ -152,6 +152,9 @@ Azure Cosmos DB는 컨테이너, 항목 및 데이터베이스와 같은 리소�
 | 쿼리당 최대 JOI| 5<sup>*</sup>|
 | 쿼리당 최대 UdF| 10<sup>*</sup>|
 | 다각형당 최대 포인트| 4096 |
+| 컨테이너당 최대 포함 경로| 500 |
+| 컨테이너당 최대 제외 경로| 500 |
+| 복합 인덱스의 최대 속성| 8 |
 
 <sup>*</sup>Azure 지원에 문의하여 이러한 SQL 쿼리 제한을 늘릴 수 있습니다.
 
@@ -163,7 +166,7 @@ Azure Cosmos DB는 컨테이너, 항목 및 데이터베이스와 같은 리소�
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-| 최대 MongoDB 쿼리 메모리 크기 | 40MB |
+| 최대 MongoDB 쿼리 메모리 크기(이 제한은 3.2 서버 버전에만 해당) | 40MB |
 | MongoDB 작업에 대한 최대 실행 시간| 30초 |
 | 서버 측 연결 클로저를 위한 유휴 연결 시간 시간* | 30분 |
 

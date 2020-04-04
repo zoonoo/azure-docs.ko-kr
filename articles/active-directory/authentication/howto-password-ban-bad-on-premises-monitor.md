@@ -4,19 +4,19 @@ description: 온-프레미스 Active Directory 도메인 서비스 환경에 대
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbb533d5565009fb22d686e4082c9b4bfaae6dc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d67d867249286ad1591b441bbe5ea2637971e104
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671649"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652605"
 ---
 # <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>온-프레미스 Azure AD 암호 보호 환경에 대한 로그 모니터링 및 검토
 
@@ -94,7 +94,7 @@ PasswordChangeErrors            : 0
 PasswordSetErrors               : 1
 ```
 
-–Forest, -Domain 또는 –DomainController 매개 변수 중 하나를 사용하여 cmdlet의 보고 범위에 영향을 줄 수 있습니다. 매개 변수를 지정하지 않는 것은 –Forest를 의미합니다.
+cmdlet의 보고 범위는 –Forest, -Domain 또는 -DomainController 매개 변수 중 하나를 사용하여 영향을 받을 수 있습니다. 매개 변수를 지정하지 않는 것은 –Forest를 의미합니다.
 
 `Get-AzureADPasswordProtectionSummaryReport` cmdlet은 DC 에이전트 관리자 이벤트 로그를 쿼리한 다음, 표시된 각 결과 범주에 해당하는 총 이벤트 수를 계산하는 방식으로 작동합니다. 다음 표에는 각 결과와 해당 이벤트 ID 간의 매핑이 포함되어 있습니다.
 
@@ -117,7 +117,7 @@ PasswordSetErrors               : 1
 > 이 cmdlet은 각 도메인 컨트롤러에 대한 PowerShell 세션을 열어 작동합니다. 성공하기 위해 각 도메인 컨트롤러에 PowerShell 원격 세션 지원을 설정해야 하고, 클라이언트에 충분한 권한이 있어야 합니다. PowerShell 원격 세션 요구 사항에 대한 자세한 내용은 PowerShell 창에서 'Get-help about_Remote_Troubleshooting'을 실행합니다.
 
 > [!NOTE]
-> 이 cmdlet은 각 DC 에이전트 서비스의 관리 이벤트 로그를 원격으로 쿼리하는 방식으로 작동합니다. 이벤트 로그에 대량의 이벤트가 포함되어 있으면 cmdlet이 완료될 때까지 오래 걸릴 수 있습니다. 또한 대량 데이터 집합의 대량 네트워크 쿼리는 도메인 컨트롤러 성능에 영향을 줄 수 있습니다. 따라서 이 cmdlet은 프로덕션 환경에서 신중하게 사용해야 합니다.
+> 이 cmdlet은 각 DC 에이전트 서비스의 관리자 이벤트 로그를 원격으로 쿼리하여 작동합니다. 이벤트 로그에 대량의 이벤트가 포함되어 있으면 cmdlet이 완료될 때까지 오래 걸릴 수 있습니다. 또한 대량 데이터 집합의 대량 네트워크 쿼리는 도메인 컨트롤러 성능에 영향을 줄 수 있습니다. 따라서 이 cmdlet은 프로덕션 환경에서 신중하게 사용해야 합니다.
 
 ### <a name="sample-event-log-message-for-event-id-10014-successful-password-change"></a>이벤트 ID 10014에 대한 샘플 이벤트 로그 메시지(성공적인 암호 변경)
 
@@ -265,7 +265,7 @@ HeartbeatUTC          : 2/16/2018 8:35:02 AM
 
 다양한 속성이 대략적인 시간 단위로 각 DC 에이전트 서비스에 의해 업데이트됩니다. 데이터는 여전히 Active Directory 복제 대기 시간의 적용을 받습니다.
 
-Cmdlet의 쿼리 범위는 포리스트 또는 도메인 매개 변수 중 하나를 사용하여 영향을 받을 수 있습니다.
+cmdlet의 쿼리 범위는 –Forest 또는 –Domain 매개 변수를 사용하여 영향을 받을 수 있습니다.
 
 HeartbeatUTC 값이 부실해지면 해당 도메인 컨트롤러의 Azure AD 암호 보호 DC 에이전트가 실행되고 있지 않거나, 제거되었거나, 머신이 강등되어 더 이상 도메인 컨트롤러가 아님을 나타낼 수 있습니다.
 
@@ -357,7 +357,7 @@ HeartbeatUTC          : 12/25/2018 6:35:02 AM
 
 다양한 속성이 대략 1시간마다 각 프록시 서비스에 의해 업데이트됩니다. 데이터는 여전히 Active Directory 복제 대기 시간의 적용을 받습니다.
 
-Cmdlet의 쿼리 범위는 포리스트 또는 도메인 매개 변수 중 하나를 사용하여 영향을 받을 수 있습니다.
+cmdlet의 쿼리 범위는 –Forest 또는 –Domain 매개 변수를 사용하여 영향을 받을 수 있습니다.
 
 HeartbeatUTC 값이 부실해지면 해당 머신의 Azure AD 암호 보호 프록시가 실행되지 않거나 제거되었음을 나타낼 수 있습니다.
 

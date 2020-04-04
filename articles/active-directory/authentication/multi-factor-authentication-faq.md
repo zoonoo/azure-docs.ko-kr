@@ -4,19 +4,19 @@ description: Azure Multi-Factor Authentication과 관련된 질문과 대답입�
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a622245a7431058582131d9ba224ddfb676d8aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 186e5a533bac5d7adac8b0423eff6c05f797c56f
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425148"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652140"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
 
@@ -199,15 +199,15 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-Factor Authenticat
 
 - Azure AD의 관리자가 MFA를 사용할 수 있도록 사용자를 설정했지만 사용자의 계정에 대한 보안 정보가 아직 등록되어 있지 않습니다.
 - 사용자가 Azure AD에서 셀프 서비스 암호 재설정을 사용하도록 설정되었습니다. 보안 정보를 통해 향후 암호를 재설정(분실한 경우)할 수 있습니다.
-- 사용자가 MFA를 요구하는 조건부 액세스 정책이 있는 애플리케이션에 액세스했고 MFA에 이전에 등록되지 않았습니다.
+- 사용자는 MFA를 요구하는 조건부 액세스 정책이 있고 이전에 MFA에 등록되지 않은 응용 프로그램에 액세스했습니다.
 - 사용자는 Azure AD(Azure AD 조인 포함)로 디바이스를 등록하고 있으며 조직에는 디바이스 등록을 위해 MFA가 필요하지만 사용자는 이전에 MFA에 등록하지 않았습니다.
-- 사용자는 Windows 10에서 비즈니스용 Windows Hello를 생성하고 있으며(MFA 필요) MFA에 이전에 등록되지 않았습니다.
+- 사용자가 Windows에서 비즈니스용 Windows Hello를 생성하고 있습니다 10 (MFA가 필요함) 이전에 MFA에 등록되지 않았습니다.
 - 조직에서 사용자에게 적용된 MFA 등록 정책을 만들고 사용하도록 설정했습니다.
 - 사용자는 MFA에 대해 이전에 등록되었지만 관리자가 사용하지 않도록 설정한 인증 방법을 선택했습니다. 따라서 사용자는 MFA 등록 과정을 다시 거쳐서 새로운 기본 인증 방법을 선택해야 합니다.
 
 ## <a name="errors"></a>오류
 
-**Q: 사용자가 모바일 앱 알림을 사용할 때 "활성화된 계정에 대한 인증 요청이 아닙니다." 오류 메시지가 표시되면 사용자는 어떻게 해야 하나요?**
+**Q: 사용자가 모바일 앱 알림을 사용할 때 "인증 요청이 활성화된 계정에 대한 인증 요청이 아님" 오류 메시지가 표시되면 어떻게 해야 합니까?**
 
 모바일 앱에서 해당 계정을 제거하려면 이 절차에 따라 알린 다음 다시 추가합니다.
 

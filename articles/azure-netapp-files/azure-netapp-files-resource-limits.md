@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/13/2020
+ms.date: 04/03/2020
 ms.author: b-juche
-ms.openlocfilehash: 36b2d50722a1840e461d6907f440d859c7c82117
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ac660b20d519e49e832e979603f763fa672757a5
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79408830"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637394"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files에 대한 리소스 제한
 
@@ -31,19 +31,19 @@ Azure NetApp Files에 대한 리소스 제한을 이해하면 볼륨을 관리�
 
 |  리소스  |  기본 제한  |  지원 요청을 통해 조정할 수 있습니다.  |
 |----------------|---------------------|--------------------------------------|
-|  Azure 지역당 NetApp 계정 수   |  10    |  yes   |
-|  NetApp 계정당 용량 풀 수   |    25     |   yes   |
-|  용량 풀당 볼륨 수     |    500   |    yes     |
+|  Azure 지역당 NetApp 계정 수   |  10    |  예   |
+|  NetApp 계정당 용량 풀 수   |    25     |   예   |
+|  용량 풀당 볼륨 수     |    500   |    예     |
 |  볼륨당 스냅샷 수       |    255     |    예        |
 |  Azure 가상 네트워크당 Azure NetApp 파일(Microsoft.NetApp/볼륨)에 위임된 서브넷 수    |   1   |    예    |
-|  Azure NetApp 파일이 있는 VNet(즉시 피어온 VNet 포함)에서 사용된 IP 수   |    1000   |    yes   |
+|  Azure NetApp 파일이 있는 VNet(즉시 피어온 VNet 포함)에서 사용된 IP 수   |    1000   |    예   |
 |  단일 용량 풀의 최소 크기   |  4TiB     |    예  |
 |  단일 용량 풀의 최대 크기    |  500TiB   |   예   |
 |  단일 볼륨의 최소 크기    |    100GiB    |    예    |
 |  단일 볼륨의 최대 크기     |    100 TiB    |    예    |
 |  단일 파일의 최대 크기     |    16TiB    |    예    |    
 |  단일 디렉터리 최대 크기      |    320 MB    |    예    |    
-|  볼륨당 최대 파일[수(최대 파일)](#maxfiles)     |    1억    |    yes    |    
+|  볼륨당 최대 파일[수(최대 파일)](#maxfiles)     |    1억    |    예    |    
 
 자세한 내용은 [용량 관리 FAQ를](azure-netapp-files-faqs.md#capacity-management-faqs)참조하십시오.
 
