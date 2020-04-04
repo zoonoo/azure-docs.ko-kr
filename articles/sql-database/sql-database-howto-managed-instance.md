@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
-ms.openlocfilehash: 906ae2a970ce1d5b82302d0277ca45bd93c23011
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b56375388f6293d27bcd2f2548d8b20205a92b15
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256914"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80638025"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database에서 Managed Instance를 사용하는 방법
 
@@ -43,6 +43,7 @@ ms.locfileid: "79256914"
 
 - [트랜잭션 복제](replication-with-sql-database-managed-instance.md)를 사용하면 Managed Instance 간에, 또는 온-프레미스 SQL Server와 Managed Instance 간에 데이터를 복제할 수 있습니다. 이 가이드에서 트랜잭션 복제를 사용 및 구성하는 방법에 대한 자세한 내용을 확인하세요.
 - [위협 검색 구성](sql-database-managed-instance-threat-detection.md) - [위협 검색](sql-database-threat-detection-overview.md)은 SQL 삽입 또는 의심스러운 위치에서의 액세스와 같은 다양한 잠재적 공격을 검색하는 기본 제공 Azure SQL Database 기능입니다. 이 가이드에서 Managed Instance에 대해 [위협 검색](sql-database-threat-detection-overview.md)을 사용하도록 설정하고 구성하는 방법을 확인할 수 있습니다.
+- [경고를 만들면](sql-database-managed-instance-alerts.md) CPU 사용률, 스토리지 공간 소비, IOPS 등 모니터링되는 인스턴스에 대한 경고를 설정할 수 있습니다. 이 가이드에서는 관리되는 인스턴스에 대한 경고를 활성화하고 구성하는 방법을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

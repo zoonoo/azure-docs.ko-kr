@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 23e3c9db6302d2db597283358ff71c3693ecf435
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/2/2020
+ms.openlocfilehash: 1b79a49b2fb87ebf180aaaa40447f40c5a982c2e
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530175"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632282"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 사용자 만들기 
 이 문서에서는 Azure Database for MariaDB 서버에서 사용자를 만드는 방법을 설명합니다.
@@ -21,6 +21,9 @@ Azure Database for MariaDB를 처음으로 만든 경우 서버 관리자 로그
 서버 관리 사용자자는 서버에 대한 SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER 권한을 갖습니다.
 
 Azure Database for MariaDB 서버가 생성되면 첫 번째 서버 관리 사용자 계정을 사용하여 추가 사용자를 만들어 이들에게 관리자 액세스 권한을 부여할 수 있습니다. 또한 서버 관리자 계정은 개별 데이터베이스 스키마에 액세스할 수 있는 권한의 사용자가 만드는 데 사용할 수 있습니다.
+
+> [!NOTE]
+> SUPER 권한 및 DBA 역할은 지원되지 않습니다. 제한 문서의 [권한을](concepts-limits.md#privilege-support) 검토하여 서비스에서 지원되지 않는 내용을 이해합니다.
 
 ## <a name="create-additional-admin-users"></a>추가 관리 사용자 만들기
 1. 연결 정보 및 관리 사용자 이름을 가져옵니다.

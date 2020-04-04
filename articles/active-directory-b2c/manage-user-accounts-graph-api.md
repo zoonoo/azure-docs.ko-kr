@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3bd166572cea23fbb710cd053c28f51e76ba534a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42596ba5470c6062efba4fd1050c1c9745b76e80
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476674"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637339"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>마이크로 소프트 그래프와 Azure AD B2C 사용자 계정 관리
 
@@ -116,7 +116,7 @@ Microsoft 그래프 API에서 로컬 ID와 페더레이션된 ID는 모두 `iden
 
 모든 고객 대면 응용 프로그램에는 수집할 정보에 대한 고유한 요구 사항이 있습니다. Azure AD B2C 테넌트에는 지정된 이름, 성, 도시 및 우편 번호와 같은 속성에 저장된 기본 제공 정보 집합이 함께 제공됩니다. Azure AD B2C를 사용하면 각 고객 계정에 저장된 속성 집합을 확장할 수 있습니다. 사용자 지정 특성 정의에 대한 자세한 내용은 [사용자 지정 특성(사용자 흐름)](user-flow-custom-attributes.md) 및 [사용자 지정 특성(사용자 지정 정책)을](custom-policy-custom-attributes.md)참조하십시오.
 
-Microsoft 그래프 API는 확장 특성을 가진 사용자 만들기 및 업데이트를 지원합니다. Graph API의 확장 특성은 `extension_ApplicationObjectID_attributename` 규칙을 사용하여 명명됩니다. 예를 들어:
+Microsoft 그래프 API는 확장 특성을 가진 사용자 만들기 및 업데이트를 지원합니다. Graph API의 확장 특성은 `extension_ApplicationObjectID_attributename` 규칙을 사용하여 명명됩니다. 다음은 그 예입니다.
 
 ```JSON
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
@@ -151,7 +151,7 @@ git clone https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-ma
 
 ### <a name="code-discussion"></a>코드 토론
 
-샘플 코드는 Microsoft Graph에 액세스하는 고품질의 효율적이고 복원력이 뛰어난 응용 프로그램 빌드를 간소화하도록 설계된 Microsoft 그래프 [SDK를](https://docs.microsoft.com/graph/sdks/sdks-overview)사용합니다. 따라서 모든 Microsoft 그래프 API를 직접 만들 필요는 없습니다.
+샘플 코드는 Microsoft Graph에 액세스하는 고품질의 효율적이고 복원력이 뛰어난 응용 프로그램 빌드를 간소화하도록 설계된 Microsoft 그래프 [SDK를](https://docs.microsoft.com/graph/sdks/sdks-overview)사용합니다.
 
 Microsoft 그래프 API에 대한 모든 요청은 인증을 위한 액세스 토큰이 필요합니다. 이 솔루션은 Microsoft 그래프 SDK와 함께 사용하기 위해 MSAL(Microsoft 인증 라이브러리)의 인증 시나리오 기반 래퍼를 제공하는 [Microsoft.Graph.Auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) NuGet 패키지를 사용합니다.
 

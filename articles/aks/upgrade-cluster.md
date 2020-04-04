@@ -1,15 +1,15 @@
 ---
 title: AKS(Azure Kubernetes Service) 클러스터 업그레이드
-description: AKS(Azure Kubernetes Service) 클러스터를 업그레이드하는 방법 알아보기
+description: 최신 기능 및 보안 업데이트를 받으려면 AKS(Azure Kubernetes) 클러스터를 업그레이드하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 4520297e83f96f95b10ecafd5af52a913dc5f450
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 183e0a85f65d24dc7133307391931bea754a456d
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77621971"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632601"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 업그레이드
 
@@ -19,7 +19,7 @@ AKS 클러스터의 수명 주기의 일환으로, 최신 Kubernetes 버전으�
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 Azure CLI 버전 2.0.65 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하십시오.
+이 문서에서는 Azure CLI 버전 2.0.65 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 > [!WARNING]
 > AKS 클러스터 업그레이드는 노드의 코돈 및 드레인을 트리거합니다. 사용 가능한 계산 할당량이 낮은 경우 업그레이드가 실패할 수 있습니다. 자세한 내용은 [할당량 증가를](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) 참조하세요.

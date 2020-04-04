@@ -2,17 +2,17 @@
 title: Azure 관리 디스크의 서버 측 암호화 - PowerShell
 description: Azure Storage는 저장 클러스터에 보관하기 전에 미사용 데이터를 암호화하여 데이터를 보호합니다. 관리 디스크의 암호화를 위해 Microsoft에서 관리하는 키를 사용하거나 고객 관리 키를 사용하여 자체 키로 암호화를 관리할 수 있습니다.
 author: roygara
-ms.date: 03/12/2020
+ms.date: 04/02/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 13985b07b4903504fde6b58031a532337d3b1971
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: d8e6f4b58cf17a7502e2c0d67e4fa67af7cdb3f5
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80584606"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632945"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Azure 관리 디스크의 서버 측 암호화
 

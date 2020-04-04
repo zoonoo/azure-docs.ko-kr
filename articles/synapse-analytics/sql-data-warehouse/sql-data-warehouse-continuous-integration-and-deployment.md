@@ -11,23 +11,22 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 39501cef3bb2f7e4a0e061968520f687cf97ecc5
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 20afa3f37bb85fd268962aea03107f0eaeb9bea2
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80584213"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633590"
 ---
 # <a name="continuous-integration-and-deployment-for-data-warehousing"></a>데이터 웨어하우징을 위한 지속적인 통합 및 배포
 
-이 간단한 자습서에서는 SSDT(SQL Server Data Tools) 데이터베이스 프로젝트를 Azure DevOps와 통합하고, Azure Pipelines를 활용하여 지속적인 통합 및 배포를 설정하는 방법에 대해 간략히 설명합니다. 이 자습서에서는 데이터 웨어하우징을 위한 지속적인 통합 및 배포 파이프라인을 구축하는 두 번째 단계입니다. 
+이 간단한 자습서에서는 SSDT(SQL Server Data Tools) 데이터베이스 프로젝트를 Azure DevOps와 통합하고, Azure Pipelines를 활용하여 지속적인 통합 및 배포를 설정하는 방법에 대해 간략히 설명합니다. 이 자습서에서는 데이터 웨어하우징을 위한 지속적인 통합 및 배포 파이프라인을 구축하는 두 번째 단계입니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-- [원본 제어 통합 자습서](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-source-control-integration) 살펴보기
+- [원본 제어 통합 자습서](sql-data-warehouse-source-control-integration.md) 살펴보기
 
 - Azure DevOps 설정 및 연결
-
 
 ## <a name="continuous-integration-with-visual-studio-build"></a>Visual Studio 빌드와의 지속적인 통합
 
@@ -37,7 +36,7 @@ ms.locfileid: "80584213"
 
 2. 소스 코드 리포지토리(Azure Repos Git)를 선택하고, .NET 데스크톱 앱 템플릿을 선택합니다.
 
-      ![파이프라인 설정](./media/sql-data-warehouse-continuous-integration-and-deployment/2-pipeline-setup.png "파이프라인 설정") 
+      ![파이프라인 설정](./media/sql-data-warehouse-continuous-integration-and-deployment/2-pipeline-setup.png "파이프라인 설정")
 
 3. 적절한 에이전트 풀을 사용하도록 YAML 파일을 편집합니다. YAML 파일은 다음과 같습니다.
 
@@ -45,10 +44,9 @@ ms.locfileid: "80584213"
 
 이 시점에서 원본 제어 리포지토리 마스터 분기에 대한 체크 인에서 데이터베이스 프로젝트의 성공적인 Visual Studio 빌드를 자동으로 트리거하는 간단한 환경이 있습니다. 로컬 데이터베이스 프로젝트를 변경하고 마스터 분기에서 변경 내용을 체크 인하여 자동화가 엔드투엔드 방식으로 작동하는지 확인합니다.
 
-
 ## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Azure SQL Data Warehouse(또는 Database) 배포 작업을 사용한 지속적인 배포
 
-1. [Azure SQL Database 배포 작업](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?view=azure-devops)을 사용하여 새 작업을 추가하고, 대상 데이터 웨어하우스에 연결하는 데 필요한 필드를 채웁니다. 이 작업이 실행되면 이전 빌드 프로세스에서 생성된 DACPAC가 대상 데이터 웨어하우스에 배포됩니다. [Azure SQL Data Warehouse 배포 작업](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment)을 사용할 수도 있습니다. 
+1. [Azure SQL Database 배포 작업](/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 사용하여 새 작업을 추가하고, 대상 데이터 웨어하우스에 연결하는 데 필요한 필드를 채웁니다. 이 작업이 실행되면 이전 빌드 프로세스에서 생성된 DACPAC가 대상 데이터 웨어하우스에 배포됩니다. [Azure SQL Data Warehouse 배포 작업](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment)을 사용할 수도 있습니다.
 
       ![배포 작업](./media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "배포 작업")
 

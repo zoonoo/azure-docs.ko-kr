@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 35fba966fcdb6d1c5cd7c531bb22c9c78ae16ff3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bbf7f2945ad6a94c51cfd0c7db1e8c85d739c6ed
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75417793"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631630"
 ---
 # <a name="manage-pre-and-post-scripts"></a>스크립트 전과 후 관리
 
@@ -18,7 +18,7 @@ ms.locfileid: "75417793"
 
 ## <a name="runbook-requirements"></a>Runbook 요구 사항
 
-Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 자동화 계정으로 가져와서 게시해야 합니다. 이 프로세스에 대한 자세한 내용은 [Runbook 게시를](manage-runbooks.md#publish-a-runbook)참조하십시오.
+Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 자동화 계정으로 가져와서 게시해야 합니다. 이 프로세스에 대한 자세한 내용은 [Runbook 게시를](manage-runbooks.md#publishing-a-runbook)참조하십시오.
 
 ## <a name="using-a-pre-script-or-post-script"></a>사전 스크립트 또는 사후 스크립트 사용
 

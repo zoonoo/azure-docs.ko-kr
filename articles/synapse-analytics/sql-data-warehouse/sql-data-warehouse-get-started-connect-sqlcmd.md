@@ -1,6 +1,6 @@
 ---
 title: sqlcmd와 연결
-description: sqlcmd 명령줄 유틸리티를 사용하여 Azure SQL Data Warehouse에 연결하고 쿼리합니다.
+description: sqlcmd 명령줄 유틸리티를 사용하여 Synapse SQL 풀에 연결하고 쿼리합니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,31 +11,31 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 118997c39b56254eb47bc24350a0558e0b7620f9
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: cfb1b7558f8d7675009a0ebc729cc1a560f03d12
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350499"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633368"
 ---
-# <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>sqlcmd를 사용하여 SQL Data Warehouse에 연결
+# <a name="connect-to-synapse-sql-pool-with-sqlcmd"></a>SQLCMd를 사용하여 시냅스 SQL 풀에 연결
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure 기계 학습](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [Sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
-> * [Ssms](sql-data-warehouse-query-ssms.md)
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
-[sqlcmd][sqlcmd] 명령줄 유틸리티를 사용하여 Azure SQL 데이터 웨어하우스에 연결하고 쿼리합니다.  
+SQL 풀에 연결하고 쿼리하려면 [sqlcmd][sqlcmd] 명령줄 유틸리티를 사용합니다.  
 
 ## <a name="1-connect"></a>1. 연결
-[sqlcmd][sqlcmd]를 시작하려면 명령 프롬프트를 열고 SQL Data Warehouse 데이터베이스에 대한 연결 문자열 뒤에 **sqlcmd** 를 입력합니다. 연결 문자열에는 다음 매개 변수가 필요합니다.
+[sqlcmd][sqlcmd]로 시작하려면 명령 프롬프트를 열고 **sqlcmd를** 입력한 다음 SQL 풀 데이터베이스에 대한 연결 문자열을 입력합니다. 연결 문자열에는 다음 매개 변수가 필요합니다.
 
 * **서버(-S):**`<`서버 이름`>`.database.windows.net 형식의 서버
 * **데이터베이스(-d):** 데이터베이스 이름입니다.
-* **따옴표 붙은 식별자 설정(-I):** SQL Data Warehouse 인스턴스에 연결하려면 따옴표 붙은 식별자를 사용할 수 있어야 합니다.
+* **인용 식별자(-I) 사용:** SQL 풀 인스턴스에 연결하려면 quoted식별자를 사용하도록 설정해야 합니다.
 
 SQL Server 인증을 사용하려면 사용자 이름/암호 매개 변수를 추가해야 합니다.
 
@@ -84,14 +84,4 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 ```
 
 ## <a name="next-steps"></a>다음 단계
-sqlcmd에서 사용할 수 있는 옵션에 대한 세부 정보는 [sqlcmd 설명서][sqlcmd]를 참조하세요.
-
-<!--Image references-->
-
-<!--Article references-->
-
-<!--MSDN references--> 
-[sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
-[Azure portal]: https://portal.azure.com
-
-<!--Other Web references-->
+sqlcmd에서 사용할 수 있는 옵션에 대한 자세한 내용은 [sqlcmd 설명서를](https://msdn.microsoft.com/library/ms162773.aspx) 참조하십시오.

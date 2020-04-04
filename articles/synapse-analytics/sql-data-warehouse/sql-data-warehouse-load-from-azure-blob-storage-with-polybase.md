@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7460a59dd2a7a5906a483195929136391657fa50
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: c93dab2f6086b10e1e8d75c4fc3334a95c3fcafa
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583999"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633266"
 ---
 # <a name="load-contoso-retail-data-to-a-synapse-sql-data-warehouse"></a>Contoso 소매 데이터를 시냅스 SQL 데이터 웨어하우스에 로드
 
@@ -77,41 +77,40 @@ WITH (
 
 ## <a name="create-the-external-data-source"></a>외부 데이터 원본 만들기
 
-이 [외부 데이터 소스 소스 만들기](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15) 명령을 사용하여 데이터 위치 및 데이터 형식을 저장합니다. 
+이 [외부 데이터 소스 소스 만들기](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 명령을 사용하여 데이터 위치 및 데이터 형식을 저장합니다.
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
-WITH 
+WITH
 (  
-    TYPE = Hadoop 
+    TYPE = Hadoop
 ,   LOCATION = 'wasbs://contosoretaildw-tables@contosoretaildw.blob.core.windows.net/'
-); 
+);
 ```
 
 > [!IMPORTANT]
-> Azure Blob Storage 컨테이너를 공용으로 만들도록 선택하는 경우 데이터가 데이터 센터에서 떠날 때 데이터 소유자로서 귀하에게 데이터 송신 요금이 부과될 것임을 염두에 두어야 합니다. 
-> 
+> Azure Blob Storage 컨테이너를 공용으로 만들도록 선택하는 경우 데이터가 데이터 센터에서 떠날 때 데이터 소유자로서 귀하에게 데이터 송신 요금이 부과될 것임을 염두에 두어야 합니다.
 
 ## <a name="configure-the-data-format"></a>데이터 형식 구성
 
 데이터는 Azure Blob Storage에 텍스트 파일로 저장되고 각 필드는 구분 기호로 구분됩니다. SSMS에서 다음 외부 파일 형식 만들기 명령을 실행하여 텍스트 파일의 데이터 형식을 지정합니다. Contoso 데이터는 압축되어 있지 않으며 파이프로 구분됩니다.
 
 ```sql
-CREATE EXTERNAL FILE FORMAT TextFileFormat 
-WITH 
+CREATE EXTERNAL FILE FORMAT TextFileFormat
+WITH
 (   FORMAT_TYPE = DELIMITEDTEXT
 ,    FORMAT_OPTIONS    (   FIELD_TERMINATOR = '|'
                     ,    STRING_DELIMITER = ''
                     ,    DATE_FORMAT         = 'yyyy-MM-dd HH:mm:ss.fff'
-                    ,    USE_TYPE_DEFAULT = FALSE 
+                    ,    USE_TYPE_DEFAULT = FALSE
                     )
 );
-``` 
+```
 
-## <a name="create-the-external-tables"></a>외부 테이블 만들기
-데이터 원본 및 파일 형식을 지정한 후 외부 테이블을 만들 준비가 되었습니다. 
+## <a name="create-the-schema-for-the-external-tables"></a>외부 테이블에 대한 스키마 만들기
 
-## <a name="create-a-schema-for-the-data"></a>데이터에 대한 스키마 만들기
+데이터 원본 및 파일 형식을 지정한 후 외부 테이블에 대한 스키마를 만들 준비가 되었습니다.
+
 데이터베이스에 Contoso 데이터를 저장할 수 있는 위치를 만들려면 스키마를 생성합니다.
 
 ```sql
@@ -163,7 +162,7 @@ CREATE EXTERNAL TABLE [asb].DimProduct (
 )
 WITH
 (
-    LOCATION='/DimProduct/' 
+    LOCATION='/DimProduct/'
 ,   DATA_SOURCE = AzureStorage_west_public
 ,   FILE_FORMAT = TextFileFormat
 ,   REJECT_TYPE = VALUE
@@ -172,7 +171,7 @@ WITH
 ;
 
 --FactOnlineSales
-CREATE EXTERNAL TABLE [asb].FactOnlineSales 
+CREATE EXTERNAL TABLE [asb].FactOnlineSales
 (
     [OnlineSalesKey] [int]  NOT NULL,
     [DateKey] [datetime] NOT NULL,
@@ -198,7 +197,7 @@ CREATE EXTERNAL TABLE [asb].FactOnlineSales
 )
 WITH
 (
-    LOCATION='/FactOnlineSales/' 
+    LOCATION='/FactOnlineSales/'
 ,   DATA_SOURCE = AzureStorage_west_public
 ,   FILE_FORMAT = TextFileFormat
 ,   REJECT_TYPE = VALUE
@@ -208,9 +207,10 @@ WITH
 ```
 
 ## <a name="load-the-data"></a>데이터 로드
+
 외부 데이터에 액세스하는 방법에는 여러 가지가 있습니다.  외부 테이블에서 직접 데이터를 쿼리하거나, 데이터를 데이터 웨어하우스의 새 테이블에 로드하거나, 기존 데이터 웨어하우스 테이블에 외부 데이터를 추가할 수 있습니다.  
 
-###  <a name="create-a-new-schema"></a>새 스키마를 만듭니다.
+### <a name="create-a-new-schema"></a>새 스키마를 만듭니다.
 
 CTAS는 데이터가 포함된 새 테이블을 만듭니다.  먼저 contoso 데이터에 대한 스키마를 만듭니다.
 
@@ -221,11 +221,11 @@ GO
 
 ### <a name="load-the-data-into-new-tables"></a>데이터를 새 테이블에 로드합니다.
 
-Azure Blob 저장소의 데이터를 데이터 웨어하우스 테이블에 로드하려면 [테이블 을 SELECT(Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) 문을 사용합니다. [CTAS로](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md) 로드하면 만든 강력한 형식의 외부 테이블을 활용합니다. 데이터를 새 테이블에 로드하려면 테이블당 하나의 CTAS 문을 사용합니다. 
- 
+Azure Blob 저장소의 데이터를 데이터 웨어하우스 테이블에 로드하려면 [테이블 을 SELECT(Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 문을 사용합니다. [CTAS로](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md) 로드하면 만든 강력한 형식의 외부 테이블을 활용합니다. 데이터를 새 테이블에 로드하려면 테이블당 하나의 CTAS 문을 사용합니다.
+
 CTAS는 새 테이블을 만들고 select 문의 결과와 함께 새 테이블을 정보표시합니다. CTAS는 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 가지도록 새 테이블을 정의합니다. 외부 테이블에서 모든 열을 선택하는 경우 새 테이블은 외부 테이블의 열과 데이터 형식의 복제본이 됩니다.
 
-이 예제에서는 차원과 해시 분산 테이블로서 팩트 테이블을 만듭니다. 
+이 예제에서는 차원과 해시 분산 테이블로서 팩트 테이블을 만듭니다.
 
 ```sql
 SELECT GETDATE();
@@ -237,7 +237,7 @@ CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey
 
 ### <a name="track-the-load-progress"></a>부하 진행 상황 추적
 
-DMV(동적 관리 뷰)를 사용하여 로드 진행률을 추적할 수 있습니다. 
+DMV(동적 관리 뷰)를 사용하여 로드 진행률을 추적할 수 있습니다.
 
 ```sql
 -- To see all requests
@@ -254,13 +254,13 @@ SELECT
     r.command,
     s.request_id,
     r.status,
-    count(distinct input_name) as nbr_files, 
+    count(distinct input_name) as nbr_files,
     sum(s.bytes_processed)/1024/1024/1024 as gb_processed
 FROM
     sys.dm_pdw_exec_requests r
     inner join sys.dm_pdw_dms_external_work s
         on r.request_id = s.request_id
-WHERE 
+WHERE
     r.[label] = 'CTAS : Load [cso].[DimProduct]             '
     OR r.[label] = 'CTAS : Load [cso].[FactOnlineSales]        '
 GROUP BY
@@ -276,7 +276,7 @@ ORDER BY
 
 기본적으로 Synapse SQL 데이터 웨어하우스는 테이블을 클러스터된 열저장소 인덱스로 저장합니다. 로드를 완료한 후 데이터 행 일부는 columnstore로 압축되지 않을 수 있습니다.  이런 일이 일어날 수있는 다른 이유가 있습니다. 자세한 내용은 [Columnstore 인덱스 관리](sql-data-warehouse-tables-index.md)를 참조하세요.
 
-로드 후 쿼리 성능과 columnstore 압축을 최적화하려면 모든 행을 압축하기 위해 columnstore 인덱스를 강제 적용할 테이블을 다시 빌드합니다. 
+로드 후 쿼리 성능과 columnstore 압축을 최적화하려면 모든 행을 압축하기 위해 columnstore 인덱스를 강제 적용할 테이블을 다시 빌드합니다.
 
 ```sql
 SELECT GETDATE();
@@ -290,7 +290,7 @@ Columnstore 인덱스 유지 관리에 대한 자세한 내용은 [columnstore �
 
 ## <a name="optimize-statistics"></a>통계를 최적화합니다.
 
-로드 직후 단일 열 통계를 만드는 것이 가장 좋습니다. 특정 열이 쿼리 조건자에 들어가지 않을 경우 해당 열에 대한 통계 작성을 건너뛸 수 있습니다. 모든 열에 단일 열 통계를 만드는 경우 모든 통계를 다시 작성하는 데 시간이 오래 걸릴 수 있습니다. 
+로드 직후 단일 열 통계를 만드는 것이 가장 좋습니다. 특정 열이 쿼리 조건자에 들어가지 않을 경우 해당 열에 대한 통계 작성을 건너뛸 수 있습니다. 모든 열에 단일 열 통계를 만드는 경우 모든 통계를 다시 작성하는 데 시간이 오래 걸릴 수 있습니다.
 
 단일 열 통계를 모든 테이블의 모든 열에 대해 만들기로 결정한 경우 [통계](sql-data-warehouse-tables-statistics.md) 문서에 저장된 프로시저 코드 샘플 `prc_sqldw_create_stats`를 사용할 수 있습니다.
 
@@ -339,6 +339,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 ```
 
 ## <a name="achievement-unlocked"></a>목표를 달성했습니다!
+
 데이터 웨어하우스에 공용 데이터를 성공적으로 로드했습니다. 잘 하셨습니다!
 
 이제 테이블 쿼리를 시작하여 데이터를 탐색할 수 있습니다. 다음 쿼리를 실행하여 브랜드별 총 매출을 확인합니다.
@@ -352,5 +353,6 @@ GROUP BY p.[BrandName]
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 전체 데이터 집합을 로드하려면 예제를 실행하여 Microsoft SQL Server 샘플 리포지토리에서 [Contoso 소매 데이터 웨어하우스 전체를 로드합니다.](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md)
 자세한 개발 팁은 [데이터 웨어하우스에 대한 설계 결정 및 코딩 기술을](sql-data-warehouse-overview-develop.md)참조하십시오.

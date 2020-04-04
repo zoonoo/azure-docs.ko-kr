@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b5d326d02587d6b5bd8fd73dcccfefdb13c47d57
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 26c5c5b31d5f3f9e1a642c0bafb947190e479055
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500929"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632622"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
@@ -33,7 +33,7 @@ Azure 자동화에서 Runbook을 실행하는 오류가 있는 경우 다음 단
 
 3. **노드 및 자동화 작업 영역에 필요한 모듈이 있는지 확인합니다.** 
 
-    Runbook에서 모듈을 가져오는 경우 가져오기 모듈에 나열된 단계를 사용하여 자동화 계정에서 모듈을 사용할 수 있는지 [확인합니다.](../shared-resources/modules.md#import-modules) [Azure 자동화의 Azure 업데이트 모듈의](..//automation-update-azure-modules.md)지침에 따라 모듈을 최신 버전으로 업데이트합니다. 자세한 문제 해결 정보는 [문제 해결 모듈을](shared-resources.md#modules)참조하십시오.
+    Runbook에서 모듈을 가져오는 경우 가져오기 모듈에 나열된 단계를 사용하여 자동화 계정에서 모듈을 사용할 수 있는지 [확인합니다.](../shared-resources/modules.md#importing-modules) [Azure 자동화의 Azure 업데이트 모듈의](..//automation-update-azure-modules.md)지침에 따라 모듈을 최신 버전으로 업데이트합니다. 자세한 문제 해결 정보는 [문제 해결 모듈을](shared-resources.md#modules)참조하십시오.
 
 4. **Runbook이 일시 중단되거나 예기치 않게 실패한 경우 수행합니다.**
 
@@ -284,7 +284,7 @@ The job was tried three times but it failed
 
 ### <a name="resolution"></a>해결 방법
 
-* 메모리 제한, 네트워크 소켓. 메모리 한도 내에서 작업하는 방법은 워크로드를 여러 Runbook으로 분할하고, 메모리에서 적은 데이터를 처리하고, Runbook에서 불필요한 출력을 작성하지 않도록 하고, PowerShell 워크플로에 기록되는 검사점 수를 고려하는 것입니다. 실행 책. 와 같은 `$myVar.clear`clear 메서드를 사용하여 변수를 지우고 가비지 수집을 즉시 실행하는 데 사용합니다. `[GC]::Collect` 이러한 작업은 런타임 중에 Runbook의 메모리 공간을 줄입니다.
+* 메모리 제한, 네트워크 소켓. 메모리 한도 내에서 작업하는 방법을 제안하는 방법은 워크로드를 여러 런북으로 분할하고, 메모리에서 적은 데이터를 처리하고, Runbook에서 불필요한 출력을 작성하지 않도록 하고, PowerShell 워크플로런북에 기록되는 검사점 수를 고려하는 것입니다. 와 같은 `$myVar.clear`clear 메서드를 사용하여 변수를 지우고 가비지 수집을 즉시 실행하는 데 사용합니다. `[GC]::Collect` 이러한 작업은 런타임 중에 Runbook의 메모리 공간을 줄입니다.
 
 * 모듈이 호환되지 않음. Azure 자동화에서 Azure PowerShell 모듈을 업데이트하는 방법의 단계를 수행하여 [Azure 모듈을 업데이트합니다.](../automation-update-azure-modules.md)
 

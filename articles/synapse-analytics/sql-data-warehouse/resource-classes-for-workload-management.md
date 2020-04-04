@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 8ac9ff1f46e1d2d0ddaa313499340b4723c7da07
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 86cc081ef47eb2ac2e8e0a49bc79e8973f34baf1
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80584262"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633702"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Azure Synapse 분석에서 리소스 클래스를 사용 하 여 워크로드 관리
 
@@ -65,7 +65,7 @@ ms.locfileid: "80584262"
 - largerc
 - xlargerc
 
-각 리소스 클래스에 대한 메모리 할당은 다음과 같습니다. 
+각 리소스 클래스에 대한 메모리 할당은 다음과 같습니다.
 
 | 서비스 수준  | smallrc           | mediumrc               | largerc                | xlargerc               |
 |:--------------:|:-----------------:|:----------------------:|:----------------------:|:----------------------:|
@@ -75,8 +75,6 @@ ms.locfileid: "80584262"
 | DW400c         | 6.25%             | 10%                    | 22%                    | 70%                    |
 | DW500c         | 5%                | 10%                    | 22%                    | 70%                    |
 | DW1000c ~<br> DW30000c | 3%       | 10%                    | 22%                    | 70%                    |
-
-
 
 ### <a name="default-resource-class"></a>기본 리소스 클래스
 
@@ -285,8 +283,8 @@ IF @DWU IS NULL
 BEGIN
 -- Selecting proper DWU for the current DB if not specified.
 
-SELECT @DWU = 'DW'+ CAST(CASE WHEN Mem> 4 THEN Nodes*500 
-  ELSE Mem*100 
+SELECT @DWU = 'DW'+ CAST(CASE WHEN Mem> 4 THEN Nodes*500
+  ELSE Mem*100
   END AS VARCHAR(10)) +'c'
     FROM (
       SELECT Nodes=count(distinct n.pdw_node_id), Mem=max(i.committed_target_kb/1000/1000/60)
@@ -594,5 +592,4 @@ GO
 
 ## <a name="next-steps"></a>다음 단계
 
-데이터베이스 사용자 및 보안 관리에 대한 자세한 내용은 [Synapse SQL의 데이터베이스 보안](sql-data-warehouse-overview-manage-security.md)을 참조하십시오. 더 큰 리소스 클래스가 클러스터형 columnstore 인덱스 품질을 향상시키는 방법에 대한 자세한 내용은 [Columnstore 압축을 위한 메모리 최적화](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)를 참조하세요.
-
+데이터베이스 사용자 및 보안 관리에 대한 자세한 내용은 [SQL Analytics의 데이터베이스 보안](sql-data-warehouse-overview-manage-security.md)을 참조하십시오. 더 큰 리소스 클래스가 클러스터형 columnstore 인덱스 품질을 향상시키는 방법에 대한 자세한 내용은 [Columnstore 압축을 위한 메모리 최적화](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)를 참조하세요.

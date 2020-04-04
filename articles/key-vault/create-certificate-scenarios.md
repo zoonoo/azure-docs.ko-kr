@@ -10,17 +10,15 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b9ff80275cc89dde0db215856c2e134c4b273020
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c6d33acddb106a3c032c8e21d3111cb428b9a45
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78199736"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631635"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>인증서 만들기 모니터링 및 관리
 Azure에 적용합니다.
-
-있습니다. 
 
 이 문서에 설명된 시나리오는 / 작업은 다음과 같습니다.
 
@@ -416,7 +414,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 |요소 이름|필수|Type|버전|설명|
 |------------------|--------------|----------|-------------|-----------------|
-|x5c|yes|array|\<소개 버전>|기본 64 문자열 배열로 X509 인증서 체인|
+|x5c|예|array|\<소개 버전>|기본 64 문자열 배열로 X509 인증서 체인|
 
 ### <a name="response"></a>응답
 
@@ -476,5 +474,5 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1?api-version
 
 ```
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 - [키, 비밀 및 인증서 에 대한](about-keys-secrets-and-certificates.md)

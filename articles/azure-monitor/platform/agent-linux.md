@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
-ms.openlocfilehash: aa2356901403c7a63aa4aa96dcb38f9c0c971e58
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 9807d6eeb07b953ab75b328ce64c5166ca52dd2a
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80528341"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637515"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>리눅스 컴퓨터를 Azure 모니터에 연결
 
@@ -22,7 +22,7 @@ Linux용 로그 분석 에이전트는 다음 방법 중 하나를 사용하여 
 * 에이전트를 [수동으로 다운로드하여 설치합니다.](#install-the-agent-manually) 이는 Linux 컴퓨터가 인터넷에 액세스할 수 없고 [로그 분석 게이트웨이를](gateway.md)통해 Azure Monitor 또는 Azure 자동화와 통신하는 경우에 필요합니다. 
 * [GitHub에서 호스팅되는 래퍼 스크립트를 사용하여 Linux용 에이전트를 설치합니다.](#install-the-agent-using-wrapper-script) 컴퓨터가 직접 또는 프록시 서버를 통해 인터넷에 연결될 때 에이전트를 설치하고 업그레이드하는 것이 좋습니다.
 
-지원되는 구성을 이해하려면 [지원되는 Linux 운영 체제](log-analytics-agent.md#supported-linux-operating-systems) 및 [네트워크 방화벽 구성](log-analytics-agent.md#firewall-requirements)을 검토합니다.
+지원되는 구성을 이해하려면 [지원되는 Linux 운영 체제](log-analytics-agent.md#supported-linux-operating-systems) 및 [네트워크 방화벽 구성](log-analytics-agent.md#network-requirements)을 검토합니다.
 
 >[!NOTE]
 >Linux용 Log Analytics 에이전트는 둘 이상의 Log Analytics 작업 영역에 보고하도록 구성할 수 없습니다. 시스템 센터 운영 관리자 관리 그룹과 Log Analytics 작업 영역을 동시에 보고하거나 개별적으로 보고하도록 구성할 수 있습니다.

@@ -3,12 +3,12 @@ title: 리소스를 새 구독 또는 리소스 그룹으로 이동
 description: Azure Resource Manager를 사용하여 리소스를 새 리소스 그룹 또는 구독으로 이동합니다.
 ms.topic: conceptual
 ms.date: 03/02/2020
-ms.openlocfilehash: 40432c55a7f7e289d2e5cbc8afe94847074e4ca8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ffb5f8be81d3628084d127db404ab994d4d5b938
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248854"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631498"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -107,7 +107,7 @@ ms.locfileid: "79248854"
 
 * 1단계: 종속 리소스가 서로 다른 리소스 그룹에 분산되어 있는 경우 먼저 해당 리소스 그룹을 하나의 리소스 그룹으로 이동합니다.
 * 2단계: 리소스 및 종속 리소스를 원본 구독에서 대상 구독으로 함께 이동합니다.
-* 3단계: 선택적으로 대상 구독 내의 다른 리소스 그룹에 종속 리소스를 재배포합니다. 
+* 3단계: 선택적으로 대상 구독 내의 다른 리소스 그룹에 종속 리소스를 재배포합니다.
 
 ## <a name="validate-move"></a>이동 유효성 검사
 
@@ -260,8 +260,9 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 예를 들어 가상 컴퓨터를 이동하려면 세 개의 다른 리소스 공급자가 있는 7개의 리소스 유형을 이동해야 할 수 있습니다. 이러한 리소스 공급자 및 유형은 다음과 같습니다.
 
 * Microsoft.Compute
-   * virtualMachines
-   * disks
+
+  * virtualMachines
+  * disks
 * Microsoft.Network
   * networkInterfaces
   * publicIPAddresses

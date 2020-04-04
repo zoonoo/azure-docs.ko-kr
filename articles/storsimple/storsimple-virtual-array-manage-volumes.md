@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: a233a9deb58a7c1abc87a622a4f1f2581ee2e477
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2dbbe6bcd4957a108cc3eae4d41816b130cf8f07
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "62125800"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633875"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>StorSimple Device Manager 서비스를 사용하여 StorSimple Virtual Array에서 볼륨 관리
 
@@ -44,7 +44,7 @@ StorSimple 볼륨은 다음과 같을 수 있습니다.
 | 계층화 볼륨의 최소 크기                            | 500GB        |
 | 계층화 볼륨의 최대 크기                            | 5TB          |
 | 로컬로 고정된 볼륨의 최소 크기                    | 50GB         |
-| 로컬로 고정된 볼륨의 최대 크기                    | 500GB        |
+| 로컬로 고정된 볼륨의 최대 크기                    | 200GB        |
 
 ## <a name="the-volumes-blade"></a>볼륨 블레이드
 StorSimple 서비스 요약 블레이드의 **볼륨** 메뉴에서는 지정된 StorSimple 배열의 스토리지 볼륨의 목록을 표시하고 관리할 수 있습니다.

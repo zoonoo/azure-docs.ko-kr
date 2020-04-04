@@ -1,17 +1,17 @@
 ---
 title: AKS(Azure Kubernetes Service)에서 OpenFaaS 사용
-description: AKS(Azure Kubernetes Service)에서 OpenFaaS 배포 및 사용
+description: Azure Kubernetes 서비스(AKS) 클러스터에서 OpenFaaS를 배포하고 사용하여 컨테이너가 있는 서버없는 기능을 빌드하는 방법을 알아봅니다.
 author: justindavies
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 2605489f73063cb16a588d4714955704482327ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95039573c607f516755f08f1ebad8b968416ec8b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473645"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631465"
 ---
 # <a name="using-openfaas-on-aks"></a>AKS에서 OpenFaaS 사용
 

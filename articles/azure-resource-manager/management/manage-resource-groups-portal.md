@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 8087baf7595bfd2497f97fbff4822b356cd1b146
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 622c0cb8d58dddcdb13c7dc9412ada3f2e2d93e4
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274568"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632985"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure 리소스 관리자 리소스 그룹 관리
 
@@ -29,11 +29,10 @@ Azure [리소스 관리자와](overview.md) 함께 [Azure 포털을](https://por
 
 리소스 그룹은 리소스에 대한 메타데이터를 저장합니다. 따라서 리소스 그룹의 위치를 지정하면 메타데이터가 저장된 위치를 지정하게 됩니다. 규정 준수 때문에 특정 지역에 데이터가 저장되는지 확인해야 합니다.
 
-리소스 그룹은 리소스에 대한 메타데이터를 저장합니다. 리소스 그룹의 위치를 지정하면 메타데이터가 저장되는 위치를 지정하게 됩니다.
 
 ## <a name="create-resource-groups"></a>리소스 그룹 만들기
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **리소스 그룹** 선택
 
     ![리소스 그룹 추가](./media/manage-resource-groups-portal/manage-resource-groups-add-group.png)
@@ -53,7 +52,7 @@ Azure [리소스 관리자와](overview.md) 함께 [Azure 포털을](https://por
 
 ## <a name="list-resource-groups"></a>리소스 그룹 나열
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 리소스 그룹을 나열하려면 **리소스 그룹을** 선택합니다.
 
     ![리소스 그룹 찾아보기](./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png)
@@ -62,7 +61,7 @@ Azure [리소스 관리자와](overview.md) 함께 [Azure 포털을](https://por
 
 ## <a name="open-resource-groups"></a>리소스 그룹 열기
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **리소스 그룹을**선택합니다.
 3. 열려는 리소스 그룹을 선택합니다.
 

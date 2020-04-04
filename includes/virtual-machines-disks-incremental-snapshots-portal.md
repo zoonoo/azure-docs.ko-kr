@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 04/02/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8f2e2081ee31e2ce7b21677bd261ed7eda705334
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: de0cf260207747f4acb02a377819a13de8b8ba22
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79485956"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80628406"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
 
@@ -26,9 +26,8 @@ ms.locfileid: "79485956"
 
 ## <a name="portal"></a>포털
 
-전역 Azure 포털에서 증분 스냅숏을 만들고 구성하려면 다음 링크를 [https://aka.ms/incrementalsnapshots](https://aka.ms/incrementalsnapshots)사용해야 합니다. 증분 스냅숏 생성은 아직 전역 Azure Portal에서 사용할 수 없습니다.
 
-1. 제공된 링크를 사용하여 [Azure 포털에](https://aka.ms/incrementalsnapshots) 로그인하고 스냅숏을 지정하려는 디스크로 이동합니다.
+1. [Azure 포털에](https://portal.azure.com/) 로그인하고 스냅숏을 지정하려는 디스크로 이동합니다.
 1. 디스크에서 **스냅샷 만들기를 선택합니다.**
 
     :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-snapshot-button-incremental.png" alt-text="스크린샷. **+스냅샷 만들기**가 강조 표시된 디스크의 블레이드는 선택해야 합니다.":::

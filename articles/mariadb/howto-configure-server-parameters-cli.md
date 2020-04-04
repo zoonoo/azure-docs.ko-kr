@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 56975c52b22b90840fb1534187e99f6efa19469e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/1/2020
+ms.openlocfilehash: 3ba06ea592d51eedbe827e1ab6418f65722d579c
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79527676"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632298"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Azure CLI를 사용하여 서버 구성 매개 변수 사용자 지정
 Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for MariaDB 서버의 구성 매개 변수를 나열하고, 표시하며, 업데이트할 수 있습니다. 엔진 구성의 하위 집합은 서버 수준에서 노출되고 수정할 수 있습니다.
@@ -59,10 +59,10 @@ az mariadb server configuration set --name slow_query_log --resource-group myres
 
 ### <a name="populating-the-time-zone-tables"></a>표준 시간대 테이블 채우기
 
-MariaDB 명령줄 또는 MariaDB Workbench와 같은 도구에서 `az_load_timezone` 저장 프로시저를 호출하면 서버의 표준 시간대 테이블을 채울 수 있습니다.
+MariaDB 명령줄 또는 MariaDB Workbench와 같은 도구에서 `mysql.az_load_timezone` 저장 프로시저를 호출하면 서버의 표준 시간대 테이블을 채울 수 있습니다.
 
 > [!NOTE]
-> MariaDB Workbench에서 `az_load_timezone` 명령을 실행하는 경우, 먼저 `SET SQL_SAFE_UPDATES=0;`을 사용하여 안전한 업데이트 모드를 꺼야 할 수 있습니다.
+> MariaDB Workbench에서 `mysql.az_load_timezone` 명령을 실행하는 경우, 먼저 `SET SQL_SAFE_UPDATES=0;`을 사용하여 안전한 업데이트 모드를 꺼야 할 수 있습니다.
 
 ```sql
 CALL mysql.az_load_timezone();

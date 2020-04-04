@@ -7,13 +7,13 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/04/2020
-ms.openlocfilehash: e2e1ddd031041f49107545cd0b3d3de4eaebcd6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: a5244086c185c111762496086f8044f12f52be14
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77472131"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632587"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Azure 데이터 팩터리에서 데이터 흐름 문제 해결
 
@@ -55,6 +55,18 @@ ms.locfileid: "77472131"
 - **메시지**: SQL 함수를 사용하는 경우 쿼리에 열 이름을 지정하고 별칭을 설정해야합니다.
 - **원인**: 열 이름이 지정되지 않았습니다.
 - **권장 사항**: 최소()/max())와 같은 SQL 함수를 사용하는 경우 별칭을 설정합니다.
+
+### <a name="error-code-getcommand-outputasync-failed"></a>오류 코드: GetCommand OutputAsync 실패
+
+- **메시지**: 데이터 흐름 디버그 및 데이터 미리 보기 중: GetCommand OutputAsync가 ...
+- **원인**: 백 엔드 서비스 오류입니다. 작업을 다시 시도하고 디버그 세션을 다시 시작할 수도 있습니다.
+- **권장 사항**: 다시 시도하고 다시 시작해도 문제가 해결되지 않으면 고객 지원에 문의하십시오.
+
+### <a name="error-code-hit-unexpected-exception-and-execution-failed"></a>오류 코드: 예기치 않은 예외를 누르고 실행이 실패했습니다.
+
+- **메시지**: 데이터 흐름 활동 실행 중: 예기치 않은 예외를 누르고 실행이 실패했습니다.
+- **원인**: 백 엔드 서비스 오류입니다. 작업을 다시 시도하고 디버그 세션을 다시 시작할 수도 있습니다.
+- **권장 사항**: 다시 시도하고 다시 시작해도 문제가 해결되지 않으면 고객 지원에 문의하십시오.
 
 ## <a name="general-troubleshooting-guidance"></a>일반적인 문제 해결 지침
 

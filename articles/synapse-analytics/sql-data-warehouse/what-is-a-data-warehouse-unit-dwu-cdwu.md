@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ace4bc2e46d9e1926da18dedb163657d4f343979
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 01a05755fc18a85a95e9c1bec1c470d37af656d1
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586318"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632227"
 ---
 # <a name="data-warehouse-units-dwus"></a>데이터 웨어하우스 단위(DWUs)
 
@@ -24,14 +24,18 @@ ms.locfileid: "80586318"
 
 ## <a name="what-are-data-warehouse-units"></a>데이터 웨어하우스 장치란?
 
-[Synapse SQL 풀은](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) 프로비전중인 분석 리소스의 컬렉션을 나타냅니다. 분석 리소스는 CPU, 메모리 및 IO의 조합으로 정의됩니다. 이 세 가지 리소스는 DW(데이터 웨어하우스 단위)라고 하는 계산 척도 단위로 번들로 제공됩니다. DWU는 컴퓨팅 리소스 및 성능의 추상적이고 정규화된 측정값을 나타냅니다. 서비스 수준이 변경되면 시스템에서 사용할 수 있는 DW의 수가 변경되어 시스템의 성능과 비용이 조정됩니다.
+[Synapse SQL 풀은](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) 프로비전중인 분석 리소스의 컬렉션을 나타냅니다. 분석 리소스는 CPU, 메모리 및 IO의 조합으로 정의됩니다. 
+
+이 세 가지 리소스는 DW(데이터 웨어하우스 단위)라고 하는 계산 척도 단위로 번들로 제공됩니다. DWU는 컴퓨팅 리소스 및 성능의 추상적이고 정규화된 측정값을 나타냅니다. 
+
+서비스 수준이 변경되면 시스템에서 사용할 수 있는 DW의 수가 변경되어 시스템의 성능과 비용이 조정됩니다.
 
 더 높은 성능을 위해 데이터 웨어하우스 단위 수를 늘릴 수 있습니다. 성능이 저하되면 데이터 웨어하우스 단위를 줄입니다. 스토리지 및 컴퓨팅 비용은 별도로 청구되므로 데이터 웨어하우스 단위를 변경해도 스토리지 비용에 영향을 미치지 않습니다.
 
 데이터 웨어하우스 단위의 성능은 다음 워크로드 메트릭을 기반으로 합니다.
 
-- 표준 데이터 웨어하우징 쿼리가 많은 수의 행을 스캔한 다음 복잡한 집계를 수행하는 속도입니다. 이 작업은 I/O 및 CPU를 많이 사용합니다.
-- 데이터 웨어하우스가 Azure 저장소 Blob 또는 Azure 데이터 레이크에서 데이터를 얼마나 빨리 수집할 수 있는지 이 작업은 네트워크 및 CPU를 많이 사용합니다.
+- 표준 SQL 풀 쿼리가 많은 수의 행을 검색한 다음 복잡한 집계를 수행하는 속도입니다. 이 작업은 I/O 및 CPU를 많이 사용합니다.
+- SQL 풀이 Azure 저장소 Blob 또는 Azure 데이터 레이크에서 데이터를 수집할 수 있는 속도 이 작업은 네트워크 및 CPU를 많이 사용합니다.
 - T-SQL [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 명령이 테이블을 복사하는 속도 이 작업에는 데이터를 스토리지에서 읽어오기, 어플라이언스의 노드 전체에 배포하기, 스토리지에 다시 쓰기가 포함됩니다. 이 작업은 CPU, IO 및 네트워크를 많이 사용합니다.
 
 DWU 늘리기:
@@ -42,7 +46,7 @@ DWU 늘리기:
 
 ## <a name="service-level-objective"></a>서비스 수준 목표
 
-SLO(서비스 수준 목표)는 데이터 웨어하우스의 비용 및 성능 수준을 결정하는 확장성 설정입니다. Gen2 SQL 풀의 서비스 수준은 DW2000c와 같은 데이터 웨어하우스 단위(DWU)로 측정됩니다.
+SLO(서비스 수준 목표)는 SQL 풀의 비용 및 성능 수준을 결정하는 확장성 설정입니다. Gen2 SQL 풀의 서비스 수준은 DW2000c와 같은 데이터 웨어하우스 단위(DWU)로 측정됩니다.
 
 T-SQL에서 SERVICE_OBJECTIVE 설정은 SQL 풀의 서비스 수준을 결정합니다.
 
@@ -56,7 +60,7 @@ CREATE DATABASE mySQLDW
 
 ## <a name="capacity-limits"></a>용량 제한
 
-각 SQL Server(예: myserver.database.windows.net)에는 특정 데이터 웨어하우스 단위 수를 허용하는 [DTU(데이터베이스 트랜잭션 단위)](../../sql-database/sql-database-service-tiers-dtu.md) 할당량이 지정되어 있습니다. 자세한 내용은 [워크로드 관리 용량 제한](sql-data-warehouse-service-capacity-limits.md#workload-management)을 참조하세요.
+각 SQL Server(예: myserver.database.windows.net)에는 특정 데이터 웨어하우스 단위 수를 허용하는 [DTU(데이터베이스 트랜잭션 단위)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 할당량이 지정되어 있습니다. 자세한 내용은 [워크로드 관리 용량 제한](sql-data-warehouse-service-capacity-limits.md#workload-management)을 참조하세요.
 
 ## <a name="how-many-data-warehouse-units-do-i-need"></a>필요한 데이터 웨어하우스 단위 수
 
@@ -68,7 +72,9 @@ CREATE DATABASE mySQLDW
 2. 시스템으로 로드하는 데이터를 테스트할 때 애플리케이션 성능을 모니터링하여 선택한 DWU 수와 관찰한 성능을 비교합니다.
 3. 정기적으로 작업량이 많은 기간에 필요한 추가 요구 사항을 식별합니다. 활동에서 상당한 피크와 트로프를 표시하는 워크로드를 자주 확장해야 할 수 있습니다.
 
-SQL Analytics는 방대한 양의 컴퓨팅을 제공하고 상당한 양의 데이터를 쿼리할 수 있는 확장 시스템입니다. 특히 큰 DWU에서 진정한 크기 조정 기능을 확인하려면 데이터에 충분한 CPU가 할당되도록 데이터 집합의 크기를 조정하는 것이 좋습니다. 크기 조정 테스트의 경우 1TB 이상을 사용하는 것이 좋습니다.
+SQL 풀은 방대한 양의 컴퓨팅을 프로비전하고 상당한 양의 데이터를 쿼리할 수 있는 확장 시스템입니다. 
+
+특히 큰 DWU에서 진정한 크기 조정 기능을 확인하려면 데이터에 충분한 CPU가 할당되도록 데이터 집합의 크기를 조정하는 것이 좋습니다. 크기 조정 테스트의 경우 1TB 이상을 사용하는 것이 좋습니다.
 
 > [!NOTE]
 >
@@ -172,7 +178,7 @@ DWU 변경 상태를 확인하려면:
     FROM      sys.databases
     ;
     ```
-    
+
 1. 다음 쿼리를 제출하여 작업 상태를 확인합니다.
 
     ```sql
@@ -182,7 +188,7 @@ DWU 변경 상태를 확인하려면:
     AND       major_resource_id = 'MySQLDW'
     ;
     ```
-    
+
 이 DMV는 IN_PROGRESS 또는 완료된 작업 및 작업 상태와 같은 SQL 풀의 다양한 관리 작업에 대한 정보를 반환합니다.
 
 ## <a name="the-scaling-workflow"></a>크기 조정 워크플로

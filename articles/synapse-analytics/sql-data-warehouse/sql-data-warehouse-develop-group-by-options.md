@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 28ac075d043f7605b6dfdac6879063fbe9308123
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 25e6770fb38d13591186754bc5e6a7641083a899
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619056"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633506"
 ---
 # <a name="group-by-options-in-synapse-sql-pool"></a>시냅스 SQL 풀의 옵션별로 그룹화
 
@@ -24,7 +24,7 @@ ms.locfileid: "80619056"
 
 ## <a name="what-does-group-by-do"></a>GROUP BY의 기능
 
-[GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL 절을 사용하여 데이터를 요약 행 집합으로 집계합니다. GROUP BY에는 SQL 풀에서 지원하지 않는 몇 가지 옵션이 있습니다. 이러한 옵션에는 다음과 같은 해결 방법을 포함합니다.
+[GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 절을 사용하여 데이터를 요약 행 집합으로 집계합니다. GROUP BY에는 SQL 풀에서 지원하지 않는 몇 가지 옵션이 있습니다. 이러한 옵션에는 다음과 같은 해결 방법을 포함합니다.
 
 * GROUP BY with ROLLUP
 * GROUPING SETS
@@ -35,6 +35,7 @@ ms.locfileid: "80619056"
 여기서 가장 간단한 옵션은 명시적 구문에 의존하지 않고 UNION ALL을 사용하여 롤업을 수행하는 것입니다. 결과는 정확히 동일합니다.
 
 다음은 ROLLUP 옵션과 함께GROUP BY 문을 사용하는 예제입니다.
+
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -84,9 +85,10 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 GROUPING SETS를 바꾸려면 샘플 원칙이 적용됩니다. 보려는 집계 수준에 대한 UNION ALL 섹션만 만들면 됩니다.
 
 ## <a name="cube-options"></a>큐브 옵션
+
 UNION ALL 접근 방식을 사용하여 큐브를 사용하여 그룹 BY 를 만들 수 있습니다. 문제는 코드가 금세 번거롭고 다루기 힘들게 될 수 있다는 것입니다. 이 문제를 완화하려면 이 고급 방법을 사용할 수 있습니다.
 
-이전 예제를 사용 하 여 첫 번째 단계는 우리가 만들 려는 집계의 모든 수준을 정의 하는 '큐브'를 정의 하는 것입니다. 
+이전 예제를 사용 하 여 첫 번째 단계는 우리가 만들 려는 집계의 모든 수준을 정의 하는 '큐브'를 정의 하는 것입니다.
 
 이 모든 레벨을 생성하기 때문에 두 파생 테이블의 CROSS JOIN을 기록하십시오. 나머지 코드는 서식을 지정하기 위한 것입니다.
 
@@ -182,5 +184,5 @@ ORDER BY 1,2,3
 코드를 섹션으로 나누고 루프 생성 구문 생성을 통해 코드를 보다 관리 및 유지 관리가 용이하게 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-더 많은 개발 팁은 [개발 개요](sql-data-warehouse-overview-develop.md)를 참조하세요.
 
+더 많은 개발 팁은 [개발 개요](sql-data-warehouse-overview-develop.md)를 참조하세요.

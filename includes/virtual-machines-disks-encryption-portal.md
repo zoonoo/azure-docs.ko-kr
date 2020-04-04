@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/11/2020
+ms.date: 03/23/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6077db0a09b09f7e4bfb859902da53b173845e55
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: b8073240bdda38757a5e4feee66c9f54746966c4
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520751"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632072"
 ---
 ### <a name="portal"></a>포털
 
@@ -21,7 +21,7 @@ ms.locfileid: "80520751"
 
 #### <a name="setting-up-your-azure-key-vault"></a>Azure 키 볼트 설정
 
-1. [Azure 포털에](https://portal.azure.com/) 로그인하고 키 자격 증명 모음을 검색합니다.
+1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
 1. 키 볼트를 검색하고 **선택합니다.**
 
     [![sse 키 - 볼트 - 포털 - 검색.png](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search-expanded.png#lightbox)
@@ -30,7 +30,7 @@ ms.locfileid: "80520751"
     > Azure 키 자격 증명 모음, 디스크 암호화 집합, VM, 디스크 및 스냅숏은 모두 동일한 리전및 서브스크립션에 있어야 배포가 성공해야 합니다.
 
 1. 새 키 자격 증명 모음을 만들려면 **+Add를** 선택합니다.
-1. 새 리소스 그룹 만들기
+1. 새 리소스 그룹을 만듭니다.
 1. 키 자격 증명 모음 이름을 입력하고 지역을 선택하고 가격 책정 계층을 선택합니다.
 1. **검토 + 만들기를**선택하고 선택 사항을 확인한 다음 을 **선택합니다.**
 
@@ -38,7 +38,7 @@ ms.locfileid: "80520751"
 
 1. 키 자격 증명 모음 배포가 완료되면 키 볼트를 선택합니다.
 1. **설정**에서 **키를** 선택합니다.
-1. **생성/가져오기** 선택
+1. **생성/가져오기를**선택합니다.
 
     ![키 볼트 리소스 설정 창의 스크린샷입니다. 설정 내부의 생성/가져오기 단추를 표시합니다.](media/virtual-machines-disk-encryption-portal/sse-key-vault-generate-settings.png)
 
@@ -49,15 +49,8 @@ ms.locfileid: "80520751"
 
 #### <a name="setting-up-your-disk-encryption-set"></a>디스크 암호화 세트 설정
 
-디스크 암호화 세트를 만들고 구성하려면 다음 링크를 https://aka.ms/diskencryptionsets사용해야 합니다. Microsoft Azure 정부 지역에 있는 경우 이 링크를 대신 [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)사용해야 합니다. 디스크 암호화 집합 만들기는 아직 전역 Azure Portal에서 사용할 수 없습니다.
-
-1. 해당 지역에 적합한 디스크 암호화 세트 링크를 엽니다.
-
-    공공 지역:[https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
-
-    Azure 정부 지역:[https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
-    
-1. **+추가**를 선택합니다.
+1. 디스크 **암호화 세트를** 검색하고 선택합니다.
+1. 디스크 **암호화 세트** 블레이드에서 **+Add**를 선택합니다.
 
     ![디스크 암호화 포털 메인 화면의 스크린샷입니다. 추가 단추 강조 표시](media/virtual-machines-disk-encryption-portal/sse-create-disk-encryption-set.png)
 
@@ -82,12 +75,6 @@ ms.locfileid: "80520751"
 키 자격 증명 모음및 디스크 암호화 세트를 만들고 설정한 이제 암호화를 사용하여 VM을 배포할 수 있습니다.
 VM 배포 프로세스는 표준 배포 프로세스와 유사하며, 유일한 차이점은 다른 리소스와 동일한 지역에 VM을 배포해야 하고 고객 관리 키를 사용하도록 선택하는 것입니다.
 
-1. 해당 지역에 적합한 디스크 암호화 세트 링크를 엽니다.
-
-    공공 지역:[https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
-
-    Azure 정부 지역:[https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
-
 1. 가상 **컴퓨터를** 검색하고 **+ 추가를** 선택하여 VM을 만듭니다.
 1. **기본** 탭에서 디스크 암호화 세트 및 Azure 키 자격 증명 모음과 동일한 지역을 선택합니다.
 1. **기본** 탭의 다른 값을 원하는 대로 채웁니다.
@@ -102,16 +89,8 @@ VM 배포 프로세스는 표준 배포 프로세스와 유사하며, 유일한 
 
 #### <a name="enable-on-an-existing-disk"></a>기존 디스크에서 사용
 
-기존 디스크에서 디스크 암호화를 관리하고 구성하려면 다음 링크를 https://aka.ms/diskencryptionsets사용해야 합니다. 글로벌 Azure 포털에서는 기존 디스크에서 고객 관리 키를 사용하도록 설정하지 않습니다.
-
 > [!CAUTION]
 > VM에 연결된 모든 디스크에서 디스크 암호화를 사용하도록 설정하려면 VM을 중지해야 합니다.
-
-1. 해당 지역에 적합한 디스크 암호화 세트 링크를 엽니다.
-
-    공공 지역:[https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
-
-    Azure 정부 지역:[https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
     
 1. 디스크 암호화 집합 중 하나와 동일한 지역에 있는 VM으로 이동합니다.
 1. VM을 열고 **중지를 선택합니다.**

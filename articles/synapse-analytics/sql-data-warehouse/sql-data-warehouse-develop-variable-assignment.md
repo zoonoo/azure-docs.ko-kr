@@ -1,6 +1,6 @@
 ---
 title: 변수 할당
-description: 솔루션 개발을 위한 Azure SQL Data Warehouse의 T-SQL 변수 할당을 위한 팁
+description: 이 문서에서는 SQL 풀에서 T-SQL 변수를 할당하는 데 필수적인 팁을 찾을 수 있습니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,27 +11,27 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0adcd9bdf92b7ec649b7d91ca0e655fc006b3549
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 2dcf706ea59657abc2718a69e59191604dc2849d
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351657"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633417"
 ---
-# <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 변수 할당
+# <a name="assign-variables-in-synapse-sql-pool"></a>시냅스 SQL 풀에서 변수 할당
 
-솔루션 개발을 위한 Azure SQL Data Warehouse의 T-SQL 변수 할당을 위한 팁
+이 문서에서는 SQL 풀에서 T-SQL 변수를 할당하는 데 필수적인 팁을 찾을 수 있습니다.
 
-## <a name="setting-variables-with-declare"></a>DECLARE를 사용하여 변수 설정
+## <a name="set-variables-with-declare"></a>DECLARE를 사용 하 고 변수 설정
 
-SQL Data Warehouse의 변수는 `DECLARE` 문 또는 `SET` 문을 사용하여 설정됩니다. DECLARE를 사용한 변수 초기화는 SQL Data Warehouse의 변수 값을 설정하는 가장 유연한 방법 중 하나입니다.
+SQL 풀의 변수는 `DECLARE` 명령문 또는 `SET` 문을 사용하여 설정됩니다. DECLARE를 사용하여 변수를 초기화하는 것은 SQL 풀에서 변수 값을 설정하는 가장 유연한 방법 중 하나입니다.
 
 ```sql
 DECLARE @v  int = 0
 ;
 ```
 
-한 번에 둘 이상의 변수를 설정하려면 DECLARE를 사용할 수도 있습니다. SELECT 또는 UPDATE를 사용하여 다음 작업을 수행할 수 없습니다.
+한 번에 둘 이상의 변수를 설정하려면 DECLARE를 사용할 수도 있습니다. SELECT 또는 UPDATE를 사용하여 다음을 수행할 수 없습니다.
 
 ```sql
 DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Smith')
@@ -39,7 +39,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-초기화하여 동일한 DECLARE 문에서 변수를 사용할 수 없습니다. 지점을 설명하기 위해 다음 예에서는 @p1이 동일한 DECLARE 문에서 시작되고 사용되기 때문에 허용되지 **않습니다**. 다음 예제에서는 오류가 발생합니다.
+동일한 DECLARE 문에서 변수를 초기화하고 사용할 수 없습니다. 지점을 설명하기 위해 다음 예에서는 @p1이 동일한 DECLARE 문에서 시작되고 사용되기 때문에 허용되지 **않습니다**. 따라서 다음 예제에서는 오류가 발생합니다.
 
 ```sql
 DECLARE @p1 int = 0
@@ -47,7 +47,7 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## <a name="setting-values-with-set"></a>SET을 사용하여 값 설정
+## <a name="set-values-with-set"></a>SET으로 값 설정
 
 SET은 단일 변수를 설정하기 위한 일반적인 방법입니다.
 

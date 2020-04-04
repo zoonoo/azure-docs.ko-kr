@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9b9196cde45686e42d1baf7faedf94bdb73acccc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 902734ddc7195d643c3aedb4054f57723d1a51c2
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367061"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632131"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -252,7 +252,7 @@ $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprin
 Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
-Runbook에 서명하면 자동화 계정으로 가져와 서명 블록으로 게시해야 합니다. Runbook을 가져오는 방법에 대한 자세한 내용은 [파일의 Runbook을 Azure Automation으로 가져오기](manage-runbooks.md#import-a-runbook)를 참조하세요.
+Runbook에 서명하면 자동화 계정으로 가져와 서명 블록으로 게시해야 합니다. Runbook을 가져오는 방법에 대한 자세한 내용은 [파일의 Runbook을 Azure Automation으로 가져오기](manage-runbooks.md#importing-a-runbook)를 참조하세요.
 
 ## <a name="working-with-signed-runbooks-on-a-linux-hybrid-runbook-worker"></a>Linux 하이브리드 Runbook 작업자에서 서명된 Runbook 작업
 

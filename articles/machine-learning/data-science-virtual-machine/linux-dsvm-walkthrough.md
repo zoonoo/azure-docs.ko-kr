@@ -8,13 +8,13 @@ ms.subservice: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
-ms.date: 07/16/2018
-ms.openlocfilehash: 1d15d53816d916bd28841aae39255685524faa2d
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.date: 04/02/2020
+ms.openlocfilehash: 7292064a1df8aa9bfffcd9a19a03f7b332c0615e
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477856"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632725"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Azure의 Linux 데이터 과학 가상 머신을 통한 데이터 과학
 
@@ -45,16 +45,22 @@ Linux DSVM을 사용하려면 먼저 다음과 같은 필수 구성 조건이 �
 
 데이터를 다운로드하려면 터미널 창을 연 다음 이 명령을 실행합니다.
 
-    wget https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
+```bash
+wget --no-check-certificate https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
+```
 
 다운로드한 파일에 헤더 행이 없습니다. 헤더가있는 다른 파일을 만들어 보겠습니다. 다음 명령을 실행하여 적합한 머리글이 있는 파일을 만듭니다.
 
-    echo 'word_freq_make, word_freq_address, word_freq_all, word_freq_3d,word_freq_our, word_freq_over, word_freq_remove, word_freq_internet,word_freq_order, word_freq_mail, word_freq_receive, word_freq_will,word_freq_people, word_freq_report, word_freq_addresses, word_freq_free,word_freq_business, word_freq_email, word_freq_you, word_freq_credit,word_freq_your, word_freq_font, word_freq_000, word_freq_money,word_freq_hp, word_freq_hpl, word_freq_george, word_freq_650, word_freq_lab,word_freq_labs, word_freq_telnet, word_freq_857, word_freq_data,word_freq_415, word_freq_85, word_freq_technology, word_freq_1999,word_freq_parts, word_freq_pm, word_freq_direct, word_freq_cs, word_freq_meeting,word_freq_original, word_freq_project, word_freq_re, word_freq_edu,word_freq_table, word_freq_conference, char_freq_semicolon, char_freq_leftParen,char_freq_leftBracket, char_freq_exclamation, char_freq_dollar, char_freq_pound, capital_run_length_average,capital_run_length_longest, capital_run_length_total, spam' > headers
+```bash
+echo 'word_freq_make, word_freq_address, word_freq_all, word_freq_3d,word_freq_our, word_freq_over, word_freq_remove, word_freq_internet,word_freq_order, word_freq_mail, word_freq_receive, word_freq_will,word_freq_people, word_freq_report, word_freq_addresses, word_freq_free,word_freq_business, word_freq_email, word_freq_you, word_freq_credit,word_freq_your, word_freq_font, word_freq_000, word_freq_money,word_freq_hp, word_freq_hpl, word_freq_george, word_freq_650, word_freq_lab,word_freq_labs, word_freq_telnet, word_freq_857, word_freq_data,word_freq_415, word_freq_85, word_freq_technology, word_freq_1999,word_freq_parts, word_freq_pm, word_freq_direct, word_freq_cs, word_freq_meeting,word_freq_original, word_freq_project, word_freq_re, word_freq_edu,word_freq_table, word_freq_conference, char_freq_semicolon, char_freq_leftParen,char_freq_leftBracket, char_freq_exclamation, char_freq_dollar, char_freq_pound, capital_run_length_average,capital_run_length_longest, capital_run_length_total, spam' > headers
+```
 
 그런 다음 두 파일을 함께 연결합니다.
 
-    cat spambase.data >> headers
-    mv headers spambaseHeaders.data
+```bash
+cat spambase.data >> headers
+mv headers spambaseHeaders.data
+```
 
 데이터 집합에는 각 전자 메일에 대한 여러 유형의 통계가 있습니다.
 
@@ -71,51 +77,69 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 기계 학습을 �
 
 이 연습에서 사용되는 코드 샘플의 복사본을 얻으려면 git을 사용하여 Azure-Machine-Learning-Data-Science 리포지토리를 복제합니다. Git은 DSVM에 사전 설치되어 있습니다. git 명령줄에서 다음을 실행합니다.
 
-    git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
+```bash
+git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
+```
 
 터미널 창을 열고 R 대화형 콘솔에서 새 R 세션을 시작합니다. DSVM에 사전 설치된 RStudio를 사용할 수도 있습니다.
 
 데이터를 가져오고 환경을 설정하려면 다음을 수행합니다.
 
-    data <- read.csv("spambaseHeaders.data")
-    set.seed(123)
+```R
+data <- read.csv("spambaseHeaders.data")
+set.seed(123)
+```
 
 각 열에 대한 요약 통계를 보려면
 
-    summary(data)
+```R
+summary(data)
+```
 
 데이터를 다른 보기로 보려면
 
-    str(data)
+```R
+str(data)
+```
 
 이 보기는 각 변수의 유형과 데이터 집합의 처음 몇 가지 값을 보여 주며 있습니다.
 
 **spam** 열은 정수로 읽었지만 실제로는 범주 변수(또는 요소)입니다. 해당 형식을 설정하려면
 
-    data$spam <- as.factor(data$spam)
+```R
+data$spam <- as.factor(data$spam)
+```
 
 일부 예비 분석을 수행하려면 DSVM에 사전 설치된 R에 대한 인기 있는 그래프 라이브러리인 [ggplot2](https://ggplot2.tidyverse.org/) 패키지를 사용합니다. 앞에서 보여 드시면 요약 데이터를 기반으로 느낌표 문자의 빈도에 대한 요약 통계가 있습니다. 다음 명령을 실행하여 이러한 주파수를 플로팅해 보겠습니다.
 
-    library(ggplot2)
-    ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
+```R
+library(ggplot2)
+ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
+```
 
 0 막대가 플롯을 왜곡하기 때문에 다음을 제거해 보겠습니다.
 
-    email_with_exclamation = data[data$char_freq_exclamation > 0, ]
-    ggplot(email_with_exclamation) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
+```R
+email_with_exclamation = data[data$char_freq_exclamation > 0, ]
+ggplot(email_with_exclamation) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
+```
 
 1 이상의 사소한 밀도가 흥미롭게 보입니다. 해당 데이터만 살펴보겠습니다.
 
-    ggplot(data[data$char_freq_exclamation > 1, ]) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
+```R
+ggplot(data[data$char_freq_exclamation > 1, ]) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
+```
 
 그런 다음 스팸과 햄으로 나눕습니다.
 
-    ggplot(data[data$char_freq_exclamation > 1, ], aes(x=char_freq_exclamation)) +
-    geom_density(lty=3) +
-    geom_density(aes(fill=spam, colour=spam), alpha=0.55) +
-    xlab("spam") +
-    ggtitle("Distribution of spam \nby frequency of !") +
-    labs(fill="spam", y="Density")
+```R
+ggplot(data[data$char_freq_exclamation > 1, ], aes(x=char_freq_exclamation)) +
+geom_density(lty=3) +
+geom_density(aes(fill=spam, colour=spam), alpha=0.55) +
+xlab("spam") +
+ggtitle("Distribution of spam \nby frequency of !") +
+labs(fill="spam", y="Density")
+```
 
 이러한 예제는 유사한 플롯을 만들고 다른 열의 데이터를 탐색하는 데 도움이 됩니다.
 
@@ -128,16 +152,20 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 기계 학습을 �
 
 먼저 데이터 집합을 학습 집합 및 테스트 집합으로 분할해 보겠습니다.
 
-    rnd <- runif(dim(data)[1])
-    trainSet = subset(data, rnd <= 0.7)
-    testSet = subset(data, rnd > 0.7)
+```R
+rnd <- runif(dim(data)[1])
+trainSet = subset(data, rnd <= 0.7)
+testSet = subset(data, rnd > 0.7)
+```
 
 그런 다음 전자 메일을 분류하는 의사 결정 트리를 만듭니다.
 
-    require(rpart)
-    model.rpart <- rpart(spam ~ ., method = "class", data = trainSet)
-    plot(model.rpart)
-    text(model.rpart)
+```R
+require(rpart)
+model.rpart <- rpart(spam ~ ., method = "class", data = trainSet)
+plot(model.rpart)
+text(model.rpart)
+```
 
 결과:
 
@@ -145,99 +173,37 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 기계 학습을 �
 
 학습 집합에 대해 얼마나 잘 수행하는지를 확인하려면 다음 코드를 사용합니다.
 
-    trainSetPred <- predict(model.rpart, newdata = trainSet, type = "class")
-    t <- table(`Actual Class` = trainSet$spam, `Predicted Class` = trainSetPred)
-    accuracy <- sum(diag(t))/sum(t)
-    accuracy
+```R
+trainSetPred <- predict(model.rpart, newdata = trainSet, type = "class")
+t <- table(`Actual Class` = trainSet$spam, `Predicted Class` = trainSetPred)
+accuracy <- sum(diag(t))/sum(t)
+accuracy
+```
 
 테스트 집합에 대해 얼마나 잘 수행하는지를 확인하려면
 
-    testSetPred <- predict(model.rpart, newdata = testSet, type = "class")
-    t <- table(`Actual Class` = testSet$spam, `Predicted Class` = testSetPred)
-    accuracy <- sum(diag(t))/sum(t)
-    accuracy
+```R
+testSetPred <- predict(model.rpart, newdata = testSet, type = "class")
+t <- table(`Actual Class` = testSet$spam, `Predicted Class` = testSetPred)
+accuracy <- sum(diag(t))/sum(t)
+accuracy
+```
 
 임의 포리스트 모델도 살펴보겠습니다. 임의 포리스트는 수많은 의사 결정 트리를 학습하고 모든 개별 의사 결정 트리에서 분류 모드인 클래스를 출력합니다. 의사 결정 트리 모델이 학습 데이터 집합에 과도하게 적합하도록 하는 경향을 수정하기 때문에 보다 강력한 기계 학습 접근 방식을 제공합니다.
 
-    require(randomForest)
-    trainVars <- setdiff(colnames(data), 'spam')
-    model.rf <- randomForest(x=trainSet[, trainVars], y=trainSet$spam)
+```R
+require(randomForest)
+trainVars <- setdiff(colnames(data), 'spam')
+model.rf <- randomForest(x=trainSet[, trainVars], y=trainSet$spam)
 
-    trainSetPred <- predict(model.rf, newdata = trainSet[, trainVars], type = "class")
-    table(`Actual Class` = trainSet$spam, `Predicted Class` = trainSetPred)
+trainSetPred <- predict(model.rf, newdata = trainSet[, trainVars], type = "class")
+table(`Actual Class` = trainSet$spam, `Predicted Class` = trainSetPred)
 
-    testSetPred <- predict(model.rf, newdata = testSet[, trainVars], type = "class")
-    t <- table(`Actual Class` = testSet$spam, `Predicted Class` = testSetPred)
-    accuracy <- sum(diag(t))/sum(t)
-    accuracy
-
-
-## <a name="deploy-a-model-to-azure-machine-learning-studio-classic"></a>Azure 기계 학습 스튜디오에 모델 배포(클래식)
-
-[Azure 기계 학습 스튜디오(클래식)는](https://studio.azureml.net/) 예측 분석 모델을 쉽게 빌드하고 배포할 수 있는 클라우드 서비스입니다. Azure 기계 학습 스튜디오 (클래식)의 좋은 기능은 웹 서비스로 모든 R 기능을 게시 하는 기능. Azure 기계 학습 스튜디오(클래식) R 패키지를 사용하면 DSVM의 R 세션에서 바로 쉽게 배포할 수 있습니다.
-
-이전 섹션에서 의사 결정 트리 코드를 배포하려면 Azure 기계 학습 스튜디오(클래식)에 로그인합니다. 로그인할 작업 영역 ID와 권한 부여 토큰이 필요합니다. 이러한 값을 찾고 Azure 기계 학습 변수를 초기화하려면 다음 단계를 완료하십시오.
-
-1. 왼쪽 메뉴에서 **설정을**선택합니다. 작업 영역 **ID의**값을 기록해 둡자 입니다.
-
-   ![Azure 기계 학습 스튜디오(클래식) 작업 영역 ID](./media/linux-dsvm-walkthrough/workspace-id.png)
-
-1. 권한 부여 토큰 탭을 **선택합니다.** **Primary Authorization Token**
-
-   ![Azure 기계 학습 스튜디오(클래식) 기본 권한 부여 토큰](./media/linux-dsvm-walkthrough/workspace-token.png)
-1. **AzureML** 패키지를 로드한 다음 DSVM의 R 세션에서 토큰 및 작업 영역 ID를 이와 함께 변수값을 설정합니다.
-
-        if(!require("devtools")) install.packages("devtools")
-        devtools::install_github("RevolutionAnalytics/AzureML")
-        if(!require("AzureML")) install.packages("AzureML")
-        require(AzureML)
-        wsAuth = "<authorization-token>"
-        wsID = "<workspace-id>"
-
-1. 이 데모를 보다 쉽게 구현할 수 있도록 모델을 단순화해 보겠습니다. 루트에 가장 가까운 의사 결정 트리에서 세 가지 변수를 선택하고 다음 세 가지 변수만 사용하여 새 트리를 빌드합니다.
-
-        colNames <- c("char_freq_dollar", "word_freq_remove", "word_freq_hp", "spam")
-        smallTrainSet <- trainSet[, colNames]
-        smallTestSet <- testSet[, colNames]
-        model.rpart <- rpart(spam ~ ., method = "class", data = smallTrainSet)
-
-1. 입력으로 기능을 사용하고 예측된 값을 반환 하는 예측 함수가 필요합니다.
-
-        predictSpam <- function(newdata) {
-        predictDF <- predict(model.rpart, newdata = newdata)
-        return(colnames(predictDF)[apply(predictDF, 1, which.max)])
-        }
-
-1. 이 작업 영역에 대한 settings.json 파일을 만듭니다.
-
-        vim ~/.azureml/settings.json
-
-1. 다음 내용이 settings.json 안에 있는지 확인합니다.
-
-         {"workspace":{
-           "id": "<workspace-id>",
-           "authorization_token": "<authorization-token>",
-           "api_endpoint": "https://studioapi.azureml.net",
-           "management_endpoint": "https://management.azureml.net"
-         }
-
-
-1. **게시WebService** 함수를 사용 하 여 AzureML에 **예측 Spam** 함수를 게시 합니다.
-
-        ws <- workspace()
-        spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
-
-1. 이 함수는 **predictSpam 함수를** 취하고 입력 및 출력을 정의한 **spamWebService라는** 웹 서비스를 만들고 새 끝점에 대한 정보를 반환합니다.
-
-    이 명령을 사용하여 API 끝점 및 액세스 키를 포함하여 게시된 최신 웹 서비스의 세부 정보를 볼 수 있습니다.
-
-        s<-tail(services(ws, name = "spamWebService"), 1)
-        ep <- endpoints(ws,s)
-        ep
-
-1. 테스트 집합의 처음 10개의 행에 대해 작업을 수행하려면
-
-        consume(ep, smallTestSet[1:10, ])
+testSetPred <- predict(model.rf, newdata = testSet[, trainVars], type = "class")
+t <- table(`Actual Class` = testSet$spam, `Predicted Class` = testSetPred)
+accuracy <- sum(diag(t))/sum(t)
+accuracy
+```
 
 <a name="deep-learning"></a>
 
@@ -268,19 +234,21 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 기계 학습을 �
 
 [XGBoost는](https://xgboost.readthedocs.org/en/latest/) 빠르고 정확한 부스트 트리 구현을 제공합니다.
 
-    require(xgboost)
-    data <- read.csv("spambaseHeaders.data")
-    set.seed(123)
+```R
+require(xgboost)
+data <- read.csv("spambaseHeaders.data")
+set.seed(123)
 
-    rnd <- runif(dim(data)[1])
-    trainSet = subset(data, rnd <= 0.7)
-    testSet = subset(data, rnd > 0.7)
+rnd <- runif(dim(data)[1])
+trainSet = subset(data, rnd <= 0.7)
+testSet = subset(data, rnd > 0.7)
 
-    bst <- xgboost(data = data.matrix(trainSet[,0:57]), label = trainSet$spam, nthread = 2, nrounds = 2, objective = "binary:logistic")
+bst <- xgboost(data = data.matrix(trainSet[,0:57]), label = trainSet$spam, nthread = 2, nrounds = 2, objective = "binary:logistic")
 
-    pred <- predict(bst, data.matrix(testSet[, 0:57]))
-    accuracy <- 1.0 - mean(as.numeric(pred > 0.5) != testSet$spam)
-    print(paste("test accuracy = ", accuracy))
+pred <- predict(bst, data.matrix(testSet[, 0:57]))
+accuracy <- 1.0 - mean(as.numeric(pred > 0.5) != testSet$spam)
+print(paste("test accuracy = ", accuracy))
+```
 
 XGBoost는 파이썬 이나 명령줄에서 호출 할 수도 있습니다.
 
@@ -293,45 +261,52 @@ XGBoost는 파이썬 이나 명령줄에서 호출 할 수도 있습니다.
 
 일부 스팸베이스 데이터 집합을 읽고 Scikit-learn의 지원 벡터 컴퓨터로 이메일을 분류해 보겠습니다.
 
-    import pandas
-    from sklearn import svm
-    data = pandas.read_csv("spambaseHeaders.data", sep = ',\s*')
-    X = data.ix[:, 0:57]
-    y = data.ix[:, 57]
-    clf = svm.SVC()
-    clf.fit(X, y)
+```Python
+import pandas
+from sklearn import svm
+data = pandas.read_csv("spambaseHeaders.data", sep = ',\s*')
+X = data.ix[:, 0:57]
+y = data.ix[:, 57]
+clf = svm.SVC()
+clf.fit(X, y)
+```
 
 예측하려면
 
-    clf.predict(X.ix[0:20, :])
+```Python
+clf.predict(X.ix[0:20, :])
+```
 
 Azure 기계 학습 끝점을 게시하는 방법을 보여 드리기 위해 보다 기본적인 모델을 만들어 보겠습니다. R 모델을 이전에 게시할 때 사용한 세 가지 변수를 사용합니다.
 
-    X = data[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
-    y = data.ix[:, 57]
-    clf = svm.SVC()
-    clf.fit(X, y)
+```Python
+X = data[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
+y = data.ix[:, 57]
+clf = svm.SVC()
+clf.fit(X, y)
+```
 
 Azure 기계 학습에 모델을 게시하려면 다음을 수행합니다.
 
-    # Publish the model.
-    workspace_id = "<workspace-id>"
-    workspace_token = "<workspace-token>"
-    from azureml import services
-    @services.publish(workspace_id, workspace_token)
-    @services.types(char_freq_dollar = float, word_freq_remove = float, word_freq_hp = float)
-    @services.returns(int) # 0 or 1
-    def predictSpam(char_freq_dollar, word_freq_remove, word_freq_hp):
-        inputArray = [char_freq_dollar, word_freq_remove, word_freq_hp]
-        return clf.predict(inputArray)
+```Python
+# Publish the model.
+workspace_id = "<workspace-id>"
+workspace_token = "<workspace-token>"
+from azureml import services
+@services.publish(workspace_id, workspace_token)
+@services.types(char_freq_dollar = float, word_freq_remove = float, word_freq_hp = float)
+@services.returns(int) # 0 or 1
+def predictSpam(char_freq_dollar, word_freq_remove, word_freq_hp):
+    inputArray = [char_freq_dollar, word_freq_remove, word_freq_hp]
+    return clf.predict(inputArray)
 
-    # Get some info about the resulting model.
-    predictSpam.service.url
-    predictSpam.service.api_key
+# Get some info about the resulting model.
+predictSpam.service.url
+predictSpam.service.api_key
 
-    # Call the model
-    predictSpam.service(1, 1, 1)
-
+# Call the model
+predictSpam.service(1, 1, 1)
+```
 
 > [!NOTE]
 > 이 옵션은 파이썬 2.7에서만 사용할 수 있습니다. 파이썬 3.5에서 아직 지원되지 않습니다. 실행하려면 **/anaconda/bin/python2.7을**사용합니다.
@@ -343,14 +318,14 @@ DSVM의 아나콘다 배포판에는 파이썬, R 또는 줄리아 코드 및 �
 > [!NOTE]
 > 현재 커널의 Jupyter `pip` 노트북의 파이썬 패키지 관리자(명령을 통해)를 사용하려면 코드 셀에서 이 명령을 사용합니다.
 >
->   ```python
+>   ```Python
 >    import sys
 >    ! {sys.executable} -m pip install numpy -y
 >   ```
 > 
 > 현재 커널의 Jupyter 노트북에서 명령을 통해 `conda` Conda 설치 관리자를 사용하려면 코드 셀에서 이 명령을 사용합니다.
 >
->   ```python
+>   ```Python
 >    import sys
 >    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
 >   ```
@@ -372,9 +347,11 @@ DSVM의 아나콘다 배포판에는 파이썬, R 또는 줄리아 코드 및 �
 
 다음 명령을 실행하여 딸랑이를 설치하고 시작합니다.
 
-    if(!require("rattle")) install.packages("rattle")
-    require(rattle)
-    rattle()
+```R
+if(!require("rattle")) install.packages("rattle")
+require(rattle)
+rattle()
+```
 
 > [!NOTE]
 > DSVM에 딸랑이를 설치할 필요가 없습니다. 그러나 Rattle이 열리면 추가 패키지를 설치하라는 메시지가 표시될 수 있습니다.
@@ -452,48 +429,64 @@ DSVM은 PostgreSQL이 설치된 상태로 제공됩니다. PostgreSQL은 정교�
 
 데이터를 로드하려면 먼저 로컬 호스트에서 암호 인증을 허용해야 합니다. 명령 프롬프트에서 다음을 실행합니다.
 
-    sudo gedit /var/lib/pgsql/data/pg_hba.conf
+```Bash
+sudo gedit /var/lib/pgsql/data/pg_hba.conf
+```
 
 구성 파일의 아래쪽 몇 줄은 허용되는 연결을 자세히 설명하는 줄입니다.
 
-    # "local" is only for Unix domain socket connections:
-    local   all             all                                     trust
-    # IPv4 local connections:
-    host    all             all             127.0.0.1/32            ident
-    # IPv6 local connections:
-    host    all             all             ::1/128                 ident
+```
+# "local" is only for Unix domain socket connections:
+local   all             all                                     trust
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            ident
+# IPv6 local connections:
+host    all             all             ::1/128                 ident
+```
 
 **IPv4 로컬 연결** 라인을 ID 대신 **ident** **md5를** 사용하도록 변경하여 사용자 이름과 암호를 사용하여 로그인할 수 있습니다.
 
-    # IPv4 local connections:
-    host    all             all             127.0.0.1/32            md5
+```
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            md5
+```
 
 그런 다음 PostgreSQL 서비스를 다시 시작합니다.
 
-    sudo systemctl restart postgresql
+```Bash
+sudo systemctl restart postgresql
+```
 
 psql(PostgreSQL용 대화형 터미널)을 기본 제공 postgres 사용자로 실행하려면 다음 명령을 실행합니다. *psql*
 
-    sudo -u postgres psql
+```Bash
+sudo -u postgres psql
+```
 
 로그인하는 데 사용한 Linux 계정의 사용자 이름을 사용하여 새 사용자 계정을 만듭니다. 암호 만들기:
 
-    CREATE USER <username> WITH CREATEDB;
-    CREATE DATABASE <username>;
-    ALTER USER <username> password '<password>';
-    \quit
+```Bash
+CREATE USER <username> WITH CREATEDB;
+CREATE DATABASE <username>;
+ALTER USER <username> password '<password>';
+\quit
+```
 
 psql에 로그인:
 
-    psql
+```Bash
+psql
+```
 
 데이터를 새 데이터베이스로 가져옵니다.
 
-    CREATE DATABASE spam;
-    \c spam
-    CREATE TABLE data (word_freq_make real, word_freq_address real, word_freq_all real, word_freq_3d real,word_freq_our real, word_freq_over real, word_freq_remove real, word_freq_internet real,word_freq_order real, word_freq_mail real, word_freq_receive real, word_freq_will real,word_freq_people real, word_freq_report real, word_freq_addresses real, word_freq_free real,word_freq_business real, word_freq_email real, word_freq_you real, word_freq_credit real,word_freq_your real, word_freq_font real, word_freq_000 real, word_freq_money real,word_freq_hp real, word_freq_hpl real, word_freq_george real, word_freq_650 real, word_freq_lab real,word_freq_labs real, word_freq_telnet real, word_freq_857 real, word_freq_data real,word_freq_415 real, word_freq_85 real, word_freq_technology real, word_freq_1999 real,word_freq_parts real, word_freq_pm real, word_freq_direct real, word_freq_cs real, word_freq_meeting real,word_freq_original real, word_freq_project real, word_freq_re real, word_freq_edu real,word_freq_table real, word_freq_conference real, char_freq_semicolon real, char_freq_leftParen real,char_freq_leftBracket real, char_freq_exclamation real, char_freq_dollar real, char_freq_pound real, capital_run_length_average real, capital_run_length_longest real, capital_run_length_total real, spam integer);
-    \copy data FROM /home/<username>/spambase.data DELIMITER ',' CSV;
-    \quit
+```SQL
+CREATE DATABASE spam;
+\c spam
+CREATE TABLE data (word_freq_make real, word_freq_address real, word_freq_all real, word_freq_3d real,word_freq_our real, word_freq_over real, word_freq_remove real, word_freq_internet real,word_freq_order real, word_freq_mail real, word_freq_receive real, word_freq_will real,word_freq_people real, word_freq_report real, word_freq_addresses real, word_freq_free real,word_freq_business real, word_freq_email real, word_freq_you real, word_freq_credit real,word_freq_your real, word_freq_font real, word_freq_000 real, word_freq_money real,word_freq_hp real, word_freq_hpl real, word_freq_george real, word_freq_650 real, word_freq_lab real,word_freq_labs real, word_freq_telnet real, word_freq_857 real, word_freq_data real,word_freq_415 real, word_freq_85 real, word_freq_technology real, word_freq_1999 real,word_freq_parts real, word_freq_pm real, word_freq_direct real, word_freq_cs real, word_freq_meeting real,word_freq_original real, word_freq_project real, word_freq_re real, word_freq_edu real,word_freq_table real, word_freq_conference real, char_freq_semicolon real, char_freq_leftParen real,char_freq_leftBracket real, char_freq_exclamation real, char_freq_dollar real, char_freq_pound real, capital_run_length_average real, capital_run_length_longest real, capital_run_length_total real, spam integer);
+\copy data FROM /home/<username>/spambase.data DELIMITER ',' CSV;
+\quit
+```
 
 이제 JDBC 드라이버를 통해 데이터베이스와 상호 작용하는 데 사용할 수 있는 그래픽 도구인 SQuirreL SQL을 사용하여 데이터를 탐색하고 일부 쿼리를 실행해 보겠습니다.
 
@@ -525,11 +518,15 @@ psql에 로그인:
 
 이 데이터를 탐색하기 위해 실행할 수 있는 쿼리가 더 많습니다. 예를 들어 스팸과 햄 간에 *make* 라는 단어의 빈도가 얼마나 차이가 있을까요?
 
-    SELECT avg(word_freq_make), spam from data group by spam;
+```SQL
+SELECT avg(word_freq_make), spam from data group by spam;
+```
 
 또는 *3D를*자주 포함하는 전자 메일의 특징은 무엇입니까?
 
-    SELECT * from data order by word_freq_3d desc;
+```SQL
+SELECT * from data order by word_freq_3d desc;
+```
 
 *3D의* 발생이 높은 대부분의 이메일은 분명히 스팸입니다. 이 정보는 전자 메일을 분류하는 예측 모델을 작성하는 데 유용할 수 있습니다.
 
@@ -541,24 +538,32 @@ Azure SQL Data Warehouse는 관계형 및 비관계형 모두 대량의 데이�
 
 데이터 웨어하우스에 연결하고 테이블을 만들려면 명령 프롬프트에서 다음 명령을 실행합니다.
 
-    sqlcmd -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -I
+```Bash
+sqlcmd -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -I
+```
 
 sqlcmd 프롬프트에서 다음 명령을 실행합니다.
 
-    CREATE TABLE spam (word_freq_make real, word_freq_address real, word_freq_all real, word_freq_3d real,word_freq_our real, word_freq_over real, word_freq_remove real, word_freq_internet real,word_freq_order real, word_freq_mail real, word_freq_receive real, word_freq_will real,word_freq_people real, word_freq_report real, word_freq_addresses real, word_freq_free real,word_freq_business real, word_freq_email real, word_freq_you real, word_freq_credit real,word_freq_your real, word_freq_font real, word_freq_000 real, word_freq_money real,word_freq_hp real, word_freq_hpl real, word_freq_george real, word_freq_650 real, word_freq_lab real,word_freq_labs real, word_freq_telnet real, word_freq_857 real, word_freq_data real,word_freq_415 real, word_freq_85 real, word_freq_technology real, word_freq_1999 real,word_freq_parts real, word_freq_pm real, word_freq_direct real, word_freq_cs real, word_freq_meeting real,word_freq_original real, word_freq_project real, word_freq_re real, word_freq_edu real,word_freq_table real, word_freq_conference real, char_freq_semicolon real, char_freq_leftParen real,char_freq_leftBracket real, char_freq_exclamation real, char_freq_dollar real, char_freq_pound real, capital_run_length_average real, capital_run_length_longest real, capital_run_length_total real, spam integer) WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
-    GO
+```SQL
+CREATE TABLE spam (word_freq_make real, word_freq_address real, word_freq_all real, word_freq_3d real,word_freq_our real, word_freq_over real, word_freq_remove real, word_freq_internet real,word_freq_order real, word_freq_mail real, word_freq_receive real, word_freq_will real,word_freq_people real, word_freq_report real, word_freq_addresses real, word_freq_free real,word_freq_business real, word_freq_email real, word_freq_you real, word_freq_credit real,word_freq_your real, word_freq_font real, word_freq_000 real, word_freq_money real,word_freq_hp real, word_freq_hpl real, word_freq_george real, word_freq_650 real, word_freq_lab real,word_freq_labs real, word_freq_telnet real, word_freq_857 real, word_freq_data real,word_freq_415 real, word_freq_85 real, word_freq_technology real, word_freq_1999 real,word_freq_parts real, word_freq_pm real, word_freq_direct real, word_freq_cs real, word_freq_meeting real,word_freq_original real, word_freq_project real, word_freq_re real, word_freq_edu real,word_freq_table real, word_freq_conference real, char_freq_semicolon real, char_freq_leftParen real,char_freq_leftBracket real, char_freq_exclamation real, char_freq_dollar real, char_freq_pound real, capital_run_length_average real, capital_run_length_longest real, capital_run_length_total real, spam integer) WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
+GO
+```
 
 숨은 참조를 사용하여 데이터를 복사합니다.
 
-    bcp spam in spambaseHeaders.data -q -c -t  ',' -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -F 1 -r "\r\n"
+```bash
+bcp spam in spambaseHeaders.data -q -c -t  ',' -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -F 1 -r "\r\n"
+```
 
 > [!NOTE]
 > 다운로드한 파일에는 Windows 스타일 선 끝이 포함되어 있습니다. bcp 도구는 유닉스 스타일 선 끝을 기대합니다. -r 플래그를 사용하여 숨은 참조를 알 수 있습니다.
 
 그런 다음 sqlcmd를 사용하여 쿼리합니다.
 
-    select top 10 spam, char_freq_dollar from spam;
-    GO
+```sql
+select top 10 spam, char_freq_dollar from spam;
+GO
+```
 
 SQuirreL SQL을 사용하여 쿼리할 수도 있습니다. SQL Server JDBC 드라이버를 사용하여 PostgreSQL과 유사한 단계를 따릅니다. JDBC 드라이버는 /usr/share/java/jdbcdriver/sqljdbc42.jar 폴더에 있습니다.
 

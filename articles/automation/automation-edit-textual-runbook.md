@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 72aefb8de57e27718b14dba6a6d82deb8b63466f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3bbfe26f336a25ee85f2223226d6eb513ae21736
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367281"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632152"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Azure Automation에서 텍스트 Runbook 편집
 
@@ -22,7 +22,7 @@ Azure Automation에서 텍스트 편집기를 사용하여 [PowerShell Runbook](
 
 텍스트 편집기에는 cmdlet, 자산 및 자식 Runbook에 대한 코드를 Runbook에 삽입하는 기능이 포함되어 있습니다. 코드를 직접 입력하는 대신 사용 가능한 리소스 목록에서 선택할 수 있으며 편집기는 Runbook에 적절한 코드를 삽입합니다.
 
-Azure Automation의 각 Runbook에는 초안과 게시 등 두 버전이 있습니다. Runbook의 초안 버전을 편집한 다음 실행할 수 있도록 게시합니다. 게시된 버전은 편집할 수 없습니다. 자세한 내용은 [Runbook 게시를](manage-runbooks.md#publish-a-runbook)참조하십시오.
+Azure Automation의 각 Runbook에는 초안과 게시 등 두 버전이 있습니다. Runbook의 초안 버전을 편집한 다음 실행할 수 있도록 게시합니다. 게시된 버전은 편집할 수 없습니다. 자세한 내용은 [Runbook 게시를](manage-runbooks.md#publishing-a-runbook)참조하십시오.
 
 이 문서에서는 이 편집기를 사용하여 다양한 기능을 수행하기 위한 상세 단계를 제공합니다. [그래픽 런북에는](automation-runbook-types.md#graphical-runbooks)적용되지 않습니다. 이러한 Runbook을 사용하려면 [Azure 자동화에서 그래픽 작성을](automation-graphical-authoring-intro.md)참조하십시오.
 
@@ -84,7 +84,7 @@ Export-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automation
 
 ### <a name="change-the-contents-of-a-runbook-using-windows-powershell"></a>Windows PowerShell을 사용하여 Runbook의 내용 변경
 
-다음 샘플 명령에서는 스크립트 파일의 콘텐츠로 기존 Runbook 콘텐츠를 대체하는 방법을 보여줍니다. 이 내용은 [Windows PowerShell을 사용하여 스크립트 파일에서 Runbook을 가져오려면](manage-runbooks.md#import-a-runbook)에서 설명한 것과 동일한 샘플 절차입니다.
+다음 샘플 명령에서는 스크립트 파일의 콘텐츠로 기존 Runbook 콘텐츠를 대체하는 방법을 보여줍니다. 이 내용은 [Windows PowerShell을 사용하여 스크립트 파일에서 Runbook을 가져오려면](manage-runbooks.md#importing-a-runbook)에서 설명한 것과 동일한 샘플 절차입니다.
 
 ```powershell-interactive
 $resourceGroupName = "MyResourceGroup"

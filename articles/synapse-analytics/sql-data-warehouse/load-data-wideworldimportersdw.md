@@ -11,18 +11,19 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 5bc9490733f5e29b6668a9655ac5b8b5dbe9bda8
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: b6d2d5c9ac7eabf703887d559a2d2b86b89dd5c8
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346694"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632009"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>자습서: Azure 시냅스 분석 SQL 풀에 데이터 로드
 
-이 자습서에서는 PolyBase를 사용하여 Azure Blob 저장소에서 Azure 시냅스 분석 SQL 풀의 데이터 웨어하우스에 WideWorldImportersDW 데이터 웨어하우스를 로드합니다. 이 자습서에서는 [Azure Portal](https://portal.azure.com) 및 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 사용합니다.
+이 자습서에서는 PolyBase를 사용하여 Azure Blob 저장소에서 Azure 시냅스 분석 SQL 풀의 데이터 웨어하우스에 WideWorldImportersDW 데이터 웨어하우스를 로드합니다. 이 자습서에서는 [Azure Portal](https://portal.azure.com) 및 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest))를 사용합니다.
 
 > [!div class="checklist"]
+>
 > * Azure 포털에서 SQL 풀을 사용하여 데이터 웨어하우스 만들기
 > * Azure Portal에서 서버 수준 방화벽 규칙 설정
 > * SSMS를 사용하여 SQL 풀에 연결
@@ -33,21 +34,21 @@ ms.locfileid: "80346694"
 > * Date 차원 및 Sales 팩트 테이블에서 연도 데이터 생성
 > * 새로 로드한 데이터에 대한 통계 만들기
 
-Azure 구독이 없는 경우 시작하기 전에 [무료 계정을 만드세요.](https://azure.microsoft.com/free/)
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 다운로드하여 설치합니다.
+이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest))를 다운로드하여 설치합니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털에](https://portal.azure.com/)로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>SQL 풀에서 빈 데이터 웨어하우스 만들기
 
-SQL 풀은 정의된 [계산 리소스](memory-concurrency-limits.md)집합으로 만들어집니다. SQL 풀은 Azure [리소스 그룹](../../azure-resource-manager/management/overview.md) 및 [Azure SQL 논리 서버에서](../../sql-database/sql-database-features.md)만들어집니다. 
+SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세트로 생성됩니다. SQL 풀은 Azure [리소스 그룹](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 및 [Azure SQL 논리 서버에서](../../sql-database/sql-database-features.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)만들어집니다.
 
-다음 단계에 따라 빈 SQL 풀을 만듭니다. 
+다음 단계에 따라 빈 SQL 풀을 만듭니다.
 
 1. Azure 포털에서 **리소스 만들기를** 선택합니다.
 
@@ -55,58 +56,57 @@ SQL 풀은 정의된 [계산 리소스](memory-concurrency-limits.md)집합으�
 
     ![SQL 풀 만들기](./media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
 
-1. **프로젝트 세부 정보** 섹션을 작성하여 다음 정보를 입력합니다.   
+1. **프로젝트 세부 정보** 섹션을 작성하여 다음 정보를 입력합니다.
 
-   | 설정 | 예제 | 설명 | 
+   | 설정 | 예제 | 설명 |
    | ------- | --------------- | ----------- |
    | **구독** | 사용자의 구독  | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
-   | **리소스 그룹** | myResourceGroup | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
+   | **리소스 그룹** | myResourceGroup | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조하세요. |
 
-1. **SQL 풀 세부 정보에서**SQL 풀의 이름을 제공합니다. 다음으로 드롭다운에서 기존 서버를 선택하거나 **서버** 설정에서 **새 만들기를** 선택하여 새 서버를 만듭니다. 다음 정보로 양식을 작성합니다. 
+1. **SQL 풀 세부 정보에서**SQL 풀의 이름을 제공합니다. 다음으로 드롭다운에서 기존 서버를 선택하거나 **서버** 설정에서 **새 만들기를** 선택하여 새 서버를 만듭니다. 다음 정보로 양식을 작성합니다.
 
-    | 설정 | 제안 값 | 설명 | 
+    | 설정 | 제안 값 | Description |
     | ------- | --------------- | ----------- |
-    |**SQL 풀 이름**|SampleDW| 유효한 데이터베이스 이름은 [데이터베이스 식별자를](/sql/relational-databases/databases/database-identifiers)참조하십시오. | 
-    | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. | 
+    |**SQL 풀 이름**|SampleDW| 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요. |
+    | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조하세요. |
     | **서버 관리자 로그인** | 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자를](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)참조하십시오.|
     | **암호** | 유효한 암호 | 암호는 8자 이상이어야 하며 대문자, 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지 범주의 문자를 포함해야 합니다. |
     | **위치** | 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
 
     ![데이터베이스 서버 만들기](./media/load-data-wideworldimportersdw/create-database-server.png)
 
-1. **성능 수준을 선택합니다.** 슬라이더는 기본적으로 **DW1000c로**설정됩니다. 슬라이더를 위아래로 이동하여 원하는 성능 척도를 선택합니다. 
+1. **성능 수준을 선택합니다.** 슬라이더는 기본적으로 **DW1000c로**설정됩니다. 슬라이더를 위아래로 이동하여 원하는 성능 척도를 선택합니다.
 
     ![데이터베이스 서버 만들기](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
 
-1. 추가 **설정** 페이지에서 기존 **데이터 사용을** 없음으로 설정하고 SQL_Latin1_General_CP1_CI_AS 기본값으로 *SQL_Latin1_General_CP1_CI_AS* **[1]을** 그대로 둡니다. 
+1. 추가 **설정** 페이지에서 기존 **데이터 사용을** 없음으로 설정하고 SQL_Latin1_General_CP1_CI_AS 기본값으로 *SQL_Latin1_General_CP1_CI_AS* **[1]을** 그대로 둡니다.
 
-1. **검토 + 만들기를** 선택하여 설정을 검토한 다음 **만들기를** 선택하여 데이터 웨어하우스를 만듭니다. **알림** 메뉴에서 **진행 중인 배포** 페이지를 열어 진행 상황을 모니터링할 수 있습니다. 
+1. **검토 + 만들기를** 선택하여 설정을 검토한 다음 **만들기를** 선택하여 데이터 웨어하우스를 만듭니다. **알림** 메뉴에서 **진행 중인 배포** 페이지를 열어 진행 상황을 모니터링할 수 있습니다.
 
      ![알림](./media/load-data-wideworldimportersdw/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 만들기
 
-Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 서버 또는 서버의 데이터베이스에 연결하지 못하도록 하는 서버 수준에서 방화벽을 만듭니다. 연결을 사용하려면 특정 IP 주소에 대한 연결을 사용하도록 설정하는 방화벽 규칙을 추가할 수 있습니다.  다음 단계에 따라 클라이언트의 IP 주소에 대해 [서버 수준 방화벽 규칙](../../sql-database/sql-database-firewall-configure.md)을 만듭니다. 
+Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 서버 또는 서버의 데이터베이스에 연결하지 못하도록 하는 서버 수준에서 방화벽을 만듭니다. 연결을 사용하려면 특정 IP 주소에 대한 연결을 사용하도록 설정하는 방화벽 규칙을 추가할 수 있습니다.  다음 단계에 따라 클라이언트의 IP 주소에 대해 [서버 수준 방화벽 규칙](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 만듭니다.
 
 > [!NOTE]
 > Azure 시냅스 분석 SQL 풀은 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다.
 >
 
+1. 배포가 완료되면 탐색 메뉴의 검색 상자에서 풀 이름을 검색하고 SQL 풀 리소스를 선택합니다. 서버 이름을 선택합니다.
 
-1. 배포가 완료되면 탐색 메뉴의 검색 상자에서 풀 이름을 검색하고 SQL 풀 리소스를 선택합니다. 서버 이름을 선택합니다. 
+    ![리소스로 이동](./media/load-data-wideworldimportersdw/search-for-sql-pool.png)
 
-    ![리소스로 이동](./media/load-data-wideworldimportersdw/search-for-sql-pool.png) 
+1. 서버 이름을 선택합니다.
+    ![서버 이름](././media/load-data-wideworldimportersdw/find-server-name.png)
 
-1. 서버 이름을 선택합니다. 
-    ![서버 이름](././media/load-data-wideworldimportersdw/find-server-name.png) 
+1. **방화벽 설정 표시**를 선택합니다. SQL 풀 서버의 **방화벽 설정** 페이지가 열립니다.
 
-1. **방화벽 설정 표시를**선택합니다. SQL 풀 서버의 **방화벽 설정** 페이지가 열립니다. 
-
-    ![서버 설정](./media/load-data-wideworldimportersdw/server-settings.png) 
+    ![서버 설정](./media/load-data-wideworldimportersdw/server-settings.png)
 
 1. 방화벽 **및 가상 네트워크** 페이지에서 **클라이언트 IP 추가를** 선택하여 현재 IP 주소를 새 방화벽 규칙에 추가합니다. 방화벽 규칙은 단일 IP 주소 또는 IP 주소의 범위에 1433 포트를 열 수 있습니다.
 
-    ![서버 방화벽 규칙](./media/load-data-wideworldimportersdw/server-firewall-rule.png) 
+    ![서버 방화벽 규칙](./media/load-data-wideworldimportersdw/server-firewall-rule.png)
 
 1. **저장**을 선택합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
 
@@ -119,18 +119,18 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
 
 정규화된 서버 이름은 서버에 연결하는 데 사용되는 이름입니다. Azure 포털의 SQL 풀 리소스로 이동하여 서버 **이름**에서 정규화된 이름을 봅니다.
 
-![서버 이름](././media/load-data-wideworldimportersdw/find-server-name.png) 
+![서버 이름](././media/load-data-wideworldimportersdw/find-server-name.png)
 
 ## <a name="connect-to-the-server-as-server-admin"></a>서버 관리자 권한으로 서버에 연결
 
-이 섹션에서는 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 사용하여 Azure SQL 서버에 연결합니다.
+이 섹션에서는 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest))를 사용하여 Azure SQL 서버에 연결합니다.
 
 1. SQL Server Management Studio를 엽니다.
 
 2. **서버에 연결** 대화 상자에 다음 정보를 입력합니다.
 
-    | 설정      | 제안 값 | 설명 | 
-    | ------------ | --------------- | ----------- | 
+    | 설정      | 제안 값 | Description |
+    | ------------ | --------------- | ----------- |
     | 서버 유형 | 데이터베이스 엔진 | 이 값은 필수입니다. |
     | 서버 이름 | 정규화된 서버 이름 | 예를 들어 **sqlpoolservername.database.windows.net** 정규화된 서버 이름입니다. |
     | 인증 | SQL Server 인증 | SQL 인증은 이 자습서에서 구성되어 있는 유일한 인증 유형입니다. |
@@ -139,25 +139,25 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
 
     ![서버에 연결](./media/load-data-wideworldimportersdw/connect-to-server.png)
 
-4. **연결**을 클릭합니다. SSMS에서 개체 탐색기 창이 열립니다. 
+3. **연결**을 클릭합니다. SSMS에서 개체 탐색기 창이 열립니다.
 
-5. 개체 탐색기에서 **데이터베이스**를 확장합니다. 그런 후 **시스템 데이터베이스** 및 **master**를 확장하여 master 데이터베이스의 개체를 표시합니다.  **SampleDW를** 확장하여 새 데이터베이스의 개체를 봅니다.
+4. 개체 탐색기에서 **데이터베이스**를 확장합니다. 그런 후 **시스템 데이터베이스** 및 **master**를 확장하여 master 데이터베이스의 개체를 표시합니다.  **SampleDW를** 확장하여 새 데이터베이스의 개체를 봅니다.
 
-    ![데이터베이스 개체](./media/load-data-wideworldimportersdw/connected.png) 
+    ![데이터베이스 개체](./media/load-data-wideworldimportersdw/connected.png)
 
 ## <a name="create-a-user-for-loading-data"></a>데이터를 로드하기 위한 사용자 만들기
 
-서버 관리자 계정은 관리 작업을 수행하며 사용자 데이터에 대해 쿼리를 실행하는 데는 적합하지 않습니다. 데이터 로드는 메모리를 많이 사용하는 작업입니다. 메모리 최대값은 사용 중인 SQL 풀 생성, [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)및 [리소스 클래스에](resource-classes-for-workload-management.md)따라 정의됩니다. 
+서버 관리자 계정은 관리 작업을 수행하며 사용자 데이터에 대해 쿼리를 실행하는 데는 적합하지 않습니다. 데이터 로드는 메모리를 많이 사용하는 작업입니다. 메모리 최대값은 사용 중인 SQL 풀 생성, [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)및 [리소스 클래스에](resource-classes-for-workload-management.md)따라 정의됩니다.
 
 데이터 로드 전용 로그인 및 사용자를 만드는 것이 좋습니다. 그런 후 로드 사용자를 [리소스 클래스](resource-classes-for-workload-management.md)에 추가하여 적절한 최대 메모리가 할당되도록 합니다.
 
-현재 서버 관리자로서 연결되어 있으므로 로그인 및 사용자를 만들 수 있습니다. 다음 단계를 사용하여 **LoaderRC60**이라는 로그인 및 사용자를 만듭니다. 그런 다음, 해당 사용자를 **staticrc60** 리소스 클래스에 할당합니다. 
+현재 서버 관리자로서 연결되어 있으므로 로그인 및 사용자를 만들 수 있습니다. 다음 단계를 사용하여 **LoaderRC60**이라는 로그인 및 사용자를 만듭니다. 그런 다음, 해당 사용자를 **staticrc60** 리소스 클래스에 할당합니다.
 
-1.  SSMS에서 **master**를 마우스 오른쪽 단추로 클릭하여 드롭다운 메뉴를 표시하고 **새 쿼리**를 선택합니다. 새 쿼리 창이 열립니다.
+1. SSMS에서 **master**를 마우스 오른쪽 단추로 클릭하여 드롭다운 메뉴를 표시하고 **새 쿼리**를 선택합니다. 새 쿼리 창이 열립니다.
 
     ![master에서의 새 쿼리](./media/load-data-wideworldimportersdw/create-loader-login.png)
 
-2. 쿼리 창에서 다음 T-SQL 명령을 입력하여 LoaderRC60이라는 로그인 및 사용자를 만들고, 'a123STRONGpassword!'를 사용자 고유의 암호로 바꿉니다. 
+2. 쿼리 창에서 다음 T-SQL 명령을 입력하여 LoaderRC60이라는 로그인 및 사용자를 만들고, 'a123STRONGpassword!'를 사용자 고유의 암호로 바꿉니다.
 
     ```sql
     CREATE LOGIN LoaderRC60 WITH PASSWORD = 'a123STRONGpassword!';
@@ -169,8 +169,8 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
 4. **SampleDW**를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다. 새 쿼리 창이 열립니다.  
 
     ![예제 데이터 웨어하우스에 대한 새 쿼리](./media/load-data-wideworldimportersdw/create-loading-user.png)
- 
-5. 다음 T-SQL 명령을 입력하여 LoaderRC60 로그인에 대해 LoaderRC60이라는 데이터베이스 사용자를 만듭니다. 두 번째 줄은 새 데이터 웨어하우스에 대한 제어 권한을 새 사용자에게 부여합니다.  이러한 권한 부여은 해당 사용자를 데이터베이스의 소유자로 만드는 것과 비슷합니다. 세 번째 줄에서는 새 사용자를 staticrc60 [리소스 클래스](resource-classes-for-workload-management.md)의 구성원으로 추가합니다.
+
+5. 다음 T-SQL 명령을 입력하여 LoaderRC60 로그인에 대해 LoaderRC60이라는 데이터베이스 사용자를 만듭니다. 두 번째 줄은 새 데이터 웨어하우스에 대한 제어 권한을 새 사용자에게 부여합니다.  이러한 권한 부여은 해당 사용자를 데이터베이스의 소유자로 만드는 것과 비슷합니다. 세 번째 줄은 새 사용자를 `staticrc60` [리소스 클래스의](resource-classes-for-workload-management.md)멤버로 추가합니다.
 
     ```sql
     CREATE USER LoaderRC60 FOR LOGIN LoaderRC60;
@@ -202,19 +202,19 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
 
 다음 SQL 스크립트를 실행하여 로드하려는 데이터에 대한 정보를 지정합니다. 이 정보에는 데이터가 있는 위치, 데이터 콘텐츠 형식 및 데이터에 대한 테이블 정의가 포함됩니다. 데이터는 전역 Azure Blob에 있습니다.
 
-1. 이전 섹션에서는 LoaderRC60 권한으로 데이터 웨어하우스에 로그인했습니다. SSMS의 LoaderRC60 연결 아래에서 **SampleDW**를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.  새 쿼리 창이 표시됩니다. 
+1. 이전 섹션에서는 LoaderRC60 권한으로 데이터 웨어하우스에 로그인했습니다. SSMS의 LoaderRC60 연결 아래에서 **SampleDW**를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.  새 쿼리 창이 표시됩니다.
 
     ![새 로드 쿼리 창](./media/load-data-wideworldimportersdw/new-loading-query.png)
 
 2. 쿼리 창을 이전 이미지와 비교합니다.  새 쿼리 창이 LoaderRC60 권한으로 실행되고 있으며 SampleDW 데이터베이스에서 쿼리를 수행하고 있는지 확인합니다. 이 쿼리 창을 사용하여 모든 로드 단계를 수행합니다.
 
-3. SampleDW 데이터베이스에 대한 마스터 키를 만듭니다. 데이터베이스마다 한 번씩 마스터 키를 만들기만 하면 됩니다. 
+3. SampleDW 데이터베이스에 대한 마스터 키를 만듭니다. 데이터베이스마다 한 번씩 마스터 키를 만들기만 하면 됩니다.
 
     ```sql
     CREATE MASTER KEY;
     ```
 
-4. 다음 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 문을 실행하여 Azure Blob의 위치를 정의합니다. 이것은 외부 전세계 수입 업체 데이터의 위치입니다.  쿼리 창에 추가한 명령을 실행하려면 실행하려는 명령을 강조 표시하고 **실행**을 클릭합니다.
+4. 다음 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 문을 실행하여 Azure Blob의 위치를 정의합니다. 이것은 외부 전세계 수입 업체 데이터의 위치입니다.  쿼리 창에 추가한 명령을 실행하려면 실행하려는 명령을 강조 표시하고 **실행**을 클릭합니다.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -225,22 +225,22 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
     );
     ```
 
-5. 다음 [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql) T-SQL 문을 실행하여 외부 데이터 파일에 대한 서식 특성 및 옵션을 지정합니다. 이 명령문은 외부 데이터는 텍스트로 저장되고 값은 파이프('|') 문자로 구분됨을 지정합니다.  
+5. 다음 [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 문을 실행하여 외부 데이터 파일에 대한 서식 특성 및 옵션을 지정합니다. 이 명령문은 외부 데이터는 텍스트로 저장되고 값은 파이프('|') 문자로 구분됨을 지정합니다.  
 
     ```sql
-    CREATE EXTERNAL FILE FORMAT TextFileFormat 
-    WITH 
-    (   
+    CREATE EXTERNAL FILE FORMAT TextFileFormat
+    WITH
+    (
         FORMAT_TYPE = DELIMITEDTEXT,
         FORMAT_OPTIONS
-        (   
+        (
             FIELD_TERMINATOR = '|',
-            USE_TYPE_DEFAULT = FALSE 
+            USE_TYPE_DEFAULT = FALSE
         )
     );
     ```
 
-6.  다음 [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql) 문을 실행하여 외부 파일 형식에 대한 스키마를 만듭니다. ext 스키마는 만들려는 외부 테이블을 구성하는 방법을 제공합니다. wwi 스키마는 데이터를 포함할 표준 테이블을 구성합니다. 
+6. 다음 [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 문을 실행하여 외부 파일 형식에 대한 스키마를 만듭니다. ext 스키마는 만들려는 외부 테이블을 구성하는 방법을 제공합니다. wwi 스키마는 데이터를 포함할 표준 테이블을 구성합니다.
 
     ```sql
     CREATE SCHEMA ext;
@@ -267,7 +267,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
         [Valid To] [datetime2](7) NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH (LOCATION='/v1/dimension_City/',   
+    WITH (LOCATION='/v1/dimension_City/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -286,7 +286,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
         [Valid To] [datetime2](7) NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH (LOCATION='/v1/dimension_Customer/',   
+    WITH (LOCATION='/v1/dimension_Customer/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -303,7 +303,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
         [Valid To] [datetime2](7) NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION='/v1/dimension_Employee/',   
+    WITH ( LOCATION='/v1/dimension_Employee/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -317,7 +317,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
         [Valid To] [datetime2](7) NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/dimension_PaymentMethod/',   
+    WITH ( LOCATION ='/v1/dimension_PaymentMethod/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -345,7 +345,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
         [Valid To] [datetime2](7) NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/dimension_StockItem/',   
+    WITH ( LOCATION ='/v1/dimension_StockItem/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -364,7 +364,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
         [Valid To] [datetime2](7) NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/dimension_Supplier/',   
+    WITH ( LOCATION ='/v1/dimension_Supplier/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -377,8 +377,8 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
         [Valid From] [datetime2](7) NOT NULL,
         [Valid To] [datetime2](7) NOT NULL,
         [Lineage Key] [int] NOT NULL
-    )    
-    WITH ( LOCATION ='/v1/dimension_TransactionType/',   
+    )
+    WITH ( LOCATION ='/v1/dimension_TransactionType/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -397,7 +397,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
         [Quantity] [int] NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/fact_Movement/',   
+    WITH ( LOCATION ='/v1/fact_Movement/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -424,8 +424,8 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
         [Total Including Tax] [decimal](18, 2) NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/fact_Order/',   
-        DATA_SOURCE = WWIStorage,  
+    WITH ( LOCATION ='/v1/fact_Order/',
+        DATA_SOURCE = WWIStorage,
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
         REJECT_VALUE = 0
@@ -443,7 +443,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
         [Is Order Finalized] [bit] NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/fact_Purchase/',   
+    WITH ( LOCATION ='/v1/fact_Purchase/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -472,7 +472,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
         [Total Chiller Items] [int] NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/fact_Sale/',   
+    WITH ( LOCATION ='/v1/fact_Sale/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -489,7 +489,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
         [Target Stock Level] [int] NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/fact_StockHolding/',   
+    WITH ( LOCATION ='/v1/fact_StockHolding/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -515,7 +515,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
         [Is Finalized] [bit] NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/fact_Transaction/',   
+    WITH ( LOCATION ='/v1/fact_Transaction/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -533,9 +533,8 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
 
 > [!NOTE]
 > 이 자습서에서는 최종 테이블에 직접 데이터를 로드합니다. 프로덕션 환경에서는 일반적으로 CREATE TABLE AS SELECT를 사용하여 준비 테이블에 로드합니다. 데이터가 준비 테이블에 있는 동안에는 필요한 모든 변환을 수행할 수 있습니다. 준비 테이블의 데이터를 프로덕션 테이블에 추가하려면 INSERT...SELECT 문을 사용합니다. 자세한 내용은 [프로덕션 테이블에 데이터 삽입](guidance-for-loading-data.md#inserting-data-into-a-production-table)을 참조하세요.
-> 
 
-이 스크립트는 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 문을 사용하여 Azure Storage Blob에서 데이터 웨어하우스의 새로운 테이블로 데이터를 로드합니다. CTAS는 select 문의 결과에 따라 새 테이블을 만듭니다. 새 테이블은 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 포함합니다. select 문이 외부 테이블에서 선택하면 데이터가 데이터 웨어하우스의 관계형 테이블로 가져옵니다. 
+이 스크립트는 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 문을 사용하여 Azure Storage Blob에서 데이터 웨어하우스의 새로운 테이블로 데이터를 로드합니다. CTAS는 select 문의 결과에 따라 새 테이블을 만듭니다. 새 테이블은 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 포함합니다. select 문이 외부 테이블에서 선택하면 데이터가 데이터 웨어하우스의 관계형 테이블로 가져옵니다.
 
 이 스크립트는 wwi.dimension_Date 및 wwi.fact_Sale 테이블에 데이터를 로드하지 않습니다. 이러한 테이블은 테이블에 상당한 수의 행이 있도록 하기 위해 이후 단계에서 생성됩니다.
 
@@ -544,7 +543,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
     ```sql
     CREATE TABLE [wwi].[dimension_City]
     WITH
-    ( 
+    (
         DISTRIBUTION = REPLICATE,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -555,7 +554,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
 
     CREATE TABLE [wwi].[dimension_Customer]
     WITH
-    ( 
+    (
         DISTRIBUTION = REPLICATE,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -566,7 +565,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
 
     CREATE TABLE [wwi].[dimension_Employee]
     WITH
-    ( 
+    (
         DISTRIBUTION = REPLICATE,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -577,7 +576,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
 
     CREATE TABLE [wwi].[dimension_PaymentMethod]
     WITH
-    ( 
+    (
         DISTRIBUTION = REPLICATE,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -588,7 +587,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
 
     CREATE TABLE [wwi].[dimension_StockItem]
     WITH
-    ( 
+    (
         DISTRIBUTION = REPLICATE,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -599,7 +598,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
 
     CREATE TABLE [wwi].[dimension_Supplier]
     WITH
-    ( 
+    (
         DISTRIBUTION = REPLICATE,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -610,7 +609,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
 
     CREATE TABLE [wwi].[dimension_TransactionType]
     WITH
-    ( 
+    (
         DISTRIBUTION = REPLICATE,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -621,7 +620,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
 
     CREATE TABLE [wwi].[fact_Movement]
     WITH
-    ( 
+    (
         DISTRIBUTION = HASH([Movement Key]),
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -632,7 +631,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
 
     CREATE TABLE [wwi].[fact_Order]
     WITH
-    ( 
+    (
         DISTRIBUTION = HASH([Order Key]),
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -643,7 +642,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
 
     CREATE TABLE [wwi].[fact_Purchase]
     WITH
-    ( 
+    (
         DISTRIBUTION = HASH([Purchase Key]),
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -654,7 +653,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
 
     CREATE TABLE [wwi].[seed_Sale]
     WITH
-    ( 
+    (
         DISTRIBUTION = HASH([WWI Invoice ID]),
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -665,7 +664,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
 
     CREATE TABLE [wwi].[fact_StockHolding]
     WITH
-    ( 
+    (
         DISTRIBUTION = HASH([Stock Holding Key]),
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -676,7 +675,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
 
     CREATE TABLE [wwi].[fact_Transaction]
     WITH
-    ( 
+    (
         DISTRIBUTION = HASH([Transaction Key]),
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -695,7 +694,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
         r.status,
         count(distinct input_name) as nbr_files,
         sum(s.bytes_processed)/1024/1024/1024 as gb_processed
-    FROM 
+    FROM
         sys.dm_pdw_exec_requests r
         INNER JOIN sys.dm_pdw_dms_external_work s
         ON r.request_id = s.request_id
@@ -717,7 +716,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
         s.request_id,
         r.status
     ORDER BY
-        nbr_files desc, 
+        nbr_files desc,
         gb_processed desc;
     ```
 
@@ -755,7 +754,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
         [Fiscal Year Label] [nvarchar](10) NOT NULL,
         [ISO Week Number] [int] NOT NULL
     )
-    WITH 
+    WITH
     (
         DISTRIBUTION = REPLICATE,
         CLUSTERED INDEX ([Date])
@@ -791,7 +790,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
     )
     ```
 
-2. [wwi].[InitialSalesDataPopulation]을 만들어 [wwi].[seed_Sale]의 행 수를 8배로 늘립니다. 
+2. [wwi].[InitialSalesDataPopulation]을 만들어 [wwi].[seed_Sale]의 행 수를 8배로 늘립니다.
 
     ```sql
     CREATE PROCEDURE [wwi].[InitialSalesDataPopulation] AS
@@ -824,7 +823,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
     ```sql
     CREATE PROCEDURE [wwi].[PopulateDateDimensionForYear] @Year [int] AS
     BEGIN
-        IF OBJECT_ID('tempdb..#month', 'U') IS NOT NULL 
+        IF OBJECT_ID('tempdb..#month', 'U') IS NOT NULL
             DROP TABLE #month
         CREATE TABLE #month (
             monthnum int,
@@ -834,7 +833,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
         INSERT INTO #month
             SELECT 1, 31 UNION SELECT 2, CASE WHEN (@YEAR % 4 = 0 AND @YEAR % 100 <> 0) OR @YEAR % 400 = 0 THEN 29 ELSE 28 END UNION SELECT 3,31 UNION SELECT 4,30 UNION SELECT 5,31 UNION SELECT 6,30 UNION SELECT 7,31 UNION SELECT 8,31 UNION SELECT 9,30 UNION SELECT 10,31 UNION SELECT 11,30 UNION SELECT 12,31
 
-        IF OBJECT_ID('tempdb..#days', 'U') IS NOT NULL 
+        IF OBJECT_ID('tempdb..#days', 'U') IS NOT NULL
             DROP TABLE #days
         CREATE TABLE #days (days int)
         WITH (DISTRIBUTION = ROUND_ROBIN, HEAP)
@@ -843,7 +842,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
             SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9 UNION SELECT 10 UNION SELECT 11 UNION SELECT 12 UNION SELECT 13 UNION SELECT 14 UNION SELECT 15 UNION SELECT 16 UNION SELECT 17 UNION SELECT 18 UNION SELECT 19 UNION SELECT 20    UNION SELECT 21 UNION SELECT 22 UNION SELECT 23 UNION SELECT 24 UNION SELECT 25 UNION SELECT 26 UNION SELECT 27 UNION SELECT 28 UNION SELECT 29 UNION SELECT 30 UNION SELECT 31
 
         INSERT [wwi].[dimension_Date] (
-            [Date], [Day Number], [Day], [Month], [Short Month], [Calendar Month Number], [Calendar Month Label], [Calendar Year], [Calendar Year Label], [Fiscal Month Number], [Fiscal Month Label], [Fiscal Year], [Fiscal Year Label], [ISO Week Number] 
+            [Date], [Day Number], [Day], [Month], [Short Month], [Calendar Month Number], [Calendar Month Label], [Calendar Year], [Calendar Year Label], [Fiscal Month Number], [Fiscal Month Label], [Fiscal Year], [Fiscal Year Label], [ISO Week Number]
         )
         SELECT
             CAST(CAST(monthnum AS VARCHAR(2)) + '/' + CAST([days] AS VARCHAR(3)) + '/' + CAST(@year AS CHAR(4)) AS DATE) AS [Date]
@@ -876,6 +875,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
     DROP table #days;
     END;
     ```
+
 4. wwi.dimension_Date 및 wwi.fact_Sale 테이블을 채우는 이 절차를 만듭니다. 이는 [wwi].[PopulateDateDimensionForYear]를 호출하여 wwi.dimension_Date를 채웁니다.
 
     ```sql
@@ -888,7 +888,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
 
         DECLARE @OrderCounter bigint = 0;
         DECLARE @NumberOfSalesPerDay bigint = @EstimatedRowsPerDay;
-        DECLARE @DateCounter date; 
+        DECLARE @DateCounter date;
         DECLARE @StartingSaleKey bigint;
         DECLARE @MaximumSaleKey bigint = (SELECT MAX([Sale Key]) FROM wwi.seed_Sale);
         DECLARE @MaxDate date;
@@ -920,7 +920,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
             SELECT TOP(@VariantNumberOfSalesPerDay)
                 [City Key], [Customer Key], [Bill To Customer Key], [Stock Item Key], @DateCounter, DATEADD(day, 1, @DateCounter), [Salesperson Key], [WWI Invoice ID], [Description], Package, Quantity, [Unit Price], [Tax Rate], [Total Excluding Tax], [Tax Amount], Profit, [Total Including Tax], [Total Dry Items], [Total Chiller Items], [Lineage Key]
             FROM [wwi].[seed_Sale]
-            WHERE 
+            WHERE
                  --[Sale Key] > @StartingSaleKey and /* IDENTITY DOES NOT WORK THE SAME IN SQLDW AND CAN'T USE THIS METHOD FOR VARIANT */
                 [Invoice Date Key] >=cast(@YEAR AS CHAR(4)) + '-01-01'
             ORDER BY [Sale Key];
@@ -932,12 +932,12 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
     ```
 
 ## <a name="generate-millions-of-rows"></a>수백만 개의 행 생성
-생성한 저장 프로시저를 사용하여 wwi.fact_Sale 테이블에서 수백만 개의 행을 생성하고 wwi.dimension_Date 테이블에서 해당 데이터를 생성합니다. 
 
+생성한 저장 프로시저를 사용하여 wwi.fact_Sale 테이블에서 수백만 개의 행을 생성하고 wwi.dimension_Date 테이블에서 해당 데이터를 생성합니다.
 
 1. 이 절차를 실행하여 더 많은 행으로 [wwi].[seed_Sale]을 시드합니다.
 
-    ```sql    
+    ```sql
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
@@ -946,6 +946,7 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
     ```
+
 3. 이전 단계의 데이터 생성은 1년 전체에 걸쳐 계속 진행되므로 시간이 걸릴 수 있습니다.  현재 프로세스가 있는 날짜를 확인하려면 새 쿼리를 열고 다음 SQL 명령을 실행합니다.
 
     ```sql
@@ -962,22 +963,22 @@ Azure Synapse Analytics 서비스는 외부 응용 프로그램 및 도구가 �
 
 SQL 풀은 각 Compute 노드에 데이터를 캐싱하여 테이블을 복제합니다. 테이블에 대해 쿼리가 실행되면 캐시가 채워집니다. 따라서 복제된 테이블의 첫 번째 쿼리에서 캐시를 채우는 데 시간이 추가로 필요할 수 있습니다. 캐시가 채워지면 복제된 테이블에 대한 쿼리가 더 빨리 실행됩니다.
 
-이러한 SQL 쿼리를 실행하여 복제된 테이블 캐시를 Compute 노드에 채웁니다. 
+이러한 SQL 쿼리를 실행하여 복제된 테이블 캐시를 Compute 노드에 채웁니다.
 
-    ```sql
-    SELECT TOP 1 * FROM [wwi].[dimension_City];
-    SELECT TOP 1 * FROM [wwi].[dimension_Customer];
-    SELECT TOP 1 * FROM [wwi].[dimension_Date];
-    SELECT TOP 1 * FROM [wwi].[dimension_Employee];
-    SELECT TOP 1 * FROM [wwi].[dimension_PaymentMethod];
-    SELECT TOP 1 * FROM [wwi].[dimension_StockItem];
-    SELECT TOP 1 * FROM [wwi].[dimension_Supplier];
-    SELECT TOP 1 * FROM [wwi].[dimension_TransactionType];
-    ```
+```sql
+SELECT TOP 1 * FROM [wwi].[dimension_City];
+SELECT TOP 1 * FROM [wwi].[dimension_Customer];
+SELECT TOP 1 * FROM [wwi].[dimension_Date];
+SELECT TOP 1 * FROM [wwi].[dimension_Employee];
+SELECT TOP 1 * FROM [wwi].[dimension_PaymentMethod];
+SELECT TOP 1 * FROM [wwi].[dimension_StockItem];
+SELECT TOP 1 * FROM [wwi].[dimension_Supplier];
+SELECT TOP 1 * FROM [wwi].[dimension_TransactionType];
+```
 
 ## <a name="create-statistics-on-newly-loaded-data"></a>새로 로드한 데이터에 대한 통계 만들기
 
-높은 쿼리 성능을 얻으려면, 첫 번째 로드 후에 각 테이블의 각 열에 대한 통계를 만들어야 합니다. 데이터에 상당한 변화가 발생한 후에는 통계를 업데이트하는 것이 중요합니다. 
+높은 쿼리 성능을 얻으려면, 첫 번째 로드 후에 각 테이블의 각 열에 대한 통계를 만들어야 합니다. 데이터에 상당한 변화가 발생한 후에는 통계를 업데이트하는 것이 중요합니다.
 
 1. 모든 테이블의 모든 열에 대한 통계를 업데이트하는 다음 저장 프로시저를 만듭니다.
 
@@ -1007,7 +1008,7 @@ SQL 풀은 각 Compute 노드에 데이터를 캐싱하여 테이블을 복제�
     BEGIN;
         DROP TABLE #stats_ddl;
     END;
-    
+
     CREATE TABLE #stats_ddl
     WITH    (   DISTRIBUTION    = HASH([seq_nmbr])
             ,   LOCATION        = USER_DB
@@ -1090,11 +1091,13 @@ SQL 풀은 각 Compute 노드에 데이터를 캐싱하여 테이블을 복제�
 
 5. 리소스 그룹을 제거하려면 **SampleRG**를 클릭한 다음, **리소스 그룹 삭제**를 클릭합니다.
 
-## <a name="next-steps"></a>다음 단계 
-이 자습서에서는 데이터를 로드하기 위해 데이터 웨어하우스를 만들고 사용자를 만드는 방법을 배웠습니다. Azure Storage Blob에 저장된 데이터에 대한 구조를 정의하는 외부 테이블을 만든 다음, PolyBase CREATE TABLE AS SELECT 문을 사용하여 데이터 웨어하우스에 데이터를 로드했습니다. 
+## <a name="next-steps"></a>다음 단계
+
+이 자습서에서는 데이터를 로드하기 위해 데이터 웨어하우스를 만들고 사용자를 만드는 방법을 배웠습니다. Azure Storage Blob에 저장된 데이터에 대한 구조를 정의하는 외부 테이블을 만든 다음, PolyBase CREATE TABLE AS SELECT 문을 사용하여 데이터 웨어하우스에 데이터를 로드했습니다.
 
 다음 작업을 수행했습니다.
 > [!div class="checklist"]
+>
 > * Azure 포털에서 SQL 풀을 사용하여 데이터 웨어하우스를 만들었습니다.
 > * Azure Portal에서 서버 수준 방화벽 규칙 설정
 > * SSMS를 사용하여 SQL 풀에 연결

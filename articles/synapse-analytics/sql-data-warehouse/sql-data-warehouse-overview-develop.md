@@ -1,6 +1,6 @@
 ---
-title: Azure 시냅스 분석에서 데이터 웨어하우스 개발을 위한 리소스
-description: SQL Data Warehouse에 대한 개발 개념, 디자인 결정, 권장 사항 및 코딩 기술입니다.
+title: Azure 시냅스 분석에서 시냅스 SQL 풀을 개발하기 위한 리소스
+description: SQL 데이터 웨어하우스를 위한 개발 개념, 설계 결정, 권장 사항 및 코딩 기술.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,18 +10,18 @@ ms.subservice: ''
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: aa0f5fd631dfa3e4deca4853c27a667fcf312fec
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 933a175213afd81c81eb237a2b2dd4c3e24e3315
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350288"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633149"
 ---
-# <a name="design-decisions-and-coding-techniques-for-a-data-warehouse-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 데이터 웨어하우스에 대한 설계 의사 결정 및 코딩 기술 
- 이 문서에서는 Azure Synapse의 데이터 웨어하우스에 대한 주요 디자인 결정, 권장 사항 및 코딩 기술을 더 잘 이해하는 데 도움이 되는 추가 리소스를 찾을 수 있습니다.
+# <a name="design-decisions-and-coding-techniques-for-a-synapse-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse 분석에서 시냅스 SQL 풀에 대한 설계 의사 결정 및 코딩 기술 
+ 이 문서에서는 Azure Synapse의 SQL 풀에 대한 주요 디자인 결정, 권장 사항 및 코딩 기술을 더 잘 이해하는 데 도움이 되는 추가 리소스를 찾을 수 있습니다.
 
 ## <a name="key-design-decisions"></a>주요 디자인 결정
-다음 문서에서는 Azure Synapse의 SQL Analytics 기능을 사용하여 분산 데이터 웨어하우스를 개발하기 위한 개념 및 디자인 결정을 강조 표시합니다.
+다음 문서에서는 Azure Synapse의 SQL 풀 기능을 사용하여 분산 데이터 웨어하우스를 개발하기 위한 개념 및 디자인 결정을 강조 표시합니다.
 
 * [연결](sql-data-warehouse-connect-overview.md)
 * [동시성](resource-classes-for-workload-management.md)
@@ -34,15 +34,15 @@ ms.locfileid: "80350288"
 * [통계](sql-data-warehouse-tables-statistics.md)
 
 ## <a name="development-recommendations-and-coding-techniques"></a>개발 권장 사항 및 코딩 기술
-다음 문서에서는 SQL Analytics를 사용하여 데이터 웨어하우스를 개발하기 위한 특정 코딩 기술, 팁 및 권장 사항을 제공합니다.
+다음 문서에서는 SQL 풀 을 개발하기 위한 특정 코딩 기술, 팁 및 권장 사항을 제공합니다.
 
 * [저장 절차](sql-data-warehouse-develop-stored-procedures.md)
 * [레이블](sql-data-warehouse-develop-label.md)
-* [뷰](sql-data-warehouse-develop-views.md)
+* [레이아웃](sql-data-warehouse-develop-views.md)
 * [임시 테이블](sql-data-warehouse-tables-temporary.md)
 * [동적 SQL](sql-data-warehouse-develop-dynamic-sql.md)
 * [반복](sql-data-warehouse-develop-loops.md)
-* [옵션으로 그룹화](sql-data-warehouse-develop-group-by-options.md)
+* [옵션별로 그룹화](sql-data-warehouse-develop-group-by-options.md)
 * [변수 할당](sql-data-warehouse-develop-variable-assignment.md)
 
 ## <a name="next-steps"></a>다음 단계

@@ -4,17 +4,18 @@ description: 이 문서의 목적은 사용자가 온-프레미스 리소스에�
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
+manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: a88e339e82484c2ec1cd2276f6218fa718b990f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dcf86deda32069bf9711dbeb733dc9361e22a771
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75860489"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631780"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>가상 네트워크에 대한 VPN 처리량의 유효성을 검사하는 방법
 
@@ -242,7 +243,7 @@ Azure가 로컬 네트워크 게이트웨이의 VPN을 통해 도달하기를 �
 
 * **정책 기반 게이트웨이**: 정책 기반 VPN은 온-프레미스 네트워크와 Azure VNet 간의 주소 접두사 조합을 기반으로 IPsec 터널을 통해 패킷을 암호화하고 직접 암호화합니다. 정책 또는 트래픽 선택기는 일반적으로 VPN 구성에서 액세스 목록으로 정의됩니다.
 
-* **UsePolicyBased트래픽선택기** 연결: ("UsePolicyBasedTrafficSelectors"는 연결에서 $True Azure VPN 게이트웨이를 구성하여 온프레미스의 정책 기반 VPN 방화벽에 연결합니다. PolicyBasedTrafficSelectors를 사용하도록 설정하는 경우 VPN 장치에 온-프레미스 네트워크(로컬 네트워크 게이트웨이) 접두사와 Azure 가상 네트워크 접두사 접두사의 모든 조합으로 정의된 일치하는 트래픽 선택기가 있는지 확인해야 합니다. 임의로.
+* **UsePolicyBased트래픽선택기** 연결: ("UsePolicyBasedTrafficSelectors"는 연결에서 $True Azure VPN 게이트웨이를 구성하여 온프레미스의 정책 기반 VPN 방화벽에 연결합니다. PolicyBasedTrafficSelectors를 사용하도록 설정하는 경우 VPN 장치에 온-프레미스 네트워크(로컬 네트워크 게이트웨이) 접두사와 Azure 가상 네트워크 접두사와의 모든 조합으로 정의된 일치하는 트래픽 선택기(임의의 것 대신)가 있는지 확인해야 합니다.
 
 부적절한 구성으로 인해 터널 내의 연결이 자주 끊어지고 패킷이 떨어지며 처리량이 잘못되고 대기 시간이 지연될 수 있습니다.
 

@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5f0432cafee07dbed071d24aa8c24ee9b2176967
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 251fdb83e848aaac3a5391320df23149ce1bce33
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350186"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633055"
 ---
 # <a name="restore-a-deleted-sql-pool-using-azure-synapse-analytics"></a>Azure 시냅스 분석을 사용하여 삭제된 SQL 풀 복원
 
@@ -39,16 +39,16 @@ ms.locfileid: "80350186"
 5. 삭제된 특정 데이터 웨어하우스를 가져옵니다.
 6. 삭제된 데이터 웨어하우스 복원
     1. 삭제된 SQL 데이터 웨어하우스를 다른 논리 서버로 복원하려면 다른 논리 서버 이름을 지정해야 합니다.  이 논리 서버는 다른 리소스 그룹 및 지역에 있을 수도 있습니다.
-    1. 다른 구독으로 복원하려면 [이동](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#use-the-portal) 단추를 사용하여 논리 서버를 다른 구독으로 이동합니다.
-1. 복원된 데이터 웨어하우스가 온라인 상태입니다.
-1. 복원이 완료되면 [복구 후 데이터베이스를 구성하여](../../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery)복구된 데이터 웨어하우스를 구성할 수 있습니다.
+    1. 다른 구독으로 복원하려면 [이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#use-the-portal) 단추를 사용하여 논리 서버를 다른 구독으로 이동합니다.
+7. 복원된 데이터 웨어하우스가 온라인 상태입니다.
+8. 복원이 완료되면 [복구 후 데이터베이스를 구성하여](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery)복구된 데이터 웨어하우스를 구성할 수 있습니다.
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
 #$TargetResourceGroupName="<YourTargetResourceGroupName>" # uncomment to restore to a different logical server.
-#$TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>" 
+#$TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>"
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
 
@@ -71,7 +71,7 @@ $RestoredDatabase.status
 
 ## <a name="restore-a-deleted-database-using-the-azure-portal"></a>Azure Portal을 사용하여 삭제된 데이터베이스 복원
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 삭제된 데이터 웨어하우스가 호스팅된 SQL 서버로 이동합니다.
 3. 목회의에서 **삭제된 데이터베이스** 아이콘을 선택합니다.
 
@@ -86,5 +86,6 @@ $RestoredDatabase.status
     ![데이터베이스 이름 지정](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-21.png)
 
 ## <a name="next-steps"></a>다음 단계
+
 - [기존 SQL 풀 복원](sql-data-warehouse-restore-active-paused-dw.md)
 - [지리적 백업 SQL 풀에서 복원](sql-data-warehouse-restore-from-geo-backup.md)

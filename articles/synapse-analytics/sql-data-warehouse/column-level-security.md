@@ -1,6 +1,6 @@
 ---
 title: Azure Synapse에 대한 열 수준 보안이란 무엇입니까?
-description: 열 수준 보안을 사용하면 고객이 사용자의 실행 컨텍스트 또는 그룹 구성원 자격에 따라 데이터베이스 테이블 열에 대한 액세스를 제어하여 응용 프로그램의 보안 설계 및 코딩을 단순화하고 열에 대한 제한을 구현할 수 있습니다. 액세스.
+description: 열 수준 보안을 사용하면 고객이 사용자의 실행 컨텍스트 또는 그룹 구성원 자격에 따라 데이터베이스 테이블 열에 대한 액세스를 제어하여 응용 프로그램의 보안 설계 및 코딩을 간소화하고 열 액세스에 대한 제한을 구현할 수 있습니다.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -12,24 +12,23 @@ ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 24ead458232b096a5c69ffe8b45c6298a9da9f75
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 61a3e2eadaf79cdb30a931b31cff709298d0a22c
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349088"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631292"
 ---
 # <a name="column-level-security"></a>열 수준 보안
 
 열 수준 보안을 사용하면 고객이 사용자의 실행 컨텍스트 또는 그룹 구성원 자격에 따라 테이블 열에 대한 액세스를 제어할 수 있습니다.
 
-
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-이 비디오가 게시된 이후 [행 수준 보안은](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) Azure Synapse에서 사용할 수 있게 되었습니다. 
+이 비디오가 게시된 이후 [행 수준 보안은](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) Azure Synapse에서 사용할 수 있게 되었습니다.
 
 열 수준 보안은 응용 프로그램의 보안 설계 및 코딩을 단순화하여 중요한 데이터를 보호하기 위해 열 액세스를 제한할 수 있도록 합니다. 예를 들어 특정 사용자가 해당 부서와 관련된 테이블의 특정 열에만 액세스할 수 있도록 합니다. 액세스 제한 논리는 다른 애플리케이션 계층의 데이터와 다소 떨어진 데이터베이스 계층에 위치합니다. 데이터베이스는 모든 계층에서 데이터 액세스를 시도할 때마다 액세스 제한을 적용합니다. 이러한 제한으로 인해 전체 보안 시스템의 표면적을 줄여 보안을 더욱 안정적이고 견고하게 만들 수 있습니다. 또한 열 수준 보안은 사용자에게 액세스 제한을 적용하기 위해 열을 필터링하기 위해 뷰를 도입할 필요가 없습니다.
 
-[GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) T-SQL 문을 사용하면 열 수준 보안을 구현할 수 있습니다. 이 메커니즘을 사용하면 SQL 및 AAD(Azure Active Directory) 인증이 모두 지원됩니다.
+[GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 문을 사용하면 열 수준 보안을 구현할 수 있습니다. 이 메커니즘을 사용하면 SQL 및 AAD(Azure Active Directory) 인증이 모두 지원됩니다.
 
 ![cls](./media/column-level-security/cls.png)
 
@@ -52,6 +51,7 @@ GRANT <permission> [ ,...n ] ON
 ```
 
 ## <a name="example"></a>예제
+
 다음 예제에서는 테이블의 `TestUser` `SSN` 열에 액세스하는 `Membership` 것을 제한하는 방법을 보여 주며 다음과 같은 방법을 보여 주며 다음과 같은 방법을 보여 주며 다음과 같은 방법을 보여 주며 다음과 같은 방법을 보여 주며 다음과 같은 방법을 보여 주며 다음과 같은 방법을 보여 주
 
 사회 `Membership` 보장 번호를 저장하는 데 사용되는 SSN 열을 사용하여 테이블을 만듭니다.

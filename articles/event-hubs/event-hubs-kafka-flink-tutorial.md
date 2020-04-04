@@ -6,16 +6,15 @@ documentationcenter: ''
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
-ms.topic: article
-ms.custom: seodec18
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 04/02/2020
 ms.author: shvija
-ms.openlocfilehash: 6ab542e1328bb986f53d31e2eca75007cf1e0c75
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 2e5a2924cdc00c1cc057d71c40645085df4bae6a
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521795"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632823"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Apache Kafka용 Azure Event Hubs에서 Apache Flink 사용
 이 자습서에서는 프로토콜 클라이언트를 변경하거나 자체 클러스터를 실행하지 않고 Apache Flink를 이벤트 허브에 연결하는 방법을 보여 줍니다. Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다.
@@ -124,22 +123,11 @@ mvn exec:java -Dexec.mainClass="FlinkTestConsumer"
 Flink를 Kafka에 연결하는 방법에 대한 자세한 내용은 [Flink의 Kafka 커넥터 가이드](https://ci.apache.org/projects/flink/flink-docs-stable/dev/connectors/kafka.html)를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 프로토콜 클라이언트를 변경하거나 자체 클러스터를 실행하지 않고 Apache Flink를 이벤트 허브에 연결하는 방법을 배웠습니다. 이 자습서의 일부로 다음 단계를 수행했습니다. 
+카프카의 이벤트 허브에 대한 자세한 내용은 다음 문서를 참조하세요.  
 
-> [!div class="checklist"]
-> * Event Hubs 네임스페이스 만들기
-> * 프로젝트 예제 복제
-> * Flink 생산자 실행 
-> * Flink 소비자 실행
-
-Event Hubs 및 Kafka용 Event Hubs에 대해 자세히 알아보려면 다음 항목을 참조하세요.  
-
-- [Event Hubs에 대해 알아봅니다](event-hubs-what-is-event-hubs.md).
-- [Apache Kafka용 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)
-- [이벤트 허브 만들기](event-hubs-create.md)
-- [Kafka 애플리케이션에서 이벤트 허브로 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 - [이벤트 허브에서 Kafka broker 미러링](event-hubs-kafka-mirror-maker-tutorial.md)
 - [이벤트 허브에 Apache Spark 연결](event-hubs-kafka-spark-tutorial.md)
 - [카프카 커넥트와 이벤트 허브 통합](event-hubs-kafka-connect-tutorial.md)
-- [이벤트 허브에 Akka 스트림 연결](event-hubs-kafka-akka-streams-tutorial.md)
 - [GitHub에서 더 많은 샘플 탐색](https://github.com/Azure/azure-event-hubs-for-kafka)
+- [이벤트 허브에 Akka 스트림 연결](event-hubs-kafka-akka-streams-tutorial.md)
+- [Azure 이벤트 허브에 대 한 아파치 카프카 개발자 가이드](apache-kafka-developer-guide.md)

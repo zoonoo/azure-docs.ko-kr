@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 719a1985aeb0db7b0cf7f55a10762bf3ebb3e045
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8118ecde698b54213547e717d25613c0c3e0d3fd
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79250193"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631549"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
 
-온-프레미스에서 Azure에 Windows 가상 머신(VM)을 업로드하기 전에 가상 하드 디스크(VHD 또는 VHDX)를 준비해야 합니다. Azure는 VHD 파일 형식에 있고 고정 크기 디스크가 있는 1세대 및 2세대 VM을 모두 지원합니다. VHD에 허용되는 최대 크기는 1,023GB입니다. 
+온-프레미스에서 Azure에 Windows 가상 머신(VM)을 업로드하기 전에 가상 하드 디스크(VHD 또는 VHDX)를 준비해야 합니다. Azure는 VHD 파일 형식에 있고 고정 크기 디스크가 있는 1세대 및 2세대 VM을 모두 지원합니다. VHD에 허용되는 최대 크기는 2TB입니다.
 
 1세대 VM에서는 VHDX 파일 시스템을 VHD로 변환할 수 있습니다. 동적으로 확장되는 디스크를 고정 크기 디스크로 변환할 수도 있습니다. 하지만 VM의 세대는 변경할 수 없습니다. 자세한 내용은 [하이퍼-V에서 1세대 또는 2VM을 만들어야 합니까?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) 및 [2세대 VM(미리 보기)에 대한 Azure 지원을](generation-2.md)참조하십시오.
 

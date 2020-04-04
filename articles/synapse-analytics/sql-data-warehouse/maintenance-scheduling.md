@@ -10,16 +10,16 @@ ms.subservice: ''
 ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: f193580ca03d4b1805f3c044658a34f468f3f44f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 43fc32e910c51e8b70e15aa49584a18e5b703fca
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346554"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631602"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>유지 관리 일정을 사용하여 서비스 유지 관리 및 업데이트 관리
 
-유지 관리 일정 기능은 Azure Synapse Analytics 내에서 서비스 상태 계획 유지 관리 알림, 리소스 상태 확인 모니터 및 유지 관리 일정 서비스를 통합합니다. 
+유지 관리 일정 기능은 Azure Synapse Analytics 내에서 서비스 상태 계획 유지 관리 알림, 리소스 상태 확인 모니터 및 유지 관리 일정 서비스를 통합합니다.
 
 유지 관리 일정을 사용하여 새 기능, 업그레이드 및 패치를 편리하게 받을 수 있는 시간 창을 선택해야 합니다. 7일 이내에 기본 및 보조 유지 관리 기간을 선택해야 하며 각 창은 별도의 일 범위 내에 있어야 합니다.
 
@@ -48,52 +48,55 @@ ms.locfileid: "80346554"
 
 선택한 지역에서 유지 관리 예약 기능이 아직 제공되지 않더라도 언제든지 유지 관리 일정을 확인하고 편집할 수 있습니다. 해당 지역에서 유지 관리 일정을 사용할 수 있게 되면 Synapse SQL 풀에서 식별된 일정이 즉시 활성화됩니다.
 
-## <a name="view-a-maintenance-schedule"></a>유지 관리 일정 보기 
+## <a name="view-a-maintenance-schedule"></a>유지 관리 일정 보기
 
 기본적으로 새로 생성된 모든 데이터 웨어하우스 인스턴스에는 배포 중에 8시간의 기본 및 보조 유지 관리 기간이 적용됩니다. 위에서 언급한 대로 배포가 완료되는 즉시 창을 변경할 수 있습니다. 사전 알림 없이는 지정된 유지 관리 기간이 아닐 때 유지 관리가 수행되지 않습니다.
 
 Synapse SQL 풀에 적용된 유지 관리 일정을 보려면 다음 단계를 완료하십시오.
 
-1.    [Azure 포털에](https://portal.azure.com/)로그인합니다.
-2.    보려는 Synapse SQL 풀을 선택합니다. 
-3.    선택한 Synapse SQL 풀은 개요 블레이드에서 열립니다. 데이터 웨어하우스에 적용되는 유지 관리 일정은 **유지 관리 일정**아래에 나타납니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. 보려는 Synapse SQL 풀을 선택합니다.
+3. 선택한 Synapse SQL 풀은 개요 블레이드에서 열립니다. 데이터 웨어하우스에 적용되는 유지 관리 일정은 **유지 관리 일정**아래에 나타납니다.
 
 ![개요 블레이드](./media/maintenance-scheduling/clear-overview-blade.PNG)
 
-## <a name="change-a-maintenance-schedule"></a>유지 관리 일정 변경 
+## <a name="change-a-maintenance-schedule"></a>유지 관리 일정 변경
 
-유지 관리 일정은 언제든지 업데이트하거나 변경할 수 있습니다. 선택한 인스턴스가 활성 유지 관리 주기를 통해 진행되는 경우 설정이 저장됩니다. 식별된 다음 유지 관리 기간 중에 활성화됩니다. 활성 유지 관리 이벤트 중에 데이터 웨어하우스를 모니터링하는 방법에 대해 [자세히 알아보세요](../../service-health/resource-health-overview.md). 
+유지 관리 일정은 언제든지 업데이트하거나 변경할 수 있습니다. 선택한 인스턴스가 활성 유지 관리 주기를 통해 진행되는 경우 설정이 저장됩니다. 식별된 다음 유지 관리 기간 중에 활성화됩니다. 활성 유지 관리 이벤트 중에 데이터 웨어하우스를 모니터링하는 방법에 대해 [자세히 알아보세요](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="identifying-the-primary-and-secondary-windows"></a>기본 및 보조 기간 확인
 
 기본 및 보조 기간은 개별적인 날짜 범위여야 합니다. 예를 들어 기본 기간을 화요일 - 목요일로, 보조 기간을 토요일 - 일요일로 할 수 있습니다.
 
 Synapse SQL 풀의 유지 관리 일정을 변경하려면 다음 단계를 완료하십시오.
-1.    [Azure 포털에](https://portal.azure.com/)로그인합니다.
-2.    업데이트할 Synapse SQL 풀을 선택합니다. 개요 블레이드에서 페이지가 열립니다. 
-3.    개요 블레이드에서 **유지 관리 일정 요약** 링크를 선택하여 유지 관리 일정 설정에 대한 페이지를 엽니다. 또는 왼쪽 리소스 메뉴에서 **유지 관리 일정** 옵션을 선택합니다.  
+
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. 업데이트할 Synapse SQL 풀을 선택합니다. 개요 블레이드에서 페이지가 열립니다.
+개요 블레이드에서 **유지 관리 일정 요약** 링크를 선택하여 유지 관리 일정 설정에 대한 페이지를 엽니다. 또는 왼쪽 리소스 메뉴에서 **유지 관리 일정** 옵션을 선택합니다.
 
     ![개요 블레이드 옵션](./media/maintenance-scheduling/maintenance-change-option.png)
 
-4. 페이지 위쪽의 옵션을 사용하여 기본 유지 관리 기간의 기본 설정 범위(일)를 확인합니다. 여기서 선택한 범위에 따라 기본 기간이 평일인지 주말인지가 결정됩니다. 기간을 선택하면 드롭다운 값이 업데이트됩니다. 미리 보기 기간에는 사용 가능한 **요일** 옵션의 전체 집합이 아직 지원되지 않는 지역도 있을 수 있습니다.
+3. 페이지 위쪽의 옵션을 사용하여 기본 유지 관리 기간의 기본 설정 범위(일)를 확인합니다. 여기서 선택한 범위에 따라 기본 기간이 평일인지 주말인지가 결정됩니다. 기간을 선택하면 드롭다운 값이 업데이트됩니다.
+미리 보기 기간에는 사용 가능한 **요일** 옵션의 전체 집합이 아직 지원되지 않는 지역도 있을 수 있습니다.
 
    ![유지 관리 설정 블레이드](./media/maintenance-scheduling/maintenance-settings-page.png)
 
-5. 드롭다운 목록 상자를 사용하여 기본 설정된 기본 및 보조 유지 관리 기간을 선택합니다.
+4. 드롭다운 목록 상자를 사용하여 기본 설정된 기본 및 보조 유지 관리 기간을 선택합니다.
    - **요일**: 선택한 기간 중에 유지 관리를 수행할 기본 설정 요일입니다.
    - **시작 시간**: 유지 관리 기간에 대한 기본 설정 시작 시간입니다.
    - **시간 범위**: 시간 범위의 기본 설정 지속 시간입니다.
 
-   선택한 값에 따라 블레이드 맨 아래의 **일정 요약**이 업데이트됩니다. 
+   선택한 값에 따라 블레이드 맨 아래의 **일정 요약**이 업데이트됩니다.
   
-6. **저장**을 선택합니다. 새 일정이 현재 활성화되었음을 확인하는 메시지가 표시됩니다. 
+5. **저장**을 선택합니다. 새 일정이 현재 활성화되었음을 확인하는 메시지가 표시됩니다.
 
-   유지 관리 예약을 아직 지원하지 않는 지역에서 일정을 저장하는 경우에는 다음 메시지가 표시됩니다. 선택한 지역에서 기능이 사용 가능해지면 설정이 저장 및 활성화됩니다.    
+   유지 관리 예약을 아직 지원하지 않는 지역에서 일정을 저장하는 경우에는 다음 메시지가 표시됩니다. 선택한 지역에서 기능이 사용 가능해지면 설정이 저장 및 활성화됩니다.
 
    ![지역 가용성에 대한 메시지](./media/maintenance-scheduling/maintenance-not-active-toast.png)
 
 ## <a name="next-steps"></a>다음 단계
-- Azure Monitor를 사용하여 경고를 작성, 확인 및 관리하는 방법에 대해 [자세히 알아봅니다](../../azure-monitor/platform/alerts-metric.md).
-- 로그 경고 규칙에 대한 웹후크 작업에 대해 [자세히 알아보세요.](../..//azure-monitor/platform/alerts-log-webhook.md)
-- 작업 그룹을 만들고 관리하는 방법을 [자세히 알아봅니다](../..//azure-monitor/platform/action-groups.md).
-- Azure Service Health에 대해 [자세히 알아봅니다](../../service-health/service-health-overview.md).
+
+- Azure Monitor를 사용하여 경고를 작성, 확인 및 관리하는 방법에 대해 [자세히 알아봅니다](../../azure-monitor/platform/alerts-metric.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+- 로그 경고 규칙에 대한 웹후크 작업에 대해 [자세히 알아보세요.](../..//azure-monitor/platform/alerts-log-webhook.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+- 작업 그룹을 만들고 관리하는 방법을 [자세히 알아봅니다](../..//azure-monitor/platform/action-groups.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+- Azure Service Health에 대해 [자세히 알아봅니다](../../service-health/service-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).

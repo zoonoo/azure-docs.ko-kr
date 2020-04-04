@@ -11,17 +11,19 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c427c832eb613dddbff33ef6e67af63112e2f136
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 56ab49949b4ea2a92bc591042b2d43a7f7b2dc63
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586062"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632676"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Azure 시냅스 분석에 대한 메모리 및 동시성 제한
+
 Azure Synapse Analytics의 다양한 성능 수준 및 리소스 클래스에 할당된 메모리 및 동시성 제한을 봅니다.  
 
 ## <a name="data-warehouse-capacity-settings"></a>데이터 웨어하우스 용량 제한
+
 다음 표에서는 다양한 성능 수준의 데이터 웨어하우스에 대한 최대 용량을 보여줍니다. 성능 수준을 변경하려면 [컴퓨팅 조정 - 포털](quickstart-scale-compute-portal.md)을 참조하세요.
 
 ### <a name="service-levels"></a>서비스 수준
@@ -50,7 +52,8 @@ Azure Synapse Analytics의 다양한 성능 수준 및 리소스 클래스에 �
 최대 서비스 수준은 60개의 컴퓨트 노드와 컴퓨트 노드당 하나의 분포가 있는 DW30000c입니다. 예를 들어 DW30000c에서 600TB 데이터 웨어하우스는 컴퓨팅 노드당 약 10TB를 처리합니다.
 
 ## <a name="concurrency-maximums-for-workload-groups"></a>워크로드 그룹에 대한 동시성 최대값
-[워크로드 그룹이](sql-data-warehouse-workload-isolation.md)도입되면 동시성 슬롯 개념이 더 이상 적용되지 않습니다.  요청당 리소스는 백분율로 할당되고 워크로드 그룹 정의에 지정됩니다.  그러나 동시성 슬롯을 제거하더라도 서비스 수준에 따라 쿼리당 필요한 최소 리소스가 있습니다.  아래 표는 서비스 수준 전반에 걸쳐 쿼리당 필요한 최소 리소스 와 달성할 수 있는 관련 동시성을 정의했습니다. 
+
+[워크로드 그룹이](sql-data-warehouse-workload-isolation.md)도입되면 동시성 슬롯 개념이 더 이상 적용되지 않습니다.  요청당 리소스는 백분율로 할당되고 워크로드 그룹 정의에 지정됩니다.  그러나 동시성 슬롯을 제거하더라도 서비스 수준에 따라 쿼리당 필요한 최소 리소스가 있습니다.  아래 표는 서비스 수준 전반에 걸쳐 쿼리당 필요한 최소 리소스 와 달성할 수 있는 관련 동시성을 정의했습니다.
 
 |서비스 수준|최대 동시 쿼리 수|REQUEST_MIN_RESOURCE_GRANT_PERCENT 지원되는 최소 %|
 |---|---|---|
@@ -73,7 +76,8 @@ Azure Synapse Analytics의 다양한 성능 수준 및 리소스 클래스에 �
 ||||
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>리소스 클래스의 동시성 최대값
-각 쿼리에 효율적으로 실행할 수 있는 충분한 리소스가 있는지 확인하기 위해 각 쿼리에 동시성 슬롯을 할당하여 리소스 사용률을 추적합니다. 시스템은 중요도 및 동시성 슬롯에 따라 쿼리를 큐에 넣습니다. 쿼리는 충분한 동시성 슬롯을 사용할 수 있을 때까지 큐에서 대기합니다. [중요도](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) 및 동시성 슬롯은 CPU 우선 순위를 결정합니다. 자세한 내용은 [워크로드 분석](analyze-your-workload.md)을 참조하세요.
+
+각 쿼리를 효율적으로 실행할 수 있는 충분한 리소스가 있는지 확인하기 위해 Azure Synapse의 SQL Analytics는 각 쿼리에 동시성 슬롯을 할당하여 리소스 사용률을 추적합니다. 시스템은 중요도 및 동시성 슬롯에 따라 쿼리를 큐에 넣습니다. 쿼리는 충분한 동시성 슬롯을 사용할 수 있을 때까지 큐에서 대기합니다. [중요도](sql-data-warehouse-workload-importance.md) 및 동시성 슬롯은 CPU 우선 순위를 결정합니다. 자세한 내용은 [워크로드 분석](analyze-your-workload.md)을 참조하세요.
 
 **정적 리소스 클래스**
 
@@ -121,11 +125,11 @@ Azure Synapse Analytics의 다양한 성능 수준 및 리소스 클래스에 �
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-
-쿼리 실행을 시작할 수 있는 동시성 슬롯이 충분하지 않은 경우 중요도에 따라 쿼리가 큐에 대기되고 실행됩니다.  이와 같은 중요도가 있는 경우 쿼리는 선착순으로 실행됩니다.  쿼리가 완료되고 쿼리 및 슬롯의 수가 한도 밑으로 떨어지면 SQL Data Warehouse는 큐에 저장된 쿼리를 릴리스합니다. 
+쿼리 실행을 시작할 수 있는 동시성 슬롯이 충분하지 않은 경우 중요도에 따라 쿼리가 큐에 대기되고 실행됩니다.  이와 같은 중요도가 있는 경우 쿼리는 선착순으로 실행됩니다.  쿼리가 완료되고 쿼리 및 슬롯의 수가 한도 밑으로 떨어지면 SQL Data Warehouse는 큐에 저장된 쿼리를 릴리스합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 리소스 클래스를 활용하여 워크로드를 추가로 최적화하는 방법에 대한 자세한 내용은 다음 문서를 검토하세요.
+
 * [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)
 * [워크로드 분석](analyze-your-workload.md)

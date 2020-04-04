@@ -11,30 +11,30 @@ ms.date: 11/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4c6c4d97282387fbcee1d7e8b55b95c01e3dded5
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: daf57c7e6ef40f75eac070c06547cf2a28338f21
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351609"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633238"
 ---
 # <a name="manage-compute-in-azure-synapse-analytics-data-warehouse"></a>Azure 시냅스 분석 데이터 웨어하우스에서 계산 관리
 
-Azure Synapse 분석 SQL 풀에서 계산 리소스 관리에 대해 알아봅니다. SQL 풀을 일시 중지하여 비용을 낮추거나 성능 요구를 충족하도록 데이터 웨어하우스를 확장합니다. 
+Azure Synapse 분석 SQL 풀에서 계산 리소스 관리에 대해 알아봅니다. SQL 풀을 일시 중지하여 비용을 낮추거나 성능 요구를 충족하도록 데이터 웨어하우스를 확장합니다.
 
 ## <a name="what-is-compute-management"></a>컴퓨팅 관리란?
 
-데이터 웨어하우스의 아키텍처는 스토리지와 계산을 분리하여 각각 독립적으로 확장할 수 있도록 합니다. 이에 따라 데이터 스토리지와는 관계없이 성능 요구 사항에 맞게 컴퓨팅의 크기를 조정할 수 있습니다. 또한 컴퓨팅 리소스를 일시 중지했다가 다시 시작할 수도 있습니다. 이 아키텍처의 자연스러운 결과는 컴퓨팅 및 스토리지에 대한 [청구](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)가 분리되어 있다는 것입니다. 한동안 데이터 웨어하우스를 사용할 필요가 없으면 컴퓨팅을 일시 중지하여 컴퓨팅 비용을 절약할 수 있습니다. 
+데이터 웨어하우스의 아키텍처는 스토리지와 계산을 분리하여 각각 독립적으로 확장할 수 있도록 합니다. 이에 따라 데이터 스토리지와는 관계없이 성능 요구 사항에 맞게 컴퓨팅의 크기를 조정할 수 있습니다. 또한 컴퓨팅 리소스를 일시 중지했다가 다시 시작할 수도 있습니다. 이 아키텍처의 자연스러운 결과는 컴퓨팅 및 스토리지에 대한 [청구](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)가 분리되어 있다는 것입니다. 한동안 데이터 웨어하우스를 사용할 필요가 없으면 컴퓨팅을 일시 중지하여 컴퓨팅 비용을 절약할 수 있습니다.
 
 ## <a name="scaling-compute"></a>컴퓨팅 크기 조정
 
-SQL 풀에 대한 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md) 설정을 조정하여 계산을 확장하거나 축소할 수 있습니다. 데이터 웨어하우스 단위를 더 추가함에 따라 로드 및 쿼리 성능이 선형적으로 증가할 수 있습니다. 
+SQL 풀에 대한 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md) 설정을 조정하여 계산을 확장하거나 축소할 수 있습니다. 데이터 웨어하우스 단위를 더 추가함에 따라 로드 및 쿼리 성능이 선형적으로 증가할 수 있습니다.
 
 확장 단계는 [Azure Portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md) 또는 [T-SQL](quickstart-scale-compute-tsql.md) 빠른 시작을 참조하세요. 또한 확장 작업은 [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute)를 통해 수행할 수도 있습니다.
 
 확장 작업을 수행하기 위해 SQL 풀은 먼저 들어오는 모든 쿼리를 죽인 다음 트랜잭션을 롤백하여 일관된 상태를 보장합니다. 크기 조정은 트랜잭션 롤백이 완료된 후에만 수행됩니다. 스케일 작업의 경우 시스템은 계산 노드에서 저장소 계층을 분리하고 계산 노드를 추가한 다음 Storage layer를 Compute 계층에 다시 연결합니다. 각 SQL 풀은 60개의 배포로 저장되며 계산 노드에 균등하게 분산됩니다. 더 많은 컴퓨팅 노드를 추가하면 컴퓨팅 성능이 더 높아지게 됩니다. 계산 노드 수가 증가하면 계산 노드당 분포 수가 줄어들어 쿼리에 더 많은 컴퓨팅 성능이 제공됩니다. 마찬가지로 데이터 웨어하우스 단위를 줄이면 계산 노드 수가 줄어들어 쿼리에 대한 계산 리소스가 줄어듭니다.
 
-다음 표에서는 데이터 웨어하우스 단위를 변경할 때 컴퓨팅 노드당 배포 수가 변경되는 방식을 보여 줍니다.  DW30000c는 60개의 컴퓨트 노드를 제공하며 DW100c보다 훨씬 높은 쿼리 성능을 달성합니다. 
+다음 표에서는 데이터 웨어하우스 단위를 변경할 때 컴퓨팅 노드당 배포 수가 변경되는 방식을 보여 줍니다.  DW30000c는 60개의 컴퓨트 노드를 제공하며 DW100c보다 훨씬 높은 쿼리 성능을 달성합니다.
 
 | DWU(데이터 웨어하우스 단위)  | \#계산 노드의 | 노드당 배포 수 \# |
 | -------- | ---------------- | -------------------------- |
@@ -55,16 +55,15 @@ SQL 풀에 대한 [데이터 웨어하우스 단위](what-is-a-data-warehouse-un
 | DW15000c | 30               | 2                          |
 | DW30000c | 60               | 1                          |
 
-
 ## <a name="finding-the-right-size-of-data-warehouse-units"></a>올바른 데이터 웨어하우스 단위 크기 찾기
 
-확장, 특히 더 큰 데이터 웨어하우스 단위의 성능상 이점을 알아보기 위해 최소한 1TB의 데이터 집합을 사용하려고 합니다. SQL 풀에 가장 적합한 데이터 웨어하우스 단위수를 찾으려면 확장 및 축소를 시도해 보십시오. 데이터를 로드한 후 서로 다른 데이터 웨어하우스 단위 수를 사용하여 몇 가지 쿼리를 실행합니다. 크기 조정이 빠르기 때문에 1시간 이내에 다양한 성능 수준을 시험해 볼 수 있습니다. 
+확장, 특히 더 큰 데이터 웨어하우스 단위의 성능상 이점을 알아보기 위해 최소한 1TB의 데이터 집합을 사용하려고 합니다. SQL 풀에 가장 적합한 데이터 웨어하우스 단위수를 찾으려면 확장 및 축소를 시도해 보십시오. 데이터를 로드한 후 서로 다른 데이터 웨어하우스 단위 수를 사용하여 몇 가지 쿼리를 실행합니다. 크기 조정이 빠르기 때문에 1시간 이내에 다양한 성능 수준을 시험해 볼 수 있습니다.
 
 최적의 데이터 웨어하우스 단위 수를 찾는 데 권장되는 사항은 다음과 같습니다.
 
 - 개발 중 SQL 풀의 경우 더 적은 수의 데이터 웨어하우스 단위를 선택합니다.  좋은 출발점은 DW400c 또는 DW200c입니다.
 - 애플리케이션 성능을 모니터링하여 선택한 데이터 웨어하우스 단위 수와 관찰한 성능을 비교합니다.
-- 선형 크기 조정을 가정하고 데이터 웨어하우스 단위를 늘리거나 줄이는 데 필요한 크기를 결정합니다. 
+- 선형 크기 조정을 가정하고 데이터 웨어하우스 단위를 늘리거나 줄이는 데 필요한 크기를 결정합니다.
 - 비즈니스 요구 사항에 맞는 최적 성능 수준에 도달할 때까지 계속 조정합니다.
 
 ## <a name="when-to-scale-out"></a>확장하는 경우
@@ -78,29 +77,30 @@ SQL 풀에 대한 [데이터 웨어하우스 단위](what-is-a-data-warehouse-un
 데이터 웨어하우스 단위를 확장하는 경우 권장 사항은 다음과 같습니다.
 
 - 대량의 데이터 로드 또는 변환 작업을 수행하기 전에 데이터를 더 빠르게 사용할 수 있도록 확장합니다.
-- 가장 바쁜 업무 시간에 많은 수의 동시 쿼리를 수용할 수 있도록 확장합니다. 
+- 가장 바쁜 업무 시간에 많은 수의 동시 쿼리를 수용할 수 있도록 확장합니다.
 
 ## <a name="what-if-scaling-out-does-not-improve-performance"></a>확장으로도 성능이 향상되지 않는 경우
 
-데이터 웨어하우스 단위를 추가하면 병렬 처리가 증가합니다. 작업이 컴퓨팅 노드 간에 균등하게 분할되면 추가 병렬 처리로 인해 쿼리 성능이 향상됩니다. 확장을 통해 성능이 변경되지 않는 경우 이러한 상황이 발생할 수 있는 몇 가지 이유가 있습니다. 데이터가 배포를 통해 왜곡되거나 쿼리에서 대량의 데이터 이동이 발생할 수 있습니다. 쿼리 성능 문제를 조사하려면 [성능 문제 해결](sql-data-warehouse-troubleshoot.md#performance)을 참조하세요. 
+데이터 웨어하우스 단위를 추가하면 병렬 처리가 증가합니다. 작업이 컴퓨팅 노드 간에 균등하게 분할되면 추가 병렬 처리로 인해 쿼리 성능이 향상됩니다. 확장을 통해 성능이 변경되지 않는 경우 이러한 상황이 발생할 수 있는 몇 가지 이유가 있습니다. 데이터가 배포를 통해 왜곡되거나 쿼리에서 대량의 데이터 이동이 발생할 수 있습니다. 쿼리 성능 문제를 조사하려면 [성능 문제 해결](sql-data-warehouse-troubleshoot.md#performance)을 참조하세요.
 
 ## <a name="pausing-and-resuming-compute"></a>컴퓨팅 일시 중지 및 다시 시작
 
-컴퓨팅을 일시 중지하면 스토리지 계층이 컴퓨팅 노드에서 분리됩니다. 계산 리소스는 계정에서 해제됩니다. 컴퓨팅이 일시 중지된 동안에는 컴퓨팅 비용이 청구되지 않습니다. 컴퓨팅을 다시 시작하면 스토리지를 컴퓨팅 노드에 다시 연결하여 컴퓨팅 비용에 대한 청구를 다시 시작합니다. SQL 풀을 일시 중지할 때:
+컴퓨팅을 일시 중지하면 스토리지 계층이 컴퓨팅 노드에서 분리됩니다. 계산 리소스는 계정에서 해제됩니다. 컴퓨팅이 일시 중지된 동안에는 컴퓨팅 비용이 청구되지 않습니다. 컴퓨팅을 다시 시작하면 스토리지를 컴퓨팅 노드에 다시 연결하여 컴퓨팅 비용에 대한 청구를 다시 시작합니다.
+SQL 풀을 일시 중지할 때:
 
-* Compute 및 메모리 리소스가 데이터 센터에서 사용 가능한 리소스의 풀에 반환됩니다.
-* 일시 중지 기간 동안에는 데이터 웨어하우스 단위 비용이 0입니다.
-* 데이터 스토리지에는 영향이 없으며 데이터는 그대로 유지됩니다. 
-* 실행 중이거나 대기 중인 모든 작업이 취소됩니다.
+- Compute 및 메모리 리소스가 데이터 센터에서 사용 가능한 리소스의 풀에 반환됩니다.
+- 일시 중지 기간 동안에는 데이터 웨어하우스 단위 비용이 0입니다.
+- 데이터 스토리지에는 영향이 없으며 데이터는 그대로 유지됩니다.
+- 실행 중이거나 대기 중인 모든 작업이 취소됩니다.
 
 SQL 풀을 다시 시작할 때:
 
-* SQL 풀은 데이터 웨어하우스 단위 설정에 대한 계산 및 메모리 리소스를 수집합니다.
-* 데이터 웨어하우스 단위에 대한 컴퓨팅 비용 청구가 다시 시작됩니다.
-* 데이터를 사용할 수 있게 됩니다.
-* SQL 풀이 온라인 상태가 되면 워크로드 쿼리를 다시 시작해야 합니다.
+- SQL 풀은 데이터 웨어하우스 단위 설정에 대한 계산 및 메모리 리소스를 수집합니다.
+- 데이터 웨어하우스 단위에 대한 컴퓨팅 비용 청구가 다시 시작됩니다.
+- 데이터를 사용할 수 있게 됩니다.
+- SQL 풀이 온라인 상태가 되면 워크로드 쿼리를 다시 시작해야 합니다.
 
-SQL 풀에 항상 액세스하려면 일시 중지하지 않고 가장 작은 크기로 축소하는 것이 좋습니다. 
+SQL 풀에 항상 액세스하려면 일시 중지하지 않고 가장 작은 크기로 축소하는 것이 좋습니다.
 
 일시 중지 및 다시 시작 단계는 [Azure Portal](pause-and-resume-compute-portal.md) 또는 [PowerShell](pause-and-resume-compute-powershell.md) 빠른 시작을 참조하세요. 또한 [일시 중지 REST API](sql-data-warehouse-manage-compute-rest-api.md#pause-compute) 또는 [다시 시작 REST API](sql-data-warehouse-manage-compute-rest-api.md#resume-compute)를 사용할 수도 있습니다.
 
@@ -116,15 +116,14 @@ SQL 풀을 일시 중지하거나 확장하면 일시 중지 또는 확장 요�
 
 컴퓨팅 관리 작업을 자동화하려면 [Azure Functions를 사용하여 컴퓨팅 관리](manage-compute-with-azure-functions.md)를 참조하세요.
 
-각각의 확장, 일시 중지 및 다시 시작 작업을 완료하는 데 몇 분이 걸릴 수 있습니다. 자동으로 크기 조정, 일시 중지 또는 다시 시작하는 경우, 다른 작업을 진행하기 전에 특정 작업이 완료되었는지 확인하는 논리를 구현하는 것이 좋습니다. 다양한 끝점을 통해 SQL 풀 상태를 확인하면 이러한 작업의 자동화를 올바르게 구현할 수 있습니다. 
+각각의 확장, 일시 중지 및 다시 시작 작업을 완료하는 데 몇 분이 걸릴 수 있습니다. 자동으로 크기 조정, 일시 중지 또는 다시 시작하는 경우, 다른 작업을 진행하기 전에 특정 작업이 완료되었는지 확인하는 논리를 구현하는 것이 좋습니다. 다양한 끝점을 통해 SQL 풀 상태를 확인하면 이러한 작업의 자동화를 올바르게 구현할 수 있습니다.
 
 SQL 풀 상태를 확인하려면 [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) 또는 [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) 빠른 시작을 참조하십시오. [REST API를](sql-data-warehouse-manage-compute-rest-api.md#check-database-state)사용 하 고 SQL 풀 상태를 확인할 수도 있습니다.
 
-
 ## <a name="permissions"></a>사용 권한
 
-SQL 풀을 확장하려면 ALTER [데이터베이스에](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)설명된 권한이 필요합니다.  일시 중지하고 다시 시작하려면 [SQL DB 참가자](../../role-based-access-control/built-in-roles.md#sql-db-contributor) 권한, 특히 Microsoft.Sql/servers/databases/action이 필요합니다.
-
+SQL 풀을 확장하려면 ALTER [데이터베이스에](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)설명된 권한이 필요합니다.  일시 중지하고 다시 시작하려면 [SQL DB 참가자](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#sql-db-contributor) 권한, 특히 Microsoft.Sql/servers/databases/action이 필요합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 [계산 을 관리하는](manage-compute-with-azure-functions.md) 방법 가이드를 참조 컴퓨팅 리소스 관리의 또 다른 측면은 개별 쿼리에 대해 서로 다른 계산 리소스를 할당하는 것입니다. 자세한 내용은 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 참조하세요.

@@ -1,17 +1,17 @@
 ---
 title: GitHub 작업 & Azure Kubernetes 서비스(미리 보기)
 services: azure-dev-spaces
-ms.date: 02/04/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
 description: GitHub 작업 및 Azure 개발자 공간을 사용하여 Azure Kubernetes 서비스에서 직접 끌어오기 요청의 변경 내용 검토 및 테스트
 keywords: 도커, Kubernetes, Azure, AKS, Azure Kubernetes 서비스, 컨테이너, GitHub 작업, 헬름, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 49715e38f36d4421b7327640ec8392a83b3c2996
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a83da0ef3958748831eb0eeda1aa5e91efa7ef2e
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252369"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637938"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>GitHub 작업 & Azure Kubernetes 서비스(미리 보기)
 
@@ -50,7 +50,7 @@ az acr create --resource-group MyResourceGroup --name <acrName> --sku Basic
 
 ## <a name="create-a-service-principal-for-authentication"></a>인증을 위한 서비스 주체 만들기
 
-[az 광고 sp create for-rbac를][az-ad-sp-create-for-rbac] 사용하여 서비스 주체를 만듭니다. 예를 들어:
+[az 광고 sp create for-rbac를][az-ad-sp-create-for-rbac] 사용하여 서비스 주체를 만듭니다. 다음은 그 예입니다.
 
 ```azurecli
 az ad sp create-for-rbac --sdk-auth --skip-assignment
@@ -101,6 +101,11 @@ az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 > 이러한 모든 암호는 GitHub 작업에 의해 사용되며 [.github/워크플로/bikes.yml로][github-action-yaml]구성됩니다.
 
 선택적으로 PR을 병합한 후 마스터 공간을 업데이트하려면 이 예제에서 *dev.gateway.fedcab0987.eus.azds.io* *>.gateway.<HOST_SUFFIX>MASTER_SPACE<* 양식을<*GATEWAY_HOST* 비밀을 추가합니다. 변경 내용을 포크의 마스터 분기에 병합하면 마스터 개발 공간에서 전체 응용 프로그램을 다시 빌드하고 실행하기 위한 다른 작업이 실행됩니다. 이 예제에서는 마스터 공간이 *개발됩니다.* 이 작업은 [.github/워크플로/bikesharing.yml로][github-action-bikesharing-yaml]구성됩니다.
+
+또한 PR의 변경 내용이 손자 공간에서 실행되도록 하려면 *MASTER_SPACE* 및 *HOST* 비밀을 업데이트합니다. 예를 들어 응용 프로그램이 자식 공간 *dev/azureuser1을*사용하여 *개발에서* 실행중인 경우 *dev/azureuser1의*자식 공간에서 PR을 실행하도록 합니다.
+
+* 이 예제 *azureuser1에서*부모 공간으로 원하는 자식 공간에 *MASTER_SPACE* 업데이트합니다.
+* 이 *예제에서는* *호스트를* *GRANDPARENT_SPACE>.<APP_NAME>.<HOST_SUFFIX><* dev.bikesharingweb.fedcab0987.eus.azds.io 업데이트합니다.
 
 ## <a name="create-a-new-branch-for-code-changes"></a>코드 변경을 위한 새 분기 만들기
 

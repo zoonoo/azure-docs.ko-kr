@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: b05b83086cc9d8449d9517897f347b6e2685aa95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a37e1b9bc4a0b953dc727dbab2813dd938ed576
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76720353"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652226"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: 자주 묻는 질문
 
@@ -135,7 +135,7 @@ SQL Server에서 Azure SQL Server로 마이그레이션하려면 [자습서: Sql
 
 ### <a name="how-can-i-estimate-the-size-of-a-hive-metastore-database"></a>Hive 메타스토어 데이터베이스의 크기를 어떻게 예측할 수 있습니까?
 
-Hive 메타스토어는 Hive 서버에서 사용하는 데이터 원본에 대한 메타데이터를 저장하는 데 사용됩니다. 크기 요구 사항은 부분적으로 Hive 데이터 원본의 수와 복잡성에 따라 달라지며 미리 예측할 수 없습니다. [Hive 메타스토어 모범 사례에서](hdinsight-use-external-metadata-stores.md#hive-metastore-best-practices)설명한 대로 50DTU 및 250GB의 저장소를 제공하는 S2 계층으로 시작할 수 있으며 병목 현상이 발생하면 데이터베이스를 확장할 수 있습니다.
+Hive 메타스토어는 Hive 서버에서 사용하는 데이터 원본에 대한 메타데이터를 저장하는 데 사용됩니다. 크기 요구 사항은 부분적으로 Hive 데이터 원본의 수와 복잡성에 따라 달라지며 미리 예측할 수 없습니다. [Hive 메타스토어 지침에](hdinsight-use-external-metadata-stores.md#hive-metastore-guidelines)설명된 대로 50DTU 및 250GB의 저장소를 제공하는 S2 계층으로 시작할 수 있으며 병목 현상이 발생하면 데이터베이스를 확장할 수 있습니다.
 
 ### <a name="do-you-support-any-other-database-other-than-azure-sql-database-as-an-external-metastore"></a>Azure SQL Database 이외의 다른 데이터베이스를 외부 메타스토어로 지원합니까?
 

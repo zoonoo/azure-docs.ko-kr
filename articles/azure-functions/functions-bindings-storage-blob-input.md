@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: e074d7d74c0c5f020cb8086124634b25012927db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33db9a8d86e02db2076cdb85170d466697930b96
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77202152"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633894"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Azure 함수에 대한 Azure Blob 저장소 입력 바인딩
 
@@ -20,7 +20,7 @@ ms.locfileid: "77202152"
 
 ## <a name="example"></a>예제
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 다음 예제는 하나의 큐 트리거와 입력 Blob 바인딩을 사용하는 [C# 함수](functions-dotnet-class-library.md)입니다. 큐 메시지에는 Blob의 이름이 포함되고 함수는 Blob의 크기를 기록합니다.
 
@@ -84,7 +84,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 <!--Same example for input and output. -->
 
@@ -154,6 +154,7 @@ module.exports = function(context) {
     {
       "name": "inputblob",
       "type": "blob",
+      "dataType": "binary",
       "path": "samples-workitems/{queueTrigger}",
       "connection": "MyStorageConnectionAppSetting",
       "direction": "in"
@@ -245,7 +246,7 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
 
 ## <a name="attributes-and-annotations"></a>특성 및 주석
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs)를 사용합니다.
 
@@ -282,7 +283,7 @@ public static void Run(
 
 특성은 C# 스크립트에서 지원되지 않습니다.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 속성은 자바 스크립트에서 지원되지 않습니다.
 
@@ -296,7 +297,7 @@ public static void Run(
 
 ---
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 다음 표에서는 *function.json* 파일및 특성에서 설정한 바인딩 `Blob` 구성 속성에 대해 설명합니다.
 
@@ -313,7 +314,7 @@ public static void Run(
 
 ## <a name="usage"></a>사용
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!INCLUDE [functions-bindings-blob-storage-input-usage.md](../../includes/functions-bindings-blob-storage-input-usage.md)]
 
@@ -321,7 +322,7 @@ public static void Run(
 
 [!INCLUDE [functions-bindings-blob-storage-input-usage.md](../../includes/functions-bindings-blob-storage-input-usage.md)]
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 *function.json* `context.bindings.<NAME>` 에 `<NAME>` 정의된 값과 일치하는 위치를 사용하여 Blob 데이터에 액세스합니다.
 

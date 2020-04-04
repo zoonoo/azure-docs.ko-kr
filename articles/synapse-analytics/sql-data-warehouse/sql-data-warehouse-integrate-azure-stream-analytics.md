@@ -11,28 +11,28 @@ ms.date: 2/5/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: feb7b52c84e5e702202bc668cfda676d291ea82e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e281f8a1fb3959256d836134b4c59f5399deb9bd
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350431"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633294"
 ---
 # <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Azure 시냅스 분석과 함께 Azure 스트림 분석 사용
 
-Azure Stream Analytics는 완전히 관리되는 서비스로, 클라우드의 스트리밍 데이터에 대해 대기 시간이 짧고 확장성이 뛰어난 고가용성의 복합 이벤트 처리 기능을 제공합니다. [Azure Stream Analytics 소개](../../stream-analytics/stream-analytics-introduction.md)를 읽어 기본 사항을 배울 수 있습니다. [Azure Stream Analytics를 사용하여 시작](../../stream-analytics/stream-analytics-real-time-fraud-detection.md) 자습서에 따라 Stream Analytics로 엔드투엔드 솔루션을 만드는 방법에 대해 알 수 있습니다.
+Azure Stream Analytics는 완전히 관리되는 서비스로, 클라우드의 스트리밍 데이터에 대해 대기 시간이 짧고 확장성이 뛰어난 고가용성의 복합 이벤트 처리 기능을 제공합니다. [Azure Stream Analytics 소개](../../stream-analytics/stream-analytics-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 읽어 기본 사항을 배울 수 있습니다. [Azure Stream Analytics를 사용하여 시작](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 자습서에 따라 Stream Analytics로 엔드투엔드 솔루션을 만드는 방법에 대해 알 수 있습니다.
 
 이 문서에서는 Azure Stream Analytics 작업에 대한 출력 싱크로 데이터 웨어하우스를 사용하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 스트림 분석 작업 - Azure 스트림 분석 작업을 만들려면 [Azure 스트림 분석](../../stream-analytics/stream-analytics-real-time-fraud-detection.md) 자습서를 사용하여 시작하기 의 단계를 수행합니다.  
+* Azure 스트림 분석 작업 - Azure 스트림 분석 작업을 만들려면 [Azure 스트림 분석](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 자습서를 사용하여 시작하기 의 단계를 수행합니다.  
 
     1. 이벤트 허브 입력 만들기
     2. 이벤트 생성기 애플리케이션 구성 및 시작
     3. Stream Analytics 작업 프로비전
     4. 작업 입력 및 쿼리 지정
-* Azure Synapse SQL 풀 데이터 웨어하우스 - 새 데이터 웨어하우스를 만들려면 빠른 시작의 단계를 따라 [새 데이터 웨어하우스를 만듭니다.](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal)
+* Azure Synapse SQL 풀 데이터 웨어하우스 - 새 데이터 웨어하우스를 만들려면 빠른 시작의 단계를 따라 [새 데이터 웨어하우스를 만듭니다.](create-data-warehouse-portal.md)
 
 ## <a name="specify-streaming-output-to-point-to-your-data-warehouse"></a>데이터 웨어하우스를 가리키는 스트리밍 출력 지정
 
@@ -44,7 +44,7 @@ Azure 포털에서 스트림 분석 작업으로 이동하여 **작업 토폴로
 
 **추가** 단추를 클릭하고 드롭다운 메뉴에서 **SQL Database를** 선택합니다.
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutput.png)
+![SQL 데이터베이스 선택](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutput.png)
 
 ### <a name="step-3"></a>3단계
 
@@ -60,7 +60,7 @@ Azure 포털에서 스트림 분석 작업으로 이동하여 **작업 토폴로
 * *테이블*: 데이터베이스에서 대상 테이블의 이름을 지정합니다.
 * 저장 버튼을 **클릭합니다.**
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutputdbsettings.png)
+![완료된 SQL 데이터베이스 양식](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutputdbsettings.png)
 
 ### <a name="step-4"></a>4단계:
 
@@ -102,23 +102,23 @@ WITH (DISTRIBUTION = ROUND_ROBIN)
 
 스트림 분석 작업에 대한 Azure 포털에서 작업 이름을 클릭합니다.  ***출력 세부 정보*** 창에서 ***테스트*** 단추를 클릭합니다.
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png)데이터베이스에 대한 연결이 성공하면 포털에 알림이 표시됩니다.
+![Outpout세부](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png) 사항의 테스트 단추 데이터베이스에 대한 연결이 성공하면 포털에 알림이 표시됩니다.
 
 ### <a name="step-6"></a>6단계
 
 ***작업 토폴로지*** 에서 ***쿼리*** 메뉴를 클릭하고 쿼리를 변경하여 만든 스트림 출력에 데이터를 삽입합니다.  ***선택한 쿼리 테스트*** 단추를 클릭하여 쿼리를 테스트합니다.  쿼리 테스트가 성공하면 ***쿼리 저장*** 단추를 클릭합니다.
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaquery.png)
+![쿼리 저장](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaquery.png)
 
 ### <a name="step-7"></a>7단계
 
 Azure 스트림 분석 작업을 시작합니다.  개요 메뉴에서 ***시작*** 버튼을 ***클릭합니다.***
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastart.png)
+![Stream Analytics 작업 시작](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastart.png)
 
-시작 작업 창에서 ***시작*** 버튼을 클릭합니다.
+시작 작업 창에서 ***시작*** 단추를 클릭합니다.
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastartconfirm.png)
+![시작](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastartconfirm.png)
 
 ## <a name="next-steps"></a>다음 단계
 

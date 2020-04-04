@@ -16,16 +16,23 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5a2107974cd63c0d02aaeb555430453c39990bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12e3b86f41e7188778393ab717554907ef5d44ec
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262023"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631739"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리에서 액세스 패키지에 대한 할당보기, 추가 및 제거
 
 Azure AD 권한 관리에서 패키지, 해당 정책 및 상태에 액세스하도록 할당된 사람을 확인할 수 있습니다. 액세스 패키지에 적절한 정책이 있는 경우 액세스 패키지에 사용자를 직접 할당할 수도 있습니다. 이 문서에서는 액세스 패키지에 대한 할당을 보고, 추가하고, 제거하는 방법을 설명합니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+Azure AD 권한 관리를 사용하고 사용자가 패키지에 액세스하도록 할당하려면 다음 라이선스 중 하나가 있어야 합니다.
+
+- Azure AD Premium P2
+- EMS(Enterprise Mobility + Security) E5 라이선스
 
 ## <a name="view-who-has-an-assignment"></a>과제에 있는 사람 보기
 

@@ -9,15 +9,15 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 04/02/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: c28b63749cfdbcd16b94cbd3ca7dd4023f46a351
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1703853f42b52dccc80fdfadaa09b67e18a19db8
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78897718"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632905"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>2단계 인증 및 직장 또는 학교 계정의 일반적인 문제
 
@@ -99,6 +99,8 @@ Azure Active Directory(Azure AD) 조직이 2단계 인증을 켜면 사용자 �
 ## <a name="i-cant-turn-two-factor-verification-off"></a>2단계 인증을 해제할 수 없습니다.
 
 직장 이나 학교 alain@contoso.com계정(예:)에서 이중 확인을 사용하는 경우 조직에서 이 추가 보안 기능을 사용해야 한다고 결정했을 가능성이 큽입니다. 조직에서 이 기능을 사용해야 한다고 결정했으므로 개별적으로 해제할 수 있는 방법이 없습니다. 그러나 개인 계정과 같은 alain@outlook.com2단계 인증을 사용하는 경우 기능을 켜고 끌 수 있습니다. 개인 계정에 대한 이중 확인을 제어하는 방법에 대한 지침은 [Microsoft 계정의 2단계 확인 켜기 또는 끄기를](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)참조하십시오.
+
+이중 확인을 해제할 수 없는 경우 조직 수준에서 적용된 보안 기본값 때문일 수도 있습니다. 보안 기본값에 대한 자세한 내용은 [보안 defulta란 무엇입니까?](../fundamentals/concept-fundamentals-security-defaults.md)
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>문제에 대한 답변을 찾을 수 없는 경우
 
