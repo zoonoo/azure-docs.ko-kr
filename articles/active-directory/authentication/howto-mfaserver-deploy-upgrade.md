@@ -4,19 +4,19 @@ description: Azure Multi-factor Authentication 서버를 최신 버전으로 업
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/12/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 756c45541907c52448805376e1b054180c31fdf5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f242b4a7e984ceeb183547cb3a949927f3c91da
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74848105"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653107"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>최신 Azure Multi-Factor Authentication 서버로 업그레이드
 
@@ -102,7 +102,7 @@ v6.x 이상에서 v7.x 또는 최신 버전으로 업그레이드하는 경우 �
 
    이 단계가 완료되면 8단계를 완료할 때까지 이 AD FS 클러스터에서 MFA 서버를 통한 2단계 인증을 사용할 수 없습니다.
 
-4. Unregister-multifactorauthenticationadfsadapter.ps1 PowerShell 스크립트를 실행하여 이전 버전의 AD FS 어댑터를 등록 취소합니다. *-Name* 매개 변수("WindowsAzureMultiFactorAuthentication" 또는 "AzureMFAServerAuthentication")가 3단계에 표시된 이름과 일치하는지 확인합니다. 하나의 중앙 구성이 있으므로 동일한 AD FS 클러스터의 모든 서버도 마찬가지입니다.
+4. Unregister-multifactorauthenticationadfsadapter.ps1 PowerShell 스크립트를 실행하여 이전 버전의 AD FS 어댑터를 등록 취소합니다. *-Name* 매개 변수("WindowsAzureMultiFactorAuthentication" 또는 "AzureMFAServerAuthentication")가 3단계에서 표시된 이름과 일치하는지 확인합니다. 하나의 중앙 구성이 있으므로 동일한 AD FS 클러스터의 모든 서버도 마찬가지입니다.
 5. Register-MultiFactorAuthenticationAdfsAdapter.ps1 PowerShell 스크립트를 실행하여 새 AD FS 어댑터를 등록합니다. 하나의 중앙 구성이 있으므로 동일한 AD FS 클러스터의 모든 서버도 마찬가지입니다.
 6. AD FS 팜에서 제거된 각 서버에서 AD FS 서비스를 다시 시작합니다.
 7. 업데이트된 서버를 AD FS 팜에 다시 추가하고 팜에서 다른 서버를 제거합니다.

@@ -11,12 +11,12 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d97a388477c895a4a8632d7ab3d06dc4c8982857
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 0139c581e6660622f1ab6db9f407725816377a6d
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582136"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633556"
 ---
 # <a name="optimizing-transactions-in-synapse-sql"></a>시냅스 SQL에서 트랜잭션 최적화
 
@@ -24,7 +24,7 @@ Synapse SQL에서 트랜잭션 코드의 성능을 최적화하는 동시에 긴
 
 ## <a name="transactions-and-logging"></a>트랜잭션 및 로깅
 
-트랜잭션은 관계형 데이터베이스 엔진의 중요한 구성 요소입니다. 트랜잭션은 데이터 수정 중에 사용됩니다. 이러한 트랜잭션은 명시적일 수도 있고 암시적일 수도 있습니다. 단일 INSERT, UPDATE 및 DELETE 문은 모두 암시적 트랜잭션의 예입니다. 명시적 트랜잭션은 BEGIN TRAN, COMMIT TRAN 또는 ROLLBACK TRAN을 사용합니다. 명시적 트랜잭션은 일반적으로 여러 수정 문을 단일 원자 단위에 서로 연결되도록 해야 하는 경우에 사용됩니다. 
+트랜잭션은 관계형 데이터베이스 엔진의 중요한 구성 요소입니다. 트랜잭션은 데이터 수정 중에 사용됩니다. 이러한 트랜잭션은 명시적일 수도 있고 암시적일 수도 있습니다. 단일 INSERT, UPDATE 및 DELETE 문은 모두 암시적 트랜잭션의 예입니다. 명시적 트랜잭션은 BEGIN TRAN, COMMIT TRAN 또는 ROLLBACK TRAN을 사용합니다. 명시적 트랜잭션은 일반적으로 여러 수정 문을 단일 원자 단위에 서로 연결되도록 해야 하는 경우에 사용됩니다.
 
 데이터베이스의 변경 내용은 트랜잭션 로그를 사용하여 추적됩니다. 각 분산에는 고유한 트랜잭션 로그가 있습니다. 트랜잭션 로그 쓰기는 자동입니다. 구성이 필요 없습니다. 그러나 이 프로세스는 쓰기를 보장하지만 시스템에 오버헤드가 발생합니다. 트랜잭션 측면에서 효율적인 코드를 작성하면 이 영향을 최소화할 수 있습니다. 트랜잭션 측면에서 효율적인 코드는 크게 두 범주로 나눌 수 있습니다.
 
@@ -39,9 +39,7 @@ Synapse SQL에서 트랜잭션 코드의 성능을 최적화하는 동시에 긴
 트랜잭션 안전성 제한은 전체 로깅 작업에만 적용됩니다.
 
 > [!NOTE]
-> 최소 로깅 작업은 명시적 트랜잭션에 참여할 수 있습니다. 할당 구조의 모든 변경 내용이 추적되므로 최소 로깅 작업을 롤백할 수 있습니다. 
-> 
-> 
+> 최소 로깅 작업은 명시적 트랜잭션에 참여할 수 있습니다. 할당 구조의 모든 변경 내용이 추적되므로 최소 로깅 작업을 롤백할 수 있습니다.
 
 ## <a name="minimally-logged-operations"></a>최소 로깅 작업
 
@@ -64,10 +62,9 @@ Synapse SQL에서 트랜잭션 코드의 성능을 최적화하는 동시에 긴
 
 > [!NOTE]
 > 내부 데이터 이동 작업(예: BROADCAST 및 SHUFFLE)은 트랜잭션 안전성 제한의 영향을 받지 않습니다.
-> 
-> 
 
 ## <a name="minimal-logging-with-bulk-load"></a>대량 로드를 사용하여 최소 로깅
+
 CTAS 및 INSERT...SELECT는 둘 다 대량 로드 작업입니다. 그러나 둘 다 대상 테이블 정의의 영향을 받으며 부하 시나리오에 따라 달라집니다. 다음 표에서는 대량 작업이 완전히 기록되거나 최소로 기록되는 시기를 설명합니다.  
 
 | 기본 인덱스 | 부하 시나리오 | 로깅 모드 |
@@ -83,11 +80,11 @@ CTAS 및 INSERT...SELECT는 둘 다 대량 로드 작업입니다. 그러나 둘
 
 > [!IMPORTANT]
 > Synapse SQL 풀 데이터베이스에는 60개의 배포가 있습니다. 따라서 모든 행이 균등하게 분산되고 단일 파티션에 도착한다고 가정하면, 클러스터형 Columnstore 인덱스에 쓸 때 최소한으로 로깅하려면 배치에 6,144,000개 이상의 행이 포함되어야 합니다. 테이블이 분할되어 있고, 삽입되는 행이 파티션 경계에 걸쳐 있는 경우에는 데이터가 균등하게 분산된다는 가정하에 파티션 경계당 6,144,000개의 행이 필요합니다. 삽입 작업을 분산에 최소한으로 로깅하려면 각 분산의 각 파티션이 행 임계값 102,400을 독립적으로 초과해야 합니다.
-> 
 
 클러스터형 인덱스가 포함된 비어 있지 않은 테이블로 데이터를 로드하면 전체 로깅 행과 최소 로깅 행이 모두 포함되는 경우가 종종 있습니다. 클러스터형 인덱스는 균형 잡힌 페이지 트리(b-트리)입니다. 쓰여지고 있는 페이지가 이미 다른 트랜잭션의 행을 포함하고 있으면 쓰기 작업이 전체 로깅됩니다. 그러나 페이지가 비어 있으면 해당 페이지에 대한 쓰기 작업이 최소한으로 로깅됩니다.
 
 ## <a name="optimizing-deletes"></a>삭제 최적화
+
 DELETE는 전체 로깅 작업입니다.  테이블 또는 파티션에서 대량의 데이터를 삭제해야 하는 경우 보관하려는 데이터에 대해 최소 로깅 작업으로 실행할 수 있는 `SELECT` 를 사용하는 것이 적절한 경우가 많습니다.  데이터를 선택하려면 [CTAS](sql-data-warehouse-develop-ctas.md)를 사용하여 새 테이블을 만듭니다.  새 테이블을 만든 후에는 [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 사용하여 이전 테이블을 새로 만든 테이블로 교체합니다.
 
 ```sql
@@ -98,7 +95,7 @@ CREATE TABLE [dbo].[FactInternetSales_d]
 WITH
 (    CLUSTERED COLUMNSTORE INDEX
 ,    DISTRIBUTION = HASH([ProductKey])
-,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT
                                     FOR VALUES    (    20000101, 20010101, 20020101, 20030101, 20040101, 20050101
                                                 ,    20060101, 20070101, 20080101, 20090101, 20100101, 20110101
                                                 ,    20120101, 20130101, 20140101, 20150101, 20160101, 20170101
@@ -113,12 +110,13 @@ WHERE    [PromotionKey] = 2
 OPTION (LABEL = 'CTAS : Delete')
 ;
 
---Step 02. Rename the Tables to replace the 
+--Step 02. Rename the Tables to replace the
 RENAME OBJECT [dbo].[FactInternetSales]   TO [FactInternetSales_old];
 RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
 ## <a name="optimizing-updates"></a>업데이트 최적화
+
 UPDATE는 전체 로깅 작업입니다.  테이블이나 파티션에서 많은 수의 행을 업데이트해야 하는 경우 [CTAS와](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 같이 최소로 기록된 작업을 사용하는 것이 훨씬 더 효율적일 수 있습니다.
 
 아래 예에서는 최소 로깅이 가능하도록 전체 테이블 업데이트가 CTAS로 변환되었습니다.
@@ -126,12 +124,12 @@ UPDATE는 전체 로깅 작업입니다.  테이블이나 파티션에서 많은
 이 예에서는 테이블의 판매 금액에 할인 금액을 소급하여 추가하고 있습니다.
 
 ```sql
---Step 01. Create a new table containing the "Update". 
+--Step 01. Create a new table containing the "Update".
 CREATE TABLE [dbo].[FactInternetSales_u]
 WITH
 (    CLUSTERED INDEX
 ,    DISTRIBUTION = HASH([ProductKey])
-,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT
                                     FOR VALUES    (    20000101, 20010101, 20020101, 20030101, 20040101, 20050101
                                                 ,    20060101, 20070101, 20080101, 20090101, 20100101, 20110101
                                                 ,    20120101, 20130101, 20140101, 20150101, 20160101, 20170101
@@ -140,15 +138,15 @@ WITH
                                                 )
                 )
 )
-AS 
+AS
 SELECT
     [ProductKey]  
-,    [OrderDateKey] 
+,    [OrderDateKey]
 ,    [DueDateKey]  
-,    [ShipDateKey] 
-,    [CustomerKey] 
-,    [PromotionKey] 
-,    [CurrencyKey] 
+,    [ShipDateKey]
+,    [CustomerKey]
+,    [PromotionKey]
+,    [CurrencyKey]
 ,    [SalesTerritoryKey]
 ,    [SalesOrderNumber]
 ,    [SalesOrderLineNumber]
@@ -165,7 +163,7 @@ SELECT
          END AS MONEY),0) AS [SalesAmount]
 ,    [TaxAmt]
 ,    [Freight]
-,    [CarrierTrackingNumber] 
+,    [CarrierTrackingNumber]
 ,    [CustomerPONumber]
 FROM    [dbo].[FactInternetSales]
 OPTION (LABEL = 'CTAS : Update')
@@ -181,10 +179,9 @@ DROP TABLE [dbo].[FactInternetSales_old]
 
 > [!NOTE]
 > 큰 테이블을 다시 만들면 Synapse SQL 풀 워크로드 관리 기능을 사용할 수 있습니다. 자세한 내용은 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 참조하세요.
-> 
-> 
 
 ## <a name="optimizing-with-partition-switching"></a>파티션 전환을 사용하여 최적화
+
 [테이블 파티션](sql-data-warehouse-tables-partition.md) 내부에서 대규모 수정 작업에 직면하는 경우 파티션 전환 패턴을 사용하는 것이 효율적입니다. 데이터 수정 작업이 대규모이고 여러 파티션에 걸쳐 있는 경우 파티션을 반복해도 동일한 결과를 얻습니다.
 
 파티션 전환을 수행하는 단계는 다음과 같습니다.
@@ -223,11 +220,11 @@ SELECT     s.name                            AS [schema_name]
 FROM        sys.schemas                    AS s
 JOIN        sys.tables                    AS t    ON  s.[schema_id]        = t.[schema_id]
 JOIN        sys.indexes                    AS i    ON     t.[object_id]        = i.[object_id]
-JOIN        sys.partitions                AS p    ON     i.[object_id]        = p.[object_id] 
-                                                AND i.[index_id]        = p.[index_id] 
+JOIN        sys.partitions                AS p    ON     i.[object_id]        = p.[object_id]
+                                                AND i.[index_id]        = p.[index_id]
 JOIN        sys.partition_schemes        AS h    ON     i.[data_space_id]    = h.[data_space_id]
 JOIN        sys.partition_functions        AS f    ON     h.[function_id]        = f.[function_id]
-LEFT JOIN    sys.partition_range_values    AS r     ON     f.[function_id]        = r.[function_id] 
+LEFT JOIN    sys.partition_range_values    AS r     ON     f.[function_id]        = r.[function_id]
                                                 AND r.[boundary_id]        = p.[partition_number]
 WHERE i.[index_id] <= 1
 )
@@ -246,7 +243,7 @@ GO
 아래 코드는 앞서 언급한 전체 파티션 전환 루틴을 달성하는 단계를 보여줍니다.
 
 ```sql
---Create a partitioned aligned empty table to switch out the data 
+--Create a partitioned aligned empty table to switch out the data
 IF OBJECT_ID('[dbo].[FactInternetSales_out]') IS NOT NULL
 BEGIN
     DROP TABLE [dbo].[FactInternetSales_out]
@@ -256,7 +253,7 @@ CREATE TABLE [dbo].[FactInternetSales_out]
 WITH
 (    DISTRIBUTION = HASH([ProductKey])
 ,    CLUSTERED COLUMNSTORE INDEX
-,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT
                                     FOR VALUES    (    20020101, 20030101
                                                 )
                 )
@@ -278,20 +275,20 @@ CREATE TABLE [dbo].[FactInternetSales_in]
 WITH
 (    DISTRIBUTION = HASH([ProductKey])
 ,    CLUSTERED COLUMNSTORE INDEX
-,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT
                                     FOR VALUES    (    20020101, 20030101
                                                 )
                 )
 )
-AS 
+AS
 SELECT
     [ProductKey]  
-,    [OrderDateKey] 
+,    [OrderDateKey]
 ,    [DueDateKey]  
-,    [ShipDateKey] 
-,    [CustomerKey] 
-,    [PromotionKey] 
-,    [CurrencyKey] 
+,    [ShipDateKey]
+,    [CustomerKey]
+,    [PromotionKey]
+,    [CurrencyKey]
 ,    [SalesTerritoryKey]
 ,    [SalesOrderNumber]
 ,    [SalesOrderLineNumber]
@@ -308,7 +305,7 @@ SELECT
          END AS MONEY),0) AS [SalesAmount]
 ,    [TaxAmt]
 ,    [Freight]
-,    [CarrierTrackingNumber] 
+,    [CarrierTrackingNumber]
 ,    [CustomerPONumber]
 FROM    [dbo].[FactInternetSales]
 WHERE    OrderDateKey BETWEEN 20020101 AND 20021231
@@ -347,9 +344,10 @@ DROP TABLE #ptn_data
 ```
 
 ## <a name="minimize-logging-with-small-batches"></a>작은 배치를 사용하여 로깅 최소화
+
 대규모 데이터 수정 작업의 경우 작업을 청크 또는 배치로 나누어서 작업 단위의 범위를 지정하는 것이 더 편할 수 있습니다.
 
-다음 코드는 작업 예제입니다. 방법을 강조하기 위해 배치 크기가 간단한 숫자로 설정되었습니다. 현실에서는 배치 크기가 엄청나게 거대합니다. 
+다음 코드는 작업 예제입니다. 방법을 강조하기 위해 배치 크기가 간단한 숫자로 설정되었습니다. 현실에서는 배치 크기가 엄청나게 거대합니다.
 
 ```sql
 SET NO_COUNT ON;
@@ -409,12 +407,10 @@ END
 
 ## <a name="pause-and-scaling-guidance"></a>일시 중지 및 크기 조정 지침
 
-Synapse SQL을 사용하면 필요에 따라 SQL 풀을 [일시 중지, 다시 시작 및 확장할](sql-data-warehouse-manage-compute-overview.md) 수 있습니다. SQL 풀을 일시 중지하거나 확장할 때는 모든 기내 트랜잭션이 즉시 종료된다는 것을 이해하는 것이 중요합니다. 열려 있는 트랜잭션이 롤백됩니다. 일시 중지 또는 규모 조정 작업을 수행하기 전에 워크로드에서 실행 시간이 길고 불완전한 데이터 수정 작업을 실행하면 이 작업을 실행 취소해야 합니다. 이렇게 취소하면 SQL 풀을 일시 중지하거나 확장하는 데 걸리는 시간에 영향을 미칠 수 있습니다. 
+Synapse SQL을 사용하면 필요에 따라 SQL 풀을 [일시 중지, 다시 시작 및 확장할](sql-data-warehouse-manage-compute-overview.md) 수 있습니다. SQL 풀을 일시 중지하거나 확장할 때는 모든 기내 트랜잭션이 즉시 종료된다는 것을 이해하는 것이 중요합니다. 열려 있는 트랜잭션이 롤백됩니다. 일시 중지 또는 규모 조정 작업을 수행하기 전에 워크로드에서 실행 시간이 길고 불완전한 데이터 수정 작업을 실행하면 이 작업을 실행 취소해야 합니다. 이렇게 취소하면 SQL 풀을 일시 중지하거나 확장하는 데 걸리는 시간에 영향을 미칠 수 있습니다.
 
 > [!IMPORTANT]
-> `UPDATE` 및 `DELETE`는 전체 로깅 작업이므로 이러한 실행 취소/다시 실행 작업이 최소 로깅에 비해 훨씬 오래 걸릴 수 있습니다. 
-> 
-> 
+> `UPDATE` 및 `DELETE`는 전체 로깅 작업이므로 이러한 실행 취소/다시 실행 작업이 최소 로깅에 비해 훨씬 오래 걸릴 수 있습니다.
 
 가장 좋은 시나리오는 SQL 풀을 일시 중지하거나 크기 조정하기 전에 플라이트 데이터 수정 트랜잭션을 완료하도록 하는 것입니다. 그러나 이 시나리오가 항상 실용적이지는 않습니다. 긴 롤백의 위험을 완화하기 위해 다음 옵션 중 하나를 고려해 볼 수 있습니다.
 
@@ -424,4 +420,3 @@ Synapse SQL을 사용하면 필요에 따라 SQL 풀을 [일시 중지, 다시 �
 ## <a name="next-steps"></a>다음 단계
 
 격리 수준 및 트랜잭션 제한에 대해 자세히 알아보려면 [Synapse SQL의 트랜잭션을](sql-data-warehouse-develop-transactions.md) 참조하십시오.  기타 모범 사례의 개요에 대해서는 [SQL Data Warehouse 모범 사례](sql-data-warehouse-best-practices.md)를 참조하세요.
-

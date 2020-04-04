@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/06/2020
 tags: connectors
-ms.openlocfilehash: 1578ca030bc8bab971a44e1afcce1d1ab9e1d5e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a3fb9a8a72b384d2af4af38bdc382e541ddf535
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78674031"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656291"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTP 웹후크를 사용하여 자동화된 이벤트 기반 워크플로를 만들고 실행합니다.
 
@@ -36,7 +36,7 @@ HTTP 웹후크 작업은 이벤트 기반이며 해당 서비스 또는 끝점�
 예를 들어 Office 365 Outlook 커넥터의 [**승인 전자 메일 보내기**](connectors-create-api-office365-outlook.md) 작업은 이 패턴을 따르는 웹후크 작업의 예입니다. 웹후크 작업을 사용하여 이 패턴을 모든 서비스로 확장할 수 있습니다.
 
 > [!NOTE]
-> Logic Apps는 HTTP 웹후크 트리거 또는 동작으로 다시 호출을 받을 때 전송 계층 보안(TLS) 1.2를 적용합니다. SSL 핸드셰이크 오류가 표시되면 TLS 1.2를 사용해야 합니다. 수신 호출의 경우 지원되는 암호 제품군은 다음과 같습니다.
+> Logic Apps는 HTTP 웹후크 트리거 또는 동작으로 다시 호출을 받을 때 전송 계층 보안(TLS) 1.2를 적용합니다. TLS 핸드셰이크 오류가 표시되면 TLS 1.2를 사용해야 합니다. 수신 호출의 경우 지원되는 암호 제품군은 다음과 같습니다.
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -67,7 +67,7 @@ HTTP 웹후크 작업은 이벤트 기반이며 해당 서비스 또는 끝점�
 
 이 기본 제공 트리거는 대상 서비스의 구독 끝점을 호출하고 대상 서비스에 콜백 URL을 등록합니다. 그런 다음 논리 앱은 대상 서비스가 `HTTP POST` 콜백 URL로 요청을 보낼 때까지 기다립니다. 이 이벤트가 발생하면 트리거가 트리거에 따라 요청의 모든 데이터를 트리거에 전달합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다. 논리 앱 디자이너에서 빈 논리 앱을 엽니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 논리 앱 디자이너에서 빈 논리 앱을 엽니다.
 
 1. 디자이너의 검색 상자에 필터로 `http webhook` 입력합니다. 트리거 목록에서 **HTTP 웹후크** 트리거를 **선택합니다.**
 
@@ -83,8 +83,8 @@ HTTP 웹후크 작업은 이벤트 기반이며 해당 서비스 또는 끝점�
 
    | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
-   | **구독 - 방법** | yes | 대상 끝점에 가입할 때 사용하는 방법 |
-   | **구독 - URI** | yes | 대상 끝점에 가입하는 데 사용할 URL |
+   | **구독 - 방법** | 예 | 대상 끝점에 가입할 때 사용하는 방법 |
+   | **구독 - URI** | 예 | 대상 끝점에 가입하는 데 사용할 URL |
    | **구독 - 본문** | 예 | 구독 요청에 포함할 모든 메시지 본문입니다. 이 예제에는 `@listCallbackUrl()` 논리 앱의 콜백 URL을 검색하기 위해 식을 사용하여 논리 앱인 구독자를 고유하게 식별하는 콜백 URL이 포함됩니다. |
    | **구독 취소 - 방법** | 예 | 대상 끝점에서 구독을 취소할 때 사용하는 방법 |
    | **구독 취소 - URI** | 예 | 대상 끝점에서 구독 취소에 사용할 URL |
@@ -107,7 +107,7 @@ HTTP 웹후크 작업은 이벤트 기반이며 해당 서비스 또는 끝점�
 
 이 기본 제공 작업은 대상 서비스의 구독 끝점을 호출하고 대상 서비스에 콜백 URL을 등록합니다. 그런 다음 논리 앱이 일시 중지되고 대상 `HTTP POST` 서비스가 콜백 URL로 요청을 보낼 때까지 기다립니다. 이 이벤트가 발생하면 작업은 요청의 모든 데이터를 워크플로에 전달합니다. 작업이 성공적으로 완료되면 작업이 끝점에서 구독을 취소하고 논리 앱이 나머지 워크플로를 계속 실행합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다. Logic Apps 디자이너에서 논리 앱을 엽니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. Logic Apps 디자이너에서 논리 앱을 엽니다.
 
    이 예제에서는 HTTP 웹후크 트리거를 첫 번째 단계로 사용합니다.
 
@@ -129,8 +129,8 @@ HTTP 웹후크 작업은 이벤트 기반이며 해당 서비스 또는 끝점�
 
    | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
-   | **구독 - 방법** | yes | 대상 끝점에 가입할 때 사용하는 방법 |
-   | **구독 - URI** | yes | 대상 끝점에 가입하는 데 사용할 URL |
+   | **구독 - 방법** | 예 | 대상 끝점에 가입할 때 사용하는 방법 |
+   | **구독 - URI** | 예 | 대상 끝점에 가입하는 데 사용할 URL |
    | **구독 - 본문** | 예 | 구독 요청에 포함할 모든 메시지 본문입니다. 이 예제에는 `@listCallbackUrl()` 논리 앱의 콜백 URL을 검색하기 위해 식을 사용하여 논리 앱인 구독자를 고유하게 식별하는 콜백 URL이 포함됩니다. |
    | **구독 취소 - 방법** | 예 | 대상 끝점에서 구독을 취소할 때 사용하는 방법 |
    | **구독 취소 - URI** | 예 | 대상 끝점에서 구독 취소에 사용할 URL |

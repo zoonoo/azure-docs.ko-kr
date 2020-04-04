@@ -4,19 +4,19 @@ description: FIDO2 보안 키를 사용하여 Azure Active Directory에 암호 �
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/30/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca6ef244a887e75a0d8b9bb663d5325a33cd1e89
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b8f5d6aaa96c24eb37eb78d237a489f1d25293c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263908"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653991"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Azure Active Directory를 사용하여 Windows 10 장치에 암호 없는 보안 키 로그인 사용(미리 보기)
 
@@ -80,7 +80,7 @@ ms.locfileid: "79263908"
 
 Intune을 사용하여 보안 키를 사용할 수 있도록 하려면 다음 단계를 완료하십시오.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 비즈니스 > **속성에**대 한 **마이크로소프트 인튠** > **장치 등록** > **윈도우 안녕하세요** > **안녕하세요**찾아보십시오.
 1. **설정에서** **사용 하려면** **로그인에 보안 키 를 사용** 설정 합니다.
 
@@ -90,7 +90,7 @@ Intune을 사용하여 보안 키를 사용할 수 있도록 하려면 다음 �
 
 자격 증명 공급자를 사용하도록 특정 장치 그룹을 대상으로 지정하려면 Intune을 통해 다음 사용자 지정 설정을 사용합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 찾기 마이크로 **소프트 인튠** > **장치 구성** > **프로필** > **프로필 만들기 .**
 1. 다음 설정으로 새 프로필을 구성합니다.
    - 이름: Windows 로그인용 보안 키

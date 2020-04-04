@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: d7ce77404359b32effcc7a5da3f9429e9fdf7005
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 5f9ad827fa947e645f7eb4850f90a73c61a45cd3
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618573"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637118"
 ---
 # <a name="azure-cognitive-services-support-and-feedback-options"></a>Azure 코그너티브 서비스 지원 및 피드백 옵션
 
@@ -30,7 +30,7 @@ Azure Cognitive 서비스의 기능을 살펴보기 시작했습니다. 응용 �
 
 지금 클라우드를 시작하려는 개발자든 비즈니스에 중요한 전략적 애플리케이션을 배포하려는 대규모 조직이든 관계없이 가장 적합한 [Azure 지원 옵션 및 플랜 선택](https://azure.microsoft.com/support/plans)의 범위를 탐색합니다. Azure 고객은 Azure Portal에서 지원 요청을 만들고 관리할 수 있습니다.
 
-* [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [미국 정부의 Azure Portal](https://portal.azure.us)
 
 ### <a name="search"></a>검색
@@ -87,6 +87,7 @@ Azure 블로그의 새 릴리스 또는 뉴스의 기능에 대한 정보를 유
  - [Speech Services](speech-service/releasenotes.md)
  - [음성 서비스 SDK](speech-service/devices-sdk-release-notes.md)
  - [텍스트 분석](text-analytics/whats-new.md)
+ - [비디오 인덱서](../media-services/video-indexer/release-notes.md)
 
 ### <a name="azure-blog"></a>Azure 블로그
 

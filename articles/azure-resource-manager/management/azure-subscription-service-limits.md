@@ -2,13 +2,13 @@
 title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 이 문서에는 최대 값과 함께 제한을 늘리는 방법에 대한 정보가 포함되어 있습니다.
 ms.topic: conceptual
-ms.date: 03/26/2020
-ms.openlocfilehash: 397d6a719f64a49208e651469fab9cf841ccd4ad
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.date: 04/03/2020
+ms.openlocfilehash: 4200784e3018ec80d9fbbbc0d3680b6b0e6d2cb3
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521348"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656188"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
@@ -409,7 +409,7 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용할 때 다음 제
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [Azure 제한 및 증가 이해](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Azure용 가상 컴퓨터 및 클라우드 서비스 크기](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -4,12 +4,12 @@ description: Azure Kubernetes 서비스(AKS)에서 사용자 지정 송신 경�
 services: container-service
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: fa64294939ea487b3123d1db5ef6c8a5f30fcf72
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 30b7b6bae92221b268d40977f5b299e9b0b267b0
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80129384"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637818"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>사용자 정의 경로(미리 보기)로 클러스터 송신 사용자 지정
 
@@ -360,6 +360,12 @@ CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/32
 
 ```
+
+ [az aks get-credentials][az-aks-get-credentials] 명령을 `kubectl` 사용하여 새로 만든 Kubernetes 클러스터에 연결하도록 구성합니다. 
+
+ ```azure-cli
+ az aks get-credentials -g $RG -n $AKS_NAME
+ ```
 
 ### <a name="setup-the-internal-load-balancer"></a>내부 부하 분산기 설정
 

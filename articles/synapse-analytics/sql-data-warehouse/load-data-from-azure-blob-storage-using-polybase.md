@@ -11,18 +11,19 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e17b5be0f4f3d568bd5ec836659c4444b384b2fa
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 741779e8328c38e544b1ad297e59155dab4e8c0d
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583755"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633898"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>자습서: 뉴욕 택시 데이터 집합 로드
 
-이 자습서에서는 PolyBase를 사용하여 전역 Azure Blob 저장소 계정에서 뉴욕 택시 데이터를 로드합니다. 이 자습서에서는 [Azure Portal](https://portal.azure.com) 및 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 사용합니다. 
+이 자습서에서는 PolyBase를 사용하여 전역 Azure Blob 저장소 계정에서 뉴욕 택시 데이터를 로드합니다. 이 자습서에서는 [Azure Portal](https://portal.azure.com) 및 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest))를 사용합니다.
 
 > [!div class="checklist"]
+>
 > * Azure 포털에서 SQL 풀 만들기
 > * Azure Portal에서 서버 수준 방화벽 규칙 설정
 > * SSMS로 데이터 웨어하우스에 연결
@@ -36,8 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 다운로드하여 설치합니다.
-
+이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest))를 다운로드하여 설치합니다.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -45,9 +45,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-blank-database"></a>빈 데이터베이스 만들기
 
-SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세트로 생성됩니다. 데이터베이스는 [Azure 리소스 그룹](../../azure-resource-manager/management/overview.md) 및 [Azure SQL 논리 서버](../../sql-database/sql-database-features.md)에 생성됩니다. 
+SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세트로 생성됩니다. 데이터베이스는 [Azure 리소스 그룹](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 및 [Azure SQL 논리 서버](../../sql-database/sql-database-features.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)에 생성됩니다.
 
-다음 단계에 따라 빈 데이터베이스를 만듭니다. 
+다음 단계에 따라 빈 데이터베이스를 만듭니다.
 
 1. Azure 포털의 왼쪽 위 모서리에 **있는 리소스 만들기를** 선택합니다.
 
@@ -55,23 +55,23 @@ SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세�
 
     ![데이터 웨어하우스 만들기](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
 
-3. 다음 정보로 양식을 작성합니다. 
+3. 다음 정보로 양식을 작성합니다.
 
    | 설정            | 제안 값       | Description                                                  |
    | ------------------ | --------------------- | ------------------------------------------------------------ |
-   | *이름**            | mySampleDataWarehouse | 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
+   | *이름**            | mySampleDataWarehouse | 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요. |
    | **구독**   | 사용자의 구독     | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
-   | **리소스 그룹** | myResourceGroup       | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
+   | **리소스 그룹** | myResourceGroup       | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조하세요. |
    | **원본 선택**  | 빈 데이터베이스        | 빈 데이터베이스를 만들려면 지정합니다. 데이터 웨어하우스는 데이터베이스의 한 종류입니다. |
 
     ![데이터 웨어하우스 만들기](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
-4. 새 데이터베이스에 대한 새 서버를 만들고 구성하려면 **서버**를 선택합니다. 다음 정보로 **새 서버 폼**을 작성합니다. 
+4. 새 데이터베이스에 대한 새 서버를 만들고 구성하려면 **서버**를 선택합니다. 다음 정보로 **새 서버 폼**을 작성합니다.
 
     | 설정                | 제안 값          | Description                                                  |
     | ---------------------- | ------------------------ | ------------------------------------------------------------ |
-    | **서버 이름**        | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
-    | **서버 관리자 로그인** | 유효한 이름           | 유효한 로그인 이름은 [데이터베이스 식별자를](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)참조하십시오. |
+    | **서버 이름**        | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조하세요. |
+    | **서버 관리자 로그인** | 유효한 이름           | 유효한 로그인 이름은 [데이터베이스 식별자를](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)참조하십시오. |
     | **암호**           | 유효한 암호       | 암호는 8자 이상이어야 하며 대문자, 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지 범주의 문자를 포함해야 합니다. |
     | **위치**           | 유효한 위치       | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
 
@@ -79,47 +79,47 @@ SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세�
 
 5. **선택**을 선택합니다.
 
-6. **성능 수준을** 선택하여 데이터 웨어하우스가 Gen1 또는 Gen2인지 여부와 데이터 웨어하우스 단위 수를 지정합니다. 
+6. **성능 수준을** 선택하여 데이터 웨어하우스가 Gen1 또는 Gen2인지 여부와 데이터 웨어하우스 단위 수를 지정합니다.
 
-7. 이 자습서에서는 SQL 풀 **Gen2를**선택합니다. 슬라이더는 기본적으로 **DW1000c로** 설정됩니다.  위아래로 이동하면서 작동 방식을 확인하세요. 
+7. 이 자습서에서는 SQL 풀 **Gen2를**선택합니다. 슬라이더는 기본적으로 **DW1000c로** 설정됩니다.  위아래로 이동하면서 작동 방식을 확인하세요.
 
     ![성능 구성](./media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. **적용**을 선택합니다.
-9. 프로비저닝 블레이드에서 빈 데이터베이스에 대한 **데이터 정렬을** 선택합니다. 이 자습서에서는 기본 포트를 사용합니다. 데이터 정렬에 대한 자세한 내용은 [데이터 정렬을](/sql/t-sql/statements/collations) 참조하십시오.
+9. 프로비저닝 블레이드에서 빈 데이터베이스에 대한 **데이터 정렬을** 선택합니다. 이 자습서에서는 기본 포트를 사용합니다. 데이터 정렬에 대한 자세한 내용은 [데이터 정렬을](/sql/t-sql/statements/collations?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 참조하십시오.
 
-11. 양식을 완료한 후 **만들기를** 선택하여 데이터베이스를 프로비전합니다. 프로비전하는 데 몇 분이 걸립니다. 
+10. 양식을 완료한 후 **만들기를** 선택하여 데이터베이스를 프로비전합니다. 프로비전하는 데 몇 분이 걸립니다.
 
-12. 도구 모음에서 **알림**을 선택하여 배포 프로세스를 모니터링합니다.
+11. 도구 모음에서 **알림**을 선택하여 배포 프로세스를 모니터링합니다.
   
      ![알림](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 만들기
 
-외부 응용 프로그램 및 도구가 서버 또는 서버의 데이터베이스에 연결하지 못하도록 하는 서버 수준의 방화벽입니다. 연결을 사용하려면 특정 IP 주소에 대한 연결을 사용하도록 설정하는 방화벽 규칙을 추가할 수 있습니다.  다음 단계에 따라 클라이언트의 IP 주소에 대해 [서버 수준 방화벽 규칙](../../sql-database/sql-database-firewall-configure.md)을 만듭니다. 
+외부 응용 프로그램 및 도구가 서버 또는 서버의 데이터베이스에 연결하지 못하도록 하는 서버 수준의 방화벽입니다. 연결을 사용하려면 특정 IP 주소에 대한 연결을 사용하도록 설정하는 방화벽 규칙을 추가할 수 있습니다.  다음 단계에 따라 클라이언트의 IP 주소에 대해 [서버 수준 방화벽 규칙](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 만듭니다.
 
 > [!NOTE]
 > SQL Data Warehouse는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다.
 
-1. 배포가 완료되면 왼쪽 메뉴에서 **SQL 데이터베이스를** 선택한 다음 SQL 데이터베이스 페이지에서 **mySampleDatabase를** **선택합니다.** 데이터베이스에 대한 개요 페이지가 열려 정규화된 서버 이름(예: **mynewserver-20180430.database.windows.net**)을 표시하고 추가 구성을 위한 옵션을 제공합니다. 
+1. 배포가 완료되면 왼쪽 메뉴에서 **SQL 데이터베이스를** 선택한 다음 SQL 데이터베이스 페이지에서 **mySampleDatabase를** **선택합니다.** 데이터베이스에 대한 개요 페이지가 열려 정규화된 서버 이름(예: **mynewserver-20180430.database.windows.net**)을 표시하고 추가 구성을 위한 옵션을 제공합니다.
 
 2. 후속 빠른 시작에서 서버 및 해당 데이터베이스에 연결하는 데 사용하기 위해 이 정규화된 서버 이름을 복사합니다. 그런 다음 서버 이름을 선택하여 서버 설정을 엽니다.
 
-    ![서버 이름 찾기](././media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png) 
+    ![서버 이름 찾기](././media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
 3. 서버 설정을 열려면 서버 이름을 선택합니다.
 
-    ![서버 설정](./media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
+    ![서버 설정](./media/load-data-from-azure-blob-storage-using-polybase/server-settings.png)
 
-5. **방화벽 설정 표시**를 선택합니다. SQL Database 서버에 대한 **방화벽 설정** 페이지가 열립니다. 
+4. **방화벽 설정 표시**를 선택합니다. SQL Database 서버에 대한 **방화벽 설정** 페이지가 열립니다.
 
-    ![서버 방화벽 규칙](./media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
+    ![서버 방화벽 규칙](./media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png)
 
-4. 도구 모음에서 **클라이언트 IP 추가**를 선택하여 현재 IP 주소를 새 방화벽 규칙에 추가합니다. 방화벽 규칙은 단일 IP 주소 또는 IP 주소의 범위에 1433 포트를 열 수 있습니다.
+5. 도구 모음에서 **클라이언트 IP 추가**를 선택하여 현재 IP 주소를 새 방화벽 규칙에 추가합니다. 방화벽 규칙은 단일 IP 주소 또는 IP 주소의 범위에 1433 포트를 열 수 있습니다.
 
-5. **저장**을 선택합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
+6. **저장**을 선택합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
 
-6. **확인을** 선택한 다음 **방화벽 설정** 페이지를 닫습니다.
+7. **확인을** 선택한 다음 **방화벽 설정** 페이지를 닫습니다.
 
 이제 이 IP 주소를 사용하여 SQL 서버 및 해당 데이터 웨어하우스에 연결할 수 있습니다. SQL Server Management Studio 또는 원하는 다른 도구에서 연결이 제대로 작동합니다. 연결할 때 이전에 만든 ServerAdmin 계정을 사용합니다.  
 
@@ -131,14 +131,14 @@ SQL 풀은 정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세�
 Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 나중에 서버에 연결할 때 이 정규화된 이름을 사용합니다.
 
 1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
-2. 왼쪽 메뉴에서 **Azure 시냅스 분석을** 선택하고 **Azure 시냅스 분석** 페이지에서 데이터베이스를 선택합니다. 
-3. 데이터베이스의 경우 Azure Portal의 **개요** 창에서 **서버 이름**을 찾고 복사합니다. 이 예제에서 정규화된 이름은 mynewserver-20180430.database.windows.net입니다. 
+2. 왼쪽 메뉴에서 **Azure 시냅스 분석을** 선택하고 **Azure 시냅스 분석** 페이지에서 데이터베이스를 선택합니다.
+3. 데이터베이스의 경우 Azure Portal의 **개요** 창에서 **서버 이름**을 찾고 복사합니다. 이 예제에서 정규화된 이름은 mynewserver-20180430.database.windows.net입니다.
 
     ![연결 정보](././media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
 ## <a name="connect-to-the-server-as-server-admin"></a>서버 관리자 권한으로 서버에 연결
 
-이 섹션에서는 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 사용하여 Azure SQL 서버에 연결합니다.
+이 섹션에서는 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest))를 사용하여 Azure SQL 서버에 연결합니다.
 
 1. SQL Server Management Studio를 엽니다.
 
@@ -154,25 +154,25 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
     ![서버에 연결](./media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
-4. **연결**을 선택합니다. SSMS에서 개체 탐색기 창이 열립니다. 
+3. **연결**을 선택합니다. SSMS에서 개체 탐색기 창이 열립니다.
 
-5. 개체 탐색기에서 **데이터베이스**를 확장합니다. 그런 후 **시스템 데이터베이스** 및 **master**를 확장하여 master 데이터베이스의 개체를 표시합니다.  **mySampleDatabase**를 확장하여 새 데이터베이스의 개체를 표시합니다.
+4. 개체 탐색기에서 **데이터베이스**를 확장합니다. 그런 후 **시스템 데이터베이스** 및 **master**를 확장하여 master 데이터베이스의 개체를 표시합니다.  **mySampleDatabase**를 확장하여 새 데이터베이스의 개체를 표시합니다.
 
-    ![데이터베이스 개체](./media/load-data-from-azure-blob-storage-using-polybase/connected.png) 
+    ![데이터베이스 개체](./media/load-data-from-azure-blob-storage-using-polybase/connected.png)
 
 ## <a name="create-a-user-for-loading-data"></a>데이터를 로드하기 위한 사용자 만들기
 
-서버 관리자 계정은 관리 작업을 수행하며 사용자 데이터에 대해 쿼리를 실행하는 데는 적합하지 않습니다. 데이터 로드는 메모리를 많이 사용하는 작업입니다. 메모리 최대값은 구성된 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md) 및 [리소스 클래스에](resource-classes-for-workload-management.md) 따라 정의됩니다. 
+서버 관리자 계정은 관리 작업을 수행하며 사용자 데이터에 대해 쿼리를 실행하는 데는 적합하지 않습니다. 데이터 로드는 메모리를 많이 사용하는 작업입니다. 메모리 최대값은 구성된 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md) 및 [리소스 클래스에](resource-classes-for-workload-management.md) 따라 정의됩니다.
 
 데이터 로드 전용 로그인 및 사용자를 만드는 것이 좋습니다. 그런 후 로드 사용자를 [리소스 클래스](resource-classes-for-workload-management.md)에 추가하여 적절한 최대 메모리가 할당되도록 합니다.
 
-현재 서버 관리자로서 연결되어 있으므로 로그인 및 사용자를 만들 수 있습니다. 다음 단계를 사용하여 **LoaderRC20**이라는 로그인 및 사용자를 만듭니다. 그런 후 **staticrc20** 리소스 클래스에 해당 사용자를 할당합니다. 
+현재 서버 관리자로서 연결되어 있으므로 로그인 및 사용자를 만들 수 있습니다. 다음 단계를 사용하여 **LoaderRC20**이라는 로그인 및 사용자를 만듭니다. 그런 후 **staticrc20** 리소스 클래스에 해당 사용자를 할당합니다.
 
-1.  SSMS에서 오른쪽 선택 **마스터를** 선택하여 드롭다운 메뉴를 표시하고 **새 쿼리를**선택합니다. 새 쿼리 창이 열립니다.
+1. SSMS에서 오른쪽 선택 **마스터를** 선택하여 드롭다운 메뉴를 표시하고 **새 쿼리를**선택합니다. 새 쿼리 창이 열립니다.
 
     ![master에서의 새 쿼리](./media/load-data-from-azure-blob-storage-using-polybase/create-loader-login.png)
 
-2. 쿼리 창에서 다음 T-SQL 명령을 입력하여 LoaderRC20이라는 로그인 및 사용자를 만들고 'a123STRONGpassword!' 대신 사용자 고유의 암호를 사용합니다. 
+2. 쿼리 창에서 다음 T-SQL 명령을 입력하여 LoaderRC20이라는 로그인 및 사용자를 만들고 'a123STRONGpassword!' 대신 사용자 고유의 암호를 사용합니다.
 
     ```sql
     CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
@@ -215,21 +215,21 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 새 데이터 웨어하우스로 데이터를 로드하는 프로세스를 시작할 준비가 되었습니다. 이 자습서에서는 외부 테이블을 사용하여 Azure Storage Blob에서 뉴욕시 택시 택시 데이터를 로드하는 방법을 보여 주었습니다. 향후 참조를 보려면 Azure Blob 저장소로 데이터를 가져오기 또는 원본에서 직접 로드하는 방법을 알아보려면 [로드 개요를](design-elt-data-loading.md)참조하십시오.
 
-다음 SQL 스크립트를 실행하고 로드하려는 데이터에 대한 정보를 지정합니다. 이 정보에는 데이터가 있는 위치, 데이터 콘텐츠 형식 및 데이터에 대한 테이블 정의가 포함됩니다. 
+다음 SQL 스크립트를 실행하고 로드하려는 데이터에 대한 정보를 지정합니다. 이 정보에는 데이터가 있는 위치, 데이터 콘텐츠 형식 및 데이터에 대한 테이블 정의가 포함됩니다.
 
-1. 이전 섹션에서는 LoaderRC20 권한으로 데이터 웨어하우스에 로그인했습니다. SSMS에서 LoaderRC20 연결을 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.  새 쿼리 창이 표시됩니다. 
+1. 이전 섹션에서는 LoaderRC20 권한으로 데이터 웨어하우스에 로그인했습니다. SSMS에서 LoaderRC20 연결을 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.  새 쿼리 창이 표시됩니다.
 
     ![새 로드 쿼리 창](./media/load-data-from-azure-blob-storage-using-polybase/new-loading-query.png)
 
 2. 쿼리 창을 이전 이미지와 비교합니다.  새 쿼리 창이 LoaderRC20 권한으로 실행되고 있으며 MySampleDataWarehouse 데이터베이스에서 쿼리를 수행하고 있는지 확인합니다. 이 쿼리 창을 사용하여 모든 로드 단계를 수행합니다.
 
-3. MySampleDataWarehouse 데이터베이스에 대한 마스터 키를 만듭니다. 데이터베이스마다 한 번씩 마스터 키를 만들기만 하면 됩니다. 
+3. MySampleDataWarehouse 데이터베이스에 대한 마스터 키를 만듭니다. 데이터베이스마다 한 번씩 마스터 키를 만들기만 하면 됩니다.
 
     ```sql
     CREATE MASTER KEY;
     ```
 
-4. 다음 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 문을 실행하여 Azure Blob의 위치를 정의합니다. 외부 택시 데이터의 위치입니다.  쿼리 창에 추가한 명령을 실행하려면 실행하려는 명령을 강조 표시하고 **실행을**선택합니다.
+4. 다음 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 문을 실행하여 Azure Blob의 위치를 정의합니다. 외부 택시 데이터의 위치입니다.  쿼리 창에 추가한 명령을 실행하려면 실행하려는 명령을 강조 표시하고 **실행을**선택합니다.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -240,13 +240,13 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     );
     ```
 
-5. 다음 [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql) T-SQL 문을 실행하여 외부 데이터 파일에 대한 서식 특성 및 옵션을 지정합니다. 이 문은 외부 데이터는 텍스트로 저장되고 값은 파이프('|') 문자로 구분됨을 지정합니다. 외부 파일은 Gzip으로 압축됩니다. 
+5. 다음 [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 문을 실행하여 외부 데이터 파일에 대한 서식 특성 및 옵션을 지정합니다. 이 문은 외부 데이터는 텍스트로 저장되고 값은 파이프('|') 문자로 구분됨을 지정합니다. 외부 파일은 Gzip으로 압축됩니다.
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
     WITH (
         FORMAT_TYPE = DELIMITEDTEXT,
-        FORMAT_OPTIONS ( 
+        FORMAT_OPTIONS (
             FIELD_TERMINATOR = ',',
             STRING_DELIMITER = '',
             DATE_FORMAT = '',
@@ -254,7 +254,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
         )
     );
     CREATE EXTERNAL FILE FORMAT compressedcsv
-    WITH ( 
+    WITH (
         FORMAT_TYPE = DELIMITEDTEXT,
         FORMAT_OPTIONS ( FIELD_TERMINATOR = '|',
             STRING_DELIMITER = '',
@@ -265,7 +265,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     );
     ```
 
-6.  다음 [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql) 문을 실행하여 외부 파일 형식에 대한 스키마를 만듭니다. 이 스키마는 만들려는 외부 테이블을 구성하는 방법을 제공합니다.
+6. 다음 [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 문을 실행하여 외부 파일 형식에 대한 스키마를 만듭니다. 이 스키마는 만들려는 외부 테이블을 구성하는 방법을 제공합니다.
 
     ```sql
     CREATE SCHEMA ext;
@@ -274,7 +274,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 7. 외부 테이블을 만듭니다. 테이블 정의는 데이터 웨어하우스에 저장되지만 테이블은 Azure Blob 저장소에 저장된 데이터를 참조합니다. 다음 T-SQL 명령을 실행하여 외부 데이터 원본에서 이전에 정의한 Azure Blob을 모두 가리키는 다수의 외부 테이블을 만듭니다.
 
     ```sql
-    CREATE EXTERNAL TABLE [ext].[Date] 
+    CREATE EXTERNAL TABLE [ext].[Date]
     (
         [DateID] int NOT NULL,
         [Date] datetime NULL,
@@ -316,7 +316,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
         REJECT_VALUE = 0
-    ); 
+    );
     CREATE EXTERNAL TABLE [ext].[Geography]
     (
         [GeographyID] int NOT NULL,
@@ -333,8 +333,8 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
-        REJECT_VALUE = 0 
-    );      
+        REJECT_VALUE = 0
+    );
     CREATE EXTERNAL TABLE [ext].[HackneyLicense]
     (
         [HackneyLicenseID] int NOT NULL,
@@ -447,14 +447,14 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 > [!NOTE]
 > 이 자습서에서는 최종 테이블에 직접 데이터를 로드합니다. 프로덕션 환경에서는 일반적으로 CREATE TABLE AS SELECT를 사용하여 준비 테이블에 로드합니다. 데이터가 준비 테이블에 있는 동안에는 필요한 모든 변환을 수행할 수 있습니다. 준비 테이블의 데이터를 프로덕션 테이블에 추가하려면 INSERT...SELECT 문을 사용합니다. 자세한 내용은 [프로덕션 테이블에 데이터 삽입](guidance-for-loading-data.md#inserting-data-into-a-production-table)을 참조하세요.
 
-이 스크립트는 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 문을 사용하여 Azure Storage Blob에서 데이터 웨어하우스의 새로운 테이블로 데이터를 로드합니다. CTAS는 select 문의 결과에 따라 새 테이블을 만듭니다. 새 테이블은 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 포함합니다. select 문이 외부 테이블에서 선택하면 데이터가 데이터 웨어하우스의 관계형 테이블로 가져옵니다. 
+이 스크립트는 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 문을 사용하여 Azure Storage Blob에서 데이터 웨어하우스의 새로운 테이블로 데이터를 로드합니다. CTAS는 select 문의 결과에 따라 새 테이블을 만듭니다. 새 테이블은 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 포함합니다. select 문이 외부 테이블에서 선택하면 데이터가 데이터 웨어하우스의 관계형 테이블로 가져옵니다.
 
 1. 다음 스크립트를 실행하여 데이터를 데이터 웨어하우스의 새 테이블로 로드합니다.
 
     ```sql
     CREATE TABLE [dbo].[Date]
     WITH
-    ( 
+    (
         DISTRIBUTION = ROUND_ROBIN,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -463,7 +463,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     ;
     CREATE TABLE [dbo].[Geography]
     WITH
-    ( 
+    (
         DISTRIBUTION = ROUND_ROBIN,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -473,7 +473,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     ;
     CREATE TABLE [dbo].[HackneyLicense]
     WITH
-    ( 
+    (
         DISTRIBUTION = ROUND_ROBIN,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -500,7 +500,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     ;
     CREATE TABLE [dbo].[Weather]
     WITH
-    ( 
+    (
         DISTRIBUTION = ROUND_ROBIN,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -518,7 +518,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     ;
     ```
 
-2. 로드되는 데이터를 봅니다. 여러 개의 데이터를 로드하고 성능이 뛰어난 클러스터된 columnstore 인덱스로 압축합니다. DMV(동적 관리 보기)를 사용하는 다음과 같은 쿼리를 실행하여 로드 상태를 봅니다. 
+2. 로드되는 데이터를 봅니다. 여러 개의 데이터를 로드하고 성능이 뛰어난 클러스터된 columnstore 인덱스로 압축합니다. DMV(동적 관리 보기)를 사용하는 다음과 같은 쿼리를 실행하여 로드 상태를 봅니다.
 
     ```sql
     SELECT
@@ -527,7 +527,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
         r.status,
         count(distinct input_name) as nbr_files,
         sum(s.bytes_processed)/1024/1024/1024.0 as gb_processed
-    FROM 
+    FROM
         sys.dm_pdw_exec_requests r
         INNER JOIN sys.dm_pdw_dms_external_work s
         ON r.request_id = s.request_id
@@ -544,7 +544,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
         s.request_id,
         r.status
     ORDER BY
-        nbr_files desc, 
+        nbr_files desc,
         gb_processed desc;
     ```
 
@@ -559,14 +559,17 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     ![로드된 테이블 보기](./media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
 ## <a name="authenticate-using-managed-identities-to-load-optional"></a>관리되는 ID를 사용하여 로드하는 인증(선택 사항)
-PolyBase를 사용하여 로드하고 관리 되는 ID를 통해 인증 하는 가장 안전한 메커니즘이며 Azure Storage와 가상 네트워크 서비스 끝점을 활용할 수 있습니다. 
+
+PolyBase를 사용하여 로드하고 관리 되는 ID를 통해 인증 하는 가장 안전한 메커니즘이며 Azure Storage와 가상 네트워크 서비스 끝점을 활용할 수 있습니다.
 
 ### <a name="prerequisites"></a>사전 요구 사항
-1.    [이 가이드](https://docs.microsoft.com/powershell/azure/install-az-ps)를 사용하여 Azure PowerShell을 설치합니다.
-2.    범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)를 사용하여 범용 v2로 업그레이드해야 합니다.
-3.  Azure Storage 계정 **방화벽 및 가상 네트워크** 설정 메뉴에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다.** 를 설정해야 합니다. 자세한 내용은 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)를 참조하세요.
+
+1. [이 가이드](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 사용하여 Azure PowerShell을 설치합니다.
+2. 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 사용하여 범용 v2로 업그레이드해야 합니다.
+3. Azure Storage 계정 **방화벽 및 가상 네트워크** 설정 메뉴에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다.** 를 설정해야 합니다. 자세한 내용은 이 [가이드](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions)를 참조하세요.
 
 #### <a name="steps"></a>단계
+
 1. PowerShell에서 Azure Active Directory(AAD)로 **SQL 서버를 등록합니다.**
 
    ```powershell
@@ -574,41 +577,42 @@ PolyBase를 사용하여 로드하고 관리 되는 ID를 통해 인증 하는 �
    Select-AzSubscription -SubscriptionId your-subscriptionId
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
    ```
-   
-   1. 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)를 사용하여 **범용 v2 스토리지 계정**을 만듭니다.
+
+2. 이 [가이드](../../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 사용하여 **범용 v2 스토리지 계정**을 만듭니다.
+
+   > [!NOTE]
+   > 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 사용하여 **v2로 업그레이드**해야 합니다.
+
+3. 저장소 계정에서 **IAM(액세스 제어)으로**이동하여 **역할 할당 추가를**선택합니다. SQL Database 서버에 **저장소 Blob 데이터 기여자** RBAC 역할을 할당합니다.
+
+   > [!NOTE]
+   > 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다. Azure 리소스에 대한 다양한 기본 제공 역할을 보려면 이 [가이드](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 참조하세요.
+  
+**Azure Storage 계정에 대한 Polybase 연결:**
+
+1. **ID = '관리되는 서비스 ID'를**사용하여 데이터베이스 범위자격 증명 만들기:
+
+   ```SQL
+   CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+   ```
 
    > [!NOTE]
    >
-   > - 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)를 사용하여 **v2로 업그레이드**해야 합니다.
-   
-1. 저장소 계정에서 **IAM(액세스 제어)으로**이동하여 **역할 할당 추가를**선택합니다. SQL Database 서버에 **저장소 Blob 데이터 기여자** RBAC 역할을 할당합니다.
+   > * 이 메커니즘은 내부적으로 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 사용하므로 Azure Storage 액세스 키로 SECRET을 지정할 필요가 없습니다.
+   > * ID 이름은 Azure Storage 계정으로 작동하려면 PolyBase 연결에 대한 **'관리 서비스 ID'여야** 합니다.
 
-   > [!NOTE] 
-   > 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다. Azure 리소스에 대한 다양한 기본 제공 역할을 보려면 이 [가이드](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)를 참조하세요.
-  
-1. **Azure Storage 계정에 대한 Polybase 연결:**
-  
-   1. **ID = '관리되는 서비스 ID'를**사용하여 데이터베이스 범위자격 증명 만들기:
+2. 관리 되는 서비스 ID를 사용 하 고 데이터베이스 범위 자격 증명을 지정 하는 외부 데이터 원본을 만듭니다.
 
-       ```SQL
-       CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
-       ```
-       > [!NOTE] 
-       > - 이 메커니즘은 내부적으로 [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 사용하므로 Azure Storage 액세스 키로 SECRET을 지정할 필요가 없습니다.
-       > - ID 이름은 Azure Storage 계정으로 작동하려면 PolyBase 연결에 대한 **'관리 서비스 ID'여야** 합니다.
-   
-   1. 관리 되는 서비스 ID를 사용 하 고 데이터베이스 범위 자격 증명을 지정 하는 외부 데이터 원본을 만듭니다.
-     
-   1. [외부 테이블](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql)을 사용하여 평소와 같이 쿼리합니다.
+3. [외부 테이블](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 사용하여 평소와 같이 쿼리합니다.
 
-Azure Synapse Analytics에 가상 네트워크 서비스 끝점을 설정하려면 다음 [설명서를](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) 참조하십시오. 
+Azure Synapse Analytics에 가상 네트워크 서비스 끝점을 설정하려면 다음 [설명서를](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 참조하십시오.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-컴퓨팅 리소스 및 데이터 웨어하우스에 로드한 데이터에 대해 요금이 청구됩니다. 이러한 요금은 별도로 청구됩니다. 
+컴퓨팅 리소스 및 데이터 웨어하우스에 로드한 데이터에 대해 요금이 청구됩니다. 이러한 요금은 별도로 청구됩니다.
 
-- 데이터를 스토리지에 보관하려는 경우 데이터 웨어하우스를 사용하지 않을 때 컴퓨팅을 일시 중지할 수 있습니다. 컴퓨팅을 일시 중지하면 데이터 스토리지에 대해서만 요금이 부과되며, 데이터를 사용할 준비가 될 때마다 컴퓨팅을 재개할 수 있습니다.
-- 앞으로 요금이 부과되지 않게 하려면 데이터 웨어하우스를 삭제하면 됩니다. 
+* 데이터를 스토리지에 보관하려는 경우 데이터 웨어하우스를 사용하지 않을 때 컴퓨팅을 일시 중지할 수 있습니다. 컴퓨팅을 일시 중지하면 데이터 스토리지에 대해서만 요금이 부과되며, 데이터를 사용할 준비가 될 때마다 컴퓨팅을 재개할 수 있습니다.
+* 앞으로 요금이 부과되지 않게 하려면 데이터 웨어하우스를 삭제하면 됩니다.
 
 필요에 따라 다음 단계에 따라 리소스를 정리합니다.
 
@@ -624,11 +628,13 @@ Azure Synapse Analytics에 가상 네트워크 서비스 끝점을 설정하려�
 
 5. 리소스 그룹을 제거하려면 **myResourceGroup**을 선택한 다음, **리소스 그룹 삭제**를 선택합니다.
 
-## <a name="next-steps"></a>다음 단계 
-이 자습서에서는 데이터를 로드하기 위해 데이터 웨어하우스를 만들고 사용자를 만드는 방법을 배웠습니다. Azure Storage Blob에 저장된 데이터에 대한 구조를 정의하는 외부 테이블을 만든 다음, PolyBase CREATE TABLE AS SELECT 문을 사용하여 데이터 웨어하우스에 데이터를 로드했습니다. 
+## <a name="next-steps"></a>다음 단계
+
+이 자습서에서는 데이터를 로드하기 위해 데이터 웨어하우스를 만들고 사용자를 만드는 방법을 배웠습니다. Azure Storage Blob에 저장된 데이터에 대한 구조를 정의하는 외부 테이블을 만든 다음, PolyBase CREATE TABLE AS SELECT 문을 사용하여 데이터 웨어하우스에 데이터를 로드했습니다.
 
 다음 작업을 수행했습니다.
 > [!div class="checklist"]
+>
 > * Azure Portal에서 데이터 웨어하우스 생성
 > * Azure Portal에서 서버 수준 방화벽 규칙 설정
 > * SSMS로 데이터 웨어하우스에 연결

@@ -8,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 5c184e7f1dc828c3f9ff8d449d29ab3aaa4d1cf6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 830668a78929a5e6a7e131ade5c62b81e6d725c3
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77525824"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631360"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>참조: 우분투 (리눅스) 데이터 과학 가상 머신
 
@@ -239,9 +239,9 @@ SQL Server용 ODBC 드라이버 패키지에서는 다음의 두 가지 명령�
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 
-Azure Machine Learning은 예측 분석 솔루션을 빌드, 배포 및 공유할 수 있는 완전 관리형 클라우드 서비스입니다. Azure 기계 학습 스튜디오(클래식)에서 실험 및 모델을 빌드할 수 있습니다. [Microsoft Azure Machine Learning](https://studio.azureml.net)을 방문하여 Data Science Virtual Machine의 웹 브라우저에서 액세스할 수도 있습니다.
+Azure Machine Learning은 예측 분석 솔루션을 빌드, 배포 및 공유할 수 있는 완전 관리형 클라우드 서비스입니다. Azure 기계 학습 스튜디오(미리 보기)에서 실험 및 모델을 빌드할 수 있습니다. [Microsoft Azure Machine Learning](https://ml.azure.com)을 방문하여 Data Science Virtual Machine의 웹 브라우저에서 액세스할 수도 있습니다.
 
-Azure 기계 학습 스튜디오(클래식)에 로그인한 후 실험 캔버스를 사용하여 기계 학습 알고리즘에 대한 논리적 흐름을 작성할 수 있습니다. 또한 Azure 기계 학습에서 호스팅되는 Jupyter 노트북에 액세스할 수 있으며 Azure 기계 학습 스튜디오(클래식)의 실험과 원활하게 작업할 수 있습니다. 
+Azure 기계 학습 스튜디오에 로그인한 후 실험 캔버스를 사용하여 기계 학습 알고리즘에 대한 논리적 흐름을 작성할 수 있습니다. 또한 Azure 기계 학습에서 호스팅되는 Jupyter 노트북에 액세스할 수 있으며 Azure 기계 학습 스튜디오에서 실험과 원활하게 작업할 수 있습니다. 
 
 빌드한 기계 학습 모델은 웹 서비스 인터페이스에 래핑하여 운용 가능하도록 설정합니다. 기계 학습 모델을 운용하면 모든 언어로 작성된 클라이언트가 해당 모델에서 예측을 호출할 수 있습니다. 자세한 내용은 [Machine Learning 설명서](https://azure.microsoft.com/documentation/services/machine-learning/)를 참조하세요.
 
@@ -329,7 +329,7 @@ rattle()
 > [!NOTE]
 > 패키지를 시스템 디렉터리(기본값)에 설치할 수 있는 액세스 권한이 없는 경우 R 콘솔 창에 패키지를 개인 라이브러리에 설치하라는 메시지가 표시될 수 있습니다. 이러한 메시지가 표시되면 **y** 로 응답합니다.
 
-1. **실행**을 선택합니다.
+1. **실행을 선택합니다.**
 1. 날씨 데이터 세트 예제를 사용할지 여부를 묻는 대화 상자가 표시됩니다. **예**를 선택하여 예제를 로드합니다.
 1. **모델** 탭을 선택합니다.
 1. **실행**을 선택하여 의사 결정 트리를 작성합니다.

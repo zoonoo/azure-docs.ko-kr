@@ -4,19 +4,19 @@ description: 이 문서에서는 Windows Server 2012 R2 및 2016에서 Azure Mul
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4b463dad84f2c3ea93fefabdca5141a4b51468c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2777675d915d99b8c0e3c2a123b24ab60d41f672
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74848207"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653363"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Windows Server에서 AD FS와 작동하도록 Azure Multi-Factor Authentication 서버 구성
 
@@ -150,7 +150,7 @@ Web Service SDK를 구성하는 데는 두 가지 옵션이 있습니다. 첫 �
 
     ![변환 클레임 규칙 추가 마법사](./media/howto-mfaserver-adfs-2012/configurewizard.png)
 
-9. **마침**을 클릭합니다. AD FS 관리 콘솔을 닫습니다.
+9. **Finish**를 클릭합니다. AD FS 관리 콘솔을 닫습니다.
 
 ## <a name="troubleshooting-logs"></a>문제 해결 로그
 

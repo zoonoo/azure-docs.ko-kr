@@ -6,15 +6,15 @@ author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/02/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 9be3b2c9b2624d4cd758081703373a433861e4a7
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 58548c5cb1aa6aba6dda09d5d420b36bb8154726
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585305"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656406"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>PowerShell을 사용하여 Azure 데이터 레이크 저장소 Gen2의 디렉터리, 파일 및 ACL관리(미리 보기)
 
@@ -131,8 +131,8 @@ $dir.ACL
 $dir.Permissions
 $dir.Group
 $dir.Owner
-$dir.Metadata
 $dir.Properties
+$dir.Properties.Metadata
 ```
 
 ## <a name="rename-or-move-a-directory"></a>디렉터리 이름 바꾸기 또는 이동
@@ -199,9 +199,7 @@ $dirname = "my-directory/"
 Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -OutputUserPrincipalName
 ```
 
-이 예제에서는 `ACL`에 `Permissions` `Group` `Owner` 대한 값을 반환하지 않습니다. 이러한 값을 얻으려면 매개 `-FetchProperty` 변수를 사용합니다. 
-
-다음 예제에서는 동일한 디렉터리내용을 나열하지만 매개 변수를 `-FetchProperty` `ACL`사용하여 `Permissions`에 `Group` `Owner` 대한 값을 반환합니다. 
+다음 예제에서는 `ACL`디렉터리에서 각 항목의 의 에서 및 `Permissions` `Group` `Owner` 속성을 나열합니다. 속성에 `-FetchProperty` 대한 값을 얻으려면 `ACL` 매개 변수가 필요합니다. 
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -234,8 +232,9 @@ New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $destPath
 ```powershell
 $file = New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $destPath -Source $localSrcFile -Permission rwxrwxrwx -Umask ---rwx--- -Property @{"ContentEncoding" = "UDF8"; "CacheControl" = "READ"} -Metadata  @{"tag1" = "value1"; "tag2" = "value2" }
 $file1
-$file1.File.Metadata
-$file1.File.Properties
+$file1.Properties
+$file1.Properties.Metadata
+
 ```
 
 ## <a name="show-file-properties"></a>파일 속성 표시
@@ -251,8 +250,8 @@ $file.ACL
 $file.Permissions
 $file.Group
 $file.Owner
-$file.Metadata
 $file.Properties
+$file.Properties.Metadata
 ```
 
 ## <a name="delete-a-file"></a>파일 삭제
@@ -324,7 +323,7 @@ $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw-
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission -wx -InputObject $acl
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Acl $acl
-$filesystem = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
+$filesystem = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName
 $filesystem.ACL
 ```
 
@@ -369,7 +368,7 @@ $filesystemName = "my-file-system"
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission -wx -InputObject $acl
-Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse -FetchProperty | Update-AzDataLakeGen2Item -Acl $acl
+Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse | Update-AzDataLakeGen2Item -Acl $acl
 ```
 <a id="gen1-gen2-map" />
 
@@ -377,7 +376,7 @@ Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse -
 
 다음 표에서는 데이터 레이크 저장소 Gen1에 사용된 cmdlet이 데이터 레이크 저장소 Gen2의 cmdlet에 어떻게 매핑되는지 보여 줍니다.
 
-|데이터 레이크 스토리지 Gen1 cmdlet| 데이터 레이크 스토리지 Gen2 cmdlet| 참고 |
+|데이터 레이크 스토리지 Gen1 cmdlet| 데이터 레이크 스토리지 Gen2 cmdlet| 메모 |
 |--------|---------|-----|
 |겟 아즈데이데이레이크스토어차일드아이템|겟-아즈데이레이크겐2차일드아이템|기본적으로 Get-AzDataLakeGen2ChildItem cmdlet은 첫 번째 수준의 하위 항목만 나열합니다. -Recurse 매개 변수는 자식 항목을 재귀적으로 나열합니다. |
 |겟-아즈데이터레이크스토어아이템<br>겟-아즈데이터레이크스토어항목항목<br>겟-아즈데이데이레이크스토어아이템 오너<br>겟-아즈데이터레이크스토어아이템허가|겟-아즈데이레이크겐2항목|Get-AzDataLakeGen2Item cmdlet의 출력 항목에는 Acl, 소유자, 그룹, 권한 등 이러한 속성이 있습니다.|

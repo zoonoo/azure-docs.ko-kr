@@ -4,19 +4,19 @@ description: Azure 다단계 인증에서 사용자 상태를 변경하여 MFA�
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61d7227c57422cfe2228002750ec29bffa385d44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e955a3d10eea0a23154396a44fe6e1fc552a9ccb
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76756772"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653486"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>사용자에 대해 2단계 인증을 요구하는 방법
 

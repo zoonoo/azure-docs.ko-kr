@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: bb907ee59891e5a9a1ffc9c8c6eee34d3e71ad2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/1/2020
+ms.openlocfilehash: 18f227c1888e0565eebb640fa61ced56dc994865
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531943"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632333"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 제한 사항
 다음 섹션에서는 데이터베이스 서비스의 용량, 스토리지 엔진 지원, 권한 지원, 데이터 조작 명령문 지원 및 기능 제한 사항에 대해 설명합니다.
@@ -147,6 +147,10 @@ MariaDB에 대한 새 클라이언트 연결을 만드는 데는 시간이 걸�
 |메모리 최적화|8|16777216|1024|536870912|
 |메모리 최적화|16|16777216|1024|1073741824|
 |메모리 최적화|32|16777216|1024|1073741824|
+
+### <a name="time_zone"></a>time_zone
+
+표준 시간대 테이블은 MySQL 명령줄 또는 MySQL 워크벤치와 같은 도구에서 `mysql.az_load_timezone` 저장된 프로시저를 호출하여 채울 수 있습니다. 저장 프로시저를 호출하고 전역 또는 세션 수준 표준 시간대를 설정하는 방법에 대한 [Azure 포털](howto-server-parameters.md#working-with-the-time-zone-parameter) 또는 [Azure CLI](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) 문서를 참조하십시오.
 
 ## <a name="storage-engine-support"></a>스토리지 엔진 지원
 

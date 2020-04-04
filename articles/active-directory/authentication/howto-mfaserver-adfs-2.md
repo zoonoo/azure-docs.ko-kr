@@ -4,19 +4,19 @@ description: Azure MFA 및 AD FS 2.0 시작 방법을 설명하는 Azure Multi-F
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e71c1d28a90af72890b2399d5da24d08885f3cce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c79a42bbd60d7a1857649cffc97ed7f0103fa16
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051201"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653511"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>AD FS 2.0과 작동하도록 Azure Multi-Factor Authentication 서버 구성
 
@@ -59,7 +59,7 @@ ms.locfileid: "80051201"
 13. 작업을 완료하면 **확인**을 클릭하여 양식 기반 웹 사이트 추가 대화 상자로 돌아갑니다.
 14. **확인**을 클릭하여 대화 상자를 닫습니다.
 15. URL 및 페이지 변수가 검색되거나 입력되면 양식 기반 패널에 웹 사이트 데이터가 표시됩니다.
-16. **네이티브 모듈** 탭을 클릭하고 서버, AD FS 프록시가 실행 중인 웹 사이트(예: "기본 웹 사이트") 또는 원하는 수준에서 IIS 플러그 인을 사용하도록 설정하기 위한 AD FS 프록시 애플리케이션(예: "adfs" 아래의 "ls")을 선택합니다.
+16. 네이티브 **모듈** 탭을 클릭하고 AD FS 프록시가 실행 중인 웹 사이트(예: "기본 웹 사이트") 또는 AD FS 프록시 응용 프로그램(예: "adfs"에서 "ls")을 선택하여 원하는 수준에서 IIS 플러그인을 활성화합니다.
 17. 화면 상단의 **IIS 인증 활성화** 상자를 클릭합니다.
 
 이제 IIS 인증이 사용되도록 설정되었습니다.
@@ -85,8 +85,8 @@ IIS 인증을 활성화했지만 LDAP를 통해 AD(Active Directory)에 대한 �
 
 1. 다음으로 회사 **설정** 아이콘을 클릭하고 **사용자 이름 확인** 탭을 선택합니다.
 2. 사용자 이름 라디오 단추를 **일치시키는 경우 LDAP 고유 식별자 사용 특성을** 선택합니다.
-3. 사용자가 "domain\username" 형식으로 사용자 이름을 입력하는 경우 서버는 LDAP 쿼리를 만들 때 사용자 이름에서 도메인을 제거할 수 있어야 합니다. 이 작업은 레지스트리 설정을 통해 수행할 수 있습니다.
-4. 64비트 서버에서 레지스트리 편집기를 열고 HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor로 이동합니다. 32비트 서버에서는 경로에 "Wow6432Node"를 지정합니다. "UsernameCxz_stripPrefixDomain"이라는 DWORD 레지스트리 키를 만들고 값을 1로 설정합니다. 이제 Azure Multi-Factor Authentication을 통해 AD FS 프록시 보안이 유지됩니다.
+3. 사용자가 사용자 이름을 "domain\username" 형식으로 입력하는 경우 서버는 LDAP 쿼리를 만들 때 사용자 이름에서 도메인을 제거할 수 있어야 합니다. 이 작업은 레지스트리 설정을 통해 수행할 수 있습니다.
+4. 64비트 서버에서 레지스트리 편집기를 열고 HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor로 이동합니다. 32비트 서버의 경우 경로에서 "Wow6432Node"를 꺼낸다. "UsernameCxz_stripPrefixDomain"라는 DWORD 레지스트리 키를 만들고 값을 1로 설정합니다. 이제 Azure Multi-Factor Authentication을 통해 AD FS 프록시 보안이 유지됩니다.
 
 Active Directory에서 서버로 사용자를 가져왔는지 확인합니다. 해당 위치에서 웹 사이트에 로그인할 때 2단계 인증이 필요하지 않도록 내부 IP 주소를 허용하려면 [신뢰할 수 있는 IP 섹션을](#trusted-ips) 참조하십시오.
 
@@ -107,7 +107,7 @@ AD FS 프록시를 사용하지 않는 경우 AD FS의 보안을 유지할 수 �
    ![프록시 없이 AD FS 2.0 직접](./media/howto-mfaserver-adfs-2/noproxy.png)
 
 8. **확인**을 클릭합니다.
-9. **네이티브 모듈** 탭을 클릭하고 서버, 웹 사이트(예: "기본 웹 사이트") 또는 AD FS 애플리케이션(예: "adfs"의 "ls")을 선택하여 원하는 수준에서 IIS 플러그 인을 사용하도록 설정합니다.
+9. 네이티브 **모듈** 탭을 클릭하고 서버, 웹 사이트(예: "기본 웹 사이트") 또는 AD FS 응용 프로그램(예: "adfs"에서 "ls")을 선택하여 원하는 수준에서 IIS 플러그인을 활성화합니다.
 10. 화면 상단의 **IIS 인증 활성화** 상자를 클릭합니다.
 
 이제 Azure Multi-Factor Authentication을 통해 AD FS 보안이 유지됩니다.

@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 84f432c45729091be1264bff85d1e32fac10f3ef
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 2c8617cffaa81da6423011a494b8dbc82c42d218
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583148"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632447"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Azure 시냅스 분석 워크로드 중요도
 
@@ -64,6 +64,6 @@ Q5는 mediumrc이기 때문에 두 개의 동시성 슬롯이 필요합니다. Q
 
 - 분류자 만들기에 대한 자세한 내용은 [워크로드 분류자 만들기(Transact-SQL)를](/sql/t-sql/statements/create-workload-classifier-transact-sql)참조하십시오.  
 - 워크로드 분류에 대한 자세한 내용은 [워크로드 분류](sql-data-warehouse-workload-classification.md)를 참조하십시오.  
-- 워크로드 분류기를 만드는 방법에 대한 빠른 시작 [워크로드 분류자 만들기를](quickstart-create-a-workload-classifier-tsql.md) 참조하십시오. 
+- 워크로드 분류기를 만드는 방법에 대한 빠른 시작 [워크로드 분류자 만들기를](quickstart-create-a-workload-classifier-tsql.md) 참조하십시오.
 - [워크로드 중요도 구성](sql-data-warehouse-how-to-configure-workload-importance.md) 및 [워크로드 관리 모니터링 및 관리](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md) 방법에 대한 문서를 참조하세요.
 - 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest)를 참조하세요.

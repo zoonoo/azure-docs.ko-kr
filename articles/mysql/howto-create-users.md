@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: c4e95164badaf0b255f5ee76d0fec7686c2abf8b
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.date: 4/2/2020
+ms.openlocfilehash: 99b614de87c666d1cb1fb8a34eaafadf6fa82849
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80382871"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632560"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버에서 사용자 만들기
 
@@ -22,6 +22,9 @@ Azure Database for MySQL을 처음으로 만들면 서버 관리자 로그인 �
 서버 관리 사용자자는 서버에 대한 SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER 권한을 갖습니다.
 
 Azure Database for MySQL 서버가 생성되면 첫 번째 서버 관리자 계정을 사용하여 추가 사용자를 만들고 관리 사용자 권한을 부여할 수 있습니다. 또한 서버 관리자 계정은 개별 데이터베이스 스키마에 액세스할 수 있는 권한의 사용자가 만드는 데 사용할 수 있습니다.
+
+> [!NOTE]
+> SUPER 권한 및 DBA 역할은 지원되지 않습니다. 제한 문서의 [권한을](concepts-limits.md#privilege-support) 검토하여 서비스에서 지원되지 않는 내용을 이해합니다.
 
 ## <a name="how-to-create-additional-admin-users-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 추가 관리 사용자를 만드는 방법
 

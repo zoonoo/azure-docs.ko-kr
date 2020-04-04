@@ -4,19 +4,19 @@ description: Microsoft Azure용 네트워크 정책 서버 확장을 사용하�
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f446f1549b3efcd5f27752fac972dfd80c8650d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ec8d5b66c71c558e56f3d1f48cec96d7cc487552
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425393"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654122"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure용 네트워크 정책 서버 확장을 사용하여 VPN 인프라를 Azure MFA와 통합
 
@@ -67,7 +67,7 @@ Azure용 NPS 확장을 NPS와 통합한 경우 성공적인 인증 흐름 결과
 2. RADIUS 클라이언트 역할을 하는 VPN 서버에서 해당 요청을 RADIUS *액세스 요청* 메시지로 변환하고 NPS 확장이 설치된 RADIUS 서버로 이 메시지(암호가 암호화됨)를 보냅니다.
 3. Active Directory에서 사용자 이름과 암호 조합이 확인됩니다. 사용자 이름이나 암호가 올바르지 않으면 RADIUS 서버에서 *액세스 거부* 메시지를 보냅니다.
 4. NPS 연결 요청 및 네트워크 정책에 지정된 모든 조건(예: 시간 또는 그룹 멤버 자격 제한)이 충족되는 경우 NPS 확장에서 Azure Multi-Factor Authentication을 통한 보조 인증 요청을 트리거합니다.
-5. Azure Multi-Factor Authentication에서 Azure Active Directory와 통신하여 사용자의 세부 정보를 검색하고 사용자가 구성한 방법(휴대폰 통화, 문자 메시지 또는 모바일 앱)을 사용하여 보조 인증을 수행합니다.
+5. Azure 다단계 인증은 Azure Active Directory와 통신하고, 사용자의 세부 정보를 검색하고, 사용자가 구성한 메서드(휴대폰 통화, 문자 메시지 또는 모바일 앱)를 사용하여 보조 인증을 수행합니다.
 6. MFA 챌린지가 성공할 경우 Azure Multi-Factor Authentication은 NPS 확장에 해당 결과를 전달합니다.
 7. 연결 시도가 인증되고 권한이 부여된 후에 확장이 설치된 NPS에서 RADIUS *액세스 허용* 메시지를 VPN 서버(RADIUS 클라이언트)로 보냅니다.
 8. 사용자가 VPN 서버의 가상 포트에 대한 액세스 권한을 부여받고 암호화된 VPN 터널을 설정합니다.
@@ -108,8 +108,8 @@ NPS 확장을 사용하려면 네트워크 정책 및 액세스 서비스 역할
 
 다음 라이브러리는 NPS 확장과 함께 자동으로 설치됩니다.
 
--   [Visual Studio 2013(X64)용 Visual C++ 재배포 가능 패키지](https://www.microsoft.com/download/details.aspx?id=40784)
--   [Windows PowerShell용 Microsoft Azure Active Directory 모듈 버전 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+-    [Visual Studio 2013(X64)용 Visual C++ 재배포 가능 패키지](https://www.microsoft.com/download/details.aspx?id=40784)
+-    [Windows PowerShell용 Microsoft Azure Active Directory 모듈 버전 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
 Microsoft Azure Active Directory PowerShell 모듈이 아직 없는 경우 설치 프로세스의 일부로 실행되는 구성 스크립트를 통해 설치됩니다. 이 모듈은 아직 설치하지 않았다고 해서 미리 설치할 필요가 없습니다.
 
@@ -361,7 +361,7 @@ NPS 확장은 네트워크 정책 및 액세스 서비스 역할이 설치되고
 * 자체 서명된 인증서를 만듭니다.
 * 인증서의 공개 키를 Azure AD의 서비스 주체에 연결합니다.
 * 로컬 컴퓨터 저장소에 인증서를 저장합니다.
-* 네트워크 사용자에게 인증서의 프라이빗 키에 대한 액세스 권한을 부여합니다.
+* 네트워크 사용자에게 인증서의 개인 키에 대한 액세스 권한을 부여합니다.
 * NPS 서비스를 다시 시작합니다.
 
 사용자 고유의 인증서를 사용하려면 인증서의 공개 키를 Azure AD의 서비스 주체 등에 연결해야 합니다.

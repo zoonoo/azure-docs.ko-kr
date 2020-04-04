@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 04/03/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: f74e3ea3d20ad2666b434e009cf62add6f88d200
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4604bfe7c815f79733f99a1a3727e4c68527e7ec
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79221270"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656137"
 ---
-# <a name="try-the-speech-service-for-free"></a>Speech Service 체험해 보기
+# <a name="try-the-speech-service-for-free"></a>음성 서비스를 무료로 사용해 보십시오.'
 
 이 문서에서는 서비스가 수행할 수 있는 작업을 검색하고 사용자의 요구에 적합한지 여부를 결정할 수 있도록 음성 서비스를 무료로 쉽게 테스트하는 옵션을 선택합니다. 상황 및 사용 사례에 따라 다음 두 가지 옵션 중 하나를 선택합니다.
 
@@ -97,4 +97,4 @@ Speech 서비스 리소스(체험 또는 유료 계층)를 Azure 계정에 추�
 
 > [!div class="nextstepaction"]
 > [빠른 시작: C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
-> [음성 SDK 샘플에서 음성](speech-sdk.md#get-the-samples) 인식
+> [음성 SDK 샘플에서 음성](speech-sdk.md#sample-source-code) 인식

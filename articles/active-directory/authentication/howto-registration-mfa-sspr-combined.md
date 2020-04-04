@@ -4,19 +4,19 @@ description: 결합된 Azure AD 다단계 인증 및 셀프 서비스 암호 재
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25c64d9e959b1d68de23e83e26d3495bd3939986
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f454b0296a3463d7346c2945b21162e5a38c0eb7
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425178"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652517"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>통합 보안 정보 등록(미리 보기)
 
@@ -48,7 +48,7 @@ ms.locfileid: "75425178"
 > 2019년 3월부터 무료/평가판 Azure AD 테넌트의 다단계 인증 및 SSPR 사용자는 전화 통화 옵션을 사용할 수 없습니다. SMS 메시지는 이 변경의 영향을 받지 않습니다. 유료 Azure AD 테넌자의 사용자는 전화 통화 옵션을 계속 사용할 수 있습니다.
 
 > [!NOTE]
-> 결합 등록을 활성화한 후 새 환경을 통해 전화 번호 또는 모바일 앱을 등록하거나 확인한 사용자는 다단계 인증 및 SSPR에서 이러한 메서드를 사용하도록 설정한 경우 다단계 인증 및 SSPR에 사용할 수 있습니다. 정책. 그런 다음 이 환경을 사용하지 않도록 설정하면 페이지에 액세스하기 `https://aka.ms/ssprsetup` 전에 이전 SSPR 등록 페이지로 이동하는 사용자가 다단계 인증을 수행해야 합니다.
+> 결합 등록을 활성화한 후 새 환경을 통해 전화 번호 또는 모바일 앱을 등록하거나 확인하는 사용자는 다단계 인증 및 SSPR 정책에서 이러한 메서드를 사용하도록 설정된 경우 다단계 인증 및 SSPR에 사용할 수 있습니다. 그런 다음 이 환경을 사용하지 않도록 설정하면 페이지에 액세스하기 `https://aka.ms/ssprsetup` 전에 이전 SSPR 등록 페이지로 이동하는 사용자가 다단계 인증을 수행해야 합니다.
 
 Internet Explorer에서 사이트 대 영역 할당 목록을 구성한 경우 다음 사이트가 동일한 영역에 있어야 합니다.
 

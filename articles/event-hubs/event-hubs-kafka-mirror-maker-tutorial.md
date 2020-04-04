@@ -6,16 +6,15 @@ documentationcenter: .net
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
-ms.topic: conceptual
-ms.custom: seodec18
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 04/02/2020
 ms.author: shvija
-ms.openlocfilehash: 3e0339cf4431d3ed36f50b43134803079e30b101
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: fb041ec0d3cd474cca12d5ad55b733337566b9cc
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521752"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632777"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Apache Kafka용 Event Hubs에서 Kafka MirrorMaker 사용
 
@@ -127,23 +126,11 @@ GitHub에서 다음 샘플을 참조하십시오.
 - [Azure 이벤트 허브 Kafka 미러메이커 Azure 컨테이너 인스턴스에서 실행](https://github.com/djrosanova/EventHubsMirrorMaker)
 
 ## <a name="next-steps"></a>다음 단계
+카프카의 이벤트 허브에 대한 자세한 내용은 다음 문서를 참조하세요.  
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
-> [!div class="checklist"]
-> * Event Hubs 네임스페이스 만들기
-> * 프로젝트 예제 복제
-> * Kafka 클러스터 설정
-> * Kafka MirrorMaker 구성
-> * Kafka MirrorMaker 실행
-
-Event Hubs 및 Kafka용 Event Hubs에 대해 자세히 알아보려면 다음 항목을 참조하세요.  
-
-- [Event Hubs에 대해 알아봅니다](event-hubs-what-is-event-hubs.md).
-- [Apache Kafka용 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)
-- [이벤트 허브를 만드는 방법](event-hubs-create.md)
-- [Kafka 애플리케이션에서 이벤트 허브로 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 - [이벤트 허브에 Apache Spark 연결](event-hubs-kafka-spark-tutorial.md)
 - [이벤트 허브에 Apache Flink 연결](event-hubs-kafka-flink-tutorial.md)
 - [카프카 커넥트와 이벤트 허브 통합](event-hubs-kafka-connect-tutorial.md)
-- [이벤트 허브에 Akka 스트림 연결](event-hubs-kafka-akka-streams-tutorial.md)
 - [GitHub에서 더 많은 샘플 탐색](https://github.com/Azure/azure-event-hubs-for-kafka)
+- [이벤트 허브에 Akka 스트림 연결](event-hubs-kafka-akka-streams-tutorial.md)
+- [Azure 이벤트 허브에 대 한 아파치 카프카 개발자 가이드](apache-kafka-developer-guide.md)

@@ -4,19 +4,19 @@ description: Microsoft 인증자 앱을 사용하여 Azure AD에 암호 없는 �
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c684d6f1fbd8128ae020b6fd29da928b286aa18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 853e7143834a340b870b71ef1a287dab136e2783
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79126693"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654064"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Microsoft 인증자 앱에서 암호 없는 로그인 사용(미리 보기)
 
@@ -54,7 +54,7 @@ ms.locfileid: "79126693"
 
 ## <a name="user-registration-and-management-of-microsoft-authenticator-app"></a>Microsoft 인증자 앱의 사용자 등록 및 관리
 
-1. 다음 을 찾아보십시오.[https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)
+1. [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)으로 이동합니다.
 1. 아직 로그인하지 않은 경우
 1. **메서드 추가를**클릭하고 인증자 앱을 선택하고 **추가를** 클릭하여 **인증자 앱을**추가합니다.
 1. 지침에 따라 장치에 Microsoft 인증자 앱을 설치하고 구성합니다.
@@ -82,7 +82,7 @@ ms.locfileid: "79126693"
 
 ### <a name="ad-fs-integration"></a>AD FS 통합
 
-사용자가 Microsoft Authenticator 암호 없는 자격 증명을 사용하도록 설정하면 해당 사용자의 인증은 항상 승인을 위해 알림을 보내는 것으로 기본 설정됩니다. 이 논리는 하이브리드 테넌트의 사용자가 [암호를 대신 사용]을 클릭하는 추가 단계를 수행하지 않고 로그인 확인을 위해 ADFS로 이동하는 것을 방지합니다. 또한 이 프로세스는 온-프레미스 조건부 액세스 정책 및 통과 인증 흐름을 무시합니다. 
+사용자가 Microsoft Authenticator 암호 없는 자격 증명을 사용하도록 설정하면 해당 사용자의 인증은 항상 승인을 위해 알림을 보내는 것으로 기본 설정됩니다. 이 논리는 하이브리드 테넌트의 사용자가 "대신 암호 사용"을 클릭하는 추가 단계를 취하지 않고도 로그인 확인을 위해 ADFS로 보내지는 것을 방지합니다. 또한 이 프로세스는 온-프레미스 조건부 액세스 정책 및 통과 인증 흐름을 무시합니다. 
 
 사용자가 응답되지 않은 암호없는 전화 로그인 확인이 보류 중이고 다시 로그인을 시도하는 경우, 사용자는 대신 암호를 입력하기 위해 ADFS로 이동 될 수 있습니다.  
 

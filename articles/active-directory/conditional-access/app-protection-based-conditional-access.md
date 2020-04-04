@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/04/2020
+ms.date: 04/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9859c884f6a1e22a1ac2bd21106ef51ead23fa41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6b282962cc713487b8ee5113b02b8533a1538fff
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79080061"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631889"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용하여 클라우드 앱 액세스를 위해 앱 보호 정책 및 승인된 클라이언트 앱 필요
 
@@ -59,7 +59,7 @@ ms.locfileid: "79080061"
 1. **액세스 제어** > **권한 부여에서**다음 옵션을 선택합니다.
    - **승인된 클라이언트 앱 필요**
    - **앱 보호 정책 필요(미리 보기)**
-   - **선택한 컨트롤 중 하나가 필요합니다.**
+   - **선택된 컨트롤이 모두 필요**
 1. 설정을 확인하고 **정책 활성화를** **설정 합니다.**
 1. 정책을 만들고 활성화하려면 **만들기를** 선택합니다.
 
@@ -138,7 +138,7 @@ Android 및 iOS용 앱 보호 정책을 만드는 단계는 [앱 보호 정책�
 
 ## <a name="next-steps"></a>다음 단계
 
-[조건부 액세스란 무엇입니까?](overview.md)
+[조건부 액세스란?](overview.md)
 
 [조건부 액세스 구성 요소](concept-conditional-access-policies.md)
 

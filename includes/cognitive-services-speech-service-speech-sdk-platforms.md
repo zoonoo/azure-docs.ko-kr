@@ -1,24 +1,32 @@
 ---
-author: wolfma61
+author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/08/2019
-ms.author: wolfma
-ms.openlocfilehash: 62a1c682b770f06b4a01fa937f945d68541f5bfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/26/2020
+ms.author: dapine
+ms.openlocfilehash: 85dfedc75807e273240066460a58b79380050e58
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "67132992"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656722"
 ---
-| 프로그래밍 언어 | 플랫폼 | API 참조 |
-| -------------------- | -------- | ------------- |
-| C/C++ | Windows, Linux, macOS | [찾아보기](https://aka.ms/csspeech/cppref) |
-| C# | Windows, UWP, .NET Framework(Windows), .NET Core, Unity | [찾아보기](https://aka.ms/csspeech/csharpref) |
-| Java | 기계적 인, 윈도우, 리눅스, 맥 OS | [찾아보기](https://aka.ms/csspeech/javaref) |
-| Java\* | [Speech Devices SDK](../articles/cognitive-services/speech-service/speech-devices-sdk.md) | [찾아보기](https://aka.ms/csspeech/javaref) |
-| JavaScript/Node.js | 브라우저, Windows, Linux, macOS | [찾아보기](https://aka.ms/csspeech/javascriptref) |
-| Objective-C | iOS, macOS | [찾아보기](https://aka.ms/csspeech/objectivecref) |
-| Python | Windows, Linux, macOS | [찾아보기](https://aka.ms/csspeech/pythonref)  |
+| 프로그래밍 언어 | 플랫폼                                                                           | SDK 참조              |
+|----------------------|------------------------------------------------------------------------------------|----------------------------|
+| C # <sup>1</sup>      | 윈도우, 리눅스, 맥 OS, 모노, Xamarin.iOS, Xamarin.Mac, 자마린.안드로이드, UWP, 유니티 | [.NET SDK][net-sdk]        |
+| C++                  | Windows, Linux, macOS                                                              | [C++ SDK][cpp-sdk]         |
+| 자바 <sup>2</sup>    | 기계적 인, 윈도우, 리눅스, 맥 OS                                                     | [Java SDK][javasdk]        |
+| JavaScript           | 브라우저, 노드.js                                                                   | [JavaScript SDK][ecmasdk]  |
+| 목표-C / 신속한  | iOS, macOS                                                                         | [목표-C SDK][obj-sdk] |
+| Python               | Windows, Linux, macOS                                                              | [Python SDK][pyt-sdk]      |
 
-\* *Java SDK는 [Speech Devices SDK](../articles/cognitive-services/speech-service/speech-devices-sdk.md)에도 포함됩니다.*
+<sup>1 .NET 음성 SDK는 .NET 표준 2.0을 기반으로 하므로 많은 플랫폼을 지원합니다. 자세한 내용은 <a href="https://docs.microsoft.com/dotnet/standard/net-standard#net-implementation-support" target="_blank">.NET 구현 <span class="docon docon-navigate-external x-hidden-focus"> </span>지원을 </a>참조하십시오.</sup>
+
+<sup>2 자바 음성 SDK는 [음성 장치 SDK의](../articles/cognitive-services/speech-service/speech-devices-sdk.md)일부로 사용할 수 있습니다.</sup>
+
+[net-sdk]: https://aka.ms/csspeech/csharpref
+[cpp-sdk]: https://aka.ms/csspeech/cppref
+[javasdk]: https://aka.ms/csspeech/javaref
+[ecmasdk]: https://aka.ms/csspeech/javascriptref
+[obj-sdk]: https://aka.ms/csspeech/objectivecref
+[pyt-sdk]: https://aka.ms/csspeech/pythonref

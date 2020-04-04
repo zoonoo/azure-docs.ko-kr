@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: 29c1aaf18ea45d869d32a8817aeb03faa3b67c32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 02/14/2020
+ms.openlocfilehash: 096943ff796f9c12c7f8715cadce5c3085965d4d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75456578"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657128"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 
@@ -59,6 +59,9 @@ Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업
 * 게이트웨이 설치가 다른 Azure 게이트웨이 리소스에 의해 아직 등록되고 클레임되지 않았습니다.
 
   Azure 포털에서 게이트웨이 리소스를 만들 때 게이트웨이 리소스에만 연결되는 게이트웨이 설치를 선택합니다. Azure Logic Apps에서 온-프레미스 트리거 및 작업은 온-프레미스 데이터 원본에 연결하기 위해 게이트웨이 리소스를 사용합니다. 이러한 트리거 및 작업에서 Azure 구독 및 사용하려는 연결된 게이트웨이 리소스를 선택합니다. 각 게이트웨이 리소스는 하나의 게이트웨이 설치에만 연결되며, 이 설치는 하나의 Azure 계정에만 연결됩니다.
+
+  > [!NOTE]
+  > 게이트웨이 관리자만 Azure 포털에서 게이트웨이 리소스를 만들 수 있습니다. 현재 서비스 주체는 지원되지 않습니다. 
 
 <a name="create-gateway-resource"></a>
 
@@ -150,7 +153,7 @@ Azure 구독에 연결된 모든 API 연결을 찾으려면:
 
 1. 게이트웨이 리소스 메뉴에서 아직 선택하지 않은 경우 **온-프레미스 데이터 게이트웨이**를 선택합니다. 게이트웨이 리소스 도구 모음에서 **삭제를**선택합니다.
 
-   예를 들어:
+   다음은 그 예입니다.
 
    ![Azure에서 게이트웨이 리소스 삭제](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway.png)
 

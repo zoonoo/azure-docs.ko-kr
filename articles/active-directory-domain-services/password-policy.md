@@ -8,15 +8,15 @@ ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: cc1863ff4200ee4cca94f18e3adfffa7ea42db96
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: b14fed07c9bd9b5fcb6a5489719481902351fc0d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80476004"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654876"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>관리되는 도메인의 암호 및 계정 잠금 정책
 
@@ -45,6 +45,11 @@ Azure Active Directory 도메인 서비스(Azure AD DS)에서 사용자 보안�
 ## <a name="default-password-policy-settings"></a>기본 암호 정책 설정
 
 세분화된 암호 정책(FGPP)을 사용하면 도메인의 다른 사용자에게 암호 및 계정 잠금 정책에 대한 특정 제한을 적용할 수 있습니다. 예를 들어 권한 있는 계정을 보호하기 위해 일반 비권한 계정보다 더 엄격한 계정 잠금 설정을 적용할 수 있습니다. Azure AD DS 관리 도메인 내에서 여러 FGP를 만들고 사용자에게 적용할 우선 순위 순서를 지정할 수 있습니다.
+
+암호 정책 및 Active Directory 관리 센터 사용에 대한 자세한 내용은 다음 문서를 참조하십시오.
+
+* [세분화된 암호 정책에 대해 알아보기](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
+* [AD 관리 센터를 사용하여 세분화된 암호 정책 구성](/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)
 
 정책은 Azure AD DS 관리 도메인의 그룹 연결을 통해 배포되며 변경 한 내용은 다음 사용자 로그인시 적용됩니다. 정책을 변경해도 이미 잠긴 사용자 계정의 잠금이 해제되지 않습니다.
 

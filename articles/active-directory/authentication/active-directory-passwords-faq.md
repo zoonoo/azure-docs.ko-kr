@@ -4,19 +4,19 @@ description: Azure AD 셀프 서비스 암호 재설정에 대해 자주 묻는 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e1cc9dde6bb2b6ae47affaed4c557f3746a681b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae3ace24d6f33702c15a364b913f841d90fd8872
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77061457"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654187"
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
 
@@ -107,9 +107,9 @@ ms.locfileid: "77061457"
   > **A:** 암호 재설정 UI, SMS 메시지 및 음성 통화는 Office 365에서 지원되는 동일한 언어로 지역화됩니다.
   >
   >
-* **Q: 내 디렉터리의 구성 탭에서 조직 브랜드 항목을 설정하는 경우 암호 재설정 중 어느 부분에 브랜드가 적용되나요?**
+* **Q: 내 디렉토리의 구성 탭에서 조직 브랜딩 항목을 설정할 때 암호 재설정 환경의 어떤 부분이 브랜드화됩니까?**
 
-  > **A:** 암호 재설정 포털에는 조직 로고가 표시되며, 사용자 지정 메일 또는 URL을 가리키도록 “관리자에게 문의” 링크를 구성할 수 있습니다. 암호 재설정에서 보내는 메일의 본문에는 조직의 로고, 색 및 이름이 포함되며, 해당 이름에 대해 지정된 설정으로 사용자 지정됩니다.
+  > **A:** 암호 재설정 포털에는 조직 로고가 표시되며, 사용자 지정 메일 또는 URL을 가리키도록 “관리자에게 문의” 링크를 구성할 수 있습니다. 암호 재설정으로 전송되는 모든 전자 메일에는 조직의 로고, 색상 및 이름이 전자 메일 본문에 포함되며 특정 이름에 대한 설정에서 사용자 지정됩니다.
   >
   >
 * **Q: 암호 재설정으로 이동할 수 있는 위치에 대해 사용자에게 어떻게 교육할 수 있습니까?**
@@ -124,10 +124,10 @@ ms.locfileid: "77061457"
   >
 * **Q: 사용자가 암호를 재설정할 때 로컬 Active Directory 계정 잠금 해제가 지원되나요?**
 
-  > **A:** 예. 사용자가 자신의 암호를 재설정할 때 Azure AD Connect를 사용하여 비밀번호 쓰기 저장이 배포된 경우 해당 사용자의 계정이 자동으로 잠금 해제됩니다.
+  > **A:** 예. 사용자가 암호를 재설정하면 Azure AD Connect를 통해 암호 쓰기 를 배포한 경우 암호를 재설정할 때 해당 사용자의 계정이 자동으로 잠금 해제됩니다.
   >
   >
-* **Q: 암호 재설정을 내 사용자의 데스크톱 로그인 환경으로 직접 통합하려면 어떻게 해야 합니까?**
+* **Q: 암호 재설정을 사용자의 데스크톱 로그인 경험에 직접 통합하려면 어떻게 해야 합니까?**
 
   > **A:** 사용자가 Azure AD Premium 고객인 경우, 추가 비용 없이 Microsoft Identity Manager를 설치하고 온-프레미스 암호 재설정 솔루션을 배포할 수 있습니다.
   >
@@ -266,7 +266,7 @@ ms.locfileid: "77061457"
   > **A:** 페더레이션되고 암호 해시 동기화된 통과 인증 사용자를 비롯하여 온-프레미스 Active Directory에서 Azure AD로 동기화되는 사용자 계정에 대한 비밀번호 쓰기 저장이 작동합니다.
   >
   >
-* **Q: 비밀번호 쓰기 저장을 내 도메인 암호 정책에 적용합니까?**
+* **Q: 암호 쓰기 때문에 도메인의 암호 정책이 적용됩니까?**
 
   > **A:** 예. 비밀번호 쓰기 저장은 암호 사용 기간, 기록, 복잡성, 필터 및 관리자가 로컬 도메인에서 암호에 적용한 그 밖의 제한 사항을 이행합니다.
   >

@@ -4,19 +4,19 @@ description: Azure MFA 및 사용자 포털을 시작합니다.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e68c2a75254d1b387c45e31c5830849c6127756
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1869fac973cd4cd68e1e91be89c25fdf1427f6a5
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051193"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653204"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버의 사용자 포털
 
@@ -162,9 +162,9 @@ Azure Multi-Factor Authentication 서버에서는 사용자 포털에 대한 몇
 
 ![기본 및 백업 전화 번호 등록](./media/howto-mfaserver-deploy-userportal/backupphone.png)
 
-사용자가 PIN을 사용해서 인증해야 하는 경우 페이지에 PIN을 만들라는 메시지가 표시됩니다. 전화 번호와 PIN(해당하는 경우)을 입력한 후 사용자가 **지금 전화 버튼을** 클릭하여 인증합니다. Azure Multi-Factor Authentication은 사용자의 기본 전화 번호로 전화 통화 확인을 수행합니다. 사용자는 전화 통화에 응답하고 PIN(해당되는 경우)을 입력하고 # 키를 눌러야 자체 등록 프로세스의 다음 단계로 이동할 수 있습니다.
+사용자가 PIN을 사용해서 인증해야 하는 경우 페이지에 PIN을 만들라는 메시지가 표시됩니다. 전화 번호와 PIN(해당하는 경우)을 입력한 후 사용자가 **지금 전화 버튼을** 클릭하여 인증합니다. Azure 다단계 인증은 사용자의 기본 전화 번호에 대한 전화 통화 확인을 수행합니다. 사용자는 전화 통화에 응답하고 PIN(해당되는 경우)을 입력하고 # 키를 눌러야 자체 등록 프로세스의 다음 단계로 이동할 수 있습니다.
 
-사용자가 텍스트 문자 확인 방법을 선택하거나 해당 방법을 사용하도록 미리 구성했으면 페이지에 휴대폰 번호를 입력하라는 메시지가 표시됩니다. 사용자가 PIN을 사용해서 인증해야 하는 경우 페이지에 PIN을 입력하라는 메시지가 표시됩니다.  전화 번호와 PIN(해당하는 경우)을 입력한 후 텍스트 **지금 을** 클릭하여 인증 버튼을 클릭합니다. Azure Multi-Factor Authentication은 사용자의 휴대폰으로 SMS 확인을 수행합니다. 사용자는 일회용 암호(OTP)를 포함한 텍스트 메시지를 받은 다음 적용할 수 있는 경우 해당 OTP와 PIN을 사용하여 메시지에 회신합니다.
+사용자가 텍스트 문자 확인 방법을 선택하거나 해당 방법을 사용하도록 미리 구성했으면 페이지에 휴대폰 번호를 입력하라는 메시지가 표시됩니다. 사용자가 PIN을 사용해서 인증해야 하는 경우 페이지에 PIN을 입력하라는 메시지가 표시됩니다.  전화 번호와 PIN(해당하는 경우)을 입력한 후 텍스트 **지금 을** 클릭하여 인증 버튼을 클릭합니다. Azure 다단계 인증은 사용자의 휴대폰에 대한 SMS 확인을 수행합니다. 사용자는 일회용 암호(OTP)를 포함한 텍스트 메시지를 받은 다음 적용할 수 있는 경우 해당 OTP와 PIN을 사용하여 메시지에 회신합니다.
 
 ![SMS를 사용한 사용자 포털 인증](./media/howto-mfaserver-deploy-userportal/text.png)
 
@@ -175,7 +175,7 @@ Azure Multi-Factor Authentication 서버에서는 사용자 포털에 대한 몇
 
 그러면 페이지에 활성화 코드와 URL이 바코드 그림과 함께 표시됩니다. 사용자가 PIN을 사용해서 인증해야 하는 경우 페이지에 추가로 PIN을 입력하라는 메시지가 표시됩니다. Microsoft 인증 앱에 활성화 코드와 URL을 입력하거나 바코드 스캐너를 사용하여 바코드 그림을 스캔하고 [활성화] 단추를 클릭합니다.
 
-활성화가 완료되면 사용자가 **지금 인증** 단추를 클릭합니다. Azure Multi-Factor Authentication은 사용자의 모바일 앱에서 확인을 수행합니다. 사용자는 PIN(해당되는 경우)을 입력하고 모바일 앱에서 Authenticate(인증) 단추를 눌러야 자체 등록 프로세스의 다음 단계로 이동할 수 있습니다.
+활성화가 완료되면 사용자가 **지금 인증** 단추를 클릭합니다. Azure 다단계 인증은 사용자의 모바일 앱에 대한 확인을 수행합니다. 사용자는 PIN(해당되는 경우)을 입력하고 모바일 앱에서 Authenticate(인증) 단추를 눌러야 자체 등록 프로세스의 다음 단계로 이동할 수 있습니다.
 
 관리자가 보안 질문 및 답변을 수집하도록 Azure Multi-Factor Authentication 서버를 구성했으면 보안 질문 페이지로 이동됩니다. 사용자는 4개의 보안 질문을 선택하고 해당 질문에 대한 답변을 입력해야 합니다.
 

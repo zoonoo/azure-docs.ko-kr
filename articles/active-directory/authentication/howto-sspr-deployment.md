@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 785a8a031a10232a37b235711ba919fdc1df35d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7be99959c2ae420cff667491f68c40dfa0862a9
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77061426"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652398"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset"></a>Azure Active Directory 셀프 서비스 암호 재설정 계획
 
@@ -68,7 +68,7 @@ Azure Active Directory는 사용자별로 라이선스가 부여되므로 각 �
 
 | 리소스| 링크 및 설명 |
 | - | - |
-| 비디오| [더 나은 IT 확장성으로 사용자 역량 강화](https://youtu.be/g9RpRnylxS8) 
+| 동영상| [더 나은 IT 확장성으로 사용자 역량 강화](https://youtu.be/g9RpRnylxS8) 
 | |[셀프 서비스 암호 재설정이란 무엇입니까?](https://youtu.be/hc97Yx5PJiM)|
 | |[셀프 서비스 암호 재설정 배포](https://www.youtube.com/watch?v=Pa0eyqjEjvQ&index=18&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0)|
 | |[Azure AD의 사용자에 대한 셀프 서비스 암호 재설정을 구성하는 방법은 무엇입니까?](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/) |
@@ -147,14 +147,14 @@ SSPR의 초기 구성은 테스트 환경에 두는 것이 좋습니다. 조직�
 | **SSPR 속성** | 셀프 서비스 암호 재설정 사용 | 파일럿 을 위한 **선택된** 그룹 / 생산을 위한 **모든** |
 | **인증 방법** | 등록에 필요한 인증 방법 | 재설정에 필요한 것보다 항상 1 이상 |
 |   | 재설정에 필요한 인증 방법 | 1개 또는 2개 |
-| **등록** | 로그인 시 사용자가 등록하도록 요구 | yes |
+| **등록** | 로그인 시 사용자가 등록하도록 요구 | 예 |
 |   | 사용자가 인증 정보를 다시 확인해야 하기 전의 일 수 | 90 – 180일 |
-| **알림을** | 사용자에게 암호 재설정에 대해 알림 | yes |
-|   | 다른 관리자가 암호를 재설정하면 모든 관리자에게 알림 | yes |
-| **사용자 지정** | 헬프 데스크 링크 사용자 지정 | yes |
+| **알림** | 사용자에게 암호 재설정에 대해 알림 | 예 |
+|   | 다른 관리자가 암호를 재설정하면 모든 관리자에게 알림 | 예 |
+| **사용자 지정** | 헬프 데스크 링크 사용자 지정 | 예 |
 |   | 사용자 지정 헬프 데스크 이메일 또는 URL | 지원 사이트 또는 이메일 주소 |
-| **온-프레미스 통합** | 온-프레미스 AD에 암호를 다시 쓰기 | yes |
-|   | 사용자가 암호를 재설정하지 않고 계정 잠금을 해제할 수 있도록 허용 | yes |
+| **온-프레미스 통합** | 온-프레미스 AD에 암호를 다시 쓰기 | 예 |
+|   | 사용자가 암호를 재설정하지 않고 계정 잠금을 해제할 수 있도록 허용 | 예 |
 
 ### <a name="sspr-properties"></a>SSPR 속성
 

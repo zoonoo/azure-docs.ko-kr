@@ -8,15 +8,15 @@ ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 19e4033b462cda9511ee45420bd4c1a76cc36b92
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: d2108b4c6b81675e2df6789d412dbd7d36f58a4d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80518949"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655117"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용하여 Windows Server 가상 시스템에 Azure Active Directory 도메인 서비스 관리 도메인에 가입
 
@@ -86,7 +86,7 @@ Windows 서버 VM을 만든 다음 Azure AD DS 관리 도메인에 조인하려�
 
     | 설정                   | 값 |
     |---------------------------|-------|
-    | Subscription              | Azure AD Domain Services를 사용하도록 설정한 동일한 Azure 구독을 선택합니다. |
+    | 구독              | Azure AD Domain Services를 사용하도록 설정한 동일한 Azure 구독을 선택합니다. |
     | Resource group            | VM에 대한 리소스 그룹을 선택합니다. |
     | 위치                  | VM의 위치를 선택합니다. |
     | 기존 VNET 이름        | vM을 연결하는 기존 가상 네트워크의 이름(예: *myVnet)* |
@@ -119,7 +119,7 @@ Azure AD DS 관리 도메인에 가입하려는 기존 VM 또는 VM 그룹이 �
 
     | 설정                   | 값 |
     |---------------------------|-------|
-    | Subscription              | Azure AD Domain Services를 사용하도록 설정한 동일한 Azure 구독을 선택합니다. |
+    | 구독              | Azure AD Domain Services를 사용하도록 설정한 동일한 Azure 구독을 선택합니다. |
     | Resource group            | 기존 VM을 사용 하 여 리소스 그룹을 선택 합니다. |
     | 위치                  | 기존 VM의 위치를 선택합니다. |
     | VM 목록                   | *myVM1, myVM2*와 같은 Azure AD DS 관리 도메인에 가입하려면 기존 VM의 쉼표로 구분된 목록을 입력합니다. |

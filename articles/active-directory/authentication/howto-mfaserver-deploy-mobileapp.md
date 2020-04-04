@@ -4,23 +4,23 @@ description: Microsoft Authenticator 앱을 사용하여 사용자에게 푸시 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f62aacf8264eb583c523b6ee785f1908f0241644
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 785c4ccf591ce6a7a50a3d144fb1740121c73ce6
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74848156"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653184"
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버를 사용하여 모바일 앱 인증 활성화
 
-Microsoft Authenticator 앱은 추가적인 대역외 확인 옵션을 제공합니다. 로그인하는 동안 사용자에게 자동으로 전화가 걸리거나 SMS가 전송되는 대신, Azure Multi-Factor Authentication에서 사용자의 스마트폰이나 태블릿에 있는 Microsoft Authenticator 앱에 푸시 알림을 보냅니다. 사용자는 앱에서 **확인**을 탭(또는 PIN을 입력하고 "인증"을 탭)하여 로그인을 완료합니다.
+Microsoft Authenticator 앱은 추가적인 대역외 확인 옵션을 제공합니다. Azure 다단계 인증은 로그인 하는 동안 사용자에 게 자동화 된 전화 통화 또는 SMS를 배치 하는 대신 사용자의 스마트폰 또는 태블릿에 Microsoft 인증자 응용 프로그램에 알림을 푸시 합니다. 사용자는 앱에서 **확인(또는** PIN입력)을 탭하기만 하면 로그인을 완료할 수 있습니다.
 
 전화 수신을 신뢰할 수 없는 경우 2단계 인증에 모바일 앱을 사용하는 것이 좋습니다. OATH 토큰 생성기로 앱을 사용하는 경우 네트워크 또는 인터넷 연결이 필요하지 않습니다.
 

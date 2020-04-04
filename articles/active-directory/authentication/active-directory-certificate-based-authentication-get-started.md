@@ -4,19 +4,19 @@ description: 사용자 환경에서 인증서 기반 인증을 구성하는 방�
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b57c4f474b0b9def08005f32f48225d36ea8cf1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3a6c44a8253c81b44d02351b2df9c943d9f358f8
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74848836"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654347"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory에서 인증서 기반 인증 시작
 
@@ -40,7 +40,7 @@ ms.locfileid: "74848836"
 - Azure Active Directory에는 루트 인증 기관 및 중간 인증 기관을 구성되어야 합니다.
 - 각 인증 기관에는 인터넷 연결 URL을 통해 참조될 수 있는 CRL(인증서 해지 목록)이 있어야 합니다.
 - Azure Active Directory에 해당 인증 기관이 하나 이상 구성되어 있어야 합니다. [인증 기관 구성](#step-2-configure-the-certificate-authorities) 섹션에서 관련 단계를 찾을 수 있습니다.
-- Exchange ActiveSync 클라이언트의 경우, 보안 주체 이름 또는 주체 대체 이름 필드의 RFC822 이름 값에 Exchange Online 사용자가 라우팅할 수 있는 전자 메일 주소가 있어야 합니다. Azure Active Directory는 디렉터리의 프록시 주소 특성에 RFC822 값을 매핑합니다.
+- Exchange ActiveSync 클라이언트의 경우 클라이언트 인증서에는 주 이름 또는 주체 대체 이름 필드의 RFC822 이름 값으로 Exchange에서 사용자의 라우팅 가능한 전자 메일 주소가 있어야 합니다. Azure Active Directory는 디렉터리의 프록시 주소 특성에 RFC822 값을 매핑합니다.
 - 클라이언트 디바이스는 클라이언트 인증서를 발급하는 하나 이상의 인증 기관에 액세스해야 합니다.
 - 클라이언트 인증을 위한 클라이언트 인증서가 클라이언트에 발급되어야 합니다.
 

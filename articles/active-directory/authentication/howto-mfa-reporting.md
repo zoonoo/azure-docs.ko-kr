@@ -4,25 +4,25 @@ description: Azure Multi-Factor Authentication 기능 - 보고서를 사용하�
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/30/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b47e6bac031a5f2cffc8734fee976fbf8dadc666
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5d5354f5bca7a4c9ab00066167ad19890536629
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80129076"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653615"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에서 보고서
 
 Azure Multi-Factor Authentication은 사용자 및 사용자의 조직에서 Azure Portal을 통해 액세스하고 사용할 수 있는 다양한 보고서를 제공합니다. 다음 표에는 사용 가능한 보고서가 나와 있습니다.
 
-| 보고서 | 위치 | 설명 |
+| 보고서 | 위치 | Description |
 |:--- |:--- |:--- |
 | 차단된 사용자 기록 | Azure AD > 보안 > MFA > 차단/차단 해제 | 사용자를 차단 또는 차단 해제하도록 요청한 기록이 표시됩니다. |
 | 사용량 및 사기 행위 경고 | Azure AD > 로그인 | 지정된 날짜 범위 동안 제출된 사기 행위 경고의 기록을 비롯한 전체 사용량, 사용자 요약 및 사용자 세부 정보에 대한 정보를 제공합니다. |
@@ -32,7 +32,7 @@ Azure Multi-Factor Authentication은 사용자 및 사용자의 조직에서 Azu
 
 ## <a name="view-mfa-reports"></a>MFA 보고서 보기
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽에서 Azure **Active Directory** > **보안** > **MFA를**선택합니다.
 3. 보려는 보고서를 선택합니다.
 
@@ -90,7 +90,7 @@ MFA의 로그인 활동 보고서를 통해 다음 정보에 액세스 할 수 �
       - 전화 통화가 음성 사서함으로 연결됨
       - 전화 번호 형식이 잘못됨
       - 서비스 오류
-      - 사용자의 전화에 도달할 수 없음
+      - 사용자의 휴대폰에 연결할 수 없음
       - 모바일 앱 알림을 디바이스에 보낼 수 없음
       - 모바일 앱 알림을 보낼 수 없음
       - 사용자가 인증을 거부했음

@@ -11,21 +11,20 @@ ms.date: 03/11/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 0b7accec9fdce1ad81a08aee17b37d655409948b
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.openlocfilehash: 61c823aee5d8a6755a3bd7971cd7cca952cbb911
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80607563"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633614"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Azure Synapse 분석에서 리소스 사용률 및 쿼리 활동 모니터링
 
-Azure Synapse Analytics는 Azure 포털 내에서 풍부한 모니터링 환경을 제공하여 데이터 웨어하우스 워크로드에 대한 정보를 제공합니다. 데이터 웨어하우스를 모니터링할 때는 구성 가능한 보존 기간, 경고, 권장 사항, 메트릭과 로그용 사용자 지정 가능한 차트 및 대시보드를 제공하는 도구인 Azure Portal을 사용하는 것이 좋습니다. 또한 포털을 사용하면 Azure Monitor(로그)와 같은 다른 Azure 모니터링 서비스와 로그 분석을 통합하여 데이터 웨어하우스뿐만 아니라 통합 된 모니터링 환경을 위한 전체 Azure 분석 플랫폼에 대한 전체 적인 모니터링 환경을 제공할 수 있습니다. 이 설명서에는 분석 플랫폼을 최적화하고 관리하는 데 사용할 수 있는 모니터링 기능에 대해 설명합니다. 
+Azure Synapse Analytics는 Azure 포털 내에서 풍부한 모니터링 환경을 제공하여 데이터 웨어하우스 워크로드에 대한 정보를 제공합니다. 데이터 웨어하우스를 모니터링할 때는 구성 가능한 보존 기간, 경고, 권장 사항, 메트릭과 로그용 사용자 지정 가능한 차트 및 대시보드를 제공하는 도구인 Azure Portal을 사용하는 것이 좋습니다. 또한 포털을 사용하면 Azure Monitor(로그)와 같은 다른 Azure 모니터링 서비스와 로그 분석을 통합하여 데이터 웨어하우스뿐만 아니라 통합 된 모니터링 환경을 위한 전체 Azure 분석 플랫폼에 대한 전체 적인 모니터링 환경을 제공할 수 있습니다. 이 설명서에는 SQL Analytics를 사용하여 분석 플랫폼을 최적화하고 관리하는 데 사용할 수 있는 모니터링 기능에 대해 설명합니다.
 
 ## <a name="resource-utilization"></a>리소스 사용률
 
-다음 메트릭은 시냅스 SQL용 Azure 포털에서 사용할 수 있습니다. 이러한 메트릭은 [Azure Monitor](../../azure-monitor/platform/data-collection.md#metrics?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 통해 나타납니다.
-
+다음 메트릭은 SQL 분석에 대한 Azure 포털에서 사용할 수 있습니다. 이러한 메트릭은 [Azure Monitor](../../azure-monitor/platform/data-collection.md?toc=/azure/synapse-analytics/sql-data-warehouse?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#metrics)를 통해 나타납니다.
 
 | 메트릭 이름             | 설명                                                  | 집계 형식 |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
@@ -55,16 +54,16 @@ Azure Synapse Analytics는 Azure 포털 내에서 풍부한 모니터링 환경�
 
 ## <a name="query-activity"></a>쿼리 활동
 
-T-SQL을 통해 Synapse SQL을 모니터링할 때 프로그래밍 방식으로 환경을 제공하는 경우 이 서비스는 DMV(동적 관리 뷰) 집합을 제공합니다. 이러한 보기는 워크로드로 인한 성능 병목 상태를 적극적으로 해결하고 식별할 때 유용합니다.
+T-SQL을 통해 SQL 분석을 모니터링할 때 프로그래밍 방식으로 환경을 제공하는 경우 이 서비스는 DMV(동적 관리 뷰) 집합을 제공합니다. 이러한 보기는 워크로드로 인한 성능 병목 상태를 적극적으로 해결하고 식별할 때 유용합니다.
 
-Synapse SQL에 적용되는 DMV 목록을 보려면 이 [설명서를](sql-data-warehouse-reference-tsql-system-views.md#sql-data-warehouse-dynamic-management-views-dmvs)참조하십시오. 
+SQL 애널리틱스에서 제공하는 DMV 목록을 보려면 이 [설명서를](sql-data-warehouse-reference-tsql-system-views.md#sql-data-warehouse-dynamic-management-views-dmvs)참조하십시오.
 
 ## <a name="metrics-and-diagnostics-logging"></a>메트릭 및 진단 로깅
 
-메트릭과 로그는 모두 Azure Monitor, 특히 [Azure Monitor 로그](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 구성 요소로 내보낼 수 있으며 [로그 쿼리를](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)통해 프로그래밍 방식으로 액세스할 수 있습니다. 시냅스 SQL의 로그 대기 시간은 약 10~15분입니다. 대기 시간에 영향을 미치는 요인에 대한 자세한 내용은 다음 설명서를 참조하십시오.
+메트릭과 로그는 모두 Azure Monitor, 특히 [Azure Monitor 로그](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 구성 요소로 내보낼 수 있으며 [로그 쿼리를](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)통해 프로그래밍 방식으로 액세스할 수 있습니다. SQL 분석의 로그 대기 시간은 약 10~15분입니다. 대기 시간에 영향을 미치는 요인에 대한 자세한 내용은 다음 설명서를 참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 
 다음 방법 가이드에서는 데이터 웨어하우스를 모니터링하고 관리할 때의 일반적인 시나리오와 사용 사례에 대해 설명합니다.
 
-- [DMV를 사용하여 데이터 웨어하우스 워크로드 모니터링](/sql-data-warehouse/sql-data-warehouse-manage-monitor?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  
+- [DMV를 사용하여 데이터 웨어하우스 워크로드 모니터링](sql-data-warehouse-manage-monitor.md)

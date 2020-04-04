@@ -4,19 +4,19 @@ description: 이 문서에서는 Azure Portal에서 Azure Multi-Factor Authentic
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 077032e4fe3886d5bf9a678dffdffca1a5802091
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: da995afba1dc8eff295c9b724a78da95b9caac85
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263804"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653972"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정
 
@@ -30,12 +30,12 @@ Azure **Active Directory** > **보안** > **MFA로**이동하여 Azure 포털에
 
 이 설정 중 일부는 MFA 서버, Azure MFA 또는 양 쪽 모두에 적용됩니다.
 
-| 기능 | 설명 |
+| 기능 | Description |
 | ------- | ----------- |
 | 계정 잠금 | 연이어 거부된 인증 시도가 너무 많은 경우 Multi-Factor Authentication 서비스에서 계정을 일시적으로 잠급니다. 이 기능은 인증을 위해 PIN을 입력하는 사용자에게만 적용됩니다. (MFA 서버) |
 | [사용자 차단/차단 해제](#block-and-unblock-users) | 특정 사용자가 다단계 인증 요청을 받을 수 없게 차단하는 데 사용됩니다. 차단된 사용자에 대한 모든 인증 시도가 자동으로 거부됩니다. 사용자는 차단된 시간 이후 90일 동안 차단된 상태로 유지됩니다. |
 | [사기 경고](#fraud-alert) | 사기성 인증 요청을 보고하는 사용자 기능과 관련된 설정 구성 |
-| [알림을](#notifications) | MFA 서버의 이벤트 알림이 가능하도록 설정합니다. |
+| [알림](#notifications) | MFA 서버의 이벤트 알림이 가능하도록 설정합니다. |
 | [OATH 토큰](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | 클라우드 기반 Azure MFA 환경에 사용되어 사용자의 OATH 토큰을 관리합니다. |
 | [전화 통화 설정](#phone-call-settings) | 클라우드 및 온-프레미스 환경의 인사말 및 전화 통화 관련 설정을 구성합니다. |
 | 공급자 | 계정과 연관이 있을 수 있는 기존 인증 공급자를 표시합니다. 2018년 9월 1일부로 새 인증 공급자를 생성할 수 없습니다. |
@@ -44,7 +44,7 @@ Azure **Active Directory** > **보안** > **MFA로**이동하여 Azure 포털에
 
 이 섹션의 설정은 MFA 서버에만 해당됩니다.
 
-| 기능 | 설명 |
+| 기능 | Description |
 | ------- | ----------- |
 | 서버 설정 | MFA 서버를 다운로드하고 활성화 자격 증명을 생성하여 환경을 초기화합니다. |
 | [일회성 바이패스](#one-time-bypass) | 제한된 시간 동안 2단계 인증을 수행하지 않고 사용자가 인증하도록 허용합니다. |
@@ -97,10 +97,10 @@ _사용자 차단 및 차단 해제_ 기능을 사용하여 사용자가 인증 
 
 ### <a name="view-fraud-reports"></a>사기 행위 보고 보기
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active 디렉터리** > **로그인을 선택합니다.** 사기 보고서는 이제 표준 Azure AD 로그인 보고서의 일부입니다.
 
-## <a name="notifications"></a>공지
+## <a name="notifications"></a>알림
 
 사기 경고 이메일을 받게 될 사용자를 위해 여기에서 이메일 주소를 구성합니다.
 
@@ -192,7 +192,7 @@ _일회성 바이패스_ 기능을 통해 사용자는 2단계 인증을 수행�
 
 ### <a name="view-the-one-time-bypass-report"></a>일회성 바이패스 보고서 보기
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure **Active Directory** > **보안** > **MFA** > 일회성**바이패스로**이동합니다.
 
 ## <a name="caching-rules"></a>캐싱 규칙
@@ -277,7 +277,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory Domain Services(AD 
 
 기본적으로 사용자가 앱 암호를 만들 수 없습니다. 앱 암호 기능을 사용하도록 설정해야 합니다. 사용자에게 앱 암호를 만드는 기능을 제공하려면 다음 절차를 수행합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽에서 Azure **Active Directory** > **사용자를**선택합니다.
 3. **다단계 인증을**선택합니다.
 4. Multi-Factor Authentication 섹션 아래에서 **서비스 설정**을 선택합니다.
@@ -317,7 +317,7 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
 
 ### <a name="enable-named-locations-by-using-conditional-access"></a>조건부 액세스를 사용하여 명명된 위치 활성화
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽에서 Azure **Active Directory** > **보안** > **조건부 액세스** > **명명된 위치를**선택합니다.
 3. **새 위치**를 선택합니다.
 4. 위치에 대한 이름을 입력합니다.
@@ -327,7 +327,7 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>조건부 액세스를 사용하여 신뢰할 수 있는 IP 기능 사용
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽에서 Azure **Active Directory** > **보안** >  **조건부 액세스** > **명명된 위치를**선택합니다.
 3. **MFA 신뢰할 수 있는 IP 구성을**선택합니다.
 4. **서비스 설정** 페이지의 **신뢰할 수 있는 IP** 아래에 있는 다음 두 가지 옵션 중에서 선택합니다.
@@ -345,7 +345,7 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
 
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>서비스 설정을 사용하여 신뢰할 수 있는 IP 기능을 사용하도록 설정
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽에서 Azure **Active Directory** > **사용자를**선택합니다.
 3. **다단계 인증을**선택합니다.
 4. Multi-Factor Authentication 섹션 아래에서 **서비스 설정**을 선택합니다.
@@ -377,7 +377,7 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
 
 ### <a name="enable-and-disable-verification-methods"></a>인증 방법 사용 및 사용 안 함
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽에서 Azure **Active Directory** > **사용자를**선택합니다.
 3. **다단계 인증을**선택합니다.
 4. Multi-Factor Authentication 섹션 아래에서 **서비스 설정**을 선택합니다.
@@ -413,7 +413,7 @@ Multi-Factor Authentication 저장 기능은 사용자가 로그인 시 **X일 �
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Multi-Factor Authentication 저장 사용
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽에서 Azure **Active Directory** > **사용자를**선택합니다.
 3. **다단계 인증을**선택합니다.
 4. Multi-Factor Authentication 섹션 아래에서 **서비스 설정**을 선택합니다.

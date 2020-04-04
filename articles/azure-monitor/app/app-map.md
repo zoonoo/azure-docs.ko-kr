@@ -4,12 +4,12 @@ description: 애플리케이션 맵을 사용하여 복잡한 애플리케이션
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: dce2fdbe7e0c390309be38d2ebab4c73dbb4ed2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0823dd5d880c778f9b7a231ac14f1cbba1940927
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666278"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657384"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -85,7 +85,7 @@ ms.locfileid: "77666278"
 
 응용 프로그램 맵은 **클라우드 역할 이름** 속성을 사용하여 맵의 구성 요소를 식별합니다. 응용 프로그램 인사이트 SDK는 구성 요소에서 내보낸 원격 분석에 클라우드 역할 이름 속성을 자동으로 추가합니다. 예를 들어 SDK는 클라우드 역할 이름 속성에 웹 사이트 이름 또는 서비스 역할 이름을 추가합니다. 그러나 기본값을 대체할 수 있는 경우가 있습니다. 클라우드 역할 이름을 재정의하고 응용 프로그램 맵에 표시되는 내용을 변경하려면 다음을 수행합니다.
 
-### <a name="netnet-core"></a>.NET/.NET 코어
+# <a name="netnetcore"></a>[.NET/.NetCore](#tab/net)
 
 **아래와 같이 사용자 지정 원격 분석 초기설정을 작성합니다.**
 
@@ -153,7 +153,26 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-### <a name="nodejs"></a>Node.js
+# <a name="java"></a>[Java](#tab/java)
+
+응용 프로그램 인사이트 Java SDK 2.5.0부터 시작하여 파일에 `<RoleName>` 추가하여 `ApplicationInsights.xml` 클라우드 역할 이름을 지정할 수 있습니다(예:
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+   <RoleName>** Your role name **</RoleName>
+   ...
+</ApplicationInsights>
+```
+
+Application Insights Spring Boot 스타터에서 Spring Boot를 사용하는 경우 application.properties 파일에서 애플리케이션에 대한 사용자 지정 이름을 설정하도록 변경하기만 하면 됩니다.
+
+`spring.application.name=<name-of-app>`
+
+스프링 부팅 시작은 spring.application.name 속성에 대해 입력한 값에 클라우드 역할 이름을 자동으로 할당합니다.
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
 var appInsights = require("applicationinsights");
@@ -174,26 +193,7 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 });
 ```
 
-### <a name="java"></a>Java
-
-응용 프로그램 인사이트 Java SDK 2.5.0부터 시작하여 파일에 `<RoleName>` 추가하여 `ApplicationInsights.xml` 클라우드 역할 이름을 지정할 수 있습니다(예:
-
-```XML
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
-   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
-   <RoleName>** Your role name **</RoleName>
-   ...
-</ApplicationInsights>
-```
-
-Application Insights Spring Boot 스타터에서 Spring Boot를 사용하는 경우 application.properties 파일에서 애플리케이션에 대한 사용자 지정 이름을 설정하도록 변경하기만 하면 됩니다.
-
-`spring.application.name=<name-of-app>`
-
-스프링 부팅 시작은 spring.application.name 속성에 대해 입력한 값에 클라우드 역할 이름을 자동으로 할당합니다.
-
-### <a name="clientbrowser-side-javascript"></a>클라이언트/브라우저 쪽 JavaScript
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 appInsights.queue.push(() => {
@@ -203,6 +203,7 @@ appInsights.addTelemetryInitializer((envelope) => {
 });
 });
 ```
+---
 
 ### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>응용 프로그램 맵의 컨텍스트 내에서 클라우드 역할 이름 이해
 
@@ -254,7 +255,7 @@ Application Map이 예상대로 작동하지 않는 경우 다음 단계를 수�
 
 응용 프로그램 맵은 요청 원격 분석에 있는 각 고유한 클라우드 역할 이름에 대한 응용 프로그램 노드와 종속성 원격 분석에서 형식, 대상 및 클라우드 역할 이름의 각 고유한 조합에 대한 종속성 노드를 생성합니다. 원격 분석에 10,000개 이상의 노드가 있는 경우 응용 프로그램 맵은 모든 노드와 링크를 가져올 수 없으므로 맵이 불완전합니다. 이 경우 맵을 볼 때 경고 메시지가 나타납니다.
 
-또한 응용 프로그램 맵은 한 번에 렌더링되는 최대 1,000개의 개별 그룹화되지 않은 노드만 지원합니다. 응용 프로그램 맵은 동일한 형식과 호출자가 있는 종속성을 그룹화하여 시각적 복잡성을 줄이지만 원격 분석에서 고유 클라우드 역할 이름이 너무 많거나 종속성 형식이 너무 많으면 그룹화가 불충분하고 맵이 렌더링.
+또한 응용 프로그램 맵은 한 번에 렌더링되는 최대 1,000개의 개별 그룹화되지 않은 노드만 지원합니다. 응용 프로그램 맵은 동일한 형식과 호출자가 있는 종속성을 그룹화하여 시각적 복잡성을 줄이지만 원격 분석에서 고유 클라우드 역할 이름이 너무 많거나 종속성 형식이 너무 많으면 그룹화가 충분하지 않고 맵이 렌더링할 수 없습니다.
 
 이 문제를 해결하려면 클라우드 역할 이름, 종속성 유형 및 종속성 대상 필드를 올바르게 설정하려면 계측을 변경해야 합니다.
 

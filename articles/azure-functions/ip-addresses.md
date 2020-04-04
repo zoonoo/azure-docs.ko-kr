@@ -3,12 +3,12 @@ title: Azure Functions의 IP 주소
 description: 함수 앱의 인바운드 및 아웃바운드 IP 주소를 찾는 방법과 변경되는 원인을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bfd2d573e0a1c78d0ef4c68be224f92e8f689f62
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276492"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656778"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure Functions의 IP 주소
 
@@ -25,7 +25,7 @@ IP 주소는 개별 함수가 아니라 함수 앱과 연결됩니다. 들어오
 
 각 함수 앱에는 하나의 인바운드 IP 주소가 있습니다. 해당 IP 주소를 찾으려면 다음을 수행합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 함수 앱으로 이동합니다.
 3. **플랫폼 기능**을 선택합니다.
 4. **속성**을 선택합니다. 그러면 **가상 IP 주소** 아래에 인바운드 IP 주소가 표시됩니다.
@@ -86,7 +86,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 - 함수 앱을 삭제하고 다른 리소스 그룹에서 다시 만듭니다.
 - 리소스 그룹 및 지역 조합에서 마지막 함수 앱을 삭제하고 다시 만듭니다.
-- 인증서 갱신 중과 같은 SSL 바인딩을 [삭제합니다.](../app-service/configure-ssl-certificate.md#renew-certificate)
+- 인증서 갱신 중과 같은 TLS 바인딩을 [삭제합니다.](../app-service/configure-ssl-certificate.md#renew-certificate)
 
 함수 앱이 소비 [계획에서](functions-scale.md#consumption-plan)실행되는 경우 [위에 나열된](#inbound-ip-address-changes)것과 같은 작업을 수행하지 않은 경우에도 인바운드 IP 주소가 변경될 수 있습니다.
 
@@ -115,7 +115,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 함수 앱이 App Service Environment에서 실행되는지 확인하려면 다음을 수행합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 함수 앱으로 이동합니다.
 3. **개요** 탭을 선택합니다.
 4. App Service 계획 계층이 **App Service 계획/가격 책정 계층** 아래에 표시됩니다. App Service Environment 가격 책정 계층은 **격리**입니다.

@@ -1,14 +1,14 @@
 ---
 title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용하여 조직에서 Azure 리소스에 대한 규칙을 설정하는 방법을 설명합니다.
-ms.date: 02/26/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: d7cb1ab7d045a0595f6949052ecedba6cd1bf694
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6b1d5c43f290fc2dd953492440670608a15faca
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239998"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80638088"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -361,7 +361,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
     "policyRule": {
         "if": {
             "value": "[less(length(field('tags')), 3)]",
-            "equals": true
+            "equals": "true"
         },
         "then": {
             "effect": "deny"
@@ -578,6 +578,9 @@ Azure 정책은 다음과 같은 유형의 효과를 지원합니다.
 - resourceId()
 - variables()
 
+> [!NOTE]
+> 이러한 함수는 `details.deployment.properties.template` **deployIfNotExists** 정책 정의에서 템플릿 배포 부분 내에서 계속 사용할 수 있습니다.
+
 다음 함수는 정책 규칙에서 사용할 수 있지만 Azure 리소스 관리자 템플릿에서 사용하는 것과 다릅니다.
 
 - `utcNow()`- 리소스 관리자 템플릿과 달리 기본값 외부에서 사용할 수 있습니다.
@@ -593,10 +596,9 @@ Azure 정책은 다음과 같은 유형의 효과를 지원합니다.
   - If 조건에서 평가 중인 리소스에서 해당 필드의 값을 반환합니다.
   - `field`는 주로 평가 중인 리소스의 필드를 참조하기 위해 **AuditIfNotExists** 및 **DeployIfNotExists**와 함께 사용합니다. 이 사용 예제는 [DeployIfNotExists 예제](effects.md#deployifnotexists-example)에서 볼 수 있습니다.
 - `requestContext().apiVersion`
-  - 정책 평가를 트리거한 요청의 API 버전을 반환합니다(예: `2019-09-01`). 이 API 버전은 PUT/PATCH 요청에 사용된 API 버전으로, 리소스 생성/업데이트에 대한 평가를 위해 사용됩니다. 최신 API 버전은 항상 기존 리소스에 대한 규정 준수 평가 중에 사용됩니다.
+  - 정책 평가를 트리거한 요청의 API 버전을 반환합니다(예: `2019-09-01`).
+    이 API 버전은 PUT/PATCH 요청에 사용된 API 버전으로, 리소스 생성/업데이트에 대한 평가를 위해 사용됩니다. 최신 API 버전은 항상 기존 리소스에 대한 규정 준수 평가 중에 사용됩니다.
   
-
-
 #### <a name="policy-function-example"></a>정책 함수 예제
 
 이 정책 규칙 예제에서는 `resourceGroup` 리소스 함수를 `concat` 배열 및 개체 함수와 함께 사용하여 **name** 속성을 가져오고 리소스 이름을 리소스 그룹 이름으로 시작하도록 하는 `like` 조건을 작성합니다.
@@ -678,7 +680,7 @@ Azure 정책은 다음과 같은 유형의 효과를 지원합니다.
 
 ### <a name="understanding-the--alias"></a>[*] 별칭 이해
 
-사용 가능한 별칭 중 일부는 '일반' 이름으로 표시되는 버전과 ** \[ \* ** 연결된 다른 별칭을 가지고 있습니다. 예를 들어:
+사용 가능한 별칭 중 일부는 '일반' 이름으로 표시되는 버전과 ** \[ \* ** 연결된 다른 별칭을 가지고 있습니다. 다음은 그 예입니다.
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
@@ -707,8 +709,6 @@ Azure 정책은 다음과 같은 유형의 효과를 지원합니다.
     }
 }
 ```
-
-
 
 자세한 내용은 [[]\*별칭 을 평가합니다.](../how-to/author-policies-for-arrays.md#evaluating-the--alias)
 
@@ -795,7 +795,7 @@ Azure 정책은 다음과 같은 유형의 효과를 지원합니다.
 ## <a name="next-steps"></a>다음 단계
 
 - Azure 정책 [샘플의 예제를 검토합니다.](../samples/index.md)
-- [정책 효과 이해 검토](effects.md).
+- [정책 효과 이해](effects.md)를 검토합니다.
 - [프로그래밍 방식으로 정책을 만드는](../how-to/programmatically-create.md)방법을 이해합니다.
 - [규정 준수 데이터를 얻는](../how-to/get-compliance-data.md)방법에 대해 알아봅니다.
 - [비준수 리소스를 수정하는](../how-to/remediate-resources.md)방법에 대해 알아봅니다.

@@ -4,19 +4,19 @@ description: Android 디바이스에서 솔루션의 인증서 기반 인증을 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9f38c160a72b6c414cdde7d29e4056a4068cdc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e0427398d05cbe9f76249ec8f7c25568d566d5d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74848819"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654386"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Android에서 Azure Active Directory 인증서 기반 인증
 
@@ -33,7 +33,7 @@ Android 디바이스는 연결할 때 자신의 디바이스에서 클라이언�
 
 ## <a name="microsoft-mobile-applications-support"></a>Microsoft 모바일 애플리케이션 지원
 
-| 앱 | 고객 지원팀 |
+| 앱 | 지원 |
 | --- | --- |
 | Azure Information Protection 앱 |![이 응용 프로그램에 대한 지원을 나타내는 표시를 확인하십시오.][1] |
 | Intune 회사 포털 |![이 응용 프로그램에 대한 지원을 나타내는 표시를 확인하십시오.][1] |
@@ -66,7 +66,7 @@ Azure Active Directory는 이러한 클레임이 ADFS 토큰(또는 다른 SAML 
 
 자세한 내용은 [AD FS 로그인 페이지 사용자 지정](https://technet.microsoft.com/library/dn280950.aspx)을 참조하세요.
 
-일부 Office 앱(최신 인증 사용)은 요청 시 Azure AD에 '*prompt=login*'을 보냅니다. 기본적으로 Azure AD는 ADFS에 대한 요청 시 ‘*prompt=login*’을 ‘*wauth=usernamepassworduri*’(ADFS에 U/P 인증을 수행하도록 요청함) 및 ‘*wfresh=0*’(ADFS에 SSO 상태를 무시하고 새 인증을 수행하도록 요청함)으로 변환합니다. 이러한 앱에 인증서 기반 인증을 사용하려면 기본 Azure AD 동작을 수정해야 합니다. 페더레이션된 도메인 설정에서 ‘*PromptLoginBehavior*’를 ‘*사용 안 함*’으로 설정합니다.
+일부 Office 앱(최신 인증이 활성화된 경우)은 요청시 Azure AD에 *'프롬프트=로그인'을*보냅니다. 기본적으로 Azure AD는 ADFS에 대한 요청에서 *'프롬프트=로그인'을**'wauth=userpassworduri'(ADFS에*U/P Auth를 수행하도록 요청함) 및 *'wfresh=0'(ADFS에*SSO 상태를 무시하고 새 인증을 수행하도록 요청함)으로 변환합니다. 이러한 앱에 인증서 기반 인증을 사용하려면 기본 Azure AD 동작을 수정해야 합니다. 페더레이션도메인 설정에서 *'PromptLoginBehavior'를**'사용 안 함'으로*설정합니다.
 다음과 같은 [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) cmdlet을 사용하면 이 작업을 수행할 수 있습니다.
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`

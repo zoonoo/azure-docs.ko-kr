@@ -4,19 +4,19 @@ description: FIDO2 보안 키를 사용하여 Azure AD에 암호 없는 보안 �
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e088d239a91edeff34ecd1a7dc5be7a9f8628da3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b8574fcdff12e61f7039174ed6297d0558a66dc4
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80129153"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653944"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>암호 없는 보안 키 로그인(미리 보기) 활성화
 
@@ -52,7 +52,7 @@ ms.locfileid: "80129153"
 
 ### <a name="enable-fido2-security-key-method"></a>FIDO2 보안 키 방법 사용
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure **Active Directory** > **보안** > **인증 방법** > **인증 방법 정책(미리 보기)으로**찾아봅니다.
 1. **FIDO2 보안 키**방법에서 다음 옵션을 선택합니다.
    1. **사용 -** 예 또는 아니요
@@ -95,7 +95,7 @@ ms.locfileid: "80129153"
 
 보안 키의 관리자 프로비저닝 및 프로비저닝 해제는 공개 미리 보기에서 사용할 수 없습니다.
 
-### <a name="upn-changes"></a>UPN 변경 사항
+### <a name="upn-changes"></a>UPN 변경
 
 하이브리드 Azure AD 조인 및 Azure AD 조인 장치에서 UPN 변경을 허용하는 기능을 지원하기 위해 노력하고 있습니다. 사용자의 UPN이 변경되면 변경을 설명하기 위해 FIDO2 보안 키를 더 이상 수정할 수 없습니다. 해결 방법은 장치를 재설정하는 것이며 사용자는 다시 등록해야 합니다.
 

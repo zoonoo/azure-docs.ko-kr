@@ -4,29 +4,29 @@ description: Azure MFA 서버가 시스코, Citrix 및 주니퍼와 통합할 �
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdb24bcd79f1766a52f290fd6fe0e6e5bf17e7c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01decb99a9eb24ae60250f83f1f961b4c1690bc0
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74847952"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652857"
 ---
 # <a name="advanced-scenarios-with-azure-mfa-server-and-third-party-vpn-solutions"></a>Azure MFA 서버 및 타사 VPN 솔루션을 사용하여 고급 시나리오
 
-Azure 다단계 인증 서버(Azure MFA Server)를 사용하여 다양한 타사 VPN 솔루션과 원활하게 연결할 수 있습니다. 이 문서는 Cisco ® ASA VPN 어플라이언스, Citrix NetScaler SSL VPN 어플라이언스 및 Juniper Networks Secure Access/Pulse Secure Connect Secure SSL VPN 어플라이언스를 중점적으로 다룹니다. 이러한 세 가지 일반적인 어플라이언스를 해결하기 위해 구성 지침을 작성했습니다. Azure MFA Server는 Radius, LDAP, IIS 또는 클레임 기반 인증을 AD FS에 사용하는 대부분의 다른 시스템과 통합할 수도 있습니다. 자세한 내용은 Azure [MFA 서버 구성에서](howto-mfaserver-deploy.md#next-steps)확인할 수 있습니다.
+Azure 다단계 인증 서버(Azure MFA Server)를 사용하여 다양한 타사 VPN 솔루션과 원활하게 연결할 수 있습니다. 이 문서에서는 시스코&reg; ASA VPN 어플라이언스, Citrix NetScaler SSL VPN 어플라이언스 및 주니퍼 네트웍스 보안 액세스/펄스 보안 연결 보안 SSL VPN 어플라이언스에 중점을 둡니다. 이러한 세 가지 일반적인 어플라이언스를 해결하기 위해 구성 지침을 작성했습니다. Azure MFA Server는 Radius, LDAP, IIS 또는 클레임 기반 인증을 AD FS에 사용하는 대부분의 다른 시스템과 통합할 수도 있습니다. 자세한 내용은 Azure [MFA 서버 구성에서](howto-mfaserver-deploy.md#next-steps)확인할 수 있습니다.
 
 > [!IMPORTANT]
 > 2019년 7월 1일부터 Microsoft는 더 이상 새 배포를 위해 MFA 서버를 제공하지 않습니다. 사용자로부터 다단계 인증을 요구하려는 신규 고객은 클라우드 기반 Azure 다단계 인증을 사용해야 합니다. 7월 1일 이전에 MFA Server를 활성화한 기존 고객은 최신 버전, 향후 업데이트를 다운로드하고 평소와 같이 정품 인증 자격 증명을 생성할 수 있습니다.
 
 ## <a name="cisco-asa-vpn-appliance-and-azure-mfa-server"></a>시스코 ASA VPN 어플라이언스 및 Azure MFA 서버
-Azure MFA 서버는 Cisco® ASA VPN 어플라이언스와 통합되어 시스코 AnyConnect® VPN 로그인 및 포털 액세스에 대한 추가 보안을 제공합니다.  LDAP 또는 RADIUS 프로토콜을 사용할 수 있습니다.  자세한 단계별 구성 가이드를 다운로드하려면 다음 중 하나를 선택합니다.
+Azure MFA 서버는 Cisco&reg; ASA VPN 어플라이언스와 통합되어 Cisco AnyConnect&reg; VPN 로그인 및 포털 액세스에 대한 추가 보안을 제공합니다.  LDAP 또는 RADIUS 프로토콜을 사용할 수 있습니다.  자세한 단계별 구성 가이드를 다운로드하려면 다음 중 하나를 선택합니다.
 
 | 구성 가이드 | 설명 |
 | --- | --- |

@@ -7,12 +7,12 @@ ms.reviewers: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: d65b81f18d4dcb0ee97a21a7edec885e308bd8d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1885d7f8713b3801ce0c9846b7a8509b3864032a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297301"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656296"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Azure 논리 앱에서 인바운드 HTTPS 요청 수신 및 응답
 
@@ -25,7 +25,7 @@ ms.locfileid: "79297301"
 > [!NOTE]
 > 요청 트리거는 *only* 수신 호출에 대한 전송 계층 보안(TLS) 1.2만 지원합니다. 나가는 호출은 TLS 1.0, 1.1 및 1.2를 계속 지원합니다. 자세한 내용은 [TLS 1.0 문제 해결을](https://docs.microsoft.com/security/solving-tls1-problem)참조하십시오.
 >
-> SSL 핸드셰이크 오류가 표시되면 TLS 1.2를 사용해야 합니다. 수신 호출의 경우 지원되는 암호 제품군은 다음과 같습니다.
+> TLS 핸드셰이크 오류가 표시되면 TLS 1.2를 사용해야 합니다. 수신 호출의 경우 지원되는 암호 제품군은 다음과 같습니다.
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -48,7 +48,7 @@ ms.locfileid: "79297301"
 
 이 기본 제공 트리거는 들어오는 HTTPS *요청만* 받을 수 있는 수동으로 호출 가능한 HTTPS 끝점을 만듭니다. 이 이벤트가 발생하면 트리거가 로직 앱을 실행하고 실행합니다. 트리거의 기본 JSON 정의 및 이 트리거를 호출하는 방법에 대한 자세한 내용은 Azure Logic Apps에서 HTTP 끝점을 사용하여 [요청 트리거 유형](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) 및 [호출, 트리거 또는 중첩 워크플로를](../logic-apps/logic-apps-http-endpoint.md)참조하십시오.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다. 빈 논리 앱을 만듭니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 빈 논리 앱을 만듭니다.
 
 1. 논리 앱 디자이너가 열리면 검색 상자에 필터로 "http 요청"을 입력합니다. 트리거 목록에서 로직 앱 워크플로의 첫 번째 단계인 **HTTP 요청이 수신된** 경우 트리거를 선택합니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "79297301"
 
    | 속성 이름 | JSON 속성 이름 | 필수 | 설명 |
    |---------------|--------------------|----------|-------------|
-   | **HTTP POST URL** | {없음} | yes | 논리 앱을 저장한 후 생성되고 논리 앱을 호출하는 데 사용되는 끝점 URL |
+   | **HTTP POST URL** | {없음} | 예 | 논리 앱을 저장한 후 생성되고 논리 앱을 호출하는 데 사용되는 끝점 URL |
    | **요청 바디 JSON 스키마** | `schema` | 예 | 들어오는 요청 본문에서 속성 및 값을 설명하는 JSON 스키마 |
    |||||
 
@@ -246,7 +246,7 @@ ms.locfileid: "79297301"
 
    | 속성 이름 | JSON 속성 이름 | 필수 | 설명 |
    |---------------|--------------------|----------|-------------|
-   | **상태 코드** | `statusCode` | yes | 응답에서 반환할 상태 코드 |
+   | **상태 코드** | `statusCode` | 예 | 응답에서 반환할 상태 코드 |
    | **헤더** | `headers` | 예 | 응답에 포함할 하나 이상의 헤더를 설명하는 JSON 개체 |
    | **본문** | `body` | 예 | 응답 본문 |
    |||||

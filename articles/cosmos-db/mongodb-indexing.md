@@ -5,15 +5,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 04/03/2020
 author: timsander1
 ms.author: tisande
-ms.openlocfilehash: 7c75f0d6f74fe8cf1417e0dc40a5ad01615d7057
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f3f369928270c77557337bfdb1037cc5174c39f2
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371068"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637954"
 ---
 # <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB를 사용하는 인덱싱
 
@@ -35,7 +35,7 @@ ms.locfileid: "80371068"
 
 `db.coll.createIndex({name:1})`
 
-한 쿼리는 여러 단일 필드 인덱스(사용 가능한 경우)를 활용합니다.
+한 쿼리는 여러 단일 필드 인덱스(사용 가능한 경우)를 활용합니다. 컨테이너당 최대 500개의 단일 필드 인덱스를 만들 수 있습니다.
 
 ### <a name="compound-indexes-36"></a>복합지수 (3.6)
 

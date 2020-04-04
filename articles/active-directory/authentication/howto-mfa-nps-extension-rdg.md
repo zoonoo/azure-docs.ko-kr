@@ -4,25 +4,25 @@ description: Microsoft Azure용 네트워크 정책 서버 확장을 사용하�
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71d9b2332d6d78e7bde63d0fa3f5b64b588e576b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c61bea7f3ca1105edfec54501c5f0725a5a10225
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425468"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654106"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
 
 이 문서에서는 Microsoft Azure용 NPS(네트워크 정책 서버) 확장을 사용하여 원격 데스크톱 게이트웨이 인프라를 Azure MFA(Multi-Factor Authentication)와 통합하는 방법에 대해 자세히 설명합니다.
 
-Azure용 NPS(네트워크 정책 서비스) 확장을 사용하면 고객이 Azure의 클라우드 기반 [MFA(Multi-Factor Authentication)](multi-factor-authentication.md)를 사용하여 RADIUS(Remote Authentication Dial-In User Service) 클라이언트 인증을 보호할 수 있습니다. 이 솔루션은 사용자 로그인 및 트랜잭션에 두 번째 보안 계층을 추가하는 2단계 인증을 제공합니다.
+Azure용 NPS(네트워크 정책 서버) 확장을 사용하면 고객은 Azure의 클라우드 기반 [다단계 인증(MFA)을](multi-factor-authentication.md)사용하여 RADIUS(RADIUS) 클라이언트 인증을 보호할 수 있습니다. 이 솔루션은 사용자 로그인 및 트랜잭션에 두 번째 보안 계층을 추가하는 2단계 인증을 제공합니다.
 
 이 문서에서는 Azure용 NPS 확장을 사용하여 NPS 인프라를 Azure MFA와 통합하는 단계별 지침을 제공합니다. 이렇게 하면 원격 데스크톱 게이트웨이에 로그인하려고 시도하는 사용자를 안전하게 확인할 수 있습니다.
 
@@ -54,7 +54,7 @@ Azure용 NPS 확장을 NPS 및 원격 데스크톱 게이트웨이와 통합한 
 1. 원격 데스크톱 게이트웨이 서버에서 원격 데스크톱 세션과 같은 리소스에 연결하기 위해 원격 데스크톱 사용자로부터 인증 요청을 받습니다. RADIUS 클라이언트 역할을 하는 원격 데스크톱 게이트웨이 서버에서 해당 요청을 RADIUS 액세스 요청 메시지로 변환하고 NPS 확장이 설치된 RADIUS(NPS) 서버로 메시지를 보냅니다.
 1. Active Directory에서 사용자 이름과 암호 조합이 확인되고 사용자가 인증됩니다.
 1. NPS 연결 요청 및 네트워크 정책에 지정된 모든 조건(예: 시간 또는 그룹 멤버 자격 제한)이 충족되는 경우 NPS 확장에서 Azure MFA를 통한 보조 인증 요청을 트리거합니다.
-1. Azure MFA에서 Azure AD와 통신하여 사용자의 세부 정보를 검색하고 지원되는 방법을 사용하여 보조 인증을 수행합니다.
+1. Azure MFA는 Azure AD와 통신하고, 사용자의 세부 정보를 검색하고, 지원되는 방법을 사용하여 보조 인증을 수행합니다.
 1. MFA 챌린지가 성공하면 Azure MFA에서 결과를 NPS 확장으로 전달합니다.
 1. 확장이 설치된 NPS 서버에서 RD CAP 정책에 대한 RADIUS 액세스 허용 메시지를 원격 데스크톱 게이트웨이 서버로 보냅니다.
 1. 사용자에게 RD 게이트웨이를 통해 요청된 네트워크 리소스에 대한 액세스 권한이 부여됩니다.
@@ -149,7 +149,7 @@ NPS(네트워크 정책 및 액세스 서비스) 역할이 설치된 서버에 N
 * 자체 서명된 인증서 만들기
 * 인증서의 공개 키를 Azure AD의 서비스 사용자에 연결
 * 로컬 컴퓨터 인증서 저장소에 인증서 저장
-* 네트워크 사용자에게 인증서의 프라이빗 키에 대한 액세스 권한 부여
+* 네트워크 사용자에게 인증서의 개인 키에 대한 액세스 권한 부여
 * 네트워크 정책 서버 서비스 다시 시작
 
 사용자 고유의 인증서를 사용하려면 인증서의 공개 키를 Azure AD의 서비스 주체 등에 연결해야 합니다.
@@ -157,7 +157,7 @@ NPS(네트워크 정책 및 액세스 서비스) 역할이 설치된 서버에 N
 스크립트를 사용하려면 이전에 복사한 Azure AD 관리자 자격 증명과 Azure AD 테넌트 ID를 확장에 제공합니다. NPS 확장을 설치한 각 NPS 서버에서 스크립트를 실행합니다. 그런 다음 아래 작업을 수행합니다.
 
 1. 관리 Windows PowerShell 프롬프트를 엽니다.
-1. PowerShell 프롬프트에서 `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`를 입력하고 **Enter** 키를 누릅니다.
+1. PowerShell 프롬프트에서 `cd 'c:\Program Files\Microsoft\AzureMfa\Config'`를 입력하고 **Enter** 키를 누릅니다.
 1. `.\AzureMfaNpsExtnConfigSetup.ps1`을 입력하고 **ENTER** 키를 누릅니다. 스크립트에서 Azure Active Directory PowerShell 모듈이 설치되어 있는지 확인합니다. 설치되어 있지 않으면 스크립트에서 해당 모듈을 설치합니다.
 
    ![Azure AD 파워쉘에서 AzureMfaNpsExtnConfigUp.ps1 실행](./media/howto-mfa-nps-extension-rdg/image4.png)
@@ -206,7 +206,7 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
 
 ### <a name="configure-radius-timeout-value-on-remote-desktop-gateway-nps"></a>원격 데스크톱 게이트웨이 NPS에서 RADIUS 시간 제한 값 구성
 
-사용자의 자격 증명에 대한 유효성을 검사하고, 2단계 인증을 수행하며, 응답을 수신하고, RADIUS 메시지에 응답할 시간을 보장하려면 RADIUS 시간 제한 값을 조정해야 합니다.
+사용자의 자격 증명의 유효성을 검사하고, 2단계 인증을 수행하고, 응답을 받고, RADIUS 메시지에 응답할 시간이 있는지 확인하려면 RADIUS 시간 시간 값을 조정해야 합니다.
 
 1. RD 게이트웨이 서버에서 서버 관리자를 엽니다. 메뉴에서 **도구**를 클릭한 다음 **네트워크 정책 서버**를 클릭합니다.
 1. **NPS(로컬)** 콘솔에서 **RADIUS 클라이언트 및 서버**를 펼치고 **원격 RADIUS 서버**를 선택합니다.

@@ -4,26 +4,26 @@ description: Windows 인증 및 Azure Multi-Factor Authentication 서버 배포
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: faab28a714b1a62e1e34de5b07119aa3018db24e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4abfb970ca322724adb0f8919b7509bc8a641378
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263661"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652793"
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Windows 인증 및 Azure Multi-Factor Authentication 서버
 
 Azure Multi-Factor Authentication 서버의 Windows 인증 섹션을 사용하여 애플리케이션에 대한 Windows 인증을 사용하도록 설정하고 구성할 수 있습니다. Windows 인증을 설정하기 전에 다음 목록을 유념하세요.
 
 * 설정한 후에는 터미널 서비스에 대한 Azure Multi-Factor Authentication을 다시 부팅하여 적용되도록 합니다.
-* 'Azure Multi-Factor Authentication 사용자 일치'를 선택하고 사용자 목록에 없는 경우, 다시 부팅하면 컴퓨터에 로그인할 수 없습니다.
+* 'Azure 다단계 인증 사용자 일치 필요'를 선택하고 사용자 목록에 없는 경우 재부팅 후 컴퓨터에 로그인할 수 없습니다.
 * 신뢰할 수 있는 IP는 애플리케이션이 클라이언트 IP에 인증을 제공할 수 있는지 여부에 따라 달라집니다. 현재는 터미널 서비스만 지원됩니다.  
 
 > [!IMPORTANT]

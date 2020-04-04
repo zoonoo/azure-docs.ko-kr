@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: fd389c1e909e6875ead8410b5ca692b82c79e0de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6782d745bfced576fe06019b0d41af86c8c63ed4
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063069"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656265"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 개인 엔드포인트란?
 
@@ -55,24 +55,26 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
 |**프라이빗 링크** 서비스(나만의 서비스)   |  마이크로소프트.네트워크/개인링크서비스       | empty |
 |**Azure SQL Database** | Microsoft.Sql/servers    |  SQL 서버 (sqlServer)        |
 |**Azure Synapse Analytics** | Microsoft.Sql/servers    |  SQL 서버 (sqlServer)        | 
-|**Azure 저장소**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> 표(표, table_secondary)<BR> 큐(큐, queue_secondary)<BR> 파일(파일, file_secondary)<BR> 웹(웹, web_secondary)        |
+|**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> 표(표, table_secondary)<BR> 큐(큐, queue_secondary)<BR> 파일(파일, file_secondary)<BR> 웹(웹, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> 데이터 레이크 파일 시스템 Gen2(dfs, dfs_secondary)       |
-|**Azure 코스모스 DB** | 마이크로소프트.Azure코스모스DB/데이터베이스계정 | Sql, 몽고DB, 카산드라, 그렘린, 테이블|
+|**Azure Cosmos DB** | 마이크로소프트.Azure코스모스DB/데이터베이스계정 | Sql, 몽고DB, 카산드라, 그렘린, 테이블|
 |**PostgreSQL -단일 서버에 대한 Azure 데이터베이스** | Microsoft.DBforPostgreSQL/servers   | 포스트그레SQL서버 |
-|**MySQL용 Azure 데이터베이스** | Microsoft.DBforMySQL/servers    | 마이sql서버 |
+|**Azure Database for MySQL** | Microsoft.DBforMySQL/servers    | 마이sql서버 |
 |**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers    | 마리아드서버 |
 |**Azure 키 볼트** | Microsoft.KeyVault/vaults    | 자격 증명 모음 |
 |**Azure Kubernetes 서비스 - 쿠베네츠 API** | Microsoft.ContainerService/managedClusters | 관리되는 클러스터 |
 |**Azure Search** | 마이크로소프트.검색/검색 서비스| 검색 서비스|  
 |**Azure Container Registry** | Microsoft.ContainerRegistry/registries  | 사용된 |
 |**Azure App Configuration** | 마이크로소프트.앱구성/구성스토어   | 구성 스토어 |
-|**Azure 백업** | Microsoft.RecoveryServices/vaults   | 자격 증명 모음 |
+|**Azure Backup** | Microsoft.RecoveryServices/vaults   | 자격 증명 모음 |
 |**Azure 이벤트 허브** | Microsoft.EventHub/namespaces    | namespace |
-|**Azure 서비스 버스** | Microsoft.ServiceBus/namespaces | namespace |
+|**Azure Service Bus** | Microsoft.ServiceBus/namespaces | namespace |
 |**Azure Relay** | Microsoft.Relay/namespaces | namespace |
 |**Azure Event Grid** | Microsoft.EventGrid/topics  | 토픽 |
 |**Azure Event Grid** | 마이크로소프트.이벤트 그리드/도메인 | 도메인 |
-|**Azure 웹앱** | Microsoft.Web/sites    | sites |
+|**Azure 웹앱** | Microsoft.Web/sites    | site |
+|**Azure 기계 학습** | Microsoft.MachineLearningServices/workspaces  | 작업 영역 |
+  
  
 ## <a name="network-security-of-private-endpoints"></a>개인 엔드포인트의 네트워크 보안 
 Azure 서비스에 개인 끝점을 사용하는 경우 트래픽은 특정 개인 링크 리소스에 보호됩니다. 플랫폼은 액세스 제어를 수행하여 지정된 개인 링크 리소스에만 도달하는 네트워크 연결의 유효성을 검사합니다. 동일한 Azure 서비스 내에서 추가 리소스에 액세스하려면 추가 개인 끝점이 필요합니다. 
@@ -143,6 +145,7 @@ Azure 서비스의 경우 다음 표에 설명된 대로 권장 영역 이름을
 |Azure 이벤트 그리드(Microsoft.EventGrid/토픽)   | 토픽 | 항목. {지역}.프라이빗링크.eventgrid.azure.net|
 |Azure 이벤트 그리드(Microsoft.EventGrid/도메인) | 도메인 | 도메인. {지역}.프라이빗링크.eventgrid.azure.net |
 |Azure 웹앱스(Microsoft.웹/사이트) | site | privatelink.azurewebsites.net |
+|Azure 기계 학습(Microsoft.MachineLearning서비스/작업 영역)   | 작업 영역 | privatelink.api.azureml.ms |
  
 Azure는 공용 DNS에 표준 이름 DNS 레코드(CNAME)를 만들어 제안된 도메인 이름으로 해상도를 리디렉션합니다. 개인 끝점의 개인 IP 주소로 해상도를 재정의할 수 있습니다. 
  

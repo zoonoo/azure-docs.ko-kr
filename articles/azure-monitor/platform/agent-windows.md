@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 65a6f51d0eef28ea33adcc755d3d51f1e06a5341
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 70fa66a96291e0c2a638bf69bdce7da531d32bb7
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80528329"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637462"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Windows 컴퓨터를 Azure 모니터에 연결
 
@@ -32,14 +32,14 @@ Azure Monitor를 사용하여 로컬 데이터 센터 또는 기타 클라우드
 
 에이전트를 하나 이상의 작업 영역에 보고하도록 구성해야 하는 경우 작업 [영역 추가 또는 제거에](agent-manage.md#adding-or-removing-a-workspace)설명된 대로 제어판 또는 PowerShell에서 설정을 업데이트해야만 초기 설치 중에 이 작업을 수행할 수 없습니다.  
 
-지원되는 구성을 이해하려면 [지원되는 Windows 운영 체제](log-analytics-agent.md#supported-windows-operating-systems) 및 [네트워크 방화벽 구성](log-analytics-agent.md#firewall-requirements)을 검토합니다.
+지원되는 구성을 이해하려면 [지원되는 Windows 운영 체제](log-analytics-agent.md#supported-windows-operating-systems) 및 [네트워크 방화벽 구성](log-analytics-agent.md#network-requirements)을 검토합니다.
 
 ## <a name="obtain-workspace-id-and-key"></a>작업 영역 ID 및 키 가져오기
 Windows용 Log Analytics 에이전트를 설치하려면 Log Analytics 작업 영역에 대한 작업 영역 ID 및 키가 필요합니다.  이 정보는 에이전트를 올바르게 구성하고 Azure 상용 및 미국 정부 클라우드에서 Azure Monitor와 성공적으로 통신할 수 있도록 각 설치 방법을 설정하는 동안 필요합니다. 
 
 1. Azure 포털에서 **로그 분석 작업 영역을**검색하고 선택합니다.
 2. Log Analytics 작업 영역 목록에서 에이전트가 보고할 작업 영역을 선택합니다.
-3. **고급 설정**을 선택합니다.<br><br> ![Log Analytics 고급 설정](media/agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
+3. **고급 설정을**선택합니다.<br><br> ![Log Analytics 고급 설정](media/agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
 4. **연결된 원본**을 선택한 다음 **Windows 서버**를 선택합니다.   
 5. **작업 영역 ID** 및 **기본 키**를 복사한 후 즐겨찾는 편집기에 붙여넣습니다.    
    
@@ -136,44 +136,44 @@ Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](https
 에이전트 설치 패키지에서 제품 코드를 직접 검색하려면 Windows 소프트웨어 개발 키트의 구성 요소인 [Windows Installer 개발자용 Windows SDK 구성 요소](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx)에서 Orca.exe를 사용하거나 MVP(Microsoft Valuable Professional)에서 작성된 [예제 스크립트](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/)에 따라 PowerShell을 사용할 수 있습니다.  두 가지 방법에서 먼저 **MOMagent.msi** 파일을 MMASetup 설치 패키지에서 추출해야 합니다.  이는 앞서 첫 번째 단계의 [명령줄을 사용하여 에이전트 설치](#install-the-agent-using-the-command-line) 섹션에 나와 있습니다.  
 
 1. xPSDesiredStateConfiguration DSC 모듈을 [https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) Azure 자동화로 가져옵니다.  
-1. *OPSINSIGHTS_WS_ID* 및 *OPSINSIGHTS_WS_KEY*의 Azure Automation 변수 자산을 만듭니다. *OPSINSIGHTS_WS_ID*를 Log Analytics 작업 영역 ID에 설정하고 *OPSINSIGHTS_WS_KEY*를 작업 영역의 기본 키에 설정합니다.
-1. 스크립트를 복사하여 MMAgent.ps1로 저장합니다.
+2.    *OPSINSIGHTS_WS_ID* 및 *OPSINSIGHTS_WS_KEY*의 Azure Automation 변수 자산을 만듭니다. *OPSINSIGHTS_WS_ID*를 Log Analytics 작업 영역 ID에 설정하고 *OPSINSIGHTS_WS_KEY*를 작업 영역의 기본 키에 설정합니다.
+3.    스크립트를 복사하여 MMAgent.ps1로 저장합니다.
 
-   ```powershell
-   Configuration MMAgent
-   {
-       $OIPackageLocalPath = "C:\Deploy\MMASetup-AMD64.exe"
-       $OPSINSIGHTS_WS_ID = Get-AutomationVariable -Name "OPSINSIGHTS_WS_ID"
-       $OPSINSIGHTS_WS_KEY = Get-AutomationVariable -Name "OPSINSIGHTS_WS_KEY"
+```powershell
+Configuration MMAgent
+{
+    $OIPackageLocalPath = "C:\Deploy\MMASetup-AMD64.exe"
+    $OPSINSIGHTS_WS_ID = Get-AutomationVariable -Name "OPSINSIGHTS_WS_ID"
+    $OPSINSIGHTS_WS_KEY = Get-AutomationVariable -Name "OPSINSIGHTS_WS_KEY"
 
-       Import-DscResource -ModuleName xPSDesiredStateConfiguration
-       Import-DscResource -ModuleName PSDesiredStateConfiguration
+    Import-DscResource -ModuleName xPSDesiredStateConfiguration
+    Import-DscResource -ModuleName PSDesiredStateConfiguration
 
-       Node OMSnode {
-           Service OIService
-           {
-               Name = "HealthService"
-               State = "Running"
-               DependsOn = "[Package]OI"
-           }
+    Node OMSnode {
+        Service OIService
+        {
+            Name = "HealthService"
+            State = "Running"
+            DependsOn = "[Package]OI"
+        }
 
-           xRemoteFile OIPackage {
-               Uri = "https://go.microsoft.com/fwlink/?LinkId=828603"
-               DestinationPath = $OIPackageLocalPath
-           }
+        xRemoteFile OIPackage {
+            Uri = "https://go.microsoft.com/fwlink/?LinkId=828603"
+            DestinationPath = $OIPackageLocalPath
+        }
 
-           Package OI {
-               Ensure = "Present"
-               Path  = $OIPackageLocalPath
-               Name = "Microsoft Monitoring Agent"
-               ProductId = "8A7F2C51-4C7D-4BFD-9014-91D11F24AAE2"
-               Arguments = '/C:"setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=' + $OPSINSIGHTS_WS_ID + '      OPINSIGHTS_WORKSPACE_KEY=' + $OPSINSIGHTS_WS_KEY + ' AcceptEndUserLicenseAgreement=1"'
-               DependsOn = "[xRemoteFile]OIPackage"
-           }
-       }
-   }
+        Package OI {
+            Ensure = "Present"
+            Path  = $OIPackageLocalPath
+            Name = "Microsoft Monitoring Agent"
+            ProductId = "8A7F2C51-4C7D-4BFD-9014-91D11F24AAE2"
+            Arguments = '/C:"setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=' + $OPSINSIGHTS_WS_ID + ' OPINSIGHTS_WORKSPACE_KEY=' + $OPSINSIGHTS_WS_KEY + ' AcceptEndUserLicenseAgreement=1"'
+            DependsOn = "[xRemoteFile]OIPackage"
+        }
+    }
+}
 
-   ```
+```
 
 4. 앞에서 권장된 메서드를 사용하여 스크립트의 `ProductId` 값을 최신 버전의 에이전트 설치 패키지에서 추출한 제품 코드로 업데이트합니다. 
 5. Automation 계정으로 [MMAgent.ps1 구성 스크립트를 가져옵니다](../../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation). 

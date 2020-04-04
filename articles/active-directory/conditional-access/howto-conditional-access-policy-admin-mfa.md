@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 04/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c08c8d5d4203ae90cedd826bb5dcb01011d07afa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d00c80fe679f1e104d27ff16ead306f555f467d
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295272"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631856"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>조건부 액세스: 관리자를 위한 MFA 필요
 
@@ -42,7 +42,7 @@ ms.locfileid: "80295272"
 
 * **긴급 액세스** 또는 **브레이크 글래스** 계정으로 테넌트 전체 계정 잠금 방지 드문 경우지만 모든 관리자가 테넌트에서 잠겨 있는 경우 긴급 액세스 관리 계정을 사용하여 테넌트에 로그인하여 액세스를 복구하는 단계를 수행할 수 있습니다.
    * 자세한 내용은 Azure [AD의 긴급 액세스 계정 관리](../users-groups-roles/directory-emergency-access.md)문서에서 찾을 수 있습니다.
-* Azure AD 연결 동기화 계정과 같은 **서비스 계정** 및 **서비스 주체입니다.** 서비스 계정은 특정 사용자에게 연결되지 않은 대화형 계정이 아닙니다. 일반적으로 백 엔드 서비스에서 사용되며 응용 프로그램에 프로그래밍 방식으로 액세스할 수 있습니다. MFA를 프로그래밍 방식으로 완료할 수 없으므로 서비스 계정은 제외해야 합니다.
+* Azure AD 연결 동기화 계정과 같은 **서비스 계정** 및 **서비스 주체입니다.** 서비스 계정은 특정 사용자에게 연결되지 않은 대화형 계정이 아닙니다. 일반적으로 응용 프로그램에 프로그래밍 방식으로 액세스할 수 있도록 백 엔드 서비스에서 사용되지만 관리 목적으로 시스템에 로그인하는 데도 사용됩니다. MFA를 프로그래밍 방식으로 완료할 수 없으므로 이러한 서비스 계정은 제외해야 합니다.
    * 조직에서 스크립트 또는 코드에 이러한 계정을 사용 중인 경우 이를 [관리 ID](../managed-identities-azure-resources/overview.md)로 바꾸는 것이 좋습니다. 임시 해결 으로 이러한 특정 계정을 기준 정책에서 제외할 수 있습니다.
 
 ## <a name="create-a-conditional-access-policy"></a>조건부 액세스 정책 만들기

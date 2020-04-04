@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 09/03/2019
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 4b42f0966288e4ee72b689ddce6313a41e91f13e
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: dbbe58df4f1cfe93555b494e525fad18f5b02664
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80438028"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632580"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Azure AD 로그인을 사용하도록 앱 서비스 또는 Azure Functions 앱 구성
 
@@ -78,7 +78,7 @@ ms.locfileid: "80438028"
 1. 앱 등록을 만든 후 **나중에 응용 프로그램(클라이언트) ID와** **디렉터리(테넌트) ID를** 복사합니다.
 1. **인증**을 선택합니다. **암시적 부여에서** **ID 토큰을** 사용하여 앱 서비스에서 OpenID Connect 사용자 로그인을 허용합니다.
 1. (선택 사항) 브랜딩 을 **선택합니다.** **홈 페이지 URL에서**앱 서비스 앱의 URL을 입력하고 **저장을**선택합니다.
-1. **API** > **집합**노출을 선택합니다. 앱 서비스 앱의 URL에 붙여넣은 다음 **저장을**선택합니다.
+1. **API** > **집합**노출을 선택합니다. 단일 테넌트 앱의 경우 앱 서비스 앱의 URL에 붙여넣고 **저장** 및 다중 테넌트 앱의 경우 테넌트가 확인된 도메인 중 하나를 기반으로 하는 URL에 붙여넣은 다음 **저장을**선택합니다.
 
    > [!NOTE]
    > 이 값은 앱 등록의 **응용 프로그램 ID URI입니다.** 웹 앱에서 클라우드의 API에 액세스해야 하는 경우 클라우드 앱 서비스 리소스를 구성할 때 웹 앱의 **응용 프로그램 ID URI가** 필요합니다. 예를 들어 클라우드 서비스에서 웹 앱에 대한 액세스 권한을 명시적으로 부여하려는 경우 이 방법을 사용할 수 있습니다.

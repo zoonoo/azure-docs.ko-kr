@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/01/2020
+ms.date: 04/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01956c2fee1c15bc86e8d80aa05c70db647bf593
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 60dca30496aa17ad7add00ca4eca914cb58fddd7
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616876"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655974"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -57,7 +57,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 ### <a name="functional-changes-adsyncautoupgrade"></a>기능 변경 ADSync자동 업그레이드 
 
 - 그룹 개체에 대한 mS-DS-일관성 Guid 기능에 대한 지원이 추가되었습니다. 이렇게 하면 AD의 포리스트 간에 그룹을 이동하거나 AD 그룹 objectID가 변경된 Azure AD로 그룹을 다시 연결할 수 있습니다(예: 재해 후 AD 서버가 다시 빌드되는 경우). 자세한 내용은 [포리스트 간의 그룹 이동을](how-to-connect-migrate-groups.md)참조하십시오.
-- mS-DS-ConsistencyGuid 특성은 al 동기화된 그룹에 자동으로 설정되며 이 기능을 활성화하기 위해 아무 것도 수행할 필요가 없습니다. 
+- mS-DS-일관성Guid 특성은 동기화된 모든 그룹에 자동으로 설정되며 이 기능을 활성화하기 위해 아무 것도 수행할 필요가 없습니다. 
 - 더 이상 사용되지 않으므로 Get-ADSyncRunProfile을 제거했습니다. 
 - AD DS 커넥터 계정에 엔터프라이즈 관리자 또는 도메인 관리자 계정을 사용하여 더 많은 컨텍스트를 제공하려고 할 때 표시되는 경고를 변경했습니다. 
 - 커넥터 공간에서 개체를 제거하기 위해 새 cmdlet을 추가하여 이전 CSDelete.exe 도구가 제거되고 새 Remove-ADSyncCSObject cmdlet으로 대체됩니다. 제거-ADSyncCSObject cmdlet은 CsObject를 입력으로 사용합니다. 이 개체는 Get-ADSyncCSObject cmdlet을 사용하여 검색할 수 있습니다.
@@ -521,7 +521,7 @@ Azure AD Connect 버전 1.1.654.0 이상에서는 Azure AD Connect가 AD DS 계�
 *   특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다. SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
 *   다음과 같은 특정 권한을 할당합니다.
 
-Type     | 속성                          | 액세스 권한               | 적용 대상
+Type     | 이름                          | 액세스 권한               | 적용 대상
 ---------|-------------------------------|----------------------|--------------|
 Allow    | SYSTEM                        | 모든 권한         | 이 개체  |
 Allow    | 엔터프라이즈 관리자             | 모든 권한         | 이 개체  |

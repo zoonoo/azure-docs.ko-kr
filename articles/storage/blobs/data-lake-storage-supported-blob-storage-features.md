@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 04/03/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 215244204aa58cc2fdedc639d48e01b514759694
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b270ce3cd15dbd1e8dd53bd60376a87d6e08f75c
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78196011"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637208"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Azure 데이터 레이크 스토리지 Gen2에서 사용할 수 있는 Blob 저장소 기능
 
@@ -38,7 +38,7 @@ ms.locfileid: "78196011"
 |Blob Storage API|일반 공급|[빠른 시작: .NET에 대 한 Azure Blob 저장소 클라이언트 라이브러리 v12](storage-quickstart-blobs-dotnet.md)<br>[빠른 시작: Java v12 SDK로 Blob 관리](storage-quickstart-blobs-java.md)<br>[빠른 시작 : 파이썬 v12 SDK로 Blob 관리](storage-quickstart-blobs-python.md)<br>[빠른 시작: Node.js에서 자바 스크립트 v12 SDK로 Blob관리](storage-quickstart-blobs-nodejs.md)|
 |아카이브 액세스 계층|미리 보기|[Azure Blob Storage: 핫, 쿨 및 보관 스토리지 계층](storage-blob-storage-tiers.md)|
 |수명 주기 관리 정책|미리 보기|[Azure Blob Storage 수명 주기 관리](storage-lifecycle-management-concepts.md)|
-|진단 로그|미리 보기|[Azure Storage 분석 로깅](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|진단 로그|일반 공급|[Azure Storage 분석 로깅](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |변경 피드|아직 지원되지 않음|[Azure Blob 저장소에서 피드 지원 변경](storage-blob-change-feed.md)|
 |계정 장애 조치|아직 지원되지 않음|[재해 복구 및 계정 장애 조치](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Blob 컨테이너 ACL|아직 지원되지 않음|[컨테이너 ACL 설정](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
@@ -50,7 +50,7 @@ ms.locfileid: "78196011"
 |Azure 모니터에 로그인|아직 지원되지 않음|아직 사용할 수 없음|
 |프리미엄 블록 Blob|아직 지원되지 않음|[블록블블스토리지 계정 만들기](storage-blob-create-account-block-blob.md)|
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [Azure Data Lake Storage Gen2에서 알려진 문제](data-lake-storage-known-issues.md)
 - [Azure 데이터 레이크 저장소 Gen2를 지원하는 Azure 서비스](data-lake-storage-supported-azure-services.md)
