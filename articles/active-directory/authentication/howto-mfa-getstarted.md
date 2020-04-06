@@ -1,6 +1,6 @@
 ---
-title: Azure 다단계 인증 배포 - Azure 활성 디렉터리
-description: 마이크로소프트 Azure 다단계 인증 배포 계획
+title: Azure 다단계 인증에 대한 배포 고려 사항
+description: Azure 다단계 인증의 성공적인 구현을 위한 배포 고려 사항 및 전략에 대해 알아보기
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,18 +11,25 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ae58482ced524958ffcdd6094ae57856d088eaf
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: a70c6ae3ebc7f5b39550508594bd4d4907e68a67
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80653951"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667337"
 ---
-# <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>클라우드 기반 Azure Multi-Factor Authentication 배포 계획
+# <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Azure 다단계 인증 배포 계획
 
 사람들은 점점 더 복잡해지는 시나리오에서 조직 리소스에 연결하고 있습니다. 사람들은 종종 여러 플랫폼에서 스마트폰, 태블릿, PC 및 랩톱을 사용하여 회사 네트워크 안팎에서 조직 소유, 개인 및 공용 장치에서 연결합니다. 항상 연결된 다중 장치 및 다중 플랫폼 세계에서는 사용자 계정의 보안이 그 어느 때보다 중요합니다. 특히 사용자가 계정 간에 암호를 재사용하는 경향이 있는 경우 장치, 네트워크 및 플랫폼에서 사용되는 암호는 사용자 계정의 보안을 보장하기에 더 이상 충분하지 않습니다. 정교한 피싱 및 기타 소셜 엔지니어링 공격으로 인해 사용자 이름과 암호가 어두운 웹에 게시되고 판매될 수 있습니다.
 
 [MFA(Azure 다단계 인증)는](concept-mfa-howitworks.md) 데이터 및 응용 프로그램에 대한 액세스를 보호하는 데 도움이 됩니다. 두 번째 형태의 인증을 사용하여 추가 보안 계층을 제공합니다. 조직은 [조건부 액세스를](../conditional-access/overview.md) 사용하여 솔루션이 특정 요구 사항에 맞게 만들 수 있습니다.
+
+이 배포 가이드에서는 Azure 다단계 인증 롤아웃을 계획하고 테스트하는 방법을 보여 주며, 이를 보여 주시면 됩니다.
+
+Azure 다단계 인증이 작동하는 지 빠르게 확인하고 다시 돌아와 추가 배포 고려 사항을 이해하려면 다음을 수행하십시오.
+
+> [!div class="nextstepaction"]
+> [Azure Multi-Factor Authentication 사용](tutorial-enable-azure-mfa.md)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -173,7 +180,7 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-
 
 사용자별 활성화 및 적용된 Azure 다단계 인증을 사용하여 사용자를 사용하도록 설정한 경우 다음 PowerShell을 사용하면 조건부 액세스 기반 Azure 다단계 인증으로 변환하는 데 도움이 될 수 있습니다.
 
-ISE 창에서 이 PowerShell을 실행하거나 로 저장합니다. PS1 파일이 로컬로 실행됩니다.
+ISE 창에서 이 PowerShell을 실행하거나 파일로 저장하여 로컬로 `.PS1` 실행합니다.
 
 ```PowerShell
 # Sets the MFA requirement state
@@ -357,6 +364,7 @@ Microsoft 지원 센터의 [Azure 다단계 인증 문제 해결 문서에서](h
 
 ## <a name="next-steps"></a>다음 단계
 
-* [인증 방법이란?](concept-authentication-methods.md)
-* [Azure Multi-Factor Authentication 및 Azure AD 셀프 서비스 암호 재설정에 융합 등록 사용](concept-registration-mfa-sspr-converged.md)
-* 사용자에게 MFA를 수행하라는 메시지가 표시되거나 표시되지 않는 이유는? [Azure Multi-Factor Authentication 문서에서 보고서의 Azure AD 로그인 보고서](howto-mfa-reporting.md#azure-ad-sign-ins-report) 섹션을 참조하세요.
+Azure 다단계 인증이 작동하는 것을 보려면 다음 자습서를 완료하십시오.
+
+> [!div class="nextstepaction"]
+> [Azure Multi-Factor Authentication 사용](tutorial-enable-azure-mfa.md)

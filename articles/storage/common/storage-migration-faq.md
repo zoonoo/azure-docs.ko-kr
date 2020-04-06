@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 1445d74e3050ffd6da7c45037df552f4bee9acf5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39f1137638f9cd4926b712bdd18e681d90adcdc4
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77116677"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668543"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure Storage 마이그레이션에 대한 FAQ(질문과 대답)
 
@@ -215,7 +215,7 @@ AzCopy를 사용하여 데이터를 다운로드합니다. 자세한 내용은 [
 - 공유에서 스토리지 계정 내의 Blob 컨테이너나 다른 스토리지 계정으로 복사
 
 자세한 내용은 [Windows에서 AzCopy를 사용하여 데이터 전송](storage-use-azcopy.md)을 참조하세요.
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 **스토리지 계정에 대한 보조 지역을 유럽 지역으로 변경하려면 어떻게 할까요?**
 
@@ -269,7 +269,7 @@ Premium Storage는 Azure 파일 공유에서 허용되지 않습니다.
 
 **내 저장소 계정에서 HTTPS 사용자 지정 도메인을 사용하려면 어떻게 해야 합니까? 예를 들어 "https: /mystorageaccountname.blob.core.windows.net/images/image.gif"을 "https:\/\//www.contoso.com/images/image.gif"으로 표시하려면 어떻게 해야 합니까?**
 
-SSL은 현재 사용자 지정 도메인이 있는 스토리지 계정에서 지원되지 않습니다.
+TLS/SSL은 현재 사용자 지정 도메인이 있는 저장소 계정에서 지원되지 않습니다.
 하지만 HTTPS가 아닌 사용자 지정 도메인은 사용할 수 있습니다. 자세한 내용은 [Blob 저장소 끝점에 대한 사용자 지정 도메인 이름 구성을](../blobs/storage-custom-domain-name.md)참조하십시오.
 
 ## <a name="access-to-storage"></a>스토리지에 대한 액세스
@@ -288,7 +288,7 @@ Azure 파일 공유를 사용합니다.
 
 -   읽기 액세스 지역 중복 스토리지를 사용하는 경우 언제든지 보조 지역의 데이터에 액세스할 수 있습니다. 다음 방법 중 하나를 사용합니다.  
 
-    - **AzCopy**: 보조 엔드포인트에 액세스하려면 URL의 스토리지 계정 이름에 **-secondary**를 추가합니다. 예를 들어:  
+    - **AzCopy**: 보조 엔드포인트에 액세스하려면 URL의 스토리지 계정 이름에 **-secondary**를 추가합니다. 다음은 그 예입니다.  
 
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 

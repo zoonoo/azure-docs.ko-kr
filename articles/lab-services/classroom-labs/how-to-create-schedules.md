@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 4e3cf302437c3e4954ac977ac3f4ff6b2021a760
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4887b4359451ca5ce85042b4de42d5376bf4a730
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72330507"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667774"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Azure Lab Services에서 Classroom(강의실) 랩의 일정 만들기 및 관리 
 일정을 사용하면 랩의 VM이 지정된 시간에 자동으로 시작 및 종료되도록 Classroom(강의실) 랩을 구성할 수 있습니다. 일회성 일정이나 되풀이 일정을 정의할 수 있습니다. 다음 절차에서는 Classroom(강의실) 랩의 일정을 만들고 관리하는 단계를 제공합니다. 
@@ -28,6 +28,12 @@ ms.locfileid: "72330507"
 
 ## <a name="set-a-schedule-for-the-lab"></a>랩에 대한 일정 설정
 랩의 VM이 특정 시간에 자동으로 시작/중지되도록 랩에 예약된 이벤트를 만듭니다. 앞에서 지정한 사용자 할당량은 이 예약된 시간 이외의 시간으로 각 사용자에게 할당된 추가 시간입니다. 
+
+> [!NOTE]
+> 시작하기 전에 일정이 랩 가상 시스템에 미치는 영향은 다음과 같습니다. 
+>- 템플릿 가상 시스템은 일정에 포함되지 않습니다. 
+>- 할당된 가상 시스템만 시작됩니다. 즉, 최종 사용자(학생)가 컴퓨터를 청구하지 않으면 컴퓨터가 예약된 시간에 시작되지 않습니다. 
+>- 모든 가상 컴퓨터(사용자가 주장하는 여부)는 랩 일정에 따라 중지됩니다. 
 
 1. **일정** 페이지로 전환한 다음, 도구 모음에서 **예약된 이벤트 추가**를 선택합니다. 
 

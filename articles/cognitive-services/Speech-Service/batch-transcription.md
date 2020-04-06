@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: ee7fbddade055c11f5870aa5a588a2fd02f10a23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb39f1ec83416ee8ab2a33b514971110db0c0b17
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131596"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668845"
 ---
 # <a name="what-is-batch-transcription"></a>일괄 전사란 무엇입니까?
 
@@ -70,7 +70,7 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 
 스테레오 오디오 스트림의 경우 전사 중에 왼쪽 및 오른쪽 채널이 분할됩니다. 각 채널에 대해 JSON 결과 파일이 생성되고 있습니다. 발언당 생성된 타임스탬프를 통해 개발자는 정렬된 최종 자막을 만들 수 있습니다.
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 
 구성 매개 변수는 JSON으로 제공됩니다.
 
@@ -304,9 +304,6 @@ JSON 출력 샘플은 다음과 같습니다.
 ## <a name="sample-code"></a>예제 코드
 
 전체 샘플은 하위 디렉터리 내부의 [GitHub 샘플 리포지토리에서](https://aka.ms/csspeech/samples) `samples/batch` 사용할 수 있습니다.
-
-> [!NOTE]
-> 배치 전사 기능은 위에서 설명한 REST API를 통해 노출된다. 따라서 배치 전사는 REST를 지원하는 거의 모든 프로그래밍 언어 또는 환경에서 사용할 수 있습니다. 아래 예제와 GitHub의 샘플은 단순히 대표적일 뿐이며 API를 사용할 수 있는 위치에 대한 제한을 언급하지 **않습니다.**
 
 사용자 지정 어쿠스틱 또는 언어 모델을 사용하려는 경우 사용자 구독 정보, 서비스 지역, 전사할 오디오 파일을 가리키는 SAS URI 및 모델 ID를 사용하여 샘플 코드를 사용자 지정해야 합니다.
 

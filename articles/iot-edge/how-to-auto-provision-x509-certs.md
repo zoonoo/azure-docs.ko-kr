@@ -9,12 +9,12 @@ ms.date: 03/06/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 48c8179af4a4b69924fb943ac98918b48d3a2008
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4d247f151240da8c3f0d38bbd22e43e230a1b95
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79537363"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668624"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>X.509 인증서를 사용하여 IoT Edge 장치 생성 및 프로비전
 
@@ -73,6 +73,9 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
 장치 프로비저닝 서비스의 등록에 대한 자세한 내용은 [장치 등록을 관리하는 방법을 참조하세요.](../iot-dps/how-to-manage-enrollments.md)
 
+   > [!TIP]
+   > Azure CLI에서 [등록](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) 또는 [등록 그룹을](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) 만들고 가장자리 **지원** 플래그를 사용하여 장치 또는 장치 그룹이 IoT Edge 장치인지 지정할 수 있습니다.
+
 1. Azure [포털에서](https://portal.azure.com)IoT 허브 장치 프로비저닝 서비스의 인스턴스로 이동합니다.
 
 1. **설정**에서 **등록 관리**를 선택합니다.
@@ -91,7 +94,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
    * **이 장치에 할당할 수 있는 IoT 허브선택:** 장치를 연결할 연결된 IoT 허브를 선택합니다. 여러 허브를 선택할 수 있으며 선택한 할당 정책에 따라 장치가 해당 허브 중 하나에 할당됩니다.
 
-   * **초기 장치 트윈 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가합니다. 태그를 사용하여 자동 배포를 위해 장치 그룹을 대상으로 지정할 수 있습니다. 예를 들어:
+   * **초기 장치 트윈 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가합니다. 태그를 사용하여 자동 배포를 위해 장치 그룹을 대상으로 지정할 수 있습니다. 다음은 그 예입니다.
 
       ```json
       {
@@ -176,7 +179,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
    * **이 장치에 할당할 수 있는 IoT 허브선택:** 장치를 연결할 연결된 IoT 허브를 선택합니다. 여러 허브를 선택할 수 있으며 선택한 할당 정책에 따라 장치가 해당 허브 중 하나에 할당됩니다.
 
-   * **초기 장치 트윈 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가합니다. 태그를 사용하여 자동 배포를 위해 장치 그룹을 대상으로 지정할 수 있습니다. 예를 들어:
+   * **초기 장치 트윈 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가합니다. 태그를 사용하여 자동 배포를 위해 장치 그룹을 대상으로 지정할 수 있습니다. 다음은 그 예입니다.
 
       ```json
       {
@@ -212,7 +215,7 @@ DPS를 갖춘 X.509 프로비전은 IoT Edge 버전 1.0.9 이상에서만 지원
 
 [리눅스에 Azure IoT 에지 런타임 설치](how-to-install-iot-edge-linux.md)
 
-config.yaml 파일에 X.509 인증서 및 키 정보를 추가할 때 경로는 파일 URI로 제공되어야 합니다. 예를 들어:
+config.yaml 파일에 X.509 인증서 및 키 정보를 추가할 때 경로는 파일 URI로 제공되어야 합니다. 다음은 그 예입니다.
 
 * `file:///<path>/identity_certificate.pem`
 * `file:///<path>/identity_key.pem`

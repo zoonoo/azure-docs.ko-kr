@@ -4,16 +4,16 @@ description: Linux VM에서 시뮬레이션된 TPM을 사용하여 Azure IoT Edg
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/01/2019
+ms.date: 3/2/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6bb1282212ccff45f179b8750e3ed8aec27d129e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b62f551e2532e0205159358b3618695524ae85c8
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76511062"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666699"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Linux 가상 컴퓨터에서 가상 TPM을 사용하여 IoT Edge 장치 생성 및 프로비전
 
@@ -157,6 +157,9 @@ Device Provisioning Service를 실행한 후 개요 페이지에서 **ID 범위*
 
 DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 기회가 있습니다. 디바이스 쌍에서 지역, 환경, 위치 또는 디바이스 유형 같은 솔루션에 필요한 모든 메트릭으로 디바이스 그룹에 태그를 설정할 수 있습니다. 이러한 태그는 [자동 배포](how-to-deploy-monitor.md)를 만드는 데 사용됩니다.
 
+> [!TIP]
+> Azure CLI에서 [등록](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) 또는 [등록 그룹을](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) 만들고 가장자리 **지원** 플래그를 사용하여 장치 또는 장치 그룹이 IoT Edge 장치인지 지정할 수 있습니다.
+
 1. Azure [포털에서](https://portal.azure.com)IoT 허브 장치 프로비저닝 서비스의 인스턴스로 이동합니다.
 
 2. **설정**에서 **등록 관리**를 선택합니다.
@@ -176,7 +179,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
    5. 원하는 경우 디바이스에 대한 ID를 제공합니다. 디바이스 ID를 사용하여 모듈 배포에 대한 개별 디바이스를 대상으로 할 수 있습니다. 장치 ID를 제공하지 않으면 등록 ID가 사용됩니다.
 
-   6. 원하는 경우 **초기 디바이스 쌍 상태**에 태그 값을 추가합니다. 태그를 사용하여 모듈 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 예를 들어:
+   6. 원하는 경우 **초기 디바이스 쌍 상태**에 태그 값을 추가합니다. 태그를 사용하여 모듈 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 다음은 그 예입니다.
 
       ```json
       {

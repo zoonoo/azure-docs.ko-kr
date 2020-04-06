@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 40abd048b047bbece79b7c05d36a1fb189a4f28d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5821c72ae1be4759cf5aa76ff1f5af43337749c0
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77656928"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668590"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
 
@@ -30,11 +30,11 @@ ms.locfileid: "77656928"
 
 **인증서**
 
-- [클라우드 서비스 SSL 인증서의 인증서 체인이 불완전한 이유는 무엇입니까?](#why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete)
+- [클라우드 서비스 TLS/SSL 인증서의 인증서 체인이 불완전한 이유는 무엇입니까?](#why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete)
 - ["확장을 위한 Windows Azure Tools 암호화 인증서"의 목적은 무엇인가요?](#what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions)
 - ["RDP"하지 않고 인스턴스에서 CSR(인증서 서명 요청)을 생성하려면 어떻게 할까요?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
 - [클라우드 서비스 관리 인증서가 만료되었습니다. 그것을 갱신 하는 방법?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
-- [기본 SSL 인증서(.pfx) 및 중간 인증서(.p7b) 설치를 자동화하려면 어떻게 해야 하나요?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
+- [주 TLS/SSL 인증서(.pfx) 및 중간 인증서(.p7b)의 설치를 자동화하는 방법은 무엇입니까?](#how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b)
 - ["MachineKey용 Microsoft Azure 서비스 관리" 인증서의 목적은 무엇인가요?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
 **모니터링 및 로깅**
@@ -50,12 +50,12 @@ ms.locfileid: "77656928"
 - [Azure 기본 IPS/IDS와 DDoS에서 제공하는 기능이란?](#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 - [Cloud Services VM에서 HTTP/2를 사용하려면 어떻게 해야 하나요?](#how-to-enable-http2-on-cloud-services-vm)
 
-**권한을**
+**사용 권한**
 
 - [Microsoft 내부 엔지니어는 권한이 없어도 클라우드 서비스 인스턴스에 RDP가 가능한가요?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
 - [RDP 파일을 사용하여 클라우드 서비스 VM에 원격 데스크톱을 사용할 수 없습니다. 다음과 같은 오류가 발생합니다: 인증 오류가 발생했습니다(코드: 0x80004005).](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
-**스케일링**
+**확장**
 
 - [X 인스턴스 이상 확장할 수 없습니다.](#i-cannot-scale-beyond-x-instances)
 - [메모리 메트릭을 기반으로 자동 크기 조정을 구성하려면 어떻게 해야 하나요?](#how-can-i-configure-auto-scale-based-on-memory-metrics)
@@ -75,7 +75,7 @@ ms.locfileid: "77656928"
 
 ## <a name="certificates"></a>인증서
 
-### <a name="why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete"></a>내 클라우드 서비스 SSL 인증서의 인증서 체인이 완료되지 않은 이유는 무엇인가요?
+### <a name="why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete"></a>클라우드 서비스 TLS/SSL 인증서의 인증서 체인이 불완전한 이유는 무엇입니까?
     
 고객은 리프 인증서가 아닌 전체 인증서 체인(리프 인증서, 중간 인증서 및 루트 인증서)을 설치하는 것이 좋습니다. 방금 리프 인증서를 설치한 경우 Windows CTL을 탐색하여 인증서 체인을 빌드하기 위해 Windows를 사용합니다. Windows가 인증서의 유효성을 검사할 때 Azure 또는 Windows 업데이트에서 일시적인 네트워크 또는 DNS 문제가 발생하는 경우 인증서는 잘못된 것으로 간주될 수 있습니다. 전체 인증서 체인을 설치하여 이 문제를 방지할 수 있습니다. [체인된 SSL 인증서를 설치하는 방법](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/)의 블로그는 이 작업을 수행하는 방법을 보여줍니다.
 
@@ -103,7 +103,7 @@ CSR은 텍스트 파일일 뿐입니다. 인증서를 궁극적으로 사용하�
 
 **Get-AzurePublishSettingsFile**은 Azure Portal의 **구독** > **관리 인증서**에 새 관리 인증서를 만듭니다. 새 인증서의 이름은 "구독이름]-[현재날짜]-자격증명" 형식입니다.
 
-### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>기본 SSL 인증서(.pfx) 및 중간 인증서(.p7b) 설치를 자동화하려면 어떻게 해야 하나요?
+### <a name="how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b"></a>주 TLS/SSL 인증서(.pfx) 및 중간 인증서(.p7b)의 설치를 자동화하는 방법은 무엇입니까?
 
 시작 스크립트(일괄 처리/cmd/PowerShell)를 사용하여 이 작업을 자동화하고 서비스 정의 파일에 해당 시작 스크립트를 등록할 수 있습니다. 시작 스크립트의 동일한 디렉터리에 있는 프로젝트 폴더에 시작 스크립트와 인증서(.p7b 파일)를 모두 추가합니다.
 

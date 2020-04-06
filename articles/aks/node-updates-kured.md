@@ -1,15 +1,16 @@
 ---
-title: 업데이트 및 Azure Kubernetes 서비스 (AKS)에서 kured와 리눅스 노드를 재부팅
+title: kured와 리눅스 노드 재부팅을 처리
+titleSuffix: Azure Kubernetes Service
 description: 리눅스 노드를 업데이트하 고 자동으로 Azure Kubernetes 서비스 (AKS)에서 kured로 재부팅 하는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
 ms.date: 02/28/2019
-ms.openlocfilehash: 74b12c1bc6e2a88582cc357c8091b5590e6bf3cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8006baa3025ee1e794359bed854094cc9005dd14
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78191285"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668376"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스(AKS)의 Linux 노드에 보안 및 커널 업데이트 적용
 

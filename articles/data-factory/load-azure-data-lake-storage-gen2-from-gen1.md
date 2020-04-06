@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: f782985d975dd137aa2da48d12757685b47e62b1
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 81f8577592f1d53627bc09a2f9ace8c060ad4660
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421258"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668858"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에서 Gen2로 데이터 복사
 
@@ -33,7 +33,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독 Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://azure.microsoft.com/free/) 만드세요.
+* Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * 데이터가 있는 Azure Data Lake Storage Gen1 계정
 * 데이터 레이크 저장소 Gen2를 사용하도록 설정한 Azure 저장소 계정입니다. 저장소 계정이 없는 경우 계정을 [만듭니다.](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)
 
@@ -135,9 +135,9 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
 17. 데이터가 Azure Data Lake Storage Gen2 계정에 복사되었는지 확인합니다.
 
-## <a name="best-practices"></a>최선의 구현 방법
+## <a name="best-practices"></a>모범 사례
 
-일반적으로 Azure Data Lake Storage Gen1에서 Azure Data Lake Storage Gen2로업그레이드를 평가하려면 [Azure Data Lake Storage Gen1에서 Azure Data Lake Storage Gen2로 빅 데이터 분석 솔루션 업그레이드를](../storage/blobs/data-lake-storage-upgrade.md)참조하세요. 다음 섹션에서는 데이터 레이크 스토리지 Gen1에서 데이터 레이크 스토리지 Gen2로 데이터 업그레이드를 위해 데이터 팩터리를 사용하는 모범 사례를 소개합니다.
+일반적으로 Azure Data Lake Storage Gen1에서 Azure Data Lake Storage Gen2로업그레이드를 평가하려면 [Azure Data Lake Storage Gen1에서 Azure Data Lake Storage Gen2로 빅 데이터 분석 솔루션 업그레이드를](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md)참조하세요. 다음 섹션에서는 데이터 레이크 스토리지 Gen1에서 데이터 레이크 스토리지 Gen2로 데이터 업그레이드를 위해 데이터 팩터리를 사용하는 모범 사례를 소개합니다.
 
 ### <a name="data-partition-for-historical-data-copy"></a>기록 데이터 복사본에 대한 데이터 파티션
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e2e3c7763a13c8850554b079a426ed4172b74d28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb173bcbf7cd163dca16c211d45018e0fe056edd
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77599276"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666845"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Azure 파일에서 Azure Active Directory 도메인 서비스 인증 사용
 
@@ -61,16 +61,16 @@ Azure 파일 공유에 대해 SMB를 통해 Azure AD DS 인증을 사용하도�
 
 다음으로 Azure AD 자격 증명을 사용하여 Azure 파일 리소스에 대한 액세스 권한을 부여하려면 다음 작업을 수행합니다.
 
-- 저장소 계정에 대해 SMB를 통해 Azure AD DS 인증을 사용하도록 설정하여 연결된 Azure AD DS 배포에 저장소 계정을 등록합니다.
-- Azure AD ID(사용자, 그룹 또는 서비스 주체)에 공유 액세스 권한을 할당합니다.
-- 디렉터리와 파일에 대해 SMB를 통한 NTFS 권한을 구성합니다.
-- 도메인 조인 VM에서 Azure 파일 공유를 탑재합니다.
+1. 저장소 계정에 대해 SMB를 통해 Azure AD DS 인증을 사용하도록 설정하여 연결된 Azure AD DS 배포에 저장소 계정을 등록합니다.
+2. Azure AD ID(사용자, 그룹 또는 서비스 주체)에 공유 액세스 권한을 할당합니다.
+3. 디렉터리와 파일에 대해 SMB를 통한 NTFS 권한을 구성합니다.
+4. 도메인 조인 VM에서 Azure 파일 공유를 탑재합니다.
 
 다음 다이어그램은 Azure 파일에 대한 SMB에 대한 Azure AD DS 인증을 사용하도록 설정하기 위한 종단 간 워크플로를 보여 줍니다.
 
 ![Azure Files용 SMB를 통한 Azure AD 워크플로를 보여 주는 다이어그램](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 
-## <a name="enable-azure-ad-ds-authentication-for-your-account"></a>계정에 대한 Azure AD DS 인증 사용
+## <a name="1-enable-azure-ad-ds-authentication-for-your-account"></a>1. 계정에 대한 Azure AD DS 인증 사용
 
 Azure 파일에 대한 SMB를 통해 Azure AD DS 인증을 사용하려면 Azure 포털, Azure PowerShell 또는 Azure CLI를 사용하여 저장소 계정에 속성을 설정할 수 있습니다. 이 속성을 암시적으로 "도메인 조인"으로 설정하여 연결된 Azure AD DS 배포와 함께 저장소 계정을 설정합니다. 그러면 SMB에 대한 Azure AD DS 인증이 저장소 계정의 모든 새 파일 및 기존 파일 공유에 대해 활성화됩니다.
 
@@ -135,7 +135,7 @@ az storage account update -n <storage-account-name> -g <resource-group-name> --e
 
 [!INCLUDE [storage-files-aad-permissions-and-mounting](../../../includes/storage-files-aad-permissions-and-mounting.md)]
 
-이제 SMB를 통해 Azure AD DS 인증을 성공적으로 활성화하고 Azure AD ID를 사용하여 Azure 파일 공유에 대한 액세스를 제공하는 사용자 지정 역할을 할당했습니다. 추가 사용자에게 파일 공유에 대한 액세스 권한을 부여하려면 SMB 섹션을 통해 ID를 사용하고 [NTFS 권한을 구성할](#configure-ntfs-permissions-over-smb)수 있는 [액세스 권한 할당의](#assign-access-permissions-to-an-identity) 지침을 따릅니다.
+이제 SMB를 통해 Azure AD DS 인증을 성공적으로 활성화하고 Azure AD ID를 사용하여 Azure 파일 공유에 대한 액세스를 제공하는 사용자 지정 역할을 할당했습니다. 추가 사용자에게 파일 공유에 대한 액세스 권한을 부여하려면 SMB 섹션을 통해 ID를 사용하고 [NTFS 권한을 구성할](#3-configure-ntfs-permissions-over-smb)수 있는 [액세스 권한 할당의](#2-assign-access-permissions-to-an-identity) 지침을 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

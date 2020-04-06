@@ -1,5 +1,5 @@
 ---
-title: Azure Kubernetes 서비스(AKS)의 고가용성 및 재해 복구
+title: AKS 비즈니스 연속성 및 재해 복구를 위한 모범 사례
 description: 클러스터 운영자의 모범 사례를 통해 애플리케이션에 대한 최대 가동 시간을 달성하고, 고가용성을 제공하고, AKS(Azure Kubernetes Service)에서 재해 복구를 준비합니다.
 services: container-service
 author: lastcoolnameleft
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6aff60cbc4a4cab557e6e202ea1181d5b20bbd20
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 7aa93d8ba21cafddc5511e16fa430b76942b1a6d
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655880"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668300"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 비즈니스 연속성 및 재해 복구 모범 사례
 

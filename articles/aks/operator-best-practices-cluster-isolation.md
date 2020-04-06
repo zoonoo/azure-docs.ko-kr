@@ -1,15 +1,16 @@
 ---
-title: 운영자 모범 사례 - AKS(Azure Kubernetes Services)의 클러스터 격리
+title: 클러스터 격리에 대한 모범 사례
+titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Services)의 클러스터 격리에 대한 클러스터 운영자 모범 사례 알아보기
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 228b856d5c5ffa2bfac7df12094667e02f797690
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 00643dc1699d1cbd47efd271738015ea05e895e2
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77594858"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668347"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 격리 모범 사례
 

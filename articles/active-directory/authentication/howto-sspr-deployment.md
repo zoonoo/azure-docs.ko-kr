@@ -1,6 +1,6 @@
 ---
-title: 셀프 서비스 암호 재설정 배포 - Azure Active Directory
-description: Azure AD 셀프 서비스 암호 재설정의 성공적인 구현 전략
+title: Azure Active Directory 셀프 서비스 암호 재설정에 대한 배포 고려 사항
+description: Azure AD 셀프 서비스 암호 재설정의 성공적인 구현을 위한 배포 고려 사항 및 전략에 대해 알아보기
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,27 +11,34 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7be99959c2ae420cff667491f68c40dfa0862a9
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: cd5b9e1f2640e68f7c819a49ad34d9c051c582c5
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652398"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667325"
 ---
-# <a name="plan-an-azure-active-directory-self-service-password-reset"></a>Azure Active Directory 셀프 서비스 암호 재설정 계획
+# <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Azure Active Directory 셀프 서비스 암호 재설정 배포 계획
 
-> [!NOTE]
-> 이 배포 계획은 Azure AD 셀프 서비스 암호 재설정(SSPR)을 배포하기 위한 계획 지침 및 모범 사례를 제공합니다. <br>**계정에 다시 들어갈 [https://aka.ms/sspr](https://aka.ms/sspr)SSPR 도구를 찾고 있다면 로 이동하십시오. **
+> [!IMPORTANT]
+> 이 배포 계획은 Azure AD 셀프 서비스 암호 재설정(SSPR)을 배포하기 위한 지침 및 모범 사례를 제공합니다.
+>
+> **최종 사용자이고 계정에 다시 로그인해야 하는 경우 로 [https://aka.ms/sspr](https://aka.ms/sspr)이동하십시오. **
 
-[셀프 서비스 암호 재설정(SSPR)은](https://www.youtube.com/watch?v=tnb2Qf4hTP8) 사용자가 IT 직원에게 문의하지 않고 암호를 재설정할 수 있는 Azure Active Directory(AD) 기능입니다. 사용자는 신속하게 자신을 차단을 해제하고 그들이 어디에 있든 하루 중 시간에 상관없이 작업을 계속할 수 있습니다. 직원들이 스스로 차단을 해제할 수 있도록 허용함으로써 조직은 가장 일반적인 암호 관련 문제에 대한 비생산적인 시간과 높은 지원 비용을 줄일 수 있습니다. 
+[셀프 서비스 암호 재설정(SSPR)은](https://www.youtube.com/watch?v=tnb2Qf4hTP8) 사용자가 IT 직원에게 문의하지 않고 암호를 재설정할 수 있는 Azure Active Directory(AD) 기능입니다. 사용자는 신속하게 자신을 차단을 해제하고 그들이 어디에 있든 하루 중 시간에 상관없이 작업을 계속할 수 있습니다. 직원들이 스스로 차단을 해제할 수 있도록 허용함으로써 조직은 가장 일반적인 암호 관련 문제에 대한 비생산적인 시간과 높은 지원 비용을 줄일 수 있습니다.
 
 SSPR에는 다음과 같은 주요 기능이 있습니다.
 
 * 셀프 서비스를 사용하면 최종 사용자가 관리자 나 헬프 데스크에 문의하지 않고 만료되었거나 만료되지 않은 암호를 재설정할 수 있습니다.
-
 * [암호 쓰기 를](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback) 사용하면 온-프레미스 암호를 관리하고 클라우드를 통해 계정 잠금을 해결할 수 있습니다.
-
 * 암호 관리 활동 보고서는 관리자에게 조직에서 발생하는 암호 재설정 및 등록 활동에 대한 통찰력을 제공합니다.
+
+이 배포 가이드에서는 SSPR 롤아웃을 계획하고 테스트하는 방법을 보여 주며, 이를 보여 주실 수 있습니다.
+
+SSPR이 실행 중인 것을 신속하게 확인하고 다시 돌아와 추가 배포 고려 사항을 이해하려면 다음을 수행하십시오.
+
+> [!div class="nextstepaction"]
+> [셀프 서비스 암호 재설정(SSPR) 활성화](tutorial-enable-sspr.md)
 
 ## <a name="learn-about-sspr"></a>SSPR에 대해 알아보기
 
@@ -134,7 +141,7 @@ SSPR을 배포하기 전에 각 암호 재설정 호출의 수와 평균 비용�
 
 ### <a name="plan-a-pilot"></a>파일럿 계획
 
-SSPR의 초기 구성은 테스트 환경에 두는 것이 좋습니다. 조직의 사용자 하위 집합에 대해 SSPR을 사용하도록 설정하여 파일럿 그룹으로 시작합니다. [시험 운용에 대한 모범 사례를](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans)참조하십시오.
+SSPR의 초기 구성은 테스트 환경에 있는 것이 좋습니다. 조직의 사용자 하위 집합에 대해 SSPR을 사용하도록 설정하여 파일럿 그룹으로 시작합니다. [시험 운용에 대한 모범 사례를](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans)참조하십시오.
 
 그룹을 만들려면 [Azure Active Directory 에서 그룹을 만들고 구성원을 추가하는](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal)방법을 참조하세요. 
 
@@ -213,7 +220,7 @@ SSPR을 사용하도록 설정하면 사용자는 관리자가 활성화한 인�
 
 ### <a name="environments-with-multiple-identity-management-systems"></a>여러 ID 관리 시스템을 갖춘 환경
 
-일부 환경에는 여러 ID 관리 시스템이 있습니다. Oracle AM 및 SiteMinder와 같은 온프레메시스 ID 관리자는 암호에 대한 AD와 동기화해야 합니다. MIM(Microsoft ID 관리자)을 사용하여 PCNS(암호 변경 알림 서비스)와 같은 도구를 사용하여 이 작업을 수행할 수 있습니다. 이 보다 복잡한 시나리오에 대한 정보를 찾으려면 [도메인 컨트롤러에서 MIM 암호 변경 알림 서비스 배포](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller)문서를 참조하십시오.
+일부 환경에는 여러 ID 관리 시스템이 있습니다. Oracle AM 및 SiteMinder와 같은 온-프레미스 ID 관리자는 암호에 대한 AD와 동기화해야 합니다. MIM(Microsoft ID 관리자)을 사용하여 PCNS(암호 변경 알림 서비스)와 같은 도구를 사용하여 이 작업을 수행할 수 있습니다. 이 보다 복잡한 시나리오에 대한 정보를 찾으려면 [도메인 컨트롤러에서 MIM 암호 변경 알림 서비스 배포](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller)문서를 참조하십시오.
 
 ## <a name="plan-testing-and-support"></a>계획 테스트 및 지원
 
@@ -255,7 +262,7 @@ SSPR은 일반적으로 사용자 문제를 일으키지는 않지만 발생할 
 | 사용자가 새 암호를 설정할 수 없습니다.| 사용자가 암호 재설정 흐름 중에 확인을 완료하지만 새 암호를 설정할 수 없습니다. |
 | 사용자가 Windows 10 장치에서 암호 재설정 링크가 표시되지 않습니다.| 사용자가 Windows 10 잠금 화면에서 암호를 재설정하려고 하지만 장치가 Azure AD에 가입되지 않았거나 Intune 장치 정책이 활성화되어 있지 않습니다. |
 
-### <a name="plan-roll-back"></a>롤백 계획
+### <a name="plan-rollback"></a>롤백 계획
 
 배포를 롤백하려면 다음을 수행합니다.
 
@@ -336,7 +343,7 @@ Azure 포털에서 미리 빌드된 보고서를 사용하여 SSPR 성능을 측
 
 ## <a name="next-steps"></a>다음 단계
 
-* SSPR 배포를 시작하려면 [Azure AD 셀프 서비스 암호 재설정 파일럿 롤아웃 완료를](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot) 참조하세요.
+* SSPR 배포를 시작하려면 [Azure AD 셀프 서비스 암호 재설정 을](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-sspr.md) 참조하세요.
 
 * [Azure AD 암호 보호 구현 고려](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad)
 

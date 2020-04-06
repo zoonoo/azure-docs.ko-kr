@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 764567bffd2a08ebb5beb17e3063998848b3f110
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e56aa5ec073aadc2a16d53c266d33255a34077cb
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127342"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668800"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>2023년 3월 1일까지 IaaS 리소스를 Azure 리소스 관리자로 마이그레이션합니다. 
 
@@ -45,6 +45,6 @@ ms.locfileid: "79127342"
 
 - 자세한 내용은 [Azure 리소스 관리자 마이그레이션에 대한 자주 묻는 질문을 참조하십시오.](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq)
 
-- 기술적인 질문 및 문제에 대한 문의 지원 팀에 [문의하십시오.](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+- 기술적 질문, 문제 및 구독 허용 목록 [지원.](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 - FAQ 및 피드백의 일부가 아닌 다른 질문은 아래의 의견에 따라 다하십시오.

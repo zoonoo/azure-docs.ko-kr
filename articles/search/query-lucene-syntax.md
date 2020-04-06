@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 1392f69bea09996e46ad4c112474f9067ff5a63d
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: ed7686bbef7dc1342528475226d11b8b8b8fb640
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656908"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668602"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Azure 인지 검색에서 Lucene 쿼리 구문
 
@@ -104,7 +104,7 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 
 ### <a name="or-operator-or-or-"></a>OR 연산자 `OR` 또는 `||`
 
-OR 연산자는 세로줄 또는 파이프 문자입니다. 예를 들어, `wifi || luxury`는 "wifi" 또는 "luxury" 중 하나(또는 둘 다)를 포함하는 문서를 검색합니다. OR은 기본 결합 연산자이므로 `wifi luxury`가 `wifi || luxuery`와 동일한 것처럼 생략할 수도 있습니다.
+OR 연산자는 세로줄 또는 파이프 문자입니다. 예를 들어, `wifi || luxury`는 "wifi" 또는 "luxury" 중 하나(또는 둘 다)를 포함하는 문서를 검색합니다. OR은 기본 결합 연산자이므로 `wifi luxury`가 `wifi || luxury`와 동일한 것처럼 생략할 수도 있습니다.
 
 ### <a name="and-operator-and--or-"></a>AND 연산자 `AND`, `&&` 또는 `+`
 
@@ -163,6 +163,8 @@ NOT 연산자는 느낌표 또는 빼기 기호입니다. 예를 들어, `wifi !
 
  예를 들어 "motel" 또는 "호텔"를 포함하는 문서를 찾으려면 `/[mh]otel/`을 지정합니다. 정규식 검색은 단일 단어를 기준으로 일치 항목을 찾습니다.
 
+일부 도구 및 언어는 추가 이스케이프 문자 요구 사항을 부과합니다. JSON의 경우 앞으로 슬래시가 포함된 문자열은 뒤로 슬래시로 이스케이프 `search=/.* <string-placeholder>.*/` microsoft.com/azure/됩니다. `microsoft.com\/azure\/` `search=/.*microsoft.com\/azure\/.*/`
+
 ##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a>와일드카드 검색  
  일반적으로 다중(*) 또는 단일(?) 문자 와일드카드 검색에 인식된 구문을 사용할 수 있습니다. Lucene 쿼리 커서는 구가 아닌 단일 용어에 이러한 기호의 사용을 지원합니다.
 
@@ -173,7 +175,7 @@ NOT 연산자는 느낌표 또는 빼기 기호입니다. 예를 들어, `wifi !
 > [!NOTE]  
 > 쿼리 구문 분석 중에 접두사, 접미사, 와일드카드 또는 정규식으로 공식화된 쿼리는 [어휘 분석을](search-lucene-query-architecture.md#stage-2-lexical-analysis)우회하여 쿼리 트리에 있는 것처럼 전달됩니다. 일치하는 항목이 쿼리에서 지정하는 형식의 문자열을 인덱스에 포함하는 경우에만 찾을 수 있습니다. 대부분의 경우 부분 용어 및 패턴 일치가 성공할 수 있도록 문자열 무결성을 유지하는 인덱싱 중에 대체 분석기가 필요합니다. 자세한 내용은 [Azure Cognitive Search 쿼리의 부분 용어 검색을](search-query-partial-matching.md)참조하십시오.
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>참조  
 
 + [문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [필터 및 정렬을 위한 OData 식 구문](query-odata-filter-orderby-syntax.md)   

@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: c5972b602d92b2e08fd70850dd1af5c1236e2b1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 97aa446636ea3131246a06f69f74b5868abff608
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80234466"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668655"
 ---
 # <a name="connect-to-azure-storage-services"></a>Azure 저장소 서비스에 연결
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -48,7 +48,7 @@ ms.locfileid: "80234466"
 
 ## <a name="supported-data-storage-service-types"></a>지원되는 데이터 저장소 서비스 유형
 
-데이터 스토어는 현재 다음 행렬에 나열된 저장소 서비스에 연결 정보를 저장하는 것을 지원합니다. 현재 Azure 데이터 웨어하우스는 지원되지 않습니다. 
+데이터 스토어는 현재 다음 행렬에 나열된 저장소 서비스에 연결 정보를 저장하는 것을 지원합니다.
 
 | 스토리지&nbsp;유형 | 인증&nbsp;유형 | [Azure&nbsp;&nbsp;기계 학습 스튜디오](https://ml.azure.com/) | [Azure&nbsp;&nbsp;기계&nbsp; 학습 파이썬 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [Azure&nbsp;&nbsp;기계 학습 CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;&nbsp;기계&nbsp; 학습 나머지 API](https://docs.microsoft.com/rest/api/azureml/)
 ---|---|---|---|---|---

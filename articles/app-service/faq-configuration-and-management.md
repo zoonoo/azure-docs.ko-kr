@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 300294f37c809b01fe8fba7e627d6bc5bdc9903a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e7070e925d12df82adbc3683da5b10e48c5d4b0
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78942943"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668126"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -35,14 +35,14 @@ Azure 웹앱에서 사용자 지정 도메인 이름을 사용하는 방법에 �
 App Service 웹앱에 대한 사용자 지정 도메인을 구매 및 설정하는 방법을 알아보려면 [App Service에서 사용자 지정 도메인 이름 구매 및 구성](manage-custom-dns-buy-domain.md)을 참조하세요.
 
 
-## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>내 웹앱에 대한 기존 SSL 인증서를 어떻게 업로드 및 구성할 수 있나요?
+## <a name="how-do-i-upload-and-configure-an-existing-tlsssl-certificate-for-my-web-app"></a>웹 앱에 대한 기존 TLS/SSL 인증서를 업로드하고 구성하려면 어떻게 해야 합니까?
 
-기존 사용자 지정 SSL 인증서를 업로드하고 설정하는 방법을 알아보려면 [앱 서비스 앱에 SSL 인증서 추가를 참조하세요.](configure-ssl-certificate.md)
+기존 사용자 지정 TLS/SSL 인증서를 업로드하고 설정하는 방법을 알아보려면 [앱 서비스 앱에 TLS/SSL 인증서 추가를](configure-ssl-certificate.md)참조하십시오.
 
 
-## <a name="how-do-i-purchase-and-configure-a-new-ssl-certificate-in-azure-for-my-web-app"></a>Azure에서 내 웹앱에 대한 새 SSL 인증서를 어떻게 구매 및 구성할 수 있나요?
+## <a name="how-do-i-purchase-and-configure-a-new-tlsssl-certificate-in-azure-for-my-web-app"></a>내 웹 앱에 대해 Azure에서 새 TLS/SSL 인증서를 구입하고 구성하려면 어떻게 해야 합니까?
 
-App Service 웹앱에 대한 SSL 인증서를 구매 및 설정하는 방법을 알아보려면 [App Service 앱에 SSL 인증서 추가](configure-ssl-certificate.md)를 참조하세요.
+앱 서비스 웹 앱에 대한 TLS/SSL 인증서를 구입하고 설정하는 방법을 알아보려면 [앱 서비스 앱에 TLS/SSL 인증서 추가를 참조하세요.](configure-ssl-certificate.md)
 
 
 ## <a name="how-do-i-move-application-insights-resources"></a>Application Insights 리소스를 어떻게 이동할 수 있나요?
@@ -84,7 +84,7 @@ Windows에서 실행되는 앱 서비스의 경우 [기본 표준 시간대](htt
 
 ## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>내 웹앱에 대한 예약되거나 전용인 인바운드 IP 주소를 어떻게 확인하나요?
 
-Azure 앱 웹 사이트에 대해 실행된 인바운드 호출에 대한 전용이거나 예약된 IP 주소를 설정하려면 IP 기반 SSL 인증서를 설치하고 구성합니다.
+Azure 앱 웹 사이트에 대한 인바운드 호출에 대한 전용 또는 예약 IP 주소를 설정하려면 IP 기반 TLS/SSL 인증서를 설치하고 구성합니다.
 
 인바운드 호출에 대한 전용이거나 예약된 IP 주소를 사용하려면 App Service 계획이 기본 이상의 서비스 계획에 포함되어야 합니다.
 

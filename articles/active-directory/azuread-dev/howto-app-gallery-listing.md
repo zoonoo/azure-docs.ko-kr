@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 969193b2c0843c4eb217d2bdb9f9ad9a40ccf9af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fbdae8b8506731f13ff08e877ea8eedb6d57fa78
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80154970"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666935"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열
 
@@ -49,9 +49,9 @@ ms.locfileid: "80154970"
 
 ## <a name="submit-the-request-in-the-portal"></a>포털에서 요청 제출
 
-응용 프로그램 통합이 Azure AD와 작동하는지 테스트한 후 응용 [프로그램 네트워크 포털에서](https://microsoft.sharepoint.com/teams/apponboarding/Apps)액세스 요청을 제출합니다. Office 365 계정이 있는 경우 이를 사용하여 해당 포털에 로그인합니다. 그렇지 않은 경우 Outlook 또는 핫메일과 같은 Microsoft 계정을 사용하여 로그인합니다.
+응용 프로그램 통합이 Azure AD와 함께 작동하는지 테스트한 후 [Microsoft 응용 프로그램 네트워크 포털에](https://microsoft.sharepoint.com/teams/apponboarding/Apps)응용 프로그램 요청을 제출합니다.
 
-로그인한 후 다음 페이지가 나타나면 [Azure AD SSO 통합 팀에](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)문의하십시오. 요청을 제출하는 데 사용할 이메일 계정을 제공합니다. Azure AD 팀은 Microsoft 응용 프로그램 네트워크 포털에 계정을 추가합니다.
+로그인한 후 다음 페이지가 나타나면 [Azure AD SSO 통합 팀에](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)문의하십시오. 요청을 제출하는 데 사용할 이메일 계정을 제공합니다. 비즈니스 [name@yourbusiness.com](mailto:name@yourbusiness.com) 이메일 주소 등이 선호됩니다. Azure AD 팀은 Microsoft 응용 프로그램 네트워크 포털에 계정을 추가합니다.
 
 ![SharePoint 포털에서 요청 메시지에 액세스](./media/howto-app-gallery-listing/errorimage.png)
 

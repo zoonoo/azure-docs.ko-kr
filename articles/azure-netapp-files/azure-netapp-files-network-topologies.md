@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 8e6a1c3472c6b20b27cf181edbeeb96ab71eb58d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12be766f36a0901079a5a26f20ea7dacc75268de
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73242488"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667870"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Azure NetApp Files 네트워크 계획 지침
 
@@ -39,10 +39,11 @@ Azure NetApp 파일 네트워크를 계획할 때 몇 가지 고려 사항을 �
 * Azure NetApp 파일 서브넷으로 주소 접두사가 있는 사용자 정의 경로(DR)
 * Azure NetApp 파일 인터페이스의 Azure 정책(예: 사용자 지정 이름 지정 정책)
 * Azure NetApp 파일 트래픽에 대한 로드 밸로드마저
+* Azure NetApp 파일은 Azure 가상 WAN에서 지원되지 않습니다.
 
 Azure NetApp 파일에는 다음 네트워크 제한이 적용됩니다.
 
-* Azure NetApp 파일(피어VNet 포함)이 있는 VNet에서 사용 중인 IP 수는 1000을 초과할 수 없습니다. 우리는 고객 규모의 요구를 충족하기 위해이 제한을 증가하기 위해 노력하고 있습니다. 그 동안 더 많은 IP가 필요한 경우 사용 사례 및 필요한 제한으로 지원 팀에 문의하십시오.
+* Azure NetApp 파일(피어VNet 포함)이 있는 VNet에서 사용 중인 IP 수는 1000을 초과할 수 없습니다. 우리는 고객 규모의 요구를 충족하기 위해이 제한을 증가하기 위해 노력하고 있습니다. 
 * 각 Azure Virtual Network(VNet)에서 하나의 서브넷만 Azure NetApp Files에 위임할 수 있습니다.
 
 
@@ -52,13 +53,13 @@ Azure NetApp 파일에는 다음 네트워크 제한이 적용됩니다.
 
 |    토폴로지    |    지원됩니다.    |     해결 방법    |
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
-|    로컬 VNet의 볼륨에 대한 연결    |    yes    |         |
-|    피어가 있는 VNet(동일한 리전)의 볼륨에 대한 연결    |    yes    |         |
+|    로컬 VNet의 볼륨에 대한 연결    |    예    |         |
+|    피어가 있는 VNet(동일한 리전)의 볼륨에 대한 연결    |    예    |         |
 |    피어링된 VNet의 볼륨에 대한 연결(교차 지역 또는 전역 피어링)    |    예    |    None    |
-|    ExpressRoute 게이트웨이를 통한 볼륨에 대한 연결    |    yes    |         |
-|    익스프레스루트 게이트웨이를 통한 스포크 VNet 의 볼륨및 게이트웨이 전송을 통한 VNet 피어링으로 온-프레미스에서 볼륨으로 연결    |    yes    |        |
-|    VPN 게이트웨이를 통해 스포크 VNet의 볼륨으로 온-프레미스에서 볼륨으로 연결    |    yes    |         |
-|    VPN 게이트웨이를 통한 스포크 VNet 및 게이트웨이 전송을 통한 VNet 피어링의 온-프레미스에서 볼륨으로 의 연결    |    yes    |         |
+|    ExpressRoute 게이트웨이를 통한 볼륨에 대한 연결    |    예    |         |
+|    익스프레스루트 게이트웨이를 통한 스포크 VNet 의 볼륨및 게이트웨이 전송을 통한 VNet 피어링으로 온-프레미스에서 볼륨으로 연결    |    예    |        |
+|    VPN 게이트웨이를 통해 스포크 VNet의 볼륨으로 온-프레미스에서 볼륨으로 연결    |    예    |         |
+|    VPN 게이트웨이를 통한 스포크 VNet 및 게이트웨이 전송을 통한 VNet 피어링의 온-프레미스에서 볼륨으로 의 연결    |    예    |         |
 
 
 ## <a name="virtual-network-for-azure-netapp-files-volumes"></a>Azure NetApp 파일 볼륨에 대한 가상 네트워크
@@ -123,8 +124,8 @@ Azure NetApp 파일에 대해 위임된 서브넷에서는 사용자 정의 경�
 * 온-프레미스 리소스 VM 1 및 VM 2는 사이트 간 VPN 및 지역 Vnet 피어링을 통해 볼륨 2 또는 볼륨 3에 연결할 수 있습니다.
 * 허브 VNet의 VM 3은 스포크 VNet 1의 볼륨 2와 스포크 VNet 2의 볼륨 3에 연결할 수 있습니다.
 * 스포크 VNet 2의 스포크 VNet 1 및 VM 5의 VM 4는 허브 VNet의 볼륨 1에 연결할 수 있습니다.
-
-스포크 VNet 1의 VM 4는 스포크 VNet 2에서 볼륨 3에 연결할 수 없습니다. 또한 스포크 VNet2의 VM 5는 스포크 VNet 1에서 볼륨 2에 연결할 수 없습니다. 스포크 VNet이 피어링되지 않고 _VNet 피어링을 통해 전송 라우팅이 지원되지 않기_때문에 이러한 경우입니다.
+* 스포크 VNet 1의 VM 4는 스포크 VNet 2에서 볼륨 3에 연결할 수 없습니다. 또한 스포크 VNet2의 VM 5는 스포크 VNet 1에서 볼륨 2에 연결할 수 없습니다. 스포크 VNet이 피어링되지 않고 _VNet 피어링을 통해 전송 라우팅이 지원되지 않기_때문에 이러한 경우입니다.
+* 위의 아키텍처에서 스포크 VNET에도 게이트웨이가 있는 경우 허브의 게이트웨이를 통해 연결되는 온프레마에서 ANF 볼륨에 대한 연결이 손실됩니다. 의도적으로 스포크 VNet의 게이트웨이에 기본 설정이 제공되므로 해당 게이트웨이를 통해 연결하는 컴퓨터만 ANF 볼륨에 연결할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

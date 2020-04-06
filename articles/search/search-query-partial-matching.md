@@ -8,29 +8,32 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 3e0e0291ff855b4502224466e17696a4fe668c2a
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 7f001a0d443e4ec668aedaabb7505884163bf37e
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655994"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666778"
 ---
-# <a name="partial-term-search-in-azure-cognitive-search-queries-wildcard-regex-fuzzy-search-patterns"></a>Azure Cognitive Search 쿼리의 부분 용어 검색(와일드카드, 정규식, 퍼지 검색, 패턴)
+# <a name="partial-term-search-and-patterns-with-special-characters---azure-cognitive-search-wildcard-regex-patterns"></a>특수 문자가 있는 부분 용어 검색 및 패턴 - Azure 인지 검색(와일드카드, 정규식, 패턴)
 
-*부분 용어 검색은* 문자열의 첫 번째, 마지막 또는 내부 부분과 같은 용어 조각으로 구성된 쿼리 또는 종종 대시 또는 슬래시와 같은 특수 문자로 구분되는 조각의 조합으로 구성된 패턴으로 구성된 쿼리를 말합니다. 일반적인 사용 사례에는 전화 번호, URL, 사람 또는 제품 코드 또는 복합 단어의 일부에 대한 쿼리가 포함됩니다.
+*부분 용어 검색은* 문자열의 첫 번째, 마지막 또는 내부 부분과 같은 용어 조각으로 구성된 쿼리를 나타냅니다. *패턴은* 조각의 조합일 수 있으며, 때로는 쿼리의 일부인 대시 또는 슬래시와 같은 특수 문자가 있을 수 있습니다. 일반적인 사용 사례에는 전화 번호, URL, 사람 또는 제품 코드 또는 복합 단어의 일부에 대한 쿼리가 포함됩니다.
 
-인덱스 자체는 일반적으로 부분 문자열 및 패턴 일치에 도움이 되는 방식으로 용어를 저장하지 않기 때문에 부분 검색이 문제가 될 수 있습니다. 인덱싱의 텍스트 분석 단계에서 특수 문자가 삭제되고 복합 문자열과 복합 문자열이 분할되어 일치하는 검색이 없을 때 패턴 쿼리가 실패합니다. 예를 들어 해당 콘텐츠가 실제로 인덱스에 `"703"` `"6214"`존재하지 않기 때문에 (에 `"3-62"` `+1 (425) 703-6214` `"1"` `"425"`대한 토큰화)와 같은 전화 번호가 쿼리에 표시되지 않습니다. 
+인덱스에 패턴 일치에 필요한 형식의 용어가 없는 경우 부분 검색에 문제가 있을 수 있습니다. 인덱싱의 텍스트 분석 단계에서 기본 표준 분석기를 사용하여 특수 문자가 삭제되고 복합 문자열과 복합 문자열이 분할되어 일치하는 항목이 없을 때 패턴 쿼리가 실패합니다. 예를 들어 해당 콘텐츠가 실제로 인덱스에 `"703"` `"6214"`존재하지 않기 때문에 (에 `"3-62"` `+1 (425) 703-6214` `"1"` `"425"`대한 토큰화)와 같은 전화 번호가 쿼리에 표시되지 않습니다. 
 
-해결 방법은 부분 검색 시나리오를 지원할 수 있도록 인덱스에 이러한 문자열의 손상되지 않은 버전을 저장하는 것입니다. 그대로 문자열에 대한 추가 필드를 만들고 콘텐츠 보존 분석기를 사용하는 것이 솔루션의 기본입니다.
+해결 방법은 필요한 경우 공백 및 특수 문자를 포함하여 전체 문자열을 보존하는 분석기를 호출하여 부분 용어 및 패턴을 지원할 수 있도록 하는 것입니다. 그대로 문자열에 대한 추가 필드를 만들고 콘텐츠 보존 분석기를 사용하는 것이 솔루션의 기본입니다.
 
 ## <a name="what-is-partial-search-in-azure-cognitive-search"></a>Azure 인지 검색의 부분 검색이란 무엇입니까?
 
-Azure 인지 검색에서 다음 양식에서 부분 검색을 사용할 수 있습니다.
+Azure 인지 검색에서 부분 검색 및 패턴은 다음 형태로 사용할 수 있습니다.
 
 + [접두사 검색(](query-simple-syntax.md#prefix-search)예: `search=cap*`"Cap'n Jack's Waterfront Inn" 또는 "Gacc Capital")에서 일치합니다. 접두사 검색에 단순히 쿼리 구문을 사용할 수 있습니다.
-+ [와일드카드 검색](query-lucene-syntax.md#bkmk_wildcard) 또는 접미사를 포함하여 포함된 문자열의 패턴 또는 일부를 검색하는 [정규식입니다.](query-lucene-syntax.md#bkmk_regex) 예를 들어 "alphanumeric"이라는 용어가 주어지면 해당 용어에 대한 접미사 쿼리 일치에 와일드카드 검색()을`search=/.*numeric.*/`사용합니다. 와일드카드 및 정규식에는 전체 Lucene 구문이 필요합니다.
 
-클라이언트 응용 프로그램에서 위의 쿼리 형식이 필요한 경우 이 문서의 단계를 수행하여 인덱스에 필요한 콘텐츠가 있는지 확인합니다.
++ [와일드카드 검색](query-lucene-syntax.md#bkmk_wildcard) 또는 접미사를 포함하여 포함된 문자열의 패턴 또는 일부를 검색하는 [정규식입니다.](query-lucene-syntax.md#bkmk_regex) 와일드카드 및 정규식에는 전체 Lucene 구문이 필요합니다. 
+
+  부분 용어 검색의 몇 가지 예는 다음과 같습니다. 접미사 쿼리의 경우 "상숫자"라는 용어가 주어지면 와일드카드 검색()을`search=/.*numeric.*/`사용하여 일치를 찾습니다. URL 조각과 같은 문자를 포함하는 부분 용어의 경우 이스케이프 문자를 추가해야 할 수 있습니다. JSON에서는 뒤로 슬래시로 전진 슬래시가 `/` `\`이스케이프됩니다. 따라서 URL `search=/.*microsoft.com\/azure\/.*/` 조각 "microsoft.com/azure/"에 대한 구문입니다.
+
+앞서 언급했듯이 위의 모든 인덱스에는 표준 분석기가 제공하지 않는 패턴 일치에 도움이 되는 형식의 문자열이 포함되어야 합니다. 이 문서의 단계를 수행하면 이러한 시나리오를 지원하는 데 필요한 콘텐츠가 있는지 확인할 수 있습니다.
 
 ## <a name="solving-partial-search-problems"></a>부분 검색 문제 해결
 

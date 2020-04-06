@@ -1,15 +1,16 @@
 ---
-title: 운영자 모범 사례 - AKS(Azure Kubernetes Service)의 고급 스케줄러 기능
+title: 스케줄러 기능에 대한 모범 사례
+titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Service)의 taint/toleration, 노드 선택기 및 선호도나 노드 간 선호도 및 선호도 방지와 같은 고급 스케줄러 기능 사용에 대한 클러스터 운영자 모범 사례 알아보기
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 546c1d6ae25a33c6df93469ccf8c230b4b1c474b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 47b2d78f7dc831c4314c4215f5e0a9e17f75f0dc
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252897"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668371"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 고급 스케줄러 기능 모범 사례
 

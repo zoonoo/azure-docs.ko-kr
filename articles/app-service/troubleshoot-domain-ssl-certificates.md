@@ -1,6 +1,6 @@
 ---
-title: 도메인 및 SSL 인증서 문제 해결
-description: Azure 앱 서비스에서 도메인 또는 SSL 인증서를 구성할 때 발생할 수 있는 일반적인 문제에 대한 해결 방법을 찾습니다.
+title: 도메인 및 TLS/SSL 인증서 문제 해결
+description: Azure 앱 서비스에서 도메인 또는 TLS/SSL 인증서를 구성할 때 발생할 수 있는 일반적인 문제에 대한 해결 방법을 찾습니다.
 author: genlin
 manager: dcscontentpm
 tags: top-support-issue
@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: e299821b54692327cbb7d497af0295e3b93658cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d61b95c7136a4cbce11789a58d27cc1a164ae374
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75966970"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668018"
 ---
-# <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Azure App Service에서 도메인 및 SSL 인증서 문제 해결
+# <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Azure 앱 서비스에서 도메인 및 TLS/SSL 인증서 문제 해결
 
-이 문서는 Azure App Service의 웹앱에 대한 도메인 또는 SSL 인증서를 구성할 때 발생할 수 있는 일반적인 문제를 나열합니다. 또한 이러한 문제에 대한 가능한 원인 및 해결 방법을 설명합니다.
+이 문서에서는 Azure App Service에서 웹 앱에 대한 도메인 또는 TLS/SSL 인증서를 구성할 때 발생할 수 있는 일반적인 문제를 나열합니다. 또한 이러한 문제에 대한 가능한 원인 및 해결 방법을 설명합니다.
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동하여 **지원 받기를**선택합니다.
 
@@ -26,17 +26,17 @@ ms.locfileid: "75966970"
 
 ## <a name="certificate-problems"></a>인증서 문제
 
-### <a name="you-cant-add-an-ssl-certificate-binding-to-an-app"></a>앱에 SSL 인증서 바인딩을 추가할 수 없음 
+### <a name="you-cant-add-a-tlsssl-certificate-binding-to-an-app"></a>앱에 TLS/SSL 인증서 바인딩을 추가할 수 없습니다. 
 
 #### <a name="symptom"></a>증상
 
-SSL 바인딩을 추가하면 다음과 같은 오류 메시지가 나타납니다.
+TLS 바인딩을 추가하면 다음과 같은 오류 메시지가 나타납니다.
 
 "SSL 바인딩을 추가하지 못했습니다. 다른 VIP에서 해당 인증서를 이미 사용하므로 기존 VIP에 대한 인증서를 설정할 수 없습니다."
 
 #### <a name="cause"></a>원인
 
-여러 앱에서 동일한 IP 주소에 대한 IP 기반 SSL 바인딩이 여러 개 있는 경우 이 문제가 발생할 수 있습니다. 예를 들어 앱 A는 IP 기반 SSL과 기존 인증서를 사용합니다. 앱 B는 동일한 IP 주소에 IP 기반 SSL과 새 인증서를 사용합니다. 앱 SSL 바인딩을 새 인증서로 업데이트하면 또 다른 앱에 동일한 IP 주소가 사용되므로 이 오류와 함께 작업이 실패합니다. 
+여러 앱에서 동일한 IP 주소에 대한 IP 기반 SSL 바인딩이 여러 개 있는 경우 이 문제가 발생할 수 있습니다. 예를 들어 앱 A는 IP 기반 SSL과 기존 인증서를 사용합니다. 앱 B는 동일한 IP 주소에 IP 기반 SSL과 새 인증서를 사용합니다. 새 인증서와 함께 바인딩된 앱 TLS를 업데이트하면 동일한 IP 주소가 다른 앱에 사용되므로 이 오류가 발생합니다. 
 
 #### <a name="solution"></a>해결 방법 
 
@@ -51,7 +51,7 @@ SSL 바인딩을 추가하면 다음과 같은 오류 메시지가 나타납니�
 
 인증서를 삭제하려고 하면 다음과 같은 오류 메시지가 나타납니다.
 
-"인증서가 현재 SSL 바인딩에서 사용되고 있으므로 삭제할 수 없습니다. 인증서를 삭제하려면 먼저 SSL 바인딩을 제거해야 합니다."
+"현재 TLS/SSL 바인딩에서 사용 중이므로 인증서를 삭제할 수 없습니다. 인증서를 삭제하려면 먼저 TLS 바인딩을 제거해야 합니다."
 
 #### <a name="cause"></a>원인
 
@@ -59,7 +59,7 @@ SSL 바인딩을 추가하면 다음과 같은 오류 메시지가 나타납니�
 
 #### <a name="solution"></a>해결 방법
 
-앱에서 해당 인증서에 대한 SSL 바인딩을 제거합니다. 그 후 인증서를 삭제해 봅니다. 여전히 인증서를 삭제할 수 없으면 인터넷 브라우저 캐시를 지우고, 새 브라우저 창에서 Azure Portal을 다시 엽니다. 그 후 인증서를 삭제해 봅니다.
+앱에서 해당 인증서에 대한 TLS 바인딩을 제거합니다. 그 후 인증서를 삭제해 봅니다. 여전히 인증서를 삭제할 수 없으면 인터넷 브라우저 캐시를 지우고, 새 브라우저 창에서 Azure Portal을 다시 엽니다. 그 후 인증서를 삭제해 봅니다.
 
 ### <a name="you-cant-purchase-an-app-service-certificate"></a>App Service 인증서를 구입할 수 없음 
 
@@ -69,7 +69,7 @@ Azure Portal에서 [Azure App Service 인증서](./configure-ssl-certificate.md#
 #### <a name="cause-and-solution"></a>원인 및 해결 방법
 이 문제는 다음과 같은 이유로 발생할 수 있습니다.
 
-- App Service 계획이 무료 또는 공유입니다. 이러한 가격 책정 계층은 SSL을 지원하지 않습니다. 
+- App Service 계획이 무료 또는 공유입니다. 이러한 가격 책정 계층은 TLS를 지원하지 않습니다. 
 
     **해결:** 앱용 앱 서비스 계획을 표준으로 업그레이드합니다.
 
@@ -88,7 +88,7 @@ Azure Portal에서 [Azure App Service 인증서](./configure-ssl-certificate.md#
 
     **해결 방법**: 인증서가 사기로 표시되고 24시간 후에도 해결되지 않으면 다음 단계를 수행합니다.
 
-    1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+    1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
     2. **App Service 인증서**로 이동하고, 인증서를 선택합니다.
     3. **인증서 구성** > **2단계 선택:** > 도메인**확인 확인.** 이 단계는 문제를 해결하라는 이메일 알림을 Azure 인증서 공급자에게 전송합니다.
 
@@ -165,7 +165,7 @@ Azure Portal에서 [Azure App Service 인증서](./configure-ssl-certificate.md#
 
 ## <a name="domain-problems"></a>도메인 문제
 
-### <a name="you-purchased-an-ssl-certificate-for-the-wrong-domain"></a>잘못된 도메인에 대한 SSL 인증서 구입
+### <a name="you-purchased-a-tlsssl-certificate-for-the-wrong-domain"></a>잘못된 도메인에 대한 TLS/SSL 인증서를 구입했습니다.
 
 #### <a name="symptom"></a>증상
 
@@ -190,7 +190,7 @@ App Service 인증서가 갱신되었지만 App Service 인증서를 사용하�
 
 인증서를 강제로 동기화하면 됩니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다. **App Service 인증서**를 선택한 다음, 인증서를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **App Service 인증서**를 선택한 다음, 인증서를 선택합니다.
 2. **리키 및 동기화를**선택한 다음 **동기화**를 선택합니다. 동기화를 완료하는 데 약간의 시간이 걸립니다. 
 3. 동기화가 완료되면 "모든 리소스가 최신 인증서로 업데이트되었습니다."라는 알림이 표시됩니다.
 
@@ -306,7 +306,7 @@ Azure 포털을 통해 도메인을 구입하면 추가 비용 없이 개인 정
 
 **구독에서 다른 Azure 앱 서비스 앱에서 도메인을 사용할 수 있습니까?**
 
-예. Azure 포털에서 사용자 지정 도메인 및 SSL 블레이드에 액세스하면 구입한 도메인이 표시됩니다. 이러한 도메인을 사용하도록 앱을 구성할 수 있습니다.
+예. Azure 포털에서 사용자 지정 도메인 및 TLS 블레이드에 액세스하면 구입한 도메인이 표시됩니다. 이러한 도메인을 사용하도록 앱을 구성할 수 있습니다.
 
 **한 구독에서 다른 구독으로 도메인을 이전할 수 있습니까?**
 

@@ -1,15 +1,16 @@
 ---
-title: 운영자 모범 사례 - AKS(Azure Kubernetes Services)의 ID
+title: ID 관리를 위한 모범 사례
+titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Services)에서 클러스터의 인증 및 권한 부여를 관리하는 방법에 대한 클러스터 운영자 모범 사례 알아보기
 services: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 5ff5bdaced46a20dec3e7c5d7fb029f9428a12f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e3569be769fcf70a65cbfee62a3b80a5abdc3b5
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77594773"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668309"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 인증 및 권한 부여 모범 사례
 

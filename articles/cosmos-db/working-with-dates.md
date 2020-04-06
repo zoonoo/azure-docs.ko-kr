@@ -5,13 +5,13 @@ ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
-ms.date: 03/03/2020
-ms.openlocfilehash: 92fa35fbe8e5eef4dbdc8b6c47a9055affd449a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/03/2020
+ms.openlocfilehash: 174279e4bd241ee9b336fc1ce7e0af389d2297a3
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273197"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666999"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Azure Cosmos DB에서 날짜 사용
 
@@ -21,7 +21,9 @@ Azure Cosmos DB는 네이티브 [JSON](https://www.json.org) 데이터 모델을
 
 ## <a name="storing-datetimes"></a>날짜/시간 저장
 
-Azure Cosmos DB는 문자열, 숫자, 부울, null, 배열, 개체 와 같은 JSON 형식을 지원합니다. DateTime 형식을 직접 지원하지는 않습니다. 현재 Azure Cosmos DB는 날짜의 현지화를 지원하지 않습니다. 따라서 DateTimes를 문자열로 저장해야 합니다. Azure Cosmos DB의 DateTime 문자열에 `YYYY-MM-DDThh:mm:ss.sssZ` 권장되는 형식은 ISO 8601 UTC 표준을 따르는 형식입니다. Azure 코스모스 DB에 모든 날짜를 UTC로 저장하는 것이 좋습니다. 날짜 문자열을 이 형식으로 변환하면 날짜를 사전으로 정렬할 수 있습니다. UTC가 아닌 날짜가 저장되는 경우 클라이언트 측에서 논리를 처리해야 합니다. 로컬 DateTime을 UTC로 변환하려면 오프셋을 JSON의 속성으로 알고 저장해야 하며 클라이언트는 오프셋을 사용하여 UTC DateTime 값을 계산할 수 있습니다.
+Azure Cosmos DB는 문자열, 숫자, 부울, null, 배열, 개체 와 같은 JSON 형식을 지원합니다. DateTime 형식을 직접 지원하지는 않습니다. 현재 Azure Cosmos DB는 날짜의 현지화를 지원하지 않습니다. 따라서 DateTimes를 문자열로 저장해야 합니다. Azure Cosmos DB의 DateTime 문자열에 `YYYY-MM-DDThh:mm:ss.fffffffZ` 권장되는 형식은 ISO 8601 UTC 표준을 따르는 형식입니다. Azure 코스모스 DB에 모든 날짜를 UTC로 저장하는 것이 좋습니다. 날짜 문자열을 이 형식으로 변환하면 날짜를 사전으로 정렬할 수 있습니다. UTC가 아닌 날짜가 저장되는 경우 클라이언트 측에서 논리를 처리해야 합니다. 로컬 DateTime을 UTC로 변환하려면 오프셋을 JSON의 속성으로 알고 저장해야 하며 클라이언트는 오프셋을 사용하여 UTC DateTime 값을 계산할 수 있습니다.
+
+DateTime 문자열을 필터로 하는 범위 쿼리는 DateTime 문자열이 모두 UTC에 있고 길이가 같은 경우에만 지원됩니다. Azure 코스모스 DB에서 [GetCurrentDateTime](sql-query-getcurrentdatetime.md) 시스템 함수는 현재 UTC 날짜 및 시간 ISO 8601 문자열 값을 형식으로 `YYYY-MM-DDThh:mm:ss.fffffffZ`반환합니다.
 
 대부분의 애플리케이션에서는 다음과 같은 이유로 DateTime의 기본 문자열 표현을 사용할 수 있습니다.
 
@@ -47,7 +49,7 @@ Azure Cosmos DB는 문자열, 숫자, 부울, null, 배열, 개체 와 같은 JS
         {
             Id = "09152014101",
             OrderDate = DateTime.UtcNow.AddDays(-30),
-            ShipDate = DateTime.UtcNow.AddDays(-14), 
+            ShipDate = DateTime.UtcNow.AddDays(-14),
             Total = 113.39
         });
 ```
@@ -76,7 +78,7 @@ SQL .NET SDK는 LINQ를 통해 Azure Cosmos DB에 저장된 데이터의 쿼리�
 다음 SQL 문으로 변환되어 Azure Cosmos DB에서 실행됩니다.
 
 ```sql
-    SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
+    SELECT * FROM root WHERE (root["ShipDate"] >= "2014-09-30T23:14:25.7251173Z")
 ```
 
 Azure Cosmos DB의 SQL 쿼리 언어 및 [LINQ](sql-query-linq-to-sql.md)공급자에 대해 자세히 알아볼 수 있습니다.

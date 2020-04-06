@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/03/2020
 ms.author: b-juche
-ms.openlocfilehash: 59453dbb9617f5a2ddbdca08709747b11a688560
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: aebc669a90511e48ddd2a7876553948c04b97710
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547096"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667821"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp 파일에 대한 자주 묻는 질문
 
@@ -145,9 +145,11 @@ Azure NetApp 파일은 Windows Server 2008r2SP1-2019 버전의 Active Directory 
 
 SMB 클라이언트에서 보고하는 볼륨 크기는 Azure NetApp 파일 볼륨이 증가할 수 있는 최대 크기입니다. SMB 클라이언트에 표시된 Azure NetApp 파일 볼륨의 크기는 볼륨의 할당량 또는 크기를 반영하지 않습니다. Azure Portal 또는 API를 통해 Azure NetApp 파일 볼륨 크기 또는 할당량을 얻을 수 있습니다.
 
-### <a name="does-azure-netapp-files-support-kerberos-encryption"></a>Azure NetApp 파일이 Kerberos 암호화를 지원합니까?
+<!--
+### Does Azure NetApp Files support Kerberos encryption?
 
-예. 기본적으로 Azure NetApp 파일은 서비스와 대상 Active Directory 도메인 컨트롤러 간의 트래픽에 대해 AES-128 및 AES-256 암호화를 모두 지원합니다. 요구 사항에 [대한 Azure NetApp 파일에 대한 SMB 볼륨 만들기를](azure-netapp-files-create-volumes-smb.md) 참조하십시오. 
+Yes, by default, Azure NetApp Files supports both AES-128 and AES-256 encryption for traffic between the service and the targeted Active Directory domain controllers. See [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) for requirements. 
+-->
 
 <!--
 ### Does Azure NetApp Files support LDAP signing? 

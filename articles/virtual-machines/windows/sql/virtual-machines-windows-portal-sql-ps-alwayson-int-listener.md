@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f7d14da6c7436120e013c979b108f61b82640d13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cabfc84d2bc0c9d08a457e67c0182d7550f04ceb
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75647886"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668897"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>하나 이상의 Always On 가용성 그룹 수신기 구성 - Resource Manager
 이 문서에서는 다음을 수행하는 방법을 보여 줍니다.
@@ -58,9 +58,13 @@ Azure 네트워크 보안 그룹을 사용하여 액세스를 제한하는 경�
 
 ## <a name="determine-the-load-balancer-sku-required"></a>필요한 부하 분산 장치 SKU 확인
 
-[Azure 로드 밸러블러는](../../../load-balancer/load-balancer-overview.md) 2개의 SCO: 기본 & 표준에서 사용할 수 있습니다. 표준 부하 분산 장치를 사용하는 것이 좋습니다. 가상 머신이 가용성 세트에 있는 경우 기본 부하 분산 장치가 허용됩니다. 표준 부하 분산 장치에는 표준 IP 주소를 사용하는 모든 VM IP 주소가 필요합니다.
+[Azure 로드 밸러블러는](../../../load-balancer/load-balancer-overview.md) 2개의 SCO: 기본 & 표준에서 사용할 수 있습니다. 표준 부하 분산 장치를 사용하는 것이 좋습니다. 가상 머신이 가용성 세트에 있는 경우 기본 부하 분산 장치가 허용됩니다. 가상 시스템이 가용성 영역에 있는 경우 표준 로드 밸런서가 필요합니다. 표준 부하 분산 장치에는 표준 IP 주소를 사용하는 모든 VM IP 주소가 필요합니다.
 
 현재 가용성 그룹을 위한 [Microsoft 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)은 기본 IP 주소를 사용하는 기본 부하 분산 장치를 사용합니다.
+
+   > [!NOTE]
+   > 클라우드 감시에 표준 로드 밸러버 및 Azure 저장소를 사용하는 경우 [서비스 끝점을](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network) 구성해야 합니다. 
+
 
 이 문서의 예제에서는 표준 부하 분산 장치를 지정합니다. 예제에서 스크립트는 `-sku Standard`를 포함합니다.
 
@@ -68,7 +72,7 @@ Azure 네트워크 보안 그룹을 사용하여 액세스를 제한하는 경�
 $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 ```
 
-기본 부하 분산 장치를 만들려면 부하 분산 장치를 만드는 줄에서 `-sku Standard`를 제거합니다. 예를 들어:
+기본 부하 분산 장치를 만들려면 부하 분산 장치를 만드는 줄에서 `-sku Standard`를 제거합니다. 다음은 그 예입니다.
 
 ```powershell
 $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
@@ -226,6 +230,8 @@ SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자
 * 내부 부하 분산 장치를 사용할 경우 동일한 가상 네트워크 내에서만 수신기에 액세스합니다.
 
 * Azure 네트워크 보안 그룹을 사용하여 액세스를 제한하는 경우 허용 규칙에 백 엔드 SQL Server VM IP 주소, AG 수신기에 대한 Load Balancer 부동 IP 주소 및 클러스터 코어 IP 주소가 포함되는지 확인합니다.
+
+* 클라우드 감시에 대한 Azure Storage에서 표준 로드 밸러커를 사용할 때 서비스 끝점을 만듭니다. 자세한 내용은 [가상 네트워크에서 권한 부여 액세스](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)권한을 참조하십시오.
 
 ## <a name="for-more-information"></a>참조 항목
 자세한 내용은 [수동으로 Azure VM의 Always On 가용성 그룹 구성](virtual-machines-windows-portal-sql-availability-group-tutorial.md)을 참조하세요.

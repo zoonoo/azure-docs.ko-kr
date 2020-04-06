@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 839e13dffc7d15b8cd258dd4b7dda6776223d052
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 37ddf57057b736cd76a74276e5593a865e7df8cc
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051732"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666862"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정
 
@@ -91,7 +91,10 @@ Azure AD B2C는 [CORS(원본 간 리소스 공유)라는](https://www.w3.org/TR/
 
 고유한 HTML 및 CSS 파일을 사용하여 UI를 사용자 지정하는 경우 CORS를 지원하는 공개적으로 사용 가능한 HTTPS 끝점에서 UI 콘텐츠를 호스팅할 수 있습니다. 예를 들어 [Azure Blob 저장소,](../storage/blobs/storage-blobs-introduction.md)웹 서버, CDN, AWS S3 또는 파일 공유 시스템입니다.
 
-중요한 점은 CORS를 사용하도록 설정한 상태에서 공개적으로 사용 가능한 HTTPS 엔드포인트에서 콘텐츠를 호스팅하는 것입니다. 콘텐츠에 지정하는 경우 절대 URL을 사용해야 합니다.
+중요한 점은 [CORS가 활성화된](https://enable-cors.org/server.html)공개적으로 사용 가능한 HTTPS 끝점에서 콘텐츠를 호스팅한다는 것입니다. 콘텐츠에 지정하는 경우 절대 URL을 사용해야 합니다.
+
+> [!NOTE]
+> HTML 콘텐츠 만들기, Azure Blob 저장소에 콘텐츠 업로드 및 CORS 구성에 대한 자세한 내용은 UI 사용자 지정 문서의 [사용자 지정 페이지 콘텐츠 연습](custom-policy-ui-customization.md#custom-page-content-walkthrough) 섹션을 참조하세요.
 
 ## <a name="get-started-with-custom-html-and-css"></a>사용자 지정 HTML 및 CSS 시작
 
@@ -166,7 +169,7 @@ Azure Active Directory [회사 브랜딩을](../active-directory/fundamentals/cu
 
 먼저 **회사 브랜딩**내에서 배너 로고, 배경 이미지 및 배경 색을 설정합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 1. Azure 포털에서 **Azure AD B2C를**검색하고 선택합니다.
 1. **관리에서** **회사 브랜딩을 선택합니다.**

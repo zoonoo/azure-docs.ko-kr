@@ -1,15 +1,16 @@
 ---
-title: AKS(Azure Kubernetes Service) 클러스터에서 수신을 위해 고유한 TLS 인증서 사용
+title: 인서에 TLS 인증서 사용
+titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Service) 클러스터에서 고유한 인증서를 사용하는 NGINX 수신 컨트롤러를 설치하고 구성하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: e567f5384cdd1e40ea67284713a29a92ee87af7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ec6a398b52424c142b3d7ee82625c10c733456ab
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595504"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668467"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러를 만들고 고유한 TLS 인증서 사용
 
@@ -28,7 +29,7 @@ ms.locfileid: "77595504"
 
 이 문서에서는 Helm을 사용하여 NGINX 수신 컨트롤러 및 샘플 웹앱을 설치합니다. AKS 클러스터 내에서, Tiller의 서비스 계정을 사용하여 Helm이 초기화되어 있어야 합니다. Helm의 최신 릴리스를 사용 중이어야 합니다. 업그레이드 지침은 Helm [설치 문서를][helm-install]참조하십시오. Helm 구성 및 사용에 대한 자세한 내용은 [AKS(Azure Kubernetes Service)에서 Helm을 사용하여 응용 프로그램 설치를][use-helm]참조하십시오.
 
-또한 이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하십시오.
+또한 이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ## <a name="create-an-ingress-controller"></a>수신 컨트롤러 만들기
 

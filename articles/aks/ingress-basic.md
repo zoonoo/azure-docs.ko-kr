@@ -1,15 +1,16 @@
 ---
-title: AKS(Azure Kubernetes Service)에 기본 수신 컨트롤러 만들기
+title: 수신 컨트롤러 만들기
+titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Service) 클러스터에 기본 NGINX 수신 컨트롤러를 설치하고 구성하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
 ms.date: 12/20/2019
-ms.openlocfilehash: e37f7aa677be129aa9fe568880c53cc860947e30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b9e4537d6dd771697accc1f9fbdc3b6e2584863
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595640"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668531"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 수신 컨트롤러 만들기
 
@@ -28,7 +29,7 @@ ms.locfileid: "77595640"
 
 이 문서에서는 Helm을 사용하여 NGINX 수신 컨트롤러 및 샘플 웹앱을 설치합니다.
 
-또한 이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하십시오.
+또한 이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ## <a name="create-an-ingress-controller"></a>수신 컨트롤러 만들기
 

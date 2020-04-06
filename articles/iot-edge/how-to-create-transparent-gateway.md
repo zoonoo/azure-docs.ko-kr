@@ -4,16 +4,16 @@ description: Azure IoT Edge 디바이스를 다운스트림 디바이스의 정�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/30/2019
+ms.date: 04/03/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6069e0782f69d0dfb73d9be2998cbb11d59d7d22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3b3aeff595671c5f924d01599b572b6b938ef09d
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79529172"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666656"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성
 
@@ -31,7 +31,7 @@ ms.locfileid: "79529172"
 2. 다운스트림 장치는 IoT Hub로 인증할 수 있고 게이트웨이 장치를 통해 통신할 수 있는 장치 ID가 있어야 합니다. 자세한 내용은 [Azure IoT Hub에 다운스트림 장치 인증을](how-to-authenticate-downstream-device.md)참조하세요.
 3. 다운스트림 장치는 게이트웨이 장치에 안전하게 연결해야 합니다. 자세한 내용은 [다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결](how-to-connect-downstream-device.md)을 참조하세요.
 
-장치가 게이트웨이로 작동하려면 다운스트림 장치에 안전하게 연결할 수 있어야 합니다. Azure IoT Edge를 사용하면 PKI(공개 키 인프라)를 사용하여 이러한 디바이스 간에 안전한 연결을 설정할 수 있습니다. 이 경우에 투명한 게이트웨이로 작동하는 IoT Edge 디바이스에 다운스트림 디바이스를 연결할 수 있습니다. 적절한 보안을 유지하려면 다운스트림 장치가 게이트웨이 장치의 ID를 확인해야 합니다. 이 ID 검사를 통해 장치가 잠재적으로 악의적인 게이트웨이에 연결되지 않습니다.
+장치가 게이트웨이로 작동하려면 다운스트림 장치에 안전하게 연결할 수 있어야 합니다. Azure IoT Edge를 사용하면 PKI(공개 키 인프라)를 사용하여 이러한 디바이스 간에 안전한 연결을 설정할 수 있습니다. 이 경우 다운스트림 장치가 투명한 게이트웨이 역할을 하는 IoT Edge 장치에 연결할 수 있습니다. 적절한 보안을 유지하려면 다운스트림 장치가 게이트웨이 장치의 ID를 확인해야 합니다. 이 ID 검사를 통해 장치가 잠재적으로 악의적인 게이트웨이에 연결되지 않습니다.
 
 투명한 게이트웨이 시나리오의 다운스트림 장치는 [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub) 클라우드 서비스로 만든 ID가 있는 모든 응용 프로그램 또는 플랫폼일 수 있습니다. 많은 경우에 이러한 애플리케이션은 [Azure IoT 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용합니다. 모든 실질적인 용도의 경우 다운스트림 디바이스는 IoT Edge 게이트웨이 디바이스 자체에서 실행 중인 애플리케이션일 수 있습니다. 그러나 IoT Edge 장치는 IoT Edge 게이트웨이의 다운스트림일 수 없습니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "79529172"
 >[!NOTE]
 >이 문서에서 사용되는 "루트 CA"라는 용어는 PKI 인증서 체인의 최상위 권한 공용 인증서를 나타내며 반드시 신디케이트된 인증 기관의 인증서 루트는 아닙니다. 대부분의 경우 실제로 는 중간 CA 공용 인증서입니다.
 
-게이트웨이는 연결을 개시하는 동안 IoT Edge 장치 CA 인증서를 다운스트림 장치에 제공합니다. 다운스트림 장치는 IoT Edge 장치 CA 인증서가 루트 CA 인증서에 의해 서명되었는지 확인합니다. 이 프로세스를 통해 다운스트림 장치는 게이트웨이가 신뢰할 수 있는 소스에서 왔는지 확인할 수 있습니다.
+IoT Edge 보안 데몬은 IoT Edge 장치 CA 인증서를 사용하여 워크로드 CA 인증서에 서명하고 IoT Edge 허브용 서버 인증서에 서명합니다. 게이트웨이는 연결을 받는 동안 서버 인증서를 다운스트림 장치에 제공합니다. 다운스트림 장치는 서버 인증서가 루트 CA 인증서로 롤업되는 인증서 체인의 일부인지 확인합니다. 이 프로세스를 통해 다운스트림 장치는 게이트웨이가 신뢰할 수 있는 소스에서 왔는지 확인할 수 있습니다. 자세한 내용은 [Azure IoT Edge에서 인증서를 사용하는 방법 이해하기를](iot-edge-certs.md)참조하십시오.
 
 다음 단계에서는 인증서를 만들고 게이트웨이의 올바른 위치에 설치하는 프로세스를 안내합니다. 머신을 사용하여 인증서를 생성한 다음, IoT Edge 디바이스로 복사할 수 있습니다.
 
@@ -115,7 +115,7 @@ IoT Edge 런타임은 모듈에서 전송한 메시지와 같은 다운스트림
 
 IoT Edge 런타임의 [v1.0.4 릴리스부터](https://github.com/Azure/azure-iotedge/releases/tag/1.0.4) 연결되는 게이트웨이 장치와 다운스트림 장치를 확장된 오프라인 작업을 위해 구성할 수 있습니다.
 
-이 기능을 사용하면 로컬 모듈 또는 다운스트림 장치가 필요에 따라 IoT Edge 장치로 다시 인증하고 IoT 허브에서 연결이 끊어진 경우에도 메시지 및 방법을 사용하여 서로 통신할 수 있습니다. 자세한 내용은 [IoT Edge 디바이스, 모듈 및 하위 디바이스용 확장 오프라인 기능 이해](offline-capabilities.md)를 참조하세요.
+이 기능을 통해 로컬 모듈 또는 다운스트림 장치는 필요에 따라 IoT Edge 장치로 다시 인증하고 IoT 허브에서 연결이 끊어진 경우에도 메시지 및 방법을 사용하여 서로 통신할 수 있습니다. 자세한 내용은 [IoT Edge 디바이스, 모듈 및 하위 디바이스용 확장 오프라인 기능 이해](offline-capabilities.md)를 참조하세요.
 
 확장된 오프라인 기능을 사용하려면 IoT Edge 게이트웨이 장치와 연결되는 다운스트림 장치 간에 부모-자식 관계를 설정합니다. 이러한 단계는 [Azure IoT Hub에 다운스트림 장치를 인증할 때](how-to-authenticate-downstream-device.md)자세히 설명합니다.
 

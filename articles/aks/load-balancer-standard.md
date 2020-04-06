@@ -1,17 +1,18 @@
 ---
-title: Azure Kubernetes 서비스(AKS)에서 표준 SKU 로드 밸러커 사용
+title: 표준 SKU 로드 밸레인저 사용
+titleSuffix: Azure Kubernetes Service
 description: 표준 SKU와 함께 로드 밸러버를 사용하여 AKS(Azure Kubernetes Service)를 사용하여 서비스를 노출하는 방법을 알아봅니다.
 services: container-service
 author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9c414572e1c3b2f046ae9a14139885e9927ab3bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 17e474de9c221126d67cc2982ba11c6ff75e7aa3
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252910"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668506"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스(AKS)에서 표준 SKU 로드 밸러커 사용
 
@@ -25,7 +26,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 문서에서는 Azure CLI 버전 2.0.81 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하십시오.
+CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 문서에서는 Azure CLI 버전 2.0.81 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -188,7 +189,7 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 
 예제 출력에는 *할당된아웃바운드 포트* 및 *IdleTimeoutIn분에*대한 기본값이 표시됩니다. *할당된OutboundPorts에* 대한 값이 0이면 백 엔드 풀 크기를 기반으로 아웃바운드 포트 수에 대한 자동 할당을 사용하여 아웃바운드 포트 수를 설정합니다. 예를 들어 클러스터에 50개 이하의 노드가 있는 경우 각 노드에 대해 1024개의 포트가 할당됩니다.
 
-위의 기본 구성에 따라 SNAT 소모에 직면할 것으로 예상되는 경우 *할당된아웃바운드 포트* 또는 *IdleTimeoutInMinutes* 설정을 변경하는 것이 좋습니다. 각 추가 IP 주소는 할당을 위해 64,000개의 추가 포트를 사용할 수 있지만 Azure 표준 로드 밸런서가 더 많은 IP 주소를 추가할 때 노드당 포트를 자동으로 증가시키지 않습니다. *로드 밸러서 아웃바운드 포트* 및 로드 *밸류에이터-유휴 시간 설정* 매개 변수를 설정하여 이러한 값을 변경할 수 있습니다. 예를 들어:
+위의 기본 구성에 따라 SNAT 소모에 직면할 것으로 예상되는 경우 *할당된아웃바운드 포트* 또는 *IdleTimeoutInMinutes* 설정을 변경하는 것이 좋습니다. 각 추가 IP 주소는 할당을 위해 64,000개의 추가 포트를 사용할 수 있지만 Azure 표준 로드 밸런서가 더 많은 IP 주소를 추가할 때 노드당 포트를 자동으로 증가시키지 않습니다. *로드 밸러서 아웃바운드 포트* 및 로드 *밸류에이터-유휴 시간 설정* 매개 변수를 설정하여 이러한 값을 변경할 수 있습니다. 다음은 그 예입니다.
 
 ```azurecli-interactive
 az aks update \
@@ -201,7 +202,7 @@ az aks update \
 > [!IMPORTANT]
 > 연결 또는 확장 문제를 방지하려면 *할당된OutboundPorts를* 사용자 지정하기 전에 [필요한 할당량을 계산해야][calculate-required-quota] 합니다. *할당된아웃바운드포트에* 대해 지정한 값도 8의 배수여야 합니다.
 
-클러스터를 만들 때 *로드 밸런서 아웃바운드 포트와* *로드 밸런서-유휴 시간 지정* 매개 변수를 사용할 수도 있지만 로드 *밸런서 관리 아웃바운드 ip 수,* 로드 *밸런서-아웃바운드 ip또는* *로드 밸런서 아웃바운드 ip-접두사도* 지정해야 합니다.  예를 들어:
+클러스터를 만들 때 *로드 밸런서 아웃바운드 포트와* *로드 밸런서-유휴 시간 지정* 매개 변수를 사용할 수도 있지만 로드 *밸런서 관리 아웃바운드 ip 수,* 로드 *밸런서-아웃바운드 ip또는* *로드 밸런서 아웃바운드 ip-접두사도* 지정해야 합니다.  다음은 그 예입니다.
 
 ```azurecli-interactive
 az aks create \

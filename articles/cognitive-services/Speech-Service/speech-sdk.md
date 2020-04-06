@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: dapine
-ms.openlocfilehash: a2ff4a94c1b2941f645cd7032ef476d33dffdb00
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 440944033e4b6a8fb29cf9ace6ad784b91316526
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656647"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668759"
 ---
 # <a name="about-the-speech-sdk"></a>Speech SDK 정보
 
@@ -69,21 +69,11 @@ Speech SDK는 단일 장치 또는 다중 장치 대화에서 회의 시나리�
 
 ## <a name="rest-api"></a>REST API
 
-Speech SDK는 음성 서비스의 많은 기능 기능을 다루지만 일부 시나리오에서는 REST API를 사용할 수 있습니다. 예를 들어 끝점 관리는 REST API를 통해서만 노출됩니다.
-
-> [!TIP]
-> REST API에 의존하는 경우 Swagger 편집기를 사용하여 클라이언트 라이브러리를 자동으로 생성합니다. 예를 들어, 배치 전사 클라이언트 라이브러리를 생성한다.
-> 1. 아래 예제 URL을 복사합니다.
->     ```http
->     https://westus.cris.ai/docs/v2.0/swagger
->     ```
-> 1. <a href="https://editor.swagger.io/" target="_blank">스웨거 <span class="docon docon-navigate-external x-hidden-focus"></span> 편집기로</a> 이동
-> 1. **파일** > **가져오기 URL을** 선택하고 URL 붙여넣기
-> 1. **클라이언트 생성을** 선택하고 원하는 프로그래밍 언어를 선택합니다.
+Speech SDK는 음성 서비스의 많은 기능 기능을 다루지만 일부 시나리오에서는 REST API를 사용할 수 있습니다.
 
 ### <a name="batch-transcription"></a>일괄 처리 기록
 
-[일괄 전사를](batch-transcription.md) 사용하면 대용량 데이터의 비동기 음성-텍스트 전사를 사용할 수 있습니다. 일괄 전사는 REST API에서만 가능합니다.
+[일괄 전사를](batch-transcription.md) 사용하면 대용량 데이터의 비동기 음성-텍스트 전사를 사용할 수 있습니다. 일괄 전사는 REST API에서만 가능합니다. 음성 오디오를 텍스트로 변환하는 것 외에도 배치 음성-텍스트는 diarization 및 감정 분석을 가능하게 합니다.
 
 ## <a name="customization"></a>사용자 지정
 

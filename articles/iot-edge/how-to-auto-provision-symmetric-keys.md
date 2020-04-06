@@ -5,16 +5,16 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: mrohera
-ms.date: 10/04/2019
+ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d9944308d00c9cfecbd38a6443efb49913148806
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 139a2cafe137d000b991cbad8b8567e005ffc728
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535921"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668665"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>대칭 키 증명을 사용하여 IoT Edge 장치 생성 및 프로비전
 
@@ -72,13 +72,16 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
    1. 등록이 IoT Edge 장치에 대한 것이라는 것을 선언하려면 **True를** 선택합니다. 그룹 등록의 경우 모든 장치는 IoT Edge 장치여야 하며 그 중 어느 것도 할 수 없습니다.
 
+   > [!TIP]
+   > Azure CLI에서 [등록](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) 또는 [등록 그룹을](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) 만들고 가장자리 **지원** 플래그를 사용하여 장치 또는 장치 그룹이 IoT Edge 장치인지 지정할 수 있습니다.
+
    1. **허브에 장치를 할당하거나** 이 등록과 관련된 다른 값을 선택하는 방법에 대한 장치 프로비저닝 서비스의 할당 정책에서 기본값을 수락합니다.
 
    1. 디바이스를 연결하려는 링크된 **IoT Hub**를 선택합니다. 여러 허브를 선택할 수 있으며 선택한 할당 정책에 따라 장치가 해당 허브 중 하나에 할당됩니다.
 
    1. 장치가 처음 **프로비저닝을 요청할 때 다시 프로비저닝할** 때 장치 데이터를 처리할 방법을 선택합니다.
 
-   1. 원하는 경우 **초기 디바이스 쌍 상태**에 태그 값을 추가합니다. 태그를 사용하여 모듈 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 예를 들어:
+   1. 원하는 경우 **초기 디바이스 쌍 상태**에 태그 값을 추가합니다. 태그를 사용하여 모듈 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 다음은 그 예입니다.
 
       ```json
       {
