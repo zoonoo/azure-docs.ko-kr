@@ -103,6 +103,8 @@
       href: concepts-tpm-attestation.md
     - name: 대칭 키 증명
       href: concepts-symmetric-key-attestation.md
+    - name: 디바이스 제조업체를 위한 보안 관행
+      href: concepts-device-oem-security-practices.md
 - name: 방법 가이드
   items:
     - name: IoT Hub에 MXChip IoT DevKit 연결

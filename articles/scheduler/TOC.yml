@@ -1,5 +1,5 @@
-- name: Scheduler 설명서
-  href: index.md
+- name: Azure Scheduler 설명서
+  href: index.yml
 - name: 개요
   items:
     - name: Azure Scheduler 정의
@@ -52,7 +52,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler'
     - name: 스택 오버플로
       href: 'https://stackoverflow.com/questions/tagged/azure-scheduler'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/scheduler/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

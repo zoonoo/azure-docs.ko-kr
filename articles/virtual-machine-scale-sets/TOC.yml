@@ -13,11 +13,13 @@
       href: quick-create-cli.md
     - name: Azure PowerShell로 만들기
       href: quick-create-powershell.md
-    - name: 템플릿으로 만들기
+    - name: ARM 템플릿으로 만들기
       items:
         - name: Linux 확장 집합
+          displayName: 'ARM, resource manager'
           href: quick-create-template-linux.md
         - name: Windows 확장 집합
+          displayName: 'ARM, resource manager'
           href: quick-create-template-windows.md
 - name: 자습서
   items:
@@ -305,7 +307,7 @@
   items:
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
-    - name: 가격
+    - name: 가격 책정
       items:
         - name: Linux
           href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/'

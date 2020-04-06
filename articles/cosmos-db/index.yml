@@ -11,12 +11,12 @@ metadata:
   author: SnehaGunda
   ms.author: sngun
   ms.date: 09/10/2019
-  ms.openlocfilehash: ebe88aea9b84e640ccc4cecb495d2beedae2893e
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 0d54189212a3597902c58f2889959891f6c8c07c
+  ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "75934102"
+  ms.lasthandoff: 04/02/2020
+  ms.locfileid: "80584289"
 landingContent:
 - title: Azure Cosmos DB 정보
   linkLists:
@@ -164,6 +164,8 @@ landingContent:
       url: sql-api-dotnet-application.md
     - text: Async SDK를 사용하는 Java 앱
       url: sql-api-async-java-get-started.md
+    - text: 변경 피드를 사용하는 Java 앱 샘플
+      url: create-sql-api-java-changefeed.md
     - text: SQL 쿼리를 사용하여 데이터 쿼리
       url: tutorial-query-sql-api.md
   - linkListType: how-to-guide

@@ -85,6 +85,10 @@
           items:
             - name: Azure Active Directory Domain Services 인스턴스 만들기
               href: ../active-directory-domain-services/tutorial-create-instance.md
+    - name: Edge 영역 설명서
+      items:
+        - name: Edge 영역이란?
+          href: ../networking/edge-zones-overview.md
 - name: 재해 복구
   items:
     - name: Azure Site Recovery 사용

@@ -37,8 +37,10 @@
       href: logic-apps-serverless-overview.md
     - name: B2B 통합 & EDI 처리
       href: logic-apps-enterprise-integration-overview.md
-    - name: Azure Virtual Network에 액세스
+    - name: Azure 가상 네트워크에 액세스
       href: connect-virtual-network-vnet-isolated-environment-overview.md
+    - name: 비즈니스 연속성 및 재해 복구
+      href: business-continuity-disaster-recovery-guidance.md
 - name: 방법 가이드
   items:
     - name: 개발
@@ -395,7 +397,7 @@
       href: 'https://aka.ms/logicappsroadmap/'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/logic-apps/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

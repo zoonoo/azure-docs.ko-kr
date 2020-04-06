@@ -29,6 +29,8 @@
       href: quick-onboard-azure-stack.md
 - name: 자습서
   items:
+    - name: 계획 및 운영 가이드
+      href: security-center-planning-and-operations-guide.md
     - name: 리소스 보호
       href: tutorial-protect-resources.md
     - name: 인시던트에 대응
@@ -71,8 +73,8 @@
           href: security-center-incident.md
         - name: 클라우드 스마트 경고 상관 관계(인시던트)
           href: security-center-alerts-cloud-smart.md
-        - name: 보안 경고 맵 및 위협 인텔리전스
-          href: security-center-threat-intel.md
+        - name: 위협 보고서
+          href: security-center-threat-report.md
         - name: 경고 유효성 검사(EICAR 테스트 파일)
           href: security-center-alert-validation.md
 - name: 방법 가이드
@@ -149,6 +151,8 @@
           href: security-center-sql-service-recommendations.md
         - name: ID 및 액세스 보호
           href: security-center-identity-access.md
+        - name: 조사 사용자 데이터 관리
+          href: security-center-investigation-user-data.md
     - name: 클라우드 방어 적용
       items:
         - name: Just-In-Time 액세스 관리
@@ -159,24 +163,6 @@
           href: security-center-file-integrity-monitoring.md
         - name: 적응형 네트워크 강화
           href: security-center-adaptive-network-hardening.md
-    - name: 보관
-      items:
-        - name: 디스크 암호화 적용
-          href: security-center-apply-disk-encryption.md
-        - name: 시스템 업데이트 적용
-          href: security-center-apply-system-updates.md
-        - name: Endpoint Protection 설치
-          href: security-center-install-endpoint-protection.md
-        - name: 위협 보고서
-          href: security-center-threat-report.md
-        - name: 경고 신뢰도 점수
-          href: security-center-confidence-score.md
-        - name: 조사
-          href: security-center-investigation.md
-        - name: 조사 사용자 데이터 관리
-          href: security-center-investigation-user-data.md
-        - name: 계획 및 작업
-          href: security-center-planning-and-operations-guide.md
 - name: 참조
   items:
     - name: REST API

@@ -149,6 +149,8 @@
           items:
             - name: 읽기 복제본
               href: concepts-read-replicas.md
+            - name: 논리 디코딩
+              href: concepts-logical.md
     - name: 하이퍼스케일(Citus)
       items:
         - name: 노드
@@ -269,6 +271,8 @@
           items:
             - name: Azure portal
               href: howto-data-encryption-portal.md
+            - name: Azure CLI
+              href: howto-data-encryption-cli.md
         - name: 서버 다시 시작
           items:
             - name: Azure portal

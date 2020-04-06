@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: spelluru
   ms.author: spelluru
-  ms.date: 01/29/2020
-  ms.openlocfilehash: 957a942efd618003dd3ff3f9f76be72799770859
-  ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+  ms.date: 03/13/2020
+  ms.openlocfilehash: 24f3c35b41effaaad7aa3058c4a3d3af13739a01
+  ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/26/2020
-  ms.locfileid: "80288294"
+  ms.lasthandoff: 04/01/2020
+  ms.locfileid: "80520309"
 landingContent:
 - title: Event Hubs 정보
   linkLists:
@@ -69,8 +69,6 @@ landingContent:
       url: event-hubs-kafka-stream-analytics.md
   - linkListType: how-to-guide
     links:
-    - text: Apache Kafka 지원 이벤트 허브 만들기
-      url: event-hubs-create.md
     - text: 이벤트 허브에서 Kafka broker 미러링
       url: event-hubs-kafka-mirror-maker-tutorial.md
     - text: 이벤트 허브에 Apache Spark 연결
@@ -99,12 +97,34 @@ landingContent:
       url: event-hubs-storm-getstarted-receive.md
     - text: Go
       url: event-hubs-go-get-started-send.md
+- title: Azure Stack Hub의 Event Hubs 미리 보기
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 개요
+      url: /azure-stack/user/event-hubs-overview
+    - text: 일반 기능 집합
+      url: /azure-stack/user/event-hubs-overview#features
+  - linkListType: how-to-guide
+    links:
+    - text: 용량 계획
+      url: /azure-stack/operator/event-hubs-rp-capacity-planning
+    - text: 설치 필수 조건(운영자)
+      url: /azure-stack/operator/event-hubs-rp-prerequisites
+    - text: 설치(운영자)
+      url: /azure-stack/operator/event-hubs-rp-install
+    - text: 검사점 저장소로 Blob Storage 사용
+      url: use-blob-storage-checkpoint-store-azure-stack-hub.md
+  - linkListType: quickstart
+    links:
+    - text: Event Hubs 클러스터 만들기
+      url: /azure-stack/user/event-hubs-quickstart-cluster-portal
 - title: 이벤트 캡처
   linkLists:
   - linkListType: overview
     links:
     - text: Azure Blob Storage 또는 Azure Data Lake Storage에서 이벤트 캡처
-      url: event-hubs-dedicated-overview.md
+      url: event-hubs-capture-overview.md
   - linkListType: quickstart
     links:
     - text: Azure Portal을 사용하여 이벤트 캡처 사용

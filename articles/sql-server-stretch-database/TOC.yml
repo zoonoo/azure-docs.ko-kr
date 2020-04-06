@@ -1,5 +1,5 @@
-- name: SQL Server Stretch Database 설명서
-  href: index.md
+- name: Azure SQL Server Stretch Database 설명서
+  href: index.yml
 - name: 개요
   items:
     - name: Stretch Database란?
@@ -46,7 +46,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 블로그
       href: 'https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/sql-server-stretch-database/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

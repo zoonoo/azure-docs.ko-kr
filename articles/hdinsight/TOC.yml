@@ -697,6 +697,10 @@
       items:
         - name: 대화형 쿼리로 데이터 분석
           href: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
+    - name: 개념
+      items:
+        - name: 게이트웨이 모범 사례
+          href: ./interactive-query/gateway-best-practices.md
     - name: 방법
       items:
         - name: 개발
@@ -816,6 +820,8 @@
       items:
         - name: Apache Storm을 사용하여 스토리지에 쓰기
           href: ./storm/apache-storm-write-data-lake-store.md
+        - name: Apache Kafka 및 Apache Storm(Java)
+          href: ./hdinsight-apache-storm-with-kafka.md
     - name: 방법
       items:
         - name: Spark로 Storm 마이그레이션
@@ -836,10 +842,6 @@
                   href: ./storm/apache-storm-example-topology.md
             - name: 스트리밍 파이프라인
               items:
-                - name: Apache Kafka 및 Apache Storm(Java)
-                  href: ./hdinsight-apache-storm-with-kafka.md
-                - name: 'Event Hub, Storage 및 Data Lake Storage(Java)'
-                  href: 'https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/'
                 - name: 'Event Hub 및 Apache Storm(C# 및 Java)'
                   href: ./storm/apache-storm-develop-csharp-event-hub-topology.md
         - name: 관리

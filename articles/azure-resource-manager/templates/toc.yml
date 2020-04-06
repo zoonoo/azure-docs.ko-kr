@@ -10,9 +10,49 @@
       href: quickstart-create-templates-use-the-portal.md
     - name: 템플릿 만들기 - VS Code
       href: quickstart-create-templates-use-visual-studio-code.md
+    - name: Azure 서비스
+      items:
+        - name: AKS
+          href: ../../aks/kubernetes-walkthrough-rm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Application Gateway
+          href: ../../application-gateway/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Backup
+          href: ../../backup/quick-backup-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Cosmos DB
+          href: ../../cosmos-db/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Event Grid
+          href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: 이벤트 허브
+          href: ../../event-hubs/event-hubs-resource-manager-namespace-event-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: HDInsight - Spark
+          href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: HDInsight - Hadoop
+          href: ../../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: HDInsight - Kafka
+          href: ../../hdinsight/kafka/apache-kafka-quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: HDInsight - HBase
+          href: ../../hdinsight/hbase/quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: HDInsight - Interactive Query
+          href: ../../hdinsight/interactive-query/quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: HDInsight - ML Services
+          href: ../../hdinsight/r-server/quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Key Vault
+          href: ../../key-vault/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Load Balancer
+          href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: 정책
+          href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Service Bus 메시징
+          href: ../../service-bus-messaging/service-bus-resource-manager-namespace-queue.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: SQL Database
+          href: ../../sql-database/sql-database-single-database-get-started-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: 가상 머신 확장 집합 - Linux
+          href: ../../virtual-machine-scale-sets/quick-create-template-linux.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: 가상 머신 확장 집합 - Windows
+          href: ../../virtual-machine-scale-sets/quick-create-template-windows.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: 자습서
   items:
-    - name: 초급자
+    - name: 초급 템플릿
       items:
         - name: 1 - 첫 번째 템플릿 만들기
           href: template-tutorial-create-first-template.md
@@ -34,10 +74,19 @@
           href: template-tutorial-add-tags.md
         - name: 10 - 매개 변수 파일 사용
           href: template-tutorial-use-parameter-file.md
+    - name: 배포
+      items:
+        - name: 1 - 로컬 템플릿 배포
+          href: deployment-tutorial-local-template.md
+        - name: 2 - 연결된 템플릿 배포
+          href: deployment-tutorial-linked-template.md
+        - name: 3 - 파이프라인 만들기
+          displayName: Devop
+          href: deployment-tutorial-pipeline.md
     - name: 고급
       items:
         - name: 템플릿 참조 활용
-          href: template-tutorial-create-encrypted-storage-accounts.md
+          href: template-tutorial-use-template-reference.md
         - name: 여러 인스턴스 만들기
           displayName: 'iteration,copy'
           href: template-tutorial-create-multiple-instances.md
@@ -61,9 +110,6 @@
           href: template-tutorial-deploy-sql-extensions-bacpac.md
         - name: 아티팩트 보호
           href: template-tutorial-secure-artifacts.md
-        - name: Azure Pipelines를 사용한 연속 통합
-          displayName: DevOps
-          href: template-tutorial-use-azure-pipelines.md
         - name: 안전한 배포 사례 사용
           displayName: adm
           href: deployment-manager-tutorial.md
@@ -214,7 +260,7 @@
         - name: InvalidTemplate
           href: error-invalid-template.md
         - name: Linux 배포 문제
-          href: ../../virtual-machines/linux/troubleshoot-deploy-vm.md
+          href: ../../virtual-machines/troubleshooting/troubleshoot-deploy-vm-linux.md
         - name: NoRegisteredProviderFound
           href: error-register-resource-provider.md
         - name: NotFound
@@ -222,9 +268,9 @@
         - name: ParentResourceNotFound
           href: error-parent-resource.md
         - name: Linux의 프로비전 및 할당 문제
-          href: ../../virtual-machines/linux/troubleshoot-deployment-new-vm.md
+          href: ../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md
         - name: Windows의 프로비전 및 할당 문제
-          href: ../../virtual-machines/windows/troubleshoot-deployment-new-vm.md
+          href: ../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md
         - name: RequestDisallowedByPolicy
           href: error-policy-requestdisallowedbypolicy.md
         - name: ReservedResourceName
@@ -234,7 +280,7 @@
         - name: SkuNotAvailable
           href: error-sku-not-available.md
         - name: Windows 배포 문제
-          href: ../../virtual-machines/windows/troubleshoot-deploy-vm.md
+          href: ../../virtual-machines/troubleshooting/troubleshoot-deploy-vm-windows.md
 - name: 참조
   items:
     - name: 템플릿 참조

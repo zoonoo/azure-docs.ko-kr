@@ -15,22 +15,26 @@
     - name: Automation 실행 계정 관리
       href: manage-runas-account.md
       displayName: certificate renewal
-    - name: AWS를 사용하여 인증 구성
-      href: automation-config-aws-account.md
-    - name: Azure Automation의 보안 자산 암호화
-      href: automation-secure-asset-encryption.md
     - name: 역할 기반 액세스 제어 관리
       href: automation-role-based-access-control.md
       displayName: RBAC
+    - name: Azure Automation에서 Azure AD를 사용하여 Azure에 인증
+      href: automation-use-azure-ad.md
+    - name: Azure Automation을 사용하여 Office 365 서비스 관리
+      href: manage-office-365.md
+    - name: AWS를 사용하여 인증 구성
+      href: automation-config-aws-account.md
+    - name: Azure Automation에서 보안 자산 암호화
+      href: automation-secure-asset-encryption.md
     - name: Automation 계정을 다른 구독으로 이동
       href: how-to/move-account.md
     - name: Automation Services의 온보딩 자동화
       href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
-    - name: Log Analytics 작업 영역 매핑에 대해 지원되는 지역
-      href: how-to/region-mappings.md
     - name: Azure Automation 데이터 관리
       href: automation-managing-data.md
       displayName: backup
+    - name: Log Analytics 작업 영역 매핑에 대해 지원되는 지역
+      href: how-to/region-mappings.md
     - name: 문제 해결
       items:
         - name: Automation 계정 문제 해결
@@ -56,7 +60,15 @@
     - name: 방법 가이드
       items:
         - name: 작업 시간 외 VM 시작/중지
-          href: automation-solution-vm-management.md
+          items:
+            - name: 개요
+              href: automation-solution-vm-management.md
+            - name: 솔루션 사용
+              href: automation-solution-vm-management-enable.md
+            - name: 솔루션 구성
+              href: automation-solution-vm-management-config.md
+            - name: 로그 쿼리를 사용하여 데이터 분석
+              href: automation-solution-vm-management-logs.md
         - name: Runbook 관리
           href: manage-runbooks.md
         - name: Runbook 만들기
@@ -317,9 +329,9 @@
       href: shared-resources/credentials.md
     - name: PowerShell 모듈
       items:
-        - name: 모듈
+        - name: Azure Automation에서 모듈 관리
           href: shared-resources/modules.md
-        - name: Azure Automation에서 Az 모듈 사용
+        - name: Azure Automation의 Az 모듈 지원
           href: az-modules.md
         - name: Azure PowerShell 모듈 업데이트
           href: automation-update-azure-modules.md

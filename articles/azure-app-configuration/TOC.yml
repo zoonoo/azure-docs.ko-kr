@@ -120,7 +120,7 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2103727'
         - name: JavaScript용 Azure SDK
           href: 'https://go.microsoft.com/fwlink/?linkid=2103664'
-        - name: REST (영문)
+        - name: REST API
           href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
     - name: 기능 관리
       items:
@@ -128,6 +128,10 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
         - name: .NET Core 필터 라이브러리
           href: 'https://go.microsoft.com/fwlink/?linkid=2091601'
+    - name: 구성 저장소 관리
+      items:
+        - name: REST API
+          href: 'https://docs.microsoft.com/rest/api/appconfiguration/'
 - name: 리소스
   items:
     - name: 가격 책정

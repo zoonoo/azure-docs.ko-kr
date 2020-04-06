@@ -15,7 +15,7 @@
     - name: 가상 머신 모니터링
       items:
         - name: Azure VM
-          href: learn/quick-collect-azurevm.md
+          href: learn/quick-monitor-azure-vm.md
         - name: Linux 컴퓨터
           href: learn/quick-collect-linux-computer.md
         - name: Windows 컴퓨터
@@ -303,10 +303,6 @@
             - name: 원격 분석 상관 관계
               href: app/correlation.md
               displayname: 'correlation headers, w3c, distributed tracing, tracing'
-            - name: 로컬 전달자
-              href: app/opencensus-local-forwarder.md
-            - name: Go
-              href: app/opencensus-go.md
         - name: 라이브 메트릭 스트림
           displayname: 'live, quickpulse, quick pulse, live metrics'
           href: app/live-stream.md
@@ -488,9 +484,17 @@
             - name: 개요
               displayName: 'Platform logs, Resource logs, Activity log'
               href: platform/platform-logs-overview.md
-            - name: 활동 로그 보기
-              displayName: Platform logs
-              href: platform/activity-log-view.md
+            - name: 활동 로그
+              items:
+                - name: Azure Portal에서 보기
+                  displayName: 'Platform logs, Activity log'
+                  href: platform/activity-log-view.md
+                - name: 수집 및 분석
+                  displayName: 'Platform logs, Activity log'
+                  href: platform/activity-log-collect.md
+                - name: 내보내기(레거시)
+                  displayname: Activity log
+                  href: platform/activity-log-export.md
             - name: 대상으로 보내기
               items:
                 - name: Log Analytics 작업 영역
@@ -502,20 +506,6 @@
                 - name: Event Hubs
                   displayname: 'Resource logs, Activity log, Platform logs'
                   href: platform/resource-logs-stream-event-hubs.md
-            - name: 레거시 활동 로그 수집
-              items:
-                - name: 개요
-                  displayName: Resource logs
-                  href: platform/diagnostic-settings-legacy.md
-                - name: 수집 및 분석
-                  displayname: Activity log
-                  href: platform/activity-log-collect.md
-                - name: 테넌트 간에 수집
-                  displayname: Activity log
-                  href: platform/activity-log-collect-tenants.md
-                - name: 내보내기
-                  displayname: Activity log
-                  href: platform/activity-log-export.md
         - name: 진단 설정
           items:
             - name: 진단 설정 만들기
@@ -531,6 +521,8 @@
           href: platform/stream-monitoring-data-event-hubs.md
     - name: VM 및 게스트 OS 모니터링
       items:
+        - name: Azure 가상 머신 모니터링
+          href: insights/monitor-vm-azure.md
         - name: 에이전트
           items:
             - name: 에이전트 개요
@@ -636,12 +628,10 @@
           items:
             - name: 개요
               href: insights/vminsights-overview.md
-            - name: 알려진 문제
-              href: insights/vminsights-known-issues.md
             - name: 상용 서비스 관련 FAQ
               href: insights/vminsights-ga-release-faq.md
             - name: FAQ
-              href: 'faq.md#azure-monitor-for-vms-preview'
+              href: 'faq.md#azure-monitor-for-vms'
             - name: 모니터링 사용
               items:
                 - name: 모니터링 사용 개요
@@ -654,18 +644,16 @@
                   href: insights/vminsights-enable-at-scale-powershell.md
                 - name: 하이브리드 환경에서 사용하도록 설정
                   href: insights/vminsights-enable-hybrid-cloud.md
-                - name: Operations Manager와 통합
-                  href: insights/service-map-scom.md
-            - name: 상태 모니터링
-              href: insights/vminsights-health.md
             - name: 종속성 매핑
               href: insights/vminsights-maps.md
             - name: 성능 모니터링
               href: insights/vminsights-performance.md
-            - name: 통합 문서 사용
-              href: insights/vminsights-workbooks.md
             - name: 로그 쿼리를 사용하여 데이터 분석
               href: insights/vminsights-log-search.md
+            - name: 통합 문서를 사용하여 데이터 시각화
+              href: insights/vminsights-workbooks.md
+            - name: 경고 규칙 만들기
+              href: insights/vminsights-alerts.md
             - name: 종속성 에이전트 업그레이드
               href: insights/vminsights-dependency-agent-maintenance.md
             - name: 모니터링 사용 안 함
@@ -680,6 +668,8 @@
               href: insights/wire-data.md
             - name: 서비스 맵 솔루션
               href: insights/service-map.md
+            - name: 서비스 맵 및 Operations Manager
+              href: insights/service-map-scom.md
         - name: 컴퓨터 그룹
           href: platform/computer-groups.md
     - name: 모니터 컨테이너
@@ -708,6 +698,8 @@
               href: insights/container-insights-analyze.md
             - name: 상태 모니터링
               href: insights/container-insights-health.md
+            - name: GPU 성능 모니터링
+              href: insights/container-insights-gpu-monitoring.md
             - name: 라이브 데이터 보기
               items:
                 - name: 라이브 데이터(미리 보기) 개요
@@ -896,13 +888,11 @@
                   href: log-query/query-optimization.md
                 - name: 텍스트 데이터 구문 분석
                   href: log-query/parse-text.md
-        - name: Flow/Logic Apps
+        - name: Logic Apps
           items:
-            - name: 로그를 사용하는 Flow 커넥터
-              href: platform/flow-tutorial.md
-            - name: 애플리케이션을 사용하는 Flow 커넥터
-              href: app/automate-with-flow.md
-            - name: 애플리케이션을 사용하는 Logic Apps
+            - name: Azure Monitor 로그 커넥터
+              href: platform/logicapp-flow-connector.md
+            - name: Application Insights 커넥터
               href: app/automate-with-logic-apps.md
         - name: REST API
           displayname: 'metrics, analyze'
@@ -975,6 +965,8 @@
           href: platform/grafana-plugin.md
     - name: 경고
       items:
+        - name: 경고 문제 해결
+          href: platform/alerts-troubleshoot.md
         - name: 애플리케이션 경고 규칙
           items:
             - name: 가용성
@@ -999,7 +991,7 @@
               href: platform/alerts-log-query.md
             - name: 웹후크 작업
               href: platform/alerts-log-webhook.md
-            - name: 문제 해결
+            - name: 로그 경고 문제 해결
               href: platform/alert-log-troubleshoot.md
         - name: 활동 로그 경고 규칙
           items:
@@ -1263,8 +1255,6 @@
           href: 'https://azure.microsoft.com/updates/?product=log-analytics'
         - name: SDK 릴리스 정보
           href: app/release-notes.md
-    - name: Windows 분석
-      href: 'https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/?products=monitor&regions=all'
     - name: 동영상

@@ -150,6 +150,8 @@
               href: plan-migrate-adfs-password-hash-sync.md
             - name: 페더레이션에서 PTA로 마이그레이션
               href: plan-migrate-adfs-pass-through-authentication.md
+            - name: 포리스트 간 그룹 이동
+              href: how-to-connect-migrate-groups.md
         - name: 하이브리드 ID 설계 고려 사항
           items:
             - name: 하이브리드 ID 설계 고려 사항 개요

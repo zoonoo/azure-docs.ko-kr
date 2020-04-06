@@ -143,12 +143,18 @@
           href: how-to-auto-provision-x509-certs.md
         - name: 대칭 키 증명
           href: how-to-auto-provision-symmetric-keys.md
-    - name: 사용자 지정 모듈 개발 및 디버그
+    - name: 사용자 지정 모듈 개발
       items:
-        - name: Visual Studio 2019
+        - name: Visual Studio 2019를 사용하여 개발
           href: how-to-visual-studio-develop-module.md
-        - name: Visual Studio Code
+        - name: Visual Studio Code를 사용하여 개발
           href: how-to-vs-code-develop-module.md
+        - name: 모듈 createOptions 구성
+          items:
+            - name: createOptions 이해 및 사용
+              href: how-to-use-create-options.md
+            - name: 모듈에 디바이스의 로컬 스토리지에 대한 액세스 권한 부여
+              href: how-to-access-host-storage-from-module.md
     - name: 모듈 배포
       items:
         - name: 개별 디바이스에 배포
@@ -183,11 +189,9 @@
           href: deploy-modbus-gateway.md
     - name: 프록시 지원 구성
       href: how-to-configure-proxy-support.md
-    - name: 에지에 데이터 저장
+    - name: IoT Edge의 Azure Blob Storage
       items:
-        - name: 모듈에 디바이스의 로컬 스토리지에 대한 액세스 권한 부여
-          href: how-to-access-host-storage-from-module.md
-        - name: IoT Edge의 Azure Blob Storage
+        - name: 에지에 있는 Blob 스토리지 이해
           href: how-to-store-data-blob.md
         - name: Blob 스토리지 모듈 배포
           href: how-to-deploy-blob.md

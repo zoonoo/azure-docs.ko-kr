@@ -93,6 +93,8 @@
           href: security-audit-events.md
         - name: Azure Monitor 통합 문서를 사용하여 감사 이벤트 분석
           href: use-azure-monitor-workbooks.md
+        - name: VM에 대한 안전한 원격 액세스
+          href: secure-remote-vm-access.md
     - name: 도메인 가입 VM
       items:
         - name: 템플릿의 Windows Server VM
@@ -143,13 +145,9 @@
       href: faqs.md
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=active-directory-ds'
-    - name: 호환 가능한 타사 소프트웨어
-      href: compatible-software.md
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/active-directory-ds/'
     - name: Azure AD 피드백 포럼
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-    - name: 문의처
-      href: contact-us.md
     - name: Azure CSP 구독에서 Azure AD Domain Services 사용
       href: csp.md

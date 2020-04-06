@@ -13,7 +13,7 @@
           href: storage-blobs-introduction.md
     - name: 빠른 시작
       items:
-        - name: 코드 없이 Blob 관리
+        - name: Blob 사용
           items:
             - name: Azure portal
               href: storage-quickstart-blobs-portal.md
@@ -23,8 +23,6 @@
               href: storage-quickstart-blobs-powershell.md
             - name: CLI
               href: storage-quickstart-blobs-cli.md
-        - name: Blob으로 개발
-          items:
             - name: .NET
               items:
                 - name: .NET(v12 SDK)

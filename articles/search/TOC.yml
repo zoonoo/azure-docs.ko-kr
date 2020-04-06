@@ -23,6 +23,9 @@
           href: knowledge-store-create-portal.md
         - name: Search 탐색기를 사용하여 쿼리
           href: search-explorer.md
+    - name: ARM 템플릿
+      displayName: Resource Manager
+      href: search-get-started-arm.md
     - name: 'C#'
       href: search-get-started-dotnet.md
     - name: Java
@@ -77,14 +80,6 @@
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python'
     - name: REST 샘플
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=rest'
-- name: 학습
-  items:
-    - name: 소개(Microsoft Learn)
-      href: 'https://docs.microsoft.com/learn/modules/intro-to-azure-search/'
-    - name: 앱에 검색 추가(Pluralsight)
-      href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
-    - name: 개발자 과정(Pluralsight)
-      href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
 - name: 개념
   items:
     - name: 전체 텍스트 검색
@@ -233,7 +228,7 @@
           href: search-query-simple-examples.md
         - name: 전체 Lucene 구문 사용
           href: search-query-lucene-examples.md
-        - name: 특수 문자 및 부분 용어
+        - name: 부분 용어 및 특수 문자
           href: search-query-partial-matching.md
         - name: Power Apps에서 쿼리
           href: search-howto-powerapps.md
@@ -261,7 +256,7 @@
           href: search-example-adventureworks-multilevel-faceting.md
     - name: 결과
       items:
-        - name: 페이지 관련 기능
+        - name: 결과 작업
           href: search-pagination-page-layout.md
         - name: 관련성 튜닝(점수 매기기 프로필)
           href: index-add-scoring-profiles.md
@@ -460,6 +455,14 @@
           href: 'https://aka.ms/azjobsdemo'
         - name: 사용 사례 검색
           href: 'https://searchsamples.azurewebsites.net/'
+    - name: 학습
+      items:
+        - name: 소개(Microsoft Learn)
+          href: 'https://docs.microsoft.com/learn/modules/intro-to-azure-search/'
+        - name: 앱에 검색 추가(Pluralsight)
+          href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
+        - name: 개발자 과정(Pluralsight)
+          href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
     - name: FAQ
       href: search-faq-frequently-asked-questions.md
     - name: 가격 책정

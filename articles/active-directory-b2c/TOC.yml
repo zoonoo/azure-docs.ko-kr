@@ -233,18 +233,16 @@
               href: direct-signin.md
         - name: 고유한 비즈니스 논리 추가
           items:
+            - name: REST API 통합
+              href: custom-policy-rest-api-intro.md
             - name: 사용자 입력 유효성 검사
               href: custom-policy-rest-api-claims-validation.md
               displayName: 'rest claims validation, validate'
             - name: 추가 클레임 가져오기
               href: custom-policy-rest-api-claims-exchange.md
               displayName: rest claims exchange
-            - name: 사용자 고유의 RESTful API 추가
-              href: rest-api-claims-exchange-dotnet.md
-            - name: 기본 인증을 사용하여 RESTful API 보안
-              href: secure-rest-api-dotnet-basic-auth.md
-            - name: 인증서 인증을 사용하여 RESTful API 보안
-              href: secure-rest-api-dotnet-certificate-auth.md
+            - name: 보안 REST API
+              href: secure-rest-api.md
         - name: 사용자 지정 특성 정의
           href: custom-policy-custom-attributes.md
         - name: 문제 해결
@@ -406,7 +404,7 @@
       href: error-codes.md
     - name: 앱 확장
       href: extensions-app.md
-    - name: Identity Experience Framework 릴리스 정보
+    - name: IEF 릴리스 정보
       href: custom-policy-developer-notes.md
     - name: Microsoft Graph API 작업
       href: microsoft-graph-operations.md
