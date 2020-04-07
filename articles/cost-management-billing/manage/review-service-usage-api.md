@@ -3,15 +3,15 @@ title: REST API를 사용하여 Azure 서비스 리소스 사용 검토
 description: Azure REST API를 사용하여 Azure 서비스 리소스 사용을 검토하는 방법을 알아봅니다.
 author: lleonard-msft
 ms.service: cost-management-billing
-ms.topic: article
-ms.date: 02/12/2020
+ms.topic: reference
+ms.date: 03/31/2020
 ms.author: banders
-ms.openlocfilehash: 337523c489089eeae5d669252b61cc61478ae1b3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 60a9e17b16f0b539693beb987b4d0610d11a3050
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202848"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521193"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>REST API를 사용하여 Azure 리소스 사용 검토
 
@@ -32,7 +32,9 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-`{subscriptionGuid}` 매개 변수는 필수 항목이며 API 토큰에서 제공된 자격 증명을 사용하여 읽을 수 있는 구독 ID를 포함해야 합니다. `{reportName}`
+`{subscriptionGuid}` 매개 변수는 필수 항목이며 API 토큰에서 제공된 자격 증명을 사용하여 읽을 수 있는 구독 ID를 포함해야 합니다. 
+
+`{reportName}` 매개 변수는 보고서 이름을 지정합니다. 보고서 이름 목록을 가져오려면 Reports_List 작업을 사용하여 목록을 가져오면 됩니다(`/subscriptions/{subscriptionId}/providers/Microsoft.CostManagement/reports`). [GitHub](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/cost-management/resource-manager/Microsoft.CostManagement/preview/2018-08-01-preview/examples/ReportList.json)에서 예제 출력을 봅니다.
 
 다음과 같은 헤더가 필요합니다.
 

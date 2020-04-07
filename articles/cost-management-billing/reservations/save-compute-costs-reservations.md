@@ -5,14 +5,14 @@ author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 03/30/2020
 ms.author: banders
-ms.openlocfilehash: 6277a7e7dc5891a3bc67c298a31344284c92e31d
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 97bd03fb2aa8f5b486ef87a04f260fec43eb81bd
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80235645"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396709"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 
@@ -20,7 +20,7 @@ Azure Reservations는 여러 제품의 1년 또는 3년 플랜에 따라 비용�
 
 예약 요금을 선결제할 수도 있고 매달 결제할 수도 있습니다. 선불과 월별 예약의 총 비용은 동일하며, 매달 지불하기로 선택하면 추가 요금이 청구되지 않습니다. 월간 결제는 타사 제품이 아닌 Azure 예약에 사용할 수 있습니다.
 
-예약은 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)에서 구입할 수 있습니다.
+예약은 Azure Portal([https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade))에서 구매할 수 있습니다.
 
 ## <a name="why-buy-a-reservation"></a>예약을 구입하는 이유
 
@@ -34,6 +34,48 @@ Azure Reservations는 여러 제품의 1년 또는 3년 플랜에 따라 비용�
 
 예약 범위의 작동 방식에 대한 자세한 내용은 [예약 범위 지정](prepare-buy-reservation.md#scope-reservations)을 참조하세요.
 
+## <a name="determine-what-to-purchase"></a>구매할 항목 확인 
+
+Azure Databricks를 제외한 모든 예약은 매시간 적용됩니다. 일관된 기본 사용량에 따라 예약 구매를 고려합니다. 사용량 데이터를 분석하거나 예약 권장 사항을 참고하여 구매할 예약을 결정할 수 있습니다. 권장 사항을 볼 수 있는 곳은 다음과 같습니다.
+
+- Azure Advisor(VM만 해당)
+- Azure Portal의 예약 구매 환경
+- Cost Management Power BI 앱
+- API 
+
+자세한 내용은  [구매할 예약 결정](determine-reservation-purchase.md)을 참조하세요. 
+
+## <a name="buying-a-reservation"></a>예약 구매 
+
+Azure Portal, API, PowerShell 및 CLI에서 예약을 구매할 수 있습니다. 
+
+구매하려면 Azure Portal(https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) 로 이동 
+
+자세한 내용은  [예약 구매](prepare-buy-reservation.md)를 참조하세요. 
+
+## <a name="how-is-a-reservation-billed"></a>예약 요금은 어떻게 청구되나요? 
+
+예약 요금은 구독에 연결된 결제 방법으로 청구됩니다. 가능한 경우, 예액 비용은 현금 약정 잔액에서 차감됩니다. 현금 약정 잔액으로 예약 비용이 해결되지 않는 경우 초과분에 대한 요금이 청구됩니다. 종량제 요금을 사용하는 개별 플랜의 구독이 있는 경우 계정에 등록된 신용 카드로 선결제 요금이 즉시 청구됩니다. 월간 결제 금액이 청구서에 표시되며 매월 신용 카드로 요금이 청구됩니다. 요금 청구를 청구서로 받는 경우 다음 달 청구서에 요금이 표시됩니다. 
+
+## <a name="permissions-to-view-and-manage-reservations"></a>예약 보기 및 관리 권한 할당 
+
+예약을 구매한 사용자와 예약 대금 청구에 사용된 구독의 계정 관리자에게는 예약 주문 및 예약에 대한 소유자 역할이 부여됩니다.
+
+예약 주문 또는 예약에 대한 역할에 사용자를 추가하여 예약 관리를 위임할 수 있습니다. Azure Portal 또는 API와 PowerShell을 사용하여 역할을 할당합니다. 
+
+자세한 내용은  [예약을 관리할 수 있는 사용자 추가 또는 변경](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation)을 참조하세요. 
+
+## <a name="get-reservation-details-and-utilization-after-purchase"></a>구매 후 예약 세부 정보 및 사용률 가져오기
+
+예약을 볼 권한이 있는 경우 Azure Portal에서 예약과 예약 사용량을 볼 수 있습니다. API를 사용하여 데이터를 가져올 수도 있습니다. 
+
+Azure Portal에서 예약을 확인하는 방법에 대한 자세한 내용은  [Azure Portal에서 예약 보기](view-reservations.md)를 참조하세요. 
+
+## <a name="manage-reservations-after-purchase"></a>구매 후 예약 관리 
+
+Azure 예약을 구매한 후 범위를 업데이트하여 다른 구독에 예약을 적용하거나, 예약을 관리할 수 있는 사용자를 변경하거나, 예약을 작게 나누거나, 인스턴스 크기 유연성을 변경할 수 있습니다. 
+
+자세한 내용은  [Azure 리소스에 대한 예약 관리](manage-reserved-vm-instance.md)를 참조하세요. 
 
 ## <a name="flexibility-with-azure-reservations"></a>Azure 예약의 유연성
 
@@ -54,7 +96,7 @@ Azure Reservations는 진화하는 요구 사항을 충족하는 데 유용한 �
 - **Azure Database for MySQL** - 컴퓨팅 비용만 예약에 포함됩니다. 예약에는 MySQL Database 서버와 연결된 소프트웨어, 네트워킹 또는 스토리지 요금이 포함되지 않습니다.
 - **Azure Database for PostgreSQL** - 컴퓨팅 비용만 예약에 포함됩니다. 예약에는 PostgreSQL Database 서버와 연결된 소프트웨어, 네트워킹 또는 스토리지 요금이 포함되지 않습니다.
 - **Azure Database for MariaDB** - 컴퓨팅 비용만 예약에 포함됩니다. 예약에는 MariaDB Database 서버와 연결된 소프트웨어, 네트워킹 또는 스토리지 요금이 포함되지 않습니다.
-- **Azure Data Explorer** - 예약에는 태그 요금이 포함됩니다. 예약에는 클러스터와 연결된 컴퓨팅, 네트워킹 또는 스토리지 요금이 포함되지 않습니다.
+- **Azure Data Explorer** - 예약에는 태그 요금이 포함됩니다. 클러스터와 연결된 컴퓨팅, 네트워킹 또는 스토리지 요금에는 예약이 적용되지 않습니다.
 - **Azure Cache for Redis** - 컴퓨팅 비용만 예약에 포함됩니다. 예약에는 Redis 캐시 인스턴스와 연결된 네트워킹 또는 스토리지 요금이 포함되지 않습니다.
 - **Azure Dedicated Host** - 컴퓨팅 비용만 전용 호스트에 포함됩니다.
 - **Azure Disk Storage 예약** - 예약은 P30 크기 이상의 프리미엄 SSD에만 적용됩니다. P30보다 작은 다른 디스크 유형이나 크기는 다루지 않습니다.

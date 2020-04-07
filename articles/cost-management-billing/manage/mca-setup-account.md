@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 24f7a81b267e858d16ae0805f9c7ab384be3b2fc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 81b6b8a7024de9ff3361e24cb14190d479e50681
+ms.sourcegitcommit: 2a09565db8681cdb76607e7ed51eecf68f4ff8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200645"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80258059"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 청구 계정 설정
 
@@ -97,7 +97,7 @@ Microsoft 고객 계약에 서명한 조직 내 사용자는 청구 프로필에
 
 Microsoft 고객 계약을 수락하는 동안 새 청구 계정에 대한 Azure AD(Active Directory) 테넌트가 선택됩니다. 조직의 테넌트가 없는 경우 새 테넌트가 만들어집니다. 테넌트는 Azure Active Directory 내에서 조직을 나타냅니다. 조직의 글로벌 테넌트 관리자는 테넌트를 사용하여 조직의 애플리케이션 및 데이터 액세스를 관리합니다.
 
-새 계정은 Microsoft 고객 계약에 서명할 때 선택된 테넌트의 사용자만 지원합니다. 기업계약에 대한 관리 권한이 있는 사용자가 테넌트에 포함된 경우 설정 과정에서 이들에게 새 청구 계정에 대한 액세스 권한이 부여됩니다. 이들이 테넌트에 포함되지 않은 경우에는 초대를 받기 전에는 새 청구 계정에 액세스할 수 없습니다.
+새 계정은 Microsoft 고객 계약에 서명할 때 선택된 테넌트의 사용자만 지원합니다. 기업계약에 대한 관리 권한이 있는 사용자가 테넌트에 포함된 경우 설정 과정에서 이들에게 새 청구 계정에 대한 액세스 권한이 부여됩니다. 이들이 테넌트에 포함되지 않은 경우에는 초대를 받아야만 새 청구 계정에 액세스할 수 있습니다.
 
 사용자를 초대하면 해당 사용자는 테넌트에 게스트 사용자로 추가되고 청구 계정에 대한 액세스 권한을 얻게 됩니다. 사용자를 초대하려면 테넌트에 대한 게스트 액세스를 켜야 합니다. 자세한 내용은 [Azure Active Directory의 게스트 액세스 제어](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory)를 참조하세요. 게스트 액세스가 꺼져 있는 경우 테넌트의 글로벌 관리자에게 연락하여 게스트 액세스를 켜 달라고 요청합니다. <!-- Todo - How can they find their global administrator -->
 
@@ -115,7 +115,7 @@ Microsoft 고객 계약을 수락하는 동안 새 청구 계정에 대한 Azure
 
 ### <a name="spending-quotas"></a>지출 할당량
 
-기업계약 등록에서 부서별로 설정된 지출 할당량은 새 청구 계정의 예산으로 바뀝니다. 등록에서 부서별로 설정된 각 지출 할당량에 대한 예산이 생성됩니다. 예산에 대한 자세한 내용은 [Azure 예산 만들기 및 관리](../cloudyn/manage-budgets.md)를 참조하세요.
+기업계약 등록에서 부서별로 설정된 지출 할당량은 새 청구 계정의 예산으로 바뀝니다. 등록에서 부서별로 설정된 각 지출 할당량에 대한 예산이 생성됩니다. 예산에 대한 자세한 내용은 [자습서: Azure 예산 만들기 및 관리](../costs/tutorial-acm-create-budgets.md)를 참조하세요.
 
 ### <a name="cost-centers"></a>비용 센터
 
