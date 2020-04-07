@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 49ae69263735d6ec35cd911a20100472b32c0b59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a989113c80cd8189cce9da959fe27509297f677a
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286560"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745694"
 ---
 # <a name="iot-edge-module-skus-tab"></a>IoT Edge 모듈 SKU 탭
+
+>[!Important]
+>2020년 3월 30일부터 파트너 센터로 IoT Edge 모듈의 관리를 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. IoT [Edge 생성 모듈 오퍼의](https://aka.ms/AzureCreateIoT) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
 
 **새 제품** 페이지의 **SKU** 탭을 사용하면 하나 이상의 SKU를 만들어 새 제품에 연결할 수 있습니다.  다양한 SKU를 사용하여 기능 집합, 청구 모델 또는 일부 다른 특성에 따라 솔루션을 구별할 수 있습니다.
 
@@ -109,7 +112,7 @@ SKU가 Azure Marketplace 및 Azure Portal 웹 사이트에 표시될 방법을 �
 | **리소스 그룹 이름\***      | ACR의 리소스 그룹 이름입니다.|
 | **레지스트리 이름\***  | ACR 레지스트리 이름입니다. 로그인 서버 이름이 아닌 레지스트리 이름만을 복사합니다(예: `azurecr.io` 없이). |
 | **리포지토리 이름\***  | IoT Edge 모듈을 포함하는 ACR의 리포지토리 이름입니다. **참고:** 이름이 설정되면 나중에 변경할 수 없습니다. 계정에 같은 이름의 다른 제품이 없도록 고유한 이름을 사용합니다. |
-| **사용자\*** | ACR(관리자 사용자 이름)과 연결된 사용자 이름입니다. |
+| **사용자 이름\*** | ACR(관리자 사용자 이름)과 연결된 사용자 이름입니다. |
 | **암호\*** | ACR과 연결된 암호입니다. |
 |    |  ***이미지 버전***   |
 | **이미지 태그 또는 다이제스트\*** | 하나 이상의 `latest` 태그 및 버전 태그를 포함해야 합니다(예: `xx.xx.xx-`로 시작, 여기서 xx는 숫자). 여러 플랫폼을 대상으로 하는 [매니페스트 태그](https://github.com/estesp/manifest-tool)여야 합니다. 매니페스트 태그에서 참조하는 모든 태그는 업로드할 수 있도록 추가되어야 합니다. 태그를 사용하여 IoT Edge 모듈의 여러 버전을 추가할 수 있습니다. 모든 매니페스트 태그(`latest` 제외)는 `X.Y-` 또는 `X.Y.Z-`로 시작해야 합니다. 여기서 X, Y, Z는 정수입니다. ["IoT Edge 모듈 기술 자산 준비"의 태그 및 버전 관리](./cpp-create-technical-assets.md)에 대해 자세히 알아봅니다. <br/> 예를 들어 `latest` 태그가 `1.0.1-linux-x64`, `1.0.1-linux-arm32` 및 `1.0.1-windows-arm32`를 가리키는 경우 이러한 6개의 태그는 여기에 추가되어야 합니다. |

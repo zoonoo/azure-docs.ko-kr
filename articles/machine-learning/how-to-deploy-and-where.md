@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 02/27/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: f6bab532b872a0974993f708edcb252d8bb54432
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 3fe13dcb35e6985d160f52b7ee3f9da4accd7806
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529703"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756675"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -374,7 +374,7 @@ def run(data):
 자세한 예제는 다음 스크립트를 참조하십시오.
 
 * [PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch)
-* [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)
+* [Tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)
 * [Keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
 * [AutoML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features)
 * [ONNX](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
@@ -576,11 +576,11 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 
 다음 표는 다양한 서비스 상태에 대해 설명합니다.
 
-| 웹 서비스 상태 | Description | 최종 상태?
+| 웹 서비스 상태 | 설명 | 최종 상태?
 | ----- | ----- | ----- |
-| 전환 | 서비스는 배포 중입니다. | 아니요 |
-| 비정상 | 서비스가 배포되었지만 현재 연결할 수 없습니다.  | 아니요 |
-| 예약 할 수 없습니다. | 리소스 부족으로 현재 서비스를 배포할 수 없습니다. | 아니요 |
+| 전환 | 서비스는 배포 중입니다. | 예 |
+| 비정상 | 서비스가 배포되었지만 현재 연결할 수 없습니다.  | 예 |
+| 예약 할 수 없습니다. | 리소스 부족으로 현재 서비스를 배포할 수 없습니다. | 예 |
 | 실패 | 오류 또는 충돌로 인해 서비스가 배포되지 않았습니다. | 예 |
 | Healthy | 서비스가 정상이며 끝점을 사용할 수 있습니다. | 예 |
 
@@ -1121,6 +1121,16 @@ def run(request):
 > ```shell
 > pip install azureml-contrib-services
 > ```
+
+클래스는 `AMLRequest` score.py 원시 게시 된 데이터에 액세스 할 수 있습니다, 클라이언트 측 구성 요소가 없습니다. 클라이언트에서 정상적으로 데이터를 게시합니다. 예를 들어 다음 Python 코드는 이미지 파일을 읽고 데이터를 게시합니다.
+
+```python
+import requests
+# Load image data
+data = open('example.jpg', 'rb').read()
+# Post raw data to scoring URI
+res = request.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/octet-stream'})
+```
 
 <a id="cors"></a>
 

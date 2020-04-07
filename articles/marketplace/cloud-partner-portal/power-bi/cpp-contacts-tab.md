@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 79cdd12359a0d781b51db2632bc9d534e0d88c6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e085c465ecdd21452e8f0ca5aa721ad0059caf30
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285234"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744330"
 ---
 # <a name="power-bi-app-contacts-tab"></a>Power BI 앱 연락처 탭
+
+>[!Important]
+>2020년 3월 30일부터 Power BI 앱 제공의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Power BI [앱 만들기 개요의](https://aka.ms/AzureCreatePBIServiceApp) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
 
 **새 제안** 페이지의 **연락처** 탭을 사용하여 제안에 대한 기술 및 사용자 지원 리소스를 제공합니다. 엔지니어링 **및** **고객 지원의**두 부분으로 나뉩니다.
 
@@ -25,7 +28,7 @@ ms.locfileid: "80285234"
 
 다음 표는 각 필드의 용도에 대해 설명합니다.  필수 필드는 별표(*)로 표시됩니다. 
 
-|   필드               |   설명                                                            |
+|   필드               |   Description                                                            |
 |-----------------------|--------------------------------------------------------------------------|
 | *엔지니어링 연락처* | AppSource와 조직 간의 기술 담당자 역할을 합니다.    |
 | **이름\***              | 기술 또는 엔지니어링 지원 역할을 하는 사람 또는 그룹의 이름입니다. |

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 37d1c181c18f69c040040da2be138eaad3a61693
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 5a80c6e3bd8cf647590ed757c042ef3301e27b4a
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396849"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743521"
 ---
 # <a name="secure-your-restful-services"></a>RESTful 서비스 보안 
 
@@ -272,7 +272,7 @@ ServiceUrl의 경우 테넌트 이름을 Azure AD 테넌트의 이름으로 바�
 1. 위에서 입력 클레임으로 사용된 클레임을 추가해야 합니다.
 
     ```xml
-    <InputClaim ClaimTyeReferenceId="bearerToken"/>
+    <InputClaim ClaimTypeReferenceId="bearerToken"/>
     ```    
 
 위의 스니펫을 추가한 후 기술 프로필은 다음과 같은 XML 코드와 같아야 합니다.
@@ -292,7 +292,7 @@ ServiceUrl의 경우 테넌트 이름을 Azure AD 테넌트의 이름으로 바�
         <Item Key="AllowInsecureAuthInProduction">false</Item>
       </Metadata>
       <InputClaims>
-        <InputClaim ClaimTyeReferenceId="bearerToken"/>
+        <InputClaim ClaimTypeReferenceId="bearerToken"/>
       </InputClaims>
       ...
     </TechnicalProfile>

@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: fe35dc4c22f3852934cde0d6f33084b56266d514
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e3c33bb7493f07d9fbf19710f21d0114e7abec8
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73807699"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757077"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database 트래픽 마이그레이션을 최신 게이트웨이로 마이그레이션
 
@@ -54,7 +54,7 @@ Azure 인프라가 개선됨에 따라 Microsoft는 최상의 고객 경험을 �
 
 TCP 포트 1433 및 포트 범위 11000-11999의 리전의 모든 [Azure SQL Database 게이트웨이 IP 주소에](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) 대해 아웃바운드 트래픽을 IP 주소로 허용하는 것이 좋습니다. 이 권장 사항은 온-프레미스에서 연결하는 클라이언트와 서비스 엔드포인트를 통해 연결하는 고객에게도 적용됩니다. 포트 범위에 대한 자세한 내용은 [연결 정책을](sql-database-connectivity-architecture.md#connection-policy)참조하십시오.
 
-버전 4.0 아래의 Microsoft JDBC 드라이버를 사용하는 응용 프로그램에서 만든 연결은 인증서 유효성 검사를 통과하지 못할 수 있습니다. Microsoft JDBC의 하위 버전은 인증서의 주체 필드에 있는 CN(일반 이름)에 의존합니다. 완화는 hostNameInCertificate 속성이 *.database.windows.net 설정되었는지 확인하는 것입니다. hostNameInCertificate 속성을 설정하는 방법에 대한 자세한 내용은 [SSL 암호화 연결](/sql/connect/jdbc/connecting-with-ssl-encryption)을 참조하십시오.
+버전 4.0 아래의 Microsoft JDBC 드라이버를 사용하는 응용 프로그램에서 만든 연결은 인증서 유효성 검사를 통과하지 못할 수 있습니다. Microsoft JDBC의 하위 버전은 인증서의 주체 필드에 있는 CN(일반 이름)에 의존합니다. 완화는 hostNameInCertificate 속성이 *.database.windows.net 설정되었는지 확인하는 것입니다. hostNameInCertificate 속성을 설정하는 방법에 대한 자세한 내용은 암호화 연결 을 [참조하십시오.](/sql/connect/jdbc/connecting-with-ssl-encryption)
 
 위의 완화가 작동하지 않으면 다음 URL을 사용하여 SQL Database에 대한 지원 요청을 제출하십시오.https://aka.ms/getazuresupport
 

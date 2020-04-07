@@ -4,14 +4,14 @@ description: 응용 프로그램을 대량 실행기 라이브러리를 사용�
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 04/06/2020
 ms.author: maquaran
-ms.openlocfilehash: e1a2a5d849d3c94d62b8645c41f288ba130aa6a4
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 820a5398d84122659b1676b7d5722bce08b1837d
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80479332"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755967"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Azure Cosmos DB .NET V3 SDK에서 대량 실행기 라이브러리에서 대량 지원으로 마이그레이션
 
@@ -73,6 +73,15 @@ ms.locfileid: "80479332"
 1. 성공한 작업 수입니다.
 1. 소비된 요청 단위의 총입니다.
 1. 오류가 있는 경우 로깅 및 식별 목적으로 예외 및 관련 항목이 포함된 tuples 목록이 표시됩니다.
+
+## <a name="retry-configuration"></a>재시도 구성
+
+대량 실행기 라이브러리에는 제어를 라이브러리에 `MaxRetryWaitTimeInSeconds` 위임하기 `MaxRetryAttemptsOnThrottledRequests` 위해 [RetryOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) `0` 및 를 설정하는 [지침이](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) 있었습니다.
+
+.NET SDK에서 대량 지원을 위해 숨겨진 동작이 없습니다. [코스모스클라이언트옵션.MaxRetry시도제한요청](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) 및 [코스모스클라이언트옵션.맥스리타임웨이트온제한요청서를](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests)통해 직접 재시도 옵션을 구성할 수 있습니다.
+
+> [!NOTE]
+> 프로비저닝된 요청 단위가 데이터 양에 따라 예상보다 훨씬 낮은 경우 이러한 요청값을 높은 값으로 설정하는 것이 좋습니다. 벌크 작업은 더 오래 걸리지만 더 높은 재시도로 인해 완전히 성공할 확률이 높습니다.
 
 ## <a name="performance-improvements"></a>성능 향상
 

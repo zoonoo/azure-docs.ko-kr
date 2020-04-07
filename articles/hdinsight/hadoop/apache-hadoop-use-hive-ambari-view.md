@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.openlocfilehash: 6c199a0dd75b89d9c9368e799c97a28b73758d06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/06/2020
+ms.openlocfilehash: 787d88d336abcf3b0ba9b14c3d3798850b665eca
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73097110"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745100"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop과 Apache Ambari Hive 보기 사용
 
@@ -23,14 +23,13 @@ Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* HDInsight의 하두프 클러스터. [리눅스에서 HDInsight로 시작하기를](./apache-hadoop-linux-tutorial-get-started.md)참조하십시오.
-* 웹 브라우저
+HDInsight의 하두프 클러스터. [리눅스에서 HDInsight로 시작하기를](./apache-hadoop-linux-tutorial-get-started.md)참조하십시오.
 
 ## <a name="run-a-hive-query"></a>HIVE 쿼리 실행
 
-1. Azure [포털에서](https://portal.azure.com/)클러스터를 선택합니다.  지침은 [목록 및 클러스터 표시를](../hdinsight-administer-use-portal-linux.md#showClusters) 참조하십시오. 클러스터는 새 포털 블레이드에서 열립니다.
+1. Azure [포털에서](https://portal.azure.com/)클러스터를 선택합니다.  지침은 [목록 및 클러스터 표시를](../hdinsight-administer-use-portal-linux.md#showClusters) 참조하십시오. 새 포털 보기에서 클러스터가 열립니다.
 
-1. **클러스터 대시보드에서** **Ambari 보기를 선택합니다.** 인증하라는 메시지가 표시되면 클러스터를 만들 때 제공한 클러스터 로그인(기본값 `admin`) 계정 이름과 암호를 사용합니다. 또는 `https://CLUSTERNAME.azurehdinsight.net/#/main/views` 브라우저에서 클러스터 이름이 `CLUSTERNAME` 있는 곳으로 이동합니다.
+1. **클러스터 대시보드에서** **Ambari 보기를 선택합니다.** 인증하라는 메시지가 표시되면 클러스터를 만들 때 제공한 클러스터 로그인(기본값 `admin`) 계정 이름과 암호를 사용합니다. `https://CLUSTERNAME.azurehdinsight.net/#/main/views` 브라우저에서 클러스터 이름이 있는 `CLUSTERNAME` 곳으로 이동할 수도 있습니다.
 
 1. 보기 목록에서 __Hive 보기__를 선택합니다.
 
@@ -59,18 +58,15 @@ Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 
         GROUP BY t4;
     ```
 
-    이러한 문은 다음 작업을 수행합니다.
+    이러한 명령문은 다음과 같은 작업을 수행합니다.
 
-   * `DROP TABLE`: 테이블이 이미 있는 경우 테이블과 데이터 파일을 삭제합니다.
-
-   * `CREATE EXTERNAL TABLE`: Hive에서 새 "외부" 테이블을 만듭니다.
-     외부 테이블은 테이블 정의만 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.
-
-   * `ROW FORMAT`: 데이터의 형식을 지정하는 방법을 보여줍니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
-
-   * `STORED AS TEXTFILE LOCATION`: 데이터가 저장된 위치 및 텍스트로 저장되었음을 보여줍니다.
-
-   * `SELECT`: t4 열에 [ERROR] 값이 포함된 모든 행의 수를 선택합니다.
+    |인수를 제거합니다. | 설명 |
+    |---|---|
+    |DROP TABLE|테이블이 이미 있는 경우 테이블과 데이터 파일을 삭제합니다.|
+    |외부 테이블 만들기|Hive에서 새 “외부” 테이블을 만듭니다. 외부 테이블은 테이블 정의만 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.|
+    |행 형식|데이터의 형식을 지정하는 방법을 보여 줍니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.|
+    |텍스트 파일 위치로 저장|데이터가 저장된 위치 및 텍스트로 저장되었음을 보여 줍니다.|
+    |SELECT|t4 열에 [ERROR] 값이 포함된 모든 행의 수를 선택합니다.|
 
    > [!IMPORTANT]  
    > __데이터베이스__ 선택 영역을 __기본값__으로 둡니다. 이 문서의 예제에서는 HDInsight에 포함된 기본 데이터베이스를 사용합니다.
@@ -131,7 +127,7 @@ Hive 보기 위쪽의 **UDF** 탭을 사용하여 UDF 집합을 선언하고 저
 
 ![아파치 하이브 보기 UDFs 탭 디스플레이](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
-UDF를 Hive 보기에 추가한 후에 **쿼리 편집기** 아래쪽에 **udf 삽입** 단추가 표시됩니다. 이 항목을 선택하면 Hive 뷰에서 정의된 UDF의 드롭다운 목록이 표시됩니다. UDF를 선택하면 쿼리에 HiveQL 문을 추가하여 UDF를 사용하도록 설정합니다.
+**udfs 삽입** 버튼이 **쿼리 편집기**의 하단에 나타납니다. 이 항목에는 Hive 보기에 정의된 UdF의 드롭다운 목록이 표시됩니다. UDF를 선택하면 쿼리에 HiveQL 문을 추가하여 UDF를 사용하도록 설정합니다.
 
 예를 들어 다음과 같은 속성으로 UDF를 정의한 경우:
 
@@ -155,13 +151,13 @@ create temporary function myawesomeudf as 'com.myudfs.Awesome';
 HDInsight에서 Hive를 통해 UDF를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight에서 Apache Hive 및 Apache Pig와 함께 Python 사용](python-udf-hdinsight.md)
-* [HDInsight에 사용자 지정 Apache Hive UDF를 추가하는 방법](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [HDInsight에서 Apache Hive와 함께 Java UDF 사용](./apache-hadoop-hive-java-udf.md)
 
 ## <a name="hive-settings"></a>Hive 설정
 
 Tez(기본값)에서 MapReduce로 Hive에 대한 실행 엔진을 변경하는 등 다양한 Hive 설정을 변경할 수 있습니다.
 
-## <a name="next-steps"></a><a id="nextsteps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 HDInsight의 Hive에 대한 일반적인 정보:
 

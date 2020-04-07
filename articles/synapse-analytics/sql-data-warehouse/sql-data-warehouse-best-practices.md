@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 0a2a49546a31f6d767b5e89348dc6b703278d877
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 4462bf0fc2057922340eb01cb8c786dbc63ce290
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633637"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745344"
 ---
 # <a name="best-practices-for-synapse-sql-pool-in-azure-synapse-analytics-formerly-sql-dw"></a>Azure 시냅스 분석의 시냅스 SQL 풀에 대한 모범 사례(이전 SQL DW)
 
@@ -36,7 +36,7 @@ SQL 풀을 구성하여 열에 대한 통계를 자동으로 검색하고 생성
 > [!TIP]
 > 조인과 관련된 열, 그룹 BY에 있는 WHERE 절에 사용된 열 및 열에 대한 통계를 업데이트하면 가장 많은 이점을 얻을 수 있습니다.
 
-테이블 [통계 관리,](sql-data-warehouse-tables-statistics.md) [통계 만들기](https://msdn.microsoft.com/library/ms188038.aspx)및 [통계 업데이트](https://msdn.microsoft.com/library/ms187348.aspx)를 참조하십시오.
+테이블 [통계 관리,](sql-data-warehouse-tables-statistics.md) [통계 만들기](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)및 [통계 업데이트](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하십시오.
 
 ## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>DMV를 사용하여 쿼리 모니터링 및 최적화
 
@@ -44,7 +44,7 @@ SQL 풀에는 쿼리 실행을 모니터링하는 데 사용할 수 있는 여�
 
 이러한 DMV에서 쿼리를 신속하게 찾으려면 쿼리에 LABEL 옵션을 사용하는 것이 도움이 될 수 있습니다.
 
-또한 [DMV를 사용하여 워크로드를 모니터링](sql-data-warehouse-manage-monitor.md), [라벨](sql-data-warehouse-develop-label.md), [옵션,](https://msdn.microsoft.com/library/ms190322.aspx) [sys.dm_exec_sessions,]( https://msdn.microsoft.com/library/ms176013.aspx) [sys.dm_pdw_exec_requests, sys.dm_pdw_request_steps,](https://msdn.microsoft.com/library/mt203887.aspx) [sys.dm_pdw_sql_requests,](https://msdn.microsoft.com/library/mt203913.aspx) [sys.dm_pdw_dms_workers,](https://msdn.microsoft.com/library/mt203878.aspx) [DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx), [sys.dm_pdw_waits](https://msdn.microsoft.com/library/mt203893.aspx). [sys.dm_pdw_sql_requests](https://msdn.microsoft.com/library/mt203889.aspx)
+또한 [DMV를 사용하여 워크로드를 모니터링](sql-data-warehouse-manage-monitor.md), [라벨](sql-data-warehouse-develop-label.md), [옵션,](/sql/t-sql/queries/option-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [sys.dm_exec_sessions,](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [sys.dm_pdw_exec_requests, sys.dm_pdw_request_steps,](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [sys.dm_pdw_sql_requests,](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [sys.dm_pdw_dms_workers,](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [DBCC PDW_SHOWEXECUTIONPLAN](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="tune-query-performance-with-new-product-enhancements"></a>새로운 제품 개선 사항으로 쿼리 성능 조정
 
@@ -58,7 +58,7 @@ INSERT 문이 있는 작은 테이블에 일회성 로드또는 조회를 주기
 
 그러나 수천 또는 수백만 행을 하루 종일 로드해야 하는 경우 단일 항목 INSERTS만으로는 불가능할 수 있습니다.  대신 파일에 기록하는 프로세스를 개발하고 다른 프로세스를 주기적으로 함께 제공하여 이 파일을 로드합니다.
 
-[삽입](https://msdn.microsoft.com/library/ms174335.aspx)을 참조하십시오.
+[삽입](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조하십시오.
 
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>PolyBase를 사용하여 데이터를 신속하고 로드하고 내보내기
 
@@ -74,7 +74,7 @@ PolyBase는 MPP (대규모 병렬 처리) 아키텍처를 활용하도록 설계
 > [!NOTE]
 > gzip 텍스트 파일을 사용할 때 처리량을 최대화하려면 파일을 60개 이상의 파일로 분할하여 로드의 병렬성을 최대화합니다.   총 처리량을 더 빠르게 하기 위해 데이터를 동시에 로드하는 것이 좋습니다.
 
-또한 [데이터 로드,](design-elt-data-loading.md) [PolyBase 사용 설명서,](guidance-for-loading-data.md) [SQL 풀 로드 패턴 및 전략,](https://blogs.msdn.microsoft.com/sqlcat/20../../)Azure 데이터 [팩터리를 사용하여 데이터 로드,]( ../../data-factory/load-azure-sql-data-warehouse.md) [Azure 데이터 팩터리를 사용하여 데이터 이동](../../data-factory/transform-data-using-machine-learning.md),https://msdn.microsoft.com/library/dn935026.aspx) [[선택(CTAS)으로 테이블 만들기)](sql-data-warehouse-develop-ctas.md)
+또한 [데이터 로드,](design-elt-data-loading.md) [PolyBase 사용 가이드,](guidance-for-loading-data.md) [SQL 풀 로드 패턴 및 전략,](https://blogs.msdn.microsoft.com/sqlcat/20../../)Azure 데이터 [팩터리를 사용하여 데이터 로드,]( ../../data-factory/load-azure-sql-data-warehouse.md)Azure [데이터 팩터리를 사용하여 데이터 이동,](../../data-factory/transform-data-using-machine-learning.md) [외부 파일 형식 만들기](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)및 [선택(CTAS)으로 테이블 만들기.](sql-data-warehouse-develop-ctas.md)
 
 ## <a name="load-then-query-external-tables"></a>외부 테이블 로드 후 쿼리
 
@@ -97,7 +97,7 @@ PolyBase 를 [사용하는 데 대한 설명도](guidance-for-loading-data.md)�
 
 [CREATE TABLE] 문 에서 배포 열을 선택하면 성능이 향상되는 방법과 CREATE TABLE 문의 WITH 절에서 분산 테이블을 정의하는 방법에 대한 자세한 내용은 다음 링크를 참조하십시오.
 
-또한 [표 개요,](sql-data-warehouse-tables-overview.md) [테이블 분포,](sql-data-warehouse-tables-distribute.md) [테이블 분포 선택,](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/) [테이블 만들기,](https://msdn.microsoft.com/library/mt203953.aspx) [선택으로 테이블 만들기](https://msdn.microsoft.com/library/mt204041.aspx)를 참조하십시오.
+또한 [표 개요,](sql-data-warehouse-tables-overview.md) [테이블 분포,](sql-data-warehouse-tables-distribute.md) [테이블 분포 선택,](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/) [테이블 만들기,](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [선택으로 테이블 만들기](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하십시오.
 
 ## <a name="do-not-over-partition"></a>과도한 분할 피하기
 
@@ -115,11 +115,11 @@ INSERT, UPDATE, DELETE 문은 트랜잭션에서 실행되며 실패할 경우 �
 
 예를 들어, 1시간이 걸릴 것으로 예상되는 INSERT가 있는 경우 가능하면 INSERT를 4개의 부분으로 나누면 각각 15분 안에 실행됩니다.  CTAS, TRUNCATE, DROP 테이블 또는 INSERT와 같은 특수 최소 로깅 사례를 빈 테이블에 활용하여 롤백 위험을 줄입니다.  
 
-롤백을 제거하는 다른 방법은 데이터 관리를 위한 파티션 전환과 같은 메타데이터 전용 작업을 사용하는 것입니다.  예를 들어 DELETE 문을 실행하여 order_date 2001년 10월에 있던 테이블의 모든 행을 삭제하는 대신 데이터를 매월 분할한 다음 다른 테이블의 빈 파티션에 대한 데이터로 파티션을 전환할 수 [있습니다(ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx) 예제 참조).  
+롤백을 제거하는 다른 방법은 데이터 관리를 위한 파티션 전환과 같은 메타데이터 전용 작업을 사용하는 것입니다.  예를 들어 DELETE 문을 실행하여 order_date 2001년 10월에 있던 테이블의 모든 행을 삭제하는 대신 데이터를 매월 분할한 다음 다른 테이블의 빈 파티션에 대한 데이터로 파티션을 전환할 수 [있습니다(ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 예제 참조).  
 
 분할되지 않은 테이블의 경우 CTAS를 사용하여 DELETE를 사용하는 대신 테이블에 보관할 데이터를 쓰는 것이 좋습니다.  CTAS에 동일한 시간이 걸리는 경우 트랜잭션 로깅이 최소화되고 필요한 경우 신속하게 취소할 수 있으므로 실행하는 것이 훨씬 안전합니다.
 
-트랜잭션 [이해,](sql-data-warehouse-develop-transactions.md) [트랜잭션 최적화,](sql-data-warehouse-develop-best-practices-transactions.md) [테이블 분할,](sql-data-warehouse-tables-partition.md) [테이블 실행,](https://msdn.microsoft.com/library/ms177570.aspx) [테이블 변경](https://msdn.microsoft.com/library/ms190273.aspx)및 [선택(CTAS)으로 테이블 만들기](sql-data-warehouse-develop-ctas.md)를 참조하십시오.
+트랜잭션 [이해,](sql-data-warehouse-develop-transactions.md) [트랜잭션 최적화,](sql-data-warehouse-develop-best-practices-transactions.md) [테이블 분할,](sql-data-warehouse-tables-partition.md) [테이블 실행,](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [테이블 변경](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)및 [선택(CTAS)으로 테이블 만들기](sql-data-warehouse-develop-ctas.md)를 참조하십시오.
 
 ## <a name="reduce-query-result-sizes"></a>쿼리 결과 크기 줄이기
 
@@ -131,7 +131,7 @@ DDL을 정의할 때 데이터를 지원하는 가장 작은 데이터 형식을
 
 열에서 가장 긴 값이 25자인 경우 열을 VARCHAR(25)로 정의합니다.  모든 문자 열을 큰 기본 길이로 정의하지 마세요.  또한 반드시 필요한 경우에는 열을 NVARCHAR를 사용하는 것보다 VARCHAR로 정의하세요.
 
-또한 [표 개요,](sql-data-warehouse-tables-overview.md) [테이블 데이터 유형,](sql-data-warehouse-tables-data-types.md) [테이블 만들기](https://msdn.microsoft.com/library/mt203953.aspx)를 참조하십시오.
+또한 [표 개요,](sql-data-warehouse-tables-overview.md) [테이블 데이터 유형,](sql-data-warehouse-tables-data-types.md) [테이블 만들기](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하십시오.
 
 ## <a name="use-temporary-heap-tables-for-transient-data"></a>임시 데이터에 대해 임시 힙 테이블 사용
 
@@ -141,7 +141,7 @@ DDL을 정의할 때 데이터를 지원하는 가장 작은 데이터 형식을
 
 힙 테이블은 CREATE TABLE의 WITH 절에 정의됩니다.  임시 테이블을 사용하는 경우 해당 임시 테이블에서도 통계를 작성해야 합니다.
 
-또한 [임시 테이블,](sql-data-warehouse-tables-temporary.md) [테이블 만들기,](https://msdn.microsoft.com/library/mt203953.aspx) [테이블 만들기 를 선택으로](https://msdn.microsoft.com/library/mt204041.aspx)참조하십시오.
+또한 [임시 테이블,](sql-data-warehouse-tables-temporary.md) [테이블 만들기,](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [테이블 만들기 를 선택으로](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)참조하십시오.
 
 ## <a name="optimize-clustered-columnstore-tables"></a>클러스터형 Columnstore 테이블 최적화
 
@@ -160,7 +160,7 @@ columnstore 테이블은 일반적으로 테이블당 1백만 개 이상의 행�
 > [!TIP]
 > columnstore 테이블을 쿼리할 때 필요한 열만 선택하면 쿼리가 더 빨리 실행됩니다.  
 
-참고 항목: [테이블 인덱스](sql-data-warehouse-tables-index.md), [Columnstore 인덱스 가이드](https://msdn.microsoft.com/library/gg492088.aspx), [Columnstore 인덱스 다시 빌드](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)
+참고 항목: [테이블 인덱스](sql-data-warehouse-tables-index.md), [Columnstore 인덱스 가이드](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [Columnstore 인덱스 다시 빌드](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)
 
 ## <a name="use-larger-resource-class-to-improve-query-performance"></a>더 큰 리소스 클래스를 사용하여 쿼리 성능 향상
 
@@ -174,7 +174,7 @@ SQL 풀은 쿼리에 메모리를 할당하는 방법으로 리소스 그룹을 
 
 사용자 쿼리에 지연이 긴 것으로 보이는 경우 사용자가 더 큰 리소스 클래스에서 실행 중이며 많은 동시성 슬롯을 사용하여 다른 쿼리가 큐에 대기할 수 있습니다.  사용자 쿼리가 큐에 대기되었는지 확인하려면 `SELECT * FROM sys.dm_pdw_waits` 를 실행하여 모든 행이 반환되었는지 확인합니다.
 
-워크로드 [관리에 대한 리소스 클래스,](resource-classes-for-workload-management.md) [sys.dm_pdw_waits](https://msdn.microsoft.com/library/mt203893.aspx).
+워크로드 [관리에 대한 리소스 클래스,](resource-classes-for-workload-management.md) [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="other-resources"></a>기타 리소스
 

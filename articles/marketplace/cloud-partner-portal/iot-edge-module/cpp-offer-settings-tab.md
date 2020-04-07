@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 0fb15a6d71278be9b380f793d39732e763d6447d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e7b7d04cd3d1ed9792f8ad3c7bc302e4a2c2180f
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286577"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745034"
 ---
 # <a name="iot-edge-module-offer-settings-tab"></a>IoT Edge 모듈 제품 설정 탭
+
+>[!Important]
+>2020년 3월 30일부터 파트너 센터로 IoT Edge 모듈의 관리를 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. IoT [Edge 생성 모듈 오퍼의](https://aka.ms/AzureCreateIoT) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
 
 **IoT Edge 모듈 > 새 제품** 페이지는 **제품 설정** 탭에 초점을 맞춰 열립니다. 
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07ba38a5d7e8e8a89ba122efb1734c1f13a94d48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 402eaecbf03fd52fbb5e871fdd196da2bc9a3e1f
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80332180"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743525"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Azure Active Directory에 대한 암호없는 인증 옵션
 
@@ -97,7 +97,7 @@ FIDO2 보안 키는 모든 폼 팩터에 올 수 있는 phishable 표준 기반 
 8. Azure AD는 FIDO2 공개 키를 사용하여 서명된 nonce를 확인합니다.
 9. Azure AD는 PRT를 반환하여 온-프레미스 리소스에 대한 액세스를 활성화합니다.
 
-FIDO 얼라이언스에서 인증한 FIDO2 키가 많지만, Microsoft는 최대 보안과 최상의 보안을 보장하기 위해 공급업체에서 구현하기 위해 FIDO2 클라이언트 간 프로토콜(CTAP) 사양의 일부 선택적 확장을 요구합니다. 경험.
+FIDO 얼라이언스에서 인증한 FIDO2 키가 많지만, Microsoft는 최대 보안과 최상의 환경을 보장하기 위해 공급업체에서 구현하기 위해 FIDO2 클라이언트-인증 프로토콜(CTAP) 사양의 일부 선택적 확장을 요구합니다.
 
 보안 키는 Microsoft와 호환되려면 FIDO2 CTAP 프로토콜의 다음 기능과 확장을 **구현해야 합니다.**
 

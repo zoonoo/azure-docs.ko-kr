@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: cd0c74c8aa40b3e96716ef37aa27b08b5f6aece1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6acc1ffd197ddba4290ff7c0751b259d98a70927
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76547543"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754385"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Avere vFXT 시스템 계획
 
@@ -75,8 +75,8 @@ Avere vFXT 클러스터의 네트워크 인프라를 계획할 때 다음 지침
   |----------|-----------|----------|
   | Resource group | 예, 비어 있는 경우 | 비어 있어야 합니다.|
   | 스토리지 계정 | **예,** 클러스터 생성 후 기존 Blob 컨테이너를 연결하는 경우 <br/>  클러스터 를 만드는 동안 새 Blob 컨테이너를 만드는 경우 **아니요** | 기존 Blob 컨테이너는 비어 있어야 합니다. <br/> &nbsp; |
-  | 가상 네트워크 | yes | 새 Azure Blob 컨테이너를 만드는 경우 저장소 서비스 끝점을 포함 해야 합니다. |
-  | 서브넷 | yes | 다른 리소스를 포함할 수 없습니다. |
+  | 가상 네트워크 | 예 | 새 Azure Blob 컨테이너를 만드는 경우 저장소 서비스 끝점을 포함 해야 합니다. |
+  | 서브넷 | 예 | 다른 리소스를 포함할 수 없습니다. |
 
 ## <a name="ip-address-requirements"></a>IP 주소 요구 사항
 
@@ -142,7 +142,7 @@ Avere vFXT for Azure 클러스터는 프라이빗 서브넷에 있으며 공용 
 
 액세스 옵션은 다음과 같습니다.
 
-* 점프 호스트 - 프라이빗 네트워크 내에 있는 별도의 VM에 공용 IP 주소를 할당하고 클러스터 노드로의 SSL 터널을 만드는 데 사용합니다.
+* 호스트 점프 - 공용 IP 주소를 개인 네트워크 내의 별도의 VM에 할당하고 이를 사용하여 클러스터 노드에 TLS 터널을 만듭니다.
 
   > [!TIP]
   > 클러스터 컨트롤러에서 공용 IP 주소를 설정하는 경우 해당 주소를 점프 호스트로 사용할 수 있습니다. 자세한 내용은 [클러스터 컨트롤러(점프 호스트)](#cluster-controller-as-jump-host)를 참조하세요.

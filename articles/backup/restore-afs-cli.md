@@ -3,12 +3,12 @@ title: Azure CLI를 통해 Azure 파일 공유 복원
 description: Azure CLI를 사용하여 복구 서비스 자격 증명 모음에서 백업된 Azure 파일 공유를 복원하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/16/2020
-ms.openlocfilehash: 63b2be2fe24c1274ed1581b7b849de578c978842
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 980044011e3417a2aff8447a939e02299923da38
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76931044"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757099"
 ---
 # <a name="restore-azure-file-shares-with-the-azure-cli"></a>Azure CLI를 통해 Azure 파일 공유 복원
 
@@ -19,6 +19,9 @@ Azure CLI는 Azure 리소스 관리를 위한 명령줄 환경을 제공합니�
 * 백업된 Azure 파일 공유에 대한 복원 지점을 봅니다.
 * 전체 Azure 파일 공유를 복원합니다.
 * 개별 파일 또는 폴더를 복원합니다.
+
+>[!NOTE]
+> 이제 Azure Backup은 Azure CLI를 사용하여 여러 파일 또는 폴더를 원본 또는 대체 위치로 복원하는 것을 지원합니다. 자세한 내용은 이 문서의 [원본 또는 대체 위치 섹션으로 여러 파일 또는 폴더 복원을](#restore-multiple-files-or-folders-to-original-or-alternate-location) 참조하십시오.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -42,7 +45,7 @@ az [백업 복구 지점 목록](https://docs.microsoft.com/cli/azure/backup/rec
 다음 예제에서는 *afsaccount* 저장소 계정에서 *azurefiles* 파일 공유에 대 한 복구 지점 목록을 가져옵니다.
 
 ```azurecli-interactive
-az backup recoverypoint list --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --backup-management-type azurestorage --item-name “AzureFileShare;azurefiles” --workload-type azurefileshare --out table
+az backup recoverypoint list --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --backup-management-type azurestorage --item-name "AzureFileShare;azurefiles" --workload-type azurefileshare --out table
 ```
 
 컨테이너 및 항목에 대한 친숙한 이름을 사용하여 다음 두 가지 추가 매개 변수를 제공하여 이전 cmdlet을 실행할 수도 있습니다.
@@ -82,7 +85,7 @@ Name                Time                        Consistency
 다음 예제에서는 [az 백업 복원 복원-azurefileshare](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefileshare) cmdlet을 사용 하 여 복원 모드가 *원래 위치로* 설정 된 원래 위치에 *azurefiles* 파일 공유를 복원 합니다. [Azure 파일 공유에 대한 복구 지점 가져오기에서](#fetch-recovery-points-for-the-azure-file-share)얻은 복구 지점 932883129628999823을 사용합니다.
 
 ```azurecli-interactive
-az backup restore restore-azurefileshare --vault-name azurefilesvault --resource-group azurefiles --rp-name 932887541532871865   --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --restore-mode originallocation --resolve-conflict overwrite --out table
+az backup restore restore-azurefileshare --vault-name azurefilesvault --resource-group azurefiles --rp-name 932887541532871865   --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode originallocation --resolve-conflict overwrite --out table
 ```
 
 ```output
@@ -105,7 +108,7 @@ Name                                  ResourceGroup
 다음 예제에서는 [az 백업 복원 복원 복원-azurefileshare](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefileshare) 를 대체 *로케이션으로* 사용하여 *afsaccount* 저장소 계정의 *azurefiles* 파일 공유를 *afaccount1* 저장소 계정의 *azurefiles1"* 파일 공유로 복원합니다.
 
 ```azurecli-interactive
-az backup restore restore-azurefileshare --vault-name azurefilesvault --resource-group azurefiles --rp-name 932883129628959823 --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --out table
+az backup restore restore-azurefileshare --vault-name azurefilesvault --resource-group azurefiles --rp-name 932883129628959823 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --out table
 ```
 
 ```output
@@ -138,7 +141,7 @@ az [백업 복원 복원 을](https://docs.microsoft.com/cli/azure/backup/restor
 다음 예제에서는 원래 위치에 *RestoreTest.txt* 파일을 복원합니다. *azurefiles*
 
 ```azurecli-interactive
-az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --restore-mode originallocation  --source-file-type file --source-file-path "Restore/RestoreTest.txt" --resolve-conflict overwrite  --out table
+az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode originallocation  --source-file-type file --source-file-path "Restore/RestoreTest.txt" --resolve-conflict overwrite  --out table
 ```
 
 ```output
@@ -160,7 +163,7 @@ df4d9024-0dcb-4edc-bf8c-0a3d18a25319  azurefiles
 다음 예제에서는 원래 *azurefiles* 파일 공유에 있는 *RestoreTest.txt* 파일을 대체 *restoredata* 위치로 복원합니다. *azurefiles1* *afaccount1*
 
 ```azurecli-interactive
-az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --source-file-type file --source-file-path "Restore/RestoreTest.txt" --out table
+az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --source-file-type file --source-file-path "Restore/RestoreTest.txt" --out table
 ```
 
 ```output
@@ -170,6 +173,28 @@ df4d9024-0dcb-4edc-bf8c-0a3d18a25319  azurefiles
 ```
 
 출력의 **Name** 특성은 복원 작업에 대한 백업 서비스에서 만든 작업의 이름에 해당합니다. 작업의 상태를 추적하려면 [az 백업 작업 표시](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet을 사용합니다.
+
+## <a name="restore-multiple-files-or-folders-to-original-or-alternate-location"></a>여러 파일 또는 폴더를 원본 또는 대체 위치로 복원
+
+여러 항목에 대한 복원을 수행하려면 **복원하려는** 모든 파일 또는 폴더의 **공백 분리** 경로로 소스 파일 경로 매개 변수의 값을 전달합니다.
+
+다음 예제에서는 *Restore.txt* 및 *AFS 테스트 Report.docx* 파일을 원래 위치에 복원합니다.
+
+```azurecli-interactive
+az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932889937058317910 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode originallocation  --source-file-type file --source-file-path "Restore Test.txt" "AFS Testing Report.docx" --resolve-conflict overwrite  --out table
+```
+
+다음과 유사하게 출력됩니다.
+
+```output
+Name                                          ResourceGroup
+------------------------------------          ---------------
+649b0c14-4a94-4945-995a-19e2aace0305          azurefiles
+```
+
+출력의 **Name** 특성은 복원 작업에 대한 백업 서비스에서 만든 작업의 이름에 해당합니다. 작업의 상태를 추적하려면 [az 백업 작업 표시](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet을 사용합니다.
+
+여러 항목을 대체 위치로 복원하려면 [개별 파일 또는 폴더 복원](#restore-individual-files-or-folders-to-an-alternate-location) 섹션에서 설명한 대로 대상 관련 매개 변수를 대체 위치로 지정하여 위의 명령을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

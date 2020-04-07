@@ -2,13 +2,13 @@
 title: 기술 자료 개선 - QnA Maker
 description: 적극적인 학습을 통해 지식 기반의 품질을 향상시킵니다. 기존 질문을 제거하거나 변경하지 않고 검토, 수락 또는 거부, 추가합니다.
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: 1eb0ed42f700c14350a5e4f1eff9b7592cbf8ef6
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.date: 04/06/2020
+ms.openlocfilehash: 7fafc23eaf21099ebb974da226d07c351fa19699
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474893"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756774"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>기술 자료에서 적극적인 학습 제안 질문 수락
 
@@ -33,7 +33,7 @@ ms.locfileid: "80474893"
 
 1. 각 QnA 쌍은 체크 표시가있는 `✔` 새로운 질문 대안을 제안합니다. `x` 질문을 추가하려면 확인 표시를 선택합니다.
 
-    [![녹색 확인 표시 또는 빨간색 삭제 표시를 선택하여 활성 학습의 제안된 질문 대안을 선택하거나 거부합니다.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [![녹색 확인 표시 또는 빨간색 삭제 표시를 선택하여 활성 학습의 제안된 질문 대안을 선택하거나 거부합니다.](../media/improve-knowledge-base/accept-active-learning-suggestions-small.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
     컨텍스트 도구 모음에서 **모두 추가** 또는 **모두 거부를** 선택하여 _모든 제안을_ 추가하거나 삭제할 수 있습니다.
 
@@ -127,7 +127,7 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|HTTP 요청 속성|속성|Type|목적|
+|HTTP 요청 속성|이름|형식|목적|
 |--|--|--|--|
 |URL 경로 매개 변수|기술 자료 ID|문자열|기술 자료를 위한 GUID입니다.|
 |사용자 지정 하위 도메인|QnAMaker 리소스 이름|문자열|리소스 이름은 QnA Maker의 사용자 지정 하위 도메인으로 사용됩니다. 이 정보는 기술 보고서를 게시한 후 설정 페이지에서 사용할 수 있습니다. 로 `host`나열됩니다.|
@@ -137,7 +137,7 @@ Content-Type: application/json
 
 JSON 본체에는 다음과 같은 몇 가지 설정이 있습니다.
 
-|JSON 바디 속성|Type|목적|
+|JSON 바디 속성|형식|목적|
 |--|--|--|--|
 |`feedbackRecords`|array|피드백 목록입니다.|
 |`userId`|문자열|제안된 질문을 수락하는 사람의 사용자 ID입니다. 사용자 ID 형식은 사용자에게 달려 있습니다. 예를 들어 전자 메일 주소는 아키텍처에서 유효한 사용자 ID일 수 있습니다. (선택 사항)|
@@ -339,7 +339,7 @@ async callTrain(stepContext){
 
 
 
-## <a name="best-practices"></a>최선의 구현 방법
+## <a name="best-practices"></a>모범 사례
 
 활성 학습 사용 시의 모범 사례는 [모범 사례](../Concepts/best-practices.md#active-learning)를 참조하세요.
 

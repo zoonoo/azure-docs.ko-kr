@@ -5,16 +5,19 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 1015734ac0da6b4641c0bf32049146e3820f4616
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ceef030d2c0176313cbce8f6817a89c06f134d3d
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278538"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745667"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Azure 및 Dynamics 365 컨설팅 서비스 제품
+
+>[!Important]
+>2020년 3월 30일부터 컨설팅 서비스 오퍼의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. 컨설팅 서비스 [생성 개요의](https://aka.ms/AzureCreateConsultingService) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
 
 이 문서에서는 Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> 또는 <a href="https://appsource.microsoft.com">AppSource</a>에 컨설팅 서비스 제품을 게시하는 방법을 설명합니다. Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365,</a> <a href="https://powerbi.microsoft.com">Power BI</a>및 <a href="https://powerapps.microsoft.com">Power 앱을</a> 기반으로 하는 솔루션은 AppSource에 나열할 수 있습니다. 다른 Microsoft <a href="https://azure.microsoft.com/services">Azure 서비스</a> 기반의 다른 제품은 Azure Marketplace에 나열할 수 있습니다.
 

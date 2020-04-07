@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 86cc081ef47eb2ac2e8e0a49bc79e8973f34baf1
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: c2ac05cb2a6b3bd185d5e3a84df4f3d9a01c5bef
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633702"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743271"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Azure Synapse 분석에서 리소스 클래스를 사용 하 여 워크로드 관리
 
@@ -162,13 +162,13 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 데이터베이스 역할에 사용자를 할당하여 리소스 클래스를 구현합니다. 사용자가 쿼리를 실행하면 사용자의 리소스 클래스를 사용하여 쿼리가 실행됩니다. 예를 들어 사용자가 staticrc10 데이터베이스 역할의 멤버인 경우 해당 쿼리는 적은 양의 메모리로 실행됩니다. 데이터베이스 사용자가 xlargerc 또는 staticrc80 데이터베이스 역할의 구성원인 경우 해당 쿼리는 많은 양의 메모리로 실행됩니다.
 
-사용자의 리소스 클래스를 늘리려면 [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) 사용하여 큰 리소스 클래스의 데이터베이스 역할에 사용자를 추가합니다.  아래 코드는 큰 데이터베이스 역할에 사용자를 추가합니다.  각 요청은 시스템 메모리의 22%를 받습니다.
+사용자의 리소스 클래스를 늘리려면 [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 사용하여 큰 리소스 클래스의 데이터베이스 역할에 사용자를 추가합니다.  아래 코드는 큰 데이터베이스 역할에 사용자를 추가합니다.  각 요청은 시스템 메모리의 22%를 받습니다.
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-리소스 클래스를 줄이려면 [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql)를 사용합니다.  'loaduser'가 멤버 또는 다른 리소스 클래스가 아닌 경우 3% 메모리 부여가 있는 기본 smallrc 리소스 클래스로 이동합니다.  
+리소스 클래스를 줄이려면 [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용합니다.  'loaduser'가 멤버 또는 다른 리소스 클래스가 아닌 경우 3% 메모리 부여가 있는 기본 smallrc 리소스 클래스로 이동합니다.  
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';

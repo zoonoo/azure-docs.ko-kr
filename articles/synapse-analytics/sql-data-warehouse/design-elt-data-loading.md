@@ -11,12 +11,12 @@ ms.date: 02/19/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 87b33e91076f8f7f31740795f0ec05cea49a1e83
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: e99fd898956e11a4827d023691111a47e5a790c0
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631198"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744966"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>시냅스 SQL 풀을 위한 데이터 로드 전략
 
@@ -24,7 +24,7 @@ ms.locfileid: "80631198"
 
 ELT(추출, 로드 및 변환) 프로세스를 사용하면 MPP를 활용하고 로드 하기 전에 데이터 변환에 필요한 리소스를 제거합니다.
 
-SQL 풀은 [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 및 [SqlBulkCopy API와](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)같은 인기 있는 SQL Server 옵션을 포함하여 많은 로딩 방법을 지원하지만 데이터를 로드하는 가장 빠르고 확장 가능한 방법은 PolyBase 외부 테이블과 [COPY 문(미리](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 보기)을 통해 서있습니다.
+SQL 풀은 [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 및 [SqlBulkCopy API와](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)같은 인기 있는 SQL Server 옵션을 포함하여 많은 로딩 방법을 지원하지만 데이터를 로드하는 가장 빠르고 확장 가능한 방법은 PolyBase 외부 테이블과 [COPY 문(미리](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 보기)을 통해 서있습니다.
 
 PolyBase 및 COPY 문을 사용하면 T-SQL 언어를 통해 Azure Blob 저장소 또는 Azure Data Lake 스토어에 저장된 외부 데이터에 액세스할 수 있습니다. 로드 할 때 가장 유연하 게 COPY 문을 사용 하는 것이 좋습니다.
 
@@ -58,7 +58,7 @@ PolyBase 로드 자습서의 경우 [PolyBase 사용을 참조하여 Azure Blob 
 
 PolyBase 및 COPY 문을 사용하면 UTF-8 및 UTF-16 인코딩된 구분된 텍스트 또는 CSV 파일에서 데이터를 로드할 수 있습니다. 구분된 텍스트 또는 CSV 파일 외에도 ORC 및 마루와 같은 Hadoop 파일 형식에서 로드됩니다. PolyBase 및 COPY 문은 Gzip 및 Snappy 압축 파일에서 데이터를 로드할 수도 있습니다.
 
-확장 ASCII, 고정 너비 형식 및 WinZip 또는 XML과 같은 중첩 형식은 지원되지 않습니다. SQL Server에서 내보내는 경우 [bcp 명령줄 도구를](/sql/tools/bcp-utility?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 사용하여 데이터를 구분된 텍스트 파일로 내보낼 수 있습니다.
+확장 ASCII, 고정 너비 형식 및 WinZip 또는 XML과 같은 중첩 형식은 지원되지 않습니다. SQL Server에서 내보내는 경우 [bcp 명령줄 도구를](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 사용하여 데이터를 구분된 텍스트 파일로 내보낼 수 있습니다.
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Azure Blob 저장소 또는 Azure 데이터 레이크 저장소에 데이터를 저장합니다.
 
@@ -141,7 +141,7 @@ PolyBase를 사용하여 데이터를 로드하려는 경우 다음 로드 옵�
 
 ### <a name="other-loading-options"></a>기타 로딩 옵션
 
-PolyBase 및 COPY 문 외에도 [숨은 참조](https://docs.microsoft.com/sql/tools/bcp-utility?view=sql-server-ver15) 또는 [SqlBulkCopy API를](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx)사용할 수 있습니다. bcp는 Azure Blob 저장소를 거치지 않고 데이터베이스에 직접 로드되며 작은 부하에만 적합합니다.
+PolyBase 및 COPY 문 외에도 [숨은 참조](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 또는 [SqlBulkCopy API를](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)사용할 수 있습니다. bcp는 Azure Blob 저장소를 거치지 않고 데이터베이스에 직접 로드되며 작은 부하에만 적합합니다.
 
 > [!NOTE]
 > 이러한 옵션의 로드 성능은 PolyBase 및 COPY 문보다 느립니다.

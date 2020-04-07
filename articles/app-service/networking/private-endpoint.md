@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c2717b1f29af39c6fdc4602b11acba131d959f03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d139cfa50afa94621066995314737fac70bbafe
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79534391"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756284"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Azure 웹 앱에 개인 끝점 사용(미리 보기)
 
@@ -25,7 +25,7 @@ Azure Web App에 개인 엔드포인트를 사용하여 개인 네트워크에 �
 
 웹 앱에 개인 끝점을 사용하면 다음을 수행할 수 있습니다.
 
-- 서비스 엔드포인트를 구성하여 웹 앱을 보호하여 공개 노출을 제거합니다.
+- 비공개 엔드포인트를 구성하여 웹 앱을 보호하여 공개 노출을 제거합니다.
 - VPN 또는 ExpressRoute 개인 피어링을 사용하여 VNet에 연결하는 온-프레미스 네트워크에서 웹 앱에 안전하게 연결합니다.
 
 VNet과 웹 앱 간에 보안 연결이 필요한 경우 서비스 엔드포인트가 가장 간단한 솔루션입니다. 또한 Azure 게이트웨이, 지역피어 VNet 또는 전역 피어잉 VNet을 통해 온-프레미스에서 웹 앱에 도달해야 하는 경우 프라이빗 엔드포인트가 솔루션입니다.  

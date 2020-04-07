@@ -3,12 +3,12 @@ title: Azure 서비스 패브릭 응용 프로그램 보안에 대해 알아보�
 description: Service Fabric에서 마이크로 서비스 애플리케이션을 안전하게 실행하는 방법의 개요 다른 보안 계정에서 서비스 및 시작 스크립트를 실행하고, 사용자를 인증하고 권한을 부여하고, 애플리케이션 암호를 관리하고, 서비스 통신의 보안을 유지하고, API 게이트웨이를 사용하고, 미사용 애플리케이션 데이터의 보안을 유지하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: 6c40bf66d1068310790d1440174eeb5b2a571154
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e9b4a1209838bdd5eee401b0defb01839b5cf684
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75452249"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756245"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric 애플리케이션 및 서비스 보안
 마이크로 서비스 아키텍처는 [많은 이점](service-fabric-overview-microservices.md)을 제공할 수 있습니다. 그러나 마이크로 서비스의 보안을 관리하는 일은 기존의 모놀리식 애플리케이션 보안을 관리하는 것과는 다르며 어려울 수 있습니다. 
@@ -33,7 +33,7 @@ ASP.NET Core의 경우 [사용자를 인증](/dotnet/standard/microservices-arch
 [ASP.NET Core 권한 부여](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications)는 사용자의 역할 또는 사용자 지정 정책을 기준으로 수행될 수 있으며, 클레임 또는 기타 추론 검사가 포함될 수 있습니다.
 
 ## <a name="restrict-and-secure-access-using-an-api-gateway"></a>API 게이트웨이를 사용하여 액세스 제한 및 보안 유지
-일반적으로 클라우드 애플리케이션에는 사용자, 디바이스 또는 기타 애플리케이션 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. [API 게이트웨이](/azure/architecture/microservices/gateway)는 클라이언트와 서비스 간에 위치하며, 애플리케이션이 제공하는 모든 서비스에 대한 진입점이 됩니다. 역방향 프록시로 작동하면서 클라이언트에서 서비스로 요청을 라우팅합니다. 또한 인증, 권한 부여, SSL 종료 및 속도 제한과 같은 다양한 교차 작업을 수행할 수도 있습니다. 게이트웨이를 배포하지 않으면 클라이언트는 프런트 엔드 서비스로 직접 요청을 보내야 합니다.
+일반적으로 클라우드 애플리케이션에는 사용자, 디바이스 또는 기타 애플리케이션 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. [API 게이트웨이](/azure/architecture/microservices/gateway)는 클라이언트와 서비스 간에 위치하며, 애플리케이션이 제공하는 모든 서비스에 대한 진입점이 됩니다. 역방향 프록시로 작동하면서 클라이언트에서 서비스로 요청을 라우팅합니다. 또한 인증 및 권한 부여, TLS 종료 및 속도 제한과 같은 다양한 교차 절단 작업을 수행할 수도 있습니다. 게이트웨이를 배포하지 않으면 클라이언트는 프런트 엔드 서비스로 직접 요청을 보내야 합니다.
 
 Service Fabric에서 게이트웨이는 상태 비저장 서비스(예: [ASP.NET Core 애플리케이션](service-fabric-reliable-services-communication-aspnetcore.md)) 또는 트래픽을 수신하도록 설계된 다른 서비스(예: [Traefik](https://docs.traefik.io/), [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/) 또는 [Azure API Management](https://docs.microsoft.com/azure/api-management))일 수 있습니다.
 

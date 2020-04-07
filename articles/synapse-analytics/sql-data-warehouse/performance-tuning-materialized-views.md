@@ -11,12 +11,12 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 28dbe66d27ac75bee2ceecd160ead3dea6538034
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 6e942130d9acf803665e52498ef6a4976cc9ade7
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633825"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743182"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>구체화된 뷰를 사용한 성능 조정
 
@@ -32,7 +32,7 @@ SQL 풀은 표준 및 구체화된 뷰를 지원합니다.  둘 다 SELECT 식�
 
 구체화된 뷰는 테이블과 마찬가지로 SQL 풀에서 데이터를 미리 계산, 저장 및 유지 관리합니다.  구체화된 뷰를 사용할 때마다 다시 계산할 필요가 없습니다.  따라서 구체화된 뷰에서 데이터의 전부 또는 하위 집합을 사용하는 쿼리는 더 빠른 성능을 얻을 수 있습니다.  더 좋은 것은 쿼리가 직접 참조하지 않고도 구체화된 뷰를 사용할 수 있으므로 응용 프로그램 코드를 변경할 필요가 없습니다.  
 
-표준 뷰의 대부분의 요구 사항은 여전히 구체화된 뷰에 적용됩니다. 구체화된 뷰 구문 및 기타 요구 사항에 대한 자세한 내용은 [구체화된 뷰 만들기 를 선택으로](https://docs.microsoft.com/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)참조하십시오.
+표준 뷰의 대부분의 요구 사항은 여전히 구체화된 뷰에 적용됩니다. 구체화된 뷰 구문 및 기타 요구 사항에 대한 자세한 내용은 [구체화된 뷰 만들기 를 선택으로](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 참조하십시오.
 
 | 비교                     | View                                         | 구체화된 뷰
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
@@ -58,8 +58,8 @@ SQL 풀에서 구현된 구체화된 뷰는 다음과 같은 추가 이점을 �
 다른 데이터 웨어하우스 공급자와 비교하여 Azure SQL Data Warehouse에서 구현된 구체화된 보기는 다음과 같은 추가 이점을 제공합니다.
 
 - 기본 테이블의 데이터 변경으로 자동 및 동기 데이터 새로 고침 추가적인 조치가 필요하지 않습니다.
-- 광범위한 집계 함수 지원. [구체화된 보기 만들기를 선택(거래-SQL)으로 클릭합니다.](https://docs.microsoft.com/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)
-- 쿼리별 구체화된 뷰 권장 사항에 대한 지원입니다.  [설명(거래-SQL)을](https://docs.microsoft.com/sql/t-sql/queries/explain-transact-sql?view=azure-sqldw-latest)참조하십시오.
+- 광범위한 집계 함수 지원. [구체화된 보기 만들기를 선택(거래-SQL)으로 클릭합니다.](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- 쿼리별 구체화된 뷰 권장 사항에 대한 지원입니다.  [설명(거래-SQL)을](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)참조하십시오.
 
 ## <a name="common-scenarios"></a>일반적인 시나리오  
 

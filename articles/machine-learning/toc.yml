@@ -17,18 +17,22 @@
   items:
     - name: Studio 및 Designer
       items:
-        - name: 'Designer: 1. 회귀 모델 학습'
-          displayName: studio
-          href: tutorial-designer-automobile-price-train-score.md
-        - name: 'Designer: 2. 해당 모델 배포'
-          displayName: studio
-          href: tutorial-designer-automobile-price-deploy.md
-        - name: 자동화된 ML 실험 만들기
-          displayName: 'automl, automated, auto ml, portal, ui'
-          href: tutorial-first-experiment-automated-ml.md
-        - name: 자동화된 ML로 수요 예측(자전거 공유 데이터)
-          displayName: 'automl, automated, auto ml, portal, ui'
-          href: tutorial-automated-ml-forecast.md
+        - name: 디자이너(끌어서 놓기)
+          items:
+            - name: 'Designer: 1. 회귀 모델 학습'
+              displayName: studio
+              href: tutorial-designer-automobile-price-train-score.md
+            - name: 'Designer: 2. 해당 모델 배포'
+              displayName: studio
+              href: tutorial-designer-automobile-price-deploy.md
+        - name: 자동화된 ML(UI)
+          items:
+            - name: 자동화된 ML 실험 만들기
+              displayName: 'automl, automated, auto ml, portal, ui'
+              href: tutorial-first-experiment-automated-ml.md
+            - name: 자동화된 ML로 수요 예측(자전거 공유 데이터)
+              displayName: 'automl, automated, auto ml, portal, ui'
+              href: tutorial-automated-ml-forecast.md
     - name: Python SDK
       items:
         - name: 첫 번째 ML 실험 만들기
@@ -139,6 +143,9 @@
             - name: 가상 네트워크 사용
               displayName: 'vnet, blob'
               href: how-to-enable-virtual-network.md
+            - name: Private Link 사용
+              displayName: private endpoint
+              href: how-to-configure-private-link.md
             - name: SSL로 웹 서비스 보호
               href: how-to-secure-web-service.md
             - name: AKS 배포에서 Azure AD ID 사용
@@ -254,8 +261,6 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
-        - name: Chainer
-          href: how-to-train-chainer.md
     - name: 모델 해석
       displayName: interpretability
       items:

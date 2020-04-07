@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 359fd7fc787db5710deca75dd562215d25ed9148
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 4fbb3e83692ec058c03b22654e82d4093fe3541d
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437482"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756574"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure 기계 학습을 위한 엔터프라이즈 보안
 
@@ -42,9 +42,9 @@ Azure Active Directory(Azure AD)를 사용하도록 구성된 경우 다단계 �
 
 Azure Machine Learning은 웹 서비스에 대한 두 가지 형태의 인증( 키 및 토큰)을 지원합니다. 각 웹 서비스는 한 번에 하나의 인증 형식만 사용할 수 있습니다.
 
-|인증 방법|Description|Azure Container Instances|AKS|
+|인증 방법|설명|Azure Container Instances|AKS|
 |---|---|---|---|
-|Key|키는 정적이며 새로 고칠 필요가 없습니다. 키는 수동으로 재생할 수 있습니다.|기본적으로 사용할 수 없게 설정되어 있습니다.| 기본적으로 사용하도록 설정됨|
+|키|키는 정적이며 새로 고칠 필요가 없습니다. 키는 수동으로 재생할 수 있습니다.|기본적으로 사용할 수 없게 설정되어 있습니다.| 기본적으로 사용하도록 설정됨|
 |토큰|토큰은 지정된 기간 이후에 만료되며 새로 고쳐야 합니다.| 사용할 수 없음| 기본적으로 사용할 수 없게 설정되어 있습니다. |
 
 코드 예제의 경우 [웹 서비스 인증 섹션을](how-to-setup-authentication.md#web-service-authentication)참조하십시오.
@@ -134,7 +134,15 @@ Azure 기계 학습은 계산 리소스에 대한 다른 Azure 서비스에 의�
 ### <a name="encryption-at-rest"></a>휴지 상태의 암호화
 
 > [!IMPORTANT]
-> 작업 영역에 중요한 데이터가 포함된 경우 작업 영역을 만드는 동안 [hbi_workspace 플래그를](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) 설정하는 것이 좋습니다. 이렇게 하면 Microsoft가 진단 목적으로 수집하는 데이터의 양을 제어하고 Microsoft 관리 환경에서 추가 암호화를 사용할 수 있습니다.
+> 작업 영역에 중요한 데이터가 포함된 경우 작업 영역을 만드는 동안 [hbi_workspace 플래그를](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) 설정하는 것이 좋습니다. 
+
+플래그는 `hbi_workspace` Microsoft가 진단을 위해 수집하는 데이터의 양을 제어하고 Microsoft 관리 환경에서 추가 암호화를 가능하게 합니다. 또한 다음을 사용할 수 있습니다.
+
+* 해당 구독에서 이전 클러스터를 만들지 않은 경우 Amlcompute 클러스터에서 로컬 스크래치 디스크 암호화를 시작합니다. 그렇지 않으면 계산 클러스터의 스크래치 디스크를 암호화할 수 있도록 지원 티켓을 높여야 합니다. 
+* 실행 사이에 로컬 스크래치 디스크 정리
+* 키 자격 증명을 사용하여 실행 계층에서 컴퓨팅 클러스터로 저장소 계정, 컨테이너 레지스트리 및 SSH 계정에 대한 자격 증명을 안전하게 전달합니다.
+* AzureMachineLearningService 이외의 외부 서비스에서 기본 일괄 처리 풀을 호출할 수 없도록 IP 필터링을 활성화합니다.
+
 
 Azure에서 미사용 암호화가 작동하는 방식에 대한 자세한 내용은 [미사용 Azure 데이터 암호화를](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)참조하십시오.
 

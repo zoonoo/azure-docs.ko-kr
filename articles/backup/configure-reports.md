@@ -3,12 +3,12 @@ title: Azure Backup 보고서 구성
 description: 로그 분석 및 Azure 통합 문서를 사용하여 Azure 백업에 대한 보고서 구성 및 보기
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 651d1383f0f292895ed95c91bafd5206d4f04c2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 497d70c1bcc577faa467720b959eb828e785a26a
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78161204"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672656"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 
@@ -21,7 +21,7 @@ ms.locfileid: "78161204"
 * 백업 보고서는 Azure VM, Azure VM의 SQL, Azure VM의 SAP HANA/ASE, AZURE 백업 에이전트(MARS), Azure 백업 서버(MABS) 및 시스템 센터 DPM에 대해 지원됩니다.
 * DPM 워크로드의 경우 백업 보고서는 DPM 버전 5.1.363.0 이상 및 에이전트 버전 2.0.9127.0 이상에서 지원됩니다.
 * MABS 워크로드의 경우 백업 보고서는 MABS 버전 13.0.415.0 이상 및 에이전트 버전 2.0.9170.0 이상에서 지원됩니다.
-* 백업 보고서는 데이터가 사용자가 액세스할 수 있는 LA(Log Analytics) 작업 영역으로 전송되는 한 모든 백업 항목, 자격 증명 모음, 구독 및 지역에서 볼 수 있습니다. 
+* 백업 보고서는 데이터가 사용자가 액세스할 수 있는 LA(Log Analytics) 작업 영역으로 전송되는 한 모든 백업 항목, 자격 증명 모음, 구독 및 지역에서 볼 수 있습니다. 볼트 집합에 대한 보고서를 보려면 볼트가 데이터를 보내는 **LA 작업 영역에 대한 판독기 액세스** 권한만 있으면 됩니다. 개별 볼트에 액세스할 **수 없습니다.**
 * 고객의 구독에 대한 위임된 액세스 권한이 있는 [Azure 등대](https://docs.microsoft.com/azure/lighthouse/) 사용자인 경우 이러한 보고서를 Azure 등대와 함께 사용하여 모든 테넌트의 보고서를 볼 수 있습니다.
 * 로그 백업 작업에 대한 데이터는 현재 보고서에 표시되지 않습니다.
 

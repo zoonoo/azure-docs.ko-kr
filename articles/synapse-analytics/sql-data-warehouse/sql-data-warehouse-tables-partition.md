@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4e19c20036d74752b75a668d6a37c46ef1b008e6
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 368276f75128c80b8df326a26acf26c841e9f68a
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583183"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742680"
 ---
 # <a name="partitioning-tables-in-synapse-sql-pool"></a>시냅스 SQL 풀에서 테이블 분할
 
@@ -46,9 +46,9 @@ Synapse SQL 풀에서 분할의 주요 이점은 파티션 삭제, 전환 및 �
 
 ## <a name="syntax-differences-from-sql-server"></a>SQL Server와의 구문 차이
 
-Synapse SQL 풀에서는 SQL Server보다 간단한 파티션을 정의하는 방법을 소개합니다. 분할 함수 및 구성표는 SQL Server에서와 같이 Synapse SQL 풀에서 사용되지 않습니다. 대신 분할된 열 및 경계 지점을 식별하기만 하면 됩니다. 분할의 구문은 SQL Server와 약간 다르지만 기본 개념은 동일합니다. SQL Server 및 Synapse SQL 풀은 테이블당 하나의 파티션 열을 지원하며, 이 열은 파티션범위로 지정될 수 있습니다. 분할에 대한 자세한 내용은 [분할된 테이블 및 인덱스](/sql/relational-databases/partitions/partitioned-tables-and-indexes)를 참조하세요.
+Synapse SQL 풀에서는 SQL Server보다 간단한 파티션을 정의하는 방법을 소개합니다. 분할 함수 및 구성표는 SQL Server에서와 같이 Synapse SQL 풀에서 사용되지 않습니다. 대신 분할된 열 및 경계 지점을 식별하기만 하면 됩니다. 분할의 구문은 SQL Server와 약간 다르지만 기본 개념은 동일합니다. SQL Server 및 Synapse SQL 풀은 테이블당 하나의 파티션 열을 지원하며, 이 열은 파티션범위로 지정될 수 있습니다. 분할에 대한 자세한 내용은 [분할된 테이블 및 인덱스](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
 
-다음 예제에서는 [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) 문을 사용하여 OrderDateKey 열에서 FactInternetSales 테이블을 분할합니다.
+다음 예제에서는 [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 문을 사용하여 OrderDateKey 열에서 FactInternetSales 테이블을 분할합니다.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -78,8 +78,8 @@ WITH
 
 SQL Server 파티션 정의를 Synapse SQL 풀로 마이그레이션하려면 다음을 수행하십시오.
 
-- SQL Server [파티션 구성표](/sql/t-sql/statements/create-partition-scheme-transact-sql)를 제거합니다.
-- [파티션 함수](/sql/t-sql/statements/create-partition-function-transact-sql) 정의를 CREATE TABLE에 추가합니다.
+- SQL Server [파티션 구성표](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 제거합니다.
+- [파티션 함수](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 정의를 CREATE TABLE에 추가합니다.
 
 SQL Server 인스턴스에서 분할된 테이블을 마이그레이션하는 경우 다음 SQL이 각 파티션에 있는 행의 수를 파악하는 데 도움이 될 수 있습니다. Synapse SQL 풀에서 동일한 분할 세분성을 사용하는 경우 파티션당 행 수가 60배 줄어듭니다.  
 
@@ -119,7 +119,7 @@ GROUP BY    s.[name]
 
 ## <a name="partition-switching"></a>파티션 전환
 
-Synapse SQL 풀은 파티션 분할, 병합 및 전환을 지원합니다. 이러한 각 함수는 [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) 문을 사용하여 실행됩니다.
+Synapse SQL 풀은 파티션 분할, 병합 및 전환을 지원합니다. 이러한 각 함수는 [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 문을 사용하여 실행됩니다.
 
 두 테이블 간에 파티션을 전환하려면 파티션을 각 해당 경계에 맞추고 테이블 정의와 일치하는지 확인해야 합니다. Check 제약 조건은 테이블에 있는 값의 범위를 적용하는 데 사용할 수 없으므로 원본 테이블은 대상 테이블과 동일한 파티션 경계를 포함해야 합니다. 파티션 경계가 동일하지 않으면 파티션 전환은 파티션 메타데이터가 동기화되지 않아서 실패합니다.
 
@@ -344,4 +344,3 @@ ALTER TABLE dbo.FactInternetSales_NewSales SWITCH PARTITION 2 TO dbo.FactInterne
 ## <a name="next-steps"></a>다음 단계
 
 테이블 개발에 대한 자세한 내용은 [테이블 개요](sql-data-warehouse-tables-overview.md)에 대한 문서를 참조하세요.
-

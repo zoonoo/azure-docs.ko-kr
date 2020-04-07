@@ -3,17 +3,17 @@ title: Azure Portal에서 Service Fabric 클러스터 만들기
 description: Azure Portal 및 Azure Key Vault를 사용하여 Azure에서 보안 Service Fabric 클러스터를 설정하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: 0f384da75f09390e9b0988722b974e7e16d13e63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e2de920ce9517e156934a636559a6fd6f5a71eb5
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258799"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754099"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure에서 서비스 패브릭 클러스터 만들기
 > [!div class="op_single_selector"]
 > * [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
-> * [Azure 포털](service-fabric-cluster-creation-via-portal.md)
+> * [Azure portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -36,13 +36,13 @@ Azure Portal을 사용하여 Azure에 Service Fabric 클러스터(Linux 또는 W
 이 인증서는 클러스터를 보호하고 무단 액세스를 방지하기 위해 필요합니다. 다음 몇 가지 방법으로 클러스터 보안을 제공합니다.
 
 * **클러스터 인증:** 클러스터 페더레이션에 대한 노드 간 통신을 인증합니다. 이 인증서로 자신의 신분을 증명할 수 있는 노드만 클러스터에 가입할 수 있습니다.
-* **서버 인증:** 관리 클라이언트가 실제 클러스터와 대화하고 있음을 알 수 있도록 클러스터 관리 끝점을 관리 클라이언트에 인증합니다. 이 인증서는 HTTPS 관리 API 및 HTTPS를 통한 Service Fabric Explorer에 대해 SSL도 제공합니다.
+* **서버 인증:** 관리 클라이언트가 실제 클러스터와 대화하고 있음을 알 수 있도록 클러스터 관리 끝점을 관리 클라이언트에 인증합니다. 또한 이 인증서는 HTTPS 관리 API및 HTTPS를 통해 서비스 패브릭 탐색기용 TLS를 제공합니다.
 
 이를 위해 인증서는 다음 요구 사항을 충족해야 합니다.
 
 * 인증서에 프라이빗 키가 포함되어 있어야 합니다.
 * 개인 정보 교환(.pfx) 파일로 내보낼 수 있는 키 교환용 인증서를 만들어야 합니다.
-* 인증서의 주체 이름은 서비스 패브릭 클러스터에 액세스하는 데 사용되는 **도메인과 일치해야 합니다.** 클러스터의 HTTPS 관리 엔드포인트 및 Service Fabric Explorer에 대해 SSL을 제공하려면 이러한 조건이 충족되어야 합니다. `.cloudapp.azure.com` 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다. 클러스터에 대한 사용자 지정 도메인 이름을 획득합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
+* 인증서의 주체 이름은 서비스 패브릭 클러스터에 액세스하는 데 사용되는 **도메인과 일치해야 합니다.** 클러스터의 HTTPS 관리 끝점 및 서비스 패브릭 탐색기용 TLS를 제공해야 합니다. 도메인에 대한 인증 기관(CA)에서 TLS/SSL `.cloudapp.azure.com` 인증서를 가져올 수 없습니다. 클러스터에 대한 사용자 지정 도메인 이름을 획득합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
 
 #### <a name="client-authentication-certificates"></a>클라이언트 인증 인증서
 추가 클라이언트 인증서가 클러스터 관리 작업을 위해 관리자를 인증합니다. 서비스 패브릭은 **관리자** 및 **읽기 전용 사용자**의 두 가지 액세스 수준을 제공합니다. 최소한 관리 액세스에 대해 단일 인증서를 사용해야 합니다. 추가 사용자 수준 액세스를 위해서는 별도 인증서를 제공해야 합니다. 액세스 역할에 대한 자세한 내용은 [Service Fabric 클라이언트의 역할 기반 액세스 제어][service-fabric-cluster-security-roles]를 참조하세요.
@@ -68,7 +68,7 @@ Service Fabric을 사용하기 위해 클라이언트 인증 인증서를 Key Va
 
 ### <a name="search-for-the-service-fabric-cluster-resource"></a>서비스 패브릭 클러스터 리소스 검색
 
-[Azure 포털에][azure-portal]로그인합니다.
+[Azure Portal][azure-portal]에 로그인합니다.
 **리소스 만들기**를 클릭하여 새 리소스 템플릿을 추가합니다. **Marketplace**의 **모두**에서 Service Fabric 클러스터 템플릿을 검색합니다.
 목록에서 **서비스 패브릭 클러스터** 를 선택합니다.
 

@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: b30fde19c4474ba7e2d3bbaed44802884a5b27f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2220352f817b488b3992b88920428063edde006e
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286526"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745003"
 ---
 # <a name="publish-iot-edge-module-offer"></a>IoT Edge 모듈 제안 게시
+
+>[!Important]
+>2020년 3월 30일부터 파트너 센터로 IoT Edge 모듈의 관리를 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. IoT [Edge 생성 모듈 오퍼의](https://aka.ms/AzureCreateIoT) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
 
  **새 제안** 페이지에 정보를 제공하여 새 제안을 만든 후에는 제안을 게시할 수 있습니다. **게시**를 선택하여 게시 프로세스를 시작합니다.
 

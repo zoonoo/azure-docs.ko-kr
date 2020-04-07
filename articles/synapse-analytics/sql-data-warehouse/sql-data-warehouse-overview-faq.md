@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 9ce87bac6fbcc3833684dc540c542bc14c9b4955
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: dcefe6a6144c9a8f9c6ab7daf5b34b2d81a73c3f
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586516"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743008"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure 시냅스 분석(이전 SQL DW) 자주 묻는 질문
 
@@ -35,7 +35,7 @@ A. 시냅스 SQL 풀은 Azure Synapse에서 일반적으로 사용할 수 있는
 
 17. Azure 시냅스로 시작하려면 어떻게 해야 합니까?
 
-A. 자세한 내용은 Azure [무료 거래처를](https://azure.microsoft.com/free/sql-data-warehouse/) 시작하거나 [판매에 문의할](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html)수 있습니다. 
+A. 자세한 내용은 Azure [무료 거래처를](https://azure.microsoft.com/free/sql-data-warehouse/) 시작하거나 [판매에 문의할](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html)수 있습니다.
 
 17. Azure Synapse는 데이터 보안을 위해 무엇을 제공합니까?
 
@@ -43,7 +43,8 @@ A. Azure Synapse는 TDE 및 감사와 같은 데이터를 보호하기 위한 �
 
 17. Azure Synapse가 준수하는 법적 또는 비즈니스 표준은 어디에서 확인할 수 있습니까?
 
-A. SOC 및 ISO와 같은 제품에 대한 다양한 규정 준수 제안에 대해서는 [Microsoft 규정 준수](https://www.microsoft.com/trustcenter/compliance/complianceofferings) 페이지를 방문하세요. 먼저 규정 준수 제목을 선택합니다. 그런 다음 페이지 오른쪽에 있는 Microsoft 범위 내 클라우드 서비스 섹션에서 Azure를 확장하여 Azure Synapse를 준수하는 서비스를 확인합니다.
+A. SOC 및 ISO와 같은 제품에 대한 다양한 규정 준수 제안에 대해서는 [Microsoft 규정 준수](https://www.microsoft.com/trustcenter/compliance/complianceofferings) 페이지를 방문하세요.
+먼저 규정 준수 제목을 선택합니다. 그런 다음 페이지 오른쪽에 있는 Microsoft 범위 내 클라우드 서비스 섹션에서 Azure를 확장하여 Azure Synapse를 준수하는 서비스를 확인합니다.
 
 17. Power BI를 연결할 수 있습니까?
 
@@ -51,7 +52,7 @@ A. 예! Power BI는 Azure Synapse를 사용하여 직접 쿼리를 지원하지�
 
 17. Synapse SQL 풀 용량 제한은 무엇입니까?
 
-A. 현재 [용량 제한](sql-data-warehouse-service-capacity-limits.md) 페이지를 참조하세요. 
+A. 현재 [용량 제한](sql-data-warehouse-service-capacity-limits.md) 페이지를 참조하세요.
 
 17. 크기 조정/일시 중지/계속 작업이 너무 오래 걸리는 이유는 무엇인가요?
 
@@ -65,13 +66,13 @@ A. 기능 요청이 있는 경우 [UserVoice](https://feedback.azure.com/forums/
 
 17. 어떻게 하면 될까요?
 
-A. Azure Synapse 개발에 대한 도움말을 보려면 [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-sqldw) 페이지에서 질문을 할 수 있습니다. 
+A. Azure Synapse 개발에 대한 도움말을 보려면 [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-sqldw) 페이지에서 질문을 할 수 있습니다.
 
 17. 지원 티켓을 제출하려면 어떻게 해야 하나요?
 
 A. [지원 티켓](sql-data-warehouse-get-started-create-support-ticket.md)은 Azure Portal을 통해 정리할 수 있습니다.
 
-## <a name="sql-languagefeature-support"></a>SQL 언어/기능 지원 
+## <a name="sql-languagefeature-support"></a>SQL 언어/기능 지원
 
 17. 어떤 데이터 형식이 지원됩니까?
 
@@ -85,7 +86,7 @@ A. 많은 기능이 지원됩니다. 지원되지 않는 기능은 [지원되지
 
 17. 시냅스 SQL 풀은 REST API를 지원합니까?
 
-A. 예. SQL 데이터베이스와 함께 사용할 수 있는 대부분의 REST 기능은 Synapse SQL 풀에서도 사용할 수 있습니다. REST 설명서 페이지 또는 [MSDN](https://msdn.microsoft.com/library/azure/mt163685.aspx)에서 이 API 정보를 찾을 수 있습니다.
+A. 예. SQL 데이터베이스와 함께 사용할 수 있는 대부분의 REST 기능은 Synapse SQL 풀에서도 사용할 수 있습니다. REST 문서 페이지 또는 데이터베이스 에서 API 정보를 찾을 수 [있습니다.](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 ## <a name="loading"></a>로드
 
@@ -97,17 +98,17 @@ Q: PolyBase에서 지원하는 파일 형식은 무엇입니까?
 
 A: Orc, RC, Parquet 및 일반 구분 텍스트
 
-Q: PolyBase를 사용하여 어떤 데이터 원본을 연결할 수 있습니까? 
+Q: PolyBase를 사용하여 어떤 데이터 원본을 연결할 수 있습니까?
 
 A: [Azure 데이터 레이크 저장소](sql-data-warehouse-load-from-azure-data-lake-store.md) 및 Azure 저장소 [Blob](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 
-Q: Azure 저장소 Blob 또는 ADLS에 연결할 때 계산 푸시다운이 가능한가요? 
+Q: Azure 저장소 Blob 또는 ADLS에 연결할 때 계산 푸시다운이 가능한가요?
 
-A: 아니요, PolyBase는 저장소 구성 요소와만 상호 작용합니다. 
+A: 아니요, PolyBase는 저장소 구성 요소와만 상호 작용합니다.
 
 Q: HDI에 연결할 수 있나요?
 
-A: HDI는 HDFS 계층으로 ADLS 또는 WASB를 사용할 수 있습니다. HDFS 계층이 있는 경우 해당 데이터를 시냅스 SQL 풀에 로드할 수 있습니다. 그러나 HDI 인스턴스로의 푸시다운 계산을 생성할 수 없습니다. 
+A: HDI는 HDFS 계층으로 ADLS 또는 WASB를 사용할 수 있습니다. HDFS 계층이 있는 경우 해당 데이터를 시냅스 SQL 풀에 로드할 수 있습니다. 그러나 HDI 인스턴스로의 푸시다운 계산을 생성할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

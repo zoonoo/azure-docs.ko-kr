@@ -11,12 +11,12 @@ ms.date: 03/11/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 61c823aee5d8a6755a3bd7971cd7cca952cbb911
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 85457b62c905cb30ca22264eff1b6c677473f9b9
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633614"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745295"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Azure Synapse 분석에서 리소스 사용률 및 쿼리 활동 모니터링
 
@@ -24,7 +24,7 @@ Azure Synapse Analytics는 Azure 포털 내에서 풍부한 모니터링 환경�
 
 ## <a name="resource-utilization"></a>리소스 사용률
 
-다음 메트릭은 SQL 분석에 대한 Azure 포털에서 사용할 수 있습니다. 이러한 메트릭은 [Azure Monitor](../../azure-monitor/platform/data-collection.md?toc=/azure/synapse-analytics/sql-data-warehouse?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#metrics)를 통해 나타납니다.
+다음 메트릭은 SQL 분석에 대한 Azure 포털에서 사용할 수 있습니다. 이러한 메트릭은 [Azure Monitor](../../azure-monitor/platform/data-collection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#metrics)를 통해 나타납니다.
 
 | 메트릭 이름             | 설명                                                  | 집계 형식 |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |

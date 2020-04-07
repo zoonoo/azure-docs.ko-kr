@@ -3,29 +3,29 @@ title: Azure Blob Storage 이벤트에 대응 | Microsoft Docs
 description: Azure Event Grid를 사용하여 Blob Storage 이벤트를 구독합니다.
 author: normesta
 ms.author: normesta
-ms.date: 01/30/2018
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
-ms.openlocfilehash: 5281dab8fd42326d88964614fd20a81621b5e9dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4dd6bab6198546dc5acab78ec59d92387328dbb
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79268497"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755008"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Blob Storage 이벤트에 대응
 
-Azure Storage 이벤트를 사용하면 응용 프로그램이 Blob 생성 및 삭제와 같은 이벤트에 반응할 수 있습니다. 복잡한 코드나 비용이 많이 들고 비효율적인 폴링 서비스가 없어도 이렇게 할 수 있습니다.
+Azure Storage 이벤트를 사용하면 응용 프로그램이 Blob 생성 및 삭제와 같은 이벤트에 반응할 수 있습니다. 복잡한 코드나 비용이 많이 들고 비효율적인 폴링 서비스가 없어도 이렇게 할 수 있습니다. 가장 좋은 부분은 당신이 사용하는 것에 대해서만 지불하는 것입니다.
 
-이벤트는 Azure [Event Grid를](https://azure.microsoft.com/services/event-grid/) 사용하여 Azure Functions, Azure 논리 앱 과 같은 구독자 또는 사용자 고유의 http 리스너에게도 푸시됩니다. 가장 좋은 부분은 당신이 사용하는 것에 대해서만 지불하는 것입니다.
+Blob 저장소 이벤트는 [Azure Event Grid를](https://azure.microsoft.com/services/event-grid/) 사용하여 Azure Functions, Azure 논리 앱 또는 사용자 고유의 http 리스너와 같은 구독자에게 푸시됩니다. Event Grid는 풍부한 재시도 정책과 데드 레터링을 통해 애플리케이션에 안정적인 이벤트 전달을 제공합니다.
 
-Blob 저장소는 이벤트를 Event Grid로 전송하여 풍부한 재시도 정책과 데드 레터링을 통해 응용 프로그램에 안정적인 이벤트 배달을 제공합니다.
+Blob 저장소가 지원하는 이벤트의 전체 목록을 보려면 [Blob 저장소 이벤트 스키마](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 문서를 참조하십시오.
 
 일반적인 Blob Storage 이벤트 시나리오에는 이미지 또는 비디오 처리, 검색 인덱싱, 또는 파일 중심의 워크플로가 포함됩니다. 비동기 파일 업로드는 이벤트에 매우 적합합니다. 변경 빈도가 낮더라도 즉각적인 대응이 필요한 시나리오에서는 이벤트 기반 아키텍처가 특히 효율적일 수 있습니다.
 
-지금 이 것을 시도하려면 다음 빠른 시작 문서를 참조하십시오.
+Blob 저장소 이벤트를 사용하려면 다음 빠른 시작 문서를 참조하십시오.
 
 |이 도구를 사용하려면 다음을 수행하십시오.    |이 문서를 참조하십시오. |
 |--|-|
@@ -39,7 +39,7 @@ Azure 함수를 사용하여 Blob 저장소 이벤트에 반응하는 자세한 
 - [자습서: 이벤트 그리드를 사용하여 업로드된 이미지의 크기 조정 자동화](https://docs.microsoft.com/azure/event-grid/resize-images-on-storage-blob-upload-event?tabs=dotnet)
 
 >[!NOTE]
-> **StorageV2(범용 v2)** 및 **BlobStorage** 종류의 스토리지 계정만 이벤트 통합을 지원합니다. **스토리지(범용 v1)** 는 Event Grid와의 통합을 지원하지 *않습니다*.
+> 저장소 계정만 **StorageV2 (범용 v2)**, **BlockBlobStorage**및 **BlobStorage** 지원 이벤트 통합. **스토리지(범용 v1)** 는 Event Grid와의 통합을 지원하지 *않습니다*.
 
 ## <a name="the-event-model"></a>이벤트 모델
 
@@ -98,6 +98,7 @@ Blob Storage 이벤트를 처리하는 애플리케이션은 아래 권장되는
 > * 마찬가지로, eventType이 본인이 처리하려는 형식인지 확인하고, 수신된 모든 이벤트가 예상하는 형식일 것이라고 간주하지 않도록 합니다.
 > * 메시지가 약간의 지연 후에 도착할 수 있으므로 etag 필드를 사용하여 개체에 대한 정보가 여전히 최신 상태인지 확인합니다. etag 필드를 사용하는 방법에 대해 알아보려면 [Blob 저장소의 동시성 관리를](https://docs.microsoft.com/azure/storage/common/storage-concurrency?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage)참조하십시오. 
 > * 메시지가 순서대로 도착할 수 있도록 시퀀서 필드를 사용하여 특정 개체의 이벤트 순서를 이해합니다. 시퀀서 필드는 특정 Blob 이름에 대한 이벤트의 논리적 시퀀스를 나타내는 문자열 값입니다. 표준 문자열 비교를 사용하여 동일한 Blob 이름에 있는 두 이벤트의 상대 시퀀스를 이해할 수 있습니다.
+> 저장소 이벤트는 구독자에게 최소 한 번 배달을 보장하므로 모든 메시지가 출력되도록 합니다. 그러나 구독의 재시도 또는 가용성으로 인해 중복 메시지가 발생할 수 있습니다.
 > * blobType 필드를 사용하여 Blob에 허용되는 작업 형식을 파악하고 Blob에 액세스하는 데 사용해야 하는 클라이언트 라이브러리 형식을 확인합니다. 유효한 값은 `BlockBlob` 또는 `PageBlob`입니다. 
 > * Blob에 액세스하려면 `CloudBlockBlob` 및 `CloudAppendBlob` 생성자에 URL 필드를 사용합니다.
 > * 이해할 수 없는 필드는 무시합니다. 이 지침은 나중에 추가될 수 있는 새로운 기능에 적용하는 데도 도움이 됩니다.
@@ -109,4 +110,5 @@ Blob Storage 이벤트를 처리하는 애플리케이션은 아래 권장되는
 Event Grid에 대해 자세히 알아보고 Blob Storage 이벤트를 사용해보세요.
 
 - [Event Grid 정보](../../event-grid/overview.md)
-- [Blob Storage 이벤트를 사용자 지정 웹 엔드포인트로 라우팅](storage-blob-event-quickstart.md)
+- [Blob 저장소 이벤트 스키마](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Blob 저장소 이벤트를 사용자 지정 웹 끝점으로 라우팅](storage-blob-event-quickstart.md)

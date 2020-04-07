@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e5ad5f6f2f5be239af23ee4802cf09c388c93ae9
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: e170a789727fb0de36705895245cc638d30ee3d7
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632919"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745501"
 ---
 # <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Synapse SQL 풀을 사용하여 데이터를 로드하는 모범 사례
 
@@ -104,7 +104,7 @@ columnstore 인덱스는 고품질 행 그룹으로 데이터를 압축하기 �
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>SqLBulkCopy API 또는 숨은 번째 를 사용할 때 배치 크기를 증가
 
-PolyBase로 로드하면 SQL 풀에서 가장 높은 처리량을 제공합니다. PolyBase를 사용하여 로드할 수 없고 [SqLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx) 또는 [숨은 숨은 숨은](https://docs.microsoft.com/sql/tools/bcp-utility?view=sql-server-ver15)경우 처리량을 높이기 위해 일괄 처리 크기를 늘리는 것이 좋습니다.
+PolyBase로 로드하면 SQL 풀에서 가장 높은 처리량을 제공합니다. PolyBase를 사용하여 로드할 수 없고 [SqLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 또는 [숨은 숨은 숨은](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)경우 처리량을 높이기 위해 일괄 처리 크기를 늘리는 것이 좋습니다.
 
 > [!TIP]
 > 100K ~ 1M 행 사이의 일괄 처리 크기는 최적의 배치 크기 용량을 결정하는 데 권장되는 기준입니다.
@@ -120,7 +120,7 @@ PolyBase로 로드하면 SQL 풀에서 가장 높은 처리량을 제공합니�
 
 더티 레코드 문제를 해결하려면 외부 테이블 및 외부 파일 형식 정의가 올바른지와 외부 데이터가 이러한 정의를 준수하는지 확인합니다.
 
-외부 데이터 레코드의 하위 집합이 더러워진 경우 [외부 테이블 만들기(Transact-SQL)의](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15)거부 옵션을 사용하여 쿼리에 대한 이러한 레코드를 거부하도록 선택할 수 있습니다.
+외부 데이터 레코드의 하위 집합이 더러워진 경우 [외부 테이블 만들기(Transact-SQL)의](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)거부 옵션을 사용하여 쿼리에 대한 이러한 레코드를 거부하도록 선택할 수 있습니다.
 
 ## <a name="inserting-data-into-a-production-table"></a>프로덕션 테이블에 데이터 삽입
 

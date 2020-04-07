@@ -3,12 +3,12 @@ title: 템플릿의 하위 리소스
 description: Azure 리소스 관리자 템플릿에서 자식 리소스의 이름 및 형식을 설정하는 방법에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 6de2b476fe19a057a62e4a54963dd8fde0d11579
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3a69829e674925982c618807f49433a033d8c5f9
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77207896"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743843"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>자식 리소스의 이름 및 유형 설정
 

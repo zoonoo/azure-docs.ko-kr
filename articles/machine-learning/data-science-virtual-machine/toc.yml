@@ -17,8 +17,6 @@
       href: provision-vm.md
     - name: Ubuntu Data Science Virtual Machine 만들기
       href: dsvm-ubuntu-intro.md
-    - name: CentOS Data Science Virtual Machine 만들기
-      href: linux-dsvm-intro.md
     - name: Geo AI Data Science Virtual Machine 만들기
       href: provision-geo-ai-dsvm.md
 - name: 개념
@@ -67,8 +65,6 @@
   items:
     - name: Ubuntu Data Science Virtual Machine
       href: reference-ubuntu-vm.md
-    - name: CentOS Data Science Virtual Machine
-      href: reference-centos-vm.md
     - name: 릴리스 정보
       href: release-notes.md
     - name: 알려진 문제

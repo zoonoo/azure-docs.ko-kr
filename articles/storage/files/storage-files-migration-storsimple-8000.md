@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 7e5f70d0323aa5c502491ab99db303fde31ade83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f0c4da7caf71670746e84d5cfaa457ebae57156
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528628"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755037"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 및 8600 Azure 파일 동기화로 마이그레이션
 
@@ -146,7 +146,10 @@ Azure의 Windows Server 가상 컴퓨터는 마이그레이션 중에만 필요�
 > VM이 StorSimple 8020 가상 어플라이언스와 동일한 Azure 지역에 배포되어 있는지 확인합니다. 이 마이그레이션의 일부로 현재 저장된 리전에서 클라우드 데이터의 영역을 변경해야 하는 경우 Azure 파일 공유를 프로비전할 때 이후 단계에서 이를 수행할 수 있습니다.
 
 > [!IMPORTANT]
-> 성능을 최적화하려면 클라우드 VM에 **매우 빠른 OS 디스크를** 배포합니다. 모든 데이터 볼륨에 대한 동기화 데이터베이스를 OS 디스크에 저장합니다. 또한 **큰 OS 디스크를**만들어야 합니다. StorSimple 볼륨의 항목 수(파일 및 폴더)에 따라 OS 디스크에는 동기화 데이터베이스를 수용하기 위해 **수백 GiB의** 공간이 필요할 수 있습니다.
+> 온-프레미스 Windows 서버는 온-프레미스 StorSimple 어플라이언스를 앞에 두는 데 사용되는 경우가 많습니다. 이러한 구성에서는 해당 Windows 서버에서["데이터 중복 제거"](https://docs.microsoft.com/windows-server/storage/data-deduplication/install-enable)기능을 활성화할 수 있습니다. **StorSimple 데이터와 함께 데이터 중복 제거를 사용하는 경우 이 Azure VM에서도 데이터 중복 제거를 사용하도록 설정해야 합니다.** 이 파일 수준 중복 제거를 StorSimples 기본 제공 블록 수준 중복 제거와 혼동하지 마십시오.
+
+> [!IMPORTANT]
+> 성능을 최적화하려면 클라우드 VM에 **빠른 OS 디스크를** 배포합니다. 모든 데이터 볼륨에 대한 동기화 데이터베이스를 OS 디스크에 저장합니다. 또한 **큰 OS 디스크를**만들어야 합니다. StorSimple 볼륨의 항목 수(파일 및 폴더)에 따라 OS 디스크에는 동기화 데이터베이스를 수용하기 위해 **수백 GiB의** 공간이 필요할 수 있습니다.
 
 ### <a name="expose-the-storsimple-8020-volumes-to-the-azure-vm"></a>StorSimple 8020 볼륨을 Azure VM에 노출
 
@@ -424,7 +427,7 @@ Azure 파일에 대한 파일 동기화로 구성한 Windows Server의 각 디�
 
 이전에 StorSimple 데이터에 있던 Windows 서버에서 SMB 공유를 만들어야 할 수 있습니다. 이 단계를 미리 로드하고 여기에서 시간을 잃지 않도록 일찍 수행할 수 있지만 이 시점 이전에는 Windows 서버에서 파일이 변경되지 않도록 해야 합니다.
 
-DFS-N 배포가 있는 경우 DFN-네임스페이스를 새 서버 폴더 위치로 가리킬 수 있습니다. DFS-N 배포가 없고 Windows Server를 사용하여 로컬로 8100 8600 어플라이언스를 접한 경우 해당 서버를 도메인에서 해제하고 도메인에 AFS를 사용하여 새 Windows Server를 도메인에 가입하여 이전 서버와 동일한 서버 이름을 지정할 수 있습니다. 그리고 동일한 공유 이름을 선택한 다음 새 서버에 대한 잘라내기는 사용자, 그룹 정책 또는 스크립트에 대해 투명하게 유지됩니다.
+DFS-N 배포가 있는 경우 DFN-네임스페이스를 새 서버 폴더 위치로 가리킬 수 있습니다. DFS-N 배포가 없고 Windows Server를 사용하여 로컬로 8100 8600 어플라이언스를 접한 경우 해당 서버를 도메인에서 해제하고 도메인에 AFS를 사용하여 새 Windows Server에 가입하고 이전 서버와 동일한 서버 이름을 지정하고 동일한 공유 이름을 지정한 다음 새 서버에 대한 잘라내기가 사용자에게 투명하게 유지됩니다. 을 참조하십시오.
 
 ## <a name="phase-7-deprovision"></a>7단계: 프로비저닝 해제
 

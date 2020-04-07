@@ -5,16 +5,19 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: c2700339a7ac8342da0250227cff898c20e60118
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1298a6d277f072491d05945b272925a2aba52e02
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278555"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745662"
 ---
 # <a name="create-a-consulting-offer"></a>컨설팅 오퍼 만들기
+
+>[!Important]
+>2020년 3월 30일부터 컨설팅 서비스 오퍼의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. 컨설팅 서비스 [생성 개요의](https://aka.ms/AzureCreateConsultingService) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
 
 이 문서에서는 컨설팅 서비스 제품을 만들고 게시하는 방법을 설명합니다.
 
@@ -34,5 +37,5 @@ ms.locfileid: "80278555"
 
 컨설팅 서비스 제품 유형에 대한 **새 제품** 페이지에서는 새 제품을 만드는 데 사용할 탭 세트 및 양식 필드가 제공됩니다. 다음 문서에서는 탭을 사용하여 새 제품의 제품 설정 및 상점 세부 정보를 정의하는 방법을 설명합니다.
 
--   [오퍼 설정 정의](./cpp-consulting-service-define-offer-settings.md)
--   [상점 세부 정보 및 게시할 위치(Azure Marketplace 또는 AppSource) 입력](./cpp-consulting-service-storefront-details.md)
+-    [오퍼 설정 정의](./cpp-consulting-service-define-offer-settings.md)
+-    [상점 세부 정보 및 게시할 위치(Azure Marketplace 또는 AppSource) 입력](./cpp-consulting-service-storefront-details.md)

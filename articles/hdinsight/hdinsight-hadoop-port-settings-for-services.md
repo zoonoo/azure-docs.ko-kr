@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.openlocfilehash: 67cafbb7934381cd4c2936d6e6dfe7fb19d70735
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/06/2020
+ms.openlocfilehash: fe2cb04f36026740dc54f4668d3c3188592bd8ae
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76314694"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754220"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight의 Apache Hadoop 서비스에서 사용하는 포트
 
@@ -21,9 +21,9 @@ ms.locfileid: "76314694"
 
 ## <a name="public-ports-vs-non-public-ports"></a>공용 포트 및 비-공용 포트
 
-Linux 기반 HDInsight 클러스터는 인터넷에서 세 포트(22, 23, 443)만 개방합니다. 이러한 포트는 SSH 및 보안 HTTPS 프로토콜을 통해 노출된 서비스를 사용하여 클러스터에 안전하게 액세스하는 데 사용됩니다.
+Linux 기반 HDInsight 클러스터는 22, 23 및 443의 세 개의 포트만 인터넷에 공개적으로 노출합니다. 이러한 포트는 보안 HTTPS 프로토콜을 통해 노출된 SSH 및 서비스를 사용하여 클러스터 액세스를 보호합니다.
 
-내부적으로 HDInsight는 Azure Virtual Network에서 실행되는 여러 Azure Virtual Machines(클러스터 내의 노드)에 의해 구현됩니다. 가상 네트워크 내에서 인터넷을 통해 노출되지 않은 포트를 액세스할 수 있습니다. 예를 들어 SSH를 사용하여 헤드 노드 중 하나에 연결하는 경우 헤드 노드부터 시작하여 클러스터 노드에서 실행 중인 서비스에 직접 액세스할 수 있습니다.
+HDInsight는 Azure 가상 네트워크에서 실행되는 여러 Azure 가상 시스템(클러스터 노드)에 의해 구현됩니다. 가상 네트워크 내에서 인터넷을 통해 노출되지 않은 포트를 액세스할 수 있습니다. SSH를 통해 헤드 노드에 연결하는 경우 클러스터 노드에서 실행되는 서비스에 직접 액세스할 수 있습니다.
 
 > [!IMPORTANT]  
 > HDInsight의 구성 옵션으로 Azure Virtual Network를 지정하지 않을 경우 하나는 자동으로 생성됩니다. 그러나 다른 컴퓨터(예: 다른 Azure 가상 컴퓨터 또는 클라이언트 개발 컴퓨터)를 이 가상 네트워크에 가입할 수는 없습니다.
@@ -32,7 +32,7 @@ Linux 기반 HDInsight 클러스터는 인터넷에서 세 포트(22, 23, 443)�
 
 ## <a name="public-ports"></a>공용 포트
 
-HDInsight 클러스터의 모든 노드는 Azure 가상 네트워크에 있으며 인터넷에서 직접 액세스할 수 없습니다. 공용 게이트웨이는 모든 HDInsight 클러스터 유형에 대해 일반적인 다음 포트에 대한 인터넷 액세스를 제공합니다.
+HDInsight 클러스터의 모든 노드는 Azure 가상 네트워크에 있습니다. 노드는 인터넷에서 직접 액세스할 수 없습니다. 공용 게이트웨이는 모든 HDInsight 클러스터 유형에 대해 일반적인 다음 포트에 대한 인터넷 액세스를 제공합니다.
 
 | 서비스 | 포트 | 프로토콜 | 설명 |
 | --- | --- | --- | --- |
@@ -49,7 +49,7 @@ HDInsight 클러스터의 모든 노드는 Azure 가상 네트워크에 있으�
 
 | 서비스 | 포트 | 프로토콜 | 클러스터 유형 | 설명 |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |HBase REST API. [Apache HBase 사용 시작](hbase/apache-hbase-tutorial-get-started-linux.md)을 참조하세요. |
+| `Stargate` |443 |HTTPS |HBase |HBase REST API. [Apache HBase 사용 시작](hbase/apache-hbase-tutorial-get-started-linux.md)을 참조하세요. |
 | Livy |443 |HTTPS |Spark |Spark REST API. [Apache Livy를 사용하여 원격으로 Apache Spark 작업 제출](spark/apache-spark-livy-rest-interface.md)을 참조하세요. |
 | Spark Thrift 서버 |443 |HTTPS |Spark |Hive 쿼리를 전송하는 데 사용되는 Spark Thrift 서버입니다. [HDInsight의 Apache Hive에 Beeline 사용](hadoop/apache-hadoop-use-hive-beeline.md)을 참조하세요. |
 | Storm |443 |HTTPS |Storm |Storm 웹 UI. [HDInsight에서 Apache Storm 토폴로지 배포 및 관리](storm/apache-storm-deploy-monitor-topology-linux.md)를 참조하세요. |
@@ -89,7 +89,7 @@ HDInsight 클러스터의 모든 노드는 Azure 가상 네트워크에 있으�
 | --- | --- | --- | --- | --- |
 | NameNode 웹 UI |헤드 노드 |30070 |HTTPS |상태를 보기 위한 웹 UI |
 | NameNode 메타데이터 서비스 |헤드 노드 |8020 |IPC |파일 시스템 메타데이터 |
-| DataNode |모든 작업자 노드 |30075 |HTTPS |상태, 로그 등을 보기 위한 웹 UI |
+| DataNode |모든 작업자 노드 |30075 |HTTPS |웹 UI를 클릭하여 상태, 로그 등을 볼 수 있습니다. |
 | DataNode |모든 작업자 노드 |30010 |&nbsp; |데이터 전송 |
 | DataNode |모든 작업자 노드 |30020 |IPC |메타데이터 작업 |
 | 보조 NameNode |헤드 노드 |50090 |HTTP |NameNode 메타데이터에 대한 검사점 |
@@ -100,7 +100,7 @@ HDInsight 클러스터의 모든 노드는 Azure 가상 네트워크에 있으�
 | --- | --- | --- | --- | --- |
 | Resource Manager 웹 UI |헤드 노드 |8088 |HTTP |Resource Manager용 웹 UI |
 | Resource Manager 웹 UI |헤드 노드 |8090 |HTTPS |Resource Manager용 웹 UI |
-| Resource Manager 관리 인터페이스 |헤드 노드 |8141 |IPC |애플리케이션 제출용(Hive, Hive server, Pig 등) |
+| Resource Manager 관리 인터페이스 |헤드 노드 |8141 |IPC |신청서 제출용(하이브, 하이브 서버, 돼지 등) |
 | Resource Manager 스케줄러 |헤드 노드 |8030 |HTTP |관리 인터페이스 |
 | Resource Manager 애플리케이션 인터페이스 |헤드 노드 |8050 |HTTP |애플리케이션 관리자 인터페이스의 주소 |
 | NodeManager |모든 작업자 노드 |30050 |&nbsp; |컨테이너 관리자의 주소 |

@@ -2,13 +2,13 @@
 title: 문서 형식 지침 가져오기 - QnA 메이커
 description: QnA 세트를 가져오고 만드는 데 URL 유형이 어떻게 사용되는지 알아보세요.
 ms.topic: reference
-ms.date: 01/02/2020
-ms.openlocfilehash: 6a954f2fd607b70c6db256ab6dcc1dbcd7a5a473
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: 1e006520ce5c61f2da3f425af2332b0d41cc3881
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651990"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754896"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>가져온 문서 및 URL에 대한 형식 지침
 
@@ -20,6 +20,8 @@ ms.locfileid: "77651990"
 
 기술 자료에 직접 콘텐츠를 추가하거나 편집하는 경우 **마크다운 서식을** 사용하여 풍부한 텍스트 콘텐츠를 만들거나 답변에 이미 있는 마크다운 형식 콘텐츠를 변경합니다. QnA Maker는 콘텐츠에 풍부한 텍스트 기능을 제공하기 위해 많은 마크다운 형식을 지원합니다. 그러나 채팅 봇과 같은 클라이언트 응용 프로그램은 동일한 마크다운 형식 집합을 지원하지 않을 수 있습니다. 클라이언트 응용 프로그램의 답변 표시를 테스트하는 것이 중요합니다.
 
+[전체 콘텐츠 유형 및 예제](./Concepts/content-types.md#file-and-url-data-types)목록을 참조하십시오.
+
 ## <a name="basic-document-formatting"></a>기본 문서 서식 지정
 
 QnA Maker는 다음과 같은 시각적 단서를 기반으로 파일의 섹션 및 하위 섹션 및 관계를 식별합니다.
@@ -28,12 +30,6 @@ QnA Maker는 다음과 같은 시각적 단서를 기반으로 파일의 섹션 
 * 글꼴 스타일
 * 번호 매기기
 * 색
-
-|문서 예제|
-|--|
-||
-
-
 
 ## <a name="product-manuals"></a>제품 설명서
 
@@ -116,7 +112,8 @@ Answer2
 * 제목의 첫 번째 문자는 대문자로 만들어야 합니다.
 * 물음표로 제목을 끝내지 `?`마십시오.
 
+**샘플 문서**:<br>[표면 프로 (닥스)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[콘토소 혜택 (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[콘토소 혜택 (pdf)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)
 
-|문서 예제|
-|--|
-||
+## <a name="next-steps"></a>다음 단계
+
+[전체 콘텐츠 유형 및 예제](./Concepts/content-types.md#file-and-url-data-types) 보기

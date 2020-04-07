@@ -7,6 +7,8 @@
       href: what-is-application-management.md
     - name: 온-프레미스 앱에 대한 애플리케이션 프록시란?
       href: what-is-application-proxy.md
+    - name: 일반적인 앱 관리 시나리오
+      href: common-scenarios.md
     - name: 애플리케이션 프로비저닝이란?
       href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
 - name: 빠른 시작
@@ -339,7 +341,7 @@
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/active-directory'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=active-directory'

@@ -12,12 +12,12 @@ ms.subservice: ''
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b8e37a15f473e5777fe5412b785a0916bd78f095
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: f83ae9c8290a52381c8087b46da959d4723d7f4e
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655908"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745157"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>비주얼 스튜디오 2019 시작
 
@@ -32,7 +32,7 @@ Visual Studio **2019** SQL 서버 데이터 도구(SSDT)는 다음을 수행할 
 
 ## <a name="install-visual-studio-2019"></a>Visual Studio 2019 설치
 
-[Visual Studio 2019 다운로드를][] 참조하여 Visual Studio **16.3 이상을**다운로드하여 설치하십시오. 설치 하는 동안 데이터 저장소 및 처리 워크로드를 선택 합니다. Visual Studio 2019에서는 독립 실행형 SSDT 설치가 더 이상 필요하지 않습니다.
+[Visual Studio 2019 다운로드를](https://visualstudio.microsoft.com/downloads/) 참조하여 Visual Studio **16.3 이상을**다운로드하여 설치하십시오. 설치 하는 동안 데이터 저장소 및 처리 워크로드를 선택 합니다. Visual Studio 2019에서는 독립 실행형 SSDT 설치가 더 이상 필요하지 않습니다.
 
 ## <a name="unsupported-features-in-ssdt"></a>SSDT에서 지원되지 않는 기능
 
@@ -43,18 +43,11 @@ Synapse SQL에 대한 기능 릴리스에 SSDT에 대한 지원이 포함되지 
 - [복사 문](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [워크로드 관리](sql-data-warehouse-workload-management.md) - 워크로드 그룹 및 분류자
 - [행 수준 보안](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-  - 지원 티켓을 제출하거나 [여기에](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) 투표하여 지원 기능을 받으십시오.
+  - 지원 [티켓을 제출하거나 투표를](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) 통해 지원 기능을 받으십시오.
 - [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#defining-a-dynamic-data-mask)
-  - 지원 티켓을 제출하거나 [여기에](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) 투표하여 지원 기능을 받으십시오.
+   - 지원 [티켓을 제출하거나 투표를](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) 통해 지원 기능을 받으십시오.
 - [제약 조건이 있는 테이블은](sql-data-warehouse-table-constraints.md#table-constraints) 지원되지 않습니다. 이러한 테이블 개체의 경우 빌드 작업을 "없음"으로 설정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이제 최신 버전의 SSDT를 사용하므로 SQL 풀에 [연결할](sql-data-warehouse-query-visual-studio.md) 준비가 되었습니다.
-
-<!--Other-->
-
-[Visual Studio 2019 다운로드]: https://visualstudio.microsoft.com/downloads/
-[Installing Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
-[SSDT Download]: https://msdn.microsoft.com/library/mt204009.aspx
-[UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu

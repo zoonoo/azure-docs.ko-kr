@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 4a71f50a130bd9b22965d39fa942b47c70857a86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71aa937536f35c9af44adb5822ce7a2bb8f3a9eb
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79265039"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756010"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Azure Event Grid Blob Storage에 대한 이벤트 스키마
 
@@ -21,7 +21,7 @@ ms.locfileid: "79265039"
 샘플 스크립트 및 자습서 목록은 [스토리지 이벤트 원본](event-sources.md#storage)을 참조하세요.
 
 >[!NOTE]
-> **StorageV2(범용 v2)** 및 **BlobStorage** 종류의 스토리지 계정만 이벤트 통합을 지원합니다. **스토리지(범용 v1)** 는 Event Grid와의 통합을 지원하지 *않습니다*.
+> 저장소 계정만 **StorageV2 (범용 v2)**, **BlockBlobStorage**및 **BlobStorage** 지원 이벤트 통합. **스토리지(범용 v1)** 는 Event Grid와의 통합을 지원하지 *않습니다*.
 
 ## <a name="list-of-events-for-blob-rest-apis"></a>Blob REST API의 이벤트 목록
 
@@ -37,7 +37,7 @@ ms.locfileid: "79265039"
 
 ## <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Azure 데이터 레이크 스토리지 세대 2 REST API에 대한 이벤트 목록
 
-이러한 이벤트는 저장소 계정에서 계층적 네임스페이스를 사용하도록 설정하고 클라이언트가 Azure Data Lake Storage Gen2 REST API를 호출하는 경우 트리거됩니다.
+이러한 이벤트는 저장소 계정에서 계층적 네임스페이스를 사용하도록 설정하고 클라이언트가 Azure Data Lake Storage Gen2 REST API를 호출하는 경우 트리거됩니다. 자세한 내용은 Azure Data Lake Storage [Introduction to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)Gen2를 참조하세요.
 
 |이벤트 이름|설명|
 |----------|-----------|
@@ -89,7 +89,7 @@ ms.locfileid: "79265039"
 
 ### <a name="microsoftstorageblobcreated-event-data-lake-storage-gen2"></a>Microsoft.Storage.Blob생성 이벤트(데이터 레이크 스토리지 Gen2)
 
-Blob 저장소 계정에 계층적 네임스페이스가 있는 경우 데이터는 다음 변경 사항을 제외하고 이전 예제와 유사합니다.
+Blob 저장소 계정에 계층적 네임스페이스가 있는 경우 데이터는 이러한 변경 사항을 제외하고 이전 예제와 유사합니다.
 
 * `dataVersion` 키는 `2`의 값으로 설정됩니다.
 
@@ -154,7 +154,7 @@ Blob 저장소 계정에 계층적 네임스페이스가 있는 경우 데이터
 
 ### <a name="microsoftstorageblobdeleted-event-data-lake-storage-gen2"></a>Microsoft.Storage.Blob삭제 이벤트(데이터 레이크 스토리지 Gen2)
 
-Blob 저장소 계정에 계층적 네임스페이스가 있는 경우 데이터는 다음 변경 사항을 제외하고 이전 예제와 유사합니다.
+Blob 저장소 계정에 계층적 네임스페이스가 있는 경우 데이터는 이러한 변경 사항을 제외하고 이전 예제와 유사합니다.
 
 * `dataVersion` 키는 `2`의 값으로 설정됩니다.
 

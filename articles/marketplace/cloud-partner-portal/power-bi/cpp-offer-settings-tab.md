@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: f3a8d740d391edc09a290d3dba4307af7eec00b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 637217d718e6e91a3fa29bd38d8215d0a1324825
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286356"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745441"
 ---
 # <a name="power-bi-apps-offer-settings-tab"></a>Power BI 앱 제안 설정 탭
+
+>[!Important]
+>2020년 3월 30일부터 Power BI 앱 제공의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Power BI [앱 만들기 개요의](https://aka.ms/AzureCreatePBIServiceApp) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
 
 서비스 앱의 **새 쿠폰** 페이지를 열면 먼저 쿠폰 **설정** 탭이 표시됩니다. 이 탭에서 기본 식별자와 오퍼의 이름을 입력합니다. 별표(*)는 필수 필드를 나타냅니다.
 
@@ -25,7 +28,7 @@ ms.locfileid: "80286356"
 
 쿠폰 **설정** 탭에서 다음 필수 필드에 정보를 입력해야 합니다. 필수 필드는 별표(*)로 표시됩니다.
 
-|  필드        |  설명                                                               |
+|  필드        |  Description                                                               |
 |---------------|----------------------------------------------------------------------------|
 | **제품 ID\***  | 게시자 프로필 내에 있는 제안에 대한 고유 식별자입니다. 이 식별자는 제품 URL, Azure Resource Manager 템플릿 및 청구 보고서에 표시됩니다. 최대 길이는 50자입니다. 소문자 영숫자 문자와 대시(-)만 포함할 수 있습니다. 그것은 대시로 끝날 수 없습니다. 이 식별자는 오퍼가 라이브로 진행된 후에는 변경할 수 없습니다. Contoso가 오퍼 ID로 `sample-SvcApp`오퍼를 게시하는 경우 `https://appsource.microsoft.com/marketplace/apps/contoso.sample-SvcApp`쿠폰에 AppSource URL이 할당됩니다.      |
 | **게시자\*** | [AppSource](https://appsource.microsoft.com)에서 사용되는 조직의 고유 식별자입니다. 모든 제안은 게시자 ID와 연결되어야 합니다. 제안이 저장되면 이 값을 변경할 수 없습니다.                         |
