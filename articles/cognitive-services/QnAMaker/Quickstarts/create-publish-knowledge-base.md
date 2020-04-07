@@ -3,12 +3,12 @@ title: '빠른 시작: 기술 자료 작성, 학습 및 게시 - QnA Maker'
 description: FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker 기술 자료(KB)를 만들 수 있습니다. 이 문서에는 간단한 FAQ 웹 페이지에서 QnA Maker 기술 자료를 만들어 QnA Maker 질문에 답변하는 예가 포함되어 있습니다.
 ms.topic: conceptual
 ms.date: 02/08/2020
-ms.openlocfilehash: b1f80006e2dc72b5b623f4c29c093c734dc1efea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a3cd4a66ae3a7148b517050c3d1a8c6c8e7a712
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79221436"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756816"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>빠른 시작: QnA Maker 기술 자료 생성, 학습 및 게시
 
@@ -135,7 +135,7 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 
 ## <a name="what-did-you-accomplish"></a>수행했던 작업은 무엇인가요?
 
-새 기술 자료를 만들고, 기술 자료에 공용 URL을 추가하고, 사용자 고유의 QnA 세트를 추가하고, 기술 자료를 학습, 테스트 및 게시했습니다.
+새 기술 자료생성, 기술 자료에 공개 URL 추가, 사용자 고유의 QnA 쌍 추가, 학습, 테스트 및 기술 자료 게시.
 
 기술 자료를 게시한 후 봇을 만들고, 봇을 테스트했습니다.
 

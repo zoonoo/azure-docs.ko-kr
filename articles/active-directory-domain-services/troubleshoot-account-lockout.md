@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 04/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 2e274aa353f6c3e485ae10a6a67ee2940eb88b08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d2e22804c06f589c7990bf8f19319b897363a93
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246322"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743458"
 ---
 # <a name="troubleshoot-account-lockout-problems-with-an-azure-ad-domain-services-managed-domain"></a>Azure AD 도메인 서비스 관리 도메인의 계정 잠금 문제 해결
 
@@ -33,11 +33,11 @@ ms.locfileid: "80246322"
 
 ### <a name="fine-grained-password-policy"></a>세분화된 암호 정책
 
-세분화된 암호 정책(FGPP)을 사용하면 도메인의 다른 사용자에게 암호 및 계정 잠금 정책에 대한 특정 제한을 적용할 수 있습니다. FGPP는 Azure AD DS에서 만든 사용자에게만 영향을 줍니다. Azure AD에서 Azure AD DS 관리 도메인에 동기화된 클라우드 사용자 및 도메인 사용자는 암호 정책의 영향을 받지 않습니다.
+세분화된 암호 정책(FGPP)을 사용하면 도메인의 다른 사용자에게 암호 및 계정 잠금 정책에 대한 특정 제한을 적용할 수 있습니다. FGPP는 Azure AD DS 관리 도메인 내의 사용자에게만 영향을 줍니다. Azure AD에서 Azure AD DS 관리 도메인으로 동기화된 클라우드 사용자 및 도메인 사용자는 Azure AD DS 내의 암호 정책의 영향을 받습니다. Azure AD 또는 온-프레미스 디렉터리의 계정은 영향을 받지 않습니다.
 
 정책은 Azure AD DS 관리 도메인의 그룹 연결을 통해 배포되며 변경 한 내용은 다음 사용자 로그인시 적용됩니다. 정책을 변경해도 이미 잠긴 사용자 계정의 잠금이 해제되지 않습니다.
 
-세분화된 암호 정책에 대한 자세한 내용은 [암호 및 계정 잠금 정책 구성을][configure-fgpp]참조하십시오.
+세분화된 암호 정책 및 Azure AD DS에서 직접 만든 사용자와 Azure AD에서 동기화된 사용자 간의 차이점에 대한 자세한 내용은 [암호 및 계정 잠금 정책 구성을][configure-fgpp]참조하십시오.
 
 ## <a name="common-account-lockout-reasons"></a>일반적인 계정 잠금 이유
 

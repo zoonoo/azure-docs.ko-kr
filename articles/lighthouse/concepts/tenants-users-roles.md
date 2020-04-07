@@ -3,12 +3,12 @@ title: Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자
 description: Azure Active Directory 테넌트, 사용자 및 역할의 개념과 Azure Lighthouse 시나리오에서 이러한 항목을 사용하는 방법을 알아봅니다.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4734f12c8b4b25bf75ecabc39d9e99d8ebe0951c
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 32d9214e4d0d204db39b6e6decab4665e9b55069
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668867"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754089"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자
 
@@ -41,7 +41,6 @@ ms.locfileid: "80668867"
 - 사용자가 작업을 완료하는 데 필요한 권한만 갖도록 하여 실수로 인한 오류 발생 가능성을 줄일 수 있게 최소 권한 원칙을 따라야 합니다. 자세한 내용은 [권장 보안 방법](../concepts/recommended-security-practices.md)을 참조하세요.
 - 필요한 경우 나중에 [위임에 대한 액세스 권한을 제거](../how-to/onboard-customer.md#remove-access-to-a-delegation)할 수 있도록 [관리 서비스 등록 할당 삭제 역할](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)에 사용자를 포함합니다. 이 역할을 할당하지 않으면 고객 테넌트의 사용자만 위임된 리소스를 제거할 수 있습니다.
 - [Azure Portal에서 내 고객 페이지를 볼 수 있어야](../how-to/view-manage-customers.md) 하는 모든 사용자에게 [읽기 권한자](../../role-based-access-control/built-in-roles.md#reader) 역할(또는 읽기 권한자 액세스 권한을 포함하는 다른 기본 제공 역할)이 있어야 합니다.
-- 관리 테넌트의 사용자는 일반적으로 액세스를 허용하는 기본 제공 역할이 있더라도 위임된 고객 구독에 대한 청구 정보를 볼 수 없습니다. 이는 청구 정보에 액세스하려면 현재 동일한 테넌트 내의 사용자에 대해서만 지원되는 추가 단계가 필요하기 때문입니다.
 
 > [!IMPORTANT]
 > Azure AD 그룹에 대한 권한을 추가하려면 **그룹 유형이** Office **365가**아닌 **보안이어야** 합니다. 이 옵션은 그룹을 만들 때 선택됩니다. 자세한 내용은 [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)(Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가)를 참조하세요.

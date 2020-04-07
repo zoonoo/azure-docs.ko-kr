@@ -8,12 +8,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 91bcdc65a7ff3bcaf09f12d69ba4c7aaeb84ffa7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 900853b1ca68c1c540223db670b1173f5bb2fa2b
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132866"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754436"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>업데이트 관리 문제 해결
 
@@ -21,9 +21,9 @@ ms.locfileid: "80132866"
 
 하이브리드 작업자 에이전트가 근본적인 문제를 확인하는 에이전트 문제 해결사가 있습니다. 이 문제 해결사에 대한 자세한 내용은 [업데이트 에이전트 문제 해결](update-agent-issues.md)을 참조하세요. 기타 모든 문제의 경우 다음 문제 해결 지침을 사용합니다.
 
-가상 시스템(VM)에서 솔루션을 온보온하는 동안 문제가 발생하는 경우 로컬 컴퓨터의 **응용 프로그램 및 서비스 로그** 에서 이벤트 ID 4502및 `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`포함된 이벤트 세부 정보가 포함된 이벤트에 대한 **운영 관리자** 로그를 확인합니다.
+가상 시스템(VM)에서 솔루션을 온보딩할 때 문제가 발생하면 로컬 컴퓨터의 응용 프로그램 및 서비스 로그 아래의 **Operations Manager** **로그를 확인합니다.** 이벤트 ID 4502 및 포함된 이벤트 `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`세부 정보가 포함된 이벤트를 찾습니다.
 
-다음 섹션에서는 특정 오류 메시지와 각 오류에 대한 가능한 해결 을 강조 합니다. 다른 온보딩 문제는 [온보딩 솔루션 온보딩 을](onboarding.md)참조하십시오.
+다음 섹션에서는 특정 오류 메시지와 각 오류에 대한 가능한 해결 을 강조 합니다. 기타 온보딩 문제에 대한 [해결 방법은 온보딩](onboarding.md)을 참조하십시오.
 
 ## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a>시나리오: "업데이트 솔루션을 사용하도록 설정하지 못했습니다" 오류가 발생합니다.
 
@@ -39,11 +39,11 @@ Error details: Failed to enable the Update solution
 
 이 오류는 다음과 같은 이유로 발생할 수 있습니다.
 
-* Log Analytics 에이전트의 네트워크 방화벽 요구 사항이 올바르게 구성되지 않아 DNS URL을 해결할 때 에이전트가 실패할 수 있습니다.
+* Log Analytics 에이전트의 네트워크 방화벽 요구 사항이 올바르게 구성되지 않았을 수 있습니다. 이로 인해 DNS URL을 만들 때 에이전트가 실패할 수 있습니다.
 
-* 솔루션 대상 을 잘못 구성 하 고 컴퓨터는 예상 대로 업데이트를 받지 않습니다.
+* 솔루션 대상 기가 잘못 구성 하 고 컴퓨터 예상 대로 업데이트를 받지 않습니다.
 
-* 컴퓨터에 규정 `Non-compliant` **준수**의 상태가 표시될 수도 있습니다. 동시에 **에이전트 업데이트 준비 는** 에이전트를 `Disconnected`로 보고합니다.
+* 컴퓨터에 규정 `Non-compliant` **준수**의 상태가 표시될 수도 있습니다. 동시에 **에이전트 데스크톱 분석은** 에이전트를 로 `Disconnected`보고합니다.
 
 ### <a name="resolution"></a>해결 방법
 
@@ -53,7 +53,7 @@ Error details: Failed to enable the Update solution
 
 * 네트워크 [계획으로](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) 이동하여 Log Analytics 에이전트가 작동하도록 허용해야 하는 주소와 포트에 대해 알아봅니다.
 
-* 범위 구성 문제를 확인합니다. [범위 구성은](../automation-onboard-solutions-from-automation-account.md#scope-configuration) 솔루션에 대해 구성되는 컴퓨터를 결정합니다. 컴퓨터가 작업 영역에 표시되지만 **업데이트 관리** 포털에 표시되지 않는 경우 컴퓨터를 대상으로 하는 범위 구성을 설정해야 합니다. 범위 구성에 대한 자세한 내용은 [작업 영역의 온보드 컴퓨터를](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace)참조하십시오.
+* 범위 구성 문제를 확인합니다. [범위 구성은](../automation-onboard-solutions-from-automation-account.md#scope-configuration) 솔루션에 대해 구성되는 컴퓨터를 결정합니다. 컴퓨터가 작업 영역에 표시되지만 **업데이트 관리 포털에 표시되지 않는 경우 컴퓨터를 대상으로 하는 범위 구성을 설정해야 합니다. 범위 구성에 대한 자세한 내용은 [작업 영역의 온보드 컴퓨터를](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace)참조하십시오.
 
 * [하이브리드 Runbook 작업자 삭제](../automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker)단계따라 작업자 구성을 제거합니다. 
 
@@ -69,7 +69,7 @@ Error details: Failed to enable the Update solution
 
 ### <a name="resolution"></a>해결 방법
 
-대체된 업데이트가 100% 적용되지 않는 경우 해당 업데이트의 승인 상태를 `Declined`로 변경해야 합니다. 모든 업데이트에 대해 이 작업을 수행하려면 다음을 수행하십시오.
+대체된 업데이트가 100% 적용되지 않는 경우 해당 업데이트의 승인 상태를 `Declined`로 변경해야 합니다. 모든 업데이트에 대한 승인 상태를 변경하려면 다음을 수행하십시오.
 
 1. 자동화 계정에서 업데이트 **관리를** 선택하여 컴퓨터 상태를 확인합니다. [업데이트 평가 보기를](../manage-update-multi.md#view-an-update-assessment)참조하십시오.
 
@@ -83,7 +83,7 @@ Error details: Failed to enable the Update solution
 
 6. 정리 마법사를 실행하여 거부된 업데이트에서 파일을 삭제합니다. 
 
-7. WSUS의 경우 대체된 모든 업데이트를 수동으로 정리하여 인프라를 새로 고칩니다.
+7. WSUS(Windows 서버 업데이트 서비스)의 경우 대체된 모든 업데이트를 수동으로 정리하여 인프라를 새로 고칩니다.
 
 8. 이 절차를 정기적으로 반복하여 디스플레이 문제를 해결하고 업데이트 관리에 사용되는 디스크 공간의 양을 최소화합니다.
 
@@ -109,22 +109,22 @@ Error details: Failed to enable the Update solution
 
 ### <a name="resolution"></a>해결 방법
 
-* OS에 따라 [Windows](update-agent-issues.md#troubleshoot-offline) 또는 [Linux용](update-agent-issues-linux.md#troubleshoot-offline)문제 해결사를 실행합니다.
+1. OS에 따라 [Windows](update-agent-issues.md#troubleshoot-offline) 또는 [Linux용](update-agent-issues-linux.md#troubleshoot-offline)문제 해결사를 실행합니다.
 
-* 컴퓨터가 올바른 작업 영역에 보고하고 있는지 확인합니다. 이 측면을 확인하는 방법에 대한 지침은 [로그 분석에 대한 에이전트 연결 확인을](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics)참조하십시오. 또한 이 작업 영역이 Azure 자동화 계정에 연결되어 있는지 확인합니다. 확인하려면 자동화 계정으로 이동하여 **관련 리소스**에서 연결된 **작업 영역을** 선택합니다.
+2. 컴퓨터가 올바른 작업 영역에 보고하고 있는지 확인합니다. 이 측면을 확인하는 방법에 대한 지침은 [로그 분석에 대한 에이전트 연결 확인을](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics)참조하십시오. 또한 이 작업 영역이 Azure 자동화 계정에 연결되어 있는지 확인합니다. 확인하려면 자동화 계정으로 이동하여 **관련 리소스**에서 연결된 **작업 영역을** 선택합니다.
 
-* 컴퓨터가 Log Analytics 작업 영역에 표시되는지 확인합니다. 자동화 계정에 연결된 Log Analytics 작업 영역에서 다음 쿼리를 실행합니다.
+3. 컴퓨터가 Log Analytics 작업 영역에 표시되는지 확인합니다. 자동화 계정에 연결된 Log Analytics 작업 영역에서 다음 쿼리를 실행합니다.
 
   ```loganalytics
   Heartbeat
   | summarize by Computer, Solutions
   ```
- 
-  쿼리 결과에 컴퓨터가 표시되지 않으면 최근에 체크 인되지 않았므로 로컬 구성 문제가 있을 수 있으므로 [에이전트를 다시 설치해야](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)합니다. 컴퓨터가 쿼리 결과에 표시되는 경우 이 목록의 다음 글머리 기호 항목에 지정된 범위 구성을 확인해야 합니다.
 
-* 범위 구성 문제를 확인합니다. [범위 구성은](../automation-onboard-solutions-from-automation-account.md#scope-configuration) 솔루션에 대해 구성되는 컴퓨터를 결정합니다. 컴퓨터가 작업 영역에 표시되지만 **업데이트 관리** 포털에 표시되지 않는 경우 컴퓨터를 대상으로 하는 범위 구성을 구성해야 합니다. 이 작업을 수행하는 방법에 대해 알아보려면 [작업 영역의 온보드 컴퓨터를](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace)참조하십시오.
+4. 쿼리 결과에 컴퓨터가 표시되지 않으면 최근에 체크 인하지 않은 것입니다. 로컬 구성 문제가 있을 수 있으므로 [에이전트를 다시 설치해야](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)합니다. 
 
-* 작업 영역에서 다음 쿼리를 실행합니다.
+5. 컴퓨터가 쿼리 결과에 표시되는 경우 범위 구성 문제를 확인합니다. [범위 구성은](../automation-onboard-solutions-from-automation-account.md#scope-configuration) 솔루션에 대해 구성된 컴퓨터를 결정합니다. 컴퓨터가 작업 영역에 표시되지만 **업데이트 관리 포털에 표시되지 않는 경우 컴퓨터를 대상으로 하는 범위 구성을 구성해야 합니다. 이 작업을 수행하는 방법에 대해 알아보려면 [작업 영역의 온보드 컴퓨터를](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace)참조하십시오.
+
+6. 작업 영역에서 다음 쿼리를 실행합니다.
 
   ```loganalytics
   Operation
@@ -132,18 +132,18 @@ Error details: Failed to enable the Update solution
   | sort by TimeGenerated desc
   ```
 
-  `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` 결과를 얻으면 작업 영역에 정의된 할당량이 도달되어 데이터가 저장되지 않도록 합니다. 작업 영역에서 **사용 및 예상 비용** > **데이터 볼륨 관리로** 이동하여 할당량을 확인하거나 제거합니다.
+7. `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` 결과를 얻으면 작업 영역에 정의된 할당량이 도달되어 데이터가 저장되지 않도록 합니다. 작업 영역에서 **사용량 및 예상 비용** 에서 데이터 볼륨 **관리로** 이동하여 할당량을 확인하거나 제거합니다.
 
-* 이러한 단계를 수행해도 문제가 해결되지 않으면 [Windows 하이브리드 Runbook 작업자 배포의](../automation-windows-hrw-install.md) 단계를 수행하여 Windows용 하이브리드 워커를 다시 설치합니다. Linux의 경우 Linux [하이브리드 Runbook 작업자 배포의](../automation-linux-hrw-install.md)단계를 따릅니다.
+8. 그래도 문제가 해결되지 않으면 [Windows 하이브리드 Runbook 작업자 배포의](../automation-windows-hrw-install.md) 단계를 수행하여 Windows용 하이브리드 워커를 다시 설치합니다. Linux의 경우 Linux [하이브리드 Runbook 작업자 배포의](../automation-linux-hrw-install.md)단계를 따릅니다.
 
-## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>시나리오: 구독에 대한 자동화 리소스 공급자를 등록할 수 없음
+## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>시나리오: 구독에 자동화 리소스 공급자를 등록할 수 없음
 
 ### <a name="issue"></a>문제
 
 자동화 계정에서 솔루션으로 작업할 때 다음과 같은 오류가 발생합니다.
 
 ```error
-Error details: Unable to register Automation Resource Provider for subscriptions:
+Error details: Unable to register Automation Resource Provider for subscriptions
 ```
 
 ### <a name="cause"></a>원인
@@ -159,6 +159,44 @@ Error details: Unable to register Automation Resource Provider for subscriptions
 3. **설정에서** **리소스 공급자를**선택합니다.
 4. 리소스 공급자 목록에서 리소스 공급자가 `Microsoft.Automation` 등록되었는지 확인합니다.
 5. 목록에 없는 경우 리소스 공급자 `Microsoft.Automation` [등록에 대한 해결 오류의](/azure/azure-resource-manager/resource-manager-register-provider-errors)단계에 따라 공급자를 등록합니다.
+
+## <a name="scenario-scheduled-update-with-a-dynamic-schedule-missed-some-machines"></a><a name="update-missed-machines"></a>시나리오: 동적 일정이 있는 예약된 업데이트가 일부 컴퓨터를 놓쳤습니다.
+
+### <a name="issue"></a>문제
+
+업데이트에 포함된 미리 보기 된 컴퓨터가 예약된 실행 중에 패치된 컴퓨터 목록에 모두 나타나지는 않습니다.
+
+### <a name="cause"></a>원인
+
+이 문제는 다음 원인 중 하나가 있을 수 있습니다.
+
+* 동적 쿼리의 범위에 정의된 구독은 등록된 자동화 리소스 공급자에 대해 구성되지 않습니다. 
+* 일정을 실행할 때 컴퓨터를 사용할 수 없거나 적절한 태그가 없습니다.
+
+### <a name="resolution"></a>해결 방법
+
+#### <a name="subscriptions-not-configured-for-registered-automation-resource-provider"></a>등록된 자동화 리소스 공급자를 위해 구성되지 않은 구독
+
+자동화 리소스 공급자에 대해 구독이 구성되지 않은 경우 해당 구독의 컴퓨터에 대한 정보를 쿼리하거나 가져올 수 없습니다. 구독등록을 보장하려면 다음 단계를 사용합니다.
+
+1. Azure [포털에서](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal)Azure 서비스 목록에 액세스합니다.
+2. **모든 서비스를**선택한 다음 일반 서비스 그룹에서 **구독을 선택합니다.** 
+3. 배포 범위에 정의된 구독을 찾습니다.
+4. **설정에서** **리소스 공급자를**선택합니다.
+5. 리소스 공급자가 `Microsoft.Automation` 등록되어 있는지 확인합니다.
+6. 목록에 없는 경우 리소스 공급자 `Microsoft.Automation` [등록에 대한 해결 오류의](/azure/azure-resource-manager/resource-manager-register-provider-errors)단계에 따라 공급자를 등록합니다.
+
+#### <a name="machines-not-available-or-not-tagged-correctly-when-schedule-executed"></a>예약이 실행될 때 컴퓨터를 사용할 수 없거나 올바르게 태그가 지정되지 않음
+
+자동화 리소스 공급자에 대해 구독이 구성되었지만 지정된 [동적 그룹으로](../automation-update-management-groups.md) 업데이트 일정을 실행하면 일부 컴퓨터가 누락된 경우 다음 절차를 사용합니다.
+
+1. Azure 포털에서 자동화 계정을 열고 **업데이트 관리를 선택합니다.**
+2. [업데이트 관리 기록을](https://docs.microsoft.com/azure/automation/manage-update-multi#view-results-of-an-update-deployment) 확인하여 업데이트 배포가 실행된 정확한 시간을 확인합니다. 
+3. 업데이트 관리에서 누락된 것으로 의심되는 컴퓨터의 경우 Azure 리소스 그래프를 사용하여 [컴퓨터 변경 내용을 찾습니다.](https://docs.microsoft.com/azure/governance/resource-graph/how-to/get-resource-changes#find-detected-change-events-and-view-change-details) 
+4. 업데이트 배포가 실행되기 전의 하루와 같이 상당한 기간 동안 변경 내용을 검색합니다.
+5. 이 기간의 컴퓨터에 대한 변경 내용 삭제 또는 업데이트와 같은 시스템 변경 사항이 있는지 검색 결과를 확인합니다. 이러한 변경 사항은 업데이트가 배포될 때 컴퓨터 목록에서 컴퓨터가 선택되지 않도록 컴퓨터 상태 또는 태그를 변경할 수 있습니다.
+6. 컴퓨터 상태 또는 태그 문제를 수정하려면 필요에 따라 컴퓨터 및 리소스 설정을 조정합니다.
+7. 업데이트 일정을 다시 실행하여 지정된 동적 그룹이 있는 배포에 모든 컴퓨터가 포함되도록 합니다.
 
 ## <a name="scenario-components-for-update-management-solution-enabled-while-vm-continues-to-show-as-being-configured"></a><a name="components-enabled-not-working"></a>시나리오: VM이 구성된 것으로 계속 표시되는 동안 업데이트 관리 솔루션용 구성 요소가 활성화되었습니다.
 
@@ -291,7 +329,7 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
    Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
    ```
 
-* 영향을 받는 컴퓨터를 찾은 후 해당 컴퓨터를 대상으로 하는 업데이트 배포를 편집한 `SourceComputerId` 다음 올바른 값을 반영되도록 제거하고 다시 추가합니다.
+* 영향을 받는 컴퓨터를 찾은 후 해당 컴퓨터를 대상으로 하는 업데이트 배포를 편집한 `SourceComputerId` 다음 올바른 값을 반영되도록 제거하고 읽습니다.
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>시나리오: 업데이트가 배포 없이 설치됩니다.
 
@@ -403,12 +441,14 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 ### <a name="resolution"></a>해결 방법
 
-컴퓨터에서 로컬로 업데이트를 수행해 보십시오. 이 오류가 발생하면 일반적으로 업데이트 에이전트에 구성 오류가 있음을 의미합니다.
+컴퓨터에서 로컬로 업데이트를 수행해 보십시오. 이 작업이 실패하면 일반적으로 업데이트 에이전트 구성 오류가 있음을 의미합니다.
 
-이 문제는 네트워크 구성 및 방화벽 문제로 인해 자주 발생합니다. 다음을 시도해 보세요.
+이 문제는 네트워크 구성 및 방화벽 문제로 인해 자주 발생합니다. 다음 검사를 사용하여 문제를 해결합니다.
 
 * Linux의 경우 적절한 설명서를 확인하여 패키지 리포지토리의 네트워크 끝점에 도달할 수 있는지 확인합니다.
+
 * Windows의 경우 업데이트에 나열된 에이전트 [구성이 인트라넷 끝점(WSUS/SCCM)에서 다운로드되지 않는지](/windows/deployment/update/windows-update-troubleshooting#updates-arent-downloading-from-the-intranet-endpoint-wsussccm)확인합니다.
+
   * 컴퓨터가 Windows 업데이트용으로 구성된 경우 [HTTP/프록시와 관련된 문제에](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy)설명된 끝점에 도달할 수 있는지 확인합니다.
   * 컴퓨터가 WSUS(Windows 서버 업데이트 서비스)에 대해 구성된 경우 [WUServer 레지스트리 키로](/windows/deployment/update/waas-wu-settings)구성된 WSUS 서버에 연결할 수 있는지 확인합니다.
 
@@ -453,7 +493,7 @@ HRESULT가 표시되면 빨간색으로 표시된 예외를 두 번 클릭하여
 
 업데이트가 성공적으로 시작된 후 업데이트 실행 중에 오류가 발생하는 경우 실행 중 영향을 받는 컴퓨터의 [작업 출력을 확인합니다.](../manage-update-multi.md#view-results-of-an-update-deployment) 컴퓨터에서 조사하고 조치를 취할 수 있는 특정 오류 메시지를 찾을 수 있습니다. 업데이트 관리에서 업데이트 배포에 성공하려면 패키지 관리자가 정상 상태여야 합니다.
 
-작업이 실패하기 직전에 특정 패치, 패키지 또는 업데이트가 표시되는 경우 다음 업데이트 배포에서 [제외해](../automation-tutorial-update-management.md#schedule-an-update-deployment) 볼 수 있습니다. Windows 업데이트에서 로그 정보를 수집하려면 [Windows 업데이트 로그 파일을](/windows/deployment/update/windows-update-logs)참조하십시오.
+작업이 실패하기 직전에 특정 패치, 패키지 또는 업데이트가 표시되는 경우 다음 업데이트 배포에서 이러한 항목을 [제외해](../automation-tutorial-update-management.md#schedule-an-update-deployment) 볼 수 있습니다. Windows 업데이트에서 로그 정보를 수집하려면 [Windows 업데이트 로그 파일을](/windows/deployment/update/windows-update-logs)참조하십시오.
 
 패치 문제를 해결할 수 없는 경우 다음 로그 파일의 복사본을 만들고 다음 업데이트 배포가 시작되기 전에 문제 해결을 위해 보존하십시오.
 

@@ -3,14 +3,14 @@ title: Azure Automation 상태 구성에서 구성 컴파일
 description: 이 문서에서는 Azure Automation에 대한 DSC(필요한 상태 구성) 구성을 컴파일하는 방법을 설명합니다.
 services: automation
 ms.subservice: dsc
-ms.date: 09/10/2018
+ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 48593920bdfcf743fceaeaeec891c0d5c4f2e108
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b366777cce4dd4212a2e3ec0cdcd180e0d7164f4
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80057627"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757182"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Azure Automation 상태 구성에서 DSC 구성 컴파일
 
@@ -27,7 +27,7 @@ Azure 자동화 상태 구성에서 원하는 상태 구성(DSC) 구성을 다�
   - 노드 및 비노드 데이터 확장작업
   - 성능 이량
 
-컴파일 세부 정보는 [Azure 리소스 관리자 템플릿을 사용 하 고 원하는 상태 구성 확장을](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template#details)참조 합니다.
+DSC(Azure 원하는 상태 구성) 확장이 있는 Azure 리소스 관리자 템플릿을 사용하여 Azure VM에 구성을 푸시할 수도 있습니다. Azure DSC 확장은 Azure VM 에이전트 프레임워크를 사용하여 Azure VM에서 실행되는 DSC 구성을 제공하고 적용하며 보고합니다. Azure 리소스 관리자 템플릿을 사용하여 컴파일 세부 정보는 [Azure 리소스 관리자 템플릿을 사용하여 원하는 상태 구성 확장을](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template#details)참조하십시오. 
 
 ## <a name="compiling-a-dsc-configuration-in-azure-state-configuration"></a>Azure 상태 구성에서 DSC 구성 컴파일
 
@@ -187,7 +187,7 @@ Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -Automa
 - [인증서](automation-certificates.md)
 - [연결](automation-connections.md)
 - [자격 증명](automation-credentials.md)
-- [변수](automation-variables.md)
+- [variables](automation-variables.md)
 
 #### <a name="credential-assets"></a>자격 증명 자산
 

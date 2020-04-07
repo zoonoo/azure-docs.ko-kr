@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
-ms.openlocfilehash: ee2c917d02a442ebabc0e1b40bc245982af794f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 831baabcc26130d9b2c730afd85f2ed4b3842690
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588215"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756345"
 ---
 # <a name="connect-alerts-from-microsoft-defender-advanced-threat-protection"></a>Microsoft Defender 고급 위협 보호의 경고 연결 
 
 
 > [!IMPORTANT]
-> Microsoft Defender 고급 위협 보호 로그의 섭취는 현재 공개 미리 보기상태입니다.
+> Microsoft Defender 고급 위협 보호 경고의 섭취는 현재 공개 미리 보기입니다.
 > 이 기능은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
  
 
-한 번의 클릭으로 [Microsoft Defender 고급 위협 보호에서](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) Azure Sentinel로 경고를 스트리밍할 수 있습니다. 이 연결을 사용하면 Microsoft Defender 고급 위협 보호에서 Azure Sentinel으로 경고를 스트리밍할 수 있습니다. 
+[Microsoft Defender 고급 위협 보호](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) 커넥터를 사용하면 Microsoft Defender 고급 위협 보호의 경고를 Azure Sentinel으로 스트리밍할 수 있습니다. 이를 통해 조직 전체의 보안 이벤트를 보다 포괄적으로 분석하고 효과적이고 즉각적인 대응을 위한 플레이북을 구축할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Microsoft Defender 고급 위협 보호에 대한 유효한 라이센스는 [라이선스 프로비저닝 유효성 검사에](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing)설명되어 있으며 Microsoft Defender 고급 위협 보호를 위한 완전 설정에 설명되어 있습니다. 
+- Microsoft Defender [ATP 배포 설정에](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing)설명된 대로 Microsoft Defender 고급 위협 보호에 대한 유효한 라이센스가 있어야 합니다. 
 - Azure Sentinel 테넌트의 관리자 또는 보안 관리자여야 합니다.
 
 

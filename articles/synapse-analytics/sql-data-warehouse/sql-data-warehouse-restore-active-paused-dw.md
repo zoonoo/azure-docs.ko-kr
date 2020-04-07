@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e1d0c5cd850fa0dbacf104d3fcd72d83007df878
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 6fa8bd42eb067124ab6ea1db77e2f3d6fba79638
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632243"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745220"
 ---
 # <a name="restore-an-existing-sql-pool"></a>기존 SQL 풀 복원
 
@@ -28,12 +28,12 @@ ms.locfileid: "80632243"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-1. [Azure PowerShell을 설치해야](https://docs.microsoft.com/powershell/azure/overview)합니다.
+1. [Azure PowerShell을 설치해야](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)합니다.
 2. 복원할 기존 복원 지점이 있습니다. 새 복원을 만들려면 [자습서를 참조하여 새 사용자 정의 복원 지점을 만듭니다.](sql-data-warehouse-restore-points.md)
 
 ## <a name="restore-an-existing-sql-pool-through-powershell"></a>PowerShell을 통해 기존 SQL 풀 복원
 
-복원 지점에서 기존 SQL 풀을 복원하려면 [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) PowerShell cmdlet을 사용합니다.
+복원 지점에서 기존 SQL 풀을 복원하려면 [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet을 사용합니다.
 
 1. PowerShell을 엽니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "80632243"
 
 5. RestorePointCreationDate를 사용하여 원하는 복원 지점을 선택합니다.
 
-6. [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) PowerShell cmdlet을 사용하여 SQL 풀을 원하는 복원 지점으로 복원합니다.
+6. [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet을 사용하여 SQL 풀을 원하는 복원 지점으로 복원합니다.
         1. SQL 풀을 다른 논리 서버로 복원하려면 다른 논리 서버 이름을 지정해야 합니다.  이 논리 서버는 다른 리소스 그룹 및 지역에 있을 수도 있습니다.
         2. 다른 구독으로 복원하려면 '이동' 버튼을 사용하여 논리 서버를 다른 구독으로 이동합니다.
 

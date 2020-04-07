@@ -5,16 +5,19 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: b7a3374e8b1bb5c7624f41c994f7f9a6135506c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 24d62ac04cd70832e7c092b903b6936836a866e9
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278521"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745622"
 ---
 # <a name="consulting-service-prerequisites"></a>컨설팅 서비스 필수 구성 요소
+
+>[!Important]
+>2020년 3월 30일부터 컨설팅 서비스 오퍼의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. 컨설팅 서비스 [생성 개요의](https://aka.ms/AzureCreateConsultingService) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
 
 Azure 마켓플레이스 및 [AppSource에 대한 컨설팅 서비스에서](../../consulting-services.md)이 제품 유형에 대한 설명 및 요구 사항을 검토합니다.  다음과 같은 특정 컨설팅 서비스 유형에는 추가 요구 사항이 있습니다.
 

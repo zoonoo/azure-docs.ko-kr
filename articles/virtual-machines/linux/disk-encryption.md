@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 20aa55f9fc4ea65da1973628aeec313a5367816a
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: f7eb63d0bbdce86f4a7195430dc15d6873e9f6e6
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632049"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754306"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Azure 관리 디스크의 서버 측 암호화
 
@@ -90,10 +90,13 @@ DEK를 암호화하고 해독하기 위해 키를 사용하려면 키 볼트의 
 
     Key Vault 인스턴스를 만들 때는 소프트 삭제 및 제거 보호를 사용하도록 설정해야 합니다. 소프트 삭제는 Key Vault가 지정된 보존 기간(90일 기본값)에 대해 삭제된 키를 보유하도록 합니다. 제거 보호는 보존 기간이 경과할 때까지 삭제된 키를 영구적으로 삭제할 수 없도록 합니다. 이러한 설정은 실수로 삭제되어 데이터가 손실되지 않도록 보호합니다. 관리되는 디스크를 암호화하기 위해 Key Vault를 사용할 때 이러한 설정은 필수입니다.
 
+    > [!IMPORTANT]
+    > Azure 포털의 리소스에 추가 디스크를 할당할 때 문제가 발생할 수 있으므로 이 지역을 낙타하지 마십시오.
+
     ```azurecli
     subscriptionId=yourSubscriptionID
     rgName=yourResourceGroupName
-    location=WestCentralUS
+    location=westcentralus
     keyVaultName=yourKeyVaultName
     keyName=yourKeyName
     diskEncryptionSetName=yourDiskEncryptionSetName
@@ -134,7 +137,7 @@ DEK를 암호화하고 해독하기 위해 키를 사용하려면 키 볼트의 
 ```azurecli
 rgName=yourResourceGroupName
 vmName=yourVMName
-location=WestCentralUS
+location=westcentralus
 vmSize=Standard_DS3_V2
 image=UbuntuLTS 
 diskEncryptionSetName=yourDiskencryptionSetName
@@ -162,7 +165,7 @@ az disk update -n $diskName -g $rgName --encryption-type EncryptionAtRestWithCus
 ```azurecli
 rgName=yourResourceGroupName
 vmssName=yourVMSSName
-location=WestCentralUS
+location=westcentralus
 vmSize=Standard_DS3_V2
 image=UbuntuLTS 
 diskEncryptionSetName=yourDiskencryptionSetName
@@ -179,7 +182,7 @@ rgName=yourResourceGroupName
 diskName=yourDiskName
 diskSkuName=Premium_LRS
 diskSizeinGiB=30
-location=WestCentralUS
+location=westcentralus
 diskLUN=2
 diskEncryptionSetName=yourDiskEncryptionSetName
 

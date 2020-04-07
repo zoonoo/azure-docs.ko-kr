@@ -7,16 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: dsindona
-ms.openlocfilehash: 1720026b4beff941b02a60cd1c755a043d66bdb5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b59181f7c1b24a7bc00ab579bbe67a70f499c92
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281496"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755387"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Salesforce의 잠재 고객 관리 구성
 
-이 문서에서는 마켓플레이스 오퍼에서 판매 잠재 고객을 처리하도록 Salesforce 시스템을 설정하는 방법에 대해 설명합니다.
+이 문서에서는 상업용 마켓플레이스 오퍼에서 판매 잠재 고객을 처리하도록 Salesforce 시스템을 설정하는 방법에 대해 설명합니다.
+
+> [!Note]
+> 마켓플레이스는 **국가** 필드의 값 목록과 같이 미리 채워진 목록을 지원하지 않습니다. 계속하기 전에 설정된 목록이 없는지 확인합니다. 또는 잠재 고객을 수신하도록 [HTTPS 끝점](./commercial-marketplace-lead-management-instructions-https.md) 또는 [Azure 테이블을](./commercial-marketplace-lead-management-instructions-azure-table.md) 구성할 수 있습니다.
 
 ## <a name="set-up-your-salesforce-system"></a>Salesforce 시스템 설정
 
@@ -26,14 +29,16 @@ ms.locfileid: "80281496"
     ![Salesforce 설치](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-1.png)
 
     1. 설정 페이지에서 왼쪽 탐색을 통해 **플랫폼 도구 >기능 설정 >마케팅 >웹-투-리드로**이동합니다.
-    ![Salesforce Web-to-Lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-2.png)
+
+        ![Salesforce Web-to-Lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-2.png)
 
 3. Salesforce 클래식 환경을 사용하는 경우:
     1. 세일즈포스 홈 페이지에서 **설정을** 선택합니다.
     ![세일즈포스 클래식 설정](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-setup.png)
 
     1. 설치 페이지에서 왼쪽 탐색을 통해 **->사용자 지정->잠재 고객 >웹-리드.**
-    ![세일즈포스 클래식 웹 투 리드](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-web-to-lead.png)
+
+        ![세일즈포스 클래식 웹 투 리드](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-web-to-lead.png)
 
 나머지 지침은 사용 중인 Salesforce 경험에 관계없이 동일합니다.
 

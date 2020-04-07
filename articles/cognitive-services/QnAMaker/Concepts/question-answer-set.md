@@ -3,12 +3,12 @@ title: 설계 기술 자료 - QnA 메이커
 description: QnA Maker 기술 자료는 QnA(질의응답) 세트와 각 QnA 쌍과 연관된 선택적 메타데이터로 구성됩니다.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: cb71de0f6a3e372d8c1c1fede67ba0c0354532ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d24434d1343f4174cfbfeb3a30c36737b213168
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76846373"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756797"
 ---
 # <a name="question-and-answer-set-concepts"></a>질문 및 답변 세트 개념
 
@@ -33,7 +33,7 @@ QnA(질문 및 답변) 집합의 **필수** 설정은 다음과 같습니다.
 
 ## <a name="editorially-add-to-knowledge-base"></a>편집자로서 기술 자료에 추가
 
-기술 자료만 채울 기존 콘텐츠가 없는 경우 QnA Maker 포털에 편집적으로 QnA 세트를 추가할 수 있습니다. [여기](../How-To/edit-knowledge-base.md)에서 기술 자료를 업데이트하는 방법을 알아봅니다.
+기술 자료만 채울 기존 콘텐츠가 없는 경우 QnA Maker 포털에서 QnA 쌍을 편집적으로 추가할 수 있습니다. [여기](../How-To/edit-knowledge-base.md)에서 기술 자료를 업데이트하는 방법을 알아봅니다.
 
 ## <a name="editing-your-knowledge-base-locally"></a>로컬로 기술 자료 편집
 

@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/29/2019
-ms.openlocfilehash: 1c519533625835677ddae0a274c9ce9f10edc6dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: db7c7ae9889d26479f51a7714e7e9fb04b444628
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73097992"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757115"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive를 사용하여 JSON 문서 처리 및 분석
 
@@ -59,9 +59,12 @@ Azure HDInsight에서 Apache Hive를 사용하여 JSON(JavaScript Object Notatio
 
 이 문서에서는 아파치 하이브 콘솔을 사용합니다. 하이브 콘솔을 여는 방법에 대한 지침은 [HDInsight의 아파치 하두롭과 아파치 암바리 하이브 뷰 사용을](apache-hadoop-use-hive-ambari-view.md)참조하십시오.
 
+> [!NOTE]  
+> Hive 보기는 HDInsight 4.0에서 더 이상 사용할 수 없습니다.
+
 ## <a name="flatten-json-documents"></a>JSON 문서 평면화
 
-다음 섹션에 나열된 메서드에서는 JSON 문서가 단일 행으로 구성되어야 합니다. 따라서 JSON 문서를 문자열로 평면화해야 합니다. JSON 문서가 이미 평면화되어 있으면 이 단계를 건너뛰고 다음 섹션인 JSON 데이터 분석으로 바로 이동할 수 있습니다. JSON 문서를 평면화하려면 다음 스크립트를 실행합니다.
+다음 섹션에 나열된 메서드는 JSON 문서를 단일 행으로 구성해야 합니다. 따라서 JSON 문서를 문자열로 평면화해야 합니다. JSON 문서가 이미 평면화되어 있으면 이 단계를 건너뛰고 다음 섹션인 JSON 데이터 분석으로 바로 이동할 수 있습니다. JSON 문서를 평면화하려면 다음 스크립트를 실행합니다.
 
 ```sql
 DROP TABLE IF EXISTS StudentsRaw;
@@ -105,7 +108,7 @@ Hive는 JSON 문서에서 쿼리를 실행할 수 있는 서로 다른 세 가�
 
 ### <a name="use-the-get_json_object-udf"></a>get_json_object UDF 사용
 
-Hive는 런타임에 JSON 쿼리를 수행할 수 있는 [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object)라는 기본 제공 UDF를 제공합니다. 이 메서드에는 평면화된 JSON 문서와 구문 분석해야 하는 JSON 필드가 있는 두 개의 인수, 즉 테이블 이름 및 메서드 이름이 사용됩니다. 이 UDF의 작동 방식에 대한 예를 살펴보겠습니다.
+Hive는 런타임 중에 JSON을 쿼리하는 [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) 라는 기본 제공 UDF를 제공합니다. 이 메서드는 테이블 이름과 메서드 이름의 두 가지 인수를 사용합니다. 메서드 이름에는 병합된 JSON 문서와 구문 분석해야 하는 JSON 필드가 있습니다. 이 UDF의 작동 방식을 보려면 예제를 살펴보겠습니다.
 
 다음 쿼리는 각 학생의 이름과 성을 반환합니다.
 
@@ -118,18 +121,18 @@ FROM StudentsOneLine;
 
 콘솔 창에서 이 쿼리를 실행하는 경우 출력은 다음과 같습니다.
 
-![아파치 하이브 는 json 개체 UDF를 얻을](./media/using-json-in-hive/hdinsight-get-json-object.png)
+![아파치 하이브 는 json 개체 UDF를 가져옵니다](./media/using-json-in-hive/hdinsight-get-json-object.png)
 
 get-json_object UDF에는 다음과 같은 제한 사항이 있습니다.
 
 * 쿼리의 각 필드는 쿼리를 다시 구문 분석하는 데 필요하므로 성능에 영향을 줍니다.
 * **GET\_JSON_OBJECT()** 는 배열의 문자열 표현을 반환합니다. 이 배열을 Hive 배열로 변환하려면 정규식을 사용하여 대괄호("[" 및 "]")를 바꾼 다음 분할된 호출을 통해 배열을 가져와야 합니다.
 
-이것이 Hive 위키가 **json_tuple**사용하는 것이 좋습니다.  
+이 변환은 Hive 위키가 **json_tuple**사용하는 것이 좋습니다 이유입니다.  
 
 ### <a name="use-the-json_tuple-udf"></a>json_tupl UDF 사용
 
-하이브에서 제공하는 또 다른 UDF는 [get_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object)보다 더 나은 수행 [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple)라고합니다. 이 메서드는 키 집합 및 JSON 문자열을 사용하며, 하나의 함수를 통해 값의 튜플을 반환합니다. 다음 쿼리는 JSON 문서에서 학생 ID와 등급을 반환합니다.
+하이브에서 제공하는 또 다른 UDF는 [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple)라고, [get_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object)보다 더 나은 않습니다. 이 메서드는 키 집합과 JSON 문자열을 사용합니다. 그런 다음 값의 튜플을 반환합니다. 다음 쿼리는 JSON 문서에서 학생 ID와 등급을 반환합니다.
 
 ```sql
 SELECT q1.StudentId, q1.Grade
@@ -142,7 +145,7 @@ Hive 콘솔에 표시되는 이 스크립트의 출력은 다음과 같습니다
 
 ![아파치 하이브 json 쿼리 결과](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
-json_tuple UDF는 Hive에서 [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) 구문을 사용합니다. 이 구문을 사용하면 json\_tuple에서 원래 테이블의 각 행에 UDT 함수를 적용하여 가상 테이블을 만들 수 있습니다. **LATERAL VIEW**를 반복적으로 사용하기 때문에 복잡한 JSON을 다루기가 너무 어려워집니다. 또한 **JSON_TUPLE** 중첩 된 JSON을 처리할 수 없습니다.
+UDF는 `json_tuple` 하이브의 [측면 뷰](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) 구문을 사용하여 json\_튜플을 사용하여 UDT 함수를 원래 테이블의 각 행에 적용하여 가상 테이블을 만들 수 있습니다. **LATERAL VIEW**를 반복적으로 사용하기 때문에 복잡한 JSON을 다루기가 너무 어려워집니다. 또한 **JSON_TUPLE** 중첩 된 JSON을 처리할 수 없습니다.
 
 ### <a name="use-a-custom-serde"></a>사용자 지정 SerDe 사용
 
@@ -150,7 +153,7 @@ SerDe는 중첩된 JSON 문서를 구문 분석하기 위한 최상의 선택입
 
 ## <a name="summary"></a>요약
 
-결론적으로 선택하는 하이브의 JSON 연산자 유형은 시나리오에 따라 달라집니다. 간단한 JSON 문서가 있고 조회할 필드가 하나만 있는 경우 Hive UDF **get_json_object**사용하도록 선택할 수 있습니다. 조회할 키가 두 개 이상 인 경우 **json_tuple**사용할 수 있습니다. 중첩 된 문서가있는 경우 **JSON SerDe를**사용해야합니다.
+선택한 Hive의 JSON 연산자 유형은 시나리오에 따라 다릅니다. 간단한 JSON 문서와 조회할 필드 하나를 사용하여 Hive UDF **get_json_object**선택합니다. 조회할 키가 두 개 이상 인 경우 **json_tuple**사용할 수 있습니다. 중첩된 문서의 경우 **JSON SerDe를**사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

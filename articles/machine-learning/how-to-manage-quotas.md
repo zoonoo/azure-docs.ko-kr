@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 03/05/2020
-ms.openlocfilehash: 17a4652604c0faa804d24530869aac0848c972b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 530647c3d32b62f0cac250795ccce580b182fa92
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399162"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756594"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Azure 리소스에 대한 할당량 관리 및 요청
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -60,7 +60,7 @@ Azure Machine Learning 컴퓨팅의 경우 구독의 영역당 허용되는 코�
 
 + 지역별 클러스터의 기본 제한은 200입니다. 이러한 클러스터는 학습 클러스터와 계산 인스턴스 간에 공유됩니다(할당량을 위한 단일 노드 클러스터로 간주됨). 이 제한을 초과하여 늘리려면 Azure 고객 지원에 문의하세요.
 
-+ **한 번 적중하면 초과할 수 없는 다른 엄격한 제한이 있습니다.
++ 한 번 칠 때 초과할 수 없는 다른 엄격한 제한이 있습니다.
 
 | **리소스** | **최대 제한** |
 | --- | --- |

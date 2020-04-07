@@ -7,12 +7,12 @@ ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: d293b76e004d693813a074cb8551a86cb3c0bec2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcf6a0ccfc04890052f1a4bab19f97ee4e55f87a
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76772343"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756621"
 ---
 # <a name="ingest-json-formatted-sample-data-into-azure-data-explorer"></a>Azure 데이터 탐색기로 JSON 서식을 지정한 샘플 데이터 수집
 
@@ -54,7 +54,7 @@ JSON 서식이 지정된 데이터를 수집하려면 [수집 속성을](/azure/
 
 Kusto 쿼리 언어를 사용하여 원시 JSON 형식으로 데이터를 수집합니다.
 
-1. 에 로그인합니다. [https://dataexplorer.azure.com](https://dataexplorer.azure.com)
+1. [https://dataexplorer.azure.com](https://dataexplorer.azure.com)에 로그인합니다.
 
 1. **클러스터 추가**를 선택합니다.
 
@@ -82,7 +82,7 @@ Kusto 쿼리 언어를 사용하여 원시 JSON 형식으로 데이터를 수집
     .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=RawEventMapping)
     ```
 
-# <a name="c"></a>[C #](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 C#을 사용하여 원시 JSON 형식으로 데이터를 수집합니다.
 
@@ -232,7 +232,7 @@ C#을 사용하여 원시 JSON 형식으로 데이터를 수집합니다.
 
     파일 'simple.json'에는 몇 줄로 구분된 JSON 레코드가 있습니다. 형식은 `json`은이며 인제스트 명령에 사용되는 매핑은 생성한 `FlatEventMapping` 매핑입니다.
 
-# <a name="c"></a>[C #](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 1. JSON 입력 데이터와 유사한 스키마를 사용하여 새 테이블을 만듭니다. 다음 예제 및 인제스트 명령에 이 테이블을 사용합니다. 
 
@@ -337,7 +337,7 @@ C#을 사용하여 원시 JSON 형식으로 데이터를 수집합니다.
 .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/multilined.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=FlatEventMapping)
 ```
 
-# <a name="c"></a>[C #](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 테이블에 데이터를 수집합니다. `Events`
 
@@ -427,7 +427,7 @@ INGESTION_CLIENT.ingest_from_blob(
 1. 테이블에 데이터를 수집합니다. `RawEvents`
 
     ```Kusto
-    .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/array.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=RawEventMapping)
+    .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/array.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=RawEventMapping)
     ```
 
 1. 표의 데이터를 `Events` 검토합니다.
@@ -436,7 +436,7 @@ INGESTION_CLIENT.ingest_from_blob(
     Events
     ```
 
-# <a name="c"></a>[C #](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 1. 컬렉션의 `records` 각 값이 연산자를 사용하여 별도의 행을 수신할 수 `mv-expand` 있도록 컬렉션을 확장하는 update 함수를 만듭니다. 테이블을 `RawEvents` 원본 테이블과 `Events` 대상 테이블로 사용합니다.   
 
@@ -584,7 +584,7 @@ INGESTION_CLIENT.ingest_from_blob(
     .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/dictionary.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=KeyValueEventMapping)
     ```
 
-# <a name="c"></a>[C #](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 1. JSON 매핑을 만듭니다.
 
@@ -648,4 +648,4 @@ INGESTION_CLIENT.ingest_from_blob(
 ## <a name="next-steps"></a>다음 단계
 
 * [데이터 수집 개요](ingest-data-overview.md)
-* [쿼리 작성](write-queries.md)
+* [쿼리 쓰기](write-queries.md)

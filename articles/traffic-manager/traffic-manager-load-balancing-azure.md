@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: rohink
-ms.openlocfilehash: b77248813463f51d4bd2c5186e421aec43ffaf52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cccd4a6b0b52608a6a17b73688e18f27088df5b0
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76939217"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757196"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Azure에서 부하 분산 서비스 사용
 
@@ -38,7 +38,7 @@ Microsoft Azure는 네트워크 트래픽을 분산하고 부하를 분산하는
   * 단일 DNS 응답에서 둘 이상의 IP 주소를 보낼 수 있는 다중값 라우팅입니다.
 
   클라이언트는 Traffic Manager가 반환하는 엔드포인트에 직접 연결합니다. Azure Traffic Manager는 엔드포인트가 비정상임을 감지한 다음 클라이언트를 다른 정상적인 인스턴스로 리디렉션합니다. 서비스에 대해 자세히 알아보려면 [Azure 트래픽 관리자 설명서를](traffic-manager-overview.md) 참조하십시오.
-* **응용 프로그램 게이트웨이는** 응용 프로그램 전송 컨트롤러(ADC)를 서비스로 제공하여 응용 프로그램에 다양한 계층 7 부하 분산 기능을 제공합니다. 따라서 고객은 Application Gateway에 CPU 집약적인 SSL 종료를 오프로드하여 웹 팜 생산성을 최적화할 수 있습니다. Layer 7의 기타 라우팅 기능으로 들어오는 트래픽의 라운드 로빈 배포, 쿠키 기반 세션 선호도, URL 패스 기반 라우팅 및 단일 Application Gateway 뒤에 여러 웹 사이트를 호스트할 수 있는 기능 등을 포함합니다. Application Gateway는 인터넷 연결 게이트웨이, 내부 전용 게이트웨이 또는 둘의 조합으로 구성될 수 있습니다. Application Gateway는 전적으로 Azure에 의해 관리되고, 확장성 및 고가용성을 제공합니다. 관리 효율성을 향상시키기 위한 풍부한 진단 및 로깅 기능을 제공합니다.
+* **응용 프로그램 게이트웨이는** 응용 프로그램 전송 컨트롤러(ADC)를 서비스로 제공하여 응용 프로그램에 다양한 계층 7 부하 분산 기능을 제공합니다. 이를 통해 고객은 CPU집약적인 TLS 종료를 애플리케이션 게이트웨이로 오프로드하여 웹 팜 생산성을 최적화할 수 있습니다. Layer 7의 기타 라우팅 기능으로 들어오는 트래픽의 라운드 로빈 배포, 쿠키 기반 세션 선호도, URL 패스 기반 라우팅 및 단일 Application Gateway 뒤에 여러 웹 사이트를 호스트할 수 있는 기능 등을 포함합니다. Application Gateway는 인터넷 연결 게이트웨이, 내부 전용 게이트웨이 또는 둘의 조합으로 구성될 수 있습니다. Application Gateway는 전적으로 Azure에 의해 관리되고, 확장성 및 고가용성을 제공합니다. 관리 효율성을 향상시키기 위한 풍부한 진단 및 로깅 기능을 제공합니다.
 * **로드 밸런서는** Azure SDN 스택의 필수적인 부분으로, 모든 UDP 및 TCP 프로토콜에 대해 고성능의 낮은 대기 시간 계층 4 로드 밸런싱 서비스를 제공합니다. 인바운드 및 아웃 바운드 연결을 관리합니다. 서비스 가용성 관리 옵션을 검색하는 TCP 및 HTTP 상태를 사용하여 공용 및 내부 부하 분산된 엔드포인트를 구성하고 백 엔드 풀 대상에 인바운드 연결을 매핑하는 규칙을 정의할 수 있습니다.
 
 ## <a name="scenario"></a>시나리오
@@ -59,7 +59,7 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 ![부하 분산 아키텍처의 다이어그램](./media/traffic-manager-load-balancing-azure/scenario-diagram.png)
 
 > [!NOTE]
-> 이 예제는 Azure에서 제공하는 부하 분산 서비스의 다양한 구성 중 하나에 불과합니다. Traffic Manager, Application Gateway 및 Load Balancer를 부하 분산 요구에 가장 잘 맞게 혼합 및 일치시킬 수 있습니다. 예를 들어, SSL 오프로드 또는 Layer 7 처리가 필요 없는 경우 부하 분산 장치 Application Gateway 대신에 Load Balancer를 사용할 수 있습니다.
+> 이 예제는 Azure에서 제공하는 부하 분산 서비스의 다양한 구성 중 하나에 불과합니다. Traffic Manager, Application Gateway 및 Load Balancer를 부하 분산 요구에 가장 잘 맞게 혼합 및 일치시킬 수 있습니다. 예를 들어 TLS 오프로드 또는 계층 7 처리가 필요하지 않은 경우 로드 밸러저를 응용 프로그램 게이트웨이 대신 사용할 수 있습니다.
 
 ## <a name="setting-up-the-load-balancing-stack"></a>부하 분산 스택 설정
 

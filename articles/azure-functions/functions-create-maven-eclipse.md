@@ -2,16 +2,16 @@
 title: 자바와 이클립스로 Azure 함수 앱 만들기
 description: Java 및 Eclipse를 통해 간단한 HTTP 트리거 서버리스 앱을 만들고 Azure Functions에 게시하는 방법 가이드입니다.
 author: jeffhollan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c82432a3d76a84eba1ad921d936b2f3ba064e2ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42e9ed7c080c9274fad7eda8e4c8af3631ed41f5
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136836"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756475"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>자바와 이클립스로 첫 번째 기능 만들기 
 

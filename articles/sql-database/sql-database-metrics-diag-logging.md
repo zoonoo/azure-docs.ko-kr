@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 880072c9865e38e181869506e35968767fa95e8a
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.date: 04/06/2020
+ms.openlocfilehash: 9c9f069ad38c65aa0bbfdcde9eef3fed32585d9e
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387906"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756407"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-diagnostic-telemetry"></a>Azure SQL Database 진단 원격 분석의 스트리밍 내보내기 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "80387906"
 
 - [로그 분석 및 SQL 분석](#stream-into-sql-analytics)
 - [Event Hubs](#stream-into-event-hubs)
-- [Azure 저장소](#stream-into-azure-storage)
+- [Azure Storage](#stream-into-azure-storage)
 
 ## <a name="diagnostic-telemetry-for-export-for-azure-sql-database"></a>Azure SQL 데이터베이스에 대한 내보내기에 대한 진단 원격 분석
 
@@ -36,17 +36,17 @@ ms.locfileid: "80387906"
 
 | 데이터베이스에 대한 진단 원격 분석 | 단일 데이터베이스 및 풀링된 데이터베이스 지원 | 관리되는 인스턴스 데이터베이스 지원 |
 | :------------------- | ----- | ----- |
-| 기본 메트릭 : DTU/CPU 백분율, DTU/CPU 제한, 물리적 데이터 읽기 백분율, 로그 쓰기 백분율, 방화벽 연결에 의한 성공/실패/차단, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율 및 XTP 저장소 백분율을 [포함합니다.](#basic-metrics) | yes | 예 |
-| [인스턴스 및 앱 고급](#advanced-metrics): tempdb 시스템 데이터베이스 데이터 및 로그 파일 크기와 사용 tempdb % 로그 파일이 포함되어 있습니다. | yes | 예 |
-| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): CPU 사용량 및 쿼리 기간 통계와 같은 쿼리 런타임 통계에 대한 정보를 포함합니다. | yes | yes |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics): 쿼리 대기 통계(쿼리가 대기한 내용)에 대한 정보를 포함합니다. | yes | yes |
-| [오류](#errors-dataset): 데이터베이스의 SQL 오류에 대한 정보를 포함합니다. | yes | yes |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): 대기 형식에 따라 데이터베이스가 대기하는 데 사용된 시간에 대한 정보를 포함합니다. | yes | 예 |
-| [시간 시간:](#time-outs-dataset)데이터베이스의 시간 시간에 대한 정보를 포함합니다. | yes | 예 |
-| [블록](#blockings-dataset): 데이터베이스의 이벤트 차단에 대한 정보를 포함합니다. | yes | 예 |
-| [교착 상태](#deadlocks-dataset): 데이터베이스의 교착 상태 이벤트에 대한 정보를 포함합니다. | yes | 예 |
-| [자동 튜닝](#automatic-tuning-dataset): 데이터베이스에 대한 자동 튜닝 권장 사항에 대한 정보가 들어 있습니다. | yes | 예 |
-| [SQLInsights](#intelligent-insights-dataset): 데이터베이스의 성능에 대한 지능형 인사이트가 포함되어 있습니다. 자세한 내용은 [Intelligent Insights](sql-database-intelligent-insights.md)를 참조하세요. | yes | yes |
+| 기본 메트릭 : DTU/CPU 백분율, DTU/CPU 제한, 물리적 데이터 읽기 백분율, 로그 쓰기 백분율, 방화벽 연결에 의한 성공/실패/차단, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율 및 XTP 저장소 백분율을 [포함합니다.](#basic-metrics) | 예 | 예 |
+| [인스턴스 및 앱 고급](#advanced-metrics): tempdb 시스템 데이터베이스 데이터 및 로그 파일 크기와 사용 tempdb % 로그 파일이 포함되어 있습니다. | 예 | 예 |
+| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): CPU 사용량 및 쿼리 기간 통계와 같은 쿼리 런타임 통계에 대한 정보를 포함합니다. | 예 | 예 |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): 쿼리 대기 통계(쿼리가 대기한 내용)에 대한 정보를 포함합니다. | 예 | 예 |
+| [오류](#errors-dataset): 데이터베이스의 SQL 오류에 대한 정보를 포함합니다. | 예 | 예 |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): 대기 형식에 따라 데이터베이스가 대기하는 데 사용된 시간에 대한 정보를 포함합니다. | 예 | 예 |
+| [시간 시간:](#time-outs-dataset)데이터베이스의 시간 시간에 대한 정보를 포함합니다. | 예 | 예 |
+| [블록](#blockings-dataset): 데이터베이스의 이벤트 차단에 대한 정보를 포함합니다. | 예 | 예 |
+| [교착 상태](#deadlocks-dataset): 데이터베이스의 교착 상태 이벤트에 대한 정보를 포함합니다. | 예 | 예 |
+| [자동 튜닝](#automatic-tuning-dataset): 데이터베이스에 대한 자동 튜닝 권장 사항에 대한 정보가 들어 있습니다. | 예 | 예 |
+| [SQLInsights](#intelligent-insights-dataset): 데이터베이스의 성능에 대한 지능형 인사이트가 포함되어 있습니다. 자세한 내용은 [Intelligent Insights](sql-database-intelligent-insights.md)를 참조하세요. | 예 | 예 |
 
 > [!NOTE]
 > **시스템 데이터베이스에**대해 진단 설정을 구성할 수 없으며 마스터, msdb, 모델, 리소스 및 tempdb 데이터베이스와 같은 것입니다.
@@ -95,7 +95,7 @@ Azure 포털의 **진단 설정** 메뉴를 사용하여 진단 원격 분석의
 
 Azure 포털에서 진단 원격 분석의 스트리밍 내보내기를 구성하기 위한 단계별 지침과 PowerShell 및 Azure CLI를 통해 동일한 작업을 수행하기 위한 스크립트에 대한 다음 탭 중 하나를 선택합니다.
 
-# <a name="azure-portal"></a>[Azure 포털](#tab/azure-portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
 
 ### <a name="elastic-pools"></a>탄력적 풀
 
@@ -225,7 +225,7 @@ Azure 포털에서 진단 원격 분석의 스트리밍 내보내기를 구성�
 > [!TIP]
 > 모니터링하려는 각 인스턴스 데이터베이스에 대해 이러한 단계를 반복합니다.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -454,9 +454,15 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 
 |**메트릭**|**메트릭 표시 이름**|**설명**|
 |---|---|---|
-|tempdb_data_size| Tempdb 데이터 파일 크기 킬로바이트 |Tempdb 데이터 파일 크기 킬로바이트. 데이터 웨어하우스에 적용할 수 없습니다. 이 메트릭은 vCore 가 2vCore 이상또는 DTU 기반 구매 모델의 경우 200DTU 이상인 vCore 구매 모델을 사용하는 데이터베이스에 사용할 수 있습니다. 하이퍼스케일 데이터베이스는 현재 이 메트릭을 사용할 수 없습니다.|
-|tempdb_log_size| Tempdb 로그 파일 크기 킬로바이트 |Tempdb 로그 파일 크기 킬로바이트. 데이터 웨어하우스에 적용할 수 없습니다. 이 메트릭은 vCore 가 2vCore 이상또는 DTU 기반 구매 모델의 경우 200DTU 이상인 vCore 구매 모델을 사용하는 데이터베이스에 사용할 수 있습니다. 하이퍼스케일 데이터베이스는 현재 이 메트릭을 사용할 수 없습니다.|
-|tempdb_log_used_percent| Tempdb 퍼센트 로그 사용 |Tempdb 퍼센트 로그 사용. 데이터 웨어하우스에 적용할 수 없습니다. 이 메트릭은 vCore 가 2vCore 이상또는 DTU 기반 구매 모델의 경우 200DTU 이상인 vCore 구매 모델을 사용하는 데이터베이스에 사용할 수 있습니다. 하이퍼스케일 데이터베이스는 현재 이 메트릭을 사용할 수 없습니다.|
+|sqlserver_process_core_percent<sup>1</sup>|SQL Server 프로세스 코어 백분율|운영 체제에서 측정한 SQL Server 프로세스의 CPU 사용률입니다.|
+|sqlserver_process_memory_percent<sup>1</sup> |SQL Server 프로세스 메모리 백분율|운영 체제에서 측정한 SQL Server 프로세스의 메모리 사용률입니다.|
+|tempdb_data_size<sup>2</sup>| Tempdb 데이터 파일 크기 킬로바이트 |Tempdb 데이터 파일 크기 킬로바이트.|
+|tempdb_log_size<sup>2</sup>| Tempdb 로그 파일 크기 킬로바이트 |Tempdb 로그 파일 크기 킬로바이트.|
+|tempdb_log_used_percent<sup>2</sup>| Tempdb 퍼센트 로그 사용 |Tempdb 퍼센트 로그 사용.|
+
+<sup>1</sup> 이 메트릭은 vCore가 2vCore 이상또는 DTU 기반 구매 모델의 경우 200DTU 이상인 vCore 구매 모델을 사용하는 데이터베이스에 사용할 수 있습니다. 
+
+<sup>2</sup> 이 메트릭은 vCore가 2vCore 이상또는 DTU 기반 구매 모델의 경우 200DTU 이상인 vCore 구매 모델을 사용하는 데이터베이스에 사용할 수 있습니다. 하이퍼스케일 데이터베이스 또는 데이터 웨어하우스에는 이 메트릭을 현재 사용할 수 없습니다.
 
 ### <a name="basic-logs"></a>기본 로그
 
@@ -464,12 +470,12 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 
 #### <a name="resource-usage-stats-for-managed-instances"></a>관리되는 인스턴스의 리소스 사용 통계
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure|
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |Category|범주 이름. 항상: ResourceUsageStats |
 |리소스|리소스 이름 |
@@ -489,12 +495,12 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 
 #### <a name="query-store-runtime-statistics"></a>쿼리 저장소 런타임 통계
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |Category|범주 이름. 항상: QueryStoreRuntimeStatistics |
 |OperationName|작업의 이름입니다. 항상: QueryStoreRuntimeStatisticsEvent |
@@ -540,12 +546,12 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 
 #### <a name="query-store-wait-statistics"></a>쿼리 저장소 대기 통계
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |Category|범주 이름. 항상: QueryStoreWaitStatistics |
 |OperationName|작업의 이름입니다. 항상: QueryStoreWaitStatisticsEvent |
@@ -578,12 +584,12 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 
 #### <a name="errors-dataset"></a>오류 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |Category|범주 이름. 항상: Errors |
 |OperationName|작업의 이름입니다. 항상: ErrorEvent |
@@ -607,12 +613,12 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 
 #### <a name="database-wait-statistics-dataset"></a>데이터베이스 대기 통계 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |Category|범주 이름. 항상: DatabaseWaitStatistics |
 |OperationName|작업의 이름입니다. 항상: DatabaseWaitStatisticsEvent |
@@ -636,12 +642,12 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 
 #### <a name="time-outs-dataset"></a>제한 시간 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |Category|범주 이름. 항상: Timeouts |
 |OperationName|작업의 이름입니다. 항상: TimeoutEvent |
@@ -659,12 +665,12 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 
 #### <a name="blockings-dataset"></a>차단 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |Category|범주 이름. 항상: Blocks |
 |OperationName|작업의 이름입니다. 항상: BlockEvent |
@@ -683,12 +689,12 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 
 #### <a name="deadlocks-dataset"></a>교착 상태 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC] |로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |Category|범주 이름. 항상: 교착 상태 |
 |OperationName|작업의 이름입니다. 항상: DeadlockEvent |
@@ -704,12 +710,12 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 
 #### <a name="automatic-tuning-dataset"></a>자동 조정 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |Category|범주 이름. 항상: AutomaticTuning |
 |리소스|리소스 이름 |

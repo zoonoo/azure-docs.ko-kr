@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
-ms.date: 12/20/2019
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 93c9ce45fd660f444146827e2f5bafaeb12fc471
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5aa1a677836be3f05269539d52abf7bd8704833d
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76310522"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757084"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Azure Portal 방법 비디오 시리즈
 
@@ -22,18 +22,18 @@ Azure 포털 사용 방법 비디오 시리즈는 Azure 포털에서 Azure 서�
 
 ## <a name="featured-video"></a>주요 비디오
 
-이 주요 비디오에서는 가상 컴퓨터의 일반적인 문제를 해결하는 방법을 살펴봅니다.
+이 기능 비디오에서는 Azure Advisor 비용 권장 사항을 사용하여 Azure에서 비용을 절감하는 방법을 보여 주며, 이를 보여 주시고 있습니다.
 
-> [!VIDEO https://www.youtube.com/embed/MAJrN-2IPY8]
+> [!VIDEO https://www.youtube.com/embed/ky2WS3KWuYs]
 
-[가상 시스템의 일반적인 문제 해결](https://www.youtube.com/watch?v=MAJrN-2IPY8)
+[Azure Advisor에서 비용 권장 사항을 사용하는 방법](https://www.youtube.com/watch?v=ky2WS3KWuYs)
 
 놓친 최근 동영상을 따라잡기:
 
 |   |   |   |
 | ------| ------ | ------ |
-| [![기능 응용 프로그램을 만드는 방법에 대한 YouTube 동영상의 이미지](https://i.ytimg.com/vi/BEIZKCDElMs/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=BEIZKCDElMs) | [![새로운 Azure 홈 화면을 사용하는 방법에 대한 YouTube 동영상 이미지](https://i.ytimg.com/vi/Ddo__jkzgVo/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=Ddo__jkzgVo) | [![Azure Advisor를 최대한 활용하는 것에 대한 YouTube 동영상 이미지](https://i.ytimg.com/vi/ANz3cCiFsJw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=ANz3cCiFsJw) |
-| [함수 앱을 만드는 방법](https://www.youtube.com/watch?v=BEIZKCDElMs) | [새 Azure 홈 사용 방법](https://www.youtube.com/watch?v=Ddo__jkzgVo) | [Azure 어드바이저를 최대한 활용하는 방법](https://www.youtube.com/watch?v=ANz3cCiFsJw) |
+| [![Azure 모니터 통합 문서 사용에 대한 YouTube 동영상 이미지](https://i.ytimg.com/vi/Z5xRyy3HB8U/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=Z5xRyy3HB8U) | [![Azure 포털에서 리소스 목록 보기 필터링에 대한 YouTube 동영상 이미지](https://i.ytimg.com/vi/L3I-xOZKWcg/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=L3I-xOZKWcg) | [![대시보드에 자동 새로 고침 사용에 대한 YouTube 동영상 이미지](https://i.ytimg.com/vi/tVoDXygZzWM/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=tVoDXygZzWM) |
+| [Azure 모니터 통합 문서 사용](https://www.youtube.com/watch?v=Z5xRyy3HB8U) | [Azure 포털에서 리소스 목록 보기 필터링](https://www.youtube.com/watch?v=L3I-xOZKWcg) | [대시보드에 자동 새로 고침 사용](https://www.youtube.com/watch?v=tVoDXygZzWM) |
 
 ## <a name="video-playlist"></a>비디오 재생 목록
 

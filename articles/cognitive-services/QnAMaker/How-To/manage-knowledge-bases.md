@@ -3,12 +3,12 @@ title: 지식 자료 관리 - QnA 메이커
 description: QnA Maker를 사용하면 기술 자료 설정 및 콘텐츠에 대한 액세스를 제공하여 기술 기반을 관리할 수 있습니다.
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 57839125011016daed5f0b3d441a83e8db488198
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4eb07b30b10826c361f4f9b805b517e372fc5ea1
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80071234"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756809"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>기술 자료 생성 및 설정 관리
 
@@ -17,7 +17,7 @@ QnA Maker를 사용하면 기술 자료 설정 및 데이터 원본에 대한 �
 ## <a name="prerequisites"></a>사전 요구 사항
 
 > [!div class="checklist"]
-> * Azure 구독이 없는 경우 시작하기 전에 [무료 계정을 만드세요.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+> * Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 계정을 만듭니다.
 > * Azure 포털에서 만든 [QnA 작성기 리소스입니다.](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) 리소스를 만들 때 선택한 Azure Active Directory ID, 구독, QnA 리소스 이름을 기억하세요.
 
 ## <a name="create-a-knowledge-base"></a>기술 자료 만들기
@@ -107,5 +107,5 @@ KB(기술 자료)를 삭제하는 것은 영구 작업입니다. 실행을 취�
 
 리소스의 모든 기술 자료의 [언어 관리에](language-knowledge-base.md) 대해 알아봅니다.
 
-* QnA 세트 편집
+* QnA 쌍 편집
 * QnA 메이커에서 사용하는 Azure 리소스 관리

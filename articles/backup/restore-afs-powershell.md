@@ -3,21 +3,24 @@ title: PowerShell을 통해 Azure 파일 복원
 description: 이 문서에서는 Azure 백업 서비스 및 PowerShell을 사용하여 Azure 파일을 복원하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 99aeaa6173bb5336e6e1719a9fc0df0c668374e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12bff49bc249b23542534d218b13b517411f461b
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77086833"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756202"
 ---
 # <a name="restore-azure-files-with-powershell"></a>PowerShell을 통해 Azure 파일 복원
 
-이 문서에서는 Azure Powershell을 사용하여 [Azure Backup](backup-overview.md) 서비스에서 만든 복원 지점에서 전체 파일 공유 또는 특정 파일을 복원하는 방법을 설명합니다.
+이 문서에서는 Azure PowerShell을 사용하여 [Azure Backup](backup-overview.md) 서비스에서 만든 복원 지점에서 전체 파일 공유 또는 특정 파일을 복원하는 방법을 설명합니다.
 
 전체 파일 공유 또는 공유의 특정 파일을 복원할 수 있습니다. 원래 위치 또는 대체 위치로 복원할 수 있습니다.
 
 > [!WARNING]
-> PS 버전이 AFS 백업의 경우 'Az.RecoveryServices 2.6.0'의 최소 버전으로 업그레이드되었는지 확인합니다. 자세한 내용은 이 [변경에](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) 대한 요구 사항을 설명하는 섹션을 참조하십시오.
+> PS 버전이 AFS 백업의 경우 'Az.RecoveryServices 2.6.0'의 최소 버전으로 업그레이드되었는지 확인합니다. 자세한 내용은 이 [변경에](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) 대한 요구 사항을 설명하는 섹션을 참조하세요.
+
+>[!NOTE]
+>이제 Azure Backup은 PowerShell을 사용하여 여러 파일 또는 폴더를 원본 또는 대체 위치로 복원하는 것을 지원합니다. 방법을 알아보려면 문서의 [이 섹션을](#restore-multiple-files-or-folders-to-original-or-alternate-location) 참조하십시오.
 
 ## <a name="fetch-recovery-points"></a>복구 지점 가져오기
 
@@ -102,17 +105,67 @@ Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -TargetStorageAccount
 
 원래 위치로 복원할 때 대상 및 대상 관련 매개변수를 지정할 필요가 없습니다. **ResolveConflict**만 제공해야 합니다.
 
-#### <a name="overwrite-an-azure-file-share"></a>Azure 파일 공유 덮어쓰기
+### <a name="overwrite-an-azure-file-share"></a>Azure 파일 공유 덮어쓰기
 
 ```powershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -ResolveConflict Overwrite
 ```
 
-#### <a name="overwrite-an-azure-file"></a>Azure 파일 덮어쓰기
+### <a name="overwrite-an-azure-file"></a>Azure 파일 덮어쓰기
 
 ```powershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -SourceFileType File -SourceFilePath "TestDir/TestDoc.docx" -ResolveConflict Overwrite
 ```
+
+## <a name="restore-multiple-files-or-folders-to-original-or-alternate-location"></a>여러 파일 또는 폴더를 원본 또는 대체 위치로 복원
+
+**MultipleSourceFilePath** 매개 변수에 대 한 값으로 복원 하려는 모든 파일 또는 폴더의 경로를 전달 하 여 [복원-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) 명령을 사용 합니다.
+
+### <a name="restore-multiple-files"></a>여러 파일 복원
+
+다음 스크립트에서는 *FileSharePage.png* 및 *MyTestFile.txt* 파일을 복원하려고 합니다.
+
+```powershell
+$vault = Get-AzRecoveryServicesVault -ResourceGroupName "azurefiles" -Name "azurefilesvault"
+
+$Container = Get-AzRecoveryServicesBackupContainer -ContainerType AzureStorage -Status Registered -FriendlyName "afsaccount" -VaultId $vault.ID
+
+$BackupItem = Get-AzRecoveryServicesBackupItem -Container $Container -WorkloadType AzureFiles -VaultId $vault.ID -FriendlyName "azurefiles"
+
+$RP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $BackupItem -VaultId $vault.ID
+
+$files = ("FileSharePage.png", "MyTestFile.txt")
+
+Restore-AzRecoveryServicesBackupItem -RecoveryPoint $RP[0] -MultipleSourceFilePath $files -SourceFileType File -ResolveConflict Overwrite -VaultId $vault.ID -VaultLocation $vault.Location
+```
+
+### <a name="restore-multiple-directories"></a>여러 디렉터리 복원
+
+다음 스크립트에서는 *zrs1_restore* 복원하고 디렉터리를 *복원하려고* 합니다.
+
+```powershell
+$vault = Get-AzRecoveryServicesVault -ResourceGroupName "azurefiles" -Name "azurefilesvault"
+
+$Container = Get-AzRecoveryServicesBackupContainer -ContainerType AzureStorage -Status Registered -FriendlyName "afsaccount" -VaultId $vault.ID
+
+$BackupItem = Get-AzRecoveryServicesBackupItem -Container $Container -WorkloadType AzureFiles -VaultId $vault.ID -FriendlyName "azurefiles"
+
+$RP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $BackupItem -VaultId $vault.ID
+
+$files = ("Restore","zrs1_restore")
+
+Restore-AzRecoveryServicesBackupItem -RecoveryPoint $RP[0] -MultipleSourceFilePath $files -SourceFileType Directory -ResolveConflict Overwrite -VaultId $vault.ID -VaultLocation $vault.Location
+```
+
+다음과 유사하게 출력됩니다.
+
+```output
+WorkloadName         Operation         Status          StartTime                EndTime       JobID
+------------         ---------         ------          ---------                -------       -----
+azurefiles           Restore           InProgress      4/5/2020 8:01:24 AM                    cd36abc3-0242-44b1-9964-0a9102b74d57
+```
+
+여러 파일 이나 폴더를 대체 위치로 복원 하려는 경우 위에서 설명한 대로 대상 위치 관련 매개 변수 값을 지정 하 여 위의 스크립트를 사용 하 여 [Azure 파일 복원에서 다른 위치로](#restore-an-azure-file-to-an-alternate-location)복원 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

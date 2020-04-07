@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 90adb3b973b6952d10ef89e4b40d0fc68489e224
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8701fe6857e95334a5e1d24bfe70feb130d5512c
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061103"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756019"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -21,7 +21,7 @@ AzCopy는 저장소 계정에서 Blob 또는 파일을 복사하는 데 사용�
 > [!NOTE]
 > AzCopy **V10은** 현재 지원되는 AzCopy 버전입니다.
 >
-> AzCopy **v8.1을**사용해야 하는 경우 이 [문서의 이전 버전 AzCopy 사용](#previous-version) 섹션을 참조하십시오.
+> 이전 버전의 AzCopy를 사용해야 하는 경우 이 [문서의 이전 버전 AzCopy 사용](#previous-version) 섹션을 참조하십시오.
 
 <a id="download-and-install-azcopy" />
 
@@ -67,7 +67,7 @@ Azure Active Directory(AD)를 사용하거나 SAS(공유 액세스 서명) 토�
 |--|--|
 |**Blob Storage** | Azure AD & SAS |
 |**Blob 저장소(계층적 네임스페이스)** | Azure AD & SAS |
-|**File Storage** | SAS 전용 |
+|**파일 저장** | SAS 전용 |
 
 ### <a name="option-1-use-azure-active-directory"></a>옵션 1: Azure 활성 디렉터리 사용
 
@@ -308,11 +308,11 @@ URL이 이 명령의 출력에 나타납니다. 그런 다음 스크립트는 �
 
 ## <a name="use-the-previous-version-of-azcopy"></a>이전 버전의 AzCopy 사용
 
-이전 버전의 AzCopy(AzCopy v8.1)를 사용해야 하는 경우 다음 링크 중 하나를 참조하십시오.
+이전 버전의 AzCopy를 사용해야 하는 경우 다음 링크 중 하나를 참조하십시오.
 
 - [Windows에서 AzCopy(v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
 
-- [Linux에서 AzCopy(v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+- [리눅스에 AzCopy (v7)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 ## <a name="configure-optimize-and-troubleshoot-azcopy"></a>AzCopy 구성, 최적화 및 문제 해결
 

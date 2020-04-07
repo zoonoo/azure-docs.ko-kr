@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/10/2020
+ms.date: 04/06/2020
 ms.author: radeltch
-ms.openlocfilehash: ace30b044682cb4e62a0f81da90f21a77be1edd4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 78f60cbd20e7801f4af26372884275d7d6782777
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372979"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754158"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Red Hat 엔터프라이즈 Linux에서 Azure NetApp 파일을 사용하여 Azure VM에서 대기 노드가 있는 SAP HANA 스케일 아웃 시스템 배포 
 
@@ -337,7 +337,7 @@ Azure에서 SAP에 대한 인프라를 디자인할 때 최소 처리량 특성�
     yum install nfs-utils
     </code></pre>
 
-3. **[A]** NFS 구성 가이드가 있는 [NetApp AFF 시스템의 SAP HANA에](https://www.netapp.com/us/media/tr-4435.pdf)설명된 대로 NFS를 통해 Azure NetApp에서 SAP HANA를 실행하기 위한 OS를 준비합니다. NetApp 구성 설정에 대한 구성 파일 */etc/sysctl.d/netapp-hana.conf를* 만듭니다.  
+3. **[A]** Azure [NetApp 파일을 사용하여 Microsoft Azure의 NetApp SAP 응용 프로그램에][anf-sap-applications-azure]설명된 대로 NFS를 사용하여 Azure NetApp에서 SAP HANA를 실행하기 위한 OS를 준비합니다. NetApp 구성 설정에 대한 구성 파일 */etc/sysctl.d/netapp-hana.conf를* 만듭니다.  
 
     <pre><code>
     vi /etc/sysctl.d/netapp-hana.conf
@@ -369,7 +369,7 @@ Azure에서 SAP에 대한 인프라를 디자인할 때 최소 처리량 특성�
     vm.swappiness=10
     </code></pre>
 
-5. **[A]** [NFS 구성 가이드와 넷앱 AFF 시스템의 SAP HANA에서](https://www.netapp.com/us/media/tr-4435.pdf)권장하는 대로 sunrpc 설정을 조정합니다.  
+5. **[A]** [Azure NetApp 파일을 사용하여 Microsoft Azure의 NetApp SAP 응용 프로그램에서][anf-sap-applications-azure]권장하는 대로 sunrpc 설정을 조정합니다.  
 
     <pre><code>
     vi /etc/modprobe.d/sunrpc.conf
@@ -703,11 +703,11 @@ Azure에서 SAP에 대한 인프라를 디자인할 때 최소 처리량 특성�
 6. 기본 Azure NetApp 파일 저장소에 대한 SAP HANA를 최적화하려면 다음 SAP HANA 매개 변수를 설정합니다.
 
    - `max_parallel_io_requests`**128세**
-   - `async_read_submit` **On**
-   - `async_write_submit_active` **On**
+   - `async_read_submit`**에**
+   - `async_write_submit_active`**에**
    - `async_write_submit_blocks`**모두**
 
-   자세한 내용은 [NFS 구성 가이드가 있는 NetApp AFF 시스템의 SAP HANA를](https://www.netapp.com/us/media/tr-4435.pdf)참조하십시오. 
+   자세한 내용은 [Azure NetApp 파일을 사용하여 Microsoft Azure의 NetApp SAP 응용 프로그램을][anf-sap-applications-azure]참조하십시오. 
 
    SAP HANA 2.0 시스템으로 시작하여 에서 `global.ini`매개 변수를 설정할 수 있습니다. 자세한 내용은 SAP Note [1999930](https://launchpad.support.sap.com/#/notes/1999930)을 참조하십시오.  
    
@@ -923,5 +923,4 @@ Azure에서 SAP에 대한 인프라를 디자인할 때 최소 처리량 특성�
 * [SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
 * [SAP용 Azure Virtual Machines 배포][deployment-guide]
 * [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* Azure에서 SAP HANA의 재해 복구를 위한 고가용성 및 계획을 수립하는 방법을 알아보려면 [Azure에서 SAP HANA(큰 인스턴스) 고가용성 및 재해 복구를](hana-overview-high-availability-disaster-recovery.md)참조하십시오.
 * Azure VM에서 SAP HANA의 고가용성 및 재해 복구 계획을 수립하는 방법에 대해 알아보려면 [Azure 가상 시스템(VM)에서 SAP HANA의 고가용성을][sap-hana-ha]참조하십시오.

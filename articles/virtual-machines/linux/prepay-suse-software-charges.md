@@ -7,14 +7,14 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 04/06/2020
 ms.author: banders
-ms.openlocfilehash: 3bb7a62433993f1af26b1ce8bcb4ed258c34623c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e05920e495dd4aa14be6c849590a37a2bafa33f
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75973126"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757238"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Azure 소프트웨어 플랜 선결제
 
@@ -38,6 +38,7 @@ Azure 포털에서 SUSE 및 RedHat 소프트웨어 계획을 구입할 수 있�
 4. 범위를 선택합니다. 범위에는 하나 또는 여러 개의 구독(공유 범위)이 포함될 수 있습니다.
     - 단일 구독 - 요금제 할인은 구독의 일치 사용량에 적용됩니다.
     - 공유 - 요금제 할인은 결제 컨텍스트의 모든 구독에서 일치하는 인스턴스에 적용됩니다. 엔터프라이즈 고객의 경우 청구 컨텍스트는 등록이며 등록의 모든 구독을 포함합니다. 종량제 가격 책정 고객을 사용하는 개별 요금제의 경우 결제 컨텍스트는 계정 관리자가 만든 종량제 가격 구독이 있는 모든 개별 요금제입니다.
+    - 단일 리소스 그룹 - 선택한 리소스 그룹의 일치 리소스에만 예약 할인을 적용합니다.
 5. VM 크기와 이미지 유형을 선택할 제품을 선택합니다. 할인은 선택한 VM 크기에만 적용됩니다.
 6. 1년 또는 3년 기간을 선택합니다.
 7. 청구 할인을 받을 수 있는 선불 VM 인스턴스 수인 수량을 선택합니다.

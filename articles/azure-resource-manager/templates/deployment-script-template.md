@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/06/2020
 ms.author: jgao
-ms.openlocfilehash: 3ef1c3d3fe0fd1ecad95e027b06ce14fd70d4d3f
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: aa49b313f0fb10175dc6c0003f1a919f61731269
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437871"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743304"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트 사용(미리 보기)
 
@@ -33,6 +33,8 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용하는 방법에 �
 - 스크립트를 실행하는 데 사용되는 ID를 지정할 수 있습니다. 현재 [Azure 사용자 할당된 관리되는 ID만](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) 지원됩니다.
 - 명령줄 인수를 스크립트에 전달하도록 허용합니다.
 - 스크립트 출력을 지정하고 배포로 다시 전달할 수 있습니다.
+
+배포 스크립트 리소스는 Azure 컨테이너 인스턴스를 사용할 수 있는 지역에서만 사용할 수 있습니다.  [Azure 지역의 Azure 컨테이너 인스턴스에 대한 리소스 가용성을](../../container-instances/container-instances-region-availability.md)참조하십시오.
 
 > [!IMPORTANT]
 > 스크립트를 실행하고 문제를 해결하기 위해 두 개의 배포 스크립트 리소스, 즉 스토리지 계정과 컨테이너 인스턴스가 동일한 리소스 그룹에 만들어집니다. 이러한 리소스는 일반적으로 배포 스크립트 실행이 터미널 상태에 있을 때 스크립트 서비스에서 삭제됩니다. 리소스가 삭제될 때까지 해당 리소스에 대한 요금이 청구됩니다. 자세한 내용은 [배포 스크립트 리소스 정리를](#clean-up-deployment-script-resources)참조하십시오.
@@ -189,6 +191,8 @@ Write-Host "Press [ENTER] to continue ..."
 예제를 보려면 [여기를](https://github.com/Azure/azure-docs-json-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json)선택합니다.
 
 외부 스크립트 파일에 액세스할 수 있어야 합니다.  Azure 저장소 계정에 저장된 스크립트 파일을 보호하려면 [자습서: Azure 리소스 관리자 템플릿 배포의 보안 아티팩트](./template-tutorial-secure-artifacts.md)를 참조하십시오.
+
+배포 스크립트에서 참조하는 스크립트의 무결성을 보장할 책임은 **주ScriptUri** 또는 **SupportingScriptUris**입니다.  신뢰할 수 있는 스크립트만 참조합니다.
 
 ## <a name="use-supporting-scripts"></a>지원 스크립트 사용
 
