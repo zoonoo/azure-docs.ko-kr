@@ -3,12 +3,12 @@ title: Azure VM을 만들 때 백업 사용
 description: Azure 백업을 사용하여 Azure VM을 만들 때 백업을 활성화하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 0cfea6579791c4fd23c1b7acdfe722d57b5ec2fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7739109eb8bad88c9b723e67e13adc78c127499a
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247853"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672817"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Azure VM을 만들 때 백업 사용
 
@@ -64,6 +64,8 @@ Azure 백업 서비스를 사용하여 Azure 가상 시스템(VM)을 백업합�
 5. 필요한 경우 정책을 수정하여 RG 이름을 편집할 수 있습니다. 이름 패턴이 변경되면 새 RG에 새 LP가 만들어집니다. 그러나 이전 RP는 여전히 이전 RG에 상주하며 RP 컬렉션은 리소스 이동을 지원하지 않으므로 이동되지 않습니다. 결국 LP는 포인트가 만료되면 가비지 수집을 받게 됩니다.
 ![정책을 수정할 때 이름 변경](./media/backup-during-vm-creation/modify-policy.png)
 6. Backup 서비스에서 사용하도록 만든 리소스 그룹을 잠그지 않는 것이 좋습니다.
+
+PowerShell을 사용하여 가상 컴퓨터에 대한 Azure 백업 리소스 그룹을 구성하려면 [스냅숏 보존 중에 Azure 백업 리소스 그룹 만들기를](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention)참조하십시오.
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>VM을 만든 후 백업 시작
 

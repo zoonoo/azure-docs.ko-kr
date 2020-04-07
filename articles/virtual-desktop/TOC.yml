@@ -88,6 +88,10 @@
       href: app-attach.md
     - name: Microsoft Teams 사용
       href: teams-on-wvd.md
+    - name: Azure Multi-Factor Authentication 설정
+      href: set-up-mfa.md
+    - name: 언어 팩 설치
+      href: language-packs.md
 - name: 개념
   items:
     - name: Windows Virtual Desktop 환경

@@ -1,14 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
-ms.date: 03/12/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0e55923e688d1062adc5838a88e8d3202864282a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ac5d62fbf6b6ee418cd4b2f2b00dfc12e05f809
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218382"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754140"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -59,7 +59,7 @@ Azure PowerShell [Get-AzSubscription cmdlet각](https://docs.microsoft.com/power
 
 - Automation 계정을 사용하여 위임된 고객 리소스를 액세스 및 사용합니다.
 
-[Azure Backup](../../backup/index.yml):
+[Azure 백업](../../backup/index.yml):
 
 - 고객 테넌트의 고객 데이터를 백업 및 복원합니다.
 - 백업 [탐색기를](../../backup/monitor-azure-backup-with-backup-explorer.md) 사용하여 백업 항목의 운영 정보(아직 백업에 대해 구성되지 않은 Azure 리소스 포함) 및 위임된 구독에 대한 모니터링 정보(작업 및 경고)를 볼 수 있습니다. 백업 탐색기는 현재 Azure VM 데이터에만 사용할 수 있습니다.
@@ -84,7 +84,7 @@ Azure PowerShell [Get-AzSubscription cmdlet각](https://docs.microsoft.com/power
 - 고객은 자신이 직접 작성한 정책과 함께 서비스 공급자가 작성한 정책을 볼 수 있습니다.
 - [deployIfNotExists를 수정하거나 고객 테넌트 내에서 할당을 수정](../how-to/deploy-policy-remediation.md)할 수 있습니다.
 
-[Azure Resource Graph](../../governance/resource-graph/index.yml):
+[Azure 리소스 그래프](../../governance/resource-graph/index.yml):
 
 - 이제 반환된 쿼리 결과에 테넌트 ID를 포함하여 구독이 고객 테넌트 또는 서비스 공급자 테넌트에 속하는지 여부를 식별할 수 있습니다.
 
@@ -105,12 +105,12 @@ Azure PowerShell [Get-AzSubscription cmdlet각](https://docs.microsoft.com/power
   - 적응형 애플리케이션 제어를 사용하여 서버가 필요한 애플리케이션 및 프로세스만 실행하는지 확인합니다.
   - FIM(파일 무결성 모니터링)을 사용하여 중요한 파일 및 레지스트리 항목의 변경 내용을 모니터링합니다.
 
-[Azure Sentinel](../../sentinel/multiple-tenants-service-providers.md):
+[푸른 파수꾼](../../sentinel/multiple-tenants-service-providers.md):
 
 - [고객 테넌에서](../../sentinel/multiple-tenants-service-providers.md) Azure Sentinel 리소스 관리
 - [여러 고객 테넌트에서 공격 추적 및 보안 경고 보기](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
 
-[Azure Service Health](../../service-health/index.yml):
+[Azure 서비스 상태](../../service-health/index.yml):
 
 - Azure Resource Health를 사용하여 고객 리소스 상태를 모니터링합니다.
 - 고객이 사용하는 Azure 서비스의 상태를 추적합니다.
@@ -141,6 +141,7 @@ Azure PowerShell [Get-AzSubscription cmdlet각](https://docs.microsoft.com/power
 - 역할 할당은 RBAC(역할 기반 액세스 제어) [기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 사용해야 합니다. 현재, 소유자 또는 [DataActions](../../role-based-access-control/role-definitions.md#dataactions) 권한이 있는 기본 제공 역할을 제외한 모든 기본 제공 역할이 Azure 위임 리소스 관리에서 지원됩니다. 사용자 액세스 관리자 역할은 [관리 ID에 역할 할당](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)에서 제한된 용도로만 지원됩니다.  사용자 지정 역할 및 [클래식 구독 관리자 역할](../../role-based-access-control/classic-administrators.md)은 지원되지 않습니다.
 - Azure Databricks를 사용하는 구독을 온보딩할 수 있지만 관리 테넌트의 사용자는 현재 위임된 구독에서 Azure Databricks 작업 영역을 시작할 수 없습니다.
 - 리소스 잠금이 있는 Azure 위임 리소스 관리에 대한 구독 및 리소스 그룹을 온보드할 수 있지만 이러한 잠금으로 인해 관리 테넌트의 사용자가 작업을 수행할 수 없습니다. Azure 관리 응용 프로그램 또는 Azure Blueprint(시스템 할당된 거부 할당)에서 만든 리소스와 같이 시스템 관리 되는 리소스를 보호하는 [거부 할당은](../../role-based-access-control/deny-assignments.md) 관리 테넌트의 사용자가 해당 리소스에 대해 작동하지 못하도록 합니다. 그러나 현재 고객 테넌트의 사용자는 자체 거부 할당(사용자 할당거부 할당)을 만들 수 없습니다.
+- 관리 테넌트의 사용자는 일반적으로 액세스를 허용하는 기본 제공 역할이 있더라도 위임된 고객 구독에 대한 청구 정보를 볼 수 없습니다. 이는 청구 정보에 액세스하려면 현재 동일한 테넌트 내의 사용자에 대해서만 지원되는 추가 단계가 필요하기 때문입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

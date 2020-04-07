@@ -77,6 +77,8 @@
           href: troubleshoot-guide-critical-process-died.md
         - name: 중요 서비스 실패
           href: troubleshoot-critical-service-failed-boot-error.md
+        - name: 로컬 사용자 및 그룹 정책을 적용할 때 VM이 응답하지 않음
+          href: troubleshoot-vm-unresponsive-group-policy-local-users.md
         - name: 부팅 가능한 디스크가 아님
           href: troubleshoot-guide-not-bootable-disk.md
         - name: 다시 부팅 루프
@@ -87,6 +89,8 @@
           href: troubleshoot-vm-boot-configure-update.md
         - name: Windows 부팅 관리자로 인해 VM을 부팅할 수 없음
           href: troubleshoot-guide-windows-boot-manager-menu.md
+        - name: 업데이트로 인해 VM이 응답하지 않음
+          href: unresponsive-vm-apply-windows-update.md
 - name: VM에 연결할 수 없습니다.
   items:
     - name: RDP

@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: dceff3e320554edc972654aa49552bffbc4c9a13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 821007e40eaa91c98f157ee0b28fe01f37e3cbc9
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286492"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743952"
 ---
 # <a name="update-an-existing-iot-edge-module-offer"></a>기존 IoT Edge 모듈 제품 업데이트
+
+>[!Important]
+>2020년 3월 30일부터 파트너 센터로 IoT Edge 모듈의 관리를 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. IoT [Edge 생성 모듈 오퍼의](https://aka.ms/AzureCreateIoT) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
 
 이 문서에서는 [Cloud 파트너 포털](https://cloudpartner.azure.com/)에서 IoT Edge 모듈 제품을 업데이트한 다음, 해당 제품을 다시 게시하는 다양한 측면을 단계별로 안내합니다.
 

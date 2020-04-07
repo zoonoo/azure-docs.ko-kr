@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 2c8617cffaa81da6423011a494b8dbc82c42d218
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 43ee14784b6049e9b5c1a78e733e72bbc45f915d
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632447"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744046"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Azure 시냅스 분석 워크로드 중요도
 
@@ -38,7 +38,7 @@ ms.locfileid: "80632447"
 
 ### <a name="locking"></a>잠금
 
-읽기 및 쓰기 활동에 대한 잠금에 대한 액세스는 자연스러운 경합의 한 영역입니다. [파티션 전환](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) 또는 [OBJECT 이름 바꾸기와](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest) 같은 활동에는 상승된 잠금이 필요합니다.  워크로드가 중요하지 않으면 Azure Synapse의 Synapse SQL 풀이 처리량에 맞게 최적화됩니다. 처리량에 대한 최적화는 실행 및 큐에 대기 중인 요청이 동일한 잠금 요구 사항이 있고 리소스를 사용할 수 있는 경우 큐에 대기중인 요청이 이전에 요청 큐에 도착한 더 높은 잠금 요구가 있는 요청을 우회할 수 있음을 의미합니다. 잠금 요구가 높은 요청에 워크로드 중요도가 적용되면 중요도가 높은 요청은 요청 전에 실행되며 중요도가 낮습니다.
+읽기 및 쓰기 활동에 대한 잠금에 대한 액세스는 자연스러운 경합의 한 영역입니다. [파티션 전환](sql-data-warehouse-tables-partition.md) 또는 [OBJECT 이름 바꾸기와](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 같은 활동에는 상승된 잠금이 필요합니다.  워크로드가 중요하지 않으면 Azure Synapse의 Synapse SQL 풀이 처리량에 맞게 최적화됩니다. 처리량에 대한 최적화는 실행 및 큐에 대기 중인 요청이 동일한 잠금 요구 사항이 있고 리소스를 사용할 수 있는 경우 큐에 대기중인 요청이 이전에 요청 큐에 도착한 더 높은 잠금 요구가 있는 요청을 우회할 수 있음을 의미합니다. 잠금 요구가 높은 요청에 워크로드 중요도가 적용되면 중요도가 높은 요청은 요청 전에 실행되며 중요도가 낮습니다.
 
 다음과 같은 예제를 참조하세요.
 
@@ -62,8 +62,8 @@ Q5는 mediumrc이기 때문에 두 개의 동시성 슬롯이 필요합니다. Q
 
 ## <a name="next-steps"></a>다음 단계
 
-- 분류자 만들기에 대한 자세한 내용은 [워크로드 분류자 만들기(Transact-SQL)를](/sql/t-sql/statements/create-workload-classifier-transact-sql)참조하십시오.  
+- 분류자 만들기에 대한 자세한 내용은 [워크로드 분류자 만들기(Transact-SQL)를](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)참조하십시오.  
 - 워크로드 분류에 대한 자세한 내용은 [워크로드 분류](sql-data-warehouse-workload-classification.md)를 참조하십시오.  
 - 워크로드 분류기를 만드는 방법에 대한 빠른 시작 [워크로드 분류자 만들기를](quickstart-create-a-workload-classifier-tsql.md) 참조하십시오.
 - [워크로드 중요도 구성](sql-data-warehouse-how-to-configure-workload-importance.md) 및 [워크로드 관리 모니터링 및 관리](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md) 방법에 대한 문서를 참조하세요.
-- 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest)를 참조하세요.
+- 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.

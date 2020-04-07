@@ -1,15 +1,15 @@
 ---
 title: Azure 블록체인 서비스 제한
 description: Azure 블록 체인 서비스의 서비스 및 기능 제한 개요
-ms.date: 03/30/2020
+ms.date: 04/02/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
-ms.openlocfilehash: c728e617ac37795988cd596c7cb0c5025aac4ccf
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 71e1bebf10fa0142870d03977182472da1ad031f
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529569"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676527"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Azure 블록 체인 서비스의 한계
 
@@ -35,7 +35,6 @@ Azure 블록 체인 서비스에는 구성원이 가질 수있는 노드 수, �
 원장 데이터 및 로그에 대해 노드당 사용할 수 있는 최대 저장소 수는 1.8테라바이트입니다.
 
 원장 및 로그 저장소 크기를 줄이면 지원되지 않습니다.
-
 ## <a name="consortium-limits"></a>컨소시엄 한도
 
 * 컨소시엄 및 구성원 이름은 Azure 블록 체인 서비스의 다른 컨소시엄 및 구성원 이름에서 **고유해야 합니다.**
@@ -59,6 +58,12 @@ Azure 블록 체인 서비스에는 구성원이 가질 수있는 노드 수, �
 * **컨소시엄의 모든 구성원이 동일한 원장 버전을 사용해야 합니다.**
 
     Azure 블록 체인 서비스에서 사용할 수있는 패치, 업데이트 및 원장 버전에 대한 자세한 내용은 [패치, 업데이트 및 버전을](ledger-versions.md)참조하십시오.
+
+## <a name="performance"></a>성능
+
+각 트랜잭션 제출에 *대해 eth.estimate* 가스 함수를 사용하지 마십시오. *eth.estimate* 함수는 메모리 집약적입니다. 함수를 여러 번 호출하면 초당 트랜잭션이 크게 줄어듭니다.
+
+가능하면 트랜잭션을 제출할 때 보수적인 가스 값을 사용하고 *eth.estimate*사용을 최소화하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

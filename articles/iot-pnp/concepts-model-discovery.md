@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 66da0321930ac38217a336380c9889963a433e67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 94e5e6fb826528aab1a358d44cb51bfcd6219032
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75531363"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673581"
 ---
 # <a name="implement-iot-plug-and-play-preview-model-discovery-in-an-iot-solution"></a>IoT 솔루션에서 IoT 플러그 앤 플레이 미리 보기 모델 검색 구현
 
@@ -46,7 +46,7 @@ IoT 플러그 앤 플레이 장치가 IoT 허브에 처음 연결되면 모델 �
 
 솔루션에 미리 연결되는 장치에 대한 기능 모델과 인터페이스를 사용할 수 있습니다. 다음 단계를 사용하여 솔루션을 준비합니다.
 
-1. 인터페이스 JSON 파일을 솔루션에서 읽을 수 있는 위치에 Azure에 저장합니다.
+1. 솔루션에서 읽을 수 있는 [모델 리포지토리에](./howto-manage-models.md) 인터페이스 JSON 파일을 저장합니다.
 1. 예상되는 IoT 플러그 앤 플레이 기능 모델 및 인터페이스를 기반으로 IoT 솔루션에 로직을 작성합니다.
 1. 솔루션에서 사용하는 IoT 허브의 알림을 구독합니다.
 

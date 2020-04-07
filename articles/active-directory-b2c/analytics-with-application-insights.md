@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/24/2020
+ms.date: 04/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 687c9620ae70f7bca2b95a94dd8fe411d7348b30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25e62e7c6865f91daa242a33a0f491f8015be41a
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246486"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672528"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Application Insights를 사용하여 Azure Active Directory B2C에서 사용자 동작 추적
 
@@ -43,7 +43,7 @@ Application Insights는 상관 관계 ID를 사용하여 사용자 세션을 기
 
 Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 만들고 계측 키를 가져오기만 하면 됩니다. 자세한 내용은 [응용 프로그램 인사이트 만들기 리소스를](../azure-monitor/app/create-new-resource.md) 참조하십시오.
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 최상위 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 구독이 포함된 디렉터리를 선택하여 Azure 구독이 포함된 디렉터리를 사용하고 있는지 확인합니다. 이 테넌트는 Azure AD B2C 테넌트가 아닙니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **리소스 만들기**를 선택하고 **Application Insights**를 검색하여 선택합니다.
 4. **만들기**를 클릭합니다.
@@ -132,6 +132,7 @@ Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 
         <InputClaim ClaimTypeReferenceId="PolicyId" PartnerClaimType="{property:Policy}" DefaultValue="{Policy:PolicyId}" />
         <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:CorrelationId}" DefaultValue="{Context:CorrelationId}" />
         <InputClaim ClaimTypeReferenceId="Culture" PartnerClaimType="{property:Culture}" DefaultValue="{Culture:RFC5646}" />
+      </InputClaims>
     </TechnicalProfile>
 
     <TechnicalProfile Id="AppInsights-SignInRequest">

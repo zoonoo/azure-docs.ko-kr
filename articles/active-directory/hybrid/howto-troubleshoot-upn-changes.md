@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 695773da624bc8d4ccff09119d64fc43319ff488
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d11be1d971922095d4a1ace1c81c763134b4e58c
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246435"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743328"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Azure Active 디렉터리에서 사용자 주체 이름 변경 계획 및 문제 해결
 
@@ -58,7 +58,7 @@ Bsimon@contoso.com 을 통해Britta.Simon@contoso.com
 
    * Britta.Simon@contosolabs.com에 대한 Britta.Simon@contoso.com <br>
      또는<br>
-    *   Britta.Simon@labs.contoso.com에 대한 Britta.Simon@corp.contoso.com 
+    * Britta.Simon@labs.contoso.com에 대한 Britta.Simon@corp.contoso.com 
 
 사용자의 기본 전자 메일 주소가 업데이트될 때마다 사용자의 UPN을 변경합니다. 이메일 변경 사유에 관계없이 UPN은 항상 일치하도록 업데이트되어야 합니다.
 
@@ -100,7 +100,7 @@ userPrincipalName 특성의 값이 Azure AD에서 확인된 도메인과 일치�
 
 ### <a name="roll-out-bulk-upn-changes"></a>롤아웃 대량 UPN 변경
 
-대량 UPN[변경에 대한 시험 운용에](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans) 대한 모범 사례를 따릅니다. 또한 신속하게 해결할 수 없는 문제가 발견되면 UPN을 되돌리기 위한 테스트된 롤백 계획을 가지고 있습니다. 파일럿이 실행되면 다양한 조직 역할과 특정 앱 또는 장치 집합을 가진 소규모 사용자 집합을 대상으로 시작할 수 있습니다.
+대량 UPN [변경에 대한 시험 운용에](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans) 대한 모범 사례를 따릅니다. 또한 신속하게 해결할 수 없는 문제가 발견되면 UPN을 되돌리기 위한 테스트된 롤백 계획을 가지고 있습니다. 파일럿이 실행되면 다양한 조직 역할과 특정 앱 또는 장치 집합을 가진 소규모 사용자 집합을 대상으로 시작할 수 있습니다.
 
 이 첫 번째 하위 집합을 통해 변경의 일부로 사용자가 예상해야 하는 것을 잘 알 수 있습니다. 사용자 통신에 이 정보를 포함합니다.
 
@@ -108,7 +108,7 @@ userPrincipalName 특성의 값이 Azure AD에서 확인된 도메인과 일치�
 
 다음 섹션에서는 UPN이 변경될 때 알려진 잠재적인 문제 및 해결 방법을 자세히 설명합니다.
 
-## <a name="user-provisioning-known-issues-and-workarounds"></a>알려진 문제 및 해결 방법을 사용자 프로비전
+## <a name="apps-known-issues-and-workarounds"></a>알려진 문제 및 해결 방법을 통해 해결 된 앱
 
 [서비스로서의 소프트웨어(SaaS)](https://azure.microsoft.com/overview/what-is-saas/) 및 LoB(비즈니스 라인) 응용 프로그램은 종종 UPN을 사용하여 사용자를 찾고 역할을 포함한 사용자 프로필 정보를 저장합니다. 사용자가 처음으로 앱에 로그인할 때 사용자 프로필을 만들기 위해 [Just in Time 프로비전을](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning) 사용하는 응용 프로그램은 UPN 변경 사항의 영향을 받을 수 있습니다.
 
@@ -117,6 +117,7 @@ userPrincipalName 특성의 값이 Azure AD에서 확인된 도메인과 일치�
 
 **해결**<br>
 [Azure AD 자동화된 사용자 프로비저닝을](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) 사용하면 지원되는 클라우드 응용 프로그램에서 사용자 ID를 자동으로 생성, 유지 관리 및 제거할 수 있습니다. 응용 프로그램에서 자동화된 사용자 프로비저닝을 구성하면 응용 프로그램의 UPN이 자동으로 업데이트됩니다. 프로그레시브 롤아웃의 일부로 응용 프로그램을 테스트하여 UPN 변경의 영향을 받지 않는지 확인합니다.
+개발자인 경우 Azure Active Directory에서 자동 사용자 프로비전을 사용하도록 [설정하려면 응용 프로그램에 SCIM 지원을 추가하는](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 것이 좋습니다. 
 
 ## <a name="managed-devices-known-issues-and-workarounds"></a>관리되는 장치 알려진 문제 및 해결 해결
 
@@ -130,7 +131,7 @@ userPrincipalName 특성의 값이 Azure AD에서 확인된 도메인과 일치�
 사용자는 인증을 위해 Azure AD에 의존하는 응용 프로그램에 대해 단일 사인온 문제가 발생할 수 있습니다.
 
 **해결** <br>
-UPN 변경 사항이 Azure AD에 동기화될 때까지 충분한 시간을 허용합니다. 새 UPN이 Azure AD 포털에 반영되어 있는지 확인하면 사용자에게 새 UPN으로 로그인할 "다른 사용자" 타일을 선택하도록 요청합니다. [PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0)을 통해 확인할 수도 있습니다. 새 UPN으로 로그인한 후에도 이전 UPN에 대한 참조가 "직장 또는 학교 액세스" Windows 설정에 계속 나타날 수 있습니다.
+UPN 변경 사항이 Azure AD에 동기화될 때까지 충분한 시간을 허용합니다. 새 UPN이 Azure AD 포털에 반영되어 있는지 확인하면 사용자에게 새 UPN으로 로그인할 "다른 사용자" 타일을 선택하도록 요청합니다. [PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0)을 통해 확인할 수도 있습니다. 새 UPN으로 로그인한 후에도 이전 UPN에 대한 참조가 "작업 또는 학교 액세스" Windows 설정에 계속 나타날 수 있습니다.
 
 ![확인된 도메인의 스크린샷](./media/howto-troubleshoot-upn-changes/other-user.png)
 
@@ -142,7 +143,7 @@ UPN 변경 사항이 Azure AD에 동기화될 때까지 충분한 시간을 허�
 
 Windows 10 하이브리드 Azure AD 에 가입한 장치는 예기치 않은 재시작 및 액세스 문제가 발생할 수 있습니다.
 
-새 UPN이 Azure AD에 동기화되기 전에 사용자가 Windows에 로그인하거나 기존 Windows 세션을 계속 사용하는 경우 조건부 액세스가 구성된 경우 인증을 위해 Azure AD를 사용하는 응용 프로그램에서 단일 사인온 문제가 발생할 수 있습니다. 을 사용하여 하이브리드 조인 된 장치를 사용하여 리소스에 액세스합니다. 
+새 UPN이 Azure AD에 동기화되기 전에 사용자가 Windows에 로그인하거나 기존 Windows 세션을 계속 사용하는 경우 조건부 액세스가 하이브리드 조인 된 장치를 사용하여 리소스에 액세스하도록 구성된 경우 Azure AD를 인증용으로 사용하는 응용 프로그램에서 단일 사인온 문제가 발생할 수 있습니다. 
 
 또한 다음 메시지가 표시 되어 1 분 후 다시 시작 해야 합니다. 
 
@@ -166,7 +167,7 @@ Windows 10 하이브리드 Azure AD 에 가입한 장치는 예기치 않은 재
 
 * iOS 및 Android 장치에서 인증 브로커 역할을 하여 [중개 인증을](https://docs.microsoft.com/azure/active-directory/develop/brokered-auth) 사용하는 응용 프로그램에 대해 단일 사인온을 제공합니다.
 
-* Intune 앱 보호 및 장치 등록/관리와 같은 다른 기능에 대한 요구 사항인 Azure AD에 대한 장치 등록(Workplace 조인이라고도 함)은
+* Intune 앱 보호 및 장치 등록/관리와 같은 다른 기능에 대한 요구 사항인 Azure AD에 대한 장치 등록(Workplace Join이라고도 함)
 
 * MFA 및 장치 등록이 필요한 전화 로그인.
 
@@ -174,15 +175,13 @@ Windows 10 하이브리드 Azure AD 에 가입한 장치는 예기치 않은 재
 
 Microsoft 인증자 앱은 대역 외 확인 옵션을 제공합니다. [MFA(다단계 인증)는](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) 로그인 하는 동안 사용자에게 자동 전화 통화 또는 SMS를 배치하는 대신 사용자의 스마트폰 또는 태블릿에서 Microsoft 인증자 앱에 알림을 푸시합니다. 사용자는 단순히 승인을 탭 (또는 PIN 또는 생체 인식을 입력하고 자신의 로그인을 완료하기 위해 응용 프로그램에서 "인증"을 누릅니다).
 
-사용자의 UPN을 변경하면 모바일 장치에 다음과 같은 문제가 발생할 수 있습니다.
-
 **알려진 문제** 
 
-이전 UPN이 여전히 사용자 계정에 표시되며 알림이 수신되지 않을 수 있습니다. [확인 코드는](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-faq) 계속 작동합니다.
+사용자의 UPN을 변경해도 이전 UPN이 여전히 사용자 계정에 표시되며 알림이 수신되지 않을 수 있습니다. [확인 코드는](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-faq) 계속 작동합니다.
 
 **해결**
 
-알림이 수신되면 사용자에게 알림을 해제하고, 인증자 앱을 열고, "알림 확인" 옵션을 탭하고 MFA 프롬프트를 승인하도록 지시합니다. 그 후 계정에 표시된 UPN이 업데이트됩니다. 업데이트된 UPN이 새 계정으로 표시될 수 있으며 이는 다른 인증자 기능이 사용 중이기 때문입니다. 자세한 내용은 이 문서에서 알려진 추가 문제입니다.
+알림이 수신되면 사용자에게 알림을 해제하고, 인증자 앱을 열고, "알림 확인" 옵션을 탭하고 MFA 프롬프트를 승인하도록 지시합니다. 그 후 계정에 표시된 UPN이 업데이트됩니다. 업데이트된 UPN이 새 계정으로 표시될 수 있으며 이는 다른 인증자 기능이 사용 중이기 때문입니다. 자세한 내용은 이 문서의 알려진 추가 문제를 참조하십시오.
 
 ### <a name="brokered-authentication"></a>중개 인증
 

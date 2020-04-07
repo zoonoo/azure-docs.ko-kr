@@ -11,12 +11,12 @@ ms.date: 11/4/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a249dfc4f04fbd7b6b73a0e9f37d53106bf82efd
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 8cee874106598c7d81b923d7dd32ba91902d9326
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633349"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745178"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>리소스 클래스를 워크로드 그룹으로 변환
 
@@ -53,7 +53,7 @@ CREATE WORKLOAD GROUP wgDataLoads WITH
 
 ## <a name="create-the-classifier"></a>분류자 만들기
 
-이전에는 [쿼리를](resource-classes-for-workload-management.md#change-a-users-resource-class)리소스 클래스에 매핑하는 sp_addrolemember 수행되었습니다.  동일한 기능을 달성하고 요청을 워크로드 그룹에 매핑하려면 [워크로드 분류자 만들기](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql) 구문을 사용합니다.  sp_addrolemember 사용하면 로그인을 기반으로 리소스를 요청에 매핑할 수 있습니다.  분류기는 다음과 같은 로그인 외에 추가 옵션을 제공합니다.
+이전에는 [쿼리를](resource-classes-for-workload-management.md#change-a-users-resource-class)리소스 클래스에 매핑하는 sp_addrolemember 수행되었습니다.  동일한 기능을 달성하고 요청을 워크로드 그룹에 매핑하려면 [워크로드 분류자 만들기](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 구문을 사용합니다.  sp_addrolemember 사용하면 로그인을 기반으로 리소스를 요청에 매핑할 수 있습니다.  분류기는 다음과 같은 로그인 외에 추가 옵션을 제공합니다.
     - label
     - 세션
     - 시간 아래 예제는 위에서 만든 `AdfLogin` 워크로드 그룹에 `wgDataLoads` [옵션 LABEL이](sql-data-warehouse-develop-label.md) `factloads` 설정된 로그인에서 쿼리를 할당합니다.

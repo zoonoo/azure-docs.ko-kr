@@ -1,14 +1,14 @@
 ---
 title: 지원되는 리소스 관리자 리소스 유형
 description: Azure 리소스 그래프 및 변경 기록에서 지원하는 리소스 관리자 리소스 유형 목록을 제공합니다.
-ms.date: 03/23/2020
+ms.date: 04/06/2020
 ms.topic: reference
-ms.openlocfilehash: 64fd860090cc15cc6914ee926772146b98477edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85cab92981568f5ea3770e1102c3480ae4f3e638
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130607"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677063"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure 리소스 그래프 테이블 및 리소스 유형 참조
 
@@ -188,6 +188,7 @@ Azure 리소스 그래프는 Azure [리소스 관리자의](../../../azure-resou
 - 마이크로 소프트 이벤트 허브 / 클러스터
 - 마이크로 소프트.eventhub /네임 스페이스
 - 마이크로소프트.실험/실험 공간
+- 마이크로소프트.팔콘/네임스페이스
 - 마이크로소프트.게임/타이틀
 - 마이크로 소프트.유전체학 / 계정
 - microsoft.게스트 구성/자동 관리 계정
@@ -290,6 +291,7 @@ Azure 리소스 그래프는 Azure [리소스 관리자의](../../../azure-resou
 - 마이크로 소프트 네트워크 / 네트워크 실험 프로필
 - 마이크로소프트 네트워크/네트워크 의도 정책
 - 마이크로 소프트 네트워크 / 네트워크 인터페이스
+- 마이크로소프트 네트워크/네트워크 관리자
 - 마이크로 소프트 네트워크 / 네트워크 프로필
 - 마이크로소프트.네트워크/네트워크 보안 그룹
 - 마이크로소프트.네트워크/네트워크가상 제품
@@ -446,6 +448,7 @@ Azure 리소스 그래프는 Azure [리소스 관리자의](../../../azure-resou
 - 완디스코.퓨전/퓨전 그룹
 - 완디스코.퓨전/퓨전 그룹/azurezones
 - wandisco.fusion/퓨전 그룹/azurezones/플러그인
+- 완디스코.퓨전/퓨전 그룹/하이브복제 규칙
 - 완디스코.퓨전/퓨전 그룹/관리온프렘존
 - 완디스코.퓨전/퓨전 그룹/온프렘존
 - wandisco.fusion/퓨전 그룹/복제 규칙

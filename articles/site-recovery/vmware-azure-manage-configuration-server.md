@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 692834903899448707200b24a955301e29e14f90
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 56c53b9e2388cc0594076a5ef35b072216aec20d
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478460"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672762"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>VMware VM/물리적 서버 재해 복구를 위한 구성 서버 관리
 
@@ -45,7 +45,7 @@ OVF 템플릿에 제공되는 라이선스는 180일 동안 유효한 평가 라
 
 CSPSConfigtool.exe를 통해 자격 증명을 수정할 수도 있습니다.
 
-1. 구성 서버에 로그인하고 CSPSConfigtool.exe 시작
+1. 구성 서버에 로그인하고 CSPSConfigtool.exe를 시작합니다.
 2. 수정할 계정을 선택하고 **편집**을 클릭합니다.
 3. 수정된 자격 증명을 입력하고 **확인**을 클릭하세요.
 
@@ -93,6 +93,32 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
 - [VM에 어댑터를 추가할](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter)수 있지만 볼트에 구성 서버를 등록하기 전에 어댑터를 추가해야 합니다.
 - 구성 서버를 자격 증명 모음에 등록한 후 어댑터를 추가하려면 VM 속성에서 어댑터를 추가합니다. 그런 다음 볼트에 서버를 [다시 등록해야](#reregister-a-configuration-server-in-the-same-vault) 합니다.
 
+## <a name="how-to-renew-ssl-certificates"></a>SSL 인증서를 갱신하는 방법
+
+구성 서버에는 보호된 모든 컴퓨터에서 Mobility 에이전트의 활동을 오케스트레이션하는 붙박이 웹 서버, 붙박/확장 프로세스 서버 및 연결된 마스터 대상 서버가 있습니다. 웹 서버는 SSL 인증서를 사용하여 클라이언트를 인증합니다. 인증서는 3년 후에 만료되며 언제든지 갱신할 수 있습니다.
+
+### <a name="check-expiry"></a>만료 확인
+
+만료 날짜가 **구성 서버 상태** 아래에 표시됩니다. 2016년 5월 이전의 구성 서버 배포의 경우, 인증서 만료가 1년으로 설정되었습니다. 인증서가 곧 만료될 예정인 경우 다음이 발생합니다.
+
+- 만료 날짜가 2개월 이내로 남은 경우 서비스는 포털을 통해 및 전자 메일로 알림을 전송하기 시작합니다(Site Recovery 알림을 구독한 경우).
+- 알림 배너가 자격 증명 모음 리소스 페이지에 나타납니다. 자세한 내용은 배너를 선택합니다.
+- **지금 업그레이드** 단추가 표시되면 작업 환경의 일부 구성 요소가 아직 9.4.xxxx.x 이상 버전으로 업그레이드되지 않았음을 의미합니다. 인증서를 갱신하기 전에 구성 요소를 업그레이드합니다. 이전 버전에서는 갱신할 수 없습니다.
+
+### <a name="if-certificates-are-yet-to-expire"></a>인증서가 아직 만료되지 않은 경우
+
+1. 볼트에서 사이트 복구 인프라**구성 서버를**열려면 **갱신합니다.** >  원하는 구성 서버를 선택합니다.
+2. 보호된 모든 컴퓨터에서 모든 구성 요소 확장 프로세스 서버, 마스터 대상 서버 및 모빌리티 에이전트가 최신 버전에 있고 연결된 상태인지 확인합니다.
+3. 이제 **인증서 갱신을 선택합니다.**
+4. 이 페이지의 지침을 주의 깊게 따르고 확인을 클릭하여 선택한 구성 서버및 관련 구성 요소에서 인증서를 갱신합니다.
+
+### <a name="if-certificates-have-already-expired"></a>인증서가 이미 만료된 경우
+
+1. 만료 후 Azure 포털에서 인증서를 **갱신할 수 없습니다.** 계속하기 전에 보호된 모든 컴퓨터의 모든 구성 요소 확장 프로세스 서버, 마스터 대상 서버 및 모빌리티 에이전트가 최신 버전에 있고 연결된 상태인지 확인합니다.
+2. **인증서가 이미 만료된 경우에만 이 절차를 따르십시오.** 구성 서버에 로그인, C 드라이브 >로 이동 프로그램 데이터 > 사이트 복구 > 홈 > svsystems > 저장소및 "RenewCerts" 실행기 도구를 실행 관리자로 실행 합니다.
+3. PowerShell 실행 창이 팝업되고 인증서 갱신을 트리거합니다. 이 작업은 최대 15분까지 걸릴 수 있습니다. 갱신이 완료될 때까지 창을 닫지 마십시오.
+
+:::image type="content" source="media/vmware-azure-manage-configuration-server/renew-certificates.png" alt-text="인증서 갱신":::
 
 ## <a name="reregister-a-configuration-server-in-the-same-vault"></a>동일한 자격 증명 모음에 구성 서버 다시 등록
 
@@ -112,7 +138,7 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
    ```
 
     >[!NOTE]
-    >구성 서버에서 확장 프로세스 서버로 **최신 인증서를 가져오려면** *\<"설치 드라이브\Microsoft Azure 사이트 복구\에이전트\cdpcli.exe>" --registermt 명령을 실행합니다.*
+    >구성 서버에서 확장 프로세스 서버로 **최신 인증서를 가져오려면** *\<"설치 드라이브\Microsoft Azure 사이트 복구\에이전트\cdpcli.exe>"--registermt*
 
 8. 마지막으로 다음 명령을 실행하여 obengine을 다시 시작합니다.
    ```
@@ -269,24 +295,6 @@ ProxyPassword="Password"
 2. 디렉터리를 bin 폴더로 변경하려면 **cd %ProgramData%\ASR\home\svsystems\bin** 명령을 실행합니다.
 3. 암호 파일을 생성하려면 **genpassphrase.exe -v > MobSvc.passphrase**를 실행합니다.
 4. 암호는 **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**에 있는 파일에 저장됩니다.
-
-## <a name="renew-tlsssl-certificates"></a>TLS/SSL 인증서 갱신
-
-구성 서버에는 기본 제공 웹 서버가 있습니다. 이 서버는 Mobility Service, 프로세스 서버 및 마스터 대상 서버의 작업을 오케스트레이션합니다. 웹 서버는 TLS/SSL 인증서를 사용하여 클라이언트를 인증합니다. 인증서는 3년 후에 만료되며 언제든지 갱신할 수 있습니다.
-
-### <a name="check-expiry"></a>만료 확인
-
-2016년 5월 이전의 구성 서버 배포의 경우, 인증서 만료가 1년으로 설정되었습니다. 인증서가 곧 만료될 예정인 경우 다음이 발생합니다.
-
-- 만료 날짜가 2개월 이내로 남은 경우 서비스는 포털을 통해 및 전자 메일로 알림을 전송하기 시작합니다(Site Recovery 알림을 구독한 경우).
-- 알림 배너가 자격 증명 모음 리소스 페이지에 나타납니다. 자세한 내용은 배너를 선택합니다.
-- **지금 업그레이드** 단추가 표시되면 작업 환경의 일부 구성 요소가 아직 9.4.xxxx.x 이상 버전으로 업그레이드되지 않았음을 의미합니다. 인증서를 갱신하기 전에 구성 요소를 업그레이드합니다. 이전 버전에서는 갱신할 수 없습니다.
-
-### <a name="renew-the-certificate"></a>인증서 갱신
-
-1. 볼트에서 사이트 **복구 인프라** > **구성 서버를**엽니다. 원하는 구성 서버를 선택합니다.
-2. 만료 날짜가 **구성 서버 상태** 아래에 표시됩니다.
-3. **인증서 갱신**을 선택합니다.
 
 ## <a name="refresh-configuration-server"></a>구성 서버 새로 고침
 

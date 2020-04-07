@@ -4,12 +4,12 @@ description: Azure Kubernetes 서비스(AKS)에서 사용자 지정 송신 경�
 services: container-service
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: 30b7b6bae92221b268d40977f5b299e9b0b267b0
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 3780680c485aebf1ffc654d31c577821a9b96fff
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637818"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676498"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>사용자 정의 경로(미리 보기)로 클러스터 송신 사용자 지정
 
@@ -361,7 +361,7 @@ az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/
 
 ```
 
- [az aks get-credentials][az-aks-get-credentials] 명령을 `kubectl` 사용하여 새로 만든 Kubernetes 클러스터에 연결하도록 구성합니다. 
+ az [aks get-credentials][az-aks-get-credentials] 명령을 `kubectl` 사용하여 새로 만든 Kubernetes 클러스터에 연결하도록 구성합니다. 
 
  ```azure-cli
  az aks get-credentials -g $RG -n $AKS_NAME
@@ -542,3 +542,6 @@ Azure 투표 앱의 이미지가 표시됩니다.
 [Azure 네트워킹 UDR 개요를](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)참조하십시오.
 
 [라우트 테이블을 생성, 변경 또는 삭제하는 방법을](https://docs.microsoft.com/azure/virtual-network/manage-route-table)알아봅니다.
+
+<!-- LINKS - internal -->
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials

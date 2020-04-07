@@ -3,14 +3,14 @@ title: Azure 업데이트 관리 로그 쿼리
 description: 이 문서에서는 로그 분석 작업 영역에서 업데이트 관리에 대한 로그를 쿼리하는 방법을 설명합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 03/31/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 863016bbeda9b4aec3bf2b4e12830bd30098150f
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 81e12e775306cc8637dedd534f50e8a14bc09a26
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437850"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743876"
 ---
 # <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Azure 모니터 로그의 업데이트 관리에 대한 쿼리 업데이트 레코드
 
@@ -26,7 +26,7 @@ Windows 및 Linux VM용 업데이트 관리에서 수집한 레코드및 로그 
 
 컴퓨터에서 필요한 업데이트를 `RequiredUpdate` 나타내는 유형이 있는 레코드가 만들어집니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | Description | 
+| 속성 | 설명 | 
 |----------|-------------|
 | Computer | 보고 시스템의 정규화된 도메인 이름입니다. |
 | KBID | Windows 업데이트에 대한 기술 자료 문서 ID입니다. |
@@ -38,7 +38,7 @@ Windows 및 Linux VM용 업데이트 관리에서 수집한 레코드및 로그 
 | SourceSystem | *OperationsManager* | 
 | TenantId | Azure Active Directory의 조직 인스턴스를 나타내는 고유 식별자입니다. | 
 | TimeGenerated | 레코드가 생성된 날짜 및 시간입니다. | 
-| Type | *업데이트* | 
+| 형식 | *업데이트* | 
 | UpdateClassification | 적용할 수 있는 업데이트 유형을 나타냅니다. Windows의 경우:<br> *중요 업데이트*<br> *보안 업데이트*<br> *업데이트 롤업*<br> *기능 팩*<br> *서비스 팩*<br> *정의 업데이트*<br> *도구*<br> *업데이트*. Linux의 경우:<br> *중요 업데이트 및 보안 업데이트*<br> *기타* |
 | 업데이트 심각도 | 취약점에 대한 심각도 등급입니다. 값은 다음과 같습니다.<br> *중요*<br> *중요*<br> *보통*<br> *낮은* |
 | UpdateTitle | 업데이트의 제목입니다.|
@@ -47,7 +47,7 @@ Windows 및 Linux VM용 업데이트 관리에서 수집한 레코드및 로그 
 
 사용 가능한 업데이트와 `Update` 컴퓨터에 대한 설치 상태를 나타내는 유형이 있는 레코드가 만들어집니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | Description | 
+| 속성 | 설명 | 
 |----------|-------------|
 | 승인 소스 | Windows 운영 체제에만 적용됩니다. 값은 *마이크로 소프트 업데이트입니다*. |
 | 승인됨 | *참* 또는 *거짓* |
@@ -63,7 +63,7 @@ Windows 및 Linux VM용 업데이트 관리에서 수집한 레코드및 로그 
 | Optional | *참* 또는 *거짓* | 
 | RebootBehavior | 업데이트를 설치/제거한 후 재부팅 동작입니다. |
 | _ResourceId | 레코드가 연결된 리소스에 대한 고유 식별자입니다. |
-| Type | *업데이트* |
+| 형식 | *업데이트* |
 | VMUUID | 가상 시스템에 대한 고유 식별자입니다. |
 | MG | 관리 그룹 또는 로그 분석 작업 영역에 대한 고유 식별자입니다. | 
 | TenantId | Azure Active Directory의 조직 인스턴스를 나타내는 고유 식별자입니다. | 
@@ -84,7 +84,7 @@ Windows 및 Linux VM용 업데이트 관리에서 수집한 레코드및 로그 
 
 컴퓨터의 업데이트 에이전트에 대한 세부 정보를 제공하는 유형이 `UpdateAgent` 있는 레코드가 만들어집니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | Description | 
+| 속성 | 설명 | 
 |----------|-------------|
 | 에이지오브데니드실종필수업데이트 | | 
 | AutomaticUpdateEnabled | | 
@@ -97,7 +97,7 @@ Windows 및 Linux VM용 업데이트 관리에서 수집한 레코드및 로그 
 | SourceSystem | *OperationsManager* | 
 | TenantId | Azure Active Directory의 조직 인스턴스를 나타내는 고유 식별자입니다. |
 | TimeGenerated | 레코드가 생성된 날짜 및 시간입니다. |
-| Type | *업데이트* | 
+| 형식 | *업데이트* | 
 | WindowsUpdateAgentVersion | Windows 업데이트 에이전트의 버전입니다. |
 | WSUSServer | Windows Update 에이전트에 문제 해결에 도움이 되는 문제가 있는 경우 오류를 표시합니다. |
 
@@ -105,14 +105,14 @@ Windows 및 Linux VM용 업데이트 관리에서 수집한 레코드및 로그 
 
 컴퓨터별로 예약된 `UpdateRunProgress` 배포의 업데이트 배포 상태를 제공하는 유형이 있는 레코드가 만들어집니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | Description | 
+| 속성 | 설명 | 
 |----------|-------------|
 | Computer | 보고 시스템의 정규화된 도메인 이름입니다. |
 | 컴퓨터 환경 | *Azure* 또는 *비Azure*. | 
 | CorrelationId | 업데이트에 대해 실행되는 Runbook 작업의 고유 식별자입니다. |
 | EndTime | 동기화 프로세스가 종료된 시간입니다. | 
 | 오류 결과 | 업데이트를 설치하지 못한 경우 생성된 Windows 업데이트 오류 코드입니다. | 
-| 설치 상태 | 클라이언트 컴퓨터에서 업데이트의 가능한 설치 상태, *진행 중*, *성공*, 부분적으로 *실패 .* |
+| 설치 상태 | 클라이언트 컴퓨터에서 업데이트가 발생할 수 있는 상태,<br> *시작되지 않음* - 작업이 아직 트리거되지 않았습니다.<br> *FailedToStart* - 컴퓨터에서 작업을 시작할 수 없습니다.<br> *실패* - 작업이 시작되었지만 예외로 실패했습니다.<br> *진행 중* - 작업 진행 중입니다.<br> *유지 관리초과* - 실행이 남아 있지만 유지 관리 기간 간격에 도달한 경우.<br> *성공* - 작업이 성공했습니다.<br> *설치 실패* - 업데이트가 성공적으로 설치되지 못했습니다.<br> *포함되지 않음*<br> *제외됨* |
 | KBID | Windows 업데이트에 대한 기술 자료 문서 ID입니다. | 
 | ManagementGroupName | 운영 관리자 관리 그룹 또는 로그 분석 작업 영역의 이름입니다. |
 | OSType | 운영 체제, *윈도우* 또는 *리눅스의*유형을 지정합니다. | 
@@ -128,7 +128,7 @@ Windows 및 Linux VM용 업데이트 관리에서 수집한 레코드및 로그 
 | 성공온 리트리 | 첫 번째 시도에서 업데이트 실행이 실패한 시기와 현재 작업이 재시도인 경우를 표시합니다. |
 | TimeGenerated | 레코드가 생성된 날짜 및 시간입니다. |
 | 제목 | 업데이트의 제목입니다. |
-| Type | *UpdateRunProgress* |
+| 형식 | *UpdateRunProgress* |
 | 업데이트 ID | 소프트웨어 업데이트의 고유 식별자입니다. |
 | VMUUID | 가상 시스템에 대한 고유 식별자입니다. |
 | _ResourceId | 레코드가 연결된 리소스에 대한 고유 식별자입니다. |
@@ -137,7 +137,7 @@ Windows 및 Linux VM용 업데이트 관리에서 수집한 레코드및 로그 
 
 컴퓨터별로 업데이트 요약을 제공하는 유형이 `UpdateSummary` 있는 레코드가 만들어집니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | Description | 
+| 속성 | 설명 | 
 |----------|-------------|
 | Computer | 보고 시스템의 정규화된 도메인 이름입니다. |
 | 컴퓨터 환경 | *Azure* 또는 *비Azure*. | 
@@ -160,7 +160,7 @@ Windows 및 Linux VM용 업데이트 관리에서 수집한 레코드및 로그 
 | SubscriptionId | Azure 구독의 고유 식별자입니다. |
 | TimeGenerated | 레코드가 생성된 날짜 및 시간입니다. |
 | TotalUpdatesMissing | 해당되는 총 누락된 업데이트 수입니다. | 
-| Type | *UpdateSummary* |
+| 형식 | *UpdateSummary* |
 | VMUUID | 가상 시스템에 대한 고유 식별자입니다. |
 | WindowsUpdateAgentVersion | Windows 업데이트 에이전트의 버전입니다. |
 | WindowsUpdateSetting | Windows 업데이트 에이전트의 상태를 표시합니다. 가능한 값은 다음과 같습니다.<br> *예약된 설치*<br> *설치 전에 알림*<br> 비정상 WUA 에이전트에서 오류가 반환되었습니다. | 

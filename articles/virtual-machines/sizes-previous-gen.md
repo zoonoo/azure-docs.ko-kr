@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: e5fe58891aa901509dc44d3b2465c794bd92b22d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f13ab3cd6ff765bc3b1bee8e8fad7e7273f6c7d
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476572"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673923"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>이전 세대의 가상 머신 크기
 
@@ -66,6 +66,7 @@ Premium Storage: 지원됨
 MBps = 초당 10^6바이트, GiB = 1024^3바이트
 
 <sup>1</sup> Fs 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다.  자세한 내용은 [Windows](windows/premium-storage-performance.md) 또는 [Linux용](linux/premium-storage-performance.md)고성능 설계를 참조하십시오.  
+
 
 ## <a name="nvv2-series"></a>NVv2 시리즈
 
@@ -341,11 +342,35 @@ Premium Storage: 지원되지 않음
 <sup>1</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 <br>
 
+# <a name="nv-series"></a>NV 시리즈
+**최신 크기 권장 사항**: [NVv3 시리즈](nvv3-series.md) 및 [NVv4 시리즈](nvv4-series.md)
+
+NV 시리즈 가상 머신은 고객이 해당 데이터 또는 시뮬레이션을 시각화할 수 있는 데스크톱 가속화 애플리케이션 및 가상 데스크톱용 [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU 및 NVIDIA GRID 기술로 구동됩니다. 사용자는 NV 인스턴스에서 그래픽 집약적인 워크플로를 시각화하여 뛰어난 그래픽 기능을 가져오고 인코딩 및 렌더링 등의 단정밀도 작업을 추가적으로 실행할 수 있습니다. NV 시리즈 VM은 인텔 제온 E5-2690 v3 (하스웰) CPU에 의해 구동된다.
+
+NV 인스턴스의 각 GPU에는 GRID 라이선스가 함께 제공됩니다. 이 라이선스가 있으면 NV 인스턴스를 단일 사용자를 위한 가상 워크스테이션으로 유연하게 사용하거나, 25명의 동시 사용자가 가상 애플리케이션 시나리오를 위해 VM에 연결할 수 있습니다.
+
+Premium Storage: 지원되지 않음
+
+프리미엄 스토리지 캐싱: 지원되지 않음
+
+라이브 마이그레이션: 지원되지 않음
+
+업데이트 메모리 보존: 지원되지 않음
+
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수 | 가상 워크스테이션 | 가상 애플리케이션 |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_NV6  | 6  | 56  | 340  | 1 | 8  | 24 | 1 | 1 | 25  |
+| Standard_NV12 | 12 | 112 | 680  | 2 | 16 | 48 | 2 | 2 | 50  |
+| Standard_NV24 | 24 | 224 | 1440 | 4 | 32 | 64 | 4 | 4 | 100 |
+
+1 GPU = M60 카드 절반.
+<br>
+
 ## <a name="other-sizes"></a>기타 크기
 
-* [범용](sizes-general.md)
+* [범용 가상 컴퓨터](sizes-general.md)
 * [컴퓨팅 최적화](sizes-compute.md)
-* [메모리 최적화](sizes-memory.md)
+* [메모리에 최적화](sizes-memory.md)
 * [Storage에 최적화](sizes-storage.md)
 * [GPU](sizes-gpu.md)
 * [고성능 컴퓨팅](sizes-hpc.md)

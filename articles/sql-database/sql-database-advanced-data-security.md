@@ -11,12 +11,12 @@ author: memildin
 manager: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
-ms.openlocfilehash: 1f0e6694e596dc60264dfe0789a2f80090e0da3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aed0bcb79dedf057c5943cea9f4b4399b2f630cb
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79269134"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677461"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Azure SQL Database에 대한 고급 데이터 보안
 
@@ -26,8 +26,8 @@ ms.locfileid: "79269134"
 
 ADS(고급 데이터 보안)는 데이터 검색 & 분류, 취약성 평가 및 고급 위협 보호를 비롯한 고급 SQL 보안 기능을 제공합니다.
 
-- [데이터 검색 & 분류는](sql-database-data-discovery-and-classification.md) 데이터베이스의 중요한 데이터를 & 검색, 분류, 레이블 지정을 위해 Azure SQL Database에 기본 제공된 기능을 제공합니다. 데이터베이스 분류 상태에 대한 가시성을 제공하고, 데이터베이스 내 및 해당 경계 외부의 중요한 데이터에 대한 액세스를 추적하는 데 사용할 수 있습니다.
-- [취약성 평가는](sql-vulnerability-assessment.md) 잠재적인 데이터베이스 취약점을 검색, 추적 및 해결하는 데 도움이 되는 서비스를 쉽게 구성할 수 있습니다. 보안 상태에 대한 가시성을 제공하고, 보안 문제를 해결하고 데이터베이스 보안을 강화하기 위한 실행 가능한 단계를 포함합니다.
+- [데이터 검색 & 분류는](sql-database-data-discovery-and-classification.md) 데이터베이스의 중요한 데이터를 보고하는 & 검색, 분류, 레이블 지정을 위해 Azure SQL Database에 기본 제공된 기능을 제공합니다. 데이터베이스 분류 상태에 대한 가시성을 제공하고, 데이터베이스 내 및 해당 경계 외부의 중요한 데이터에 대한 액세스를 추적하는 데 사용할 수 있습니다.
+- [취약성 평가](sql-vulnerability-assessment.md)는 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정할 수 있는 서비스를 간편하게 구성합니다. 보안 상태에 대한 가시성을 제공하고, 보안 문제를 해결하고 데이터베이스 보안을 강화하기 위한 실행 가능한 단계를 포함합니다.
 - [Advanced Threat Protection](sql-database-threat-detection-overview.md)은 비정상적이며 잠재적으로 유해할 수 있는 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 탐지합니다. 지속적으로 의심스러운 활동에 대한 데이터베이스를 모니터링하고, 잠재적인 취약점, SQL 삽입 공격 및 비정상 데이터베이스 액세스 패턴에 대한 보안 경고를 즉시 제공합니다. Advanced Threat Protection 경고는 의심스러운 활동에 대한 세부 정보를 제공하고 위협을 조사하고 완화하는 방법에 대한 조치를 권장합니다.
 
 한 번 SQL ADS를 활성화하면 포함된 기능을 모두 사용할 수 있습니다. 클릭 한 번으로 SQL Database 서버 또는 관리되는 인스턴스에서 모든 데이터베이스에 대해 ADS를 사용하도록 설정할 수 있습니다. ADS 설정을 사용하거나 관리하려면 [SQL 보안 관리자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) 역할, SQL Database 관리자 역할 또는 SQL Server 관리자 역할에 속해야 합니다. 
@@ -62,7 +62,7 @@ ADS 설정을 보고 관리하려면 SQL Database 서버 또는 관리되는 인
 
 ## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. SQL 데이터베이스에 대한 ADS 설정 관리
 
-특정 데이터베이스의 ADS 설정을 재정의하려면 **데이터베이스 수준에서 Advanced Data Security 사용** 확인란을 선택합니다. 개별 데이터베이스에 대해 별도의 고급 위협 보호 경고 또는 취약점 평가 결과를 받거나 에 있는 모든 데이터베이스에 대해 수신된 경고 및 결과 외에 별도의 고급 위협 보호 경고 또는 취약점 평가 결과를 받을 특정 요구 사항이 있는 경우에만 이 옵션을 사용합니다. 데이터베이스 서버 또는 관리인스턴스를 참조하십시오.
+특정 데이터베이스의 ADS 설정을 재정의하려면 **데이터베이스 수준에서 Advanced Data Security 사용** 확인란을 선택합니다. 데이터베이스 서버 또는 관리되는 인스턴스의 모든 데이터베이스에 대해 수신된 경고 및 결과 대신 또는 추가하여 개별 데이터베이스에 대해 별도의 고급 위협 보호 경고 또는 취약점 평가 결과를 수신해야 하는 특정 요구 사항이 있는 경우에만 이 옵션을 사용합니다.
 
 확인란을 선택하면 이 데이터베이스에 대한 관련 설정을 구성할 수 있습니다.
  
@@ -74,7 +74,7 @@ ADS 설정을 보고 관리하려면 SQL Database 서버 또는 관리되는 인
 
 ## <a name="next-steps"></a>다음 단계 
 
-- [데이터 검색 및 분류](sql-database-data-discovery-and-classification.md)에 대해 자세히 알아보기 
-- [취약성 평가](sql-vulnerability-assessment.md)에 대해 자세히 알아보기 
+- [데이터 검색 & 분류에](sql-database-data-discovery-and-classification.md) 대해 자세히 알아보기 
+- [취약성 평가에](sql-vulnerability-assessment.md) 대해 자세히 알아보기 
 - [고급 위협 보호에](sql-database-threat-detection.md) 대해 자세히 알아보기
-- [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대해 자세히 알아봅니다.
+- [Azure 보안 센터에](https://docs.microsoft.com/azure/security-center/security-center-intro) 대해 자세히 알아보기

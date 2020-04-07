@@ -3,12 +3,12 @@ title: Azure 함수에 대한 Java 개발자 참조
 description: Java로 함수를 개발하는 방법을 이해합니다.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 4af2a860657f6066112146e1f88d81861d9430ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b1f39ff4fd48a3ed99b34391e9cc6efdad86a5d
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276752"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672997"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
@@ -16,7 +16,7 @@ Azure 함수 런타임은 [Java SE 8 LTS(zulu8.31.0.2-jre8.0.181-win_x64)를](ht
 
 다른 언어에서 발생하는 것처럼 함수 앱에는 하나 이상의 함수가 있을 수 있습니다. Java 함수는 `public` 어노팅으로 `@FunctionName`장식된 방법입니다. 이 메서드는 Java 함수에 대한 항목을 정의하며 특정 패키지에서 고유해야 합니다. Java로 작성된 하나의 함수 앱에는 에 추가된 여러 `@FunctionName`공용 메서드가 있는 여러 클래스가 있을 수 있습니다.
 
-이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다. 또한 [Visual Studio 코드](functions-create-first-function-vs-code.md) 또는 [Maven을](functions-create-first-java-maven.md)사용하여 함수 퀵스타트를 완료하여 첫 번째 함수를 만들어야 합니다.
+이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다. 또한 [Visual Studio 코드](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java) 또는 [Maven을](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java)사용하여 함수 퀵스타트를 완료하여 첫 번째 함수를 만들어야 합니다.
 
 ## <a name="programming-model"></a>프로그래밍 모델 
 
@@ -30,7 +30,7 @@ Java 함수를 쉽게 만들 수 있도록 미리 정의된 Java 템플릿을 �
 
 다음 개발자 환경에는 Java 함수 프로젝트를 만들 수 있는 Azure Functions 도구가 있습니다. 
 
-+ [비주얼 스튜디오 코드](https://code.visualstudio.com/docs/java/java-azurefunctions)
++ [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)
 + [(예: Eclipse](functions-create-maven-eclipse.md)
 + [IntelliJ](functions-create-maven-intellij.md)
 
@@ -38,28 +38,31 @@ Java 함수를 쉽게 만들 수 있도록 미리 정의된 Java 템플릿을 �
 
 ### <a name="project-scaffolding"></a>프로젝트 스캐폴딩
 
-터미널에서 명령줄 개발을 선호하는 경우 Java 기반 함수 프로젝트를 스캐폴드하는 `Apache Maven` 가장 간단한 방법은 아키타입을 사용하는 것입니다. Maven에는 현재 두 가지 함수 아키타입이 있습니다.
+터미널에서 명령줄 개발을 선호하는 경우 Java 기반 함수 프로젝트를 스캐폴드하는 `Apache Maven` 가장 간단한 방법은 아키타입을 사용하는 것입니다. Azure 함수에 대한 Java Maven 아키타입은 다음 _그룹Id_:_artifactId_: [com.microsoft.azure:azure 함수-아키타입 에 게시됩니다.](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/) 
 
-+ **자바 아키타입**: 다음 groupId 및 artifactId [com.microsoft.azure:azure 함수-아키타입](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/):
+다음 명령은 이 아키타입을 사용하여 새 Java 함수 프로젝트를 생성합니다.
 
-    ```
-    mvn archetype:generate \
-        -DarchetypeGroupId=com.microsoft.azure \
-        -DarchetypeArtifactId=azure-functions-archetype 
-    ```
+```
+mvn archetype:generate \
+    -DarchetypeGroupId=com.microsoft.azure \
+    -DarchetypeArtifactId=azure-functions-archetype 
+```
 
-    이 아키타입 사용을 시작하려면 [Java 빠른 시작을](functions-create-first-java-maven.md)참조하십시오. 
+이 아키타입 사용을 시작하려면 [Java 빠른 시작을](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java)참조하십시오. 
 
-+ **Kotlin 아키타입 (미리보기)** 다음 그룹에서 게시Id 및 artifactId [com.microsoft.azure:azure 함수-kotlin-아키타입](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/):
+## <a name="create-kotlin-functions-preview"></a>코틀린 함수 만들기(미리 보기)
 
-    ```
-    mvn archetype:generate \
-        -DarchetypeGroupId=com.microsoft.azure \
-        -DarchetypeArtifactId=azure-functions-kotlin-archetype
-    ```
+코틀린 함수를 생성하는 메이븐 아키타입도 있습니다. 현재 미리 보기 상태인 이 아키타입은 다음 _groupId_:_artifactId_: [com.microsoft.azure:azure 함수-kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/). 
 
-이러한 아키타입의 소스 코드는 Azure [Maven Archetypes GitHub 리포지토리에서](https://github.com/microsoft/azure-maven-archetypes)찾을 수 있습니다.
+다음 명령은 이 아키타입을 사용하여 새 Java 함수 프로젝트를 생성합니다.
 
+```
+mvn archetype:generate \
+    -DarchetypeGroupId=com.microsoft.azure \
+    -DarchetypeArtifactId=azure-functions-kotlin-archetype
+```
+
+이 아키타입사용을 시작하려면 [Kotlin 퀵스타트를](functions-create-first-kotlin-maven.md)참조하십시오.
 
 ## <a name="folder-structure"></a>폴더 구조
 

@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 2/24/2020
 ms.subservice: alerts
-ms.openlocfilehash: fe1f1d2700619bfcac4512bb0e631262edf8401c
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 02424d7df24305d6642c364f12e3ed6e8674a01d
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398090"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677004"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
 
@@ -563,7 +563,7 @@ az group deployment create \
 
 ## <a name="template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria"></a>여러 기준을 모니터링하는 정적 임계값 메트릭 경고용 템플릿
 
-최신 메트릭 경고는 다차원 메트릭에 대한 경고를 지원하고 여러 조건을 지원합니다. 다음 템플릿을 사용하여 차원 메트릭에 대한 고급 메트릭 경고 규칙을 만들고 여러 기준을 지정할 수 있습니다.
+최신 메트릭 경고는 다차원 메트릭에 대한 경고를 지원하고 여러 기준(경고 규칙당 최대 5개 기준)을 정의하는 지원을 지원합니다. 다음 템플릿을 사용하여 차원 메트릭에 대한 고급 메트릭 경고 규칙을 만들고 여러 기준을 지정할 수 있습니다.
 
 여러 기준이 포함된 경고 규칙에서 차원을 사용할 때 다음 제약 조건을 확인하십시오.
 - 각 기준 내에서 치수당 하나의 값만 선택할 수 있습니다.

@@ -6,10 +6,10 @@ ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
 ms.openlocfilehash: 658910dc4291375c7b2ab22e88c599b970b885af
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "80419110"
 ---
 표준화된 VM(가상 머신) 이미지를 통해 조직은 클라우드로 마이그레이션하고 배포의 일관성을 보장할 수 있습니다. 이미지에는 일반적으로 미리 정의된 보안 및 구성 설정과 필요한 소프트웨어가 포함됩니다. 자체 이미징 파이프라인을 설정하려면 시간, 인프라 및 설정이 필요하지만 Azure VM Image Builder를 사용하면 이미지를 설명하는 간단한 구성을 제공하고 서비스에 제출하고 이미지가 빌드되고 배포됩니다.

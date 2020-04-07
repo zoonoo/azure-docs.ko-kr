@@ -3,12 +3,12 @@ title: Azure 사이트 복구에서 VMware/물리적 재해 복구에 대한 지
 description: Azure 사이트 복구를 사용하여 VMware VM 및 물리적 서버의 재해 복구에 대한 지원을 Azure에 요약합니다.
 ms.topic: conceptual
 ms.date: 2/24/2020
-ms.openlocfilehash: b4cf19f4f74ba24951efb806a9f2e3d88fcad7bc
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: fbd5d87b219cbb482569dc5e45adc9c81181670c
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478417"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672447"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -36,7 +36,7 @@ vSphere 호스트 | 버전 6.7, 6.5, 6.0 또는 5.5 | vSphere 호스트와 vCent
 
 구성 서버는 구성 서버, 프로세스 서버 및 마스터 대상 서버를 포함하여 Site Recovery 구성 요소를 실행하는 온-프레미스 컴퓨터입니다.
 
-- VMware VM의 경우 OVF 템플릿을 다운로드하여 VMware VM을 생성하여 구성 서버를 설정합니다.
+- VMware VM의 경우 OVF 템플릿을 다운로드하여 VMware VM을 만들어 구성 서버를 설정합니다.
 - 실제 서버의 경우 구성 서버 컴퓨터를 수동으로 설정합니다.
 
 **구성 요소** | **요구 사항**
@@ -51,7 +51,7 @@ RAM | 16GB
 [PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | 구성 서버 버전 [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) 이상에는 필요하지 않습니다.
 Windows Server 역할 | 활성 디렉터리 도메인 서비스를 사용하도록 설정하지 마십시오. 인터넷 정보 서비스(IIS) 또는 하이퍼-V.
 그룹 정책| - 명령 프롬프트에 대한 액세스 방지 <br/> - 레지스트리 편집 도구에 대한 액세스 방지 <br/> - 파일 첨부를 위한 트러스트 논리 <br/> - 스크립트 실행 켜기 <br/> - [자세한 정보](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-IIS | 다음을 확인합니다.<br/><br/> - 기존의 기본 웹 사이트 없음 <br/> - [익명 인증](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) 사용 <br/> - [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) 설정 사용  <br/> - 포트 443에서 수신 대기하는 기존의 웹 사이트/앱 없음<br/>
+IIS | 다음을 확인합니다.<br/><br/> - 기존의 기본 웹 사이트가 없습니다 <br/> - [익명 인증](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) 사용 <br/> - [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 설정 사용  <br/> - 포트 443에서 수신 대기하는 기존의 웹 사이트/앱 없음<br/>
 NIC 유형 | VMXNET3(VMware VM으로 배포될 경우)
 IP 주소 유형 | 정적
 포트 | 443 제어 채널 오케스트레이션에 사용<br/>데이터 전송용 9443
@@ -66,7 +66,8 @@ Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드�
 **구성 요소** | **세부 정보**
 --- | ---
 컴퓨터 설정 | Azure로 복제하는 컴퓨터는 [Azure 요구 사항](#azure-vm-requirements)을 충족해야 합니다.
-머신 워크로드 | Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드의 복제를 지원합니다. [자세히 알아보기](site-recovery-workload.md).
+머신 워크로드 | Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드의 복제를 지원합니다. [자세히 알아보기](https://aka.ms/asr_workload).
+컴퓨터 이름 | 컴퓨터의 표시 이름이 Azure 예약 [리소스 이름에](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-reserved-resource-name) 속하지 않는지 확인합니다.<br/><br/> 논리 볼륨 이름은 대/소문자를 구분하지 않습니다. 장치의 두 볼륨에 이름이 같지 않은지 확인합니다. 예: 이름이 "voLUME1", "volume1"인 볼륨은 Azure 사이트 복구를 통해 보호할 수 없습니다.
 Windows Server 2019 | 업데이트 [롤업 34(모빌리티](https://support.microsoft.com/help/4490016) 서비스의 버전 9.22 버전)에서 지원됩니다.
 윈도우 서버 2016 64 비트 | 서버 코어, 데스크톱 환경이 있는 서버용으로 지원됩니다.
 윈도우 서버 2012 R2 / 윈도우 서버 2012 | 지원됩니다.
@@ -118,16 +119,16 @@ Debian 8 | [9.29][9.29 UR] | 3.16.0-4-amd64 ~ 3.16.0-10 amd64, 4.9.0-0.bpo.4-amd
 
 **릴리스** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
-SUSE 리눅스 엔터프라이즈 서버 12 (SP1, SP2, SP3, SP4) | [9.32][9.32 UR] | 모든 [주식 SUSE 12 SP1, SP2, SP3, SP4 커널이 지원됩니다.](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12)</br></br> 4.4.138-4.7-azure에서 4.4.180-4.31-azure,</br>4.12.14-6.3-azure에서 4.12.14-6.34-azure  |
-SUSE 리눅스 엔터프라이즈 서버 12 (SP1, SP2, SP3, SP4) | [9.31][9.31 UR] | 모든 [주식 SUSE 12 SP1, SP2, SP3, SP4 커널이 지원됩니다.](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12)</br></br> 4.4.138-4.7-azure에서 4.4.180-4.31-azure,</br>4.12.14-6.3-azure에서 4.12.14-6.29-azure  |
-SUSE 리눅스 엔터프라이즈 서버 12 (SP1, SP2, SP3, SP4) | [9.30][9.30 UR] | 모든 [주식 SUSE 12 SP1, SP2, SP3, SP4 커널이 지원됩니다.](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12)</br></br> 4.4.138-4.7-azure에서 4.4.180-4.31-azure,</br>4.12.14-6.3-azure에서 4.12.14-6.26-azure  |
-SUSE 리눅스 엔터프라이즈 서버 12 (SP1, SP2, SP3, SP4) | [9.29][9.29 UR] | 모든 [주식 SUSE 12 SP1, SP2, SP3, SP4 커널이 지원됩니다.](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12)</br></br> 4.4.138-4.7-azure에서 4.4.180-4.31-azure,</br>4.12.14-6.3-azure에서 4.12.14-6.23-azure  |
+SUSE 리눅스 엔터프라이즈 서버 12 (SP1, SP2, SP3, SP4) | [9.28][9.28 UR] | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-기본값 3.12.74-60.64.118-기본값</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-기본값 4.4.121-92.117-기본값</br></br>SP3 4.4.73-5-기본값 4.4.180-94.100-기본값</br></br>SP3 4.4.138-4.7-azure에서 4.4.180-4.31-azure</br></br>SP4 4.12.14-94.41-기본값 4.12.14-95.29-기본값</br>SP4 4.12.14-6.3-azure에서 4.12.14-6.23-azure |
+SUSE 리눅스 엔터프라이즈 서버 12 (SP1, SP2, SP3, SP4) | [9.27][9.27 UR] | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-기본값 3.12.74-60.64.115-기본값</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-기본값 4.4.121-92.114-기본값</br></br>SP3 4.4.73-5-기본값 4.4.180-94.97-기본값</br></br>SP3 4.4.138-4.7-azure에서 4.4.180-4.31-azure</br></br>SP4 4.12.14-94.41-기본값 4.12.14-95.19-기본값</br>SP4 4.12.14-6.3-azure에서 4.12.14-6.15-azure |
+SUSE 리눅스 엔터프라이즈 서버 12 (SP1, SP2, SP3, SP4) | [9.26][9.26 UR] | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-기본값 3.12.74-60.64.110-기본값</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-기본값 4.4.121-92.109-기본값</br></br>SP3 4.4.73-5-기본값 4.4.178-94.91-기본값</br></br>SP3 4.4.138-4.7-azure에서 4.4.178-4.28-azure</br></br>SP4 4.12.14-94.41-기본값 4.12.14-95.16-기본값</br>SP4 4.12.14-6.3-azure에서 4.12.14-6.9-azure |
+SUSE 리눅스 엔터프라이즈 서버 12 (SP1, SP2, SP3, SP4) | [9.25][9.25 UR] | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-기본값 4.4.121-92.104-기본값</br></br>SP3 4.4.73-5-기본값 4.4.176-94.88-기본값</br></br>SP3 4.4.138-4.7-azure에서 4.4.176-4.25-azure</br></br>SP4 4.12.14-94.41-기본값 4.12.14-95.13-기본값</br>SP4 4.12.14-6.3-azure에서 4.12.14-6.9-azure |
 
 ### <a name="suse-linux-enterprise-server-15-supported-kernel-versions"></a>SUSE 리눅스 엔터프라이즈 서버 15 지원 커널 버전
 
 **릴리스** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
-수지 리눅스 엔터프라이즈 서버 15 및 15 SP1 | 9.32 | 모든 [재고 SUSE 15 및 15 커널이 지원됩니다.](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_15)</br></br> 4.12.14-5.5-azure에서 4.12.14-8.22-azure |
+수지 리눅스 엔터프라이즈 서버 15 및 15 SP1 | [9.32](https://support.microsoft.com/help/4550047/) | 모든 [재고 SUSE 15 및 15 커널이 지원됩니다.](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_15) </br></br> 4.12.14-5.5-azure에서 4.12.14-8.22-azure
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux 파일 시스템/게스트 스토리지
 
@@ -138,8 +139,8 @@ SUSE 리눅스 엔터프라이즈 서버 12 (SP1, SP2, SP3, SP4) | [9.29][9.29 U
 반가상화 스토리지 디바이스 | 반가상화 드라이버에서 내보낸 디바이스는 지원되지 않습니다.
 다중 큐 블록 IO 디바이스 | 지원되지 않습니다.
 HP CCISS 스토리지 컨트롤러가 있는 물리적 서버 | 지원되지 않습니다.
-디바이스/탑재 지점 명명 규칙 | 디바이스 이름과 탑재 지점 이름은 고유해야 합니다.<br/> 두 장치/마운트 지점에 대/소문자를 구분하는 이름이 없는지 확인합니다. 예를 들어 장치1 및 *Device1과* *Device1* 동일한 VM에 대한 장치의 이름 지정은 지원되지 않습니다.
-디렉터리 | 버전 9.20(업데이트 [롤업 31에서](https://support.microsoft.com/help/4478871/)릴리스됨) 이전에 모빌리티 서비스의 버전을 실행 중인 경우 다음 제한 사항이 적용됩니다.<br/><br/> - 이러한 디렉토리 (별도의 파티션 / 파일 시스템으로 설정하는 경우) 소스 서버에서 동일한 OS 디스크에 있어야합니다 : /(루트), / 부팅, /usr, /usr/ local, /var, /etc.</br> - /boot 디렉터리디스크 파티션에 있어야 하며 LVM 볼륨이 아니어야 합니다.<br/><br/> 버전 9.20 이후부터는 이러한 제한이 적용되지 않습니다.
+디바이스/탑재 지점 명명 규칙 | 디바이스 이름과 탑재 지점 이름은 고유해야 합니다.<br/> 두 장치/마운트 지점에 대/소문자를 구분하는 이름이 없는지 확인합니다. 예를 들어 장치1 및 *Device1과* 동일한 *Device1* VM에 대한 장치의 이름은 지원되지 않습니다.
+디렉터리 | 버전 9.20(업데이트 [롤업 31에서](https://support.microsoft.com/help/4478871/)릴리스됨) 이전에 모빌리티 서비스의 버전을 실행 중인 경우 다음 제한 사항이 적용됩니다.<br/><br/> - 이러한 디렉토리 (별도의 파티션 / 파일 시스템으로 설정하는 경우) 소스 서버에서 동일한 OS 디스크에 있어야합니다 : /(루트), / 부팅, /usr, /usr/ local, /var, /etc.</br> - /boot 디렉터리디스크 파티션에 있어야 하며 LVM 볼륨이 아니어야 합니다.<br/><br/> 버전 9.20 이후부터는 이러한 제한이 적용되지 않습니다. 
 루트 디렉터리 | - 부팅 디스크는 GPT 파티션 형식에 없어야합니다. 이는 Azure 아키텍처 제한 사항입니다. GPT 디스크는 데이터 디스크로 지원됩니다.<br/><br/> VM의 여러 부팅 디스크가 지원되지 않음<br/><br/> - 하나 이상의 디스크에서 LVM 볼륨에 /boot가 지원되지 않습니다.<br/> - 부팅 디스크가 없는 컴퓨터는 복제할 수 없습니다.
 사용 가능한 공간 요구 사항| /root 파티션: 2GB <br/><br/> 설치 폴더: 250MB
 XFSv5 | 메타데이터 체크섬과 같은 XFS 파일 시스템의 XFSv5 기능이 지원됩니다(모빌리티 서비스 버전 9.10 이후).<br/> xfs_info 유틸리티를 사용하여 파티션에 대한 XFS 수퍼 블록을 확인합니다. 1로 설정된 경우 `ftype` XFSv5 기능이 사용 중입니다.
@@ -231,7 +232,7 @@ ReFS | 탄력적 파일 시스템은 모빌리티 서비스 버전 9.23 이상�
 핫 스토리지| 예
 블록 Blob | 예
 미사용 암호화(SSE)| 예
-미사용 암호화(CMK)| 예(파워쉘 Az 3.3.0 모듈 을 통해 이후)
+미사용 암호화(CMK)| 예(PowerShell Az 3.3.0 모듈 을 통해 이후)
 Premium Storage | 예
 Import/Export 서비스 | 예
 VNet용 Azure 저장소 방화벽 | 예.<br/> 대상 저장소/캐시 저장소 계정(복제 데이터를 저장하는 데 사용)에 대해 구성됩니다.

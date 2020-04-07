@@ -3,17 +3,16 @@ title: 청사진의 수명 주기 이해
 description: Blueprint 정의가 통과하는 수명 주기와 청사진 할당 업데이트 및 제거를 비롯한 각 단계에 대한 세부 정보를 알아봅니다.
 ms.date: 07/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4dd5cb7d085744377cf12998f14c994fb1dcd2d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46da42ec97f16af91ef8e41362a085d466bbb887
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74404585"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677380"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Azure Blueprint의 수명 주기 이해
 
-Azure 내의 많은 리소스와 마찬가지로 Azure Blueprint의 청사진에는 일반적이고 자연스러운 수명 주기가 있습니다. 생성, 배포되고 더 이상 필요하거나 관련되지 않은 경우 마지막으로 삭제됩니다.
-Blueprints는 표준 수명 주기 작업을 지원합니다. Blueprint는 이러한 작업을 토대로 DevOps의 핵심 요소인 Infrastructure as a Code를 관리하는 조직을 위해 일반적인 연속 통합 및 지속적인 배포 파이프라인을 지원하는 추가 상태 수준을 제공하도록 작성됩니다.
+Azure 내의 많은 리소스와 마찬가지로 Azure Blueprint의 청사진에는 일반적이고 자연스러운 수명 주기가 있습니다. 생성, 배포되고 더 이상 필요하거나 관련되지 않은 경우 마지막으로 삭제됩니다. Azure Blueprint는 표준 수명 주기 작업을 지원합니다. Blueprint는 이러한 작업을 토대로 DevOps의 핵심 요소인 Infrastructure as a Code를 관리하는 조직을 위해 일반적인 연속 통합 및 지속적인 배포 파이프라인을 지원하는 추가 상태 수준을 제공하도록 작성됩니다.
 
 청사진 및 단계를 완벽하게 이해하기 위해 표준 수명 주기를 설명하겠습니다.
 

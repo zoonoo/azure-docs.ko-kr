@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd5b9e1f2640e68f7c819a49ad34d9c051c582c5
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: c11521ec074b63843b873c39102b68bf185d2821
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80667325"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676735"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Azure Active Directory 셀프 서비스 암호 재설정 배포 계획
 
@@ -343,7 +343,7 @@ Azure 포털에서 미리 빌드된 보고서를 사용하여 SSPR 성능을 측
 
 ## <a name="next-steps"></a>다음 단계
 
-* SSPR 배포를 시작하려면 [Azure AD 셀프 서비스 암호 재설정 을](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-sspr.md) 참조하세요.
+* SSPR 배포를 시작하려면 [Azure AD 셀프 서비스 암호 재설정 을](tutorial-enable-sspr.md) 참조하세요.
 
 * [Azure AD 암호 보호 구현 고려](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad)
 

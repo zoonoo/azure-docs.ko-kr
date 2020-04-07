@@ -3,16 +3,16 @@ title: PowerShell을 사용 하 고 청사진 가져오기 및 내보내기
 description: Blueprint 정의를 코드로 작업하는 방법을 알아봅니다. 내보내기 및 가져오기 명령을 사용하여 공유, 소스 제어 및 관리합니다.
 ms.date: 09/03/2019
 ms.topic: how-to
-ms.openlocfilehash: fc7b9818072665d79deaf8a456868943e8428730
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 98bd21aad944346a17d8bdce7fb74c0eb8be2ed7
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873202"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677147"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>PowerShell을 사용 하 고 청사진 정의 가져오기 및 내보내기
 
-Azure Blueprint는 Azure 포털을 통해 완전히 관리할 수 있습니다. 조직에서 Blueprint 사용을 앞가면서 블루프린트 정의를 관리 코드로 생각하기 시작해야 합니다. 이 개념을 IaC(코드)라고도 합니다. Blueprint 정의를 코드로 처리하면 Azure Portal에서 제공하는 것 이상의 추가 이점을 얻을 수 있습니다. 이러한 혜택은 다음과 같습니다.
+Azure Blueprint는 Azure 포털을 통해 완전히 관리할 수 있습니다. 조직에서 Azure Blueprint사용을 앞가면서 블루프린트 정의를 관리 코드로 생각하기 시작해야 합니다. 이 개념을 IaC(코드)라고도 합니다. Blueprint 정의를 코드로 처리하면 Azure Portal에서 제공하는 것 이상의 추가 이점을 얻을 수 있습니다. 이러한 혜택은 다음과 같습니다.
 
 - 청사진 정의 공유
 - 청사진 정의 백업

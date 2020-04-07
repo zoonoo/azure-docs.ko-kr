@@ -75,6 +75,8 @@
           href: overview-security.md
         - name: 보안 기준
           href: security-baseline.md
+        - name: 기본 제공 보안
+          href: key-vault-security-controls.md
         - name: 보안 권역
           href: key-vault-ovw-security-worlds.md
         - name: 키 자격 증명 모음 보안
@@ -200,7 +202,7 @@
       href: common-parameters-and-headers.md
     - name: 고객 데이터
       href: key-vault-customer-data.md
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/key-vault/'
     - name: 지역 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=key-vault'

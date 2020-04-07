@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 01a05755fc18a85a95e9c1bec1c470d37af656d1
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 62cf1f369cbde372e82e7c3ffe26473f09668bc7
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632227"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742548"
 ---
 # <a name="data-warehouse-units-dwus"></a>데이터 웨어하우스 단위(DWUs)
 
@@ -24,9 +24,9 @@ ms.locfileid: "80632227"
 
 ## <a name="what-are-data-warehouse-units"></a>데이터 웨어하우스 장치란?
 
-[Synapse SQL 풀은](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) 프로비전중인 분석 리소스의 컬렉션을 나타냅니다. 분석 리소스는 CPU, 메모리 및 IO의 조합으로 정의됩니다. 
+[Synapse SQL 풀은](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) 프로비전중인 분석 리소스의 컬렉션을 나타냅니다. 분석 리소스는 CPU, 메모리 및 IO의 조합으로 정의됩니다.
 
-이 세 가지 리소스는 DW(데이터 웨어하우스 단위)라고 하는 계산 척도 단위로 번들로 제공됩니다. DWU는 컴퓨팅 리소스 및 성능의 추상적이고 정규화된 측정값을 나타냅니다. 
+이 세 가지 리소스는 DW(데이터 웨어하우스 단위)라고 하는 계산 척도 단위로 번들로 제공됩니다. DWU는 컴퓨팅 리소스 및 성능의 추상적이고 정규화된 측정값을 나타냅니다.
 
 서비스 수준이 변경되면 시스템에서 사용할 수 있는 DW의 수가 변경되어 시스템의 성능과 비용이 조정됩니다.
 
@@ -72,7 +72,7 @@ CREATE DATABASE mySQLDW
 2. 시스템으로 로드하는 데이터를 테스트할 때 애플리케이션 성능을 모니터링하여 선택한 DWU 수와 관찰한 성능을 비교합니다.
 3. 정기적으로 작업량이 많은 기간에 필요한 추가 요구 사항을 식별합니다. 활동에서 상당한 피크와 트로프를 표시하는 워크로드를 자주 확장해야 할 수 있습니다.
 
-SQL 풀은 방대한 양의 컴퓨팅을 프로비전하고 상당한 양의 데이터를 쿼리할 수 있는 확장 시스템입니다. 
+SQL 풀은 방대한 양의 컴퓨팅을 프로비전하고 상당한 양의 데이터를 쿼리할 수 있는 확장 시스템입니다.
 
 특히 큰 DWU에서 진정한 크기 조정 기능을 확인하려면 데이터에 충분한 CPU가 할당되도록 데이터 집합의 크기를 조정하는 것이 좋습니다. 크기 조정 테스트의 경우 1TB 이상을 사용하는 것이 좋습니다.
 
@@ -82,7 +82,7 @@ SQL 풀은 방대한 양의 컴퓨팅을 프로비전하고 상당한 양의 데
 
 ## <a name="permissions"></a>사용 권한
 
-데이터 웨어하우스 단위를 변경하려면 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql)에 설명된 권한이 필요합니다.
+데이터 웨어하우스 단위를 변경하려면 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)에 설명된 권한이 필요합니다.
 
 SQL DB 참가자 및 SQL Server 참가자와 같은 Azure 리소스에 대한 기본 제공 역할은 DWU 설정을 변경할 수 있습니다.
 
@@ -134,7 +134,7 @@ T-SQL을 사용하면 현재 DWU 설정을 보고, 설정을 변경하고, 진�
 DWU를 변경하려면
 
 1. 논리적 SQL Database 서버와 연결된 마스터 데이터베이스에 연결합니다.
-2. [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) TSQL 문을 사용합니다. 다음 예제는 MySQLDW 데이터베이스의 서비스 수준 목표를 DW1000c로 설정합니다.
+2. [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) TSQL 문을 사용합니다. 다음 예제는 MySQLDW 데이터베이스의 서비스 수준 목표를 DW1000c로 설정합니다.
 
 ```Sql
 ALTER DATABASE MySQLDW

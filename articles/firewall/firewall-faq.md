@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 45276884d59ac8d1d876e2225ac02bb51c3f74fc
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 5ddbb58837fbda0f14a07186d5a3053055954454
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437723"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677442"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -212,4 +212,8 @@ Set-AzFirewall -AzureFirewall $fw
 
 ## <a name="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic"></a>Azure 방화벽에 대한 규칙이 해당 트래픽을 허용하지 않는 경우에도 TCP ping 및 유사한 도구가 대상 FQDN에 성공적으로 연결할 수 있는 이유는 무엇입니까?
 
-TCP ping이 실제로 대상 FQDN에 연결되지 않습니다. 이는 Azure 방화벽의 투명 프록시가 아웃바운드 트래픽에 대해 포트 80/443에서 수신을 수신하기 때문에 발생합니다. TCP ping은 방화벽과의 연결을 설정한 다음 패킷을 삭제하고 연결을 기록합니다. 이 동작은 보안에 영향을 주지 않습니다. 그러나 혼동을 피하기 위해 이 동작의 잠재적인 변경 사항을 조사하고 있습니다. 
+TCP ping이 실제로 대상 FQDN에 연결되지 않습니다. 이는 Azure 방화벽의 투명 프록시가 아웃바운드 트래픽에 대해 포트 80/443에서 수신을 수신하기 때문에 발생합니다. TCP ping은 방화벽과의 연결을 설정한 다음 패킷을 삭제하고 연결을 기록합니다. 이 동작은 보안에 영향을 주지 않습니다. 그러나 혼동을 피하기 위해 이 동작의 잠재적인 변경 사항을 조사하고 있습니다.
+
+## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>IP 그룹에서 지원하는 IP 주소 수에 제한이 있습니까?
+
+예. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건을 참조하십시오.](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)

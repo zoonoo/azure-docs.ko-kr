@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 4b6d954d06f09bef5240bddc4860ddbc83513d69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82efa70b30e829cfedd0b1fa7a21fd06949aa6d5
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79221486"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744156"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS에 대한 언어 및 지역 지원
 
@@ -35,18 +35,25 @@ LUIS는 발화를 다음 언어로 이해합니다.
 | 미국 영어 |`en-US` | ✔ | ✔  |✔|✔|
 | 아랍어 (미리보기 - 현대 표준 아랍어) |`ar-AR`|-|-|-|-|
 | *[중국어](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| 네덜란드어 |`nl-NL` |✔|  -   |-|✔|
+| 네덜란드어 |`nl-NL` |✔|-|-|✔|
 | 프랑스어(프랑스) |`fr-FR` |✔| ✔ |✔ |✔|
-| 프랑스어(캐나다) |`fr-CA` |-|   -   |-|✔|
+| 프랑스어(캐나다) |`fr-CA` |-|-|-|✔|
 | 독일어 |`de-DE` |✔| ✔ |✔ |✔|
-| 힌디어 | `hi-IN`|-|-|-|-|
+| 구자라트어 | `gu-IN`|-|-|-|-|
+| 힌디어 | `hi-IN`|-|✔|-|-|
 | 이탈리아어 |`it-IT` |✔| ✔ |✔|✔|
 | *[일본어](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|주요 구문만|
-| 한국어 |`ko-KR` |✔|   -   |-|주요 구문만|
+| 한국어 |`ko-KR` |✔|-|-|주요 구문만|
+| 마라티어 | `mr-IN`|-|-|-|-|
 | 포르투갈어(브라질) |`pt-BR` |✔| ✔ |✔ |일부 하위 문화권은 아님|
 | 스페인어(스페인) |`es-ES` |✔| ✔ |✔|✔|
-| 스페인어(멕시코)|`es-MX` |-|  -   |✔|✔|
-| 터키어 | `tr-TR` |✔|-|-|감정만|
+| 스페인어(멕시코)|`es-MX` |-|-|✔|✔|
+| 타밀어 | `ta-IN`|-|-|-|-|
+| 텔루구어 | `te-IN`|-|-|-|-|
+| 터키어 | `tr-TR` |✔|✔|-|감정만|
+
+
+
 
 언어 지원은 [미리 빌드된 엔터티](luis-reference-prebuilt-entities.md) 및 [미리 빌드된 도메인](luis-reference-prebuilt-domains.md)에 따라 다릅니다.
 
@@ -77,31 +84,40 @@ Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](.
 ## <a name="tokenization"></a>토큰화
 기계 학습을 수행하기 위해 LUIS는 문화권에 따라 발화를 [토큰](luis-glossary.md#token)으로 구분합니다.
 
-|언어|  모든 공백 또는 특수 문자 | 문자 수준|복합 단어|[토큰화된 엔터티가 반환됨](luis-concept-data-extraction.md#tokenized-entity-returned)
-|--|:--:|:--:|:--:|:--:|
-|아랍어|||||
-|중국어||✔||✔|
-|네덜란드어|||✔|✔|
-|미국 영어(en-us)|✔ ||||
-|프랑스어(fr-FR)|✔||||
-|프랑스어(fr-CA)|✔||||
-|독일어|||✔|✔|
-| 힌디어 |✔|-|-|-|-|
-|이탈리아어|✔||||
-|일본어||||✔|
-|한국어||✔||✔|
-|포르투갈어(브라질)|✔||||
-|스페인어(es-ES)|✔||||
-|스페인어(es-MX)|✔||||
+|언어|  모든 공백 또는 특수 문자 | 문자 수준|복합 단어
+|--|:--:|:--:|:--:|
+|아랍어|✔|||
+|중국어||✔||
+|네덜란드어|✔||✔|
+|미국 영어(en-us)|✔ |||
+|프랑스어(fr-FR)|✔|||
+|프랑스어(fr-CA)|✔|||
+|독일어|✔||✔|
+|구자라트어|✔|||
+|힌디어|✔|||
+|이탈리아어|✔|||
+|일본어|||✔
+|한국어||✔||
+|마라티어|✔|||
+|포르투갈어(브라질)|✔|||
+|스페인어(es-ES)|✔|||
+|스페인어(es-MX)|✔|||
+|타밀어|✔|||
+|텔루구어|✔|||
+|터키어|✔|||
+
 
 ### <a name="custom-tokenizer-versions"></a>사용자 지정 토큰화 버전
 
 다음 문화식에는 사용자 지정 토큰화 자 버전이 있습니다.
 
-|문화권|버전|목적|
+|culture|버전|목적|
 |--|--|--|
 |독일어<br>`de-de`|1.0.0|복합 단어를 단일 구성 요소로 분할하려고 하는 기계 학습 기반 토큰화기를 사용하여 단어를 분할하여 단어를 토큰화합니다.<br>사용자가 `Ich fahre einen krankenwagen` 발언으로 입력하면 `Ich fahre einen kranken wagen`로 전환됩니다. 서로 다른 `kranken` 엔터티로 독립적으로 표시할 `wagen` 수 있도록 합니다.|
 |독일어<br>`de-de`|1.0.2|공백에 단어를 분할하여 단어를 토큰화합니다.<br> 사용자가 `Ich fahre einen krankenwagen` 발언으로 입력하면 단일 토큰으로 유지됩니다. 따라서 `krankenwagen` 단일 엔터티로 표시됩니다. |
+|네덜란드어<br>`de-de`|1.0.0|복합 단어를 단일 구성 요소로 분할하려고 하는 기계 학습 기반 토큰화기를 사용하여 단어를 분할하여 단어를 토큰화합니다.<br>사용자가 `Ik ga naar de kleuterschool` 발언으로 입력하면 `Ik ga naar de kleuter school`로 전환됩니다. 서로 다른 `kleuter` 엔터티로 독립적으로 표시할 `school` 수 있도록 합니다.|
+|네덜란드어<br>`de-de`|1.0.1|공백에 단어를 분할하여 단어를 토큰화합니다.<br> 사용자가 `Ik ga naar de kleuterschool` 발언으로 입력하면 단일 토큰으로 유지됩니다. 따라서 `kleuterschool` 단일 엔터티로 표시됩니다. |
+
 
 ### <a name="migrating-between-tokenizer-versions"></a>토큰화 자 버전 간에 마이그레이션
 <!--

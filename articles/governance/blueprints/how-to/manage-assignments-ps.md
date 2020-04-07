@@ -3,12 +3,12 @@ title: PowerShell으로 과제를 관리하는 방법
 description: 공식 Azure BlueprintPowerShell 모듈인 Az.Blueprint를 사용하여 청사진 할당을 관리하는 방법을 알아봅니다.
 ms.date: 09/30/2019
 ms.topic: how-to
-ms.openlocfilehash: b16cf887ba8bfc51616839db5f4af87944ec686d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0868e5e207202511c1981a930870bfdc68a77a8f
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247404"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677437"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>PowerShell으로 과제를 관리하는 방법
 
@@ -27,12 +27,12 @@ Azure Blueprints 모듈에는 다음 소프트웨어가 필요합니다.
 
 ### <a name="install-the-module"></a>모듈 설치
 
-PowerShell용 블루프린트 모듈은 **Az.Blueprint입니다.**
+PowerShell용 Azure Blueprint 모듈은 **Az.Blueprint입니다.**
 
 1. **관리자** PowerShell 프롬프트에서 다음 명령을 실행합니다.
 
    ```azurepowershell-interactive
-   # Install the Blueprints module from PowerShell Gallery
+   # Install the Azure Blueprints module from PowerShell Gallery
    Install-Module -Name Az.Blueprint
    ```
 

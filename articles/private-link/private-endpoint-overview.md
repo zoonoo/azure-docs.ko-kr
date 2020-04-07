@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 6782d745bfced576fe06019b0d41af86c8c63ed4
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: b8f55b0693b7ffdf10516cfb19b67ccc5a94dc5a
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656265"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742900"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 개인 엔드포인트란?
 
@@ -144,7 +144,7 @@ Azure 서비스의 경우 다음 표에 설명된 대로 권장 영역 이름을
 |Azure 릴레이(Microsoft.릴레이/네임스페이스) | namespace |privatelink.servicebus.windows.net|
 |Azure 이벤트 그리드(Microsoft.EventGrid/토픽)   | 토픽 | 항목. {지역}.프라이빗링크.eventgrid.azure.net|
 |Azure 이벤트 그리드(Microsoft.EventGrid/도메인) | 도메인 | 도메인. {지역}.프라이빗링크.eventgrid.azure.net |
-|Azure 웹앱스(Microsoft.웹/사이트) | site | privatelink.azurewebsites.net |
+|Azure 웹 앱(Microsoft.웹/사이트)    | site | privatelink.azurewebsites.net |
 |Azure 기계 학습(Microsoft.MachineLearning서비스/작업 영역)   | 작업 영역 | privatelink.api.azureml.ms |
  
 Azure는 공용 DNS에 표준 이름 DNS 레코드(CNAME)를 만들어 제안된 도메인 이름으로 해상도를 리디렉션합니다. 개인 끝점의 개인 IP 주소로 해상도를 재정의할 수 있습니다. 

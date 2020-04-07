@@ -3,12 +3,12 @@ title: 매개 변수를 사용하여 동적 청사진 만들기
 description: 정적 및 동적 매개 변수와 이를 사용하여 안전하고 역동적인 청사진을 만드는 방법에 대해 알아봅니다.
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: 68987b3e0f418721986003dc796f00ac1dd6dda1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36735d71b746301819e5079aba1697b55fe5e183
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264714"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677577"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>매개 변수를 통해 동적 청사진 만들기
 
@@ -20,7 +20,7 @@ ms.locfileid: "79264714"
 > 서로 다른 두 청사진에 이름이 같은 리소스 그룹이 포함되더라도 아무 문제가 없습니다.
 > 한 청사진에 포함된 리소스 그룹이 이미 있는 경우 청사진이 계속해서 해당 리소스 그룹에 관련 아티팩트를 만듭니다. 이름 및 리소스 종류가 같은 두 리소스가 한 구독 내에 존재할 수 없기 때문에 이로 인해 충돌이 발생할 수 있습니다.
 
-이 문제에 대한 해결 방법은 매개 변수입니다. 청사진을 사용하면 구독에 할당하는 중 아티팩트의 각 속성 값을 정의할 수 있습니다. 매개 변수를 통해 충돌 없이 단일 구독 내에 리소스 그룹과 기타 리소스를 만드는 청사진을 재사용할 수 있습니다.
+이 문제에 대한 해결 방법은 매개 변수입니다. Azure Blueprint를 사용하면 구독에 할당하는 동안 아티팩트의 각 속성에 대한 값을 정의할 수 있습니다. 매개 변수를 통해 충돌 없이 단일 구독 내에 리소스 그룹과 기타 리소스를 만드는 청사진을 재사용할 수 있습니다.
 
 ## <a name="blueprint-parameters"></a>청사진 매개 변수
 

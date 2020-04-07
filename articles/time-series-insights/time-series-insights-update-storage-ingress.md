@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8987cbe6860422ff92119a9f3b13a0a365e6d1a4
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 95a579cacc339360295f5f25fa6415ab29cd68ff
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618314"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673910"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 데이터 스토리지 및 수신
 
@@ -42,7 +42,7 @@ Azure Time Series 인사이트 미리 보기는 다음 이벤트 소스를 지�
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
 
-Azure Time Series Insights 미리 보기는 인스턴스당 최대 두 개의 이벤트 소스를 지원합니다.
+Azure Time Series Insights 미리 보기는 인스턴스당 최대 두 개의 이벤트 소스를 지원합니다. 이벤트 소스를 연결하면 TSI 환경은 가장 오래된 이벤트부터 시작하여 Iot 또는 이벤트 허브에 현재 저장된 모든 이벤트를 읽습니다. 
 
 > [!IMPORTANT] 
 > * 미리 보기 환경에 이벤트 소스를 연결할 때 초기 대기 시간이 매우 높을 수 있습니다. 
@@ -59,8 +59,8 @@ Azure Time Series Insights는 Azure IoT 허브 또는 Azure 이벤트 허브에�
 |---|---|
 | **bool** | 두 가지 상태 중 하나를 `true` `false`갖는 데이터 형식: 또는 . |
 | **Datetime** | 일반적으로 날짜와 시간으로 표시된 시간을 나타냅니다. [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) 형식으로 표현되었습니다. |
-| **더블** | 이중 정밀도 64비트 [IEEE 754](https://ieeexplore.ieee.org/document/8766229) 부동 점. |
-| **문자열** | 유니코드 문자로 구성되는 텍스트 값입니다.          |
+| **double** | 이중 정밀도 64비트 [IEEE 754](https://ieeexplore.ieee.org/document/8766229) 부동 점. |
+| **string** | 유니코드 문자로 구성되는 텍스트 값입니다.          |
 
 #### <a name="objects-and-arrays"></a>개체 및 배열
 

@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: ee3501e7feec77c842f3784f6c2820af05637e6b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43bb34a80d8d62cfa2bde445b94fb97da25ccda3
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286390"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745467"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Power BI 앱 제품 만들기
+
+>[!Important]
+>2020년 3월 30일부터 Power BI 앱 제공의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Power BI [앱 만들기 개요의](https://aka.ms/AzureCreatePBIServiceApp) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
 
 이 문서에는 [AppSource](https://appsource.microsoft.com)용 새 Power BI 앱 제품을 만드는 데 필요한 단계가 나와 있습니다. 모든 제품은 AppSource에 고유 엔터티로 나타납니다. [Cloud 파트너 포털](https://cloudpartner.azure.com/)에서 새 제품을 만드는 경우 제품에 대한 네 가지 자산 그룹을 제공해야 합니다.
 

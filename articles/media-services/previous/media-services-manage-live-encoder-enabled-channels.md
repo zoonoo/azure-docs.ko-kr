@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: a32624c37cd8ca7fbef9e38ca61de9369791dd25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b0569907537f91f7e84b8156dffa0f313461f6e1
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77162534"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677013"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍
 
@@ -167,7 +167,7 @@ Elemental Technologies, Ericsson, Ateme, Envivio와 같은 공급업체의 온-�
 
 채널을 만들면 수집 URL을 가져올 수 있습니다. 이러한 URL을 가져오기 위해 채널이 **실행 중** 상태일 필요는 없습니다. 채널에 데이터 푸시를 시작할 준비가 되면 채널이 **실행 중** 상태여야 합니다. 채널이 데이터 수집을 시작하면 미리 보기 URL을 통해 스트림을 미리 볼 수 있습니다.
 
-SSL 연결을 통한 조각화된 MP4(부드러운 스트리밍) 라이브 스트림 수집 옵션이 있습니다. SSL을 통해 수집하려면 수집 URL을 HTTPS로 업데이트해야 합니다. 현재 AMS는 사용자 지정 도메인을 사용하는 SSL을 지원하지 않습니다.  
+TLS 연결을 통해 조각난 MP4(부드러운 스트리밍) 라이브 스트림을 인더스트링하는 옵션이 있습니다. TLS를 통해 인제스트하려면 인제스트 URL을 HTTPS로 업데이트해야 합니다. 현재 AMS는 사용자 지정 도메인을 통해 TLS를 지원하지 않습니다.  
 
 ### <a name="allowed-ip-addresses"></a>허용된 IP 주소
 이 채널에 비디오를 게시하도록 허용된 IP 주소를 정의할 수 있습니다. 허용된 IP 주소는 단일 IP 주소(예: '10.0.0.1'), IP 주소 및 CIDR 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1/22') 또는 IP 주소와 점으로 구분된 십진수 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1(255.255.252.0)')로 지정할 수 있습니다.
@@ -313,7 +313,7 @@ Live Encoding을 사용하도록 설정한 경우 이제 라이브 피드가 채
 | 채널 상태 | 포털 UI 표시기 | 청구 여부 |
 | --- | --- | --- |
 | 시작 중 |시작 중 |없음(일시적인 상태) |
-| 실행 중 |준비(실행 중인 프로그램이 없음)<br/>또는<br/>스트리밍(실행 중인 프로그램이 하나 이상임) |yes |
+| 실행 중 |준비(실행 중인 프로그램이 없음)<br/>또는<br/>스트리밍(실행 중인 프로그램이 하나 이상임) |예 |
 | 중지 중 |중지 중 |없음(일시적인 상태) |
 | 중지됨 |중지됨 |예 |
 
