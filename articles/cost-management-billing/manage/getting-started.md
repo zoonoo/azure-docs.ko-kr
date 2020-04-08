@@ -1,19 +1,19 @@
 ---
-title: Azure에서 예상치 못한 비용 방지 및 청구 관리
-description: Azure 청구서에 예기치 않은 요금이 부과되지 않도록 하는 방법을 알아봅니다. Azure 계정에 대한 비용 추적 및 관리 기능을 사용합니다.
+title: Azure Cost Management 및 Billing을 사용하여 예기치 않은 요금 방지 및 분석
+description: Azure 청구서의 예기치 않은 요금을 방지하고 Azure 계정에 대한 비용 추적 및 관리 기능을 사용하는 방법을 알아봅니다.
 author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 3/11/2020
+ms.date: 3/30/2020
 ms.author: banders
-ms.openlocfilehash: 0e0003b3adfdb6ebba49bd8d014fc0ba287ca3aa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 79af6f78e8e9bf93c49deafe79f6a421cbb77d1a
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238145"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475267"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure 청구 및 비용 관리를 사용하여 예기치 않은 비용 방지
 
@@ -112,11 +112,6 @@ Azure Portal에서 VM에 대한 자동 종료 및 Advisor 권장 지침을 사�
 
 비용 절감을 위한 Advisor 권장 지침에 대한 단계별 자습서는 [권장 사항에서 비용 최적화](../costs/tutorial-acm-opt-recommendations.md) 자습서를 검토합니다.
 
-## <a name="review-charges-against-your-latest-invoice"></a>최신 청구서에 대한 요금 검토
-
-청구 주기가 끝나면 청구서를 사용할 수 있습니다. [청구서 및 상세 사용 현황 파일을 다운로드](download-azure-invoice-daily-usage-date.md)하고, 이를 비교하여 요금이 정확하게 청구되었는지 확인할 수 있습니다. 청구서에서 일간 사용 현황 비교에 대한 자세한 내용은 [Microsoft Azure 청구서 이해](../understand/review-individual-bill.md)를 참조하세요.
-
-MCA(Microsoft 고객 계약)를 통해 Azure를 사용하는 경우 [청구서를 트랜잭션과 비교](../understand/review-customer-agreement-bill.md#review-invoiced-transactions-in-the-azure-portal)하여 청구서의 요금을 이해할 수도 있습니다.
 
 ## <a name="integrate-with-billing-and-consumption-apis"></a>청구 및 사용량 API와 통합
 
@@ -178,9 +173,65 @@ SLA 임계값은 서비스에 따라 다릅니다. 예를 들어 SQL 웹 계층�
 
 자세한 내용은 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/) 및 [Azure 서비스에 대한 SLA 요약](https://azure.microsoft.com/support/legal/sla/summary/) 설명서를 참조하세요.
 
-## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
+## <a name="analyze-unexpected-charges"></a>예기치 않은 요금 분석
 
-질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
+조직용으로 구축된 클라우드 리소스 인프라는 복잡할 가능성이 높습니다. 많은 Azure 리소스 종류마다 요금 유형이 다를 수 있습니다. Azure 리소스를 조직의 여러 팀에서 소유할 수 있으며, 다양한 리소스에 적용되는 여러 청구 모델 유형이 있을 수 있습니다. 요금을 보다 잘 이해하려면 다음 섹션에서 하나 이상의 전략을 사용하여 분석을 시작하세요.
+
+### <a name="review-your-invoice-and-identify-the-resource-that-is-responsible-for-the-charge"></a>청구서를 검토하고 요금 청구 대상 리소스 파악
+
+Azure 서비스 구매 방법에 따라 요금과 관련된 리소스를 파악할 때 사용할 수 있는 방법 및 도구가 달라집니다. 적용되는 방법을 확인하려면 먼저 [Azure 제품 유형을 확인합니다](../costs/understand-cost-mgt-data.md#determine-your-offer-type). 그런 다음, [지원되는 Azure 제품](../costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers) 목록에서 고객 범주를 확인합니다.
+
+다음 문서에서는 고객 유형에 따라 청구서를 검토하는 방법을 설명하는 자세한 단계를 제공합니다. 각 문서에는 지정된 청구 기간의 사용량 및 비용 세부 정보가 포함된 CSV 파일을 다운로드하는 방법에 대한 지침이 있습니다.
+
+- [종량제 청구서 검토 프로세스](../understand/review-individual-bill.md#compare-invoiced-charges-with-usage-file)
+- [기업계약 청구서 검토 프로세스](../understand/review-enterprise-agreement-bill.md)
+- [Microsoft 고객 계약 검토 프로세스](../understand/review-customer-agreement-bill.md#analyze-your-azure-usage-charges)
+- [Microsoft 파트너 계약 검토 프로세스](../understand/review-partner-agreement-bill.md#analyze-your-azure-usage-charges)
+
+Azure 청구서는 _미터_를 기준으로 해당 월의 요금을 집계합니다. 미터는 시간에 따른 리소스 사용량을 추적하는 데 사용되며 청구서를 계산하는 데 사용됩니다. 가상 머신과 같은 단일 Azure 리소스를 만들면 해당 리소스에 대한 하나 이상의 미터 인스턴스가 생성됩니다.
+
+미터에 적용되는 모든 품목을 보려면 분석할 청구서에 표시된 대로 _MeterName_을 기준으로 사용량 CSV 파일을 필터링하세요. 품목의 _InstanceID_는 요금이 발생한 실제 Azure 리소스에 해당합니다.
+
+해당 리소스를 식별한 후에는 Azure Cost Management에서 비용 분석을 사용하여 리소스와 관련된 비용을 추가로 분석할 수 있습니다. 비용 분석을 사용하는 방법에 대해 자세히 알아보려면 [비용 분석 시작](../costs/quick-acm-cost-analysis.md)을 참조하세요.
+
+### <a name="identify-spikes-in-cost-over-time"></a>시간에 따른 비용 급증 식별
+
+청구 요금 변동에 영향을 준 최근 비용을 모르는 경우가 있습니다. 변경 내용을 파악하려면 비용 분석을 사용하여 [시간에 따른 일별 또는 월별 비용 분석을 확인](../costs/cost-analysis-common-uses.md#view-costs-per-day-or-by-month)할 수 있습니다. 보기를 만든 후에 **서비스** 또는 **리소스**를 기준으로 요금을 그룹화하여 변경 내용을 식별합니다. 또한 데이터를 보다 잘 시각화할 수 있도록 보기를 **꺾은선형** 차트로 변경할 수도 있습니다.
+
+![비용 분석의 시간별 비용을 보여주는 예제](./media/getting-started/costs-over-time.png)
+
+### <a name="determine-resource-pricing-and-understand-its-billing-model"></a>리소스 가격 책정 확인 및 청구 모델 이해
+
+여러 Azure 제품 및 서비스에서 단일 리소스에 대한 요금이 발생할 수 있습니다. 각 Azure 서비스의 가격 책정에 대해 자세히 알아보려면 [제품별 Azure 가격 책정](https://azure.microsoft.com/pricing/#product-pricing) 페이지를 확인하세요. 예를 들어 Azure에서 만든 단일 VM(가상 머신)의 경우 사용량을 추적하기 위해 다음과 같은 미터가 생성될 수 있습니다. 각 미터의 가격 책정 방식은 서로 다를 수 있습니다.
+
+- 컴퓨팅 시간
+- IP 주소 시간
+- 데이터 수신
+- 데이터 송신
+- 표준 관리 디스크
+- 표준 관리 디스크 작업
+- 표준 IO-디스크
+- 표준 IO-블록 Blob 읽기
+- 표준 IO-블록 Blob 쓰기
+- 표준 IO-블록 Blob 삭제
+
+VM이 생성되면 각 미터가 사용량 레코드를 내보내기 시작합니다. 사용량과 미터의 요금은 Azure 계량 시스템에서 추적됩니다. 사용 현황 CSV 파일에서 청구서를 계산하는 데 사용된 미터를 확인할 수 있습니다.
+
+### <a name="find-the-people-responsible-for-the-resource-and-engage-them"></a>리소스를 담당하는 사용자를 찾아 문의
+
+특정 리소스를 담당하는 팀이 해당 리소스에 대한 변경 내용을 알고 있는 경우가 종종 있습니다. 요금이 발생한 이유를 식별할 때 이러한 팀에 문의하면 유용합니다. 예를 들어 소유 팀이 최근에 리소스를 만들었거나, SKU를 업데이트하여 리소스 요율이 변경되었거나, 코드 변경으로 인해 리소스에 대한 부하가 증가했을 수 있습니다. 리소스 소유자를 확인하는 더 많은 방법을 보려면 다음 섹션을 계속 읽으세요.
+
+#### <a name="analyze-the-audit-logs-for-the-resource"></a>리소스의 감사 로그 분석
+
+리소스를 볼 수 있는 권한이 있는 경우 해당 감사 로그에 액세스할 수 있어야 합니다. 로그를 검토하여 리소스에 대한 가장 최근의 변경 내용을 담당했던 사용자를 찾습니다. 자세한 정보는 [Azure 활동 로그 이벤트 보기 및 검색](../../azure-monitor/platform/activity-log-view.md)을 참조하세요.
+
+#### <a name="analyze-user-permissions-to-the-resources-parent-scope"></a>리소스의 부모 범위에 대한 사용자 권한 분석
+
+구독 또는 리소스 그룹에 대한 쓰기 권한이 있는 사용자는 일반적으로 생성된 리소스에 대한 정보를 가지고 있습니다. 리소스의 용도를 직접 설명하거나 이를 알고 있는 사람을 알려줄 수 있을 것입니다. 구독 범위에 대한 권한이 있는 사용자를 확인하려면 [역할 할당 보기](../../role-based-access-control/check-access.md#view-role-assignments)를 참조하세요. 리소스 그룹에도 유사한 프로세스를 사용할 수 있습니다.
+
+### <a name="get-help-to-identify-charges"></a>요금 식별에 대한 지원 받기
+
+위의 전략을 사용했지만 특정 요금이 부과된 이유를 여전히 모르겠거나 청구 문제와 관련하여 다른 도움이 필요한 경우 [지원 요청을 작성](https://go.microsoft.com/fwlink/?linkid=2083458)하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - [지출 한도](spending-limit.md)를 사용하여 과다 지출을 방지하는 방법을 알아봅니다.
