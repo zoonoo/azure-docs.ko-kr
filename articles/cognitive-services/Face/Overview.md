@@ -22,7 +22,7 @@ ms.locfileid: "80053591"
 
 Azure Cognitive Services Face 서비스는 이미지에서 사람의 얼굴을 감지, 인식 및 분석하는 데 사용되는 알고리즘을 제공합니다. 사람의 얼굴 정보를 처리하는 기능은 서로 다른 다양한 소프트웨어 시나리오에서 중요합니다. 이러한 시나리오의 예로 보안, 자연스러운 사용자 인터페이스, 이미지 콘텐츠 분석/관리, 모바일 앱 및 로봇 공학이 있습니다.
 
-Face 서비스는 여러 가지 다른 함수를 제공합니다. 다음 섹션에서는 각 함수에 대해 설명합니다. 계속 참조하여 자세히 알아보세요.
+Face 서비스는 다양한 기능을 제공합니다. 다음 섹션에서는 각 기능에 대해 설명합니다. 계속해서 읽고 자세히 알아보세요.
 
 ## <a name="face-detection"></a>얼굴 감지
 
@@ -37,11 +37,11 @@ Face 서비스는 이미지에서 사람의 얼굴을 감지하고 해당 위치
 
 ## <a name="face-verification"></a>얼굴 확인
 
-Verify API는 감지된 두 얼굴 또는 한 얼굴로부터 하나의 얼굴 개체를 인증합니다. 실질적으로 두 얼굴이 같은 사람인지 여부를 평가합니다. 이 기능은 보안 시나리오에서 잠재적으로 유용합니다. 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) 참조 설명서를 참조하세요.
+Verify API는 감지된 두 얼굴을 비교하여 인증하거나 하나의 감지된 얼굴과 하나의 개인 개체를 비교하여 인증합니다. 실질적으로 두 얼굴이 같은 사람인지 여부를 평가합니다. 이 기능은 보안 시나리오에서 유용할 수 있습니다. 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) 참조 설명서를 참조하세요.
 
 ## <a name="find-similar-faces"></a>유사 얼굴 찾기
 
-Find Similar API는 대상 얼굴을 후보 얼굴 세트와 비교하여 대상 얼굴과 비슷한 얼굴의 더 작은 세트를 찾습니다. matchPerson 및 matchFace의 두 가지 작업 모드가 지원됩니다. matchPerson 모드는 [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)를 사용하여 동일한 사람을 필터링한 후에 유사한 얼굴을 반환합니다. matchFace 모드는 동일한 사람 필터를 무시합니다. 이 모드는 동일한 사람에게 속하거나 속하지 않을 수 있는 유사한 후보 얼굴의 목록을 반환합니다.
+Find Similar API는 대상 얼굴을 여러 후보 얼굴과 비교하여 대상 얼굴과 비슷한 얼굴을 찾습니다. matchPerson 및 matchFace의 두 가지 작업 모드가 지원됩니다. matchPerson 모드는 [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)를 사용하여 동일한 사람을 필터링한 후에 유사한 얼굴을 표시합니다. matchFace 모드는 동일한 사람 필터를 무시합니다. 이 모드는 동일한 사람에게 속하거나 속하지 않을 수 있는 유사한 후보 얼굴의 목록을 표시합니다.
 
 다음 예제에서는 대상 얼굴을 보여 줍니다.
 
@@ -51,11 +51,11 @@ Find Similar API는 대상 얼굴을 후보 얼굴 세트와 비교하여 대상
 
 ![5개의 웃는 사람들의 이미지 a와 b 이미지는 동일한 사람을 보여 줍니다.](./Images/FaceFindSimilar.Candidates.jpg)
 
-4개의 유사한 얼굴을 찾기 위해 matchPerson 모드는 a와 b를 반환하며 동일한 사람을 대상 얼굴로 표시합니다. matchFace 모드는 일부가 대상과 동일한 사람이 아니거나 유사성이 낮은 경우에도 4개의 후보인 a, b, c 및 d&mdash;를 정확히 반환합니다. 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) 참조 설명서를 참조하세요.
+4개의 유사한 얼굴을 찾기 위해 matchPerson 모드는 a와 b를 표시하며 동일한 사람을 대상 얼굴로 나타냅니다. matchFace 모드는 일부가 대상과 동일한 사람이 아니거나 유사성이 낮은 경우에도 4개의 후보인 a, b, c, d&mdash;를 정확히 표시합니다. 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) 참조 설명서를 참조하세요.
 
 ## <a name="face-grouping"></a>얼굴 그룹화
 
-Group API는 알 수 없는 얼굴 집합을 유사성에 따라 여러 그룹으로 나눕니다. 각 그룹은 원래 얼굴 집합의 비연속 적절한 하위 집합입니다. 그룹의 모든 얼굴은 동일한 사람에게 속할 가능성이 큽니다. 한 사람에 대해 여러 개의 다른 그룹이 있을 수 있습니다. 예를 들어 그룹은 표정과 같은 다른 요소로 구분됩니다. 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Group API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) 참조 설명서를 참조하세요.
+Group API는 알 수 없는 얼굴을 유사성에 따라 여러 그룹으로 나눕니다. 각 그룹은 서로 공통점이 없는 여러 개의 고유한 원래 얼굴에 속합니다. 그룹의 모든 얼굴은 동일한 사람에게 속할 가능성이 큽니다. 한 사람에게 여러 다른 그룹이 있을 수 있습니다. 그룹은 식과 같은 다른 요소로 구분됩니다. 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Group API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) 참조 설명서를 참조하세요.
 
 ## <a name="person-identification"></a>사람 식별
 
@@ -65,13 +65,13 @@ Identify API는 사람 데이터베이스에서 감지된 얼굴을 식별하는
 
 ![서로 다른 사람에 대한 3개의 열 및 각 열에 3개의 얼굴 이미지 행이 있는 그리드](./Images/person.group.clare.jpg)
 
-데이터베이스를 만들고 학습한 후에 새로 감지된 얼굴이 있는 그룹에 대해 식별을 수행할 수 있습니다. 얼굴이 그룹의 사람으로 식별되면 해당 사람 개체가 반환됩니다.
+데이터베이스를 만들고 학습시킨 후에 새로 감지된 얼굴과 그룹을 비교하여 식별할 수 있습니다. 얼굴이 그룹에 속한 사람의 것으로 식별되면 해당 사람 개체가 표시됩니다.
 
 사람 식별에 대한 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 참조 설명서를 참조하세요.
 
 ## <a name="use-containers"></a>컨테이너 사용
 
-데이터에 더 가까운 표준화된 Docker 컨테이너를 설치하여 [얼굴 컨테이너를 통해](face-how-to-install-containers.md) 얼굴을 감지, 인식 및 식별합니다.
+데이터에 더 유사한 표준화된 Docker 컨테이너를 설치하여 [얼굴 컨테이너를 통해](face-how-to-install-containers.md) 얼굴을 감지, 인식, 식별합니다.
 
 ## <a name="sample-apps"></a>샘플 앱
 

@@ -307,6 +307,8 @@
           href: ../connectors/connectors-create-api-yammer.md
     - name: 관리
       items:
+        - name: 논리 앱 관리 - Azure Portal
+          href: manage-logic-apps-with-azure-portal.md
         - name: 논리 앱 관리 - Visual Studio
           href: manage-logic-apps-with-visual-studio.md
         - name: 통합 계정 관리

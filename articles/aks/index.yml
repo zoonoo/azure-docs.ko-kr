@@ -2,19 +2,19 @@
 title: AKS(Azure Kubernetes Service)
 summary: AKS를 사용하면 Azure에서 프로덕션 준비 Kubernetes 클러스터를 빠르게 배포할 수 있습니다. 이러한 빠른 시작, 자습서 및 샘플과 함께 AKS를 사용하는 방법을 알아봅니다.
 metadata:
-  title: AKS(Azure Kubernetes Service)
+  title: AKS(Azure Kubernetes Service) 설명서
   description: AKS를 사용하면 Azure에서 프로덕션 준비 Kubernetes 클러스터를 빠르게 배포할 수 있습니다. 이러한 빠른 시작, 자습서 및 샘플과 함께 AKS를 사용하는 방법을 알아봅니다.
   ms.service: container-service
   ms.topic: landing-page
   author: laurenhughes
   ms.author: lahugh
   ms.date: 03/25/2020
-  ms.openlocfilehash: 7482eb14fb6bcb80bc8f8b9d06057287cb862a27
-  ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+  ms.openlocfilehash: 4829b95fb62a33406248f503e646238e116cb413
+  ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/27/2020
-  ms.locfileid: "80335999"
+  ms.lasthandoff: 04/07/2020
+  ms.locfileid: "80803282"
 landingContent:
 - title: AKS(Azure Kubernetes Service) 정보
   linkLists:
