@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 75890efebc42b74c56fb95ed1803152b516588b9
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 55c6d374c8a3c308323c0d003726492477e33ff8
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385217"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811230"
 ---
 # <a name="develop-a-secure-web-app"></a>보안 웹앱 개발
 
@@ -108,14 +108,14 @@ Azure에서 앱을 배포하는 방법에는 다음과 같은 여러 가지 방�
 
 ### <a name="network"></a>네트워크
 
-샘플 앱은 네트워크 안팎으로 흐르는 전송 중 데이터에 대해 종단 간 SSL 암호화를 사용합니다. 게이트웨이는 자체 서명된 인증서로 구성됩니다.
+샘플 앱은 네트워크 안팎으로 흐르는 전송 중 데이터에 종단 간 TLS/SSL 암호화를 사용합니다. 게이트웨이는 자체 서명된 인증서로 구성됩니다.
 > [!IMPORTANT]
 > 이 데모에서는 자체 서명된 인증서가 사용됩니다. 프로덕션 환경에서는 확인된 인증 기관(CA)에서 인증서를 가져와야 합니다.
 
 또한 응용 프로그램 방화벽은 들어오는 트래픽을 검사하고 네트워크 트래픽에서 악성 트래픽이 감지되면 관리자에게 경고합니다.
 응용 프로그램 게이트웨이는 위협 모델에서 발견된 DDoS 및 SQL 주입 위협의 가능성을 완화합니다.
 
-### <a name="identity"></a>Identity
+### <a name="identity"></a>ID
 
 포털에 로그인하기 위해 샘플 앱은 리소스에 대한 액세스 권한을 할당받은 Azure Active Directory(Azure AD) 관리자에 대한 다단계 인증을 사용합니다.
 샘플 앱은 관리되는 ID를 사용하여 Azure Key Vault에서 암호를 읽고 검색할 수 있는 권한을 확보하여 앱이 암호를 읽기 위해 자격 증명 및 토큰을 하드 코드할 필요가 없도록 합니다. Azure AD는 앱에서 읽어야 하는 서비스 주체를 자동으로 만들고 관리되는 ID를 사용할 때 비밀을 수정합니다.
@@ -363,7 +363,7 @@ END;
 $$ LANGUAGE PLPGSQL;
 ```
 
-PostgreSQL에 대한 SSL 및 인증 기관(CA) 확인을 설정하는 방법에 대한 자세한 내용은 [PostgreSQL에 대한 Azure 데이터베이스의 SSL 연결 구성을](/azure/postgresql/concepts-ssl-connection-security)참조하십시오.
+PostgreSQL에 대한 TLS 및 인증 기관(CA) 확인을 설정하는 방법에 대한 자세한 내용은 [PostgreSQL에 대한 Azure 데이터베이스의 TLS 연결 구성을](/azure/postgresql/concepts-ssl-connection-security)참조하십시오.
 
 루트 인증서가 컨테이너에 포함됩니다. 인증서를 얻기 위해 수행된 단계는 다음과 같습니다.
 
@@ -375,7 +375,7 @@ PostgreSQL에 대한 SSL 및 인증 기관(CA) 확인을 설정하는 방법에 
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
    ```
 
-PostgreSQL에 대한 SSL 보안을 구성하는 방법에 대한 자세한 내용은 여기에서 [SSL 연결 보안을 구성합니다.](/azure/postgresql/concepts-ssl-connection-security)
+PostgreSQL에 대한 TLS 보안을 구성하는 방법에 대한 자세한 내용은 여기에서 [TLS 연결 보안을 구성합니다.](/azure/postgresql/concepts-ssl-connection-security)
 
 #### <a name="deploy-azure-web-apps-on-linux"></a>Linux에 Azure 웹 앱 배포
 
@@ -946,7 +946,7 @@ Azure Sentinel을 설정하려면 먼저 다양한 리소스에서 수집된 모
 
 샘플 앱의 경우 정적 분석 도구를 사용하여 확인하려면 오염 검사 및 데이터 흐름 분석과 같은 기술을 사용하여 앱 코드에서 취약점을 찾는 작업이 포함됩니다. 파이썬 정적 분석 도구는 앱이 안전하다는 확신을 줍니다.
 
-**Linting**
+**Lint**
 
 파이썬 리딩 라이브러리인 PyFlakes는 다음과 같이 앱에서 죽은 코드와 사용되지 않는 함수를 제거하는 데 도움이 됩니다.
 

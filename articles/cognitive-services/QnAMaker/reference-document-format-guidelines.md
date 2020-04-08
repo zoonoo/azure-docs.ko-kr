@@ -1,14 +1,14 @@
 ---
 title: 문서 형식 지침 가져오기 - QnA 메이커
-description: QnA 세트를 가져오고 만드는 데 URL 유형이 어떻게 사용되는지 알아보세요.
+description: QnA 쌍을 가져오고 만드는 데 URL 유형이 어떻게 사용되는지 알아보세요.
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: 1e006520ce5c61f2da3f425af2332b0d41cc3881
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 799e85e2200d3caa29c9b76bc57a62fc883d246d
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754896"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804336"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>가져온 문서 및 URL에 대한 형식 지침
 

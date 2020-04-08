@@ -3,12 +3,12 @@ title: 적극적인 학습 제안 - QnA 메이커
 description: 적극적인 학습 제안을 사용하면 사용자 제출에 따라 질문 및 답변 쌍에 다른 질문을 제안하여 기술 자료의 품질을 향상시킬 수 있습니다.
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: af4f6b399bfd537b38ea741d03e59371ee81e588
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: edbe06b12fbb97473b28ccca968fd3e7d8366152
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80053149"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804221"
 ---
 # <a name="active-learning-suggestions"></a>적극적인 학습 제안
 
@@ -27,7 +27,7 @@ QnA Maker는 암시적/명시적 피드백을 사용하여 새로운 질문 변�
 
 ## <a name="how-active-learning-works"></a>활성 학습의 작동 방식
 
-활성 학습은 QnA 메이커에 의해 반환 된 상위 몇 가지 답변의 점수에 따라 트리거됩니다. 쿼리와 일치하는 QnA 집합 간의 점수 차이가 작은 범위 내에 있는 경우 쿼리는 가능한 각 QnA 쌍에 대해 가능한 제안(대체 질문)으로 간주됩니다. 특정 QnA 쌍에 대해 제안된 질문을 수락하면 다른 쌍에 대해 거부됩니다. 당신은 제안을 수락 한 후, 저장하고 훈련하는 것을 기억해야합니다.
+활성 학습은 QnA 메이커에 의해 반환 된 상위 몇 가지 답변의 점수에 따라 트리거됩니다. 쿼리와 일치하는 QnA 쌍 간의 점수 차이가 작은 범위 내에 있는 경우 쿼리는 가능한 각 QnA 쌍에 대해 가능한 제안(대체 질문)으로 간주됩니다. 특정 QnA 쌍에 대해 제안된 질문을 수락하면 다른 쌍에 대해 거부됩니다. 당신은 제안을 수락 한 후, 저장하고 훈련하는 것을 기억해야합니다.
 
 엔드포인트가 적절한 수와 종류의 사용량 쿼리를 수신하면 활성 학습에서는 가능한 최적의 제안을 제공합니다. 5개 이상의 유사한 쿼리가 클러스터화되면 30분마다 QnA Maker는 사용자 기반 질문을 기술 자료 디자이너에게 수락하거나 거부할 것을 제안합니다. 모든 제안은 유사성을 기준으로 클러스터되며, 최종 사용자가 특정 쿼리를 전송한 빈도에 따라 대체 질문의 상위 제안이 표시됩니다.
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: aa43d44a691fa9151959e8817596bdfc9bba65f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 857b2b00aadced567bc8ac191cdd9908f7bea7a3
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74687386"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804404"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>App Service Environment로의 인바운드 트래픽을 제어하는 방법
 ## <a name="overview"></a>개요
@@ -31,10 +31,10 @@ App Service Environment는 항상 서브넷 내에 만들어야 합니다. 서�
 
 다음은 App Service 환경에서 사용되는 포트 목록입니다. 명확하게 언급이 없는 한 모든 포트는 **TCP**입니다.
 
-* 454: SSL을 통해 앱 서비스 환경을 관리하고 유지 관리하기 위해 Azure 인프라에서 사용하는 **필수 포트입니다.**  이 포트를 차단하지 마세요.  이 포트는 항상 ASE의 공용 VIP에 바인딩됩니다.
-* 455: SSL을 통해 앱 서비스 환경을 관리하고 유지 관리하기 위해 Azure 인프라에서 사용하는 **필수 포트입니다.**  이 포트를 차단하지 마세요.  이 포트는 항상 ASE의 공용 VIP에 바인딩됩니다.
+* 454: TLS를 통해 앱 서비스 환경을 관리하고 유지 관리하기 위해 Azure 인프라에서 사용하는 **필수 포트입니다.**  이 포트를 차단하지 마세요.  이 포트는 항상 ASE의 공용 VIP에 바인딩됩니다.
+* 455: TLS를 통해 앱 서비스 환경을 관리하고 유지 관리하기 위해 Azure 인프라에서 사용하는 **필수 포트입니다.**  이 포트를 차단하지 마세요.  이 포트는 항상 ASE의 공용 VIP에 바인딩됩니다.
 * 80: App Service 환경의 App Service 계획에서 실행되는 앱에 대한 인바운드 HTTP 트래픽의 기본 포트입니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩됩니다.
-* 443: App Service Environment의 App Service 계획에서 실행되는 앱에 대한 인바운드 SSL 트래픽의 기본 포트입니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩됩니다.
+* 443: 앱 서비스 환경에서 앱 서비스 계획에서 실행 중인 앱에 대한 인바운드 TLS 트래픽에 대한 기본 포트입니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩됩니다.
 * 21: FTP에 대한 컨트롤 채널입니다.  FTP를 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩될 수 있습니다.
 * 990: FTPS에 대한 컨트롤 채널입니다.  FTPS를 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩될 수 있습니다.
 * 10001~10020: FTP에 대한 데이터 채널입니다.  제어 채널과 마찬가지로 FTP를 사용하지 않는 경우 이러한 포트를 안전하게 차단할 수 있습니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩될 수 있습니다.
@@ -62,7 +62,7 @@ Vnet의 모든 사용자 지정 DNS 서버는 App Service Environment 생성보�
 
 네트워크 보안 그룹을 만들면 하나 이상의 네트워크 보안 규칙이 해당 그룹에 추가됩니다.  규칙 집합은 시간이 지남에 따라 변경될 수 있으므로 시간이 지남에 따라 추가 규칙을 쉽게 삽입할 수 있도록 규칙 우선 순위에 사용되는 번호 매기기 체계를 지정하는 것이 좋습니다.
 
-아래 예제에서는 Azure 인프라에서 App Service Environment를 관리 및 유지 보수하는 데 필요한 관리 포트에 대한 액세스 권한을 명시적으로 부여하는 규칙을 보여 줍니다.  모든 관리 트래픽은 SSL을 통해 흐르며 클라이언트 인증서로 보안이 유지되므로 포트가 열려 있는 경우에도 Azure 관리 인프라 이외의 엔터티는 액세스할 수 없습니다.
+아래 예제에서는 Azure 인프라에서 App Service Environment를 관리 및 유지 보수하는 데 필요한 관리 포트에 대한 액세스 권한을 명시적으로 부여하는 규칙을 보여 줍니다.  모든 관리 트래픽은 TLS를 통해 흐르며 클라이언트 인증서에 의해 보호되므로 포트가 열려 있더라도 Azure 관리 인프라 가 아닌 다른 엔터티에서 액세스할 수 없습니다.
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
 

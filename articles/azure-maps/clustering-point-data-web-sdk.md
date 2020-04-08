@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: e65681aefc047ba540d4ad0d91ef6e4d2af5f3ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce2891201331ee1efd861d2f13cec78c0551b6ba
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190273"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804574"
 ---
 # <a name="clustering-point-data"></a>클러스터링 포인트 데이터
 
@@ -48,7 +48,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 다음은 클래스가 `DataSource` 클러스터링을 위해 제공하는 추가 메서드입니다.
 
-| 방법 | 반환 형식 | 설명 |
+| 방법 | 반환 형식 | Description |
 |--------|-------------|-------------|
 | get클러스터자식(클러스터Id: 번호) | 약속&lt;&lt;배열&lt;피쳐&gt; \| 형상, 모든 모양&gt;&gt; | 다음 확대/축소 수준에서 지정된 클러스터의 자식 요소를 검색합니다. 이러한 자식 요소는 도형과 하위 클러스터의 조합일 수 있습니다. 하위 클러스터는 ClusteredProperties와 일치하는 속성이 있는 기능입니다. |
 | get클러스터확장확대Zoom(클러스터Id: 번호) | Promise&lt;number&gt; | 클러스터가 확장 또는 분리를 시작하는 확대/축소 수준을 계산합니다. |
@@ -62,7 +62,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="기본 버블 레이어 클러스터링" src="//codepen.io/azuremaps/embed/qvzRZY/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="기본 버블 레이어 클러스터링" src="//codepen.io/azuremaps/embed/qvzRZY/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen에서</a>Azure 지도 ()에<a href='https://codepen.io/azuremaps'>@azuremaps</a>의한 펜 <a href='https://codepen.io/azuremaps/pen/qvzRZY/'>기본 버블 레이어 클러스터링을</a> 참조하십시오.
 </iframe>
 
@@ -74,7 +74,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="클러스터된 기호 레이어" src="//codepen.io/azuremaps/embed/Wmqpzz/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="클러스터된 기호 레이어" src="//codepen.io/azuremaps/embed/Wmqpzz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen에서</a>Azure 지도 ()<a href='https://codepen.io/azuremaps'>@azuremaps</a>별 펜 <a href='https://codepen.io/azuremaps/pen/Wmqpzz/'>클러스터된 기호 레이어를</a> 참조하십시오.
 </iframe>
 
@@ -84,7 +84,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="클러스터 가중 히트 맵" src="//codepen.io/azuremaps/embed/VRJrgO/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="클러스터 가중 히트 맵" src="//codepen.io/azuremaps/embed/VRJrgO/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen에서</a>Azure 지도 ()<a href='https://codepen.io/azuremaps'>@azuremaps</a>별 펜 <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>클러스터 가중치 열 맵을</a> 참조하십시오.
 </iframe>
 
@@ -103,7 +103,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="클러스터 get클러스터 확장Zoom" src="//codepen.io/azuremaps/embed/moZWeV/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="클러스터 get클러스터 확장Zoom" src="//codepen.io/azuremaps/embed/moZWeV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>코드펜에서</a>펜 <a href='https://codepen.io/azuremaps/pen/moZWeV/'>클러스터 getCluster확장확대확대를</a> Azure 지도 ()로<a href='https://codepen.io/azuremaps'>@azuremaps</a>확인합니다.
 </iframe>
 
@@ -113,7 +113,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 <br/>
 
- <iframe height="500" style="width: 100%;" scrolling="no" title="클러스터 영역 볼록 선체" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+ <iframe height="500" style="width: 100%;" scrolling="no" title="클러스터 영역 볼록 선체" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>코드펜에서</a>Azure 지도 ()<a href='https://codepen.io/azuremaps'>@azuremaps</a>별 펜 <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>클러스터 영역 볼록 선체를</a> 참조하십시오.
 </iframe>
 
@@ -123,7 +123,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 다음 샘플에서는 집계 식을 사용합니다. 코드는 클러스터의 각 데이터 요소의 엔터티 형식 속성을 기반으로 개수를 계산합니다. 사용자가 클러스터를 클릭하면 클러스터에 대한 추가 정보가 있는 팝업이 표시됩니다.
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="클러스터 집계" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="클러스터 집계" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen에서</a>Azure Maps ()별로<a href='https://codepen.io/azuremaps'>@azuremaps</a>펜 <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>클러스터 집계를</a> 참조하십시오.
 </iframe>
 

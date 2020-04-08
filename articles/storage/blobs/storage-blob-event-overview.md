@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
-ms.openlocfilehash: e4dd6bab6198546dc5acab78ec59d92387328dbb
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: d9c666fd6fcf020908b6fc5bdd639261853ad9c6
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80755008"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811549"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Blob Storage 이벤트에 대응
 
@@ -98,7 +98,7 @@ Blob Storage 이벤트를 처리하는 애플리케이션은 아래 권장되는
 > * 마찬가지로, eventType이 본인이 처리하려는 형식인지 확인하고, 수신된 모든 이벤트가 예상하는 형식일 것이라고 간주하지 않도록 합니다.
 > * 메시지가 약간의 지연 후에 도착할 수 있으므로 etag 필드를 사용하여 개체에 대한 정보가 여전히 최신 상태인지 확인합니다. etag 필드를 사용하는 방법에 대해 알아보려면 [Blob 저장소의 동시성 관리를](https://docs.microsoft.com/azure/storage/common/storage-concurrency?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage)참조하십시오. 
 > * 메시지가 순서대로 도착할 수 있도록 시퀀서 필드를 사용하여 특정 개체의 이벤트 순서를 이해합니다. 시퀀서 필드는 특정 Blob 이름에 대한 이벤트의 논리적 시퀀스를 나타내는 문자열 값입니다. 표준 문자열 비교를 사용하여 동일한 Blob 이름에 있는 두 이벤트의 상대 시퀀스를 이해할 수 있습니다.
-> 저장소 이벤트는 구독자에게 최소 한 번 배달을 보장하므로 모든 메시지가 출력되도록 합니다. 그러나 구독의 재시도 또는 가용성으로 인해 중복 메시지가 발생할 수 있습니다.
+> * 저장소 이벤트는 구독자에게 최소 한 번 배달을 보장하므로 모든 메시지가 출력되도록 합니다. 그러나 구독의 재시도 또는 가용성으로 인해 중복 메시지가 발생할 수 있습니다. 메시지 배달 및 재시도에 대한 자세한 내용은 [Event Grid 메시지 배달 및 다시 시도를](../../event-grid/delivery-and-retry.md)참조하세요.
 > * blobType 필드를 사용하여 Blob에 허용되는 작업 형식을 파악하고 Blob에 액세스하는 데 사용해야 하는 클라이언트 라이브러리 형식을 확인합니다. 유효한 값은 `BlockBlob` 또는 `PageBlob`입니다. 
 > * Blob에 액세스하려면 `CloudBlockBlob` 및 `CloudAppendBlob` 생성자에 URL 필드를 사용합니다.
 > * 이해할 수 없는 필드는 무시합니다. 이 지침은 나중에 추가될 수 있는 새로운 기능에 적용하는 데도 도움이 됩니다.

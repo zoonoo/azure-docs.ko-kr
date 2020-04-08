@@ -3,12 +3,12 @@ title: 서비스 구성 - QnA 메이커
 description: 리소스를 구성하는 방법과 위치를 이해합니다.
 ms.topic: reference
 ms.date: 02/21/2020
-ms.openlocfilehash: 8ef6fecbfeb119d0c68ec5bc3bbc90ec449dbb7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3be32d1778604121c2acac88415cbfbc4bdbca3d
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651994"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804263"
 ---
 # <a name="service-configuration"></a>서비스 구성
 
@@ -27,8 +27,8 @@ QnA Maker는 앱 서비스를 사용하여 [generateAnswer API에서](https://do
 
 |리소스|설정|
 |--|--|
-|AzureSearchAdminKey|인지 검색 - QnA 세트 스토리지 및 랭커 #1 사용|
-|Azure SearchName|인지 검색 - QnA 세트 스토리지 및 랭커 #1 사용|
+|AzureSearchAdminKey|인지 검색 - QnA 쌍 저장 및 랭커 #1 사용|
+|Azure SearchName|인지 검색 - QnA 쌍 저장 및 랭커 #1 사용|
 |기본 답변|일치하는 일치를 찾을 수 없는 경우 의 정답 텍스트|
 |사용자 앱 인사이트앱Id|채팅 로그 및 원격 분석|
 |사용자 앱 인사이트키|채팅 로그 및 원격 분석|
@@ -44,7 +44,7 @@ QnA Maker 서비스는 다음 사용자가 단일 QnA Maker 서비스와 모든 
 
 서비스에 [공동 작업자를 추가하는 방법을](./how-to/collaborate-knowledge-base.md) 알아봅니다.
 
-## <a name="application-insights"></a>애플리케이션 정보
+## <a name="application-insights"></a>Application Insights
 
 응용 프로그램 인사이트는 QnA 메이커에 특정 구성 설정이 없습니다.
 

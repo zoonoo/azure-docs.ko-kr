@@ -3,12 +3,12 @@ title: 데이터 없음 문제 해결 - .NET용 Application Insights
 description: Azure Application Insights에서 데이터를 볼 수 없나요? 여기를 참조하세요.
 ms.topic: conceptual
 ms.date: 07/23/2018
-ms.openlocfilehash: 2627fde55f4177798d04aab02db169f3117d32dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 34fc51f8f656ec0f630bd984ac1b28fbaa5e4dae
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665904"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802589"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>데이터 문제 해결 - .NET/.NET 코어에 대한 애플리케이션 인사이트
 
@@ -241,12 +241,16 @@ PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-Applica
 필요에 따라 다음 매개 변수를 수정할 수 있습니다.
 - **맥스컬렉**. PerfView가 무기한 실행되고 서버 성능에 영향을 주지 않도록 하려면 이 매개 변수를 설정합니다.
 - **공급자만**. 이 매개 변수를 설정하여 SDK에서 로그만 수집합니다. 특정 조사에 따라 이 목록을 사용자 지정할 수 있습니다. 
-- **노와이**. Gui 없이 로그를 수집 하려면이 매개 변수를 설정 합니다.
+- **노와이**. GUI 없이 로그를 수집하려면 이 매개 변수를 설정합니다.
 
 
 자세한 내용은
 - [PerfView를 통해 성능 추적을 기록합니다.](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView)
 - [애플리케이션 인사이트 이벤트 소스](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
+
+## <a name="how-to-remove-application-insights"></a>응용 프로그램 인사이트를 제거하는 방법
+
+제거 [문서에서](../../azure-monitor/app/remove-application-insights.md)제공하는 단계에 따라 Visual Studio에서 응용 프로그램 인사이트를 제거하는 방법을 알아봅니다.
 
 ## <a name="still-not-working"></a>여전히 작동하지 않습니다.
 * [Application Insights 포럼](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

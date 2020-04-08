@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: cfeff430e5313c8728582c4790c9aca9482d63aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c85d6078fce7fc8e5a5b5d8485517a8b262044a9
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79534920"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802334"
 ---
 # <a name="create-a-map"></a>맵 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "79534920"
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="기본 맵 로드" src="//codepen.io/azuremaps/embed/rXdBXx/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="기본 맵 로드" src="//codepen.io/azuremaps/embed/rXdBXx/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen에서</a>Azure 지도 ()별<a href='https://codepen.io/azuremaps'>@azuremaps</a>펜 <a href='https://codepen.io/azuremaps/pen/rXdBXx/'>기본 맵 로드를</a> 참조하십시오.
 </iframe>
 
@@ -39,7 +39,7 @@ ms.locfileid: "79534920"
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="렌더월드복사 = 거짓" src="//codepen.io/azuremaps/embed/eqMYpZ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="렌더월드복사 = 거짓" src="//codepen.io/azuremaps/embed/eqMYpZ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen에서</a>펜 <a href='https://codepen.io/azuremaps/pen/eqMYpZ/'>렌더월드복사 =</a> <a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure 지도 ()에 의해 false를 참조하십시오.
 </iframe>
 

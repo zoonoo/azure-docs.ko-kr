@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: 2b8cf66afa1d8aa592d5755ebab70cd6ad2e75fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 733f4b74ca7643476586189b36f4e1d3e446968b
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79298057"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811163"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>내부 VNET에서 Application Gateway와 API Management 통합
 
@@ -64,7 +64,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 * **백 엔드 서버 풀:** API Management 서비스의 내부 가상 IP 주소입니다.
 * **백 엔드 서버 풀 설정:** 모든 풀에는 포트, 프로토콜 및 쿠키 기반 선호도와 같은 설정이 있습니다. 이러한 설정은 풀 내의 모든 서버에 적용됩니다.
 * **프런트 엔드 포트:** Application Gateway에 열려 있는 공용 포트입니다. 이 포트에 도달한 트래픽은 백 엔드 서버 중의 하나로 리디렉션됩니다.
-* **청취자:** 수신기에는 프런트 엔드 포트, 프로토콜(Http 또는 Https, 이러한 값은 대/소문자 구분) 및 SSL 인증서 이름(SSL 오프로드를 구성하는 경우)이 있습니다.
+* **청취자:** 수신기에는 프런트 엔드 포트, 프로토콜(Http 또는 Https, 이러한 값은 대/소문자 구분) 및 TLS/SSL 인증서 이름(TLS 오프로드를 구성하는 경우)이 있습니다.
 * **규칙:** 규칙은 수신기를 백 엔드 서버 풀에 바인딩합니다.
 * **사용자 정의 상태 프로브:** 응용 프로그램 게이트웨이는 기본적으로 IP 주소 기반 프로브를 사용하여 BackendAddressPool의 어떤 서버가 활성 상태인지 파악합니다. API Management 서비스는 올바른 호스트 헤더가 있는 요청에만 응답하므로 기본 프로브는 실패합니다. 서비스가 활성 상태이고 요청을 전달해야 한다는 것을 Application Gateway가 결정할 수 있도록 사용자 지정 상태 프로브를 정의해야 합니다.
 * **사용자 지정 도메인 인증서:** 인터넷에서 API Management에 액세스하려면 Application Gateway 프런트 엔드 DNS 이름에 대한 해당 호스트 이름의 CNAME을 매핑해야 합니다. 이렇게 하면 API Management에 전달되는 Application Gateway에 전송되는 호스트 이름 헤더 및 인증서를 APIM에서 유효한 것으로 인식할 수 있습니다. 이 예제에서는 백 엔드 및 개발자 포털에 대해 두 개의 인증서를 사용합니다.  
@@ -271,7 +271,7 @@ $certPortal = New-AzApplicationGatewaySslCertificate -Name "cert02" -Certificate
 
 ### <a name="step-5"></a>5단계
 
-Application Gateway에 대한 HTTP 수신기를 만듭니다. 프런트 엔드 IP 구성, 포트 및 ssl 인증서를 할당합니다.
+Application Gateway에 대한 HTTP 수신기를 만듭니다. 프런트 엔드 IP 구성, 포트 및 TLS/SSL 인증서를 할당합니다.
 
 ```powershell
 $listener = New-AzApplicationGatewayHttpListener -Name "listener01" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $cert -HostName $gatewayHostname -RequireServerNameIndication true
@@ -280,7 +280,7 @@ $portalListener = New-AzApplicationGatewayHttpListener -Name "listener02" -Proto
 
 ### <a name="step-6"></a>6단계
 
-API Management 서비스 `ContosoApi` 프록시 도메인 엔드포인트에 사용자 지정 프로브를 만듭니다. 경로 `/status-0123456789abcdef`는 모든 API Management 서비스에서 호스트되는 기본 상태 엔드포인트입니다. `api.contoso.net`을 사용자 지정 프로브 호스트 이름으로 지정하여 SSL 인증서로 보호합니다.
+API Management 서비스 `ContosoApi` 프록시 도메인 엔드포인트에 사용자 지정 프로브를 만듭니다. 경로 `/status-0123456789abcdef`는 모든 API Management 서비스에서 호스트되는 기본 상태 엔드포인트입니다. TLS/SSL 인증서로 보안을 위해 사용자 지정 프로브 호스트 이름으로 설정합니다. `api.contoso.net`
 
 > [!NOTE]
 > 호스트 이름 `contosoapi.azure-api.net`은 서비스 `contosoapi`가 공용 Azure에서 생성될 때 구성된 기본 프록시 호스트 이름입니다.
@@ -293,7 +293,7 @@ $apimPortalProbe = New-AzApplicationGatewayProbeConfig -Name "apimportalprobe" -
 
 ### <a name="step-7"></a>7단계
 
-SSL이 활성화된 백 엔드 풀 리소스에 사용할 인증서를 업로드합니다. 위의 4단계에서 제공하는 동일한 인증서입니다.
+TLS 지원 백 엔드 풀 리소스에 사용할 인증서를 업로드합니다. 위의 4단계에서 제공하는 동일한 인증서입니다.
 
 ```powershell
 $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile $gatewayCertCerPath

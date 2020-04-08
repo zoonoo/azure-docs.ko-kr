@@ -2,13 +2,13 @@
 title: 템플릿 기능 - 리소스
 description: Azure Resource Manager 템플릿에서 리소스에 대한 값을 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: 23c0463649e748b35917c959a73536147e91f60b
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.date: 04/06/2020
+ms.openlocfilehash: 90cee78c29c26c88d808cdef798e74a2184a5fcf
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80744998"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804761"
 ---
 # <a name="resource-functions-for-arm-templates"></a>ARM 템플릿에 대한 리소스 기능
 
@@ -496,7 +496,9 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 
 ### <a name="valid-uses"></a>유효한 사용
 
-참조 함수는 리소스 정의의 속성과 템플릿 또는 배포의 출력 섹션에서만 사용할 수 있습니다. [속성 반복과](copy-properties.md)함께 사용할 경우 식이 `input` 리소스 속성에 할당되어 있으므로 참조 함수를 사용할 수 있습니다. 참조 함수가 확인되기 `count` 전에 개수를 결정해야 하기 때문에 사용할 수 없습니다.
+참조 함수는 리소스 정의의 속성과 템플릿 또는 배포의 출력 섹션에서만 사용할 수 있습니다. [속성 반복과](copy-properties.md)함께 사용할 경우 식이 `input` 리소스 속성에 할당되어 있으므로 참조 함수를 사용할 수 있습니다.
+
+참조 함수를 사용하여 복사 루프에서 `count` 속성 값을 설정할 수 없습니다. 루프에서 다른 속성을 설정하는 데 사용할 수 있습니다. 참조 함수가 확인되기 전에 해당 속성을 결정해야 하기 때문에 count 속성에 대한 참조가 차단됩니다.
 
 [중첩된 템플릿의](linked-templates.md#nested-template) 출력에서 참조 함수를 사용하여 중첩된 템플릿에 배포한 리소스를 반환할 수 없습니다. 대신 연결된 [템플릿을](linked-templates.md#linked-template)사용합니다.
 
@@ -530,7 +532,7 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 
 **{리소스-공급자-네임스페이스}/{부모-리소스 유형}/{부모-리소스 이름}[/{자식-리소스 유형}/{자식-리소스 이름}]**
 
-다음은 그 예입니다.
+예를 들어:
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt`는 올바릅니다. `Microsoft.Compute/virtualMachines/extensions/myVM/myExt`는 올바르지 않습니다.
 
@@ -896,7 +898,7 @@ resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |

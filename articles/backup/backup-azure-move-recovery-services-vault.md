@@ -4,12 +4,12 @@ description: Azure 구독 및 리소스 그룹 간에 복구 서비스 자격 �
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: fed42c578da2e4f27f42e11d5ac67d698bbcd939
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3cfd442d49de2661d68de3c4e4b3575119504eb4
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77120717"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804421"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Azure 구독 및 리소스 그룹 간에 복구 서비스 자격 증명 모음 이동
 
@@ -17,7 +17,7 @@ ms.locfileid: "77120717"
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-복구 서비스 볼트에 대한 리소스 이동은 호주 동부, 호주 남동부, 캐나다 중부, 캐나다 동부, 동남 아시아, 동아시아, 미국 중부, 미국 중북부, 미국 동부, 미국 동부, 미국 중남부, 미국 중서부, 미국 서부 US2, 미국 서부, 인도 중부, 인도 남부, 일본 동부, 일본 서부, 한국 중부, 한국 남부, 북유럽, 서유럽, 남아프리카 공화국, 남아프리카 공화국 서부, 영국 남부 및 영국 서부.
+복구 서비스 금고에 대한 리소스 이동은 호주 동부, 호주 남동부, 캐나다 중부, 캐나다 동부, 동남 아시아, 동아시아, 미국 중부, 미국 중북부, 미국 동부, 미국 서부 US2, 미국 중서부, 중서부, 인도 중부, 일본 동부, 일본 서부, 한국 중부, 한국 남부, 북유럽, 서유럽, 남아프리카 공화국, 남아프리카 공화국 에서 지원됩니다. , 남아프리카 공화국 서부, 영국 남부 및 영국 서부.
 
 ## <a name="unsupported-regions"></a>지원되지 않는 지역
 
@@ -27,7 +27,7 @@ ms.locfileid: "77120717"
 
 - 리소스 그룹 간에 볼트가 이동하는 동안 원본 및 대상 리소스 그룹이 모두 잠겨 쓰기 및 삭제 작업을 방지합니다. 자세한 내용은 이 [문서를](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)참조하십시오.
 - 관리자 구독만 볼트를 이동할 수 있는 권한이 있습니다.
-- 구독 간에 자격 증명 모음을 이동하는 경우 대상 구독은 원본 구독과 동일한 테넌트에 있어야 하며 해당 상태는 사용하도록 설정되어야 합니다.
+- 구독 간에 볼트를 이동하는 경우 대상 구독은 원본 구독과 동일한 테넌트에 있어야 하며 해당 상태는 사용하도록 설정되어야 합니다.
 - 대상 리소스 그룹에 쓰기 작업을 수행할 수 있는 권한이 있어야 합니다.
 - 자격 증명 모음을 이동하면 리소스 그룹이 변경됩니다. 복구 서비스 자격 증명 모음은 동일한 위치에 있으며 변경할 수 없습니다.
 - 한 번에 지역당 하나의 복구 서비스 자격 증명 모음만 이동할 수 있습니다.
@@ -35,25 +35,25 @@ ms.locfileid: "77120717"
 - VM을 자격 증명 모음과 함께 이동했는지 여부에 관계없이 자격 증명 모음의 유지된 백업 기록에서 항상 VM을 복원할 수 있습니다.
 - Azure 디스크 암호화를 사용하려면 키 자격 증명 모음및 VM이 동일한 Azure 리전 및 구독에 있어야 합니다.
 - 관리 디스크가 있는 가상 머신을 이동하려면 이 [문서](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/)를 참조하세요.
-- 구독 내 또는 새 구독으로 리소스를 이동할지 여부에 따라 클래식 모델을 통해 배포된 리소스의 이동 옵션은 다릅니다. 자세한 내용은 이 [문서를](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)참조하십시오.
+- 클래식 모델을 통해 배포된 리소스를 이동하는 옵션은 구독 내에서 리소스를 이동하는지 새 구독으로 이동하는지 여부에 따라 다릅니다. 자세한 내용은 이 [문서를](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)참조하십시오.
 - 자격 증명 모음에 대해 정의된 백업 정책은 자격 증명 모음이 구독 간에 또는 새 리소스 그룹으로 이동 후에 유지됩니다.
 - 구독 및 리소스 그룹 간에 IaaS VM에서 Azure 파일, Azure 파일 동기화 또는 SQL을 사용 하 여 볼트를 이동 지원 되지 않습니다.
 - 구독 간에 VM 백업 데이터가 포함된 자격 증명 모음을 이동하는 경우 VM을 동일한 구독으로 이동하고 이전 구독에서와 동일한 대상 VM 리소스 그룹 이름을 사용하여 백업을 계속해야 합니다.
 
 > [!NOTE]
->
-> **Azure Site Recovery**와 함께 사용하도록 구성된 Recovery Services 자격 증명 모음은 아직 이동할 수 없습니다. **Azure Site Recovery**를 사용하여 재해 복구에 대해 VM(Azure IaaS, Hyper-V, VMware) 또는 물리적 머신을 구성한 경우 이동 작업이 차단됩니다. Site Recovery 서비스에 대한 리소스 이동 기능을 아직 사용할 수 없습니다.
+> Azure 리전에서 Azure 백업에 대한 복구 서비스 자격 증명 모음을 이동하는 것은 지원되지 않습니다.<br><br>
+> **Azure 사이트 복구를**사용하여 재해 복구를 위해 VM(Azure IaaS, Hyper-V, VMware) 또는 물리적 컴퓨터를 구성한 경우 이동 작업이 차단됩니다. Azure 사이트 복구용 볼트를 이동하려면 [이 문서를](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions) 검토하여 볼트를 수동으로 이동하는 방법에 대해 알아봅니다.
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Azure 포털을 사용하여 복구 서비스 자격 증명 모음을 다른 리소스 그룹으로 이동
 
 복구 서비스 자격 증명 모음 및 연결된 해당 리소스를 다른 리소스 그룹으로 이동하려면
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **Recovery Services 자격 증명 모음**의 목록을 열고 이동하려는 자격 증명 모음을 선택합니다. 자격 증명 모음 대시보드가 열리면 다음 이미지에 표시된 것처럼 나타납니다.
 
    ![복구 서비스 자격 증명 모음 열기](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-   자격 증명 모음에 대한 **Essentials** 정보가 표시되지 않는 경우 드롭다운 아이콘을 클릭합니다. 이제 자격 증명 모음에 대한 Essentials 정보가 표시됩니다.
+   볼트의 **필수** 정보가 표시되지 않으면 드롭다운 아이콘을 클릭합니다. 이제 자격 증명 모음에 대한 Essentials 정보가 표시됩니다.
 
    ![Essentials 정보 탭](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
@@ -61,7 +61,7 @@ ms.locfileid: "77120717"
 
    ![리소스 그룹 변경](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
-4. **리소스 이동** 블레이드에서 선택한 자격 증명 모음의 경우 다음 이미지처럼 확인란을 선택하여 관련된 옵션 리소스를 이동하는 것이 좋습니다.
+4. 리소스 **이동** 블레이드에서 선택한 볼트의 경우 다음 이미지와 같이 확인란을 선택하여 선택적 관련 리소스를 이동하는 것이 좋습니다.
 
    ![구독 이동](./media/backup-azure-move-recovery-services/move-resource.png)
 
@@ -77,7 +77,7 @@ ms.locfileid: "77120717"
 
 Recovery Services 자격 증명 모음 및 연결된 해당 리소스를 다른 구독으로 이동할 수 있습니다.
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Recovery Services 자격 증명 모음의 목록을 열고 이동하려는 자격 증명 모음을 선택합니다. 자격 증명 모음 대시보드가 열리면 다음 이미지에 표시된 것처럼 나타납니다.
 
     ![복구 서비스 자격 증명 모음 열기](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
@@ -122,7 +122,7 @@ Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $v
 Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
-위의 cmdlet을 실행한 후 지정한 리소스를 이동할 것인지 묻는 메시지가 나타납니다. **Y**를 입력하여 확인합니다. 유효성 검사에 성공 후 리소스를 이동합니다.
+위의 cmdlet을 실행한 후 지정된 리소스를 이동하려는지 확인하라는 메시지가 표시됩니다. **Y**를 입력하여 확인합니다. 유효성 검사에 성공 후 리소스를 이동합니다.
 
 ## <a name="use-cli-to-move-recovery-services-vault"></a>CLI를 사용하여 복구 서비스 자격 증명 모음을 이동
 

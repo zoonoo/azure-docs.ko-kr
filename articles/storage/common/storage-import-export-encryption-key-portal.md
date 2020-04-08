@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ca1327a547e8550e47ff37e4ba100fcbd2b7a79f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7077b5e94800d93833f259fefd0cd4c168ec867
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282463"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811449"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>가져오기/내보내기 서비스에 Azure 키 자격 증명 모음에서 고객 관리 키 사용
 
@@ -103,7 +103,7 @@ Microsoft 관리 키를 사용하지 않도록 설정하고 가져오기/내보�
 | CmkError액세스다시호출 | 고객 관리 키를 적용했지만 키 액세스는 현재 해지되었습니다. 자세한 내용은 [키 액세스 활성화](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy)방법을 참조하세요.                                                      | 예, 다음을 확인하십시오. <ol><li>키 자격 증명 모음에는 액세스 정책에 MSI가 여전히 있습니다.</li><li>액세스 정책은 받기, 줄 바꿈, 줄 바꿈 해제에 대한 권한을 제공합니다.</li><li>키 자격 증명 모음이 방화벽 뒤의 vNet에 있는 경우 **Microsoft 신뢰할 수 있는 서비스 허용이** 활성화되어 있는지 확인합니다.</li></ol>                                                                                            |
 | CmkError 사용 안 함      | 고객 관리 키를 적용했지만 키가 비활성화되었습니다. 자세한 내용은 키 사용 방법을 [참조하세요.](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate)                                                                             | 예. 키 버전을 사용하도록 설정하여     |
 | CmkErrorNot발견      | 고객 관리 키를 적용했지만 키를 찾을 수 없습니다. <br>보존 기간 이후에 키가 삭제되고 제거된 경우 키를 복구할 수 없습니다. 키를 백업한 경우 키를 복원하여 이 문제를 해결할 수 있습니다. | 아니요, 키가 삭제되었으며 보존 기간 이후에 제거되었습니다. <br>예. 고객이 키를 백업하고 복원하는 경우에만 가능합니다.  |
-| CmkErrorVaultNot발견되지 않음 | 고객이 관리키를 적용했지만 키와 연결된 키 자격 증명 모음을 찾을 수 없습니다.<br>키 자격 증명 모음을 삭제한 경우 고객 관리 키를 복구할 수 없습니다.  키 자격 증명 모음을 다른 테넌트로 마이그레이션한 경우 [구독 이동 후 키 자격 증명 모음 테넌트 ID 변경을](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix)참조하세요. |   아니요, 고객이 키 자격 증명 모음을 삭제한 경우<br> 예. 키 자격 증명 모음에서 테넌트 마이그레이션을 받은 경우 다음 중 하나를 수행합니다. <ol><li>키 자격 증명 모음을 이전 테넌트로 다시 이동합니다.</li><li>ID = 없음을 설정한 다음 Id = SystemAssigned으로 다시 설정하면 ID가 삭제되고 다시 생성됩니다.</li></ol><br>참고: 테넌트 마이그레이션 사례는 제한된 이해를 기반으로 하며 실제 동작을 테스트하고 확인해야 하며 나중에 수정할 수 있습니다. |
+| CmkErrorVaultNot발견되지 않음 | 고객이 관리키를 적용했지만 키와 연결된 키 자격 증명 모음을 찾을 수 없습니다.<br>키 자격 증명 모음을 삭제한 경우 고객 관리 키를 복구할 수 없습니다.  키 자격 증명 모음을 다른 테넌트로 마이그레이션한 경우 [구독 이동 후 키 자격 증명 모음 테넌트 ID 변경을](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix)참조하세요. |   아니요, 고객이 키 자격 증명 모음을 삭제한 경우<br> 예. 키 자격 증명 모음에서 테넌트 마이그레이션을 받은 경우 다음 중 하나를 수행합니다. <ol><li>키 자격 증명 모음을 이전 테넌트로 다시 이동합니다.</li><li>ID = 없음을 설정한 다음 Id = SystemAssigned으로 다시 설정하면 ID가 삭제되고 다시 생성됩니다.</li></ol>|
 
 ## <a name="next-steps"></a>다음 단계
 

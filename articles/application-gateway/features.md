@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 04/07/2020
 ms.author: victorh
-ms.openlocfilehash: 550d9f4f5396b2165260e39cd28222b083dd6756
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f021eed959ef88a1ef3671e1d0ace8080710c92a
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279989"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810238"
 ---
 # <a name="azure-application-gateway-features"></a>Azure 응용 프로그램 게이트웨이 기능
 
@@ -26,7 +26,7 @@ ms.locfileid: "79279989"
 - [자동 크기 조정](#autoscaling)
 - [영역 중복](#zone-redundancy)
 - [정적 VIP](#static-vip)
-- [웹 응용 프로그램 방화벽](#web-application-firewall)
+- [웹 애플리케이션 방화벽](#web-application-firewall)
 - [AKS용 Ingress Controller](#ingress-controller-for-aks)
 - [URL 기반 라우팅](#url-based-routing)
 - [다중 사이트 호스팅](#multiple-site-hosting)
@@ -160,6 +160,10 @@ Application Gateway의 전체 목록은 [Application Gateway 서비스 제한](.
 
 > [!NOTE]
 > 이러한 값은 애플리케이션 게이트웨이 처리량에 대한 대략적인 값입니다. 실제 처리량은 평균 페이지 크기, 백 엔드 인스턴스의 위치 및 페이지 처리 시간 등 다양한 환경 세부 사항에 따라 달라집니다. 정확한 성능 수치를 얻으려면 자체 테스트를 실행해야 합니다. 이러한 값은 용량 계획 지침에 대해서만 제공됩니다.
+
+## <a name="version-feature-comparison"></a>버전 기능 비교
+
+응용 프로그램 게이트웨이 v1-v2 기능 비교는 [자동 크기 조정 및 영역 중복 응용 프로그램 게이트웨이 v2를](application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) 참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

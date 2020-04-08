@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a9f12849525daeea69ece6e81077446f062e8889
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: f5588503825281f407ddbbc2c1c57cd94a9c7ee6
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384401"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804710"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>PostgreSQL을 사용하여 인증하기 위해 Azure Active Directory사용
 
@@ -24,7 +24,9 @@ ms.locfileid: "80384401"
 
 ## <a name="setting-the-azure-ad-admin-user"></a>Azure AD 관리자 사용자 설정
 
-Azure AD 관리자 사용자만 Azure AD 기반 인증을 위해 사용자를 만들/활성화할 수 있습니다. Azure AD 관리자 사용자를 만들려면 다음 단계를 따르십시오.
+Azure AD 관리자 사용자만 Azure AD 기반 인증을 위해 사용자를 만들/활성화할 수 있습니다. 사용자 권한이 증가했기 때문에 일반 데이터베이스 작업에는 Azure AD 관리자를 사용하지 않는 것이 좋습니다(예: CREATEDB).
+
+Azure AD 관리자(사용자 또는 그룹을 사용할 수 있음)를 설정하려면 다음 단계를 따르십시오.
 
 1. Azure 포털에서 Azure AD에 대해 사용할 Azure 데이터베이스의 인스턴스를 PostgreSQL에 대해 선택합니다.
 2. 설정에서 활성 디렉터리 관리자를 선택합니다.
@@ -37,36 +39,6 @@ Azure AD 관리자 사용자만 Azure AD 기반 인증을 위해 사용자를 �
 > 관리자를 설정할 때 새 사용자가 전체 관리자 권한이 있는 PostgreSQL 서버용 Azure 데이터베이스에 추가됩니다. PostgreSQL용 Azure 데이터베이스의 Azure AD 관리자 `azure_ad_admin`사용자에게 는 역할이 있습니다.
 
 PostgreSQL 서버당 하나의 Azure AD 관리자만 만들 수 있으며 다른 관리자를 선택하면 서버에 대해 구성된 기존 Azure AD 관리자가 덮어씁니다. 여러 관리자를 갖도록 개별 사용자 대신 Azure AD 그룹을 지정할 수 있습니다. 그런 다음 관리 목적으로 그룹 이름으로 로그인합니다.
-
-## <a name="creating-azure-ad-users-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스에서 Azure AD 사용자 만들기
-
-PostgreSQL 데이터베이스에 대한 Azure AD 사용자를 Azure 데이터베이스에 추가하려면 연결 후 다음 단계를 수행합니다(연결 방법에 대한 이후 섹션 참조).
-
-1. 먼저 Azure AD 사용자가 `<user>@yourtenant.onmicrosoft.com` Azure AD 테넌트에서 유효한 사용자인지 확인합니다.
-2. Azure AD 관리자 사용자로 PostgreSQL 인스턴스에 대한 Azure 데이터베이스에 로그인합니다.
-3. PostgreSQL에 대한 Azure 데이터베이스에서 역할을 `<user>@yourtenant.onmicrosoft.com` 만듭니다.
-4. 역할의 구성원을 azure_ad_user. `<user>@yourtenant.onmicrosoft.com` Azure AD 사용자에게만 이 방법을 제공해야 합니다.
-
-**예제:**
-
-```sql
-CREATE ROLE "user1@yourtenant.onmicrosoft.com" WITH LOGIN IN ROLE azure_ad_user;
-```
-
-> [!NOTE]
-> Azure AD를 통해 사용자를 인증한다고 해서 사용자에게 PostgreSQL 데이터베이스용 Azure 데이터베이스 내의 개체에 액세스할 수 있는 권한이 부여되지는 않습니다. 사용자에게 필요한 권한을 수동으로 부여해야 합니다.
-
-## <a name="creating-azure-ad-groups-in-azure-database-for-postgresql"></a>PostgreSQL에 대한 Azure 데이터베이스에서 Azure AD 그룹 만들기
-
-데이터베이스에 액세스할 수 있도록 Azure AD 그룹을 사용하려면 사용자와 동일한 메커니즘을 사용하지만 대신 그룹 이름을 지정합니다.
-
-**예제:**
-
-```sql
-CREATE ROLE "Prod DB Readonly" WITH LOGIN IN ROLE azure_ad_user;
-```
-
-로그인할 때 그룹의 구성원은 개인 액세스 토큰을 사용하지만 사용자 이름으로 지정된 그룹 이름으로 서명합니다.
 
 ## <a name="connecting-to-azure-database-for-postgresql-using-azure-ad"></a>Azure AD를 사용하여 PostgreSQL용 Azure 데이터베이스에 연결
 
@@ -167,6 +139,36 @@ psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgre
 ```
 
 이제 Azure AD 인증을 사용하여 PostgreSQL 서버에 인증됩니다.
+
+## <a name="creating-azure-ad-users-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스에서 Azure AD 사용자 만들기
+
+PostgreSQL 데이터베이스에 대한 Azure AD 사용자를 Azure 데이터베이스에 추가하려면 연결 후 다음 단계를 수행합니다(연결 방법에 대한 이후 섹션 참조).
+
+1. 먼저 Azure AD 사용자가 `<user>@yourtenant.onmicrosoft.com` Azure AD 테넌트에서 유효한 사용자인지 확인합니다.
+2. Azure AD 관리자 사용자로 PostgreSQL 인스턴스에 대한 Azure 데이터베이스에 로그인합니다.
+3. PostgreSQL에 대한 Azure 데이터베이스에서 역할을 `<user>@yourtenant.onmicrosoft.com` 만듭니다.
+4. 역할의 구성원을 azure_ad_user. `<user>@yourtenant.onmicrosoft.com` Azure AD 사용자에게만 이 방법을 제공해야 합니다.
+
+**예제:**
+
+```sql
+CREATE ROLE "user1@yourtenant.onmicrosoft.com" WITH LOGIN IN ROLE azure_ad_user;
+```
+
+> [!NOTE]
+> Azure AD를 통해 사용자를 인증한다고 해서 사용자에게 PostgreSQL 데이터베이스용 Azure 데이터베이스 내의 개체에 액세스할 수 있는 권한이 부여되지는 않습니다. 사용자에게 필요한 권한을 수동으로 부여해야 합니다.
+
+## <a name="creating-azure-ad-groups-in-azure-database-for-postgresql"></a>PostgreSQL에 대한 Azure 데이터베이스에서 Azure AD 그룹 만들기
+
+데이터베이스에 액세스할 수 있도록 Azure AD 그룹을 사용하려면 사용자와 동일한 메커니즘을 사용하지만 대신 그룹 이름을 지정합니다.
+
+**예제:**
+
+```sql
+CREATE ROLE "Prod DB Readonly" WITH LOGIN IN ROLE azure_ad_user;
+```
+
+로그인할 때 그룹의 구성원은 개인 액세스 토큰을 사용하지만 사용자 이름으로 지정된 그룹 이름으로 서명합니다.
 
 ## <a name="token-validation"></a>토큰 유효성 검사
 

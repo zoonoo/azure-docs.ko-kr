@@ -2,13 +2,13 @@
 title: 800카운트 제한이 없는 리소스
 description: 리소스 그룹에 800개 이상의 인스턴스를 가질 수 있는 Azure 리소스 형식을 나열합니다.
 ms.topic: conceptual
-ms.date: 01/30/2020
-ms.openlocfilehash: 735cad0bfa936c41f603e42bdb9be77a1562cc1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: 8644bec1a68acebff18cf83d17acb014784dc964
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76937945"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804778"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>리소스 그룹당 인스턴스 800개에 국한되지 않는 리소스
 
@@ -26,7 +26,6 @@ ms.locfileid: "76937945"
 * registrations
 * registrations/customerSubscriptions
 * registrations/products
-* 확인 키
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -35,6 +34,9 @@ ms.locfileid: "76937945"
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 * disks
+* galleries
+* galleries/images
+* galleries/images/versions
 * images
 * 스냅샷
 * virtualMachines
@@ -67,6 +69,11 @@ ms.locfileid: "76937945"
 * 서버 그룹
 * servers
 * 서버v2
+* 단일 서버
+
+## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
+
+* 일정 - 기본적으로 800개의 인스턴스로 제한됩니다. 지원에 문의하여 제한을 늘릴 수 있습니다.
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>마이크로소프트.엔터프라이즈 지식그래프
 
@@ -90,7 +97,7 @@ ms.locfileid: "76937945"
 * 소프트웨어업데이트프로필
 * 소프트웨어 업데이트
 
-## <a name="microsoftinsights"></a>Microsoft.Insights
+## <a name="microsoftinsights"></a>microsoft.insights
 
 * metricalerts
 

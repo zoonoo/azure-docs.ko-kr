@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce0a170a629f347e2687a2e9f63fb3438fe2bd2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 18469c94b66acab27b58243e8d15eb924843319b
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280171"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811127"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Azure 포털에서 앱 서비스 앱 구성
 
@@ -34,11 +34,11 @@ ASP.NET 및 ASP.NET 핵심 개발자의 경우 앱 서비스에서 앱 `<appSett
 다른 언어 스택도 마찬가지로 런타임에 환경 변수로 앱 설정을 가져옵니다. 언어 스택 특정 단계는 다음을 참조하십시오.
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
-- [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
-- [Php](containers/configure-language-php.md#access-environment-variables)
+- [Node.JS](containers/configure-language-nodejs.md#access-environment-variables)
+- [PHP](containers/configure-language-php.md#access-environment-variables)
 - [Python](containers/how-to-configure-python.md#access-environment-variables)
 - [Java](containers/configure-language-java.md#data-sources)
-- [루비](containers/configure-language-ruby.md#access-environment-variables)
+- [Ruby](containers/configure-language-ruby.md#access-environment-variables)
 - [사용자 지정 컨테이너](containers/configure-custom-container.md#configure-environment-variables)
 
 앱 설정은 저장될 때 항상 암호화됩니다(미사용 암호화).
@@ -96,19 +96,20 @@ ASP.NET 및 ASP.NET 핵심 개발자의 경우 앱 서비스에서 연결 문자
 
 런타임시 연결 문자열은 다음 연결 유형과 함께 접두사에 있는 환경 변수로 사용할 수 있습니다.
 
-* SQL Server: `SQLCONNSTR_`
-* MySQL: `MYSQLCONNSTR_`
-* SQL Database: `SQLAZURECONNSTR_`
+* Sqlserver:`SQLCONNSTR_`  
+* MySQL: `MYSQLCONNSTR_` 
+* SQLAzure:`SQLAZURECONNSTR_` 
 * 사용자 지정: `CUSTOMCONNSTR_`
+* Postgresql:`POSTGRESQLCONNSTR_`  
 
 예를 *들어, 연결 string1라는* MySql 연결 문자열은 환경 `MYSQLCONNSTR_connectionString1`변수로 액세스할 수 있습니다. 언어 스택 특정 단계는 다음을 참조하십시오.
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
-- [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
-- [Php](containers/configure-language-php.md#access-environment-variables)
+- [Node.JS](containers/configure-language-nodejs.md#access-environment-variables)
+- [PHP](containers/configure-language-php.md#access-environment-variables)
 - [Python](containers/how-to-configure-python.md#access-environment-variables)
 - [Java](containers/configure-language-java.md#data-sources)
-- [루비](containers/configure-language-ruby.md#access-environment-variables)
+- [Ruby](containers/configure-language-ruby.md#access-environment-variables)
 - [사용자 지정 컨테이너](containers/configure-custom-container.md#configure-environment-variables)
 
 연결 문자열은 저장될 때 항상 암호화됩니다(미사용 암호화).
@@ -173,7 +174,7 @@ Azure [포털에서] **앱 서비스를**검색하고 선택한 다음 앱을 �
     - **관리되는 파이프라인 버전**: IIS [파이프라인 모드]. 이전 버전의 IIS가 필요한 레거시 앱이 있는 경우 **클래식으로** 설정합니다.
     - **HTTP 버전**: [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) 프로토콜을 지원하려면 **2.0으로** 설정합니다.
     > [!NOTE]
-    > 대부분의 최신 브라우저는 TLS를 통해서만 HTTP/2 프로토콜을 지원하는 반면에 암호화되지 않은 트래픽은 HTTP/1.1을 계속 사용합니다. 클라이언트 브라우저가 HTTP/2로 앱에 연결되도록 하려면 [Azure 앱 서비스에서 SSL 바인딩으로 사용자 지정 DNS 이름을 보호합니다.](configure-ssl-bindings.md)
+    > 대부분의 최신 브라우저는 TLS를 통해서만 HTTP/2 프로토콜을 지원하는 반면에 암호화되지 않은 트래픽은 HTTP/1.1을 계속 사용합니다. 클라이언트 브라우저가 HTTP/2로 앱에 연결되도록 하려면 사용자 지정 DNS 이름을 보호합니다. 자세한 내용은 [Azure 앱 서비스에서 TLS/SSL 바인딩이 있는 사용자 지정 DNS 이름 보안을](configure-ssl-bindings.md)참조하십시오.
     - **ARR 선호도**: 다중 인스턴스 배포에서 클라이언트가 세션 수명 동안 동일한 인스턴스로 라우팅되도록 합니다. 상태 비해제 응용 프로그램의 경우 이 옵션을 **Off로** 설정할 수 있습니다.
 - **디버깅**: [ASP.NET,](troubleshoot-dotnet-visual-studio.md#remotedebug) [ASP.NET 코어](/visualstudio/debugger/remote-debugging-azure)또는 Node.js 앱에 대한 원격 디버깅을 [활성화합니다.](containers/configure-language-nodejs.md#debug-remotely) 이 옵션은 48시간 후에 자동으로 꺼집니다.
 - **들어오는 클라이언트 인증서**: [상호 인증에서](app-service-web-configure-tls-mutual-auth.md)클라이언트 인증서가 필요합니다.
@@ -234,11 +235,11 @@ Windows 앱의 경우 IIS 처리기 매핑 및 가상 응용 프로그램 및 �
 Linux 앱의 경우 다음을 참조하십시오.
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md)
-- [Node.js](containers/configure-language-nodejs.md)
-- [Php](containers/configure-language-php.md)
+- [Node.JS](containers/configure-language-nodejs.md)
+- [PHP](containers/configure-language-php.md)
 - [Python](containers/how-to-configure-python.md)
 - [Java](containers/configure-language-java.md)
-- [루비](containers/configure-language-ruby.md)
+- [Ruby](containers/configure-language-ruby.md)
 
 ## <a name="configure-custom-containers"></a>사용자 지정 컨테이너 구성
 
@@ -248,7 +249,7 @@ Linux 앱의 경우 다음을 참조하십시오.
 
 - [Azure 앱 서비스에서 사용자 지정 도메인 이름 구성]
 - [Azure App Service에서 스테이징 환경 설정]
-- [Azure App Service에서 SSL 바인딩으로 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)
+- [Azure 앱 서비스에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)
 - [진단 로그 활성화](troubleshoot-diagnostic-logs.md)
 - [Azure App Service에서 앱 크기 조정]
 - [Azure App Service의 기본 사항 모니터링]

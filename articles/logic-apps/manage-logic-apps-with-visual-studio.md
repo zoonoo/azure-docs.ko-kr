@@ -7,16 +7,18 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/29/2019
-ms.openlocfilehash: 6319d2d72df69cc9633bd2b2ff8e777c2a48966a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73df5b7f10e038b6894996eb83dec7b6914a4536
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270252"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803193"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Visual Studio로 논리 앱 관리
 
 [Azure Portal에서](https://portal.azure.com)논리 앱을 생성, 편집, 관리 및 배포할 수 있지만 논리 앱을 소스 제어에 추가하고 다른 버전을 게시하고 다양한 배포 환경에 대한 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 템플릿을 만들려는 경우에도 Visual Studio를 사용할 수 있습니다. Visual Studio 클라우드 탐색기로 다른 Azure 리소스와 함께 논리 앱을 찾고 관리할 수 있습니다. 예를 들어 Azure Portal에서 이미 배포된 논리 앱을 열고, 다운로드하고, 편집하고, 실행하고, 실행 기록을 보고, 해제하고, 설정할 수 있습니다. Visual Studio에서 Azure Logic Apps를 작업하는 데 익숙하지 않다면 [Visual Studio로 논리 앱 만들기](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)를 참조하세요.
+
+[Azure 포털에서 논리 앱을 관리할](manage-logic-apps-with-azure-portal.md)수도 있습니다.
 
 > [!IMPORTANT]
 > Visual Studio에서 논리 앱을 배포하거나 게시하면 Azure Portal에서 해당 앱의 버전을 덮어씁니다. 따라서 Azure Portal에서 변경한 내용을 계속 유지하려면 다음에 Visual Studio에서 배포 또는 게시하기 전에 Azure Portal에서 [Visual Studio를 사용하여 논리 앱을 새로 고침](#refresh)해야 합니다.
@@ -39,7 +41,7 @@ ms.locfileid: "79270252"
 
   * [Azure SDK(2.9.1 이상)](https://azure.microsoft.com/downloads/)
 
-  * [Azure 파워쉘](https://github.com/Azure/azure-powershell#installation)
+  * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
   * 원하는 버전에 대한 Visual Studio 확장용 최신 Azure Logic Apps 도구는 다음과 같습니다.
 

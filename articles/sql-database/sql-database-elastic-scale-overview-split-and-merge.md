@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 8b0db4a1e55b53165e40e176834d66b62926e24b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c7eb1670ee911895bdba23921845b8795f4998af
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74421562"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811311"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>확장된 클라우드 데이터베이스 간 데이터 이동
 
@@ -30,7 +30,7 @@ ms.locfileid: "74421562"
 
 [Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
-## <a name="documentation"></a>설명서
+## <a name="documentation"></a>문서화
 
 1. [탄력적 데이터베이스 분할/병합 도구 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 2. [분할 병합 보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)
@@ -62,7 +62,7 @@ ms.locfileid: "74421562"
 
 - **고객 호스트 서비스**
 
-  분할-병합은 고객 호스트 서비스로 제공됩니다. Microsoft Azure 구독에서 서비스를 배포하고 호스트해야 합니다. NuGet에서 다운로드하는 패키지에는 특정 배포에 대한 정보를 완료하기 위한 구성 템플릿이 있습니다. 자세한 내용은 [분할-병합 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md) 를 참조하세요. 서비스가 Azure 구독에서 실행되므로 서비스의 대부분 보안 측면을 제어하고 구성할 수 있습니다. 기본 템플릿에는 SSL, 인증서 기반 클라이언트 인증, 저장된 자격 증명에 대한 암호화, DoS 보호 및 IP 제한 사항을 구성할 수 있는 옵션이 있습니다. [분할-병합 보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)문서에서 보안 측면에 대한 자세한 내용을 확인할 수 있습니다.
+  분할-병합은 고객 호스트 서비스로 제공됩니다. Microsoft Azure 구독에서 서비스를 배포하고 호스트해야 합니다. NuGet에서 다운로드하는 패키지에는 특정 배포에 대한 정보를 완료하기 위한 구성 템플릿이 있습니다. 자세한 내용은 [분할-병합 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md) 를 참조하세요. 서비스가 Azure 구독에서 실행되므로 서비스의 대부분 보안 측면을 제어하고 구성할 수 있습니다. 기본 템플릿에는 TLS, 인증서 기반 클라이언트 인증, 저장된 자격 증명에 대한 암호화, DoS 보호 및 IP 제한을 구성하는 옵션이 포함되어 있습니다. [분할-병합 보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)문서에서 보안 측면에 대한 자세한 내용을 확인할 수 있습니다.
 
   배포된 기본 서비스는 하나의 작업자 및 하나의 웹 역할로 실행됩니다. 각 서비스는 Azure Cloud Services에서 A1 VM 크기를 사용합니다. 패키지를 배포할 때 이러한 설정을 수정할 수 없지만 Azure 포털을 통해 실행 중인 클라우드 서비스에 배포한 후에는 변경할 수 있습니다. 기술적인 이유로 두 개 이상의 인스턴스에 대해 작업자 역할을 구성하지 않아야 합니다.
 
@@ -249,7 +249,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
 
 위의 그림에서 강조 표시된 WADLogsTable에는 분할/병합 서비스의 애플리케이션 로그에 있는 자세한 이벤트가 포함됩니다. 다운로드한 패키지의 기본 구성이 프로덕션 배포에 맞춰 조정됩니다. 그렇기 때문에, 서비스 인스턴스에서 로그 및 카운터를 가져오는 간격이 큽니다(5 분). 테스트 및 개발을 위해 필요에 따라 웹 또는 작업자 역할의 진단 설정을 조정하여 간격을 낮출 수 있습니다. Visual Studio 서버 탐색기(위 참조)의 역할을 마우스 오른쪽 단추로 클릭하여 이 작업을 수행한 다음 진단 구성 설정용 대화 상자에서 전송 기간을 조정합니다.
 
-![Configuration][3]
+![구성][3]
 
 ## <a name="performance"></a>성능
 

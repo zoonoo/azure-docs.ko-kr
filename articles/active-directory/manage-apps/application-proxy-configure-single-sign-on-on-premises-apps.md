@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccf34b52e06e369fe4dd459ff9dfa2880596fb35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d3d2117e913f292e92f37f31d2e123587c70a189
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481350"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803300"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>응용 프로그램 프록시를 사용 하 고 온-프레미스 응용 프로그램에 대 한 SAML 단일 사인온
 
@@ -74,14 +74,14 @@ SAML 인증으로 보호되는 온-프레미스 응용 프로그램에 단일 �
 
 2. **SAML을 사용하여 단일 사인온 설정** 페이지에서 **기본 SAML 구성** 제목으로 이동하여 **편집** 아이콘(연필)을 선택합니다. 응용 프로그램 프록시에서 구성한 **외부 URL이** **식별자,** **회신 URL**및 **로그아웃 URL** 필드에 채워져 있는지 확인합니다. 이러한 URL은 응용 프로그램 프록시가 올바르게 작동하려면 필요합니다. 
 
-3. 응용 프로그램 프록시에서 도메인에 연결할 수 있도록 이전에 구성된 **회신 URL을** 편집합니다. 예를 들어 **외부 URL이** `https://contosotravel-f128.msappproxy.net` 있고 원래 **회신 URL이** `https://contosotravel.com/acs`있는 경우 원래 **회신 URL을** `https://contosotravel-f128.msappproxy.net/acs`로 업데이트해야 합니다. 
+3. 응용 프로그램 프록시를 통해 인터넷에서 도메인에 연결할 수 있도록 이전에 구성된 **회신 URL을** 편집합니다. 예를 들어 **외부 URL이** `https://contosotravel-f128.msappproxy.net` 있고 원래 **회신 URL이** `https://contosotravel.com/acs`있는 경우 원래 **회신 URL을** `https://contosotravel-f128.msappproxy.net/acs`로 업데이트해야 합니다.
 
     ![기본 SAML 구성 데이터 입력](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
 
 4. 업데이트된 **회신 URL** 옆의 확인란을 선택하여 기본값으로 표시합니다.
 
-   * 필요한 **회신 URL이** 이미 나열된 경우 이 **회신 URL을** 기본값으로 표시하고 이전에 구성된 **회신 URL을**삭제합니다.
+   * 필요한 **회신 URL을** 기본값으로 표시한 후 내부 URL을 사용한 이전에 구성된 **회신 URL을** 삭제할 수도 있습니다.
 
    * SP 시작 흐름의 경우 백 엔드 응용 프로그램에서 인증 토큰을 받기 위한 올바른 **회신 URL** 또는 어설션 소비자 서비스 URL을 지정해야 합니다.
 

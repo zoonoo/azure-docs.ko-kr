@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
 ms.author: terrylan
-ms.openlocfilehash: 11bf7c0ae05c2e52d59efb32be47ce6bd96fac4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 599c4a31840b47294b43c4c4d1f0200b17f04540
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76937974"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810540"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Azure AD 앱용 보안 앱 개발
 ## <a name="overview"></a>개요
@@ -228,7 +228,7 @@ $cert = New-AzApplicationGatewaySSLCertificate -Name cert01 -CertificateFile "C:
 
 $listener = New-AzApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
 
-#Upload the certificate to be used on the SSL-enabled back-end pool resources
+#Upload the certificate to be used on the TLS/SSL-enabled back-end pool resources
 
 #$authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
 
@@ -246,7 +246,7 @@ $rule = New-AzApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basi
 
 $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
-#Configure the SSL policy to be used on the application gateway
+#Configure the TLS/SSL policy to be used on the application gateway
 
 $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -PolicyType Custom
 
@@ -361,7 +361,7 @@ Azure Disk Encryption은 Windows의 BitLocker 기능을 활용하여 데이터 �
 - Azure Active Directory는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. 이 솔루션의 모든 사용자는 Azure WebApp에 액세스하는 사용자를 포함하여 Azure Active Directory에서 만들어집니다.
 - Azure 역할 기반 액세스 제어를 사용하면 관리자가 세분화된 액세스 권한을 정의하여 사용자가 자신의 작업을 수행하는 데 필요한 액세스 권한만 부여할 수 있습니다. 관리자는 모든 사용자에게 Azure 리소스에 대한 무제한 권한을 부여하는 대신 카드 소유자 데이터에 액세스하기 위한 특정 작업만 허용할 수 있습니다. 구독 액세스는 구독 관리자로 제한됩니다.
 - Azure Active Directory Privileged Identity Management를 사용하면 고객이 특정 정보(예: 카드 소유자 데이터)에 액세스할 수 있는 사용자 수를 최소화할 수 있습니다. 관리자는 Azure Active Directory Privileged Identity Management를 사용하여 권한 있는 ID와 리소스에 대한 액세스를 검색, 제한 및 모니터링할 수 있습니다. 필요한 경우 이 기능을 사용하여 요청 시 JIT(Just-In-Time) 관리 액세스를 적용할 수도 있습니다.
-- Azure Active Directory ID 보호는 조직의 ID에 영향을 미치는 잠재적 취약점을 감지하고, 조직의 ID와 관련된 의심스러운 작업을 검색하기 위해 자동화된 응답을 구성하고, 의심스러운 작업을 조사합니다. 적절한 조치를 취할 수 있습니다.
+- Azure Active Directory ID 보호는 조직의 ID에 영향을 미치는 잠재적 취약점을 검색하고, 조직의 ID와 관련된 의심스러운 작업을 검색하도록 자동화된 응답을 구성하고, 의심스러운 인시던트를 조사하여 이를 해결하기 위한 적절한 조치를 취합니다.
 ### <a name="secrets-management"></a>비밀 관리
 이 솔루션은 Azure Key Vault를 사용하여 키와 비밀을 관리합니다. Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. 다음 Azure Key Vault 기능은 고객이 이러한 데이터를 보호하고 액세스하는 데 도움이 됩니다.
    - 필요에 따라 고급 액세스 정책이 구성됩니다.
@@ -380,7 +380,7 @@ Azure Disk Encryption은 Windows의 BitLocker 기능을 활용하여 데이터 �
    - Azure Security Center에서는 우선 순위가 지정된 보안 경고 및 인시던트를 제공하여 고객이 잠재적인 보안 문제를 더 쉽게 검색하고 해결하게 합니다. 위협 인텔리전스 보고서는 인시던트 대응 팀이 위협을 조사하고 수정하도록 지원하기 위해 탐지된 각 위협에 대해 생성됩니다.
 ### <a name="azure-application-gateway"></a>Azure Application Gateway 
    이 아키텍처는 웹 애플리케이션 방화벽이 구성되어 있고 OWASP 규칙 집합을 사용할 수 있는 Azure Application Gateway를 통해 보안 취약성의 위험을 줄입니다. 추가 기능에는 다음이 포함됩니다.
-   - 종단 간 SSL.
+   - 종단 간 TLS.
    - TLS v1.0 및 v1.1을 사용하지 않도록 설정합니다.
    - TLSv1.2를 활성화합니다.
    - 웹 응용 프로그램 방화벽(방지 모드).
@@ -402,7 +402,7 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
    - [활동 로그 분석](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): 활동 로그 분석 솔루션은 고객에 대한 모든 Azure 구독에서 Azure 활동 로그를 분석하는 데 도움을 줍니다.
 ### <a name="azure-monitor"></a>Azure Monitor
    [Azure Monitor를](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)사용하면 Azure 리소스에서 API 호출 추적을 포함하여 조직에서 모니터링, 경고 생성 및 아카이브 데이터를 사용할 수 있으므로 사용자가 성능을 추적하고 보안을 유지 하며 추세를 식별할 수 있습니다.
-### <a name="application-insights"></a>애플리케이션 정보 
+### <a name="application-insights"></a>Application Insights 
    [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 애플리케이션 성능 관리 서비스입니다. Application Insights는 성능 이상을 감지하며, 고객이 라이브 웹 애플리케이션을 모니터링하는 데 사용할 수 있습니다. 고객이 문제를 진단하고 실제로 앱을 사용하여 수행하는 작업을 파악할 수 있는 강력한 분석 도구를 포함하고 있습니다. 고객이 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.
 
 ### <a name="azure-key-vault"></a>Azure Key Vault

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8b9b33076a2c2cea27fea181b760a721488682c9
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 702df1bfaf0701a40e514f8a47151f96917adf38
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657015"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811588"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>윈도우 가상 데스크톱에 마이크로 소프트 팀 사용
 
@@ -51,7 +51,7 @@ Windows 가상 데스크톱 환경에서 최적화되지 않은 Microsoft 팀을
 2. 이 명령을 실행하여 호스트 VM에 MSI를 설치합니다.
 
       ```shell
-      msiexec /i <msi_name> /l*v < install_logfile_name> ALLUSERS=1
+      msiexec /i <msi_name> /l*v < install_logfile_name> ALLUSER=1
       ```
 
       이렇게 하면 프로그램 파일 또는 프로그램 파일(x86)에 팀이 설치됩니다. 다음에 로그인하고 Teams를 시작할 때 앱에서 자격 증명을 요청합니다.

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 8a83c2f6ac7599ff37237834a85b7771cf4ee502
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc11c6932d625b119ad933f5d4d128b4355530c5
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243875"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804438"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Azure ExpressRoute를 사용하는 PowerApps용 App Service Environment의 네트워크 구성 세부 정보
 
@@ -39,7 +39,7 @@ App Service Environment에서는 다음 네트워크 연결 설정이 제대로 
 
 * Azure 관리 평면 엔드포인트에 아웃바운드 네트워크 연결(Azure 클래식 배포 모델 및 Azure Resource Manager 엔드포인트 모두). 이러한 엔드포인트 연결에는 management.core.windows.net 및 management.azure.com 도메인이 포함됩니다. 
 
-* ocsp.msocsp.com, mscrl.microsoft.com 및 crl.microsoft.com 도메인에 아웃바운드 네트워크 연결. SSL 기능을 지원하려면 이러한 도메인에 연결해야 합니다.
+* ocsp.msocsp.com, mscrl.microsoft.com 및 crl.microsoft.com 도메인에 아웃바운드 네트워크 연결. TLS 기능을 지원하려면 이러한 도메인에 대한 연결이 필요합니다.
 
 * 가상 네트워크의 DNS 구성은 이 문서에 언급된 모든 엔드포인트 및 도메인을 확인할 수 있어야 합니다. 엔드포인트를 확인할 수 없으면 App Service Environment가 만들어지지 않습니다. 기존의 모든 App Service Environment가 비정상으로 표시됩니다.
 

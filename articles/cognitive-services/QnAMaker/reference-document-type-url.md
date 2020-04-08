@@ -1,18 +1,18 @@
 ---
 title: 가져오기지원 URL 유형 - QnA 메이커
-description: QnA 세트를 가져오고 만드는 데 URL 유형이 어떻게 사용되는지 알아보세요.
+description: QnA 쌍을 가져오고 만드는 데 URL 유형이 어떻게 사용되는지 알아보세요.
 ms.topic: reference
 ms.date: 01/02/2020
-ms.openlocfilehash: cf2a02f55d7c95ff9b3f0231ea07a783d18b73cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c6c6c7ba19fe7be54733f45997134fddb56a6ba0
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651988"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804319"
 ---
 # <a name="urls-supported-for-importing-documents"></a>문서 가져오기에 지원되는 URL
 
-QnA 세트를 가져오고 만드는 데 URL 유형이 어떻게 사용되는지 알아보세요.
+QnA 쌍을 가져오고 만드는 데 URL 유형이 어떻게 사용되는지 알아보세요.
 
 ## <a name="faq-urls"></a>FAQ URL
 

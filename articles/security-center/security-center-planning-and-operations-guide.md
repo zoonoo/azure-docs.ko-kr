@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 8244a0f164c8578bf9f79e4b66beb529b6a15f67
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: f31c084be2fb017c0db521328e4ccdff9dd2aa25
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586010"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810461"
 ---
 # <a name="planning-and-operations-guide"></a>계획 및 운영 가이드
 이 가이드는 Azure 보안 센터를 사용하려는 정보 기술(IT) 전문가, IT 설계자, 정보 보안 분석가 및 클라우드 관리자를 위한 것입니다.
@@ -25,7 +25,7 @@ ms.locfileid: "80586010"
 * 보안 역할 및 Access Control
 * 보안 정책 및 권장 사항
 * 데이터 수집 및 스토리지
-* 진행 중인 비 Azure 리소스
+* 비 Azure 리소스 온보딩
 * 지속적인 보안 모니터링
 * 사고 대응
 

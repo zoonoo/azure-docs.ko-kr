@@ -5,12 +5,12 @@ ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 357ea2cc598bca3e008a74f021895e1e45a3874f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2f6dd455024aba184cbb16b5b9c7cfffd032dc70
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78301009"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811735"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Azure 앱 서비스에 대한 TLS 상호 인증 구성
 
@@ -41,7 +41,7 @@ az webapp update --set clientCertEnabled=true --name <app_name> --resource-group
 
 ## <a name="access-client-certificate"></a>클라이언트 인증서 액세스
 
-앱 서비스에서 요청의 SSL 종료는 프런트 엔드 로드 밸러버에서 발생합니다. [클라이언트 인증서를 사용하도록 설정하여](#enable-client-certificates)요청을 앱 코드로 전달할 때 `X-ARR-ClientCert` App Service는 클라이언트 인증서와 함께 요청 헤더를 삽입합니다. 앱 서비스는 앱으로 전달하는 것 외에는 이 클라이언트 인증서로 아무 것도 하지 않습니다. 앱 코드는 클라이언트 인증서의 유효성을 검사하는 책임이 있습니다.
+앱 서비스에서 TLS 요청 종료는 프런트 엔드 로드 밸러저에서 발생합니다. [클라이언트 인증서를 사용하도록 설정하여](#enable-client-certificates)요청을 앱 코드로 전달할 때 `X-ARR-ClientCert` App Service는 클라이언트 인증서와 함께 요청 헤더를 삽입합니다. 앱 서비스는 앱으로 전달하는 것 외에는 이 클라이언트 인증서로 아무 것도 하지 않습니다. 앱 코드는 클라이언트 인증서의 유효성을 검사하는 책임이 있습니다.
 
 ASP.NET 경우 클라이언트 인증서는 **HttpRequest.ClientCertificate** 속성을 통해 사용할 수 있습니다.
 

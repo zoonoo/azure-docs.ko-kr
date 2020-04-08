@@ -1,17 +1,18 @@
 ---
-title: Azure Kubernetes 서비스 (AKS)의 포드에 의해 사용 하기 위해 NFS (네트워크 파일 시스템) 우분투 서버 를 만듭니다.
+title: NFS 우분투 리눅스 서버 볼륨 만들기
+titleSuffix: Azure Kubernetes Service
 description: Azure Kubernetes 서비스(AKS)의 포드와 함께 사용할 NFS 우분투 리눅스 서버 볼륨을 수동으로 만드는 방법에 대해 알아보십시오.
 services: container-service
 author: ozboms
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: obboms
-ms.openlocfilehash: e5676710bc47557318f3e2adcf36ec0ed13d47de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7db3f806df88e5b23012e97ba5c2f14ca65b2508
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596626"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803469"
 ---
 # <a name="manually-create-and-use-an-nfs-network-file-system-linux-server-volume-with-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스(AKS)를 사용하여 NFS(네트워크 파일 시스템) Linux 서버 볼륨을 수동으로 만들고 사용합니다.
 컨테이너 간에 데이터를 공유하는 것은 종종 컨테이너 기반 서비스 및 응용 프로그램의 필수 구성 요소입니다. 일반적으로 외부 영구 볼륨에서 동일한 정보에 액세스해야 하는 다양한 포드가 있습니다.    
@@ -150,7 +151,7 @@ spec:
 ls -l
 ```
 
-## <a name="more-information"></a>자세한 정보
+## <a name="more-information"></a>추가 정보
 전체 연습또는 NFS 서버 설정을 디버깅하는 데 도움이 되는 자세한 내용은 다음과 같습니다.
   - [NFS 자습서][nfs-tutorial]
 

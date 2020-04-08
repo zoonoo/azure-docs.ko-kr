@@ -3,12 +3,12 @@ title: Azure 리소스 - QnA 메이커
 description: QnA Maker는 서로 다른 용도로 각각 여러 Azure 원본을 사용합니다. 개별적으로 사용되는 방식을 이해하면 올바른 가격 책정 계층을 계획하고 선택하거나 가격 책정 계층을 변경할 시기를 알 수 있습니다. 이러한 사용 방식이 조합되어 있는 방식을 이해하면 문제가 발생할 때 문제를 찾아 해결할 수 있습니다.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 8a5cc0f4889e31470514015035a92d230c40ed43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1bd491ecbd878cb7bb05a7eaa5712c75653f2cba
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284248"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804302"
 ---
 # <a name="azure-resources-for-qna-maker"></a>QnA 메이커를 위한 Azure 리소스
 
@@ -54,7 +54,7 @@ QnA Maker는 서로 다른 용도로 각각 여러 Azure 원본을 사용합니�
 
 |업그레이드|이유|
 |--|--|
-|[업그레이드](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) QnA 메이커 관리 SKU|기술 자료에 더 많은 QnA 집합 또는 문서 원본을 갖고 싶습니다.|
+|[업그레이드](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) QnA 메이커 관리 SKU|기술 자료에 더 많은 QnA 쌍 또는 문서 원본을 원할 수 있습니다.|
 |[업그레이드](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) 앱 서비스 SKU 및 인지 검색 계층을 확인하고 [인지 검색 복제본 만들기](../../../search/search-capacity-planning.md)|기술 자료는 챗봇과 같은 클라이언트 앱의 더 많은 요청을 제공해야 합니다.|
 |[업그레이드](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) Azure 인지 검색 서비스|많은 지식 기반을 가질 계획입니다.|
 
@@ -95,8 +95,8 @@ QnA Maker로 만든 각 Azure 리소스에는 특정 목적이 있습니다.
 
 [인지 검색](../../../search/index.yml) 리소스는 다음과 같은 데 사용됩니다.
 
-* QnA 세트 저장
-* 런타임시 QnA 세트의 초기 순위(순위 #1)를 제공합니다.
+* QnA 쌍 저장
+* 런타임시 QnA 쌍의 초기 순위(랭커 #1)를 제공합니다.
 
 #### <a name="index-usage"></a>인덱스 사용
 
@@ -110,7 +110,7 @@ QnA Maker 리소스에서 만든 첫 번째 기술 자료는 인지 검색 리�
 
 ### <a name="qna-maker-resource"></a>QnA Maker 리소스
 
-QnA Maker 리소스는 런타임에 QnA 세트의 저작 및 게시 API와 NLP 기반 의 두 번째 순위 계층(랭커 #2)에 대한 액세스를 제공합니다.
+QnA Maker 리소스는 런타임시 QnA 쌍의 NLP(자연어 처리) 기반 2순위 계층(랭커 #2)뿐만 아니라 API 작성 및 게시에 대한 액세스를 제공합니다.
 
 두 번째 순위에는 메타데이터 및 후속 프롬프트를 포함할 수 있는 지능형 필터가 적용됩니다.
 
@@ -126,7 +126,7 @@ QnA Maker 리소스는 런타임에 QnA 세트의 저작 및 게시 API와 NLP �
 
 `{RuntimeEndpoint}/qnamaker/knowledgebases/{kbId}/generateAnswer`
 
-### <a name="application-insights"></a>애플리케이션 정보
+### <a name="application-insights"></a>Application Insights
 
 [응용 프로그램 인사이트는](../../../azure-monitor/app/app-insights-overview.md) 채팅 로그 및 원격 분석을 수집하는 데 사용됩니다. 서비스에 대한 자세한 내용은 일반적인 [Kusto 쿼리를](../how-to/get-analytics-knowledge-base.md) 검토합니다.
 
@@ -139,7 +139,7 @@ QnA Maker는 여러 Azure 리소스를 만듭니다. 관리 및 비용 공유의
 |Cognitive Services|X|디자인상 불가능|
 |App Service 계획|✔|앱 서비스 계획에 할당된 디스크 공간을 고정했습니다. 동일한 앱 서비스 계획을 공유하는 다른 앱이 상당한 디스크 공간을 사용하는 경우 QnAMaker 앱 서비스 인스턴스에 문제가 발생합니다.|
 |App Service|X|디자인상 불가능|
-|애플리케이션 정보|✔|공유할 수 있습니다.|
+|Application Insights|✔|공유할 수 있습니다.|
 |Search 서비스|✔|1. `testkb` QnAMaker 서비스의 예약된 이름입니다. 다른 사용자가 사용할 수 없습니다.<br>2. 이름으로 `synonym-map` 된 동의어 맵은 QnAMaker 서비스를 위해 예약되어 있습니다.<br>3. 게시된 기술 자료의 수는 검색 서비스 계층에 의해 제한됩니다. 사용 가능한 무료 인덱스가 있는 경우 다른 서비스에서 사용할 수 있습니다.|
 
 ### <a name="using-a-single-cognitive-search-service"></a>단일 코그너티브 검색 서비스 사용
@@ -164,7 +164,7 @@ API를 통해 서비스에 요청할 때 이러한 키를 사용합니다.
 
 |이름|위치|목적|
 |--|--|--|
-|작성 키|[Azure 포털](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|이러한 키는 [QnA Maker 관리 서비스 API](https://go.microsoft.com/fwlink/?linkid=2092179)에 액세스하는 데 사용됩니다. 이러한 API를 사용하면 기술 자료의 질문과 답변을 편집하고 기술 자료게시할 수 있습니다. 이러한 키는 새 QnA Maker 서비스를 만들 때 만들어집니다.<br><br>**키** 페이지에서 **인지 서비스** 리소스에서 이러한 키를 찾습니다.|
+|작성 키|[Azure portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|이러한 키는 [QnA Maker 관리 서비스 API](https://go.microsoft.com/fwlink/?linkid=2092179)에 액세스하는 데 사용됩니다. 이러한 API를 사용하면 기술 자료의 질문과 답변을 편집하고 기술 자료게시할 수 있습니다. 이러한 키는 새 QnA Maker 서비스를 만들 때 만들어집니다.<br><br>**키** 페이지에서 **인지 서비스** 리소스에서 이러한 키를 찾습니다.|
 |쿼리 끝점 키|[QnA Maker 포털](https://www.qnamaker.ai)|이러한 키는 게시된 기술 자료 끝점을 쿼리하여 사용자 질문에 대한 응답을 얻는 데 사용됩니다. 일반적으로 채팅 봇 또는 QnA Maker 서비스에 연결하는 클라이언트 응용 프로그램 코드에서 이 쿼리 끝점을 사용합니다. 이러한 키는 QnA Maker 기술 자료작성시 만들어집니다.<br><br>**서비스 설정** 페이지에서 이러한 키를 찾습니다. 드롭다운 메뉴의 페이지 오른쪽 상단에 있는 사용자 메뉴에서 이 페이지를 찾습니다.|
 
 ### <a name="subscription-keys"></a>구독 키

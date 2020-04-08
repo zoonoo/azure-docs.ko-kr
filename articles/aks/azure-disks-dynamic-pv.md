@@ -1,15 +1,16 @@
 ---
-title: AKS(Azure Kubernetes Service)에서 Azure 디스크를 사용하여 영구 볼륨을 동적으로 만들어 사용
+title: 동적으로 Azure 디스크 볼륨 생성
+titleSuffix: Azure Kubernetes Service
 description: AZURE Kubernetes 서비스(AKS)에서 Azure 디스크를 사용하여 영구 볼륨을 동적으로 만드는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: f16a6134b1d2065668952ea11c0cab7398a3559a
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 0ed58ef86dcd93ff2bd5588c8479195443bc292d
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617463"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803554"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure 디스크를 사용하여 영구 볼륨을 동적으로 만들어 사용
 

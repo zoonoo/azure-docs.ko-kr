@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: b1f75a5f7a97907bf5b8bb460ff2df420d053f9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e764e6a474b9843d43f9e8af9cf3b6a8ddf37189
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75386802"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811640"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성
 클라우드 서비스를 만들면 Azure에서 **cloudapp.net**의 하위 도메인에 이 서비스를 할당합니다. 예를 들어 클라우드 서비스의 이름이 "contoso"인 경우 사용자가 `http://contoso.cloudapp.net`과 같은 URL에서 애플리케이션에 액세스할 수 있습니다. Azure는 가상 IP 주소도 할당합니다.
@@ -30,7 +30,7 @@ CNAME 및 A 레코드가 무엇인지 이미 알고 있나요? [설명을 건너
 <p/>
 
 > [!TIP]
-> 새로운 Azure의 [안내 방식 연습](https://support.microsoft.com/kb/2990804)을 사용하면 작업을 보다 빠르게 수행할 수 있습니다.  이 연습을 통해 사용자 지정 도메인 이름을 연결하고 SSL을 사용하여 Azure Cloud Services 또는 Azure Websites와의 통신을 보호하는 등의 작업을 매우 쉽게 완료할 수 있습니다.
+> 새로운 Azure의 [안내 방식 연습](https://support.microsoft.com/kb/2990804)을 사용하면 작업을 보다 빠르게 수행할 수 있습니다.  사용자 지정 도메인 이름을 연결 하 고 Azure 클라우드 서비스 또는 Azure 웹 사이트와 보안 통신 (TLS)을 스냅 합니다.
 > 
 > 
 
@@ -128,14 +128,14 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 * [CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법](../cdn/cdn-map-content-to-custom-domain.md)
 * [클라우드 서비스의 일반 구성](cloud-services-how-to-configure-portal.md)
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy-portal.md)하는 방법을 알아봅니다.
-* [SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)구성
+* [TLS/SSL 인증서 를 구성합니다.](cloud-services-configure-ssl-certificate-portal.md)
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
 [Expose Your Data on a Custom Domain]: #access-data
 [VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
-[Azure 포털]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
 

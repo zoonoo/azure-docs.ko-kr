@@ -1,15 +1,16 @@
 ---
-title: AKS(Azure Kubernetes Service)에서 여러 Pod용 정적 볼륨 만들기
+title: Azure 파일 공유를 수동으로 만듭니다.
+titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Service)에서 여러 Pod에 동시에 사용할 Azure Files가 포함된 볼륨을 수동으로 만드는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 084ab5cd6736c9148bcab1faf048d3d9081855d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 412b7158ea366eefb1c3e9c1d2586d54c316aa6c
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596405"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803452"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure Files 공유를 사용하여 수동으로 볼륨을 만들고 사용합니다.
 
@@ -132,7 +133,7 @@ Volumes:
 
 ## <a name="mount-options"></a>탑재 옵션
 
-*fileMode* 및 *dirMode의* 기본값은 Kubernetes 버전 1.9.1 이상에 대한 *0755입니다.* Kuberetes 버전 1.8.5 이상과 정적으로 영구 볼륨 개체를 만드는 클러스터를 사용하는 경우 *PersistentVolume* 개체에 마운트 옵션을 지정해야 합니다. 다음 예제에서는 *0777*을 설정합니다.
+*fileMode* 및 *dirMode의* 기본값은 Kubernetes 버전 1.9.1 이상에 대한 *0755입니다.* Kubernetes 버전 1.8.5 이상과 정적으로 영구 볼륨 개체를 만드는 클러스터를 사용하는 경우 *PersistentVolume* 개체에 마운트 옵션을 지정해야 합니다. 다음 예제에서는 *0777*을 설정합니다.
 
 ```yaml
 apiVersion: v1

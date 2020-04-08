@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: f3b1141ea3c3c8e33b8a2ae12c22b6962a90d32b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee8e8ee4ca64de0390b6fa34e36fb4d06348a8ac
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198227"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804812"
 ---
 # <a name="how-to-use-image-templates"></a>이미지 템플릿을 사용하는 방법
 
@@ -58,7 +58,7 @@ map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#f
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="기본 제공 아이콘 템플릿이 있는 기호 레이어" src="//codepen.io/azuremaps/embed/VoQMPp/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="기본 제공 아이콘 템플릿이 있는 기호 레이어" src="//codepen.io/azuremaps/embed/VoQMPp/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen에서</a>Azure Maps ()에<a href='https://codepen.io/azuremaps'>@azuremaps</a>의해 <a href='https://codepen.io/azuremaps/pen/VoQMPp/'>기본 제공 아이콘 템플릿이 있는</a> 펜 기호 레이어를 참조하십시오.
 </iframe>
 
@@ -70,7 +70,7 @@ map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#f
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="기본 제공 아이콘 템플릿이 있는 선 레이어" src="//codepen.io/azuremaps/embed/KOQvJe/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="기본 제공 아이콘 템플릿이 있는 선 레이어" src="//codepen.io/azuremaps/embed/KOQvJe/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen에서</a>Azure Maps ()에<a href='https://codepen.io/azuremaps'>@azuremaps</a>의해 <a href='https://codepen.io/azuremaps/pen/KOQvJe/'>기본 제공 아이콘 템플릿이 있는</a> 펜 선 레이어를 참조하십시오.
 </iframe>
 
@@ -85,7 +85,7 @@ map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#f
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="내장 된 아이콘 템플릿으로 다각형을 채우기" src="//codepen.io/azuremaps/embed/WVMEmz/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="내장 된 아이콘 템플릿으로 다각형을 채우기" src="//codepen.io/azuremaps/embed/WVMEmz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen에서</a>Azure Maps ()에<a href='https://codepen.io/azuremaps'>@azuremaps</a>의해 기본 제공 아이콘 템플릿이 있는 펜 <a href='https://codepen.io/azuremaps/pen/WVMEmz/'>채우기 다각형을</a> 참조하십시오.
 </iframe>
 
@@ -100,7 +100,7 @@ map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#f
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="기본 제공 아이콘 템플릿이 있는 HTML 마커" src="//codepen.io/azuremaps/embed/EqQvzq/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="기본 제공 아이콘 템플릿이 있는 HTML 마커" src="//codepen.io/azuremaps/embed/EqQvzq/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen에서</a>Azure Maps ()에<a href='https://codepen.io/azuremaps'>@azuremaps</a>의해 <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>기본 제공 아이콘 템플릿이 있는</a> 펜 HTML 마커를 참조하십시오.
 </iframe>
 
@@ -108,7 +108,7 @@ map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#f
 
 응용 프로그램에서 다른 아이콘과 동일한 아이콘을 사용하거나 이미지 템플릿을 추가하는 모듈을 만드는 경우 Azure Maps 웹 SDK에서 이러한 아이콘을 쉽게 추가하고 검색할 수 있습니다. 네임스페이스에서 다음과 같은 `atlas` 정적 함수를 사용합니다.
 
-| 이름 | 반환 형식 | 설명 | 
+| 이름 | 반환 형식 | Description | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | 아틀라스 네임스페이스에 사용자 지정 SVG 이미지 템플릿을 추가합니다. |
 |  `getImageTemplate(templateName: string, scale?: number)`| 문자열 | 이름으로 SVG 템플릿을 검색합니다. |
@@ -116,7 +116,7 @@ map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#f
 
 SVG 이미지 템플릿은 다음 자리 표시자 값을 지원합니다.
 
-| 자리 표시자 | 설명 |
+| 자리 표시자 | Description |
 |-|-|
 | `{color}` | 기본 색상입니다. | 
 | `{secondaryColor}` | 보조 색상입니다. | 
@@ -127,7 +127,7 @@ SVG 이미지 템플릿은 다음 자리 표시자 값을 지원합니다.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="아틀라스 네임스페이스에 사용자 지정 아이콘 템플릿 추가" src="//codepen.io/azuremaps/embed/NQyvEX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="아틀라스 네임스페이스에 사용자 지정 아이콘 템플릿 추가" src="//codepen.io/azuremaps/embed/NQyvEX/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen에서</a>Azure Maps ()별로<a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io/azuremaps/pen/NQyvEX/'>아틀라스 네임스페이스에 사용자 지정 아이콘 템플릿 추가</a> 를 참조하십시오.
 </iframe>
 

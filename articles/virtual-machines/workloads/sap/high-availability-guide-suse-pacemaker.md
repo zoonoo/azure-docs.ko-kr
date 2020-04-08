@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/17/2020
+ms.date: 04/07/2020
 ms.author: radeltch
-ms.openlocfilehash: 9d3d0ddbd1282827f17cd82228fcf0f3fba3a60f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 06ee1b6184e69ace68adcbfa36ad2384dc9fdd99
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471985"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811583"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
 
@@ -365,6 +365,9 @@ o- / ...........................................................................
    </code></pre>
 
 1. **[A]** HA 클러스터에 대해 클라우드-네트컨피그-azure 구성
+
+   >[!NOTE]
+   > **zypper 정보 클라우드-netconfig-azure를**실행 하 여 패키지 **클라우드-netconfig-azure의** 설치 된 버전을 확인 합니다. 환경의 버전이 1.3 이상인 경우 클라우드 네트워크 플러그인으로 네트워크 인터페이스 관리를 억제할 필요가 없습니다. 버전이 1.3보다 낮은 경우 패키지 **클라우드-netconfig-azure를** 사용 가능한 최신 버전으로 업데이트하는 것이 좋습니다.  
 
    클라우드 네트워크 플러그인이 가상 IP 주소를 제거하지 못하도록 아래와 같이 네트워크 인터페이스의 구성 파일을 변경합니다(Pacemaker는 VIP 할당을 제어해야 합니다). 자세한 내용은 [SUSE KB 7023633을](https://www.suse.com/support/kb/doc/?id=7023633)참조하십시오. 
 

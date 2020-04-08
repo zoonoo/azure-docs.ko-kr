@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: 185bb9d03bec042a5c8e9223616b40eba6629e36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 80481bc11933b0404079221f23b5054024f00acb
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247528"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811359"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Azure Portal에서 Cloud Services 관리
 Azure Portal의 **Cloud Services** 영역에서 다음을 수행할 수 있습니다.
@@ -123,7 +123,7 @@ Azure Portal의 **Cloud Services** 영역에서 다음을 수행할 수 있습�
 * [클라우드 서비스의 일반 구성](cloud-services-how-to-configure-portal.md)
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy-portal.md)하는 방법을 알아봅니다.
 * [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)구성
-* [SSL 인증서 구성](cloud-services-configure-ssl-certificate-portal.md).
+* [TLS/SSL 인증서 를 구성합니다.](cloud-services-configure-ssl-certificate-portal.md)
 
 
 

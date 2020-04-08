@@ -87,9 +87,9 @@
           displayName: 'metadata, pair'
         - name: 테스트
           href: How-To/test-knowledge-base.md
-    - name: QnA 세트 관리
+    - name: QnA 쌍 관리
       items:
-        - name: QnA 세트 편집
+        - name: QnA 쌍 편집
           href: How-To/edit-knowledge-base.md
         - name: 후속 프롬프트 추가
           href: How-To/multiturn-conversation.md

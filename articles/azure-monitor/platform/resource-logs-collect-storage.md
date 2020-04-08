@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 843c179826b2064a1be24d3cee84b398987b4aed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 787640ef08ee91220f42065af155c372247f0136
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274217"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804608"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>스토리지 계정에 Azure 리소스 로그 보관
 Azure 활동 로그 및 리소스 로그를 포함한 [Azure의 플랫폼 로그는](platform-logs-overview.md) Azure 리소스 및 해당 플랫폼에 대한 자세한 진단 및 감사 정보를 제공합니다.  이 문서에서는 보관을 위해 데이터를 유지하기 위해 Azure 저장소 계정에 대한 플랫폼 로그 수집에 대해 설명합니다.
@@ -20,6 +20,8 @@ Azure 활동 로그 및 리소스 로그를 포함한 [Azure의 플랫폼 로그
 ## <a name="prerequisites"></a>사전 요구 사항
 아직 Azure 저장소 계정이 없는 경우 [Azure 저장소 계정을 만들어야](../../storage/common/storage-account-create.md) 합니다. 저장소 계정을 리소스 전송 로그와 동일한 구독에 있을 필요는 없습니다.
 
+> [!IMPORTANT]
+> 데이터를 변경할 수 없는 저장소로 보내려면 Set에 설명된 대로 저장소 계정에 대한 변경할 수 없는 정책을 설정하고 [Blob 저장소에 대한 불변성 정책을 관리합니다.](../../storage/blobs/storage-blob-immutability-policies-manage.md) 보호된 부속 Blob 쓰기를 사용하도록 설정하는 것을 포함하여 이 문서의 모든 단계를 수행해야 합니다.
 
 > [!IMPORTANT]
 > Azure Data Lake Storage Gen2 계정은 Azure Portal에서 유효한 옵션으로 나열될 수 있더라도 진단 설정의 대상으로 현재 지원되지 않습니다.

@@ -3,12 +3,12 @@ title: 다른 응용 프로그램과 통합 - QnA 메이커
 description: QnA Maker는 채팅 봇과 같은 클라이언트 응용 프로그램뿐만 아니라 언어 이해(LUIS)와 같은 다른 자연어 처리 서비스에 통합됩니다.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 38b275aa2b8cf5768a2bc95634a7ff4892893eda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1edbfb6badfb73ce08a99709da0f8bfb61b7dc3
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78300522"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804191"
 ---
 # <a name="design-knowledge-base-for-client-applications"></a>클라이언트 애플리케이션을 위한 설계 기술 자료
 
@@ -24,7 +24,7 @@ QnA Maker는 [Microsoft 봇 프레임워크와](https://dev.botframework.com/)�
 
 ## <a name="providing-multi-turn-conversations"></a>멀티 턴 대화 제공
 
-봇 클라이언트는 기술 기반에서 가장 잘 선택된 답변을 제공하며, 답이 다중 턴 QnA 집합의 일부인 경우 후속 프롬프트를 제공할 수 있습니다. 기술 자료에 다중 전환 대화 질문 및 답변 세트를 추가하는 [방법을](../how-to/multiturn-conversation.md) 알아봅니다.
+봇 클라이언트는 기술 기반에서 가장 잘 선택된 답변을 제공하며, 대답이 다중 회전 QnA 쌍의 일부인 경우 후속 프롬프트를 제공할 수 있습니다. 기술 자료에 다중 전환 대화 질문 및 답변 세트를 추가하는 [방법을](../how-to/multiturn-conversation.md) 알아봅니다.
 
 ## <a name="natural-language-processing"></a>자연어 처리
 

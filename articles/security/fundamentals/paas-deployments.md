@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 8fd5a063683d09cb94b45205426871d880119cc2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0643ae792c890b65f239d9a0c16a05639dd4f8b9
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77138029"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811480"
 ---
 # <a name="securing-paas-deployments"></a>PaaS 배포 보안
 
@@ -101,7 +101,7 @@ Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/sdl)�
 | 위협 | 보안 속성 | Azure 플랫폼 완화 가능성 |
 | --- | --- | --- |
 | 스푸핑 | 인증 | HTTPS 연결을 사용해야 하도록 지정합니다. |
-| 변조 | 무결성 | SSL 인증서 유효성을 검사합니다. |
+| 변조 | 무결성 | TLS/SSL 인증서의 유효성을 검사합니다. |
 | 거부 | 거부 없음 | Azure [모니터링 및 진단](/azure/architecture/best-practices/monitoring)을 사용하도록 설정합니다. |
 | 정보 공개 | 기밀성 | [서비스 인증서](/rest/api/appservice/certificates)를 사용하여 미사용 상태의 중요한 데이터를 암호화합니다. |
 | 서비스 거부 | 가용성 | 성능 메트릭에서 서비스 거부 상황 가능성을 모니터링합니다. 연결 필터를 구현합니다. |
@@ -155,7 +155,7 @@ Application Insight에는 수집하는 데이터와 상호 작용할 수 있는 
 
 - [Azure App Service](paas-applications-using-app-services.md)
 - [Azure SQL Database 및 Azure SQL Data Warehouse](paas-applications-using-sql.md)
-- [Azure 저장소](paas-applications-using-storage.md)
+- [Azure Storage](paas-applications-using-storage.md)
 - Azure Cache for Redis
 - Azure Service Bus
 - 웹 애플리케이션 방화벽

@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: cf9c79f608aa3ffd1137be41ff3348f62b890867
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8509af7829910bdda8bba3d63553e83626fe784
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198312"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804676"
 ---
 # <a name="drawing-tool-events"></a>그리기 도구 이벤트
 
 맵에서 그리기 도구를 사용할 때는 사용자가 맵에 그릴 때 특정 이벤트에 반응하는 것이 유용합니다. 이 테이블에는 클래스에서 지원하는 `DrawingManager` 모든 이벤트가 나열됩니다.
 
-| 행사 | 설명 |
+| 이벤트 | Description |
 |-------|-------------|
 | `drawingchanged` | 셰이프의 좌표가 추가되거나 변경되었을 때 발생합니다. | 
 | `drawingchanging` | 셰이프에 대한 미리 보기 좌표가 표시될 때 발생합니다. 예를 들어 좌표가 드래그될 때 이 이벤트가 여러 번 발생합니다. | 
@@ -31,7 +31,7 @@ ms.locfileid: "77198312"
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="그리기 도구 이벤트" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="그리기 도구 이벤트" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen에서</a>Azure 지도 ()<a href='https://codepen.io/azuremaps'>@azuremaps</a>별 펜 <a href='https://codepen.io/azuremaps/pen/dyPMRWo'>그리기 도구 이벤트를</a> 참조하십시오.
 </iframe>
 
@@ -59,7 +59,7 @@ ms.locfileid: "77198312"
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="다각형 영역에서 그리기 및 검색" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="다각형 영역에서 그리기 및 검색" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen에서</a>펜 <a href='https://codepen.io/azuremaps/pen/eYmZGNv'>그리기 및 다각형</a> 영역에서<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps ()로 검색
 </iframe>
 
@@ -71,7 +71,7 @@ ms.locfileid: "77198312"
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="측정 도구" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="측정 도구" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen에서</a>Azure 지도 ()별<a href='https://codepen.io/azuremaps'>@azuremaps</a>펜 <a href='https://codepen.io/azuremaps/pen/RwNaZXe'>측정 도구를</a> 참조하십시오.
 </iframe>
 

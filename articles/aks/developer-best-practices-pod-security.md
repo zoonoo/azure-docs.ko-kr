@@ -1,17 +1,18 @@
 ---
-title: 개발자 모범 사례 - AKS(Azure Kubernetes Services)의 pod 보안
+title: 포드 보안 모범 사례
+titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Services)에서 pod 보안을 유지하는 방법에 대한 개발자 모범 사례 알아보기
 services: container-service
 author: zr-msft
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
-ms.openlocfilehash: 2ee41770f9993da381215f03ebf67aea3cc7dd9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1f093b5276ee7ab334043e57f97a108267c32c87
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475581"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804387"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 pod 보안 모범 사례
 

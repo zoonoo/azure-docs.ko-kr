@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 8b396b782c1254b3229aeeb8e51b61cc744d6318
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 300f44daeeea5e8a774575dabcb00686906bb5de
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190373"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804370"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Azure Active Directory 및 API Management에서 OAuth 2.0을 사용하여 API 보호
 
@@ -137,7 +137,7 @@ API 및 개발자 콘솔을 나타내는 두 개의 애플리케이션을 등록
 
 1. **v1** 끝점을 사용하는 경우 **리소스라는**body 매개 변수를 추가합니다. 이 매개 변수의 값에 대 한 백 엔드 응용 프로그램의 **응용 프로그램 ID를** 사용 합니다. 
 
-1. **v2** 끝점을 사용하는 경우 **기본 범위** 필드에서 백 엔드 앱에 대해 만든 범위를 사용합니다.
+1. **v2** 끝점을 사용하는 경우 **기본 범위** 필드에서 백 엔드 앱에 대해 만든 범위를 사용합니다. 또한 [응용 프로그램 매니페스트에서](/azure/active-directory/develop/reference-app-manifest) [`accessTokenAcceptedVersion`](/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) 속성의 `2` 값을 설정해야 합니다.
 
 1. 다음으로 클라이언트 자격 증명을 지정합니다. 이러한 자격 증명은 client-app에 대한 자격 증명입니다.
 

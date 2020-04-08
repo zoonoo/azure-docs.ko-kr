@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 2293618b0685fe71ae553a95797fe8bfe1fe968c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 496ee1bc97f6b72e09a62ae3491af7ccc7328583
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75749942"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811089"
 ---
 # <a name="azure-network-security-overview"></a>Azure 네트워크 보안 개요
 
@@ -160,7 +160,7 @@ Azure 네트워킹은 다음 보안 원격 액세스 시나리오를 지원합�
 
 지점 및 사이트 간 VPN 연결에서는 사용자와 가상 네트워크 간 프라이빗 및 보안 연결을 설정할 수 있습니다. VPN 연결이 설정되면 사용자는 VPN 링크를 통해 RDP 또는 SSH를 가상 네트워크의 가상 머신에 연결할 수 (사용자가 인증할 수 있고 권한이 있다고 가정합니다.) 지점 간 VPN은 다음을 지원합니다.
 
-* SSTP(Secure Socket Tunneling Protocol) - 독점적인 SSL 기반 VPN 프로토콜입니다. 대부분의 방화벽에서 SSL이 사용되는 443 TCP 포트를 열기 때문에 SSL VPN 솔루션이 방화벽을 통과할 수 있습니다. SSTP는 Windows 디바이스에서만 지원됩니다. Azure는 SSTP가 설치된 모든 Windows 버전(Windows 7 이상)을 지원합니다.
+* SSTP(Secure Socket Tunneling Protocol) - 독점적인 SSL 기반 VPN 프로토콜입니다. 대부분의 방화벽은 TLS/SSL에서 사용하는 TCP 포트 443을 열기 때문에 SSL VPN 솔루션은 방화벽에 침투할 수 있습니다. SSTP는 Windows 디바이스에서만 지원됩니다. Azure는 SSTP가 설치된 모든 Windows 버전(Windows 7 이상)을 지원합니다.
 
 * IKEv2 VPN - 표준 기반 IPsec VPN 솔루션입니다. IKEv2 VPN은 Mac 디바이스(OSX 버전 10.11 이상)에서 연결하는 데 사용할 수 있습니다.
 
@@ -232,7 +232,7 @@ Azure 네트워킹은 다음 보안 원격 액세스 시나리오를 지원합�
 Azure Application Gateway는 웹 기반 서비스에 대한 HTTP 기반 부하 분산을 제공합니다. Application Gateway는 다음을 지원합니다.
 
 * 쿠키 기반 세션 선호도. 이 기능은 해당 부하 분산 장치 뒤의 서버 중 하나에 설정된 연결이 클라이언트와 서버 사이에서 그대로 유지되도록 해줍니다. 따라서 트랜잭션의 안정성이 보장됩니다.
-* SSL 오프로드. 클라이언트가 부하 분산 장치와 연결된 경우 해당 세션은 HTTPS(SSL) 프로토콜을 사용하여 암호화됩니다. 그러나 성능을 개선하기 위해 HTTP(암호화되지 않은) 프로토콜을 사용하여 부하 분산 장치와 그 뒤의 웹 서버를 연결할 수 있습니다. 부하 분산 디바이스 뒤의 웹 서버에서 암호화와 관련된 프로세서 오버헤드가 발생하지 않아 요청을 보다 신속하게 제공할 수 있으므로 이를 "SSL 오프로드"라고 합니다.
+* TLS 오프로드. 클라이언트가 로드 밸러블러와 연결하면 HTTPS(TLS) 프로토콜을 사용하여 해당 세션이 암호화됩니다. 그러나 성능을 개선하기 위해 HTTP(암호화되지 않은) 프로토콜을 사용하여 부하 분산 장치와 그 뒤의 웹 서버를 연결할 수 있습니다. 로드 밸러버 뒤에 있는 웹 서버는 암호화와 관련된 프로세서 오버헤드를 경험하지 않기 때문에 이를 "TLS 오프로드"라고 합니다. 요청을 보다 신속하게 제공할 수 있으므로 이를 "SSL 오프로드"라고 합니다.
 * URL 기반 콘텐츠 라우팅. 이 기능을 통해 부하 분산 장치가 대상 URL에 기반하여 연결을 전달할 위치를 결정할 수 있습니다. IP 주소에 기반하여 부하 분산 결정을 내리는 솔루션보다 훨씬 더 많은 유연성을 제공합니다.
 
 자세한 정보:
@@ -336,7 +336,7 @@ Microsoft에서는 Azure 플랫폼의 일부로 **기본**으로 알려진 DDoS 
 
 ## <a name="azure-front-door"></a>Azure Front Door
 
-Azure Front Door 서비스를 사용하여 웹 트래픽에 대한 전역 라우팅을 정의, 관리 및 모니터링할 수 있습니다. 최상의 성능 및 고가용성을 위해 트래픽 라우팅을 최적화합니다. Azure Front Door를 사용하면 액세스 제어에 대한 사용자 지정 웹 애플리케이션 방화벽(WAF) 규칙을 작성하여 클라이언트 IP 주소, 국가 코드 및 http 매개 변수를 기준으로 HTTP/HTTPS 워크로드 만료를 방지할 수 있습니다. 또한 Front Door는 악의적인 봇 트래픽에 대해 속도 제한 규칙을 만들 수 있도록 하며, SSL 오프로딩 및 HTTP/HTTPS 기준 요청, 애플리케이션 계층 처리를 포함합니다.
+Azure Front Door 서비스를 사용하여 웹 트래픽에 대한 전역 라우팅을 정의, 관리 및 모니터링할 수 있습니다. 최상의 성능 및 고가용성을 위해 트래픽 라우팅을 최적화합니다. Azure Front Door를 사용하면 액세스 제어에 대한 사용자 지정 웹 애플리케이션 방화벽(WAF) 규칙을 작성하여 클라이언트 IP 주소, 국가 코드 및 http 매개 변수를 기준으로 HTTP/HTTPS 워크로드 만료를 방지할 수 있습니다. 또한 Front Door를 사용하면 악의적인 봇 트래픽과 싸우기 위해 속도 제한 규칙을 만들 수 있으며 TLS 오프로드 및 HTTP/HTTPS 요청당 요청, 응용 프로그램 계층 처리가 포함됩니다.
 
 Front Door 플랫폼 자체는 Azure DDoS Protection Basic으로 보호됩니다. 추가 보호를 위해 VNET에서 Azure DDoS Protection Standard를 활성화하고, 자동 튜닝 및 완화를 통해 네트워크 계층(TCP/UDP) 공격으로부터 리소스를 보호할 수 있습니다. Front Door는 계층 7 역방향 프록시이며, 웹 트래픽만 백 엔드 서버를 통과하도록 허용하고 기본적으로 다른 종류의 트래픽은 차단합니다.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5bcfeebc1fcb96cfdf6ea802293eb4027f339815
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1de9dd9721700418b1aa9ba661fc070db1dbedcc
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335202"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804642"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Azure 지도 공간 IO 모듈을 사용 하는 방법
 
@@ -26,6 +26,13 @@ Azure Maps 웹 SDK는 자바스크립트 또는 TypeScript를 사용하여 공�
 - [고속 XML 및 구분된 파일 판독기 및 기록기 클래스를 활용합니다.](spatial-io-core-operations.md)
 
 이 가이드에서는 웹 응용 프로그램에서 Spatial IO 모듈을 통합하고 사용하는 방법을 알아봅니다.
+
+이 비디오에서는 Azure Maps Web SDK의 공간 IO 모듈에 대한 개요를 제공합니다.
+
+<br/>
+
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0" title="쉽게 Azure지도에 공간 데이터를 통합 - 마이크로 소프트 채널 9 비디오"></iframe>
+
 
 > [!WARNING]
 > 특히 다른 도메인에서 참조하는 경우 신뢰할 수 있는 원본의 데이터 및 서비스만 사용합니다. 공간 IO 모듈은 위험을 최소화하기 위한 조치를 취하지만 가장 안전한 방법은 응용 프로그램에 대한 danagerous 데이터를 시작하기가 너무 허용되지 않습니다. 

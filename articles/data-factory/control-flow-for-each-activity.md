@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: b8f95f22553a3b4639b1aba6576ce844116ae20b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71528385563b29ce70edf396434be0174beac105
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73679871"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804846"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Azure Data Factory의 ForEach 작업
 ForEach 작업은 파이프라인의 반복 제어 흐름을 정의합니다. 이 작업을 사용하여 컬렉션을 반복하고 루프의 지정된 작업을 실행합니다. 이 작업의 루프 구현은 프로그래밍 언어에서 구조를 반복하는 Foreach와 비슷합니다.
@@ -68,14 +68,14 @@ ForEach 작업은 파이프라인의 반복 제어 흐름을 정의합니다. �
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | 설명 | 허용되는 값 | 필수
+속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-name | for-each 작업의 이름입니다. | String | yes
-type | **ForEach**로 설정되어야 합니다. | String | yes
+name | for-each 작업의 이름입니다. | String | 예
+type | **ForEach**로 설정되어야 합니다. | String | 예
 isSequential | 순차 또는 병렬로 루프를 실행할지 지정합니다.  한 번에 최대 20개의 루프 반복을 병렬로 실행할 수 있습니다. 예를 들어 **isSequential**이 False로 설정된 10개의 다른 원본과 싱크 데이터 세트가 있는 복사 작업에 대해 반복되는 ForEach 작업의 경우, 모든 복사가 한 번에 실행됩니다. 기본값은 False입니다. <br/><br/> "IsSequential"이 False로 설정된 경우 여러 실행 파일을 실행하기 위해 정확한 구성이 있는지 확인합니다. 그렇지 않으면 쓰기 충돌이 발생하지 않도록 이 속성을 주의하여 사용해야 합니다. 자세한 내용은 [병렬 실행](#parallel-execution) 섹션을 참조하세요. | 부울 | 아니요. 기본값은 False입니다.
-batchCount | 병렬 실행 수를 제어하는 데 사용하는 Batch 계정입니다(IsSequential이 false로 설정된 경우). | 정수(최대값 50) | 아니요. 기본값은 20입니다.
-Items | 반복되는 JSON 배열을 반환하는 식 | 식(JSON 배열 반환) | yes
-활동 | 실행할 작업 | 작업 목록 | yes
+batchCount | 병렬 실행 수를 제어하는 데 사용하는 Batch 계정입니다(IsSequential이 false로 설정된 경우). 이는 상한 동시성 한이지만 각 활동별 활동이 항상 이 숫자로 실행되는 것은 아닙니다. | 정수(최대값 50) | 아니요. 기본값은 20입니다.
+Items | 반복되는 JSON 배열을 반환하는 식 | 식(JSON 배열 반환) | 예
+활동 | 실행할 작업 | 작업 목록 | 예
 
 ## <a name="parallel-execution"></a>병렬 실행
 **isSequential**이 false로 설정된 경우 최대 20개의 동시 반복에서 병렬로 작업이 반복됩니다. 이 설정은 주의해서 사용해야 합니다. 동시 반복을 동일한 폴더의 다른 파일에 쓰는 것은 괜찮습니다. 동시 반복을 동시에 정확히 동일한 파일에 쓸 경우 오류가 발생할 가능성이 높습니다. 

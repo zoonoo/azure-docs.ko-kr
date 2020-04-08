@@ -1,15 +1,16 @@
 ---
-title: AKS(Azure Kubernetes Service)의 송신 트래픽용 고정 IP 주소
+title: 트래픽 송신에 정적 IP 사용
+titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Service) 클러스터의 송신 트래픽용으로 고정 공용 IP 주소를 만들어 사용하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 5850f8dfc08ed80dfe5e5e13f49808c3fd9338c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 08a9682434605fffde73c835e7a9e9d6971d7ff0
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595759"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803385"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 송신 트래픽에 고정 공용 IP 주소 사용
 

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 29d837446960b7535b26284efdfab7a1c59ea968
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fece1155d2f707f11dda9f3896bd8a08deff1557
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132508"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802386"
 ---
 # <a name="http-features"></a>HTTP 기능
 
@@ -41,17 +41,17 @@ HTTP 요청을 사용하여 오케스트레이션 및 엔터티를 호출하고 
 
 [오케스트레이션 클라이언트 바인딩은](durable-functions-bindings.md#orchestration-client) 편리한 HTTP 응답 페이로드를 생성할 수 있는 API를 노출합니다. 예를 들어 특정 오케스트레이션 인스턴스에 대한 관리 API에 대한 링크가 포함된 응답을 만들 수 있습니다. 다음 예제에서는 새 오케스트레이션 인스턴스에 이 API를 사용하는 방법을 보여 주는 HTTP 트리거 함수를 보여 줍니다.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 **index.js**
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
-**함수.json**
+**function.json**
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
 
@@ -114,7 +114,7 @@ Retry-After: 10
 
 다음 예제 코드는 아웃바운드 HTTP 요청을 하는 오케스트레이터 함수를 보여 주며, 다음과 같은 경우를 보여 주며,
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -134,7 +134,7 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -172,7 +172,7 @@ module.exports = df.orchestrator(function*(context){
 
 다음 코드는 .NET 오케스트레이터 함수의 예입니다. 이 함수는 Azure Resource Manager 가상 시스템 [REST API를](https://docs.microsoft.com/rest/api/compute/virtualmachines)사용하여 가상 컴퓨터를 다시 시작하기 위해 인증된 호출을 만듭니다.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RestartVm")]
@@ -198,7 +198,7 @@ public static async Task RunOrchestrator(
 }
 ```
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -232,7 +232,7 @@ module.exports = df.orchestrator(function*(context) {
 * 토큰은 지속가능한 오케스트레이션 상태로 저장되지 않습니다.
 * 토큰 수집을 관리하기 위해 코드를 작성할 필요가 없습니다.
 
-[미리 컴파일된 C# RestartVM 샘플에서](https://github.com/Azure/azure-functions-durable-extension/blob/v2/samples/v2/precompiled/RestartVMs.cs)보다 완전한 예제를 찾을 수 있습니다.
+[미리 컴파일된 C# RestartVM 샘플에서](https://github.com/Azure/azure-functions-durable-extension/blob/dev/samples/precompiled/RestartVMs.cs)보다 완전한 예제를 찾을 수 있습니다.
 
 관리되는 ID는 Azure 리소스 관리로 제한되지 않습니다. 관리되는 ID를 사용하여 Microsoft의 Azure 서비스 및 파트너의 웹 앱을 포함하여 Azure AD 베어러 토큰을 허용하는 모든 API에 액세스할 수 있습니다. 파트너의 웹 앱은 다른 기능 앱이 될 수도 있습니다. Azure AD로 인증을 지원하는 Microsoft의 Azure 서비스 목록은 [Azure AD 인증을 지원하는 Azure 서비스를](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)참조하십시오.
 

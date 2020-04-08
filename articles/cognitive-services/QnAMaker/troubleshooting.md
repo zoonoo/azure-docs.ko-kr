@@ -4,12 +4,12 @@ description: QnA Maker 서비스와 관련하여 가장 자주 묻는 질문의 
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: diberry
-ms.openlocfilehash: 310cfe0cc8c1f647c09b8e0efb435a1ab326ff62
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 7847e21dbcf07f669d6802fffdd1e43623a72340
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474950"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804353"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>QnA 제조업체의 문제 해결
 
@@ -142,7 +142,7 @@ QnA Maker 서비스와 관련하여 가장 자주 묻는 질문의 선별된 목
 * 파일 - 지원되지 않음
 
 #### <a name="answer-text-in-markdown"></a>마크다운에서 텍스트 에 대한 답변
-QnA 세트가 기술 자료에 있으면 응답의 마크다운 텍스트를 편집하여 공개 URL에서 사용할 수 있는 미디어에 대한 링크를 포함할 수 있습니다.
+QnA 쌍이 기술 자료에 있으면 응답의 마크다운 텍스트를 편집하여 공개 URL에서 사용할 수 있는 미디어에 대한 링크를 포함할 수 있습니다.
 
 
 </details>

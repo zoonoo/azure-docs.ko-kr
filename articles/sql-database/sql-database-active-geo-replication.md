@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 02/17/2020
-ms.openlocfilehash: b80b58d64ea27df95c2704243d8a89fa6ca12e2a
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/06/2020
+ms.openlocfilehash: 1f339d987d67047f5857679b440e93e6c3730059
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548502"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810457"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>활성 지역 복제 만들기 및 사용
 
@@ -101,7 +101,7 @@ ms.locfileid: "80548502"
 
 - **사용자 제어 장애 조치 및 장애 복구**
 
-  보조 데이터베이스는 애플리케이션 또는 사용자에 의해 언제든지 주 데이터베이스 역할로 전환될 수 있습니다. 실제로 가동이 중단되면 보조 데이터베이스를 즉시 주 데이터베이스로 승격하는 "계획되지 않음" 옵션을 사용해야 합니다. 중지된 주 데이터베이스가 복구되어 작동 가능한 상태가 되면 시스템에서는 복구된 주 데이터베이스를 자동으로 보조 데이터베이스로 표시하고 새로운 주 데이터베이스와 함께 최신 상태로 전환합니다. 주 데이터베이스가 가장 최근의 변경 사항을 보조 데이터베이스로 복제하기 전에 중단될 경우 비동기 복제의 특성상 계획되지 않은 장애 조치(failover)가 진행되는 동안 소량의 데이터가 손실될 수 있습니다. 보조 데이터베이스가 여러 개 있는 주 데이터베이스가 중단되면 시스템에서 사용자의 개입 없이 자동으로 복제 관계를 다시 구성하고 남아 있는 보조 데이터베이스를 새로 승격되는 주 데이터베이스에 연결합니다. 장애 조치(failover)를 일으킨 작동 중단 상황이 완화된 후에는 애플리케이션을 주 지역으로 반환하는 것이 바람직할 수 있습니다. 장애 조치(failover)를 수행하려면 “계획됨” 옵션을 사용하여 명령을 호출해야 합니다.
+  보조 데이터베이스는 애플리케이션 또는 사용자에 의해 언제든지 주 데이터베이스 역할로 전환될 수 있습니다. 실제 중단 중에 "계획되지 않은" 옵션을 사용해야 하며, 이 옵션을 사용하여 보조 보조를 주 데이터베이스로 즉시 승격합니다. 중지된 주 데이터베이스가 복구되어 작동 가능한 상태가 되면 시스템에서는 복구된 주 데이터베이스를 자동으로 보조 데이터베이스로 표시하고 새로운 주 데이터베이스와 함께 최신 상태로 전환합니다. 주 데이터베이스가 가장 최근의 변경 사항을 보조 데이터베이스로 복제하기 전에 중단될 경우 비동기 복제의 특성상 계획되지 않은 장애 조치(failover)가 진행되는 동안 소량의 데이터가 손실될 수 있습니다. 보조 데이터베이스가 여러 개 있는 주 데이터베이스가 중단되면 시스템에서 사용자의 개입 없이 자동으로 복제 관계를 다시 구성하고 남아 있는 보조 데이터베이스를 새로 승격되는 주 데이터베이스에 연결합니다. 장애 조치(failover)를 일으킨 작동 중단 상황이 완화된 후에는 애플리케이션을 주 지역으로 반환하는 것이 바람직할 수 있습니다. 이렇게 하려면 장애 조치 명령을 "계획된" 옵션으로 호출해야 합니다.
 
 ## <a name="preparing-secondary-database-for-failover"></a>장애 조치(failover)를 위한 보조 데이터베이스 준비
 
@@ -113,14 +113,19 @@ ms.locfileid: "80548502"
 
 ## <a name="configuring-secondary-database"></a>보조 데이터베이스 구성
 
-동일한 서비스 계층을 확보하려면 주 데이터베이스와 보조 데이터베이스 모두 필요합니다. 또한 보조 데이터베이스는 주 데이터베이스와 동일한 컴퓨팅 크기(DTU 또는 vCore 수)로 만드는 것이 좋습니다. 기본 데이터베이스에 쓰기 워크로드가 많은 경우 계산 크기가 낮은 보조 데이터베이스는 이를 따라잡지 못할 수 있습니다. 이 경우 보조 및 잠재적인 가용성에 대한 재수행 지연이 발생합니다. 기본 데이터베이스보다 뒤쳐지는 보조 데이터베이스는 강제 장애 조치(failover)가 필요한 경우 큰 데이터 손실을 초래할 수 있습니다. 이러한 위험을 완화하기 위해 효과적인 활성 지역 복제는 보조 로그 속도를 제한하여 보조 데이터베이스가 따라잡을 수 있도록 합니다. 불균형한 보조 구성의 또 다른 결과는 장애 조치 후 새 주 시스템의 계산 용량 부족으로 인해 응용 프로그램의 성능이 저하된다는 것입니다. 필요한 수준으로 더 높은 컴퓨팅으로 업그레이드해야 하며, 이는 중단이 완화될 때까지 불가능합니다. 
+동일한 서비스 계층을 확보하려면 주 데이터베이스와 보조 데이터베이스 모두 필요합니다. 또한 보조 데이터베이스는 주 데이터베이스와 동일한 컴퓨팅 크기(DTU 또는 vCore 수)로 만드는 것이 좋습니다. 기본 데이터베이스에 쓰기 워크로드가 많은 경우 계산 크기가 낮은 보조 데이터베이스는 이를 따라잡지 못할 수 있습니다. 이렇게 하면 보조 에 대한 재수행 지연이 발생하고 보조 데이터베이스의 가용성이 발생할 수 있습니다. 기본 데이터베이스보다 뒤쳐지는 보조 데이터베이스는 강제 장애 조치(failover)가 필요한 경우 큰 데이터 손실위험이 있습니다. 이러한 위험을 완화하기 위해 활성 지역 복제는 보조 데이터베이스가 따라잡을 수 있도록 필요한 경우 기본 로그 속도를 제한합니다. 
 
+불균형한 보조 구성의 또 다른 결과는 장애 조치 후 새 주 시스템의 계산 용량 부족으로 인해 응용 프로그램 성능이 저하될 수 있다는 것입니다. 이 경우 데이터베이스 서비스 목표를 필요한 수준으로 확장해야 하며, 이는 상당한 시간과 컴퓨팅 리소스가 소요될 수 있으며 확장 프로세스가 끝날 때 [고가용성](sql-database-high-availability.md) 장애 조치(failover)가 필요합니다.
 
 > [!IMPORTANT]
-> 게시된 RPO = 보조 데이터베이스가 기본 데이터베이스와 동일한 계산 크기로 구성되지 않는 한 5초는 보장할 수 없습니다. 
+> 게시된 5초 RPO SLA는 보조 데이터베이스가 기본 데이터베이스와 동일하거나 더 높은 계산 크기로 구성되지 않는 한 보장할 수 없습니다. 
 
+계산 크기가 낮은 보조 보조 차트를 만들기로 결정한 경우 Azure portal의 로그 IO 백분율 차트는 복제 부하를 유지하는 데 필요한 보조 데이터베이스의 최소 계산 크기를 추정하는 좋은 방법을 제공합니다. 예를 들어 기본 데이터베이스가 P6(1000 DTU)이고 로그 쓰기 퍼센트가 50%인 경우 보조 데이터베이스는 최소 P4(500 DTU)여야 합니다. 기록 로그 IO 데이터를 검색하려면 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 보기를 사용합니다. 로그 속도의 단기 급증을 더 잘 반영하는 더 높은 세분성으로 최근 로그 쓰기 데이터를 검색하려면 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 보기를 사용합니다. 
 
-컴퓨팅 크기가 더 작은 보조 데이터베이스를 만들려는 경우 Azure Portal의 로그 IO 백분율 차트에서 복제 로드를 유지하는 데 필요한 보조 데이터베이스의 최소 컴퓨팅 크기를 추정하는 좋은 방법을 제공합니다. 예를 들어 주 데이터베이스가 P6(1000 DTU)이면 해당 로그 IO 백분율은 50%이고 보조 데이터베이스는 최소한 P4(500 DTU) 이상이어야 합니다. [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 또는 [ys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 데이터베이스 뷰를 사용하여 로그 IO 데이터를 검색할 수도 있습니다.  제한은 [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 및 [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 데이터베이스 보기에서 HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO 대기 상태로 보고됩니다. 
+보조 데이터베이스의 낮은 계산 크기로 인해 주 에서 트랜잭션 로그 속도 [제한sys.dm_exec_requests 및 sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 데이터베이스 보기에 표시 되는 HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO 대기 유형을 사용 하 여 보고 됩니다. [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 
+
+> [!NOTE]
+> 보조 데이터베이스의 낮은 계산 크기와 관련이 없는 이유로 주 데이터에서 트랜잭션 로그 속도가 제한될 수 있습니다. 이러한 종류의 제한은 보조 데이터베이스의 계산 크기가 기본 크기와 같거나 더 큰 경우에도 발생할 수 있습니다. 다양한 종류의 로그 속도 제한에 대한 대기 유형을 포함한 자세한 내용은 [트랜잭션 로그 비율 거버넌스를](sql-database-resource-limits-database-server.md#transaction-log-rate-governance)참조하십시오.
 
 SQL Database 컴퓨팅 크기에 대한 자세한 내용은 [SQL Database 서비스 계층이란?](sql-database-purchase-models.md)를 참조하세요.
 

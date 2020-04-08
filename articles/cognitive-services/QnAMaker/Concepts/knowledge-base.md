@@ -3,12 +3,12 @@ title: 데이터 원본에서 가져오기 - QnA 메이커
 description: QnA Maker 기술 자료는 QnA(질의응답) 세트와 각 QnA 쌍과 연관된 선택적 메타데이터로 구성됩니다.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: e7772b2c76dfb92ced4d2c0d4b8dae97a59d1b83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f648e15be803159dadb3f8bd047b2f46885eec91
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79457824"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804285"
 ---
 # <a name="importing-from-data-sources"></a>데이터 원본에서 가져오기
 
@@ -56,7 +56,7 @@ Chit 채팅 QnA 콘텐츠 세트는 여러 언어와 대화 스타일로 완전�
 
 ## <a name="export-as-example"></a>예제로 내보내기
 
-`.tsv` 파일에서 QnA 집합을 나타내는 방법을 잘 모르는 경우:
+`.tsv` 파일에서 QnA 쌍을 나타내는 방법을 잘 모르는 경우:
 * [GitHub에서](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx?raw=true) 이 다운로드 가능한 예제 사용
 * 또는 QnA Maker 포털에서 집합을 만들고 저장한 다음 집합을 나타내는 방법에 대한 예제로 기술 기반을 내보냅니다.
 
@@ -72,9 +72,9 @@ QnA 메이커 [마크다운 참조를](../reference-markdown-format.md) 사용�
 [QnA Maker 개요](../Overview/overview.md)
 
 다음을 사용하여 기술 자료 작성 및 편집:
-* [나머지 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)
+* [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)
 * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebase?view=azure-dotnet)
 
 다음과 같은 경우 답변을 생성합니다.
-* [나머지 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
+* [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
 * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtime?view=azure-dotnet)

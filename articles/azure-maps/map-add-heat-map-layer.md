@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 4a853871ef5f66881235e5a6ffec0886b81f5a92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19765bd28f365cc6f6d5b06646896613dd3e3e87
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77208542"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804557"
 ---
 # <a name="add-a-heat-map-layer"></a>열 지도 계층 추가
 
@@ -98,11 +98,11 @@ map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
 
 식을 `zoom` 사용하여 각 데이터 포인트가 맵의 동일한 물리적 영역을 덮도록 각 확대/축소 수준에 대한 반지름의 크기를 조정합니다. 이 식은 히트 맵 레이어를 보다 정적이고 일관되게 보이게 합니다. 맵의 각 확대/축소 수준은 이전 확대/축소 수준보다 수직 및 수평으로 두 배 더 많은 픽셀을 가짐을 가짐입니다. 
 
-각 확대/축소 수준으로 두 배가 되도록 반경의 배율을 조정하면 모든 확대/축소 수준에서 일관되게 보이는 히트 맵이 생성됩니다. 이 배율 조정을 적용하려면 `exponential interpolation` 다음 샘플과 같이 기본 2 식과 함께 사용하십시오. `zoom` 지도를 확대/축소하여 히트 맵이 확대/축소 수준으로 배율 조정되는 방식을 확인합니다.
+각 확대/축소 수준으로 두 배가 되도록 반경의 배율을 조정하면 모든 확대/축소 수준에서 일관되게 보이는 히트 맵이 생성됩니다. 이 배율을 적용하려면 다음 `exponential interpolation` 샘플과 같이 `2 * Math.pow(2, minZoom - maxZoom)` 계산된 최대 확대/축소 수준에 대해 픽셀 반지름이 최소 확대/축소 수준에 대해 설정된 기본 2 식과 함께 사용합니다. `zoom` 지도를 확대/축소하여 히트 맵이 확대/축소 수준으로 배율 조정되는 방식을 확인합니다.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="일관된 확대/열 지도" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="일관된 확대/열 지도" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen에서</a>Azure 지도 ()<a href='https://codepen.io/azuremaps'>@azuremaps</a>별 펜 <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>일관된 확대 식 열 지도를</a> 참조하십시오.
 </iframe>
 

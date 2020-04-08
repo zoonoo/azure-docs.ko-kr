@@ -7,12 +7,12 @@ ms.date: 3/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-ms.openlocfilehash: 04b145622a1a4237b576a1bb512b5f749f9c3823
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: da163e902d06bd98ac47a24256cb809cb222173b
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80133309"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804625"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>IoT Edge 모듈의 Azure Blob Storage를 디바이스에 배포
 
@@ -32,7 +32,7 @@ Azure 포털은 배포 매니페스트를 만들고 배포를 IoT Edge 장치로
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 IoT Hub로 이동합니다.
 1. 메뉴에서 **IoT Edge**를 선택합니다.
-1. 디바이스 목록에서 대상 디바이스의 ID를 클릭합니다.
+1. 장치 목록에서 대상 장치의 ID를 클릭합니다.'
 1. **모듈 설정**선택 .
 
 ### <a name="configure-a-deployment-manifest"></a>배포 매니페스트 구성
@@ -88,16 +88,16 @@ Azure 포털은 배포 매니페스트를 만들고 배포를 IoT Edge 장치로
 
    - 컨테이너 `<storage mount>` 운영 체제에 따라 교체하십시오. Blob 모듈에서 데이터를 저장하는 IoT Edge 장치에서 [볼륨](https://docs.docker.com/storage/volumes/) 또는 기존 디렉터리에 대한 절대 경로의 이름을 제공합니다. 저장소 마운트는 모듈의 설정된 위치에 제공하는 장치의 위치를 매핑합니다.
 
-     - Linux 컨테이너의 경우 형식은 * \<저장소 경로 또는 볼륨>:/blobroot*입니다. 예를 들면 다음과 같습니다.
-         - 사용 [볼륨 마운트](https://docs.docker.com/storage/volumes/): 내 볼륨 **:/blobroot**
-         - [바인드 마운트](https://docs.docker.com/storage/bind-mounts/)사용 : **/srv/containerdata:/blobroot**. [컨테이너 사용자에게 디렉터리 액세스 권한을 부여하는](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux) 단계를 따르십시오.
-     - Windows 컨테이너의 경우 형식은 * \<저장소 경로 또는 볼륨>:C:/BlobRoot*입니다. 예를 들면 다음과 같습니다.
-         - 사용 [볼륨 마운트](https://docs.docker.com/storage/volumes/): 내 볼륨 : C : / **blobroot**.
-         - [바인드 마운트](https://docs.docker.com/storage/bind-mounts/)사용 : **C :/컨테이너데이터:C:/BlobRoot**.
+     - Linux 컨테이너의 경우 형식은 ** \<저장 경로 또는 볼륨>:/blobroot**입니다. 예를 들어:
+         - 사용 [볼륨 마운트](https://docs.docker.com/storage/volumes/):`my-volume:/blobroot`
+         - [바인드](https://docs.docker.com/storage/bind-mounts/)마운트 `/srv/containerdata:/blobroot`사용 : . [컨테이너 사용자에게 디렉터리 액세스 권한을 부여하는](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux) 단계를 따르십시오.
+     - Windows 컨테이너의 경우 형식은 ** \<저장소 경로 또는 볼륨>:C:/BlobRoot**입니다. 예를 들어:
+         - 사용 [볼륨](https://docs.docker.com/storage/volumes/) `my-volume:C:/BlobRoot`마운트 : .
+         - [바인드](https://docs.docker.com/storage/bind-mounts/)마운트 `C:/ContainerData:C:/BlobRoot`사용 : .
          - 로컬 드라이브를 사용하는 대신 SMB 네트워크 위치를 매핑하여 자세한 내용은 [SMB 공유를 로컬 저장소로 사용하여 참조할 수 있습니다.](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 
      > [!IMPORTANT]
-     > 모듈의 특정 위치를 가리키는 저장소 마운트 값의 두 번째 절반을 변경하지 마십시오. 저장소 마운트는 항상 Linux 컨테이너용 **:/blobroot및** Windows 컨테이너용 **:C:/BlobRoot로** 끝나야 합니다.
+     > IoT Edge 모듈의 Blob Storage 모듈의 특정 위치를 가리키는 저장소 마운트 값의 두 번째 절반을 변경하지 마십시오. 저장소 마운트는 항상 Linux 컨테이너용 **:/blobroot및** Windows 컨테이너용 **:C:/BlobRoot로** 끝나야 합니다.
 
 5. 모듈 **트윈 설정** 탭에서 다음 JSON을 복사하여 상자에 붙여넣습니다.
 
@@ -157,7 +157,7 @@ Azure IoT Edge는 Visual Studio Code에 에지 솔루션 개발을 도와주는 
 
 1. **명령 팔레트** **보기를** > 선택합니다.
 
-1. 명령 팔레트에서 **Azure IoT Edge: 새로운 IoT Edge 솔루션** 명령을 입력하고 실행합니다.
+1. 명령 팔레트에서 **Azure IoT Edge: 새 IoT Edge 솔루션** 명령을 입력하고 실행합니다.
 
    ![New IoT Edge Solution 실행](./media/how-to-develop-csharp-module/new-solution.png)
 
@@ -200,16 +200,16 @@ Azure IoT Edge는 Visual Studio Code에 에지 솔루션 개발을 도와주는 
 
 1. 컨테이너 `<storage mount>` 운영 체제에 따라 교체하십시오. IoT Edge 디바이스에서 Blob 모듈이 데이터를 저장할 [볼륨](https://docs.docker.com/storage/volumes/) 이름 또는 디렉터리 절대 경로를 제공합니다. 저장소 마운트는 모듈의 설정된 위치에 제공하는 장치의 위치를 매핑합니다.  
 
-     - Linux 컨테이너의 경우 형식은 * \<저장소 경로 또는 볼륨>:/blobroot*입니다. 예를 들면 다음과 같습니다.
-         - 사용 [볼륨 마운트](https://docs.docker.com/storage/volumes/): 내 볼륨 **:/blobroot**
-         - [바인드 마운트](https://docs.docker.com/storage/bind-mounts/)사용 : **/srv/containerdata:/blobroot**. [컨테이너 사용자에게 디렉터리 액세스 권한을 부여하는](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux) 단계를 따르십시오.
-     - Windows 컨테이너의 경우 형식은 * \<저장소 경로 또는 볼륨>:C:/BlobRoot*입니다. 예를 들면 다음과 같습니다.
-         - 사용 [볼륨 마운트](https://docs.docker.com/storage/volumes/): 내 볼륨 : C : / **blobroot**.
-         - [바인드 마운트](https://docs.docker.com/storage/bind-mounts/)사용 : **C :/컨테이너데이터:C:/BlobRoot**.
+     - Linux 컨테이너의 경우 형식은 ** \<저장 경로 또는 볼륨>:/blobroot**입니다. 예를 들어:
+         - 사용 [볼륨 마운트](https://docs.docker.com/storage/volumes/):`my-volume:/blobroot`
+         - [바인드](https://docs.docker.com/storage/bind-mounts/)마운트 `/srv/containerdata:/blobroot`사용 : . [컨테이너 사용자에게 디렉터리 액세스 권한을 부여하는](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux) 단계를 따르십시오.
+     - Windows 컨테이너의 경우 형식은 ** \<저장소 경로 또는 볼륨>:C:/BlobRoot**입니다. 예를 들면 다음과 같습니다.
+         - 사용 [볼륨](https://docs.docker.com/storage/volumes/) `my-volume:C:/BlobRoot`마운트 : .
+         - [바인드](https://docs.docker.com/storage/bind-mounts/)마운트 `C:/ContainerData:C:/BlobRoot`사용 : .
          - 로컬 드라이브를 사용하는 대신 SMB 네트워크 위치를 매핑할 수 있으며, 자세한 내용은 [SMB 공유를 로컬 저장소로 사용하여 참조할 수 있습니다.](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 
      > [!IMPORTANT]
-     > 모듈의 특정 위치를 가리키는 저장소 마운트 값의 두 번째 절반을 변경하지 마십시오. 저장소 마운트는 항상 Linux 컨테이너용 **:/blobroot및** Windows 컨테이너용 **:C:/BlobRoot로** 끝나야 합니다.
+     > IoT Edge 모듈의 Blob Storage 모듈의 특정 위치를 가리키는 저장소 마운트 값의 두 번째 절반을 변경하지 마십시오. 저장소 마운트는 항상 Linux 컨테이너용 **:/blobroot및** Windows 컨테이너용 **:C:/BlobRoot로** 끝나야 합니다.
 
 1. [장치ToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) 및 [장치자동 삭제 속성을](how-to-store-data-blob.md#deviceautodeleteproperties) 구성 하여 다음 JSON을 *deploy.template.json* 파일에 추가합니다. 적절한 값으로 각 속성을 구성하고 파일을 저장합니다. IoT Edge 시뮬레이터를 사용하는 경우 이러한 속성에 대한 관련 환경 변수로 값을 설정하여 [deviceToCloudProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) 및 [deviceAutoDeleteProperties의](how-to-store-data-blob.md#deviceautodeleteproperties) 설명 섹션에서 찾을 수 있습니다.
 
@@ -240,7 +240,7 @@ Azure IoT Edge는 Visual Studio Code에 에지 솔루션 개발을 도와주는 
 
    모듈을 배포한 후 장치ToCloudUploadProperties 및 deviceAutoDeleteProperties 구성에 대한 자세한 내용은 [모듈 트윈 편집을](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin)참조하십시오. 컨테이너 만들기 옵션, 정책 및 원하는 상태에 대한 자세한 내용은 [EdgeAgent 원하는 속성을](module-edgeagent-edgehub.md#edgeagent-desired-properties)참조하십시오.
 
-1. *deployment.template.json* 파일을 저장합니다.
+1. *deploy.template.json* 파일을 저장합니다.
 
 1. **deployment.template.json**을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 배포 매니페스트 생성**을 선택합니다.
 

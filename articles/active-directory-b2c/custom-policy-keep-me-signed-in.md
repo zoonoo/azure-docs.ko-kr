@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a0de94cdce1d7f0e9da9d2844b300956ad6f6970
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 041fb8d881307b52fb170a11618f930debc522a4
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80330833"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803163"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 KMSI(로그인 유지) 사용
 
@@ -54,7 +54,7 @@ KMSI를 사용하려면 콘텐츠 `DataUri` 정의 요소를 [페이지 식별�
 
 ## <a name="add-the-metadata-to-the-self-asserted-technical-profile"></a>자체 어설션기술 프로필에 메타데이터 추가
 
-등록 및 로그인 페이지에 KMSI 확인란을 추가하려면 `setting.enableRememberMe` 메타데이터를 false로 설정합니다. 확장 파일에서 자체 어설션-LocalAccountSign-전자 메일 기술 프로필을 재정의합니다.
+등록 및 로그인 페이지에 KMSI 확인란을 추가하려면 `setting.enableRememberMe` 메타데이터를 true로 설정합니다. 확장 파일에서 자체 어설션-LocalAccountSign-전자 메일 기술 프로필을 재정의합니다.
 
 1. ClaimsProviders 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
 1. 클레임 공급자 요소에 다음 클레임 공급자를 추가합니다.

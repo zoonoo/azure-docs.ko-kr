@@ -1,15 +1,16 @@
 ---
-title: Azure Kubernetes 서비스에서 RBAC 및 Azure AD를 통해 클러스터 리소스 제어
+title: 클러스터에 Azure AD 및 RBAC 사용
+titleSuffix: Azure Kubernetes Service
 description: Azure Active Directory 그룹 구성원을 사용하여 AKS(Azure Kubernetes Service)의 역할 기반 액세스 제어(RBAC)를 사용하여 클러스터 리소스에 대한 액세스를 제한하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.openlocfilehash: 456b6dcdd590b48e06c830db85b726d4bebb69e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad195085c049776bf0db418c57f2c72830f1adff
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596524"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803572"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Azure Kubernetes 서비스에서 역할 기반 액세스 제어 및 Azure Active Directory ID를 사용하여 클러스터 리소스에 대한 액세스를 제어합니다.
 
@@ -21,7 +22,7 @@ ms.locfileid: "77596524"
 
 이 문서에서는 Azure AD 통합을 사용하도록 설정된 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 [Azure Active Directory 와 AKS 통합을][azure-ad-aks-cli]참조하십시오.
 
-Azure CLI 버전 2.0.61 이상 설치 및 구성이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하십시오.
+Azure CLI 버전 2.0.61 이상 설치 및 구성이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="create-demo-groups-in-azure-ad"></a>Azure AD에서 데모 그룹 만들기
 

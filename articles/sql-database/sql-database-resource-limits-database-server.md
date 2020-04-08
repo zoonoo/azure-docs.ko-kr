@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: 550c315023c0ae907c369778c81b16e137004bec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: afb30a17d7a1450f169402c18f41ce249415e89d
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067258"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804829"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>SQL 데이터베이스 리소스 제한 및 리소스 거버넌스
 
@@ -103,7 +103,7 @@ Azure SQL Database에서는 고가용성 및 재해 복구, 데이터베이스 �
 
 Azure SQL Database는 리소스 거지(Resource Governor)를 사용하여 SQL Server 프로세스 내의 리소스를 관리하는 것 외에도 프로세스 수준 리소스 거버넌스에 Windows [작업 개체를](https://docs.microsoft.com/windows/win32/procthread/job-objects) 사용하고 저장소 할당량 관리를 위해 [Windows 파일 서버 리소스 관리자(FSRM)를](https://docs.microsoft.com/windows-server/storage/fsrm/fsrm-overview) 사용합니다.
 
-Azure SQL Database 리소스 거버넌스는 본질적으로 계층적입니다. 위에서 아래로, 제한은 운영 체제 리소스 거버넌스 메커니즘 및 리소스 거지, 리소스 거지 번을 사용 하 여 다음 리소스 풀 수준에서 사용 하 여 OS 수준 및 저장소 볼륨 수준에서 적용 됩니다. 리소스 관리자. 현재 데이터베이스 또는 탄력적 풀에 대한 리소스 거버넌스 제한은 [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 보기에 표시됩니다. 
+Azure SQL Database 리소스 거버넌스는 본질적으로 계층적입니다. 위에서 아래로, 제한은 운영 체제 리소스 거버넌스 메커니즘 및 리소스 거지, 리소스 거지(Resource Governor)를 사용하는 리소스 풀 수준에서, 그리고 리소스 거지(Resource Governor)를 사용하는 리소스 풀 수준에서 OS 수준 및 저장소 볼륨 수준에서 적용됩니다. 현재 데이터베이스 또는 탄력적 풀에 대한 리소스 거버넌스 제한은 [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 보기에 표시됩니다. 
 
 ### <a name="data-io-governance"></a>데이터 IO 거버넌스
 
@@ -134,7 +134,7 @@ Azure Storage에서 데이터 파일을 사용하는 기본 데이터베이스, 
 
 런타임에 부과되는 실제 로그 생성 속도는 피드백 메커니즘의 영향을 받을 수 있으므로 시스템이 안정화될 수 있도록 허용 가능한 로그 속도를 일시적으로 줄일 수 있습니다. 로그 파일 공간 관리, 로그 공간 부족 조건 및 가용성 그룹 복제 메커니즘으로 인해 전체 시스템 제한이 일시적으로 감소할 수 있습니다.
 
-로그 속도 주지사 트래픽 형성은 다음과 같은 대기 유형을 통해 표시됩니다 [(sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV에 노출됨).
+로그 속도 주지사 트래픽 형성은 다음과 같은 대기 유형을 통해 표시됩니다 [(sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 및 [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 보기에 노출됨).
 
 | 대기 유형 | 메모 |
 | :--- | :--- |
@@ -143,6 +143,7 @@ Azure Storage에서 데이터 파일을 사용하는 기본 데이터베이스, 
 | INSTANCE_LOG_RATE_GOVERNOR | 인스턴스 수준 제한 |  
 | HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | 피드백 제어, 프리미엄/비즈니스 중요도에서 가용성 그룹 물리적 복제가 유지되지 않음 |  
 | HADR_THROTTLE_LOG_RATE_LOG_SIZE | 피드백 제어, 로그 공간 부족 조건을 피하기 위해 속도 제한 |
+| HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO | 지리적 복제 피드백 제어, 높은 데이터 대기 시간 및 지리 보조 의 가용성을 피하기 위해 로그 속도를 제한|
 |||
 
 원하는 확장성을 방해하는 로그 속도 제한이 발생하는 경우 다음 옵션을 고려하십시오.

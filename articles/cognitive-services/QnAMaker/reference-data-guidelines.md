@@ -1,14 +1,14 @@
 ---
 title: 가져오기 및 내보내기 데이터 참조 - QnA 메이커
-description: QnA 세트를 가져오고 만드는 데 URL 유형이 어떻게 사용되는지 알아보세요.
+description: QnA 쌍을 가져오고 만드는 데 URL 유형이 어떻게 사용되는지 알아보세요.
 ms.topic: reference
 ms.date: 01/02/2020
-ms.openlocfilehash: 6560a43a6fbcf9fbd2ce021d782f00f916442bfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4a423ef9478cd39181c6440801f9fe954dc896c
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651992"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804246"
 ---
 # <a name="import-and-export-data-reference"></a>데이터 참조 가져오기 및 내보내기
 

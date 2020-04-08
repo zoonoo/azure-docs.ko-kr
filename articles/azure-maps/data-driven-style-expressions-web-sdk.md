@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 3f15033095b02dd35c2d8d7bda60ca184df64c9a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6009a655adcc26ebef31588eff2332a05f3a001
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475022"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804727"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>데이터 기반 스타일 표현식(웹 SDK)
 
@@ -41,7 +41,7 @@ ms.locfileid: "79475022"
 
 Azure Maps 웹 SDK는 다양한 유형의 식을 지원합니다. 식은 단독으로 사용하거나 다른 식과 함께 사용할 수 있습니다.
 
-| 식의 유형 | 설명 |
+| 식의 유형 | Description |
 |---------------------|-------------|
 | [집계 식](#aggregate-expression) | 데이터 집합을 통해 처리되고 `clusterProperties` `DataSource`의 옵션과 함께 사용할 수 있는 계산을 정의하는 식입니다. |
 | [부울 식](#boolean-expressions) | 부울 식은 부울 비교를 평가하기 위한 부울 연산자 식 집합을 제공합니다. |
@@ -81,15 +81,15 @@ Azure Maps 웹 SDK는 다양한 유형의 식을 지원합니다. 식은 단독�
 
 데이터 표현식은 피쳐의 속성 데이터에 대한 액세스를 제공합니다. 
 
-| 식 | 반환 형식 | 설명 |
+| 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
 | `['at', number, array]` | object | 배열에서 항목을 검색합니다. |
 | `['geometry-type']` | 문자열 | 점, 다중 점, 라인 스트링, 다중 줄 문자열, 다각형, 다각형, 다각형: 피처의 형상 유형을 가져옵니다. |
-| `['get', string]` | value | 현재 피쳐의 속성에서 속성 값을 가져옵니다. 요청된 속성이 없는 경우 null을 반환합니다. |
-| `['get', string, object]` | value | 제공된 개체의 속성에서 속성 값을 가져옵니다. 요청된 속성이 없는 경우 null을 반환합니다. |
+| `['get', string]` | 값 | 현재 피쳐의 속성에서 속성 값을 가져옵니다. 요청된 속성이 없는 경우 null을 반환합니다. |
+| `['get', string, object]` | 값 | 제공된 개체의 속성에서 속성 값을 가져옵니다. 요청된 속성이 없는 경우 null을 반환합니다. |
 | `['has', string]` | boolean | 피쳐의 속성에 지정된 속성이 있는지 확인합니다. |
 | `['has', string, object]` | boolean | 개체의 속성에 지정된 속성이 있는지 여부를 확인합니다. |
-| `['id']` | value | 기능이 있는 경우 기능의 ID를 가져옵니다. |
+| `['id']` | 값 | 기능이 있는 경우 기능의 ID를 가져옵니다. |
 | `['length', string | array]` | number | 문자열 또는 배열의 길이를 가져옵니다. |
 | `['in', boolean | string | number, array]` | boolean | 배열에 항목이 있는지 여부를 결정합니다. |
 | `['in', substring, string]` | boolean | 문자열에 하위 문자열이 있는지 여부를 결정합니다. |
@@ -141,7 +141,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 수학 식은 식 프레임워크 내에서 데이터 기반 계산을 수행하는 수학 연산을 제공합니다.
 
-| 식 | 반환 형식 | 설명 |
+| 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
 | `['+', number, number, …]` | number | 지정된 숫자의 합계를 계산합니다. |
 | `['-', number]` | number | 지정된 숫자로 0을 뺍니다. |
@@ -196,7 +196,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 값을 비교할 때 비교는 엄격하게 입력됩니다. 다른 형식의 값은 항상 같지 않은 것으로 간주됩니다. 구문 분석 시간에 형식이 다른 것으로 알려진 경우는 유효하지 않은 것으로 간주되며 구문 분석 오류가 발생합니다. 
 
-| 식 | 반환 형식 | 설명 |
+| 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
 | `['! ', boolean]` | boolean | 논리적 부정. `true` 입력이 `false`있는 경우 `false` 및 입력이 `true`있는 경우 를 반환합니다. |
 | `['!= ', value, value]` | boolean | 그렇지 않으면 입력 값이 같지 않으면 반환합니다. `true` `false` |
@@ -399,7 +399,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 형식 식은 문자열, 숫자 및 부울 값과 같은 다양한 데이터 형식을 테스트하고 변환하는 도구를 제공합니다.
 
-| 식 | 반환 형식 | 설명 |
+| 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | 배열 \| 개체 | 리터럴 배열 또는 개체 값을 반환합니다. 이 식을 사용하여 배열 또는 개체가 식으로 평가되지 않도록 합니다. 이는 식에서 배열 또는 개체를 반환해야 하는 경우에 필요합니다. |
 | `['image', string]` | 문자열 | 지정된 이미지 ID가 맵 이미지 스프라이트에 로드되는지 확인합니다. 이 경우 ID가 반환되고 그렇지 않으면 null이 반환됩니다. |
@@ -435,7 +435,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 색상 표현식을 사용하면 색상 값을 쉽게 만들고 조작할 수 있습니다.
 
-| 식 | 반환 형식 | 설명 |
+| 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
 | `['rgb', number, number, number]` | 색 | 의 알파 구성 요소 와 *blue* 사이의 `0` `255`범위를 가져야 하는 *빨간색,* *녹색* `1`및 파란색 구성 요소에서 색상 값을 만듭니다. 구성 요소가 범위를 벗어난 경우 표현식은 오류입니다. |
 | `['rgba', number, number, number, number]` | 색 | *빨간색,* *녹색,* *파란색* 구성 요소 `0` 사이의 범위와 `255`및 `0` `1`의 범위 내에서 알파 구성 요소에서 색상 값을 만듭니다. 구성 요소가 범위를 벗어난 경우 표현식은 오류입니다. |
@@ -463,7 +463,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 문자열 연산자 식은 서비스 케이스를 연결 및 변환하는 등의 문자열에서 변환 작업을 수행합니다. 
 
-| 식 | 반환 형식 | 설명 |
+| 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
 | `['concat', string, string, …]` | 문자열 | 여러 문자열을 함께 연결합니다. 각 값은 문자열이어야 합니다. 필요한 `to-string` 경우 형식 식을 사용하여 다른 값 형식을 문자열로 변환합니다. |
 | `['downcase', string]` | 문자열 | 지정된 문자열을 소문자로 변환합니다. |
@@ -837,7 +837,7 @@ map.imageSprite.add('wifi-icon', 'wifi.png').then(function () {
 
 **예제**
 
-기본적으로 히트 맵 레이어에서 렌더링된 데이터 점의 반지름은 모든 확대/축소 수준에 대해 고정된 픽셀 반지름을 가며 있습니다. 맵을 확대하면 데이터가 함께 집계되고 히트 맵 레이어가 다르게 보입니다. 표현식을 `zoom` 사용하여 각 데이터 포인트가 맵의 동일한 물리적 영역을 덮도록 각 확대/축소 수준에 대한 반지름을 배율 조정할 수 있습니다. 히트 맵 레이어가 더 정적이고 일관되게 보이게 합니다. 맵의 각 확대/축소 수준은 이전 확대/축소 수준보다 수직 및 수평으로 두 배 더 많은 픽셀을 가짐을 가짐입니다. 각 확대/축소 수준으로 두 배가 되도록 반경의 배율을 조정하면 모든 확대/축소 수준에서 일관되게 보이는 히트 맵이 생성됩니다. 아래와 같이 `zoom` `base 2 exponential interpolation` 식을 사용하여 수행할 수 있습니다. 
+기본적으로 히트 맵 레이어에서 렌더링된 데이터 점의 반지름은 모든 확대/축소 수준에 대해 고정된 픽셀 반지름을 가며 있습니다. 맵을 확대하면 데이터가 함께 집계되고 히트 맵 레이어가 다르게 보입니다. 표현식을 `zoom` 사용하여 각 데이터 포인트가 맵의 동일한 물리적 영역을 덮도록 각 확대/축소 수준에 대한 반지름을 배율 조정할 수 있습니다. 히트 맵 레이어가 더 정적이고 일관되게 보이게 합니다. 맵의 각 확대/축소 수준은 이전 확대/축소 수준보다 수직 및 수평으로 두 배 더 많은 픽셀을 가짐을 가짐입니다. 각 확대/축소 수준으로 두 배가 되도록 반경의 배율을 조정하면 모든 확대/축소 수준에서 일관되게 보이는 히트 맵이 생성됩니다. 아래와 같이 `zoom` `2 * Math.pow(2, minZoom - maxZoom)` 계산된 최대 `base 2 exponential interpolation` 확대/축소 레벨에 대해 픽셀 반지름이 최소 확대 수준에 대해 설정되고 배율이 조정된 반지름을 사용하여 식을 사용하여 수행할 수 있습니다.
 
 ```javascript 
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
@@ -849,8 +849,8 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
         //For zoom level 1 set the radius to 2 pixels.
         10, 2,
 
-        //Between zoom level 1 and 19, exponentially scale the radius from 2 pixels to 10,000 pixels.
-        19, 10000
+        //Between zoom level 1 and 19, exponentially scale the radius from 2 pixels to 2 * Math.pow(2, 19 - 1) pixels (524,288 pixels).
+        19, 2 * Math.pow(2, 19 - 1)
     ]
 };
 ```
@@ -861,7 +861,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 변수 바인딩 식은 계산 결과를 변수에 저장합니다. 따라서 계산 결과를 식의 다른 곳에서 여러 번 참조할 수 있습니다. 많은 계산이 포함된 표현식에 유용한 최적화입니다.
 
-| 식 | 반환 형식 | 설명 |
+| 식 | 반환 형식 | Description |
 |--------------|---------------|--------------|
 | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'하자',<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1: 문자열,<br/>&nbsp;&nbsp;&nbsp;&nbsp;값1:<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2: 문자열,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2:<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | 결과를 반환하는 자식 식의 `var` 식에서 사용할 변수로 하나 이상의 값을 저장합니다. |
 | `['var', name: string]` | any | 식을 사용하여 만든 변수를 참조합니다. `let` |

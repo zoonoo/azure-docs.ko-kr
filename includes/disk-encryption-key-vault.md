@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: 0aa62a76727f6f913c277100d8c5b36ed1b00110
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2133524f57576c4646de9d4bf7f37b573a77e6d
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77618497"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80813739"
 ---
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -40,7 +40,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 az 키 볼트 [를](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) 사용하여 키 볼트를 만들 Azure CLI 명령, [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) Azure Powershell 명령, [Azure 포털](https://portal.azure.com)또는 리소스 [관리자 템플릿을](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)만듭니다.
 
 >[!WARNING]
-> 암호화 암호가 지역 경계를 넘지 않도록 하려면 Azure 디스크 암호화를 위해 키 자격 증명 모음과 VM이 동일한 지역에 공동 으로 배치되어야 합니다. 암호화할 VM과 동일한 지역에 있는 키 자격 증명 모음을 만들고 사용합니다. 
+> 암호화 암호가 지역 경계를 넘지 않도록 하기 위해 Azure Disk 암호화는 키 자격 증명 모음과 VM을 동일한 리전과 동일한 구독에 공동 으로 배치해야 합니다. 암호화할 VM과 동일한 지역에 있는 키 자격 증명 모음을 만들고 사용합니다. 
 
 각 Key Vault마다 고유한 이름이 있어야 합니다. 다음 예제에서는 <your-unique-keyvault-name>을 Key Vault의 이름으로 바꿉니다.
 
