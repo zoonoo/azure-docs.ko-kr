@@ -40,6 +40,8 @@
       href: ../../container-registry/security-baseline.md
     - name: Cosmos DB 보안 기준
       href: ../../cosmos-db/security-baseline.md
+    - name: Event Hubs 보안 기준
+      href: ../../event-hubs/security-baseline.md
     - name: HDInsight 보안 기준
       href: ../../hdinsight/security-baseline.md
     - name: Key Vault 보안 기준

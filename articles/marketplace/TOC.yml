@@ -55,7 +55,7 @@
               href: ./gtm-how-to-get-featured.md
             - name: Marketplace 콘텐츠 유효성 검사
               href: ./marketplace-criteria-content-validation.md
-            - name: 클라우드 솔루션 공급 기업
+            - name: 클라우드 솔루션 공급자
               href: ./cloud-solution-providers.md
         - name: Marketplace 혜택
           href: ./gtm-your-marketplace-benefits.md
@@ -130,7 +130,7 @@
               href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md
         - name: Seller Insights
           items:
-            - name: 시작하기
+            - name: 시작
               href: ./cloud-partner-portal-orig/si-getting-started.md
             - name: 새로운 기능
               href: ./cloud-partner-portal-orig/si-changes.md
@@ -427,11 +427,11 @@
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: 지원 받기
       href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
-- name: 파트너 센터의 상용 Marketplace 포털
+- name: 파트너 센터의 상용 마켓플레이스 포털
   items:
     - name: 개요
       items:
-        - name: 상용 Marketplace란?
+        - name: 상용 마켓플레이스란?
           href: ./partner-center-portal/commercial-marketplace-overview.md
     - name: 계정 관리
       items:
@@ -453,6 +453,12 @@
               href: ./partner-center-portal/azure-apps-review-feedback.md
             - name: 온보딩용 API
               href: ./partner-center-portal/azure-app-apis.md
+        - name: 컨설팅 서비스
+          items:
+            - name: 사전 요구 사항
+              href: ./partner-center-portal/consulting-service-prerequisites.md
+            - name: 컨설팅 서비스 제품 만들기
+              href: ./partner-center-portal/create-consulting-service-offer.md
         - name: Dynamics 365 제품
           items:
             - name: Dynamics 365 for Customer Engagement 및 PowerApps 제품 만들기
@@ -461,6 +467,22 @@
               href: ./partner-center-portal/create-new-operations-offer.md
             - name: Dynamics 365 Business Central 제품 만들기
               href: ./partner-center-portal/create-new-business-central-offer.md
+        - name: IoT Edge 모듈 제품
+          items:
+            - name: IoT Edge 모듈 기술 자산 준비
+              href: ./partner-center-portal/create-iot-edge-module-asset.md
+            - name: IoT Edge 모듈 제품 만들기
+              href: ./partner-center-portal/azure-iot-edge-module-creation.md
+        - name: 관리되는 서비스 제품
+          items:
+            - name: 관리되는 서비스 제품 만들기
+              href: ./partner-center-portal/create-new-managed-service-offer.md
+        - name: Power BI 앱 제품
+          items:
+            - name: 게시 개요
+              href: ./partner-center-portal/create-power-bi-app-overview.md
+            - name: Power BI 앱 제품 만들기
+              href: ./partner-center-portal/create-power-bi-app-offer.md
         - name: SaaS 제품
           items:
             - name: SaaS 제품 만들기 검사 목록
@@ -517,7 +539,7 @@
       href: ./partner-center-portal/support.md
     - name: 파트너 센터 분석
       items:
-        - name: 상업용 Marketplace 분석
+        - name: 상용 마켓플레이스 분석
           href: ./partner-center-portal/analytics.md
         - name: 요약 대시보드
           href: ./partner-center-portal/summary-dashboard.md

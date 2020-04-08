@@ -366,7 +366,7 @@
           href: service-fabric-get-started.md
         - name: Linux
           href: service-fabric-get-started-linux.md
-        - name: Mac OS
+        - name: macOS
           href: service-fabric-get-started-mac.md
         - name: Service Fabric CLI 설정
           href: service-fabric-cli.md
@@ -675,6 +675,8 @@
                   href: service-fabric-cluster-security-update-certs-azure.md
                 - name: 클러스터 노드 VM에 원격 연결
                   href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+                - name: 관리 디스크를 사용하도록 클러스터 노드 업그레이드
+                  href: upgrade-managed-disks.md
         - name: 독립 실행형 클러스터
           items:
             - name: 생성

@@ -225,7 +225,7 @@
     - name: 청사진 배포 시퀀싱 순서
       displayName: customize
       href: ./concepts/sequencing-order.md
-    - name: Blueprints의 리소스 잠금
+    - name: Azure Blueprints의 리소스 잠금
       displayName: 'mode, state, read only, edit, denyAssignments'
       href: ./concepts/resource-locking.md
 - name: 방법 가이드

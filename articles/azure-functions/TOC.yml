@@ -22,8 +22,6 @@
           href: functions-create-your-first-function-visual-studio.md
         - name: 명령 줄
           href: functions-create-first-azure-function-azure-cli.md
-        - name: Maven/Gradle(Java)
-          href: functions-create-first-java-maven.md
     - name: 스토리지에 연결
       items:
         - name: Visual Studio Code
@@ -32,8 +30,6 @@
           href: functions-add-output-binding-storage-queue-vs.md
         - name: 명령 줄
           href: functions-add-output-binding-storage-queue-cli.md
-        - name: Maven/Gradle(Java)
-          href: functions-add-output-binding-storage-queue-java.md
 - name: 자습서
   items:
     - name: Logic Apps를 사용하는 함수
@@ -175,10 +171,16 @@
                   href: create-visual-studio.md
                 - name: Visual Studio Code
                   href: create-visual-studio-code.md
+                - name: Gradle을 사용하는 Java
+                  href: functions-create-first-java-gradle.md
                 - name: Eclipse를 사용하는 Java
                   href: functions-create-maven-eclipse.md
                 - name: IntelliJ IDEA를 사용하는 Java
                   href: functions-create-maven-intellij.md
+                - name: Maven을 사용하는 Kotlin
+                  href: functions-create-first-kotlin-maven.md
+                - name: IntelliJ를 사용하는 Kotlin
+                  href: functions-create-maven-kotlin-intellij.md
                 - name: Linux Azure Service 계획
                   href: create-function-app-linux-app-service-plan.md
                 - name: Linux 사용 계획
@@ -205,6 +207,8 @@
               href: add-output-binding-storage-queue-vs-code.md
             - name: 스토리지 - Visual Studio
               href: add-output-binding-storage-queue-vs.md
+            - name: 스토리지 - Java/Gradle
+              href: functions-add-output-binding-storage-queue-java.md
         - name: 디버그 및 테스트
           items:
             - name: 테스트 함수

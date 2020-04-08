@@ -597,6 +597,8 @@
           items:
             - name: 탄력적 확장
               href: manage-scale-cassandra.md
+            - name: 보조 인덱스
+              href: cassandra-secondary-index.md
         - name: 방법 가이드
           items:
             - name: 변경 피드
@@ -963,7 +965,7 @@
           href: troubleshoot-java-async-sdk.md
         - name: .NET SDK 문제 해결
           href: troubleshoot-dot-net-sdk.md
-    - name: 피드 변경
+    - name: 변경 피드
       items:
         - name: Azure Cosmos DB 트리거 로그
           href: how-to-configure-cosmos-db-trigger-logs.md
@@ -1012,12 +1014,12 @@
           href: ../private-link/create-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: CORS(원본 간 리소스 공유) 구성
           href: how-to-configure-cross-origin-resource-sharing.md
-        - name: 관리 ID를 사용하여 키 보호
+        - name: 관리 ID를 사용하여 데이터 액세스
           href: managed-identity-based-authentication.md
           displayName: 'msi, managed service identity, aad, azure active directory, identity'
-        - name: Azure AD로 인증서 기반 인증
+        - name: 인증서를 사용하여 데이터 액세스
           href: certificate-based-authentication.md
-        - name: Key Vault를 사용하여 키 보호
+        - name: Azure Key Vault를 사용하여 데이터 액세스
           href: access-secrets-from-keyvault.md
         - name: 데이터 작업에 대해서만 사용자 액세스 제한
           href: how-to-restrict-user-data.md
