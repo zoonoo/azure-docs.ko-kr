@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 968241eff1bcab449f9a4def7a394a508461ec95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a22808b1d7ab2b2451f50470e8da3770d07407a5
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271175"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985663"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Azure IoT Hub의 X.509 보안 설정
 
@@ -38,6 +38,9 @@ Azure IoT Hub에서 X.509 인증서 기반 보안을 사용하려면 루트 인�
 * [OpenSSL](https://www.openssl.org/)과 같은 타사 도구를 사용하여 고유한 X.509 인증서를 만듭니다. 이 기술은 테스트 및 개발 목적으로 적합합니다. PowerShell 또는 Bash를 사용하여 테스트 CA 인증서를 생성하는 방법에 대한 정보는 [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)를 참조합니다. 이 자습서의 나머지 부분에서는 [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) 지침에 따라 생성된 테스트 CA 인증서를 사용합니다.
 
 * 기존 루트 CA 인증서로 서명된 [X.509 중간 CA](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust) 인증서를 생성하여 허브에 업로드합니다. 중간 인증서가 업로드되고 확인되면 아래에 설명된 대로 아래에 언급된 루트 CA 인증서 대신 사용할 수 있습니다. OpenSSL(개방[req](https://www.openssl.org/docs/man1.1.0/man1/req.html) 및 [openssl ca)과](https://www.openssl.org/docs/man1.1.0/man1/ca.html)같은 도구를 사용하여 중간 CA 인증서를 생성하고 서명할 수 있습니다.
+
+> [!NOTE]
+> 제 3 자의 다른 고객이 IoT Hub에 장치를 연결할 수 있기 때문에 고유하지 않은 경우 제 3 자 루트를 업로드하지 마십시오.
 
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>IoT Hub에 X.509 CA 인증서 등록
 
@@ -91,7 +94,7 @@ X.509 디바이스를 인증하려면 먼저 CA 인증서로 디바이스에 서
 
 1. 솔루션 탐색기에서 **SimulateX509Device** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리를 선택합니다.**
 
-1. **NuGet 패키지 관리자에서** **찾아보기를** 선택하고 **Microsoft.Azure.Devices.Client**을 검색합니다. **설치**을 선택합니다.
+1. **NuGet 패키지 관리자에서** **찾아보기를** 선택하고 **Microsoft.Azure.Devices.Client**을 검색합니다. **설치**를 선택합니다.
 
    ![Visual Studio에서 디바이스 SDK NuGet 패키지 추가](./media/iot-hub-security-x509-get-started/device-sdk-nuget.png)
 

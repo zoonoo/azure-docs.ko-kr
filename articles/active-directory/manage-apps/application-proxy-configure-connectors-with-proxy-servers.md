@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 04/07/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fe3a63e119fed6825982b9de13bc78cb7da5415
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0aafb971ca1ce812a68045f7d0c0c2ab7f532133
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481401"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877391"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>기존 온-프레미스 프록시 서버 작업
 
@@ -27,6 +27,7 @@ ms.locfileid: "79481401"
 
 * 온-프레미스 아웃바운드 프록시를 바이패스하도록 커넥터를 구성합니다.
 * 아웃바운드 프록시를 사용하여 Azure AD 애플리케이션 프록시에 액세스하도록 커넥터를 구성합니다.
+* 커넥터와 백 엔드 응용 프로그램 간의 프록시를 사용하여 구성합니다.
 
 커넥터 작동 방법에 대한 자세한 내용은 [Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)를 참조하세요.
 
@@ -137,6 +138,23 @@ FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 �
 #### <a name="tls-inspection"></a>TLS 검사
 
 커넥터 트래픽에 문제가 발생하므로 커넥터 트래픽에 대한 TLS 검사를 사용하지 마십시오. 커넥터는 인증서를 사용하여 응용 프로그램 프록시 서비스를 인증하며 TLS 검사 중에 인증서를 손실할 수 있습니다.
+
+## <a name="configure-using-a-proxy-between-the-connector-and-backend-application"></a>커넥터와 백 엔드 응용 프로그램 간의 프록시를 사용하여 구성
+백 엔드 응용 프로그램에 대한 통신에 정방향 프록시를 사용하는 것은 일부 환경에서 특별한 요구 사항일 수 있습니다.
+이 기능을 사용하려면 다음 단계를 따르십시오.
+
+### <a name="step-1-add-the-required-registry-value-to-the-server"></a>1단계: 서버에 필요한 레지스트리 값을 추가합니다.
+1. 기본 프록시를 사용 하 여 사용 하려면 "HKEY_LOCAL_MACHINE\Software\Microsoft\Microsoft AAD 앱 프록시 커넥터"에 있는 커넥터 구성 레지스트리 키에 다음 레지스트리 값 (DWORD)를 `UseDefaultProxyForBackendRequests = 1` 추가 합니다.
+
+### <a name="step-2-configure-the-proxy-server-manually-using-netsh-command"></a>2단계: netsh 명령을 사용하여 프록시 서버를 수동으로 구성
+1.  그룹 정책 활성화컴퓨터당 프록시 설정 만들기 이 에서 찾을 수 있습니다: 컴퓨터 구성\정책\관리 템플릿\Windows 구성 요소\인터넷 탐색기. 이 정책을 사용자당 설정하지 않고 설정해야 합니다.
+2.  서버에서 실행하거나 `gpupdate /force` 서버를 재부팅하여 업데이트된 그룹 정책 설정을 사용하는지 확인합니다.
+3.  관리자 권한이 있는 권한 상승 `control inetcpl.cpl`된 명령 프롬프트를 실행 하 고 를 입력합니다.
+4.  필요한 프록시 설정을 구성합니다. 
+
+이러한 설정을 사용하면 커넥터가 Azure 및 백 엔드 응용 프로그램에 대한 통신에 동일한 전달 프록시를 사용할 수 있습니다. Azure 통신에 대한 커넥터에 전달 프록시 또는 다른 전달 프록시가 필요하지 않은 경우 섹션에 설명된 대로 ApplicationProxyConnectorService.exe.config 파일을 수정하거나 아웃바운드 프록시 서버를 사용하여 이를 설정할 수 있습니다.
+
+커넥터 업데이트 서비스도 컴퓨터 프록시를 사용합니다. 이 동작은 파일 응용 프록시 커넥터UpdaterService.exe.config를 수정하여 변경할 수 있습니다.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>커넥터 프록시 및 서비스 연결 문제 해결
 

@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: db886006ff5b9adf3de0932951f6cce4958e8ebd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 06225e284000d7f10f575be08cd683488abec339
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158132"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985493"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>여러 대시보드 생성 및 관리
 
-**대시보드는** 응용 프로그램으로 처음 이동할 때 로드되는 페이지입니다. 응용 프로그램의 **빌더는** 모든 사용자에 대한 기본 응용 프로그램 대시보드를 정의합니다. 이 기본 대시보드를 사용자 고유의 개인 화된 응용 프로그램 대시보드로 바꿀 수 있습니다. 서로 다른 데이터를 표시하고 서로 전환하는 여러 대시보드를 가질 수 있습니다. 
+**대시보드는** 응용 프로그램으로 처음 이동할 때 로드되는 페이지입니다. 응용 프로그램의 **빌더는** 모든 사용자에 대한 기본 응용 프로그램 대시보드를 정의합니다. 또한 자신만의 개인화된 애플리케이션 대시보드를 만들 수 있습니다. 서로 다른 데이터를 표시하고 서로 전환하는 여러 대시보드를 가질 수 있습니다.
 
 응용 프로그램의 **관리자인** 경우 최대 10개의 응용 프로그램 수준 대시보드를 만들어 응용 프로그램의 다른 사용자와 공유할 수도 있습니다. **관리자만** 응용 프로그램 수준 대시보드를 생성, 편집 및 삭제할 수 있습니다. 
 

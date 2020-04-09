@@ -1,5 +1,5 @@
 ---
-title: Azure 서비스 버스문제 해결 가이드 | 마이크로 소프트 문서
+title: Azure 서비스 버스 - 메시징 예외 | 마이크로 소프트 문서
 description: 이 문서에서는 Azure Service Bus 메시징 예외 목록 및 예외가 발생할 때 수행할 권장 작업 목록을 제공합니다.
 services: service-bus-messaging
 documentationcenter: na
@@ -14,20 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: aschhab
-ms.openlocfilehash: fb27befadcf8e6d201d020e758cfd1ef9b695f41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d04902a8d53397b7e7d9712a1c75ce44cc7aa7ad
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240815"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80880791"
 ---
-# <a name="troubleshooting-guide-for-azure-service-bus"></a>Azure 서비스 버스에 대한 문제 해결 가이드
-이 문서에서는 Service Bus .NET Framework API에서 생성된 몇 가지 예외와 문제 해결을 위한 다른 팁을 제공합니다. 
+# <a name="service-bus-messaging-exceptions"></a>Service Bus 메시징 예외
+이 문서에는 .NET Framework API에서 생성된 .NET 예외가 나열되어 있습니다. 
 
-## <a name="service-bus-messaging-exceptions"></a>Service Bus 메시징 예외
-이 섹션에는 .NET Framework API에서 생성된 .NET 예외가 나열되어 있습니다. 
-
-### <a name="exception-categories"></a>예외 범주
+## <a name="exception-categories"></a>예외 범주
 메시징 API는 다음 범주에 해당하는 예외와, 해당 예외의 해결을 위해 수행할 수 있는 관련 조치를 함께 생성합니다. 예외의 의미 및 원인은 메시징 엔터티의 형식에 따라 달라질 수 있습니다.
 
 1. 사용자 코딩 오류[(System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.Serialization.SerializationException).](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx) 일반 조치: 코드를 수정한 후 계속합니다.
@@ -35,7 +32,7 @@ ms.locfileid: "80240815"
 3. 일시적 예외[(Microsoft.ServiceBus.Messaging.Messaging.MessagingException,](/dotnet/api/microsoft.servicebus.messaging.messagingexception) [Microsoft.ServiceBus.Messaging.Server.Server바쁜 예외,](/dotnet/api/microsoft.azure.servicebus.serverbusyexception) [Microsoft.ServiceBus.Messaging.Messaging.Messaging통신예외).](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) 일반 조치: 작업을 다시 시도하거나 사용자에게 알립니다. 클라이언트 `RetryPolicy` SDK의 클래스는 재시도를 자동으로 처리하도록 구성할 수 있습니다. 자세한 내용은 [다시 시도 지침을](/azure/architecture/best-practices/retry-service-specific#service-bus)참조하십시오.
 4. 기타 예외 ([System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx), [Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception), [Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception)). 일반 작업: 예외 유형에 따라 다릅니다. 다음 섹션의 표를 참조하십시오. 
 
-### <a name="exception-types"></a>예외 유형
+## <a name="exception-types"></a>예외 유형
 다음 표에서는 메시징 예외 유형과 원인, 사용자가 수행할 수 있는 제안 조치 참고를 열거합니다.
 
 | **예외 유형** | **설명/원인/예** | **제안된 조치** | **자동/즉시 다시 시도 참고** |
@@ -64,10 +61,10 @@ ms.locfileid: "80240815"
 | [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) |앰비언트 트랜잭션(*Transaction.Current*)이 올바르지 않습니다. 완료되었거나 중단되었을 수 있습니다. 내부 예외가 추가 정보를 제공할 수 있습니다. | |다시 시도는 도움이되지 않습니다. |
 | [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) |의심스러운 트랜잭션에서 작업을 시도하거나, 트랜잭션을 커밋하려고 시도하는데 해당 트랜잭션의 상태가 확실하지 않습니다. |트랜잭션이 이미 커밋되었을 수 있으므로 애플리케이션에서 이 예외를 처리해야 합니다(특수한 경우). |- |
 
-### <a name="quotaexceededexception"></a>QuotaExceededException
+## <a name="quotaexceededexception"></a>QuotaExceededException
 [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) 은 특정 엔터티에 대한 할당량이 초과됐음을 나타냅니다.
 
-#### <a name="queues-and-topics"></a>큐 및 토픽
+### <a name="queues-and-topics"></a>큐 및 토픽
 큐 및 토픽의 경우 큐의 크기인 경우가 많습니다. 다음 예제와 같이 오류 메시지 속성은 추가 세부 정보를 포함합니다.
 
 ```Output
@@ -79,7 +76,7 @@ Message: The maximum entity size has been reached or exceeded for Topic: 'xxx-xx
 
 메시지는 토픽이 해당 크기 제한을 초과했음을 알려 줍니다. 이 경우 1GB입니다(기본 크기 제한). 
 
-#### <a name="namespaces"></a>네임스페이스
+### <a name="namespaces"></a>네임스페이스
 
 네임스페이스의 경우 [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception)은 애플리케이션이 네임스페이스에 대한 최대 연결 수를 초과했음을 나타낼 수 있습니다. 예를 들어:
 
@@ -90,7 +87,7 @@ System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]:
 ConnectionsQuotaExceeded for namespace xxx.
 ```
 
-#### <a name="common-causes"></a>일반적인 원인
+### <a name="common-causes"></a>일반적인 원인
 이 오류에 대한 두 가지 일반적인 원인은 배달 못 한 편지 큐와 정상적으로 작동하지 않는 메시지 수신기입니다.
 
 1. **[배달 못한 편지 대기열](service-bus-dead-letter-queues.md)** 판독기가 메시지를 완료하지 못하고 잠금이 만료되면 메시지가 큐/토픽으로 반환됩니다. 독자가 [BrokeredMessage.Complete를](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.complete)호출하지 못하게 하는 예외가 발생하는 경우 발생할 수 있습니다. 메시지는 10번 읽혀진 후 기본적으로 배달 못 한 편지 큐로 이동합니다. 이 동작은 [QueueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) 속성에 의해 제어되고 기본값 10을 가집니다. 메시지는 배달 못 한 편지 큐에 쌓이고 공간을 차지합니다.
@@ -98,70 +95,14 @@ ConnectionsQuotaExceeded for namespace xxx.
     이 문제를 해결하려면 다른 큐에서와 마찬가지로 배달 못 한 편지 큐에서 메시지를 읽고 완료합니다. 배달 못 한 편지 큐 경로의 형식을 지정하는 데 도움이 되도록 [FormatDeadLetterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formatdeadletterpath) 메서드를 사용할 수 있습니다.
 2. **수신기 중지됨**. 수신기가 큐 또는 구독에서 메시지 수신을 중지했습니다. 이를 식별하는 방법은 메시지의 전체 분석을 보여 주는 [QueueDescription.MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) 속성에서 확인하는 것입니다. [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) 속성이 높거나 증가하는 경우 메시지가 기록되는 속도만큼 빠르게 읽히지 않습니다.
 
-### <a name="timeoutexception"></a>TimeoutException
+## <a name="timeoutexception"></a>TimeoutException
 [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) 은 사용자가 시작한 작업이 작업 시간 제한보다 더 오래 걸린다는 것을 나타냅니다. 
 
 이 제한에 도달하면 [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx)이 발생할 수 있으므로 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) 속성 값도 확인해야 합니다.
 
-#### <a name="queues-and-topics"></a>큐 및 토픽
+### <a name="queues-and-topics"></a>큐 및 토픽
 큐 및 토픽의 경우 제한 시간은 연결 문자열의 일부로 [MessagingFactorySettings.OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings) 속성에서 또는 [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder)를 통해 지정됩니다. 오류 메시지 자체는 다를 수 있지만 현재 작업에 대해 지정된 시간 제한 값을 항상 포함합니다. 
 
-## <a name="connectivity-certificate-or-timeout-issues"></a>연결, 인증서 또는 시간 시간 시간 문제
-다음 단계는 *.servicebus.windows.net 따라 모든 서비스에 대한 연결/인증서/시간 시간 문제 문제를 해결하는 데 도움이 될 수 있습니다. 
-
-- 을 찾아보거나 [wget.](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/` JAVA SDK를 사용할 때 가장 일반적인 IP 필터링 또는 가상 네트워크 또는 인증서 체인 문제가 있는지 확인하는 데 도움이 됩니다.
-
-    성공적인 메시지의 예:
-    
-    ```xml
-    <feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Publicly Listed Services</title><subtitle type="text">This is the list of publicly-listed services currently available.</subtitle><id>uuid:27fcd1e2-3a99-44b1-8f1e-3e92b52f0171;id=30</id><updated>2019-12-27T13:11:47Z</updated><generator>Service Bus 1.1</generator></feed>
-    ```
-    
-    오류 오류 메시지의 예:
-
-    ```json
-    <Error>
-        <Code>400</Code>
-        <Detail>
-            Bad Request. To know more visit https://aka.ms/sbResourceMgrExceptions. . TrackingId:b786d4d1-cbaf-47a8-a3d1-be689cda2a98_G22, SystemTracker:NoSystemTracker, Timestamp:2019-12-27T13:12:40
-        </Detail>
-    </Error>
-    ```
-- 다음 명령을 실행하여 방화벽에서 포트가 차단되었는지 확인합니다. 사용되는 포트는 443(HTTPS), 5671(AMQP) 및 9354(순 메시징/SBMP)입니다. 사용하는 라이브러리에 따라 다른 포트도 사용됩니다. 다음은 5671 포트가 차단되었는지 여부를 확인하는 샘플 명령입니다. 
-
-    ```powershell
-    tnc <yournamespacename>.servicebus.windows.net -port 5671
-    ```
-
-    Linux에서:
-
-    ```shell
-    telnet <yournamespacename>.servicebus.windows.net 5671
-    ```
-- 간헐적인 연결 문제가 있는 경우 다음 명령을 실행하여 삭제된 패킷이 있는지 확인합니다. 이 명령은 서비스에서 1초마다 25개의 서로 다른 TCP 연결을 설정하려고 시도합니다. 그런 다음 성공/실패한 횟수를 확인하고 TCP 연결 대기 시간도 확인할 수 있습니다. 여기에서 도구를 `psping` 다운로드할 수 [있습니다.](/sysinternals/downloads/psping)
-
-    ```shell
-    .\psping.exe -n 25 -i 1 -q <yournamespace>.servicebus.windows.net:5671 -nobanner     
-    ```
-    `tnc`.와 `ping`같은 다른 도구를 사용하는 경우 등가 명령을 사용할 수 있습니다. 
-- 이전 단계가 도움이 되지 않는 경우 네트워크 추적을 가져오고 [Wireshark와](https://www.wireshark.org/)같은 도구를 사용하여 분석합니다. 필요한 경우 [Microsoft 지원에](https://support.microsoft.com/) 문의하십시오. 
-
-## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>서비스 업그레이드/다시 시작시 발생할 수 있는 문제
-백 엔드 서비스 업그레이드 및 다시 시작하면 응용 프로그램에 다음과 같은 영향을 줄 수 있습니다.
-
-- 요청이 일시적으로 제한될 수 있습니다.
-- 들어오는 메시지/요청이 떨어질 수 있습니다.
-- 로그 파일에 오류 메시지가 포함될 수 있습니다.
-- 응용 프로그램의 연결이 몇 초 동안 서비스에서 분리될 수 있습니다.
-
-응용 프로그램 코드가 SDK를 사용하는 경우 재시도 정책이 이미 빌드되어 활성화되어 있습니다. 응용 프로그램은 응용 프로그램/워크플로에 큰 영향을 주지 않고 다시 연결됩니다.
-
 ## <a name="next-steps"></a>다음 단계
-
 전체 Service Bus .NET API 참조는 [Azure .NET API 참조](/dotnet/api/overview/azure/service-bus)를 확인하세요.
-
-[서비스 버스에](https://azure.microsoft.com/services/service-bus/)대한 자세한 내용은 다음 문서를 참조하십시오.
-
-* [Service Bus 메시징 개요](service-bus-messaging-overview.md)
-* [Service Bus 아키텍처](service-bus-architecture.md)
-
+문제 해결 팁은 [문제 해결 가이드를](service-bus-troubleshooting-guide.md) 참조하세요.

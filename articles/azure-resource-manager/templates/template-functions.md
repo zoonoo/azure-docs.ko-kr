@@ -2,13 +2,13 @@
 title: 템플릿 함수
 description: Azure Resource Manager 템플릿에서 값을 검색하고 문자열과 숫자로 작업하며 배포 정보를 검색하는 데 사용하는 함수를 설명합니다.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 1d2789e59c091b4e6c39be48b83fe610a592abe1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: fbd82f89ed9a97a3f376a9ed6eaa8ae3760759ff
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156262"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982381"
 ---
 # <a name="arm-template-functions"></a>ARM 템플릿 기능
 
@@ -41,8 +41,8 @@ ms.locfileid: "80156262"
 Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공합니다.
 
 * [배열](template-functions-array.md#array)
-* [coalesce](template-functions-array.md#coalesce)
-* [concat](template-functions-array.md#concat)
+* [합체](template-functions-array.md#coalesce)
+* [Concat](template-functions-array.md#concat)
 * [포함](template-functions-array.md#contains)
 * [create배열](template-functions-array.md#createarray)
 * [빈](template-functions-array.md#empty)
@@ -77,6 +77,13 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 <a id="deployment" aria-hidden="true" />
 <a id="parameters" aria-hidden="true" />
 <a id="variables" aria-hidden="true" />
+
+## <a name="date-functions"></a>날짜 함수
+
+리소스 관리자는 날짜 작업에 대해 다음과 같은 기능을 제공합니다.
+
+* [날짜시간 추가](template-functions-date.md#datetimeadd)
+* [utcNow](template-functions-date.md#utcnow)
 
 ## <a name="deployment-value-functions"></a>배포 값 함수
 
@@ -195,16 +202,16 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 * [베이스64](template-functions-string.md#base64)
 * [base64ToJson](template-functions-string.md#base64tojson)
 * [base64ToString](template-functions-string.md#base64tostring)
-* [concat](template-functions-string.md#concat)
+* [Concat](template-functions-string.md#concat)
 * [포함](template-functions-string.md#contains)
 * [데이터우리](template-functions-string.md#datauri)
 * [dataUriToString](template-functions-string.md#datauritostring)
 * [빈](template-functions-string.md#empty)
-* [endsWith](template-functions-string.md#endswith)
+* [Endswith](template-functions-string.md#endswith)
 * [첫 번째](template-functions-string.md#first)
 * [형식](template-functions-string.md#format)
 * [Guid](template-functions-string.md#guid)
-* [indexOf](template-functions-string.md#indexof)
+* [Indexof](template-functions-string.md#indexof)
 * [마지막](template-functions-string.md#last)
 * [lastIndexOf](template-functions-string.md#lastindexof)
 * [length](template-functions-string.md#length)
@@ -214,7 +221,7 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 * [건너뛸](template-functions-string.md#skip)
 * [분할](template-functions-string.md#split)
 * [시작](template-functions-string.md#startswith)
-* [문자열](template-functions-string.md#string)
+* [string](template-functions-string.md#string)
 * [부분](template-functions-string.md#substring)
 * [테이크](template-functions-string.md#take)
 * [로어](template-functions-string.md#tolower)
@@ -224,7 +231,6 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 * [Uri](template-functions-string.md#uri)
 * [uriComponent](template-functions-string.md#uricomponent)
 * [uriComponentToString](template-functions-string.md#uricomponenttostring)
-* [utcNow](template-functions-string.md#utcnow)
 
 ## <a name="next-steps"></a>다음 단계
 

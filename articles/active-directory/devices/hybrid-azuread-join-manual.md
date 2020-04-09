@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6754393bdeabcd67dcf6514102e3c825a26fc3e9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 878960738830dbe2f94b977e98215a681c4a79d2
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222950"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802555"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>자습서: 하이브리드 Azure Active Directory 조인 디바이스를 수동으로 구성
 
@@ -85,7 +85,7 @@ Windows 10 1803부터는 페더레이션된 도메인에서 AD FS를 사용한 �
 | 서비스 연결 지점 구성 | ![확인][1] | ![확인][1] | ![확인][1] |
 | 클레임 발급 설정 |     | ![확인][1] | ![확인][1] |
 | 비Windows 10 디바이스 활성화 |       |        | ![확인][1] |
-| 가입 디바이스 확인 | ![확인][1] | ![확인][1] | [확인][1] |
+| 가입 디바이스 확인 | ![확인][1] | ![확인][1] | ![확인][1] |
 
 ## <a name="configure-a-service-connection-point"></a>서비스 연결점 구성
 

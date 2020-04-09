@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: sukishen
-ms.openlocfilehash: e05aa6e8f656001eb9eb2a3717dde6c16f030e33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d086484ece6faf95dccffb1e29da8a0e906b1da4
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80337142"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985629"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Azure 가상 WAN 및 보안 허브를 사용하여 중국과 상호 연결
 
@@ -54,7 +54,7 @@ ms.locfileid: "80337142"
 | --- | --- |
 | MPLS/IPVPN 네트워크 |PCCW, 차이나 텔레콤 글로벌 |
 |SDWAN| PCCW, 차이나 텔레콤 글로벌|
-| 전용 인터넷 액세스 | PCCW, 홍콩 텔레콤, 차이나 모빌, PCCW |
+| 전용 인터넷 액세스 | PCCW, 홍콩 텔레콤, 차이나 모빌|
 
 공급자를 사용하면 Microsoft 전역 백본에 도달하는 데 사용할 다음 두 가지 솔루션 중 어느 솔루션에 동의할 수 있습니다.
 

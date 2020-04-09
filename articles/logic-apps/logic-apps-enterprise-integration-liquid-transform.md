@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 04/01/2020
-ms.openlocfilehash: 0ab9297e772a3b75a077da1c2ae74e5058b2731f
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: d2598dfe9d7972dcb764abf4a1239613a1e8417a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657292"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879176"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Azure Logic Apps에서 Liquid 템플릿을 사용하여 고급 JSON 변환 수행
 
@@ -33,7 +33,7 @@ ms.locfileid: "80657292"
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>통합 계정에 대한 Liquid 템플릿 또는 맵 만들기
 
-1. 이 예제에서는 이 단계에 설명된 샘플 Liquid 템플릿을 만듭니다. 액체 템플릿에서 [DotLiquid](https://dotliquidmarkup.org/) 및 C# 명명 규칙을 사용하는 [액체 필터를](https://shopify.github.io/liquid/basics/introduction/#filters)사용할 수 있습니다.
+1. 이 예제에서는 이 단계에 설명된 샘플 Liquid 템플릿을 만듭니다. 액체 템플릿에서 [DotLiquid](https://github.com/dotliquid/dotliquid) 및 C# 명명 규칙을 사용하는 [액체 필터를](https://shopify.github.io/liquid/basics/introduction/#filters)사용할 수 있습니다.
 
    > [!NOTE]
    > 필터 이름이 템플릿에서 *문장 대/소문자를* 사용하는지 확인합니다. 그렇지 않으면 필터가 작동하지 않습니다. 또한 맵에는 [파일 크기 제한이](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits)있습니다.

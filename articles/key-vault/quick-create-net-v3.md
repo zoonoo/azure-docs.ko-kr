@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 67dedfce4be81fdf686918a310b89cf463ed389a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: dc9c55c7caf2f78d66d8873e2da8ed7efdbdcec9
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79457256"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411632"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v3"></a>빠른 시작: .NET용 Azure Key Vault 클라이언트 라이브러리(SDK v3)
 
@@ -153,13 +153,26 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-se
 
 앱을 빌드하고 실행하기 전에 `setx` 명령을 사용하여 `akvClientId`, `akvClientSecret`, `akvTenantId` 및 `akvSubscriptionId` 환경 변수를 위에서 적어둔 값으로 설정합니다.
 
+**Windows**
+
 ```console
-setx akvClientId <your-clientID>
+setx akvClientId "<your-clientID>"
+setx akvClientSecret "<your-clientSecret>"
+```
 
-setx akvClientSecret <your-clientSecret>
-````
+**Linux**
 
-`setx`를 호출할 때마다 "SUCCESS: 지정된 값이 저장되었습니다."라는 응답이 표시됩니다.
+```bash
+export akvClientId = "<your-clientID>"
+export akvClientSecret = "<your-clientSecret>"
+```
+
+**MacOS**
+
+```bash
+export akvClientId = "<your-clientID>"
+export akvClientSecret = "<your-clientSecret>"
+```
 
 이러한 환경 변수를 코드의 문자열에 할당한 다음, [KeyVaultClient 클래스](/dotnet/api/microsoft.azure.keyvault.keyvaultclient)에 전달하여 애플리케이션을 인증합니다.
 

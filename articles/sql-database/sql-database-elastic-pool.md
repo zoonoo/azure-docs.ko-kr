@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 3c476393153f6bc1d18d5c163bcd69484583eb15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8139ed8f4f4799a963a051eed96dd87c4ac38aec
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256277"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981429"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>탄력적 풀이 여러 Azure SQL 데이터베이스를 관리하고 크기를 조정하는 데 도움을 주는 방식
 
@@ -224,7 +224,6 @@ Azure Portal에서 탄력적 풀 및 해당 풀 내의 데이터베이스의 사
 
 - 가격 정보는 [탄력적 풀 가격 책정을](https://azure.microsoft.com/pricing/details/sql-database/elastic)참조하십시오.
 - 탄력적 풀의 크기를 조정하려면 [탄력적 풀 크기 조정](sql-database-elastic-pool-scale.md) 및 [탄력적 풀 크기 조정 - 샘플 코드](scripts/sql-database-monitor-and-scale-pool-powershell.md)를 참조하세요.
-- 비디오는 [Azure SQL Database 탄력적 기능에 대한 Microsoft Virtual Academy 비디오 과정](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)을 참조하세요.
 - 탄력적 풀을 사용한 SaaS 애플리케이션의 디자인 패턴에 대해 자세히 알아보려면 [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
 - 탄력적 풀을 사용하는 SaaS 자습서의 경우 [Wingtip SaaS 애플리케이션 소개](sql-database-wtp-overview.md)를 참조하세요.
 - 데이터베이스가 많은 탄력적 풀의 리소스 관리에 대해 알아보려면 [조밀한 탄력적 풀의 리소스 관리를](sql-database-elastic-pool-resource-management.md)참조하십시오.

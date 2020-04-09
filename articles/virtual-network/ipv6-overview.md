@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 887f9e100a60561271a4c15777e7131ea1f1f722
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 312e9db594983f85372285bdff415a2d5dc76ed3
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631441"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984013"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>Azure 가상 네트워크에 대한 IPv6란 무엇입니까?
 
@@ -73,7 +73,7 @@ Azure VNET용 IPv6는 고객이 Azure에서 이중 스택(IPv4+IPv6) 응용 프�
 
 ## <a name="limitations"></a>제한 사항
 Azure 가상 네트워크 릴리스의 현재 IPv6에는 다음과 같은 제한 사항이 있습니다.
-- Azure 가상 네트워크에 대한 IPv6는 모든 배포 방법을 사용하여 모든 글로벌 Azure 상용 지역에서 사용할 수 있습니다.  미국 정부 클라우드의 배포는 일시적으로 ARM(JSON) 템플릿, 명령줄 인터페이스(CLI) 및 Powershell으로 제한됩니다.  미국 정부 클라우드 포털의 IPv6 지원은 곧 사용할 수 있습니다.  
+- Azure 가상 네트워크에 대한 IPv6는 모든 배포 방법을 사용하여 모든 글로벌 Azure 상용 지역에서 사용할 수 있습니다.  미국 정부 클라우드의 배포는 일시적으로 ARM(JSON) 템플릿, 명령줄 인터페이스(CLI) 및 Powershell으로 제한됩니다.  미국 정부 클라우드 포털에서 IPv6 지원을 곧 사용할 수 있습니다.  
 - ExpressRoute 게이트웨이는 IPv6가 활성화된 VNET에서 IPv4 전용 트래픽에 사용할 수 있습니다.  IPv6 트래픽에 대한 지원은 로드맵에 있습니다.   
 - VPN 게이트웨이는 IPv6가 활성화된 VNET에서 직접 또는 "UseRemoteGateway"로 피어를 사용하여 사용할 수 없습니다.
 - Azure 플랫폼(AKS 등)은 컨테이너에 대한 IPv6 통신을 지원하지 않습니다.  

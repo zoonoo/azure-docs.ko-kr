@@ -3,26 +3,21 @@ title: TLS/SSL 문제 해결(MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
 description: MSAL을 사용하여 TLS/SSL 인증서를 사용하여 다양한 문제에 대해 수행하는 작업에 대해 알아봅니다. 목표-C 라이브러리.
 services: active-directory
-documentationcenter: ''
 author: mmacy
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: marsma
-ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 42bd016a9d0882cc97eaa800235226b2de9569a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1507231c3ab395319d5ce95ec06dbb592c324aa6
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369409"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881080"
 ---
 # <a name="how-to-troubleshoot-msal-for-ios-and-macos-tlsssl-issues"></a>방법: iOS 및 macOS TLS/SSL 문제에 대 한 MSAL 문제 해결
 

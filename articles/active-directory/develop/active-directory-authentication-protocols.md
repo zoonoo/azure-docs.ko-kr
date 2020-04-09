@@ -1,10 +1,9 @@
 ---
-title: 마이크로소프트 ID 플랫폼 인증 프로토콜 | 마이크로 소프트 문서
+title: Microsoft ID 플랫폼 인증 프로토콜
 description: Microsoft ID 플랫폼에서 지원하는 인증 프로토콜 개요
 author: rwike77
 services: active-directory
 manager: CelesteDG
-ms.assetid: 7a838ae2-c24c-4304-b6c0-e77fb888e6c0
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
@@ -13,12 +12,12 @@ ms.date: 12/18/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 43168ec7217d8f016857ba6dc54ca30bce2dd594
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41ea41b4d7c181dad9246653a68c329387ac5381
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76699294"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884684"
 ---
 # <a name="microsoft-identity-platform-authentication-protocols"></a>Microsoft ID 플랫폼 인증 프로토콜
 
@@ -34,7 +33,7 @@ Microsoft ID 플랫폼은 가장 널리 사용되는 여러 인증 및 권한 �
 * [On-Behalf-Of 흐름을 사용한 서비스 간 호출](v2-oauth2-on-behalf-of-flow.md) - 서비스 간 호출을 위해 OAuth 2.0 On-Behalf-Of 흐름을 사용하는 방법을 알아봅니다.
 * [SAML 프로토콜 참조](active-directory-saml-protocol-reference.md) - Microsoft ID 플랫폼의 단일 사인온 및 단일 사인아웃 SAML 프로필에 대해 알아봅니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [마이크로소프트 아이덴티티 플랫폼 개요](v2-overview.md)
 * [Active Directory 코드 샘플](sample-v2-code.md)

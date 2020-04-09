@@ -11,21 +11,26 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/02/2019
+ms.date: 03/16/2020
 ms.author: rogirdh
-ms.openlocfilehash: 0e2e16ccc04ff6df80597d646a00c40551e4cfd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd0b8a50d25cd8d1a66a8eb98e54ec231aa2c62f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78302052"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878717"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Azure와 Oracle 클라우드 인프라 간의 직접 상호 연결 설정  
 
-[통합 멀티 클라우드 환경(미리](oracle-oci-overview.md) 보기)을 만들기 위해 Microsoft와 오라클은 [ExpressRoute](../../../expressroute/expressroute-introduction.md) 및 [FastConnect를](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm)통해 Azure와 Oracle 클라우드 인프라(OCI) 간의 직접 상호 연결을 제공합니다. ExpressRoute 및 FastConnect 상호 연결을 통해 고객은 두 클라우드 간의 낮은 대기 시간, 높은 처리량, 개인 직접 연결을 경험할 수 있습니다.
+[통합 멀티 클라우드 환경을](oracle-oci-overview.md)만들기 위해 Microsoft와 Oracle은 [ExpressRoute](../../../expressroute/expressroute-introduction.md) 및 [FastConnect를](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm)통해 Azure와 Oracle 클라우드 인프라(OCI) 간의 직접 상호 연결을 제공합니다. ExpressRoute 및 FastConnect 상호 연결을 통해 고객은 두 클라우드 간의 낮은 대기 시간, 높은 처리량, 개인 직접 연결을 경험할 수 있습니다.
 
 > [!IMPORTANT]
-> Microsoft Azure와 OCI 간의 연결은 미리 보기 단계에 있습니다. Azure와 OCI 간의 짧은 대기 시간 연결을 설정하려면 먼저 이 기능에 대해 Azure 구독을 사용하도록 설정해야 합니다. 이 짧은 [설문조사 양식을](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu)작성하여 미리 보기에 등록해야 합니다. 구독이 등록되면 이메일 회신을 받게 됩니다. 확인 이메일을 받을 때까지는 기능을 사용할 수 없습니다. 이 미리 보기를 사용하도록 설정하려면 Microsoft 담당자에게 문의할 수도 있습니다. 미리 보기 기능에 대한 액세스는 가용성에 따라 달라질 수 있으며 Microsoft의 단독 재량에 따라 제한됩니다. 설문 조사가 완료해도 액세스가 보장되지는 않습니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에 사용해서는 안 됩니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 Microsoft Azure 미리 보기에 대한 [추가 사용 약관을](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 참조하십시오. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
+> 오라클은 2020년 5월까지 Azure/Oracle Cloud 상호 연결 솔루션을 사용할 때 이러한 응용 프로그램을 Azure에서 실행하도록 인증합니다.
+> * E-비즈니스 스위트
+> * JD Edwards EnterpriseOne
+> * PeopleSoft
+> * 오라클 리테일 애플리케이션
+> * 오라클 하이페리온 재무 관리
 
 다음 이미지는 상호 연결에 대한 상위 개요를 보여 주며,
 
@@ -36,8 +41,6 @@ ms.locfileid: "78302052"
 * Azure와 OCI 간의 연결을 설정하려면 활성 Azure 구독및 활성 OCI 테넌트가 있어야 합니다.
 
 * Azure ExpressRoute 피어링 위치가 OCI FastConnect와 같은 피어링 위치에 근접하거나 있는 경우에만 연결이 가능합니다. [지역 가용성을](oracle-oci-overview.md#region-availability)참조하십시오.
-
-* 이 미리 보기 기능에 대해 Azure 구독을 사용하도록 설정해야 합니다.
 
 ## <a name="configure-direct-connectivity-between-expressroute-and-fastconnect"></a>익스프레스루트와 패스트커넥트 간의 직접 연결 구성
 

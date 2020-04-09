@@ -2,26 +2,22 @@
 title: Azure AD 인증 & 권한 부여 오류 코드
 description: Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 대해 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
-ms.date: 03/31/2020
+ms.date: 04/07/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 91d285e2a839a7d6266c5d58f52901a48a7a8c84
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 40a7406ea91c95daad2f180b9d0f4620cdbbf454
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80473178"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875931"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 인증 및 권한 부여 오류 코드
 
@@ -133,6 +129,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50180 | WindowsIntegratedAuthMissing - 통합된 Windows 인증이 필요합니다. Seamless SSO에 대한 테넌트를 사용하도록 설정합니다. |
 | AADSTS50187 | DeviceInformationNotProvided - 서비스에서 디바이스 인증을 수행하지 못했습니다. |
 | AADSTS50196 | 루프감지 - 클라이언트 루프가 검색되었습니다. 앱의 논리를 확인하여 토큰 캐싱이 구현되고 오류 조건이 올바르게 처리되었는지 확인합니다.  앱이 너무 짧은 기간에 동일한 요청을 너무 많이 만들었기 때문에 잘못된 상태이거나 악의적으로 토큰을 요청하고 있음을 나타냅니다. |
+| AADSTS50197 | 충돌하는 ID - 사용자를 찾을 수 없습니다. 다시 로그인해 보십시오. |
 | AADSTS50199 | CmsiInterrupt - 보안상의 이유로 이 요청에 대한 사용자 확인이 필요합니다.  "interaction_required" 오류이므로 클라이언트는 대화형 인증작업을 수행해야 합니다.  시스템 웹뷰가 네이티브 응용 프로그램에 대한 토큰을 요청하는 데 사용되었기 때문에 발생합니다 .|
 | AADSTS51000 | RequiredFeatureNotEnabled - 기능을 사용할 수 없습니다. |
 | AADSTS51001 | DomainHintMustbePresent - 도메인 힌트에 온-프레미스 보안 식별자와 온-프레미스 UPN이 있어야 합니다. |

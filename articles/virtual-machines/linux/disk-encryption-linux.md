@@ -8,18 +8,19 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: cf6f53639cff23a9e709b44a1ddf1332df2164b7
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: d860b557c5c2d6b73fad53cdf84ee8b32182d1ee
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586038"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985459"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Linux VM에 대한 Azure Disk Encryption 시나리오
 
-Azure 디스크 암호화는 Linux의 DM-Crypt 기능을 사용하여 Azure 가상 시스템(VM)의 OS 및 데이터 디스크에 대한 볼륨 암호화를 제공하며 Azure Key Vault와 통합되어 디스크 암호화 키 및 암호를 제어하고 관리할 수 있습니다. 서비스에 대한 개요는 Linux [VM에 대한 Azure 디스크 암호화를](disk-encryption-overview.md)참조하십시오.
 
-많은 디스크 암호화 시나리오가 있으며 단계는 시나리오에 따라 다를 수 있습니다. 다음 섹션에서는 Linux VM에 대한 시나리오를 보다 자세히 다룹니다.
+Linux 가상 시스템(VM)용 Azure 디스크 암호화는 Linux의 DM-Crypt 기능을 사용하여 OS 디스크 및 데이터 디스크의 전체 디스크 암호화를 제공합니다. 또한 암호화FormatAll 기능을 사용할 때 임시 리소스 디스크의 암호화를 제공합니다.
+
+Azure 디스크 암호화는 [Azure Key Vault와 통합되어](disk-encryption-key-vault.md) 디스크 암호화 키 및 비밀을 제어하고 관리할 수 있습니다. 서비스에 대한 개요는 Windows [VM에 대한 Azure 디스크 암호화](disk-encryption-overview.md)를 참조하십시오.
 
 [지원되는 VM 크기 및 운영 체제의](disk-encryption-overview.md#supported-vms-and-operating-systems)가상 컴퓨터에만 디스크 암호화를 적용할 수 있습니다. 또한 다음 필수 구성 조건을 충족해야 합니다.
 

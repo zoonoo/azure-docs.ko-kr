@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Services)의 스토리지, 데이터 암호화
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 90abf2e36fd46c707904d87f00362091fe931743
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 843b775f7761af7cd40140c9bf34768d63eb5a50
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668110"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877901"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 스토리지 및 백업 모범 사례
 
@@ -40,7 +40,7 @@ AKS(Azure Kubernetes Services)에서 클러스터를 만들고 관리할 때 애
 
 AKS에서 볼륨용으로 제공되는 두 가지 기본 유형의 스토리지는 Azure 디스크 또는 Azure 파일에서 지원됩니다. 보안을 강화하기 위해 두 가지 유형의 스토리지는 미사용 데이터를 암호화하는 Azure SSE(스토리지 서비스 암호화)를 기본적으로 사용합니다. 현재 AKS 노드 수준에서 Azure Disk Encryption을 사용하여 디스크를 암호화할 수 없습니다.
 
-Azure 파일은 현재 표준 성능 계층에서 사용할 수 있습니다. Azure 디스크는 표준 및 프리미엄 성능 계층에서 사용할 수 있습니다.
+Azure 파일과 Azure 디스크는 모두 표준 및 프리미엄 성능 계층에서 사용할 수 있습니다.
 
 - *프리미엄* 디스크는 고성능 SSD(반도체 디스크)를 통해 지원됩니다. 프리미엄 디스크는 모든 프로덕션 워크로드에 권장됩니다.
 - *표준* 디스크는 일반 회전 디스크(HDD)에서 지원되며 보관용 또는 자주 액세스하지 않는 데이터에 적합합니다.

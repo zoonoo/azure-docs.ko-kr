@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 9d335bcf6daf0b38e7a68ca2d40894dd64c93e40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: af17f9c2ef7eea5eb531327d4df13d5885a49b7e
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75442149"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985595"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB 대량 실행기 라이브러리 개요
  
@@ -51,4 +51,4 @@ Bulk Executor 라이브러리를 사용하면 이 대규모 처리량 및 스토
 * [.NET](bulk-executor-dot-net.md) 및 [Java에서](bulk-executor-java.md)대량 실행기 라이브러리를 사용하는 샘플 응용 프로그램을 사용해 보시면 자세히 알아보십시오.  
 * [.NET](sql-api-sdk-bulk-executor-dot-net.md) 및 [Java](sql-api-sdk-bulk-executor-java.md)에서 대량 실행기 SDK 정보 및 릴리스 정보를 확인하세요.
 * 대량 실행기 라이브러리는 Cosmos DB 스파크 커넥터에 통합되어 자세한 내용은 [Azure Cosmos DB 스파크 커넥터](spark-connector.md) 문서를 참조하십시오.  
-* 또한 대량 실행기 라이브러리는 Azure Data Factory가 데이터를 복사할 수 있도록 [Azure Cosmos DB 커넥터](https://aka.ms/bulkexecutor-adf-v2)의 새 버전에 통합됩니다.
+* 또한 대량 실행기 라이브러리는 Azure Data Factory가 데이터를 복사할 수 있도록 [Azure Cosmos DB 커넥터](../data-factory/connector-azure-cosmos-db.md)의 새 버전에 통합됩니다.

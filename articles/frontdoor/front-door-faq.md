@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 1cfee9749bf2eb30799efb05ac875843bcde6651
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0fe5d245d629c731a47ca5441afd2a3388a22de4
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372626"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878020"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Azure 정문에 자주 묻는 질문
 
@@ -34,7 +34,7 @@ Azure Front Door는 서비스로 응용 프로그램 배달 네트워크(ADN)로
 
 ### <a name="what-features-does-azure-front-door-support"></a>Azure 정문에서 지원하는 기능은 무엇입니까?
 
-Azure Front Door는 동적 사이트 가속(DSA), SSL 오프로딩 및 종단 간 SSL, 웹 응용 프로그램 방화벽, 쿠키 기반 세션 선호도, URL 경로 기반 라우팅, 무료 인증서 및 여러 도메인 관리 등을 지원합니다. 지원되는 기능의 전체 목록은 [Azure 정문 개요를](front-door-overview.md)참조하십시오.
+Azure Front Door는 동적 사이트 가속(DSA), TLS/SSL 오프로딩 및 엔드 투 엔드 TLS, 웹 응용 프로그램 방화벽, 쿠키 기반 세션 선호도, URL 경로 기반 라우팅, 무료 인증서 및 여러 도메인 관리 등을 지원합니다. 지원되는 기능의 전체 목록은 [Azure 정문 개요를](front-door-overview.md)참조하십시오.
 
 ### <a name="what-is-the-difference-between-azure-front-door-and-azure-application-gateway"></a>Azure 정문과 Azure 응용 프로그램 게이트웨이의 차이점은 무엇입니까?
 
@@ -46,7 +46,7 @@ Azure Front Door는 동적 사이트 가속(DSA), SSL 오프로딩 및 종단 �
 
 - Front Door는 전역 수준에서만 경로 기반 부하 분산을 수행할 수 있지만 가상 네트워크(VNET) 내에서 트래픽 균형을 더 로드하려는 경우 응용 프로그램 게이트웨이를 사용해야 합니다.
 - 전면 문은 VM/컨테이너 수준에서 작동하지 않으므로 연결 드레인을 수행할 수 없습니다. 그러나 응용 프로그램 게이트웨이를 사용하면 연결 드레인을 수행할 수 있습니다. 
-- AFD 뒤에 있는 애플리케이션 게이트웨이를 사용하면 100% SSL 오프로드를 달성하고 가상 네트워크(VNET) 내에서 HTTP 요청만 라우팅할 수 있습니다.
+- AFD 뒤에 있는 애플리케이션 게이트웨이를 사용하면 100% TLS/SSL 오프로드를 달성하고 가상 네트워크(VNET) 내에서 HTTP 요청만 라우팅할 수 있습니다.
 - 전면 도어 및 애플리케이션 게이트웨이 는 모두 세션 선호도를 지원합니다. Front Door는 사용자 세션에서 특정 지역의 동일한 클러스터 또는 백 엔드로 후속 트래픽을 지시할 수 있지만 응용 프로그램 게이트웨이는 트래픽을 클러스터 내의 동일한 서버로 직접 연결할 수 있습니다.  
 
 ### <a name="can-we-deploy-azure-load-balancer-behind-front-door"></a>Azure 로드 밸러커를 정문 뒤에 배포할 수 있습니까?
@@ -118,12 +118,12 @@ Azure 정문은 전역적으로 분산된 다중 테넌트 서비스입니다. �
 
 새로운 정문 생성 또는 기존 정문 업데이트는 전역 배포에 약 3~5분 정도 걸립니다. 즉, 약 3~5분 안에 정문 구성이 전 세계 모든 POP에 배포됩니다.
 
-참고 - 사용자 지정 SSL 인증서 업데이트는 전 세계적으로 배포하는 데 약 30분이 소요됩니다.
+참고 - 사용자 지정 TLS/SSL 인증서 업데이트는 전 세계에 배포하는 데 약 30분이 소요됩니다.
 
 경로 또는 백 엔드 풀 등에 대한 업데이트는 원활하며 새 구성이 올바른 경우 가동 중지 시간이 0으로 발생합니다. 인증서 업데이트는 원자성이며 'AFD 관리'에서 '사용자 고유의 인증서 사용'으로 전환하거나 그 반대의 경우도 마찬가지인 경우 중단을 일으키지 않습니다.
 
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 ### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Azure 정문 로드 밸런스를 조정하거나 가상 네트워크 내에서 트래픽을 라우팅할 수 있습니까?
 
@@ -139,7 +139,7 @@ Azure 정문 에 대한 문서화된 모든 [시간 제한 및 제한에](https:
 
 Azure Front Door는 응용 프로그램의 확장성 요구 사항을 충족할 수 있는 방대한 용량의 전 세계적으로 분산된 다중 테넌트 플랫폼입니다. Microsoft의 글로벌 네트워크 의 가장자리에서 제공되는 Front Door는 전체 응용 프로그램 또는 지역 또는 다른 클라우드에서 개별 마이크로 서비스를 장애 조치할 수 있는 글로벌 부하 분산 기능을 제공합니다.
 
-## <a name="ssl-configuration"></a>SSL 구성
+## <a name="tls-configuration"></a>TLS 구성
 
 ### <a name="what-tls-versions-are-supported-by-azure-front-door"></a>Azure 정문에서 지원하는 TLS 버전은 무엇입니까?
 
@@ -150,12 +150,12 @@ Azure Front Door는 응용 프로그램의 확장성 요구 사항을 충족할 
 ### <a name="what-certificates-are-supported-on-azure-front-door"></a>Azure 정문에서 지원되는 인증서는 무엇입니까?
 
 Front Door 사용자 지정 도메인에서 콘텐츠를 안전하게 전달하기 위한 HTTPS 프로토콜을 사용하려면 Azure Front Door에서 관리하는 인증서를 사용하거나 자체 인증서를 사용하도록 선택할 수 있습니다.
-프론트 도어 관리 옵션은 Digicert를 통해 표준 SSL 인증서를 제공하고 프론트 도어의 키 볼트에 보관합니다. 사용자 고유의 인증서를 사용하도록 선택한 경우 지원되는 CA의 인증서를 온보딩할 수 있으며 표준 SSL, 확장 유효성 검사 인증서 또는 와일드카드 인증서가 될 수 있습니다. 자체 서명된 인증서는 지원되지 않습니다. [사용자 지정 도메인에 대해 HTTPS를 사용하도록 설정하는 방법에 대해](https://aka.ms/FrontDoorCustomDomainHTTPS)알아봅니다.
+프론트 도어 관리 옵션은 Digicert를 통해 표준 TLS/SSL 인증서를 제공하고 프론트 도어의 키 볼트에 보관합니다. 사용자 고유의 인증서를 사용하도록 선택한 경우 지원되는 CA의 인증서를 온보딩할 수 있으며 표준 TLS, 확장 유효성 검사 인증서 또는 와일드카드 인증서가 될 수 있습니다. 자체 서명된 인증서는 지원되지 않습니다. [사용자 지정 도메인에 대해 HTTPS를 사용하도록 설정하는 방법에 대해](https://aka.ms/FrontDoorCustomDomainHTTPS)알아봅니다.
 
 ### <a name="does-front-door-support-autorotation-of-certificates"></a>프런트 도어는 인증서의 자동 회전을 지원합니까?
 
 정문 관리 인증서 옵션의 경우 인증서는 정문으로 자동 회전됩니다. Front Door 관리 인증서를 사용하고 있고 인증서 만료 날짜가 60일 미만인 경우 지원 티켓을 제출하십시오.
-</br>사용자 지정 SSL 인증서의 경우 자동 회전이 지원되지 않습니다. 지정된 사용자 지정 도메인에 대해 처음 설정된 방법과 마찬가지로 키 볼트의 올바른 인증서 버전을 정문 으로 가리키고 정문 의 서비스 주체가 키 볼트에 계속 액세스할 수 있는지 확인해야 합니다. Front Door에서 업데이트된 이 인증서 롤아웃 작업은 원자성이며 인증서의 주체 이름이나 SAN이 변경되지 않는 한 프로덕션에 영향을 미치지 않습니다.
+</br>사용자 지정 TLS/SSL 인증서의 경우 자동 회전이 지원되지 않습니다. 지정된 사용자 지정 도메인에 대해 처음 설정된 방법과 마찬가지로 키 볼트의 올바른 인증서 버전을 정문 으로 가리키고 정문 의 서비스 주체가 키 볼트에 계속 액세스할 수 있는지 확인해야 합니다. Front Door에서 업데이트된 이 인증서 롤아웃 작업은 원자성이며 인증서의 주체 이름이나 SAN이 변경되지 않는 한 프로덕션에 영향을 미치지 않습니다.
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door"></a>Azure 정문에서 지원하는 현재 암호 제품군은 무엇입니까?
 
@@ -182,13 +182,13 @@ Front Door 사용자 지정 도메인에서 콘텐츠를 안전하게 전달하�
 - TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 - TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
-### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>SSL 프로토콜 버전을 제어하는 SSL 정책을 구성할 수 있나요?
+### <a name="can-i-configure-tls-policy-to-control-tls-protocol-versions"></a>TLS 프로토콜 버전을 제어하도록 TLS 정책을 구성할 수 있습니까?
 
 Azure 포털 또는 Azure [REST API를](https://docs.microsoft.com/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion)통해 사용자 지정 도메인 HTTPS 설정에서 Azure 정문에서 최소 TLS 버전을 구성할 수 있습니다. 현재 1.0과 1.2 중에서 선택할 수 있습니다.
 
 ### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>특정 암호 제품군만 지원하도록 정문 도어를 구성할 수 있습니까?
 
-아니요, 특정 암호 제품군에 대한 정문 구성은 지원되지 않습니다. 그러나 인증서 기관(예: Verisign, Entrust 또는 Digicert)에서 사용자 지정 SSL 인증서를 얻을 수 있으며 인증서를 생성할 때 인증서에 특정 암호 제품군이 표시되어 있습니다. 
+아니요, 특정 암호 제품군에 대한 정문 구성은 지원되지 않습니다. 그러나 인증 기관(예: Verisign, Entrust 또는 Digicert)에서 사용자 지정 TLS/SSL 인증서를 받을 수 있으며 인증서를 생성할 때 인증서에 특정 암호 제품군이 표시되어 있습니다. 
 
 ### <a name="does-front-door-support-ocsp-stapling"></a>정문이 OCSP 스테이플링을 지원합니까?
 
@@ -196,20 +196,20 @@ Azure 포털 또는 Azure [REST API를](https://docs.microsoft.com/rest/api/fron
 
 ### <a name="does-azure-front-door-also-support-re-encryption-of-traffic-to-the-backend"></a>Azure 정문도 백 엔드에 대한 트래픽의 재암호화를 지원합니까?
 
-예. Azure 정문에서는 SSL 오프로드를 지원하고 끝끝에서 끝까지 SSL을 지원하여 백 엔드로 트래픽을 다시 암호화합니다. 실제로 백 엔드에 대한 연결은 공용 IP를 통해 발생하므로 HTTPS를 전달 프로토콜로 사용하도록 정문을 구성하는 것이 좋습니다.
+예. Azure 정문은 TLS/SSL 오프로드를 지원하고 백 엔드로 트래픽을 다시 암호화하는 TLS를 끝까지 지원합니다. 실제로 백 엔드에 대한 연결은 공용 IP를 통해 발생하므로 HTTPS를 전달 프로토콜로 사용하도록 정문을 구성하는 것이 좋습니다.
 
 ### <a name="does-front-door-support-self-signed-certificates-on-the-backend-for-https-connection"></a>Https 연결의 백 엔드에서 프런트 도어가 자체 서명된 인증서를 지원합니까?
 
 아니요, 자체 서명된 인증서는 Front Door에서 지원되지 않으며 제한 사항은 둘 다에 적용됩니다.
 
 1. **백엔드**: 트래픽을 HTTPS 또는 HTTPS 상태 프로브로 전달하거나 캐싱을 사용하도록 설정한 라우팅 규칙에 대해 원본에서 캐시를 채울 때 자체 서명된 인증서를 사용할 수 없습니다.
-2. **Frontend**: 사용자 지정 도메인에서 HTTPS를 사용하도록 설정하기 위해 사용자 지정 SSL 인증서를 사용할 때 자체 서명된 인증서를 사용할 수 없습니다.
+2. **Frontend**: 사용자 지정 도메인에서 HTTPS를 사용하도록 설정하기 위해 사용자 지정 TLS/SSL 인증서를 사용할 때는 자체 서명된 인증서를 사용할 수 없습니다.
 
 ### <a name="why-is-https-traffic-to-my-backend-failing"></a>백 엔드에 대한 HTTPS 트래픽이 실패하는 이유는 무엇입니까?
 
 상태 프로브또는 전달 요청에 대한 백 엔드에 대한 HTTPS 연결을 성공적으로 수행하려면 HTTPS 트래픽이 실패할 수 있는 두 가지 이유가 있을 수 있습니다.
 
-1. **인증서 주체 이름 불일치**: HTTPS 연결의 경우 Front Door는 백 엔드가 백 엔드 호스트 이름과 일치하는 제목 이름으로 유효한 CA의 인증서를 제공할 것으로 예상합니다. 예를 들어 백 엔드 호스트 이름이 설정되어 `myapp-centralus.contosonews.net` 있고 SSL 핸드셰이크 중에 백 엔드가 `myapp-centralus.contosonews.net` 제공하는 `*myapp-centralus*.contosonews.net` 인증서가 없는 경우 정문이 연결을 거부하고 오류가 발생합니다. 
+1. **인증서 주체 이름 불일치**: HTTPS 연결의 경우 Front Door는 백 엔드가 백 엔드 호스트 이름과 일치하는 제목 이름으로 유효한 CA의 인증서를 제공할 것으로 예상합니다. 예를 들어 백 엔드 호스트 이름이 설정되어 `myapp-centralus.contosonews.net` 있고 TLS 핸드셰이크 중에 백 엔드가 `myapp-centralus.contosonews.net` 제공하는 `*myapp-centralus*.contosonews.net` 인증서가 제목 이름에 없는 경우 Front Door는 연결을 거부하고 오류가 발생합니다. 
     1. **해결**방법: 규정 준수 관점에서 권장되지는 않지만 정문에 대한 인증서 주체 이름 확인을 사용하지 않도록 설정하여 이 오류를 해결할 수 있습니다. Azure 포털의 설정 과 API의 백엔드풀설정 아래에 있습니다.
 2. **잘못된 CA의 백 엔드 호스팅 인증서**: 유효한 [CA의](/azure/frontdoor/front-door-troubleshoot-allowed-ca) 인증서만 정문으로 백 엔드에서 사용할 수 있습니다. 내부 CA 또는 자체 서명된 인증서의 인증서는 허용되지 않습니다.
 

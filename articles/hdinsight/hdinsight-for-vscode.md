@@ -1,24 +1,24 @@
 ---
 title: 비주얼 스튜디오 코드용 Azure HDInsight
-description: 비주얼 스튜디오 코드에 스파크 & 하이브 도구(Azure HDInsight)를 사용하여 쿼리 및 스크립트를 만들고 제출하는 방법을 알아봅니다.
+description: 비주얼 스튜디오 코드에 스파크 & 하이브 도구(Azure HDInsight)를 사용하는 방법을 알아봅니다. 도구를 사용하여 쿼리 및 스크립트를 만들고 제출합니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.openlocfilehash: 9a81868d678b4c0277e904e879c73185a378bf70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/07/2020
+ms.openlocfilehash: de433d85c2f04a7140fbcb918730218ac3a05e54
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75435679"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878632"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>비주얼 스튜디오 코드에 스파크 & 하이브 도구 사용
 
-비주얼 스튜디오 코드에 스파크 & 하이브 도구를 사용하여 아파치 하이브 배치 작업, 대화형 하이브 쿼리 및 아파치 스파크용 PySpark 스크립트를 만들고 제출하는 방법을 알아봅니다. 먼저 비주얼 스튜디오 코드에 스파크 & 하이브 도구를 설치하는 방법을 설명한 다음, 스파크 & 하이브 도구에 작업을 제출하는 방법을 살펴보겠습니다.  
+시각적 스튜디오 코드에 아파치 스파크 & 하이브 도구를 사용하는 방법에 대해 알아봅니다. 이 도구를 사용하여 아파치 하이브 배치 작업, 대화형 하이브 쿼리 및 아파치 스파크용 PySpark 스크립트를 만들고 제출합니다. 먼저 비주얼 스튜디오 코드에 스파크 & 하이브 도구를 설치하는 방법을 설명합니다. 그런 다음 스파크 & Hive Tools에 작업을 제출하는 방법을 살펴보겠습니다.  
 
-Windows, Linux 및 macOS를 포함하여 Visual Studio Code에서 지원되는 플랫폼에 Spark & Hive Tools를 설치할 수 있습니다. 다른 플랫폼에 대한 다음 필수 구성 조건을 참고하십시오.
+스파크 & 하이브 도구는 비주얼 스튜디오 코드에서 지원하는 플랫폼에 설치할 수 있습니다. 다른 플랫폼에 대한 다음 필수 구성 조건을 참고하십시오.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -70,7 +70,7 @@ Windows, Linux 및 macOS를 포함하여 Visual Studio Code에서 지원되는 �
 
 ## <a name="connect-to-an-azure-account"></a>Azure 계정에 연결
 
-Visual Studio 코드에서 클러스터에 스크립트를 제출하려면 먼저 Azure 계정에 연결하거나 클러스터를 연결해야 합니다(아파치 Ambari 사용자 이름 및 암호 자격 증명 또는 도메인 가입 계정 사용). Azure에 연결하려면 다음 단계를 따릅니다.
+Visual Studio 코드에서 클러스터에 스크립트를 제출하려면 먼저 Azure 계정에 연결하거나 클러스터를 연결해야 합니다. 아파치 Ambari 사용자 이름 및 암호 자격 증명 또는 도메인 가입 계정을 사용합니다. Azure에 연결하려면 다음 단계를 따릅니다.
 
 1. 메뉴 모음에서**명령 팔레트** **보기로** > 이동한 다음 **Azure: 로그인을**입력합니다.
 
@@ -260,7 +260,7 @@ Python 작업을 제출하면 Visual Studio Code의 **출력** 창에 제출 로
 
 ## <a name="apache-livy-configuration"></a>Apache Livy 구성
 
-[아파치 리비](https://livy.incubator.apache.org/) 구성이 지원됩니다. 에서 구성할 수 **있습니다. 작업 영역 폴더의 VSCode\settings.json** 파일입니다. 현재, Livy 구성은 Python 스크립트만 지원합니다. 자세한 내용은 [리비 README](https://github.com/cloudera/livy/blob/master/README.rst )를 참조하십시오.
+[아파치 리비](https://livy.incubator.apache.org/) 구성이 지원됩니다. 에서 구성할 수 **있습니다. 작업 영역 폴더의 VSCode\settings.json** 파일입니다. 현재, Livy 구성은 Python 스크립트만 지원합니다. 자세한 내용은 [Livy README](https://github.com/cloudera/livy/blob/master/README.rst )을 참조하십시오.
 
 <a id="triggerlivyconf"></a>**리비 구성을 트리거하는 방법**
 
@@ -269,7 +269,7 @@ Python 작업을 제출하면 Visual Studio Code의 **출력** 창에 제출 로
 2. 검색 **설정** 상자에서 **HDInsight 작업 제출: Livy Conf**.  
 3. 관련 검색 결과에 대해 **settings.json에서 편집**을 선택합니다.
 
-방법 2 파일을 제출하고 .vscode 폴더가 작업 폴더에 자동으로 추가된다는 것을 알 수 있습니다. **.vscode\settings.json**을 선택하여 Livy 구성을 볼 수 있습니다.
+방법 2 파일을 제출하고 폴더가 작업 폴더에 `.vscode` 자동으로 추가된다는 것을 알 수 있습니다. **.vscode\settings.json**을 선택하여 Livy 구성을 볼 수 있습니다.
 
 + 프로젝트 설정:
 
@@ -283,7 +283,7 @@ Python 작업을 제출하면 Visual Studio Code의 **출력** 창에 제출 로
     **포스트 /일괄 처리** 요청 본문
 
     | name | description | type |
-    | :- | :- | :- |
+    | --- | --- | --- |
     | 파일 | 실행할 애플리케이션이 포함된 파일 | 경로(필수) |
     | proxyUser | 작업을 실행할 때 가장할 사용자 | String |
     | className | 애플리케이션 Java/Spark 주 클래스 | String |
@@ -304,8 +304,8 @@ Python 작업을 제출하면 Visual Studio Code의 **출력** 창에 제출 로
     응답 본문 생성된 배치 개체입니다.
 
     | name | description | type |
-    | :- | :- | :- |
-    | id | 세션 ID | Int |
+    | --- | ---| --- |
+    | ID | 세션 ID | Int |
     | appId | 이 세션의 응용 프로그램 ID | String |
     | appInfo | 자세한 응용 프로그램 정보 | 키=값 맵 |
     | log | 로그 라인 | 문자열 목록 |
@@ -340,8 +340,8 @@ Python 작업을 제출하면 Visual Studio Code의 **출력** 창에 제출 로
 
 - 메시지 패널
    1. 테이블의 행 수가 100개보다 크면 "처음 100개의 행이 Hive 테이블에 표시됩니다."
-   2. 테이블의 행 수가 100보다 적거나 같으면 다음과 같은 메시지가 표시됩니다.
-   3. 테이블에 내용이 없는 경우 "하이브 테이블에 0개의 행이 표시됩니다."
+   2. 테이블의 행 수가 100보다 적거나 같으면 "Hive 테이블에 60개의 행이 표시됩니다."
+   3. 테이블에 내용이 없는 경우 다음 메시지가 표시됩니다.`0 rows are displayed for Hive table.`
 
         >[!NOTE]
         >
@@ -364,7 +364,7 @@ Python 작업을 제출하면 Visual Studio Code의 **출력** 창에 제출 로
 
 ## <a name="reader-only-role"></a>독자 전용 역할
 
-클러스터에 대한 판독기 전용 역할이 할당된 사용자는 더 이상 HDInsight 클러스터에 작업을 제출할 수 없으며 Hive 데이터베이스를 볼 수 없습니다. Azure [포털에서](https://ms.portal.azure.com/)역할을 [**HDInsight 클러스터 연산자로**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) 업그레이드하려면 클러스터 관리자에게 문의하십시오. 유효한 Ambari 자격 증명이 있는 경우 다음 지침을 사용하여 클러스터를 수동으로 연결할 수 있습니다.
+클러스터에 대한 판독기 전용 역할이 할당된 사용자는 HDInsight 클러스터에 작업을 제출하거나 Hive 데이터베이스를 볼 수 없습니다. Azure [포털에서](https://ms.portal.azure.com/)역할을 [**HDInsight 클러스터 연산자로**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) 업그레이드하려면 클러스터 관리자에게 문의하십시오. 유효한 Ambari 자격 증명이 있는 경우 다음 지침을 사용하여 클러스터를 수동으로 연결할 수 있습니다.
 
 ### <a name="browse-the-hdinsight-cluster"></a>HDInsight 클러스터 찾아보기  
 
@@ -393,11 +393,11 @@ HDInsight 클러스터에 작업을 제출할 때 클러스터의 판독기 전�
 
 ### <a name="browse-a-data-lake-storage-gen2-account"></a>데이터 레이크 스토리지 Gen2 계정 찾아보기
 
-Azure HDInsight 탐색기를 선택하여 데이터 레이크 저장소 Gen2 계정을 확장하면 Azure 계정에 Gen2 저장소에 액세스할 수 없는 경우 저장소 액세스 키를 입력하라는 메시지가 표시됩니다. 액세스 키의 유효성을 검사한 후 Data Lake Storage Gen2 계정이 자동으로 확장됩니다.
+Azure HDInsight 탐색기를 선택하여 데이터 레이크 저장소 Gen2 계정을 확장합니다. Azure 계정에 Gen2 저장소에 액세스할 수 없는 경우 저장소 액세스 키를 입력하라는 메시지가 표시됩니다. 액세스 키의 유효성을 검사한 후 Data Lake Storage Gen2 계정이 자동으로 확장됩니다.
 
 ### <a name="submit-jobs-to-an-hdinsight-cluster-with-data-lake-storage-gen2"></a>데이터 레이크 스토리지 Gen2를 사용하여 HDInsight 클러스터에 작업 제출
 
-Data Lake Storage Gen2를 사용하여 HDInsight 클러스터에 작업을 제출하면 Azure 계정에 Gen2 저장소에 대한 쓰기 액세스 권한이 없는 경우 저장소 액세스 키를 입력하라는 메시지가 표시됩니다. 액세스 키의 유효성을 검사하면 작업이 성공적으로 제출됩니다.
+데이터 레이크 스토리지 Gen2를 사용하여 HDInsight 클러스터에 작업을 제출합니다. Azure 계정에 Gen2 저장소에 대한 쓰기 액세스 권한이 없는 경우 저장소 액세스 키를 입력하라는 메시지가 표시됩니다. 액세스 키의 유효성을 검사하면 작업이 성공적으로 제출됩니다.
 
 ![비주얼 스튜디오 코드 액세스 키에 대 한 하이브 도구에 & 스파크](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-accesskey.png)
 

@@ -16,12 +16,12 @@ ms.date: 02/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79741557e6eea1b4252e5ab4d9976b124cea1169
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 6446b039d90e04c9fe7fca28b361f620183a0292
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346899"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875744"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 항목에서는 Azure AD Connect에 대한 필수 조건 및 하드웨어 요구 사항을 설명합니다.
@@ -87,7 +87,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 ### <a name="accounts"></a>계정
 * 통합하려는 Azure AD 테넌트에 대한 Azure AD 전역 관리자 계정. 이 계정은 **학교 또는 조직 계정**이어야 하며 **Microsoft 계정**이 될 수 없습니다.
 * [DirSync에서 빠른 설정](reference-connect-accounts-permissions.md#express-settings-installation) 또는 업그레이드를 사용하는 경우 온-프레미스 Active Directory에 대한 엔터프라이즈 관리자 계정이 있어야 합니다.
-* 사용자 지정 설정 설치 경로를 사용하는 경우 더 많은 옵션이 [활성 디렉터리의 거래처 참조를](reference-connect-accounts-permissions.md#custom-installation-settings) 참조합니다.
+* 사용자 지정 설정 설치 경로를 사용하는 경우 더 많은 옵션이 있습니다. 자세한 내용은 [사용자 지정 설치 설정을](reference-connect-accounts-permissions.md#custom-installation-settings)참조하십시오.
 
 ### <a name="connectivity"></a>연결
 * Azure AD Connect 서버는 인트라넷 및 인터넷에 대해 DNS 확인을 해야 합니다. DNS 서버는 온-프레미스 Active Directory와 Azure AD 엔드포인트 모두에 대해 이름을 확인할 수 있어야 합니다.
@@ -173,7 +173,7 @@ When using Azure AD Connect to deploy Active Directory Federation Services or th
       * To validate remote PowerShell connectivity, in the Server Manager All Servers tab: right click WAP server and choose Windows PowerShell. A remote PowerShell session should open to ensure remote PowerShell sessions can be established.
 
 ### TLS/SSL Certificate Requirements
-* It’s strongly recommended to use the same TLS/SSL certificate across all nodes of your AD FS farm and all Web Application proxy servers.
+* It's strongly recommended to use the same TLS/SSL certificate across all nodes of your AD FS farm and all Web Application proxy servers.
 * The certificate must be an X509 certificate.
 * You can use a self-signed certificate on federation servers in a test lab environment. However, for a production environment, we recommend that you obtain the certificate from a public CA.
   * If using a certificate that is not publicly trusted, ensure that the certificate installed on each Web Application Proxy server is trusted on both the local server and on all federation servers

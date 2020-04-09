@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 5d6ba2bd52d8f4af4244e8ce1babeb7bc9d37fe4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 326b79e1aca6fa82b3275249401c755428a8b71d
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235669"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878564"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Azure IoT Hub에 IoT DevKit AZ3166 연결
 
@@ -82,7 +82,13 @@ DevKit를 컴퓨터에 연결하려면 다음 단계를 수행합니다.
     ```
 
    > [!NOTE]
-   > 실행 중인 `device-identity`오류가 발생하면 자세한 내용은 [Azure CLI용 Azure IOT 확장을](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md) 설치합니다.
+   > 실행 중인 `device-identity`오류가 발생하면 [Azure CLI에 대한 Azure IoT 확장을](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md)설치합니다.
+   > 다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IoT 확장은 Azure CLI에 IoT Hub, IoT 에지 및 IoT 장치 프로비저닝 서비스(DPS)와 관련된 명령을 추가합니다.
+   > 
+   > ```azurecli-interactive
+   > az extension add --name azure-iot
+   >  ```
+   >
   
 1. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 장치에 대한 _장치 연결 문자열을_ 가져옵니다.
 

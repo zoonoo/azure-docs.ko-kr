@@ -2,22 +2,22 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/27/2020
+ms.date: 04/04/2020
 ms.topic: include
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 3481d751aacd4183bf5a999422b9631ec0e21edb
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 247b2a75af675c95745153e20b923d004a2f2f79
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78925601"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671732"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에:
 
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre" target="_blank">개발 환경용 Speech SDK를 설치하고 빈 샘플 프로젝트를 만듭니다<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java" target="_blank">개발 환경용 Speech SDK를 설치하고 빈 샘플 프로젝트를 만듭니다<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>의도 인식을 위한 LUIS 앱 만들기
 
@@ -41,7 +41,7 @@ ms.locfileid: "78925601"
 `main()`의 try/catch 블록에 이 코드를 삽입합니다. 다음 값을 업데이트해야 합니다.
 
 * `"YourLanguageUnderstandingSubscriptionKey"`를 LUIS 예측 키로 바꿉니다.
-* `"YourLanguageUnderstandingServiceRegion"`을 LUIS 위치로 바꿉니다. **지역**의 [영역 식별자](https://aka.ms/speech/sdkregion) 사용
+* `"YourLanguageUnderstandingServiceRegion"`을 LUIS 위치로 바꿉니다. [지역](https://aka.ms/speech/sdkregion)의 **영역 식별자** 사용
 
 >[!TIP]
 > 이러한 값을 찾는 데 도움이 필요한 경우 [의도 인식을 위한 LUIS 앱 만들기](#create-a-luis-app-for-intent-recognition)를 참조하세요.

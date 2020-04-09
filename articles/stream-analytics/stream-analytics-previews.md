@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 3e99263f6bf472c256e1747b8567249bbd62a445
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c265665be26dcc6868ea9a303b0c12c52dfe05b
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78969629"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878309"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics 미리 보기 기능
 
@@ -47,9 +47,9 @@ Visual Studio용 Azure Stream Analytics 도구에서 로컬 테스트를 수행�
 Azure Stream Analytics 작업은 Visual Studio Code에서 작성할 수 있습니다. 우리의 [VS 코드를 시작 자습서를](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code)참조하십시오 .
 
 
-### <a name="integration-with-azure-machine-learning"></a>Azure Machine Learning과 통합
+### <a name="real-time-high-performance-scoring-with-custom-ml-models-managed-by-azure-machine-learning"></a>Azure 기계 학습에서 관리하는 사용자 지정 ML 모델로 실시간 고성능 점수 매기기
 
-ML(Machine Learning) 함수로 Stream Analytics 작업을 확장할 수 있습니다. Stream Analytics 작업에서 ML 함수를 사용하는 방법에 대한 자세한 내용은 [Azure Machine Learning 함수를 사용하여 Stream Analytics 작업의 크기 조정](stream-analytics-scale-with-machine-learning-functions.md)을 참조하세요. [Azure Stream Analytics 및 Azure Machine Learning을 사용한 감정 분석 수행](stream-analytics-machine-learning-integration-tutorial.md)을 통해 실제 시나리오를 확인하세요.
+Azure Stream Analytics는 코드를 작성할 필요가 없는 워크플로를 사용하여 Azure Kubernetes 서비스(AKS) 또는 Azure 컨테이너 인스턴스(ACI)에서 호스팅되는 사용자 지정 사전 학습된 기계 학습 모델을 활용하여 고성능 실시간 채점을 지원합니다. 미리 보기 [등록](https://aka.ms/asapreview1)
 
 
 ### <a name="live-data-testing-in-visual-studio"></a>Visual Studio에서 실시간 데이터 테스트
@@ -64,10 +64,6 @@ Azure Stream Analytics용 Visual Studio 도구는 이벤트 허브 또는 IoT �
 ## <a name="other-previews"></a>기타 미리 보기
 
 다음 기능은 요청 시 미리 보기에서도 사용할 수 있습니다.
-
-### <a name="real-time-high-performance-scoring-with-custom-ml-models-managed-by-azure-machine-learning"></a>Azure 기계 학습에서 관리하는 사용자 지정 ML 모델로 실시간 고성능 점수 매기기
-
-Azure Stream Analytics는 워크플로우를 사용하여 Azure Kubernetes 서비스(AKS) 또는 ACI(Azure Kubernetes Service) 또는 ACI(Azure Kubernetes Service)에서 호스팅되는 사용자 지정 사전 학습된 기계 학습 모델을 활용하여 고성능 실시간 채점을 지원합니다. 코드를 작성할 필요가 없습니다. 미리 보기 [등록](https://aka.ms/asapreview1)
 
 ### <a name="support-for-azure-stack"></a>Azure 스택에 대한 지원
 Azure IoT Edge 런타임에서 활성화된 이 기능은 Azure 스택에서 실행되는 로컬 입력 및 출력에 대한 기본 지원과 같은 사용자 지정 Azure 스택 기능을 활용합니다(예: 이벤트 허브, IoT Hub, Blob 저장소). 이 새로운 통합을 통해 데이터가 생성된 위치에 가깝게 데이터를 분석하여 대기 시간을 줄이며 통찰력을 극대화할 수 있는 하이브리드 아키텍처를 구축할 수 있습니다.

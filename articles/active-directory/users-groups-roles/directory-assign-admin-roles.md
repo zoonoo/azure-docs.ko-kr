@@ -9,23 +9,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 02/28/2020
+ms.date: 04/07/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63e561ff1b976b3de993414607b694e621b1d536
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e097173712693754baab99912301c98ee336f64f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346957"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877918"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
 Azure Active Directory(Azure AD)를 사용하여 제한된 관리자를 지정하여 권한이 낮은 역할에서 ID 작업을 관리할 수 있습니다. 관리자를 사용자 추가 또는 변경, 관리 역할 할당, 사용자 암호 재설정, 사용자 라이선스 관리 및 도메인 이름 관리 등의 목적으로 관리자를 할당할 수 있습니다. 기본 사용자 권한은 Azure AD의 사용자 설정에서만 변경할 수 있습니다.
 
-## <a name="limit-the-use-of-global-administrator"></a>글로벌 관리자 사용 제한
+## <a name="limit-use-of-global-administrator"></a>글로벌 관리자 의 사용 제한
 
 전역 관리자 역할에 할당된 사용자는 Azure AD 조직의 모든 관리 설정을 읽고 수정할 수 있습니다. 기본적으로 Azure 구독에 가입하는 사용자에게 Azure AD 조직에 대한 글로벌 관리자 역할이 할당됩니다. 전역 관리자와 권한 있는 역할 관리자만 관리자 역할을 위임할 수 있습니다. 비즈니스의 위험을 줄이려면 조직에서 가능한 한 적은 수의 사람들에게 이 역할을 할당하는 것이 좋습니다.
 
@@ -70,7 +70,8 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="authentication-administrator"></a>[인증 관리자](#authentication-administrator-permissions)
 
-이 역할의 사용자는 암호가 아닌 자격 증명을 설정 또는 재설정하고, 암호를 업데이트하고, 기존 비암호 자격 증명(예: MFA 또는 FIDO)에 대해 다시 등록해야 하며, 관리자가 없거나 다음 역할만 할당된 사용자의 **장치에서 MFA 기억(다음** 로그인 시 MFA프롬프롬)을 취소할 수 있습니다.
+인증 관리자 역할은 현재 공개 미리 보기 상태입니다. 이 역할을 가진 사용자는 암호가 아닌 자격 증명을 설정하거나 재설정할 수 있으며 모든 사용자의 암호를 업데이트할 수 있습니다. 인증 관리자는 사용자가 기존 비암호 자격 증명(예: MFA 또는 FIDO)에 대해 다시 등록하고 **장치에서 MFA 를**기억하도록 요구할 수 있으며, 이는 관리자가 아닌 사용자의 다음 로그인시 MFA를 묻는 메시지가 표시되거나 다음 역할만 할당됨을 표시합니다.
+
 * 인증 관리자
 * 디렉터리 읽기 권한자
 * 게스트 초대자
@@ -113,7 +114,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="b2c-ief-policy-administrator"></a>[B2C IEF 정책 관리자](#b2c-ief-policy-administrator-permissions)
 
-이 역할의 사용자는 Azure AD B2C의 모든 사용자 지정 정책을 생성, 읽기, 업데이트 및 삭제할 수 있으므로 관련 Azure AD B2C 테넌트의 ID 환경 프레임워크를 완전히 제어할 수 있습니다. 정책을 편집하여 이 사용자는 외부 ID 공급자와 직접 페더레이션을 설정하고, 디렉터리 스키마를 변경하고, 모든 사용자 대면 콘텐츠(HTML, CSS, JavaScript)를 변경하고, 인증을 완료하기 위한 요구 사항을 변경하고, 새 사용자를 만들고, 보낼 수 있습니다. 전체 마이그레이션을 포함한 외부 시스템에 사용자 데이터를 저장하고 암호 및 전화 번호와 같은 중요한 필드를 포함한 모든 사용자 정보를 편집합니다. 반대로 이 역할은 암호화 키를 변경하거나 테넌트의 페더레이션에 사용되는 비밀을 편집할 수 없습니다.
+이 역할의 사용자는 Azure AD B2C의 모든 사용자 지정 정책을 생성, 읽기, 업데이트 및 삭제할 수 있으므로 관련 Azure AD B2C 테넌트의 ID 환경 프레임워크를 완전히 제어할 수 있습니다. 정책을 편집하면 이 사용자는 외부 ID 공급자와 직접 페더레이션을 설정하고, 디렉터리 스키마를 변경하고, 모든 사용자 대면 콘텐츠(HTML, CSS, JavaScript)를 변경하고, 인증을 완료하기 위한 요구 사항을 변경하고, 새 사용자를 만들고, 전체 마이그레이션을 포함한 외부 시스템에 사용자 데이터를 보내고, 암호 및 전화 번호와 같은 중요한 필드를 포함한 모든 사용자 정보를 편집할 수 있습니다. 반대로 이 역할은 암호화 키를 변경하거나 테넌트의 페더레이션에 사용되는 비밀을 편집할 수 없습니다.
 
 > [!IMPORTANT]
 > B2 IEF 정책 관리자는 프로덕션 환경에서 테넌테에 대해 매우 제한적으로 할당해야 하는 매우 민감한 역할입니다.이러한 사용자의 활동은 특히 프로덕션 환경에서 테넌티에 대해 면밀히 감사해야 합니다.
@@ -139,7 +140,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="compliance-administrator"></a>[규정 준수 관리자](#compliance-administrator-permissions)
 
-이 역할이 있는 사용자에게는 Microsoft 365 규정 준수 센터, Microsoft 365 관리 센터, Azure, Office 365 보안 및 준수 센터에서 규정 준수 관련 기능을 관리할 권한이 있습니다. 지정인은 Azure 및 Microsoft 365에 대한 지원 티켓을 만들 수도 있습니다. 자세한 내용은 [Office 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
+이 역할이 있는 사용자에게는 Microsoft 365 규정 준수 센터, Microsoft 365 관리 센터, Azure, Office 365 보안 및 준수 센터에서 규정 준수 관련 기능을 관리할 권한이 있습니다. 또한 담당자는 Exchange 관리자 센터 및 팀 & 비즈니스 용 Skype 관리 센터 내의 모든 기능을 관리하고 Azure 및 Microsoft 365에 대한 지원 티켓을 만들 수 있습니다. 자세한 내용은 [Office 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
 
 그런 다음 | 가능한 작업
 ----- | ----------
@@ -214,7 +215,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 이 관리자는 Azure Active Directory 테넌트와 외부 ID 공급자 간의 페더레이션을 관리합니다.이 역할을 통해 사용자는 새 ID 공급자를 추가하고 사용 가능한 모든 설정(예: 인증 경로, 서비스 ID, 할당된 키 컨테이너)을 구성할 수 있습니다.이 사용자는 테넌트가 외부 ID 공급자의 인증을 신뢰하도록 설정할 수 있습니다.최종 사용자 환경에 미치는 영향은 테넌트 유형에 따라 달라집니다.
 
 * 직원 및 파트너에 대한 Azure Active Directory 테넌트: 페더레이션(예: Gmail)을 추가하면 아직 사용하지 않은 모든 게스트 초대에 즉시 영향을 미칩니다. [B2B 게스트 사용자의 ID 공급자로 Google 추가를](https://docs.microsoft.com/azure/active-directory/b2b/google-federation)참조하십시오.
-* Azure Active Directory B2C 테넌트: 페이 스 북 또는 다른 Azure AD 조직과 페더레이션의 추가 는 ID 공급자가 사용자 흐름에 옵션으로 추가 될 때까지 최종 사용자 흐름에 즉시 영향을 미치지 않습니다 (기본 제공이라고도 함) 정책)을 참조하십시오. 예를 들어 [Microsoft 계정을 ID 공급자로](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) 구성참조하세요.사용자 흐름을 변경하려면 "B2C 사용자 흐름 관리자"의 제한된 역할이 필요합니다.
+* Azure Active Directory B2C 테넌트: 페이 스 북 또는 다른 Azure AD 조직과 페더레이션의 추가 는 ID 공급자가 사용자 흐름에 옵션으로 추가 될 때까지 최종 사용자 흐름에 즉시 영향을 미치지 않습니다 (기본 제공 정책이라고도 함). 예를 들어 [Microsoft 계정을 ID 공급자로](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) 구성참조하세요.사용자 흐름을 변경하려면 "B2C 사용자 흐름 관리자"의 제한된 역할이 필요합니다.
 
 ### <a name="global-administrator--company-administrator"></a>[글로벌 관리자 / 회사 관리자](#company-administrator-permissions)
 
@@ -764,7 +765,10 @@ Azure AD 및 Office 365에서 준수 구성 및 보고서를 읽고 관리할 �
 | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
 | microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Office 365 준수 관리자의 모든 측면을 관리합니다. |
+| microsoft.office365.exchange/allEntities/allTasks | Exchange Online의 모든 측면을 관리합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
+| microsoft.office365.sharepoint/allEntities/allTasks | microsoft.office365.sharepoint에서 모든 리소스를 만들고 삭제하고, 표준 속성을 읽고 업데이트합니다. |
+| microsoft.office365.skypeForBusiness/allEntities/allTasks | 비즈니스용 Skype Online의 모든 측면을 관리합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 
 ### <a name="compliance-data-administrator-permissions"></a>규정 준수 데이터 관리자 권한
@@ -784,7 +788,10 @@ Azure AD 및 Office 365에서 준수 구성 및 보고서를 읽고 관리할 �
 | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
 | microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Office 365 준수 관리자의 모든 측면을 관리합니다. |
+| microsoft.office365.exchange/allEntities/allTasks | Exchange Online의 모든 측면을 관리합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
+| microsoft.office365.sharepoint/allEntities/allTasks | microsoft.office365.sharepoint에서 모든 리소스를 만들고 삭제하고, 표준 속성을 읽고 업데이트합니다. |
+| microsoft.office365.skypeForBusiness/allEntities/allTasks | 비즈니스용 Skype Online의 모든 측면을 관리합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 
 ### <a name="conditional-access-administrator-permissions"></a>조건부 액세스 관리자 권한
@@ -1755,8 +1762,31 @@ Teams 서비스 관리자 | Teams 서비스 관리자 | 69091246-20e8-4a56-aa4d-
 * 사서함 관리자
 * 작업 공간 디바이스 연결
 
+## <a name="roles-not-shown-in-the-portal"></a>포털에 표시되지 않은 역할
+
+PowerShell 또는 MS 그래프 API에서 반환되는 모든 역할이 Azure 포털에 표시되는 것은 아닙니다. 다음 표는 이러한 차이점을 정리합니다.
+
+API 이름 | Azure 포털 이름 | 메모
+-------- | ------------------- | -------------
+회사 관리자 | 전역 관리자 | [더 나은 명확성을 위해 이름이 변경되었습니다.](directory-assign-admin-roles.md#role-template-ids)
+CRM 서비스 관리자 | 역학 365 관리자 | [현재 제품 브랜딩 반영](directory-assign-admin-roles.md#role-template-ids)
+디바이스 연결 | 사용되지 않음 | [더 이상 사용되지 않습니다.](directory-assign-admin-roles.md#deprecated-roles)
+디바이스 관리 | 사용되지 않음 | [더 이상 사용되지 않습니다.](directory-assign-admin-roles.md#deprecated-roles)
+디바이스 사용자 | 사용되지 않음 | [더 이상 사용되지 않습니다.](directory-assign-admin-roles.md#deprecated-roles)
+디렉터리 동기화 계정 | 사용하지 않아야 하기 때문에 표시되지 않음 | [디렉터리 동기화 계정 설명서](directory-assign-admin-roles.md#directory-synchronization-accounts)
+디렉터리 작성자 | 사용하지 않아야 하기 때문에 표시되지 않음 | [디렉터리 작성자 문서](directory-assign-admin-roles.md#directory-writers)
+게스트 사용자 | 사용할 수 없기 때문에 표시되지 않음  | 해당 없음
+Lync 서비스 관리자 | 비즈니스용 Skype 관리자 | [현재 제품 브랜딩 반영](directory-assign-admin-roles.md#role-template-ids)
+파트너 계층 1 지원 | 사용하지 않아야 하기 때문에 표시되지 않음 | [파트너 계층1 지원 문서](directory-assign-admin-roles.md#partner-tier1-support)
+파트너 계층 2 지원 | 사용하지 않아야 하기 때문에 표시되지 않음 | [파트너 계층2 지원 문서](directory-assign-admin-roles.md#partner-tier2-support)
+프린터 관리자 | 작업 진행 중 | 작업 진행 중
+프린터 기술자 | 작업 진행 중 | 작업 진행 중
+제한된 게스트 사용자 | 사용할 수 없기 때문에 표시되지 않음 | 해당 없음
+사용자 | 사용할 수 없기 때문에 표시되지 않음 | 해당 없음
+작업 공간 디바이스 연결 | 사용되지 않음 | [더 이상 사용되지 않습니다.](directory-assign-admin-roles.md#deprecated-roles)
+
 ## <a name="next-steps"></a>다음 단계
 
-* Azure 구독의 관리자로서 사용자를 할당하는 방법에 대해 자세히 알아보려면 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
-* Microsoft Azure에서 리소스 액세스를 제어하는 방법을 자세히 알아보려면 [Azure에서 리소스 액세스 이해](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+* Azure 구독의 관리자로 사용자를 할당하는 방법에 대해 자세히 알아보려면 [Azure 역할을 사용하여 액세스 관리(Azure RBAC)를](../../role-based-access-control/role-assignments-portal.md) 참조하세요.
+* Microsoft Azure에서 리소스 액세스를 제어하는 방법에 대해 자세히 알아보려면 [다양한 역할 이해하기를](../../role-based-access-control/rbac-and-directory-admin-roles.md) 참조하십시오.
 * Azure 구독에 Azure Active Directory가 연결되는 방법에 대한 자세한 내용은 [Azure 구독을 Azure Active Directory에 연결하는 방법](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

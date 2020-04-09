@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 04/07/2020
 ms.author: juliako
-ms.openlocfilehash: 11123ee04dd02a60dff0b88e2e6e85fcd613a7d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a4f4bd6eaa07907dd672abe068b515b5127adac9
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80068004"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886826"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>미디어 서비스 v3 자주 묻는 질문
 
@@ -40,7 +40,7 @@ Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분�
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>비디오 처리에 권장하는 방법은 무엇입니까?
 
-[Transforms](https://docs.microsoft.com/rest/api/media/transforms)는 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성하는 데 사용할 수 있습니다. 각 **변환**은 비디오 또는 오디오 파일을 처리하는 작업의 작성법 또는 워크플로를 설명합니다. [작업은](https://docs.microsoft.com/rest/api/media/jobs) 지정된 입력 비디오 또는 오디오 콘텐츠에 **변환을** 적용하기 위해 미디어 서비스에 대한 실제 요청입니다. 변환을 만든 후에는 Media Services API 또는 게시된 SDK를 사용하여 작업을 제출할 수 있습니다. 자세한 내용은 [변환 및 작업](transforms-jobs-concept.md)을 참조하십시오.
+[Transforms](https://docs.microsoft.com/rest/api/media/transforms)는 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성하는 데 사용할 수 있습니다. 각 **변환**은 비디오 또는 오디오 파일을 처리하는 작업의 작성법 또는 워크플로를 설명합니다. [작업은](https://docs.microsoft.com/rest/api/media/jobs) 지정된 입력 비디오 또는 오디오 콘텐츠에 **변환을** 적용하기 위해 미디어 서비스에 대한 실제 요청입니다. 변환을 만든 후에는 Media Services API 또는 게시된 SDK를 사용하여 작업을 제출할 수 있습니다. 자세한 내용은 [Transform 및 Jobs](transforms-jobs-concept.md)를 참조하세요.
 
 ### <a name="i-uploaded-encoded-and-published-a-video-what-would-be-the-reason-the-video-does-not-play-when-i-try-to-stream-it"></a>비디오를 업로드, 인코딩 및 게시합니다. 스트리밍하려고 할 때 어떤 이유로 비디오가 재생되지 않는 걸까요?
 
@@ -166,6 +166,112 @@ Media Services를 Storage SDK 종속성과 분리하기 위해 AssetFiles가 AMS
 ### <a name="where-did-client-side-storage-encryption-go"></a>클라이언트 쪽 스토리지 암호화는 어디에 있나요?
 
 이제 서버 쪽 스토리지 암호화(기본적으로 설정됨)를 사용하는 것이 좋습니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 참조하세요.
+
+## <a name="offline-streaming"></a>오프라인 스트리밍
+
+### <a name="fairplay-streaming-for-ios"></a>iOS용 페어플레이 스트리밍
+
+다음 자주 묻는 질문은 iOS용 오프라인 FairPlay 스트리밍 문제 해결에 대한 지원을 제공합니다.
+
+#### <a name="why-does-only-audio-play-but-not-video-during-offline-mode"></a>왜 오프라인 모드에서는 오디오만 재생되고 비디오는 재생되지 않나요?
+
+이 동작은 의도적으로 샘플 앱의 것입니다. 오프라인 모드에서 대체 오디오 트랙(HLS의 경우)이 있는 경우 iOS 10과 iOS 11이 대체 오디오 트랙으로 기본설정됩니다. FPS 오프라인 모드에 대한 이 동작을 보정하려면 스트림에서 대체 오디오 트랙을 제거합니다. Media Services에서 이를 실행하기 위해 동적 매니페스트 필터 "audio-only=false"를 추가합니다. 즉, HLS URL은 .ism/manifest(format=m3u8-aapl,audio-only=false)로 끝납니다. 
+
+#### <a name="why-does-it-still-play-audio-only-without-video-during-offline-mode-after-i-add-audio-onlyfalse"></a>audio-only=false를 추가한 후에도 왜 여전히 오프라인 모드에서 동영상 없이 오디오만 재생되나요?
+
+CDN(콘텐츠 배달 네트워크) 캐시 키 디자인에 따라, 콘텐츠가 캐시될 수 있습니다. 캐시를 제거합니다.
+
+#### <a name="is-fps-offline-mode-also-supported-on-ios-11-in-addition-to-ios-10"></a>FPS 오프라인 모드 또한 iOS 10 외에도 iOS 11에서 지원됩니까?
+
+예. FPS 오프라인 모드는 iOS 10과 iOS 11 모두에서 지원됩니다.
+
+#### <a name="why-cant-i-find-the-document-offline-playback-with-fairplay-streaming-and-http-live-streaming-in-the-fps-server-sdk"></a>FPS Server SDK에서 “FairPlay 스트리밍 및 HTTP 라이브 스트리밍을 사용하여 오프라인 재생” 문서를 찾을 수 없는 이유는 무엇인가요?
+
+FPS Server SDK 버전 4부터 이 문서는 “FairPlay Streaming Programming Guide”에 병합되었습니다.
+
+#### <a name="what-is-the-downloadedoffline-file-structure-on-ios-devices"></a>iOS 디바이스에서 다운로드된/오프라인 파일 구조체는 무엇입니까?
+
+iOS 디바이스에 다운로드된 파일 구조체는 다음 스크린샷과 같습니다. `_keys` 폴더에는 다운로드된 FPS 라이선스가 저징됩니다(각 라이선스 서비스 호스트당 하나의 저장소 파일). `.movpkg` 폴더에는 오디오 및 동영상 콘텐츠가 저장됩니다. 대시에 이어 숫자로 끝나는 이름의 첫 번째 폴더는 동영상 콘텐츠를 포함합니다. 숫자 값은 동영상 변환의 PeakBandwidth입니다. 대시에 이어 0으로 끝나는 이름의 두 번째 폴더는 오디오 콘텐츠를 포함합니다. "Data"라는 이름의 세 번째 폴더는 FPS 콘텐츠의 마스터 재생 목록을 포함합니다. 마지막으로, boot.xml은 `.movpkg` 폴더 내용에 대한 전체 설명을 제공합니다. 
+
+![오프라인 FairPlay iOS 샘플 앱 파일 구조체](media/offline-fairplay-for-ios/offline-fairplay-file-structure.png)
+
+샘플 boot.xml 파일:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<HLSMoviePackage xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://apple.com/IMG/Schemas/HLSMoviePackage" xsi:schemaLocation="http://apple.com/IMG/Schemas/HLSMoviePackage /System/Library/Schemas/HLSMoviePackage.xsd">
+  <Version>1.0</Version>
+  <HLSMoviePackageType>PersistedStore</HLSMoviePackageType>
+  <Streams>
+    <Stream ID="1-4DTFY3A3VDRCNZ53YZ3RJ2NPG2AJHNBD-0" Path="1-4DTFY3A3VDRCNZ53YZ3RJ2NPG2AJHNBD-0" NetworkURL="https://willzhanmswest.streaming.mediaservices.windows.net/e7c76dbb-8e38-44b3-be8c-5c78890c4bb4/MicrosoftElite01.ism/QualityLevels(127000)/Manifest(aac_eng_2_127,format=m3u8-aapl)">
+      <Complete>YES</Complete>
+    </Stream>
+    <Stream ID="0-HC6H5GWC5IU62P4VHE7NWNGO2SZGPKUJ-310656" Path="0-HC6H5GWC5IU62P4VHE7NWNGO2SZGPKUJ-310656" NetworkURL="https://willzhanmswest.streaming.mediaservices.windows.net/e7c76dbb-8e38-44b3-be8c-5c78890c4bb4/MicrosoftElite01.ism/QualityLevels(161000)/Manifest(video,format=m3u8-aapl)">
+      <Complete>YES</Complete>
+    </Stream>
+  </Streams>
+  <MasterPlaylist>
+    <NetworkURL>https://willzhanmswest.streaming.mediaservices.windows.net/e7c76dbb-8e38-44b3-be8c-5c78890c4bb4/MicrosoftElite01.ism/manifest(format=m3u8-aapl,audio-only=false)</NetworkURL>
+  </MasterPlaylist>
+  <DataItems Directory="Data">
+    <DataItem>
+      <ID>CB50F631-8227-477A-BCEC-365BBF12BCC0</ID>
+      <Category>Playlist</Category>
+      <Name>master.m3u8</Name>
+      <DataPath>Playlist-master.m3u8-CB50F631-8227-477A-BCEC-365BBF12BCC0.data</DataPath>
+      <Role>Master</Role>
+    </DataItem>
+  </DataItems>
+</HLSMoviePackage>
+```
+
+### <a name="widevine-streaming-for-android"></a>안드로이드에 대한 와이드 스트리밍
+
+#### <a name="how-can-i-deliver-persistent-licenses-offline-enabled-for-some-clientsusers-and-non-persistent-licenses-offline-disabled-for-others-do-i-have-to-duplicate-the-content-and-use-separate-content-key"></a>일부 클라이언트/사용자에게는 영구 라이선스(오프라인 사용 가능)를 제공하고 일부에게는 비영구 라이선스(오프라인 사용 불가)를 제공하려면 어떻게 해야 하나요? 콘텐츠를 복제하고 별도 콘텐츠 키를 사용해야 하나요?
+
+Media Services v3에서는 자산에 여러 StreamingLocator가 포함될 수 있기 때문입니다. 다음을 유지할 수 있습니다.
+
+* license_type = "persistent"인 하나의 ContentKeyPolicy, "persistent"에 대한 클레임이 있는 ContentKeyPolicyRestriction 및 해당 StreamingLocator
+* license_type = "nonpersistent"인 다른 ContentKeyPolicy, "nonpersistent"에 대한 클레임이 있는 ContentKeyPolicyRestriction 및 해당 StreamingLocator
+* 두 StreamingLocator의 ContentKey가 다릅니다.
+
+사용자 지정 STS의 비즈니스 논리에 따라 JWT 토큰에서 다른 클레임이 발급됩니다. 이 토큰을 사용하여 해당 라이선스만 가져올 수 있고 해당 URL만 재생할 수 있습니다.
+
+#### <a name="what-is-the-mapping-between-the-widevine-and-media-services-drm-security-levels"></a>와이드바인과 미디어 서비스 DRM 보안 수준 간의 매핑은 무엇입니까?
+
+Google의 "와이드바인 DRM 아키텍처 개요"는 세 가지 보안 수준을 정의합니다. 그러나 [Widevine 라이선스 템플릿에 대한 Azure Media Services 설명서](widevine-license-template-overview.md)에는 5개의 보안 수준이 설명되어 있습니다. 이 섹션에서는 보안 수준이 매핑되는 방법을 설명합니다.
+
+Google의 "와이드바인 DRM 아키텍처 검토" 문서는 다음과 같은 세 가지 보안 수준을 정의합니다.
+
+* 보안 수준 1: 모든 콘텐츠 처리, 암호화 및 제어가 TEE(신뢰할 수 있는 실행 환경)에서 수행됩니다. 일부 구현 모델에서 보안 처리는 다른 칩에서 수행될 수 있습니다.
+* 보안 수준 2: TEE 내에서 암호화(비디오 처리는 아님)를 수행합니다. 암호 해독된 버퍼는 애플리케이션 도메인으로 반환되고 별도의 비디오 하드웨어 또는 소프트웨어를 통해 처리됩니다. 그러나 수준 2에서 암호화 정보는 여전히 TEE 내에서만 처리됩니다.
+* 보안 수준 3: 디바이스에 TEE가 없습니다. 호스트 운영 체제의 암호화 정보 및 암호 해독된 콘텐츠를 보호하기 위해 적절한 조치가 수행될 수 있습니다. 수준 3 구현에도 하드웨어 암호화 엔진이 포함될 수 있지만 보안이 아닌 성능만 향상시킵니다.
+
+동시에, [Widevine 라이선스 템플릿에 대한 Azure Media Services 설명서](widevine-license-template-overview.md)에서 content_key_specs의 security_level 속성은 다음과 같은 5가지 값(재생을 위한 클라이언트 견고성 요구 사항)을 가질 수 있습니다.
+
+* 소프트웨어 기반 화이트 박스 암호화가 필요합니다.
+* 소프트웨어 암호화 및 난독 처리된 디코더가 필요합니다.
+* 하드웨어 기반의 TEE에서 키 자료 및 암호화 작업을 수행해야 합니다.
+* 하드웨어 기반의 TEE에서 콘텐츠의 암호화 및 디코딩을 수행해야 합니다.
+* 하드웨어 기반의 TEE에서 미디어의 암호화, 디코딩 및 모든 처리(압축 및 압축 해제)를 수행해야 합니다.
+
+두 보안 수준은 Google Widevine에 의해 정의됩니다. 차이점은 사용 수준이 아키텍처 수준인지 또는 API 수준인지 입니다. 5가지 보안 수준은 Widevine API에서 사용됩니다. security_level을 포함하는 content_key_specs 개체는 Azure Media Services Widevine 라이선스 서비스에 의해 역직렬화된 후 Widevine 전역 배달 서비스로 전달됩니다. 아래 표에서는 두 보안 수준 집합 간의 매핑을 보여 줍니다.
+
+| **Widevine 아키텍처에 정의되는 보안 수준** |**Widevine API에서 사용되는 보안 수준**|
+|---|---| 
+| **보안 수준 1**: 모든 콘텐츠 처리, 암호화 및 제어는 신뢰할 수 있는 실행 환경(TEE) 내에서 수행됩니다. 일부 구현 모델에서 보안 처리는 다른 칩에서 수행될 수 있습니다.|**보안 수준 5**: 하드웨어 기반의 신뢰할 수 있는 실행 환경에서 미디어의 암호화, 디코딩 및 모든 처리(압축 및 압축 해제)를 수행해야 합니다.<br/><br/>**보안 수준 4**: 하드웨어 기반의 신뢰할 수 있는 실행 환경에서 콘텐츠의 암호화 및 디코딩을 수행해야 합니다.|
+**보안 수준 2**: TEE 내에서 암호화(비디오 처리는 아님)를 수행합니다. 암호 해독된 버퍼는 애플리케이션 도메인으로 반환되고 별도의 비디오 하드웨어 또는 소프트웨어를 통해 처리됩니다. 그러나 수준 2에서 암호화 정보는 여전히 TEE 내에서만 처리됩니다.| **보안 수준 3**: 하드웨어 기반의 신뢰할 수 있는 실행 환경에서 키 자료 및 암호화 작업을 수행해야 합니다. |
+| **보안 수준 3**: 디바이스에 TEE가 없습니다. 호스트 운영 체제의 암호화 정보 및 암호 해독된 콘텐츠를 보호하기 위해 적절한 조치가 수행될 수 있습니다. 수준 3 구현에도 하드웨어 암호화 엔진이 포함될 수 있지만 보안이 아닌 성능만 향상시킵니다. | **security_level =2**: 소프트웨어 암호 및 난독 처리 된 디코더가 필요합니다.<br/><br/>**security_level =1**: 소프트웨어 기반 화이트 박스 암호화가 필요합니다.|
+
+#### <a name="why-does-content-download-take-so-long"></a>콘텐츠 다운로드 시간이 너무 오래 걸리는 이유는 무엇인가요?
+
+다운로드 속도를 개선하는 방법으로는 다음 두 가지가 있습니다.
+
+* 최종 사용자가 콘텐츠 다운로드를 위해 원본/스트리밍 엔드포인트 대신, CDN에 연결하기 쉽도록 CDN을 사용하도록 설정합니다. 사용자가 스트리밍 엔드포인트에 도달하는 경우 각 HLS 세그먼트 또는 DASH 조각이 동적으로 패키지되고 암호화됩니다. 이러한 대기 시간이 각 세그먼트/조각에 대해 밀리초 규모에 불과하지만, 1시간짜리 비디오가 있는 경우 누적된 대기 시간 때문에 다운로드가 더 오래 걸릴 수 있습니다.
+* 최종 사용자에게 모든 콘텐츠가 아닌, 비디오 화질 계층 및 오디오 트랙만 선택적으로 다운로드하는 옵션을 제공합니다. 오프라인 모드에서는 모든 화질 계층을 다운로드할 수 있는 시점이 없습니다. 두 가지 방법으로 이 작업을 수행할 수 있습니다.
+
+   * 클라이언트 제어: 비디오 화질 계층 및 다운로드할 오디오 트랙을 플레이어 앱이 자동으로 선택하도록 하거나 사용자가 선택하도록 합니다.
+   * 서비스 제어: Azure Media Services의 동적 매니페스트 기능으로 (전역) 필터를 만들어, HLS 재생 목록 또는 DASH MPD를 단일 비디오 화질 계층 및 선택한 오디오 트랙으로 제한할 수 있습니다. 그러면 최종 사용자에게 표시되는 다운로드 URL에 이 필터가 포함됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

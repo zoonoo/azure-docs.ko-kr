@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 194da036260a78b27748dfc7f755212ab4f30b1e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae5d5f2d282c546f5172ca1c8cb0e420d3b6e96b
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78256024"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878054"
 ---
 # <a name="known-issuesmigration-limitations-with-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에서 MongoDB에 대한 Azure 코스모스 DB의 API로 마이그레이션하는 알려진 문제/마이그레이션 제한
 
@@ -45,7 +45,7 @@ MongoDB에서 MongoDB에 대한 코스모스 DB의 API로의 마이그레이션�
 
 | 원인         | 해결 방법 |
 | ------------- | ------------- |
-| 지원되지 않는 버전의 MongoDB에서 Azure 코스모스 DB로 마이그레이션하려고 합니다. | 새 버전의 MongoDB가 릴리스되면 Azure 데이터베이스 마이그레이션 서비스와의 호환성을 보장하기 위해 테스트되고 서비스가 주기적으로 업데이트되어 최신 버전을 수락합니다. 즉시 마이그레이션해야 하는 경우 해결 해결 으로 데이터베이스/컬렉션을 Azure Storage및 소스의 결과 덤프에 대한 지점을 내보낼 수 있습니다. 저장소 탐색기에서 Blob 컨테이너에 SAS를 만든 다음 컨테이너 SAS 정보가 있는 URL을 소스 세부 정보 연결 문자열로 사용합니다.<br><br> |
+| 지원되지 않는 버전의 MongoDB에서 Azure 코스모스 DB로 마이그레이션하려고 합니다. | 새 버전의 MongoDB가 릴리스되면 Azure 데이터베이스 마이그레이션 서비스와의 호환성을 보장하기 위해 테스트되고 서비스가 주기적으로 업데이트되어 최신 버전을 수락합니다. 즉시 마이그레이션해야 하는 경우 해결 해결 으로 데이터베이스/컬렉션을 Azure Storage로 내보낸 다음 결과 덤프에 소스를 가리킬 수 있습니다. 저장소 탐색기에서 Blob 컨테이너에 SAS를 만든 다음 컨테이너 SAS 정보가 있는 URL을 소스 세부 정보 연결 문자열로 사용합니다.<br><br> |
 
 ## <a name="next-steps"></a>다음 단계
 

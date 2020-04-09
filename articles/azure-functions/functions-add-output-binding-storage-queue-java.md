@@ -6,12 +6,12 @@ ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
 zone_pivot_groups: java-build-tools-set
-ms.openlocfilehash: 8ae69bfa7ed00e310205332e05c071158c5fc9a3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d9815fd27a57acc8b418962e610d2ae1c106edde
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78272798"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673275"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Java 함수를 Azure Storage에 연결
 
@@ -37,77 +37,13 @@ ms.locfileid: "78272798"
 
 ## <a name="add-an-output-binding"></a>출력 바인딩 추가
 
-Java 프로젝트에서 바인딩은 함수 메서드의 바인딩 주석으로 정의됩니다. 그런 다음, *function.json* 파일은 이러한 주석을 기반으로 자동으로 생성됩니다.
-
-_src/main/java_에서 함수 코드의 위치로 이동하여 *Function.java* 프로젝트 파일을 열고, 다음 매개 변수를 `run` 메서드 정의에 추가합니다.
-
-```java
-@QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") OutputBinding<String> msg
-```
-
-`msg` 매개 변수는 [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) 형식이며, 함수가 완료될 때 출력 바인딩에 메시지로 작성되는 문자열의 컬렉션을 나타냅니다. 이 경우 출력은 `outqueue`라는 스토리지 큐입니다. 스토리지 계정에 대한 연결 문자열은 `connection` 메서드로 설정됩니다. 연결 문자열 자체 대신 스토리지 계정 연결 문자열을 포함하는 애플리케이션 설정을 전달합니다.
-
-`run` 메서드 정의는 이제 다음 예제와 같이 표시됩니다.  
-
-```java
-@FunctionName("HttpTrigger-Java")
-public HttpResponseMessage run(
-        @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION)  
-        HttpRequestMessage<Optional<String>> request, 
-        @QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") 
-        OutputBinding<String> msg, final ExecutionContext context) {
-    ...
-}
-```
+[!INCLUDE [functions-add-output-binding-java-cli](../../includes/functions-add-output-binding-java-cli.md)]
 
 ## <a name="add-code-that-uses-the-output-binding"></a>출력 바인딩을 사용하는 코드 추가
 
-이제 새 `msg` 매개 변수를 사용하여 함수 코드에서 출력 바인딩에 쓸 수 있습니다. 성공 응답 앞에 다음 코드 줄을 추가하여 `name` 값을 `msg` 출력 바인딩에 추가합니다.
+[!INCLUDE [functions-add-output-binding-java-code](../../includes/functions-add-output-binding-java-code.md)]
 
-```java
-msg.setValue(name);
-```
-
-출력 바인딩을 사용하면 인증하거나, 큐 참조를 가져오거나, 데이터를 쓰는 데 Azure Storage SDK 코드를 사용할 필요가 없습니다. Functions 런타임 및 큐 출력 바인딩이 이러한 작업을 알아서 처리합니다.
-
-이제 `run` 메서드는 다음 예제와 같이 표시됩니다.
-
-```java
-@FunctionName("HttpTrigger-Java")
-public HttpResponseMessage run(
-        @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request, 
-        @QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") 
-        OutputBinding<String> msg, final ExecutionContext context) {
-    context.getLogger().info("Java HTTP trigger processed a request.");
-
-    // Parse query parameter
-    String query = request.getQueryParameters().get("name");
-    String name = request.getBody().orElse(query);
-
-    if (name == null) {
-        return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("Please pass a name on the query string or in the request body").build();
-    } else {
-        // Write the name to the message queue. 
-        msg.setValue(name);
-
-        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
-    }
-}
-```
-
-## <a name="update-the-tests"></a>테스트 업데이트
-
-또한 원형은 테스트 세트를 만들기 때문에 `msg` 메서드 시그니처에서 새 `run` 매개 변수를 처리하도록 이러한 테스트를 업데이트해야 합니다.  
-
-_src/test/java_에서 테스트 코드의 위치로 이동하여 *Function.java* 프로젝트 파일을 열고, `//Invoke` 아래의 코드 줄을 다음 코드로 바꿉니다.
-
-```java
-@SuppressWarnings("unchecked")
-final OutputBinding<String> msg = (OutputBinding<String>)mock(OutputBinding.class);
-
-// Invoke
-final HttpResponseMessage ret = new Function().run(req, msg, context);
-``` 
+[!INCLUDE [functions-add-output-binding-java-test-cli](../../includes/functions-add-output-binding-java-test-cli.md)]
 
 이제 새 출력 바인딩을 로컬로 사용해 볼 준비가 되었습니다.
 
@@ -115,19 +51,17 @@ final HttpResponseMessage ret = new Function().run(req, msg, context);
 
 이전과 마찬가지로 다음 명령을 사용하여 프로젝트를 빌드하고 로컬로 Functions 런타임을 시작합니다.
 
-::: zone pivot="java-build-tools-maven"  
+# <a name="maven"></a>[Maven](#tab/maven)
 ```bash
 mvn clean package 
 mvn azure-functions:run
 ```
-::: zone-end
-
-::: zone pivot="java-build-tools-gradle"  
+# <a name="gradle"></a>[Gradle](#tab/gradle) 
 ```bash
 gradle jar --info
 gradle azureFunctionsRun
 ```
-::: zone-end
+---
 
 > [!NOTE]  
 > host.json에서 확장 번들을 사용하도록 설정했으므로 시작 시 [Storage 바인딩 확장](functions-bindings-storage-blob.md#add-to-your-functions-app)이 다른 Microsoft 바인딩 확장과 함께 자동으로 다운로드되어 설치되었습니다.
@@ -150,17 +84,15 @@ curl -w "\n" http://localhost:7071/api/HttpTrigger-Java --data AzureFunctions
 
 게시된 앱을 업데이트하려면 다음 명령을 다시 실행합니다.  
 
-::: zone pivot="java-build-tools-maven"  
+# <a name="maven"></a>[Maven](#tab/maven)  
 ```bash
 mvn azure-functions:deploy
 ```
-::: zone-end
-
-::: zone pivot="java-build-tools-gradle"  
+# <a name="gradle"></a>[Gradle](#tab/gradle)  
 ```bash
 gradle azureFunctionsDeploy
 ```
-::: zone-end
+---
 
 마찬가지로 cURL을 사용하여 배포된 함수를 테스트할 수 있습니다. 이전과 마찬가지로 다음 예제와 같이 POST 요청의 본문에 있는 `AzureFunctions` 값을 URL에 전달합니다.
 

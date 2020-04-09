@@ -1,28 +1,23 @@
 ---
-title: Microsoft ID 플랫폼 범위, 권한 및 동의 | 마이크로 소프트 문서
+title: Microsoft ID 플랫폼 범위, 권한 및 동의
 description: 범위, 사용 권한 및 동의를 포함하여 Microsoft ID 플랫폼 끝점에서 권한 부여에 대한 설명입니다.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: f4b51641ed6bd7317060b567cf839775be426ac8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55055f65e1b725e079b60e960837e05558ef08d6
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80050044"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886214"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트의 권한 및 동의
 
@@ -199,7 +194,7 @@ Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 �
 ```
 
 
-| 매개 변수        | 조건        | 설명                                                                                |
+| 매개 변수        | 조건        | Description                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
 | `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. GUID 또는 친숙한 이름 형식으로 제공될 수 있으며, 예제와 같이 조직에서 일반적으로 참조할 수 있습니다. 개인 계정은 테넌트의 컨텍스트를 제외하고 관리자동의를 제공할 수 없으므로 '일반'을 사용하지 마십시오. 테넌트를 관리하는 개인 계정과의 최상의 호환성을 보장하려면 가능하면 테넌트 ID를 사용하십시오. |
 | `client_id` | 필수 | Azure 포털 - 앱 [등록이](https://go.microsoft.com/fwlink/?linkid=2083908) 앱에 할당된 응용 **프로그램(클라이언트) ID입니다.** |

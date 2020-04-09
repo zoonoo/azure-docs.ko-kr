@@ -5,25 +5,27 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 07/31/2019
-ms.openlocfilehash: f5944accb185f1311c811cf65a8ea8348fd569db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: 065bbc62d65d7e91728b10cd9f95b2e73ea03abc
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77605617"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878734"
 ---
-# <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>논리 앱 리소스를 다른 Azure 구독, 리소스 그룹 또는 리전으로 이동
+# <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>논리 앱 리소스를 다른 Azure 리소스 그룹, 지역 또는 구독으로 이동
 
-논리 앱 또는 관련 리소스를 다른 Azure 구독, 리소스 그룹 또는 리전으로 마이그레이션하려면 Azure 포털, Azure PowerShell, Azure CLI 및 REST API와 같은 다양한 방법으로 이러한 작업을 완료할 수 있습니다. 리소스를 이동하기 전에 다음 사항을 검토합니다. 
+논리 앱 또는 관련 리소스를 다른 Azure 리소스 그룹, 지역 또는 구독으로 마이그레이션하려면 Azure 포털, Azure PowerShell, Azure CLI 및 REST API와 같은 다양한 방법으로 이러한 작업을 완료할 수 있습니다. 리소스를 이동하기 전에 다음 사항을 검토합니다. 
 
 * Azure 리소스 그룹 또는 구독 간에 [특정 논리 앱 리소스 유형만](../azure-resource-manager/management/move-support-resources.md#microsoftlogic) 이동할 수 있습니다.
 
 * Azure 구독 및 각 Azure 리전에서 가질 수 있는 논리 앱 리소스 수에 대한 [제한을](../logic-apps/logic-apps-limits-and-config.md) 확인합니다. 이러한 제한은 지역이 구독 또는 리소스 그룹 간에 동일하게 유지될 때 특정 리소스 유형을 이동할 수 있는지 여부에 영향을 미칩니다. 예를 들어 각 Azure 구독의 각 Azure 지역에 대해 하나의 프리 계층 통합 계정만 가질 수 있습니다.
 
+* 리소스를 이동하면 Azure에서 새 리소스 를 만듭니다. 따라서 새 아이디를 대신 사용하고 이동된 리소스와 연결된 스크립트 나 도구를 업데이트해야 합니다.
+
 * 구독, 리소스 그룹 또는 지역 간에 논리 앱을 마이그레이션한 후 OAuth(개방형 인증)가 필요한 연결을 다시 만들거나 다시 인증해야 합니다.
 
-* 리소스를 이동할 때마다 Azure는 새 리소스 를 만듭니다. 따라서 새 아이디를 대신 사용하고 이동된 리소스와 연결된 스크립트 나 도구를 업데이트해야 합니다.
+* [ISE(통합 서비스 환경)를](connect-virtual-network-vnet-isolated-environment-overview.md) 동일한 Azure 지역 또는 Azure 구독에 있는 다른 리소스 그룹으로만 이동할 수 있습니다. ISE를 다른 Azure 지역 또는 Azure 구독에 있는 리소스 그룹으로 이동할 수 없습니다. 또한 이러한 이동 후에는 논리 앱 워크플로, 통합 계정, 연결 등에서 ISE에 대한 모든 참조를 업데이트해야 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -53,7 +55,7 @@ ms.locfileid: "77605617"
 
 ## <a name="move-resources-between-resource-groups"></a>리소스 그룹 간에 리소스 이동
 
-논리 앱 또는 통합 계정과 같은 리소스를 다른 Azure 리소스 그룹으로 이동하려면 Azure 포털, Azure PowerShell, Azure CLI 또는 REST API를 사용할 수 있습니다. 이 단계는 리소스의 영역이 동일하게 유지될 때 사용할 수 있는 Azure 포털을 다룹니다. 다른 단계 및 일반 준비는 [리소스를 새 리소스 그룹 또는 구독으로 이동을](../azure-resource-manager/management/move-resource-group-and-subscription.md)참조하십시오.
+논리 앱, 통합 계정 또는 [ISE(통합 서비스 환경)와](connect-virtual-network-vnet-isolated-environment-overview.md)같은 리소스를 다른 Azure 리소스 그룹으로 이동하려면 Azure 포털, Azure PowerShell, Azure CLI 또는 REST API를 사용할 수 있습니다. 이 단계는 리소스의 영역이 동일하게 유지될 때 사용할 수 있는 Azure 포털을 다룹니다. 다른 단계 및 일반 준비는 [리소스를 새 리소스 그룹 또는 구독으로 이동을](../azure-resource-manager/management/move-resource-group-and-subscription.md)참조하십시오.
 
 실제로 그룹 간에 리소스를 이동하기 전에 리소스를 다른 그룹으로 성공적으로 이동할 수 있는지 여부를 테스트할 수 있습니다. 자세한 내용은 [이동 유효성 검사](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move)를 참조하십시오.
 
@@ -86,7 +88,7 @@ ms.locfileid: "77605617"
 * [Azure 논리 앱에 대한 Azure 리소스 관리자 템플릿 만들기](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
 * [Azure 논리 앱에 대한 Azure 리소스 관리자 템플릿 배포](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
 
-### <a name="related-resources"></a>관련 리소스
+### <a name="related-resources"></a>관련 참고 자료
 
 Azure의 온-프레미스 데이터 게이트웨이 리소스와 같은 일부 Azure 리소스는 해당 리소스를 사용하는 논리 앱과 다른 지역에 존재할 수 있습니다. 그러나 연결된 통합 계정과 같은 다른 Azure 리소스는 논리 앱과 동일한 지역에 있어야 합니다. 시나리오에 따라 논리 앱이 앱이 동일한 지역에 존재할 것으로 예상되는 리소스에 액세스할 수 있는지 확인합니다.
 

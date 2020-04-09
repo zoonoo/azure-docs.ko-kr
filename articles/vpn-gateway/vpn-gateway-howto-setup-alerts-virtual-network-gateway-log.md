@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: b587fa31f1aa42e8dbd5a9d2430c0117891f2091
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 49510b26e0b2a9c69dd65faf0f343e86d1a068db
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239779"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878904"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>VPN 게이트웨이에서 진단 로그 이벤트에 대한 경고 설정
 
@@ -26,7 +26,7 @@ ms.locfileid: "80239779"
 |TunnelDiagnosticLog | 터널 상태 변경 이벤트를 포함합니다. 터널 연결/연결 해제 이벤트에해당하는 경우 상태 변경에 대한 요약된 이유가 있습니다. |
 |RouteDiagnosticLog | 게이트웨이에서 발생하는 정적 경로 및 BGP 이벤트에 대한 로그 변경 내용 |
 |IKEDiagnosticLog | 게이트웨이에서 IKE 제어 메시지 및 이벤트를 기록합니다. |
-|P2SDiagnosticLog | 게이트웨이에서 지점 간 제어 메시지 및 이벤트를 기록합니다. |
+|P2SDiagnosticLog | 게이트웨이에서 지점 간 제어 메시지 및 이벤트를 기록합니다. IKEv2 연결에 대해서만 연결 소스 정보가 제공됩니다. |
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a><a name="setup"></a>Azure Portal에서 경고 설정
 

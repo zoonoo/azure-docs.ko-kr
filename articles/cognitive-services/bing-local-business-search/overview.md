@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: overview
-ms.date: 11/29/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 4e08596e8cf71bbb0e88abdc51f5d8e69972464d
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 0006761126eb1d561da7eeff97e8a9928d62ddb0
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74665258"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478941"
 ---
 # <a name="what-is-bing-local-business-search"></a>Bing Local Business Search란?
 Bing Local Business Search API는 애플리케이션에서 검색 쿼리를 기반으로 로컬 비즈니스에 대한 정보를 찾을 수 있게 해주는 RESTful 서비스입니다. 예를 들어 `q=<business-name> in Redmond, Washington` 또는 `q=Italian restaurants near me`입니다. 
@@ -23,7 +23,7 @@ Bing Local Business Search API는 애플리케이션에서 검색 쿼리를 기�
 ## <a name="features"></a>기능
 | 기능 | Description |  
 | -- | -- | 
-| [로컬 비즈니스 및 위치 찾기](quickstarts/local-quickstart.md) | Bing Local Business Search API는 쿼리에서 지역화된 결과를 가져옵니다. 결과에는 비즈니스 웹 사이트 URL과 표시 텍스트, 전화 번호 및 지리적 위치가 포함됩니다. 여기에는 GPS 좌표, 도시, 주소가 포함됩니다. |  
+| [로컬 비즈니스 및 위치 찾기](quickstarts/local-quickstart.md) | Bing Local Business Search API는 쿼리에서 지역화된 결과를 가져옵니다. 결과에는 비즈니스 웹 사이트 URL과 표시 텍스트, 전화 번호 및 지리적 위치가 포함됩니다. GPS 좌표, 도시, 주소 |  
 | [지리적 경계를 사용하여 로컬 결과 필터링](specify-geographic-search.md) | 검색 매개 변수로 좌표를 추가하여 원형 영역 또는 사각형 경계 상자로 지정된 특정 지리적 영역으로 결과를 제한합니다. | 
 | [로컬 비즈니스 결과를 범주별로 필터링](local-categories.md) | 로컬 비즈니스 결과를 범주별로 검색합니다. 이 옵션은 호출자의 GPS 좌표 또는 역방향 IP 위치를 사용하여 다양한 비즈니스 범주에서 지역화된 결과를 반환합니다.|
 

@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 04/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: ce9f5730575b4ab68e293c78ea40d8deb1d2c89c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b8c8a0baba5a80c6a383e6f8f14e29b482dbc82
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278751"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878615"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -95,7 +95,7 @@ ExpressRoute 위치(피어링 위치 또는 모임 위치라고도 함)는 Micro
 | **두바이** | [PCCS](https://www.pacificcontrols.net/cloudservices/index.html) | 3 | 아랍에미리트 북부 | 해당 없음 | 에티살라트 아랍에미리트 |
 | **두바이2** | [뒤 데이터 메나](http://datamena.com/solutions/data-centre) | 3 | 아랍에미리트 북부 | 해당 없음 | 뒤 데이터 메나, 메가 포트, 오렌지, 오릭스콤 |
 | **더블린** | [에퀴닉스 DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | 북유럽 | 10G, 100G | 콜트, 어, 에퀴닉스, 유네트웍스, 인터렉시온, 메가포트 |
-| **프랑크푸르트** | [인터렉시온 FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | 독일 웨스트 센트럴 | 10G, 100G | 센추리링크 클라우드 커넥트, 콜트, DE-CIX, GEANT, 인터렉시온, 메가포트, 오렌지, 텔리아 캐리어 |
+| **프랑크푸르트** | [인터렉시온 FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | 독일 웨스트 센트럴 | 10G, 100G | 센추리링크 클라우드 커넥트, 콜트, DE-CIX, 에퀴닉스, GEANT, 인터렉션, 메가포트, 오렌지, 텔리아 캐리어 |
 | **제네바** | [에퀴닉스 GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | 스위스 웨스트 | 10G, 100G | Equinix, Megaport |
 | **홍콩** | [에퀴닉스 HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | 동아시아 | 해당 없음 | 아리아카 네트웍스, 브리티시 텔레콤, 센추리링크 클라우드 커넥트, 수석 텔레콤, 차이나 텔레콤 글로벌, 에퀴닉스, 인터클라우드, 메가포트, NTT 커뮤니케이션, 오렌지, PCCW 글로벌 리미티드, 타타 커뮤니케이션, 텔리아 캐리어, 버라이존 |
 | **홍콩2** | [메가이](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | 해당 없음 | 10G | |

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/19/2020
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: f0fe4ab46bfe5c0c0c2ea67aa2e2694321628be5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1d02cb42a86023e5c341daab678c39f22f75dda
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136366"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877697"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service(AKS)에서 Istio 설치 및 사용
 
@@ -97,7 +97,10 @@ Istio에 대한 [Helm][helm] 설치 방식은 향후 더 이상 사용되지 않
 > Istio는 현재 Linux 노드에서 실행되도록 예약되어야 합니다. 클러스터에 Windows Server 노드가 있는 경우 Istio 포드가 Linux 노드에서만 실행되도록 예약되어 있는지 확인해야 합니다. [노드 선택기를][kubernetes-node-selectors] 사용하여 포드가 올바른 노드로 예약되었는지 확인합니다.
 
 > [!CAUTION]
-> [SDS (비밀 검색 서비스)][istio-feature-sds] 및 [Istio CNI][istio-feature-cni] Istio 기능은 현재 [알파에][istio-feature-stages]있으므로 이를 활성화하기 전에 생각해야합니다. 또한 현재 AKS 버전에서는 [서비스 계정 토큰 볼륨 프로젝션][kubernetes-feature-sa-projected-volume] Kubernetes 기능(SDS에 대한 요구 사항)이 활성화되어 있지 않습니다.
+> [SDS (비밀 검색 서비스)][istio-feature-sds] 및 [Istio CNI][istio-feature-cni] Istio 기능은 현재 [알파에][istio-feature-stages]있으므로 이를 활성화하기 전에 생각해야합니다. 
+>
+> 이제 모든 Kubernetes 1.13 및 AKS의 상위 버전에 대해 [서비스 계정 토큰 볼륨 프로젝션][kubernetes-feature-sa-projected-volume] Kubernetes 기능(SDS에 대한 요구 사항)이 **활성화되었습니다.**
+
 다음 콘텐츠로 `istio.aks.yaml` 호출된 파일을 만듭니다. 이 파일은 [Istio 구성에 대한 Istio 제어 평면 사양][istio-control-plane] 세부 사항을 보유합니다.
 
 ```yaml

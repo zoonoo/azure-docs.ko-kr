@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 605974e76c3ca878784129f7c9827a78d0642da6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 420aa52293da14a0dfe8fbdfe681440ee4309e6b
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471594"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878598"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Front Door에서 회람 규칙에 요청을 매칭하는 방법
 
-연결을 설정하고 SSL 핸드셰이크를 수행한 후 Front Door 환경에 요청이 도달했을 때 Front Door가 수행하는 첫 번째 작업은 모든 구성에서 요청을 매칭할 특정 회람 규칙을 확인한 후 정의된 작업을 수행하는 것입니다. 다음 문서에서는 Front Door가 HTTP 요청을 처리할 때 사용할 경로 구성을 결정하는 방법을 설명합니다.
+연결을 설정하고 TLS 핸드셰이크를 수행한 후, 프런트 도어 환경에 요청이 도착하면 Front Door가 수행하는 첫 번째 작업 중 하나는 모든 구성에서 결정하는 것이며, 특정 라우팅 규칙은 요청과 일치하도록 결정한 다음 정의된 작업을 수행합니다. 다음 문서에서는 Front Door가 HTTP 요청을 처리할 때 사용할 경로 구성을 결정하는 방법을 설명합니다.
 
 ## <a name="structure-of-a-front-door-route-configuration"></a>Front Door 경로 구성의 구조
 Front Door 회람 규칙 구성은 크게 "왼쪽"과 "오른쪽" 부분으로 구성됩니다. 들어오는 요청은 경로의 왼쪽에 매칭되고, 오른쪽은 요청을 처리하는 방법을 정의합니다.

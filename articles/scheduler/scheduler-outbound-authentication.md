@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: bcd14e618323aec1c7ce47fcebb25099fa96be81
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a8d79af9f45731971cb1be1f39fc193f9d0f0d9
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898503"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878972"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Azure Scheduler에 대한 아웃바운드 인증
 
@@ -45,22 +45,22 @@ Scheduler는 다음과 같은 인증 모델을 지원합니다.
 
 `ClientCertificate` 모델을 사용하여 인증을 추가할 때 요청 본문에서 다음과 같은 추가 요소를 지정합니다.  
 
-| 요소 | 필수 | 설명 |
+| 요소 | 필수 | Description |
 |---------|----------|-------------|
-| **인증(상위** 요소) | SSL 클라이언트 인증서를 사용하기 위한 인증 개체 |
-| **종류** | yes | 인증 유형입니다. SSL 클라이언트 인증서의 경우 이 값은 `ClientCertificate`입니다. |
-| **pfx** | yes | PFX 파일의 Base64 인코딩 콘텐츠 |
-| **다시 설정** | yes | PFX 파일에 액세스하기 위한 암호 |
+| **인증(상위** 요소) | SSL/TLS 클라이언트 인증서를 사용하기 위한 인증 개체 |
+| **종류** | 예 | 인증 유형입니다. SSL/TLS 클라이언트 인증서의 경우 `ClientCertificate`값은 입니다. |
+| **pfx** | 예 | PFX 파일의 Base64 인코딩 콘텐츠 |
+| **다시 설정** | 예 | PFX 파일에 액세스하기 위한 암호 |
 ||| 
 
 ### <a name="response-body---client-certificate"></a>응답 본문 - 클라이언트 인증서 
 
 인증 정보와 함께 요청을 보내면 응답에 다음과 같은 인증 요소가 포함됩니다.
 
-| 요소 | 설명 | 
+| 요소 | Description | 
 |---------|-------------| 
-| **인증(상위** 요소) | SSL 클라이언트 인증서를 사용하기 위한 인증 개체 |
-| **종류** | 인증 유형입니다. SSL 클라이언트 인증서의 경우 이 값은 `ClientCertificate`입니다. |
+| **인증(상위** 요소) | SSL/TLS 클라이언트 인증서를 사용하기 위한 인증 개체 |
+| **종류** | 인증 유형입니다. SSL/TLS 클라이언트 인증서의 경우 `ClientCertificate`값은 입니다. |
 | **인증서지문** |인증서의 지문 |
 | **certificateSubjectName** |인증서의 고유한 주체 이름 |
 | **certificateExpiration** | 인증서 만료 날짜 |
@@ -165,19 +165,19 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 `Basic` 모델을 사용하여 인증을 추가할 때 요청 본문에서 다음과 같은 추가 요소를 지정합니다.
 
-| 요소 | 필수 | 설명 |
+| 요소 | 필수 | Description |
 |---------|----------|-------------|
 | **인증(상위** 요소) | 기본 인증을 사용하기 위한 인증 개체 | 
-| **종류** | yes | 인증 유형입니다. 기본 인증의 경우 이 값은 `Basic`입니다. | 
-| **사용자** | yes | 인증하기 위한 사용자 이름 | 
-| **다시 설정** | yes | 인증하기 위한 암호 |
+| **종류** | 예 | 인증 유형입니다. 기본 인증의 경우 이 값은 `Basic`입니다. | 
+| **사용자** | 예 | 인증하기 위한 사용자 이름 | 
+| **다시 설정** | 예 | 인증하기 위한 암호 |
 |||| 
 
 ### <a name="response-body---basic"></a>응답 본문 - 기본
 
 인증 정보와 함께 요청을 보내면 응답에 다음과 같은 인증 요소가 포함됩니다.
 
-| 요소 | 설명 | 
+| 요소 | Description | 
 |---------|-------------|
 | **인증(상위** 요소) | 기본 인증을 사용하기 위한 인증 개체 |
 | **종류** | 인증 유형입니다. 기본 인증의 경우 이 값은 `Basic`입니다. |
@@ -283,21 +283,21 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 `ActiveDirectoryOAuth` 모델을 사용하여 인증을 추가할 때 요청 본문에서 다음과 같은 추가 요소를 지정합니다.
 
-| 요소 | 필수 | 설명 |
+| 요소 | 필수 | Description |
 |---------|----------|-------------|
-| **인증(상위** 요소) | yes | ActiveDirectoryOAuth 인증을 사용하기 위한 인증 개체 |
-| **종류** | yes | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. |
-| **테 넌 트** | yes | Azure AD 테넌트의 테넌트 식별자입니다. Azure AD 테넌트의 테넌트 식별자를 찾으려면 Azure PowerShell에서 `Get-AzureAccount` 명령을 실행하세요. |
-| **관객** | yes | 이 값은 `https://management.core.windows.net/`으로 설정됩니다. | 
-| **Clientid** | yes | Azure AD 애플리케이션의 클라이언트 ID | 
-| **비밀** | yes | 토큰을 요청하는 클라이언트의 비밀 | 
+| **인증(상위** 요소) | 예 | ActiveDirectoryOAuth 인증을 사용하기 위한 인증 개체 |
+| **종류** | 예 | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. |
+| **테 넌 트** | 예 | Azure AD 테넌트의 테넌트 식별자입니다. Azure AD 테넌트의 테넌트 식별자를 찾으려면 Azure PowerShell에서 `Get-AzureAccount` 명령을 실행하세요. |
+| **관객** | 예 | 이 값은 `https://management.core.windows.net/`으로 설정됩니다. | 
+| **Clientid** | 예 | Azure AD 애플리케이션의 클라이언트 ID | 
+| **비밀** | 예 | 토큰을 요청하는 클라이언트의 비밀 | 
 |||| 
 
 ### <a name="response-body---active-directory-oauth"></a>응답 본문 - Active Directory OAuth
 
 인증 정보와 함께 요청을 보내면 응답에 다음과 같은 인증 요소가 포함됩니다.
 
-| 요소 | 설명 |
+| 요소 | Description |
 |---------|-------------|
 | **인증(상위** 요소) | ActiveDirectoryOAuth 인증을 사용하기 위한 인증 개체 |
 | **종류** | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 

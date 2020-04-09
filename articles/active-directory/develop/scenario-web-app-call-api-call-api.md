@@ -2,24 +2,21 @@
 title: 웹 앱에서 웹 API 호출 - Microsoft ID 플랫폼 | Azure
 description: 웹 API를 호출하는 웹 앱을 빌드하는 방법 알아보기(보호된 웹 API 호출)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 28b4be46dc686c6e1b55f1ab36e0607057ebdbbd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b6f7634d16eeaa631f6d9f3c13ce23181ce7b40b
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76758974"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881811"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>웹 API를 호출하는 웹 앱: 웹 API 호출
 

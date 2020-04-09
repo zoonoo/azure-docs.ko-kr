@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5fae2bba0acc4ab462c91f7272694d032fc6ceaa
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 6f2af87cf5cef1b5a80bc16d962fba579b4ff309
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742671"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985867"
 ---
 # <a name="table-statistics-in-synapse-sql-pool"></a>시냅스 SQL 풀의 테이블 통계
 
@@ -146,11 +146,11 @@ SQL 풀에 성별이 하나만 있고 새 요구 사항으로 인해 여러 성�
 
 ## <a name="implementing-statistics-management"></a>통계 관리 구현
 
-로드가 끝날 때 통계가 업데이트되도록 데이터 로드 프로세스를 확장하는 것이 좋습니다.
+데이터 로드 프로세스를 확장하여 동시 쿼리 간의 차단 또는 리소스 경합을 방지/최소화하기 위해 로드가 끝날 때 통계가 업데이트되도록 하는 것이 좋습니다.  
 
 데이터 로드는 테이블이 값의 크기 및/또는 배포를 자주 변경하는 경우입니다. 데이터 로드는 일부 관리 프로세스를 구현하는 논리적 장소입니다.
 
-로드 프로세스 중에 통계를 업데이트하기 위해 제공되는 지침 원칙은 다음과 같습니다.
+통계를 업데이트하기 위한 다음 기본 원칙이 제공됩니다.
 
 - 로드된 각 테이블에 하나 이상의 업데이트된 통계 개체가 있는지 확인합니다. 이렇게 하면 통계 업데이트의 일부로 테이블 크기(행 수 및 페이지 수) 정보가 업데이트됩니다.
 - JOIN, GROUP BY, ORDER BY 및 DISTINCT 절에 참여하는 열에 집중합니다.
@@ -174,7 +174,7 @@ SQL 풀에 성별이 하나만 있고 새 요구 사항으로 인해 여러 성�
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
-다음은 그 예입니다.
+예를 들어:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
@@ -190,7 +190,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
-다음은 그 예입니다.
+예를 들어:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
@@ -391,7 +391,7 @@ EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-다음은 그 예입니다.
+예를 들어:
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -407,7 +407,7 @@ UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-다음은 그 예입니다.
+예를 들어:
 
 ```sql
 UPDATE STATISTICS dbo.table1;
@@ -430,7 +430,7 @@ UPDATE STATISTICS dbo.table1;
 
 이 시스템 뷰는 통계에 대한 정보를 제공합니다.
 
-| 카탈로그 뷰 | 설명 |
+| 카탈로그 뷰 | Description |
 |:--- |:--- |
 | [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |각 열에 대해 한 행입니다. |
 | [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |데이터베이스의 각 개체에 대해 한 행입니다. |
@@ -444,7 +444,7 @@ UPDATE STATISTICS dbo.table1;
 
 이 시스템 함수는 통계를 작업할 때 유용합니다.
 
-| 시스템 함수 | 설명 |
+| 시스템 함수 | Description |
 |:--- |:--- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |통계 개체가 마지막으로 업데이트된 날짜입니다. |
 | [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |통계 개체에서 인식되는 값의 분포에 대한 요약 수준 및 세부 정보 |
@@ -510,7 +510,7 @@ DBCC SHOW_STATISTICS()는 통계 개체 내에 있는 데이터를 보여줍니�
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-다음은 그 예입니다.
+예를 들어:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -524,7 +524,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
-다음은 그 예입니다.
+예를 들어:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector

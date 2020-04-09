@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 861961bb66adc7ed9509eab973516a964cb67492
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 1d6fa75beabdc36750525310008add9594562228
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521059"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887115"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>메트릭, 경고 및 리소스 상태를 사용하는 표준 Load Balancer 진단
 
@@ -69,8 +69,6 @@ Azure 포털은 메트릭 페이지를 통해 로드 밸러터 메트릭을 노�
 
 다차원 메트릭 정의 및 값을 검색하기 위한 API 지침은 [Azure Monitoring REST API 연습](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api)을 참조하세요. 이러한 측정항목은 '모든 측정항목' 옵션을 통해서만 저장소 계정에 기록할 수 있습니다. 
 
-### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>일반적인 진단 시나리오 및 권장 보기
-
 ### <a name="configure-alerts-for-multi-dimensional-metrics"></a>다차원 메트릭에 대한 경고 구성 ###
 
 Azure 표준 로드 밸러저는 다차원 메트릭에 대해 쉽게 구성할 수 있는 경고를 지원합니다. 특정 메트릭에 대한 사용자 지정 임계값을 구성하여 다양한 수준의 심각도가 있는 경고를 트리거하여 터치없는 리소스 모니터링 환경을 제공합니다.
@@ -82,10 +80,11 @@ Azure 표준 로드 밸러저는 다차원 메트릭에 대해 쉽게 구성할 
     1.  (선택 사항) 자동 복구를 위한 작업 그룹 추가
     1.  직관적인 반응을 가능하게 하는 경고 심각도, 이름 및 설명 할당
 
-
   >[!NOTE]
   >경고 상태 구성 창에는 신호 기록에 대한 시간계가 표시됩니다. 이 타임계를 백 엔드 IP와 같은 차원별로 필터링하는 옵션이 있습니다. 이렇게 하면 시간열 그래프가 필터링되지만 경고 자체는 **필터링되지 않습니다.** 특정 백 엔드 IP 주소에 대한 경고를 구성할 수 없습니다.
-  
+
+### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>일반적인 진단 시나리오 및 권장 보기
+
 #### <a name="is-the-data-path-up-and-available-for-my-load-balancer-vip"></a>이 데이터 경로가 작동되며 부하 분산 장치 VIP에 사용할 수 있나요?
 
 VIP 가용성 메트릭은 지역 내에서 VM이 있는 Compute 호스트로의 데이터 경로 상태를 설명합니다. 메트릭은 Azure 인프라의 상태를 반영한 것입니다. 이 메트릭으로 다음을 수행할 수 있습니다.

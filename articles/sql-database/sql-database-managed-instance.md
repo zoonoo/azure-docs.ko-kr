@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 04/02/2020
-ms.openlocfilehash: 06242af6cb00e3adebbc80da722898fb8e348e36
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 04b07ff60c882501c49ad58607db867e7e99897c
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585367"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879074"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 인스턴스란 무엇입니까?
 
@@ -121,7 +121,7 @@ vCore 모델에서는 하드웨어 세대를 선택할 수 있습니다.
 
 Azure SQL Database에서는 관리되는 새로운 인스턴스를 자동으로 배포하고, 인스턴스 속성을 업데이트하며, 더 이상 필요하지 않은 경우 인스턴스를 삭제하는 데 사용할 수 있는 관리 작업을 제공합니다. 이 섹션에서는 관리 작업 및 일반적인 기간에 대한 정보를 제공합니다.
 
-Azure [가상 네트워크(VNet) 내의 배포를](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) 지원하고 고객에게 격리 및 보안을 제공하기 위해 관리되는 인스턴스는 고객의 가상 네트워크 서브넷 내에 배포된 격리된 가상 시스템의 전용 집합을 나타내는 가상 [클러스터를](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture)사용합니다. 기본적으로 빈 서브넷의 모든 관리형 인스턴스 배포는 새로운 가상 클러스터 빌드아웃을 초래합니다.
+Azure [가상 네트워크(VNet) 내의 배포를](../virtual-network/virtual-network-for-azure-services.md) 지원하고 고객에게 격리 및 보안을 제공하기 위해 관리되는 인스턴스는 고객의 가상 네트워크 서브넷 내에 배포된 격리된 가상 시스템의 전용 집합을 나타내는 가상 [클러스터를](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture)사용합니다. 기본적으로 빈 서브넷의 모든 관리형 인스턴스 배포는 새로운 가상 클러스터 빌드아웃을 초래합니다.
 
 배포된 관리형 인스턴스에 대한 후속 작업은 기본 가상 클러스터에도 영향을 미칠 수 있습니다. 이는 추가 가상 컴퓨터를 배포하면 기존 관리형 인스턴스에 대한 새 배포 또는 업데이트를 계획할 때 고려해야 할 오버헤드가 함께 제공되기 때문에 관리 작업의 기간에 영향을 줍니다.
 
@@ -150,7 +150,7 @@ Azure [가상 네트워크(VNet) 내의 배포를](../virtual-network/virtual-ne
 |배포 |비어 없는 서브넷에서 다른 하드웨어 생성의 첫 번째 인스턴스(예: Gen 4 인스턴스가 있는 서브넷의 첫 번째 Gen 5 인스턴스)|가상 클러스터 생성*|90%의 운영이 4시간 만에 완료됩니다.|
 |배포 |빈 서브넷 또는 비어 없는 서브넷에서 4개의 vCores를 처음 생성합니다.|가상 클러스터 생성**|90%의 운영이 4시간 만에 완료됩니다.|
 |배포 |비어 없는 서브넷 내의 후속 인스턴스 생성(2, 3번째 인스턴스 등)|가상 클러스터 크기 조정|2.5시간 만에 90%의 작업 완료|
-|**업데이트** |인스턴스 속성 변경(관리자 암호, AAD 로그인, Azure 하이브리드 혜택 플래그)|N/A|최대 1분|
+|**업데이트** |인스턴스 속성 변경(관리자 암호, AAD 로그인, Azure 하이브리드 혜택 플래그)|해당 없음|최대 1분|
 |업데이트 |인스턴스 스토리지 확장/축소(범용 서비스 계층)|데이터베이스 파일 첨부|90%의 운영이 5분 만에 완료됩니다.|
 |업데이트 |인스턴스 스토리지 확장/축소(비즈니스 크리티컬 서비스 계층)|- 가상 클러스터 크기 조정<br>- 항상 가용성 그룹 시드|90%의 작업이 2.5시간 + 모든 데이터베이스를 시드하는 시간(220GB/시간)에 완료됩니다.|
 |업데이트 |인스턴스 계산(vCores) 확장 및 축소(범용)|- 가상 클러스터 크기 조정<br>- 데이터베이스 파일 첨부|2.5시간 만에 90%의 작업 완료|
@@ -241,7 +241,7 @@ Azure SQL Database는 데이터를 보호하는 데 사용할 수 있는 일단�
 - [고급 위협 보호는](sql-database-managed-instance-threat-detection.md) 데이터베이스에 액세스하거나 악용하려는 비정상적이고 잠재적으로 유해한 시도를 감지하는 서비스에 내장된 추가 보안 인텔리전스 계층을 제공하여 [감사를](sql-database-managed-instance-auditing.md) 보완합니다. 의심스러운 활동, 잠재적 취약성 및 SQL 삽입 공격은 물론 비정상적인 데이터베이스 액세스 패턴에 대해 경고합니다. 고급 위협 보호 경고는 [Azure Security Center에서](https://azure.microsoft.com/services/security-center/) 볼 수 있으며 의심스러운 활동에 대한 세부 정보를 제공하고 위협을 조사하고 완화하는 방법에 대한 조치를 권장합니다.  
 - [동적 데이터 마스킹은](/sql/relational-databases/security/dynamic-data-masking) 권한이 없는 사용자에게 마스킹하여 중요한 데이터 노출을 제한합니다. 동적 데이터 마스킹을 수행하면 애플리케이션 계층에 대한 영향을 최소화하면서 표시할 중요한 데이터의 양을 지정할 수 있도록 하여 중요한 데이터에 대한 무단 액세스를 방지할 수 있습니다. 데이터베이스의 데이터는 변경되지 않으면서 지정된 데이터베이스 필드에 대한 쿼리의 결과 집합에서 중요한 데이터를 숨기는 정책 기반 보안 기능입니다.
 - [행 수준 보안](/sql/relational-databases/security/row-level-security)을 통해 쿼리를 실행하는 사용자의 특성(예: 그룹 멤버 자격 또는 실행 컨텍스트)을 기반으로 하여 데이터베이스 테이블의 행에 대한 액세스를 제어할 수 있습니다. RLS(행 수준 보안)는 애플리케이션의 보안 설계 및 코딩을 간소화합니다. RLS를 사용하면 데이터 행 액세스에 대한 제한을 구현할 수 있습니다. 예를 들어 작업자가 소속 부서와 관련된 데이터 행에만 액세스하게 하거나 데이터 액세스를 관련 데이터로 제한할 수 있습니다.
-- [TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)는 Managed Instance 데이터 파일을 암호화하고, 이를 미사용 데이터 암호화라고 합니다. TDE는 데이터 및 로그 파일에 대한 실시간 I/O 암호화 및 암호 해독을 수행합니다. 암호화에는 복구 중에 사용 가능하도록 데이터베이스 부트 레코드에 저장된 DEK(데이터베이스 암호화 키)가 사용됩니다. 투명한 데이터 암호화를 사용하여 Managed Instance의 모든 데이터베이스를 보호할 수 있습니다. TDE는 스토리지 미디어의 도용으로부터 보호하기 위해 많은 규정 준수 표준에 필요한 정지된 암호화 기술로써 SQL Server에서 입증되었습니다.
+- [TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)는 Managed Instance 데이터 파일을 암호화하고, 이를 미사용 데이터 암호화라고 합니다. TDE는 데이터 및 로그 파일에 대한 실시간 I/O 암호화 및 암호 해독을 수행합니다. 암호화에는 복구 중에 사용 가능하도록 데이터베이스 부트 레코드에 저장된 DEK(데이터베이스 암호화 키)가 사용됩니다. 투명한 데이터 암호화를 사용하여 Managed Instance의 모든 데이터베이스를 보호할 수 있습니다. TDE는 스토리지 미디어의 도난으로부터 보호하기 위해 많은 규정 준수 표준에 필요한 SQL Server의 입증된 미사용 암호화 기술입니다.
 
 암호화된 데이터베이스를 Managed Instance로 마이그레이션하는 작업은 Azure DMS(Database Migration Service) 또는 네이티브 복원을 통해 지원됩니다. 네이티브 복원을 사용하여 암호화된 데이터베이스를 마이그레이션하려는 경우 가상 시스템의 SQL Server 온-프레미스 또는 SQL Server에서 관리되는 인스턴스로 기존 TDE 인증서를 마이그레이션하는 것이 필수 단계입니다. 마이그레이션 옵션에 대한 자세한 내용은 [SQL Server 인스턴스를 Managed Instance로 마이그레이션](sql-database-managed-instance-migrate.md)을 참조하세요.
 

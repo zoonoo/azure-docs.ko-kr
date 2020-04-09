@@ -233,6 +233,24 @@
         - name: 컨테이너 제한 사항
           href: luis-container-limitations.md
           displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
+    - name: 관련 서비스
+      items:
+        - name: Azure Bot Service
+          href: 'https://dev.botframework.com/'
+        - name: '봇 작성기 4.x SDK C#'
+          href: 'https://github.com/Microsoft/botbuilder-dotnet'
+        - name: QnA Maker
+          href: 'https://qnamaker.ai/'
+        - name: Bing Speech API
+          href: 'https://azure.microsoft.com/services/cognitive-services/speech/'
+        - name: Bing Spell Check API
+          href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
+        - name: 텍스트 분석
+          href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
+        - name: 인식기-텍스트
+          href: 'https://github.com/Microsoft/Recognizers-Text'
+        - name: 인텔리전트 키오스크
+          href: 'https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk'
 - name: 참조
   items:
     - name: 개발자 참조
@@ -370,24 +388,6 @@
       href: reference-pattern-syntax.md
     - name: 데이터
       href: luis-reference-prebuilt-sentiment.md
-- name: 관련 항목
-  items:
-    - name: Azure Bot Service
-      href: 'https://dev.botframework.com/'
-    - name: '봇 작성기 4.x SDK C#'
-      href: 'https://github.com/Microsoft/botbuilder-dotnet'
-    - name: QnA Maker
-      href: 'https://qnamaker.ai/'
-    - name: Bing Speech API
-      href: 'https://azure.microsoft.com/services/cognitive-services/speech/'
-    - name: Bing Spell Check API
-      href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
-    - name: 텍스트 분석
-      href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
-    - name: 인식기-텍스트
-      href: 'https://github.com/Microsoft/Recognizers-Text'
-    - name: 인텔리전트 키오스크
-      href: 'https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk'
 - name: 리소스
   items:
     - name: 코드 샘플

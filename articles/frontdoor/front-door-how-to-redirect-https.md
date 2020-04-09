@@ -7,22 +7,22 @@ ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: b7385ef27cd17705f2c86b6f57d4780511b6935c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1b8c033a3ec230d60c30f6168de8ce013a80ac6
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246860"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878003"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Azure 포털을 사용하여 HTTPS 리디렉션에 HTTP를 사용하여 정문 만들기
 
-Azure 포털을 사용하여 SSL 종료에 대한 인증서가 있는 [정문](front-door-overview.md) 만들기를 할 수 있습니다. 라우팅 규칙은 HTTP 트래픽을 HTTPS로 리디렉션하는 데 사용됩니다.
+Azure 포털을 사용하여 TLS 종료에 대한 인증서가 있는 [정문](front-door-overview.md) 만들기를 사용할 수 있습니다. 라우팅 규칙은 HTTP 트래픽을 HTTPS로 리디렉션하는 데 사용됩니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * 기존 웹 앱 리소스로 정문 만들기
-> * SSL 인증서가 있는 사용자 지정 도메인 추가 
+> * TLS/SSL 인증서를 가진 사용자 지정 도메인 추가 
 > * 사용자 지정 도메인에서 HTTPS 리디렉션 설정
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
@@ -87,7 +87,7 @@ CNAME을 추가하면 DNS 레코드 페이지가 다음 예제와 비슷합니�
 ### <a name="enable-https-on-your-custom-domain"></a>사용자 지정 도메인에서 HTTPS 사용
 
 1. 추가된 사용자 지정 도메인을 클릭하고 섹션 에서 **사용자 지정 도메인 HTTPS에서**상태를 **사용 으로**변경합니다.
-2. 인증서 관리 **유형은** 정문에서 유지 관리, 관리 및 자동 회전하는 무료 인증서에 대해 _관리되는 프런트 도어로_ 설정된 상태로 둘 수 있습니다. Azure Key Vault에 저장된 사용자 지정 SSL 인증서를 사용하도록 선택할 수도 있습니다. 이 자습서는 Front Door 관리 인증서를 사용 한다고 가정 합니다.
+2. 인증서 관리 **유형은** 정문에서 유지 관리, 관리 및 자동 회전하는 무료 인증서에 대해 _관리되는 프런트 도어로_ 설정된 상태로 둘 수 있습니다. Azure 키 자격 증명 모음에 저장된 사용자 지정 TLS/SSL 인증서를 사용하도록 선택할 수도 있습니다. 이 자습서는 Front Door 관리 인증서를 사용 한다고 가정 합니다.
 ![사용자 지정 도메인에 대한 HTTPS 사용](./media/front-door-url-redirect/front-door-custom-domain-https.png)
 
 3. **업데이트를** 클릭하여 선택 영역을 저장한 다음 **저장을**클릭합니다.

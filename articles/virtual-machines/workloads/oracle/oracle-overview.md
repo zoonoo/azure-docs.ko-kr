@@ -11,18 +11,18 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/04/2019
+ms.date: 03/16/2020
 ms.author: rogirdh
-ms.openlocfilehash: 6ab41182d59f8c96edfca4854aad5f9a13f53436
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 101cfc9edce8f4df1ad2388c08a5bd9702dffe68
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74806612"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878224"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Azure의 Oracle 응용 프로그램 및 솔루션 개요
 
-이 문서에서는 Azure 인프라를 사용하여 Oracle 솔루션을 실행하는 기능을 소개합니다. 또한 Azure 마켓플레이스에서 사용 가능한 [Oracle VM 이미지에](oracle-vm-solutions.md) 대한 자세한 소개 및 [Azure를 ORACLE 클라우드 인프라(OCI)와 상호 연결하는](oracle-oci-overview.md)미리 보기 기능을 참조하십시오.
+이 문서에서는 Azure 인프라를 사용하여 Oracle 솔루션을 실행하는 기능을 소개합니다. 또한 Azure 마켓플레이스에서 사용 가능한 [Oracle VM 이미지에](oracle-vm-solutions.md) 대한 자세한 소개 및 [Azure와 OCI(Oracle 클라우드 인프라) 상호 연결](oracle-oci-overview.md)기능을 참조하십시오.
 
 ## <a name="oracle-databases-on-azure-infrastructure"></a>Azure 인프라의 오라클 데이터베이스
 
@@ -58,7 +58,7 @@ Azure에서 사용할 수 있는 비 Oracle Linux 이미지에 Oracle Database�
 
 * Oracle RMAN을 사용하여 Oracle 데이터베이스를 백업하고 선택적으로 [Azure Blob Fuse를](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux) 사용하여 [매우 중복되는 Azure Blob Storage 계정을](https://docs.microsoft.com/azure/storage/common/storage-redundancy) 탑재하고 RMAN 백업을 작성하여 복원력을 추가합니다.
 
-## <a name="integration-of-azure-with-oci-preview"></a>OCI와 Azure의 통합(미리 보기)
+## <a name="integration-of-azure-with-oci"></a>OCI와 Azure의 통합
 
 OCI(오라클 클라우드 인프라)의 백엔드 데이터베이스에 연결된 Azure 인프라에서 오라클 애플리케이션을 실행합니다. 이 솔루션은 다음 기능을 사용합니다. 
 
@@ -67,7 +67,10 @@ OCI(오라클 클라우드 인프라)의 백엔드 데이터베이스에 연결�
 
 ### <a name="deploy-oracle-applications-on-azure"></a>Azure에 Oracle 응용 프로그램 배포
 
-Terraform 템플릿을 사용하여 Azure 인프라를 설정하고 클라우드 간 구성에서 실행되도록 검증되고 지원되는 Oracle 응용 프로그램을 설치합니다.
+테라폼 템플릿을 사용하여 Azure 인프라를 설정하고 Oracle 응용 프로그램을 설치합니다. 
+
+> [!IMPORTANT]
+> 오라클은 2020년 5월까지 Azure/Oracle Cloud 상호 연결 솔루션을 사용할 때 이러한 응용 프로그램을 Azure에서 실행하도록 인증합니다.
 
 * E-비즈니스 스위트
 * JD Edwards EnterpriseOne

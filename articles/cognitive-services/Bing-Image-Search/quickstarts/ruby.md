@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 이미지 REST API 및 Ruby 검색 - Bing Image Search'
+title: '빠른 시작: Bing Image Search REST API 및 Ruby를 사용하여 이미지 검색'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작을 사용하여 Ruby를 통해 Bing Image Search REST API로 이미지 검색 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 97b05327b2de4daa43f5f1fa3e4a22ecd79a9085
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 238f390ac998a05f0c726dd9ed024550b9a5ba3d
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74930712"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478533"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-ruby"></a>빠른 시작: Bing Image Search REST API 및 Ruby를 사용하여 이미지 검색
 

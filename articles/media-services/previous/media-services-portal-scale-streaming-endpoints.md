@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 23eb51428dcf4961febfb592bf957bb8beeeda57
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40820170bae275f090c5f898387698fc562e59ae
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61463128"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985544"
 ---
 # <a name="scale-streaming-endpoints-with-the-azure-portal"></a>Azure 포털을 통해 스트리밍 엔드포인트 크기 조정
 ## <a name="overview"></a>개요
@@ -33,7 +33,7 @@ ms.locfileid: "61463128"
  
 이 항목에서는 스트리밍 엔드포인트의 크기를 조정하는 방법을 보여 줍니다.
 
-가격 정보에 대한 자세한 내용은 [Media Services 가격 정보](https://go.microsoft.com/fwlink/?LinkId=275107)를 참조하세요.
+가격 정보에 대한 자세한 내용은 [Media Services 가격 정보](https://azure.microsoft.com/pricing/details/media-services/)를 참조하세요.
 
 ## <a name="scale-streaming-endpoints"></a>스트리밍 엔드포인트 크기 조정
 

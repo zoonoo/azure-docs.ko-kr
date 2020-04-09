@@ -2,24 +2,21 @@
 title: 단일 페이지 앱을 프로덕션으로 이동 - Microsoft ID 플랫폼 | Azure
 description: 단일 페이지 응용 프로그램을 빌드하는 방법 알아보기(프로덕션으로 이동)
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 01b923e0d013fab1815456e55eac6036ded772bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 04a900c98311f4e7dcccbfca93ea41e212308759
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76701844"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80882100"
 ---
 # <a name="single-page-application-move-to-production"></a>단일 페이지 응용 프로그램: 프로덕션으로 이동
 

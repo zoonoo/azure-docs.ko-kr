@@ -2,14 +2,14 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/10/2020
+ms.date: 04/04/2020
 ms.author: dapine
-ms.openlocfilehash: 2f029725ff53c6bf01481f7a188e070cf84550c9
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 33173390b9bdd874936ac6625e1755b96297cd7c
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79082063"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671054"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -17,7 +17,7 @@ ms.locfileid: "79082063"
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
-> * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=windows)
+> * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
@@ -31,7 +31,7 @@ ms.locfileid: "79082063"
 
 1. 동일한 파일에서 `YourSubscriptionKey` 문자열을 구독 키로 바꿉니다.
 
-1. 문자열 `YourServiceRegion`을 구독과 연결된 **지역**의 [영역 식별자](https://aka.ms/speech/sdkregion)로 바꿉니다(예: 평가판 구독의 경우 `westus`).
+1. 문자열 `YourServiceRegion`을 구독과 연결된 [지역](https://aka.ms/speech/sdkregion)의 **영역 식별자**로 바꿉니다(예: 평가판 구독의 경우 `westus`).
 
 1. `whatstheweatherlike.wav` 문자열을 고유한 파일 이름으로 바꿉니다.
 

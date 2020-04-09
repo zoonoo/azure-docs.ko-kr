@@ -3,29 +3,68 @@ title: 템플릿 배포 what-if(미리 보기)
 description: Azure 리소스 관리자 템플릿을 배포하기 전에 리소스에 어떤 변경 사항이 발생하는지 확인합니다.
 author: mumian
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 04/06/2020
 ms.author: jgao
-ms.openlocfilehash: bc42585204e5cc2c3ece5293a3934fd22fe8507b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e0d0d572e08961b585a93e66e400b8c2e54bf7f
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156449"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886843"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>ARM 템플릿 배포 what-if 작업(미리 보기)
 
 ARM(Azure Resource Manager) 템플릿을 배포하기 전에 발생할 변경 내용을 미리 볼 수 있습니다. Azure Resource Manager는 템플릿을 배포하는 경우 리소스가 어떻게 변경되는지 확인할 수 있는 가정 별 작업을 제공합니다. 가상 작업으로 인해 기존 리소스가 변경되지 않습니다. 대신 지정된 템플릿이 배포되는 경우 변경 내용을 예측합니다.
 
 > [!NOTE]
-> 현재 what-if 작업이 미리 보기 상태입니다. 이를 사용하려면 [미리 보기에 가입](https://aka.ms/armtemplatepreviews)해야 합니다. 미리 보기 릴리스에서는 실제로 변경이 발생하지 않을 때 리소스가 변경될 수 있는 경우가 있습니다. 이러한 문제를 줄이기 위해 노력하고 있지만 여러분의 도움이 필요합니다. 에서 [https://aka.ms/whatifissues](https://aka.ms/whatifissues)이러한 문제를 보고하십시오.
+> 현재 what-if 작업이 미리 보기 상태입니다. 미리 보기 릴리스에서는 실제로 변경이 발생하지 않을 때 리소스가 변경될 수 있는 경우가 있습니다. 이러한 문제를 줄이기 위해 노력하고 있지만 여러분의 도움이 필요합니다. 에서 [https://aka.ms/whatifissues](https://aka.ms/whatifissues)이러한 문제를 보고하십시오.
 
 PowerShell 명령 또는 REST API 작업을 사용하여 what-if 작업을 사용할 수 있습니다.
+
+## <a name="install-powershell-module"></a>PowerShell 모듈 설치
+
+PowerShell에서 what-if를 사용하려면 PowerShell 갤러리에서 Az.Resources 모듈의 미리 보기 버전을 설치합니다.
+
+### <a name="uninstall-alpha-version"></a>알파 버전 제거
+
+이전에 what-if 모듈의 알파 버전을 설치한 경우 해당 모듈을 제거합니다. 알파 버전은 초기 미리 보기에 등록한 사용자만 사용할 수 있었습니다. 해당 미리 보기를 설치하지 않은 경우 이 섹션을 건너뛸 수 있습니다.
+
+1. 관리자 권한으로 PowerShell을 실행합니다.
+1. 설치된 버전의 Az.Resources 모듈을 확인합니다.
+
+   ```powershell
+   Get-InstalledModule -Name Az.Resources -AllVersions | select Name,Version
+   ```
+
+1. **형식 2.x.x-알파의**버전 번호가 있는 설치된 버전이 있는 경우 해당 버전을 제거합니다.
+
+   ```powershell
+   Uninstall-Module Az.Resources -RequiredVersion 2.0.1-alpha5 -AllowPrerelease
+   ```
+
+1. 미리 보기를 설치하는 데 사용한 what-if 리포지토리를 등록 취소합니다.
+
+   ```powershell
+   Unregister-PSRepository -Name WhatIfRepository
+   ```
+
+### <a name="install-preview-version"></a>미리 보기 버전 설치
+
+미리 보기 모듈을 설치하려면 다음을 사용하십시오.
+
+```powershell
+Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
+```
+
+당신은 what-if를 사용할 준비가 되었습니다.
+
+## <a name="see-results"></a>결과 보기
 
 PowerShell에서 출력에는 다양한 유형의 변경 내용을 확인하는 데 도움이 되는 색상으로 구분된 결과가 포함되어 있습니다.
 
 ![리소스 관리자 템플릿 배포 what-if 작업 전체 리소스 페이로드 및 변경 유형](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
-텍스트 오포트는 다음과 입니다.
+텍스트 출력은 다음과 입니다.
 
 ```powershell
 Resource and property changes are indicated with these symbols:
@@ -72,11 +111,8 @@ Azure PowerShell 또는 Azure REST API를 사용하여 what-if 작업에 사용�
 
 앞의 명령은 수동으로 검사할 수 있는 텍스트 요약을 반환합니다. 프로그래밍 방식으로 검사할 수 있는 개체를 얻으려면 다음을 사용하십시오.
 
-* `$results = Get-AzResourceGroupDeploymentWhatIf`리소스 그룹 배포용
-* `$results = Get-AzSubscriptionDeploymentWhatIf`또는 `$results = Get-AzDeploymentWhatIf` 구독 수준 배포용
-
-> [!NOTE]
-> 버전 2.0.1-alpha5가 릴리스되기 전에는 `New-AzDeploymentWhatIf` 명령을 사용했습니다. 이 명령은 `Get-AzDeploymentWhatIf`에서 `Get-AzResourceGroupDeploymentWhatIf`및 `Get-AzSubscriptionDeploymentWhatIf` 명령으로 대체되었습니다. 이전 버전을 사용한 경우 해당 구문을 업데이트해야 합니다. 매개 `-ScopeType` 변수가 제거되었습니다.
+* `$results = Get-AzResourceGroupDeploymentWhatIfResult`리소스 그룹 배포용
+* `$results = Get-AzSubscriptionDeploymentWhatIfResult`또는 `$results = Get-AzDeploymentWhatIfResult` 구독 수준 배포용
 
 ### <a name="azure-rest-api"></a>Azure REST API
 
@@ -170,7 +206,7 @@ New-AzResourceGroupDeployment `
 
 ### <a name="test-modification"></a>테스트 수정
 
-배포가 완료되면 what-if 작업을 테스트할 준비가 된 것입니다. 이번에는 가상 [네트워크를 변경하는 템플릿을 배포합니다.](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.json) 원래 태그가 하나 누락되고 서브넷이 제거되었으며 주소 접두사가 변경되었습니다.
+배포가 완료되면 what-if 작업을 테스트할 준비가 된 것입니다. 이번에는 가상 [네트워크를 변경하는 템플릿을 배포합니다.](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.json) 원래 태그가 하나 도 없고 서브넷이 제거되었으며 주소 접두사가 변경되었습니다.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -214,7 +250,7 @@ Resource changes: 1 to modify.
 
 색상이 변경 유형을 나타내기 위해 정의된 출력맨 위에 있습니다.
 
-출력의 맨 아래에는 소유자 태그가 삭제된 것을 보여 주는 것입니다. 주소 접두사는 10.0.0.0/16에서 10.0.0.0/15로 변경되었습니다. subnet001이라는 서브넷이 삭제되었습니다. 이 변경 사항은 실제로 배포되지 않았음을 기억하십시오. 템플릿을 배포할 때 발생하는 변경 내용의 미리 보기가 표시됩니다.
+출력의 맨 아래에는 소유자 태그가 삭제된 것을 보여 주는 것입니다. 주소 접두사는 10.0.0.0/16에서 10.0.0.0/15로 변경되었습니다. subnet001이라는 서브넷이 삭제되었습니다. 이러한 변경 내용은 실제로 배포되지 않았음을 기억하십시오. 템플릿을 배포할 때 발생하는 변경 내용의 미리 보기가 표시됩니다.
 
 삭제된 것으로 나열된 일부 속성은 실제로 변경되지 않습니다. 템플릿에 없을 때 속성이 삭제된 것으로 잘못 보고될 수 있지만 배포 중에 기본값으로 자동으로 설정됩니다. 이 결과는 what-if 응답에서 "노이즈"로 간주됩니다. 마지막으로 배포된 리소스에는 속성에 대해 설정된 값이 있습니다. what-if 작업이 성숙하면 이러한 속성이 결과에서 필터링됩니다.
 
@@ -223,7 +259,7 @@ Resource changes: 1 to modify.
 이제 명령을 변수로 설정하여 가정별 결과를 프로그래밍 방식으로 평가해 보겠습니다.
 
 ```azurepowershell
-$results = Get-AzResourceGroupDeploymentWhatIf `
+$results = Get-AzResourceGroupDeploymentWhatIfResult `
   -ResourceGroupName ExampleGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
 ```

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 31587777ba22dd8b4cebf81f0ff98979bb30fade
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: ec9eeb0c35d96ee777771260686178faa536e909
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80410710"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877306"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>활성 디렉터리(Azure AD) 응용 프로그램 프록시자주 묻는 질문
 
@@ -48,10 +48,6 @@ Azure AD 응용 프로그램 프록시를 사용하려면 Azure AD 프리미엄 
 ### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>백 엔드 응용 프로그램은 여러 웹 서버에서 호스팅되며 사용자 세션 지속성(끈기)이 필요합니다. 세션 지속성을 달성하면 어떻게 해야 합니까? 
 
 권장 사항은 [응용 프로그램 프록시 커넥터 및 응용 프로그램의 고가용성 및 부하 분산을](application-proxy-high-availability-load-balancing.md)참조하십시오.
-
-### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>커넥터 서버와 백 엔드 응용 프로그램 서버 사이에 정방향 프록시 장치를 배치할 수 있습니까?
-
-아니요, 이 시나리오는 지원되지 않습니다. Azure로의 아웃바운드 트래픽에 대한 전달 프록시를 사용하도록 커넥터 및 업데이트 서비스만 구성할 수 있습니다. [기존 온-프레미스 프록시 서버 작업](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers) 보기
 
 ### <a name="is-tls-termination-tlshttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>커넥터 서버에서 Azure로의 트래픽에 대한 TLS 종료(TLS/HTTPS 검사 또는 가속)가 지원되고 있습니까?
 

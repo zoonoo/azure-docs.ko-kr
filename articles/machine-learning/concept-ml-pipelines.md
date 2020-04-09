@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 11/06/2019
-ms.openlocfilehash: da45c0db027dffc89bd058b70331a4bd6d093b08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 0cefa78b6f52cc67df8817f68a9b793ab86b2a7f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336953"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878581"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Azure 기계 학습 파이프라인이란 무엇입니까?
 
@@ -64,7 +64,7 @@ Azure 기계 학습을 사용하면 파이프라인의 각 단계에 대해 PyTo
 
 Azure 포털 또는 [작업 영역 방문 페이지(미리 보기)에서](https://ml.azure.com) [파이프라인 실험에 대한 메트릭을](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments) 직접 추적할 수 있습니다. 파이프라인이 게시된 후 REST 끝점을 구성하여 모든 플랫폼 또는 스택에서 파이프라인을 다시 실행할 수 있습니다.
 
-즉, 기계 학습 수명 주기의 모든 복잡한 작업은 파이프라인을 통해 도움이 될 수 있습니다. 다른 Azure 파이프라인 기술에는 지속적인 통합 및 [배포를](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) 위해 데이터 작업을 위한 Azure Data Factory 파이프라인 및 Azure 파이프라인과 같은 고유한 [강점이 있습니다.](https://azure.microsoft.com/services/devops/pipelines/) 그러나 기계 학습에 중점을 둔 경우 Azure 기계 학습 파이프라인이 워크플로 요구 사항에 가장 적합한 선택이 될 수 있습니다. 
+즉, 기계 학습 수명 주기의 모든 복잡한 작업은 파이프라인을 통해 도움이 될 수 있습니다. 다른 Azure 파이프라인 기술에는 고유한 강점이 있습니다. [Azure Data Factory 파이프라인은](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) 데이터 작업에 탁월하며 [Azure 파이프라인은](https://azure.microsoft.com/services/devops/pipelines/) 지속적인 통합 및 배포에 적합한 도구입니다. 그러나 기계 학습에 중점을 둔 경우 Azure 기계 학습 파이프라인이 워크플로 요구 사항에 가장 적합한 선택이 될 수 있습니다. 
 
 ## <a name="what-are-azure-ml-pipelines"></a>Azure ML 파이프라인이란 무엇입니까?
 
@@ -126,7 +126,7 @@ Azure 기계 학습에서 계산 대상은 ML 단계가 발생하는 환경입�
 
 파이프라인 내의 단계에는 다른 단계에 대한 종속성이 있을 수 있습니다. Azure ML 파이프라인 서비스는 이러한 종속성을 분석하고 오케스트레이션하는 작업을 수행합니다. 결과 "실행 그래프"의 노드는 처리 단계입니다. 각 단계는 하드웨어와 소프트웨어의 특정 조합을 만들거나 다시 사용하고 캐시된 결과를 재사용하는 등의 포함될 수 있습니다. 이 실행 그래프의 오케스트레이션 및 최적화는 ML 단계의 속도를 크게 높이고 비용을 절감할 수 있습니다. 
 
-단계는 독립적으로 실행되므로 단계 간에 흐르는 입력 및 출력 데이터를 보유하는 개체를 외부에서 정의해야 합니다. 이것은 [DataReference,](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)및 관련 클래스의 역할입니다. 이러한 데이터 개체는 저장소 구성을 캡슐화하는 [Datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py) 개체와 연결됩니다. `PipelineStep` 기본 클래스는 항상 `name` 문자열, `inputs`의 목록 및 `outputs`의 목록으로 만들어집니다. 일반적으로, 그것은 또한 의 `arguments` 목록을 가지고 있으며 종종 `resource_inputs`의 목록을 해야합니다. 하위 클래스에는 일반적으로 추가 인수도 있습니다(예: `PythonScriptStep` 스크립트의 파일 이름과 경로를 실행하려면 필요). 
+단계는 독립적으로 실행되므로 단계 간에 흐르는 입력 및 출력 데이터를 보유하는 개체를 외부에서 정의해야 합니다. 이것은 [데이터 집합](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py)및 [파이프라인데이터](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), 객체의 역할입니다. 이러한 데이터 개체는 저장소 구성을 캡슐화하는 [Datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py) 개체와 연결됩니다. `PipelineStep` 기본 클래스는 항상 `name` 문자열, `inputs`의 목록 및 `outputs`의 목록으로 만들어집니다. 일반적으로, 그것은 또한 의 `arguments` 목록을 가지고 있으며 종종 `resource_inputs`의 목록을 해야합니다. 하위 클래스에는 일반적으로 추가 인수도 있습니다(예: `PythonScriptStep` 스크립트의 파일 이름과 경로를 실행하려면 필요). 
 
 실행 그래프는 비순환이지만 파이프라인은 되풀이 일정에 따라 실행할 수 있으며 파일 시스템에 상태 정보를 작성할 수 있는 Python 스크립트를 실행하여 복잡한 프로필을 만들 수 있습니다. 특정 단계가 병렬 또는 비동기적으로 실행될 수 있도록 파이프라인을 디자인하는 경우 Azure Machine Learning은 팬아웃 및 팬인의 종속성 분석 및 조정을 투명하게 처리합니다. 일반적으로 실행 그래프의 세부 사항에 대해 걱정할 필요는 없지만 [Pipeline.graph](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline?view=azure-ml-py#attributes) 특성을 통해 사용할 수 있습니다. 
 
@@ -141,19 +141,16 @@ blob_store = Datastore(ws, "workspaceblobstore")
 compute_target = ws.compute_targets["STANDARD_NC6"]
 experiment = Experiment(ws, 'MyExperiment') 
 
-input_data = DataReference(
-    datastore=Datastore(ws, blob_store),
-    data_reference_name="test_data",
-    path_on_datastore="20newsgroups/20news.pkl")
+input_data = Dataset.File.from_files(
+    DataPath(datastore, '20newsgroups/20news.pkl'))
 
-output_data = PipelineData(
-    "output_data",
-    datastore=blob_store,
-    output_name="output_data1")
+output_data = PipelineData("output_data", datastore=blob_store)
+
+input_named = input_data.as_named_input('input')
 
 steps = [ PythonScriptStep(
     script_name="train.py",
-    arguments=["--input", input_data, "--output", output_data],
+    arguments=["--input", input_named.as_download(), "--output", output_data],
     inputs=[input_data],
     outputs=[output_data],
     compute_target=compute_target,
@@ -168,7 +165,7 @@ pipeline_run.wait_for_completion()
 
 스니펫은 일반적인 Azure 기계 학습 `Workspace`개체, `Datastore`a , a , `Experiment` [[계산 대상]](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py)및 에서 시작합니다. 그런 다음 코드는 보유할 `input_data` `output_data`개체와 을 만듭니다. 배열에는 `steps` 데이터 개체를 `PythonScriptStep` 사용하고 `compute_target`에서 실행되는 단일 요소가 있습니다. 그런 다음 코드는 `Pipeline` 개체 자체를 인스턴스화하여 작업 영역 및 단계 배열을 전달합니다. Azure ML `experiment.submit(pipeline)` 파이프라인 실행을 시작하는 호출입니다. 파이프라인이 `wait_for_completion()` 완료될 때까지 블록에 대한 호출입니다. 
 
-파이프라인을 데이터에 연결하는 방법에 대한 자세한 내용은 [데이터에 액세스하는 방법](how-to-access-data.md) 및 데이터 [집합을 등록하는 방법](how-to-create-register-datasets.md)문서를 참조하십시오. 
+파이프라인을 데이터에 연결하는 방법에 대한 자세한 내용은 [Azure 기계 학습 및](concept-data.md) ML 파이프라인 [단계(파이썬) 간 데이터 이동](how-to-move-data-in-out-of-pipelines.md)에 대한 문서 데이터 액세스를 참조하십시오. 
 
 ## <a name="best-practices-when-using-pipelines"></a>파이프라인 사용 시 모범 사례
 
@@ -196,7 +193,7 @@ pipeline_run.wait_for_completion()
 
 기계 학습 워크플로우에 파이프라인을 사용할 때의 주요 이점은 다음과 같습니다.
 
-|주요 장점|설명|
+|주요 장점|Description|
 |:-------:|-----------|
 |**무인&nbsp;실행**|단계가 병렬 또는 순차적으로 안정적이고 무인 방식으로 실행되도록 예약합니다. 데이터 준비 및 모델링은 며칠 또는 몇 주 동안 지속될 수 있으며 파이프라인을 사용하면 프로세스가 실행되는 동안 다른 작업에 집중할 수 있습니다. |
 |**이종 계산**|이기종적이고 확장 가능한 컴퓨팅 리소스 및 스토리지 위치에서 안정적으로 조정되는 여러 파이프라인을 사용합니다. HDInsight, GPU 데이터 과학 VM 및 데이터브릭과 같은 다양한 컴퓨팅 대상에서 개별 파이프라인 단계를 실행하여 사용 가능한 컴퓨팅 리소스를 효율적으로 사용할 수 있습니다.|
@@ -207,9 +204,9 @@ pipeline_run.wait_for_completion()
 
 ### <a name="choosing-the-proper-pipelinestep-subclass"></a>적절한 파이프라인스텝 하위 클래스 선택
 
-는 `PythonScriptStep` 추상에서 `PipelineStep`가장 유연한 하위 클래스입니다. 하위 클래스와 같은 `EstimatorStep` 다른 `DataTransferStep` 하위 클래스는 코드가 적고 특정 작업을 수행할 수 있습니다. 예를 들어 `EstimatorStep` 단계, `Estimator`an 및 계산 대상에 대한 이름을 전달하기만 하면 만들 수 있습니다. 또는 입력 및 출력, 파이프라인 매개 변수 및 인수를 재정의할 수 있습니다. 자세한 내용은 [추정기를 사용하여 Azure 기계 학습을 사용하는 모델 학습을](how-to-train-ml-models.md)참조하십시오. 
+는 `PythonScriptStep` 추상에서 `PipelineStep`가장 유연한 하위 클래스입니다. 하위 클래스와 같은 `EstimatorStep` 다른 `DataTransferStep` 하위 클래스는 코드가 적고 특정 작업을 수행할 수 있습니다. 예를 들어 `EstimatorStep` 단계, `Estimator`an 및 계산 대상에 대한 이름을 전달하여 만들 수 있습니다. 또는 입력 및 출력, 파이프라인 매개 변수 및 인수를 재정의할 수 있습니다. 자세한 내용은 [추정기를 사용하여 Azure 기계 학습을 사용하는 모델 학습을](how-to-train-ml-models.md)참조하십시오. 
 
-이를 `DataTransferStep` 통해 데이터 원본과 싱크 간에 데이터를 쉽게 이동할 수 있습니다. 이 작업을 수동으로 수행하는 코드는 간단하지만 반복적입니다. 대신 이름, 데이터 `DataTransferStep` 원본 및 데이터 싱크에 대한 참조 및 계산 대상을 사용하여 만들 수 있습니다. [DataTransferStep이 있는](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-data-transfer.ipynb) 전자 필기장 Azure 기계 학습 파이프라인은 이러한 유연성을 보여 줍니다.
+이를 `DataTransferStep` 통해 데이터 원본과 싱크 간에 데이터를 쉽게 이동할 수 있습니다. 이 전송을 수동으로 수행하는 코드는 간단하지만 반복적입니다. 대신 이름, 데이터 `DataTransferStep` 원본 및 데이터 싱크에 대한 참조 및 계산 대상을 사용하여 만들 수 있습니다. [DataTransferStep이 있는](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-data-transfer.ipynb) 전자 필기장 Azure 기계 학습 파이프라인은 이러한 유연성을 보여 줍니다.
 
 ## <a name="modules"></a>모듈
 

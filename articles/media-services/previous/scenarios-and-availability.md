@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 7b5569738721038beadc78d94c81393803b6d36a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa0cf5d698bc2186928e0db19be173ec725485e8
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79250986"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985935"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>시나리오 및 데이터 센터에서 Media Services 기능의 사용 가용성
 
@@ -169,7 +169,7 @@ AMS 고객은 해당 AMS 계정에서 스트리밍 엔드포인트, 미디어 �
 
 #### <a name="availability"></a>가용성
 
-데이터 센터에서 Media Services를 사용할 수 있는지 확인하려면 https://azure.microsoft.com/status/로 이동하여 MEDIA 테이블로 스크롤합니다.
+[지역별 Azure 제품을](https://azure.microsoft.com/global-infrastructure/services/?products=media-services&regions=all) 사용하여 특정 데이터 센터에서 미디어 서비스를 사용할 수 있는지 여부를 확인합니다.
 
 ### <a name="streaming-endpoints"></a>스트리밍 엔드포인트 
 
@@ -177,7 +177,7 @@ Media Services 고객은 **표준** 스트리밍 엔드포인트나 **프리미�
 
 #### <a name="availability"></a>가용성
 
-|이름|상태|데이터 센터
+|속성|상태|데이터 센터
 |---|---|---|
 |Standard|GA|모두|
 |Premium|GA|모두|

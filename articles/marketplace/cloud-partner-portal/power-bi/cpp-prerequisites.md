@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 5e8f63d63739f15d6d140b1eff510e6e006955b8
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: ac27a2c95789eac3e824e4ecb31138a6720868a6
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80744270"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981650"
 ---
 # <a name="power-bi-app-offer-prerequisites"></a>Power BI 앱 제품 필수 구성 요소
 
 >[!Important]
->2020년 3월 30일부터 Power BI 앱 제공의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Power BI [앱 만들기 개요의](https://aka.ms/AzurePBIAppCreationOverview) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
+>2020년 4월 13일부터 Power BI 앱 제공의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Power BI [앱 만들기 개요의](https://aka.ms/AzurePBIAppCreationOverview) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
 
 이 문서에서는 AppSource 마켓플레이스에 Power BI 앱 오퍼를 게시하기 전에 충족해야 하는 기술 및 비즈니스 요구 사항을 제공합니다.  아직 수행하지 않은 경우 Office [365, Dynamics 365, PowerApps 및 Power BI 오퍼 게시 가이드를](../../appsource-offer-publishing-guide.md)검토하십시오.
 

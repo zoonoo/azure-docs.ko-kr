@@ -3,12 +3,12 @@ title: 위임된 리소스 규모 모니터링
 description: 관리하려는 고객 테넌트 전체에서 확장 가능한 방식으로 Azure Monitor Logs를 효과적으로 사용하는 방법을 알아봅니다.
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 217df3c55ab54b6569bae8cacb338764ecb7125d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a600cec524c9f715ada9da09dea35f3baa98151
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77122897"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985204"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>위임된 리소스 규모 모니터링
 
@@ -28,7 +28,7 @@ Azure [CLI를](../../azure-monitor/learn/quick-create-workspace-cli.md)사용하
 
 Log Analytics 작업 영역을 만든 후에는 진단 데이터가 각 테넌트의 적절한 작업 영역으로 전송되도록 고객 계층에 [Azure 정책을](../../governance/policy/index.yml) 배포할 수 있습니다. 배포하는 정확한 정책은 모니터링하려는 리소스 유형에 따라 다를 수 있습니다.
 
-정책 만들기에 대한 자세한 내용은 [자습서: 정책 만들기 및 관리를 참조하여 규정 준수를 적용합니다.](../../governance/policy/tutorials/create-and-manage.md) 이 [커뮤니티 도구는](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/tools/azure-diagnostics-policy-generator) 선택한 특정 리소스 유형을 모니터링하는 정책을 만드는 데 도움이 되는 스크립트를 제공합니다.
+정책 만들기에 대한 자세한 내용은 [자습서: 정책 만들기 및 관리를 참조하여 규정 준수를 적용합니다.](../../governance/policy/tutorials/create-and-manage.md) 이 [커뮤니티 도구는](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/azure-diagnostics-policy-generator) 선택한 특정 리소스 유형을 모니터링하는 정책을 만드는 데 도움이 되는 스크립트를 제공합니다.
 
 배포할 정책을 결정한 경우 [이를 대규모로 위임된 구독에 배포할](policy-at-scale.md)수 있습니다.
 

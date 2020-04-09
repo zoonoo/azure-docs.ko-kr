@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 이미지 검색 REST API 및 Python 검색 - Bing Image Search'
+title: '빠른 시작: Bing Image Search REST API 및 Python을 사용하여 이미지 검색'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작을 사용하여 Python을 통해 Bing Image Search REST API로 이미지 검색 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 12/06/2019
+ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f3d00688feb0f9d42e80cdbb51753483e53c388d
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 6287b9b8e6129fd62a896e5ac1fcca29febbf01a
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74930735"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478551"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>빠른 시작: Bing Image Search REST API 및 Python을 사용하여 이미지 검색
 

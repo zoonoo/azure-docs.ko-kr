@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
-ms.openlocfilehash: 9f115d51657993562642391a235de79420aa434a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ce88f9a61b8aa7c2588a6e077d694afa6fb8631
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73823371"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878853"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance의 가상 네트워크 만들기
 
@@ -29,13 +29,13 @@ Azure SQL Database Managed Instance는 Azure [가상 네트워크](../virtual-ne
 - 연결된 서버 또는 다른 온-프레미스 데이터 저장소에 Managed Instance 연결
 - Azure 리소스에 Managed Instance 연결  
 
-> [!Note]
+> [!NOTE]
 > 첫 번째 인스턴스를 배포하기 전에 [Managed Instance의 서브넷 크기를 결정](sql-database-managed-instance-determine-size-vnet-subnet.md)해야 합니다. 리소스를 추가한 후에는 서브넷 크기를 조정할 수 없습니다.
 >
 > 기존 가상 네트워크를 사용하려는 경우 Managed Instance를 수용하도록 해당 네트워크 구성을 수정해야 합니다. 자세한 내용은 [Managed Instance의 기존 가상 네트워크 수정](sql-database-managed-instance-configure-vnet-subnet.md)을 참조하세요.
 >
-> 관리되는 인스턴스를 만든 후 관리되는 인스턴스 또는 VNet을 다른 리소스 그룹 또는 구독으로 이동하는 것은 지원되지 않습니다.
-
+> 관리되는 인스턴스를 만든 후 관리되는 인스턴스 또는 VNet을 다른 리소스 그룹 또는 구독으로 이동하는 것은 지원되지 않습니다.  관리되는 인스턴스를 다른 서브넷으로 이동하는 것도 지원되지 않습니다.
+>
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 

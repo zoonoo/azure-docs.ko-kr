@@ -2,24 +2,21 @@
 title: 단일 페이지 앱 구성 - Microsoft ID 플랫폼 | Azure
 description: 단일 페이지 응용 프로그램(앱의 코드 구성)을 빌드하는 방법 알아보기
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: c1799b25ec1adf44342d2305d3b2a29039c39cd4
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: f159105046231ba5fb4e458cdd70d930a411a920
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80419713"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80882338"
 ---
 # <a name="single-page-application-code-configuration"></a>단일 페이지 응용 프로그램: 코드 구성
 

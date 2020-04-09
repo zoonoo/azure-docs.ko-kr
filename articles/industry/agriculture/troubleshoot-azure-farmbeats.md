@@ -5,16 +5,19 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 2270ee7c850c528bd24fa2e58c2b1684acfc24d6
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 74522502f5405b56a3a604f20a695de83ef3c3a5
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585303"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886486"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
 이 문서에서는 일반적인 Azure FarmBeats 문제에 대한 솔루션을 제공합니다. 추가 도움이 되면 [지원 포럼에](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) 문의하거나 로 이메일을 farmbeatssupport@microsoft.com보내주십시오.
+
+> [!NOTE]
+  > 4월 중에 FarmBeats를 설치했으며 작업이 빈 오류 메시지로 실패하는 경우 응급 상황, 의료 및 기타 중요한 요구 사항으로 향하는 모든 리소스로 인해 설치에 일괄 할당량이 할당되지 않았을 수 있습니다. 일괄 처리 계정에 VM을 할당하도록 요청해야 합니다.
 
 ## <a name="install-issues"></a>설치 문제
 

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 0d768581b8f1a177190da08986af8b60b4861432
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: d204477818ce2733d9f6d1e3dcc7455018456bcb
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80744204"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884835"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Azure 시냅스 분석(이전 SQL DW) 아키텍처
 
@@ -79,8 +79,6 @@ DMS(데이터 이동 서비스)는 컴퓨팅 노드 간의 데이터 이동을 �
 60개의 작은 쿼리는 각각 데이터 분산 중 하나에서 실행됩니다. 각 컴퓨팅 노드는 60개 중 하나 이상의 분산을 관리합니다. 최대 계산 리소스가 있는 SQL 풀에는 Compute 노드당 하나의 분포가 있습니다. 계산 리소스가 최소인 SQL 풀에는 하나의 계산 노드에 대한 모든 분포가 있습니다.  
 
 ## <a name="hash-distributed-tables"></a>해시 분산 테이블
-
-해시 분산 테이블은 대형 테이블의 조인 및 집계에 대해 가장 높은 쿼리 성능을 제공할 수 있습니다.
 
 해시 분산 테이블은 대형 테이블의 조인 및 집계에 대해 가장 높은 쿼리 성능을 제공할 수 있습니다.
 

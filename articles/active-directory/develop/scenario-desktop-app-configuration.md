@@ -2,24 +2,21 @@
 title: 웹 API를 호출하는 데스크톱 앱 구성 - Microsoft ID 플랫폼 | Azure
 description: 웹 API를 호출하는 데스크톱 앱의 코드를 구성하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2ba69e6447c686230412c33e74196c4bb594e0de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f6cd9e17045fc400d32e9822cef870f1763179ab
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77611819"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885276"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>웹 API를 호출하는 데스크톱 앱: 코드 구성
 
@@ -29,7 +26,7 @@ ms.locfileid: "77611819"
 
 다음 Microsoft 인증 라이브러리(MSAL)는 데스크톱 응용 프로그램을 지원합니다.
 
-  Microsoft 인증 라이브러리 | 설명
+  Microsoft 인증 라이브러리 | Description
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Linux, Windows 및 macOS와 같은 여러 플랫폼에서 데스크톱 응용 프로그램 빌드를 지원합니다.
   ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | 여러 플랫폼에서 데스크톱 응용 프로그램 빌드를 지원합니다.

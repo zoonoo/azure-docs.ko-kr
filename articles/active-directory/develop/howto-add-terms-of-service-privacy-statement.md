@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/22/2019
 ms.author: ryanwi
-ms.reviwer: lenalepa, sureshja
+ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 8fc85781f139b45e9e37f6e0f7cc36974041352d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40e7a05505bc501c1c622e627a6d97cc57db1cfa
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78300012"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884242"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>방법: 앱에 대한 서비스 약관 및 개인 정보 취급 방침 구성
 
@@ -39,7 +39,7 @@ Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌�
 
 앱의 서비스 약관 및 개인정보처리방침 문서에 링크를 추가하기 전에 URL이 지침을 준수하는지 확인해야 합니다.
 
-| 지침     | 설명                           |
+| 지침     | Description                           |
 |---------------|---------------------------------------|
 | 형식        | 유효한 URL                             |
 | 유효한 스키마 | HTTP 및 HTTPS<br/>HTTPS 권장 |
@@ -55,10 +55,10 @@ Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌�
 * [앱 개체 JSON을 사용하여](#app-object-json)
 * [마이크로소프트 그래프 API 사용](#msgraph-rest-api)
 
-### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Azure 포털 사용
+### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Azure Portal 사용
 Azure 포털에서 다음 단계를 따릅니다.
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **앱 등록** 섹션으로 이동하여 앱을 선택합니다.
 3. 브랜딩 창을 **엽니다.**
 4. **서비스 약관 URL** 및 **개인정보처리방침 URL** 필드를 채웁니다.

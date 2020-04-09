@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: fd1f06bcb92ea97e0e9e9a6eefeac957031575a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a088e52f742f96a13ba61969c2d7a6697c96b145
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471560"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879295"
 ---
 # <a name="routing-architecture-overview"></a>라우팅 아키텍처 개요
 
@@ -35,7 +35,7 @@ Azure Front Door 환경으로 라우팅하면 DNS(Domain Name System)와 HTTP(Hy
 [분할 TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy)는 긴 왕복 시간을 초래하는 연결을 작은 조각으로 분리하여 대기 시간과 TCP 문제를 줄이는 기법입니다.  Front Door 환경을 최종 사용자에 가깝게 배치하고 Front Door 환경 내에서 TCP 연결을 종료함으로써 애플리케이션 백 엔드에 대한 RTT(왕복 시간)가 긴 하나의 TCP 연결이 두 개의 TCP 연결로 분할됩니다. 최종 사용자와 Front Door 환경 간의 짧은 연결은 세 번의 긴 왕복 대신 3개의 짧은 왕복을 통해 연결이 설정되므로 대기 시간을 절약할 수 있습니다.  Front Door 환경과 백 엔드 간의 긴 연결은 미리 설정되어 여러 최종 사용자 호출에 재사용될 수 있으며 TCP 연결 시간을 다시 절약합니다.  이 효과는 SSL/TLS(전송 계층 보안) 연결을 설정할 때 배가됩니다. 연결을 보호할 왕복이 더 많기 때문입니다.
 
 ## <a name="processing-request-to-match-a-routing-rule"></a>라우팅 규칙과 일치하도록 요청 처리
-연결을 설정하고 SSL 핸드셰이크를 수행한 후 Front Door 환경에 요청이 도착하면 라우팅 규칙을 매칭하는 것이 첫 번째 단계입니다. 이러한 매칭은 기본적으로 Front Door의 모든 구성에서 어떤 특정 라우팅 규칙을 요청과 매칭할지 결정합니다. 자세한 내용은 Front Door에서 [경로 매칭](front-door-route-matching.md)이 수행되는 방법에 대해 읽어보세요.
+연결을 설정하고 TLS 핸드셰이크를 수행한 후 요청이 정문 환경에 도착하면 라우팅 규칙을 일치시키는 것이 첫 번째 단계입니다. 이러한 매칭은 기본적으로 Front Door의 모든 구성에서 어떤 특정 라우팅 규칙을 요청과 매칭할지 결정합니다. 자세한 내용은 Front Door에서 [경로 매칭](front-door-route-matching.md)이 수행되는 방법에 대해 읽어보세요.
 
 ## <a name="identifying-available-backends-in-the-backend-pool-for-the-routing-rule"></a>라우팅 규칙에 대해 백 엔드 풀에서 사용 가능한 백 엔드 식별
 Front Door에 들어오는 요청을 기반으로 라우팅 규칙이 일치하는 항목이 있고 캐싱이 없는 경우 다음 단계는 일치하는 경로와 연결된 백 엔드 풀의 상태 프로브 상태를 끌어오는 것입니다. 자세한 내용은 Front Door에서 [상태 프로브](front-door-health-probes.md)를 사용하여 백엔드 상태를 모니터링하는 방법에 대해 읽어보세요.

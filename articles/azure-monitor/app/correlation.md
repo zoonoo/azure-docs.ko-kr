@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 06897fffda490cdfcbb2a9cf6f55c7945e8afda0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c68b83726371d346019d18d0b066173f93196e6d
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276128"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982058"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -63,7 +63,7 @@ Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 
 
 응용 프로그램 인사이트 SDK의 최신 버전은 추적 컨텍스트 프로토콜을 지원하지만 이를 옵트인해야 할 수도 있습니다. 응용 프로그램 인사이트 SDK에서 지원하는 이전 상관 관계 프로토콜과의 이전 호환성이 유지됩니다.
 
-[요청 ID라고도 하는 상관 관계 HTTP 프로토콜이](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)더 이상 사용되지 않습니다. 이 프로토콜은 두 개의 헤더를 정의합니다.
+[요청 ID라고도 하는 상관 관계 HTTP 프로토콜이](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)더 이상 사용되지 않습니다. 이 프로토콜은 두 개의 헤더를 정의합니다.
 
 - `Request-Id`: 통화의 전역 고유 ID를 전달합니다.
 - `Correlation-Context`: 분산 추적 속성의 이름 값 쌍 컬렉션을 전달합니다.
@@ -202,13 +202,13 @@ public void ConfigureServices(IServiceCollection services)
 
 [OpenTracing 데이터 모델 사양](https://opentracing.io/)과 Application Insights 데이터 모델은 다음과 같은 방식으로 매핑됩니다.
 
-| 애플리케이션 정보                  | OpenTracing                                       |
-|------------------------------------   |-------------------------------------------------  |
-| `Request`, `PageView`                 | `Span`(`span.kind = server` 사용)                  |
-| `Dependency`                          | `Span`(`span.kind = client` 사용)                  |
-| `Request` 및 `Dependency`의 `Id`    | `SpanId`                                          |
-| `Operation_Id`                        | `TraceId`                                         |
-| `Operation_ParentId`                  | `ChildOf` 유형의 `Reference`(상위 범위)   |
+| Application Insights                   | OpenTracing                                        |
+|------------------------------------    |-------------------------------------------------    |
+| `Request`, `PageView`                  | `Span`(`span.kind = server` 사용)                    |
+| `Dependency`                           | `Span`(`span.kind = client` 사용)                    |
+| `Request` 및 `Dependency`의 `Id`     | `SpanId`                                            |
+| `Operation_Id`                         | `TraceId`                                           |
+| `Operation_ParentId`                   | `ChildOf` 유형의 `Reference`(상위 범위)     |
 
 자세한 내용은 [응용 프로그램 인사이트 원격 분석 데이터 모델을](../../azure-monitor/app/data-model.md)참조하십시오.
 
@@ -320,19 +320,12 @@ ASP.NET Core 2.0은 HTTP 헤더 추출 및 새 작업을 지원합니다.
 Application Insights SDK는 버전 2.4.0-beta1부터 `DiagnosticSource` 및 `Activity`를 사용하여 원격 분석을 수집하고 현재 활동과 연결합니다.
 
 <a name="java-correlation"></a>
-## <a name="telemetry-correlation-in-the-java-sdk"></a>Java SDK의 원격 분석 상관 관계
+## <a name="telemetry-correlation-in-the-java"></a>Java의 원격 분석 상관 관계
 
-Java 버전 2.0.0 [이상용 응용 프로그램 인사이트 SDK는](../../azure-monitor/app/java-get-started.md) 원격 분석의 자동 상관 관계를 지원합니다. 요청 범위 내에서 `operation_id` 발급된 모든 원격 분석(예: 추적, 예외 및 사용자 지정 이벤트)에 대해 자동으로 채워집니다. 또한 [Java SDK 에이전트가](../../azure-monitor/app/java-agent.md) 구성된 경우 HTTP를 통해 서비스 간 호출에 대한 상관 헤더(앞에 설명)를 전파합니다.
+[응용 프로그램 인사이트 Java 에이전트뿐만](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) 아니라 [Java SDK](../../azure-monitor/app/java-get-started.md) 버전 2.0.0 이상은 원격 분석의 자동 상관 관계를 지원합니다. 요청 범위 내에서 `operation_id` 발급된 모든 원격 분석(예: 추적, 예외 및 사용자 지정 이벤트)에 대해 자동으로 채워집니다. 또한 [Java SDK 에이전트가](../../azure-monitor/app/java-agent.md) 구성된 경우 HTTP를 통해 서비스 간 호출에 대한 상관 헤더(앞에 설명)를 전파합니다.
 
 > [!NOTE]
-> 아파치 HttpClient를 통해 이루어진 호출만 상관 관계 기능에 대해 지원됩니다. 스프링 레스트템플릿과 페이그 모두 후드 아래 아파치 HttpClient와 함께 사용할 수 있습니다.
-
-현재 메시징 기술(예: Kafka, RabbitMQ 및 Azure Service Bus)에 대한 자동 컨텍스트 전파는 지원되지 않습니다. `trackDependency` 이러한 시나리오는 및 `trackRequest` 메서드를 사용하여 수동으로 코딩할 수 있습니다. 이러한 메서드에서 종속성 원격 분석 생산자에 의해 큐에 대기 되는 메시지를 나타냅니다. 요청은 소비자가 처리중인 메시지를 나타냅니다. 이 경우 `operation_id` 및 `operation_parentId` 둘 다 메시지의 속성에 전파되어야 합니다.
-
-### <a name="telemetry-correlation-in-asynchronous-java-applications"></a>비동기 Java 응용 프로그램의 원격 분석 상관 관계
-
-비동기 스프링 부팅 응용 프로그램에서 원격 분석을 상호 연관시키는 방법을 알아보려면 [비동기 Java 응용 프로그램에서 분산 추적을](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications)참조하십시오. 이 문서에서는 스프링의 [스레드풀태스크익스커](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) 및 [스레드풀태스크스케줄러를](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html)계측하기 위한 지침을 제공합니다.
-
+> 응용 프로그램 인사이트 Java 에이전트는 JMS, 카프카, 네티/웹플럭스 등에 대한 요청 및 종속성을 자동으로 수집합니다. Java SDK의 경우 아파치 HttpClient를 통해 만들어진 호출만 상관 관계 기능에 대해 지원됩니다. 메시징 기술(예: Kafka, RabbitMQ 및 Azure Service Bus)에 대한 자동 컨텍스트 전파는 SDK에서 지원되지 않습니다. 
 
 <a name="java-role-name"></a>
 ## <a name="role-name"></a>역할 이름

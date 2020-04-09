@@ -3,25 +3,21 @@ title: 보호된 웹 API 앱 구성 | Azure
 titleSuffix: Microsoft identity platform
 description: 보호된 웹 API를 빌드하고 응용 프로그램의 코드를 구성하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3f07105c14d4dafeb689eaaf7d679f93e5f235fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 073eca94ad93c69811b02abe2c8649940a394e8e
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262517"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80882474"
 ---
 # <a name="protected-web-api-code-configuration"></a>보호된 웹 API: 코드 구성
 
@@ -154,7 +150,7 @@ services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationSche
 
 이 표는 유효성 검사기에 대해 설명합니다.
 
-| Validator | 설명 |
+| Validator | Description |
 |---------|---------|
 | **검증 대상** | 토큰이 토큰의 유효성을 검사하는 응용 프로그램에 대한 지 확인합니다. |
 | **유효성 검사 발급자** | 토큰이 신뢰할 수 있는 STS에 의해 발급되었는지 확인합니다. |

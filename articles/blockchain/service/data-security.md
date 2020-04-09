@@ -4,12 +4,12 @@ description: Azure 블록 체인 서비스 데이터 액세스 및 보안 개념
 ms.date: 11/22/2019
 ms.topic: conceptual
 ms.reviewer: janders
-ms.openlocfilehash: 06bf4e0fa4037b07505a4f816fc7af56c14576d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 989d9f2afad30517a85185878d694c0b6640e987
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75982236"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879601"
 ---
 # <a name="azure-blockchain-service-security"></a>Azure 블록체인 서비스 보안
 
@@ -27,7 +27,7 @@ Azure 블록 체인 서비스 리소스는 개인 가상 네트워크에서 격�
 
 ## <a name="authentication"></a>인증
 
-거래는 RPC 엔드포인트를 통해 블록체인 노드로 전송될 수 있습니다. 클라이언트는 사용자 인증을 처리하고 SSL을 통해 데이터를 암호화하는 역방향 프록시 서버를 사용하여 트랜잭션 노드와 통신합니다.
+거래는 RPC 엔드포인트를 통해 블록체인 노드로 전송될 수 있습니다. 클라이언트는 사용자 인증을 처리하고 TLS를 통해 데이터를 암호화하는 역방향 프록시 서버를 사용하여 트랜잭션 노드와 통신합니다.
 
 ![인증 다이어그램](./media/data-security/authentication.png)
 

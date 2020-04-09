@@ -8,19 +8,19 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 181f43e060e3b4b41babeee375365a97e1d224aa
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 03f79535b3a62fbb4d0309ae86a142bd842cc308
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411279"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982891"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.js](sql-api-sdk-node.md)
+> * [Node.JS](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
@@ -295,14 +295,14 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 
 ### <a name=""></a><a name="1.14.0"/>1.14.0</a>
 * 세션 일관성에 대한 지원이 추가되었습니다.
-* 이 SDK 버전은 https://aka.ms/cosmosdb-emulator에서 다운로드할 수 있는 최신 버전의 Azure Cosmos DB 에뮬레이터가 필요합니다.
+* 이 SDK 버전에는 [Azure 코스모스 DB 에뮬레이터의](https://aka.ms/cosmosdb-emulator)최신 버전이 필요합니다.
 
 ### <a name=""></a><a name="1.13.0"/>1.13.0</a>
 * 파티션 간 쿼리를 분할 검증했습니다
 * 선행 및 후행 슬래시(및 해당 테스트)와의 리소스 링크 지원이 추가되었습니다.
 
 ### <a name=""></a><a name="1.12.2"/>1.12.2</a>
-*   npm 설명서가 수정되었습니다.
+*    npm 설명서가 수정되었습니다.
 
 ### <a name=""></a><a name="1.12.1"/>1.12.1</a>
 * 관련된 문서에 특수 유니코드 문자(LS, PS)가 있는 executeStoredProcedure의 버그를 수정했습니다.
@@ -356,7 +356,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 * hashPartitionResolver resolveForRead() 해결: 예외를 throw하는 제공된 파티션 키가 없는 경우 모든 등록된 링크의 목록을 대신 반환합니다.
 
 ### <a name=""></a><a name="1.5.4"/>1.5.4</a>
-* 문제 해결 [#100](https://github.com/Azure/azure-documentdb-node/issues/100) - 전용 HTTPS 에이전트: Azure Cosmos DB 목적으로 전역 에이전트를 수정하지 않도록 합니다. 모든 lib의 요청에 대해 전용 에이전트를 사용 합니다.
+* 문제 해결 [#100](https://github.com/Azure/azure-documentdb-node/issues/100) - 전용 HTTPS 에이전트: Azure Cosmos DB 목적으로 전역 에이전트를 수정하지 않도록 합니다. lib의 모든 요청에 대해 전용 에이전트를 사용합니다.
 
 ### <a name=""></a><a name="1.5.3"/>1.5.3</a>
 * 문제 해결 [#81](https://github.com/Azure/azure-documentdb-node/issues/81) - 미디어 ID에서 대시를 올바르게 처리합니다.
@@ -477,6 +477,6 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요.
 

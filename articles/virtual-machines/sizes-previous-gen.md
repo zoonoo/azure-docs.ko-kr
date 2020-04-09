@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: 7f13ab3cd6ff765bc3b1bee8e8fad7e7273f6c7d
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 6cf43df756e9bed0438169c9c01b868653d84b57
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673923"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985731"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>이전 세대의 가상 머신 크기
 
@@ -342,7 +342,7 @@ Premium Storage: 지원되지 않음
 <sup>1</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 <br>
 
-# <a name="nv-series"></a>NV 시리즈
+## <a name="nv-series"></a>NV 시리즈
 **최신 크기 권장 사항**: [NVv3 시리즈](nvv3-series.md) 및 [NVv4 시리즈](nvv4-series.md)
 
 NV 시리즈 가상 머신은 고객이 해당 데이터 또는 시뮬레이션을 시각화할 수 있는 데스크톱 가속화 애플리케이션 및 가상 데스크톱용 [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU 및 NVIDIA GRID 기술로 구동됩니다. 사용자는 NV 인스턴스에서 그래픽 집약적인 워크플로를 시각화하여 뛰어난 그래픽 기능을 가져오고 인코딩 및 렌더링 등의 단정밀도 작업을 추가적으로 실행할 수 있습니다. NV 시리즈 VM은 인텔 제온 E5-2690 v3 (하스웰) CPU에 의해 구동된다.

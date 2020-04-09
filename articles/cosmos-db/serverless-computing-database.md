@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 70545020899b69508a4cedb0fd7cf5495c847104
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 079c246f87bb8294f3c7ad6dea3391f5c67ba0ad
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462448"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985255"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용하는 서버리스 데이터베이스 컴퓨팅
 
@@ -104,13 +104,13 @@ IoT 구현에서는 검사 엔진 라이트가 커넥티드 자동차에 표시�
 
      모든 부서에서 변경 피드를 수신 대기하여 Cosmos DB용 Azure 함수를 만들 수 있으며 프로세스에서 중요한 주문 처리 이벤트를 지연하지 않도록 할 수 있습니다.
 
-이러한 모든 사용 사례에서는 함수가 앱 자체를 분리했기 때문에 항상 새로운 앱 인스턴스를 스핀업할 필요가 없습니다. 대신, Azure Functions는 개별 함수를 스핀업하여 필요에 따라 개별 프로세스를 완료합니다.
+이러한 모든 사용 사례에서 함수가 앱 자체를 분리했기 때문에 항상 새 앱 인스턴스를 회전할 필요가 없습니다. 대신, Azure Functions는 개별 함수를 스핀업하여 필요에 따라 개별 프로세스를 완료합니다.
 
 ## <a name="tooling"></a>도구
 
 Azure Cosmos DB와 Azure 함수 간의 기본 통합은 Azure 포털 및 Visual Studio 2019에서 사용할 수 있습니다.
 
-* Azure Functions 포털에서 트리거를 만들 수 있습니다. 빠른 시작 지침은 [Azure 포털에서 Cosmos DB에 대한 Azure Functions 트리거 만들기를](https://aka.ms/cosmosdbtriggerportalfunc)참조하십시오.
+* Azure Functions 포털에서 트리거를 만들 수 있습니다. 빠른 시작 지침은 [Azure 포털에서 Cosmos DB에 대한 Azure Functions 트리거 만들기를](../azure-functions/functions-create-cosmos-db-triggered-function.md)참조하십시오.
 * Azure Cosmos DB 포털에서 코스모스 DB에 대한 Azure Functions 트리거를 동일한 리소스 그룹의 기존 Azure Function 앱에 추가할 수 있습니다.
 * Visual Studio 2019에서 [Azure Functions 도구를](../azure-functions/functions-develop-vs.md)사용하여 트리거를 만들 수 있습니다.
 
@@ -146,6 +146,6 @@ Flow, Logic Apps, Azure Functions 또는 WebJobs가 구현에 가장 적합한�
 
 이제 Azure Cosmos DB와 Azure Functions를 실제로 연결하겠습니다. 
 
-* [Azure 포털에서 코스모스 DB에 대한 Azure Functions 트리거 만들기](https://aka.ms/cosmosdbtriggerportalfunc)
-* [Azure Cosmos DB 입력 바인딩을 사용하여 Azure Functions HTTP 트리거 만들기](https://aka.ms/cosmosdbinputbind)
+* [Azure 포털에서 코스모스 DB에 대한 Azure Functions 트리거 만들기](../azure-functions/functions-create-cosmos-db-triggered-function.md)
+* [Azure Cosmos DB 입력 바인딩을 사용하여 Azure Functions HTTP 트리거 만들기](../azure-functions/functions-bindings-cosmosdb.md?tabs=csharp)
 * [Azure Cosmos DB 바인딩 및 트리거](../azure-functions/functions-bindings-cosmosdb-v2.md)

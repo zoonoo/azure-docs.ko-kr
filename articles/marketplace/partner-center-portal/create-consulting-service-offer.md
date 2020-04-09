@@ -6,20 +6,22 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/26/2020
-ms.openlocfilehash: ce8df36d3417417a5f70a5385aa94d9c8c7ff0cc
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.date: 04/06/2020
+ms.openlocfilehash: f1354ce824bc4e57ab55846c714d4a0a73a46966
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674281"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80873823"
 ---
-# <a name="consulting-service-creation-overview"></a>컨설팅 서비스 작성 개요
+# <a name="create-a-consulting-service-offer"></a>컨설팅 서비스 오퍼 만들기
 
 > [!IMPORTANT]
 > 컨설팅 서비스 오퍼의 관리를 클라우드 파트너 포털에서 파트너 센터로 이전하고 있습니다. 오퍼가 마이그레이션될 때까지 [Azure 및 Dynamics 365 컨설팅 서비스 제공의](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) 지침을 따라 Cloud Partner Portal에서 오퍼를 관리하십시오.
 
-이 문서에서는 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 또는 [AppSource](https://appsource.microsoft.com/)에 컨설팅 서비스 오퍼를 게시하는 방법을 설명합니다. 목록 컨설팅 서비스는 AppSource의 Microsoft [Dynamics 365](https://dynamics.microsoft.com/) 및 전원 플랫폼을 기반으로 합니다. 목록 컨설팅 서비스는 Azure 마켓플레이스에서 Microsoft Azure를 기반으로 합니다.
+이 문서에서는 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 또는 [AppSource](https://appsource.microsoft.com/)에 컨설팅 서비스 오퍼를 게시하는 방법을 설명합니다. 목록 컨설팅 서비스는 Microsoft [Dynamics 365](https://dynamics.microsoft.com/) 및 AppSource의 전원 플랫폼을 기반으로 합니다. 목록 컨설팅 서비스는 Azure 마켓플레이스에서 Microsoft Azure를 기반으로 합니다.
+
+Azure 마켓플레이스 또는 AppSource 컨설팅 서비스에서 컨설팅 서비스를 만들려면 먼저 [파트너 센터에 게시자 계정이 있어야](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)하며 계정이 상용 마켓플레이스 프로그램에 등록되어야 합니다. 오퍼를 만들기 전에 [컨설팅 서비스 전제 조건의](https://docs.microsoft.com/azure/marketplace/partner-center-portal/consulting-service-prerequisites)필수 구성 조건을 검토하십시오.
 
 ## <a name="publishing-benefits"></a>게시 이점
 
@@ -30,60 +32,9 @@ ms.locfileid: "80674281"
 - 이러한 마켓플레이스에서 고품질 잠재 고객을 받으십시오.
 - Microsoft 현장 및 원격 판매 팀에서 서비스를 승격
 
-## <a name="requirements"></a>요구 사항
+## <a name="create-a-new-offer"></a>새 제안 만들기
 
-### <a name="business-requirements"></a>비즈니스 요구 사항
-
-Azure가 기본 제품으로 선택된 오퍼의 경우, 제품은 다음의 완전 획득 역량 중 하나 이상을 나열해야 합니다.
-
-- 애플리케이션 개발
-- 애플리케이션 통합
-- 응용 프로그램 수명 주기 관리(Application Lifecycle Management)
-- 클라우드 플랫폼
-- 데이터 분석
-- 데이터 센터
-- 데이터 플랫폼
-- DevOps
-
-주 제품으로 선택한 다음 옵션 중 하나를 포함하는 오퍼의 경우 나열된 각 자격 요건을 충족하거나 서비스 제공과 관련된 기본 제품에 대한 공동 판매 제안이 있어야 합니다.
-
-**고객 참여 애플리케이션**
-
-- **에 적용 :** 역학 365 영업, 역학 365 마케팅, 역학 365 고객 서비스, 역학 365 현장 서비스, 역학 365 인사
-
-- **기준**: 고객 참여 옵션에 대한 [클라우드 비즈니스 애플리케이션 역량에서](https://partner.microsoft.com/membership/cloud-business-applications-competency) 골드 또는 실버 인증을 받아야 합니다.
-
-**재무 및 운영 애플리케이션**
-
-- **에 적용 :** 역학 365 금융, 역학 365 운영, 역학 365 상거래, 역학 365 인적 자원, 역학 365 프로젝트 서비스 자동화
-
-- **기준**: 통합 운영을 위한 [클라우드 비즈니스 애플리케이션 역량에서](https://partner.microsoft.com/membership/cloud-business-applications-competency) 골드 또는 실버 인증을 받아야 합니다.
-
-**Dynamics 365 Customer Insights**
-
-- **기준**: 적어도 5개의 측정값과 5개의 세그먼트를 가진 [Dynamics 365 고객 인사이트를](https://dynamics.microsoft.com/ai/customer-insights/) 성공적으로 프로덕션 환경에서 구현해야 합니다.
-
-**다이내믹스 365 비즈니스 센트럴**
-
-- **기준**: 엔터프라이즈 리소스 계획 [역량에서](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) 골드 또는 실버 인증을 받아야 하며 최소 3명의 고객에게 서비스를 제공하거나 Microsoft AppSource에서 비즈니스 중앙 응용 프로그램을 게시한 경우
-
-**Power BI**
-
-- **기준**: [Power BI 파트너 쇼케이스에](https://powerbi.microsoft.com/partner-showcase/)나열되어야 합니다.
-
-**Power Apps**
-
-- **기준**: [파워 앱 파트너십](https://aka.ms/PowerAppsPartner) 프로그램에서 고급 혜택을 받을 자격이 있어야 합니다.
-
-이러한 전제 조건 충족에 대한 자세한 내용은 [컨설팅 서비스 전제 조건을](consulting-service-prerequisites.md)참조하십시오.
-
-### <a name="logistical-requirements"></a>물류 요구 사항
-
-Azure Marketplace 또는 AppSource 컨설팅 서비스에서 컨설팅 서비스를 만들려면 먼저 [파트너 센터에 게시자 계정이 있어야](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)하며 계정이 상용 마켓플레이스 프로그램에 등록되어야 합니다.
-
-## <a name="create-a-new-consulting-service-offer-in-partner-center"></a>파트너 센터에서 새로운 컨설팅 서비스 제공
-
-위에서 설명한 요구 사항을 충족한 후 다음 단계를 수행하여 컨설팅 서비스 제안을 만듭니다.
+위에서 설명한 요구 사항을 충족한 후 다음 단계에 따라 컨설팅 서비스 오퍼를 만듭니다.
 
 1. [파트너 센터에](https://partner.microsoft.com)로그인한 다음 상단 메뉴에서 **대시보드를** 선택합니다.
 2. 왼쪽 탐색 막대에서 **상업용 마켓플레이스를**선택한 다음 **개요를 선택합니다.**
@@ -164,7 +115,7 @@ Azure Marketplace 또는 AppSource 컨설팅 서비스에서 컨설팅 서비스
 > [!NOTE]
 > 제안 설명이 문구로 시작하는 경우 제공 세부 사항은 영어로 &quot;&#39;필요하지 않습니다,이 응용 프로그램은 [비 영어 언어]에서만 사용할 수 있습니다. &quot; 또한 오퍼 목록 세부 정보에 사용된 것과 다른 언어로 콘텐츠를 제공하는 유용한 링크를 제공하는&#39;&#39;.
 
-### <a name="name"></a>이름
+### <a name="name"></a>속성
 
 여기에 입력한 이름은 오퍼링의 제목으로 표시됩니다. 이 필드는 **오퍼를** 만들 때 쿠폰 별칭 상자에 입력한 텍스트로 미리 채워져 있습니다. 이 이름은 나중에 변경할 수 있습니다.
 
@@ -178,7 +129,7 @@ Azure Marketplace 또는 AppSource 컨설팅 서비스에서 컨설팅 서비스
 
 오퍼에 대한 간략한 설명을 제공합니다. 최대 100자까지 사용할 수 있으며 마켓플레이스 검색 결과에 사용됩니다.
 
-### <a name="description"></a>설명
+### <a name="description"></a>Description
 
 최대 3,000자까지 오퍼에 대한 더 긴 설명을 제공합니다. 이는 마켓플레이스 목록 개요의 고객에게 표시됩니다.
 
@@ -252,7 +203,7 @@ Azure Marketplace 또는 AppSource 컨설팅 서비스에서 컨설팅 서비스
 3. **가격**: 쿠폰이 **무료** 또는 **유료** 제품인지 여부를 지정합니다.
 
     > [!NOTE]
-    > 컨설팅 서비스 제공은 리스팅전용입니다. 모든 거래는 상업 시장 외부에서 직접 발생합니다.
+    > 컨설팅 서비스는 리스팅전용입니다. 모든 거래는 상업 시장 외부에서 직접 발생합니다.
 
 4. 유료 오퍼의 경우 **가격 및 통화와** 가격이 **고정또는** **예상가격인지**를 지정합니다. 예상되는 경우 설명에 가격에 영향을 주는 요인을 지정해야 합니다.
 5. **초안 저장을**선택합니다.

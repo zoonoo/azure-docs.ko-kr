@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 04/07/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 0cf8a4a78894cb7f0e1ddcf7aa18bbb4006bbeeb
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: edfcb1d0bfc87c84620b13ed26ec681fef32f1e3
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345643"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878326"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Azure 데이터 레이크 저장소 Gen2를 지원하는 Azure 서비스
 
@@ -30,14 +30,15 @@ Azure 서비스를 사용하여 데이터를 수집하고 분석을 수행하고
 |---------------|-------------------|---|
 |Azure 데이터 팩터리|일반 공급|[Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 로드](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Azure Databricks|일반 공급|[Azure Databricks와 함께 사용](https://docs.azuredatabricks.net/data/data-sources/azure/azure-datalake-gen2.html) <br> [빠른 시작: Azure 데이터 브릭을 사용하여 Azure 데이터 레이크 저장소 Gen2의 데이터 분석](data-lake-storage-quickstart-create-databricks-account.md) <br>[자습서: Azure Databricks를 사용하여 데이터를 추출, 변환 및 로드합니다.](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse) <br>[자습서: 스파크를 사용 하 여 Azure 데이터 브릭을 사용 하 여 액세스 데이터 호수 스토리지 Gen2 데이터](data-lake-storage-use-databricks-spark.md)|
-|Azure 이벤트 허브 캡처| 일반 공급|[Azure Blob Storage 또는 Azure Data Lake Storage에서 Azure Event Hubs를 통해 이벤트 캡처](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|
+|Azure Event Hub|일반 공급|[Azure Blob Storage 또는 Azure Data Lake Storage에서 Azure Event Hubs를 통해 이벤트 캡처](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|
+|Azure Event Grid|일반 공급|[자습서: 데이터 레이크 캡처 패턴을 구현하여 Databricks 델타 테이블을 업데이트합니다.](data-lake-storage-events.md)|
 |Azure Logic Apps|일반 공급|[개요 - Azure Logic Apps란?](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)|
 |Azure Machine Learning|일반 공급|[Azure 저장소 서비스의 데이터 액세스](https://docs.microsoft.com/azure/machine-learning/how-to-access-data)|
 |Azure Stream Analytics|일반 공급|[빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal) <br> [Azure 데이터 레이크 Gen2로의 송신](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs#blob-storage-and-azure-data-lake-gen2)|
-|Data Box| 일반 공급|[Azure 데이터 상자를 사용하여 온-프레미스 HDFS 저장소에서 Azure 저장소로 데이터 마이그레이션](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|
-|HDInsight | 일반 공급|[Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br>[Data Lake Storage Gen2에서 HDFS CLI 사용](data-lake-storage-use-hdfs-data-lake-storage.md) <br>[튜토리얼: Azure HDInsight에서 아파치 하이브를 사용하여 데이터를 추출, 변환 및 로드](data-lake-storage-tutorial-extract-transform-load-hive.md)|
-|IoT Hub | 일반 공급|[IoT Hub 메시지 라우팅을 사용하여 다양한 엔드포인트에 디바이스-클라우드 메시지 보내기](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|
-|Power BI| 일반 공급|[Power BI를 사용하여 데이터 레이크 스토리지 Gen2의 데이터 분석](https://docs.microsoft.com/power-query/connectors/datalakestorage)|
+|Data Box|일반 공급|[Azure 데이터 상자를 사용하여 온-프레미스 HDFS 저장소에서 Azure 저장소로 데이터 마이그레이션](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|
+|HDInsight |일반 공급|[Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br>[Data Lake Storage Gen2에서 HDFS CLI 사용](data-lake-storage-use-hdfs-data-lake-storage.md) <br>[튜토리얼: Azure HDInsight에서 아파치 하이브를 사용하여 데이터를 추출, 변환 및 로드](data-lake-storage-tutorial-extract-transform-load-hive.md)|
+|IoT Hub |일반 공급|[IoT Hub 메시지 라우팅을 사용하여 다양한 엔드포인트에 디바이스-클라우드 메시지 보내기](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|
+|Power BI|일반 공급|[Power BI를 사용하여 데이터 레이크 스토리지 Gen2의 데이터 분석](https://docs.microsoft.com/power-query/connectors/datalakestorage)|
 |SQL Data Warehouse|일반 공급|[Azure SQL Data Warehouse와 함께 사용](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase)|
 |SSIS(SQL Server Integration Services)|일반 공급|[Azure 저장소 연결 관리자](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-2017)|
 |Azure Cognitive Search|미리 보기|[Azure 데이터 레이크 저장소 Gen2 문서 의 색인 및 검색(미리 보기)](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|
@@ -45,7 +46,7 @@ Azure 서비스를 사용하여 데이터를 수집하고 분석을 수행하고
 |Azure Content Delivery Network|아직 지원되지 않음|[Azure 데이터 레이크 저장소 Gen2 문서 의 색인 및 검색(미리 보기)](https://docs.microsoft.com/azure/cdn/cdn-overview)|
 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [Azure Data Lake Storage Gen2에서 알려진 문제](data-lake-storage-known-issues.md)
 - [Azure 데이터 레이크 스토리지 Gen2에서 사용할 수 있는 Blob 저장소 기능](data-lake-storage-supported-blob-storage-features.md)

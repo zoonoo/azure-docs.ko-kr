@@ -2,24 +2,21 @@
 title: 사용자에 서명하는 웹 앱을 프로덕션으로 이동 - Microsoft ID 플랫폼 | Azure
 description: 사용자에게 서명하는 웹 앱을 빌드하는 방법 알아보기(프로덕션으로 이동)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6c486e59f32afd09a9934ae2298172ccb4ee2414
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c5fd444c55a20441325088912a07eb051219b84
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76768096"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881471"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>사용자에 서명하는 웹 앱: 프로덕션으로 이동
 
@@ -41,7 +38,7 @@ Chrome 브라우저의 새 버전에서 발생할 수 있는 문제를 이해해
 웹 앱이 사용자에 로그인한 후 로그인한 사용자를 대신하여 웹 API를 호출할 수 있습니다. 웹 앱에서 웹 API를 호출하는 것은 다음 시나리오의 개체입니다.
 
 > [!div class="nextstepaction"]
-> [웹 API를 호출하는 웹 앱](scenario-web-app-call-api-overview.md)
+> [Web API를 호출하는 웹앱](scenario-web-app-call-api-overview.md)
 
 ## <a name="deep-dive-aspnet-core-web-app-tutorial"></a>심층 분석: ASP.NET 코어 웹 앱 자습서
 

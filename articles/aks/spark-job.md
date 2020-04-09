@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 8ebd8990a2fdd43b243f5dd6feb632d782fdeb0b
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 2e399c1a7b0f9bbc2aac375fe8af969a2b9e0e48
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632701"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877630"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>AKS에서 Apache Spark 작업 실행
 
@@ -293,7 +293,7 @@ Pi is roughly 3.152155760778804
 
 위의 예제에서는 Spark jar 파일을 Azure Storage에 업로드했습니다. 또 다른 옵션은 jar 파일을 사용자 지정된 Docker 이미지로 패키징하는 것입니다.
 
-이렇게 하려면 `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` 디렉터리에서 Spark 이미지에 대한 `dockerfile`을 찾습니다. `WORKDIR` 및 `ENTRYPOINT` 선언 사이에 Spark 작업 `jar`에 대한 `ADD` 명령문을 추가합니다.
+이렇게 하려면 `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` 디렉터리에서 Spark 이미지에 대한 `dockerfile`을 찾습니다. `ADD` Spark 작업과 `jar` `WORKDIR` `ENTRYPOINT` 선언 사이의 어딘가에 문을 추가합니다.
 
 jar 경로를 개발 시스템의 `SparkPi-assembly-0.1.0-SNAPSHOT.jar` 파일 위치로 업데이트합니다. 개발자 고유의 사용자 지정 jar 파일을 사용해도 됩니다.
 

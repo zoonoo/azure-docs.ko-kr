@@ -2,24 +2,21 @@
 title: 사용자 에/아웃 서명하는 웹 앱 작성 - Microsoft ID 플랫폼 | Azure
 description: 사용자를 인/아웃하는 웹 앱을 빌드하는 방법 알아보기
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: cbec6c5644690f6d7e522294a37c8ea5e2d49e30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 317ca55adb9f680dc93343a185395abad08889da
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76701521"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881318"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>사용자에 로그인하는 웹 앱: 로그인 및 로그아웃
 

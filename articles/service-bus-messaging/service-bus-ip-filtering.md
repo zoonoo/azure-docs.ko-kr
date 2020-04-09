@@ -11,17 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: a20882de34cb306b767959e21327180ff284e658
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 24591c20ed707d9541eece0698ecd6e6b5ddee35
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475946"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878190"
 ---
 # <a name="configure-ip-firewall-rules-for-azure-service-bus"></a>Azure 서비스 버스에 대한 IP 방화벽 규칙 구성
 기본적으로 Service Bus 네임스페이스는 유효한 인증 및 권한 부여와 함께 요청이 제공되는 한 인터넷에서 액세스할 수 있습니다. IP 방화벽을 사용하면 [CIDR(클래스리스 도메인 간 라우팅)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법의 IPv4 주소 또는 IPv4 주소 범위 집합으로만 제한할 수 있습니다.
 
 이 기능은 Azure Service Bus가 잘 알려진 특정 사이트에서만 액세스할 수 있어야 하는 시나리오에서 유용합니다. 방화벽 규칙을 사용하면 특정 IPv4 주소에서 발생한 트래픽을 허용하도록 규칙을 구성할 수 있습니다. 예를 들어 [Azure Express Route를][express-route]사용하여 서비스 버스를 사용하는 경우 온-프레미스 인프라 IP 주소 또는 회사 NAT 게이트웨이의 주소에서만 트래픽을 허용하는 **방화벽 규칙을** 만들 수 있습니다. 
+
+> [!IMPORTANT]
+> 방화벽과 가상 네트워크는 서비스 버스의 **프리미엄** 계층에서만 지원됩니다. **프리미어** 계층으로 업그레이드하는 것이 옵션이 아닌 경우 SAS(공유 액세스 서명) 토큰을 안전하게 유지하고 권한이 있는 사용자와만 공유하는 것이 좋습니다. SAS 인증에 대한 자세한 내용은 [인증 및 권한 부여를](service-bus-authentication-and-authorization.md#shared-access-signature)참조하십시오.
 
 ## <a name="ip-firewall-rules"></a>IP 방화벽 규칙
 IP 방화벽 규칙은 Service Bus 네임스페이스 수준에서 적용됩니다. 따라서 해당 규칙은 지원되는 모든 프로토콜을 사용하는 클라이언트의 모든 연결에 적용됩니다. Service Bus 네임스페이스에서 허용된 IP 규칙과 일치하지 않는 IP 주소의 연결 시도는 권한이 없는 것으로 거부됩니다. 응답은 IP 규칙을 언급하지 않습니다. IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번째 규칙이 수락 또는 거부 작업을 결정합니다.
@@ -44,8 +47,6 @@ IP 방화벽 규칙은 Service Bus 네임스페이스 수준에서 적용됩니�
 ## <a name="use-resource-manager-template"></a>Resource Manager 템플릿 사용
 이 섹션에는 가상 네트워크 및 방화벽 규칙을 만드는 샘플 Azure 리소스 관리자 템플릿이 있습니다.
 
-> [!IMPORTANT]
-> 방화벽과 가상 네트워크는 서비스 버스의 **프리미엄** 계층에서만 지원됩니다.
 
 다음과 같은 Resource Manager 템플릿을사용 하면 기존 Service Bus 네임스페이스에 가상 네트워크 규칙을 추가할 수 있습니다.
 

@@ -3,12 +3,12 @@ title: Azure Functions 2.x에 대한 host.json 참조
 description: v2 런타임을 사용하는 Azure Functions host.json 파일에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 3d98be2dcc351aa88b9e126c883865079e407c2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1a861d500f0b8cc31b8312d6c955916ab741b649
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473373"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878252"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure 함수 2.x 이상에 대한 host.json 참조 
 
@@ -143,7 +143,7 @@ ms.locfileid: "79473373"
 > [!NOTE]
 > 로그 샘플링으로 인해 Application Insights 모니터 블레이드에 일부 실행이 표시되지 않을 수 있습니다. 로그 샘플링을 `samplingExcludedTypes: "Request"` 방지하려면 `applicationInsights` 값을 추가합니다.
 
-| 속성 | 기본값 | 설명 |
+| 속성 | 기본값 | Description |
 | --------- | --------- | --------- | 
 | 샘플링설정 | 해당 없음 | [응용 프로그램 인사이트.샘플링설정](#applicationinsightssamplingsettings)을 참조하십시오. |
 | 사용 가능라이브메트릭스 | true | 라이브 메트릭 컬렉션을 활성화합니다. |
@@ -155,7 +155,7 @@ ms.locfileid: "79473373"
 
 ### <a name="applicationinsightssamplingsettings"></a>애플리케이션인사이트.샘플링설정
 
-|속성 | 기본값 | 설명 |
+|속성 | 기본값 | Description |
 | --------- | --------- | --------- | 
 | isEnabled | true | 샘플링을 사용 여부를 설정합니다. | 
 | maxTelemetryItemsPerSecond | 20 | 각 서버 호스트에서 초당 기록된 원격 분석 항목의 대상 수입니다. 앱이 여러 호스트에서 실행되는 경우 이 값을 줄이면 전체 목표 트래픽 속도 내에 유지됩니다. | 
@@ -171,7 +171,7 @@ ms.locfileid: "79473373"
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>응용 프로그램인사이트.httpAutoCollection옵션
 
-|속성 | 기본값 | 설명 |
+|속성 | 기본값 | Description |
 | --------- | --------- | --------- | 
 | 사용 자http트리거확장정보컬렉션 | true | 들어오는 요청 상관 헤더, 다중 계측 키 지원, HTTP 메서드, 경로 및 응답과 같은 HTTP 트리거에 대한 확장된 HTTP 요청 정보를 활성화하거나 사용하지 않도록 설정합니다. |
 | 사용 가능W3C분산Tracing | true | W3C 분산 추적 프로토콜의 지원을 활성화하거나 사용하지 않도록 설정합니다(레거시 상관 관계 스키마 켜기). true인 경우 `enableHttpTriggerExtendedInfoCollection` 기본적으로 활성화됩니다. false인 경우 `enableHttpTriggerExtendedInfoCollection` 이 플래그는 들어오는 요청이 아닌 나가는 요청에만 적용됩니다. |
@@ -181,7 +181,7 @@ ms.locfileid: "79473373"
 
 스냅샷에 대한 자세한 내용은 [.NET 앱의 예외에 대한 스냅숏 디버그](/azure/azure-monitor/app/snapshot-debugger) 를 참조하고 [문제 해결 을 통해 응용 프로그램 인사이트 스냅숏 디버거 또는 스냅숏 을 볼 수 있습니다.](/azure/azure-monitor/app/snapshot-debugger-troubleshoot)
 
-|속성 | 기본값 | 설명 |
+|속성 | 기본값 | Description |
 | --------- | --------- | --------- | 
 | 에이전트엔드포인트 | null | 응용 프로그램 인사이트 스냅숏 디버거 서비스에 연결하는 데 사용되는 끝점입니다. null이면 기본 끝점이 사용됩니다. |
 | 캡처스냅스냅샷메모리웨이트 | 0.5 | 스냅숏을 생성할 메모리가 충분한지 확인할 때 현재 프로세스 메모리 크기에 부여된 가중치입니다. 예상 값은 0보다 큰 적절한 분수(0 < CaptureSnapshotMemoryWeight < 1)보다 큽니다. |
@@ -268,7 +268,7 @@ ms.locfileid: "79473373"
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
 |사용|true|기능의 사용 여부를 지정합니다. | 
 |healthCheckInterval|10초|정기적인 백그라운드 상태 검사 사이의 간격 | 
@@ -286,7 +286,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 
 ```json
 "logging": {
-    "fileLoggingMode": "debugOnly"
+    "fileLoggingMode": "debugOnly",
     "logLevel": {
       "Function.MyFunction": "Information",
       "default": "None"
@@ -300,7 +300,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|활성화할 파일 로깅의 수준을 정의합니다.  옵션은 `never`, `always`, `debugOnly`입니다. |
 |logLevel|해당 없음|앱의 함수에 대한 로그 범주 필터링을 정의하는 개체입니다. 버전 2.x 이후 로그 범주 필터링에 대 한 ASP.NET 코어 레이아웃을 따릅니다. 이 설정을 사용하면 특정 함수에 대한 로깅을 필터링할 수 있습니다. 자세한 내용은 ASP.NET Core 설명서의 [로그 필터링](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)을 참조하세요. |
@@ -323,7 +323,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
 |isEnabled|false|콘솔 로깅을 사용하거나 사용하지 않도록 설정합니다.| 
 
@@ -367,7 +367,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|함수 수준 잠금이 적용되는 기간입니다. 잠금은 자동 갱신됩니다.| 
 |listenerLockPeriod|00:01:00|수신기 잠금이 적용되는 기간입니다.| 

@@ -11,18 +11,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 415a89cbccd6b43d64ba1a553d44ac003df5806a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a3ae8065553b34a72528cb0f2681e327dc90097
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471628"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985187"
 ---
 # <a name="http2-support-in-azure-front-door"></a>Azure 정문에서 HTTP/2 지원
 
-현재, HTTP/2 지원은 모든 Front Door 구성에 대해 활성화되어 있습니다. 고객의 추가적인 조치가 필요하지 않습니다.
+현재 HTTP/2 지원은 모든 Azure 정문 구성에 대해 활성화되어 있습니다. 고객의 추가적인 조치가 필요하지 않습니다.
 
 HTTP/2는 HTTP/1.1에 대한 주요 수정 버전입니다. 친숙한 HTTP 메서드, 상태 코드 및 의미 체계를 유지하면서 더 빨라진 웹 성능, 응답 시간 단축 및 향상된 사용자 경험을 제공합니다. HTTP/2는 HTTP 및 HTTPS와 함께 작동하도록 설계되었지만 많은 클라이언트 웹 브라우저는 TLS(전송 계층 보안)를 통한 HTTP/2만 지원합니다.
+
+> [!NOTE]
+> HTTP/2 프로토콜 지원은 클라이언트에서 정문으로 의뢰하는 경우에만 사용할 수 있습니다. 백 엔드 풀에서 정문에서 백 엔드로의 통신은 HTTP/1.1을 통해 발생합니다. 
 
 ### <a name="http2-benefits"></a>HTTP/2 이점
 

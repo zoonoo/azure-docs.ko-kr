@@ -3,24 +3,21 @@ title: 웹 API를 호출하는 모바일 앱 구성 | Azure
 titleSuffix: Microsoft identity platform
 description: 웹 API(앱의 코드 구성)를 호출하는 모바일 앱을 빌드하는 방법 알아보기
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: fc25f13d0b0b8a264dcd47a5fdebb0533e93fb55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 06475b53acf6c9161888e29723feab9cdc4336d5
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77132497"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80882729"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>웹 API를 호출하는 모바일 앱 구성
 
@@ -30,7 +27,7 @@ ms.locfileid: "77132497"
 
 다음 MSAL(Microsoft 인증 라이브러리) 형식은 모바일 앱을 지원합니다.
 
-MSAL | 설명
+MSAL | Description
 ------------ | ----------
 ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 휴대용 응용 프로그램을 개발하는 데 사용됩니다. MSAL.NET 모바일 응용 프로그램을 구축하기위한 다음 플랫폼을 지원합니다 : 유니버설 윈도우 플랫폼 (UWP), Xamarin.iOS, 그리고 Xamarin.Android.
 ![MSAL.iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL.iOS | Objective-C 또는 Swift를 사용하여 네이티브 iOS 응용 프로그램을 개발하는 데 사용됩니다.

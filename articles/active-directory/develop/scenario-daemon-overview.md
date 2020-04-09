@@ -2,25 +2,21 @@
 title: 웹 API를 호출하는 데몬 앱 빌드 - Microsoft ID 플랫폼 | Azure
 description: 웹 API를 호출하는 데몬 앱을 빌드하는 방법 알아보기
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5718a23e5669de6ba16354a718d72b68d14bbf49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df06c4c55941f4424d6b90d2846af17bf055b2e4
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78894546"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885466"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>시나리오: 웹 API를 호출하는 데몬 응용 프로그램
 

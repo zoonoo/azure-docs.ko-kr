@@ -3,26 +3,21 @@ title: 사용자 지정 클레임 요청(MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
 description: 맞춤 소유권 주장을 요청하는 방법을 알아보세요.
 services: active-directory
-documentationcenter: ''
 author: mmacy
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: marsma
-ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 44158296faaf238fd72f2360149d3d93f68c5ba0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4974fe3b387683f662d7a7b4f3ccb4935153f07e
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77085594"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883099"
 ---
 # <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>방법: iOS 및 macOS용 MSAL을 사용하여 사용자 지정 소유권 주장 요청
 

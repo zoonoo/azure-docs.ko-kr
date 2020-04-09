@@ -11,30 +11,30 @@ ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/04/2019
+ms.date: 03/16/2020
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: e1249913300be532cc6514f1478bbc6f4183c001
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5d5ebda850163989e6ef1af94ec623d2d758f07
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78300556"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878292"
 ---
-# <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>마이크로소프트 Azure와 오라클 클라우드 인프라를 통합한 오라클 애플리케이션 솔루션(미리 보기)
+# <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>마이크로소프트 Azure와 오라클 클라우드 인프라를 통합한 오라클 애플리케이션 솔루션
 
 Microsoft와 오라클은 낮은 대기 시간, 높은 처리량의 교차 클라우드 연결을 제공하기 위해 파트너십을 맺어 두 클라우드 모두의 장점을 활용할 수 있도록 했습니다. 
 
 이 클라우드 간 연결을 사용하여 다중 계층 응용 프로그램을 분할하여 OCI(Oracle 클라우드 인프라)에서 데이터베이스 계층을 실행하고 Microsoft Azure의 응용 프로그램 및 기타 계층을 실행할 수 있습니다. 이 환경은 단일 클라우드에서 전체 솔루션 스택을 실행하는 것과 유사합니다. 
-
-> [!IMPORTANT]
-> 이 교차 클라우드 기능은 현재 미리 보기 중이며 [제한 사항이 적용됩니다.](#region-availability) Azure와 OCI 간의 짧은 대기 시간 연결을 설정하려면 먼저 이 기능에 대해 Azure 구독을 사용하도록 설정해야 합니다. 이 짧은 [설문조사 양식을](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu)작성하여 미리 보기에 등록해야 합니다. 구독이 등록되면 이메일 회신을 받게 됩니다. 확인 이메일을 받을 때까지는 기능을 사용할 수 없습니다. 이 미리 보기를 사용하도록 설정하려면 Microsoft 담당자에게 문의할 수도 있습니다. 미리 보기 기능에 대한 액세스는 가용성에 따라 달라질 수 있으며 Microsoft의 단독 재량에 따라 제한됩니다. 설문 조사가 완료해도 액세스가 보장되지는 않습니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에 사용해서는 안 됩니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 Microsoft Azure 미리 보기에 대한 [추가 사용 약관을](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 참조하십시오. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
 Azure 인프라에 전적으로 Oracle 솔루션을 배포하려는 경우 [Oracle VM 이미지 및 Microsoft Azure에서의 배포를](oracle-vm-solutions.md)참조하십시오.
 
 ## <a name="scenario-overview"></a>시나리오 개요
 
 크로스 클라우드 연결은 OCI에서 호스팅되는 데이터베이스 서비스의 이점을 누리면서 Azure 가상 머신에서 Oracle의 업계 최고의 응용 프로그램 및 사용자 지정 응용 프로그램을 실행할 수 있는 솔루션을 제공합니다. 
+
+> [!IMPORTANT]
+> 오라클은 2020년 5월까지 Azure/Oracle Cloud 상호 연결 솔루션을 사용할 때 이러한 응용 프로그램을 Azure에서 실행하도록 인증합니다.
 
 클라우드 간 구성에서 실행할 수 있는 응용 프로그램은 다음과 같습니다.
 
@@ -70,7 +70,7 @@ Azure 인프라에 전적으로 Oracle 솔루션을 배포하려는 경우 [Orac
 
 또한 OCI 가상 클라우드 네트워크 및 보안 규칙(Azure [네트워크 보안 그룹에](../../../virtual-network/security-overview.md)연결)에 보안 [목록을](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) 설정할 수 있습니다. 이러한 규칙을 사용하여 가상 네트워크의 컴퓨터 간에 흐르는 트래픽을 제어합니다. 네트워크 보안 규칙은 컴퓨터 수준, 서브넷 수준 및 가상 네트워크 수준에서 추가할 수 있습니다.
  
-## <a name="identity"></a>Identity
+## <a name="identity"></a>ID
 
 ID는 Microsoft와 오라클 간의 파트너십의 핵심 요소 중 하나입니다. [오라클 ID 클라우드](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) 서비스(IDCS)를 [Azure Active Directory(Azure](../../../active-directory/index.yml) AD)와 통합하기 위한 중요한 작업이 수행되었습니다. Azure AD는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스입니다. 사용자가 로그인하고 다양한 리소스에 액세스하는 데 도움이 됩니다. Azure AD를 사용하면 사용자 및 해당 권한을 관리할 수도 있습니다.
 

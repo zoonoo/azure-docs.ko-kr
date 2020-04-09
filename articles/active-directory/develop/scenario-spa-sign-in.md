@@ -2,26 +2,21 @@
 title: 단일 페이지 앱 로그인 & 사인아웃 - Microsoft ID 플랫폼 | Azure
 description: 단일 페이지 응용 프로그램을 빌드하는 방법 알아보기(로그인)
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8dd4d1aa2423ddb48f61380a982ca256609734d6
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 7e809def048c95b6688a13ac99783615eb045d11
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80419650"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885192"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>단일 페이지 응용 프로그램: 로그인 및 로그아웃
 

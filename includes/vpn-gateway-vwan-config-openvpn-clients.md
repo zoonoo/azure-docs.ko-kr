@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/17/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 921e22e637782ffd744af1a28e6bd43e7dd53c67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55fa01d100c60c6411774373428ff4bbd9a56822
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066069"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80986703"
 ---
 ## <a name="windows-clients"></a><a name="windows"></a>Windows 클라이언트
 
@@ -130,7 +130,7 @@ ms.locfileid: "80066069"
 5. .pfx에서 프라이빗 키 및 base64 지문을 추출합니다. 여러 가지 방법으로 이 작업을 수행할 수 있습니다. 컴퓨터에서 OpenSSL을 사용하는 것이 하나의 방법입니다.
 
     ```
-    openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
+    openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
     ```
    *profileinfo.txt* 파일은 CA 및 클라이언트 인증서에 대한 프라이빗 키 및 지문을 포함합니다. 클라이언트 인증서의 지문을 사용해야 합니다.
 
@@ -161,7 +161,7 @@ ms.locfileid: "80066069"
 11. 명령줄을 사용하여 연결하려면 다음 명령을 입력합니다.
   
     ```
-    sudo openvpn –-config <name and path of your VPN profile file>&
+    sudo openvpn --config <name and path of your VPN profile file>&
     ```
 12. GUI를 사용하여 연결하려면 시스템 설정으로 이동합니다.
 13. 새 **+** VPN 연결을 추가하려면 클릭합니다.

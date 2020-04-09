@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 08/24/2019
+ms.date: 04/04/2020
 ms.author: yinhew
-ms.openlocfilehash: ab2193a1ea34b176e5f97806f0099dfc86d75965
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 120dd933debc6fad57049503008b54f19bd2b58a
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78925772"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671377"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -23,7 +23,7 @@ ms.locfileid: "78925772"
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
-> * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=windows)
+> * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
 
 ## <a name="add-sample-code"></a>샘플 코드 추가
 

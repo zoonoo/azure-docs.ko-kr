@@ -1,5 +1,5 @@
 ---
-title: 자동화된 기계 학습을 통해 일반적인 ML 모델 문제를 관리합니다.
+title: AutoML을 사용하여 & 불균형 한 데이터를 과도하게 사용하지 마십시오.
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning의 자동화된 기계 학습 솔루션을 사용하여 ML 모델의 일반적인 함정을 식별하고 관리합니다.
 services: machine-learning
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 03/27/2020
-ms.openlocfilehash: e0bc1aa48dfb40ea146fa79fdfd57da841ca1404
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.date: 04/09/2020
+ms.openlocfilehash: 76f920ad6aae68defb567a7a6623d1ffd488af5f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385533"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874860"
 ---
-# <a name="manage-ml-pitfalls-with-automated-machine-learning"></a>자동화된 기계 학습으로 ML 함정 관리
+# <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>자동화된 기계 학습으로 과적합 및 불균형 데이터 방지
 
 기계 학습 모델을 구축할 때 과도하게 피팅되고 불균형한 데이터는 일반적인 함정입니다. 기본적으로 Azure Machine Learning의 자동화된 기계 학습은 이러한 위험을 식별하는 데 도움이 되는 차트 및 메트릭을 제공하고 이를 완화하는 데 도움이 되는 모범 사례를 구현합니다. 
 
@@ -71,7 +71,7 @@ ms.locfileid: "80385533"
 CV(교차 유효성 검사)는 전체 학습 데이터의 많은 하위 집합을 취하고 각 하위 집합에 대한 모델을 학습하는 프로세스입니다. 아이디어는 모델이 "운이 좋다"고 하나의 하위 집합으로 큰 정확도를 가질 수 있지만 많은 하위 집합을 사용하면 모델이 매번 이 높은 정확도를 달성하지 못한다는 것입니다. CV를 수행할 때 유효성 검사 홀드아웃 데이터 집합을 제공하고 CV 폴드(하위 집합 수)를 지정하고 자동화된 ML은 모델을 학습하고 하이퍼매개 변수를 조정하여 유효성 검사 집합의 오류를 최소화합니다. 하나의 CV 접기는 과도하게 맞을 수 있지만, 그 중 많은 것을 사용하면 최종 모델이 과도하게 맞을 확률이 줄어듭니다. 단점은 CV가 모델을 한 번 훈련하는 대신 각 *n CV* 하위 집합에 대해 한 번 학습하기 때문에 교육 시간이 길어지고 비용이 더 많이 든다는 것입니다. 
 
 > [!NOTE]
-> 교차 유효성 검사는 기본적으로 활성화되어 있지 않습니다. 자동화된 ML 설정에서 구성해야 합니다. 그러나 교차 유효성 검사를 구성하고 유효성 검사 데이터 집합이 제공된 후에는 프로세스가 자동화됩니다. 참조 항목 
+> 교차 유효성 검사는 기본적으로 활성화되어 있지 않습니다. 자동화된 ML 설정에서 구성해야 합니다. 그러나 교차 유효성 검사를 구성하고 유효성 검사 데이터 집합이 제공된 후에는 프로세스가 자동화됩니다. 참조 
 
 <a name="imbalance"></a>
 
@@ -83,7 +83,7 @@ CV(교차 유효성 검사)는 전체 학습 데이터의 많은 하위 집합�
 
 또한 자동화된 ML 실행은 다음 차트를 자동으로 생성하므로 모델 분류의 정확성을 이해하고 불균형 데이터에 의해 영향을 받는 모델을 식별할 수 있습니다.
 
-차트| 설명
+차트| Description
 ---|---
 [혼란 매트릭스](how-to-understand-automated-ml.md#confusion-matrix)| 데이터의 실제 레이블에 대해 올바르게 분류된 레이블을 평가합니다. 
 [정밀 리콜](how-to-understand-automated-ml.md#precision-recall-chart)| 데이터의 발견된 레이블 인스턴스 비율과 올바른 레이블의 비율을 평가합니다. 

@@ -3,13 +3,15 @@ title: Azure Migrate 서버 마이그레이션을 사용하여 Hyper-V VM을 Azu
 description: Azure Migrate 서버 마이그레이션을 사용하여 온-프레미스 Hyper-V VM을 Azure로 마이그레이션하는 방법 알아보기
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.custom: MVC
-ms.openlocfilehash: e1b670db3399857278c646d3793e8ec946d385b0
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.custom:
+- MVC
+- fasttrack-edit
+ms.openlocfilehash: b5d37da7ea0c53a7e8cbb5b579d529dd4a799fed
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943308"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422690"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Hyper-V VM을 Azure로 마이그레이션 
 
@@ -50,7 +52,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>Azure Migrate 서버 마이그레이션 도구 추가
 
-두 번째 자습서에 따라 Hyper-V VM을 평가하지 않은 경우, [다음 지침에 따라](how-to-add-tool-first-time.md) Azure Migrate 프로젝트를 설정하고 Azure Migrate 서버 마이그레이션 도구를 프로젝트에 추가해야 합니다.
+두 번째 자습서에 따라 Hyper-V VM을 평가하지 않은 경우, [다음 지침에 따라](how-to-add-tool-first-time.md) Azure Migrate 프로젝트를 설정하고 Azure Migrate 서버 평가 도구를 프로젝트에 추가해야 합니다.
 
 이미 두 번째 자습서에 따라 Azure Migrate 프로젝트를 설정한 경우, 다음과 같이 Azure Migrate: 서버 마이그레이션 도구를 추가합니다.
 
@@ -67,10 +69,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Azure Migrate 어플라이언스 설정
 
-Azure Migrate 서버 마이그레이션은 경량 Hyper-V VM 어플라이언스를 실행합니다.
+Azure Migrate 서버 마이그레이션은 Hyper-V 호스트 또는 클러스터 노드에서 소프트웨어 에이전트를 실행하여 Azure Migrate에 데이터를 오케스트레이션 및 복제하며 마이그레이션을 위한 전용 어플라이언스가 필요하지 않습니다.
 
-- 이 어플라이언스는 VM 검색을 수행하고, VM 메타데이터 및 성능 데이터를 Azure Migrate 서버 마이그레이션에 보냅니다.
-- 어플라이언스는 Azure Migrate: 서버 평가 도구에서도 Hyper-V VM을 Azure로 마이그레이션하기 위해 사용됩니다.
+- Azure Migrate : 서버 평가 어플라이언스는 VM 검색을 수행하고 VM 메타데이터 및 성능 데이터를 Azure Migrate 서버 마이그레이션에 보냅니다.
+- 마이그레이션 오케스트레이션 및 데이터 복제는 Microsoft Azure Site Recovery 공급자 및 Microsoft Azure Recovery Service 에이전트에 의해 처리됩니다.
 
 어플라이언스를 설정하려면 다음을 수행합니다.
 - 두 번째 자습서에 따라 Hyper-V VM을 평가한 경우 해당 자습서에서 이미 어플라이언스를 설정했습니다.

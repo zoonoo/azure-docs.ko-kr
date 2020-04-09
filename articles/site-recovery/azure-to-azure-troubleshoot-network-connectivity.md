@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 49d2d3d3e8829198a57aaf2feb40e89f105667bd
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: d2cc4133e52e7cab812413d23948da6ac2660e77
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804863"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884871"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Azure-Azure VM 네트워크 연결 문제 해결
 
@@ -18,8 +18,8 @@ ms.locfileid: "80804863"
 
 Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 대한 아웃바운드 연결이 필요합니다. VM이 방화벽 뒤에 있거나 NSG(네트워크 보안 그룹) 규칙을 사용하여 아웃바운드 연결을 제어하는 경우 이러한 문제 중 하나가 발생할 수 있습니다.
 
-| **URL** | **세부 정보** |
-| --- | --- |
+| URL | 세부 정보 |
+|---|---|
 | `*.blob.core.windows.net` | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 하는 데 필요합니다. VM의 모든 캐시 저장소 계정을 알고 있는 경우 특정 저장소 계정 URL에 대한 허용 목록을 사용할 수 있습니다. 예를 `cache1.blob.core.windows.net` 들어, `cache2.blob.core.windows.net` 대신 `*.blob.core.windows.net`. |
 | `login.microsoftonline.com` | Site Recovery 서비스 URL에 대한 권한 부여 및 인증에 필요합니다. |
 | `*.hypervrecoverymanager.windowsazure.com` | VM에서 Site Recovery 서비스 통신이 발생할 수 있도록 하는 데 필요합니다. 방화벽 프록시가 IP를 지원하는 경우 해당 _사이트 복구 IP를_ 사용할 수 있습니다. |
@@ -82,7 +82,7 @@ Office 365 인증 및 ID IP4 끝점에 연결을 설정할 수 없습니다.
 
 1. 대상 위치에 해당하는 사이트 복구 IP에 대한 HTTPS 포트 443 아웃바운드 규칙을 만듭니다.
 
-   | **위치** | **Site Recovery IP 주소** |  **Site Recovery 모니터링 IP 주소** |
+   | 위치 | Site Recovery IP 주소 | Site Recovery 모니터링 IP 주소 |
    | --- | --- | --- |
    | 미국 중부 | 40.69.144.231 | 52.165.34.144 |
 
@@ -102,7 +102,7 @@ Office 365 인증 및 ID IP4 끝점에 연결을 설정할 수 없습니다.
 
 1. 소스 위치에 해당하는 사이트 복구 IP에 대한 HTTPS 포트 443 아웃바운드 규칙을 만듭니다.
 
-   |**위치** | **Site Recovery IP 주소** |  **Site Recovery 모니터링 IP 주소** |
+   | 위치 | Site Recovery IP 주소 | Site Recovery 모니터링 IP 주소 |
    | --- | --- | --- |
    | 미국 동부 | 13.82.88.226 | 104.45.147.24 |
 
@@ -138,7 +138,8 @@ Azure Site Recovery는 지역에 따라 [Site Recovery IP 범위](azure-to-azure
    Port=567
    ```
 
-1. Azure 사이트 복구 이동성 서비스 에이전트는 **인증되지 않은 프록시만**지원합니다.
+> [!NOTE]
+> Azure 사이트 복구 이동성 서비스 에이전트는 **인증되지 않은 프록시만**지원합니다.
 
 ### <a name="fix-the-problem"></a>문제 해결
 
@@ -146,4 +147,4 @@ Azure Site Recovery는 지역에 따라 [Site Recovery IP 범위](azure-to-azure
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 가상 머신 복제](site-recovery-replicate-azure-to-azure.md)
+[Azure VM을 다른 Azure 지역으로 복제](azure-to-azure-how-to-enable-replication.md)

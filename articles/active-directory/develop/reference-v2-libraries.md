@@ -1,28 +1,23 @@
 ---
-title: 마이크로소프트 ID 플랫폼 인증 라이브러리 | 마이크로 소프트 문서
+title: Microsoft ID 플랫폼 인증 라이브러리
 description: Microsoft ID 플랫폼 끝점에 대한 관련 라이브러리, 소스 및 샘플 링크와 함께 호환되는 클라이언트 라이브러리 및 서버 미들웨어 라이브러리입니다.
 services: active-directory
-documentationcenter: ''
 author: negoe
 manager: CelesteDG
-editor: ''
-ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/25/2019
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: c8f0d5d948ff54522e951b7b5d18c7018ae6d34a
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 22e2ee0e3596bc996482a090af7509db4c415e61
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80419815"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883494"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Microsoft ID 플랫폼 인증 라이브러리
 
@@ -53,7 +48,7 @@ Microsoft ID 플랫폼 끝점에서 작동하는 라이브러리 목록은 다�
 
 클라이언트 인증 라이브러리를 사용하여 보호된 웹 API를 호출하기 위한 토큰을 획득합니다.
 
-| 플랫폼 | 라이브러리 | 다운로드 | 소스 코드 | 예제 | 참고 | 개념 문서 | 로드맵 |
+| 플랫폼 | 라이브러리 | 다운로드 | 소스 코드 | 샘플 | 참조 | 개념 문서 | 로드맵 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/README.md) |  [단일 페이지 앱](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [참조](https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/) | [개념 문서](msal-overview.md)| [로드맵](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
 ![Angular](media/sample-v2-code/logo_angular.png) | MSAL 각도 | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | [각도 스파](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) | [참조](https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-angular/) | [개념 문서](msal-overview.md) | [로드맵](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
@@ -67,7 +62,7 @@ Microsoft ID 플랫폼 끝점에서 작동하는 라이브러리 목록은 다�
 
 미들웨어 라이브러리를 사용하여 웹 응용 프로그램 및 웹 API를 보호합니다. ASP.NET 또는 ASP.NET 코어로 작성된 웹 앱 또는 웹 API는 미들웨어 라이브러리를 사용합니다.
 
-| 플랫폼 | 라이브러리 | 다운로드 | 소스 코드 | 예제 | 참조
+| 플랫폼 | 라이브러리 | 다운로드 | 소스 코드 | 샘플 | 참조
 | --- | --- | --- | --- | --- | --- |
 | ![.NET](media/sample-v2-code/logo_NET.png) ![.NET Core](media/sample-v2-code/logo_NETcore.png) | ASP.NET 보안 |[Nuget](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/) |[GitHub](https://github.com/aspnet/AspNetCore) |[MVC 앱](quickstart-v2-aspnet-webapp.md) |[ASP.NET API 참조](https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0) |
 | ![.NET](media/sample-v2-code/logo_NET.png)| .NET용 IdentityModel 확장| |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | [MVC 앱](quickstart-v2-aspnet-webapp.md) |[참조](https://docs.microsoft.com/dotnet/api/overview/azure/activedirectory/client?view=azure-dotnet) |
@@ -90,7 +85,7 @@ Microsoft ID 플랫폼 끝점에서 작동하는 라이브러리 목록은 다�
 
 ## <a name="compatible-client-libraries"></a>호환 가능한 클라이언트 라이브러리
 
-| 플랫폼 | 라이브러리 이름 | 테스트 버전 | 소스 코드 | 예제 |
+| 플랫폼 | 라이브러리 이름 | 테스트 버전 | 소스 코드 | 샘플 |
 |:---:|:---:|:---:|:---:|:---:|
 |![JavaScript](media/sample-v2-code/logo_js.png)|[Hello.js](https://adodson.com/hello.js/) | 버전 1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) |
 | ![Java](media/sample-v2-code/logo_java.png) | [Scribe Java](https://github.com/scribejava/scribejava) | [버전 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/) | |

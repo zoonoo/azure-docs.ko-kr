@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: c1e740fbfa4bf1e8a77a2d9d6060ab39dba7ae7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0938fbe94cb0d1e6dae3dcb84950a11f90dd9db8
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256212"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878156"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>SQL Database 인스턴스 풀(미리 보기)이란 무엇입니까?
 
@@ -59,7 +59,7 @@ ms.locfileid: "79256212"
 
 ## <a name="architecture-of-instance-pools"></a>인스턴스 풀의 아키텍처
 
-인스턴스 풀은 일반 관리 인스턴스(단일 인스턴스)와 유사한*아키텍처를*갖습니다.  Azure [가상 네트워크(VNet) 내의 배포를](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks)지원하고 고객에게 격리 및 보안을 제공하기 위해 인스턴스 풀도 [가상 클러스터를](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture)사용합니다. 가상 클러스터는 고객의 가상 네트워크 서브넷 내에 배포된 격리된 가상 시스템의 전용 집합을 나타냅니다.
+인스턴스 풀은 일반 관리 인스턴스(단일 인스턴스)와 유사한*아키텍처를*갖습니다.  Azure [가상 네트워크(VNet) 내의 배포를](../virtual-network/virtual-network-for-azure-services.md)지원하고 고객에게 격리 및 보안을 제공하기 위해 인스턴스 풀도 [가상 클러스터를](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture)사용합니다. 가상 클러스터는 고객의 가상 네트워크 서브넷 내에 배포된 격리된 가상 시스템의 전용 집합을 나타냅니다.
 
 두 배포 모델의 주요 차이점은 인스턴스 풀을 통해 동일한 가상 시스템 노드에서 여러 SQL Server 프로세스 배포를 허용하고 Windows [Job Objects를](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects)사용하여 리소스가 관리되는 반면 단일 인스턴스는 항상 가상 시스템 노드에서 혼자 진행됩니다.
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 12/19/2019
-ms.openlocfilehash: 74d696c19ac2a2d0d367f5a018fde8cd3a0eedb2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 454138f8e0d92935126f446455810a444b0a053a
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535207"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984149"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 및 Log Analytics에서 사용되는 IP 주소
 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.
@@ -43,17 +43,19 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 
 | 목적 | URL | IP | 포트 |
 | --- | --- | --- | --- |
-| Configuration |`management.core.windows.net` | |`443` |
-| Configuration |`management.azure.com` | |`443` |
-| Configuration |`login.windows.net` | |`443` |
-| Configuration |`login.microsoftonline.com` | |`443` |
-| Configuration |`secure.aadcdn.microsoftonline-p.com` | |`443` |
-| Configuration |`auth.gfx.ms` | |`443` |
-| Configuration |`login.live.com` | |`443` |
+| 구성 |`management.core.windows.net` | |`443` |
+| 구성 |`management.azure.com` | |`443` |
+| 구성 |`login.windows.net` | |`443` |
+| 구성 |`login.microsoftonline.com` | |`443` |
+| 구성 |`secure.aadcdn.microsoftonline-p.com` | |`443` |
+| 구성 |`auth.gfx.ms` | |`443` |
+| 구성 |`login.live.com` | |`443` |
 | 설치 | `globalcdn.nuget.org`, `packages.nuget.org` ,`api.nuget.org/v3/index.json` `nuget.org`, `api.nuget.org`, `dc.services.vsallin.net` | |`443` |
 
 ## <a name="availability-tests"></a>가용성 테스트
 [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md) 가 실행되는 주소 목록입니다. 앱에서 웹 테스트를 실행하려고 하지만 웹 서버가 특정 클라이언트 서비스를 제공하도록 제한된 경우 가용성 테스트 서버에서 들어오는 트래픽을 허용해야 합니다.
+
+### <a name="service-tag"></a>서비스 태그
 
 Azure 네트워크 보안 그룹을 사용하는 경우 **인바운드 포트 규칙을** 추가하기만 하면 서비스 **태그를** **소스** 서비스 **ApplicationInsightsAvailability** **태그로**선택하여 응용 프로그램 인사이트 가용성 테스트에서 트래픽을 허용합니다.
 
@@ -64,6 +66,11 @@ Azure 네트워크 보안 그룹을 사용하는 경우 **인바운드 포트 �
 >![인바운드 보안 규칙 탭 추가](./media/ip-addresses/add-inbound-security-rule2.png)
 
 이 주소에서 들어오는 트래픽에 대한 80(http) 및 443(https) 포트를 엽니다(IP 주소가 위치별로 그룹화됨).
+
+### <a name="addresses-grouped-by-location"></a>위치별로 그룹화된 주소
+
+> [!NOTE]
+> 이러한 주소는 클래스리스 도메인 간 라우팅(CIDR) 표기화를 사용하여 나열됩니다. 즉, 같은 `51.144.56.112/28` 항목은 에서 `51.144.56.112` 시작하고 에서 끝나는 16개의 `51.144.56.127`IP와 동일합니다.
 
 ```
 Australia East

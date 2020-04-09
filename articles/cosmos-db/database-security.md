@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mjbrown
-ms.openlocfilehash: 345fc329df1c57cab7dd66c609bf3701fa3a6124
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: c92f045f2c8d4443d596697596363bda3d0df975
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619137"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985289"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 보안 - 개요
 
@@ -23,7 +23,7 @@ ms.locfileid: "80619137"
 
 ## <a name="how-do-i-secure-my-database"></a>데이터베이스 보안은 어떻게 하나요?
 
-데이터 보안은 사용자, 고객 그리고 데이터베이스 공급자 간의 공동 책임입니다. 선택한 데이터베이스 공급자에 따라 담당하는 책임의 양이 달라질 수 있습니다. 온-프레미스 솔루션을 선택한 경우 끝점 보호부터 하드웨어의 물리적 보안까지 모든 항목을 제공해야 하며 이것은 쉬운 작업이 아닙니다. Azure Cosmos DB와 같은 PaaS 클라우드 데이터베이스 공급자를 선택할 경우 관여해야 하는 부분이 상당히 줄어듭니다. 다음 그림은 Microsoft의 [클라우드 컴퓨팅에 대한 공유 책임](https://aka.ms/sharedresponsibility) 백서를 인용한 것으로 Azure Cosmos DB와 같은 PaaS 공급자를 사용할 경우 사용자가 작업할 부분이 어떻게 줄어드는지를 보여 줍니다.
+데이터 보안은 사용자, 고객 그리고 데이터베이스 공급자 간의 공동 책임입니다. 선택한 데이터베이스 공급자에 따라 담당하는 책임의 양이 달라질 수 있습니다. 온-프레미스 솔루션을 선택한 경우 끝점 보호부터 하드웨어의 물리적 보안까지 모든 항목을 제공해야 하며 이것은 쉬운 작업이 아닙니다. Azure Cosmos DB와 같은 PaaS 클라우드 데이터베이스 공급자를 선택할 경우 관여해야 하는 부분이 상당히 줄어듭니다. 다음 그림은 Microsoft의 [클라우드 컴퓨팅에 대한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91) 백서를 인용한 것으로 Azure Cosmos DB와 같은 PaaS 공급자를 사용할 경우 사용자가 작업할 부분이 어떻게 줄어드는지를 보여 줍니다.
 
 ![고객 및 데이터베이스 공급자 책임](./media/database-security/nosql-database-security-responsibilities.png)
 
@@ -70,7 +70,7 @@ ms.locfileid: "80619137"
 |삭제된 데이터 복원|자동 온라인 백업을 사용하여 실수로 삭제한 데이터를 이벤트 후 최대 30일 이내에 복구할 수 있습니다. <br><br>[Azure Cosmos DB를 통한 자동 온라인 백업 및 복원에](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) 대해 자세히 알아보기|
 |중요한 데이터 보호 및 격리|이제 새로운 기능에 나열된 지역의 모든 데이터가 미사용 상태에서 암호화됩니다.<br><br>개인 데이터 및 기타 기밀 데이터를 특정 컨테이너 및 읽기-쓰기로 격리할 수 있으며 읽기 전용 액세스를 특정 사용자로 제한할 수 있습니다.|
 |공격 모니터|[감사 로깅 및 활동 로그](logging.md)를 사용하여 계정에서 정상 및 비정상적인 활동을 모니터링할 수 있습니다. 이 표 다음의 스크린샷에 나와 있는 것처럼, 리소스에 대해 어떤 작업이 누구에 의해 수행되었는지, 작업 상태 등을 확인할 수 있습니다.|
-|공격에 대응|잠재적인 공격을 보고하기 위해 Azure 지원에 연락한 경우 5단계 인시던트 대응 프로세스가 시작됩니다. 5단계 프로세스의 목표는 문제가 검색되어 조사가 시작된 후 정상적인 서비스 보안 및 작업을 가능한 신속히 복원하는 것입니다.<br><br>[클라우드에서 Microsoft Azure의 보안 대응](https://aka.ms/securityresponsepaper)에 대한 자세한 정보|
+|공격에 대응|잠재적인 공격을 보고하기 위해 Azure 지원에 연락한 경우 5단계 인시던트 대응 프로세스가 시작됩니다. 5단계 프로세스의 목표는 문제가 검색되어 조사가 시작된 후 정상적인 서비스 보안 및 작업을 가능한 신속히 복원하는 것입니다.<br><br>[클라우드에서 Microsoft Azure의 보안 대응](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)에 대한 자세한 정보|
 |지오-펜싱|Azure Cosmos DB는 독립적인 지역(예: 독일, 중국, US Gov)에 대해 데이터 거버넌스를 보장합니다.|
 |보호된 기능|Azure Cosmos DB의 데이터는 SSD의 Azure 보호된 데이터 센터에 저장됩니다.<br><br>[Microsoft 글로벌 데이터 센터](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)에 대한 자세한 정보|
 |HTTPS/SSL/TLS 암호화|Azure 코스모스 DB에 대한 모든 연결은 HTTPS를 지원합니다. Azure 코스모스 DB는 TLS 1.2도 지원합니다.<br>최소 TLS 버전 서버 측을 적용할 수 있습니다. 이렇게 하려면 다음 [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com)연락처로 문의하십시오.|

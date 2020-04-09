@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 702df1bfaf0701a40e514f8a47151f96917adf38
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: cfec30e56b0fd523896cbc1a7e84e92f639075a8
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811588"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879057"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>윈도우 가상 데스크톱에 마이크로 소프트 팀 사용
 
@@ -40,7 +40,7 @@ Windows 가상 데스크톱 환경에서 최적화되지 않은 Microsoft 팀을
 ```shell
   [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams\IsWVDEnvironment]
   Type: REG_DWORD
-  Value: 0x1
+  Value: 1
 ```
 
 ### <a name="install-microsoft-teams"></a>마이크로소프트 팀 설치
@@ -66,4 +66,4 @@ Windows 가상 데스크톱 환경에서 최적화되지 않은 Microsoft 팀을
       ```
 
       > [!NOTE]
-      > MSI가 ALLUSERS=1을 설정한 팀을 설치하면 자동 업데이트가 비활성화됩니다. 한 달에 한 번 이상 팀을 업데이트하는 것이 좋습니다.
+      > MSI가 ALLUSER=1을 설정한 팀을 설치하면 자동 업데이트가 비활성화됩니다. 한 달에 한 번 이상 팀을 업데이트하는 것이 좋습니다.

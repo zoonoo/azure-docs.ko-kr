@@ -1,15 +1,16 @@
 ---
-title: AKS(Azure Kubernetes Service)에서 네트워크 정책을 사용하여 pod 보호
+title: 네트워크 정책으로 포드 트래픽 보호
+titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Service)에서 Kubernetes 네트워크 정책을 사용하여 포드 안팎으로 흐르는 트래픽을 보호하는 방법 알아보기
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 37b6ebd1c8b147db0a9cead4678a0b2bb4ed234d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01ba9e7353b6783d1b4fd1649291a64405fd9382
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473611"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886707"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 네트워크 정책을 사용하여 pod 간 트래픽 보호
 
@@ -24,7 +25,7 @@ Azure CLI 버전 2.0.61 이상 설치 및 구성이 필요합니다.  `az --ver
 > [!TIP]
 > 미리 보기 중에 네트워크 정책 기능을 사용한 경우 [새 클러스터를 만드는](#create-an-aks-cluster-and-enable-network-policy)것이 좋습니다.
 > 
-> 미리 보기 중에 네트워크 정책을 사용하는 기존 테스트 클러스터를 계속 사용하려면 클러스터를 최신 GA 릴리스의 새 Kubernetes 버전으로 업그레이드한 다음 다음 YAML 매니페스트를 배포하여 충돌하는 메트릭 서버 및 Kubernetes를 수정합니다. 대시보드. 이 수정 프로그램은 Calico 네트워크 정책 엔진을 사용한 클러스터에만 필요합니다.
+> 미리 보기 중에 네트워크 정책을 사용하는 기존 테스트 클러스터를 계속 사용하려면 클러스터를 최신 GA 릴리스의 새 Kubernetes 버전으로 업그레이드한 다음 다음 YAML 매니페스트를 배포하여 충돌하는 메트릭 서버 및 Kubernetes 대시보드를 수정합니다. 이 수정 프로그램은 Calico 네트워크 정책 엔진을 사용한 클러스터에만 필요합니다.
 >
 > 보안 모범 사례로 [이 YAML 매니페스트의 내용을 검토하여][calico-aks-cleanup] AKS 클러스터에 배포된 내용을 이해합니다.
 >
@@ -55,7 +56,7 @@ Azure는 네트워크 정책을 구현하는 두 가지 방법을 제공합니�
 | 지원되는 네트워킹 옵션             | Azure CNI                  | Azure CNI 및 쿠베넷       |
 | Kubernetes 사양 준수 | 지원되는 모든 정책 유형 |  지원되는 모든 정책 유형 |
 | 추가 기능                      | None                       | 전역 네트워크 정책, 글로벌 네트워크 집합 및 호스트 끝점으로 구성된 확장된 정책 모델입니다. CLI를 `calicoctl` 사용하여 이러한 확장 된 기능을 관리하는 방법에 대한 자세한 내용은 [calicoctl 사용자 참조를][calicoctl]참조하십시오. |
-| 고객 지원팀                                  | Azure 지원 및 엔지니어링 팀 지원 | 칼리코 커뮤니티 지원. 추가 유료 지원에 대한 자세한 내용은 [프로젝트 Calico 지원 옵션을][calico-support]참조하십시오. |
+| 지원                                  | Azure 지원 및 엔지니어링 팀 지원 | 칼리코 커뮤니티 지원. 추가 유료 지원에 대한 자세한 내용은 [프로젝트 Calico 지원 옵션을][calico-support]참조하십시오. |
 | 로깅                                  | IPTable에 추가 /삭제된 규칙은 */var/log/azure-npm.log* 아래의 모든 호스트에 로그온됩니다. | 자세한 내용은 [Calico 구성 요소 로그를 참조하십시오.][calico-logs] |
 
 ## <a name="create-an-aks-cluster-and-enable-network-policy"></a>AKS 클러스터 만들기 및 네트워크 정책 사용

@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 04/08/2020
 ms.author: anavin
-ms.openlocfilehash: 12fb7e03062600745cd8511d37b439ce44f2ef78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9604d5567e74ef470c3e798b6a3df9e48d6fde5d
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75640723"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985306"
 ---
 # <a name="public-ip-address-prefix"></a>공용 IP 주소 접두사
 
@@ -56,7 +56,7 @@ ms.locfileid: "75640723"
 ## <a name="constraints"></a>제약 조건
 
 - 접두사에 대한 IP 주소를 지정할 수 없습니다. 사용자가 지정한 크기에 따라 접두사에 대한 IP 주소가 Azure에서 할당됩니다.
-- 최대 16개의 IP 주소 또는 /28의 접두사를 만들 수 있습니다. 자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
+- 기본적으로 최대 16개의 IP 주소 또는 /28의 접두사를 만들 수 있습니다. 검토 [네트워크 제한 증가 요청](https://docs.microsoft.com/azure/azure-portal/supportability/networking-quota-requests) 및 Azure [제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) 자세한 내용은 합니다.
 - 접두사를 만든 후에는 범위를 변경할 수 없습니다.
 - 표준 SKU로 만든 고정 공용 IP 주소만 접두사의 범위에서 할당할 수 있습니다. 공용 IP 주소 SKU에 대해 자세히 알아보려면 [공용 IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)를 참조하세요.
 - 범위에서 가져온 주소는 Azure Resource Manager 리소스에만 할당할 수 있습니다. 클래식 배포 모델의 리소스에는 주소를 할당할 수 없습니다.

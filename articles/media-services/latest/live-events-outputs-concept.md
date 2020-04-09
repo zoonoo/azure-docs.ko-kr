@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 04/08/2020
 ms.author: juliako
-ms.openlocfilehash: e6f2ad2c5c30e3c75e8d3588e386ea14e8e3350b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a00f7c0ec76510cc521966acf98b7250e723697
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065956"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985901"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>미디어 서비스의 라이브 이벤트 및 라이브 출력
 
@@ -112,8 +112,11 @@ Media Services에서 라이브 인코딩을 사용하는 경우 온-프레미스
 * 베니티 URL
 
     허영 모드는 하드웨어 브로드캐스트 인코더를 사용하고 라이브 이벤트를 시작할 때 인코더를 다시 구성하지 않으려는 대형 미디어 브로드캐스터가 선호합니다. 시간이 지남에 따라 변경되지 않는 예측 인제스트 URL을 원합니다.
+    
+    > [!NOTE]
+    > Azure 포털에서 허영 URL의 이름은 *"영구 입력*URL"입니다.
 
-    이 모드를 지정하려면 `vanityUrl` 생성 `true` 시(기본값)로 `false`설정합니다. 또한 생성 시 자신의 액세스`LiveEventInput.accessToken`토큰 ()을 전달해야합니다. URL에서 임의의 토큰을 피하기 위해 토큰 값을 지정합니다. 액세스 토큰은 하이픈 유무에 관계없이 유효한 GUID 문자열이어야 합니다. 모드가 설정되면 업데이트할 수 없습니다.
+    API에서 이 모드를 지정하려면 `vanityUrl` `true` 생성 시(기본값)로 `false`설정합니다. 또한 생성 시 자신의 액세스`LiveEventInput.accessToken`토큰 ()을 전달해야합니다. URL에서 임의의 토큰을 피하기 위해 토큰 값을 지정합니다. 액세스 토큰은 하이픈 유무에 관계없이 유효한 GUID 문자열이어야 합니다. 모드가 설정되면 업데이트할 수 없습니다.
 
     액세스 토큰은 데이터 센터에서 고유해야 합니다. 앱에서 허영 URL을 사용해야 하는 경우 기존 GUID를 재사용하는 대신 액세스 토큰에 대해 항상 새 GUID 인스턴스를 만드는 것이 좋습니다.
 

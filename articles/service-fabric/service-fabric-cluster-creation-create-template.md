@@ -3,12 +3,12 @@ title: Azure 서비스 패브릭 클러스터 템플릿 만들기
 description: Service Fabric 클러스터의 Resource Manager 템플릿을 만드는 방법을 알아봅니다. 클라이언트 인증의 보안, Azure Key Vault 및 Azure AD(Azure Active Directory)를 구성합니다.
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.openlocfilehash: a00f2bc505acd89d9fb9488565b6235bf7d146ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6cf0f9c3b8b54db7bd27ec8dd9c9d59d849c74cc
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258877"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985374"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>서비스 패브릭 클러스터 Resource Manager 템플릿 만들기
 
@@ -84,7 +84,7 @@ ms.locfileid: "79258877"
       "extensionProfile": {
         "extensions": [
           {
-            "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType0Name')]",
+            "name": "[concat('ServiceFabricNodeVmExt_',variables('vmNodeType0Name'))]",
             "properties": {
               ...
               "settings": {

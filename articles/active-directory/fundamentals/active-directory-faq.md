@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb0b5e37843413667e51112f52e6a69534e3425
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f4a961e601949689db89f8819f0a1fe1c5a7b3a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063631"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875795"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Azure Active Directory에 대해 자주 묻는 질문과 대답
 Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -27,16 +27,17 @@ Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 �
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Azure 및 Azure Active Directory 액세스
-**Q: Azure Portal에서 Azure AD에 액세스하려고 할 때 "구독을 찾을 수 없음"이 표시되는 이유는 무엇인가요?**
+**Q: Azure Portal에서 Azure AD에 액세스하려고 할 때 "구독을 찾을 수 없음"이 있는 이유는 무엇입니까?**
 
-**A:** Azure Portal에 액세스하려면 각 사용자에게 Azure 구독을 통한 권한이 필요합니다. 유료 Office 365 또는 Azure AD 구독이 [https://aka.ms/accessAAD](https://aka.ms/accessAAD) 있는 경우 일회성 활성화 단계로 이동합니다. 그렇지 않으면 무료 [Azure 계정](https://azure.microsoft.com/pricing/free-trial/) 또는 유료 구독을 활성화해야 합니다.
+**A:** Azure Portal에 액세스하려면 각 사용자에게 Azure 구독을 통한 권한이 필요합니다. 유료 Office 365 또는 Azure AD 구독이 없는 경우 무료 [Azure 계정](https://azure.microsoft.com/free/
+) 또는 유료 구독을 활성화해야 합니다.
 
 자세한 내용은 다음을 참조하세요.
 
 * [Azure 구독과 Azure Active Directory의 연관 관계](active-directory-how-subscriptions-associated-directory.md)
 
 ---
-**Q: Azure AD, Office 365와 Azure 간에는 어떤 관계가 있나요?**
+**Q: Azure AD, Office 365 및 Azure 간의 관계는 무엇입니까?**
 
 **A:** Azure AD는 모든 웹 서비스에 공통 ID 및 액세스 기능을 제공합니다. Office 365, Microsoft Azure, Intune 또는 기타 제품을 사용하든지 이러한 모든 서비스에 대해 로그온 및 액세스 관리 설정을 지원하는 데 Azure AD를 이미 사용 중입니다.
 
@@ -138,9 +139,9 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 좀 더 복잡한 계정 잠금 전략이 사용됩니다.  이 전략은 요청의 IP 주소와 입력된 암호를 기반으로 합니다. 또한 실패한 시도가 공격일 가능성에 따라 잠금 기간이 늘어납니다.  
 
-**Q: ‘이 암호가 너무 많이 사용되었습니다’라는 메시지와 함께 특정(공통) 암호가 거부되었습니다. 현재 활성 디렉터리에서 사용되는 암호를 말하는 것입니까?**
+**Q: 특정 (일반적인) 암호는 '이 암호가 여러 번 사용되었습니다'라는 메시지와 함께 거부됩니다.이 암호는 현재 활성 디렉터리에서 사용되는 암호를 참조합니까?**
 
-"Password" 및 "123456"의 변형과 같이 전역에서 일반적인 암호를 말합니다.
+이는 "암호" 및 "123456"의 변형과 같이 전 세계적으로 일반적인 암호를 나타냅니다.
 
 **Q: 수상한 소스(봇넷, tor 엔드포인트)의 로그인 요청은 B2C 테넌트에서 차단되나요? 아니면 Basic 또는 Premium Edition 테넌트가 필요한가요?**
 
@@ -157,7 +158,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 ---
 **Q: 필요한 애플리케이션이 Azure AD 마켓플레이스에 없는 경우 어떻게 하나요?**
 
-**A:** Azure AD Premium에서는 원하는 애플리케이션을 추가하고 구성할 수 있습니다. 애플리케이션의 기능 및 기본 설정에 따라 SSO 및 자동화된 프로비전을 구성할 수 있습니다.  
+**A:** Azure AD Premium에서는 원하는 애플리케이션을 추가하고 구성할 수 있습니다. 응용 프로그램의 기능 및 기본 설정에 따라 SSO 및 자동화된 프로비저닝을 구성할 수 있습니다.  
 
 자세한 내용은 다음을 참조하세요.
 
@@ -188,7 +189,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 * [Azure AD의 애플리케이션에 대한 Single Sign-On](../manage-apps/what-is-single-sign-on.md)
 
 ---
-**Q: 온-프레미스를 실행하는 애플리케이션을 추가할 수 있나요?**
+**Q: 온-프레미스에서 실행 중인 응용 프로그램을 추가할 수 있습니까?**
 
 **A:** Azure AD 애플리케이션 프록시는 선택한 온-프레미스 웹 애플리케이션에 대해 손쉽고 안전한 액세스를 제공합니다. Azure AD에서 SaaS(Software as a Service) 앱에 액세스하는 것과 동일한 방식으로 이러한 애플리케이션에 액세스할 수 있습니다. 네트워크 인프라 변경이나 VPN이 필요하지 않습니다.  
 
@@ -199,7 +200,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 **A:** Azure AD 조건부 액세스를 사용하면 각 응용 프로그램에 대해 고유한 액세스 정책을 할당할 수 있습니다. 정책에서 언제든지 또는 사용자가 로컬 네트워크에 연결되지 않은 경우 Multi-Factor Authentication을 요구할 수 있습니다.  
 
-자세한 내용은 [Azure Active Directory에 연결된 Office 365 및 기타 앱에 대한 액세스 보호](../active-directory-conditional-access-azure-portal.md)를 참조하세요.
+자세한 내용은 [Azure Active Directory에 연결된 Office 365 및 기타 앱에 대한 액세스 보호](../conditional-access/overview.md)를 참조하세요.
 
 ---
 **Q: SaaS 앱에 대한 자동화된 사용자 프로비저닝이란 무엇입니까?**
@@ -211,4 +212,4 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 ---
 **Q: Azure AD에서 보안 LDAP 연결을 설정할 수 있나요?**
 
-**A:**  아니요. Azure AD는 LDAP(라이트라이트 디렉터리 액세스 프로토콜) 프로토콜 또는 보안 LDAP를 직접 지원하지 않습니다. 그러나 LDAP 연결을 달성하기 위해 Azure Networking을 통해 제대로 구성된 네트워크 보안 그룹이 있는 Azure AD 테넌트에서 Azure AD 도메인 서비스(Azure AD DS) 인스턴스를 활성화할 수 있습니다. 자세한 내용은 https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap를 참조하세요.
+**A:**  아니요. Azure AD는 LDAP(라이트라이트 디렉터리 액세스 프로토콜) 프로토콜 또는 보안 LDAP를 직접 지원하지 않습니다. 그러나 LDAP 연결을 달성하기 위해 Azure Networking을 통해 제대로 구성된 네트워크 보안 그룹이 있는 Azure AD 테넌트에서 Azure AD 도메인 서비스(Azure AD DS) 인스턴스를 활성화할 수 있습니다. 자세한 내용은 [Azure Active Directory 도메인 관리 도메인에 대한 보안 LDAP 구성을](../../active-directory-domain-services/tutorial-configure-ldaps.md) 참조하십시오.

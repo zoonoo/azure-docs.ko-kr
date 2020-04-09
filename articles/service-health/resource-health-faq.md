@@ -3,12 +3,12 @@ title: Azure Resource Health FAQ
 description: Azure Resource Health 개요
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 5a15ded1c279e700fb71e5ea7aa866e5afc29f8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7459a29dca01dc186d75b4545f89068569975607
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75912777"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985034"
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health FAQ
 Azure Resource Health에 대해 자주 묻는 질문과 답변에 대해 알아보세요.
@@ -37,7 +37,7 @@ Resource Health에서 특정 리소스에 대한 정보 수신을 중지하면 �
 ## <a name="how-can-i-get-help-for-a-resource-that-is-unavailable"></a>사용할 수 없는 리소스에 대한 도움을 받으려면 어떻게 하나요?
 Resource Health 블레이드에서 지원 요청을 제출할 수 있습니다. 플랫폼 이벤트로 인해 리소스를 사용할 수 없는 경우 요청을 열기 위해 Microsoft와 지원 계약이 필요하지 않습니다.
 
-## <a name="does-resource-health-differentiate-between-unavailability-cased-by-platform-problems-versus-something-i-did"></a>Resource Health에서는 플랫폼 문제로 인한 사용 불가와 사용자가 의도한 사용 불가가 구분되나요?
+## <a name="does-resource-health-differentiate-between-unavailability-caused-by-platform-problems-versus-something-i-did"></a>리소스 상태는 플랫폼 문제로 인한 가용성과 내가 한 일을 구별합니까?
 예, 리소스를 사용할 수 없는 경우 Resource Health는 다음과 같은 범주 중 하나에서 근본 원인을 식별합니다. 
 -   사용자가 시작한 작업
 -   계획된 이벤트 

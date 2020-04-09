@@ -3,12 +3,12 @@ title: Azure Backup 지원 매트릭스
 description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: d036e527880a98d323e8de2f3a8721d7e12dbb07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 120882b15dcf9f27c280984ff6d0df31e38ebb73
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273268"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878955"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure 백업을 위한 지원 매트릭스
 
@@ -115,10 +115,10 @@ Azure Backup은 전송 중 및 미사용 데이터에 대한 암호화를 지원
 
 **컴퓨터** | **전송 중** | **미사용**
 --- | --- | ---
-**온-프레미스 Windows 머신(DPM/MABS 사용 안 함)** | ![yes][green] | ![yes][green]
-**Azure VM** | ![yes][green] | ![yes][green]
-**온-프레미스 Windows 컴퓨터 또는 DPM이 있는 Azure VM** | ![yes][green] | ![yes][green]
-**온-프레미스 Windows 컴퓨터 또는 MABS가 있는 Azure VM** | ![yes][green] | ![yes][green]
+**온-프레미스 Windows 머신(DPM/MABS 사용 안 함)** | ![예][green] | ![예][green]
+**Azure VM** | ![예][green] | ![예][green]
+**온-프레미스 Windows 컴퓨터 또는 DPM이 있는 Azure VM** | ![예][green] | ![예][green]
+**온-프레미스 Windows 컴퓨터 또는 MABS가 있는 Azure VM** | ![예][green] | ![예][green]
 
 ## <a name="compression-support"></a>압축 지원
 
@@ -129,9 +129,9 @@ Azure Backup은 전송 중 및 미사용 데이터에 대한 암호화를 지원
 
 **컴퓨터** | **MABS/DPM에 압축(TCP)** | **볼트로 압축(HTTPS)**
 --- | --- | ---
-**온-프레미스 Windows 머신의 직접 백업** | 해당 없음 | ![yes][green]
+**온-프레미스 Windows 머신의 직접 백업** | 해당 없음 | ![예][green]
 **VM 확장을 사용하여 Azure VM 백업** | 해당 없음 | 해당 없음
-**MABS/DPM을 사용하여 온-프레미스/Azure 컴퓨터에서 백업** | ![yes][green] | ![yes][green]
+**MABS/DPM을 사용하여 온-프레미스/Azure 컴퓨터에서 백업** | ![예][green] | ![예][green]
 
 ## <a name="retention-limits"></a>보존 제한
 
@@ -151,7 +151,7 @@ Azure Backup은 데이터 가용성 및 복원기능을 강화하기 위해 교�
 
 | 백업 관리 유형 | 지원됨                                                    | 지원되는 지역 |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | 예. 4TB 디스크 미만의 암호화된 VM 및 VM에 대해 지원되는 공개 제한 미리 보기 | 미국 중서부   |
+| Azure VM               | 예.   4TB 디스크 미만의 암호화된 VM 및 VM에 지원 | 모든 Azure 공용 지역입니다.  |
 | 화성 에이전트/온프레미스 | 예                                                           | 해당 없음               |
 | SQL /SAP 하나          | 예                                                           | 해당 없음               |
 | Afs                    | 예                                                           | 해당 없음               |

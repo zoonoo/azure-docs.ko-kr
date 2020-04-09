@@ -2,24 +2,21 @@
 title: 사용자에 서명하는 웹 앱 구성 - Microsoft ID 플랫폼 | Azure
 description: 사용자에게 서명하는 웹 앱을 빌드하는 방법 알아보기(코드 구성)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 51cd7ff97af4588139721930bd4d08ffd0f95e73
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3de1edc8560cfc85f52293c095fa824b364d2058
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297557"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881641"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>사용자에 서명하는 웹 앱: 코드 구성
 
@@ -30,7 +27,7 @@ ms.locfileid: "80297557"
 <!-- This section can be in an include for Web App and Web APIs -->
 웹 앱(및 웹 API)을 보호하는 데 사용되는 라이브러리는 다음과 같습니다.
 
-| 플랫폼 | 라이브러리 | 설명 |
+| 플랫폼 | 라이브러리 | Description |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_net.png) | [.NET에 대한 ID 모델 확장](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | ASP.NET 및 ASP.NET 코어에서 직접 사용하는 .NET에 대한 Microsoft ID 모델 확장은 .NET 프레임워크와 .NET Core 모두에서 실행되는 DLL 집합을 제안합니다. ASP.NET 또는 ASP.NET 코어 웹 앱에서 **TokenValidationParameters** 클래스(특히 일부 파트너 시나리오)를 사용하여 토큰 유효성 검사를 제어할 수 있습니다. |
 | ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Java 웹 응용 프로그램 지원 |

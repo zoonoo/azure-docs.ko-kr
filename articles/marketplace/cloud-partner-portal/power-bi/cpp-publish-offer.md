@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: d52270e623a713d7188ac5ff907ebb82ada13283
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: a5eb5b652f7a419c6c2d1b3e6880c3c3003fb679
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745610"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985527"
 ---
 # <a name="publish-a-power-bi-app-offer"></a>Power BI 앱 오퍼 게시
 
 >[!Important]
->2020년 3월 30일부터 Power BI 앱 제공의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Power BI [앱 만들기 개요의](https://aka.ms/AzureCreatePBIServiceApp) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
+>2020년 4월 13일부터 Power BI 앱 제공의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Power BI [앱 만들기 개요의](https://aka.ms/AzureCreatePBIServiceApp) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
 
 클라우드 파트너 포털에서 오퍼를 정의하고 관련 기술 자산을 만든 후 마지막 단계는 게시를 위한 제안을 제출하는 것입니다. 이 프로세스를 시작하려면 **새 오퍼** 창의 왼쪽 창에서 **게시를**선택합니다. 자세한 내용은 [Azure Marketplace 및 AppSource 제안 게시](../manage-offers/cpp-publish-offer.md)를 참조하세요.
 
@@ -30,7 +30,7 @@ ms.locfileid: "80745610"
 
 이 표에서는 각 단계를 설명하고 예상 완료 시간을 제공합니다.
 
-|   게시 단계            |   Time     |   설명                                                                  |
+|   게시 단계            |   Time     |   Description                                                                  |
 | --------------------         |------------| ----------------                                                               |
 | 필수 구성 요소 유효성 검사       | 15분     | 제안 정보 및 제안 설정의 유효성이 검사됩니다.                            |
 | 인증                | 1-7일   | Power BI 인증 팀은 오퍼를 분석합니다. 팀은 제공된 설치 URL을 통해 앱을 설치하여 수동 확인 테스트를 통해 Power BI 앱을 실행합니다. 기본 유효성 검사는 앱 인증 프로세스의 일부로 수행됩니다(이 문서의 후반부 설명).         |

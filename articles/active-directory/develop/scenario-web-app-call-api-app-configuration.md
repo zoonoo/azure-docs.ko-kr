@@ -2,24 +2,21 @@
 title: 웹 API를 호출하는 웹 앱 구성 - Microsoft ID 플랫폼 | Azure
 description: 웹 API를 호출하는 웹 앱의 코드를 구성하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 374b215a737efbe3d421b6dc49af01303ec54473
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b0f60e13ca4bc5115f9a49885c3c659ad1147fcc
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76759163"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881896"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>웹 API를 호출하는 웹 앱: 코드 구성
 
@@ -34,7 +31,7 @@ ms.locfileid: "76759163"
 
 MSAL(Microsoft 인증 라이브러리)의 다음 라이브러리는 웹 앱에 대한 권한 부여 코드 흐름을 지원합니다.
 
-| MSAL 라이브러리 | 설명 |
+| MSAL 라이브러리 | Description |
 |--------------|-------------|
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | .NET 프레임워크 및 .NET 코어 플랫폼 지원. 이러한 플랫폼은 공용 클라이언트 응용 프로그램을 빌드하는 데 사용되기 때문에 지원되지 않는 유니버설 윈도우 플랫폼(UWP), Xamarin.iOS 및 Xamarin.Android는 지원되지 않습니다. |
 | ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> Python용 MSAL | 파이썬 웹 응용 프로그램에 대한 지원. |

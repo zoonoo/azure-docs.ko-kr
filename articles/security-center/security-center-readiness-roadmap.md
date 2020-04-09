@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 4603240a76ec72223b88853c63ed11152707201c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9d74ea2b967112a794cda204cbbfcac707e1d7c4
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76281294"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879465"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure Security Center 준비 로드맵
 이 문서에서는 Azure Security Center를 시작하는 데 도움이 되는 준비 로드맵을 제공합니다.
@@ -32,21 +32,19 @@ Azure Security Center는 Azure, 온-프레미스 및 기타 클라우드용으�
 * [Azure Security Center 소개](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * [Azure Security Center 빠른 시작 가이드](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 
-비디오
+동영상
 * [간략한 소개 비디오](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
 * [Security Center 예방, 검색 및 응답 기능에 대한 개요](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
 
 ## <a name="planning-and-operations"></a>계획 및 작업
+
 Security Center를 완벽하게 활용하려면 조직의 여러 개인 또는 팀에서 보안 작업, 모니터링, 거버넌스 및 인시던트 대응 요구 사항에 맞게 서비스를 사용하는 방법에 대해 이해해야 합니다.
 
 다음 리소스를 사용하여 계획 및 작업 프로세스 중에 도움을 받습니다.
 
-
 아티클
 * [Azure 보안 센터 계획 및 운영 가이드](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 
-비디오
-* [Security Center를 사용하여 하이브리드 클라우드 작업 보호](https://mva.microsoft.com/training-courses/hybrid-cloud-workload-protection-with-azure-security-center-18173?l=X4WqTA3jE_1106218965)
 
 ### <a name="onboarding-computers-to-security-center"></a>Security Center에 컴퓨터 온보딩
 Security Center에서는 Security Center 표준 계층이 적용되지 않은 모든 Azure 구독이나 작업 영역을 자동으로 검색합니다. 여기에는 Security Center 무료 계층을 사용하는 Azure 구독과 보안 솔루션이 사용하도록 설정되지 않은 작업 영역이 포함됩니다.
@@ -71,15 +69,15 @@ Security Center에서는 Security Center 표준 계층이 적용되지 않은 �
 * [Azure Security Center에서 Azure SQL 서비스 및 데이터 보호](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
 
-비디오   
+비디오    
 * [Azure Security Center를 사용하여 보안 문제 완화](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
 
 ### <a name="security-center-for-incident-response"></a>인시던트 대응을 위한 Security Center
-비용과 손상을 줄이려면 공격이 발생하기 전에 사고 대응 계획을 적절히 수립하는 것이 중요합니다. Azure Security Center는 사고에 대응하는 여러 단계에서 사용할 수 있습니다.
+비용과 피해를 줄이려면 공격이 발생하기 전에 사고 대응 계획을 수립하는 것이 중요합니다. Azure Security Center는 사고에 대응하는 여러 단계에서 사용할 수 있습니다.
 
 다음 리소스를 사용하여 Security Center를 인시던트 대응 프로세스에 통합하는 방법을 이해합니다.
 
-비디오  
+동영상    
 * [인시던트 대응을 위한 Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response)
 * [차세대 보안 작업으로 위협에 대한 신속한 대응 및 조사](https://youtu.be/e8iFCz5RM4g)
 
@@ -93,7 +91,7 @@ Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 �
 
 다음 리소스를 사용하여 Security Center에서 이러한 기능을 사용하는 방법을 알아봅니다.
 
-비디오  
+동영상    
 * [Azure 보안 센터 – 적시에 VM 액세스](https://youtu.be/UOQb2FcdQnU)
 * [Azure Security Center - 적응형 애플리케이션 컨트롤](https://youtu.be/wWWekI1Y9ck)
 
@@ -107,7 +105,7 @@ Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 �
 * [Security Center의 WAF(웹 애플리케이션 방화벽) 권장 플레이 북](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff)
 * [Azure Security Center 플레이북: 보안 경고](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 * [Security Center 설명서 페이지](https://docs.microsoft.com/azure/security-center/)
 * [Security Center REST API 설명서 페이지](https://msdn.microsoft.com/library/mt704034.aspx)
 * [Azure Security Center FAQ(질문과 대답)](https://docs.microsoft.com/azure/security-center/security-center-faq)
@@ -115,7 +113,7 @@ Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 �
 * [ID 보안 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
 * [네트워크 보안 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
 * [PaaS 권장 사항](https://docs.microsoft.com/azure/security/security-paas-deployments)
-* [준수](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
+* [규정 준수](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
 * [이제 로그 분석 고객은 Azure Security Center를 사용하여 하이브리드 클라우드 워크로드를 보호할 수 있습니다.](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>커뮤니티 리소스

@@ -15,12 +15,12 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 555fb39836054be05102f4c28167d72016805639
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 241d90981ed9ba54d253e6c22c00f9e5a9197863
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481503"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884888"
 ---
 # <a name="how-provisioning-works"></a>프로비저닝 작동 방법
 
@@ -67,7 +67,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 Azure AD에서 SaaS 응용 프로그램으로 아웃바운드 프로비저닝의 경우 [사용자 또는 그룹 할당에](../manage-apps/assign-user-or-group-access-portal.md) 의존하는 것이 프로비저닝 범위에 있는 사용자를 확인하는 가장 일반적인 방법입니다. 사용자 할당은 단일 사인온을 사용하도록 설정하는 데도 사용되므로 액세스 및 프로비저닝을 모두 관리하는 데 동일한 방법을 사용할 수 있습니다. 할당 기반 범위 지정은 Workday 및 성공 요인과 같은 인바운드 프로비저닝 시나리오에는 적용되지 않습니다.
 
-* **그룹.** Azure AD Premium 라이선스 플랜을 사용하여 그룹을 사용하여 SaaS 응용 프로그램에 대한 액세스를 할당할 수 있습니다. 그런 다음 프로비저닝 범위가 **할당된 사용자 및 그룹만 동기화하도록**설정되면 Azure AD 프로비저닝 서비스는 응용 프로그램에 할당된 그룹의 구성원인지 여부에 따라 사용자를 프로비전하거나 프로비저닝 해제합니다. 응용 프로그램이 그룹 개체를 지원하지 않는 한 그룹 개체 자체는 프로비전되지 않습니다.
+* **그룹.** Azure AD Premium 라이선스 플랜을 사용하여 그룹을 사용하여 SaaS 응용 프로그램에 대한 액세스를 할당할 수 있습니다. 그런 다음 프로비저닝 범위가 **할당된 사용자 및 그룹만 동기화하도록**설정되면 Azure AD 프로비저닝 서비스는 응용 프로그램에 할당된 그룹의 구성원인지 여부에 따라 사용자를 프로비전하거나 프로비저닝 해제합니다. 응용 프로그램이 그룹 개체를 지원하지 않는 한 그룹 개체 자체는 프로비전되지 않습니다. 응용 프로그램에 할당된 그룹에 "SecurityEnabled" 속성이 "False"로 설정되어 있는지 확인합니다.
 
 * **동적 그룹입니다.** Azure AD 사용자 프로비저닝 서비스는 [동적 그룹에서](../users-groups-roles/groups-create-rule.md)사용자를 읽고 프로비전할 수 있습니다. 다음 주의 사항 및 권장 사항을 염두에 두십시오.
 

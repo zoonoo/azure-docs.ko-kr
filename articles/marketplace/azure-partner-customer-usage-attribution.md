@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 9/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 348633ffc91bc25a226b05743a18d2c87533a01d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2895944dea6417949488076186135680523e19db
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280646"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874962"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
@@ -232,7 +232,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>보고서
 
-파트너 센터 분석 대시보드에서 고객 사용 기여에 대한 보고서를 찾을 수 있습니다. ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). 보고서를 보려면 파트너 센터 자격 증명을 사용하여 로그인해야 합니다. 보고서 또는 로그인에 문제가 있는 경우 지원 받기 섹션의 지침에 따라 지원 요청을 만듭니다.
+파트너 센터 대시보드()에서[https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)고객 사용 기여에 대한 보고서를 찾을 수 있습니다. 보고서를 보려면 파트너 센터 자격 증명을 사용하여 로그인해야 합니다. 보고서 또는 로그인에 문제가 있는 경우 지원 받기 섹션의 지침에 따라 지원 요청을 만듭니다.
 
 파트너 연결 유형의 드롭다운 목록에서 추적된 템플릿을 선택하여 보고서를 확인합니다.
 
@@ -267,7 +267,7 @@ foreach ($deployment in $deployments){
 1. 다음과 같이 문제에 대한 **범주**를 선택합니다.
 
    - 사용량 관련 문제의 경우 **기타**를 선택합니다.
-   - Azure Marketplace CPP에 대한 액세스 문제의 경우 **액세스 문제**를 선택합니다.
+   - Azure 마켓플레이스의 액세스 문제의 경우 **액세스 문제를**선택합니다.
 
      ![문제 범주 선택](media/marketplace-publishers-guide/lu-article-incident.png)
 
@@ -288,7 +288,7 @@ foreach ($deployment in $deployments){
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>기술 상담 요청을 제출하는 방법
 
-1. 를 [https://aka.ms/TechnicalJourney](https://aka.ms/TechnicalJourney)방문하십시오.
+1. [https://aka.ms/TechnicalJourney](https://aka.ms/TechnicalJourney)로 이동합니다.
 1. 클라우드 인프라 및 관리를 선택하면 기술 여정을 볼 수 있는 새 페이지가 열립니다.
 1. 배포 서비스에서 요청 제출 단추를 클릭합니다.
 1. MSA(MPN 계정) 또는 AAD(파트너 대시보드 계정)를 사용하여 로그인합니다. 로그인 자격 증명에 따라 온라인 요청 양식이 열립니다.
@@ -315,7 +315,7 @@ Microsoft는 파트너에게 솔루션의 고객 배포에 대한 뷰와 영향�
 
 **GitHub 등의 타사 리포지토리에서 배포된 템플릿을 추적할 수 있나요?**
 
-예, 템플릿을 배포할 때 GUID가 있는 한 사용량이 추적됩니다. 파트너는 Azure 마켓플레이스 외부의 배포에 사용되는 GUID를 등록하기 위해 CPP에 프로필이 있어야 합니다.
+예, 템플릿을 배포할 때 GUID가 있는 한 사용량이 추적됩니다. 파트너는 Azure 마켓플레이스 외부의 배포에 사용되는 GUID를 등록하려면 파트너 센터의 상용 마켓플레이스 등록에 프로필이 있어야 합니다.
 
 **고객도 보고를 받나요?**
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1f4b3387375b52b28600590a099884277f3de63e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f909ca12ce080fc5d1241bcc649c041361e405a7
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78943024"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421171"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>자습서: IoT Edge 모듈로 Azure 함수 배포
 
@@ -31,9 +31,6 @@ ms.locfileid: "78943024"
 
 ![다이어그램 - 자습서 아키텍처: 함수 모듈 준비 및 배포](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
-
->[!NOTE]
->Azure IoT Edge의 Azure 함수 모듈은 공개 [미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 상태입니다.
 
 이 자습서에서 만드는 Azure 함수는 디바이스에서 생성한 온도 데이터를 필터링합니다. 함수는 온도가 지정된 임계값을 초과하는 경우에만 Azure IoT Hub에 메시지 업스트림을 전송합니다.
 

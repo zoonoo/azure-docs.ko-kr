@@ -5,32 +5,28 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/18/2019
-ms.openlocfilehash: 9498f2cf56f0bfe20d0806e5dc9872403dabb180
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/07/2020
+ms.openlocfilehash: 67d5481b82b7469c5ae55704768ce494dbc9dca5
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979101"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879142"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-이 문서에서는 Azure Resource Manager 템플릿으로 Azure HDInsight 클러스터를 만드는 몇 가지 방법에 대해 알아봅니다. 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 애플리케이션 배포](../azure-resource-manager/templates/deploy-powershell.md)를 참조하세요. 다른 클러스터 만들기 도구 및 기능을 알아보려면 이 페이지 위쪽에 있는 탭 선택기를 클릭하거나 [클러스터 생성 방법](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods)을 참조하세요.
+이 문서에서는 [Azure 리소스 관리자 템플릿을](../azure-resource-manager/templates/deploy-powershell.md)사용하여 Azure HDInsight 클러스터를 만드는 몇 가지 방법을 알아봅니다. 다른 클러스터 만들기 도구 및 기능에 대해 알아보려면 이 페이지 상단의 탭 선택기를 클릭합니다. 또한 [클러스터 생성 방법을](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods)참조하십시오.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
-
-* [Azure 구독](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Azure PowerShell 및/또는 Azure CLI
-
-### <a name="resource-manager-templates"></a>리소스 관리자 템플릿
+## <a name="resource-manager-templates"></a>리소스 관리자 템플릿
 
 리소스 관리자 템플릿을 사용하면 조정된 단일 작업에서 응용 프로그램에 대해 다음과 같은 리소스를 쉽게 만들 수 있습니다.
+
 * HDInsight 클러스터 및 해당 종속 리소스(예: 기본 스토리지 계정)
 * 기타 리소스(예: [Apache Sqoop](https://sqoop.apache.org/)을 사용하는 Azure SQL Database).
 

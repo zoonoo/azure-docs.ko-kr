@@ -1,26 +1,22 @@
 ---
-title: 끝점 구성 | 마이크로 소프트 문서
+title: 엔드포인트 구성
 description: 개발 중이거나 Azure AD에 등록 중인 사용자 지정 애플리케이션의 인증 엔드포인트를 찾는 방법입니다.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: 5dbe9d6eed6c546af0ed2cb35a0a62e9943503a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 28d85736019a6fea6d977d813fdc1c9be6429748
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76702796"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883273"
 ---
 # <a name="how-to-configure-endpoints"></a>엔드포인트 구성 방법
 

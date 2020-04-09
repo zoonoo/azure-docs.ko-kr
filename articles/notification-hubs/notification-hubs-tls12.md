@@ -5,27 +5,25 @@ services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: ''
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/30/2020
+ms.date: 04/07/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2020
-ms.openlocfilehash: 87309e20efd9d6f8bd1a659451e5a603e6b95bc8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4da96df50e961f4291029a37e883fdcf88c6c87f
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76908528"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885755"
 ---
 # <a name="transport-layer-security-tls"></a>TLS(전송 계층 보안)
 
-더 높은 수준의 보안을 보장하기 위해 알림 허브는 2020년 4월 30일에 TLS 버전 1.0 및 1.1에 대한 지원을 비활성화합니다. 이러한 이전 프로토콜은 약한 암호화를 제공하며 BEAST 및 POODLE 공격에 취약합니다. Android 버전 5 이상 또는 iOS 버전 5 이상인 장치에 배포된 응용 프로그램은 이러한 운영 체제가 TLS 1.2를 지원하고 클라이언트와 서버가 상호 지원되는 가장 높은 버전의 버전을 협상하므로 이러한 변경의 영향을 받지 않습니다. 연결 시 프로토콜을 사용할 수 있습니다.
+더 높은 수준의 보안을 보장하기 위해 알림 허브는 2020년 5월 31일(2020년 4월 30일부터 연장)에 TLS 버전 1.0 및 1.1에 대한 지원을 비활성화합니다. 이러한 이전 프로토콜은 약한 암호화를 제공하며 BEAST 및 POODLE 공격에 취약합니다. Android 버전 5 이상 또는 iOS 버전 5 이상인 장치에 배포된 응용 프로그램은 이러한 운영 체제가 TLS 1.2를 지원하고 클라이언트와 서버가 연결 시 가장 높은 상호 지원되는 프로토콜 버전을 협상하므로 이러한 변경의 영향을 받지 않습니다.
 
 Azure 알림 허브를 사용하는 모든 응용 프로그램을 검토하여 TLS 1.2를 지원하는 가장 적용 가능한 라이브러리 및 TLS 스택을 사용하는지 확인하는 것이 좋습니다.
 

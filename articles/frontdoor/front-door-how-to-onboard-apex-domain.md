@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: bb1042e15d4366923174996388eeb2fb99aef429
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b74338f22a82d76ef13126ee0862b841bd89a99
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74184609"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878887"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>정문에 루트 또는 정점 도메인 온보로
 Azure Front Door는 CNAME 레코드를 사용하여 사용자 지정 도메인온보딩에 대한 도메인 소유권의 유효성을 검사합니다. 또한 Front Door는 정문 프로필과 연결된 프런트 엔드 IP 주소를 노출하지 않으므로 정점 도메인을 Azure 정문에 온보온하는 경우 IP 주소에 매핑할 수 없습니다.
@@ -26,7 +26,7 @@ DNS 프로토콜은 영역 루트에서 CNAME 레코드가 할당되는 것을 �
 > [!NOTE]
 > CNAME 병합 또는 DNS 추적을 지원하는 다른 DNS 공급자도 있지만 Azure Front Door는 도메인을 호스팅하기 위해 고객에게 Azure DNS를 사용하는 것이 좋습니다.
 
-Azure 포털을 사용하여 정문에서 정점 도메인을 온보데 사용하고 SSL 종료 인증서와 연결하여 HTTPS를 활성화할 수 있습니다. 에이펙스 도메인은 루트 또는 벌거 벗은 도메인이라고도 합니다.
+Azure 포털을 사용하여 정문에서 정점 도메인을 온보데 사용하고 TLS 종료 인증서와 연결하여 HTTPS를 활성화할 수 있습니다. 에이펙스 도메인은 루트 또는 벌거 벗은 도메인이라고도 합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -65,7 +65,7 @@ Azure 포털을 사용하여 정문에서 정점 도메인을 온보데 사용�
 2. 인증서 **관리 유형을** 선택하여 _'내 인증서 사용'을 선택합니다._
 
 > [!WARNING]
-> 정문 관리 인증서 관리 유형은 현재 정점 또는 루트 도메인에 대해 지원되지 않습니다. 정문 또는 정문 에 대한 루트 도메인에서 HTTPS를 사용하도록 설정하는 데 사용할 수 있는 유일한 옵션은 Azure Key Vault에서 호스팅되는 사용자 지정 SSL 인증서를 사용하는 것입니다.
+> 정문 관리 인증서 관리 유형은 현재 정점 또는 루트 도메인에 대해 지원되지 않습니다. 정문 또는 정문 에 대한 루트 도메인에서 HTTPS를 사용하도록 설정하는 데 사용할 수 있는 유일한 옵션은 Azure Key Vault에서 호스팅되는 사용자 지정 TLS/SSL 인증서를 사용하는 것입니다.
 
 3. 다음 단계로 진행하기 전에 UI에 표시된 대로 정문이 키 볼트에 액세스할 수 있는 올바른 권한을 설정해야 합니다.
 4. 현재 구독에서 **Key Vault 계정을** 선택한 다음 적절한 **비밀** 및 **비밀 버전을** 선택하여 올바른 인증서에 매핑합니다.

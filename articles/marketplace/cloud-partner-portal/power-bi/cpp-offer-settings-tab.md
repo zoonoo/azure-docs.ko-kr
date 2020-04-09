@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 637217d718e6e91a3fa29bd38d8215d0a1324825
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 1bf8abb2d8ac6c1c9d2e03ef5e4f1edce530cbdb
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745441"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985765"
 ---
 # <a name="power-bi-apps-offer-settings-tab"></a>Power BI 앱 제안 설정 탭
 
 >[!Important]
->2020년 3월 30일부터 Power BI 앱 제공의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Power BI [앱 만들기 개요의](https://aka.ms/AzureCreatePBIServiceApp) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
+>2020년 4월 13일부터 Power BI 앱 제공의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Power BI [앱 만들기 개요의](https://aka.ms/AzureCreatePBIServiceApp) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
 
 서비스 앱의 **새 쿠폰** 페이지를 열면 먼저 쿠폰 **설정** 탭이 표시됩니다. 이 탭에서 기본 식별자와 오퍼의 이름을 입력합니다. 별표(*)는 필수 필드를 나타냅니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "80745441"
 |---------------|----------------------------------------------------------------------------|
 | **제품 ID\***  | 게시자 프로필 내에 있는 제안에 대한 고유 식별자입니다. 이 식별자는 제품 URL, Azure Resource Manager 템플릿 및 청구 보고서에 표시됩니다. 최대 길이는 50자입니다. 소문자 영숫자 문자와 대시(-)만 포함할 수 있습니다. 그것은 대시로 끝날 수 없습니다. 이 식별자는 오퍼가 라이브로 진행된 후에는 변경할 수 없습니다. Contoso가 오퍼 ID로 `sample-SvcApp`오퍼를 게시하는 경우 `https://appsource.microsoft.com/marketplace/apps/contoso.sample-SvcApp`쿠폰에 AppSource URL이 할당됩니다.      |
 | **게시자\*** | [AppSource](https://appsource.microsoft.com)에서 사용되는 조직의 고유 식별자입니다. 모든 제안은 게시자 ID와 연결되어야 합니다. 제안이 저장되면 이 값을 변경할 수 없습니다.                         |
-| **이름\***      | 오퍼의 표시 이름입니다. 이 이름은 AppSource 및 클라우드 파트너 포털에 나타납니다. 최대 길이는 50자입니다. 제품에 대해 알아볼 수 있는 브랜드 이름을 사용합니다. 앱이 해당 이름으로 판매되지 않는 한 조직의 이름을 여기에 포함하지 마세요. 다른 웹 사이트 및 게시에서 이 제안을 제공하는 경우 모든 게시에서 동일한 이름을 사용합니다.    <br/>Power BI Apps의 미리 보기 기간 동안 오퍼를 릴리스하는 경우 다음과 같이 응용 프로그램 이름 끝에 문자열을 `(Preview)` `Sample Scv App (Preview)`추가합니다. |
+| **속성\***      | 오퍼의 표시 이름입니다. 이 이름은 AppSource 및 클라우드 파트너 포털에 나타납니다. 최대 길이는 50자입니다. 제품에 대해 알아볼 수 있는 브랜드 이름을 사용합니다. 앱이 해당 이름으로 판매되지 않는 한 조직의 이름을 여기에 포함하지 마세요. 다른 웹 사이트 및 게시에서 이 제안을 제공하는 경우 모든 게시에서 동일한 이름을 사용합니다.    <br/>Power BI Apps의 미리 보기 기간 동안 오퍼를 릴리스하는 경우 다음과 같이 응용 프로그램 이름 끝에 문자열을 `(Preview)` `Sample Scv App (Preview)`추가합니다. |
 |     |     |
 
 

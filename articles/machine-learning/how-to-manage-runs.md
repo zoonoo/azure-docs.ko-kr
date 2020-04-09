@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 01/09/2020
-ms.openlocfilehash: 8c261a010a1e8f4d1be9b3883510eb38c37a15ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1b70aaef49cc2b993c873509dc935d71069efa2
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80296899"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985918"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>파이썬에서 교육 실행을 시작, 모니터링 및 취소
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -264,16 +264,41 @@ with exp.start_logging() as parent_run:
 
 ### <a name="submit-child-runs"></a>자식 실행 제출
 
-상위 실행에서 자식 실행을 제출할 수도 있습니다. 이렇게 하면 공통 상위 실행 ID로 연결된 서로 다른 계산 대상에서 실행되는 상위 및 자식 실행의 계층을 만들 수 있습니다.
+상위 실행에서 자식 실행을 제출할 수도 있습니다. 이렇게 하면 부모 및 자식 실행의 계층을 만들 수 있습니다. 
 
-['submit_child()'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-) 메서드를 사용하여 상위 실행 내에서 자식 실행을 제출합니다. 부모 실행 스크립트에서 이 작업을 수행하려면 실행 컨텍스트를 얻고 ``submit_child`` 컨텍스트 인스턴스의 메서드를 사용하여 자식 실행을 제출합니다.
+자녀가 부모 실행과 다른 실행 구성을 사용하도록 할 수 있습니다. 예를 들어 자녀에게 GPU 기반 구성을 사용하는 동안 부모에 대해 덜 강력한 CPU 기반 구성을 사용할 수 있습니다. 또 다른 일반적인 욕망은 각 자식에게 서로 다른 인수와 데이터를 전달하는 것입니다. 자식 실행을 사용자 지정하려면 `RunConfiguration` 개체를 자식 `ScriptRunConfig` 생성자에게 전달합니다. 이 코드 예제는 상위 `ScriptRunConfig` 개체의 스크립트의 일부입니다.
+
+- 명명된 `RunConfiguration` 계산 리소스 검색 을 만듭니다.`"gpu-compute"`
+- 자식 `ScriptRunConfig` 개체에 전달될 다른 인수 값을 반복해서
+- 사용자 지정 계산 리소스 및 인수를 사용하여 새 자식 실행을 만들고 제출합니다.
+- 모든 자식이 실행될 때까지 블록
 
 ```python
-## In parent run script
-parent_run = Run.get_context()
-child_run_config = ScriptRunConfig(source_directory='.', script='child_script.py')
-parent_run.submit_child(child_run_config)
+# parent.py
+# This script controls the launching of child scripts
+from azureml.core import Run, ScriptRunConfig, RunConfiguration
+
+run_config_for_aml_compute = RunConfiguration()
+run_config_for_aml_compute.target = "gpu-compute"
+run_config_for_aml_compute.environment.docker.enabled = True 
+
+run = Run.get_context()
+
+child_args = ['Apple', 'Banana', 'Orange']
+for arg in child_args: 
+    run.log('Status', f'Launching {arg}')
+    child_config = ScriptRunConfig(source_directory=".", script='child.py', arguments=['--fruit', arg], run_config = run_config_for_aml_compute)
+    # Starts the run asynchronously
+    run.submit_child(child_config)
+
+# Experiment will "complete" successfully at this point. 
+# Instead of returning immediately, block until child runs complete
+
+for child in run.get_children():
+    child.wait_for_completion()
 ```
+
+동일한 구성, 인수 및 입력을 사용하여 많은 자식 실행을 [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-) 효율적으로 만들려면 메서드를 사용합니다. 각 생성은 네트워크 호출을 발생하므로 실행 일괄 처리를 하나씩 만드는 것보다 더 효율적입니다.
 
 자식 실행 내에서 상위 실행 ID를 볼 수 있습니다.
 
