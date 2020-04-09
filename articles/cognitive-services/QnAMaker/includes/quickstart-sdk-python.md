@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a77041c0e53c2f0f8b6d0891a0f755e8ca474923
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 03aa3919e1da982bb8a8c235bb598f5b94df1ebf
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75946271"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80986796"
 ---
 
 python용 QnA Maker 클라이언트 라이브러리를 사용하여 다음을 수행할 수 있습니다.
@@ -68,7 +68,7 @@ pip install azure-cognitiveservices-knowledge-qnamaker
 
 |환경 변수|변수|예제|
 |--|--|--|
-|`QNAMAKER_SUBSCRIPTION_KEY`|`subscription_key`|키는 32자 문자열이며 빠른 시작 페이지의 Azure Portal, QnA Maker 리소스에서 사용할 수 있습니다. 이는 예측 엔드포인트 키와 동일하지 않습니다.|
+|`QNAMAKER_KEY`|`subscription_key`|키는 32자 문자열이며 빠른 시작 페이지의 Azure Portal, QnA Maker 리소스에서 사용할 수 있습니다. 이는 예측 엔드포인트 키와 동일하지 않습니다.|
 |`QNAMAKER_HOST`|`host`| `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` 형식의 작성 엔드포인트에는 **리소스 이름**이 포함됩니다. 이는 예측 엔드포인트를 쿼리하는 데 사용되는 URL과 동일하지 않습니다.|
 
 [!code-python[Azure resource variables](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=resourcekeys)]

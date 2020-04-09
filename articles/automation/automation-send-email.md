@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/15/2019
 ms.topic: tutorial
-ms.openlocfilehash: 6acb68b7bbaa54db2e4143a42e43aede2caed35f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 332d7e4cae3b65d794d48d208b54db3809b78a8f
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75420700"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632377"
 ---
 # <a name="tutorial-send-an-email-from-an-azure-automation-runbook"></a>자습서: Azure Automation Runbook에서 이메일 보내기
 
@@ -149,7 +149,7 @@ KeyVault를 만들고 SendGrid API 키를 저장한 후에는 API 키를 검색�
 
 7. **게시**를 선택하여 Runbook을 저장하고 게시합니다.
 
-Runbook이 성공적으로 실행되는지 확인하려면 [Runbook 테스트](manage-runbooks.md#test-a-runbook) 또는 [Runbook 시작](start-runbooks.md) 아래의 단계를 수행할 수 있습니다.
+Runbook이 성공적으로 실행되는지 확인하려면 [Runbook 테스트](manage-runbooks.md#testing-a-runbook) 또는 [Runbook 시작](start-runbooks.md) 아래의 단계를 수행할 수 있습니다.
 처음에 테스트 이메일이 보이지 않으면 **정크** 및 **스팸** 폴더를 확인하세요.
 
 ## <a name="clean-up"></a>정리

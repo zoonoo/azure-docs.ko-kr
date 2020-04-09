@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: dapine
-ms.openlocfilehash: 81c77b2f6ae0c4f8497716c168a937657ceb57dd
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: d14760147e202491546982254aa8288bc0184eef
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78383870"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80659080"
 ---
 이 빠른 시작에서는 Linux용 Speech Devices SDK를 사용하여 음성 지원 제품을 빌드하거나 [대화 전사](../conversation-transcription-service.md) 디바이스로 사용하는 방법을 알아봅니다. 현재는 [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)만 지원됩니다.
 
@@ -99,7 +99,7 @@ RHEL/CentOS 8에서:
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.10.0</version>
+             <version>1.11.0</version>
         </dependency>
     </dependencies>
    ```

@@ -72,7 +72,7 @@ conceptualContent:
       text: 음성을 여러 대상 언어로 번역
       url: quickstarts/translate-speech-to-text-multiple-languages.md
     - itemType: quickstart
-      text: 음성을 음성으로 번역
+      text: 음성 통역
       url: quickstarts/translate-speech-to-speech.md
     footerLink:
       text: 자세히 보기

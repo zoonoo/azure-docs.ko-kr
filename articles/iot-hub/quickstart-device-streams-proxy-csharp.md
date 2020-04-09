@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: c8ef6a87e839e6d8dfb296e7b24f3d0d95843d1c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 97551ac63066f7064c16a001d9ce1f6bc31465ec
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78675471"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586575"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>빠른 시작: C# 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용(미리 보기)
 
@@ -30,7 +30,7 @@ Microsoft Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기�
 
 다음 그림에서는 이 샘플의 디바이스-로컬 프록시 애플리케이션 및 서비스-로컬 프록시 애플리케이션에서 SSH 클라이언트와 SSH 디먼 간의 엔드투엔드 연결을 사용하도록 설정하는 방법을 보여 줍니다. 여기서는 디먼이 디바이스-로컬 프록시 애플리케이션과 동일한 디바이스에서 실행되고 있다고 가정합니다.
 
-![로컬 프록시 애플리케이션 설정](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg)
+![로컬 프록시 애플리케이션 설정](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.png)
 
 1. 서비스-로컬 프록시 애플리케이션에서 IoT Hub에 연결하고 대상 디바이스에 대한 디바이스 스트림을 시작합니다.
 
@@ -45,7 +45,7 @@ Microsoft Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기�
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
