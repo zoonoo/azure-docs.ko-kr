@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 03/20/2020
+ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: 24030a568dd4df7f3e0888e2bda8f1335e52ba38
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 8a1dd07fd567f41c2b406aabccd0421b5a6983af
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80241872"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671190"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -23,7 +23,7 @@ ms.locfileid: "80241872"
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](~/articles/cognitive-services/speech-service/get-started.md)
-> * [개발 환경 설정 및 빈 프로젝트 만들기](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=android)
+> * [개발 환경 설정 및 빈 프로젝트 만들기](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
 > * [Direct Line Speech 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)에 연결된 봇 만들기
 > * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 

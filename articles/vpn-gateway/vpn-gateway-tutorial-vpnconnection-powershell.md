@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/11/2020
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: c42d164647d608fc45e1135cd4111ff3900a733c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 18c6188e1b13c35a4c28a5f9e7fc863f00798eed
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79137163"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616393"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>자습서: PowerShell을 사용하여 S2S VPN 연결 만들기 및 관리
 
@@ -86,7 +86,7 @@ S2S VPN 연결을 만드는 워크플로는 간단합니다.
 
 ```azurepowershell-interactive
 New-AzLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
-  -Location 'East US' -GatewayIpAddress $LNGIP1 -AddressPrefix $LNGprefix1,$LNGprefix2
+  -Location $Location1 -GatewayIpAddress $LNGIP1 -AddressPrefix $LNGprefix1,$LNGprefix2
 ```
 
 ## <a name="create-a-s2s-vpn-connection"></a>S2S VPN 연결 만들기

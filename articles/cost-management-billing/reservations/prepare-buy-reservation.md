@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/07/2020
 ms.author: banders
-ms.openlocfilehash: 3a45a04786bb9976a42269191c8b24282905f96f
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 1f44b0a0e2278bfcfbbf7cde1a3605fe334eaa3f
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436980"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886520"
 ---
 # <a name="buy-a-reservation"></a>예약 구입
 
@@ -43,8 +43,6 @@ EA(기업계약) 고객은 EA Portal에서 **예약 인스턴스 추가** 옵션
 1. 리소스 그룹으로 범위가 지정된 예약
 2. 단일 범위 예약
 3. 공유 범위 예약
-
-단일 리소스 그룹은 예약의 범위를 지정하는 방법에 따라 여러 예약의 예약 할인을 받을 수 있습니다.
 
 예약을 구매한 후 언제든지 범위를 업데이트할 수 있습니다. 업데이트하려면 예약으로 이동하고, **구성**을 클릭하여 예약 범위를 다시 지정합니다. 예약 범위 재지정은 상거래 트랜잭션이 아닙니다. 따라서 예약 기간이 변경되지 않았습니다. 범위 업데이트에 대한 자세한 내용은 [예약을 구매한 후 범위 업데이트](manage-reserved-vm-instance.md#change-the-reservation-scope)를 참조하세요.
 

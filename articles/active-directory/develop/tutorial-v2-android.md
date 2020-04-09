@@ -2,25 +2,22 @@
 title: 사용자 로그인/로그아웃 및 Microsoft Graph(Android) 호출 - Microsoft ID 플랫폼 | Azure
 description: 액세스 토큰을 가져오고 Microsoft ID 플랫폼(Android)의 액세스 토큰이 필요한 Microsoft Graph 또는 API를 호출합니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/26/2019
 ms.author: hahamil
-ms.reviwer: brandwe
+ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a5333d5a8f0972dac80efe6c641c515102a2d714
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5c8bd5accefceee042601c3cf7d71f5e9131e04e
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77917937"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80880825"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-application"></a>자습서: Android 애플리케이션에서 사용자 로그인 및 Microsoft Graph 호출 
 

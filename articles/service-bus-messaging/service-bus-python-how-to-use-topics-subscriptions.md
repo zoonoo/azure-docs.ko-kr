@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 03e22c4c179850e5140015c0abc2d89f16d4b624
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4745d675086f1b07bf7fccf17c14c76e4b18fba2
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76774555"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478062"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>빠른 시작: Python에서 Service Bus 토픽 및 구독 사용
 
@@ -35,7 +35,7 @@ ms.locfileid: "76774555"
 ## <a name="prerequisites"></a>사전 요구 사항
 - Azure 구독 [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 - [빠른 시작: Azure Portal을 사용하여 Service Bus 토픽 및 구독 만들기](service-bus-quickstart-topics-subscriptions-portal.md)의 단계에 따라 만든 Service Bus 네임스페이스입니다. **공유 액세스 정책** 화면에서 이 빠른 시작의 뒷부분에서 사용할 수 있도록 네임스페이스 이름, 공유 액세스 키 이름 및 기본 키 값을 복사합니다. 
-- [Azure Python SDK][Azure Python package] 패키지가 설치되어 있는 Python 3.4x 이상. 자세한 내용은 [Python 설치 가이드](/azure/python/python-sdk-azure-install)를 참조하세요.
+- [Azure Python SDK][Azure Python package] 패키지가 설치되어 있는 Python 3.4x 이상. 자세한 내용은 [Python 설치 가이드](/azure/developer/python/azure-sdk-install)를 참조하세요.
 
 ## <a name="create-a-servicebusservice-object"></a>ServiceBusService 개체 만들기
 

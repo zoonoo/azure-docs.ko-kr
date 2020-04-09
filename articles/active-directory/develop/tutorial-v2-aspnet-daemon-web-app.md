@@ -2,26 +2,21 @@
 title: Microsoft ID 플랫폼 엔드포인트를 사용하는 다중 테넌트 디먼 빌드
 description: 이 자습서에서는 Windows 데스크톱(WPF) 애플리케이션에서 Azure Active Directory를 통해 보호되는 ASP.NET 웹 API를 호출하는 방법을 알아봅니다. WPF 클라이언트는 사용자를 인증하고, 액세스 토큰을 요청하고, 웹 API를 호출합니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 635b12cc2ffc4d318eaaa74fffc17e4ce4d58c0b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a4d7030f7a58a6252c6e596fc2c248163694a1e8
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79129958"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80880876"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>자습서: Microsoft ID 플랫폼 엔드포인트를 사용하는 다중 테넌트 디먼 빌드
 

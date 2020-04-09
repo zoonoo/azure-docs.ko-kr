@@ -2,19 +2,19 @@
 title: '빠른 시작: Blob 스토리지에 저장된 음성 인식 - Speech Service'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/13/2020
-ms.author: dapine
-ms.openlocfilehash: 95ff115cfc2cc70deabf66d984bb02991239c2a7
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: cb5b14bd5585c85947ef0dafeae1fb41cb8a4a5c
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75931972"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887440"
 ---
 다음 값을 바꿔야 합니다.
 

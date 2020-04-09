@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 1287eb5de1391f40c4409d5d10522d8979ae4207
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 72e9334b4df58b1b90288cb7363a7d94bb531661
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78384026"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80658289"
 ---
 C++ 데스크톱 개발에 대한 Visual Studio 프로젝트를 만들려면 Visual Studio 개발 옵션을 설정하고, 프로젝트를 만들고, 대상 아키텍처를 선택하고, Speech SDK를 설치해야 합니다.
 
@@ -77,4 +77,4 @@ C++ 데스크톱 개발에 대한 Visual Studio 프로젝트를 만들려면 Vis
 
 1. **변경 내용 미리 보기** 대화 상자에서 **확인**을 선택합니다.
 
-1. **라이선스 승인** 대화 상자에서 라이선스를 확인한 다음, **동의함**을 선택합니다. 패키지 설치가 시작되고 설치가 완료되면 **출력** 창에 `Successfully installed 'Microsoft.CognitiveServices.Speech 1.10.0' to helloworld`와 유사한 메시지가 표시됩니다.
+1. **라이선스 승인** 대화 상자에서 라이선스를 확인한 다음, **동의함**을 선택합니다. 패키지 설치가 시작되고 설치가 완료되면 **출력** 창에 `Successfully installed 'Microsoft.CognitiveServices.Speech 1.11.0' to helloworld`와 유사한 메시지가 표시됩니다.

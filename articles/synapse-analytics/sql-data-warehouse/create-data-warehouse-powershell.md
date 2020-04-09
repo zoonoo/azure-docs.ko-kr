@@ -11,12 +11,12 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 45982c0761fecdb456dba5dc4a5d604972b9c3e5
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 57564e9dffd6022e1e4fe464b4b26a5bb8eb318b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349306"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631336"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Synapse SQL 풀 만들기 및 쿼리
 
@@ -33,24 +33,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
 ```powershell
 Connect-AzAccount
 ```
 
-사용 중인 구독을 보려면 [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription)을 실행합니다.
+사용 중인 구독을 보려면 [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 실행합니다.
 
 ```powershell
 Get-AzSubscription
 ```
 
-기본 구독과는 다른 구독을 사용해야 할 경우 [Set-AzContext](/powershell/module/az.accounts/set-azcontext)를 실행합니다.
+기본 구독과는 다른 구독을 사용해야 할 경우 [Set-AzContext](/powershell/module/az.accounts/set-azcontext?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 실행합니다.
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"
 ```
-
 
 ## <a name="create-variables"></a>변수 만들기
 
@@ -75,7 +74,7 @@ $databasename = "mySampleDataWarehouse"
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 [Azure 리소스 그룹](../../azure-resource-manager/management/overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다. 다음 예제에서는 `westeurope` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 명령을 사용하여 [Azure 리소스 그룹](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다. 다음 예제에서는 `westeurope` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
 ```powershell
 New-AzResourceGroup -Name $resourcegroupname -Location $location
@@ -83,7 +82,7 @@ New-AzResourceGroup -Name $resourcegroupname -Location $location
 
 ## <a name="create-a-logical-server"></a>논리 서버 만들기
 
-[New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) 명령을 사용하여 [Azure SQL 논리 서버](../../sql-database/sql-database-logical-servers.md)를 만듭니다. 논리 서버는 그룹으로 관리되는 데이터베이스 그룹을 포함합니다. 다음 예제에서는 관리자 사용자 이름이 `ServerAdmin`이고 암호가 `ChangeYourAdminPassword1`인 리소스 그룹에 임의로 이름이 지정된 서버를 생성합니다. 이러한 미리 정의된 값은 필요에 따라 바꿉니다.
+[New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 명령을 사용하여 [Azure SQL 논리 서버](../../sql-database/sql-database-logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 만듭니다. 논리 서버는 그룹으로 관리되는 데이터베이스 그룹을 포함합니다. 다음 예제에서는 관리자 사용자 이름이 `ServerAdmin`이고 암호가 `ChangeYourAdminPassword1`인 리소스 그룹에 임의로 이름이 지정된 서버를 생성합니다. 이러한 미리 정의된 값은 필요에 따라 바꿉니다.
 
 ```powershell
 New-AzSqlServer -ResourceGroupName $resourcegroupname `
@@ -94,7 +93,7 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-firewall-rule"></a>서버 방화벽 규칙 구성
 
-[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) 명령을 사용하여 [Azure SQL 서버 수준 방화벽 규칙](../../sql-database/sql-database-firewall-configure.md)을 만듭니다. 서버 수준 방화벽 규칙을 통해 외부 애플리케이션(예제: SQL Server Management Studio 또는 SQLCMD 유틸리티)이 SQL 풀 서비스 방화벽을 통해 SQL 풀에 연결되도록 할 수 있습니다. 
+[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 명령을 사용하여 [Azure SQL 서버 수준 방화벽 규칙](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 만듭니다. 서버 수준 방화벽 규칙을 통해 외부 애플리케이션(예제: SQL Server Management Studio 또는 SQLCMD 유틸리티)이 SQL 풀 서비스 방화벽을 통해 SQL 풀에 연결되도록 할 수 있습니다.
 
 다음 예제에서 방화벽은 다른 Azure 리소스에 대해서만 열립니다. 외부 연결을 사용하려면 IP 주소를 사용자 환경에 적절한 주소로 변경합니다. 모든 IP 주소를 열려면 시작 IP 주소로 0.0.0.0을, 끝나는 IP 주소로 255.255.255.255를 사용합니다.
 
@@ -108,9 +107,9 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 > SQL 엔드포인트는 1433 포트를 통해 통신합니다. 회사 네트워크 내에서 연결을 시도하는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 1433 포트를 열지 않으면 Azure SQL 서버에 연결할 수 없습니다.
 >
 
-
 ## <a name="create-a-sql-pool"></a>SQL 풀 만들기
-다음 예제에서는 이전에 정의된 변수를 사용하여 SQL 풀을 만듭니다.  여기서는 서비스 목표를 SQL 풀을 저렴하게 시작하기 좋은 DW100c로 지정합니다. 
+
+다음 예제에서는 이전에 정의된 변수를 사용하여 SQL 풀을 만듭니다.  여기서는 서비스 목표를 SQL 풀을 저렴하게 시작하기 좋은 DW100c로 지정합니다.
 
 ```Powershell
 New-AzSqlDatabase `
@@ -133,15 +132,14 @@ New-AzSqlDatabase `
 
 선택적 매개 변수는 다음과 같습니다.
 
-- **CollationName**: 지정되지 않은 경우 기본 데이터 정렬은 SQL_Latin1_General_CP1_CI_AS입니다. 데이터베이스에서 데이터 정렬을 변경할 수 없습니다.
-- **MaxSizeBytes**: 데이터베이스의 기본 최대 크기는 240TB입니다. 최대 크기로 인해 rowstore 데이터가 제한됩니다. 칼럼 데이터에는 무제한 스토리지가 있습니다.
+* **CollationName**: 지정되지 않은 경우 기본 데이터 정렬은 SQL_Latin1_General_CP1_CI_AS입니다. 데이터베이스에서 데이터 정렬을 변경할 수 없습니다.
+* **MaxSizeBytes**: 데이터베이스의 기본 최대 크기는 240TB입니다. 최대 크기로 인해 rowstore 데이터가 제한됩니다. 칼럼 데이터에는 무제한 스토리지가 있습니다.
 
-매개 변수 옵션에 대한 자세한 내용은 [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)를 참조하세요.
-
+매개 변수 옵션에 대한 자세한 내용은 [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 컬렉션의 다른 빠른 시작 자습서는 이 빠른 시작을 기반으로 하여 작성됩니다. 
+이 컬렉션의 다른 빠른 시작 자습서는 이 빠른 시작을 기반으로 하여 작성됩니다.
 
 > [!TIP]
 > 후속 빠른 시작 자습서를 계속 사용하려면 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 단계에 따라 이 빠른 시작에서 만든 모든 리소스를 Azure Portal에서 삭제합니다.

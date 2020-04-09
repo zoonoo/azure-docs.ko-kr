@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 2c9baa4c0e048419ece09b954cee1af21b1f0cc1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5a34ac2d1b7401d31ae518334aedc15c626b66a3
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77158012"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529482"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Java를 사용하여 Azure Event Hubs에서 이벤트 보내기 또는 받기(azure-eventhubs)
 
@@ -110,7 +110,7 @@ ConnectionStringBuilder 클래스를 사용하여 Event Hubs 클라이언트 인
         // handling different flavors of ingestion to Event Hubs here.
         final ScheduledExecutorService executorService = Executors.newScheduledThreadPool(4);
 
-        // Each EventHubClient instance spins up a new TCP/SSL connection, which is expensive.
+        // Each EventHubClient instance spins up a new TCP/TLS connection, which is expensive.
         // It is always a best practice to reuse these instances. The following sample shows this.
         final EventHubClient ehClient = EventHubClient.createSync(connStr.toString(), executorService);
 

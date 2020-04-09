@@ -3,16 +3,16 @@ title: Azure EA Portal 관리
 description: 이 문서에서는 관리자가 Azure EA Portal에서 수행하는 일반적인 작업에 대해 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 79225d4dfe9e53da6936f8647c9f5a1dff0b4909
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 12276270b0cb2c01a9ac549eb4d115fd7c5d8385
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78301475"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586276"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA Portal 관리
 

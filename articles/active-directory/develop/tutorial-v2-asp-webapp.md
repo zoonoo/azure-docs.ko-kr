@@ -3,25 +3,21 @@ title: Microsoft ID 플랫폼 ASP.NET 웹앱에 로그인 추가
 titleSuffix: Microsoft identity platform
 description: 기존 웹 브라우저 기반 애플리케이션 및 OpenID Connect 표준을 사용하여 ASP.NET 솔루션에서 Microsoft 로그인을 구현합니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e33f52d5c1f9c06a5acbae5c66b051ca82ef14c0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 017cc886b3d47a97a29f45979cb49215de31ae0a
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79126632"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80880978"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Microsoft에 로그인을 ASP.NET 웹앱에 추가
 
