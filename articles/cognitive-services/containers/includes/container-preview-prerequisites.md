@@ -1,19 +1,19 @@
 ---
 title: 컨테이너 공개 미리 보기 필수 구성 조건
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 description: 공개 미리 보기 컨테이너의 일반적인 전제 조건
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/5/2019
-ms.author: dapine
-ms.openlocfilehash: e5d40c9ffd32320ba685e2bdbd3095b4eeec3484
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 01df991e469c35f171d89b99ca9054ee620ebcca
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73523371"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875130"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 

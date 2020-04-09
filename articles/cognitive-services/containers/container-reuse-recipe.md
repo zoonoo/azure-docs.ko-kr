@@ -3,19 +3,19 @@ title: Docker 컨테이너에 대한 레시피
 titleSuffix: Azure Cognitive Services
 description: 배포 및 재사용을 위해 구성 설정의 일부 또는 전부를 사용하여 컨테이너를 빌드, 테스트 및 저장하는 방법을 알아봅니다.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: dapine
-ms.openlocfilehash: 97342f1dd4f6ce343626ba6c294f09dabe3db5c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 7380ff58d033a68565de7e419ff318f7bdec121d
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76717212"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875081"
 ---
 # <a name="create-containers-for-reuse"></a>재사용할 컨테이너 만들기
 

@@ -3,19 +3,19 @@ title: 음성 컨테이너 설치 - 음성 서비스
 titleSuffix: Azure Cognitive Services
 description: 음성 컨테이너를 설치하고 실행합니다. 음성 텍스트 변환은 오디오 스트림을 애플리케이션, 도구 또는 디바이스가 사용하거나 표시할 수 있는 텍스트로 실시간으로 기록합니다. 텍스트 음성 변환은 입력 텍스트를 인간과 유사한 합성 음성으로 변환합니다.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.author: dapine
-ms.openlocfilehash: 2beee81bc365d00e59a62cacabacc5f5d6b62a42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 2caae4fecdf13a1833f23cf9423cf3ded67f6f72
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474784"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879026"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>음성 서비스 컨테이너 설치 및 실행(미리 보기)
 
@@ -73,7 +73,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 다음 표는 각 Speech 컨테이너에 대한 최소 및 권장 리소스 할당에 대해 설명합니다.
 
-# <a name="speech-to-text"></a>[음성-텍스트](#tab/stt)
+# <a name="speech-to-text"></a>[음성 텍스트 변환](#tab/stt)
 
 | 컨테이너 | 최소 | 권장 |
 |-----------|---------|-------------|
@@ -110,7 +110,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 음성용 컨테이너 이미지는 다음 컨테이너 레지스트리에서 사용할 수 있습니다.
 
-# <a name="speech-to-text"></a>[음성-텍스트](#tab/stt)
+# <a name="speech-to-text"></a>[음성 텍스트 변환](#tab/stt)
 
 | 컨테이너 | 리포지토리 |
 |-----------|------------|
@@ -140,7 +140,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 ### <a name="docker-pull-for-the-speech-containers"></a>음성 컨테이너에 대한 도커 풀
 
-# <a name="speech-to-text"></a>[음성-텍스트](#tab/stt)
+# <a name="speech-to-text"></a>[음성 텍스트 변환](#tab/stt)
 
 #### <a name="docker-pull-for-the-speech-to-text-container"></a>음성-텍스트 컨테이너에 대한 도커 풀
 
@@ -240,7 +240,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text
 
 [Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. `{Endpoint_URI}` 및 `{API_Key}` 값을 가져오는 방법에 대한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters)을 참조 하세요. `docker run` 명령의 추가 [예제도](speech-container-configuration.md#example-docker-run-commands) 사용할 수 있습니다.
 
-# <a name="speech-to-text"></a>[음성-텍스트](#tab/stt)
+# <a name="speech-to-text"></a>[음성 텍스트 변환](#tab/stt)
 
 *음성-텍스트* 컨테이너를 실행하려면 다음 `docker run` 명령을 실행합니다.
 
@@ -428,7 +428,7 @@ WSS 및 HTTPS 프로토콜 사용에 대한 자세한 내용은 [컨테이너 �
 이 문서에서는 음성 컨테이너 다운로드, 설치 및 실행에 대한 개념 및 워크플로를 알아보았습니다. 요약하면 다음과 같습니다.
 
 * Speech는 Docker용 4개의 Linux 컨테이너를 제공하여 다양한 기능을 캡슐화합니다.
-  * *음성-텍스트*
+  * *음성 텍스트 변환*
   * *사용자 지정 음성-텍스트*
   * *텍스트 음성 변환*
   * *사용자 지정 텍스트 음성 변환*

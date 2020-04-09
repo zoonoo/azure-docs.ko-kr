@@ -2,19 +2,19 @@
 title: 양식 인식기용 컨테이너를 구성하는 방법
 titleSuffix: Azure Cognitive Services
 description: 양식 및 테이블 데이터를 구문 분석하도록 Form Recognizer 컨테이너를 구성하는 방법을 알아봅니다.
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: dapine
-ms.openlocfilehash: 5439ec0c0aab5b8c127b651147e4b25d27c58390
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: bc48c0ba23e73adec312adfeeb1fcd57dba6ceec
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75379626"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879159"
 ---
 # <a name="configure-form-recognizer-containers"></a>Form Recognizer 컨테이너 구성
 
@@ -48,9 +48,9 @@ Azure Form 인식기 컨테이너를 사용하면 강력한 클라우드 기능�
 
 이 설정은 Azure 포털, **양식 인식기 개요**, **끝점**에서 찾을 수 있습니다.
 
-|필수| 이름 | 데이터 형식 | 설명 |
+|필수| 속성 | 데이터 형식 | Description |
 |--|------|-----------|-------------|
-|yes| `Billing` | String | 끝점 URI를 청구합니다. 청구 URI 를 가져오는 방법에 대한 자세한 내용은 [필수 매개 변수 수집을](form-recognizer-container-howto.md#gathering-required-parameters)참조하십시오. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
+|예| `Billing` | String | 끝점 URI를 청구합니다. 청구 URI 를 가져오는 방법에 대한 자세한 내용은 [필수 매개 변수 수집을](form-recognizer-container-howto.md#gathering-required-parameters)참조하십시오. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
 
 ## <a name="eula-setting"></a>Eula 설정
 
@@ -77,7 +77,7 @@ Azure Form 인식기 컨테이너를 사용하면 강력한 클라우드 기능�
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 Docker 서비스 계정 사용 권한과 호스트 마운트 위치 권한 간의 충돌로 인해 [호스트 컴퓨터의](form-recognizer-container-howto.md#the-host-computer) 탑재 위치에 액세스할 수 없습니다.
 
-|Optional| 이름 | 데이터 형식 | 설명 |
+|옵션| 속성 | 데이터 형식 | Description |
 |-------|------|-----------|-------------|
 |필수| `Input` | String | 입력 탑재의 대상입니다. 기본값은 `/input`입니다.    <br><br>예제:<br>`--mount type=bind,src=c:\input,target=/input`|
 |필수| `Output` | String | 출력 탑재의 대상입니다. 기본값은 `/output`입니다.  <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|

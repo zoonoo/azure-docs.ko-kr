@@ -3,18 +3,18 @@ title: 컨테이너 지원
 titleSuffix: Azure Cognitive Services
 description: Azure 컨테이너 인스턴스 리소스를 만드는 방법을 알아봅니다.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/21/2019
-ms.author: dapine
-ms.openlocfilehash: 18f4edf5cc63a448779423cc1b302130b4b80724
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 09957461fd92114d1181a570550ee1a189edd8ea
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75692523"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876445"
 ---
 ## <a name="create-an-azure-container-instance-resource"></a>Azure 컨테이너 인스턴스 리소스 만들기
 
@@ -41,7 +41,7 @@ ms.locfileid: "75692523"
 
 4. **고급** 탭에서 Azure 컨테이너 인스턴스 리소스의 컨테이너 청구 설정에 필요한 **환경 변수를** 입력합니다.
 
-    | Key | 값 |
+    | 키 | 값 |
     |--|--|
     |`apikey`|리소스의 **키** 페이지에서 복사되었습니다. 공백이나 대시가없는 32 영숫자 문자 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`문자열입니다.|
     |`billing`|리소스의 **개요** 페이지에서 복사되었습니다.|

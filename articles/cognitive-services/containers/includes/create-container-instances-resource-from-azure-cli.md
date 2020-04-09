@@ -3,18 +3,18 @@ title: 컨테이너 지원
 titleSuffix: Azure Cognitive Services
 description: Azure CLI에서 Azure 컨테이너 인스턴스 리소스를 만드는 방법에 대해 알아봅니다.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/06/2020
-ms.author: dapine
-ms.openlocfilehash: 700a04b58c13a9c7fd5301875226ca234cabeb96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: e3542b976921aa45794d62cad9517984c8348ce3
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75689435"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875132"
 ---
 ## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>Azure CLI에서 Azure 컨테이너 인스턴스 리소스 만들기
 

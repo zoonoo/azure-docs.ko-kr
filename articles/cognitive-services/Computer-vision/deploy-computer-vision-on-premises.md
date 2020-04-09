@@ -3,19 +3,19 @@ title: Kubernetes 및 헬름과 함께 컴퓨터 비전 컨테이너 사용
 titleSuffix: Azure Cognitive Services
 description: 컴퓨터 비전 컨테이너를 Azure 컨테이너 인스턴스에 배포하고 웹 브라우저에서 테스트합니다.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.author: dapine
-ms.openlocfilehash: 126060875c09d70b8680447d78b7cf6ccdd782af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 9aac374de5af748eafbe4c22e5fc89f64e483c2a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79458021"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877979"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Kubernetes 및 헬름과 함께 컴퓨터 비전 컨테이너 사용
 

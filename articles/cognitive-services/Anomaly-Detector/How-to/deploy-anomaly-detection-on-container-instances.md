@@ -3,19 +3,19 @@ title: Azure 컨테이너 인스턴스에서 변칙 탐지기 컨테이너 실�
 titleSuffix: Azure Cognitive Services
 description: 변칙 탐지기 컨테이너를 Azure 컨테이너 인스턴스에 배포하고 웹 브라우저에서 테스트합니다.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: dapine
-ms.openlocfilehash: 2fba0a0d64502a30b6dfbc9f4f109bca65cca8b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: a4973254c8a53917d99daf38b0d11e5dbecbb731
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76716356"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875131"
 ---
 # <a name="deploy-an-anomaly-detector-container-to-azure-container-instances"></a>Azure 컨테이너 인스턴스에 변칙 탐지기 컨테이너 배포
 

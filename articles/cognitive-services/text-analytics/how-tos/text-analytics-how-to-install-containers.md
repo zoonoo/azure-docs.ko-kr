@@ -3,20 +3,20 @@ title: 컨테이너 설치 및 실행 - 텍스트 분석
 titleSuffix: Azure Cognitive Services
 description: 이 단계별 자습서에서 Text Analytics용 컨테이너를 다운로드, 설치 및 실행하는 방법입니다.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.author: dapine
-ms.openlocfilehash: 65033f9b6599d690b1097b4b78aa01148a40fc39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 2d44df1bb828140e662b06ffbe5fb14f207f68e0
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037515"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877086"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Text Analytics 컨테이너 설치 및 실행
 
@@ -51,11 +51,11 @@ Text Analytics 컨테이너를 사용하려면 다음 필수 조건을 충족해
 
 다음 표에서는 각 Text Analytics 컨테이너에 할당할 CPU 코어(2.6GHz 이상) 수 및 메모리(GB) 양에 대한 최소 및 권장 크기에 대해 설명합니다.
 
-# <a name="key-phrase-extraction"></a>[핵심 구 추출](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[핵심 문구 추출](#tab/keyphrase)
 
 [!INCLUDE [key-phrase-extraction-container-requirements](../includes/key-phrase-extraction-container-requirements.md)]
 
-# <a name="language-detection"></a>[언어 감지](#tab/language)
+# <a name="language-detection"></a>[언어 검색](#tab/language)
 
 [!INCLUDE [language-detection-container-requirements](../includes/language-detection-container-requirements.md)]
 
@@ -74,11 +74,11 @@ Text Analytics 컨테이너를 사용하려면 다음 필수 조건을 충족해
 
 텍스트 분석을 위한 컨테이너 이미지는 Microsoft 컨테이너 레지스트리에서 사용할 수 있습니다.
 
-# <a name="key-phrase-extraction"></a>[핵심 구 추출](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[핵심 문구 추출](#tab/keyphrase)
 
 [!INCLUDE [key-phrase-extraction-container-repository](../includes/key-phrase-extraction-container-repository.md)]
 
-# <a name="language-detection"></a>[언어 감지](#tab/language)
+# <a name="language-detection"></a>[언어 검색](#tab/language)
 
 [!INCLUDE [language-detection-container-repository](../includes/language-detection-container-repository.md)]
 
@@ -92,11 +92,11 @@ Text Analytics 컨테이너를 사용하려면 다음 필수 조건을 충족해
 
 ### <a name="docker-pull-for-the-text-analytics-containers"></a>텍스트 분석 컨테이너에 대한 도커 풀
 
-# <a name="key-phrase-extraction"></a>[핵심 구 추출](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[핵심 문구 추출](#tab/keyphrase)
 
 [!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
-# <a name="language-detection"></a>[언어 감지](#tab/language)
+# <a name="language-detection"></a>[언어 검색](#tab/language)
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
@@ -119,11 +119,11 @@ Text Analytics 컨테이너를 사용하려면 다음 필수 조건을 충족해
 
 `docker run`명령의 [예](../text-analytics-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다.
 
-# <a name="key-phrase-extraction"></a>[핵심 구 추출](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[핵심 문구 추출](#tab/keyphrase)
 
 [!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
-# <a name="language-detection"></a>[언어 감지](#tab/language)
+# <a name="language-detection"></a>[언어 검색](#tab/language)
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
@@ -175,8 +175,8 @@ Text Analytics 컨테이너는 Azure 계정의 _Text Analytics_ 리소스를 사
 이 문서에서는 Text Analytics 컨테이너를 다운로드, 설치 및 실행하기 위한 개념과 워크플로를 알아보았습니다. 요약하면 다음과 같습니다.
 
 * 텍스트 분석은 Docker에 대한 세 가지 Linux 컨테이너를 제공하여 다양한 기능을 캡슐화합니다.
-   * *핵심 구 추출*
-   * *언어 감지*
+   * *핵심 문구 추출*
+   * *언어 검색*
    * *감정 분석*
 * 컨테이너 이미지는 Azure의 MCR(Microsoft Container Registry)에서 다운로드됩니다.
 * 컨테이너 이미지는 Docker에서 실행됩니다.

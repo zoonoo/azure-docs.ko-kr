@@ -3,19 +3,19 @@ title: 변칙 탐지기 API를 사용하기 위한 컨테이너를 설치하고 
 titleSuffix: Azure Cognitive Services
 description: Anomaly Detector API의 고급 알고리즘을 사용하여 시계열 데이터에서 변칙을 식별합니다.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: dapine
-ms.openlocfilehash: 45abd904ea95cf8e68583ba5630a485af59479ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: fa25d27e99a9516d461a84dde184e2a6412baa0b
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79221394"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875052"
 ---
 # <a name="install-and-run-anomaly-detector-containers-preview"></a>변칙 검출기 컨테이너 설치 및 실행(미리 보기)
 

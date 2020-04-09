@@ -3,18 +3,18 @@ title: 코그너티브 서비스 컨테이너자주 묻는 질문(FAQ)
 titleSuffix: Azure Cognitive Services
 description: 자주 묻는 질문과 답변.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 11/11/2019
-ms.author: dapine
-ms.openlocfilehash: 33b99d50db4384c7de818a7dd0bb8492c86bef97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 8aae650065e8de11ccdc55a8a056c379a219fcb4
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73961883"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876509"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Azure 코그너티브 서비스 컨테이너 자주 묻는 질문(FAQ)
 
@@ -26,10 +26,10 @@ ms.locfileid: "73961883"
 
 > [!div class="checklist"]
 > * [Anomaly Detector][ad-containers]
-> * [컴퓨터 비전][cv-containers]
-> * [얼굴][fa-containers]
+> * [Computer Vision][cv-containers]
+> * [Face][fa-containers]
 > * [Form Recognizer][fr-containers]
-> * [LUIS(Language Understanding)][lu-containers]
+> * [언어 이해(LUIS)][lu-containers]
 > * [Speech Service API][sp-containers]
 > * [텍스트 분석][ta-containers]
 
@@ -108,10 +108,10 @@ ms.locfileid: "73961883"
 **A:** 고객은 코그너티브 서비스 클라우드와 유사한 사용량에 따라 요금이 부과됩니다. 미터링 데이터를 Azure로 보내도록 컨테이너를 구성해야 하며 그에 따라 트랜잭션이 청구됩니다. 호스팅된 서비스 및 온-프레미스 서비스에서 사용되는 리소스는 계층화 된 가격으로 단일 할당량에 추가되며 두 사용량에 대해 계산됩니다. 자세한 내용은 해당 제품의 가격 페이지를 참조하십시오.
 
 * [Anomaly Detector][ad-containers-billing]
-* [컴퓨터 비전][cv-containers-billing]
-* [얼굴][fa-containers-billing]
+* [Computer Vision][cv-containers-billing]
+* [Face][fa-containers-billing]
 * [Form Recognizer][fr-containers-billing]
-* [LUIS(Language Understanding)][lu-containers-billing]
+* [언어 이해(LUIS)][lu-containers-billing]
 * [Speech Service API][sp-containers-billing]
 * [텍스트 분석][ta-containers-billing]
 
@@ -135,10 +135,10 @@ ms.locfileid: "73961883"
 **A:** 코그너티브 서비스 컨테이너는 x64 Linux Docker 컨테이너를 지원하는 호환되는 Linux 노드, VM 및 에지 장치를 실행할 수 있는 x64 기반 컨테이너입니다. 그들은 모두 CPU 프로세서가 필요합니다. 각 컨테이너 제공에 대한 최소 및 권장 구성은 다음과 같습니다.
 
 * [Anomaly Detector][ad-containers-recommendations]
-* [컴퓨터 비전][cv-containers-recommendations]
-* [얼굴][fa-containers-recommendations]
+* [Computer Vision][cv-containers-recommendations]
+* [Face][fa-containers-recommendations]
 * [Form Recognizer][fr-containers-recommendations]
-* [LUIS(Language Understanding)][lu-containers-recommendations]
+* [언어 이해(LUIS)][lu-containers-recommendations]
 * [Speech Service API][sp-containers-recommendations]
 * [텍스트 분석][ta-containers-recommendations]
  

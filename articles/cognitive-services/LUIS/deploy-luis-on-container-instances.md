@@ -3,19 +3,19 @@ title: Azure 컨테이너 인스턴스에 LUIS 컨테이너 배포
 titleSuffix: Azure Cognitive Services
 description: LUIS 컨테이너를 Azure 컨테이너 인스턴스에 배포하고 웹 브라우저에서 테스트합니다.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.author: dapine
-ms.openlocfilehash: f1a0a08351a03e46d6c3a1e82b68ecea6e36c015
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.date: 04/07/2020
+ms.author: aahi
+ms.openlocfilehash: 08af17106846a0f5f7a0ccc2b01da1b2e15c1143
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80757254"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879215"
 ---
 # <a name="deploy-the-language-understanding-luis-container-to-azure-container-instances"></a>AZURE 컨테이너 인스턴스에 언어 이해(LUIS) 컨테이너 배포
 

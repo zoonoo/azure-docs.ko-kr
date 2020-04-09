@@ -3,19 +3,19 @@ title: Azure 컨테이너 인스턴스에서 컴퓨터 비전 컨테이너 실�
 titleSuffix: Azure Cognitive Services
 description: 컴퓨터 비전 컨테이너를 Azure 컨테이너 인스턴스에 배포하고 웹 브라우저에서 테스트합니다.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: dapine
-ms.openlocfilehash: 1c858432a3382e6dbc8e479aab11b18dc5eebfe4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: ecb0b6a6577161a5349d9d701dd6c116f69411f0
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73499111"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876094"
 ---
 # <a name="deploy-the-computer-vision-container-to-azure-container-instances"></a>Azure 컨테이너 인스턴스에 컴퓨터 비전 컨테이너 배포
 

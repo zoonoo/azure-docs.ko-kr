@@ -3,19 +3,19 @@ title: Azure 컨테이너 인스턴스 실행 - 텍스트 분석
 titleSuffix: Azure Cognitive Services
 description: 텍스트 분석 컨테이너를 Azure 컨테이너 인스턴스에 배포하고 웹 브라우저에서 테스트합니다.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: dapine
-ms.openlocfilehash: 7ae8fbd404c9c2b650e4eed30c219e8ffafe55f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: e4b61c6fe2f62745d0f5268221cbb5c84803eb10
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74383516"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876443"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>Azure 컨테이너 인스턴스에 텍스트 분석 컨테이너 배포
 
@@ -29,11 +29,11 @@ Azure [컨테이너 인스턴스에][container-instances]코그너티브 서비�
 
 [!INCLUDE [Create a Text Analytics Containers on Azure Container Instances](../../containers/includes/create-container-instances-resource.md)]
 
-#### <a name="key-phrase-extraction"></a>[핵심 구 추출](#tab/keyphrase)
+#### <a name="key-phrase-extraction"></a>[핵심 문구 추출](#tab/keyphrase)
 
 [!INCLUDE [Verify the Key Phrase Extraction container instance](../includes/verify-key-phrase-extraction-container.md)]
 
-#### <a name="language-detection"></a>[언어 감지](#tab/language)
+#### <a name="language-detection"></a>[언어 검색](#tab/language)
 
 [!INCLUDE [Verify the Language Detection container instance](../includes/verify-language-detection-container.md)]
 

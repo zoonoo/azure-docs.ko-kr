@@ -3,19 +3,19 @@ title: 음성 컨테이너 구성
 titleSuffix: Azure Cognitive Services
 description: 음성 서비스는 각 컨테이너에 공통 구성 프레임워크를 제공하므로 컨테이너에 대한 저장소, 로깅 및 원격 분석 및 보안 설정을 쉽게 구성하고 관리할 수 있습니다.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.author: dapine
-ms.openlocfilehash: dd5a531e4a979cba9c2a766c7774762a0427ad02
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 5c74aa48b18661236eb55278d1e5a05215b2432c
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037318"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877578"
 ---
 # <a name="configure-speech-service-containers"></a>음성 서비스 컨테이너 구성
 
@@ -50,9 +50,9 @@ ms.locfileid: "79037318"
 
 - Azure 포털: **음성의** 개요, 레이블이 지정`Endpoint`
 
-| 필수 | 이름 | 데이터 형식 | 설명 |
+| 필수 | 속성 | 데이터 형식 | Description |
 | -------- | ---- | --------- | ----------- |
-| yes | `Billing` | String | 끝점 URI를 청구합니다. 청구 URI 를 가져오는 방법에 대한 자세한 내용은 [필수 매개 변수 수집을](speech-container-howto.md#gathering-required-parameters)참조하십시오. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
+| 예 | `Billing` | String | 끝점 URI를 청구합니다. 청구 URI 를 가져오는 방법에 대한 자세한 내용은 [필수 매개 변수 수집을](speech-container-howto.md#gathering-required-parameters)참조하십시오. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
 
 ## <a name="eula-setting"></a>Eula 설정
 
@@ -78,10 +78,10 @@ ms.locfileid: "79037318"
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 [호스트 컴퓨터](speech-container-howto.md#the-host-computer)의 탑재 위치에는 Docker 서비스 계정에서 사용되는 권한과 호스트 탑재 위치 권한 간의 충돌로 인해 액세스할 수 없습니다.
 
-| Optional | 이름 | 데이터 형식 | 설명 |
+| 옵션 | 속성 | 데이터 형식 | Description |
 | -------- | ---- | --------- | ----------- |
 | 허용되지 않음 | `Input` | String | 표준 음성 컨테이너는 이 것을 사용하지 않습니다. 사용자 지정 음성 컨테이너는 [볼륨 마운트를](#volume-mount-settings)사용합니다.                                                                                    |
-| Optional | `Output` | String | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output` |
+| 옵션 | `Output` | String | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output` |
 
 ## <a name="volume-mount-settings"></a>볼륨 마운트 설정
 
@@ -130,7 +130,7 @@ ms.locfileid: "79037318"
 
 다음 Docker 예제는 음성 컨테이너에 대한 예제입니다.
 
-## <a name="speech-to-text"></a>[음성-텍스트](#tab/stt)
+## <a name="speech-to-text"></a>[음성 텍스트 변환](#tab/stt)
 
 ### <a name="basic-example-for-speech-to-text"></a>음성-텍스트의 기본 예
 

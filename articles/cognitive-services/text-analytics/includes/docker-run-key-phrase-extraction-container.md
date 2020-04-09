@@ -3,18 +3,18 @@ title: 도커 실행 명령의 컨테이너 예제 실행
 titleSuffix: Azure Cognitive Services
 description: 키 구 추출 컨테이너에 대 한 도커 실행 명령
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/12/2019
-ms.author: dapine
-ms.openlocfilehash: b8c3bdfc05e855139b595cd0ba7bd723cdeaee45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 8ed42d5b0461b6273c2f8d84a267b65461d160ef
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "70966716"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877113"
 ---
 *키 구 추출* 컨테이너를 실행하려면 `docker run` 다음 명령을 실행합니다.
 

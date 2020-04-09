@@ -3,19 +3,19 @@ title: Azure 컨테이너 인스턴스에서 Face 컨테이너 실행
 titleSuffix: Azure Cognitive Services
 description: Face 컨테이너를 Azure 컨테이너 인스턴스에 배포하고 웹 브라우저에서 테스트합니다.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: dapine
-ms.openlocfilehash: 4f8a08697443ec6920b3fa73de19a950e54e7f40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 4df5949e24e3fa59d37379c058a777c93dda2c44
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76716253"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878370"
 ---
 # <a name="deploy-the-face-container-to-azure-container-instances"></a>Azure 컨테이너 인스턴스에 Face 컨테이너 배포
 

@@ -3,19 +3,19 @@ title: Azure 컨테이너 인스턴스에서 양식 인식기 컨테이너 실�
 titleSuffix: Azure Cognitive Services
 description: 양식 인식기 컨테이너를 Azure 컨테이너 인스턴스에 배포하고 웹 브라우저에서 테스트합니다.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.author: dapine
-ms.openlocfilehash: 9a3456eb4d30aa8d163488f558b571dd97c73bf4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: acba4d9fab784181fda5728c30831c8c1838b91f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77605111"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879533"
 ---
 # <a name="deploy-the-form-recognizer-container-to-azure-container-instances"></a>Azure 컨테이너 인스턴스에 양식 인식기 컨테이너 배포
 

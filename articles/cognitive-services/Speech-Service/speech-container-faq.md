@@ -3,19 +3,19 @@ title: 음성 서비스 컨테이너 자주 묻는 질문(FAQ)
 titleSuffix: Azure Cognitive Services
 description: 음성 컨테이너를 설치하고 실행합니다. 음성-텍스트는 응용 프로그램, 도구 또는 장치가 사용하거나 표시할 수 있는 오디오 스트림을 실시간으로 텍스트로 전사합니다. 텍스트 음성 변환은 입력 텍스트를 인간과 유사한 합성 음성으로 변환합니다.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.author: dapine
-ms.openlocfilehash: 2afb7c84c4d737703917d12a43aa7c3bb799836b
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 9b0fd89693517bdb63ba6f4265fddf2b0aa57ba5
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80537041"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874486"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>음성 서비스 컨테이너 자주 묻는 질문(FAQ)
 
@@ -394,7 +394,7 @@ https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d
 
 **답변:** 실시간으로 8최신 `en-US`이므로 6 개의 동시 요청 을 넘어 더 많은 docker 컨테이너를 사용 하는 것이 좋습니다. 16코어를 넘어서는 광란이 생기고, 불균일한 메모리 액세스(NUMA) 노드에 민감하게 됩니다. 다음 표는 각 Speech 컨테이너에 대한 최소 및 권장 리소스 할당에 대해 설명합니다.
 
-# <a name="speech-to-text"></a>[음성-텍스트](#tab/stt)
+# <a name="speech-to-text"></a>[음성 텍스트 변환](#tab/stt)
 
 | 컨테이너      | 최소             | 권장         |
 |----------------|---------------------|---------------------|

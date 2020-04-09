@@ -3,18 +3,18 @@ title: 컨테이너 보안
 titleSuffix: Azure Cognitive Services
 description: 컨테이너 보안 방법 알아보기
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/30/2019
-ms.author: dapine
-ms.openlocfilehash: 20f78d9269d4b2270293c8746157ba495c694562
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: fd2a6cdad01302501e30ec60a4d3ccf6efd9c266
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80272648"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876833"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Azure 코그너티브 서비스 컨테이너 보안
 

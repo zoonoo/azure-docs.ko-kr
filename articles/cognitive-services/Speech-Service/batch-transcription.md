@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: fb39f1ec83416ee8ab2a33b514971110db0c0b17
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 1f88df186526c2f9903337bb3331940be0989c3d
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668845"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892464"
 ---
 # <a name="what-is-batch-transcription"></a>일괄 전사란 무엇입니까?
 
@@ -129,7 +129,7 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
       `AddSentiment`
    :::column-end:::
    :::column span="2":::
-      감정 분석을 발화에 적용할지 지정합니다. 허용된 `true` 값은 `false` 활성화하고(기본값) 비활성화하는 것입니다.
+      감정 분석을 발화에 적용할지 지정합니다. 허용된 `true` 값은 `false` 활성화하고(기본값) 비활성화하는 것입니다. 자세한 내용은 [감정 분석을](#sentiment-analysis) 참조하십시오.
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -218,12 +218,41 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 
 결과에는 다음 양식이 포함됩니다.
 
-| Form        | 콘텐츠                                                                                                                                                  |
-|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Lexical`   | 실제 단어가 인식되었습니다.                                                                                                                             |
-| `ITN`       | 인식된 텍스트의 역텍스트 정규화 형식입니다. 약어 ("의사 대장장이"에서 "dr smith"), 전화 번호 및 기타 변형이 적용됩니다. |
-| `MaskedITN` | 욕설 마스킹이 적용된 ITN 양식입니다.                                                                                                             |
-| `Display`   | 인식된 텍스트의 표시 양식입니다. 추가된 문장 부호와 대문자가 포함되어 있습니다.                                                             |
+:::row:::
+   :::column span="1":::
+      **Form**
+   :::column-end:::
+   :::column span="2":::
+      **콘텐츠**
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `Lexical`
+   :::column-end:::
+   :::column span="2":::
+      실제 단어가 인식되었습니다.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `ITN`
+   :::column-end:::
+   :::column span="2":::
+      인식된 텍스트의 역텍스트 정규화 형식입니다. 약어 ("의사 대장장이"에서 "dr smith"), 전화 번호 및 기타 변형이 적용됩니다.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `MaskedITN`
+   :::column-end:::
+   :::column span="2":::
+      욕설 마스킹이 적용된 ITN 양식입니다.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `Display`
+   :::column-end:::
+   :::column span="2":::
+      인식된 텍스트의 표시 양식입니다. 추가된 문장 부호와 대문자가 포함되어 있습니다.
+:::row-end:::
 
 ## <a name="speaker-separation-diarization"></a>스피커 분리(표준화)
 
@@ -260,6 +289,10 @@ diarization을 요청하려면 아래와 같이 HTTP 요청에 관련 매개 변
 - 고객이 좋아하는 것과 제품 또는 서비스에 대해 싫어하는 것 파악
 
 감정은 어휘 형식에 따라 오디오 세그먼트당 점수가 매겨지습니다. 해당 오디오 세그먼트 내의 전체 텍스트는 감정을 계산하는 데 사용됩니다. 전체 전사에 대해 집계 감정이 계산되지 않습니다. 현재 감정 분석은 영어에서만 사용할 수 있습니다.
+
+> [!NOTE]
+> 대신 Microsoft 텍스트 분석 API를 사용하는 것이 좋습니다. 핵심 구 추출, 자동 언어 검색 등과 같은 감정 분석을 넘어 더 많은 고급 기능을 제공합니다. [텍스트 분석 설명서에서](https://azure.microsoft.com/services/cognitive-services/text-analytics/)정보와 샘플을 찾을 수 있습니다.
+>
 
 JSON 출력 샘플은 다음과 같습니다.
 

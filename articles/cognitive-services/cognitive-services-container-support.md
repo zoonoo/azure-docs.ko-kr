@@ -3,19 +3,19 @@ title: 컨테이너 지원
 titleSuffix: Azure Cognitive Services
 description: Docker 컨테이너가 Cognitive Services를 데이터에 더 가깝게 가져오는 방법을 알아봅니다.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 01/10/2020
-ms.author: dapine
-ms.openlocfilehash: d75962b98543991a065f6b165279215614175925
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 7a38ec47d416027e8ea3fa772ae01e4f6264197a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79221224"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876834"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너 지원
 
@@ -23,10 +23,10 @@ ms.locfileid: "79221224"
 
 > [!div class="checklist"]
 > * [Anomaly Detector][ad-containers]
-> * [컴퓨터 비전][cv-containers]
-> * [얼굴][fa-containers]
+> * [Computer Vision][cv-containers]
+> * [Face][fa-containers]
 > * [Form Recognizer][fr-containers]
-> * [LUIS(Language Understanding)][lu-containers]
+> * [언어 이해(LUIS)][lu-containers]
 > * [Speech Service API][sp-containers]
 > * [텍스트 분석][ta-containers]
 
@@ -49,14 +49,14 @@ ms.locfileid: "79221224"
 
 Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 집합을 제공하며, 각각은 Azure Cognitive Services 서비스의 기능 하위 집합을 포함하고 있습니다.
 
-| 서비스 | 지원되는 가격 책정 계층 | 컨테이너 | 설명 |
+| 서비스 | 지원되는 가격 책정 계층 | 컨테이너 | Description |
 |---------|----------|----------|-------------|
 |[변칙 검출기][ad-containers] |F0, S0|**변칙 검출기** |Anomaly Detector API를 사용하면 기계 학습을 통해 시계열 데이터에서 변칙을 검색하고 모니터링할 수 있습니다.<br>[액세스 요청](https://aka.ms/adcontainer)|
-|[컴퓨터 비전][cv-containers] |F0, S1|**읽기** |영수증, 포스터, 명함과 같은 여러 가지 표면과 배경이 있는 다양한 개체의 이미지에서 인쇄된 텍스트를 추출합니다. 또한 읽기 컨테이너는 이미지에서 *필기 텍스트를* 감지하고 PDF/TIFF/다중 페이지 지원을 제공합니다.<br/><br/>**중요 사항:** 읽기 컨테이너는 현재 영어로만 작동합니다.|
-|[얼굴][fa-containers] |F0, S0|**얼굴** |이미지에서 사람의 얼굴을 감지하고, 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별합니다. 감지 외에도 신뢰도 점수를 사용하여 동일하거나 다른 이미지의 두 얼굴이 동일한지 확인하거나, 얼굴을 데이터베이스와 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 확인합니다. 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수도 있습니다.<br>[액세스 요청](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
+|[Computer Vision][cv-containers] |F0, S1|**읽기** |영수증, 포스터, 명함과 같은 여러 가지 표면과 배경이 있는 다양한 개체의 이미지에서 인쇄된 텍스트를 추출합니다. 또한 읽기 컨테이너는 이미지에서 *필기 텍스트를* 감지하고 PDF/TIFF/다중 페이지 지원을 제공합니다.<br/><br/>**중요 사항:** 읽기 컨테이너는 현재 영어로만 작동합니다.|
+|[Face][fa-containers] |F0, S0|**Face** |이미지에서 사람의 얼굴을 감지하고, 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별합니다. 감지 외에도 신뢰도 점수를 사용하여 동일하거나 다른 이미지의 두 얼굴이 동일한지 확인하거나, 얼굴을 데이터베이스와 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 확인합니다. 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수도 있습니다.<br>[액세스 요청](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[양식 인식기][fr-containers] |F0, S0|**Form Recognizer** |양식 이해는 기계 학습 기술을 적용하여 양식에서 키-값 쌍과 테이블을 식별하고 추출합니다.<br>[액세스 요청](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[루이스][lu-containers] |F0, S0|**LUIS**([이미지](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|LUIS 앱으로 알려진 학습된 또는 게시된 Language Understanding 모델을 Docker 컨테이너로 로드하고, 컨테이너의 API 엔드포인트에서 쿼리 예측에 대한 액세스를 제공합니다. 컨테이너에서 쿼리 로그를 수집하고 [LUIS 포털](https://www.luis.ai)에 다시 업로드하여 앱의 예측 정확도를 개선할 수 있습니다.|
-|[Speech Service API][sp-containers-stt] |F0, S0|**음성-텍스트** |연속적인 실시간 음성을 텍스트로 변환합니다.|
+|[Speech Service API][sp-containers-stt] |F0, S0|**음성 텍스트 변환** |연속적인 실시간 음성을 텍스트로 변환합니다.|
 |[Speech Service API][sp-containers-cstt] |F0, S0|**사용자 지정 음성-텍스트** |사용자 지정 모델을 사용하여 연속 실시간 음성을 텍스트로 변환합니다.|
 |[Speech Service API][sp-containers-tts] |F0, S0|**텍스트 음성 변환** |텍스트를 자연스럽게 들리는 음성으로 변환합니다.|
 |[Speech Service API][sp-containers-ctts] |F0, S0|**사용자 지정 텍스트 음성 변환** |사용자 지정 모델을 사용하여 텍스트를 자연스러운 음성으로 변환합니다.|
@@ -82,7 +82,7 @@ Azure Cognitive Services 컨테이너는 Azure 구독을 통해 공개적으로 
 > [!IMPORTANT]
 > 현재, 다음 컨테이너에 액세스하기 위해 등록 프로세스를 완료해야 하며, 이 컨테이너에 액세스하려면 사용자, 회사 및 컨테이너를 구현하려는 사용 사례에 대한 질문이 포함된 설문지를 작성하고 제출해야 합니다. 액세스 권한이 부여되고 자격 증명이 제공된 후에는 Azure 컨테이너 레지스트리에서 호스팅하는 개인 컨테이너 레지스트리에서 컨테이너 이미지를 가져올 수 있습니다.
 > * [변칙 검출기](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
-> * [얼굴](Face/face-how-to-install-containers.md)
+> * [Face](Face/face-how-to-install-containers.md)
 > * [Form Recognizer](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
 > * [읽기](computer-vision/computer-vision-how-to-install-containers.md)
 > * [음성-텍스트 및 텍스트 음성 변환](Speech-Service/speech-container-howto.md#request-access-to-the-container-registry)

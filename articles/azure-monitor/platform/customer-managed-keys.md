@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 03/26/2020
-ms.openlocfilehash: 18c926d16319eb8a8736a51d5f10e434b94d0ebe
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.date: 04/08/2020
+ms.openlocfilehash: 5b99e2f31d82630e2adc138c11485201a617af81
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582495"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892328"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Azure 모니터 고객 관리 키 구성 
 
@@ -111,6 +111,34 @@ Authorization: Bearer eyJ0eXAiO....
     1. 아래 예제에 따라 API 호출에 복사하여 추가합니다.
 3. Azure REST 설명서 사이트로 이동합니다. 모든 API에서 "사용해 보십시오"를 누르고 Bearer 토큰을 복사합니다.
 
+### <a name="asynchronous-operations-and-status-check"></a>비동기 작업 및 상태 확인
+
+이 구성 절차의 일부 작업은 빠르게 완료할 수 없기 때문에 비동기적으로 실행됩니다. 비동기 작업에 대한 응답은 처음에 HTTP 상태 코드 200(OK) 및 *헤더를 Azure-AsyncOperation* 속성을 사용할 때 반환합니다.
+```json
+"Azure-AsyncOperation": "https://management.azure.com/subscriptions/ subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2015-11-01-preview"
+```
+
+*Azure-AsyncOperation* 헤더 값으로 GET 요청을 전송하여 비동기 작업의 상태를 확인할 수 있습니다.
+```rst
+GET "https://management.azure.com/subscriptions/ subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2015-11-01-preview
+Authorization: Bearer <token>
+```
+
+작업에서 응답의 본문에는 작업에 대한 정보가 포함되어 있으며 *Status* 속성은 해당 상태를 나타냅니다. 이 구성 절차의 비동기 작업 및 해당 상태는 다음과 같습니다.
+
+***클러스터* 리소스 만들기**
+* 프로비저닝계정 - ADX 클러스터프로비저닝 중 
+* 성공 - ADX 클러스터 프로비저닝완료
+
+**키 볼트에 대한 권한 부여**
+* 업데이트 -- 키 식별자 세부 정보 업데이트가 진행 중입니다.
+* 성공 -- 업데이트 완료
+
+**로그 분석 작업 영역 연결**
+* 연결 -- 클러스터에 대한 작업 영역 연결이 진행 중입니다.
+* 성공 -- 협회 완료
+
+
 ### <a name="subscription-whitelisting"></a>구독 허용 목록
 
 CMK 기능은 초기 액세스 기능입니다. *클러스터* 리소스를 만들려는 구독은 Azure 제품 그룹에서 미리 화이트리스트에 등록해야 합니다. Microsoft에 연락처를 사용하여 구독 아이디를 제공합니다.
@@ -136,6 +164,8 @@ CMK 기능은 초기 액세스 기능입니다. *클러스터* 리소스를 만�
 
 **만들기**
 
+이 리소스 관리자 요청은 비동기 작업입니다.
+
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
 Authorization: Bearer <token>
@@ -159,10 +189,11 @@ ID는 생성 시 *클러스터* 리소스에 할당됩니다.
 
 **Response**
 
-202 수락. 비동기 작업에 대한 표준 리소스 관리자 응답입니다.
-
+200 확인 및 헤더 허용 될 때.
 >[!Important]
-> ADX 클러스터의 프로비저닝을 완료하는 데 시간이 걸립니다. *클러스터* 리소스에서 GET REST API 호출을 수행하고 *프로비저닝State* 값을 볼 때 프로비저닝 상태를 확인할 수 있습니다. *프로비저닝 하는 동안 프로비저닝 계정* 및 완료 될 때 *성공.*
+> 기능의 초기 액세스 기간 동안 ADX 클러스터는 수동으로 프로비전됩니다. ADX 클러스터의 프로비저닝을 완료하는 데 시간이 걸리지만 다음 두 가지 방법으로 프로비저닝 상태를 확인할 수 있습니다.
+> 1. 응답에서 *Azure-AsyncOperation* URL 값을 복사 하 고 [비동기 작업에서](#asynchronous-operations-and-status-check) 작업 상태 확인에 사용
+> 2. *클러스터* 리소스에 GET 요청을 보내고 *프로비저닝State* 값을 살펴봅니다. *프로비저닝 하는 동안 프로비저닝 계정* 및 완료 될 때 *성공.*
 
 ### <a name="azure-monitor-data-store-adx-cluster-provisioning"></a>Azure 모니터 데이터 저장소(ADX 클러스터) 프로비저닝
 
@@ -177,6 +208,7 @@ Authorization: Bearer <token>
 > 이후 단계에서 세부 정보가 필요하므로 응답을 복사하고 저장합니다.
 
 **Response**
+
 ```json
 {
   "identity": {
@@ -216,7 +248,7 @@ Authorization: Bearer <token>
 
 ### <a name="update-cluster-resource-with-key-identifier-details"></a>키 식별자 세부 정보로 클러스터 리소스 업데이트
 
-이 단계는 Key Vault의 초기 및 향후 키 버전 업데이트에 따라 적용됩니다. 데이터 암호화에 사용할 키 버전에 대해 Azure 모니터 저장소에 알립니다. 업데이트되면 새 키가 AEK(저장소 키)로 래핑 및 래핑 해제하는 데 사용됩니다.
+이 단계는 Key Vault의 초기 및 향후 키 버전 업데이트 중에 수행됩니다. 데이터 암호화에 사용할 키 버전에 대해 Azure 모니터 저장소에 알립니다. 업데이트되면 새 키가 AEK(저장소 키)로 래핑 및 래핑 해제하는 데 사용됩니다.
 
 키 볼트 *키 식별자* 세부 정보로 *클러스터* 리소스를 업데이트하려면 Azure Key Vault에서 키의 현재 버전을 선택하여 키 식별자 세부 정보를 가져옵니다.
 
@@ -225,6 +257,8 @@ Authorization: Bearer <token>
 키 식별자 세부 정보로 *클러스터* 리소스 KeyVaultProperties를 업데이트합니다.
 
 **업데이트**
+
+이 리소스 관리자 요청은 비동기 작업입니다.
 
 >[!Warning]
 > *ID,* *sku,* *KeyVaultProperties* 및 *위치가*포함된 *클러스터* 리소스 업데이트에서 전체 본문을 제공해야 합니다. *KeyVaultProperties* 세부 정보가 누락되면 *클러스터* 리소스에서 키 식별자가 제거되고 [키 가 해지됩니다.](#cmk-kek-revocation)
@@ -256,6 +290,14 @@ Content-type: application/json
 
 **Response**
 
+200 확인 및 헤더 허용 될 때.
+>[!Important]
+> Key 식별자의 전파를 완료하는 데 몇 분 정도 걸립니다. 다음 두 가지 방법으로 프로비저닝 상태를 확인할 수 있습니다.
+> 1. 응답에서 *Azure-AsyncOperation* URL 값을 복사 하 고 [비동기 작업에서](#asynchronous-operations-and-status-check) 작업 상태 확인에 사용
+> 2. *클러스터* 리소스에서 GET 요청을 보내고 *KeyVaultProperties* 속성을 살펴봅니다. 최근에 업데이트된 Key 식별자 세부 정보는 응답으로 반환되어야 합니다.
+
+Key 식별자 업데이트가 완료되면 *클러스터* 리소스의 GET 요청에 대한 응답은 다음과 같아야 합니다.
+
 ```json
 {
   "identity": {
@@ -286,19 +328,22 @@ Content-type: application/json
 ```
 
 ### <a name="workspace-association-to-cluster-resource"></a>*클러스터* 리소스에 대한 작업 영역 연결
-
 응용 프로그램 인사이트 CMK 구성의 경우 이 단계의 부록 내용을 따르십시오.
 
-> [!IMPORTANT]
-> 이 단계는 ADX 클러스터 프로비전 후에만 수행해야 합니다. 프로비저닝 전에 작업 영역과 수집 데이터를 연결하면 수집된 데이터가 삭제되고 복구할 수 없습니다.
-> ADX 클러스터가 프로비전되었는지 확인하려면 *클러스터* 리소스 Get REST API를 실행하고 *프로비저닝State* 값이 *성공했는지*확인합니다.
+이 리소스 관리자 요청은 비동기 작업입니다.
 
 다음 작업을 포함하는 이 작업을 수행하려면 작업 영역과 *클러스터* 리소스 모두에 대한 '쓰기' 권한이 있어야 합니다.
 
 - 작업 영역에서: Microsoft.오퍼리인사이트/작업 영역/쓰기
 - *클러스터* 리소스: Microsoft.운영 인사이트/클러스터/쓰기
 
+> [!IMPORTANT]
+> 이 단계는 ADX 클러스터 프로비전 후에만 수행해야 합니다. 프로비저닝 전에 작업 영역과 수집 데이터를 연결하면 수집된 데이터가 삭제되고 복구할 수 없습니다.
+
 **작업 영역 연결**
+
+이 리소스 관리자 요청은 비동기 작업입니다.
+
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2019-08-01-preview 
 Authorization: Bearer <token>
@@ -313,21 +358,12 @@ Content-type: application/json
 
 **Response**
 
-```json
-{
-  "properties": {
-    "WriteAccessResourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
-    },
-  "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name/linkedservices/cluster",
-  "name": "workspace-name/cluster",
-  "type": "microsoft.operationalInsights/workspaces/linkedServices",
-}
-```
+200 확인 및 헤더 허용 될 때.
+>[!Important]
+> 최대 90분 까지 작동하여 완료할 수 있습니다. 작업 영역에 수집된 데이터는 성공적인 작업 영역 연결 후에만 관리 키로 암호화되어 저장됩니다.
+> 작업 영역 연결 상태를 확인하려면 응답에서 *Azure-AsyncOperation* URL 값을 복사하여 [비동기 작업에서](# asynchronous-operations-and-status-check) 작업 상태 확인에 사용합니다.
 
-작업 영역 연결은 리소스 관리자 비동기 작업을 통해 수행되며 완료하는 데 최대 90분이 걸릴 수 있습니다. 다음 단계에서는 작업 영역 연결 상태를 확인하는 방법을 보여 주며 작업 영역 연결이 연결되면 작업 영역에 수집된 데이터가 관리키로 암호화되어 저장됩니다.
-
-### <a name="workspace-association-verification"></a>작업 영역 연결 확인
-작업 영역 [-](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) 응답 받기를 확인하여 작업 영역이 *클러스터* 리소스에 연결되어 있는지 확인할 수 있습니다. 연결된 작업 영역에는 *클러스터* 리소스 ID가 있는 'clusterResourceId' 속성이 있습니다.
+작업 영역 - Get 및 응답을 관찰하여 작업 [영역으로](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) GET 요청을 전송하여 작업 영역에 연결된 *클러스터* 리소스를 확인할 수 있습니다. *클러스터ResourceId는* *클러스터* 리소스 ID에 표시됩니다.
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview

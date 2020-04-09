@@ -2,19 +2,19 @@
 title: 양식 인식기용 컨테이너를 설치하고 실행하는 방법
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 Azure Cognitive 서비스 양식 인식기 컨테이너를 사용하여 양식 및 테이블 데이터를 구문 분석하는 방법을 설명합니다.
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.author: dapine
-ms.openlocfilehash: c8ce4b913548429ff83e0b8aa3cb65455fc9b4c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 8cfa9114c5a5e57882cb84b604c1cf71be9acc52
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474699"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878343"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>양식 인식기 컨테이너 설치 및 실행(미리 보기)
 

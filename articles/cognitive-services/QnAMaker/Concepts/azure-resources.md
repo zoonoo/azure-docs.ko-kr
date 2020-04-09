@@ -3,12 +3,12 @@ title: Azure 리소스 - QnA 메이커
 description: QnA Maker는 서로 다른 용도로 각각 여러 Azure 원본을 사용합니다. 개별적으로 사용되는 방식을 이해하면 올바른 가격 책정 계층을 계획하고 선택하거나 가격 책정 계층을 변경할 시기를 알 수 있습니다. 이러한 사용 방식이 조합되어 있는 방식을 이해하면 문제가 발생할 때 문제를 찾아 해결할 수 있습니다.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 1bd491ecbd878cb7bb05a7eaa5712c75653f2cba
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 581029d2372f7a2ef704dcf02f266b66440aa246
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804302"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80873908"
 ---
 # <a name="azure-resources-for-qna-maker"></a>QnA 메이커를 위한 Azure 리소스
 
@@ -49,6 +49,16 @@ QnA Maker는 서로 다른 용도로 각각 여러 Azure 원본을 사용합니�
 | 실험        | 체험 SKU             | 체험 계층   | 체험 계층    | KB 최대 2개, 50MB 크기까지 게시  |
 | 개발/테스트 환경   | 표준 SKU         | Shared      | Basic        | 최대 14KB, 2GB 크기까지 게시    |
 | 프로덕션 환경 | 표준 SKU         | Basic       | Standard     | KB 최대 49개, 25GB 크기까지 게시 |
+
+## <a name="recommended-settings"></a>권장 설정
+
+|대상 QPS | App Service | Azure Cognitive Search |
+| -------------------- | ----------- | ------------ |
+| 3             | S1, 1 인스턴스   | S1, 1 인스턴스    |
+| 50         | S3, 인스턴스 10개       | S1, 인스턴스 12개         |
+| 80         | S3, 인스턴스 10개      |  S3, 인스턴스 12개  |
+| 100         | P3V2, 인스턴스 10개  | S3, 12 인스턴스, 3개의 파티션   |
+| 200 ~ 250         | P3V2, 20 인스턴스 | S3, 12 인스턴스, 3개의 파티션    |
 
 ## <a name="when-to-change-a-pricing-tier"></a>가격 책정 계층을 변경하는 시기
 
@@ -162,9 +172,9 @@ API를 통해 서비스에 요청할 때 이러한 키를 사용합니다.
 
 ![키 관리](../media/qnamaker-how-to-key-management/key-management.png)
 
-|이름|위치|목적|
+|속성|위치|목적|
 |--|--|--|
-|작성 키|[Azure portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|이러한 키는 [QnA Maker 관리 서비스 API](https://go.microsoft.com/fwlink/?linkid=2092179)에 액세스하는 데 사용됩니다. 이러한 API를 사용하면 기술 자료의 질문과 답변을 편집하고 기술 자료게시할 수 있습니다. 이러한 키는 새 QnA Maker 서비스를 만들 때 만들어집니다.<br><br>**키** 페이지에서 **인지 서비스** 리소스에서 이러한 키를 찾습니다.|
+|작성 키|[Azure Portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|이러한 키는 [QnA Maker 관리 서비스 API](https://go.microsoft.com/fwlink/?linkid=2092179)에 액세스하는 데 사용됩니다. 이러한 API를 사용하면 기술 자료의 질문과 답변을 편집하고 기술 자료게시할 수 있습니다. 이러한 키는 새 QnA Maker 서비스를 만들 때 만들어집니다.<br><br>**키** 페이지에서 **인지 서비스** 리소스에서 이러한 키를 찾습니다.|
 |쿼리 끝점 키|[QnA Maker 포털](https://www.qnamaker.ai)|이러한 키는 게시된 기술 자료 끝점을 쿼리하여 사용자 질문에 대한 응답을 얻는 데 사용됩니다. 일반적으로 채팅 봇 또는 QnA Maker 서비스에 연결하는 클라이언트 응용 프로그램 코드에서 이 쿼리 끝점을 사용합니다. 이러한 키는 QnA Maker 기술 자료작성시 만들어집니다.<br><br>**서비스 설정** 페이지에서 이러한 키를 찾습니다. 드롭다운 메뉴의 페이지 오른쪽 상단에 있는 사용자 메뉴에서 이 페이지를 찾습니다.|
 
 ### <a name="subscription-keys"></a>구독 키

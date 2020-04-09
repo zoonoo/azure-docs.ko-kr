@@ -3,20 +3,20 @@ title: 컨테이너 구성 - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 컴퓨터 비전에서 텍스트 컨테이너 인식에 필요한 설정과 선택적 설정을 모두 구성하는 방법을 보여 주며 있습니다.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: ddbee3695c2a7ef7cb63c48cccacbd2d53a8c1a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3be302019c712c13bd29d7ed3781151a1648e847
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73718978"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879312"
 ---
 # <a name="configure-computer-vision-docker-containers"></a>컴퓨터 비전 도커 컨테이너 구성
 
@@ -51,9 +51,9 @@ ms.locfileid: "73718978"
 
 다음 표와 `vision/v1.0` 같이 끝점 URI에 라우팅을 추가해야 합니다. 
 
-|필수| 이름 | 데이터 형식 | 설명 |
+|필수| 속성 | 데이터 형식 | Description |
 |--|------|-----------|-------------|
-|yes| `Billing` | String | 청구 엔드포인트 URI입니다.<br><br>예제:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
+|예| `Billing` | String | 청구 엔드포인트 URI입니다.<br><br>예제:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
 ## <a name="eula-setting"></a>Eula 설정
 
@@ -79,10 +79,10 @@ Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 Docker 서비스 계정에서 사용하는 사용 권한과 호스트 마운트 위치 권한 간의 충돌로 인해 [호스트 컴퓨터의](computer-vision-how-to-install-containers.md#the-host-computer)탑재 위치에 액세스하지 못할 수 있습니다. 
 
-|Optional| 이름 | 데이터 형식 | 설명 |
+|옵션| 속성 | 데이터 형식 | Description |
 |-------|------|-----------|-------------|
 |허용되지 않음| `Input` | String | Computer Vision 컨테이너에는 사용되지 않습니다.|
-|Optional| `Output` | String | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
+|옵션| `Output` | String | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Docker 실행 명령 예제
 
