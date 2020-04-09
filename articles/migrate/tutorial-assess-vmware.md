@@ -1,24 +1,19 @@
 ---
-title: Azure Migrate 서버 평가를 사용하여 Azure로 마이그레이션할 VMware VM 평가
-description: Azure Migrate를 사용하여 Azure로 마이그레이션할 온-프레미스 VMware VM을 평가하는 방법을 설명합니다.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+title: Azure로 마이그레이션할 VMware VM 평가
+description: Azure Migrate Server Assessment를 사용하여 Azure로 마이그레이션할 온-프레미스 VMware VM을 평가하는 방법을 설명합니다.
 ms.topic: tutorial
-ms.date: 11/19/2019
-ms.author: hamusa
-ms.openlocfilehash: 7f161afe13bad8c548806d4b4ceb9372dc511cc3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 03/23/2019
+ms.openlocfilehash: 944b7c12a353a29a172576974261eece63ebf668
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223290"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548739"
 ---
 # <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>Azure Migrate 서버 평가를 사용하여 VMware VM 평가
 
-이 문서에서는 Azure Migrate의 서버 평가 도구를 사용하여 온-프레미스 VMware VM(가상 머신)을 평가하는 방법을 보여 줍니다.
+이 문서에서는 [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) 도구를 사용하여 온-프레미스 VMware VM(가상 머신)을 평가하는 방법을 보여 줍니다.
 
-[Azure Migrate](migrate-services-overview.md)는 앱, 인프라 및 워크로드를 검색, 평가 및 Microsoft Azure로 마이그레이션하는 데 도움이 되는 도구의 허브를 제공합니다. 허브에는 Microsoft 파트너가 제공하는 Azure Migrate 도구와 ISV(독립 소프트웨어 공급업체) 제품이 포함되어 있습니다.
 
 이 자습서는 VMware VM을 평가하고 Azure로 마이그레이션하는 방법을 보여 주는 시리즈의 두 번째 자습서입니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -35,17 +30,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 시리즈의 [첫 번째 자습서를 완료](tutorial-prepare-vmware.md)합니다. 그렇지 않으면 이 자습서의 지침이 작동하지 않습니다.
-
-첫 번째 자습서에서 수행해야 하는 작업은 다음과 같습니다.
-
-- Azure Migrate에 대한 [Azure 권한을 설정](tutorial-prepare-vmware.md#prepare-azure)합니다.
-- 평가할 [VMware를 준비](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment)합니다.
-   - VMware 설정을 [확인](migrate-support-matrix-vmware.md#vmware-requirements)합니다.
-   - OVA 템플릿을 사용하여 VMware VM을 만들 수 있는 권한을 VMware에 설정합니다.
-   - [VM 검색을 위한 계정](migrate-support-matrix-vmware.md#vmware-requirements)을 설정합니다. 
-   - [필요한 포트](migrate-support-matrix-vmware.md#port-access)를 사용할 수 있도록 설정합니다.
-   - Azure에 액세스하는 데 [필요한 URL](migrate-replication-appliance.md#url-access)을 알고 있어야 합니다.
+- 이 시리즈의 [첫 번째 자습서를 완료](tutorial-prepare-vmware.md)합니다. 그렇지 않으면 이 자습서의 지침이 작동하지 않습니다.
+- 첫 번째 자습서에서 수행해야 하는 작업은 다음과 같습니다.
+    - Azure Migrate를 사용할 수 있도록 [Azure를 준비](tutorial-prepare-vmware.md#prepare-azure)합니다.
+    - [평가할 VMware를 준비](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment)합니다. 여기에는 VMware 설정 확인, Azure Migrate에서 vCenter Server에 액세스하는 데 사용할 수 있는 계정 설정이 포함됩니다.
+    - VMware를 평가할 Azure Migrate 어플라이언스를 배포하는 데 필요한 항목을 [확인](tutorial-prepare-vmware.md#verify-appliance-settings-for-assessment)합니다.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Azure Migrate 프로젝트 설정
 
@@ -74,17 +63,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **검토 + 도구 추가**에서 설정을 검토하고, **도구 추가**를 선택합니다.
 1. Azure Migrate 프로젝트가 배포될 때까지 몇 분 정도 기다립니다. 프로젝트 페이지로 이동합니다. 프로젝트가 표시되지 않으면 Azure Migrate 대시보드의 **서버**에서 액세스할 수 있습니다.
 
-## <a name="set-up-the-appliance-vm"></a>어플라이언스 VM 설정
+## <a name="set-up-the-azure-migrate-appliance"></a>Azure Migrate 어플라이언스 설정
 
-Azure Migrate 서버 평가는 간단한 VMware VM 어플라이언스를 실행합니다. 이 어플라이언스는 VM 검색을 수행하고 VM 메타데이터 및 성능 데이터를 수집합니다.
+Azure Migrate:Server Assessment는 간단한 Azure Migrate 어플라이언스를 사용합니다. 이 어플라이언스는 VM 검색을 수행하고, VM 메타데이터와 성능 데이터를 Azure Migrate에 보냅니다.
+- 다운로드한 OVA 템플릿을 사용하여 VMware VM에서 어플라이언스를 설정할 수 있습니다. 또는 PowerShell 설치 관리자 스크립트를 사용하여 VM 또는 물리적 머신에서 어플라이언스를 설정할 수 있습니다.
+- 이 자습서에서는 OVA 템플릿을 사용합니다. 스크립트를 사용하여 어플라이언스를 설정하려면 [이 문서](deploy-appliance-script.md)를 검토하세요.
 
-어플라이언스를 설정하려면 다음을 수행합니다.
+어플라이언스가 만들어지면 Azure Migrate:Server Assessment에 연결하여 처음으로 구성하고, Azure Migrate 프로젝트에 등록할 수 있는지 확인합니다.
 
-- OVA 템플릿 파일을 다운로드하여 vCenter Server로 가져옵니다.
-- 어플라이언스를 만들고, Azure Migrate 서버 평가에 연결할 수 있는지 확인합니다.
-- 어플라이언스를 처음으로 구성하고, Azure Migrate 프로젝트에 등록합니다.
 
-단일 Azure Migrate 프로젝트에 대해 여러 어플라이언스를 설정할 수 있습니다. 서버 평가는 모든 어플라이언스에서 최대 35,000개의 VM을 검색할 수 있습니다. 어플라이언스당 최대 10,000개의 서버를 검색할 수 있습니다.
 
 ### <a name="download-the-ova-template"></a>OVA 템플릿 다운로드
 
@@ -134,7 +121,10 @@ SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 ### <a name="configure-the-appliance"></a>어플라이언스 구성
 
-다음 단계를 사용하여 어플라이언스를 설정합니다.
+어플라이언스를 처음으로 설정합니다.
+
+> [!NOTE]
+> 다운로드한 OVA 대신 [PowerShell 스크립트](deploy-appliance-script.md)를 사용하여 어플라이언스를 설정하는 경우 이 절차의 처음 두 단계는 관련이 없습니다.
 
 1. vSphere Client 콘솔에서 마우스 오른쪽 단추로 VM을 클릭한 다음, **콘솔 열기**를 선택합니다.
 1. 어플라이언스에 대한 언어, 표준 시간대 및 암호를 제공합니다.
@@ -164,77 +154,30 @@ SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 1. 어플라이언스의 이름을 지정합니다. 이름은 14자 이하의 영숫자여야 합니다.
 1. **등록**을 선택합니다.
 
+
 ## <a name="start-continuous-discovery"></a>연속 검색 시작
 
 어플라이언스는 VM의 구성 및 성능 데이터를 검색하기 위해 vCenter Server에 연결해야 합니다.
 
 ### <a name="specify-vcenter-server-details"></a>vCenter Server 세부 정보 지정
 1. **vCenter Server 세부 정보 지정**에서 vCenter Server 인스턴스의 이름(FQDN) 또는 IP 주소를 지정합니다. 기본 포트를 그대로 유지하거나 vCenter Server에서 수신 대기하는 사용자 지정 포트를 지정할 수 있습니다.
-1. **사용자 이름** 및 **암호**에서 어플라이언스가 vCenter Server 인스턴스에서 VM을 검색하는 데 사용할 vCenter Server 계정 자격 증명을 지정합니다. 
+2. **사용자 이름** 및 **암호**에서 어플라이언스가 vCenter Server 인스턴스에서 VM을 검색하는 데 사용할 vCenter Server 계정 자격 증명을 지정합니다. 
 
-   계정에 [필요한 검색 권한](migrate-support-matrix-vmware.md#vmware-requirements)이 있는지 확인합니다. [검색 범위](tutorial-assess-vmware.md#set-the-scope-of-discovery)는 vCenter 계정에 대한 액세스를 제한하여 지정할 수 있습니다.
-1. **연결 유효성 검사**를 선택하여 어플라이언스에서 vCenter Server에 연결할 수 있는지 확인합니다.
+    - [이전 자습서](tutorial-prepare-vmware.md#set-up-an-account-for-assessment)에서 필요한 권한이 있는 계정을 설정했어야 합니다.
+    - 검색 범위를 특정 VMware 개체(vCenter Server 데이터 센터, 클러스터, 클러스터 폴더, 호스트, 호스트 폴더 또는 개별 VM)로 지정하려면 [이 문서](set-discovery-scope.md)의 지침을 검토하여 Azure Migrate에서 사용하는 계정을 제한합니다.
 
-### <a name="specify-vm-credentials"></a>VM 자격 증명 지정
-애플리케이션, 역할 및 기능을 검색하고 VM의 종속성을 시각화하는 경우 VMware VM에 액세스할 수 있는 VM 자격 증명을 제공할 수 있습니다. Windows VM용 자격 증명과 Linux VM용 자격 증명을 각각 1개씩 추가할 수 있습니다. 필요한 액세스 권한에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware).
+3. **연결 유효성 검사**를 선택하여 어플라이언스에서 vCenter Server에 연결할 수 있는지 확인합니다.
+4. **VM에서 애플리케이션 및 종속성 검색**에서 필요에 따라 **자격 증명 추가**를 클릭하고, 자격 증명과 관련된 운영 체제와 자격 증명 사용자 이름 및 암호를 지정합니다. 그런 다음, **추가**를 클릭합니다.
 
-> [!NOTE]
-> 이 입력은 선택 사항이지만, 애플리케이션 검색 및 에이전트 없는 종속성 시각화를 사용하도록 설정하려면 필요합니다.
+    - [애플리케이션 검색 기능](how-to-discover-applications.md) 또는 [에이전트 없는 종속성 분석 기능](how-to-create-group-machine-dependencies-agentless.md)에 사용할 계정을 만든 경우 필요에 따라 자격 증명을 여기에 추가해야 합니다.
+    - 이러한 기능을 사용하지 않는 경우 이 설정을 건너뛸 수 있습니다.
+    - [앱 검색](migrate-support-matrix-vmware.md#application-discovery) 또는 [에이전트 없는 분석](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements)에 필요한 자격 증명을 검토합니다.
 
-1. **VM에서 애플리케이션 및 종속성 검색**에서 **자격 증명 추가**를 선택합니다.
-1. **운영 체제**를 선택합니다.
-1. 자격 증명의 이름을 제공합니다.
-1. **사용자 이름** 및 **암호**에서 VM에 대해 게스트 액세스 권한이 있는 계정을 지정합니다.
-1. **추가**를 선택합니다.
+5. **저장 및 검색 시작**을 선택하여 VM 검색을 시작합니다.
 
-vCenter Server 인스턴스 및 VM 자격 증명(선택 사항)이 지정되면 **저장 및 검색 시작**을 선택하여 온-프레미스 환경 검색을 시작합니다.
-
-검색된 VM의 메타데이터가 포털에 표시되는 데 약 15분이 걸립니다. 설치된 애플리케이션, 역할 및 기능을 검색하는 데 시간이 걸립니다. 기간은 검색되는 VM 수에 따라 달라집니다. VM이 500개 있는 경우 애플리케이션 인벤토리가 Azure Migrate 포털에 표시되는 데 약 1시간이 걸립니다.
-
-### <a name="set-the-scope-of-discovery"></a>검색 범위 설정
-
-검색 범위는 검색에 사용되는 vCenter 계정의 액세스를 제한하여 지정할 수 있습니다. 범위는 vCenter Server 데이터 센터, 클러스터, 클러스터 폴더, 호스트, 호스트 폴더 또는 개별 VM으로 설정할 수 있습니다.
-
-범위를 설정하려면 다음 절차를 수행합니다.
-
-#### <a name="1-create-a-vcenter-user-account"></a>1. vCenter 사용자 계정 만들기
-1.  vCenter Server 관리자 권한으로 vSphere Web Client에 로그인합니다.
-1.  **관리** > **SSO 사용자 및 그룹**을 차례로 선택한 다음, **사용자** 탭을 선택합니다.
-1.  **새 사용자** 아이콘을 선택합니다.
-1.  새 사용자를 만드는 데 필요한 정보를 입력한 다음, **확인**을 선택합니다.
-
-#### <a name="2-define-a-new-role-with-required-permission"></a>2. 필요한 권한으로 새 역할 정의
-이 절차는 에이전트 없는 서버 마이그레이션에 필요합니다.
-1.  vCenter Server 관리자 권한으로 vSphere Web Client에 로그인합니다.
-1.  **관리** > **역할 관리자**로 이동합니다.
-1.  드롭다운 메뉴에서 vCenter Server 인스턴스를 선택합니다.
-1.  **Create role**(역할 만들기)을 선택합니다.
-1.  새 역할의 이름(예: <em>Azure_Migrate</em>)을 입력합니다.
-1.  [권한](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)을 새로 정의한 역할에 할당합니다.
-1.  **확인**을 선택합니다.
-
-#### <a name="3-assign-permissions-on-vcenter-objects"></a>3. vCenter 개체에 대한 권한 할당
-
-vCenter의 인벤토리 개체에 대한 권한을 역할이 할당된 vCenter 사용자 계정에 할당하는 방법에는 두 가지가 있습니다.
-
-서버 평가의 경우 검색할 VM이 호스팅되는 모든 부모 개체의 vCenter 사용자 계정에 **읽기 전용** 역할을 적용해야 합니다. 데이터 센터까지의 계층 구조에 있는 모든 부모 개체(호스트, 호스트 폴더, 클러스터, 클러스터 폴더)가 포함됩니다. 이러한 권한은 계층 구조의 자식 개체에 전파됩니다.
-
-마찬가지로 서버 마이그레이션의 경우에도 마이그레이션할 VM이 호스팅되는 모든 부모 개체의 vCenter 사용자 계정에 [권한](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)이 포함된 사용자 정의 역할을 적용해야 합니다. 이 역할의 이름은 <em>Azure _Migrate</em>입니다.
-
-![권한 할당](./media/tutorial-assess-vmware/assign-perms.png)
-
-대안으로 데이터 센터 수준에서 사용자 계정 및 역할을 할당하고 자식 개체에 전파하는 것이 있습니다. 그런 다음, 검색/마이그레이션하지 않으려는 모든 개체(예: VM)의 계정에 **액세스 못함** 역할을 부여합니다. 
-
-이 대체 구성은 복잡합니다. 모든 새로운 자식 개체에게는 부모로부터 상속된 액세스도 자동으로 부여되므로 우발적인 액세스 제어를 공개합니다. 따라서 첫 번째 방법을 사용하는 것이 좋습니다.
-
-> [!NOTE]
-> 현재 vCenter VM 폴더 수준의 액세스 권한이 vCenter 계정에 부여된 경우 서버 평가에서 VM을 검색할 수 없습니다. VM 폴더별로 검색 범위를 지정하려면 다음 절차를 사용하여 이 작업을 수행할 수 있습니다. 그러면 VM 수준의 읽기 전용 액세스 권한이 vCenter 계정에 할당됩니다.
->
-> 1. 검색 범위를 지정하려는 VM 폴더의 모든 VM에 읽기 전용 권한을 할당합니다.
-> 1. VM이 호스팅되는 모든 부모 개체에 대한 읽기 전용 액세스 권한을 부여합니다. 데이터 센터까지의 계층 구조에 있는 모든 부모 개체(호스트, 호스트 폴더, 클러스터, 클러스터 폴더)가 포함됩니다. 모든 자식 개체에 권한을 전파할 필요가 없습니다.
-> 1. 데이터 센터를 **컬렉션 범위**로 선택하여 자격 증명을 검색에 사용합니다. 설정된 역할 기반 액세스 제어를 사용하면 해당 vCenter 사용자가 테넌트별 VM에만 액세스할 수 있습니다.
->
-> 호스트 및 클러스터의 폴더가 지원됨에 유의하세요.
+검색은 다음과 같이 작동합니다.
+- 검색된 VM 메타데이터가 포털에 표시되는 데 약 15분이 걸립니다.
+- 설치된 애플리케이션, 역할 및 기능을 검색하는 데 시간이 걸립니다. 기간은 검색되는 VM 수에 따라 달라집니다. 500개 VM의 경우 애플리케이션 인벤토리가 Azure Migrate 포털에 표시되는 데 약 1시간이 걸립니다.
 
 ### <a name="verify-vms-in-the-portal"></a>포털에서 VM 확인
 
@@ -285,7 +228,7 @@ Azure Migrate 서버 평가를 사용하여 두 가지 유형의 평가를 만�
 
 평가를 보려면 다음을 수행합니다.
 
-1. **마이그레이션 목표** > **서버**의 **Azure Migrate: 서버 평가**에서 평가를 클릭합니다.
+1. **마이그레이션 목표** > **서버**의 **Azure Migrate: 서버 평가**에서 **평가**를 클릭합니다.
 1. **평가**에서 평가를 선택하여 엽니다.
 
    ![평가 요약](./media/tutorial-assess-vmware/assessment-summary.png)
