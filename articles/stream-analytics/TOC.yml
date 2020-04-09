@@ -39,6 +39,8 @@
       href: streaming-technologies.md
     - name: 작업 개발 도구 선택
       href: feature-comparison.md
+    - name: 로컬에서 개발
+      href: develop-locally.md
     - name: 작업에 대한 입력 형식
       items:
         - name: 입력 개요

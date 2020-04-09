@@ -6,12 +6,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 0f7c48c47e400c2db53b024267fbf9d9690ea404
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a39cd7aa2c15fedeaf69408d8c8ae8c6b0848fed
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79204684"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677397"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-azure-dedicated-hosts"></a>Azure 예약 할인이 Azure Dedicated Host에 적용되는 방식
 
@@ -21,7 +21,7 @@ Azure Reserved Dedicated Host Instance를 구입한 후에 예약 할인이 예�
 
 예약 할인은 "*use-it-or-lose-it*" 방식입니다. 따라서 모든 시간에 대해 일치하는 리소스가 없는 경우 해당 시간의 예약 수량이 손실됩니다. 사용하지 않는 예약 시간은 이월할 수 없습니다.
 
-전용 호스트를 삭제하면 지정된 범위에 있는 일치하는 다른 리소스에 예약 할인이 자동으로 적용됩니다. 지정된 범위에서 일치하는 리소스를 찾을 수 없으면 예약된 시간이  *소멸*됩니다.
+전용 호스트를 삭제하면 지정된 범위에 있는 일치하는 다른 리소스에 예약 할인이 자동으로 적용됩니다. 지정된 범위에서 일치하는 리소스를 찾을 수 없는 경우 예약된 시간이 *사라집니다*.
 
 ## <a name="reservation-discount-for-dedicated-hosts"></a>Dedicated Host에 대한 예약 할인
 
