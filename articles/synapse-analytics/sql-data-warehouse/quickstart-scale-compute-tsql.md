@@ -11,37 +11,37 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ba0bcc61cbfbb16652021045a3b25bbcee72df2c
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 780137c8e081917b317656de3caba60dfaea4810
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350773"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633740"
 ---
 # <a name="quickstart-scale-compute-in-azure-synapse-analytics-using-t-sql"></a>빠른 시작: T-SQL을 사용하여 Azure Synapse Analytics에서 컴퓨팅 크기 조정
 
-T-SQL 및 SSMS(SQL Server Management Studio)를 사용하여 Azure Synapse Analytics(이전의 SQL DW)에서 컴퓨팅 능력을 조정합니다. 더 나은 성능을 위해 [컴퓨팅 능력을 확장](sql-data-warehouse-manage-compute-overview.md)하거나 비용 절감을 위해 다시 축소할 수 있습니다. 
+T-SQL 및 SSMS(SQL Server Management Studio)를 사용하여 Azure Synapse Analytics(이전의 SQL DW)에서 컴퓨팅 능력을 조정합니다. 더 나은 성능을 위해 [컴퓨팅 능력을 확장](sql-data-warehouse-manage-compute-overview.md)하거나 비용 절감을 위해 다시 축소할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-최신 버전의 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)를 다운로드하여 설치합니다.
- 
+최신 버전의 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 다운로드하여 설치합니다.
+
 ## <a name="create-a-data-warehouse"></a>데이터 웨어하우스 만들기
 
 [빠른 시작: 만들기 및 연결 - 포털](create-data-warehouse-portal.md)을 사용하여 **mySampleDataWarehouse**라는 데이터 웨어하우스를 만듭니다. 이 빠른 시작을 완료하여 방화벽 규칙이 있는지와 SQL Server Management Studio 내에서 데이터 웨어하우스에 연결할 수 있는지 확인합니다.
 
 ## <a name="connect-to-the-server-as-server-admin"></a>서버 관리자 권한으로 서버에 연결
 
-이 섹션에서는 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 사용하여 Azure SQL 서버에 연결합니다.
+이 섹션에서는 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest))를 사용하여 Azure SQL 서버에 연결합니다.
 
 1. SQL Server Management Studio를 엽니다.
 
 2. **서버에 연결** 대화 상자에 다음 정보를 입력합니다.
 
-   | 설정       | 제안 값 | Description | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
+   | 설정       | 제안 값 | Description |
+   | ------------ | ------------------ | ------------------------------------------------- |
    | 서버 유형 | 데이터베이스 엔진 | 이 값은 필수입니다. |
    | 서버 이름 | 정규화된 서버 이름 | 예를 들면 다음과 같습니다. **mySampleDataWarehouseservername.database.windows.net** |
    | 인증 | SQL Server 인증 | SQL 인증은 이 자습서에서 구성되어 있는 유일한 인증 유형입니다. |
@@ -57,38 +57,40 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ![데이터베이스 개체](./media/quickstart-scale-compute-tsql/connected.png)
 
 ## <a name="view-service-objective"></a>서비스 목표 보기
-서비스 목표 설정에는 데이터 웨어하우스에 대한 데이터 웨어하우스 단위 수가 포함됩니다. 
+
+서비스 목표 설정에는 데이터 웨어하우스에 대한 데이터 웨어하우스 단위 수가 포함됩니다.
 
 데이터 웨어하우스에 대한 현재 데이터 웨어하우스 단위를 보려면
 
 1. **mySampleDataWarehouseservername.database.windows.net**에 대한 연결에서 **시스템 데이터베이스**를 확장합니다.
 2. **master**를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다. 새 쿼리 창이 열립니다.
-3. sys.database_service_objectives 동적 관리 뷰에서 다음 쿼리를 실행합니다. 
+3. sys.database_service_objectives 동적 관리 뷰에서 다음 쿼리를 실행합니다.
 
     ```sql
     SELECT
         db.name [Database]
-    ,   ds.edition [Edition]
-    ,   ds.service_objective [Service Objective]
+    ,    ds.edition [Edition]
+    ,    ds.service_objective [Service Objective]
     FROM
-        sys.database_service_objectives ds
+         sys.database_service_objectives ds
     JOIN
         sys.databases db ON ds.database_id = db.database_id
-    WHERE 
+    WHERE
         db.name = 'mySampleDataWarehouse'
     ```
 
-4. 다음 결과에서 **mySampleDataWarehouse**의 서비스 목표는 DW400으로 표시됩니다. 
+4. 다음 결과에서 **mySampleDataWarehouse**의 서비스 목표는 DW400으로 표시됩니다.
 
     ![iew-current-dwu](./media/quickstart-scale-compute-tsql/view-current-dwu.png)
 
 ## <a name="scale-compute"></a>컴퓨팅 크기 조정
+
 Azure Synapse에서 데이터 웨어하우스 단위를 조정하여 컴퓨팅 리소스를 늘리거나 줄일 수 있습니다. [만들기 및 연결 - 포털](create-data-warehouse-portal.md)에서 **mySampleDataWarehouse**를 만들고 400 DWU로 초기화했습니다. 다음 단계에서는 **mySampleDataWarehouse**에 대해 DWU를 조정합니다.
 
 데이터 웨어하우스 단위를 변경하려면
 
 1. **master**를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
-2. [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) T-SQL 문을 사용하여 서비스 목표를 수정합니다. 다음 쿼리를 실행하여 서비스 목표를 DW300으로 변경합니다. 
+2. [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 문을 사용하여 서비스 목표를 수정합니다. 다음 쿼리를 실행하여 서비스 목표를 DW300으로 변경합니다.
 
     ```Sql
     ALTER DATABASE mySampleDataWarehouse
@@ -96,6 +98,7 @@ Azure Synapse에서 데이터 웨어하우스 단위를 조정하여 컴퓨팅 �
     ```
 
 ## <a name="monitor-scale-change-request"></a>규모 변경 요청 모니터링
+
 이전 변경 요청의 진행률을 보려면 `WAITFORDELAY` T-SQL 구문을 사용하여 sys.dm_operation_status DMV(동적 관리 뷰)를 폴링할 수 있습니다.
 
 서비스 개체 변경 상태를 폴링하려면 다음을 수행합니다.
@@ -104,11 +107,11 @@ Azure Synapse에서 데이터 웨어하우스 단위를 조정하여 컴퓨팅 �
 2. 다음 쿼리를 실행하여 sys.dm_operation_status DMV를 폴링합니다.
 
     ```sql
-    WHILE 
+    WHILE
     (
         SELECT TOP 1 state_desc
         FROM sys.dm_operation_status
-        WHERE 
+        WHERE
             1=1
             AND resource_type_desc = 'Database'
             AND major_resource_id = 'mySampleDataWarehouse'
@@ -122,17 +125,18 @@ Azure Synapse에서 데이터 웨어하우스 단위를 조정하여 컴퓨팅 �
     END
     PRINT 'Complete';
     ```
+
 3. 결과 출력에 상태 폴링 로그가 표시됩니다.
 
     ![작업 상태](./media/quickstart-scale-compute-tsql/polling-output.png)
 
 ## <a name="check-data-warehouse-state"></a>데이터 웨어하우스 상태 확인
 
-데이터 웨어하우스를 일시 중지하면 T-SQL로 연결할 수 없습니다. 데이터 웨어하우스의 현재 상태를 보려면 PowerShell cmdlet을 사용합니다. 한 예로 [데이터 웨어하우스 상태 확인 - Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state)을 참조하세요. 
+데이터 웨어하우스를 일시 중지하면 T-SQL로 연결할 수 없습니다. 데이터 웨어하우스의 현재 상태를 보려면 PowerShell cmdlet을 사용합니다. 한 예로 [데이터 웨어하우스 상태 확인 - Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state)을 참조하세요.
 
 ## <a name="check-operation-status"></a>작업 상태 확인
 
-Azure Synapse의 다양한 관리 작업에 대한 정보를 반환하려면 [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) DMV에 대해 다음 쿼리를 실행합니다. 예를 들어 작업 및 작업 상태(IN_PROGRESS 또는 COMPLETED)를 반환합니다.
+Azure Synapse의 다양한 관리 작업에 대한 정보를 반환하려면 [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) DMV에 대해 다음 쿼리를 실행합니다. 예를 들어 작업 및 작업 상태(IN_PROGRESS 또는 COMPLETED)를 반환합니다.
 
 ```sql
 SELECT *
@@ -140,12 +144,12 @@ FROM
     sys.dm_operation_status
 WHERE
     resource_type_desc = 'Database'
-AND 
+AND
     major_resource_id = 'mySampleDataWarehouse'
 ```
 
-
 ## <a name="next-steps"></a>다음 단계
+
 지금까지 데이터 웨어하우스의 컴퓨팅 규모를 조정하는 방법을 배웠습니다. Azure Synapse에 대해 자세히 알아보려면 데이터 로드에 대한 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]

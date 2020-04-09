@@ -230,7 +230,7 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Face 서비스를 호출하는 JavaScript 스크립트를 작성하여 이미지에서 얼굴을 감지하고 특성을 반환했습니다. 다음에는 Face API 참조 설명서를 살펴보고 보다 자세히 알아보겠습니다.
+이 빠른 시작에서는 Azure Face 서비스를 호출하는 JavaScript 스크립트를 작성하여 이미지에서 얼굴을 감지하고 특성을 나타냈습니다. 이제 Face API 참조 설명서에서 자세한 내용을 알아보겠습니다.
 
 > [!div class="nextstepaction"]
 > [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

@@ -3,26 +3,22 @@ title: MSAL(iOS/macOS)에서 리디렉션 URI 사용 | Azure
 titleSuffix: Microsoft identity platform
 description: ObjectiveC용 Microsoft 인증 라이브러리(iOS 및 macOS용 MSAL)와 ObjectiveC용 Azure AD 인증 라이브러리(ADAL.ObjC)의 차이점과 이들 사이의 마이그레이션 방법에 대해 알아 봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: mmacy
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: jak
 ms.custom: aaddev
-ms.openlocfilehash: c36c6b1b1b08de6d2db9a7f7f9ebd3b162c02383
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1291563a39e3cf3acd4b343302be8b150bf794ca
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215891"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883511"
 ---
 # <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>iOS 및 macOS용 Microsoft 인증 라이브러리를 통해 리디렉션 URI 사용
 

@@ -18,12 +18,12 @@ ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: e0682a33540cafd8ebab1bb248d462b30ee4dc2a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e6bc4ed94c8b8e62740f81497231a163283ebcb7
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80127530"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521565"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase"></a>자습서: Firebase를 사용하여 Android 디바이스에 푸시 알림 보내기
 
@@ -31,7 +31,7 @@ ms.locfileid: "80127530"
 
 이 자습서에서는 Azure Notification Hubs 및 FCM(Firebase Cloud Messaging)을 사용하여 Android 애플리케이션에 알림을 푸시하는 방법을 보여줍니다. 이 자습서에서는 FCM(Firebase Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 앱을 만듭니다.
 
-이 자습서의 완성된 코드는 [GitHub에서](https://github.com/Azure/azure-notificationhubs-android/tree/master/samples/FCMTutorialApp) 다운로드할 수 있습니다.
+이 자습서의 완성된 코드는 [GitHub에서](https://github.com/Azure/azure-notificationhubs-android/tree/master/FCMTutorialApp) 다운로드할 수 있습니다.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 

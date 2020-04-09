@@ -7,14 +7,14 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 02/26/2020
+ms.date: 03/31/2020
 ms.author: tamram
-ms.openlocfilehash: 479145f4d42c0708c109ab582e76e3691971c6ad
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3b005bc359b3c1b0cafe663b7ce2b599b10973a1
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061415"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474009"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Blob 업로드, 다운로드 및 나열
 
@@ -28,7 +28,7 @@ Azure Storage에 액세스하려면 Azure 구독이 있어야 합니다. Azure �
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-이 빠른 시작에서는 Azure PowerShell 모듈 Az 버전 0.7 이상이 필요합니다. `Get-InstalledModule -Name Az -AllVersions | select Name,Version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요.
+이 빠른 시작에서는 Azure PowerShell 모듈 Az 버전 0.7 이상이 필요합니다. `Get-InstalledModule -Name Az -AllVersions | select Name,Version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-powershell](../../../includes/storage-quickstart-tutorial-intro-include-powershell.md)]
 
@@ -36,7 +36,7 @@ Azure Storage에 액세스하려면 Azure 구독이 있어야 합니다. Azure �
 
 Blob은 항상 컨테이너에 업로드됩니다. 폴더에서 컴퓨터의 파일을 구성하는 방식과 같이 Blob 그룹을 구성할 수 있습니다.
 
-컨테이너 이름을 설정한 다음, [New-AzStorageContainer](/powershell/module/az.storage/new-AzStoragecontainer)를 사용하여 컨테이너를 만듭니다. 파일의 공용 액세스를 허용하도록 권한을 `blob`으로 설정합니다. 이 예제의 컨테이너 이름은 *quickstartblobs*입니다.
+컨테이너 이름을 설정한 다음, [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer)를 사용하여 컨테이너를 만듭니다. 파일의 공용 액세스를 허용하도록 권한을 `blob`으로 설정합니다. 이 예제의 컨테이너 이름은 *quickstartblobs*입니다.
 
 ```powershell
 $containerName = "quickstartblobs"
@@ -47,7 +47,7 @@ New-AzStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. IaaS VM을 백업하는 VHD 파일은 페이지 Blob입니다. 파일에 쓴 다음, 더 많은 정보를 계속해서 추가하려는 경우처럼 로깅에 추가 Blob을 사용합니다. Blob Storage에 저장된 대부분의 파일은 블록 Blob입니다. 
 
-블록 Blob에 파일을 업로드하려면 컨테이너 참조를 가져온 다음 해당 컨테이너의 블록 Blob에 대한 참조를 가져옵니다. Blob 참조가 있으면 [Set-AzStorageBlobContent](/powershell/module/az.storage/set-AzStorageblobcontent)를 사용하여 데이터를 업로드할 수 있습니다. 이 작업은 Blob이 없는 경우 새로 만들고, Blob이 있는 경우 덮어씁니다.
+블록 Blob에 파일을 업로드하려면 컨테이너 참조를 가져온 다음 해당 컨테이너의 블록 Blob에 대한 참조를 가져옵니다. Blob 참조가 있으면 [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent)를 사용하여 데이터를 업로드할 수 있습니다. 이 작업은 Blob이 없는 경우 새로 만들고, Blob이 있는 경우 덮어씁니다.
 
 다음 예제에서는 *Image001.jpg* 및 *Image002.png*를 로컬 디스크의 *D:\\_TestImages* 폴더에서 방금 만든 컨테이너로 업로드합니다.
 
@@ -69,7 +69,7 @@ Set-AzStorageBlobContent -File "D:\_TestImages\Image002.png" `
 
 ## <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
 
-[Get-AzStorageBlob](/powershell/module/az.storage/get-AzStorageblob)을 사용하여 컨테이너의 Blob 목록을 가져옵니다. 이 예제에서는 업로드된 Blob의 이름만 보여 줍니다.
+[Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob)을 사용하여 컨테이너의 Blob 목록을 가져옵니다. 이 예제에서는 업로드된 Blob의 이름만 보여 줍니다.
 
 ```powershell
 Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name
@@ -77,7 +77,7 @@ Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 ## <a name="download-blobs"></a>Blob 다운로드
 
-로컬 디스크로 Blob을 다운로드합니다. 다운로드하려는 각 Blob의 경우 이름을 설정하고 [Get-AzStorageBlobContent](/powershell/module/az.storage/get-AzStorageblobcontent)를 호출하여 Blob을 다운로드합니다.
+로컬 디스크로 Blob을 다운로드합니다. 다운로드하려는 각 Blob의 경우 이름을 설정하고 [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent)를 호출하여 Blob을 다운로드합니다.
 
 이 예제에서는 로컬 디스크의 *D:\\_TestImages\Downloads*에 Blob을 다운로드합니다. 
 

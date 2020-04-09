@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 0cf171da5f473a0d78fc5f37139c94b0e519bcfb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1da862a7994d7db5ee8c9f090119e14f19c6b13a
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79289971"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637886"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>빠른 시작: Azure Monitor를 사용하여 하이브리드 환경에서 Linux 컴퓨터의 데이터 수집
 
 [Azure Monitor](../overview.md)는 상세한 분석 및 상관 관계 파악을 위해 사용자 환경의 물리적 또는 가상 Linux 컴퓨터 데이터를 Log Analytics 작업 영역으로 직접 수집할 수 있습니다. [Log Analytics 에이전트](../platform/log-analytics-agent.md)를 설치하면 Azure Monitor에서 데이터 센터 또는 다른 클라우드 환경의 데이터를 수집할 수 있습니다. 이 빠른 시작에서는 몇 가지 간단한 단계로 Linux 서버에서 데이터를 구성 및 수집하는 방법을 보여줍니다. Azure Linux VM에 대한 자세한 내용은 [Azure 가상 머신에 대한 데이터 수집](../../azure-monitor/learn/quick-collect-azurevm.md)을 참조하세요.  
 
-지원되는 구성을 이해하려면 [지원되는 Windows 운영 체제](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) 및 [네트워크 방화벽 구성](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements)을 참조하세요.
+지원되는 구성을 이해하려면 [지원되는 Windows 운영 체제](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) 및 [네트워크 방화벽 구성](../../azure-monitor/platform/log-analytics-agent.md#network-requirements)을 참조하세요.
  
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

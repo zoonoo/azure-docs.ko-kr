@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 647bdcf5c8c49b5c942419c78155ed4f61c848bb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 05ba54c10cc693f81115f364d7a400e2275a3875
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215491"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528226"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>빠른 시작: Azure SQL Database 연결 및 쿼리
 
@@ -76,7 +76,7 @@ TLS(전송 계층 보안)는 Microsoft가 Azure SQL Database에 대한 연결을
 | C# | Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/ef)<br>[Entity Framework Core](https://docs.microsoft.com/ef/core/index) |
 | Java | Windows, Linux, macOS |[Hibernate ORM](https://hibernate.org/orm)|
 | PHP | Windows, Linux, macOS | [Laravel(Eloquent)](https://laravel.com/docs/eloquent)<br>[Doctrine](https://www.doctrine-project.org/projects/orm.html) |
-| Node.js | Windows, Linux, macOS | [Sequelize ORM](https://docs.sequelizejs.com) |
+| Node.js | Windows, Linux, macOS | [Sequelize ORM](https://sequelize.org/) |
 | Python | Windows, Linux, macOS |[Django](https://www.djangoproject.com/) |
 | Ruby | Windows, Linux, macOS | [Ruby on Rails](https://rubyonrails.org/) |
 ||||

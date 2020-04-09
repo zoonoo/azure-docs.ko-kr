@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 617ab4114fd200c0b4306e3c27825bafe06b1764
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 988de8da839a677b47d679e7bd44059c7477a517
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80240127"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80986670"
 ---
 <a name="HOLTop"></a>
 
@@ -40,7 +40,7 @@ Python을 설치한 후, 다음을 사용하여 클라이언트 라이브러리�
 #### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
 
 ```console
-pip install azure-ai-textanalytics
+pip install azure-ai-textanalytics==1.0.0b3
 ```
 
 > [!TIP]

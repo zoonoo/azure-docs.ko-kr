@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
+ms.date: 04/02/2020
 ms.author: erhopf
-ms.openlocfilehash: 2ed41f424dfe985cc078314da5b138c7d7bcdf37
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 699bbea9d50c24558f6c9d4671cb6035e4718a43
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78925351"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671485"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -23,7 +23,7 @@ ms.locfileid: "78925351"
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
-> * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=xamarin)
+> * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=xamarin&pivots=programming-language-csharp)
 > * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 
 이미 이 작업을 수행한 경우 매우 유용합니다. 계속 진행하겠습니다.
@@ -146,4 +146,4 @@ ms.locfileid: "78925351"
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [footer](../footer.md)]

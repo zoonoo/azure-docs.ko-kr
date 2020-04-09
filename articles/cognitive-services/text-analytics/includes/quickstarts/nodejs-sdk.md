@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: a0616a8a2cc401b6b4c42c9882c14da2f123c6df
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 0cfe651a91cc16e7d4b58af67dac29fe5106a48c
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79481877"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80986750"
 ---
 <a name="HOLTop"></a>
 
@@ -61,7 +61,7 @@ npm init
 `@azure/ai-text-analytics` NPM 패키지 설치:
 
 ```console
-npm install --save @azure/ai-text-analytics
+npm install --save @azure/ai-text-analytics@1.0.0-preview.3
 ```
 
 > [!TIP]

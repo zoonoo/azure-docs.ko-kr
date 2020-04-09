@@ -2,14 +2,14 @@
 author: trrwilson
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/20/2020
+ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: fb78a78190a6817e1a199f9935fd55e173caa2b0
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 62c317843c275531286eeb2ae616d79ad76c6f99
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80241870"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671063"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -17,7 +17,7 @@ ms.locfileid: "80241870"
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](~/articles/cognitive-services/speech-service/get-started.md)
-> * [개발 환경 설정 및 빈 프로젝트 만들기](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=uwp)
+> * [개발 환경 설정 및 빈 프로젝트 만들기](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
 > * [Direct Line Speech 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)에 연결된 봇 만들기
 > * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 > 
