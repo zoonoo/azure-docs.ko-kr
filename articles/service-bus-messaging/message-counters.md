@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/08/2020
 ms.author: aschhab
-ms.openlocfilehash: 3a4fca0b3b60fcb76bcdc4f5f2d53df816c5053b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8020b12ca892fbf7dec6fed6259526d958fb110f
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76756382"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80891767"
 ---
 # <a name="message-counters"></a>메시지 카운터
 
@@ -43,6 +43,11 @@ PowerShell로 다음과 같이 수를 얻을 수 있습니다.
 -   [TransferMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transfermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferMessageCount): 다른 큐 또는 토픽으로 전송 대기중인 메시지입니다.
 
 애플리케이션이 큐의 길이에 따라 리소스 크기를 조정하려는 경우 정교한 속도로 조정해야 합니다. 메시지 카운터를 확보하는 작업은 메시지 broker 내부에 비용이 많이 소요되며 빈번하게 직접 실행하면 엔터티 성능에 부정적인 영향을 줍니다.
+
+> [!NOTE]
+> Service Bus 토픽으로 전송되는 메시지는 해당 토픽의 구독으로 전달됩니다. 따라서 해당 메시지가 구독으로 성공적으로 전달되므로 토픽 자체의 활성 메시지 수는 0입니다. 구독에서 메시지 수를 확인하고 메시지 수가 0보다 큰지 확인합니다. 구독에서 메시지가 표시되더라도 실제로 는 토픽이 소유한 저장소에 저장됩니다. 
+
+구독을 살펴보면 메시지 수가 0이 아닌 메시지 수가 됩니다(이 전체 엔터티에 대해 최대 323MB의 공간이 추가됩니다).
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 03/10/2020
 ms.author: kumud
-ms.openlocfilehash: 3469daa8b81b20d5d0052a23ce3236fc4fde75de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9cae04499f046749e504bcab89b893fcc31a81c
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79082944"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886955"
 ---
 # <a name="azure-network-round-trip-latency-statistics"></a>Azure 네트워크 왕복 대기 시간 통계
 
@@ -22,9 +22,9 @@ Azure는 타사 합성 모니터링 서비스인 [ThousandEyes에서](https://th
 
 대기 시간 측정은 전 세계 Azure 클라우드 지역에서 호스팅되는 ThousandEyes 에이전트에서 수집되어 1분 간격으로 네트워크 프로브를 지속적으로 전송합니다. 월별 대기 시간 통계는 한 달 동안 수집된 샘플을 평균화하여 파생됩니다.
 
-## <a name="february-2020-round-trip-latency-figures"></a>2020년 2월 왕복 지연 수치
+## <a name="march-2020-round-trip-latency-figures"></a>2020년 3월 왕복 지연 수치
 
-지난 29일(2020년 2월 29일 종료)의 Azure 지역 간 월평균 왕복 시간은 다음과 같습니다. 다음 측정은 천에 의해 [구동된다눈](https://thousandeyes.com).
+지난 31일(2020년 3월 31일 종료)의 Azure 지역 간 월평균 왕복 시간은 다음과 같습니다. 다음 측정은 천에 의해 [구동된다눈](https://thousandeyes.com).
 
 [![Azure 지역 간 대기 시간 통계](media/azure-network-latency/azure-network-latency.png)](media/azure-network-latency/azure-network-latency.png#lightbox)
 

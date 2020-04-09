@@ -1,15 +1,16 @@
 ---
-title: AZURE Kubernetes 서비스(AKS) 로드 밸러버와 함께 정적 IP 주소 및 DNS 레이블 사용
+title: 로드 밸래서와 함께 정적 IP 사용
+titleSuffix: Azure Kubernetes Service
 description: 고정 IP 주소를 만들어 AKS(Azure Kubernetes Service) 부하 분산 장치에서 사용하는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
 ms.date: 03/09/2020
-ms.openlocfilehash: 6c219976db21fb05ea1ad313b4effdf95906f986
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5051232f29ad51d9fee893a4a660fc81f6e60d77
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80047964"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886741"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>AZURE Kubernetes 서비스(AKS) 로드 밸런서와 함께 정적 공용 IP 주소 및 DNS 레이블 사용
 

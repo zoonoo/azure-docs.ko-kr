@@ -2,27 +2,22 @@
 title: 마이크로 소프트 ID 플랫폼 & SAML 보유자 어설션 흐름 | Azure
 description: SAML 보유자 어설션 흐름을 사용하여 자격 증명을 표시하지 않고 Microsoft 그래프에서 데이터를 가져오는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: umeshbarapatre
 manager: CelesteDG
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 16f30473ded5f1de5dc94c1cff9da96165b1a01c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1cd79b1f9e4cd3afadee250da0c184c0c5b8ac07
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76700212"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886180"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>마이크로소프트 아이덴티티 플랫폼 및 OAuth 2.0 SAML 보유자 어설션 흐름
 OAuth 2.0 SAML 보유자 어설션 흐름을 사용하면 클라이언트가 기존 트러스트 관계를 사용해야 할 때 SAML 어설션을 사용하여 OAuth 액세스 토큰을 요청할 수 있습니다. SAML 어설션에 적용된 서명은 인증된 앱의 인증을 제공합니다. SAML 어설션은 ID 공급자가 발급하고 서비스 공급자가 사용하는 XML 보안 토큰입니다. 서비스 공급자는 보안 관련 목적으로 어설션의 주체를 식별하기 위해 해당 콘텐츠에 의존합니다.

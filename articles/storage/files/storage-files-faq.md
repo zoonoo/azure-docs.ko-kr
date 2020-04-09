@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 093f4b11d10396199e9fac1e22fd82197f3a5e79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c6062ec008a7a12c720cf28c2d79531e805ebba0
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79268185"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984438"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -45,7 +45,7 @@ ms.locfileid: "79268185"
 
     Azure Files는 특히 파일 시스템입니다. Azure Files에는 다년간의 온-프레미스 운영 체제 사용에서 알고 있고 애용하는 모든 파일 요약이 있습니다. Azure Blob Storage와 같이 Azure Files에서는 REST 인터페이스 및 REST 기반 클라이언트 라이브러리를 제공합니다. Azure Blob Storage와 달리 Azure Files는 Azure 파일 공유에 대한 SMB 액세스를 제공합니다. SMB를 사용하여 코드를 쓰거나 파일 시스템에 특수한 드라이버를 연결하지 않고도, Windows, Linux 또는 macOS, 온-프레미스 또는 클라우드 VM에 Azure 파일 공유를 직접 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버에서 Azure 파일 공유를 캐시할 수도 있습니다. 
    
-    Azure Files 및 Azure Blob Storage 간의 차이점에 대한 심도 있는 설명을 보려면 [Azure Blob Storage, Azure Files 또는 Azure 디스크를 사용해야 하는 경우 결정](../common/storage-decide-blobs-files-disks.md)을 참조하세요. Azure Blob Storage에 대한 자세한 내용은 [Blob Storage 소개](../blobs/storage-blobs-introduction.md)를 참조하세요.
+    Azure 파일과 Azure Blob 저장소 간의 차이점에 대한 자세한 설명은 [핵심 Azure 저장소 서비스 소개를](../common/storage-introduction.md)참조하십시오. Azure Blob Storage에 대한 자세한 내용은 [Blob Storage 소개](../blobs/storage-blobs-introduction.md)를 참조하세요.
 
 * <a id="files-versus-disks"></a>**Azure 디스크 대신 Azure 파일 공유를 사용하는 이유는 무엇인가요?**  
     Azure 디스크의 디스크는 단순히 디스크입니다. Azure 디스크에서 값을 가져오려면 Azure에서 실행 중인 가상 머신에 디스크를 연결해야 합니다. 온-프레미스 서버에서 디스크를 사용하는 모든 항목에 대해 Azure 디스크를 사용할 수 있습니다. OS 시스템 디스크, OS에 대한 스왑 공간 또는 애플리케이션에 대한 전용 스토리지로 사용할 수 있습니다. Azure 디스크의 유용한 용도는 Azure 파일 공유를 사용할 수 있는 동일한 장소에서 사용하기 위해 클라우드에 파일 서버를 만들 수 있다는 것입니다. Azure Virtual Machines에 파일 서버를 배포하는 일은 현재 Azure Files에서 지원하지 않는 배포 옵션(예: NFS 프로토콜 지원 또는 Premium Storage)이 필요할 때 Azure에서 파일 스토리지를 얻는 고성능 방식입니다. 
@@ -54,7 +54,7 @@ ms.locfileid: "79268185"
 
     Azure Virtual Machines에 호스트된 Azure Files 및 파일 서버를 둘 다 적절히 활용하는 방법 중 하나는(Azure 디스크를 백 엔드 스토리지로 사용하는 것 외에) 클라우드 VM에서 호스트되는 파일 서버에 Azure 파일 동기화를 설치하는 것입니다. Azure 파일 공유가 파일 서버와 동일한 지역에 있으면 클라우드 계층화를 사용하도록 설정하고 사용 가능한 볼륨 공간 비율을 최대값(99%)으로 설정할 수 있습니다. 이렇게 하면 데이터의 최소 중복을 보장합니다. NFS 프로토콜 지원을 필요로 하는 애플리케이션과 같이 파일 서버와 함께 원하는 애플리케이션을 사용할 수도 있습니다.
 
-    Azure에서 고성능 및 고가용성 파일 서버를 설정하는 옵션에 대한 자세한 내용은 [Microsoft Azure에서 IaaS VM 게스트 클러스터 배포](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/)를 참조하세요. Azure Files 및 Azure 디스크 간의 차이점에 대한 심도 있는 설명을 보려면 [Azure Blob Storage, Azure Files 또는 Azure 디스크를 사용해야 하는 경우 결정](../common/storage-decide-blobs-files-disks.md)을 참조하세요. Azure 디스크에 대한 자세한 내용은 [Azure Managed Disks 개요](../../virtual-machines/windows/managed-disks-overview.md)를 참조하세요.
+    Azure에서 고성능 및 고가용성 파일 서버를 설정하는 옵션에 대한 자세한 내용은 [Microsoft Azure에서 IaaS VM 게스트 클러스터 배포](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/)를 참조하세요. Azure 파일과 Azure 디스크 간의 차이점에 대한 자세한 설명은 [핵심 Azure 저장소 서비스 소개를](../common/storage-introduction.md)참조하십시오. Azure 디스크에 대한 자세한 내용은 [Azure Managed Disks 개요](../../virtual-machines/windows/managed-disks-overview.md)를 참조하세요.
 
 * <a id="get-started"></a>
   **Azure 파일 사용을 시작하려면 어떻게 해야 합니까?**  
@@ -393,7 +393,7 @@ ms.locfileid: "79268185"
 **IBM MQ에서 Azure Files를 어떻게 사용하나요?**  
     IBM은 IBM MQ 고객이 IBM 서비스로 Azure Files를 구성할 수 있도록 돕는 문서를 발표했습니다. 자세한 내용은 [Microsoft Azure 파일 서비스와 IBM MQ 다중 인스턴스 큐 관리자를 설치하는 방법](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)을 참조하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [Windows에서 Azure Files 문제 해결](storage-troubleshoot-windows-file-connection-problems.md)
 * [Linux에서 Azure Files 문제 해결](storage-troubleshoot-linux-file-connection-problems.md)
 * [Azure 파일 동기화 문제 해결](storage-sync-files-troubleshoot.md)

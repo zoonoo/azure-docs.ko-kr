@@ -2,27 +2,22 @@
 title: OAuth 2.0 암시적 부여 흐름 - Microsoft ID 플랫폼 | Azure
 description: Microsoft ID 플랫폼 암시적 흐름을 사용하여 단일 페이지 앱을 보호합니다.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 53d498f4aed8ec86cc57c35824a9fb8aa471dc1d
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 4ef8ca9e116328e14182ca77c787befa837041d0
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80419676"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886231"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft ID 플랫폼 및 암시적 부여 흐름
 
@@ -103,7 +98,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > 암시적 흐름을 사용하여 로그인을 테스트하려면 <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank"> https://login.microsoftonline.com/common/oauth2/v2.0/authorize..을 클릭합니다.</a> 로그인한 후 브라우저가 주소 `https://localhost/myapp/` 표시줄에 `id_token` 있는 것으로 리디렉션되어야 합니다.
 >
 
-| 매개 변수 |  | Description |
+| 매개 변수 |  | 설명 |
 | --- | --- | --- |
 | `tenant` | required |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
 | `client_id` | required | [Azure 포털 - 앱에](https://go.microsoft.com/fwlink/?linkid=2083908) 할당된 앱 등록 페이지인 응용 프로그램(클라이언트) ID입니다. |
@@ -133,7 +128,7 @@ GET https://localhost/myapp/#
 &state=12345
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | `access_token` |`response_type`이 `token`을 포함하는 경우 포함됩니다. 앱에서 요청한 액세스 토큰입니다. 액세스 토큰은 디코딩되거나 검사해서는 안 되며 불투명 문자열로 처리되어야 합니다. |
 | `token_type` |`response_type`이 `token`을 포함하는 경우 포함됩니다. 항상 `Bearer`입니다. |
@@ -152,7 +147,7 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | `error` |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -201,7 +196,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &scope=https%3A%2F%2Fgraph.microsoft.com%2Fdirectory.read
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | `access_token` |`response_type`이 `token`을 포함하는 경우 포함됩니다. Microsoft Graph의 경우 앱에서 요청한 액세스 토큰입니다. 액세스 토큰은 디코딩되거나 검사해서는 안 되며 불투명 문자열로 처리되어야 합니다. |
 | `token_type` | 항상 `Bearer`입니다. |
@@ -220,7 +215,7 @@ error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | `error` |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -239,7 +234,7 @@ OpenID Connect를 `end_session_endpoint` 사용하면 앱에서 Microsoft ID 플
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
 ```
 
-| 매개 변수 |  | Description |
+| 매개 변수 |  | 설명 |
 | --- | --- | --- |
 | `tenant` |required |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
 | `post_logout_redirect_uri` | 권장 | 로그아웃이 완료된 후 사용자가 반환되어야 하는 URL입니다. 이 값은 애플리케이션에 대해 등록된 리디렉션 URI 중 하나와 일치해야 합니다. 포함되지 않은 경우 사용자에게 Microsoft ID 플랫폼 끝점에 의해 일반 메시지가 표시됩니다. |

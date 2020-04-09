@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 843f12d14120a7becdc1e8b15bfcc65948602c44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 86a0e0b3c64554e00a5ba7734af28dc136df643f
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74007760"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80891512"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 감사 활동 참조
 
@@ -256,17 +256,17 @@ Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 |디렉터리 관리|테넌트 정보 가져오기|
 |디렉터리 관리|테넌트에서 허용하는 기능 가져오기|
 |디렉터리 관리|TenantDomains 가져오기|
-|Key|테넌트 형식 가져오기|
-|Key|B2C 기능을 사용하도록 설정되었는지 확인|
-|Key|기능을 사용하도록 설정되었는지 확인|
-|Key|회사에 파트너 추가|
-|Key|확인되지 않은 도메인 추가|
-|Key|확인된 도메인 추가|
-|Key|회사 만들기|
-|Key|회사 설정 만들기|
-|Key|회사 설정 삭제|
-|Key|파트너 강등|
-|Key|디렉터리 삭제됨|
+|키|테넌트 형식 가져오기|
+|키|B2C 기능을 사용하도록 설정되었는지 확인|
+|키|기능을 사용하도록 설정되었는지 확인|
+|키|회사에 파트너 추가|
+|키|확인되지 않은 도메인 추가|
+|키|확인된 도메인 추가|
+|키|회사 만들기|
+|키|회사 설정 만들기|
+|키|회사 설정 삭제|
+|키|파트너 강등|
+|키|디렉터리 삭제됨|
 |기타|디렉터리가 영구적으로 삭제됨|
 |기타|디렉터리 삭제가 예약됨|
 |리소스|회사를 파트너로 수준 올리기|
@@ -370,8 +370,8 @@ Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 |애플리케이션 관리|사용 약관 편집|
 |애플리케이션 관리|사용 약관 게시|
 |애플리케이션 관리|사용 약관 게시 취소|
-|애플리케이션 관리|애플리케이션 SSL 인증서 추가|
-|애플리케이션 관리|SSL 바인딩 삭제|
+|애플리케이션 관리|응용 프로그램 TLS/SSL 인증서 추가|
+|애플리케이션 관리|TLS 바인딩 삭제|
 |애플리케이션 관리|커넥터 등록|
 |애플리케이션 관리|AdminPolicyDatas-RemoveResources|
 |애플리케이션 관리|AdminPolicyDatas-SetResources|

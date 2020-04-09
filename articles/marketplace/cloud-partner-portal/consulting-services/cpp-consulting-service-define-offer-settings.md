@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 7b2c9d136a32e54ce5b5db8f6ce9ba8cd63a4f3c
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 6a3c168d0bd13e7c335841ac4016f18464cd50d5
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745638"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985119"
 ---
 # <a name="offer-settings-tab"></a>제품 설정 탭
 
 >[!Important]
->2020년 3월 30일부터 컨설팅 서비스 오퍼의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. 컨설팅 서비스 [생성 개요의](https://aka.ms/AzureCreateConsultingService) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
+>2020년 4월 13일부터 컨설팅 서비스 오퍼의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. 컨설팅 서비스 [생성 개요의](https://aka.ms/AzureCreateConsultingService) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
 
 **새 제품** 화면에서 처음으로 수행하는 단계는 제품 ID 만들기입니다. **제품 ID**, **게시자 ID** 및 **이름**의 세 부분으로 구성된 제품 ID입니다. 다음 섹션에서 이러한 각 부분에 대해 설명합니다.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: bharathb
-ms.openlocfilehash: 9111193bb441487b9e3c49bc9ee1a296d49f8a31
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 34698a215477abdd7d68c3dfe050657ecf049690
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72882398"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984898"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>온-프레미스 또는 클라우드 데이터를 Azure Cosmos DB로 마이그레이션하는 옵션
 
@@ -34,18 +34,18 @@ ms.locfileid: "72882398"
 |**마이그레이션 유형**|**해결 방법**|**고려 사항**|
 |---------|---------|---------|
 |오프라인|[데이터 마이그레이션 도구](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull;설정이 간편하고 여러 소스 지원 <br/>&bull;대용량 데이터 집합에는 적합하지 않습니다.|
-|오프라인|[Azure 데이터 팩터리](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;설정이 간편하고 여러 소스 지원 <br/>&bull;Azure 코스모스 DB 대량 실행기 라이브러리를 사용합니다. <br/>&bull;대용량 데이터 세트에 적합 <br/>&bull;검사점 부족 - 마이그레이션 중에 문제가 발생하면 전체 마이그레이션 프로세스를 다시 시작해야 한다는 의미입니다.<br/>&bull;배달 못한 편지 대기열 부족 - 몇 개의 잘못된 파일이 전체 마이그레이션 프로세스를 중지할 수 있음을 의미합니다.|
+|오프라인|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;설정이 간편하고 여러 소스 지원 <br/>&bull;Azure 코스모스 DB 대량 실행기 라이브러리를 사용합니다. <br/>&bull;대용량 데이터 세트에 적합 <br/>&bull;검사점 부족 - 마이그레이션 중에 문제가 발생하면 전체 마이그레이션 프로세스를 다시 시작해야 한다는 의미입니다.<br/>&bull;배달 못한 편지 대기열 부족 - 몇 개의 잘못된 파일이 전체 마이그레이션 프로세스를 중지할 수 있음을 의미합니다.|
 |오프라인|[Azure 코스모스 DB 스파크 커넥터](https://docs.microsoft.com/azure/cosmos-db/spark-connector)|&bull;Azure 코스모스 DB 대량 실행기 라이브러리를 사용합니다. <br/>&bull;대용량 데이터 세트에 적합 <br/>&bull;사용자 지정 스파크 설정이 필요합니다. <br/>&bull;Spark는 스키마 불일치에 민감하며 마이그레이션 중에 문제가 될 수 있습니다. |
 |오프라인|[코스모스 DB 대량 집행기 라이브러리와 사용자 정의 도구](https://docs.microsoft.com/azure/cosmos-db/migrate-cosmosdb-data)|&bull;마이그레이션 복원력을 높이는 체크 포인트, 데드 레터링 기능 제공 <br/>&bull;매우 큰 데이터 집합(10TB+)에 적합  <br/>&bull;앱 서비스로 실행되는 이 도구의 사용자 지정 설정이 필요합니다. |
 |온라인|[코스모스 DB 기능 + 체인지피드 API](https://docs.microsoft.com/azure/cosmos-db/change-feed-functions)|&bull;설치가 용이함 <br/>&bull;소스가 Azure 코스모스 DB 컨테이너인 경우에만 작동합니다. <br/>&bull;대용량 데이터 집합에는 적합하지 않습니다. <br/>&bull;원본 컨테이너에서 삭제를 캡처하지 않음 |
-|온라인|[변경 피드를 사용하는 사용자 지정 마이그레이션 서비스](https://aka.ms/CosmosDBMigrationSample)|&bull;진행률 추적 제공 <br/>&bull;소스가 Azure 코스모스 DB 컨테이너인 경우에만 작동합니다. <br/>&bull;더 큰 데이터 집합에도 적합합니다. <br/>&bull;사용자가 변경 피드 프로세서를 호스트하기 위해 앱 서비스를 설정해야 합니다. <br/>&bull;원본 컨테이너에서 삭제를 캡처하지 않음|
+|온라인|[변경 피드를 사용하는 사용자 지정 마이그레이션 서비스](https://github.com/nomiero/CosmosDBLiveETLSample)|&bull;진행률 추적 제공 <br/>&bull;소스가 Azure 코스모스 DB 컨테이너인 경우에만 작동합니다. <br/>&bull;더 큰 데이터 집합에도 적합합니다. <br/>&bull;사용자가 변경 피드 프로세서를 호스트하기 위해 앱 서비스를 설정해야 합니다. <br/>&bull;원본 컨테이너에서 삭제를 캡처하지 않음|
 |온라인|[스트리임 (것)들](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-sql-api-migrate-data-striim)|&bull;오라클, DB2, SQL Server 와 같은 다양한 소스와 함께 작동 <br/>&bull;ETL 파이프라인을 쉽게 구축하고 모니터링을 위한 대시보드를 제공합니다. <br/>&bull;더 큰 데이터 집합 지원 <br/>&bull;이 도구는 타사 도구이므로 마켓플레이스에서 구입하여 사용자 환경에 설치해야 합니다.|
 
 ## <a name="azure-cosmos-db-mongo-api"></a>Azure 코스모스 DB 몽고 API
 |**마이그레이션 유형**|**해결 방법**|**고려 사항**|
 |---------|---------|---------|
 |오프라인|[데이터 마이그레이션 도구](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull;설정이 간편하고 여러 소스 지원 <br/>&bull;대용량 데이터 집합에는 적합하지 않습니다.|
-|오프라인|[Azure 데이터 팩터리](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;설정이 간편하고 여러 소스 지원 <br/>&bull;Azure 코스모스 DB 대량 실행기 라이브러리를 사용합니다. <br/>&bull;대용량 데이터 세트에 적합 <br/>&bull;검사점이 없다는 것은 마이그레이션 과정에서 문제가 발생하므로 전체 마이그레이션 프로세스를 다시 시작해야 합니다.<br/>&bull;배달 못한 편지 대기열이 없어도 몇 개의 잘못된 파일이 전체 마이그레이션 프로세스를 중지할 수 있습니다. <br/>&bull;특정 데이터 원본에 대한 읽기 처리량을 높이기 위해 사용자 지정 코드가 필요합니다.|
+|오프라인|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;설정이 간편하고 여러 소스 지원 <br/>&bull;Azure 코스모스 DB 대량 실행기 라이브러리를 사용합니다. <br/>&bull;대용량 데이터 세트에 적합 <br/>&bull;검사점이 없다는 것은 마이그레이션 과정에서 문제가 발생하므로 전체 마이그레이션 프로세스를 다시 시작해야 합니다.<br/>&bull;배달 못한 편지 대기열이 없어도 몇 개의 잘못된 파일이 전체 마이그레이션 프로세스를 중지할 수 있습니다. <br/>&bull;특정 데이터 원본에 대한 읽기 처리량을 높이기 위해 사용자 지정 코드가 필요합니다.|
 |오프라인|[기존 몽고 도구 (몽고 덤프, 몽고 복원, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|&bull;간편한 설정 및 통합 <br/>&bull;스로틀에 대한 사용자 정의 처리가 필요합니다.|
 |온라인|[Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db-online)|&bull;Azure 코스모스 DB 대량 실행기 라이브러리를 사용합니다. <br/>&bull;대규모 데이터 집합에 적합하며 라이브 변경 내용 복제를 처리합니다. <br/>&bull;다른 MongoDB 소스에서만 작동|
 
@@ -64,7 +64,7 @@ SQL API, Mongo API 및 Cassandra API 이외의 API의 경우 각 API의 기존 �
 * [데이터 마이그레이션 도구](https://docs.microsoft.com/azure/cosmos-db/table-import#data-migration-tool)
 * [아즈카피](https://docs.microsoft.com/azure/cosmos-db/table-import#migrate-data-by-using-azcopy)
 
-**그렘린 API**
+**Gremlin API**
 * [그래프 대량 실행기 라이브러리](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-graph-dotnet)
 * [그렘린 스파크](https://github.com/Azure/azure-cosmosdb-spark/blob/2.4/samples/graphframes/main.scala) 
 

@@ -2,27 +2,22 @@
 title: 오픈 ID 연결 프로토콜 - 마이크로 소프트 아이덴티티 플랫폼 | Azure
 description: OpenID Connect 인증 프로토콜의 Microsoft ID 플랫폼 구현을 사용하여 웹 응용 프로그램을 빌드합니다.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0ed1cb6a080a35fa81c6a859f88d987020c8504c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf268bef4401026084b26002c24730bc2a92e003
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262296"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886197"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>마이크로소프트 아이덴티티 플랫폼 및 오픈ID 연결 프로토콜
 
@@ -109,7 +104,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > 이 요청을 실행하려면 다음 링크를 클릭하세요. 로그인하면 브라우저가 주소 표시줄에서 ID 토큰과 함께 `https://localhost/myapp/`으로 리디렉션됩니다. 이 요청은 `response_mode=fragment`를 사용합니다(학습 용도로만). `response_mode=form_post`를 사용하는 것이 좋습니다.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-| 매개 변수 | 조건 | 설명 |
+| 매개 변수 | 조건 | Description |
 | --- | --- | --- |
 | `tenant` | 필수 | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본 사항](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
 | `client_id` | 필수 | Azure 포털 - 앱 [등록이](https://go.microsoft.com/fwlink/?linkid=2083908) 앱에 할당된 응용 **프로그램(클라이언트) ID입니다.** |
@@ -119,9 +114,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `nonce` | 필수 | 앱에서 생성한 요청에 포함되는 값이며, 결과 id_token 값에 클레임으로 포함됩니다. 앱은 이 값을 확인하여 토큰 재생 공격을 완화할 수 있습니다. 이 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열입니다. |
 | `response_mode` | 권장 | 결과 권한 부여 코드를 앱에 다시 보내는 데 사용해야 하는 방법을 지정합니다. `form_post` 또는 `fragment`일 수 있습니다. 웹 애플리케이션의 경우 애플리케이션에 대한 가장 안전한 토큰 전송을 보장하기 위해 `response_mode=form_post`를 사용하는 것이 좋습니다. |
 | `state` | 권장 | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 일반적으로 [교차 사이트 요청 위조 공격을 방지](https://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 또한 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |
-| `prompt` | Optional | 필요한 사용자 상호 작용 유형을 나타냅니다. 이 경우 유효한 값은 `login`, `none` 및 `consent`뿐입니다. `prompt=login` 클레임은 사용자가 해당 요청에 자격 증명을 입력하도록 하여 Single-Sign On을 무효화합니다. `prompt=none` 클레임은 반대입니다. 이 클레임은 사용자에게 대화형 프롬프트가 표시되지 않도록 합니다. 단일 사인온을 통해 요청을 자동으로 완료할 수 없는 경우 Microsoft ID 플랫폼 끝점에서 오류를 반환합니다. `prompt=consent` 클레임은 사용자가 로그인 한 후 OAuth 동의 대화 상자를 트리거합니다. 이 대화 상자에서는 앱에 권한을 부여하도록 사용자에게 요청합니다. |
-| `login_hint` | Optional | 사용자 이름을 미리 알고 있는 경우 이 매개 변수를 사용하여 사용자를 위해 로그인 페이지의 사용자 이름 및 전자 메일 주소 필드를 미리 채울 수 있습니다. 앱에서는 종종 `preferred_username` 클레임을 사용하여 이전 로그인에서 사용자 이름을 이미 추출한 후 재인증 과정에서 이 매개 변수를 사용합니다. |
-| `domain_hint` | Optional | 페더레이션된 디렉터리에서 사용자의 영역입니다.  이렇게 하면 사용자가 로그인 페이지에서 통과하는 전자 메일 기반 검색 프로세스를 건너뛰고 사용자 환경을 약간 간소화할 수 있습니다. AD FS와 같은 온-프레미스 디렉터리를 통해 페더레이션된 테넌트의 경우 기존 로그인 세션으로 인해 원활한 로그인이 발생하는 경우가 많습니다. |
+| `prompt` | 옵션 | 필요한 사용자 상호 작용 유형을 나타냅니다. 이 경우 유효한 값은 `login`, `none` 및 `consent`뿐입니다. `prompt=login` 클레임은 사용자가 해당 요청에 자격 증명을 입력하도록 하여 Single-Sign On을 무효화합니다. `prompt=none` 클레임은 반대입니다. 이 클레임은 사용자에게 대화형 프롬프트가 표시되지 않도록 합니다. 단일 사인온을 통해 요청을 자동으로 완료할 수 없는 경우 Microsoft ID 플랫폼 끝점에서 오류를 반환합니다. `prompt=consent` 클레임은 사용자가 로그인 한 후 OAuth 동의 대화 상자를 트리거합니다. 이 대화 상자에서는 앱에 권한을 부여하도록 사용자에게 요청합니다. |
+| `login_hint` | 옵션 | 사용자 이름을 미리 알고 있는 경우 이 매개 변수를 사용하여 사용자를 위해 로그인 페이지의 사용자 이름 및 전자 메일 주소 필드를 미리 채울 수 있습니다. 앱에서는 종종 `preferred_username` 클레임을 사용하여 이전 로그인에서 사용자 이름을 이미 추출한 후 재인증 과정에서 이 매개 변수를 사용합니다. |
+| `domain_hint` | 옵션 | 페더레이션된 디렉터리에서 사용자의 영역입니다.  이렇게 하면 사용자가 로그인 페이지에서 통과하는 전자 메일 기반 검색 프로세스를 건너뛰고 사용자 환경을 약간 간소화할 수 있습니다. AD FS와 같은 온-프레미스 디렉터리를 통해 페더레이션된 테넌트의 경우 기존 로그인 세션으로 인해 원활한 로그인이 발생하는 경우가 많습니다. |
 
 이 시점에서 사용자에게 자격 증명을 입력하고 인증을 완료하라는 메시지가 표시됩니다. Microsoft ID 플랫폼 끝점은 사용자가 `scope` 쿼리 매개 변수에 표시된 권한에 동의했는지 확인합니다. 사용자가 이러한 권한에 동의하지 않은 경우 Microsoft ID 플랫폼 끝점에서 필요한 권한에 동의하라는 메시지가 표시됩니다. [사용 권한, 동의 및 다중 테넌트 앱에](v2-permissions-and-consent.md)대해 자세히 읽을 수 있습니다.
 
@@ -165,7 +160,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 다음 테이블은 오류 응답의 `error` 매개 변수에 반환될 수 있는 오류 코드를 설명합니다.
 
-| 오류 코드 | 설명 | 클라이언트 작업 |
+| 오류 코드 | Description | 클라이언트 작업 |
 | --- | --- | --- |
 | `invalid_request` | 프로토콜 오류(예: 필수 매개 변수 누락)입니다. |요청을 수정하여 다시 제출하십시오. 일반적으로 초기 설정 중에 발견되는 개발 오류입니다. |
 | `unauthorized_client` | 클라이언트 응용 프로그램은 권한 부여 코드를 요청할 수 없습니다. |이 문제는 일반적으로 클라이언트 응용 프로그램이 Azure AD에 등록되지 않았거나 사용자의 Azure AD 테넌트에 추가되지 않은 경우에 발생합니다. 애플리케이션이 사용자에게 애플리케이션을 설치하고 Azure AD에 추가하기 위한 지침이 포함된 메시지를 표시할 수 있습니다. |
@@ -200,7 +195,7 @@ GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
 
-| 매개 변수 | 조건 | 설명 |
+| 매개 변수 | 조건 | Description |
 | ----------------------- | ------------------------------- | ------------ |
 | `post_logout_redirect_uri` | 권장 | 사용자가 성공적으로 로그아웃한 후 리디렉션되는 URL입니다. 매개 변수가 포함되지 않은 경우 사용자에게 Microsoft ID 플랫폼 끝점에서 생성된 일반 메시지가 표시됩니다. URL은 앱 등록 포털에서 애플리케이션에 등록한 리디렉션 URI 중 하나와 일치해야 합니다. |
 

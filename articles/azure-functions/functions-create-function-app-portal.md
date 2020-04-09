@@ -1,15 +1,15 @@
 ---
-title: Azure 포털에서 함수 앱 만들기
+title: Azure Portal에서 함수 앱 만들기
 description: 포털에서 Azure에서 새 함수 앱을 만듭니다.
 ms.topic: how-to
 ms.date: 08/29/2019
 ms.custom: mvc
-ms.openlocfilehash: 6c17dc28d7eea4897759c1c832fdb1aba7f1e445
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 001b4e4f0ea7fbacd232b2a87abfe353f34919bd
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756534"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985017"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Azure Portal에서 함수 앱 만들기
 
@@ -36,7 +36,7 @@ Azure 함수에는 소비 계획, 프리미엄 계획 및 전용(앱 서비스) 
 >[!NOTE]
 >소비 호스팅 계획을 사용할 경우 함수 코드 및 바인딩 구성 파일은 기본 스토리지 계정의 Azure File Storage에 저장됩니다. 기본 스토리지 계정을 삭제하면 이 콘텐츠는 삭제되고 복구할 수 없습니다.
 
-저장소 계정 유형에 대한 자세한 내용은 [Azure 저장소 서비스 소개를](../storage/common/storage-introduction.md#azure-storage-services)참조하십시오. 
+저장소 계정 유형에 대한 자세한 내용은 [Azure 저장소 서비스 소개를](../storage/common/storage-introduction.md#core-storage-services)참조하십시오. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 2a7f5d5eacb2d03e64ae95d34e1cf0bd37bbc7f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 07b071b0e8efc5d664dada133a214d778c6531d0
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259254"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984949"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Service Bus 가동 중단 및 재해로부터 애플리케이션을 보호하기 위한 모범 사례
 
@@ -33,7 +33,7 @@ Service Bus 프리미엄은 네임스페이스 수준에서 지리적 재해 복
 
 ### <a name="availability-zones"></a>가용성 영역
 
-Service Bus 프리미엄 SKU는 동일한 Azure 지역 내에서 오류가 없는 위치를 제공하는 [가용성 영역](../availability-zones/az-overview.md)을 지원합니다.
+Service Bus 프리미엄 SKU는 동일한 Azure 지역 내에서 오류가 없는 위치를 제공하는 [가용성 영역](../availability-zones/az-overview.md)을 지원합니다. Service Bus는 메시징 저장소의 복사본 3개(기본 저장소 1개 및 보조 2개)를 관리합니다. Service Bus는 데이터 및 관리 작업에 대해 세 복사본을 모두 동기화된 정보로 유지합니다. 주 복사본이 실패하면 보조 복사본 중 하나가 인식된 가동 중지 시간 없이 기본 복사본으로 승격됩니다. 응용 프로그램에서 Service Bus에서 일시적인 연결이 끊어지면 SDK의 재시도 논리가 서비스 버스에 자동으로 다시 연결됩니다. 
 
 > [!NOTE]
 > Azure Service Bus 프리미엄에 대한 가용성 영역 지원은 가용성 영역이 있는 [Azure 지역](../availability-zones/az-overview.md#services-support-by-region)에서만 사용할 수 있습니다.

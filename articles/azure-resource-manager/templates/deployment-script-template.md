@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: jgao
-ms.openlocfilehash: aa49b313f0fb10175dc6c0003f1a919f61731269
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: f84707adfa406011989c8f9bfdf1e8d9270698a6
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743304"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984796"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트 사용(미리 보기)
 
@@ -182,7 +182,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="use-external-scripts"></a>외부 스크립트 사용
 
-인라인 스크립트 외에도 외부 스크립트 파일을 사용할 수도 있습니다. **ps1** 파일 확장력이 있는 기본 PowerShell 스크립트만 지원됩니다. CLI 스크립트의 경우 스크립트가 유효한 bash 스크립트인 경우 기본 스크립트에는 확장(또는 확장 없이)이 있을 수 있습니다. 외부 스크립트 파일을 사용하려면 `primaryScriptUri`을 로 바꿉습니다. `scriptContent` 다음은 그 예입니다.
+인라인 스크립트 외에도 외부 스크립트 파일을 사용할 수도 있습니다. **ps1** 파일 확장력이 있는 기본 PowerShell 스크립트만 지원됩니다. CLI 스크립트의 경우 스크립트가 유효한 bash 스크립트인 경우 기본 스크립트에는 확장(또는 확장 없이)이 있을 수 있습니다. 외부 스크립트 파일을 사용하려면 `primaryScriptUri`을 로 바꿉습니다. `scriptContent` 예를 들어:
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -313,7 +313,7 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 
 배포 스크립트 실행은 idempotent 작업입니다. 인라인 스크립트를 포함한 배포 스크립트 리소스 속성이 변경되지 않으면 템플릿을 다시 배포할 때 스크립트가 실행되지 않습니다. 배포 스크립트 서비스는 템플릿의 리소스 이름을 동일한 리소스 그룹의 기존 리소스와 비교합니다. 동일한 배포 스크립트를 여러 번 실행하려는 경우 두 가지 옵션이 있습니다.
 
-- 배포의 이름을 변경스크립트 리소스입니다. 예를 들어 [utcNow](./template-functions-string.md#utcnow) 템플릿 함수를 리소스 이름 또는 리소스 이름의 일부로 사용합니다. 리소스 이름을 변경하면 새 배포Scripts 리소스가 만들어집니다. 스크립트 실행 기록을 유지하는 데 적합합니다.
+- 배포의 이름을 변경스크립트 리소스입니다. 예를 들어 [utcNow](./template-functions-date.md#utcnow) 템플릿 함수를 리소스 이름 또는 리소스 이름의 일부로 사용합니다. 리소스 이름을 변경하면 새 배포Scripts 리소스가 만들어집니다. 스크립트 실행 기록을 유지하는 데 적합합니다.
 
     > [!NOTE]
     > utcNow 함수는 매개 변수의 기본값에서만 사용할 수 있습니다.

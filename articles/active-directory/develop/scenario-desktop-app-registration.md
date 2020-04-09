@@ -2,26 +2,21 @@
 title: 웹 API를 호출하는 데스크톱 앱 등록 - Microsoft ID 플랫폼 | Azure
 description: 웹 API(앱 등록)를 호출하는 데스크톱 앱을 빌드하는 방법 알아보기
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c55fc9eb94a88dba1ab9fc915fe84bc2dd7d4d40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 599603ba867e21694392e38e9692280f010e08eb
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76702184"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885160"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>웹 API를 호출하는 데스크톱 앱: 앱 등록
 
@@ -52,7 +47,7 @@ ms.locfileid: "76702184"
 
 - macOS용 기본 Objective-C 또는 Swift 앱을 빌드하는 경우 응용 프로그램의 번들 식별자를 기반으로 리디렉션 URI를 다음 형식으로 등록합니다: msauth.<your.app.bundle.id>://auth. <your.app.bundle.id> 응용 프로그램의 번들 식별자로 대체합니다.
 - 앱에서 통합 Windows 인증 또는 사용자 이름과 암호만 사용하는 경우 응용 프로그램에 대한 리디렉션 URI를 등록할 필요가 없습니다. 이러한 흐름은 Microsoft ID 플랫폼 v2.0 끝점으로 왕복합니다. 응용 프로그램은 특정 URI에서 다시 호출되지 않습니다.
-- 장치 코드 흐름, 통합 Windows 인증 및 사용자 이름과 암호를 리디렉션URI가 없는 기밀 클라이언트 응용 프로그램 흐름(데몬 응용 프로그램에 사용되는 클라이언트 자격 증명 흐름)을 구분하려면 응용 프로그램은 공용 클라이언트 응용 프로그램입니다. 이 구성을 달성하려면 응용 프로그램의 **인증** 섹션으로 이동하십시오. 고급 **설정** 하위 섹션에서 **기본 클라이언트 유형** 단락에서 응용 프로그램 처리에 대해 **예가** **공용 클라이언트로**선택합니다.
+- 장치 코드 흐름, 통합 Windows 인증 및 사용자 이름과 암호를 리디렉션URI가 없는 기밀 클라이언트 응용 프로그램 흐름(데몬 응용 프로그램에 사용되는 클라이언트 자격 증명 흐름)에서 구분하려면 응용 프로그램이 공용 클라이언트 응용 프로그램임을 표현해야 합니다. 이 구성을 달성하려면 응용 프로그램의 **인증** 섹션으로 이동하십시오. 고급 **설정** 하위 섹션에서 **기본 클라이언트 유형** 단락에서 응용 프로그램 처리에 대해 **예가** **공용 클라이언트로**선택합니다.
 
   ![공용 클라이언트 허용](media/scenarios/default-client-type.png)
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: de91f61385942db077bc98721eabe9f3f0b8624c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d44e53520481e4ada5c2f16f0c56a4a6a724ec1
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74083012"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892481"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용하여 여러 Azure CDN 엔드포인트 간 장애 조치(failover) 설정
 
@@ -82,7 +82,7 @@ CDN 및 Traffic Manager 프로필을 설정한 후 이러한 단계를 수행하
     이 등록 프로세스를 완료하려면 Azure CDN은 *cdnverify* 하위 도메인을 사용하여 DNS 매핑의 유효성을 검사합니다. 자세한 내용은 [CNAME DNS 레코드 만들기](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record)를 참조하세요. 이 단계에서는 해당 요청에 응답할 수 있도록 Azure CDN이 사용자 지정 도메인을 인식할 수 있게 설정합니다.
     
     > [!NOTE]
-    > **Akamai 프로필의 Azure CDN에서** SSL을 사용하려면 사용자 지정 도메인의 이름을 엔드포인트에 직접 지정해야 합니다. sSL을 사용하도록 설정하기 위한 cdnverify는 아직 지원되지 않습니다. 
+    > **Akamai 프로필에서 Azure CDN에서** TLS를 사용하려면 사용자 지정 도메인의 이름을 엔드포인트에 직접 지정해야 합니다. tLS를 사용하도록 설정하기 위한 cdnverify는 아직 지원되지 않습니다. 
     >
 
 3.  사용자 지정 도메인의 도메인 공급자에 대한 웹 사이트로 돌아가서 첫 번째 DNS 매핑을 업데이트하여 사용자 지정 도메인이 두 번째 CDN 엔드포인트에 매핑되게 합니다.

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: 5a5305ffd388d2573d250d93131c1fed236008b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9356ab0aec375a046a8f200838df296b2cf74bce
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76771623"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984983"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET API: 다운로드 및 릴리스 정보
 
@@ -21,12 +21,12 @@ ms.locfileid: "76771623"
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
 > * [Java](table-sdk-java.md)
-> * [Node.js](table-sdk-nodejs.md)
+> * [Node.JS](table-sdk-nodejs.md)
 > * [Python](table-sdk-python.md)
 
 |   |   |
 |---|---|
-|**SDK 다운로드**|[NuGet](https://aka.ms/acdbtablenuget)|
+|**SDK 다운로드**|[Nuget](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)|
 |**빠른 시작**|[Azure Cosmos DB: .NET 및 Table API를 사용하여 앱 빌드](create-table-dotnet.md)|
 |**자습서**|[Azure Cosmos DB: .NET의 Table API를 사용하여 개발](tutorial-develop-table-dotnet.md)|
 |**현재 지원되는 프레임워크**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
@@ -122,6 +122,6 @@ Unable to resolve dependency 'Microsoft.Azure.Storage.Common'. Source(s) used: '
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 Azure Cosmos DB Table API에 대한 자세한 내용은 [Azure Cosmos DB Table API 소개](table-introduction.md)를 참조하세요. 

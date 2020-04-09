@@ -2,25 +2,21 @@
 title: 웹 API를 호출하는 데몬 앱 구성 - Microsoft ID 플랫폼 | Azure
 description: 웹 API(앱 구성)를 호출하는 데몬 응용 프로그램에 대한 코드를 구성하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: fc441ef64f98ace04b7b847c03d575215656f9db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb2cc90e586f71bb7c90efd62ba3705cd9223bc5
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77611846"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885500"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>웹 API를 호출하는 데몬 앱 - 코드 구성
 
@@ -30,7 +26,7 @@ ms.locfileid: "77611846"
 
 이러한 Microsoft 라이브러리는 데몬 앱을 지원합니다.
 
-  MSAL 라이브러리 | 설명
+  MSAL 라이브러리 | Description
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | .NET 프레임워크 및 .NET Core 플랫폼은 데몬 응용 프로그램을 빌드하는 데 지원됩니다. (UWP, Xamarin.iOS 및 Xamarin.Android는 이러한 플랫폼이 공용 클라이언트 응용 프로그램을 빌드하는 데 사용되기 때문에 지원되지 않습니다.)
   ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | 파이썬의 데몬 응용 프로그램 지원.

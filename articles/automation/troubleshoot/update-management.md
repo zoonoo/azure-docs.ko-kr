@@ -8,12 +8,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 900853b1ca68c1c540223db670b1173f5bb2fa2b
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: c9ff05591c98fda8be39e32f26da484f56e0831b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754436"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984626"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>업데이트 관리 문제 해결
 
@@ -21,7 +21,7 @@ ms.locfileid: "80754436"
 
 하이브리드 작업자 에이전트가 근본적인 문제를 확인하는 에이전트 문제 해결사가 있습니다. 이 문제 해결사에 대한 자세한 내용은 [업데이트 에이전트 문제 해결](update-agent-issues.md)을 참조하세요. 기타 모든 문제의 경우 다음 문제 해결 지침을 사용합니다.
 
-가상 시스템(VM)에서 솔루션을 온보딩할 때 문제가 발생하면 로컬 컴퓨터의 응용 프로그램 및 서비스 로그 아래의 **Operations Manager** **로그를 확인합니다.** 이벤트 ID 4502 및 포함된 이벤트 `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`세부 정보가 포함된 이벤트를 찾습니다.
+가상 시스템(VM)에서 솔루션을 온보딩할 때 문제가 발견되면 로컬 컴퓨터의 응용 프로그램 및 서비스 로그 아래의 **Operations Manager** **로그를 확인하십시오.** 이벤트 ID 4502 및 포함된 이벤트 `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`세부 정보가 포함된 이벤트를 찾습니다.
 
 다음 섹션에서는 특정 오류 메시지와 각 오류에 대한 가능한 해결 을 강조 합니다. 기타 온보딩 문제에 대한 [해결 방법은 온보딩](onboarding.md)을 참조하십시오.
 
@@ -39,7 +39,7 @@ Error details: Failed to enable the Update solution
 
 이 오류는 다음과 같은 이유로 발생할 수 있습니다.
 
-* Log Analytics 에이전트의 네트워크 방화벽 요구 사항이 올바르게 구성되지 않았을 수 있습니다. 이로 인해 DNS URL을 만들 때 에이전트가 실패할 수 있습니다.
+* Log Analytics 에이전트의 네트워크 방화벽 요구 사항이 올바르게 구성되지 않았을 수 있습니다. 이 경우 DNS URL을 해결할 때 에이전트가 실패할 수 있습니다.
 
 * 솔루션 대상 기가 잘못 구성 하 고 컴퓨터 예상 대로 업데이트를 받지 않습니다.
 
@@ -61,7 +61,7 @@ Error details: Failed to enable the Update solution
 
 ### <a name="issue"></a>문제
 
-이전 업데이트가 대체되었음에도 불구하고 자동화 계정의 업데이트 관리에 누락된 것으로 표시됩니다. 대체된 업데이트는 동일한 취약점을 수정하는 이후 업데이트를 사용할 수 있기 때문에 설치할 필요가 없는 업데이트입니다. 업데이트 관리는 대체된 업데이트를 무시하고 대체된 업데이트를 위해 적용할 수 없습니다. 관련 문제에 대한 자세한 내용은 [업데이트가 대체됩니다.](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)
+이전 업데이트가 대체되었음에도 불구하고 자동화 계정에 대해 누락된 것으로 나타나고 있습니다. 대체된 업데이트는 동일한 취약점을 수정하는 이후 업데이트를 사용할 수 있기 때문에 설치할 필요가 없는 업데이트입니다. 업데이트 관리는 대체된 업데이트를 무시하고 대체된 업데이트를 위해 적용할 수 없습니다. 관련 문제에 대한 자세한 내용은 [업데이트가 대체됩니다.](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)
 
 ### <a name="cause"></a>원인
 
@@ -73,7 +73,7 @@ Error details: Failed to enable the Update solution
 
 1. 자동화 계정에서 업데이트 **관리를** 선택하여 컴퓨터 상태를 확인합니다. [업데이트 평가 보기를](../manage-update-multi.md#view-an-update-assessment)참조하십시오.
 
-2. 대체된 업데이트를 확인하여 100% 적용할 수 없는지 확인합니다. 
+2. 대체된 업데이트를 확인하여 100% 적용되지 않는지 확인합니다. 
 
 3. 업데이트에 대한 질문이 없는 한 업데이트를 거부된 것으로 표시합니다. 
 
@@ -101,11 +101,11 @@ Error details: Failed to enable the Update solution
 
 ### <a name="cause"></a>원인
 
-이 문제는 로컬 구성 문제 또는 잘못 구성된 범위 구성으로 인해 발생할 수 있습니다.
+이 문제는 로컬 구성 문제 또는 잘못 구성된 범위 구성으로 인해 발생할 수 있습니다. 가능한 특정 원인은 다음과 같습니다.
 
-하이브리드 Runbook 작업자를 다시 등록하고 다시 설치해야 할 수 있습니다.
+* 하이브리드 Runbook 작업자를 다시 등록하고 다시 설치해야 할 수 있습니다.
 
-작업 영역에 할당량을 정의하여 도달한 경우 추가 데이터 저장소를 방지할 수 있습니다.
+* 작업 영역에 할당량을 정의하여 도달한 경우 추가 데이터 저장소를 방지할 수 있습니다.
 
 ### <a name="resolution"></a>해결 방법
 
@@ -113,28 +113,30 @@ Error details: Failed to enable the Update solution
 
 2. 컴퓨터가 올바른 작업 영역에 보고하고 있는지 확인합니다. 이 측면을 확인하는 방법에 대한 지침은 [로그 분석에 대한 에이전트 연결 확인을](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics)참조하십시오. 또한 이 작업 영역이 Azure 자동화 계정에 연결되어 있는지 확인합니다. 확인하려면 자동화 계정으로 이동하여 **관련 리소스**에서 연결된 **작업 영역을** 선택합니다.
 
-3. 컴퓨터가 Log Analytics 작업 영역에 표시되는지 확인합니다. 자동화 계정에 연결된 Log Analytics 작업 영역에서 다음 쿼리를 실행합니다.
+3. 자동화 계정에 연결된 Log Analytics 작업 영역에 컴퓨터가 표시되는지 확인합니다. 로그 분석 작업 영역에서 다음 쿼리를 실행합니다.
 
-  ```loganalytics
-  Heartbeat
-  | summarize by Computer, Solutions
-  ```
+   ```kusto
+   Heartbeat
+   | summarize by Computer, Solutions
+   ```
 
 4. 쿼리 결과에 컴퓨터가 표시되지 않으면 최근에 체크 인하지 않은 것입니다. 로컬 구성 문제가 있을 수 있으므로 [에이전트를 다시 설치해야](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)합니다. 
 
-5. 컴퓨터가 쿼리 결과에 표시되는 경우 범위 구성 문제를 확인합니다. [범위 구성은](../automation-onboard-solutions-from-automation-account.md#scope-configuration) 솔루션에 대해 구성된 컴퓨터를 결정합니다. 컴퓨터가 작업 영역에 표시되지만 **업데이트 관리 포털에 표시되지 않는 경우 컴퓨터를 대상으로 하는 범위 구성을 구성해야 합니다. 이 작업을 수행하는 방법에 대해 알아보려면 [작업 영역의 온보드 컴퓨터를](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace)참조하십시오.
+5. 컴퓨터가 쿼리 결과에 표시되는 경우 범위 구성 문제를 확인합니다. [범위 구성은](../automation-onboard-solutions-from-automation-account.md#scope-configuration) 솔루션에 대해 구성된 컴퓨터를 결정합니다. 
 
-6. 작업 영역에서 다음 쿼리를 실행합니다.
+6. 컴퓨터가 작업 영역에 표시되지만 업데이트 관리에 표시되지 않는 경우 컴퓨터를 대상으로 하는 범위 구성을 구성해야 합니다. 이 작업을 수행하는 방법에 대해 알아보려면 [작업 영역의 온보드 컴퓨터를](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace)참조하십시오.
 
-  ```loganalytics
-  Operation
-  | where OperationCategory == 'Data Collection Status'
-  | sort by TimeGenerated desc
-  ```
+7. 작업 영역에서 이 쿼리를 실행합니다.
 
-7. `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` 결과를 얻으면 작업 영역에 정의된 할당량이 도달되어 데이터가 저장되지 않도록 합니다. 작업 영역에서 **사용량 및 예상 비용** 에서 데이터 볼륨 **관리로** 이동하여 할당량을 확인하거나 제거합니다.
+   ```kusto
+   Operation
+   | where OperationCategory == 'Data Collection Status'
+   | sort by TimeGenerated desc
+   ```
 
-8. 그래도 문제가 해결되지 않으면 [Windows 하이브리드 Runbook 작업자 배포의](../automation-windows-hrw-install.md) 단계를 수행하여 Windows용 하이브리드 워커를 다시 설치합니다. Linux의 경우 Linux [하이브리드 Runbook 작업자 배포의](../automation-linux-hrw-install.md)단계를 따릅니다.
+8. `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` 결과를 얻으면 작업 영역에 정의된 할당량에 도달하여 데이터가 저장되지 않도록 합니다. 작업 영역에서 **사용량 및 예상 비용**에서 데이터 볼륨 **관리로** 이동하여 할당량을 변경하거나 제거합니다.
+
+9. 그래도 문제가 해결되지 않으면 [Windows 하이브리드 Runbook 작업자 배포의](../automation-windows-hrw-install.md) 단계를 수행하여 Windows용 하이브리드 워커를 다시 설치합니다. Linux의 경우 Linux [하이브리드 Runbook 작업자 배포의](../automation-linux-hrw-install.md)단계를 따릅니다.
 
 ## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>시나리오: 구독에 자동화 리소스 공급자를 등록할 수 없음
 
@@ -152,51 +154,132 @@ Error details: Unable to register Automation Resource Provider for subscriptions
 
 ### <a name="resolution"></a>해결 방법
 
-자동화 리소스 공급자를 등록하려면 Azure 포털에서 다음 단계를 따르십시오.
+자동화 리소스 공급자를 등록하려면 Azure 포털에서 다음 단계를 따릅니다.
 
 1. 포털 맨 아래에 있는 Azure 서비스 목록에서 **모든 서비스를**선택한 다음 일반 서비스 그룹에서 **구독을 선택합니다.**
-2. 구독을 선택합니다.
-3. **설정에서** **리소스 공급자를**선택합니다.
-4. 리소스 공급자 목록에서 리소스 공급자가 `Microsoft.Automation` 등록되었는지 확인합니다.
-5. 목록에 없는 경우 리소스 공급자 `Microsoft.Automation` [등록에 대한 해결 오류의](/azure/azure-resource-manager/resource-manager-register-provider-errors)단계에 따라 공급자를 등록합니다.
 
-## <a name="scenario-scheduled-update-with-a-dynamic-schedule-missed-some-machines"></a><a name="update-missed-machines"></a>시나리오: 동적 일정이 있는 예약된 업데이트가 일부 컴퓨터를 놓쳤습니다.
+2. 구독을 선택합니다.
+
+3. **설정에서** **리소스 공급자를**선택합니다.
+
+4. 리소스 공급자 목록에서 Microsoft.Automation 리소스 공급자가 등록되어 있는지 확인합니다.
+
+5. 목록에 없는 경우 [리소스 공급자 등록에 대한 해결 오류의](/azure/azure-resource-manager/resource-manager-register-provider-errors)단계에 따라 Microsoft.Automation 공급자를 등록합니다.
+
+## <a name="scenario-scheduled-update-with-a-dynamic-schedule-missed-some-machines"></a><a name="scheduled-update-missed-machines"></a>시나리오: 동적 일정이 있는 예약된 업데이트가 일부 컴퓨터를 놓쳤습니다.
 
 ### <a name="issue"></a>문제
 
-업데이트에 포함된 미리 보기 된 컴퓨터가 예약된 실행 중에 패치된 컴퓨터 목록에 모두 나타나지는 않습니다.
+업데이트 미리 보기에 포함된 컴퓨터가 예약된 실행 중에 패치된 컴퓨터 목록에 모두 나타나지는 않습니다.
 
 ### <a name="cause"></a>원인
 
 이 문제는 다음 원인 중 하나가 있을 수 있습니다.
 
-* 동적 쿼리의 범위에 정의된 구독은 등록된 자동화 리소스 공급자에 대해 구성되지 않습니다. 
-* 일정을 실행할 때 컴퓨터를 사용할 수 없거나 적절한 태그가 없습니다.
+* 동적 쿼리의 범위에 정의된 구독은 등록된 자동화 리소스 공급자에 대해 구성되지 않습니다.
+
+* 일정이 실행될 때 컴퓨터를 사용할 수 없거나 적절한 태그가 없습니다.
 
 ### <a name="resolution"></a>해결 방법
 
 #### <a name="subscriptions-not-configured-for-registered-automation-resource-provider"></a>등록된 자동화 리소스 공급자를 위해 구성되지 않은 구독
 
-자동화 리소스 공급자에 대해 구독이 구성되지 않은 경우 해당 구독의 컴퓨터에 대한 정보를 쿼리하거나 가져올 수 없습니다. 구독등록을 보장하려면 다음 단계를 사용합니다.
+자동화 리소스 공급자에 대해 구독이 구성되지 않은 경우 해당 구독의 컴퓨터에 대한 정보를 쿼리하거나 가져올 수 없습니다. 다음 단계를 사용하여 구독 등록을 확인합니다.
 
 1. Azure [포털에서](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal)Azure 서비스 목록에 액세스합니다.
+
 2. **모든 서비스를**선택한 다음 일반 서비스 그룹에서 **구독을 선택합니다.** 
+
 3. 배포 범위에 정의된 구독을 찾습니다.
+
 4. **설정에서** **리소스 공급자를**선택합니다.
-5. 리소스 공급자가 `Microsoft.Automation` 등록되어 있는지 확인합니다.
-6. 목록에 없는 경우 리소스 공급자 `Microsoft.Automation` [등록에 대한 해결 오류의](/azure/azure-resource-manager/resource-manager-register-provider-errors)단계에 따라 공급자를 등록합니다.
+
+5. Microsoft.Automation 리소스 공급자가 등록되어 있는지 확인합니다.
+
+6. 목록에 없는 경우 [리소스 공급자 등록에 대한 해결 오류의](/azure/azure-resource-manager/resource-manager-register-provider-errors)단계에 따라 Microsoft.Automation 공급자를 등록합니다.
 
 #### <a name="machines-not-available-or-not-tagged-correctly-when-schedule-executed"></a>예약이 실행될 때 컴퓨터를 사용할 수 없거나 올바르게 태그가 지정되지 않음
 
 자동화 리소스 공급자에 대해 구독이 구성되었지만 지정된 [동적 그룹으로](../automation-update-management-groups.md) 업데이트 일정을 실행하면 일부 컴퓨터가 누락된 경우 다음 절차를 사용합니다.
 
 1. Azure 포털에서 자동화 계정을 열고 **업데이트 관리를 선택합니다.**
+
 2. [업데이트 관리 기록을](https://docs.microsoft.com/azure/automation/manage-update-multi#view-results-of-an-update-deployment) 확인하여 업데이트 배포가 실행된 정확한 시간을 확인합니다. 
-3. 업데이트 관리에서 누락된 것으로 의심되는 컴퓨터의 경우 Azure 리소스 그래프를 사용하여 [컴퓨터 변경 내용을 찾습니다.](https://docs.microsoft.com/azure/governance/resource-graph/how-to/get-resource-changes#find-detected-change-events-and-view-change-details) 
+
+3. 업데이트 관리에서 누락된 것으로 의심되는 컴퓨터의 경우 ARG(Azure 리소스 그래프)를 사용하여 [컴퓨터 변경 내용을 찾습니다.](https://docs.microsoft.com/azure/governance/resource-graph/how-to/get-resource-changes#find-detected-change-events-and-view-change-details) 
+
 4. 업데이트 배포가 실행되기 전의 하루와 같이 상당한 기간 동안 변경 내용을 검색합니다.
+
 5. 이 기간의 컴퓨터에 대한 변경 내용 삭제 또는 업데이트와 같은 시스템 변경 사항이 있는지 검색 결과를 확인합니다. 이러한 변경 사항은 업데이트가 배포될 때 컴퓨터 목록에서 컴퓨터가 선택되지 않도록 컴퓨터 상태 또는 태그를 변경할 수 있습니다.
+
 6. 컴퓨터 상태 또는 태그 문제를 수정하려면 필요에 따라 컴퓨터 및 리소스 설정을 조정합니다.
+
 7. 업데이트 일정을 다시 실행하여 지정된 동적 그룹이 있는 배포에 모든 컴퓨터가 포함되도록 합니다.
+
+## <a name="scenario-expected-machines-dont-appear-in-preview-for-dynamic-group"></a><a name="machines-not-in-preview"></a>시나리오: 동적 그룹에 대한 예상 컴퓨터가 미리 보기에 나타나지 않습니다.
+
+### <a name="issue"></a>문제
+
+동적 그룹의 선택한 범위에 대한 가상 컴퓨터가 Azure 포털 미리 보기 목록에 표시되지 않습니다. 이 목록은 선택한 범위에 대한 ARG 쿼리에서 검색한 모든 컴퓨터로 구성됩니다. 범위는 하이브리드 Runbook 작업자가 설치되어 있고 액세스 권한이 있는 컴퓨터에 대해 필터링됩니다. 
+
+### <a name="cause"></a>원인
+ 
+이 문제의 가능한 원인은 다음과 같습니다.
+
+* 선택한 범위에 대한 올바른 액세스 권한이 없습니다.
+* ARG 쿼리는 예상된 컴퓨터를 검색하지 않습니다.
+* 하이브리드 Runbook 작업자가 컴퓨터에 설치되지 않습니다.
+
+### <a name="resolution"></a>해결 방법 
+
+#### <a name="incorrect-access-on-selected-scopes"></a>선택한 범위에 대한 잘못된 액세스
+
+Azure 포털은 지정된 범위에서 쓰기 액세스 권한이 있는 컴퓨터만 표시합니다. 범위에 대한 올바른 액세스 권한이 없는 경우 [자습서: RBAC 및 Azure 포털을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여를](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)참조하십시오.
+
+#### <a name="arg-query-doesnt-return-expected-machines"></a>ARG 쿼리가 예상된 컴퓨터를 반환하지 않습니다.
+
+아래 단계에 따라 쿼리가 제대로 작동하는지 확인합니다.
+
+1. Azure 포털의 리소스 그래프 탐색기 블레이드에서 아래와 같이 서식이 지정된 ARG 쿼리를 실행합니다. 이 쿼리는 업데이트 관리에서 동적 그룹을 만들 때 선택한 필터를 모방합니다. [업데이트 관리를 사용하여 동적 그룹 사용을](https://docs.microsoft.com/azure/automation/automation-update-management-groups)참조하십시오. 
+
+    ```kusto
+    where (subscriptionId in~ ("<subscriptionId1>", "<subscriptionId2>") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "<Windows/Linux>" and resourceGroup in~ ("<resourceGroupName1>","<resourceGroupName2>") and location in~ ("<location1>","<location2>") )
+    | project id, location, name, tags = todynamic(tolower(tostring(tags)))
+    | where  (tags[tolower("<tagKey1>")] =~ "<tagValue1>" and tags[tolower("<tagKey2>")] =~ "<tagValue2>") // use this if "All" option selected for tags
+    | where  (tags[tolower("<tagKey1>")] =~ "<tagValue1>" or tags[tolower("<tagKey2>")] =~ "<tagValue2>") // use this if "Any" option selected for tags
+    | project id, location, name, tags
+    ```
+
+   다음은 예제입니다.
+
+    ```kusto
+    where (subscriptionId in~ ("20780d0a-b422-4213-979b-6c919c91ace1", "af52d412-a347-4bc6-8cb7-4780fbb00490") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "Windows" and resourceGroup in~ ("testRG","withinvnet-2020-01-06-10-global-resources-southindia") and location in~ ("australiacentral","australiacentral2","brazilsouth") )
+    | project id, location, name, tags = todynamic(tolower(tostring(tags)))
+    | where  (tags[tolower("ms-resource-usage")] =~ "azure-cloud-shell" and tags[tolower("temp")] =~ "temp")
+    | project id, location, name, tags
+    ```
+ 
+2. 찾고 있는 컴퓨터가 쿼리 결과에 나열되어 있는지 확인합니다. 
+
+3. 컴퓨터가 나열되지 않은 경우 동적 그룹에서 선택한 필터에 문제가 있을 수 있습니다. 필요에 따라 그룹 구성을 조정합니다.
+
+#### <a name="hybrid-runbook-worker-not-installed-on-machines"></a>컴퓨터에 설치되지 않은 하이브리드 Runbook 작업자
+
+컴퓨터는 ARG 쿼리 결과에 나타나지만 동적 그룹 미리 보기에는 표시되지 않습니다. 이 경우 컴퓨터가 하이브리드 작업자로 지정되지 않아 Azure 자동화 및 업데이트 관리 작업을 실행할 수 없습니다. 보려는 컴퓨터가 하이브리드 Runbook 작업자로 설정되어 있는지 확인하려면 다음을 수행합니다.
+
+1. Azure 포털에서 올바르게 나타나지 않는 컴퓨터의 자동화 계정으로 이동합니다.
+
+2. **프로세스 자동화**에서 하이브리드 **작업자 그룹을** 선택합니다.
+
+3. 시스템 **하이브리드 작업자 그룹 탭을** 선택합니다.
+
+4. 하이브리드 작업자가 해당 컴퓨터에 있는지 확인합니다.
+
+5. 컴퓨터가 하이브리드 작업자로 설정되지 않은 경우 [하이브리드 Runbook Worker를 사용하여 데이터 센터 또는 클라우드의 리소스 자동화에서 지침을 사용하여 조정합니다.](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)
+
+6. 컴퓨터를 하이브리드 Runbook 작업자 그룹에 조인합니다.
+
+7. 미리 보기에 표시되지 않은 모든 컴퓨터에 대해 위의 단계를 반복합니다.
 
 ## <a name="scenario-components-for-update-management-solution-enabled-while-vm-continues-to-show-as-being-configured"></a><a name="components-enabled-not-working"></a>시나리오: VM이 구성된 것으로 계속 표시되는 동안 업데이트 관리 솔루션용 구성 요소가 활성화되었습니다.
 
@@ -250,7 +333,7 @@ VM의 이름을 변경하여 해당 환경에서 고유한 이름을 확인합�
 
 3. 실행하여 `Restart-Service HealthService` 상태 서비스를 다시 시작합니다. 이 작업은 키를 다시 만들고 새 UUID를 생성합니다.
 
-4. 이 접근 방식이 작동하지 않으면 먼저 이미지에서 sysprep을 실행한 다음 MMA를 설치합니다.
+4. 이 접근 방식이 작동하지 않으면 먼저 이미지에서 Sysprep을 실행한 다음 MMA를 설치합니다.
 
 ## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>시나리오: 다른 Azure 테넌트의 컴퓨터에 대한 업데이트 배포를 만들 때 연결된 구독 오류가 발생합니다.
 
@@ -317,19 +400,19 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 
 ### <a name="resolution"></a>해결 방법
 
-해당하는 경우 업데이트 배포에 [동적 그룹을](../automation-update-management-groups.md) 사용합니다. 또한 다음 작업도 수행해야 합니다.
+해당하는 경우 업데이트 배포에 [동적 그룹을](../automation-update-management-groups.md) 사용합니다. 또한 다음 단계를 수행할 수 있습니다.
 
-* 기기가 여전히 존재하고 연결할 수 있는지 확인합니다. 
-* 컴퓨터가 없는 경우 배포를 편집하고 컴퓨터를 제거합니다.
-* 업데이트 관리에 필요한 포트 및 주소 목록은 [네트워크 계획](../automation-update-management.md#ports) 섹션을 참조한 다음 컴퓨터가 이러한 요구 사항을 충족하는지 확인합니다.
-* 하이브리드 Runbook 작업자 에이전트 문제 해결사를 사용하여 하이브리드 Runbook 작업자에 대한 연결을 확인합니다. 이 문제 해결사에 대한 자세한 내용은 [업데이트 에이전트 문제 해결](update-agent-issues.md)을 참조하세요.
-* 로그 애널리틱스에서 다음 쿼리를 실행하여 원본 컴퓨터 ID가 변경된 환경에서 컴퓨터를 찾습니다. 값은 같지만 `Computer` 값은 다른 `SourceComputerId` 컴퓨터를 찾습니다.
+1. 기기가 여전히 존재하고 연결할 수 있는지 확인합니다. 
+2. 컴퓨터가 없는 경우 배포를 편집하고 컴퓨터를 제거합니다.
+3. 업데이트 관리에 필요한 포트 및 주소 목록은 [네트워크 계획](../automation-update-management.md#ports) 섹션을 참조한 다음 컴퓨터가 이러한 요구 사항을 충족하는지 확인합니다.
+4. 하이브리드 Runbook 작업자 에이전트 문제 해결사를 사용하여 하이브리드 Runbook 작업자에 대한 연결을 확인합니다. 이 문제 해결사에 대한 자세한 내용은 [업데이트 에이전트 문제 해결](update-agent-issues.md)을 참조하세요.
+5. 로그 애널리틱스에서 다음 쿼리를 실행하여 원본 컴퓨터 ID가 변경된 환경에서 컴퓨터를 찾습니다. 값은 같지만 `Computer` 값은 다른 `SourceComputerId` 컴퓨터를 찾습니다.
 
-   ```loganalytics
+   ```kusto
    Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
    ```
 
-* 영향을 받는 컴퓨터를 찾은 후 해당 컴퓨터를 대상으로 하는 업데이트 배포를 편집한 `SourceComputerId` 다음 올바른 값을 반영되도록 제거하고 읽습니다.
+6. 영향을 받는 컴퓨터를 찾은 후 해당 컴퓨터를 대상으로 하는 업데이트 배포를 편집한 `SourceComputerId` 다음 올바른 값을 반영되도록 제거하고 읽습니다.
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>시나리오: 업데이트가 배포 없이 설치됩니다.
 
@@ -449,10 +532,10 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 * Windows의 경우 업데이트에 나열된 에이전트 [구성이 인트라넷 끝점(WSUS/SCCM)에서 다운로드되지 않는지](/windows/deployment/update/windows-update-troubleshooting#updates-arent-downloading-from-the-intranet-endpoint-wsussccm)확인합니다.
 
-  * 컴퓨터가 Windows 업데이트용으로 구성된 경우 [HTTP/프록시와 관련된 문제에](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy)설명된 끝점에 도달할 수 있는지 확인합니다.
+  * 컴퓨터가 Windows 업데이트에 대해 구성된 경우 [HTTP/프록시와 관련된 문제에](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy)설명된 끝점에 도달할 수 있는지 확인합니다.
   * 컴퓨터가 WSUS(Windows 서버 업데이트 서비스)에 대해 구성된 경우 [WUServer 레지스트리 키로](/windows/deployment/update/waas-wu-settings)구성된 WSUS 서버에 연결할 수 있는지 확인합니다.
 
-HRESULT가 표시되면 빨간색으로 표시된 예외를 두 번 클릭하여 전체 예외 메시지를 확인합니다. 잠재적인 솔루션 또는 권장 조치에 대한 다음 표를 검토합니다.
+HRESULT가 표시되면 빨간색으로 표시된 예외를 두 번 클릭하여 전체 예외 메시지를 확인합니다. 잠재적인 솔루션 이나 권장 된 작업에 대 한 다음 표를 검토 합니다.
 
 |예외  |해결 또는 작업  |
 |---------|---------|
@@ -466,14 +549,14 @@ HRESULT가 표시되면 빨간색으로 표시된 예외를 두 번 클릭하여
 |`0x80070005`| 액세스 거부 오류는 다음 중 하나로 인해 발생할 수 있습니다.<br> 감염된 컴퓨터<br> Windows 업데이트 설정이 올바르게 구성되지 않음<br> %WinDir%\소프트웨어 배포 폴더가 있는 파일 권한 오류<br> 시스템 드라이브의 디스크 공간이 부족합니다(C:).
 |다른 제네릭 예외     | 인터넷에서 가능한 솔루션을 검색하고 로컬 IT 지원팀에 문의하십시오.         |
 
-%Windir%\Windowsupdate.log 파일을 검토하면 가능한 원인을 파악하는 데도 도움이 될 수 있습니다. 로그를 읽는 방법에 대한 자세한 내용은 [Windowsupdate.log 파일을 읽는 방법을](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file)참조하십시오.
+**%Windir%\Windowsupdate.log** 파일을 검토하면 가능한 원인을 파악하는 데도 도움이 될 수 있습니다. 로그를 읽는 방법에 대한 자세한 내용은 [Windowsupdate.log 파일을 읽는 방법을](https://support.microsoft.com/help/902093/how-to-read-the-windowsupdate-log-file)참조하십시오.
 
 [또한 Windows 업데이트 문제 해결사를](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) 다운로드하여 실행하여 컴퓨터에서 Windows 업데이트와 관련된 문제를 확인할 수도 있습니다.
 
 > [!NOTE]
 > [Windows 업데이트 문제 해결사](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) 설명서는 Windows 클라이언트에서 사용하기 위한 것이지만 Windows 서버에서도 작동합니다.
 
-## <a name="scenario-update-run-returns-failed-status-linux"></a>시나리오: 업데이트 실행 반환 "실패" 상태 (리눅스)
+## <a name="scenario-update-run-returns-failed-status-linux"></a>시나리오: 업데이트 실행 반환 실패 상태 (리눅스)
 
 ### <a name="issue"></a>문제
 
@@ -495,11 +578,7 @@ HRESULT가 표시되면 빨간색으로 표시된 예외를 두 번 클릭하여
 
 작업이 실패하기 직전에 특정 패치, 패키지 또는 업데이트가 표시되는 경우 다음 업데이트 배포에서 이러한 항목을 [제외해](../automation-tutorial-update-management.md#schedule-an-update-deployment) 볼 수 있습니다. Windows 업데이트에서 로그 정보를 수집하려면 [Windows 업데이트 로그 파일을](/windows/deployment/update/windows-update-logs)참조하십시오.
 
-패치 문제를 해결할 수 없는 경우 다음 로그 파일의 복사본을 만들고 다음 업데이트 배포가 시작되기 전에 문제 해결을 위해 보존하십시오.
-
-```bash
-/var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
-```
+패치 문제를 해결할 수 없는 경우 **/var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log** 파일의 복사본을 만들고 다음 업데이트 배포가 시작되기 전에 문제 해결을 위해 보존합니다.
 
 ## <a name="patches-arent-installed"></a>패치가 설치되지 않았습니다.
 
@@ -515,9 +594,9 @@ HRESULT가 표시되면 빨간색으로 표시된 예외를 두 번 클릭하여
 
 이 문서의 레지스트리 섹션을 `UseWUServer` [편집하여 자동 업데이트 구성에서](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s)레지스트리 키를 레지스트리 키에 상호 참조하여 컴퓨터가 WSUS 및 SCCM에 대해 구성되어 있는지 확인할 수 있습니다.
 
-WSUS에서 업데이트가 승인되지 않으면 설치되지 않습니다. 다음 쿼리를 실행하여 Log Analytics에서 승인되지 않은 업데이트를 확인할 수 있습니다.
+WSUS에서 업데이트가 승인되지 않으면 설치되지 않은 것입니다. 다음 쿼리를 실행하여 Log Analytics에서 승인되지 않은 업데이트를 확인할 수 있습니다.
 
-  ```loganalytics
+  ```kusto
   Update | where UpdateState == "Needed" and ApprovalSource == "WSUS" and Approved == "False" | summarize max(TimeGenerated) by Computer, KBID, Title
   ```
 
@@ -535,8 +614,8 @@ KB2267602는 [Windows Defender 정의 업데이트](https://www.microsoft.com/wd
 
 ## <a name="next-steps"></a>다음 단계
 
-문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 통해 추가 지원을 시도해 보세요.
+문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 시도하여 추가 지원을 요청하세요.
 
 * Azure 포럼을 통해 Azure 전문가의 답변을 얻을 [수 있습니다.](https://azure.microsoft.com/support/forums/)
-* [@AzureSupport](https://twitter.com/azuresupport)Azure 커뮤니티를 올바른 리소스(답변, 지원 및 전문가)에 연결하여 고객 경험을 개선하기 위한 공식 Microsoft Azure 계정과 연결합니다.
+* [@AzureSupport](https://twitter.com/azuresupport)연결합니다.
 * Azure 지원 인시던트 제출 [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동하여 **지원 받기를**선택합니다.

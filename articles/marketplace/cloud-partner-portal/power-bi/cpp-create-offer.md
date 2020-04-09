@@ -7,23 +7,23 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 43bb34a80d8d62cfa2bde445b94fb97da25ccda3
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: c396468bff0edef5cfceccd3d3c3394662111c10
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745467"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984847"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Power BI 앱 제품 만들기
 
 >[!Important]
->2020년 3월 30일부터 Power BI 앱 제공의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Power BI [앱 만들기 개요의](https://aka.ms/AzureCreatePBIServiceApp) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
+>2020년 4월 13일부터 Power BI 앱 제공의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Power BI [앱 만들기 개요의](https://aka.ms/AzureCreatePBIServiceApp) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
 
 이 문서에는 [AppSource](https://appsource.microsoft.com)용 새 Power BI 앱 제품을 만드는 데 필요한 단계가 나와 있습니다. 모든 제품은 AppSource에 고유 엔터티로 나타납니다. [Cloud 파트너 포털](https://cloudpartner.azure.com/)에서 새 제품을 만드는 경우 제품에 대한 네 가지 자산 그룹을 제공해야 합니다.
 
 자산 그룹은 다음 표에 설명되어 있습니다.
 
-|   자산 그룹      | 설명                                                                         |
+|   자산 그룹      | Description                                                                         |
 | ----------------   | ----------------                                                                    |
 | 제품 설정     | 제품의 기본 ID와 이름입니다.                                      |
 | 기술 정보     | 클라이언트의 Power BI 작업 영역에 앱을 설치하는 데 사용하는 설치 관리자 URL입니다. 이 URL을 생성하는 방법에 대한 자세한 내용은 [Power BI 앱 문서](https://go.microsoft.com/fwlink/?linkid=2028636)를 참조하세요. |
@@ -46,5 +46,5 @@ Cloud 파트너 포털에 로그인한 후 왼쪽 창에서 **새 제품**을 �
 
 -  [제품 설정 탭](./cpp-offer-settings-tab.md)
 -  [기술 정보 탭](./cpp-technical-info-tab.md)
--  [상점 앞 세부 정보 탭](./cpp-storefront-details-tab.md)
+-  [상점 세부 정보 탭](./cpp-storefront-details-tab.md)
 -  [연락처 탭](./cpp-contacts-tab.md)

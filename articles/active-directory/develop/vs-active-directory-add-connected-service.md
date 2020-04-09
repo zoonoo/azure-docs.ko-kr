@@ -3,7 +3,6 @@ title: Active Directory 연결 서비스 사용(Visual Studio)
 description: Visual Studio 연결된 서비스 추가 대화 상자를 사용하여 Azure Active Directory 추가
 author: ghogen
 manager: jillfra
-ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.custom: aaddev, vs-azure
@@ -11,12 +10,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: f139fc8cb59c40ea169e195312326773296b0592
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3d068a8100cf78ccffac6d537fe71942239f383
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77159628"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886163"
 ---
 # <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Visual Studio에서 연결된 서비스를 사용하여 Azure Active Directory 추가
 

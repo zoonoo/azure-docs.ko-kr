@@ -4,12 +4,12 @@ description: Application Insights를 시작합니다. 온-프레미스 또는 Mi
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: e398f23559729580ae4ad8b6507c2f09328052b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 873fc41585c387246d83008a8f97d6c4d9a32c3b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275621"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985068"
 ---
 # <a name="monitor-performance-in-web-applications"></a>웹 애플리케이션의 성능 모니터링
 
@@ -26,8 +26,7 @@ Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로
 * [ASP.NET 웹 앱](../../azure-monitor/app/asp-net.md)
   * [예외 모니터링 추가](../../azure-monitor/app/asp-net-exceptions.md)
   * [종속성 모니터링 추가](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Java EE 웹앱](../../azure-monitor/app/java-get-started.md)
-  * [종속성 모니터링 추가](../../azure-monitor/app/java-agent.md)
+* [Java EE 웹앱](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
 
 ## <a name="exploring-performance-metrics"></a><a name="view"></a>성능 메트릭 탐색
 [Azure 포털](https://portal.azure.com)에서 애플리케이션에 대해 설정한 Application Insights 리소스를 찾습니다. 개요 블레이드에 기본 성능 데이터가 표시됩니다.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: b9b66c379714c2f4fa2421876fda3bdb500ce6c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db9e86706ecd4e5b2526e1d801dda45ed6b345c6
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250361"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887251"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Azure 코스모스 DB 모니터링
 Azure 리소스에 의존하는 중요한 응용 프로그램 및 비즈니스 프로세스가 있는 경우 해당 리소스의 가용성, 성능 및 운영에 대해 모니터링해야 합니다. 이 문서에서는 Azure Cosmos 데이터베이스에서 생성된 모니터링 데이터와 Azure Monitor의 기능을 사용하여 이 데이터를 분석하고 경고하는 방법에 대해 설명합니다.
@@ -38,7 +38,7 @@ Azure 서비스 모니터링에 익숙하지 않은 경우 다음을 설명하�
 
 ## <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Azure 코스모스 DB에 대한 작업 수준 메트릭 보기
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. 왼쪽 탐색 모음에서 **모니터를** 선택하고 **메트릭을 선택합니다.**
 
@@ -64,10 +64,6 @@ Azure 서비스 모니터링에 익숙하지 않은 경우 다음을 설명하�
 
 ![분할 필터 적용 추가](./media/monitor-cosmos-db/apply-metrics-splitting.png)
 
-다음은 특정 데이터베이스, 컨테이너 또는 작업에 대한 서버 측 대기 시간 메트릭을 보는 또 다른 예입니다.
-
-![서버 측 대기 시간 메트릭](./media/monitor-cosmos-db/serverside-latency-metric.png)
-
 ## <a name="monitoring-data-collected-from-azure-cosmos-db"></a>Azure 코스모스 DB에서 수집한 데이터 모니터링
 
 Azure Cosmos DB는 Azure 리소스의 모니터링 데이터에 설명된 다른 Azure 리소스와 동일한 종류의 [모니터링 데이터를](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data)수집합니다. Azure Cosmos DB에서 만든 로그 및 메트릭에 대한 자세한 참조는 [Azure Cosmos DB 모니터링 데이터 참조를](monitor-cosmos-db-reference.md) 참조하십시오.
@@ -92,7 +88,7 @@ Azure Monitor 메뉴에서 메트릭을 열어 메트릭 탐색기를 사용하�
 ## <a name="analyzing-log-data"></a>로그 데이터 분석
 Azure Monitor Logs의 데이터는 각 테이블에 고유한 속성 집합이 있는 테이블에 저장됩니다. Azure Cosmos DB는 다음 테이블에 데이터를 저장합니다.
 
-| 테이블 | 설명 |
+| 테이블 | Description |
 |:---|:---|
 | AzureDiagnostics | 리소스 로그를 저장하는 데 여러 서비스에서 사용하는 공통 테이블입니다. Azure Cosmos DB의 리소스 로그를 `MICROSOFT.DOCUMENTDB`로그로 식별할 수 있습니다.   |
 | AzureActivity    | 활동 로그의 모든 레코드를 저장하는 공통 테이블입니다. 

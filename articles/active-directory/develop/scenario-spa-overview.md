@@ -2,24 +2,21 @@
 title: 자바 스크립트 단일 페이지 응용 프로그램 시나리오 - 마이크로 소프트 ID 플랫폼 | Azure
 description: Microsoft ID 플랫폼을 사용하여 단일 페이지 응용 프로그램(시나리오 개요)을 빌드하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b430778bed811656b5c8aadc75ba3cf35917f737
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ead0ea58c6860519f027eb6a7450df37396bd89
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76701878"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885177"
 ---
 # <a name="scenario-single-page-application"></a>시나리오: 단일 페이지 응용 프로그램
 

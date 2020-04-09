@@ -1,28 +1,23 @@
 ---
-title: Microsoft ID 플랫폼 관리자 동의 프로토콜 | 마이크로 소프트 문서
+title: Microsoft ID 플랫폼 관리자 동의 프로토콜
 description: 범위, 사용 권한 및 동의를 포함하여 Microsoft ID 플랫폼 끝점에서 권한 부여에 대한 설명입니다.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 8f98cbf0-a71d-4e34-babf-e642ad9ff423
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/3/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b9d6ab0fc2f2bf500f17161de7e090a6f60c0feb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c9f633e0d205adaf5cefb2e3c036ce7f48253651
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76700739"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886384"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼에 대한 관리자 동의
 
@@ -50,7 +45,7 @@ ms.locfileid: "76700739"
 ```
 
 
-| 매개 변수     | 조건     | 설명                                                                               |
+| 매개 변수     | 조건     | Description                                                                               |
 |--------------:|--------------:|:-----------------------------------------------------------------------------------------:|
 | `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. GUID에서 제공한 이름이거나, 친근한 이름 형식이거나, 예제에서처럼 `organizations`으로 일반 참조될 수 있습니다. 개인 계정은 테넌트의 컨텍스트를 제외하고 관리자동의를 제공할 수 없으므로 '일반'을 사용하지 마십시오. 테넌트를 관리하는 개인 계정과의 최상의 호환성을 보장하려면 가능하면 테넌트 ID를 사용하십시오. |
 | `client_id` | 필수 | Azure 포털 - 앱 [등록이](https://go.microsoft.com/fwlink/?linkid=2083908) 앱에 할당된 응용 **프로그램(클라이언트) ID입니다.** |

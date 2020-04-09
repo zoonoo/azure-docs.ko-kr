@@ -17,12 +17,12 @@ ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 077671ab4e964d7641aa3a0f0b435b39117eb6aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b2a0d0b77b6db481b13785907a1359d2bbe3e9b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65139386"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984507"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>ADSync 서비스 계정 암호 변경
 ADSync 서비스 계정 암호를 변경하면 암호화 키를 포기하고 ADSync 서비스 계정 암호를 다시 초기화할 때까지 동기화 서비스가 올바르게 시작할 수 없습니다. 
@@ -84,7 +84,7 @@ ADSync 서비스 계정 암호를 변경하면 암호화 키를 포기하고 ADS
 
 2. 새 PowerShell 세션을 시작합니다.
 
-3. `$env:Program Files\Microsoft Azure AD Sync\bin\` 폴더로 이동합니다.
+3. `'$env:ProgramFiles\Microsoft Azure AD Sync\bin\'` 폴더로 이동합니다.
 
 4. `./miiskmu.exe /a` 명령을 실행합니다.
 

@@ -2,27 +2,22 @@
 title: OAuth 권한 부여 코드 흐름 - Microsoft ID 플랫폼 | Azure
 description: OAuth 2.0 인증 프로토콜의 Microsoft ID 플랫폼 구현을 사용하여 웹 응용 프로그램을 빌드합니다.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: ae1d7d86-7098-468c-aa32-20df0a10ee3d
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 366389ddf88cfb72c9ed9d0543c9985eb25f47ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f39ef8b334d142665944566f982f0bf7c4eb67b
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262400"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886316"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>마이크로소프트 ID 플랫폼 및 OAuth 2.0 권한 부여 코드 흐름
 
@@ -61,7 +56,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > 이 요청을 실행하려면 아래 링크를 클릭하세요. 로그인하면 브라우저가 주소 표시줄에서 `code` 과 함께 `https://localhost/myapp/` 으로 리디렉션됩니다.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-| 매개 변수    | 필수/선택 | 설명 |
+| 매개 변수    | 필수/선택 | Description |
 |--------------|-------------|--------------|
 | `tenant`    | required    | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요.  |
 | `client_id`   | required    | Azure 포털 - 앱 [등록이](https://go.microsoft.com/fwlink/?linkid=2083908) 앱에 할당된 응용 **프로그램(클라이언트) ID입니다.**  |
@@ -114,7 +109,7 @@ error=access_denied
 
 다음 테이블은 오류 응답의 `error` 매개 변수에 반환될 수 있는 여러 오류 코드를 설명합니다.
 
-| 오류 코드  | 설명    | 클라이언트 작업   |
+| 오류 코드  | Description    | 클라이언트 작업   |
 |-------------|----------------|-----------------|
 | `invalid_request` | 프로토콜 오류(예: 필수 매개 변수 누락). | 요청을 수정하여 다시 제출하십시오. 일반적으로 초기 설정 중에 발견되는 개발 오류입니다. |
 | `unauthorized_client` | 클라이언트 응용 프로그램은 권한 부여 코드를 요청할 수 없습니다. | 이 오류는 일반적으로 클라이언트 응용 프로그램이 Azure AD에 등록되지 않았거나 사용자의 Azure AD 테넌트에 추가되지 않은 경우에 발생합니다. 애플리케이션이 사용자에게 애플리케이션을 설치하고 Azure AD에 추가하기 위한 지침이 포함된 메시지를 표시할 수 있습니다. |
@@ -148,7 +143,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > Postman에서 이 요청을 실행해 보세요. (교체하는 것을 잊지 `code`마십시오) [우체부에서 이 요청을 실행해 보십시오. ![](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-| 매개 변수  | 필수/선택 | 설명     |
+| 매개 변수  | 필수/선택 | Description     |
 |------------|-------------------|----------------|
 | `tenant`   | required   | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요.  |
 | `client_id` | required  | Azure 포털 - 앱 [등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당된 응용 프로그램(클라이언트) ID입니다. |
@@ -211,7 +206,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 ### <a name="error-codes-for-token-endpoint-errors"></a>토큰 엔드포인트 오류에 대한 오류 코드
 
-| 오류 코드         | 설명        | 클라이언트 작업    |
+| 오류 코드         | Description        | 클라이언트 작업    |
 |--------------------|--------------------|------------------|
 | `invalid_request`  | 프로토콜 오류(예: 필수 매개 변수 누락). | 요청을 수정하여 다시 제출   |
 | `invalid_grant`    | 권한 부여 코드 또는 PKCE 코드 확인자가 잘못되었거나 만료되었습니다. | `/authorize` 엔드포인트에 대한 새 요청을 시도하고 code_verifier 매개 변수가 잘못되었는지 확인합니다.  |

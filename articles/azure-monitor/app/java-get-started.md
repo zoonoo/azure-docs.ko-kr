@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: efa498ba600a664beab4b9a49eae2b2c3f1c8397
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2355cb7ab995cab3060c7a94c9e7ea344bd9e92b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298304"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984643"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>빠른 시작: Java 웹 프로젝트에서 애플리케이션 인사이트 시작하기
 
@@ -25,7 +25,7 @@ Application Insights는 라이브 애플리케이션의 성능 및 사용을 이
 
 ## <a name="get-an-application-insights-instrumentation-key"></a>Application Insights 계측 키 가져오기
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure Portal에서 Application Insights 리소스를 만듭니다. Java 웹 애플리케이션에 대한 애플리케이션 종류를 설정합니다.
 
 3. 새 리소스의 계측 키를 찾습니다. 코드 프로젝트에 이 키를 곧바로 붙여넣어야 합니다.
@@ -223,7 +223,7 @@ Windows에서 실행되는 Spring Boot 앱은 Azure 앱 서비스에서 실행�
 
 Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.io/trace-context/)을 지원합니다.
 
-수신 SDK 구성은 [상관 관계](correlation.md#telemetry-correlation-in-the-java-sdk) 관련 문서에 자세히 설명되어 있습니다.
+수신 SDK 구성은 [상관 관계](correlation.md) 관련 문서에 자세히 설명되어 있습니다.
 
 발신 SDK 구성은 [Ai-agent.xml](java-agent.md) 파일에서 정의됩니다.
 
@@ -258,7 +258,7 @@ Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.i
 * `displayName` - Application Insights 포털에서 표시되는 이름입니다.
 * `objectName` – JMX 개체 이름입니다.
 * `attribute` - 가져올 JMX 개체 이름의 특성입니다.
-* `type` (선택 사항) - JMX 개체 특성의 유형:
+* `type`(선택 사항) - JMX 개체의 특성 유형:
   * 기본값: int 또는 long과 같은 단순 유형입니다.
   * `composite`: 성능 카운터 데이터는 'Attribute.Data' 형식입니다.
   * `tabular`: 성능 카운터 데이터는 표 행 형식입니다.

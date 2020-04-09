@@ -1,15 +1,16 @@
 ---
-title: AKS(Azure Kubernetes Service)에서 Azure CLI를 사용하여 가상 노드 만들기
+title: Azure CLI를 사용하여 가상 노드 만들기
+titleSuffix: Azure Kubernetes Service
 description: Azure CLI를 통해 가상 노드를 사용하여 Pod를 실행하는 AKS(Azure Kubernetes Service) 클러스터를 만드는 방법을 알아봅니다.
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 05e32b6b0017e945044bc7593d4d6dbc543a5b64
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: b6d44ceb9b447d670c4e51c951b547e90dfce38f
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616474"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984677"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Azure CLI에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
 
@@ -66,7 +67,7 @@ az provider register --namespace Microsoft.ContainerInstance
 * [호스트 별칭](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [ACI의](../container-instances/container-instances-exec.md#restrictions) 임원에 대한 인수
 * [DaemonSet은](concepts-clusters-workloads.md#statefulsets-and-daemonsets) 가상 노드에 포드를 배포하지 않습니다.
-* [현재 AKS에서 미리 보기](windows-container-cli.md) 중인 Windows 서버 노드는 가상 노드와 함께 지원되지 않습니다. 가상 노드를 사용하여 AKS 클러스터의 Windows Server 노드없이 Windows Server 컨테이너를 예약할 수 있습니다.
+* 가상 노드는 Linux 포드 예약을 지원합니다. 오픈 소스 [가상 Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) 공급자를 수동으로 설치하여 Windows 서버 컨테이너를 ACI로 예약할 수 있습니다. 
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 
