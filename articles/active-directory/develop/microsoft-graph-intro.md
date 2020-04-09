@@ -1,5 +1,5 @@
 ---
-title: 마이크로소프트 그래프 API | 마이크로 소프트 문서
+title: Microsoft Graph API
 description: Microsoft 그래프 API는 Microsoft 클라우드 서비스 리소스에 액세스할 수 있는 RESTful 웹 API입니다.
 author: davidmu1
 services: active-directory
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
-ms.openlocfilehash: 6c1b4390282f6d54178365714b1e2e665b4cf061
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 67dbf696903e7a930d75762deb00ad58ed1a4f69
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136503"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886469"
 ---
 # <a name="microsoft-graph-api"></a>Microsoft Graph API
 
@@ -36,7 +36,7 @@ Microsoft 그래프는 현재 v1.0 과 베타 버전의 두 가지 버전을 지
 
 v1.0 API 사용을 시작하려면 [Microsoft 그래프 REST API v1.0 참조를](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0) 참조하십시오.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 사용자 또는 전자 메일 메시지와 같은 리소스에서 읽거나 쓰기하려면 다음과 같은 요청을 생성합니다.
 

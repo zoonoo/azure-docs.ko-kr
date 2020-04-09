@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 55fa14f367dbf24e951fde8e9075a34499a510b1
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: f8f21405a79a6fcf70adef9815ba06a229d6954d
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547068"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886979"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -193,11 +193,11 @@ SNAT 포트 할당은 IP 전송 프로토콜과 관련이 있으며(TCP 및 UDP�
 이 섹션은 Azure의 아웃바운드 연결에서 발생할 수 있는 SNAT 고갈을 완화하는 데 도움을 주고자 합니다.
 
 ### <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a> SNAT(PAT) 포트 고갈 관리
-[PAT에](#pat) 사용되는 [임시 포트는](#preallocatedports) [공용 IP 주소가 없는 독립 실행형 VM및 공용 IP 주소가 없는](#defaultsnat) 로드 균형 VM에 설명된 대로 소모가능한 [리소스입니다.](#lb)
+[PAT에](#pat) 사용되는 [임시 포트는](#preallocatedports) [공용 IP 주소가 없는 독립 실행형 VM및 공용 IP 주소가 없는](#defaultsnat) 로드 균형 VM에 설명된 대로 소모가능한 [리소스입니다.](#lb) 임시 포트 사용을 모니터링하고 현재 할당과 비교하여 위험을 확인하거나 [이](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) 가이드를 사용하여 SNAT exhuastion을 확인할 수 있습니다.
 
 동일한 대상 IP 주소 및 포트에 대해 많은 아웃바운드 TCP 또는 UDP 연결을 시작할 것인지 알고 있는 경우 실패하는 아웃바운드 연결을 확인하고, 지원 서비스에서 SNAT 포트([PAT](#pat)에서 사용하는 미리 할당된 [삭제 포트](#preallocatedports))가 고갈될 것이라는 알림을 받는 경우 몇 가지 일반적인 완화 옵션을 사용할 수 있습니다. 다음 옵션을 검토하고 시나리오에 가장 적합한 옵션을 결정합니다. 한 가지 이상의 옵션이 이 시나리오를 관리하는 데 도움이 될 수 있습니다.
 
-아웃바운드 연결 동작을 이해하는 데 어려움이 있는 경우 IP 스택 통계(netstat)를 사용할 수 있습니다. 또는 패킷 캡처를 사용하여 연결 동작을 관찰하면 도움이 될 수 있습니다. 이러한 패킷 캡처는 인스턴스의 게스트 OS에서 수행할 수도 있고 [패킷 캡처용 Network Watcher](../network-watcher/network-watcher-packet-capture-manage-portal.md)를 사용할 수도 있습니다.
+아웃바운드 연결 동작을 이해하는 데 어려움이 있는 경우 IP 스택 통계(netstat)를 사용할 수 있습니다. 또는 패킷 캡처를 사용하여 연결 동작을 관찰하면 도움이 될 수 있습니다. 이러한 패킷 캡처는 인스턴스의 게스트 OS에서 수행할 수도 있고 [패킷 캡처용 Network Watcher](../network-watcher/network-watcher-packet-capture-manage-portal.md)를 사용할 수도 있습니다. 
 
 #### <a name="modify-the-application-to-reuse-connections"></a><a name="connectionreuse"></a>연결을 다시 사용하도록 애플리케이션 수정 
 애플리케이션에서 연결을 다시 사용하여 SNAT에서 사용되는 사용 후 삭제 포트에 대한 수요를 줄일 수 있습니다. 이러한 효과는 연결 재사용이 기본 옵션인 HTTP/1.1 같은 프로토콜에서 특히 두드러집니다. 또한 전송으로 HTTP를 사용하는 다른 프로토콜(예: REST)도 이점을 얻을 수 있습니다. 

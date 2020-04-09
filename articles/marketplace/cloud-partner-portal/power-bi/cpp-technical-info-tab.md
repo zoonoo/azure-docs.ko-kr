@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 92bc172fd9a47d3b140e60a4083d65a2f532769a
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: d814ebc34193f5d7c0c3828d32aa3d2af29f3679
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745566"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981361"
 ---
 # <a name="power-bi-apps-technical-info-tab"></a>Power BI 앱 기술 정보 탭
 
 >[!Important]
->2020년 3월 30일부터 Power BI 앱 제공의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Power BI [앱 만들기 개요의](https://aka.ms/AzureCreatePBIServiceApp) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
+>2020년 4월 13일부터 Power BI 앱 제공의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Power BI [앱 만들기 개요의](https://aka.ms/AzureCreatePBIServiceApp) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
 
 새 **오퍼** 페이지에서 **기술 정보** 탭을 사용하여 Power BI 설치 관리자 패키지 URL 및 새 오퍼의 유효성을 검사하는 데 필요한 기타 정보를 제공합니다.  초기 릴리스의 경우 모든 Power BI 앱은 무료이며 AppSource에서 다운로드할 수 있습니다. 따라서 이 오퍼 유형에 대한 재고 유지 장치(SCO)를 정의할 수 없습니다.
 

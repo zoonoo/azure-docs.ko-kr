@@ -8,19 +8,19 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: 090446d286b38a0bfcbde4ed9e77235050b36417
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: b81a3921ec11d589dadbdebd698ab9ad67d7649c
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547707"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982908"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.js](sql-api-sdk-node.md)
+> * [Node.JS](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
@@ -71,7 +71,7 @@ ms.locfileid: "80547707"
 * Azure DocumentDB 대신 Azure Cosmos DB를 참조하도록 업데이트된 설명서입니다.
 
 ### <a name="230"></a><a name="2.3.0"/>2.3.0
-* 이 SDK 버전은 https://aka.ms/cosmosdb-emulator에서 다운로드할 수 있는 최신 버전의 Azure Cosmos DB 에뮬레이터가 필요합니다.
+* 이 SDK 버전에는 [Azure 코스모스 DB 에뮬레이터의](https://aka.ms/cosmosdb-emulator)최신 버전이 필요합니다.
 
 ### <a name="221"></a><a name="2.2.1"/>2.2.1
 * 집계 사전에 대한 버그 수정입니다.
@@ -190,6 +190,6 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요. 
 

@@ -1,18 +1,18 @@
 ---
 title: 'P2S를 통한 원격 작업: Azure VPN 게이트웨이'
-description: 이 페이지에서는 COVID-19 전염병으로 인해 Azure Bastion을 활용하여 원격으로 작업을 활성화하는 방법에 대해 설명합니다.
+description: 이 페이지에서는 COVID-19 전염병으로 인해 VPN 게이트웨이를 활용하여 원격으로 작업을 가능하게 하는 방법에 대해 설명합니다.
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 04/07/2020
 ms.author: alzam
-ms.openlocfilehash: b751817467bd263e8b7c64ccc95ec82ef1579836
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d07a13c654f30e48c37d2e8d3e801166e26f4f4
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80337114"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886588"
 ---
 # <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Azure VPN 게이트웨이 포인트 투 사이트를 사용하는 원격 작업
 
@@ -24,7 +24,7 @@ ms.locfileid: "80337114"
 
 Azure 지점 간 솔루션은 클라우드 기반이며 집에서 작업하는 사용자의 증가하는 수요를 수용하기 위해 신속하게 프로비저닝할 수 있습니다. 더 이상 용량을 늘릴 필요가 없을 때 쉽게 확장하고 쉽게 꺼낼 수 있습니다.
 
-## <a name="about-point-to-site-vpn"></a>지점 및 사이트 간 VPN 연결 정보
+## <a name="about-point-to-site-vpn"></a><a name="p2s"></a>지점 및 사이트 간 VPN 연결 정보
 
 P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 대한 안전한 연결을 만들 수 있습니다. P2S 연결은 클라이언트 컴퓨터에서 시작하여 설정됩니다. 이 솔루션은 집이나 회의와 같은 원격 위치에서 Azure VNet 또는 온-프레미스 데이터 센터에 연결하려는 재택 근무자에게 유용합니다. 이 문서에서는 사용자가 다양한 시나리오를 기반으로 원격으로 작업할 수 있도록 하는 방법에 대해 설명합니다.
 
@@ -32,25 +32,26 @@ P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 
 
 ![지점 간](./media/working-remotely-support/ostable.png "OS")
 
-## <a name="scenario-1---users-need-access-to-resources-in-azure-only"></a>시나리오 1 - 사용자가 Azure에서만 리소스에 액세스해야 합니다.
+## <a name="scenario-1---users-need-access-to-resources-in-azure-only"></a><a name="scenario1"></a>시나리오 1 - 사용자가 Azure에서만 리소스에 액세스해야 합니다.
 
 이 시나리오에서는 원격 사용자가 Azure에 있는 리소스에만 액세스하면 됩니다.
 
-![지점 간](./media/working-remotely-support/scenario1.png "스카나리오 1")
+![지점 간](./media/working-remotely-support/scenario1.png "시나리오 1")
 
 높은 수준에서 사용자가 Azure 리소스에 안전하게 연결할 수 있도록 하려면 다음 단계가 필요합니다.
 
-1. 가상 네트워크 게이트웨이 만들기(존재하지 않는 경우)
-2. 게이트웨이에서 지점 간 VPN 구성
-    3. [인증서 인증의 경우 이 링크를 따르십시오.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw)
-    2.  [OpenVPN의 경우 이 링크를 따르십시오.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-openvpn)
-    3.  [Azure AD 인증의 경우 이 링크를 따르십시오.](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant)
-    4.  [지점 간 연결 문제를 해결하려면 이 링크를 따르십시오.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems)
-3. VPN 클라이언트 구성 다운로드 및 배포
-4. 인증서(인증서 인증을 선택한 경우)를 클라이언트에 배포합니다.
-5. Azure VPN에 연결
+1. 가상 네트워크 게이트웨이를 만듭니다(존재하지 않는 경우).
+2. 게이트웨이에서 지점 간 VPN을 구성합니다.
 
-## <a name="scenario-2---users-need-access-to-resources-in-azure-andor-on-prem-resources"></a>시나리오 2 - 사용자가 Azure 및/또는 온프레미 리소스의 리소스에 액세스해야 합니다.
+   * 인증서 인증의 경우 [이 링크를](vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw)따르십시오.
+   * OpenVPN의 경우 [이 링크를](vpn-gateway-howto-openvpn.md)따르십시오.
+   * Azure AD 인증의 경우 [이 링크를](openvpn-azure-ad-tenant.md)따르십시오.
+   * 지점 간 연결 문제를 해결하려면 [이 링크를](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)따르십시오.
+3. VPN 클라이언트 구성을 다운로드하고 배포합니다.
+4. 인증서(인증서 인증이 선택된 경우)를 클라이언트에 배포합니다.
+5. Azure VPN에 연결합니다.
+
+## <a name="scenario-2---users-need-access-to-resources-in-azure-andor-on-prem-resources"></a><a name="scenario2"></a>시나리오 2 - 사용자가 Azure 및/또는 온프레미 리소스의 리소스에 액세스해야 합니다.
 
 이 시나리오에서 원격 사용자는 Azure 및 온-프레미스 데이터 센터에 있는 리소스에 액세스해야 합니다.
 
@@ -58,13 +59,13 @@ P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 
 
 높은 수준에서 사용자가 Azure 리소스에 안전하게 연결할 수 있도록 하려면 다음 단계가 필요합니다.
 
-1. 가상 네트워크 게이트웨이 만들기(존재하지 않는 경우)
-2. 게이트웨이에서 지점 간 VPN 구성(위의 시나리오 1 참조)
-3. BGP를 사용하도록 설정한 Azure 가상 네트워크 게이트웨이에서 사이트 간 터널 구성
-4. Azure 가상 네트워크 게이트웨이에 연결하도록 온-프레미스 디바이스 구성
+1. 가상 네트워크 게이트웨이를 만듭니다(존재하지 않는 경우).
+2. 게이트웨이에서 지점 간 VPN을 구성합니다(시나리오 [1](#scenario1)참조).
+3. BGP를 사용하도록 설정한 Azure 가상 네트워크 게이트웨이에서 사이트 간 터널을 구성합니다.
+4. Azure 가상 네트워크 게이트웨이에 연결하도록 온-프레미스 장치를 구성합니다.
 5. Azure 포털에서 지점 간 프로필을 다운로드하여 클라이언트에 배포
 
-[사이트 간 VPN 터널을 설정하는 방법을 알아보려면 이 링크를 따르십시오.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
+사이트 간 VPN 터널을 설정하는 방법을 알아보려면 [이 링크를](vpn-gateway-howto-site-to-site-resource-manager-portal.md)참조하십시오.
 
 ## <a name="faq-for-native-azure-certificate-authentication"></a><a name="faqcert"></a>네이티브 Azure 인증서 인증에 대한 FAQ
 

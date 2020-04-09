@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a71c5328c6fa85f85db4bd7e6103f6470b86d99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 723411191d0990583d039a0fc9651437480807b4
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258331"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983265"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 동기화: Office 365 리소스에 대한 기본 데이터 위치 구성
 이 항목의 목적은 Azure Active Directory(Azure AD) Connect 동기화에서 기본 데이터 위치에 대한 특성을 구성하는 방법을 안내하는 것입니다. Office 365에서 다중 지리적 기능을 사용하는 경우 이 특성을 사용하여 사용자의 Office 365 데이터의 지리적 위치를 지정합니다. *region(지역)* 과 *Geo(지역)* 라는 용어는 서로 바꿔 사용할 수 있습니다.
@@ -51,6 +51,7 @@ Office 365의 모든 지오 목록은 데이터가 [있는 위치에서](https:/
 | 일본 | JPN |
 | 한국 | KOR |
 | 남아프리카 | ZAF |
+| 스위스 | 체 |
 | 아랍에미리트 | ARE |
 | United Kingdom | GBR |
 | 미국 | NAM |
@@ -139,13 +140,13 @@ Active Directory 스키마를 2019로 업데이트하고 스키마 확장 전에
 3. 새 인바운드 규칙을 만들려면 **새 규칙 추가**를 선택합니다.
 4. **설명** 탭에서 다음 구성을 제공합니다.
 
-    | 특성 | 값 | 세부 정보 |
+    | attribute | 값 | 세부 정보 |
     | --- | --- | --- |
-    | 이름 | *이름 제공* | 예: "AD - User preferredDataLocation에서 인바운드" |
-    | 설명 | *사용자 지정 설명 제공* |  |
+    | 속성 | *이름 제공* | 예: "AD - User preferredDataLocation에서 인바운드" |
+    | Description | *사용자 지정 설명 제공* |  |
     | 연결된 시스템 | *온-프레미스 Active Directory Connector 선택* |  |
     | 연결된 시스템 개체 유형 | **사용자** |  |
-    | 메타버스 개체 유형 | **사람** |  |
+    | 메타버스 개체 유형 | **Person** |  |
     | 링크 형식 | **연결** |  |
     | 우선 순위 | *1-99 사이의 숫자 선택* | 1-99는 사용자 지정 동기화 규칙을 위해 예약되어 있습니다. 다른 동기화 규칙에서 사용하는 값은 선택하지 않습니다. |
 
@@ -168,19 +169,19 @@ Active Directory 스키마를 2019로 업데이트하고 스키마 확장 전에
 3. **새 규칙 추가**를 선택합니다.
 4. **설명** 탭에서 다음 구성을 제공합니다.
 
-    | 특성 | 값 | 세부 정보 |
+    | attribute | 값 | 세부 정보 |
     | ----- | ------ | --- |
-    | 이름 | *이름 제공* | 예: "Azure AD - User preferredDataLocation로 아웃바운드" |
-    | 설명 | *설명 제공* ||
+    | 속성 | *이름 제공* | 예: "Azure AD - User preferredDataLocation로 아웃바운드" |
+    | Description | *설명 제공* ||
     | 연결된 시스템 | *Azure AD 커넥터에 선택* ||
     | 연결된 시스템 개체 유형 | **사용자** ||
-    | 메타버스 개체 유형 | **사람** ||
+    | 메타버스 개체 유형 | **Person** ||
     | 링크 형식 | **연결** ||
     | 우선 순위 | *1-99 사이의 숫자 선택* | 1-99는 사용자 지정 동기화 규칙을 위해 예약되어 있습니다. 다른 동기화 규칙에서 사용하는 값은 선택하지 않습니다. |
 
 5. **범위 지정 필터** 탭으로 이동하여 다음 두 절을 사용하여 단일 범위 지정 필터 그룹을 추가합니다.
 
-    | 특성 | 연산자 | 값 |
+    | attribute | 연산자 | 값 |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | 사용자 |
     | cloudMastered | NOTEQUAL | True |

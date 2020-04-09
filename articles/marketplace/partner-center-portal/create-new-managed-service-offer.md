@@ -7,15 +7,18 @@ manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.openlocfilehash: 3d7015d5e1c3b67b271e89b5653f56415bfb722e
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.date: 04/08/2020
+ms.openlocfilehash: de6e08534722deccb8be11248dd8af3ca2e66739
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674203"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983215"
 ---
 # <a name="create-a-new-managed-service-offer"></a>새 관리형 서비스 오퍼 만들기
+
+> [!IMPORTANT]
+> 관리형 서비스 오퍼의 관리를 클라우드 파트너 포털에서 파트너 센터로 이전하고 있습니다. 오퍼가 마이그레이션될 때까지 [Azure Marketplace에 관리되는 서비스 오퍼 게시의](../../lighthouse/how-to/publish-managed-services-offers.md) 지침을 따라 오퍼를 관리하십시오.
 
 관리되는 서비스는 [Azure 등대](../../lighthouse/overview.md) 시나리오를 활성화하는 데 도움이 됩니다. 고객이 관리되는 서비스 제안을 수락하면 [Azure 위임된 리소스 관리에](../../lighthouse/concepts/azure-delegated-resource-management.md)대한 리소스를 온보딩할 수 있습니다.
 
@@ -71,7 +74,7 @@ ms.locfileid: "80674203"
 > [!NOTE]
 > 오퍼 리스팅 콘텐츠(예: 설명, 문서, 스크린샷, 이용 약관 등)는 "이 응용 프로그램은 [영어 이외의 언어]에서만 사용할 수 있습니다"라는 문구로 시작되는 한 영어로 작성할 필요가 없습니다. 또한 오퍼 리스팅 콘텐츠에 사용된 언어 이외의 언어로 콘텐츠를 제공하는 *유용한 링크 URL을* 제공하는 것도 허용됩니다.
 
-### <a name="name"></a>이름
+### <a name="name"></a>속성
 
 여기에 입력한 이름은 고객에게 쿠폰 목록의 제목으로 표시됩니다. 이 필드는 **오퍼 별칭에** 대해 입력한 텍스트로 미리 채워지지만 이 값을 변경할 수 있습니다. 이 이름은 상표가 지정될 수 있으며 상표 또는 저작권 기호가 포함될 수 있습니다. 이름은 50자를 초과할 수 없으며 이모티콘을 포함할 수 없습니다.
 
@@ -83,7 +86,7 @@ ms.locfileid: "80674203"
 
 오퍼에 대한 더 긴 설명을 제공합니다(최대 256자). 이 긴 요약은 마켓플레이스 검색 결과에도 사용될 수 있습니다.
 
-### <a name="description"></a>설명
+### <a name="description"></a>Description
 
 오퍼에 대한 더 긴 설명을 제공합니다(최대 3,000자). 이 설명은 마켓플레이스 목록 개요의 고객에게 표시됩니다. 오퍼의 가치 제안, 주요 혜택, 카테고리 및/또는 산업 협회, 인앱 구매 기회 및 필요한 공개를 포함합니다.
 

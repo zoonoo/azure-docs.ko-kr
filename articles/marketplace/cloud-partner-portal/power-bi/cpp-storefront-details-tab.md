@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 1bcf06056dd7fdaf22716409f53d86da7321b94d
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: f4fb5fba78cdea7996d006d34b2f07f3ac5e58fa
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745595"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981293"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>파워 BI 앱 스토어프론트 세부 정보 탭
 
 >[!Important]
->2020년 3월 30일부터 Power BI 앱 제공의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Power BI [앱 만들기 개요의](https://aka.ms/AzureCreatePBIServiceApp) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
+>2020년 4월 13일부터 Power BI 앱 제공의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Power BI [앱 만들기 개요의](https://aka.ms/AzureCreatePBIServiceApp) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
 
 새 **쿠폰** 페이지에서 **스토어프론트 세부정보** 탭을 사용하여 잠재 고객에게 마케팅, 판매 및 법적 정보를 제공합니다. 이 탭에서 Azure Marketplace에서 생성하는 잠재 고객에 대한 관리를 설정할 수도 있습니다. 이 긴 양식은 세부 **정보**제공, **리스팅 세부 정보,** **마케팅 아티팩트,** **법률,** **고객 지원**및 **리드 관리의**6 개 섹션으로 나뉩니다.  필드 레이블 끝에 있는 별표(*)는 필드가 필요하다는 것을 의미합니다.
 
@@ -114,7 +114,7 @@ ms.locfileid: "80745595"
 |------------------------|--------------------------------------            |
 |  **없음**              | 잠재 고객을 수집하지 않습니다. 기본 옵션입니다.  |
 | **Azure Blob(사용되지 않음)** | 컨테이너 이름과 연결 문자열을 사용하여 [Azure Blob 저장소를](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) 지정합니다.  이 선택은 더 이상 사용되지 않습니다. 대신 **Azure 테이블을** 사용합니다.  |
-| **Azure Table**        | 연결 문자열을 사용하여 [Azure 테이블 저장소를](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview) 지정합니다.  |
+| **Azure 테이블**        | 연결 문자열을 사용하여 [Azure 테이블 저장소를](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview) 지정합니다.  |
 | **다이내믹스 CRM 온라인** | URL 및 인증 자격 증명을 사용하여 [Dynamics 365를](https://dynamics.microsoft.com/) 지정합니다. |
 | **HTTPS 끝점**     | JSON 페이로드를 사용하여 HTTPS 끝점을 지정합니다.   |
 | **Marketo**            | 서버 ID, 먼치킨 ID 및 양식 ID를 사용하여 [Marketo](https://www.marketo.com/) 인스턴스를 지정합니다.   |

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/05/2019
+ms.date: 04/07/2020
 ms.subservice: app-mgmt
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9ecd193282ed9b7333df44689530b4d057ad7f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f027fbce66a73306165a0ad35d1ba3faa7a5c0bc
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68693893"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983894"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD 응용 프로그램 프록시: 버전 릴리스 기록
 이 문서에서는 릴리스된 Azure Active Directory(Azure AD) 응용 프로그램 프록시의 버전 및 기능을 나열합니다. Azure AD 팀은 정기적으로 새로운 기능과 기능으로 응용 프로그램 프록시를 업데이트합니다. 새 버전이 릴리스되면 응용 프로그램 프록시 커넥터가 자동으로 업데이트됩니다. 
@@ -35,6 +35,22 @@ ms.locfileid: "68693893"
 응용 프로그램 프록시를 활성화하는 방법 | 응용 프로그램 프록시를 사용하도록 설정하고 커넥터를 설치하고 등록하기 위한 필수 구성 사항은 이 [자습서에서](application-proxy-add-on-premises-application.md)설명합니다.
 Azure AD 애플리케이션 프록시 커넥터 이해 | [커넥터 관리](application-proxy-connectors.md) 및 커넥터 [자동 업그레이드](application-proxy-connectors.md#automatic-updates)방법에 대해 자세히 알아보십시오.
 Azure AD 응용 프로그램 프록시 커넥터 다운로드 |  [최신 커넥터를 다운로드합니다.](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download)
+
+## <a name="1515260"></a>1.5.1526.0
+
+### <a name="release-status"></a>릴리스 상태
+
+2020년 4월 07일: 다운로드용으로 출시
+
+### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
+-   커넥터는 모든 연결에 대해 TLS 1.2만 사용합니다. 자세한 내용은 [커넥터 필수 구성 조건을](application-proxy-add-on-premises-application.md#before-you-begin) 참조하십시오.
+- 커넥터와 Azure 서비스 간의 시그널링이 개선되었습니다. 여기에는 커넥터와 Azure 서비스 간의 WCF 통신에 대한 신뢰할 수 있는 세션 지원과 WebSocket 통신에 대한 DNS 캐싱 개선 사항이 포함됩니다.
+- 커넥터와 백 엔드 응용 프로그램 간의 프록시 구성 지원 자세한 내용은 [기존 온-프레미스 프록시 서버작업을](application-proxy-configure-connectors-with-proxy-servers.md)참조하십시오.
+
+### <a name="fixed-issues"></a>해결된 문제
+- 커넥터에서 Azure 서비스로의 통신을 위해 포트 8080으로 다시 떨어지는 것을 제거했습니다.
+- WebSocket 통신에 대한 디버그 추적이 추가되었습니다. 
+- 백 엔드 응용 프로그램 쿠키에 설정할 때 SameSite 특성을 유지 확인했습니다.
 
 ## <a name="156120"></a>1.5.612.0
 

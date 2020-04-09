@@ -1,6 +1,6 @@
 ---
 title: '자습서: 여러 계정 연결을 위해 AWS(Amazon Web Services)와 Azure Active Directory 통합 | Microsoft 문서'
-description: Azure Active Directory와 여러 Amazon Web Services(AWS) 계정 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
+description: Azure AD와 Amazon 웹 서비스(AWS) (레거시 자습서) 간에 단일 사인온을 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,21 +11,20 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 04/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edd54352b1328c95ae2c3e466003b64eaa0fcfde
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a6ab13dea1a1db96cbb2f2ac70b9779eca60591
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77368005"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885392"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>자습서: AWS(Amazon Web Services)와 여러 Azure Active Directory 계정 통합
+# <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>자습서: 아마존 웹 서비스(AWS)와의 Azure Active Directory 통합(레거시 자습서)
 
-이 자습서에서는 여러 Amazon Web Services(AWS) 계정을 Azure AD(Azure Active Directory)와 통합하는 방법에 대해 알아봅니다.
+이 자습서에서는 Azure Active Directory(Azure AD)를 AWS(레거시 자습서)와 통합하는 방법을 배웁니다.
 
 AWS(Amazon Web Services)를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
@@ -37,8 +36,8 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용을 알고 싶으시면
 
 ![결과 목록의 AWS(Amazon Web Services)](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
->[!NOTE]
->모든 AWS 계정에 하나의 AWS 앱을 연결하는 것은 권장되는 접근 방식이 아닙니다. 대신 [이](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) 방법을 사용하여 Azure AD에 있는 여러 AWS 앱 인스턴스에 대해 여러 AWS 계정 인스턴스를 구성하는 것이 좋습니다.
+> [!NOTE]
+> 모든 AWS 계정에 하나의 AWS 앱을 연결하는 것은 권장되는 접근 방식이 아닙니다. 대신 [이](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) 방법을 사용하여 Azure AD에 있는 여러 AWS 앱 인스턴스에 대해 여러 AWS 계정 인스턴스를 구성하는 것이 좋습니다. AWS 계정 및 역할의 수가 매우 적은 경우에만 [이](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) 방법을 사용해야 합니다. [이러한](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) 계정 내의 AWS 계정 및 역할이 증가함에 따라 이 모델은 확장할 수 없습니다. 또한 [이](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) 방법은 Azure AD 사용자 프로비저닝을 사용하여 AWS 역할 가져오기 기능을 사용하지 않으므로 역할을 수동으로 추가/업데이트/삭제해야 합니다. [이](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) 방법에 대한 다른 제한 사항은 아래 의 세부 사항을 참조하십시오.
 
 **다음과 같은 이유로 이 방법을 사용하지 않는 것이 좋습니다.**
 
@@ -70,32 +69,22 @@ AWS(Amazon Web Services)와 Azure AD를 통합하도록 구성하려면 다음 �
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 * 아마존 웹 서비스(AWS)는 **SP 및 IDP** 시작 SSO를 지원합니다.
+* AWS(Amazon Web Services)를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-amazon-web-services-aws-from-the-gallery"></a>갤러리에서 AWS(Amazon Web Services) 추가
 
 Azure AD에 AWS(Amazon Web Services)를 통합하도록 구성하려면 갤러리의 AWS(Amazon Web Services)를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-**갤러리에서 AWS(Amazon Web Services)를 추가하려면 다음 단계를 수행합니다.**
+1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
+1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
+1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
+1. **갤러리에서 추가** 섹션의 검색 상자에 **AWS(Amazon Web Services)** 를 입력합니다.
+1. 결과 창에서 **AWS(Amazon Web Services)** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
+1. 응용 프로그램이 추가되면 **속성** 페이지로 이동하여 **개체 ID를**복사합니다.
 
-    ![Azure Active Directory 단추](common/select-azuread.png)
-
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
-
-    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
-
-3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
-
-    ![새 애플리케이션 단추](common/add-new-app.png)
-
-4. 검색 상자에서 **AWS(Amazon Web Services)** 를 입력하고, 결과 패널에서 **AWS(Amazon Web Services)** 를 선택하고, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
-
-     ![결과 목록의 AWS(Amazon Web Services)](common/search-new-app.png)
-
-5. 응용 프로그램이 추가되면 **속성** 페이지로 이동하여 **개체 ID를**복사합니다.
-
-    ![결과 목록의 AWS(Amazon Web Services)](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_properties.png)
+    ![결과 목록의 AWS(Amazon Web Services)](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-properties.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -121,17 +110,15 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![Single Sign-On 구성 링크](common/select-sso.png)
 
-2. 단일 **사인온 방법 선택** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 단일 사인온을 활성화합니다.
+2. **Single Sign-On 방법 선택** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
 
     ![Single Sign-On 선택 모드](common/select-saml-option.png)
 
-3. **SAML을 사용하여 단일 사인온 설정** 페이지에서 **편집** 아이콘을 클릭하여 **기본 SAML 구성** 대화 상자를 엽니다.
+3. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 아이콘을 클릭하여 **기본 SAML 구성** 대화 상자를 엽니다.
 
     ![기본 SAML 구성 편집](common/edit-urls.png)
 
-4. 앱이 Azure와 이미 사전 통합되었으므로 사용자는 **기본 SAML 구성** 섹션에서 아무 단계도 수행할 필요가 없습니다.
-
-    ![이미지](common/preintegrated.png)
+4. 기본 **SAML 구성** 섹션에서 사용자는 앱이 이미 Azure와 미리 통합되어 있고 **저장을**클릭하기 때문에 어떤 단계도 수행할 필요가 없습니다.
 
 5. AWS(Amazon Web Services) 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
 
@@ -139,11 +126,11 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
 6. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
 
-    | 이름  | 원본 특성  | 네임스페이스 |
+    | 속성  | 원본 특성  | 네임스페이스 |
     | --------------- | --------------- | --------------- |
-    | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-    | 역할            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
-    | SessionDuration             | “900초(15분)에서 43200초(12시간) 사이의 값을 제공합니다.” |  https://aws.amazon.com/SAML/Attributes |
+    | RoleSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
+    | 역할            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes`|
+    | SessionDuration             | “900초(15분)에서 43200초(12시간) 사이의 값을 제공합니다.” |  `https://aws.amazon.com/SAML/Attributes` |
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
@@ -171,19 +158,19 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
 1. 다른 브라우저 창에서 AWS(Amazon Web Services) 회사 사이트에 관리자로 로그인합니다.
 
-2. **AWS 홈**을 클릭합니다.
+1. **AWS 홈**을 클릭합니다.
 
     ![Single Sign-On 홈 구성][11]
 
-3. **ID 및 액세스 관리**를 클릭합니다.
+1. **ID 및 액세스 관리**를 클릭합니다.
 
     ![Single Sign-On ID 구성][12]
 
-4. **ID 공급자**를 클릭한 다음 **공급자 만들기**를 클릭합니다.
+1. **ID 공급자**를 클릭한 다음 **공급자 만들기**를 클릭합니다.
 
     ![Single Sign-On 공급자 구성][13]
 
-5. **공급자 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
+1. **공급자 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
     ![Single Sign-On 대화 상자 구성][14]
 
@@ -195,15 +182,15 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     d. **다음 단계**를 클릭합니다.
 
-6. **공급자 정보 확인** 대화 상자 페이지에서 **만들기**를 클릭합니다.
+1. **공급자 정보 확인** 대화 상자 페이지에서 **만들기**를 클릭합니다.
 
     ![Single Sign-On 확인 구성][15]
 
-7. **역할**을 클릭하고 **역할 만들기**를 클릭합니다.
+1. **역할**을 클릭하고 **역할 만들기**를 클릭합니다.
 
     ![Single Sign-On 역할 구성][16]
 
-8. **역할 만들기** 페이지에서 다음 단계를 수행합니다.  
+1. **역할 만들기** 페이지에서 다음 단계를 수행합니다.  
 
     ![Single Sign-On 트러스트 구성][19]
 
@@ -215,51 +202,72 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
   
     d. **다음: 권한**을 클릭합니다.
 
-9. **권한 정책 연결** 대화 상자에서 조직에 따라 적절한 정책을 연결하세요. **다음: 검토**를 클릭합니다.  
+1. 검색 표시줄에서 **관리자 액세스를** 검색하고 **AdministratorAccess** 확인란을 선택한 다음 다음: 태그 를 **클릭합니다.**
 
-    ![Single Sign-On 정책 구성][33]
+    ![관리자 액세스 선택](./media/aws-multi-accounts-tutorial/administrator-access.png)
 
-10. **검토** 대화 상자에서 다음 단계를 수행합니다.
+1. 태그 **추가(선택 사항)** 섹션에서 다음 단계를 수행합니다.
+
+    ![관리자 액세스 선택](./media/aws-multi-accounts-tutorial/config2.png)
+
+    a. **키** 텍스트 상자에 ex: Azureadtest의 키 이름을 입력합니다.
+
+    b. **값(선택 사항)** 텍스트 상자에서 다음 형식을 `accountname-aws-admin`사용하여 키 값을 입력합니다. 계정 이름은 모든 소문자에 있어야 합니다.
+
+    다. **다음을 클릭합니다.**
+
+1. **검토** 대화 상자에서 다음 단계를 수행합니다.
 
     ![Single Sign-On 검토 구성][34]
 
-    a. **역할 이름** 텍스트 상자에 역할 이름을 입력합니다.
+    a. 역할 **이름** 텍스트 상자에 다음 패턴에 `accountname-aws-admin`값을 입력합니다.
 
-    b. **역할 설명** 텍스트 상자에 설명을 입력합니다.
+    b. 역할 **설명** 텍스트 상자에 역할 이름에 사용한 값과 동일한 값을 입력합니다.
 
     다. **역할 만들기**를 클릭합니다.
 
     d. 필요한 만큼 역할을 만들어서 ID 공급자에 매핑합니다.
 
-11. 현재 AWS 계정에서 로그아웃하고 Azure AD에 Single Sign-On을 구성할 다른 계정으로 로그인합니다.
+    > [!NOTE]
+    > 마찬가지로 계정 이름-금융 관리자, 계정 이름 읽기 전용 사용자, 계정 이름-devops-사용자, 다른 정책을 사용할 계정 이름-tpm-사용자와 같은 나머지 다른 역할을 만듭니다. 나중에 이러한 역할 정책은 AWS 계정별 요구 사항에 따라 변경될 수 있지만 AWS 계정 전체에서 각 역할에 대해 동일한 정책을 유지하는 것이 항상 좋습니다.
 
-12. 2~10단계를 수행하여 이 계정에 대해 설정하려는 여러 역할을 만듭니다. 계정이 3개 이상인 경우 모든 계정에 같은 단계를 수행하여 해당하는 역할을 만듭니다.
+1. 아래에 강조 표시된 대로 EC2 속성 또는 IAM 대시보드에서 해당 AWS 계정에 대한 계정 ID를 기록해 두십시오.
 
-13. 계정에서 역할이 모두 만들어지면 해당 계정의 **역할** 목록에 나타납니다.
+    ![관리자 액세스 선택](./media/aws-multi-accounts-tutorial/aws-accountid.png)
 
-    ![역할 설정](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_listofroles.png)
+1. 이제 [Azure 포털에](https://portal.azure.com/) 로그인하고 **그룹으로**이동합니다.
 
-14. 모든 계정에서 모든 역할에 대해 모든 역할 ARN 및 신뢰할 수 있는 엔터티를 캡처해야 하므로 Azure AD 애플리케이션에 수동으로 매핑해야 합니다.
+1. 이전에 만든 IAM 역할과 이름이 같은 새 그룹을 만들고 이러한 새 그룹의 **개체 이름을 기록합니다.**
 
-15. 역할을 클릭하여 **역할 ARN** 및 **신뢰할 수 있는 엔터티** 값을 복사합니다. Azure AD에서 만들어야 하는 모든 역할에 대해 이 값이 필요합니다.
+    ![관리자 액세스 선택](./media/aws-multi-accounts-tutorial/copy-objectids.png)
 
-    ![역할 설정](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_role_summary.png)
+1. 현재 AWS 계정에서 로그아웃하고 Azure AD에 Single Sign-On을 구성할 다른 계정으로 로그인합니다.
 
-16. 모든 계정의 모든 역할에 대해 위의 단계를 수행하고 메모장에 모든 항목을 **역할 ARN, 신뢰할 수 있는 엔터티** 형식으로 저장합니다.
+1. 계정에서 역할이 모두 만들어지면 해당 계정의 **역할** 목록에 나타납니다.
 
-17. 다른 창에서 [Microsoft 그래프 탐색기를 엽니다.](https://developer.microsoft.com/graph/graph-explorer)
+    ![역할 설정](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-listofroles.png)
 
-    a. 테넌트의 전역 관리자/공동 관리자 자격 증명을 사용하여 Graph Explorer 사이트에 로그인합니다.
+1. 모든 계정에서 모든 역할에 대해 모든 역할 ARN 및 신뢰할 수 있는 엔터티를 캡처해야 하므로 Azure AD 애플리케이션에 수동으로 매핑해야 합니다.
+
+1. 역할을 클릭하여 **역할 ARN** 및 **신뢰할 수 있는 엔터티** 값을 복사합니다. Azure AD에서 만들어야 하는 모든 역할에 대해 이 값이 필요합니다.
+
+    ![역할 설정](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-role-summary.png)
+
+1. 모든 계정의 모든 역할에 대해 위의 단계를 수행하고 메모장에 모든 항목을 **역할 ARN, 신뢰할 수 있는 엔터티** 형식으로 저장합니다.
+
+1. 다른 창에서 [Microsoft 그래프 탐색기를 엽니다.](https://developer.microsoft.com/graph/graph-explorer)
+
+    a. 테넌트에 대한 글로벌 관리자/공동 관리자 자격 증명을 사용하여 Microsoft 그래프 탐색기 사이트에 로그인합니다.
 
     b. 역할을 만들 수 있는 권한이 필요합니다. **권한 수정**을 클릭하여 필요한 권한을 얻을 수 있습니다.
 
-    ![Graph Explorer 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
+    ![마이크로소프트 그래프 탐색기 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
 
     다. 목록에서 다음 권한을 선택하고(아직 선택하지 않은 경우) "권한 수정"을 클릭합니다. 
 
-    ![Graph Explorer 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
+    ![마이크로소프트 그래프 탐색기 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
 
-    d. 여기서는 다시 로그인하고 동의할 것을 요청합니다. 동의 후에는 Graph Explorer에 다시 로그인됩니다.
+    d. 여기서는 다시 로그인하고 동의할 것을 요청합니다. 동의를 수락하면 다시 Microsoft 그래프 탐색기에 로그인됩니다.
 
     e. 버전 드롭다운을 **베타**로 변경합니다. 테넌트로부터 모든 서비스 사용자를 가져오려면 다음 쿼리를 사용합니다.
 
@@ -267,17 +275,17 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     여러 디렉터리를 사용하는 경우 다음 패턴을 사용할 수 있습니다. 여기서는 주 도메인이 `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`에 있습니다.
 
-    ![Graph Explorer 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
+    ![마이크로소프트 그래프 탐색기 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
 
-    f. 가져온 서비스 사용자 목록에서 수정할 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 ServicePrincipals에서 애플리케이션을 검색할 수도 있습니다. Azure AD 속성 페이지에서 복사한 **개체 ID**를 사용하여 다음 쿼리를 통해 해당하는 서비스 사용자로 이동할 수 있습니다.
+    f. 가져온 서비스 사용자 목록에서 수정할 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 ServicePrincipals에서 애플리케이션을 검색할 수도 있습니다. Azure AD 속성 페이지에서 복사한 **개체 ID를** 사용하여 다음 쿼리를 사용하여 해당 서비스 주체로 이동합니다.
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-    ![Graph Explorer 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
+    ![마이크로소프트 그래프 탐색기 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
     g. 서비스 사용자 개체에서 appRoles 속성을 추출합니다.
 
-    ![Graph Explorer 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
+    ![마이크로소프트 그래프 탐색기 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 
     h. 이제 애플리케이션에 대한 새 역할을 생성해야 합니다. 
 
@@ -329,18 +337,18 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![마이크로소프트 그래프 탐색기 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
-18. 서비스 사용자에 더 많은 역할이 패치되면 각 역할에 사용자/그룹을 할당할 수 있습니다. 이 작업을 수행하려면 포털로 이동한 후 Amazon Web Services 애플리케이션으로 이동합니다. 맨 위에서 **사용자 및 그룹** 탭을 클릭합니다.
+1. 서비스 사용자에 더 많은 역할이 패치되면 각 역할에 사용자/그룹을 할당할 수 있습니다. 이 작업을 수행하려면 포털로 이동한 후 Amazon Web Services 애플리케이션으로 이동합니다. 맨 위에서 **사용자 및 그룹** 탭을 클릭합니다.
 
-19. 해당 그룹에 특정 역할을 할당할 수 있도록 모든 AWS 역할에 대해 새 그룹을 만드는 것이 좋습니다. 하나의 그룹과 하나의 역할에 대한 일대일 매핑입니다. 그런 다음, 해당 그룹에 속하는 멤버를 추가할 수 있습니다.
+1. 해당 그룹에 특정 역할을 할당할 수 있도록 모든 AWS 역할에 대해 새 그룹을 만드는 것이 좋습니다. 하나의 그룹과 하나의 역할에 대한 일대일 매핑입니다. 그런 다음, 해당 그룹에 속하는 멤버를 추가할 수 있습니다.
 
-20. 그룹을 만든 후에는 그룹을 선택하여 애플리케이션에 할당합니다.
+1. 그룹을 만든 후에는 그룹을 선택하여 애플리케이션에 할당합니다.
 
     ![Single Sign-On 구성 추가](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
 
     > [!Note]
     > 그룹을 할당할 때 중첩 그룹은 지원되지 않습니다.
 
-21. 그룹에 역할을 할당하려면 역할을 선택하고 페이지 아래의 **할당** 단추를 클릭합니다.
+1. 그룹에 역할을 할당하려면 역할을 선택하고 페이지 아래의 **할당** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 추가](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
 
@@ -353,19 +361,21 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
 액세스 패널에서 AWS(Amazon Web Services) 타일을 클릭하면 역할 선택 옵션이 없는 AWS(Amazon Web Services) 애플리케이션 페이지가 나타납니다.
 
-![Single Sign-On 구성 추가](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_test_screen.png)
+![Single Sign-On 구성 추가](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-screen.png)
 
 SAML 응답에서도 클레임으로 전달된 역할을 확인할 수 있습니다.
 
-![Single Sign-On 구성 추가](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_test_saml.png)
+![Single Sign-On 구성 추가](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
 
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개를](../active-directory-saas-access-panel-introduction.md)참조하십시오.
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [Microsoft 그래프 API를 사용하여 프로비저닝을 구성하는 방법](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
-* [Azure Active 디렉터리와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
+* [MS 그래프 API를 사용하여 프로비저닝을 구성하는 방법](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
+* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+* [고급 표시 유형 및 컨트롤을 사용하여 AWS(Amazon Web Services)를 보호하는 방법](https://docs.microsoft.com/cloud-app-security/protect-aws)
 
 <!--Image references-->
 
@@ -380,11 +390,11 @@ SAML 응답에서도 클레임으로 전달된 역할을 확인할 수 있습니
 [19]: ./media/aws-multi-accounts-tutorial/ic795025.png
 [32]: ./media/aws-multi-accounts-tutorial/ic7950251.png
 [33]: ./media/aws-multi-accounts-tutorial/ic7950252.png
-[35]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning.png
-[34]: ./media/aws-multi-accounts-tutorial/ic7950253.png
-[36]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_securitycredentials.png
-[37]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_securitycredentials_continue.png
-[38]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_createnewaccesskey.png
-[39]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning_automatic.png
-[40]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning_testconnection.png
+[35]: ./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-provisioning.png
+[34]: ./media/aws-multi-accounts-tutorial/config3.png
+[36]: ./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-securitycredentials.png
+[37]: ./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-securitycredentials-continue.png
+[38]: ./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-createnewaccesskey.png
+[39]: ./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-provisioning-automatic.png
+[40]: ./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-provisioning-testconnection.png
 [41]: ./media/aws-multi-accounts-tutorial/

@@ -3,7 +3,6 @@ title: 앱 역할을 추가하고 토큰에서 가져옵니다 | Azure
 titleSuffix: Microsoft identity platform
 description: Azure Active Directory에 등록된 애플리케이션에서 앱 역할을 추가하고 이 역할에 사용자와 그룹을 할당하여 토큰의 `roles` 클레임으로 받는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: kkrishna
 manager: CelesteDG
 ms.service: active-directory
@@ -14,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3a911db36fd03ebcb5e0fc53d4d7f36d68648249
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 144fad249011d547ac6a8cf2d404cb3f8fe74f96
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399094"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884259"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>방법: 애플리케이션에서 앱 역할을 추가하고 토큰에서 수신하기
 
@@ -35,7 +34,7 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Azure Portal을 사용하여 앱 역할 선언
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
 1. **즐겨찾기** 또는 **모든 디렉터리** 목록에서 응용 프로그램을 등록할 Active Directory 테넌트를 선택합니다.
 1. Azure Portal에서 **Azure Active Directory**를 검색하고 선택합니다.
@@ -120,7 +119,7 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 1. 맨 아래 **할당** 단추를 눌러서 앱에 사용자 및 그룹의 할당을 완료합니다.
 1. 추가한 사용자 및 그룹이 업데이트된 **사용자 및 그룹** 목록에 보이는지 확인합니다.
 
-## <a name="more-information"></a>자세한 정보
+## <a name="more-information"></a>추가 정보
 
 - [ASP.NET 코어 웹 앱에 역할 클레임& 앱 역할을 사용하여 권한 부여 추가](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
 - [앱에서 보안 그룹 및 애플리케이션 역할 사용(비디오)](https://www.youtube.com/watch?v=V8VUPixLSiM)

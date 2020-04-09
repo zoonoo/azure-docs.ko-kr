@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 064a7b8adaec6f47a153743b58f4e1caf50db723
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 38116efc9e87eca8e2514a0a84045a69b8d42326
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80681507"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887047"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>모델 변환 REST API 사용
 
@@ -128,5 +128,5 @@ JSON 문서에 래핑된 진행 중인 변환의 ID를 반환합니다. 필드 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [모델 변환에 Azure Blob 저장소 사용](blob-storage.md)
+- [모델 변환에 Azure Blob Storage 사용](blob-storage.md)
 - [모델 변환](model-conversion.md)

@@ -6,12 +6,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: c2f384370c3ceaf24164e4a27adc05b1a1e1ddf7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 83575aa7f9b63615f453e00bd06b00a5540b9a9e
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294972"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892260"
 ---
 # <a name="what-is-distributed-tracing"></a>분산 추적이란?
 
@@ -27,17 +27,17 @@ Azure Monitor에는 [애플리케이션 맵](https://docs.microsoft.com/azure/ap
 
 ## <a name="how-to-enable-distributed-tracing"></a>분산 추적을 사용하는 방법
 
-애플리케이션에서 서비스 전반에 걸쳐 분산 추적을 사용하는 것은 서비스가 구현된 언어를 기반으로 각 서비스에 적절한 SDK 또는 라이브러리를 추가하는 것만큼 간단합니다.
+응용 프로그램의 서비스 간에 분산 추적을 사용하도록 설정하는 것은 서비스가 구현된 언어에 따라 각 서비스에 적절한 에이전트, SDK 또는 라이브러리를 추가하는 것만큼 간단합니다.
 
-## <a name="enabling-via-application-insights-sdks"></a>Application Insights SDK를 통해 사용하도록 설정
+## <a name="enabling-via-application-insights-through-auto-instrumentation-or-sdks"></a>자동 계측 또는 SDK를 통한 애플리케이션 인사이트를 통해 지원
 
-.NET, .NET Core, Java, Node.js 및 JavaScript용 Application Insights SDK는 모두 기본적으로 분산 추적을 지원합니다. 각 Application Insights SDK를 설치 및 구성하는 지침이 다음과 같이 제공됩니다.
+.NET, .NET 코어, Java, Node.js 및 JavaScript에 대한 응용 프로그램 인사이트 에이전트 및/또는 SDK는 모두 기본적으로 분산된 추적을 지원합니다. 각 Application Insights SDK를 설치 및 구성하는 지침이 다음과 같이 제공됩니다.
 
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
-* [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
-* [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
-* [자바 스크립트](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
+* [Node.JS](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
+* [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
 * [Python](opencensus-python.md)
 
 적절한 Application Insight SDK가 설치되고 구성되면, 많이 사용되는 프레임워크, 라이브러리 및 기술에 대한 추적 정보가 SDK 종속성 자동 수집기를 통해 자동으로 수집됩니다. 지원되는 기술의 전체 목록은 [종속성 자동 수집 설명서](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies)에 제공됩니다.

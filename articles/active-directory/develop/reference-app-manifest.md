@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 앱 매니페스트 이해 | Microsoft Docs
+title: Azure Active Directory 앱 매니페스트 이해
 description: Azure AD 테넌트의 애플리케이션 ID 구성을 나타내고 OAuth 권한 부여, 승인 환경 등을 용이하게 하는 데 사용되는 Azure Active Directory 앱 매니페스트에 대한 자세한 정보를 다룹니다.
 services: active-directory
 author: rwike77
@@ -12,12 +12,12 @@ ms.date: 03/23/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 6d9a4af5ee814282589959fcf840c1061358ca18
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 487559aaf632a30b7efcda490f92a90d4f59b8f5
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80383942"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883477"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 앱 매니페스트
 
@@ -32,7 +32,7 @@ Azure 포털을 통해 또는 [REST API](https://docs.microsoft.com/previous-ver
 
 애플리케이션 매니페스트를 구성하려면
 
-1. [Azure 포털로](https://portal.azure.com)이동합니다. **Azure Active Directory** 서비스를 검색하고 선택합니다.
+1. [Azure 포털](https://portal.azure.com)로 이동합니다. **Azure Active Directory** 서비스를 검색하고 선택합니다.
 1. **앱 등록을 선택합니다.**
 1. 구성하려는 앱을 선택합니다.
 1. 앱의 **개요** 페이지에서 **매니페스트** 섹션을 선택합니다. 웹 기반 매니페스트 편집기가 열리면 포털 내에서 매니페스트를 편집할 수 있습니다. 필요에 따라 **다운로드**를 선택하여 로컬로 매니페스트를 편집하고 **업로드**를 사용하여 애플리케이션에 다시 적용할 수 있습니다.
@@ -43,7 +43,7 @@ Azure 포털을 통해 또는 [REST API](https://docs.microsoft.com/previous-ver
 
 ### <a name="accesstokenacceptedversion-attribute"></a>액세스 토큰 수락 버전 특성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | 액세스토큰허용버전 | Nullable Int32 |
 
@@ -63,7 +63,7 @@ Azure 포털을 통해 또는 [REST API](https://docs.microsoft.com/previous-ver
 
 ### <a name="addins-attribute"></a>추가 기능 속성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | addIns | 컬렉션 |
 
@@ -88,7 +88,7 @@ Azure 포털을 통해 또는 [REST API](https://docs.microsoft.com/previous-ver
 
 ### <a name="allowpublicclient-attribute"></a>allowPublicClient 특성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | 허용공공 클라이언트 | 부울 |
 
@@ -102,7 +102,7 @@ Azure 포털을 통해 또는 [REST API](https://docs.microsoft.com/previous-ver
 
 ### <a name="availabletoothertenants-attribute"></a>사용 가능한ToOtherTenants 특성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | availableToOtherTenants | 부울 |
 
@@ -113,7 +113,7 @@ Azure 포털을 통해 또는 [REST API](https://docs.microsoft.com/previous-ver
 
 ### <a name="appid-attribute"></a>appId 특성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | appId | String |
 
@@ -127,7 +127,7 @@ Azure AD가 할당한 앱의 고유 식별자를 지정합니다.
 
 ### <a name="approles-attribute"></a>appRoles 특성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | appRoles | 컬렉션 |
 
@@ -152,7 +152,7 @@ Azure AD가 할당한 앱의 고유 식별자를 지정합니다.
 
 ### <a name="displayname-attribute"></a>표시이름 특성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | displayName | String |
 
@@ -163,7 +163,7 @@ Azure AD가 할당한 앱의 고유 식별자를 지정합니다.
 
 ### <a name="errorurl-attribute"></a>errorUrl 특성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | errorUrl | String |
 
@@ -171,7 +171,7 @@ Azure AD가 할당한 앱의 고유 식별자를 지정합니다.
 
 ### <a name="groupmembershipclaims-attribute"></a>그룹멤버클레임 특성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 |groupMembershipClaims | String |
 
@@ -189,7 +189,7 @@ Azure AD가 할당한 앱의 고유 식별자를 지정합니다.
 
 ### <a name="homepage-attribute"></a>홈페이지 속성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | homepage |String |
 
@@ -200,7 +200,7 @@ Azure AD가 할당한 앱의 고유 식별자를 지정합니다.
 
 ### <a name="objectid-attribute"></a>objectId 특성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 |objectId | String |
 
@@ -216,7 +216,7 @@ Azure AD가 할당한 앱의 고유 식별자를 지정합니다.
 
 ### <a name="optionalclaims-attribute"></a>선택적클레임 특성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | optionalClaims | String |
 
@@ -232,7 +232,7 @@ Azure AD가 할당한 앱의 고유 식별자를 지정합니다.
 
 ### <a name="id-attribute"></a>id 특성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | id | String |
 
@@ -246,7 +246,7 @@ Azure AD가 할당한 앱의 고유 식별자를 지정합니다.
 
 ### <a name="identifieruris-attribute"></a>식별자Uris 특성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | identifierUris | 문자열 배열 |
 
@@ -260,7 +260,7 @@ Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 
 
 ### <a name="informationalurls-attribute"></a>정보 url 속성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | 정보 urls | String |
 
@@ -279,7 +279,7 @@ Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 
 
 ### <a name="keycredentials-attribute"></a>키 자격 증명 특성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | keyCredentials | 컬렉션 |
 
@@ -303,7 +303,7 @@ Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 
 
 ### <a name="knownclientapplications-attribute"></a>알려진 클라이언트 응용 프로그램 특성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | knownClientApplications | 문자열 배열 |
 
@@ -317,7 +317,7 @@ Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 
 
 ### <a name="logourl-attribute"></a>로고Url 속성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | 로고Url | String |
 
@@ -331,7 +331,7 @@ Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 
 
 ### <a name="logouturl-attribute"></a>로그아웃Url 특성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | logoutUrl | String |
 
@@ -345,7 +345,7 @@ Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 
 
 ### <a name="name-attribute"></a>이름 속성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | name | String |
 
@@ -359,7 +359,7 @@ Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 
 
 ### <a name="oauth2allowimplicitflow-attribute"></a>oauth2허용심플흐름 속성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | oauth2AllowImplicitFlow | 부울 |
 
@@ -373,7 +373,7 @@ Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 
 
 ### <a name="oauth2allowidtokenimplicitflow-attribute"></a>oauth2AllowId토큰심암시플로우 속성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | oauth2AllowId토큰심암시플로우 | 부울 |
 
@@ -387,7 +387,7 @@ Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 
 
 ### <a name="oauth2permissions-attribute"></a>oauth2권한 속성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | oauth2Permissions | 컬렉션 |
 
@@ -412,7 +412,7 @@ Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 
 
 ### <a name="oauth2requiredpostresponse-attribute"></a>oauth2RequiredPostResponse 특성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | oauth2RequiredPostResponse | 부울 |
 
@@ -426,7 +426,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 
 ### <a name="parentalcontrolsettings-attribute"></a>보호자제어설정 속성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | 보호자제어설정 | String |
 
@@ -444,7 +444,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 
 ### <a name="passwordcredentials-attribute"></a>암호 자격 증명 특성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | passwordCredentials | 컬렉션 |
 
@@ -466,7 +466,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 
 ### <a name="preauthorizedapplications-attribute"></a>사전 승인된 응용 프로그램 특성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | 사전 승인된 응용 프로그램 | 컬렉션 |
 
@@ -487,7 +487,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 
 ### <a name="publicclient-attribute"></a>publicClient 특성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | publicClient | 부울|
 
@@ -497,7 +497,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 
 ### <a name="publisherdomain-attribute"></a>게시자도메인 속성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | 퍼블리셔도메인 | String |
 
@@ -511,7 +511,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 
 ### <a name="replyurls-attribute"></a>회신Url속성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | replyUrls | 문자열 배열 |
 
@@ -521,7 +521,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 
 ### <a name="replyurlswithtype-attribute"></a>회신UrlsWithType 특성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | 회신Urls유형 | 컬렉션 |
 
@@ -545,7 +545,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 
 ### <a name="requiredresourceaccess-attribute"></a>필수 리소스 액세스 특성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | requiredResourceAccess | 컬렉션 |
 
@@ -572,7 +572,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 
 ### <a name="samlmetadataurl-attribute"></a>saml메타데이터Url 속성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | samlMetadataUrl | String |
 
@@ -586,7 +586,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 
 ### <a name="signinurl-attribute"></a>signInUrl 속성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | 사인인Url | String |
 
@@ -600,7 +600,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 
 ### <a name="signinaudience-attribute"></a>사인인타겟 속성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | 사인인타겟 | String |
 
@@ -618,7 +618,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 
 ### <a name="tags-attribute"></a>태그 속성
 
-| Key | 값 형식 |
+| 키 | 값 형식 |
 | :--- | :--- |
 | tags | 문자열 배열  |
 

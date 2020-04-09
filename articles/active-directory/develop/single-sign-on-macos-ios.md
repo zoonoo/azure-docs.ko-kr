@@ -3,26 +3,22 @@ title: macOS 및 iOS에서 SSO 구성
 titleSuffix: Microsoft identity platform
 description: macOS 및 iOS에서 단일 사인온(SSO)을 구성하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: mmacy
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/03/2020
 ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 91a55520b37c549c8f1d94ba6cf08ecd24db85b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25389348476552298ddb947ccb59acb8b3d5bc57
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262452"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881251"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>방법: macOS 및 iOS에서 SSO 구성
 
@@ -141,7 +137,7 @@ do {
 > 이는 백그라운드 작업을 수행하는 토큰에 의존하는 응용 프로그램이 있는 경우 특히 영향을 미칩니다.
 > 키체인을 공유한다는 것은 앱에서 Microsoft ID SDK 제거 작업을 사용할 때 매우 주의해야 함을 의미합니다.
 
-이것으로 끝입니다. 이제 Microsoft ID SDK는 모든 응용 프로그램에서 자격 증명을 공유합니다. 계정 목록은 응용 프로그램 인스턴스 간에도 공유됩니다.
+정말 간단하죠. 이제 Microsoft ID SDK는 모든 응용 프로그램에서 자격 증명을 공유합니다. 계정 목록은 응용 프로그램 인스턴스 간에도 공유됩니다.
 
 ## <a name="sso-through-authentication-broker-on-ios"></a>iOS에서 인증 브로커를 통한 SSO
 

@@ -11,17 +11,14 @@ ms.date: 03/16/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9d82840681450ec855cb35c8700da2a53b9dd6b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8c890a6daf2411b09162ab0072aed594820b936
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481452"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886350"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active 디렉터리 조건부 액세스에 대한 개발자 지침
 
@@ -180,7 +177,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 이 시나리오를 사용해 보려면 [JS SPA On-behalf-of 샘플 코드](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access)를 참조하세요. 이 코드 샘플에서는 이전에 JS SPA에 등록한 조건부 액세스 정책 및 웹 API를 사용하여 이 시나리오를 보여 줍니다. 클레임 챌린지를 올바르게 처리하고 Web API에 사용할 수 있는 액세스 토큰을 가져오는 방법을 보여 줍니다. 또한 Angular SPA에 대한 지침은 일반 [Angular.js 샘플 코드](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2)를 확인하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * 기능에 대해 자세히 알아보려면 [Azure Active Directory의 조건부 액세스](/azure/active-directory/conditional-access/overview)를 참조하세요.
 * 자세한 Azure AD 코드 샘플은 [샘플을](sample-v2-code.md)참조하십시오.

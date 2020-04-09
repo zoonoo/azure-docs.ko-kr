@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/27/2020
-ms.openlocfilehash: 26ed33e967aff1714d2a6fb174eab623e71534c2
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.date: 04/08/2020
+ms.openlocfilehash: 5bb5d5dd5110f176b59a99f6a3aa223184158da5
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80382735"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982313"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>VM에 대한 Azure 모니터 사용 개요
 
@@ -60,8 +60,8 @@ VM용 Azure 모니터는 다음 리전에서 로그 분석 작업 영역을 지�
 
 로그 분석 작업 영역이 없는 경우 리소스 중 하나를 사용하여 작업 영역을 만들 수 있습니다.
 * [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
-* [Powershell](../../azure-monitor/learn/quick-create-workspace-posh.md)
-* [Azure 포털](../../azure-monitor/learn/quick-create-workspace.md)
+* [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
+* [Azure portal](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure 리소스 관리자](../../azure-monitor/platform/template-workspace-configuration.md)
 
 Azure 포털에서 설정된 단일 Azure VM 또는 가상 시스템 규모에 대한 모니터링을 사용하도록 설정하는 동안 작업 영역을 만들 수도 있습니다.
@@ -165,18 +165,18 @@ VM용 Azure 모니터의 맵 기능은 Microsoft 종속성 에이전트에서 �
 
 다음 테이블은 하이브리드 환경에서 맵 기능이 지원하는 연결된 원본을 설명합니다.
 
-| 연결된 원본 | 지원됨 | 설명 |
+| 연결된 원본 | 지원됨 | Description |
 |:--|:--|:--|
-| Windows 에이전트 | yes | [Windows용 로그 분석 에이전트와](../../azure-monitor/platform/log-analytics-agent.md)함께 Windows 에이전트에는 종속성 에이전트가 필요합니다. 자세한 내용은 [지원되는 운영 체제](#supported-operating-systems)를 참조하십시오. |
-| Linux 에이전트 | yes | [Linux용 로그 분석 에이전트와](../../azure-monitor/platform/log-analytics-agent.md)함께 Linux 에이전트에는 종속성 에이전트가 필요합니다. 자세한 내용은 [지원되는 운영 체제](#supported-operating-systems)를 참조하십시오. |
+| Windows 에이전트 | 예 | [Windows용 로그 분석 에이전트와](../../azure-monitor/platform/log-analytics-agent.md)함께 Windows 에이전트에는 종속성 에이전트가 필요합니다. 자세한 내용은 [지원되는 운영 체제](#supported-operating-systems)를 참조하십시오. |
+| Linux 에이전트 | 예 | [Linux용 로그 분석 에이전트와](../../azure-monitor/platform/log-analytics-agent.md)함께 Linux 에이전트에는 종속성 에이전트가 필요합니다. 자세한 내용은 [지원되는 운영 체제](#supported-operating-systems)를 참조하십시오. |
 | System Center Operations Manager 관리 그룹 | 예 | |
 
 다음 위치에서 종속성 에이전트를 다운로드할 수 있습니다.
 
 | 파일 | OS | 버전 | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.2.9060 | B7725B6B205CF8C336D9AD87795336C816412740E9D6499BCACB6F862AE3896  |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.2.9060 | C6995A67A77882AEC312647D74A99C3C823F68F5F5FFA490FD4BB6006A2FF2941B0 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.3.9380 | 40763BD0A5B60707DF3F9E7BCC17D917F5CE9995F2F2F5A4633D8B733F3BE143921  |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.3.9380 | BB41BB59BDD299968F02A9EF821F9699406AA1BDF1F67925DB9EE00D54A7F0B |
 
 ## <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
@@ -188,7 +188,7 @@ Log Analytics 작업 영역에 대한 액세스를 제어하는 방법에 대한
 
 이 표에 설명된 방법 중 하나를 사용하여 VM에 대한 Azure 모니터를 사용하도록 설정합니다.
 
-| 배포 상태 | 방법 | 설명 |
+| 배포 상태 | 방법 | Description |
 |------------------|--------|-------------|
 | 단일 Azure VM 또는 가상 시스템 규모 집합 | [VM에서 사용](vminsights-enable-single-vm.md) | VM 또는 가상 시스템 규모 집합에서 직접 **인사이트를** 선택하여 단일 Azure VM을 활성화할 수 있습니다. |
 | 여러 Azure VM 또는 가상 시스템 규모 집합 | [Azure 정책을 통해 활성화](vminsights-enable-at-scale-policy.md) | Azure 정책 및 사용 가능한 정책 정의를 사용하여 여러 Azure VM을 활성화할 수 있습니다. |

@@ -7,20 +7,18 @@ author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f78c64fc0ba25dc3310b24e873dbae266ea2f281
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93d07ab1740da68298478ae2dcc2ab46d8d8362e
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80050332"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884021"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>MSAL 예외 및 오류 처리
 
@@ -138,7 +136,7 @@ catch (MsalUiRequiredException ex) when (ex.ErrorCode == MsalError.InvalidGrantE
 }
 ```
 
-## <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 MSAL.js는 다양한 유형의 일반적인 오류를 추상화하고 분류하는 오류 개체를 제공합니다. 또한 오류 메시지와 같은 오류의 특정 세부 정보에 액세스하여 적절하게 처리하는 인터페이스를 제공합니다.
 

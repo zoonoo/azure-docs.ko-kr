@@ -4,7 +4,6 @@ description: Microsoft ID 플랫폼 끝점에서 지원하는 OAuth 2.0 및 Open
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -13,12 +12,12 @@ ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d7ed4dbbc3fddb2e21ed3cf5292ebd80fe1e3e23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4847bddcbcfbc27502965efa221a3707fa453457
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263115"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885670"
 ---
 # <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>OAuth 2.0 및 Microsoft ID 플랫폼에서 OpenID 연결 프로토콜
 
@@ -59,7 +58,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 여기서 `{tenant}` 은 네 개의 서로 다른 값 중 하나를 가질 수 있습니다.
 
-| 값 | 설명 |
+| 값 | Description |
 | --- | --- |
 | `common` | 개인 Microsoft 계정과 Azure AD의 회사/학교 계정이 모두 있는 사용자가 애플리케이션에 로그인할 수 있습니다. |
 | `organizations` | Azure AD의 회사/학교 계정이 있는 사용자만 애플리케이션에 로그인할 수 있습니다. |

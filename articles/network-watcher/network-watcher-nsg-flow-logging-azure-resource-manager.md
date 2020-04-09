@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
-ms.openlocfilehash: 35d185a625a81a259c366a45999769ecf76c6a7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 104311904b99cadbbc8c0267a98f2709443608ea
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77538161"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80891461"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Azure 리소스 관리자 템플릿에서 NSG 흐름 로그 구성
 
 > [!div class="op_single_selector"]
-> - [Azure 포털](network-watcher-nsg-flow-logging-portal.md)
-> - [Powershell](network-watcher-nsg-flow-logging-powershell.md)
+> - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
+> - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
-> - [나머지 API](network-watcher-nsg-flow-logging-rest.md)
+> - [REST API](network-watcher-nsg-flow-logging-rest.md)
 > - [Azure 리소스 관리자](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
@@ -169,6 +169,8 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 
 배포가 성공했는지 확인하는 방법에는 몇 가지가 있습니다. PowerShell 콘솔에 "프로비저닝상태"를 "성공"으로 표시해야 합니다. 또한 [NSG 흐름 로그 포털 페이지를](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) 방문하여 변경 사항을 확인할 수 있습니다. 배포에 문제가 있는 경우 Azure 리소스 관리자를 사용 하 고 [일반적인 Azure 배포 오류 문제 해결을](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors)살펴보십시오.
 
+## <a name="deleting-your-resource"></a>리소스 삭제
+Azure를 사용하면 "완료" 배포 모드를 통해 리소스를 삭제할 수 있습니다. 흐름 로그 리소스를 삭제하려면 삭제하려는 리소스를 포함하지 않고 완료 모드에서 배포를 지정합니다. 전체 배포 [모드에](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes#complete-mode) 대해 자세히 알아보기
 
 ## <a name="next-steps"></a>다음 단계
 

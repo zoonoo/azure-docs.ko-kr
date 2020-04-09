@@ -1,5 +1,5 @@
 ---
-title: 마이크로소프트 아이덴티티 플랫폼 ID 토큰 참조 | 마이크로 소프트 문서
+title: 마이크로소프트 ID 플랫폼 ID 토큰 참조
 description: Azure AD v1.0 및 Microsoft ID 플랫폼(v2.0) 엔드포인트에서 내보내는 id_tokens 사용하는 방법을 알아봅니다.
 services: active-directory
 author: rwike77
@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 1efd027edb85cabcfdc2a170771ef19182b5c9f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ede70719c124caebc541df8578ab2720fc68cd5
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77160953"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885517"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>마이크로소프트 아이덴티티 플랫폼 ID 토큰
 
@@ -50,7 +50,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 
 ### <a name="header-claims"></a>헤더 클레임
 
-|클레임 | 형식 | 설명 |
+|클레임 | 형식 | Description |
 |-----|--------|-------------|
 |`typ` | 문자열 - 항상 "JWT" | 토큰이 JWT임을 나타냅니다.|
 |`alg` | String | 토큰을 서명하는 데 사용된 알고리즘을 나타냅니다. 예: "RS256" |
@@ -61,7 +61,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 
 이 목록에는 기본적으로 대부분의 id_tokens 있는 클레임이 표시됩니다(언급된 경우 제외).  그러나 앱은 [선택적 소유권 주장을](active-directory-optional-claims.md) 사용하여 id_token 추가 소유권 주장을 요청할 수 있습니다.  `groups` 클레임에서 사용자 이름에 대한 정보까지 다양합니다.
 
-|클레임 | 형식 | 설명 |
+|클레임 | 형식 | Description |
 |-----|--------|-------------|
 |`aud` |  문자열, 앱 ID URI | 토큰의 의도한 수신자를 식별합니다. `id_tokens`에서 액세스 토큰에서 대상은 Azure Portal에서 앱에 할당된 앱의 애플리케이션 ID입니다. 앱은 이 값의 유효성을 검사하고 값이 일치하지 않을 경우 토큰을 거부해야 합니다. |
 |`iss` |  문자열, STS URI | 토큰을 생성하고 반환하는 STS(보안 토큰 서비스) 및 사용자가 인증된 Azure AD 테넌트를 식별합니다. v2.0 엔드포인트에서 토큰을 발급한 경우 URI는 `/v2.0`에서 종료됩니다.  사용자가 Microsoft 계정의 소비자 사용자임을 나타내는 GUID는 `9188040d-6c67-4c5b-b112-36a304b66dad`입니다. 앱은 클레임의 GUID 부분을 사용하여 앱에 로그인할 수 있는 테넌트 집합을 제한할 수 있습니다(해당되는 경우). |

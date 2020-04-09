@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9fc45ead65a29f2e7567133b5af4667bdb7c79ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8973412b2d6575d524874ba05b34af7661655e19
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80154987"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981072"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>ADAL(Azure Active Directory 인증 라이브러리) 클라이언트에 대한 오류 처리 모범 사례
 
@@ -51,7 +51,7 @@ AcquireTokenSilent는 최종 사용자가 UI(사용자 인터페이스)를 보�
 
 기본적으로 AcquireTokenSilent 오류는 두 가지 사례가 있습니다.
 
-| 사례 | 설명 |
+| 사례 | Description |
 |------|-------------|
 | **사례 1**: 대화형 로그인으로 해결 가능한 오류 | 유효한 토큰이 부족하여 오류가 발생하면 대화형 요청이 필요합니다. 특히 캐시 조회 및 잘못된/만료된 새로 고침 토큰을 해결하려면 AcquireToken을 호출해야 합니다.<br><br>이러한 경우 최종 사용자에게 로그인하라는 메시지가 표시되어야 합니다. 애플리케이션은 최종 사용자 조작(예: 로그인 단추 누르기) 이후 또는 나중에 대화형 요청을 수행하도록 선택할 수 있습니다. 선택 사항은 원하는 애플리케이션 동작에 따라 달라집니다.<br><br>구체적인 사례와 진단되는 오류는 다음 섹션의 코드를 참조하세요.|
 | **사례 2**: 대화형 로그인으로 해결 가능하지 않은 오류 | 네트워크 오류 및 일시적/임시 오류 또는 기타 실패의 경우 대화형 AcquireToken 요청을 수행해도 문제가 해결되지 않습니다. 불필요한 대화형 로그인 프롬프트는 최종 사용자에게 불편을 줄 수도 있습니다. AcquireTokenSilent 실패 시 ADAL은 대부분의 오류에 대해 자동으로 다시 시도를 한 번 수행합니다.<br><br>클라이언트 응용 프로그램은 나중에 다시 시도할 수도 있지만 응용 프로그램 동작과 원하는 최종 사용자 경험에 따라 언제 어떻게 달라질 수도 있습니다. 예를 들어 애플리케이션은 몇 분 후 또는 일부 최종 사용자 작업에 대한 응답으로 AcquireTokenSilent 다시 시도를 수행할 수 있습니다. 즉시 다시 시도는 애플리케이션이 제한되는 결과를 가져오므로 수행하지 않아야 합니다.<br><br>후속 다시 시도가 동일한 오류로 실패해도 클라이언트에서 AcquireToken을 사용하여 대화형 요청을 수행해야 한다는 것을 의미하지 않습니다. 오류가 해결되지 않기 때문입니다.<br><br>구체적인 사례와 진단되는 오류는 다음 섹션의 코드를 참조하세요. |
@@ -543,7 +543,7 @@ adb logcat > "C:\logmsg\logfile.txt";
 
 #### <a name="operating-system-errors"></a>운영 체제 오류
 
-사용자가 웹 보기 및 인증 특성을 사용하는 경우 로그인 중에 iOS 오류가 발생할 수 있습니다. SSL 오류, 시간 제한 또는 네트워크 오류와 같은 조건 때문에 발생할 수 있습니다.
+사용자가 웹 보기 및 인증 특성을 사용하는 경우 로그인 중에 iOS 오류가 발생할 수 있습니다. TLS 오류, 시간 시간 시간 또는 네트워크 오류와 같은 조건으로 인해 발생할 수 있습니다.
 
 - 권리 유형 공유의 경우 로그인이 영구적이지 않으며 캐시가 비어 있는 것으로 나타납니다. 키 집합에 다음 코드 줄을 추가하여 해결할 수 있습니다. `[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
 - NsUrlDomain 오류 집합의 경우 앱 논리에 따라 작업이 달라집니다. 처리할 수 있는 구체적인 인스턴스는 [NSURLErrorDomain 참조 설명서](https://developer.apple.com/documentation/foundation/nsurlerrordomain#declarations)를 참조하세요.

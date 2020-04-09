@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 73b1d93cc7f6325a5319b632aa7f827d9ee6303c
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 20c76cec82944568c1b16694bef2838626b90b03
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745052"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983350"
 ---
 # <a name="iot-edge-module-offer-publishing-overview"></a>IoT Edge 모듈 제품 게시 개요
 
 >[!Important]
->2020년 3월 30일부터 파트너 센터로 IoT Edge 모듈의 관리를 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. IoT [Edge 생성 모듈 오퍼의](https://aka.ms/AzureCreateIoT) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+>2020년 4월 13일부터 파트너 센터로 IoT Edge 모듈의 관리를 이전할 예정입니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. IoT [Edge 생성 모듈 오퍼의](https://aka.ms/AzureCreateIoT) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
 
 <table> <tr> <td>이 섹션에서는 Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>에 새로운 Azure IoT Edge 모듈 제안을 게시하는 방법을 설명합니다. IoT Edge 모듈은 IoT Edge 디바이스에서 실행하도록 만들어진 Docker 호환 컨테이너입니다. Azure IoT Edge 모듈은 IoT Edge가 관리하는 계산의 최소 단위이며 Azure 서비스 또는 사용자 지정 솔루션 코드를 포함할 수 있습니다. </td> <td><img src="./media/iotedge-icon1.png"  alt="Azure IoT Edge module icon" /></td> </tr> </table>
 
@@ -40,7 +40,7 @@ IoT Edge 모듈 제품을 게시하기 위한 대략적인 단계는 다음과 �
 - [필수 조건](./cpp-prerequisites.md) <br>이 문서에서는 IoT Edge 모듈 제품을 만들고 게시하기 전에 기술 및 비즈니스 요구 사항을 나열합니다.
 - [IoT Edge 모듈 기술 자산 준비](./cpp-create-technical-assets.md) <br>이 문서에서는 IoT Edge 모듈에 대한 기술 자산을 준비하는 방법을 설명합니다. 이러한 자산은 IoT Edge 모듈을 Azure Marketplace에 게시하기 전에 모든 필수 기술 조건을 충족해야 합니다.
 - [IoT Edge 모듈 제품 만들기](./cpp-create-offer.md) <br>이 문서에서는 [Cloud 파트너 포털](https://cloudpartner.azure.com)을 사용하여 새 IoT Edge 모듈 제품 항목을 만드는 데 필요한 단계를 나열합니다.
-- [IoT Edge 모듈 제품 게시](./cpp-publish-offer.md)<br> 이 문서에서는 Azure Marketplace에 게시할 제품을 제출하는 방법을 설명합니다.
+- [IoT Edge 모듈 제안 게시](./cpp-publish-offer.md)<br> 이 문서에서는 Azure Marketplace에 게시할 제품을 제출하는 방법을 설명합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,13 +10,13 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 03/10/2020
-ms.openlocfilehash: 6302a7d6ffe7218d339121ec98a624f8e98356f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/13/2020
+ms.openlocfilehash: 3fe5a58046776d00ce68189cf724a995380869eb
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065583"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887307"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 
@@ -62,11 +62,14 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 
    ![Integration Runtime 만들기](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
 
-1. 통합 **런타임 설정** 창에서 **데이터 이동 수행 및 외부 계산으로 의 디스패치 활동**수행을 선택하고 **계속을**선택합니다.
+1. 통합 **런타임 설정** 페이지에서 **Azure, 자체 호스팅**을 선택한 다음 **계속을**선택합니다. 
+
+1. 다음 페이지에서 자체 호스팅 IR을 만들려면 **자체 호스팅을** 선택한 다음 **계속을**선택합니다.
+   ![자체 호스팅 IR 만들기](media/create-self-hosted-integration-runtime/new-selfhosted-ir.png)
 
 1. IR의 이름을 입력하고 **을**선택합니다.
 
-1. **옵션 1의** 링크를 선택하여 컴퓨터에서 익스프레스 설정을 엽니다. 또는 **옵션 2의** 단계를 수행하여 수동으로 설정합니다. 다음 지침은 수동 설정을 기반으로 합니다.
+1. 통합 **런타임 설정** 페이지에서 **옵션 1** 의 링크를 선택하여 컴퓨터에서 빠른 설정을 엽니다. 또는 **옵션 2의** 단계를 수행하여 수동으로 설정합니다. 다음 지침은 수동 설정을 기반으로 합니다.
 
    ![통합 런타임 설정](media/create-self-hosted-integration-runtime/integration-runtime-setting-up.png)
 
@@ -102,7 +105,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 
 다음은 응용 프로그램의 매개 변수 및 속성에 대한 세부 정보입니다. 
 
-| 속성                                                    | 설명                                                  | 필수 |
+| 속성                                                    | Description                                                  | 필수 |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | **레지스터뉴노드** "`<AuthenticationKey>`"                     | 지정된 인증 키로 자체 호스팅 통합 런타임 노드를 등록합니다. | 예       |
 | **레지스터뉴노드** "`<AuthenticationKey>`" "`<NodeName>`"      | 지정된 인증 키 및 노드 이름으로 자체 호스팅 통합 런타임 노드를 등록합니다. | 예       |
@@ -153,7 +156,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 - 지원되는 Windows 버전은 다음과 같습니다.
   + Windows 7 서비스 팩 1
   + Windows 8.1
-  + 윈도우 10
+  + Windows 10
   + Windows Server 2008 R2 SP1
   + Windows Server 2012
   + Windows Server 2012 R2

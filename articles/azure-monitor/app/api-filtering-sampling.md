@@ -3,12 +3,12 @@ title: Azure Application Insights SDK에서 필터링 및 전처리 | Microsoft 
 description: SDK용 원격 분석 프로세서 및 원격 분석 이니셜라이저를 작성하여 원격 분석이 Application Insights 포털에 전송되기 전에 데이터에 대한 속성을 필터링하거나 추가합니다.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.openlocfilehash: 53b6ecc51961feba35d571eab3115c8e7ccf9964
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 8f2064f73821a017046cbb552a8dcf592ce13267
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366302"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983761"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK에서 원격 분석 필터링 및 전처리
 
@@ -21,7 +21,7 @@ ms.locfileid: "80366302"
 
 시작하기 전에 다음을 수행합니다.
 
-* 응용 프로그램에 적합한 SDK를 설치합니다: [ASP.NET](asp-net.md), [ASP.NET 코어,](asp-net-core.md) [.NET/.NET 코어,](worker-service.md) [Java](../../azure-monitor/app/java-get-started.md) 또는 [JavaScript용](javascript.md) 비 HTTP/워커
+* 응용 프로그램에 적합한 SDK를 설치합니다: [ASP.NET,](asp-net.md) [ASP.NET 코어,](asp-net-core.md) [.NET/.NET 코어에 대한 비 HTTP/Worker](worker-service.md)또는 [자바스크립트](javascript.md)
 
 <a name="filtering"></a>
 
@@ -203,7 +203,7 @@ public void Process(ITelemetry item)
    ```JS
    var filteringFunction = (envelope) => {
      if (envelope.data.someField === 'tobefilteredout') {
-        return false;
+         return false;
      }
   
      return true;
@@ -227,7 +227,7 @@ public void Process(ITelemetry item)
 
 **이니셜라이저 정의**
 
-*C #*
+*C#*
 
 ```csharp
 using System;
@@ -307,28 +307,8 @@ protected void Application_Start()
     services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
 }
 ```
-
-### <a name="java-telemetry-initializers"></a>Java 원격 분석 이니셜라이저
-
-[Java SDK 설명서](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.telemetryinitializer?view=azure-java-stable)
-
-```Java
-public interface TelemetryInitializer
-{ /** Initializes properties of the specified object. * @param telemetry The {@link com.microsoft.applicationinsights.telemetry.Telemetry} to initialize. */
-
-void initialize(Telemetry telemetry); }
-```
-
-그 후 사용자 정의 이니셜라이저를 Applicationinsights.xml 파일에 등록합니다.
-
-```xml
-<Add type="mypackage.MyConfigurableContextInitializer">
-    <Param name="some_config_property" value="some_value" />
-</Add>
-```
-
 ### <a name="javascript-telemetry-initializers"></a>JavaScript 원격 분석 이니셜라이저
-*자바 스크립트*
+*JavaScript*
 
 포털에서 가져온 초기화 코드 바로 뒤에 원격 분석 이니셜라이저를 삽입합니다.
 

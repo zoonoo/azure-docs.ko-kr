@@ -3,26 +3,22 @@ title: 리소스 소유자 암호 자격 증명 부여로 로그인 | Azure
 titleSuffix: Microsoft identity platform
 description: 리소스 소유자 암호 자격 증명(ROPC) 부여를 사용하여 브라우저가 없는 인증 흐름을 지원합니다.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b935ad2491ca486a3bc6878f0332e5390600b1bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 173f632a6baed0179b7b4facd2962f9c9764af47
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76700688"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886333"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>마이크로소프트 ID 플랫폼 및 OAuth 2.0 리소스 소유자 암호 자격 증명
 
@@ -68,7 +64,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &grant_type=password
 ```
 
-| 매개 변수 | 조건 | 설명 |
+| 매개 변수 | 조건 | Description |
 | --- | --- | --- |
 | `tenant` | 필수 | 사용자를 로그인할 디렉터리 테넌트입니다. 이는 GUID 또는 친숙한 이름 형식일 수 있습니다. 이 매개 변수는 `common` 또는 `consumers`로 설정할 수 없고 `organizations`로 설정할 수 있습니다. |
 | `client_id` | 필수 | [Azure 포털 - 앱에](https://go.microsoft.com/fwlink/?linkid=2083908) 할당된 앱 등록 페이지인 응용 프로그램(클라이언트) ID입니다. | 
@@ -94,7 +90,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 }
 ```
 
-| 매개 변수 | 형식 | 설명 |
+| 매개 변수 | 형식 | Description |
 | --------- | ------ | ----------- |
 | `token_type` | String | 항상 `Bearer`로 설정합니다. |
 | `scope` | 공백으로 구분된 문자열 | 액세스 토큰이 반환된 경우 이 매개 변수는 액세스 토큰이 유효한 범위를 나열합니다. |
@@ -109,7 +105,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 사용자가 올바른 사용자 이름 또는 암호를 입력하지 않았거나 클라이언트가 요청된 동의를 수신하지 못한 경우 인증에 실패합니다.
 
-| Error | 설명 | 클라이언트 작업 |
+| Error | Description | 클라이언트 작업 |
 |------ | ----------- | -------------|
 | `invalid_grant` | 인증에 실패했습니다. | 자격 증명이 올바르지 않거나 클라이언트에 요청된 범위에 대한 동의가 없습니다. 범위가 부여되지 않으면 `consent_required` 오류가 반환됩니다. 이 오류가 발생하면 클라이언트는 WebView 또는 브라우저를 사용하여 대화형 프롬프트로 사용자를 전송해야 합니다. |
 | `invalid_request` | 요청이 잘못 구성되었습니다. | 권한 부여 `/common` 형식은 또는 `/consumers` 인증 컨텍스트에서 지원되지 않습니다.  대신 `/organizations` 사용 하거나 테넌트 ID를 사용 합니다. |

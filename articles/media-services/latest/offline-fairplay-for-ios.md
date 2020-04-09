@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 70256046089a59df1de79b78124c5d60fde77080
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41893c2460ecb2d17e3893f867bc460105d57bbd
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76705941"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887217"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>미디어 서비스 v3와 iOS용 오프라인 페어플레이 스트리밍
 
@@ -203,45 +203,7 @@ FPS Server SDK의 버전 3 또는 버전 4 샘플을 사용하여 마스터 재�
 
 ## <a name="faq"></a>FAQ
 
-다음 질문과 대답은 문제 해결에 도움이 됩니다.
-
-- **왜 오프라인 모드에서는 오디오만 재생되고 비디오는 재생되지 않나요?** 이 동작은 의도적으로 샘플 앱의 것입니다. 오프라인 모드에서 대체 오디오 트랙(HLS의 경우)이 있는 경우 iOS 10과 iOS 11이 대체 오디오 트랙으로 기본설정됩니다. FPS 오프라인 모드에 대한 이 동작을 보정하려면 스트림에서 대체 오디오 트랙을 제거합니다. Media Services에서 이를 실행하기 위해 동적 매니페스트 필터 "audio-only=false"를 추가합니다. 즉, HLS URL은 .ism/manifest(format=m3u8-aapl,audio-only=false)로 끝납니다. 
-- **audio-only=false를 추가한 후에도 왜 여전히 오프라인 모드에서 동영상 없이 오디오만 재생되나요?** CDN(콘텐츠 배달 네트워크) 캐시 키 디자인에 따라, 콘텐츠가 캐시될 수 있습니다. 캐시를 제거합니다.
-- **FPS 오프라인 모드 또한 iOS 10 외에도 iOS 11에서 지원됩니까?** 예. FPS 오프라인 모드는 iOS 10과 iOS 11 모두에서 지원됩니다.
-- **FPS Server SDK에서 “FairPlay 스트리밍 및 HTTP 라이브 스트리밍을 사용하여 오프라인 재생” 문서를 찾을 수 없는 이유는 무엇인가요?** FPS Server SDK 버전 4부터 이 문서는 “FairPlay Streaming Programming Guide”에 병합되었습니다.
-- **iOS 디바이스에서 다운로드된/오프라인 파일 구조체는 무엇입니까?** iOS 디바이스에 다운로드된 파일 구조체는 다음 스크린샷과 같습니다. `_keys` 폴더에는 다운로드된 FPS 라이선스가 저징됩니다(각 라이선스 서비스 호스트당 하나의 저장소 파일). `.movpkg` 폴더에는 오디오 및 동영상 콘텐츠가 저장됩니다. 대시에 이어 숫자로 끝나는 이름의 첫 번째 폴더는 동영상 콘텐츠를 포함합니다. 숫자 값은 동영상 변환의 PeakBandwidth입니다. 대시에 이어 0으로 끝나는 이름의 두 번째 폴더는 오디오 콘텐츠를 포함합니다. "Data"라는 이름의 세 번째 폴더는 FPS 콘텐츠의 마스터 재생 목록을 포함합니다. 마지막으로, boot.xml은 `.movpkg` 폴더 내용에 대한 전체 설명을 제공합니다. 
-
-![오프라인 FairPlay iOS 샘플 앱 파일 구조체](media/offline-fairplay-for-ios/offline-fairplay-file-structure.png)
-
-샘플 boot.xml 파일:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<HLSMoviePackage xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://apple.com/IMG/Schemas/HLSMoviePackage" xsi:schemaLocation="http://apple.com/IMG/Schemas/HLSMoviePackage /System/Library/Schemas/HLSMoviePackage.xsd">
-  <Version>1.0</Version>
-  <HLSMoviePackageType>PersistedStore</HLSMoviePackageType>
-  <Streams>
-    <Stream ID="1-4DTFY3A3VDRCNZ53YZ3RJ2NPG2AJHNBD-0" Path="1-4DTFY3A3VDRCNZ53YZ3RJ2NPG2AJHNBD-0" NetworkURL="https://willzhanmswest.streaming.mediaservices.windows.net/e7c76dbb-8e38-44b3-be8c-5c78890c4bb4/MicrosoftElite01.ism/QualityLevels(127000)/Manifest(aac_eng_2_127,format=m3u8-aapl)">
-      <Complete>YES</Complete>
-    </Stream>
-    <Stream ID="0-HC6H5GWC5IU62P4VHE7NWNGO2SZGPKUJ-310656" Path="0-HC6H5GWC5IU62P4VHE7NWNGO2SZGPKUJ-310656" NetworkURL="https://willzhanmswest.streaming.mediaservices.windows.net/e7c76dbb-8e38-44b3-be8c-5c78890c4bb4/MicrosoftElite01.ism/QualityLevels(161000)/Manifest(video,format=m3u8-aapl)">
-      <Complete>YES</Complete>
-    </Stream>
-  </Streams>
-  <MasterPlaylist>
-    <NetworkURL>https://willzhanmswest.streaming.mediaservices.windows.net/e7c76dbb-8e38-44b3-be8c-5c78890c4bb4/MicrosoftElite01.ism/manifest(format=m3u8-aapl,audio-only=false)</NetworkURL>
-  </MasterPlaylist>
-  <DataItems Directory="Data">
-    <DataItem>
-      <ID>CB50F631-8227-477A-BCEC-365BBF12BCC0</ID>
-      <Category>Playlist</Category>
-      <Name>master.m3u8</Name>
-      <DataPath>Playlist-master.m3u8-CB50F631-8227-477A-BCEC-365BBF12BCC0.data</DataPath>
-      <Role>Master</Role>
-    </DataItem>
-  </DataItems>
-</HLSMoviePackage>
-```
+[자주 묻는 질문을 참조하면 문제 해결에 대한 도움을 받을 수 있습니다.](frequently-asked-questions.md#why-does-only-audio-play-but-not-video-during-offline-mode)
 
 ## <a name="next-steps"></a>다음 단계
 

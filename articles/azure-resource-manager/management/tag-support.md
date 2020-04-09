@@ -3,12 +3,12 @@ title: 리소스에 대한 지원 태그
 description: 태그를 지원하는 Azure 리소스 종류를 보여 줍니다. 모든 Azure 서비스에 대한 세부 정보를 제공합니다.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: e012126995136bec15dc360be5e91007b6f69f09
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: b8b1c0b738bb8b94ee53433141f1ae3dbbb3f942
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80802495"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982330"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
 이 문서에서는 리소스 종류가 [태그](tag-resources.md)를 지원하는지 여부를 설명합니다. **지원 태그라는** 레이블이 붙은 열은 리소스 형식에 태그에 대한 속성이 있는지 여부를 나타냅니다. 비용 보고서에 **태그로** 레이블이 지정된 열은 해당 리소스 유형이 태그를 비용 보고서에 전달하는지 여부를 나타냅니다. [비용 관리 비용 분석](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) 및 Azure 청구 [송장 및 일일 사용량 데이터에서](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)태그별로 비용을 볼 수 있습니다.
@@ -1493,6 +1493,7 @@ ms.locfileid: "80802495"
 > | networkSecurityGroups | 예 | 예 |
 > | networkWatchers | 예 | 예 |
 > | 네트워크 감시자 / 연결모니터 | 예 | 예 |
+> | 네트워크 감시자 / 플로우로그 | 예 | 예 |
 > | 네트워크 감시자 / 렌즈 | 예 | 예 |
 > | 네트워크 감시자 / 핑메시 | 예 | 예 |
 > | p2sVpn게이트웨이 | 예 | 예 |

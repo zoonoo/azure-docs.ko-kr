@@ -4,12 +4,12 @@ description: 기존 Azure 서비스 패브릭 클러스터에서 관리되는 ID
 ms.topic: article
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: cb6e4ab00afd80cba41881e46296f7046a905919
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 396978546b301884087c4ea51e242258d64a6b0b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934956"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983809"
 ---
 # <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster-preview"></a>기존 서비스 패브릭 클러스터에서 관리되는 ID 지원 구성(미리 보기)
 
@@ -40,7 +40,7 @@ Service Fabric 응용 프로그램에서 [Azure 리소스에 대해 관리되는
 ]
 ```
 
-변경 내용이 적용되도록 업그레이드 정책을 변경하여 업그레이드가 클러스터를 통해 진행됨에 따라 각 노드에서 Service Fabric 런타임을 강제로 다시 시작하도록 지정해야 합니다. 이렇게 다시 시작하면 각 노드에서 새로 활성화된 시스템 서비스가 시작되고 실행됩니다. 아래 스니펫에서 `forceRestart` 필수 설정입니다. 설정의 나머지 부분에 대한 기존 값을 사용합니다.  
+변경 내용이 적용되도록 업그레이드 정책을 변경하여 업그레이드가 클러스터를 통해 진행됨에 따라 각 노드에서 Service Fabric 런타임을 강제로 다시 시작하도록 지정해야 합니다. 이렇게 다시 시작하면 각 노드에서 새로 활성화된 시스템 서비스가 시작되고 실행됩니다. 아래 코드 조각에서 `forceRestart` 다시 시작을 활성화하는 데 필수적인 설정이 있습니다. 나머지 매개 변수의 경우 아래에 설명된 값을 사용하거나 클러스터 리소스에 대해 이미 지정된 기존 사용자 지정 값을 사용합니다. 패브릭 업그레이드 정책에 대한 사용자 지정 설정('업그레이드설명')은 서비스 패브릭 리소스 또는 resources.azure.com '패브릭 업그레이드' 옵션을 선택하여 Azure Portal에서 볼 수 있습니다. 업그레이드 정책('upgradeDescription')에 대한 기본 옵션은 전원 셸또는 resources.azure.com 볼 수 없습니다. 자세한 내용은 [클러스터 업그레이드 정책을](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet) 참조하십시오.  
 
 ```json
 "upgradeDescription": {

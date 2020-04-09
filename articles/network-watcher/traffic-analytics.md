@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 83164a615cacc067e5f1ea6a1dd6ce0f0fd9d540
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adba282a96f9d250569e090e186859c04e89ebda
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298843"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981548"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -183,8 +183,8 @@ New-AzStorageAccount `
 
 1. *상태*에 대해 **켜기**를 선택합니다.
 2. 흐름 로그 *버전에* 대한 버전 **2를 선택합니다.** 버전 2에는 흐름 세션 통계(바이트 및 패킷)가 포함됩니다.
-3. 흐름 로그를 저장할 기존 스토리지 계정을 선택합니다. 데이터를 무기한 저장하려면 값을 *0*으로 설정합니다. 스토리지 계정에 대한 Azure Storage 요금이 발생합니다. 저장소에 "데이터 레이크 저장소 Gen2 계층 적 네임스페이스 사용" 설정이 true로 설정되어 있지 않은지 확인합니다.
-4. **보존**을 데이터를 저장하려는 일 수로 설정합니다.
+3. 흐름 로그를 저장할 기존 스토리지 계정을 선택합니다. 저장소에 "데이터 레이크 저장소 Gen2 계층 적 네임스페이스 사용" 설정이 true로 설정되어 있지 않은지 확인합니다.
+4. **보존**을 데이터를 저장하려는 일 수로 설정합니다. 데이터를 무기한 저장하려면 값을 *0*으로 설정합니다. 스토리지 계정에 대한 Azure Storage 요금이 발생합니다. 
 5. **트래픽 분석 상태**를 *켜기*로 선택합니다.
 6. 처리 간격을 선택합니다. 사용자의 선택에 따라 흐름 로그가 저장소 계정에서 수집되고 트래픽 분석에서 처리됩니다. 1시간마다 또는 10분마다 처리 간격을 선택할 수 있습니다. 
 7. 기존 Log Analytics(OMS) 작업 영역을 선택하거나 **새 작업 영역 만들기**를 클릭하여 새로 만듭니다. Log Analytics 작업 영역은 트래픽 분석에서 집계 및 인덱싱된 데이터를 저장하는 데 사용되며, 이 데이터는 분석을 생성하는 데 사용됩니다. 기존 작업 영역을 선택하는 경우 해당 작업 영역이 [지원되는 지역](#supported-regions-log-analytics-workspaces) 중 하나에 있어야 하고 새 쿼리 언어로 업그레이드되어야 합니다. 기존 작업 영역을 업그레이드하지 않으려면 또는 지원되는 지역에 작업 영역이 없으면 새로 만듭니다. 쿼리 언어에 대한 자세한 내용은 [새 로그 검색으로 Azure Log Analytics 업그레이드](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.

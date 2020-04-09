@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: ceb6de6556968385d88ac799c11bdb6393072864
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 151aadadb5674f7f144d42b1f9d5115501ed381d
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76513119"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887234"
 ---
 # <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>윈도우에 대 한 오프 라인 플레이 준비 스트리밍 10 미디어 서비스 v3
 
@@ -121,10 +121,6 @@ private async void LoadUri_Click(object sender, RoutedEventArgs e)
 * 점진적 다운로드 시 Azure Media Services 또는 Azure Storage에서 콘텐츠를 호스팅할 수 있습니다.
 * Azure Media Services 또는 다른 위치에서PlayReady 라이선스 배달을 할 수 있습니다.
 * 준비된 부드러운 스트리밍 콘텐츠는 DASH 또는 DRM으로 PlayReady를 사용하는 부드러운 스트리밍을 통해 온라인 스트리밍에서 계속 사용할 수 있습니다.
-
-## <a name="additional-notes"></a>추가적인 참고 사항
-
-* Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

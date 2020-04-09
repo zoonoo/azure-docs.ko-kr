@@ -4,7 +4,6 @@ description: OpenID Connect를 사용하여 ASP.NET Core 웹앱에서 Microsoft 
 services: active-directory
 author: jmprieur
 manager: CelesteDG
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
@@ -12,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c4d34a6db774712e13ea86d38ae48a543a07a8bc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2d604da58f4056fc718239b6bc019d61ddbee51b
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79529767"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883834"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>빠른 시작: ASP.NET Core 웹앱에 Microsoft로 로그인 추가
 이 빠른 시작에서는 코드 샘플을 사용하여 ASP.NET Core 웹앱이 모든 Azure AD(Azure Active Directory) 인스턴스에서 개인 계정(hotmail.com, outlook.com, 기타)과 회사 및 학교 계정에 로그인하는 방법을 배웁니다. (자세한 내용은 [샘플 작동 방식 ](#how-the-sample-works)을 참조하세요.)
@@ -75,7 +74,7 @@ ms.locfileid: "79529767"
 > 앱 속성 값을 사용하여 프로젝트를 구성했고 실행할 준비가 되었습니다. 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
 > #### <a name="step-3-run-your-visual-studio-project"></a>3단계: Visual Studio 프로젝트 실행
 > 1. Zip 파일을 루트 폴더 안의 로컬 폴더(예: **C:\Azure-Samples**)로 추출합니다.

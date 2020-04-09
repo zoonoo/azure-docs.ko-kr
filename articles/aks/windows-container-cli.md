@@ -1,15 +1,15 @@
 ---
-title: 미리 보기 - AKS(Azure Kubernetes) 클러스터에서 Windows 서버 컨테이너 만들기
+title: Azure Kubernetes 서비스 클러스터에서 Windows 서버 컨테이너 실행
 description: Kubernetes 클러스터를 빠르게 만들고 Azure CLI를 사용하여 AKS(Azure Kubernetes Service)의 Windows 서버 컨테이너에 응용 프로그램을 배포하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
 ms.date: 01/27/2020
-ms.openlocfilehash: 259728da5ea7f71110ce183ae25bb47a0f873614
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d2a91f63815e7ba4bcbe4084b80a06fa7779099
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475513"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886724"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>미리 보기 - Azure CLI를 사용하여 AKS(Azure Kubernetes) 클러스터에서 Windows 서버 컨테이너 만들기
 
@@ -25,7 +25,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 문서에서는 Azure CLI 버전 2.0.61 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하십시오.
+CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 문서에서는 Azure CLI 버전 2.0.61 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

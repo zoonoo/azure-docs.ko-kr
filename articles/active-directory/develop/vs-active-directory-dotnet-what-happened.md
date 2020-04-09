@@ -3,7 +3,6 @@ title: Azure AD에 연결할 때의 MVC 프로젝트 변경 내용
 description: Visual Studio 연결된 서비스를 사용하여 Azure AD에 연결할 때 MVC 프로젝트의 변경 내용을 설명합니다.
 author: ghogen
 manager: jillfra
-ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
@@ -11,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: ac38adba4ca0d978dd48a546bed1b1faf4fe40fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d42d905bf35c015213e76bc50c4bc339a5c4a062
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79036963"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886112"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>내 MVC 프로젝트(Visual Studio Azure Active Directory 연결된 서비스)의 변경 내용
 
@@ -32,7 +31,7 @@ ms.locfileid: "79036963"
 
 프로젝트 파일(*.NET 참조) `packages.config` 및(NuGet 참조)에 영향을 줍니다.
 
-| Type | 참고 |
+| Type | 참조 |
 | --- | --- |
 | .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
 | .NET; NuGet | Microsoft.Owin |
@@ -47,7 +46,7 @@ ms.locfileid: "79036963"
 
 **디렉터리 데이터 읽기** 옵션을 선택한 경우 추가 참조는 다음과 같습니다.
 
-| Type | 참고 |
+| Type | 참조 |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer(Visual Studio 2015만 해당) |
@@ -61,7 +60,7 @@ ms.locfileid: "79036963"
 
 다음 참조가 제거됩니다(Visual Studio 2015와 마찬가지로 ASP.NET 4 프로젝트만 해당).
 
-| Type | 참고 |
+| Type | 참조 |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |

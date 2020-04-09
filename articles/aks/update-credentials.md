@@ -1,15 +1,16 @@
 ---
-title: AKS(Azure Kubernetes Service) 클러스터의 자격 증명 다시 설정
+title: 클러스터에 대한 자격 증명 재설정
+titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes) 클러스터에 대한 서비스 주체 또는 AAD 응용 프로그램 자격 증명을 업데이트하거나 재설정하는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: b7d652be3733cb130a3973909de59489047efe0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0203321af32bcc2ae70b726737b85870d08be86f
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475547"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886758"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스(AKS)에 대한 자격 증명 업데이트 또는 회전
 

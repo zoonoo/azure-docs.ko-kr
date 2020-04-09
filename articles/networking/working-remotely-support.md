@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: rambala
-ms.openlocfilehash: bcdd938365e50da1f5ae0e830e86692f1b915123
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: e0e5806ec59cd2d75111db213d8511488d043eec
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618924"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982857"
 ---
 # <a name="working-remotely-using-azure-networking-services"></a>Azure 네트워킹 서비스를 사용하여 원격으로 작업
 
@@ -80,16 +80,16 @@ Azure에는 풍부한 에코 시스템 파트너 집합도 있습니다. Azure�
 
 다음 문서에서는 사용자가 원격으로 작업하도록 확장하는 데 다양한 Azure 네트워킹 기능을 사용할 수 있는 방법에 대해 설명합니다.
 
-| **기술** | **마지막 업데이트** |
+| **기술** | **설명** |
 | --- | --- |
-| [사용자가 원격으로 작업할 수 있도록 하는 방법](../vpn-gateway/work-remotely-support.md) | 2020년 3월 23일 |
-| [가정의 필요에서 일하기 위해 고군분투? Azure 가상 WAN이 도움을 줄 수 있는 곳은 다음과 같습니다.](../virtual-wan/work-remotely-support.md) | 2020년 3월 23일 |
-| [Application Gateway 높은 트래픽 지원](../application-gateway/high-traffic-support.md) | 2020년 3월 23일 |
-| [원격 작업에 대한 네트워크 가상 어플라이언스(NVA) 고려 사항](../vpn-gateway/nva-work-remotely-support.md)| 2020년 3월 23일 |
-| [SSTP에서 OpenVPN 프로토콜 또는 IKEv2로 전환](https://go.microsoft.com/fwlink/?linkid=2124112) | 2020년 3월 23일 |
-| [Azure 요새를 사용하여 원격으로 작업](../bastion/work-remotely-support.md) | 2020년 3월 23일 |
-| [Azure ExpressRoute를 사용하여 원격 사용자를 지원하는 하이브리드 연결을 만듭니다.](../expressroute/work-remotely-support.md) | 2020년 3월 23일 |
-| [Azure 방화벽 원격 작업 지원](../firewall/remote-work-support.md)|2020년 3월 25일|
+| [사용자가 원격으로 작업할 수 있도록 하는 방법](../vpn-gateway/work-remotely-support.md) | 사용 가능한 옵션을 검토하여 사용자에 대한 원격 액세스를 설정하거나 기존 솔루션을 조직에 대한 추가 용량으로 보완합니다.|
+| [가정의 필요에서 일하기 위해 고군분투? Azure 가상 WAN이 도움을 줄 수 있는 곳은 다음과 같습니다.](../virtual-wan/work-remotely-support.md) | Azure Virtual WAN을 사용하여 조직의 원격 연결 요구 사항을 해결합니다.|
+| [Application Gateway 높은 트래픽 지원](../application-gateway/high-traffic-support.md) | 웹 응용 프로그램에 대한 트래픽을 관리할 수 있는 확장 가능하고 안전한 방법을 위해 WAF(웹 응용 프로그램 방화벽)가 있는 응용 프로그램 게이트웨이를 사용합니다. |
+| [원격 작업에 대한 네트워크 가상 어플라이언스(NVA) 고려 사항](../vpn-gateway/nva-work-remotely-support.md)|Azure에서 NVA를 활용하여 원격 액세스 솔루션을 제공하는 방법에 대한 지침을 검토합니다. |
+| [SSTP에서 OpenVPN 프로토콜 또는 IKEv2로 전환](https://go.microsoft.com/fwlink/?linkid=2124112) | OpenVPN 프로토콜 또는 IKEv2로 전환하여 SSTP의 128개의 동시 연결 제한을 극복합니다.|
+| [Azure 요새를 사용하여 원격으로 작업](../bastion/work-remotely-support.md) | 공용 IP 주소를 사용하지 않고 Azure 포털에서 직접 Azure 가상 네트워크 내의 가상 시스템에 안전하고 원활한 RDP/SSH 연결을 제공합니다. |
+| [Azure ExpressRoute를 사용하여 원격 사용자를 지원하는 하이브리드 연결을 만듭니다.](../expressroute/work-remotely-support.md) | 하이브리드 연결에 ExpressRoute를 사용하여 조직의 사용자가 원격으로 작업할 수 있도록 합니다.|
+| [Azure 방화벽 원격 작업 지원](../firewall/remote-work-support.md)|Azure 방화벽을 사용하여 Azure 가상 네트워크 리소스를 보호합니다. |
 
 <!--Link References-->
 [VNet-peer]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview

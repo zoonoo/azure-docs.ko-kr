@@ -3,12 +3,12 @@ title: Azure Lighthouse란?
 description: Azure Lighthouse에서 서비스 공급자는 더 높은 자동화 및 효율성으로 고객을 위한 관리형 서비스를 제공할 수 있습니다.
 ms.date: 11/11/2019
 ms.topic: overview
-ms.openlocfilehash: 0bec1f5b727ca3ecd604d2654358ca9a5507abe4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1d4d33238f30c2a579c6a0da6a39238207db4f4a
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75646197"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982789"
 ---
 # <a name="what-is-azure-lighthouse"></a>Azure Lighthouse란?
 
@@ -32,7 +32,7 @@ Azure Lighthouse에는 고객 참여 및 관리를 간소화하는 데 도움이
 
 - **Azure 위임 리소스 관리**: 컨텍스트 및 제어 평면을 전환할 필요 없이, 고유한 테넌트 내에서 고객의 Azure 리소스를 안전하게 관리할 수 있습니다. 자세한 내용은 [Azure 위임 리소스 관리](concepts/azure-delegated-resource-management.md)를 참조하세요.
 - **새로운 Azure Portal 환경**: [Azure Portal](https://portal.azure.com)에서 새로운 **내 고객** 페이지에서 테넌트 간 정보를 확인합니다. 고객은 해당 **서비스 공급자** 블레이드에서 서비스 공급자 액세스 권한을 보고 관리할 수 있습니다. 자세한 내용은 [고객 보기 및 관리](./how-to/view-manage-customers.md) 및 [서비스 공급자 보기 및 관리](how-to/view-manage-service-providers.md)를 참조하세요.
-- **Azure Resource Manager 템플릿**: Azure 위임 리소스 관리를 위한 고객 온보딩을 포함하는 관리 작업을 보다 쉽게 수행합니다. 자세한 내용은 [샘플 리포지토리](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates) 및 [Azure 위임 리소스 관리에 고객 온보딩](how-to/onboard-customer.md)을 참조하세요.
+- **Azure Resource Manager 템플릿**: Azure 위임 리소스 관리를 위한 고객 온보딩을 포함하는 관리 작업을 보다 쉽게 수행합니다. 자세한 내용은 [샘플 리포지토리](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates) 및 [Azure 위임 리소스 관리에 고객 온보딩](how-to/onboard-customer.md)을 참조하세요.
 - **Azure Marketplace의 관리형 서비스 솔루션**: 프라이빗 또는 퍼블릭 제품을 통해 고객에게 서비스를 제공하고, Azure Resource Manager 템플릿을 사용한 온보딩에 대한 대안으로, Azure 위임 리소스 관리에 자동으로 온보딩되도록 합니다. 자세한 내용은 [Azure Marketplace의 관리형 서비스 솔루션](concepts/managed-services-offers.md)을 참조하세요.
 - **Azure 관리형 애플리케이션**: 고객이 각자의 구독에서 쉽게 배포하고 사용할 수 있는 애플리케이션을 패키지 하고 제공합니다. 애플리케이션은 테넌트에서 액세스하는 리소스 그룹에 배포되므로 전체 Azure Lighthouse 환경의 일부로 서비스를 관리할 수 있습니다. 자세한 내용은 [Azure Managed Applications 개요](../azure-resource-manager/managed-applications/overview.md)를 참조하세요.
 

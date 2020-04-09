@@ -2,20 +2,22 @@
 title: 리소스 로그 분석 & 수집
 description: Azure 컨테이너 인스턴스의 컨테이너 그룹에서 Azure Monitor 로그로 리소스 로그 및 이벤트 데이터를 보내는 방법에 대해 알아봅니다.
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 04/07/2020
 ms.author: danlep
-ms.openlocfilehash: 304e98fff386911b878877d2f03d489d0eef5dd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75770546"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892396"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Azure 모니터 로그를 가진 컨테이너 그룹 및 인스턴스 로깅
 
 Log Analytics 작업 영역은 Azure 리소스뿐만 아니라 다른 클라우드의 온-프레미스 리소스 및 리소스에서도 로그 데이터를 저장하고 쿼리하기 위한 중앙 집중식 위치를 제공합니다. Azure Container Instances는 Azure Monitor 로그로 로그 및 이벤트 데이터를 전송할 수 있는 기능을 기본 제공합니다.
 
-컨테이너 그룹 로그 및 이벤트 데이터를 Azure Monitor 로그로 보내려면 컨테이너 그룹을 만들 때 기존 로그 분석 작업 영역 ID 및 작업 영역 키를 지정합니다. 다음 섹션에서는 로깅 이 가능한 컨테이너 그룹을 만드는 방법과 로그를 쿼리하는 방법을 설명합니다.
+컨테이너 그룹 로그 및 이벤트 데이터를 Azure Monitor 로그로 보내려면 컨테이너 그룹을 구성할 때 기존 로그 분석 작업 영역 ID 및 작업 영역 키를 지정합니다. 
+
+다음 섹션에서는 로깅 이 가능한 컨테이너 그룹을 만드는 방법과 로그를 쿼리하는 방법을 설명합니다. 작업 영역 ID 및 작업 영역 키를 사용하여 [컨테이너 그룹을 업데이트하여](container-instances-update.md) 로깅을 활성화할 수도 있습니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -26,7 +28,7 @@ Log Analytics 작업 영역은 Azure 리소스뿐만 아니라 다른 클라우�
 
 컨테이너 인스턴스에 로그인을 사용하도록 설정하려면 다음이 필요합니다.
 
-* [로그 분석 작업 영역](../azure-monitor/learn/quick-create-workspace.md)
+* [Log Analytics 작업 영역](../azure-monitor/learn/quick-create-workspace.md)
 * [Azure CLI](/cli/azure/install-azure-cli)(또는 [Cloud Shell](/azure/cloud-shell/overview))
 
 ## <a name="get-log-analytics-credentials"></a>Log Analytics 자격 증명 가져오기

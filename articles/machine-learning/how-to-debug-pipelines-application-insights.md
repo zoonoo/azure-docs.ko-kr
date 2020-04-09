@@ -3,20 +3,20 @@ title: 애플리케이션 인사이트에서 머신 러닝 파이프라인 디�
 titleSuffix: Azure Machine Learning
 description: 교육 및 일괄 점수 매기기 파이프라인에 로깅을 추가하고 애플리케이션 인사이트에서 기록된 결과를 확인합니다.
 services: machine-learning
-author: aburek
-ms.author: cgronlun
+author: sanpil
+ms.author: sanpil
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 217a89f6ede4e4b1d2182eed79b088808432044f
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: b3e4bf19a7ec153f85483f3c5028e468e06ed7f0
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529371"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982364"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines-in-application-insights"></a>애플리케이션 인사이트에서 머신 러닝 파이프라인 디버그 및 문제 해결
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

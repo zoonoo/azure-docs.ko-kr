@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: 3e8cd2f1e594cd6a60296b2df135f275641df313
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3738da806ff36cdb7e8d561b88a457a5264eb76
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77086971"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886928"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>응용 프로그램 게이트웨이용 웹 응용 프로그램 방화벽 정책 만들기
 
@@ -24,6 +24,8 @@ WAF 정책을 수신기와 연결하면 단일 WAF 뒤에 있는 여러 사이�
 
    > [!NOTE]
    > 사이트별 및 URI별 WAF 정책은 공개 미리 보기로 제공됩니다. 즉, 이 기능은 Microsoft의 추가 사용 약관을 따릅니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+   > [!NOTE]
+   > 방화벽 정책이 WAF에 연결되면 해당 WAF에 연결된 정책이 항상 있어야 합니다. 해당 정책을 덮어쓸 수 있지만 WAF에서 정책을 완전히 분리하는 것은 지원되지 않습니다. 
 
 모든 새로운 웹 응용 프로그램 방화벽의 WAF 설정(사용자 지정 규칙, 관리되는 룰셋 구성, 제외 등)은 WAF 정책 내에 있습니다. 기존 WAF가 있는 경우 이러한 설정은 여전히 WAF 구성에 존재할 수 있습니다. 새 WAF 정책으로 이동하는 방법에 대한 단계는 이 문서의 후반부에서 [WAF 구성을 WAF 정책으로 마이그레이션을 참조하세요.](#migrate) 
 
@@ -57,7 +59,7 @@ WAF 정책을 수신기와 연결하면 단일 WAF 뒤에 있는 여러 사이�
 
 WAF 정책을 만들 때 기본적으로 *검색* 모드에 있습니다. 검색 모드에서 WAF는 요청을 차단하지 않습니다. 대신 일치하는 WAF 규칙이 WAF 로그에 기록됩니다. WAF가 작동하는 것을 보려면 모드 설정을 *방지*로 변경할 수 있습니다. 방지 모드에서 선택한 CRS 규칙 집합에 정의된 일치 규칙이 WAF 로그에 차단 및/또는 기록됩니다.
 
-## <a name="managed-rules"></a>관리되는 규칙
+## <a name="managed-rules"></a>관리 규칙
 
 Azure 관리 OWASP 규칙은 기본적으로 활성화됩니다. 규칙 그룹 내에서 개별 규칙을 사용하지 않도록 설정하려면 해당 규칙 그룹 내의 규칙을 확장하고 규칙 번호 앞에 있는 확인란을 선택하고 위의 탭에서 **사용 안 함을** 선택합니다.
 

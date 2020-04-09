@@ -5,7 +5,6 @@ description: Azure AD의 엔터프라이즈 애플리케이션에 대한 SAML �
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -14,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 52779b7ffea0f33676426f145a700c7181cf0bf1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87a9632ec2433b8698e3ae3761ba733aa6bc63a5
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263089"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885687"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 응용 프로그램에 대한 SAML 토큰에서 발행된 클레임 사용자 지정
 
@@ -55,7 +54,7 @@ SAML 요청에 NameIDPolicy에 대한 요소가 포함되어 있지 않으면 Az
 
 이름 **식별자 형식 드롭다운 선택에서** 다음 옵션 중 하나를 선택할 수 있습니다.
 
-| NameID 형식 | 설명 |
+| NameID 형식 | Description |
 |---------------|-------------|
 | **기본** | Azure AD는 기본 소스 형식을 사용합니다. |
 | **영구적** | Azure AD는 영구를 NameID 형식으로 사용합니다. |
@@ -69,7 +68,7 @@ Transient NameID도 지원되지만 드롭다운에서 사용할 수 없으며 A
 
 `NameIdentifier`(또는 NameID) 클레임의 원하는 소스를 선택합니다. 다음 옵션 중에서 선택할 수 있습니다.
 
-| 이름 | 설명 |
+| 속성 | Description |
 |------|-------------|
 | Email | 사용자의 이메일 주소입니다. |
 | userprincipalName | 사용자의 UPN(사용자 주체 이름) |
@@ -99,7 +98,7 @@ Azure AD에서 정의하는 모든 클레임에 상수(정적) 값을 할당할 
 
 클레임 변환 함수를 사용할 수도 있습니다.
 
-| 함수 | 설명 |
+| 함수 | Description |
 |----------|-------------|
 | **ExtractMailPrefix()** | 이메일 주소 또는 사용자 주 체이름에서 도메인 접미사를 제거합니다. 그러면 전달되는 사용자 이름의 첫 부분만 추출됩니다(예: joe_smith@contoso.com 대신 "joe_smith"). |
 | **조인()** | 확인된 도메인에 특성을 조인합니다. 선택한 사용자 식별자 값에 도메인이 있으면 사용자 이름을 추출하여 선택한 확인된 도메인을 추가합니다. 예를 들어, 사용자 식별자 값으로 이메일(joe_smith@contoso.com)을 선택하고 확인된 도메인으로 contoso.onmicrosoft.com을 선택하면 joe_smith@contoso.onmicrosoft.com이 됩니다. |
@@ -126,7 +125,7 @@ Azure AD에서 정의하는 모든 클레임에 상수(정적) 값을 할당할 
 
 다음 함수를 사용하여 클레임을 변환할 수 있습니다.
 
-| 함수 | 설명 |
+| 함수 | Description |
 |----------|-------------|
 | **ExtractMailPrefix()** | 이메일 주소 또는 사용자 주 체이름에서 도메인 접미사를 제거합니다. 그러면 전달되는 사용자 이름의 첫 부분만 추출됩니다(예: joe_smith@contoso.com 대신 "joe_smith"). |
 | **조인()** | 두 특성을 결합하여 새 값을 만듭니다. 선택적으로 두 특성 간에 구분 기호를 사용할 수 있습니다. NameID 클레임 변환의 경우 조인은 확인된 도메인으로 제한됩니다. 선택한 사용자 식별자 값에 도메인이 있으면 사용자 이름을 추출하여 선택한 확인된 도메인을 추가합니다. 예를 들어, 사용자 식별자 값으로 이메일(joe_smith@contoso.com)을 선택하고 확인된 도메인으로 contoso.onmicrosoft.com을 선택하면 joe_smith@contoso.onmicrosoft.com이 됩니다. |

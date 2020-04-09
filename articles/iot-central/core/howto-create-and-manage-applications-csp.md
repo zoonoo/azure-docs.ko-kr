@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: 5d876d7db13ce73603f212ec11544cb2f680bf46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02481d5dcbaba15c9b17a27348207d9af64f3355
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158183"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982041"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>CSP 포털에서 Azure IoT 중앙 응용 프로그램 생성 및 관리
 
@@ -33,7 +33,7 @@ Azure IoT Central 애플리케이션 관리자 페이지로 이동합니다. Azu
 
 ![CSP를 위한 관리자 만들기](media/howto-create-and-manage-applications-csp/image3.png)
 
-Azure IoT Central 응용 프로그램을 만들려면 왼쪽 메뉴에서 **빌드를** 선택합니다. 업계 템플릿 중 하나를 선택하거나 **레거시 응용 프로그램을** 선택하여 응용 프로그램을 처음부터 만듭니다. 그러면 애플리케이션 만들기 페이지가 로드됩니다. 이 페이지의 모든 필드를 완료한 다음, **만들기**를 선택해야 합니다. 아래에 각 필드에 대한 자세한 내용이 있습니다.
+Azure IoT Central 응용 프로그램을 만들려면 왼쪽 메뉴에서 **빌드를** 선택합니다. 업계 템플릿 중 하나를 선택하거나 **사용자 지정 앱을** 선택하여 응용 프로그램을 처음부터 만듭니다. 그러면 애플리케이션 만들기 페이지가 로드됩니다. 이 페이지의 모든 필드를 완료한 다음, **만들기**를 선택해야 합니다. 아래에 각 필드에 대한 자세한 내용이 있습니다.
 
 ![CSP에 대한 애플리케이션 페이지 만들기](media/howto-create-and-manage-applications-csp/image4.png)
 

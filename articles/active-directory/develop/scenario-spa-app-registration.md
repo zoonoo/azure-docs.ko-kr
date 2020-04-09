@@ -2,24 +2,21 @@
 title: 단일 페이지 앱 등록 - Microsoft ID 플랫폼 | Azure
 description: 단일 페이지 응용 프로그램(앱 등록)을 빌드하는 방법 알아보기
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 5b18b10748e0587920c6965f1d235376da928469
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f690a8b3436a45d434ccad2bbaa7d2a1b0b76aa
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76701895"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80882151"
 ---
 # <a name="single-page-application-app-registration"></a>단일 페이지 응용 프로그램: 앱 등록
 

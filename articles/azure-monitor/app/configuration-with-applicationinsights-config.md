@@ -4,12 +4,12 @@ description: 데이터 수집 모듈을 사용하거나 사용하지 않도록 �
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.reviewer: olegan
-ms.openlocfilehash: b2c407036277b17c0f8c08f3261c932a6dc66624
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 460bd79e3a37c492301f7438112fef4487618fed
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276180"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982092"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
 Application Insights .NET SDK는 NuGet 패키지의 숫자로 구성됩니다. [코어 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights에 원격 분석을 보내는 경우에 API를 제공합니다. [추가 패키지](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)는 해당 컨텍스트 및 애플리케이션에서 원격 분석을 자동으로 추적하기 위해 원격 분석 *모듈* 및 *이니셜라이저*를 제공합니다. 구성 파일을 조정하여 원격 분석 모듈 및 초기화자를 활성화 또는 비활성화하고 일부 에 대한 매개 변수를 설정할 수 있습니다.
@@ -165,65 +165,6 @@ Service Fabric에서 실행되는 .NET 애플리케이션에 대해 `Microsoft.A
      </Add>
    </TelemetryProcessors>
 
-```
-
-
-
-## <a name="channel-parameters-java"></a>채널 매개 변수(Java)
-이러한 매개 변수는 Java SDK가 수집한 원격 분석 데이터를 저장하고 플러시하는 방법에 영향을 줍니다.
-
-#### <a name="maxtelemetrybuffercapacity"></a>MaxTelemetryBufferCapacity
-SDK의 메모리 내 스토리지에 저장할 수 있는 원격 분석 항목의 수입니다. 이 수에 도달하면 원격 분석 버퍼가 플러시됩니다. 즉, 원격 분석 항목이 Application Insights 서버로 전송됩니다.
-
-* 최소: 1
-* 최대: 1000
-* 기본값: 500
-
-```
-
-  <ApplicationInsights>
-      ...
-      <Channel>
-       <MaxTelemetryBufferCapacity>100</MaxTelemetryBufferCapacity>
-      </Channel>
-      ...
-  </ApplicationInsights>
-```
-
-#### <a name="flushintervalinseconds"></a>FlushIntervalInSeconds
-메모리 내 스토리지에 저장된 데이터가 플러시될(Application Insights로 보내는) 빈도를 결정합니다.
-
-* 최소: 1
-* 최대: 300
-* 기본값: 5
-
-```
-
-    <ApplicationInsights>
-      ...
-      <Channel>
-        <FlushIntervalInSeconds>100</FlushIntervalInSeconds>
-      </Channel>
-      ...
-    </ApplicationInsights>
-```
-
-#### <a name="maxtransmissionstoragecapacityinmb"></a>MaxTransmissionStorageCapacityInMB
-로컬 디스크에서 영구 스토리지에 할당되는 최대 크기(MB)를 결정합니다. 이 스토리지는 Application Insights 엔드포인트로 전송하지 못한 원격 분석 항목을 유지하는 데 사용됩니다. 스토리지 크기를 충족하면 새 원격 분석 항목이 삭제됩니다.
-
-* 최소: 1
-* 최대: 100
-* 기본값: 10
-
-```
-
-   <ApplicationInsights>
-      ...
-      <Channel>
-        <MaxTransmissionStorageCapacityInMB>50</MaxTransmissionStorageCapacityInMB>
-      </Channel>
-      ...
-   </ApplicationInsights>
 ```
 
 ## <a name="instrumentationkey"></a>InstrumentationKey

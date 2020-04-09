@@ -8,23 +8,23 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: sngun
-ms.openlocfilehash: 514982727509788918c159e07f8061962df32336
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e57029e53365fbf99054e2d926296ccca3360663
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77558931"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983605"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.js](sql-api-sdk-node.md)
+> * [Node.JS](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [나머지](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [대량 실행기 - .NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -39,7 +39,7 @@ SQL API Java SDK는 동기 작업을 지원합니다. 비동기 지원의 경우
 |**SDK에 참여**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
 |**시작**|[Java SDK 시작](sql-api-java-get-started.md)|
 |**웹앱 자습서**|[Azure Cosmos DB를 사용한 웹 애플리케이션 개발](sql-api-java-application.md)|
-|**지원되는 최소 런타임**|[JDK(Java Development Kit) 7 이상](https://aka.ms/azure-jdks)|
+|**지원되는 최소 런타임**|[JDK(Java Development Kit) 7 이상](/java/azure/jdk/?view=azure-java-stable)|
 
 ## <a name="release-notes"></a>릴리스 정보
 
@@ -131,7 +131,7 @@ SQL API Java SDK는 동기 작업을 지원합니다. 비동기 지원의 경우
 
 ### <a name="1150"></a><a name="1.15.0"/>1.15.0
 * JSON Serialization 성능이 향상되었습니다.
-* 이 SDK 버전은 https://aka.ms/cosmosdb-emulator에서 다운로드할 수 있는 최신 버전의 Azure Cosmos DB 에뮬레이터가 필요합니다.
+* 이 SDK 버전에는 [Azure 코스모스 DB 에뮬레이터의](https://aka.ms/cosmosdb-emulator)최신 버전이 필요합니다.
 
 ### <a name="1140"></a><a name="1.14.0"/>1.14.0
 * Microsoft 친구 라이브러리에 대한 내부 변경입니다.
@@ -320,6 +320,6 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요.
 

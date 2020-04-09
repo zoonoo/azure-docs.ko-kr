@@ -1,5 +1,5 @@
 ---
-title: Azure Red Hat 오픈시프트 클러스터에 독립 실행형 프로메테우스 인스턴스 배포 | 마이크로 소프트 문서
+title: Azure Red Hat 오픈시프트 클러스터에 프로메테우스 인스턴스 배포
 description: Azure Red Hat OpenShift 클러스터에서 프로메테우스 인스턴스를 만들어 응용 프로그램의 메트릭을 모니터링합니다.
 author: makdaam
 ms.author: b-lejaku
@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: 프로메테우스, 아로, 오픈 시프트, 메트릭, 빨간 모자
-ms.openlocfilehash: f81a993caa31578e689fb3a90108f3cf0ca81fc2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f22df587f51af735e0ea663e53f6eef14d60692
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69875130"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886891"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Azure Red Hat 오픈시프트 클러스터에 독립 실행형 프로메테우스 인스턴스 배포
 
@@ -214,4 +214,4 @@ oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=examp
  - [Java](https://github.com/prometheus/client_java)
  - [Python](https://github.com/prometheus/client_python)
  - [이동](https://github.com/prometheus/client_golang)
- - [루비](https://github.com/prometheus/client_ruby)
+ - [Ruby](https://github.com/prometheus/client_ruby)

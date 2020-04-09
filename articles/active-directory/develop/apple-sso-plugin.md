@@ -1,5 +1,5 @@
 ---
-title: 애플 장치에 대 한 마이크로소프트 엔터프라이즈 SSO 플러그인
+title: Apple 디바이스용 Microsoft Enterprise SSO 플러그 인
 titleSuffix: Microsoft identity platform | Azure
 description: iOS 및 macOS 장치에 대한 Microsoft의 Azure Active 디렉터리 SSO 플러그인에 대해 알아봅니다.
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 7233a0bba5cf30eab018bfa744a7322303300604
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: a6af1a78582ebf62aed82bad8fa06cac37f511ea
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80550319"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982585"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>애플 장치에 대 한 마이크로소프트 엔터프라이즈 SSO 플러그인 (미리 보기)
 
@@ -27,7 +27,7 @@ ms.locfileid: "80550319"
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-*Apple 장치에 대한 Microsoft 엔터프라이즈 SSO 플러그인은* Apple의 엔터프라이즈 단일 사인온 기능을 지원하는 모든 응용 프로그램에서 Active Directory 계정에 대한 단일 사인온(SSO)을 제공합니다. [Enterprise Single Sign-On](https://developer.apple.com/documentation/authenticationservices) Microsoft는 Apple과 긴밀히 협력하여 이 플러그인을 개발하여 응용 프로그램의 유용성을 높이는 동시에 Apple과 Microsoft가 제공할 수 있는 최상의 보호 기능을 제공했습니다.
+*Apple 장치에 대한 Microsoft 엔터프라이즈 SSO 플러그인은* Apple의 엔터프라이즈 단일 사인온 기능을 지원하는 모든 응용 프로그램에서 Azure Active Directory(Azure AD) 계정에 대한 단일 사인온(SSO)을 제공합니다. [Enterprise Single Sign-On](https://developer.apple.com/documentation/authenticationservices) Microsoft는 Apple과 긴밀히 협력하여 이 플러그인을 개발하여 응용 프로그램의 유용성을 높이는 동시에 Apple과 Microsoft가 제공할 수 있는 최상의 보호 기능을 제공했습니다.
 
 이 공개 미리 보기 릴리스에서 엔터프라이즈 SSO 플러그인은 iOS 장치에서만 사용할 수 있으며 특정 Microsoft 응용 프로그램에 배포됩니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "80550319"
 
 Apple 장치에 대한 Microsoft 엔터프라이즈 SSO 플러그인은 다음과 같은 이점을 제공합니다.
 
-- Apple의 엔터프라이즈 단일 사인온 기능을 지원하는 모든 응용 프로그램에서 Active Directory 계정에 대한 SSO를 제공합니다.
+- Apple의 엔터프라이즈 단일 사인온 기능을 지원하는 모든 응용 프로그램에서 Azure AD 계정에 대한 SSO를 제공합니다.
 - Microsoft 인증기에서 자동으로 제공되며 모든 MDM(모바일 장치 관리) 솔루션에서 사용할 수 있습니다.
 
 ## <a name="requirements"></a>요구 사항

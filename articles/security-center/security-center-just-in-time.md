@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 51985c5fa4b2296e43c0a062d0af84a1bb51e89c
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: cc4e267c6912b8938db1ba5497a27f9c0026bd79
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397750"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887336"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>적시에 액세스하여 관리 포트 보안
 
@@ -211,7 +211,7 @@ PowerShell을 통해 Just-In-Time VM 액세스 솔루션을 사용하려면 공�
 
 1.    VM에 대한 Just-In-Time VM 액세스 정책을 보유하는 변수를 할당합니다.
 
-        $JitPolicy = (@{ id="/구독/구독ID/리소스그룹/리소스그룹/공급자/Microsoft.Compute/가상 머신/VMNAME" 포트=(@{ 번호=22;        프로토콜="*";        허용소스주소사전=@"");*        maxRequestAccessDuration="PT3H"}, @{ 번호=3389;        프로토콜="*";        허용소스주소사전=@"");*        maxRequestAccessDuration="PT3H"}}))))
+        $JitPolicy = (@{ id="/구독/구독ID/리소스그룹/리소스그룹/공급자/Microsoft.Compute/가상 머신/VMNAME" 포트=(@{ 번호=22;        프로토콜="\*";        허용소스주소사전=@"");\*        maxRequestAccessDuration="PT3H"}, @{ 번호=3389;        프로토콜="\*";        허용소스주소사전=@"");\*        maxRequestAccessDuration="PT3H"}}))))
 
 2.    VM Just-In-Time VM 액세스 정책을 배열에 삽입합니다.
     

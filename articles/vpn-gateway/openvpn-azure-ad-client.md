@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/28/2020
+ms.date: 04/07/2020
 ms.author: alzam
-ms.openlocfilehash: 9250464e3d28bdac20840aa9f69cfac707f73b30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7bc28a03476e773325d14808e1c7ac99103b2d5d
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371479"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879448"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>P2S OpenVPN 프로토콜 연결을 위한 VPN 클라이언트 구성: Azure AD 인증
 
@@ -230,6 +230,16 @@ ms.locfileid: "80371479"
 </clientconfig>
 </azvpnprofile>
 ```
+
+### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>명령줄 프롬프트에서 프로파일을 가져올 수 있습니까?
+
+다운로드한 **azurevpnconfig.xml** 파일을 **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** 폴더에 배치하고 다음 명령을 실행하여 명령줄 프롬프트에서 프로필을 가져올 수 있습니다.
+
+```
+azurevpn -i azurevpnconfig.xml 
+```
+가져오기를 강제로 사용 하 여 **-f** 스위치도
+
 
 ## <a name="next-steps"></a>다음 단계
 

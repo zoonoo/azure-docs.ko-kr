@@ -3,12 +3,12 @@ title: Azure 함수에 대한 저장소 고려 사항
 description: Azure Functions의 저장소 요구 사항 및 저장된 데이터 암호화에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 3bacc93ad6c1851d9165e8efb7d27b427050e6f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 48ff2dedd997cccb76b13acdadc895504f656ea3
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276583"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984166"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Azure 함수에 대한 저장소 고려 사항
 
@@ -17,7 +17,7 @@ Azure 함수는 함수 앱 인스턴스를 만들 때 Azure Storage 계정이 �
 
 |스토리지 서비스  | 기능 사용  |
 |---------|---------|
-| [Azure Blob 스토리지](../storage/blobs/storage-blobs-introduction.md)     | 바인딩 상태 및 함수 키를 유지 관리합니다.  <br/>또한 [내구 함수의 작업 허브에서 사용됩니다.](durable/durable-functions-task-hubs.md) |
+| [Azure Blob 저장소](../storage/blobs/storage-blobs-introduction.md)     | 바인딩 상태 및 함수 키를 유지 관리합니다.  <br/>또한 [내구 함수의 작업 허브에서 사용됩니다.](durable/durable-functions-task-hubs.md) |
 | [Azure 파일](../storage/files/storage-files-introduction.md)  | [사용 계획에서](functions-scale.md#consumption-plan)함수 앱 코드를 저장하고 실행하는 데 사용되는 파일 공유입니다. |
 | [Azure 큐 저장소](../storage/queues/storage-queues-introduction.md)     | [내구 기능의 작업 허브에서 사용됩니다.](durable/durable-functions-task-hubs.md)   |
 | [Azure Table Storage](../storage/tables/table-storage-overview.md)  |  [내구 기능의 작업 허브에서 사용됩니다.](durable/durable-functions-task-hubs.md)       |
@@ -29,7 +29,7 @@ Azure 함수는 함수 앱 인스턴스를 만들 때 Azure Storage 계정이 �
 
 함수 앱을 만들 때 Blob, Queue 및 테이블 저장소를 지원하는 범용 Azure Storage 계정을 만들거나 링크해야 합니다. 이는 함수가 트리거 관리 및 로깅 함수 실행과 같은 작업에 Azure Storage를 의존하기 때문입니다. 일부 저장소 계정은 큐와 테이블을 지원하지 않습니다. 이러한 계정에는 Blob 전용 저장소 계정, Azure Premium 저장소 및 ZRS 복제가 있는 범용 저장소 계정이 포함됩니다. 지원되지 않는 이러한 계정은 함수 앱을 만들 때 저장소 계정 블레이드에서 필터링됩니다.
 
-저장소 계정 유형에 대한 자세한 내용은 [Azure 저장소 서비스 소개를](../storage/common/storage-introduction.md#azure-storage-services)참조하십시오. 
+저장소 계정 유형에 대한 자세한 내용은 [Azure 저장소 서비스 소개를](../storage/common/storage-introduction.md#core-storage-services)참조하십시오. 
 
 함수 앱에서 기존 저장소 계정을 사용할 수 있지만 이러한 요구 사항을 충족하는지 확인해야 합니다. 함수 앱 생성 흐름의 일부로 생성된 저장소 계정은 이러한 저장소 계정 요구 사항을 충족하도록 보장됩니다.  
 

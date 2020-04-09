@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 11/28/2019
-ms.openlocfilehash: 69acfd4f2edab9be1b1dcfbb52eafbd00aec712f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.openlocfilehash: dea7e8d5679c8c5a14d6a4253b8a4b36343e6ed8
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75934569"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887098"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에 Hue 설치 및 사용
 
@@ -45,13 +45,13 @@ Hue는 Apache Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 �
 |속성 |값 |
 |---|---|
 |스크립트 유형:|- 사용자 지정|
-|이름|Hue 설치|
+|속성|Hue 설치|
 |Bash 스크립트 URI|`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`|
 |노드 유형:|Head|
 
 ## <a name="use-hue-with-hdinsight-clusters"></a>HDInsight 클러스터로 Hue 사용
 
-SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일한 방법입니다. SSH를 통한 터널링을 사용하면 트래픽은 Hue가 실행되는 클러스터의 헤드 노드로 직접 이동할 수 있습니다. 클러스터 프로비저닝이 완료되면 다음 단계를 사용하여 HDInsight 클러스터에서 Hue를 사용합니다.
+일반 클러스터에는 Hue가 있는 사용자 계정이 하나만 있을 수 있습니다. 다중 사용자 액세스의 경우 클러스터에서 [엔터프라이즈 보안 패키지를](./domain-joined/hdinsight-security-overview.md) 사용하도록 설정합니다. SSH 터널링은 실행되면 클러스터에서 Hue에 액세스할 수 있는 유일한 방법입니다. SSH를 통한 터널링을 사용하면 트래픽은 Hue가 실행되는 클러스터의 헤드 노드로 직접 이동할 수 있습니다. 클러스터 프로비저닝이 완료되면 다음 단계를 사용하여 HDInsight 클러스터에서 Hue를 사용합니다.
 
 > [!NOTE]  
 > Firefox 웹 브라우저를 사용하여 아래 지침을 따르는 것이 좋습니다.
@@ -113,9 +113,9 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 
 1. 설치하는 동안 구성을 업데이트하기 위해 여러 Hadoop 서비스(HDFS, YARN, MR2, Oozie)를 다시 시작합니다. 스크립트가 Hue의 설치를 완료한 후에 다른 Hadoop 서비스를 시작하려면 시간이 걸릴 수 있습니다. 처음에 Hue의 성능이 달라질 수 있습니다. 모든 서비스를 시작하면 Hue는 완벽하게 작동합니다.
 
-1. Hue는 Hive의 현재 기본값인 Apache Tez 작업을 인식하지 못합니다. MapReduce를 Hive 실행 엔진으로 사용하려는 경우 스크립트를 업데이트하여 스크립트에서 다음 명령을 사용합니다.
+1. Hue는 하이브의 현재 기본값인 아파치 테즈 작업을 이해하지 못합니다. MapReduce를 Hive 실행 엔진으로 사용하려는 경우 스크립트를 업데이트하여 스크립트에서 다음 명령을 사용합니다.
 
-        set hive.execution.engine=mr;
+         set hive.execution.engine=mr;
 
 1. Linux 클러스터의 경우 보조 헤드 노드에서 Resource Manager를 실행하는 반면 기본 헤드 노드에서 서비스를 실행하는 시나리오가 있을 수 있습니다. Hue를 사용하여 클러스터에서 실행 중인 작업의 세부 정보를 보려면  이러한 시나리오에 오류가 발생할 수 있습니다. 그러나 작업이 완료되었을 때 작업 세부 정보를 볼 수 있습니다.
 

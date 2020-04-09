@@ -13,19 +13,17 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 961444e15ae1c45db1fc7423a6ac3cc96cc7b3fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89c4fa536994ecc8cecb50c907d43df2110be7df
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75768013"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982602"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Azure Active Directory 그룹을 사용하여 앱 및 리소스 액세스 관리
 Azure Active Directory(Azure AD)를 사용하면 그룹을 사용하여 클라우드 기반 앱, 온-프레미스 앱 및 리소스에 대한 액세스를 관리할 수 있습니다. 리소스는 Azure AD의 역할을 통해 개체를 관리할 수 있는 권한또는 SaaS(서비스로서의 소프트웨어) 앱, Azure 서비스, SharePoint 사이트 및 온-프레미스 리소스와 같은 조직 외부 권한과 같은 Azure AD 조직의 일부일 수 있습니다.
 
 >[!NOTE]
->Azure Active Directory를 사용하려면 Azure 계정이 필요합니다. 계정이 없으면 [무료 Azure 계정을 등록](https://azure.microsoft.com/free/)할 수 있습니다.
->
 > Azure 포털에서 포털에서 관리할 수 없는 구성원 및 그룹 세부 정보를 볼 수 있는 일부 그룹을 볼 수 있습니다.
 >
 > - 온-프레미스 Active Directory에서 동기화된 그룹은 온-프레미스 Active Directory에서만 관리할 수 있습니다.

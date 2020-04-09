@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: 1f339d987d67047f5857679b440e93e6c3730059
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: cc9d129894cefaf2fab853d2099d754d68238e5f
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80810457"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887353"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>활성 지역 복제 만들기 및 사용
 
@@ -113,14 +113,11 @@ ms.locfileid: "80810457"
 
 ## <a name="configuring-secondary-database"></a>보조 데이터베이스 구성
 
-동일한 서비스 계층을 확보하려면 주 데이터베이스와 보조 데이터베이스 모두 필요합니다. 또한 보조 데이터베이스는 주 데이터베이스와 동일한 컴퓨팅 크기(DTU 또는 vCore 수)로 만드는 것이 좋습니다. 기본 데이터베이스에 쓰기 워크로드가 많은 경우 계산 크기가 낮은 보조 데이터베이스는 이를 따라잡지 못할 수 있습니다. 이렇게 하면 보조 에 대한 재수행 지연이 발생하고 보조 데이터베이스의 가용성이 발생할 수 있습니다. 기본 데이터베이스보다 뒤쳐지는 보조 데이터베이스는 강제 장애 조치(failover)가 필요한 경우 큰 데이터 손실위험이 있습니다. 이러한 위험을 완화하기 위해 활성 지역 복제는 보조 데이터베이스가 따라잡을 수 있도록 필요한 경우 기본 로그 속도를 제한합니다. 
+동일한 서비스 계층을 확보하려면 주 데이터베이스와 보조 데이터베이스 모두 필요합니다. 또한 보조 데이터베이스는 주 데이터베이스와 동일한 컴퓨팅 크기(DTU 또는 vCore 수)로 만드는 것이 좋습니다. 기본 데이터베이스에 쓰기 워크로드가 많은 경우 계산 크기가 낮은 보조 데이터베이스는 이를 따라잡지 못할 수 있습니다. 이렇게 하면 보조 에 대한 재수행 지연이 발생하고 보조 데이터베이스의 가용성이 발생할 수 있습니다. 이러한 위험을 완화하기 위해 활성 지역 복제는 보조 데이터베이스가 따라잡을 수 있도록 필요한 경우 주 트랜잭션 로그 속도를 제한합니다. 
 
 불균형한 보조 구성의 또 다른 결과는 장애 조치 후 새 주 시스템의 계산 용량 부족으로 인해 응용 프로그램 성능이 저하될 수 있다는 것입니다. 이 경우 데이터베이스 서비스 목표를 필요한 수준으로 확장해야 하며, 이는 상당한 시간과 컴퓨팅 리소스가 소요될 수 있으며 확장 프로세스가 끝날 때 [고가용성](sql-database-high-availability.md) 장애 조치(failover)가 필요합니다.
 
-> [!IMPORTANT]
-> 게시된 5초 RPO SLA는 보조 데이터베이스가 기본 데이터베이스와 동일하거나 더 높은 계산 크기로 구성되지 않는 한 보장할 수 없습니다. 
-
-계산 크기가 낮은 보조 보조 차트를 만들기로 결정한 경우 Azure portal의 로그 IO 백분율 차트는 복제 부하를 유지하는 데 필요한 보조 데이터베이스의 최소 계산 크기를 추정하는 좋은 방법을 제공합니다. 예를 들어 기본 데이터베이스가 P6(1000 DTU)이고 로그 쓰기 퍼센트가 50%인 경우 보조 데이터베이스는 최소 P4(500 DTU)여야 합니다. 기록 로그 IO 데이터를 검색하려면 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 보기를 사용합니다. 로그 속도의 단기 급증을 더 잘 반영하는 더 높은 세분성으로 최근 로그 쓰기 데이터를 검색하려면 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 보기를 사용합니다. 
+계산 크기가 낮은 보조 보조 차트를 만들기로 결정한 경우 Azure portal의 로그 IO 백분율 차트는 복제 부하를 유지하는 데 필요한 보조 데이터베이스의 최소 계산 크기를 추정하는 좋은 방법을 제공합니다. 예를 들어 기본 데이터베이스가 P6(1000 DTU)이고 로그 쓰기 퍼센트가 50%인 경우 보조 데이터베이스는 최소 P4(500 DTU)여야 합니다. 기록 로그 IO 데이터를 검색하려면 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 보기를 사용합니다. 로그 속도의 단기 급증을 더 잘 반영하는 더 높은 세분성으로 최근 로그 쓰기 데이터를 검색하려면 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 보기를 사용합니다.
 
 보조 데이터베이스의 낮은 계산 크기로 인해 주 에서 트랜잭션 로그 속도 [제한sys.dm_exec_requests 및 sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 데이터베이스 보기에 표시 되는 HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO 대기 유형을 사용 하 여 보고 됩니다. [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 
 
