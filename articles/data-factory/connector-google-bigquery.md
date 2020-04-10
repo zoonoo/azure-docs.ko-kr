@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.openlocfilehash: c0eb043ce040f154050ef4c3675f165dad326e32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9fe6b494398337dd49bd8f0fe53b24666412a1b0
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929420"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991589"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Google BigQuery에서 데이터 복사
 
@@ -37,7 +37,7 @@ Google BigQuery에서 지원되는 모든 싱크 데이터 저장소로 데이�
 >[!NOTE]
 >Google BigQuery 커넥터는 BigQuery API를 기반으로 구축되었습니다. 단, BigQuery는 최대 수신 요청 비율을 제한하고 프로젝트 단위로 적절한 할당량을 강제 적용합니다. 자세한 내용은 [할당량 및 제한 - API 요청](https://cloud.google.com/bigquery/quotas#api_requests)을 참조하세요. 계정에 너무 많은 동시 요청을 트리거하지 않도록 하세요.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -49,11 +49,11 @@ Google BigQuery에서 지원되는 모든 싱크 데이터 저장소로 데이�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성은 **GoogleBigQuery**로 설정해야 합니다. | yes |
-| project | 쿼리할 기본 BigQuery 프로젝트의 프로젝트 ID입니다.  | yes |
+| type | type 속성은 **GoogleBigQuery**로 설정해야 합니다. | 예 |
+| project | 쿼리할 기본 BigQuery 프로젝트의 프로젝트 ID입니다.  | 예 |
 | additionalProjects | 액세스할 공용 BigQuery 프로젝트의 쉼표로 구분된 프로젝트 ID의 목록입니다.  | 예 |
 | requestGoogleDriveScope | Google Drive에 대한 액세스를 요청할지 여부입니다. Google Drive 액세스를 허용하면 BigQuery 데이터를 Google Drive의 데이터와 결합하는 페더레이션된 테이블을 지원할 수 있습니다. 기본값은 **false**입니다.  | 예 |
-| authenticationType | 인증에 사용되는 OAuth 2.0 인증 메커니즘입니다. ServiceAuthentication은 자체 호스팅 통합 런타임에서만 사용할 수 있습니다. <br/>허용되는 값은 **UserAuthentication**과 **ServiceAuthentication**입니다. 각 인증 형식에 대한 더 많은 속성 및 JSON 샘플은 표 아래 섹션을 참조하세요. | yes |
+| authenticationType | 인증에 사용되는 OAuth 2.0 인증 메커니즘입니다. ServiceAuthentication은 자체 호스팅 통합 런타임에서만 사용할 수 있습니다. <br/>허용되는 값은 **UserAuthentication**과 **ServiceAuthentication**입니다. 각 인증 형식에 대한 더 많은 속성 및 JSON 샘플은 표 아래 섹션을 참조하세요. | 예 |
 
 ### <a name="using-user-authentication"></a>사용자 인증 사용
 
@@ -99,7 +99,7 @@ Google BigQuery에서 지원되는 모든 싱크 데이터 저장소로 데이�
 |:--- |:--- |:--- |
 | 이메일 | ServiceAuthentication에 사용되는 서비스 계정 메일 ID입니다. 자체 호스팅 통합 런타임에서만 사용할 수 있습니다.  | 예 |
 | keyFilePath | 서비스 계정 메일 주소를 인증하는 데 사용되는 .p12 키 파일의 전체 경로입니다. | 예 |
-| trustedCertPath | SSL을 통해 연결할 때 서버를 확인하는 데 사용되는 신뢰할 수 있는 CA 인증서를 포함하는 .pem 파일의 전체 경로입니다. 자체 호스팅 Integration Runtime에서 SSL을 사용할 때만 이 속성을 설정할 수 있습니다. 기본값은 통합 런타임과 함께 설치된 cacerts.pem 파일입니다.  | 예 |
+| trustedCertPath | TLS를 통해 연결할 때 서버를 확인하는 데 사용되는 신뢰할 수 있는 CA 인증서가 포함된 .pem 파일의 전체 경로입니다. 이 속성은 자체 호스팅 통합 런타임에서 TLS를 사용하는 경우에만 설정할 수 있습니다. 기본값은 통합 런타임과 함께 설치된 cacerts.pem 파일입니다.  | 예 |
 | useSystemTrustStore | 시스템 신뢰 저장소 또는 지정된 .pem 파일의 CA 인증서를 사용할지 여부를 지정합니다. 기본값은 **false**입니다.  | 예 |
 
 **예제:**
@@ -132,7 +132,7 @@ Google BigQuery에서 데이터를 복사하려면 데이터 세트의 type 속�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 형식 속성을 설정 해야 **합니다.** | yes |
+| type | 데이터 집합의 형식 속성을 설정 해야 **합니다.** | 예 |
 | 데이터 세트 | Google 빅쿼리 데이터 집합의 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
 | 테이블 | 테이블 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
 | tableName | 테이블 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원됩니다. 새 워크로드의 `dataset` 경우 `table`및 를 사용합니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -164,7 +164,7 @@ Google BigQuery에서 데이터를 복사하려면 복사 작업의 원본 형�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성은 **GoogleBigQuerySource**로 설정해야 합니다. | yes |
+| type | 복사 작업 원본의 type 속성은 **GoogleBigQuerySource**로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `"SELECT * FROM MyTable"`입니다. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**

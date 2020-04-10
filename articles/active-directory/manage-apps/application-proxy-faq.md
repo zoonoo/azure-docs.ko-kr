@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: ec9eeb0c35d96ee777771260686178faa536e909
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: d1929f937d86001a0f2a399b1ebd92e47bbd2c86
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80877306"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990908"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>활성 디렉터리(Azure AD) 응용 프로그램 프록시자주 묻는 질문
 
@@ -52,6 +52,9 @@ Azure AD 응용 프로그램 프록시를 사용하려면 Azure AD 프리미엄 
 ### <a name="is-tls-termination-tlshttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>커넥터 서버에서 Azure로의 트래픽에 대한 TLS 종료(TLS/HTTPS 검사 또는 가속)가 지원되고 있습니까?
 
 응용 프로그램 프록시 커넥터는 Azure에 대한 인증서 기반 인증을 수행합니다. TLS 종료(TLS/HTTPS 검사 또는 가속)는 이 인증 방법을 중단하며 지원되지 않습니다. 커넥터에서 Azure로의 트래픽은 TLS 종료를 수행하는 모든 장치를 우회해야 합니다.  
+
+### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>커넥터 서버와 백 엔드 응용 프로그램 서버 사이에 정방향 프록시 장치를 배치할 수 있습니까?
+예. 이 시나리오는 커넥터 버전 1.5.1526.0부터 지원됩니다. [기존 온-프레미스 프록시 서버로 작업 참조](application-proxy-configure-connectors-with-proxy-servers.md)
 
 ### <a name="should-i-create-a-dedicated-account-to-register-the-connector-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시에 커넥터를 등록하기 위해 전용 계정을 만들어야 합니까?
 

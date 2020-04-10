@@ -1,16 +1,16 @@
 ---
-title: Azure 응용 프로그램 인사이트 에이전트 API 참조
+title: Azure 응용 프로그램 인사이트 에이전트 비활성화 계측엔진
 description: 응용 프로그램 인사이트 에이전트 API 참조. 계측 해제엔진. 웹 사이트를 다시 배포하지 않고 웹 사이트 성능을 모니터링합니다. 온-프레미스, VM 또는 Azure에서 호스팅되는 ASP.NET 웹 앱과 함께 작동합니다.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: dafa12db95a10df467bf0d042cfd9395720648b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c52d429b527c437db5bb8aaf7e3cc1f1c52af57
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671378"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998378"
 ---
 # <a name="application-insights-agent-api-disable-instrumentationengine"></a>애플리케이션 인사이트 에이전트 API: 인스트루먼트 엔진 사용 안 함
 

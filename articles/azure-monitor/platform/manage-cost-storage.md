@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/08/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 5b532908df4b8dd58177b7e128f4e55aa96458e6
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: d03b053f2aa5de4a6f7874dbf4e6ccb3a305a964
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409945"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992082"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure 모니터 로그를 통해 사용량 및 비용 관리
 
@@ -88,6 +88,9 @@ Azure는 [Azure 비용 관리 + 청구](https://docs.microsoft.com/azure/cost-ma
 2018년 4월 2일 이전에 Log Analytics 작업 영역 또는 애플리케이션 인사이트 리소스가 있거나 2019년 2월 1일 이전에 시작된 엔터프라이즈 계약에 연결된 구독은 레거시 가격 책정 계층인 **무료**, **GB당 독립 실행형(GB당)** 및 **노드당(OMS)을**계속 사용할 수 있습니다.  무료 가격 책정 계층의 작업 영역에는 일일 데이터 수집이 500MB로 제한되며(Azure Security Center에서 수집한 보안 데이터 유형 제외) 데이터 보존기간은 7일로 제한됩니다. 무료 가격 책정 계층은 평가목적으로만 사용됩니다. 독립 실행형 또는 노드별 가격 책정 계층의 작업 영역에는 사용자가 구성할 수 있는 보존기간이 30일에서 730일까지입니다.
 
 모니터링되는 VM(노드당 노드당 가격 책정 계층)은 1시간 단위로 청구됩니다. 모니터링되는 각 노드에 대해 작업 영역에는 청구되지 않은 하루에 500MB의 데이터가 할당됩니다. 이 할당은 작업 영역 수준에서 집계됩니다. 집계 일별 데이터 할당 위에 수집된 데이터는 데이터 초과량으로 GB당 청구됩니다. 청구서에서 작업 영역이 노드별 가격 책정 계층에 있는 경우 서비스는 로그 분석 사용에 대한 **인사이트 및 분석이** 됩니다. 
+
+> [!TIP]
+> 작업 영역에 **노드별** 가격 책정 계층에 액세스할 수 있지만 종량제 계층에서 비용이 적게 드는지 궁금한 경우 [아래 쿼리를 사용하여](#evaluating-the-legacy-per-node-pricing-tier) 권장 사항을 쉽게 얻을 수 있습니다. 
 
 2016년 4월 이전에 생성된 작업 공간은 각각 30일과 365일의 고정 데이터 보존이 있는 원래 **표준** 및 **프리미엄** 가격 책정 계층에 액세스할 수도 있습니다. **표준** 또는 **프리미엄** 가격 책정 계층에서 새 작업 영역을 만들 수 없으며 작업 영역이 이러한 계층 밖으로 이동되면 다시 이동할 수 없습니다. 
 
@@ -434,6 +437,49 @@ union
        | extend lowComputer = tolower(Computer) | summarize by lowComputer, ComputerEnvironment
  ) on lowComputer
  | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc
+```
+
+## <a name="evaluating-the-legacy-per-node-pricing-tier"></a>노드당 레거시 가격 책정 계층 평가
+
+**레거시 노드당** 가격 책정 계층에 액세스할 수 있는 작업 영역이 해당 계층에서 더 나은지 또는 현재 **종량제** 또는 **용량 예약** 계층에서 더 나은지 여부를 결정하는 것은 고객이 평가하기 어려운 경우가 많습니다.  여기에는 노드당 가격 책정 계층에서 모니터링되는 노드당 고정 비용과 포함된 데이터 할당(일 500MB/노드/일) 및 종량제(GB당) 계층에서 수집된 데이터에 대한 지불 비용 간의 장단점을 이해하는 작업이 포함됩니다. 
+
+이 평가를 용이하게 하기 위해 다음 쿼리를 사용하여 작업 영역의 사용 패턴을 기반으로 최적의 가격 책정 계층에 대한 권장 사항을 만들 수 있습니다.  이 쿼리는 지난 7일 동안 작업 영역으로 수집된 모니터링된 노드 및 데이터를 살펴보고 매일 어떤 가격 책정 계층이 최적이었을지 평가합니다. To use the query, you need to specify whether the workspace is using Azure Security Center by setting `workspaceHasSecurityCenter` to `true` or `false`, and then (optionally) updating the Per Node and Per GB prices that your organizaiton receives. 
+
+```kusto
+// Set these paramaters before running query
+let workspaceHasSecurityCenter = true;  // Specify if the workspace has Azure Security Center
+let PerNodePrice = 15.; // Enter your price per node / month 
+let PerGBPrice = 2.30; // Enter your price per GB 
+// ---------------------------------------
+let SecurityDataTypes=dynamic(["SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent", "Update", "UpdateSummary"]);
+union withsource = tt * 
+| where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize nodesPerHour = dcount(computerName) by bin(TimeGenerated, 1h)  
+| summarize nodesPerDay = sum(nodesPerHour)/24.  by day=bin(TimeGenerated, 1d)  
+| join (
+    Usage 
+    | where TimeGenerated > ago(8d)
+    | where StartTime >= startofday(now(-7d)) and EndTime < startofday(now())
+    | where IsBillable == true
+    | extend NonSecurityData = iff(DataType !in (SecurityDataTypes), Quantity, 0.)
+    | extend SecurityData = iff(DataType in (SecurityDataTypes), Quantity, 0.)
+    | summarize DataGB=sum(Quantity)/1000., NonSecurityDataGB=sum(NonSecurityData)/1000., SecurityDataGB=sum(SecurityData)/1000. by day=bin(StartTime, 1d)  
+) on day
+| extend AvgGbPerNode =  NonSecurityDataGB / nodesPerDay
+| extend PerGBDailyCost = iff(workspaceHasSecurityCenter,
+             (NonSecurityDataGB + max_of(SecurityDataGB - 0.5*nodesPerDay, 0.)) * PerGBPrice,
+             DataGB * PerGBPrice)
+| extend OverageGB = iff(workspaceHasSecurityCenter, 
+             max_of(DataGB - 1.0*nodesPerDay, 0.), 
+             max_of(DataGB - 0.5*nodesPerDay, 0.))
+| extend PerNodeDailyCost = nodesPerDay * PerNodePrice / 31. + OverageGB * PerGBPrice
+| extend Recommendation = iff(PerNodeDailyCost < PerGBDailyCost, "Per Node tier", 
+             iff(NonSecurityDataGB > 85., "Capacity Reservation tier", "Pay-as-you-go (Per GB) tier"))
+| project day, nodesPerDay, NonSecurityDataGB, SecurityDataGB, OverageGB, AvgGbPerNode, PerGBDailyCost, PerNodeDailyCost, Recommendation | sort by day asc
+| project day, Recommendation // Comment this line to see details
+| sort by day asc
 ```
 
 ## <a name="create-an-alert-when-data-collection-is-high"></a>데이터 수집이 높을 때 경고 만들기

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
-ms.openlocfilehash: 761c464730096eba36bc7c04227745cf362e5cc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a0e5b0c18264e1f7a98e81bcdfd56a7159235da
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278039"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010922"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 Redis 클러스터링을 구성하는 방법
 Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지원과 같은 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. 이 문서에서는 프리미엄 Azure Cache for Redis에서 클러스터링을 구성하는 방법에 대해 설명합니다.
@@ -125,7 +125,7 @@ Redis 클러스터링 프로토콜은 각 클라이언트가 클러스터링 모
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>내 케시의 분할된 데이터베이스에 직접 연결할 수 있나요?
 클러스터링 프로토콜에 따르면 클라이언트는 올바른 분할된 데이터베이스 연결을 설정해야 합니다. 따라서 클라이언트는 이 작업을 올바르게 수행해야 합니다. 즉 각각의 분할된 데이터베이스는 캐시 인스턴스로 통칭되는 주/복제본 캐시로 구성됩니다. GitHub에서 Redis 리포지토리의 [불안정한](https://redis.io/download) 분기에서 redis-cli 유틸리티를 사용하여 이러한 캐시 인스턴스에 연결할 수 있습니다. 이 버전에는 `-c` 스위치로 시작한 경우 기본 지원을 구현합니다. 자세한 내용은 [Redis 클러스터](https://redis.io/topics/cluster-tutorial) [https://redis.io](https://redis.io) 자습서에서 [클러스터를 사용할 수 있는 재생을](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) 참조하십시오.
 
-비 SSL은 다음 명령을 사용합니다.
+TLS가 아닌 경우 다음 명령을 사용합니다.
 
     Redis-cli.exe –h <<cachename>> -p 13000 (to connect to instance 0)
     Redis-cli.exe –h <<cachename>> -p 13001 (to connect to instance 1)
@@ -133,7 +133,7 @@ Redis 클러스터링 프로토콜은 각 클라이언트가 클러스터링 모
     ...
     Redis-cli.exe –h <<cachename>> -p 1300N (to connect to instance N)
 
-SSL에서는 `1300N`을 `1500N`으로 대체합니다.
+TLS의 경우 `1300N` `1500N`을 로 바꿉
 
 ### <a name="can-i-configure-clustering-for-a-previously-created-cache"></a>이전에 만든된 캐시에 대해 클러스터링을 구성할 수 있나요?
 예. 먼저 캐시가 프리미엄인지 확인합니다. 다음으로 클러스터를 사용하도록 설정하는 옵션을 포함하여 클러스터 구성 옵션을 볼 수 있습니다. 캐시를 만든 후 또는 처음으로 클러스터링을 사용하도록 설정한 후 클러스터 크기를 변경할 수 있습니다.

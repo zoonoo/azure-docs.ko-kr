@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/22/2018
-ms.openlocfilehash: af003f1f0422c2351bcdf9b0c0010e38785c0344
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1d8189068278b46e3ec3ea66875d79bb91e5e16
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530328"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010208"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 ASP.NET 출력 캐시 공급자
 
@@ -51,12 +51,12 @@ NuGet 패키지에서는 필수 어셈블리 참조를 다운로드하고 추가
 
 Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성하고, 필요에 따라 다른 값을 구성합니다. 캐시 속성에 액세스하는 방법에 대한 지침은 [Azure Cache for Redis 설정 구성](cache-configure.md#configure-azure-cache-for-redis-settings)을 참조하세요.
 
-| 특성 | Type | 기본값 | 설명 |
+| attribute | 형식 | 기본값 | 설명 |
 | --------- | ---- | ------- | ----------- |
 | *호스트* | 문자열 | "현지호스트" | Redis 서버 IP 주소 또는 호스트 이름 |
-| *포트* | 양의 정수 | 6379(SSL 제외)<br/>6380 (SSL) | 서버 포트 재배포 |
+| *포트* | 양의 정수 | 6379(TLS/SSL제외)<br/>6380(TLS/SSL) | 서버 포트 재배포 |
 | *Accesskey* | 문자열 | "" | Redis 권한 부여가 활성화되면 서버 암호를 다시 사용합니다. 이 값은 기본적으로 빈 문자열이며, 이는 세션 상태 공급자가 Redis 서버에 연결할 때 암호를 사용하지 않는다는 것을 의미합니다. **Redis 서버가 Azure Redis Cache와 같이 공개적으로 액세스할 수 있는 네트워크에 있는 경우 Redis 권한 부여를 활성화하여 보안을 개선하고 보안 암호를 제공해야 합니다.** |
-| *Ssl* | boolean | **false** | SSL을 통해 Redis 서버에 연결할지 여부입니다. Redis가 즉시 SSL을 지원하지 않기 때문에 이 값은 기본적으로 **false입니다.** **즉시 사용 중인 SSL을 지원하는 Azure Redis 캐시를 사용하는 경우 보안을 개선하기 위해 이 것을 true로 설정해야 합니다.**<br/><br/>비 SSL 포트는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. SSL 포트를 사용 하려면이 설정에 대 한 **true를** 지정 합니다. 비-SSL 포트 사용 방법에 대한 자세한 내용은 [캐시 구성](cache-configure.md) 토픽의 [액세스 포트](cache-configure.md#access-ports) 섹션을 참조하세요. |
+| *Ssl* | boolean | **false** | TLS를 통해 Redis 서버에 연결할지 여부입니다. Redis가 즉시 TLS를 지원하지 않기 때문에 이 값은 기본적으로 **false입니다.** **즉시 사용 중인 SSL을 지원하는 Azure Redis 캐시를 사용하는 경우 보안을 개선하기 위해 이 것을 true로 설정해야 합니다.**<br/><br/>새 캐시에 대해 TLS가 아닌 포트는 기본적으로 비활성화됩니다. TLS 포트를 사용 하려면이 설정에 대 한 **true를** 지정 합니다. 비 TLS 포트를 사용하도록 설정하는 것에 대한 자세한 내용은 [캐시 구성](cache-configure.md) 항목의 [액세스 포트](cache-configure.md#access-ports) 섹션을 참조하십시오. |
 | *데이터베이스ID번호* | 양의 정수 | 0 | *이 특성은 web.config 또는 AppSettings를 통해서만 지정할 수 있습니다.*<br/><br/>사용할 Redis 데이터베이스를 지정합니다. |
 | *연결타임아웃인밀리초* | 양의 정수 | 스택익스체인지에서 제공.재배포 | 스택 익스체인지.Redis.연결다중색기를 만들 때 *연결 시간 설정을* 설정하는 데 사용됩니다. |
 | *작업타임아웃인밀리초* | 양의 정수 | 스택익스체인지에서 제공.재배포 | 스택 익스체인지.Redis.ConnectionMultiplexer를 만들 때 *동기화 시간 설정을* 설정하는 데 사용됩니다. |

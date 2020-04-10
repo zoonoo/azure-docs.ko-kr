@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 883dbc95ee77d03aee4c3231c6ab8c03f9f7f6e4
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 02213feb507e9a032a50241fddf31714b9dfd7ee
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387838"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011078"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Windows를 실행하는 N 시리즈 VM에 AMD GPU 드라이버 설치
 
@@ -40,7 +40,7 @@ Windows를 실행하는 새로운 Azure NVv4 시리즈 VM의 GPU 기능을 활�
 
 2. NVv4 미리 보기 고객인 경우 VM을 중지하고 중지됨(Deallocated) 상태로 이동할 때까지 기다려 주십시오.
 
-3. VM을 시작하고 최신 [AMD 정리 유틸리티를](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe)다운로드하십시오. "amdcleanuputility-x64.exe"를 실행하여 기존 드라이버를 제거합니다. 이전 드라이버와 함께 설치된 exisitng 정리 유틸리티를 사용하지 마십시오.  
+3. VM을 시작하고 최신 [AMD 정리 유틸리티를](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe)다운로드하십시오. "amdcleanuputility-x64.exe"를 실행하여 기존 드라이버를 제거합니다. 이전 드라이버와 함께 설치된 기존 정리 유틸리티는 사용하지 마십시오.  
 
 4. 최신 드라이버를 다운로드하여 설치합니다.
 
@@ -52,6 +52,12 @@ Windows를 실행하는 새로운 Azure NVv4 시리즈 VM의 GPU 기능을 활�
 <br />
 ![GPU 드라이버 속성](./media/n-series-amd-driver-setup/device-manager.png)
 
-dxdiag를 사용하여 비디오 RAM을 포함한 GPU 디스플레이 속성을 확인할 수 있습니다. 다음 예제에서는 Azure NVv4 VM에서 라데온 본능 MI25 카드의 1/8 파티션을 보여 줍니다.
+dxdiag를 사용하여 비디오 RAM을 포함한 GPU 디스플레이 속성을 확인할 수 있습니다. 다음 예제에서는 Azure NVv4 VM에서 라데온 본능 MI25 카드의 1/2 파티션을 보여 줍니다.
 <br />
-![GPU 드라이버 속성](./media/n-series-amd-driver-setup/dxdiag.png)
+![GPU 드라이버 속성](./media/n-series-amd-driver-setup/dxdiag-output.png)
+
+Windows를 실행 하는 경우 10 빌드 1903 이상 다음 dxdiag '표시' 탭에 아무 정보 표시 됩니다. 하단에 '모든 정보 저장' 옵션을 사용 하 여 출력 파일 AMD MI25 GPU와 관련 된 정보를 표시 됩니다.
+
+![GPU 드라이버 속성](./media/n-series-amd-driver-setup/dxdiag-details.png)
+
+

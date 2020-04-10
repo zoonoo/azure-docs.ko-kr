@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 58548c5cb1aa6aba6dda09d5d420b36bb8154726
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 9b0e0b39b7ac7d7834c9cdcbd79ba45b024c823a
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656406"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992014"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>PowerShell을 사용하여 Azure 데이터 레이크 저장소 Gen2의 디렉터리, 파일 및 ACL관리(미리 보기)
 
@@ -151,7 +151,7 @@ Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
 > [!NOTE]
 > 프롬프트 없이 덮어쓰려면 `-Force` 매개 변수를 사용합니다.
 
-이 예제는 명명된 `my-directory` 디렉터리를 `my-directory-2` 명명된 `my-subdirectory`의 하위 디렉터리로 이동합니다. 이 예제는 하위 디렉터리에도 umask를 적용합니다.
+이 예제는 명명된 `my-directory` 디렉터리를 `my-directory-2` 명명된 `my-subdirectory`의 하위 디렉터리로 이동합니다. 
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -389,7 +389,7 @@ Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse |
 
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Azure 저장소와 함께 Azure PowerShell 을 사용 하 여](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)입니다.

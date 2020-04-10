@@ -3,12 +3,12 @@ title: 가상 시스템의 내용을 감사하는 방법에 대해 알아보기
 description: Azure Policy에서 게스트 구성 에이전트를 사용하여 가상 시스템 내부의 설정을 감사하는 방법에 대해 알아봅니다.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 889e99e94b2c81a6654fcbe7851e93c40163a0c6
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 9e8486af2a9b7ab9e18b8c16f08e51759d1123d7
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985323"
+ms.locfileid: "80998850"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -73,7 +73,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 다음 표에는 Azure 이미지에서 지원되는 운영 체제 목록이 나와 있습니다.
 
-|게시자|속성|버전|
+|게시자|이름|버전|
 |-|-|-|
 |Canonical|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
@@ -91,6 +91,13 @@ Windows 서버 나노 서버는 모든 버전에서 지원되지 않습니다.
 
 Azure에서 게스트 구성 리소스 공급자와 통신하기 위해 컴퓨터는 포트 **443의**Azure 데이터 센터에 대한 아웃바운드 액세스가 필요합니다. 아웃바운드 트래픽을 허용하지 않는 Azure에서 개인 가상 네트워크를 사용하는 경우 네트워크 [보안 그룹](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) 규칙을 사용하여 예외를 구성합니다.
 [서비스 태그](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement"는 게스트 구성 서비스를 참조하는 데 사용할 수 있습니다.
+
+## <a name="azure-managed-identity-requirements"></a>Azure 관리 ID 요구 사항
+
+가상 시스템에 확장을 추가하는 **DeployIfNotExists** 정책은 존재하지 않는 경우 관리되는 ID가 할당된 시스템도 사용하도록 설정합니다.
+
+> [!WARNING]
+> 시스템이 할당된 관리 ID를 사용하도록 설정하는 정책에 대한 범위에서 가상 시스템에 관리되는 ID를 할당하는 사용자를 사용하지 마십시오. 할당된 ID가 대체되고 컴퓨터가 응답하지 않을 수 있습니다.
 
 ## <a name="guest-configuration-definition-requirements"></a>게스트 구성 정의 요구 사항
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Automation 상태 구성 개요
-description: Azure Automation 상태 구성(DSC) 개요, 용어 및 알려진 문제
+title: 상태 구성 개요
+description: Azure 자동화 상태 구성(DSC), 해당 용어 및 알려진 문제에 대한 개요
 keywords: PowerShell DSC, 필요한 상태 구성, PowerShell DSC Azure
 services: automation
 ms.service: automation
@@ -10,14 +10,14 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 46cf0d6a12ffbc836db7bd79c0f2738a94e23085
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02e540c9ac2654be97ff247749d1ed18573cfc24
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283194"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010259"
 ---
-# <a name="azure-automation-state-configuration-overview"></a>Azure Automation 상태 구성 개요
+# <a name="state-configuration-overview"></a>상태 구성 개요
 
 Azure 자동화 상태 구성은 DSC(PowerShell 원하는 상태 구성) 구성을 작성, 관리 및 컴파일할 수 있는 Azure [서비스입니다.](/powershell/scripting/dsc/configurations/configurations) 또한 서비스는 [DSC Resources를](/powershell/scripting/dsc/resources/resources)가져오고 클라우드의 모든 대상 노드에 구성을 할당합니다.
 
@@ -52,7 +52,7 @@ Windows를 실행하는 노드의 경우 다음 버전이 지원됩니다.
 - Windows Server 2012R2
 - Windows Server 2012
 - Windows Server 2008 R2 SP1
-- 윈도우 10
+- Windows 10
 - Windows 8.1
 - Windows 7
 

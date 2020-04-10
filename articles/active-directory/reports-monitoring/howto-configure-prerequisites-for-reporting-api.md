@@ -17,12 +17,12 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12abfc0d345c937ae886f9bfacfb8ce30227cc45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fd3580ca03fa49d428904c6da78fdf9cda202c7
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399300"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991265"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Azure Active Directory reporting API에 액세스하기 위한 필수 구성 요소
 
@@ -33,9 +33,10 @@ Reporting API는 [OAuth](https://docs.microsoft.com/azure/api-management/api-man
 reporting API에 액세스하도록 준비하려면 다음을 수행해야 합니다.
 
 1. [역할 할당](#assign-roles)
-2. [애플리케이션 등록](#register-an-application)
-3. [권한 부여](#grant-permissions)
-4. [구성 설정 수집](#gather-configuration-settings)
+2. [라이센스 요구 사항](#license-requirements)
+3. [애플리케이션 등록](#register-an-application)
+4. [권한 부여](#grant-permissions)
+5. [구성 설정 수집](#gather-configuration-settings)
 
 ## <a name="assign-roles"></a>역할 할당
 
@@ -46,6 +47,10 @@ API를 통해 보고 데이터에 액세스하려면 다음 역할 중 하나를
 - 보안 관리자
 
 - 전역 관리자
+
+## <a name="license-requirements"></a>라이센스 요구 사항
+
+테넌트의 로그인 보고서에 액세스하려면 Azure AD 테넌트에 연결된 Azure AD Premium 라이선스가 있어야 합니다. Azure AD 프리미엄 P1(또는 그 이상) 라이선스는 모든 Azure AD 테넌트의 로그인 보고서에 액세스해야 합니다. 또는 디렉터리 유형이 Azure AD B2C인 경우 추가 라이선스 요구 사항 없이 API를 통해 로그인 보고서에 액세스할 수 있습니다. 
 
 
 ## <a name="register-an-application"></a>애플리케이션 등록
@@ -82,7 +87,7 @@ Azure AD 보고 API에 액세스하도록 디렉터리를 구성하려면 Azure 
 
     다. 리디렉션 **URL에서** **웹** 텍스트 상자를 `https://localhost`선택하고 을 입력합니다.
 
-    d. **등록을**선택합니다. 
+    d. **등록**을 선택합니다. 
 
 
 ## <a name="grant-permissions"></a>권한 부여 

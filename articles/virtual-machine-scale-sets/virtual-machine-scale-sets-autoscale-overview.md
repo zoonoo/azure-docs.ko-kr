@@ -1,21 +1,21 @@
 ---
 title: Azure 가상 머신 확장 집합을 사용한 자동 크기 조정 개요
 description: 성능이나 확정된 일정에 따라 Azure 가상 머신 확장 집합의 크기를 자동으로 조정할 수 있는 다양한 방법을 알아봅니다.
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eb96be187502afcccfd3fb2c88f709facfbc3b59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b3af40de107fd9273ec50425c58afc9772ea426
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76278133"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010344"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합을 사용한 자동 크기 조정 개요
 Azure 가상 머신 확장 집합은 애플리케이션을 실행하는 VM 인스턴스의 수를 자동으로 늘리거나 줄입니다. 자동화되고 탄력적인 이 동작은 관리 오버헤드를 줄여 애플리케이션의 성능을 모니터링하고 최적화합니다. 긍정적인 고객 만족을 위해 허용되는 성능을 정의하는 규칙을 만듭니다. 정의된 임계값이 충족되면 자동 크기 조정 규칙에 따라 확장 집합의 용량을 조정하는 작업을 수행합니다. 확정된 시간에 확장 집합의 용량을 자동으로 늘리거나 줄이도록 이벤트를 예약할 수도 있습니다. 이 문서에서는 사용 가능한 성능 메트릭과 자동 크기 조정에서 수행할 수 있는 작업에 대해 간략히 설명합니다.
@@ -34,8 +34,8 @@ VM 인스턴스에서 기본 제공 호스트 메트릭을 사용할 수 있는 
 
 호스트 기반 메트릭을 사용하는 자동 크기 조정 규칙은 다음 도구 중 하나로 만들 수 있습니다.
 
-- [Azure 포털](virtual-machine-scale-sets-autoscale-portal.md)
-- [Azure 파워쉘](tutorial-autoscale-powershell.md)
+- [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure PowerShell](tutorial-autoscale-powershell.md)
 - [Azure CLI](tutorial-autoscale-cli.md)
 - [Azure 템플릿](tutorial-autoscale-template.md)
 
@@ -51,7 +51,7 @@ VM 인스턴스에서 기본 제공 호스트 메트릭을 사용할 수 있는 
 | 현재 확장 집합    | 추가 에이전트를 설치하거나 구성할 필요가 없는 호스트 기반 메트릭의 경우                                  |
 | 스토리지 계정      | Azure 진단 확장에서 Azure Storage에 성능 메트릭을 기록한 다음 자동 크기 조정 규칙을 트리거하는 데 이 메트릭을 사용합니다. |
 | Service Bus 큐    | 애플리케이션 또는 다른 구성 요소에서 Azure Service Bus 큐에 있는 메시지를 전송하여 규칙을 트리거 할 수 있습니다.                   |
-| 애플리케이션 정보 | 애플리케이션에 설치되어 앱에서 메트릭을 직접 스트림하는 계측 패키지입니다.                         |
+| Application Insights | 애플리케이션에 설치되어 앱에서 메트릭을 직접 스트림하는 계측 패키지입니다.                         |
 
 
 ### <a name="autoscale-rule-criteria"></a>자동 크기 조정 규칙 조건
@@ -132,7 +132,7 @@ App Insights에 대한 자세한 내용은 [Application Insights란?](../azure-m
 ## <a name="next-steps"></a>다음 단계
 다음 도구 중 하나를 사용하여 호스트 기반 메트릭을 사용하는 자동 크기 조정 규칙을 만들 수 있습니다.
 
-- [Azure 파워쉘](tutorial-autoscale-powershell.md)
+- [Azure PowerShell](tutorial-autoscale-powershell.md)
 - [Azure CLI](tutorial-autoscale-cli.md)
 - [Azure 템플릿](tutorial-autoscale-template.md)
 

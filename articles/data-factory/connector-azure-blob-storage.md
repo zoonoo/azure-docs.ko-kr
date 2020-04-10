@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/17/2020
-ms.openlocfilehash: 214b2868f9733dfc6790c492543fb86a832f18b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/09/2020
+ms.openlocfilehash: dd13a08b3c2f63baf509efbb730032edd4eba61a
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065504"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011551"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Azure Blob 저장소에서 데이터 복사 및 변환
 
@@ -25,7 +25,8 @@ ms.locfileid: "80065504"
 
 이 문서에서는 Azure 데이터 팩터리에서 복사 활동 사용 하 여 Azure Blob 저장소에서 데이터를 복사 하 고 데이터 흐름을 사용 하 여 Azure Blob 저장소에서 데이터를 변환 하는 방법을 설명 합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+>[!TIP]
+>데이터 레이크 또는 데이터 웨어하우스 마이그레이션 시나리오의 경우 [Azure Data Factory 사용에서 데이터 레이크 또는 데이터 웨어하우스에서 Azure로 데이터를 마이그레이션하는](data-migration-guidance-overview.md)방법에 대해 자세히 알아봅니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -48,7 +49,7 @@ ms.locfileid: "80065504"
 >[!IMPORTANT]
 >신뢰할 수 **있는 Microsoft 서비스 허용을** Azure Storage 방화벽 설정에서 이 저장소 계정 옵션에 액세스할 수 있도록 설정하고 Azure 통합 런타임을 사용하여 Blob Storage에 연결하려면 [관리되는 ID 인증을](#managed-identity)사용해야 합니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -64,7 +65,7 @@ Azure Blob 커넥터에서 지원하는 인증 유형은 다음과 같습니다.
 - [Azure 리소스 인증을 위한 관리 ID](#managed-identity)
 
 >[!NOTE]
->PolyBase를 사용하여 데이터를 SQL 데이터 웨어하우스에 로드하는 경우 원본 또는 스테이징 Blob 저장소가 가상 네트워크 끝점으로 구성된 경우 PolyBase에서 요구하는 대로 관리되는 ID 인증을 사용하고 버전과 함께 자체 호스팅 통합 런타임을 사용해야 합니다. 3.18 이상. 더 많은 구성 전제 조건이 있는 [관리되는 ID 인증](#managed-identity) 섹션을 참조하십시오.
+>PolyBase를 사용하여 데이터를 SQL 데이터 웨어하우스에 로드하는 경우 원본 또는 스테이징 Blob 저장소가 가상 네트워크 끝점으로 구성된 경우 PolyBase에서 요구하는 대로 관리되는 ID 인증을 사용하고 버전 3.18 이상의 자체 호스팅 통합 런타임을 사용해야 합니다. 더 많은 구성 전제 조건이 있는 [관리되는 ID 인증](#managed-identity) 섹션을 참조하십시오.
 
 >[!NOTE]
 >HDInsights 및 Azure 기계 학습 활동은 Azure Blob 저장소 계정 키 인증만 지원합니다.
@@ -75,8 +76,8 @@ Azure Blob 커넥터에서 지원하는 인증 유형은 다음과 같습니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성은 **AzureBlobStorage**(권장) 또는 **AzureStorage**로 설정해야 합니다(아래 참고 참조). |yes |
-| connectionString | connectionString 속성에 대한 Storage에 연결하는 데 필요한 정보를 지정합니다. <br/> Azure Key Vault에 계정 키를 넣고, 연결 문자열에서 `accountKey` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. |yes |
+| type | type 속성은 **AzureBlobStorage**(권장) 또는 **AzureStorage**로 설정해야 합니다(아래 참고 참조). |예 |
+| connectionString | connectionString 속성에 대한 Storage에 연결하는 데 필요한 정보를 지정합니다. <br/> Azure Key Vault에 계정 키를 넣고, 연결 문자열에서 `accountKey` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime(데이터 저장소가 사설망에 있는 경우)을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
 >[!NOTE]
@@ -137,17 +138,12 @@ Azure Blob 커넥터에서 지원하는 인증 유형은 다음과 같습니다.
 >- Data Factory에서 이제 **서비스 공유 액세스 서명**과 **계정 공유 액세스 서명**이 모두 지원됩니다. 공유 액세스 서명에 대한 자세한 내용은 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여를](../storage/common/storage-sas-overview.md)참조하십시오.
 >- 이후 데이터 세트 구성에서 폴더 경로는 컨테이너 수준에서 시작하는 절대 경로입니다. SAS URI의 경로와 일치하는 경로를 구성해야 합니다.
 
-> [!TIP]
-> 스토리지 계정에 대한 서비스 공유 액세스 서명을 생성하려면 다음 PowerShell 명령을 실행합니다. 자리 표시자를 바꾸고 필요한 권한을 부여합니다.
-> `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
-> `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
-
 공유 액세스 서명 인증을 사용하는 데 지원되는 속성은 다음과 같습니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성은 **AzureBlobStorage**(권장) 또는 **AzureStorage**로 설정해야 합니다(아래 참고 참조). |yes |
-| sasUri | 스토리지 리소스(예: Blob/컨테이너)에 대한 공유 액세스 서명 URI를 지정합니다. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. 또한 Azure Key Vault에 SAS 토큰을 넣어 자동 회전을 활용하고 토큰 부분을 제거할 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. |yes |
+| type | type 속성은 **AzureBlobStorage**(권장) 또는 **AzureStorage**로 설정해야 합니다(아래 참고 참조). |예 |
+| sasUri | 스토리지 리소스(예: Blob/컨테이너)에 대한 공유 액세스 서명 URI를 지정합니다. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. 또한 Azure Key Vault에 SAS 토큰을 넣어 자동 회전을 활용하고 토큰 부분을 제거할 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime(데이터 저장소가 사설망에 있는 경우)을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
 >[!NOTE]
@@ -230,11 +226,11 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성은 **AzureBlobStorage**로 설정해야 합니다. |yes |
-| serviceEndpoint | 패턴이 `https://<accountName>.blob.core.windows.net/`인 Azure Blob Storage 서비스 엔드포인트를 지정합니다. |yes |
-| servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | yes |
-| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
-| tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | yes |
+| type | type 속성은 **AzureBlobStorage**로 설정해야 합니다. |예 |
+| serviceEndpoint | 패턴이 `https://<accountName>.blob.core.windows.net/`인 Azure Blob Storage 서비스 엔드포인트를 지정합니다. |예 |
+| servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
+| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime(데이터 저장소가 사설망에 있는 경우)을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
 >[!NOTE]
@@ -284,8 +280,8 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성은 **AzureBlobStorage**로 설정해야 합니다. |yes |
-| serviceEndpoint | 패턴이 `https://<accountName>.blob.core.windows.net/`인 Azure Blob Storage 서비스 엔드포인트를 지정합니다. |yes |
+| type | type 속성은 **AzureBlobStorage**로 설정해야 합니다. |예 |
+| serviceEndpoint | 패턴이 `https://<accountName>.blob.core.windows.net/`인 Azure Blob Storage 서비스 엔드포인트를 지정합니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime(데이터 저장소가 사설망에 있는 경우)을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
 > [!NOTE]
@@ -319,8 +315,8 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 
 | 속성   | 설명                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | 데이터 집합에서 위치의 형식 속성을 **AzureBlobStorageLocation**로 설정해야 합니다. | yes      |
-| container  | Blob 컨테이너입니다.                                          | yes      |
+| type       | 데이터 집합에서 위치의 형식 속성을 **AzureBlobStorageLocation**로 설정해야 합니다. | 예      |
+| container  | Blob 컨테이너입니다.                                          | 예      |
 | folderPath | 지정된 컨테이너 아래의 폴더 경로입니다. 와일드카드를 사용하여 폴더를 필터링하려면 이 설정을 건너뛰고 활동 소스 설정에서 지정합니다. | 예       |
 | fileName   | 지정된 컨테이너 + folderPath 아래의 파일 이름입니다. 와일드카드를 사용하여 파일을 필터링하려면 이 설정을 건너뛰고 활동 소스 설정에서 지정합니다. | 예       |
 
@@ -363,7 +359,7 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 
 | 속성                 | 설명                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | 아래의 `storeSettings` 형식 속성은 **AzureBlobStorageReadSettings로**설정해야 합니다. | yes                                           |
+| type                     | 아래의 `storeSettings` 형식 속성은 **AzureBlobStorageReadSettings로**설정해야 합니다. | 예                                           |
 | recursive                | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive를 true로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다. 허용된 **true** 값은 true(기본값) 및 **false입니다.** | 예                                            |
 | 접두사                   | 데이터 집합에서 원본 Blob을 필터링하도록 구성된 지정된 컨테이너 아래의 Blob 이름에 대한 접두사입니다. 이 접두사로 이름이 시작되는 Blob이 선택됩니다. <br>속성이 `wildcardFileName` `wildcardFolderPath` 지정되지 않은 경우에만 적용됩니다. | 예                                                          |
 | 와일드 카드폴더패스       | 원본 폴더를 필터링하기 위해 데이터 집합에 구성된 지정된 컨테이너 아래에 와일드카드 문자가 있는 폴더 경로입니다. <br>허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br>더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 예                                            |
@@ -424,7 +420,7 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 
 | 속성                 | 설명                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | 아래의 `storeSettings` 형식 속성은 **AzureBlobStorageWriteSettings로**설정해야 합니다. | yes      |
+| type                     | 아래의 `storeSettings` 형식 속성은 **AzureBlobStorageWriteSettings로**설정해야 합니다. | 예      |
 | copyBehavior             | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- 병합 계층 :</b>소스 폴더의 모든 파일은 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 병합되는 파일 이름은 지정된 파일 또는 Blob 이름이 적용됩니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 예       |
 | 블록크기인MB | Blob을 차단하는 데이터를 작성하는 데 사용되는 MB의 블록 크기를 지정합니다. 블록 [Blob에 대해](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs)자세히 알아보십시오. <br/>허용값은 **4MB에서 100MB 사이입니다.** <br/>기본적으로 ADF는 원본 저장소 유형 및 데이터에 따라 블록 크기를 자동으로 결정합니다. Blob에 이진이 아닌 복사본의 경우 기본 블록 크기는 최대 4.95TB 데이터에 맞게 100MB입니다. 특히 네트워크 부족으로 자체 호스팅 통합 런타임을 사용하면 작업 시간 시간 또는 성능 문제가 발생하는 경우 데이터가 크지 않을 수 있습니다. 블록 크기를 명시적으로 지정할 수 있지만 blockSizeInMB*50000이 데이터를 저장할 만큼 충분히 큰지 확인하면 복사 활동 실행이 실패합니다. | 예 |
 | maxConcurrentConnections | 저장소 저장소에 동시에 연결할 연결 수입니다. 데이터 저장소에 대한 동시 연결을 제한하려는 경우에만 지정합니다. | 예       |
@@ -593,7 +589,7 @@ Amazon S3/Azure Blob/Azure Data Lake 저장소 Gen2에서 Azure 데이터 레이
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 형식 속성은 **AzureBlob**로 설정해야 합니다. |yes |
+| type | 데이터 집합의 형식 속성은 **AzureBlob**로 설정해야 합니다. |예 |
 | folderPath | Blob Storage에서 컨테이너 및 폴더에 대한 경로입니다. <br/><br/>와일드카드 필터가 컨테이너 이름을 제외한 경로에 지원됩니다. 허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br/><br/>예: myblobcontainer/myblobfolder/(더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples) 참조) |Copy/Lookup 활동의 경우 예, GetMetadata 활동의 경우 아니요 |
 | fileName | 지정된 "folderPath" 아래의 Blob에 대한 **이름 또는 와일드 카드 필터**입니다. 이 속성의 값을 지정하지 않으면 데이터 세트는 폴더에 있는 모든 Blob을 가리킵니다. <br/><br/>필터에 허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다.<br/>- 예 1: `"fileName": "*.csv"`<br/>- 예 2: `"fileName": "???20180427.txt"`<br/>`^`을 사용하여 실제 파일 이름 내에 와일드카드 또는 이 이스케이프 문자가 있는 경우 이스케이프합니다.<br/><br/>fileName 출력 데이터 집합에 대 한 지정 되지 않은 및 **preserveHierarchy** 활동 싱크에 지정 되지 않은 경우 복사 활동은 자동으로 다음 패턴으로 Blob 이름을 생성 합니다.* 활동 실행 ID GUID]. [지침 이면 병합]. [구성된 경우 형식]을 지정합니다. [압축 구성하는 경우]*"예를 들어, "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"; 쿼리 대신 테이블 이름을 사용하여 테이블 형식의 원본에서 복사하는 경우 이름 패턴은 *"[테이블 이름]입니다.] 형식]을 지정합니다. [압축 구성 하는 경우]*", 예를 들어 "MyTable.csv". |예 |
 | modifiedDatetimeStart | 파일은 특성: 마지막으로 수정된 특성을 기반으로 필터링합니다. 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br/><br/> 방대한 양의 파일에서 파일 필터를 수행하려는 경우 이 설정을 사용하도록 설정하면 데이터 이동의 전반적인 성능이 영향을 받을 수 있습니다. <br/><br/> 속성은 NULL일 수 있으며 이는 데이터 집합에 파일 특성 필터가 적용되지 않는다는 의미입니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다.| 예 |
@@ -638,7 +634,7 @@ Amazon S3/Azure Blob/Azure Data Lake 저장소 Gen2에서 Azure 데이터 레이
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 활동 소스의 형식 속성은 **BlobSource**로 설정해야 합니다. |yes |
+| type | 복사 활동 소스의 형식 속성은 **BlobSource**로 설정해야 합니다. |예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive를 true로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다.<br/>허용된 **true** 값은 true(기본값) 및 **false입니다.** | 예 |
 | maxConcurrentConnections | 저장소 저장소에 동시에 연결할 연결 수입니다. 데이터 저장소에 대한 동시 연결을 제한하려는 경우에만 지정합니다. | 예 |
 
@@ -678,7 +674,7 @@ Amazon S3/Azure Blob/Azure Data Lake 저장소 Gen2에서 Azure 데이터 레이
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 활동 싱크의 형식 속성은 **BlobSink로**설정해야 합니다. |yes |
+| type | 복사 활동 싱크의 형식 속성은 **BlobSink로**설정해야 합니다. |예 |
 | copyBehavior | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- 병합 계층 :</b>소스 폴더의 모든 파일은 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 병합되는 파일 이름은 지정된 파일 또는 Blob 이름이 적용됩니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 예 |
 | maxConcurrentConnections | 저장소 저장소에 동시에 연결할 연결 수입니다. 데이터 저장소에 대한 동시 연결을 제한하려는 경우에만 지정합니다. | 예 |
 

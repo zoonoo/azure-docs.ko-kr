@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: rogarana
-ms.openlocfilehash: 081ee364b3ddee5d1d1be75613309a4ae427066f
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: ae575eebf700f5495ea20d2bd3732ca21ad32315
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80666831"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011425"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Azure 파일 공유에 대한 SMB를 통해 Active Directory 인증 사용
 
@@ -36,7 +36,9 @@ SMB를 통해 Azure 파일 공유에 대한 AD를 사용하도록 설정하면 A
 Azure 파일 공유에 액세스하는 데 사용되는 AD ID는 표준 [역할 기반 액세스 제어(RBAC)](../../role-based-access-control/overview.md) 모델을 통해 공유 수준 파일 권한을 적용하기 위해 Azure AD에 동기화되어야 합니다. 기존 파일 서버에서 이월된 파일/디렉터리에 대한 [Windows 스타일 DACL은](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) 보존되고 적용됩니다. 이 기능은 엔터프라이즈 AD 도메인 인프라와 원활하게 통합됩니다. 온프레미 파일 서버를 Azure 파일 공유로 바꾸면 기존 사용자는 사용 중 자격 증명을 변경하지 않고 현재 클라이언트의 Azure 파일 공유에 단일 사인온 환경으로 액세스할 수 있습니다.  
 
 > [!NOTE]
-> 일반적인 사용 사례에 대한 Azure Files AD 인증을 설정하는 데 도움이 되는 두 [개의 비디오를](https://docs.microsoft.com/azure/storage/files/storage-files-introduction#videos) 게시하여 온-프레미스 파일 서버를 Azure 파일로 대체하고 Azure 파일을 Windows 가상 데스크톱의 프로필 컨테이너로 사용하는 단계별 지침을 게시했습니다.
+> 일반적인 사용 사례에 대한 Azure Files AD 인증을 설정하는 데 도움이 될 수 있도록 단계별 지침이 있는 [두 개의 비디오를](https://docs.microsoft.com/azure/storage/files/storage-files-introduction#videos) 게시했습니다. 
+> * 온-프레미스 파일 서버를 Azure 파일로 바꾸기(파일 및 AD 인증에 대한 개인 링크 설정 포함)
+> * Azure 파일을 Windows 가상 데스크톱의 프로필 컨테이너로 사용(AD 인증 및 FsLogix 구성에 대한 설정 포함)
  
 ## <a name="prerequisites"></a>사전 요구 사항 
 
@@ -111,8 +113,7 @@ cmdlet은 `Join-AzStorageAccountForAuth` 표시된 저장소 계정을 대신하
 ### <a name="12-domain-join-your-storage-account"></a>1.2 도메인이 스토리지 계정에 가입
 PowerShell에서 실행하기 전에 아래 매개 변수에서 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 > [!IMPORTANT]
-> 암호 만료를 적용하지 않는 OU(AD 조직 단위)를 제공하는 것이 좋습니다. 암호 만료가 구성된 OU를 사용하는 경우 암호 가 최대 사용 기간이 되기 전에 암호를 업데이트해야 합니다. AD 계정 암호를 업데이트하지 못하면 Azure 파일 공유에 액세스할 때 인증 오류가 발생합니다. 암호를 업데이트하는 방법을 알아보려면 [AD 계정 암호 업데이트를](#5-update-ad-account-password)참조하십시오.
-
+> 아래 도메인 조인 cmdlet은 AD의 저장소 계정(파일 공유)을 나타내는 AD 계정을 만듭니다. 컴퓨터 계정 또는 서비스 로그온 계정으로 등록하도록 선택할 수 있습니다. 컴퓨터 계정의 경우 AD에 기본 암호 만료 기간이 30일로 설정되어 있습니다. 마찬가지로 서비스 로그온 계정에는 AD 도메인 또는 조직 단위(OU)에 설정된 기본 암호 만료 기간이 있을 수 있습니다. AD 환경에서 구성되는 암호 만료 기간이 무엇인지 확인하고 최대 암호 사용 기간이 되기 전에 아래 AD 계정의 [AD 계정 암호를 업데이트할](#5-update-ad-account-password) 계획입니다. AD 계정 암호를 업데이트하지 못하면 Azure 파일 공유에 액세스할 때 인증 오류가 발생합니다. [AD에 새 AD 조직 단위(OU)를 만들고](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) 그에 따라 [컴퓨터 계정](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) 또는 서비스 로그온 계정에서 암호 만료 정책을 사용하지 않도록 설정하는 것을 고려할 수 있습니다. 
 
 ```PowerShell
 #Change the execution policy to unblock importing AzFilesHybrid.psm1 module
@@ -138,6 +139,11 @@ Join-AzStorageAccountForAuth `
         -Name "<storage-account-name-here>" `
         -DomainAccountType "ComputerAccount" `
         -OrganizationalUnitName "<ou-name-here>" or -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>"
+
+#If you don't provide the OU name as an input parameter, the AD identity that represents the storage account will be created under the root directory.
+
+#
+
 ```
 
 다음 설명에서는 `Join-AzStorageAccountForAuth` cmdlet이 실행될 때 수행되는 모든 작업을 요약합니다. 명령을 사용하지 않으려면 다음 단계를 수동으로 수행할 수 있습니다.

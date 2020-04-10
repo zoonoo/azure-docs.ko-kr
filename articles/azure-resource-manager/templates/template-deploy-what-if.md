@@ -3,14 +3,14 @@ title: 템플릿 배포 what-if(미리 보기)
 description: Azure 리소스 관리자 템플릿을 배포하기 전에 리소스에 어떤 변경 사항이 발생하는지 확인합니다.
 author: mumian
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/09/2020
 ms.author: jgao
-ms.openlocfilehash: 9e0d0d572e08961b585a93e66e400b8c2e54bf7f
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b8e94d0b4f364e2873dfc21792a67f11c33483bf
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886843"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010191"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>ARM 템플릿 배포 what-if 작업(미리 보기)
 
@@ -24,6 +24,14 @@ PowerShell 명령 또는 REST API 작업을 사용하여 what-if 작업을 사�
 ## <a name="install-powershell-module"></a>PowerShell 모듈 설치
 
 PowerShell에서 what-if를 사용하려면 PowerShell 갤러리에서 Az.Resources 모듈의 미리 보기 버전을 설치합니다.
+
+### <a name="install-preview-version"></a>미리 보기 버전 설치
+
+미리 보기 모듈을 설치하려면 다음을 사용하십시오.
+
+```powershell
+Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
+```
 
 ### <a name="uninstall-alpha-version"></a>알파 버전 제거
 
@@ -47,14 +55,6 @@ PowerShell에서 what-if를 사용하려면 PowerShell 갤러리에서 Az.Resour
    ```powershell
    Unregister-PSRepository -Name WhatIfRepository
    ```
-
-### <a name="install-preview-version"></a>미리 보기 버전 설치
-
-미리 보기 모듈을 설치하려면 다음을 사용하십시오.
-
-```powershell
-Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
-```
 
 당신은 what-if를 사용할 준비가 되었습니다.
 

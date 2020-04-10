@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 1ca439d1a82e3cdbe2cc0274cf63653d39048057
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a05d955be88f68b3c0db1f4a29b3f6e1155aa0d
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79532555"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992184"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HTTP 엔드포인트에서 데이터 복사
 
@@ -54,7 +54,7 @@ HTTP 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -66,10 +66,10 @@ HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | **type** 속성은 **HttpServer**로 설정해야 합니다. | yes |
-| url | 웹 서버의 기본 URL입니다. | yes |
-| enableServerCertificateValidation | HTTP 엔드포인트에 연결할 때 서버 SSL 인증서 유효성 검사를 사용할지 지정합니다. HTTPS 서버에서 자체 서명된 인증서를 사용하는 경우 이 속성을 **false**로 설정합니다. | 예<br /> (기본값은 **true)** |
-| authenticationType | 인증 유형을 지정합니다. 허용되는 값은 **Anonymous**, **Basic**, **Digest**, **Windows** 및 **ClientCertificate**입니다. <br><br> 이러한 인증 형식의 더 많은 속성 및 JSON 샘플은 이 표 뒤의 섹션을 참조하세요. | yes |
+| type | **type** 속성은 **HttpServer**로 설정해야 합니다. | 예 |
+| url | 웹 서버의 기본 URL입니다. | 예 |
+| enableServerCertificateValidation | HTTP 끝점에 연결할 때 서버 TLS/SSL 인증서 유효성 검사를 사용하도록 설정할지 여부를 지정합니다. HTTPS 서버에서 자체 서명된 인증서를 사용하는 경우 이 속성을 **false**로 설정합니다. | 예<br /> (기본값은 **true)** |
+| authenticationType | 인증 유형을 지정합니다. 허용되는 값은 **Anonymous**, **Basic**, **Digest**, **Windows** 및 **ClientCertificate**입니다. <br><br> 이러한 인증 형식의 더 많은 속성 및 JSON 샘플은 이 표 뒤의 섹션을 참조하세요. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [필수 구성 조건](#prerequisites) 섹션에서 자세히 알아보십시오. 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |예 |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Basic, Digest 또는 Windows 인증 사용
@@ -78,8 +78,8 @@ HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| userName | HTTP 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | yes |
-| password | 사용자(**userName** 값)의 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | yes |
+| userName | HTTP 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예 |
+| password | 사용자(**userName** 값)의 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 예 |
 
 **예제**
 
@@ -176,7 +176,7 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 | 속성    | 설명                                                  | 필수 |
 | ----------- | ------------------------------------------------------------ | -------- |
-| type        | 데이터 집합에서 `location` 아래의 형식 속성은 **HttpServerLocation**로 설정해야 합니다. | yes      |
+| type        | 데이터 집합에서 `location` 아래의 형식 속성은 **HttpServerLocation**로 설정해야 합니다. | 예      |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. HTTP 커넥터는 결합된 URL에서 데이터를 `[URL specified in linked service][relative URL specified in dataset]`복사합니다.   | 예       |
 
 > [!NOTE]
@@ -222,7 +222,7 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 | 속성                 | 설명                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | 아래의 `storeSettings` 형식 속성은 **HttpReadSettings**로 설정해야 합니다. | yes      |
+| type                     | 아래의 `storeSettings` 형식 속성은 **HttpReadSettings**로 설정해야 합니다. | 예      |
 | requestMethod            | HTTP 메서드입니다. <br>허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 예       |
 | 애디날헤더         | 추가 HTTP 요청 헤더입니다.                             | 예       |
 | requestBody              | HTTP 요청의 본문입니다.                               | 예       |
@@ -283,7 +283,7 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 **형식** 속성을 **HttpFile**로 설정해야 합니다. | yes |
+| type | 데이터 집합의 **형식** 속성을 **HttpFile**로 설정해야 합니다. | 예 |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. | 예 |
 | requestMethod | HTTP 메서드입니다. 허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 예 |
 | additionalHeaders | 추가 HTTP 요청 헤더입니다. | 예 |
@@ -337,7 +337,7 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 활동 소스의 **형식** 속성은 **HttpSource**로 설정해야 합니다. | yes |
+| type | 복사 활동 소스의 **형식** 속성은 **HttpSource**로 설정해야 합니다. | 예 |
 | httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40**입니다.  | 예 |
 
 **예제**

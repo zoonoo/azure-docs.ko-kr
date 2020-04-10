@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Azure 개발자 공간에 대한 몇 가지 일반적인 질문에 대한 답변 찾기
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: e7b4620faa01aa9f6d46c34bafb1c623c338beb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f3ac6ec3c3ddbe8ff508befba2eb4a8423e66f07
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240510"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998726"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Azure 개발자 공간에 대해 자주 묻는 질문
 
@@ -81,6 +81,14 @@ Visual Studio를 사용하여 프로젝트를 준비할 때 서비스에 대한 
 
 현재 Azure 개발자 공간은 Azure 개발자 공간이 활성화된 AKS 클러스터에서 [포드 관리 ID를][aks-pod-managed-id] 사용하는 것을 지원하지 않습니다. 포드 관리 ID가 설치되어 있고 제거하려는 경우 [제거 노트에서][aks-pod-managed-id-uninstall]자세한 내용을 찾을 수 있습니다.
 
+## <a name="can-i-use-azure-dev-spaces-with-multiple-microservices-in-an-application"></a>응용 프로그램에서 여러 마이크로 서비스와 함께 Azure 개발자 공간을 사용할 수 있습니까?
+
+예. 여러 마이크로 서비스가 있는 응용 프로그램에서 Azure 개발자 공간을 사용할 수 있지만 루트에서 개별 마이크로 서비스를 준비하고 실행해야 합니다. Azure 개발자 공간 CLI, Azure 개발자 공간 VS 코드 확장 및 Visual Studio Azure 개발 워크로드는 *azds.yaml* 파일이 실행 및 디버깅을 위해 마이크로 서비스의 루트에 있을 것으로 예상합니다. 단일 응용 프로그램에서 여러 마이크로 서비스의 예는 [Bike 공유 샘플 응용][bike-sharing] 프로그램을 참조하십시오.
+
+Visual Studio 코드에서는 단일 [작업 영역에서 별도의 프로젝트를 열고][vs-code-multi-root-workspaces] Azure 개발자 공간을 통해 별도로 디버깅할 수 있습니다. 각 프로젝트는 Azure 개발자 공간에 대해 독립적이고 준비되어야 합니다.
+
+Visual Studio에서 Azure 개발자 공간을 통해 디버깅하기 위한 .NET Core 솔루션을 구성할 수 있습니다.
+
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
 [aks-auth-range-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
@@ -89,6 +97,7 @@ Visual Studio를 사용하여 프로젝트를 준비할 때 서비스에 대한 
 [aks-pod-managed-id]: ../aks/developer-best-practices-pod-security.md#use-pod-managed-identities
 [aks-pod-managed-id-uninstall]: https://github.com/Azure/aad-pod-identity#uninstall-notes
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
+[bike-sharing]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
 [dev-spaces-prep]: how-dev-spaces-works-prep.md
 [dev-spaces-routing]: how-dev-spaces-works-routing.md#how-routing-works
 [ingress-nginx]: how-to/ingress-https-nginx.md#configure-a-custom-nginx-ingress-controller
@@ -97,4 +106,5 @@ Visual Studio를 사용하여 프로젝트를 준비할 때 서비스에 대한 
 [ingress-https-traefik]: how-to/ingress-https-traefik.md#configure-the-traefik-ingress-controller-to-use-https
 [quickstart-cli]: quickstart-cli.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
+[vs-code-multi-root-workspaces]: https://code.visualstudio.com/docs/editor/multi-root-workspaces
 [windows-containers]: how-to/run-dev-spaces-windows-containers.md

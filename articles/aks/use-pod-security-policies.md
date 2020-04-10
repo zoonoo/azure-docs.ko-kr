@@ -3,13 +3,13 @@ title: Azure Kubernetes 서비스(AKS)에서 포드 보안 정책 사용
 description: Azure Kubernetes 서비스(AKS)에서 PodSecurityPolicy를 사용하여 포드 입장을 제어하는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 04/17/2019
-ms.openlocfilehash: 74177136a7a61186ab1d273b57dbfce550a18ecf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/08/2020
+ms.openlocfilehash: 9e3a17e4775150247ef7924dffec68cc86a0bcac
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77914537"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998349"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>미리 보기 - AZURE Kubernetes 서비스(AKS)에서 포드 보안 정책을 사용하여 클러스터 를 보호합니다.
 
@@ -103,17 +103,17 @@ NAME         PRIV    CAPS   SELINUX    RUNASUSER          FSGROUP     SUPGROUP  
 privileged   true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *     configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
 ```
 
-*권한 있는* 포드 보안 정책은 AKS 클러스터의 인증된 모든 사용자에게 적용됩니다. 이 할당은 ClusterRoles 및 ClusterRole바인딩에 의해 제어됩니다. [kubectl 을 사용하여 clusterrolebindings][kubectl-get] 명령을 사용하고 *기본 :권한:* 바인딩을 검색합니다.
+*권한 있는* 포드 보안 정책은 AKS 클러스터의 인증된 모든 사용자에게 적용됩니다. 이 할당은 ClusterRoles 및 ClusterRole바인딩에 의해 제어됩니다. [kubectl 을 사용하여 역할 바인딩][kubectl-get] 명령을 사용하고 기본 *:권한:* *kube 시스템* 네임 스페이스에서 바인딩을 검색합니다.
 
 ```console
-kubectl get clusterrolebindings default:privileged -o yaml
+kubectl get rolebindings default:privileged -n kube-system -o yaml
 ```
 
 다음 압축 된 출력에 표시 된 대로 *psp:제한* ClusterRole 모든 시스템에 할당 *됩니다.: 인증 된* 사용자. 이 기능은 고유한 정책을 정의하지 않고 기본 수준의 제한을 제공합니다.
 
 ```
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
+kind: RoleBinding
 metadata:
   [...]
   name: default:privileged
@@ -125,7 +125,7 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: Group
-  name: system:authenticated
+  name: system:masters
 ```
 
 자체 포드 보안 정책을 만들기 전에 이러한 기본 정책이 사용자 요청과 상호 작용하여 포드를 예약하는 방법을 이해하는 것이 중요합니다. 다음 몇 섹션에서는 이러한 기본 정책이 작동하는 지 확인하기 위해 일부 창을 예약해 보겠습니다.
@@ -195,7 +195,7 @@ kubectl-nonadminuser apply -f nginx-privileged.yaml
 ```console
 $ kubectl-nonadminuser apply -f nginx-privileged.yaml
 
-Error from server (Forbidden): error when creating "nginx-privileged.yaml": pods "nginx-privileged" is forbidden: unable to validate against any pod security policy: [spec.containers[0].securityContext.privileged: Invalid value: true: Privileged containers are not allowed]
+Error from server (Forbidden): error when creating "nginx-privileged.yaml": pods "nginx-privileged" is forbidden: unable to validate against any pod security policy: []
 ```
 
 포드가 일정 단계에 도달하지 않으므로 계속 진행하기 전에 삭제할 리소스가 없습니다.
@@ -223,44 +223,15 @@ spec:
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml
 ```
 
-Kubernetes 스케줄러는 포드 요청을 수락합니다. 그러나 을 사용하여 `kubectl get pods`포드의 상태를 보면 오류가 있습니다.
+다음 예제 출력과 같이 포드를 예약하지 못합니다.
 
 ```console
-$ kubectl-nonadminuser get pods
+$ kubectl-nonadminuser apply -f nginx-unprivileged.yaml
 
-NAME                 READY   STATUS                       RESTARTS   AGE
-nginx-unprivileged   0/1     CreateContainerConfigError   0          26s
+Error from server (Forbidden): error when creating "nginx-unprivileged.yaml": pods "nginx-unprivileged" is forbidden: unable to validate against any pod security policy: []
 ```
 
-[kubectl 설명 포드][kubectl-describe] 명령을 사용하여 포드의 이벤트를 살펴봅니다. 다음 압축 된 예제는 컨테이너를 보여 주며 이미지에는 루트 사용 권한이 필요합니다.
-
-```console
-$ kubectl-nonadminuser describe pod nginx-unprivileged
-
-Name:               nginx-unprivileged
-Namespace:          psp-aks
-Priority:           0
-PriorityClassName:  <none>
-Node:               aks-agentpool-34777077-0/10.240.0.4
-Start Time:         Thu, 28 Mar 2019 22:05:04 +0000
-[...]
-Events:
-  Type     Reason     Age                     From                               Message
-  ----     ------     ----                    ----                               -------
-  Normal   Scheduled  7m14s                   default-scheduler                  Successfully assigned psp-aks/nginx-unprivileged to aks-agentpool-34777077-0
-  Warning  Failed     5m2s (x12 over 7m13s)   kubelet, aks-agentpool-34777077-0  Error: container has runAsNonRoot and image will run as root
-  Normal   Pulled     2m10s (x25 over 7m13s)  kubelet, aks-agentpool-34777077-0  Container image "nginx:1.14.2" already present on machine
-```
-
-권한 있는 액세스를 요청하지 않았더라도 NGINX의 컨테이너 이미지는 포트 *80에*대한 바인딩을 만들어야 합니다. 포트 *1024* 이하를 바인딩하려면 *루트* 사용자가 필요합니다. 포드가 시작하려고 하면 *제한된* 포드 보안 정책이 이 요청을 거부합니다.
-
-이 예제에서는 AKS에서 만든 기본 포드 보안 정책이 적용되고 사용자가 수행할 수 있는 작업을 제한하고 있음을 보여 주며 이를 제한합니다. 기본 NGINX 포드가 거부될 것으로 예상하지 않을 수 있으므로 이러한 기본 정책의 동작을 이해하는 것이 중요합니다.
-
-다음 단계로 이동하기 전에 [kubectl 삭제 포드][kubectl-delete] 명령을 사용하여 이 테스트 포드를 삭제합니다.
-
-```console
-kubectl-nonadminuser delete -f nginx-unprivileged.yaml
-```
+포드가 일정 단계에 도달하지 않으므로 계속 진행하기 전에 삭제할 리소스가 없습니다.
 
 ## <a name="test-creation-of-a-pod-with-a-specific-user-context"></a>특정 사용자 컨텍스트가 있는 포드 만들기 테스트
 
@@ -287,61 +258,15 @@ spec:
 kubectl-nonadminuser apply -f nginx-unprivileged-nonroot.yaml
 ```
 
-Kubernetes 스케줄러는 포드 요청을 수락합니다. 그러나 을 사용하여 `kubectl get pods`Pod의 상태를 보면 이전 예제와 다른 오류가 있습니다.
+다음 예제 출력과 같이 포드를 예약하지 못합니다.
 
 ```console
-$ kubectl-nonadminuser get pods
+$ kubectl-nonadminuser apply -f nginx-unprivileged-nonroot.yaml
 
-NAME                         READY   STATUS              RESTARTS   AGE
-nginx-unprivileged-nonroot   0/1     CrashLoopBackOff    1          3s
+Error from server (Forbidden): error when creating "nginx-unprivileged-nonroot.yaml": pods "nginx-unprivileged-nonroot" is forbidden: unable to validate against any pod security policy: []
 ```
 
-[kubectl 설명 포드][kubectl-describe] 명령을 사용하여 포드의 이벤트를 살펴봅니다. 다음 압축 예제에서는 포드 이벤트를 보여 주며 다음과 같은
-
-```console
-$ kubectl-nonadminuser describe pods nginx-unprivileged
-
-Name:               nginx-unprivileged
-Namespace:          psp-aks
-Priority:           0
-PriorityClassName:  <none>
-Node:               aks-agentpool-34777077-0/10.240.0.4
-Start Time:         Thu, 28 Mar 2019 22:05:04 +0000
-[...]
-Events:
-  Type     Reason     Age                   From                               Message
-  ----     ------     ----                  ----                               -------
-  Normal   Scheduled  2m14s                 default-scheduler                  Successfully assigned psp-aks/nginx-unprivileged-nonroot to aks-agentpool-34777077-0
-  Normal   Pulled     118s (x3 over 2m13s)  kubelet, aks-agentpool-34777077-0  Container image "nginx:1.14.2" already present on machine
-  Normal   Created    118s (x3 over 2m13s)  kubelet, aks-agentpool-34777077-0  Created container
-  Normal   Started    118s (x3 over 2m12s)  kubelet, aks-agentpool-34777077-0  Started container
-  Warning  BackOff    105s (x5 over 2m11s)  kubelet, aks-agentpool-34777077-0  Back-off restarting failed container
-```
-
-이벤트는 컨테이너가 만들어지고 시작되었음을 나타냅니다. 포드가 실패한 상태에 있는 이유에 대해 즉시 명확한 것은 없습니다. [kubectl][kubectl-logs] 로그 명령을 사용하여 포드 로그를 살펴 보겠습니다.
-
-```console
-kubectl-nonadminuser logs nginx-unprivileged-nonroot --previous
-```
-
-다음 예제 로그 출력은 NGINX 구성 자체 내에서 서비스를 시작하려고 할 때 사용 권한 오류가 있음을 나타냅니다. 이 오류는 포트 80에 바인딩해야 하므로 다시 발생합니다. 포드 사양에서 일반 사용자 계정을 정의했지만 이 사용자 계정은 NGINX 서비스가 제한된 포트를 시작하고 바인딩하기 위한 OS 수준에서 충분하지 않습니다.
-
-```console
-$ kubectl-nonadminuser logs nginx-unprivileged-nonroot --previous
-
-2019/03/28 22:38:29 [warn] 1#1: the "user" directive makes sense only if the master process runs with super-user privileges, ignored in /etc/nginx/nginx.conf:2
-nginx: [warn] the "user" directive makes sense only if the master process runs with super-user privileges, ignored in /etc/nginx/nginx.conf:2
-2019/03/28 22:38:29 [emerg] 1#1: mkdir() "/var/cache/nginx/client_temp" failed (13: Permission denied)
-nginx: [emerg] mkdir() "/var/cache/nginx/client_temp" failed (13: Permission denied)
-```
-
-기본 pod 보안 정책의 동작을 이해하는 것이 중요합니다. 이 오류는 추적하기가 조금 어려웠으며 기본 NGINX 포드가 거부될 것으로 예상하지 않을 수 있습니다.
-
-다음 단계로 이동하기 전에 [kubectl 삭제 포드][kubectl-delete] 명령을 사용하여 이 테스트 포드를 삭제합니다.
-
-```console
-kubectl-nonadminuser delete -f nginx-unprivileged-nonroot.yaml
-```
+포드가 일정 단계에 도달하지 않으므로 계속 진행하기 전에 삭제할 리소스가 없습니다.
 
 ## <a name="create-a-custom-pod-security-policy"></a>사용자 지정 포드 보안 정책 만들기
 
@@ -383,7 +308,7 @@ $ kubectl get psp
 
 NAME                  PRIV    CAPS   SELINUX    RUNASUSER          FSGROUP     SUPGROUP    READONLYROOTFS   VOLUMES
 privileged            true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
-psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *          configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
+psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *          
 ```
 
 ## <a name="allow-user-account-to-use-the-custom-pod-security-policy"></a>사용자 계정이 사용자 지정 포드 보안 정책을 사용하도록 허용

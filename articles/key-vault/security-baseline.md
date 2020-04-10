@@ -2,18 +2,17 @@
 title: 키 볼트에 대한 Azure 보안 기준
 description: 키 볼트에 대한 Azure 보안 기준
 author: msmbaldwin
-manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/28/2020
+ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: cc76f8c87eca059db85a68acbe4c317cf4904d39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b2ba16bdc3501059266537db03d38bdda0f1f559
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79457188"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008984"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>키 볼트에 대한 Azure 보안 기준
 
@@ -29,10 +28,16 @@ ms.locfileid: "79457188"
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: 가상 네트워크에서 네트워크 보안 그룹 또는 Azure 방화벽을 사용하여 리소스 보호
 
-지침 : Azure 키 자격 증명 모음을 Azure 개인 링크와 **통합합니다.** Azure 개인 링크 서비스를 사용하면 가상 네트워크의 전용 엔드포인트를 통해 Azure 서비스(예: Azure Key Vault) 및 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다.
+지침 : Azure 키 자격 증명 모음을 Azure 개인 링크와 **통합합니다.** 
+
+Azure 개인 링크 서비스를 사용하면 가상 네트워크의 전용 엔드포인트를 통해 Azure 서비스(예: Azure Key Vault) 및 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다.
+
 Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 서비스에 비공개로 안전하게 연결하는 네트워크 인터페이스입니다. 프라이빗 엔드포인트는 VNet의 개인 IP 주소를 사용하여 서비스를 VNet으로 효과적으로 가져옵니다. 서비스에 대한 모든 트래픽은 프라이빗 엔드포인트를 통해 라우팅할 수 있으므로 게이트웨이, NAT 디바이스, ExpressRoute 또는 VPN 연결 또는 공용 IP 주소가 필요하지 않습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. Azure 리소스의 인스턴스에 연결하여 액세스 제어에서 가장 높은 수준의 세분성을 제공할 수 있습니다.
 
-키 볼트를 Azure 개인 링크와 통합하는 방법:https://docs.microsoft.com/azure/key-vault/private-link-service
+키 볼트를 Azure 개인 링크와 통합하는 방법:
+
+https://docs.microsoft.com/azure/key-vault/private-link-service
+
 
 **Azure 보안 센터 모니터링**: 예
 
@@ -41,7 +46,6 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 서�
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1.2: Vnet, 서브넷 및 NIC의 구성 및 트래픽을 모니터링하고 기록합니다.
 
 **지침**: Azure 보안 센터를 사용하고 네트워크 보호 권장 사항을 따라 Azure에서 키 볼트로 구성된 리소스를 보호합니다. 
-
 
 Azure 보안 센터에서 제공하는 네트워크 보안에 대한 자세한 내용은 다음을 참조하십시오. 
 
@@ -55,6 +59,7 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 **지침**: 해당되지 않음; 이 권장 사항은 Azure 앱 서비스에서 실행중인 웹 응용 프로그램 또는 계산 리소스를 위한 것입니다.
 
+
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
 **책임**: 해당되지 않음
@@ -64,7 +69,10 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 **지침**: 분산 서비스 거부 공격로부터 보호하기 위해 키 볼트 인스턴스와 연결된 Azure 가상 네트워크에서 Azure DDoS 보호 표준을 활성화합니다. Azure 보안 센터 통합 위협 인텔리전스를 사용하여 알려진 악성 또는 사용되지 않는 인터넷 IP 주소와의 통신을 거부합니다.
 
  
-Azure 포털: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection Azure 보안 센터의 Azure 서비스 계층에 대한 위협 검색을 사용하여 Azure DDoS 보호 표준 관리:https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
+Azure 포털을 사용하여 Azure DDoS 보호 표준을 관리합니다.https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
+
+Azure 보안 센터의 Azure 서비스 계층에 대한 위협 검색:https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
+
 
 **Azure 보안 센터 모니터링**: 예
 
@@ -73,9 +81,13 @@ Azure 포털: https://docs.microsoft.com/azure/virtual-network/manage-ddos-prote
 ### <a name="15-record-network-packets-and-flow-logs"></a>1.5: 네트워크 패킷 및 흐름 로그 기록
 
 **지침**: Azure 키 볼트는 NSG(네트워크 보안 그룹)를 사용하지 않으며 Azure 키 자격 증명 모음에 대한 흐름 로그는 캡처되지 않습니다. 대신 Azure 개인 링크를 사용하여 Azure Key Vault 인스턴스를 보호하고 진단 설정을 사용하여 메트릭 및 감사 이벤트를 기록합니다.
-키 볼트를 Azure 개인 링크와 통합합니다.https://docs.microsoft.com/azure/key-vault/private-link-service
+
+키 볼트를 Azure 개인 링크와 통합합니다.
+
+https://docs.microsoft.com/azure/key-vault/private-link-service
 
 Azure 키 볼트 로깅:https://docs.microsoft.com/azure/key-vault/key-vault-logging
+
 
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
@@ -86,11 +98,12 @@ Azure 키 볼트 로깅:https://docs.microsoft.com/azure/key-vault/key-vault-log
 
 **지침**: Azure 키 자격 증명 모음에 대한 고급 위협 보호(ATP)를 구성하여 이 요구 사항을 충족할 수 있습니다. ATP는 추가 보안 인텔리전스 계층을 제공합니다. 이 도구는 Azure Key Vault 계정에 액세스하거나 악용하려는 잠재적으로 유해한 시도를 감지합니다.
 
-
 Azure Security Center에서 비정상적인 활동을 감지하면 경고가 표시됩니다. 또한 의심스러운 활동에 대한 세부 정보와 확인된 위협을 조사하고 해결하는 방법에 대한 권장 사항을 구독 관리자에게 이메일로 보냅니다.
 
+Azure 키 자격 증명 모음에 대한 고급 위협 보호 설정:
 
-Azure 키 자격 증명 모음에 대한 고급 위협 보호 설정:https://docs.microsoft.com/azure/security-center/advanced-threat-protection-key-vault
+https://docs.microsoft.com/azure/security-center/advanced-threat-protection-key-vault
+
 
 
 **Azure 보안 센터 모니터링**: 예
@@ -101,6 +114,7 @@ Azure 키 자격 증명 모음에 대한 고급 위협 보호 설정:https://doc
 
 **지침**: 해당되지 않음; 이 권장 사항은 Azure 앱 서비스에서 실행중인 웹 응용 프로그램 또는 계산 리소스를 위한 것입니다.
 
+
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
 **책임**: 해당되지 않음
@@ -109,8 +123,8 @@ Azure 키 자격 증명 모음에 대한 고급 위협 보호 설정:https://doc
 
 **지침**: Azure Key Vault 인스턴스에 액세스해야 하는 리소스의 경우 Azure Key Vault에 대한 Azure 서비스 태그를 사용하여 네트워크 보안 그룹 또는 Azure 방화벽에서 네트워크 액세스 제어를 정의합니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 규칙의 적절한 소스 또는 대상 필드에 서비스 태그 이름(예: ApiManagement)을 지정하면 해당 서비스에 대한 트래픽을 허용하거나 거부할 수 있습니다. Microsoft는 서비스 태그로 둘러싸인 주소 접두사를 관리하고 주소가 변경될 때 서비스 태그를 자동으로 업데이트합니다.
 
-
 Azure 서비스 태그 개요:https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
@@ -118,21 +132,22 @@ Azure 서비스 태그 개요:https://docs.microsoft.com/azure/virtual-network/s
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: 네트워크 장치에 대한 표준 보안 구성 유지
 
-**지침**: Azure 키 볼트 인스턴스와 연결된 네트워크 리소스에 대한 표준 보안 구성을 정의하고 구현합니다. "Microsoft.KeyVault" 및 "Microsoft.Network" 네임스페이스에서 Azure 정책 별칭을 사용하여 Azure Key Vault 인스턴스의 네트워크 구성을 감사하거나 적용하는 사용자 지정 정책을 만듭니다. 또한 Azure Key Vault와 관련된 기본 제공 정책 정의를 사용할 [Key Vault should use a virtual network service endpoint](key-vault-overview-vnet-service-endpoints.md) 수도 있습니다.
+**지침**: Azure 키 볼트 인스턴스와 연결된 네트워크 리소스에 대한 표준 보안 구성을 정의하고 구현합니다. "Microsoft.KeyVault" 및 "Microsoft.Network" 네임스페이스에서 Azure 정책 별칭을 사용하여 Azure Key Vault 인스턴스의 네트워크 구성을 감사하거나 적용하는 사용자 지정 정책을 만듭니다. 다음과 같은 Azure Key Vault와 관련된 기본 제공 정책 정의를 사용할 수도 있습니다.
 
+Key Vault는 가상 네트워크 서비스 엔드포인트를 사용해야 함
 
 자습서: 규정 준수를 적용하기 위한 정책을 만들고 관리합니다.
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-
 Azure 정책 샘플:
 
-https://docs.microsoft.com/azure/governance/policy/samples
+https://docs.microsoft.com/azure/governance/policy/samples/#networ
 
 빠른 시작: 포털에서 청사진을 정의하고 할당합니다.
 
 https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
+
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
@@ -142,16 +157,14 @@ https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 **지침**: Azure Key Vault 인스턴스에 대한 네트워크 보안 및 트래픽 흐름과 관련된 리소스에 태그를 사용하여 메타데이터 및 논리 조직을 제공합니다.
 
-
 "태그 및 해당 값 필요"와 같이 태그 지정과 관련된 기본 제공 Azure 정책 정의를 사용하여 모든 리소스가 태그로 만들어지도록 하고 기존 태그가 지정되지 않은 리소스를 알려줍니다.
 
-
 Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기반으로 리소스에 대한 작업을 조회하거나 수행할 수 있습니다.
-
 
 태그를 사용하여 Azure 리소스를 구성합니다.
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
@@ -165,10 +178,10 @@ Azure 활동 로그 이벤트를 보고 검색합니다.
 
 https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
 
-
 Azure Monitor를 사용하여 활동 로그 경고를 생성, 보기 및 관리합니다.
 
 https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
@@ -181,6 +194,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: 승인된 시간 동기화 소스 사용
 
 **지침**: 해당되지 않음; Microsoft는 로그의 타임스탬프에 대해 Azure 키 볼트와 같은 Azure 리소스에 사용되는 시간 원본을 유지 관리합니다.
+
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
@@ -198,6 +212,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
 https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
+
 **Azure 보안 센터 모니터링**: 예
 
 **책임**: 고객
@@ -210,6 +225,7 @@ Azure 키 볼트 로깅:
 
 https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
+
 **Azure 보안 센터 모니터링**: 예
 
 **책임**: 고객
@@ -217,6 +233,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-logging
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4: 운영 체제에서 보안 로그 수집
 
 **지침**: 해당되지 않음; 이 권장 사항은 계산 리소스를 위한 것입니다.
+
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
@@ -228,6 +245,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
 데이터 보존 기간 변경:https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
+
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
 **책임**: 고객
@@ -236,13 +254,18 @@ https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
 **지침:** 로그를 분석 및 모니터링하여 비정상적인 동작을 검사하고 Azure Key Vault로 보호된 리소스에 대한 결과를 정기적으로 검토합니다. Azure 모니터의 로그 분석 작업 영역을 사용하여 로그를 검토하고 로그 데이터에 대한 쿼리를 수행합니다. 또는 Azure Sentinel 또는 타사 SIEM에 대한 데이터를 활성화및 온보드할 수 있습니다. 
 
+빠른 시작: 온보드 Azure 센티넬:
 
-빠른 시작: 온보드 Azure 센티넬:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
+Azure 모니터에서 로그 분석 시작:
 
-Azure 모니터에서 로그 분석 시작:https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
+https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
 
-Azure 모니터에서 로그 쿼리를 시작하십시오.https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
+Azure 모니터에서 로그 쿼리를 시작하십시오.
+
+https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
+
 
 **Azure 보안 센터 모니터링**: 예
 
@@ -260,10 +283,10 @@ Azure 보안 센터에서 보안 경고를 관리하고 응답합니다.
 
 https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts
 
-
 Azure 모니터 경고를 사용하여 이벤트에 응답합니다.
 
 https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
+
 
 **Azure 보안 센터 모니터링**: 예
 
@@ -273,6 +296,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 **지침**: 해당되지 않음; Azure Key Vault는 맬웨어 방지 관련 로그를 처리하거나 생성하지 않습니다.
 
+
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
 **책임**: 해당되지 않음
@@ -281,6 +305,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 **지침**: 해당되지 않음; Azure 키 볼트는 DNS 관련 로그를 처리하거나 생성하지 않습니다.
 
+
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
 **책임**: 해당되지 않음
@@ -288,6 +313,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 ### <a name="210-enable-command-line-audit-logging"></a>2.10: 명령줄 감사 로깅 사용
 
 **지침**: 해당되지 않음; 이 권장 사항은 계산 리소스를 위한 것입니다.
+
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
@@ -301,12 +327,16 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 **지침**: Azure Active Directory에 등록된 응용 프로그램및 Azure Key Vault 키, 비밀 및 인증서에 액세스할 수 있는 모든 사용자 계정의 인벤토리를 유지 관리합니다. Azure 포털 또는 PowerShell을 사용하여 키 볼트 액세스를 쿼리하고 조정할 수 있습니다. PowerShell에서 액세스를 보려면 다음 명령을 사용합니다.
 
-
 (Get-AzResource -ResourceId [KeyVaultResourceID]). 속성.액세스 정책
 
-Azure Active 디렉터리로 응용 프로그램 등록:https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#registering-an-application-with-azure-active-directory
+Azure Active 디렉터리로 응용 프로그램 등록:
 
-키 자격 증명 모음에 대한 보안 액세스:https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
+https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#registering-an-application-with-azure-active-directory
+
+키 자격 증명 모음에 대한 보안 액세스:
+
+https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
+
 
 **Azure 보안 센터 모니터링**: 예
 
@@ -316,6 +346,7 @@ Azure Active 디렉터리로 응용 프로그램 등록:https://docs.microsoft.c
 
 **지침**: 해당되지 않음; Azure Key Vault는 Active Directory에서 인증을 제공하고 역할 기반 액세스 제어로 보호하기 때문에 기본 암호 개념을 가지고 있지 않습니다.
 
+
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
 **책임**: 해당되지 않음
@@ -324,10 +355,10 @@ Azure Active 디렉터리로 응용 프로그램 등록:https://docs.microsoft.c
 
 **지침**: Azure Key Vault 인스턴스에 액세스할 수 있는 전용 관리 계정 사용에 대한 표준 운영 절차를 만듭니다. Azure 보안 센터 ID 및 액세스 관리(현재 미리 보기)를 사용하여 활성 관리 계정 수를 모니터링합니다.
 
-
 ID 및 액세스 모니터링(미리 보기):
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
+
 
 **Azure 보안 센터 모니터링**: 예
 
@@ -337,10 +368,10 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **지침**: AppId, TenantID 및 ClientSecret와 함께 Azure 서비스 주체를 사용하여 응용 프로그램을 원활하게 인증하고 Azure Key Vault 암호에 액세스하는 데 사용할 토큰을 검색합니다.
 
-
 .NET을 사용하여 Azure 키 자격 증명 모음에 대한 서비스 간 인증:
 
 https://docs.microsoft.com/azure/key-vault/service-to-service-authentication
+
 
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
@@ -351,15 +382,14 @@ https://docs.microsoft.com/azure/key-vault/service-to-service-authentication
 
 **지침**: Azure Active Directory 다단계 인증을 활성화하고 Azure 보안 센터 ID 및 액세스 관리(현재 미리 보기) 권장 사항을 따라 이벤트 허브 지원 리소스를 보호합니다.
 
-
 클라우드 기반 Azure 다단계 인증 배포 계획:
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
-
 ID 및 액세스 모니터링(미리 보기):
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
+
 
 **Azure 보안 센터 모니터링**: 예
 
@@ -372,6 +402,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 권한 있는 액세스 워크스테이션:https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations 
 
 클라우드 기반 Azure 다단계 인증 배포 계획:https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+
 
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
@@ -395,6 +426,7 @@ Azure Active Directory 위험 검색:https://docs.microsoft.com/azure/active-dir
 Azure 포털에서 작업 그룹을 만들고 관리합니다.https://docs.microsoft.com/azure/azure-monitor/platform/action-groups
 
 
+
 **Azure 보안 센터 모니터링**: 예
 
 **책임**: 고객
@@ -404,6 +436,7 @@ Azure 포털에서 작업 그룹을 만들고 관리합니다.https://docs.micro
 **안내**: 조건부 액세스 정책의 위치 조건을 구성하고 지정된 위치를 관리합니다. 명명된 위치를 사용하여 IP 주소 범위 또는 국가 및 지역의 논리적 그룹을 만들 수 있습니다. 키 볼트 비밀과 같은 중요한 리소스에 대한 액세스를 구성된 명명된 위치로 제한할 수 있습니다.
 
 Azure Active 디렉터리 조건부 액세스의 위치 조건은 무엇입니까?:https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
+
 
 
 **Azure 보안 센터 모니터링**: 현재 사용할 수 없음
@@ -416,7 +449,10 @@ Azure Active 디렉터리 조건부 액세스의 위치 조건은 무엇입니�
 
  
 
-빠른 시작: Azure Active 디렉터리에서 새 테넌트를 만듭니다.https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
+빠른 시작: Azure Active 디렉터리에서 새 테넌트를 만듭니다.
+
+https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
+
 
 **Azure 보안 센터 모니터링**: 현재 사용할 수 없음
 
@@ -426,15 +462,14 @@ Azure Active 디렉터리 조건부 액세스의 위치 조건은 무엇입니�
 
 **지침**: Azure 키 볼트 관리 역할을 사용하여 오래된 계정을 검색하는 데 도움이 되는 AAD(Azure Active Directory) 로그를 검토합니다. 또한 AAD 액세스 검토를 사용하여 그룹 구성원 자격, Azure Key Vault에 액세스하는 데 사용할 수 있는 엔터프라이즈 응용 프로그램에 대한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 사용자 액세스는 90일마다 정기적으로 검토하여 올바른 사용자만 계속 액세스할 수 있도록 해야 합니다.
 
-
 Azure Active Directory 보고서 및 모니터링 설명서는 다음과 같습니다.
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/
 
-
 Azure AD 액세스 리뷰는 무엇입니까?:
 
 https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
+
 
 **Azure 보안 센터 모니터링**: 예
 
@@ -447,6 +482,8 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 Azure AD 로그를 Azure 모니터 로그와 통합합니다.https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
 이전 키 볼트 솔루션에서 마이그레이션:https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault#migrating-from-the-old-key-vault-solution
+
+
 
 **Azure 보안 센터 모니터링**: 예
 
@@ -462,6 +499,7 @@ Azure Active Directory 포털에서 위험한 로그인 보고서:https://docs.m
 
 Azure 센티넬 온보보드 방법:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
+
 **Azure 보안 센터 모니터링**: 예
 
 **책임**: 고객
@@ -471,6 +509,7 @@ Azure 센티넬 온보보드 방법:https://docs.microsoft.com/azure/sentinel/qu
 **지침**: 해당되지 않음; Azure 키 자격 증명 모음에 대 한 지원 되지 않는 고객 잠금 상자입니다.
 
 일반 공급에서 지원되는 서비스 및 시나리오:https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+
 
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
@@ -488,6 +527,7 @@ Azure 센티넬 온보보드 방법:https://docs.microsoft.com/azure/sentinel/qu
 태그를 사용하여 Azure 리소스를 구성합니다.https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 
+
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
 **책임**: 고객
@@ -501,6 +541,7 @@ Azure 센티넬 온보보드 방법:https://docs.microsoft.com/azure/sentinel/qu
 Azure 키 볼트 방화벽 및 가상 네트워크 구성:https://docs.microsoft.com/azure/key-vault/key-vault-network-security
 
 Azure 키 볼트에 대한 가상 네트워크 서비스 끝점:https://docs.microsoft.com/azure/key-vault/key-vault-overview-vnet-service-endpoints
+
 
 
 **Azure 보안 센터 모니터링**: 현재 사용할 수 없음
@@ -518,6 +559,7 @@ Azure 키 볼트 방화벽 및 가상 네트워크 구성:https://docs.microsoft
 Azure 키 볼트 로깅:https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
 
+
 **Azure 보안 센터 모니터링**: 예
 
 **책임**: 고객
@@ -529,6 +571,7 @@ Azure 키 볼트 로깅:https://docs.microsoft.com/azure/key-vault/key-vault-log
 방화벽 뒤에 있는 Azure 키 자격 증명 모음에 액세스합니다.https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall
 
 
+
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
 **책임**: 마이크로 소프트
@@ -537,18 +580,19 @@ Azure 키 볼트 로깅:https://docs.microsoft.com/azure/key-vault/key-vault-log
 
 **지침**: 해당되지 않음; Azure 키 볼트 내의 모든 데이터(비밀, 키 및 인증서)는 중요한 것으로 간주됩니다.
 
+
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
 **책임**: 해당되지 않음
 
-### <a name="46-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.6: 활성 검색 도구를 사용하여 중요한 데이터 식별
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스를 제어합니다.
 
 **안내:** Azure Key Vault 인스턴스의 관리 및 데이터 평면에 대한 보안 액세스.
-
 
 키 자격 증명 모음에 대한 보안 액세스:
 
 https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
+
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
@@ -556,12 +600,16 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: 호스트 기반 데이터 손실 방지를 사용하여 액세스 제어 적용
 
-**지침**: Microsoft는 Azure Key Vault의 기본 인프라를 관리하고 고객 daUse Azure 보안 센터의 손실 또는 노출을 방지하기 위해 엄격한 제어를 구현하여 Azure Key Vault로 보호된 리소스에 대한 기준 검사를 수행합니다.
+**지침**: Microsoft는 Azure Key Vault의 기본 인프라를 관리하고 고객 데이터의 손실 또는 노출을 방지하기 위해 엄격한 제어를 구현했습니다.
 
+Azure Key Vault란?
 
-Azure 키 볼트란 무엇입니까?:https://docs.microsoft.com/azure/key-vault/key-vault-overview
+https://docs.microsoft.com/azure/key-vault/key-vault-overview
 
-Azure 고객 데이터 보호:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Azure 고객 데이터 보호:
+
+https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
@@ -571,8 +619,9 @@ Azure 고객 데이터 보호:https://docs.microsoft.com/azure/security/fundamen
 
 **지침**: 모든 관리되는 개체(키, 인증서 및 암호)는 Azure Key Vault에서 미사용 으로 암호화됩니다.
 
+지원 문서:
 
-Azure 키 자격 증명 모음에 대한 보안 제어:https://docs.microsoft.com/azure/key-vault/key-vault-security-controls
+- [암호화 모델 및 키 관리 테이블](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#encryption-model-and-key-management-table)
 
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
@@ -583,7 +632,10 @@ Azure 키 자격 증명 모음에 대한 보안 제어:https://docs.microsoft.co
 
 **지침**: Azure 모니터의 Azure 키 볼트 분석 솔루션을 사용하여 Azure 키 볼트 감사 이벤트 로그를 검토합니다.
 
-Azure 모니터의 Azure 키 볼트 분석 솔루션:https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault
+Azure 모니터의 Azure 키 볼트 분석 솔루션:
+
+https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault
+
 
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
@@ -597,6 +649,7 @@ Azure 모니터의 Azure 키 볼트 분석 솔루션:https://docs.microsoft.com/
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: 자동화된 취약점 검색 도구 실행
 
 **지침**: Microsoft는 Azure 키 볼트를 지원하는 기본 시스템에서 취약점 관리를 수행합니다.
+
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
@@ -613,6 +666,7 @@ Azure 모니터의 Azure 키 볼트 분석 솔루션:https://docs.microsoft.com/
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: 자동화된 타사 소프트웨어 패치 관리 솔루션 배포
 
 **지침**: 해당되지 않음; 이 권장 사항은 계산 리소스를 위한 것입니다.
+
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
@@ -634,6 +688,7 @@ Azure 보안 센터에서 보안 점수 향상:
 
 https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
+
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
 **책임**: 고객
@@ -646,11 +701,17 @@ https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
 **지침**: Azure 리소스 그래프를 사용하여 구독 내의 모든 리소스(Azure Key Vault 인스턴스 포함)를 쿼리하고 검색합니다. 테넌트에 적절한 (읽기) 권한이 있고 구독 내의 모든 Azure 구독과 리소스를 등록할 수 있는지 확인합니다.
 
-빠른 시작: Azure 리소스 그래프 탐색기를 사용하여 첫 번째 리소스 그래프 쿼리를 실행합니다.https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+빠른 시작: Azure 리소스 그래프 탐색기를 사용하여 첫 번째 리소스 그래프 쿼리를 실행합니다.
 
-현재 계정이 액세스할 수 있는 구독을 가져옵니다.https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Azure 리소스에 대한 역할 기반 액세스 제어(RBAC)란 무엇입니까?https://docs.microsoft.com/azure/role-based-access-control/overview
+현재 계정이 액세스할 수 있는 구독을 가져옵니다.
+
+https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+
+Azure 리소스에 대한 RBAC(역할 기반 액세스 제어)란?
+
+https://docs.microsoft.com/azure/role-based-access-control/overview
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
@@ -659,7 +720,6 @@ Azure 리소스에 대한 역할 기반 액세스 제어(RBAC)란 무엇입니�
 ### <a name="62-maintain-asset-metadata"></a>6.2: 자산 메타데이터 유지 관리
 
 **지침**: 메타데이터를 제공하는 Azure Key Vault 리소스에 태그를 적용하여 논리적으로 분류로 구성합니다.
-
 
 태그를 만들고 사용하는 방법:
 
@@ -673,18 +733,16 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 **지침:** 적절한 경우 태그 지정, 관리 그룹 및 별도의 구독을 사용하여 Azure Key Vault 인스턴스 및 관련 리소스를 구성하고 추적합니다. 정기적으로 인벤토리를 조정하고 승인되지 않은 리소스가 적시에 구독에서 삭제되도록 합니다.
 
-
 추가 Azure 구독 만들기:
 
 https://docs.microsoft.com/azure/billing/billing-create-subscription
-
 
 리소스 구성 및 관리를 위한 관리 그룹 만들기:
 
 https://docs.microsoft.com/azure/governance/management-groups/create
 
-
 태그를 사용하여 Azure 리소스를 구성합니다.https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
@@ -703,6 +761,7 @@ https://docs.microsoft.com/azure/governance/management-groups/create
 **지침**: Azure 정책을 사용하여 다음 기본 제공 정책 정의를 사용하여 고객 구독에서 만들 수 있는 리소스 유형에 대한 제한을 두십시오.
 
 - 허용되지 않는 리소스 종류
+
 - 허용되는 리소스 유형
 
 또한 Azure 리소스 그래프를 사용하여 구독 내의 리소스를 쿼리/검색합니다.
@@ -710,6 +769,7 @@ https://docs.microsoft.com/azure/governance/management-groups/create
 자습서: 규정 준수를 적용하기 위한 정책을 만들고 관리합니다.https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 빠른 시작: Azure 리소스 그래프 탐색기를 사용하여 첫 번째 리소스 그래프 쿼리를 실행합니다.https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+
 
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
@@ -720,6 +780,7 @@ https://docs.microsoft.com/azure/governance/management-groups/create
 
 **지침**: 해당되지 않음; 이 권장 사항은 계산 리소스를 위한 것입니다.
 
+
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
 **책임**: 해당되지 않음
@@ -728,6 +789,7 @@ https://docs.microsoft.com/azure/governance/management-groups/create
 
 **지침**: 해당되지 않음; 이 권장 사항은 계산 리소스뿐만 아니라 Azure 전체를 위한 것입니다.
 
+
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
 **책임**: 해당되지 않음
@@ -735,6 +797,7 @@ https://docs.microsoft.com/azure/governance/management-groups/create
 ### <a name="68-use-only-approved-applications"></a>6.8: 승인된 신청서만 사용
 
 **지침**: 해당되지 않음; 이 권장 사항은 계산 리소스를 위한 것입니다.
+
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
@@ -745,11 +808,13 @@ https://docs.microsoft.com/azure/governance/management-groups/create
 **지침**: Azure 정책을 사용하여 다음 기본 제공 정책 정의를 사용하여 고객 구독에서 만들 수 있는 리소스 유형에 대한 제한을 두십시오.
 
 - 허용되지 않는 리소스 종류
+
 - 허용되는 리소스 유형
 
 자습서: 규정 준수를 적용하기 위한 정책을 만들고 관리합니다.https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Azure 정책 샘플:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+
 
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
@@ -760,6 +825,7 @@ Azure 정책 샘플:https://docs.microsoft.com/azure/governance/policy/samples/n
 
 **지침**: 해당되지 않음; 이 권장 사항은 계산 리소스를 위한 것입니다.
 
+
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
 **책임**: 해당되지 않음
@@ -768,8 +834,10 @@ Azure 정책 샘플:https://docs.microsoft.com/azure/governance/policy/samples/n
 
 **지침**: Azure 조건부 액세스를 사용하여 "Microsoft Azure 관리" 앱에 대해 "액세스 차단"을 구성하여 사용자가 ARM(Azure Resource Manager)과 상호 작용하는 기능을 제한합니다. 이렇게 하면 Key Vault 구성과 같이 높은 보안 환경 내에서 리소스를 만들고 변경하지 못할 수 있습니다.
 
+조건부 액세스를 사용하여 Azure 관리에 대한 액세스를 관리합니다.
 
-조건부 액세스를 사용하여 Azure 관리에 대한 액세스를 관리합니다.https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
@@ -779,6 +847,7 @@ Azure 정책 샘플:https://docs.microsoft.com/azure/governance/policy/samples/n
 
 **지침**: 해당되지 않음; 이 권장 사항은 계산 리소스를 위한 것입니다.
 
+
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
 **책임**: 해당되지 않음
@@ -786,6 +855,7 @@ Azure 정책 샘플:https://docs.microsoft.com/azure/governance/policy/samples/n
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: 물리적 또는 논리적으로 고위험 응용 프로그램을 분리
 
 **지침**: 해당되지 않음; 이 권장 사항은 Azure 앱 서비스에서 실행중인 웹 응용 프로그램 또는 계산 리소스를 위한 것입니다.
+
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
@@ -799,7 +869,6 @@ Azure 정책 샘플:https://docs.microsoft.com/azure/governance/policy/samples/n
 
 **지침**: "Microsoft.KeyVault" 네임스페이스에서 Azure 정책 별칭을 사용하여 Azure Key Vault 인스턴스의 구성을 감사하거나 적용하는 사용자 지정 정책을 만듭니다. 다음과 같은 Azure 키 자격 증명 모음에 대해 기본 제공 Azure 정책 정의를 사용할 수도 있습니다.
 
-
 Key Vault 개체를 복구할 수 있어야 합니다.
 
 Key Vault의 진단 설정을 Log Analytics 작업 영역에 배포
@@ -810,18 +879,16 @@ Key Vault는 가상 네트워크 서비스 엔드포인트를 사용해야 함
 
 Key Vault의 진단 설정을 Event Hub에 배포
 
-
 Azure 키 볼트 인스턴스에 대한 보안 구성 기준으로 Azure 보안 센터의 권장 사항을 사용합니다.
-
 
 사용 가능한 Azure 정책 별칭을 보는 방법:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-
 자습서: 규정 준수를 적용하기 위한 정책을 만들고 관리합니다.
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 **Azure 보안 센터 모니터링**: 예
 
@@ -831,6 +898,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **지침**: 해당되지 않음; 이 권장 사항은 계산 리소스를 위한 것입니다.
 
+
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
 **책임**: 해당되지 않음
@@ -839,16 +907,15 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **지침**: Azure 정책 [거부] 및 [존재하지 않는 경우 배포]를 사용하여 Azure 키 볼트 지원 리소스에서 보안 설정을 적용합니다. 
 
-
 자습서: 규정 준수를 적용하기 위한 정책을 만들고 관리합니다.
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage 
-
 
   
 Azure 정책 효과 이해: 
 
 https://docs.microsoft.com/azure/governance/policy/concepts/effects
+
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
@@ -858,6 +925,7 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **지침**: 해당되지 않음; 이 권장 사항은 계산 리소스를 위한 것입니다.
 
+
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
 **책임**: 해당되지 않음
@@ -866,11 +934,9 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **지침**: Azure Key Vault 사용 리소스에 대한 사용자 지정 Azure 정책 정의를 사용하는 경우 Azure Repos를 사용하여 코드를 안전하게 저장하고 관리합니다.
 
-
 Azure DevOps에 코드를 저장하는 방법: 
 
 https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops 
-
 
 Azure 리포지토리 설명서: 
 
@@ -884,6 +950,7 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **지침**: 해당되지 않음; 이 권장 사항은 계산 리소스를 위한 것입니다.
 
+
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
 **책임**: 해당되지 않음
@@ -891,8 +958,6 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 ### <a name="77-deploy-system-configuration-management-tools"></a>7.7: 시스템 구성 관리 도구 배포
 
 **지침**: "Microsoft.KeyVault" 네임스페이스에서 Azure 정책 별칭을 사용하여 시스템 구성을 경고, 감사 및 적용하는 사용자 지정 정책을 만듭니다. 또한 정책 예외를 관리하기 위한 프로세스 및 파이프라인을 개발합니다.
-
-
 
 Azure 정책을 구성하고 관리하는 방법:
 
@@ -905,6 +970,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 ### <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7.8: 운영 체제용 시스템 구성 관리 도구 배포
 
 **지침**: 해당되지 않음; 이 권장 사항은 계산 리소스를 위한 것입니다.
+
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
@@ -928,6 +994,7 @@ https://docs.microsoft.com/azure/security-center/security-center-remediate-recom
 
 **지침**: 해당되지 않음; 이 벤치마크는 계산 리소스를 위한 것입니다.
 
+
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
 **책임**: 해당되지 않음
@@ -936,16 +1003,13 @@ https://docs.microsoft.com/azure/security-center/security-center-remediate-recom
 
 **지침**: Azure Key Vault와 함께 관리되는 서비스 ID를 사용하여 클라우드 응용 프로그램에 대한 비밀 관리를 단순화하고 보호합니다. Azure 키 볼트 소프트 삭제가 활성화되어 있는지 확인합니다.
 
-
 Azure 관리 ID와 통합하는 방법:
 
 https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-
 키 볼트를 만드는 방법:
 
 https://docs.microsoft.com/azure/key-vault/quick-create-portal
-
 
 관리되는 ID로 키 볼트 인증을 제공하는 방법: 
 
@@ -964,8 +1028,6 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 Azure 관리 ID와 통합하는 방법: 
 
 https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity  
-
-
 
 키 볼트를 만드는 방법: 
 
@@ -996,6 +1058,7 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
 **지침**: 해당되지 않음; 이 권장 사항은 계산 리소스를 위한 것입니다. Microsoft는 기본 플랫폼에 대한 맬웨어 방지를 처리합니다.
 
+
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
 **책임**: 해당되지 않음
@@ -1004,9 +1067,7 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
 **지침**: Azure 서비스(예: Azure Key Vault)를 지원하는 기본 호스트에서 Microsoft 맬웨어 방지 기능이 활성화되어 있지만 고객 콘텐츠에서는 실행되지 않습니다.
 
-
 Azure Key Vault와 같은 계산되지 않은 Azure 리소스로 업로드되거나 전송되는 콘텐츠를 미리 검사합니다. 이러한 경우 Microsoft는 사용자의 데이터에 액세스할 수 없습니다.
-
 
 Azure 클라우드 서비스 및 가상 시스템에 대한 Microsoft 맬웨어 방지 이해:https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
@@ -1017,6 +1078,7 @@ Azure 클라우드 서비스 및 가상 시스템에 대한 Microsoft 맬웨어 
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3: 맬웨어 방지 소프트웨어 및 서명이 업데이트되었는지 확인
 
 **지침**: 해당되지 않음; 이 권장 사항은 계산 리소스를 위한 것입니다. Microsoft는 기본 플랫폼에 대한 맬웨어 방지를 처리합니다.
+
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
@@ -1031,8 +1093,11 @@ Azure 클라우드 서비스 및 가상 시스템에 대한 Microsoft 맬웨어 
 **지침**: 다음 PowerShell 명령을 통해 키 볼트 인증서, 키, 관리되는 저장소 계정 및 비밀에 대한 정기적인 자동 백업을 보장합니다.
 
 - 백업-아즈키볼트인증서
+
 - 백업-아즈키볼트키
+
 - 백업-아즈키볼트관리창고계정
+
 - 백업-아즈키볼트시크릿
 
 선택적으로 Azure 백업 내에 키 볼트 백업을 저장할 수 있습니다.
@@ -1046,6 +1111,7 @@ Azure 클라우드 서비스 및 가상 시스템에 대한 Microsoft 맬웨어 
 키 볼트 비밀을 백업하는 방법:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret
 
 Azure 백업을 활성화하는 방법:https://docs.microsoft.com/azure/backup
+
 
 
 **Azure 보안 센터 모니터링**: 해당되지 않음
@@ -1057,8 +1123,11 @@ Azure 백업을 활성화하는 방법:https://docs.microsoft.com/azure/backup
 **지침**: 다음 PowerShell 명령을 통해 키 볼트 인증서, 키, 관리되는 저장소 계정 및 비밀의 백업을 수행합니다.
 
 - 백업-아즈키볼트인증서
+
 - 백업-아즈키볼트키
+
 - 백업-아즈키볼트관리창고계정
+
 - 백업-아즈키볼트시크릿
 
 선택적으로 Azure 백업 내에 키 볼트 백업을 저장할 수 있습니다.
@@ -1073,6 +1142,8 @@ Azure 백업을 활성화하는 방법:https://docs.microsoft.com/azure/backup
 
 Azure 백업을 활성화하는 방법:https://docs.microsoft.com/azure/backup
 
+
+
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
 **책임**: 고객
@@ -1082,8 +1153,11 @@ Azure 백업을 활성화하는 방법:https://docs.microsoft.com/azure/backup
 **지침**: 다음과 같은 PowerShell 명령을 사용하여 키 볼트 인증서, 키, 관리되는 저장소 계정 및 비밀의 데이터 복원을 주기적으로 수행합니다.
 
 - 복원-아즈키볼트인증서
+
 - 복원-아즈키볼트키
+
 - 복원-아즈키볼트관리저장계정
+
 - 복원-아즈키볼트시크릿
 
 키 볼트 인증서를 복원하는 방법:https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0
@@ -1094,6 +1168,7 @@ Azure 백업을 활성화하는 방법:https://docs.microsoft.com/azure/backup
 
 키 볼트 비밀을 복원하는 방법:https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0
 
+
 **Azure 보안 센터 모니터링**: 해당되지 않음
 
 **책임**: 고객
@@ -1101,7 +1176,6 @@ Azure 백업을 활성화하는 방법:https://docs.microsoft.com/azure/backup
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: 백업 및 고객 관리 키 보호 보장
 
 **지침**: Azure 키 자격 증명 모음에 대해 소프트 삭제가 활성화되어 있는지 확인합니다. 소프트 삭제를 사용하면 삭제된 키 자격 증명 모음 및 키, 암호 및 인증서와 같은 자격 증명 모음 개체를 복구할 수 있습니다. 
-
 
 Azure 키 볼트의 소프트 삭제를 사용하는 방법: 
 
@@ -1119,25 +1193,17 @@ https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell
 
 **지침**: 조직에 대한 인시던트 대응 가이드를 작성합니다. 감지에서 사후 검토에 이르는 사고 처리/관리 단계뿐만 아니라 직원의 모든 역할을 정의하는 서면 인시던트 대응 계획이 있는지 확인합니다. 이러한 프로세스는 Key Vault 비밀을 사용하는 것과 같은 중요한 시스템을 보호하는 데 중점을 두어야 합니다.
 
-
-
 Azure 보안 센터 내에서 워크플로 자동화를 구성하는 방법: 
 
 https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide   
-
-
 
 자체 보안 인시던트 대응 프로세스 구축에 대한 지침:  
 
 https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
-
-
 Microsoft 보안 대응 센터의 사고 해부학:   
 
 https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process   
-
-
 
 고객은 NIST의 컴퓨터 보안 사고 처리 가이드를 활용하여 자체 사고 대응 계획을 수립할 수 있습니다. 
 
@@ -1151,6 +1217,7 @@ https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 
 **지침:** 보안 센터는 각 경고에 심각도를 할당하여 먼저 조사해야 하는 경고의 우선 순위를 지정합니다. 심각도는 보안 센터가 찾기 또는 경고를 발행하는 데 사용되는 분석 및 경고로 이어진 활동의 배후에 악의적인 의도가 있다는 신뢰 수준에 얼마나 확신을 가지고 있는지에 따라 다집니다. 또한 구독을 명확하게 표시합니다(ex. 프로덕션, 비prod) 및 명명 시스템을 만들어 Azure 리소스, 특히 Azure Key Vault 암호와 같은 중요한 데이터를 처리하는 리소스를 명확하게 식별하고 분류합니다.
 
+
 **Azure 보안 센터 모니터링**: 예
 
 **책임**: 고객
@@ -1158,7 +1225,6 @@ https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 ### <a name="103-test-security-response-procedures"></a>10.3: 보안 대응 절차 테스트
 
 **지침**: Azure Key Vault 인스턴스 및 관련 리소스를 보호하는 데 도움이 되는 정기적인 흐름에서 시스템의 인시던트 대응 기능을 테스트하기 위한 연습을 수행합니다. 약점과 격차를 식별하고 필요에 따라 계획을 수정합니다.
-
 
 NIST의 간행물: IT 계획 및 기능에 대한 테스트, 교육 및 운동 프로그램 가이드를 참조하십시오. 
 
@@ -1171,8 +1237,6 @@ https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4: 보안 인시던트 연락처 세부 정보 제공 및 보안 인시던트에 대한 경고 알림 구성
 
 **지침:** MICROSOFT 보안 대응 센터(MSRC)에서 불법 또는 승인되지 않은 당사자가 데이터에 액세스한 사실을 발견한 경우 Microsoft에서 보안 인시던트 연락처 정보를 사용하여 연락합니다.  사실 이후에 인시던트를 검토하여 문제가 해결되었는지 확인합니다.
-
-
 
 Azure 보안 센터 보안 연락처를 설정 하는 방법:
 
@@ -1224,11 +1288,9 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 **지침**: Azure Key Vault 서비스에서 펜 테스트를 직접 수행할 수는 없지만 키 볼트를 사용하여 보안 보안을 보장하는 Azure 리소스를 테스트하는 것이 좋습니다.
 
-
 보급 시험이 Microsoft 정책을 위반하지 않도록 Microsoft 참여 규칙을 따라야 합니다.
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
-
 
 Microsoft에서 관리하는 클라우드 인프라, 서비스 및 응용 프로그램에 대한 Red Teaming 및 실시간 사이트 침투 테스트의 전략 및 실행에 대한 자세한 내용은 여기에서 확인할 수 있습니다. 
 

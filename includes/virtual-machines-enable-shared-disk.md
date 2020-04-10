@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/18/2020
+ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 26e76731f663ac9038bc87182d52c4bd245f1b6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0df74b82c847c9738d97d2001573666714c17672
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77471702"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008352"
 ---
 ## <a name="limitations"></a>제한 사항
 
@@ -23,9 +23,11 @@ ms.locfileid: "77471702"
 
 [!INCLUDE [virtual-machines-disks-shared-sizes](virtual-machines-disks-shared-sizes.md)]
 
-## <a name="deploy-an-azure-shared-disk"></a>Azure 공유 디스크 배포
+## <a name="deploy-shared-disks"></a>공유 디스크 배포
 
-공유 디스크 기능이 활성화된 관리 디스크를 배포하려면 `maxShares` 새 속성을 `>1`사용하고 값을 정의합니다. 이렇게 하면 여러 VM에서 디스크를 공유할 수 있습니다.
+### <a name="deploy-a-premium-ssd-as-a-shared-disk"></a>프리미엄 SSD를 공유 디스크로 배포
+
+공유 디스크 기능이 활성화된 관리 디스크를 배포하려면 `maxShares` 새 속성을 사용하고 1보다 큰 값을 정의합니다. 이렇게 하면 여러 VM에서 디스크를 공유할 수 있습니다.
 
 > [!IMPORTANT]
 > 디스크가 `maxShares` 모든 VM에서 마운트 해제된 경우에만 값을 설정하거나 변경할 수 있습니다. 에 대해 허용되는 값에 대한 디스크 크기를 참조하십시오. [Disk sizes](#disk-sizes) `maxShares`
@@ -68,6 +70,101 @@ ms.locfileid: "77471702"
       }
     }
   ] 
+}
+```
+
+### <a name="deploy-an-ultra-disk-as-a-shared-disk"></a>울트라 디스크를 공유 디스크로 배포
+
+#### <a name="cli"></a>CLI
+
+공유 디스크 기능이 활성화된 관리 디스크를 `maxShares` 배포하려면 매개 변수를 1보다 큰 값으로 변경합니다. 이렇게 하면 여러 VM에서 디스크를 공유할 수 있습니다.
+
+> [!IMPORTANT]
+> 디스크가 `maxShares` 모든 VM에서 마운트 해제된 경우에만 값을 설정하거나 변경할 수 있습니다. 에 대해 허용되는 값에 대한 디스크 크기를 참조하십시오. [Disk sizes](#disk-sizes) `maxShares`
+
+```azurecli
+#Creating an Ultra shared Disk 
+az disk create -g rg1 -n clidisk --size-gb 1024 -l westus --sku UltraSSD_LRS --max-shares 5 --disk-iops-read-write 2000 --disk-mbps-read-write 200 --disk-iops-read-only 100 --disk-mbps-read-only 1
+
+#Updating an Ultra shared Disk 
+az disk update -g rg1 -n clidisk --disk-iops-read-write 3000 --disk-mbps-read-write 300 --set diskIopsReadOnly=100 --set diskMbpsReadOnly=1
+
+#Show shared disk properties:
+az disk show -g rg1 -n clidisk
+```
+
+#### <a name="azure-resource-manager"></a>Azure 리소스 관리자
+
+공유 디스크 기능이 활성화된 관리 디스크를 배포하려면 속성을 `maxShares` 사용하고 1보다 큰 값을 정의합니다. 이렇게 하면 여러 VM에서 디스크를 공유할 수 있습니다.
+
+> [!IMPORTANT]
+> 디스크가 `maxShares` 모든 VM에서 마운트 해제된 경우에만 값을 설정하거나 변경할 수 있습니다. 에 대해 허용되는 값에 대한 디스크 크기를 참조하십시오. [Disk sizes](#disk-sizes) `maxShares`
+
+다음 템플릿을 사용하기 `[parameters('dataDiskName')]`전에 `[resourceGroup().location]` `[parameters('dataDiskSizeGB')]`을 `[parameters('maxShares')]` `[parameters('diskIOPSReadWrite')]` `[parameters('diskMBpsReadWrite')]` `[parameters('diskIOPSReadOnly')]` `[parameters('diskMBpsReadOnly')]` 바꾸고 , [
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "diskName": {
+      "type": "string",
+      "defaultValue": "uShared30"
+    },
+    "location": {
+        "type": "string",
+        "defaultValue": "westus",
+        "metadata": {
+                "description": "Location for all resources."
+        }
+    },
+    "dataDiskSizeGB": {
+      "type": "int",
+      "defaultValue": 1024
+    },
+    "maxShares": {
+      "type": "int",
+      "defaultValue": 2
+    },
+    "diskIOPSReadWrite": {
+      "type": "int",
+      "defaultValue": 2048
+    },
+    "diskMBpsReadWrite": {
+      "type": "int",
+      "defaultValue": 20
+    },    
+    "diskIOPSReadOnly": {
+      "type": "int",
+      "defaultValue": 100
+    },
+    "diskMBpsReadOnly": {
+      "type": "int",
+      "defaultValue": 1
+    }    
+  }, 
+  "resources": [
+    {
+        "type": "Microsoft.Compute/disks",
+        "name": "[parameters('diskName')]",
+        "location": "[parameters('location')]",
+        "apiVersion": "2019-07-01",
+        "sku": {
+            "name": "UltraSSD_LRS"
+        },
+        "properties": {
+            "creationData": {
+                "createOption": "Empty"
+            },
+            "diskSizeGB": "[parameters('dataDiskSizeGB')]",
+            "maxShares": "[parameters('maxShares')]",
+            "diskIOPSReadWrite": "[parameters('diskIOPSReadWrite')]",
+            "diskMBpsReadWrite": "[parameters('diskMBpsReadWrite')]",
+            "diskIOPSReadOnly": "[parameters('diskIOPSReadOnly')]",
+            "diskMBpsReadOnly": "[parameters('diskMBpsReadOnly')]"
+        }
+    }
+  ]
 }
 ```
 

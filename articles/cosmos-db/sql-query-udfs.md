@@ -1,27 +1,38 @@
 ---
 title: Azure 코스모스 DB의 사용자 정의 함수(UdF)
 description: Azure Cosmos DB에서 사용자 정의 함수에 대해 알아봅니다.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/31/2019
-ms.author: mjbrown
-ms.openlocfilehash: b67202da7293ef55cfe3390ca676f7944da80fba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/09/2020
+ms.author: tisande
+ms.openlocfilehash: 455f44fb365152b75a3811563b646c6243f686db
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69614322"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011126"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Azure 코스모스 DB의 사용자 정의 함수(UdF)
 
 SQL API는 사용자 정의 함수(UdF)에 대한 지원을 제공합니다. 스칼라 UdF를 사용하면 0 개 또는 여러 인수를 전달하고 단일 인수 결과를 반환할 수 있습니다. API는 각 인수를 법적 JSON 값으로 검사합니다.  
 
-API는 UDF를 사용하여 사용자 지정 응용 프로그램 논리를 지원하도록 SQL 구문을 확장합니다. SQL API에 UdF를 등록하고 SQL 쿼리에서 참조할 수 있습니다. 실제로 UDF는 쿼리에서 호출되도록 설계되었습니다. 결과로 UdF는 저장 프로시저 및 트리거와 같은 다른 JavaScript 형식과 같은 컨텍스트 개체에 액세스할 수 없습니다. 쿼리는 읽기 전용이며 기본 복제본 또는 보조 복제본에서 실행할 수 있습니다. 다른 자바스크립트 유형과 달리 UdF는 보조 복제본에서 실행되도록 설계되었습니다.
+## <a name="udf-use-cases"></a>UDF 사용 사례
 
-다음 예제에서는 Cosmos 데이터베이스의 항목 컨테이너 아래에 UDF를 등록합니다. 이 예제는 이름이 .UDF를 `REGEX_MATCH`만듭니다. 두 개의 JSON 문자열 `input` 값을 `pattern`허용하고 , 첫 번째 가 자바 스크립트의 `string.match()` 함수를 사용하여 두 번째에 지정된 패턴과 일치하는지 확인합니다.
+API는 UDF를 사용하여 사용자 지정 응용 프로그램 논리를 지원하도록 SQL 구문을 확장합니다. SQL API에 UdF를 등록하고 SQL 쿼리에서 참조할 수 있습니다. 저장 프로시저 및 트리거와 달리 UdF는 읽기 전용입니다.
+
+UdF를 사용하여 Azure Cosmos DB의 쿼리 언어를 확장할 수 있습니다. UdF는 쿼리의 프로젝션에서 복잡한 비즈니스 논리를 표현할 수 있는 좋은 방법입니다.
+
+그러나 다음과 같은 경우 UdF를 피하는 것이 좋습니다.
+
+- Azure Cosmos DB에 동등한 [시스템 함수가](sql-query-system-functions.md) 이미 있습니다. 시스템 함수는 항상 동등한 UDF보다 더 적은 RU를 사용합니다.
+- UDF는 쿼리 `WHERE` 절의 유일한 필터입니다. UDF는 인덱스를 사용하지 않으므로 UDF를 평가하려면 문서를 로드해야 합니다. `WHERE` 인덱스를 사용하는 추가 필터 조건자(UDF)를 UDF와 결합하면 UDF에서 처리하는 문서 수가 줄어듭니다.
+
+쿼리에서 동일한 UDF를 여러 번 사용해야 하는 경우 [하위 쿼리에서](sql-query-subquery.md#evaluate-once-and-reference-many-times)UDF를 참조해야 하므로 JOIN 식을 사용하여 UDF를 한 번 평가하지만 여러 번 참조할 수 있습니다.
 
 ## <a name="examples"></a>예
+
+다음 예제에서는 Cosmos 데이터베이스의 항목 컨테이너 아래에 UDF를 등록합니다. 이 예제는 이름이 .UDF를 `REGEX_MATCH`만듭니다. 두 개의 JSON 문자열 `input` 값을 `pattern`허용하고 , 첫 번째 가 자바 스크립트의 `string.match()` 함수를 사용하여 두 번째에 지정된 패턴과 일치하는지 확인합니다.
 
 ```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
@@ -129,5 +140,5 @@ UDF 매개 변수에서 참조하는 속성을 JSON 값에서 사용할 수 없�
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure 코스모스 DB 소개](introduction.md)
-- [시스템 기능](sql-query-system-functions.md)
+- [시스템 함수](sql-query-system-functions.md)
 - [집계](sql-query-aggregates.md)

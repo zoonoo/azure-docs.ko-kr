@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 9ef8d6a8d97b2f2c2cff62c629219efb43077c77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb0e20a96bebec22dff99d89c6be0a6d294c80a1
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75754143"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992150"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 HubSpot에서 데이터 복사(미리 보기)
 
@@ -49,14 +49,14 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성은 **Hubspot**으로 설정해야 합니다. | yes |
-| clientId | HubSpot 응용 프로그램과 연결된 클라이언트 ID입니다. [여기에서](https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot)HubSpot에서 앱을 만드는 방법에 대해 알아봅니다. | yes |
-| clientSecret | HubSpot 응용 프로그램과 연결된 클라이언트 보안 입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
-| accessToken | OAuth 통합을 처음 인증할 때 얻은 액세스 토큰입니다. [여기에서](https://developers.hubspot.com/docs/methods/oauth2/get-access-and-refresh-tokens)클라이언트 ID 및 비밀로 액세스 토큰을 얻는 방법에 대해 알아봅니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
-| refreshToken | OAuth 통합을 처음 인증할 때 얻은 새로 고침 토큰입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| type | type 속성은 **Hubspot**으로 설정해야 합니다. | 예 |
+| clientId | HubSpot 응용 프로그램과 연결된 클라이언트 ID입니다. [여기에서](https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot)HubSpot에서 앱을 만드는 방법에 대해 알아봅니다. | 예 |
+| clientSecret | HubSpot 응용 프로그램과 연결된 클라이언트 보안 입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| accessToken | OAuth 통합을 처음 인증할 때 얻은 액세스 토큰입니다. [여기에서](https://developers.hubspot.com/docs/methods/oauth2/get-access-and-refresh-tokens)클라이언트 ID 및 비밀로 액세스 토큰을 얻는 방법에 대해 알아봅니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| refreshToken | OAuth 통합을 처음 인증할 때 얻은 새로 고침 토큰입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
-| useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
-| usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
+| useHostVerification | TLS를 통해 연결할 때 서버의 호스트 이름과 일치하도록 서버 인증서의 호스트 이름을 요구할지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
+| usePeerVerification | TLS를 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
 
 **예제:**
 
@@ -92,7 +92,7 @@ HubSpot에서 데이터를 복사하려면 데이터 세트의 type 속성을 **
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 형식 속성을 다음과 같은 **HubspotObject로** 설정해야 합니다. | yes |
+| type | 데이터 집합의 형식 속성을 다음과 같은 **HubspotObject로** 설정해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -122,7 +122,7 @@ HubSpot에서 데이터를 복사하려면 복사 작업의 원본 형식을 **H
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성은 **HubspotSource**로 설정해야 합니다. | yes |
+| type | 복사 작업 원본의 type 속성은 **HubspotSource**로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Companies where Company_Id = xxx"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**

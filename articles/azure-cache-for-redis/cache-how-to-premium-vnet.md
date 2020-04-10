@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 6c7c041565f6376e7f8b8b84f5076b30c1eec7bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2821ee637b2562b5287dd3d59cf943b3dcb7ef97
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278117"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010888"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 Virtual Network 지원을 구성하는 방법
 Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지원과 같은 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. VNet은 클라우드의 프라이빗 네트워크입니다. Azure Cache for Redis 인스턴스가 VNet으로 구성되면 공개적으로 주소를 지정할 수 없으며, VNet 내의 가상 머신과 애플리케이션에서만 액세스할 수 있습니다. 이 문서에서는 프리미엄 Azure Cache for Redis에 대한 가상 네트워크 지원을 구성하는 방법에 대해 설명합니다.
@@ -118,7 +118,7 @@ Azure Cache for Redis가 VNet에 호스팅되는 경우 사용되는 포트는 �
 
 #### <a name="geo-replication-peer-port-requirements"></a>지역 복제 피어 포트 요구 사항
 
-Azure Virtual Networks에서 캐시 간에 지오복제를 사용하는 경우 모든 복제본 구성 요소가 두 캐시에 대한 인바운드 및 아웃바운드 방향모두에서 전체 서브넷에 대한 포트 15000-15999의 차단을 해제하는 것이 좋습니다. 서브넷에서 미래의 지리적 장애 조치의 경우에도 서로 직접 통신 할 수 있습니다.
+Azure Virtual Networks에서 캐시 간에 전역 복제를 사용하는 경우, 향후 지리적 장애 조치의 경우에도 서브넷의 모든 복제본 구성 요소가 서로 직접 통신할 수 있도록 인바운드 및 아웃바운드 방향 모두에서 전체 서브넷에 대한 포트 15000-15999의 차단을 해제하는 것이 좋습니다.
 
 #### <a name="inbound-port-requirements"></a>인바운드 포트 요구 사항
 
@@ -142,7 +142,7 @@ Azure Virtual Networks에서 캐시 간에 지오복제를 사용하는 경우 �
 가상 네트워크에서 처음에는 충족되지 않을 수 있는 Azure Cache for Redis에 대한 네트워크 연결 요구 사항이 있습니다. Azure Cache for Redis는 가상 네트워크 내에서 사용할 때 다음 항목이 모두 제대로 작동하도록 요구합니다.
 
 * 전세계 Azure Storage 엔드포인트에 아웃바운드 네트워크 연결. 여기에는 Azure Cache for Redis 인스턴스와 동일한 지역에 있는 엔드포인트 뿐만 아니라 **다른** Azure 지역에 있는 스토리지 엔드포인트도 포함됩니다. 다음 DNS 도메인에서 Azure Storage 엔드포인트는 다음을 확인합니다. *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* 및 *file.core.windows.net* 
-* *ocsp.msocsp.com*, *mscrl.microsoft.com* 및 *crl.microsoft.com*에 대한 아웃바운드 네트워크 연결입니다. 이 연결은 SSL 기능을 지원하는 데 필요합니다.
+* *ocsp.msocsp.com*, *mscrl.microsoft.com* 및 *crl.microsoft.com*에 대한 아웃바운드 네트워크 연결입니다. TLS/SSL 기능을 지원하려면 이 연결이 필요합니다.
 * 가상 네트워크에 대한 DNS 구성은 이전 시점에 언급된 엔드포인트 및 도메인을 모두 해결할 수 있어야 합니다. 유효한 DNS 인프라를 구성하고 가상 네트워크에 유지 관리하여 DNS 요구를 충족할 수 있습니다.
 * 다음 DNS 도메인에서 확인되는 다음 Azure 모니터링 엔드포인트에 대한 아웃바운드 네트워크 연결: shoebox2-black.shoebox2.metrics.nsatc.net, north-prod2.prod2.metrics.nsatc.net, azglobal-black.azglobal.metrics.nsatc.net, shoebox2-red.shoebox2.metrics.nsatc.net, east-prod2.prod2.metrics.nsatc.net, azglobal-red.azglobal.metrics.nsatc.net
 

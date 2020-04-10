@@ -1,85 +1,101 @@
 ---
-title: Chocolatey를 사용한 Azure Automation State Configuration 연속 배포
-description: Azure Automation State Configuration, DSC 및 Chocolatey 패키지 관리자를 사용한 DevOps 연속 배포  전체 JSON Resource Manager 템플릿 및 PowerShell 소스가 있는 예
+title: Azure 자동화 상태 구성 초콜릿을 가진 지속적인 배포
+description: 초콜릿 패키지 관리자를 사용하여 Azure 자동화 상태 구성을 사용하여 DevOps 연속 배포에 대해 설명합니다. 전체 JSON 리소스 관리자 템플릿 및 PowerShell 소스가 포함된 예제를 포함합니다.
 services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4445f6e9b72380b66f3282d50871b4283f7fc7fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79eaac74fd4475a613c0309476a12292e400dbaa
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75966734"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010973"
 ---
-# <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>사용 예: Automation State Configuration 및 Chocolatey를 사용하여 Virtual Machines에 연속 배포
+# <a name="provide-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>자동화 상태 구성 및 초콜릿을 사용하여 가상 시스템에 지속적인 배포 제공
 
-DevOps 업계에는 연속 통합 파이프라인의 여러 시점에서 개발자를 지원하는 여러 도구가 있습니다. Azure Automation State Configuration이 DevOps 팀이 채택할 수 있는 새로운 옵션으로 추가되었습니다. 이 문서에서는 Windows 컴퓨터에 대 한 CD(연속 배포)를 보여줍니다. 이 방법을 간편하게 확장하여 역할(예: 웹 사이트)에서 필요한 만큼의 Windows 컴퓨터를 포함하고 추가적인 역할도 구성할 수 있습니다.
+DevOps 세계에서는 연속 통합 파이프라인의 다양한 지점을 지원하는 많은 도구가 있습니다. Azure 자동화 [상태 구성은](automation-dsc-overview.md) DevOps 팀이 사용할 수 있는 옵션에 새로 추가된 것을 환영합니다. 
+
+Azure 자동화는 자격 증명, 일정 및 전역 변수와 같은 런북, 노드 및 공유 리소스를 사용하여 다양한 작업을 자동화할 수 있는 Microsoft Azure의 관리형 서비스입니다. Azure 자동화 상태 구성은 이 자동화 기능을 확장하여 DSC(PowerShell 원하는 상태 구성) 도구를 포함합니다. 여기서 알맞은 [개요](automation-dsc-overview.md)를 제공합니다.
+
+이 문서에서는 Windows 컴퓨터에 대한 CD(연속 배포)를 설정하는 방법을 보여 줍니다. 웹 사이트와 같이 역할에 필요한 만큼의 Windows 컴퓨터를 포함하고 거기에서 추가 역할로 이동하는 기술을 쉽게 확장할 수 있습니다.
 
 ![IaaS VM에 대한 연속 배포](./media/automation-dsc-cd-chocolatey/cdforiaasvm.png)
 
+>[!NOTE]
+>이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. 하이브리드 Runbook 작업자의 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치를](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)참조하십시오. 자동화 계정의 경우 Azure 자동화 에서 [Azure PowerShell 모듈을 업데이트하는 방법을](automation-update-azure-modules.md)사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
+
 ## <a name="at-a-high-level"></a>높은 수준
 
-이 단계는 상당 부분 진행 중이지만 다행스럽게도 두 가지 기본 프로세스로 나눌 수 있습니다.
+여기에는 꽤 많은 문제가 있지만 다행히도 두 가지 주요 프로세스로 나눌 수 있습니다.
 
 - 즉 코드를 작성하여 테스트한 다음 시스템의 주 버전과 부 버전에 대해 설치 패키지를 만들고 게시하는 것입니다.
-- 패키지에서 코드를 설치 및 실행할 VM을 만들고 관리합니다.  
+- 패키지에서 코드를 설치하고 실행하는 VM을 만들고 관리합니다.  
 
-이 핵심 프로세스가 둘 다 배치되어 있으면 새 버전을 만들어 배포할 때 특정 VM에서 실행되는 패키지를 자동으로 업데이트하는 단계는 간단합니다.
+이러한 두 가지 핵심 프로세스가 모두 배치되면 새 버전이 만들어지고 배포될 때 VM에서 패키지를 자동으로 업데이트할 수 있습니다.
 
 ## <a name="component-overview"></a>구성 요소 개요
 
-[apt-get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) 같은 패키지 관리자는 Linux 분야에서 잘 알려져 있지만 Windows 분야에서는 그렇지 않습니다.
-[Chocolatey](https://chocolatey.org/)도 마찬가지입니다. Scott Hanselman의 [블로그](https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx)에서 이 항목에 대해 잘 소개하고 있습니다. 간단히 말해 Chocolatey를 사용하면 패키지의 중앙 리포지토리에 있는 패키지를 명령줄을 사용하여 Winodws 시스템에 설치할 수 있습니다. 자체 리포지토리를 만들어 관리할 수 있고 Chocolatey가 사용자가 지정한 수 만큼의 리포지토리에서 패키지를 설치할 수 있습니다.
+[apt-get과](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) 같은 패키지 관리자는 Linux 세계에서 잘 알려져 있지만 Windows 에서는 그다지 알려져 있지 않습니다.
+[초콜릿은](https://chocolatey.org/) 그런 일이며, 주제에 대한 스콧 핸셀먼의 [블로그는](https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) 훌륭한 소개입니다. 간단히 말해서, 초콜릿은 명령줄을 사용하여 중앙 리포지토리에서 Windows 운영 체제에 패키지를 설치할 수 있습니다. 자체 리포지토리를 만들어 관리할 수 있고 Chocolatey가 사용자가 지정한 수 만큼의 리포지토리에서 패키지를 설치할 수 있습니다.
 
-DSC(필요한 상태 구성)([개요](/powershell/scripting/dsc/overview/overview))는 컴퓨터에 원하는 구성을 선언할 수 있는 PowerShell 도구입니다. 예를 들어, "Chocolatey와 IIS를 설치하고 포트 80을 개방하며 웹 사이트 설치의 1.0.0 버전을 원합니다."라고 말할 수 있습니다. DSC LCM(로컬 구성 관리자)이 이러한 구성을 구현합니다. DSC 풀 서버가 컴퓨터에 대한 구성 리포지토리를 담고 있습니다. 각 컴퓨터의 LCM이 주기적인 검사를 통해 자신의 구성이 저장된 구성과 일치하는지 확인합니다. 상태를 보고하거나, 컴퓨터를 저장된 구성과 일치하는 상태로 되돌리는 작업을 수행할 수 있습니다. 풀 서버에서 저장된 구성을 편집하여 컴퓨터나 컴퓨터 집합이 변경된 구성과 일치하게 만들 수 있습니다.
+[파워쉘 DSC)](/powershell/scripting/dsc/overview/overview) 는 컴퓨터에 대해 원하는 구성을 선언할 수 있는 PowerShell 도구입니다. 예를 들어 초콜릿을 설치하려는 경우 IIS가 설치되고 포트 80이 열리고 웹 사이트의 버전 1.0.0이 설치되면 DSC 로컬 구성 관리자(LCM)가 해당 구성을 구현합니다. DSC 풀 서버는 컴퓨터에 대한 구성 저장소를 보유합니다. 각 컴퓨터의 LCM이 주기적인 검사를 통해 자신의 구성이 저장된 구성과 일치하는지 확인합니다. 상태를 보고하거나, 컴퓨터를 저장된 구성과 일치하는 상태로 되돌리는 작업을 수행할 수 있습니다. 풀 서버에서 저장된 구성을 편집하여 컴퓨터나 컴퓨터 집합이 변경된 구성과 일치하게 만들 수 있습니다.
 
-Azure Automation은 사용자가 일정 및 전역 변수와 같은 Runbook, 노드, 자산을 사용하여 다양한 작업을 자동화할 수 있도록 하는 Microsoft Azure의 관리되는 서비스입니다.
-Azure Automation State Configuration은 PowerShell DSC 도구를 포함하도록 자동화 기능을 확장합니다. 여기서 알맞은 [개요](automation-dsc-overview.md)를 제공합니다.
-
-DSC 리소스는 네트워크 관리, Active Directory 또는 SQL Server 등과 같은 특정 기능을 갖는 코드 모듈입니다. Chocolatey DSC 리소스는 NuGet 서버 액세스(서로 간), 패키지 다운로드, 패키지 설치 방법 등을 이해하고 있습니다. 여러 다른 DSC 리소스는 [PowerShell 갤러리](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title)에 있습니다.
+DSC 리소스는 네트워킹, Active Directory 또는 SQL Server 관리와 같은 특정 기능이 있는 코드 모듈입니다. Chocolatey DSC 리소스는 NuGet 서버 액세스(서로 간), 패키지 다운로드, 패키지 설치 방법 등을 이해하고 있습니다. 여러 다른 DSC 리소스는 [PowerShell 갤러리](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title)에 있습니다.
 이러한 모듈은 사용자가 구성에서 사용할 수 있게 Azure Automation State Configuration 풀 서버에 설치됩니다.
 
-리소스 관리자 템플릿은 네트워크, 서브넷, 네트워크 보안, 라우팅, 부하 분산 장치, NIC, VM 등의 인프라를 생성하는 선언적인 방법을 제공합니다. 다음은 리소스 관리자 배포 모델(선언적)과 AZURE 서비스 관리(ASM 또는 클래식) 배포 모델(명령적)을 비교하고 핵심 리소스 공급자, 계산, 저장소 및 네트워크에 대해 설명하는 [문서입니다.](../azure-resource-manager/management/deployment-models.md)
+리소스 관리자 템플릿은 네트워크, 서브넷, 네트워크 보안 및 라우팅, 로드 밸러블러, NIC, VM 등과 같은 인프라를 생성하는 선언적인 방법을 제공합니다. 다음은 리소스 관리자 배포 모델(선언적)과 ASM(클래식) 배포 모델(명령적)을 비교하는 [문서입니다.](../azure-resource-manager/management/deployment-models.md) 이 문서에는 컴퓨팅, 저장소 및 네트워크와 같은 핵심 리소스 공급자에 대한 설명이 포함되어 있습니다.
 
-Resource Manager 템플릿의 핵심 기능은 프로비전되었을 때 VM에 VM 확장을 설치하는 것입니다. VM 확장에는 사용자 지정 스크립트 실행, 바이러스 백신 소프트웨어 설치, DSC 구성 스크립트 실행 등과 같은 특정 기능이 있습니다. VM 확장에는 여러 다른 형식이 있습니다.
+리소스 관리자 템플릿의 주요 기능 중 하나는 프로비전된 VM에 VM 확장을 설치하는 기능입니다. VM 확장에는 사용자 지정 스크립트 실행, 바이러스 백신 소프트웨어 설치 및 DSC 구성 스크립트 실행과 같은 특정 기능이 있습니다. VM 확장에는 여러 다른 형식이 있습니다.
 
 ## <a name="quick-trip-around-the-diagram"></a>간략히 다이어그램 둘러보기
 
-맨 위쪽부터 코드를 작성하고 빌드 및 테스트한 다음 설치 패키지를 만듭니다.
-Chocolatey는 MSI, MSU, ZIP 등과 같은 다양한 형태의 설치 패키지를 처리할 수 있습니다. 또한 Chocolatey의 기본 기능이 부족할 경우 PowerShell을 완전히 활용하여 실제 설치를 수행할 수 있습니다. 패키지 저장소인 접근 가능한 장소에 패키지를 넣습니다. 이 사용 예는 Auzre Blob Storage 계정의 공용 폴더를 사용하지만 어디에나 있을 수 있습니다. Chocolatey는 패키지 메타데이터의 관리를 위해 NuGet 서버 및 기타 제품과 기본적으로 연동됩니다. [이 문서](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) 에서는 이러한 옵션에 대해 설명합니다. 이 사용 예는 NuGet을 사용합니다. Nuspec은 패키지에 관한 메타데이터입니다. Nuspec은 NuPkg에 "컴파일"되어 NuGet 서버에 저장됩니다. 구성에서 이름으로 패키지를 요청하고 NuGet 서버를 참조할 경우 Chocolatey DSC 리소스(이제 VM에 있음)가 패키지를 포착하여 설치합니다. 특정 버전의 패키지를 요청할 수도 있습니다.
+맨 위에서 시작하여 코드를 작성하고, 빌드하고, 테스트한 다음, 설치 패키지를 만듭니다. Chocolatey는 MSI, MSU, ZIP 등과 같은 다양한 형태의 설치 패키지를 처리할 수 있습니다. 그리고 초콜릿의 기본 기능이 그것에 달려 있지 않은 경우 실제 설치를 할 수 있는 PowerShell의 모든 힘을 가지고. 패키지 저장소인 접근 가능한 장소에 패키지를 넣습니다. 이 사용 예는 Auzre Blob Storage 계정의 공용 폴더를 사용하지만 어디에나 있을 수 있습니다. Chocolatey는 패키지 메타데이터의 관리를 위해 NuGet 서버 및 기타 제품과 기본적으로 연동됩니다. [이 문서](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) 에서는 이러한 옵션에 대해 설명합니다. 이 사용 예는 NuGet을 사용합니다. Nuspec은 패키지에 관한 메타데이터입니다. Nuspec의NuPkg의 "컴파일"과 NuGet 서버에 저장됩니다. 구성에서 이름으로 패키지를 요청하고 NuGet 서버를 참조하면 VM의 초콜릿 DSC 리소스가 패키지를 잡고 설치합니다. 특정 버전의 패키지를 요청할 수도 있습니다.
 
-그림의 왼쪽 하단에는 Azure Resource Manager 템플릿이 있습니다. 이 사용 예에서는 VM 확장이 VM을 Azure Automation State Configuration 풀 서버(즉, 풀 서버)에 노드로 등록합니다. 구성은 풀 서버에 저장됩니다.
-사실, 그것은 두 번 저장됩니다 : 한 번 일반 텍스트로 한 번 MOF 파일로 컴파일됩니다 (그러한 것들에 대해 알고있는 사람들을 위해). 포털에서 MOF는 단순히 "구성"이 아닌 "노드 구성"입니다. 노드와 관련한 아티팩트이므로 노드가 그 구성을 알고 있습니다. 아래의 세부 정보는 노드 구성을 노드에 할당하는 방법을 보여줍니다.
+그림 의 왼쪽 하단에는 Azure 리소스 관리자 템플릿이 있습니다. 이 사용 예에서 VM 확장은 Azure 자동화 상태 구성 끌어 서버를 노드로 등록합니다. 구성은 풀 서버에 저장됩니다.
+실제로, 그것은 두 번 저장됩니다 : 한 번 일반 텍스트로 한 번 MOF 파일로 컴파일됩니다. Azure 포털에서 MOF는 단순히 "구성"이 아닌 "노드 구성"입니다. 노드가 노드의 구성을 알 수 있도록 노드와 연결된 아티팩트입니다. 아래의 세부 정보는 노드 구성을 노드에 할당하는 방법을 보여줍니다.
 
-아마도 이미 윗 부분 또는 대부분을 수행하고 있을 것입니다. Nuspec를 생성, 컴파일 및 NuGet 서버에 저장하는 작업은 간단합니다. 이미 VM을 관리하고 있습니다. 연속 배포의 다음 단계로 이동하려면 풀 서버를 설정하고(1회), 노드를 풀 서버에 등록하고(1회), 여기에 구성을 만들어 저장해야 합니다(최초). 그러면 패키지가 업그레이드되어 리포지토리에 배포되며 풀 서버에서 구성 및 노드 구성을 새로 고칩니다.(필요에 따라 반복)
+nuspec을 만들고, 컴파일하고, NuGet 서버에 저장하는 것은 작은 일입니다. 이미 VM을 관리하고 있습니다. 
 
-Resource Manager 템플릿으로 시작하지 않아도 괜찮습니다. VM을 풀 서버 및 나머지 모두에 등록하는 데 도움이 되도록 설계된PowerShell cmdlet이 있습니다. 자세한 내용은 [Azure Automation State Configuration을 통한 관리를 위한 머신 온보드](automation-dsc-onboarding.md) 문서를 참조하세요.
+연속 배포로 다음 단계를 진행하려면 끌어오기 서버를 한 번 설정하고 노드를 한 번 등록하고 초기 구성을 만들고 저장해야 합니다. 그런 다음 패키지를 업그레이드하고 리포지토리에 배포하면 필요에 따라 끌어오기 서버의 구성 및 노드 구성만 새로 고치면 됩니다. 
 
-## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>1단계: 풀 서버 및 자동화 계정 설정
+리소스 관리자 템플릿으로 시작하지 않는 경우 괜찮습니다. 끌어오기 서버와 나머지 모든 VM을 등록하는 데 도움이되는 PowerShell이 있습니다. 자세한 내용은 이 문서를 [참조하십시오.](automation-dsc-onboarding.md)
 
-인증된(`Connect-AzureRmAccount`) PowerShell 명령줄에서(풀 서버를 설정하는 데 몇 분 정도 소요될 수 있음):
+## <a name="about-the-usage-example"></a>사용 예에 대해
+
+이 문서의 사용 예는 Azure 갤러리의 일반 Windows Server 2012 R2 이미지의 VM으로 시작합니다. 아무 저장된 이미지에서나 시작하고 DSC 구성을 통해 조정을 진행할 수 있습니다.
+그러나 이미지에 반영되는 구성을 변경하는 작업은 DSC를 사용하여 구성을 동적으로 업데이트하는 작업보다 훨씬 어렵습니다.
+
+이 방법을 VM에 사용하기 위해 Resource Manager 템플릿이나 VM 확장을 사용할 필요는 없습니다. 또한 VM이 CD 관리를 위해 Azure에 있을 필요도 없습니다. 오직 Chocolatey을 설치하고 풀 서버 위치를 알 수 있게 VM에 LCM을 구성하기만 하면 됩니다.
+
+프로덕션 중인 VM에서 패키지를 업데이트할 때 업데이트를 설치하는 동안 해당 VM을 회전하지 않아야 합니다. 이를 수행하는 방법은 크게 다릅니다. 예를 들어, Azure 부하 분산 장치 뒤에 있는 VM에서는 사용자 지정 프로브를 추가할 수 있습니다. VM을 업데이트하는 동안 프로브 엔드포인트가 400을 반환하게 합니다. 이 변경을 위해 필요한 조정은 구성 안에 있을 수 있습니다. 업데이트가 완료되면 조정에서 200을 반환하도록 복귀되기 때문입니다.
+
+이 사용 예의 전체 원본은 GitHub의 [이 Visual Studio 프로젝트](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) 에 있습니다.
+
+## <a name="step-1-set-up-the-pull-server-and-automation-account"></a>1단계: 끌어오기 서버 및 자동화 계정 설정
+
+인증된(`Connect-AzAccount`) PowerShell 명령줄에서(풀 서버를 설정하는 데 몇 분 정도 소요될 수 있음):
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
-New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
+New-AzResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
+New-AzAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
 ```
 
-자동화 계정을 미국 동부 2, 미국 중남부, US Gov 버지니아, 서유럽, 동남 아시아, 일본 동부, 인도 중부 및 오스트레일리아 남동부, 캐나다 중부, 북유럽 등의 지역 중 하나에 놓을 수 있습니다(즉, 위치).
+자동화 계정을 미국 동부 2, 미국 중남부, 미국 정부 버지니아, 서유럽, 동남아시아, 일본 동부, 인도 중부 및 호주 남동부, 캐나다 중부, 북유럽 중 하나라도 입력할 수 있습니다.
 
-## <a name="step-2-vm-extension-tweaks-to-the-resource-manager-template"></a>2단계: Resource Manager 템플릿에 대한 VM 확장 조정
+## <a name="step-2-make-vm-extension-tweaks-to-the-resource-manager-template"></a>2단계: 리소스 관리자 템플릿에 VM 확장을 조정합니다.
 
 VM 등록에 대한 세부 정보(PowerShell DSC VM 확장 사용)는 이 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver)에서 제공합니다.
-이 단계는 새 VM을 상태 구성 노드 목록의 풀 서버에 등록합니다. 이 등록의 일부는 노드에 적용할 노드 구성을 지정하고 있습니다. 이 노드 구성은 끌어오기 서버에 있을 필요가 없으므로 4단계에서 이 작업을 처음으로 수행해도 됩니다. 하지만 여기 2단계에서 노드의 이름 및 구성의 이름을 결정해야 합니다. 이 사용 예에서 노드는 'isvbox'이고 구성은 'ISVBoxConfig'입니다. 따라서 (DeploymentTemplate.json 지정할) 노드 구성 이름은 'ISVBoxConfig.isvbox'입니다.
+이 단계는 새 VM을 상태 구성 노드 목록의 풀 서버에 등록합니다. 이 등록의 일부는 노드에 적용할 노드 구성을 지정하고 있습니다. 이 노드 구성은 끌어오기 서버에 아직 존재할 필요가 없으므로 4단계는 처음으로 이 작업이 수행되는 위치입니다. 하지만 여기 2단계에서 노드의 이름 및 구성의 이름을 결정해야 합니다. 이 사용 예에서 노드는 'isvbox'이고 구성은 'ISVBoxConfig'입니다. 따라서 (DeploymentTemplate.json 지정할) 노드 구성 이름은 'ISVBoxConfig.isvbox'입니다.
 
-## <a name="step-3-adding-required-dsc-resources-to-the-pull-server"></a>3단계: 필요한 DSC 리소스를 풀 서버에 추가
+## <a name="step-3-add-required-dsc-resources-to-the-pull-server"></a>3단계: 끌어오기 서버에 필요한 DSC 리소스 추가
 
 Azure Automation 계정에 DSC 리소스를 설치하기 위해 PowerShell 갤러리가 계측됩니다.
-원하는 리소스로 이동한 다음 "Azure Automation에 배포" 단추를 클릭합니다.
+원하는 리소스로 이동하여 "Azure 자동화에 배포" 단추를 클릭합니다.
 
 ![PowerShell 갤러리 예](./media/automation-dsc-cd-chocolatey/xNetworking.PNG)
 
-Azure Portal에 최근에 추가된 또 다른 방법을 사용하면 새 모듈을 당겨오거나 기존 모듈을 업데이트할 수 있습니다. Automation 계정 리소스, 자산 타일 및 모듈 타일을 차례로 클릭합니다. 갤러리 찾아보기 아이콘을 사용하면 갤러리에서 모듈의 목록을 보고 세부 정보로 드릴다운하고 궁극적으로 Automation 계정으로 가져올 수 있습니다. 이는 모듈을 최신 상태로 유지할 수 있는 좋은 방법입니다. 그리고 가져오기 기능은 다른 모듈의 종속성을 확인하여 동기화에서 빠져 나가지 않도록 합니다.
+최근에 Azure 포털에 추가된 또 다른 기술을 사용하면 새 모듈을 가져오거나 기존 모듈을 업데이트할 수 있습니다. 자동화 계정 리소스, 자산 타일 및 마지막으로 모듈 타일을 클릭합니다. 갤러리 찾아보기 아이콘을 사용하면 갤러리의 모듈 목록을 보고 세부 정보로 드릴다운한 다음 궁극적으로 자동화 계정으로 가져올 수 있습니다. 이는 모듈을 최신 상태로 유지할 수 있는 좋은 방법입니다. 그리고 가져오기 기능은 다른 모듈의 종속성을 확인하여 동기화에서 빠져 나가지 않도록 합니다.
 
 또는 수동 방법이 있습니다. Windows 컴퓨터용 PowerShell 통합 모듈의 폴더 구조는 Azure Automation에서의 예상 폴더 구조와 다소 차이가 있습니다.
 여기에는 약간의 사용자 조정 작업이 필요합니다. 그러나 어렵지 않으며 리소스당 한 번만 수행됩니다(나중에 업그레이드하려는 경우가 아니면). PowerShell 통합 모듈 작성에 대한 자세한 내용은 이 문서를 [참조하십시오.](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
@@ -94,16 +110,16 @@ Azure Portal에 최근에 추가된 또 다른 방법을 사용하면 새 모듈
 - 이 PowerShell 실행:
 
   ```powershell
-  New-AzureRmAutomationModule `
+  New-AzAutomationModule `
     -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -Name MODULE-NAME –ContentLink 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
   ```
 
-포함된 예는 cChoco 및xNetworking에 대해 이 절차를 수행합니다. cChoco에 대한 특수 처리는 [참고 사항](#notes) 을 참조하세요.
+포함된 예제는 cChoco 및 xNetworking에 대한 이러한 단계를 구현합니다. 
 
-## <a name="step-4-adding-the-node-configuration-to-the-pull-server"></a>4단계: 노드 구성을 풀 서버에 추가
+## <a name="step-4-add-the-node-configuration-to-the-pull-server"></a>4단계: 끌어오기 서버에 노드 구성 추가
 
-구성을 풀 서버로 처음 가져와 컴파일하는 데는 별다른 사항이 없습니다. 동일한 구성에 대한 차후의 모든 가져오기/컴파일은 정확히 같습니다. 패키지를 업데이트하고 프러덕션에 푸시해야 할 때마다 구성 파일이 정확한지 확인한 후(새 패키지 버전 포함) 이 단계를 수행합니다. 구성 파일과 PowerShell을 다음과 같습니다.
+구성을 풀 서버로 처음 가져와 컴파일하는 데는 별다른 사항이 없습니다. 나중에 동일한 구성의 모든 가져오기 또는 컴파일은 정확히 동일하게 보입니다. 패키지를 업데이트하고 프러덕션에 푸시해야 할 때마다 구성 파일이 정확한지 확인한 후(새 패키지 버전 포함) 이 단계를 수행합니다. 구성 파일과 PowerShell을 다음과 같습니다.
 
 ISVBoxConfig.ps1:
 
@@ -150,47 +166,37 @@ Configuration ISVBoxConfig
 }
 ```
 
-New-ConfigurationScript.ps1:
+새 구성Script.ps1(Az 모듈을 사용하도록 수정됨):
 
 ```powershell
-Import-AzureRmAutomationDscConfiguration `
+Import-AzAutomationDscConfiguration `
     -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -SourcePath C:\temp\AzureAutomationDsc\ISVBoxConfig.ps1 `
     -Published –Force
 
-$jobData = Start-AzureRmAutomationDscCompilationJob `
+$jobData = Start-AzAutomationDscCompilationJob `
     -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -ConfigurationName ISVBoxConfig
 
 $compilationJobId = $jobData.Id
 
-Get-AzureRmAutomationDscCompilationJob `
+Get-AzAutomationDscCompilationJob `
     -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -Id $compilationJobId
 ```
 
-이 단계에서는 끌어오기 서버에 위치하며 이름이 "ISVBoxConfig.isvbox"인 새 노드 구성이 생깁니다. 노드 구성 이름이 "configurationName.nodeName"으로 빌드됩니다.
+이러한 단계를 수행하면 "ISVBoxConfig.isvbox"라는 새 노드 구성이 끌어오기 서버에 배치됩니다. 노드 구성 이름은 "configurationName.nodeName"으로 빌드됩니다.
 
-## <a name="step-5-creating-and-maintaining-package-metadata"></a>5단계: 패키지 메타데이터 만들기 및 유지 관리
+## <a name="step-5-create-and-maintain-package-metadata"></a>5단계: 패키지 메타데이터 생성 및 유지 관리
 
 패키지 리포지토리에 넣는 각 패키지에 대해 이를 설명하는 nuspec이 필요합니다.
-해당 nuspec은 NuGet 서버에서 컴파일 및 저장해야 합니다. 이 프로세스는 [여기](https://docs.nuget.org/create/creating-and-publishing-a-package)에서 설명합니다. MyGet.org를 NuGet 서버로 사용할 수 있습니다. 이 서비스를 판매하고 있지만 스타터 SKU는 무료입니다. NuGet.org에서 프라이빗 패키지에 대 한 자체 NuGet 서버 설치 관련 지침을 찾을 수 있습니다.
+해당 nuspec은 NuGet 서버에서 컴파일 및 저장해야 합니다. 이 프로세스는 [여기](https://docs.nuget.org/create/creating-and-publishing-a-package)에서 설명합니다. MyGet.org를 NuGet 서버로 사용할 수 있습니다. 이 서비스를 판매하고 있지만 스타터 SKU는 무료입니다. NuGet.org 개인 패키지에 대한 자체 NuGet 서버 설치에 대한 지침을 찾을 수 있습니다.
 
-## <a name="step-6-tying-it-all-together"></a>6단계: 모든 항목 요약
+## <a name="step-6-tie-it-all-together"></a>6 단계 : 모두 함께 묶어
 
-각 버전이 QA를 전달하고 배포를 승인할 때마다 패키지를 만들고 nuspec 및 nupkg를 NuGet 서버에 업데이트하며 배포합니다. 또한 구성(위의 4단계)은 새 버전 번호와 일치하도록 업데이트되어야 합니다. 끌어오기 서버로 전송되고 컴파일되어야 합니다.
-해당 지점부터 업데이트를 끌어오고 설치하는 작업은 해당 구성에 종속되는 VM의 역할입니다. 이러한 각각의 업데이트는 하나 또는 두 줄의 PowerShell로 간단합니다. Azure DevOps의 경우 일부는 빌드에서 서로 연결될 수 있는 빌드 작업에 캡슐화됩니다. 이 [문서](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery)에 자세한 내용이 나와 있습니다. 이 [GitHub 리포지토리](https://github.com/Microsoft/vso-agent-tasks) 는 사용 가능한 다양한 빌드 작업을 자세히 설명합니다.
+버전이 QA를 통과하고 배포가 승인될 때마다 패키지가 만들어지고 nuspec 및 nupkg이 업데이트되어 NuGet 서버에 배포됩니다. 구성(위의 4단계)도 새 버전 번호에 동의하도록 업데이트해야 합니다. 그런 다음 끌어오기 서버로 전송되고 컴파일되어야 합니다.
 
-## <a name="notes"></a>메모
-
-이 사용 예에서는 Azure 갤러리의 일반 Windows Server 2012 R2 이미지에서 VM으로 시작합니다. 아무 저장된 이미지에서나 시작하고 DSC 구성을 통해 조정을 진행할 수 있습니다.
-그러나 이미지에 반영되는 구성을 변경하는 작업은 DSC를 사용하여 구성을 동적으로 업데이트하는 작업보다 훨씬 어렵습니다.
-
-이 방법을 VM에 사용하기 위해 Resource Manager 템플릿이나 VM 확장을 사용할 필요는 없습니다. 또한 VM이 CD 관리를 위해 Azure에 있을 필요도 없습니다. 오직 Chocolatey을 설치하고 풀 서버 위치를 알 수 있게 VM에 LCM을 구성하기만 하면 됩니다.
-
-물론, 프러덕션 상태인 VM에서 패키지를 업데이트할 때는 업데이트가 설치되는 동안 VM을 로테이션에서 배제해야 합니다. 이를 수행하는 방법은 크게 다릅니다. 예를 들어, Azure 부하 분산 장치 뒤에 있는 VM에서는 사용자 지정 프로브를 추가할 수 있습니다. VM을 업데이트하는 동안 프로브 엔드포인트가 400을 반환하게 합니다. 이 변경을 위해 필요한 조정은 구성 안에 있을 수 있습니다. 업데이트가 완료되면 조정에서 200을 반환하도록 복귀되기 때문입니다.
-
-이 사용 예의 전체 원본은 GitHub의 [이 Visual Studio 프로젝트](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) 에 있습니다.
+해당 지점부터 업데이트를 끌어오고 설치하는 작업은 해당 구성에 종속되는 VM의 역할입니다. 이러한 각 업데이트는 간단합니다 - PowerShell의 한 줄 또는 두 개. Azure DevOps의 경우 그 중 일부는 빌드에서 함께 연결할 수 있는 빌드 작업에 캡슐화되어 있습니다. 이 [문서](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery)에 자세한 내용이 나와 있습니다. 이 [GitHub 리포지토리는](https://github.com/Microsoft/vso-agent-tasks) 사용 가능한 빌드 작업에 대해 자세히 설명합니다.
 
 ## <a name="related-articles"></a>관련 문서
 * [Azure Automation DSC 개요](automation-dsc-overview.md)

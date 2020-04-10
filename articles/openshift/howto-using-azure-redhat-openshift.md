@@ -7,17 +7,17 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
 keywords: aro, 오픈 시프트, 아즈 아로, 빨간 모자, cli
-ms.openlocfilehash: 423f09c135da51b8401c1933a4a271d0becd2c8f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 9488ef593cf4ec8600dcb42ea4a2cefa4fcb1446
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349424"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998791"
 ---
 # <a name="create-access-and-manage-an-azure-red-hat-openshift-43-cluster"></a>Azure Red Hat OpenShift 4.3 클러스터 생성, 액세스 및 관리
 
 > [!IMPORTANT]
-> Azure Red Hat OpenShift 4.3은 현재 미국 동부의 비공개 미리 보기에서만 사용할 수 있습니다. 비공개 미리 보기 수락은 초대에 의해서만 가능합니다. 이 기능을 활성화하기 전에 구독을 등록하십시오: [Azure Red Hat OpenShift 개인 미리 보기 등록](https://aka.ms/aro-preview-register)
+> Azure Red Hat OpenShift 4.3은 현재 미국 동부 및 미국 동부 2의 비공개 미리 보기에서만 사용할 수 있습니다. 비공개 미리 보기 수락은 초대에 의해서만 가능합니다. 이 기능을 활성화하기 전에 구독을 등록하십시오: [Azure Red Hat OpenShift 개인 미리 보기 등록](https://aka.ms/aro-preview-register)
 
 > [!NOTE]
 > 미리 보기 기능은 셀프 서비스이며 현재 제공된 대로 제공되며 서비스 수준 계약(SLA) 및 제한 보증에서 제외됩니다. 따라서 이 기능은 프로덕션용이 아닙니다.
@@ -65,7 +65,7 @@ Azure Red Hat OpenShift 4.3 클러스터를 만들려면 다음이 필요합니�
    az -v
    ...
    Extensions:
-   aro                                0.1.0
+   aro                                0.3.0
    ...
    ```
   
@@ -108,7 +108,7 @@ Azure Red Hat OpenShift 4.3 클러스터를 만들려면 다음이 필요합니�
 4. 가상 네트워크에 두 개의 빈 서브넷을 추가합니다.
 
    ```console
-    for subnet in "$CLUSTER-master" "$CLUSTER-worker"; do
+   for subnet in "$CLUSTER-master" "$CLUSTER-worker"; do
      az network vnet subnet create \
        -g "$RESOURCEGROUP" \
        --vnet-name vnet \
@@ -141,6 +141,8 @@ az aro create \
   --vnet vnet \
   --master-subnet "$CLUSTER-master" \
   --worker-subnet "$CLUSTER-worker" \
+  --cluster-resource-group "aro-$CLUSTER" \
+  --domain "$CLUSTER" \
   --pull-secret "$PULL_SECRET"
 ```
 

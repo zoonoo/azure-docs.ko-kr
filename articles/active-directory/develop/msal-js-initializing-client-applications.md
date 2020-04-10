@@ -13,12 +13,12 @@ ms.date: 04/12/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a0a2c5fc971c3f1f3283d95c5617bdf1e88a6a58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fbd700c787a844fa7538ed198f76ed5c06af2c28
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77084036"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010157"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>MSAL.js를 사용하여 클라이언트 응용 프로그램 초기화
 이 문서에서는 사용자 에이전트 응용 프로그램의 인스턴스를 사용 하 여 자바 스크립트 (MSAL.js)에 대 한 Microsoft 인증 라이브러리를 초기화 설명 합니다. 사용자 에이전트 응용 프로그램은 웹 브라우저와 같은 사용자 에이전트에서 클라이언트 코드가 실행되는 공용 클라이언트 응용 프로그램의 한 형태입니다. 이러한 클라이언트는 브라우저 컨텍스트에 공개적으로 액세스할 수 있으므로 비밀을 저장하지 않습니다. 클라이언트 응용 프로그램 유형 및 응용 프로그램 구성 옵션에 대해 자세히 알아보려면 [개요를](msal-client-applications.md)참조하십시오.
@@ -35,7 +35,7 @@ ms.locfileid: "77084036"
 
 일반 자바 스크립트 / 타이스크립트 응용 프로그램에서 다음과 같이 MSAL.js를 사용할 수 있습니다. 구성 개체를 인스턴스화하여 MSAL `UserAgentApplication` 인증 컨텍스트를 초기화합니다. MSAL.js를 초기화하는 데 필요한 최소 구성은 응용 프로그램 등록 포털에서 얻어야 하는 응용 프로그램의 clientID입니다.
 
-리디렉션 흐름(및)이`loginRedirect` `acquireTokenRedirect`있는 인증 방법의 경우 메서드를 통해 `handleRedirectCallback()` 성공 또는 오류에 대한 콜백을 명시적으로 등록해야 합니다. 이 리디렉션 흐름 은 팝업 환경의 방법으로 약속을 반환 하지 않습니다 때문에 필요 합니다.
+리디렉션 흐름 (및)이`loginRedirect` `acquireTokenRedirect`있는 인증 방법의 경우 MSAL.js 1.2.x 이전에서 메서드를 통해 `handleRedirectCallback()` 성공 또는 오류에 대한 콜백을 명시적으로 등록해야 합니다. 이 리디렉션 흐름 은 팝업 환경의 방법으로 약속을 반환 하지 않습니다 때문에 필요 합니다. 이는 MSAL.js 버전 1.3.0에서 선택 사항이 되었습니다.
 
 ```javascript
 // Configuration object constructed

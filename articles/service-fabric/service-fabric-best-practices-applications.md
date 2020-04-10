@@ -5,12 +5,12 @@ author: markfussell
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: mfussell
-ms.openlocfilehash: 876980bd6a59bace9ab4e490358964d19fa52c7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56df6e28940eb15597a3d6bccca3f85e5f690f89
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77586090"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991657"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Azure 서비스 패브릭 응용 프로그램 디자인 모범 사례
 
@@ -58,8 +58,8 @@ ms.locfileid: "77586090"
 ## <a name="how-to-work-with-reliable-services"></a>신뢰할 수 있는 서비스 로 작업하는 방법
 서비스 패브릭 신뢰할 수 있는 서비스를 사용하면 상태 비수기 및 상태 비상태 서비스를 쉽게 만들 수 있습니다. 자세한 내용은 신뢰할 [수 있는 서비스 소개를](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction)참조하세요.
 - 항상 상태 비수기 `RunAsync()` 및 상태 비 수 서비스에 `ChangeRole()` 대 한 메서드및 상태 이면 서비스에 대 한 메서드에서 [취소 토큰을](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) 사용 합니다. 그렇지 않으면 서비스 패브릭이 서비스를 닫을 수 있는지 알지 못합니다. 예를 들어 취소 토큰을 지키지 않으면 응용 프로그램 업그레이드 시간이 훨씬 길어지더 오래 발생할 수 있습니다.
--   적시에 [의사 소통 을](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) 열고 닫고 취소 토큰을 존중합니다.
--   동기화 코드를 비동기 코드와 혼합하지 마십시오. 예를 들어 비동기 `.GetAwaiter().GetResult()` 호출에는 사용하지 마세요. 호출 *스택을* 통해 모든 방법을 비동기를 사용합니다.
+-    적시에 [의사 소통 을](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) 열고 닫고 취소 토큰을 존중합니다.
+-    동기화 코드를 비동기 코드와 혼합하지 마십시오. 예를 들어 비동기 `.GetAwaiter().GetResult()` 호출에는 사용하지 마세요. 호출 *스택을* 통해 모든 방법을 비동기를 사용합니다.
 
 ## <a name="how-to-work-with-reliable-actors"></a>신뢰할 수 있는 액터작업
 서비스 패브릭 신뢰할 수 있는 액터를 사용하면 상태 풀, 가상 액터를 쉽게 만들 수 있습니다. 자세한 내용은 신뢰할 [수 있는 액터 에 대한 소개를](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction)참조하십시오.
@@ -77,7 +77,7 @@ ms.locfileid: "77586090"
 서비스 호출에 [응용 프로그램 로깅을](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) 추가하는 데 대해 철저히 세세하십시오. 서비스가 서로 호출하는 시나리오를 진단하는 데 도움이 됩니다. 예를 들어 A가 B를 호출할 때 C가 D를 호출하면 호출이 어디서나 실패할 수 있습니다. 로깅이 충분하지 않으면 오류를 진단하기가 어렵습니다. 통화 량으로 인해 서비스가 너무 많이 로깅하는 경우 최소한 오류 및 경고를 기록해야 합니다.
 
 ## <a name="iot-and-messaging-applications"></a>IoT 및 메시징 애플리케이션
-[Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) 또는 [Azure 이벤트 허브에서](https://docs.microsoft.com/azure/event-hubs/)메시지를 읽을 때 [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor)를 사용합니다. ServiceFabricProcessor는 서비스 패브릭 신뢰할 수 있는 서비스와 통합되어 이벤트 허브 파티션에서 읽는 상태를 `IEventProcessor::ProcessEventsAsync()` 유지하고 메서드를 통해 서비스에 새 메시지를 푸시합니다.
+[Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) 또는 [Azure 이벤트 허브에서](https://docs.microsoft.com/azure/event-hubs/)메시지를 읽을 때 [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/ServiceFabricProcessor)를 사용합니다. ServiceFabricProcessor는 서비스 패브릭 신뢰할 수 있는 서비스와 통합되어 이벤트 허브 파티션에서 읽는 상태를 `IEventProcessor::ProcessEventsAsync()` 유지하고 메서드를 통해 서비스에 새 메시지를 푸시합니다.
 
 
 ## <a name="design-guidance-on-azure"></a>Azure에 대한 디자인 지침

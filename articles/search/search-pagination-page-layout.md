@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: df80668f5e4a31d6247e9e9806e3de0667fd9036
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 451e83fa6ab547536a4cfd85304930e749a8247f
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656004"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998388"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Azure 인지 검색에서 검색 결과 작업 하는 방법
 
@@ -94,7 +94,11 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06
 
 히트 하이라이트는 일치하는 용어에 적용된 텍스트 서식(예: 굵게 또는 노란색 강조 표시)을 말하며, 일치되는 용어를 쉽게 찾아볼 수 있습니다. 조회 강조 표시 명령은 [쿼리 요청에](https://docs.microsoft.com/rest/api/searchservice/search-documents)제공됩니다. 검색 엔진은 일치하는 용어를 `highlightPreTag` 태그로 둘러싸고, `highlightPostTag`은 코드는 응답을 처리합니다(예: 굵은 글꼴 적용).
 
-서식은 전체 용어 쿼리에 적용됩니다. 다음 예제에서는 설명 필드에 있는 "모래", "모래", "해변", "해변"이라는 용어가 강조 표시를 위해 태그가 지정됩니다. 엔진에서 쿼리 확장을 초래하는 퍼지 검색 또는 와일드카드 검색과 같은 부분 용어에 대한 쿼리는 히트 강조 표시를 사용할 수 없습니다.
+서식은 전체 용어 쿼리에 적용됩니다. 다음 예제에서는 설명 필드에 있는 "모래", "모래", "해변", "해변"이라는 용어가 강조 표시를 위해 태그가 지정됩니다. 퍼지 및 와일드카드 검색과 같이 엔진에서 쿼리 확장을 트리거하는 쿼리는 히트 강조 표시에 대한 지원이 제한되어 있습니다.
+
+```http
+GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 
+```
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 

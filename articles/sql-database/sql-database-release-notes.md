@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 04/09/2020
 ms.author: sstein
-ms.openlocfilehash: 9fa93af72c2869efd7b6d2f1e8b96b0e667f8b16
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.openlocfilehash: b677fd7fe2b14e1c42443478a887ddfa2481dfbf
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80607544"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011449"
 ---
 # <a name="sql-database-release-notes"></a>SQL 데이터베이스 릴리스 정보
 
@@ -27,7 +27,6 @@ ms.locfileid: "80607544"
 | 기능 | 세부 정보 |
 | ---| --- |
 | 새로운 Fsv2 시리즈 및 M 시리즈 하드웨어 세대| 자세한 내용은 [하드웨어 세대를](sql-database-service-tiers-vcore.md#hardware-generations)참조하십시오.|
-| [Azure 개인 링크](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| Private Link는 네트워크 아키텍처를 단순화하고 Azure 네트워크의 데이터를 유지하여 Azure의 끝점 간의 연결을 보호하므로 인터넷에 대한 노출이 제거됩니다. 또한 개인 링크를 사용하면 Azure에서 사용자 고유의 서비스를 만들고 렌더링할 수 있습니다. |
 | 단일 데이터베이스 및 탄력적 풀로 데이터베이스 복구 가속화 | 자세한 내용은 [가속 데이터베이스 복구](sql-database-accelerated-database-recovery.md)를 참조하십시오.|
 |대략적인 Count Distinct|자세한 내용은 [대략적인 개수 구별을](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing)참조하십시오.|
 |Rowstore의 일괄 처리 모드(호환성 수준 150 미만)|자세한 내용은 [Rowstore의 일괄 처리 모드를](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)참조하십시오.|

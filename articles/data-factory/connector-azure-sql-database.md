@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: 8f5065a0f4a2a96a747a45f64e00e86f7990bfb8
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 3a16a8263c80852127ca61db3c666ebf0f7f1e4c
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437788"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011704"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Azure SQL 데이터베이스에서 데이터 복사 및 변환
 
@@ -58,7 +58,7 @@ ms.locfileid: "80437788"
 
 Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | **type** 속성은 **AzureSqlDatabase**로 설정해야 합니다. | 예 |
 | connectionString | **연결String** 속성에 대 한 Azure SQL Database 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다. <br/>Azure 키 자격 증명 모음에 암호 또는 서비스 주체 키를 넣을 수도 있습니다. SQL 인증인 경우 연결 `password` 문자열에서 구성을 가져옵니다. 자세한 내용은 Azure Key Vault의 테이블 및 [스토어 자격 증명 다음의](store-credentials-in-key-vault.md)JSON 예제를 참조하십시오. | 예 |
@@ -219,7 +219,7 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
 
 Azure SQL Database 데이터 집합에 대해 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **AzureSqlTable**로 설정해야 합니다. | 예 |
 | 스키마 | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
@@ -255,7 +255,7 @@ Azure SQL Database 데이터 집합에 대해 다음 속성이 지원됩니다.
 
 Azure SQL Database에서 데이터를 복사하려면 복사 활동 **원본** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 활동 원본의 **형식** 속성을 **AzureSqlSource**로 설정해야 합니다. "SqlSource" 형식은 이전 버전과의 호환성을 위해 계속 지원됩니다. | 예 |
 | SqlReaderQuery | 이 속성은 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `select * from MyTable`입니다. | 예 |
@@ -362,7 +362,7 @@ GO
 
 Azure SQL Database에 데이터를 복사하려면 복사 활동 **싱크** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 활동 싱크의 **형식** 속성을 **AzureSqlSink로**설정해야 합니다. "SqlSink" 형식은 이전 버전과의 호환성을 위해 계속 지원됩니다. | 예 |
 | writeBatchSize | *일괄 처리당*SQL 테이블에 삽입할 행 수입니다.<br/> 허용되는 값은 **정수**(행 수)입니다. 기본적으로 Azure Data Factory는 행 크기에 따라 적절한 일괄 처리 크기를 동적으로 결정합니다. | 예 |
@@ -493,7 +493,7 @@ BEGIN
 END
 ```
 
-**옵션 2:** [복사 활동 내에서 저장된 프로시저를 호출하도록](#invoke-a-stored-procedure-from-a-sql-sink)선택할 수도 있습니다. 이 방법은 대량 삽입을 복사 작업의 기본 접근 방식으로 사용하는 대신 원본 테이블의 각 행을 실행하므로 대규모 upsert에는 적합하지 않습니다.
+**옵션 2:** [복사 활동 내에서 저장된 프로시저를 호출하도록](#invoke-a-stored-procedure-from-a-sql-sink)선택할 수도 있습니다. 이 방법은 복사 작업의 기본 접근 `writeBatchSize` 방식으로 대량 삽입을 사용하는 대신 원본 테이블에서 각 일괄 처리(속성에 의해 관리되는 대로)를 실행합니다.
 
 ### <a name="overwrite-the-entire-table"></a>전체 테이블 덮어쓰기
 
@@ -508,10 +508,7 @@ END
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a><a name="invoke-a-stored-procedure-from-a-sql-sink"></a> SQL 싱크에서 저장 프로시저 호출
 
-Azure SQL Database에 데이터를 복사할 때 추가 매개 변수를 사용하여 사용자 지정 저장 프로시저를 구성하고 호출할 수도 있습니다. 저장 프로시저 기능은 [테이블 값 매개 변수를 활용합니다.](https://msdn.microsoft.com/library/bb675163.aspx)
-
-> [!TIP]
-> 저장 프로시저를 호출하면 대량 작업을 사용하는 대신 데이터 행을 행별로 처리하므로 대규모 복사본에는 권장하지 않습니다. [Azure SQL 데이터베이스에 데이터를 로드하는 모범 사례에서](#best-practice-for-loading-data-into-azure-sql-database)자세히 알아봅니다.
+Azure SQL Database에 데이터를 복사할 때 원본 테이블의 각 일괄 처리에 추가 매개 변수를 사용하여 사용자 지정 저장 프로시저를 구성하고 호출할 수도 있습니다. 저장 프로시저 기능은 [테이블 값 매개 변수를 활용합니다.](https://msdn.microsoft.com/library/bb675163.aspx)
 
 기본 제공 복사 메커니즘이 용도에 적합하지 않은 경우, 저장 프로시저를 사용할 수 있습니다. 예를 들어 원본 데이터를 대상 테이블에 최종 삽입하기 전에 추가 처리를 적용하려는 경우를 들 수 있습니다. 몇 가지 추가 처리 예제는 열을 병합하고, 추가 값을 조회하고, 둘 이상의 테이블에 삽입하려는 경우입니다.
 
@@ -643,7 +640,7 @@ Azure SQL Database에서 또는 Azure SQL Database로 데이터를 복사하면 
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| Xml |xml |
+| Xml |Xml |
 
 >[!NOTE]
 > 10진수 중간 형식으로 매핑되는 데이터 형식의 경우 Azure Data Factory는 현재 최대 28자리의 데이터를 지원합니다. 정밀도가 28보다 큰 데이터가 있는 경우 SQL 쿼리에서 문자열로 변환하는 것이 좋습니다.

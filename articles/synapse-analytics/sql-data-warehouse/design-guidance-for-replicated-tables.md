@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 128b4203d34b99df8363ef19783baa4a7b608aa5
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 654aeddbb305124ea00a883dbef9d8b5ad585a36
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631322"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990789"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-sql-analytics"></a>SQL 분석에서 복제된 테이블을 사용하기 위한 설계 지침
 
@@ -124,7 +124,7 @@ WHERE d.FiscalYear = 2004
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>복제 테이블 수정에 대한 성능 고려 사항
 
-SQL Analytics는 테이블의 마스터 버전을 유지 관리하여 복제된 테이블을 구현합니다. 마스터 버전을 각 Compute 노드에 있는 하나의 배포 데이터베이스에 복사합니다. 변경 내용이 있는 경우 SQL Analytics가 먼저 마스터 테이블을 업데이트합니다. 그런 다음, 각각의 Compute 노드에 테이블을 다시 빌드합니다. 복제 테이블의 다시 빌드에는 각 Compute 노드로 테이블을 복사한 다음, 인덱스를 빌드하는 것이 포함됩니다.  예를 들어 DW400의 복제된 테이블에는 5개의 데이터 복사본이 있습니다.  각 Compute 노드의 마스터 복사본 및 전체 복사본입니다.  모든 데이터는 배포 데이터베이스에 저장됩니다. SQL Analytics는 이 모델을 사용하여 더 빠른 데이터 수정 문과 유연한 크기 조정 작업을 지원합니다.
+SQL Analytics는 테이블의 마스터 버전을 유지 관리하여 복제된 테이블을 구현합니다. 마스터 버전을 각 Compute 노드의 첫 번째 배포 데이터베이스에 복사합니다. 변경 내용이 있는 경우 SQL Analytics는 먼저 마스터 버전을 업데이트한 다음 각 Compute 노드의 테이블을 다시 빌드합니다. 복제 테이블의 다시 빌드에는 각 Compute 노드로 테이블을 복사한 다음, 인덱스를 빌드하는 것이 포함됩니다.  예를 들어 DW2000c의 복제된 테이블에는 5개의 데이터 복사본이 있습니다.  각 Compute 노드의 마스터 복사본 및 전체 복사본입니다.  모든 데이터는 배포 데이터베이스에 저장됩니다. SQL Analytics는 이 모델을 사용하여 더 빠른 데이터 수정 문과 유연한 크기 조정 작업을 지원합니다.
 
 다시 빌드가 필요한 경우:
 

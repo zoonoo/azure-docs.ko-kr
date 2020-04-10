@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/08/2020
 ms.author: juliako
-ms.openlocfilehash: 8a00f7c0ec76510cc521966acf98b7250e723697
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 8eca95f9fca47fca4d54bacbab35f3a0ffc3ba31
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985901"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010582"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>미디어 서비스의 라이브 이벤트 및 라이브 출력
 
@@ -111,7 +111,7 @@ Media Services에서 라이브 인코딩을 사용하는 경우 온-프레미스
 
 * 베니티 URL
 
-    허영 모드는 하드웨어 브로드캐스트 인코더를 사용하고 라이브 이벤트를 시작할 때 인코더를 다시 구성하지 않으려는 대형 미디어 브로드캐스터가 선호합니다. 시간이 지남에 따라 변경되지 않는 예측 인제스트 URL을 원합니다.
+    허영 모드는 하드웨어 브로드캐스트 인코더를 사용하고 라이브 이벤트를 시작할 때 인코더를 다시 구성하지 않으려는 대형 미디어 브로드캐스터가 선호합니다. 이러한 브로드캐스터는 시간이 지남에 따라 변경되지 않는 예측 인제스트 URL을 원합니다.
     
     > [!NOTE]
     > Azure 포털에서 허영 URL의 이름은 *"영구 입력*URL"입니다.

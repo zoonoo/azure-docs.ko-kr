@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: c68b83726371d346019d18d0b066173f93196e6d
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 6ceace1ee93fab8c0a46ed4a67850fc87a5cdad2
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/09/2020
-ms.locfileid: "80982058"
+ms.locfileid: "80991231"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -129,6 +129,11 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Java 앱에 W3C 분산 추적 지원을 사용하도록 설정
 
+#### <a name="java-30-agent"></a>자바 3.0 에이전트
+
+  Java 3.0 에이전트는 즉시 W3C를 지원하며 추가 구성이 필요하지 않습니다. 
+
+#### <a name="java-sdk"></a>Java SDK
 - **들어오는 구성**
 
   - Java EE 앱의 경우 ApplicationInsights.xml의 태그에 다음을 `<TelemetryModules>` 추가합니다.
@@ -320,17 +325,32 @@ ASP.NET Core 2.0은 HTTP 헤더 추출 및 새 작업을 지원합니다.
 Application Insights SDK는 버전 2.4.0-beta1부터 `DiagnosticSource` 및 `Activity`를 사용하여 원격 분석을 수집하고 현재 활동과 연결합니다.
 
 <a name="java-correlation"></a>
-## <a name="telemetry-correlation-in-the-java"></a>Java의 원격 분석 상관 관계
+## <a name="telemetry-correlation-in-java"></a>Java의 원격 분석 상관 관계
 
-[응용 프로그램 인사이트 Java 에이전트뿐만](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) 아니라 [Java SDK](../../azure-monitor/app/java-get-started.md) 버전 2.0.0 이상은 원격 분석의 자동 상관 관계를 지원합니다. 요청 범위 내에서 `operation_id` 발급된 모든 원격 분석(예: 추적, 예외 및 사용자 지정 이벤트)에 대해 자동으로 채워집니다. 또한 [Java SDK 에이전트가](../../azure-monitor/app/java-agent.md) 구성된 경우 HTTP를 통해 서비스 간 호출에 대한 상관 헤더(앞에 설명)를 전파합니다.
+[Java 에이전트뿐만](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) 아니라 [Java SDK](../../azure-monitor/app/java-get-started.md) 버전 2.0.0 이상은 원격 분석의 자동 상관 관계를 지원합니다. 요청 범위 내에서 `operation_id` 발급된 모든 원격 분석(예: 추적, 예외 및 사용자 지정 이벤트)에 대해 자동으로 채워집니다. 또한 [Java SDK 에이전트가](../../azure-monitor/app/java-agent.md) 구성된 경우 HTTP를 통해 서비스 간 호출에 대한 상관 헤더(앞에 설명)를 전파합니다.
 
 > [!NOTE]
 > 응용 프로그램 인사이트 Java 에이전트는 JMS, 카프카, 네티/웹플럭스 등에 대한 요청 및 종속성을 자동으로 수집합니다. Java SDK의 경우 아파치 HttpClient를 통해 만들어진 호출만 상관 관계 기능에 대해 지원됩니다. 메시징 기술(예: Kafka, RabbitMQ 및 Azure Service Bus)에 대한 자동 컨텍스트 전파는 SDK에서 지원되지 않습니다. 
 
-<a name="java-role-name"></a>
-## <a name="role-name"></a>역할 이름
+> [!NOTE]
+> 사용자 지정 원격 분석을 수집하려면 Java 2.6 SDK로 응용 프로그램을 계측해야 합니다. 
+
+### <a name="role-names"></a>역할 이름
 
 구성 요소 이름이 [응용 프로그램 맵에](../../azure-monitor/app/app-map.md)표시되는 방식을 사용자 지정할 수 있습니다. 이렇게 하려면 다음 작업 중 `cloud_RoleName` 하나를 수행 하 여 수동으로 설정할 수 있습니다.
+
+- 애플리케이션 인사이트 Java 에이전트 3.0의 경우 다음과 같이 클라우드 역할 이름을 설정합니다.
+
+    ```json
+    {
+      "instrumentationSettings": {
+        "preview": {
+          "roleName": "my cloud role name"
+        }
+      }
+    }
+    ```
+    환경 변수를 `APPLICATIONINSIGHTS_ROLE_NAME`사용하여 클라우드 역할 이름을 설정할 수도 있습니다.
 
 - 응용 프로그램 인사이트 Java SDK 2.5.0 `cloud_RoleName` 이상에서는 `<RoleName>` ApplicationInsights.xml 파일에 추가하여 다음을 지정할 수 있습니다.
 

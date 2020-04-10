@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 4129f1a89575c9a0e7cd6a0090168df659356c1b
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 38e319efb100d326d55f6f821e7c903306a7c7d0
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885109"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991010"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>웹 API를 호출하는 웹 API: 코드 구성
 
@@ -214,7 +214,7 @@ class MsalAuthHelper {
 
 OBO(대신) 흐름은 다운스트림 웹 API를 호출하는 토큰을 가져오는 데 사용됩니다. 이 흐름에서 웹 API는 클라이언트 응용 프로그램에서 사용자 위임 된 권한이있는 베어러 토큰을 받은 다음 이 토큰을 다른 액세스 토큰으로 교환하여 다운스트림 웹 API를 호출합니다.
 
-파이썬 웹 API는 클라이언트에서 받은 베어러 토큰의 유효성을 검사하기 위해 일부 미들웨어를 사용해야 합니다. 그런 다음 웹 API는 메서드를 호출하여 MSAL Python 라이브러리를 사용하여 다운스트림 API에 대한 액세스 토큰을 가져올 수 있습니다. [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) MSAL 파이썬을 사용하여 이 흐름을 보여 주는 샘플은 아직 사용할 수 없습니다.
+파이썬 웹 API는 클라이언트에서 받은 베어러 토큰의 유효성을 검사하기 위해 일부 미들웨어를 사용해야 합니다. 그런 다음 웹 API는 메서드를 호출하여 MSAL Python 라이브러리를 사용하여 다운스트림 API에 대한 액세스 토큰을 가져올 수 있습니다. [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) 이 API를 사용하는 예는 [GitHub에서 microsoft 인증 라이브러리 for-python에 대한 테스트 코드를](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.2.0/tests/test_e2e.py#L429-L472)참조하십시오. 또한 중간 계층 응용 프로그램의 필요성을 우회하는 접근 방식에 대한 동일한 리포지토리에서 [문제 53에](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/53) 대한 설명도 참조하십시오.
 
 ---
 

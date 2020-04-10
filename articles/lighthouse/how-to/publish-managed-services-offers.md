@@ -1,21 +1,21 @@
 ---
 title: Azure 마켓플레이스에 관리되는 서비스 오퍼 게시
-description: 고객이 Azure 위임 리소스 관리에 고객을 온보딩하는 관리형 서비스 제품을 게시하는 방법을 알아봅니다.
+description: Azure 위임 리소스 관리에 고객을 온보딩하는 관리형 서비스 제품을 게시하는 방법을 알아봅니다.
 ms.date: 04/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4791b1d2ae233b0cc7aad33dd5b15b6ea94b2018
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 247f711188fa10de19cece27f164fdfa71612d1b
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984557"
+ms.locfileid: "80991912"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Azure 마켓플레이스에 관리되는 서비스 오퍼 게시
 
 > [!IMPORTANT]
-> 2020년 4월 14일부터 관리형 서비스 오퍼의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. 새 [관리형 서비스 오퍼 만들기의](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) 지침을 따라 마이그레이션된 오퍼를 관리합니다.
+> 2020년 4월 13일부터 관리형 서비스 오퍼의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. 마이그레이션된 [오퍼를](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) 관리하려면 새 관리형 서비스 만들기 의 지침에 따라 관리됩니다.
 
-이 문서에서는 [클라우드 파트너 포털을](https://cloudpartner.azure.com/)사용하여 [Azure Marketplace에](https://azuremarketplace.microsoft.com) 공개 또는 비공개 관리 형 서비스 오퍼를 게시하는 방법을 알아봅니다. 그러면 제품을 구입한 고객은 [Azure 위임 리소스 관리를](../concepts/azure-delegated-resource-management.md)위해 구독 및 리소스 그룹을 온보딩할 수 있습니다.
+이 문서에서는 [클라우드 파트너 포털을](https://cloudpartner.azure.com/)사용하여 [Azure 마켓플레이스에](https://azuremarketplace.microsoft.com) 공개 또는 개인 관리형 서비스 오퍼를 게시하는 방법을 알아봅니다. 그러면 제품을 구입한 고객은 [Azure 위임 리소스 관리를](../concepts/azure-delegated-resource-management.md)위해 구독 및 리소스 그룹을 온보딩할 수 있습니다.
 
 ## <a name="publishing-requirements"></a>게시 요구 사항
 
@@ -28,7 +28,7 @@ MPN(Microsoft 파트너 네트워크) ID는 게시하는 제품에 [자동으로
 > [!NOTE]
 > Azure Marketplace에 제품을 게시하지 않으려는 경우 Azure Resource Manager 템플릿을 사용하여 수동으로 고객을 온보딩할 수 있습니다. 자세한 내용은 [Azure 위임 리소스 관리에 고객 온보딩](onboard-customer.md)을 참조하세요.
 
-관리 서비스 제품 게시는 Azure Marketplace에 다른 유형의 제품을 게시하는 것과 비슷합니다. 일반 게시 프로세스에 대한 자세한 내용은 [Azure 마켓플레이스 및 앱소스 게시 가이드를](../../marketplace/marketplace-publishers-guide.md)참조하십시오. [상업 마켓플레이스 인증 정책](https://docs.microsoft.com/legal/marketplace/certification-policies), 특히 [관리 서비스](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services) 섹션도 검토해야 합니다.
+관리되는 서비스 오퍼를 게시하는 것은 다른 유형의 오퍼를 Azure Marketplace에 게시하는 것과 유사합니다. 일반 게시 프로세스에 대한 자세한 내용은 [Azure 마켓플레이스 및 앱소스 게시 가이드를](../../marketplace/marketplace-publishers-guide.md)참조하십시오. [상업 마켓플레이스 인증 정책](https://docs.microsoft.com/legal/marketplace/certification-policies), 특히 [관리 서비스](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services) 섹션도 검토해야 합니다.
 
 고객이 제안을 추가하면 하나 이상의 구독 또는 리소스 그룹을 위임할 수 있으며, 이 구독은 [Azure 위임된 리소스 관리에 대해 온보딩됩니다.](#the-customer-onboarding-process)
 

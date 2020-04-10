@@ -1,18 +1,18 @@
 ---
-title: Azure Automation 상태 구성에서 구성 컴파일
+title: Azure 자동화 상태 구성에서 DSC 구성 컴파일
 description: 이 문서에서는 Azure Automation에 대한 DSC(필요한 상태 구성) 구성을 컴파일하는 방법을 설명합니다.
 services: automation
 ms.subservice: dsc
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: b366777cce4dd4212a2e3ec0cdcd180e0d7164f4
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 6ce55b83f5547534e44d689adccdd952abc025d5
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80757182"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010956"
 ---
-# <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Azure Automation 상태 구성에서 DSC 구성 컴파일
+# <a name="compile-dsc-configurations-in-azure-automation-state-configuration"></a>Azure 자동화 상태 구성에서 DSC 구성 컴파일
 
 Azure 자동화 상태 구성에서 원하는 상태 구성(DSC) 구성을 다음과 같은 방법으로 컴파일할 수 있습니다.
 

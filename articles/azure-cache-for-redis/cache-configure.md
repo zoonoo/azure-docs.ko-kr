@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: f10be8efcd2d8e838b4b5f62310eb405f6ed0158
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3f0de52782694e6cbc8fdb6b55d545191dbbb350
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278741"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010310"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache for Redis를 구성하는 방법
 이 항목에서는 Azure Cache for Redis 인스턴스에 사용할 수 있는 구성에 대해 설명합니다. 또한 Azure Cache for Redis 인스턴스에 대한 기본 Redis 서버 구성에 대해서도 설명합니다.
@@ -39,7 +39,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
     * [액세스 키](#access-keys)
     * [고급 설정](#advanced-settings)
     * [Azure Cache for Redis Advisor](#azure-cache-for-redis-advisor)
-    * [규모](#scale)
+    * [확장](#scale)
     * [클러스터 크기](#cluster-size):
     * [데이터 지속성](#redis-data-persistence)
     * [업데이트 예약](#schedule-updates)
@@ -91,7 +91,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
 * [액세스 키](#access-keys)
 * [고급 설정](#advanced-settings)
 * [Azure Cache for Redis Advisor](#azure-cache-for-redis-advisor)
-* [규모](#scale)
+* [확장](#scale)
 * [클러스터 크기](#cluster-size):
 * [데이터 지속성](#redis-data-persistence)
 * [업데이트 예약](#schedule-updates)
@@ -117,10 +117,10 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
 * [Keyspace 알림(고급 설정)](#keyspace-notifications-advanced-settings)
 
 #### <a name="access-ports"></a>액세스 포트
-비 SSL 액세스는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. 비 SSL 포트를 사용하도록 설정하려면 **고급 설정 블레이드**의 **SSL을 통해서만 액세스 허용**에서 **아니요**를 클릭한 다음 **저장**을 클릭합니다.
+기본적으로 새 캐시에 대해 TLS/SSL 이외의 액세스가 비활성화됩니다. TLS가 아닌 포트를 활성화하려면 **고급 설정** 블레이드의 **SSL을 통해서만 액세스 허용** 에 대한 **아니요를** 클릭한 다음 **저장을**클릭합니다.
 
 > [!NOTE]
-> Redis용 Azure 캐시에 대한 SSL 액세스는 현재 TLS 1.0, 1.1 및 1.2를 지원하지만 버전 1.0 및 1.1은 곧 사용 중지될 예정입니다.  자세한 내용은 [TLS 제거 1.0 및 1.1 페이지를](cache-remove-tls-10-11.md) 참조하십시오.
+> Redis용 Azure 캐시에 대한 TLS 액세스는 현재 TLS 1.0, 1.1 및 1.2를 지원하지만 버전 1.0 및 1.1은 곧 사용 중지될 예정입니다.  자세한 내용은 [TLS 제거 1.0 및 1.1 페이지를](cache-remove-tls-10-11.md) 참조하십시오.
 
 ![Azure Cache for Redis 액세스 포트](./media/cache-configure/redis-cache-access-ports.png)
 

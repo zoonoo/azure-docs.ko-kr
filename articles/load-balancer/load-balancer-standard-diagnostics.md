@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 1d6fa75beabdc36750525310008add9594562228
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 951f24ad06014f6d95f10c91e1bad8e99bbbc736
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887115"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991776"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>메트릭, 경고 및 리소스 상태를 사용하는 표준 Load Balancer 진단
 
@@ -35,7 +35,7 @@ Azure 로드 밸러블러는 Azure 포털의 Azure 메트릭을 통해 다차원
 
 다양한 표준 Load Balancer 구성에서는 다음 메트릭을 제공합니다.
 
-| 메트릭 | 리소스 유형 | Description | 권장 집계 |
+| 메트릭 | 리소스 유형 | 설명 | 권장 집계 |
 | --- | --- | --- | --- |
 | 데이터 경로 가용성(VIP 가용성)| 공용 및 내부 부하 분산 장치 | 표준 Load Balancer는 지역 내에서 부하 분산 장치 프런트 엔드로, 마지막으로 VM을 지원하는 SDN 스택으로 데이터 경로를 연속적으로 실행합니다. 정상 인스턴스가 남아 있는 한 측정은 애플리케이션 부하가 분산된 트래픽과 동일한 경로를 따릅니다. 고객이 사용하는 데이터 경로의 유효성도 검사합니다. 측정은 애플리케이션에 표시되지 않으며 다른 작업을 방해하지 않습니다.| 평균 |
 | 상태 프로브 상태(DIP 가용성) | 공용 및 내부 부하 분산 장치 | 표준 Load Balancer는 구성 설정에 따라 애플리케이션 엔드포인트의 상태를 모니터링하는 분산된 상태 검색 서비스를 사용합니다. 이 메트릭은 부하 분산 장치 풀에서 각 인스턴스 엔드포인트의 집계 또는 엔드포인트당 필터링된 보기를 제공합니다. 상태 프로브 구성에 표시된 대로 Load Balancer에서 애플리케이션의 상태를 보는 방법을 확인할 수 있습니다. |  평균 |
@@ -86,6 +86,7 @@ Azure 표준 로드 밸러저는 다차원 메트릭에 대해 쉽게 구성할 
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>일반적인 진단 시나리오 및 권장 보기
 
 #### <a name="is-the-data-path-up-and-available-for-my-load-balancer-vip"></a>이 데이터 경로가 작동되며 부하 분산 장치 VIP에 사용할 수 있나요?
+<details><summary>Expand</summary>
 
 VIP 가용성 메트릭은 지역 내에서 VM이 있는 Compute 호스트로의 데이터 경로 상태를 설명합니다. 메트릭은 Azure 인프라의 상태를 반영한 것입니다. 이 메트릭으로 다음을 수행할 수 있습니다.
 - 서비스의 외부 가용성 모니터링
@@ -113,9 +114,11 @@ VIP 가용성 메트릭은 지역 내에서 VM이 있는 Compute 호스트로의
 진단을 위해 상태 프로브 [상태와 함께 데이터 경로 가용성 메트릭을](#vipavailabilityandhealthprobes)사용할 수 있습니다.
 
 대부분의 시나리오에서 집계로 **Average**를 사용합니다.
+</details>
 
 #### <a name="are-the-back-end-instances-for-my-vip-responding-to-probes"></a>VIP에 대한 백 엔드 인스턴스가 프로브에 응답하고 있나요?
-
+<details>
+  <summary>Expand</summary>
 상태 프로브 상태 메트릭은 부하 분산 장치의 상태 프로브를 구성할 때 사용자가 구성한 애플리케이션 배포의 상태를 설명합니다. 부하 분산 장치는 상태 프로브의 상태를 사용하여 새 흐름을 보낼 위치를 결정합니다. 상태 프로브는 Azure 인프라 주소에서 시작되며, VM의 게스트 OS 내에서 볼 수 있습니다.
 
 표준 로드 밸러서 리소스의 상태 프로브 상태를 얻으려면 다음을 수행하십시오.
@@ -127,9 +130,11 @@ VIP 가용성 메트릭은 지역 내에서 VM이 있는 Compute 호스트로의
 - 프로브가 네트워크 보안 그룹, VM의 게스트 OS 방화벽 또는 애플리케이션 계층 필터에서 허용되지 않는 경우.
 
 대부분의 시나리오에서 집계로 **Average**를 사용합니다.
+</details>
 
 #### <a name="how-do-i-check-my-outbound-connection-statistics"></a>내 아웃바운드 연결 통계는 어떻게 확인할 수 있나요? 
-
+<details>
+  <summary>Expand</summary>
 SNAT 연결 메트릭은 [아웃바운드 흐름](https://aka.ms/lboutbound)에 대한 성공 및 실패 연결의 볼륨을 설명합니다.
 
 실패한 연결 볼륨이 0보다 크면 SNAT 포트가 고갈된 것을 나타냅니다. 추가로 조사하여 이러한 실패의 원인을 확인해야 합니다. SNAT 포트 고갈은 [아웃바운드 흐름](https://aka.ms/lboutbound) 설정 실패를 나타냅니다. 아웃바운드 연결에 대한 문서를 검토하여 시나리오 및 작동 메커니즘을 이해하고, SNAT 포트 고갈 방지를 위한 완화 및 설계 방법을 알아봅니다. 
@@ -140,11 +145,13 @@ SNAT 연결 통계를 가져오려면:
 
 ![SNAT 연결](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
-*그림: Load Balancer SNAT 연결 수*
+*그림: 로드 밸런서 SNAT 연결 수*
+</details>
 
 
 #### <a name="how-do-i-check-my-snat-port-usage-and-allocation"></a>SNAT 포트 사용 및 할당을 확인하려면 어떻게 해야 합니까?
-
+<details>
+  <summary>Expand</summary>
 SNAT 사용 메트릭은 로드 밸런서 뒤에 있고 공용 IP 주소가 없는 인터넷 소스와 백 엔드 VM 또는 가상 시스템 규모 집합 사이에 설정된 고유 흐름 수를 나타냅니다. 이를 SNAT 할당 메트릭과 비교하여 서비스가 SNAT 고갈 및 아웃바운드 흐름 실패의 위험이 있는지 확인할 수 있습니다. 
 
 메트릭이 [아웃바운드 흐름](https://aka.ms/lboutbound) 실패의 위험을 나타내는 경우 문서를 참조하고 이를 완화하여 서비스 상태를 보장합니다.
@@ -166,20 +173,24 @@ SNAT 포트 사용 및 할당을 보려면 다음을 수행하십시오.
 ![백 엔드 인스턴스에 의한 SNAT 사용](./media/load-balancer-standard-diagnostics/snat-usage-split.png)
 
 *그림: 백 엔드 인스턴스당 TCP SNAT 포트 사용량*
+</details>
 
 #### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>내 서비스에 대한 인바운드/아웃바운드 연결 시도를 확인하려면 어떻게 해야 하나요?
-
+<details>
+  <summary>Expand</summary>
 SYN 패킷 메트릭은 특정 프런트 엔드와 관련해서 도착했거나 전송된 ([아웃바운드 흐름](https://aka.ms/lboutbound) 관련) TCP SYN 패킷 볼륨을 설명합니다. 이 메트릭을 사용하여 서비스에 대한 TCP 연결 시도를 이해할 수 있습니다.
 
 대부분의 시나리오에서 집계로 **Total**을 사용합니다.
 
 ![SYN 연결](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
 
-*그림: Load Balancer SYN 수*
+*그림: 로드 밸레인저 SYN 개수*
+</details>
 
 
 #### <a name="how-do-i-check-my-network-bandwidth-consumption"></a>내 네트워크 대역폭 소비를 어떻게 확인할 수 있나요? 
-
+<details>
+  <summary>Expand</summary>
 바이트 및 패킷 카운터 메트릭은 프런트 엔드 기준으로 서비스에서 전송 또는 수신된 바이트 및 패킷 볼륨을 설명합니다.
 
 대부분의 시나리오에서 집계로 **Total**을 사용합니다.
@@ -192,10 +203,12 @@ SYN 패킷 메트릭은 특정 프런트 엔드와 관련해서 도착했거나 
 
 ![바이트 수](./media/load-balancer-standard-diagnostics/LBMetrics-ByteCount.png)
 
-*그림: Load Balancer 바이트 수*
+*그림: 로드 밸록터 바이트 수*
+</details>
 
 #### <a name="how-do-i-diagnose-my-load-balancer-deployment"></a><a name = "vipavailabilityandhealthprobes"></a>내 부하 분산 장치 배포를 진단하려면 어떻게 해야 하나요?
-
+<details>
+  <summary>Expand</summary>
 단일 차트에 VIP 가용성 및 상태 프로브 메트릭의 조합을 사용하여 문제를 확인하고 해결할 위치를 식별할 수 있습니다. Azure가 제대로 작동하고 있는지 확신하고, 이 정보를 토대로 구성 또는 애플리케이션이 근본 원인이라는 결론을 얻을 수 있습니다.
 
 상태 프로브 메트릭을 사용하여 Azure에서 사용자가 제공한 구성을 기준으로 배포의 상태를 확인하는 방법을 이해할 수 있습니다. 상태 프로브를 확인하는 것은 항상 모니터링 또는 원인 파악에 도움이 되는 첫 단계입니다.
@@ -211,6 +224,7 @@ SYN 패킷 메트릭은 특정 프런트 엔드와 관련해서 도착했거나 
 - 보라색 추적으로 표시된 상태 프로브 상태(DIP 가용성)는 차트의 시작 부분에서 0%입니다. 녹색의 동그라미 영역은 상태 프로브 상태(DIP 가용성)가 정상상태가 되고 고객의 배포가 새 흐름을 받아들일 수 있는 지점입니다.
 
 이 차트를 통해 고객은 다른 문제 발생 여부에 관계없이, 추측을 하거나 지원을 요청하지 않고 직접 배포 문제를 해결할 수 있습니다. 잘못된 구성 또는 실패한 애플리케이션 때문에 상태 프로브가 실패했으므로 서비스는 사용할 수 없었습니다.
+</details>
 
 ## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>Resource Health 상태
 
@@ -237,7 +251,7 @@ SYN 패킷 메트릭은 특정 프런트 엔드와 관련해서 도착했거나 
  
 다음 표에는 다양한 리소스 상태와 해당 설명이 나와 있습니다. 
 
-| Resource Health 상태 | Description |
+| Resource Health 상태 | 설명 |
 | --- | --- |
 | 사용 가능 | 표준 로드 밸러버 리소스는 정상이며 사용할 수 있습니다. |
 | 사용할 수 없음 | 표준 로드 밸러버 리소스가 정상적이지 않습니다. **Azure 모니터** > 메트릭을 선택하여 상태를**진단합니다.**<br>(사용할*수 없는* 상태는 리소스가 표준 로드 밸러버와 연결되지 않음을 의미할 수도 있습니다.) |

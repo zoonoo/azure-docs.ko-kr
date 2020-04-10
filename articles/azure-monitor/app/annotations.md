@@ -3,27 +3,23 @@ title: Application Insights에 대한 릴리스 주석 | Microsoft Docs
 description: Application Insights에서 배포 또는 빌드 표식을 메트릭 탐색기 차트에 추가합니다.
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: e0e2a106b276110e13b3c68889e4d1d349ba73a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ad773ca6a7102ac718d43dfbbf6a4f834e681a0
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666516"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010731"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application Insights의 메트릭 차트에 대한 주석
 
-메트릭 탐색기 차트의 주석은 새 빌드 또는 기타 중요한 이벤트를 배포한 위치를 [표시합니다.](../../azure-monitor/app/metrics-explorer.md) 주석을 사용하면 변경 내용이 응용 프로그램의 성능에 영향을 미쳤는지 쉽게 확인할 수 있습니다. Azure 파이프라인 빌드 시스템에서 자동으로 만들 수 [있습니다.](https://docs.microsoft.com/azure/devops/pipelines/tasks/) PowerShell에서 주석을 만들어 원하는 이벤트에 대한 플래그를 지정하는 주석을 만들 수도 있습니다.
-
-> [!NOTE]
-> 이 문서에서는 사용하지 않는 **클래식 메트릭 환경**을 반영합니다. 주석은 현재 클래식 환경 및 **[workbook](../../azure-monitor/app/usage-workbooks.md)** 에서만 사용할 수 있습니다. 현재 메트릭 경험에 대한 자세한 내용은 [Azure 메트릭 탐색기의 고급 기능을](../../azure-monitor/platform/metrics-charts.md)참조하십시오.
-
-![주석의 예](./media/annotations/0-example.png)
+주석에는 새 빌드 또는 기타 중요한 이벤트를 배포한 위치가 표시됩니다. 주석을 사용하면 변경 내용이 응용 프로그램의 성능에 영향을 미쳤는지 쉽게 확인할 수 있습니다. Azure 파이프라인 빌드 시스템에서 자동으로 만들 수 [있습니다.](https://docs.microsoft.com/azure/devops/pipelines/tasks/) PowerShell에서 주석을 만들어 원하는 이벤트에 대한 플래그를 지정하는 주석을 만들 수도 있습니다.
 
 ## <a name="release-annotations-with-azure-pipelines-build"></a>Azure 파이프라인 빌드를 통해 릴리스 주석
 
 릴리스 주석은 Azure DevOps의 클라우드 기반 Azure 파이프라인 서비스의 기능입니다.
 
 ### <a name="install-the-annotations-extension-one-time"></a>주석 확장 설치(한 번)
+
 릴리스 주석을 만들려면 Visual Studio 마켓플레이스에서 사용할 수 있는 여러 Azure DevOps 확장 중 하나를 설치해야 합니다.
 
 1. [Azure DevOps 프로젝트에 로그인합니다.](https://azure.microsoft.com/services/devops/)
@@ -74,11 +70,26 @@ Azure DevOps 조직에 대해 확장을 한 번만 설치하면 됩니다. 이�
 1. 기본 릴리스 템플릿 창에서 **저장을** 선택하여 템플릿을 저장합니다.
 
 ## <a name="view-annotations"></a>주석 보기
-이제 릴리스 템플릿을 사용하여 새 릴리스를 배포할 때마다 응용 프로그램 인사이트로 추가가 전송됩니다. 주석은 **메트릭 탐색기의**차트에 나타납니다.
 
-요청자, 소스 제어 분기, 릴리스 파이프라인 및 환경을 포함하여 릴리스에 대한 세부 정보를 열려면 모든 참조 마커(밝은 회색 화살표)를 선택합니다.
 
-![릴리스 부고 마커를 선택합니다.](./media/annotations/8-release.png)
+   > [!NOTE]
+   > 릴리스 주석은 현재 응용 프로그램 인사이트 메트릭 창에서 사용할 수 없습니다.
+
+이제 릴리스 템플릿을 사용하여 새 릴리스를 배포할 때마다 응용 프로그램 인사이트로 추가가 전송됩니다. 주석은 다음 위치에서 볼 수 있습니다.
+
+또한 수동으로 릴리스 주석을 만들 수 있는 사용 창:
+
+![시간 동안 표시되는 사용자 방문 수가 있는 막대형 차트의 스크린샷입니다. 릴리스 주석은 릴리스가 발생한 시간을 나타내는 차트 위에 녹색 체크표시로 나타납니다.](./media/annotations/usage-pane.png)
+
+시각화가 x축을 따라 시간을 표시하는 모든 로그 기반 통합 문서 쿼리에서
+
+![주석이 표시된 시계열 로그 기반 쿼리가 있는 통합 문서 창의 스크린샷](./media/annotations/workbooks-annotations.png)
+
+통합 문서의 주석을 활성화하려면 **고급 설정으로** 이동하여 **주석 표시를 선택합니다.**
+
+![단어와 고급 설정 메뉴의 스크린 샷은 그것을 활성화하기 위해 설정 옆에 체크 표시로 강조 주석을 보여줍니다.](./media/annotations/workbook-show-annotations.png)
+
+요청자, 소스 제어 분기, 릴리스 파이프라인 및 환경을 포함하여 릴리스에 대한 세부 정보를 열려면 모든 부술 표시기를 선택합니다.
 
 ## <a name="create-custom-annotations-from-powershell"></a>PowerShell에서 사용자 지정 주석 만들기
 GitHub의 [CreateReleaseAnnotation](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) PowerShell 스크립트를 사용하여 Azure DevOps를 사용하지 않고 원하는 프로세스에서 주석을 만들 수 있습니다. 

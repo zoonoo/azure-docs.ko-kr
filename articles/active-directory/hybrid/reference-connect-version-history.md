@@ -12,12 +12,12 @@ ms.date: 04/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60dca30496aa17ad7add00ca4eca914cb58fddd7
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 5d2e3f8da4a05feedb8c1ab585fabcc74edbc71a
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655974"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998739"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -48,6 +48,13 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 >
 >Azure AD Connect를 최신 버전으로 업그레이드하는 방법에 대해 자세히 알아보려면 [이 문서를](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) 참조하십시오.
 
+## <a name="15200"></a>1.5.20.0
+
+### <a name="release-status"></a>릴리스 상태
+2020/04/09: 다운로드 용 으로 출시
+
+### <a name="fixed-issues"></a>해결된 문제
+이 핫픽스 빌드는 그룹 필터링 기능을 사용하도록 설정하고 mS-DS-ConsistencyGuid를 소스 앵커로 사용하는 경우 빌드 1.5.18.0문제를 해결합니다.
 
 ## <a name="15180"></a>1.5.18.0
 
@@ -521,7 +528,7 @@ Azure AD Connect 버전 1.1.654.0 이상에서는 Azure AD Connect가 AD DS 계�
 *   특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다. SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
 *   다음과 같은 특정 권한을 할당합니다.
 
-Type     | 이름                          | 액세스 권한               | 적용 대상
+형식     | 이름                          | 액세스 권한               | 적용 대상
 ---------|-------------------------------|----------------------|--------------|
 Allow    | SYSTEM                        | 모든 권한         | 이 개체  |
 Allow    | 엔터프라이즈 관리자             | 모든 권한         | 이 개체  |
@@ -555,7 +562,7 @@ Where
 >[!NOTE] 
 >$credential.UserName은 FQDN\username 형식이어야 합니다. 예: contoso.com\admin 
 
-##### <a name="example"></a>예제:
+##### <a name="example"></a>예:
 
 ```powershell
 Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 

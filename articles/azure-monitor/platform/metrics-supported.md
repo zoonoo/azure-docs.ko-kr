@@ -7,19 +7,25 @@ ms.topic: reference
 ms.date: 04/06/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 846e8da889e3913c4a8eaab7808495bbd8afad29
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 80e38893d764f35511793d8b31f596dcbf16dd42
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754670"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991895"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 
 > [!NOTE]
 > 이 목록은 주로 Azure 모니터 메트릭 REST API에서 자동으로 생성됩니다. Github를 통해 이 목록을 수정한 내용은 경고 없이 기록될 수 있습니다. 영구 업데이트 하는 방법에 대 한 자세한 내용은이 문서의 저자에 게 문의 하십시오.
 
-Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. 다음은 현재 Azure Monitor의 메트릭 파이프라인을 통해 사용할 수 있는 모든 메트릭의 전체 목록입니다. 레거시 API를 통해서 또는 포털에서 다른 메트릭을 제공할 수 있습니다. 아래 목록에는 통합 Azure Monitor 메트릭 파이프라인을 통해 사용할 수 있는 메트릭만 포함됩니다. 메트릭은 네임스페이스별로 구성됩니다. 서비스 목록 및 해당 서비스에 속한 네임스페이스는 [Azure 서비스에 대한 리소스 공급자를](../../azure-resource-manager/management/azure-services-resource-providers.md)참조하십시오. 프로그래밍 방식으로 이러한 메트릭을 쿼리하고 액세스하려면 [2018-01-01 api 버전을](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) 사용하십시오.
+Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. 
+
+이 문서는 Azure Monitor의 통합 메트릭 파이프라인에서 현재 사용할 수 있는 모든 플랫폼(즉, 자동으로 수집된) 메트릭의 전체 목록입니다. 이 목록은 2020년 3월 27일에 마지막으로 업데이트되었습니다. 이 날짜 이후에 변경되거나 추가된 메트릭은 아래에 표시되지 않을 수 있습니다. 프로그래밍 방식으로 메트릭 목록을 쿼리하고 액세스하려면 [2018-01-01 api 버전을](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) 사용하십시오.
+
+레거시 API를 통해서 또는 포털에서 다른 메트릭을 제공할 수 있습니다. Azure 가상 컴퓨터, 서비스 패브릭 및 클라우드 서비스에서 실행되는 게스트 운영 체제(게스트 os)에 대한 메트릭은 여기에 **나열되지 않습니다.** 운영 체제에서 또는 운영 체제의 일부로 실행되는 하나 이상의 에이전트를 통해 수집해야 합니다. 현재 공개 미리 보기중인 [사용자 지정 메트릭](metrics-custom-overview.md) API를 사용하여 에이전트 메트릭을 플랫폼 메트릭 데이터베이스로 보낼 수 있습니다. 그런 다음 플랫폼 메트릭과 같은 게스트 OS 측정항목을 차트로 차트, 경고 및 사용할 수 있습니다. 자세한 내용은 [모니터링 에이전트 개요를](agents-overview.md)참조하십시오.    
+
+메트릭은 네임스페이스별로 구성됩니다. 서비스 목록 및 해당 서비스에 속한 네임스페이스는 [Azure 서비스에 대한 리소스 공급자를](../../azure-resource-manager/management/azure-services-resource-providers.md)참조하십시오. 
 
 > [!NOTE]
 > 진단 설정을 통한 다차원 메트릭 보내기는 현재 지원되지 않습니다. 차원이 있는 메트릭은 차원 값 전체에서 집계된 플랫 단일 차원 메트릭으로 내보내집니다.

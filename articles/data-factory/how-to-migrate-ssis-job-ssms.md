@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: c65fbd9bbd83db9c7c8ec0e9041d08372243b72f
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: ee51be1d994c3b81765266e95c48d321a2f43b14
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887646"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80989445"
 ---
-# <a name="migrate-on-premises-ssis-jobs-to-azure-data-factory"></a>온-프레미스 SSIS 작업을 Azure 데이터 팩터리로 마이그레이션
+# <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>SSMS를 사용하여 SQL 서버 에이전트 작업을 ADF로 마이그레이션
 
 [온-프레미스 SQL Server 통합 서비스(SSIS) 워크로드를 ADF의 SSIS로 마이그레이션할](scenario-ssis-migration-overview.md)때 SSIS 패키지를 마이그레이션한 후 SQL Server 통합 서비스 패키지의 작업 단계 유형을 사용하여 SQL Server Server 에이전트 작업의 일괄 마이그레이션을 ADF(ADF) 파이프라인/활동/일정 트리거를 SQL Server 관리 스튜디오(SSMS) **SSIS 작업 마이그레이션 마법사를**통해 수행할 수 있습니다.
 

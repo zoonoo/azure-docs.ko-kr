@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 3e0dd6e0bb81aef340dc83288e6e5c0af0bf11c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca913a4c197e04e20c962c4a4a7a1e479a3cdf92
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75867365"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990891"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 REST 엔드포인트에서 데이터 복사
 
@@ -46,7 +46,7 @@ REST 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -58,10 +58,10 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | **형식** 속성은 **RestService**로 설정해야 합니다. | yes |
-| url | REST 서비스의 기본 URL입니다. | yes |
-| enableServerCertificateValidation | 끝점에 연결할 때 서버 측 SSL 인증서의 유효성을 검사할지 여부입니다. | 예<br /> (기본값은 **true)** |
-| authenticationType | REST 서비스에 연결하는 데 사용되는 인증 형식입니다. 허용되는 값은 **Anonymous**, **Basic**, **AadServicePrincipal** 및 **ManagedServiceIdentity**입니다. 추가 속성 및 예제를 보려면 아래 해당 섹션을 참조하세요. | yes |
+| type | **형식** 속성은 **RestService**로 설정해야 합니다. | 예 |
+| url | REST 서비스의 기본 URL입니다. | 예 |
+| enableServerCertificateValidation | 엔드포인트에 연결할 때 서버 측 TLS/SSL 인증서의 유효성을 검사할지 여부입니다. | 예<br /> (기본값은 **true)** |
+| authenticationType | REST 서비스에 연결하는 데 사용되는 인증 형식입니다. 허용되는 값은 **Anonymous**, **Basic**, **AadServicePrincipal** 및 **ManagedServiceIdentity**입니다. 추가 속성 및 예제를 보려면 아래 해당 섹션을 참조하세요. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [필수 구성 조건](#prerequisites) 섹션에서 자세히 알아보십시오. 지정하지 않으면 이 속성은 기본 Azure Integration Runtime을 사용합니다. |예 |
 
 ### <a name="use-basic-authentication"></a>기본 인증 사용
@@ -70,8 +70,8 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| userName | REST 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | yes |
-| password | 사용자(**userName** 값)의 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | yes |
+| userName | REST 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예 |
+| password | 사용자(**userName** 값)의 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 예 |
 
 **예제**
 
@@ -103,10 +103,10 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| servicePrincipalId | Azure Active Directory 애플리케이션의 클라이언트 ID를 지정합니다. | yes |
-| servicePrincipalKey | Azure Active Directory 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
-| tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | yes |
-| aadResourceId | 권한 부여를 요청하는 AAD 리소스(예: `https://management.core.windows.net`)를 지정합니다.| yes |
+| servicePrincipalId | Azure Active Directory 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
+| servicePrincipalKey | Azure Active Directory 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 예 |
+| aadResourceId | 권한 부여를 요청하는 AAD 리소스(예: `https://management.core.windows.net`)를 지정합니다.| 예 |
 
 **예제**
 
@@ -140,7 +140,7 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| aadResourceId | 권한 부여를 요청하는 AAD 리소스(예: `https://management.core.windows.net`)를 지정합니다.| yes |
+| aadResourceId | 권한 부여를 요청하는 AAD 리소스(예: `https://management.core.windows.net`)를 지정합니다.| 예 |
 
 **예제**
 
@@ -170,9 +170,9 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 **type** 속성을 **RestResource**로 설정해야 합니다. | yes |
+| type | 데이터 세트의 **type** 속성을 **RestResource**로 설정해야 합니다. | 예 |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. HTTP 커넥터는 결합된 URL에서 데이터를 `[URL specified in linked service]/[relative URL specified in dataset]`복사합니다. | 예 |
 
 `requestBody` 을 `paginationRules` 설정하고 `requestMethod` `additionalHeaders`데이터 집합에서 계속 지원되는 반면 앞으로 활동 소스에서 새 모델을 사용하는 것이 좋습니다.
@@ -206,9 +206,9 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 다음 속성은 복사 활동 **소스** 섹션에서 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 **type** 속성은 **RestSource**로 설정해야 합니다. | yes |
+| type | 복사 작업 원본의 **type** 속성은 **RestSource**로 설정해야 합니다. | 예 |
 | requestMethod | HTTP 메서드입니다. 허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 예 |
 | additionalHeaders | 추가 HTTP 요청 헤더입니다. | 예 |
 | requestBody | HTTP 요청의 본문입니다. | 예 |
@@ -308,7 +308,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 페이지 매김 규칙의 **지원되는 키**는 다음과 같습니다.
 
-| Key | 설명 |
+| 키 | 설명 |
 |:--- |:--- |
 | AbsoluteUrl | 다음 요청을 실행할 URL을 나타냅니다. **절대 URL 또는 상대 URL일**수 있습니다. |
 | QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter"는 다음 HTTP 요청 URL에 있는 하나의 쿼리 매개 변수 이름을 참조하는 사용자 정의 항목입니다. |
@@ -409,7 +409,7 @@ Facebook Graph API는 다음 구조의 응답을 반환합니다. 이 경우 다
     | 속성 | 설명 |
     |:--- |:--- |:--- |
     | URL |OAuth 베어러 토큰을 검색할 URL을 지정합니다. 예를 들어, 여기에 샘플에서 그것은https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
-    | 방법 | HTTP 메서드입니다. 허용된 값은 **게시** 및 **Get입니다.** | 
+    | 메서드 | HTTP 메서드입니다. 허용된 값은 **게시** 및 **Get입니다.** | 
     | headers | 헤더는 HTTP 요청에서 하나의 헤더 이름을 참조하는 사용자 정의입니다. | 
     | 본문 | HTTP 요청의 본문입니다. | 
 

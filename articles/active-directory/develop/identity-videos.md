@@ -1,6 +1,6 @@
 ---
 title: 마이크로소프트 아이덴티티 플랫폼 비디오 | Azure
-description: Microsoft ID 플랫폼에 대한 비디오 목록
+description: 최신 인증 및 Microsoft ID 플랫폼에 대한 비디오 목록
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -8,24 +8,73 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/29/2020
+ms.date: 04/08/2020
 ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: 22149ccfa258852b36da61ffbabde5e1856df9de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8c7ec6cf1d15e414a6db54d5bc2ad7e4994cd82
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77085186"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991299"
 ---
 # <a name="microsoft-identity-platform-videos"></a>Microsoft ID 플랫폼 비디오
 
-Microsoft ID 플랫폼 및 MSAL(Microsoft 인증 라이브러리)에 대해 알아봅니다. 일반적으로 1-2분 길이입니다.
+최신 인증, Microsoft ID 플랫폼 및 MSAL(Microsoft 인증 라이브러리)의 기본 사항에 대해 알아봅니다.
+
+## <a name="authentication-fundamentals"></a>인증 기본 사항
+
+ID 공급자, 보안 토큰, 클레임 및 잠재 고객과 같은 개념을 새로 접하는 경우 이 비디오 시리즈를 시작하는 것이 좋습니다.
+___
+
+:::row:::
+    :::column:::
+        1 - 기본 사항 : 현대 인증의 개념 (4:33)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+     :::column:::
+        2 - 웹 응용 프로그램에 대한 최신 인증(6:02)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/tCNcG1lcCHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        3 - 웹 싱글 사인온(4:13)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/51B-jSOBF8U?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+    :::column:::
+        4 - 페더레이션 웹 인증(6:19)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        5 - 네이티브 클라이언트 응용 프로그램 - 파트 1 (8:12)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/OGMDnuDrAcQ?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+    :::column:::
+        6 - 네이티브 클라이언트 응용 프로그램 - 파트 2 (5:33)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/2RE6IhXfmHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+:::row-end:::
 
 ## <a name="microsoft-identity-platform-basics"></a>마이크로소프트 아이덴티티 플랫폼 기본 사항
 
-**기본 Microsoft ID 플랫폼 개념 알아보기**
+Microsoft ID 플랫폼의 구성 요소, MSAL(Microsoft 인증 라이브러리) 및 이러한 구성 요소가 Azure Active Directory와 상호 작용하는 방법에 대해 알아봅니다. One 개발자 질문 동영상은 길이가 1-2분입니다.
+___
 
 :::row:::
     :::column:::
@@ -112,7 +161,8 @@ Microsoft ID 플랫폼 및 MSAL(Microsoft 인증 라이브러리)에 대해 알�
 
 ## <a name="migrate-from-v10-to-v20"></a>v1.0에서 v2.0으로 마이그레이션
 
-**Microsoft ID 플랫폼의 최신 버전으로 마이그레이션하는 방법에 대해 알아보기**
+ADAL(활성 디렉터리 인증 라이브러리)에서 MSAL로 이동하는 것을 포함하여 최신 버전의 Microsoft ID 플랫폼으로 마이그레이션하는 방법에 대해 알아봅니다.
+___
 
 :::row:::
     :::column:::

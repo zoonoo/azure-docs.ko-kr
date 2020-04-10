@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0d63f2c29bfdbdf320185647bd33ec30500ed874
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 8cb4af8faccb68c455928c0d3c5405ef2d3e70df
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742698"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011024"
 ---
 # <a name="indexing-tables-in-synapse-sql-pool"></a>시냅스 SQL 풀의 테이블 인덱싱
 
@@ -52,9 +52,9 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 
 ## <a name="heap-tables"></a>힙 테이블
 
-Synapse SQL 풀에서 데이터를 일시적으로 방문하는 경우 힙 테이블을 사용하면 전체 프로세스가 더 빨라질 수 있습니다. 즉, 힙에 로드하는 것이 인덱스 테이블에 로드하는 것보다 더 빠르며 경우에 따라 캐시에서 후속 읽기가 수행될 수도 있습니다.  더 많은 변환을 실행하기 전에 준비만을 위해 데이터를 로드하는 경우 테이블을 힙 테이블에 로드하면 데이터를 클러스터형 columnstore 테이블에 로드할 때보다 훨씬 빠릅니다. 또한 데이터를 [임시 테이블](sql-data-warehouse-tables-temporary.md)에 로드하면 테이블을 영구 스토리지에 로드하는 것보다 빠릅니다.  
+Synapse SQL 풀에서 데이터를 일시적으로 방문하는 경우 힙 테이블을 사용하면 전체 프로세스가 더 빨라질 수 있습니다. 즉, 힙에 로드하는 것이 인덱스 테이블에 로드하는 것보다 더 빠르며 경우에 따라 캐시에서 후속 읽기가 수행될 수도 있습니다.  더 많은 변환을 실행하기 전에 준비만을 위해 데이터를 로드하는 경우 테이블을 힙 테이블에 로드하면 데이터를 클러스터형 columnstore 테이블에 로드할 때보다 훨씬 빠릅니다. 또한 데이터를 [임시 테이블](sql-data-warehouse-tables-temporary.md)에 로드하면 테이블을 영구 스토리지에 로드하는 것보다 빠릅니다.  데이터 로드 후 쿼리 성능을 더 빠르게 하기 위해 테이블에 인덱스를 만들 수 있습니다.  
 
-6천만 개 미만의 작은 조회 테이블의 경우 힙 테이블이 적합합니다.  클러스터 열 저장소 테이블은 6천만 개 이상의 행이 있으면 최적의 압축을 얻기 시작합니다.
+클러스터 열 저장소 테이블은 6천만 개 이상의 행이 있으면 최적의 압축을 얻기 시작합니다.  6천만 개 미만의 작은 조회 테이블의 경우 더 빠른 쿼리 성능을 위해 HEAP 또는 클러스터된 인덱스를 사용하는 것이 좋습니다. 
 
 힙 테이블을 만들려면 WITH 절에서 HEAP을 지정하면 됩니다.
 

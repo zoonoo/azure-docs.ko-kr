@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: kanshiG
 ms.author: govindk
 ms.date: 04/07/2020
-ms.openlocfilehash: 38f5778e363a16117bab482a758666ec81352afd
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 62c10a2ada9ff7d3bf7090028dd9684192517d02
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887568"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991414"
 ---
 # <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Azure Cosmos DB 컨테이너 또는 계정에서 작업에 대한 서버 측 대기 시간을 모니터링하는 방법
 
@@ -35,11 +35,11 @@ Azure Cosmos DB용 Azure 모니터는 계정을 모니터링하고 대시보드�
 
 1. **메트릭** 창 에서 > 필요한 **구독**및 리소스 그룹을 선택 하기 > **리소스** **를**선택 합니다. 리소스 **유형에**대해 **Azure Cosmos DB 계정을**선택하고 기존 Azure Cosmos 계정 중 하나를 선택하고 **적용을**선택합니다.
    
-   ![코스모스 DB 계정을 선택하여 메트릭을 확인합니다.](./media/monitor-server-side-latency/select-cosmosdb-account.png)
+   ![코스모스 DB 계정을 선택하여 메트릭을 확인합니다.](./media/monitor-server-side-latency/select-cosmos-db-account.png)
 
 1. 다음으로 사용 가능한 메트릭 목록에서 **서버 측 대기 시간** 메트릭을 선택합니다. 이 목록에서 사용 가능한 모든 측정항목에 대해 자세히 알아보려면 [카테고리별 측정항목을 참조하세요.](monitor-cosmos-db-reference.md) 이 예제에서는 **서버 측 대기 시간** 및 **평균을** 집계 값으로 선택해 보겠습니다. 이러한 세부 정보 외에도 메트릭의 **시간 범위** 및 **시간 세분성을** 선택할 수도 있습니다. 최대에서는 지난 30일 동안의 측정항목을 볼 수 있습니다.  필터를 적용하면 필터에 따라 차트가 표시됩니다. 선택한 기간 동안 분당 평균 요청 단위 수를 확인할 수 있습니다.  
 
-   ![Azure 포털에서 서버 측 대기 시간 메트릭 선택](./media/monitor-server-side-latency/serverside-latency-metric.png)
+   ![Azure 포털에서 서버 측 대기 시간 메트릭 선택](./media/monitor-server-side-latency/server-side-latency-metric.png)
 
 ## <a name="filters-for-server-side-latency"></a>서버 측 대기 시간 필터
 
@@ -49,7 +49,7 @@ Azure Cosmos DB용 Azure 모니터는 계정을 모니터링하고 대시보드�
 
 각 작업에 대한 **서버 측 대기 시간** 메트릭은 다음 이미지와 같이 표시됩니다.
 
-![서버 측 대기 시간 메트릭에 대한 필터](./media/monitor-server-side-latency/serverside-latency-filters.png)
+![서버 측 대기 시간 메트릭에 대한 필터](./media/monitor-server-side-latency/server-side-latency-filters.png)
 
 **분할 적용** 옵션을 사용하여 메트릭을 그룹화할 수도 있습니다.  
 

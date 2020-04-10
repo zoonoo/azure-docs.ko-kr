@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 758ac037fcd224d02f62239b3408b41b50390147
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 58fc71ab05c34e8acd252e7a1984c55996d1b3a7
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77167289"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80999032"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>자습서: 장치 그룹을 사용하여 장치 원격 분석을 분석합니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "77167289"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-시작하기 전에 [Azure IoT Central 애플리케이션 만들기](./quick-deploy-iot-central.md) 및 [IoT Central 애플리케이션에 시뮬레이션된 디바이스 추가](./quick-create-pnp-device.md) 빠른 시작을 완료하여 작업할 **MXChip IoT DevKit** 디바이스 템플릿을 만들어야 합니다.
+시작하기 전에 [Azure IoT Central 애플리케이션 만들기](./quick-deploy-iot-central.md) 및 [IoT Central 애플리케이션에 시뮬레이션된 디바이스 추가](./quick-create-simulated-device.md) 빠른 시작을 완료하여 작업할 **MXChip IoT DevKit** 디바이스 템플릿을 만들어야 합니다.
 
 ## <a name="create-simulated-devices"></a>시뮬레이션된 장치 만들기
 

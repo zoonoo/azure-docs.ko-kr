@@ -8,20 +8,20 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 7f001a0d443e4ec668aedaabb7505884163bf37e
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: faafc1e12f0703c38b4e602700b1e775bf13a061
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80666778"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998341"
 ---
-# <a name="partial-term-search-and-patterns-with-special-characters---azure-cognitive-search-wildcard-regex-patterns"></a>특수 문자가 있는 부분 용어 검색 및 패턴 - Azure 인지 검색(와일드카드, 정규식, 패턴)
+# <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>특수 문자가 있는 부분 용어 검색 및 패턴(와일드카드, 정규식, 패턴)
 
 *부분 용어 검색은* 문자열의 첫 번째, 마지막 또는 내부 부분과 같은 용어 조각으로 구성된 쿼리를 나타냅니다. *패턴은* 조각의 조합일 수 있으며, 때로는 쿼리의 일부인 대시 또는 슬래시와 같은 특수 문자가 있을 수 있습니다. 일반적인 사용 사례에는 전화 번호, URL, 사람 또는 제품 코드 또는 복합 단어의 일부에 대한 쿼리가 포함됩니다.
 
 인덱스에 패턴 일치에 필요한 형식의 용어가 없는 경우 부분 검색에 문제가 있을 수 있습니다. 인덱싱의 텍스트 분석 단계에서 기본 표준 분석기를 사용하여 특수 문자가 삭제되고 복합 문자열과 복합 문자열이 분할되어 일치하는 항목이 없을 때 패턴 쿼리가 실패합니다. 예를 들어 해당 콘텐츠가 실제로 인덱스에 `"703"` `"6214"`존재하지 않기 때문에 (에 `"3-62"` `+1 (425) 703-6214` `"1"` `"425"`대한 토큰화)와 같은 전화 번호가 쿼리에 표시되지 않습니다. 
 
-해결 방법은 필요한 경우 공백 및 특수 문자를 포함하여 전체 문자열을 보존하는 분석기를 호출하여 부분 용어 및 패턴을 지원할 수 있도록 하는 것입니다. 그대로 문자열에 대한 추가 필드를 만들고 콘텐츠 보존 분석기를 사용하는 것이 솔루션의 기본입니다.
+해결 방법은 필요한 경우 공백 및 특수 문자를 포함하여 전체 문자열을 보존하는 분석기를 호출하여 부분 적인 용어 및 패턴과 일치시킬 수 있도록 하는 것입니다. 그대로 문자열에 대한 추가 필드를 만들고 콘텐츠 보존 분석기를 사용하는 것이 솔루션의 기본입니다.
 
 ## <a name="what-is-partial-search-in-azure-cognitive-search"></a>Azure 인지 검색의 부분 검색이란 무엇입니까?
 
@@ -64,7 +64,7 @@ Azure 인지 검색에서 부분 검색 및 패턴은 다음 형태로 사용할
   "type": "Edm.String",
   "retrievable": true,
   "searchable": true,
-  "analyzer": "my_customanalyzer"
+  "analyzer": "my_custom_analyzer"
 },
 ```
 

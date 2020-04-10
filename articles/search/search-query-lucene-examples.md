@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 745be21c2a7a09a09fdbbfd57a305d09a4fac3ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c54f864b5bd562fdc0a84b2903198704032b360
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72793438"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998492"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>"전체" Lucene 검색 구문 사용(Azure 인지 검색의 고급 쿼리)
 
@@ -86,7 +86,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 간단히 하기 위해 쿼리는 *business_title*만을 대상으로 하며, 직함만 반환되도록 지정합니다. **searchFields** 매개 변수는 쿼리 실행을 business_title 필드로만 제한하고 **선택** 선택하면 응답에 포함되는 필드를 지정합니다.
 
-### <a name="partial-query-string"></a>부분 쿼리 문자열
+### <a name="search-expression"></a>검색 식
 
 ```http
 &search=*&searchFields=business_title&$select=business_title
@@ -119,7 +119,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 전체 Lucene 구문은 특정 필드에 대한 개별 검색 식의 범위를 지정하는 것을 지원합니다. 이 예제에서는 선배라는 용어가 있는 비즈니스 타이틀을 검색하지만 주니어는 검색하지 않습니다.
 
-### <a name="partial-query-string"></a>부분 쿼리 문자열
+### <a name="search-expression"></a>검색 식
 
 ```http
 $select=business_title&search=business_title:(senior NOT junior)
@@ -156,7 +156,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 전체 Lucene 구문은 비슷한 구문을 갖는 용어를 일치시키는 유사 항목 검색도 지원합니다. 유사 항목 검색을 수행하려면 편집 거리를 지정하는 0과 2 사이의 값을 선택적 매개 변수로 포함하여 단일 단어의 끝에 물결표`~` 기호를 추가합니다. 예를 들어, `blue~` 또는 `blue~1`은 blue, blues 및 glue를 반환합니다.
 
-### <a name="partial-query-string"></a>부분 쿼리 문자열
+### <a name="search-expression"></a>검색 식
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:asosiate~
@@ -186,7 +186,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## <a name="example-4-proximity-search"></a>예제 4: 근접 검색
 근접 검색은 문서에서 서로 근접한 용어를 찾는 데 사용됩니다. 구 끝에 물결표("~") 기호, 그리고 근접 경계를 생성하는 단어 수를 넣습니다. 예를 들어, "hotel airport"~5는 문서에서 서로 5개의 단어 내에서 hotel과 airport라는 용어를 찾게 됩니다.
 
-### <a name="partial-query-string"></a>부분 쿼리 문자열
+### <a name="search-expression"></a>검색 식
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
@@ -239,7 +239,7 @@ musicstoreindex 예제에서 **genre** 와 같이, 특정 필드에서 일치 �
 
 정규식 검색은 [RegExp 클래스](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html)에 나와 있는 것처럼 슬래시("/") 사이의 내용에 기반하여 일치 항목을 찾습니다.
 
-### <a name="partial-query-string"></a>부분 쿼리 문자열
+### <a name="search-expression"></a>검색 식
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
@@ -262,7 +262,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## <a name="example-7-wildcard-search"></a>예제 7: 와일드카드 검색
 일반적으로 다중(\*) 또는 단일(?) 문자 와일드카드 검색에 인식된 구문을 사용할 수 있습니다. Lucene 쿼리 커서는 구가 아닌 단일 용어에 이러한 기호의 사용을 지원합니다.
 
-### <a name="partial-query-string"></a>부분 쿼리 문자열
+### <a name="search-expression"></a>검색 식
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:prog*

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 192e46fd7f86b6053eaf658fa65e3c6cdfa3a4e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93c21656a768ae458572e0b4917412c8103b2f2d
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528611"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992218"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 액세스 제어
 
@@ -54,7 +54,7 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 보안 보안 주체를 파일 및 디렉터리에 대한 액세스 수준과 연결할 수 있습니다. 이러한 연결은 *ACL(액세스 제어 목록)에*캡처됩니다. 저장소 계정의 각 파일 및 디렉터리에는 액세스 제어 목록이 있습니다.
 
 > [!NOTE]
-> ACL은 동일한 테넌트의 보안 주체에만 적용됩니다. 게스트 사용자를 액세스 수준과 연결할 수 없습니다.  
+> ACL은 동일한 테넌트의 보안 주체에만 적용됩니다. 
 
 저장소 계정 수준에서 보안 주체에 역할을 할당한 경우 액세스 제어 목록을 사용하여 특정 파일 및 디렉터리에 대한 보안 주체의 높은 액세스 권한을 부여할 수 있습니다.
 
@@ -293,7 +293,7 @@ HNS가 해제된 경우에도 Azure RBAC 권한 부여 규칙이 여전히 적�
 
 - 호출자에게 '수퍼 사용자' 권한이 있습니다.
 
-또는
+Or
 
 - 부모 디렉터리에 쓰기 + 실행 권한이 있어야 합니다.
 - 삭제할 디렉터리와 그 안의 모든 디렉터리에 읽기 + 쓰기 + 실행 권한이 필요합니다.

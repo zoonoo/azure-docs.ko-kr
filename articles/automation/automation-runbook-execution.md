@@ -5,24 +5,24 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: c8968eb72b29b004d94e25433da65d3262287147
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1907eb7cde482927ee8e6b0a2522158f05c1808f
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367145"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010939"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
 Runbook은 내부에 정의된 논리에 따라 실행됩니다. Runbook이 중단되면 해당 Runbook이 처음부터 다시 시작됩니다. 이 동작을 수행하려면 일시적인 문제가 발생할 경우 다시 시작되는 Runbook을 작성해야 합니다.
 
-Azure 자동화에서 Runbook을 시작하면 작업이 만들어집니다. 작업은 Runbook의 단일 실행 인스턴스입니다. 각 작업은 Azure 구독에 연결하여 Azure 리소스에 액세스할 수 있습니다. 공용 클라우드에서 해당 리소스에 액세스할 수 있는 경우에만 해당 작업에 데이터 센터의 리소스에 액세스할 수 있습니다.
+Azure Automation에서 Runbook을 시작하면 Runbook의 단일 실행 인스턴스인 작업이 만들어집니다. 각 작업은 Azure 구독에 연결하여 Azure 리소스에 액세스할 수 있습니다. 공용 클라우드에서 해당 리소스에 액세스할 수 있는 경우에만 해당 작업에 데이터 센터의 리소스에 액세스할 수 있습니다.
 
 Azure Automation은 Runbook 실행 중에 각 작업을 실행하도록 작업자를 할당합니다. 작업자가 많은 Azure 계정에서 공유되지만 여러 Automation 계정의 작업은 서로 격리됩니다. 작업 요청을 서비스하는 작업자를 제어할 수 없습니다.
 
 Azure 포털에서 Runbook 목록을 보면 각 Runbook에 대해 시작된 각 작업의 상태가 표시됩니다. Azure Automation은 작업 로그를 최대 30일 동안 저장합니다. 
 
-다음 다이어그램은 [PowerShell Runbook,](automation-runbook-types.md#powershell-runbooks) [그래픽 실행책](automation-runbook-types.md#graphical-runbooks)및 [PowerShell 워크플로 런북에](automation-runbook-types.md#powershell-workflow-runbooks)대한 Runbook 작업의 수명 주기를 보여 주었습니다.
+다음 다이어그램은 [PowerShell Runbook,](automation-runbook-types.md#powershell-runbooks) [그래픽 실행북](automation-runbook-types.md#graphical-runbooks)및 [PowerShell 워크플로 런북에](automation-runbook-types.md#powershell-workflow-runbooks)대한 Runbook 작업의 수명 주기를 보여 주었습니다.
 
 ![작업 상태 - PowerShell 워크플로](./media/automation-runbook-execution/job-statuses.png)
 
@@ -222,7 +222,7 @@ Azure 샌드박스에서 실행되는 Runbook에서 시작된 PowerShell 작업�
 
 다음 표는 작업에 대해 가능한 상태에 대해 설명합니다.
 
-| 상태 | 설명 |
+| 상태 | Description |
 |:--- |:--- |
 | Completed |작업이 완료되었습니다. |
 | 실패 |그래픽 또는 PowerShell 워크플로 런북을 컴파일하지 못했습니다. PowerShell 스크립트 실행책을 시작하지 못했거나 작업에 예외가 있습니다. [Azure 자동화 Runbook 유형을](automation-runbook-types.md)참조하십시오.|

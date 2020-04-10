@@ -7,16 +7,16 @@ manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 03/11/2020
+ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 85457b62c905cb30ca22264eff1b6c677473f9b9
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: ce2fe66888893d82debcc412bb16752914d8a190
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745295"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011109"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Azure Synapse 분석에서 리소스 사용률 및 쿼리 활동 모니터링
 
@@ -33,8 +33,8 @@ Azure Synapse Analytics는 Azure 포털 내에서 풍부한 모니터링 환경�
 | 메모리 백분율       | 데이터 웨어하우스의 모든 노드에서 메모리 사용률(SQL Server) | 평균, 최소, 최대   |
 | 활성 쿼리          | 시스템에서 실행 중인 활성 쿼리 수             | 합계              |
 | 큐에 대기된 쿼리          | 실행 시작을 기다리는 큐에 대기 된 쿼리 수          | 합계              |
-| 성공적인 연결  | 데이터에 대한 연결 성공 횟수                 | 합계, 카운트       |
-| 실패한 연결      | 데이터 웨어하우스에 대한 연결 실패 횟수           | 합계, 카운트       |
+| 성공적인 연결  | 데이터베이스에 대한 성공적인 연결 수(로그인) | 합계, 카운트       |
+| 실패한 연결      | 데이터베이스에 대한 실패한 연결(로그인) 수 | 합계, 카운트       |
 | 방화벽에 의해 차단     | 차단된 데이터 웨어하우스에 대한 로그인 횟수     | 합계, 카운트       |
 | DWU 제한               | 데이터 웨어하우스의 서비스 수준 목표                | 평균, 최소, 최대    |
 | DWU 백분율          | CPU 비율과 데이터 IO 비율 사이의 최댓값        | 평균, 최소, 최대    |
@@ -42,7 +42,7 @@ Azure Synapse Analytics는 Azure 포털 내에서 풍부한 모니터링 환경�
 | 캐시 적중 비율    | (캐시 적중/캐시 누락) * 100, 여기서 캐시 적중은 로컬 SSD 캐시에서 적중된 모든 columnstore 세그먼트에 대한 합계이며, 캐시 누락은 모든 노드에 걸쳐 로컬 SSD 캐시에서 누락된 columnstore 세그먼트에 대한 합계입니다. | 평균, 최소, 최대    |
 | 캐시 사용 비율   | (사용된 캐시/캐시 용량) * 100, 여기서 사용된 캐시는 모든 노드에 걸친 로컬 SSD 캐시의 모든 바이트에 대한 합계이며, 캐시 용량은 모든 노드에 걸친 로컬 SSD 캐시의 스토리지 용량에 대한 합계입니다 | 평균, 최소, 최대    |
 | 로컬 tempdb 백분율 | 모든 컴퓨팅 노드의 로컬 tempdb 사용률 - 5분마다 값을 내보냅니다. | 평균, 최소, 최대    |
-| 데이터 스토리지 크기(GB) | 데이터베이스에 로드된 데이터의 총 크기입니다. 여기에는 CCI에 있는 데이터와 비 CCI 테이블의 크기가 전체 데이터베이스 파일 크기로 측정되는 비 CCI 테이블이 포함됩니다. | 합계 |
+| 데이터 스토리지 크기(GB) | 데이터베이스의 총 크기입니다. 여기에는 사용된 공간, 예약된 공간 및 할당되지 않은 공간이 포함됩니다. 데이터베이스가 쿼리 및 로드 성능을 최적화하기 위해 할당되지 않은 공간이 유지됩니다. | 합계 |
 | 재해 복구 크기(GB) | 24시간마다 수행되는 지오 백업의 총 크기 | 합계 |
 | 스냅샷 스토리지 크기(GB) | 데이터베이스 복원 지점을 제공하기 위해 수행된 스냅숏의 총 크기입니다. 여기에는 자동화된 사용자 정의 스냅샷이 포함됩니다. | 합계 |
 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0b3c47e1bbe5efdc5ee303305e52a785a49d0c00
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: b470f9278bdca94d1fe98c64b11b070fb36cb075
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586874"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998469"
 ---
-# <a name="set-up-azure-multi-factor-authentication"></a>Azure 다단계 인증 설정
+# <a name="set-up-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 설정
 
 Windows 가상 데스크톱용 Windows 클라이언트는 Windows 가상 데스크톱을 로컬 컴퓨터와 통합하기 위한 훌륭한 옵션입니다. 그러나 Windows Virtual Desktop 계정을 Windows 클라이언트로 구성할 때 자신과 사용자를 안전하게 유지하기 위해 취해야 할 특정 조치가 있습니다.
 
@@ -32,7 +32,7 @@ Windows 가상 데스크톱용 Windows 클라이언트는 Windows 가상 데스�
   - Azure Active 디렉터리 프리미엄 P1 또는 P2
   - 엔터프라이즈 모빌리티 + 보안 E3 또는 E5
 - 그룹 구성원으로 할당된 사용자가 있는 Azure Active Directory 그룹입니다.
-- 모든 사용자에 대해 Azure MFA를 사용하도록 설정합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [사용자에 대한 2단계 인증을 요구하는 방법을](/active-directory/authentication/howto-mfa-userstates)참조하십시오.
+- 모든 사용자에 대해 Azure MFA를 사용하도록 설정합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [사용자에 대한 2단계 인증을 요구하는 방법을](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user)참조하십시오.
 
 >[!NOTE]
 >다음 설정은 Windows [가상 데스크톱 웹 클라이언트에도](https://rdweb.wvd.microsoft.com/webclient/index.html)적용됩니다.

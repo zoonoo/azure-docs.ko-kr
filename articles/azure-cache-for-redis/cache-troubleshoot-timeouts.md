@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: 4b8cfed883ffef780de2e82e3f309e97bcb5515c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4301a55e3f5ea5b445ef1540ee59d1b5c28ca0ed
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278247"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010820"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Azure Cache for Redis 시간 제한 문제 해결
 
@@ -82,7 +82,7 @@ StackExchange.Redis는 기본값이 `synctimeout` 1000ms인 동기 작업에 대
    - CPU [캐시 성능 메트릭을](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)모니터링하여 서버에 CPU 바인딩이 있는지 확인합니다. Redis가 CPU 바인딩되어 있는 동안 들어오는 요청은 이러한 요청의 시간 중지를 유발할 수 있습니다. 이 조건을 해결하려면 프리미엄 캐시의 여러 샤드에 부하를 분산하거나 더 큰 크기 또는 가격 책정 계층으로 업그레이드할 수 있습니다. 자세한 내용은 [서버 측 대역폭 제한을](cache-troubleshoot-server.md#server-side-bandwidth-limitation)참조하십시오.
 1. 서버에서 처리하는데 시간이 오래 걸리는 명령이 있습니까? redis-server에서 처리하는 데 시간이 오래 걸리는 장기 실행 명령은 시간 시간을 초래할 수 있습니다. 장기 실행 명령에 대한 자세한 내용은 [장기 실행 명령을](cache-troubleshoot-server.md#long-running-commands)참조하십시오. redis-cli 클라이언트 또는 [Redis 콘솔을](cache-configure.md#redis-console)사용하여 Redis 인스턴스에 대한 Azure 캐시에 연결할 수 있습니다. 그런 다음 [SLOWLOG](https://redis.io/commands/slowlog) 명령을 실행하여 요청이 예상보다 느린지 확인합니다. Redis 서버와 StackExchange.Redis는 작은 수의 큰 요청보다 많은 수의 작은 요청을 위해 최적화되어 있습니다. 데이터를 더 작은 청크로 분할한다면 다음을 향상시킵니다.
 
-    redis-cli 및 stunnel을 사용하여 캐시의 SSL 끝점에 연결하는 방법에 대한 자세한 내용은 [redis 미리 보기 릴리스에 대한 세션 상태 공급자발표 ASP.NET](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)블로그 게시물을 참조하십시오.
+    redis-cli 및 stunnel을 사용하여 캐시의 TLS/SSL 끝점에 연결하는 방법에 대한 자세한 내용은 [redis 미리 보기 릴리스에 대한 세션 상태 공급자를 ASP.NET 발표하는](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)블로그 게시물을 참조하십시오.
 1. 높은 Redis 서버 부하로 시간 초과가 발생할 수 있습니다. `Redis Server Load` [캐시 성능 메트릭](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)을 모니터링함으로써 서버 부하를 모니터링할 수 있습니다. 100(최대 값)이란 서버 부하는 redis 서버가 요청을 처리하느라 유휴 시간이 전혀 없이 사용 중이었음을 나타냅니다. 특정 요청이 서버 기능의 전부를 차지하는지 확인하려면 이전 단락에서 설명한 대로 SlowLog 명령을 실행합니다. 자세한 내용은 높은 CPU 사용량/서버 로드를 참조하세요.
 1. 클라이언트 쪽에서 네트워크 문제를 일으킬 만한 이벤트가 있었습니까? 일반적인 이벤트로는 클라이언트 인스턴스 수를 위 또는 아래로 조정하거나, 새 버전의 클라이언트를 배포하거나, 자동 크기 조정을 사용하도록 설정합니다. 테스트에서 자동 크기 조정 또는 확장/축소로 인해 몇 초 동안 아웃바운드 네트워크 연결이 손실될 수 있습니다. StackExchange.Redis 코드는 이러한 이벤트에 복원력이 있어 다시 연결합니다. 다시 연결하는 동안 큐의 모든 요청은 시간 시간 중지할 수 있습니다.
 1. 캐시에 대한 몇 가지 작은 요청보다 많은 요청이 시간 만료되었기 때문에? 오류 `qs` 메시지의 매개 변수는 클라이언트에서 서버로 전송되었지만 응답을 처리하지 않은 요청 수를 알려줍니다. StackExchange.Redis는 하나의 TCP 연결을 사용하고 한 번에 하나의 응답만 읽을 수 있기 때문에 이 값은 계속 증가할 수 있습니다. 첫 번째 작업이 시간 초과하는 경우에도 더 많은 데이터가 서버로 전송되는 것을 막을 수는 없습니다. 다른 요청은 큰 요청이 완료될 때까지 차단되며 시간 종료가 발생할 수 있습니다. 하나의 솔루션은 워크로드를 감당할 수 있게 캐시를 충분히 크게 하고 큰 값을 작은 청크로 분할하여 시간 초과의 가능성을 최소화하는 것입니다. 또 다른 가능한 솔루션은 클라이언트에서 `ConnectionMultiplexer` 개체 풀을 사용하고, 새 요청을 보낼 때 부하가 최소인 `ConnectionMultiplexer`을 선택합니다, 여러 연결 개체에 로드하면 단일 시간 아웃으로 인해 다른 요청도 시간 시간 중지되지 않습니다.

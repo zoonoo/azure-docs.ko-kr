@@ -3,18 +3,21 @@ title: 논리적 조직에 대한 리소스, 리소스 그룹 및 구독에 태�
 description: 태그를 적용하여 대금 청구 및 관리를 위해 Azure 리소스를 구성하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 76f9f61b3fe7002508bbd884f427efcfee698579
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 44759db59ef7e7556c8fbfca3bbc58ef84796198
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548488"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010803"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>태그를 사용하여 Azure 리소스 및 관리 계층 을 구성합니다.
 
 Azure 리소스, 리소스 그룹 및 구독에 태그를 적용하여 논리적으로 분류로 구성합니다. 각 태그는 이름과 값 쌍으로 이루어져 있습니다. 예를 들어 프로덕션의 모든 리소스에 "환경" 이름과 "프로덕션" 값을 적용할 수 있습니다.
 
 태그 지정 전략을 구현하는 방법에 대한 권장 사항은 [리소스 이름 지정 및 태그 지정 결정 가이드를](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)참조하십시오.
+
+> [!IMPORTANT]
+> 태그 이름은 대/소문자를 구분하지 않습니다. 태그 값은 대/소문자를 구분합니다.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 

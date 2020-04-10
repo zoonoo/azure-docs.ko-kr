@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: a916645f153f73a98e7fc5d4046bdf557e8acf2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5ea0fd252d1792d4c40cc6d7869f4ba57edc1ad
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73823524"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011364"
 ---
 # <a name="split-merge-security-configuration"></a>분할-병합 보안 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "73823524"
 
 인증서는 두 가지 방법으로 구성합니다. 
 
-1. [SSL 인증서를 구성하려면](#to-configure-the-ssl-certificate)
+1. [TLS/SSL 인증서를 구성하려면](#to-configure-the-tlsssl-certificate)
 2. [클라이언트 인증서를 구성하려면](#to-configure-client-certificates) 
 
 ## <a name="to-obtain-certificates"></a>인증서를 얻으려면
@@ -49,26 +49,26 @@ ms.locfileid: "73823524"
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
 * WDK 가져오기 [Windows 8.1: 키트 및 도구 다운로드](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
-## <a name="to-configure-the-ssl-certificate"></a>SSL 인증서를 구성하려면
+## <a name="to-configure-the-tlsssl-certificate"></a>TLS/SSL 인증서를 구성하려면
 
-통신을 암호화하고 서버를 인증하려면 SSL 인증서가 필요합니다. 아래 세 가지 시나리오 중 가장 적합한 시나리오를 선택하고 모든 단계를 실행합니다.
+통신을 암호화하고 서버를 인증하려면 TLS/SSL 인증서가 필요합니다. 아래 세 가지 시나리오 중 가장 적합한 시나리오를 선택하고 모든 단계를 실행합니다.
 
 ### <a name="create-a-new-self-signed-certificate"></a>자체 서명된 새로운 인증서 만들기
 
 1. [자체 서명된 인증서 만들기](#create-a-self-signed-certificate)
-2. [자체 서명된 SSL 인증서용 PFX 파일 만들기](#create-pfx-file-for-self-signed-ssl-certificate)
-3. [클라우드 서비스에 SSL 인증서 업로드](#upload-ssl-certificate-to-cloud-service)
-4. [서비스 구성 파일에서 SSL 인증서 업데이트](#update-ssl-certificate-in-service-configuration-file)
-5. [SSL 인증 기관 가져오기](#import-ssl-certification-authority)
+2. [자체 서명된 TLS/SSL 인증서에 대한 PFX 파일 만들기](#create-pfx-file-for-self-signed-tlsssl-certificate)
+3. [클라우드 서비스에 TLS/SSL 인증서 업로드](#upload-tlsssl-certificate-to-cloud-service)
+4. [서비스 구성 파일에서 TLS/SSL 인증서 업데이트](#update-tlsssl-certificate-in-service-configuration-file)
+5. [TLS/SSL 인증 기관 가져오기](#import-tlsssl-certification-authority)
 
 ### <a name="to-use-an-existing-certificate-from-the-certificate-store"></a>인증서 저장소에서 기존 인증서를 사용하려면
-1. [인증서 저장소에서 SSL 인증서 내보내기](#export-ssl-certificate-from-certificate-store)
-2. [클라우드 서비스에 SSL 인증서 업로드](#upload-ssl-certificate-to-cloud-service)
-3. [서비스 구성 파일에서 SSL 인증서 업데이트](#update-ssl-certificate-in-service-configuration-file)
+1. [인증서 저장소에서 TLS/SSL 인증서 내보내기](#export-tlsssl-certificate-from-certificate-store)
+2. [클라우드 서비스에 TLS/SSL 인증서 업로드](#upload-tlsssl-certificate-to-cloud-service)
+3. [서비스 구성 파일에서 TLS/SSL 인증서 업데이트](#update-tlsssl-certificate-in-service-configuration-file)
 
 ### <a name="to-use-an-existing-certificate-in-a-pfx-file"></a>PFX 파일에서 기존 인증서를 사용하려면
-1. [클라우드 서비스에 SSL 인증서 업로드](#upload-ssl-certificate-to-cloud-service)
-2. [서비스 구성 파일에서 SSL 인증서 업데이트](#update-ssl-certificate-in-service-configuration-file)
+1. [클라우드 서비스에 TLS/SSL 인증서 업로드](#upload-tlsssl-certificate-to-cloud-service)
+2. [서비스 구성 파일에서 TLS/SSL 인증서 업데이트](#update-tlsssl-certificate-in-service-configuration-file)
 
 ## <a name="to-configure-client-certificates"></a>클라이언트 인증서를 구성하려면
 클라이언트 인증서는 서비스에 요청을 인증하는 데 필요합니다. 아래 세 가지 시나리오 중 가장 적합한 시나리오를 선택하고 모든 단계를 실행합니다.
@@ -102,7 +102,7 @@ ms.locfileid: "73823524"
 
 ### <a name="use-a-new-self-signed-certificate"></a>자체 서명된 새로운 인증서 사용
 1. [자체 서명된 인증서 만들기](#create-a-self-signed-certificate)
-2. [자체 서명된 암호화 인증서용 PFX 파일 만들기](#create-pfx-file-for-self-signed-ssl-certificate)
+2. [자체 서명된 암호화 인증서용 PFX 파일 만들기](#create-pfx-file-for-self-signed-tlsssl-certificate)
 3. [클라우드 서비스에 암호화 인증서 업로드](#upload-encryption-certificate-to-cloud-service)
 4. [서비스 구성 파일에서 암호화 인증서 업데이트](#update-encryption-certificate-in-service-configuration-file)
 
@@ -186,7 +186,7 @@ ms.locfileid: "73823524"
 ## <a name="operations-for-configuring-service-certificates"></a>서비스 인증서 구성 작업
 이 항목은 참조용일 뿐입니다. 아래 항목에 나와 있는 구성 단계를 수행하세요.
 
-* SSL 인증서 구성
+* TLS/SSL 인증서 구성
 * 클라이언트 인증서 구성
 
 ## <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
@@ -204,7 +204,7 @@ ms.locfileid: "73823524"
 * -n을 서비스 URL로 바꿉니다. 와일드카드("CN=*.cloudapp.net") 및 대체 이름("CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net")이 지원됩니다.
 * -e 및 인증서 만료 날짜                 강력한 암호를 만들고 메시지가 표시되면 해당 암호를 지정합니다.
 
-## <a name="create-pfx-file-for-self-signed-ssl-certificate"></a>자체 서명된 SSL 인증서용 PFX 파일 만들기
+## <a name="create-pfx-file-for-self-signed-tlsssl-certificate"></a>자체 서명된 TLS/SSL 인증서에 대한 PFX 파일 만들기
 다음 코드를 실행합니다.
 
         pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
@@ -214,24 +214,24 @@ ms.locfileid: "73823524"
 * 예, 프라이빗 키를 내보냅니다.
 * 확장된 속성 모두 내보내기
 
-## <a name="export-ssl-certificate-from-certificate-store"></a>인증서 저장소에서 SSL 인증서 내보내기
+## <a name="export-tlsssl-certificate-from-certificate-store"></a>인증서 저장소에서 TLS/SSL 인증서 내보내기
 * 인증서를 찾습니다.
 * 작업-> 모든 작업 -> 내보내기를 클릭합니다.
 * 다음 옵션을 사용하여 .PFX 파일로 인증서를 내보냅니다.
   * 예, 프라이빗 키를 내보냅니다.
   * 가능하면 인증 경로에 있는 인증서 모두 포함 *확장된 속성 모두 내보내기
 
-## <a name="upload-ssl-certificate-to-cloud-service"></a>클라우드 서비스에 SSL 인증서 업로드
-SSL 키 쌍이 포함된 기존 또는 생성된 .PFX 파일을 업로드합니다.
+## <a name="upload-tlsssl-certificate-to-cloud-service"></a>클라우드 서비스에 TLS/SSL 인증서 업로드
+기존 또는 생성된 인증서를 업로드합니다. TLS 키 쌍이 있는 PFX 파일:
 
 * 프라이빗 키 정보를 보호하는 암호를 입력합니다.
 
-## <a name="update-ssl-certificate-in-service-configuration-file"></a>서비스 구성 파일에서 SSL 인증서 업데이트
+## <a name="update-tlsssl-certificate-in-service-configuration-file"></a>서비스 구성 파일에서 TLS/SSL 인증서 업데이트
 클라우드 서비스에 업로드된 인증서의 지문으로 서비스 구성 파일의 다음 설정에 대한 지문 값을 업데이트합니다.
 
     <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
 
-## <a name="import-ssl-certification-authority"></a>SSL 인증 기관 가져오기
+## <a name="import-tlsssl-certification-authority"></a>TLS/SSL 인증 기관 가져오기
 서비스와 통신 하는 모든 계정/컴퓨터에서 다음 단계를 수행합니다.
 
 * Windows 탐색기에서 CER 파일을 두 번 클릭합니다.
@@ -248,7 +248,7 @@ SSL 키 쌍이 포함된 기존 또는 생성된 .PFX 파일을 업로드합니�
 <Setting name="SetupWebserverForClientCertificates" value="false" />
 ```
 
-그런 다음 CA 인증서 설정의 SSL 인증서와 동일한 지문을 복사합니다.
+그런 다음 CA 인증서 설정에서 TLS/SSL 인증서와 동일한 지문을 복사합니다.
 
 ```xml
 <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
@@ -411,7 +411,7 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 ```
 
 ## <a name="common-certificate-operations"></a>일반 인증서 작업
-* SSL 인증서 구성
+* TLS/SSL 인증서 구성
 * 클라이언트 인증서 구성
 
 ## <a name="find-certificate"></a>인증서를 찾습니다.
@@ -422,7 +422,7 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 3. **인증서**를 선택합니다.
 4. **추가**를 클릭합니다.
 5. 인증서 저장소 위치를 선택합니다.
-6. **마침**을 클릭합니다.
+6. **Finish**를 클릭합니다.
 7. **확인**을 클릭합니다.
 8. **인증서**를 확장합니다.
 9. 인증서 저장소 노드를 확장합니다.
@@ -442,7 +442,7 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 8. **다음**을 클릭합니다.
 9. 인증서를 저장할 파일 이름을 입력하거나 찾습니다(.PFX 확장명을 사용하여).
 10. **다음**을 클릭합니다.
-11. **마침**을 클릭합니다.
+11. **Finish**를 클릭합니다.
 12. **확인**을 클릭합니다.
 
 ## <a name="import-certificate"></a>인증서 가져오기
@@ -460,7 +460,7 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 5. 다음 저장소에 인증서 저장을 선택합니다.
 6. **찾아보기**를 클릭합니다.
 7. 원하는 저장소를 선택합니다.
-8. **마침**을 클릭합니다.
+8. **Finish**를 클릭합니다.
    
    * 신뢰할 수 있는 루트 인증 기관 저장소를 선택한 경우 **예**를 클릭합니다.
 9. 모든 대화 상자 창에서 **확인** 을 클릭합니다.
@@ -477,7 +477,7 @@ Azure [포털에서](https://portal.azure.com/)
 7. 완료되면 목록의 새 항목에서 인증서 지문을 복사합니다.
 
 ## <a name="other-security-considerations"></a>기타 보안 고려 사항
-이 문서에 설명된 SSL 설정은 HTTPS 엔드포인트를 사용하는 경우 해당 클라이언트와 서비스 간의 통신을 암호화합니다. 데이터베이스 액세스에 대한 자격 증명 및 기타 잠재적으로 중요한 정보가 통신에 포함되므로 이러한 암호화가 중요합니다. 단, 서비스에서 Microsoft Azure 구독의 메타데이터 스토리지에 대해 제공한 Microsoft Azure SQL 데이터베이스의 내부 테이블에 있는 자격 증명을 비롯하여 내부 상태를 유지합니다. 해당 데이터베이스는 서비스 구성 파일(.CSCFG 파일)에서 다음 설정의 일부로 정의됩니다. 
+이 문서에서 설명하는 TLS 설정은 HTTPS 끝점을 사용할 때 서비스와 클라이언트 간의 통신을 암호화합니다. 데이터베이스 액세스에 대한 자격 증명 및 기타 잠재적으로 중요한 정보가 통신에 포함되므로 이러한 암호화가 중요합니다. 단, 서비스에서 Microsoft Azure 구독의 메타데이터 스토리지에 대해 제공한 Microsoft Azure SQL 데이터베이스의 내부 테이블에 있는 자격 증명을 비롯하여 내부 상태를 유지합니다. 해당 데이터베이스는 서비스 구성 파일(.CSCFG 파일)에서 다음 설정의 일부로 정의됩니다. 
 
 ```xml
 <Setting name="ElasticScaleMetadata" value="Server=…" />

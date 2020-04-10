@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB에서 저장된 프로시저, 트리거 및 UdF로 작업
 description: 이 문서에서는 Azure Cosmos DB의 저장 프로시저, 트리거 및 사용자 정의 함수와 같은 개념을 소개합니다.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.author: mjbrown
+ms.date: 04/09/2020
+ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 23a14e7590eca6f63c92acdf6336ffaef8b54381
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13256377b8a8aaebf59196df57eef67d3b960cb8
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065904"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010548"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>저장 프로시저, 트리거 및 사용자 정의 함수
 
@@ -39,7 +39,7 @@ JavaScript에서 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)
 > [!TIP]
 > 저장 프로시저는 쓰기가 많고 파티션 키 값에 대한 트랜잭션이 필요한 작업에 가장 적합합니다. 저장 프로시저를 사용할지 여부를 결정할 때는 가능한 최대 쓰기 양을 캡슐화하는 데 최적화합니다. 일반적으로 저장 프로시저는 많은 수의 읽기 또는 쿼리 작업을 수행하는 가장 효율적인 수단이 아니므로 저장 프로시저를 사용하여 많은 수의 읽기를 일괄 처리하여 클라이언트로 반환하는 것이 원하는 이점을 얻지 못할 수 있습니다. 최상의 성능을 위해 이러한 읽기 무거운 작업은 Cosmos SDK를 사용하여 클라이언트 측에서 수행해야 합니다. 
 
-## <a name="transactions"></a>의
+## <a name="transactions"></a>트랜잭션
 
 일반적인 데이터베이스의 트랜잭션은 하나의 논리적 작업 단위로 수행되는 작업 시퀀스로 정의할 수 있습니다. 각 트랜잭션에서는 **ACID 속성 보장**을 제공합니다. ACID는 잘 알려진 약어입니다: **A**토미성, **C**아포스텐시, **I**solation, 및 **D**운뇨성. 
 
@@ -69,7 +69,7 @@ Azure Cosmos DB에서 JavaScript 런타임의 호스트는 데이터베이스 �
 
 모든 Azure Cosmos DB 작업은 지정된 시간 제한 기간 내에 완료되어야 합니다. 이 제약 조건은 JavaScript 함수인 저장 프로시저, 트리거 및 사용자 정의 함수에도 적용됩니다. 작업이 시간 제한 내에 완료되지 않으면 트랜잭션이 롤백됩니다.
 
-따라서 JavaScript 함수가 시간 제한 내에 완료되거나 실행을 일괄 처리/다시 시작하는 연속 기반 모델을 구현될 것으로 보장할 수 있습니다. 시간 제한을 처리하는 저장 프로시저 및 트리거 개발을 간소화하기 위해 Azure Cosmos 컨테이너 아래의 모든 함수(예: 항목 만들기, 읽기, 업데이트 및 삭제)는 해당 작업이 완료되는지 여부를 나타내는 부울 값을 반환합니다. 이 값이 false이면 스크립트가 구성된 값보다 더 많은 시간 및 프로비전된 처리량을 사용하므로 프로시저가 실행을 래핑해야 한다는 것을 나타냅니다. 수락되지 않은 첫 번째 저장소 작업 전에 대기된 작업은 저장 프로시저가 제시간에 완료되고 더 이상 요청을 대기열에 추가하지 않을 경우 완료됩니다. 따라서 JavaScript의 콜백 규칙을 사용하여 한 번에 하나의 작업을 큐에 대기함으로써 스크립트의 제어 흐름을 관리해야 합니다. 스크립트는 서버 쪽 환경에서 실행되므로 엄격하게 관리됩니다. 실행 경계를 반복적으로 위반하는 스크립트는 비활성 상태로 표시되어 실행할 수 없으며, 실행 경계를 준수하도록 다시 만들어야 합니다.
+따라서 JavaScript 함수가 시간 제한 내에 완료되거나 실행을 일괄 처리/다시 시작하는 연속 기반 모델을 구현될 것으로 보장할 수 있습니다. 시간 제한을 처리하는 저장 프로시저 및 트리거 개발을 간소화하기 위해 Azure Cosmos 컨테이너 아래의 모든 함수(예: 항목 만들기, 읽기, 업데이트 및 삭제)는 해당 작업이 완료되는지 여부를 나타내는 부울 값을 반환합니다. 이 값이 false이면 스크립트가 구성된 값보다 더 많은 시간 및 프로비전된 처리량을 사용하므로 프로시저가 실행을 래핑해야 한다는 것을 나타냅니다. 수락되지 않은 첫 번째 저장소 작업 전에 대기된 작업은 저장 프로시저가 제시간에 완료되고 더 이상 요청을 대기열에 추가하지 않을 경우 완료됩니다. 따라서 JavaScript의 콜백 규칙을 사용하여 스크립트의 제어 흐름을 관리하여 작업을 한 번에 하나씩 큐에 대기해야 합니다. 스크립트는 서버 쪽 환경에서 실행되므로 엄격하게 관리됩니다. 실행 경계를 반복적으로 위반하는 스크립트는 비활성 상태로 표시되어 실행할 수 없으며, 실행 경계를 준수하도록 다시 만들어야 합니다.
 
 JavaScript 함수는 [프로비저된 처리 용량](request-units.md)에도 적용됩니다. JavaScript 함수는 짧은 시간 내에 많은 요청 단위를 사용할 수 있으며, 프로비전된 처리 용량 한계에 도달하면 속도가 제한될 수 있습니다. 이러한 데이터베이스 작업은 클라이언트에서 동일한 작업을 실행하는 것보다는 약간 더 저렴하지만, 데이터베이스 작업 실행에 소요되는 처리량 외에 스크립트에도 추가 처리량이 사용된다는 점에 유의해야 합니다.
 
@@ -88,9 +88,9 @@ Azure Cosmos DB는 Azure Cosmos 항목에 대해 작업을 수행하여 호출�
 > [!NOTE]
 > 등록된 트리거는 해당 작업(생성/삭제/바꾸기/업데이트 생성/삭제/업데이트)이 발생할 때 자동으로 실행되지 않습니다. 이러한 작업을 실행할 때 등록된 트리거를 명시적으로 호출해야 합니다. 자세한 내용은 [트리거 를 실행하는 방법을](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) 참조하세요.
 
-## <a name="user-defined-functions"></a><a id="udfs"></a>사용자 정의 기능
+## <a name="user-defined-functions"></a><a id="udfs"></a>사용자 정의 함수
 
-UDF(사용자 정의 함수)는 SQL API 쿼리 언어 구문을 확장하고 사용자 지정 비즈니스 논리를 쉽게 구현하는 데 사용됩니다. 이 함수는 쿼리 내에서만 호출할 수 있습니다. UDF는 컨텍스트 개체에 액세스할 수 없으며 컴퓨팅 전용 JavaScript로 사용되어야 합니다. 따라서 UDF는 보조 복제본에서 실행할 수 있습니다. 예제를 보려면 [사용자 정의 함수 작성 방법](how-to-write-stored-procedures-triggers-udfs.md#udfs) 문서를 참조하세요.
+[사용자 정의](sql-query-udfs.md) 함수(UdF)는 SQL API 쿼리 언어 구문을 확장하고 사용자 지정 비즈니스 논리를 쉽게 구현하는 데 사용됩니다. 이 함수는 쿼리 내에서만 호출할 수 있습니다. UDF는 컨텍스트 개체에 액세스할 수 없으며 컴퓨팅 전용 JavaScript로 사용되어야 합니다. 따라서 UDF는 보조 복제본에서 실행할 수 있습니다. 예제를 보려면 [사용자 정의 함수 작성 방법](how-to-write-stored-procedures-triggers-udfs.md#udfs) 문서를 참조하세요.
 
 ## <a name="javascript-language-integrated-query-api"></a><a id="jsqueryapi"></a>JavaScript LINQ(Language-Integrated Query) API
 

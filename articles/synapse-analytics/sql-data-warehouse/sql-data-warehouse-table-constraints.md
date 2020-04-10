@@ -11,12 +11,12 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 881e4f0110e3c0f35301e2ae6be40f2510f42539
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: f97163d02836442430037e18439bcf0724046332
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583488"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990772"
 ---
 # <a name="primary-key-foreign-key-and-unique-key-in-synapse-sql-pool"></a>Synapse SQL 풀의 기본 키, 외래 키 및 고유 키
 
@@ -28,7 +28,10 @@ Synapse SQL 풀은 다음 테이블 제약 조건을 지원합니다.
 - 기본 키는 비CLUSTERED 및 강제 적용되지 않는 둘 다 사용되는 경우에만 지원됩니다.    
 - 고유 제약 조건은 NOT ENFORCED가 사용되지 않는 경우에만 지원됩니다.
 
+구문에 대 한 [확인 변경 테이블](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) 및 만들기 [테이블](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)입니다. 
+
 시냅스 SQL 풀에서는 외래 키 제약 조건이 지원되지 않습니다.  
+
 
 ## <a name="remarks"></a>설명
 

@@ -2,13 +2,13 @@
 title: Azure 관리 디스크를 사용하도록 클러스터 노드 업그레이드
 description: 클러스터가동 중지 시간이 거의 또는 전혀 없는 Azure 관리 디스크를 사용하도록 기존 Service Fabric 클러스터를 업그레이드하는 방법은 다음과 같습니다.
 ms.topic: how-to
-ms.date: 3/01/2020
-ms.openlocfilehash: 2bda5572eda5579bb31c3613b220885f27220d99
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.date: 4/07/2020
+ms.openlocfilehash: 5f4698718a35970e47de2a0ee6d053802c8ef919
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80758054"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991214"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Azure 관리 디스크를 사용하도록 클러스터 노드 업그레이드
 
@@ -27,11 +27,11 @@ ms.locfileid: "80758054"
 > [!CAUTION]
 > 클러스터 DNS에 종속성이 있는 경우에만 이 프로시저를 통해 중단이 발생합니다(예: [서비스 패브릭 탐색기에](service-fabric-visualizing-your-cluster.md)액세스하는 경우). [프런트 엔드 서비스에 대한](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) 아키텍처 모범 사례는 중단 없이 노드 스와핑을 가능하게 하기 위해 노드 유형 앞에 일종의 로드 [밸런서를](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) 두는 것입니다.
 
-업그레이드 시나리오를 완료하는 데 사용할 Azure 리소스 관리자용 [템플릿 및 cmdlet은](https://github.com/erikadoyle/service-fabric-scripts-and-templates/tree/managed-disks/templates/nodetype-upgrade-no-outage) 다음과 같습니다. 템플릿 변경 사항은 [아래의 기본 노드 유형에 대해 업그레이드된 축척 집합 배포에서](#deploy-an-upgraded-scale-set-for-the-primary-node-type) 설명합니다.
+업그레이드 시나리오를 완료하는 데 사용할 Azure 리소스 관리자용 [템플릿 및 cmdlet은](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) 다음과 같습니다. 템플릿 변경 사항은 [아래의 기본 노드 유형에 대해 업그레이드된 축척 집합 배포에서](#deploy-an-upgraded-scale-set-for-the-primary-node-type) 설명합니다.
 
 ## <a name="set-up-the-test-cluster"></a>테스트 클러스터 설정
 
-초기 서비스 패브릭 테스트 클러스터를 설정해 보겠습니다. 먼저 이 시나리오를 완료하는 데 사용할 Azure 리소스 관리자 샘플 템플릿을 [다운로드합니다.](https://github.com/erikadoyle/service-fabric-scripts-and-templates/tree/managed-disks/templates/nodetype-upgrade-no-outage)
+초기 서비스 패브릭 테스트 클러스터를 설정해 보겠습니다. 먼저 이 시나리오를 완료하는 데 사용할 Azure 리소스 관리자 샘플 템플릿을 [다운로드합니다.](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage)
 
 다음으로 Azure 계정에 로그인합니다.
 
@@ -370,6 +370,6 @@ foreach($name in $nodeNames){
 
 참고 항목:
 
-* [샘플: Azure 관리 디스크를 사용하도록 클러스터 노드업그레이드](https://github.com/erikadoyle/service-fabric-scripts-and-templates/tree/managed-disks/templates/nodetype-upgrade-no-outage)
+* [샘플: Azure 관리 디스크를 사용하도록 클러스터 노드업그레이드](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage)
 
 * [수직 크기 조정 관련 고려 사항](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations)

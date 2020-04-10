@@ -4,12 +4,12 @@ description: 애플리케이션 맵을 사용하여 복잡한 애플리케이션
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 0823dd5d880c778f9b7a231ac14f1cbba1940927
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 7c5c9173704535b1e34ffde5867bd512e3e02ed8
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657384"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80989530"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -155,7 +155,25 @@ namespace CustomInitializer.Telemetry
 
 # <a name="java"></a>[Java](#tab/java)
 
-응용 프로그램 인사이트 Java SDK 2.5.0부터 시작하여 파일에 `<RoleName>` 추가하여 `ApplicationInsights.xml` 클라우드 역할 이름을 지정할 수 있습니다(예:
+**자바 에이전트**
+
+[Java 에이전트 3.0의](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) 경우 클라우드 역할 이름은 다음과 같이 설정됩니다.
+
+```json
+{
+  "instrumentationSettings": {
+    "preview": {
+      "roleName": "my cloud role name"
+    }
+  }
+}
+```
+
+환경 변수를 ```APPLICATIONINSIGHTS_ROLE_NAME```사용하여 클라우드 역할 이름을 설정할 수도 있습니다.
+
+**Java SDK**
+
+응용 프로그램 인사이트 Java SDK 2.5.0부터 SDK를 사용하는 경우 파일에 추가하여 `<RoleName>` 클라우드 `ApplicationInsights.xml` 역할 이름을 지정할 수 있습니다( 예:
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>

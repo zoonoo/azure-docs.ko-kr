@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e668f44bbc3d2e381edeb80c568a41355584a4ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36592151385a08d75b9b34e85bfa9d62342fc8cd
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260424"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991572"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HTTP 소스에서 데이터 이동
 
@@ -38,7 +38,7 @@ ms.locfileid: "79260424"
 
 온-프레미스 HTTP 엔드포인트에서 데이터를 복사할 때 온-프레미스 환경 또는 Azure VM에서 데이터 관리 게이트웨이를 설치해야 합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 다른 도구나 API를 사용하여 HTTP 소스의 데이터를 이동하는 복사 작업이 포함된 파이프라인을 만들 수 있습니다.
 
@@ -52,10 +52,10 @@ ms.locfileid: "79260424"
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| type | **type** 속성은 **Http**로 설정해야 합니다. | yes |
-| url | 웹 서버의 기본 URL입니다. | yes |
-| authenticationType | 인증 유형을 지정합니다. 허용되는 값은 **Anonymous**, **Basic**, **Digest**, **Windows** 및 **ClientCertificate**입니다. <br><br> 이러한 인증 형식의 더 많은 속성 및 JSON 샘플은 이 문서의 이후 섹션을 참조하세요. | yes |
-| enableServerCertificateValidation | 소스가 HTTPS 웹 서버인 경우 서버 SSL 인증서 유효성 검사를 사용할지 여부를 지정합니다. HTTPS 서버에서 자체 서명된 인증서를 사용하는 경우 **false**로 설정합니다. | 예<br /> (기본값은 **true)** |
+| type | **type** 속성은 **Http**로 설정해야 합니다. | 예 |
+| url | 웹 서버의 기본 URL입니다. | 예 |
+| authenticationType | 인증 유형을 지정합니다. 허용되는 값은 **Anonymous**, **Basic**, **Digest**, **Windows** 및 **ClientCertificate**입니다. <br><br> 이러한 인증 형식의 더 많은 속성 및 JSON 샘플은 이 문서의 이후 섹션을 참조하세요. | 예 |
+| enableServerCertificateValidation | 원본이 HTTPS 웹 서버인 경우 서버 TLS/SSL 인증서 유효성 검사를 사용하도록 설정할지 여부를 지정합니다. HTTPS 서버에서 자체 서명된 인증서를 사용하는 경우 **false**로 설정합니다. | 예<br /> (기본값은 **true)** |
 | gatewayName | 온-프레미스 HTTP 소스에 연결하기 위한 데이터 관리 게이트웨이 인스턴스의 이름입니다. | 온-프레미스 HTTP 소스에서 데이터를 복사하는 경우에는 필수 |
 | encryptedCredential | HTTP 엔드포인트 액세스를 위한 암호화된 자격 증명입니다. 이 값은 복사 마법사에서 또는 **ClickOnce** 대화 상자를 사용하여 인증 정보를 구성할 때 자동 생성됩니다. | 예<br /> (온-프레미스 HTTP 서버에서 데이터를 복사하는 경우에만 적용) |
 
@@ -67,8 +67,8 @@ ms.locfileid: "79260424"
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| userName | HTTP 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | yes |
-| password | 사용자(**username**)의 암호입니다. | yes |
+| userName | HTTP 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예 |
+| password | 사용자(**username**)의 암호입니다. | 예 |
 
 **예: 기본, 다이제스트 또는 Windows 인증 사용**
 
@@ -159,7 +159,7 @@ ms.locfileid: "79260424"
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 **type**을 **Http**로 설정해야 합니다. | yes |
+| type | 데이터 세트의 **type**을 **Http**로 설정해야 합니다. | 예 |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. <br><br> 동적 URL을 구성하려면 [Data Factory 함수 및 시스템 변수](data-factory-functions-variables.md)를 사용할 수 있습니다. 예제: **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)**. | 예 |
 | requestMethod | HTTP 메서드입니다. 허용되는 값은 **GET** 및 **POST**입니다. | 예 <br />(기본값: **GET**) |
 | additionalHeaders | 추가 HTTP 요청 헤더입니다. | 예 |
