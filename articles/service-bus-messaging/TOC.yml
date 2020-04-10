@@ -213,6 +213,8 @@
     - name: 문제 해결
       items:
         - name: 문제 해결 가이드
+          href: service-bus-troubleshooting-guide.md
+        - name: 메시징 예외
           href: service-bus-messaging-exceptions.md
         - name: Resource Manager 예외
           href: service-bus-resource-manager-exceptions.md

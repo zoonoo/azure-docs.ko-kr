@@ -10,33 +10,33 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 70d7924f1a7767db393faccf98d3a9250de049ec
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 14dbe360942f4645b08d161130216412c9c427f9
+  ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "77621422"
+  ms.lasthandoff: 04/09/2020
+  ms.locfileid: "80998787"
 landingContent:
 - title: 소매업 솔루션 빌드
   linkLists:
   - linkListType: get-started
     links:
     - text: Azure IoT Central에 대한 소매업 솔루션
-      url: overview-iot-central-retail-pnp.md
+      url: overview-iot-central-retail.md
   - linkListType: tutorial
     links:
     - text: 1 - 소매업 애플리케이션 만들기
-      url: tutorial-in-store-analytics-create-app-pnp.md
+      url: tutorial-in-store-analytics-create-app.md
     - text: 2 - 운영자 대시보드 사용자 지정
-      url: tutorial-in-store-analytics-customize-dashboard-pnp.md
+      url: tutorial-in-store-analytics-customize-dashboard.md
     - text: 3 - 데이터 내보내기 및 인사이트 시각화
-      url: tutorial-in-store-analytics-export-data-visualize-insights-pnp.md
+      url: tutorial-in-store-analytics-export-data-visualize-insights.md
     - text: 스마트 재고 관리 애플리케이션 만들기
-      url: tutorial-iot-central-smart-inventory-management-pnp.md
+      url: tutorial-iot-central-smart-inventory-management.md
     - text: 연결된 물류 애플리케이션 만들기
-      url: tutorial-iot-central-connected-logistics-pnp.md
+      url: tutorial-iot-central-connected-logistics.md
     - text: 디지털 배포 센터 애플리케이션 만들기
-      url: tutorial-iot-central-digital-distribution-center-pnp.md
+      url: tutorial-iot-central-digital-distribution-center.md
   - linkListType: how-to-guide
     links:
     - text: Rigado Cascade 500 연결

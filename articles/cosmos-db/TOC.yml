@@ -480,6 +480,8 @@
       items:
         - name: 변경 피드 개요
           href: change-feed.md
+        - name: 변경 피드 디자인 패턴
+          href: change-feed-design-patterns.md
         - name: 변경 피드 읽기
           href: read-change-feed.md
         - name: 변경 피드 프로세서
@@ -965,7 +967,7 @@
           href: troubleshoot-java-async-sdk.md
         - name: .NET SDK 문제 해결
           href: troubleshoot-dot-net-sdk.md
-    - name: 변경 피드
+    - name: 피드 변경
       items:
         - name: Azure Cosmos DB 트리거 로그
           href: how-to-configure-cosmos-db-trigger-logs.md
@@ -1033,6 +1035,8 @@
       items:
         - name: Cosmos DB 모니터링
           href: monitor-cosmos-db.md
+        - name: 서버 쪽 대기 시간 모니터링
+          href: monitor-server-side-latency.md
         - name: 진단 로그 모니터링
           href: cosmosdb-monitor-resource-logs.md
         - name: 컨트롤 플레인 로그 감사
@@ -1155,7 +1159,7 @@
     - name: 쿼리 참고 자료
       href: query-cheat-sheet.md
     - name: SQL 실습
-      href: 'https://aka.ms/cosmos-db-playground'
+      href: 'https://www.documentdb.com/sql/demo'
     - name: FAQ
       href: faq.md
     - name: 백서

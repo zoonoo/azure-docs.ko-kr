@@ -50,6 +50,8 @@
   items:
     - name: 보고서
       items:
+        - name: Azure AD의 비활성 사용자 계정 관리
+          href: howto-manage-inactive-user-accounts.md
         - name: 활동 보고서 찾기
           href: howto-find-activity-reports.md
         - name: 사용자에 대한 로그인 오류 문제 해결

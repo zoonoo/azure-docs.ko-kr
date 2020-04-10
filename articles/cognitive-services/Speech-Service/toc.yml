@@ -113,6 +113,8 @@
       items:
         - name: 텍스트 음성 변환이란?
           href: text-to-speech.md
+        - name: 텍스트 음성 변환 기본 사항
+          href: text-to-speech-basics.md
     - name: 빠른 시작
       items:
         - name: 스피커로 음성 합성
@@ -218,7 +220,7 @@
           href: quickstarts/translate-speech-to-text.md
         - name: 음성을 여러 대상 언어로 번역
           href: quickstarts/translate-speech-to-text-multiple-languages.md
-        - name: 음성을 음성으로 번역
+        - name: 음성 통역
           href: quickstarts/translate-speech-to-speech.md
     - name: 자습서
       items:
@@ -540,11 +542,13 @@
       href: regions.md
     - name: Swagger 설명서
       href: swagger-documentation.md
-    - name: 독립적 클라우드
+    - name: 소버린 클라우드
       displayName: 'fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china'
       href: sovereign-clouds.md
     - name: 가격 책정 및 제한
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/#cognitive-services'
     - name: 규정 준수
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 암호화

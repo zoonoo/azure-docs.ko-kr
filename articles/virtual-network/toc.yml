@@ -71,7 +71,11 @@
           href: ../expressroute/cross-network-connectivity.md?toc=%2fazure%2fvirtual-network%2ftoc.json
         - name: 피어링
           href: virtual-network-peering-overview.md
-        - name: Azure 서비스에 대한 가상 네트워크
+    - name: Azure 서비스 통합
+      items:
+        - name: 서비스 엔드포인트
+          href: virtual-network-service-endpoints-overview.md
+        - name: 전용 서비스 배포
           href: virtual-network-for-azure-services.md
     - name: IP 서비스
       items:
@@ -91,8 +95,6 @@
           href: application-security-groups.md
         - name: 서비스 태그
           href: service-tags-overview.md
-        - name: 서비스 엔드포인트
-          href: virtual-network-service-endpoints-overview.md
         - name: 서비스 엔드포인트 정책
           href: virtual-network-service-endpoint-policies-overview.md
         - name: Kubernetes 네트워크 정책

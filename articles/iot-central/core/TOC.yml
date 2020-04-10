@@ -12,7 +12,7 @@
     - name: 1. 새 애플리케이션 만들기
       href: quick-deploy-iot-central.md
     - name: 2. 시뮬레이트된 디바이스 추가
-      href: quick-create-pnp-device.md
+      href: quick-create-simulated-device.md
     - name: 3. 규칙 및 작업 구성
       href: quick-configure-rules.md
     - name: 4. 디바이스 모니터링

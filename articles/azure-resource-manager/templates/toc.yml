@@ -83,9 +83,9 @@
         - name: 3 - 파이프라인 만들기
           displayName: Devop
           href: deployment-tutorial-pipeline.md
-    - name: 고급
+    - name: 고급 템플릿
       items:
-        - name: 템플릿 참조 활용
+        - name: 템플릿 참조 사용
           href: template-tutorial-use-template-reference.md
         - name: 여러 인스턴스 만들기
           displayName: 'iteration,copy'
@@ -101,23 +101,21 @@
         - name: 키 자격 증명 모음 통합
           displayName: secrets
           href: template-tutorial-use-key-vault.md
-        - name: 연결된 템플릿 만들기
-          href: template-tutorial-create-linked-templates.md
         - name: VM 확장 배포
           displayName: virtual machine extensions
           href: template-tutorial-deploy-vm-extensions.md
         - name: SQL 확장 배포
           href: template-tutorial-deploy-sql-extensions-bacpac.md
-        - name: 아티팩트 보호
-          href: template-tutorial-secure-artifacts.md
+        - name: 템플릿 배포 문제 해결
+          href: template-tutorial-troubleshoot.md
+    - name: 배포 관리자
+      items:
         - name: 안전한 배포 사례 사용
           displayName: adm
           href: deployment-manager-tutorial.md
         - name: 배포 관리자에서 상태 검사 사용
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
-        - name: 템플릿 배포 문제 해결
-          href: template-tutorial-troubleshoot.md
 - name: 샘플
   items:
     - name: Azure 빠른 시작 템플릿
@@ -293,6 +291,8 @@
           href: template-functions-array.md
         - name: 비교 함수
           href: template-functions-comparison.md
+        - name: 날짜 함수
+          href: template-functions-date.md
         - name: 배포 함수
           href: template-functions-deployment.md
         - name: 논리 함수
