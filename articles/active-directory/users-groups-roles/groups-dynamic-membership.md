@@ -1,5 +1,5 @@
 ---
-title: 동적 그룹 구성원 자격에 대한 규칙 - Azure AD | 마이크로 소프트 문서
+title: 동적으로 채워진 그룹 구성원 자격에 대한 규칙 - Azure AD | 마이크로 소프트 문서
 description: 그룹을 자동으로 채우는 멤버 자격 규칙과 규칙 참조를 만드는 방법입니다.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da983f87977de922ec547c3ade2972dfb4d69363
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6f8237ac13744e56baa8551f8cced12b2785a48
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79253079"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114731"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -326,7 +326,7 @@ user.objectId -ne null
 그룹이 게스트 사용자를 제외하고 테넌트의 구성원만 포함하도록 하려면 다음 구문을 사용할 수 있습니다.
 
 ```
-(user.objectId -ne null) -and (user.userType -eq “Member”)
+(user.objectId -ne null) -and (user.userType -eq "Member")
 ```
 
 ### <a name="create-an-all-devices-rule"></a>'모든 장치' 규칙 만들기

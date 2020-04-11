@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: a4ab59ab5b988b54333c419ced7fa852da531eaa
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 8ef791759a33d08aaff068b0dd2634e5f21bb1b6
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984336"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114983"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Windows 가상 컴퓨터용 Azure 디스크 암호화 FAQ
 
@@ -64,7 +64,7 @@ Azure Disk 암호화는 고객 관리 키가 있는 OS 디스크, 데이터 디�
 
 - 요구 사항에 위의 모든 암호화 및 종단 간 암호화가 포함된 경우 Azure 디스크 암호화를 사용합니다. 
 - 요구 사항에 미사용 데이터만 암호화하는 경우 고객 관리 키로 미사용 데이터만 암호화한 다음 [고객 관리 키와 함께 서버 측 암호화를](disk-encryption.md)사용합니다. Azure 디스크 암호화 및 저장소 서버 측 암호화를 고객 관리 키로 암호화할 수 없습니다.
-_ [Windows용 지원되지 않는 시나리오에서](disk-encryption-windows.md#unsupported-scenarios)호출된 시나리오를 사용하는 경우 [고객 관리 키가 있는 서버 측 암호화를 고려하십시오.](disk-encryption.md) 
+- [Windows용 지원되지 않는 시나리오에서](disk-encryption-windows.md#unsupported-scenarios)호출된 시나리오를 사용하는 경우 [고객 관리 키가 있는 서버 측 암호화를 고려하십시오.](disk-encryption.md) 
 - 조직의 정책에 따라 Azure 관리 키로 미사용 콘텐츠를 암호화할 수 있는 경우 콘텐츠가 기본적으로 암호화됩니다. 관리 디스크의 경우 저장소 내부의 콘텐츠는 기본적으로 플랫폼 관리 키가 있는 서버 측 암호화를 통해 암호화됩니다. 키는 Azure 저장소 서비스에서 관리합니다. 
 
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>비밀 또는 암호화 키를 회전하려면 어떻게 해야 합니까?

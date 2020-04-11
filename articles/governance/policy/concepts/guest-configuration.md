@@ -3,12 +3,12 @@ title: 가상 시스템의 내용을 감사하는 방법에 대해 알아보기
 description: Azure Policy에서 게스트 구성 에이전트를 사용하여 가상 시스템 내부의 설정을 감사하는 방법에 대해 알아봅니다.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9e8486af2a9b7ab9e18b8c16f08e51759d1123d7
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 4a2989badc099a199bf21f7e020ca8e6256ddaf0
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998850"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113427"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -26,32 +26,11 @@ Azure Policy는 Azure 리소스를 감사하고 [수정하는](../how-to/remedia
 
 ### <a name="limits-set-on-the-extension"></a>확장에 설정된 제한
 
-컴퓨터 내에서 실행되는 응용 프로그램에 영향을 미치지 않도록 확장을 제한하기 위해 게스트 구성은 CPU 사용률의 5%를 초과할 수 없습니다. 이 제한은 기본 제공 및 사용자 지정 정의 모두에 대해 존재합니다.
+컴퓨터 내에서 실행되는 응용 프로그램에 영향을 미치지 않도록 확장을 제한하기 위해 게스트 구성은 CPU의 5% 이상을 초과할 수 없습니다. 이 제한은 기본 제공 및 사용자 지정 정의 모두에 대해 존재합니다.
 
 ## <a name="register-guest-configuration-resource-provider"></a>게스트 구성 리소스 공급자 등록
 
-게스트 구성을 사용하려면 먼저 리소스 공급자를 등록해야 합니다. 포털 또는 PowerShell을 통해 등록할 수 있습니다. 게스트 구성 정책 할당이 포털을 통해 수행되면 리소스 공급자가 자동으로 등록됩니다.
-
-### <a name="registration---portal"></a>등록 - 포털
-
-Azure Portal을 통해 게스트 구성용 리소스 공급자를 등록하려면 다음 단계를 수행합니다.
-
-1. Azure Portal을 시작하고 **모든 서비스**를 클릭합니다. **구독**을 검색하여 선택합니다.
-
-1. 게스트 구성을 사용하도록 설정할 구독을 찾아서 클릭합니다.
-
-1. **구독** 페이지의 왼쪽 메뉴에서 **리소스 공급자**를 클릭합니다.
-
-1. **Microsoft.GuestConfiguration**이 표시될 때까지 필터링하거나 스크롤한 다음 같은 행에서 **등록**을 클릭합니다.
-
-### <a name="registration---powershell"></a>등록 - PowerShell
-
-PowerShell을 통해 게스트 구성용 리소스 공급자를 등록하려면 다음 명령을 실행합니다.
-
-```azurepowershell-interactive
-# Login first with Connect-AzAccount if not using Cloud Shell
-Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
-```
+게스트 구성을 사용하려면 먼저 리소스 공급자를 등록해야 합니다. [포털](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)또는 [Azure CLI를](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli)통해 등록할 수 있습니다. 게스트 구성 정책 할당이 포털을 통해 수행되면 리소스 공급자가 자동으로 등록됩니다.
 
 ## <a name="validation-tools"></a>유효성 검사 도구
 
@@ -89,7 +68,7 @@ Windows 서버 나노 서버는 모든 버전에서 지원되지 않습니다.
 
 ## <a name="guest-configuration-extension-network-requirements"></a>게스트 구성 확장 네트워크 요구 사항
 
-Azure에서 게스트 구성 리소스 공급자와 통신하기 위해 컴퓨터는 포트 **443의**Azure 데이터 센터에 대한 아웃바운드 액세스가 필요합니다. 아웃바운드 트래픽을 허용하지 않는 Azure에서 개인 가상 네트워크를 사용하는 경우 네트워크 [보안 그룹](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) 규칙을 사용하여 예외를 구성합니다.
+Azure에서 게스트 구성 리소스 공급자와 통신하기 위해 컴퓨터는 포트 **443의**Azure 데이터 센터에 대한 아웃바운드 액세스가 필요합니다. Azure의 네트워크에서 아웃바운드 트래픽을 허용하지 않는 경우 [네트워크 보안 그룹](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) 규칙을 사용하여 예외를 구성합니다.
 [서비스 태그](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement"는 게스트 구성 서비스를 참조하는 데 사용할 수 있습니다.
 
 ## <a name="azure-managed-identity-requirements"></a>Azure 관리 ID 요구 사항
@@ -101,7 +80,7 @@ Azure에서 게스트 구성 리소스 공급자와 통신하기 위해 컴퓨�
 
 ## <a name="guest-configuration-definition-requirements"></a>게스트 구성 정의 요구 사항
 
-게스트 구성에서 실행되는 각 감사에는 두 가지 정책 정의인 **DeployIfNotExists** 정의와 **AuditIfNotExists** 정의가 필요합니다. **DeployIfNotExists** 정의는 [유효성 검사 도구를](#validation-tools)지원하기 위해 게스트 구성 에이전트 및 기타 구성 요소로 컴퓨터를 준비하는 데 사용됩니다.
+게스트 구성에서 실행되는 각 감사에는 두 가지 정책 정의인 **DeployIfNotExists** 정의와 **AuditIfNotExists** 정의가 필요합니다. 
 
 **DeployIfNotExists** 정책 정의는 다음 항목의 유효성을 검사하고 수정합니다.
 
@@ -112,24 +91,24 @@ Azure에서 게스트 구성 리소스 공급자와 통신하기 위해 컴퓨�
 
 **DeployIfNotExists** 할당이 비준수인 경우 [업데이트 관리 작업을](../how-to/remediate-resources.md#create-a-remediation-task) 사용할 수 있습니다.
 
-**DeployIfNotExists** 할당이 규정을 준수하면 **AuditIfNotExists** 정책 할당은 로컬 유효성 검사 도구를 사용하여 구성 할당이 호환되는지 또는 비준수인지 확인합니다. 유효성 검사 도구는 게스트 구성 클라이언트에 결과를 제공합니다. 클라이언트는 게스트 확장에 결과를 전달하므로 게스트 구성 리소스 공급자를 통해 사용할 수 있습니다.
+**DeployIfNotExists** 할당이 규정을 준수하면 **AuditIfNotExists** 정책 할당이 게스트 할당이 규정을 준수하는지 또는 비준수인지 결정합니다. 유효성 검사 도구는 게스트 구성 클라이언트에 결과를 제공합니다. 클라이언트는 게스트 확장에 결과를 전달하므로 게스트 구성 리소스 공급자를 통해 사용할 수 있습니다.
 
 Azure Policy는 게스트 구성 리소스 공급자 **complianceStatus** 속성을 사용하여 **규정 준수** 노드에서 규정 준수를 보고합니다. 자세한 내용은 [규정 준수 데이터 가져오기](../how-to/get-compliance-data.md)를 참조하세요.
 
 > [!NOTE]
 > **[DeployIfNotExists]** **감사IfNotExists** 정책이 결과를 반환하는 데 필요합니다. **DeployIfNotExists가**없는 **경우 AuditIfNotExists** 정책에는 "0/0" 리소스가 상태로 표시됩니다.
 
-할당에 사용할 정의를 그룹화할 수 있도록, 게스트 구성을 위한 모든 기본 제공 정책은 이니셔티브에 포함됩니다. _ \[미리 보기라는\]_ 기본 제공 이니셔티브 : Linux 및 Windows 컴퓨터 내부의 암호 보안 설정 감사에는 18개의 정책이 포함되어 있습니다. 그리고 Window용 **DeployIfNotExists** 및 **AuditIfNotExists** 쌍 6개와 Linux용 쌍 3개가 있습니다. [정책 정의](definition-structure.md#policy-rule) 논리는 대상 운영 체제만 평가되는지 확인합니다.
+할당에 사용할 정의를 그룹화할 수 있도록, 게스트 구성을 위한 모든 기본 제공 정책은 이니셔티브에 포함됩니다. _ \[미리 보기라는\]_ 기본 제공 이니셔티브 : Linux 및 Windows 컴퓨터 내부의 암호 보안 감사에는 18개의 정책이 포함되어 있습니다. 그리고 Window용 **DeployIfNotExists** 및 **AuditIfNotExists** 쌍 6개와 Linux용 쌍 3개가 있습니다. [정책 정의](definition-structure.md#policy-rule) 논리는 대상 운영 체제만 평가되는지 확인합니다.
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>업계 기준에 따른 운영 체제 설정 감사
 
-Azure Policy에서 사용할 수 있는 이니셔티브 중 하나는 Microsoft의 "기준"에 따라 가상 시스템 내에서 운영 체제 설정을 감사하는 기능을 제공합니다. 정의, _ \[미리\]보기 : Azure 보안 기준 설정과 일치하지 않는 Windows VM 감사에는_ Active Directory 그룹 정책의 설정에 따라 전체 감사 규칙 집합이 포함됩니다.
+Azure Policy의 한 가지 이니셔티브는 "기준"에 따라 운영 체제 설정을 감사하는 기능을 제공합니다. 정의, _ \[미리\]보기 : Azure 보안 기준 설정과 일치하지 않는 Windows VM 감사에는_ Active Directory 그룹 정책에 기반한 규칙 집합이 포함됩니다.
 
-대부분의 설정은 매개 변수로 사용할 수 있습니다. 이 기능을 사용하면 감사된 내용을 사용자 지정하여 정책을 조직의 요구 사항에 맞게 조정하거나 정책을 업계 규제 표준과 같은 타사 정보에 매핑할 수 있습니다.
+대부분의 설정은 매개 변수로 사용할 수 있습니다. 매개 변수를 사용하면 감사된 내용을 사용자 지정할 수 있습니다. 정책을 요구 사항에 맞게 조정하거나 업계 규제 표준과 같은 타사 정보에 정책을 매핑합니다.
 
-일부 매개 변수는 정수 값 범위를 지원합니다. 예를 들어 최대 암호 수지 매개 변수는 범위 연산자를 사용하여 장비 소유자에게 유연성을 제공하도록 설정할 수 있습니다. 사용자가 암호를 변경하도록 요구하는 효과적인 그룹 정책 설정은 70일을 넘지 않아야 하지만 하루도 안 된다는 것을 감사할 수 있습니다. 매개 변수에 대한 정보 버블에 설명된 대로 이 비즈니스 정책을 효과적인 감사 값으로 만들기 위해 값을 "1,70"으로 설정합니다.
+일부 매개 변수는 정수 값 범위를 지원합니다. 예를 들어 최대 암호 사용 시간 설정은 효과적인 그룹 정책 설정을 감사할 수 있습니다. "1,70" 범위는 사용자가 적어도 70일마다 암호를 변경해야 하지만 하루 이상 변경해야 한다는 것을 확인합니다.
 
-Azure Resource Manager 배포 템플릿을 사용하여 정책을 할당하는 경우 매개 변수 파일을 사용하여 소스 제어에서 이러한 설정을 관리할 수 있습니다. Git과 같은 도구를 사용하여 각 체크 인 문서에서 주석이 있는 감사 정책의 변경 사항을 관리하여 할당이 예상 값에 대한 예외가 되어야 하는 이유를 알 수 있습니다.
+Azure Resource Manager 배포 템플릿을 사용하여 정책을 할당하는 경우 매개 변수 파일을 사용하여 예외를 관리합니다. Git과 같은 버전 제어 시스템에 파일을 체크 인합니다. 파일 변경에 대한 주석은 할당이 예상 값에 대한 예외인 이유를 증명합니다.
 
 #### <a name="applying-configurations-using-guest-configuration"></a>게스트 구성을 사용하여 구성 적용
 
@@ -162,7 +141,7 @@ Where는 `<version>` 현재 버전 번호를 나타냅니다.
 
 #### <a name="windows"></a>Windows
 
-Azure VM 실행 명령 기능을 사용하여 Windows 컴퓨터의 로그 파일에서 정보를 캡처하려면 다음 예제 PowerShell 스크립트가 유용할 수 있습니다. 자세한 내용은 [실행 명령을 통해 Windows VM의 PowerShell 스크립트 실행을](../../../virtual-machines/windows/run-command.md)참조하십시오.
+[Azure VM 실행 명령을](../../../virtual-machines/windows/run-command.md)사용하여 로그 파일에서 정보를 캡처하는 경우 PowerShell 스크립트가 유용할 수 있습니다.
 
 ```powershell
 $linesToIncludeBeforeMatch = 0
@@ -173,7 +152,7 @@ Select-String -Path $logPath -pattern 'DSCEngine','DSCManagedEngine' -CaseSensit
 
 #### <a name="linux"></a>Linux
 
-Azure VM Run Command 기능을 사용하여 Linux 컴퓨터의 로그 파일에서 정보를 캡처하려면 다음 예제 Bash 스크립트가 유용할 수 있습니다. 자세한 내용은 [실행 명령이 있는 Linux VM의 셸 스크립트 실행을](../../../virtual-machines/linux/run-command.md) 참조하십시오.
+[Azure VM 실행 명령을](../../../virtual-machines/linux/run-command.md)사용하여 로그 파일에서 정보를 캡처하는 경우 다음 예제 Bash 스크립트가 유용할 수 있습니다.
 
 ```Bash
 linesToIncludeBeforeMatch=0
@@ -184,7 +163,7 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 
 ## <a name="guest-configuration-samples"></a>게스트 구성 샘플
 
-정책 게스트 구성 기본 제공 이니셔티브의 소스는 다음 위치에서 사용할 수 있습니다.
+게스트 구성 기본 제공 정책 샘플은 다음 위치에서 사용할 수 있습니다.
 
 - [기본 제공 정책 정의 - 게스트 구성](../samples/built-in-policies.md#guest-configuration)
 - [기본 제공 이니셔티브 - 게스트 구성](../samples/built-in-initiatives.md#guest-configuration)
@@ -192,6 +171,7 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 
 ## <a name="next-steps"></a>다음 단계
 
+- [게스트 구성 준수 보기에서](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) 각 설정의 세부 정보를 보는 방법 알아보기
 - Azure 정책 [샘플의 예제를 검토합니다.](../samples/index.md)
 - [Azure Policy 정의 구조](definition-structure.md)를 검토합니다.
 - [정책 효과 이해](effects.md)를 검토합니다.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 8608aaab7bb8b6d10e67f27678c17f20a6c243da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ce7ef15f0bf13182e4799fb640e83136d0d4695
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370847"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115018"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure 랩 서비스 - 관리자 가이드
 대학의 클라우드 리소스를 관리하는 IT(정보 기술) 관리자는 일반적으로 학교에 대한 랩 계정을 설정해야 합니다. 랩 계정이 설정되면 관리자 또는 교육자는 랩 계정에 포함된 강의실 랩을 만듭니다. 이 문서에서는 관련된 Azure 리소스에 대한 자세한 개요와 이를 만들기 위한 지침을 제공합니다.
@@ -156,6 +156,9 @@ Azure Lab Services의 리소스를 설정할 때 리소스를 호스트할 데�
        
     VNet 피어링이 **없고** [랩 작성자가 랩 위치를 선택할 수](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location)있는 경우 랩 작성자가 선택할 수 있는 위치는 사용 가능한 용량을 기반으로 합니다.
 
+> [!NOTE]
+> 리전의 VM 용량이 충분한지 확인하려면 랩 계정을 통해 또는 랩을 만들 때 먼저 용량을 요청하는 것이 중요합니다.
+
 일반적인 규칙은 리소스의 지역을 사용자에게 가장 가까운 지역으로 설정하는 것입니다. 이는 강의실 랩의 경우 학생과 가장 가까운 교실 랩을 만드는 것을 의미합니다. 전 세계에 위치한 온라인 코스의 경우 최선의 판단을 통해 중앙에 위치한 교실 랩을 만들어야 합니다. 또는 학생의 지역에 따라 수업을 여러 강의실 랩으로 분할합니다.
 
 ### <a name="shared-image-gallery"></a>공유 이미지 갤러리
@@ -169,7 +172,7 @@ Azure Lab Services의 리소스를 설정할 때 리소스를 호스트할 데�
 | ---- | ----- | ------ | ------------- |
 | 작음| <ul><li>2개 코어</li><li>3.5GB RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | 이 크기는 명령줄, 웹 브라우저 열기, 트래픽이 적은 웹 서버, 중소 규모 데이터베이스에 가장 적합합니다. |
 | 중간 | <ul><li>4 코어</li><li>7GB RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | 이 크기는 관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합합니다. |
-| 중간(중첩 가상화) | <ul><li>4 코어</li><li>16GB RAM</li></ul> | [Standard_DC4s_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | 이 크기는 관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합합니다.  이 크기는 중첩된 가상화도 지원합니다. |
+| 중간(중첩 가상화) | <ul><li>4 코어</li><li>16GB RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | 이 크기는 관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합합니다.  이 크기는 중첩된 가상화도 지원합니다. |
 | 큰 | <ul><li>8개 코어</li><li>32GB RAM</li></ul>  | [Standard_DC8_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | 이 크기는 더 빠른 CPU, 더 나은 로컬 디스크 성능, 대규모 데이터베이스, 대용량 메모리 캐시가 필요한 응용 프로그램에 가장 적합합니다.  이 크기는 중첩된 가상화도 지원합니다. |
 | 소형 GPU(시각화) | <ul><li>6 코어</li><li>56GB RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | 이 크기는 OpenGL 및 DirectX와 같은 프레임워크를 사용하여 원격 시각화, 스트리밍, 게임, 인코딩에 가장 적합합니다. |
 | 소형 GPU(컴퓨팅) | <ul><li>6 코어</li><li>56GB RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |이 크기는 인공 지능 및 딥 러닝과 같은 컴퓨터 집약적 응용 프로그램에 가장 적합합니다. |

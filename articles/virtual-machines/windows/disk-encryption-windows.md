@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b51f7a8b62d7131b7bbfc77101e60fab22e1f148
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: f7b6e667df95d9279ad5c44caa4ba33a17909935
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985799"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113152"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Windows VM에 대한 Azure Disk Encryption 시나리오
 
-VM(Windows 용 Azure 디스크 암호화)은 Windows의 Bitlocker 기능을 사용하여 WindOS 디스크 및 데이터 디스크의 전체 디스크 암호화를 제공합니다. 또한 VolumeType 매개 변수가 모두일 때 임시 리소스 디스크의 암호화를 제공합니다.
+Windows 가상 시스템(VM)에 대한 Azure 디스크 암호화는 Windows의 Bitlocker 기능을 사용하여 OS 디스크 및 데이터 디스크의 전체 디스크 암호화를 제공합니다. 또한 VolumeType 매개 변수가 모두일 때 임시 리소스 디스크의 암호화를 제공합니다.
 
 Azure 디스크 암호화는 [Azure Key Vault와 통합되어](disk-encryption-key-vault.md) 디스크 암호화 키 및 비밀을 제어하고 관리할 수 있습니다. 서비스에 대한 개요는 Windows [VM에 대한 Azure 디스크 암호화](disk-encryption-overview.md)를 참조하십시오.
 

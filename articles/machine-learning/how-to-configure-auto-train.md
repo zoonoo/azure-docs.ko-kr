@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 03e1d4aa74d2f71ab2f32ac55f4ad3d46f672f5c
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 18de50473e3dd6ca8ddda9575a247e00530032e8
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618548"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115411"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,24 +43,27 @@ ms.locfileid: "80618548"
 
 자동화된 Machine Learning은 자동화 및 튜닝 프로세스 중에 다음 알고리즘을 지원합니다. 사용자는 알고리즘을 지정할 필요가 없습니다.
 
+> [!NOTE]
+> 자동 ML 생성 모델을 [ONNX 모델로](concept-onnx.md)내보내려는 경우 *로 표시된 알고리즘만 ONNX 형식으로 변환할 수 있습니다. [모델을 ONNX로 변환하는](concept-automated-ml.md#use-with-onnx)방법에 대해 자세히 알아보십시오. <br> <br> 또한 ONNX는 현재 분류 및 회귀 작업만 지원합니다. 
+
 분류 | 회귀 | 시계열 예측
 |-- |-- |--
-[물류 회귀](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
-[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
-[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#classification)|[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)
-[의사 결정 트리](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[의사 결정 트리](https://scikit-learn.org/stable/modules/tree.html#regression)|[의사 결정 트리](https://scikit-learn.org/stable/modules/tree.html#regression)
-[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
-[Linear SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
-[지원 벡터 분류(SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#regression)
-[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
-[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
-[엑스부스트](https://xgboost.readthedocs.io/en/latest/parameter.html)|[엑스부스트](https://xgboost.readthedocs.io/en/latest/parameter.html)| [엑스부스트](https://xgboost.readthedocs.io/en/latest/parameter.html)
-[DNN 분류기](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[DNN 회귀](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN 회귀](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
-[DNN 선형 분류기](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[선형 회귀](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[선형 회귀](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|[빠른 선형 회귀](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[자동 아리마](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
-[SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|[온라인 그라데이션 하강 회귀](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest)|[예언자](https://facebook.github.io/prophet/docs/quick_start.html)
+[물류 회귀](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)* | [탄성 그물](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)* | [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
+[라이트 GBM](https://lightgbm.readthedocs.io/en/latest/index.html)* |[라이트 GBM](https://lightgbm.readthedocs.io/en/latest/index.html)*|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
+[그라데이션 부스팅](https://scikit-learn.org/stable/modules/ensemble.html#classification)* |[그라데이션 부스팅](https://scikit-learn.org/stable/modules/ensemble.html#regression)* |[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)
+[의사 결정 트리](https://scikit-learn.org/stable/modules/tree.html#decision-trees)* |[의사 결정 트리](https://scikit-learn.org/stable/modules/tree.html#regression)* |[의사 결정 트리](https://scikit-learn.org/stable/modules/tree.html#regression)
+[K 가장 가까운 이웃](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* |[K 가장 가까운 이웃](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* |[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
+[선형 SVC](https://scikit-learn.org/stable/modules/svm.html#classification)* |[라스 올가미](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)* |[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
+[지원 벡터 분류(SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)* |[스토크 그라데이션 하강(SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)* |[SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#regression)
+[랜덤 포리스트](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[랜덤 포리스트](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[랜덤 포리스트](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
+[매우 무작위 나무](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[매우 무작위 나무](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
+[엑스부스트](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[엑스부스트](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [엑스부스트](https://xgboost.readthedocs.io/en/latest/parameter.html)
+[DNN 분류기](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier) |[DNN 회귀](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN 회귀](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
+[DNN 선형 분류기](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[선형 회귀](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor) |[선형 회귀](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
+[나이브 베이즈](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[빠른 선형 회귀](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[자동 아리마](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[스토크 그라데이션 하강(SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* |[온라인 그라데이션 하강 회귀](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest)|[예언자](https://facebook.github.io/prophet/docs/quick_start.html)
 |[평균 지각 분류기](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)||예보TCN
-|[선형 SVM 분류기](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)||
+|[선형 SVM 분류기](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)* ||
 
 생성자의 `task` 매개 `AutoMLConfig` 변수를 사용하여 실험 유형을 지정합니다.
 
@@ -196,7 +199,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 실험을 구성할 때 고급 설정을 `featurization`사용하도록 설정할 수 있습니다. 다음 표에서는 클래스에서 위화에 대해 허용되는 설정을 보여 [ `AutoMLConfig` 주시면](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)됩니다.
 
-|위화화 구성 | 설명 |
+|위화화 구성 | Description |
 | ------------- | ------------- |
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| 사용자 정의 위화 단계를 사용해야 함을 나타냅니다. [위업을 사용자 지정하는 방법에 대해 알아봅니다.](how-to-configure-auto-train.md#customize-feature-engineering)|
 |`"featurization": 'off'`| featurization 단계가 자동으로 수행되어서는 안 함을 나타냅니다.|
@@ -250,7 +253,7 @@ automl_config = AutoMLConfig(task = 'forecasting',
 기본 스택 앙상블 동작을 변경 `kwargs` 하기 `AutoMLConfig` 위해 개체에서와 같이 제공할 수 있는 여러 기본 인수가 있습니다.
 
 * `stack_meta_learner_type`: 메타 학습자는 개별 이기종 모델의 출력에 대해 학습된 모델입니다. 기본 메타 `LogisticRegression` 학습자는 분류 작업(또는 `LogisticRegressionCV` 교차 유효성 검사가 활성화된 경우)과 `ElasticNet` 회귀/예측 `ElasticNetCV` 작업(또는 교차 유효성 검사가 활성화된 경우)에 대한 것입니다. 이 매개 변수는 다음 문자열 `LogisticRegression`중 `LogisticRegressionCV` `LightGBMClassifier`하나일 `LightGBMRegressor`수 `LinearRegression`있습니다. `ElasticNet` `ElasticNetCV`
-* `stack_meta_learner_train_percentage`: 메타 학습자 교육을 위해 예약할 교육 집합(학습 및 유효성 검사 유형 선택 시)의 비율을 지정합니다. 기본값은 `0.2`입니다.
+* `stack_meta_learner_train_percentage`: 메타 학습자 교육을 위해 예약할 교육 집합(학습 및 유효성 검사 유형 선택 시)의 비율을 지정합니다. 기본값은 `0.2`여야 합니다.
 * `stack_meta_learner_kwargs`: 메타 학습자의 초기화에 전달하는 선택적 매개 변수입니다. 이러한 매개변수 및 매개변수 형식은 해당 모델 생성자의 매개변수 및 매개변수 유형을 미러리하고 모델 생성자로 전달됩니다.
 
 다음 코드는 개체에서 사용자 지정 앙상블 `AutoMLConfig` 동작을 지정하는 예제를 보여 주었습니다.

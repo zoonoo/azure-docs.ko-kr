@@ -5,28 +5,30 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 03/10/2020
+ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: d3f8e52b4582c9467ae3ec61ee984771b801fe4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93677b3e473ab825665fed5590ac345a8cfcc300
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264779"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113444"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Azure Firewall 규칙 처리 논리
-Azure 방화벽에서 NAT 규칙, 네트워크 규칙 및 응용 프로그램 규칙을 구성할 수 있습니다. 규칙은 규칙 유형에 따라 처리됩니다. 
+Azure 방화벽에서 NAT 규칙, 네트워크 규칙 및 응용 프로그램 규칙을 구성할 수 있습니다. 규칙 컬렉션은 우선 순위의 규칙 유형에 따라 처리되며 숫자가 100에서 65,000으로 낮아집니다. 규칙 컬렉션 이름에는 문자, 숫자, 밑줄, 마침표 또는 하이픈만 있을 수 있습니다. 문자 또는 숫자로 시작하여 문자, 숫자 또는 밑줄로 끝나야 합니다. 최대 이름 길이는 80자입니다.
+
+처음에 규칙 컬렉션 우선 순위 번호를 100개(100, 200, 300 등)로 간격을 두는 것이 가장 좋습니다.
 
 > [!NOTE]
 > 위협 인텔리전스 기반 필터링을 사용하도록 설정하면 이러한 규칙이 가장 우선 순위가 높으며 항상 먼저 처리됩니다. 위협 인텔리전스 필터링은 구성된 규칙이 처리되기 전에 트래픽을 거부할 수 있습니다. 자세한 내용은 [Azure 방화벽 위협 인텔리전스 기반 필터링](threat-intel.md)을 참조하십시오.
 
-## <a name="outbound"></a>아웃바운드
+## <a name="outbound-connectivity"></a>아웃바운드 연결
 
 ### <a name="network-rules-and-applications-rules"></a>네트워크 규칙 및 애플리케이션 규칙
 
 네트워크 규칙 및 응용 프로그램 규칙을 구성하면 네트워크 규칙이 응용 프로그램 규칙 보다 우선 순위로 적용됩니다. 규칙은 종료됩니다. 따라서 네트워크 규칙에서 일치하는 규칙이 발견되면 다른 규칙이 처리되지 않습니다.  네트워크 규칙일치가 없고 프로토콜이 HTTP, HTTPS 또는 MSSQL인 경우 패킷은 응용 프로그램 규칙에 의해 우선 순위로 평가됩니다. 여전히 일치하는 일치하지 않는 경우 패킷은 [인프라 규칙 컬렉션에](infrastructure-fqdns.md)대해 평가됩니다. 여전히 일치하는 항목이 없으면 패킷이 기본적으로 거부됩니다.
 
-## <a name="inbound"></a>인바운드
+## <a name="inbound-connectivity"></a>인바운드 연결
 
 ### <a name="nat-rules"></a>NAT 규칙
 

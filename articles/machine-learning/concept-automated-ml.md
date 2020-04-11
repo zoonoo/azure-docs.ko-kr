@@ -10,21 +10,18 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 02/28/2020
-ms.openlocfilehash: c8864e00be9f491d87478c253286070b9334a26e
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 095561f02fdeff6688b78d69cc1becc4ee0f8901
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80383194"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115204"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
 자동화된 기계 학습은 자동화 된 ML이라고도하며 기계 학습 모델 개발의 시간 소모적이고 반복적인 작업을 자동화하는 프로세스입니다. 이를 통해 데이터 과학자, 분석가 및 개발자는 모델 품질을 유지하면서 높은 규모, 효율성 및 생산성으로 ML 모델을 구축할 수 있습니다. 자동화 된 ML은 Microsoft [연구 부서의](https://arxiv.org/abs/1705.05355)돌파구를 기반으로합니다.
 
 기존의 기계 학습 모델 개발은 리소스집약적이며, 수십 개의 모델을 생산하고 비교하는 데 상당한 도메인 지식과 시간이 필요합니다. 자동화된 Machine Learning을 통해 아주 쉽고 효율적으로 프로덕션을 준비할 수 있는 ML 모델을 준비하는 데 걸리는 시간을 단축할 수 있습니다.
-
-
- 
 
 
 ## <a name="when-to-use-automated-ml"></a>자동화된 ML을 사용하는 경우
@@ -88,7 +85,7 @@ Azure 기계 학습에서 지정한 대상 메트릭을 사용하여 모델을 �
 
 자동화된 모든 기계 학습 실험에서 알고리즘이 잘 수행될 수 있도록 데이터가 자동으로 확장또는 정규화됩니다.  모델 학습 중에 다음 크기 조정 또는 정규화 기술 중 하나가 각 모델에 적용됩니다.
 
-|정규화 크기 조정&nbsp;&&nbsp;| 설명 |
+|정규화 크기 조정&nbsp;&&nbsp;| Description |
 | ------------- | ------------- |
 | [스탠다드스케일래퍼](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | 평균을 제거하고 단위 분산으로 배율 조정하여 피처를 표준화  |
 | [민맥스스칼라](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | 각 피처를 해당 열의 최소 및 최대값으로 배율조정하여 피처를 변환합니다.  |
@@ -140,9 +137,13 @@ Azure 기계 학습에서 지정한 대상 메트릭을 사용하여 모델을 �
 
 자동화된 기계 학습에서 기본 앙상블 설정을 변경하는 [방법을 참조하세요.](how-to-configure-auto-train.md#ensemble)
 
-## <a name="use-with-onnx-in-c-apps"></a>C# 앱에서 ONNX와 함께 사용
+## <a name="use-with-onnx"></a>ONNX와 함께 사용
 
-Azure 기계 학습을 사용하면 자동화된 ML을 사용하여 파이썬 모델을 빌드하고 ONNX 형식으로 변환할 수 있습니다. ONNX 런타임은 C#을 지원하므로 RE코딩이나 REST 엔드포인트가 도입하는 네트워크 대기 시간 없이 C# 앱에서 자동으로 빌드된 모델을 사용할 수 있습니다. [이 Jupyter 노트북에서](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)이러한 흐름의 예를 들어 보십시오.
+Azure 기계 학습을 사용하면 자동화된 ML을 사용하여 파이썬 모델을 빌드하고 ONNX 형식으로 변환할 수 있습니다. 모델이 ONNX 형식으로 되면 다양한 플랫폼 및 장치에서 실행할 수 있습니다. [ONNX를 통해 ML 모델 의 가속화에](concept-onnx.md)대해 자세히 알아보십시오.
+
+[이 Jupyter 노트북 예제에서](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)ONNX 형식으로 변환하는 방법을 알아보십시오. [ONNX에서 지원되는 알고리즘에](how-to-configure-auto-train.md#select-your-experiment-type)대해 알아봅니다.
+
+ONNX 런타임은 C#도 지원하므로 RE코딩이나 REST 엔드포인트가 도입하는 네트워크 대기 시간 없이 C# 앱에서 자동으로 빌드된 모델을 사용할 수 있습니다. [ONNX 런타임 C# API를 통해 ONNX 모델 의 추론에](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md)대해 자세히 알아보십시오. 
 
 ## <a name="automated-ml-in-azure-machine-learning"></a>Azure 기계 학습의 자동화된 ML
 
@@ -152,7 +153,7 @@ Azure 기계 학습은 자동화된 ML 작업을 위한 두 가지 환경을 제
 
 * 제한된/무코드 환경 고객의 경우 Azure 기계 학습 스튜디오에서[https://ml.azure.com](https://ml.azure.com/)  
 
-다음은 각 환경에서 지원되는 높은 수준의 자동화된 ML 기능을 요약한 것입니다.
+다음은 각 환경에서 지원되는 고급 자동화ML 기능을 요약한 것입니다.
 
 <a name="parity"></a>
 

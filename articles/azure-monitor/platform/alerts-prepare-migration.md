@@ -1,17 +1,17 @@
 ---
-title: 논리 앱 및 runbook을 업데이트하여 Azure Monitor 클래식 경고 마이그레이션 준비
+title: 경고 마이그레이션을 위한 런북을 & 논리 앱 업데이트
 description: 자발적 마이그레이션을 준비하기 위해 웹후크, 논리 앱 및 Runbook을 수정하는 방법을 알아봅니다.
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 9219e105acb98424939030af76b526d475585619
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f31fcc07bed0287c2f86ca4fe52bf02a2a1d2a71
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665595"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114418"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>클래식 경고 규칙 마이그레이션을 위한 논리 앱 및 Runbook 준비
 

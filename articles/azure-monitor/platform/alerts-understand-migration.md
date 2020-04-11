@@ -1,17 +1,17 @@
 ---
-title: Azure Monitor 경고에 대해 자발적 마이그레이션 도구가 작동하는 방식 이해
+title: Azure 모니터 경고에 대한 마이그레이션 도구 이해
 description: 경고 마이그레이션 도구의 작동 방식을 이해하고 문제를 해결합니다.
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 8cc77d13567910797cd519ac193b848f3ea434da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d31c856e17348c23ad61130869af6ae440d3050d
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274815"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114317"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>마이그레이션 도구의 작동 방식 이해
 
@@ -162,10 +162,10 @@ Blob, 테이블, 파일 및 큐와 같은 저장소 계정 서비스의 경우 �
 | ServerOtherError | 차원 "응답 유형"="ServerOtherError"가 있는 트랜잭션 메트릭 | |
 | 서버 타임아웃 오류 | 차원 "응답 유형"="서버시간 오류"가 있는 트랜잭션 메트릭  | |
 | Success | 차원 "응답 유형"="성공" 트랜잭션 메트릭 | |
-| TotalBillableRequests| 의 | |
+| TotalBillableRequests| 트랜잭션 | |
 | TotalEgress | 송신 | |
 | TotalIngress | 수신 | |
-| TotalRequests | 의 | |
+| TotalRequests | 트랜잭션 | |
 
 ### <a name="microsoftinsightscomponents"></a>마이크로소프트.인사이트/구성 요소
 

@@ -5,19 +5,19 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 74522502f5405b56a3a604f20a695de83ef3c3a5
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: a40c64910260a2d63a529d25e1089fb618fcec1b
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886486"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113499"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
 이 문서에서는 일반적인 Azure FarmBeats 문제에 대한 솔루션을 제공합니다. 추가 도움이 되면 [지원 포럼에](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) 문의하거나 로 이메일을 farmbeatssupport@microsoft.com보내주십시오.
 
 > [!NOTE]
-  > 4월 중에 FarmBeats를 설치했으며 작업이 빈 오류 메시지로 실패하는 경우 응급 상황, 의료 및 기타 중요한 요구 사항으로 향하는 모든 리소스로 인해 설치에 일괄 할당량이 할당되지 않았을 수 있습니다. 일괄 처리 계정에 VM을 할당하도록 요청해야 합니다.
+  > 4월 중에 FarmBeats를 설치했으며 작업이 빈 오류 메시지로 실패하는 경우 설치에 중요한 건강 및 안전 조직에 대한 지원우선 순위를 지정하기 위해 일괄 할당량이 할당되지 않았을 수 있습니다. 자세한 내용은 [여기를](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) 참조하십시오. 작업을 성공적으로 실행하려면 VM을 Batch 계정에 할당하도록 요청해야 합니다.
 
 ## <a name="install-issues"></a>설치 문제
 
@@ -45,7 +45,9 @@ ms.locfileid: "80886486"
 - 배포 실패에 대한 로그 파일을 첨부하려면 아래 단계를 따르십시오.
 
     1. Azure 포털의 **리소스 그룹으로** 이동합니다.
+
     2. 왼쪽의 **설정** 섹션에서 **배포를 선택합니다.**
+
     3. **Failed를**표시하는 모든 배포에 대해 세부 정보까지 선택하고 배포 세부 정보를 다운로드합니다. 이 파일을 메일에 첨부합니다.
 
 ## <a name="sensor-telemetry"></a>센서 원격 분석

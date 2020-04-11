@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 3/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 39ff4f42457451dfa4aae90b281d6b163c56b4cd
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 7b839df5940ab26e5c1a99a1bda1fbd2545f8cc4
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80522239"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113112"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Windows 종료 동작 제어 가이드
 
@@ -58,7 +58,7 @@ RDP 세션 유휴 시간 제한을 설정하려면 템플릿 VM에 연결하고 
 
 ```powershell
 # The MaxIdleTime is in milliseconds; by default, this script sets MaxIdleTime to 15 minutes.
-$maxIdleTime = 15 * 60 * 90
+$maxIdleTime = 15 * 60 * 1000
 
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" -Name "MaxIdleTime" -Value $maxIdleTime -Force
 ```
@@ -79,6 +79,9 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Se
     ![유휴 세션 제한](../media/how-to-windows-shutdown/edit-idle-time-limit.png)
 
 1. 마지막으로 이 동작을 **연결 해제 설정의 자동 종료와** 결합하려면 방법 [문서의](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)단계를 따라야 합니다.
+
+> [!WARNING]
+> PowerShell을 사용하여 레지스트리 설정을 직접 수정하거나 그룹 정책 편집기를 사용하여 수동으로 이 설정을 구성한 후 먼저 VM을 다시 시작하여 설정이 적용되려면 먼저 VM을 다시 시작해야 합니다.  또한 레지스트리를 사용하여 설정을 구성하는 경우 그룹 정책 편집기는 레지스트리 설정의 변경 내용을 반영하도록 항상 새로 고치지는 않습니다. 그러나 레지스트리 설정은 여전히 예상대로 적용되며 지정한 시간 동안 유휴 상태일 때 RDP 세션연결이 끊어지는 것을 볼 수 있습니다.
 
 ## <a name="remove-windows-shutdown-command-from-start-menu"></a>시작 메뉴에서 Windows 종료 명령 제거
 

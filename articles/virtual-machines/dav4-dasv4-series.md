@@ -7,16 +7,16 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 56e86aa75b153b5cb005c96fca45373d30ffa8b4
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: c7a2fea94e0dc1ff868eff26399877cab66e6f66
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437103"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115351"
 ---
 # <a name="dav4-and-dasv4-series"></a>Dav4 및 Dasv4 시리즈
 
-Dav4 시리즈와 Dasv4 시리즈는 AMD의 2.35Ghz EPYC<sup>TM</sup> 7452 프로세서를 최대 256MB L3 캐시로 구성된 다중 스레드 구성의 새로운 크기로, 8GB의 L3 캐시를 모든 8코어에 바침전하여 범용 워크로드를 실행하기 위한 고객 옵션을 증가시고 있습니다. Dav4 시리즈와 Dasv4 시리즈는 D& Dsv3 시리즈와 동일한 메모리 및 디스크 구성을 갖습니다.
+Dav4 시리즈와 Dasv4 시리즈는 AMD의 2.35Ghz EPYC<sup>TM</sup> 7452 프로세서를 최대 256MB L3 캐시로 구성된 다중 스레드 구성의 새로운 크기로, 8개의 코어마다 8MB의 L3 캐시를 사용하여 범용 워크로드를 실행하기 위한 고객 옵션을 증가시고 있습니다. Dav4 시리즈와 Dasv4 시리즈는 D& Dsv3 시리즈와 동일한 메모리 및 디스크 구성을 갖습니다.
 
 ## <a name="dav4-series"></a>대브4 시리즈
 
@@ -72,8 +72,8 @@ Dasv4 계열 크기는 2.35Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반
 
 ## <a name="other-sizes"></a>기타 크기
 
-- [범용](sizes-general.md)
-- [메모리 최적화](sizes-memory.md)
+- [범용 가상 컴퓨터](sizes-general.md)
+- [메모리에 최적화](sizes-memory.md)
 - [Storage에 최적화](sizes-storage.md)
 - [GPU에 최적화](sizes-gpu.md)
 - [고성능 컴퓨팅](sizes-hpc.md)

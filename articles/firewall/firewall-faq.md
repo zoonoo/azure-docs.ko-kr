@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: 5ddbb58837fbda0f14a07186d5a3053055954454
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: af66da115e228efe39e4cd5dda3c494b71428676
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677442"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113566"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -172,17 +172,11 @@ Azure 방화벽은 확장될 때 더 많은 가상 시스템 인스턴스를 프
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>방화벽 처리량을 늘리는 방법은 무엇입니까?
 
-Azure 방화벽의 초기 처리량 용량은 2.5 ~ 3Gbps이며 30Gbps로 확장됩니다. CPU 사용량과 처리량에 따라 확장됩니다. 방화벽의 처리량 용량을 늘리려면 지원에 문의하십시오.
+Azure 방화벽의 초기 처리량 용량은 2.5 ~ 3Gbps이며 30Gbps로 확장됩니다. CPU 사용량과 처리량에 따라 자동으로 확장됩니다.
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Azure 방화벽을 확장하는 데 얼마나 걸격니까?
 
-Azure 방화벽을 확장하는 데 5~7분정도 걸립니다. 더 빠른 자동 크기 조정이 필요한 버스트가 있는 경우 지원팀에 문의하여 방화벽의 초기 처리량 용량을 늘립니다.
-
-방화벽 자동 크기 조정을 테스트할 때 다음 사항을 고려해야 합니다.
-
-- 단일 TCP 흐름 성능은 1.4Gbps로 제한됩니다. 따라서 성능 테스트는 여러 TCP 흐름을 설정해야 합니다.
-- 성능 도구는 확장된 백엔드 방화벽 인스턴스와 연결하기 위해 새 연결을 지속적으로 설정해야 합니다. 테스트에서 처음에 한 번 연결을 설정하면 초기 백 엔드 인스턴스와만 연결됩니다. 방화벽이 확장되더라도 연결이 초기 인스턴스와 연결되어 있기 때문에 성능이 향상되지 않습니다.
-
+Azure 방화벽은 평균 처리량 또는 CPU 사용량이 60%인 경우 점진적으로 확장됩니다. 스케일 아웃은 5~7분 정도 소요됩니다. 성능 테스트를 수행할 때는 최소 10~15분 동안 테스트하고 새로 생성된 방화벽 노드를 활용하기 위해 새 연결을 시작해야 합니다.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Azure 방화벽에서 기본적으로 Active Directory에 대한 액세스를 허용합니까?
 

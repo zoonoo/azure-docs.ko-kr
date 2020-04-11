@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 03/25/2020
-ms.openlocfilehash: 4985c492c8ca71da87cf1a519ebc658c203d3952
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/11/2020
+ms.openlocfilehash: e01cc1c07d720c4743a03b5001e640f8b851dd5c
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246979"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113995"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>자습서: Azure 포털을 통해 DMS를 사용 하 여 온라인 PostgreSQL에 대 한 Azure DB에 PostgreSQL 마이그레이션
 
@@ -45,7 +45,7 @@ Azure 데이터베이스 마이그레이션 서비스를 사용하여 응용 프
 
 * [PostgreSQL 커뮤니티 에디션](https://www.postgresql.org/download/) 9.4, 9.5, 9.6 또는 10을 다운로드하여 설치합니다. 소스 PostgreSQL 서버 버전은 9.4, 9.5, 9.6, 10 또는 11이어야 합니다. 자세한 내용은 [지원되는 PostgreSQL 데이터베이스 버전](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) 문서를 참조하세요.
 
-    또한 온-프레미스 PostgreSQL 버전은 Azure Database for PostgreSQL 버전과 일치해야 합니다. 예를 들어 PostgreSQL 9.6은 PostgreSQL 9.6, 10 또는 11에 대해서만 Azure 데이터베이스로 마이그레이션할 수 있지만 PostgreSQL 9.5의 경우 Azure 데이터베이스로만 마이그레이션할 수 없습니다.
+    또한 PostgreSQL 버전에 대한 대상 Azure 데이터베이스는 온-프레미스 PostgreSQL 버전과 같거나 작아야 합니다. 예를 들어 PostgreSQL 9.6은 PostgreSQL 9.6, 10 또는 11에 대한 Azure 데이터베이스로 마이그레이션할 수 있지만 PostgreSQL 9.5의 경우 Azure 데이터베이스로 마이그레이션할 수 없습니다.
 
 * [PostgreSQL 서버에 대한 Azure 데이터베이스를 만들거나](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) [PostgreSQL - 하이퍼스케일(Citus) 서버에 대한 Azure 데이터베이스 만들기.](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal)
 * [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN을](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)사용하여 온-프레미스 소스 서버에 대한 사이트 간 연결을 제공하는 Azure 리소스 관리자 배포 모델을 사용하여 Azure 데이터베이스 마이그레이션 서비스에 대한 Microsoft Azure 가상 네트워크를 만듭니다. 가상 네트워크 만들기에 대한 자세한 내용은 [가상 네트워크 설명서](https://docs.microsoft.com/azure/virtual-network/)및 특히 단계별 세부 정보가 있는 빠른 시작 문서를 참조하십시오.
@@ -104,7 +104,7 @@ Azure 데이터베이스 마이그레이션 서비스를 사용하여 응용 프
     psql -h hostname -U db_username -d db_name < your_schema.sql
     ```
 
-    예를 들어:
+    다음은 그 예입니다.
 
     ```
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental citus < dvdrentalSchema.sql

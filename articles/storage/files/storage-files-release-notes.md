@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/16/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 765decb8c65254d63ef5267cbc496d2320f58f6e
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: c6455930f88d02e11cb0c45d29594ae40eaad9e3
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991929"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113286"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -25,7 +25,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 | Milestone | 에이전트 버전 번호 | 릴리스 날짜 | 상태 |
 |----|----------------------|--------------|------------------|
-| V10 릴리스 - [KB4522359](https://support.microsoft.com/en-us/help/4522409/azure-file-sync-agent-v10-release-march-2020)| 10.0.0.0 | 2020년 4월 9일 | 지원됨 |
+| V10 릴리스 - [KB4522359](https://support.microsoft.com/en-us/help/4522409/azure-file-sync-agent-v10-release-march-2020)| 10.0.0.0 | 2020년 4월 9일 | 비행 중 |
 | 2019년 12월 업데이트 롤업 - [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | 2019년 12월 12일 | 지원됨 |
 | V9 릴리스 - [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2019년 12월 2일 | 지원됨 |
 | V8 릴리스 - [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 2019년 10월 8일 | 지원됨 |
@@ -68,7 +68,6 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
  
 - 기타 성능 및 안정성 향상
     - 저장소 계정에서 가상 네트워크(VNET) 및 방화벽 규칙을 구성하면 Azure 파일 공유에 대한 변경 검색이 실패할 수 있습니다.
-    - 임의 액세스 제어 목록(DACL) 동기화에 대한 2KB 보안 설명자 제한이 더 이상 없습니다.  
     - 리콜과 관련된 메모리 소비 감소. 
     - [Invoke-AzStorageSync검색](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) cmdlet을 사용할 때 성능이 향상되었습니다.
     - 기타 기타 안정성 향상. 

@@ -3,12 +3,12 @@ title: 컨테이너 및 서비스에 대한 리소스 관리
 description: Azure Service Fabric을 사용하면 컨테이너 내부 또는 외부에서 실행 중인 서비스에 대해 리소스 제한을 지정할 수 있습니다.
 ms.topic: conceptual
 ms.date: 8/9/2017
-ms.openlocfilehash: 85520876d7f0c89450b572d28dee6cb66ed2231d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11ca6e29829d911717a829b3e4dee0a190856a52
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75772383"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115139"
 ---
 # <a name="resource-governance"></a>리소스 거버넌스
 
@@ -31,7 +31,8 @@ ms.locfileid: "75772383"
 * 두 메트릭에 따라 클러스터를 [조각 모음](service-fabric-cluster-resource-manager-defragmentation-metrics.md)할 수 있습니다.
 * [클러스터를 설명](service-fabric-cluster-resource-manager-cluster-description.md)할 때 두 메트릭에 대해 버퍼링된 용량을 설정할 수 있습니다.
 
-두 메트릭에 대한 [동적 부하 보고](service-fabric-cluster-resource-manager-metrics.md)는 지원되지 않으며 해당 메트릭에 대한 부하는 생성 시 정의됩니다.
+> [!NOTE]
+> [동적 부하 보고는](service-fabric-cluster-resource-manager-metrics.md) 이러한 메트릭에 대해 지원되지 않습니다. 이러한 메트릭에 대한 로드는 생성 시 정의됩니다.
 
 ## <a name="resource-governance-mechanism"></a>리소스 거버넌스 메커니즘
 

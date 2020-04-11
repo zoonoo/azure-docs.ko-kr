@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 04/09/2020
 ms.author: kgremban
-ms.openlocfilehash: 80ce962ac6977fcce2455c8e2ef29af448a44075
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61b382f1c286209a12d0be39a81e6817806d3251
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80133154"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113467"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Windows에 Azure IoT Edge 런타임 설치
 
@@ -78,9 +78,9 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 
 1. 아직 등록하지 않은 경우 새 IoT Edge 장치를 등록하고 **장치 연결 문자열을**검색합니다. 이 섹션의 후반부에서 사용할 연결 문자열을 복사합니다. 다음 도구를 사용하여 이 단계를 완료할 수 있습니다.
 
-   * [Azure 포털](how-to-register-device.md#register-in-the-azure-portal)
+   * [Azure Portal](how-to-register-device.md#register-in-the-azure-portal)
    * [Azure CLI](how-to-register-device.md#register-with-the-azure-cli)
-   * [비주얼 스튜디오 코드](how-to-register-device.md#register-with-visual-studio-code)
+   * [Visual Studio Code](how-to-register-device.md#register-with-visual-studio-code)
 
 2. PowerShell을 관리자 권한으로 실행합니다.
 
@@ -139,33 +139,45 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 
 ## <a name="offline-or-specific-version-installation"></a>오프라인 또는 특정 버전 설치
 
-설치하는 동안 두 개의 파일이 다운로드됩니다 .
+설치하는 동안 세 개의 파일이 다운로드됩니다 .
 
-* 마이크로소프트 Azure IoT 엣지 캡은 IoT 엣지 보안 데몬(iotedged), 모비 컨테이너 엔진, 모비 CLI를 포함하고 있다.
-* 비주얼 C++ 재배포 가능한 패키지(VC 런타임) MSI
+* 설치 지침이 포함된 PowerShell 스크립트
+* IoT 에지 보안 데몬(iotedged), 모비 컨테이너 엔진 및 모비 CLI를 포함하는 마이크로소프트 Azure IoT Edge 캡
+* 비주얼 C++ 재배포 가능한 패키지(VC 런타임) 설치 프로그램
 
-장치를 설치하는 동안 오프라인 상태가 되거나 특정 버전의 IoT Edge를 설치하려는 경우 이러한 파일 중 하나 또는 둘 다를 장치에 미리 다운로드할 수 있습니다. 설치할 시간이 되면 다운로드한 파일이 포함된 디렉터리의 설치 스크립트를 가리킵니다. 설치 관리자는 해당 디렉터리를 먼저 확인한 다음 찾을 수 없는 구성 요소만 다운로드합니다. 모든 파일을 오프라인으로 사용할 수 있는 경우 인터넷에 연결하지 않고 설치할 수 있습니다.
+장치를 설치하는 동안 오프라인 상태가 되거나 특정 버전의 IoT Edge를 설치하려는 경우 이러한 파일을 장치에 미리 다운로드할 수 있습니다. 설치할 시간이 되면 다운로드한 파일이 포함된 디렉터리의 설치 스크립트를 가리킵니다. 설치 관리자는 해당 디렉터리를 먼저 확인한 다음 찾을 수 없는 구성 요소만 다운로드합니다. 모든 파일을 오프라인으로 사용할 수 있는 경우 인터넷에 연결하지 않고 설치할 수 있습니다.
 
-이전 버전과 함께 최신 IoT Edge 설치 파일에 대한 [Azure IoT Edge 릴리스를](https://github.com/Azure/azure-iotedge/releases)참조하십시오.
+오프라인 설치 경로 매개 변수를 사용하여 IoT Edge를 업데이트할 수도 있습니다. 자세한 내용은 [IoT Edge 보안 디먼 및 런타임 업데이트](how-to-update-iot-edge.md)를 참조하세요.
 
-오프라인 구성 요소로 설치하려면 `-OfflineInstallationPath` 배포-IoTEdge 명령의 일부로 매개 변수를 사용하고 파일 디렉터리에 대한 절대 경로를 제공합니다. 예를 들면 다음과 같습니다.
+1. 이전 버전과 함께 최신 IoT Edge 설치 파일에 대한 [Azure IoT Edge 릴리스를](https://github.com/Azure/azure-iotedge/releases)참조하십시오.
 
-```powershell
-. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-Deploy-IoTEdge -OfflineInstallationPath C:\Downloads\iotedgeoffline
-```
+2. 설치하려는 버전을 찾아 릴리스 노트의 **자산** 섹션에서 다음 파일을 IoT 장치에 다운로드합니다.
 
->[!NOTE]
->매개 `-OfflineInstallationPath` 변수는 제공된 디렉터리에서 **Microsoft-Azure-IoTEdge.cab라는** 파일을 찾습니다. IoT Edge 버전 1.0.9-rc4부터 AMD64 장치용 및 ARM32용 .cab 파일 2개가 있습니다. 장치에 맞는 파일을 다운로드한 다음 파일 이름을 변경하여 아키텍처 접미사를 제거합니다.
+   * IoTEdge보안데몬.ps1
+   * 마이크로소프트-Azure-IoTEdge-amd64.cab 릴리스에서 1.0.9 이상, 또는 마이크로소프트-Azure-IoTEdge.cab 릴리스에서 1.0.8 이상.
 
-명령은 `Deploy-IoTEdge` IoT Edge 구성 요소를 설치한 다음 명령을 `Initialize-IoTEdge` 계속 하여 IoT Hub 장치 ID 및 연결로 장치를 프로비전해야 합니다. 명령을 직접 실행하고 IoT Hub에서 연결 문자열을 제공하거나 이전 섹션의 링크 중 하나를 사용하여 장치 프로비저닝 서비스를 사용하여 장치를 자동으로 프로비전하는 방법을 알아봅니다.
+   Microsoft-Azure-IotEdge-arm32.cab은 테스트 목적으로만 1.0.9부터 사용할 수 있습니다. IoT Edge는 현재 Windows ARM32 장치에서 지원되지 않습니다.
 
-```powershell
-. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-Initialize-IoTEdge
-```
+   각 릴리스의 기능을 지원하도록 기능이 변경되므로 사용하는 .cab 파일과 동일한 릴리스의 PowerShell 스크립트를 사용하는 것이 중요합니다.
 
-Update-IoTEdge 명령을 사용하여 오프라인 설치 경로 매개 변수를 사용할 수도 있습니다.
+3. 다운로드한 .cab 파일에 아키텍처 접미사가 있는 경우 파일이름을 **Microsoft-Azure-IoTEdge.cab로**변경합니다.
+
+4. 선택적으로 Visual C++ 재배포 가능에 대한 설치 관리자를 다운로드합니다. 예를 들어 PowerShell 스크립트는 이 버전을 사용합니다 [vc_redist.](https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe) 설치 프로그램을 IoT Edge 파일과 동일한 폴더에 IoT 장치로 저장합니다.
+
+5. 오프라인 구성 요소와 함께 설치하려면 Dot이 PowerShell 스크립트의 로컬 복사본을 [소스로](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) 처리합니다. 그런 다음 `-OfflineInstallationPath` 매개 변수를 `Deploy-IoTEdge` 명령의 일부로 사용하고 파일 디렉터리에 대한 절대 경로를 제공합니다. 예를 들면 다음과 같습니다.
+
+   ```powershell
+   . <path>\IoTEdgeSecurityDaemon.ps1
+   Deploy-IoTEdge -OfflineInstallationPath <path>
+   ```
+
+   배포 명령은 제공된 로컬 파일 디렉터리에 있는 모든 구성 요소를 사용합니다. .cab 파일 또는 Visual C++ 설치 프로그램이 누락된 경우 다운로드를 시도합니다.
+
+6. `Initialize-IoTEdge` 명령을 실행하여 IoT Hub에서 ID로 장치를 프로비전합니다. 수동 프로비저닝을 위한 장치 연결 문자열을 제공하거나 이전 [자동 프로비전](#option-2-install-and-automatically-provision) 섹션에 설명된 방법 중 하나를 선택합니다.
+
+   실행 `Deploy-IoTEdge`후 장치를 다시 시작한 경우 실행하기 `Initialize-IoTEdge`전에 PowerShell 스크립트를 다시 소스로 지정합니다.
+
+오프라인 설치 옵션에 대한 자세한 내용은 모든 설치 매개 변수에 대해 알아보려면 미리 [건너뛰십시오.](#all-installation-parameters)
 
 ## <a name="verify-successful-installation"></a>성공적인 설치 확인
 
@@ -258,7 +270,7 @@ Deploy-IoTEdge 명령은 IoT 에지 보안 데몬과 해당 종속성을 다운�
 | **프록시** | 프록시 URL | 디바이스가 프록시 서버를 통해 인터넷에 연결해야 하는 경우 이 매개 변수를 포함합니다. 자세한 내용은 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)을 참조하세요. |
 | **OfflineInstallationPath** | 디렉터리 경로 | 이 매개 변수가 포함된 경우 설치 관리자는 설치에 필요한 IoT Edge 캡 및 VC 런타임 MSI 파일에 대해 나열된 디렉터리를 확인합니다. 디렉터리에서 찾을 수 없는 파일은 다운로드됩니다. 두 파일이 모두 디렉터리에 있는 경우 인터넷 연결 없이 IoT Edge를 설치할 수 있습니다. 이 매개 변수를 사용하여 특정 버전을 사용할 수도 있습니다. |
 | **InvokeWebRequestParameters** | 매개 변수 및 값의 해시 테이블입니다. | 설치 중에 여러 개의 웹 요청이 생성됩니다. 이 필드를 사용하여 해당 웹 요청에 대한 매개 변수를 설정합니다. 이 매개 변수는 프록시 서버에 대한 자격 증명을 구성하는 데 유용합니다. 자세한 내용은 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)을 참조하세요. |
-| **다시 시작필요** | none | 이 플래그를 사용하면 필요한 경우 배포 스크립트가 프롬프트 없이 컴퓨터를 다시 시작할 수 있습니다. |
+| **다시 시작필요** | 없음 | 이 플래그를 사용하면 필요한 경우 배포 스크립트가 프롬프트 없이 컴퓨터를 다시 시작할 수 있습니다. |
 
 ### <a name="initialize-iotedge"></a>초기화-IoTEdge
 
@@ -277,7 +289,7 @@ Initialize-IoTEdge 명령은 장치 연결 문자열 및 운영 세부 정보로
 | **ContainerOs** | **윈도우** 또는 **리눅스** | 컨테이너 운영 체제를 지정하지 않으면 Windows가 기본값입니다.<br><br>Windows 컨테이너의 경우 IoT Edge는 설치에 포함된 모비 컨테이너 엔진을 사용합니다. Linux 컨테이너의 경우 설치를 시작하기 전에 컨테이너 엔진을 설치해야 합니다. |
 | **InvokeWebRequestParameters** | 매개 변수 및 값의 해시 테이블입니다. | 설치 중에 여러 개의 웹 요청이 생성됩니다. 이 필드를 사용하여 해당 웹 요청에 대한 매개 변수를 설정합니다. 이 매개 변수는 프록시 서버에 대한 자격 증명을 구성하는 데 유용합니다. 자세한 내용은 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)을 참조하세요. |
 | **AgentImage** | IoT Edge 에이전트 이미지 URI | 기본적으로 새 IoT Edge 설치는 IoT Edge 에이전트 이미지에 대한 최신 롤링 태그를 사용합니다. 이 매개 변수를 사용하여 이미지 버전에 대한 특정 태그를 설정하거나 사용자 고유의 에이전트 이미지를 제공합니다. 자세한 내용은 [IoT Edge 태그 이해](how-to-update-iot-edge.md#understand-iot-edge-tags)를 참조하세요. |
-| **사용자** | 컨테이너 레지스트리 사용자 이름입니다. | -AgentImage 매개 변수를 프라이빗 레지스트리의 컨테이너로 설정한 경우에만 이 매개 변수를 사용합니다. 레지스트리에 대한 액세스 권한이 있는 사용자 이름을 제공합니다. |
+| **사용자 이름** | 컨테이너 레지스트리 사용자 이름입니다. | -AgentImage 매개 변수를 프라이빗 레지스트리의 컨테이너로 설정한 경우에만 이 매개 변수를 사용합니다. 레지스트리에 대한 액세스 권한이 있는 사용자 이름을 제공합니다. |
 | **암호** | 보안 암호 문자열입니다. | -AgentImage 매개 변수를 프라이빗 레지스트리의 컨테이너로 설정한 경우에만 이 매개 변수를 사용합니다. 레지스트리에 액세스하기 위한 암호를 제공합니다. |
 
 ### <a name="update-iotedge"></a>업데이트-IoTEdge
@@ -288,14 +300,14 @@ Initialize-IoTEdge 명령은 장치 연결 문자열 및 운영 세부 정보로
 | **프록시** | 프록시 URL | 디바이스가 프록시 서버를 통해 인터넷에 연결해야 하는 경우 이 매개 변수를 포함합니다. 자세한 내용은 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)을 참조하세요. |
 | **InvokeWebRequestParameters** | 매개 변수 및 값의 해시 테이블입니다. | 설치 중에 여러 개의 웹 요청이 생성됩니다. 이 필드를 사용하여 해당 웹 요청에 대한 매개 변수를 설정합니다. 이 매개 변수는 프록시 서버에 대한 자격 증명을 구성하는 데 유용합니다. 자세한 내용은 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)을 참조하세요. |
 | **OfflineInstallationPath** | 디렉터리 경로 | 이 매개 변수가 포함된 경우 설치 관리자는 설치에 필요한 IoT Edge 캡 및 VC 런타임 MSI 파일에 대해 나열된 디렉터리를 확인합니다. 디렉터리에서 찾을 수 없는 파일은 다운로드됩니다. 두 파일이 모두 디렉터리에 있는 경우 인터넷 연결 없이 IoT Edge를 설치할 수 있습니다. 이 매개 변수를 사용하여 특정 버전을 사용할 수도 있습니다. |
-| **다시 시작필요** | none | 이 플래그를 사용하면 필요한 경우 배포 스크립트가 프롬프트 없이 컴퓨터를 다시 시작할 수 있습니다. |
+| **다시 시작필요** | 없음 | 이 플래그를 사용하면 필요한 경우 배포 스크립트가 프롬프트 없이 컴퓨터를 다시 시작할 수 있습니다. |
 
 ### <a name="uninstall-iotedge"></a>제거-IoTEdge
 
 | 매개 변수 | 허용되는 값 | 주석 |
 | --------- | --------------- | -------- |
-| **강제로** | none | 이 플래그는 이전 제거 시도가 실패한 경우 제거를 강제로 합니다.
-| **다시 시작필요** | none | 이 플래그를 사용하면 제거 스크립트가 필요한 경우 프롬프트 없이 컴퓨터를 다시 시작할 수 있습니다. |
+| **강제로** | 없음 | 이 플래그는 이전 제거 시도가 실패한 경우 제거를 강제로 합니다.
+| **다시 시작필요** | 없음 | 이 플래그를 사용하면 제거 스크립트가 필요한 경우 프롬프트 없이 컴퓨터를 다시 시작할 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

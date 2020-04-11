@@ -1,16 +1,16 @@
 ---
-title: Azure Monitor를 사용하여 클래식 메트릭 경고 만들기, 보기 및 관리
+title: Azure 모니터를 사용하여 클래식 메트릭 경고 생성 및 관리
 description: Azure Portal, CLI 또는 Powershell을 사용하여 클래식 메트릭 경고 규칙을 만들고, 보고, 관리하는 방법을 알아봅니다.
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.openlocfilehash: b770b9bd34c8267889db536ec81332de32cb8776
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e635c243a887690fb1f7a5dcd017c1130d74a747
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77668318"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114575"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 클래식 메트릭 경고 만들기, 보기 및 관리
 

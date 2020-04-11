@@ -17,12 +17,12 @@ ms.date: 11/04/2019
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6e0c697f9ab9796feade9b4d5c2a64794f3980b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 30cc8be6ad9ebffcad58c5b2412ae15ff3f26fa5
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73612791"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113362"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Azure Active Directory 포털에서 보고서 프로비저닝(미리 보기)
 
@@ -90,38 +90,19 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 ## <a name="filter-provisioning-activities"></a>프로비저닝 활동 필터링
 
-보고된 데이터를 적합한 수준으로 좁히려면 다음 기본 필드를 사용하여 프로비저닝 데이터를 필터링할 수 있습니다. 필터의 값은 테넌트에 따라 동적으로 채워집니다. 예를 들어 테넌트에 만들기 이벤트가 없는 경우 만들기에 대한 필터 옵션이 없습니다.
+프로비저닝 데이터를 필터링할 수 있습니다. 일부 필터 값은 테넌트에 따라 동적으로 채워집니다. 예를 들어 테넌트에 만들기 이벤트가 없는 경우 만들기에 대한 필터 옵션이 없습니다.
+기본 보기에서 다음 필터를 선택할 수 있습니다.
 
-- Identity
-- 작업
-- 원본 시스템
-- 대상 시스템
-- 상태
+- ID
 - Date
+- 상태
+- 작업
 
 
-![필터](./media/concept-provisioning-logs/filter.png "Assert")
+![필터](./media/concept-provisioning-logs/default-filter.png "Assert")
 
 **ID** 필터를 사용하면 관심 있는 이름이나 ID를 지정할 수 있습니다. 이 ID는 사용자, 그룹, 역할 또는 기타 개체일 수 있습니다. 개체의 이름이나 ID로 검색할 수 있습니다. ID는 시나리오에 따라 다릅니다. 예를 들어 Azure AD에서 SalesForce로 개체를 프로비전할 때 소스 ID는 Azure AD에 있는 사용자의 개체 ID이며 TargetID는 Salesforce의 사용자의 ID입니다. Workday에서 Active 디렉터리로 프로비전할 때 소스 ID는 Workday 작업자 직원 ID입니다. 사용자 이름이 ID 열에 항상 있는 것은 아닙니다. 항상 하나의 ID가 있을 것입니다. 
 
-**소스 시스템** 필터를 사용하면 ID가 프로비전되는 위치를 지정할 수 있습니다. 예를 들어 Azure AD에서 ServiceNow로 개체를 프로비전할 때 원본 시스템은 Azure AD입니다. 
-
-**대상 시스템** 필터를 사용하면 ID가 프로비전되는 위치를 지정할 수 있습니다. 예를 들어 Azure AD에서 ServiceNow로 개체를 프로비전할 때 대상 시스템은 ServiceNow입니다. 
-
-**상태** 필터를 사용하면 다음을 선택할 수 있습니다.
-
-- 모두
-- Success
-- 실패
-- 건너뜀
-
-**작업** 필터를 사용하면 다음을 필터링할 수 있습니다.
-
-- 생성 
-- 업데이트
-- DELETE
-- 사용 안 함
-- 기타
 
 **날짜** 필터를 사용하면 반환되는 데이터의 시간 범위를 정의할 수 있습니다.  
 가능한 값은 다음과 같습니다.
@@ -135,7 +116,35 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 사용자 지정 시간 프레임을 선택하면 시작 날짜와 종료 날짜를 구성할 수 있습니다.
 
 
-기본 필드 외에도 이 옵션을 선택하면 필터에 다음 필드를 포함할 수도 있습니다.
+**상태** 필터를 사용하면 다음을 선택할 수 있습니다.
+
+- 모두
+- Success
+- 실패
+- 건너뜀
+
+
+
+**작업** 필터를 사용하면 다음을 필터링할 수 있습니다.
+
+- 생성 
+- 업데이트
+- DELETE
+- 사용 안 함
+- 기타
+
+또한 기본 보기의 필터에 다음 필터를 설정할 수도 있습니다.
+
+- 작업 ID
+- 사이클 ID
+- ID 변경
+- 원본 ID
+- 대상 ID
+- 애플리케이션
+
+
+![필드 선택](./media/concept-provisioning-logs/add-filter.png "필드 선택")
+
 
 - **작업 ID** - 고유한 작업 ID는 프로비저닝을 사용하도록 설정한 각 응용 프로그램과 연결됩니다.   
 
@@ -144,8 +153,13 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 - **ID 변경** - 프로비저닝 이벤트에 대한 고유 식별자입니다. 이 ID를 공유하여 프로비저닝 이벤트를 조회할 수 있습니다.   
 
 
+- **원본 시스템** - ID가 프로비전되는 위치를 지정할 수 있습니다. 예를 들어 Azure AD에서 ServiceNow로 개체를 프로비전할 때 원본 시스템은 Azure AD입니다. 
 
-  
+- **대상 시스템** - ID가 프로비전되는 위치를 지정할 수 있습니다. 예를 들어 Azure AD에서 ServiceNow로 개체를 프로비전할 때 대상 시스템은 ServiceNow입니다. 
+
+- **응용 프로그램** - 특정 문자열을 포함하는 표시 이름으로 응용 프로그램의 레코드만 표시할 수 있습니다.
+
+ 
 
 ## <a name="provisioning-details"></a>프로비저닝 세부 정보 
 
@@ -210,7 +224,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 프로비저닝 로그에서 찾을 수 있는 오류를 해결하는 방법을 더 잘 이해하려면 아래 표를 사용합니다. 누락된 오류 코드의 경우 이 페이지 하단의 링크를 사용하여 피드백을 제공합니다. 
 
-|오류 코드|설명|
+|오류 코드|Description|
 |---|---|
 |충돌, 항목 충돌|Azure AD 또는 응용 프로그램에서 충돌하는 특성 값을 수정하거나 충돌하는 사용자 계정이 일치하고 인계되어야 하는 경우 일치하는 특성 구성을 검토합니다. 일치하는 특성 구성에 대한 자세한 내용은 다음 [설명서를](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) 참조하십시오.|
 |TooManyRequests|대상 앱이 오버로드되고 너무 많은 요청을 수신하기 때문에 사용자를 업데이트하려는 이 시도를 거부했습니다. 할 일이 없습니다. 이 시도는 자동으로 사용 중지됩니다. Microsoft는 이 문제에 대해서도 통보받았습니다.|

@@ -9,12 +9,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 39747ac0a7133562bed526f44e30bf4a656127c0
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 7b3a223ca504bff380afad54afda73880717814f
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673601"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115377"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database"></a>Azure SQL 데이터베이스로 일반적인 보안 요구 사항을 해결하기 위한 플레이북
 
@@ -89,14 +89,14 @@ ms.locfileid: "80673601"
 
 - Azure AD 테넌트를 만들고 사용자를 나타내도록 [사용자를 만들고](../active-directory/fundamentals/add-users-azure-active-directory.md) 앱, 서비스 및 자동화 도구를 나타내는 [서비스 주체를](../active-directory/develop/app-objects-and-service-principals.md) 만듭니다. 서비스 주체는 Windows 및 Linux의 서비스 계정과 동일합니다. 
 
-- 그룹 할당을 통해 Azure AD 보안 주체에 리소스에 대한 액세스 권한을 할당합니다: Azure AD 그룹 만들기, 그룹에 대한 액세스 권한 부여, 그룹에 개별 구성원 추가 데이터베이스에서 Azure AD 그룹을 매핑하는 포함된 데이터베이스 사용자를 만듭니다. 데이터베이스 내부에 권한을 할당하려면 적절한 권한이 있는 데이터베이스 역할에 사용자를 배치합니다.
+- 그룹 할당을 통해 Azure AD 보안 주체에 리소스에 대한 액세스 권한을 할당합니다: Azure AD 그룹 만들기, 그룹에 대한 액세스 권한 부여, 그룹에 개별 구성원 추가 데이터베이스에서 Azure AD 그룹을 매핑하는 포함된 데이터베이스 사용자를 만듭니다. 데이터베이스 내부에 권한을 할당하려면 Azure AD 그룹과 연결된 사용자를 적절한 사용 권한이 있는 데이터베이스 역할에 배치합니다.
   - 문서를 참조하고 [SQL을 사용하여 Azure Active Directory 인증을 구성 및 관리하고 SQL을](sql-database-aad-authentication-configure.md) [사용하여 인증하기 위해 Azure AD를 사용합니다.](sql-database-aad-authentication.md)
   > [!NOTE]
   > 관리되는 인스턴스에서 마스터 데이터베이스의 Azure AD 보안 주체에 매핑되는 로그인을 만들 수도 있습니다. [로그인 만들기(거래 SQL)를](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)참조하십시오.
 
 - Azure AD 그룹을 사용하면 권한 관리와 그룹 소유자가 모두 단순화되며 리소스 소유자는 그룹에 구성원을 추가/제거할 수 있습니다. 
 
-- SQL DB 서버에 대한 Azure AD 관리자에 대한 별도의 그룹을 만듭니다.
+- 각 SQL DB 서버에 대해 Azure AD 관리자에 대한 별도의 그룹을 만듭니다.
 
   - Azure SQL [Database 서버에 대한 Azure Active Directory 관리자 프로비전](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)을 참조하십시오.
 
@@ -108,7 +108,7 @@ ms.locfileid: "80673601"
 > [!NOTE]
 > - Azure AD 인증은 Azure SQL 감사 로그에 기록되지만 Azure AD 로그인 로그에는 기록되지 않습니다.
 > - Azure에서 부여된 RBAC 권한은 Azure SQL DB 사용 권한에는 적용되지 않습니다. 이러한 사용 권한은 기존 SQL 권한을 사용하여 SQL DB에서 수동으로 생성/매핑되어야 합니다.
-> - 클라이언트 측 Azure AD 인증에서는 인터넷에 액세스하거나 UDR(사용자 정의 경로)을 통해 VNet에 액세스해야 합니다.
+> - 클라이언트 측에서 Azure AD 인증은 인터넷에 액세스하거나 UDR(사용자 정의 경로)을 통해 VNet에 액세스해야 합니다.
 > - Azure AD 액세스 토큰은 클라이언트 측에서 캐시되며 수명은 토큰 구성에 따라 다릅니다. Azure Active [디렉터리에서 구성 가능한 토큰 수명](../active-directory/develop/active-directory-configurable-token-lifetimes.md) 문서 참조
 > - Azure AD 인증 문제 해결에 대한 지침은 다음 블로그를 참조하십시오.<https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
@@ -213,7 +213,7 @@ SQL 인증은 사용자 이름과 암호를 사용하여 Azure SQL Database에 �
 
 ## <a name="access-management"></a>액세스 관리
 
-액세스 관리는 Azure SQL Database에 대한 권한 있는 사용자의 액세스 및 권한을 제어하고 관리하는 프로세스입니다.
+액세스 관리(권한 부여라고도 함)는 Azure SQL Database에 대한 권한 있는 사용자의 액세스 및 권한을 제어하고 관리하는 프로세스입니다.
 
 ### <a name="implement-principle-of-least-privilege"></a>최소 권한 원칙 구현
 
@@ -225,7 +225,7 @@ SQL 인증은 사용자 이름과 암호를 사용하여 Azure SQL Database에 �
 
 필요한 작업을 완료하는 데 필요한 [권한만 할당합니다.](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine)
 
-- SQL 데이터 평면에서: 
+- SQL 데이터베이스에서: 
     - 세분화된 사용 권한 및 사용자 정의 데이터베이스 역할(또는 MI의 서버 역할)을 사용합니다. 
         1. 필요한 역할 만들기
             - [CREATE ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
@@ -236,7 +236,7 @@ SQL 인증은 사용자 이름과 암호를 사용하여 Azure SQL Database에 �
             - [ALTER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql)
             - [서버 역할 변경](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql)
         1. 그런 다음 역할에 권한을 할당합니다. 
-            - [부여](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) 
+            - [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) 
     - 불필요한 역할에 사용자를 할당하지 않도록 합니다.
 
 - Azure 리소스 관리자에서:
@@ -294,7 +294,7 @@ SQL 인증은 사용자 이름과 암호를 사용하여 Azure SQL Database에 �
   - 관리되는 인스턴스에서 서버 전체 작업(새 로그인, 데이터베이스 만들기)을 위한 서버 역할을 만듭니다. 
   - 데이터베이스 수준 작업에 대한 데이터베이스 역할을 만듭니다.
 
-- 특정 중요한 작업의 경우 사용자를 대신하여 작업을 실행하기 위해 인증서에 의해 서명된 특수 저장 프로시저를 만드는 것이 좋습니다. 
+- 특정 중요한 작업의 경우 사용자를 대신하여 작업을 실행하기 위해 인증서에 의해 서명된 특수 저장 프로시저를 만드는 것이 좋습니다. 디지털 서명된 저장 프로시저의 한 가지 중요한 장점은 프로시저를 변경하면 이전 버전의 프로시저에 부여된 사용 권한이 즉시 제거된다는 것입니다.
   - 예: [자습서: 인증서를 통해 저장 프로시저 서명](https://docs.microsoft.com/sql/relational-databases/tutorial-signing-stored-procedures-with-a-certificate) 
 
 - Azure Key Vault에서 고객 관리 키를 사용하여 투명 데이터 암호화(TDE)를 구현하여 데이터 소유자와 보안 소유자 간의 업무 분리를 활성화합니다. 
@@ -303,7 +303,7 @@ SQL 인증은 사용자 이름과 암호를 사용하여 Azure SQL Database에 �
 - DBA에서 매우 중요한 것으로 간주되고 여전히 DBA 작업을 수행할 수 있는 데이터를 볼 수 없도록 하려면 역할 구분을 사용하여 항상 암호화된 작업을 사용할 수 있습니다. 
   - 문서, [항상 암호화된 키 관리 개요,](https://docs.microsoft.com/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted) [역할 구분을 위한 키 프로비저닝](https://docs.microsoft.com/sql/relational-databases/security/encryption/configure-always-encrypted-keys-using-powershell#KeyProvisionWithRoles)및 [역할 구분을 통해 열 마스터 키 회전](https://docs.microsoft.com/sql/relational-databases/security/encryption/rotate-always-encrypted-keys-using-powershell#column-master-key-rotation-with-role-separation)을 참조하십시오. 
 
-- 시스템을 거의 사용할 수 없게 만들 수 있는 주요 비용과 노력 없이는 적어도 실현 가능하지 않은 경우 다음과 같은 보상 제어를 사용하여 타협을 시도하고 완화할 수 있습니다. 
+- 항상 암호화된 것을 사용할 수 없거나 적어도 시스템을 거의 사용할 수 없게 만들 수 있는 주요 비용과 노력이 없는 경우 다음과 같은 보상 제어를 사용하여 타협을 시도하고 완화할 수 있습니다. 
   - 프로세스에 대한 인간의 개입. 
   - 감사 추적 - 감사에 대한 자세한 내용은 [중요한 보안 이벤트를](#audit-critical-security-events)참조, 감사합니다.
 
@@ -315,17 +315,17 @@ SQL 인증은 사용자 이름과 암호를 사용하여 Azure SQL Database에 �
 
 - 사용 권한이 필요한 사용 권한과 정확히 일치하는 경우 기본 제공 역할을 사용하십시오. 
 
-- 기본 제공 역할이 너무 많은 사용 권한을 부여하거나 권한이 부족할 때 사용자 지정 역할을 만들고 사용합니다. 
+- 기본 제공 역할이 너무 많은 사용 권한을 부여하거나 권한이 부족할 때 사용자 정의 역할을 만들고 사용합니다. 
 
 - 역할 할당은 T-SQL의 SQL 에이전트 작업 단계 내에서 또는 RBAC 역할에 Azure PIM을 사용하여 DSD(업무의 동적 분리)라고도 하는 임시로 수행할 수도 있습니다. 
 
-- DBA가 암호화 키 또는 키 저장소에 액세스할 수 없는지 확인하고 키에 액세스할 수 있는 보안 관리자는 데이터베이스에 차례로 액세스할 수 없습니다. 
+- DBA가 암호화 키 또는 키 저장소에 액세스할 수 없고 키에 액세스할 수 있는 보안 관리자가 데이터베이스에 액세스할 수 없도록 합니다. [확장 가능한 키 관리(EKM)를](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-ekm) 사용하면 이러한 분리를 더 쉽게 달성할 수 있습니다. [Azure 키 볼트는](https://azure.microsoft.com/services/key-vault/) EKM을 구현하는 데 사용할 수 있습니다. 
 
 - 항상 보안 관련 작업에 대한 감사 추적이 있어야 합니다. 
 
 - 기본 제공 RBAC 역할의 정의를 검색하여 사용된 사용 권한을 확인하고 PowerShell을 통해 이러한 역할의 발췌 및 누적을 기반으로 사용자 지정 역할을 만들 수 있습니다.
 
-- db_owner 데이터베이스 역할의 모든 구성원은 투명 데이터 암호화(TDE)와 같은 보안 설정을 변경하거나 SLO를 변경할 수 있기 때문에 이 구성원은 주의해서 부여되어야 합니다. 그러나 db_owner 권한이 필요한 많은 작업이 있습니다. DB 옵션 변경과 같은 데이터베이스 설정을 변경하는 작업입니다. 감사는 모든 솔루션에서 중요한 역할을 합니다.
+- db_owner 데이터베이스 역할의 모든 구성원이 TDE(투명 데이터 암호화)와 같은 보안 설정을 변경하거나 SLO를 변경할 수 있으므로 이 구성원은 주의해서 부여해야 합니다. 그러나 db_owner 권한이 필요한 많은 작업이 있습니다. DB 옵션 변경과 같은 데이터베이스 설정을 변경하는 작업입니다. 감사는 모든 솔루션에서 중요한 역할을 합니다.
 
 - db_owner 권한을 제한할 수 없으므로 관리 계정이 사용자 데이터를 볼 수 없습니다. 데이터베이스에 매우 중요한 데이터가 있는 경우 항상 암호화되어 db_owners 또는 다른 DBA가 데이터베이스를 볼 수 없도록 안전하게 사용할 수 있습니다.
 
@@ -436,11 +436,11 @@ SoD에 대해 자세히 알아보려는 독자는 다음 리소스를 권장합�
 
 - 데이터에 대한 계산(같음)을 지원해야 하는 경우 결정적 암호화를 사용합니다. 그렇지 않으면 무작위 암호화를 사용합니다. 낮은 엔트로피 데이터 집합 또는 공개적으로 알려진 배포가 있는 데이터 집합에 대해 결정적 암호화를 사용하지 마십시오. 
 
-- 동의 없이 제3자가 합법적으로 데이터에 액세스하는 것이 염려되는 경우 일반 텍스트의 키와 데이터에 액세스할 수 있는 모든 응용 프로그램 및 도구가 Microsoft Azure Cloud 외부에서 실행되도록 해야 합니다. 키에 액세스하지 않으면 제3자도 암호화를 우회하지 않는 한 데이터를 해독할 수 없습니다.
+- 사용자의 동의 없이 합법적으로 데이터에 액세스하는 타사에 대해 우려되는 경우 일반 텍스트의 키와 데이터에 액세스할 수 있는 모든 응용 프로그램 및 도구가 Microsoft Azure Cloud 외부에서 실행되도록 해야 합니다. 키에 액세스하지 않으면 제3자도 암호화를 우회하지 않는 한 데이터를 해독할 수 없습니다.
 
 - 항상 암호화된 키(및 보호된 데이터)에 대한 임시 액세스 권한을 부여하는 것을 쉽게 지원하지 않습니다. 예를 들어 DBA가 중요하고 암호화된 데이터에 대한 일부 정리 작업을 수행할 수 있도록 DBA와 키를 공유해야 하는 경우를 예로 들 수 있습니다. 안정성을 취소하는 유일한 방법은 DBA에서 데이터에 대한 액세스를 취소하는 유일한 방법은 비용이 많이 드는 작업인 데이터를 보호하는 열 암호화 키와 열 마스터 키를 모두 회전하는 것입니다. 
 
-- 암호화된 열의 일반 텍스트 값에 액세스하려면 사용자는 CMK를 보유한 키 저장소에 구성된 열을 보호하는 CMK에 액세스할 수 있어야 합니다. 또한 사용자는 **모든 열 마스터 키 정의 보기를** 가지고 있고 열 암호화 키 정의 데이터베이스 권한을 **볼** 수 있어야 합니다.
+- 암호화된 열의 일반 텍스트 값에 액세스하려면 CMK를 보유한 키 저장소에 구성된 열을 보호하는 CMK(열 마스터 키)에 액세스할 수 있어야 합니다. 또한 사용자는 **모든 열 마스터 키 정의 보기를** 가지고 있고 열 암호화 키 정의 데이터베이스 권한을 **볼** 수 있어야 합니다.
 
 ### <a name="control-access-of-application-users-to-sensitive-data-through-encryption"></a>암호화를 통해 중요한 데이터에 대한 응용 프로그램 사용자의 액세스 제어
 

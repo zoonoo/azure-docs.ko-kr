@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 17d0e678008c76da32f20562aa795e83e49c80e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9515058bc78a2d56dc1734c046dac5d5b04f68d9
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77064974"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113172"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>글로벌 대중 교통 네트워크 아키텍처 및 가상 WAN
 
@@ -47,7 +47,7 @@ Azure 가상 WAN 아키텍처에서 가상 WAN 허브는 Azure 리전에서 프�
 
 스포크(분기, VNet, 사용자)가 가장 많은 리전에서 단일 가상 WAN 허브를 만든 다음 다른 지역에 있는 스포크를 허브에 연결하여 가상 WAN을 설정할 수 있습니다. 이 옵션은 엔터프라이즈 실장 공간이 대부분 원격 스포크가 있는 한 지역에 있는 경우에 적합합니다.  
   
-## <a name="hub-to-hub-connectivity"></a><a name="hubtohub"></a>허브 간 연결
+## <a name="hub-to-hub-connectivity-preview"></a><a name="hubtohub"></a>허브 간 연결(미리 보기)
 
 엔터프라이즈 클라우드 설치 공간은 여러 클라우드 지역에 걸쳐 있을 수 있으며 물리적 사이트 및 사용자에게 가장 가까운 리전에서 클라우드에 액세스하는 것이 최적입니다. 글로벌 대중 교통 네트워크 아키텍처의 핵심 원칙 중 하나는 모든 클라우드와 온-프레미스 네트워크 엔드포인트 간의 지역 간 연결을 활성화하는 것입니다. 즉, 한 리전의 클라우드에 연결된 분기의 트래픽은 [Azure Global Network에서](https://azure.microsoft.com/global-infrastructure/global-network/)사용하도록 설정된 허브 간 연결을 사용하여 다른 지역의 다른 분기 또는 VNet에 도달할 수 있습니다.
 

@@ -1,16 +1,16 @@
 ---
-title: Azure 모니터에 대한 일반적인 경고 스키마 정의
+title: Azure 모니터의 경고 스키마 정의
 description: Azure 모니터에 대한 일반적인 경고 스키마 정의 이해
 author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: fda2aa905577c19e5a90772ac87c6788198c2d0b
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 62b2738324f4c728cd4b5959c04c93649c156afb
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80672897"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114454"
 ---
 # <a name="common-alert-schema-definitions"></a>일반 경고 스키마 정의
 

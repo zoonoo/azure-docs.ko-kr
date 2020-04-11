@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: faafc1e12f0703c38b4e602700b1e775bf13a061
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.date: 04/09/2020
+ms.openlocfilehash: db60a864ff29ff9eccdcfbdc0bd63587375d4bbd
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998341"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114975"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>특수 문자가 있는 부분 용어 검색 및 패턴(와일드카드, 정규식, 패턴)
 
-*부분 용어 검색은* 문자열의 첫 번째, 마지막 또는 내부 부분과 같은 용어 조각으로 구성된 쿼리를 나타냅니다. *패턴은* 조각의 조합일 수 있으며, 때로는 쿼리의 일부인 대시 또는 슬래시와 같은 특수 문자가 있을 수 있습니다. 일반적인 사용 사례에는 전화 번호, URL, 사람 또는 제품 코드 또는 복합 단어의 일부에 대한 쿼리가 포함됩니다.
+*부분 용어 검색은* 용어 조각으로 구성된 쿼리를 말하며, 여기서 전체 용어 대신 용어의 시작, 중간 또는 끝(접두사, infix 또는 접미사 쿼리라고도 함)만 있을 수 있습니다. *패턴은* 종종 쿼리 문자열의 일부인 대시 또는 슬래시와 같은 특수 문자와 함께 조각의 조합일 수 있습니다. 일반적인 사용 사례에는 전화 번호, URL, 사람 또는 제품 코드 또는 복합 단어의 일부에 대한 쿼리가 포함됩니다.
 
-인덱스에 패턴 일치에 필요한 형식의 용어가 없는 경우 부분 검색에 문제가 있을 수 있습니다. 인덱싱의 텍스트 분석 단계에서 기본 표준 분석기를 사용하여 특수 문자가 삭제되고 복합 문자열과 복합 문자열이 분할되어 일치하는 항목이 없을 때 패턴 쿼리가 실패합니다. 예를 들어 해당 콘텐츠가 실제로 인덱스에 `"703"` `"6214"`존재하지 않기 때문에 (에 `"3-62"` `+1 (425) 703-6214` `"1"` `"425"`대한 토큰화)와 같은 전화 번호가 쿼리에 표시되지 않습니다. 
+인덱스에 예상 된 형식의 용어가 없는 경우 부분 및 패턴 검색에 문제가 있을 수 있습니다. 인덱싱의 [어휘 분석 단계(기본](search-lucene-query-architecture.md#stage-2-lexical-analysis) 표준 분석기가정)에서 특수 문자가 삭제되고 복합 문자열과 복합 문자열이 분할되고 공백이 삭제됩니다. 이 모든 것이 일치하지 않을 때 패턴 쿼리가 실패할 수 있습니다. 예를 들어 해당 콘텐츠가 실제로 인덱스에 `"703"` `"6214"`존재하지 않기 때문에 (에 `"3-62"` `+1 (425) 703-6214` `"1"` `"425"`대한 토큰화)와 같은 전화 번호가 쿼리에 표시되지 않습니다. 
 
 해결 방법은 필요한 경우 공백 및 특수 문자를 포함하여 전체 문자열을 보존하는 분석기를 호출하여 부분 적인 용어 및 패턴과 일치시킬 수 있도록 하는 것입니다. 그대로 문자열에 대한 추가 필드를 만들고 콘텐츠 보존 분석기를 사용하는 것이 솔루션의 기본입니다.
 
@@ -27,21 +27,21 @@ ms.locfileid: "80998341"
 
 Azure 인지 검색에서 부분 검색 및 패턴은 다음 형태로 사용할 수 있습니다.
 
-+ [접두사 검색(](query-simple-syntax.md#prefix-search)예: `search=cap*`"Cap'n Jack's Waterfront Inn" 또는 "Gacc Capital")에서 일치합니다. 접두사 검색에 단순히 쿼리 구문을 사용할 수 있습니다.
++ [접두사 검색(](query-simple-syntax.md#prefix-search)예: `search=cap*`"Cap'n Jack's Waterfront Inn" 또는 "Gacc Capital")에서 일치합니다. 접두사 검색에 간단한 쿼리 구문 또는 전체 Lucene 쿼리 구문을 사용할 수 있습니다.
 
-+ [와일드카드 검색](query-lucene-syntax.md#bkmk_wildcard) 또는 접미사를 포함하여 포함된 문자열의 패턴 또는 일부를 검색하는 [정규식입니다.](query-lucene-syntax.md#bkmk_regex) 와일드카드 및 정규식에는 전체 Lucene 구문이 필요합니다. 
++ [와일드카드 검색](query-lucene-syntax.md#bkmk_wildcard) 또는 포함된 문자열의 패턴 또는 일부를 검색하는 [정규식입니다.](query-lucene-syntax.md#bkmk_regex) 와일드카드 및 정규식에는 전체 Lucene 구문이 필요합니다. 접미사 및 인덱스 쿼리는 정규식으로 공식화됩니다.
 
-  부분 용어 검색의 몇 가지 예는 다음과 같습니다. 접미사 쿼리의 경우 "상숫자"라는 용어가 주어지면 와일드카드 검색()을`search=/.*numeric.*/`사용하여 일치를 찾습니다. URL 조각과 같은 문자를 포함하는 부분 용어의 경우 이스케이프 문자를 추가해야 할 수 있습니다. JSON에서는 뒤로 슬래시로 전진 슬래시가 `/` `\`이스케이프됩니다. 따라서 URL `search=/.*microsoft.com\/azure\/.*/` 조각 "microsoft.com/azure/"에 대한 구문입니다.
+  부분 용어 검색의 몇 가지 예는 다음과 같습니다. 접미사 쿼리의 경우 "상숫자"라는 용어가 주어지면 와일드카드 검색()을`search=/.*numeric.*/`사용하여 일치를 찾습니다. URL 조각과 같은 내부 문자를 포함하는 부분 용어의 경우 이스케이프 문자를 추가해야 할 수 있습니다. JSON에서는 뒤로 슬래시로 전진 슬래시가 `/` `\`이스케이프됩니다. 따라서 URL `search=/.*microsoft.com\/azure\/.*/` 조각 "microsoft.com/azure/"에 대한 구문입니다.
 
 앞서 언급했듯이 위의 모든 인덱스에는 표준 분석기가 제공하지 않는 패턴 일치에 도움이 되는 형식의 문자열이 포함되어야 합니다. 이 문서의 단계를 수행하면 이러한 시나리오를 지원하는 데 필요한 콘텐츠가 있는지 확인할 수 있습니다.
 
-## <a name="solving-partial-search-problems"></a>부분 검색 문제 해결
+## <a name="solving-partialpattern-search-problems"></a>부분/패턴 검색 문제 해결
 
-패턴 이나 특수 문자를 검색 해야 하는 경우 전체 문자열을 유지 하 여 간단한 토큰화 규칙에서 작동 하는 사용자 지정 분석기를 기본 분석기를 재정의할 수 있습니다. 한 걸음 뒤로 물러서면 다음과 같은 접근 방식이 보입니다.
+조각이나 패턴 또는 특수 문자를 검색해야 하는 경우 간단한 토큰화 규칙에서 작동하는 사용자 지정 분석기로 기본 분석기를 재정의하여 전체 문자열을 유지할 수 있습니다. 한 걸음 뒤로 물러서면 다음과 같은 접근 방식이 보입니다.
 
 + 문자열의 손상되지 않은 버전을 저장할 필드 정의(분석 및 분석되지 않은 텍스트를 원한다고 가정).
-+ 미리 정의된 분석기를 선택하거나 사용자 지정 분석기를 정의하여 손상되지 않은 문자열을 출력합니다.
-+ 필드에 분석기 할당
++ 미리 정의된 분석기를 선택하거나 사용자 지정 분석기를 정의하여 분석되지 않은 손상되지 않은 문자열을 출력합니다.
++ 필드에 사용자 지정 분석기 할당
 + 인덱스 빌드 및 테스트
 
 > [!TIP]
@@ -222,6 +222,10 @@ Postman과 같은 웹 API 테스트 도구를 사용하는 경우 [테스트 분
 + [테스트 분석기는](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) [분석기 선택에서 도입되었습니다.](#choose-an-analyzer) 다양한 분석기를 사용하여 인덱스의 일부 문자열을 테스트하여 용어가 토큰화되는 방식을 이해합니다.
 
 + [Search Documents는](https://docs.microsoft.com/rest/api/searchservice/search-documents) 와일드카드 및 정규식에 대한 [간단한 구문](query-simple-syntax.md) 또는 [전체 Lucene 구문을](query-lucene-syntax.md) 사용하여 쿼리 요청을 생성하는 방법을 설명합니다.
+
+  "+1 (425) 703-6214"에서 일치하는 검색어를 찾기 위해 "3-6214"를 쿼리하는 것과 같은 부분 `search=3-6214&queryType=simple`용어 쿼리의 경우 간단한 구문을 사용할 수 있습니다.
+
+  "num" 또는 "숫자"를 쿼리하여 "alphaeric"에서 일치하는 검색어를 찾는 것과 같은 infix 및 접미사 쿼리의 경우 전체 Lucene 구문과 정규식을 사용합니다.`search=/.*num.*/&queryType=full`
 
 ## <a name="tips-and-best-practices"></a>팁과 모범 사례
 

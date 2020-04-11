@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: 4b36f456f70eb79cff1f615c7c136b8fe4b1b3d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 22826c32dc2aee0e580ec0b2a05c7eb8f08b7570
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78226719"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115320"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>범용 가상 머신 크기
 
@@ -32,7 +32,7 @@ ms.locfileid: "78226719"
 
 - [B 시리즈 버스트 가능](sizes-b-series-burstable.md) VM은 웹 서버, 소규모 데이터베이스, 개발 및 테스트 환경과 같이 CPU의 전체 성능이 지속적으로 필요하지 않은 워크로드에 이상적입니다. 이러한 작업에는 일반적으로 버스트 가능한 성능 요구 사항이 있습니다. B 시리즈는 이러한 고객들에게 VM에서 기준 성능보다 적게 사용할 때 VM 인스턴스에서 크레딧을 축적할 수 있는 양심적인 가격 위주의 기준 성능을 갖춘 VM 크기를 구입할 수 있는 기능을 제공합니다. VM에 대한 크레딧이 적립되면 애플리케이션에 더 높은 CPU 성능이 필요할 때 VM이 CPU의 최대 100%까지 사용하여 VM의 기준 이상으로 버스트할 수 있습니다.
 
-- [Dav4 및 Dasv4 시리즈는](dav4-dasv4-series.md) AMD의 2.35Ghz EPYC<sup>TM</sup> 7452 프로세서를 최대 256MB L3 캐시로 구성된 다중 스레드 구성에서 사용하는 새로운 크기로, 8GB의 L3 캐시를 모든 8개 코어에 바쳐 범용 워크로드를 실행하기 위한 고객 옵션을 증가시고 있습니다. Dav4 시리즈와 Dasv4 시리즈는 D& Dsv3 시리즈와 동일한 메모리 및 디스크 구성을 갖습니다.
+- [Dav4 및 Dasv4 시리즈는](dav4-dasv4-series.md) AMD의 2.35Ghz EPYC<sup>TM</sup> 7452 프로세서를 최대 256MB L3 캐시로 구성된 다중 스레드 구성에서 사용하는 새로운 크기로, 8개의 L3 캐시에 8MB의 캐시를 사용하여 범용 워크로드를 실행하기 위한 고객 옵션을 증가시했습니다. Dav4 시리즈와 Dasv4 시리즈는 D& Dsv3 시리즈와 동일한 메모리 및 디스크 구성을 갖습니다.
 
 - [DCv2 시리즈는](dcv2-series.md) 퍼블릭 클라우드에서 처리되는 동안 데이터와 코드의 기밀성과 무결성을 보호하는 데 도움이 될 수 있습니다. 이 기계는 SGX 기술이 장착된 최신 인텔 XEON E-2288G 프로세서로 뒷받침됩니다. 인텔 터보 부스트 기술을 통해 이 기계는 최대 5.0GHz까지 올라갈 수 있습니다. DCv2 시리즈 인스턴스를 통해 고객은 안전한 영토 기반 애플리케이션을 구축하여 사용 중 코드와 데이터를 보호할 수 있습니다.
 
@@ -45,7 +45,7 @@ D 시리즈 사용 사례에는 엔터프라이즈급 응용 프로그램, 관�
 ## <a name="other-sizes"></a>기타 크기
 
 - [컴퓨팅 최적화](sizes-compute.md)
-- [메모리 최적화](sizes-memory.md)
+- [메모리에 최적화](sizes-memory.md)
 - [Storage에 최적화](sizes-storage.md)
 - [GPU에 최적화](sizes-gpu.md)
 - [고성능 컴퓨팅](sizes-hpc.md)

@@ -5,12 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 03/24/2020
-ms.openlocfilehash: 27abdfe28e2594c98778b51532fbd22f95bfa3ac
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: b121830192a2b88185bbbbc9a92934e51b32a61c
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984711"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114658"
 ---
 # <a name="integrate-azure-ad-in-azure-kubernetes-service-preview"></a>Azure Kubernetes 서비스에 Azure AD 통합(미리 보기)
 
@@ -98,12 +98,12 @@ az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad
 그룹을 만들고 사용자(및 기타)를 구성원으로 추가한 후에는 다음 명령을 사용하여 Azure AD 그룹으로 클러스터를 업데이트할 수 있습니다.
 
 ```azurecli-interactive
-az aks update -g MyResourceGroup -n MyManagedCluster [--aad-admin-group-object-ids <id1,id2>] [--aad-tenant-id <id>]
+az aks update -g MyResourceGroup -n MyManagedCluster [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
 ```
 또는 먼저 그룹을 만들고 구성원을 추가하는 경우 다음 명령을 사용하여 만들 때 Azure AD 그룹을 활성화할 수 있습니다.
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id1,id2>] [--aad-tenant-id <id>]
+az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
 ```
 
 Azure AD v2 클러스터를 성공적으로 만들면 응답 본문에 다음 섹션이 있습니다.

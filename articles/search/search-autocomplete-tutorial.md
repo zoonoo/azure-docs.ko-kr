@@ -1,27 +1,27 @@
 ---
-title: 검색 상자에 제안 및 자동 완성 추가
+title: 검색 상자에 자동 완성 및 제안 추가
 titleSuffix: Azure Cognitive Search
-description: 제안기를 만들고 완성된 용어 또는 구를 검색 상자에 채우는 요청을 공식화하여 Azure Cognitive Search에서 자동 완성 쿼리 작업을 사용하도록 설정합니다.
+description: 제안자를 만들고 완료된 용어 또는 구로 검색 상자를 자동으로 완료하는 요청을 공식화하여 Azure Cognitive Search에서 사용자 유형별 검색 쿼리 작업을 활성화합니다. 제안된 일치 항목을 반환할 수도 있습니다.
 manager: nitinme
-author: mrcarter8
-ms.author: mcarter
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
-ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 64c4e65ca7b69c7d61c706b48591ac19be3bfcf5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 04/10/2020
+ms.openlocfilehash: d6c1819366fede0b1e81e43bc92ed56af93b39fd
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72792515"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114951"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-cognitive-search-application"></a>Azure Cognitive Search 애플리케이션에 제안 또는 자동 완성 추가
 
 이 문서에서는 [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions) 및 [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete)을 사용하여 search-as-you-type(입력할 때 자동으로 검색) 동작을 지원하는 강력한 검색 상자를 빌드하는 방법에 대해 알아봅니다.
 
-+ *제안*은 입력하면 생성되는 제안된 결과입니다. 이 경우 각 제안은 지금까지 입력한 것과 일치하는 인덱스의 단일 결과입니다. 
++ *제안자는* 입력할 때 검색 결과를 생성하며, 여기서 각 제안은 지금까지 입력한 항목과 일치하는 인덱스의 단일 결과 또는 검색 문서입니다. 
 
-+ *자동 완성*은 사용자가 현재 입력하고 있는 단어 또는 구를 "완성"합니다. 결과를 반환하는 대신 쿼리를 완성한 다음, 이 쿼리를 실행하여 결과를 반환할 수 있습니다. 제안과 마찬가지로 쿼리에서 완성된 단어 또는 구는 인덱스의 일치 항목을 기반으로 하여 단정됩니다. 서비스는 인덱스에서 0의 결과를 반환하는 쿼리를 제공하지 않습니다.
++ *자동 완성은* 단어 나 구를 "완료"하여 쿼리를 생성합니다. 결과를 반환하는 대신 쿼리를 완성한 다음, 이 쿼리를 실행하여 결과를 반환할 수 있습니다. 제안과 마찬가지로 쿼리에서 완성된 단어 또는 구는 인덱스의 일치 항목을 기반으로 하여 단정됩니다. 서비스는 인덱스에서 0의 결과를 반환하는 쿼리를 제공하지 않습니다.
 
 **DotNetHowToAutocomplete**에서 샘플 코드를 다운로드하고 실행하여 이러한 기능을 평가할 수 있습니다. 샘플 코드는 [NYCJobs 데모 데이터](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)로 채워진 미리 작성된 인덱스를 대상으로 합니다. NYCJobs 인덱스에는 제안 또는 자동 완성을 사용하는 데 필요한 [제안기 구문](index-add-suggesters.md)이 포함되어 있습니다. 샌드박스 서비스에서 호스팅되어 준비된 인덱스를 사용하거나 NYCJobs 샘플 솔루션의 데이터 로더를 사용하여 [고유한 인덱스를 채울](#configure-app) 수 있습니다. 
 
@@ -40,7 +40,7 @@ ms.locfileid: "72792515"
 
 솔루션은 준비된 NYCJobs 데모 인덱스를 호스팅하는 라이브 샌드박스 서비스를 사용하므로 이 연습에서 Azure Cognitive Search 서비스는 선택 사항입니다. 사용자 고유의 검색 서비스에서 이 예제를 실행하려면 [NYC 작업 인덱스 구성](#configure-app)의 지침을 참조하세요.
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 모든 버전. 샘플 코드와 지침은 Community 평가판 버전에서 테스트되었습니다.
+* [비주얼 스튜디오 2017,](https://visualstudio.microsoft.com/downloads/)모든 버전. 샘플 코드와 지침은 Community 평가판 버전에서 테스트되었습니다.
 
 * [DotNetHowToAutoComplete 샘플](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)을 다운로드합니다.
 
@@ -70,7 +70,7 @@ C# 및 JavaScript 버전 모두에서 검색 상자 구현은 정확히 동일�
 
 이 예제는 스타일 지정에 대한 클래스, JavaScript에서 참조할 ID 및 자리 표시자 텍스트가 있는 간단한 입력 텍스트 상자입니다.  매직은 포함된 JavaScript에 있습니다.
 
-C# 언어 샘플에서는 Index.cshtml의 JavaScript를 사용하여 [jQuery UI Autocomplete 라이브러리](https://jqueryui.com/autocomplete/)를 활용합니다. 이 라이브러리는 제안을 검색하는 MVC 컨트롤러를 비동기 방식으로 호출하여 자동 완성 환경을 검색 상자에 추가합니다. JavaScript 언어 버전은 IndexJavaScript.cshtml에 있습니다. 여기에는 검색 창에 대한 아래의 스크립트와 Azure Cognitive Search에 대한 REST API 호출이 포함되어 있습니다.
+C# 언어 샘플은 Index.cshtml의 자바스크립트를 사용하여 [jQuery UI 자동 완성 라이브러리를](https://jqueryui.com/autocomplete/)활용합니다. 이 라이브러리는 제안을 검색하는 MVC 컨트롤러를 비동기 방식으로 호출하여 자동 완성 환경을 검색 상자에 추가합니다. JavaScript 언어 버전은 IndexJavaScript.cshtml에 있습니다. 여기에는 검색 창에 대한 아래의 스크립트와 Azure Cognitive Search에 대한 REST API 호출이 포함되어 있습니다.
 
 jQuery UI Autocomplete 함수를 호출하고 제안 요청을 전달하는 첫 번째 예제의 JavaScript 코드를 살펴보겠습니다.
 
@@ -194,7 +194,7 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 }
 ```
 
-Suggest 함수에는 적중 강조 표시를 반환할지 또는 검색어 이력과 함께 유사 일치를 사용할지 결정하는 두 매개 변수가 있습니다. 이 메서드는 [SuggestParameters 개체](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet)를 만든 다음, 제안 API로 전달합니다. 그러면 클라이언트에 표시될 수 있게 결과가 JSON으로 변환됩니다.
+Suggest 함수에는 적중 강조 표시를 반환할지 또는 검색어 이력과 함께 유사 일치를 사용할지 결정하는 두 매개 변수가 있습니다. 메서드는 [SuggestParameters 개체를](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet)만듭니다. 그러면 클라이언트에 표시될 수 있게 결과가 JSON으로 변환됩니다.
 
 69번 줄에서 Autocomplete 함수를 확인합니다. 이는 [DocumentsOperationsExtensions.Autocomplete 메서드](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet)를 기반으로 합니다.
 
@@ -315,7 +315,7 @@ var autocompleteUri = "https://" + searchServiceName + ".search.windows.net/inde
 다음 단계로 제안 및 자동 완성을 검색 환경에 통합해 보세요. 도움이 되는 참고 자료 문서는 다음과 같습니다.
 
 > [!div class="nextstepaction"]
-> [Autocomplete REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
-> [Suggestions REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions)
-> [Create Index REST API에서 패싯 인덱스 특성](https://docs.microsoft.com/rest/api/searchservice/create-index)
+> [자동 완성 REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
+> [제안 REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions)
+> [Facets 인덱스 특성 만들기 인덱스 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)
 

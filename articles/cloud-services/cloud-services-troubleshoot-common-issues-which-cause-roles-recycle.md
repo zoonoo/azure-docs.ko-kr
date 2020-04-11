@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 554508b1bf784e306cd12a4a601f908e06320933
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a644e211cc933ca686f0bd6a13b0d2ba8ae20162
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71154970"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114104"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>역할을 재활용하게 하는 일반적인 문제
 이 문서에서는 배포 문제의 일반적인 몇 가지 원인을 설명하고 이러한 문제를 해결하기 위한 문제 해결 팁을 제공합니다. 애플리케이션에 문제가 있다는 것을 역할 인스턴스가 시작에 실패하거나 초기화, 사용 중, 및 중지 상태를 반복할 경우에 알 수 있습니다.
@@ -58,7 +58,7 @@ Azure에 애플리케이션 패키지를 배포하기 전에 `DiagnosticsConnect
   Microsoft Visual Studio용 Azure Tools를 사용하여 애플리케이션을 개발하는 경우 속성 페이지를 사용하여 이 값을 설정할 수 있습니다.
 
 ## <a name="exported-certificate-does-not-include-private-key"></a>내보낸 인증서는 프라이빗 키를 포함하지 않습니다.
-SSL에서 웹 역할을 실행하려면 내보낸 관리 인증서가 프라이빗 키를 포함해야 합니다. *Windows 인증서 관리자*를 사용하여 인증서를 내보내는 경우 **프라이빗 키 내보내기** 옵션에 대해 **예**를 선택해야 합니다. 인증서는 현재 지원되는 유일한 형식인 PFX 형식으로 내보내야 합니다.
+TLS에서 웹 역할을 실행하려면 내보낸 관리 인증서에 개인 키가 포함되어 있는지 확인해야 합니다. *Windows 인증서 관리자*를 사용하여 인증서를 내보내는 경우 **프라이빗 키 내보내기** 옵션에 대해 **예**를 선택해야 합니다. 인증서는 현재 지원되는 유일한 형식인 PFX 형식으로 내보내야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 클라우드 서비스에 대한 [문제해결 문서](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) 를 더 봅니다.

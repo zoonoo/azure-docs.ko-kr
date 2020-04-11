@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: f69f17dc9d0cab2491a2c7f37b5bd082cc96b2d6
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 204b5dd4661b34aae8b76d65505a65e20f293f0f
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985425"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115337"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -112,8 +112,8 @@ REST API를 사용하여 작동하는 타사 응용 프로그램은 Blob API를 
 
 컨테이너에 [익명 읽기 액세스가](storage-manage-access-to-resources.md) 부여된 경우 ACL은 해당 컨테이너 또는 해당 컨테이너의 파일에 영향을 주지 않습니다.
 
-## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-adls-gen2"></a>Windows Azure 저장소 Blob(WASB) 드라이버(ADLS Gen2에서는 지원되지 않음)
+## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-data-lake-storage-gen2"></a>Windows Azure 저장소 Blob(WASB) 드라이버(데이터 레이크 저장소 Gen2에서 지원되지 않음)
 
-현재 Blob API에서만 작동하도록 설계된 WASB 드라이버는 네임스페이스 사용 저장소 계정의 클라이언트인 경우와 같은 몇 가지 일반적인 시나리오에서 문제가 발생합니다. MPA(다중 프로토콜 액세스)는 이러한 문제를 완화하지 않습니다. 
+현재 Blob API에서만 작동하도록 설계된 WASB 드라이버는 몇 가지 일반적인 시나리오에서 문제가 발생합니다. 특히 계층적 네임스페이스 지원 저장소 계정의 클라이언트인 경우 Data Lake Storage의 다중 프로토콜 액세스는 이러한 문제를 완화하지 않습니다. 
 
-당분간은 (그리고 대부분 가까운 미래에) WASB 드라이버를 네임스페이스 지원 저장소 계정에 클라이언트로 사용하는 고객을 지원하지 않습니다. 대신 Hadoop 환경에서 [Azure Blob 파일 시스템(ABFS)](data-lake-storage-abfs-driver.md) 드라이버를 사용하는 것이 좋습니다. Hadoop branch-3보다 이전 버전이 있는 온프레미스 Hadoop 환경에서 마이그레이션하려는 경우 사용자 및 조직에 적합한 경로로 연락할 수 있도록 Azure 지원 티켓을 열어 주십시오.
+당분간은 (그리고 대부분 가까운 미래에) WASB 드라이버를 계층적 네임스페이스 지원 저장소 계정에 클라이언트로 사용하는 고객을 지원하지 않습니다. 대신 Hadoop 환경에서 Azure [Blob 파일 시스템(ABFS)](data-lake-storage-abfs-driver.md) 드라이버를 사용하도록 선택하는 것이 좋습니다. Hadoop branch-3보다 이전 버전이 있는 온프레미스 Hadoop 환경에서 마이그레이션하려는 경우 사용자 및 조직에 적합한 경로에서 연락을 드릴 수 있도록 Azure 지원 티켓을 열어 주십시오.

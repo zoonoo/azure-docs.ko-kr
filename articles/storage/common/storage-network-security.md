@@ -9,12 +9,12 @@ ms.date: 01/21/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 77ad8579f31ce900a67e2ba3ddc53a5b034b6d42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7120ba2cf71c9af5373b830d04d0b67952922887
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79454672"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113519"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -252,7 +252,7 @@ IP 네트워크 규칙은 **공용 인터넷** IP 주소에 대해서만 허용�
    > IP 네트워크 규칙은 스토리지 계정과 동일한 Azure 지역에서 시작된 요청에 영향을 주지 않습니다. 동일한 지역 요청을 허용하려면 [가상 네트워크 규칙](#grant-access-from-a-virtual-network)을 사용하세요.
 
   > [!NOTE]
-  > 저장소 계정과 동일한 지역에 배포된 서비스는 통신을 위해 개인 Azure IP 주소를 사용합니다. 따라서 공용 인바운드 IP 주소 범위에 따라 특정 Azure 서비스에 대한 액세스를 제한할 수 없습니다.
+  > 저장소 계정과 동일한 지역에 배포된 서비스는 통신을 위해 개인 Azure IP 주소를 사용합니다. 따라서 공용 아웃바운드 IP 주소 범위에 따라 특정 Azure 서비스에 대한 액세스를 제한할 수 없습니다.
 
 저장소 방화벽 규칙의 구성에는 IPV4 주소만 지원됩니다.
 
@@ -372,30 +372,30 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 
 | 서비스                  | 리소스 공급자 이름     | 허용되는 연산                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
-| Azure Backup             | Microsoft.RecoveryServices | IAAS 가상 머신에서 관리되지 않는 디스크의 백업 및 복원을 실행합니다. (관리되는 디스크에 필요 없음). [자세히 알아봅니다](/azure/backup/backup-introduction-to-azure-backup). |
-| Azure Data Box           | Microsoft.DataBox          | 데이터 상자를 사용하여 Azure로 데이터를 가져올 수 있습니다. [자세히 알아봅니다](/azure/databox/data-box-overview). |
-| Azure DevTest Labs       | Microsoft.DevTestLab       | 사용자 지정 이미지 만들기 및 아티팩트 설치. [자세히 알아봅니다](/azure/devtest-lab/devtest-lab-overview). |
+| Azure Backup             | Microsoft.RecoveryServices | IAAS 가상 머신에서 관리되지 않는 디스크의 백업 및 복원을 실행합니다. (관리되는 디스크에 필요 없음). [자세히 알아보기](/azure/backup/backup-introduction-to-azure-backup). |
+| Azure Data Box           | Microsoft.DataBox          | 데이터 상자를 사용하여 Azure로 데이터를 가져올 수 있습니다. [자세히 알아보기](/azure/databox/data-box-overview). |
+| Azure DevTest Labs       | Microsoft.DevTestLab       | 사용자 지정 이미지 만들기 및 아티팩트 설치. [자세히 알아보기](/azure/devtest-lab/devtest-lab-overview). |
 | Azure Event Grid         | Microsoft.EventGrid        | Blob Storage 이벤트 게시를 사용하도록 설정하고 Event Grid가 스토리지 큐에 게시하도록 허용합니다. [Blob Storage 이벤트](/azure/event-grid/event-sources)와 [큐에 게시](/azure/event-grid/event-handlers)에 대해 알아봅니다. |
 | Azure Event Hubs         | Microsoft.EventHub         | Event Hubs 캡처로 데이터를 보관합니다. [자세한 내용을 알아보십시오.](/azure/event-hubs/event-hubs-capture-overview) |
-| Azure 파일 동기화          | Microsoft.StorageSync      | 온-프레임 파일 서버를 Azure File 공유에 대한 캐시로 변환할 수 있습니다. 다중 사이트 동기화, 빠른 재해 복구 및 클라우드 측 백업을 허용합니다. [자세히 알아보기](../files/storage-sync-files-planning.md) |
-| Azure HDInsight          | Microsoft.HDInsight        | 새 HDInsight 클러스터에 대한 기본 파일 시스템의 초기 내용을 프로비전합니다. [자세히 알아봅니다](/azure/hdinsight/hdinsight-hadoop-use-blob-storage). |
-| Azure 가져오기 내보내기      | Microsoft.ImportExport     | 가져오기/내보내기 서비스를 사용하여 Azure로 데이터를 가져오고 Azure에서 데이터를 내보낼 수 있습니다. [자세히 알아봅니다](/azure/storage/common/storage-import-export-service).  |
-| Azure Monitor            | Microsoft.Insights         | 리소스 진단 로그, Azure Active Directory 로그인 및 감사 로그 및 Microsoft Intune 로그를 포함하여 모니터링 데이터를 보안 저장소 계정에 기록할 수 있습니다. [자세히 알아봅니다](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
-| Azure 네트워킹         | Microsoft.Network          | 네트워크 트래픽 로그를 저장 및 분석합니다. [자세히 알아봅니다](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
-| Azure Site Recovery      | Microsoft.SiteRecovery     | 방화벽 지원 캐시, 소스 또는 대상 저장소 계정을 사용할 때 Azure IaaS 가상 시스템의 재해 복구를 위해 복제를 사용하도록 설정합니다.  [자세히 알아봅니다](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
+| Azure 파일 동기화          | Microsoft.StorageSync      | 온-프레임 파일 서버를 Azure File 공유에 대한 캐시로 변환할 수 있습니다. 다중 사이트 동기화, 빠른 재해 복구 및 클라우드 측 백업을 허용합니다. [자세히](../files/storage-sync-files-planning.md) |
+| Azure HDInsight          | Microsoft.HDInsight        | 새 HDInsight 클러스터에 대한 기본 파일 시스템의 초기 내용을 프로비전합니다. [자세히 알아보기](/azure/hdinsight/hdinsight-hadoop-use-blob-storage). |
+| Azure 가져오기 내보내기      | Microsoft.ImportExport     | 가져오기/내보내기 서비스를 사용하여 Azure로 데이터를 가져오고 Azure에서 데이터를 내보낼 수 있습니다. [자세히 알아보기](/azure/storage/common/storage-import-export-service).  |
+| Azure Monitor            | Microsoft.Insights         | 리소스 진단 로그, Azure Active Directory 로그인 및 감사 로그 및 Microsoft Intune 로그를 포함하여 모니터링 데이터를 보안 저장소 계정에 기록할 수 있습니다. [자세히 알아보기](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
+| Azure 네트워킹         | Microsoft.Network          | 네트워크 트래픽 로그를 저장 및 분석합니다. [자세히 알아보기](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
+| Azure Site Recovery      | Microsoft.SiteRecovery     | 방화벽 지원 캐시, 소스 또는 대상 저장소 계정을 사용할 때 Azure IaaS 가상 시스템의 재해 복구를 위해 복제를 사용하도록 설정합니다.  [자세히 알아보기](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
 **신뢰할 수 있는 Microsoft 서비스 허용...** 설정은 해당 리소스 인스턴스에 대해 시스템에 [할당된 관리되는 ID에](../../active-directory/managed-identities-azure-resources/overview.md) [RBAC 역할을](storage-auth-aad.md#assign-rbac-roles-for-access-rights) 명시적으로 할당하는 경우 아래 서비스의 특정 인스턴스가 저장소 계정에 액세스할 수 있도록 합니다. 이 경우 인스턴스에 대한 액세스 범위는 관리되는 ID에 할당된 RBAC 역할에 해당합니다.
 
-| 서비스                        | 리소스 공급자 이름                 | 목적            |
+| 서비스                        | 리소스 공급자 이름                 | 용도            |
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | 코그너티브 검색 서비스가 인덱싱, 처리 및 쿼리를 위한 저장소 계정에 액세스할 수 있도록 합니다. |
 | Azure Container Registry 작업 | Microsoft.ContainerRegistry/registries | ACR 작업은 컨테이너 이미지를 빌드할 때 저장소 계정에 액세스할 수 있습니다. |
 | Azure 데이터 팩터리             | Microsoft.DataFactory/factories        | ADF 런타임을 통해 저장소 계정에 액세스할 수 있습니다. |
 | Azure Data Share               | 마이크로소프트.데이터 쉐어/계정           | 데이터 공유를 통해 저장소 계정에 액세스할 수 있습니다. |
-| Azure Logic Apps               | Microsoft.Logic/workflows              | 논리 앱이 저장소 계정에 액세스할 수 있도록 합니다. [자세히 알아봅니다](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
-| Azure Machine Learning 서비스 | Microsoft.MachineLearningServices      | 권한이 부여된 Azure 기계 학습 작업 영역은 실험 출력, 모델 및 로그를 Blob 저장소에 기록하고 데이터를 읽습니다. [자세히 알아봅니다](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
-| Azure SQL Data Warehouse       | Microsoft.Sql                          | PolyBase를 사용하여 특정 SQL Database 인스턴스에서 데이터를 가져오고 내보낼 수 있습니다. [자세히 알아봅니다](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
-| Azure Stream Analytics         | Microsoft.StreamAnalytics             | 스트리밍 작업의 데이터를 Blob 저장소에 기록할 수 있습니다. 이 기능은 현재 미리 보기로 제공됩니다. [자세히 알아봅니다](/azure/stream-analytics/blob-output-managed-identity). |
+| Azure Logic Apps               | Microsoft.Logic/workflows              | 논리 앱이 저장소 계정에 액세스할 수 있도록 합니다. [자세히 알아보기](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
+| Azure Machine Learning 서비스 | Microsoft.MachineLearningServices      | 권한이 부여된 Azure 기계 학습 작업 영역은 실험 출력, 모델 및 로그를 Blob 저장소에 기록하고 데이터를 읽습니다. [자세히 알아보기](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
+| Azure SQL Data Warehouse       | Microsoft.Sql                          | PolyBase를 사용하여 특정 SQL Database 인스턴스에서 데이터를 가져오고 내보낼 수 있습니다. [자세히 알아보기](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
+| Azure Stream Analytics         | Microsoft.StreamAnalytics             | 스트리밍 작업의 데이터를 Blob 저장소에 기록할 수 있습니다. 이 기능은 현재 미리 보기로 제공됩니다. [자세히 알아보기](/azure/stream-analytics/blob-output-managed-identity). |
 | Azure Synapse Analytics        | 마이크로소프트.시냅스/작업 공간          | 시냅스 애널리틱스에서 Azure 저장소의 데이터에 액세스할 수 있습니다. |
 
 

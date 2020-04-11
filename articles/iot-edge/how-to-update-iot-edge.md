@@ -5,16 +5,16 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/07/2020
+ms.date: 04/08/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4a7c27beeb7208efcf6687e49193c8d3b68f5300
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce69593c1df0039d64f89e79124af1150409eff7
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77186504"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113311"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>IoT Edge 보안 디먼 및 런타임 업데이트
 
@@ -56,7 +56,7 @@ Windows 장치에서 PowerShell 스크립트를 사용하여 보안 데몬을 �
 
 Update-IoTEdge 명령을 실행하면 두 개의 런타임 컨테이너 이미지와 함께 장치에서 보안 데몬이 제거되고 업데이트됩니다. config.yaml 파일은 장치에 보관되며 Moby 컨테이너 엔진의 데이터(Windows 컨테이너를 사용하는 경우)도 보관됩니다. 구성 정보를 유지한다는 것은 업데이트 프로세스 중에 장치에 대한 연결 문자열 또는 장치 프로비저닝 서비스 정보를 다시 제공할 필요가 없다는 것을 의미합니다.
 
-특정 버전의 보안 데몬으로 업데이트하려면 [IoT Edge 릴리스에서](https://github.com/Azure/azure-iotedge/releases)대상으로 할 버전을 찾습니다. 해당 버전에서 **Microsoft-Azure-IoTEdge.cab** 파일을 다운로드합니다. 그런 다음 `-OfflineInstallationPath` 매개 변수를 사용하여 로컬 파일 위치를 가리킵니다. 예를 들어:
+특정 버전의 보안 데몬으로 업데이트하려면 [IoT Edge 릴리스에서](https://github.com/Azure/azure-iotedge/releases)대상으로 할 버전을 찾습니다. 해당 버전에서 **Microsoft-Azure-IoTEdge.cab** 파일을 다운로드합니다. 그런 다음 `-OfflineInstallationPath` 매개 변수를 사용하여 로컬 파일 위치를 가리킵니다. 다음은 그 예입니다.
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux> -OfflineInstallationPath <absolute path to directory>
@@ -120,6 +120,35 @@ IoT Edge 서비스는 최신 버전의 런타임 이미지를 끌어오고 해�
 
 1. **검토 + 만들기,** 배포 검토 및 **만들기를**선택합니다.
 
+## <a name="update-offline-or-to-a-specific-version"></a>오프라인 또는 특정 버전으로 업데이트
+
+장치를 오프라인으로 업데이트하거나 최신 버전이 아닌 특정 버전의 IoT Edge로 업데이트하려는 경우 매개 `-OfflineInstallationPath` 변수를 사용하여 업데이트할 수 있습니다.
+
+IoT Edge 장치를 업데이트하는 데 는 두 가지 구성 요소가 사용됩니다.
+
+* 설치 지침이 포함된 PowerShell 스크립트
+* IoT 에지 보안 데몬(iotedged), 모비 컨테이너 엔진 및 모비 CLI를 포함하는 마이크로소프트 Azure IoT Edge 캡
+
+1. 이전 버전과 함께 최신 IoT Edge 설치 파일에 대한 [Azure IoT Edge 릴리스를](https://github.com/Azure/azure-iotedge/releases)참조하십시오.
+
+2. 설치하려는 버전을 찾아 릴리스 노트의 **자산** 섹션에서 다음 파일을 IoT 장치에 다운로드합니다.
+
+   * IoTEdge보안데몬.ps1
+   * 마이크로소프트-Azure-IoTEdge-amd64.cab 릴리스에서 1.0.9 이상, 또는 마이크로소프트-Azure-IoTEdge.cab 릴리스에서 1.0.8 이상.
+
+   Microsoft-Azure-IotEdge-arm32.cab은 테스트 목적으로만 1.0.9부터 사용할 수 있습니다. IoT Edge는 현재 Windows ARM32 장치에서 지원되지 않습니다.
+
+   각 릴리스의 기능을 지원하도록 기능이 변경되므로 사용하는 .cab 파일과 동일한 릴리스의 PowerShell 스크립트를 사용하는 것이 중요합니다.
+
+3. 다운로드한 .cab 파일에 아키텍처 접미사가 있는 경우 파일이름을 **Microsoft-Azure-IoTEdge.cab로**변경합니다.
+
+4. 오프라인 구성 요소로 업데이트하려면 Dot이 PowerShell 스크립트의 로컬 복사본을 [소스로](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) 만듭니다. 그런 다음 `-OfflineInstallationPath` 매개 변수를 `Update-IoTEdge` 명령의 일부로 사용하고 파일 디렉터리에 대한 절대 경로를 제공합니다. 예를 들면 다음과 같습니다.
+
+   ```powershell
+   . <path>\IoTEdgeSecurityDaemon.ps1
+   Update-IoTEdge -OfflineInstallationPath <path>
+   ```
+
 ## <a name="update-to-a-release-candidate-version"></a>릴리스 후보 버전으로 업데이트
 
 Azure IoT Edge는 정기적으로 새로운 버전의 IoT Edge 서비스를 출시합니다. 각 안정 릴리스 전에 하나 이상의 RC(릴리스 후보) 버전이 있습니다. RC 버전에는 릴리스에 대한 계획된 모든 기능이 포함되어 있지만 여전히 테스트 및 유효성 검사를 거치고 있습니다. 새 기능을 조기에 테스트하려는 경우 RC 버전을 설치하고 GitHub를 통해 피드백을 제공할 수 있습니다.
@@ -128,14 +157,7 @@ Azure IoT Edge는 정기적으로 새로운 버전의 IoT Edge 서비스를 출�
 
 IoT Edge 에이전트 및 허브 모듈에는 동일한 규칙으로 태그가 지정된 RC 버전이 있습니다. 예를 들어, **mcr.microsoft.com/azureiotedge-hub:1.0.7-rc2**.
 
-미리 보기로 릴리스 후보 버전은 일반 설치 관리자가 대상으로 하는 최신 버전으로 포함되지 않습니다. 대신 테스트하려는 RC 버전의 에셋을 수동으로 대상으로 지정해야 합니다. 대부분의 경우 RC 버전에 대한 설치 또는 업데이트는 Windows 장치에 대한 한 가지 차이점을 제외하고 다른 특정 버전의 IoT Edge를 대상으로 하는 것과 동일합니다. 
-
-릴리스 후보에서 Windows 장치에서 IoT Edge 보안 데몬을 설치하고 관리할 수 있는 PowerShell 스크립트는 일반적으로 사용 가능한 최신 버전과 다른 기능을 가질 수 있습니다. RC용 IoT Edge .cab 파일을 다운로드하는 것 외에도 **IotEdgeSecurityDaemon.ps1** 스크립트를 다운로드할 수도 있습니다. [점 소싱을](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) 사용하여 현재 소스에서 다운로드한 스크립트를 실행합니다. 예를 들어: 
-
-```powershell
-. <path>\IoTEdgeSecurityDaemon.ps1
-Update-IoTEdge -OfflineInstallationPath <path>
-```
+미리 보기로 릴리스 후보 버전은 일반 설치 관리자가 대상으로 하는 최신 버전으로 포함되지 않습니다. 대신 테스트하려는 RC 버전의 에셋을 수동으로 대상으로 지정해야 합니다. 대부분의 경우 RC 버전에 설치하거나 업데이트하는 것은 다른 특정 버전의 IoT Edge를 대상으로 하는 것과 동일합니다.
 
 이 문서의 섹션을 사용하여 IoT Edge 장치를 특정 버전의 보안 데몬 또는 런타임 모듈로 업데이트하는 방법을 알아봅니다.
 

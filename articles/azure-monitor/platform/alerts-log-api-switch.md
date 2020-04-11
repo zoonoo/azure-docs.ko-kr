@@ -1,17 +1,17 @@
 ---
-title: 레거시 Log Analytics 경고 API에서 새 Azure Alerts API로 전환
+title: 새 Azure 경고 API로 전환
 description: 레거시 저장 의 개요검색 기반 로그 분석 경고 API 및 프로세스는 경고 규칙을 새로운 ScheduledQueryRules API로 전환하고 일반적인 고객 문제를 해결하는 세부 정보를 제공합니다.
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.subservice: alerts
-ms.openlocfilehash: c1ca85ba9c79f828b5ddcf0d640cfe7f8b6e097c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7950b3f584c36b68a4eff66b05e83ba94c1ec1dd
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79249439"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114360"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>로그 경고의 API 기본 설정 전환
 

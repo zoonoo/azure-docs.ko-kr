@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: b8f55b0693b7ffdf10516cfb19b67ccc5a94dc5a
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: d10b6c52310da3d799a7fe78c83284960318f82e
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742900"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115238"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 개인 엔드포인트란?
 
@@ -22,7 +22,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
  전용 끝점은 다음 속성을 지정합니다. 
 
 
-|속성  |설명 |
+|속성  |Description |
 |---------|---------|
 |이름    |    리소스 그룹 내의 고유한 이름입니다.      |
 |서브넷    |  가상 네트워크에서 개인 IP 주소를 배포하고 할당하는 서브넷입니다. 서브넷 요구 사항은 이 문서의 제한 섹션을 참조하십시오.         |
@@ -73,7 +73,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
 |**Azure Event Grid** | Microsoft.EventGrid/topics  | 토픽 |
 |**Azure Event Grid** | 마이크로소프트.이벤트 그리드/도메인 | 도메인 |
 |**Azure 웹앱** | Microsoft.Web/sites    | site |
-|**Azure 기계 학습** | Microsoft.MachineLearningServices/workspaces  | 작업 영역 |
+|**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces  | 작업 영역 |
   
  
 ## <a name="network-security-of-private-endpoints"></a>개인 엔드포인트의 네트워크 보안 
@@ -113,7 +113,7 @@ Azure 서비스에 개인 끝점을 사용하는 경우 트래픽은 특정 개�
 > [!IMPORTANT]
 > 공용 끝점을 해결하기 위해 적극적으로 사용 중인 영역을 재정의하지 않는 것이 좋습니다. DNS가 공용 DNS로 전달되지 않으면 리소스에 대한 연결이 올바르게 해결되지 않습니다. 문제를 방지하려면 다른 도메인 이름을 만들거나 아래각 서비스에 대해 제안된 이름을 따르십시오. 
  
-Azure 서비스의 경우 다음 표에 설명된 대로 권장 영역 이름을 사용합니다.
+Azure 서비스의 경우 다음 표에 설명된 대로 영역 이름을 사용합니다.
 
 |개인 링크 리소스 유형   |하위 리소스  |영역 이름  |
 |---------|---------|---------|
@@ -156,7 +156,7 @@ Azure는 공용 DNS에 표준 이름 DNS 레코드(CNAME)를 만들어 제안된
 다음 표에는 전용 끝점을 사용할 때 알려진 제한 사항 목록이 포함되어 있습니다. 
 
 
-|제한 사항 |설명 |완화 방법  |
+|제한 사항 |Description |완화 방법  |
 |---------|---------|---------|
 |NSG(네트워크 보안 그룹) 규칙 및 사용자 정의 경로는 개인 엔드포인트에 적용되지 않습니다.    |NSG는 개인 끝점에서 지원되지 않습니다. 개인 끝점을 포함하는 서브넷에는 NSG가 연결될 수 있지만 규칙은 개인 끝점에서 처리되는 트래픽에 효과적이지 않습니다. 서브넷에 개인 끝점을 배포하려면 [네트워크 정책 적용을 사용하지 않도록 설정해야](disable-private-endpoint-network-policy.md) 합니다. NSG는 여전히 동일한 서브넷에서 호스팅되는 다른 워크로드에 적용됩니다. 모든 클라이언트 서브넷의 경로는 /32 접두사를 사용하므로 기본 라우팅 동작을 변경하려면 유사한 UDR이 필요합니다.  | 원본 클라이언트의 아웃바운드 트래픽에 NSG 규칙을 사용하여 트래픽을 제어합니다. 개인 끝점 경로를 재정의하기 위해 /32 접두사를 사용하여 개별 경로를 배포합니다. NSG 흐름 로그 및 아웃바운드 연결에 대한 모니터링 정보는 여전히 지원되며 사용할 수 있습니다.        |
 

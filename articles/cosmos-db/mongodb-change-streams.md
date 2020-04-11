@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: tisande
-ms.openlocfilehash: ecfa98241f74aac43a827b645a6ed877624d643d
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 38e262abefe5444c1fe7586810f4b971cc7baf6c
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437815"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114159"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>몽고DB에 대한 Azure 코스모스 DB의 API에서 스트림 변경
 
@@ -26,7 +26,8 @@ MongoDB에 대한 Azure Cosmos DB의 API에서 [변경 피드](change-feed.md) �
 변경 스트림을 사용할 때는 다음과 같은 제한 사항이 적용됩니다.
 
 * `operationType` 및 `updateDescription` 속성은 출력 문서에서 아직 지원되지 않습니다.
-* `insert`및 `update` `replace` 작업 유형은 현재 지원됩니다. 삭제 작업 또는 기타 이벤트는 아직 지원되지 않습니다.
+* `insert`및 `update` `replace` 작업 유형은 현재 지원됩니다. 
+* 삭제 작업 또는 기타 이벤트는 아직 지원되지 않습니다.
 
 이러한 제한으로 인해 이전 예제와 같이 $match 단계, $project 단계 및 fullDocument 옵션이 필요합니다.
 

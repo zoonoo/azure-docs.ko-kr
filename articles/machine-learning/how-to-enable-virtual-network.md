@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 03/13/2020
-ms.openlocfilehash: 4d845514965a8d60c636902660ce838926cbf3c9
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.openlocfilehash: ca4bf1b0043a2c73851eab48ff8b9b6b7a987b72
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80607609"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115292"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Azure 가상 네트워크 내에서 안전한 Azure ML 실험 및 추론 작업
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,6 +43,11 @@ Azure 기계 학습은 계산 리소스에 대한 다른 Azure 서비스에 의�
 + 컴퓨팅 리소스와 함께 사용할 기존 가상 네트워크 및 서브넷입니다.
 
 ## <a name="use-a-storage-account-for-your-workspace"></a>작업 영역에 저장소 계정 사용
+
+> [!WARNING]
+> Azure Machine Learning 디자이너를 사용하는 데이터 과학자가 있는 경우 가상 네트워크 내의 저장소 계정에서 데이터를 시각화할 때 오류가 발생합니다. 다음 텍스트는 받는 오류입니다.
+>
+> __오류: 이 데이터 집합을 프로파일러볼 수 없습니다. 데이터가 가상 네트워크 뒤에 저장되거나 데이터가 프로필을 지원하지 않기 때문일 수 있습니다.__
 
 가상 네트워크의 작업 영역에 Azure 저장소 계정을 사용하려면 다음 단계를 사용합니다.
 
