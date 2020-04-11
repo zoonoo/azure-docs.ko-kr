@@ -145,8 +145,6 @@
               href: service-fabric-containers-overview.md
             - name: Docker Compose(미리 보기)
               href: service-fabric-docker-compose.md
-            - name: 리소스 거버넌스
-              href: service-fabric-resource-governance.md
         - name: Reliable Services
           items:
             - name: 신뢰할 수 있는 서비스 개요
@@ -193,6 +191,8 @@
               href: service-fabric-reliable-actors-notes-on-actor-type-serialization.md
         - name: 게스트 실행 파일
           href: service-fabric-guest-executables-introduction.md
+        - name: 리소스 거버넌스
+          href: service-fabric-resource-governance.md
     - name: 애플리케이션 및 서비스
       items:
         - name: 애플리케이션 모델
@@ -408,8 +408,6 @@
           items:
             - name: Docker Compose(미리 보기)
               href: service-fabric-docker-compose.md
-            - name: 컨테이너 및 서비스에 대한 리소스 관리
-              href: service-fabric-resource-governance.md
             - name: 볼륨 및 로깅 드라이버
               href: service-fabric-containers-volume-logging-drivers.md
             - name: 컨테이너 로그 보기

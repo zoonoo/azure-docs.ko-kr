@@ -12,12 +12,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 10/28/2019
-  ms.openlocfilehash: 4744c6668de55b28725f1e1662f93030b5f61007
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 62a0bc67624c27ccd8185edb8be1a8cb3f16a9b1
+  ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "73055914"
+  ms.lasthandoff: 04/10/2020
+  ms.locfileid: "81115235"
 landingContent:
 - title: Azure 보안 정보
   linkLists:
@@ -63,8 +63,6 @@ landingContent:
       url: iaas.md
     - text: ID 관리 및 액세스 제어
       url: identity-management-best-practices.md
-    - text: 데이터베이스 보안
-      url: database-best-practices.md
     - text: PaaS 배포
       url: paas-deployments.md
     - text: 데이터 보안 및 암호화
