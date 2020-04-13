@@ -85,9 +85,9 @@
     - name: 데이터베이스 보안
       items:
         - name: 개요
-          href: database-security-overview.md
+          href: ../../sql-database/sql-database-security-overview.md
         - name: 모범 사례
-          href: database-best-practices.md
+          href: ../../sql-database/sql-database-security-best-practice.md
         - name: 보안 검사 목록
           href: database-security-checklist.md
     - name: 스토리지 보안 지침
@@ -103,7 +103,7 @@
           href: paas-applications-using-app-services.md
         - name: PaaS용 Azure Storage
           href: paas-applications-using-storage.md
-        - name: PaaS용 DB 모범 사례
+        - name: PaaS에 대한 DB 모범 사례
           href: paas-applications-using-sql.md
     - name: Azure Service Fabric 보안
       href: service-fabric-best-practices.md
@@ -115,6 +115,8 @@
       href: log-audit.md
     - name: 보안 관리 및 모니터링
       href: management-monitoring-overview.md
+    - name: 원격 관리 향상
+      href: management.md
     - name: 운영 보안
       items:
         - name: 개요

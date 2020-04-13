@@ -114,12 +114,6 @@
               href: index-add-language-analyzers.md
             - name: 사용자 지정 분석기 추가
               href: index-add-custom-analyzers.md
-        - name: 자동 완성
-          items:
-            - name: 제안기 만들기
-              href: index-add-suggesters.md
-            - name: 제안 또는 자동 완성 추가
-              href: search-autocomplete-tutorial.md
         - name: 동의어
           items:
             - name: 동의어 추가
@@ -230,6 +224,14 @@
           href: search-query-lucene-examples.md
         - name: 부분 용어 및 특수 문자
           href: search-query-partial-matching.md
+        - name: 유사 항목 검색
+          href: search-query-fuzzy.md
+        - name: '"입력하는 대로 검색(Search-as-you-type)" 자동 완성'
+          items:
+            - name: 제안기 만들기
+              href: index-add-suggesters.md
+            - name: 제안 또는 자동 완성 추가
+              href: search-autocomplete-tutorial.md
         - name: Power Apps에서 쿼리
           href: search-howto-powerapps.md
         - name: 구문 참조

@@ -12,12 +12,12 @@ metadata:
   author: julieMSFT
   ms.author: jrasnick
   ms.date: 10/03/2019
-  ms.openlocfilehash: e8fc0a0b66b72ecf23ef89952f4151eb25153470
-  ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+  ms.openlocfilehash: 16855697c61bb4b919d4f7dcaa752d3a17f6dbef
+  ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/08/2020
-  ms.locfileid: "80877426"
+  ms.lasthandoff: 04/09/2020
+  ms.locfileid: "80998838"
 landingContent:
 - title: Azure Synapse Analytics 정보
   linkLists:
@@ -41,6 +41,10 @@ landingContent:
       url: create-data-warehouse-portal.md
 - title: 데이터 로드
   linkLists:
+  - linkListType: quickstart
+    links:
+    - text: COPY 문을 사용한 빠른 데이터 수집
+      url: quickstart-bulk-load-copy-tsql.md
   - linkListType: concept
     links:
     - text: 데이터 로드 전략 디자인

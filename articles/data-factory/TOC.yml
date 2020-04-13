@@ -511,7 +511,7 @@
           href: data-flow-new-branch.md
         - name: 피벗
           href: data-flow-pivot.md
-        - name: 여기서
+        - name: 선택
           href: data-flow-select.md
         - name: sink
           href: data-flow-sink.md
@@ -607,6 +607,8 @@
           href: configure-bcdr-azure-ssis-integration-runtime.md
         - name: Elastic Database 작업을 사용하여 SSISDB 로그 정리
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+        - name: SSMS를 사용하여 SSIS 작업 마이그레이션
+          href: how-to-migrate-ssis-job-ssms.md
     - name: 트리거 만들기
       items:
         - name: 이벤트 기반 트리거 만들기
@@ -705,7 +707,7 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: 기능 요청
       href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'
     - name: 지역별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/'

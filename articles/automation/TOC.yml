@@ -262,7 +262,7 @@
           href: /powershell/scripting/dsc/overview/overview
     - name: 빠른 시작
       items:
-        - name: 시작하기
+        - name: 시작
           href: automation-dsc-getting-started.md
           displayName: DSC
         - name: 머신 구성 관리
@@ -278,9 +278,6 @@
         - name: 원하는 상태로 서버 구성 및 상태 구성을 사용하여 드리프트 관리
           href: tutorial-configure-servers-desired-state.md
           displayName: 'DSC, compliance'
-        - name: 관리를 위한 컴퓨터 탑재
-          href: automation-dsc-onboarding.md
-          displayName: 'DSC, state configuration'
         - name: DSC 구성 컴파일
           href: automation-dsc-compile.md
           displayName: 'state configuration, composite resources, configurationData'
@@ -289,7 +286,7 @@
           displayName: 'state configuration, DSC, remediate'
         - name: 복합 리소스를 사용하여 DSC 구성 작성
           href: compose-configurationwithcompositeresources.md
-        - name: Chocolatey를 사용하여 연속 배포
+        - name: Chocolatey를 사용하여 지속적인 배포 제공
           href: automation-dsc-cd-chocolatey.md
           displayName: 'dsc, state configuration'
         - name: Azure Monitor 로그에 데이터를 보고하여 상태 구성 전달
@@ -297,12 +294,12 @@
           displayName: DSC
     - name: 문제 해결
       items:
-        - name: 온보딩
+        - name: 온보딩 문제 해결
           href: troubleshoot/onboarding.md
           displayName: troubleshoot
         - name: 상태 구성(DSC) 문제 해결
           href: troubleshoot/desired-state-configuration.md
-          displayName: 'Desired State Configuration, troubleshoot'
+          displayName: 'state configuration, DSC, troubleshoot'
     - name: 참조
       items:
         - name: 커뮤니티 솔루션

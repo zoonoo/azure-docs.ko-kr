@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 08/29/2019
-  ms.openlocfilehash: 37427277a8d4b7bde5e5671510a8f5cdb9979483
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: b3c5fb0dd15c1211132e627b507aa20a043f09ba
+  ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "75980354"
+  ms.lasthandoff: 04/10/2020
+  ms.locfileid: "81115357"
 highlightedContent:
   items:
   - title: Azure 보안 소개
@@ -219,12 +219,12 @@ conceptualContent:
       text: 보안 구성 권장 사항
   - title: 데이터베이스 보안
     links:
-    - url: ./fundamentals/database-security-overview.md
+    - url: ./fundamentals/encryption-overview.md#encryption-of-data-at-rest-with-azure-sql-database
       itemType: overview
-      text: 보안 개요
-    - url: ./fundamentals/database-best-practices.md
+      text: 데이터 보안
+    - url: ./fundamentals/paas-applications-using-sql.md
       itemType: concept
-      text: 보안 모범 사례
+      text: PaaS 데이터베이스에 대한 모범 사례
     - url: ./fundamentals/database-security-checklist.md
       itemType: concept
       text: 보안 검사 목록

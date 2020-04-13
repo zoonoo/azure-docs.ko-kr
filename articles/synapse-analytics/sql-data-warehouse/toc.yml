@@ -31,12 +31,10 @@
           href: create-data-warehouse-portal.md
         - name: PowerShell
           href: create-data-warehouse-powershell.md
-    - name: 일지 중지 및 다시 시작
+    - name: 데이터 로드
       items:
-        - name: 포털
-          href: pause-and-resume-compute-portal.md
-        - name: PowerShell
-          href: pause-and-resume-compute-powershell.md
+        - name: COPY 문
+          href: quickstart-bulk-load-copy-tsql.md
     - name: 확장
       items:
         - name: 포털
@@ -55,6 +53,12 @@
           items:
             - name: T-SQL
               href: quickstart-configure-workload-isolation-tsql.md
+    - name: 일지 중지 및 다시 시작
+      items:
+        - name: 포털
+          href: pause-and-resume-compute-portal.md
+        - name: PowerShell
+          href: pause-and-resume-compute-powershell.md
 - name: 개념
   items:
     - name: 보안

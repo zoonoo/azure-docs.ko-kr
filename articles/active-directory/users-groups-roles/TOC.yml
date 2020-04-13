@@ -124,6 +124,8 @@
               href: groups-create-rule.md
             - name: 동적 그룹 규칙 구문
               href: groups-dynamic-membership.md
+            - name: 구성원 규칙 유효성 검사
+              href: groups-dynamic-rule-validation.md
             - name: 그룹 멤버 자격 형식 변경
               href: groups-change-type.md
     - name: 라이선스 할당

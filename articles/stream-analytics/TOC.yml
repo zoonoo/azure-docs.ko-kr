@@ -61,14 +61,18 @@
           href: stream-analytics-sql-output-perf.md
         - name: Blob 사용자 지정 경로 패턴
           href: stream-analytics-custom-path-patterns-blob-storage-output.md
-    - name: 사용자 정의 함수
+    - name: 함수를 사용한 쿼리 확장
       items:
-        - name: 기계 학습 UDF
-          href: machine-learning-udf.md
-        - name: 'C# UDF'
-          href: stream-analytics-edge-csharp-udf-methods.md
+        - name: 함수 개요
+          href: functions-overview.md
         - name: JavaScript UDF
           href: stream-analytics-javascript-user-defined-functions.md
+        - name: JavaScript UDA
+          href: stream-analytics-javascript-user-defined-aggregates.md
+        - name: 'C# UDF'
+          href: stream-analytics-edge-csharp-udf-methods.md
+        - name: 기계 학습 UDF
+          href: machine-learning-udf.md
     - name: Stream Analytics 작업 최적화
       items:
         - name: 스트리밍 단위 이해 및 조정
@@ -140,8 +144,6 @@
           href: stream-analytics-edge.md
         - name: 요금 창구 센서 데이터 분석
           href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
-        - name: Javascript UDA 실행
-          href: stream-analytics-javascript-user-defined-aggregates.md
         - name: 자주 발생하는 거래
           href: stream-analytics-high-frequency-trading.md
         - name: IoT 스트리밍 데이터 처리
