@@ -3,7 +3,7 @@ title: Azure VM 크기 - 컴퓨팅 최적화 | 마이크로 소프트 문서
 description: Azure의 가상 컴퓨터에 사용할 수 있는 다양한 계산 최적화 크기를 나열합니다. 이 시리즈의 크기에 대한 vCPU, 데이터 디스크 및 NIC 수와 스토리지 처리량 및 네트워크 대역폭에 대한 정보를 나열합니다.
 services: virtual-machines
 documentationcenter: ''
-author: jonbeck7
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
-ms.author: jonbeck
-ms.openlocfilehash: d709d621341ef14ec158ed5af1c2df4297d66b8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: e08d593f641c42f9ad605fda013206e70a34e52f
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77493632"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269638"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>컴퓨팅 최적화 가상 머신 크기
 
@@ -31,8 +31,8 @@ ms.locfileid: "77493632"
 
 ## <a name="other-sizes"></a>기타 크기
 
-- [범용](sizes-general.md)
-- [메모리 최적화](sizes-memory.md)
+- [범용 가상 컴퓨터](sizes-general.md)
+- [메모리에 최적화](sizes-memory.md)
 - [Storage에 최적화](sizes-storage.md)
 - [GPU에 최적화](sizes-gpu.md)
 - [고성능 컴퓨팅](sizes-hpc.md)
