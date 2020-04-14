@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 8af6b3a451d20bcc9cab3fa4adb9643f82b85e49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b3e35b6d19905e3c5262dfea3e52511510c9ffe
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288821"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252785"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>고객 참여를 위해 Dynamics 365에 대한 잠재 고객 관리 구성
 
@@ -78,7 +78,7 @@ ms.locfileid: "80288821"
 4. 응용 프로그램 이름에 대한 이름을 입력합니다. 의미 있는 응용 프로그램 이름을 제공합니다.
 5. 지원되는 계정 **유형에서 조직 디렉터리에서 계정을**선택합니다.
 6. 리디렉션 URI에서 **웹을** 선택하고 URI(예:)를 `https://contosoapp1/auth`제공합니다. 
-7. **등록을**선택합니다.
+7. **등록**을 선택합니다.
 
     ![애플리케이션 등록](./media/commercial-marketplace-lead-management-instructions-dynamics/register-an-application.png)
 
@@ -180,6 +180,7 @@ Azure Active Directory를 사용하지 않으려면 *Microsoft 365 관리 센터
     ![연결 세부 정보 - 리드 대상](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-lead-destination.png)
 
 4. 다음과 같은 `https://contoso.crm4.dynamics.com` **역학 365 인스턴스 URL을** 제공합니다.
+
 5. **인증**방법, Azure Active Directory 또는 Office 365를 선택합니다. 
 6. Azure Active Directory를 선택한 경우 **응용 프로그램(클라이언트)** `23456052-aaaa-bbbb-8662-1234df56788f`ID(예: ), `12345678-8af1-4asf-1234-12234d01db47` **디렉터리** ID(예:) 및 **클라이언트 보안(예:** `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=`)을 제공합니다.
 
@@ -188,6 +189,13 @@ Azure Active Directory를 사용하지 않으려면 *Microsoft 365 관리 센터
 7. Office 365를 선택한 경우 **사용자 이름(예:** `contoso@contoso.onmicrosoft.com`) 및 `P@ssw0rd`암호(예: )를 제공합니다.
 
     ![연결 세부 정보 - 사용자 이름](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
+
+8. **연락처 이메일** - 새 잠재 고객으로 연결될 때 이메일 알림을 받아야 하는 회사의 사람들에게 이메일을 제공합니다. 세미콜론으로 구분하여 여러 이메일을 제공할 수 있습니다.
+9. **확인**을 선택합니다.
+
+잠재 고객 대상에 성공적으로 연결되었는지 확인하려면 유효성 검사 단추를 클릭합니다. 성공하면 잠재 고객 대상에 테스트 잠재 고객도 있습니다.
+
+![잠재 고객 관리 - 연결 세부 정보 저장소 계정](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-connection-details.png)
 
 >[!Note]
 >오퍼의 나머지 부분을 구성을 완료하고 게시해야 쿠폰에 대한 잠재 고객을 받을 수 있습니다.

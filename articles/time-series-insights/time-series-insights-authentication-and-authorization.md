@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: ff5f7a80e2dcedb1795bae14ee9140c2842303a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 373fc2829e599d0989b59c6386757c8f5f3e1d66
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76984605"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81251727"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
@@ -104,7 +104,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
 ### <a name="authentication"></a>인증
 
-[타임 시리즈 인사이트 REST API에](https://docs.microsoft.com/rest/api/time-series-insights/)대해 인증된 쿼리를 수행하려면 유효한 OAuth 2.0 베어러 토큰이 원하는 REST 클라이언트(Postman, JavaScript, C#)를 사용하여 [권한 부여 헤더에](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) 전달되어야 합니다. 
+[타임 시리즈 인사이트 REST API에](https://docs.microsoft.com/rest/api/time-series-insights/)대해 인증된 쿼리를 수행하려면 유효한 OAuth 2.0 베어러 토큰이 원하는 REST 클라이언트(Postman, JavaScript, C#)를 사용하여 [권한 부여 헤더에](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) 전달되어야 합니다. 
 
 > [!TIP]
 > 호스팅된 Azure Time Series Insights [클라이언트 SDK 샘플 시각화를](https://tsiclientsample.azurewebsites.net/) 읽고 차트 및 그래프와 함께 [JavaScript 클라이언트 SDK를](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) 프로그래밍 방식으로 사용하여 프로그래밍 방식으로 타임시리즈 인사이트 API로 인증하는 방법을 알아봅니다.
@@ -113,7 +113,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
 필수 요청 헤더는 아래에 설명되어 있습니다.
 
-| 필수 요청 헤더 | 설명 |
+| 필수 요청 헤더 | Description |
 | --- | --- |
 | 권한 부여 | 타임 시리즈 인사이트를 사용하여 인증하려면 유효한 OAuth 2.0 베어러 토큰을 **권한 부여** 헤더에 전달해야 합니다. | 
 
@@ -124,7 +124,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
 선택적 요청 헤더는 아래에 설명되어 있습니다.
 
-| 선택적 요청 헤더입니다. | 설명 |
+| 선택적 요청 헤더입니다. | Description |
 | --- | --- |
 | Content-type | 만 `application/json` 지원됩니다. |
 | x-ms-client-request-id | 클라이언트 요청 ID입니다. 서비스는 이 값을 기록합니다. 서비스가 서비스 간에 작업을 추적할 수 있도록 합니다. |
@@ -133,7 +133,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
 선택적이지만 권장되는 응답 헤더는 아래에 설명되어 있습니다.
 
-| 응답 헤더 | 설명 |
+| 응답 헤더 | Description |
 | --- | --- |
 | Content-type | `application/json`만 지원됩니다. |
 | x-ms-request-id | 서버에서 생성된 요청 ID입니다. Microsoft에 문의하여 요청을 조사하는 데 사용할 수 있습니다. |
@@ -154,9 +154,9 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
 선택적 URL 쿼리 문자열 매개 변수에는 HTTP 요청 실행 시간에 대한 시간 설정이 포함됩니다.
 
-| 선택적 쿼리 매개 변수 | 설명 | 버전 |
+| 선택적 쿼리 매개 변수 | Description | 버전 |
 | --- |  --- | --- |
-| `timeout=<timeout>` | HTTP 요청 실행을 위한 서버 측 시간 입니다. 환경 가져오기 [이벤트](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) 및 [환경 집계](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) API에만 적용됩니다. 시간 지정 값은 ISO 8601 기간 `"PT20S"` 형식이어야 하며 범위에 `1-30 s`있어야 합니다. 기본값은 `30 s`입니다. | GA |
+| `timeout=<timeout>` | HTTP 요청 실행을 위한 서버 측 시간 입니다. 환경 가져오기 [이벤트](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) 및 [환경 집계](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) API에만 적용됩니다. 시간 지정 값은 ISO 8601 기간 `"PT20S"` 형식이어야 하며 범위에 `1-30 s`있어야 합니다. 기본값은 `30 s`여야 합니다. | GA |
 | `storeType=<storeType>` | 웜 저장소가 활성화된 미리 보기 환경의 경우 `WarmStore` `ColdStore`또는 에서 쿼리를 실행할 수 있습니다. 쿼리의 이 매개 변수는 쿼리를 실행할 저장소를 정의합니다. 정의되지 않은 경우 콜드 스토어에서 쿼리가 실행됩니다. 웜 저장소를 쿼리하려면 **storeType을** 로 `WarmStore`설정해야 합니다. 정의되지 않은 경우 콜드 스토어에 대해 쿼리가 실행됩니다. | 미리 보기 |
 
 ## <a name="next-steps"></a>다음 단계

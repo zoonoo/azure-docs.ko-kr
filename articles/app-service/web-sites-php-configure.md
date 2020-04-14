@@ -5,27 +5,29 @@ author: msangapu-msft
 ms.assetid: 95c4072b-8570-496b-9c48-ee21a223fb60
 ms.devlang: php
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/13/2020
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c73fb55e485d0c92d27eac2ac197a81337b9d5e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 208f4f7b4c2d8562d5237a40f52e4774ea5c5606
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77016802"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272477"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Azure App Service에서 PHP 구성
 
 ## <a name="introduction"></a>소개
 
-이 가이드에서는 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 웹앱, 모바일 백 엔드 및 API 앱에 대한 기본 제공 PHP 런타임을 구성하고, 사용자 지정 PHP 런타임을 제공하며, 확장을 사용하도록 설정하는 방법을 보여줍니다. App Service를 사용하려면 [무료 평가판]에 등록해야 합니다. 이 가이드를 최대한 활용하려면 먼저 App Service에서 PHP 앱을 만들어야 합니다.
+이 가이드에서는 [Azure App Service에서](https://go.microsoft.com/fwlink/?LinkId=529714)웹 앱 및 API 앱에 대한 기본 제공 PHP 런타임을 구성하고, 사용자 지정 PHP 런타임을 제공하고, 확장을 사용하도록 설정하는 방법을 보여 주었습니다. App Service를 사용하려면 [무료 평가판]에 등록해야 합니다. 이 가이드를 최대한 활용하려면 먼저 App Service에서 PHP 앱을 만들어야 합니다.
 
 ## <a name="how-to-change-the-built-in-php-version"></a>방법: 기본 제공 PHP 버전 변경
 
-기본적으로 PHP 5.6은 App Service 앱을 만들 때 설치하여 바로 사용할 수 있습니다. 사용 가능한 릴리스 버전, 관련 기본 구성 및 사용하도록 설정된 확장을 보는 최상의 방법은 [phpinfo()] 함수를 호출하는 스크립트를 배포하는 것입니다.
+웹 앱을 만들 때 구성할 PHP 버전을 선택할 수 있습니다. 현재 지원되는 버전에 대한 최신 정보는 [앱 서비스에서 PHP를](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md) 참조하십시오.
 
-PHP 7.0 및 PHP 7.2 버전도 사용할 수 있지만 기본적으로는 사용하도록 설정되어 있지 않습니다. PHP 버전을 업데이트하려면 다음 방법 중 하나를 따르세요.
+앱의 기존 런타임 버전을 확인하려면 [phpinfo()] 함수를 호출하는 스크립트를 배포할 수 있습니다.
+
+PHP 버전을 업데이트하려면 다음 방법 중 하나를 따르세요.
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -49,7 +51,7 @@ Azure 명령줄 인터페이스를 사용하려면 컴퓨터에 [Azure CLI를 �
 
 2. 앱에 대한 PHP 버전을 설정합니다.
 
-        az webapp config set --php-version {5.6 | 7.0 | 7.1 | 7.2} --name {app-name} --resource-group {resource-group-name}
+        az webapp config set --php-version {5.6 | 7.2 | 7.3} --name {app-name} --resource-group {resource-group-name}
 
 3. PHP 버전이 설정되었습니다. 이러한 설정을 확인할 수 있습니다.
 
@@ -79,7 +81,7 @@ Azure 명령줄 인터페이스를 사용하려면 컴퓨터에 [Azure CLI를 �
 
 1. `PHP_INI_SCAN_DIR` 키 및 `d:\home\site\ini` 값으로 앱에 앱 설정을 추가합니다.
 1. Kudu Console(http://&lt;site-name&gt;.scm.azurewebsite.net)을 사용하여 `d:\home\site\ini` 디렉터리에 `settings.ini` 파일을 만듭니다.
-1. `php.ini` 파일에 사용한 것과 동일한 구문을 사용하여 구성 설정을 `settings.ini` 파일에 추가합니다. 예를 들어 `curl.cainfo` 설정이 `*.crt` 파일을 가리키고 'wincache.maxfilesize' 설정을 512K로 설정하려면 `settings.ini` 파일에 다음 텍스트를 포함합니다.
+1. `php.ini` 파일에 사용한 것과 동일한 구문을 사용하여 구성 설정을 `settings.ini` 파일에 추가합니다. 예를 들어 `curl.cainfo` 설정을 `*.crt` 파일로 가리키고 'wincache.maxfilesize' 설정을 512K로 설정하려는 `settings.ini` 경우 파일에 이 텍스트가 포함됩니다.
 
         ; Example Settings
         curl.cainfo="%ProgramFiles(x86)%\Git\bin\curl-ca-bundle.crt"

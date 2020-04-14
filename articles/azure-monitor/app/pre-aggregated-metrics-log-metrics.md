@@ -6,38 +6,38 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 65abc9c7153aaf2973d5927400e27467066098f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 30487eebed361e5b010df023a9b1a44f96590b14
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275842"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271083"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Azure Application Insights의 로그 기반 및 사전 집계 메트릭
 
-이 문서에서는 로그를 기반으로 하는 "전통적" Application Insights 메트릭과 현재 공개 미리 보기로 제공되는 사전 집계 메트릭 사이의 차이점을 설명합니다. 두 메트릭 모두 Application Insights 사용자에게 제공되며 애플리케이션 상태 모니터링, 진단 및 분석에서 각기 고유의 장점이 있습니다. 애플리케이션을 계측하는 개발자는 애플리케이션 크기, 예상되는 원격 분석 데이터 크기, 메트릭 정확도 및 경고에 대한 비즈니스 요구 사항에 따라 특정 시나리오에 가장 적합한 메트릭 유형을 선택할 수 있습니다.
+이 문서에서는 로그를 기반으로 하는 "기존" 응용 프로그램 인사이트 메트릭과 현재 공개 미리 보기에 있는 미리 집계된 메트릭 간의 차이점을 설명합니다. 두 메트릭 모두 Application Insights 사용자에게 제공되며 애플리케이션 상태 모니터링, 진단 및 분석에서 각기 고유의 장점이 있습니다. 애플리케이션을 계측하는 개발자는 애플리케이션 크기, 예상되는 원격 분석 데이터 크기, 메트릭 정확도 및 경고에 대한 비즈니스 요구 사항에 따라 특정 시나리오에 가장 적합한 메트릭 유형을 선택할 수 있습니다.
 
 ## <a name="log-based-metrics"></a>로그 기반 메트릭
 
 최근까지 응용 프로그램 모니터링 원격 분석 데이터 모델은 요청, 예외, 종속성 호출, 페이지 뷰 등과 같이 미리 정의된 소수의 이벤트 유형을 기반으로 했습니다. 개발자는 SDK를 사용하여 이러한 이벤트를 수동으로 내보사거나(SDK를 명시적으로 호출하는 코드를 작성하여) 자동 계측에서 이벤트의 자동 컬렉션을 사용할 수 있습니다. 두 경우 모두 Application Insights 백 엔드가 모든 수집된 이벤트를 로그로 저장하고, 로그의 이벤트 기반 데이터를 시각화하기 위해 Azure Portal의 Application Insights 블레이드가 분석 및 진단 도구 역할을 합니다.
 
-일련의 이벤트 전체를 유지하기 위해 로그를 사용하면 뛰어난 분석 및 진단 값을 제공할 수 있습니다. 예를 들어, 특정 URL에 대한 정확한 요청 수와, 이러한 호출을 수행한 고유 사용자 수를 파악할 수 있습니다. 또는 사용자 세션에 대한 예외와 종속성 호출을 포함하여 상세 진단 추적을 얻을 수 있습니다. 이러한 정보 유형이 있으면 애플리케이션 상태 및 사용에 대한 가시성이 크게 향상되어 앱 문제 진단에 필요한 시간을 줄일 수 있습니다. 
+일련의 이벤트 전체를 유지하기 위해 로그를 사용하면 뛰어난 분석 및 진단 값을 제공할 수 있습니다. 예를 들어, 특정 URL에 대한 정확한 요청 수와, 이러한 호출을 수행한 고유 사용자 수를 파악할 수 있습니다. 또는 사용자 세션에 대한 예외와 종속성 호출을 포함하여 상세 진단 추적을 얻을 수 있습니다. 이러한 정보 유형이 있으면 애플리케이션 상태 및 사용에 대한 가시성이 크게 향상되어 앱 문제 진단에 필요한 시간을 줄일 수 있습니다.
 
-동시에, 많은 원격 분석 데이터를 생성하는 애플리케이션의 경우 전체 이벤트 집합을 수집하는 것이 실용적이지 못하거나 심지어 불가능할 수 있습니다. 이벤트 규모가 너무 큰 상황에서는 Application Insights가 [샘플링](https://docs.microsoft.com/azure/application-insights/app-insights-sampling), [필터링](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling)처럼 수집 및 저장되는 이벤트 수를 줄이는 여러 원격 분석 데이터 규모 절감 기법을 구현합니다. 그렇지만 저장된 이벤트 수가 줄면 그 뒤의 메트릭 정확도도 낮아지기 때문에 로그에 저장된 이벤트의 쿼리 시간 집계를 수행해야 합니다.
+동시에 많은 양의 원격 분석을 생성하는 응용 프로그램에는 전체 이벤트 집합을 수집하는 것이 비실용적일 수도 있습니다. 이벤트 규모가 너무 큰 상황에서는 Application Insights가 [샘플링](https://docs.microsoft.com/azure/application-insights/app-insights-sampling), [필터링](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling)처럼 수집 및 저장되는 이벤트 수를 줄이는 여러 원격 분석 데이터 규모 절감 기법을 구현합니다. 그렇지만 저장된 이벤트 수가 줄면 그 뒤의 메트릭 정확도도 낮아지기 때문에 로그에 저장된 이벤트의 쿼리 시간 집계를 수행해야 합니다.
 
 > [!NOTE]
 > Application Insights에서 로그에 저장된 이벤트 및 측정값의 쿼리 시간 집계를 기준으로 하는 메트릭을 로그 기반 메트릭이라 합니다. 일반적으로 이러한 메트릭은 이벤트 속성으로부터 여러 차원을 갖기 때문에 분석에 아주 적합하지만 샘플링과 필터링이 이 메트릭의 정확도에 부정적인 영향을 미칩니다.
 
 ## <a name="pre-aggregated-metrics"></a>사전 집계 메트릭
 
-로그 기반 메트릭 외에도 2018년 가을 Application Insights 팀은 시계열에 최적화된 특수 저장소에 저장되는 메트릭의 공개 미리 보기를 발표했습니다. 이 새 메트릭은 이제 속성이 많은 개별 이벤트로 유지되지 않습니다. 그 대신 사전 집계 시계열로 저장되며 키 차원만 있습니다. 이 때문에 쿼리 시간에서는 새 메트릭이 우수합니다. 데이터 검색이 훨씬 빨라지고 컴퓨팅 능력이 적게 필요하기 때문입니다. 결과적으로 [메트릭 차원에 대한 거의 실시간 경고, ](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts)응답성이 더 우수한 [대시보드](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard) 등, 새로운 시나리오가 가능해집니다.
+2018년 말에 애플리케이션 인사이트 팀은 로그 기반 메트릭 외에도 타임시리즈에 최적화된 특수 리포지토리에 저장된 메트릭의 공개 미리 보기를 제공했습니다. 이 새 메트릭은 이제 속성이 많은 개별 이벤트로 유지되지 않습니다. 그 대신 사전 집계 시계열로 저장되며 키 차원만 있습니다. 이 때문에 쿼리 시간에서는 새 메트릭이 우수합니다. 데이터 검색이 훨씬 빨라지고 컴퓨팅 능력이 적게 필요하기 때문입니다. 결과적으로 [메트릭 차원에 대한 거의 실시간 경고, ](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts)응답성이 더 우수한 [대시보드](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard) 등, 새로운 시나리오가 가능해집니다.
 
 > [!IMPORTANT]
-> Application Insights에는 로그 기반과 사전 집계 메트릭이 함께 있습니다. 이 둘을 구분하기 위해 Application Insights UX에서는 이제 사전 집계 메트릭을 "표준 메트릭(미리 보기)"라 하고 전통적 이벤트 메트릭의 이름을 "로그 기반 메트릭"으로 변경했습니다.
+> Application Insights에는 로그 기반과 사전 집계 메트릭이 함께 있습니다. 두 가지를 구분하기 위해 애플리케이션 인사이트 UX에서 미리 집계된 메트릭을 "표준 메트릭(미리 보기)"이라고 하며 이벤트의 기존 메트릭의 이름이 "로그 기반 메트릭"으로 변경되었습니다.
 
-최신 SDK(.NET용 [Application Insights 2.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK 이상)에서는 원격 분석 데이터 규모 절감 기법을 적용하기 전에 수집 중에 메트릭을 사전 집계합니다. 즉 최신 Application Insights SDK를 사용할 때는 새 메트릭의 정확도가 샘플링 및 필터링의 영향을 받지 않습니다.
+최신 SDK(.NET용 [Application Insights 2.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK 이상)에서는 원격 분석 데이터 규모 절감 기법을 적용하기 전에 수집 중에 메트릭을 사전 집계합니다. 즉, 최신 응용 프로그램 인사이트 SDK를 사용할 때 새 메트릭의 정확도는 샘플링 및 필터링에 의해 영향을 받지 않습니다.
 
-사전 집계를 구현하지 않는 SDK의 경우(즉 Application Insights SDK 구 버전 또는 브라우저 계측) 지속적으로 Application Insights 백 엔드가 Application Insights 이벤트 수집 엔드포인트에서 수신한 이벤트를 집계하여 새 메트릭을 입력합니다. 즉 실제 전송되는 데이터 규모는 줄지 않지만 사전 집계 메트릭을 사용할 수 있고, 수집 중에 메트릭을 사전 집계하지 않는 SDK에서 거의 실시간에 근접한 차원 경고 지원과 성능 향상을 경험할 수 있습니다.
+사전 집계(즉, 이전 버전의 응용 프로그램 인사이트 SDK 또는 브라우저 계측)를 구현하지 않는 SDK의 경우 응용 프로그램 인사이트 백엔드는 여전히 Application Insights 이벤트 컬렉션 끝점에서 받은 이벤트를 집계하여 새 메트릭을 채웁니다. 즉, 와이어를 통해 전송되는 데이터의 볼륨감소의 이점을 누리지 못하지만, 사전 집계된 메트릭을 사용하고 수집 중에 메트릭을 미리 집계하지 않는 SDK를 사용하여 거의 실시간 차원 경고를 더 나은 성능과 지원을 경험할 수 있습니다.
 
 컬렉션 엔드포인트는 수집 샘플링 이전에 사전 집계를 수행하므로, 애플리케이션에 사용 중인 SDK 버전에 관계없이 [수집 샘플링](https://docs.microsoft.com/azure/application-insights/app-insights-sampling)이 사전 집계 메트릭의 정확도에 영향을 미치지 않습니다.  
 
@@ -49,7 +49,7 @@ ms.locfileid: "79275842"
 
 ## <a name="custom-metrics-dimensions-and-pre-aggregation"></a>사용자 지정 메트릭 차원과 사전 집계
 
-[trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) 또는 [GetMetric 및 TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) API 호출을 사용하여 보내는 모든 메트릭은 자동으로 로그와 메트릭 저장소에 모두 저장됩니다. 그러나 사용자 지정 메트릭의 로그 기반 버전은 모든 차원을 유지하는 반면 사전 집계 메트릭 버전은 기본적으로 차원을 저장하지 않습니다. [사용량 및 예상 비용](https://docs.microsoft.com/azure/application-insights/app-insights-pricing) 탭에서 "사용자 지정 메트릭 차원에 경고 사용"을 선택하여 사용자 지정 메트릭의 차원 수집을 실행할 수 있습니다. 
+[trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) 또는 [GetMetric 및 TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) API 호출을 사용하여 보내는 모든 메트릭은 자동으로 로그와 메트릭 저장소에 모두 저장됩니다. 그러나 사용자 지정 메트릭의 로그 기반 버전은 모든 차원을 유지하는 반면 사전 집계 메트릭 버전은 기본적으로 차원을 저장하지 않습니다. '맞춤 측정기준에 대한 경고 사용'을 확인하여 [사용량 및 예상 비용](https://docs.microsoft.com/azure/application-insights/app-insights-pricing) 탭에서 맞춤 측정항목 측정기준 컬렉션을 켤 수 있습니다. 
 
 ![사용량 및 예상 비용](./media/pre-aggregated-metrics-log-metrics/001-cost.png)
 
@@ -62,6 +62,12 @@ ms.locfileid: "79275842"
 [Azure Monitor 메트릭 탐색기를](../platform/metrics-getting-started.md) 사용하여 미리 집계된 및 로그 기반 메트릭에서 차트를 플롯하고 차트가 있는 대시보드를 작성합니다. 원하는 Application Insights 리소스를 선택한 다음, 네임스페이스 선택기를 사용하여 표준(미리 보기)과 로그 기반 메트릭 사이를 전환하거나 사용자 지정 메트릭 네임스페이스를 선택합니다.
 
 ![메트릭 네임스페이스](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
+
+## <a name="pricing-models-for-application-insights-metrics"></a>애플리케이션 인사이트 메트릭에 대한 가격 책정 모델
+
+로그 기반이든 사전 집계든 애플리케이션 인사이트에 메트릭을 수집하면 [여기에](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model)설명된 대로 수집된 데이터의 크기에 따라 비용이 발생합니다. 모든 차원을 포함한 사용자 지정 메트릭은 항상 Application Insights 로그 저장소에 저장됩니다. 또한 측정기준이 없는 맞춤 측정항목의 사전 집계 된 버전은 기본적으로 측정항목 저장소로 전달됩니다.
+
+맞춤 [측정항목 측정기준에 대한 경고 활성화](#custom-metrics-dimensions-and-pre-aggregation) 옵션을 선택하여 메트릭 저장소에 미리 집계된 측정항목의 모든 측정기준을 저장하면 [사용자 지정 메트릭 가격 책정에](https://azure.microsoft.com/pricing/details/monitor/)따라 **추가** 비용이 발생할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

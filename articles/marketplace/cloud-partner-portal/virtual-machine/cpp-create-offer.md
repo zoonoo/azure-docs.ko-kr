@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: bc1cf7a839307e65bd91eb29531663141e521472
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9d06809df2774224b61fd3fb643ab628dd2890f6
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278044"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273990"
 ---
 # <a name="create-virtual-machine-offer"></a>Virtual Machine 제안 만들기
+
+> [!IMPORTANT]
+> 2020년 4월 13일부터 Azure 가상 머신 의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 가상 [컴퓨터 만들기 의](https://aka.ms/CreateAzureVMoffer) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
 
 이 섹션에서는 Azure Marketplace용 새 VM(가상 머신) 제안 요청을 만드는 데 필요한 단계를 나열합니다.  모든 제안은 Azure Marketplace에서 자체의 고유한 엔터티로 나타나며 하나 이상의 SKU와 연결됩니다.  VM 제안을 구성하는 자산 및 지원 서비스의 그룹은 다음과 같습니다. 
 
@@ -26,7 +29,7 @@ ms.locfileid: "80278044"
 |  ---------------   |  ---------------  |
 |    SKU            |  제안의 가장 작은 구매 가능 단위입니다. 단일 제안(제품 클래스)은 여러 개의 SKU를 연결하여 지원되는 기능, VM 이미지 유형 및 청구 모델을 구별할 수 있습니다. |
 |  Marketplace       | 마케팅, 법적 정보 및 잠재 고객 관리 자산 및 사양이 포함됩니다.  <ul><li> 마케팅 자산에는 제안 이름, 설명 및 로고가 포함됩니다.</li> <li> 법적 정보 자산에는 개인정보처리방침, 사용 약관 및 기타 법률 문서가 포함됩니다.</li>  <li> 잠재 고객 관리 정책을 사용하면 Azure Marketplace 최종 사용자 포털에서 잠재 고객을 처리하는 방법을 지정할 수 있습니다.</li> </ul> |
-| 고객 지원팀            | 지원 연락처 및 정책 정보가 포함됩니다. |
+| 지원            | 지원 연락처 및 정책 정보가 포함됩니다. |
 | 시험 사용         | 최종 사용자가 제안을 구입하기 전에 해당 제안을 테스트할 수 있도록 하는 자산을 정의합니다. |
 |  |  |
 

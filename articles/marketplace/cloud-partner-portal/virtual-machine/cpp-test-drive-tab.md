@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
-ms.openlocfilehash: d4fc8762e25825b21637b16b751d57a0dcbf369e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 22538047adc17a40438359e11bff7fd20e43bcc6
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288804"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273089"
 ---
 # <a name="virtual-machine-test-drive-tab"></a>가상 머신 시험 사용 탭
+
+> [!IMPORTANT]
+> 2020년 4월 13일부터 Azure 가상 머신 의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 가상 [컴퓨터 만들기 의](https://aka.ms/CreateAzureVMoffer) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
 
 **새 제안** 페이지의 **시험 사용** 탭을 사용하면 자기 주도형 실습 데모를 통해 잠재 고객에게 표준화된 시나리오에서 설명된 제품의 주요 기능과 이점을 직접 소개할 수 있습니다.  시험 사용은 시험 사용을 지원하는 제안 유형에 대한 선택적 기능입니다.  시험 사용을 사용하려면 지원 자산이 올바르게 구현되어야 합니다.  자세한 내용은 [Azure Marketplace 시험 사용](https://azure.microsoft.com/blog/azure-marketplace-test-drive/) 문서를 참조하세요.  <!--TD: Replace with migrated version of Test Drive article! -->
 
@@ -28,10 +31,10 @@ ms.locfileid: "80288804"
 다음 표에서는 이러한 필드의 용도와 내용을 설명합니다.  필수 필드는 별표(*)로 표시됩니다.
 
 
-|    필드                  |       설명                                                            |
+|    필드                  |       Description                                                            |
 |  ---------                |     ---------------                                                          |
 |  *세부 정보*   |  |
-| **설명\***           | 시험 사용 시나리오에 대한 개요를 제공합니다. 이 텍스트는 시험 사용을 프로비전하는 동안 사용자에게 표시됩니다. 서식 있는 콘텐츠를 제공하려는 경우 이 필드는 기본 HTML을 지원합니다.  |
+| **Description\***           | 시험 사용 시나리오에 대한 개요를 제공합니다. 이 텍스트는 시험 사용을 프로비전하는 동안 사용자에게 표시됩니다. 서식 있는 콘텐츠를 제공하려는 경우 이 필드는 기본 HTML을 지원합니다.  |
 | **사용자 설명서\***           | 시험 사용 사용자가 솔루션을 사용하는 방법을 이해하는 데 도움이 되는 자세한 사용자 설명서(.pdf)를 업로드합니다.  |
 | **시험 사용 데모 비디오** | 솔루션을 보여 주는 비디오를 업로드합니다.  이 옵션을 선택한 경우 비디오에 대한 이름, URL(YouTube 또는 Vimeo에서 호스팅됨) 및 썸네일(533x324 픽셀)을 제공해야 합니다. |
 | *기술 구성* |  |

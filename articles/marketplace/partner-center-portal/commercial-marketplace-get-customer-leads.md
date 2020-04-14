@@ -5,16 +5,16 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: ce576d9825819770486197a6c39425adf6ac3208
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 05b166b2ec46900d9e3972025efb581d9619ec6a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275903"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252644"
 ---
-# <a name="customer-leads-from-your-marketplace-offer"></a>Marketplace 제품의 잠재 고객
+# <a name="customer-leads-from-your-marketplace-offer"></a>마켓플레이스 제품의 잠재 고객
 
 잠재 고객은 [Azure 마켓플레이스](https://azuremarketplace.microsoft.com) 또는 [AppSource](https://appsource.microsoft.com)에서 오퍼를 관심 있거나 배포하는 고객입니다. 오퍼가 마켓플레이스에 게시되면 고객 잠재 고객을 받게 됩니다. 이 문서에서는 다음을 설명합니다.
 
@@ -133,11 +133,11 @@ Azure Blob 잠재 고객 대상은 더 이상 지원되지 않으므로 오퍼�
 
 ### <a name="i-received-an-email-from-marketplace-why-cant-i-find-the-lead-in-my-crm"></a>Marketplace에서 메일을 받았으나 CRM에서 리드를 찾을 수 없는 이유는 무엇인가요?
 
-최종 사용자의 메일 도메인 원본이 .edu일 수 있습니다. 개인 정보 보호를 위해 .edu 도메인의 PII 데이터는 전달되지 않습니다. aka.ms/marketplacepublishersupport 통해 지원 티켓을 제출합니다.
+최종 사용자의 메일 도메인 원본이 .edu일 수 있습니다. 개인 정보 보호를 위해 .edu 도메인에서 개인 식별 정보를 전달하지 않습니다. aka.ms/marketplacepublishersupport 통해 지원 티켓을 제출합니다.
 
 ### <a name="i-have-configured-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Azure 테이블을 잠재 고객 대상으로 구성한 경우 잠재 고객을 어떻게 볼 수 있습니까?
 
-Azure Portal에서 Azure 테이블에 저장된 잠재 고객 데이터에 액세스하거나 Azure [저장소 탐색기를](https://azure.microsoft.com/features/storage-explorer/) 무료로 다운로드하여 설치하여 Azure 저장소 계정의 테이블 데이터를 볼 수 있습니다.
+Azure 포털에서 Azure 테이블에 저장된 잠재 고객 데이터에 액세스하거나 Azure [저장소 탐색기를](https://azure.microsoft.com/features/storage-explorer/) 무료로 다운로드하여 설치하여 Azure 저장소 계정의 테이블 데이터를 볼 수 있습니다.
 
 ### <a name="i-have-configured-azure-table-as-my-lead-destination-can-i-get-notified-whenever-a-new-lead-is-sent-by-marketplace"></a>Azure 테이블을 리드 대상으로 구성했습니다. Marketplace에서 새 리드를 보낼 때마다 알림을 받을 수 있나요?
 
@@ -149,13 +149,17 @@ Azure Portal에서 Azure 테이블에 저장된 잠재 고객 데이터에 액�
 
 ### <a name="there-was-an-issue-with-my-lead-destination-and-i-missed-some-leads-can-i-have-them-sent-to-me-in-an-email"></a>리드 대상에 문제가 있습니다. 일부 리드가 누락되었습니다. 메일로 보내줄 수 있나요?
 
-PII(프라이빗 식별 정보) 정책으로 인해 보안되지 않은 이메일을 통해 리드 정보를 공유할 수 없습니다.
+개인 식별 정보 정책으로 인해 보안되지 않은 이메일을 통해 잠재 고객 정보를 공유할 수 없습니다.
 
 ### <a name="i-have-configured-azure-table-as-my-lead-destination-how-much-will-it-cost"></a>Azure 테이블을 잠재 고객 대상으로 구성한 경우 비용이 얼마나 들까요?
 
 리드 생성 데이터가 부족합니다(거의 모든 게시자에 대해 1GB 미만임). 비용은 수신된 리드 수에 따라 결정됩니다. 월 1,000개의 리드가 수신되면 약 50센트가 부과됩니다. 스토리지 가격에 대한 자세한 내용은 [스토리지 가격](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
 
 질문에 여전히 답변이 없는 경우 aka.ms/marketplacepublishersupport 통해 지원팀에 문의한 다음 **'오퍼 생성'→** '잠재 고객 **관리 구성'을** **선택합니다.** 
+
+### <a name="i-am-receiving-email-notifications-when-new-customer-leads-are-received-how-can-i-configure-who-to-receive-these-emails"></a>새 고객 잠재 고객을 받으면 이메일 알림을 받습니다. 이러한 이메일을 받을 사람을 어떻게 구성할 수 있습니까?
+
+파트너 센터에서 오퍼에 액세스하고 **잠재 고객** -> 관리**편집을**> **제안 설정** 페이지로 이동합니다. 연락처 전자 메일 필드 에서 전자 **메일** 주소를 업데이트합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

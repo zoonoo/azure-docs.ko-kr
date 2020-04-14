@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: d4d59642f638e7b1221c35a4bb281923571d5066
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 37005a722d4a1962b4f6e1ddb8bb1c7a1229d28a
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297594"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273293"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Azure Cloud Shell에서 파일 유지
 Cloud Shell은 Azure File 스토리지를 활용하여 세션 간에 파일을 유지합니다. 처음 시작 시 Cloud Shell은 세션 간에 파일을 유지하기 위해 새 또는 기존 파일 공유를 연결하도록 요구합니다.
@@ -50,7 +50,7 @@ Cloud Shell은 Azure File 스토리지를 활용하여 세션 간에 파일을 �
 스토리지 설정 프롬프트가 나타나면 **고급 옵션 표시**를 선택하여 추가 옵션을 봅니다. 채워진 스토리지 옵션은 LRS(로컬 중복 스토리지), GRS(지역 중복 스토리지) 및 ZRS(영역 중복 스토리지) 계정을 필터링합니다. 
 
 > [!NOTE]
-> 지원 파일 공유의 복원력을 높이려면 GRS 또는 ZRS 스토리지 계정을 사용하는 것이 좋습니다. 목표 및 가격 기본 설정에 따라 중복성 유형이 달라집니다. [Azure Storage 계정의 복제 옵션에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
+> 지원 파일 공유의 복원력을 높이려면 GRS 또는 ZRS 스토리지 계정을 사용하는 것이 좋습니다. 목표 및 가격 기본 설정에 따라 중복성 유형이 달라집니다. [Azure Storage 계정의 복제 옵션에 대해 자세히 알아보세요](../storage/common/storage-redundancy.md).
 
 ![리소스 그룹 설정](media/persisting-shell-storage/advanced-storage.png)
 
@@ -169,5 +169,5 @@ clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareNam
 
 ## <a name="next-steps"></a>다음 단계
 [Cloud Shell 빠른 시작](quickstart.md) <br>
-[Microsoft Azure Files 스토리지에 대해 알아보기](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
+[Microsoft Azure Files 스토리지에 대해 알아보기](../storage/files/storage-files-introduction.md) <br>
 [스토리지 태그에 대해 알아보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

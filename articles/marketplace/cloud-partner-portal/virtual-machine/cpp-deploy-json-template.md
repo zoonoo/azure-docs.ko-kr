@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 2db8c05d086c7b4e8537a1c17b1ca84eedb19857
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 506412c23288d58c2f59b91a300265ddd79428bf
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277874"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273922"
 ---
-# <a name="virtual-hard-disk-deployment-template"></a>가상 하드 디스크 배포 템플릿 
+# <a name="virtual-hard-disk-deployment-template"></a>가상 하드 디스크 배포 템플릿
+
+> [!IMPORTANT]
+> 2020년 4월 13일부터 Azure 가상 머신 의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. [Azure VM 이미지 인증의](https://aks.ms/CertifyVMimage) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
 
 다음 Azure Resource Manager 템플릿은 로컬 VHD(가상 하드 디스크)에서 만든 새 Azure VM(가상 머신) 인스턴스를 정의합니다.  이 템플릿은 [사용자 VHD에서 Azure VM 배포](./cpp-deploy-vm-user-image.md) 문서에서 사용됩니다. 
 

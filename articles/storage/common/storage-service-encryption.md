@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f112a4523bc5af9ecae57e93dfb90795d3fe9c50
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: ff9191c0994d4e26da69e1c4ceaf7ef6c93e9960
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113270"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253155"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>미사용 데이터에 대한 Azure 저장소 암호화
 
@@ -45,7 +45,7 @@ Azure Storage 암호화의 기본 암호화 모듈에 대한 자세한 내용은
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |    암호화/암호 해독 작업    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
 |    지원되는 Azure 저장소 서비스    |    모두                                                |    Blob 저장소, Azure 파일<sup>1,2</sup>                                                                                                               |    Blob Storage                                                                  |
-|    키 스토리지                         |    마이크로소프트 키 스토어    |    Azure Key Vault                                                                                                                              |    Azure 키 볼트 또는 기타 키 저장소                                                                 |
+|    키 스토리지                         |    마이크로소프트 키 스토어    |    Azure Key Vault                                                                                                                              |    고객 고유의 키 스토어                                                                 |
 |    키 회전 책임         |    Microsoft                                          |    Customer                                                                                                                                     |    Customer                                                                      |
 |    키 제어                          |    Microsoft                                     |    Customer                                                                                                                    |    Customer                                                                 |
 

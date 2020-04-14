@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: 1703853f42b52dccc80fdfadaa09b67e18a19db8
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 3df79fb1e103ddfaafeb348641e675cd250f5858
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632905"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271695"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>2단계 인증 및 직장 또는 학교 계정의 일반적인 문제
 
@@ -65,6 +65,7 @@ Azure Active Directory(Azure AD) 조직이 2단계 인증을 켜면 사용자 �
 끄기 방해 금지 | 모바일 기기의 **방해 금지** 기능을 켜지 않았는지 확인합니다. 이 기능이 켜져 있으면 모바일 장치에서 알림을 알릴 수 없습니다. 이 기능을 끄는 방법에 대한 지침은 모바일 장치 설명서를 참조하십시오.
 전화 번호 차단 해제 | 미국에서 Microsoft의 음성 통화는 +1 (866) 539 4191, +1 (855) 330 8653 및 +1 (877) 668 6536입니다.
 배터리 관련 설정 확인 | 이것은 표면에 조금 이상한 것 같다, 하지만 덜 사용 된 애플 리 케이 션 백그라운드에서 활성 남아 에서 중지 배터리 최적화를 설정 한 경우, 알림 시스템은 가장 가능성이 영향을. 이 문제를 해결하려면 인증 앱 및 메시징 앱의 배터리 최적화를 해제한 다음 계정에 다시 로그인해 봅니다.
+타사 보안 앱 사용 안 함 | 알 수 없는 발신자를 최소화하기 위해 문자 메시지 또는 전화 통화를 보호하는 앱이 있는 경우 확인 코드가 수신되지 않을 수 있습니다. 휴대폰에서 타사 보안 앱을 사용하지 않도록 설정한 다음 다른 확인 코드 전송을 요청합니다.
 
 ## <a name="im-not-getting-prompted-for-my-second-verification-information"></a>두 번째 확인 정보가 표시되지 않습니다.
 

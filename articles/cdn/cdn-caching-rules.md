@@ -3,7 +3,7 @@ title: 캐싱 규칙을 사용하여 Azure CDN 캐싱 동작 제어 | Microsoft 
 description: 'CDN 캐싱 규칙을 사용하여 전역적으로 그리고 조건(예: URL 경로 및 파일 확장명)에 따라 기본 캐시 만료 동작을 설정하거나 수정할 수 있습니다.'
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.service: azure-cdn
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
-ms.author: magattus
-ms.openlocfilehash: ddd7dc7e1245c2a77e866a454bf6bfa3c1f16f88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 874ec75fb9173b6cee50bf8880510464fa13e9d2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74278129"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254243"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>캐싱 규칙을 사용하여 Azure CDN 캐싱 동작 제어
 
@@ -113,7 +113,7 @@ Azure CDN(콘텐츠 전송 네트워크)에는 파일을 캐시하는 방법을 
 > - **Verizon의 Azure CDN Standard** 프로필의 경우 일반적으로 10분 후 전파가 완료됩니다.  
 >
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [캐싱 작동 방식](cdn-how-caching-works.md)
 - [자습서: Azure CDN 캐싱 규칙 설정](cdn-caching-rules-tutorial.md)

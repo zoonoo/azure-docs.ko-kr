@@ -8,14 +8,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 6fe07da1e658efa8150c8cafb95bc5719c780aff
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: b2a621a23a81e4fb4f47e7c99d780211973e30a0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879028"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81274971"
 ---
-컨테이너는 [REST 기반 엔드포인트 API를](../rest-text-to-speech.md)제공합니다. 플랫폼, 프레임워크 및 언어 변형에 대한 많은 [샘플 소스 코드 프로젝트를](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/) 사용할 수 있습니다.
+컨테이너는 [REST 기반 엔드포인트 API를](../rest-text-to-speech.md)제공합니다. 플랫폼, 프레임워크 및 언어 변형에 대한 많은 [샘플 소스 코드 프로젝트를](https://github.com/Azure-Samples/Cognitive-Speech-TTS) 사용할 수 있습니다.
 
 표준 *텍스트 음성 변환* 컨테이너를 사용하면 다운로드한 이미지 태그의 로캘과 음성에 의존해야 합니다. 예를 들어 태그를 다운로드한 `latest` 경우 기본 `en-US` 로캘과 음성입니다. `JessaRUS` 그런 `{VOICE_NAME}` 다음 인수는 . [`en-US-JessaRUS`](../language-support.md#standard-voices) 아래 의 예제 SSML을 참조하십시오.
 

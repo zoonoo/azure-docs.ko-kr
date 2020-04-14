@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: ad56041f853d030e3a286610fe4872bffecaee12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a64dee6da521764a38fc60bee06545f6a561c297
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77444668"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257704"
 ---
 # <a name="specify-marketplace-images-available-to-lab-creators"></a>랩 작성자에 사용할 수 있는 Marketplace 이미지 지정
 랩 계정 소유자는 랩 작성자가 랩 계정에서 랩을 만들 때 사용할 수 있는 Marketplace 이미지를 지정할 수 있습니다. 
@@ -50,6 +50,19 @@ ms.locfileid: "77444668"
 비활성화된 이미지를 **사용하려면... (타원)** 마지막 열에서 이미지 **활성화를**선택합니다. 또는 이미지 이름 앞에 있는 확인란을 선택하고 도구 모음에서 **선택한 이미지 활성화를** 선택합니다. 
 
 여러 이미지를 동시에 사용하지 않도록 설정하려면 이미지 이름 앞에 있는 확인란을 선택하고 도구 모음에서 **선택한 이미지 활성화를** 선택합니다. 
+
+## <a name="enable-images-at-the-time-of-lab-creation"></a>실험실 생성 시 이미지 사용
+랩 을 만들 때 더 많은 이미지를 사용하도록 설정할 수 있습니다. 
+
+1. **랩 계정 소유자** 자격 증명을 사용하여 Azure Lab 서비스 웹 [사이트에](https://labs.azure.com) 로그인
+2. 기본 가상 시스템 이미지 또는 아래쪽 화살표를 선택합니다. 
+3. **더 많은 이미지 옵션 활성화를 선택합니다.** 
+
+    ![더 많은 이미지 옵션 사용](../media/specify-marketplace-images/enable-more-images-menu.png)
+4. 선택한 이미지를 활성화하려면 이전 섹션의 지침에 따릅니다. 
+5. 새 **랩** 창을 닫고 다시 열어 이전 단계에서 선택한 이미지를 확인해야 할 수 있습니다. 
+
+
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요.

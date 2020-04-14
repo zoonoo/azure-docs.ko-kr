@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2020
+ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: a2d0b9bdfba1b96ad42e45d54faf106b2361e29d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7cdc9f9a4503c786065b6d514f61fe17eae4ce5e
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76264793"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270913"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Azure DevTest 랩에서 랩용 자동 종료 구성 및 가상 컴퓨터 계산
 
@@ -28,7 +28,7 @@ ms.locfileid: "76264793"
 ## <a name="configure-autoshutdown-for-lab-vms-devtest-labs"></a>랩 VM에 대한 자동 종료 구성(개발자 테스트 랩)
 Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 비용을 제어하고 랩에서의 낭비를 최소화할 수 있습니다. 이 문서에서는 랩 계정에 대한 자동 종료 정책을 구성하고 랩 계정의 랩에 대한 자동 종료 설정을 구성하는 방법을 보여 주며 이 문서에서는 모든 랩 정책을 설정하는 방법을 보려면 [Azure DevTest Labs에서 랩 정책 정의](devtest-lab-set-lab-policy.md)를 참조하세요.  
 
-### <a name="set-auto-shut-down-policy-for-a-lab"></a>랩에 대한 자동 종료 정책 설정
+### <a name="set-auto-shutdown-policy-for-a-lab"></a>랩에 대한 자동 종료 정책 설정
 랩 소유자로서 랩에서 모든 VM에 대한 종료 일정을 구성할 수 있습니다. 이 작업을 수행하면 사용되지 않는(유휴 상태) 머신의 실행 비용을 절약할 수 있습니다. 모든 랩 VM에서 중앙 집중식으로 종료 정책을 적용할 수 있을 뿐만 아니라 랩 사용자가 개별 머신에 대한 일정을 설정하는 수고를 줄일 수도 있습니다. 이 기능을 사용하면 랩 사용자에게 모든 권한에 대한 권한 없음 제공에서 시작하는 랩 일정에 대한 정책을 설정할 수 있습니다. 랩 소유자로서 다음 단계를 수행하여 이 정책을 구성할 수 있습니다.
 
 1. 랩의 홈 페이지에서 **구성 및 정책**을 선택합니다.
@@ -42,7 +42,7 @@ Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 �
 
 랩에 대한 정책을 보거나 변경하려면 다음 단계를 수행합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **모든 서비스를**선택한 다음 목록에서 **DevTest 랩을 선택합니다.**
 3. 랩 목록에서 원하는 랩을 탭합니다.   
 4. **구성 및 정책**을 선택합니다.
@@ -102,7 +102,7 @@ Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 �
     ![새 논리 앱 메뉴](./media/devtest-lab-auto-shutdown/new-logic-app.png)
 2. 논리 앱 - 페이지 **만들기에서** 다음 단계를 수행합니다. 
     1. 논리 앱의 **이름을** 입력합니다.
-    2. Azure **구독을**선택합니다.
+    2. Azure **구독**을 선택합니다.
     3. 새 **리소스 그룹**을 만들거나 기존 리소스 그룹을 선택합니다. 
     4. 논리 앱의 **위치를** 선택합니다. 
 
@@ -191,13 +191,34 @@ Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 �
 
 ## <a name="configure-autoshutdown-for-compute-vms"></a>VM 계산을 위한 자동 종료 구성
 
-1. 가상 **컴퓨터** 페이지에서 왼쪽 메뉴에서 **자동 종료를** 선택합니다. 
+1. 가상 **컴퓨터** 페이지에서 **작업** 섹션의 왼쪽 메뉴에서 **자동 종료를** 선택합니다. 
 2. 자동 **종료** 페이지에서 이 정책을 활성화하려면 **켜기를** 선택하고 **끄기를** 선택하여 사용하지 않도록 설정합니다.
 3. 이 정책을 사용하도록 설정하면 VM을 종료할 **시간(및** **표준 시간대)을**지정합니다.
 4. 지정된 자동 종료 시간 30분 전에 알림을 보낼 수 있는 옵션의 **예** 또는 **아니요를** 지정합니다. **예**를 선택할 경우 알림을 게시하거나 보낼 위치를 지정하는 이메일 주소 또는 웹후크 URL 엔드포인트를 입력합니다. 사용자에게 알림이 전송되고 종료를 지연할 수 있는 옵션이 제공됩니다. 자세한 내용은 [알림](#notifications) 섹션을 참조하세요. 
 9. **저장**을 선택합니다.
 
     ![계산 VM에 대한 자동 종료 구성](./media/devtest-lab-auto-shutdown/comnpute-auto-shutdown.png)
+
+### <a name="view-activity-logs-for-auto-shutdown-updates"></a>자동 종료 업데이트에 대한 활동 로그 보기
+자동 종료 설정을 업데이트하면 VM의 활동 로그에 기록된 활동이 표시됩니다. 
+
+1. Azure [포털에서](https://portal.azure.com)VM의 홈 페이지로 이동합니다.
+2. 왼쪽 메뉴에서 **활동 로그를** 선택합니다. 
+3. 리소스 제거: 필터에서 **mycomputevm.**
+3. 활동 로그에서 **일정 추가 또는 수정** 작업이 표시되는지 확인합니다. 표시되지 않으면 언젠가 기다렸다가 활동 로그를 새로 고칩니다.
+
+    ![활동 로그 항목](./media/devtest-lab-auto-shutdown/activity-log-entry.png)
+4. 일정 **추가 또는 수정** 작업을 선택하여 **요약** 페이지에서 다음 정보를 볼 수 있습니다.
+
+    - 작업 이름(일람표 추가 또는 수정)
+    - 자동 종료 설정이 업데이트된 날짜 및 시간입니다.
+    - 설정을 업데이트한 사용자의 전자 메일 주소입니다. 
+
+        ![활동 로그 항목 요약](./media/devtest-lab-auto-shutdown/activity-log-entry-summary.png)
+5. 추가 또는 일정 페이지에서 **기록 변경** 탭으로 **전환하거나 일정** 변경 기록을 표시합니다. 다음 예에서는 종료 시간이 2020년 4월 10일 오후 7시에서 오후 6시로 15:18:47 EST로 변경되었습니다. 그리고, 설정은 15:25:09 EST에서 비활성화되었습니다. 
+
+    ![활동 로그 - 변경 기록](./media/devtest-lab-auto-shutdown/activity-log-entry-change-history.png)
+6. 작업에 대한 자세한 내용을 보려면 추가 또는 일정 수정 페이지에서 **JSON** 탭으로 **전환합니다.**
 
 ## <a name="next-steps"></a>다음 단계
 모든 정책을 설정하는 방법에 대해 알아보려면 [Azure DevTest Labs의 랩 정책 정의를](devtest-lab-set-lab-policy.md)참조하십시오.

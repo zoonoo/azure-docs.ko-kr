@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: b55c351927a56afce697d07f41bfbe668144d68d
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: ce9919a0b0f614e427c12ee3e3fbda0be46470ea
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475511"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273310"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure 기계 학습 릴리스 정보
 
@@ -22,11 +22,59 @@ ms.locfileid: "80475511"
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
 
+## <a name="2020-04-13"></a>2020-04-13
+
+### <a name="azure-machine-learning-sdk-for-python-v130"></a>파이썬 v1.3.0에 대한 Azure 기계 학습 SDK
+
++ **버그 수정 및 개선 사항**
+  + **azureml-automl-core**
+    + 교육 후 작업에 대한 추가 원격 분석을 추가했습니다.
+    + 100보다 긴 일련의 길이에 대한 조건부 제곱(CSS) 교육을 사용하여 자동 ARIMA 교육 속도를 높입니다. 사용된 길이는 /src/azureml-automl-코어/azureml/automl/코어/공유/상수에서 TimeSeriesInternal 클래스에 있는 상수 ARIMA_TRIGGER_CSS_TRAINING_LENGTH 저장 됩니다.
+    + 예측 실행의 사용자 로깅이 개선되었으므로 현재 실행 중인 단계에 대한 자세한 정보가 로그에 표시됩니다.
+    + 허용되지 않는 target_rolling_window_size 값 보다 적게 설정된 다음 2로 설정하도록 허용됨
+  + **azureml-자동-런타임**
+    + 중복된 타임스탬프를 찾을 때 표시되는 오류 메시지가 개선되었습니다.
+    + 허용되지 않는 target_rolling_window_size 값보다 적게 설정한 다음 2로 설정됩니다.
+    + 지연 대치 실패를 수정했습니다. 이 문제는 계절적으로 시리즈를 분해하는 데 필요한 관측의 수가 부족하여 발생했습니다. "계절화 되지 않는" 데이터는 지연 길이를 결정 하기 위해 부분 자기 상관 함수 (PACF)를 계산 하는 데 사용 됩니다.
+    + 위화 구성에 의한 작업 예측에 대한 열 목적 위화 사용자 지정을 활성화했습니다. 이제 작업을 예측하기 위한 열 목적으로 숫자 및 범주형이 지원됩니다.
+    + 위화 구성에 의한 작업 예측에 대한 드롭 열 위화 사용자 지정을 활성화했습니다.
+    + 위화 구성에 의한 예측 작업에 대한 대금 사용자 지정을 활성화했습니다. 대상 컬럼 및 평균, 중앙값, most_frequent 및 학습 데이터에 대한 상수 값 대치에 대한 상수 값 대치가 지원됩니다.
+  + **azureml-콘티브-파이프라인-단계**
+    + ParallelRunConfig에 전달될 문자열 계산 이름 수락
+  + **azureml 코어**
+    +  환경 개체의 복사본을 만들기 위해 환경 복제(new_name) API를 추가했습니다.
+    +  환경.docker.base_dockerfile 파일 경로를 허용합니다. 파일을 확인할 수 있는 경우 콘텐츠가 base_dockerfile 환경 속성으로 읽혀집니다.
+    + 사용자가 Environment.docker에서 수동으로 값을 설정할 때 base_image 및 base_dockerfile 대해 상호 배타적인 값을 자동으로 재설정합니다.
+    +  데이터 집합: 유니코드 문자가 포함된 데이터 경로인 경우 데이터 집합 다운로드 실패를 수정했습니다.
+    +  데이터 집합: Azure Machine Learning Compute의 최소 디스크 공간 요구 사항을 존중하기 위해 데이터 집합 마운트 캐싱 메커니즘이 개선되어 노드를 사용할 수 없게 만들고 작업이 취소되는 것을 방지합니다.
+    + 환경이 사용자 또는 AzureML에서 관리되는지 여부를 나타내는 RSection에 user_managed 플래그가 추가되었습니다.
+    + 데이터 집합: 타임시리즈 데이터 집합에 팬더 데이터 프레임으로 액세스할 때 타임시리즈 열에 대한 인덱스를 추가하며, 이 인덱스는 타이머 기반 데이터 액세스에 대한 액세스 속도를 높이는 데 사용됩니다.  이전에는 인덱스에 타임스탬프 열과 동일한 이름이 지정되어 사용자가 실제 타임스탬프 열이고 인덱스가 혼동되었습니다. 이제 열로 사용해서는 안 되므로 인덱스에 특정 이름을 지정하지 않습니다. 
+  + **azureml-데이터 준비**
+    + 주권 클라우드에서 데이터 집합 인증 문제 수정
+    + Azure `Dataset.to_spark_dataframe` PostgreSQL 데이터 스토어에서 만든 데이터 집합에 대한 오류 수정
+  + **azureml-interpret**
+    + 지역 중요도 값이 희박한 경우 시각화에 글로벌 점수 추가
+    + 해석 커뮤니티 0.9.9를 사용하도록 azureml 해석을 업데이트했습니다.
+    + 평가 데이터가 희소한 다운로드 설명 문제를 수정했습니다.
+    + AutoML에서 설명 개체의 스파스 형식 지원이 추가되었습니다.
+  + **azureml 파이프라인 코어**
+    + 파이프라인에서 계산 대상으로 계산 인스턴스 지원
+  + **azureml-train-automl-client**
+    + 교육 후 작업에 대한 추가 원격 분석을 추가했습니다.
+    + 조기 정지시 회귀를 수정했습니다.
+    + 사용되지 않게 된 azureml.dprep.Dataflow를 입력 데이터에 대한 유효한 유형으로 사용합니다.
+    +  기본 AutoML 실험 시간 시간을 6일로 변경합니다.
+  + **azureml-기차-자동-런타임**
+    + 교육 후 작업에 대한 추가 원격 분석을 추가했습니다.
+    + 스파스 오토ml e2e 지원 추가
+  + **azureml-opendatasets**
+    + 서비스 모니터에 대한 추가 원격 분석을 추가했습니다.
+    + Blob용 프론트도어 를 사용하여 안정성 향상 
 ## <a name="2020-03-23"></a>2020-03-23
 
 ### <a name="azure-machine-learning-sdk-for-python-v120"></a>파이썬 v1.2.0에 대한 Azure 기계 학습 SDK
 
-+ **호환성이 손상되는 변경**
++ **주요 변경 내용**
   + 파이썬 2.7에 대한 드롭 지원
 
 + **버그 수정 및 개선 사항**
@@ -61,7 +109,7 @@ ms.locfileid: "80475511"
   + **Python 2.7**
     + 파이썬 2.7을 지원하는 마지막 버전
 
-+ **호환성이 손상되는 변경**
++ **주요 변경 내용**
   + **유의적 버전 2.0.0**
     + 버전 1.1 Azure ML 파이썬 SDK에서 시작하여 시맨틱 버전 링 2.0.0을 채택합니다. [여기에서 자세히 알아보세요](https://semver.org/). 이후의 모든 버전은 새 번호 매기기 체계 및 의미 체계 버전 전환 계약을 따릅니다. 
 
@@ -224,7 +272,7 @@ ms.locfileid: "80475511"
 
 ### <a name="azure-machine-learning-sdk-for-python-v110rc0-pre-release"></a>파이썬 v1.1.0rc0에 대한 Azure 기계 학습 SDK (시험판)
 
-+ **호환성이 손상되는 변경**
++ **주요 변경 내용**
   + **유의적 버전 2.0.0**
     + 버전 1.1 Azure ML 파이썬 SDK에서 시작하여 시맨틱 버전 링 2.0.0을 채택합니다. [여기에서 자세히 알아보세요](https://semver.org/). 이후의 모든 버전은 새 번호 매기기 체계 및 의미 체계 버전 전환 계약을 따릅니다. 
   
@@ -354,7 +402,7 @@ ms.locfileid: "80475511"
 
 ### <a name="azure-machine-learning-sdk-for-python-v1076"></a>파이썬 v1.0.76에 대한 Azure 기계 학습 SDK
 
-+ **호환성이 손상되는 변경**
++ **주요 변경 내용**
   + Azureml-기차-자동 ML 업그레이드 문제
     + azureml-train-automl>azureml-train-automl<1.0.76에서 1.0.76으로 업그레이드하면 부분 설치가 발생하여 일부 automl 가져오기가 실패할 수 있습니다. 이 문제를 해결하려면 에서 https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/automl_setup.cmd설정된 스크립트를 실행할 수 있습니다. 또는 pip를 직접 사용하는 경우 다음을 수행할 수 있습니다.
       + "핍 설치 --업그레이드 azureml-기차-automl"
@@ -643,13 +691,13 @@ Azure 기계 학습은 이제 이벤트 그리드의 리소스 공급자이며 A
   + **azureml-train-core**
     + 텐서플로우 추정기에 텐서플로우 2.0 지원 추가
   + **azureml 기차 - 오토ml**
-    + [실험](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment) 개체를 만들면 실행 기록 추적을 위해 Azure 기계 학습 작업 영역에서 실험을 얻거나 만듭니다. 실험 ID와 보관된 시간은 생성 시 실험 개체에 채워집니다. 예제:
+    + [실험](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment) 개체를 만들면 실행 기록 추적을 위해 Azure 기계 학습 작업 영역에서 실험을 얻거나 만듭니다. 실험 ID와 보관된 시간은 생성 시 실험 개체에 채워집니다. 예:
 
         ```py
         experiment = Experiment(workspace, "New Experiment")
         experiment_id = experiment.id
         ```
-        [archive()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#archive--) 및 [reactivate())는](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) 실험을 숨기고 UX에 표시되지 않도록 복원하기 위해 실험에서 호출할 수 있는 함수로, 실험 목록 에 대한 호출에서 기본적으로 반환됩니다. 보관된 실험과 이름이 같은 새 실험을 만든 경우 새 이름을 전달하여 다시 활성화할 때 보관된 실험의 이름을 바꿀 수 있습니다. 지정된 이름으로 하나의 활성 실험만 있을 수 있습니다. 예제:
+        [archive()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#archive--) 및 [reactivate())는](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) 실험을 숨기고 UX에 표시되지 않도록 복원하기 위해 실험에서 호출할 수 있는 함수로, 실험 목록 에 대한 호출에서 기본적으로 반환됩니다. 보관된 실험과 이름이 같은 새 실험을 만든 경우 새 이름을 전달하여 다시 활성화할 때 보관된 실험의 이름을 바꿀 수 있습니다. 지정된 이름으로 하나의 활성 실험만 있을 수 있습니다. 예:
 
         ```py
         experiment1 = Experiment(workspace, "Active Experiment")
@@ -658,7 +706,7 @@ Azure 기계 학습은 이제 이벤트 그리드의 리소스 공급자이며 A
         experiment2 = Experiment(workspace, "Active Experiment")
         experiment1.reactivate(new_name="Previous Active Experiment")
         ```
-        실험에서 정적 메서드 [목록()은](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) 이름 필터 및 ViewType 필터를 취할 수 있습니다. 뷰타입 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL"입니다. 예제:
+        실험에서 정적 메서드 [목록()은](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) 이름 필터 및 ViewType 필터를 취할 수 있습니다. 뷰타입 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL"입니다. 예:
 
         ```py
         archived_experiments = Experiment.list(workspace, view_type="ARCHIVED_ONLY")
@@ -1293,7 +1341,7 @@ Azure Databricks를 사용하는 일부 고객에게 문제가 발생했기 때�
     + 실행으로 주피터 노트북을 제출합니다. [API 참조 문서](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
     + azureml-contrib-datadrift 패키지[(예 노트북)를](https://aka.ms/azureml-datadrift-example)통해 [데이터 드리프트 검출기의](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) 공개 미리보기. 데이터 드리프트는 시간이 지남에 따라 모델 정확도가 저하되는 가장 큰 이유 중 하나입니다. 프로덕션 환경에서 모델에 제공된 데이터가 모델이 학습된 데이터와 다른 경우에 발생합니다. AML 데이터 드리프트 검출기는 고객이 데이터 드리프트를 모니터링하고 드리프트가 감지될 때마다 경고를 전송하는 데 도움이 됩니다.
 
-+ **호환성이 손상되는 변경**
++ **주요 변경 내용**
 
 + **버그 수정 및 개선 사항**
   + RunConfiguration 로드 및 저장 지원 은 이전 동작에 대한 전체 백 컴파트가있는 전체 파일 경로를 지정합니다.
@@ -1521,7 +1569,7 @@ Azure 포털에서 다음을 수행할 수 있습니다.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v110"></a>Azure 기계 학습 데이터 준비 SDK v1.1.0
 
-+ **호환성이 손상되는 변경**
++ **주요 변경 내용**
   + 데이터 준비 패키지의 개념은 더 이상 사용되지 않으며 더 이상 지원되지 않습니다. 하나의 패키지에 여러 데이터 흐름을 유지하는 대신 데이터 흐름을 개별적으로 유지시킬 수 있습니다.
     + 방법 가이드: [데이터 흐름 노트북 열기 및 저장](https://aka.ms/aml-data-prep-open-save-dataflows-nb)
 
@@ -1706,7 +1754,7 @@ Azure Machine Learning 컴퓨팅은 Azure Portal 또는 CLI를 사용하여 Pyth
 > Azure Machine Learning 컴퓨팅을 사용하려면 새 작업 영역을 만드는 것이 좋습니다. 기존 작업 영역에서 Azure Machine Learning 컴퓨팅을 만들려고 하는 사용자에게 오류가 표시될 수 있습니다. 작업 영역의 기존 컴퓨팅은 영향을 받지 않고 계속 작동해야 합니다.
 
 ### <a name="azure-machine-learning-sdk-for-python-v102"></a>Python용 Azure Machine Learning SDK v1.0.2
-+ **호환성이 손상되는 변경**
++ **주요 변경 내용**
   + 이 릴리스에서는 Azure Machine Learning에서 VM을 만들기 위한 지원을 제거합니다. 기존 클라우드 VM 또는 원격 온-프레미스 서버를 계속 연결할 수 있습니다.
   + 또한 Batch AI에 대한 지원을 제거하며, 모든 기능은 이제 Azure Machine Learning 컴퓨팅을 통해 지원됩니다.
 
@@ -1726,7 +1774,7 @@ Azure Machine Learning 컴퓨팅은 Azure Portal 또는 CLI를 사용하여 Pyth
 <!--+ **Bugs fixed**-->
 
 ### <a name="azure-machine-learning-data-prep-sdk-v052"></a>Azure Machine Learning Data Prep SDK v0.5.2
-+ **호환성이 손상되는 변경**
++ **주요 변경 내용**
   * `SummaryFunction.N`의 이름이 `SummaryFunction.Count`로 바뀌었습니다.
 
 + **버그 수정**
@@ -1736,7 +1784,7 @@ Azure Machine Learning 컴퓨팅은 Azure Portal 또는 CLI를 사용하여 Pyth
   * Value Count Inspector가 1000개 이상의 고유 값을 표시할 수 있음
   * 원래 데이터 흐름에 이름이 없는 경우 임의 분할이 더 이상 실패하지 않습니다.
 
-+ **더 많은 정보**
++ **자세한 정보**
   * [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)
 
 ### <a name="docs-and-notebooks"></a>문서 및 Notebook
@@ -1764,7 +1812,7 @@ Azure Machine Learning 컴퓨팅은 Azure Portal 또는 CLI를 사용하여 Pyth
 
 ### <a name="azure-machine-learning-sdk-for-python-v0180"></a>Python용 Azure Machine Learning SDK v0.1.80
 
-+ **호환성이 손상되는 변경**
++ **주요 변경 내용**
   * *azureml.train.widgets* 네임스페이스가 *azureml.widgets*로 전환되었습니다.
   * *azureml.core.compute.AmlCompute*는 *azureml.core.compute.BatchAICompute* 및 *azureml.core.compute.DSVMCompute* 클래스를 더 이상 사용하지 않습니다. 후자의 클래스는 이후 릴리스에서 제거됩니다. AmlCompute 클래스는 이제 더 쉽게 정의할 수 있으며, vm_size 및 max_nodes만 필요하고, 작업이 제출되면 클러스터가 자동으로 0에서 max_nodes로 확장됩니다. [샘플 Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/training)이 이 정보로 업데이트되었으며 사용 예제를 제공합니다. 이 간소화와 나중에 릴리스될 많은 흥미로운 기능이 마음에 들기를 바랍니다!
 
@@ -1805,7 +1853,7 @@ Azure 기계 학습용 Azure 포털에는 다음과 같은 업데이트가 있�
 
 ### <a name="azure-machine-learning-sdk-for-python-v0174"></a>Python용 Azure Machine Learning SDK v0.1.74
 
-+ **호환성이 손상되는 변경**
++ **주요 변경 내용**
   * *Workspace.compute_targets, datastores, experiments, images, models 및 *webservices*는 메서드가 아니라 속성입니다. 예를 들어 *Workspace.compute_targets()* 를 *Workspace.compute_targets*로 바꿉니다.
   * *Run.get_context*는 더 이상 *Run.get_submitted_run*을 사용하지 않습니다. 두 번째 메서드는 후속 릴리스에서 제거될 예정입니다.
   * *PipelineData* 클래스는 이제 데이터 저장소 개체를 datastore_name이 아닌 매개 변수로 예상합니다. 마찬가지로, *파이프라인*은 default_datastore_name 대신 default_datastore를 수락합니다.
@@ -1855,7 +1903,7 @@ Azure 기계 학습용 Azure 포털에는 다음과 같은 업데이트가 있�
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
 
-+ **호환성이 손상되는 변경**
++ **주요 변경 내용**
   * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services에서 이전에 반환된 목록인 사전을 반환합니다. [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API 설명서를 참조하세요.
 
   * 자동화된 Machine Learning에서 기본 메트릭의 정규화된 평균 제곱 오차가 제거되었습니다.

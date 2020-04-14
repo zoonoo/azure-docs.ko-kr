@@ -3,19 +3,19 @@ title: Visual Studio를 사용하여 Virtual Machine Scale Set 배포
 description: Visual Studio 및 Resource Manager 템플릿을 사용하여 Virtual Machine Scale Sets 배포 | Microsoft Azure
 ms.custom: vs-azure, H1Hack27Feb2017
 ms.workload: azure-vs
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.author: manayar
-ms.openlocfilehash: c49b4f42bc726c68880bdd4d6f58956936e83177
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: adc91d5f4f79be8a85dfed7d10a882493f6427b0
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066971"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273344"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Visual Studio에서 Virtual Machine Scale Set를 만드는 방법
 
@@ -95,4 +95,4 @@ Azure 리소스 관리자 템플릿을 배포하여 가상 시스템 규모 집�
 
 ## <a name="next-steps"></a>다음 단계
 
-Visual Studio를 통해 가상 머신 스케일 집합을 성공적으로 배포한 후에는 응용 프로그램 요구 사항에 맞게 프로젝트를 추가로 사용자 지정할 수 있습니다. 예를 들어 **Insights** 리소스를 추가하여 자동 크기 조정을 구성합니다. 독립 실행형 가상 컴퓨터와 같은 인프라를 템플릿에 추가하거나 사용자 지정 스크립트 확장을 사용하여 응용 프로그램을 배포할 수 있습니다. 좋은 예제 템플릿은 Azure [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates) GitHub 리포지토리에서 찾을 수 있습니다. `vmss`를 검색합니다.
+Visual Studio를 통해 가상 머신 스케일 집합을 성공적으로 배포한 후에는 응용 프로그램 요구 사항에 맞게 프로젝트를 추가로 사용자 지정할 수 있습니다. 예를 들어 **Insights** 리소스를 추가하여 자동 크기 조정을 구성합니다. 독립 실행형 가상 컴퓨터와 같은 인프라를 템플릿에 추가하거나 사용자 지정 스크립트 확장을 사용하여 응용 프로그램을 배포할 수 있습니다. 좋은 예제 템플릿은 Azure [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates) GitHub 리포지토리에서 찾을 수 있습니다. `vmss`을 검색합니다.

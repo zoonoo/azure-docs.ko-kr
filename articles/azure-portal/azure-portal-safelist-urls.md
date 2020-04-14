@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
-ms.date: 01/29/2020
+ms.date: 04/10/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: c5bba7296a05cfbb72698a991ece1ef298689bd1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 399c64c88e78079432fcf7c09dafd199da83358b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76900664"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255052"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>방화벽 또는 프록시 서버에서 Azure 포털 URL 을 보호 목록
 
@@ -80,13 +80,3 @@ Azure 포털에 대한 보호 목록에 대한 URL 끝점은 조직이 배포된
 > 이러한 끝점에 대한 트래픽은 HTTP(80) 및 HTTPS(443)에 대한 표준 TCP 포트를 사용합니다.
 >
 >
-## <a name="next-steps"></a>다음 단계
-
-IP 주소를 보호 목록에 추가해야 합니까? 클라우드에 대한 Microsoft Azure 데이터 센터 IP 범위 목록을 다운로드합니다.
-
-* [전 세계](https://www.microsoft.com/download/details.aspx?id=56519)
-* [미국 정부](https://www.microsoft.com/download/details.aspx?id=57063)
-* [독일](https://www.microsoft.com/download/details.aspx?id=57064)
-* [중국](https://www.microsoft.com/download/details.aspx?id=57062)
-
-다른 Microsoft 서비스는 연결을 위해 추가 URL 및 IP 주소를 사용합니다. Microsoft 365 서비스에 대한 네트워크 연결을 최적화하려면 [Office 365에 대한 네트워크 설정을](/office365/enterprise/set-up-network-for-office-365)참조하십시오.

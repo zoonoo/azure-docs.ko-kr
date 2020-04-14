@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 3b73c329c3db54ba78db15ced8e919af4d4a45d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0d6d69b82e80ff9bc33e49302cf59766b9c2e8d4
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79249738"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270828"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure의 Windows Virtual Machines에서 실행되는 SQL Server에 대한 질문과 대답
 
@@ -53,9 +53,17 @@ ms.locfileid: "79249738"
 
    예, PowerShell을 사용하면 됩니다. PowerShell을 사용하여 SQL Server VM을 배포하는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 SQL Server 가상 머신을 프로비전하는 방법](virtual-machines-windows-ps-sql-create.md)을 참조하세요.
 
-1. **SQL Server VM의 일반화된 Azure SQL Server 마켓플레이스 이미지를 만들어 VM을 배포하는 데 사용할 수 있습니까?**
+1. **Azure VM에서 SQL Server를 일반화하고 이를 사용하여 새 VM을 배포하려면 어떻게 해야 합니까?**
 
-   예. 하지만 [각 SQL Server VM을 SQL Server VM 리소스 공급자에 등록하여](virtual-machines-windows-sql-register-with-resource-provider.md) 포털에서 SQL Server VM을 관리하고 자동화된 패치 및 자동 백업과 같은 기능을 활용해야 합니다. 리소스 공급자에 등록할 때 각 SQL Server VM에 대한 라이센스 유형도 지정해야 합니다. 
+   SQL Server에 설치되지 않은 Windows Server VM을 배포하고 [SQL sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) 프로세스를 사용하여 SQL Server 설치 미디어를 사용하여 Windows(Windows)의 Windows에서 SQL Server를 일반화할 수 있습니다. [소프트웨어 보증이](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) 있는 고객은 볼륨 [라이선싱 센터에서](https://www.microsoft.com/Licensing/servicecenter/default.aspx)설치 미디어를 구할 수 있습니다. 소프트웨어 보증이 없는 고객은 원하는 버전이 있는 마켓플레이스 SQL Server VM 이미지의 설치 미디어를 사용할 수 있습니다.
+
+   또는 AZURE 마켓플레이스를 형성하는 SQL Server 이미지 중 하나를 사용하여 Azure VM에서 SQL Server를 일반화합니다. 사용자 고유의 이미지를 만들기 전에 소스 이미지에서 다음 레지스트리 키를 삭제해야 합니다. 이렇게 하지 않으면 SQL Server 설치 부트스트랩 폴더 및/또는 SQL IaaS 확장이 실패한 상태에서 팽창할 수 있습니다.
+
+   레지스트리 키 경로:  
+   `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
+
+   > [!NOTE]
+   > 사용자 지정 일반화 된 이미지에서 배포 된 것을 포함 하 여 모든 SQL Server Azure VM 규정 준수 요구 사항을 충족 하 고 자동화 된 패치 및 자동 백업 등의 선택적 기능을 사용 하 여 [SQL VM 의지 공급자에 등록](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) 하는 것이 좋습니다. 또한 각 SQL Server VM에 대한 [라이센스 유형을 지정할](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) 수도 있습니다.
 
 1. **내 VHD를 사용하여 SQL Server VM을 배포할 수 있습니까?**
 
@@ -117,13 +125,13 @@ ms.locfileid: "79249738"
    수동 SQL Server 인스턴스는 클라이언트에 SQL Server 데이터를 제공하지 않거나 활성 SQL Server 워크로드를 실행하지 않습니다. 주 서버와 동기화하고 그렇지 않으면 수동 데이터베이스를 웜 대기 상태로 유지하는 데만 사용됩니다. 활성 SQL Server 워크로드를 실행하는 클라이언트에 대한 보고서 또는 제품 용어에 지정된 것 이외의 작업을 수행하는 경우 유료 라이선스 SQL Server 인스턴스여야 합니다. 데이터베이스 일관성 검사 또는 CheckDB, 전체 백업, 트랜잭션 로그 백업 및 리소스 사용 데이터 모니터링등의 작업은 보조 인스턴스에서 허용됩니다. 또한 90일마다 짧은 기간 동안 기본 및 해당 재해 복구 인스턴스를 동시에 실행할 수 있습니다.
    
 
-1. **디미스터 복구(DR) 이점을 활용할 수 있는 시나리오는 무엇입니까?**
+1. **DR(재해 복구) 이점을 활용할 수 있는 시나리오는 무엇입니까?**
 
    [라이선싱 가이드에서는](https://aka.ms/sql2019licenseguide) 재해 복구 혜택을 활용할 수 있는 시나리오를 제공합니다. 자세한 내용은 제품 약관을 참조하고 라이선스 담당자 또는 계정 관리자에게 문의하십시오.
 
 1. **DR(재해 복구) 혜택을 지원하는 구독은 무엇입니까?**
 
-   소프트웨어 보증에 상응하는 구독 권한을 고정 혜택으로 제공하는 포괄적인 프로그램은 DR 혜택을 지원합니다. 여기에는 포함됩니다. 그러나 이에 국한되지 않는 오픈 값(OV), 오픈 밸류 서브스크립션(OVS), 기업 계약(EA), 엔터프라이즈 구독 계약(EAS), 서버 및 클라우드 등록(SCE). 자세한 내용은 [제품 약관을](https://www.microsoft.com/licensing/product-licensing/products) 참조하고 라이센싱 담당자 또는 acocunt 관리자에게 문의하십시오. 
+   소프트웨어 보증에 상응하는 구독 권한을 고정 혜택으로 제공하는 포괄적인 프로그램은 DR 혜택을 지원합니다. 여기에는 포함됩니다. 그러나 이에 국한되지 않는 오픈 값(OV), 오픈 밸류 서브스크립션(OVS), 기업 계약(EA), 엔터프라이즈 구독 계약(EAS), 서버 및 클라우드 등록(SCE). 자세한 내용은 [제품 약관을](https://www.microsoft.com/licensing/product-licensing/products) 참조하고 라이센싱 담당자 또는 계정 관리자에게 문의하십시오. 
 
    
  ## <a name="resource-provider"></a>리소스 공급자

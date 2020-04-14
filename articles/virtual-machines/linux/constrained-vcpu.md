@@ -1,17 +1,17 @@
 ---
 title: 제한된 vCPU 크기
 description: 제한된 vCPU 수를 지원할 수 있는 VM 크기를 나열합니다.
-author: jonbeck7
+author: mimckitt
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/09/2018
-ms.author: jonbeck
-ms.openlocfilehash: 4b481d3ef61a0b7e52d3b4c4855634ec3efa0158
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: 70e6d043b3ad033e1a43c566e5d1da49a1447c6b
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78969713"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273565"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>제한된 vCPU 지원 VM 크기
 
@@ -21,7 +21,7 @@ ms.locfileid: "78969713"
 
 ## <a name="other-sizes"></a>기타 크기
 - [컴퓨팅 최적화](../windows/sizes-compute.md)
-- [메모리 최적화](sizes-memory.md)
+- [메모리에 최적화](sizes-memory.md)
 - [Storage에 최적화](sizes-storage.md)
 - [GPU](sizes-gpu.md)
 - [고성능 컴퓨팅](sizes-hpc.md)

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: 48fd85e27feb3d0c7f7f722dbbd502be55684385
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f7c6829d858e36b55f079f8ee03e431f67995e66
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76771584"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272579"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET Standard API: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -21,13 +21,13 @@ ms.locfileid: "76771584"
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
 > * [Java](table-sdk-java.md)
-> * [Node.js](table-sdk-nodejs.md)
+> * [Node.JS](table-sdk-nodejs.md)
 > * [Python](table-sdk-python.md)
 
 |   |   |
 |---|---|
-|**SDK 다운로드**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
-|**예제**|[코스모스 DB 테이블 API .NET 샘플](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
+|**SDK 다운로드**|[Nuget](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
+|**샘플**|[코스모스 DB 테이블 API .NET 샘플](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
 |**빠른 시작**|[빠른 시작](create-table-dotnet.md)|
 |**자습서**|[자습서](tutorial-develop-table-dotnet.md)|
 |**현재 지원되는 프레임워크**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
@@ -41,6 +41,9 @@ ms.locfileid: "76771584"
 
 ## <a name="release-notes-for-100-series"></a>1.0.0 시리즈에 대한 릴리스 정보
 1.0.0 시리즈는 [Microsoft.Azure.DocumentDB.Core에](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)대한 종속성을 취합니다.
+
+### <a name="107"></a><a name="1.0.7"/>1.0.7
+* 테이블 SDK 기본 추적 수준을 SourceLevel.Off로 설정하여 성능 향상을 향상시켰으며, app.config를 통해 옵트인할 수 있습니다.
 
 ### <a name="105"></a><a name="1.0.5"/>1.0.5
 * Cosmos DB 테이블 API와 통신하기 위해 나머지 실행기를 사용하는 TableClientConfiguration 아래에 새 구성을 도입
@@ -112,5 +115,5 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 Azure Cosmos DB Table API에 대한 자세한 내용은 [Azure Cosmos DB Table API 소개](table-introduction.md)를 참조하세요.

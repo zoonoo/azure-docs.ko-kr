@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: b68179caed4df5efd3696d7d6a3739a1e07a3c80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0767d6c003be8f4e0b28c8d8ce1d48b8f578dd86
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79267301"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273531"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure에서 2세대 VM 지원
 
@@ -48,12 +48,12 @@ ms.locfileid: "79267301"
 2세대 VM은 다음 마켓플레이스 이미지를 지원합니다.
 
 * Windows Server 2019, 2016, 2012 R2, 2012
-* 윈도우 10
+* Windows 10
 * 수지 리눅스 엔터프라이즈 서버 15 SP1
 * 수지 리눅스 엔터프라이즈 서버 12 SP4
 * 우분투 서버 16.04, 18.04, 19.04, 19.10 
 * RHEL 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 7.0
-* 센트 OS 8.0, 7.7, 7.6, 7.5, 7.4
+* 센트 OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4
 * 오라클 리눅스 7.7, 7.7-CI
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>온-프레미스 vs. Azure 세대 2 VM
@@ -100,7 +100,7 @@ Azure 포털 또는 Azure CLI에서 UEFI 부팅을 지원하는 마켓플레이�
 
 다음은 Azure 포털에서 세대 2(Gen2) VM을 만드는 단계입니다.
 
-1. [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 1. **리소스 만들기를 선택합니다.**
 1. 왼쪽의 Azure 마켓플레이스에서 **모두 보기를** 클릭합니다.
 1. Gen2를 지원하는 이미지를 선택합니다.

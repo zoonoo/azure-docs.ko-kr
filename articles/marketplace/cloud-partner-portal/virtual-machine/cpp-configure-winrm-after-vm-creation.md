@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: dsindona
-ms.openlocfilehash: 673fe1f31f6a8602225e7cde3bf1eb4c3b28b8a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b80325594eedb87293c31de3236bb4690eb89e05
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278147"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273021"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>가상 머신을 만든 후 WinRM 구성
+
+> [!IMPORTANT]
+> 2020년 4월 13일부터 Azure 가상 머신 의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 가상 [컴퓨터 만들기 의](https://aka.ms/CreateAzureVMoffer) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
 
 이 문서에서는 HTTPS를 통한 WinRM을 사용하도록 Azure에 호스트된 기존 VM(가상 머신)을 구성하는 방법을 설명합니다.  이 구성은 Windows 기반 VM에만 적용되며 다음 2단계 프로세스가 필요합니다.
 
@@ -26,8 +29,8 @@ ms.locfileid: "80278147"
 
 HTTPS 를 통해 WinRM 포트를 사용 하 여 5986, Azure 마켓 플레이스에서 제공 하는 미리 구성된된 Windows VM에서 기본적으로 활성화 되지 않습니다. 이 프로토콜을 사용하려면 [Azure Portal](https://portal.azure.com)에서 다음 단계를 수행하여 NSG(네트워크 보안 그룹)에 새 규칙을 추가합니다.  NSG에 대한 자세한 내용은 [보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)을 참조하세요.
 
-1.  블레이드 가상 **컴퓨터 >**   < *vm 이름* >   **> 설정/네트워킹으로**이동합니다.
-2.  NSG 이름(이 예제에서는 **testvm11002**)을 클릭하여 해당 속성을 표시합니다.
+1. 블레이드 가상 **컴퓨터 >**   < *vm 이름* >   **> 설정/네트워킹으로**이동합니다.
+2. NSG 이름(이 예제에서는 **testvm11002**)을 클릭하여 해당 속성을 표시합니다.
 
     ![네트워크 보안 그룹 속성](./media/nsg-properties.png)
  

@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/07/2020
+ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86c5f572ba66845467a7e3f4412b8da8368fe772
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 0866db6b549bc940d2e73bccfc77b8fad19abd51
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811256"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273225"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오를 호스트하고 실행
 
@@ -110,6 +110,7 @@ Azure 서비스를 SAP 구성 요소에 통합하는 방법에 대한 자세한 
 
 
 ## <a name="change-log"></a>변경 로그
+- 2020년 04/13: [SAP 워크로드에 대한 SAP ASE Azure 가상 시스템 DBMS 배포에서 정확한 SAP ASE](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sapase) 릴리스 번호 수정
 - 2020/04/07: 클라우드-netconfig-azure 지침을 명확히 하기 위해 [Azure에서 SLES에서 페이스 메이커 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) 변경
 - 2020년 04/06: [SAP HANA 확장 노드에서 SLES의 Azure NetApp 파일이 있는 Azure VM및](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) [SAP HANA의 대기 노드에서 RHEL의 Azure NetApp 파일이 있는 Azure NetApp 파일이 있는 대기 노드로](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel) 확장되어 NetApp [TR-4435에](https://www.netapp.com/us/media/tr-4746.pdf) 대한 참조를 제거합니다(TR-4746으로 대체됨) [TR-4746](https://www.netapp.com/us/media/tr-4746.pdf)
 - 2020년 03월 31일: [SLES의 Azure VM에서 SAP HANA의 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) 변경 및 [RHEL의 Azure VM에서 SAP HANA의 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel) 변경으로 스트라이프 볼륨을 만들 때 스트라이프 크기를 지정하는 방법에 대한 지침을 추가합니다.
@@ -173,11 +174,6 @@ Azure 서비스를 SAP 구성 요소에 통합하는 방법에 대한 자세한 
 - 2019년 10월 11일: [SAP HANA Azure 가상 머신 스토리지 구성에서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 울트라 디스크 스토리지 구성 변경 및 ANF 도입
 - 2019년 10월 01일: [SAP 응용 프로그램으로 최적의 네트워크 대기 시간을 위해 Azure 근접 배치 그룹의](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) 그래픽 변경
 - 2019년 10월 01일: [SAP HANA 인프라 구성 및 Azure의 작업](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations) 변경으로 /hana/shared에 대해 가용성이 높은 NFS 공유에 대한 문을 수정합니다. 
-- 2019년 09월 28일: RhEL 클러스터에서 펜싱 메커니즘으로 SBD를 명확히 하기 위해 [Azure의 Red Hat Enterprise Linux에서 페이스메이커 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) 변경  
-- 2019년 09월 17일: SAP용 VM 확장에 대한 용어를 통합하기 위한 NetWeaver 계획 및 배포 가이드 변경  
-- 2019년 08월 22일: 사용자 지정 역할 만들기를 위한 URL을 업데이트하기 위해 [Azure의 SUSE Linux 엔터프라이즈 서버에서 페이스메이커 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) 변경  
-- 2019년 08월 16일: [Azure에서 Red Hat Enterprise Linux에서 Pacemaker 를 설정하는](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) 변경 사항으로 인해 Azure Fence 에이전트의 새 버전으로 업데이트하는 경우 고객에게 사용자 지정 역할의 작업을 업데이트하도록 상기시킵니다.  
-- 2019년 08월 15일: 울트라 디스크(이전의 Ultra SSD)의 일반 가용성을 반영하기 위한 [SAP HANA Azure 가상 머신 스토리지 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 변경
-- 2019년 08월 01일: SLES 15에 대한 변경 사항을 통합하기 위해 [Azure의 SUSE Linux 엔터프라이즈 서버에서 페이스메이커 를 설정하는](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) 변경 사항 
+
 
 

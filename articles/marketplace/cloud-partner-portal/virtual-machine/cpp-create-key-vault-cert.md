@@ -7,20 +7,23 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: dc106ecf40367172f28c0f339bbcce8bddb50a34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 09e82b9905104df9b1902b0f64f6cfdf812aabb8
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278078"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81274024"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Azure Key Vault용 인증서 만들기
 
+> [!IMPORTANT]
+> 2020년 4월 13일부터 Azure 가상 머신 의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. [Azure VM 이미지 인증의](https://aks.ms/CertifyVMimage) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
+
 이 문서에서는 Azure 호스티드 VM(가상 머신)에 대한 Windows 원격 관리(WinRM) 연결을 설정하는 데 필요한 자체 서명된 인증서를 프로비전하는 방법을 설명합니다. 이 프로세스는 다음 세 단계로 구성됩니다.
 
-1.  보안 인증서를 만듭니다. 
-2.  이 인증서를 저장할 Azure Key Vault를 만듭니다. 
-3.  이 Key Vault에 인증서를 저장합니다. 
+1.    보안 인증서를 만듭니다. 
+2.    이 인증서를 저장할 Azure Key Vault를 만듭니다. 
+3.    이 Key Vault에 인증서를 저장합니다. 
 
 이 작업에 대한 새 또는 기존 Azure 리소스 그룹을 사용할 수 있습니다.  다음 설명에서는 이전 접근 방식이 사용됩니다.
 

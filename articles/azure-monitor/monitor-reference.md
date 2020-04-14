@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: 0ef7e5d869ab2d7e085cbf861bfc32e57b1fad4b
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: e0e98b87cf3612bf01f90f806ea64ef06d08c60a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408484"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255331"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링하는 항목
 이 문서에서는 Azure Monitor에서 모니터링하는 다양한 응용 프로그램 및 서비스에 대해 설명합니다. 
@@ -31,7 +31,7 @@ Insights는 특정 응용 프로그램 및 서비스에 대한 맞춤형 모니�
 | [네트워크를 위한 Azure 모니터(미리 보기)](insights/network-insights-overview.md) | 모든 네트워크 리소스에 대한 상태 및 메트릭에 대한 포괄적인 보기를 제공합니다. 고급 검색 기능을 사용하면 리소스 종속성을 식별할 수 있으므로 웹 사이트 이름을 검색하기만 하면 웹 사이트를 호스팅하는 리소스를 식별하는 등의 시나리오가 가능합니다. |
 [리소스 그룹에 대한 Azure 모니터(미리 보기)](insights/resource-group-insights.md) |  리소스 그룹의 상태 및 성능에 대한 컨텍스트를 제공하면서 개별 리소스가 발생하는 문제를 분류하고 진단합니다. |
 | [저장소용 Azure 모니터(미리 보기)](insights/storage-insights-overview.md) | Azure Storage 서비스 성능, 용량 및 가용성에 대한 통합보기를 제공하여 Azure Storage 계정에 대한 포괄적인 모니터링을 제공합니다. |
-| [VM용 Azure 모니터(미리 보기)](insights/container-insights-overview.md) | Azure 가상 컴퓨터(VM) 및 가상 시스템 규모 집합을 대규모로 모니터링합니다. 또한 Windows 및 Linux VM의 성능과 상태를 분석하고, 프로세스와 다른 리소스 및 외부 프로세스에 대한 종속성을 모니터링합니다. |
+| [VM용 Azure 모니터](insights/container-insights-overview.md) | Azure 가상 컴퓨터(VM) 및 가상 시스템 규모 집합을 대규모로 모니터링합니다. 또한 Windows 및 Linux VM의 성능과 상태를 분석하고, 프로세스와 다른 리소스 및 외부 프로세스에 대한 종속성을 모니터링합니다. |
 
 ### <a name="core-solutions"></a>핵심 솔루션
 
@@ -174,14 +174,14 @@ Insights는 특정 응용 프로그램 및 서비스에 대한 맞춤형 모니�
 
 | 제품/서비스 | Description |
 |:---|:---|
-| [Azure 자동화](/azure/automation/) | 운영 체제 업데이트를 관리하고 Windows 및 Linux 컴퓨터에서 변경 내용을 추적합니다. [변경 정보 추적](../automation/change-tracking.md) 및 업데이트 [관리를](../automation/automation-update-management.md)참조하십시오. |
+| [Azure Automation](/azure/automation/) | 운영 체제 업데이트를 관리하고 Windows 및 Linux 컴퓨터에서 변경 내용을 추적합니다. [변경 정보 추적](../automation/change-tracking.md) 및 업데이트 [관리를](../automation/automation-update-management.md)참조하십시오. |
 | [Azure 정보 보호](https://docs.microsoft.com/azure/information-protection/) | 문서와 전자 메일을 분류하고 선택적으로 보호합니다. [Azure 정보 보호를 위한 중앙 보고를](https://docs.microsoft.com/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports)참조하십시오. |
-| [Azure 보안 센터](/azure/security-center/) | 보안 이벤트를 수집 및 분석하고 위협 분석을 수행합니다. [Azure 보안 센터에서 데이터 수집](/azure/security-center/security-center-enable-data-collection) 참조 |
+| [Azure Security Center](/azure/security-center/) | 보안 이벤트를 수집 및 분석하고 위협 분석을 수행합니다. [Azure 보안 센터에서 데이터 수집](/azure/security-center/security-center-enable-data-collection) 참조 |
 | [Azure Sentinel](/azure/sentinel/) | Office 365 및 Amazon 웹 서비스 클라우드 트레일을 비롯한 다양한 소스에 연결합니다. [데이터 원본 연결을](/azure/sentinel/connect-data-sources)참조하십시오. |
 | [Key Vault 분석](insights/azure-key-vault.md) | Azure 키 볼트 감사이벤트 로그를 분석합니다. |
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Azure Monitor에 로그를 보내는 진단 설정을 만듭니다. [Intune(미리 보기)에서 로그 데이터를 저장소, 이벤트 허브 또는 로그 분석으로 보내기](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor)를 참조하십시오.  |
 | 네트워크  | [네트워크 성능 모니터](insights/network-performance-monitor.md) - 서비스 및 애플리케이션 엔드포인트에 대한 네트워크 연결 및 성능을 모니터링합니다.<br>[Azure 응용 프로그램 게이트웨이](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) - Azure 응용 프로그램 게이트웨이에서 로그 및 메트릭을 분석합니다.<br>[트래픽 분석](/azure/network-watcher/traffic-analytics) - NSG(네트워크 감시자 네트워크 보안 그룹) 흐름 로그를 분석하여 Azure 클라우드의 트래픽 흐름에 대한 통찰력을 제공합니다. |
-| [사무실 365](insights/solution-office-365.md) | Office 365 환경을 모니터링합니다. Azure Sentinel을 통해 사용할 수 있는 향상된 온보딩버전으로 업데이트되었습니다. |
+| [Office 365](insights/solution-office-365.md) | Office 365 환경을 모니터링합니다. Azure Sentinel을 통해 사용할 수 있는 향상된 온보딩버전으로 업데이트되었습니다. |
 | [SQL 분석](insights/azure-sql.md) | 규모및 여러 구독에서 Azure SQL 데이터베이스, 탄력적 풀 및 관리되는 인스턴스의 성능을 모니터링합니다. |
 | [Surface Hub](insights/surface-hubs.md) | Surface Hub 장치의 상태 및 사용량을 추적합니다. |
 | [System Center Operations Manager](https://docs.microsoft.com/system-center/scom) | 관리 그룹을 Azure Monitor에 연결하여 Operations Manager 에이전트에서 데이터를 수집합니다. [Azure 모니터에 작업 관리자 연결](platform/om-agents.md) 참조<br> [운영 관리자 평가](insights/scom-assessment.md) 솔루션을 통해 시스템 센터 운영 관리자 관리 그룹의 위험 및 상태를 평가합니다. |
@@ -217,7 +217,7 @@ Insights는 특정 응용 프로그램 및 서비스에 대한 맞춤형 모니�
 ## <a name="resources-outside-of-azure"></a>Azure 외부리소스
 Azure Monitor는 다음 표에 나열된 메서드를 사용하여 Azure 외부의 리소스에서 데이터를 수집할 수 있습니다.
 
-| 리소스 | 방법 |
+| 리소스 | 메서드 |
 |:---|:---|
 | 애플리케이션 | 응용 프로그램 인사이트를 사용하여 Azure 외부의 웹 응용 프로그램을 모니터링합니다. [응용 프로그램 인사이트는 무엇입니까?](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). |
 | 가상 머신 | Log Analytics 에이전트를 사용하여 다른 클라우드 환경 또는 온-프레미스에 있는 가상 시스템의 게스트 운영 체제에서 데이터를 수집합니다. [로그 분석 에이전트를 사용하여 로그 데이터 수집을](platform/log-analytics-agent.md)참조하십시오. |

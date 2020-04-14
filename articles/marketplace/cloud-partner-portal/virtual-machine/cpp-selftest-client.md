@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: dsindona
-ms.openlocfilehash: fb568400cb60f108303909353bfa703e98ab6157
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: af42476f9d04f7f2bfc275c731b02aa5a9b8ecf6
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286424"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273157"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Azure Virtual Machine 이미지의 유효성을 사전 검사하는 자체 테스트 클라이언트 만들기
+
+> [!IMPORTANT]
+> 2020년 4월 13일부터 Azure 가상 머신 의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. [Azure VM 이미지 인증의](https://aks.ms/CertifyVMimage) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
 
 이 문서는 자체 테스트 API를 사용하는 클라이언트 서비스를 만들기 위한 지침으로 사용합니다. VM(가상 머신)에서 최신 Azure Marketplace 게시 요구 사항을 충족하는지 확인하기 위해 자체 테스트 API를 사용하여 VM의 유효성을 사전 검사할 수 있습니다. 이 클라이언트 서비스를 사용하면 Microsoft 인증을 위해 제안을 제출하기 전에 VM을 테스트할 수 있습니다.
 
@@ -62,7 +65,7 @@ Request body:    The Request body parameters should use the following JSON forma
 다음 표에서는 API 필드에 대해 설명합니다.
 
 
-|      필드         |    설명    |
+|      필드         |    Description    |
 |  ---------------   |  ---------------  |
 |  권한 부여     |  "베어러 xxxx-xxxx-xxxxxx-xxxxxx" 문자열에는 PowerShell을 사용하여 만들 수 있는 Azure Active Directory(AD) 클라이언트 토큰이 포함되어 있습니다.          |
 |  DNSName           |  테스트할 VM의 DNS 이름    |
@@ -219,7 +222,7 @@ https://isvapp.azurewebsites.net/selftest-vm
 
 다음 단계에 따라 애플리케이션을 만들려는 Azure AD 테넌트를 선택합니다.
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 위쪽의 메뉴 모음에서 계정을 선택하고, [디렉터리] 목록에서 애플리케이션을 등록하려는 Active Directory 테넌트를 선택합니다. 또는 **디렉터리 + 구독** 아이콘을 선택하여 글로벌 구독 필터를 확인합니다. 다음 화면 캡처에는 이 필터의 예가 나와 있습니다.
 
    ![구독 필터 선택](./media/stclient-subscription-filter.png)
@@ -269,7 +272,7 @@ https://isvapp.azurewebsites.net/selftest-vm
     ![앱에 대한 API 액세스 사용](./media/stclient-enable-api-access.png)
 
 14. **선택**을 클릭합니다.
-15. **완료를 선택합니다.**
+15. **완료** 를 선택합니다.
 16. **설정** 아래에서 **속성**을 선택합니다.
 17. **속성** 아래에서 **다중 테넌트**까지 아래로 스크롤합니다. **예**를 선택합니다.
 

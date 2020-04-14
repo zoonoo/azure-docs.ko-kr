@@ -4,14 +4,14 @@ description: 가상 네트워크에서 개인 IP 주소를 사용하여 Azure Co
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 04/13/2020
 ms.author: thweiss
-ms.openlocfilehash: 9a6a1560e169c51256c198868dc7293a020189f4
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 4b49d2aa61587d0156755bdd5c47b3eeb90090a5
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421429"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270692"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Azure 코스모스 계정에 대한 Azure 개인 링크 구성
 
@@ -47,7 +47,7 @@ Azure 개인 링크를 사용하여 개인 끝점을 통해 Azure Cosmos 계정�
     | 속성 | 개인 끝점에 대한 이름을 입력합니다. 이 이름을 가져온 경우 고유한 이름을 만듭니다. |
     |지역| 비공개 링크를 배포할 지역을 선택합니다. 가상 네트워크가 있는 동일한 위치에 개인 끝점을 만듭니다.|
     |||
-1. **다음 을 선택합니다.**
+1. 완료되면 **다음: 리소스**를 선택합니다.
 1. **프라이빗 엔드포인트 만들기 - 리소스**에서 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
@@ -59,7 +59,7 @@ Azure 개인 링크를 사용하여 개인 끝점을 통해 Azure Cosmos 계정�
     |대상 하위 리소스 |매핑할 Azure 코스모스 DB API 유형을 선택합니다. 기본값은 SQL, MongoDB 및 Cassandra API에 대해 하나의 선택 항목만 선택합니다. 그렘린 및 테이블 API의 경우 이러한 API가 SQL API와 상호 운용가능하기 때문에 **Sql을** 선택할 수도 있습니다. |
     |||
 
-1. **다음 을 선택합니다: 구성.**
+1. 완료되면 **다음: 구성**을 선택합니다.
 1. **개인 끝점 만들기 - 구성에서**다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
@@ -72,8 +72,8 @@ Azure 개인 링크를 사용하여 개인 끝점을 통해 Azure Cosmos 계정�
     |프라이빗 DNS 영역 |**privatelink.documents.azure.com**선택합니다. <br><br/> 개인 DNS 영역은 자동으로 결정됩니다. Azure 포털을 사용 하 여 변경할 수 없습니다.|
     |||
 
-1. **검토 + 만들기를**선택합니다. 검토 **+ 만들기** 페이지에서 Azure는 구성의 유효성을 검사합니다.
-1. 유효성 검사 전달 메시지가 표시되면 **에서 만들기를** **선택합니다.**
+1. **검토 + 만들기**를 선택합니다. 검토 **+ 만들기** 페이지에서 Azure는 구성의 유효성을 검사합니다.
+1. **유효성 검사 통과** 메시지가 표시되면 **만들기**를 선택합니다.
 
 Azure Cosmos 계정에 대한 개인 링크를 승인한 경우 Azure 포털에서 **방화벽 및 가상 네트워크** 창의 모든 **네트워크** 옵션을 사용할 수 없습니다.
 
@@ -624,6 +624,10 @@ foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
 * 공용 트래픽 또는 서비스 끝점을 구성하고 개인 끝점을 만드는 경우 다른 유형의 들어오는 트래픽은 해당 유형의 방화벽 규칙에 의해 승인됩니다.
 
 * 공용 트래픽 또는 서비스 끝점을 구성하지 않고 개인 끝점을 만드는 경우 Azure Cosmos 계정은 개인 끝점을 통해서만 액세스할 수 있습니다. 공용 트래픽 또는 서비스 끝점을 구성하지 않으면 승인된 모든 비공개 끝점이 거부되거나 삭제된 후 계정이 전체 네트워크에 열려 있습니다.
+
+## <a name="blocking-public-network-access-during-account-creation"></a>계정 생성 중 공용 네트워크 액세스 차단
+
+이전 섹션에서 설명한 대로 특정 방화벽 규칙이 설정되지 않은 경우 개인 끝점을 추가하면 Azure Cosmos 계정이 개인 끝점을 통해서만 액세스할 수 있습니다. 즉, Azure Cosmos 계정은 생성된 후 개인 끝점이 추가되기 전에 공용 트래픽에서 도달할 수 있습니다. 개인 끝점을 만들기 전에 공용 네트워크 액세스가 비활성화되도록 하려면 계정을 `publicNetworkAccess` 만드는 `Disabled` 동안 플래그를 설정할 수 있습니다. 이 플래그를 사용하는 방법을 보여 주면 [이 Azure 리소스 관리자 템플릿을](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) 참조하세요.
 
 ## <a name="update-a-private-endpoint-when-you-add-or-remove-a-region"></a>영역을 추가하거나 제거할 때 비공개 끝점 업데이트
 

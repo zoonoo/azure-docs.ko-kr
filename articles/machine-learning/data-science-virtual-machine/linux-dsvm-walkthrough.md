@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 1298d5fe1d7407e836f454c2130a913dde6f8eec
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 38088503fee016651a8c1c9a1f57ad4bbe102456
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80755154"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257150"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Azure의 Linux 데이터 과학 가상 머신을 통한 데이터 과학
 
@@ -29,7 +29,7 @@ ms.locfileid: "80755154"
 Linux DSVM을 사용하려면 먼저 다음과 같은 필수 구성 조건이 있어야 합니다.
 
 * **Azure 구독**. Azure 구독을 받으려면 [오늘 무료 Azure 계정 만들기를](https://azure.microsoft.com/free/)참조하십시오.
-* [**리눅스 데이터 과학 가상 머신**](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu). 가상 컴퓨터 프로비저닝에 대한 자세한 내용은 [Linux 데이터 과학 가상 컴퓨터 프로비저닝을](linux-dsvm-intro.md)참조하십시오.
+* [**리눅스 데이터 과학 가상 머신**](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). 가상 컴퓨터 프로비저닝에 대한 자세한 내용은 [Linux 데이터 과학 가상 컴퓨터 프로비저닝을](linux-dsvm-intro.md)참조하십시오.
 * [**X2Go는**](https://wiki.x2go.org/doku.php) 열려있는 XFCE 세션과 컴퓨터에 설치. 자세한 내용은 [X2Go 클라이언트 설치 및 구성을](linux-dsvm-intro.md#x2go)참조하십시오.
 * DSVM의 Firefox 웹 브라우저에서 보다 원활한 스크롤 환경을 위해 `gfx.xrender.enabled` `about:config`에서 플래그를 전환합니다. [자세히 알아보기](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). 또한 로 `mousewheel.enable_pixel_scrolling` `False`설정하는 것을 고려하십시오. [자세히 알아보기](https://support.mozilla.org/questions/981140).
 * **Azure 기계 학습 계정**. 아직 계정이 없는 경우 [Azure 기계 학습 홈 페이지에서](https://azure.microsoft.com/free/services/machine-learning//)새 계정에 등록합니다.

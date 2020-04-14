@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 326b79e1aca6fa82b3275249401c755428a8b71d
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 631a20c7bf73aa2af363fdc0019ef24cccc58f9e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878564"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258612"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Azure IoT Hub에 IoT DevKit AZ3166 연결
 
@@ -327,6 +327,17 @@ DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 * MXChip IoT DevKit의 LED가 깜박입니다.
 
 ![직렬 모니터 출력](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/result-serial-output.png)
+
+> [!NOTE]
+> 테스트 중에 LED가 깜박이지 않고 Azure 포털에 장치에서 들어오는 데이터가 표시되지 않지만 장치 OLED 화면이 **실행**중으로 표시될 수 있습니다. 문제를 해결하려면 Azure 포털에서 IoT 허브의 장치로 이동하여 장치에 메시지를 보냅니다. VS 코드의 직렬 모니터에 다음과 같은 응답이 표시되면 라우터 수준에서 장치로부터의 직접 통신이 차단될 수 있습니다. 연결 장치에 대해 구성된 방화벽 및 라우터 규칙을 확인합니다. 또한 아웃바운드 포트 1833이 열려 있는지 확인합니다.
+> 
+> 오류: mqtt_client.c (ln 454): 오류: 끝점에 대한 연결 실패  
+> 정보:연결  >>>: 연결이 끊어졌습니다.  
+> 오류: tlsio_mbedtls.c (ln 604): 기본 IO 열기 실패  
+> 오류: mqtt_client.c (ln 1042): 오류: io_open 실패  
+> 오류: iothubtransport_mqtt_common.c (ln 2283): 주소 atcsliothub.azure-devices.net 연결 하지.  
+> 정보:다시 연결 >>>.  
+> 정보: IoThub 버전: 1.3.6  
 
 ### <a name="view-the-telemetry-received-by-azure-iot-hub"></a>Azure IoT Hub에서 수신한 원격 분석 보기
 

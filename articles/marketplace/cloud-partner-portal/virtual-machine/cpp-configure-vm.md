@@ -7,17 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: b0ed430098203c5c1a0d00eb7bf17da1be0000cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f20beced7d977668d12c06375ceb8a2554c6d335
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278095"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273429"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Azure 호스팅 VM 구성
 
-이 문서에서는 Azure에서 호스팅되는 VM(가상 머신)을 크기 조정, 업데이트 및 일반화하는 방법에 대해 설명합니다.  이러한 단계는 Azure Marketplace에서 배포할 VM을 준비하는 데 필요합니다.
+> [!IMPORTANT]
+> 2020년 4월 13일부터 파트너 센터에 대한 Azure 가상 머신 제공의 이동 관리가 시작됩니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 가상 [시스템 기술 자산 만들기의](https://aka.ms/AzureVMTechAsset) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
 
+이 문서에서는 Azure에서 호스팅되는 VM(가상 머신)을 크기 조정, 업데이트 및 일반화하는 방법에 대해 설명합니다.  이러한 단계는 Azure Marketplace에서 배포할 VM을 준비하는 데 필요합니다.
 
 ## <a name="sizing-the-vhds"></a>VHD 크기 조정
 

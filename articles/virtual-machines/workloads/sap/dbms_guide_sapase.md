@@ -12,19 +12,19 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/21/2020
+ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 007e8d87c670376ad334c1c4e58fd93995930b78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25d911869c95baba6ac9db3b893292e702e9c0e9
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77616252"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273208"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드에 대한 SAP ASE Azure Virtual Machines DBMS 배포
 
-이 문서에서는 Azure IaaS에서 SAP ASE를 배포할 때 고려할 여러 가지 영역을 다룹니다. 이 문서의 사전 조건으로, [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md) 문서 및 [Azure의 SAP 워크로드 설명서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)의 다른 가이드를 읽어야 합니다. 이 문서에서는 Linux 및 Windows 운영 체제에서 실행되는 SAP ASE를 다룹니다. Azure에서 지원되는 최소 릴리스는 SAP ASE 16.0 패치 수준 2입니다.  최신 버전의 SAP 및 최신 패치 수준을 배포하는 것이 좋습니다.  최소 SAP ASE 16.3 패치 레벨 7을 권장합니다.  SAP의 최신 버전은 [대상 ASE 16.0 릴리스 일정 및 CR 목록 정보에서](https://wiki.scn.sap.com/wiki/display/SYBASE/Targeted+ASE+16.0+Release+Schedule+and+CR+list+Information)찾을 수 있습니다.
+이 문서에서는 Azure IaaS에서 SAP ASE를 배포할 때 고려할 여러 가지 영역을 다룹니다. 이 문서의 사전 조건으로, [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md) 문서 및 [Azure의 SAP 워크로드 설명서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)의 다른 가이드를 읽어야 합니다. 이 문서에서는 Linux 및 Windows 운영 체제에서 실행되는 SAP ASE를 다룹니다. Azure에서 지원되는 최소 릴리스는 SAP ASE 16.0.02(릴리스 16 지원 팩 2)입니다. 최신 버전의 SAP 및 최신 패치 수준을 배포하는 것이 좋습니다.  최소 SAP ASE 16.0.03.07(릴리스 16 지원 팩 3 패치 레벨 7)을 권장합니다.  SAP의 최신 버전은 [대상 ASE 16.0 릴리스 일정 및 CR 목록 정보에서](https://wiki.scn.sap.com/wiki/display/SYBASE/Targeted+ASE+16.0+Release+Schedule+and+CR+list+Information)찾을 수 있습니다.
 
 SAP 응용 프로그램 또는 설치 미디어 위치를 사용 하 여 릴리스 지원에 대 한 추가 정보는 다음 위치에 있는 SAP 제품 가용성 매트릭스에서 찾을 수 있습니다.
 
@@ -80,11 +80,11 @@ SAP ASE는 달리 구성되지 않는 한 데이터를 디스크 저장 장치�
 
 SAP 솔루션 관리자와 같이 데이터베이스 크기가 50GB ~ 250GB인 소규모 SAP ASE DB 서버에 대한 구성의 예는 다음과 같습니다.
 
-| Configuration | Windows | Linux | 주석 |
+| 구성 | Windows | Linux | 주석 |
 | --- | --- | --- | --- |
 | VM 유형 | E4s_v3 (4 vCPU / 32 GB RAM) | E4s_v3 (4 vCPU / 32 GB RAM) | --- |
 | 가속 네트워킹 | 사용 | 사용 | ---|
-| SAP ASE 버전 | 16.3 PL 7 이상 | 16.3 PL 7 이상 | --- |
+| SAP ASE 버전 | 16.0.03.07 이상 | 16.0.03.07 이상 | --- |
 | 데이터 장치 번호 | 4 | 4 | ---|
 | 로그 장치 번호 | 1 | 1 | --- |
 | # 온도 장치 | 1 | 1 | SAP BW 워크로드에 대한 자세한 내용은 |
@@ -101,11 +101,11 @@ SAP 솔루션 관리자와 같이 데이터베이스 크기가 50GB ~ 250GB인 �
 
 데이터베이스 크기가 250GB ~ 750GB인 중형 SAP ASE DB 서버의 구성의 예는 소규모 SAP Business Suite 시스템과 같이 보일 수 있습니다.
 
-| Configuration | Windows | Linux | 주석 |
+| 구성 | Windows | Linux | 주석 |
 | --- | --- | --- | --- |
 | VM 유형 | E16s_v3 (16 vCPU / 128 GB RAM) | E16s_v3 (16 vCPU / 128 GB RAM) | --- |
 | 가속 네트워킹 | 사용 | 사용 | ---|
-| SAP ASE 버전 | 16.3 PL 7 이상 | 16.3 PL 7 이상 | --- |
+| SAP ASE 버전 | 16.0.03.07 이상 | 16.0.03.07 이상 | --- |
 | 데이터 장치 번호 | 8 | 8 | ---|
 | 로그 장치 번호 | 1 | 1 | --- |
 | # 온도 장치 | 1 | 1 | SAP BW 워크로드에 대한 자세한 내용은 |
@@ -121,11 +121,11 @@ SAP 솔루션 관리자와 같이 데이터베이스 크기가 50GB ~ 250GB인 �
 
 데이터베이스 크기가 750GB ~ 2000GB인 소규모 SAP ASE DB 서버의 구성의 예는 더 큰 SAP Business Suite 시스템과 같이 보일 수 있습니다.
 
-| Configuration | Windows | Linux | 주석 |
+| 구성 | Windows | Linux | 주석 |
 | --- | --- | --- | --- |
 | VM 유형 | E64s_v3 (64 vCPU / 432 GB RAM) | E64s_v3 (64 vCPU / 432 GB RAM) | --- |
 | 가속 네트워킹 | 사용 | 사용 | ---|
-| SAP ASE 버전 | 16.3 PL 7 이상 | 16.3 PL 7 이상 | --- |
+| SAP ASE 버전 | 16.0.03.07 이상 | 16.0.03.07 이상 | --- |
 | 데이터 장치 번호 | 16 | 16 | ---|
 | 로그 장치 번호 | 1 | 1 | --- |
 | # 온도 장치 | 1 | 1 | SAP BW 워크로드에 대한 자세한 내용은 |
@@ -142,11 +142,11 @@ SAP 솔루션 관리자와 같이 데이터베이스 크기가 50GB ~ 250GB인 �
 
 전 세계적으로 사용되는 대규모 SAP Business Suite 시스템과 같이 데이터베이스 크기가 2TB+인 소규모 SAP ASE DB 서버에 대한 구성의 예는 다음과 같습니다.
 
-| Configuration | Windows | Linux | 주석 |
+| 구성 | Windows | Linux | 주석 |
 | --- | --- | --- | --- |
 | VM 유형 | M 시리즈(1.0 ~ 4.0TB RAM)  | M 시리즈(1.0 ~ 4.0TB RAM) | --- |
 | 가속 네트워킹 | 사용 | 사용 | ---|
-| SAP ASE 버전 | 16.3 PL 7 이상 | 16.3 PL 7 이상 | --- |
+| SAP ASE 버전 | 16.0.03.07 이상 | 16.0.03.07 이상 | --- |
 | 데이터 장치 번호 | 32 | 32 | ---|
 | 로그 장치 번호 | 1 | 1 | --- |
 | # 온도 장치 | 1 | 1 | SAP BW 워크로드에 대한 자세한 내용은 |
@@ -203,7 +203,7 @@ SAP 소프트웨어 프로비저닝 관리자(SWPM)는 설치 하는 동안 데�
 
 ## <a name="sap-ase-on-azure-deployment-checklist"></a>Azure 배포 검사 목록에 있는 SAP ASE
  
-- SAP ASE 16.3 PL7 이상 배포
+- SAP ASE 16.0.03.07 이상 배포
 - 오류 관리자 및 SAPHostAgent의 최신 버전 및 패치로 업데이트
 - Windows 2019, Suse 15.1 또는 Redhat 7.6 이상과 같은 최신 인증 OS에 배포
 - SAP 인증 VM 사용 – Es_v3 또는 x-대형 시스템 M 시리즈 VM SUS와 같은 고메모리 Azure VM SUS 사용 권장
@@ -277,7 +277,7 @@ SAP ASE의 DBA Cockpit에 대한 자세한 내용은 다음 SAP Note에서 확�
 
 
 ## <a name="useful-links-notes--whitepapers-for-sap-ase"></a>유용한 링크, SAP ASE에 대한 & 백서 참고 사항
-[Sybase ASE 16.3 PL7 문서의](https://help.sap.com/viewer/product/SAP_ASE/16.0.3.7/en-US) 시작 페이지는 다음과 같은 문서의 다양한 문서에 대한 링크를 제공합니다.
+[SAP ASE 16.0.03.07 문서의](https://help.sap.com/viewer/product/SAP_ASE/16.0.3.7/en-US) 시작 페이지는 다음과 같은 문서의 다양한 문서에 대한 링크를 제공합니다.
 
 - SAP ASE 학습 여정 - 관리 & 모니터링
 - SAP ASE 학습 여정 - 설치 & 업그레이드
@@ -303,11 +303,11 @@ SAP ASE의 DBA Cockpit에 대한 자세한 내용은 다음 SAP Note에서 확�
 기타 정보는 다음에 게시됩니다. 
 
 - [SAP 어댑티브 서버 엔터프라이즈의 SAP 애플리케이션](https://community.sap.com/topics/applications-on-ase)
-- [시베이스 정보 센터](http://infocenter.sybase.com/help/index.jsp) 
+- [SAP ASE 정보 센터](http://infocenter.sybase.com/help/index.jsp) 
+- [3번째 DR 노드 설정으로 SAP ASE 상시 켜짐](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199)
 
 월간 뉴스레터는 [#2381575 SAP 지원 노트를](https://launchpad.support.sap.com/#/notes/2381575) 통해 게시됩니다. 
 
-[3번째 DR 노드 설정으로 항상 켜진 Sybase ASE](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199) 
 
 ## <a name="next-steps"></a>다음 단계
 [Azure에서 SAP 워크로드: 계획 및 배포 검사 목록](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist) 확인

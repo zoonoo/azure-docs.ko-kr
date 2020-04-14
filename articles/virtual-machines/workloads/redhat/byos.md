@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 825d26307f2b462d51b143b88127e229508f2f25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ab578b4b688c02c9150dfb23fce53fbb82df405
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264597"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273174"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>레드 햇 엔터프라이즈 리눅스 가져-당신의 자신의 구독 골드 이미지 Azure에서
 
@@ -120,7 +120,7 @@ Red Hat 엔터프라이즈 Linux(RHEL) 이미지는 Azure에서 종량제 또는
 1. VM에 SSH를 입력하고 권한이 없는 이미지가 있는지 확인합니다. 이 단계를 수행하려면 `sudo yum repolist`을 실행합니다. RHEL 8의 `sudo dnf repolist`경우 을 사용합니다. 출력은 구독 관리자를 사용하여 Red Hat에 VM을 등록하도록 요청합니다.
 
 >[!NOTE]
->RHEL `dnf` 8에서, `yum` 그리고 교환 할 수 있습니다. 자세한 내용은 [RHEL 8 관리자 가이드를](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/installing-software-with-yum_configuring-basic-system-settings)참조하십시오.
+>RHEL `dnf` 8에서, `yum` 그리고 교환 할 수 있습니다. 자세한 내용은 [RHEL 8 관리자 가이드를](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/packaging_and_distributing_software/index)참조하십시오.
 
 ## <a name="use-the-red-hat-gold-images-from-powershell"></a>파워쉘의 레드햇 골드 이미지 사용
 
@@ -214,6 +214,7 @@ Azure 디스크 암호화를 적용하는 단계는 [Linux VM](../../linux/disk-
 
 ## <a name="next-steps"></a>다음 단계
 
+- Red Hat 클라우드 액세스에 대한 자세한 내용은 [Red Hat 퍼블릭 클라우드 설명서에서](https://access.redhat.com/public-cloud) 확인할 수 있습니다.
 - 클라우드 액세스에 대한 단계별 가이드 및 프로그램 세부 정보는 [Red Hat 클라우드 액세스 설명서를](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index)참조하십시오.
 - Red Hat 업데이트 인프라에 대한 자세한 내용은 [Azure Red Hat 업데이트 인프라를](./redhat-rhui.md)참조하십시오.
 - Azure의 모든 Red Hat 이미지에 대한 자세한 내용은 [설명서 페이지를](./redhat-images.md)참조하십시오.

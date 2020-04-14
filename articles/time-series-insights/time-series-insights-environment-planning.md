@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 04/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 972bb2a804057037deedb448674abafcc175b21f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85910ee5467ecc9f4fe3c1a8bc13110b6f218e5c
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76314813"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272715"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Azure 타임시리즈 인사이트 GA 환경 계획
 
@@ -79,9 +79,7 @@ Azure 포털에서 환경의 구성 페이지에서 두 모드 간에 보존 및
 
 ### <a name="environment-planning"></a>환경 계획
 
-타임시리즈 인사이트 환경 계획에 중점을 두 번째로 중점을 두 번째는 용량 을 입력하는 것입니다. 침투 용량은 분당 할당의 유도체입니다.
-
-제한 관점에서 패킷 크기가 32KB인 인적 데이터 패킷은 각각 1KB 크기의 32개의 이벤트로 처리됩니다. 허용되는 최대 이벤트 크기는 32KB입니다. 32KB보다 큰 데이터 패킷은 잘립니다.
+타임시리즈 인사이트 환경 계획에 중점을 두 번째로 중점을 두 번째는 용량 을 입력하는 것입니다. 일일 침투 스토리지 및 이벤트 용량은 분당 1KB 블록으로 측정됩니다. 허용되는 최대 패킷 크기는 32KB입니다. 32KB보다 큰 데이터 패킷은 잘립니다.
 
 하나의 환경에서 S1 또는 S2 SKU의 용량을 10개의 단위로 늘릴 수 있습니다. S1 환경에서 S2로 마이그레이션할 수 없습니다. S2 환경에서 S1로 마이그레이션할 수 없습니다.
 

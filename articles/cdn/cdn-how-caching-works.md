@@ -3,7 +3,7 @@ title: 캐싱 작동 방식 | Microsoft Docs
 description: 캐싱은 데이터에 대한 향후 요청에 신속하게 액세스할 수 있도록 데이터를 로컬에 저장하는 프로세스입니다.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: magattus
-ms.openlocfilehash: 92d93fbf9fa2f8df15acb62802d7ac53db836dc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: d0c438aee7f56e96feb7167fad718fd9519a9f76
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593854"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253716"
 ---
 # <a name="how-caching-works"></a>캐싱 작동 방식
 
@@ -126,8 +126,8 @@ Azure CDN은 캐시 기간과 캐시 공유를 정의하는 다음과 같은 HTT
 
 |    | Microsoft: 일반 웹 배달 | Verizon: 일반 웹 배달 | Verizon: DSA | Akamai: 일반 웹 배달 | Akamai: DSA | Akamai: 대용량 파일 다운로드 | Akamai: 일반 또는 VOD 미디어 스트리밍 |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **명예 원산지**       | yes    | yes   | 예   | yes    | 예   | yes   | yes    |
-| **CDN 캐시 지속 시간** | 2일 |7 일 | None | 7 일 | None | 1일 | 1년 |
+| **명예 원산지**       | 예    | 예   | 예   | 예    | 예   | 예   | 예    |
+| **CDN 캐시 지속 시간** | 2일 |7 일 | 없음 | 7 일 | 없음 | 1일 | 1년 |
 
 **원본 사용**: 지원되는 캐시 지시문 헤더가 원본 서버의 HTTP 응답에 존재하는 경우 사용할지 여부를 지정합니다.
 

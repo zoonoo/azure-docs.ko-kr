@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 04/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 272188b50fe59435031a4a2fb9c252f3f358bb6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 149fb5818ee360c7333997655ea9eb8d7ded346c
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535734"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270896"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Azure NetApp 파일을 사용하여 호스트 풀에 대한 FSLogix 프로필 컨테이너 만들기
 
@@ -45,7 +45,7 @@ Windows 가상 데스크톱 환경에 대한 엔터프라이즈급 SMB 볼륨을
 
 시작하려면 Azure NetApp 파일 계정을 설정해야 합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다. 계정에 기여자 또는 관리자 권한이 있는지 확인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 계정에 기여자 또는 관리자 권한이 있는지 확인합니다.
 
 2. 검색 창 오른쪽에 있는 **Azure 클라우드 셸 아이콘을** 선택하여 Azure 클라우드 셸을 엽니다.
 
@@ -118,9 +118,6 @@ Windows 가상 데스크톱 환경에 대한 엔터프라이즈급 SMB 볼륨을
     - **사용자 이름의**경우 도메인 가입을 수행할 수 있는 권한이 있는 계정 이름을 입력합니다.
     - **암호의**경우 계정의 암호를 입력합니다.
 
-  >[!NOTE]
-  >[Active Directory 연결 에 가입할](create-fslogix-profile-container.md#join-an-active-directory-connection) 때 만든 컴퓨터 계정이 **컴퓨터** 또는 기업의 관련 OU 아래의 도메인 컨트롤러에 나타났는 **것을**확인하는 것이 좋습니다.
-
 ## <a name="create-a-new-volume"></a>새 볼륨 만들기
 
 다음으로 새 볼륨을 만들어야 합니다.
@@ -167,7 +164,7 @@ Windows 가상 데스크톱 환경에 대한 엔터프라이즈급 SMB 볼륨을
 
 5. **라이센스 이용 약관에 동의할**수 있는 확인란을 선택합니다.
 
-6. **설치**을 선택합니다.
+6. **설치**를 선택합니다.
 
 7. **C로\\이동:\\에이전트가\\** 설치된 지 확인하려면 파일 FSLogix 앱을 프로그래밍합니다.
 

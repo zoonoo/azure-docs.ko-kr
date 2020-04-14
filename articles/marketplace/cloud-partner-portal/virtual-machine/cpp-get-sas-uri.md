@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: 6fe15fb18d8865911363a4696e44dd7fe1d90c09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fdbc2a11bd963057b465a629757f2be51ae4061
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277806"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273854"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>VM 이미지에 대한 공유 액세스 서명 URI 가져오기
+
+> [!IMPORTANT]
+> 2020년 4월 13일부터 Azure 가상 머신 의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. VM [이미지에 대한 공유 액세스 서명 URI의 지침에](https://aka.ms/GetSASURI) 따라 마이그레이션된 오퍼를 관리합니다.
 
 게시 프로세스 중에 SKU와 연결된 각 VHD(가상 하드 디스크)에 대한 URI(Uniform Resource Identifier)를 제공해야 합니다. Microsoft는 인증 프로세스 중에 이러한 VHD에 액세스해야 합니다. 이 문서에서는 각 VHD에 대한 SAS(공유 액세스 서명) URI를 생성하는 방법에 대해 설명합니다. 이 URI는 Cloud 파트너 포털의 **SKU** 탭에 입력합니다.
 

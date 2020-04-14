@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/20/2020
+ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: cc937589b2fc4f394b44cf6890a352d770751d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46c53c99c12ade986ab913bf013b652a931a4d22
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502026"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257745"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Azure Lab Services에서 클래스룸 랩 관리 
 이 문서에서는 클래스룸 랩을 만들고 삭제하는 방법을 설명합니다. 또한 랩 계정에서 모든 클래스룸 랩을 보는 방법을 보여 줍니다. 
@@ -37,6 +37,8 @@ ms.locfileid: "79502026"
     1. 랩에 대한 **이름**을 지정합니다. 
     2. 클래스에 필요한 **가상 시스템의 크기를** 선택합니다. 사용 가능한 크기 목록은 [VM 크기](#vm-sizes) 섹션을 참조하십시오. 
     3. 교실 랩에 사용할 **가상 컴퓨터 이미지를** 선택합니다. Linux 이미지를 선택하면, 이에 대한 원격 데스크톱 연결을 사용하도록 설정하는 옵션이 표시됩니다. 자세한 내용은 [Linux에 대한 원격 데스크톱 연결을 사용하도록 설정](how-to-enable-remote-desktop-linux.md)을 참조하세요.
+
+        랩 계정 소유자 자격 증명을 사용하여 로그인한 경우 랩에 더 많은 이미지를 사용하도록 설정하는 옵션이 표시됩니다. 자세한 내용은 [랩 생성 시 이미지 활성화를](specify-marketplace-images.md#enable-images-at-the-time-of-lab-creation)참조하십시오.
     4. 페이지에 표시된 **시간당 총 가격을** 검토합니다. 
     6. **저장**을 선택합니다.
 
@@ -97,7 +99,7 @@ ms.locfileid: "79502026"
 
 ### <a name="vm-sizes"></a>VM 크기  
 
-| 크기 | 코어 수 | RAM | 설명 | 
+| 크기 | 코어 수 | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
 | 작음 | 2 | 3.5 GB | 이 크기는 명령줄, 웹 브라우저 열기, 트래픽이 적은 웹 서버, 중소 규모 데이터베이스에 가장 적합합니다. |
 | 중간 | 4 | 7 GB | 이 크기는 관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합합니다. | 

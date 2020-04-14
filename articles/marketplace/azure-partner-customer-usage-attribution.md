@@ -1,53 +1,95 @@
 ---
-title: Azure 파트너 및 고객 사용 기여 | Azure 마켓플레이스
-description: Azure Marketplace 솔루션에 대한 고객 사용량을 추적하는 방법의 개요
+title: 상용 마켓플레이스 파트너 및 고객 사용 기여
+description: Azure Marketplace 솔루션에 대한 고객 사용량 추적개요를 확인하세요.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 9/23/2019
+ms.date: 04/13/2020
 ms.author: dsindona
-ms.openlocfilehash: 2895944dea6417949488076186135680523e19db
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 5fec72ce5f86c1bee9ec0e978e458f5be454c8e3
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80874962"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256589"
 ---
-# <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
+# <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>상용 마켓플레이스 파트너 및 고객 사용 기여
 
-Azure 소프트웨어 파트너의 솔루션은 Azure 구성 요소가 필요하거나 Azure 인프라에 직접 배포해야 합니다. 파트너 솔루션을 배포하고 자체 Azure 리소스를 프로비전하는 고객은 배포 상태를 파악하기 어렵고, 이에 따라 Azure 성장에 미치는 영향에 광학을 사용할 수 있습니다. 높은 수준의 가시성을 추가하면 Microsoft 판매 팀과 제휴하여 Microsoft 파트너 프로그램에 대한 크레딧을 얻게 됩니다.
+고객 사용 기여는 고객 구독에서 실행 중인 Azure 리소스를 파트너로 사용하여 솔루션을 실행하기 위해 배포된 연결 방법입니다. 내부 Microsoft 시스템에서 이러한 연결을 구성하면 소프트웨어를 실행하는 Azure 설치 공간에 대한 가시성이 향상됩니다. 이 추적 기능을 채택하면 Microsoft 영업 팀과 정렬하고 Microsoft 파트너 프로그램에 대한 크레딧을 얻을 수 있습니다.
 
-Microsoft는 이제 파트너가 Azure에 자사 소프트웨어를 배포한 고객의 Azure 사용량을 더 효율적으로 추적할 수 있는 유용한 방법을 제공합니다. 이 새 방법에서는 Azure Resource Manager를 사용하여 Azure 서비스의 배포를 오케스트레이션합니다.
+Azure Marketplace, 빠른 시작 리포지토리, 개인 GitHub 리포지토리 및 지속적인 IP(예: 앱 개발)를 만드는 1:1 고객 계약을 통해 연결을 형성할 수 있습니다.
 
-Microsoft 파트너는 고객을 대신하여 프로비전하는 Azure 리소스와 Azure 사용량을 연결할 수 있습니다. Azure Marketplace, 빠른 시작 리포지토리, 프라이빗 GitHub 리포지토리 및 일 대 일 고객 참여를 통해 연결을 구성할 수 있습니다. 고객 사용 기여는 다음 세 가지 배포 옵션을 지원합니다.
+고객 사용 기여는 다음 세 가지 배포 옵션을 지원합니다.
 
 - Azure 리소스 관리자 템플릿: 파트너는 리소스 관리자 템플릿을 사용하여 Azure 서비스를 배포하여 파트너의 소프트웨어를 실행할 수 있습니다. 파트너는 Azure 솔루션의 인프라와 구성을 정의하는 Resource Manager 템플릿을 만들 수 있습니다. Resource Manager 템플릿을 사용하면 개발자와 고객이 수명 주기 전반에 걸쳐 솔루션을 배포할 수 있습니다. 리소스가 일관된 상태로 배포된다는 것을 확신할 수 있습니다.
 - Azure Resource Manager API: 파트너는 Resource Manager API를 직접 호출하여 Resource Manager 템플릿을 배포하거나 Azure 서비스를 직접 프로비전할 API 호출을 생성할 수 있습니다.
-- Terraform: 파트너는 Terraform과 같은 클라우드 오케스트레이터를 사용하여 리소스 관리자 템플릿을 배포하거나 Azure 서비스를 직접 배포할 수 있습니다.
+- Terraform: 파트너는 Terraform을 사용하여 리소스 관리자 템플릿을 배포하거나 Azure 서비스를 직접 배포할 수 있습니다.
 
-고객 사용 기여는 새 배포를 위한 것이며 이미 배포된 기존 리소스에 태그를 지정하는 것을 지원하지 않습니다.
-
-[Azure Application](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer): Azure Marketplace에 게시된 솔루션 템플릿 제품에 대한 고객 사용 기여가 필요합니다.
-
+>[!IMPORTANT]
+>- 고객 사용 기여는 Azure에서 실행되는 소프트웨어를 배포하고 관리하도록 설계된 시스템 통합자, 관리되는 서비스 공급자 또는 도구의 작업을 추적하기 위한 것이 아닙니다.
+>
+>- 고객 사용 기여는 새 배포에 대한 것이며 이미 배포된 기존 리소스에 태그를 지정하는 것을 지원하지 않습니다.
+>
+>- Azure 마켓플레이스에 게시된 Azure [응용 프로그램](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer) 오퍼의 경우 고객 사용 기여가 필요합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+## <a name="create-guids"></a>GUID 만들기
+
+GUID는 32개의 헥사데피말 숫자가 있는 고유한 참조 식별자입니다. 추적을 위한 GUID를 만들려면 GUID 생성기를 사용해야 합니다. Azure Storage 팀은 [GUID 생성기 양식](https://aka.ms/StoragePartners)을 만든 후 이 양식을 통해 올바른 형식의 GUID를 이메일로 전달합니다. 이 GUID를 다른 추적 시스템에서 다시 사용할 수 있습니다.
+
+> [!NOTE]
+> [Azure Storage의 GUID 생성기 양식을](https://aka.ms/StoragePartners) 사용하여 GUID를 만드는 것이 좋습니다. 자세한 내용은 [FAQ](#faq)를 참조하세요.
+
+각 제품에 대한 모든 제안 및 배포 채널에 대해 고유한 GUID를 만드는 것이 좋습니다. 보고를 분할하지 않으려면 제품의 여러 배포 채널에 대해 단일 GUID를 사용하도록 선택할 수 있습니다.
+
+템플릿을 사용하여 제품을 배포하고 Azure 마켓플레이스와 GitHub에서 사용할 수 있는 경우 두 가지 GUIDS를 만들고 등록할 수 있습니다.
+
+- Azure Marketplace의 제품 A
+- GitHub의 제품 A
+
+보고는 Microsoft 파트너 네트워크 ID 및 GUID에 의해 수행됩니다.
+
+또한 추가 GUID를 등록하고 계획이 제안의 변형인 계획 간에 GUID를 변경하여 보다 세분화된 수준에서 사용량을 추적할 수 있습니다.
+
+## <a name="register-guids"></a>GUID 등록
+
+GUID는 고객 사용 기여가 가능하도록 파트너 센터에 등록해야 합니다.
+
+템플릿 또는 사용자 에이전트에 GUID를 추가하고 파트너 센터에 GUID를 등록하면 향후 배포가 추적됩니다.
+
+1. [파트너 센터에 로그인합니다.](https://partner.microsoft.com/dashboard)
+
+1. [상업용 마켓플레이스 퍼블리셔로](https://aka.ms/JoinMarketplace)등록하십시오.
+
+   * 파트너는 [파트너 센터에 프로필이 있어야](https://docs.microsoft.com/azure/marketplace/become-publisher)합니다. Azure Marketplace 또는 AppSource에 제품을 나열하는 것이 좋습니다.
+   * 파트너는 여러 GUID를 등록할 수 있습니다.
+   * 파트너는 마켓플레이스가 아닌 솔루션 템플릿 및 오퍼에 대한 GUID를 등록할 수 있습니다.
+
+1. 오른쪽 위쪽 모서리에서 설정 기어 아이콘을 선택한 다음 **개발자 설정을**선택합니다.
+
+1. 계정 **설정 페이지에서** **추적 GUID 추가를 선택합니다.**
+
+1. **GUID** 상자에 추적 GUID를 입력합니다. **pid-** 접두사 없이 GUID만 입력합니다. **설명** 상자에 쿠폰 이름 또는 설명을 입력합니다.
+
+1. 여러 GUID를 등록하려면 **추적 GUID 추가**를 다시 선택합니다. 추가 상자가 페이지에 표시됩니다.
+
+1. **저장**을 선택합니다.
+
 ## <a name="use-resource-manager-templates"></a>Resource Manager 템플릿 사용
-많은 파트너 솔루션은 리소스 관리자 템플릿을 사용하여 고객의 구독에 배포됩니다. Azure 마켓플레이스, GitHub 또는 빠른 시작으로 사용할 수 있는 리소스 관리자 템플릿이 있는 경우 고객 사용 기여가 활성화되도록 템플릿을 수정하는 프로세스는 간단해야 합니다.
+많은 파트너 솔루션은 Azure 리소스 관리자 템플릿을 사용하여 배포됩니다. Azure 마켓플레이스, GitHub 또는 빠른 시작으로 사용할 수 있는 리소스 관리자 템플릿이 있는 경우 고객 사용 기여가 활성화되도록 템플릿을 수정하는 프로세스가 간단합니다.
 
-솔루션 템플릿을 만들고 게시하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+> [!NOTE]
+> 솔루션 템플릿을 만들고 게시하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+> * [첫 번째 Resource Manager 템플릿 만들기 및 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)
+>* [Azure 응용 프로그램 제공](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
+>* 비디오: [Azure 마켓플레이스에 대한 솔루션 템플릿 및 관리되는 응용 프로그램 빌드.](https://channel9.msdn.com/Events/Build/2018/BRK3603)
 
-* [첫 번째 Resource Manager 템플릿 만들기 및 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)
-* [Azure 응용 프로그램 제공](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
-* 비디오: [Azure 마켓플레이스에 대한 솔루션 템플릿 및 관리되는 응용 프로그램 빌드.](https://channel9.msdn.com/Events/Build/2018/BRK3603)
-
-
-## <a name="add-a-guid-to-your-template"></a>템플릿에 GUID 추가
 
 GUID(Globally Unique Identifier)를 추가하려면 주 템플릿 파일을 한 번만 수정하면 됩니다.
 
-1. 제안된 방법을 사용하여 [GUID를 만들고](#create-guids)[GUID를 등록](#register-guids-and-offers)합니다.
+1. 제안된 방법을 사용하여 [GUID를 만들고](#create-guids)[GUID를 등록](#register-guids)합니다.
 
 1. Resource Manager 템플릿을 엽니다.
 
@@ -96,7 +138,7 @@ Resource Manager 템플릿을 사용하는 경우 앞에서 설명한 지침에 
 
 ![GUID 형식 예제](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
-> [!Note]
+> [!NOTE]
 > 문자열의 형식이 중요합니다. **pid-** 접두사가 포함되지 않으면 데이터를 쿼리할 수 없습니다. SDK마다 다른 방법으로 추적합니다. 이 방법을 구현하려면 기본 설정 Azure SDK에 대한 지원 및 추적 방법을 검토하세요.
 
 #### <a name="example-the-python-sdk"></a>예제: Python SDK
@@ -105,7 +147,7 @@ Python의 경우 **config** 특성을 사용합니다. 이 특성은 UserAgent�
 
 ![사용자 에이전트에 특성 추가](media/marketplace-publishers-guide/python-for-lu.PNG)
 
-> [!Note]
+> [!NOTE]
 > 각 클라이언트에 대한 특성을 추가합니다. 글로벌 정적 구성이 없습니다. 모든 클라이언트에서 추적할 수 있도록 클라이언트 팩터리에 태그를 지정할 수 있습니다. 자세한 내용은 [GitHub의 클라이언트 팩터리 샘플](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)을 참조하세요.
 
 #### <a name="tag-a-deployment-by-using-the-azure-powershell"></a>Azure PowerShell을 사용하여 배포에 태그 지정
@@ -143,50 +185,6 @@ provider "azurerm" {
 
 * GUID 만들기(각 오퍼 또는 SKU에 대해 GUID를 추가해야 합니다).
 * azure 공급자를 업데이트하여 *partner_id* 값을 GUID로 설정합니다("pid-"로 GUID를 미리 수정하지 말고 실제 GUID로 설정).
-
-## <a name="create-guids"></a>GUID 만들기
-
-GUID는 32자리의 16진수가 있는 고유 참조 번호입니다. 추적을 위한 GUID를 만들려면 GUID 생성기를 사용해야 합니다. Azure Storage 팀은 [GUID 생성기 양식](https://aka.ms/StoragePartners)을 만든 후 이 양식을 통해 올바른 형식의 GUID를 이메일로 전달합니다. 이 GUID를 다른 추적 시스템에서 다시 사용할 수 있습니다.
-
-> [!Note]
-> [Azure Storage의 GUID 생성기 양식을](https://aka.ms/StoragePartners) 사용하여 GUID를 만드는 것이 좋습니다. 자세한 내용은 [FAQ](#faq)를 참조하세요.
-
-각 제품에 대한 모든 제안 및 배포 채널에 대해 고유한 GUID를 만드는 것이 좋습니다. 보고를 분할하지 않으려면 제품의 여러 배포 채널에 대해 단일 GUID를 사용하도록 선택할 수 있습니다.
-
-템플릿을 사용하여 제품을 배포하고 Azure Marketplace 및 GitHub에서 모두 사용할 수 있는 경우, 2개의 고유 GUID를 만들고 등록할 수 있습니다.
-
-*   Azure Marketplace의 제품 A
-*   GitHub의 제품 A
-
-보고는 파트너 값(Microsoft 파트너 ID) 및 GUID를 통해 수행됩니다.
-
-SKU는 제품의 변형인 SKU와 같이 더 세부적인 수준에서 GUID를 추적할 수도 있습니다.
-
-## <a name="register-guids-and-offers"></a>GUID 및 제품 등록
-
-고객 사용 기여가 가능하도록 GUID를 등록해야 합니다.
-
-템플릿 GUID에 대한 모든 등록은 파트너 센터 내에서 수행됩니다.
-
-템플릿 또는 사용자 에이전트에 GUID를 추가하고 파트너 센터에 GUID를 등록하면 모든 배포가 추적됩니다.
-
-1. [상업용 마켓플레이스 퍼블리셔로](https://aka.ms/JoinMarketplace)등록하십시오.
-
-   * 파트너는 [파트너 센터에 프로필이 있어야](https://docs.microsoft.com/azure/marketplace/become-publisher)합니다. Azure Marketplace 또는 AppSource에 제품을 나열하는 것이 좋습니다.
-   * 파트너는 여러 GUID를 등록할 수 있습니다.
-   * 파트너는 Marketplace 이외의 솔루션 템플릿 및 제품에 대한 GUID를 등록할 수 있습니다.
-
-1. [파트너 센터에 로그인합니다.](https://partner.microsoft.com/dashboard)
-
-1. 오른쪽 위쪽 모서리에서 설정 기어 아이콘을 선택한 다음 **개발자 설정을**선택합니다.
-
-1. 계정 **설정 페이지에서** **추적 GUID 추가를 선택합니다.**
-
-1. **GUID** 상자에 추적 GUID를 입력합니다. **pid-** 접두사 없이 GUID만 입력합니다. **설명** 상자에 쿠폰 이름 또는 설명을 입력합니다.
-
-1. 여러 GUID를 등록하려면 **추적 GUID 추가**를 다시 선택합니다. 추가 상자가 페이지에 표시됩니다.
-
-1. **저장**을 선택합니다.
 
 
 ## <a name="verify-the-guid-deployment"></a>GUID 배포 확인
@@ -277,7 +275,7 @@ foreach ($deployment in $deployments){
 
 1. 다음 페이지에서 필요한 값을 입력합니다.
 
-   > [!Important]
+   > [!IMPORTANT]
    > **인시던트 제목** 상자에서 **ISV 사용량 추적**을 입력합니다. 문제를 자세히 설명하세요.
 
    ![인시던트 제목에 대한 ISV 사용량 추적 입력](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
@@ -315,11 +313,11 @@ Microsoft는 파트너에게 솔루션의 고객 배포에 대한 뷰와 영향�
 
 **GitHub 등의 타사 리포지토리에서 배포된 템플릿을 추적할 수 있나요?**
 
-예, 템플릿을 배포할 때 GUID가 있는 한 사용량이 추적됩니다. 파트너는 Azure 마켓플레이스 외부의 배포에 사용되는 GUID를 등록하려면 파트너 센터의 상용 마켓플레이스 등록에 프로필이 있어야 합니다.
+예, 템플릿을 배포할 때 GUID가 있는 한 사용량이 추적됩니다. 파트너는 여전히 GUID를 등록해야 합니다.
 
 **고객도 보고를 받나요?**
 
-고객은 Azure Portal 내에서 개별 리소스 또는 고객 정의 리소스 그룹의 사용량을 추적할 수 있습니다.
+고객은 Azure Portal 내에서 개별 리소스 또는 고객 정의 리소스 그룹의 사용량을 추적할 수 있습니다. 고객은 GUID에 의해 세분화 된 사용량을 볼 수 없습니다.
 
 **이 방법론은 디지털 레코드 파트너(DPOR)와 유사합니까?**
 

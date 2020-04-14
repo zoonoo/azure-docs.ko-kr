@@ -3,7 +3,7 @@ title: 마이크로소프트 Azure를 오라클 클라우드 인프라와 통합
 description: Microsoft Azure에서 실행되는 Oracle 앱을 OCI(오라클 클라우드 인프라)의 데이터베이스와 통합하는 솔루션에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: romitgirdhar
+author: mimckitt
 manager: gwallace
 tags: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/16/2020
-ms.author: rogirdh
+ms.author: mimckitt
 ms.custom: ''
-ms.openlocfilehash: b5d5ebda850163989e6ef1af94ec623d2d758f07
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 178fb805f4bfc0762ce7e4a320752e5afa00cef5
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878292"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271865"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>마이크로소프트 Azure와 오라클 클라우드 인프라를 통합한 오라클 애플리케이션 솔루션
 
@@ -55,6 +55,7 @@ Azure 인프라에 전적으로 Oracle 솔루션을 배포하려는 경우 [Orac
 * Azure UK 사우스(uksouth) & OCI 런던(영국 남부)
 * Azure 캐나다 중부(캐나다 중부) & OCI 토론토(캐나다 남동부)
 * Azure 서유럽(서유럽) & OCI 암스테르담(네덜란드 북서부)
+* Azure 일본 동부(일본) & OCI 도쿄(일본 동부)
 
 ## <a name="networking"></a>네트워킹
 

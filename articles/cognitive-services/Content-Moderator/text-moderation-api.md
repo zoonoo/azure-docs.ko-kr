@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 5a07f0749b59efc96b67df3ad5ed2fbf353be614
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41e88dd5a08de485f770559959843ba3b54e590f
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74538838"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81274013"
 ---
 # <a name="learn-text-moderation-concepts"></a>텍스트 조정 개념 알아보기
 
-Content Moderator의 기계 지원 텍스트 조정 및 [사용자 검토](Review-Tool-User-Guide/human-in-the-loop.md) 기능을 사용하여 텍스트 콘텐츠를 조정할 수 있습니다.
+콘텐츠 운영자의 기계 지원 텍스트 조정 및 [인적 검토](Review-Tool-User-Guide/human-in-the-loop.md) 기능을 사용하여 텍스트 콘텐츠를 조정합니다.
 
 정책 및 임계값에 따라 콘텐츠를 차단, 승인 또는 검토합니다. 사용자의 환경 중재를 강화하여 파트너, 직원 및 소비자가 텍스트 콘텐츠를 생성하도록 하는 데 사용됩니다. 여기에는 채팅방, 토론 게시판, 챗봇, 전자 상거래 카탈로그 및 문서가 포함됩니다. 
 
@@ -51,20 +51,20 @@ API가 [지원되는 언어](Text-Moderation-API-Languages.md)의 욕설을 감�
 
 ## <a name="classification"></a>분류
 
-Content Moderator의 기계 지원 **텍스트 분류 기능**은 **영어만** 지원하며, 잠재적으로 원치 않는 콘텐츠를 감지하는 데 도움이 됩니다. 플래그가 지정된 콘텐츠는 컨텍스트에 따라 부적절한 콘텐츠로 평가될 수 있습니다. 각 범주의 가능성을 전달하고 사용자 검토를 권장할 수 있습니다. 이 기능은 학습된 모델을 사용하여 상스럽거나 경멸적이거나 차별적인 언어를 식별합니다. 여기에는 은어, 약어, 불쾌한 단어, 의도적으로 철자가 틀린 단어의 검토가 포함됩니다. 
+콘텐츠 운영자의 기계 지원 **텍스트 분류 기능은** **영어만**지원하며 원치 않는 콘텐츠를 감지하는 데 도움이 됩니다. 플래그가 지정된 콘텐츠는 컨텍스트에 따라 부적절한 콘텐츠로 평가될 수 있습니다. 각 범주의 가능성을 전달하고 사용자 검토를 권장할 수 있습니다. 이 기능은 학습된 모델을 사용하여 상스럽거나 경멸적이거나 차별적인 언어를 식별합니다. 여기에는 은어, 약어, 불쾌한 단어, 의도적으로 철자가 틀린 단어의 검토가 포함됩니다. 
 
 JSON 추출의 다음 추출은 예제 출력을 보여 줍니다.
 
     "Classification": {
         "ReviewRecommended": true,
         "Category1": {
-            "Score": 1.5113095059859916E-06
+              "Score": 1.5113095059859916E-06
             },
         "Category2": {
-            "Score": 0.12747249007225037
+              "Score": 0.12747249007225037
             },
         "Category3": {
-            "Score": 0.98799997568130493
+              "Score": 0.98799997568130493
         }
     }
 
@@ -84,77 +84,48 @@ JSON 추출의 다음 추출은 예제 출력을 보여 줍니다.
 - 미국 우편 주소
 - IP 주소
 - 미국 전화 번호
-- 영국 전화 번호
-- SSN(사회 보장 번호)
 
 다음 예제에서는 샘플 응답을 보여 줍니다.
 
 ```json
-"PII":{ 
-  "Email":[ 
-    { 
-      "Detected":"abcdef@abcd.com",
-      "SubType":"Regular",
-      "Text":"abcdef@abcd.com",
-      "Index":32
-    }
+"pii":{
+  "email":[
+      {
+        "detected":"abcdef@abcd.com",
+        "sub_type":"Regular",
+        "text":"abcdef@abcd.com",
+        "index":32
+      }
   ],
-  "IPA":[ 
-    { 
-      "SubType":"IPV4",
-      "Text":"255.255.255.255",
-      "Index":72
-    }
+  "ssn":[
+
   ],
-  "Phone":[ 
-    { 
-      "CountryCode":"US",
-      "Text":"4255550111",
-      "Index":56
-    },
-    { 
-      "CountryCode":"US",
-      "Text":"425 555 0111",
-      "Index":212
-    },
-    { 
-      "CountryCode":"UK",
-      "Text":"+123 456 7890",
-      "Index":208
-    },
-    { 
-      "CountryCode":"UK",
-      "Text":"0234 567 8901",
-      "Index":228
-    },
-    { 
-      "CountryCode":"UK",
-      "Text":"0456 789 0123",
-      "Index":245
-    }
+  "ipa":[
+      {
+        "sub_type":"IPV4",
+        "text":"255.255.255.255",
+        "index":72
+      }
   ],
-  "Address":[ 
-    { 
-      "Text":"1234 Main Boulevard, Panapolis WA 96555",
-      "Index":89
-    }
+  "phone":[
+      {
+        "country_code":"US",
+        "text":"6657789887",
+        "index":56
+      }
   ],
-  "SSN":[ 
-    { 
-      "Text":"999999999",
-      "Index":56
-    },
-    { 
-      "Text":"999-99-9999",
-      "Index":267
-    }
+  "address":[
+      {
+        "text":"1 Microsoft Way, Redmond, WA 98052",
+        "index":89
+      }
   ]
 }
 ```
 
 ## <a name="auto-correction"></a>자동 고침
 
-입력 텍스트가 (the ‘lzay’ and 'f0x' are intentional)이라고 가정합니다.
+입력 텍스트가 ('lzay'와 'f0x'는 의도적이라고 가정합니다).
 
     The qu!ck brown f0x jumps over the lzay dog.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 195f4b5057c0e2d644ab44cc4c32e97c8662d36d
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 4219bb471b92e7ddae72c50403f635498c90080d
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422793"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81251693"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Azure 저장소에 대한 고급 위협 보호 구성
 
@@ -23,10 +23,16 @@ Azure Storage에 대한 고급 위협 보호는 저장소 계정에 액세스하
 
 보안 경고는 활동의 이상 징후가 발생할 때 트리거됩니다. 이러한 보안 경고는 [Azure Security Center와](https://azure.microsoft.com/services/security-center/)통합되며 의심스러운 활동에 대한 세부 정보와 위협을 조사하고 해결하는 방법에 대한 권장 사항과 함께 구독 관리자에게 전자 메일을 통해 전송됩니다.
 
-> [!NOTE]
-> Azure 저장소에 대한 고급 위협 보호는 현재 Blob 저장소에서만 사용할 수 있습니다. 이 서비스는 미국 정부 클라우드에서 사용할 수 있지만 다른 주권 또는 Azure 정부 클라우드 지역에서는 사용할 수 없습니다. 무료 30일 평가판을 포함한 가격 세부 정보는 [Azure 보안 센터 가격 페이지를](https://azure.microsoft.com/pricing/details/security-center/)참조하십시오.
+서비스는 위협 탐지를 위해 Blob Storage에 대한 읽기, 쓰기 및 삭제 요청의 진단 로그를 인제합니다. 고급 위협 보호에서 경고를 조사하려면 저장소 분석 로깅을 사용하여 관련 저장소 활동을 볼 수 있습니다. 자세한 내용은 [Azure 포털의 저장소 계정 모니터링에서](storage-monitor-storage-account.md#configure-logging) **로깅 구성을** 참조하십시오.
 
-Azure Storage에 대한 고급 위협 보호는 위협 탐지를 위해 Blob 저장소에 대한 읽기, 쓰기 및 삭제 요청의 진단 로그를 인제합니다. 고급 위협 보호에서 경고를 조사하려면 저장소 분석 로깅을 사용하여 관련 저장소 활동을 볼 수 있습니다. 자세한 내용은 [Azure 포털의 저장소 계정 모니터링에서](storage-monitor-storage-account.md#configure-logging) **로깅 구성을** 참조하십시오.
+## <a name="availability"></a>가용성
+
+Azure 저장소에 대한 고급 위협 보호는 현재 [Blob 저장소에서만](https://azure.microsoft.com/services/storage/blobs/)사용할 수 있습니다. 
+
+이 서비스는 모든 퍼블릭 클라우드 및 미국 정부 클라우드에서 사용할 수 있지만 다른 주권 또는 Azure 정부 클라우드 지역에서는 사용할 수 없습니다.
+
+무료 30일 평가판을 포함한 가격 세부 정보는 [Azure 보안 센터 가격 페이지를](https://azure.microsoft.com/pricing/details/security-center/)참조하십시오.
+
 
 ## <a name="set-up-advanced-threat-protection"></a>고급 위협 보호 설정
 
@@ -42,7 +48,7 @@ Azure Storage에 대한 고급 위협 보호는 위협 탐지를 위해 Blob 저
 
     ![Azure Storage Advanced Threat Protection 켜기](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
-### <a name="azure-security-center"></a>[Azure 보안 센터](#tab/azure-security-center)
+### <a name="azure-security-center"></a>[Azure Security Center](#tab/azure-security-center)
 
 Azure 보안 센터의 표준 계층을 구독하면 모든 저장소 계정에 고급 위협 보호가 자동으로 설정됩니다. 다음과 같이 특정 구독에서 저장소 계정에 대한 고급 위협 보호를 사용하거나 사용하지 않도록 설정할 수 있습니다.
 

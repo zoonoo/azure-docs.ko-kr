@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: b782477fd29b34eda70813fc2aff29157f02acb3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ecd0ffd76650efff3a4c9f877522cba6f28d080
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275946"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271117"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -28,6 +28,8 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 
 [다중 단계 웹 테스트](../../azure-monitor/app/availability-multistep.md)는 추가 요금이 발생합니다. 다중 단계 웹 테스트는 일련의 작업을 수행하는 웹 테스트입니다. 단일 페이지의 *ping 테스트*에 대해 별도의 요금이 부과되지 않습니다. ping 테스트와 다중 단계 테스트의 원격 분석은 앱의 다른 원격 분석과 동일하게 청구됩니다.
 
+[사용자 지정 메트릭 차원에 대한 경고 활성화를 활성화하는](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) Application Insights 옵션은 추가 집계 메트릭을 생성할 수 있으므로 추가 비용이 발생할 수도 있습니다. [자세히 알아보기] 응용 프로그램 인사이트에서 로그 기반 및 사전 집계된 메트릭및 Azure Monitor 사용자 지정 메트릭에 대한 [가격 책정에](https://azure.microsoft.com/pricing/details/monitor/) 대해 알아봅니다.
+
 ## <a name="estimating-the-costs-to-manage-your-application"></a>응용 프로그램 관리 비용 예측
 
 아직 응용 프로그램 인사이트를 사용하지 않는 경우 [Azure Monitor 가격 계산기를](https://azure.microsoft.com/pricing/calculator/?service=monitor) 사용하여 응용 프로그램 인사이트를 사용하는 비용을 예측할 수 있습니다. 먼저 검색 상자에 "Azure 모니터"를 입력하고 결과 Azure 모니터 타일을 클릭합니다. 페이지를 아래로 스크롤하여 Azure 모니터로 이동한 다음 유형 드롭다운에서 응용 프로그램 정보를 선택합니다.  여기서는 매월 수집할 것으로 예상되는 데이터 GB수를 입력할 수 있으므로 응용 프로그램 인사이트가 응용 프로그램을 모니터링하는 데이터의 양을 확인할 수 있습니다.
@@ -42,7 +44,7 @@ ASP.NET SDK의 [적응형 샘플링을](sampling.md#adaptive-sampling)사용하�
 
 ### <a name="learn-from-what-similar-customers-collect"></a>유사 고객이 수집하는 항목에서 알아보기
 
-응용 프로그램 인사이트를 위한 Azure 모니터링 가격 계산기에서 "응용 프로그램 활동을 기반으로 데이터 볼륨 예측" 기능을 사용하도록 설정하면 응용 프로그램에 대한 입력(월별 요청 및 월별 페이지 뷰)을 제공할 수 있습니다. 클라이언트 측 원격 분석을 수집하면 계산기가 유사한 응용 프로그램에서 수집한 데이터의 중앙값과 90번째 백분위수 양을 알려줍니다. 이러한 응용 프로그램은 응용 프로그램 인사이트 구성 범위(예: 기본 [샘플링이](../../azure-monitor/app/sampling.md)있고 일부는 샘플링이 없는 등)에 걸쳐 있으므로 샘플링을 사용하여 중앙값 수준보다 훨씬 낮은 데이터 볼륨을 줄이는 제어가 가능합니다. 그러나 이것은 다른 유사한 고객이 보고 있는 것을 이해하기 위한 출발점입니다.
+응용 프로그램 인사이트에 대한 Azure 모니터링 가격 계산기에서 "응용 프로그램 활동에 따라 데이터 볼륨 예측" 기능을 사용하도록 설정하면 응용 프로그램에 대한 입력(클라이언트 측 원격 분석을 수집하는 경우 월별 요청 및 월별 페이지 뷰)을 제공할 수 있으며, 계산기는 유사한 응용 프로그램에서 수집한 데이터의 중앙값 과 90번째 백분위수 양을 알려줍니다. 이러한 응용 프로그램은 응용 프로그램 인사이트 구성 범위(예: 기본 [샘플링이](../../azure-monitor/app/sampling.md)있고 일부는 샘플링이 없는 등)에 걸쳐 있으므로 샘플링을 사용하여 중앙값 수준보다 훨씬 낮은 데이터 볼륨을 줄이는 제어가 가능합니다. 그러나 이것은 다른 유사한 고객이 보고 있는 것을 이해하기 위한 출발점입니다.
 
 ## <a name="understand-your-usage-and-estimate-costs"></a>사용량 파악 및 예상 비용
 
@@ -176,7 +178,7 @@ Azure는 [Azure 비용 관리 + 청구](https://docs.microsoft.com/azure/cost-ma
 
 ### <a name="create-alerts-for-the-daily-cap"></a>일일 한도에 대한 경고 만들기
 
-응용 프로그램 인사이트 일별 캡은 수집된 데이터 볼륨이 경고 수준 또는 일일 한도 수준에 도달하면 Azure 활동 kog에서 이벤트를 만듭니다.  이러한 [활동 로그 이벤트를 기반으로 경고를 만들](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal)수 있습니다. 이러한 이벤트의 신호 이름은 다음과 같습니다.
+응용 프로그램 인사이트 일별 한도는 수집된 데이터 볼륨이 경고 수준 또는 일일 한도 수준에 도달하면 Azure 활동 로그에서 이벤트를 만듭니다.  이러한 [활동 로그 이벤트를 기반으로 경고를 만들](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal)수 있습니다. 이러한 이벤트의 신호 이름은 다음과 같습니다.
 
 * 애플리케이션 인사이트 구성 요소 일일 한도 경고 임계값에 도달
 
@@ -216,7 +218,7 @@ Azure는 [Azure 비용 관리 + 청구](https://docs.microsoft.com/azure/cost-ma
 
 ![일별 원격 분석 볼륨 한도 조정](./media/pricing/pricing-005.png)
 
-보존은 매개 변수를 [사용하여 PowerShell을 사용하여 프로그래밍시로 설정할](powershell.md#set-the-data-retention) 수도 있습니다. `retentionInDays` 또한 데이터 보존을 30일로 설정하면 `immediatePurgeDataOn30Days` 매개 변수를 사용하여 이전 데이터의 즉각적인 제거를 트리거할 수 있으며, 이는 규정 준수 관련 시나리오에 유용할 수 있습니다. 이 제거 기능은 Azure 리소스 관리자를 통해서만 노출되며 세심한 주의를 기울여 사용해야 합니다. Azure 리소스 관리자를 사용하여 데이터 볼륨 한도에 대한 일일 `dailyQuotaResetTime` 재설정 시간을 구성하여 매개 변수를 설정할 수 있습니다.
+보존은 매개 변수를 [사용하여 PowerShell을 사용하여 프로그래밍시로 설정할](powershell.md#set-the-data-retention) 수도 있습니다. `retentionInDays` 보존이 낮아지면 가장 오래된 데이터가 제거되기 전에 며칠의 유예 기간이 있습니다. 데이터 보존을 30일로 설정하면 `immediatePurgeDataOn30Days` 매개 변수를 사용하여 이전 데이터의 즉각적인 제거를 트리거할 수 있으며, 이는 규정 준수 관련 시나리오에 유용할 수 있습니다. 이 제거 기능은 Azure 리소스 관리자를 통해서만 노출되며 세심한 주의를 기울여 사용해야 합니다. Azure 리소스 관리자를 사용하여 데이터 볼륨 한도에 대한 일일 `dailyQuotaResetTime` 재설정 시간을 구성하여 매개 변수를 설정할 수 있습니다.
 
 ## <a name="data-transfer-charges-using-application-insights"></a>애플리케이션 인사이트를 사용한 데이터 전송 요금
 
@@ -228,7 +230,7 @@ Azure는 [Azure 비용 관리 + 청구](https://docs.microsoft.com/azure/cost-ma
 
 ## <a name="disable-daily-cap-e-mails"></a>일일 상한도 이메일을 사용하지 않도록 설정
 
-일일 볼륨 상한 이메일을 사용하지 않도록 설정하려면 Application Insights 리소스의 **구성** 섹션 아래에 있는 **사용량 및 예상 비용** 창에서 **일일 상한**을 선택합니다. 상한에 도달할 때, 그리고 조정 가능한 경고 수준에 도달할 때 이메일을 보내는 설정이 있습니다. 모든 일일 한도 볼륨 관련 이메일을 비활성화하려면 두 확인란의 선택을 취소합니다.
+일일 볼륨 상한 이메일을 사용하지 않도록 설정하려면 Application Insights 리소스의 **구성** 섹션 아래에 있는 **사용량 및 예상 비용** 창에서 **일일 상한**을 선택합니다. 상한에 도달할 때, 그리고 조정 가능한 경고 수준에 도달할 때 이메일을 보내는 설정이 있습니다. 모든 일일 한도 볼륨 관련 이메일을 사용하지 않으려면 두 확인란의 선택을 모두 취소합니다.
 
 ## <a name="legacy-enterprise-per-node-pricing-tier"></a>레거시 엔터프라이즈(노드당) 가격 책정 계층
 

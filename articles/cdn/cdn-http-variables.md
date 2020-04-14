@@ -3,7 +3,7 @@ title: Azure CDN 규칙 엔진에 대한 HTTP 변수 | Microsoft Docs
 description: HTTP 변수를 사용하면 HTTP 요청 및 응답 메타데이터를 검색할 수 있습니다.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: magattus
-ms.openlocfilehash: 53ad0c516547e17801bd57c2fd6b0d1704383797
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: b9ced5d4a81effcd73e0243d09bb83ed0fe7667c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593809"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253699"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진에 대한 HTTP 변수
 HTTP 변수는 HTTP 요청 및 응답 메타데이터를 검색할 수 있는 수단을 제공합니다. 이 메타데이터는 요청 또는 응답을 동적으로 변경하는 데 사용할 수 있습니다. HTTP 변수의 사용은 다음 규칙 엔진 기능으로 제한됩니다.
@@ -34,11 +34,11 @@ HTTP 변수는 HTTP 요청 및 응답 메타데이터를 검색할 수 있는 �
 다음 표에 지원되는 HTTP 변수가 설명되어 있습니다. 지역 메타데이터(예: 우편 번호)를 특정 요청에 대해 사용할 수 없는 경우에는 빈 값이 반환됩니다.
 
 
-| 이름 | 변수 | 설명 | 샘플 값 |
+| 속성 | 변수 | Description | 샘플 값 |
 | ---- | -------- | ----------- | ------------ |
 | ASN(요청자) | %{geo_asnum} | 요청자의 AS 번호를 나타냅니다. <br /><br />**사용되지 않음:** %{virt_dst_asnum}. <br />이 변수는 %{geo_asnum}에 대해 사용되지 않습니다. 이 사용되지 않는 변수를 사용하는 규칙을 계속 사용할 수 있더라도, 새 변수를 사용하도록 업데이트해야 합니다. | AS15133 |
 | 도시(요청자) | %{geo_city} | 요청자의 도시를 나타냅니다. | Los Angeles |
-| 대륙(요청자) | %{geo_continent} | 해당 약어를 통해 요청자의 대륙을 나타냅니다. <br />유효한 값은 다음과 같습니다. <br />AF: 아프리카<br />AS: 아시아<br />EU: 유럽<br />NA: 북아메리카<br />OC: 오세아니아<br />SA: 남아메리카<br /><br />**사용되지 않음:** %{virt_dst_continent}. <br />이 변수는 %{geo_continent}에 대해 사용되지 않습니다. <br />이 사용되지 않는 변수를 사용하는 규칙을 계속 사용할 수 있더라도, 새 변수를 사용하도록 업데이트해야 합니다.| 해당 없음 |
+| 대륙(요청자) | %{geo_continent} | 해당 약어를 통해 요청자의 대륙을 나타냅니다. <br />유효한 값은 다음과 같습니다. <br />AF: 아프리카<br />AS: 아시아<br />EU: 유럽<br />NA: 북아메리카<br />OC: 오세아니아<br />SA: 남아메리카<br /><br />**사용되지 않음:** %{virt_dst_continent}. <br />이 변수는 %{geo_continent}에 대해 사용되지 않습니다. <br />이 사용되지 않는 변수를 사용하는 규칙을 계속 사용할 수 있더라도, 새 변수를 사용하도록 업데이트해야 합니다.| N/A |
 | 쿠키 값 | %{cookie_Cookie} | 쿠키 용어에 의해 식별된 쿠키 키에 해당하는 값을 반환합니다. | 사용법 예제: <br />%{cookie__utma}<br /><br />샘플 값:<br />111662281.2.10.1222100123 |
 | 국가(요청자) | %{geo_country} | 해당 국가 코드를 통해 요청자의 국가를 나타냅니다. <br />**사용되지 않음:** %{virt_dst_country}. <br /><br />이 변수는 %{geo_country}에 대해 사용되지 않습니다. 이 사용되지 않는 변수를 사용하는 규칙을 계속 사용할 수 있더라도, 새 변수를 사용하도록 업데이트해야 합니다. | US |
 | 지정된 시장 지역(요청자) | %{geo_dma_code} |해당 지역 코드를 통해 요청자의 미디어 시장을 나타냅니다. <br /><br />이 필드는 미국에서 발생하는 요청에만 적용됩니다.| 745 |
@@ -69,7 +69,7 @@ HTTP 변수는 HTTP 요청 및 응답 메타데이터를 검색할 수 있는 �
 다음 표에서 HTTP 변수를 지정하는 데 적절한 구문을 설명합니다.
 
 
-| 구문 | 예제 | 설명 |
+| 구문 | 예제 | Description |
 | ------ | -------- | ---------- |
 | %{&lt;HTTPVariable&gt;} | %{host} | 이 구문을 사용하여 지정된 &lt;HTTPVariable&gt;에 해당하는 전체 값을 가져옵니다. |
 | %{&lt;HTTPVariableDelimiter&gt;} | %{host,} | 이 구문을 사용하여 지정된 &lt;HTTPVariableDelimiter&gt;에 해당하는 전체 값에 관한 사례를 설정합니다. |
@@ -92,7 +92,7 @@ HTTP 변수 이름은 영문자 및 밑줄만 지원합니다. 지원되지 않�
 
 구분 기호는 다음 표에 설명되어 있습니다.
 
-| 구분 기호 | 설명 |
+| 구분 기호 | Description |
 | --------- | ----------- |
 | := | 다음 중 하나인 경우 기본값이 변수에 할당될 것을 나타냅니다. <br />- 누락됨 <br />- NULL로 설정됨. |
 | :+ | 값이 할당된 경우 기본값이 변수에 할당될 것을 나타냅니다. |
@@ -125,7 +125,7 @@ HTTP 변수 이름은 영문자 및 밑줄만 지원합니다. 지원되지 않�
 
 다음 표에서 기본값을 정의하는 방법을 설명합니다.
 
-| 조건 | 구문 | 예제 | 설명 |
+| 조건 | 구문 | 예제 | Description |
 | --------- | ------ | --------| ----------- |
 | 다음 조건 중 하나라도 충족할 경우 헤더를 기본값으로 설정합니다. <br /><br />- 헤더 누락 <br /><br />- 헤더 값이 NULL로 설정됨.| %{Variable:=Value} | %{http_referrer:=지정되지 않음} | 참조자 헤더는 누락되거나 NULL로 설정된 경우에만 *지정되지 않음으로* 설정됩니다. 설정된 경우 아무 작업도 수행되지 않습니다. |
 | 누락된 경우 헤더를 기본값으로 설정합니다. | %{Variable=Value} | %{http_referrer=지정되지 않음} | 참조자 헤더는 누락된 경우에만 *지정되지 않음으로* 설정됩니다. 설정된 경우 아무 작업도 수행되지 않습니다. |
@@ -156,7 +156,7 @@ HTTP 변수 이름은 영문자 및 밑줄만 지원합니다. 지원되지 않�
      - 양수: 시작 문자부터 오른쪽 방향으로 부분 문자열의 길이를 결정합니다.
      - 음수: 시작 문자부터 왼쪽 방향으로 부분 문자열의 길이를 결정합니다.
 
-#### <a name="example"></a>예제:
+#### <a name="example"></a>예:
 
 다음 예제에서는 다음 샘플 요청 URL를 사용합니다.
 
@@ -179,7 +179,7 @@ https:\//www.mydomain.com/mobile/marketing/proposal.htm
 | %{Variable#Pattern} | 변수 값의 시작 부분에서 지정된 패턴이 발견되면 텍스트를 제거합니다. |
 | %{Variable%Pattern} | 변수 값의 마지막 부분에서 지정된 패턴이 발견되면 텍스트를 제거합니다. |
 
-#### <a name="example"></a>예제:
+#### <a name="example"></a>예:
 
 이 샘플 시나리오에서 *request_uri* 변수는 다음으로 설정됩니다.
 

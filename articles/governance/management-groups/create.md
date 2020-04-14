@@ -3,12 +3,12 @@ title: 리소스를 구성하는 관리 그룹 만들기 - Azure 거버넌스
 description: Azure 관리 그룹을 만들어 포털, Azure PowerShell 및 Azure CLI를 통해 여러 리소스를 관리하는 방법을 알아봅니다.
 ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: d9bb2e82404c0188094298f40da3346ee132eec3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a06679432d795b5b7854af8dc66b468841978e9c
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75436526"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273191"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>리소스 조직 및 관리에 대한 관리 그룹 만들기
 
@@ -20,7 +20,7 @@ ms.locfileid: "75436526"
 
 테넌트의 모든 Azure AD 사용자는 해당 사용자에게 할당된 관리 그룹 쓰기 권한 없이 관리 그룹을 만들 수 있습니다.  이 새 관리 그룹은 루트 관리 그룹의 자식이 되며 작성자는 "소유자" 역할 할당을 받게 됩니다. 관리 그룹 서비스를 사용하면 루트 수준에서 역할 할당이 필요하지 않도록 이 기능을 사용할 수 있습니다. 사용자가 만들 때 루트 관리 그룹에 액세스할 수 없습니다.  관리 그룹을 사용하기 위해 Azure AD 전역 관리자를 찾는 데 어려움을 피하기 위해 루트 수준에서 초기 관리 그룹을 만들 수 있습니다.      
 
-포털, PowerShell 또는 Azure CLI를 사용하여 관리 그룹을 만들 수 있습니다. 현재 Resource Manager 템플릿을 사용하여 관리 그룹을 만들 수 없습니다.
+포털, [리소스 관리자 템플릿,](../../azure-resource-manager/templates/deploy-to-tenant.md#create-management-group)PowerShell 또는 Azure CLI를 사용하여 관리 그룹을 만들 수 있습니다.
 
 ### <a name="create-in-portal"></a>포털에서 만들기
 

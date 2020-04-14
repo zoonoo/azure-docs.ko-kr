@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 0882eaa8b54966c7a804cf78a3928771b238e056
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 243fea8fae071368a91bf482190442f15c372fc1
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885007"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271304"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Azure-Azure VM 복제 오류 문제 해결
 
-이 문서에서는 한 지역에서 다른 지역으로 Azure 가상 시스템(VM)을 복제하고 복구하는 동안 Azure 사이트 복구에서 일반적인 오류를 해결하는 방법을 설명합니다. 지원되는 구성에 대한 자세한 내용은 [Azure VM을 복제하기 위한 지원 매트릭스](azure-to-azure-support-matrix.md)를 참조하세요.
+이 문서에서는 VM(Azure 가상 시스템)을 한 리전에서 다른 리전으로 복제하고 복구하는 동안 Azure 사이트 복구에서 일반적인 오류를 해결하는 방법을 설명합니다. 지원되는 구성에 대한 자세한 내용은 [Azure VM을 복제하기 위한 지원 매트릭스](azure-to-azure-support-matrix.md)를 참조하세요.
 
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Azure 리소스 할당량 문제(오류 코드 150097)
 
@@ -169,11 +169,11 @@ SUSE Linux는 인증서 목록을 유지하기 위해 기호 링크 또는 심�
    -rw-r--r-- 1 root root 1774 Jan  8 09:52 b204d74a.0
    ```
 
-## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Site Recovery URL 또는 IP 범위에 대한 아웃바운드 연결(오류 코드 151037 또는 151072)
+## <a name="outbound-urls-or-ip-ranges-error-code-151037-or-151072"></a>아웃바운드 URL 또는 IP 범위(오류 코드 151037 또는 151072)
 
 사이트 복구 복제가 작동하려면 VM에서 특정 URL에 대한 아웃바운드 연결이 필요합니다. VM이 방화벽 뒤에 있거나 NSG(네트워크 보안 그룹) 규칙을 사용하여 아웃바운드 연결을 제어하는 경우 이러한 문제 중 하나가 발생할 수 있습니다. URL을 통해 아웃바운드 액세스를 계속 지원하지만 IP 범위 허용 목록을 사용하는 것은 더 이상 지원되지 않습니다.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195"></a>문제 1: Site Recovery에 Azure 가상 머신을 등록하지 못했습니다(151195).
+### <a name="issue-1-failed-to-register-azure-vm-with-site-recovery-151195"></a>문제 1: 사이트 복구에 Azure VM을 등록하지 못했습니다(151195)
 
 #### <a name="possible-causes"></a>가능한 원인
 
@@ -216,7 +216,7 @@ Azure 사이트 복구 서비스 끝점에 대한 연결을 설정할 수 없습
 
 Azure 네트워크 보안 그룹(NSG) 규칙/방화벽 프록시를 사용하여 VM에서 아웃바운드 네트워크 연결을 제어하는 경우 서비스 태그를 사용해야 합니다. Azure 사이트 복구에 대한 NSG를 통해 허용 IP 주소 목록을 사용하는 것은 더 이상 지원되지 않습니다.
 
-### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>문제 4: 네트워크 트래픽이 온-프레미스 프록시 서버(151072)를 통과할 때 Azure에서 Azure 복제에 실패했습니다.
+### <a name="issue-4-replication-fails-when-network-traffic-uses-on-premises-proxy-server-151072"></a>문제 4: 네트워크 트래픽이 온-프레미스 프록시 서버(151072)를 사용할 때 복제가 실패합니다.
 
 #### <a name="possible-cause"></a>가능한 원인
 
@@ -241,11 +241,11 @@ Azure 네트워크 보안 그룹(NSG) 규칙/방화벽 프록시를 사용하여
 > [!NOTE]
 > 모빌리티 서비스 에이전트는 **인증되지 않은 프록시만**지원합니다.
 
-### <a name="more-information"></a>추가 정보
+### <a name="more-information"></a>자세한 정보
 
 [필요한 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 또는 필요한 IP 범위를 지정하려면 [Azure에서 Azure 복제에](azure-to-azure-about-networking.md)대한 네트워킹 정보의 지침을 [따릅니다.](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)
 
-## <a name="disk-not-found-in-the-machine-error-code-150039"></a>컴퓨터에서 디스크를 찾을 수 없음(오류 코드 150039)
+## <a name="disk-not-found-in-vm-error-code-150039"></a>VM에서 디스크를 찾을 수 없습니다(오류 코드 150039)
 
 VM에 연결된 새 디스크는 초기화되어야 합니다. 디스크를 찾을 수 없는 경우 다음 메시지가 표시됩니다.
 
@@ -267,7 +267,7 @@ Azure data disk <DiskName> <DiskURI> with logical unit number <LUN> <LUNValue> w
 
 문제가 계속되면 지원에 문의하세요.
 
-## <a name="one-or-more-disks-are-available-for-protection-error-code-153039"></a>하나 이상의 디스크를 보호할 수 있습니다(오류 코드 153039).
+## <a name="multiple-disks-available-for-protection-error-code-153039"></a>보호에 사용할 수 있는 여러 디스크(오류 코드 153039)
 
 ### <a name="possible-causes"></a>가능한 원인
 
@@ -292,7 +292,7 @@ VM의 복제 상태를 다시 정상 상태로 만들려면 디스크를 보호�
 
    :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="새 디스크 경고를 해제합니다.":::
 
-## <a name="remove-the-virtual-machine-from-the-vault-completed-with-information-error-code-150225"></a>정보(오류 코드 150225)로 완료된 볼트에서 가상 컴퓨터를 제거합니다.
+## <a name="vm-removed-from-vault-completed-with-information-error-code-150225"></a>정보(오류 코드 150225)로 완료된 볼트에서 VM제거됨
 
 사이트 복구가 가상 컴퓨터를 보호하면 원본 가상 시스템에 대한 링크가 만들어집니다. 보호를 제거하거나 복제를 사용하지 않도록 설정하면 사이트 복구는 정리 작업의 일부로 이러한 링크를 제거합니다. 가상 시스템에 리소스 잠금이 있는 경우 정리 작업이 정보로 완료됩니다. 이 정보는 가상 시스템이 복구 서비스 자격 증명 모음에서 제거되었지만 원본 컴퓨터에서 오래된 링크 중 일부를 정리할 수 없다고 말합니다.
 
@@ -317,7 +317,7 @@ VM의 복제 상태를 다시 정상 상태로 만들려면 디스크를 보호�
 1. 스크립트를 실행, _정리-부실-asr-config-Azure-VM.ps1_. 구독 **ID,** **VM 리소스 그룹**및 **VM 이름을** 매개 변수로 제공합니다.
 1. Azure 자격 증명을 묻는 메시지가 표시되면 이를 제공합니다. 그런 다음 오류가 없는 스크립트가 실행되는지 확인합니다.
 
-## <a name="replication-cant-be-enabled-because-of-stale-resource-links-on-the-vm-error-code-150226"></a>VM의 오래된 리소스 링크(오류 코드 150226)로 인해 복제를 사용할 수 없습니다.
+## <a name="replication-not-enabled-on-vm-with-stale-resources-error-code-150226"></a>부실 리소스가 있는 VM에서 복제를 사용할 수 없습니다(오류 코드 150226).
 
 ### <a name="possible-causes"></a>가능한 원인
 
@@ -342,9 +342,9 @@ VM의 복제 상태를 다시 정상 상태로 만들려면 디스크를 보호�
 1. 스크립트를 실행, _정리-부실-asr-config-Azure-VM.ps1_. 구독 **ID,** **VM 리소스 그룹**및 **VM 이름을** 매개 변수로 제공합니다.
 1. Azure 자격 증명을 묻는 메시지가 표시되면 이를 제공합니다. 그런 다음 오류가 없는 스크립트가 실행되는지 확인합니다.
 
-## <a name="unable-to-see-the-azure-vm-or-resource-group-for-the-selection-in-the-enable-replication-job"></a>사용 복제 작업에서 선택에 대한 Azure VM 또는 리소스 그룹을 볼 수 없습니다.
+## <a name="cant-select-vm-or-resource-group-in-enable-replication-job"></a>복제 작업을 사용하도록 설정에서 VM 또는 리소스 그룹을 선택할 수 없습니다.
 
-### <a name="issue-1-the-resource-group-and-source-virtual-machine-are-in-different-locations"></a>문제 1: 리소스 그룹 및 소스 가상 시스템이 서로 다른 위치에 있습니다.
+### <a name="issue-1-the-resource-group-and-source-vm-are-in-different-locations"></a>문제 1: 리소스 그룹 및 소스 VM이 서로 다른 위치에 있습니다.
 
 사이트 복구는 현재 원본 지역 리소스 그룹과 가상 시스템이 동일한 위치에 있어야 합니다. 그렇지 않은 경우 보호를 적용하려고 할 때 가상 컴퓨터 또는 리소스 그룹을 찾을 수 없습니다.
 
@@ -375,7 +375,7 @@ Azure VM에 오래된 사이트 복구 구성이 있는 경우 복제를 위해 
 1. 스크립트를 실행, _정리-부실-asr-config-Azure-VM.ps1_. 구독 **ID,** **VM 리소스 그룹**및 **VM 이름을** 매개 변수로 제공합니다.
 1. Azure 자격 증명을 묻는 메시지가 표시되면 이를 제공합니다. 그런 다음 오류가 없는 스크립트가 실행되는지 확인합니다.
 
-## <a name="unable-to-select-a-virtual-machine-for-protection"></a>보호를 위해 가상 컴퓨터를 선택할 수 없음
+## <a name="unable-to-select-a-vm-for-protection"></a>보호를 위해 VM을 선택할 수 없음
 
 ### <a name="possible-cause"></a>가능한 원인
 
@@ -385,7 +385,7 @@ Azure VM에 오래된 사이트 복구 구성이 있는 경우 복제를 위해 
 
 가상 **컴퓨터** > **설정** > **확장으로** 이동하여 실패한 상태의 확장을 확인합니다. 실패한 확장을 제거한 다음 가상 컴퓨터를 보호하기 위해 다시 시도합니다.
 
-## <a name="the-vms-provisioning-state-isnt-valid-error-code-150019"></a>VM의 프로비저닝 상태가 잘못되었습니다(오류 코드 150019).
+## <a name="vm-provisioning-state-isnt-valid-error-code-150019"></a>VM 프로비저닝 상태가 잘못되었습니다(오류 코드 150019).
 
 VM에서 복제를 사용하려면 해당 프로비저닝 상태가 **성공되어야**합니다. 다음 단계에 따라 프로비저닝 상태를 확인합니다.
 
@@ -400,15 +400,15 @@ VM에서 복제를 사용하려면 해당 프로비저닝 상태가 **성공되�
 - **프로비저닝상태가** **실패한**경우 지원팀에 자세한 내용을 문의하여 문제를 해결합니다.
 - **프로비저닝State가** **업데이트**중인 경우 다른 확장이 배포될 수 있습니다. VM에 진행 중인 작업이 있는지 확인하고 완료될 때까지 기다린 다음 실패한 사이트 복구 작업을 다시 시도하여 복제를 사용하도록 설정합니다.
 
-## <a name="unable-to-select-target-vm-network-selection-tab-is-unavailable"></a>대상 VM을 선택할 수 없음(네트워크 선택 탭을 사용할 수 없음)
+## <a name="unable-to-select-target-vm"></a>대상 VM을 선택할 수 없음
 
-### <a name="issue-1-your-vm-is-attached-to-a-network-thats-already-mapped-to-a-target-network"></a>문제 1: VM이 대상 네트워크에 이미 매핑된 네트워크에 연결되어 있습니다.
+### <a name="issue-1-vm-is-attached-to-a-network-thats-already-mapped-to-a-target-network"></a>문제 1: VM이 대상 네트워크에 이미 매핑된 네트워크에 연결됩니다.
 
 원본 VM이 가상 네트워크의 일부이고 동일한 가상 네트워크의 다른 VM이 대상 리소스 그룹의 네트워크와 이미 매핑된 경우 네트워크 선택 드롭다운 목록 상자를 기본적으로 사용할 수 없습니다(흐리게 표시).
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="네트워크 선택 목록을 사용할 수 없습니다.":::
 
-### <a name="issue-2-you-previously-protected-the-vm-by-using-site-recovery-and-then-you-disabled-the-replication"></a>문제 2: 이전에 사이트 복구를 사용 하 여 VM을 보호 하 고 복제를 사용 하지 않도록 설정 했습니다.
+### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>문제 2: 이전에 VM을 보호한 다음 복제를 사용하지 않도록 설정했습니다.
 
 VM의 복제를 사용하지 않도록 설정해도 네트워크 매핑은 삭제되지 않습니다. VM이 보호된 복구 서비스 자격 증명 모음에서 매핑을 삭제해야 합니다. 복구 **서비스 볼트** > **사이트 복구 인프라** > **네트워크 매핑으로**이동합니다.
 
@@ -420,9 +420,9 @@ VM의 복제를 사용하지 않도록 설정해도 네트워크 매핑은 삭�
 
 네트워크 매핑을 변경하면 동일한 네트워크 매핑을 사용하는 모든 보호된 VM에 영향을 줍니다.
 
-## <a name="com-or-volume-shadow-copy-service-error-error-code-151025"></a>COM+ 또는 볼륨 섀도우 복사 서비스 오류(오류 코드 151025)
+## <a name="com-or-vss-error-code-151025"></a>COM+ 또는 VSS(오류 코드 151025)
 
-이 오류가 발생하면 다음 메시지가 표시됩니다.
+COM+ 또는 VSS(볼륨 섀도우 복사 서비스) 오류가 발생하면 다음 메시지가 표시됩니다.
 
 ```Output
 Site Recovery extension failed to install.
@@ -458,7 +458,7 @@ Protection couldn't be enabled for the virtual machine as it has <DiskName> with
 
 디스크 크기가 지원되는 크기 범위 내에 있는지 확인한 다음 작업을 다시 시도합니다.
 
-## <a name="protection-wasnt-enabled-because-the-grub-configuration-includes-the-device-name-instead-of-the-uuid-error-code-151126"></a>GRUB 구성에 UUID 대신 장치 이름이 포함되어 있으므로 보호가 활성화되지 않았습니다(오류 코드 151126).
+## <a name="protection-not-enabled-when-grub-uses-device-name-error-code-151126"></a>GRUB이 장치 이름(오류 코드 151126)을 사용하는 경우 보호가 활성화되지 않음
 
 ### <a name="possible-causes"></a>가능한 원인
 
@@ -478,7 +478,7 @@ Linux 그랜드 통합 부트 로더(GRUB) 구성 파일(/boot/grub/menu.lst, _/
 
 각 장치 이름을 해당 UUID로 바꿉니다.
 
-1. 명령을 `blkid <device name>`실행하여 장치의 UUID를 찾습니다. 예를 들어:
+1. 명령을 `blkid <device name>`실행하여 장치의 UUID를 찾습니다. 다음은 그 예입니다.
 
    ```shell
    blkid /dev/sda1
@@ -493,7 +493,7 @@ Linux 그랜드 통합 부트 로더(GRUB) 구성 파일(/boot/grub/menu.lst, _/
 
 1. 보호를 다시 시도합니다.
 
-## <a name="enable-protection-failed-because-the-device-mentioned-in-the-grub-configuration-doesnt-exist-error-code-151124"></a>GRUB 구성에 언급된 장치가 존재하지 않기 때문에 보호가 실패했습니다(오류 코드 151124).
+## <a name="protection-failed-because-grub-device-doesnt-exist-error-code-151124"></a>GRUB 장치가 존재하지 않아 보호가 실패했습니다(오류 코드 151124).
 
 ### <a name="possible-cause"></a>가능한 원인
 
@@ -517,7 +517,7 @@ GRUB 구성 파일 _(/boot/grub/menu.lst,_ _/boot/grub/grub.cfg,_ _/boot/grub2/g
 
 LVM 장치가 없는 경우 GRUB 구성 파일에서 해당 매개 변수를 만들거나 제거합니다. 그런 다음 다시 시도하여 보호를 사용하도록 설정합니다.
 
-## <a name="a-site-recovery-mobility-service-update-finished-with-warnings-error-code-151083"></a>경고로 완료된 사이트 복구 이동성 서비스 업데이트(오류 코드 151083)
+## <a name="mobility-service-update-finished-with-warnings-error-code-151083"></a>경고로 완료된 모빌리티 서비스 업데이트(오류 코드 151083)
 
 사이트 복구 이동성 서비스에는 필터 드라이버라고 하는 많은 구성 요소가 있습니다. 필터 드라이버는 시스템을 다시 시작하는 동안에만 시스템 메모리에 로드됩니다. Mobility 서비스 업데이트에 필터 드라이버 변경 내용이 포함될 때마다 컴퓨터가 업데이트되지만 일부 수정 프로그램에 다시 시작해야 한다는 경고가 계속 표시됩니다. 필터 드라이버 수정은 새 필터 드라이버가 로드된 경우에만 적용될 수 있으며, 이는 다시 시작할 때만 발생하기 때문에 경고가 나타납니다.
 
@@ -526,7 +526,9 @@ LVM 장치가 없는 경우 GRUB 구성 파일에서 해당 매개 변수를 만
 >
 > 필터 드라이버 외에도 모빌리티 서비스 업데이트의 다른 개선 사항 및 수정 사항의 이점은 다시 시작하지 않고도 적용됩니다.
 
-## <a name="protection-couldnt-be-enabled-because-the-replica-managed-disk-already-exists-without-expected-tags-in-the-target-resource-group-error-code-150161"></a>대상 리소스 그룹(오류 코드 150161)에 예상 태그가 없는 복제본 관리 디스크가 이미 있으므로 보호를 사용할 수 없습니다.
+## <a name="protection-not-enabled-if-replica-managed-disk-exists"></a>복제본 관리 디스크가 있는 경우 보호가 활성화되지 않음
+
+이 오류는 대상 리소스 그룹에 예상 된 태그 없이 복제본 관리 디스크가 이미 있는 경우에 발생 합니다.
 
 ### <a name="possible-cause"></a>가능한 원인
 

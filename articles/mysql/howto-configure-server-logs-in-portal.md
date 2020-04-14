@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 0261ff7ca8a60dc5fd986a64b9944f9cb9f101e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: 59faf63312bd7cc657f8b96ca3110707ea997c02
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062491"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273610"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Azure 포털에서 느린 쿼리 로그 구성 및 액세스
 
@@ -23,7 +23,7 @@ Azure 포털에서 [MySQL 느린 쿼리 로그에 대한 Azure 데이터베이�
 ## <a name="configure-logging"></a>로깅 구성
 MySQL 느린 쿼리 로그에 대한 액세스를 구성합니다. 
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 2. Azure Database for MySQL 서버를 선택합니다.
 
@@ -32,11 +32,15 @@ MySQL 느린 쿼리 로그에 대한 액세스를 구성합니다.
 
 4. 서버 매개 변수를 보려면 **여기를 클릭하여 로그를 활성화하고 로그 매개 변수를 구성합니다.**
 
-5. 조정해야 하는 매개 변수를 변경합니다. 이 세션에서 변경할 내용은 모두 자주색으로 강조 표시되어 있습니다. 
+5. **slow_query_log** **켭니다.**
 
-   매개 변수를 변경한 후 **저장을**선택합니다. 또는 변경 내용을 취소할 수 있습니다.
+6. log_output **사용하여**로그를 출력할 위치를 선택합니다. 로컬 저장소와 Azure 모니터 진단 로그에 로그를 보내려면 **파일**을 선택합니다. 
 
-   ![서버 매개 변수 옵션의 스크린샷](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
+7. 필요한 다른 매개 변수를 변경합니다. 
+
+8. **저장**을 선택합니다. 
+
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="느린 쿼리 로그 매개 변수의 스크린 샷 및 저장.":::
 
 서버 **매개 변수** 페이지에서 페이지를 닫아 로그 목록으로 돌아갈 수 있습니다.
 

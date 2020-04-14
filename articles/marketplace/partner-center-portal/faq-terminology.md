@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: d53ae01fb302382ca5bc2d31e729e153aea6c838
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7367e58de818c20723c02a6763b1bf1e3b18f24
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286084"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81251829"
 ---
 # <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>상용 마켓플레이스 분석을 위해 자주 묻는 질문 및 용어
 
@@ -29,14 +29,14 @@ ms.locfileid: "80286084"
 이 메시지가 있는 이유:
 
 - 마켓플레이스에서 게시된 오퍼에 대한 인수는 현재 존재하지 않습니다. 즉, 제품이 마켓플레이스에 게재되어 제품 표시 페이지에서 고객의 조회수를 얻고 있지만 고객이 아직 구매 및 배포를 위한 조치를 취하지 않았음을 의미할 수 있습니다.
-- 오퍼의 게시가 진행 중일 수 있으며 아직 게재되지 않았습니다. 라이브 오퍼만 고객이 획득할 수 있습니다. 오퍼의 상태를 확인하려면 [분석 대시보드의](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)개요를 참조하십시오. 자세한 내용은 [상업용 마켓플레이스 분석의 요약 대시보드를](./summary-dashboard.md)참조하십시오.
+- 오퍼의 게시가 진행 중일 수 있으며 아직 게재되지 않았습니다. 라이브 오퍼만 고객이 획득할 수 있습니다. 오퍼의 상태를 확인하려면 [분석 대시보드의](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)개요를 참조하십시오. 자세한 내용은 [상용 마켓플레이스 분석의 요약 대시보드를](./summary-dashboard.md)참조하십시오.
 - 귀하의 제안은 목록 전용 제안이며 마켓플레이스의 고객이 구입할 수 없는 **연락처 나(Contact Me)로**나열될 수 있습니다. 이러한 오퍼는 잠재 고객을 생성하고 사용자와 공유되지만 구매가 수 없으므로 이러한 오퍼에 대한 주문은 생성되지 않습니다. 쿠폰 목록 유형을 확인하려면 설정 페이지로 이동하세요.
 
 **분석 데이터가 있다는 것을 알고 있지만 아래 메시지가 나타납니다.**
 
 ![지정된 날짜 범위에 대한 데이터가 없습니다.](./media/analytics-faq-data-range.png)
 
-이 메시지를 받는 경우 분석 데이터가 있지만 선택한 날짜에 대한 데이터가 없다는 의미입니다. 2010년 이후의 데이터를 보려면 다른 날짜 범위 또는 사용자 지정 날짜 범위를 선택합니다. 자세한 내용은 [상업용 마켓플레이스 분석에서 요약 대시보드의](./summary-dashboard.md)날짜 범위 섹션을 참조하십시오.
+이 메시지를 받는 경우 분석 데이터가 있지만 선택한 날짜에 대한 데이터가 없다는 의미입니다. 2010년 이후의 데이터를 보려면 다른 날짜 범위 또는 사용자 지정 날짜 범위를 선택합니다. 자세한 내용은 [상용 마켓플레이스 분석에서 요약 대시보드의](./summary-dashboard.md)날짜 범위 섹션을 참조하십시오.
 
 ## <a name="dictionary-of-data-terms"></a>데이터 용어 사전
 
@@ -96,10 +96,10 @@ ms.locfileid: "80286084"
 
 ## <a name="next-steps"></a>다음 단계
 
-- 파트너 센터 커머셜 마켓플레이스에서 사용할 수 있는 분석 보고서에 대한 개요는 [파트너 센터의 상업용 마켓플레이스에 대한 분석을](./analytics.md)참조하세요.
-- 오퍼의 마켓플레이스 활동을 요약하는 집계 데이터의 그래프, 추세 및 값은 [상업용 마켓플레이스 분석의 요약 대시보드를](./summary-dashboard.md)참조하십시오.
+- 파트너 센터 상용 마켓플레이스에서 사용할 수 있는 분석 보고서에 대한 개요는 [파트너 센터의 상용 마켓플레이스에 대한 애널리틱스를](./analytics.md)참조하세요.
+- 오퍼의 마켓플레이스 활동을 요약하는 집계 데이터의 그래프, 추세 및 값은 [상용 마켓플레이스 분석의 요약 대시보드를](./summary-dashboard.md)참조하십시오.
 - 그래픽 및 다운로드 가능한 형식으로 주문에 대한 자세한 내용은 [상용 마켓플레이스 분석의 주문 대시보드를](./orders-dashboard.md)참조하십시오.
-- VM(가상 머신)이 사용량 및 유료 청구 메트릭을 제공하는 경우 [상용 마켓플레이스 분석의 사용 대시보드를](./usage-dashboard.md)참조하십시오.
+- VM(가상 머신)은 사용량 및 유료 청구 메트릭을 제공하므로 [상용 마켓플레이스 분석에서 사용 대시보드를](./usage-dashboard.md)참조하십시오.
 - 성장 추세를 포함하여 고객에 대한 자세한 내용은 [상용 마켓플레이스 분석의 고객 대시보드를](./customer-dashboard.md)참조하십시오.
 - 지난 30일 동안의 다운로드 요청 목록은 [상용 마켓플레이스 분석의 다운로드 대시보드를](./downloads-dashboard.md)참조하십시오.
-- Azure 마켓플레이스 및 AppSource에서 제안에 대한 고객 피드백에 대한 통합보기를 보려면 [상용 마켓플레이스 분석의 등급 및 리뷰 대시보드를](./ratings-reviews.md)참조하십시오.
+- Azure 마켓플레이스 및 AppSource에서 제안에 대한 고객 피드백에 대한 통합보기를 보려면 [상용 마켓플레이스 분석에서 등급 및 리뷰 대시보드를](./ratings-reviews.md)참조하십시오.

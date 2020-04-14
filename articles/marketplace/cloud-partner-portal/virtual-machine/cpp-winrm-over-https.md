@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: dsindona
-ms.openlocfilehash: 7c799c4a56ee5fc2074e4d644bdbcbc6d2b1ca5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b2a4bb107309894a7180e0a4585cdba6f04d1bee
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288753"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273038"
 ---
 # <a name="windows-remote-management-over-https"></a>HTTPS를 통한 Windows 원격 관리
+
+> [!IMPORTANT]
+> 2020년 4월 13일부터 Azure 가상 머신 의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 가상 [컴퓨터 만들기 의](https://aka.ms/CreateAzureVMoffer) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
 
 이 섹션에서는 PowerShell을 사용하여 원격으로 관리 및 배포할 수 있도록 Azure에서 호스팅하는 Windows 기반 VM을 구성하는 방법을 설명합니다.  PowerShell 원격을 사용하도록 설정하려면 대상 VM에서 WinRM(Windows 원격 관리) HTTPS 엔드포인트를 공개해야 합니다.  PowerShell 원격에 대한 자세한 내용은 [원격 명령 실행](https://docs.microsoft.com/powershell/scripting/learn/remoting/running-remote-commands)을 참조하세요.  WinRM에 대한 자세한 내용은 [Windows 원격 관리](https://docs.microsoft.com/windows/desktop/WinRM/portal)를 참조하세요.
 

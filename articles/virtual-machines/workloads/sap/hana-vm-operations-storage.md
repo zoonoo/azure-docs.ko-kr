@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b469c098db4f8d90147b491bcb54bd55d326b03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c4e8b544ea3daeb23b22f3864beb21ba9d3f342f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79080311"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255620"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 가상 머신 스토리지 구성
 
@@ -72,7 +72,7 @@ RAID 아래의 Azure VHD 수 누적은 IOPS 및 스토리지 처리량 측면의
 VM의 크기를 조정하거나 결정할 때도 전체 VM I/O 처리량을 고려하세요. 전체 VM 스토리지 처리량은 [메모리 최적화 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory) 문서에 설명되어 있습니다.
 
 ## <a name="linux-io-scheduler-mode"></a>Linux I/O 스케줄러 모드
-Linux에는 몇 가지 다른 I/O 일정 예약 모드가 있습니다. Linux 공급업체와 SAP를 통한 일반적인 권장 사항은 **cfq** 모드에서 noop(비멀티큐) **noop** 또는 (멀티큐) 모드에 대해 **I/O** 스케줄러 모드를 재구성하는 것입니다. 자세한 내용은 [SAP Note #1984787.](https://launchpad.support.sap.com/#/notes/1984787) 
+Linux에는 몇 가지 다른 I/O 일정 예약 모드가 있습니다. Linux 공급업체와 SAP를 통한 일반적인 권장 사항은 **mq-deadline** 또는 **kyber** 모드에서 noop(비멀티큐) 또는 (멀티큐) 모드에 대해 **I/O** 스케줄러 모드를 다시 구성하는 것입니다. **noop** 자세한 내용은 [SAP Note #1984787.](https://launchpad.support.sap.com/#/notes/1984787) 
 
 
 ## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Azure M 시리즈 가상 머신을 위한 프리미엄 스토리지 및 Azure 쓰기 액셀러레이터를 갖춘 솔루션

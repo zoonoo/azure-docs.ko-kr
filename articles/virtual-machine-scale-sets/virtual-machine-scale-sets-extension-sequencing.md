@@ -1,18 +1,18 @@
 ---
 title: Azure 가상 시스템 크기 집합을 사용하여 확장 시퀀싱 사용
 description: 가상 머신 확장 집합에 여러 개의 확장을 배포할 때 확장 프로비전 시퀀스를 지정하는 방법을 알아봅니다.
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: manayar
-ms.openlocfilehash: cde3fb8b56d8509a45bde00dde55e3c69d015b8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: 737040699dd62d722b9a9ad4d8915ccb270c2d06
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76278063"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273752"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>가상 머신 확장 집합의 확장 프로비전 시퀀스 지정
 Azure 가상 머신 확장 집합은 배포 후 구성 및 관리, 모니터링, 보안 등의 기능을 제공합니다. 프로덕션 배포는 일반적으로 VM 인스턴스에 대해 구성된 여러 개의 확장 조합을 사용하여 원하는 결과를 얻습니다.
