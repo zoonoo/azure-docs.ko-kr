@@ -4,14 +4,14 @@ description: Azure 코스모스 DB에 대한 그룹 BY 절에 대해 알아봅�
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 04/10/2020
 ms.author: tisande
-ms.openlocfilehash: e41e81457421bfe27e3c0313fc06e39e6df4cdce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a3cbbafc066747b62f79934f2cd12301aa1ba17
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73819100"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261604"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Azure 코스모스 DB의 그룹 별 절
 
@@ -52,6 +52,12 @@ GROUP BY 절은 하나 이상의 지정된 속성값에 따라 쿼리 결과를 
 - 속성 또는 별칭 시스템 함수 별칭(SELECT 절 내에서 앨리어싱이 계속 허용됨)
 - 하위 쿼리
 - 집계 시스템 함수(SELECT 절에서만 허용됨)
+
+집계 시스템 함수와 하위 쿼리가 `GROUP BY` 있는 쿼리는 지원되지 않습니다. 예를 들어 다음 쿼리는 지원되지 않습니다.
+
+```sql
+SELECT COUNT(UniqueLastNames) FROM (SELECT AVG(f.age) FROM f GROUP BY f.lastName) AS UniqueLastNames
+```
 
 ## <a name="examples"></a>예
 

@@ -1,7 +1,7 @@
 ---
-title: 기계 학습 파이프라인 디버그 및 문제 해결
+title: ML 파이프라인 문제 해결& 디버그
 titleSuffix: Azure Machine Learning
-description: 파이썬용 Azure 기계 학습 SDK에서 기계 학습 파이프라인을 디버깅하고 해결합니다. 파이프라인 개발에 대한 일반적인 함정과 원격 실행 전과 실행 중에 스크립트를 디버깅하는 데 도움이 되는 팁을 알아봅니다. Visual Studio 코드를 사용하여 기계 학습 파이프라인을 대화형으로 디버깅하는 방법을 알아봅니다.
+description: 파이썬에서 Azure 기계 학습 파이프 라인을 디버깅합니다. 파이프라인 개발에 대한 일반적인 함정과 원격 실행 전과 실행 중에 스크립트를 디버깅하는 데 도움이 되는 팁을 알아봅니다. Visual Studio 코드를 사용하여 기계 학습 파이프라인을 대화형으로 디버깅하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.openlocfilehash: b68efbb64e9634ade001373e8cd9d61355bf786f
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.openlocfilehash: 9c2e00ed14a45c6df7cf72845db2ecd069381ca5
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80388987"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257218"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>기계 학습 파이프라인 디버그 및 문제 해결
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "80388987"
 
 ### <a name="testing-scripts-locally"></a>로컬스크립트 테스트
 
-파이프라인에서 가장 일반적인 오류 중 하나는 연결된 스크립트(데이터 정리 스크립트, 점수 매기기 스크립트 등)가 의도한 대로 실행되지 않거나 Azure Machine의 작업 영역에서 디버깅하기 어려운 원격 계산 컨텍스트의 런타임 오류가 포함되어 있다는 것입니다. 학습 스튜디오. 
+파이프라인에서 가장 일반적인 오류 중 하나는 연결된 스크립트(데이터 정리 스크립트, 점수 매기기 스크립트 등)가 의도한 대로 실행되지 않거나 Azure Machine Learning studio의 작업 영역에서 디버깅하기 어려운 원격 계산 컨텍스트의 런타임 오류를 포함하고 있다는 것입니다. 
 
 파이프라인 자체는 로컬로 실행할 수 없지만 로컬 컴퓨터에서 격리된 스크립트를 실행하면 계산 및 환경 빌드 프로세스를 기다릴 필요가 없으므로 더 빠르게 디버깅할 수 있습니다. 이 작업을 수행하려면 일부 개발 작업이 필요합니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "80388987"
 
 ### <a name="debugging-scripts-from-remote-context"></a>원격 컨텍스트에서 스크립트 디버깅
 
-스크립트를 로컬로 테스트하는 것은 파이프라인 빌드를 시작하기 전에 주요 코드 조각과 복잡한 논리를 디버깅하는 좋은 방법이지만, 특히 발생하는 동작을 진단할 때 실제 파이프라인 실행 중에 스크립트를 디버깅해야 할 수 있습니다. 파이프라인 단계 간의 상호 작용 중에 JavaScript 코드를 `print()` 디버깅하는 방법과 유사하게 원격 실행 중에 개체 상태와 예상 값을 볼 수 있도록 단계 스크립트에서 문을 자유롭게 사용하는 것이 좋습니다.
+스크립트를 로컬로 테스트하는 것은 파이프라인 빌드를 시작하기 전에 주요 코드 조각과 복잡한 논리를 디버깅하는 좋은 방법이지만, 특히 파이프라인 단계 간의 상호 작용 중에 발생하는 동작을 진단할 때 실제 파이프라인 실행 중에 스크립트를 디버깅해야 할 수 있습니다. JavaScript 코드를 `print()` 디버깅하는 방법과 유사하게 원격 실행 중에 개체 상태와 예상 값을 볼 수 있도록 단계 스크립트에서 문을 자유롭게 사용하는 것이 좋습니다.
 
 로그 `70_driver_log.txt` 파일에는 다음이 포함됩니다. 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 76ab92285cace284c187109ca48c6634777ebbc0
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: ea4bfadd55935712a292355dc25fb778b1523c75
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398311"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261910"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Azure Event Hubs의 기능 및 용어
 
@@ -45,7 +45,7 @@ Event Hub로 데이터를 전송하는 모든 엔터티는 이벤트 생산자 �
 
 AMQP 1.0, Kafka 1.0 이상 또는 HTTPS를 통해 이벤트를 게시할 수 있습니다. Event Hubs는 .NET 클라이언트에서 Event Hub로 이벤트를 게시하기 위한 [클라이언트 라이브러리 및 클래스](event-hubs-dotnet-framework-api-overview.md)를 제공합니다. 다른 런타임 및 플랫폼의 경우, [Apache Qpid](https://qpid.apache.org/)와 같은 모든 AMQP 1.0 클라이언트를 사용할 수 있습니다. 이벤트를 개별적으로 게시하거나 일괄처리할 수 있습니다. 단일 게시(이벤트 데이터 인스턴스)는 단일 이벤트 또는 일괄 처리인지에 관계 없이 1MB로 제한됩니다. 이 임계값보다 큰 이벤트를 게시하면 오류가 발생합니다. 게시자가 이벤트 허브 내의 파티션을 인식하지 못하고 SAS 토큰을 통해 *파티션 키(다음* 섹션에 소개됨)만 지정하는 것이 좋습니다.
 
-AMQP 또는 HTTPS 사용 선택은 사용량 시나리오에 해당됩니다. 전송 수준 보안(TLS) 또는 SSL/TLS 외에 AMQP는 영구 양방향 소켓을 설정해야 합니다. AMQP에서는 세션을 초기화할 때 네트워크 비용이 높지만, HTTPS에는 모든 요청에 대해 추가 SSL 오버헤드가 필요합니다. AMQP는 빈번한 게시자에게 더 높은 성능을 제공합니다.
+AMQP 또는 HTTPS 사용 선택은 사용량 시나리오에 해당됩니다. 전송 수준 보안(TLS) 또는 SSL/TLS 외에 AMQP는 영구 양방향 소켓을 설정해야 합니다. AMQP는 세션을 초기화할 때 네트워크 비용이 더 높지만 HTTPS에는 모든 요청에 대해 추가 TLS 오버헤드가 필요합니다. AMQP는 빈번한 게시자에게 더 높은 성능을 제공합니다.
 
 ![Event Hubs](./media/event-hubs-features/partition_keys.png)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: f9758678708338a284a35b45f7f9dd43b9a9017c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e74d7dcf8764d167e0080c9d7cca5573bd69ef1d
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335950"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261009"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -55,7 +55,7 @@ Azure Resource Manager를 사용하여 리소스에서 수행하는 모든 작�
 
 ### <a name="create-an-azure-active-directory-application"></a>Azure Active Directory 애플리케이션 만들기
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. API Management 서비스 인스턴스를 포함하는 구독을 사용하여 **Azure Active Directory**의 **앱 등록** 탭으로 이동합니다(Azure Active Directory > [관리/앱 등록]).
 
     > [!NOTE]
@@ -131,7 +131,7 @@ namespace GetTokenResourceManagerRequests
 
 ## <a name="calling-the-backup-and-restore-operations"></a>백업 및 복원 작업 호출
 
-REST API는 [API Management 서비스 - 백업](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup) 및 [API Management 서비스 - 복원](/rest/api/apimanagement/2019-01-01/apimanagementservice/restore)입니다.
+REST API는 [API Management 서비스 - 백업](/rest/api/apimanagement/2019-12-01/apimanagementservice/backup) 및 [API Management 서비스 - 복원](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)입니다.
 
 다음 섹션에서 설명한 "백업 및 복원 작업"을 호출하기 전에 REST 호출에 대한 권한 부여 요청 헤더를 설정합니다.
 

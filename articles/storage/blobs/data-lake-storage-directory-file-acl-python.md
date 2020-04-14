@@ -3,17 +3,17 @@ title: ACL을 & 파일용 Azure 데이터 레이크 스토리지 Gen2 파이썬 
 description: 계층적 네임스페이스(HNS)가 활성화된 저장소 계정에서 Python관리 디렉토리 및 파일 및 디렉터리 액세스 제어 목록(ACL)을 사용합니다.
 author: normesta
 ms.service: storage
-ms.date: 03/20/2020
+ms.date: 04/10/2020
 ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: a00713df2cdda626a76cc648826f7e56df214232
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: a79f3110206a01b9b974952f0ec0d299644be11f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668718"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262352"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>파이썬을 사용하여 Azure 데이터 레이크 스토리지 Gen2에서 디렉터리, 파일 및 ACL 관리
 
@@ -32,7 +32,7 @@ ms.locfileid: "80668718"
 [pip를](https://pypi.org/project/pip/)사용하여 파이썬에 대한 Azure 데이터 레이크 저장소 클라이언트 라이브러리를 설치합니다.
 
 ```
-pip install azure-storage-file-datalake --pre
+pip install azure-storage-file-datalake
 ```
 
 이러한 가져오기 문을 코드 파일의 맨 위에 추가합니다.
@@ -330,7 +330,7 @@ def list_directory_contents():
      print(e) 
 ```
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [API 참조 설명서](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html)
 * [패키지(파이썬 패키지 인덱스)](https://pypi.org/project/azure-storage-file-datalake/)

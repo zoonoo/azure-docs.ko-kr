@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: 6ed5c509cf310b743e4ef52f411dfa34e5db09c1
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 5134a262397676aa9b59de9b0c6de61c26d21523
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411621"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262913"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>앱에 비디오 인덱서 위젯 포함
 
@@ -265,7 +265,7 @@ Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하�
 
 ## <a name="code-samples"></a>코드 샘플
 
-비디오 인덱서 API 및 위젯에 대한 샘플이 포함된 [코드 샘플](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Widgets) 리포지토리를 참조하십시오.
+비디오 인덱서 API 및 위젯에 대한 샘플이 포함된 [코드 샘플](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) 리포지토리를 참조하십시오.
 
 | 파일/폴더                       | Description                                |
 |-----------------------------------|--------------------------------------------|

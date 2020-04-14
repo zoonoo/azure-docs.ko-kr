@@ -5,24 +5,25 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 2f5211716145d6c05bbfb0132c4a6ba2f9cceabe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9cf6ca27101a08ff58f32dcd31413256762490a2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280510"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255919"
 ---
-<a name="retrieve-offer-status"></a>제안 상태 검색 
-=====================
+# <a name="retrieve-offer-status"></a>제안 상태 검색
+
+> [!NOTE]
+> 클라우드 파트너 포털 API는 파트너 센터와 통합되며 오퍼가 파트너 센터로 마이그레이션된 후에도 계속 작동합니다. 통합은 작은 변화를 도입합니다. [Cloud 파트너 포털 API 참조에](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) 나열된 변경 내용을 검토하여 파트너 센터로 마이그레이션한 후에도 코드가 계속 작동하는지 확인합니다.
 
 제안의 현재 상태를 검색합니다.
 
   `GET  https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/status?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>URI 매개 변수
---------------
+## <a name="uri-parameters"></a>URI 매개 변수
 
 |  **이름**       |   **설명**                            |  **데이터 형식** |
 |  -------------  |  ------------------------------------------  |  ------------  |
@@ -32,8 +33,8 @@ ms.locfileid: "80280510"
 |  |  |
 
 
-<a name="header"></a>헤더
-------
+## <a name="header"></a>헤더
+
 
 |  이름           |  값               |
 |  -------------  | -------------------  |
@@ -41,9 +42,8 @@ ms.locfileid: "80280510"
 |  권한 부여  | `Bearer YOUR_TOKEN`  |
 |  |  |
 
+## <a name="body-example"></a>본문 예제
 
-<a name="body-example"></a>본문 예제
-------------
 
 ### <a name="response"></a>응답
 
@@ -115,8 +115,7 @@ ms.locfileid: "80280510"
       ],
       "previewLinks": [],
       liveLinks": [],
-      "notificationEmails": "jdoe@contoso.com"
-  } 
+  }
 ```
 
 
@@ -136,9 +135,8 @@ ms.locfileid: "80280510"
 |  processPercentage    | 단계의 완료율입니다.                                                              |
 |  previewLinks         | *현재 구현되지 않음*                                                                    |
 |  liveLinks            | *현재 구현되지 않음*                                                                    |
-|  notificationEmails   | 작업의 진행률 알림을 받을 이메일 주소의 쉼표로 구분된 목록입니다.        |
+|  notificationEmails   | 파트너 센터로 마이그레이션된 오퍼에 대해 더 이상 사용되지 않습니다. 마이그레이션된 오퍼에 대한 알림 이메일은 계정 설정의 판매자 연락처 정보 아래에 지정된 이메일로 전송됩니다.<br><br>마이그레이션되지 않은 오퍼의 경우 작업 진행 상황을 알수 있도록 쉼표로 구분된 이메일 주소 목록        |
 |  |  |
-
 
 ### <a name="response-status-codes"></a>응답 상태 코드
 
@@ -148,7 +146,6 @@ ms.locfileid: "80280510"
 |  400     | `Bad/Malformed request` - 오류 응답 본문에 자세한 정보가 들어 있을 수 있습니다.                 |
 |  404     | `Not found` - 지정된 엔터티가 존재하지 않습니다.                                                |
 |  |  |
-
 
 ### <a name="offer-status"></a>제안 상태
 
@@ -162,7 +159,6 @@ ms.locfileid: "80280510"
 |  취소됨                    | 제안 제출이 취소되었습니다.                           |
 |  실패                      | 제안 제출에 실패했습니다.                                 |
 |  |  |
-
 
 ### <a name="step-status"></a>단계 상태
 

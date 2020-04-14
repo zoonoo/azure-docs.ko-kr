@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d26dc55cfd0f2ef0bb78e4153fffe3f1cb910b73
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 3f3f06bd5a9b6a78b45a63de0684b580e662075b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474878"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256521"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>데이터 과학 프로젝트용 플랫폼 및 도구
 
@@ -49,7 +49,7 @@ Microsoft에서 Windows 및 Linux 모두에 제공하는 데이터 과학 가상
 
 현재 DSVM은 **Windows** 및 **Linux CentOS** 운영 체제에서 사용할 수 있습니다. 실행하려는 데이터 과학 프로젝트의 요구 사항에 따라 DSVM의 크기(CPU 코어 수 및 메모리 양)를 선택합니다. 
 
-DSVM의 Windows 버전에 대한 자세한 내용은 Azure 마켓플레이스의 [Microsoft 데이터 과학 가상 컴퓨터를](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) 참조하십시오. Linux DSVM 버전의 경우 [Linux 데이터 과학 Virtual Machine](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu)을 참조하세요.
+DSVM의 Windows 버전에 대한 자세한 내용은 Azure 마켓플레이스의 [Microsoft 데이터 과학 가상 컴퓨터를](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) 참조하십시오. Linux DSVM 버전의 경우 [Linux 데이터 과학 Virtual Machine](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804)을 참조하세요.
 
 DSVM에서 일부 일반적인 데이터 과학 작업을 효율적으로 실행하는 방법을 알아보려면 [데이터 과학 가상 머신에서 수행할 수 있는 10가지 작업을](../data-science-virtual-machine/vm-do-ten-things.md) 참조하십시오.
 

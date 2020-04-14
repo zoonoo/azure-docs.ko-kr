@@ -7,12 +7,12 @@ ms.reviewer: prvavill
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 9b8b1b40e972d7719ef2cf495ed12cb4ed3478fd
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: ee42f45d8c96e908061142b5a8e6b2e5cee21993
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80479371"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262063"
 ---
 # <a name="monitor-azure-data-explorer-using-resource-health-preview"></a>리소스 상태(미리 보기)를 사용하여 Azure 데이터 탐색기 모니터링
 
@@ -44,7 +44,7 @@ Azure 데이터 탐색기용 [리소스 상태는](/azure/service-health/resourc
 
 ### <a name="unavailable"></a>사용할 수 없음
 
-사용할 수 **없는** 상태는 Azure Data Explorer 리소스에 쿼리 및 수집에 사용할 수 없는 문제가 있음을 나타냅니다. 예를 들어 Azure Data Explorer 리소스의 노드가 예기치 않게 재부팅되었을 수 있습니다. Azure Data Explorer 리소스가 오랜 기간 동안 이 상태로 유지되면 [지원]()팀에 문의하십시오.
+사용할 수 **없는** 상태는 Azure Data Explorer 리소스에 쿼리 및 수집에 사용할 수 없는 문제가 있음을 나타냅니다. 예를 들어 Azure Data Explorer 리소스의 노드가 예기치 않게 재부팅되었을 수 있습니다. Azure Data Explorer 리소스가 오랜 기간 동안 이 상태로 남아 있으면 지원팀에 문의하십시오.
 
 ![사용할 수 없음](media/monitor-with-resource-health/unavailable.png)
 

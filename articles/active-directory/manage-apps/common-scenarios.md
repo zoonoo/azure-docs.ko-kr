@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d21ff820470765b82e397e56a2458603b8e5a7c7
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 21caec50bf9c20ec60194976b1bfbf16e4815914
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657950"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261043"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Azure AD를 통해 응용 프로그램 관리 중앙 집중화
 
@@ -88,7 +88,7 @@ ID는 클라우드 및 온-프레미스 응용 프로그램에서 모든 것을 
 
 - [애플리케이션 관리](https://docs.microsoft.com/azure/active-directory/manage-apps/index)
 - [애플리케이션 프로비저닝](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning)
-- [하이브리드 보안 액세스]()
+- [하이브리드 보안 액세스](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)
 - [ID 거버넌스](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)
 - [Microsoft ID 플랫폼](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
 - [ID 보안](https://docs.microsoft.com/azure/active-directory/conditional-access/index)

@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 9345138e948d84e0ea3c804dbd7a4b3c21daca2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d21c7ed93ac2ce2ab61282707d57fbf43e0b71a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77668148"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261077"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Azure 모니터에서 동적 임계값이 있는 메트릭 경고
 
@@ -61,7 +61,7 @@ ms.locfileid: "77668148"
 
 ## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>동적 임계값의 고급 설정은 무엇을 의미하나요?
 
-**실패한 기간** - 동적 임계값을 사용하면 시스템에서 경고를 발생시키는 데 필요한 최소 편차인 "경고를 트리거하는 번호 위반"을 구성할 수도 있습니다(기본 시간 기간은 20분 동안 4편차임). 사용자는 실패 기간 및 시간 범위를 변경하여 실패 기간을 구성하고, 경고할 대상을 선택할 수 있습니다. 이 기능은 일시적인 스파이크에 의해 생성된 경고 노이즈를 줄여줍니다. 예를 들어:
+**실패한 기간** - 동적 임계값을 사용하면 시스템에서 경고를 발생시키는 데 필요한 최소 편차인 "경고를 트리거하는 번호 위반"을 구성할 수도 있습니다(기본 시간 기간은 20분 동안 4편차임). 사용자는 실패 기간 및 시간 범위를 변경하여 실패 기간을 구성하고, 경고할 대상을 선택할 수 있습니다. 이 기능은 일시적인 스파이크에 의해 생성된 경고 노이즈를 줄여줍니다. 다음은 그 예입니다.
 
 문제가 주어진 5분씩 4번 연속해서 20분간 지속되는 경우 경고를 트리거하려면 다음 설정을 사용합니다.
 
@@ -93,7 +93,8 @@ ms.locfileid: "77668148"
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>경고를 트리거하는 데 필요한 데이터의 양?
 
-새 리소스가 있거나 메트릭 데이터가 누락된 경우 동적 임계값은 정확한 임계값을 보장하기 위해 3일 전에 경고를 트리거하지 않거나 30개의 메트릭 데이터 샘플을 사용할 수 있습니다.
+새 리소스가 있거나 메트릭 데이터가 누락된 경우 동적 임계값은 3일 전에 경고를 트리거하지 않으며 정확한 임계값을 보장하기 위해 메트릭 데이터의 샘플을 30개 이상 사용할 수 있습니다.
+메트릭 데이터가 충분한 기존 리소스의 경우 동적 임계값은 경고를 즉시 트리거할 수 있습니다.
 
 ## <a name="dynamic-thresholds-best-practices"></a>동적 임계값 모범 사례
 

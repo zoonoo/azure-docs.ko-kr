@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/02/2020
+ms.date: 04/12/2020
 ms.author: juliako
-ms.openlocfilehash: efd8386f464bfdf2ac27d3be07e6572dc27952e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9bea9e375e00d6fc0f6c33aa1bcc766773db2059
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78163593"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269944"
 ---
 # <a name="what-is-video-indexer"></a>Video Indexer란?
 
@@ -70,9 +70,9 @@ VI(비디오 인덱서)는 Azure 미디어 서비스 AI 솔루션이며 Azure �
 
 ### <a name="audio-insights"></a>오디오 인사이트
 
-* **자동 언어 감지**: 기준 음성 언어를 자동으로 식별합니다. 지원되는 언어에는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어(간체), 일본어, 러시아어 및 브라질 포르투갈어가 포함됩니다. 확신을 가지고 언어를 식별할 수 없는 경우 비디오 인덱서에서는 음성 언어가 영어라고 가정합니다. 자세한 내용은 [언어 식별 모델을](language-identification-model.md)참조하십시오.
+* **오디오 전사**: 음성을 12개 언어로 텍스트로 변환하고 확장을 허용합니다. 지원되는 언어에는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어 Chines, 일본어, 아랍어, 러시아어, 브라질 포르투갈어, 힌디어 및 한국어가 포함됩니다.
+* **자동 언어 감지**: 기준 음성 언어를 자동으로 식별합니다. 지원되는 언어에는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어 Chines, 일본어, 러시아어 및 브라질 포르투갈어가 포함됩니다. 확신을 가지고 언어를 식별할 수 없는 경우 비디오 인덱서에서는 음성 언어가 영어라고 가정합니다. 자세한 내용은 [언어 식별 모델을](language-identification-model.md)참조하십시오.
 * **다국어 음성 식별 및 전사(미리** 보기): 오디오와 다른 세그먼트의 음성 언어를 자동으로 식별합니다. 그것은 전사 할 미디어 파일의 각 세그먼트를 전송하고 하나의 통합 전사로 다시 전사를 결합합니다. 자세한 내용은 [다국어 콘텐츠를 자동으로 식별하고 전사하는](multi-language-identification-transcription.md)것을 참조하십시오.
-* **오디오 전사**: 음성을 12개 언어로 텍스트로 변환하고 확장을 허용합니다. 지원되는 언어에는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어(간체), 일본어, 아랍어, 러시아어, 브라질 포르투갈어, 힌디어 및 한국어가 포함됩니다.
 * **자막**: 자막을 VTT, TTML, SRT의 세 가지 형식으로 만듭니다.
 * **두 채널 처리**: 자동 별도의 성적 증명서를 감지하고 단일 타임 라인에 병합합니다.
 * **노이즈 감소**: 전화 오디오 또는 시끄러운 녹음(Skype 필터 기반)을 지웁니다.

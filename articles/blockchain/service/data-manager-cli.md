@@ -4,12 +4,12 @@ description: Azure CLI를 사용하여 Azure 블록 체인 서비스에 대한 �
 ms.date: 03/30/2020
 ms.topic: article
 ms.reviewer: ravastra
-ms.openlocfilehash: 5ceca96f760ab62ca7f3df9ad26139b9b4a3e5be
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: e490803fabeed7d6234bd6984acbfb9f5270e0c0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529584"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254413"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Azure CLI를 사용하여 Blockchain Data Manager 구성
 
@@ -40,7 +40,7 @@ CLI를 로컬로 설치하고 사용하려면 이 빠른 시작에 Azure CLI 버
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](https://docs.microsoft.com/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *동쪽* 위치에 *myResourceGroup이라는* 리소스 그룹을 만듭니다.
+[az group create](https://docs.microsoft.com/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myRG --location eastus
@@ -48,7 +48,7 @@ az group create --name myRG --location eastus
 
 ## <a name="create-instance"></a>인스턴스 만들기
 
-블록체인 데이터 관리자 인스턴스는 Azure 블록체인 서비스 트랜잭션 노드를 모니터링합니다. 인스턴스는 트랜잭션 노드의 모든 원시 블록 및 원시 트랜잭션 데이터를 캡처합니다.
+블록체인 데이터 관리자 인스턴스는 Azure 블록체인 서비스 트랜잭션 노드를 모니터링합니다. 인스턴스는 트랜잭션 노드의 모든 원시 블록 및 원시 트랜잭션 데이터를 캡처합니다. 블록 체인 데이터 관리자는 web3.eth [getBlock](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#getblock) 및 [getTransaction](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#gettransaction) 쿼리에서 반환 된 정보의 슈퍼 집합인 **RawBlockAndTransactionMsg** 메시지를 게시합니다.
 
 ``` azurecli
 az resource create \
@@ -59,7 +59,7 @@ az resource create \
                    --properties <watcher resource properties>
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |-----------|-------------|
 | resource-group | 블록 체인 데이터 관리자 인스턴스를 만들 리소스 그룹 이름입니다. |
 | name | 블록체인 데이터 관리자 인스턴스의 이름입니다. |
@@ -121,7 +121,7 @@ az resource create \
                    --properties <input resource properties>
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |-----------|-------------|
 | resource-group | 입력 리소스를 만들 리소스 그룹 이름입니다. |
 | name | 입력의 이름입니다. |
@@ -193,7 +193,7 @@ az resource create \
                    --properties <output resource properties>
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |-----------|-------------|
 | resource-group | 출력 리소스를 만들 리소스 그룹 이름입니다. |
 | name | 출력의 이름입니다. |
@@ -270,7 +270,7 @@ az resource create \
                    --properties <Application resource properties>
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |-----------|-------------|
 | resource-group | 응용 프로그램 리소스를 만들 리소스 그룹 이름입니다. |
 | name | 응용 프로그램의 이름입니다. |
@@ -345,7 +345,7 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/<Watcher name>
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |-----------|-------------|
 | action | **시작을** 사용하여 감시자 실행을 실행합니다. |
 | ids | 감시자 리소스 ID. 구독 \<\>ID, \<리소스\>그룹 \<및\> Watcher 이름을 감시자 리소스의 값으로 바꿉니다.|
@@ -370,7 +370,7 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/<Watcher name>
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |-----------|-------------|
 | action | **중지를** 사용하여 감시자가 중지됩니다. |
 | ids | 감시자의 이름입니다. 구독 \<\>ID, \<리소스\>그룹 \<및\> Watcher 이름을 감시자 리소스의 값으로 바꿉니다. |
@@ -396,7 +396,7 @@ az resource delete \
                    --resource-type Microsoft.Blockchain/watchers
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |-----------|-------------|
 | resource-group | 삭제할 감시자의 리소스 그룹 이름입니다. |
 | name | 삭제할 감시자의 이름입니다. |

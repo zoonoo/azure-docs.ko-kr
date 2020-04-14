@@ -4,16 +4,16 @@ description: AzCopy를 구성, 최적화 및 문제 해결합니다.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: d2cb40d7510e46539db46bdb61ec2d64c0fd1ec7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87a335f44a31436de735395adbee9035493cbbd2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77526498"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263423"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>AzCopy 구성, 최적화 및 문제 해결
 
@@ -34,7 +34,7 @@ AzCopy에 대한 프록시 설정을 구성하려면 환경 변수를 `https_pro
 |--------|-----------|
 | **Windows** | 명령 프롬프트 사용에서:`set https_proxy=<proxy IP>:<proxy port>`<br> 파워쉘 사용시:`$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
-| **Macos** | `export https_proxy=<proxy IP>:<proxy port>` |
+| **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
 현재 AzCopy는 NTLM 또는 Kerberos로 인증해야 하는 프록시를 지원하지 않습니다.
 
@@ -53,9 +53,6 @@ AzCopy에 대한 프록시 설정을 구성하려면 환경 변수를 `https_pro
 ### <a name="run-benchmark-tests"></a>벤치마크 테스트 실행
 
 특정 Blob 컨테이너에서 성능 벤치마크 테스트를 실행하여 일반 성능 통계를 확인하고 성능 병목 현상을 확인할 수 있습니다. 
-
-> [!NOTE]
-> 현재 릴리스에서는 이 기능은 Blob 저장소 컨테이너에서만 사용할 수 있습니다.
 
 다음 명령을 사용하여 성능 벤치마크 테스트를 실행합니다.
 
@@ -89,7 +86,7 @@ azcopy jobs resume <job-id> --cap-mbps 10
 |--------|-----------|
 | **Windows** | `set AZCOPY_CONCURRENCY_VALUE=<value>` |
 | **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
-| **Macos** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
+| **MacOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 
 을 `azcopy env` 사용하여 이 변수의 현재 값을 확인합니다. 값이 비어 있으면 AzCopy 로그 파일의 시작 부분을 보면 사용 중인 값을 읽을 수 있습니다. 선택한 값과 선택한 이유가 보고됩니다.
 
@@ -104,7 +101,7 @@ azcopy jobs resume <job-id> --cap-mbps 10
 |--------|-----------|
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
-| **Macos** | `export AZCOPY_BUFFER_GB=<value>` |
+| **MacOS** | `export AZCOPY_BUFFER_GB=<value>` |
 
 ### <a name="optimize-file-synchronization"></a>파일 동기화 최적화
 
@@ -187,7 +184,7 @@ azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 |--------|-----------|
 | **Windows** | `set AZCOPY_JOB_PLAN_LOCATION=<value>` |
 | **Linux** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
-| **Macos** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
+| **MacOS** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
 
 을 `azcopy env` 사용하여 이 변수의 현재 값을 확인합니다. 값이 비어 있으면 계획 파일이 기본 위치에 기록됩니다.
 
@@ -199,7 +196,7 @@ azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 |--------|-----------|
 | **Windows** | `set AZCOPY_LOG_LOCATION=<value>` |
 | **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
-| **Macos** | `export AZCOPY_LOG_LOCATION=<value>` |
+| **MacOS** | `export AZCOPY_LOG_LOCATION=<value>` |
 
 을 `azcopy env` 사용하여 이 변수의 현재 값을 확인합니다. 값이 비어 있으면 로그가 기본 위치에 기록됩니다.
 

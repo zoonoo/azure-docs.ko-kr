@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 12aeea8393a00d7d2662c826f847265bdbdc0119
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 48a83fad3395f6ecf06fb1f1ba95aa1b06a53431
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75442724"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259139"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Azure Application Insights와 Azure API Management를 통합하는 방법
 
@@ -51,7 +51,7 @@ Azure Application Insight를 사용하려면 먼저 서비스의 인스턴스를
     ![Application Insights 로거](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> 내부적으로 Application Insights 인스턴스의 계측 키를 포함하는 API Management 인스턴스에 [로거](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger/createorupdate) 엔터티가 만들어집니다.
+> 내부적으로 Application Insights 인스턴스의 계측 키를 포함하는 API Management 인스턴스에 [로거](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate) 엔터티가 만들어집니다.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>API에 대한 Application Insights 로깅 사용
 
@@ -70,9 +70,9 @@ Azure Application Insight를 사용하려면 먼저 서비스의 인스턴스를
 > **본문의 첫 번째 바이트** 필드에서 기본값 **0**을 재정의하면 API의 성능이 현저히 저하될 수 있습니다.
 
 > [!NOTE]
-> 내부적으로 이름이 'applicationinsights'인 [진단](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/diagnostic/createorupdate) 엔터티가 API 수준에서 만들어집니다.
+> 내부적으로 이름이 'applicationinsights'인 [진단](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) 엔터티가 API 수준에서 만들어집니다.
 
-| 설정 이름                        | 값 형식                        | 설명                                                                                                                                                                                                                                                                                                                                      |
+| 설정 이름                        | 값 형식                        | Description                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 사용                              | boolean                           | 이 API의 로깅이 사용되는지 여부를 지정합니다.                                                                                                                                                                                                                                                                                                |
 | 대상                         | Azure Application Insights 로거 | 사용할 Azure Application Insights 로거를 지정합니다.                                                                                                                                                                                                                                                                                           |

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 04/13/2020
 ms.author: dapine
-ms.openlocfilehash: 79562049f48ba90a4f9a123919185521a82d7be6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ea3f63bea0701dcd0f4b38f6584816d9a1bfbc7
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80365796"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258438"
 ---
 # <a name="convert-text-to-speech-using-python"></a>Python을 사용하여 텍스트 음성 변환
 
@@ -26,7 +26,7 @@ ms.locfileid: "80365796"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Python 2.7.x 또는 3.x
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) 또는 즐겨 사용하는 텍스트 편집기
+* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">비주얼 <span class="docon docon-navigate-external x-hidden-focus"> </span>스튜디오, </a> <a href="https://code.visualstudio.com/download" target="_blank">비주얼 <span class="docon docon-navigate-external x-hidden-focus"> </span>스튜디오 코드, </a>또는 좋아하는 텍스트 편집기
 * Speech Service에 대한 Azure 구독 키
 
 ## <a name="create-a-project-and-import-required-modules"></a>프로젝트 만들기 및 필요한 모듈 가져오기
@@ -168,7 +168,7 @@ python tts.py
 > [!div class="nextstepaction"]
 > [GitHub에서 Python 샘플 살펴보기](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [텍스트를 음성으로 변환 API 참조](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Python 및 Speech SDK를 사용하여 텍스트 음성 변환](quickstarts/speech-to-text-from-microphone.md)

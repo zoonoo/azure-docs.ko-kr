@@ -3,7 +3,7 @@ title: Azure VM 크기 - 범용 | 마이크로 소프트 문서
 description: Azure의 가상 컴퓨터에 사용할 수 있는 다양한 범용 크기를 나열합니다. 이 시리즈의 크기에 대한 vCPU, 데이터 디스크 및 NIC 수와 스토리지 처리량 및 네트워크 대역폭에 대한 정보를 나열합니다.
 services: virtual-machines
 documentationcenter: ''
-author: jonbeck7
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
-ms.author: jonbeck
-ms.openlocfilehash: 22826c32dc2aee0e580ec0b2a05c7eb8f08b7570
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.author: mimckitt
+ms.openlocfilehash: fc263eb6fbe6c6402aaf529229bb7025f070b8d9
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115320"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269672"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>범용 가상 머신 크기
 

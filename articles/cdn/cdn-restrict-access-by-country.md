@@ -3,7 +3,7 @@ title: 국가/지역별로 Azure CDN 콘텐츠 제한 | 마이크로 소프트 �
 description: 지역 필터링 기능을 사용하여 국가/지역별 액세스를 Azure CDN 콘텐츠로 제한하는 방법을 알아봅니다.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: 12c17cc5-28ee-4b0b-ba22-2266be2e786a
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
-ms.author: magattus
-ms.openlocfilehash: 75c422d456f2509ce478e2609a6509f78a6eb31e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 7ae7224efdaa281106dfbe2118ab0092c8284c6e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593422"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260159"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>국가/지역별로 Azure CDN 콘텐츠 제한
 

@@ -2,7 +2,7 @@
 title: Azure 익스프레스루트를 오라클 클라우드 인프라와 연결 | 마이크로 소프트 문서
 description: Azure ExpressRoute를 오라클 클라우드 인프라(OCI) FastConnect와 연결하여 크로스 클라우드 오라클 애플리케이션 솔루션을 지원
 documentationcenter: virtual-machines
-author: romitgirdhar
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/16/2020
-ms.author: rogirdh
-ms.openlocfilehash: cd0b8a50d25cd8d1a66a8eb98e54ec231aa2c62f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.author: mimckitt
+ms.openlocfilehash: d85c0fc8986adfa00559eab1c49a79daacdeb33f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878717"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263185"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Azure와 Oracle 클라우드 인프라 간의 직접 상호 연결 설정  
 

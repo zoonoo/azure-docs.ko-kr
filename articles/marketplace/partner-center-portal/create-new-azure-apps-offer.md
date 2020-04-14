@@ -1,5 +1,5 @@
 ---
-title: 상용 마켓플레이스에서 새 Azure 앱 오퍼 만들기
+title: 상용 마켓플레이스에서 새 Azure Apps 오퍼 만들기
 description: Microsoft 파트너 센터의 상용 마켓플레이스 포털을 사용하여 Azure 마켓플레이스, AppSource 또는 CSP(클라우드 솔루션 공급자) 프로그램을 통해 나열 또는 판매하기 위한 새 Azure Apps 오퍼를 만드는 방법
 author: dsindona
 ms.author: dsindona
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 0ff1bbd976273a7d0cbfb22effebdf45c84d2f41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 260193b3c71e29a32e0589f50864ffcca2e9a67c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277242"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262267"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
@@ -69,7 +69,7 @@ Azure 응용 프로그램 계획에는 관리되는 응용 프로그램 및 솔�
 * 샘플:
 
     * [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
-    * [Azure 파워쉘](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
+    * [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
     * [관리되는 애플리케이션 솔루션](https://docs.microsoft.com/azure/managed-applications/sample-projects)
 
 ### <a name="fundamentals-in-technical-knowledge"></a>기술 지식의 기초
@@ -88,12 +88,12 @@ Azure 응용 프로그램 계획에는 관리되는 응용 프로그램 및 솔�
 
 Azure 애플리케이션을 관리하는 데 도움이 되는 다음 스크립팅 환경 중 하나 또는 둘 다를 선택합니다.
 
-* [Azure 파워쉘](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 * [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 개발 환경에 다음 도구를 추가하는 것이 좋습니다.
 
-* [Azure 저장소 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 * [Visual Studio Code](https://code.visualstudio.com/)(다음 확장 포함):
     * 확장: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     * 확장: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -103,7 +103,7 @@ Azure 애플리케이션을 관리하는 데 도움이 되는 다음 스크립�
 
 ## <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
-Azure 응용 프로그램 오퍼를 만들려면 먼저 [파트너 센터 계정을 만들고](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) **개요** 탭을 선택한 상업 [용 마켓플레이스 대시보드를](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)열어야 합니다.
+Azure 응용 프로그램 오퍼를 만들려면 먼저 [파트너 센터 계정을 만들고](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) **개요** 탭을 선택한 [상용 마켓플레이스 대시보드를](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)열어야 합니다.
 
 >[!Note]
 >오퍼가 게시되면 파트너 센터에서 만든 오퍼에 대한 편집은 다시 게시한 후에만 시스템 및 스토어프론트에서 업데이트됩니다.  변경이 이루어진 후 게시를 위해 제안을 제출해야 합니다.
@@ -151,7 +151,7 @@ Azure 응용 프로그램 오퍼를 만들려면 먼저 [파트너 센터 계정
 
 **속성** 페이지에서는 마켓플레이스에서 오퍼를 그룹화하는 데 사용되는 카테고리 및 산업, 앱 버전 및 쿠폰을 지원하는 법적 계약을 정의할 수 있습니다. 이 페이지를 완료한 후 **저장을** 선택합니다.
 
-### <a name="category"></a>Category
+### <a name="category"></a>범주
 
 최소 1개 및 최대 3개의 카테고리를 선택하여 적절한 마켓플레이스 검색 영역에 쿠폰을 배치하는 데 사용됩니다. 쿠폰이 쿠폰 설명에서 이러한 카테고리를 지원하는 방법을 문의하세요. 
 
@@ -168,7 +168,7 @@ Azure 응용 프로그램 오퍼를 만들려면 먼저 [파트너 센터 계정
 > [!NOTE]
 > 오퍼 리스팅 콘텐츠(예: 설명, 문서, 스크린샷, 이용 약관 등)는 "이 응용 프로그램은 [영어 이외의 언어]에서만 사용할 수 있습니다"라는 문구로 시작되는 한 영어로 작성할 필요가 없습니다. 또한 오퍼 리스팅 콘텐츠에 사용된 언어 이외의 언어로 콘텐츠를 제공하는 *유용한 링크 URL을* 제공하는 것도 허용됩니다.
 
-### <a name="name"></a>이름
+### <a name="name"></a>속성
 
 여기에 입력한 이름은 고객에게 쿠폰 목록의 제목으로 표시됩니다. 이 필드는 **오퍼 별칭에** 대해 입력한 텍스트로 미리 채워지지만 이 값을 변경할 수 있습니다. 이 이름은 상표가 지정될 수 있으며 상표 또는 저작권 기호가 포함될 수 있습니다. 이름은 50자를 초과할 수 없으며 이모티콘을 포함할 수 없습니다.
 
@@ -180,7 +180,7 @@ Azure 응용 프로그램 오퍼를 만들려면 먼저 [파트너 센터 계정
 
 오퍼에 대한 더 긴 설명을 제공합니다(최대 256자). 설명은 마켓플레이스 검색 결과에 사용될 수 있습니다.
 
-### <a name="description"></a>설명
+### <a name="description"></a>Description
 
 오퍼에 대한 더 긴 설명을 제공합니다(최대 3,000자). 이 설명은 마켓플레이스 목록 개요의 고객에게 표시됩니다. 오퍼의 가치 제안, 주요 혜택, 카테고리 및/또는 산업 협회, 인앱 구매 기회 및 필요한 공개를 포함합니다. 
 
@@ -233,7 +233,7 @@ Azure 응용 프로그램 오퍼를 만들려면 먼저 [파트너 센터 계정
 
 쿠폰의 작동 방식을 보여 주는 스크린샷을 추가합니다. 최대 5개의 스크린샷을 추가할 수 있습니다. 모든 스크린샷은 1280 x 720 픽셀이어야 합니다.
 
-#### <a name="videos"></a>비디오
+#### <a name="videos"></a>동영상
 
 선택적으로 쿠폰을 보여주는 동영상을 최대 5개까지 추가할 수 있습니다. 이 동영상은 YouTube 및/또는 Vimeo에서 호스팅되어야 합니다. 각 동영상에 대해 동영상 이름, URL 및 동영상의 축소판 이미지(1280 x 720픽셀)를 입력합니다.
 
@@ -308,7 +308,7 @@ Azure 정부 서비스는 FedRAMP, NIST 800.171(DIB), ITAR, IRS 1075, DoD L4 및
 
 **계획 목록** 탭에는 동일한 오퍼에 대해 서로 다른 계획 간에 다를 수 있는 계획별 목록 정보가 표시됩니다.
 
-### <a name="name"></a>이름
+### <a name="name"></a>속성
 
 계획을 만들 때 지정한 이름에 따라 미리 채워집니다.  이 이름은 마켓플레이스에 표시되는 이 "소프트웨어 계획"의 제목으로 표시됩니다.  최대 100자까지 포함될 수 있습니다.
 
@@ -316,7 +316,7 @@ Azure 정부 서비스는 FedRAMP, NIST 800.171(DIB), ITAR, IRS 1075, DoD L4 및
 
 소프트웨어 계획에 대한 간략한 요약을 제공합니다.  최대 100자까지 포함될 수 있습니다.
 
-### <a name="description"></a>설명
+### <a name="description"></a>Description
 
 이 설명은 이 소프트웨어 계획이 고유한 이유와 제품 내의 다른 소프트웨어 계획과 어떤 차이점을 설명하는 기회입니다. 최대 2,000자까지 포함될 수 있습니다.
 

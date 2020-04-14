@@ -214,6 +214,8 @@
       items:
         - name: 음성 번역이란?
           href: speech-translation.md
+        - name: 음성 번역 기본 사항
+          href: speech-translation-basics.md
     - name: 빠른 시작
       items:
         - name: 음성을 텍스트로 변환

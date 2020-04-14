@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: db60a864ff29ff9eccdcfbdc0bd63587375d4bbd
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 5a05f2973ac17460250fb3e80eb7bc0da9849940
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81114975"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262879"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>특수 문자가 있는 부분 용어 검색 및 패턴(와일드카드, 정규식, 패턴)
 
@@ -22,6 +22,9 @@ ms.locfileid: "81114975"
 인덱스에 예상 된 형식의 용어가 없는 경우 부분 및 패턴 검색에 문제가 있을 수 있습니다. 인덱싱의 [어휘 분석 단계(기본](search-lucene-query-architecture.md#stage-2-lexical-analysis) 표준 분석기가정)에서 특수 문자가 삭제되고 복합 문자열과 복합 문자열이 분할되고 공백이 삭제됩니다. 이 모든 것이 일치하지 않을 때 패턴 쿼리가 실패할 수 있습니다. 예를 들어 해당 콘텐츠가 실제로 인덱스에 `"703"` `"6214"`존재하지 않기 때문에 (에 `"3-62"` `+1 (425) 703-6214` `"1"` `"425"`대한 토큰화)와 같은 전화 번호가 쿼리에 표시되지 않습니다. 
 
 해결 방법은 필요한 경우 공백 및 특수 문자를 포함하여 전체 문자열을 보존하는 분석기를 호출하여 부분 적인 용어 및 패턴과 일치시킬 수 있도록 하는 것입니다. 그대로 문자열에 대한 추가 필드를 만들고 콘텐츠 보존 분석기를 사용하는 것이 솔루션의 기본입니다.
+
+> [!TIP]
+> 포스트맨 및 REST API에 익숙합니까? [쿼리 예제 컬렉션을 다운로드하여](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/full-syntax-examples) 이 문서에 설명된 부분 용어 및 특수 문자를 쿼리합니다.
 
 ## <a name="what-is-partial-search-in-azure-cognitive-search"></a>Azure 인지 검색의 부분 검색이란 무엇입니까?
 
@@ -74,6 +77,7 @@ Azure 인지 검색에서 부분 검색 및 패턴은 다음 형태로 사용할
 
 | 분석기 | 동작 |
 |----------|-----------|
+| [언어 분석기](index-add-language-analyzers.md) | 복합 단어 또는 문자열, 모음 돌연변이 및 동사 형태의 하이픈을 보존합니다. 쿼리 패턴에 대시가 포함된 경우 언어 분석기를 사용하는 것으로 충분할 수 있습니다. |
 | [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) | 전체 필드의 콘텐츠는 단일 용어로 토큰화됩니다. |
 | [whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | 공백에서만 분리됩니다. 대시 또는 기타 문자를 포함하는 용어는 단일 토큰으로 처리됩니다. |
 | [사용자 지정 분석기](index-add-custom-analyzers.md) | (권장) 사용자 지정 분석기를 만들면 토큰화기와 토큰 필터를 모두 지정할 수 있습니다. 이전 분석기를 있는 것으로 사용해야 합니다. 사용자 지정 분석기를 사용하면 사용할 토큰화기 및 토큰 필터를 선택할 수 있습니다. <br><br>권장되는 조합은 [소문자 토큰 필터가](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html)있는 [키워드 토큰화입니다.](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) 그 자체로 미리 정의된 [키워드 분석기는](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) 쿼리가 실패할 수 있는 대소문자 텍스트를 소문자로 사용하지 않습니다. 사용자 지정 분석기는 소문자 토큰 필터를 추가하기 위한 메커니즘을 제공합니다. |
@@ -151,7 +155,9 @@ Postman과 같은 웹 API 테스트 도구를 사용하는 경우 [테스트 분
 
 ### <a name="use-built-in-analyzers"></a>내장 분석기 사용
 
-내장 또는 미리 정의된 분석기는 인덱스에 `analyzer` 추가 구성이 필요하지 않고 필드 정의의 속성에 이름으로 지정할 수 있습니다. 다음 예제에서는 필드에 `whitespace` 분석기를 설정하는 방법을 보여 줍니다. 사용 가능한 기본 제공 분석기에 대한 자세한 내용은 [미리 정의된 분석기 목록을](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference)참조하십시오. 
+내장 또는 미리 정의된 분석기는 인덱스에 `analyzer` 추가 구성이 필요하지 않고 필드 정의의 속성에 이름으로 지정할 수 있습니다. 다음 예제에서는 필드에 `whitespace` 분석기를 설정하는 방법을 보여 줍니다. 
+
+다른 시나리오및 다른 기본 제공 분석기에 대한 자세한 내용은 [미리 정의된 분석기 목록을](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference)참조하십시오. 
 
 ```json
     {

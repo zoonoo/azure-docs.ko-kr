@@ -31,9 +31,6 @@
     - name: 태그 거버넌스 관리
       displayName: 'modify, append, effects'
       href: ./tutorials/govern-tags.md
-    - name: 실습 랩 - Azure Policy 탐색
-      displayName: 'create, policy, training, learn'
-      href: 'https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy'
 - name: 샘플
   items:
     - name: 인덱스

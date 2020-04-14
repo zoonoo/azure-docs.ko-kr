@@ -3,12 +3,12 @@ title: 파일 및 폴더 백업 - 일반적인 질문
 description: Azure Backup을 통해 파일 및 폴더 백업에 대한 일반적인 질문을 해결합니다.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 55819ce7ec5196812d935a21c096c132144d78af
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 6e9f265672ff15e40444a46a3e440e73a0051a5b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421315"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254753"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>파일 및 폴더 백업에 대한 일반적인 질문
 
@@ -22,7 +22,7 @@ Windows 서버 컴퓨터, 시스템 센터 DPM 및 Microsoft Azure 백업 서버
 
 ### <a name="how-long-are-vault-credentials-valid"></a>자격 증명 자격 증명은 얼마 동안 유효합니까?
 
-자격 증명 모음 자격 증명은 48시간이 지나면 만료됩니다. 자격 증명 파일이 만료되면 Azure 포털에서 파일을 다시 다운로드합니다.
+자격 증명은 10일 후에 만료됩니다. 자격 증명 파일이 만료되면 Azure 포털에서 파일을 다시 다운로드합니다.
 
 ### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>어떤 드라이브에서 파일과 폴더를 백업 할 수 있습니까?
 
@@ -185,7 +185,6 @@ Azure Backup 에이전트는 복원 하는 동안 백업 된 데이터를 해독
 | --- | --- | --- |
 | 실패 |사용 가능 |원래 컴퓨터를 등록하는 동안 제공한 것과 동일한 암호를 통해 다른 컴퓨터에 MARS 에이전트를 설치하고 등록할 수 있습니다. **복구 옵션을** > **선택하여** 복원을 수행할 다른 위치를 선택합니다. 자세한 내용은 이 [문서를](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine)참조하십시오.
 | 실패 |실패 |데이터 또는 데이터를 복구할 수 없습니다. |
-
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>진행 중인 복원 작업을 취소하면 어떻게 되나요?
 

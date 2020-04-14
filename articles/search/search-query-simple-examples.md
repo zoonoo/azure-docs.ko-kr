@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 42ace2444c7d8e790c7575a7c1a7b3b1219d090a
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 3a801af7b97954510139a009a6d1344b281cf056
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656417"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261808"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Azure 인지 검색에서 간단한 쿼리 만들기
 
 Azure Cognitive Search에서 [간단한 쿼리 구문은](query-simple-syntax.md) 인덱스에 대해 전체 텍스트 검색 쿼리를 실행하기 위한 기본 쿼리 구문을 호출합니다. 이 파서는 빠르며 전체 텍스트 검색, 필터링 및 면처리된 검색 및 지역 검색을 비롯한 일반적인 시나리오를 처리합니다. 
 
-이 문서에서는 예제를 사용하여 간단한 구문을 설명합니다.
+이 문서에서는 예제를 사용하여 간단한 구문을 설명하고 검색 `search=` [문서](https://docs.microsoft.com/rest/api/searchservice/search-documents) 작업의 매개 변수를 채웁니다.
 
 대체 쿼리 구문은 [Full Lucene으로](query-lucene-syntax.md)퍼지 및 와일드카드 검색과 같은 보다 복잡한 쿼리 구조를 지원하므로 처리하는 데 추가 시간이 걸릴 수 있습니다. 전체 구문을 보여 주는 자세한 정보 및 예제는 [전체 Lucene 구문 사용을](search-query-lucene-examples.md)참조하십시오.
 

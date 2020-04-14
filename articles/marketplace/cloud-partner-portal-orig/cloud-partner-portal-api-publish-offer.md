@@ -5,23 +5,25 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 4163bf5727c327d559b81db42f99684aa0cc8d5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 960d5facb53f20719045c5fdbe2179f549aca3f2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280527"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255943"
 ---
-<a name="publish-an-offer"></a>제안 게시
-================
+# <a name="publish-an-offer"></a>제안 게시
+
+> [!NOTE]
+> 클라우드 파트너 포털 API는 파트너 센터와 통합되며 오퍼가 파트너 센터로 마이그레이션된 후에도 계속 작동합니다. 통합은 작은 변화를 도입합니다. [Cloud 파트너 포털 API 참조에](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) 나열된 변경 내용을 검토하여 파트너 센터로 마이그레이션한 후에도 코드가 계속 작동하는지 확인합니다.
 
 지정한 제품의 게시 프로세스를 시작합니다. 이 호출은 장기 실행 작업입니다.
 
   `POST  https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/publish?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>URI 매개 변수
+## <a name="uri-parameters"></a>URI 매개 변수
 --------------
 
 |  **이름**      |    **설명**                               |  **데이터 형식** |
@@ -31,8 +33,7 @@ ms.locfileid: "80280527"
 |  api-version   | 최신 버전의 API입니다.                        |   Date         |
 |  |  |
 
-
-<a name="header"></a>헤더
+## <a name="header"></a>헤더
 ------
 
 |  **이름**        |    **값**          |
@@ -42,7 +43,7 @@ ms.locfileid: "80280527"
 |  |  |
 
 
-<a name="body-example"></a>본문 예제
+## <a name="body-example"></a>본문 예제
 ------------
 
 ### <a name="request"></a>요청
@@ -66,14 +67,20 @@ ms.locfileid: "80280527"
 
 ### <a name="response"></a>응답
 
-   `Operation-Location: /api/operations/contoso$56615b67-2185-49fe-80d2-c4ddf77bb2e8$2$preview?api-version=2017-10-31`
+#### <a name="migrated-offers"></a>마이그레이션된 오퍼
+
+`Location: /api/publishers/contoso/offers/contoso-offer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8?api-version=2017-10-31`
+
+#### <a name="non-migrated-offers"></a>마이그레이션되지 않은 오퍼
+
+`Location: /api/operations/contoso$contoso-offer$2$preview?api-version=2017-10-31`
 
 
 ### <a name="response-header"></a>응답 헤더
 
 |  **이름**             |    **값**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
-| Operation-Location    | 작업의 현재 상태를 확인하기 위해 쿼리할 수 있는 URL입니다.    |
+| 위치    | 이 작업의 상태를 검색하는 상대 경로     |
 |  |  |
 
 

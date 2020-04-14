@@ -4,14 +4,14 @@ description: Azure Cosmos DB에서 인덱싱이 어떻게 작동하는지, 범�
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 04/13/2020
 ms.author: thweiss
-ms.openlocfilehash: 65186262095560d7ae54d32b218d1c01f1fb921d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 684799ee12715c789910accf80aa5b4afec763d4
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873627"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273242"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 인덱싱 - 개요
 
@@ -82,7 +82,7 @@ Azure 코스모스 DB는 현재 세 가지 종류의 인덱스를 지원합니�
 
    배열 요소에서 같음 일치
    ```sql
-    SELECT * FROM c WHERE ARRAY_CONTAINS(c.tags, "tag1”)
+    SELECT * FROM c WHERE ARRAY_CONTAINS(c.tags, "tag1")
     ```
 
 - 범위 쿼리:
@@ -164,7 +164,7 @@ Azure 코스모스 DB는 현재 세 가지 종류의 인덱스를 지원합니�
  SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
 ```
 
-하나의 필터 조건자 인덱스 종류에 사용 하는 한 쿼리 엔진은 나머지를 스캔 하기 전에 먼저 평가 합니다. 예를 들어 다음과 같은 SQL 쿼리가 있는 경우`SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
+하나의 필터 조건자 중 하나를 사용하는 한 쿼리 엔진은 나머지를 스캔하기 전에 먼저 해당 필터를 평가합니다. 예를 들어 다음과 같은 SQL 쿼리가 있는 경우`SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
 
 * 위의 쿼리는 먼저 인덱스를 사용하여 name = "Andrew"가 있는 항목을 필터링합니다. 그런 다음 후속 파이프라인을 통해 모든 이름 = "Andrew" 항목을 전달하여 CONTAINS 필터 조건자(CONTAINS 필터 조건자)를 평가합니다.
 

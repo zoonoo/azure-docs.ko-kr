@@ -241,7 +241,7 @@
               href: vmware-azure-set-up-replication.md
             - name: 모바일 서비스 배포
               items:
-                - name: 모바일 서비스 개요 및 설치
+                - name: 모바일 서비스 설치 정보
                   href: vmware-physical-mobility-service-overview.md
                 - name: 강제 설치 준비
                   href: vmware-azure-install-mobility-service.md

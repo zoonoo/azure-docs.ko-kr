@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 49db8c6717cd26886c3b49f8c99fdd2b08e8713d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6bbee7f53cb9a61b72bdbbd941a3a0401f5b913b
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278010"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273956"
 ---
 # <a name="create-a-user-vm-image"></a>사용자 VM 이미지 만들기
+
+> [!IMPORTANT]
+> 2020년 4월 13일부터 파트너 센터에 대한 Azure 가상 머신 제공의 이동 관리가 시작됩니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 가상 [시스템 기술 자산 만들기의](https://aka.ms/AzureVMTechAsset) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
 
 이 문서에서는 일반화된 VHD에서 관리되지 않는 이미지를 만드는 데 필요한 두 가지 일반 단계를 설명합니다.  이미지 캡처 및 이미지 일반화의 각 단계를 안내하는 참조가 제공됩니다.
 

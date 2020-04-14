@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: dsindona
-ms.openlocfilehash: 8124828c565f344387ae946a1fa6e61a84675b81
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 58845401fc14950b9c446d1481b8ac6f8ecc5523
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80279966"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269927"
 ---
 # <a name="container-support-tab"></a>컨테이너 지원 탭
+
+> [!IMPORTANT]
+> 2020년 4월 13일부터 Azure 컨테이너 오퍼의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 컨테이너 [만들기 오퍼의](https://aka.ms/CreateContainerOffer) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
 
 **새 제품** 페이지의 **지원** 탭을 사용하여 제품에 대한 기술 및 사용자 지원 리소스를 제공합니다.  지원 양식에서 다음 입력 영역: **엔지니어링 연락처**, **고객 지원** 및 **지원 Url**이 제공됩니다. 필드 이름에 추가된 별표(*)는 필수를 나타냅니다.
 

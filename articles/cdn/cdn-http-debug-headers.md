@@ -3,7 +3,7 @@ title: Azure CDN 규칙 엔진의 X-EC-Debug HTTP 헤더 | Microsoft Docs
 description: X-EC-Debug 디버그 캐시 요청 헤더는 요청된 자산에 적용되는 캐시 정책에 대한 추가 정보를 제공합니다. 이 헤더는 Verizon에만 해당됩니다.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
-ms.author: magattus
-ms.openlocfilehash: dec753d7c891d226aa2e6d3efa993d8d24adfbaa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 52aae3bdd2fe82eea6cbd500723192c88c293a1e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593834"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260499"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진의 X-EC-Debug HTTP 헤더
 `X-EC-Debug` 디버그 캐시 요청 헤더는 요청된 자산에 적용되는 캐시 정책에 대한 추가 정보를 제공합니다. 이러한 헤더는 **Verizon의 Azure CDN Premium** 제품에만 해당됩니다.
@@ -33,7 +33,7 @@ POP 서버에서 사용자에게 보내는 응답에는 다음 조건이 충족�
 ## <a name="requesting-debug-cache-information"></a>디버그 캐시 정보 요청
 지정된 요청에 다음 지시문을 사용하여 응답에 포함될 디버그 캐시 정보를 정의합니다.
 
-요청 헤더 | 설명 |
+요청 헤더 | Description |
 ---------------|-------------|
 X-EC-Debug: x-ec-cache | [캐시 상태 코드](#cache-status-code-information)
 X-EC-Debug: x-ec-cache-remote | [캐시 상태 코드](#cache-status-code-information)
@@ -54,7 +54,7 @@ X-EC-Debug: x-ec-cache-state | [캐시 상태](#cache-state-response-header)
 ## <a name="cache-status-code-information"></a>캐시 상태 코드 정보
 X-EC-Debug 응답 헤더는 다음 지시문을 통해 서버 및 응답을 처리하는 방법을 식별할 수 있습니다.
 
-헤더 | 설명
+헤더 | Description
 -------|------------
 X-EC-Debug: x-ec-cache | 콘텐츠가 CDN을 통해 라우팅될 때마다 이 헤더가 보고됩니다. 요청을 수행한 POP 서버를 식별합니다.
 X-EC-Debug: x-ec-cache-remote | 요청된 콘텐츠가 원본 실드 서버 또는 ADN 게이트웨이 서버에 캐시된 경우에만 이 헤더가 보고됩니다.

@@ -3,12 +3,12 @@ title: 컨테이너에 대한 Azure 모니터로 하이브리드 Kubernetes 클�
 description: 이 문서에서는 Azure 스택 또는 기타 환경에서 호스팅되는 Kubernetes 클러스터를 모니터링하도록 컨테이너에 대한 Azure Monitor를 구성하는 방법에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 01/24/2020
-ms.openlocfilehash: 6d03716b988b1139e01d41120f48ea9a9bf34be1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a973e7e500906ebe833ec4cc6fd2fa8ee79c19e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198057"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255433"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>컨테이너에 대한 Azure 모니터를 통해 하이브리드 Kubernetes 클러스터 구성
 
@@ -228,7 +228,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
        az login
        az account set --subscription "Subscription Name"
        # execute deployment command to add container insights solution to the specified Log Analytics workspace
-       az group deployment create --resource-group <resource group of log analytics workspace> --template-file ./containerSolution.json --parameters @./containerSolutionParams.json
+       az deployment group create --resource-group <resource group of log analytics workspace> --name <deployment name> --template-file  ./containerSolution.json --parameters @./containerSolutionParams.json
        ```
 
        구성 변경을 완료하려면 몇 분 정도 걸릴 수 있습니다. 완료되면 다음과 유사한 메시지가 표시되고 결과가 포함됩니다.

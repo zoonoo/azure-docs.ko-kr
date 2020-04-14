@@ -1,20 +1,20 @@
 ---
-title: Azure Marketplace 및 AppSource 게시 가이드
-description: 앱 및 서비스 게시자에 대한 Azure Marketplace 및 Microsoft AppSource 개요입니다.
+title: 상업용 마켓플레이스 게시 가이드
+description: 앱 및 서비스 퍼블리셔를 위한 상용 마켓플레이스 개요입니다.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/05/2018
+ms.date: 04/12/2020
 ms.author: dsindona
-ms.openlocfilehash: 368cb4fdce23e695c074b4893dcdc314c974dd54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c41a24ecb3e12618ac8cfcdfb756a33114f0f8a2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288396"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261995"
 ---
-# <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Marketplace 및 AppSource 게시 가이드
+# <a name="commercial-marketplace-publishing-guide"></a>상업용 마켓플레이스 게시 가이드
 
 Marketplace 게시 가이드는 신규 및 기존 게시자가 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Microsoft AppSource](https://appsource.microsoft.com) 상점에서 애플리케이션 및 서비스를 나열하여 Microsoft와의 파트너 사업을 성장시키는 방법을 배우도록 도와주기 위해 작성되었습니다.
 
@@ -62,7 +62,7 @@ Marketplace의 새 품목은 파트너가 Marketplace에서 사업을 성장시�
 
 *   공동 판매: Marketplace를 통해 Microsoft와 함께 판매를 시작하고 가속화할 수 있습니다. 프로그램 및 지원에 액세스하여 Microsoft 팀과의 공동 판매를 촉진합니다.
 
-일단 Marketplace에 [솔루션을 제출](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)하면 온보딩 팀에서 게시 환경 지원을 위해 사용자에게 연락합니다.  자세한 내용은 [파트너 센터 계정을 만드는 방법을](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 참조하세요.
+일단 Marketplace에 [솔루션을 제출](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)하면 온보딩 팀에서 게시 환경 지원을 위해 사용자에게 연락합니다.  자세한 내용은 [파트너 센터 계정을 만드는 방법을](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 참조하세요.
 
 [상업용 마켓플레이스 혜택에](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits)대해 자세히 알아보십시오.
 

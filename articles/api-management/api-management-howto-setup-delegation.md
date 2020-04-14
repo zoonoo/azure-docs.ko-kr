@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: a69babdf2fffb4cb9d963f1806f3c85755e50294
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c28872e6cffa973f01b3f5a87c423d9dd93a2aa5
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74454348"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259105"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>사용자 등록 및 제품 구독을 위임하는 방법
 
@@ -186,9 +186,9 @@ var signature = digest.toString('base64');
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[SSO(Single-Sign-On) 토큰을 요청]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/User/GenerateSsoUrl
-[사용자를 만듭니다]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user/createorupdate
-[구독에 대 한 REST API를 호출]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate
+[SSO(Single-Sign-On) 토큰을 요청]: https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/User/GenerateSsoUrl
+[사용자를 만듭니다]: https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user/createorupdate
+[구독에 대 한 REST API를 호출]: https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription/createorupdate
 [Next steps]: #next-steps
 [아래 제공된 예제 코드]: #delegate-example-code
 

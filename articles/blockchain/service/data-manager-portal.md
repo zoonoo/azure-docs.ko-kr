@@ -4,12 +4,12 @@ description: Azure 포털을 사용하여 Azure 블록 체인 서비스에 대�
 ms.date: 03/30/2020
 ms.topic: article
 ms.reviewer: ravastra
-ms.openlocfilehash: beacef0660a253c90afb507618e8a1742f0c9d2d
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 08f5a4a807087afce13dd4a6e96c0e9dd0a36103
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529609"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260601"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Azure Portal을 사용하여 Blockchain Data Manager 구성
 
@@ -28,7 +28,7 @@ Azure 블록 체인 서비스에 대한 블록 체인 데이터 관리자를 구
 
 ## <a name="create-instance"></a>인스턴스 만들기
 
-Blockchain Data Manager 인스턴스는 Azure Blockchain Service 트랜잭션 노드에 연결하여 모니터링합니다. 트랜잭션 노드에 액세스할 수 있는 사용자만 연결을 만들 수 있습니다. 인스턴스는 트랜잭션 노드의 모든 원시 블록 및 원시 트랜잭션 데이터를 캡처합니다.
+Blockchain Data Manager 인스턴스는 Azure Blockchain Service 트랜잭션 노드에 연결하여 모니터링합니다. 트랜잭션 노드에 액세스할 수 있는 사용자만 연결을 만들 수 있습니다. 인스턴스는 트랜잭션 노드의 모든 원시 블록 및 원시 트랜잭션 데이터를 캡처합니다. 블록 체인 데이터 관리자는 web3.eth [getBlock](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#getblock) 및 [getTransaction](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#gettransaction) 쿼리에서 반환 된 정보의 슈퍼 집합인 **RawBlockAndTransactionMsg** 메시지를 게시합니다.
 
 아웃바운드 연결은 블록체인 데이터를 Azure Event Grid로 보냅니다. 인스턴스를 만들 때 단일 아웃바운드 연결을 구성합니다. Blockchain Data Manager는 지정된 Blockchain Data Manager 인스턴스에 대한 여러 개의 Event Grid 항목 아웃바운드 연결을 지원합니다. 블록체인 데이터는 단일 대상 또는 여러 대상으로 보낼 수 있습니다. 다른 대상을 추가하려면 인스턴스에 아웃바운드 연결을 추가하기만 하면 됩니다.
 

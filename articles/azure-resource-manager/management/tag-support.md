@@ -3,12 +3,12 @@ title: 리소스에 대한 지원 태그
 description: 태그를 지원하는 Azure 리소스 종류를 보여 줍니다. 모든 Azure 서비스에 대한 세부 정보를 제공합니다.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: b8b1c0b738bb8b94ee53433141f1ae3dbbb3f942
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: c971d3af102faf99f97aac261882797460d71f37
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80982330"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255029"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
 이 문서에서는 리소스 종류가 [태그](tag-resources.md)를 지원하는지 여부를 설명합니다. **지원 태그라는** 레이블이 붙은 열은 리소스 형식에 태그에 대한 속성이 있는지 여부를 나타냅니다. 비용 보고서에 **태그로** 레이블이 지정된 열은 해당 리소스 유형이 태그를 비용 보고서에 전달하는지 여부를 나타냅니다. [비용 관리 비용 분석](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) 및 Azure 청구 [송장 및 일일 사용량 데이터에서](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)태그별로 비용을 볼 수 있습니다.
@@ -96,6 +96,7 @@ ms.locfileid: "80982330"
 > - [Microsoft.HybridData](#microsofthybriddata)
 > - [마이크로소프트.히드라](#microsofthydra)
 > - [Microsoft.ImportExport](#microsoftimportexport)
+> - [마이크로소프트.인사이트](#microsoftinsights)
 > - [Microsoft.Intune](#microsoftintune)
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
@@ -1200,6 +1201,33 @@ ms.locfileid: "80982330"
 > | 리소스 유형 | 태그 지원 | 비용 보고서에 태그 |
 > | ------------- | ----------- | ----------- |
 > | jobs | 예 | 예 |
+
+## <a name="microsoftinsights"></a>Microsoft.Insights
+
+> [!div class="mx-tableFixed"]
+> | 리소스 유형 | 태그 지원 | 비용 보고서에 태그 |
+> | ------------- | ----------- | ----------- |
+> | actionGroups | 예 | 예 |
+> | activityLogAlerts | 예 | 예 |
+> | alertrules | 예 | 예 |
+> | autoscalesettings | 예 | 예 |
+> | components | 예 | 예 |
+> | 구성 요소 / 링크된저장소 계정 | 예 | 예 |
+> | 구성 요소 / 사전 탐지 구성 요소 | 예 | 예 |
+> | diagnosticSettings | 예 | 예 |
+> | 게스트진단설정 | 예 | 예 |
+> | 게스트진단설정협회 | 예 | 예 |
+> | logprofiles | 예 | 예 |
+> | metricAlerts | 예 | 예 |
+> | 프라이빗 링크스코프 | 예 | 예 |
+> | 프라이빗링크스코프 / 프라이빗엔드포인트커넥션 | 예 | 예 |
+> | 개인링크스코프 / 스코프리소스 | 예 | 예 |
+> | 쿼리 팩 | 예 | 예 |
+> | 쿼리팩 / 쿼리 | 예 | 예 |
+> | 예약된 쿼리 규칙 | 예 | 예 |
+> | webtests | 예 | 예 |
+> | workbooks | 예 | 예 |
+> | 통합 문서 템플릿 | 예 | 예 |
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
 

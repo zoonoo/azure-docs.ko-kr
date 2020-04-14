@@ -1,5 +1,5 @@
 ---
-title: 마이크로소프트 커머셜 마켓플레이스 자주 묻는 질문
+title: 마이크로소프트 상업 시장 FAQ
 description: Azure 마켓플레이스 및 Microsoft 앱소스에 대한 일반적인 질문에 대한 답변
 author: qianw211
 ms.service: marketplace
@@ -7,20 +7,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/4/2019
 ms.author: dsindona
-ms.openlocfilehash: ae5c691375d52bc7da7a877f5b2e0c2ca52cc87e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a142ce3c082f6f9a53287885ba347fc78f77718
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288464"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262029"
 ---
-# <a name="microsoft-commercial-marketplace-faqs"></a>마이크로소프트 커머셜 마켓플레이스 자주 묻는 질문
+# <a name="microsoft-commercial-marketplace-faqs"></a>Microsoft 상용 마켓플레이스 FAQ
 
-Azure 마켓플레이스 및 Microsoft 앱소스에 대한 일반적인 질문에 대한 답변입니다.
+상업 시장에 대한 일반적인 질문에 대한 답변입니다.
 
 ## <a name="faq-for-customers"></a>고객 관련 FAQ
 
-### <a name="what-you-need-to-know-about-azure-marketplace-and-microsoft-appsource"></a>Azure 마켓플레이스 및 Microsoft 앱소스에 대해 알아야 할 사항
+### <a name="what-you-need-to-know-about-the-commercial-marketplace"></a>상업 시장에 대해 알아야 할 사항
 
 **Azure Marketplace란 무엇인가요?**
 
@@ -138,7 +138,7 @@ BYOL 솔루션용 라이선스 자격 증명을 확보하고 적용하는 작업
 
 제품 유형별로 가장 일반적인 옵션은 다음과 같습니다.
 
-*가상 머신 제품:*
+*가상 머신 제공:*
 
 + *옵션 1:* 라이센스 키의 취득은 일반적으로 응용 프로그램이 시작된 후 게시자의 응용 프로그램에서 발생합니다.
 
@@ -168,11 +168,11 @@ EA(기업계약) 간접 고객의 경우 모든 Azure Marketplace 가격 관련 
 
 **상업용 마켓플레이스 구매에 어떤 결제 방법이 지원되나요?**
 
-고객은 신용 카드를 사용하여 Azure 마켓플레이스 및 Microsoft AppSource에서 제품을 구입할 수 있습니다. 기존 Azure 구독이 있는 경우 Azure Marketplace의 구매는 계정에 구성된 결제 방법을 사용하고 별도의 광고 항목과 동일한 송장에 표시됩니다. 일부 오퍼는 Azure 화폐 약정을 사용하지만 대부분의 상용 마켓플레이스 구매는 Azure 인프라 소비가 수행되더라도 엔터프라이즈 계약 약정을 끌어들이지 않습니다.
+고객은 신용 카드를 사용하여 상업 시장에서 제품을 구입할 수 있습니다. 기존 Azure 구독이 있는 경우 Azure Marketplace의 구매는 계정에 구성된 결제 방법을 사용하고 별도의 광고 항목과 동일한 송장에 표시됩니다. 일부 오퍼는 Azure 화폐 약정을 사용하지만 대부분의 상용 마켓플레이스 구매는 Azure 인프라 소비가 수행되더라도 엔터프라이즈 계약 약정을 끌어들이지 않습니다.
 
 **계정의 Azure 구독 크레딧 또는 현금 약정 금액을 Azure Marketplace 제품에 적용할 수 있나요?**
 
-특정 Azure Marketplace 제품은 Azure 구독 크레딧 또는 현금 약정 금액을 사용할 수 있습니다. 이 프로그램에 포함되는 제품의 전체 목록은 [Azure 현금 약정 금액](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/)을 참조하세요. BYOL 또는 BYOS 옵션은 이러한 제품에 포함되지 않습니다. 다른 모든 Azure Marketplace 혜택은 Azure 구독 크레딧 또는 통화 약정(예: 무료 1개월 평가판 크레딧, 월별 MSDN 크레딧, Azure 프로모션의 크레딧, 통화 약정 잔액 및 제공된 기타 무료 크레딧)을 사용할 수 없습니다. Azure.
+특정 Azure Marketplace 제품은 Azure 구독 크레딧 또는 현금 약정 금액을 사용할 수 있습니다. 이 프로그램에 포함되는 제품의 전체 목록은 [Azure 현금 약정 금액](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/)을 참조하세요. BYOL 또는 BYOS 옵션은 이러한 제품에 포함되지 않습니다. 다른 모든 Azure Marketplace 혜택은 Azure 구독 크레딧 또는 통화 약정(예: 무료 1개월 평가판 크레딧, 월별 MSDN 크레딧, Azure 프로모션의 크레딧, 통화 약정 잔액 및 Azure에서 제공하는 기타 무료 크레딧)을 사용할 수 없습니다.
 
 **Azure Marketplace 구매에 대해 볼륨 라이선스 할인이 적용되나요?**
 
@@ -258,12 +258,12 @@ Marketplace 서비스 또는 구매와 관련된 기술적인 문제는 판매�
 
 **환불 및 플랜 변경 정책은 매장에 따라 다릅니까?**
 
-아니요, 비즈니스 정책은 Azure 마켓플레이스 및 Microsoft AppSource에서 일관되게 유지됩니다. 클라우드 솔루션 Provide 프로그램의 파트너가 재판매하는 경우 파트너는 고객에게 다른 정책을 적용할 수 있습니다.
+아니요, 비즈니스 정책은 상용 시장 전반에 걸쳐 일관되게 유지됩니다. 클라우드 솔루션 Provide 프로그램의 파트너가 재판매하는 경우 파트너는 고객에게 다른 정책을 적용할 수 있습니다.
 
 
 ## <a name="faq-for-publishers"></a>판매자 관련 FAQ
 
-### <a name="what-you-need-to-know-about-azure-marketplace-and-microsoft-appsource"></a>Azure 마켓플레이스 및 Microsoft 앱소스에 대해 알아야 할 사항
+### <a name="what-you-need-to-know-about-the-commercial-marketplace"></a>상업 시장에 대해 알아야 할 사항
 
 **Azure Marketplace란 무엇인가요?**
 
@@ -347,7 +347,7 @@ Microsoft는 AAD를 통해 모든 Marketplace 사용자를 인증합니다.  추
 
 **Azure Marketplace를 통해 판매자가 제품을 판매할 수 있는 국가/지역은 어디인가요?**
 
-아프가니스탄, 알바니아, 알제리, 앙골라, 앤티가 바부다 : 다음 국가 / 지역에 본사를 둔 게시자는 현재 Azure 마켓 플레이스에서 판매 할 수 있습니다, 아르헨티나, 아르메니아, 호주, 오스트리아, 아제르바이잔, 바레인, 방글라데시, 벨라루스, 벨기에, 베냉, 볼리비아, 보스니아 헤르체고비나, 보츠와나, 브라질, 불가리아, 부르키나파소, 부룬디, 캄보디아, 카메룬, 캐나다, 중앙아프리카 공화국, 차드, 칠레, 콜롬비아, 코모로, 콩고 콩고, 콩고, 콩고, 콩고, 콩고, 콩고, 콩고, 콩고, 콩고, 콩고, 콩고, 콩고, 콩고, 콩고, 콩고, 콜롬비아, 코모로, 콩고 덴마크, 도미니카 공화국, 도미니카 공화국, 에콰도르, 이집트, 엘살바도르, 에리트레아, 에스토니아, 에티오피아, 피지 제도, 핀란드, 프랑스, 그루지야, 독일, 가나, 그리스, 과테말라, 기니, 아이티, 온두라스, 홍콩 특별 행정구, 헝가리, 아이슬란드, 인도, 인도네시아, 이라크, 아일랜드, 이스라엘, 이탈리아, 자메이카, 일본, 요르단, 카자흐스탄, 케냐, 한국(한국), 쿠웨이트, 라오스, 라트비아, 레바논, 라이베리아, 리히히텐슈타인, 리투아니아, 리투아니아, 룩셈부르크, 리히텐슈타인, 리투아니아, 룩셈부르크 모로코, 모잠비크, 네팔, 네덜란드, 뉴질랜드, 니카라과, 니제르, 나이지리아, 노르웨이, 오만, 파키스탄, 파나마, 파라과이, 페루, 필리핀, 폴란드, 포르투갈, 카타르, 루마니아, 러시아 르완다, 사우디 아라비아, 세네갈, 세르비아, 시에라리온, 싱가포르, 슬로바키아, 슬로베니아, 소말리아, 남아프리카 공화국, 스페인, 스리랑카, 스웨덴, 스위스, 타지키스탄, 탄자니아, 태국, 동티모르, 토고, 통가, 통가, 티마레, 티토르-레스트, 토고, 통가, 티니에 국가, 우루과이, 우즈베키스탄, 베네수엘라, 베트남, 잠비아, 짐바브웨.
+아프가니스탄, 알바니아, 알제리, 앙골라, 앤티가 바부다, 아르헨티나, 아르메니아, 호주, 오스트리아, 아제르바이잔, 바레인, 방글라데시, 벨라루스: 다음 국가/지역에 기반을 둔 게시자는 현재 Azure 마켓플레이스에서 판매할 수 있습니다. 벨기에, 베냉, 볼리비아, 보스니아 헤르체고비나, 보츠와나, 브라질, 불가리아, 부르키나파소, 부룬디, 캄보디아, 카메룬, 캐나다, 중앙 아프리카 공화국, 차드, 칠레, 콜롬비아, 코모로스, 콩고, 콩고,콩고(DRC), 코스타리카, 코트디부아르, 크로아티아, 크로아티아, 크로아티아, 체코, 크로아티아, 체코 에티오피아, 피지 제도, 핀란드, 프랑스, 그루지야, 독일, 가나, 그리스, 과테말라, 기니, 아이티, 온두라스, 홍콩 특별 행정구, 헝가리, 아이슬란드, 인도, 인도네시아, 이라크, 아일랜드, 이스라엘, 이탈리아, 자메이카, 일본, 요르단, 카자흐스탄, 케냐, 한국(한국), 쿠웨이트, 라오스, 라트비아, 레바논, 라이베리아, 리히텐슈타인, 리투아니아, 룩셈부르크, 마다가스카르, 말라위, 말레이시아, 말리, 몰타, 모리셔스, 멕시코, 모나코, 몽골, 몬테네그로 , 모로코, 모잠비크, 네팔, 네덜란드, 뉴질랜드, 니카라과, 니제르, 나이지리아, 노르웨이, 오만, 파키스탄, 파나마, 파라과이, 페루, 필리핀, 폴란드, 포르투갈, 카타르, 루마니아, 러시아, 르완다, 사우디 아라비아, 세네갈, 세르비아, 시에라리온, 싱가포르, 슬로바키아, 슬로베니아, 소말리아, 남아프리카 공화국, 스페인, 스리랑카, 스웨덴, 스위스, 타지키스탄, 탄자니아, 태국, 동티모르, 토고, 통가, 트리니다드 토바고, 튀니지, 터키, 투르크메니스탄, 우간다, 우간다, 터키, 투르크메니스탄, 우간다, 우크라이나, 터키, 투르크메니스탄, 우간다, 우크라이나, 터키, 투르크메니스탄, 우간다, 우크라이나, 터키, 터키, 터키, 슬로베니아, 슬로베니아, 소말리아, 남아프리카 공화국, 스페인, 스리랑카, 스웨덴, 스위스, 타지키스탄, 탄자니아, 태국, 동티모르, 토고, 통가, 트리니다드 토바고, 튀니지, 튀니지, 터키, 투르크메니스탄, 우간다, 우크라이나, 터키, 투르크메니스탄, 우간다, 우크라이나
 
 **Azure Marketplace에서 제품을 삭제하려면 어떻게 해야 하나요?**
 
@@ -364,7 +364,7 @@ Microsoft는 AAD를 통해 모든 Marketplace 사용자를 인증합니다.  추
 *웹 앱(SaaS 앱, 추가 기능) & 컨설팅 서비스:*
 
 1. 파트너 센터에서 물음표 아이콘을 선택한 다음 **지원을**클릭합니다.
-1. [https://editor.swagger.io](<https://go.microsoft.com/fwlink/?linkid=844975>) 로 이동합니다.
+1. [https://editor.swagger.io](<https://go.microsoft.com/fwlink/?linkid=844975> ) 로 이동합니다.
 1. 지원 페이지에서 제품 유형을 선택합니다.
 1. 게시된 오퍼 **제거를** 선택합니다.
 1. 인시던트 티켓을 만듭니다.
@@ -372,8 +372,8 @@ Microsoft는 AAD를 통해 모든 Marketplace 사용자를 인증합니다.  추
 
 *O365 앱:*
 
-1.  개발자 <https://sellerdashboard.microsoft.com> 계정으로 로그인합니다.
-1.  추가 기능을 철회합니다.
+1.    개발자 <https://sellerdashboard.microsoft.com> 계정으로 로그인합니다.
+1.    추가 기능을 철회합니다.
 
     > [!NOTE]
     > 앱은 90일 후에 기존 리스팅에서 사라집니다.
@@ -422,7 +422,7 @@ Azure Marketplace 구매와 관련된 대금 청구 및 구독 문제의 경우 
 
 **판매 또는 제품 관리와 관련하여 궁금한 사항은 어디에 문의해야 하나요?**
 
-질문과 대답 관련 최신 리소스와 문서는 [Azure Marketplace 판매자 가이드](marketplace-publishers-guide.md)를 참조하세요. 또한 파트너 센터에서 Microsoft [지원으로](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953)티켓을 기록할 수 있습니다.
+자주 묻는 질문에 대한 최신 리소스 및 설명서를 보려면 [상업용 마켓플레이스 퍼블리셔 가이드를](marketplace-publishers-guide.md) 방문하십시오. 또한 파트너 센터에서 Microsoft [지원으로](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953)티켓을 기록할 수 있습니다.
 
 ### <a name="azure-marketplace-for-publishers"></a>퍼블리셔를 위한 Azure 마켓플레이스
 
@@ -473,7 +473,7 @@ Azure Marketplace는 고객의 청구 주소에 정의된 141개의 구매-에�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure [마켓플레이스 및 앱소스 게시자 가이드](/azure/marketplace/marketplace-publishers-guide) 페이지를 방문하십시오.
+상업용 [마켓플레이스 퍼블리셔 가이드](/azure/marketplace/marketplace-publishers-guide) 페이지를 방문하세요.
 
 
-[Azure 포털]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

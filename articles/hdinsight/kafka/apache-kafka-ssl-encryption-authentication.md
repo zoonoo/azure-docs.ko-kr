@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 05/01/2019
-ms.openlocfilehash: b0154401a9233a6ea85a8e8c06ee14fcc918b2b6
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 02b64d77a4fb1af25e1022de3ac8e4775f916d9e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657107"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261774"
 ---
 # <a name="set-up-tls-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Azure HDInsight에서 아파치 카프카에 대한 TLS 암호화 및 인증 설정
 
@@ -22,8 +22,9 @@ ms.locfileid: "80657107"
 > [!Important]
 > Kafka 응용 프로그램에 사용할 수 있는 두 개의 클라이언트가 있습니다: Java 클라이언트와 콘솔 클라이언트. Java 클라이언트만 `ProducerConsumer.java` TLS를 생산 및 소비에 사용할 수 있습니다. 콘솔 생산자 `console-producer.sh` 클라이언트가 TLS에서 작동하지 않습니다.
 
-> [!Note] 
+> [!Note]
 > 버전 1.1을 갖춘 HDInsight 카프카 콘솔 프로듀서는 SSL을 지원하지 않습니다.
+
 ## <a name="apache-kafka-broker-setup"></a>아파치 카프카 브로커 설정
 
 Kafka TLS 브로커 설정은 다음과 같은 방식으로 4개의 HDInsight 클러스터 VM을 사용합니다.
@@ -136,7 +137,7 @@ Kafka TLS 브로커 설정은 다음과 같은 방식으로 4개의 HDInsight �
 
     ![Ambari에서 kafka SSL 구성 속성 편집](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
 
-1. server.properties 파일에 새 구성 속성을 추가합니다.
+1. HDI 버전 3.6의 경우 Ambari UI로 이동하여 **고급 카프카-env** 및 **kafka-env 템플릿** 속성에서 다음 구성을 추가합니다.
 
     ```bash
     # Configure Kafka to advertise IP addresses instead of FQDN
@@ -151,7 +152,7 @@ Kafka TLS 브로커 설정은 다음과 같은 방식으로 4개의 HDInsight �
     echo "ssl.truststore.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
 
-1. Ambari 구성 UI로 이동하여 **고급 카프카-env** 및 **kafka-env 템플릿** 속성 아래에 새 속성이 표시되는지 확인합니다.
+1. 다음은 이러한 변경 내용과 함께 Ambari 구성 UI를 보여 주는 스크린샷입니다.
 
     HDI 버전 3.6의 경우:
 
@@ -159,10 +160,9 @@ Kafka TLS 브로커 설정은 다음과 같은 방식으로 4개의 HDInsight �
 
     HDI 버전 4.0의 경우:
 
-     ![암바리 4에서 카프카 env 템플릿 속성 편집](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png)   
+     ![암바리 4에서 카프카 env 템플릿 속성 편집](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png)
 
 1. 모든 Kafka 브로커를 다시 시작합니다.
-1. 생산자 및 소비자 옵션으로 관리자 클라이언트를 시작하여 생산자와 소비자 모두 포트 9093에서 작업하고 있는지 확인합니다.
 
 ## <a name="client-setup-without-authentication"></a>클라이언트 설정(인증 제외)
 
@@ -208,13 +208,15 @@ Kafka TLS 브로커 설정은 다음과 같은 방식으로 4개의 HDInsight �
     keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
     ```
 
-1. 파일 `client-ssl-auth.properties`를 만듭니다. 파일에 다음 줄이 있어야 합니다.
+1. 클라이언트 컴퓨터(hn1)에서 파일을 `client-ssl-auth.properties` 만듭니다. 파일에 다음 줄이 있어야 합니다.
 
     ```config
     security.protocol=SSL
     ssl.truststore.location=/home/sshuser/ssl/kafka.client.truststore.jks
     ssl.truststore.password=MyClientPassword123
     ```
+
+1. 생산자 및 소비자 옵션으로 관리자 클라이언트를 시작하여 생산자와 소비자 모두 포트 9093에서 작업하고 있는지 확인합니다. 콘솔 생산자/소비자를 사용하여 설치를 확인하는 데 필요한 단계는 아래 [확인](apache-kafka-ssl-encryption-authentication.md#verification) 섹션을 참조하십시오.
 
 ## <a name="client-setup-with-authentication"></a>클라이언트 설정(인증 포함)
 
@@ -278,17 +280,24 @@ Kafka TLS 브로커 설정은 다음과 같은 방식으로 4개의 HDInsight �
     scp ca-cert sshuser@HeadNode1_Name:~/ssl/ca-cert
     ```
 
-1. 서명된 인증서를 사용하여 클라이언트 저장소를 만들고 ca 인증서를 키 저장소 및 트러스트 스토어로 가져옵니다.
+    1. 클라이언트 컴퓨터(대기 헤드 노드)에 로그인하고 ssl 디렉터리로 이동합니다.
 
     ```bash
-    keytool -keystore kafka.client.keystore.jks -import -file client-cert-signed -storepass MyClientPassword123 -keypass MyClientPassword123 -noprompt
-    
-    keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert -storepass MyClientPassword123 -keypass MyClientPassword123 -noprompt
-    
-    keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass MyClientPassword123 -keypass MyClientPassword123 -noprompt
+    ssh sshuser@HeadNode1_Name
+    cd ssl
     ```
 
-1. 파일 `client-ssl-auth.properties`만들기 . 파일에 다음 줄이 있어야 합니다.
+1. 서명된 인증서를 사용하여 클라이언트 저장소를 만들고 클라이언트 컴퓨터(hn1)의 키 저장소 및 트러스트 스토어로 ca 인증서를 가져옵니다.
+
+    ```bash
+    keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
+    
+    keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
+    
+    keytool -keystore kafka.client.keystore.jks -import -file client-cert-signed -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
+    ```
+
+1. 클라이언트 컴퓨터(hn1)에서 파일을 `client-ssl-auth.properties` 만듭니다. 파일에 다음 줄이 있어야 합니다.
 
     ```bash
     security.protocol=SSL
@@ -300,6 +309,8 @@ Kafka TLS 브로커 설정은 다음과 같은 방식으로 4개의 HDInsight �
     ```
 
 ## <a name="verification"></a>확인
+
+클라이언트 컴퓨터에서 이러한 단계를 실행합니다.
 
 > [!Note]
 > HDInsight 4.0 및 Kafka 2.1이 설치된 경우 콘솔 생산자/소비자를 사용하여 설정을 확인할 수 있습니다. 그렇지 않은 경우 포트 9092에서 Kafka 생산자를 실행하고 주제에 메시지를 보낸 다음 TLS를 사용하는 포트 9093에서 Kafka 소비자를 사용합니다.

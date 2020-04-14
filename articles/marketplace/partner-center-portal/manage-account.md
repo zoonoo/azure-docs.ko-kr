@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 6d3952c38703d8102a45c4117e3c59e3fa464957
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 50ea56a8c743636f9fdd9105e5b07a868e71d3d0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275818"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262930"
 ---
-# <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상업용 Marketplace 계정을 관리하는 방법
+# <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상업용 마켓플레이스 계정을 관리하는 방법
 
-파트너 센터 [계정을 만든](./create-account.md)후에는 상업용 [마켓플레이스 대시보드를](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)사용하여 계정 및 오퍼를 관리할 수 있습니다.
+파트너 센터 [계정을 만든](./create-account.md)후에는 상용 [마켓플레이스 대시보드를](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)사용하여 계정 및 오퍼를 관리할 수 있습니다.
 
 이 문서에서는 다음 방법을 포함하여 파트너 센터 계정을 관리하는 방법을 자세히 설명합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "80275818"
 
 ### <a name="open-developer-settings"></a>개발자 설정 열기
 
-계정 설정은 파트너 센터의 [상업용 마켓플레이스 대시보드의](https://partner.microsoft.com/dashboard/commercial-marketplace) 오른쪽 상단에 있습니다. 기어 아이콘(대시보드의 오른쪽 상단 모서리 근처)을 선택한 다음 **개발자 설정을**선택합니다.
+계정 설정은 파트너 센터의 [상용 마켓플레이스 대시보드의](https://partner.microsoft.com/dashboard/commercial-marketplace) 오른쪽 상단에 있습니다. 기어 아이콘(대시보드의 오른쪽 상단 모서리 근처)을 선택한 다음 **개발자 설정을**선택합니다.
 
 ![파트너 센터의 계정 설정 메뉴](./media/dashboard-developer-settings.png)
 
@@ -114,7 +114,7 @@ ms.locfileid: "80275818"
 
 ### <a name="devices"></a>디바이스
 
-장치 관리 설정은 UWP 게시에만 적용됩니다. [자세히 알아봅니다](https://docs.microsoft.com/windows/uwp/publish/manage-account-settings-and-profile#additional-settings-and-info).
+장치 관리 설정은 UWP 게시에만 적용됩니다. [자세히 알아보기](https://docs.microsoft.com/windows/uwp/publish/manage-account-settings-and-profile#additional-settings-and-info).
 
 ### <a name="tracking-guids"></a>구이드 추적
 
@@ -126,8 +126,8 @@ ms.locfileid: "80275818"
 
 템플릿을 사용하여 제품을 배포하고 Azure Marketplace 및 GitHub에서 모두 사용할 수 있는 경우, 2개의 고유 GUID를 만들고 등록할 수 있습니다.
 
-*   Azure Marketplace의 제품 A
-*   GitHub의 제품 A
+*    Azure Marketplace의 제품 A
+*    GitHub의 제품 A
 
 보고는 파트너 값(Microsoft 파트너 ID) 및 GUID를 통해 수행됩니다. 또한 오퍼 내의 각 요금제에 맞게 보다 세부적인 수준에서 GUID를 추적할 수도 있습니다.
 
@@ -297,7 +297,7 @@ Azure AD 응용 프로그램이 Microsoft Azure AD에서 데이터를 읽고 쓰
 - **Manager**
   - 세금 및 지불 설정을 제외한 모든 Microsoft 계정 기능에 액세스할 수 있습니다.
   - 사용자, 역할 및 직장 계정(테넌트와)을 관리할 수 있습니다.
-- **개발자**
+- **Developer**
   - 오퍼를 관리하고 게시할 수 있습니다.
   - 일부 게시자 보고서를 볼 수 있습니다.
 
@@ -308,7 +308,7 @@ Azure Active Directory(AD), 클라우드 솔루션 공급자(CSP), CPV(제어판
 
 ## <a name="manage-tenants"></a>테넌자 관리
 
-이 설명서 전체에서 "회사 계정"이라고도 하는 Azure Active Directory(AD) 테넌트는 Azure Portal에 설정된 조직을 나타내며 내부용 Microsoft 클라우드 서비스의 특정 인스턴스를 관리하는 데 도움이 됩니다. 외부 사용자. 조직에서 Azure, Microsoft Intune 또는 Office 365와 같은 Microsoft 클라우드 서비스를 구독한 경우 Azure AD 테넌트가 설정되었습니다.
+이 설명서 전체에서 "회사 계정"이라고도 하는 Azure Active Directory(AD) 테넌트는 Azure Portal에 설정된 조직을 나타내며 내부 및 외부 사용자를 위해 Microsoft 클라우드 서비스의 특정 인스턴스를 관리하는 데 도움이 됩니다. 조직에서 Azure, Microsoft Intune 또는 Office 365와 같은 Microsoft 클라우드 서비스를 구독한 경우 Azure AD 테넌트가 설정되었습니다.
 
 파트너 센터에서 사용할 여러 테넌을 설정할 수 있습니다. 파트너 센터 계정에서 **관리자** 역할을 가진 모든 사용자는 계정에서 Azure AD 테넌을 추가하고 제거할 수 있습니다.  
 

@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 03/13/2020
-ms.openlocfilehash: ca4bf1b0043a2c73851eab48ff8b9b6b7a987b72
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: ea65956a73874b717ecab25d83ed25b59f2ada55
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115292"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257252"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Azure 가상 네트워크 내에서 안전한 Azure ML 실험 및 추론 작업
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -546,7 +546,7 @@ Azure 방화벽을 사용하는 경우 다음 주소에서 트래픽을 허용�
     > [!IMPORTANT]
     > 저장소 계정, 계산 클러스터 및 Azure 컨테이너 레지스트리는 모두 가상 네트워크의 동일한 서브넷에 있어야 합니다.
     
-    자세한 내용은 [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none-) 메서드 참조를 참조하십시오.
+    자세한 내용은 [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) 메서드 참조를 참조하십시오.
 
 1. Azure 기계 학습 작업 영역에 개인 링크를 사용하고 작업 영역에 Azure 컨테이너 레지스트리를 가상 네트워크에 넣는 경우 다음 Azure 리소스 관리자 템플릿도 적용해야 합니다. 이 템플릿을 사용하면 작업 영역이 개인 링크를 통해 ACR과 통신할 수 있습니다.
 

@@ -2,17 +2,17 @@
 title: Azure CDN - 버라이존 프리미엄 규칙 엔진에 대한 조건식
 description: Verizon Premium 규칙 엔진 일치 조건 및 기능의 Azure CDN에 대한 참조 설명서입니다.
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: magattus
-ms.openlocfilehash: d28bda28894477845c2a050666b3b4dd332b7d50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 25b3c1a011e39adea651a6daa1d4ab9aa3a9d186
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74082965"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253512"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-conditional-expressions"></a>버라이존 프리미엄 규칙 엔진 조건식에서 Azure CDN
 
@@ -20,7 +20,7 @@ ms.locfileid: "74082965"
 
 규칙의 첫 번째 부분은 조건식입니다.
 
-조건식 | 설명
+조건식 | Description
 -----------------------|-------------
 IF | IF 식은 항상 규칙의 첫 번째 문의 일부입니다. 다른 모든 조건식과 마찬가지로 이 IF 문은 일치와 관련이 있어야 합니다. 추가 조건식정의식이 정의되지 않은 경우 이 일치는 피처 집합이 요청에 적용되기 전에 충족해야 하는 기준을 결정합니다.
 AND IF | AND IF 식은 IF, AND IF 형식의 조건식 뒤에만 추가할 수 있습니다. 초기 IF 문에 대해 충족되어야 하는 다른 조건이 있음을 나타냅니다.

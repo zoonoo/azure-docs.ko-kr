@@ -4,15 +4,15 @@ description: AzCopy 및 파일 저장소로 데이터를 전송합니다.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 8aa0e5304825b3f016694a40b3fc1e176518237a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 59f5733009424c60f2b9c48e68d70bbc29ad7095
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77526691"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263372"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>AzCopy 및 파일 스토리지를 사용하여 데이터 전송 
 
@@ -20,16 +20,16 @@ AzCopy는 저장소 계정에서 Blob 또는 파일을 복사하는 데 사용�
 
 시작하기 전에 [AzCopy](storage-use-azcopy-v10.md) 시작하기 문서를 참조하여 AzCopy를 다운로드하고 도구에 익숙해하십시오.
 
+> [!TIP]
+> 이 문서의 예제에서는 경로 인수를 따옴표('')로 둘러싸습니다. Windows 명령 셸(cmd.exe)을 제외한 모든 명령 셸에 단일 따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 경로 인수를 단일 따옴표('')가 아닌 큰따옴표(")로 동봉합니다.
+
 ## <a name="create-file-shares"></a>파일 공유 만들기
 
 [azcopy make](storage-ref-azcopy-make.md) 명령을 사용하여 파일 공유를 만들 수 있습니다. 이 섹션의 예제에서는 . `myfileshare`
 
-> [!TIP]
-> 이 섹션의 예제에서는 경로 인수를 단일 따옴표('')로 둘러싸습니다. Windows 명령 셸(cmd.exe)을 제외한 모든 명령 셸에 단일 따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 경로 인수를 단일 따옴표('')가 아닌 큰따옴표(")로 동봉합니다.
-
 |    |     |
 |--------|-----------|
-| **구문** | `azcopy make 'https://<storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>'` |
+| **구문** | `azcopy make 'https://<storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>'` |
 | **예제** | `azcopy make 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
 자세한 참조 문서는 [azcopy 확인을](storage-ref-azcopy-make.md)참조하십시오.
@@ -46,13 +46,20 @@ AzCopy는 저장소 계정에서 Blob 또는 파일을 복사하는 데 사용�
 > * 디렉터리 내용 업로드
 > * 특정 파일 업로드
 
+> [!TIP]
+> 선택적 플래그를 사용하여 업로드 작업을 조정할 수 있습니다. 다음은 몇 가지 예입니다.
+>
+> |시나리오|플래그|
+> |---|---|
+> |파일과 함께 ACL(액세스 제어 목록)을 복사합니다.|**--보존 -smb-권한**=\[\|참 거짓\]|
+> |파일과 함께 SMB 속성 정보를 복사합니다.|**--보존-smb-정보**=\[\|진정한 거짓\]|
+> |파일을 Blob 또는 페이지 Blob을 부백으로 업로드합니다.|**--blob 형**=\[블록블랍\|페이지Blob\|부록블블블\]|
+> |특정 액세스 계층(예: 아카이브 계층)에 업로드합니다.|**--블록 -blob**=\[계층\|\|없음\|핫 쿨 아카이브\]|
+> 
+> 전체 목록은 [옵션을](storage-ref-azcopy-copy.md#options)참조하십시오.
+
 > [!NOTE]
 > AzCopy는 파일의 md5 해시 코드를 자동으로 계산하고 저장하지 않습니다. AzCopy를 수행하려면 각 복사 명령에 `--put-md5` 플래그를 더합니다. 이렇게 하면 파일을 다운로드할 때 AzCopy는 다운로드한 데이터에 대한 MD5 해시를 계산하고 파일의 `Content-md5` 속성에 저장된 MD5 해시가 계산된 해시와 일치하는지 확인합니다.
-
-자세한 참조 문서는 [azcopy 사본을](storage-ref-azcopy-copy.md)참조하십시오.
-
-> [!TIP]
-> 이 섹션의 예제에서는 경로 인수를 단일 따옴표('')로 둘러싸습니다. Windows 명령 셸(cmd.exe)을 제외한 모든 명령 셸에 단일 따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 경로 인수를 단일 따옴표('')가 아닌 큰따옴표(")로 동봉합니다.
 
 ### <a name="upload-a-file"></a>파일 업로드
 
@@ -134,13 +141,19 @@ AzCopy는 저장소 계정에서 Blob 또는 파일을 복사하는 데 사용�
 > * 디렉토리의 내용 다운로드
 > * 특정 파일 다운로드
 
+> [!TIP]
+> 선택적 플래그를 사용하여 다운로드 작업을 조정할 수 있습니다. 다음은 몇 가지 예입니다.
+>
+> |시나리오|플래그|
+> |---|---|
+> |파일과 함께 ACL(액세스 제어 목록)을 복사합니다.|**--보존 -smb-권한**=\[\|참 거짓\]|
+> |파일과 함께 SMB 속성 정보를 복사합니다.|**--보존-smb-정보**=\[\|진정한 거짓\]|
+> |파일의 압축을 자동으로 해제합니다.|**--압축 풀기**=\[gzip\|deflate\]|
+> 
+> 전체 목록은 [옵션을](storage-ref-azcopy-copy.md#options)참조하십시오.
+
 > [!NOTE]
 > 파일의 `Content-md5` 속성 값에 해시가 포함된 경우 AzCopy는 다운로드한 데이터에 대해 MD5 해시를 계산하고 파일의 `Content-md5` 속성에 저장된 MD5 해시가 계산된 해시와 일치하는지 확인합니다. 이러한 값이 일치하지 않으면 복사 명령을 추가하거나 `--check-md5=NoCheck` `--check-md5=LogOnly` 이 동작을 재정의하지 않으면 다운로드가 실패합니다.
-
-자세한 참조 문서는 [azcopy 사본을](storage-ref-azcopy-copy.md)참조하십시오.
-
-> [!TIP]
-> 이 섹션의 예제에서는 경로 인수를 단일 따옴표('')로 둘러싸습니다. Windows 명령 셸(cmd.exe)을 제외한 모든 명령 셸에 단일 따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 경로 인수를 단일 따옴표('')가 아닌 큰따옴표(")로 동봉합니다.
 
 ### <a name="download-a-file"></a>파일 다운로드
 
@@ -214,37 +227,44 @@ AzCopy는 [서버 간](https://docs.microsoft.com/rest/api/storageservices/put-b
 > * 파일 공유를 다른 저장소 계정으로 복사
 > * 모든 파일 공유, 디렉터리 및 파일을 다른 저장소 계정으로 복사
 
-자세한 참조 문서는 [azcopy 사본을](storage-ref-azcopy-copy.md)참조하십시오.
-
 > [!TIP]
-> 이 섹션의 예제에서는 경로 인수를 단일 따옴표('')로 둘러싸습니다. Windows 명령 셸(cmd.exe)을 제외한 모든 명령 셸에 단일 따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 경로 인수를 단일 따옴표('')가 아닌 큰따옴표(")로 동봉합니다.
+> 선택적 플래그를 사용하여 복사 작업을 조정할 수 있습니다. 다음은 몇 가지 예입니다.
+>
+> |시나리오|플래그|
+> |---|---|
+> |파일과 함께 ACL(액세스 제어 목록)을 복사합니다.|**--보존 -smb-권한**=\[\|참 거짓\]|
+> |파일과 함께 SMB 속성 정보를 복사합니다.|**--보존-smb-정보**=\[\|진정한 거짓\]|
+> |파일을 부백 Blob 또는 페이지 Blob로 복사합니다.|**--blob 형**=\[블록블랍\|페이지Blob\|부록블블블\]|
+> |특정 액세스 계층(예: 아카이브 계층)에 복사합니다.|**--블록 -blob**=\[계층\|\|없음\|핫 쿨 아카이브\]|
+> 
+> 전체 목록은 [옵션을](storage-ref-azcopy-copy.md#options)참조하십시오.
 
 ### <a name="copy-a-file-to-another-storage-account"></a>파일을 다른 저장소 계정으로 복사
 
 |    |     |
 |--------|-----------|
-| **구문** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>/<file-path>?<SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name>/<file-path><SAS-token>'` |
+| **구문** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>/<file-path><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name>/<file-path><SAS-token>'` |
 | **예제** | `azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D'` |
 
 ### <a name="copy-a-directory-to-another-storage-account"></a>디렉터리를 다른 저장소 계정으로 복사
 
 |    |     |
 |--------|-----------|
-| **구문** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path>?<SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
+| **구문** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
 | **예제** | `azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
 
 ### <a name="copy-a-file-share-to-another-storage-account"></a>파일 공유를 다른 저장소 계정으로 복사
 
 |    |     |
 |--------|-----------|
-| **구문** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
+| **구문** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
 | **예제** | `azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
 
 ### <a name="copy-all-file-shares-directories-and-files-to-another-storage-account"></a>모든 파일 공유, 디렉터리 및 파일을 다른 저장소 계정으로 복사
 
 |    |     |
 |--------|-----------|
-| **구문** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/?<SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<SAS-token>' --recursive'` |
+| **구문** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<SAS-token>' --recursive'` |
 | **예제** | `azcopy copy 'https://mysourceaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
 
 ## <a name="synchronize-files"></a>파일 동기화
@@ -258,10 +278,16 @@ AzCopy는 [서버 간](https://docs.microsoft.com/rest/api/storageservices/put-b
 
 플래그를 `--delete-destination` AzCopy로 `true` 설정하면 프롬프트를 제공하지 않고 파일을 삭제합니다. AzCopy가 파일을 삭제하기 전에 프롬프트가 표시되도록 하려면 플래그를 `--delete-destination` 로 설정합니다. `prompt`
 
-자세한 참조 문서는 [azcopy 동기화](storage-ref-azcopy-sync.md)를 참조하십시오.
-
 > [!TIP]
-> 이 섹션의 예제에서는 경로 인수를 단일 따옴표('')로 둘러싸습니다. Windows 명령 셸(cmd.exe)을 제외한 모든 명령 셸에 단일 따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 경로 인수를 단일 따옴표('')가 아닌 큰따옴표(")로 동봉합니다.
+> 선택적 플래그를 사용하여 동기화 작업을 조정할 수 있습니다. 다음은 몇 가지 예입니다.
+>
+> |시나리오|플래그|
+> |---|---|
+> |다운로드 할 때 MD5 해시의 유효성을 엄격하게 검사하는 방법을 지정합니다.|**--체크-md5**=\[NoCheck\|\|로그만\|실패다른 실패Ifdifferentor 누락\]|
+> |패턴에 따라 파일을 제외합니다.|**--제외 경로**|
+> |동기화 관련 로그 항목을 세부항목으로 지정합니다.|**--로그**=\[수준\|\|경고\|오류 정보 없음\]|
+> 
+> 전체 목록은 [옵션을](storage-ref-azcopy-sync.md#options)참조하십시오.
 
 ### <a name="update-a-file-share-with-changes-to-another-file-share"></a>다른 파일 공유를 변경하여 파일 공유 업데이트
 
@@ -269,7 +295,7 @@ AzCopy는 [서버 간](https://docs.microsoft.com/rest/api/storageservices/put-b
 
 |    |     |
 |--------|-----------|
-| **구문** | `azcopy sync 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
+| **구문** | `azcopy sync 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
 | **예제** | `azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
 
 ### <a name="update-a-directory-with-changes-to-a-directory-in-another-file-share"></a>다른 파일 공유의 디렉터리 변경 내용으로 디렉터리 업데이트
@@ -278,8 +304,19 @@ AzCopy는 [서버 간](https://docs.microsoft.com/rest/api/storageservices/put-b
 
 |    |     |
 |--------|-----------|
-| **구문** | `azcopy sync 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>/<directory-name>?<SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name>/<directory-name><SAS-token>' --recursive` |
+| **구문** | `azcopy sync 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>/<directory-name><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name>/<directory-name><SAS-token>' --recursive` |
 | **예제** | `azcopy sync 'https://mysourceaccount.file.core.windows.net/myFileShare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/myFileShare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+
+### <a name="update-a-file-share-to-match-the-contents-of-a-share-snapshot"></a>공유 스냅숏의 내용과 일치하도록 파일 공유 업데이트
+
+이 명령에 나타나는 첫 번째 파일 공유가 소스입니다. URI가 끝나면 문자열다음에 `&sharesnapshot=` 스냅숏의 **DateTime** 값을 더합니다. 
+
+|    |     |
+|--------|-----------|
+| **구문** | `azcopy sync 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>&sharesnapsot<snapshot-ID>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
+| **예제** | `azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-03-03T20%3A24%3A13.0000000Z' 'https://mydestinationaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+
+공유 스냅숏에 대한 자세한 내용은 [Azure Files에 대한 공유 스냅숏 개요를](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files)참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

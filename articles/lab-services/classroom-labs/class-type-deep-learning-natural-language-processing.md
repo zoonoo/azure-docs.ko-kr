@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 49ef78ac5a7d58d86583d91bf072f0f3131796fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 889d0d1e98f5c9947588011774d02e54f05edca1
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80109395"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257762"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Azure Lab Services를 사용하여 자연어 처리의 딥 러닝에 초점을 맞춘 랩을 설정
 이 문서에서는 Azure Lab 서비스를 사용하여 NLP(자연어 처리)에서 딥 러닝에 중점을 둔 랩을 설정하는 방법을 보여 주며 있습니다. NLP(자연어 처리)는 번역, 음성 인식 및 기타 언어 이해 기능을 갖춘 컴퓨터를 가능케하는 AI(인공 지능) 형태입니다.  
@@ -39,7 +39,7 @@ NLP 클래스를 수강하는 학생은 Linux VM(가상 머신)을 통해 작성
 | 랩 설정 | 값/지침 | 
 | ------------ | ------------------ |
 | 가상 컴퓨터(VM) 크기 | 소형 GPU(컴퓨팅). 이 크기는 인공 지능 및 딥 러닝과 같은 컴퓨팅 집약적이고 네트워크 집약적인 응용 프로그램에 가장 적합합니다. |
-| VM 이미지 | [리눅스 (우분투)에 대한 데이터 과학 가상 머신](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu). 이 이미지는 기계 학습 및 데이터 과학을 위한 딥 러닝 프레임워크와 도구를 제공합니다. 이 이미지에 설치된 도구의 전체 목록을 보려면 다음 문서를 참조하십시오: [DSVM에 포함 된 내용?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm). |
+| VM 이미지 | [리눅스 (우분투)에 대한 데이터 과학 가상 머신](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). 이 이미지는 기계 학습 및 데이터 과학을 위한 딥 러닝 프레임워크와 도구를 제공합니다. 이 이미지에 설치된 도구의 전체 목록을 보려면 다음 문서를 참조하십시오: [DSVM에 포함 된 내용?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm). |
 | 원격 데스크톱 연결 사용 | 사용. <p>이 설정을 사용하면 교사와 학생이 RDP(원격 데스크톱)를 사용하여 VM(가상 컴퓨터)에 연결할 수 있습니다.</p><p>**중요**: RDP는 이미 설치 및 리눅스 이미지에 대한 데이터 과학 가상 머신에 구성되어 있습니다. 따라서 교사/학생은 추가 단계 없이 RDP를 통해 VM에 연결할 수 있습니다. 또한 그래픽 데스크톱에 연결해야 하는 경우 이 이미지에는 가상 시스템에 [X2Go 서버가](https://wiki.x2go.org/doku.php/doc:newtox2go) 이미 설치되어 있습니다. 학생은 로컬 컴퓨터에 X2Go 클라이언트를 설치해야 하며 연결시 클라이언트를 사용해야 합니다. 자세한 내용은 다음 가이드를 참조하십시오. <ul><li>[Linux용 데이터 과학 Virtual Machine에 액세스하는 방법](../../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)</li><li>[템플릿 VM에 연결하여 RDP 및 GUI 패키지를 설치합니다.](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm)</li></ul></p>   |
 
 Linux 용 데이터 과학 가상 머신 이미지는 이러한 유형의 클래스에 필요한 딥 러닝 프레임워크와 도구를 제공합니다. 따라서 템플릿 컴퓨터를 만든 후에는 더 이상 사용자 지정할 필요가 없습니다. 학생이 사용할 수 있도록 게시할 수 있습니다. 템플릿 페이지에서 **게시** 단추를 선택하여 템플릿을 랩에 게시합니다.  

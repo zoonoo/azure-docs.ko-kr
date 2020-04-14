@@ -8,57 +8,63 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: d6c1819366fede0b1e81e43bc92ed56af93b39fd
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 8b64a583c11e794c30e1de12eb66941874a25462
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81114951"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262226"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-cognitive-search-application"></a>Azure Cognitive Search 애플리케이션에 제안 또는 자동 완성 추가
 
-이 문서에서는 [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions) 및 [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete)을 사용하여 search-as-you-type(입력할 때 자동으로 검색) 동작을 지원하는 강력한 검색 상자를 빌드하는 방법에 대해 알아봅니다.
+이 예제에서는 유형별 검색을 지원하는 검색 상자를 보여 줍니다. 함께 또는 별도로 사용할 수있는 두 가지 기능이 있습니다.
 
 + *제안자는* 입력할 때 검색 결과를 생성하며, 여기서 각 제안은 지금까지 입력한 항목과 일치하는 인덱스의 단일 결과 또는 검색 문서입니다. 
 
 + *자동 완성은* 단어 나 구를 "완료"하여 쿼리를 생성합니다. 결과를 반환하는 대신 쿼리를 완성한 다음, 이 쿼리를 실행하여 결과를 반환할 수 있습니다. 제안과 마찬가지로 쿼리에서 완성된 단어 또는 구는 인덱스의 일치 항목을 기반으로 하여 단정됩니다. 서비스는 인덱스에서 0의 결과를 반환하는 쿼리를 제공하지 않습니다.
 
-**DotNetHowToAutocomplete**에서 샘플 코드를 다운로드하고 실행하여 이러한 기능을 평가할 수 있습니다. 샘플 코드는 [NYCJobs 데모 데이터](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)로 채워진 미리 작성된 인덱스를 대상으로 합니다. NYCJobs 인덱스에는 제안 또는 자동 완성을 사용하는 데 필요한 [제안기 구문](index-add-suggesters.md)이 포함되어 있습니다. 샌드박스 서비스에서 호스팅되어 준비된 인덱스를 사용하거나 NYCJobs 샘플 솔루션의 데이터 로더를 사용하여 [고유한 인덱스를 채울](#configure-app) 수 있습니다. 
+샘플 코드는 C# 및 JavaScript 언어 버전 모두에서 제안과 자동 완성을 모두 보여 줍니다. 
 
-**DotNetHowToAutocomplete** 샘플은 C# 및 JavaScript 언어 버전 모두에서 제안과 자동 완성을 모두 보여 줍니다. C# 개발자는 [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk)를 사용하는 ASP.NET MVC 기반 애플리케이션을 단계별로 실행할 수 있습니다. 자동 완성 및 제안된 쿼리 호출을 수행하는 논리는 HomeController.cs 파일에서 찾을 수 있습니다. JavaScript 개발자는 [Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/)에 대한 직접 호출이 포함된 IndexJavaScript.cshtml에서 동등한 쿼리 논리를 찾을 수 있습니다. 
+C# 개발자는 [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk)를 사용하는 ASP.NET MVC 기반 애플리케이션을 단계별로 실행할 수 있습니다. 자동 완성 및 제안된 쿼리 호출을 수행하는 논리는 HomeController.cs 파일에서 찾을 수 있습니다. 
+
+JavaScript 개발자는 [Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/)에 대한 직접 호출이 포함된 IndexJavaScript.cshtml에서 동등한 쿼리 논리를 찾을 수 있습니다. 
 
 두 언어 버전 모두에서 프런트 엔드 사용자 환경은 [jQuery UI](https://jqueryui.com/autocomplete/) 및 [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) 라이브러리를 기반으로 합니다. 이러한 라이브러리를 사용하여 제안과 자동 완성을 모두 지원하는 검색 상자를 빌드합니다. 검색 상자에 수집된 입력은 HomeController.cs 또는 IndexJavaScript.cshtml에 정의된 것과 같은 제안 및 자동 완성 작업과 쌍을 이룹니다.
 
-이 연습에서 안내하는 작업은 다음과 같습니다.
-
-> [!div class="checklist"]
-> * JavaScript에서 검색 입력 상자를 구현하고, 제안된 일치 항목 또는 자동 완성 용어에 대한 요청을 실행합니다.
-> * C#에서 제안 및 자동 완성 작업을 HomeController.cs에 정의합니다.
-> * JavaScript에서 REST API를 직접 호출하여 동일한 기능을 제공합니다.
-
 ## <a name="prerequisites"></a>사전 요구 사항
 
-솔루션은 준비된 NYCJobs 데모 인덱스를 호스팅하는 라이브 샌드박스 서비스를 사용하므로 이 연습에서 Azure Cognitive Search 서비스는 선택 사항입니다. 사용자 고유의 검색 서비스에서 이 예제를 실행하려면 [NYC 작업 인덱스 구성](#configure-app)의 지침을 참조하세요.
++ [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 
-* [비주얼 스튜디오 2017,](https://visualstudio.microsoft.com/downloads/)모든 버전. 샘플 코드와 지침은 Community 평가판 버전에서 테스트되었습니다.
+솔루션이 호스팅된 서비스와 NYCJobs 데모 인덱스를 사용하기 때문에 Azure 인지 검색 서비스는 이 연습에서 선택 사항입니다. 자체 검색 서비스에서 이 인덱스를 작성하려면 [지침에](#configure-app) 대한 NYC 채용 지수 만들기를 참조하십시오. 그렇지 않으면 기존 서비스 및 인덱스를 사용하여 JavaScript 클라이언트 앱을 백업할 수 있습니다.
 
-* [DotNetHowToAutoComplete 샘플](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)을 다운로드합니다.
+<!-- The sample is comprehensive, covering suggestions, autocomplete, faceted navigation, and client-side caching. Review the readme and comments for a full description of what the sample offers. -->
 
-샘플은 제안, 자동 완성, 패싯 탐색 및 클라이언트 쪽 캐싱을 포괄적으로 처리합니다. 샘플에서 제공하는 기능에 대한 자세한 설명은 추가 정보 및 설명을 검토하세요.
+## <a name="download-files"></a>파일 다운로드
+
+C# 및 자바스크립트 개발자를 위한 샘플 코드는 **Azure-샘플/검색-도트넷-시작** GitHub 리포지토리의 [DotNetHowToAutoComplete 폴더에서](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) 찾을 수 있습니다.
+
+샘플은 기존 데모 검색 서비스와 [NYCJobs 데모 데이터로](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)채워진 미리 빌드된 인덱스를 대상으로 합니다. NYCJobs 인덱스에는 제안 또는 자동 완성을 사용하는 데 필요한 [제안기 구문](index-add-suggesters.md)이 포함되어 있습니다.
 
 ## <a name="run-the-sample"></a>샘플 실행
 
-1. Visual Studio에서 **AutocompleteTutorial.sln**을 엽니다. 이 솔루션에는 NYC 작업 데모 인덱스와 연결된 ASP.NET MVC 프로젝트가 포함되어 있습니다.
+1. Visual Studio에서 **AutocompleteTutorial.sln**을 엽니다. 이 솔루션에는 기존 검색 서비스 및 인덱스에 연결되는 ASP.NET MVC 프로젝트가 포함되어 있습니다.
 
-2. 원하는 브라우저에서 F5를 눌러 프로젝트를 실행하고 페이지를 로드합니다.
+1. NuGet 패키지 업데이트:
+
+   1. 솔루션 탐색기에서 **DotNetHowToAutoComplete를** 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리를 선택합니다.**  
+   1. **업데이트** 탭을 선택하고 모든 패키지를 선택한 다음 **업데이트를**클릭합니다. 모든 사용권 계약을 수락합니다. 모든 패키지를 업데이트하려면 두 개 이상의 패스가 필요할 수 있습니다.
+
+1. F5를 눌러 프로젝트를 실행하고 브라우저에서 페이지를 로드합니다.
 
 맨 위에 C# 또는 JavaScript를 선택하는 옵션이 표시됩니다. C# 옵션은 브라우저에서 HomeController를 호출하고 Azure Cognitive Search .NET SDK를 사용하여 결과를 검색합니다. 
 
 JavaScript 옵션은 브라우저에서 Azure Cognitive Search REST API를 직접 호출합니다. 이 옵션은 컨트롤러를 흐름 밖으로 꺼내기 때문에 일반적으로 성능이 눈에 띄게 높습니다. 요구 사항 및 언어 기본 설정에 부합하는 옵션을 선택할 수 있습니다. 각각에 대한 지침이 있는 페이지에 몇 가지 자동 완성 예제가 있습니다. 예제마다 테스트해볼 수 있는 몇 가지 권장 샘플 텍스트가 있습니다.  
 
+![샘플 시작 페이지](media/search-autocomplete-tutorial/startup-page.png "로컬 호스트의 샘플 시작 페이지")
+
 각 검색 상자에 몇 자 입력해보고 결과를 확인합니다.
 
-## <a name="search-box"></a>검색 상자
+## <a name="query-inputs"></a>쿼리 입력
 
 C# 및 JavaScript 버전 모두에서 검색 상자 구현은 정확히 동일합니다. 
 
@@ -229,7 +235,7 @@ Autocomplete 함수는 검색 용어 입력을 사용합니다. 이 메서드는
 
 ## <a name="javascript-example"></a>JavaScript 예제
 
-자동 완성 및 제안의 Javascript 구현은 REST API를 호출하고, URI를 원본으로 사용하여 인덱스와 작업을 지정합니다. 
+자동 완성 및 제안의 JavaScript 구현은 URI를 소스로 사용하여 인덱스와 작업을 지정하는 REST API를 호출합니다. 
 
 JavaScript 구현을 검토하려면 **IndexJavaScript.cshtml**을 엽니다. jQuery UI Autocomplete 함수도 검색 상자에 사용되어 검색 용어 입력을 수집하고 Azure Cognitive Search에 대한 비동기 호출을 수행하여 제안된 일치 항목 또는 완성된 용어를 검색합니다. 
 
@@ -287,7 +293,7 @@ var autocompleteUri = "https://" + searchServiceName + ".search.windows.net/inde
 
 <a name="configure-app"></a>
 
-## <a name="configure-nycjobs-to-run-on-your-service"></a>서비스에서 실행되도록 NYCJobs 구성
+## <a name="create-an-nycjobs-index"></a>NYCJobs 인덱스 만들기
 
 지금까지 호스팅된 NYCJobs 데모 인덱스를 사용했습니다. 인덱스를 포함하여 모든 코드를 완전히 살펴보려면 다음 지침에 따라 사용자 고유의 검색 서비스에서 인덱스를 만들고 로드합니다.
 
@@ -318,4 +324,3 @@ var autocompleteUri = "https://" + searchServiceName + ".search.windows.net/inde
 > [자동 완성 REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
 > [제안 REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions)
 > [Facets 인덱스 특성 만들기 인덱스 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)
-

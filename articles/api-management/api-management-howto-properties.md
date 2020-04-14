@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 7c25455e28e57ff40664a69718a2e406b52b7632
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4362d0875ac2c20fc6963d404f86898a12387dad
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75834305"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260924"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Azure API 관리 정책에서 명명된 값을 사용하는 방법
 
@@ -25,7 +25,7 @@ API Management 정책은 구성을 통해 Azure Portal에서 API 동작을 변�
 
 각 API 관리 서비스 인스턴스에는 서비스 인스턴스에 대한 전역인 명명된 값이라고 하는 키/값 쌍의 컬렉션이 있습니다. 컬렉션의 항목 수에는 제한이 없습니다. 명명된 값을 사용하여 모든 API 구성 및 정책에서 상수 문자열 값을 관리할 수 있습니다. 명명된 각 값에는 다음 특성이 있을 수 있습니다.
 
-| 특성      | Type            | Description                                                                                                                            |
+| attribute      | Type            | Description                                                                                                                            |
 | -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | `Display name` | 문자열          | 정책에서 명명된 값을 참조하는 데 사용됩니다. 1~256자 문자열입니다. 문자, 숫자, 점 및 대시만 허용됩니다. |
 | `Value`        | 문자열          | 실제 값입니다. 비어 있거나 공백으로만 구성되어서는 안 됩니다. 최대 4096자 까지.                                        |
@@ -59,7 +59,7 @@ API Management 정책은 구성을 통해 Azure Portal에서 API 동작을 변�
 
 명명된 값이 만들어지면 클릭하여 편집할 수 있습니다. 명명된 값 이름을 변경하면 명명된 값을 참조하는 모든 정책이 새 이름을 사용하도록 자동으로 업데이트됩니다.
 
-REST API를 사용하여 명명된 값을 편집하는 방법에 대한 자세한 내용은 [REST API를 사용하여 명명된 값 편집을](/rest/api/apimanagement/2019-01-01/property?patch)참조하십시오.
+REST API를 사용하여 명명된 값을 편집하는 방법에 대한 자세한 내용은 [REST API를 사용하여 명명된 값 편집을](/rest/api/apimanagement/2019-12-01/property?patch)참조하십시오.
 
 ## <a name="to-delete-a-named-value"></a>명명된 값을 삭제하려면
 
@@ -68,7 +68,7 @@ REST API를 사용하여 명명된 값을 편집하는 방법에 대한 자세�
 > [!IMPORTANT]
 > 명명된 값이 모든 정책에서 참조되는 경우 해당 값을 사용하는 모든 정책에서 명명된 값을 제거할 때까지 해당 값을 성공적으로 삭제할 수 없습니다.
 
-REST API를 사용하여 명명된 값을 삭제하는 방법에 대한 자세한 내용은 [REST API를 사용하여 명명된 값 삭제를](/rest/api/apimanagement/2019-01-01/property/delete)참조하십시오.
+REST API를 사용하여 명명된 값을 삭제하는 방법에 대한 자세한 내용은 [REST API를 사용하여 명명된 값 삭제를](/rest/api/apimanagement/2019-12-01/property/delete)참조하십시오.
 
 ## <a name="to-search-and-filter-named-values"></a>명명된 값을 검색하고 필터링하려면
 

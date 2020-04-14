@@ -4,20 +4,23 @@ description: 이 문서에는 컨테이너를 만들고, 파일을 복사하고,
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: fbdb447905ae43fe92693dfe45c1add710f76355
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73685f124f93bb541f33b3b70727d90ce22b3cdd
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78933585"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263440"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>AzCopy 및 Blob 저장소로 데이터 전송
 
 AzCopy는 저장소 계정 간에 데이터를 복사하거나 복사하는 데 사용할 수 있는 명령줄 유틸리티입니다. 이 문서에는 Blob 저장소에서 작동하는 예제 명령이 포함되어 있습니다.
+
+> [!TIP]
+> 이 문서의 예제에서는 경로 인수를 따옴표('')로 둘러싸습니다. Windows 명령 셸(cmd.exe)을 제외한 모든 명령 셸에 단일 따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 경로 인수를 단일 따옴표('')가 아닌 큰따옴표(")로 동봉합니다.
 
 ## <a name="get-started"></a>시작
 
@@ -31,9 +34,6 @@ AzCopy 를 다운로드하고 저장소 서비스에 권한 부여 자격 증명
 > 예: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`
 
 ## <a name="create-a-container"></a>컨테이너 만들기
-
-> [!TIP]
-> 이 섹션의 예제에서는 경로 인수를 단일 따옴표('')로 둘러싸습니다. Windows 명령 셸(cmd.exe)을 제외한 모든 명령 셸에 단일 따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 경로 인수를 단일 따옴표('')가 아닌 큰따옴표(")로 동봉합니다.
 
 [azcopy make](storage-ref-azcopy-make.md) 명령을 사용하여 컨테이너를 만들 수 있습니다. 이 섹션의 예제에서는 을 `mycontainer`라는 컨테이너를 만듭니다.
 
@@ -57,10 +57,16 @@ AzCopy 를 다운로드하고 저장소 서비스에 권한 부여 자격 증명
 > * 디렉터리 내용 업로드 
 > * 특정 파일 업로드
 
-자세한 참조 문서는 [azcopy 사본을](storage-ref-azcopy-copy.md)참조하십시오.
-
 > [!TIP]
-> 이 섹션의 예제에서는 경로 인수를 단일 따옴표('')로 둘러싸습니다. Windows 명령 셸(cmd.exe)을 제외한 모든 명령 셸에 단일 따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 경로 인수를 단일 따옴표('')가 아닌 큰따옴표(")로 동봉합니다.
+> 선택적 플래그를 사용하여 업로드 작업을 조정할 수 있습니다. 다음은 몇 가지 예입니다.
+>
+> |시나리오|플래그|
+> |---|---|
+> |파일을 Blob 또는 페이지 Blob을 부백으로 업로드합니다.|**--blob 형**=\[블록블랍\|페이지Blob\|부록블블블\]|
+> |특정 액세스 계층(예: 아카이브 계층)에 업로드합니다.|**--블록 -blob**=\[계층\|\|없음\|핫 쿨 아카이브\]|
+> |파일의 압축을 자동으로 해제합니다.|**--압축 풀기**=\[gzip\|deflate\]|
+> 
+> 전체 목록은 [옵션을](storage-ref-azcopy-copy.md#options)참조하십시오.
 
 ### <a name="upload-a-file"></a>파일 업로드
 
@@ -71,10 +77,6 @@ AzCopy 를 다운로드하고 저장소 서비스에 권한 부여 자격 증명
 | **예제(계층적** 네임스페이스) | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'` |
 
 파일 경로 또는 파일 이름의 아무 곳이나 와일드카드 기호(*)를 사용하여 파일을 업로드할 수도 있습니다. 예를 들어: `'C:\myDirectory\*.txt'` `C:\my*\*.txt`또는 .
-
-> [!NOTE]
-> AzCopy는 기본적으로 데이터를 블록 Blob으로 업로드합니다. 파일을 Blob 또는 페이지 Blob으로 업로드하려면 플래그를 `--blob-type=[BlockBlob|PageBlob|AppendBlob]`사용합니다.
-> AzCopy는 기본적으로 데이터를 업로드하여 계정 액세스 계층을 상속합니다. 특정 [액세스 계층에](../blobs/storage-blob-storage-tiers.md)파일을 업로드하려면 `--block-blob-tier=[Hot|Cool|Archive]`플래그를 사용합니다.
 
 ### <a name="upload-a-directory"></a>디렉토리 업로드
 
@@ -152,13 +154,19 @@ AzCopy 를 다운로드하고 저장소 서비스에 권한 부여 자격 증명
 > * 디렉토리의 내용 다운로드
 > * 특정 파일 다운로드
 
+> [!TIP]
+> 선택적 플래그를 사용하여 다운로드 작업을 조정할 수 있습니다. 다음은 몇 가지 예입니다.
+>
+> |시나리오|플래그|
+> |---|---|
+> |파일의 압축을 자동으로 해제합니다.|**--압축 풀기**=\[gzip\|deflate\]|
+> |복사 관련 로그 항목을 세부항목으로 지정합니다.|**--로그**=\[수준\|\|경고\|오류 정보 없음\]|
+> |대상에서 충돌하는 파일 및 Blob을 덮어쓰는지 및 덮어쓰는 방법을 지정합니다.|**--덮어쓰기**=\[\|\|참 거짓\|ifSourceNew프롬프트\]|
+> 
+> 전체 목록은 [옵션을](storage-ref-azcopy-copy.md#options)참조하십시오.
+
 > [!NOTE]
 > Blob의 `Content-md5` 속성 값에 해시가 포함된 경우 AzCopy는 다운로드한 데이터에 대해 MD5 해시를 계산하고 Blob의 `Content-md5` 속성에 저장된 MD5 해시가 계산된 해시와 일치하는지 확인합니다. 이러한 값이 일치하지 않으면 복사 명령을 추가하거나 `--check-md5=NoCheck` `--check-md5=LogOnly` 이 동작을 재정의하지 않으면 다운로드가 실패합니다.
-
-자세한 참조 문서는 [azcopy 사본을](storage-ref-azcopy-copy.md)참조하십시오.
-
-> [!TIP]
-> 이 섹션의 예제에서는 경로 인수를 단일 따옴표('')로 둘러싸습니다. Windows 명령 셸(cmd.exe)을 제외한 모든 명령 셸에 단일 따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 경로 인수를 단일 따옴표('')가 아닌 큰따옴표(")로 동봉합니다.
 
 ### <a name="download-a-file"></a>파일 다운로드
 
@@ -245,12 +253,18 @@ AzCopy는 [서버 간](https://docs.microsoft.com/rest/api/storageservices/put-b
 > * 컨테이너를 다른 저장소 계정으로 복사
 > * 모든 컨테이너, 디렉터리 및 파일을 다른 저장소 계정으로 복사
 
-자세한 참조 문서는 [azcopy 사본을](storage-ref-azcopy-copy.md)참조하십시오.
+이러한 예제는 계층적 네임스페이스가 있는 계정에서도 작동합니다. [Data Lake Storage의 다중 프로토콜 액세스를](../blobs/data-lake-storage-multi-protocol-access.md) 사용하면 해당`blob.core.windows.net`계정에서 동일한 URL 구문()을 사용할 수 있습니다.
 
 > [!TIP]
-> 이 섹션의 예제에서는 경로 인수를 단일 따옴표('')로 둘러싸습니다. Windows 명령 셸(cmd.exe)을 제외한 모든 명령 셸에 단일 따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 경로 인수를 단일 따옴표('')가 아닌 큰따옴표(")로 동봉합니다.
-
- 이러한 예제는 계층적 네임스페이스가 있는 계정에서도 작동합니다. [Data Lake Storage의 다중 프로토콜 액세스를](../blobs/data-lake-storage-multi-protocol-access.md) 사용하면 해당`blob.core.windows.net`계정에서 동일한 URL 구문()을 사용할 수 있습니다. 
+> 선택적 플래그를 사용하여 복사 작업을 조정할 수 있습니다. 다음은 몇 가지 예입니다.
+>
+> |시나리오|플래그|
+> |---|---|
+> |파일을 부백 Blob 또는 페이지 Blob로 복사합니다.|**--blob 형**=\[블록블랍\|페이지Blob\|부록블블블\]|
+> |특정 액세스 계층(예: 아카이브 계층)에 복사합니다.|**--블록 -blob**=\[계층\|\|없음\|핫 쿨 아카이브\]|
+> |파일의 압축을 자동으로 해제합니다.|**--압축 풀기**=\[gzip\|deflate\]|
+> 
+> 전체 목록은 [옵션을](storage-ref-azcopy-copy.md#options)참조하십시오.
 
 ### <a name="copy-a-blob-to-another-storage-account"></a>Blob을 다른 저장소 계정으로 복사
 
@@ -306,10 +320,16 @@ AzCopy는 [서버 간](https://docs.microsoft.com/rest/api/storageservices/put-b
 > [!NOTE]
 > 실수로 삭제되지 않도록 하려면 `--delete-destination=prompt|true` 플래그를 사용하기 전에 소프트 [삭제](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) 기능을 사용하도록 설정해야 합니다.
 
-자세한 참조 문서는 [azcopy 동기화](storage-ref-azcopy-sync.md)를 참조하십시오.
-
 > [!TIP]
-> 이 섹션의 예제에서는 경로 인수를 단일 따옴표('')로 둘러싸습니다. Windows 명령 셸(cmd.exe)을 제외한 모든 명령 셸에 단일 따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 경로 인수를 단일 따옴표('')가 아닌 큰따옴표(")로 동봉합니다.
+> 선택적 플래그를 사용하여 동기화 작업을 조정할 수 있습니다. 다음은 몇 가지 예입니다.
+>
+> |시나리오|플래그|
+> |---|---|
+> |다운로드 할 때 MD5 해시의 유효성을 엄격하게 검사하는 방법을 지정합니다.|**--체크-md5**=\[NoCheck\|\|로그만\|실패다른 실패Ifdifferentor 누락\]|
+> |패턴에 따라 파일을 제외합니다.|**--제외 경로**|
+> |동기화 관련 로그 항목을 세부항목으로 지정합니다.|**--로그**=\[수준\|\|경고\|오류 정보 없음\]|
+> 
+> 전체 목록은 [옵션을](storage-ref-azcopy-sync.md#options)참조하십시오.
 
 ### <a name="update-a-container-with-changes-to-a-local-file-system"></a>로컬 파일 시스템을 변경하여 컨테이너 업데이트
 

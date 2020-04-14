@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: dsindona
-ms.openlocfilehash: 9c0b4ca6e9a26f13d1539845ca9fb43f31a1a9dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd9f98d42efcb35dbab4f3c0a06c5a11360e36b6
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281717"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270352"
 ---
 # <a name="containers"></a>컨테이너
+
+> [!IMPORTANT]
+> 2020년 4월 13일부터 Azure 컨테이너 오퍼의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 컨테이너 [만들기 오퍼의](https://aka.ms/CreateContainerOffer) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
 
 <table> <tr> <td>이 섹션에서는 <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>에 컨테이너 이미지를 게시하는 방법에 대해 설명합니다.  
 컨테이너 제안 유형은 <a href="https://docs.microsoft.com/azure/aks/index">Azure Kubernetes Service</a> 인스턴스 또는 <a href="https://docs.microsoft.com/azure/container-instances/container-instances-overview">Azure Container Instances</a>로 프로비전되고 <a href="https://docs.microsoft.com/azure/container-registry">Azure Container Registry</a> 리포지토리에서 호스팅된 Docker 컨테이너 이미지를 지원합니다. </td> <td><img src="./media/container-icon.png"  alt="Azure container icon" /></td> </tr> </table>

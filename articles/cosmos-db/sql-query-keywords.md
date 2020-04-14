@@ -1,17 +1,17 @@
 ---
 title: Azure 코스모스 DB의 SQL 키워드
 description: Azure Cosmos DB의 SQL 키워드에 대해 알아봅니다.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.author: mjbrown
-ms.openlocfilehash: f2da2695ec20eac9dd2636104d3314427e60d541
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/10/2020
+ms.author: tisande
+ms.openlocfilehash: 069548b9b69ef6f7f6bde85ede830d97f3d312db
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79498544"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261570"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Azure 코스모스 DB의 키워드
 
@@ -131,7 +131,7 @@ SQL API는 FROM 소스의 in 키워드를 통해 추가된 새 구문과 함께 
 
 필터에 파티션 키를 `IN` 포함하면 쿼리가 관련 파티션으로만 자동으로 필터링됩니다.
 
-## <a name="top"></a>TOP
+## <a name="top"></a>맨 위로 이동
 
 TOP 키워드는 첫 `N` 번째 쿼리 결과 수를 정의되지 않은 순서로 반환합니다. 가장 좋은 방법은 `ORDER BY` TOP을 절과 함께 사용하여 `N` 결과를 정렬된 값의 첫 번째 수로 제한합니다. 이 두 절을 결합하는 것이 TOP에 영향을 미치는 행을 예측할 수 있는 유일한 방법입니다.
 

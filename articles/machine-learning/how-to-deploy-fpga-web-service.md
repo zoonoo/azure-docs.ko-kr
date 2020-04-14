@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8cb6cf49e302122849dc2402bcff008e72e15608
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 870f7b0ab0f1d7b247435cdbb74e21801b3b052a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472361"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257184"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>현장 프로그래밍 가능한 게이트 어레이(FPGA)란 무엇이며 배포 방법
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ FPGA는 프로그래밍 가능한 논리 블록 배열과 재구성 가능한 �
 
 ![Azure 기계 학습 FPGA 비교 다이어그램](./media/how-to-deploy-fpga-web-service/azure-machine-learning-fpga-comparison.png)
 
-|프로세서||설명|
+|프로세서||Description|
 |---|:-------:|------|
 |애플리케이션 관련 집적 회로|ASIC|Google의 TPU(TensorFlow Processor Units) 같은 사용자 지정 회로는 가장 높은 효율성을 제공합니다. 이러한 회로는 변하는 요구 사항에 따라 재구성할 수 없습니다.|
 |Field-programmable Gate Arrays|FPGA|Azure에서 사용할 수 있는 것과 같은 FPGA는 ASIC에 가까운 성능을 제공합니다. 또한 유연하고, 시간 경과에 따라 새 논리를 구현하기 위해 다시 구성할 수 있습니다.|
@@ -51,7 +51,7 @@ Microsoft Azure는 FPGA 부문에서 세계 최대의 클라우드 투자 규모
 Azure의 FPGA는 다음을 지원합니다.
 
 + 이미지 분류 및 인식 시나리오
-+ TensorFlow 배포
++ 텐서플로우 배포(텐서플로우 1.x 필요)
 + Intel FPGA 하드웨어
 
 이러한 DNN 모델은 현재 사용할 수 있습니다.
@@ -115,9 +115,8 @@ Azure 기계 학습 하드웨어 가속 모델을 사용 하 고 FPGA에 웹 서
 - 하드웨어 가속 모델용 Python SDK:
 
     ```bash
-    pip install --upgrade azureml-accel-models
+    pip install --upgrade azureml-accel-models[cpu]
     ```
-
 
 ## <a name="1-create-and-containerize-models"></a>1. 모델 생성 및 컨테이너화
 
@@ -364,7 +363,7 @@ aks_service.wait_for_deployment(show_output=True)
 #### <a name="test-the-cloud-service"></a>클라우드 서비스 테스트
 Docker 이미지는 gRPC 및 텐서플로우 제공 "예측" API를 지원합니다.  샘플 클라이언트를 사용하여 Docker 이미지를 호출하여 모델에서 예측을 가져옵니다.  샘플 클라이언트 코드를 사용할 수 있습니다.
 - [Python](https://github.com/Azure/aml-real-time-ai/blob/master/pythonlib/amlrealtimeai/client.py)
-- [C #](https://github.com/Azure/aml-real-time-ai/blob/master/sample-clients/csharp)
+- [C#](https://github.com/Azure/aml-real-time-ai/blob/master/sample-clients/csharp)
 
 TensorFlow 서빙을 사용하려는 경우 [샘플 클라이언트를 다운로드할](https://www.tensorflow.org/serving/setup)수 있습니다.
 

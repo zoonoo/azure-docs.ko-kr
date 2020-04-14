@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: b076c642f72e45f58be61d67e887e11b6ccb0aba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2897fe2e0cc8aeb929b0a33f5cdaba9c60f2a244
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74975859"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261587"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>사용자 지정 음성을 만들기 위한 음성 샘플 녹음
 
@@ -32,7 +32,7 @@ ms.locfileid: "74975859"
 
 사용자 지정 음성 녹음 프로젝트에는 다음 네 가지 기본 역할이 있습니다.
 
-역할|목적
+역할|용도
 -|-
 성우        |이 성우의 음성이 사용자 지정 음성의 기초가 됩니다.
 녹음 엔지니어  |녹음의 기술적 측면을 감독하고 녹음 장비를 작동합니다.
@@ -104,7 +104,7 @@ Microsoft Word에서 스크립트를 작성할 수 있습니다. 스크립트는
 
 다행히도 이러한 문제는 완전히 방지할 수 있습니다. 권한 또는 라이선스 없이 사용할 수 있는 텍스트 원본이 많이 있기 때문입니다.
 
-|텍스트 원본|설명|
+|텍스트 원본|Description|
 |-|-|
 |[CMU Arctic corpus](http://festvox.org/cmu_arctic/)|저작권 없는 작품 중에서 음성 합성 프로젝트에 고유하게 사용할 1100개 정도의 문장을 선택했습니다. 이 원본으로 시작하면 좋습니다.|
 |저작권이<br>없는 작품|일반적으로 1923년 이전에 출판된 작품입니다. 영어의 경우 [Project Gutenberg](https://www.gutenberg.org/)에 이러한 수만 가지 작품을 제공하고 있습니다. 언어는 최신 영어에 더 가까우므로 최신 작품에 좀 더 주력하려고 할 수 있습니다.|

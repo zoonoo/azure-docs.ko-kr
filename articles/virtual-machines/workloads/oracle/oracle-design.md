@@ -3,7 +3,7 @@ title: Azure에서 Oracle 데이터베이스 설계 및 구현 | Microsoft Docs
 description: Azure 환경에서 Oracle 데이터베이스를 설계하고 구현합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: romitgirdhar
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogirdh
-ms.openlocfilehash: c2c2d1a9affe13d485bfeef52c781ed259b53bc8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: 41e1720dfeaa98a9d0bc2227c58083ce769b06e0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70100122"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263406"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Azure에서 Oracle 데이터베이스 설계 및 구현
 
@@ -51,9 +51,9 @@ ms.locfileid: "70100122"
 > | **탄력성** |MTBF(평균 고장 간격) |MTTR(평균 복구 시간)|
 > | **계획된 유지 보수** |패치/업그레이드|[가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)(Azure에서 관리되는 패치/업그레이드) |
 > | **리소스** |전용  |다른 클라이언트와 공유|
-> | **지역** |데이터 센터 |[지역 쌍](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
+> | **영역** |데이터 센터 |[지역 쌍](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
 > | **스토리지** |SAN/실제 디스크 |[Azure 관리 스토리지](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-> | **규모** |수직적 확장 |수평적 확장|
+> | **확장** |수직적 확장 |수평적 확장|
 
 
 ### <a name="requirements"></a>요구 사항

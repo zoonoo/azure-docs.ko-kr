@@ -4,16 +4,16 @@ description: AKS(Azure Kubernetes Service)에서 클러스터에 대한 여러 �
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 26fd541552ee203216af5a08d948644d82061191
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: f948c115b86abc532a121c68fa7a148ff15caae9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984915"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259088"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스(AKS)에서 클러스터에 대한 여러 노드 풀 생성 및 관리
 
-AZURE Kubernetes 서비스(AKS)에서 동일한 구성의 노드가 *노드 풀로 그룹화됩니다.* 이러한 노드 풀에는 응용 프로그램을 실행하는 기본 VM이 포함됩니다. *기본 노드 풀을*만드는 AKS 클러스터를 만들 때 초기 노드 수와 해당 크기(SKU)가 정의됩니다. 계산 또는 저장소 요구가 다른 응용 프로그램을 지원하려면 추가 노드 풀을 만들 수 있습니다. 예를 들어 이러한 추가 노드 풀을 사용하여 계산 집약적인 응용 프로그램에 GPU를 제공하거나 고성능 SSD 저장소에 액세스할 수 있습니다.
+AZURE Kubernetes 서비스(AKS)에서 동일한 구성의 노드가 *노드 풀로 그룹화됩니다.* 이러한 노드 풀에는 응용 프로그램을 실행하는 기본 VM이 포함됩니다. 초기 노드 수와 그 크기(SKU)는 [시스템 노드 풀을][use-system-pool]만드는 AKS 클러스터를 만들 때 정의됩니다. 계산 또는 저장소 요구가 다른 응용 프로그램을 지원하려면 추가 *사용자 노드 풀을*만들 수 있습니다. 시스템 노드 풀은 CoreDNS 및 터널프론트와 같은 중요한 시스템 포드를 호스팅하는 주요 용도로 사용됩니다. 사용자 노드 풀은 응용 프로그램 포드를 호스팅하는 주요 용도로 사용됩니다. 그러나 AKS 클러스터에 하나의 풀만 있으면 시스템 노드 풀에서 응용 프로그램 창을 예약할 수 있습니다. 사용자 노드 풀은 응용 프로그램별 포드를 배치하는 곳입니다. 예를 들어 이러한 추가 사용자 노드 풀을 사용하여 계산 집약적인 응용 프로그램에 GPU를 제공하거나 고성능 SSD 저장소에 액세스할 수 있습니다.
 
 > [!NOTE]
 > 이 기능을 사용하면 여러 노드 풀을 만들고 관리하는 방법을 보다 세한 제어할 수 있습니다. 따라서 만들기/업데이트/삭제를 위해 별도의 명령이 필요합니다. 이전에는 클러스터 `az aks create` `az aks update` 작업을 통해 관리클러스터 API를 사용했으며 제어 평면과 단일 노드 풀을 변경할 수 있는 유일한 옵션이었습니다. 이 기능은 에이전트Pool API를 통해 에이전트 풀에 대한 별도의 작업 `az aks nodepool` 집합을 노출하고 개별 노드 풀에서 작업을 실행하기 위해 명령 집합을 사용해야 합니다.
@@ -29,7 +29,8 @@ Azure CLI 버전 2.2.0 이상 설치 및 구성이 필요합니다. `az --versio
 여러 노드 풀을 지원하는 AKS 클러스터를 만들고 관리할 때 다음 제한 사항이 적용됩니다.
 
 * [Azure Kubernetes 서비스(AKS)에서 할당량, 가상 시스템 크기 제한 및 지역 가용성을][quotas-skus-regions]참조하십시오.
-* 기본적으로 첫 번째 노드 풀은 시스템 노드 풀을 삭제할 수 없습니다.
+* AKS 클러스터에서 해당 위치를 차지할 다른 시스템 노드 풀이 있는 경우 시스템 노드 풀을 삭제할 수 있습니다.
+* 시스템 풀에는 하나 이상의 노드가 포함되어야 하며 사용자 노드 풀에는 0개 이상의 노드가 포함될 수 있습니다.
 * AKS 클러스터는 표준 SKU 로드 밸런서를 사용하여 여러 노드 풀을 사용해야 하며 기본 SKU 로드 밸런서에서는 이 기능이 지원되지 않습니다.
 * AKS 클러스터는 노드에 가상 시스템 배율 집합을 사용해야 합니다.
 * 노드 풀의 이름은 소문자 숫자 문자만 포함할 수 있으며 소문자로 시작해야 합니다. Linux 노드 풀의 경우 길이는 1에서 12자 사이여야 하며 Windows 노드 풀의 경우 길이는 1에서 6자 사이여야 합니다.
@@ -37,6 +38,9 @@ Azure CLI 버전 2.2.0 이상 설치 및 구성이 필요합니다. `az --versio
 * 클러스터 생성 시간에 여러 노드 풀을 만들 때 노드 풀에서 사용되는 모든 Kubernetes 버전은 제어 평면에 대한 버전 집합과 일치해야 합니다. 노드 풀 당 작업을 사용하여 클러스터를 프로비전한 후 업데이트할 수 있습니다.
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
+
+> [!Important]
+> 프로덕션 환경에서 AKS 클러스터에 대한 단일 시스템 노드 풀을 실행하는 경우 노드 풀에 대해 세 개 이상의 노드를 사용하는 것이 좋습니다.
 
 시작하려면 단일 노드 풀을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 [az 그룹 만들기][az-group-create] 명령을 사용 하 여 *eastus* 지역에서 *myResourceGroup* 라는 리소스 그룹을 만듭니다. 그런 다음 [az aks create][az-aks-create] 명령을 사용하여 *myAKSCluster라는* AKS 클러스터가 만들어집니다. *1.15.7의* *--kubernetes 버전에서는* 다음 단계에서 노드 풀을 업데이트하는 방법을 보여 줄 수 있습니다. [지원되는 Kubernetes 버전을][supported-versions]지정할 수 있습니다.
 
@@ -753,6 +757,8 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>다음 단계
 
+[시스템 노드 풀에][use-system-pool]대해 자세히 알아보십시오.
+
 이 문서에서는 AKS 클러스터에서 여러 노드 풀을 만들고 관리하는 방법을 배웠습니다. 노드 풀에서 포드를 제어하는 방법에 대한 자세한 내용은 [AKS의 고급 스케줄러 기능에 대한 모범 사례를][operator-best-practices-advanced-scheduler]참조하십시오.
 
 Windows Server 컨테이너 풀을 만들고 사용하려면 [AKS의 Windows 서버 컨테이너 만들기를][aks-windows]참조하십시오.
@@ -788,3 +794,4 @@ Windows Server 컨테이너 풀을 만들고 사용하려면 [AKS의 Windows 서
 [tag-limitation]: ../azure-resource-manager/resource-group-using-tags.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
+[use-system-pool]: use-system-pools.md

@@ -1,5 +1,5 @@
 ---
-title: 로컬 및 원격 실행을 위한 해석 가능성 모델링
+title: 기계 학습 모델 및 예측 설명
 titleSuffix: Azure Machine Learning
 description: 기계 학습 모델이 기능 의 중요성을 결정하고 Azure 기계 학습 SDK를 사용할 때 예측을 만드는 방법에 대한 설명을 얻는 방법을 알아봅니다.
 services: machine-learning
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
-ms.date: 04/02/2020
-ms.openlocfilehash: 1ff42149ccb629a0a7094e6dfede422d4dd7f61f
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.date: 04/12/2020
+ms.openlocfilehash: c1282ed16c9e3b92e7d5ec3f9969bee6fc3d917f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632036"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257205"
 ---
-# <a name="model-interpretability-for-local-and-remote-runs"></a>로컬 및 원격 실행을 위한 해석 가능성 모델링
+# <a name="explain-machine-learning-models-and-predictions"></a>기계 학습 모델 및 예측 설명
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -30,7 +30,6 @@ ms.locfileid: "80632036"
 
 * Azure에서 전체 모델 및 개별 예측에 대한 동작을 설명합니다.
 
- 
 * 시각화 대시보드를 사용하여 모델 설명과 상호 작용할 수 있습니다.
 
 * 추론 하는 동안 설명을 관찰 하기 위해 모델 함께 점수 설명기를 배포 합니다.
@@ -304,7 +303,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 다음 플롯은 예측 및 설명과 함께 학습된 모델의 전체 보기를 제공합니다.
 
-|플롯|설명|
+|플롯|Description|
 |----|-----------|
 |데이터 탐색| 예측 값과 함께 데이터 집합의 개요를 표시합니다.|
 |글로벌 중요성|집계는 모델의 전체 상위 K(구성 가능한 K)의 중요한 피처를 표시하기 위해 개별 데이터 포인트의 중요도 값을 특징으로 합니다. 기본 모델의 전반적인 동작을 이해하는 데 도움이 됩니다.|
@@ -318,7 +317,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 전체 플롯의 개별 데이터 점을 클릭하여 모든 데이터 포인트에 대한 개별 피쳐 중요도 플롯을 로드할 수 있습니다.
 
-|플롯|설명|
+|플롯|Description|
 |----|-----------|
 |지역 적 중요성|개별 예측에 대한 상위 K(구성 가능한 K) 중요한 피처를 표시합니다. 특정 데이터 포인트에서 기본 모델의 로컬 동작을 보여 줍니다.|
 |섭동 탐색(분석하는 경우 는 무엇인가)|선택한 데이터 포인트의 피처 값을 변경하고 예측 값에 대한 결과 변경 사항을 관찰할 수 있습니다.|

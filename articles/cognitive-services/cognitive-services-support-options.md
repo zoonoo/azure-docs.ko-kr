@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: 5f9ad827fa947e645f7eb4850f90a73c61a45cd3
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 00e966dbee6c1993256a94d734bcc6261aea00af
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637118"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258433"
 ---
 # <a name="azure-cognitive-services-support-and-feedback-options"></a>Azure 코그너티브 서비스 지원 및 피드백 옵션
 
@@ -30,7 +30,7 @@ Azure Cognitive 서비스의 기능을 살펴보기 시작했습니다. 응용 �
 
 지금 클라우드를 시작하려는 개발자든 비즈니스에 중요한 전략적 애플리케이션을 배포하려는 대규모 조직이든 관계없이 가장 적합한 [Azure 지원 옵션 및 플랜 선택](https://azure.microsoft.com/support/plans)의 범위를 탐색합니다. Azure 고객은 Azure Portal에서 지원 요청을 만들고 관리할 수 있습니다.
 
-* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [미국 정부의 Azure Portal](https://portal.azure.us)
 
 ### <a name="search"></a>검색
@@ -59,10 +59,7 @@ Azure Cognitive 서비스의 기능을 살펴보기 시작했습니다. 응용 �
 
 스택 오버플로의 검색 상자에서 문제에 대한 답을 찾을 수 없는 경우 새 질문을 제출합니다. Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 스택 오버플로 커뮤니티의 구성원과 Microsoft 팀 구성원이 직접 문제를 해결하는 데 관여하는 곳입니다.
 
- 질문을 작성할 때 다음 태그 중 하나를 사용합니다.
-
- - [마이크로소프트 코그너티브](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
- - [Azure Cognitive Services](https://stackoverflow.com/questions/tagged/azure-cognitive-services)
+[여기에](https://go.microsoft.com/fwlink/?linkid=2126464)질문을 게시합니다. 질문에 적합한 태그를 사용하므로 해당 질문을 확인할 수 있습니다.
 
 > [!TIP]
 > Stack Overflow의 다음 게시물에는 질문을 작성하고 소스 코드를 추가하는 방법에 대한 팁이 포함되어 있습니다. 다음 지침을 따르면 커뮤니티 구성원이 질문을 신속하게 평가하고 답변할 수 있는 기회를 늘릴 수 있습니다.

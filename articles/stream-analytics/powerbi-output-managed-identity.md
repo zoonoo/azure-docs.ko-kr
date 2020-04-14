@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/10/2020
-ms.openlocfilehash: 8a7dfd7c690d79d8430f7c33a25b38949dbd06c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 31a5195038ef25acadc08e2acbedf8471b25833c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79086336"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261417"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>관리되는 ID를 사용하여 Azure Stream Analytics 작업을 Power BI에 인증
 
@@ -160,7 +160,7 @@ Azure 리소스 관리자를 사용하면 스트림 분석 작업의 배포를 �
 ### <a name="use-the-power-bi-ui"></a>전원 BI UI 사용
 
    > [!Note]
-   > UI를 사용하여 Power BI 작업 영역에 스트림 분석 작업을 추가하려면 Power BI 관리자 포털의 **개발자 설정에서** 서비스 주체 액세스를 사용하도록 설정해야 합니다. 자세한 내용은 [서비스 주체로 시작하기를](https://docs.microsoft.com/power-bi/developer/embed-service-principal#get-started-with-a-service-principal) 참조하십시오.
+   > UI를 사용하여 Power BI 작업 영역에 스트림 분석 작업을 추가하려면 Power BI 관리자 포털의 **개발자 설정에서** 서비스 주체 액세스를 사용하도록 설정해야 합니다. 자세한 내용은 [서비스 주체로 시작하기를](https://docs.microsoft.com/power-bi/developer/embed-service-principal) 참조하십시오.
 
 1. 작업 영역의 액세스 설정으로 이동합니다. 자세한 내용은 이 문서를 [참조하십시오.](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace)
 

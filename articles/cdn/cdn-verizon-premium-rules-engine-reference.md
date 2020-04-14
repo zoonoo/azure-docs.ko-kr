@@ -2,17 +2,17 @@
 title: Azure CDN 규칙 엔진 참조 | Microsoft Docs
 description: Azure CDN 규칙 엔진 일치 조건 및 기능에 대한 참조 설명서
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: magattus
-ms.openlocfilehash: aab93204c850223756f28a56ea550f912e28e0d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: bda817712faf1f54287e880dc62ef2b08273ff42
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69996766"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253393"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>버라이존 프리미엄 규칙 엔진 참조에서 Azure CDN
 
@@ -63,7 +63,7 @@ Space | 공백 문자는 지정된 값 또는 패턴에 의해 일치 조건이 
 
 정규식은 텍스트 값 내에서 검색될 패턴을 정의합니다. 정규식 표기법은 다양한 기호에 대한 특정 의미를 정의합니다. 다음 표에서는 특수 문자가 정규식을 지원하는 일치 조건 및 기능에 의해 처리되는 방식을 나타냅니다.
 
-특수 문자 | 설명
+특수 문자 | Description
 ------------------|------------
 \ | 백슬래시는 뒤에 오는 문자를 이스케이프합니다. 그러면 해당 문자가 정규식 의미를 갖지 않고 리터럴 값으로 처리됩니다. 예를 들어 다음 구문은 별표를 이스케이프합니다.`\*`
 % | 백분율 기호의 의미는 사용법에 따라 달라집니다.<br/><br/> `%{HTTPVariable}`: 이 구문은 HTTP 변수를 식별합니다.<br/>`%{HTTPVariable%Pattern}`: 이 구문은 백분율 기호를 사용하여 HTTP 변수를 식별하고 구분 기호로 지정합니다.<br />`\%`: 백분율 기호를 이스케이프하면 리터럴 값으로 사용되거나 URL 인코딩을 나타낼 수 있습니다(예: `\%20`).

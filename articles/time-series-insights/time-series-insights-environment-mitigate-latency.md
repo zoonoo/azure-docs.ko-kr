@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 245a0b18187ff1c1b226e94b03374f2c071e51c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2812b535c7aef7987db7106bfa6b07e15a1b61c7
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76314830"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263389"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Azure Time Series Insights에서 모니터링을 수행하고 제한을 축소하여 대기 시간 줄이기
 
@@ -30,7 +30,7 @@ ms.locfileid: "76314830"
 - 할당된 수신 속도를 초과할 수 있는 오래된 데이터가 포함된 이벤트 원본을 추가합니다. Time Series Insights를 확인해야 합니다.
 - 더 많은 이벤트 원본을 환경에 추가하면 추가 이벤트가 발생할 수 있습니다(환경 용량을 초과할 수 있음).
 - 많은 양의 기록 이벤트를 이벤트 원본으로 푸시하면 지연이 발생합니다. Time Series Insights를 확인해야 합니다.
-- 원격 분석을 사용하여 참조 데이터를 결합하면 이벤트 크기가 더 커집니다. 제한 관점에서, 패킷 크기가 32KB인 수신 데이터 패킷은 각각 1KB 크기의 32개 이벤트로 처리됩니다. 최대 허용 이벤트 크기는 32KB입니다. 32KB보다 큰 데이터 패킷은 잘립니다.
+- 원격 분석을 사용하여 참조 데이터를 결합하면 이벤트 크기가 더 커집니다. 허용되는 최대 패킷 크기는 32KB입니다. 32KB보다 큰 데이터 패킷은 잘립니다.
 
 ## <a name="video"></a>비디오
 
@@ -56,7 +56,7 @@ ms.locfileid: "76314830"
 
    아래에서 다음 조건 중 일부를 사용하여 경고를 구성할 수 있습니다.
 
-   |메트릭  |설명  |
+   |메트릭  |Description  |
    |---------|---------|
    |**수신된 바이트**     | 이벤트 원본에서 읽은 원시 바이트 수입니다. 일반적으로 원시 바이트 수에는 속성 이름 및 값이 포함됩니다.  |  
    |**수신된 잘못된 메시지**     | 모든 Azure Event Hubs 또는 Azure IoT Hub 이벤트 원본에서 읽은 잘못된 메시지 수입니다.      |
@@ -66,7 +66,7 @@ ms.locfileid: "76314830"
    |**수신된 메시지 시간 지연**    |  메시지가 이벤트 원본의 큐에 대기되는 시간과 수신 처리되는 시간 간의 차이(초)입니다.      |
    |**수신된 메시지 수 지연**    |  이벤트 원본 파티션에서 마지막 큐에 대기된 메시지의 시퀀스 번호와 수신 처리되는 메시지의 시퀀스 번호 간의 차이입니다.      |
 
-   **완료를 선택합니다.**
+   **완료** 를 선택합니다.
 
 1. 원하는 신호 논리를 구성한 후 선택한 경고 규칙을 시각적으로 검토합니다.
 

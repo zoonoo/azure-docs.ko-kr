@@ -1,5 +1,5 @@
 ---
-title: Azure 보안 센터의 위협 보호
+title: 위협 보호 및 Azure Security Center
 description: 이 항목에서는 Azure Security Center의 위협 보호 기능으로 보호되는 리소스에 대해 설명합니다.
 services: security-center
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 395f4b5481fcf2028d6bfe736e58c3174a0c80b2
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: fdf22e4d981549b876a14aed2b0a1d7e0c76e40e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435340"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263457"
 ---
-# <a name="threat-protection-in-azure-security-center"></a>Azure 보안 센터의 위협 보호
+# <a name="threat-protection-in-azure-security-center"></a>위협 보호 및 Azure Security Center
 
 보안 센터에서 사용자 환경의 모든 영역에서 위협을 감지하면 경고를 생성합니다. 이러한 경고는 영향을 받는 리소스의 세부 정보, 제안된 수정 단계 및 경우에 따라 응답으로 논리 앱을 트리거하는 옵션을 설명합니다.
 
@@ -159,19 +159,20 @@ Azure SQL 데이터베이스 및 SQL에 대한 고급 위협 보호는 Azure SQL
 
 
 
-
 ## <a name="threat-protection-for-azure-storage"></a>Azure 저장소에 대한 위협 보호<a name="azure-storage"></a>
 
-> [!NOTE]
-> 이 서비스는 미국 정부 클라우드에서 사용할 수 있지만 다른 주권 또는 Azure 정부 클라우드 지역에서는 사용할 수 없습니다.
+스토리지에 대한 고급 위협 보호는 저장소 계정에 액세스하거나 악용하려는 비정상적이고 잠재적으로 유해한 시도를 감지합니다. 이 보호 계층을 사용하면 보안 전문가가 될 필요 없이 위협을 해결할 수 있으며 보안 모니터링 시스템을 관리할 수 있습니다.
 
-스토리지에 대한 고급 위협 보호(현재 Blob 저장소에만 사용 가능)는 저장소 계정에 액세스하거나 악용하려는 이상하고 잠재적으로 유해한 시도를 감지합니다. 이 보호 계층을 사용하면 보안 전문가가 될 필요 없이 위협을 해결할 수 있으며 보안 모니터링 시스템을 관리할 수 있습니다.
+Azure 저장소에 대한 고급 위협 보호는 현재 [Blob 저장소에서만](https://azure.microsoft.com/services/storage/blobs/)사용할 수 있습니다. 
+
+이 서비스는 모든 퍼블릭 클라우드 및 미국 정부 클라우드에서 사용할 수 있지만 다른 주권 또는 Azure 정부 클라우드 지역에서는 사용할 수 없습니다.
+
+무료 30일 평가판을 포함한 가격 세부 정보는 [Azure 보안 센터 가격 페이지를](https://azure.microsoft.com/pricing/details/security-center/)참조하십시오.
 
 자세한 내용은 다음을 참조하세요.
 
 * [Azure 저장소에 대한 고급 위협 보호를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
 * [Azure 저장소에 대한 위협 보호 경고 목록](alerts-reference.md#alerts-azurestorage)
-
 
 > [!TIP]
 > [이 블로그 게시물의](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131)지침에 따라 Azure Storage 경고를 시뮬레이션할 수 있습니다.

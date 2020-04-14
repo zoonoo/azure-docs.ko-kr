@@ -2,17 +2,17 @@
 title: 규칙 엔진을 사용하여 표준 Azure CDN에서 HTTPS적용 | 마이크로 소프트 문서
 description: Microsoft 표준 Azure 콘텐츠 배달 네트워크(Azure CDN)의 규칙 엔진을 사용하여 Azure CDN이 특정 유형의 콘텐츠 배달 차단, 캐싱 정책 정의 및 HTTP 헤더 수정을 포함하여 HTTP 요청을 처리하는 방법을 사용자 지정합니다. 이 문서에서는 사용자를 HTTPS로 리디렉션하는 규칙을 만드는 방법을 알아봅니다.
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: magattus
-ms.openlocfilehash: 724861305d7a25db409072200ac2bc3bd83f0682
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 91a442573139bf4fdd09978290bf2380c8bcb97e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74171580"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259931"
 ---
 # <a name="set-up-the-standard-rules-engine-for-azure-cdn"></a>Azure CDN에 대한 표준 규칙 엔진 설정
 

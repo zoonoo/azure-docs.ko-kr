@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 0d28469820f63f63089d9b91d57ccd7fe75c8b95
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 809fbe85a9783777d5dbef86357bd5a386bd6f81
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348649"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261246"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Redis에 대한 Azure 캐시와 함께 사용할 TLS 1.0 및 1.1 제거
 
@@ -51,7 +51,7 @@ TLS(전송 계층 보안) 버전 1.2 이상전용을 향한 업계 전반의 압
 Redis .NET 클라이언트는 .NET Framework 4.5.2 이상에서 기본적으로 초기 TLS 버전을 사용하고 .NET Framework 4.6 이상에서 최신 TLS 버전을 사용합니다. 이전 버전의 .NET Framework를 사용하는 경우 TLS 1.2를 수동으로 활성화할 수 있습니다.
 
 * **스택 익스체인지.재배포:** 설정 `ssl=true` `sslprotocols=tls12` 및 연결 문자열에 있습니다.
-* **서비스 스택.재배포:** [서비스스택.Redis 지침을](https://github.com/ServiceStack/ServiceStack.Redis/pull/247)따르십시오.
+* **서비스 스택.재배포:** [ServiceStack.Redis](https://github.com/ServiceStack/ServiceStack.Redis#servicestackredis-ssl-support) 지침을 따르고 최소한 ServiceStack.Redis v5.6이 필요합니다.
 
 ### <a name="net-core"></a>.NET Core
 

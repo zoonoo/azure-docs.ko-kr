@@ -5,24 +5,26 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 6d4c1f52f0f3b1e05ec06f5a66a36323f346d4eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f9e55ff2c581f9392a125f6dc3ec8d903e9876a4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280544"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256436"
 ---
-# <a name="cancel-operation"></a>작업 취소 
+# <a name="cancel-operation"></a>작업 취소
+
+> [!NOTE]
+> 클라우드 파트너 포털 API는 파트너 센터와 통합되며 오퍼가 파트너 센터로 마이그레이션된 후에도 계속 작동합니다. 통합은 작은 변화를 도입합니다. [Cloud 파트너 포털 API 참조에](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) 나열된 변경 내용을 검토하여 파트너 센터로 마이그레이션한 후에도 코드가 계속 작동하는지 확인합니다.
 
 이 API는 제안에 대해 현재 진행 중인 작업을 취소합니다. [작업 검색 API](./cloud-partner-portal-api-retrieve-operations.md)를 사용하여 이 API에 전달할 `operationId`를 가져옵니다. 일반적으로 취소는 동기 작업이지만, 일부 복잡한 시나리오에서는 기존 작업을 취소하기 위해 새 작업이 필요할 수 있습니다. 이 경우 HTTP 응답 본문에는 상태 쿼리에 사용되는 작업 위치가 포함됩니다.
 
-요청에 쉼표로 구분된 이메일 주소 목록을 제공할 수 있으며, API는 이러한 주소에 작업의 진행 상태를 알립니다.
-
   `POST https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/cancel?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>URI 매개 변수
+## <a name="uri-parameters"></a>URI 매개 변수
+
 --------------
 
 |  **이름**    |      **설명**                                  |    **데이터 형식**  |
@@ -32,8 +34,7 @@ ms.locfileid: "80280544"
 | api-version  |  API의 현재 버전입니다.                               |    Date           |
 |  |  |  |
 
-
-<a name="header"></a>헤더
+## <a name="header"></a>헤더
 ------
 
 |  **이름**              |  **값**         |
@@ -42,8 +43,7 @@ ms.locfileid: "80280544"
 |  권한 부여         |  전달자 사용자 토큰 |
 |  |  |
 
-
-<a name="body-example"></a>본문 예제
+## <a name="body-example"></a>본문 예제
 ------------
 
 ### <a name="request"></a>요청
@@ -63,19 +63,22 @@ ms.locfileid: "80280544"
 |  notification-emails     | 게시 작업의 진행률 알림을 받을 이메일 ID의 쉼표로 구분된 목록입니다. |
 |  |  |
 
-
 ### <a name="response"></a>응답
 
-  `Operation-Location: https://cloudpartner.azure.com/api/publishers/contoso/offers/contoso-virtualmachineoffer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8`
+#### <a name="migrated-offers"></a>마이그레이션된 오퍼
 
+`Location: /api/publishers/contoso/offers/contoso-offer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8?api-version=2017-10-31`
+
+#### <a name="non-migrated-offers"></a>마이그레이션되지 않은 오퍼
+
+`Location: /api/operations/contoso$contoso-offer$2$preview?api-version=2017-10-31`
 
 ### <a name="response-header"></a>응답 헤더
 
 |  **이름**             |    **값**                       |
 |  ---------            |    ----------                      |
-| Operation-Location    | 작업의 현재 상태를 확인하기 위해 쿼리할 수 있는 URL입니다. |
+| 위치    | 이 작업의 상태를 검색하는 상대 경로입니다. |
 |  |  |
-
 
 ### <a name="response-status-codes"></a>응답 상태 코드
 

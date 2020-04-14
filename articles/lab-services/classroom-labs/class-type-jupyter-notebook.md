@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: 371c2186d44469a22b138255fb513761a9be4437
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 222f5647248d27c3bdfabd0feaeb66dd9f543652
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478227"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257728"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>파이썬 및 주피터 노트북으로 데이터 과학을 가르치는 실험실 설정
 
@@ -26,7 +26,7 @@ ms.locfileid: "80478227"
 
 ## <a name="lab-configuration"></a>랩 구성
 
-이 랩을 설정하려면 Azure 구독 및 랩 계정을 시작해야 합니다. Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://azure.microsoft.com/free/) 만드세요. Azure 구독을 받으면 Azure Lab 서비스에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정을 만드는 자세한 내용은 [랩 계정을 설정하는 자습서를](tutorial-setup-lab-account.md)참조하십시오.  기존 랩 계정을 사용할 수도 있습니다.
+이 랩을 설정하려면 Azure 구독 및 랩 계정을 시작해야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독을 받으면 Azure Lab 서비스에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정을 만드는 자세한 내용은 [랩 계정을 설정하는 자습서를](tutorial-setup-lab-account.md)참조하십시오.  기존 랩 계정을 사용할 수도 있습니다.
 
 ### <a name="lab-account-settings"></a>랩 계정 설정
 
@@ -37,7 +37,7 @@ ms.locfileid: "80478227"
 | 마켓플레이스 이미지 | 랩 계정 내에서 사용할 수 있도록 [데이터 과학 가상 컴퓨터 - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) 이미지를 사용하도록 설정합니다. |
 
 >[!TIP]
->이 문서에서는 Windows Server 운영 체제를 사용하는 템플릿 컴퓨터를 구성하는 데 중점을 둡니다.  또한 Azure 마켓플레이스의 [데이터 과학 가상 머신(우분투)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) 이미지를 사용하여 파이썬 및 Jupyter 노트북을 사용하여 데이터 과학 클래스를 설정할 수도 있습니다.
+>이 문서에서는 Windows Server 운영 체제를 사용하는 템플릿 컴퓨터를 구성하는 데 중점을 둡니다.  또한 Azure 마켓플레이스의 [데이터 과학 가상 머신(우분투)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) 이미지를 사용하여 파이썬 및 Jupyter 노트북을 사용하여 데이터 과학 클래스를 설정할 수도 있습니다.
 
 ### <a name="lab-settings"></a>랩 설정
 

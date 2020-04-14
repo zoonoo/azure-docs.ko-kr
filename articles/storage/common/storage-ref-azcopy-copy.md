@@ -4,16 +4,16 @@ description: 이 문서에서는 azcopy 복사 명령에 대한 참조 정보를
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 431372b930269c3dfa6bdc6e8b2fe4d291a8162e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0325a71fb069f3d96f05d106afac1639fc38fe42
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78933789"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253342"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -169,6 +169,8 @@ SAS 토큰을 사용하여 저장소 계정에서 다른 Blob 컨테이너, 디�
 
 ## <a name="options"></a>옵션
 
+**--백업**                               업로드에 대 한 Windows의 SeBackupPrivilege 활성화, 또는 다운로드에 대 한 SeRestorePrivilege, AzCopy 모든 파일을 읽을 수 있도록 허용, 그들의 파일 시스템 권한에 관계 없이, 모든 권한을 복원. AzCopy를 실행하는 계정에 이미 이러한 권한이 있어야 합니다(예: 관리자 권한이 있거나 '백업 운영자' 그룹의 구성원). 이 플래그는 계정에 이미 있는 권한을 활성화하는 것입니다.
+
 **--Blob 형식** 문자열 대상에서 Blob 의 형식을 정의합니다. 이는 Blob을 업로드하고 계정 간에 복사할 때 사용됩니다(기본 '감지'). 유효한 값으로는 '감지', '블록블랍', 'PageBlob', 'AppendBlob'가 있습니다. 계정 간에 복사할 때 '감지' 값을 사용하면 AzCopy에서 소스 Blob 유형을 사용하여 대상 Blob의 유형을 결정합니다. 파일을 업로드할 때 '감지'는 파일 확장명에 따라 파일이 VHD 또는 VHDX 파일인지 여부를 결정합니다. 파일이 VHD 또는 VHDX 파일인 경우 AzCopy는 파일을 페이지 Blob로 처리합니다. (기본값 "감지")
 
 **--블록-Blob 계층** 문자열 블록 Blob을 선택한 [액세스 계층에](../blobs/storage-blob-storage-tiers.md) 직접 업로드합니다. (기본값 '없음')을 입력합니다. 유효한 값에는 '없음', '핫', '쿨', '아카이브'가 포함됩니다. '없음' 또는 계층이 전달되지 않으면 Blob은 저장소 계정의 계층을 상속합니다.
@@ -223,6 +225,12 @@ SAS 토큰을 사용하여 저장소 계정에서 다른 Blob 컨테이너, 디�
 
 **--보존 - 마지막 수정 시간**          대상이 파일 시스템인 경우에만 사용할 수 있습니다.
 
+**--보존-smb-권한** 문자열 기본적으로 False. 인식 리소스(Windows 및 Azure 파일) 간에 SMB ACL을 보존합니다. 다운로드의 경우 플래그를 `--backup` 사용하여 새 소유자가 AzCopy를 실행하는 사용자가 아닌 권한을 복원해야 합니다. 이 플래그는 파일 전용 필터를 지정하지 않는 한 파일과 폴더 `include-pattern`모두에 적용됩니다(예: ).
+
+**--보존-smb-정보** 문자열 기본적으로 False. SMB 인식 리소스(Windows 및 Azure 파일) 간에 SMB 속성 정보(마지막 쓰기 시간, 생성 시간, 특성 비트)를 유지합니다. Azure 파일에서 지원하는 특성 비트만 전송됩니다. 다른 사람은 무시됩니다. 이 플래그는 파일 전용 필터(예: 포함 패턴)를 지정하지 않는 한 파일과 폴더 모두에 적용됩니다. 폴더에 대해 전송된 정보는 폴더에 대해 보존되지 않는 마지막 쓰기 시간을 제외하고 파일의 정보와 동일합니다.
+
+**--보존 소유자**                       데이터를 다운로드할 때만, 그리고 이 가 `--preserve-smb-permissions` 사용될 때만 효과가 있다. true(기본값)이면 파일 소유자 및 그룹은 다운로드에서 유지됩니다. 이 플래그가 false로 `--preserve-smb-permissions` 설정된 경우에도 ACL은 유지되지만 소유자 및 그룹은 AzCopy를 실행하는 사용자를 기반으로 합니다.
+
 **--put-md5**                             각 파일의 MD5 해시를 만들고 해시를 대상 Blob 또는 파일의 Content-MD5 속성으로 저장합니다. (기본적으로 해시가 만들어지지 않습니다.) 업로드할 때만 사용할 수 있습니다.
 
 **--재귀**                            로컬 파일 시스템에서 업로드할 때 하위 디렉터리를 재귀적으로 살펴봅니다.
@@ -241,6 +249,6 @@ SAS 토큰을 사용하여 저장소 계정에서 다른 Blob 컨테이너, 디�
 
 **--출력 유형** 문자열 명령출력의 형식입니다. 선택 사항은 다음과 같습니다: 텍스트, json. 기본값은 '텍스트'입니다. (기본값 "텍스트")
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-- [아즈카피](storage-ref-azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: ed7d62ef5c1c4837b3eb6d02f301085178fe5e0b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 99abb6cb493cca3aa4e2ac0c42744e1fbaf84f12
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528220"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272987"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure에서 2세대 VM 지원
 
@@ -35,7 +35,9 @@ ms.locfileid: "79528220"
 * [B 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
 * [DC 시리즈](../dcv2-series.md)
 * [DSv2 시리즈](../dv2-dsv2-series.md) 및 [Dsv3 시리즈](../dv3-dsv3-series.md)
+* [Dasv4 시리즈](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series)
 * [에스브3 시리즈](../ev3-esv3-series.md)
+* [Easv4 시리즈](https://docs.microsoft.com/azure/virtual-machines/eav4-easv4-series)
 * [Fsv2 시리즈](../fsv2-series.md)
 * [GS 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#gs-series)
 * [HB 시리즈](../hb-series.md)
@@ -59,7 +61,7 @@ ms.locfileid: "79528220"
 * 수지 리눅스 엔터프라이즈 서버 12 SP4
 * 우분투 서버 16.04, 18.04, 19.04, 19.10 
 * RHEL 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 7.0
-* 센트 OS 8.0, 7.7, 7.6, 7.5, 7.4
+* 센트 OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4
 * 오라클 리눅스 7.7, 7.7-CI
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>온-프레미스 vs. Azure 세대 2 VM
@@ -106,7 +108,7 @@ Azure 포털 또는 Azure CLI에서 UEFI 부팅을 지원하는 마켓플레이�
 
 다음은 Azure 포털에서 세대 2(Gen2) VM을 만드는 단계입니다.
 
-1. [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 1. **리소스 만들기를 선택합니다.**
 1. 왼쪽의 Azure 마켓플레이스에서 **모두 보기를** 클릭합니다.
 1. Gen2를 지원하는 이미지를 선택합니다.

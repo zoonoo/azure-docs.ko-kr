@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/17/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: f779781eee81bf85f6420e5bae6b0feb62680b8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f1d23f11cf73680a8861c9f1ac6cbd40ad497a4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064182"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257337"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure 기계 학습의 작동 방식: 아키텍처 및 개념
 
@@ -27,7 +27,7 @@ Azure 기계 학습을 위한 아키텍처, 개념 및 워크플로에 대해 �
 
 기계 학습 모델 워크플로는 일반적으로 다음 순서를 따릅니다.
 
-1. **기차**
+1. **학습**
     + **Python,** **R**또는 비주얼 디자이너와 함께 기계 학습 교육 스크립트를 개발합니다.
     + **컴퓨팅 대상**을 만들고 구성합니다.
     + 해당 환경에서 실행할 구성된 계산 대상에 **스크립트를 제출합니다.** 교육 하는 동안 스크립트에서 읽거나 **데이터 스토어에**쓸 수 있습니다. 교육 중에 생성된 로그 및 출력은 **작업 영역에서** **실행으로** 저장되고 **실험하에 그룹화됩니다.**
@@ -187,7 +187,7 @@ PyTorch, TensorFlow 및 체인러 작업의 경우 Azure 기계 학습은 이러
 * [추정기와 ML 모델을 훈련.](how-to-train-ml-models.md)
 * [Azure 기계 학습을 통해 Pytorch 딥 러닝 모델을 대규모로 학습합니다.](how-to-train-pytorch.md)
 * [Azure 기계 학습을 통해 TensorFlow 모델을 대규모로 교육하고 등록합니다.](how-to-train-tensorflow.md)
-* [Azure 기계 학습을 통해 Chainer 모델을 대규모로 교육하고 등록합니다.](how-to-train-chainer.md)
+* [Azure 기계 학습을 통해 Chainer 모델을 대규모로 교육하고 등록합니다.](how-to-train-ml-models.md)
 
 ### <a name="endpoints"></a>엔드포인트
 
@@ -238,6 +238,6 @@ Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 �
 
 Azure 기계 학습을 시작하려면 다음을 참조하십시오.
 
-* [Azure 기계 학습이란 무엇입니까?](overview-what-is-azure-ml.md)
+* [Azure Machine Learning이란?](overview-what-is-azure-ml.md)
 * [Azure 기계 학습 작업 영역 만들기](how-to-manage-workspace.md)
 * [튜토리얼(1부): 모델 학습](tutorial-train-models-with-aml.md)

@@ -2,17 +2,17 @@
 title: Azure CDN - 버라이존 프리미엄 규칙 엔진으로 HTTP 동작 재정의
 description: 규칙 엔진을 사용하면 특정 유형의 콘텐츠 배달을 차단하고, 캐싱 정책을 정의하고, HTTP 헤더를 수정하는 등 Verizon Premium의 Azure CDN에서 HTTP 요청을 처리하는 방법을 사용자 지정할 수 있습니다.
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: magattus
-ms.openlocfilehash: aa0606eafb8fe4c517b0c18e0137058a120115ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 2e5e4265f30631f8e68d8f9e7156ea578ae85e7a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74082946"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253478"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>버라이존 프리미엄 규칙 엔진에서 Azure CDN을 사용 하 여 HTTP 동작을 재정의
 
@@ -93,7 +93,7 @@ Azure CDN 규칙 엔진을 사용하면 HTTP 요청을 처리하는 방법을 �
    >
    >
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [Azure CDN 개요](cdn-overview.md)
 - [규칙 엔진 참조](cdn-verizon-premium-rules-engine-reference.md)

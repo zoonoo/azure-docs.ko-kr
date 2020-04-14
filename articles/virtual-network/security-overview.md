@@ -13,27 +13,26 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 8f3497f113981ae563023750ad8979c88c640f5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 968cc9ed9d938bb04d1243102855c134147ddf3b
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80123344"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269876"
 ---
 # <a name="network-security-groups"></a>네트워크 보안 그룹
 <a name="network-security-groups"></a>
 
-Azure 가상 네트워크의 Azure 리소스와 네트워크 보안 그룹이 주고 받는 네트워크 트래픽을 필터링할 수 있습니다. 네트워크 보안 그룹에는 여러 종류의 Azure 리소스에서 오는 인바운드 트래픽 또는 이러한 리소스로 나가는 아웃바운드 네트워크 트래픽을 허용하거나 거부하는 보안 규칙이 포함됩니다. 가상 네트워크에 배포하고 네트워크 보안 그룹을 연결할 수 있는 Azure 리소스에 대한 자세한 내용은 [Azure 서비스용 가상 네트워크 통합](virtual-network-for-azure-services.md)을 참조하세요. 규칙마다 원본 및 대상, 포트, 프로토콜을 지정할 수 있습니다.
+Azure 네트워크 보안 그룹을 사용하여 Azure 가상 네트워크의 Azure 리소스와 및 네트워크 트래픽을 필터링할 수 있습니다. 네트워크 보안 그룹에는 여러 유형의 Azure 리소스에 대한 인바운드 네트워크 트래픽 또는 아웃바운드 네트워크 트래픽을 허용하거나 거부하는 [보안 규칙이](#security-rules) 포함되어 있습니다. 규칙마다 원본 및 대상, 포트, 프로토콜을 지정할 수 있습니다.
+이 문서에서는 네트워크 보안 그룹 규칙의 속성, 적용되는 [기본 보안 규칙](#default-security-rules) 및 [보강된 보안 규칙을](#augmented-security-rules)만들기 위해 수정할 수 있는 규칙 속성에 대해 설명합니다.
 
-이 문서에서는 네트워크 보안 그룹을 효과적으로 사용할 수 있도록 그 개념에 대해 설명합니다. 네트워크 보안 그룹을 만들어 본 경험이 전혀 없는 경우 빠른 [자습서](tutorial-filter-network-traffic.md)를 완료하여 직접 경험해 볼 수 있습니다. 네트워크 보안 그룹에 익숙하고 네트워크 보안 그룹을 관리해야 하는 경우 [네트워크 보안 그룹 관리](manage-network-security-group.md)를 참조하세요. 통신에 문제가 있고 네트워크 보안 그룹 문제를 해결해야 하는 경우 [가상 머신 네트워크 트래픽 필터 문제 진단](diagnose-network-traffic-filter-problem.md)을 참조하세요. [네트워크 보안 그룹 흐름 로그](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하도록 설정하면 네트워크 보안 그룹이 연결된 리소스의 네트워크 트래픽을 분석할 수 있습니다.
-
-## <a name="security-rules"></a>보안 규칙
+## <a name="security-rules"></a><a name="security-rules"></a>보안 규칙
 
 네트워크 보안 그룹은 Azure 구독 [제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) 내에서 필요한 만큼 0개 또는 많은 규칙을 포함합니다. 각 규칙은 다음 속성을 지정합니다.
 
 |속성  |설명  |
 |---------|---------|
-|이름|네트워크 보안 그룹 내에서 고유한 이름입니다.|
+|속성|네트워크 보안 그룹 내에서 고유한 이름입니다.|
 |우선 순위 | 100~4096 사이의 숫자입니다. 낮은 번호의 우선 순위가 더 높기 때문에 규칙은 낮은 번호가 높은 번호보다 먼저 처리되는 우선 순위 순서로 처리됩니다. 트래픽이 규칙과 일치하면 처리가 중지됩니다. 따라서 우선 순위가 높은 규칙과 동일한 특성을 가진 우선 순위가 낮은 규칙(높은 번호)은 처리되지 않습니다.|
 |원본 또는 대상| 아무 또는 개별 IP 주소, CIDR(클래스 없는 도메인 간 라우팅) 블록(예: 10.0.0.0/24), [서비스 태그](service-tags-overview.md) 또는 [애플리케이션 보안 그룹](#application-security-groups)입니다. Azure 리소스의 주소를 지정하는 경우 리소스에 할당된 개인 IP 주소를 지정하세요. 네트워크 보안 그룹은 Azure가 공용 IP 주소를 인바운드 트래픽용 개인 IP 주소로 변환한 후에, 그리고 Azure가 개인 IP 주소를 아웃바운드 트래픽용 공용 IP 주소로 변환하기 전에 처리됩니다. Azure [IP 주소](virtual-network-ip-addresses-overview-arm.md)에 대해 자세히 알아보세요. 범위, 서비스 태그 또는 애플리케이션 보안 그룹을 지정하면 더 적은 보안 규칙을 만들어도 됩니다. 규칙에서 여러 개의 개별 IP 주소 및 범위(여러 서비스 태그 또는 응용 프로그램 그룹을 지정할 수 없음)를 지정하는 기능을 [보강된 보안 규칙이라고](#augmented-security-rules)합니다. 보강된 보안 규칙은 Resource Manager 배포 모델을 통해 만들어진 네트워크 보안 그룹에서만 만들 수 있습니다. 클래식 배포 모델을 통해 만든 네트워크 보안 그룹에서는 여러 개의 IP 주소 및 IP 주소 범위를 지정할 수 없습니다. [Azure 배포 모델에](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json)대해 자세히 알아봅니다.|
 |프로토콜     | TCP, UDP, ICMP 또는 모든.|
@@ -46,7 +45,7 @@ Azure 가상 네트워크의 Azure 리소스와 네트워크 보안 그룹이 �
 
 한 네트워크 보안 그룹에 만들 수 있는 보안 규칙 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
 
-### <a name="default-security-rules"></a>기본 보안 규칙
+### <a name="default-security-rules"></a><a name="default-security-rules"></a>기본 보안 규칙
 
 Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같은 기본 규칙을 만듭니다.
 
@@ -94,7 +93,7 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
  
 기본 규칙을 제거할 수 없지만 더 높은 우선 순위의 규칙을 만들어서 재정의할 수 있습니다.
 
-### <a name="augmented-security-rules"></a>보강된 보안 규칙
+### <a name="augmented-security-rules"></a><a name="augmented-security-rules"></a>증강된 보안 규칙
 
 보강된 보안 규칙은 가상 네트워크에 대한 보안 정의를 간소화하여 더 적은 규칙으로 크고 복잡한 네트워크 보안 정책을 정의할 수 있도록 합니다. 여러 포트, 여러 명시적 IP 주소 및 범위를 이해하기 쉬운 단일 보안 규칙으로 결합할 수 있습니다. 규칙의 원본, 대상 및 포트 필드에서 보강된 규칙을 사용합니다. 보안 규칙 정의의 유지 관리를 간소화하려면 증강된 보안 규칙을 [서비스 태그](service-tags-overview.md) 또는 [응용 프로그램 보안 그룹과](#application-security-groups)결합합니다. 한 규칙에서 지정할 수 있는 주소, 범위 및 포트 수가 제한됩니다. 자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
 
@@ -170,4 +169,8 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [네트워크 보안 그룹 만들기](tutorial-filter-network-traffic.md)에 대해 알아보세요.
+* 가상 네트워크에 배포할 수 있는 Azure 리소스와 연결된 네트워크 보안 그룹에 대해 자세히 알아보려면 [Azure 서비스에 대한 가상 네트워크 통합을](virtual-network-for-azure-services.md) 참조하세요.
+* 네트워크 보안 그룹을 만들어 본 경험이 전혀 없는 경우 빠른 [자습서](tutorial-filter-network-traffic.md)를 완료하여 직접 경험해 볼 수 있습니다. 
+* 네트워크 보안 그룹에 익숙하고 네트워크 보안 그룹을 관리해야 하는 경우 [네트워크 보안 그룹 관리](manage-network-security-group.md)를 참조하세요. 
+* 통신에 문제가 있고 네트워크 보안 그룹 문제를 해결해야 하는 경우 [가상 머신 네트워크 트래픽 필터 문제 진단](diagnose-network-traffic-filter-problem.md)을 참조하세요. 
+* 네트워크 보안 [그룹 흐름 로그를](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 사용하여 연결된 네트워크 보안 그룹이 있는 리소스와 네트워크 트래픽을 분석하는 방법을 알아봅니다.

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dsindona
-ms.openlocfilehash: bd6c375231facc3d7afb35df74210d26b5f50ba8
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 9d2f4b02dd2b009e96abb65d4c42ef3a281e6ce1
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387787"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262828"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>AppSource와 Azure Marketplace 비교
 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Microsoft AppSource](https://appsource.microsoft.com)의 상점은 고유한 고객 요구에 맞춰 서비스합니다. 상점을 사용하여 역할별로 대상 고객을 지정할 수 있습니다. 사용자는 고객에 따라 적합한 솔루션 또는 서비스를 제공할 수 있습니다.
@@ -35,5 +35,5 @@ ms.locfileid: "80387787"
 | **고객에게 컨텍스트 내 프레젠테이션** | 상황별 검색을 위해 Azure Portal 내 환경에서 사용자 솔루션을 사용하도록 할 수 있습니다. 가상 머신 및 Azure 앱 사용: 솔루션 템플릿 게시 옵션 | Microsoft 제품(예: Dynamics 365, Power BI 및 Office 365)에 대한 인앱 환경을 통해 더 많은 고객에게 연결합니다. |
 
 ## <a name="next-steps"></a>다음 단계
-*   [Azure Marketplace 및 AppSource 게시 가이드](./marketplace-publishers-guide.md)를 검토합니다.
+*   상업용 [마켓플레이스 게시 가이드를](./marketplace-publishers-guide.md)검토합니다.
 

@@ -2,17 +2,17 @@
 title: 버라이존 프리미엄 규칙 엔진 일치 조건에서 Azure CDN | 마이크로 소프트 문서
 description: Verizon Premium 규칙 엔진 일치 조건에서 Azure 콘텐츠 배달 네트워크에 대한 참조 설명서입니다.
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: magattus
-ms.openlocfilehash: 1660dca34b2f128ef5889145fcdeed0d2523b9bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: e2361590118668f2cdf22c4a29534b16790b90e4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593212"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253444"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>버라이존 프리미엄 규칙 엔진 일치 조건에서 Azure CDN
 
@@ -30,7 +30,7 @@ ms.locfileid: "67593212"
 
 항상 일치 조건은 모든 요청에 기본 기능 집합을 적용합니다.
 
-이름 | 목적
+속성 | 목적
 -----|--------
 [항상](#always) | 모든 요청에 기본 기능 집합을 적용합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "67593212"
 
 디바이스 일치 조건은 속성에 따라 모바일 디바이스에서 생성되는 요청을 식별합니다.  
 
-이름 | 목적
+속성 | 목적
 -----|--------
 [디바이스](#device) | 속성에 따라 모바일 디바이스에서 생성되는 요청을 식별합니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "67593212"
 
 위치 일치 조건은 요청자의 위치에 따라 요청을 식별합니다.
 
-이름 | 목적
+속성 | 목적
 -----|--------
 [AS 숫자](#as-number) | 특정 네트워크에서 발생하는 요청을 식별합니다.
 [국가](#country) | 지정된 국가/지역에서 시작된 요청을 식별합니다.
@@ -55,7 +55,7 @@ ms.locfileid: "67593212"
 
 원본 일치 조건은 Content Delivery Network 스토리지 또는 고객 원본 서버를 가리키는 요청을 식별합니다.
 
-이름 | 목적
+속성 | 목적
 -----|--------
 [CDN 원본](#cdn-origin) | Content Delivery Network 스토리지에 저장된 콘텐츠에 대한 요청을 식별합니다.
 [고객 원본](#customer-origin) | 특정 고객 원본 서버에 저장된 콘텐츠에 대한 요청을 식별합니다.
@@ -64,7 +64,7 @@ ms.locfileid: "67593212"
 
 요청 일치 조건은 해당 속성에 따라 요청을 식별합니다.
 
-이름 | 목적
+속성 | 목적
 -----|--------
 [클라이언트 IP 주소](#client-ip-address) | 특정 IP 주소에서 발생하는 요청을 식별합니다.
 [쿠키 매개 변수](#cookie-parameter) | 지정된 값에 대한 각 요청과 관련된 쿠키를 확인합니다.
@@ -81,7 +81,7 @@ ms.locfileid: "67593212"
 
 URL 일치 조건은 해당 URL에 따라 요청을 식별합니다.
 
-이름 | 목적
+속성 | 목적
 -----|--------
 [URL 경로 디렉터리](#url-path-directory) | 해당 상대 경로로 요청을 식별합니다.
 [URL 경로 확장](#url-path-extension) | 해당 파일 이름 확장명으로 요청을 식별합니다.
@@ -165,10 +165,10 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
 주요 정보:
 
 - CIDR 표기법을 사용합니다.
-- 각각을 단일 공백으로 구분하여 여러 IP 주소 및/또는 IP 주소 블록을 지정합니다. 예를 들어:
+- 각각을 단일 공백으로 구분하여 여러 IP 주소 및/또는 IP 주소 블록을 지정합니다. 다음은 그 예입니다.
   - **IPv4 예제**: 1.2.3.4 10.20.30.40은 1.2.3.4 또는 10.20.30.40 주소에서 도착하는 요청과 일치합니다.
   - **IPv6 예제**: 1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80은 1:2:3:4:5:6:7:8 또는 10:20:30:40:50:60:70:80 주소에서 도착하는 요청과 일치합니다.
-- IP 주소 블록에 대한 구문은 뒤에 슬래시와 접두사 크기가 오는 기본 IP 주소입니다. 예를 들어:
+- IP 주소 블록에 대한 구문은 뒤에 슬래시와 접두사 크기가 오는 기본 IP 주소입니다. 다음은 그 예입니다.
   - **IPv4 예제**: 5.5.5.64/26은 5.5.5.64에서 5.5.5.127까지의 주소에서 도착하는 요청과 일치합니다.
   - **IPv6 예제**: 1:2:3:/48은 1:2:3:0:0:0:0:0에서 1:2:3:ffff:ffff:ffff:ffff:ffff까지의 주소에서 도착한 요청과 일치합니다.
 - 캐시 설정을 추적하는 방식으로 인해 이 일치 조건은 다음 기능과 호환되지 않습니다.
@@ -345,13 +345,13 @@ WURFL 기능은 모바일 디바이스를 설명하는 범주를 나타냅니다
 > [!NOTE]
 > 다음 변수는 **클라이언트 요청 헤더 수정** 및 **클라이언트 응답 헤더 수정** 기능에서 지원됩니다.
 
-기능 | 변수 | 설명 | 샘플 값
+기능 | 변수 | Description | 샘플 값
 -----------|----------|-------------|----------------
 브랜드 이름 | %{wurfl_cap_brand_name} | 디바이스의 브랜드 이름을 나타내는 문자열입니다. | Samsung
 디바이스 OS | %{wurfl_cap_device_os} | 디바이스에 설치된 운영 체제를 나타내는 문자열입니다. | IOS
 디바이스 OS 버전 | %{wurfl_cap_device_os_version} | 디바이스에 설치된 운영 체제의 버전 번호를 나타내는 문자열입니다. | 1.0.1
 이중 방향 | %{wurfl_cap_dual_orientation} | 디바이스가 이중 방향을 지원하는지 여부를 나타내는 부울입니다. | true
-HTML 기본 DTD | %{wurfl_cap_html_preferred_dtd} | HTML 콘텐츠에 대한 모바일 디바이스의 기본 DTD(문서 종류 정의)를 나타내는 문자열입니다. | none<br/>xhtml_basic<br/>html5
+HTML 기본 DTD | %{wurfl_cap_html_preferred_dtd} | HTML 콘텐츠에 대한 모바일 디바이스의 기본 DTD(문서 종류 정의)를 나타내는 문자열입니다. | 없음<br/>xhtml_basic<br/>html5
 이미지 인라인 처리 | %{wurfl_cap_image_inlining} | 디바이스가 Base64로 인코딩된 이미지를 지원하는지 여부를 나타내는 부울입니다. | false
 Android 여부 | %{wurfl_vcap_is_android} | 디바이스가 Android OS를 사용하는지 여부를 나타내는 부울입니다. | true
 IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 여부를 나타내는 부울입니다. | false
@@ -993,7 +993,7 @@ Email | Joe\* | 이 패턴은 요청된 URL의 쿼리 문자열에 "Joe"로 시�
 
 - 정규식에 백슬래시를 포함하려면 특수 정규식 문자(예: \^$.+)를 두 번 이스케이프합니다.
 
-   예를 들어:
+   다음은 그 예입니다.
 
    값 | 해석되는 값 
    ------|---------------
@@ -1053,7 +1053,7 @@ Email | Joe\* | 이 패턴은 요청된 URL의 쿼리 문자열에 "Joe"로 시�
 
 다음 예제는 이 옵션이 특정 상황에서 작동하는 방식을 보여줍니다.
 
- 이름                 | 설명
+ 속성                 | Description
  ---------------------|------------
 user=joe              | 이 패턴은 요청된 URL의 쿼리 문자열이 "?user=joe"인 경우에 일치합니다.
 \*사용자=\* \*옵트아웃=\* | 이 패턴은 CDN URL 쿼리에 user 또는 optout 매개 변수가 포함되는 경우에만 일치합니다.

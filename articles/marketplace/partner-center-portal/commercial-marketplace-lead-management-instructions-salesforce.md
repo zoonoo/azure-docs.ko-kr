@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 9b59181f7c1b24a7bc00ab579bbe67a70f499c92
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 087cdafe8b819e4929e1608ed7e00be2c1169414
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80755387"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263097"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Salesforce의 잠재 고객 관리 구성
 
@@ -64,11 +64,15 @@ ms.locfileid: "80755387"
 
 1. 연결 세부 정보 팝업 창에서 **잠재 고객 대상에** 대한 `oid` **Salesforce를** 선택하고 조직 **식별자** 필드에 이전 단계를 수행하여 만든 웹-리드 양식에 붙여넣습니다.
 
-1. **저장**을 선택합니다. 
+1. **연락처 이메일** - 새 잠재 고객으로 연결될 때 이메일 알림을 받아야 하는 회사의 사람들에게 이메일을 제공합니다. 세미콜론으로 구분하여 여러 이메일을 제공할 수 있습니다.
 
-    >[!Note]
-    >오퍼의 나머지 부분을 구성을 완료하고 게시해야 쿠폰에 대한 잠재 고객을 받을 수 있습니다.
+1. **확인을 선택합니다.**
 
-    ![연결 세부 정보 - 잠재 고객 대상 선택](./media/commercial-marketplace-lead-management-instructions-salesforce/choose-lead-destination.png)
+잠재 고객 대상에 성공적으로 연결되었는지 확인하려면 유효성 검사 단추를 클릭합니다. 성공하면 잠재 고객 대상에 테스트 잠재 고객도 있습니다.
 
-    ![연결 세부 정보 - 잠재 고객 대상 선택](./media/commercial-marketplace-lead-management-instructions-salesforce/connection-details.png)
+>[!Note]
+>오퍼의 나머지 부분을 구성을 완료하고 게시해야 쿠폰에 대한 잠재 고객을 받을 수 있습니다.
+
+![연결 세부 정보 - 잠재 고객 대상 선택](./media/commercial-marketplace-lead-management-instructions-salesforce/choose-lead-destination.png)
+
+![연결 세부 정보 - 잠재 고객 대상 선택](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-connection-details.png)

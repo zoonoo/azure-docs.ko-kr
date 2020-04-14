@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 01/19/2020
-ms.openlocfilehash: 18e9c9d330ffb8cc4e284fc649cff0840ec2c82c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e14cc00d1bd716b3e4880e585b05447d2e55e2b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270369"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257439"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Azure 논리 앱의 트리거 및 작업 유형에 대한 스키마 참조 가이드
 
@@ -55,7 +55,7 @@ ms.locfileid: "79270369"
 | <*시간 단위 수*> | 정수 | 트리거가 다시 실행될 때까지 기다리는 시간 단위 수를 나타내는 빈도에 따라 트리거가 얼마나 자주 발생하는지를 지정하는 값입니다. <p>다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어, 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. | 
 |||| 
 
-*Optional*
+*옵션*
 
 | 값 | Type | Description | 
 |-------|------|-------------| 
@@ -71,7 +71,7 @@ ms.locfileid: "79270369"
 
 ### <a name="built-in-triggers"></a>기본 제공 트리거
 
-| 트리거 유형 | 설명 | 
+| 트리거 유형 | Description | 
 |--------------|-------------| 
 | [**HTTP**](#http-trigger) | 엔드포인트을 검사하거나 *폴링*합니다. 이 엔드포인트은 “202” 비동기 패턴을 사용하거나 배열을 반환하여 특정 트리거 계약을 준수해야 합니다. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | 논리 앱에 대한 호출 가능 엔드포인트을 만들지만 지정된 URL을 호출하여 등록하거나 등록을 취소합니다. |
@@ -81,7 +81,7 @@ ms.locfileid: "79270369"
 
 ### <a name="managed-api-triggers"></a>관리되는 API 트리거
 
-| 트리거 유형 | 설명 | 
+| 트리거 유형 | Description | 
 |--------------|-------------| 
 | [**Api연결**](#apiconnection-trigger) | [Microsoft 관리 API](../connectors/apis-list.md)를 사용하여 엔드포인트을 검사하거나 *폴링*합니다. | 
 | [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | 구독 및 구독을 취소하는 [Microsoft 관리 API](../connectors/apis-list.md)를 호출하여 논리 앱에 대한 호출 가능 엔드포인트을 만듭니다. | 
@@ -136,7 +136,7 @@ ms.locfileid: "79270369"
 | <*시간 단위 수*> | 정수 | 트리거가 다시 실행될 때까지 기다리는 시간 단위 수를 나타내는 빈도에 따라 트리거가 얼마나 자주 발생하는지를 지정하는 값입니다. <p>다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어, 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. |
 ||||
 
-*Optional*
+*옵션*
 
 | 값 | Type | Description | 
 |-------|------|-------------| 
@@ -148,7 +148,7 @@ ms.locfileid: "79270369"
 | <*작업 옵션*> | String | `operationOptions` 속성을 설정하여 기본 동작을 변경할 수 있습니다. 자세한 내용은 [작업 옵션](#operation-options)을 참조하세요. |
 ||||
 
-*출력*
+*outputs*
  
 | 요소 | Type | Description |
 |---------|------|-------------|
@@ -226,7 +226,7 @@ ms.locfileid: "79270369"
 | <*신체 내용*> | JSON 개체 | 관리되는 API에 페이로드로 전송될 메시지 콘텐츠입니다. | 
 |||| 
 
-*Optional*
+*옵션*
 
 | 값 | Type | Description | 
 |-------|------|-------------| 
@@ -309,7 +309,7 @@ ms.locfileid: "79270369"
 | `interval` | <*시간 단위 수*> | 정수 | 트리거가 다시 실행될 때까지 기다리는 시간 단위 수를 나타내는 빈도에 따라 트리거가 얼마나 자주 발생하는지를 지정하는 값입니다. <p>다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어, 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. |
 |||||
 
-*Optional*
+*옵션*
 
 | 속성 | 값 | Type | Description |
 |----------|-------|------|-------------|
@@ -323,7 +323,7 @@ ms.locfileid: "79270369"
 | `operationOptions` | <*작업 옵션*> | String | `operationOptions` 속성을 설정하여 기본 동작을 변경할 수 있습니다. 자세한 내용은 [작업 옵션](#operation-options)을 참조하세요. |
 |||||
 
-*출력*
+*outputs*
 
 | 요소 | Type | Description |
 |---------|------|-------------| 
@@ -336,9 +336,9 @@ ms.locfileid: "79270369"
 
 논리 앱에서 잘 작동하려면 엔드포인트은 특정 트리거 패턴 또는 계약을 준수하고, 다음 속성을 인식해야 합니다.  
   
-| 응답 | 필수 | 설명 | 
+| 응답 | 필수 | Description | 
 |----------|----------|-------------| 
-| 상태 코드 | yes | “200 확인” 상태 코드가 실행을 시작합니다. 다른 상태 코드는 실행을 시작하지 않습니다. | 
+| 상태 코드 | 예 | “200 확인” 상태 코드가 실행을 시작합니다. 다른 상태 코드는 실행을 시작하지 않습니다. | 
 | Retry-after 헤더 | 예 | 논리 앱이 끝점을 다시 폴링을 폴링을 할 때까지의 시간(초) | 
 | 위치 헤더 | 예 | 다음 폴링 간격에서 호출할 URL입니다. 지정하지 않으면 원래 URL이 사용됩니다. | 
 |||| 
@@ -403,7 +403,7 @@ ms.locfileid: "79270369"
 | <*끝점-구독-URL*> | String | 구독 요청을 전송할 엔드포인트 URL입니다. | 
 |||| 
 
-*Optional*
+*옵션*
 
 | 값 | Type | Description | 
 |-------|------|-------------| 
@@ -417,7 +417,7 @@ ms.locfileid: "79270369"
 | <*작업 옵션*> | String | `operationOptions` 속성을 설정하여 기본 동작을 변경할 수 있습니다. 자세한 내용은 [작업 옵션](#operation-options)을 참조하세요. | 
 |||| 
 
-*출력* 
+*outputs* 
 
 | 요소 | Type | Description |
 |---------|------|-------------| 
@@ -497,7 +497,7 @@ ms.locfileid: "79270369"
 | <*시간 단위 수*> | 정수 | 트리거가 다시 실행될 때까지 기다리는 시간 단위 수를 나타내는 빈도에 따라 트리거가 얼마나 자주 발생하는지를 지정하는 값입니다. <p>다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어, 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. | 
 |||| 
 
-*Optional*
+*옵션*
 
 | 값 | Type | Description | 
 |-------|------|-------------| 
@@ -606,7 +606,7 @@ ms.locfileid: "79270369"
 | <*속성 유형*> | String | 속성의 형식입니다. | 
 |||| 
 
-*Optional*
+*옵션*
 
 | 값 | Type | Description | 
 |-------|------|-------------| 
@@ -781,7 +781,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 | <*이전 트리거 또는 작업 상태*> | JSON 개체 | 이 현재 작업이 실행되기 위해 먼저 실행되어야 하는 트리거 또는 작업에 대한 이름 및 결과 상태입니다. | 
 |||| 
 
-*Optional*
+*옵션*
 
 | 값 | Type | Description | 
 |-------|------|-------------|
@@ -816,13 +816,13 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 ### <a name="built-in-actions"></a>기본 제공 작업
 
-| 동작 유형 | 설명 | 
+| 동작 유형 | Description | 
 |-------------|-------------| 
 | [**Compose**](#compose-action) | 입력에서 단일 출력을 만듭니다. 다양한 형식을 가질 수 있습니다. | 
 | [**자바 스크립트 코드 실행**](#run-javascript-code) | 특정 기준에 맞는 JavaScript 코드 조각을 실행합니다. 코드 요구 사항 및 자세한 내용은 [인라인 코드가 있는 코드 코드 조각 추가 및 실행 을](../logic-apps/logic-apps-add-run-inline-code.md)참조하십시오. |
 | [**함수**](#function-action) | Azure 함수를 호출합니다. | 
 | [**HTTP**](#http-action) | HTTP 엔드포인트을 호출합니다. | 
-| [**Join**](#join-action) | 배열의 모든 항목에서 문자열을 만들고, 지정한 구분 기호를 사용하여 해당 항목을 구분합니다. | 
+| [**가입**](#join-action) | 배열의 모든 항목에서 문자열을 만들고, 지정한 구분 기호를 사용하여 해당 항목을 구분합니다. | 
 | [**Parse JSON**](#parse-json-action) | JSON 콘텐츠의 속성에서 친숙한 토큰을 만듭니다. 논리 앱에 토큰을 포함하여 해당 속성을 참조할 수 있습니다. | 
 | [**쿼리**](#query-action) | 조건 또는 필터를 기준으로 다른 배열에 있는 항목에서 배열을 만듭니다. | 
 | [**Response**](#response-action) | 들어오는 호출 또는 요청에 대한 응답을 만듭니다. | 
@@ -830,14 +830,14 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 | [**테이블**](#table-action) | 배열에서 CSV 또는 HTML 테이블을 만듭니다. | 
 | [**Terminate**](#terminate-action) | 현재 실행 중인 워크플로를 중지합니다. | 
 | [**기다릴**](#wait-action) | 지정된 기간 동안 또는 지정된 날짜 및 시간까지 워크플로를 일시중지합니다. | 
-| [**Workflow**](#workflow-action) | 다른 워크플로 내에 워크플로를 중첩합니다. | 
+| [**워크플로**](#workflow-action) | 다른 워크플로 내에 워크플로를 중첩합니다. | 
 ||| 
 
 <a name="managed-api-actions"></a>
 
 ### <a name="managed-api-actions"></a>관리되는 API 작업
 
-| 동작 유형 | 설명 | 
+| 동작 유형 | Description | 
 |-------------|-------------|  
 | [**Api연결**](#apiconnection-action) | [Microsoft 관리 API](../connectors/apis-list.md)를 사용하여 HTTP 엔드포인트을 호출합니다. | 
 | [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | HTTP 웹후크처럼 작동하지만 [Microsoft 관리 API](../connectors/apis-list.md)를 사용합니다. | 
@@ -849,11 +849,11 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 이러한 작업은 워크플로 실행을 제어하고 다른 작업을 포함하도록 도와줍니다. 워크플로 제어 작업 외부에서, 해당 워크플로 제어 작업 내부의 작업을 직접 참조할 수 있습니다. 예를 들어, `Http` 작업이 범위 내에 있는 경우 워크플로의 어디에서든지 `@body('Http')` 식을 참조할 수 있습니다. 그러나 워크플로 제어 작업 내에서 존재하는 작업은 동일한 워크플로 제작어 업 구조 내에 있는 다른 작업 "이후에만 실행"될 수 있습니다.
 
-| 동작 유형 | 설명 | 
+| 동작 유형 | Description | 
 |-------------|-------------| 
 | [**ForEach**](#foreach-action) | 배열에 있는 모든 항목에 대해 동일한 작업을 반복해서 실행합니다. | 
 | [**경우**](#if-action) | 지정된 조건이 true인지 또는 false인지에 따라 작업을 실행합니다. | 
-| [**Scope**](#scope-action) | 작업 집합의 그룹 상태를 기준으로 작업을 실행합니다. | 
+| [**범위**](#scope-action) | 작업 집합의 그룹 상태를 기준으로 작업을 실행합니다. | 
 | [**스위치**](#switch-action) | 식, 개체 또는 토큰의 값이 각 사례에 지정된 값과 일치할 때 사례로 구성된 작업을 실행합니다. | 
 | [**때 까지**](#until-action) | 지정된 조건이 충족될 때까지 작업을 반복해서 실행합니다. | 
 |||  
@@ -896,7 +896,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 | <*api 작업*> | String | 호출할 API 작업입니다. | 
 |||| 
 
-*Optional*
+*옵션*
 
 | 값 | Type | Description | 
 |-------|------|-------------| 
@@ -975,7 +975,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 | <*API-구독-URL*> | String | API를 구독하는 데 사용할 URI입니다. | 
 |||| 
 
-*Optional*
+*옵션*
 
 | 값 | Type | Description | 
 |-------|------|-------------| 
@@ -1151,7 +1151,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 | <*메서드 유형*> | String | 함수 호출에 사용되는 HTTP 메서드: "GET", "PUT", "POST", "PATCH" 또는 "DELETE" <p>지정하지 않으면 기본값은 "POST" 메서드입니다. | 
 ||||
 
-*Optional*
+*옵션*
 
 | 값 | Type | Description | 
 |-------|------|-------------|  
@@ -1229,7 +1229,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 | `uri` | <*HTTP 또는 HTTPS 엔드포인트-URL*> | String | 나가는 요청을 보낼 HTTP 또는 HTTPS 끝점 URL입니다. 최대 문자열 크기: 2KB <p>Azure 서비스 또는 리소스의 경우 이 URI 구문에는 리소스 ID와 액세스하려는 리소스에 대한 경로가 포함됩니다. |
 |||||
 
-*Optional*
+*옵션*
 
 | 속성 | 값 | Type | Description |
 |----------|-------|------|-------------|
@@ -1467,7 +1467,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 | <*응답 상태 코드*> | 정수 | 들어오는 요청으로 전송되는 HTTP 상태 코드입니다. 기본 코드는 "200 정상"이지만 3xxx를 제외하고 2xx, 4xx 또는 5xx로시작 되는 어떤 유효한 상태 코드도 될 수 있습니다. | 
 |||| 
 
-*Optional*
+*옵션*
 
 | 값 | Type | Description | 
 |-------|------|-------------| 
@@ -1641,7 +1641,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 | <*배열*> | Array | 테이블의 원본 항목을 제공하는 배열 또는 식입니다. <p>**참고**: 원본 배열이 비어 있는 경우 작업은 빈 테이블을 만듭니다. | 
 |||| 
 
-*Optional*
+*옵션*
 
 열 머리글 및 값을 지정하거나 사용자 지정하려면 `columns` 배열을 사용합니다. `header-value` 쌍이 같은 머리글 이름을 갖는 경우 해당 값은 해당 머리글 이름 아래의 동일한 열에 표시됩니다. 그렇지 않은 경우, 각 고유 머리글은 고유한 열을 정의합니다.
 
@@ -1724,7 +1724,7 @@ ID,Product_Name
 
 이 작업이 만드는 HTML 테이블은 다음과 같습니다. 
 
-<table><thead><tr><th>Stock_ID</th><th>설명</th></tr></thead><tbody><tr><td>0</td><td>Organic Apples</td></tr><tr><td>1</td><td>Organic Oranges</td></tr></tbody></table>
+<table><thead><tr><th>Stock_ID</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>Organic Apples</td></tr><tr><td>1</td><td>Organic Oranges</td></tr></tbody></table>
 
 <a name="terminate-action"></a>
 
@@ -1753,7 +1753,7 @@ ID,Product_Name
 | <*상태*> | String | 실행에 대해 반환할 상태: "Failed", "Cancelled" 또는 "Succeded" |
 |||| 
 
-*Optional*
+*옵션*
 
 "runStatus" 개체의 속성은 "runStatus" 속성이 "Failed" 상태로 설정될 때만 적용됩니다.
 
@@ -1900,7 +1900,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 | <*중첩 논리 앱 이름*> | String | 호출하려는 논리 앱의 이름입니다. |
 ||||
 
-*Optional*
+*옵션*
 
 | 값 | Type | Description | 
 |-------|------|-------------|  
@@ -1908,7 +1908,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 | <*신체 내용*> | JSON 개체 | 호출과 함께 전송할 메시지 콘텐츠입니다. | 
 ||||
 
-*출력*
+*outputs*
 
 이 작업의 출력은 중첩된 논리 앱의 Response 작업에 따라 다릅니다. 중첩된 논리 앱에 Response 작업이 없으면 출력은 비어 있습니다.
 
@@ -1975,7 +1975,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 | <*각 식에 대한*> | String | 지정된 배열의 각 항목을 참조하는 식입니다. | 
 |||| 
 
-*Optional*
+*옵션*
 
 | 값 | Type | Description | 
 |-------|------|-------------| 
@@ -2180,7 +2180,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 | <*일치 값*> | 다양함 | 평가된 결과와 비교할 값입니다. | 
 |||| 
 
-*Optional*
+*옵션*
 
 | 값 | Type | Description | 
 |-------|------|-------------| 
@@ -2407,11 +2407,17 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 기본적으로 논리 앱 워크플로 인스턴스는 모두 동시에 또는 병렬로 실행됩니다. 이 동작은 이전에 활성 워크플로 인스턴스가 실행을 완료하기 전에 각 트리거 인스턴스가 실행된다는 것을 의미합니다. 그러나 동시에 실행 중인 인스턴스 수에는 [기본 제한이](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)있습니다. 동시에 실행 중인 워크플로 인스턴스 수가 이 제한에 도달하면 다른 새 인스턴스가 실행될 때까지 기다려야 합니다. 이 제한은 백 엔드 시스템에서 수신하는 요청 수를 제한하는 데 도움이 됩니다.
 
-디자이너를 통해 동시성 설정을 변경하면 기본 트리거 정의에서 `runtimeConfiguration.concurrency.runs` 속성이 추가 또는 업데이트되고, 그 반대의 경우도 마찬가지이므로 기본 제한을 변경하려면 코드 보기 편집기 또는 Logic Apps 디자이너를 사용할 수 있습니다. 이 속성은 병렬로 실행할 수 있는 최대 워크플로 인스턴스 수를 제어합니다. 다음은 동시성 컨트롤을 사용하도록 설정하려는 경우에 대한 몇 가지 고려 사항입니다.
+트리거의 동시성 제어를 켜면 트리거 인스턴스가 [기본 제한까지](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)병렬로 실행됩니다. 이 기본 동시성 제한을 변경하려면 디자이너를 통해 동시성 설정을 변경하면 기본 트리거 정의의 `runtimeConfiguration.concurrency.runs` 속성을 추가하거나 업데이트하기 때문에 코드 뷰 편집기 또는 Logic Apps Designer를 사용할 수 있습니다. 이 속성은 병렬로 실행할 수 있는 새 워크플로 인스턴스의 최대 수를 제어합니다.
+
+트리거에서 동시성을 사용하도록 설정하려는 경우 몇 가지 고려 사항은 다음과 같습니다.
 
 * 동시성을 사용하도록 설정하면 [배열을 분산하는](#split-on-debatch)경우 [SplitOn 제한이](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) 크게 줄어듭니다. 항목 수가 이 제한을 초과하면 SplitOn 기능이 비활성화됩니다.
 
-* 동시성을 사용하도록 설정되어 있지만 장기 실행 논리 앱 인스턴스로 인해 새 논리 앱 인스턴스가 대기 상태로 들어갈 수 있습니다. 이 상태는 Azure Logic Apps에서 새 인스턴스를 만들지 못하게 하며 동시 실행 수가 지정된 최대 동시 실행 수보다 적은 경우에도 발생합니다.
+* 동시성 컨트롤을 사용하도록 설정한 후에는 동시성을 비활성화할 수 없습니다.
+
+* 동시성을 사용하도록 설정하면 [배열을 분산하는](#split-on-debatch)경우 [SplitOn 제한이](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) 크게 줄어듭니다. 항목 수가 이 제한을 초과하면 SplitOn 기능이 비활성화됩니다.
+
+* 동시성을 사용하도록 설정하면 장기 실행 논리 앱 인스턴스로 인해 새 논리 앱 인스턴스가 대기 상태로 들어갈 수 있습니다. 이 상태는 Azure Logic Apps에서 새 인스턴스를 만들지 못하게 하며 동시 실행 수가 지정된 최대 동시 실행 수보다 적은 경우에도 발생합니다.
 
   * 이 상태를 중단하려면 아직 실행 중인 가장 빠른 인스턴스를 *취소합니다.*
 

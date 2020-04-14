@@ -3,7 +3,7 @@ title: Azure 가상 머신에 Oracle 앱을 배포하는 아키텍처 | 마이�
 description: 애플리케이션 아키텍처는 E-비즈니스 스위트, JD 에드워즈 엔터프라이즈원, 피플소프트를 포함한 오라클 앱을 Azure 또는 OCI(Oracle Cloud Infrastructure)에 데이터베이스가 있는 Microsoft Azure 가상 머신에 배포합니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: romitgirdhar
+author: mimckitt
 manager: gwallace
 tags: ''
 ms.service: virtual-machines
@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/18/2019
-ms.author: rogirdh
+ms.author: mimckitt
 ms.custom: ''
-ms.openlocfilehash: b183a4d4922c89f60ccb19b3e3e978216f33cc9a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 20e751b322d06ac176ee5c634d92e0efe874baac
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70100082"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263304"
 ---
 # <a name="architectures-to-deploy-oracle-applications-on-azure"></a>Azure에 Oracle 응용 프로그램을 배포하는 아키텍처
 

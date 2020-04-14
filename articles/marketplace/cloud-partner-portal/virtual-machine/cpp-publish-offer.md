@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: dsindona
-ms.openlocfilehash: c35f721131b997dcfdb0f23a91a39329168b757c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb875a5c4ab1b898b64fe22140414e5d5b7830b8
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277347"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273786"
 ---
 # <a name="publish-a-virtual-machine-offer"></a>가상 머신 제안 게시
+
+> [!IMPORTANT]
+> 2020년 4월 13일부터 Azure 가상 머신 의 관리를 파트너 센터로 이전합니다. 마이그레이션 후 파트너 센터에서 오퍼를 만들고 관리합니다. Azure 가상 [컴퓨터 만들기 의](https://aka.ms/CreateAzureVMoffer) 지침에 따라 마이그레이션된 오퍼를 관리합니다.
 
  포털에서 제안을 정의하고 관련 기술 자산을 만든 후 마지막 단계는 제안을 제출하여 게시하는 것입니다. 다음 다이어그램에서는 "라이브 상태로 만들기(go live)" 위한 게시 프로세스의 주요 단계를 보여 줍니다.
 

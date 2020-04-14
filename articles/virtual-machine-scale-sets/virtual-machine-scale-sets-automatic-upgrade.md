@@ -1,18 +1,18 @@
 ---
 title: Azure 가상 시스템 스케일 세트를 통한 자동 OS 이미지 업그레이드
 description: 스케일 세트에서 VM 인스턴스에서 OS 이미지를 자동으로 업그레이드하는 방법 알아보기
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.author: manayar
-ms.openlocfilehash: 6d550e8e960cb8e212702796467c91d1cd1ebb23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: b1e5ad60041e9d3b902a06a4875206fa061c73e6
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235174"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269910"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Azure Virtual Machine Scale Sets 자동 OS 업그레이드
 

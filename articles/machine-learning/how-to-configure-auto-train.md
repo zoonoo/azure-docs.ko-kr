@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 18de50473e3dd6ca8ddda9575a247e00530032e8
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 11f52df683b7a85a8ad5163bbede33d786897452
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115411"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257269"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -197,7 +197,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 자동화된 모든 기계 학습 실험에서 데이터의 [크기조정 및 정규화는](concept-automated-ml.md#preprocess) 서로 다른 규모의 기능에 민감한 *특정* 알고리즘을 돕기 위해 자동으로 조정됩니다.  그러나 누락된 값 대치, 인코딩 및 변환과 같은 추가 기능화를 활성화할 수도 있습니다. [어떤 위업이 포함되어 있는지 자세히 알아보십시오.](how-to-use-automated-ml-for-ml-models.md#featurization)
 
-실험을 구성할 때 고급 설정을 `featurization`사용하도록 설정할 수 있습니다. 다음 표에서는 클래스에서 위화에 대해 허용되는 설정을 보여 [ `AutoMLConfig` 주시면](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)됩니다.
+실험을 구성할 때 고급 설정을 `featurization`사용하도록 설정할 수 있습니다. 다음 표에서는 [AutoMLConfig 클래스에서](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)위화에 대해 허용되는 설정을 보여 주며 있습니다.
 
 |위화화 구성 | Description |
 | ------------- | ------------- |

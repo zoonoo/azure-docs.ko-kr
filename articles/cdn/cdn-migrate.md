@@ -3,7 +3,7 @@ title: 버라이존 표준에서 버라이존 프리미엄으로 Azure CDN 프�
 description: Verizon Standard에서 Verizon Premium으로 프로필 마이그레이션에 대한 세부 정보를 알아봅니다.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 8ab66117be4f05550b00defafc883108646be283
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61c472281c64fba451bb9b05f69ebee09bc763fd
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74083051"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260456"
 ---
 # <a name="migrate-an-azure-cdn-profile-from-standard-verizon-to-premium-verizon"></a>Standard Verizon에서 Premium Verizon으로 Azure CDN 프로필 마이그레이션
 

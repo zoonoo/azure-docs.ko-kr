@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 95f6befa7e97984ad64a3ffb2a9b91d343945cbb
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 32ad34bcfb42bf8fc45ba7fdb7fba5e797ee6106
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "81000662"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262437"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>맞춤법 오류 및 오타를 수정하기 위한 퍼지 검색
 
@@ -71,7 +71,7 @@ Azure Cognitive Search에서는 용어 및 거리(최대 2) 외에 쿼리에 설
 > [!NOTE]
 > 쿼리 처리 중에 퍼지 쿼리는 [어휘 분석을](search-lucene-query-architecture.md#stage-2-lexical-analysis)거치지 않습니다. 쿼리 입력은 쿼리 트리에 직접 추가되고 확장되어 용어 그래프를 만듭니다. 수행되는 유일한 변환은 하위 대/소문자입니다.
 
-## <a name="how-to-test-fuzzy-search"></a>퍼지 검색을 테스트하는 방법
+## <a name="testing-fuzzy-search"></a>퍼지 검색 테스트
 
 간단한 테스트의 경우 쿼리 식을 반복하기 위해 [검색 탐색기](search-explorer.md) 또는 [Postman을](search-get-started-postman.md) 사용하는 것이 좋습니다. 두 도구 모두 대화형이기 때문에 용어의 여러 변형을 빠르게 단계별로 단계별로 살펴보고 다시 돌아오는 응답을 평가할 수 있습니다.
 
@@ -120,7 +120,7 @@ Azure Cognitive Search에서는 용어 및 거리(최대 2) 외에 쿼리에 설
 
 이 확장된 예제의 요점은 강조 표시가 모호한 결과를 가져올 수 있는 명확성을 설명하는 것입니다. 모든 경우에 동일한 문서가 반환됩니다. 일치를 확인하기 위해 문서 ID에 의존했다면 "특수"에서 "SQL"로의 전환을 놓쳤을 수 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [Azure 인지 검색(쿼리 구문 분석 아키텍처)에서 전체 텍스트 검색이 작동하는 방식](search-lucene-query-architecture.md)
 + [탐색기 검색](search-explorer.md)

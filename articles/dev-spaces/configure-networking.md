@@ -5,12 +5,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 description: Azure Kubernetes 서비스에서 Azure 개발자 공간 실행을 위한 네트워킹 요구 사항을 설명합니다.
 keywords: Azure 개발자 공간, 개발자 공간, 도커, 쿠버넷, Azure, AKS, Azure Kubernetes 서비스, 컨테이너, CNI, 쿠베넷, SDN, 네트워크
-ms.openlocfilehash: 82d046aa36fe9caf6337aa7f58ca0db525062283
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e344576caf276ae7cb5fe00395c84810a4e7d32
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240564"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262046"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>다른 네트워크 토폴로지에서 Azure 개발자 공간에 대한 네트워킹 구성
 
@@ -20,9 +20,9 @@ Azure 개발자 공간은 기본 네트워킹 구성이 있는 AKS(Azure Kuberne
 
 ## <a name="virtual-network-or-subnet-configurations"></a>가상 네트워크 또는 서브넷 구성
 
-AKS 클러스터에는 다른 가상 네트워크 또는 서브넷 구성이 있어 AKS 클러스터의 트래픽이 침투하거나 송신될 수 있습니다. 예를 들어 클러스터가 Azure 방화벽과 같은 방화벽 뒤에 있거나 네트워크 트래픽을 제한하기 위해 네트워크 보안 그룹 또는 사용자 지정 역할을 사용할 수 있습니다.
+AKS 클러스터에는 다른 가상 네트워크 또는 서브넷 구성이 있어 AKS 클러스터의 트래픽이 침투하거나 송신될 수 있습니다. 예를 들어 클러스터가 Azure 방화벽과 같은 방화벽 뒤에 있거나 네트워크 트래픽을 제한하기 위해 네트워크 보안 그룹 또는 사용자 지정 역할을 사용할 수 있습니다. [GitHub의 Azure 개발자 공간 샘플 리포지토리에서][sample-repo]예제 네트워크 구성을 찾을 수 있습니다.
 
-Azure 개발자 공간에는 *인그레스 및 송신* 네트워크 트래픽과 *인그레스 트래픽에 대한* 특정 요구 사항이 있습니다. AKS 클러스터의 트래픽을 제한하는 가상 네트워크 또는 서브넷 구성이 있는 AKS 클러스터에서 Azure Dev Spaces를 사용하는 경우 Azure 개발자 공간이 사용하려면 다음 의 사용 만 을 따르고 트래픽 요구 사항을 입력하고 송신해야 합니다. 제대로 작동합니다.
+Azure 개발자 공간에는 *인그레스 및 송신* 네트워크 트래픽과 *인그레스 트래픽에 대한* 특정 요구 사항이 있습니다. AKS 클러스터의 트래픽을 제한하는 가상 네트워크 또는 서브넷 구성이 있는 AKS 클러스터에서 Azure 개발자 공간을 사용하는 경우 Azure 개발자 공간이 제대로 작동하려면 다음 의 사용 만 을 따르고 트래픽 요구 사항을 입력하고 송신해야 합니다.
 
 ### <a name="ingress-and-egress-network-traffic-requirements"></a>네트워크 트래픽 요구 사항 의 송신 및 송신
 
@@ -73,10 +73,10 @@ Azure 개발자 공간에는 AKS에서 실행되는 서비스에 대한 끝점�
 * *개인* 끝점은 개인 IP 주소가 있는 인그레스 컨트롤러를 배포합니다. 개인 IP 주소를 사용하면 클러스터의 로드 밸런서에 클러스터의 가상 네트워크 내에서만 액세스할 수 있습니다. 로드 밸런서의 개인 IP 주소는 클러스터의 DNS에 등록되어 URL을 사용하여 클러스터의 가상 네트워크 내의 서비스에 액세스할 수 있습니다. 을 사용하여 `azds list-uris`이 URL을 볼 수 있습니다.
 * 끝점 옵션에 대해 *없음을* 설정하면 받는 컨트롤러가 배포되지 않습니다. 인트리스 컨트롤러가 배포되지 않은 경우 [Azure 개발자 공간 라우팅 기능이][dev-spaces-routing] 작동하지 않습니다. 선택적으로, 당신은 라우팅 기능이 다시 작동 할 수 있도록 [traefik][traefik-ingress] 또는 [NGINX를][nginx-ingress]사용하여 자신의 inress 컨트롤러 솔루션을 구현 할 수 있습니다.
 
-엔드포인트 옵션을 구성하려면 클러스터에서 Azure 개발자 공간을 사용하도록 설정하면 *-e* 또는 *--endpoint를* 사용합니다. 예를 들어:
+엔드포인트 옵션을 구성하려면 클러스터에서 Azure 개발자 공간을 사용하도록 설정하면 *-e* 또는 *--endpoint를* 사용합니다. 다음은 그 예입니다.
 
 > [!NOTE]
-> 끝점 옵션을 사용하려면 Azure CLI 버전 2.2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하십시오.
+> 끝점 옵션을 사용하려면 Azure CLI 버전 2.2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ```azurecli
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS -e private
@@ -109,4 +109,5 @@ Azure Dev Spaces를 통해 여러 컨테이너에서 더 복잡한 애플리케�
 [endpoint-options]: #using-different-endpoint-options
 [traefik-ingress]: how-to/ingress-https-traefik.md
 [nginx-ingress]: how-to/ingress-https-nginx.md
+[sample-repo]: https://github.com/Azure/dev-spaces/tree/master/advanced%20networking
 [team-quickstart]: quickstart-team-development.md

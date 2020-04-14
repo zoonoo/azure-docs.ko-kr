@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 03/10/2020
-ms.openlocfilehash: aa85e80f1a90191a0a34a6962437c27a9d57ef65
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 0d6fa02578814c4c5d034be05cbc63093d70603b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547547"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257235"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Azure 기계 학습을 사용하여 자동화된 기계 학습 모델을 생성, 검토 및 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -155,7 +155,6 @@ Variance| 이 열의 데이터가 평균값에서 얼마나 멀리 분산되는�
 왜곡도| 이 열의 데이터가 정규 분포와 얼마나 다른지 측정합니다.
 첨도| 이 열의 데이터가 얼마나 무겁게 꼬리를 꼬리에 꼬리를 두었는지 측정하면 정규 분포와 비교됩니다.
 
-
 <a name="featurization"></a>
 
 ## <a name="advanced-featurization-options"></a>고급 위화 옵션
@@ -164,12 +163,15 @@ Variance| 이 열의 데이터가 평균값에서 얼마나 멀리 분산되는�
 
 ### <a name="preprocessing"></a>전처리
 
+> [!NOTE]
+> 자동 ML 생성 모델을 [ONNX 모델로](concept-onnx.md)내보내려는 경우 *로 표시된 위화 옵션만 ONNX 형식으로 지원됩니다. [모델을 ONNX로 변환하는](concept-automated-ml.md#use-with-onnx)방법에 대해 자세히 알아보십시오. 
+
 |전처리&nbsp;단계| Description |
 | ------------- | ------------- |
-|높은 카디널리티 또는 분산 없는 기능 삭제|모든 값이 누락되었거나 모든 행에서 동일한 값또는 카디널리티(예: 해시, 아이디 또는 GUID)가 있는 피처를 포함하여 학습 및 유효성 검사 집합에서 이러한 값을 삭제합니다.|
-|누락 값 입력|숫자 피쳐의 경우 열에 평균 값과 함께 합니다.<br/><br/>범주형 피처의 경우 가장 빈번한 값을 제공합니다.|
-|추가 기능 생성|DateTime 기능: 연도, 월, 일, 요일, 연도일, 분기, 연도의 주, 시간, 분, 초.<br/><br/>텍스트 기능의 경우: 단면, 이중 그램 및 삼자 그램을 기반으로 하는 용어 빈도입니다.|
-|변환 및 인코딩 |고유 값이 적은 숫자 피쳐가 범주형 피쳐로 변환됩니다.<br/><br/>한 핫 인코딩은 낮은 카디널리티 범주에 대해 수행됩니다. 높은 카디널리티, 하나의 핫 해시 인코딩을 위해.|
+|높은 카디널리티 또는 분산 피쳐 없음 삭제* |모든 값이 누락되었거나 모든 행에서 동일한 값또는 카디널리티(예: 해시, 아이디 또는 GUID)가 있는 피처를 포함하여 학습 및 유효성 검사 집합에서 이러한 값을 삭제합니다.|
+|누락된 값 내림급수* |숫자 피쳐의 경우 열에 평균 값과 함께 합니다.<br/><br/>범주형 피처의 경우 가장 빈번한 값을 제공합니다.|
+|추가 피처 생성* |DateTime 기능: 연도, 월, 일, 요일, 연도일, 분기, 연도의 주, 시간, 분, 초.<br/><br/>텍스트 기능의 경우: 단면, 이중 그램 및 삼자 그램을 기반으로 하는 용어 빈도입니다.|
+|변환 및 인코딩 *|고유 값이 적은 숫자 피쳐가 범주형 피쳐로 변환됩니다.<br/><br/>한 핫 인코딩은 낮은 카디널리티 범주에 대해 수행됩니다. 높은 카디널리티, 하나의 핫 해시 인코딩을 위해.|
 |워드 포함|미리 학습된 모델을 사용하여 텍스트 토큰의 벡터를 문장 벡터로 변환하는 텍스트 위화기. 문서에 각 단어의 포함 벡터가 함께 집계되어 문서 특징 벡터를 생성합니다.|
 |대상 인코딩|범주형 피처의 경우 회귀 문제에 대한 평균 대상 값과 분류 문제에 대한 각 클래스의 클래스 확률로 각 범주를 매핑합니다. 주파수 기반 가중치 및 k-fold 교차 유효성 검사가 적용되어 희소 데이터 범주로 인한 매핑 및 노이즈의 피팅을 초과하여 줄일 수 있습니다.|
 |텍스트 대상 인코딩|텍스트 입력의 경우 단어 백이 있는 누적 선형 모델을 사용하여 각 클래스의 확률을 생성합니다.|
@@ -178,19 +180,13 @@ Variance| 이 열의 데이터가 평균값에서 얼마나 멀리 분산되는�
 
 ### <a name="data-guardrails"></a>데이터 가드레일
 
-데이터 가드레일은 자동 위화가 활성화되거나 유효성 검사가 자동으로 설정된 경우 적용됩니다. 데이터 가드레일은 데이터(예: 누락된 값, 클래스 불균형)와 관련된 잠재적인 문제를 식별하고 개선된 결과를 위해 수정 조치를 취하는 데 도움이 됩니다. 신뢰할 수 있는 결과를 얻기 위해 사용할 수 있고 적용할 수 있는 많은 모범 사례가 있습니다. 사용자는 자동화된 ML 실행의 데이터 **가드레일** 탭 내에서 또는 Python SDK를 사용하여 실험을 제출할 때 설정하여 ```show_output=True``` 스튜디오의 데이터 가드레일을 검토할 수 있습니다. 다음 표에서는 현재 지원되는 데이터 가드레일과 실험을 제출할 때 사용자가 접할 수 있는 관련 상태에 대해 설명합니다.
+데이터 가드레일은 자동 위화가 활성화되거나 유효성 검사가 자동으로 설정된 경우 적용됩니다. 데이터 가드레일은 데이터(예: 누락된 값, 클래스 불균형)와 관련된 잠재적인 문제를 식별하고 개선된 결과를 위해 수정 조치를 취하는 데 도움이 됩니다. 
 
-가드 레일|상태|트리거&nbsp;&nbsp;조건
----|---|---
-누락된 피쳐 값 대평가 |**통과** <br><br><br> **완료**| 학습 데이터에서 누락된 기능 값이 발견되지 않았습니다. [누락된 값 대평가에](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) 대해 자세히 알아보세요. <br><br> 학습 데이터에서 누락된 기능 값이 검색되어 대평가되었습니다.
-높은 카디널리티 기능 처리 |**통과** <br><br><br> **완료**| 입력이 분석되었고 높은 카디널리티 기능이 검색되지 않았습니다. [높은 카디널리티 기능 검색에](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) 대해 자세히 알아보세요. <br><br> 높은 카디널리티 기능이 입력에서 감지되어 처리되었습니다.
-유효성 검사 분할 처리 |**완료**| *유효성 검사 구성이 '자동'으로 설정되었으며 학습 데이터에 20,000개 **미만의** 행이 포함되어 있습니다.* <br> 학습된 모델의 각 반복은 교차 유효성 검사를 통해 유효성을 검사했습니다. [유효성 검사 데이터에](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) 대해 자세히 알아보세요. <br><br> *유효성 검사 구성이 '자동'으로 설정되었으며 학습 데이터에는 20,000개 **이상의** 행이 포함되어 있습니다.* <br> 입력 데이터는 학습 데이터 집합과 모델 유효성 검사를 위한 유효성 검사 데이터 집합으로 분할되었습니다.
-클래스 밸런싱 감지 |**통과** <br><br><br><br> **경고** | 입력이 분석되었으며 모든 클래스가 학습 데이터에서 균형을 이룹니다. 각 클래스가 샘플의 수와 비율로 측정된 데이터 집합에서 양호한 표현을 하는 경우 데이터 집합이 균형잡힌 것으로 간주됩니다. <br><br><br> 입력에서 불균형 클래스가 검색되었습니다. 모델 바이어스를 수정하려면 균형 문제를 해결합니다. 불균형 데이터에 대해 자세히 [알아보세요.](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml#imbalance)
-메모리 문제 감지 |**통과** <br><br><br><br> **완료** |<br> 선택한 {수평선, 지연, 롤링 창} 값을 분석했으며 메모리 부족 문제가 발견되지 않았습니다. 열렬 예측 구성에 대해 자세히 [알아보세요.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) <br><br><br>선택한 {수평선, 지연, 롤링 창} 값이 분석되어 실험에 메모리가 부족할 수 있습니다. 지연 또는 롤링 창 구성이 꺼졌습니다.
-주파수 감지 |**통과** <br><br><br><br> **완료** |<br> 타임시리즈를 분석하고 모든 데이터 요소가 감지된 주파수에 맞춰 정렬됩니다. <br> <br> 타임시리즈를 분석하고 감지된 주파수와 일치하지 않는 데이터 요소가 검출되었습니다. 이러한 데이터 요소가 데이터 집합에서 제거되었습니다. [시간계 예측을 위한 데이터 준비에](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data) 대해 자세히 알아보세요.
+사용자는 자동화된 ML 실행의 Data **가드레일** 탭 내에서 또는 Python SDK를 사용하여 실험을 제출할 때 설정하여 ```show_output=True``` 스튜디오의 데이터 가드레일을 검토할 수 있습니다. 
 
 #### <a name="data-guardrail-states"></a>데이터 가드레일 상태
-데이터 가드레일은 '통과', '완료', '경고'의 세 가지 상태 중 하나를 표시합니다.
+
+데이터 가드레일은 **전달,** **완료**또는 경고의 세 가지 상태 중 하나를 **표시합니다.**
 
 시스템 상태| Description
 ----|----
@@ -198,7 +194,19 @@ Variance| 이 열의 데이터가 평균값에서 얼마나 멀리 분산되는�
 완료된| 변경 사항이 데이터에 적용되었습니다. 사용자가 자동 ML이 수행한 수정 작업을 검토하여 변경 사항이 예상 결과와 일치하는지 확인하는 것이 좋습니다. 
 경고| 해결할 수 없는 데이터 문제가 발견되었습니다. 사용자가 문제를 수정하고 수정하는 것이 좋습니다. 
 
-자동 ML의 이전 버전은 네 번째 상태인 '고정'을 표시했습니다. 최신 실험은 이 상태를 표시하지 않으며'고정' 상태를 표시한 모든 난간이 '완료'로 표시됩니다.   
+>[!NOTE]
+> 자동화된 ML 실험의 이전 버전에는 **Fixed**네 번째 상태가 표시되었습니다. 최신 실험은 이 상태를 표시하지 않으며 **고정** 상태를 표시한 모든 난간이 **완료됨으로**표시됩니다.   
+
+다음 표에서는 현재 지원되는 데이터 가드레일과 실험을 제출할 때 사용자가 접할 수 있는 관련 상태에 대해 설명합니다.
+
+가드 레일|상태|트리거&nbsp;&nbsp;조건
+---|---|---
+누락된 피쳐 값 대평가 |**통과** <br><br><br> **완료**| 학습 데이터에서 누락된 기능 값이 발견되지 않았습니다. [누락된 값 대평가에](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) 대해 자세히 알아보세요. <br><br> 학습 데이터에서 누락된 기능 값이 검색되어 대평가되었습니다.
+높은 카디널리티 기능 처리 |**통과** <br><br><br> **완료**| 입력이 분석되었고 높은 카디널리티 기능이 검색되지 않았습니다. [높은 카디널리티 기능 검색에](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) 대해 자세히 알아보세요. <br><br> 높은 카디널리티 기능이 입력에서 감지되어 처리되었습니다.
+유효성 검사 분할 처리 |**완료**| *유효성 검사 구성이 '자동'으로 설정되었으며 학습 데이터에 20,000개 **미만의** 행이 포함되어 있습니다.* <br> 학습된 모델의 각 반복은 교차 유효성 검사를 통해 유효성을 검사했습니다. [유효성 검사 데이터에](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) 대해 자세히 알아보세요. <br><br> *유효성 검사 구성이 '자동'으로 설정되었으며 학습 데이터에는 20,000개 **이상의** 행이 포함되어 있습니다.* <br> 입력 데이터는 학습 데이터 집합과 모델 유효성 검사를 위한 유효성 검사 데이터 집합으로 분할되었습니다.
+클래스 밸런싱 감지 |**통과** <br><br><br><br> **경고** | 입력이 분석되었으며 모든 클래스가 학습 데이터에서 균형을 이룹니다. 각 클래스가 샘플의 수와 비율로 측정된 데이터 집합에서 양호한 표현을 하는 경우 데이터 집합이 균형잡힌 것으로 간주됩니다. <br><br><br> 입력에서 불균형 클래스가 검색되었습니다. 모델 바이어스를 수정하려면 균형 문제를 해결합니다. 불균형 데이터에 대해 자세히 [알아보세요.](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data)
+메모리 문제 감지 |**통과** <br><br><br><br> **완료** |<br> 선택한 {수평선, 지연, 롤링 창} 값을 분석했으며 메모리 부족 문제가 발견되지 않았습니다. 열렬 예측 구성에 대해 자세히 [알아보세요.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) <br><br><br>선택한 {수평선, 지연, 롤링 창} 값이 분석되어 실험에 메모리가 부족할 수 있습니다. 지연 또는 롤링 창 구성이 꺼졌습니다.
+주파수 감지 |**통과** <br><br><br><br> **완료** |<br> 타임시리즈를 분석하고 모든 데이터 요소가 감지된 주파수에 맞춰 정렬됩니다. <br> <br> 타임시리즈를 분석하고 감지된 주파수와 일치하지 않는 데이터 요소가 검출되었습니다. 이러한 데이터 요소가 데이터 집합에서 제거되었습니다. [시간계 예측을 위한 데이터 준비에](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data) 대해 자세히 알아보세요.
 
 ## <a name="run-experiment-and-view-results"></a>실험 실행 및 결과 보기
 

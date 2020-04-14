@@ -5,19 +5,19 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4f4b0805e2a9247aff881a9e34b0bd1cd4c6ca27
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 7b619d3c9b4b334e637d6a1c456256cb33ad5134
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80550410"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261383"
 ---
 # <a name="enable-azure-startstop-vms-solution"></a>Azure 시작/중지 VM 솔루션 사용
 
 다음 단계를 수행하여 근무 외 솔루션 중에 시작/중지 VM을 새 또는 기존 자동화 계정 및 연결된 Log Analytics 작업 영역에 추가합니다. 온보딩 프로세스를 완료한 후 변수를 구성하여 솔루션을 사용자 지정합니다.
 
 >[!NOTE]
->클래식 VM에서 이 솔루션을 사용하려면 기본적으로 만들어지지 않은 클래식 RunAs 계정이 필요합니다. 클래식 RunAs 계정 만들기에 대한 지침은 [클래식 실행-로 계정](automation-create-standalone-account.md#classic-run-as-accounts)을 참조하십시오.
+>클래식 VM에서 이 솔루션을 사용하려면 기본적으로 만들어지지 않은 클래식 실행 계정이 필요합니다. 클래식 실행 계정을 만드는 방법에 대한 지침은 [[클래식 실행 계정으로 만들기]를](automation-create-standalone-account.md#create-a-classic-run-as-account)참조하십시오.
 >
 
 ## <a name="enable-solution"></a>솔루션 사용

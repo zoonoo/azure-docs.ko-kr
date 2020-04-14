@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 7ce7ef15f0bf13182e4799fb640e83136d0d4695
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 55e319ba8aecb9205c00dda4a400e37f7c010649
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115018"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257779"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure 랩 서비스 - 관리자 가이드
 대학의 클라우드 리소스를 관리하는 IT(정보 기술) 관리자는 일반적으로 학교에 대한 랩 계정을 설정해야 합니다. 랩 계정이 설정되면 관리자 또는 교육자는 랩 계정에 포함된 강의실 랩을 만듭니다. 이 문서에서는 관련된 Azure 리소스에 대한 자세한 개요와 이를 만들기 위한 지침을 제공합니다.
@@ -59,7 +59,7 @@ ms.locfileid: "81115018"
     
     랩 계정을 설정할 때 다음과 같이 랩 계정아래의 *모든* 강의실 랩에 적용되는 정책을 설정합니다.
     - 클래스룸 랩에서 액세스할 수 있는 공유 리소스가 있는 Azure 가상 네트워크입니다. 예를 들어 가상 네트워크 내에서 공유 데이터 집합에 액세스해야 하는 클래스룸 랩 집합이 있을 수 있습니다.
-    - 교실 랩에서 VM을 만드는 데 사용할 수 있는 VM(가상 컴퓨터) 이미지입니다. 예를 들어 Linux 마켓플레이스 이미지용 [데이터 과학 VM에](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) 액세스해야 하는 일련의 교실 랩이 있을 수 있습니다. 
+    - 교실 랩에서 VM을 만드는 데 사용할 수 있는 VM(가상 컴퓨터) 이미지입니다. 예를 들어 Linux 마켓플레이스 이미지용 [데이터 과학 VM에](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) 액세스해야 하는 일련의 교실 랩이 있을 수 있습니다. 
     
     서로 고유한 정책 요구 사항이 있는 강의실 랩이 있는 경우 이러한 강의실 랩을 별도로 관리하기 위해 별도의 랩 계정을 만드는 것이 좋습니다.
 

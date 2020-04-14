@@ -3,7 +3,7 @@ title: Azure CDN 청구 이해 | Microsoft Docs
 description: 이 FAQ에서는 Azure CDN 청구의 원리를 설명합니다.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
-ms.author: magattus
-ms.openlocfilehash: e2827a11f4ec2a5c0467c3699cd9990aaf7ae97a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: d3a2dfba98f83d34c3e83ec865e3b692f7dbacd2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73495485"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254226"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Azure CDN 청구 이해
 
@@ -105,7 +105,7 @@ CDN POP는 캐시를 채워야 할 때마다 캐시되는 개체의 원본에 �
 - Azure Front Door Service
 - Azure Bastion
 - Azure App Service
-- Azure Functions
+- Azure 기능
 - Azure 데이터 팩터리
 - Azure API Management
 - Azure Batch 

@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: f38b0895b0d6eddcf63c082d3df205f4d9de9d50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b4b64bcca57e1dc98cdba10626597532ae1461c
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297055"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269734"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Azure 포털에서 Azure 기계 학습 작업 영역 만들기 및 관리
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "80297055"
 
 1. 새 작업 영역을 구성하려면 다음 정보를 제공하세요.
 
-   필드|설명 
+   필드|Description 
    ---|---
    작업 영역 이름 |작업 영역을 식별하는 고유한 이름을 입력합니다. 이 예제에서는 **docs-ws**를 사용합니다. 이름은 리소스 그룹 전체에서 고유해야 합니다. 다른 사용자가 만든 작업 영역과 구별되고 기억하기 쉬운 이름을 사용하세요. 작업 영역 이름은 대/소문자를 구분하지 않습니다.
    Subscription |사용할 Azure 구독을 선택합니다.
@@ -51,7 +51,7 @@ ms.locfileid: "80297055"
     ![작업 영역 구성](./media/how-to-manage-workspace/select-edition.png)
 
 1. 작업 영역 구성이 완료되면 검토 + **만들기를**선택합니다.
-2. 설정을 검토하고 추가 변경 또는 수정을 합니다. 설정이 완료되면 에서 **만들기를**선택합니다.
+2. 설정을 검토하고 추가 변경 또는 수정을 합니다. 설정이 마음에 들어오면 에서 **만들기를**선택합니다.
 
    > [!Warning] 
    > 클라우드에서 작업 영역을 만드는 데 몇 분 정도 걸릴 수 있습니다.
@@ -90,6 +90,8 @@ ms.locfileid: "80297055"
 
 ## <a name="find-a-workspace"></a><a name="view"></a>작업 영역 찾기
 
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+
 1. 상단 검색 필드에 **기계 학습을**입력합니다.  
 
 1. **Machine Learning**을 선택합니다.
@@ -102,9 +104,9 @@ ms.locfileid: "80297055"
 
 ## <a name="delete-a-workspace"></a>작업 영역 삭제
 
-삭제하려는 작업 영역 맨 위에 있는 [삭제] 단추를 사용합니다.
+Azure [포털에서](https://portal.azure.com/)삭제하려는 작업 영역 의 맨 위에 있는 **삭제를** 선택합니다.
 
-  ![삭제 단추](./media/how-to-manage-workspace/delete-workspace.png)
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="작업 영역 삭제":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -1,5 +1,5 @@
 ---
-title: 파트너 센터에서 상업용 마켓플레이스 계정 만들기
+title: 파트너 센터에서 상용 마켓플레이스 계정 만들기
 description: 파트너 센터에서 상업용 마켓플레이스 계정을 만드는 방법을 알아보세요.
 author: qianw211
 ms.author: dsindona
@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 03/10/2020
-ms.openlocfilehash: 82caf46905c0b76deae524d8b172d70b436361d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c635d285f83e8e9c4c5547a9ee983686c507819
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281360"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261740"
 ---
-# <a name="create-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상업용 마켓플레이스 계정 만들기
+# <a name="create-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 마켓플레이스 계정 만들기
 
-[Azure 마켓플레이스](https://azuremarketplace.microsoft.com/) 또는 [AppSource에](https://appsource.microsoft.com/)오퍼를 게시하려면 파트너 센터의 상용 마켓플레이스 프로그램에서 계정을 만들어야 합니다. 이 도움말에서는 파트너 센터 계정을 만드는 방법과 상업용 마켓플레이스 프로그램에 새 게시자를 추가하는 방법을 다룹니다.
+[Azure 마켓플레이스](https://azuremarketplace.microsoft.com/) 또는 [Microsoft AppSource에](https://appsource.microsoft.com/)오퍼를 게시하려면 파트너 센터의 상용 마켓플레이스 프로그램에서 계정을 만들어야 합니다. 이 도움말에서는 파트너 센터 계정을 만드는 방법과 상업용 마켓플레이스 프로그램에 새 게시자를 추가하는 방법을 다룹니다.
 
 >[!IMPORTANT]
 >파트너 센터로 이동한 [CPP(클라우드 파트너 포털)에](https://cloudpartner.azure.com) 계정이 있는 경우 새 계정을 만들 필요가 없습니다. 자세한 내용은 [CPP에서 이동하는 게시자를](#publishers-moving-from-cpp) 참조하십시오.
@@ -75,7 +75,7 @@ ms.locfileid: "80281360"
 
 등록이 완료되면 상업용 마켓플레이스 개요 페이지로 이동합니다. **상업용 마켓플레이스는** 왼쪽 탐색 모음에 표시됩니다. **설정** > **파트너 설정** > **프로그램을**선택하면 상업용 마켓플레이스가 등록된 것으로 표시됩니다.
 
-파트너 센터에서 상업용 마켓플레이스 계정을 만들어 주셔서 감사합니다! 도움말은 [상업용 마켓플레이스 개요를](./commercial-marketplace-overview.md)참조하십시오. 게시자 추가에 대한 도움말은 [상업용 마켓플레이스 프로그램에 새 게시자 추가를](#add-new-publishers-to-the-commercial-marketplace-program)참조하세요.
+파트너 센터에서 상업용 마켓플레이스 계정을 만들어 주셔서 감사합니다! 도움말은 [상업용 마켓플레이스 개요를](./commercial-marketplace-overview.md)참조하세요. 퍼블리셔 추가에 대한 도움말은 [상업용 마켓플레이스에 새 게시자 추가를](#add-new-publishers-to-the-commercial-marketplace-program)참조하세요.
 
 ## <a name="create-an-account-using-existing-microsoft-partner-center-enrollments"></a>기존 Microsoft 파트너 센터 등록을 사용하여 계정 만들기
 
@@ -119,7 +119,7 @@ Microsoft 파트너 센터에 이미 등록되어 있는 경우 이 섹션을 �
 
 등록이 완료되면 상업용 마켓플레이스 개요 페이지로 이동합니다. **상업용 마켓플레이스는** 왼쪽 탐색 모음에 표시됩니다. **설정** > **파트너 설정** > **프로그램을**선택하면 상업용 마켓플레이스가 등록된 것으로 표시됩니다.
 
-파트너 센터에서 계정을 만들어 주셔서 감사합니다! 도움말은 [상업용 마켓플레이스 개요를](./commercial-marketplace-overview.md)참조하십시오. 게시자 추가에 대한 도움말은 [상업용 마켓플레이스 프로그램에 새 게시자 추가를](#add-new-publishers-to-the-commercial-marketplace-program)참조하세요.
+파트너 센터에서 계정을 만들어 주셔서 감사합니다! 도움말은 [상업용 마켓플레이스 개요를](./commercial-marketplace-overview.md)참조하세요. 퍼블리셔 추가에 대한 도움말은 [상업용 마켓플레이스에 새 게시자 추가를](#add-new-publishers-to-the-commercial-marketplace-program)참조하세요.
 
 ### <a name="enrolled-in-a-developer-program"></a>개발자 프로그램에 등록
 
@@ -143,7 +143,7 @@ Microsoft 파트너 센터 계정으로 [파트너 센터에](https://partner.mi
 
 등록이 완료되면 상업용 마켓플레이스 개요 페이지로 이동합니다. **상업용 마켓플레이스는** 왼쪽 탐색 모음에 표시됩니다. **설정** > **개발자 설정** > **프로그램을**선택하면 상업용 마켓플레이스가 등록된 것으로 표시됩니다.
 
-파트너 센터에서 계정을 만들어 주셔서 감사합니다! 도움말은 [상업용 마켓플레이스 개요를](./commercial-marketplace-overview.md)참조하십시오. 게시자 추가에 대한 도움말은 [상업용 마켓플레이스 프로그램에 새 게시자 추가를](#add-new-publishers-to-the-commercial-marketplace-program)참조하세요.
+파트너 센터에서 계정을 만들어 주셔서 감사합니다! 도움말은 [상업용 마켓플레이스 개요를](./commercial-marketplace-overview.md)참조하세요. 퍼블리셔 추가에 대한 도움말은 [상업용 마켓플레이스에 새 게시자 추가를](#add-new-publishers-to-the-commercial-marketplace-program)참조하세요.
 
 ## <a name="publishers-moving-from-cpp"></a>CPP에서 이사하는 게시자
 
@@ -170,7 +170,7 @@ Microsoft 파트너 센터 계정으로 [파트너 센터에](https://partner.mi
 4. 게시자에 연결할 MPN ID를 선택합니다.
 5. 양식의 **게시자 세부 정보를** 업데이트합니다.
 
-   1. **게시자 이름**: 제안이 있는 Azure 마켓플레이스 또는 AppSource에 표시되는 이름입니다.
+   1. **게시자 이름**: 오퍼와 함께 상업 시장에 표시되는 이름입니다.
    1. **PublisherID**: 파트너 센터에서 게시자를 고유하게 식별하는 데 사용하는 식별자입니다. 이 필드의 기본값은 시스템의 기존 `PublisherID` 및 고유에 매핑되므로 다시 사용할 수 없으므로 이 필드를 업데이트해야 합니다.
    1. **연락처 정보**: 필요한 경우 연락처 정보를 업데이트합니다.
 

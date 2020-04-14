@@ -1,6 +1,6 @@
 ---
-title: Microsoft 앱소스 및 Azure 마켓플레이스에서 게시 옵션 결정
-description: 이 문서에서는 Microsoft AppSource 및 Azure Marketplace에 앱을 게시하는 방법을 이해하려는 자격 기준 및 게시 요구 사항 파트너에 대해 설명합니다.
+title: 상용 마켓플레이스에서 게시 옵션 결정
+description: 이 문서에서는 앱을 상용 시장에 게시하는 방법을 이해하려는 자격 기준 및 게시 요구 사항에 대해 설명합니다.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: dsindona
 ms.service: marketplace
@@ -8,18 +8,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: dsindona
-ms.openlocfilehash: 4c41fcbb8766feb68db7d60d591e914a6ba0aea2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 84d5c351f3997fe5430ea1ce517c2dca13203c03
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349533"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261689"
 ---
 # <a name="determine-your-publishing-option"></a>게시 옵션 확인
 
 오퍼에 대해 선택하는 게시 옵션은 자격 요건과 상업용 마켓플레이스 GTM 혜택모두에 직접적인 관련이 있습니다. 더 중요한 것은 게시 옵션 및 오퍼 유형을 선택하면 사용자가 상용 마켓플레이스 오퍼와 상호 작용하는 방식을 정의합니다.
 
-오퍼를 구성하려면 게시 옵션, 제안 유형 및 구성, 상용 마켓플레이스에서 오퍼가 표시되는 방식과 위치를 제어하는 행동 유도 등 다음과 같은 주요 상용 시장 개념을 이해해야 합니다. 상점.
+오퍼를 구성하려면 게시 옵션, 제안 유형 및 구성, 상용 마켓플레이스 스토어프론트에서 오퍼가 표시되는 방식과 위치를 제어하는 행동 유도 등 다음과 같은 주요 상용 시장 개념을 이해해야 합니다.
 
 ![마이크로소프트 상업용 마켓플레이스 스토어프론트 및 퍼블리싱 옵션](./media/marketplace-publishers-guide/storefronts_options_table.png)
 

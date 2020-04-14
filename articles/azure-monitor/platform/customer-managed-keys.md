@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 04/08/2020
-ms.openlocfilehash: 5b99e2f31d82630e2adc138c11485201a617af81
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.date: 04/12/2020
+ms.openlocfilehash: dbd217c7135172c52a5ec7459930977960c452aa
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892328"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260867"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Azure 모니터 고객 관리 키 구성 
 
@@ -92,11 +92,10 @@ Azure Monitor는 시스템 할당된 관리되는 ID를 활용하여 Azure 키 �
 > [!IMPORTANT]
 > 모든 API 요청은 요청 헤더에 Bearer 권한 부여 토큰을 포함해야 합니다.
 
-예를 들어:
+다음은 그 예입니다.
 
 ```rst
-GET
-https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>?api-version=2015-11-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
 Authorization: Bearer eyJ0eXAiO....
 ```
 
@@ -106,8 +105,8 @@ Authorization: Bearer eyJ0eXAiO....
 
 1. [앱 등록](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens) 방법을 사용합니다.
 2. Azure 포털에서 다음을 수행합니다.
-    1. "개발자 도구(F12)에서 Azure 포털로 이동
-    1. "일괄 처리?api 버전" 인스턴스 중 하나에서 "헤더 요청" 아래에서 권한 부여 문자열을 찾습니다. 그것은 다음과 같습니다 : "권한 부여 : 베어러 \<토큰\>". 
+    1. "개발자 도구"(F12)에서 Azure 포털로 이동
+    1. "일괄 처리?api 버전" 인스턴스 중 하나에서 "헤더 요청" 아래에서 권한 부여 문자열을 찾습니다. 그것은 다음과 같습니다 : "권한 부여 : 베어러 eyJ0eXAiO ...". 
     1. 아래 예제에 따라 API 호출에 복사하여 추가합니다.
 3. Azure REST 설명서 사이트로 이동합니다. 모든 API에서 "사용해 보십시오"를 누르고 Bearer 토큰을 복사합니다.
 
@@ -115,29 +114,52 @@ Authorization: Bearer eyJ0eXAiO....
 
 이 구성 절차의 일부 작업은 빠르게 완료할 수 없기 때문에 비동기적으로 실행됩니다. 비동기 작업에 대한 응답은 처음에 HTTP 상태 코드 200(OK) 및 *헤더를 Azure-AsyncOperation* 속성을 사용할 때 반환합니다.
 ```json
-"Azure-AsyncOperation": "https://management.azure.com/subscriptions/ subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2015-11-01-preview"
+"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-03-01-preview"
 ```
 
 *Azure-AsyncOperation* 헤더 값으로 GET 요청을 전송하여 비동기 작업의 상태를 확인할 수 있습니다.
 ```rst
-GET "https://management.azure.com/subscriptions/ subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2015-11-01-preview
+GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 ```
 
-작업에서 응답의 본문에는 작업에 대한 정보가 포함되어 있으며 *Status* 속성은 해당 상태를 나타냅니다. 이 구성 절차의 비동기 작업 및 해당 상태는 다음과 같습니다.
+응답에는 작업 및 해당 *상태에*대한 정보가 포함되어 있습니다. 다음 중 하나가 될 수 있습니다.
 
-***클러스터* 리소스 만들기**
-* 프로비저닝계정 - ADX 클러스터프로비저닝 중 
-* 성공 - ADX 클러스터 프로비저닝완료
+작업이 진행 중입니다.
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "InProgress", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+}
+```
 
-**키 볼트에 대한 권한 부여**
-* 업데이트 -- 키 식별자 세부 정보 업데이트가 진행 중입니다.
-* 성공 -- 업데이트 완료
+작업이 완료되었습니다.
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Succeeded", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
+}
+```
 
-**로그 분석 작업 영역 연결**
-* 연결 -- 클러스터에 대한 작업 영역 연결이 진행 중입니다.
-* 성공 -- 협회 완료
-
+작업이 실패했습니다.
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Failed", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
+    "error" : { 
+        "code": "error-code",  
+        "message": "error-message" 
+    }
+}
+```
 
 ### <a name="subscription-whitelisting"></a>구독 허용 목록
 
@@ -149,6 +171,8 @@ CMK 기능은 초기 액세스 기능입니다. *클러스터* 리소스를 만�
 ### <a name="storing-encryption-key-kek"></a>암호화 키 저장(KEK)
 
 이미 생성해야 하는 Azure Key Vault를 만들거나 사용하거나 데이터 암호화에 사용할 키를 가져옵니다. Azure 키 볼트는 Azure 모니터의 데이터에 대한 키 및 액세스를 보호하기 위해 복구 가능한 것으로 구성되어야 합니다. 키 볼트의 속성에서 이 구성을 확인할 수 있으며 *소프트 삭제* 및 *지우기 보호가* 모두 활성화되어야 합니다.
+
+![소프트 삭제 및 제거 보호 설정](media/customer-managed-keys/soft-purge-protection.png)
 
 이러한 설정은 CLI 및 PowerShell을 통해 사용할 수 있습니다.
 - [일시 삭제](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
@@ -189,11 +213,10 @@ ID는 생성 시 *클러스터* 리소스에 할당됩니다.
 
 **Response**
 
-200 확인 및 헤더 허용 될 때.
->[!Important]
-> 기능의 초기 액세스 기간 동안 ADX 클러스터는 수동으로 프로비전됩니다. ADX 클러스터의 프로비저닝을 완료하는 데 시간이 걸리지만 다음 두 가지 방법으로 프로비저닝 상태를 확인할 수 있습니다.
-> 1. 응답에서 *Azure-AsyncOperation* URL 값을 복사 하 고 [비동기 작업에서](#asynchronous-operations-and-status-check) 작업 상태 확인에 사용
-> 2. *클러스터* 리소스에 GET 요청을 보내고 *프로비저닝State* 값을 살펴봅니다. *프로비저닝 하는 동안 프로비저닝 계정* 및 완료 될 때 *성공.*
+200 확인 및 헤더.
+기능의 초기 액세스 기간 동안 ADX 클러스터는 수동으로 프로비전됩니다. ADX 클러스터의 프로비저닝을 완료하는 데 시간이 걸리지만 다음 두 가지 방법으로 프로비저닝 상태를 확인할 수 있습니다.
+1. 응답에서 Azure-AsyncOperation URL 값을 복사하 고 [비동기 작업 상태 확인을](#asynchronous-operations-and-status-check)따릅니다.
+2. *클러스터* 리소스에 GET 요청을 보내고 *프로비저닝State* 값을 살펴봅니다. *프로비저닝 하는 동안 프로비저닝 계정* 및 완료 될 때 *성공.*
 
 ### <a name="azure-monitor-data-store-adx-cluster-provisioning"></a>Azure 모니터 데이터 저장소(ADX 클러스터) 프로비저닝
 
@@ -205,7 +228,7 @@ Authorization: Bearer <token>
 ```
 
 > [!IMPORTANT]
-> 이후 단계에서 세부 정보가 필요하므로 응답을 복사하고 저장합니다.
+> 다음 단계에서 세부 정보가 필요하므로 응답을 복사하고 저장합니다.
 
 **Response**
 
@@ -260,11 +283,11 @@ Authorization: Bearer <token>
 
 이 리소스 관리자 요청은 비동기 작업입니다.
 
->[!Warning]
+> [!Warning]
 > *ID,* *sku,* *KeyVaultProperties* 및 *위치가*포함된 *클러스터* 리소스 업데이트에서 전체 본문을 제공해야 합니다. *KeyVaultProperties* 세부 정보가 누락되면 *클러스터* 리소스에서 키 식별자가 제거되고 [키 가 해지됩니다.](#cmk-kek-revocation)
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -290,11 +313,10 @@ Content-type: application/json
 
 **Response**
 
-200 확인 및 헤더 허용 될 때.
->[!Important]
-> Key 식별자의 전파를 완료하는 데 몇 분 정도 걸립니다. 다음 두 가지 방법으로 프로비저닝 상태를 확인할 수 있습니다.
-> 1. 응답에서 *Azure-AsyncOperation* URL 값을 복사 하 고 [비동기 작업에서](#asynchronous-operations-and-status-check) 작업 상태 확인에 사용
-> 2. *클러스터* 리소스에서 GET 요청을 보내고 *KeyVaultProperties* 속성을 살펴봅니다. 최근에 업데이트된 Key 식별자 세부 정보는 응답으로 반환되어야 합니다.
+200 확인 및 헤더.
+Key 식별자의 전파를 완료하는 데 몇 분 정도 걸립니다. 다음 두 가지 방법으로 프로비저닝 상태를 확인할 수 있습니다.
+1. 응답에서 Azure-AsyncOperation URL 값을 복사하 고 [비동기 작업 상태 확인을](#asynchronous-operations-and-status-check)따릅니다.
+2. *클러스터* 리소스에서 GET 요청을 보내고 *KeyVaultProperties* 속성을 살펴봅니다. 최근에 업데이트된 Key 식별자 세부 정보는 응답으로 반환되어야 합니다.
 
 Key 식별자 업데이트가 완료되면 *클러스터* 리소스의 GET 요청에 대한 응답은 다음과 같아야 합니다.
 
@@ -330,8 +352,6 @@ Key 식별자 업데이트가 완료되면 *클러스터* 리소스의 GET 요�
 ### <a name="workspace-association-to-cluster-resource"></a>*클러스터* 리소스에 대한 작업 영역 연결
 응용 프로그램 인사이트 CMK 구성의 경우 이 단계의 부록 내용을 따르십시오.
 
-이 리소스 관리자 요청은 비동기 작업입니다.
-
 다음 작업을 포함하는 이 작업을 수행하려면 작업 영역과 *클러스터* 리소스 모두에 대한 '쓰기' 권한이 있어야 합니다.
 
 - 작업 영역에서: Microsoft.오퍼리인사이트/작업 영역/쓰기
@@ -345,7 +365,7 @@ Key 식별자 업데이트가 완료되면 *클러스터* 리소스의 GET 요�
 이 리소스 관리자 요청은 비동기 작업입니다.
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2019-08-01-preview 
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview 
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -358,15 +378,13 @@ Content-type: application/json
 
 **Response**
 
-200 확인 및 헤더 허용 될 때.
->[!Important]
-> 최대 90분 까지 작동하여 완료할 수 있습니다. 작업 영역에 수집된 데이터는 성공적인 작업 영역 연결 후에만 관리 키로 암호화되어 저장됩니다.
-> 작업 영역 연결 상태를 확인하려면 응답에서 *Azure-AsyncOperation* URL 값을 복사하여 [비동기 작업에서](# asynchronous-operations-and-status-check) 작업 상태 확인에 사용합니다.
-
-작업 영역 - Get 및 응답을 관찰하여 작업 [영역으로](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) GET 요청을 전송하여 작업 영역에 연결된 *클러스터* 리소스를 확인할 수 있습니다. *클러스터ResourceId는* *클러스터* 리소스 ID에 표시됩니다.
+200 확인 및 헤더.
+수집된 데이터는 연결 작업 후 관리 키로 암호화되어 저장되며 완료하는 데 최대 90분이 걸릴 수 있습니다. 다음 두 가지 방법으로 작업 영역 연결 상태를 확인할 수 있습니다.
+1. 응답에서 Azure-AsyncOperation URL 값을 복사하 고 [비동기 작업 상태 확인을](#asynchronous-operations-and-status-check)따릅니다.
+2. 작업 [영역](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) 보내기 - 요청을 받고 응답을 관찰하면 연결된 작업 영역에는 "기능"아래에 clusterResourceId가 있습니다.
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
 ```
 
 **Response**
@@ -455,7 +473,7 @@ CMK를 사용하려면 Azure 키 볼트의 새 키 버전과 함께 *클러스�
 - 리소스 그룹에 대한 모든 *클러스터* 리소스 가져오기:
 
   ```rst
-  GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2019-08-01-preview
+  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
   Authorization: Bearer <token>
   ```
     
@@ -492,7 +510,7 @@ CMK를 사용하려면 Azure 키 볼트의 새 키 버전과 함께 *클러스�
 - 구독에 대한 모든 *클러스터* 리소스 가져오기:
 
   ```rst
-  GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2019-08-01-preview
+  GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
   Authorization: Bearer <token>
   ```
     
@@ -503,8 +521,7 @@ CMK를 사용하려면 Azure 키 볼트의 새 키 버전과 함께 *클러스�
 - *클러스터* 리소스 삭제 - 삭제가 우발적이든 의도적이든 14일 이내에 클러스터 리소스, 데이터 및 관련 작업 영역을 복구할 수 있도록 소프트 삭제 작업이 수행됩니다. *클러스터* 리소스 이름은 소프트 삭제 기간 동안 예약된 상태로 유지되며 해당 이름으로 새 클러스터를 만들 수 없습니다. 소프트 삭제 기간 이후에는 *클러스터* 리소스 및 데이터를 복구할 수 없습니다. 연결된 작업 영역은 *클러스터* 리소스에서 연결이 해제되고 새 데이터가 공유 저장소로 수집되고 Microsoft 키로 암호화됩니다.
 
   ```rst
-  DELETE
-  https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
   Authorization: Bearer <token>
   ```
 
@@ -540,8 +557,10 @@ CMK를 사용하려면 Azure 키 볼트의 새 키 버전과 함께 *클러스�
 
 **만들기**
 
+이 리소스 관리자 요청은 비동기 작업입니다.
+
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -562,10 +581,10 @@ Content-type: application/json
 
 **Response**
 
-202 수락. 비동기 작업에 대한 표준 리소스 관리자 응답입니다.
-
->[!Important]
-> ADX 클러스터의 프로비저닝을 완료하는 데 몇 분 정도 걸립니다. *클러스터* 리소스에서 GET REST API 호출을 수행하고 *프로비저닝State* 값을 볼 때 프로비저닝 상태를 확인할 수 있습니다. 프로비저닝 하는 동안 *프로비저닝 계정* 및 완료 될 때 "성공".
+200 확인 및 헤더.
+기능의 초기 액세스 기간 동안 ADX 클러스터는 수동으로 프로비전됩니다. ADX 클러스터의 프로비저닝을 완료하는 데 시간이 걸리지만 다음 두 가지 방법으로 프로비저닝 상태를 확인할 수 있습니다.
+1. 응답에서 Azure-AsyncOperation URL 값을 복사하 고 [비동기 작업 상태 확인을](#asynchronous-operations-and-status-check)따릅니다.
+2. *클러스터* 리소스에 GET 요청을 보내고 *프로비저닝State* 값을 살펴봅니다. *프로비저닝 하는 동안 프로비저닝 계정* 및 완료 될 때 *성공.*
 
 ### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-update-api"></a>구성 요소 - API [만들기 또는 업데이트를](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) 사용하여 구성 요소를 *클러스터* 리소스에 연결
 
@@ -579,7 +598,7 @@ Content-type: application/json
 > ADX 클러스터가 프로비전되었는지 확인하려면 *클러스터* 리소스 Get REST API를 실행하고 *프로비저닝State* 값이 *성공했는지*확인합니다.
 
 ```rst
-GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 ```
 
@@ -614,7 +633,7 @@ Authorization: Bearer <token>
 ```
 
 > [!IMPORTANT]
-> 다음 단계에서 필요하므로 "원칙 id" 값을 복사하고 유지합니다.
+> 다음 단계에서 응답이 필요하므로 응답을 복사하고 유지합니다.
 
 **구성 요소 연결**
 

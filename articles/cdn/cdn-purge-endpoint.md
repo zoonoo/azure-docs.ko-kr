@@ -3,7 +3,7 @@ title: Azure CDN 엔드포인트 제거 | Microsoft Docs
 description: Azure CDN 엔드포인트에서 캐시된 콘텐츠를 모두 제거하는 방법을 알아봅니다.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: sohamnchatterjee
 ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2019
-ms.author: magattus
-ms.openlocfilehash: 1bfbc1b730811e1111a08a957db3a747f90fb587
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: ebbb0dd059ce2bcf4a3bc260ed6d426d5be09dfe
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74546212"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260261"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Azure CDN 엔드포인트 제거
 ## <a name="overview"></a>개요
@@ -73,7 +73,7 @@ Azure CDN 가장자리 노드는 자산의 TTL(Time-to-Live)이 만료될 때 �
 > 
 > 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [Azure CDN 엔드포인트에 자산 미리 로드](cdn-preload-endpoint.md)
 * [Azure CDN REST API 참조 - 엔드포인트 제거 또는 미리 로드](/rest/api/cdn/endpoints)
 

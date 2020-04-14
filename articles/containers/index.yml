@@ -6,12 +6,12 @@ metadata:
   title: Microsoft Azure 컨테이너 서비스 설명서 | Microsoft Docs
   description: Azure 컨테이너 서비스를 사용하여 클라우드 기반 컨테이너 애플리케이션을 관리 및 개발하는 방법을 알아봅니다.
   ms.topic: hub-page
-  ms.openlocfilehash: 740b95a28e8437defb1929003a74c53cacdcaa70
-  ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+  ms.openlocfilehash: f4d76c0f2ddbecd386a3e3b9d3de370f19b86fee
+  ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/01/2020
-  ms.locfileid: "80478142"
+  ms.lasthandoff: 04/13/2020
+  ms.locfileid: "81259020"
 highlightedContent:
   items:
   - itemType: whats-new
@@ -67,10 +67,10 @@ conceptualContent:
     - url: /azure/app-service/app-service-web-get-started-windows-container
       itemType: get-started
       text: 사용자 지정 Windows 컨테이너 실행
-    - url: /azure/app-service/quickstart-docker
+    - url: /azure/app-service/containers/quickstart-docker
       itemType: quickstart
       text: 사용자 지정 Linux 컨테이너 실행
-    - url: /azure/app-service/quickstart-multi-container
+    - url: /azure/app-service/containers/quickstart-multi-container
       itemType: quickstart
       text: Linux 다중 컨테이너 앱 만들기
     footerLink:
@@ -87,7 +87,7 @@ conceptualContent:
     - url: /azure/container-instances/container-instances-using-azure-container-registry
       itemType: how-to-guide
       text: Azure Container Registry에서 이미지 배포
-    - url: /azure/container-registry/container-registry-quick-task-cli
+    - url: /azure/container-registry/container-registry-quickstart-task-cli
       itemType: get-started
       text: Azure CLI를 사용하여 이미지 빌드, 푸시 및 실행
     footerLink:
@@ -129,7 +129,7 @@ conceptualContent:
     - url: /azure/container-registry/container-registry-get-started-azure-cli
       itemType: get-started
       text: Azure CLI를 사용하여 프라이빗 컨테이너 레지스트리 만들기
-    - url: /azure/container-registry/container-registry-quick-task-cli
+    - url: /azure/container-registry/container-registry-quickstart-task-cli
       itemType: get-started
       text: Azure CLI를 사용하여 이미지 빌드, 푸시 및 실행
     footerLink:

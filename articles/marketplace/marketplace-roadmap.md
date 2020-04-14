@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/02/2019
-ms.openlocfilehash: c9c69bb475c943003f78a69df1142653c3d5249e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c6a3ac701442fb30e471bcc2c8f317e3988980f7
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288379"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261978"
 ---
 # <a name="microsoft-commercial-marketplace-roadmap"></a>마이크로소프트 상용 마켓플레이스 로드맵
 
@@ -29,7 +29,7 @@ ms.locfileid: "80288379"
 
 * [마켓플레이스 + CSP 업데이트 블로그](https://aka.ms/marketplacemarchupdateblog)
 * [CSP 채널(ISV)에 오퍼링 게시](https://aka.ms/publishtocsp)
-* [마켓플레이스 오퍼링 재판매(CSP)](hhttps://aka.ms/marketplaceincsp)
+* [마켓플레이스 오퍼링 재판매(CSP)](https://aka.ms/marketplaceincsp)
 * [표준 계약](https://aka.ms/standardcontract)
 * [SaaS 주문 처리 API](https://aka.ms/saasapiv2)
 * [마켓플레이스 지오 및 통화](https://aka.ms/marketplacegeos)

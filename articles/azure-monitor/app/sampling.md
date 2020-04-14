@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: fc9db23f7733f97ca207e834d4543fbdb1b9db5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e888e0606b7a9bcd9a7a94c28455d705c5f1bec
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275829"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255484"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -22,7 +22,7 @@ ms.locfileid: "79275829"
 
 * 샘플링에는 적응형 샘플링, 고정 비율 샘플링 및 흡기 샘플링의 세 가지 유형이 있습니다.
 * 어댑티브 샘플링은 응용 프로그램 인사이트 ASP.NET 및 ASP.NET 핵심 소프트웨어 개발 키트(SDK)의 모든 최신 버전에서 기본적으로 활성화됩니다. Azure [함수에서도 사용됩니다.](https://docs.microsoft.com/azure/azure-functions/functions-overview)
-* 고정 요금 샘플링은 ASP.NET, ASP.NET 코어, Java 및 파이썬용 응용 프로그램 인사이트 SDK의 최신 버전에서 사용할 수 있습니다.
+* 고정 요금 샘플링은 ASP.NET, ASP.NET 코어, Java(에이전트 및 SDK 모두) 및 파이썬에 대한 응용 프로그램 인사이트 SDK의 최신 버전에서 사용할 수 있습니다.
 * 인기 샘플링은 응용 프로그램 인사이트 서비스 끝점에서 작동합니다. 다른 샘플링이 적용되지 않는 경우에만 적용됩니다. SDK가 원격 분석을 샘플링하는 경우 인비저레이션 샘플링이 비활성화됩니다.
 * 웹 응용 프로그램의 경우 사용자 지정 이벤트를 기록하고 이벤트 집합을 함께 유지하거나 삭제해야 하는 경우 `OperationId` 이벤트의 값이 같아야 합니다.
 * 분석 쿼리를 작성하는 경우 [샘플링을 고려](../../azure-monitor/log-query/aggregations.md)해야 합니다. 특히, 레코드를 단순히 세는 대신 `summarize sum(itemCount)`를 사용해야 합니다.
@@ -34,7 +34,7 @@ ms.locfileid: "79275829"
 |-|-|-|-|
 | ASP.NET | [예(기본적으로 사용 중)](#configuring-adaptive-sampling-for-aspnet-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-applications) | 다른 샘플링이 적용되지 않는 경우에만 |
 | ASP.NET Core | [예(기본적으로 사용 중)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | 다른 샘플링이 적용되지 않는 경우에만 |
-| Azure Functions | [예(기본적으로 사용 중)](#configuring-adaptive-sampling-for-azure-functions) | 예 | 다른 샘플링이 적용되지 않는 경우에만 |
+| Azure 기능 | [예(기본적으로 사용 중)](#configuring-adaptive-sampling-for-azure-functions) | 예 | 다른 샘플링이 적용되지 않는 경우에만 |
 | Java | 예 | [예](#configuring-fixed-rate-sampling-for-java-applications) | 다른 샘플링이 적용되지 않는 경우에만 |
 | Python | 예 | [예](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | 다른 샘플링이 적용되지 않는 경우에만 |
 | 나머지 | 예 | 예 | [예](#ingestion-sampling) |
@@ -306,7 +306,29 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### <a name="configuring-fixed-rate-sampling-for-java-applications"></a>Java 애플리케이션을 위한 고정 레이트 샘플링 구성
 
-기본적으로 Java SDK에서는 샘플링이 활성화되지 않습니다. 현재는 고정 비율 샘플링만 지원합니다. 적응 형 샘플링은 Java SDK에서 지원되지 않습니다.
+기본적으로 Java 에이전트 및 SDK에서는 샘플링이 활성화되지 않습니다. 현재는 고정 비율 샘플링만 지원합니다. 적응형 샘플링은 Java에서 지원되지 않습니다.
+
+#### <a name="configuring-java-agent"></a>자바 에이전트 구성
+
+1. [애플리케이션 인사이트 에이전트 다운로드-3.0.0-PREVIEW.2.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.2/applicationinsights-agent-3.0.0-PREVIEW.2.jar)
+
+1. 샘플링을 사용하려면 파일에 `ApplicationInsights.json` 다음을 추가합니다.
+
+```json
+{
+  "instrumentationSettings": {
+    "preview": {
+      "sampling": {
+        "fixedRate": {
+          "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
+        }
+      }
+    }
+  }
+}
+```
+
+#### <a name="configuring-java-sdk"></a>자바 SDK 구성
 
 1. 다운로드 및 최신 [응용 프로그램 통찰력 자바 SDK와](../../azure-monitor/app/java-get-started.md)웹 응용 프로그램을 구성 .
 
@@ -534,7 +556,7 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 
 * SDK가 샘플링을 수행하지 않는 경우 특정 볼륨을 초과하는 모든 원격 분석에 대해 자동으로 수집 샘플링이 발생할 수 있습니다. 예를 들어 이전 버전의 ASP.NET SDK 또는 Java SDK를 사용하는 경우 이 구성이 작동합니다.
 * 현재 ASP.NET 또는 ASP.NET 코어 SDK(Azure 또는 자체 서버에서 호스팅됨)를 사용하는 경우 기본적으로 적응 샘플링을 받을 수 있지만 위에서 설명한 대로 고정 요금으로 전환할 수 있습니다. 고정 비율 샘플링을 사용하면 SDK 브라우저는 자동으로 관련 이벤트를 샘플링하도록 동기화합니다. 
-* 현재 Java SDK를 사용하는 경우 고정 `ApplicationInsights.xml` 비율 샘플링을 켜도록 구성할 수 있습니다. 샘플링은 기본적으로 꺼져 있습니다. 고정 속도 샘플링을 사용하면 브라우저 SDK와 서버가 관련 이벤트를 샘플링하기 위해 자동으로 동기화됩니다.
+* 현재 Java 에이전트를 사용하는 경우 고정 `ApplicationInsights.json` 비율 샘플링을 켜도록 `ApplicationInsights.xml`구성할 수 있습니다(Java SDK의 경우 구성). 샘플링은 기본적으로 꺼져 있습니다. 고정 속도 샘플링을 사용하면 브라우저 SDK와 서버가 관련 이벤트를 샘플링하기 위해 자동으로 동기화됩니다.
 
 *항상 보고 싶은 확실히 드문 이벤트가 있습니다. 이전의 샘플링 모듈에서 그 이벤트를 어떻게 가져올 수 있습니까?*
 

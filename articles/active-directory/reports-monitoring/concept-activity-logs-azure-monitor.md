@@ -17,12 +17,12 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 595c87d2b8182c9044baeb2662e34871d9e52c52
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 0822bdd886a9a29f2cdb6843d3dc4404d7360f32
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991248"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261026"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure 모니터의 Azure AD 활동 로그
 
@@ -98,12 +98,13 @@ Azure AD 라이선스가 이미 있는 경우 스토리지 계정 및 이벤트 
 
 예를 들어 사용자 수가 100,000명을 초과하는 대규모 테넌트에서는 평균적으로 초당 약 18개 이벤트가 발생하며, 이는 5분당 5,400개 이벤트와 동일한 속도입니다. 감사 로그는 이벤트당 약 2KB이므로 데이터 10.8MB와 동일합니다. 따라서 5분 간격으로 메시지 43개가 이벤트 허브로 전송됩니다. 
 
-다음 표에는 미국 서부에 있는 기본 이벤트 허브의 이벤트 데이터 볼륨별 예상 월간 비용이 나와 있습니다. 애플리케이션의 예상 데이터 볼륨에 해당하는 정확한 예상 가격을 계산하려면 [이벤트 허브 가격 계산기](https://azure.microsoft.com/pricing/details/event-hubs/)를 사용하세요.
+다음 표에는 사용자 로그인 동작 등과 같은 여러 요인에 따라 테넌트마다 다를 수 있는 이벤트 데이터의 양에 따라 미국 서부의 기본 이벤트 허브에 대한 월별 예상 비용이 포함되어 있습니다. 애플리케이션에 대해 예상되는 데이터 볼륨의 정확한 추정치를 계산하려면 [이벤트 허브 가격 계산기를](https://azure.microsoft.com/pricing/details/event-hubs/)사용합니다.
 
 | 로그 범주 | 사용자 수 | 초당 이벤트 수 | 5분 간격당 이벤트 수 | 간격당 볼륨 | 간격당 메시지 수 | 월간 메시지 수 | 월간 비용(예상치) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
 | 감사 | 100,000 | 18 | 5,400 | 10.8MB | 43 | 371,520 | $10.83 |
 | 감사 | 1,000 | 0.1 | 52 | 104KB | 1 | 8,640 | $10.80 |
+| 로그인 | 100,000 | 18000 | 5,400,000 | 10.8GB | 42188 | 364,504,320 | $23.9 |  
 | 로그인 | 1,000 | 178 | 53,400 | 106.8MB&nbsp; | 418 | 3,611,520 | $11.06 |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Azure Monitor 로그 비용 고려 사항

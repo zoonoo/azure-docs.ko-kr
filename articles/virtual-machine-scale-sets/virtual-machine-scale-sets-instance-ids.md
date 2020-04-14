@@ -1,19 +1,19 @@
 ---
 title: Azure VM 확장 집합 VM의 인스턴스 ID 이해
 description: Azure VM 스케일에 대한 인스턴스 아이디가 가상 컴퓨터와 표시되는 다양한 방법을 이해합니다.
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: manayar
-ms.openlocfilehash: 99ad4249a4134bcc1b1cf5aba92b8a95a034db33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: aa8b88bde4b6f8f02f6c9c81d0742d0dede761ac
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79534425"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273687"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Azure VM 확장 집합 VM의 인스턴스 ID 이해
 이 문서에서는 확장 집합의 인스턴스 ID와 이것이 노출되는 다양한 방식을 설명합니다.

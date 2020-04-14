@@ -3,12 +3,12 @@ title: Azure 사이트 복구를 사용 하 여 VM웨어 재해 복구에 대 �
 description: Azure 사이트 복구를 사용하여 온-프레미스 VMware VM을 Azure로 복구하는 데 대한 일반적인 질문에 대한 답변을 얻을 수 있습니다.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ae16138ae44262f53a8f9948d6287f0acf621244
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d551cef7037c0b6d7286cbb4b70d8f7a8f7f5cae
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240032"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259513"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>VMware에서 Azure로 복제에 대한 일반적인 질문
 
@@ -96,7 +96,7 @@ Site Recovery에서는 다음 작업을 위해 VMware 서버에 액세스해야 
 복제하려는 각 VM에서 다음 몇 가지 방법 중 하나를 사용하여 서비스를 설치합니다.
 
 - [푸시 설치](vmware-physical-mobility-service-overview.md#push-installation)
-- UI 또는 PowerShell에서 [수동 설치](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui)
+- UI 또는 PowerShell에서 [수동 설치](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui)
 - [구성 관리자와](vmware-azure-mobility-install-configuration-mgr.md) 같은 배포 도구를 사용하여 배포
 
 ## <a name="managed-disks"></a>관리 디스크
@@ -198,7 +198,7 @@ VMware에서 Azure로 복제하는 경우 원본 VM의 디스크 크기를 수�
 
 ## <a name="do-i-need-to-reboot-source-machines-for-each-upgrade"></a>각 업그레이드에 대해 소스 컴퓨터를 다시 부팅해야 합니까?
 
-재부팅은 권장되지만 각 업그레이드에 필수는 아닙니다. [자세히 알아봅니다](https://aka.ms/asr_vmware_upgrades).
+재부팅은 권장되지만 각 업그레이드에 필수는 아닙니다. [자세히 알아보기](https://aka.ms/asr_vmware_upgrades).
 
 ## <a name="configuration-server"></a>구성 서버
 
@@ -326,7 +326,7 @@ VMware에서 Azure로 의한 가장 오래된 복구 지점은 72시간입니다
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>장애 조치 후 Azure VM에 액세스하려면 어떻게 할까요?
 
-장애 조치 후 보안 인터넷 연결, 사이트 간 VPN 또는 Azure ExpressRoute를 통해 Azure VM에 액세스할 수 있습니다. 연결하려면 몇 가지 를 준비해야 합니다. [자세히 알아봅니다](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+장애 조치 후 보안 인터넷 연결, 사이트 간 VPN 또는 Azure ExpressRoute를 통해 Azure VM에 액세스할 수 있습니다. 연결하려면 몇 가지 를 준비해야 합니다. [자세히 알아보기](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 
 ### <a name="is-failed-over-data-resilient"></a>실패한 데이터가 복원력이 있습니까?
 
@@ -338,7 +338,7 @@ Azure는 복원을 위해 디자인되었습니다. 사이트 복구는 Azure �
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>다른 위치로 장애 조치할 수 있나요?
 
-예. Azure로 장애 조치한 경우 원래 위치를 사용할 수 없는 경우 다른 위치로 장애 조치할 수 있습니다. [자세히 알아봅니다](concepts-types-of-failback.md#alternate-location-recovery-alr).
+예. Azure로 장애 조치한 경우 원래 위치를 사용할 수 없는 경우 다른 위치로 장애 조치할 수 있습니다. [자세히 알아보기](concepts-types-of-failback.md#alternate-location-recovery-alr).
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-with-private-peering-to-fail-back"></a>개인 피어링이 있는 VPN 또는 ExpressRoute가 필요한 이유는 무엇입니까?
 
@@ -349,13 +349,13 @@ Azure에서 장애 조치되면 Azure의 데이터가 온-프레미스 VM으로 
 
 ### <a name="can-i-set-up-replication-with-scripting"></a>스크립팅을 사용하여 복제를 설정할 수 있나요?
 
-예. 나머지 API, PowerShell 또는 Azure SDK를 사용하여 사이트 복구 워크플로를 자동화할 수 있습니다. [자세히 알아봅니다](vmware-azure-disaster-recovery-powershell.md).
+예. 나머지 API, PowerShell 또는 Azure SDK를 사용하여 사이트 복구 워크플로를 자동화할 수 있습니다. [자세히 알아보기](vmware-azure-disaster-recovery-powershell.md).
 
 ## <a name="performance-and-capacity"></a>성능 및 용량
 
 ### <a name="can-i-throttle-replication-bandwidth"></a>복제 대역폭을 제한할 수 있나요?
 
-예. [자세히 알아봅니다](site-recovery-plan-capacity-vmware.md).
+예. [자세히 알아보기](site-recovery-plan-capacity-vmware.md).
 
 ## <a name="next-steps"></a>다음 단계
 

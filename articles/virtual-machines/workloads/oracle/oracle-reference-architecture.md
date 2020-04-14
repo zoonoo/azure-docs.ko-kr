@@ -2,7 +2,7 @@
 title: Azure의 Oracle 데이터베이스에 대한 참조 아키텍처 | 마이크로 소프트 문서
 description: Microsoft Azure 가상 컴퓨터에서 Oracle 데이터베이스 엔터프라이즈 에디션 데이터베이스를 실행하기 위한 아키텍처를 참조합니다.
 services: virtual-machines-linux
-author: romitgirdhar
+author: mimckitt
 manager: gwallace
 tags: ''
 ms.service: virtual-machines
@@ -10,14 +10,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2019
-ms.author: rogirdh
+ms.author: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 235482f5d44877e5c4e47aed4d7eaf2baea5c3fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dc677ded1e13a64c082d49140fa0de69c0ed9d4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75560337"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263270"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Azure의 Oracle 데이터베이스 엔터프라이즈 에디션에 대한 참조 아키텍처
 
@@ -177,7 +177,7 @@ Oracle Data Guard는 시스템 관리, 사용자 정의 및 복합 샤딩 방법
 
 ![데이터 가드 브로커와 가용성 영역을 사용하여 오라클 데이터베이스 샤딩 - FSFO](./media/oracle-reference-architecture/oracledb_dg_sh_az.png)
 
-시스템 관리 샤딩을 구성하고 관리하는 것이 가장 쉽지만, 사용자 정의 샤딩 또는 복합 샤딩은 데이터와 응용 프로그램이 지리적으로 분산되어 있거나 복제를 제어해야 하는 시나리오에 적합합니다. 각 샤드의 
+시스템 관리 샤딩을 구성하고 관리하는 것이 가장 쉽지만, 사용자 정의 샤딩 또는 복합 샤딩은 데이터와 응용 프로그램이 지리적으로 분산되어 있는 시나리오 또는 각 샤드의 복제를 제어해야 하는 시나리오에 적합합니다. 
 
 앞의 아키텍처에서는 복합 샤딩을 사용하여 데이터를 지리적으로 분산하고 응용 프로그램 계층을 수평으로 확장합니다. 복합 샤딩은 시스템 관리 및 사용자 정의 샤딩의 조합이므로 두 방법의 이점을 제공합니다. 앞의 시나리오에서 데이터는 먼저 지역별로 구분된 여러 샤드스페이스에 분산되어 있습니다. 그런 다음 샤드스페이스의 여러 샤드에 걸쳐 일관된 해시로 데이터가 더 분할됩니다. 각 샤드스페이스에는 여러 샤드 그룹이 포함되어 있습니다. 각 샤드 그룹에는 여러 샤드가 있으며 이 경우 복제의 "단위"입니다. 각 샤드 그룹에는 샤드스페이스의 모든 데이터가 포함됩니다. 샤드그룹 A1과 B1은 기본 샤드 그룹이며 샤드그룹 A2및 B2는 대기 그룹입니다. 개별 샤드를 샤드 그룹이 아닌 복제 단위로 선택할 수 있습니다.
 

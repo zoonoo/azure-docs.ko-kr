@@ -2,17 +2,17 @@
 title: Azure CDN에 대한 표준 규칙 엔진의 작업 | 마이크로 소프트 문서
 description: Azure CDN(Azure CDN)에 대한 표준 규칙 엔진의 작업에 대한 참조 설명서입니다.
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: magattus
-ms.openlocfilehash: 53280bc90f629d93ff8a045c80f34a73970b43f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 29138b4fc6716ae5361cc4d7f97ceba41b90c2da
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74171629"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259955"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Azure CDN에 대한 표준 규칙 엔진의 작업
 
@@ -30,7 +30,7 @@ Azure CDN(Azure CDN)에 대한 [표준 규칙 엔진에서](cdn-standard-rules-e
 
 #### <a name="required-fields"></a>Required fields
 
-캐시 동작 |  설명              
+캐시 동작 |  Description              
 ---------------|----------------
 바이패스 캐시 | 이 옵션을 선택하고 규칙이 일치하면 콘텐츠가 캐시되지 않습니다.
 재정의 | 이 옵션을 선택하고 규칙이 일치하면 원본에서 반환된 TTL 값이 작업에 지정된 값으로 덮어씁니다.
@@ -48,7 +48,7 @@ Int | Int | Int | Int
 
 #### <a name="required-fields"></a>Required fields
 
-동작 | 설명
+동작 | Description
 ---------|------------
 포함 | 이 옵션을 선택하고 규칙이 일치하면 캐시 키가 생성될 때 매개 변수에 지정된 쿼리 문자열이 포함됩니다. 
 모든 고유한 URL 캐시 | 이 옵션을 선택하고 규칙이 일치하면 각 고유 URL에는 고유한 캐시 키가 있습니다. 
@@ -85,7 +85,7 @@ DELETE | 이 옵션을 선택하면 규칙이 일치하고 규칙에 지정된 �
 
 #### <a name="required-fields"></a>Required fields
 
-필드 | 설명 
+필드 | Description 
 ------|------------
 Type | 요청자로 돌아갈 응답 유형을 선택합니다: 찾음(302), 이동(301), 임시 리디렉션(307), 영구 리디렉션(308).
 프로토콜 | 매치 요청, HTTP, HTTPS.
@@ -102,7 +102,7 @@ Hostname | 요청을 리디렉션할 호스트 이름을 선택합니다. 들어
 
 #### <a name="required-fields"></a>Required fields
 
-필드 | 설명 
+필드 | Description 
 ------|------------
 소스 패턴 | 바꿀 URL 경로에서 소스 패턴을 정의합니다. 현재 소스 패턴은 접두사 기반 일치를 사용합니다. 모든 URL 경로와 일치하려면 전달**/** 슬래시() 를 소스 패턴 값으로 사용합니다.
 대상 | 다시 쓰기에 사용할 대상 경로를 정의합니다. 대상 경로는 소스 패턴을 덮어씁니다.

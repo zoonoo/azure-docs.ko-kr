@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 2b200692610302bb135982e5419dcda36d5cfe60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ccfaa57b8e8fdea325bed908ffe8815b09d0d15
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271162"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257796"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -25,7 +25,7 @@ IoT Hub는 모든 기능을 갖춘 MQTT broker가 아니며 MQTT v3.1.1 표준�
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-IoT Hub와 통신하는 모든 디바이스는 TLS/SSL을 사용하여 보호되어야 합니다. 따라서 IoT Hub는 1883 포트를 통한 비보안 연결을 지원하지 않습니다.
+IoT Hub와 통신하는 모든 디바이스는 TLS/SSL을 사용하여 보호되어야 합니다. 따라서 IoT Hub포트 1883을 통해 비보안 연결을 지원하지 않습니다.
 
 ## <a name="connecting-to-iot-hub"></a>IoT Hub에 연결
 
@@ -46,10 +46,10 @@ MQTT 프로토콜을 지원하는 [디바이스 SDK](https://github.com/Azure/az
 
 | 언어 | MQTT 프로토콜 매개 변수 | 웹 소켓 프로토콜 매개 변수를 통해 MQTT
 | --- | --- | --- |
-| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot 장치-mqtt. Mqtt | azure-iot 장치-mqtt. Mqttws |
+| [Node.JS](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot 장치-mqtt. Mqtt | azure-iot 장치-mqtt. Mqttws |
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHub클라이언트 프로토콜](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable). MQTT | IotHub클라이언트프로토콜.MQTT_WS |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
-| [C #](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [전송 유형](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet)입니다. Mqtt | 전송유형.Mqtt는 MQTT가 실패하면 웹 소켓을 통해 MQTT로 돌아갑니다. 웹 소켓에만 MQTT를 지정하려면 TransportType.Mqtt_WebSocket_Only |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [전송 유형](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet)입니다. Mqtt | 전송유형.Mqtt는 MQTT가 실패하면 웹 소켓을 통해 MQTT로 돌아갑니다. 웹 소켓에만 MQTT를 지정하려면 TransportType.Mqtt_WebSocket_Only |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | 기본적으로 MQTT 지원 | 클라이언트를 만들기 위해 호출에 추가 `websockets=True` |
 
 다음 조각은 Azure IoT Node.js SDK를 사용할 때 웹 소켓 프로토콜을 통해 MQTT를 지정하는 방법을 보여 주며 있습니다.
@@ -118,7 +118,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
   SAS 토큰을 생성하는 방법에 대한 자세한 내용은 [IoT Hub 보안 토큰 사용](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)의 디바이스 섹션을 참조하세요.
 
-  테스트할 때 플랫폼 간 [Visual Studio Code용 Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 또는 [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer)를 사용하여 복사한 후 자체 코드에 붙여넣을 수 있는 SAS 토큰을 빠르게 생성할 수도 있습니다.
+  테스트 할 때 [Visual Studio 코드용](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 크로스 플랫폼 Azure IoT Tools 또는 CLI 확장 명령 az [iot 허브 생성 sas 토큰을](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) 사용하여 자신의 코드에 복사하여 붙여 넣을 수 있는 SAS 토큰을 신속하게 생성할 수도 있습니다.
 
 ### <a name="for-azure-iot-tools"></a>Azure IoT 도구용
 
@@ -129,16 +129,6 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 3. **만료 시간**을 설정하고 'Enter' 키를 누릅니다.
   
 4. SAS 토큰이 생성되어 클립보드에 복사됩니다.
-
-### <a name="for-device-explorer"></a>장치 탐색기용
-
-1. **장치 탐색기의** **관리** 탭으로 이동합니다.
-
-2. **SAS 토큰** (오른쪽 위)을 클릭합니다.
-
-3. **SASTokenForm**의 **DeviceID** 드롭다운에서 디바이스를 선택합니다. **TTL**을 설정합니다.
-
-4. **생성** 을 클릭하여 토큰을 만듭니다.
 
    생성되는 SAS 토큰은 다음 구조를 갖습니다.
 
@@ -286,7 +276,7 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
 ## <a name="sending-device-to-cloud-messages"></a>디바이스-클라우드 메시지 보내기
 
-성공적인 연결을 구축한 후 디바이스는 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **토픽 이름**으로 사용하여 IoT Hub에 메시지를 보낼 수 있습니다. `{property_bag}` 요소는 URL 인코딩 형식의 속성을 추가하여 메시지를 보내는 디바이스를 사용할 수 있습니다. 예를 들어:
+성공적인 연결을 구축한 후 디바이스는 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **토픽 이름**으로 사용하여 IoT Hub에 메시지를 보낼 수 있습니다. `{property_bag}` 요소는 URL 인코딩 형식의 속성을 추가하여 메시지를 보내는 디바이스를 사용할 수 있습니다. 다음은 그 예입니다.
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -339,7 +329,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_
 
 가능한 상태 코드:
 
-|상태 | 설명 |
+|상태 | Description |
 | ----- | ----------- |
 | 200 | Success |
 | 429 | 너무 많은 요청(제한됨), [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md) 참조 |
@@ -359,7 +349,7 @@ reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토�
 
 3. 그러면 서비스에서는 항목 `$iothub/twin/res/{status}/?$rid={request id}`에 대해 보고된 속성 컬렉션의 새 ETag 값을 포함하는 응답 메시지를 보냅니다. 이 응답 메시지는 **요청과** 동일한 요청 ID를 사용합니다.
 
-요청 메시지 본문은 보고된 속성에 대한 새 값을 포함하는 JSON 문서를 포함합니다. JSON 문서의 각 구성원은 디바이스 쌍의 문서에 있는 해당 구성원을 업데이트하거나 추가합니다. `null`로 설정된 구성원은 포함하는 개체에서 구성원을 삭제합니다. 예를 들어:
+요청 메시지 본문은 보고된 속성에 대한 새 값을 포함하는 JSON 문서를 포함합니다. JSON 문서의 각 멤버는 장치 쌍의 문서에서 해당 멤버를 업데이트하거나 추가합니다. `null`로 설정된 구성원은 포함하는 개체에서 구성원을 삭제합니다. 다음은 그 예입니다.
 
 ```json
 {
@@ -370,7 +360,7 @@ reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토�
 
 가능한 상태 코드:
 
-|상태 | 설명 |
+|상태 | Description |
 | ----- | ----------- |
 | 204 | 성공(반환되는 콘텐츠 없음) |
 | 400 | 잘못된 요청. 형식이 잘못된 JSON |
@@ -397,7 +387,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
 
 ## <a name="receiving-desired-properties-update-notifications"></a>desired 속성 업데이트 알림 수신
 
-디바이스가 연결되면 IoT Hub는 `$iothub/twin/PATCH/properties/desired/?$version={new version}` 항목에 알림을 보내는데 여기에는 솔루션 백 엔드에 의해 수행된 업데이트 콘텐츠가 포함됩니다. 예를 들어:
+디바이스가 연결되면 IoT Hub는 `$iothub/twin/PATCH/properties/desired/?$version={new version}` 항목에 알림을 보내는데 여기에는 솔루션 백 엔드에 의해 수행된 업데이트 콘텐츠가 포함됩니다. 다음은 그 예입니다.
 
 ```json
 {

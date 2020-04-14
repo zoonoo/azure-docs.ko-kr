@@ -1,5 +1,5 @@
 ---
-title: 자동화된 Machine Learning의 모델 해석력
+title: 자동화된 기계 학습의 설명
 titleSuffix: Azure Machine Learning
 description: 자동화된 ML 모델이 기능 의 중요성을 결정하고 Azure 기계 학습 SDK를 사용할 때 예측을 만드는 방법에 대한 설명을 얻는 방법에 대해 알아봅니다.
 services: machine-learning
@@ -8,20 +8,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
-ms.reviewer: trbye
 ms.date: 03/11/2020
-ms.openlocfilehash: e2465a2df3fab736c8f118911da14ef23c8aec86
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: ecf7cde1a7f804ef1c43b21ac5c1d2a488660590
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437290"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257167"
 ---
-# <a name="model-interpretability-in-automated-machine-learning"></a>자동화된 Machine Learning의 모델 해석력
+# <a name="interpretability-model-explanations-in-automated-machine-learning"></a>해석 가능성: 자동화된 기계 학습의 모델 설명
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 Azure 기계 학습에서 자동화된 기계 학습(ML)에 대한 해석 기능을 사용하도록 설정하는 방법을 알아봅니다. 자동화된 ML을 사용하면 엔지니어링된 기능의 중요성을 이해하는 데 도움이 됩니다. 
+이 문서에서는 Azure 기계 학습에서 자동화된 기계 학습(ML)에 대한 설명을 얻는 방법을 배웁니다. 자동화된 ML을 사용하면 엔지니어링된 기능의 중요성을 이해하는 데 도움이 됩니다. 
 
 기본적으로 1.0.85 `model_explainability=True` 이후의 모든 SDK 버전입니다. SDK 버전 1.0.85 및 이전 버전에서는 `model_explainability=True` 모델 `AutoMLConfig` 해석가능성을 사용하려면 개체에 설정해야 합니다. 
 

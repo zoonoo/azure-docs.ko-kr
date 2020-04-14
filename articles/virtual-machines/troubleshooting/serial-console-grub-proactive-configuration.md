@@ -3,8 +3,8 @@ title: Azure 직렬 콘솔 사전 GRUB 구성 | 마이크로 소프트 문서
 description: Azure 가상 컴퓨터에서 단일 사용자 및 복구 모드 액세스를 허용하는 다양한 배포에서 GRUB을 구성합니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: vilibert
-manager: spogge
+author: mimckitt
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
-ms.author: vilibert
-ms.openlocfilehash: a154ab4742f0d0d7acae0376bcf894bc2b62b4cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: 573bd0797e63fc512e59b0e0882c718e4569111c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74186930"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262896"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>GRUB 및 sysrq에 대한 액세스 권한을 사전에 보장하면 많은 가동 중지 시간을 절약할 수 있습니다.
 
@@ -98,7 +98,7 @@ GRUB에 액세스할 수 없는 경우 [이](https://youtu.be/m5t0GZ5oGAc) 비�
 sysrq 키는 기본적으로 일부 최신 리눅스 배포판에서 사용할 수 있습니다., 비록 다른 에 그것은 특정 SysRq 기능에 대 한 값을 허용 하도록 구성 될 수 있습니다.
 이전 배포형에서 완전히 비활성화될 수 있습니다.
 
-SysRq 기능은 Azure 직렬 콘솔에서 직접 충돌되거나 중단된 VM을 재부팅하는 데 유용하며 GRUB 메뉴에 대한 액세스 권한을 얻는 데 유용하며, 다른 포털 창에서 VM을 다시 시작하거나 ssh 세션에서 현재 콘솔 연결을 삭제할 수도 있습니다. 따라서 GRUB 메뉴를 표시하는 데 사용되는 GRUB 시간 시간이 만료됩니다.
+SysRq 기능은 Azure 직렬 콘솔에서 직접 충돌되거나 중단된 VM을 재부팅하는 데 유용하며, GRUB 메뉴에 대한 액세스 권한을 얻는 데 유용하며, 또는 다른 포털 창에서 VM을 다시 시작하거나 ssh 세션을 다시 시작하면 현재 콘솔 연결이 중단되어 GRUB 메뉴를 표시하는 데 사용되는 GRUB 시간 시간이 만료될 수 있습니다.
 VM은 커널 매개 변수에 대해 1값을 허용하도록 구성되어야 하며, 이를 통해 sysrq 또는 128의 모든 기능을 활성화하여 재부팅/전원 차단을 허용합니다.
 
 

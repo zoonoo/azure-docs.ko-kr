@@ -4,12 +4,12 @@ description: Azure Portal을 통해 가상 노드를 사용하여 Pod를 실행�
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 696821e12e963292107cad5b22f00a9816a94b25
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 7b9127c016fff78a8867dcecbe3260becdf02c65
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616418"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259122"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Azure Portal에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
 
@@ -66,7 +66,7 @@ az provider register --namespace Microsoft.ContainerInstance
 * [호스트 별칭](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [ACI의](../container-instances/container-instances-exec.md#restrictions) 임원에 대한 인수
 * [DaemonSet은](concepts-clusters-workloads.md#statefulsets-and-daemonsets) 가상 노드에 포드를 배포하지 않습니다.
-* [현재 AKS에서 미리 보기](windows-container-cli.md) 중인 Windows 서버 노드는 가상 노드와 함께 지원되지 않습니다. 가상 노드를 사용하여 AKS 클러스터의 Windows Server 노드없이 Windows Server 컨테이너를 예약할 수 있습니다.
+* 가상 노드는 Linux 포드 예약을 지원합니다. 오픈 소스 [가상 Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) 공급자를 수동으로 설치하여 Windows 서버 컨테이너를 ACI로 예약할 수 있습니다. 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 

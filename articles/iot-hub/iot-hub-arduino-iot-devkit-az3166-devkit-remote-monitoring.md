@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 9eab035d494892671a2451866311ca06599ec030
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 598e361949b000724645c841910b1682a7bbb1a3
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73953731"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258459"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>MXChip IoT DevKit를 Azure IoT 원격 모니터링 솔루션 가속기에 연결
 
@@ -54,7 +54,7 @@ ms.locfileid: "73953731"
 
    ![대시보드](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
   
-   ![콘솔](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
+   ![Console](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
 
 5. **디바이스 추가**를 클릭합니다.
 
@@ -120,7 +120,7 @@ DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 
 ## <a name="change-device-id"></a>디바이스 ID 변경
 
-코드에서 사용자 지정된 디바이스 ID로 하드코딩된 **AZ3166**을 변경하려는 경우 [원격 모니터링 예제](https://github.com/Microsoft/devkit-sdk/blob/master/AZ3166/src/libraries/AzureIoT/examples/RemoteMonitoring/RemoteMonitoring.ino#L23)에 표시된 코드 줄을 수정합니다.
+코드에서 사용자 지정된 디바이스 ID로 하드코딩된 **AZ3166**을 변경하려는 경우 [원격 모니터링 예제](../iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md)에 표시된 코드 줄을 수정합니다.
 
 ## <a name="problems-and-feedback"></a>문제 및 피드백
 

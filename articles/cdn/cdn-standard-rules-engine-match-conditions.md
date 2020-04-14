@@ -2,17 +2,17 @@
 title: Azure CDN에 대한 표준 규칙 엔진의 조건 일치 | 마이크로 소프트 문서
 description: Azure CDN(Azure CDN)에 대한 표준 규칙 엔진의 일치 조건에 대한 참조 설명서입니다.
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: magattus
-ms.openlocfilehash: 425266e2a7ca42bb17ca598ddfc2f2b86591f32e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: b8050b973027ac91ede0ba98f4d1c76831da9828
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74900188"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259932"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Azure CDN에 대한 표준 규칙 엔진의 조건 일치
 
@@ -97,10 +97,10 @@ String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | �
 
 연산자 | 지원되는 값
 ---------|-----------------
-모두 | 해당 없음
+모두 | N/A
 지오 매치 | 국가 코드
 IP 매치 | IP 주소(공간 구분)
-아니 | 해당 없음
+아니 | N/A
 지오 매치 아님 | 국가 코드
 IP 일치하지 않음 | IP 주소(공간 구분)
 
@@ -110,7 +110,7 @@ IP 일치하지 않음 | IP 주소(공간 구분)
 - 여러 IP 주소와 IP 주소 블록을 지정하려면 값 사이에 단일 공간을 사용합니다.
   - **IPv4 예제**: *1.2.3.4 10.20.30.40주소* 1.2.3.4 또는 10.20.30.40에서 도착하는 모든 요청과 일치합니다.
   - **IPv6 예**: *1:2:3:5:5:7:8 10:30:50:50:60:70:80* 은 주소 1:2:3:5:5:6:7 또는 10:20:30:40:50:70:80에서 도착하는 모든 요청과 일치합니다.
-- IP 주소 블록에 대한 구문은 뒤에 슬래시와 접두사 크기가 오는 기본 IP 주소입니다. 예를 들어:
+- IP 주소 블록에 대한 구문은 뒤에 슬래시와 접두사 크기가 오는 기본 IP 주소입니다. 다음은 그 예입니다.
   - **IPv4 예제**: *5.5.5.64/26은* 주소 5.5.5.64부터 5.5.5.127까지 도착하는 모든 요청과 일치합니다.
   - **IPv6 예제**: 1:2:3:/48주소1:2:3:0:0:0:0 ~ 1:2:3:ffff:ffff:ffff:ffff:ffff:ffff에서 도착하는 모든 요청과 일치합니다. *1:2:3:/48*
 

@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: robinsh
-ms.openlocfilehash: dd12f974b9b02d919752dcb932c9ce1709d7315b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71193523a83987de2440d8c70c133c29dde4fe91
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70813781"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257881"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C용 Azure IoT 디바이스 SDK
 
@@ -21,7 +21,7 @@ ms.locfileid: "70813781"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-C용 Azure IoT 디바이스 SDK는 이식성을 최대화하기 위해 ANSI C(C99)로 작성됩니다. 이 기능은 다양한 플랫폼과 디바이스에서 작동하기에 적합한 라이브러리를 만들며, 특히 디스크 및 메모리 사용 공간을 최소화하는 것을 우선적으로 처리합니다.
+C용 Azure IoT 디바이스 SDK는 이식성을 최대화하기 위해 ANSI C(C99)로 작성됩니다. 이 기능을 사용하면 라이브러리가 여러 플랫폼 및 장치에서 작동하기에 적합하며, 특히 디스크 및 메모리 공간을 최소화하는 것이 우선 순위인 경우 유용합니다.
 
 이 SDK는 광범위한 플랫폼에서 테스트되었습니다(자세한 내용은 [IoT용 Azure Certified 디바이스 카탈로그](https://catalog.azureiotsolutions.com/) 참조). 이 문서에는 Windows 플랫폼에서 실행되는 샘플 코드 연습이 포함되어 있지만, 여기서 설명하는 코드는 지원되는 플랫폼 범위 전반에 걸쳐 정확히 동일합니다.
 
@@ -41,7 +41,7 @@ GitHub 리포지토리에서 [**C용 Azure IoT 디바이스 SDK**](https://githu
 
 * SDK의 핵심 구현은 SDK의 최하위 API 계층인 **IoTHubClient** 라이브러리의 구현을 포함하고 있는 **iothub\_client** 폴더에 있습니다. **IoTHubClient** 라이브러리에는 IoT Hub와 메시지를 보내고 받기 위한 원시 메시징을 구현하는 API가 포함되어 있습니다. 이 라이브러리를 사용할 때 메시지 직렬화를 구현해야 하며 IoT Hub와 통신하기 위한 기타 세부 사항도 직접 처리해야 합니다.
 
-* **serializer** 폴더에는 클라이언트 라이브러리를 사용하여 데이터를 Azure IoT Hub로 보내기 전에 직렬화하는 방법을 보여 주는 도우미 함수와 샘플이 있습니다. serializer(직렬 변환기)는 반드시 사용할 필요가 없으며, 편의상 제공되는 것입니다. **serializer** 라이브러리를 사용하려면 IoT Hub로 보낼 데이터와 IoT Hub에서 받으려는 메시지를 지정하는 모델을 정의합니다. 모델이 정의되면 SDK에서 API 표면을 제공하므로 직렬화 세부 정보에 대해 고민하지 않고도 디바이스-클라우드 및 클라우드-디바이스 메시지 작업을 쉽게 수행할 수 있습니다. 라이브러리는 프로토콜(예: MQTT, AMQP)을 사용하여 전송을 구현하는 다른 오픈 소스 라이브러리를 기반으로 합니다.
+* **serializer** 폴더에는 클라이언트 라이브러리를 사용하여 데이터를 Azure IoT Hub로 보내기 전에 직렬화하는 방법을 보여 주는 도우미 함수와 샘플이 있습니다. serializer(직렬 변환기)는 반드시 사용할 필요가 없으며, 편의상 제공되는 것입니다. **serializer** 라이브러리를 사용하려면 IoT Hub로 보낼 데이터와 IoT Hub에서 받으려는 메시지를 지정하는 모델을 정의합니다. 모델이 정의되면 SDK에서 API 표면을 제공하므로 직렬화 세부 정보에 대해 고민하지 않고도 디바이스-클라우드 및 클라우드-디바이스 메시지 작업을 쉽게 수행할 수 있습니다. 라이브러리는 MQTT 및 AMQP와 같은 프로토콜을 사용하여 전송을 구현하는 다른 오픈 소스 라이브러리에 따라 달라집니다.
 
 * **IoTHubClient** 라이브러리는 다른 오픈 소스 라이브러리에 따라 달라집니다.
 
@@ -71,15 +71,15 @@ C 용 Azure IoT 디바이스 SDK에서 샘플을 실행하려면 먼저 Azure �
 
 이제 샘플 원본 코드가 있으므로 다음으로 수행할 작업은 디바이스 자격 증명 집합을 가져오는 것입니다. IoT Hub에 액세스할 수 있는 디바이스의 경우 디바이스를 IoT Hub ID 레지스트리에 먼저 추가해야 합니다. 디바이스를 추가하면 디바이스를 IoT Hub에 연결하는 데 필요한 디바이스 자격 증명 집합을 얻게 됩니다. 다음 섹션에서 살펴볼 샘플 애플리케이션에서는 이러한 자격 증명에 대해 **디바이스 연결 문자열** 형식을 필요로 합니다.
 
-IoT Hub를 관리하는 데 도움이 되는 몇 가지 오픈 소스 도구가 있습니다.
+IoT 허브를 관리하는 데 도움이 되는 몇 가지 오픈 소스 도구가 있습니다.
 
-* [디바이스 탐색기](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)라는 Windows 애플리케이션
+* [Azure IoT 탐색기라는](https://github.com/Azure/azure-iot-explorer)Windows 응용 프로그램입니다.
 
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)라는 플랫폼 간 Visual Studio Code 확장
 
 * [Azure CLI에 대한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)이라고 하는 플랫폼 간 Python CLI 도구
 
-이 자습서에서는 그래픽 *디바이스 탐색기* 도구를 사용합니다. VS Code에서 개발하는 경우 *Azure IoT Tools for VS Code*를 사용할 수 있습니다. 또한 CLI 도구를 사용하려면 *Azure CLI 2.0에 대한 IoT 확장* 도구를 사용할 수도 있습니다.
+이 자습서에서는 그래픽 *디바이스 탐색기* 도구를 사용합니다. VS Code에서 개발하는 경우 *Azure IoT Tools for VS Code*를 사용할 수 있습니다. CLI 도구를 사용하려는 경우 *Azure CLI 2.0* 도구에 IoT 확장을 사용할 수도 있습니다.
 
 디바이스 탐색기 도구는 Azure IoT 서비스 라이브러리를 사용하여 IoT Hub에서 디바이스 추가를 포함하여 다양한 기능을 수행합니다. 디바이스 탐색기 도구를 사용하여 디바이스를 추가하면 디바이스에 대한 연결 문자열을 얻습니다. 이 연결 문자열은 샘플 애플리케이션을 실행하는 데 필요합니다.
 
@@ -245,7 +245,7 @@ else
 
 디바이스에서 메시지를 받으면 등록된 콜백 함수가 호출됩니다. 이 콜백 함수에서 검색하는 항목은 다음과 같습니다.
 
-* 메시지 ID 및 해당 메시지의 상관 관계 ID
+* 메시지의 메시지 ID 및 상관 관계 ID입니다.
 * 메시지 내용
 * 메시지의 모든 사용자 지정 속성
 

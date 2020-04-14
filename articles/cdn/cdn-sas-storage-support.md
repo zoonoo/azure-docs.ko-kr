@@ -3,7 +3,7 @@ title: SAS로 Azure CDN 사용 | Microsoft Docs
 description: Azure CDN은 프라이빗 스토리지 컨테이너에 제한된 액세스 권한을 부여하기 위한 SAS(공유 액세스 서명)의 사용을 지원합니다.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
-ms.author: magattus
-ms.openlocfilehash: e7a170eaf74531cf4bd8c28aafaa5873f2459d0b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: c2580aa4ee22996c1bf0fe5c86064a6543450071
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69982424"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260176"
 ---
 # <a name="using-azure-cdn-with-sas"></a>SAS로 Azure CDN 사용
 
@@ -39,7 +39,7 @@ SAS 토큰을 생성한 후 URL에 `?sv=<SAS token>`을 추가하여 Blob Storag
 
 `https://<account name>.blob.core.windows.net/<container>/<file>?sv=<SAS token>`
  
-예를 들어:
+다음은 그 예입니다.
  ```
 https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
@@ -60,7 +60,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&
    
    결과 CDN 엔드포인트 URL의 형식은 다음과 같습니다. `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
 
-   예를 들어:   
+   다음은 그 예입니다.   
    ```
    https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
@@ -91,7 +91,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&
 
 2. 새 규칙이 활성화되면 URL에서 SAS 토큰을 사용하는지 여부에 관계 없이 누구나 CDN 엔드포인트에 지정된 컨테이너에서 파일에 액세스할 수 있습니다. 형식은 다음과 같습니다. `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
-   예를 들어:   
+   다음은 그 예입니다.   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
@@ -106,7 +106,7 @@ Azure CDN 보안 토큰 인증을 사용하려면 **Verizon의 Azure CDN Premium
    보안 토큰 엔드포인트 URL의 형식은 다음과 같습니다.   
    `https://<endpoint hostname>.azureedge.net/<container>/<file>?<security_token>`
  
-   예를 들어:   
+   다음은 그 예입니다.   
    ```
    https://sasstoragedemo.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
@@ -133,7 +133,7 @@ Azure CDN 보안 토큰 인증을 사용하려면 **Verizon의 Azure CDN Premium
 
 SAS 매개 변수는 Azure CDN에 표시되지 않으므로 Azure CDN은 이 매개 변수를 기반으로 배달 동작을 변경할 수 없습니다. 정의된 매개 변수 제한은 클라이언트가 Azure CDN에 하는 요청이 아니라 Azure CDN이 원본 서버에 하는 요청에만 적용됩니다. SAS 매개 변수를 설정할 때 이 구분을 고려해야 합니다. 이러한 고급 기능이 필요하고 [옵션 3](#option-3-using-cdn-security-token-authentication-with-a-rewrite-rule)을 사용하는 경우 Azure CDN 보안 토큰에 대해 적절한 제한 사항을 설정합니다.
 
-| SAS 매개 변수 이름 | 설명 |
+| SAS 매개 변수 이름 | Description |
 | --- | --- |
 | 시작 | Azure CDN이 Blob 파일에 액세스하기 시작할 수 있는 시간입니다. 클록 스큐(clock skew)(신호가 구성 요소에 따라 다른 시간에 도착하는 경우)로 인해 자산을 즉시 사용할 수 있게 하려면 15분 이른 시간을 선택합니다. |
 | 끝 | Azure CDN이 Blob 파일에 더 이상 액세스할 수 없는 시간입니다. Azure CDN에서 이전에 캐시된 파일은 계속 액세스할 수 있습니다. 파일 만료 시간을 제어하려면 Azure CDN 보안 토큰에 적절한 만료 시간을 설정하거나 자산을 제거합니다. |

@@ -6,15 +6,15 @@ author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 04/10/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 9b0e0b39b7ac7d7834c9cdcbd79ba45b024c823a
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: b59c68e3f2edc0fbe5eee3c3861a3e5116d4fac6
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80992014"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262386"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>PowerShell을 사용하여 Azure 데이터 레이크 저장소 Gen2의 디렉터리, 파일 및 ACL관리(미리 보기)
 
@@ -270,15 +270,14 @@ Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $file
 
 ## <a name="manage-access-permissions"></a>액세스 권한 관리
 
-파일 시스템, 디렉터리 및 파일의 액세스 권한을 얻습니다.
+파일 시스템, 디렉터리 및 파일의 액세스 권한을 얻습니다. 이러한 권한은 ACL(액세스 제어 목록)에서 캡처됩니다.
 
 > [!NOTE]
 > Azure Active Directory(Azure AD)를 사용하여 명령을 승인하는 경우 보안 주체가 저장소 [Blob 데이터 소유자 역할을](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)할당했는지 확인합니다. ACL 사용 권한이 적용되는 방법과 이를 변경하는 효과에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어를](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)참조하십시오.
 
-### <a name="get-permissions"></a>권한 받기
+### <a name="get-an-acl"></a>ACL 받기
 
 cmdlet을 사용하여 디렉터리 또는 파일의 ACL을 `Get-AzDataLakeGen2Item`가져옵니다.
-
 
 이 예제는 **파일 시스템의** ACL을 가져옵니다 및 콘솔에 ACL을 인쇄 합니다.
 
@@ -311,7 +310,7 @@ $file.ACL
 
 이 예제에서는 소유 사용자에게 사용 권한을 읽고, 쓰고, 실행합니다. 소유 그룹에는 읽기 및 실행 권한만 있습니다. 액세스 제어 목록에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어를](data-lake-storage-access-control.md)참조하십시오.
 
-### <a name="set-or-update-permissions"></a>사용 권한 설정 또는 업데이트
+### <a name="set-an-acl"></a>ACL 설정
 
 cmdlet을 `set-AzDataLakeGen2ItemAclObject` 사용하여 소유 사용자, 소유 그룹 또는 다른 사용자에 대한 ACL을 만듭니다. 그런 다음 `Update-AzDataLakeGen2Item` cmdlet을 사용하여 ACL을 커밋합니다.
 
@@ -359,7 +358,7 @@ $file.ACL
 이 예제에서는 소유 사용자 및 소유 그룹에는 읽기 및 쓰기 권한만 있습니다. 다른 모든 사용자에게는 쓰기 및 실행 권한이 있습니다. 액세스 제어 목록에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어를](data-lake-storage-access-control.md)참조하십시오.
 
 
-### <a name="set-permissions-on-all-items-in-a-file-system"></a>파일 시스템의 모든 항목에 대한 사용 권한 설정
+### <a name="set-acls-on-all-items-in-a-file-system"></a>파일 시스템의 모든 항목에 ACL 설정
 
 cmdlet과 `Get-AzDataLakeGen2Item` 함께 `-Recurse` 및 매개 변수를 사용하여 파일 시스템의 모든 디렉터리 및 파일의 ACL을 재귀적으로 설정할 수 있습니다. `Update-AzDataLakeGen2Item` 
 
@@ -370,6 +369,41 @@ $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- 
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission -wx -InputObject $acl
 Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse | Update-AzDataLakeGen2Item -Acl $acl
 ```
+### <a name="add-or-update-an-acl-entry"></a>ACL 항목 추가 또는 업데이트
+
+먼저 ACL을 가져옵니다. 그런 다음 `set-AzDataLakeGen2ItemAclObject` cmdlet을 사용하여 ACL 항목을 추가하거나 업데이트합니다. cmdlet을 `Update-AzDataLakeGen2Item` 사용하여 ACL을 커밋합니다.
+
+이 예제는 사용자에 대 한 **디렉터리에서** ACL을 만들거나 업데이트 합니다.
+
+```powershell
+$filesystemName = "my-file-system"
+$dirname = "my-directory/"
+$acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname).ACL
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityID xxxxxxxx-xxxx-xxxxxxxxxxx -Permission r-x -InputObject $acl 
+Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+```
+
+### <a name="remove-an-acl-entry"></a>ACL 항목 제거
+
+이 예제는 기존 ACL에서 항목을 제거합니다.
+
+```powershell
+$id = "xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+# Create the new ACL object.
+[Collections.Generic.List[System.Object]]$aclnew =$acl
+
+foreach ($a in $aclnew)
+{
+    if ($a.AccessControlType -eq "User"-and $a.DefaultScope -eq $false -and $a.EntityId -eq $id)
+    {
+        $aclnew.Remove($a);
+        break;
+    }
+}
+Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $aclnew
+```
+
 <a id="gen1-gen2-map" />
 
 ## <a name="gen1-to-gen2-mapping"></a>Gen 1 ~ Gen2 매핑
@@ -389,7 +423,7 @@ Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse |
 
 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Azure 저장소와 함께 Azure PowerShell 을 사용 하 여](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)입니다.

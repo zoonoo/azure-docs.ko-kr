@@ -9,14 +9,14 @@ metadata:
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 03/10/2020
+  ms.date: 04/13/2020
   ms.author: dapine
-  ms.openlocfilehash: 75f620d5210f5ba0dc61ac1c5be2f30aa23dea9c
-  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+  ms.openlocfilehash: 346965e4bd8384be93716894a52960b20539d1c3
+  ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/28/2020
-  ms.locfileid: "79415329"
+  ms.lasthandoff: 04/13/2020
+  ms.locfileid: "81259047"
 landingContent:
 - title: 음성 번역에 대해
   linkLists:
@@ -24,13 +24,15 @@ landingContent:
     links:
     - text: 음성 번역이란?
       url: speech-translation.md
+    - text: 음성 번역 기본 사항
+      url: speech-translation-basics.md
   - linkListType: quickstart
     links:
     - text: 음성을 텍스트로 변환
       url: quickstarts/translate-speech-to-text.md
     - text: 음성을 여러 대상 언어로 번역
       url: quickstarts/translate-speech-to-text-multiple-languages.md
-    - text: 음성을 음성으로 번역
+    - text: 음성 통역
       url: quickstarts/translate-speech-to-speech.md
 - title: 음성 번역으로 개발
   linkLists:
@@ -40,9 +42,9 @@ landingContent:
       url: https://docs.microsoft.com/learn/modules/convert-speech-to-text
   - linkListType: tutorial
     links:
-    - text: REST API로 텍스트 번역 및 합성
+    - text: REST API를 사용하여 텍스트 변환 및 합성
       url: ../translator/tutorial-build-flask-app-translation-synthesis.md
-- title: 참고
+- title: 참조
   linkLists:
   - linkListType: reference
     links:

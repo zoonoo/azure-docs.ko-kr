@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f83cee2fb1435252f34d1a64f531b5befef66ffb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4034759dc4f20649c15236b057e348966d72409e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289694"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261163"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>PostgreSQL 단일 서버에 대한 Azure 데이터베이스에 대한 Azure 보안 기준
 
@@ -134,7 +134,7 @@ PostgreSQL에 대한 Azure 데이터베이스에 대한 서비스 태그 사용 
 
 Azure 정책을 구성하고 관리하는 방법:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-네트워킹을 위한 Azure 정책 샘플:https://docs.microsoft.com/azure/governance/policy/samples/#network
+네트워킹을 위한 Azure 정책 샘플:https://docs.microsoft.com/azure/governance/policy/samples/
 
 Azure Blueprint를 만드는 방법:https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
@@ -908,7 +908,7 @@ Azure 관리 ID와 통합하는 방법:https://docs.microsoft.com/azure/azure-ap
 
 **지침**: PostgreSQL 서버용 Azure 데이터베이스는 데이터베이스에 액세스하기 위해 Azure Active Directory 인증(미리 보기)을 지원합니다.  PostgreSQL 서버에 대한 Azure 데이터베이스를 만드는 동안 관리자 사용자에 대한 자격 증명을 제공합니다. 이 관리자는 추가 데이터베이스 사용자를 만드는 데 사용할 수 있습니다.  
 
-PostgreSQL 서버에 대한 Azure 데이터베이스에 액세스하는 데 사용되는 Azure 앱 서비스에서 실행 중인 Azure 가상 컴퓨터 또는 웹 응용 프로그램의 경우 Azure Key Vault와 함께 관리되는 서비스 ID를 사용하여 Azure 데이터베이스에 대한 자격 증명을 저장하고 검색합니다. 포스트그레SQL 서버. 키 볼트 소프트 삭제가 활성화되어 있는지 확인합니다.
+PostgreSQL 서버에 대한 Azure 데이터베이스에 액세스하는 데 사용되는 Azure 앱 서비스에서 실행되는 Azure 가상 컴퓨터 또는 웹 응용 프로그램의 경우 Azure 키 자격 증명과 함께 관리되는 서비스 ID를 사용하여 PostgreSQL 서버에 대한 Azure 데이터베이스에 대한 자격 증명을 저장하고 검색합니다. 키 볼트 소프트 삭제가 활성화되어 있는지 확인합니다.
 
 관리되는 ID를 사용하여 Azure Active Directory(AD)에서 자동으로 관리되는 ID를 Azure 서비스에 제공합니다. 관리되는 ID를 사용하면 코드의 자격 증명 없이 키 볼트를 포함하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있습니다.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 7237bb7e0538ba1a9b6333ccb6589efe657a247d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f91ee5654b4add37d3cce4f875be1f9c2b398ab9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74423954"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259496"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버에 대한 복제 문제 해결
 
@@ -30,7 +30,7 @@ ms.locfileid: "74423954"
 
 ## <a name="step-2-troubleshoot-connectivity-and-replication-issues"></a>2단계: 연결 및 복제 문제 해결
 
-초기 및 진행 중인 복제 오류는 원본 서버와 프로세스 서버 간의 연결 문제 또는 프로세스 서버와 Azure 간의 연결 문제로 인해 발생하는 경우가 많습니다. 
+초기 및 진행 중인 복제 오류는 원본 서버와 프로세스 서버 간의 연결 문제 또는 프로세스 서버와 Azure 간의 연결 문제로 인해 발생하는 경우가 많습니다.
 
 이러한 문제를 해결하려면 [연결 및 복제 문제를 해결합니다.](vmware-physical-azure-troubleshoot-process-server.md#check-connectivity-and-replication)
 
@@ -96,7 +96,7 @@ Site Recovery에서 복제된 가상 머신은 시스템에 중복된 항목이 
 4. 원본 컴퓨터에서 위치의 로그에 오류 세부 정보를 검사합니다.
 
        C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
-    
+
 ### <a name="process-server-with-no-heartbeat-error-806"></a>하트비트가 없는 프로세스 서버[오류 806]
 프로세스 서버(PS)의 하트비트가 없는 경우 다음을 확인하십시오.
 1. PS VM이 실행 중입니다.
@@ -116,7 +116,7 @@ Site Recovery에서 복제된 가상 머신은 시스템에 중복된 항목이 
 2. 관리자 권한이 있는 계정을 사용하여 마스터 대상 VM에 로그인합니다.
     - 스에이전트 서비스가 실행 중인지 확인합니다. 실행 중인 경우 서비스를 다시 시작합니다.
     - 오류 세부 정보가 있는지 위치의 로그를 확인합니다.
-        
+
           C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
 3. 구성 서버로 마스터 대상을 등록하려면 **폴더 %PROGRAMDATA%\ASR\Agent로**이동하여 명령 프롬프트에서 다음을 실행합니다.
    ```
@@ -132,38 +132,38 @@ Site Recovery에서 복제된 가상 머신은 시스템에 중복된 항목이 
 
 ## <a name="error-id-78144---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>오류 ID 78144 - 마지막 'XXX' 분에서 VM에 사용할 수 있는 앱 일관된 복구 지점이 없습니다.
 
-VSS 설치 실패 동작을 처리하기 위해 이동성 에이전트 [9.23](vmware-physical-mobility-service-overview.md#from-923-version-onwards) & [9.27](site-recovery-whats-new.md#update-rollup-39) 버전에서 개선되었습니다. VSS 오류 해결에 대한 최상의 지침을 위해 최신 버전에 있는지 확인합니다.
+VSS 설치 실패 동작을 처리하기 위해 이동성 에이전트 [9.23](vmware-physical-mobility-service-overview.md#mobility-service-agent-version-923-and-higher) & [9.27](site-recovery-whats-new.md#update-rollup-39) 버전에서 개선되었습니다. VSS 오류 해결에 대한 최상의 지침을 위해 최신 버전에 있는지 확인합니다.
 
 가장 일반적인 문제 중 일부는 다음과 같습니다.
 
-#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>원인 1: SQL 서버 2008/2008 R2에서 알려진 문제 
+#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>원인 1: SQL 서버 2008/2008 R2에서 알려진 문제
 **해결 방법** : SQL 서버 2008/2008 R2에 알려진 문제가 있습니다. [SQL Server 2008 R2를 호스팅하는 서버에 대해](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2) 이 KB 문서 Azure 사이트 복구 에이전트 또는 기타 구성 요소가 아닌 VSS 백업실패를 참조하십시오.
 
-#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>원인 2: Azure 사이트 복구 작업 AUTO_CLOSE DB를 사용 하 고 모든 버전의 SQL Server 인스턴스를 호스팅 하는 서버에서 실패 합니다. 
-**해결 방법** : KB [기사](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 참조 
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>원인 2: Azure 사이트 복구 작업 AUTO_CLOSE DB를 사용 하 고 모든 버전의 SQL Server 인스턴스를 호스팅 하는 서버에서 실패 합니다.
+**해결 방법** : KB [기사](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 참조
 
 
 #### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>원인 3: SQL Server 2016 및 2017에서 알려진 문제
-**해결 방법** : KB [기사](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 참조 
+**해결 방법** : KB [기사](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 참조
 
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>VSS 관련 문제로 인한 더 많은 원인:
 
 추가 문제 해결을 위해 소스 컴퓨터의 파일을 확인하여 오류에 대한 정확한 오류 코드를 얻습니다.
-    
+
     C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
 
 파일의 오류를 찾는 방법은 무엇입니까?
 편집기에서 vacp.log 파일을 열어 문자열 "vacpError"를 검색합니다.
-        
+
     Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
 
 위의 **예2147754994는** 아래와 같이 오류에 대해 알려주는 오류 코드입니다.
 
-#### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS 라이터가 설치되지 않음 - 오류 2147221164 
+#### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS 라이터가 설치되지 않음 - 오류 2147221164
 
 *해결 방법*: 응용 프로그램 일관성 태그를 생성하기 위해 Azure 사이트 복구는 VSS(Microsoft 볼륨 섀도우 복사 서비스)를 사용합니다. VSS 공급자를 설치하여 앱 일관성 스냅숏을 만듭니다. 이 VSS 공급자는 서비스로 설치됩니다. VSS 공급자 서비스가 설치되지 않은 경우 오류 ID 0x80040154 "클래스가 등록되지 않음"으로 응용 프로그램 일관성 스냅숏 생성에 실패합니다. </br>
-[VSS 기록기 설치 문제 해결을 위한 문서](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 참조 
+[VSS 기록기 설치 문제 해결을 위한 문서](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 참조
 
 #### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS 라이터를 사용할 수 없습니다 - 오류 2147943458
 
@@ -178,12 +178,13 @@ VSS 설치 실패 동작을 처리하기 위해 이동성 에이전트 [9.23](vm
 
 ####  <a name="vss-provider-not_registered---error-2147754756"></a>VSS 공급자 NOT_REGISTERED - 오류 2147754756
 
-**해결 방법**: 응용 프로그램 일관성 태그를 생성하기 위해 Azure 사이트 복구는 VSS(Microsoft 볼륨 섀도우 복사 서비스)를 사용합니다. Azure 사이트 복구 VSS 공급자 서비스가 설치되어 있는지 확인합니다. </br>
+**해결 방법**: 응용 프로그램 일관성 태그를 생성하기 위해 Azure 사이트 복구는 VSS(Microsoft 볼륨 섀도우 복사 서비스)를 사용합니다.
+Azure 사이트 복구 VSS 공급자 서비스가 설치되어 있는지 확인합니다. </br>
 
 - 다음 명령을 사용하여 공급자 설치를 다시 시도하십시오.
 - 기존 공급자 제거: C:\프로그램 파일 (x86)\Microsoft Azure 사이트 복구\에이전트\InMageVSSProvider_Uninstall.cmd
 - 다시 설치: C:\프로그램 파일 (x86)\마이크로소프트 Azure 사이트 복구\에이전트\InMageVSSProvider_Install.cmd
- 
+
 VSS 공급자 서비스의 시작 유형이 **자동**으로 설정되어 있는지 확인합니다.
     - 다음 서비스를 다시 시작하십시오.
         - VSS 서비스

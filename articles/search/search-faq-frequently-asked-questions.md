@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: fee74cb6ec5acd5fa0f171eab9769a833f04ad66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/10/2020
+ms.openlocfilehash: d7ba62c795e23e41a1947def77300ffe5d2cc010
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72792906"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262454"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Azure 인지 검색 - 자주 묻는 질문(FAQ)
 
@@ -24,16 +24,6 @@ ms.locfileid: "72792906"
 ### <a name="how-is-azure-cognitive-search-different-from-full-text-search-in-my-dbms"></a>Azure 인지 검색내 DBMS의 전체 텍스트 검색과 어떻게 다른가요?
 
 Azure Cognitive Search는 여러 데이터 원본, [여러 언어에 대한 언어 분석,](https://docs.microsoft.com/rest/api/searchservice/language-support) [흥미롭고 특이한 데이터 입력에 대한 사용자 지정 분석,](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) [점수 매기기 프로필을](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)통한 검색 순위 컨트롤, 유형전, 적중 강조 표시 및 패싯 탐색과 같은 사용자 환경 기능을 지원합니다. 또한 동의어 및 다양한 쿼리 구문 등과 같은 다른 기능도 지원하지만 보통은 차별화된 기능이 아닙니다.
-
-### <a name="what-is-the-difference-between-azure-cognitive-search-and-elasticsearch"></a>Azure 인지 검색과 탄력적 검색의 차이점은 무엇입니까?
-
-검색 기술을 비교할 때 고객은 Azure Cognitive Search가 Elasticsearch와 비교하는 방법에 대한 세부 사항을 자주 묻습니다. 검색 응용 프로그램 프로젝트에 대해 Elasticsearch를 통해 Azure Cognitive Search를 선택하는 고객은 일반적으로 키 작업을 더 쉽게 만들거나 다른 Microsoft 기술과의 기본 제공 통합이 필요하기 때문에 이렇게 합니다.
-
-+ Azure Cognitive Search는 충분한 중복성(읽기 액세스를 위한 복제본 2개, 읽기-쓰기용 복제본 3개)으로 프로비전될 때 99.9%의 서비스 수준 계약(SLA)을 갖춘 완전 관리형 클라우드 서비스입니다.
-+ Microsoft의 [자연어 프로세서](https://docs.microsoft.com/rest/api/searchservice/language-support)는 첨단 언어 분석을 제공합니다.  
-+ [Azure Cognitive Search 인덱서에서는](search-indexer-overview.md) 초기 및 증분 인덱싱을 위해 다양한 Azure 데이터 원본을 크롤링할 수 있습니다.
-+ 쿼리나 인덱싱 볼륨의 변동에 신속히 응대해야 할 경우 Azure Portal의 [슬라이더 컨트롤](search-manage.md#scale-up-or-down)을 사용하거나 [PowerShell 스크립트](search-manage-powershell.md)를 실행하여 직접 분할된 데이터베이스 관리를 무시합니다.  
-+ [점수 매기기 및 조정 기능](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)은 검색 엔진이 단독으로 제공 가능하던 것을 넘어 검색 순위 점수에 영향을 미치는 방법을 제공합니다.
 
 ### <a name="can-i-pause-azure-cognitive-search-service-and-stop-billing"></a>Azure 인지 검색 서비스를 일시 중지하고 청구를 중지할 수 있습니까?
 
@@ -91,7 +81,7 @@ Azure 인지 검색 REST [API를](https://docs.microsoft.com/rest/api/searchserv
 
 기본적으로 검색 결과는 [일치하는 용어의 통계적 속성](search-lucene-query-architecture.md#stage-4-scoring)에 따라 점수가 매겨지며 결과 집합에서 높은 점수에서 낮은 점수 순으로 순위가 매겨집니다. 그러나 일부 쿼리 유형(와일드카드, 접두사, regex)은 전체적인 문서 점수에 항상 상수 점수를 부여합니다. 이 동작은 의도된 것입니다. Azure Cognitive Search는 순위에 영향을 주지 않고 쿼리 확장을 통해 검색된 일치 항목이 결과에 포함될 수 있도록 일정한 점수를 부과합니다.
 
-예를 들어, 와일드카드 검색에서 "tour*"를 입력하면 "tours", "tourettes" 및 "tourmaline"이 일치합니다. 이러한 결과의 특성을 감안할 때, 어떤 용어가 더 중요한지 합리적으로 유추할 방법이 없습니다. 이러한 이유로 와일드카드, 접두사, regex 쿼리 유형의 결과에 대한 점수를 매길 때에는 용어 빈도를 무시합니다. 예기치 않은 일치의 가능성에 따른 왜곡을 방지하기 위해 부분 이력 기준 검색 결과에는 일정 점수가 부여됩니다.
+예를 들어 와일드카드 검색에서 "tour*"의 입력이 "투어", "투렛", "투르말린"에 일치하는 항목을 생성한다고 가정합니다. 이러한 결과의 특성을 감안할 때, 어떤 용어가 더 중요한지 합리적으로 유추할 방법이 없습니다. 이러한 이유로 와일드카드, 접두사, regex 쿼리 유형의 결과에 대한 점수를 매길 때에는 용어 빈도를 무시합니다. 예기치 않은 일치의 가능성에 따른 왜곡을 방지하기 위해 부분 이력 기준 검색 결과에는 일정 점수가 부여됩니다.
 
 ## <a name="design-patterns"></a>디자인 패턴
 
@@ -103,7 +93,7 @@ Azure 인지 검색 REST [API를](https://docs.microsoft.com/rest/api/searchserv
 
 없는 기능 또는 특징에 대해 질문이 있으면 [사용자 의견 웹 사이트](https://feedback.azure.com/forums/263029-azure-search)에서 요청하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
  [스택 오버플로: Azure 인지 검색](https://stackoverflow.com/questions/tagged/azure-search)   
  [Azure Cognitive Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)  

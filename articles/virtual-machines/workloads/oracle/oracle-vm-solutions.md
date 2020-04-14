@@ -3,7 +3,7 @@ title: Azure 가상 머신의 오라클 솔루션 | 마이크로 소프트 문�
 description: Microsoft Azure에서 Oracle 가상 시스템 이미지의 지원되는 구성 및 제한 사항에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: romitgirdhar
+author: mimckitt
 manager: gwallace
 tags: azure-resource-management
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/23/2019
-ms.author: rogirdh
-ms.custom: seodec18
-ms.openlocfilehash: 3abc09f8c82442e3b24a9edf6ef4fb42f19dfde8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 0a2374a4c3526b77a25f9fa8faa94c9cb0d4c4ea
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74806952"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263236"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>오라클 VM 이미지 및 Microsoft Azure에 배포
 
@@ -128,10 +128,10 @@ Azure에서 HA 및 DR 솔루션을 설계하는 것 외에도 데이터베이스
 
 관련 정보는 <https://support.oracle.com>에서 KB 문서 **860340.1**을 참조하세요.
 
-* **동적 클러스터링 및 부하 분산 제한** Oracle WebLogic Server에서 동적 클러스터를 사용하고 Azure의 공용 로드 균형 이량적 인 단일 끝점을 통해 노출한다고 가정합니다. 이 작업은 관리되는 각 서버에 대해 고정 포트 번호를 사용하고(범위에서 동적으로 할당되지 않음) 관리자가 추적하는 컴퓨터보다 더 많은 관리되는 서버를 시작하지 않는 한 수행할 수 있습니다. 즉, 가상 시스템당 관리되는 서버가 하나만 있습니다. 구성으로 인해 가상 시스템(즉, 여러 Oracle WebLogic Server 서버 인스턴스가 동일한 가상 컴퓨터를 공유하는 경우)보다 더 많은 Oracle WebLogic 서버가 시작되는 경우 이러한 인스턴스 중 하나 이상은 지정된 포트 번호에 바인딩할 Oracle WebLogic 서버입니다. 해당 가상 컴퓨터의 다른 사용자가 실패합니다.
+* **동적 클러스터링 및 부하 분산 제한** Oracle WebLogic Server에서 동적 클러스터를 사용하고 Azure의 공용 로드 균형 이량적 인 단일 끝점을 통해 노출한다고 가정합니다. 이 작업은 관리되는 각 서버에 대해 고정 포트 번호를 사용하고(범위에서 동적으로 할당되지 않음) 관리자가 추적하는 컴퓨터보다 더 많은 관리되는 서버를 시작하지 않는 한 수행할 수 있습니다. 즉, 가상 시스템당 관리되는 서버가 하나만 있습니다. 구성으로 인해 가상 시스템(즉, 여러 Oracle WebLogic Server Server 인스턴스가 동일한 가상 컴퓨터를 공유하는 경우)보다 더 많은 Oracle WebLogic Server 서버가 시작되는 경우 Oracle WebLogic Server의 인스턴스 중 하나 이상이 지정된 포트 번호에 바인딩할 수 없습니다. 해당 가상 컴퓨터의 다른 사용자가 실패합니다.
 
    관리되는 서버에 고유한 포트 번호를 할당하도록 관리 서버를 구성하면 이 구성에 필요한 것처럼 Azure가 단일 공용 포트에서 다수의 프라이빗 포트로 매핑을 지원하지 않기 때문에 부하 분산이 불가능합니다.
-* **가상 머신에서 Oracle WebLogic Server의 여러 인스턴스.** 배포 의 요구 사항에 따라 가상 시스템이 충분히 큰 경우 동일한 가상 컴퓨터에서 Oracle WebLogic Server의 여러 인스턴스를 실행하는 것이 좋습니다. 예를 들어 두 개의 코어가 포함된 중간 크기의 가상 컴퓨터에서 Oracle WebLogic Server의 두 인스턴스를 실행하도록 선택할 수 있습니다. 그러나 Oracle WebLogic Server의 여러 인스턴스를 실행하는 가상 컴퓨터를 하나만 사용하는 경우 아키텍처에 단일 오류 지점이 도입되지 않는 것이 좋습니다. 두 개 이상의 가상 컴퓨터를 사용하는 것이 더 나은 방법일 수 있으며 각 가상 컴퓨터는 Oracle WebLogic Server의 여러 인스턴스를 실행할 수 있습니다. Oracle WebLogic Server의 각 인스턴스는 여전히 동일한 클러스터의 일부일 수 있습니다. 그러나 Azure 로드 밸런서에는 로드 균형 서버를 고유 하게 배포해야 하기 때문에 동일한 가상 시스템 내에서 이러한 Oracle WebLogic Server 배포에 의해 노출되는 엔드포인트를 로드 밸런서하는 데 Azure를 사용할 수 없습니다. 가상 머신.
+* **가상 머신에서 Oracle WebLogic Server의 여러 인스턴스.** 배포 의 요구 사항에 따라 가상 시스템이 충분히 큰 경우 동일한 가상 컴퓨터에서 Oracle WebLogic Server의 여러 인스턴스를 실행하는 것이 좋습니다. 예를 들어 두 개의 코어가 포함된 중간 크기의 가상 컴퓨터에서 Oracle WebLogic Server의 두 인스턴스를 실행하도록 선택할 수 있습니다. 그러나 Oracle WebLogic Server의 여러 인스턴스를 실행하는 가상 컴퓨터를 하나만 사용하는 경우 아키텍처에 단일 오류 지점이 도입되지 않는 것이 좋습니다. 두 개 이상의 가상 컴퓨터를 사용하는 것이 더 나은 방법일 수 있으며 각 가상 컴퓨터는 Oracle WebLogic Server의 여러 인스턴스를 실행할 수 있습니다. Oracle WebLogic Server의 각 인스턴스는 여전히 동일한 클러스터의 일부일 수 있습니다. 그러나 Azure 로드 밸런서에는 로드 균형 서버가 고유한 가상 시스템 간에 분산되어야 하기 때문에 동일한 가상 시스템 내에서 이러한 Oracle WebLogic Server 배포에 의해 노출되는 엔드포인트를 로드 밸런서하는 데 Azure를 사용할 수 없습니다.
 
 ## <a name="oracle-jdk-virtual-machine-images"></a>Oracle JDK 가상 머신 이미지
 * **JDK 6 및7 최신 업데이트**  Java의 최신 공용 지원 버전(현재 Java 8) 사용이 권장되지만, Azure 또한 JDK 6 및 7 이미지를 사용할 수 있게 합니다. 이는 JDK 8으로 아직 업그레이드 될 준비가 되지 않은 레거시 애플리케이션을 위한 것입니다. 이전 JDK 이미지에 대한 업데이트가 일반 대중에게 더 이상 제공되지 않지만, Oracle과 Microsoft 사이의 파트너 관계로 인하여 Azure에 의해 제공되는 JDK 6 및 7 이미지들은 Oracle이 지원하는 고객중 오직 선택 그룹의 고객들을 위한 가장 최신의 비-공용 업데이트를 포함합니다. JDK 이미지의 최신 버전은 JDK 6 및 7의 업데이트된 릴리스 시간이 지난 후 제공될 것입니다.

@@ -3,7 +3,7 @@ title: Azure CDN을 통해 대용량 파일 다운로드 최적화
 description: 이 문서에서는 대용량 파일 다운로드를 최적화하는 방법을 설명합니다.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
-ms.author: magattus
-ms.openlocfilehash: 4fe72985a799595908a0ff6bceb1a73dca823c8f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 28b3c4faf62bcd9f9495810927ece03e2dadc1fc
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593778"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260533"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Azure CDN을 통해 대용량 파일 다운로드 최적화
 
@@ -111,7 +111,7 @@ CDN은 받은 청크를 모두 캐시합니다. CDN 캐시에서 전체 파일�
 |    | 일반 웹 | 대용량 파일 최적화 
 --- | --- | --- 
 캐싱: 긍정 <br> HTTP 200, 203, 300, <br> 301, 302 및 410 | 7 일 |1일  
-캐싱: 부정 <br> HTTP 204, 305, 404 <br> 및 405 | None | 1초 
+캐싱: 부정 <br> HTTP 204, 305, 404 <br> 및 405 | 없음 | 1초 
 
 ### <a name="deal-with-origin-failure"></a>원본 오류 처리
 

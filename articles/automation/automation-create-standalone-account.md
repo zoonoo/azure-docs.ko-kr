@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 22efb5e94049b975780c6f6ea69aa94a71cc9992
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f06480767b697dca8fe41e484c02aefc58f040bf
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279014"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261333"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>독립 실행형 Azure Automation 계정 만들기
 
@@ -34,7 +34,7 @@ Automation 계정을 만들거나 업데이트하고 이 문서에서 설명한 
 * 자동화 계정을 만들려면 Azure AD 사용자 계정을 Microsoft의 소유자 역할과 동일한 사용 권한이 있는 역할에 추가해야 **합니다. 자동화** 리소스. 자세한 내용은 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
 * Azure 포털에서 **Azure Active Directory** > **MANAGE** > **사용자 설정에서** **앱 등록이** **예로**설정된 경우 Azure AD 테넌트의 비관리자 사용자는 [Active Directory 응용 프로그램을 등록할](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions)수 있습니다. **앱 등록 설정**이 **아니요**로 설정된 경우, 이 작업을 수행하는 사용자는 Azure AD의 전역 관리자여야 합니다.
 
-사용자는 구독의 전역 관리자/공동 관리자 역할에 추가되기 전에 해당 구독의 Active Directory 인스턴스에 속한 멤버가 아닌 경우 Active Directory에 게스트로 추가됩니다. 이 시나리오에서는 **Automation 계정 추가** 페이지에 "만들 수 있는 권한이 없습니다."라는 메시지가 표시됩니다.
+구독의 전역 관리자/공동 관리자 역할에 추가하기 전에 구독의 Active Directory 인스턴스의 구성원이 아닌 경우 Active Directory에 게스트로 추가됩니다. 이 시나리오에서는 **자동화 계정 추가** 페이지에 이 메시지가 표시 됩니다.
 
 사용자가 글로벌 관리자/공동 관리자 역할에 먼저 추가된 경우, 구독의 Active Directory 인스턴스에서 제거한 다음, Active Directory의 전체 사용자 역할에 다시 추가할 수 있습니다.
 
@@ -84,7 +84,7 @@ Azure Portal에서 Azure Automation 계정을 만들려면 다음 단계를 완�
 
 Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자동으로 만들어집니다. 이러한 Runbook을 만든 후 유지하지 않으려는 경우 안전하게 삭제할 수 있습니다. 실행 계정은 Runbook에서 사용자 계정으로 인증하는 데 사용할 수 있으며 다른 실행 계정을 만들거나 필요 없는 상황이 아니라면 남겨두는 것이 좋습니다. 다음 표에는 실행 계정에 대한 리소스가 요약되어 있습니다.
 
-| 리소스 | 설명 |
+| 리소스 | Description |
 | --- | --- |
 | AzureAutomationTutorial Runbook |실행 계정을 사용하여 인증하는 방법을 보여주는 예제 그래픽 Runbook입니다. Runbook은 Resource Manager 리소스를 모두 가져옵니다. |
 | AzureAutomationTutorialScript Runbook |실행 계정을 사용하여 인증하는 방법을 보여주는 예제 PowerShell Runbook입니다. Runbook은 Resource Manager 리소스를 모두 가져옵니다. |
@@ -92,7 +92,7 @@ Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자
 | AzureRunAsCertificate |Automation 계정을 만드는 경우 또는 기존 계정에 대해 PowerShell 스크립트를 사용하여 자동으로 만들어지는 인증서 자산입니다. 인증서는 Runbook에서 Azure Resource Manager 리소스를 관리할 수 있도록 Azure로 인증할 수 있습니다. 이 인증서는 수명이 1년입니다. |
 | AzureRunAsConnection |Automation 계정을 만드는 경우 또는 기존 계정에 대해 PowerShell 스크립트를 사용하여 자동으로 만들어지는 연결 자산입니다. |
 
-## <a name="classic-run-as-accounts"></a>클래식 런-로 계정
+## <a name="create-a-classic-run-as-account"></a>클래식 런-As 계정 만들기
 
 클래식 Run-As 계정은 Azure Automation 계정을 만들 때 기본적으로 더 이상 만들어지지 않습니다. 그래도 클래식 실행-As 계정이 필요한 경우 다음 단계를 수행하십시오.
 

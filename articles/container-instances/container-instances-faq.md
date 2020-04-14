@@ -3,13 +3,13 @@ title: 질문과 대답
 description: Azure 컨테이너 인스턴스 서비스와 관련하여 자주 묻는 질문에 대한 답변
 author: dkkapur
 ms.topic: article
-ms.date: 01/07/2020
-ms.openlocfilehash: 4a3fb4c1818d86f7fe2913790fd9e573c630cbfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/10/2020
+ms.openlocfilehash: 8730dcb24af61730d7f93ea37a53cf87435eb9f9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247177"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261621"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Azure 컨테이너 인스턴스에 대해 자주 묻는 질문
 
@@ -43,9 +43,9 @@ Azure 컨테이너 인스턴스에서 배포 가능한 컨테이너 이미지의
 
 #### <a name="windows-server-2019-and-client-base-images-preview"></a>Windows 서버 2019 및 클라이언트 기본 이미지(미리 보기)
 
-* [나노](https://hub.docker.com/_/microsoft-windows-nanoserver)서버 `1809`: ,`10.0.17763.x`
-* [윈도우 서버](https://hub.docker.com/_/microsoft-windows-servercore) `ltsc2019`코어 `1809`: ,`10.0.17763.x`
-* [윈도우](https://hub.docker.com/_/microsoft-windows) `1809`: ,`10.0.17763.x` 
+* [나노](https://hub.docker.com/_/microsoft-windows-nanoserver)서버 `1809` `10.0.17763.914` : , 또는 이전
+* [윈도우 서버](https://hub.docker.com/_/microsoft-windows-servercore) `ltsc2019`코어 `1809` `10.0.17763.914` : , 또는 이전
+* [윈도우](https://hub.docker.com/_/microsoft-windows) `1809`: `10.0.17763.914` , 또는 이전
 
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>컨테이너에 어떤 .NET 또는 .NET Core 이미지 레이어를 사용해야 합니까? 
 
