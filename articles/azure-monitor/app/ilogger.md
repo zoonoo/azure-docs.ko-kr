@@ -4,12 +4,12 @@ description: ASP.NET 코어 및 콘솔 응용 프로그램을 사용하여 Azure
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0f40c1c1a8ee7f20c769a62e9746da43face4cc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33effe9cfec6d766d573617ff03b58564e5b34d1
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80276379"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313651"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>.NET 코어 ILogger 로그에 대한 응용 프로그램 인사이트로거 공급자
 
@@ -213,7 +213,7 @@ public class Startup
 - ASP.NET 코어(2.0 이상)에서는 [로깅 공급자를 사용하도록 설정하는](https://github.com/aspnet/Announcements/issues/255) 권장 방법은 **Program.cs** 자체에서 ILoggingBuilder에서 확장 메서드를 사용하는 것입니다.
 
 > [!Note]
-> NETSTANDARD2.0 이상을 대상으로 하는 응용 프로그램에 새 공급자를 사용할 수 있습니다. 응용 프로그램이 .NET Core 1.1과 같은 이전 .NET Core 버전을 대상으로 하거나 .NET Framework를 대상으로 하는 경우 이전 공급자를 계속 사용합니다.
+> NETSTANDARD2.0 이상을 대상으로 하는 응용 프로그램에 새 공급자를 사용할 수 있습니다. [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 버전 2.14.0 이후부터 .NET Framework NET461 이상을 대상으로 하는 응용 프로그램에도 새 공급자를 사용할 수 있습니다. 응용 프로그램이 .NET Core 1.1과 같은 이전 .NET Core 버전을 대상으로 하거나 NET46 보다 작게 .NET Framework를 대상으로 하는 경우 이전 공급자를 계속 사용합니다.
 
 ## <a name="console-application"></a>콘솔 애플리케이션
 

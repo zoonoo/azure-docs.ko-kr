@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: ee929fa227cb105b73bc929c13a768aabef37ce3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2b72d52463164c2a059fce316cc11a63aad62e7c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75771686"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380943"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL 데이터 동기화의 모범 사례 
 
@@ -200,7 +200,7 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 3. 온-프레미스 데이터베이스를 로컬 에이전트 2에서 등록 취소하면 추적/메타 테이블이 온-프레미스 데이터베이스의 동기화 그룹에서 제거됩니다.
 4. “데이터베이스가 동기화에 대해 프로비전되지 않거나 동기화 구성 테이블에 대한 사용 권한이 없으므로 현재 작업을 완료할 수 없습니다.”라는 오류와 함께 동기화 그룹 A 작업에 실패합니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 이 시나리오를 방지하려면 데이터베이스를 여러 에이전트에 등록하지 마세요.
 
@@ -222,7 +222,7 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 
 동기화할 복잡한 스키마가 있는 경우 동기화 메타데이터 데이터베이스에 SKU가 낮은 경우 스키마 새로 고침 중에 "작업 시간 지정"이 발생할 수 있습니다(예: 기본). 
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 이 문제를 완화하려면 S3와 같은 SKU가 더 높아지도록 동기화 메타데이터 데이터베이스를 확장하십시오. 
 

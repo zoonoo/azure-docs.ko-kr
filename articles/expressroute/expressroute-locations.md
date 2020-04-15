@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/25/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6482040f0d50f08f04ea87384a99af556f694075
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 913bc16f7408acebb0e65359e8845ce0f6a3a2f4
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478803"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314259"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -74,7 +74,7 @@ ExpressRoute 위치(피어링 위치 또는 모임 위치라고도 함)는 Micro
 
 ### <a name="global-commercial-azure"></a>글로벌 상용 Azure
 
-| **서비스 공급자** | **Microsoft Azure** | **사무실 365**  | **위치** |
+| **서비스 공급자** | **Microsoft Azure** | **Office 365**  | **위치** |
 | --- | --- | --- | --- |
 | **[아넷 (것)과 함께](https://www.aarnet.edu.au/network-and-services/connectivity-services/azure-expressroute)** |지원됨 |지원됨 |멜버른, 시드니 |
 | **[Airtel](https://www.airtel.in/business/#/)** | 지원됨 | 지원됨 | 첸나이2, 뭄바이2 |
@@ -94,7 +94,7 @@ ExpressRoute 위치(피어링 위치 또는 모임 위치라고도 함)는 Micro
 | **차이나 모바일 인터내셔널** |지원됨 |지원됨 | 싱가포르 |
 | **China Telecom Global** |지원됨 |지원됨 |홍콩 |
 | **차이나 유니콤 글로벌** |지원됨 |지원됨 | Singapore2 |
-| **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |지원됨 |지원됨 |시카고, 댈러스, 몬트리올, 토론토, 워싱턴 DC |
+| **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |지원됨 |지원됨 |시카고, 달라스, 몬트리올, 토론토, 밴쿠버, 워싱턴 DC |
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |지원됨 |지원됨 |암스테르담, 암스테르담2, 시카고, 더블린, 프랑크푸르트, 런던, 런던2, 뉴포트, 뉴욕, 오사카, 파리, 실리콘 밸리, 실리콘 밸리2, 싱가포르2, 도쿄, 워싱턴 DC |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |지원됨 |지원됨 |시카고, 실리콘밸리, 워싱턴 DC |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |지원됨 |지원됨 |시카고, 덴버, 로스앤젤레스, 뉴욕, 실리콘 밸리, 실리콘 밸리2, 워싱턴 DC, 워싱턴 DC2 |
@@ -174,7 +174,7 @@ Azure 국가 클라우드는 서로 및 전역 상용 Azure에서 격리됩니�
 
 ### <a name="us-government-cloud"></a>미국 정부 클라우드
 
-| **서비스 공급자** | **Microsoft Azure** | **사무실 365** | **위치** |
+| **서비스 공급자** | **Microsoft Azure** | **Office 365** | **위치** |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |지원됨 |지원됨 |시카고, 피닉스, 실리콘 밸리, 워싱턴 Dc |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |지원됨 |지원됨 |뉴욕, 피닉스, 샌안토니오, 워싱턴 Dc |
@@ -185,7 +185,7 @@ Azure 국가 클라우드는 서로 및 전역 상용 Azure에서 격리됩니�
 
 ### <a name="china"></a>중국
 
-| **서비스 공급자** | **Microsoft Azure** | **사무실 365** | **위치** |
+| **서비스 공급자** | **Microsoft Azure** | **Office 365** | **위치** |
 | --- | --- | --- | --- |
 | **China Telecom** |지원됨 |지원되지 않음 |베이징, 베이징2, 상하이, 상하이2 |
 | **차이나 유니콤** | 지원됨 | 지원되지 않음 | 베이징2 |
@@ -195,7 +195,7 @@ Azure 국가 클라우드는 서로 및 전역 상용 Azure에서 격리됩니�
 
 ### <a name="germany"></a>독일
 
-| **서비스 공급자** | **Microsoft Azure** | **사무실 365** | **위치** |
+| **서비스 공급자** | **Microsoft Azure** | **Office 365** | **위치** |
 | --- | --- | --- | --- |
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |지원됨 |지원되지 않음 |프랑크푸르트 |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |지원됨 |지원되지 않음 |프랑크푸르트 |
@@ -296,7 +296,7 @@ Azure 국가 클라우드는 서로 및 전역 상용 Azure에서 격리됩니�
 
 ## <a name="connectivity-through-datacenter-providers"></a>데이터 센터 공급자를 통한 연결
 
-| **공급자** | **Connector** |
+| **공급 기업** | **Connector** |
 | --- | --- |
 | **[CyrusOne](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/cloud-connectivity-reaching-amazon-microsoft-google-and-more/microsoft-azure-expressroute/?doing_wp_cron=1498512235.6733090877532958984375)** | 메가포트, 패킷패브릭 |
 | **[Cyxtera](https://www.cyxtera.com/data-center-services/interconnection)** | 메가포트, 패킷패브릭 |
@@ -313,7 +313,7 @@ Azure 국가 클라우드는 서로 및 전역 상용 Azure에서 격리됩니�
 
 ## <a name="connectivity-through-national-research-and-education-networks-nren"></a>국가 연구 및 교육 네트워크를 통한 연결성 (NREN)
 
-| **공급자**|
+| **공급 기업**|
 | --- |
 | **AARNET**| 
 | **DeIC(GÉANT를 통해)**|

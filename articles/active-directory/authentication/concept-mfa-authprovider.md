@@ -11,21 +11,21 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a275e5ab394b54960a2340848152741762b28f8c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf50a8f58978a010fe3d8228ace8579fcf52eb38
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78269378"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309894"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Azure Multi-Factor Authentication 공급자를 사용하는 시기
+
+> [!IMPORTANT]
+> 2018년 9월 1일부터, 새 인증 공급자는 더 이상 생성되지 않을 수 있습니다. 기존 인증 공급자는 계속 사용 및 업데이트될 수 있지만 마이그레이션은 더 이상 불가능합니다. Multi-Factor Authentication은 Azure AD Premium 라이선스의 기능으로 계속 사용할 수 있게 지원됩니다.
 
 두 단계 인증은 기본적으로 Azure Active Directory 및 Office 365 사용자가 있는 전역 관리자를 위해 사용할 수 있습니다. 그러나 [고급 기능](howto-mfa-mfasettings.md)을 활용하려는 경우 Azure MFA(Multi-Factor Authentication)의 전체 버전을 구입해야 합니다.
 
 Azure Multi-Factor Auth 공급자는 Azure Multi-Factor Authentication에서 **라이선스가 없는** 사용자에게 제공하는 기능을 활용하는 데 사용됩니다.
-
-> [!NOTE]
-> 2018년 9월 1일부터, 새 인증 공급자는 더 이상 생성되지 않을 수 있습니다. 기존 인증 공급자는 계속 사용 및 업데이트될 수 있지만 마이그레이션은 더 이상 불가능합니다. Multi-Factor Authentication은 Azure AD Premium 라이선스의 기능으로 계속 사용할 수 있게 지원됩니다.
 
 ## <a name="caveats-related-to-the-azure-mfa-sdk"></a>Azure MFA SDK와 관련된 제한 사항
 

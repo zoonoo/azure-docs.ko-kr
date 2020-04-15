@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 11/27/2019
+ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c5d0efe8e662544dc69356c6b17dd7eca6f3a50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 75b127f8429650d46af9f171ed7ff03692f1499e
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74786455"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81379913"
 ---
 # <a name="azure-ad-pass-through-authentication-agent-version-release-history"></a>Azure AD 통과 인증 에이전트: 버전 릴리스 기록 
  
@@ -27,6 +27,14 @@ ms.locfileid: "74786455"
 
 - [Azure AD 통과 인증을 사용 하 인 하는 사용자 로그인](how-to-connect-pta.md) 
 - [Azure AD 통과 인증 에이전트 설치](how-to-connect-pta-quick-start.md) 
+
+## <a name="1517420"></a>1.5.1742.0
+### <a name="release-status"></a>릴리스 상태: 
+2020/04/09: 다운로드 용 으로 출시
+
+### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
+
+- 설치 시 클라우드 환경을 대상으로 하는 지원이 추가되었습니다. 번들을 지정된 클라우드 환경에 고정할 수 있습니다.
 
 
 

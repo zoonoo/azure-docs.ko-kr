@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: f718bc17b987926f4324635f096d5983acdb63fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f28269b067ee98d69a97799911fd2d84a7f91e34
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256472"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381142"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>SQL Database 단일 및 풀링된 데이터베이스에 복제
 
@@ -111,7 +111,7 @@ Azure SQL Database의 모든 기능을 사용하려면 최신 버전의 [SQL Ser
 - [발행물 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - 구독자로는 Azure SQL Database 서버 이름(예: **N'azuresqldbdns.database.windows.net'**)을, 대상 데이터베이스로는 Azure SQL 데이터베이스 이름(예: **AdventureWorks**)을 사용하여 [밀어넣기 구독을 만듭니다](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/).  
 
-## <a name="see-also"></a>관련 항목  
+## <a name="see-also"></a>참고 항목  
 
 - [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md)
 - [발행물 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)

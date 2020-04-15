@@ -1,22 +1,22 @@
 ---
-title: 상업 시장에서 새로운 SaaS 오퍼 만들기
-description: Azure 마켓플레이스, AppSource 또는 Microsoft 파트너 센터의 상용 마켓플레이스 포털을 사용하여 CSP(클라우드 솔루션 공급자) 프로그램을 통해 SaaS(서비스)로 새 소프트웨어를 만드는 방법.
+title: Microsoft 상용 시장에 대한 새로운 SaaS 오퍼 만들기
+description: Microsoft AppSource, Azure Marketplace 또는 Microsoft 파트너 센터의 Microsoft 상용 마켓플레이스 프로그램을 사용하여 CSP(클라우드 솔루션 공급자) 프로그램을 통해 새 소프트웨어를 서비스로 만드는 방법(SaaS) 제안을 작성합니다.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/28/2020
-ms.openlocfilehash: 3f2201db4b78ba61ba15608a676a8b9f8f5e612a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/13/2020
+ms.openlocfilehash: 45559978f710549088d75d0f0706b798ebad3821
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286203"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314081"
 ---
 # <a name="create-a-new-saas-offer"></a>새로운 SaaS 제품 만들기
 
-SaaS(서비스)로 소프트웨어를 만들기 시작하려면 먼저 [파트너 센터 계정을 만들고](./create-account.md) **개요** 탭을 선택한 채 [상용 마켓플레이스 대시보드를](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)열수 있는지 확인합니다.
+SaaS(서비스로서의 소프트웨어) 오퍼를 만들기 시작하려면 먼저 [파트너 센터 계정을 만들고](./create-account.md) **개요** 탭을 선택한 상업 [용 마켓플레이스 대시보드를](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)열도록 하십시오.
 
 ![파트너 센터의 상용 마켓플레이스 대시보드](./media/new-offer-overview.png)
 
@@ -82,6 +82,7 @@ Microsoft를 통해 판매하면 더 나은 고객 검색 및 획득이 가능�
 - 보다 광범위한 요구 사항은 [SaaS 오퍼 게시 가이드를](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)참조하십시오.
 
 #### <a name="saas-pricing-and-billing-options"></a>SaaS 가격 및 청구 옵션
+
 게시자의 Azure 구독에서 실행되는 SaaS 솔루션을 사용하면 고객이 지불한 라이선스 요금에는 소프트웨어가 배포되는 인프라 비용이 포함됩니다. Azure 인프라 사용량은 관리되고 파트너에게 직접 청구됩니다. 실제 인프라 사용 요금은 고객에게 표시되지 않습니다. 게시자는 Azure 인프라 사용 요금을 소프트웨어 라이선스 가격에 번들로 묶어야 합니다. 
 
 SaaS는 유료 결제 서비스를 사용하여 정액 요금, 사용자당 또는 소비 요금을 기준으로 월별 또는 연간 청구를 지원합니다. Microsoft의 상용 마켓플레이스는 대행사 모델로 운영되며, 게시자는 가격을 설정하고, Microsoft는 고객에게 청구하며, Microsoft는 대행사 수수료를 원천징수하면서 게시자에게 수익을 지불합니다.
@@ -109,16 +110,19 @@ SaaS는 유료 결제 서비스를 사용하여 정액 요금, 사용자당 또�
 
 - **잠재 고객이 이 리스팅 오퍼와 상호 작용하기를 어떻게 원하십니까?**
 
-##### <a name="get-it-now-free"></a>지금 받기 (무료)
+#### <a name="get-it-now-free"></a>지금 받기 (무료)
+
 [Azure Active Directory(Azure AD)를 사용하여 원클릭 인증을](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)통해 평가판을 얻을 수 있는 유효한 URL(http 또는 *https로*시작)을 제공하여 고객에게 무료로 제품을 나열합니다. *http*  예: `https://contoso.com/saas-app`
 
-##### <a name="free-trial-listing"></a>무료 평가판(목록)
+#### <a name="free-trial-listing"></a>무료 평가판(목록)
+
 [Azure Active Directory(Azure AD)를 사용하여 원클릭 인증을](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)통해 평가판을 얻을 수 있는 유효한 URL(http 또는 *https로*시작)을 제공하여 무료 평가판에 대한 링크가 있는 고객에게 제품을 나열합니다. *http*  예: `https://contoso.com/trial/saas-app` 제안 목록 무료 평가판은 서비스에서 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독이 없습니다.
 
 > [!NOTE]
 > 응용 프로그램이 평가판 링크를 통해 받게 되는 토큰은 Azure AD를 통해 사용자 정보를 획득하여 앱에서 계정 생성을 자동화하는 데만 사용할 수 있습니다. 이 토큰을 사용하는 인증에는 MSA(Microsoft 계정)가 지원되지 않습니다.
 
-##### <a name="contact-me"></a>연락처
+#### <a name="contact-me"></a>연락처
+
 CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 수집합니다. 고객은 자신의 정보를 공유 할 수있는 권한을 요청합니다. 이러한 고객 세부 정보( 오퍼 이름, ID 및 마켓플레이스 소스와 함께 쿠폰을 찾은 경우)는 구성한 CRM 시스템으로 전송됩니다. CRM 구성에 대한 자세한 내용은 [연결 잠재 고객 관리](#connect-lead-management)를 참조하십시오.
 
 ## <a name="example-marketplace-offer-listing"></a>Marketplace 제품 목록 예
@@ -127,16 +131,16 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 ## <a name="enable-a-test-drive"></a>시험 사용을 사용하도록 설정
 
-테스트 드라이브는 '구매 하기 전에 시도' 옵션을 제공 하 여 잠재 고객에 게 귀하의 제안을 선보일 수 있는 좋은 방법, 증가 전환 및 높은 자격을 갖춘 리드의 생성. [테스트 드라이브에 대해 자세히 알아보세요.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+테스트 드라이브는 '구매 하기 전에 시도' 옵션을 제공 하 여 잠재 고객에 게 귀하의 제안을 선보일 수 있는 좋은 방법, 증가 전환 및 높은 자격을 갖춘 리드의 생성. 자세한 내용은 고객이 제품을 테스트할 수 있도록 허용 을 [참조하세요.](./test-drive.md)
 
 - **테스트 드라이브** 사용(확인란)
 
 테스트 드라이브를 사용하도록 설정하면 고객이 일정 기간 동안 제품을 사용해 볼 수 있도록 데모 환경을 구성하라는 메시지가 표시됩니다. 
 
-#### <a name="test-drive-resources"></a>드라이브 리소스 테스트
-- [테스트 드라이브 기술 모범 사례](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [테스트 드라이브 마케팅 모범 사례](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- [테스트 드라이브 개요 한 호출기](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
+### <a name="test-drive-resources"></a>드라이브 리소스 테스트
+
+- [테스트 드라이브 마케팅 모범 사례](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)- [테스트 드라이브 기술 모범 사례](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [테스트 드라이브 개요(PDF 다운로드)](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
 
 ## <a name="connect-lead-management"></a>잠재 고객 관리 연결
 
@@ -155,7 +159,7 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 이 필드를 완료한 후 **저장을** 선택합니다.
 
-### <a name="category"></a>Category
+### <a name="category"></a>범주
 
 쿠폰을 적절한 마켓플레이스 검색 영역으로 그룹화하는 데 사용되는 최소 1개(1) 및 최대 3개 카테고리를 선택합니다. 쿠폰 설명에서 이러한 카테고리를 지원하는 방법을 문의하세요.
 
@@ -299,7 +303,7 @@ Microsoft는 표준 계약 템플릿을 제공합니다.
 
 - **미리 보기 잠재고객 정의: 선택적 설명과 함께 줄당 단일 AAD/MSA 계정 전자 메일을 추가합니다.**
 
-CSV 파일을 업로드하는 경우 최대 10개의 전자 메일 주소를 수동으로 추가하거나 20개(20개)를 추가하여 기존 MSA(MsA) 또는 Azure Active Directory 계정을 사용하여 라이브로 게시하기 전에 오퍼의 유효성을 검사하는 데 도움을 줍니다. 이러한 계정을 추가하면 마켓플레이스에 게시되기 전에 쿠폰에 대한 미리 보기 액세스가 허용되는 잠재고객을 정의할 수 있습니다. 쿠폰이 이미 진행 중인 경우에도 오퍼의 변경 내용이나 업데이트를 테스트하기 위해 미리 보기 대상을 정의할 수 있습니다.
+기존 MSA(MsA) 또는 Azure Active Directory 계정에 대해 CSV 파일을 업로드하는 경우 전자 메일 주소를 수동으로 최대 10개 또는 20개까지 추가하여 라이브로 게시하기 전에 오퍼의 유효성을 검사하는 데 도움을 줍니다. 이러한 계정을 추가하면 마켓플레이스에 게시되기 전에 쿠폰에 대한 미리 보기 액세스가 허용되는 잠재고객을 정의할 수 있습니다. 쿠폰이 이미 진행 중인 경우에도 오퍼의 변경 내용이나 업데이트를 테스트하기 위해 미리 보기 대상을 정의할 수 있습니다.
 
 > [!NOTE]
 > 미리 보기 대상은 비공개 대상과 다릅니다. 미리 보기 대상은 마켓플레이스에 실시간 _게시되기 전에_ 오퍼에 액세스할 수 있습니다. 또한 계획을 만들고 비공개 잠재고객만 사용할 수 있도록 선택할 수도 있습니다. 계획 **목록** 탭에서 비공개 **잠재고객을** 개인 계획 확인란으로 정의할 수 있습니다. 그런 다음 Azure 테넌트 암호를 사용하여 최대 20,000명의 고객의 개인 대상을 정의할 수 있습니다.
@@ -359,12 +363,12 @@ CSV 파일을 업로드하는 경우 최대 10개의 전자 메일 주소를 수
 >[!Note]
 >고객이 무료 평가판 없이 요금제로 전환하기로 선택하면 전환이 발생하지만 무료 평가판은 즉시 손실됩니다.  또한 고객이 요금제 비용을 지불하기 시작하면 무료 평가판을 지원하는 SKU로 전환하더라도 동일한 구독에 대해 더 이상 무료 평가판을 다시 받을 수 없습니다.
 
-무료 평가판을 구성하는 기능은 오퍼의 각 요금제에 대해 사용할 수 있습니다. 각 오퍼의 가격 및 가용성을 탐색하고 1개월 평가판을 허용하려면 확인란을 선택하십시오.
+무료 평가판을 구성하는 기능은 오퍼의 각 요금제에 대해 사용할 수 있습니다. 각 오퍼의 가격 및 가용성으로 이동하여 1개월 평가판을 허용하려면 확인란을 선택합니다.
 
 ![1개월 무료 평가판 확인란](./media/free-trial-enable.png)
 
 >[!Note]
->거래 가능한 제안이 무료 평가판으로 게시되면 해당 요금제에 대해 비활성화할 수 없습니다. 계획을 다시 만들지 않도록 첫 번째 게시에 대해 이 설정이 올바른지 확인합니다.
+>거래 가능한 제안이 무료 평가판으로 게시된 후에는 해당 요금제에 대해 비활성화할 수 없습니다. 계획을 다시 만들지 않도록 첫 번째 게시에 대해 이 설정이 올바른지 확인합니다.
 
 현재 무료 평가판에 참여하고 있는 고객 구독에 대한 `isFreeTrial`정보를 얻으려면 참 또는 거짓으로 표시된 새 API 속성을 사용합니다. 자세한 내용은 [SaaS 구독 받기 API를](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription)참조하십시오.
 
@@ -377,7 +381,7 @@ CSV 파일을 업로드하는 경우 최대 10개의 전자 메일 주소를 수
 
 모든 플랜은 적어도 하나의 시장에서 사용할 수 있어야 합니다. 이 플랜을 사용할 수 있도록 하려는 시장 위치에 대한 확인란을 선택합니다. Microsoft가 사용자를 대신하여 판매 및 사용세를 송금하는 "세금 환급" 국가를 선택하기 위한 검색 상자와 버튼이 포함되어 있습니다.
 
-이미 미국 달러(USD)로 플랜 가격을 설정하고 다른 시장 위치를 추가한 경우 새 시장의 가격은 현재 환율에 따라 계산됩니다. 게시하기 전에 항상 각 시장의 가격을 검토해야 합니다. 변경 사항을 저장한 후 "내보내기 가격(xlsx)" 링크를 사용하여 가격을 검토할 수 있습니다.
+이미 미국 달러(USD)로 플랜 가격을 설정하고 다른 시장 위치를 추가한 경우 새 시장의 가격은 현재 환율에 따라 계산됩니다. 게시하기 전에 각 시장의 가격을 검토합니다. 변경 사항을 저장한 후 "내보내기 가격(xlsx)" 링크를 사용하여 가격을 검토할 수 있습니다.
 
 #### <a name="pricing"></a>가격 책정
 
@@ -418,7 +422,7 @@ CSV 파일을 업로드하는 경우 최대 10개의 전자 메일 주소를 수
 
 이 개인 요금제에 액세스할 수 있는 대상을 할당합니다. 액세스는 할당된 각 테넌트 ID에 대한 설명을 포함하는 옵션과 함께 테넌트 ID를 사용하여 할당됩니다. .csv 스프레드시트 파일을 가져오는 경우 최대 10개의 테넌트 아이디를 추가하거나 20,000명의 고객 테넌트 아이디를 추가할 수 있습니다.
 
-테넌트는 ID가 GUID(전역 고유 식별자, 리소스를 식별하는 데 사용되는 128비트 정수 번호)로 표시되는 조직의 표현입니다. 조직 또는 앱 개발자가 Microsoft와의 관계를 만들 때(예: Azure, Microsoft Intune 또는 Microsoft 365에 등록) 조직 또는 앱 개발자가 받는 Azure AD의 전용 인스턴스입니다. 각 Azure AD 테넌트는 서로 전혀 다르고 다른 Azure AD 테넌트와 별개입니다. 테넌트를 확인하려면 애플리케이션을 관리하는 데 사용하려는 계정으로 Azure Portal에 로그인합니다. 테넌트가 있으면 자동으로 로그인되고 계정 이름 바로 아래에 테넌트 이름이 표시됩니다. Azure Portal의 오른쪽 위에 있는 사용자의 계정 이름을 가리켜 사용자의 이름, 이메일, 디렉터리/테넌트 ID(GUID) 및 사용자의 도메인을 표시합니다. 계정이 여러 테넌트와 연결되어 있으면, 계정 이름을 선택하여 테넌트 간에 전환할 수 있는 메뉴를 열 수 있습니다. 각 테넌트가 자기만의 ID를 가지고 있습니다. 다음 에서 도메인 이름 URL을 사용하여 조직의 테넌트 [https://www.whatismytenantid.com](https://www.whatismytenantid.com)ID를 조회할 수도 있습니다.
+테넌트는 ID가 GUID(전역 고유 식별자, 리소스를 식별하는 데 사용되는 128비트 정수 번호)로 표시되는 조직의 표현입니다. 조직 또는 앱 개발자가 Azure, Microsoft Intune 또는 Microsoft 365에 가입할 때 와 같은 Microsoft와 관계를 만들 때 조직 또는 앱 개발자가 받는 Azure AD의 전용 인스턴스입니다. 각 Azure AD 테넌트는 서로 전혀 다르고 다른 Azure AD 테넌트와 별개입니다. 테넌트를 확인하려면 애플리케이션을 관리하는 데 사용하려는 계정으로 Azure Portal에 로그인합니다. 테넌트가 있으면 자동으로 로그인되고 계정 이름 바로 아래에 테넌트 이름이 표시됩니다. Azure Portal의 오른쪽 위에 있는 사용자의 계정 이름을 가리켜 사용자의 이름, 이메일, 디렉터리/테넌트 ID(GUID) 및 사용자의 도메인을 표시합니다. 계정이 여러 테넌트와 연결되어 있으면, 계정 이름을 선택하여 테넌트 간에 전환할 수 있는 메뉴를 열 수 있습니다. 각 테넌트가 자기만의 ID를 가지고 있습니다. 다음 에서 도메인 이름 URL을 사용하여 조직의 테넌트 [https://www.whatismytenantid.com](https://www.whatismytenantid.com)ID를 조회할 수도 있습니다.
 
 SaaS는 테넌트 아이디를 사용하여 개인 대상을 정의하는 반면, 다른 오퍼 유형은 Azure 구독 아이디(GUID라고도 표시)를 사용할 수 있습니다.
 
@@ -429,10 +433,6 @@ SaaS는 테넌트 아이디를 사용하여 개인 대상을 정의하는 반면
 
 ![메모가 있는 마켓플레이스 계획 목록 예제](./media/marketplace-plan.svg)
 
-## <a name="test-drive"></a>시험 사용
-
-[!INCLUDE [Test drive content](./includes/commercial-marketplace-test-drive.md)]
-
 ## <a name="cloud-solution-provider-csp-reseller-audience"></a>클라우드 솔루션 공급자(CSP) 리셀러 고객
 
 CSP 프로그램에서 제품을 사용할 수 있도록 선택하면 클라우드 솔루션 공급자가 고객에게 번들 솔루션의 일부로 제품을 판매할 수 있습니다. 자세한 내용은 [클라우드 솔루션 공급자](https://go.microsoft.com/fwlink/?linkid=2111109)를 참조하십시오.
@@ -441,7 +441,7 @@ CSP 프로그램에서 제품을 사용할 수 있도록 선택하면 클라우�
 
 오퍼의 모든 필수 섹션을 완료한 후 포털의 오른쪽 상단 모서리에 **게시를** 선택합니다. **검토 및 게시** 페이지로 리디렉션됩니다.
 
-#### <a name="submit-offer-to-preview"></a>미리 보기에 제안 제출
+### <a name="submit-offer-to-preview"></a>미리 보기에 제안 제출
 
 이 제안을 처음 게시하는 경우 다음을 수행할 수 있습니다.
 

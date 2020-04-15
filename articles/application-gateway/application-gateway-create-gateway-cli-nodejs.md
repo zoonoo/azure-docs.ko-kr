@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: victorh
-ms.openlocfilehash: 7107f45253c4f13b3378489726bf5034e104fa30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ed7bbbf55956d655115b94c8ac46432b3e36c49b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "62095985"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312641"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Azure CLI를 사용하여 Application Gateway 만들기
 
-Azure Application Gateway는 계층 7 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다. 애플리케이션 게이트웨이의 애플리케이션 전달 기능에는 HTTP 부하 분산, 쿠키 기반 세션 선호도, SSL(Secure Sockets Layer) 오프로드, 사용자 지정 상태 프로브, 다중 사이트 지원 등이 있습니다.
+Azure Application Gateway는 계층 7 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다. 응용 프로그램 게이트웨이에는 HTTP 로드 분산, 쿠키 기반 세션 선호도 및 TLS(보안 소켓 계층 계층 계층 보안), 이전에 SSL(보안 소켓 계층), 오프로드, 사용자 지정 상태 프로브 및 다중 사이트 지원 등의 응용 프로그램 배달 기능이 있습니다.
 
 ## <a name="prerequisite-install-the-azure-cli"></a>필수 조건: Azure CLI 설치
 
@@ -135,7 +135,7 @@ azure network application-gateway create \
 
 [사용자 지정 상태 프로브 만들기](application-gateway-create-probe-portal.md)
 
-[SSL 오프로드 구성](application-gateway-ssl-arm.md)
+TLS 오프로드 를 구성하고 [TLS 오프로드 구성을](application-gateway-ssl-arm.md) 방문하여 웹 서버에서 비용이 많이 드는 TLS 암호 해독을 사용하는 방법에 대해 알아봅니다.
 
 <!--Image references-->
 

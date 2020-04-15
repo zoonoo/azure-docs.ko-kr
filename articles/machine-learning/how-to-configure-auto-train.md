@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 11f52df683b7a85a8ad5163bbede33d786897452
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: c8997f5cd1bed06fab8ca90e7b1cdfcb3e5ec6b3
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257269"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313769"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -199,7 +199,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 실험을 구성할 때 고급 설정을 `featurization`사용하도록 설정할 수 있습니다. 다음 표에서는 [AutoMLConfig 클래스에서](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)위화에 대해 허용되는 설정을 보여 주며 있습니다.
 
-|위화화 구성 | Description |
+|위화화 구성 | 설명 |
 | ------------- | ------------- |
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| 사용자 정의 위화 단계를 사용해야 함을 나타냅니다. [위업을 사용자 지정하는 방법에 대해 알아봅니다.](how-to-configure-auto-train.md#customize-feature-engineering)|
 |`"featurization": 'off'`| featurization 단계가 자동으로 수행되어서는 안 함을 나타냅니다.|
@@ -453,7 +453,7 @@ featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of
 [('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))
 ```
 
-자세한 내용을 얻으려면 이 샘플 전자 [필기장에](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification/auto-ml-classification.ipynb)표시된 이 도우미 기능을 사용합니다.
+자세한 내용을 얻으려면 이 도우미 함수를 사용하십시오. 
 
 ```python
 from pprint import pprint
@@ -473,7 +473,7 @@ def print_model(model, prefix=""):
             print()
 
 
-print_model(fitted_model)
+print_model(model)
 ```
 
 다음 샘플 출력은 특정 알고리즘을 사용하는 파이프라인에 대한 것입니다(이 경우 RobustScalar를 사용한 로지스틱리그레션).

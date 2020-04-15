@@ -5,19 +5,19 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/28/2019
-ms.openlocfilehash: 6f4efd9a316b92f17f89cea66a7c81e84ac3cf06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/14/2020
+ms.openlocfilehash: 9bdf7360ce00637b0eed3de7a3349da8656a3ed0
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72991344"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314169"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>SSH 터널링을 사용하여 아파치 암바리 웹 UI, 작업 기록, 네임 노드, 아파치 Oozie 및 기타 UI에 액세스
 
-HDInsight 클러스터는 인터넷을 통해 Apache Ambari Web UI에 대한 액세스를 제공하지만, 일부 기능을 사용하려면 SSH 터널이 필요합니다. 예를 들어, 아파치 Oozie 서비스에 대 한 웹 UI SSh 터널 없이 인터넷을 통해 액세스할 수 없습니다.
+HDInsight 클러스터는 인터넷을 통해 아파치 암바리 웹 UI에 대한 액세스를 제공합니다. 일부 기능에는 SSH 터널이 필요합니다. 예를 들어, 아파치 Oozie 웹 UIS SH 터널 없이 인터넷을 통해 액세스할 수 없습니다.
 
 ## <a name="why-use-an-ssh-tunnel"></a>SSH 터널을 사용하는 이유
 
@@ -31,7 +31,7 @@ Ambari의 일부 메뉴만 SSH 터널을 통해 작동합니다. 이러한 메�
 * Oozie web UI
 * HBase Master 및 로그 UI
 
-클러스터를 사용자 지정하는 스크립트 작업을 사용하는 경우 웹 서비스를 노출하는 서비스 또는 유틸리티를 설치하려면 SSH 터널이 필요합니다. 예를 들어 스크립트 작업을 사용하여 Hue를 설치하는 경우 SSH 터널을 사용하여 Hue 웹 UI에 액세스해야 합니다.
+웹 서비스를 노출하는 스크립트 작업과 함께 설치된 서비스에는 SSH 터널이 필요합니다. 스크립트 작업과 함께 설치된 색조는 웹 UI에 액세스하려면 SSH 터널이 필요합니다.
 
 > [!IMPORTANT]  
 > 가상 네트워크를 통해 HDInsight에 대한 직접 액세스가 있는 경우 SSH 터널을 사용할 필요가 없습니다. 가상 네트워크를 통해 HDInsight에 직접 액세스하는 예는 [온-프레미스 네트워크에 HDInsight 연결](connect-on-premises-network.md) 문서를 참조하세요.
@@ -64,14 +64,16 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 
 이 명령은 로컬 포트 9876에서 SSH를 통해 클러스터에 트래픽을 라우팅하는 연결을 만듭니다. 옵션은 다음과 같습니다.
 
-* **D 9876** - 터널을 통해 트래픽을 라우팅하는 로컬 포트
-* **C** - 웹 트래픽은 대부분 텍스트이므로 모든 데이터 압축
-* **2** - SSH가 프로토콜 버전 2만 시도하도록 강요
-* **q** - 자동 모드
-* **T** - 포트를 전달하기 만하면 되므로 의사 tty 할당을 사용하지 않도록 설정합니다.
-* **n** - 포트를 전달하기 때문에 STDIN을 읽지 않습니다.
-* **N** - 포트를 전달하기 만하면 원격 명령을 실행하지 마십시오.
-* **f** - 백그라운드에서 실행
+    |옵션 |설명 |
+    |---|---|
+    |D 9876|터널을 통해 트래픽을 라우팅하는 로컬 포트입니다.|
+    |C|웹 트래픽은 대부분 텍스트이므로 모든 데이터를 압축합니다.|
+    |2|SSH가 프로토콜 버전 2만 시도하도록 강제합니다.|
+    |q|자동 모드입니다.|
+    |T|포트를 전달하기 만하면 되므로 의사 tty 할당을 사용하지 않도록 설정합니다.|
+    |n|포트를 전달하기 때문에 STDIN을 읽지 않습니다.|
+    |N|포트를 전달하기 만하면 되므로 원격 명령을 실행하지 마십시오.|
+    |f|백그라운드에서 실행합니다.|
 
 명령이 완료되면 로컬 컴퓨터에서 9876 포트로 전송되는 트래픽이 클러스터 헤드 노드로 라우팅됩니다.
 
@@ -91,7 +93,7 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     |포트|22|
     |연결 유형|SSH|
 
-1. **저장** 선택
+1. **저장**을 선택합니다.
 
     ![HDInsight는 퍼티 세션을 만듭니다.](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
 

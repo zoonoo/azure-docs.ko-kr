@@ -7,17 +7,17 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: e01a1cad98ded9d7ce8683b6adf38b5d53959774
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ba3e9ae7b5075d1f5457cb2960423ad1c737e94
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75966808"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312546"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>PowerShell을 사용하여 Azure Application Gateway(클래식)에 대한 사용자 지정 프로브 만들기
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](application-gateway-create-probe-portal.md)
+> * [Azure Portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure 클래식 파워쉘](application-gateway-create-probe-classic-ps.md)
 
@@ -200,7 +200,7 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 ## <a name="next-steps"></a>다음 단계
 
-SSL(Secure Sockets Layer) 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 애플리케이션 게이트웨이 구성](application-gateway-ssl.md)을 참조하세요.
+이전에 SSL(보안 소켓 계층) 오프로드라고 하는 TLS(전송 계층 보안)를 구성하려면 [TLS 오프로드에 대한 응용 프로그램 게이트웨이 구성을](application-gateway-ssl.md)참조하십시오.
 
 내부 부하 분산 장치에서 사용되도록 애플리케이션 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 애플리케이션 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
 

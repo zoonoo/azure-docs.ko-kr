@@ -1,5 +1,5 @@
 ---
-title: C#에 대한 IoT 보안 에이전트 로컬 구성 파일에 대한 Azure 보안 센터 이해 | 마이크로 소프트 문서
+title: 보안 에이전트 로컬 구성(C#)
 description: IoT 보안 서비스를 위한 Azure 보안 센터, C#에 대한 보안 에이전트 로컬 구성 파일에 대해 자세히 알아봅니다.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 0172ada68ffa652fb0c301c89238beca4f4ce2f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adf0d72763e0cb1892d64c68a6dce05abbf6f582
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74664199"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311673"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>로컬 구성 파일 이해(C# 에이전트)
-
 
 IoT 보안 에이전트용 Azure 보안 센터는 로컬 구성 파일의 구성을 사용합니다.
 
@@ -35,18 +34,21 @@ C# 보안 에이전트는 여러 구성 파일을 사용합니다.
 - **Authentication.config** - 인증 관련 구성(인증 세부 정보 포함).
 - **SecurityIotInterface.config** - IoT 관련 구성.
 
-구성 파일에는 기본 구성이 포함되어 있습니다. 인증 구성은 에이전트 설치 중에 채워지며 에이전트를 다시 시작할 때 구성 파일이 변경됩니다. 
+구성 파일에는 기본 구성이 포함되어 있습니다. 인증 구성은 에이전트 설치 중에 채워지며 에이전트를 다시 시작할 때 구성 파일이 변경됩니다.
 
 ## <a name="configuration-file-location"></a>구성 파일 위치
+
 Linux의 경우:
+
 - 운영 체제 구성 파일은 에 있습니다. `/var/ASCIoTAgent`
 
 Windows의 경우:
-- 운영 체제 구성 파일은 보안 에이전트의 디렉터리 내에 있습니다. 
+
+- 운영 체제 구성 파일은 보안 에이전트의 디렉터리 내에 있습니다.
 
 ### <a name="generalconfig-configurations"></a>일반.구성 구성
 
-| 구성 이름 | 가능한 값 | 세부 정보 | 
+| 구성 이름 | 가능한 값 | 세부 정보 |
 |:-----------|:---------------|:--------|
 | 에이전트 ID | GUID | 에이전트 고유 식별자 |
 | 읽기원격 구성 시간 설정 | TimeSpan | IoT Hub에서 원격 구성을 가져오는 기간입니다. 에이전트가 지정된 시간 내에 구성을 가져올 수 없는 경우 작업이 시간 지정됩니다.|
@@ -61,6 +63,7 @@ Windows의 경우:
 | 기본이벤트 우선 순위 | "높음", "낮음", "끄기" | 기본 이벤트 우선 순위입니다. |
 
 ### <a name="generalconfig-example"></a>일반.구성 예제
+
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
 <General>
@@ -80,7 +83,7 @@ Windows의 경우:
 
 ### <a name="authenticationconfig"></a>인증.구성
 
-| 구성 이름 | 가능한 값 | 세부 정보 | 
+| 구성 이름 | 가능한 값 | 세부 정보 |
 |:-----------|:---------------|:--------|
 | moduleName | 문자열 | 보안 모듈 ID의 이름입니다. 이 이름은 장치의 모듈 ID 이름과 일치해야 합니다. |
 | deviceId | 문자열 | 장치의 ID(Azure IoT Hub에 등록된 대로). || 스케줄간격 | 시간 범위 문자열 | 내부 스케줄러 간격입니다. |
@@ -94,6 +97,7 @@ Windows의 경우:
 |
 
 ### <a name="authenticationconfig-example"></a>인증.구성 예제
+
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
 <Authentication>
@@ -108,14 +112,16 @@ Windows의 경우:
   <add key="registrationId" value="d1"/>
 </Authentication>
 ```
+
 ### <a name="securityiotinterfaceconfig"></a>시큐리티오토인터페이스.구성
 
-| 구성 이름 | 가능한 값 | 세부 정보 | 
+| 구성 이름 | 가능한 값 | 세부 정보 |
 |:-----------|:---------------|:--------|
 | 전송 유형 | "앰프" "Mqtt" | IoT 허브 전송 유형입니다. |
 |
 
 ### <a name="securityiotinterfaceconfig-example"></a>보안IotInterface.config 예제
+
 ```XML
 <ExternalInterface>
   <add key="facadeType"  value="Microsoft.Azure.Security.IoT.Agent.Common.SecurityIoTHubInterface, Security.Common" />
@@ -124,6 +130,7 @@ Windows의 경우:
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 - IoT 서비스를 위한 Azure 보안 센터 [개요](overview.md) 읽기
 - IoT [아키텍처를](architecture.md) 위한 Azure 보안 센터에 대해 자세히 알아보기
 - IoT [서비스에](quickstart-onboard-iot-hub.md) 대한 Azure 보안 센터 사용

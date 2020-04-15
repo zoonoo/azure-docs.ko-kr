@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 04/13/2020
 ms.author: juliako
-ms.openlocfilehash: 8b6d160f71bfe8b2e5c447296d511b54ce6542c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82bdb177cf4d9c400d1b13ba7178658089950557
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245851"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314344"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>자습서: 비디오 인덱서 API 사용
 
@@ -142,9 +142,9 @@ var videoUrl = "VIDEO_URL"; // replace with the video URL
 // as an alternative to specifying video URL, you can upload a file.
 // remove the videoUrl parameter from the query string below and add the following lines:
   //FileStream video =File.OpenRead(Globals.VIDEOFILE_PATH);
-  //byte[] buffer =newbyte[video.Length];
+  //byte[] buffer = new byte[video.Length];
   //video.Read(buffer, 0, buffer.Length);
-  //content.Add(newByteArrayContent(buffer));
+  //content.Add(new ByteArrayContent(buffer));
 
 var uploadRequestResult = client.PostAsync($"{apiUrl}/{location}/Accounts/{accountId}/Videos?accessToken={accountAccessToken}&name=some_name&description=some_description&privacy=private&partition=some_partition&videoUrl={videoUrl}", content).Result;
 var uploadResult = uploadRequestResult.Content.ReadAsStringAsync().Result;
@@ -210,10 +210,10 @@ Debug.WriteLine(playerWidgetLink);
 ## <a name="see-also"></a>참조
 
 - [Video Indexer 개요](video-indexer-overview.md)
-- [지역](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+- [영역](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
 
 ## <a name="next-steps"></a>다음 단계
 
 - [출력 JSON의 세부 사항 검사](video-indexer-output-json-v2.md)
-- 동영상 업로드 및 인덱싱의 중요한 측면을 보여 주는 [샘플 코드를](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/API) 확인하세요. 코드 윌에 따라 기본 기능에 대한 API를 사용하는 방법에 대한 좋은 아이디어를 제공합니다. 인라인 주석을 읽고 모범 사례 조언을 확인하십시오.
+- 동영상 업로드 및 인덱싱의 중요한 측면을 보여 주는 [샘플 코드를](https://github.com/Azure-Samples/media-services-video-indexer) 확인하세요. 코드 윌에 따라 기본 기능에 대한 API를 사용하는 방법에 대한 좋은 아이디어를 제공합니다. 인라인 주석을 읽고 모범 사례 조언을 확인하십시오.
 

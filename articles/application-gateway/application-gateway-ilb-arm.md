@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 9fbde84c499ba5b086ce812de63602c626b416b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 406dcdb419dba2e8044a173f4c05028abbaba3da
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74179322"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312411"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>ILB(내부 부하 분산 장치)를 사용하여 Application Gateway 만들기
 
-Azure Application Gateway는 인터넷 연결 VIP 또는 ILB(내부 부하 분산 장치) 엔드포인트라고 알려진 인터넷에 노출되지 않은 내부 엔드포인트를 사용하여 구성할 수 있습니다. ILB를 사용하여 게이트웨이를 구성하는 것은 인터넷에 노출되지 않은 비즈니스 애플리케이션의 내부 라인에 대해 유용합니다. 또한 인터넷에 노출되지 않은 보안 경계에 앉아 있는 다중 계층 애플리케이션 내에 포함된 서비스 및 계층에 유용하지만 여전히 라운드 로빈 부하 분산, 세션 인력 또는 SSL(Secure Sockets Layer) 종료가 필요합니다.
+Azure Application Gateway는 인터넷 연결 VIP 또는 ILB(내부 부하 분산 장치) 엔드포인트라고 알려진 인터넷에 노출되지 않은 내부 엔드포인트를 사용하여 구성할 수 있습니다. ILB를 사용하여 게이트웨이를 구성하는 것은 인터넷에 노출되지 않은 비즈니스 애플리케이션의 내부 라인에 대해 유용합니다. 또한 인터넷에 노출되지 않지만 이전에 SSL(보안 소켓 계층)이라고 알려진 TLS(라운드 로빈 로드 배포, 세션 끈기 또는 전송 계층 보안)가 필요한 보안 경계에 있는 다중 계층 응용 프로그램 내의 서비스 및 계층에도 유용합니다.
 
 이 문서는 ILB와 애플리케이션 게이트웨이 구성 단계를 안내합니다.
 

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/13/2019
-ms.openlocfilehash: 1a4ae0701174278203023c156a86aad8feb1ca4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/14/2020
+ms.openlocfilehash: d68f7dc6368c2b3de7f26f2946c5fb47237a820d
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240615"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313925"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Storage 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한
 
@@ -27,8 +27,6 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독
-
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](./hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 * 기존 [저장소 컨테이너.](../storage/blobs/storage-quickstart-blobs-portal.md)  
@@ -41,7 +39,7 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
 
 * C#을 사용하는 경우 Visual Studio는 버전 2013 이상이어야 합니다.
 
-* 저장소 계정에 대한 [URI 구성표입니다.](./hdinsight-hadoop-linux-information.md#URI-and-scheme) Azure Storage는 `wasb://`, Azure Data Lake Storage Gen2는 `abfs://`, Azure Data Lake Storage Gen1은 `adl://`입니다. Azure Storage에 대해 보안 전송이 활성화된 경우 URI는 `wasbs://`입니다. [보안 전송](../storage/common/storage-require-secure-transfer.md)도 참조하세요.
+* 저장소 계정에 대한 [URI 구성표입니다.](./hdinsight-hadoop-linux-information.md#URI-and-scheme) 이 체계는 `wasb://` Azure 저장소, `abfs://` Azure 데이터 레이크 `adl://` 저장소 Gen2 또는 Azure 데이터 레이크 저장소 Gen1용용입니다. Azure Storage에 대해 보안 전송이 활성화된 경우 URI는 `wasbs://`입니다. [보안 전송](../storage/common/storage-require-secure-transfer.md)도 참조하세요.
 
 * 공유 액세스 서명을 추가하는 기존 HDInsight 클러스터입니다. 그렇지 않으면 Azure PowerShell을 사용하여 클러스터를 만들고 클러스터를 만들 때 공유 액세스 서명을 추가합니다.
 
@@ -56,11 +54,11 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
 
 두 가지 형태의 공유 액세스 서명이 있습니다.
 
-* Ad hoc: SAS에 대한 시작 시간, 만료 시간 및 사용 권한이 SAS URI에 모두 지정됩니다.
+* `Ad hoc`: 시작 시간, 만료 시간 및 SAS에 대한 사용 권한은 모두 SAS URI에 지정됩니다.
 
-* 저장된 액세스 정책: 저장된 액세스 정책은 Blob 컨테이너 같은 리소스 컨테이너에서 정의됩니다. 정책은 하나 이상의 공유 액세스 서명에 대한 제약 조건을 관리하는 데 사용될 수 있습니다. SAS를 공유 액세스 정책과 연결할 경우 SAS는 저장된 액세스 정책에 대해 정의된 제약 조건(시작 시간, 만료 시간 및 사용 권한)을 상속합니다.
+* `Stored access policy`: 저장된 액세스 정책은 Blob 컨테이너와 같은 리소스 컨테이너에 정의됩니다. 정책은 하나 이상의 공유 액세스 서명에 대한 제약 조건을 관리하는 데 사용될 수 있습니다. SAS를 공유 액세스 정책과 연결할 경우 SAS는 저장된 액세스 정책에 대해 정의된 제약 조건(시작 시간, 만료 시간 및 사용 권한)을 상속합니다.
 
-두 형식의 차이점은 주요 시나리오인 해지에 중요합니다. SAS는 URL이므로 SAS를 시작하도록 요청한 사용자에 상관없이 SAS를 획득한 모든 사용자가 SAS를 사용할 수 있습니다. SAS가 공개적으로 게시된 경우 전 세계의 모든 사용자가 SAS를 사용할 수 있습니다. 분산된 SAS는 다음 네 가지 중 하나에 해당할 때까지 유효합니다.
+두 형식의 차이점은 주요 시나리오인 해지에 중요합니다. SAS는 URL이므로 SAS를 획득한 사람은 누구나 사용할 수 있습니다. 누가 시작하도록 요청하든 상관없습니다. SAS가 공개적으로 게시된 경우 전 세계의 모든 사용자가 SAS를 사용할 수 있습니다. 분산된 SAS는 다음 네 가지 중 하나에 해당할 때까지 유효합니다.
 
 1. SAS에 지정된 만료 시간에 도달한 경우
 
@@ -82,7 +80,7 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
 
 ## <a name="create-a-stored-policy-and-sas"></a>저장된 정책 및 SAS 만들기
 
-각 메서드의 끝에서 생성되는 SAS 토큰을 저장합니다. 토큰은 다음과 유사합니다.
+각 메서드의 끝에서 생성되는 SAS 토큰을 저장합니다. 토큰은 다음 출력과 유사합니다.
 
 ```output
 ?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
@@ -205,7 +203,7 @@ Set-AzStorageblobcontent `
 
 `pip install --upgrade azure-storage` 오류 메시지가 `ImportError: No module named azure.storage`나타납니다.
 
-### <a name="using-c"></a>C# 사용
+### <a name="using-c"></a>C 사용\#
 
 1. Visual Studio에서 솔루션을 엽니다.
 
@@ -213,21 +211,20 @@ Set-AzStorageblobcontent `
 
 3. **설정** 을 선택하고 다음 항목에 대한 값을 추가합니다.
 
-   * StorageConnectionString: 저장된 정책 및 SAS를 만들 스토리지 계정에 대한 연결 문자열입니다. 형식은 `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`여야 하며 여기서 `myaccount`는 사용자의 스토리지 계정 이름이고 `mykey`는 스토리지 계정에 대한 키입니다.
-
-   * ContainerName: 액세스를 제한할 스토리지 계정의 컨테이너입니다.
-
-   * SASPolicyName: 만들 저장된 정책에 대해 사용할 이름입니다.
-
-   * FileToUpload: 컨테이너에 업로드할 파일에 대한 경로입니다.
+    |항목 |설명 |
+    |---|---|
+    |스토리지연결스트링|저장된 정책 및 SAS를 만들 스토리지 계정에 대한 연결 문자열입니다. 형식은 `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`여야 하며 여기서 `myaccount`는 사용자의 스토리지 계정 이름이고 `mykey`는 스토리지 계정에 대한 키입니다.|
+    |ContainerName|액세스를 제한할 스토리지 계정의 컨테이너입니다.|
+    |SAS정책 이름|만들려는 저장된 정책에 사용할 이름입니다.|
+    |파일 업로드|컨테이너에 업로드되는 파일의 경로입니다.|
 
 4. 프로젝트를 실행합니다. SAS 정책 토큰, 스토리지 계정 이름 및 컨테이너 이름을 저장합니다. 스토리지 계정을 HDInsight 클러스터에 연결할 때 이러한 값이 사용됩니다.
 
 ## <a name="use-the-sas-with-hdinsight"></a>HDInsight에 SAS 사용
 
-HDInsight 클러스터를 만들 때 기본 스토리지 계정을 지정해야 하며 필요에 따라 추가 스토리지 계정을 지정할 수 있습니다. 스토리지를 추가하는 이 두 가지 방법 모두에 사용된 스토리지 계정 및 컨테이너에 대한 모든 권한이 필요합니다.
+HDInsight 클러스터를 만들 때 기본 저장소 계정을 지정해야 합니다. 추가 저장소 계정을 지정할 수도 있습니다. 스토리지를 추가하는 이 두 가지 방법 모두에 사용된 스토리지 계정 및 컨테이너에 대한 모든 권한이 필요합니다.
 
-공유 액세스 서명을 사용하여 컨테이너에 대한 액세스를 제한하려면 클러스터에 대한 **core-site** 구성에 사용자 지정 항목을 추가합니다. PowerShell을 사용하거나 Ambari를 사용하여 클러스터를 만든 후 클러스터를 만드는 동안 항목을 추가할 수 있습니다.
+공유 액세스 서명을 사용하여 컨테이너 액세스를 제한합니다. 클러스터의 **핵심 사이트** 구성에 사용자 지정 항목을 추가합니다. PowerShell을 사용하거나 Ambari를 사용하여 클러스터를 만든 후 클러스터를 만드는 동안 항목을 추가할 수 있습니다.
 
 ### <a name="create-a-cluster-that-uses-the-sas"></a>SAS를 사용하는 클러스터 만들기
 

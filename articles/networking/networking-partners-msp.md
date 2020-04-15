@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: dc78f105d353a9a17af4b33dfc806eed91e7c6dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ac5997cfdb097c2c13b2a964f3cf8e276229f123
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063214"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380236"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Azure 네트워킹 MSP 파트너 정보
 
@@ -32,17 +32,17 @@ Azure 네트워킹 MSP 파트너가 제공하는 관리형 클라우드 네트�
 | ---| ---| ---| ---|
 |[ANS 그룹 영국](https://www.ans.co.uk/)|[Azure 관리 Svc + ANS 유리 10wk 구현](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/ans_group.glassms)|||||
 |[Aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)||[아리아카 Azure 연결](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.cloudconnect_azure_19?tab=Overview)|[아리아카 Azure 가상 WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.aryaka_azure_virtual_wan?tab=Overview) | | |
-|[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|[네트워크 혁신 컨설팅: 1시간 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/bt-americas-inc.network-transformation-consulting)|||||
+|[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|[네트워크 혁신 컨설팅: 1시간 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/bt-americas-inc.network-transformation-consulting)|[BT 클라우드 연결 Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-001?tab=Overview)||||
 |[코볼로이 (동콜로이](https://www.coevolve.com/services/azure-networking-services/)|||[관리 VMware SD-WAN 가상 에지](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/coevolveptylimited1581027739259.managed-vmware-sdwan-edge?tab=Overview)|||
 |[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|[Azure의 네트워크 최적화: 2시간 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/colttechnologyservices.azure_networking)|||||
 |[NTT 데이터](https://us.nttdata.com/en/digital/cloud-transformation)|[관리 되는 서비스: 10 주 구현](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/nttdata-2932930.managed_service)|||||
-|[Equinix](https://www.equinix.com/)|[클라우드 최적화 WAN 참여: 4일 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/equinix.cloud_optimized_wan_workshop)|[익스프레스루트 연결 전략: 3일 워크샵](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/equinix.eps_expressroute)||||
+|[Equinix](https://www.equinix.com/)|[클라우드 최적화 WAN 워크샵](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.cloudoptimizedwan?tab=Overview)|[익스프레스루트 커넥티비티 전략 워크숍](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.expressroutestrategy?tab=Overview)||||
 |[IIJ](https://www.iij.ad.jp/biz/cloudex/)|[익스프레스루트 구현: 1시간 브리핑](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/internet_initiative_japan_inc.iij_cxm_consulting)|[익스프레스루트: 2-Wk 구현](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/internet_initiative_japan_inc.iij_cxmer_consulting)||||
 |[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)|[인포시 즈 통합 + Azure에 대 한](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/infosysltd.infosys-integrate-for-azure?tab=Overview)|||||
 |[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|[Azure 네트워킹 평가 - 5일](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/interxionhq.inxn_azure_networking_assessment)|||||
 |[Liquid Telecom](https://liquidcloud.africa/azure-networking)|[클라우드 준비 - 2시간 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/liquidtelecommunicationsoperationslimited.liquid_cloud_readiness_assessment)|||||
-|[맥쿼리 텔레콤](https://macquariecloudservices.com/azure-managed-services/)|[맥쿼리 클라우드 서비스 컨설팅: 2시간 워크샵](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/macquariecloudservices.clear_for_takeoff_consulting_service)||[맥쿼리 클라우드에 의해 SD-WAN 가상 에지 설치](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.nanaged_network_services?tab=Overview)|||
-|[온코어 클라우드 서비스]( https://www.oncore.cloud/services/ue-for-expressroute/)||[Azure 익스프레스루트용 유니버설에지](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oncore_cloud_services-4944214.universaledge_for_expressroute?tab=Overview)||||
+|[맥쿼리 텔레콤](https://macquariecloudservices.com/azure-managed-services/)|[맥쿼리 클라우드에 의해 Azure 관리 서비스](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.managed_services?tab=Overview)||[맥쿼리 클라우드에 의해 SD-WAN 가상 에지 설치](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.nanaged_network_services?tab=Overview)|||
+|[온코어 클라우드 서비스]( https://www.oncore.cloud/services/ue-for-expressroute/)|[엔터프라이즈 클라우드 재단: 워크숍(~10일)](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/oncore_cloud_services-4944214.oncore_cloud_onboard_201810)|[Azure 익스프레스루트용 유니버설에지](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oncore_cloud_services-4944214.universaledge_for_expressroute?tab=Overview)||||
 |[오릭스콤]( https://www.orixcom.com/cloud-solutions/)||[오릭스콤 관리 익스프레스루트](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_managed_expressroute?tab=Overview)|[오릭스콤 SD-WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_sd_wan?tab=Overview)|||
 |[SoftBank]( https://www.softbank.jp/biz/nw/nwp/cloud_access/direct_access_for_az/)|[Azure 네트워크 컨설팅 서비스: 1-Wk 평가;](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/sbmpn.softbank_nw_msp_service_azure) [Azure 평가 서비스: 1주일](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/sbmpn.softbank_msp_service_azure_01?tab=Overview&pub_source=email&pub_status=success)|||||
 |[TCTS](https://www.tatacommunications-ts.com/index.php)|[Azure 마이그레이션: 3주 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/tcs.azure_migration_assessment)|||||

@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용하여 조직에서 Azure 리소스에 대한 규칙을 설정하는 방법을 설명합니다.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: e6b1d5c43f290fc2dd953492440670608a15faca
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 017878c4c47a5645ea8815580d2176c7a2ff5d66
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80638088"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314011"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -252,11 +252,13 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - `"notIn": ["stringValue1","stringValue2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
-- `"less": "value"`
-- `"lessOrEquals": "value"`
-- `"greater": "value"`
-- `"greaterOrEquals": "value"`
+- `"less": "dateValue"` | `"less": "stringValue"` | `"less": intValue`
+- `"lessOrEquals": "dateValue"` | `"lessOrEquals": "stringValue"` | `"lessOrEquals": intValue`
+- `"greater": "dateValue"` | `"greater": "stringValue"` | `"greater": intValue`
+- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` | `"greaterOrEquals": intValue`
 - `"exists": "bool"`
+
+**이하의**경우 , **이하OrEquals**, **더 큰**, 그리고 **더큰OrEquals**, 속성 유형이 조건 유형과 일치하지 않으면 오류가 throw됩니다. 문자열 비교는 을 `InvariantCultureIgnoreCase`사용하여 이루어집니다.
 
 **like** 및 **notLike** 조건을 사용하는 경우 값에 와일드카드 `*`를 제공합니다.
 값에 와일드카드 `*`를 두 개 이상 포함하면 안 됩니다.
@@ -548,7 +550,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 }
 ```
 
-### <a name="effect"></a>영향
+### <a name="effect"></a>효과
 
 Azure 정책은 다음과 같은 유형의 효과를 지원합니다.
 

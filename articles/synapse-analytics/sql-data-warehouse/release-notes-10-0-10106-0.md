@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 7e05458214732a1835dd73b85dad871683ef5bbe
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: acfca3f41cc8bf69572843c3f035a67e8df9e0fe
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743128"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313602"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Azure 시냅스 분석 릴리스 정보
 
@@ -40,18 +40,13 @@ ms.locfileid: "80743128"
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
 
-## <a name="march-2020"></a>2020년 3월
-
-| 서비스 개선 사항                                         | 세부 정보                                                      |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **[비주얼 스튜디오 16.6 미리 보기 2](/visualstudio/releases/2019/release-notes-preview) - SQL 서버 데이터 도구(SSDT)** | 이 릴리스에는 다음과 같은 개선 사항 및 수정 사항이 포함되어 있습니다. </br> </br> - MV(구체화된 뷰)에서 참조하는 테이블을 변경하면 MV에서 지원되지 않는 Alter View 문이 생성되는 문제를 해결했습니다.<br/><br/> - 데이터베이스 또는 프로젝트에 행 수준 보안 개체가 있을 때 스키마 비교 작업이 실패하지 않도록 변경 사항을 구현했습니다. 행 수준 보안 개체는 현재 SSDT에서 지원되지 않습니다.  <br/><br/> - SQL Server 개체 탐색기 시간 초과 임계값이 증가하여 데이터베이스에 많은 수의 개체를 나열할 때 시간 초과를 방지합니다.<br/><br/> - SQL Server 개체 탐색기가 데이터베이스 개체 목록을 검색하는 방식을 최적화하여 개체 탐색기를 채울 때 불안정을 줄이고 성능을 향상시키십시오. |
-
-## <a name="february-2020"></a>2020년 2월
+## <a name="april-2020"></a>2020년 4월
 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
 |**데이터베이스 호환성 수준(미리 보기)**| 이 릴리스를 통해 사용자는 데이터베이스의 호환성 수준을 설정하여 Transact-SQL 언어 및 특정 버전의 Synapse SQL 엔진의 쿼리 처리 동작을 얻을 수 있습니다. 자세한 내용은 [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 및 [데이터베이스 범위 구성 변경](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조하십시오.|
 |**Sp_describe_undeclared_parameters**| 사용자가 Transact-SQL 일괄 처리에서 선언되지 않은 매개 변수에 대한 메타데이터를 볼 수 있도록 허용합니다. 자세한 내용은 [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하십시오.|
+|**[비주얼 스튜디오 16.6 미리 보기 2](/visualstudio/releases/2019/release-notes-preview) - SQL 서버 데이터 도구(SSDT)** | 이 릴리스에는 SSDT에 대한 다음과 같은 개선 사항 및 수정 사항이 포함되어 있습니다. </br> </br> - MV(구체화된 뷰)에서 참조하는 테이블을 변경하면 MV에서 지원되지 않는 Alter View 문이 생성되는 문제를 해결했습니다.<br/><br/> - 데이터베이스 또는 프로젝트에 행 수준 보안 개체가 있을 때 스키마 비교 작업이 실패하지 않도록 변경 사항을 구현했습니다. 행 수준 보안 개체는 현재 SSDT에서 지원되지 않습니다.  <br/><br/> - SQL Server 개체 탐색기 시간 초과 임계값이 증가하여 데이터베이스에 많은 수의 개체를 나열할 때 시간 초과를 방지합니다.<br/><br/> - SQL Server 개체 탐색기가 데이터베이스 개체 목록을 검색하는 방식을 최적화하여 개체 탐색기를 채울 때 불안정을 줄이고 성능을 향상시키십시오. |
 
 ## <a name="january-2020"></a>2020년 1월
 
@@ -138,7 +133,7 @@ ms.locfileid: "80743128"
 
 | 설명서 개선 | 세부 정보 |
 | --- | --- |
-|none | |
+|없음 | |
 | | |
 
 ## <a name="december-2018"></a>2018년 12월
@@ -174,7 +169,7 @@ ms.locfileid: "80743128"
 
 - [SQL 풀 만들기](create-data-warehouse-portal.md)
 
-## <a name="more-information"></a>추가 정보
+## <a name="more-information"></a>자세한 정보
 
 - [블로그 - Azure 시냅스 분석](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - [고객 자문 팀 블로그](https://docs.microsoft.com/archive/blogs/sqlcat/)
