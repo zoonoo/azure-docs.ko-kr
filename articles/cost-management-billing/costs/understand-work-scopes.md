@@ -3,17 +3,17 @@ title: Azure Cost Management 범위의 이해 및 사용
 description: 이 문서에서는 Azure에서 사용할 수 있는 청구 및 리소스 관리 범위와 Cost Management 및 API에서 범위를 사용하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: bbed4209d26fe32f95b93b2c7411e1ab74f03ede
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ebae9d1c66a721926ca07b21059ec57b05b99a0f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80131369"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877935"
 ---
 # <a name="understand-and-work-with-scopes"></a>범위 이해 및 작업
 
@@ -26,6 +26,10 @@ _범위_는 Azure AD 사용자가 서비스에 액세스하고 관리하는 Azur
 - 비용 및 정책 거버넌스 같은 클라우드 서비스
 
 범위는 청구 데이터를 관리하고, 결제 관련 역할을 수행하고, 청구서를 살펴보고, 일반 계정 관리를 수행하는 위치입니다. 청구 및 계정 역할은 리소스 관리에 사용되는 역할과는 별도로 관리되며, [Azure RBAC](../../role-based-access-control/overview.md)를 사용합니다. 액세스 제어의 차이점을 포함하여 별도 범위의 의도를 명확하게 구분하기 위해 이러한 범위를 각각 _요금 청구 범위_ 및 _RBAC 범위_라고 합니다.
+
+범위에 대해 자세히 알아보려면 [Cost Management에서 계층 설정](https://www.youtube.com/watch?v=n3TLRaYJ1NY) 비디오를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
+
+>[!VIDEO https://www.youtube.com/embed/n3TLRaYJ1NY]
 
 ## <a name="how-cost-management-uses-scopes"></a>Cost Management에서 범위를 사용하는 방법
 
@@ -71,7 +75,7 @@ Cost Management는 아래의 각 범위에서 다음과 같은 기본 제공 역
 
 등록이라고도 하는 EA(기업계약) 청구 계정의 범위는 다음과 같습니다.
 
-- [**청구 계정**](../manage/view-all-accounts.md) - EA 등록을 나타냅니다. 이 범위에서 청구서가 생성됩니다. Marketplace 및 예약처럼 사용량 기반이 아닌 구매는 이 범위에서만 사용할 수 있습니다. 부서 또는 등록 계정에 표시되지 않습니다.
+- [**청구 계정**](../manage/view-all-accounts.md) - EA 등록을 나타냅니다. 이 범위에서 청구서가 생성됩니다. Marketplace 및 예약처럼 사용량 기반이 아닌 구매는 이 범위에서만 사용할 수 있습니다. 부서 또는 등록 계정에 표시되지 않습니다. 예약 사용량은 다른 모든 사용량과 함께 개별 리소스에 적용됩니다. 사용량은 청구 계정 내의 구독으로 롤업됩니다. 각 리소스에 대해 발생하는 예약 비용을 확인하려면 비용 분석에서 **분할상환 비용** 보기로 전환합니다.
 
     리소스 종류: `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
 - **부서** - 등록 계정의 선택적 그룹화입니다.

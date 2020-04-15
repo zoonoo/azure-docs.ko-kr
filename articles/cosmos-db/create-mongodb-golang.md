@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: c717a8d5baa57ce780fbbc0d25e67c2509ca86fc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 94be0ec16aedc317f1be41998356bc52b66f7e86
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75441957"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619201"
 ---
 # <a name="quickstart-build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>빠른 시작: Azure Cosmos DB의 API for MongoDB 및 Golang SDK를 사용하여 콘솔 앱 빌드
 
@@ -93,7 +93,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ### <a name="connecting-the-go-app-to-cosmos-db"></a>Go 앱을 Cosmos DB에 연결
 
-Azure Cosmos DB의 API for MongoDB는 SSL이 설정된 연결을 지원합니다. 연결하려면 [mgo.DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo)에서 **DialServer** 함수를 정의하고 [tls.*Dial*](https://golang.org/pkg/crypto/tls#Dial) 함수를 사용하여 연결을 수행해야 합니다.
+Azure Cosmos DB의 API for MongoDB는 TLS가 설정된 연결을 지원합니다. 연결하려면 [mgo.DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo)에서 **DialServer** 함수를 정의하고 [tls.*Dial*](https://golang.org/pkg/crypto/tls#Dial) 함수를 사용하여 연결을 수행해야 합니다.
 
 다음 Golang 코드 조각은 Go 앱을 Azure Cosmos DB의 API for MongoDB와 연결합니다. *DialInfo* 클래스는 세션을 설정하는 옵션을 포함하고 있습니다.
 
@@ -129,7 +129,7 @@ defer session.Close()
 session.SetSafe(&mgo.Safe{})
 ```
 
-**mgo.Dial()** 메서드는 SSL 연결이 없을 때 사용됩니다. SSL 연결을 위해서는 **mgo.DialWithInfo()** 메서드가 필요합니다.
+**mgo.Dial()** 메서드는 TLS 연결이 없을 때 사용됩니다. TLS 연결을 위해서는 **mgo.DialWithInfo()** 메서드가 필요합니다.
 
 **DialWIthInfo{}** 개체 인스턴스는 세션 개체를 만드는 데 사용됩니다. 세션이 설정되면 다음 코드 조각을 사용하여 컬렉션에 액세스할 수 있습니다.
 

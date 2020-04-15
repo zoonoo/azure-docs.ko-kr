@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: b067b18985905b226287f9dd10ad4b937fab6df1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6f0a782309edc33a8a5ce661652922494ead2ec0
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76767961"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667314"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Azure FarmBeats 개요(미리 보기)
 
@@ -33,15 +33,33 @@ Azure FarmBeats 미리 보기를 통해 다음을 수행할 수 있습니다.
 ## <a name="datahub"></a>Datahub
 
 Azure FarmBeats Datahub는 여러 공급자의 다양한 농업 데이터 세트를 집계, 정규화 및 컨텍스트화할 수 있는 API 계층입니다. Azure FarmBeats를 사용하여 다음을 얻을 수 있습니다.
-- **Davis Instruments**, [Teralytic](https://www.davisinstruments.com/product/enviromonitor-gateway/), [Pessl Instruments](https://teralytic.com/)라는 센서 공급자 두 곳의 [센서 데이터](https://metos.at/)
-- 유럽 우주국 **Sentinel-2** 위성 임무의 [위성 이미지](https://sentinel.esa.int/web/sentinel/home)
-- **senseFly** , [SlantRange](https://www.sensefly.com/) , [DJI](https://slantrange.com/)라는 이미지 공급자 세 곳의 [드론 이미지](https://dji.com/)
+- [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/), [Teralytic](https://teralytic.com/), [Pessl Instruments](https://metos.at/)라는 센서 공급자 두 곳의 **센서 데이터**
+- 유럽 우주국 [Sentinel-2](https://sentinel.esa.int/web/sentinel/home) 위성 임무의 **위성 이미지**
+- [senseFly](https://www.sensefly.com/) , [SlantRange](https://slantrange.com/) , [DJI](https://dji.com/)라는 이미지 공급자 세 곳의 **드론 이미지**
 
 Datahub는 확장 가능한 API 플랫폼으로 설계되었습니다. Azure FarmBeats와 통합하기 위해 더 많은 공급자와 협력하고 있으므로 솔루션을 빌드하는 동안 더 많은 선택권을 가질 수 있습니다.
 
 ## <a name="accelerator"></a>액셀러레이터
 
 Azure FarmBeats 액셀러레이터는 Datahub를 기반으로 구축된 샘플 웹 애플리케이션입니다. 액셀러레이터를 통해 사용자 인터페이스와 모델 개발을 신속하게 시작할 수 있습니다. Azure FarmBeats 액셀러레이터는 Azure FarmBeats의 API를 사용합니다. 수집된 센서 데이터를 차트로 시각화하고 모델 출력을 맵으로 시각화합니다. 예를 들어 액셀러레이터를 사용하여 농장을 신속하게 만들고 이 농장에 대한 식생 지수 맵 또는 센서 배치 맵을 쉽게 얻을 수 있습니다.
+
+## <a name="role-based-access-control-rbac"></a>RBAC(역할 기반 Access Control)
+
+관리자는 미리 정의된 역할 중 하나를 사용하여 Azure FarmBeats에 대한 액세스 규칙을 정의할 수 있습니다. 역할은 사용자가 액세스할 수 있는 애플리케이션의 영역과 수행할 수 있는 작업을 결정합니다. Azure FarmBeats에는 사용자와 파트너를 위한 두 가지 종류의 역할이 있습니다.
+
+### <a name="user-roles"></a>사용자 역할
+
+[관리자는 사용자를 추가 및 관리](manage-users-in-azure-farmbeats.md)하고 두 개의 사용자 역할을 기반으로 액세스 수준을 정의할 수 있습니다. 관리 및 읽기 전용입니다.
+
+### <a name="partner-roles"></a>파트너 역할
+
+관리자는 Azure FarmBeats에 데이터 공급자로 여러 파트너를 추가할 수 있습니다. 다음은 FarmBeats에서 사용 가능한 파트너 역할 및 해당 권한을 요약한 것입니다.
+
+| 파트너 유형    |   동작  | 범위 |
+| ---- | -------- | -------- |
+| 센서 파트너  |   만들기, 읽기, 업데이트 <br/> <br/> 읽기, 업데이트 | DeviceModel, 디바이스, SensorModel, 센서 <br/> <br/> ExtendedType |
+| 이미지 파트너  |   만들기, 읽기, 업데이트 <br/> <br/> 읽기, 업데이트 <br/> <br/> 읽기 | 장면, SceneFile <br/> <br/> ExtendedType <br/> <br/> 팜 |
+| 날씨 파트너* <br/> <br/>  (* 서비스 예정) |   만들기, 읽기, 업데이트 <br/> <br/> 읽기, 업데이트 <br/> <br/> 읽기 | WeatherDataModel, WeatherDataLocation, JobType <br/> <br/> ExtendedType <br/> <br/> 팜 |
 
 ## <a name="resources"></a>리소스
 

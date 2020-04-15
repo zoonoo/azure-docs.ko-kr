@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: f3a1a33b2fe859839deec587191b3b3a319c0cf8
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 4bd483e40e3a85a2934e58abdf46d09b17a33ed4
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77495137"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80758716"
 ---
 이 cURL 기반 빠른 시작에서는 기술 자료에서 답변을 가져오는 과정을 안내합니다.
 
@@ -34,13 +34,13 @@ ms.locfileid: "77495137"
 이전 빠른 시작의 기술 자료를 사용하여 메타데이터를 기반으로 하는 대답을 쿼리합니다.
 
 1. 기술 자료의 **설정** 페이지에서 **CURL** 탭을 선택하여 기술 자료에서 대답을 생성하는 데 사용되는 cURL 명령 예제를 확인합니다.
-1. 명령을 편집할 수 있도록 편집 가능한 환경(예: 텍스트 파일)으로 명령을 복사합니다. `service:qna_maker`의 메타데이터가 QnA 세트에 대한 필터로 사용되도록 질문 값을 다음과 같이 편집합니다.
+1. 명령을 편집할 수 있도록 편집 가능한 환경(예: 텍스트 파일)으로 명령을 복사합니다. `service:qna_maker`의 메타데이터가 QnA 쌍에 대한 필터로 사용되도록 질문 값을 다음과 같이 편집합니다.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
 
-    질문은 한 단어(`size`)에 불과하며, 두 개의 QnA 세트 중 하나를 반환할 수 있습니다. `strictFilters` 배열은 `qna_maker` 답변만 줄이도록 응답에 지시합니다.
+    질문은 단일 단어(`size`)에 불과하며, 두 개의 QnA 쌍 중 하나를 반환할 수 있습니다. `strictFilters` 배열은 `qna_maker` 답변만 줄이도록 응답에 지시합니다.
 
 1. 응답에는 필터 조건을 충족하는 답변만 포함됩니다. 다음 cURL 응답은 읽기 쉬운 형식으로 지정되었습니다.
 
@@ -413,7 +413,7 @@ JSON 응답은 게시된 기술 자료 쿼리와 동일한 스키마를 사용�
 
 대답에 대한 최소 임계값을 요청할 수 있습니다. 임계값이 충족되지 않으면 기본 대답이 반환됩니다.
 
-1. 임계값 80% 이상인 `threshold`에 대한 대답을 요청하려면 `size` 속성을 추가합니다. 질문의 점수가 71%이므로 기술 자료는 답변을 찾지 않습니다. 결과는 기술 자료를 만들 때 사용자가 제공한 기본 대답을 반환합니다.
+1. 임계값 80% 이상인 `size`에 대한 대답을 요청하려면 `threshold` 속성을 추가합니다. 질문의 점수가 71%이므로 기술 자료는 답변을 찾지 않습니다. 결과는 기술 자료를 만들 때 사용자가 제공한 기본 대답을 반환합니다.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"

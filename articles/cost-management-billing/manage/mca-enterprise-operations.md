@@ -5,14 +5,14 @@ author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 04/01/2020
 ms.author: banders
-ms.openlocfilehash: 6692bb8f323e42edfe546e15620442881f99032d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 01a7b81794342871ae8eadc090e61bbac0876c03
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78272193"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586165"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약의 청구 계정에서 기업계약 작업 완료
 
@@ -35,7 +35,7 @@ ms.locfileid: "78272193"
 다음 변경 내용은 Microsoft 고객 계약으로 갱신된 기업계약의 엔터프라이즈 관리자에게 적용됩니다.
 
 - 등록에 대한 청구 프로필이 생성됩니다. 기업계약 등록과 비슷하게 청구 프로필을 사용하여 조직의 청구를 관리합니다. 청구 프로필에 대한 자세한 내용은 [청구 프로필 이해](../understand/mca-overview.md#billing-profiles)를 참조하세요.
-- 기업계약 등록에 포함된 각 부서의 청구서 섹션이 생성됩니다. 이러한 청구서 섹션을 사용하여 부서를 관리합니다. 새 청구서 섹션을 만들어 추가 부서를 설정할 수 있습니다. 청구서 섹션에 대한 자세한 내용은 [청구서 섹션 이해](../understand/mca-overview.md#invoice-sections)를 참조하세요.
+- 기업계약 등록에 포함된 각 부서의 청구서 섹션이 생성됩니다. 이 청구서 섹션을 사용하여 부서를 관리합니다. 새 청구서 섹션을 만들어 추가 부서를 설정할 수 있습니다. 청구서 섹션에 대한 자세한 내용은 [청구서 섹션 이해](../understand/mca-overview.md#invoice-sections)를 참조하세요.
 - 기업계약 등록에서 만든 계정처럼 청구서 섹션에서 Azure 구독 작성자 역할을 사용하여 다른 사람에게 Azure 구독을 만들 수 있는 권한을 부여합니다.
 - Azure EA Portal 대신 [Azure Portal](https://portal.azure.com)을 사용하여 조직의 청구를 관리합니다.
 
@@ -91,7 +91,7 @@ Azure 사용량 및 요금 csv 파일을 다운로드하는 방법은 [Microsoft
 
 다음 변경 내용은 Microsoft 고객 계약으로 갱신된 기업계약의 부서 관리자에게 적용됩니다.
 
-- 기업계약 등록에 포함된 각 부서의 청구서 섹션이 생성됩니다. 이러한 청구서 섹션을 사용하여 부서를 관리합니다. 청구서 섹션에 대한 자세한 내용은 [청구서 섹션 이해](../understand/mca-overview.md#invoice-sections)를 참조하세요.
+- 기업계약 등록에 포함된 각 부서의 청구서 섹션이 생성됩니다. 이 청구서 섹션을 사용하여 부서를 관리합니다. 청구서 섹션에 대한 자세한 내용은 [청구서 섹션 이해](../understand/mca-overview.md#invoice-sections)를 참조하세요.
 - 기업계약 등록에서 만든 계정처럼 청구서 섹션에서 Azure 구독 작성자 역할을 사용하여 다른 사람에게 Azure 구독을 만들 수 있는 권한을 부여합니다.
 - Azure EA Portal 대신 Azure Portal을 사용하여 조직의 청구를 관리합니다.
 

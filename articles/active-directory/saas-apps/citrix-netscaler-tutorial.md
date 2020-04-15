@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/13/2019
+ms.date: 03/27/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 785242a2cf51571a6d13b2b4691d33e46369bf94
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6771060f05a03c82879738dc5e8caccb67e55abc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75977918"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477993"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-kerberos-based-authentication"></a>자습서: Citrix NetScaler와 Azure Active Directory Single Sign-On 통합(Kerberos 기반 인증)
 
@@ -31,7 +30,7 @@ ms.locfileid: "75977918"
 * 사용자가 자신의 Azure AD 계정으로 Citrix NetScaler에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보려면 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보려면 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -51,6 +50,8 @@ Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보
 * [Citrix NetScaler에 대한 Kerberos 기반 인증](#publish-the-web-server)
 
 * [Citrix NetScaler에 대한 헤더 기반 인증](header-citrix-netscaler-tutorial.md#publish-the-web-server)
+
+* Citrix NetScaler를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-citrix-netscaler-from-the-gallery"></a>갤러리에서 Citrix NetScaler 추가
 
@@ -102,7 +103,7 @@ Azure Portal을 사용하여 Azure AD SSO를 사용하도록 설정하려면 다
 
     1. **식별자** 텍스트 상자에서 `https://<Your FQDN>` 패턴의 URL을 입력합니다.
 
-    1. **회신 URL** 텍스트 상자에 `https://<Your FQDN>/CitrixAuthService/AuthService.asmx` 패턴의 URL을 입력합니다.
+    1. **회신 URL** 텍스트 상자에 `http(s)://<Your FQDN>.of.vserver/cgi/samlauth` 패턴의 URL을 입력합니다.
 
 1. **SP 시작** 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 선택하고, 다음 단계를 수행합니다.
 
@@ -218,7 +219,7 @@ Azure Portal을 사용하여 Azure AD SSO를 사용하도록 설정하려면 다
 
 ### <a name="bind-the-certificate"></a>인증서 바인딩
 
-이 서비스를 SSL로 게시하려면 서버 인증서를 바인딩한 다음, 애플리케이션을 테스트합니다.
+이 서비스를 TLS로 게시하려면 서버 인증서를 바인딩한 다음, 애플리케이션을 테스트합니다.
 
 1. **인증서** 아래에서 **서버 인증서 없음**을 선택합니다.
 
@@ -456,10 +457,14 @@ GUI를 사용하여 가상 서버에 트래픽 정책을 바인딩하려면 다�
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Azure AD를 통해 Citrix NetScaler 사용해보기](https://aad.portal.azure.com/)
 
 - [헤더 기반 인증을 위한 Citrix NetScaler Single Sign-On 구성](header-citrix-netscaler-tutorial.md)
+
+- [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [고급 표시 유형 및 컨트롤을 사용하여 Citrix NetScaler를 보호하는 방법](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

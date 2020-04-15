@@ -2,15 +2,15 @@
 title: 자습서 - 빠른 시작 템플릿 사용
 description: Azure 빠른 시작 템플릿을 사용하여 템플릿 개발을 완료하는 방법을 알아봅니다.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 1e110bb4711490f53da7628f608f150a2bc3186c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4b82e02ecc009e587b89d1fd151fd13f75a4bcf8
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79368879"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408503"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>자습서: Azure 빠른 시작 템플릿 사용
 
@@ -77,6 +77,8 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
+이 배포 명령을 실행하려면 Azure CLI의 [최신 버전](/cli/azure/install-azure-cli)이 있어야 합니다.
+
 ```azurecli
 az deployment group create \
   --name addwebapp \
@@ -86,6 +88,9 @@ az deployment group create \
 ```
 
 ---
+
+> [!NOTE]
+> 배포에 실패한 경우 배포 명령과 함께 **debug** 스위치를 사용하여 디버그 로그를 표시합니다.  **verbose** 스위치를 사용하여 전체 디버그 로그를 표시할 수도 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

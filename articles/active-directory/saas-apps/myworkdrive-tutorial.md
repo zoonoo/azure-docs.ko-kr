@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.author: jeedes
-ms.openlocfilehash: c733873a5545bb01f03abd8178ed2f371e2dd3aa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 60fdd9b0a8fb272da885df97e39804a98e48de67
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74074077"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478874"
 ---
 # <a name="tutorial-integrate-myworkdrive-with-azure-active-directory"></a>자습서: MyWorkDrive와 Azure Active Directory 통합
 
@@ -92,7 +92,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > 
     > 로그온 URL: `https://yourserver.yourdomain.com/Account/Login-saml`
     > 
-    > 사용자 고유의 호스트 이름 및 이러한 값에 대한 SSL 인증서를 설정하는 방법을 잘 모르는 경우 [MyWorkDrive 지원 팀](mailto:support@myworkdrive.com)에 문의합니다.
+    > 사용자 고유의 호스트 이름 및 이러한 값에 대한 TLS/SSL 인증서를 설정하는 방법을 잘 모르는 경우 [MyWorkDrive 지원 팀](mailto:support@myworkdrive.com)에 문의합니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 클립보드에 복사합니다.
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cd922d0e65da627f11e6aab3827cb848c3dd635
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7c6db9ed92161e968b36c75b8bee5a847137c072
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75560527"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631880"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>자습서: JIRA SAML SSO by Microsoft와 Azure Active Directory SSO(Single Sign-On) 연결 | Microsoft Docs
 
@@ -42,7 +42,7 @@ Atlassian JIRA 서버와 함께 Microsoft Azure Active Directory 계정을 사�
 JIRA SAML SSO by Microsoft와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 - Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-- JIRA Core 및 Software 6.4~8.5.1 또는 JIRA Service Desk 3.0~4.6.0이 Windows 64비트 버전에 설치 및 구성되어 있어야 합니다.
+- JIRA Core 및 Software 6.4~8.8.0 또는 JIRA Service Desk 3.0~4.8.0이 Windows 64비트 버전에 설치 및 구성되어 있어야 합니다.
 - JIRA 서버에서 HTTPS를 사용해야 합니다.
 - 지원되는 JIRA 플러그 인 버전은 아래 섹션에 설명되어 있습니다.
 - JIRA 서버가 인터넷에 연결되어 있고 인증을 위해 특히 Azure AD 로그인 페이지에 접속되고 Azure AD에서 토큰을 받을 수 있어야 합니다.
@@ -60,8 +60,8 @@ JIRA SAML SSO by Microsoft와 Azure AD 통합을 구성하려면 다음 항목�
 
 ## <a name="supported-versions-of-jira"></a>지원되는 JIRA 버전
 
-* JIRA Core 및 Software: 6.4 ~ 8.5.1
-* JIRA Service Desk 3.0.0 ~ 4.6.0
+* JIRA Core 및 Software: 6.4 ~ 8.8.0
+* JIRA Service Desk 3.0.0 ~ 4.8.0
 * JIRA는 5.2도 지원합니다. 자세한 내용을 보려면 [JIRA 5.2용 Microsoft Azure Active Directory Single Sign-On](jira52microsoft-tutorial.md)을 클릭하세요.
 
 > [!NOTE]

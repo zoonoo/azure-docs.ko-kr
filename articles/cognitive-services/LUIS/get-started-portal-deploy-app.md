@@ -1,21 +1,14 @@
 ---
 title: '빠른 시작: LUIS 포털에서 앱 배포'
-titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 예측 엔드포인트 리소스를 만들고, 리소스를 할당하고, 앱을 학습시키고 게시하여 앱을 배포하는 방법을 보여 줍니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/27/2020
-ms.author: diberry
-ms.openlocfilehash: 0ee2b33aa3388b3cb99aa42c338ded800c9679a4
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 04/06/2020
+ms.openlocfilehash: aaf86766c2357c5382b78cd4a35fd4b159e5c0f3
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79221184"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756296"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>빠른 시작: LUIS 포털에서 앱 배포
 
@@ -29,35 +22,13 @@ LUIS 앱이 챗봇 같은 클라이언트 애플리케이션으로 발화 예측
 * [이전 포털 빠른 시작](get-started-portal-build-app.md)을 완료하거나 [앱을 다운로드하고 가져옵니다](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
 * 이전의 Azure 리소스 인증을 받은 앱이 있는 경우 [Azure 리소스로 마이그레이션](luis-migration-authoring.md)합니다. 이메일 인증이 적용되는 경우 일부 포털 페이지가 다르게 보입니다.
 
-## <a name="create-the-endpoint-resource"></a>엔드포인트 리소스 만들기
+<a name="create-the-endpoint-resource"></a>
 
-예측 엔드포인트 리소스를 Azure Portal에서 만듭니다. 이 리소스는 엔드포인트 예측 쿼리에만 사용해야 합니다. 앱을 변경하는 작업에는 이 리소스를 사용하지 마세요.
-
-1. [Azure Portal ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)에서 로그인하고 리소스를 만듭니다.
-
-1. 다음 설정으로 구독을 구성합니다.
-
-   |설정|값|목적|
-   |--|--|--|
-   |속성|`my-luis-resource`|Azure 리소스의 이름입니다. LUIS 포털에서 앱에 리소스를 할당할 때 이 이름이 필요합니다.|
-   |Subscription|사용자의 구독|계정과 연결된 구독 중 하나를 선택합니다.|
-   |Resource group|`my-resource-group`|모든 인식 서비스 리소스에 대한 새 리소스 그룹을 만듭니다. 리소스 사용을 마친 후에는 리소스 그룹을 삭제하여 구독을 정리할 수 있습니다. |
-   |작성 위치|**미국 서부**|작성할 Azure 지역입니다.|
-   |작성 가격 책정 계층|**F0**|작성할 기본 가격 책정 계층입니다.|
-   |런타임 위치|**미국 서부**|예측 엔드포인트 쿼리를 위한 Azure 지역입니다.|
-   |런타임 가격 책정 계층|**S0**|이 가격 책정 계층에서는 트래픽이 많은 웹 사이트를 제공합니다.|
-   | | | |
-
-
-   ![Azure API 선택](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
-
-1. **만들기**를 선택하여 Azure 리소스를 만듭니다.
-
-   다음 섹션에서는 LUIS 포털에서 이 새 리소스를 LUIS 앱에 연결하는 방법을 보여줍니다.
+[!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
 
 ## <a name="assign-the-resource-key-to-the-luis-app-in-the-luis-portal"></a>LUIS 포털에서 LUIS 앱에 리소스 키 할당
 
-LUIS에 대한 새 리소스를 만들 때마다 LUIS 앱에 리소스를 할당해야 합니다. 리소스가 할당되면 새 리소스를 만들지 않는 이상 이 단계를 다시 수행할 필요가 없습니다. 앱의 영역을 확장하거나 더 많은 예측 쿼리를 지원하기 위해 새 리소스를 만들어야 하는 경우가 있습니다.
+LUIS에 대한 새 제작 또는 쿼리 예측 리소스를 만들 때마다 리소스를 LUIS 앱에 할당해야 합니다. 리소스가 할당되면 새 리소스를 만들지 않는 이상 이 단계를 다시 수행할 필요가 없습니다. 앱의 영역을 확장하거나 더 많은 예측 쿼리를 지원하기 위해 새 리소스를 만들어야 하는 경우가 있습니다.
 
 1. [LUIS 포털 미리 보기](https://preview.luis.ai)에 로그인하고 앱 목록에서 **myEnglishApp** 앱을 선택합니다.
 

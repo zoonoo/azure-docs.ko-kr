@@ -1,33 +1,64 @@
 ---
-title: '빠른 시작: 오디오 파일에 음성 합성 - Speech Service'
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
-ms.author: erhopf
-ms.openlocfilehash: 25fc7b0c2d97686245c1d286aecd8729771c25b4
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 03/30/2020
+ms.author: dapine
+ms.openlocfilehash: cdfde5d1538d597bd1efce11d1a248a5048859b9
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75467871"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80813765"
 ---
 ## <a name="additional-language-and-platform-support"></a>추가 언어 및 플랫폼 지원
 
 이 탭을 클릭한 경우 선호하는 프로그래밍 언어의 빠른 시작이 표시되지 않을 수 있습니다. 걱정하지 마세요. GitHub에서 사용할 수 있는 추가 빠른 시작 자료 및 코드 샘플이 있습니다. 표를 사용하여 프로그래밍 언어 및 플랫폼/OS 조합에 적합한 샘플을 찾습니다.
 
 | 언어 | 추가 빠른 시작 | 코드 샘플 |
-|----------|------------------------|--------------|
-| C++ | | [Windows](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows), [Linux](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/linux), [macOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/macos) |
-| C# | |[.NET Framework](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet), [.NET Core](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnetcore), [UWP](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp), [Unity](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/unity), [Xamarin](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/xamarin) |
-| Java | |[Android](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android), [JRE](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/jre) |
-| Javascript| | [브라우저](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript) |
-| Node.js | |[Windows, Linux, macOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript) |
-| Objective-C |[macOs](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-macos.md), [iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md)| [iOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios), [macOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos) |
-| Python | |[Windows, Linux, macOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/python) |
-| Swift | [macOs](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/swift-macos.md), [iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/swift-ios.md)|[iOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios), [macOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos) |
+|--|--|--|
+| C# | [스피커로 이동][1-speaker] | [.NET Framework][dotnet], [.NET Core][netcore], [UWP][uwp], [Unity][unity], [Xamarin][xamarin] |
+| C++ | [스피커로 이동][2-speaker] | [Windows][cpp-windows], [Linux][cpp-linux], [macOS][cpp-mac] |
+| Java | [스피커로 이동][3-speaker] | [Android][java-android], [JRE][java-jre] |
+| JavaScript | [Node.js에서 오디오 파일로][js-node] | [Windows, Linux, macOS][js-code] |
+| Objective-C | [iOS에서 스피커로][obj-iOS-qck], [macOS에서 스피커로][obj-macOS-qck] | [iOS][obj-iOS], [macOS][obj-macOS] |
+| Python | [스피커로 이동][4-speaker] | [Windows, Linux, macOS][python] |
+| Swift | [iOS에서 스피커로][swift-iOS-qck], [macOS에서 스피커로][swift-macOS-qck] | [iOS][swift-iOS], [macOS][swift-macOS] |
+
+[1-speaker]: ../../../../quickstarts/text-to-speech.md?pivots=programming-language-csharp
+
+[dotnet]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet
+[netcore]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnetcore
+[uwp]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp
+[unity]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/unity
+[xamarin]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/xamarin
+
+[2-speaker]: ../../../../quickstarts/text-to-speech.md?pivots=programming-language-cpp
+
+[cpp-windows]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows
+[cpp-linux]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/linux
+[cpp-mac]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/macos
+
+[3-speaker]: ../../../../quickstarts/text-to-speech.md?pivots=programming-language-java
+
+[java-android]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android
+[java-jre]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/jre
+
+[js-node]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech
+[js-code]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript
+
+[obj-iOS-qck]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios/text-to-speech
+[obj-macOS-qck]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos/text-to-speech
+
+[obj-iOS]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios
+[obj-macOS]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos
+
+[4-speaker]: ../../../../quickstarts/text-to-speech.md?pivots=programming-language-python
+
+[python]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/python
+
+[swift-iOS-qck]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios/text-to-speech
+[swift-macOS-qck]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos/text-to-speech
+
+[swift-iOS]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios
+[swift-macOS]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos

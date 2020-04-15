@@ -3,16 +3,16 @@ title: Azure EA Portal 액세스 문제 해결
 description: 이 문서에서는 Azure EA Portal에서 Azure 기업계약(EA)에 발생할 수 있는 몇 가지 일반적인 문제에 대해 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 3bf1c10e28ef9e3e4008968c9dbaef576bccdb5f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: ee8363a76db93f0c2bd4734151e3d250de5402fc
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411545"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586192"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Azure EA Portal 액세스 문제 해결
 
@@ -122,7 +122,7 @@ EA 등록에는 여러 EA 관리자가 있을 수 있으며, 다른 EA 관리자
  1. Azure EA Portal에 대한 액세스 권한이 회사 계정, 학교 계정 또는 Microsoft Live ID로 추가되었는지 확인합니다. 회사 계정을 사용하는 경우 회사 이메일과 회사 암호를 입력하세요. Microsoft Live ID를 사용하는 경우 Live ID 이메일과 Microsoft Live ID 암호를 입력하세요. Microsoft Live ID 암호를 잊어버린 경우 [https://account.live.com/password/reset](https://account.live.com/password/reset)에서 다시 설정하세요.
  1. 이전/기존 세션의 쿠키 또는 캐시가 유지되지 않도록 프라이빗 브라우저를 사용하여 로그인하는 것이 좋습니다. 캐시를 지우고 프라이빗 검색 모드/시크릿 창을 사용하여 [https://ea.azure.com](https://ea.azure.com)을 엽니다.
  1. Microsoft 계정을 사용할 때 [잘못된 사용자] 오류가 발생하는 경우 여러 Microsoft 계정이 있고 로그인하려는 계정이 기본 별칭이 아니기 때문일 수 있습니다. 기본 별칭을 확인하려면 account.live.com으로 이동합니다.
-    - "사용자 정보" > "로그인 이메일 또는 전화 번호 관리"로 차례로 이동합니다.
+    - "사용자 정보" > "로그인 이메일 또는 전화 번호 관리"로 이동합니다.
     - 화면의 프롬프트 지시에 따라 대체 이메일 주소를 확인하고 중요한 정보에 액세스하는 코드를 얻습니다.
     - 보안 코드를 입력합니다.
     - 나중에 2단계 인증을 설정하려면 "나중에 설정"을 선택합니다.

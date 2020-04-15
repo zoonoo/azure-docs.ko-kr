@@ -9,12 +9,12 @@ ms.subservice: heavy
 ms.topic: overview
 ms.date: 08/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 362b7457538a16d389c3cc40fc44da19b073c0b0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2f1f01a8cfa25c222848e7cc5c86dc3532eba348
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "70142908"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437784"
 ---
 # <a name="what-is-azure-data-box-heavy"></a>Azure Data Box Heavy란?
 
@@ -116,7 +116,7 @@ Data Box Heavy의 지역 가용성에 대한 최신 정보를 보려면 [지역�
 
 Data Box Heavy에 가입하려면 다음 단계를 수행합니다.
 
-1. https://portal.azure.com 에 있는 Azure Portal에 로그인합니다.
+1. [Azure Portal에 로그인](https://portal.azure.com)합니다.
 2. **+ 리소스 만들기**를 클릭하여 새 리소스를 추가합니다. **Azure Data Box**를 검색합니다. **Azure Data Box** 서비스를 선택합니다.
 3. **만들기**를 클릭합니다.
 4. Data Box Heavy에서 사용하려는 구독을 선택합니다. Data Box Heavy 리소스를 배포할 지역을 선택합니다. **Data Box Heavy** 옵션에서 **등록**을 클릭합니다.

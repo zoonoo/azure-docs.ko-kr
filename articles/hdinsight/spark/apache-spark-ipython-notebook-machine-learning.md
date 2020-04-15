@@ -5,21 +5,21 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 06/26/2019
-ms.openlocfilehash: 6e46d7403e251bccd69467cfcdaa1d5073b4e454
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: hdinsightactive,mvc
+ms.date: 04/07/2020
+ms.openlocfilehash: 963f5bd4dfdd9dda78a437bdb1111c9eec2795dc
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73494569"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878445"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Spark Machine Learning 애플리케이션 빌드
 
-이 자습서에서는 [Jupyter Notebook](https://jupyter.org/)을 사용하여 Azure HDInsight에 대한 [Apache Spark](https://spark.apache.org/) 기계 학습 애플리케이션을 빌드하는 방법을 알아봅니다.
+이 자습서에서는 [Jupyter Notebook](https://jupyter.org/)을 사용하여 Azure HDInsight에 대한 [Apache Spark](./apache-spark-overview.md) 기계 학습 애플리케이션을 빌드하는 방법을 알아봅니다.
 
-[MLlib](https://spark.apache.org/docs/latest/ml-guide.html)는 분류, 회귀, 클러스터링, 공동 작업 필터링, 차원 감소, 기본 최적화 기본 요소 등 일반적인 학습 알고리즘 및 유틸리티로 구성된 Spark의 확장 가능한 기계 학습 라이브러리입니다.
+[MLlib](https://spark.apache.org/docs/latest/ml-guide.html)는 일반적인 학습 알고리즘 및 유틸리티로 구성된 Spark의 적응형 기계 학습 라이브러리입니다. (분류, 회귀, 클러스터링, 협업 필터링 및 차원 감소. 또한 기본 최적화 기본 형식입니다.)
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -33,13 +33,13 @@ ms.locfileid: "73494569"
 
 ## <a name="understand-the-data-set"></a>데이터 집합 이해
 
-애플리케이션은 기본적으로 모든 클러스터에서 사용할 수 있는 샘플 **HVAC.csv** 데이터를 사용합니다. 파일은 `\HdiSamples\HdiSamples\SensorSampleData\hvac`에 있습니다. 이 데이터는 HVAC 시스템이 설치된 일부 건물의 목표 온도 및 실제 온도를 보여줍니다. **System** 열은 시스템 ID를 나타내고 **SystemAge** 열은 HVAC 시스템이 건물의 적절한 위치에 있었던 연수를 나타냅니다. 이 데이터를 사용하여 시스템 ID 및 시스템 연수가 지정된 상태에서 대상 온도를 기반으로 건물이 더 덥거나 추운지를 예측할 수 있습니다.
+애플리케이션은 기본적으로 모든 클러스터에서 사용할 수 있는 샘플 **HVAC.csv** 데이터를 사용합니다. 파일은 `\HdiSamples\HdiSamples\SensorSampleData\hvac`에 있습니다. 이 데이터는 HVAC 시스템이 설치된 일부 건물의 목표 온도 및 실제 온도를 보여줍니다. **System** 열은 시스템 ID를 나타내고 **SystemAge** 열은 HVAC 시스템이 건물의 적절한 위치에 있었던 연수를 나타냅니다. 시스템 ID 및 시스템 연수가 지정된 상태에서 대상 온도를 기반으로 건물이 더 덥거나 추운지를 예측할 수 있습니다.
 
 ![Spark 기계 학습 예제에 사용되는 데이터의 스냅샷](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Spark 기계 학습 예제에 사용되는 데이터의 스냅샷")
 
 ## <a name="develop-a-spark-machine-learning-application-using-spark-mllib"></a>Spark MLlib를 사용하여 Spark Machine Learning 애플리케이션 개발
 
-이 애플리케이션에서는 문서 분류를 수행하는 데 Spark [ML 파이프라인](https://spark.apache.org/docs/2.2.0/ml-pipeline.html)을 사용합니다. ML 파이프라인은 사용자가 실제 기계 학습 파이프라인을 만들고 조정하는 데 도움이 되는 DataFrame을 기반으로 빌드된 균일한 상위 수준 API 집합을 제공합니다. 파이프라인에서 기능 벡터 및 레이블을 사용하여 문서를 단어로 분할하고, 단어를 숫자 기능 벡터로 변환하며, 마지막으로 예측 모델을 빌드합니다. 다음 단계에 따라 애플리케이션을 만듭니다.
+이 애플리케이션에는 문서 분류를 수행하는 데 [ML 파이프라인](https://spark.apache.org/docs/2.2.0/ml-pipeline.html)을 사용합니다. ML Pipelines는 DataFrames를 기반으로 빌드된 균일한 고급 API 세트를 제공합니다. DataFrames를 통해 사용자는 실용적인 기계 학습 파이프라인을 만들고 튜닝할 수 있습니다. 파이프라인에서 기능 벡터 및 레이블을 사용하여 문서를 단어로 분할하고, 단어를 숫자 기능 벡터로 변환하며, 마지막으로 예측 모델을 빌드합니다. 다음 단계에 따라 애플리케이션을 만듭니다.
 
 1. PySpark 커널을 사용하여 Jupyter 노트북을 만듭니다. 자세한 지침은 [Jupyter 노트북 만들기](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook)를 참조하세요.
 
@@ -143,9 +143,9 @@ ms.locfileid: "73494569"
 
     ![Spark 기계 학습 예제의 출력 데이터 스냅샷](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Spark 기계 학습 예제의 출력 데이터 스냅샷")
 
-    실제 온도가 건물이 춥다는 것을 의미하는 대상 온도보다 얼마나 작은지 확인합니다. 학습 결과에 따르면 첫 번째 행의 **label** 값이 **0.0**이며, 이는 건물이 덥지 않다는 것을 의미합니다.
+    실제 온도가 건물이 춥다는 것을 의미하는 대상 온도보다 얼마나 작은지 확인합니다. 첫 번째 행의 **label** 값이 **0.0**이며, 이는 건물이 덥지 않다는 것을 의미합니다.
 
-1. 학습된 모델에 대해 실행할 데이터 집합을 준비합니다. 이렇게 하려면, 시스템 ID 및 시스템 연수(학습 출력에 **SystemInfo**로 표시)에 전달합니다. 그러면 모델이 해당 시스템 ID 및 시스템 연수를 가진 건물이 더울지(1.0으로 표시), 아니면 추울지(0.0으로 표시) 예측합니다.
+1. 학습된 모델에 대해 실행할 데이터 집합을 준비합니다. 이렇게 하려면 시스템 ID 및 시스템 사용 기간(학습 출력에 **SystemInfo**로 표시됨)을 전달합니다. 모델은 해당 시스템 ID와 시스템 사용 기간이 있는 건물이 더 뜨거워질지(1.0으로 표시됨) 또는 더 차가워질지(0.0으로 표시됨) 여부를 예측합니다.
 
     ```PySpark
     # SystemInfo here is a combination of system ID followed by system age
@@ -180,7 +180,7 @@ ms.locfileid: "73494569"
     Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
     ```
 
-   예측의 첫 번째 행에서 ID가 20이고 시스템 연수가 25년인 HVAC 시스템의 경우 건물이 덥습니다(**prediction=1.0**). DenseVector(0.49999)의 첫 번째 값은 prediction 0.0에 해당하고, 두 번째 값(0.5001)은 prediction 1.0에 해당합니다. 출력에서 두 번째 값이 약간만 높더라도 모델은 **prediction=1.0**을 보여 줍니다.
+   예측의 첫 번째 행을 관찰합니다. ID가 20이고 시스템 사용 기간이 25년인 HVAC 시스템의 경우 건물이 덥습니다(**prediction=1.0**). DenseVector(0.49999)의 첫 번째 값은 prediction 0.0에 해당하고, 두 번째 값(0.5001)은 prediction 1.0에 해당합니다. 출력에서 두 번째 값이 약간만 높더라도 모델은 **prediction=1.0**을 보여 줍니다.
 
 1. Notebook을 종료하여 리소스를 해제합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 선택합니다. 그러면 Notebook이 종료된 후 닫힙니다.
 
@@ -202,7 +202,7 @@ HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포�
 
 1. **삭제**를 선택합니다. **예**를 선택합니다.
 
-![Azure Portal에서 HDInsight 클러스터 삭제](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "HDInsight 클러스터 삭제")
+![HDInsight 클러스터를 삭제하는 Azure Portal](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "HDInsight 클러스터 삭제")
 
 ## <a name="next-steps"></a>다음 단계
 

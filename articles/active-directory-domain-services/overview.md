@@ -8,18 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/22/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: ea0fa0e9d4e475a8496d1ee52b4cdfea11a13d8d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0f5f890b4f32961e00fb30316a1dc7c88ef93a45
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76544111"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654834"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services란?
 
 Azure AD DS(Azure Active Directory Domain Services)는 Windows Server Active Directory와 완전히 호환되는 도메인 조인, 그룹 정책, LDAP(Lightweight Directory Access Protocol) 및 Kerberos/NTLM 인증과 같은 관리되는 도메인 서비스를 제공합니다. 클라우드에서 도메인 컨트롤러를 배포, 관리 및 패치하지 않고도 이러한 도메인 서비스를 사용합니다. Azure AD DS는 기존 Azure AD 테넌트와 통합되므로 사용자가 기존 자격 증명을 사용하여 로그인할 수 있습니다. 또한 기존 그룹과 사용자 계정을 사용하여 리소스에 대한 액세스를 보호할 수 있으므로 더 원활한 리프트 앤 시프트 방식으로 온-프레미스 리소스를 Azure에 제공합니다.
+
+시작하려면 [Azure Portal을 사용하여 Azure AD DS 관리형 도메인을 만듭니다][tutorial-create].
 
 Azure AD DS는 Azure AD에서 ID 정보를 복제하므로 클라우드 전용이거나 온-프레미스 AD DS(Active Directory Domain Services) 환경과 동기화된 Azure AD 테넌트에서 작동합니다. 두 환경에는 모두 동일한 Azure AD DS 기능 세트가 있습니다.
 
@@ -51,7 +53,11 @@ Azure AD DS는 ID 서비스를 제공하기 위해 온-프레미스 AD DS 환경
 
 ## <a name="azure-ad-ds-features-and-benefits"></a>Azure AD DS 기능 및 이점
 
-ID 서비스를 클라우드의 애플리케이션 및 VM에 제공하기 위해 Azure AD DS는 도메인 조인, LDAPS(보안 LDAP), 그룹 정책/DNS 관리, LDAP 바인딩 및 읽기 지원과 같은 작업에서 기존 AD DS 환경과 완벽하게 호환됩니다. LDAP 쓰기 지원은 Azure AD DS 관리형 도메인에서 만든 개체에 사용할 수 있지만 Azure AD에서 동기화된 리소스에는 사용할 수 없습니다. 배포 및 관리 작업을 간소화하는 Azure AD DS의 기능은 다음과 같습니다.
+ID 서비스를 클라우드의 애플리케이션 및 VM에 제공하기 위해 Azure AD DS는 도메인 조인, LDAPS(보안 LDAP), 그룹 정책, DNS 관리, LDAP 바인딩 및 읽기 지원과 같은 작업에서 기존 AD DS 환경과 완벽하게 호환됩니다. LDAP 쓰기 지원은 Azure AD DS 관리형 도메인에서 만든 개체에 사용할 수 있지만 Azure AD에서 동기화된 리소스에는 사용할 수 없습니다.
+
+ID 옵션에 대해 자세히 알아보려면 [Azure AD DS와 Azure AD, Azure VM의 Active Directory Domain Services 및 온-프레미스 Active Directory Domain Services 비교][compare]를 참조하세요.
+
+배포 및 관리 작업을 간소화하는 Azure AD DS의 기능은 다음과 같습니다.
 
 * **간소화된 배포 환경:** Azure AD DS는 Azure Portal에서 단일 마법사를 사용하여 Azure AD 테넌트에서 사용하도록 설정됩니다.
 * **Azure AD와 통합:** 사용자 계정, 그룹 멤버 자격 및 자격 증명은 Azure AD 테넌트에서 자동으로 사용할 수 있습니다. Azure AD 테넌트 또는 온-프레미스 AD DS 환경에서 새 사용자, 그룹 또는 특성 변경 내용은 Azure AD DS에 자동으로 동기화됩니다.

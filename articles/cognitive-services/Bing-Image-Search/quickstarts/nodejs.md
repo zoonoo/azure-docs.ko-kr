@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 이미지 REST API 및 Node.js 검색 - Bing Image Search'
+title: '빠른 시작: Bing Image Search REST API 및 Node.js를 사용하여 이미지 검색'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작을 사용하여 JavaScript를 통해 Bing Image Search REST API로 이미지 검색 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
@@ -9,15 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 12/06/2019
+ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 2aaed57c7e1d817cd892f45c441ab59d4ffba3d3
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 15757d606a846a2951bc5c15d8d5ef0dbfd7a2a1
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74930772"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478602"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-nodejs"></a>빠른 시작: Bing Image Search REST API 및 Node.js를 사용하여 이미지 검색
 

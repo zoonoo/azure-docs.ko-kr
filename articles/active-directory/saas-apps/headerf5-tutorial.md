@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ad6b7150a43a286a4bec39a0482e08f50d95c06
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 352f52a2a6d84d352bb46e09f104efde303307f5
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77048072"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478058"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>자습서: F5와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -281,7 +281,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="advanced-configuration"></a>고급 구성
 
-이 섹션은 단계별 구성을 사용할 수 없거나 추가 매개 변수를 추가/수정하려는 경우에 사용됩니다. 애플리케이션 호스트 이름에 대한 SSL 인증서가 필요합니다.
+이 섹션은 단계별 구성을 사용할 수 없거나 추가 매개 변수를 추가/수정하려는 경우에 사용됩니다. 애플리케이션 호스트 이름에 대한 TLS/SSL 인증서가 필요합니다.
 
 1. **System > Certificate Management > Traffic Certificate Management > SSL Certificate List**(시스템 > 인증서 관리 > 트래픽 인증서 관리 >> SSL 인증서 목록)로 차례로 이동합니다. 오른쪽 모서리에서 **Import**(가져오기)를 선택합니다. **Import Type**(유형 가져오기)은 **PKCS 12(IIS)** 입니다. **Key Name**(키 이름)을 지정하고(나중에 구성에서 참조됨), PFX 파일을 지정합니다. PFX에 대한 **Password**(암호)를 지정합니다. **가져오기**를 클릭합니다.
 
@@ -298,7 +298,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
  
     ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure18.png)
 
-1. 이 경우 HeaderApp2를 HTTPS로 외부에 게시합니다. **how should the BIG-IP system handle SSL Traffic?** (BIG-IP 시스템에서 SSL 트래픽을 어떻게 처리해야 합니까?) 아래에서 **Terminate SSL from Client, Plaintext to servers (SSL Offload)** (클라이언트에서 SSL 종료, 일반 텍스트에서 서버로(SSL 오프로드))를 지정합니다. Which SSL certificate do you want to use?(어떤 SSL 인증서를 사용하시겠습니까?) 및 **Which SSL private key do you want to use?** (어떤 SSL 프라이빗 키를 사용하시겠습니까?) 아래에서 인증서와 키를 지정합니다. **What IP Address do you want to use for the Virtual Server?** (어떤 IP 주소를 가상 서버에 사용하시겠습니까?) 아래에서 가상 서버 IP를 지정합니다. 
+1. 이 경우 HeaderApp2를 HTTPS로 외부에 게시합니다. **how should the BIG-IP system handle SSL Traffic?** (BIG-IP 시스템에서 SSL 트래픽을 어떻게 처리해야 합니까?) 아래에서 **Terminate SSL from Client, Plaintext to servers (SSL Offload)** (클라이언트에서 SSL 종료, 일반 텍스트에서 서버로(SSL 오프로드))를 지정합니다. **어떤 SSL 인증서를 사용하시겠습니까?** 및 **어떤 SSL 프라이빗 키를 사용하시겠습니까?** 아래에서 인증서와 키를 지정합니다. **What IP Address do you want to use for the Virtual Server?** (어떤 IP 주소를 가상 서버에 사용하시겠습니까?) 아래에서 가상 서버 IP를 지정합니다. 
 
     * **기타 세부 정보 지정**
 

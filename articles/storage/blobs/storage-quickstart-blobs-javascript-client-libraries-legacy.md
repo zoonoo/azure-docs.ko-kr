@@ -9,12 +9,12 @@ ms.author: mhopkins
 ms.date: 01/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: da5db7d956b1ba8aa1ac245b77fe0d4cb31909c1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5219af0ec343a6e7f87a07e4a7280ac5f4e85cd3
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061459"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619121"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -90,7 +90,7 @@ az storage account generate-sas \
 이제 SAS가 생성되었으므로 다음 단계에서 사용하기 위해 반환 값을 복사하여 어딘가에 저장합니다. Azure CLI 이외의 메서드를 사용하여 SAS를 생성한 경우 초기 `?`가 있으면 이를 제거해야 합니다. 이 문자는 이 항목의 뒷부분에서 SAS를 사용하는 URL 템플릿에 이미 제공된 URL 구분 기호입니다.
 
 > [!IMPORTANT]
-> 프로덕션 환경에서는 항상 SSL을 사용하여 SAS 토큰을 전달합니다. 또한 SAS 토큰은 서버에서 생성되어 HTML 페이지로 전송되고 Azure Blob Storage로 다시 전달됩니다. 한 가지 고려할 수 있는 방법은 serverless 함수를 사용하여 SAS 토큰을 생성하는 것입니다. Azure Portal에는 JavaScript 함수로 SAS를 생성하는 기능이 있는 함수 템플릿이 포함되어 있습니다.
+> 프로덕션 환경에서는 항상 TLS를 사용하여 SAS 토큰을 전달합니다. 또한 SAS 토큰은 서버에서 생성되어 HTML 페이지로 전송되고 Azure Blob Storage로 다시 전달됩니다. 한 가지 고려할 수 있는 방법은 serverless 함수를 사용하여 SAS 토큰을 생성하는 것입니다. Azure Portal에는 JavaScript 함수로 SAS를 생성하는 기능이 있는 함수 템플릿이 포함되어 있습니다.
 
 ## <a name="implement-the-html-page"></a>HTML 페이지 구현
 

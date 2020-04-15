@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: dapine
-ms.openlocfilehash: 8392e03f272c6db2bb384c8031cb975bca53d530
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 0c0fa3e07e0cdae6ce28fcd1521b63cb2575767f
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79372377"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80502437"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -37,7 +37,7 @@ ms.locfileid: "79372377"
 * 호스트 사용: 호스트 주소를 전달합니다. 키 또는 권한 부여 토큰은 선택 사항입니다.
 * 권한 부여 토큰 사용: 권한 부여 토큰 및 연결된 영역을 전달합니다.
 
-키와 영역을 사용하여 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)를 만드는 방법을 살펴보겠습니다.
+키와 영역을 사용하여 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)를 만드는 방법을 살펴보겠습니다. 지역 식별자를 찾으려면 [지역 지원](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) 페이지를 참조하세요.
 
 ```cpp
 auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");

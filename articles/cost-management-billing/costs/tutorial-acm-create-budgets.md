@@ -3,17 +3,17 @@ title: 자습서 - Azure 예산 만들기 및 관리
 description: 이 자습서는 사용자가 소비하는 Azure 서비스 비용을 계획하고 설명하는 데 도움이 됩니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: f7c1ac65026fd366be1003842ff70a78b9082339
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 82094fadf7b11d97b0e9e74d9ba897baed16ee01
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80155939"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874282"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -25,7 +25,7 @@ Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 
 
 이 자습서의 예제는 Azure EA(Enterprise Agreement) 구독에 대한 예산을 만들고 편집하는 과정을 안내합니다.
 
-[Azure Portal을 사용하여 구독에 예산을 적용](https://www.youtube.com/watch?v=UrkHiUx19Po) 비디오를 통해 Azure에서 예산을 만들어 지출을 모니터링하는 방법을 확인하세요.
+[Azure Portal을 사용하여 구독에 예산을 적용](https://www.youtube.com/watch?v=UrkHiUx19Po) 비디오를 통해 Azure에서 예산을 만들어 지출을 모니터링하는 방법을 확인하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
 
 >[!VIDEO https://www.youtube.com/embed/UrkHiUx19Po]
 
@@ -38,11 +38,32 @@ Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-예산은 다양한 종류의 Azure 계정 유형에 대해 지원됩니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 예산을 보려면 적어도 Azure 계정에 대한 읽기 권한이 필요합니다.
+예산은 다음과 같은 유형의 Azure 계정 유형 및 범위에 대해 지원됩니다.
+
+- Azure 역할 기반 액세스 제어 범위
+    - 관리 그룹
+    - Subscription
+- 기업계약 범위
+    - 청구 계정
+    - department
+    - 등록 계정
+- 개별 계약
+    - 청구 계정
+- Microsoft 고객 계약 범위
+    - 청구 계정
+    - 청구 프로필
+    - 청구서 섹션
+    - Customer
+- AWS 범위
+    - 외부 계정
+    - 외부 구독
+
+
+예산을 보려면 적어도 Azure 계정에 대한 읽기 권한이 필요합니다.
 
 새 구독이 있는 경우 즉시 예산을 만들거나 다른 Cost Management 기능을 사용할 수 없습니다. 모든 Cost Management 기능을 사용하려면 최대 48시간이 걸릴 수 있습니다.
 
-Azure EA 구독의 경우 예산을 보는 읽기 권한이 있어야 합니다. 예산을 만들고 관리하려면 기여자 사용 권한이 있어야 합니다. EA 구독 및 리소스 그룹에 대한 개별 예산을 만들 수 있습니다. 그러나 EA 청구 계정에 대한 예산을 만들 수 없습니다.
+Azure EA 구독의 경우 예산을 보는 읽기 권한이 있어야 합니다. 예산을 만들고 관리하려면 기여자 사용 권한이 있어야 합니다.
 
 다음 Azure 사용 권한 또는 범위는 사용자 및 그룹별 예산에 대한 구독에 따라 지원됩니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
@@ -58,7 +79,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Azure Portal에서 예산 만들기
 
-월별, 분기별 또는 연간 기간에 대한 Azure 구독 예산을 만들 수 있습니다. Azure Portal의 탐색 콘텐츠는 사용자가 구독 또는 관리 그룹에 대한 예산을 만드는지 여부를 결정합니다.
+월별, 분기별 또는 연간 기간에 대한 Azure 구독 예산을 만들 수 있습니다.
 
 예산을 만들거나 보려면 Azure Portal에서 원하는 범위를 열고 메뉴에서 **예산**을 선택합니다. 예를 들어 **구독**으로 이동하여 목록에서 구독을 선택한 다음, 메뉴에서 **예산**을 선택합니다. **범위** 필을 사용하여 예산에서 관리 그룹과 같은 다른 범위로 전환합니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
@@ -110,15 +131,11 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 구독 또는 리소스 그룹 범위에 대한 예산을 만들거나 편집하는 경우 작업 그룹을 호출하도록 구성할 수 있습니다. 작업 그룹은 예산 임계값이 충족되면 다양한 작업을 수행할 수 있습니다. 작업 그룹은 현재 구독 및 리소스 그룹 범위에서만 지원됩니다. 작업 그룹에 대해 자세히 알아보려면 [Azure Portal에서 작업 그룹 만들기 및 관리](../../azure-monitor/platform/action-groups.md)를 참조하세요. 작업 그룹에서 예산 기반 자동화를 사용하는 방법에 대한 자세한 내용은 [Azure 예산으로 비용 관리](../manage/cost-management-budget-scenario.md)를 참조하세요.
 
-
-
 작업 그룹을 만들거나 업데이트하려면 예산을 만들거나 편집하는 동안 **작업 그룹 관리**를 선택합니다.
 
 ![관리 작업 그룹을 표시하는 예산 만들기의 예제](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
 
-
 다음으로, **작업 그룹 추가**를 선택하고 작업 그룹을 만듭니다.
-
 
 ![작업 그룹 추가 상자의 이미지](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
 

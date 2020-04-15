@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 63c5f068adab58c901acf5fd26261d57e1183f0d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 09fcf88c6dfe90380f387c6d72c751634f5b1606
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79481520"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475770"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>자습서: 관리 VM을 만들어 Azure Active Directory Domain Services 관리되는 도메인 구성 및 관리
 
@@ -89,7 +89,6 @@ Azure AD DS 관리되는 도메인이 잠겨 있으므로 도메인에서 특정
 
     ![Azure Portal에서 Bastion을 사용하여 Windows 가상 머신에 연결](./media/join-windows-vm/connect-to-vm.png)
 
-    또한 Azure Portal에서 TLS를 통해서만 액세스할 수 있도록 [Azure Bastion 호스트(현재 미리 보기 상태)를 만들어 사용][azure-bastion]할 수도 있습니다.
 1. VM에 대한 자격 증명을 입력한 다음, **연결**을 선택합니다.
 
    ![Azure Portal에서 Bastion 호스트를 통해 연결](./media/join-windows-vm/connect-to-bastion.png)

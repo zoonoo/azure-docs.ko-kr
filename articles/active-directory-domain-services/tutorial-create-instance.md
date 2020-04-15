@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/15/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 14b3292a08e9bb0a60710053cd0b7ffc9d0db115
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1bd5248e0a6a6c7c569c85e8c1af3e30f8b7f9e4
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223080"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474196"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>자습서: Azure Active Directory Domain Services 인스턴스 만들기 및 구성
 
@@ -104,8 +104,8 @@ Azure Portal의 *기본* 창에 있는 필드를 완성하여 Azure AD DS 인스
 
 Azure AD DS 관리형 도메인을 신속하게 만들려면 **검토 + 만들기**를 선택하여 추가 기본 구성 옵션을 적용합니다. 이 만들기 옵션을 선택하면 다음과 같은 기본값이 구성됩니다.
 
-* IP 주소 범위 *10.0.1.0/24*를 사용하는 *aadds-vnet*이라는 가상 네트워크를 만듭니다.
-* IP 주소 범위 *10.0.1.0/24*를 사용하는 *aadds-subnet*이라는 서브넷을 만듭니다.
+* IP 주소 범위 *10.0.2.0/24*를 사용하는 *aadds-vnet*이라는 가상 네트워크를 만듭니다.
+* IP 주소 범위 *10.0.2.0/24*를 사용하는 *aadds-subnet*이라는 서브넷을 만듭니다.
 * Azure AD의 모든 *사용자*를 Azure AD DS 관리형 도메인으로 동기화합니다.
 
 **검토 + 만들기**를 선택하여 이러한 기본 구성 옵션을 적용합니다.
@@ -136,7 +136,7 @@ Azure AD DS가 성공적으로 배포되면 이제 연결된 다른 VM과 애플
 
 1. 관리되는 도메인에 대한 **개요** 탭에는 몇 가지 **필수 구성 단계**가 표시됩니다. 첫 번째 구성 단계는 가상 네트워크에 대한 DNS 서버 설정을 업데이트하는 것입니다. DNS 설정이 올바르게 구성되면 이 단계가 더 이상 표시되지 않습니다.
 
-    나열된 주소는 가상 네트워크에서 사용할 도메인 컨트롤러입니다. 다음 예제에서 해당 주소는 *10.0.1.4* 및 *10.0.1.5*입니다. 이러한 IP 주소는 나중에 **속성** 탭에서 확인할 수 있습니다.
+    나열된 주소는 가상 네트워크에서 사용할 도메인 컨트롤러입니다. 다음 예제에서 해당 주소는 *10.0.2.4* 및 *10.0.2.5*입니다. 이러한 IP 주소는 나중에 **속성** 탭에서 확인할 수 있습니다.
 
     ![Azure AD Domain Services IP 주소를 사용하여 가상 네트워크에 대한 DNS 설정 구성](./media/tutorial-create-instance/configure-dns.png)
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 0a705ad81925491fe054d846143472c6e4432b69
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 521d5d8d587b39cf573dedc37ea9f6fd53646e66
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77561905"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410961"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하여 Azure DevOps에서 CI/CD 파이프라인 설정
 
@@ -24,7 +24,7 @@ Azure DevOps에 대한 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용�
 
 ## <a name="install-the-emulator-build-task"></a>에뮬레이터 빌드 작업 설치
 
-빌드 작업을 사용하려면 먼저 Azure DevOps 조직에 설치해야 합니다. **Marketplace**에서 [Azure Cosmos DB 에뮬레이터](https://marketplace.visualstudio.com/items?itemName=azure-cosmosdb.emulator-public-preview) 확장을 찾고, **무료 다운로드**를 클릭합니다.
+빌드 작업을 사용하려면 먼저 Azure DevOps 조직에 설치해야 합니다. [Marketplace](https://marketplace.visualstudio.com/items?itemName=azure-cosmosdb.emulator-public-preview)에서 **Azure Cosmos DB 에뮬레이터** 확장을 찾고, **무료 다운로드**를 클릭합니다.
 
 ![Azure DevOps Marketplace에서 Azure Cosmos DB 에뮬레이터 빌드 작업 찾기 및 설치](./media/tutorial-setup-ci-cd/addExtension_1.png)
 
@@ -178,4 +178,4 @@ YAML 작업을 사용하여 CI/CD 파이프라인을 설정하는 경우 다음 
 
 로컬 개발 및 테스트에 에뮬레이터를 사용하는 방법을 자세히 알아보려면 [로컬 개발 및 테스트를 위해 Azure Cosmos DB 에뮬레이터 사용](https://docs.microsoft.com/azure/cosmos-db/local-emulator)을 참조하세요.
 
-에뮬레이터 SSL 인증서를 내보내려면 [Java, Python 및 Node.js에서 사용할 Azure Cosmos DB 에뮬레이터 인증서 내보내기](https://docs.microsoft.com/azure/cosmos-db/local-emulator-export-ssl-certificates)를 참조하세요.
+에뮬레이터 TLS/SSL 인증서를 내보내려면 [Java, Python 및 Node.js에서 사용할 Azure Cosmos DB 에뮬레이터 인증서 내보내기](https://docs.microsoft.com/azure/cosmos-db/local-emulator-export-ssl-certificates)를 참조하세요.

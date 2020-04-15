@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2020
 ms.author: allensu
-ms.openlocfilehash: 4b34d4208d8686cdac3f8164d2cf7efb2d881346
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 50fc8b9cefe88a80f3f954ce363139b6a4a38589
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79409901"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548394"
 ---
 # <a name="what-is-virtual-network-nat"></a>Virtual Network NAT란?
 
@@ -40,11 +40,11 @@ Virtual Network NAT(Network Address Translation)는 가상 네트워크에 대�
 
 ## <a name="static-ip-addresses-for-outbound-only"></a>아웃바운드 전용의 고정 IP 주소
 
-NAT를 사용하여 각 서브넷에 대한 아웃바운드 연결을 정의할 수 있습니다.  동일한 가상 네트워크 내의 여러 서브넷에는 서로 다른 NAT가 있을 수 있습니다. 서브넷은 사용할 [NAT 게이트웨이 리소스](./nat-gateway-resource.md)를 지정하여 구성됩니다. 모든 가상 머신 인스턴스의 모든 UDP 및 TCP 아웃바운드 흐름은 NAT를 사용합니다. 
+NAT를 사용하여 각 서브넷에 대한 아웃바운드 연결을 정의할 수 있습니다.  동일한 가상 네트워크 내의 여러 서브넷에는 서로 다른 NAT가 있을 수 있습니다. 서브넷은 사용할 NAT 게이트웨이 리소스를 지정하여 구성됩니다. 모든 가상 머신 인스턴스의 모든 UDP 및 TCP 아웃바운드 흐름은 NAT를 사용합니다. 
 
-NAT는 표준 SKU [공용 IP 주소 리소스](./virtual-network-ip-addresses-overview-arm.md#standard) 또는 [공용 IP 접두사 리소스](./public-ip-address-prefix.md) 또는 이 둘의 조합과 호환됩니다.  공용 IP 접두사를 직접 사용하거나 접두사의 공용 IP 주소를 여러 NAT 게이트웨이 리소스에 배포할 수 있습니다. NAT는 모든 트래픽을 접두사의 IP 주소 범위로 그루밍합니다.  이제 배포의 모든 IP를 허용 목록에 쉽게 추가할 수 있습니다.
+NAT는 표준 SKU 공용 IP 주소 리소스, 공용 IP 접두사 리소스 또는 이 둘의 조합과 호환됩니다.  공용 IP 접두사를 직접 사용하거나 접두사의 공용 IP 주소를 여러 NAT 게이트웨이 리소스에 배포할 수 있습니다. NAT는 모든 트래픽을 접두사의 IP 주소 범위로 그루밍합니다.  이제 배포의 모든 IP를 허용 목록에 쉽게 추가할 수 있습니다.
 
-고객이 구성하지 않고도 NAT에서 서브넷의 모든 아웃바운드 트래픽을 자동으로 처리합니다.  사용자 정의 경로는 필요하지 않습니다. NAT는 다른 [아웃바운드 시나리오](../load-balancer/load-balancer-outbound-connections.md)보다 우선적으로 적용되며 서브넷의 기본 인터넷 대상을 대체합니다.
+고객이 구성하지 않고도 NAT에서 서브넷의 모든 아웃바운드 트래픽을 자동으로 처리합니다.  사용자 정의 경로는 필요하지 않습니다. NAT는 다른 아웃바운드 시나리오보다 우선적으로 적용되며 서브넷의 기본 인터넷 대상을 대체합니다.
 
 ## <a name="on-demand-snat-with-multiple-ip-addresses-for-scale"></a>규모에 맞게 여러 IP 주소가 포함되는 주문형 SNAT
 
@@ -60,9 +60,9 @@ NAT를 사용하면 가상 네트워크에서 인터넷으로의 흐름을 만�
 
 NAT와 호환되는 표준 SKU 리소스는 다음과 같습니다.
 
-- [부하 분산 장치](../load-balancer/load-balancer-overview.md)
-- [공용 IP 주소](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
-- [공용 IP 접두사](../virtual-network/public-ip-address-prefix.md)
+- 부하 분산 장치
+- 공용 IP 주소
+- 공용 IP 접두사
 
 NAT와 함께 사용하는 경우 이러한 리소스는 서브넷에 대한 인바운드 인터넷 연결을 제공합니다. NAT는 서브넷의 모든 아웃바운드 인터넷 연결을 제공합니다.
 

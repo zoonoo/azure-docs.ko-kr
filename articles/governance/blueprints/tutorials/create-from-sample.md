@@ -3,18 +3,18 @@ title: '자습서: 새 환경에 대한 청사진 샘플'
 description: 이 자습서에서는 청사진 샘플을 사용하여 두 개의 리소스 그룹을 설정하고 각각의 역할 할당을 구성하는 청사진 정의를 만듭니다.
 ms.date: 03/25/2020
 ms.topic: tutorial
-ms.openlocfilehash: c4230282223b0a64f6254448fe069bf8f7ab9a15
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 79928822b41dfe0583afbeaf2f5f1a4a87dd3202
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80282021"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677085"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>자습서: 청사진 샘플을 사용하여 환경 만들기
 
 샘플 청사진은 Azure Blueprints를 사용하여 수행할 수 있는 작업 예제를 제공합니다. 각각은 특정 의도나 용도가 있는 샘플이지만 단독으로 완벽한 환경을 만들지는 못합니다. 각각은 포함된 아티팩트, 디자인 및 매개 변수의 다양한 조합으로 Azure Blueprints를 사용할 수 있는 시작점으로 사용됩니다.
 
-다음 자습서는 **RBAC가 포함된 리소스 그룹** 청사진 샘플을 사용하여 Blueprints 서비스의 다양한 측면을 보여 줍니다. 다음 단계가 설명됩니다.
+다음 자습서는 **RBAC가 포함된 리소스 그룹** 청사진 샘플을 사용하여 Azure Blueprints 서비스의 다양한 측면을 보여 줍니다. 다음 단계가 설명됩니다.
 
 > [!div class="checklist"]
 > - 샘플에서 새 청사진 정의 만들기

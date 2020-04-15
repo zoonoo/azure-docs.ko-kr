@@ -6,18 +6,18 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 2a09d5af013e804f33327855fb7b9f2104bc225c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6292c3c2d928581d0564fe457342ea7b1e17111c
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215251"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983027"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 
 오늘날의 애플리케이션은 응답성이 뛰어나며 항상 온라인을 유지해야 합니다. 짧은 대기 시간 및 고가용성을 이루려면 이러한 애플리케이션의 인스턴스를 해당 사용자에서 가까운 데이터 센터에 배포해야 합니다. 애플리케이션은 최고 사용 시간의 큰 변화에 실시간으로 응답하고, 계속 증가하는 데이터 볼륨을 저장하며, 사용자가 이 데이터를 밀리초 단위로 사용할 수 있도록 해야 합니다.
 
-Azure Cosmos DB는 전 세계에 배포되는 Microsoft의 다중 모델 데이터베이스 서비스입니다. Cosmos DB에서 단추를 한 번만 클릭하면 전 세계의 수많은 Azure 지역에서 처리량과 스토리지의 크기를 탄력적이고 독립적으로 조정할 수 있습니다. 다음과 같은 선호하는 API를 사용하여 처리량과 스토리지의 크기를 탄력적으로 조정하고, 한 자릿수의 밀리초 단위로 빠르게 데이터에 액세스할 수 있는 이점을 활용합니다. SQL, MongoDB, Cassandra, Tables 또는 Gremlin. Cosmos DB는 다른 데이터베이스 서비스에서 제공하지 않는 처리량, 대기 시간, 가용성 및 일관성 보장에 대한 포괄적인 [SLA(서비스 수준 계약)](https://aka.ms/acdbsla)를 제공합니다.
+Azure Cosmos DB는 전 세계에 배포되는 Microsoft의 다중 모델 데이터베이스 서비스입니다. Cosmos DB에서 단추를 한 번만 클릭하면 전 세계의 수많은 Azure 지역에서 처리량과 스토리지의 크기를 탄력적이고 독립적으로 조정할 수 있습니다. 다음과 같은 선호하는 API를 사용하여 처리량과 스토리지의 크기를 탄력적으로 조정하고, 한 자릿수의 밀리초 단위로 빠르게 데이터에 액세스할 수 있는 이점을 활용합니다. SQL, MongoDB, Cassandra, Tables 또는 Gremlin. Cosmos DB는 다른 데이터베이스 서비스에서 제공하지 않는 처리량, 대기 시간, 가용성 및 일관성 보장에 대한 포괄적인 [SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)를 제공합니다.
 
 Azure 구독, 비용 및 약정 없이 [Azure Cosmos DB 무료 체험](https://azure.microsoft.com/try/cosmosdb/)을 사용해 보거나, [Azure Cosmos DB 체험 계층](optimize-dev-test.md#azure-cosmos-db-free-tier)을 사용하여 처음에 400RU/초 및 5GB의 스토리지를 무료로 사용할 수 있는 계정을 얻을 수 있습니다.
 
@@ -52,15 +52,15 @@ Cosmos DB에서 글로벌로 분산된 애플리케이션을 구축할 때 [일�
 
 ### <a name="no-schema-or-index-management"></a>스키마 또는 인덱스 관리 없음
 
-데이터베이스 스키마와 인덱스를 애플리케이션 스키마와 동기화하여 유지하는 것은 전 세계적으로 배포된 애플리케이션에 특히 어려운 과제입니다. Cosmos DB를 사용하면 스키마 또는 인덱스 관리를 처리할 필요가 없습니다. 데이터베이스 엔진은 스키마와 완전히 관련이 없습니다.  스키마와 인덱스를 관리할 필요가 없으므로 스키마를 마이그레이션하는 동안 애플리케이션 가동 중지에 대해 걱정할 필요가 없습니다. Cosmos DB는 [모든 데이터를 자동으로 인덱싱](index-policy.md)하며, 쿼리를 빠르게 처리합니다.
+데이터베이스 스키마와 인덱스를 애플리케이션 스키마와 동기화하여 유지하는 것은 전역적으로 배포된 애플리케이션에 특히 어려운 과제입니다. Cosmos DB를 사용하면 스키마 또는 인덱스 관리를 처리할 필요가 없습니다. 데이터베이스 엔진은 스키마와 완전히 관련이 없습니다.  스키마와 인덱스를 관리할 필요가 없으므로 스키마를 마이그레이션하는 동안 애플리케이션 가동 중지에 대해 걱정할 필요가 없습니다. Cosmos DB는 [모든 데이터를 자동으로 인덱싱](index-policy.md)하며, 쿼리를 빠르게 처리합니다.
 
 ### <a name="battle-tested-database-service"></a>엄격하게 테스트된(battle-tested) 데이터베이스 서비스
 
-Cosmos DB는 Azure의 기본 서비스입니다. 거의 10년 동안 Cosmos DB는 Skype, Xbox, Office 365, Azure 및 다른 많은 애플리케이션을 포함하여 전 세계 규모의 다양한 중요 업무 애플리케이션용 Microsoft 제품에서 사용되어 왔습니다. 오늘날 Cosmos DB는 Azure에서 가장 빠르게 성장하고 있는 서비스 중 하나로, 읽기 및 쓰기 작업 모두에 대한 짧은 대기 시간과 높은 가용성을 위해 탄력적 크기 조정, 턴키 글로벌 배포, 다중 마스터 복제가 필요한 외부의 많은 고객과 중요 업무용 애플리케이션에서 사용하고 있습니다.
+Cosmos DB는 Azure의 기본 서비스입니다. 거의 10년 동안 Cosmos DB는 Skype, Xbox, Office 365, Azure 및 다른 많은 애플리케이션을 포함하여 글로벌 규모의 다양한 중요 업무 애플리케이션용 Microsoft 제품에서 사용되어 왔습니다. 오늘날 Cosmos DB는 Azure에서 가장 빠르게 성장하고 있는 서비스 중 하나로, 읽기 및 쓰기 작업 모두에 대한 짧은 대기 시간과 높은 가용성을 위해 탄력적 크기 조정, 턴키 글로벌 배포, 다중 마스터 복제가 필요한 외부의 많은 고객과 중요 업무용 애플리케이션에서 사용하고 있습니다.
 
 ### <a name="ubiquitous-regional-presence"></a>유비쿼터스 지역 현재 상태
 
-Cosmos DB는 퍼블릭 클라우드, [Azure 중국 21Vianet](https://www.azure.cn/en-us/), Azure 독일, Azure Government, Azure Government DoD(국방부) 등 54개 이상의 지역을 포함하여 전 세계의 모든 Azure 지역에서 사용할 수 있습니다. [Azure Cosmos DB의 지역 현재 상태](regional-presence.md)를 참조하세요.
+Cosmos DB는 퍼블릭 클라우드, [Azure 중국 21Vianet](https://www.azure.cn/en-us/), Azure 독일, Azure Government, Azure Government DoD(국방부) 등 54개 이상의 지역을 포함하여 전 세계의 모든 Azure 지역에서 사용할 수 있습니다. [Cosmos DB의 지역 현재 상태](regional-presence.md)를 참조하세요.
 
 ### <a name="secure-by-default-and-enterprise-ready"></a>기본적인 엔터프라이즈 수준 보안
 

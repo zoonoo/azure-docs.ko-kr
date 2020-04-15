@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 6db2c907abc495ca3c88e1e73e885043a8f19997
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 636f2e6139ad081d1e2fc67462a74cb7e18e3ff0
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79481537"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475904"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Azure Active Directory Domain Services 관리되는 도메인에 대한 보안 LDAP 구성
 
@@ -114,13 +114,13 @@ Thumbprint                                Subject
 
 이전 단계에서 만든 디지털 인증서를 Azure AD DS 관리형 도메인에서 사용하려면 먼저 인증서를 프라이빗 키가 포함된 *.PFX* 인증서 파일로 내보냅니다.
 
-1. **Windows** 및 **R** 키를 선택하여 *실행* 대화 상자를 엽니다.
+1. *실행* 대화 상자를 열려면 **Windows** + **R** 키를 선택합니다.
 1. *실행* 대화 상자에서 **mmc**를 입력하여 MMC(Microsoft Management Console)를 열고, **확인**을 선택합니다.
-1. **사용자 계정 컨트롤** 프롬프트에서 **예**를 클릭하여 MMC를 관리자 권한으로 시작합니다.
-1. **파일** 메뉴에서 **스냅인 추가/제거...** 를 클릭합니다.
+1. **사용자 계정 컨트롤** 프롬프트에서 **예**를 선택하여 MMC를 관리자 권한으로 시작합니다.
+1. **파일** 메뉴에서 **스냅인 추가/제거...** 를 선택합니다.
 1. **인증서 스냅인** 마법사에서 **컴퓨터 계정**, **다음**을 차례로 선택합니다.
 1. **컴퓨터 선택** 페이지에서 **로컬 컴퓨터: (이 콘솔이 실행되고 있는 컴퓨터)** , **마침**을 차례로 선택합니다.
-1. **스냅인 추가/제거** 대화 상자에서 **확인**을 클릭하고 인증서 스냅인을 MMC에 추가합니다.
+1. **스냅인 추가/제거** 대화 상자에서 **확인**을 선택하여 인증서 스냅인을 MMC에 추가합니다.
 1. MMC 창에서 **콘솔 루트**를 펼칩니다. **인증서(로컬 컴퓨터)** 를 선택한 다음, **개인** 노드, **인증서** 노드를 차례로 펼칩니다.
 
     ![Microsoft Management Console에서 개인 인증서 저장소 열기](./media/tutorial-configure-ldaps/open-personal-store.png)
@@ -177,9 +177,6 @@ Thumbprint                                Subject
 프라이빗 키가 포함된 디지털 인증서를 만들어 내보내고 클라이언트 컴퓨터에서 연결을 신뢰하도록 설정했으면 이제 Azure AD DS 관리형 도메인에서 보안 LDAP를 사용하도록 설정합니다. Azure AD DS 관리형 도메인에서 보안 LDAP를 사용하도록 설정하려면 다음 구성 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **리소스 검색** 상자에 *도메인 서비스*를 입력합니다. 검색 결과에서 **Azure AD Domain Services**를 선택합니다.
-
-    ![Azure Portal에서 Azure AD DS 관리형 도메인 검색 및 선택](./media/tutorial-configure-ldaps/search-for-domain-services.png)
-
 1. 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다.
 1. Azure AD DS 창의 왼쪽에서 **보안 LDAP**를 선택합니다.
 1. 기본적으로 관리되는 도메인에 대한 보안 LDAP 액세스는 사용하지 않도록 설정되어 있습니다. **보안 LDAP**를 **사용**으로 토글합니다.
@@ -235,10 +232,10 @@ Azure AD DS 관리형 도메인에 대한 인터넷을 통한 보안 LDAP 액세
 
 이 외부 IP 주소로 확인할 호스트 레코드(예: *ldaps*)를 만들도록 외부 DNS 공급자를 구성합니다. 먼저 머신에서 로컬로 테스트하기 위해 항목을 Windows 호스트 파일에 만들 수 있습니다. 로컬 머신의 호스트 파일을 성공적으로 편집하려면 *메모장*을 관리자 권한으로 연 다음, *C:\Windows\System32\drivers\etc* 파일을 엽니다.
 
-외부 DNS 공급자 또는 로컬 호스트 파일에 있는 다음 DNS 항목 예제에서는 *ldaps.aaddscontoso.com*의 트래픽을 *40.121.19.239*의 외부 IP 주소로 확인합니다.
+외부 DNS 공급자 또는 로컬 호스트 파일에 있는 다음 DNS 항목 예제에서는 *ldaps.aaddscontoso.com*의 트래픽을 *168.62.205.103*의 외부 IP 주소로 확인합니다.
 
 ```
-40.121.19.239    ldaps.aaddscontoso.com
+168.62.205.103    ldaps.aaddscontoso.com
 ```
 
 ## <a name="test-queries-to-the-managed-domain"></a>관리되는 도메인에 대한 쿼리 테스트
@@ -261,7 +258,7 @@ Azure AD DS 관리형 도메인에 저장된 개체를 확인하려면 다음을
 1. **보기** 메뉴 옵션, **트리**를 차례로 선택합니다.
 1. *BaseDN* 필드를 비워 둔 다음, **확인**을 선택합니다.
 1. 컨테이너(예: *AADDC Users*)를 선택한 다음, 마우스 오른쪽 단추로 컨테이너를 선택하고, **검색**을 선택합니다.
-1. 미리 채워진 필드를 설정한 상태로 둔 다음, **실행**을 선택합니다. 쿼리 결과가 오른쪽 창에 표시됩니다.
+1. 미리 채워진 필드를 설정한 상태로 둔 다음, **실행**을 선택합니다. 다음 예제 출력에 표시된 것처럼 쿼리 결과가 오른쪽 창에 표시됩니다.
 
     ![LDP.exe를 사용하여 Azure AD DS 관리형 도메인에서 개체 검색](./media/tutorial-configure-ldaps/ldp-query.png)
 
@@ -273,7 +270,7 @@ Azure AD DS 관리형 도메인에 저장된 개체를 확인하려면 다음을
 
 1. 로컬 머신에서 *메모장*을 관리자 권한으로 엽니다.
 1. *C:\Windows\System32\drivers\etc* 파일을 찾아서 엽니다.
-1. 추가한 레코드에 대한 줄(예: `40.121.19.239    ldaps.aaddscontoso.com`)을 삭제합니다.
+1. 추가한 레코드에 대한 줄(예: `168.62.205.103    ldaps.aaddscontoso.com`)을 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

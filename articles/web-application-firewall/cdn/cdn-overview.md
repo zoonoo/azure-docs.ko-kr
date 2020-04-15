@@ -7,19 +7,19 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 03/18/2020
 ms.author: victorh
-ms.openlocfilehash: 559ce4d1500dc5f1b67a3b3dbdbeb5d8dda7e487
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 28cf8d9fd60cc6fc158812aa0a1dff3a4b0dced1
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79475804"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754288"
 ---
 # <a name="azure-web-application-firewall-on-azure-content-delivery-network"></a>Azure Content Delivery Network의 Azure 웹 애플리케이션 방화벽
 
-Azure CDN(Content Delivery Network)의 Azure WAF(웹 애플리케이션 방화벽)는 웹 콘텐츠를 중앙 집중식으로 보호합니다. WAF는 일반적인 악용 및 취약성으로부터 웹 서비스를 보호합니다. 사용자의 서비스 가용성을 높게 유지하고 규정 준수 요구 사항을 충족하는 데 유용합니다.
+Microsoft의 Azure CDN(Content Delivery Network)에 있는 Azure WAF(웹 애플리케이션 방화벽)는 웹 콘텐츠를 중앙 집중식으로 보호합니다. WAF는 일반적인 악용 및 취약성으로부터 웹 서비스를 보호합니다. 사용자의 서비스 가용성을 높게 유지하고 규정 준수 요구 사항을 충족하는 데 유용합니다.
 
 > [!IMPORTANT]
-> Azure CDN의 WAF는 현재 공개 미리 보기이며 미리 보기 서비스 수준 계약과 함께 제공됩니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.  자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> Microsoft의 Azure CDN에 있는 WAF는 현재 공개 미리 보기로 제공되며 미리 보기 서비스 수준 계약을 통해 제공됩니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.  자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure CDN의 WAF는 글로벌 중앙 집중식 솔루션입니다. 전 세계 Azure 네트워크 에지 위치에 배포됩니다. WAF는 공격 소스에 가까운 악의적인 공격이 원본에 도달하기 전에 중지합니다. 성능을 저하시키지 않으면서 대규모로 글로벌 보호를 받을 수 있습니다. 
 

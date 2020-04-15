@@ -4,12 +4,12 @@ description: 이 자습서에서는 PowerShell을 사용하여 Azure 호스팅 S
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 2fb08d7aba3e35fb6147b75bbcee35b46873b5f6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a21de9d76a010b01da95b050a521178d8808bbdf
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78252727"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756080"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터의 런타임 업그레이드
 
@@ -75,7 +75,7 @@ Get-AzServiceFabricCluster | Select-Object Name, ClusterCodeVersion
 
 ## <a name="upgrade-the-runtime"></a>런타임 업그레이드
 
-**cmdlet과 이전 섹션의**ClusterCodeVersion`Get-ServiceFabricRuntimeUpgradeVersion` 값을 사용하여 업그레이드할 수 있는 버전을 확인합니다. 이 cmdlet은 인터넷에 연결된 컴퓨터에서만 실행할 수 있습니다. 예를 들어, `5.7.198.9494` 버전에서 업그레이드할 수 있는 런타임 버전을 확인하려면 다음 명령을 사용합니다.
+`Get-ServiceFabricRuntimeUpgradeVersion` cmdlet과 이전 섹션의 **ClusterCodeVersion** 값을 사용하여 업그레이드할 수 있는 버전을 확인합니다. 이 cmdlet은 인터넷에 연결된 컴퓨터에서만 실행할 수 있습니다. 예를 들어, `5.7.198.9494` 버전에서 업그레이드할 수 있는 런타임 버전을 확인하려면 다음 명령을 사용합니다.
 
 ```powershell
 Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion "5.7.198.9494"
@@ -95,7 +95,7 @@ Set-AzServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 
 업그레이드 상태는 PowerShell이나 Azure Service Fabric CLI(sfctl)로 모니터링할 수 있습니다.
 
-먼저 클러스터를 자습서의 첫 부분에서 만든 SSL 인증서에 연결합니다. `Connect-ServiceFabricCluster` cmdlet 또는 `sfctl cluster upgrade-status`를 사용합니다.
+먼저 클러스터를 자습서의 첫 부분에서 만든 TLS/SSL 인증서에 연결합니다. `Connect-ServiceFabricCluster` cmdlet 또는 `sfctl cluster upgrade-status`를 사용합니다.
 
 ```powershell
 $endpoint = "<mycluster>.southcentralus.cloudapp.azure.com:19000"

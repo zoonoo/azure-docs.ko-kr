@@ -5,16 +5,16 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8e65ebbfa0971bf2156165b55ca18eee3cc74bc9
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 83108c056035b16d26343d82c721b275ebcad0c5
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239269"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754317"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>자습서: ARM 템플릿을 사용하여 SQL BACPAC 파일 가져오기
 
-Azure SQL Database 확장을 사용하여 ARM(Azure Resource Manager) 템플릿을 통해 BACPAC 파일을 가져오는 방법에 대해 알아봅니다. 배포 아티팩트는 배포를 완료하는 데 필요한 기본 템플릿 파일 이외의 모든 파일입니다. BACPAC 파일은 아티팩트입니다. 
+Azure SQL Database 확장을 사용하여 ARM(Azure Resource Manager) 템플릿을 통해 BACPAC 파일을 가져오는 방법에 대해 알아봅니다. 배포 아티팩트는 배포를 완료하는 데 필요한 기본 템플릿 파일 이외의 모든 파일입니다. BACPAC 파일은 아티팩트입니다.
 
 이 자습서에서는 Azure SQL Server, SQL Database를 배포하는 템플릿을 만들고 BACPAC 파일을 가져옵니다. ARM 템플릿을 사용하여 Azure 가상 머신 확장을 배포하는 방법에 대한 자세한 내용은 [자습서: ARM 템플릿을 사용하여 가상 머신 확장 배포](./template-tutorial-deploy-vm-extensions.md)를 참조하세요.
 
@@ -255,7 +255,7 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 SQL Server 및 SQL Database를 배포하고 BACPAC 파일을 가져왔습니다. BACPAC 파일은 Azure Storage 계정에 저장됩니다. URL이 있는 사용자는 누구나 파일에 액세스할 수 있습니다. BACPAC 파일(아티팩트)을 보호하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+이 자습서에서는 SQL Server 및 SQL Database를 배포하고 BACPAC 파일을 가져왔습니다. 템플릿 배포 문제를 해결하는 방법에 대한 자세한 내용은
 
 > [!div class="nextstepaction"]
-> [아티팩트 보호](./template-tutorial-secure-artifacts.md)
+> [ARM 템플릿 배포 문제 해결](./template-tutorial-troubleshoot.md)을 참조하세요.

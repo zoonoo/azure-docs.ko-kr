@@ -12,12 +12,12 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 03/12/2020
-ms.openlocfilehash: 5847ef3033d257faef4831785b8abd864d54e835
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c072161db7a477b7973571a18d4f686b1b9c6202
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79209596"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985680"
 ---
 # <a name="quickstart-use-the-azure-portals-query-editor-to-query-a-sql-database"></a>빠른 시작: Azure Portal의 쿼리 편집기를 사용하여 SQL 데이터베이스 쿼리
 
@@ -175,7 +175,7 @@ Azure Active Directory(Azure AD) 관리자를 구성하면 단일 ID를 사용�
 
 * 쿼리 편집기는 포트 443 및 1443을 사용하여 통신합니다. 이러한 포트에서 아웃바운드 HTTPS 트래픽을 사용하도록 설정했는지 확인합니다. 또한 데이터베이스 및 데이터 웨어하우스에 액세스하려면 서버의 허용된 방화벽 규칙에 아웃바운드 IP 주소를 추가해야 합니다.
 
-* 클라이언트 IP 주소를 SQL Database 방화벽에 추가할 필요 없이 쿼리 편집기가 Private Link를 사용하여 작동
+* Private Link 연결이 있는 경우 클라이언트 IP 주소를 SQL Database 방화벽에 추가할 필요 없이 쿼리 편집기가 작동합니다.
 
 * **F5** 키를 누르면 쿼리 편집기 페이지가 새로 고쳐지고 작업 중인 모든 쿼리가 손실됩니다.
 

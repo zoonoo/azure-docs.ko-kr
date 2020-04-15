@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: 287933de6403d680c5aa5b6c78df49abe5f2ac56
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9650bb3214c22926427717569f718ca0426ed729
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222130"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618741"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos Emulator 사용
 
@@ -99,7 +99,7 @@ Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZ
 > [!NOTE]
 > /Key 옵션을 사용하여 에뮬레이터를 시작한 경우에는 `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` 대신 생성된 키를 사용하세요. /Key 옵션에 대한 자세한 내용은 [명령줄 도구 참조](#command-line)를 참조하세요.
 
-Azure Cosmos DB와 마찬가지로 Azure Cosmos Emulator는 SSL을 통한 보안 통신만 지원합니다.
+Azure Cosmos DB와 마찬가지로 Azure Cosmos Emulator는 TLS를 통한 보안 통신만 지원합니다.
 
 ## <a name="running-on-a-local-network"></a>로컬 네트워크에서 실행
 
@@ -130,7 +130,7 @@ mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mG
 
 ### <a name="table-api"></a>테이블 API
 
-Azure Cosmos Emulator를 데스크톱에서 실행하면, [Azure Cosmos DB Table API SDK](table-storage-how-to-use-dotnet.md)를 사용하여 에뮬레이터와 상호 작용할 수 있습니다. “/EnableTableEndpoint”를 사용하여 명령 프롬프트에서 관리자로 에뮬레이터를 시작합니다. 그런 다음, 아래 코드를 실행하여 Table API 계정에 연결합니다.
+Azure Cosmos Emulator를 데스크톱에서 실행하면, [Azure Cosmos DB Table API SDK](table-storage-how-to-use-dotnet.md)를 사용하여 에뮬레이터와 상호 작용할 수 있습니다. "/EnableTableEndpoint"를 사용하여 명령 프롬프트에서 관리자로 에뮬레이터를 시작합니다. 그런 다음, 아래 코드를 실행하여 Table API 계정에 연결합니다.
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -149,7 +149,7 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 ### <a name="cassandra-api"></a>Cassandra API
 
-“/EnableCassandraEndpoint”를 사용하여 관리자 명령 프롬프트에서 에뮬레이터를 시작합니다. 또는 환경 변수 `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true`를 설정할 수도 있습니다.
+"/EnableCassandraEndpoint"를 사용하여 관리자 명령 프롬프트에서 에뮬레이터를 시작합니다. 또는 환경 변수 `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true`를 설정할 수도 있습니다.
 
 * [Python 2.7 설치](https://www.python.org/downloads/release/python-2716/)
 
@@ -179,7 +179,7 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 ### <a name="gremlin-api"></a>Gremlin API
 
-“/EnableGremlinEndpoint”를 사용하여 관리자 명령 프롬프트에서 에뮬레이터를 시작합니다. 또는 환경 변수 `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`를 설정할 수도 있습니다.
+"/EnableGremlinEndpoint"를 사용하여 관리자 명령 프롬프트에서 에뮬레이터를 시작합니다. 또는 환경 변수 `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`를 설정할 수도 있습니다.
 
 * [apache-tinkerpop-gremlin-console-3.3.4를 설치합니다](https://archive.apache.org/dist/tinkerpop/3.3.4).
 
@@ -215,17 +215,17 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
   :> g.V()
   ```
 
-## <a name="export-the-ssl-certificate"></a>SSL 인증서 내보내기
+## <a name="export-the-tlsssl-certificate"></a>TLS/SSL 인증서 내보내기
 
 .NET 언어 및 런타임은 Windows 인증서 저장소를 사용하여 Azure Cosmos DB 로컬 에뮬레이터에 안전하게 연결합니다. 다른 언어의 경우 해당 언어만의 인증서 관리 및 사용 방법이 있습니다. Java는 자체의 고유 [인증서 저장소](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html)를 사용하고 Python은 [소켓 래퍼](https://docs.python.org/2/library/ssl.html)를 사용합니다.
 
 Windows 인증서 저장소와 통합되지 않는 런타임 및 언어와 함께 사용할 인증서를 가져오기 위해 Windows 인증서 관리자를 사용하여 인증서를 내보내야 합니다. certlm.msc를 실행하거나 [Azure Cosmos Emulator 인증서 내보내기](./local-emulator-export-ssl-certificates.md)의 단계별 지침을 수행하여 이 작업을 시작할 수 있습니다. 인증서 관리자가 실행되면 아래에 표시된 대로 개인 인증서를 열고 BASE-64 인코딩 X.509(.cer) 파일로 "DocumentDBEmulatorCertificate"라는 이름의 인증서를 내보냅니다.
 
-![Azure Cosmos DB 로컬 에뮬레이터 SSL 인증서](./media/local-emulator/database-local-emulator-ssl_certificate.png)
+![Azure Cosmos DB 로컬 에뮬레이터 TLS/SSL 인증서](./media/local-emulator/database-local-emulator-ssl_certificate.png)
 
 [Java CA 인증서 저장소에 인증서 추가](https://docs.microsoft.com/azure/java-add-certificate-ca-store)의 지침을 따라 X.509 인증서를 Java 인증서 저장소로 가져올 수 있습니다. 인증서를 인증서 저장소에 가져오면 SQL API 및 Azure Cosmos DB의 MongoDB API용 클라이언트에서 Azure Cosmos Emulator에 연결할 수 있습니다.
 
-Python 및 Node.js SDK에서 에뮬레이터에 연결하면 SSL 확인이 비활성화됩니다.
+Python 및 Node.js SDK에서 에뮬레이터에 연결하면 TLS 확인이 비활성화됩니다.
 
 ## <a name="command-line-tool-reference"></a><a id="command-line"></a>명령줄 도구 참조
 설치 위치에서 명령줄을 사용하여 에뮬레이터를 시작 및 중지하고, 옵션을 구성하고, 다른 작업을 수행할 수 있습니다.
@@ -260,8 +260,8 @@ Python 및 Node.js SDK에서 에뮬레이터에 연결하면 SSL 확인이 비�
 | StopTraces     | LOGMAN을 사용하여 디버그 추적 로그 수집을 중지합니다. | Microsoft.Azure.Cosmos.Emulator.exe /StopTraces  | |
 | StartWprTraces  |  Windows 성능 기록 도구를 사용하여 디버그 추적 로그 수집을 시작합니다. | Microsoft.Azure.Cosmos.Emulator.exe /StartWprTraces | |
 | StopWprTraces     | Windows 성능 기록 도구를 사용하여 디버그 추적 로그 수집을 중지합니다. | Microsoft.Azure.Cosmos.Emulator.exe /StopWprTraces  | |
-|FailOnSslCertificateNameMismatch | 기본적으로 에뮬레이터는 인증서의 SAN에 에뮬레이터 호스트의 도메인 이름, 로컬 IPv4 주소, 'localhost' 및 '127.0.0.1'이 포함되어 있지 않으면 자체 서명된 SSL 인증서를 다시 생성합니다. 이 옵션을 사용하면 시작할 때 에뮬레이터가 실패합니다. 그러면 /GenCert 옵션을 사용하여 자체 서명된 SSL 인증서를 새로 만들고 설치해야 합니다. | Microsoft.Azure.Cosmos.Emulator.exe /FailOnSslCertificateNameMismatch  | |
-| GenCert | 자체 서명된 SSL 인증서를 새로 생성하고 설치합니다. 선택적으로 네트워크를 통해 에뮬레이터에 액세스하기 위해 쉼표로 구분된 추가 DNS 이름 목록을 포함합니다. | Microsoft.Azure.Cosmos.Emulator.exe /GenCert=\<dns-names\> |\<dns-names\>: 추가 dns 이름의 쉼표로 구분된 목록(선택 사항)  |
+|FailOnSslCertificateNameMismatch | 기본적으로 에뮬레이터는 인증서의 SAN에 에뮬레이터 호스트의 도메인 이름, 로컬 IPv4 주소, 'localhost' 및 '127.0.0.1'이 포함되어 있지 않으면 자체 서명된 TLS/SSL 인증서를 다시 생성합니다. 이 옵션을 사용하면 시작할 때 에뮬레이터가 실패합니다. 그러면 /GenCert 옵션을 사용하여 자체 서명된 TLS/SSL 인증서를 새로 만들고 설치해야 합니다. | Microsoft.Azure.Cosmos.Emulator.exe /FailOnSslCertificateNameMismatch  | |
+| GenCert | 자체 서명된 TLS/SSL 인증서를 새로 생성하고 설치합니다. 선택적으로 네트워크를 통해 에뮬레이터에 액세스하기 위해 쉼표로 구분된 추가 DNS 이름 목록을 포함합니다. | Microsoft.Azure.Cosmos.Emulator.exe /GenCert=\<dns-names\> |\<dns-names\>: 추가 dns 이름의 쉼표로 구분된 목록(선택 사항)  |
 | DirectPorts |직접 연결에 사용할 포트를 지정합니다. 기본값은 10251,10252,10253,10254입니다. | Microsoft.Azure.Cosmos.Emulator.exe /DirectPorts:\<directports\> | \<directports\>: 쉼표로 구분된 4개 포트 목록 |
 | 키 |에뮬레이터에 대한 권한 부여 키입니다. 키는 64바이트 벡터의 base 64 인코딩이어야 합니다. | Microsoft.Azure.Cosmos.Emulator.exe /Key:\<key\> | \<키\>: 키는 64바이트 벡터의 base 64 인코딩이어야 합니다.|
 | EnableRateLimiting | 요청 속도 제한 동작을 사용하도록 지정합니다. |Microsoft.Azure.Cosmos.Emulator.exe /EnableRateLimiting | |
@@ -398,7 +398,7 @@ powershell .\importcert.ps1
 Starting interactive shell
 ```
 
-이제 클라이언트의 응답에서 엔드포인트 및 마스터 키를 사용하고 SSL 인증서를 호스트로 가져옵니다. SSL 인증서를 가져오려면 관리자 명령 프롬프트에서 다음을 수행합니다.
+이제 클라이언트의 응답에서 엔드포인트 및 마스터 키를 사용하고 TLS/SSL 인증서를 호스트로 가져옵니다. TLS/SSL 인증서를 가져오려면 관리자 명령 프롬프트에서 다음을 수행합니다.
 
 명령줄에서
 
@@ -445,7 +445,7 @@ Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7
 
 Linux에서 작업하는 경우 .NET은 OpenSSL을 사용하여 유효성 검사를 수행합니다.
 
-1. [PFX 형식으로 인증서를 내보냅니다](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-ssl-certificate)(프라이빗 키를 내보내도록 선택할 때 PFX를 사용할 수 있음). 
+1. [PFX 형식으로 인증서를 내보냅니다](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-tlsssl-certificate)(프라이빗 키를 내보내도록 선택할 때 PFX를 사용할 수 있음). 
 
 1. 해당 PFX 파일을 Linux 환경에 복사합니다.
 
@@ -471,7 +471,7 @@ Linux에서 작업하는 경우 .NET은 OpenSSL을 사용하여 유효성 검사
 
 Mac에서 작업하는 경우 다음 단계를 사용합니다.
 
-1. [PFX 형식으로 인증서를 내보냅니다](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-ssl-certificate)(프라이빗 키를 내보내도록 선택할 때 PFX를 사용할 수 있음).
+1. [PFX 형식으로 인증서를 내보냅니다](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-tlsssl-certificate)(프라이빗 키를 내보내도록 선택할 때 PFX를 사용할 수 있음).
 
 1. 해당 PFX 파일을 Mac 환경에 복사합니다.
 
@@ -527,7 +527,7 @@ Mac에서 작업하는 경우 다음 단계를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 무료 로컬 개발을 위해 로컬 에뮬레이터를 사용하는 방법을 살펴보았습니다. 이제 다음 자습서로 진행하여 에뮬레이터 SSL 인증서를 내보내는 방법을 알아볼 수 있습니다.
+이 자습서에서는 무료 로컬 개발을 위해 로컬 에뮬레이터를 사용하는 방법을 살펴보았습니다. 이제 다음 자습서로 진행하여 에뮬레이터 TLS/SSL 인증서를 내보내는 방법을 알아볼 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos Emulator 인증서 내보내기](local-emulator-export-ssl-certificates.md)

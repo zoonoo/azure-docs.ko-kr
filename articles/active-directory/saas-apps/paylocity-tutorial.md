@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 01/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f6684df42971b91975f6a7f5aeded9326cef3f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d2324343a31c3f3930975eea47659d023b9bbb94
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72969715"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667584"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-paylocity"></a>자습서: Paylocity와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -45,6 +44,8 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * Paylocity에서 **SP 및 IDP** 시작 SSO를 지원합니다.
+
+* Paylocity를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
 
 ## <a name="adding-paylocity-from-the-gallery"></a>갤러리에서 Paylocity 추가
 
@@ -82,8 +83,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 앱이 Azure와 이미 사전 통합되었으므로 사용자는 **기본 SAML 구성** 섹션에서 아무 단계도 수행할 필요가 없습니다.
 
-    ![Paylocity 도메인 및 URL Single Sign-On 정보](common/preintegrated.png)
-
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     **로그온 URL** 텍스트 상자에 `https://access.paylocity.com/` URL을 입력합니다.
@@ -98,13 +97,24 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     | 속성 |  원본 특성|
     | ---------------| --------------- |
-    | PartnerID | <"PartnerID"> |
-    | PaylocityUser | <"PaylocityUser"> |
-    | PaylocityEntity | <"PaylocityEntity"> |
+    | PartnerID | `P8000010` |
+    | PaylocityUser | `user.mail`|
+    | PaylocityEntity | < `PaylocityEntity` > |
+
+    > [!NOTE]
+    > PaylocityEntity는 Paylocity 회사 ID입니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML**을 찾고, **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
+
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **편집 아이콘**을 선택합니다.
+
+    ![SAML 서명 인증서 편집 관리](./media/paylocity-tutorial/edit-samlassertion.png)
+
+1. **서명 옵션**을 **SAML 응답 및 어설션 서명**으로 선택하고 **저장**을 클릭합니다.
+
+    ![SAML 서명 인증서 편집 관리](./media/paylocity-tutorial/saml-assertion.png)
 
 1. **Paylocity 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
@@ -163,3 +173,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Azure AD를 사용하여 Paylocity 사용해 보기](https://aad.portal.azure.com/)
+
+* [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+* [고급 표시 유형 및 컨트롤을 사용하여 Paylocity를 보호하는 방법](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

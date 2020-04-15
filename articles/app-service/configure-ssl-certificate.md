@@ -1,19 +1,19 @@
 ---
-title: SSL 인증서 추가 및 관리
+title: TLS/SSL 인증서 추가 및 관리
 description: Azure App Service에서 무료 인증서를 만들거나, App Service 인증서를 가져오거나, Key Vault 인증서를 가져오거나, App Service 인증서를 구입합니다.
 tags: buy-ssl-certificates
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 120caf459a7a8ca4e60d5e447a1e4130c0bce389
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4edf710e575bbb26fb0e247e59ff5c796f16226e
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223920"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810597"
 ---
-# <a name="add-an-ssl-certificate-in-azure-app-service"></a>Azure App Service에서 SSL 인증서 추가
+# <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Azure App Service에서 TLS/SSL 인증서 추가
 
 [Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 문서에서는 프라이빗 인증서 또는 공용 인증서를 만들거나, 업로드하거나, App Service로 가져오는 방법을 보여줍니다. 
 
@@ -47,7 +47,7 @@ ms.locfileid: "79223920"
 * 길이가 2048비트 이상인 프라이빗 키 포함
 * 인증서 체인의 모든 중간 인증서를 포함함
 
-SSL 바인딩에서 사용자 지정 도메인을 보호하려면 인증서가 다음과 같은 추가 요구 사항을 충족해야 합니다.
+TLS 바인딩에서 사용자 지정 도메인을 보호하려면 인증서가 다음과 같은 추가 요구 사항을 충족해야 합니다.
 
 * 서버 인증용 [확장 키 사용](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Extensions_informing_a_specific_usage_of_a_certificate) 포함(OID = 1.3.6.1.5.5.7.3.1)
 * 신뢰할 수 있는 인증 기관에서 서명됨
@@ -59,7 +59,7 @@ SSL 바인딩에서 사용자 지정 도메인을 보호하려면 인증서가 �
 
 ## <a name="create-a-free-certificate-preview"></a>무료 인증서(미리 보기) 만들기
 
-무료 App Service Managed Certificate는 App Service에서 사용자 지정 DNS 이름을 보호하는 데 사용되는 턴키 솔루션입니다. App Service에서 관리하고 자동으로 갱신되는 완전한 기능을 갖춘 SSL 인증서입니다. 무료 인증서에는 다음과 같은 제한이 있습니다.
+무료 App Service Managed Certificate는 App Service에서 사용자 지정 DNS 이름을 보호하는 데 사용되는 턴키 솔루션입니다. App Service에서 관리하고 자동으로 갱신되는 완전한 기능을 갖춘 TLS/SSL 인증서입니다. 무료 인증서에는 다음과 같은 제한이 있습니다.
 
 - 와일드카드 인증서를 지원하지 않습니다.
 - 네이키드 도메인을 지원하지 않습니다.
@@ -237,7 +237,7 @@ _mergedcertificate.crt_라는 병합된 인증서의 파일을 만듭니다. 텍
 
 ### <a name="export-certificate-to-pfx"></a>PFX로 인증서 내보내기
 
-인증서 요청 생성에 사용된 프라이빗 키로 병합된 SSL 인증서를 내보냅니다.
+인증서 요청 생성에 사용된 프라이빗 키로 병합된 TLS/SSL 인증서를 내보냅니다.
 
 OpenSSL을 사용하여 인증서 요청을 생성한 경우 프라이빗 키 파일을 만든 것입니다. 인증서를 PFX로 내보내려면 다음 명령을 실행합니다. 자리 표시자 _&lt;private-key-file&gt;_ 및 _&lt;merged-certificate-file&gt;_ 을 사용자의 프라이빗 키 및 병합된 인증서 파일에 대한 경로로 바꿉니다.
 
@@ -245,7 +245,7 @@ OpenSSL을 사용하여 인증서 요청을 생성한 경우 프라이빗 키 �
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
 ```
 
-메시지가 표시되면 내보내기 암호를 정의합니다. 나중에 SSL 인증서를 App Service에 업로드할 때 이 암호를 사용합니다.
+메시지가 표시되면 내보내기 암호를 정의합니다. 나중에 TLS/SSL 인증서를 App Service에 업로드할 때 이 암호를 사용합니다.
 
 IIS 또는 _Certreq.exe_를 사용하여 인증서 요청을 생성한 경우 인증서를 로컬 컴퓨터에 설치한 다음 [해당 인증서를 PFX로 내보냅니다](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
 
@@ -363,16 +363,16 @@ App Service 인증서를 삭제하면 다시 되돌릴 수 없습니다. App Ser
 
 ### <a name="azure-cli"></a>Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>추가 리소스
 
-* [SSL 바인딩으로 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)
+* [Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)
 * [HTTPS 적용](configure-ssl-bindings.md#enforce-https)
 * [TLS 1.1/1.2 적용](configure-ssl-bindings.md#enforce-tls-versions)
-* [애플리케이션 코드에서 SSL 인증서 사용](configure-ssl-certificate-in-code.md)
+* [Azure App Service의 코드에서 TLS/SSL 인증서 사용](configure-ssl-certificate-in-code.md)
 * [FAQ: App Service Certificate](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

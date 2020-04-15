@@ -2,19 +2,19 @@
 title: 자습서 - 템플릿의 리소스에 태그 추가
 description: Azure Resource Manager 템플릿에 배포하는 리소스에 태그를 추가합니다. 태그를 사용하여 리소스를 논리적으로 구성할 수 있습니다.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d7853d388b9159328a515818697ba9ddd5b95637
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 3e0deb53e57cd29cbfce4c37f2d6c6729f15bebd
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773191"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411697"
 ---
-# <a name="tutorial-add-tags-in-your-resource-manager-template"></a>자습서: Resource Manager 템플릿에 태그 추가
+# <a name="tutorial-add-tags-in-your-arm-template"></a>자습서: ARM 템플릿에서 태그 추가
 
-이 자습서에서는 템플릿의 리소스에 태그를 추가하는 방법에 대해 알아봅니다. [태그](../management/tag-resources.md)를 통해 리소스를 논리적으로 구성할 수 있습니다. 태그 값이 비용 보고서에 표시됩니다. 이 자습서를 완료하는 데 **8분**이 소요됩니다.
+이 자습서에서는 ARM(Azure Resource Manager) 템플릿의 리소스에 태그를 추가하는 방법을 알아봅니다. [태그](../management/tag-resources.md)를 통해 리소스를 논리적으로 구성할 수 있습니다. 태그 값이 비용 보고서에 표시됩니다. 이 자습서를 완료하는 데 **8분**이 소요됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -44,7 +44,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 리소스 그룹을 만들지 않은 경우 [리소스 그룹 만들기](template-tutorial-create-first-template.md#create-resource-group)를 참조하세요. 이 예제에서는 [첫 번째 자습서](template-tutorial-create-first-template.md#deploy-template)에 표시된 대로 **templateFile** 변수를 템플릿 파일의 경로로 설정했다고 가정합니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -56,10 +56,12 @@ New-AzResourceGroupDeployment `
   -webAppName demoapp
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+이 배포 명령을 실행하려면 Azure CLI의 [최신 버전](/cli/azure/install-azure-cli)이 있어야 합니다.
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addtags \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -67,6 +69,9 @@ az group deployment create \
 ```
 
 ---
+
+> [!NOTE]
+> 배포에 실패한 경우 배포 명령과 함께 **debug** 스위치를 사용하여 디버그 로그를 표시합니다.  **verbose** 스위치를 사용하여 전체 디버그 로그를 표시할 수도 있습니다.
 
 ## <a name="verify-deployment"></a>배포 확인
 

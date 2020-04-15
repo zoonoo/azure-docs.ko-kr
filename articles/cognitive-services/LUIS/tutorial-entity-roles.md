@@ -1,26 +1,18 @@
 ---
 title: '자습서: 역할이 있는 상황별 데이터 - LUIS'
-titleSuffix: Azure Cognitive Services
 description: 컨텍스트를 기반으로 관련 데이터를 찾습니다. 예를 들어 한 건물과 사무실에서 다른 건물과 사무실로 이사할 경우 출발지 및 목적지 위치는 서로 관련이 있습니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: cd646ef061a0be06a9b1a56b72a4f35d9796aa63
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 03/30/2020
+ms.openlocfilehash: fdb463896e531619ea7ebe7c384729763dc84138
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75447831"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475831"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>자습서: 발언에서 컨텍스트 관련 데이터 추출
 
-이 자습서에서는 컨텍스트를 기반으로 관련 데이터 조각을 찾습니다. 한 도시에서 다른 도시로 가는 이사의 출발지 및 목적지 위치를 예로 들 수 있습니다. 두 데이터 조각이 모두 필요할 수 있으며, 서로 관련되어 있습니다.
+이 자습서에서는 컨텍스트를 기반으로 관련 데이터 조각을 찾습니다. 한 도시에서 다른 도시로 이동하기 위한 출발지 및 목적지 위치를 예로 들 수 있습니다. 두 데이터 조각이 모두 필요할 수 있으며, 서로 관련되어 있습니다.
 
 역할은 미리 작성된 엔터티 유형 또는 사용자 지정 엔터티 유형에 사용할 수 있으며, 두 예제 발화 및 패턴 모두에서 사용할 수 있습니다.
 
@@ -49,24 +41,26 @@ ms.locfileid: "75447831"
 
 ## <a name="create-a-new-app"></a>새 앱 만들기
 
-1. [https://preview.luis.ai](https://preview.luis.ai)의 URL을 사용하여 미리 보기 LUIS 포털에 로그인합니다.
+1. [LUIS **미리보기** 포털](https://preview.luis.ai)에 로그인합니다.
 
-1. **새 앱 만들기**를 선택하여 `HumanResources` 이름을 입력하고 기본 문화권인 **영어**를 유지합니다. 설명을 비워둡니다.
-
-1. **완료** 를 선택합니다.
+1. **+ 대화용 새 앱**을 선택하여 `HumanResources` 이름을 입력하고 기본 문화권인 **영어**를 유지합니다. 설명 및 예측 리소스를 비워 둡니다. **완료** 를 선택합니다.
 
 ## <a name="create-an-intent-to-move-employees-between-cities"></a>도시 간에 직원을 이동하는 의도 만들기
 
+의도는 자연어 텍스트에서 결정되는 사용자의 의도에 따라 사용자 발화를 분류하는 데 사용됩니다.
+
+발화를 분류하기 위해서는 이러한 의도로 분류해야 하는 사용자 발화의 예가 필요합니다.
+
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. **새 의도 만들기**를 선택합니다.
+1. **+ 만들기**를 선택합니다.
 
 1. 팝업 대화 상자에서 `MoveEmployeeToCity`을 입력하고 **완료**를 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > ![새 의도 만들기 대화 상자의 스크린샷](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
 
-1. 의도에 발화 예제를 추가합니다.
+1. 사용자가 요청할 것으로 예상되는 여러 예제 발화를 이 의도에 추가합니다.
 
     |예제 발화|
     |--|
@@ -85,24 +79,29 @@ ms.locfileid: "75447831"
 
 ## <a name="add-prebuilt-entity-geographyv2"></a>미리 작성된 엔터티 geographyV2 추가
 
-미리 작성된 엔터티 geographyV2는 도시 이름을 비롯한 위치 정보를 추출합니다. 발화에 도시 이름이 두 개 있고 두 도시가 다른 컨텍스트에서 서로 관련되어 있으므로, 역할을 사용하여 해당 컨텍스트를 추출합니다.
+미리 빌드된 엔터티 **geographyV2**는 도시 이름을 비롯한 위치 정보를 추출합니다. 발화에 도시 이름이 두 개 있고 두 도시가 다른 컨텍스트에서 서로 관련되어 있으므로, 역할을 사용하여 해당 컨텍스트를 추출합니다.
 
 1. 왼쪽 탐색 영역에서 **엔터티**를 선택합니다.
 
-1. **미리 작성된 엔터티 추가**를 선택한 다음, 검색 창에서 `geo`를 선택하여 미리 작성된 엔터티를 필터링합니다.
+1. **+ 미리 빌드된 엔터티 추가**를 선택한 다음, 검색 창에서 `geo`를 입력하여 미리 빌드된 엔터티를 필터링합니다.
 
     > [!div class="mx-imgBorder"]
     > ![미리 빌드된 geographyV2 엔터티를 앱에 추가](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
 
 1. 확인란을 선택하고 **완료**를 선택합니다.
+
+## <a name="add-roles-to-prebuilt-entity"></a>미리 작성된 엔터티에 역할 추가
+
 1. **엔터티** 목록에서 **geographyV2**를 선택하여 새 엔터티를 엽니다.
-1. `Origin` 및 `Destination` 역할을 추가합니다.
+1. 역할을 추가하려면 **+** 를 선택하고 `Origin` 및 `Destination`의 두 역할을 추가합니다.
 
     > [!div class="mx-imgBorder"]
     > ![미리 빌드된 엔터티에 역할 추가](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 
+## <a name="label-entity-roles-in-example-utterances"></a>예제 발화의 엔터티 역할 레이블 지정
+
 1. 왼쪽 탐색 영역에서 **의도**를 선택한 다음, **MoveEmployeeToCity** 의도를 선택합니다. 도시 이름 레이블이 미리 작성된 엔터티 **geographyV2**로 지정되었습니다.
-1. 컨텍스트 도구 모음에서 **엔터티 팔레트**를 선택합니다.
+1. 컨텍스트 도구 모음에서 _연필 아이콘_으로 **엔터티 팔레트**를 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > ![콘텐츠 도구 모음에서 엔터티 팔레트 선택](media/tutorial-entity-roles/intent-detail-context-toolbar-select-entity-palette.png)
@@ -122,18 +121,21 @@ ms.locfileid: "75447831"
 
 ## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>의도의 변경사항을 테스트할 수 있도록 앱 학습
 
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+앱을 학습시키려면 **학습**을 선택합니다. 학습은 새 엔터티 및 레이블이 지정된 발화와 같은 변경 내용을 활성 모델에 적용합니다.
 
-## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>학습을 거친 모델이 엔드포인트에서 쿼리할 수 있도록 앱 게시
+## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>HTTP 엔드포인트에서 앱에 액세스할 수 있도록 앱 게시
 
-[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
+
 
 ## <a name="get-intent-and-entity-prediction-from-endpoint"></a>엔드포인트에서 의도 및 엔터티 예측 가져오기
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
 
-1. 주소 표시줄의 URL 끝으로 이동하여 `Please move Carl Chamerlin from Tampa to Portland`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 이 발언은 레이블이 지정된 발언과 같지 않으므로 유용한 테스트이며, 추출된 엔터티와 함께 `MoveEmployee` 의도를 반환해야 합니다.
+1. 주소 표시줄의 URL 끝으로 이동하여 _YOUR_QUERY_HERE_를 `Please move Carl Chamerlin from Tampa to Portland`로 바꿉니다.
+
+이 발언은 레이블이 지정된 발언과 같지 않으므로 유용한 테스트이며, 추출된 엔터티와 함께 `MoveEmployee` 의도를 반환해야 합니다.
 
     ```json
     {
@@ -171,11 +173,9 @@ ms.locfileid: "75447831"
     }
     ```
 
-    올바른 의도가 예측되고 엔터티 배열은 해당 **entities** 속성에 원래 위치 및 대상 위치 역할이 모두 있습니다.
+    The correct intent is predicted and the entities array has both the origin and destination roles in the corresponding **entities** property.
 
-## <a name="clean-up-resources"></a>리소스 정리
-
-[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 
 ## <a name="related-information"></a>관련 정보
 

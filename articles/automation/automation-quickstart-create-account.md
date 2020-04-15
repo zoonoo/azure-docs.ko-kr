@@ -6,12 +6,12 @@ ms.date: 04/04/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: a2d15dd520db16012f530d2ac6188a4642c89795
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 92b49197cc18133c9b67222a90546776f050163b
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75421650"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437920"
 ---
 # <a name="create-an-azure-automation-account"></a>Azure Automation 계정 만들기
 
@@ -21,7 +21,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure에 로그인
+[Azure에 로그인](https://portal.azure.com)
 
 ## <a name="create-automation-account"></a>Automation 계정 만들기
 

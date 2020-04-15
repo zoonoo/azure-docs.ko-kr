@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 3e0c56ed669ecda5a130dcf9df103bc8a19faf06
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3334a19b1ba0e3949ab2670c5d2f70d3bcd02fe8
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80057424"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983913"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>강제 터널링으로 App Service Environment 구성
 
@@ -60,7 +60,7 @@ BGP 경로를 무시하도록 ASE 서브넷을 구성할 수 있습니다.  BGP 
 BGP 경로를 무시하도록 ASE 서브넷을 구성하려면:
 
 * UDR이 없는 경우 만들고 ASE 서브넷에 할당합니다.
-* Azure Portal에서 ASE 서브넷에 할당된 경로 테이블에 대한 UI를 엽니다.  구성을 선택합니다.  BGP 경로 전파를 사용 안 함으로 설정합니다.  저장을 클릭합니다. 이 기능을 해제하는 방법에 대한 설명서는 [경로 테이블 만들기][routetable] 문서에 있습니다.
+* Azure Portal에서 ASE 서브넷에 할당된 경로 테이블에 대한 UI를 엽니다.  구성을 선택합니다.  가상 네트워크 게이트웨이 경로 전파를 사용 안 함으로 설정합니다.  저장을 클릭합니다. 이 기능을 해제하는 방법에 대한 설명서는 [경로 테이블 만들기][routetable] 문서에 있습니다.
 
 모든 BGP 경로를 무시하도록 ASE 서브넷을 구성하면 앱이 더 이상 온-프레미스에 연결할 수 없습니다. 앱이 온-프레미스 리소스에 액세스할 수 있도록 하려면 ASE 서브넷에 할당된 UDR을 편집하고 온-프레미스 주소 범위에 대한 경로를 추가합니다. 다음 홉 형식은 가상 네트워크 게이트웨이로 설정되어야 합니다. 
 

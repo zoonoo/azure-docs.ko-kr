@@ -4,12 +4,12 @@ description: 이 자습서에서는 PowerShell을 사용하여 Windows Service F
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 086379e788966b300f988e06ec42c94b880b8281
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2d170057a85a8e223fa9d1bc2bfc17e0c284afcd
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75551729"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756042"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>자습서: Azure 가상 네트워크에 Windows를 실행하는 Service Fabric 클러스터 배포
 
@@ -156,7 +156,7 @@ ms.locfileid: "75551729"
 ## <a name="set-up-azure-active-directory-client-authentication"></a>Azure Active Directory 클라이언트 인증 설정
 Azure에 호스트된 공용 네트워크에 배포된 Service Fabric 클러스터의 경우 클라이언트-노드 상호 인증에 추천되는 사항은 다음과 같습니다.
 * 클라이언트 ID에 Azure Active Directory를 사용합니다.
-* HTTP 통신의 서버 ID 및 SSL 암호화에 인증서를 사용합니다.
+* HTTP 통신의 서버 ID 및 TLS 암호화에 인증서를 사용합니다.
 
 [클러스터를 만들기](#createvaultandcert) 전에 Service Fabric 클러스터에 대한 클라이언트를 인증하도록 Azure AD(Azure Active Directory)를 설정해야 합니다. 조직(테넌트)에서는 Azure AD를 사용하여 애플리케이션에 대한 사용자 액세스를 관리할 수 있습니다. 
 

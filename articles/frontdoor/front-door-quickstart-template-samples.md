@@ -8,14 +8,14 @@ ms.service: frontdoor
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2018
+ms.date: 02/04/2020
 ms.author: sharadag
-ms.openlocfilehash: de3b13162e7828542331e7e7a34d0101f7feaf71
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 61ce63b15d2126a25b444e97acc8a3ea3964296b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79471657"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985816"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Front Door에 대한 Azure Resource Manager 배포 모델 템플릿
 
@@ -25,7 +25,7 @@ ms.locfileid: "79471657"
 | ---| ---|
 | [기본 Front Door 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-basic)| 단일 백 엔드를 사용하여 기본 Front Door 구성을 만듭니다. |
 | [다중 백 엔드 및 백 엔드 풀과 URL 기반 라우팅을 사용하여 Front Door 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-multiple-backends)| URL 경로를 기준으로 백 엔드 풀의 여러 백 엔드 및 백 엔드 풀 간에 부하 분산이 구성된 Front Door를 만듭니다. |
-| [Front Door에서 HTTPS(Front Door 관리 인증서)를 사용하여 사용자 지정 도메인 온보드](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-custom-domain)| 사용자 지정 도메인을 Front Door에 추가하고 DigiCert를 통해 생성된 Front Door 관리 인증서를 사용하여 해당 HTTPS 트래픽을 사용하도록 설정합니다. |
+| [Front Door를 사용하여 사용자 지정 도메인 온보딩](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-custom-domain)| Front Door에 사용자 지정 도메인을 추가합니다. |
 | [지역 필터링을 사용하여 Front Door 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering)| 특정 국가/지역의 트래픽을 허용/차단하는 Front Door를 만듭니다. |
 | [Front Door에서 백 엔드에 대한 상태 프로브 제어](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-health-probes)| 프로브 경로 및 프로브가 전송되는 간격을 업데이트하여 Front Door를 업데이트함으로써 상태 프로브 설정을 변경합니다. |
 | [활성/대기 백 엔드 구성을 사용하여 Front Door 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-priority-lb)| 활성/대기 애플리케이션 토폴로지에 대한 우선 순위 기반 라우팅을 보여 주는 Front Door를 만듭니다. 이러한 Front Door는 기본적으로 기본(최고 우선 순위) 백 엔드가 사용 불가능해질 때까지 이 백 엔드로 모든 트래픽을 전송합니다. |

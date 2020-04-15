@@ -2,25 +2,22 @@
 title: MSAL Android에서 공유 디바이스 모드 사용 | Microsoft
 description: Android 디바이스를 공유 모드에서 실행하도록 준비하고 일선 직원 앱을 실행하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 1/15/2020
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: bf7e6bb22ce89d6be3f79efad1f1a3679e8780e7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b2f74d2d441007f195abd38ca26ca7fa73605318
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77086054"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886435"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>자습서: Android 애플리케이션에서 공유 디바이스 모드 사용
 
@@ -96,9 +93,9 @@ MSAL 구성 파일에서 `"account_mode":"SINGLE"`을 설정하는 경우 반환
 ```java
 private ISingleAccountPublicClientApplication mSingleAccountApp;
 
-/*Configure your sample app and save state for this activity*/ 
+/*Configure your sample app and save state for this activity*/
 PublicClientApplication.create(this.getApplicationCOntext(),
-  R.raw.auth_config, 
+  R.raw.auth_config,
   new PublicClientApplication.ApplicationCreatedListener(){
   @Override
   public void onCreated(IPublicClientApplication application){
@@ -109,7 +106,7 @@ PublicClientApplication.create(this.getApplicationCOntext(),
   public void onError(MsalException exception{
   /*Fail to initialize PublicClientApplication */
   }
-});  
+});
 ```
 
 ### <a name="detect-single-vs-multiple-account-mode"></a>단일 및 다중 계정 모드 검색
@@ -134,7 +131,7 @@ private IPublicClientApplication mApplication;
 
 `loadAccount` 메서드는 로그인한 사용자의 계정을 검색합니다. `onAccountChanged` 메서드는 로그인한 사용자가 변경되었는지 여부를 확인하고, 변경된 경우 정리합니다.
 
-```java 
+```java
 private void loadAccount()
 {
   mSingleAccountApp.getCurrentAccountAsync(new ISingleAccountPublicClientApplication.CurrentAccountCallback()
@@ -157,12 +154,12 @@ private void loadAccount()
         updateSingedOutUI();
       }
     }
-    @Override 
-    public void onError(@NonNull Exception exception) 
+    @Override
+    public void onError(@NonNull Exception exception)
     {
     }
   }
-}  
+}
 ```
 
 ### <a name="globally-sign-in-a-user"></a>전역적으로 사용자 로그인
@@ -233,7 +230,7 @@ Authenticator 앱을 시작하고, 주 계정 페이지로 이동합니다. **�
 ![Authenticator 계정 추가 화면](media/tutorial-v2-shared-device-mode/authenticator-add-account.png)
 
  오른쪽 메뉴 모음을 사용하여 **설정** 창으로 이동합니다. **회사 및 학교 계정** 아래에서 **디바이스 등록**을 선택합니다.
- 
+
  ![Authenticator 계정 추가 화면](media/tutorial-v2-shared-device-mode/authenticator-settings.png)
 
  이 단추를 클릭하면 디바이스 연락처에 대한 액세스 권한을 부여하라는 메시지가 표시됩니다. 이는 디바이스에 대한 Android의 계정 통합 때문입니다. **허용**을 선택합니다.
@@ -266,4 +263,4 @@ Authenticator 앱을 시작하고, 주 계정 페이지로 이동합니다. **�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Android 디바이스의 공유 디바이스 모드](shared-device-mode.md)에서 공유 모드에 대해 자세히 알아봅니다.
+[Android 디바이스의 공유 디바이스 모드](msal-android-shared-devices.md)에서 공유 모드에 대해 자세히 알아봅니다.

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87f1c884edf6841b65495cd31ed4c7d6e63aedd9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 07ea6824975d0cb3f4b909db41188c490bbba6d2
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75977926"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477947"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-header-based-authentication"></a>자습서: Citrix NetScaler와 Azure Active Directory Single Sign-On 통합(헤더 기반 인증)
 
@@ -244,7 +244,7 @@ Azure Portal을 사용하여 Azure AD SSO를 사용하도록 설정하려면 다
 
 ### <a name="bind-the-certificate"></a>인증서 바인딩
 
-이 서비스를 SSL로 게시하려면 서버 인증서를 바인딩한 다음, 애플리케이션을 테스트합니다.
+이 서비스를 TLS로 게시하려면 서버 인증서를 바인딩한 다음, 애플리케이션을 테스트합니다.
 
 1. **인증서** 아래에서 **서버 인증서 없음**을 선택합니다.
 

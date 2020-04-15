@@ -7,16 +7,16 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 2e14b669aadeec4c6a7245be8940051ec604059b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 371b99c794feb4a64eb3e9af389020e25d14eedb
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79409561"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879431"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>레이블 지정 프로젝트에서 이미지에 태그 지정
 
-프로젝트 관리자가 Azure Machine Learning에서 [레이블 지정 프로젝트를 만든](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) 후에는 레이블 지정 도구를 사용하여 Machine Learning 프로젝트에 사용할 데이터를 빠르게 준비할 수 있습니다. 이 문서에서는 다음을 설명합니다.
+프로젝트 관리자가 Azure Machine Learning에서 [레이블 지정 프로젝트를 만든](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) 후에는 레이블 지정 도구(공개 미리 보기)를 사용하여 Machine Learning 프로젝트에 사용할 데이터를 빠르게 준비할 수 있습니다. 이 문서에서는 다음을 설명합니다.
 
 > [!div class="checklist"]
 > * 레이블 지정 프로젝트에 액세스하는 방법
@@ -45,7 +45,9 @@ ms.locfileid: "79409561"
 
 모든 이미지 레이블 지정 작업에서는 프로젝트 관리자가 지정한 세트에서 적절한 태그를 선택합니다. 키보드의 숫자 키를 사용하여 처음 9개의 태그를 선택할 수 있습니다.  
 
-이미지 분류 작업에서는 여러 이미지를 동시에 표시하도록 선택할 수 있습니다. 이미지 영역 위의 아이콘을 사용하여 레이아웃을 선택합니다. 표시된 모든 이미지를 동시에 선택하려면 **모두 선택**을 사용합니다. 개별 이미지를 선택하려면 이미지의 오른쪽 위 모서리에 있는 원형 선택 단추를 사용합니다. 태그를 적용할 이미지를 하나 이상 선택해야 합니다. 여러 이미지를 선택하면 선택한 태그가 선택한 모든 이미지에 적용됩니다.
+이미지 분류 작업에서는 여러 이미지를 동시에 표시하도록 선택할 수 있습니다. 이미지 영역 위의 아이콘을 사용하여 레이아웃을 선택합니다. 
+
+표시된 모든 이미지를 동시에 선택하려면 **모두 선택**을 사용합니다. 개별 이미지를 선택하려면 이미지의 오른쪽 위 모서리에 있는 원형 선택 단추를 사용합니다. 태그를 적용할 이미지를 하나 이상 선택해야 합니다. 여러 이미지를 선택하면 선택한 태그가 선택한 모든 이미지에 적용됩니다.
 
 여기서는 2x2 레이아웃을 선택했으며, 곰과 범고래의 이미지에 "포유동물"이라는 태그를 적용하려고 합니다. 상어의 이미지에는 이미 "연골 어류"라는 태그가 지정되었으며, 이구아나에는 아직 태그가 지정되지 않았습니다.
 

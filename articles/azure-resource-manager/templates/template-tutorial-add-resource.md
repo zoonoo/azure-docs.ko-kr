@@ -2,17 +2,17 @@
 title: 자습서 - 템플릿에 리소스 추가
 description: 첫 번째 Azure Resource Manager 템플릿을 만드는 단계를 설명합니다. 템플릿 파일 구문 및 스토리지 계정을 배포하는 방법에 대해 알아봅니다.
 author: mumian
-ms.date: 02/24/2020
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: af571b6503f04c809b62c530f6d6254082b838be
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: dcdbbb325e6589669abe6cf3d25ac5191e29118b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586685"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411745"
 ---
-# <a name="tutorial-add-a-resource-to-your-resource-manager-template"></a>자습서: Resource Manager 템플릿에 리소스 추가
+# <a name="tutorial-add-a-resource-to-your-arm-template"></a>자습서: ARM 템플릿에 리소스 추가
 
 [이전 자습서](template-tutorial-create-first-template.md)에서는 빈 템플릿을 만들어서 배포하는 방법을 알아보았습니다. 이제 실제 리소스를 배포할 준비가 되었습니다. 이 자습서에서는 스토리지 계정을 추가합니다. 이 자습서를 완료하는 데 **9분** 정도 걸립니다.
 
@@ -26,7 +26,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 기존 템플릿에 스토리지 계정 정의를 추가하려면 다음 예제에 강조 표시되어 있는 JSON을 살펴보세요. 템플릿의 섹션을 복사하는 대신 전체 파일을 복사하고 해당 내용으로 템플릿을 바꿉니다.
 
-**{provide-unique-name}** 을 고유한 스토리지 계정 이름으로 바꿉니다.
+템플릿에서 **{provide-unique-name}** (중괄호 포함)을 고유한 스토리지 계정 이름으로 바꿉니다.
 
 > [!IMPORTANT]
 > 스토리지 계정 이름은 Azure 내에서 고유해야 합니다. 이름에는 소문자 또는 숫자만 사용할 수 있습니다. 24자 이하여야 합니다. **store1**을 접두사로 사용하고 이니셜과 오늘 날짜를 추가하는 이름 지정 패턴을 시도해 볼 수 있습니다. 예를 들어 **store1abc09092019**와 같은 이름을 사용할 수 있습니다.
@@ -37,7 +37,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 ## <a name="resource-properties"></a>리소스 속성
 
-각 리소스 종류에 사용할 속성을 찾는 방법이 궁금할 수 있습니다. [Resource Manager 템플릿 참조](/azure/templates/)를 사용하여 배포하려는 리소스 종류를 찾을 수 있습니다.
+각 리소스 종류에 사용할 속성을 찾는 방법이 궁금할 수 있습니다. [ARM 템플릿 참조](/azure/templates/)를 사용하여 배포하려는 리소스 종류를 찾을 수 있습니다.
 
 배포하는 모든 리소스에는 최소한 다음 세 가지 속성이 있습니다.
 
@@ -72,14 +72,19 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
+이 배포 명령을 실행하려면 Azure CLI의 [최신 버전](/cli/azure/install-azure-cli)이 있어야 합니다.
+
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addstorage \
   --resource-group myResourceGroup \
   --template-file $templateFile
 ```
 
 ---
+
+> [!NOTE]
+> 배포에 실패한 경우 배포 명령과 함께 **debug** 스위치를 사용하여 디버그 로그를 표시합니다.  **verbose** 스위치를 사용하여 전체 디버그 로그를 표시할 수도 있습니다.
 
 발생할 수 있는 두 가지 배포 오류는 다음과 같습니다.
 

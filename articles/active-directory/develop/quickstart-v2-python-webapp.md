@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 34f0fb57b4432a8153f2cbaa8cb60edbb9a6f494
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0affae56ef6998efe4bb370287ff3688f83f3878
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78271076"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80873959"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>빠른 시작: Python 웹앱에 Microsoft로 로그인 추가
 
@@ -41,8 +41,7 @@ ms.locfileid: "78271076"
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
-> 1. [Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)으로 이동합니다.
-> 1. **새 등록**을 선택합니다.
+> 1. [Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonQuickstartPage/sourceType/docs)으로 이동합니다.
 > 1. 애플리케이션 이름을 입력하고 **등록**을 선택합니다.
 > 1. 지침에 따라 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >
@@ -59,8 +58,11 @@ ms.locfileid: "78271076"
 > 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
 >      - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `python-webapp`)을 입력합니다.
 >      - **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 선택합니다.
->      - **리디렉션 URI** 섹션에 있는 드롭다운 목록에서 **웹** 플랫폼을 선택한 다음, 해당 값을 `http://localhost:5000/getAToken`로 설정합니다.
->      - **등록**을 선택합니다. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
+>      - **등록**을 선택합니다.
+>      - 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
+> 1. 메뉴에서 **인증**을 선택한 후 다음 정보를 추가합니다.
+>    - **웹** 플랫폼 구성을 추가합니다. `http://localhost:5000/getAToken`을 **리디렉션 URI**로 추가합니다.
+>    - **저장**을 선택합니다.
 > 1. 왼쪽 메뉴에서 **인증서 및 비밀**을 선택하고 **클라이언트 비밀** 섹션에서 **새 클라이언트 비밀**을 클릭합니다.
 >
 >      - 키 설명(인스턴스 앱 비밀)을 입력합니다.
@@ -99,13 +101,17 @@ ms.locfileid: "78271076"
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
 > [코드 샘플 다운로드](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > `Enter_the_Supported_Account_Info_Here`
+
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-the-application"></a>3단계: 애플리케이션 구성
-> 
+>
 > 1. Zip 파일을 루트 폴더에 가까운 로컬 폴더(예: **C:\Azure-Samples**)로 추출합니다.
 > 1. 통합 개발 환경을 사용하는 경우 원하는 IDE에서 샘플을 엽니다(선택 사항).
 > 1. 루트 폴더에 있는 **app_config.py** 파일을 열고 다음 코드 조각으로 바꿉니다.
-> 
+>
 > ```python
 > CLIENT_ID = "Enter_the_Application_Id_here"
 > CLIENT_SECRET = "Enter_the_Client_Secret_Here"

@@ -1,22 +1,14 @@
 ---
 title: '자습서: 게시 설정 - LUIS'
-titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 예측을 향상시키기 위해 게시 설정을 변경합니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/13/2019
-ms.author: diberry
-ms.openlocfilehash: 2df32c20bebf4243f383a0cccd8f037721533602
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 04/01/2020
+ms.openlocfilehash: 19913d16ecb1457ad4edb93ea34e4b96a590aca0
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75890380"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545768"
 ---
 # <a name="tutorial--add-sentiment-analysis-as-a-publishing-setting"></a>자습서:  감정 분석을 게시 설정으로 추가
 
@@ -67,11 +59,11 @@ ms.locfileid: "75890380"
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. 주소의 URL 끝으로 이동하여 다음 발언을 입력합니다.
+1. 주소 표시줄의 URL 끝으로 이동하여 _YOUR_QUERY_HERE_를 다음으로 바꿉니다.
 
     `Deliver 2 of the best cheese pizzas ever!!!`
 
-    마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `query`입니다. 이 발언은 레이블이 지정된 발언과 같지 않으므로 유용한 테스트이며 감정 분석이 추출된 `OrderPizza` 의도가 반환되어야 합니다.
+    이 발언은 레이블이 지정된 발언과 같지 않으므로 유용한 테스트이며 감정 분석이 추출된 `OrderPizza` 의도가 반환되어야 합니다.
 
     ```json
     {
@@ -122,9 +114,7 @@ ms.locfileid: "75890380"
 
     감정 분석은 86%의 점수로 긍정적입니다.
 
-## <a name="clean-up-resources"></a>리소스 정리
-
-[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 
 ## <a name="related-information"></a>관련 정보
 

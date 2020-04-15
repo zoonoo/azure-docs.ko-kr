@@ -1,25 +1,25 @@
 ---
-title: ImageInsightsToken을 사용하여 이전 검색에서 유사한 이미지 찾기 - Bing Visual Search
+title: 이미지 인사이트 토큰 및 Bing Visual Search API를 사용하여 이전 검색에서 유사한 이미지 찾기
 titleSuffix: Azure Cognitive Services
-description: ImageInsightsToken에서 지정한 이미지의 URL을 가져오기 위해 Bing Visual Search SDK를 사용합니다.
+description: Bing Visual Search 클라이언트 라이브러리를 사용하여 이전 검색에서 이미지의 URL을 가져옵니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 11/29/2019
+ms.date: 03/31/2020
 ms.author: aahi
-ms.openlocfilehash: dff96b19f40c2d897b6a018a4c46cec60f8aa201
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: ad24a8a194a11c3fd5f7f77ea8c52197d5438edc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74689318"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477911"
 ---
-# <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>ImageInsightsToken을 사용하여 이전 검색에서 유사한 이미지 찾기
+# <a name="tutorial-find-similar-images-from-previous-searches-using-an-image-insights-token"></a>자습서: 이미지 인사이트 토큰을 사용하여 이전 검색에서 유사한 이미지 찾기
 
-Visual Search SDK를 통해 `ImageInsightsToken`을 반환하는 이전 검색에서 온라인으로 이미지를 찾을 수 있습니다. 이 애플리케이션은 `ImageInsightsToken`을 가져와 후속 검색에서 토큰을 사용합니다. 그런 다음, `ImageInsightsToken`을 Bing에 보내고 Bing Search URL 및 온라인에서 찾은 비슷한 이미지의 URL을 포함하는 결과를 반환합니다.
+Visual Search 클라이언트 라이브러리를 통해 `ImageInsightsToken`을 반환하는 이전 검색에서 온라인으로 이미지를 찾을 수 있습니다. 이 애플리케이션은 `ImageInsightsToken`을 가져와 후속 검색에서 토큰을 사용합니다. 그런 다음, `ImageInsightsToken`을 Bing에 보내고 Bing Search URL 및 온라인에서 찾은 비슷한 이미지의 URL을 포함하는 결과를 반환합니다.
 
 이 자습서에 대한 전체 소스 코드는 추가 오류 처리 및 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInsightsTokens.cs)에서 찾을 수 있습니다.
 
@@ -36,9 +36,9 @@ Visual Search SDK를 통해 `ImageInsightsToken`을 반환하는 이전 검색�
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-## <a name="get-the-imageinsightstoken-from-the-bing-image-search-sdk"></a>Bing Image Search SDK에서 ImageInsightsToken 가져오기
+## <a name="get-the-imageinsightstoken-from-the-bing-image-search-client-library"></a>Bing Image Search 클라이언트 라이브러리에서 ImageInsightsToken 가져오기
 
-이 애플리케이션은 `ImageInsightsToken`Bing Image Search SDK[를 통해 획득한 ](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart)을 사용합니다. 새 C# 콘솔 애플리케이션에서 클라이언트를 만들어 `ImageSearchClient()`를 사용하는 API를 호출합니다. 그런 다음, 쿼리와 함께 `SearchAsync()`를 사용합니다.
+이 애플리케이션은 [Bing Image Search 클라이언트 라이브러리](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart)를 통해 가져온 `ImageInsightsToken`을 사용합니다. 새 C# 콘솔 애플리케이션에서 클라이언트를 만들어 `ImageSearchClient()`를 사용하는 API를 호출합니다. 그런 다음, 쿼리와 함께 `SearchAsync()`를 사용합니다.
 
 ```csharp
 var client = new ImageSearchClient(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
@@ -85,7 +85,7 @@ var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest
 
 ## <a name="iterate-through-the-visual-search-results"></a>Visual Search 결과 반복
 
-Visual Search 결과는 `ImageTag` 개체입니다. 각 태그에는 `ImageAction` 개체의 목록이 포함됩니다. 각 `ImageAction`에는 작업 유형에 종속되는 값의 목록인 `Data` 필드가 포함됩니다. 예를 들어 `ImageTag`에서 `visualSearchResults.Tags` 개체를 반복하고, `ImageAction` 태그를 가져올 수 있습니다. 아래 샘플은 `PagesIncluding` 작업의 세부 정보를 출력합니다.
+Visual Search 결과는 `ImageTag` 개체입니다. 각 태그에는 `ImageAction` 개체의 목록이 포함됩니다. 각 `ImageAction`에는 작업 유형에 종속되는 값의 목록인 `Data` 필드가 포함됩니다. 예를 들어 `visualSearchResults.Tags`에서 `ImageTag` 개체를 반복하고, `ImageAction` 태그를 가져올 수 있습니다. 아래 샘플은 `PagesIncluding` 작업의 세부 정보를 출력합니다.
 
 ```csharp
 if (visualSearchResults.Tags.Count > 0)
@@ -111,7 +111,7 @@ if (visualSearchResults.Tags.Count > 0)
 
 ### <a name="pagesincluding-actiontypes"></a>PagesIncluding ActionTypes
 
-작업 유형에서 실제 이미지 URL을 가져오려면 값 목록이 있는 `ActionType` 요소를 포함하는 `ImageModuleAction`으로 `Data`을 읽는 캐스트가 필요합니다. 각 값은 이미지의 URL입니다.  다음은 `PagesIncluding` 동작 유형을 `ImageModuleAction`으로 캐스트하고 값을 읽습니다.
+작업 유형에서 실제 이미지 URL을 가져오려면 값 목록이 있는 `Data` 요소를 포함하는 `ImageModuleAction`으로 `ActionType`을 읽는 캐스트가 필요합니다. 각 값은 이미지의 URL입니다.  다음은 `PagesIncluding` 동작 유형을 `ImageModuleAction`으로 캐스트하고 값을 읽습니다.
 
 ```csharp
     if (i.ActionType == "PagesIncluding")

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: fae4206e555c85fe0555ce1c4366cd57dd386f1e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: efe2c96c619aaf92efc5b4abf76b6b89c96ebd37
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79471832"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878037"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>자습서: Front Door 사용자 지정 도메인에서 HTTPS 구성
 
@@ -37,7 +37,7 @@ Azure Front Door는 기본적으로 Front Door 기본 호스트 이름에 HTTPS�
 > [!div class="checklist"]
 > - 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하도록 설정
 > - AFD 관리 인증서 사용 
-> - 사용자 고유의 인증서, 즉 사용자 지정 SSL 인증서 사용
+> - 사용자 고유의 인증서, 즉 사용자 지정 TLS/SSL 인증서 사용
 > - 도메인의 유효성 검사
 > - 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하지 않도록 설정
 
@@ -48,9 +48,9 @@ Azure Front Door는 기본적으로 Front Door 기본 호스트 이름에 HTTPS�
 
 이 자습서에서 단계를 완료하기 전에 먼저 Front Door를 만들고 하나 이상의 사용자 지정 도메인을 등록해야 합니다. 자세한 내용은 [자습서: Front Door에 사용자 지정 도메인 추가](front-door-custom-domain.md)를 참조하세요.
 
-## <a name="ssl-certificates"></a>SSL 인증서
+## <a name="tlsssl-certificates"></a>TLS/SSL 인증서
 
-Front Door 사용자 지정 도메인에서 콘텐츠를 안전하게 제공하기 위해 HTTPS 프로토콜을 활성화하려면 SSL 인증서를 사용해야 합니다. Azure Front Door에서 관리되는 인증서를 사용하거나 사용자 고유의 인증서를 사용하도록 선택할 수 있습니다.
+Front Door 사용자 지정 도메인에서 콘텐츠를 안전하게 제공하기 위해 HTTPS 프로토콜을 활성화하려면 TLS/SSL 인증서를 사용해야 합니다. Azure Front Door에서 관리되는 인증서를 사용하거나 사용자 고유의 인증서를 사용하도록 선택할 수 있습니다.
 
 
 ### <a name="option-1-default-use-a-certificate-managed-by-front-door"></a>옵션 1(기본값): Front Door에서 관리되는 인증서 사용
@@ -72,7 +72,7 @@ Azure Front Door에서 관리되는 인증서를 사용하면 단 몇 번의 클
 
 ### <a name="option-2-use-your-own-certificate"></a>옵션 2: 사용자 고유의 인증서 사용
 
-사용자 고유의 인증서를 사용하여 HTTPS 기능을 활성화합니다. 이 프로세스는 인증서를 안전하게 저장할 수 있도록 하는 Azure Key Vault와의 통합을 통해 수행됩니다. Azure Front Door는 이 보안 메커니즘을 사용하여 인증서를 가져오며 몇 가지 추가 단계를 수행해야 합니다. SSL 인증서를 만들 때 허용된 CA(인증 기관)에서 만들어야 합니다. 그렇지 않고 허용되지 않는 CA를 사용하는 경우 요청이 거부됩니다. 허용되는 CA 목록은 [Azure Front Door에서 사용자 지정 HTTPS를 사용하기 위해 허용되는 인증 기관](front-door-troubleshoot-allowed-ca.md)을 참조하세요.
+사용자 고유의 인증서를 사용하여 HTTPS 기능을 활성화합니다. 이 프로세스는 인증서를 안전하게 저장할 수 있도록 하는 Azure Key Vault와의 통합을 통해 수행됩니다. Azure Front Door는 이 보안 메커니즘을 사용하여 인증서를 가져오며 몇 가지 추가 단계를 수행해야 합니다. TLS/SSL 인증서를 만들 때 허용된 CA(인증 기관)에서 만들어야 합니다. 그렇지 않고 허용되지 않는 CA를 사용하는 경우 요청이 거부됩니다. 허용되는 CA 목록은 [Azure Front Door에서 사용자 지정 HTTPS를 사용하기 위해 허용되는 인증 기관](front-door-troubleshoot-allowed-ca.md)을 참조하세요.
 
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Azure 키 자격 증명 모음 계정 및 인증서 준비
  
@@ -84,7 +84,7 @@ Azure Front Door에서 관리되는 인증서를 사용하면 단 몇 번의 클
 2. Azure Key Vault 인증서: 인증서가 이미 있는 경우 Azure Key Vault 계정에 직접 업로드하거나 Azure Key Vault와 통합하는 파트너 CA 중 하나에서 Azure Key Vault를 통해 직접 새 인증서를 만들 수 있습니다. 인증서를 **비밀** 대신 **인증서** 개체로 업로드합니다.
 
 > [!NOTE]
-> 자체 SSL 인증서의 경우, Front Door는 EC 암호화 알고리즘을 사용하는 인증서를 지원하지 않습니다.
+> 자체 TLS/SSL 인증서의 경우, Front Door는 EC 암호화 알고리즘을 사용하는 인증서를 지원하지 않습니다.
 
 #### <a name="register-azure-front-door"></a>Azure Front Door 등록
 
@@ -260,7 +260,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 4. *SAN 인증서를 사용하는 것보다 전용 인증서를 사용하는 것이 더 안전한가요?*
     
-    SAN 인증서는 전용 인증서와 동일한 암호화 및 보안 표준을 따릅니다. 발급된 모든 SSL 인증서는 향상된 서버 보안을 위해 SHA-256을 사용합니다.
+    SAN 인증서는 전용 인증서와 동일한 암호화 및 보안 표준을 따릅니다. 발급된 모든 TLS/SSL 인증서는 향상된 서버 보안을 위해 SHA-256을 사용합니다.
 
 5. *내 DNS 공급자에게 CAA(Certificate Authority Authorization) 레코드가 필요합니까?*
 

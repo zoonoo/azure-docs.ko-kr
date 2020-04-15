@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 5a21f36136c6f1d77a2e9cb9108f539c9fb39334
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 124bbcedceffca318367799441f66e330bc41fef
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77134882"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811323"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data"></a>빠른 시작: Azure Cosmos DB Cassandra API 데이터를 관리하는 Java 앱 빌드
 
@@ -66,7 +66,7 @@ ms.locfileid: "77134882"
 
 이 단계는 선택 사항입니다. 코드로 데이터베이스 리소스를 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 이 코드 조각은 모두 *src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java* 파일에서 가져옵니다.  
 
-* Cassandra 호스트, 포트, 사용자 이름, 암호 및 SSL 옵션이 설정됩니다. 연결 문자열 정보는 Azure Portal의 연결 문자열 페이지에서 가져옵니다.
+* Cassandra 호스트, 포트, 사용자 이름, 암호 및 TLS/SSL 옵션이 설정됩니다. 연결 문자열 정보는 Azure Portal의 연결 문자열 페이지에서 가져옵니다.
 
    ```java
    cluster = Cluster.builder().addContactPoint(cassandraHost).withPort(cassandraPort).withCredentials(cassandraUsername, cassandraPassword).withSSL(sslOptions).build();
@@ -168,18 +168,18 @@ ms.locfileid: "77134882"
 
     `cassandra_password=2Ggkr662ifxz2Mg...==`
 
-5. 줄 6에서 특정 SSL 인증서를 사용하려면 `<SSL key store file location>`을 SSL 인증서의 위치로 바꿉니다. 값을 제공하지 않으면 <JAVA_HOME>/jre/lib/security/cacerts에 설치된 JDK 인증서가 사용됩니다. 
+5. 줄 6에서 특정 TLS/SSL 인증서를 사용하려면 `<SSL key store file location>`을 TLS/SSL 인증서의 위치로 바꿉니다. 값을 제공하지 않으면 <JAVA_HOME>/jre/lib/security/cacerts에 설치된 JDK 인증서가 사용됩니다. 
 
-6. 특정 SSL 인증서를 사용하기 위해 줄 6을 변경한 경우 줄 7을 업데이트하여 해당 인증서의 암호를 사용합니다. 
+6. 특정 TLS/SSL 인증서를 사용하기 위해 줄 6을 변경한 경우 줄 7을 업데이트하여 해당 인증서의 암호를 사용합니다. 
 
 7. *config.properties* 파일을 저장합니다.
 
 ## <a name="run-the-java-app"></a>Java 앱 실행
 
-1. Git 터미널 창에서 `azure-cosmosdb-cassandra-java-getting-started\java-examples` 폴더로 `cd`합니다.
+1. Git 터미널 창에서 `azure-cosmosdb-cassandra-java-getting-started` 폴더로 `cd`합니다.
 
     ```git
-    cd "C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples"
+    cd "C:\git-samples\azure-cosmosdb-cassandra-java-getting-started"
     ```
 
 2. Git 터미널 창에서 다음 명령을 사용하여 `cosmosdb-cassandra-examples.jar` 파일을 생성합니다.

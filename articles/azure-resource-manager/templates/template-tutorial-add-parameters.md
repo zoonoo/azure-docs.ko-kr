@@ -2,19 +2,19 @@
 title: 자습서 - 템플릿에 매개 변수 추가
 description: Azure Resource Manager 템플릿에 매개 변수를 추가하여 다시 사용할 수 있도록 합니다.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 89101a96f4fc228e2d5c45d67e10b52ac5d8aa11
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: de7ec961672db2f3120e00f1a42b33f71e7ab092
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773198"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437826"
 ---
-# <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>자습서: Resource Manager 템플릿에 매개 변수 추가
+# <a name="tutorial-add-parameters-to-your-arm-template"></a>자습서: ARM 템플릿에 매개 변수 추가
 
-[이전 자습서](template-tutorial-add-resource.md)에서는 템플릿에 스토리지 계정을 추가하여 배포하는 방법을 알아보았습니다. 이 자습서에서는 매개 변수를 추가하여 템플릿을 개선하는 방법을 알아봅니다. 이 자습서를 완료하는 데 **14분** 정도 걸립니다.
+[이전 자습서](template-tutorial-add-resource.md)에서는 템플릿에 스토리지 계정을 추가하여 배포하는 방법을 알아보았습니다. 이 자습서에서는 매개 변수를 추가하여 ARM(Azure Resource Manager) 템플릿을 개선하는 방법을 알아봅니다. 이 자습서를 완료하는 데 **14분** 정도 걸립니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -44,7 +44,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 리소스 그룹을 만들지 않은 경우 [리소스 그룹 만들기](template-tutorial-create-first-template.md#create-resource-group)를 참조하세요. 이 예제에서는 [첫 번째 자습서](template-tutorial-create-first-template.md#deploy-template)에 표시된 대로 **templateFile** 변수를 템플릿 파일의 경로로 설정했다고 가정합니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -54,10 +54,12 @@ New-AzResourceGroupDeployment `
   -storageName "{your-unique-name}"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+이 배포 명령을 실행하려면 Azure CLI의 [최신 버전](/cli/azure/install-azure-cli)이 있어야 합니다.
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addnameparameter \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -88,7 +90,7 @@ az group deployment create \
 
 다시 배포할 준비가 되었습니다. 기본 SKU가 **Standard_LRS**로 설정되어 있기 때문에 해당 매개 변수에 대한 값을 제공할 필요가 없습니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -98,10 +100,10 @@ New-AzResourceGroupDeployment `
   -storageName "{your-unique-name}"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addskuparameter \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -110,24 +112,27 @@ az group deployment create \
 
 ---
 
+> [!NOTE]
+> 배포에 실패한 경우 배포 명령과 함께 **debug** 스위치를 사용하여 디버그 로그를 표시합니다.  **verbose** 스위치를 사용하여 전체 디버그 로그를 표시할 수도 있습니다.
+
 템플릿의 유연성을 보기 위해 다시 배포하겠습니다. 이번에는 SKU 매개 변수를 **Standard_GRS**로 설정합니다. 새 이름을 전달하여 다른 스토리지 계정을 만들거나 같은 이름을 사용하여 기존 스토리지 계정을 업데이트할 수 있습니다. 두 옵션 모두 괜찮습니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
-  -Name usedefaultsku `
+  -Name usenondefaultsku `
   -ResourceGroupName myResourceGroup `
   -TemplateFile $templateFile `
   -storageName "{your-unique-name}" `
   -storageSKU Standard_GRS
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
-  --name usedefaultsku \
+az deployment group create \
+  --name usenondefaultsku \
   --resource-group myResourceGroup \
   --template-file $templateFile \
   --parameters storageSKU=Standard_GRS storageName={your-unique-name}
@@ -137,7 +142,7 @@ az group deployment create \
 
 마지막으로 한 가지 테스트를 더 실행하여 허용된 값에 속하지 않는 SKU를 전달하면 어떻게 되는지 살펴보겠습니다. 템플릿 사용자가 **basic**이 SKU 중 하나라고 생각하는 시나리오를 테스트합니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -148,10 +153,10 @@ New-AzResourceGroupDeployment `
   -storageSKU basic
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name testskuparameter \
   --resource-group myResourceGroup \
   --template-file $templateFile \

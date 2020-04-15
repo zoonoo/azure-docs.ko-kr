@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 7a01c436f31a8ce5b8071db3eda4cf5562c421c0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3c50e82647b22a18edee92f47abc1d136670cacc
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441271"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519662"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>자습서: JavaScript SDK를 사용하여 Azure Cosmos DB의 SQL API 계정을 관리하는 Node.js 웹앱 빌드 
 
@@ -83,7 +83,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
    npm start
    ```
 
-1. 브라우저에서 [http://localhost:3000](http://localhost:3000)으로 이동하여 새 애플리케이션을 확인할 수 있습니다.
+1. 브라우저에서 `http://localhost:3000`으로 이동하여 새 애플리케이션을 확인할 수 있습니다.
    
    ![Node.js 알아보기 - 브라우저 창에 표시된 Hello World 애플리케이션의 스크린샷](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 

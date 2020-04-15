@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/26/2020
+ms.date: 03/30/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1497b757d77d12cb5b963953224fa8929e987853
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 4af7dc5d55e451e4f6873df42e2b740fd1e5cd56
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385305"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80891665"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-anyconnect"></a>자습서: Cisco AnyConnect와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -96,6 +96,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **Cisco AnyConnect 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
+
+> [!NOTE]
+> 서버의 여러 TGT 보드를 원하는 경우 갤러리에서 Cisco AnyConnect 애플리케이션의 여러 인스턴스를 추가해야 합니다. 또한 이러한 모든 애플리케이션 인스턴스에 대해 Azure AD에서 사용자 고유의 인증서를 업로드하도록 선택할 수 있습니다. 이렇게 하면 애플리케이션에 대해 동일한 인증서를 사용할 수 있지만 모든 애플리케이션에 대해 서로 다른 식별자와 회신 URL을 구성할 수 있습니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

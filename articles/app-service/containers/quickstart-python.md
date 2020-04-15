@@ -2,16 +2,16 @@
 title: '빠른 시작: Linux Python 앱 만들기'
 description: 첫 번째 Python 앱을 App Service의 Linux 컨테이너에 배포하여 Azure App Service에서 Linux 앱을 시작하세요.
 ms.topic: quickstart
-ms.date: 10/22/2019
+ms.date: 04/03/2020
 ms.custom: seo-python-october2019, cli-validate
 experimental: true
 experiment_id: 01a9132f-eaab-4c
-ms.openlocfilehash: 9cc314edf35d6a327522ed49fcc0c7798c7dcf63
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 63daecca710e0e4d7b3326cea59c0c025c24f619
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80045662"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811146"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>빠른 시작: Azure App Service on Linux에서 Python 앱 만들기
 
@@ -24,7 +24,7 @@ IDE를 통한 앱 배포를 선호하는 경우에는 [Visual Studio Code에서 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - <a href="https://www.python.org/downloads/" target="_blank">Python 3.7</a>(Python 3.6도 지원됨)
 - <a href="https://git-scm.com/downloads" target="_blank">Git</a>
-- <a href="https://docs.microsoft.com/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>
+- <a href="https://docs.microsoft.com/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 이상. `az --version`을 실행하여 버전을 확인합니다.
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
@@ -98,39 +98,44 @@ az login
 
 [`az webapp up`](/cli/azure/webapp#az-webapp-up) 명령은 App Service에서 웹앱을 만들고 코드를 배포합니다.
 
-샘플 코드를 포함하는 *python-docs-hello-world* 폴더에서 다음 `az webapp up` 명령을 실행합니다. `<app-name>`을 전역적으로 고유한 앱 이름(*유효한 문자는 `a-z`, `0-9`, `-`임*)으로 바꿉니다. `<location-name>`도 Azure 지역(예: **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia** 등)으로 바꿉니다. (Azure 계정에 허용되는 지역 목록은 [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) 명령을 실행하여 검색할 수 있습니다.)
+샘플 코드를 포함하는 *python-docs-hello-world* 폴더에서 다음 `az webapp up` 명령을 실행합니다. `<app-name>`을 전역적으로 고유한 앱 이름(*유효한 문자는 `a-z`, `0-9`, `-`임*)으로 바꿉니다.
 
 
 ```azurecli
-az webapp up --sku F1 -n <app-name> -l <location-name>
+az webapp up --sku F1 -n <app-name>
 ```
 
-이 명령을 완전히 실행하는 데 몇 분 정도 걸릴 수 있습니다. 실행 시 다음 예와 유사한 정보를 출력합니다.
+`--sku F1` 인수는 무료 가격 책정 계층에 웹앱을 만듭니다. 이 인수를 생략하여 프리미엄 계층을 대신 사용할 수 있으며, 이 경우 시간당 비용이 발생합니다.
 
-```output
-The behavior of this command has been altered by the following extension: webapp
+`<location_name>`이 **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia** 등과 같은 Azure 지역인 `-l <location-name>` 인수를 필요에 따라 포함할 수 있습니다. Azure 계정에 허용되는 지역 목록은 [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) 명령을 실행하여 검색할 수 있습니다.
+
+`az webapp up` 명령을 완전히 실행하는 데 몇 분 정도 걸릴 수 있습니다. 실행 시 다음 예와 유사한 정보가 표시됩니다. 여기서 `<app_name>`은 이전에 제공한 이름입니다.
+
+<pre>
 Creating Resource group 'appsvc_rg_Linux_centralus' ...
 Resource group creation complete
 Creating App service plan 'appsvc_asp_Linux_centralus' ...
 App service plan creation complete
 Creating app '<app-name>' ....
-Webapp creation complete
-Creating zip with contents of dir /home/username/quickstart/python-docs-hello-world ...
-Preparing to deploy contents to app.
-All done.
+Configuring default logging for the app, if not already enabled
+Creating zip with contents of dir D:\Examples\python-docs-hello-world ...
+Getting scm site credentials for zip deployment
+Starting zip deployment. This operation can take a while to complete ...
+Deployment endpoint responded with status code 202
+You can launch the app at http://<app-name>.azurewebsites.net
 {
-  "app_url": "https:/<app-name>.azurewebsites.net",
-  "location": "Central US",
+  "URL": "http://<app-name>.net",
+  "appserviceplan": "appsvc_asp_Linux_centralus",
+  "location": "eastus",
   "name": "<app-name>",
   "os": "Linux",
-  "resourcegroup": "appsvc_rg_Linux_centralus ",
-  "serverfarm": "appsvc_asp_Linux_centralus",
-  "sku": "BASIC",
-  "src_path": "/home/username/quickstart/python-docs-hello-world ",
-  "version_detected": "-",
-  "version_to_create": "python|3.7"
+  "resourcegroup": "appsvc_rg_Linux_centralus",
+  "runtime_version": "python|3.7",
+  "runtime_version_detected": "-",
+  "sku": "FREE",
+  "src_path": "D:\\Examples\\python-docs-hello-world"
 }
-```
+</pre>
 
 [!INCLUDE [AZ Webapp Up Note](../../../includes/app-service-web-az-webapp-up-note.md)]
 
@@ -146,20 +151,23 @@ Python 샘플 코드가 기본 제공 이미지를 사용하여 App Service에�
 
 ## <a name="redeploy-updates"></a>업데이트 재배포
 
-원하는 코드 편집기에서 *application.py*를 열고 마지막 줄의 `return` 문을 다음 코드와 일치하도록 변경합니다. `print` 문은 다음 섹션에서 작업하는 로깅 출력을 생성하기 위해 여기에 포함됩니다. 
+즐겨 찾는 코드 편집기에서 *application.py*를 열고 `hello` 함수를 다음과 같이 업데이트합니다. 이 변경 사항은 다음 섹션에서 작업하는 로깅 출력을 생성하기 위해 `print` 문을 추가합니다. 
 
 ```python
-print("Handling request to home page.")
-return "Hello Azure!"
+def hello():
+    print("Handling request to home page.")
+    return "Hello Azure!"
 ```
 
 변경 내용을 저장하고 편집기를 종료합니다. 
 
-처음으로 앱을 배포할 때 사용한 것과 동일한 `az webapp up` 명령을 사용하되 `<app-name>`과 `<location-name>`을 이전에 사용한 것과 동일한 이름으로 바꿔서 앱을 재배포합니다. 
+`az webapp up` 명령을 사용하여 앱을 다시 배포합니다.
 
 ```azurecli
-az webapp up --sku F1 -n <app-name> -l <location-name>
+az webapp up
 ```
+
+이 명령은 앱 이름, 리소스 그룹 및 App Service 계획을 포함하여 *.azure/config* 파일에 캐시된 값을 사용합니다.
 
 배포가 완료되면 브라우저 창으로 다시 전환하여 `http://<app-name>.azurewebsites.net`을 열고 페이지를 새로 고칩니다. 그러면 수정된 메시지가 표시됩니다.
 
@@ -172,24 +180,18 @@ az webapp up --sku F1 -n <app-name> -l <location-name>
 
 앱 내부에서 생성되는 콘솔 로그와 앱이 실행되는 컨테이너에 액세스할 수 있습니다. 로그에는 `print` 문을 사용하여 생성된 모든 출력이 포함됩니다.
 
-먼저 터미널에서 다음 명령을 실행하여 컨테이너 로깅을 설정합니다. 이때 `<app-name>`은 앱 이름으로 바꾸고, `<resource-group-name>`은 사용한 `az webapp up` 명령의 출력에 표시된 리소스 그룹 이름(예: "appsvc_rg_Linux_centralus")으로 바꿉니다.
+로그를 스트리밍하려면 다음 명령을 실행합니다.
 
 ```azurecli
-az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
-```
-
-컨테이너 로깅이 설정되면 다음 명령을 실행하여 로그 스트림을 표시합니다.
-
-```azurecli
-az webapp log tail --name <app-name> --resource-group <resource-group-name>
+az webapp log tail
 ```
 
 브라우저에서 앱을 새로 고쳐서 콘솔 로그를 생성합니다. 여기에는 다음 텍스트와 유사한 줄이 포함되어야 합니다. 출력이 즉시 표시되지 않으면 30초 후에 다시 시도합니다.
 
-```output
-2019-10-23T12:40:03.815574424Z Handling request to home page.
-2019-10-23T12:40:03.815602424Z 172.16.0.1 - - [23/Oct/2019:12:40:03 +0000] "GET / HTTP/1.1" 200 12 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.63 Safari/537.36 Edg/78.0.276.19"
-```
+<pre>
+2020-04-03T22:54:04.236405938Z Handling request to home page.
+2020-04-03T22:54:04.236497641Z 172.16.0.1 - - [03/Apr/2020:22:54:04 +0000] "GET / HTTP/1.1" 200 12 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.83 Safari/537.36 Edg/81.0.416.41"
+</pre>
 
 `https://<app-name>.scm.azurewebsites.net/api/logs/docker`의 브라우저에서 로그 파일을 검사할 수도 있습니다.
 
@@ -213,7 +215,7 @@ App Service 메뉴는 앱 구성을 위한 다양한 페이지를 제공합니�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이전 단계에서 Azure 리소스를 리소스 그룹에 만들었습니다. 리소스 그룹의 이름은 사용자의 위치에 따라 "appsvc_rg_Linux_CentralUS" 등입니다. 무료 F1 계층 이외의 App Service SKU를 사용하면 이러한 리소스에 지속적인 비용이 발생합니다.
+이전 단계에서 Azure 리소스를 리소스 그룹에 만들었습니다. 리소스 그룹의 이름은 사용자의 위치에 따라 "appsvc_rg_Linux_CentralUS" 등입니다. 무료 F1 계층 이외의 App Service SKU를 사용하면 이러한 리소스에 지속적인 비용이 발생합니다([App Service 가격 계층](https://azure.microsoft.com/pricing/details/app-service/linux/) 참조).
 
 이러한 리소스가 나중에 필요하지 않을 것으로 예상되면 다음 명령을 실행하여 리소스 그룹을 삭제합니다. 이때 `<resource-group-name>`은 `az webapp up` 명령의 출력에 표시된 리소스 그룹(예: "appsvc_rg_Linux_centralus")으로 바꿉니다. 이 명령을 완료하는 데 1분 정도 걸릴 수 있습니다.
 

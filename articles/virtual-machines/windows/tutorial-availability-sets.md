@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0f94f4d312cefec80a0f294e256ee1ad908b903c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 59bf06d2b279bad792bdc42a7c3b6acc2bc304b8
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74068126"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985714"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 고가용성 가상 머신 만들기 및 배포
 
@@ -63,7 +63,7 @@ New-AzResourceGroup `
    -Location EastUS
 ```
 
-[ 매개 변수가 있는 ](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset)New-AzAvailabilitySet`-sku aligned`을 사용하여 관리형 가용성 집합을 만듭니다.
+`-sku aligned` 매개 변수가 있는 [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset)을 사용하여 관리형 가용성 집합을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzAvailabilitySet `
@@ -113,7 +113,7 @@ for ($i=1; $i -le 2; $i++)
 
 ## <a name="check-for-available-vm-sizes"></a>사용 가능한 VM 크기 확인 
 
-나중에 더 많은 VM을 가용성 집합에 추가할 수 있지만 하드웨어에서 사용 가능한 VM 크기를 알아야 합니다. [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize)를 사용하여 하드웨어 클러스터에서 사용 가능한 모든 가용성 집합 크기를 나열합니다.
+가용성 집합 내에서 VM을 만들 때는 하드웨어에서 사용할 수 있는 VM 크기를 알아야 합니다. [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) 명령을 사용하여 가용성 집합에 배포할 수 있는 가상 머신에 사용할 수 있는 모든 크기를 가져옵니다.
 
 ```azurepowershell-interactive
 Get-AzVMSize `

@@ -1,21 +1,21 @@
 ---
-title: '자습서: 이미지를 업로드하는 방법 - Bing Visual Search'
+title: '자습서: Bing Visual Search API를 사용하여 이미지를 업로드하는 방법'
 titleSuffix: Azure Cognitive Services
-description: 이미지를 Bing에 업로드하여 인사이트를 얻고, 응답을 구문 분석하여 표시하는 프로세스를 분석합니다.
+description: Bing에 이미지를 업로드하고, 이에 대한 인사이트를 얻고, 응답을 표시하는 방법을 알아봅니다.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 11/29/2019
+ms.date: 03/31/2020
 ms.author: scottwhi
-ms.openlocfilehash: 84a8219221525400a9d3241c2f183d24344c2f6a
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: ecd1ab5e613bb326b65f6aa50f3f85172bc334ac
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74689172"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477925"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>자습서: Bing Visual Search API에 이미지 업로드
 

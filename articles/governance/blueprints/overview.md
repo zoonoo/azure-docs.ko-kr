@@ -3,12 +3,12 @@ title: Azure Blueprints 개요
 description: Azure Blueprints 서비스를 통해 Azure 환경에서 아티팩트를 만들고 정의하고 배포하는 방법을 알아봅니다.
 ms.date: 11/21/2019
 ms.topic: overview
-ms.openlocfilehash: 07d84d658d88e977cd73176861e5c5e080c02857
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4787f2d559daffcbf5d4057ac381f0f7e1ae0c57
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74321771"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677409"
 ---
 # <a name="what-is-azure-blueprints"></a>Azure Blueprints란?
 
@@ -22,17 +22,17 @@ ms.locfileid: "74321771"
 - 리소스 그룹
 
 Azure Blueprints 서비스는 전역적으로 분산된 [Azure Cosmos DB](../../cosmos-db/introduction.md)를 통해 백업됩니다.
-청사진 개체는 여러 Azure 지역에 복제됩니다. 이렇게 복제하면 Blueprints가 리소스를 배포하는 Azure 지역에 관계 없이 대기 시간이 짧아지고, 가용성이 향상되고, 청사진 개체에 일관적으로 액세스할 수 있습니다.
+청사진 개체는 여러 Azure 지역에 복제됩니다. 이렇게 복제하면 Azure Blueprints가 리소스를 배포하는 Azure 지역에 관계없이 대기 시간이 짧아지고, 가용성이 향상되고, 청사진 개체에 일관적으로 액세스할 수 있습니다.
 
 ## <a name="how-its-different-from-resource-manager-templates"></a>Resource Manager 템플릿과 Blueprints의 차이점
 
 이 서비스는 _환경 설정_에 도움이 되도록 설계되었습니다. 이 설정은 리소스 그룹, 정책, 역할 할당 및 Resource Manager 템플릿 배포 집합으로 구성되는 경우가 많습니다. 청사진은 이러한 각 _아티팩트_ 유형을 통합 제공하는 패키지이므로, CI/CD 파이프라인을 사용하는 등의 방식으로 해당 패키지를 직접 작성하고 버전을 지정할 수 있습니다. 최종적으로 각 청사진은 감사 및 추적이 가능한 한 번의 작업을 통해 구독에 할당됩니다.
 
-Blueprints에서 배포에 포함하고자 하는 거의 모든 항목은 Resource Manager 템플릿을 통해서도 생성할 수 있습니다. 하지만 Resource Manager 템플릿은 Azure에서 기본적으로 제공되지 않는 문서이며 로컬이나 소스 제어에 저장됩니다. 템플릿은 Azure 리소스 하나 이상의 배포에 사용되기는 하지만, 해당 리소스가 배포되고 나면 해당 템플릿에 대한 활성 연결과 관계는 손실됩니다.
+Azure Blueprints에서 배포에 포함하고자 하는 거의 모든 항목은 Resource Manager 템플릿을 통해서도 생성할 수 있습니다. 하지만 Resource Manager 템플릿은 Azure에서 기본적으로 제공되지 않는 문서이며 로컬이나 소스 제어에 저장됩니다. 템플릿은 Azure 리소스 하나 이상의 배포에 사용되기는 하지만, 해당 리소스가 배포되고 나면 해당 템플릿에 대한 활성 연결과 관계는 손실됩니다.
 
-반면 Blueprints를 사용하는 경우에는 청사진 정의(_배포해야 하는 항목_)와 청사진 할당(_배포된 항목_ ) 간의 관계가 유지됩니다. 이 연결은 배포에 대한 향상된 추적 및 감사를 지원합니다. Blueprints는 동일한 청사진에서 관리하는 여러 구독을 한 번에 업그레이드할 수도 있습니다.
+반면 Azure Blueprints를 사용하는 경우에는 청사진 정의(_배포해야 하는 항목_)와 청사진 할당(_배포된 항목_) 간의 관계가 유지됩니다. 이 연결은 배포에 대한 향상된 추적 및 감사를 지원합니다. Azure Blueprints는 동일한 청사진에서 관리하는 여러 구독을 한 번에 업그레이드할 수도 있습니다.
 
-Resource Manager 템플릿과 청사진 중 하나만 선택할 필요는 없습니다. 각 청사진은 Resource Manager 템플릿 _아티팩트_를 포함하지 않을 수도 있고 하나 이상 포함할 수도 있습니다. 즉, 이전에 개발 및 유지 관리해 왔던 Resource Manager 템플릿 라이브러리를 Blueprints에서 재사용할 수 있습니다.
+Resource Manager 템플릿과 청사진 중 하나만 선택할 필요는 없습니다. 각 청사진은 Resource Manager 템플릿 _아티팩트_를 포함하지 않을 수도 있고 하나 이상 포함할 수도 있습니다. 즉, 이전에 개발 및 유지 관리해 왔던 Resource Manager 템플릿 라이브러리를 Azure Blueprints에서 재사용할 수 있습니다.
 
 ## <a name="how-its-different-from-azure-policy"></a>Azure Policy와 Blueprints의 차이점
 
@@ -46,7 +46,7 @@ Resource Manager 템플릿과 청사진 중 하나만 선택할 필요는 없습
 
 ## <a name="blueprint-definition"></a>청사진 정의
 
-청사진은 _아티팩트_로 구성됩니다. 현재 Blueprints에서 아티팩트로 지원하는 리소스는 다음과 같습니다.
+청사진은 _아티팩트_로 구성됩니다. 현재 Azure Blueprints에서 아티팩트로 지원하는 리소스는 다음과 같습니다.
 
 |리소스  | 계층 구조 옵션| Description  |
 |---------|---------|---------|

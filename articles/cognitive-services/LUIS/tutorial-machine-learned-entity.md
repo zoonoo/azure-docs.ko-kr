@@ -1,22 +1,14 @@
 ---
 title: '자습서: 기계 학습된 엔터티를 사용하여 정형 데이터 추출 - LUIS'
-titleSuffix: Azure Cognitive Services
 description: 기계 학습된 엔터티를 사용하여 발화에서 정형 데이터를 추출합니다. 추출 정확도를 높이려면 설명자와 제약 조건이 있는 하위 구성 요소를 추가합니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: e1709a5e86c8fed8d7f724ad1b105bd02df9fa56
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 04/01/2020
+ms.openlocfilehash: 52bf2fb0b9f37e0c731a46c0aaf8b6c5e7f0e911
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75381769"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545845"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>자습서: LUIS(Language Understanding)에서 기계 학습된 엔터티를 사용하여 사용자 발화에서 정형 데이터 추출
 
@@ -44,19 +36,19 @@ ms.locfileid: "75381769"
 
 이 자습서에서는 기계 학습된 엔터티를 추가하여 발화에서 데이터를 추출합니다.
 
-엔터티의 목적은 추출할 데이터를 정의하는 것입니다. 여기에는 이름, 형식(가능한 경우), 모호한 경우 데이터의 해상도 및 데이터를 구성하는 정확한 텍스트를 데이터에 제공하는 것이 포함됩니다.
+엔터티는 발화 내에서 추출할 데이터를 정의합니다. 여기에는 이름, 형식(가능한 경우), 모호한 경우 데이터의 해상도 및 데이터를 구성하는 정확한 텍스트를 데이터에 제공하는 것이 포함됩니다.
 
-엔터티를 정의하려면 엔터티를 만든 다음, 발화 예제에서 엔터티를 나타내는 텍스트에 레이블을 지정해야 합니다. 이러한 레이블이 지정된 예제에서는 엔터티가 무엇이고 발화에서 해당 엔터티를 찾을 수 있는 위치를 LUIS에 알려줍니다.
+엔터티를 정의하려면 엔터티를 만든 다음, 모든 의도 내의 발화 예제에서 엔터티를 나타내는 텍스트에 레이블을 지정해야 합니다. 이러한 레이블이 지정된 예제에서는 엔터티가 무엇이고 발화에서 해당 엔터티를 찾을 수 있는 위치를 LUIS에 알려줍니다.
 
 ## <a name="entity-decomposability-is-important"></a>엔터티 분해능은 중요합니다.
 
-엔터티 분해능은 의도 예측과 데이터 추출에 모두 중요합니다.
+엔터티 분해능은 의도 예측과 엔터티를 사용한 데이터 추출에 모두 중요합니다.
 
 데이터 추출을 위한 시작 및 최상위 엔터티인 기계 학습된 엔터티로 시작합니다. 그런 다음, 엔터티를 클라이언트 애플리케이션에 필요한 부분으로 분해합니다.
 
 앱을 시작할 때 엔터티를 자세히 알아볼 수는 없지만, 기계 학습된 엔터티로 시작한 다음, 앱이 완성됨에 따라 하위 구성 요소로 분해하는 것이 가장 좋습니다.
 
-실제로는 피자 앱의 주문을 나타내는 기계 학습된 엔터티를 만듭니다. 주문에는 주문을 이행하는 데 필요한 모든 부분이 있어야 합니다. 시작하기 위해 엔터티가 주문 관련 텍스트, 끌어오기 크기 및 수량을 추출합니다.
+이 경우 피자 앱의 주문을 나타내는 기계 학습된 엔터티를 만듭니다. 주문에는 주문을 이행하는 데 필요한 모든 부분이 있어야 합니다. 시작하기 위해 엔터티가 주문 관련 텍스트, 끌어오기 크기 및 수량을 추출합니다.
 
 `Please deliver one large cheese pizza to me` 발화에서는 `one large cheese pizza`를 주문으로 추출한 다음, `1` 및 `large`도 추출해야 합니다.
 
@@ -92,7 +84,7 @@ ms.locfileid: "75381769"
     ![엔터티에 구조 추가](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
 1. **기계 학습된 엔터티 만들기** 상자의 **구조** 상자에서 `Size`를 추가한 다음, Enter 키를 선택합니다.
-1. **설명자**를 추가하려면 **크기 설명자** 영역에서 `+`를 선택한 다음, **새 구 목록 만들기**를 선택합니다.
+1. **설명자**를 추가하려면 **설명자** 영역에서 `+`를 선택한 다음, **새 구 목록 만들기**를 선택합니다.
 
 1. **새 구 목록 설명자 만들기** 상자에서 이름으로 `SizeDescriptor`를 입력한 다음, `small`, `medium` 및 `large`의 값을 입력합니다. **제안** 상자가 채워지면 `extra large` 및 `xl`을 선택합니다. **완료**를 선택하여 새 구 목록을 만듭니다.
 
@@ -108,7 +100,7 @@ ms.locfileid: "75381769"
 
     ![발화에서 텍스트의 크기 엔터티에 레이블을 지정합니다.](media/tutorial-machine-learned-entity/mark-and-create-size-entity.png)
 
-    텍스트에 명시적으로 레이블을 지정하여 레이블 지정과 예측이 모두 일치하므로 실선이 텍스트 아래에 그어져 있습니다.
+    텍스트에 _명시적으로_ 레이블을 지정하여 레이블 지정과 예측이 모두 일치하므로 실선이 텍스트 아래에 그어져 있습니다.
 
 1. 나머지 발화의 `Order` 엔터티에는 크기 엔터티와 함께 레이블을 지정합니다. 텍스트의 대괄호는 레이블이 지정된 `Order` 엔터티와 내부의 `Size` 엔터티를 나타냅니다.
 
@@ -132,7 +124,7 @@ ms.locfileid: "75381769"
     |--|
     |`pickup XL meat lovers pizza`|
 
-    전체 최상위 엔터티인 `Order`에 레이블이 지정되고, `Size` 하위 구성 요소에도 점선으로 레이블이 지정됩니다. 이는 성공적인 예측입니다.
+    전체 최상위 엔터티인 `Order`에 레이블이 지정되고, `Size` 하위 구성 요소에도 점선으로 레이블이 지정됩니다.
 
     ![엔터티를 사용하여 예측된 새 발화 예제](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
 
@@ -160,20 +152,20 @@ ms.locfileid: "75381769"
 
 ## <a name="create-subcomponent-entity-with-constraint-to-help-extract-data"></a>데이터를 추출하는 데 도움이 되는 제약 조건이 있는 하위 구성 요소 엔터티 만들기
 
-`Order` 엔터티에는 주문의 항목 수를 확인하는 `Quantity` 하위 구성 요소가 있어야 합니다. 추출된 데이터를 클라이언트 애플리케이션에서 즉시 사용할 수 있도록 수량을 숫자로 제한해야 합니다.
+`Order` 엔터티에는 주문의 항목 수를 확인하는 `Quantity` 하위 구성 요소가 있어야 합니다. 추출된 데이터를 클라이언트 애플리케이션에서 이름으로 즉시 사용할 수 있도록 수량을 숫자로 제한해야 합니다.
 
 제약 조건은 정확히 일치하는 항목(예: 목록 엔터티) 또는 정규식(예: 정규식 엔터티 또는 미리 작성된 엔터티)을 통해 텍스트 일치로 적용됩니다.
 
 제약 조건을 사용하면 해당 제약 조건과 일치하는 텍스트만 추출됩니다.
 
 1. **엔터티**, `Order` 엔터티를 차례로 선택합니다.
-1. **+ 구성 요소 추가**를 선택하고, 이름으로 `Quantity`를 입력한 다음, Enter 키를 선택하여 새 엔터티를 앱에 추가합니다.
-1. 성공 알림 후 `Quantity` 하위 구성 요소, 제약 조건 연필 아이콘을 차례로 선택합니다.
+1. **+ 구성 요소 추가**, `Quantity` 이름을 차례로 입력한 다음, Enter를 선택하여 새 하위 구성 요소를 `Order` 엔터티에 추가합니다.
+1. 성공 알림 후 **고급 옵션**에서 제약 조건 연필 아이콘을 선택합니다.
 1. 드롭다운 목록에서 미리 작성된 번호를 선택합니다.
 
     ![미리 작성된 번호를 제약 조건으로 사용하여 수량 엔터티 만들기](media/tutorial-machine-learned-entity/create-constraint-from-prebuilt-number.png)
 
-    `Quantity` 엔터티는 미리 빌드된 숫자 엔터티와 일치하는 텍스트가 발견된 경우에만 적용됩니다.
+    `Quantity` 엔터티는 텍스트가 미리 작성된 숫자 엔터티와 일치할 때 적용됩니다.
 
     제약 조건이 있는 엔터티가 만들어졌지만, 아직 발화 예제에는 적용되지 않았습니다.
 
@@ -182,7 +174,7 @@ ms.locfileid: "75381769"
 
 ## <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>LUIS에게 엔터티에 대해 알려주기 위해 예제 발화에 레이블 지정
 
-1. 왼쪽 탐색 영역에서 **의도**를 선택한 다음, **OrderPizza** 의도를 선택합니다. 다음 발화의 세 개 숫자에 레이블이 지정되지만 시각적으로 `Order` 엔터티 줄 아래에 있습니다. 이 하위 수준은 엔터티를 찾았지만 `Order` 엔터티와 별도로 간주하지 않음을 의미합니다.
+1. 왼쪽 탐색 영역에서 **의도**를 선택한 다음, **OrderPizza** 의도를 선택합니다. 다음 발화의 세 개 숫자에 레이블이 지정되지만 시각적으로 `Order` 엔터티 줄 아래에 있습니다. 이 하위 수준은 엔터티를 찾았지만 `Order` 엔터티의 일부로 간주되지 않음을 의미합니다.
 
     ![미리 작성된 번호를 찾았지만 Order 엔터티와 별도로 간주하지 않음](media/tutorial-machine-learned-entity/prebuilt-number-not-part-of-order-entity.png)
 
@@ -192,7 +184,7 @@ ms.locfileid: "75381769"
 
 ## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>엔터티 변경 내용을 앱에 적용하도록 앱 학습
 
-**학습**을 선택하여 이러한 새 발화를 통해 앱을 학습시킵니다.
+**학습**을 선택하여 이러한 새 발화를 통해 앱을 학습시킵니다. 학습 후 `Quantity` 하위 구성 요소는 `Order` 구성 요소에서 올바르게 예측됩니다. 이 올바른 예측은 실선으로 표시됩니다.
 
 ![앱 학습 후 발화 예제 검토](media/tutorial-machine-learned-entity/trained-example-utterances.png)
 
@@ -213,7 +205,7 @@ ms.locfileid: "75381769"
 
     크기가 올바르게 식별되었습니다. `OrderPizza` 의도의 발화 예제는 `medium` 크기의 예를 포함하지 않았지만, medium(중간)이 포함된 `SizeDescriptor` 구 목록의 설명자를 사용하고 있습니다.
 
-    수량이 정확하게 예측되지 않았습니다. 이 문제를 해결하기 위해 해당 단어를 사용하는 발화 예제를 더 많이 추가하여 수량을 표시하고 해당 단어에 `Quantity` 엔터티로 레이블을 지정할 수 있습니다.
+    수량이 정확하게 예측되지 않았습니다. LUIS 예측에서 크기가 반환되지 않는 경우 클라이언트 애플리케이션에서 크기를 1로 기본 조정하여 이 문제를 해결할 수 있습니다.
 
 ## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>HTTP 엔드포인트에서 앱에 액세스할 수 있도록 앱 게시
 
@@ -223,7 +215,7 @@ ms.locfileid: "75381769"
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. 주소의 URL 끝으로 이동하여 대화형 테스트 패널에 입력한 것과 동일한 쿼리를 입력합니다.
+1. 주소 표시줄의 URL 끝으로 이동하여 대화형 테스트 패널에 입력한 것과 동일한 쿼리로 _YOUR_QUERY_HERE_를 바꿉니다.
 
     `deliver a medium veggie pizza`
 

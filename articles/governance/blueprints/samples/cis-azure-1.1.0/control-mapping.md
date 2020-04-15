@@ -3,12 +3,12 @@ title: CIS Microsoft Azure Foundations 벤치마크 청사진 샘플 컨트롤
 description: Azure Policy에 대한 CIS Microsoft Azure Foundations 벤치마크 청사진 샘플 추천 매핑입니다.
 ms.date: 11/04/2019
 ms.topic: sample
-ms.openlocfilehash: 34d38f34dcd4233706f9b4578bc2dc2a644e4c2c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ea61ae4ea05b34c785485cbb5fd39c8a772565e3
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74707419"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656957"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>CIS Microsoft Azure Foundations 벤치마크 청사진 샘플에 대한 추천 매핑
 
@@ -245,7 +245,7 @@ Azure Storage 암호화는 모든 새 스토리지 계정 및 기존 스토리�
 
 ## <a name="411-ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>4.11 MySQL Database Server에 대해 'SSL 연결 적용'이 '사용'으로 설정되어 있는지 확인
 
-이 청사진은 MySQL 데이터베이스 서버에서 SSL 연결을 적용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 MySQL 데이터베이스 서버에서 TLS/SSL 연결을 적용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - MySQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용하도록 설정해야 합니다.
 
@@ -257,7 +257,7 @@ Azure Storage 암호화는 모든 새 스토리지 계정 및 기존 스토리�
 
 ## <a name="413-ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>4.13 PostgreSQL Database Server에 대해 'SSL 연결 적용'이 '사용'으로 설정되어 있는지 확인
 
-이 청사진은 PostgreSQL 데이터베이스 서버에서 SSL 연결을 적용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 PostgreSQL 데이터베이스 서버에서 TLS/SSL 연결을 적용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - PostgreSQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용하도록 설정해야 합니다.
 

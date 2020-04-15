@@ -3,12 +3,12 @@ title: '빠른 시작: REST API를 사용하여 청사진 만들기'
 description: 이 빠른 시작에서는 Azure Blueprints를 사용하여 REST API를 통해 아티팩트를 만들고 정의하고 배포합니다.
 ms.date: 02/26/2020
 ms.topic: quickstart
-ms.openlocfilehash: 3e7e7c67822eec939c7d7752f8771d3b486abc3c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 93c9aef9efd826b88da59cdb77dedfb10fb11262
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290371"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676579"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>빠른 시작: REST API로 Azure Blueprint 정의 및 할당
 
@@ -25,7 +25,7 @@ ms.locfileid: "79290371"
 
 REST API에 대해 잘 모르는 경우에는 REST API에 대한 일반적인 이해, 특히 요청 URI 및 요청 본문에 대한 일반적인 이해가 가능하도록 [Azure REST API 참조](/rest/api/azure/)를 검토하는 단계부터 시작합니다. 이 문서에서는 이러한 개념을 사용하여 Azure Blueprints를 사용하는 작업에 대한 지침을 제공하며 이에 대한 실무 지식이 있다가 가정합니다. [ARMClient](https://github.com/projectkudu/ARMClient) 등과 같은 도구는 인증을 자동으로 처리할 수 있으며 초보자가 사용하면 좋습니다.
 
-Blueprints 사양은 [Azure Blueprints REST API](/rest/api/blueprints/)를 참조하세요.
+Azure Blueprints 사양은 [Azure Blueprints REST API](/rest/api/blueprints/)를 참조하세요.
 
 ### <a name="rest-api-and-powershell"></a>REST API 및 PowerShell
 
@@ -406,7 +406,7 @@ REST API를 사용하여 청사진을 게시하고 나면 구독에 할당할 �
      **사용자가 할당한 관리형 ID**는 청사진을 할당한 사용자에게 권한이 있는 구독 및 리소스 그룹일 수 있습니다.
 
      > [!IMPORTANT]
-     > 청사진은 사용자가 할당한 관리형 ID를 관리하지 않습니다. 충분한 역할과 권한을 할당할 책임이 사용자에게 있으며, 그렇지 못하면 청사진 할당이 실패합니다.
+     > Azure Blueprints는 사용자 할당 관리 ID를 관리하지 않습니다. 충분한 역할과 권한을 할당할 책임이 사용자에게 있으며, 그렇지 못하면 청사진 할당이 실패합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

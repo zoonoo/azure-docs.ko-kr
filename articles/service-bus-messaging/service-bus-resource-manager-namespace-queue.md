@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/20/2019
+ms.date: 03/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 8605dae05b7f5270513b645367248090006c04a8
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: b08253104eeb61f6bb09fde507473d235a996494
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384911"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422657"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 및 큐 만들기
 
@@ -63,9 +63,27 @@ None
 
 [Service Bus 큐](service-bus-queues-topics-subscriptions.md#queues)는 하나 이상의 경쟁 소비자에게 FIFO(선입선출) 메시지 배달을 제공합니다.
 
-배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
+배포를 자동으로 실행하려면 다음 단추를 클릭합니다. 나중에 쉽게 정리할 수 있도록 배포에 대한 새 리소스 그룹을 만듭니다.
 
 [![Azure에 배포](./media/service-bus-resource-manager-namespace-queue/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
+
+## <a name="verify-the-deployment"></a>배포 확인
+
+1. 배포 상태를 확인하려면 맨 위에 있는 **알림**을 선택합니다. 배포가 성공할 때까지 기다립니다. 그런 다음, 알림 메시지에서 **리소스 그룹으로 이동**을 선택하여 Service Bus 네임스페이스가 포함된 리소스 그룹의 페이지로 이동합니다. 
+
+    ![배포 알림](./media/service-bus-resource-manager-namespace-queue/notification.png)
+2. 리소스 목록에 Service Bus 네임스페이스가 표시되는지 확인합니다. 
+
+    ![리소스 그룹 - 네임스페이스](./media/service-bus-resource-manager-namespace-queue/resource-group-namespace.png)
+3. 목록에서 네임스페이스를 선택하여 **Service Bus 네임스페이스** 페이지를 표시합니다. 
+
+## <a name="cleanup-resources"></a>리소스 정리
+
+1. Azure Portal에서 리소스 그룹의 **리소스 그룹** 페이지로 이동합니다.
+2. 도구 모음에서 **리소스 그룹 삭제**를 선택합니다. 
+3. 리소스 그룹의 이름을 입력하고 **삭제**를 선택합니다. 
+
+    ![리소스 그룹 - 삭제](./media/service-bus-resource-manager-namespace-queue/resource-group-delete.png)
 
 ## <a name="next-steps"></a>다음 단계
 

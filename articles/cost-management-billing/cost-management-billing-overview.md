@@ -8,12 +8,12 @@ ms.date: 01/24/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.custom: ''
-ms.openlocfilehash: 3314d00651fc5e0473d84710803671f2ad45f005
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2f96208ff3f9664d82bfc1d9ddf9bc5b9aec37c3
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79474529"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879091"
 ---
 # <a name="what-is-azure-cost-management-and-billing"></a>Azure Cost Management 및 청구란?
 
@@ -67,7 +67,7 @@ Azure 청구 기능은 송장이 발부된 비용을 검토하고 청구 정보�
 ## <a name="understand-azure-cost-management"></a>Azure Cost Management 이해
 비용 관리는 비즈니스 관련 비용을 효율적으로 계획하고 관리하는 프로세스입니다. 비용 관리 태스크는 일반적으로 재무, 관리 및 앱 팀에서 수행합니다. Azure Cost Management + 청구는 조직에서 비용을 염두에 두고 계획을 세울 수 있도록 도와줍니다. 또한 비용을 효율적으로 분석하고 클라우드 지출을 최적화하기 위한 작업을 수행하는 데도 도움이 됩니다. 조직 차원에서 비용 관리에 접근하는 방법에 대한 자세한 내용은 [Azure Cost Management 모범 사례](./costs/cost-mgt-best-practices.md) 문서를 참조하세요.
 
-Azure Cost Management가 Azure에서 비용을 절약하는 방법에 대한 간략한 개요를 보려면 [Azure Cost Management 개요 비디오](https://www.youtube.com/watch?v=el4yN5cHsJ0)를 시청하세요.
+Azure Cost Management가 Azure에서 비용을 절약하는 방법에 대한 간략한 개요를 보려면 [Azure Cost Management 개요 비디오](https://www.youtube.com/watch?v=el4yN5cHsJ0)를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
 
 >[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
@@ -93,7 +93,7 @@ Cost Management를 통해 비용을 계획하고 제어하는 방법에는 비�
 
 [Cloudyn](./cloudyn/overview.md)은 2020년 말에 더 이상 사용되지 않는 Cost Management와 관련된 Azure 서비스입니다. 기존 Cloudyn 기능은 가능한 한 Azure Portal에 직접 통합되고 있습니다. 현재 온보딩되는 신규 고객은 없지만, 완전히 사용되지 않을 때까지는 제품에 대한 지원이 유지됩니다.
  
-비즈니스 요구 사항에 따라 언제 Azure Cost Management 또는 Cloudyn을 사용해야 하는지에 대해 자세히 알아 보려면 [Azure Cost Management 및 Cloudyn 비디오](https://www.youtube.com/watch?v=15DzKPMBRxM)를 시청하세요.
+비즈니스 요구 사항에 따라 언제 Azure Cost Management 또는 Cloudyn을 사용해야 하는지에 대해 자세히 알아 보려면 [Azure Cost Management 및 Cloudyn 비디오](https://www.youtube.com/watch?v=15DzKPMBRxM)를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
  
 >[!VIDEO https://www.youtube.com/embed/15DzKPMBRxM]
 

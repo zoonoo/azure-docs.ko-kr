@@ -2,19 +2,19 @@
 title: 자습서 - 템플릿에 출력 추가
 description: 구문을 간소화하기 위해 Azure Resource Manager 템플릿에 출력을 추가합니다.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 381f9f54a95b6d457aa65c7e8ef6abe49fe9eeea
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 2ee1a2c7037bde68b7858b57a03c78bd2016ff1c
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765742"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743556"
 ---
-# <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>자습서: Resource Manager 템플릿에 출력 추가
+# <a name="tutorial-add-outputs-to-your-arm-template"></a>자습서: ARM 템플릿에 출력 추가
 
-이 자습서에서는 템플릿의 값을 반환하는 방법을 알아봅니다. 배포된 리소스의 값이 필요한 경우 출력을 사용합니다. 이 자습서를 완료하는 데 **7분**이 소요됩니다.
+이 자습서에서는 ARM(Azure Resource Manager) 템플릿에서 값을 반환하는 방법에 대해 알아봅니다. 배포된 리소스의 값이 필요한 경우 출력을 사용합니다. 이 자습서를 완료하는 데 **7분**이 소요됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -52,7 +52,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 리소스 그룹을 만들지 않은 경우 [리소스 그룹 만들기](template-tutorial-create-first-template.md#create-resource-group)를 참조하세요. 이 예제에서는 [첫 번째 자습서](template-tutorial-create-first-template.md#deploy-template)에 표시된 대로 **templateFile** 변수를 템플릿 파일의 경로로 설정했다고 가정합니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -63,10 +63,12 @@ New-AzResourceGroupDeployment `
   -storageSKU Standard_LRS
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+이 배포 명령을 실행하려면 Azure CLI의 [최신 버전](/cli/azure/install-azure-cli)이 있어야 합니다.
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addoutputs \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -75,7 +77,7 @@ az group deployment create \
 
 ---
 
-배포 명령의 출력에 다음과 유사한 개체가 표시됩니다.
+배포 명령의 출력에서는 출력이 JSON 형식인 경우에만 다음 예제와 유사한 개체가 표시됩니다.
 
 ```json
 {
@@ -87,6 +89,9 @@ az group deployment create \
     "file": "https://storeluktbfkpjjrkm.file.core.windows.net/"
 }
 ```
+
+> [!NOTE]
+> 배포에 실패한 경우 배포 명령과 함께 **debug** 스위치를 사용하여 디버그 로그를 표시합니다.  **verbose** 스위치를 사용하여 전체 디버그 로그를 표시할 수도 있습니다.
 
 ## <a name="review-your-work"></a>작업 검토
 

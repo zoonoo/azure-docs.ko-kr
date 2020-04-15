@@ -10,22 +10,22 @@ ms.subservice: ''
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 9898addfa840752e27de8716d2185e767aac809b
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 0ffa33811957af95fc10396ffecef0b3de7959fe
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350102"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633011"
 ---
 # <a name="source-control-integration-for-sql-pool"></a>SQL 풀에 대한 원본 제어 통합
 
-이 자습서에서는 SSDT(SQL Server Data Tools) 데이터베이스 프로젝트를 소스 제어와 통합하는 방법에 대해 간략하게 설명합니다.  원본 제어 통합은 Azure Synapse Analytics에서 SQL 풀 리소스를 사용하여 지속적인 통합 및 배포 파이프라인을 빌드하는 첫 번째 단계입니다. 
+이 자습서에서는 SSDT(SQL Server Data Tools) 데이터베이스 프로젝트를 소스 제어와 통합하는 방법에 대해 간략하게 설명합니다.  원본 제어 통합은 Azure Synapse Analytics에서 SQL 풀 리소스를 사용하여 지속적인 통합 및 배포 파이프라인을 빌드하는 첫 번째 단계입니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 - [Azure DevOps 조직](https://azure.microsoft.com/services/devops/)에 가입
-- [만들기 및 연결](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal) 자습서 진행
--  [Visual Studio 2019 설치](https://visualstudio.microsoft.com/vs/older-downloads/) 
+- [만들기 및 연결](create-data-warehouse-portal.md) 자습서 진행
+- [Visual Studio 2019 설치](https://visualstudio.microsoft.com/vs/older-downloads/)
 
 ## <a name="set-up-and-connect-to-azure-devops"></a>Azure DevOps 설정 및 연결
 
@@ -33,7 +33,7 @@ ms.locfileid: "80350102"
 
    ![프로젝트 만들기](./media/sql-data-warehouse-source-control-integration/1-create-project-azure-devops.png "프로젝트 만들기")
 
-2. Visual Studio를 열고 “연결 관리”를 선택하여 1단계에서 Azure DevOps 조직 및 프로젝트에 연결합니다.
+2. Visual Studio를 열고 "연결 관리"를 선택하여 1단계에서 Azure DevOps 조직 및 프로젝트에 연결합니다.
 
    ![연결 관리](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "연결 관리")
 
@@ -53,7 +53,7 @@ ms.locfileid: "80350102"
 
    ![프로젝트 가져오기](./media/sql-data-warehouse-source-control-integration/6-import-new-project.png "프로젝트 가져오기")  
 
-3. Visual Studio의 팀 탐색기에서 로컬 Git 리포지토리에 대한 모든 변경 내용을 커밋합니다. 
+3. Visual Studio의 팀 탐색기에서 로컬 Git 리포지토리에 대한 모든 변경 내용을 커밋합니다.
 
    ![커밋](./media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Commit")  
 

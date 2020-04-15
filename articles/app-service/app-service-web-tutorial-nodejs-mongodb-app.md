@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 05/04/2017
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 5c37d92504af78cb62cfa17057e089128ca8ad35
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 947bfe88443489084a20653d835ab849087ac92d
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80046863"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810572"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>자습서: Azure에서 Node.js 및 MongoDB 앱 빌드
 
@@ -198,7 +198,7 @@ module.exports = {
 };
 ```
 
-[Cosmos DB에서 SSL을 요구](../cosmos-db/connect-mongodb-account.md#connection-string-requirements)하므로 `ssl=true` 옵션이 필요합니다. 
+[연결 문자열 요구 사항](../cosmos-db/connect-mongodb-account.md#connection-string-requirements)으로 인해 `ssl=true` 옵션이 필요합니다. 
 
 변경 내용을 저장합니다.
 

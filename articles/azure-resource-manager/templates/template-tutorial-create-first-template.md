@@ -2,21 +2,21 @@
 title: 자습서 - 템플릿 만들기 및 배포
 description: 첫 번째 Azure Resource Manager 템플릿을 만듭니다. 이 자습서에서는 템플릿 파일 구문 및 스토리지 계정을 배포하는 방법에 대해 알아봅니다.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e31d4a5f513355e61cb53a6548b3091637bfe9a4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8b05bccf10ef5f273a74ca49e02162fd0408230f
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471508"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411717"
 ---
-# <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>자습서: 첫 번째 Azure Resource Manager 템플릿을 만들고 배포
+# <a name="tutorial-create-and-deploy-your-first-arm-template"></a>자습서: 첫 번째 ARM 템플릿 만들기 및 배포
 
-이 자습서에서는 Azure Resource Manager 템플릿을 소개합니다. 시작 템플릿을 만들어 Azure에 배포하는 방법을 보여 줍니다. 템플릿의 구조와 템플릿을 사용하는 데 필요한 도구에 대해 알아봅니다. 이 자습서를 완료하는 데 약 **12분** 정도 걸리지만, 실제 시간은 설치해야 하는 도구 수에 따라 달라집니다.
+이 자습서에서는 ARM(Azure Resource Manager) 템플릿을 소개합니다. 시작 템플릿을 만들어 Azure에 배포하는 방법을 보여 줍니다. 템플릿의 구조와 템플릿을 사용하는 데 필요한 도구에 대해 알아봅니다. 이 자습서를 완료하는 데 약 **12분** 정도 걸리지만, 실제 시간은 설치해야 하는 도구 수에 따라 달라집니다.
 
-이 자습서는 시리즈의 첫 번째 자습서입니다. 시리즈를 진행하면서 Resource Manager 템플릿의 모든 핵심 부분을 살펴볼 때까지 시작 템플릿을 단계별로 수정합니다. 이러한 요소는 훨씬 더 복잡한 템플릿의 구성 요소입니다. 시리즈가 끝날 때쯤에는 자신만의 고유한 템플릿을 만들고, 이 템플릿을 사용하여 배포를 자동화할 준비가 됩니다.
+이 자습서는 시리즈의 첫 번째 자습서입니다. 시리즈를 진행하면서 ARM 템플릿의 모든 핵심 부분을 살펴볼 때까지 시작 템플릿을 단계별로 수정합니다. 이러한 요소는 훨씬 더 복잡한 템플릿의 구성 요소입니다. 시리즈가 끝날 때쯤에는 자신만의 고유한 템플릿을 만들고, 이 템플릿을 사용하여 배포를 자동화할 준비가 됩니다.
 
 템플릿을 사용하면 얻을 수 있는 이점과 템플릿을 사용하여 배포를 자동화해야 하는 이유에 대해 알아보려면 [Azure Resource Manager 템플릿](overview.md)을 참조하세요.
 
@@ -28,11 +28,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ### <a name="editor"></a>편집기
 
-템플릿은 JSON 파일입니다. 템플릿을 만들려면 적절한 JSON 편집기가 필요합니다. Resource Manager 도구 확장이 있는 Visual Studio Code를 사용하는 것이 좋습니다. 이러한 도구를 설치해야 하는 경우 [Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](use-vs-code-to-create-template.md)를 참조하세요.
+템플릿은 JSON 파일입니다. 템플릿을 만들려면 적절한 JSON 편집기가 필요합니다. Resource Manager 도구 확장이 있는 Visual Studio Code를 사용하는 것이 좋습니다. 이러한 도구를 설치해야 하는 경우 [Visual Studio Code를 사용하여 ARM 템플릿 만들기](use-vs-code-to-create-template.md)를 참조하세요.
 
 ### <a name="command-line-deployment"></a>명령줄 배포
 
-템플릿을 배포하려면 Azure PowerShell 또는 Azure CLI도 필요합니다. 설치 지침은 다음을 참조하세요.
+템플릿을 배포하려면 Azure PowerShell 또는 Azure CLI도 필요합니다. Azure CLI를 사용하는 경우 최신 버전을 사용해야 합니다. 설치 지침은 다음을 참조하세요.
 
 - [Azure PowerShell 설치](/powershell/azure/install-az-ps)
 - [Windows에 Azure CLI 설치](/cli/azure/install-azure-cli-windows)
@@ -53,7 +53,7 @@ Azure PowerShell 또는 Azure CLI가 설치되면 처음으로 로그인해야 �
 
     ```json
     {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "resources": []
     }
@@ -67,7 +67,7 @@ Azure PowerShell 또는 Azure CLI가 설치되면 처음으로 로그인해야 �
 
     JSON 파일에 있는 요소는 다음과 같습니다.
 
-    - **$schema**: JSON 스키마 파일의 위치를 지정합니다. 스키마 파일은 템플릿 내에서 사용할 수 있는 속성을 설명합니다. 예를 들어 스키마는 **resources**를 템플릿의 유효한 속성 중 하나로 정의합니다. 스키마의 날짜는 2015-01-01이라는 것에 걱정하지 마세요. 이 스키마 버전이 최신 버전이며, 최신 기능이 모두 포함되어 있습니다. 도입된 이후 호환성이 손상되는 변경이 없었으므로 스키마 날짜가 변경되지 않았습니다.
+    - **$schema**: JSON 스키마 파일의 위치를 지정합니다. 스키마 파일은 템플릿 내에서 사용할 수 있는 속성을 설명합니다. 예를 들어 스키마는 **resources**를 템플릿의 유효한 속성 중 하나로 정의합니다. 스키마의 날짜가 2019-04-01이라는 것에 걱정하지 마세요. 이 스키마 버전이 최신 버전이며, 최신 기능이 모두 포함되어 있습니다. 도입된 이후 호환성이 손상되는 변경이 없었으므로 스키마 날짜가 변경되지 않았습니다.
     - **contentVersion**: 템플릿의 버전(예: 1.0.0.0)을 지정합니다. 이 요소에 값을 제공할 수 있습니다. 이 값을 사용하여 템플릿에서 중요한 변경 내용을 문서화할 수 있습니다. 템플릿을 사용하여 리소스를 배포할 때 이 값을 사용하면 정확한 템플릿이 사용되도록 할 수 있습니다.
     - **resources**: 배포하거나 업데이트하려는 리소스가 포함됩니다. 현재 비어 있지만 나중에 리소스를 추가할 수 있습니다.
 
@@ -79,13 +79,13 @@ Azure PowerShell 또는 Azure CLI가 설치되면 처음으로 로그인해야 �
 
 Azure PowerShell/Azure CLI를 사용하여 시작하려면 Azure 자격 증명으로 로그인합니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Connect-AzAccount
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az login
@@ -96,7 +96,7 @@ az login
 
 템플릿을 배포하는 경우 리소스를 포함할 리소스 그룹을 지정합니다. 배포 명령을 실행하기 전에 먼저 Azure CLI 또는 Azure PowerShell을 사용하여 리소스 그룹을 만듭니다. Azure PowerShell과 Azure CLI 중에서 선택하려면 다음 코드 섹션에서 해당 탭을 선택합니다. 이 문서의 CLI 예제는 Bash 셸에 대해 작성되었습니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup `
@@ -104,7 +104,7 @@ New-AzResourceGroup `
   -Location "Central US"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az group create \
@@ -118,21 +118,23 @@ az group create \
 
 템플릿을 배포하려면 Azure CLI 또는 Azure PowerShell을 사용합니다. 만든 리소스 그룹을 사용합니다. 배포 이름은 배포 기록에서 쉽게 식별할 수 있도록 지정합니다. 편의를 위해 템플릿 파일의 경로를 저장하는 변수도 만듭니다. 이 변수를 사용하면 배포할 때마다 경로를 다시 입력할 필요가 없으므로 배포 명령을 더 쉽게 실행할 수 있습니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $templateFile = "{provide-the-path-to-the-template-file}"
 New-AzResourceGroupDeployment `
   -Name blanktemplate `
   -ResourceGroupName myResourceGroup `
-  -TemplateFile $templateFile
+  -TemplateFile $templateFile 
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+이 배포 명령을 실행하려면 Azure CLI의 [최신 버전](/cli/azure/install-azure-cli)이 있어야 합니다.
 
 ```azurecli
 templateFile="{provide-the-path-to-the-template-file}"
-az group deployment create \
+az deployment group create \
   --name blanktemplate \
   --resource-group myResourceGroup \
   --template-file $templateFile
@@ -142,15 +144,18 @@ az group deployment create \
 
 배포 명령에서 결과를 반환합니다. `ProvisioningState`를 찾아서 배포에 성공했는지 확인합니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ![PowerShell 배포 프로비저닝 상태](./media/template-tutorial-create-first-template/resource-manager-deployment-provisioningstate.png)
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ![Azure CLI 배포 프로비저닝 상태](./media/template-tutorial-create-first-template/azure-cli-provisioning-state.png)
 
 ---
+
+> [!NOTE]
+> 배포에 실패한 경우 배포 명령과 함께 **debug** 스위치를 사용하여 디버그 로그를 표시합니다.  **verbose** 스위치를 사용하여 전체 디버그 로그를 표시할 수도 있습니다.
 
 ## <a name="verify-deployment"></a>배포 확인
 

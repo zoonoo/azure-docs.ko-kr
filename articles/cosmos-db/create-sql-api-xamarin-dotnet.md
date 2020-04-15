@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 74d34705a6541b396fa2c2bf5028254f5f2e8d21
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 125cc2516fbd694bbe62545e85d4e14225fb2a6a
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77586770"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756438"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 Xamarin에서 todo 앱 빌드
 
@@ -30,13 +30,13 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 > [!NOTE]
 > CosmosDB를 포함하여 여러 Azure 제품을 보여주는 전체 정식 샘플 Xamarin 앱에 대한 샘플 코드를 [여기](https://github.com/xamarinhq/app-geocontacts) GitHub에서 확인할 수 있습니다. 이 앱은 지리적으로 분산된 연락처 보기 및 연락처의 위치를 업데이트할 수 있는 방법을 보여줍니다.
 
-이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB SQL API 계정, 문서 데이터베이스 및 컨테이너를 만드는 방법을 보여 줍니다. 그런 다음, [Xamarin.Forms](https://docs.microsoft.com/xamarin/) 및 [MVVM 아키텍처 패턴](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm)을 활용하여 [SQL.NET API](sql-api-sdk-dotnet.md) 및 [Xamarin](https://docs.microsoft.com/xamarin/)을 기반으로 하는 할 일 목록 웹앱을 빌드하고 배포합니다.
+이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB SQL API 계정, 문서 데이터베이스 및 컨테이너를 만드는 방법을 보여 줍니다. 그런 다음, [Xamarin.Forms](https://docs.microsoft.com/xamarin/) 및 [MVVM 아키텍처 패턴](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm)을 활용하여 [SQL.NET API](sql-api-sdk-dotnet.md) 및 [Xamarin](https://docs.microsoft.com/xamarin/)을 기반으로 하는 할 일 목록 모바일 앱을 빌드하고 배포합니다.
 
 ![iOS에서 실행 중인 Xamarin 할 일 앱](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Windows에서 개발하고 있고 Visual Studio 2019가 아직 설치되지 않은 경우 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) **평가판**을 다운로드하여 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발** 및 **.NET을 사용한 모바일 개발** 워크로드를 사용하도록 설정합니다.
+Windows에서 개발하고 있고 Visual Studio 2019가 아직 설치되지 않은 경우 **평가판** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하여 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발** 및 **.NET을 사용한 모바일 개발** 워크로드를 사용하도록 설정합니다.
 
 Mac을 사용하는 경우 [Mac용 Visual Studio](https://www.visualstudio.com/vs/mac/) **평가판**을 다운로드할 수 있습니다.
 
@@ -91,15 +91,15 @@ Azure Portal로 다시 이동하여 API 키 정보를 가져오고 앱에 복사
 
     ![Azure Portal에서 선택 키 보기 및 복사, 키 블레이드](./media/create-sql-api-xamarin-dotnet/keys.png)
 
-2. Visual Studio 2019 또는 Mac용 Visual Studio에서 azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Helpers 폴더에 있는 APIKeys.cs 파일을 엽니다.
+2. Visual Studio 2019 또는 Mac용 Visual Studio에서 azure-cosmos-db-sql-xamarin-getting-started/src/ToDoItems.Core/Helpers 폴더에 있는 APIKeys.cs 파일을 엽니다.
 
 3. 포털에서 URI 값을 복사(복사 단추 사용)하고 이 값을 APIKeys.cs의 `CosmosEndpointUrl` 변수로 만듭니다.
 
-    `public static readonly string CosmosEndpointUrl = "{Azure Cosmos DB account URL}";`
+    `public static readonly string CosmosEndpointUrl = "";`
 
 4. 그런 다음, 포털에서 사용자의 기본 키 값을 복사하고 APIKeys.cs의 `Cosmos Auth Key` 값으로 만듭니다.
 
-    `public static readonly string CosmosAuthKey = "{Azure Cosmos DB secret}";`
+    `public static readonly string CosmosAuthKey = "";`
 
 [!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]
 

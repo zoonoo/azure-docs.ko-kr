@@ -3,17 +3,17 @@ title: Azure Cost Management 데이터에 대한 액세스 할당
 description: 이 문서에서는 다양한 액세스 범위에 맞게 Azure Cost Management 데이터에 대한 권한을 할당하는 방법을 안내합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/19/2020
+ms.date: 04/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: 56090798defd9209c3587aa701c88db6958d1b97
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0b3ede4dcc4df8bf10ce24b3d74dc5af0424de5a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80065810"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879108"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Cost Management 데이터에 대한 액세스 할당
 
@@ -21,9 +21,9 @@ Azure 엔터프라이즈 계약을 맞은 사용자는 Azure Portal과 EA(기업
 
 사용자가 선택한 범위는 Cost Management 전체에서 데이터 통합을 제공하고 비용 정보에 대한 액세스를 제어하는 데 사용됩니다. 범위를 사용하는 경우 사용자는 여러 개의 범위를 선택하지 않습니다. 대신 자식 범위가 롤업하는 더 큰 범위를 선택한 다음, 보려는 대상으로 필터링합니다. 일부 사용자는 자식 범위가 롤업하는 부모 범위에 액세스할 수 없으므로 데이터 통합을 이해해야 합니다.
 
-[Azure Cost Management로 액세스를 할당하는 방법](https://www.youtube.com/watch?v=J997ckmwTa8) 비디오를 보고 Azure 역할 기반 액세스 제어를 사용하여 비용 및 요금을 볼 수 있는 액세스 권한을 할당하는 방법에 대해 알아봅니다.
+[Cost Management 액세스 제어](https://www.youtube.com/watch?v=_uQzQ9puPyM) 비디오를 보고 Azure 역할 기반 액세스 제어를 사용하여 비용 및 요금을 볼 수 있는 액세스 권한을 할당하는 방법에 대해 알아봅니다. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
 
->[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
+>[!VIDEO https://www.youtube.com/embed/_uQzQ9puPyM]
 
 ## <a name="cost-management-scopes"></a>Cost Management 범위
 

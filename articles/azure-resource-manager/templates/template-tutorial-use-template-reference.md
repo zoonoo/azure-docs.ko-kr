@@ -1,19 +1,19 @@
 ---
-title: 템플릿 참조 활용
-description: Azure Resource Manager 템플릿 참조를 활용하여 템플릿을 만듭니다.
+title: 템플릿 참조 사용
+description: Azure Resource Manager 템플릿 참조를 사용하여 템플릿을 만듭니다.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: b742982121a20a2b057eba4211584b0386dde411
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b713d508a5e28291778d3727c15e12972eea3a77
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80373179"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878509"
 ---
-# <a name="tutorial-utilize-the-arm-template-reference"></a>자습서: ARM 템플릿 참조 활용
+# <a name="tutorial-utilize-the-resource-manager-template-reference"></a>자습서: Resource Manager 템플릿 참조 활용
 
 템플릿 스키마 정보를 찾고, 그 정보를 사용하여 ARM(Azure Resource Manager) 템플릿을 만드는 방법을 알아봅니다.
 
@@ -65,9 +65,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     * **resources**: 리소스 그룹에 배포 또는 업데이트되는 리소스 종류를 지정합니다.
     * **outputs**: 배포 후 반환되는 값을 지정합니다.
 
-1. **리소스**를 확장합니다. `Microsoft.Storage/storageAccounts` 리소스가 정의되어 있습니다.
+1. **리소스**를 확장합니다. `Microsoft.Storage/storageAccounts` 리소스가 정의되어 있습니다. SKU 이름은 매개 변수 값을 사용합니다.  이 매개 변수를 **storageAccountType**이라고 합니다.
 
     ![Resource Manager 템플릿 스토리지 계정 정의](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resource.png)
+
+1. **매개 변수**를 확장하여 **storageAccountType**이 정의된 방법을 확인합니다. 이 매개 변수에 허용되는 값은 4개입니다. 허용되는 다른 값을 찾은 다음, 매개 변수 정의를 수정합니다.
+
+    ![Resource Manager 템플릿 스토리지 계정 리소스 SKU](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resources-skus-old.png)
 
 ## <a name="find-the-template-reference"></a>템플릿 참조 찾기
 
@@ -84,7 +88,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![Resource Manager 템플릿 참조 스토리지 계정 유형 버전](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-types-versions.png)
 
-1. **storageAccount** 리소스 종류의 최신 버전을 선택합니다.  이 문서를 작성할 때 최신 버전은 **2019-06-01**입니다.
+1. **storageAccount** 리소스 종류의 최신 버전을 선택합니다. 이 문서를 작성할 때 최신 버전은 **2019-06-01**입니다. 이 버전이 템플릿의 스토리지 계정 리소스에 사용되는 버전과 일치하는지 확인합니다. API 버전을 업데이트하는 경우 리소스 정의가 템플릿 참조와 일치하는지 확인합니다.
 
 1. 이 페이지에는 storageAccount 리소스 종류의 세부 정보가 나열되어 있습니다.  예를 들어 **Sku** 개체에 대해 허용되는 값을 나열합니다. 이전에 열었던 빠른 시작 템플릿에 나열된 것보다 많은 SKU가 있습니다. 사용 가능한 모든 스토리지 유형을 포함하도록 빠른 시작 템플릿을 사용자 지정할 수 있습니다.
 
@@ -98,7 +102,21 @@ Visual Studio Code에서 다음 스크린샷에 표시된 대로 추가 스토�
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-배포 절차는 Visual Studio Code 빠른 시작의 [템플릿 배포](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) 섹션을 참조하세요. 템플릿을 배포할 때 새로 추가된 값을 사용하여 **storageAccountType** 매개 변수를 지정합니다(예: **Premium_ZRS**). **Premium_ZRS**가 허용되는 값이 아니므로 원래 빠른 시작 템플릿을 사용하면 배포가 실패합니다.
+배포 절차는 Visual Studio Code 빠른 시작의 [템플릿 배포](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) 섹션을 참조하세요. 템플릿을 배포할 때 새로 추가된 값을 사용하여 **storageAccountType** 매개 변수를 지정합니다(예: **Premium_ZRS**). **Premium_ZRS**가 허용되는 값이 아니므로 원래 빠른 시작 템플릿을 사용하면 배포가 실패합니다.  매개 변수 값을 전달하려면 배포 명령에 다음 스위치를 추가합니다.
+
+# <a name="cli"></a>[CLI](#tab/CLI)
+
+```azurecli
+--parameters storageAccountType='Premium_ZRS'
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell
+-storageAccountType "Premium_ZRS"
+```
+
+---
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

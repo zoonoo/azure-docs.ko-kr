@@ -1,22 +1,15 @@
 ---
 title: '자습서: 엔드포인트 발화 검토 - LUIS'
-titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 LUIS에서 확실하지 않은 LUIS HTTP 엔드포인트를 통해 받은 발화를 확인하거나 수정하여 앱 예측을 향상시킵니다. 의도를 확인해야 하는 발언도 있고, 엔터티를 확인해야 하는 발언도 있습니다.
 services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 06f51ca83449b39861e7565cc9accc29efbece3f
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 04/01/2020
+ms.openlocfilehash: 307c18d3326cb1a64b884463a571985a015834ed
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76843976"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548735"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>자습서: 엔드포인트 발언을 검토하여 알 수 없는 예측 수정
 이 자습서에서는 LUIS에서 확실하지 않은 LUIS HTTPS 엔드포인트를 통해 받은 발화를 확인하거나 수정하여 앱 예측을 향상시킵니다. 예약된 LUIS 유지 관리의 일반적인 부분으로 엔드포인트 발화를 검토해야 합니다.
@@ -46,15 +39,11 @@ ms.locfileid: "76843976"
 
 1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true)을 다운로드하고 저장합니다.
 
-1. [미리 보기 LUIS 포털](https://preview.luis.ai)에서 .json 파일을 새 앱으로 가져옵니다.
+[!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
-1. **관리** 섹션의 **버전** 탭에서 버전을 복제하고 `review`라는 이름을 지정합니다.
+## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>엔터티 변경 내용을 앱에 적용하도록 앱 학습
 
-    > [!TIP]
-    > 앱을 수정하기 전에 새 버전으로 복제하는 것이 가장 좋습니다. 버전을 완료한 후에는 버전을 .json 또는 .lu 파일로 내보내고, 파일을 소스 제어 시스템에 체크 인합니다.
-
-
-1. 앱을 학습시키려면 **학습**을 선택합니다.
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>HTTP 엔드포인트에서 앱에 액세스할 수 있도록 앱 게시
 
@@ -66,7 +55,7 @@ ms.locfileid: "76843976"
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. 엔드포인트를 사용하여 다음 발화를 추가합니다.
+1. 주소 표시줄의 URL 끝으로 이동하여 _YOUR_QUERY_HERE_를 다음 표의 발화로 바꿉니다. 각 발화에 대해 발화를 제출하고 결과를 가져옵니다. 그런 다음, 끝에 있는 발화를 다음 발화로 바꿉니다.
 
     |엔드포인트 발화|정렬된 의도|
     |--|--|
@@ -110,9 +99,9 @@ ms.locfileid: "76843976"
 
 올바르게 정렬된 발화 예제를 통해 앱의 예측이 향상되었는지 확인하려면 수정된 발화에 가까운 발화를 시도합니다.
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. 주소의 URL 끝으로 이동하고 `Are there any natural language processing jobs in my department right now?`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다.
+1. 주소 표시줄의 URL 끝으로 이동하여 _YOUR_QUERY_HERE_를 `Are there any natural language processing jobs in my department right now?`로 바꿉니다.
 
    ```json
     {

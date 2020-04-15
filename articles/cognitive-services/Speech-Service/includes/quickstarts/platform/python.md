@@ -1,21 +1,15 @@
 ---
-title: '빠른 시작: Python 플랫폼 설정용 Speech SDK - Speech Service'
-titleSuffix: Azure Cognitive Services
-description: 이 가이드를 통해 Speech Service SDK를 사용하여 Python을 사용하기 위한 플랫폼을 설정합니다.
-services: cognitive-services
-author: markamos
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/09/2019
-ms.author: erhopf
-ms.openlocfilehash: 458a6940ce214ef1931a2cc9ee95f2cb5ca16779
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 04/04/2020
+ms.author: dapine
+ms.openlocfilehash: 327000173b4c5c378f60c76eb1a24bd155901671
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78926039"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666900"
 ---
 이 가이드에서는 Python용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다. 패키지 이름을 직접 시작하려면 `pip install azure-cognitiveservices-speech`를 실행합니다.
 
@@ -26,7 +20,7 @@ ms.locfileid: "78926039"
 - Python Speech SDK 패키지는 다음과 같은 운영 체제용으로 제공됩니다.
   - Windows: x64 및 x86
   - Mac: macOS X 버전 10.12 이상
-  - Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8(x64 기반)
+  - Linux: Ubuntu 16.04/18.04, Debian 9, RHEL 7/8, CentOS 7/8(x64 기반)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

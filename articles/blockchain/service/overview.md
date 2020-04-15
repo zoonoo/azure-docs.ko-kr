@@ -1,15 +1,15 @@
 ---
 title: Azure Blockchain Service 개요
 description: Azure Blockchain Service 개요
-ms.date: 03/12/2020
+ms.date: 03/30/2020
 ms.topic: overview
 ms.reviewer: ravastra
-ms.openlocfilehash: b9f5deb501fb93327fa5d5cfcfd5bb583ed6135e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 821bac0da13209e5126f5bab109aa0895ade840a
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79205079"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529152"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Azure Blockchain Service란?
 
@@ -19,7 +19,7 @@ Azure Blockchain Service는 사용자가 Azure에서 대규모로 Blockchain 네
 * 기본 제공 컨소시엄 관리
 * 친숙한 개발 도구를 사용하여 스마트 계약 개발
 
-Azure Blockchain Service는 여러 원장 프로토콜을 지원하도록 고안되었습니다. 현재는 [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) 합의 메커니즘을 사용하여 Ethereum [Quorum](https://www.goquorum.com/) 원장을 지원합니다.
+Azure Blockchain Service는 여러 원장 프로토콜을 지원하도록 고안되었습니다. 현재는 [IBFT(Istanbul Byzantine Fault Tolerance)](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) 합의 메커니즘을 사용하여 Ethereum [Quorum](https://www.goquorum.com/) 원장을 지원합니다.
 
 이러한 기능에는 인증이 필요하지 않고 추가 비용 없이 제공됩니다. 가상 머신과 인프라를 관리하는 데 시간과 리소스를 할당하는 대신, 앱 개발 및 비즈니스 논리에 집중할 수 있습니다. 또한 새로운 기술을 습득하지 않고도 원하는 오픈 소스 도구와 플랫폼을 사용하여 솔루션을 전달할 수 있는 애플리케이션을 계속 개발할 수 있습니다.
 
@@ -33,7 +33,7 @@ Azure Blockchain Service는 두 가지 서비스 계층인 *기본* 및 *표준*
 
 ![가격 책정 계층](./media/overview/pricing-tiers.png)
 
-두 개의 유효성 검사기 노드를 제공하는 것 외에도 *표준* 계층은 각 트랜잭션 및 유효성 검사기 노드에 대해 2개의 *vCore*를 제공하지만, 기본 계층은 1개의 vCore 구성을 제공합니다.  트랜잭션 및 유효성 검사기 노드에 대해 2개의 vCore를 제공하므로, 1개 vCore는 Quorum 원장에 전용될 수 있고, 나머지 1개 vCore는 다른 인프라 관련 서비스에 사용할 수 있으므로 프로덕션 블록체인 워크로드의 성능을 최적화할 수 있습니다. 가격 책정 정보에 대한 자세한 내용은 [Azure Blockchain Service 가격 책정](https://azure.microsoft.com/pricing/details/blockchain-service)을 참조하세요.
+두 개의 유효성 검사기 노드를 제공하는 것 외에도 *표준* 계층은 각 트랜잭션 및 유효성 검사기 노드에 대해 2개의 *vCore*를 제공하지만, *기본* 계층은 1개의 vCore 구성을 제공합니다.  트랜잭션 및 유효성 검사기 노드에 대해 2개의 vCore를 제공하므로, 1개 vCore는 Quorum 원장에 전용될 수 있고, 나머지 1개 vCore는 다른 인프라 관련 서비스에 사용할 수 있으므로 프로덕션 블록체인 워크로드의 성능을 최적화할 수 있습니다. 가격 책정 정보에 대한 자세한 내용은 [Azure Blockchain Service 가격 책정](https://azure.microsoft.com/pricing/details/blockchain-service)을 참조하세요.
 
 ### <a name="security-and-maintenance"></a>보안 및 유지 관리
 

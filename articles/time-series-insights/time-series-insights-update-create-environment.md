@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 02/20/2020
+ms.date: 04/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: af15a7366fd07cecb376ff76ad383f784202a887
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3ccb9c7aff6eb59c4883bc3218e205fb7877e86e
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77526820"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618370"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>자습서: Azure Time Series Insights 미리 보기 환경 설정
 
@@ -30,7 +30,6 @@ ms.locfileid: "77526820"
 > * Azure Time Series Insights 미리 보기 환경으로 데이터를 스트리밍하도록 솔루션 가속기 샘플 실행
 > * 데이터에 대한 기본 분석을 수행합니다.
 > * 시계열 모델 형식 및 계층 구조 정의 및 인스턴스와 연결
-> * Power BI 커넥터를 사용하고 Power BI에서 데이터를 시각화합니다.
 
 >[!TIP]
 > [IoT 솔루션 가속기](https://www.azureiotsolutions.com/Accelerators)는 사용자 지정 IoT 솔루션의 개발 속도를 높이는 데 사용할 수 있는 미리 구성된 엔터프라이즈급 솔루션을 제공합니다.
@@ -359,3 +358,8 @@ Azure Time Series Insights 스토리지 구성에 대해 다음을 읽어보세�
 
 > [!div class="nextstepaction"]
 > [Azure Time Series Insights 미리 보기 데이터 모델링](./time-series-insights-update-tsm.md)
+
+Power BI에 환경 연결에 대한 자세한 정보
+
+> [!div class="nextstepaction"]
+> [Power BI의 Time Series Insights에서 데이터 시각화](./how-to-connect-power-bi.md)

@@ -2,20 +2,19 @@
 title: Azure Migrate를 사용하여 평가/마이그레이션을 위해 Hyper-V VM 준비
 description: Azure Migrate를 사용하여 Hyper-V VM의 평가/마이그레이션을 준비하는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 01/01/2020
+ms.date: 03/31/2020
 ms.custom: mvc
-ms.openlocfilehash: 1d327f558806e0205540c183c56b92ba31e33cb7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d14ae4282afb610d025d08419a69c6d10c2f1d08
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77031223"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436220"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>평가하고 Azure로 마이그레이션할 Hyper-V VM 준비
 
-이 문서에서는 [Azure Migrate](migrate-services-overview.md)를 사용하여 온-프레미스 Hyper-V VM을 평가하고 Azure로 마이그레이션하는 방법에 대해 설명합니다.
+이 문서에서는 Azure Migrate:Server Assessment(migrate-services-overview.md#azure-migrate-server-assessment-tool)를 사용하여 온-프레미스 Hyper-V VM의 평가를 준비하고 [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool)을 사용하여 Hyper-V VM을 마이그레이션하는 방법을 설명합니다.
 
-[Azure Migrate](migrate-overview.md)는 앱, 인프라 및 워크로드를 검색, 평가 및 Microsoft Azure로 마이그레이션하는 데 도움이 되는 도구의 허브를 제공합니다. 허브에는 Azure Migrate 도구와 타사 ISV(독립 소프트웨어 공급업체) 제품이 포함되어 있습니다.
 
 이 자습서는 Hyper-V VM을 평가하고 Azure로 마이그레이션하는 방법을 보여 주는 시리즈의 첫 번째 자습서입니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -39,10 +38,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Azure Migrate 배포를 위한 권한을 설정해야 합니다.
 
-**Task** | **사용 권한**
---- | ---
-**Azure Migrate 프로젝트 만들기** | Azure 계정에는 프로젝트를 만들 수 있는 권한이 필요합니다.
-**Azure Migrate 어플라이언스 등록** | Azure Migrate는 경량 Azure Migrate 어플라이언스를 사용하여 Azure Migrate 서버 평가를 통해 Hyper-V VM을 검색하고 평가합니다. 이 어플라이언스는 VM을 검색하고 VM 메타데이터 및 성능 데이터를 Azure Migrate로 보냅니다.<br/><br/>어플라이언스를 등록하는 동안 어플라이언스(Microsoft.OffAzure, Microsoft.Migrate 및 Microsoft.KeyVault)에서 선택한 구독으로 다음 리소스 공급자가 등록됩니다. 리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. 리소스 공급자를 등록하려면 구독에 대한 기여자 또는 소유자 역할이 필요합니다.<br/><br/> 온보딩의 일환으로 Azure Migrate는 Azure AD(Azure Active Directory) 앱을 만듭니다.<br/> AAD 앱은 Azure에서 실행되는 각각의 서비스와 어플라이언스에서 실행되는 에이전트 간의 통신(인증 및 권한 부여)에 사용됩니다. 이 앱에는 모든 리소스에 대한 ARM 호출 또는 RBAC 액세스를 수행할 수 있는 권한이 없습니다.
+**Task** | **세부 정보** 
+--- | --- 
+**Azure Migrate 프로젝트 만들기** | Azure 계정에는 프로젝트를 만들 수 있는 기여자 또는 소유자 권한이 있어야 합니다. | 
+**리소스 공급자 등록** | Azure Migrate는 경량 Azure Migrate 어플라이언스를 사용하여 Azure Migrate 서버 평가를 통해 Hyper-V VM을 검색하고 평가합니다.<br/><br/> 어플라이언스 등록 중에 리소스 공급자는 어플라이언스에서 선택한 구독에 등록됩니다. [자세히 알아보기](migrate-appliance-architecture.md#appliance-registration).<br/><br/> 리소스 공급자를 등록하려면 구독에 대한 기여자 또는 소유자 역할이 필요합니다.
+**Azure AD 앱 만들기** | 어플라이언스를 등록할 때 Azure Migrate는 어플라이언스에서 실행되는 에이전트와 Azure에서 실행되는 각 서비스 간의 통신에 사용되는 Azure AD(Azure Active Directory) 앱을 만듭니다. [자세히 알아보기](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Azure AD 앱(애플리케이션 개발자에서 사용 가능) 역할을 만들 수 있는 권한이 필요합니다.
 
 
 
@@ -79,25 +79,25 @@ Azure Migrate 프로젝트를 만들 수 있는 권한이 있는지 확인합니
     ![Azure AD 권한](./media/tutorial-prepare-hyper-v/aad.png)
 
 > [!NOTE]
-> 이것이 중요한 내용이 포함되지 않는 기본 설정입니다. [자세히 알아봅니다](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+> 이것이 중요한 내용이 포함되지 않는 기본 설정입니다. [자세히 알아보기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
 
 
 #### <a name="assign-application-developer-role"></a>애플리케이션 개발자 역할 할당
 
-테넌트/글로벌 관리자는 애플리케이션 개발자 역할을 계정에 할당할 수 있습니다. [자세히 알아봅니다](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+테넌트/글로벌 관리자는 애플리케이션 개발자 역할을 계정에 할당할 수 있습니다. [자세히 알아보기](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
 
 ## <a name="prepare-hyper-v-for-assessment"></a>평가를 위한 Hyper-V 준비
 
-VM 평가를 위해 Hyper-V를 수동으로 또는 구성 스크립트를 사용하여 준비할 수 있습니다. 스크립트를 사용하거나 [수동으로](#prepare-hyper-v-manually) 준비해야 하는 항목은 다음과 같습니다.
-
+VM 평가를 위해 Hyper-V를 수동으로 또는 구성 스크립트를 사용하여 준비할 수 있습니다. 준비 단계는 다음과 같습니다.
 - Hyper-V 호스트 설정을 [확인](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements)하고 Hyper-V 호스트에 [필요한 포트](migrate-support-matrix-hyper-v.md#port-access)가 열려 있는지 확인합니다.
 - Azure Migrate 어플라이언스에서 WinRM 연결을 통해 호스트에서 PowerShell 명령을 실행할 수 있도록 각 호스트에서 PowerShell 원격을 설정합니다.
 - VM 디스크가 원격 SMB 공유에 있는 경우 자격 증명을 위임합니다.
 - 어플라이언스가 Hyper-V 호스트에서 VM을 검색하는 데 사용할 계정을 설정합니다.
-- 검색하고 평가하려는 각 VM에서 Hyper-V Integration Services를 설정합니다.
+- 검색하고 평가하려는 각 VM에서 Hyper-V Integration Services를 설정합니다. Integration Services를 사용하도록 설정하는 경우 Azure Migrate에는 기본 설정으로 충분합니다.
 
+    ![Integration Services 사용](./media/tutorial-prepare-hyper-v/integrated-services.png)
 
 
 ## <a name="prepare-with-a-script"></a>스크립트로 준비
@@ -113,7 +113,7 @@ VM 평가를 위해 Hyper-V를 수동으로 또는 구성 스크립트를 사용
 - 호스트에서 지원되는 버전의 Hyper-V 및 Hyper-V 역할을 실행하는지 확인합니다.
 - WinRM 서비스를 사용하도록 설정하고, 호스트에서 5985(HTTP) 및 5986(HTTPS) 포트를 엽니다(메타데이터 수집에 필요함).
 - 호스트에서 PowerShell 원격을 사용하도록 설정합니다.
-- 호스트에서 관리하는 모든 VM에 Hyper-V 통합 서비스를 사용하도록 설정되어 있는지 확인합니다.
+- 호스트에서 관리하는 모든 VM에 Hyper-V Integration Services를 사용하도록 설정되어 있는지 확인합니다.
 - 필요한 경우 호스트에서 CredSSP를 사용하도록 설정합니다.
 
 스크립트를 다음과 같이 실행합니다.
@@ -130,7 +130,7 @@ VM 평가를 위해 Hyper-V를 수동으로 또는 구성 스크립트를 사용
     SHA256
     ```
 
-4.  스크립트 무결성의 유효성이 검사되면 다음 PowerShell 명령을 사용하여 각 Hyper-V 호스트에서 스크립트를 실행합니다.
+4.    스크립트 무결성의 유효성이 검사되면 다음 PowerShell 명령을 사용하여 각 Hyper-V 호스트에서 스크립트를 실행합니다.
     ```
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
     ```
@@ -145,7 +145,7 @@ VM 평가를 위해 Hyper-V를 수동으로 또는 구성 스크립트를 사용
 | **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2 |
 
 
-## <a name="prepare-hyper-v-manually"></a>Hyper-V 수동으로 준비
+## <a name="prepare-manually"></a>수동으로 준비
 
 스크립트를 사용하는 대신 이 섹션의 절차에 따라 Hyper-V를 수동으로 준비합니다.
 

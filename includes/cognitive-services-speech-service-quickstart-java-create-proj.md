@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: a542e02c51bf2ce9b3b13bc50a39584ce079ec72
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: e0bc7eeff276d44f3cd23e30eb54c9bd1ca94efd
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78330834"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80658411"
 ---
 1. Eclipse를 시작합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "78330834"
 
    ![패키지 탐색기의 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-04-convert-to-maven-project.png)
 
-1. **새 POM 만들기** 창이 나타납니다. **그룹 ID** 필드에 *com.microsoft.cognitiveservices.speech.samples*를 입력하고, **아티팩트 ID**에 *빠른 시작*을 입력합니다. 그런 다음, **마침**을 선택합니다.
+1. **새 POM 만들기** 창이 나타납니다. **그룹 ID** 필드에 *com.microsoft.cognitiveservices.speech.samples*를 입력하고, *아티팩트 ID*에 **빠른 시작**을 입력합니다. 그런 다음, **마침**을 선택합니다.
 
    ![[새 POM 만들기] 창의 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-05-configure-maven-pom.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "78330834"
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#repositories)]
 
-   * 또한 다음과 같이 Speech SDK 버전 1.10.0을 종속성으로 사용하여 `dependencies` 요소를 추가합니다.
+   * 또한 다음과 같이 Speech SDK 버전 1.11.0을 종속성으로 사용하여 `dependencies` 요소를 추가합니다.
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#dependencies)]
 

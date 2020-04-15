@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 26122278ad74fb1d383ca7a900810b6060ee78f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: af284e4c10487123c8c2a2105a25a2285ae0aa99
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73172703"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474379"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-instance"></a>자습서: Azure Active Directory Domain Services 인스턴스에 대한 가상 네트워킹 구성
 
@@ -72,18 +72,18 @@ Azure AD DS 관리형 도메인을 사용해야 하는 VM을 만들고 실행할
 VM 및 애플리케이션 워크로드에 대한 가상 네트워크 서브넷을 만들려면 다음 단계를 완료합니다.
 
 1. Azure Portal에서 Azure AD DS 관리형 도메인의 리소스 그룹(예: *myResourceGroup*)을 선택합니다. 리소스 목록에서 기본 가상 네트워크(예: *aadds-vnet*)를 선택합니다.
-1. 가상 네트워크 창의 왼쪽 메뉴에서 **주소 공간**을 선택합니다. 가상 네트워크는 기본 서브넷에서 사용하는 *10.0.1.0/24*의 단일 주소 공간을 사용하여 만들어집니다.
+1. 가상 네트워크 창의 왼쪽 메뉴에서 **주소 공간**을 선택합니다. 가상 네트워크는 기본 서브넷에서 사용하는 *10.0.2.0/24*의 단일 주소 공간을 사용하여 만들어집니다.
 
     추가 IP 주소 범위를 가상 네트워크에 추가합니다. 이 주소 범위의 크기와 사용할 실제 IP 주소 범위는 이미 배포된 다른 네트워크 리소스에 따라 달라집니다. IP 주소 범위는 Azure 또는 온-프레미스 환경의 기존 주소 범위와 겹치지 않아야 합니다. 서브넷에 배포하는 데 필요한 VM의 수에 맞게 IP 주소 범위를 충분히 크게 조정해야 합니다.
 
-    다음 예에서는 *10.0.2.0/24*의 IP 주소 범위가 추가되었습니다. 준비되면 **저장**을 선택합니다.
+    다음 예제에서는 *10.0.3.0/24*의 IP 주소 범위가 추가되었습니다. 준비되면 **저장**을 선택합니다.
 
     ![Azure Portal에서 추가 가상 네트워크 IP 주소 범위를 추가합니다.](./media/tutorial-configure-networking/add-vnet-address-range.png)
 
 1. 다음으로, 가상 네트워크 창의 왼쪽 메뉴에서 **서브넷**을 선택한 다음, **+ 서브넷**을 선택하여 서브넷을 추가합니다.
 1. 서브넷의 이름(예: *workloads*)을 입력합니다. 필요한 경우 가상 네트워크에 대해 이전 단계에서 구성한 IP 주소 범위의 하위 세트를 사용하려면 **주소 범위**를 업데이트합니다. 지금은 네트워크 보안 그룹, 경로 테이블, 서비스 엔드포인트와 같은 옵션의 기본값을 그대로 둡니다.
 
-    다음 예에서는 *10.0.2.0/24*의 IP 주소 범위를 사용하는 *workloads*라는 서브넷을 만듭니다.
+    다음 예제에서는 *10.0.3.0/24*의 IP 주소 범위를 사용하는 *워크로드*라는 서브넷을 만듭니다.
 
     ![Azure Portal에서 추상 가상 네트워크 서브넷을 추가합니다.](./media/tutorial-configure-networking/add-vnet-subnet.png)
 
@@ -130,7 +130,7 @@ Azure 가상 네트워크 피어링을 사용하면 VPN(가상 사설망) 디바
 
 1. Azure Portal에서 피어링된 가상 네트워크의 리소스 그룹(예: *myResourceGroup*)을 선택합니다. 리소스 목록에서 피어링된 가상 네트워크(예: *myVnet*)를 선택합니다.
 1. 가상 네트워크 창의 왼쪽 메뉴에서 **DNS 서버**를 선택합니다.
-1. 기본적으로 가상 네트워크는 Azure에서 제공하는 기본 제공 DNS 서버를 사용합니다. **사용자 지정** DNS 서버를 사용하도록 선택합니다. Azure AD DS 도메인 컨트롤러의 IP 주소(일반적으로 *10.0.1.4* 및 *10.0.1.5*)를 입력합니다. 포털에 있는 Azure AD DS 관리형 도메인의 **개요** 창에서 이러한 IP 주소를 확인합니다.
+1. 기본적으로 가상 네트워크는 Azure에서 제공하는 기본 제공 DNS 서버를 사용합니다. **사용자 지정** DNS 서버를 사용하도록 선택합니다. Azure AD DS 도메인 컨트롤러의 IP 주소(일반적으로 *10.0.2.4* 및 *10.0.2.5*)를 입력합니다. 포털에 있는 Azure AD DS 관리형 도메인의 **개요** 창에서 이러한 IP 주소를 확인합니다.
 
     ![Azure AD DS 도메인 컨트롤러를 사용하도록 가상 네트워크 DNS 서버를 구성합니다.](./media/tutorial-configure-networking/custom-dns.png)
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 10/22/2019
+ms.date: 03/30/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd4feeb83acc3842874e7a2e4bbd32dacabcc00d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c2d31ef46dfba31a8f217f68e8d5f98b67d58da5
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75422666"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410578"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>자습서: Azure AD 권한 관리에서 첫 번째 액세스 패키지 만들기
 
@@ -84,79 +84,83 @@ Azure AD 권한 관리를 사용하려면 다음 라이선스 중 하나가 있�
 
 1. Azure Portal의 왼쪽 탐색에서 **Azure Active Directory**를 클릭합니다.
 
-1. 왼쪽 메뉴에서 **Identity Governance**를 클릭합니다.
+2. 왼쪽 메뉴에서 **Identity Governance**를 클릭합니다.
 
-1. 왼쪽 메뉴에서 **액세스 패키지**를 클릭합니다.  **액세스 거부됨**이 표시되면, 해당 디렉터리에 Azure AD Premium P2 라이선스가 있는지 확인합니다.
+3. 왼쪽 메뉴에서 **액세스 패키지**를 클릭합니다.  **액세스 거부됨**이 표시되면, 해당 디렉터리에 Azure AD Premium P2 라이선스가 있는지 확인합니다.
 
-1. **새 액세스 패키지**를 클릭합니다.
+4. **새 액세스 패키지**를 클릭합니다.
 
     ![Azure Portal에서 권한 관리](./media/entitlement-management-shared/access-packages-list.png)
 
-1. **기본 사항** 탭에서 이름에는 **마케팅 캠페인** 액세스 패키지를 입력하고 설명에는 **캠페인에 대한 리소스에 액세스**를 입력합니다.
+5. **기본 사항** 탭에서 이름에는 **마케팅 캠페인** 액세스 패키지를 입력하고 설명에는 **캠페인에 대한 리소스에 액세스**를 입력합니다.
 
-1. **카탈로그** 드롭다운 목록은 **일반**으로 둡니다.
+6. **카탈로그** 드롭다운 목록은 **일반**으로 둡니다.
 
     ![새 액세스 패키지 - 기본 탭](./media/entitlement-management-access-package-first/basics.png)
 
-1. **다음**을 클릭하여 **리소스 역할** 탭을 엽니다.
+7. **다음**을 클릭하여 **리소스 역할** 탭을 엽니다.
 
     이 탭에서 액세스 패키지에 포함할 리소스 및 리소스 역할을 선택합니다.
 
-1. **그룹 및 팀**을 클릭합니다.
+8. **그룹 및 팀**을 클릭합니다.
 
-1. 그룹 선택 창에서 앞서 만든 **마케팅 리소스** 그룹을 찾아서 선택합니다.
+9. 그룹 선택 창에서 앞서 만든 **마케팅 리소스** 그룹을 찾아서 선택합니다.
 
     기본적으로 **일반** 카탈로그 안팎의 그룹을 볼 수 있습니다. **일반** 카탈로그 외부의 그룹을 선택하면 **일반** 카탈로그에 추가됩니다.
 
     ![새 액세스 패키지 - 리소스 역할 탭](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 
-1. **선택**을 클릭하여 그룹을 목록에 추가합니다.
+10. **선택**을 클릭하여 그룹을 목록에 추가합니다.
 
-1. **역할** 드롭다운 목록에서 **멤버**를 선택합니다.
+11. **역할** 드롭다운 목록에서 **멤버**를 선택합니다.
 
     ![새 액세스 패키지 - 리소스 역할 탭](./media/entitlement-management-access-package-first/resource-roles.png)
 
-1. **다음**을 클릭하여 **요청** 탭을 엽니다.
+    >[!NOTE]
+    > [동적 그룹](../users-groups-roles/groups-create-rule.md)을 사용하면 소유자 외에 다른 역할은 사용할 수 없습니다. 이것은 의도적인 것입니다.
+    > ![시나리오 개요](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
+
+12. **다음**을 클릭하여 **요청** 탭을 엽니다.
 
     이 탭에서 요청 정책을 만듭니다. 정책(*policy*)은 액세스 패키지에 액세스하기 위한 규칙 또는 보호책을 정의합니다. 리소스 디렉터리의 특정 사용자가 액세스 패키지를 요청할 수 있도록 허용하는 정책을 만듭니다.
 
-1. **액세스를 요청할 수 있는 사용자** 섹션에서 **디렉터리에 있는 사용자**를 클릭한 다음, **특정 사용자 및 그룹**을 클릭합니다.
+13. **액세스를 요청할 수 있는 사용자** 섹션에서 **디렉터리에 있는 사용자**를 클릭한 다음, **특정 사용자 및 그룹**을 클릭합니다.
 
     ![새 액세스 패키지 - 요청 탭](./media/entitlement-management-access-package-first/requests.png)
 
-1. **사용자 및 그룹 추가**를 클릭합니다.
+14. **사용자 및 그룹 추가**를 클릭합니다.
 
-1. 사용자 및 그룹 선택 창에서 앞서 만든 **Requestor1** 사용자를 선택합니다.
+15. 사용자 및 그룹 선택 창에서 앞서 만든 **Requestor1** 사용자를 선택합니다.
 
     ![새 액세스 패키지 - 요청 탭 - 사용자 및 그룹 선택](./media/entitlement-management-access-package-first/requests-select-users-groups.png)
 
-1. **선택**을 클릭합니다.
+16. **선택**을 클릭합니다.
 
-1. **승인** 및 **요청 사용** 섹션까지 아래로 스크롤합니다.
+17. **승인** 및 **요청 사용** 섹션까지 아래로 스크롤합니다.
 
-1. **승인 필요**를 **아니오**로 설정합니다.
+18. **승인 필요**를 **아니오**로 설정합니다.
 
-1. **요청 사용**의 경우 **예**를 클릭하여 이 액세스 패키지를 만드는 즉시 요청하도록 설정합니다.
+19. **요청 사용**의 경우 **예**를 클릭하여 이 액세스 패키지를 만드는 즉시 요청하도록 설정합니다.
 
     ![새 액세스 패키지 - 요청 탭 - 승인 및 요청 사용](./media/entitlement-management-access-package-first/requests-approval-enable.png)
 
-1. **다음**을 클릭하여 **수명 주기** 탭을 엽니다.
+20. **다음**을 클릭하여 **수명 주기** 탭을 엽니다.
 
-1. **만료** 섹션에서 **액세스 패키지 할당 만료**를 **일 수**로 설정합니다.
+21. **만료** 섹션에서 **액세스 패키지 할당 만료**를 **일 수**로 설정합니다.
 
-1. **다음 이후에 할당 만료**를 **30**일로 설정합니다.
+22. **다음 이후에 할당 만료**를 **30**일로 설정합니다.
 
     ![새 액세스 패키지 - 수명 주기 탭](./media/entitlement-management-access-package-first/lifecycle.png)
 
-1. **다음**을 클릭하여 **리뷰 + 만들기** 탭을 엽니다.
+23. **다음**을 클릭하여 **리뷰 + 만들기** 탭을 엽니다.
 
     ![새 액세스 패키지 - 리뷰 + 만들기 탭](./media/entitlement-management-access-package-first/review-create.png)
 
     잠시 후 액세스 패키지를 성공적으로 만들었다는 알림이 표시됩니다.
 
-1. 마케팅 캠페인 액세스 패키지의 왼쪽 메뉴에서 **개요**를 클릭합니다.
+24. 마케팅 캠페인 액세스 패키지의 왼쪽 메뉴에서 **개요**를 클릭합니다.
 
-1. **내 액세스 포털 링크**를 복사합니다.
+25. **내 액세스 포털 링크**를 복사합니다.
 
     이 링크는 다음 단계에서 사용됩니다.
 

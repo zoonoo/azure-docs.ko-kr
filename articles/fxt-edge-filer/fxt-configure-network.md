@@ -6,12 +6,12 @@ ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: a40ff50dcb0934cbf1ea5222675bd75948ac1d03
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9b0154889544e0054e309cc5f43851b73b4396b4
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223970"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754683"
 ---
 # <a name="tutorial-configure-the-clusters-network-settings"></a>자습서: 클러스터의 네트워크 설정 구성
 
@@ -76,7 +76,7 @@ FXT Edge Filer 클러스터는 다음 기능에 X.509 인증서를 사용합니�
 
 클러스터에 인증서를 업로드해야 할 경우 **클러스터** > **인증서**를 사용합니다. 세부 정보는 클러스터 구성 가이드의 [클러스터 > 인증서](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_certificates.html) 페이지를 참조하세요.
 
-클러스터 관리 통신을 암호화하려면 **클러스터** > **일반 설정** 페이지를 사용하여 관리 SSL에 사용할 인증서를 선택합니다.
+클러스터 관리 통신을 암호화하려면 **클러스터** > **일반 설정** 페이지를 사용하여 관리 TLS에 사용할 인증서를 선택합니다.
 
 > [!Note] 
 > 클라우드 서비스 액세스 키는 **클라우드 자격 증명** 구성 페이지를 사용하여 저장됩니다. 위의 [코어 파일러 추가](fxt-add-storage.md#add-a-core-filer) 섹션에서 예제를 제공합니다. 세부 정보는 클러스터 구성 가이드의 [클라우드 자격 증명](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) 섹션을 참조하세요. 

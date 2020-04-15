@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 7e3e9e6c76d67db03ea812a4832e98f4449c9aba
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: de4a9324cd1cfaccec6dcca6a8dfc057d37275c0
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77061678"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619231"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>빠른 시작: 기존 MongoDB Node.js 웹앱을 Azure Cosmos DB로 마이그레이션 
 
@@ -230,7 +230,7 @@ MEAN.js 리포지토리에서 `config/env/production.js`를 엽니다.
 ```
 
 > [!NOTE] 
-> `ssl=true` 옵션은 [Cosmos DB에서 SSL이 필요](connect-mongodb-account.md#connection-string-requirements)하기 때문에 중요합니다. 
+> Cosmos DB 요구 사항으로 인해 `ssl=true` 옵션이 중요합니다. 자세한 내용은 [연결 문자열 요구 사항](connect-mongodb-account.md#connection-string-requirements)을 참조하세요.
 >
 >
 

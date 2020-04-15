@@ -2,15 +2,15 @@
 title: 자습서 - Azure Portal에서 템플릿 내보내기
 description: 내보낸 템플릿을 사용하여 템플릿 개발을 완료하는 방법을 알아봅니다.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 95d54a0661f0a0cebdbfc225074be0ce0d83a5cc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f95efbaedc2718c968062c47427ab7765756bde7
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79368896"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408558"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>자습서: Azure Portal에서 내보낸 템플릿 사용
 
@@ -34,7 +34,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **리소스 만들기**를 선택합니다.
-1. **Marketplace 검색**에 **App Service 계획**을 입력한 다음, **App Service 계획**을 선택합니다.  **App Service 계획(클래식)** 은 선택하지 마십시오.
+1. **Marketplace 검색**에 **App Service 계획**을 입력한 다음, **App Service 계획**을 선택합니다.  **App Service 계획(클래식)** 을 선택하지 마세요.
 1. **만들기**를 선택합니다.
 1. 다음을 입력합니다.
 
@@ -97,6 +97,8 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
+이 배포 명령을 실행하려면 Azure CLI의 [최신 버전](/cli/azure/install-azure-cli)이 있어야 합니다.
+
 ```azurecli
 az deployment group create \
   --name addappserviceplan \
@@ -106,6 +108,9 @@ az deployment group create \
 ```
 
 ---
+
+> [!NOTE]
+> 배포에 실패한 경우 배포 명령과 함께 **debug** 스위치를 사용하여 디버그 로그를 표시합니다.  **verbose** 스위치를 사용하여 전체 디버그 로그를 표시할 수도 있습니다.
 
 ## <a name="verify-deployment"></a>배포 확인
 

@@ -3,22 +3,26 @@ title: Azure Cost Management와 AWS 통합 설정
 description: 이 문서에서는 Azure Cost Management와의 AWS 비용 및 사용 현황 보고서 통합을 설정하고 구성하는 과정을 안내합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 04/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: matrive
-ms.openlocfilehash: c0f6f18abf7c05cf5ae6dcaa31a57974ecfca806
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d3b1efabbf5f05c05ef939ee8713829fbd49f483
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79203086"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878989"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>AWS 비용 및 사용 현황 보고서 통합 설정 및 구성
 
 AWS(Amazon Web Services) CUR(비용 및 사용 현황 보고서) 통합을 사용하면 Azure Cost Management에서 AWS 지출을 모니터링하고 제어할 수 있습니다. 통합을 통해 Azure Portal 내 한 곳에서 Azure 및 AWS 모두에 대한 지출을 모니터링하고 제어할 수 있습니다. 이 문서에서는 Azure Cost Management 기능을 사용하여 비용을 분석하고 예산을 검토할 수 있도록 통합을 설정하고 구성하는 방법을 설명합니다.
 
 Cost Management는 AWS 액세스 자격 증명을 사용하여 보고서 정의를 가져오고 보고서 GZIP CSV 파일을 다운로드하여 S3 버킷에 저장된 AWS 비용 및 사용 현황 보고서를 처리합니다.
+
+AWS 보고서 통합을 설정하는 방법에 대한 자세한 내용은 [Cost Management에서 AWS용 커넥터를 설정하는 방법](https://www.youtube.com/watch?v=Jg5KC1cx5cA) 비디오를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
+
+>[!VIDEO https://www.youtube.com/embed/Jg5KC1cx5cA]
 
 ## <a name="create-a-cost-and-usage-report-in-aws"></a>AWS에서 비용 및 사용 현황 보고서 만들기
 

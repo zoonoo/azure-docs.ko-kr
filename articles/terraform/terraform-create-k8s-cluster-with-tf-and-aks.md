@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure Kubernetes Service 및 Terraform을 �
 keywords: azure devops terraform aks kubernetes
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 0a193c8da6441a04f742894797521fe92f26b2e1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b7a84d7562e99e53ff7be75b7d40795cd3f9e203
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78945304"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618934"
 ---
 # <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>자습서: Terraform을 사용하여 Azure Kubernetes Service로 Kubernetes 클러스터 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "78945304"
 
 - **Terraform 구성**: [Terraform 및 Azure에 액세스 구성](terraform-install-configure.md) 문서의 지침을 따릅니다.
 
-- **Azure 서비스 주체**: [Azure CLI를 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) 문서의 **서비스 주체 만들기** 섹션에 나온 지침을 따릅니다. appId, displayName, 암호, 테넌트를 기록해 둡니다.
+- **Azure 서비스 주체**: [Azure CLI를 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) 문서의 **서비스 주체 만들기** 섹션에 있는 지침을 따릅니다. appId, displayName, 암호, 테넌트를 기록해 둡니다.
 
 ## <a name="create-the-directory-structure"></a>디렉터리 구조 만들기
 
@@ -303,7 +303,7 @@ Terraform은 `terraform.tfstate` 파일을 통해 로컬로 상태를 추적합�
 
 ## <a name="create-the-kubernetes-cluster"></a>Kubernetes 클러스터 만들기
 
-이 섹션에서는 `terraform init` 명령을 사용하여 이전 섹션에서 만든 구성 파일을 정의하는 리소스를 만드는 방법을 보여 줍니다.
+이 섹션에서는 `terraform init` 명령을 사용하여 이전 섹션에서 만든 구성 파일에 정의된 리소스를 만드는 방법을 보여줍니다.
 
 1. Cloud Shell에서 Terraform을 초기화합니다. 자리 표시자를 사용자 환경에 적합한 값으로 바꿉니다.
 

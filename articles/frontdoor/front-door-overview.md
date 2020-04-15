@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2019
 ms.author: sharadag
-ms.openlocfilehash: 0ee35f4f0b4bd8c46a0445e2905ae3b50d11f721
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b2ee41324cfaefa4d5aec3aa02b2d0d8c75da78f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79471652"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879125"
 ---
 # <a name="what-is-azure-front-door"></a>Azure Front Door란?
 Azure Front Door를 사용하면 최적의 성능과 고가용성을 지원하는 즉시 글로벌 장애 조치(failover)를 최적으로 구현하여 웹 트래픽의 글로벌 라우팅을 정의, 관리, 모니터링할 수 있습니다. Front Door를 사용하면 글로벌(다중 지역) 소비자 및 기업 애플리케이션을 글로벌 Azure 잠재 고객에게 도달하는 견고한 고성능의 맞춤형 최신 애플리케이션, API 및 콘텐츠로 변환할 수 있습니다.
@@ -51,12 +51,12 @@ URL 경로 기반 라우팅을 사용하여 요청의 URL 경로에 따라 트�
 ## <a name="session-affinity"></a>세션 선호도
 쿠키 기반 세션 선호도 기능은 동일한 애플리케이션 백 엔드에서 사용자 세션을 유지하려는 경우에 유용합니다. Front Door 관리 쿠키를 사용하면 사용자 세션의 후속 트래픽이 동일한 애플리케이션 백 엔드로 전달되어 처리됩니다. 이 기능은 세션 상태가 사용자 세션의 백 엔드에 로컬로 저장된 경우에 특히 중요합니다.
 
-## <a name="secure-sockets-layer-ssl-termination"></a>SSL(Secure Sockets Layer) 종료
-Front Door는 개별 사용자가 애플리케이션 백 엔드를 사용하여 시간과 노력이 많이 드는 연결을 설정하는 대신 Front Door 환경과 SSL 연결을 설정할 수 있는 에지에서 SSL 종단을 지원합니다. 또한 Front Door는 Front Door 환경과 백 엔드 간에 HTTP와 HTTPS 연결을 모두 지원합니다. 따라서 엔드투엔드 SSL 암호화도 설정할 수 있습니다. 예를 들어 애플리케이션 워크로드의 Front Door가 활성 서비스의 웜 연결 재사용으로 인해 1분 안에 5000개 이상의 요청을 수신하는 경우 애플리케이션 백 엔드와 약 500개의 연결만 설정하여 백 엔드의 상단한 로드를 줄일 수 있습니다.
+## <a name="tls-termination"></a>TLS 종료
+Front Door는 개별 사용자가 애플리케이션 백 엔드를 사용하여 시간과 노력이 많이 드는 연결을 설정하는 대신 Front Door 환경과 TLS 연결을 설정할 수 있는 에지에서 TLS 종료를 지원합니다. 또한 Front Door는 Front Door 환경과 백 엔드 간에 HTTP와 HTTPS 연결을 모두 지원합니다. 따라서 엔드투엔드 TLS 암호화도 설정할 수 있습니다. 예를 들어 애플리케이션 워크로드의 Front Door가 활성 서비스의 웜 연결 재사용으로 인해 1분 안에 5000개 이상의 요청을 수신하는 경우 애플리케이션 백 엔드와 약 500개의 연결만 설정하여 백 엔드의 상단한 로드를 줄일 수 있습니다.
 
 ## <a name="custom-domains-and-certificate-management"></a>사용자 지정 도메인 및 인증서 관리
 Front Door를 사용하여 콘텐츠를 제공할 때 고유한 도메인 이름을 Front Door URL에 표시하려는 경우 사용자 지정 도메인이 필요합니다. 볼 수 있는 도메인 이름이 있다면 고객에게 편리하고 브랜딩 목적상 유용합니다.
-또한 Front Door는 사용자 지정 도메인 이름에 HTTPS를 지원합니다. 트래픽에 Front Door 관리 인증서를 선택하거나 사용자 지정 SSL 인증서를 업로드하여 이 기능을 사용하세요.
+또한 Front Door는 사용자 지정 도메인 이름에 HTTPS를 지원합니다. 트래픽에 Front Door 관리 인증서를 선택하거나 사용자 지정 TLS/SSL 인증서를 업로드하여 이 기능을 사용하세요.
 
 ## <a name="application-layer-security"></a>애플리케이션 계층 보안
 Azure Front Door를 사용하면 액세스 제어에 대한 사용자 지정 WAF(웹 애플리케이션 방화벽) 규칙을 작성하여 클라이언트 IP 주소, 국가 코드 및 http 매개 변수를 기준으로 HTTP/HTTPS 워크로드 만료를 방지할 수 있습니다. 또한 Front Door를 사용하면 악성 봇 트래픽을 차단하는 등급 제한 규칙을 만들 수 있습니다. 웹 애플리케이션 방화벽에 대한 자세한 내용은 [Azure 웹 애플리케이션 방화벽이란?](../web-application-firewall/overview.md)을 참조하세요.

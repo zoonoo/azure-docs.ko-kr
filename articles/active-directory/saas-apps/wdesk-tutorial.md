@@ -12,14 +12,14 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 04/02/2020
 ms.author: jeedes
-ms.openlocfilehash: a4cfcf20fc7a6a3532f65c3e797da6c876844d2c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 349a9920adc0d9353ee8e8e821f54bc2ea2f2616
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76985560"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666971"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wdesk"></a>자습서: Wdesk와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -181,6 +181,10 @@ Wdesk에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     ![Single Sign-on 구성](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
 
+1. **SAML 사용자 ID 설정**에서 **SAML 사용자 ID가 Wdesk 사용자 이름**인지 확인합니다.
+
+    ![Single Sign-on 구성](./media/wdesk-tutorial/wdesk-username.png)
+
 4. **일반 설정**에서 **SAML Single Sign On 사용**을 선택합니다.
 
     ![Single Sign-on 구성](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
@@ -223,7 +227,7 @@ Azure AD 사용자가 Wdesk에 로그인할 수 있도록 하려면 Azure AD 사
    
     ![Azure AD 테스트 사용자 만들기](./media/wdesk-tutorial/createuser1.png)  
 
-5. **사용자** 텍스트 상자에 brittasimon@contoso.com과 같은 사용자의 사용자 이름을 입력하고 **계속** 단추를 클릭합니다.
+5. **사용자** 텍스트 상자에 b.simon@contoso.com과 같은 사용자의 사용자 이름을 입력하고 **계속** 단추를 클릭합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/wdesk-tutorial/createuser3.png)
 
@@ -231,9 +235,9 @@ Azure AD 사용자가 Wdesk에 로그인할 수 있도록 하려면 Azure AD 사
   
     ![Azure AD 테스트 사용자 만들기](./media/wdesk-tutorial/createuser4.png)
  
-    a. **이메일** 텍스트 상자에 사용자의 이메일(예: brittasimon@contoso.com)을 입력합니다.
+    a. **이메일** 텍스트 상자에 사용자의 이메일(예: b.simon@contoso.com)을 입력합니다.
 
-    b. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.
+    b. **이름** 텍스트 상자에 사용자의 이름(예: **B**)을 입력합니다.
 
     다. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
 

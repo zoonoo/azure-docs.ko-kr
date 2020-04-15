@@ -3,16 +3,16 @@ title: Azure 엔터프라이즈 등록 청구서
 description: 이 문서에서는 Azure 엔터프라이즈 청구서를 관리하고 작업하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 9fbc2ffcf1158f436c060817f8f25152f839c3e0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d8d189d2ee67e3f98fec5d7d4cd295879e8689c9
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79037264"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743881"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Azure 엔터프라이즈 등록 청구서
 
@@ -494,6 +494,12 @@ Azure 현금 약정 금액은 Azure 서비스 선결제 금액입니다. 서비�
 - Visual Studio Enterprise(연간)
 - Visual Studio Professional(월간)
 - Visual Studio Professional(연간)
+
+## <a name="what-to-expect-after-change-of-channel-partner"></a>채널 파트너를 변경한 후에 필요한 항목
+
+채널 파트너(COCP)의 변경이 월 중간에 발생하는 경우 고객은 이전에 연결된 파트너의 사용량에 대한 청구서와 새 파트너의 사용량에 대한 다른 청구서를 받게 됩니다.
+
+청구서는 청구 기간이 끝난 다음달에 청구됩니다. 청구 주기가 매월인 경우 9월의 청구서가 10월에 두 파트너 모두에게 청구됩니다. 청구 주기가 분기별 또는 매년인 경우 고객은 이전 관련 파트너의 해당 기간 동안 사용량에 대한 청구서로 간주되고, 나머지는 청구 주기를 기준으로 새 파트너에게 청구됩니다.
 
 ## <a name="azure-marketplace-for-ea-customers"></a>EA 고객용 Azure Marketplace
 

@@ -1,22 +1,14 @@
 ---
 title: '자습서: 정규식 엔터티 - LUIS'
-titleSuffix: Azure Cognitive Services
 description: 정규식 엔터티를 사용하여 발화에서 데이터를 일관된 형식으로 추출합니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 0ca6f2a67e01e4c604c2dcc8f8eaa9ffe8bad045
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 04/01/2020
+ms.openlocfilehash: 5b585ee52880c474d3f2736b34a267012b390aad
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75381531"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545830"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>자습서: 발언에서 올바른 형식의 데이터 구하기
 이 자습서에서는 발화에서 데이터를 일관된 형식으로 추출하는 정규식 엔터티를 만듭니다.
@@ -100,11 +92,9 @@ ms.locfileid: "75381531"
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-2. 주소의 URL 끝으로 이동하여 다음 발언을 입력합니다.
+1. 주소 표시줄의 URL 끝으로 이동하여 _YOUR_QUERY_HERE_를 다음으로 바꿉니다.
 
     `Text my pizza delivery to x23456 x234567 x12345`
-
-    마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `query`입니다.
 
     ```json
     {

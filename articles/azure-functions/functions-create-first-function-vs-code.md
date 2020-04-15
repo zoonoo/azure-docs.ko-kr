@@ -5,18 +5,25 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 6f1c211a8110d95adb5e6802313c5b7deafe3864
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e1cf95d3c6ac8918e9e7e5593d687ee2d398810
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80276464"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886622"
 ---
 # <a name="quickstart-create-an-azure-functions-project-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure Functions 프로젝트 만들기
 
 이 문서에서는 Visual Studio Code를 사용하여 HTTP 요청에 응답하는 함수를 만듭니다. 코드를 로컬로 테스트한 후 Azure Functions의 서버리스 환경에 배포합니다. 이 빠른 시작을 완료하면 Azure 계정에서 USD 센트 이하의 작은 비용이 발생합니다. 
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
 이 문서의 [CLI 기반 버전](functions-create-first-azure-function-azure-cli.md)도 있습니다.
+::: zone-end  
+
+::: zone pivot="programming-language-java"  
+> [!NOTE]
+> VS Code가 선호하는 개발 도구가 아닌 경우 [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [Gradle](/azure/azure-functions/functions-create-first-java-gradle) 및 [IntelliJ IDEA](/azure/java/intellij/azure-toolkit-for-intellij-quickstart-functions)를 사용하여 Java 개발자에 대한 유사한 자습서를 확인하세요.
+::: zone-end  
 
 ## <a name="configure-your-environment"></a>환경 구성
 
@@ -25,11 +32,11 @@ ms.locfileid: "80276464"
 + 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-python"  
-+ npm용 Windows에 필요한 [Node.js](https://nodejs.org/)입니다. [활성 LTS 및 유지 관리 LTS 버전](https://nodejs.org/about/releases/)만 해당합니다. `npm --version` 명령을 사용하여 버전을 확인합니다.
-    MacOS 및 Linux의 로컬 개발에는 필요하지 않습니다.   
++ npm용 Windows에 필요한 [Node.js](https://nodejs.org/)입니다. [활성 LTS 및 유지 관리 LTS 버전](https://nodejs.org/about/releases/)만 해당합니다. `node --version` 명령을 사용하여 버전을 확인합니다.
+    macOS 및 Linux의 로컬 개발에는 필요하지 않습니다.   
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-+ [Node.js](https://nodejs.org/), 활성 LTS 및 유지 관리 LTS 버전(10.14.1 권장). `npm --version` 명령을 사용하여 버전을 확인합니다.
++ [Node.js](https://nodejs.org/), 활성 LTS 및 유지 관리 LTS 버전(10.14.1 권장). `node --version` 명령을 사용하여 버전을 확인합니다.
 ::: zone-end 
 ::: zone pivot="programming-language-python"
 + [Python 3.8](https://www.python.org/downloads/release/python-381/), [Python 3.7](https://www.python.org/downloads/release/python-375/), [Python 3.6](https://www.python.org/downloads/release/python-368/)은 Azure Functions(x64)에서 지원됩니다.
@@ -39,6 +46,11 @@ ms.locfileid: "80276464"
 
 + [.NET Core SDK 2.2 이상](https://www.microsoft.com/net/download)  
 ::: zone-end  
+::: zone pivot="programming-language-java"  
++ [Java Developer Kit](https://aka.ms/azure-jdks), 버전 8.
+
++ [Apache Maven](https://maven.apache.org) 버전 3.0 이상
+::: zone-end  
 + [지원되는 플랫폼](https://code.visualstudio.com/docs/supporting/requirements#_platforms) 중 하나인 [Visual Studio Code](https://code.visualstudio.com/).  
 ::: zone pivot="programming-language-csharp"  
 + Visual Studio Code용 [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).  
@@ -47,7 +59,10 @@ ms.locfileid: "80276464"
 + Visual Studio Code용 [Python 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.python).  
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"
-+ [Visual Studio Code용 PowerShell 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
++ [Visual Studio Code용 PowerShell 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell). 
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ [Java 확장 팩](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
 ::: zone-end  
 
 + Visual Studio Code용 [Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). 
@@ -85,21 +100,35 @@ ms.locfileid: "80276464"
     + **가상 환경을 만들기 위한 Python 별칭 선택**: Python 인터프리터의 위치를 선택합니다. 위치가 표시되지 않으면 Python 이진에 대한 전체 경로를 입력합니다.  
     ::: zone-end
 
+    ::: zone pivot="programming-language-java"  
+    + **함수 프로젝트에 대한 언어 선택**: `Java`을 선택합니다.
+
+    + **그룹 ID 제공**: `com.function`을 선택합니다.
+
+    + **아티팩트 ID 제공**: `myFunction`을 선택합니다.
+
+    + **버전 제공**: `1.0-SNAPSHOT`을 선택합니다.
+
+    + **패키지 이름 제공**: `com.function`을 선택합니다.
+
+    + **앱 이름 제공**: `myFunction-12345`을 선택합니다.
+    ::: zone-end  
+    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
     + **프로젝트의 첫 번째 함수에 대한 템플릿 선택**: `HTTP trigger`을 선택합니다.
     
     + **함수 이름 입력**: `HttpExample`.
-    
+    ::: zone-end  
     ::: zone pivot="programming-language-csharp"
     + **네임스페이스 입력**: `My.Functions`. 
-    ::: zone-end
-
+    ::: zone-end  
+    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
     + **권한 부여 수준**: 누구나 함수 엔드포인트를 호출할 수 있도록 하는 `Anonymous`를 선택합니다. 권한 부여 수준에 대해 알아보려면 [권한 부여 키](functions-bindings-http-webhook-trigger.md#authorization-keys)를 참조하세요.
-
+    ::: zone-end  
     + **프로젝트를 여는 방법 선택**: `Add to workspace`을 선택합니다.
 
 1. Visual Studio Code는 이 정보를 사용하여 HTTP 트리거를 통해 Azure Functions 프로젝트를 생성합니다. 탐색기에서 로컬 프로젝트 파일을 볼 수 있습니다. 생성된 파일에 대한 자세한 내용은 [생성된 프로젝트 파일](functions-develop-vs-code.md#generated-project-files)을 참조하세요. 
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python,programming-language-java"
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
@@ -119,7 +148,7 @@ ms.locfileid: "80276464"
 
 ## <a name="run-the-function-in-azure"></a>Azure에서 함수 실행
 
-1. **Azure: Functions** 영역으로 돌아가서 구독의 새 함수 앱을 확장합니다. **Functions**를 확장하고 **HttpExample**에서 (Windows) 또는 Ctrl + 클릭(MacOS)을 마우스 오른쪽 단추로 클릭한 다음, **함수 URL 복사**를 선택합니다.
+1. **Azure: Functions** 영역으로 돌아가서 구독의 새 함수 앱을 확장합니다. **Functions**를 확장하고 **HttpExample**에서 (Windows) 또는 Ctrl + 클릭(macOS)을 마우스 오른쪽 단추로 클릭한 다음, **함수 URL 복사**를 선택합니다.
 
     ![새 HTTP 트리거에 대한 함수 URL 복사](./media/functions-create-first-function-vs-code/function-copy-endpoint-url.png)
 

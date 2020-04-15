@@ -1,19 +1,19 @@
 ---
-title: Azure Dev Spaces 소개
+title: Azure Dev Spaces란?
 services: azure-dev-spaces
 ms.date: 05/07/2019
 ms.topic: overview
 description: Azure Dev Spaces가 Azure Kubernetes Service 클러스터의 팀에게 신속하고 반복 가능한 Kubernetes 개발 환경을 제공하는 방법을 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 586b19070ec36517add21f7aac86ddf15121be2d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8b22181bcddda9e4156c0e0dbe61d7d813498d96
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215691"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529722"
 ---
-# <a name="introduction-to-azure-dev-spaces"></a>Azure Dev Spaces 소개
+# <a name="what-is-azure-dev-spaces"></a>Azure Dev Spaces란?
 
 Azure Dev Spaces는 AKS(Azure Kubernetes Service) 클러스터의 팀에게 신속하고 반복 가능한 Kubernetes 개발 환경을 제공합니다. Azure Dev Spaces에서는 종속성을 복제하거나 모의로 실행하지 않고 최소의 시스템 설정만으로 AKS의 모든 애플리케이션 구성 요소를 디버그하고 테스트할 수 있습니다.
 
@@ -38,15 +38,11 @@ Azure Dev Spaces의 작동 방식에 대한 자세한 내용은 [Azure Dev Space
 
 ## <a name="supported-regions-and-configurations"></a>지원되는 Azure 지역 및 구성
 
-Azure Dev Spaces는 [일부 지역][supported-regions]의 AKS 클러스터에 의해서만 지원됩니다. Azure Dev Spaces는 Linux, MacOS 또는 Windows 8 이상에 설치된 [Azure Dev Spaces 확장](/cli/azure/install-azure-cli?view=azure-cli-latest)에서 [Azure CLI](https://code.visualstudio.com/download) 또는 [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)를 사용하여 AKS에서 애플리케이션을 빌드하고 실행할 수 있습니다. Windows 8 이상에 설치된 [Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)도 사용할 수 있습니다. Visual Studio 2019는 Azure 개발 워크로드가 필요합니다. Visual Studio 2017은 웹 개발 워크로드 및 [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools)가 필요합니다.
+Azure Dev Spaces는 [일부 지역][supported-regions]의 AKS 클러스터에 의해서만 지원됩니다. Azure Dev Spaces는 Linux, macOS 또는 Windows 8 이상에 설치된 [Azure Dev Spaces 확장](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)에서 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 또는 [Visual Studio Code](https://code.visualstudio.com/download)를 사용하여 AKS에서 애플리케이션을 빌드하고 실행할 수 있습니다. Windows 8 이상에 설치된 [Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)도 사용할 수 있습니다. Visual Studio 2019는 Azure 개발 워크로드가 필요합니다. Visual Studio 2017은 웹 개발 워크로드 및 [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools)가 필요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-팀 개발 빠른 시작을 통해 Azure Dev Spaces를 사용하여 신속하고 반복적으로 앱을 개발하는 방법을 자세히 알아보세요.
-
-> [!div class="nextstepaction"]
-> [팀 개발 빠른 시작](quickstart-team-development.md)
-
+[팀 개발 빠른 시작][team-development-quickstart]을 통해 Azure Dev Spaces를 사용하여 신속하고 반복적으로 앱을 개발하는 방법을 자세히 알아보세요.
 
 [how-dev-spaces-works]: how-dev-spaces-works.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

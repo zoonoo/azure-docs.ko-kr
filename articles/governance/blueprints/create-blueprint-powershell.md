@@ -3,12 +3,12 @@ title: '빠른 시작: PowerShell로 청사진 만들기'
 description: 이 빠른 시작에서는 Azure Blueprints를 사용하여 PowerShell을 통해 아티팩트를 만들고 정의하고 배포합니다.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 8b418fa2b5244c42b8597bbbe7ed4773133d03a8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 53fcf53bdcc3b5fcd1c6ec07a7d8ab45b39955b6
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75436629"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676573"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>빠른 시작: PowerShell로 Azure Blueprint 정의 및 할당
 
@@ -377,7 +377,7 @@ PowerShell을 사용하여 청사진을 게시하고 나면 구독에 할당할 
      **사용자가 할당한 관리형 ID**는 청사진을 할당한 사용자에게 권한이 있는 구독 및 리소스 그룹일 수 있습니다.
 
      > [!IMPORTANT]
-     > 청사진은 사용자가 할당한 관리형 ID를 관리하지 않습니다. 충분한 역할과 권한을 할당할 책임이 사용자에게 있으며, 그렇지 못하면 청사진 할당이 실패합니다.
+     > Azure Blueprints는 사용자 할당 관리 ID를 관리하지 않습니다. 충분한 역할과 권한을 할당할 책임이 사용자에게 있으며, 그렇지 못하면 청사진 할당이 실패합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

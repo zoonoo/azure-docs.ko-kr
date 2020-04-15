@@ -1,10 +1,9 @@
 ---
-title: Azure Active Directory 테넌트 만들기 | Microsoft Docs
+title: Azure Active Directory 테넌트 만들기
 description: Azure AD 테넌트를 만들어 애플리케이션 등록 및 빌드에 사용하는 방법을 알아봅니다.
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -13,12 +12,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 1d2140ca0064e2eb6b12726bcee7bf5362de8fbe
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0e2247e94b20846f19c2ed26c96a5dc53972e770
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79408286"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883816"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>빠른 시작: 테넌트 설정
 

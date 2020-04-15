@@ -1,21 +1,15 @@
 ---
-title: '빠른 시작: 마이크에서 음성 인식 - Speech Service'
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 11/20/2019
-ms.author: erhopf
-ms.openlocfilehash: ab51fe0323ea23c16cb52aa7a0570f8d51d40b2f
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 04/02/2020
+ms.author: dapine
+ms.openlocfilehash: 3775690802c89805ccf9df1ee6d6717a8818213f
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75469705"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80658403"
 ---
 이 빠른 시작에서는 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 사용하여 마이크 입력에서 음성을 대화형으로 인식하고 캡처된 오디오에서 텍스트 전사를 가져옵니다. 대화 기록과 같은 일반적인 인식 작업을 위해 이 기능을 앱 또는 디바이스에 쉽게 통합할 수 있습니다. 또한 Speech SDK와 함께 Bot Framework를 사용하여 음성 도우미를 빌드하는 등 더 복잡한 통합에도 사용할 수 있습니다.
 

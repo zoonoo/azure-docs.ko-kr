@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: aa90655ecb14abe38ec8fdfc6c18e7d292abbef3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c8f259d2d4df46470a042c3f65ac1b8e1f66b1dd
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222370"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546044"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>자습서: 첫 번째 ML 모델 학습
 
@@ -28,7 +28,7 @@ ms.locfileid: "79222370"
 > [!div class="checklist"]
 > * 작업 영역 연결 및 실험 만들기
 > * 데이터 로드 및 scikit-learn 모델 학습
-> * 포털에서 학습 결과 보기
+> * 스튜디오에서 학습 결과 보기
 > * 최적 모델 검색
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -124,32 +124,33 @@ for alpha in alphas:
 
 1. `alphas` 배열의 각 알파 하이퍼 매개 변수 값에 대한 새 실행이 실험 내에 만들어집니다. 알파 값이 각 실행을 구분하기 위해 기록됩니다.
 1. 각 실행에서 Ridge 모델은 인스턴스화되고 학습되며 예측을 실행하는 데 사용됩니다. 평균 제곱근 오차(RMSE, root-mean-squared-error)가 실제 값 및 예측 값에 대해 계산된 다음, 실행에 기록됩니다. 이 시점에서 실행에는 알파 값과 RMSE 정확도 모두에 연결된 메타데이터가 있습니다.
-1. 다음으로 각 실행에 대한 모델이 직렬화되어 해당 실행에 업로드됩니다. 이렇게 하면 포털의 실행에서 모델 파일을 다운로드할 수 있습니다.
+1. 다음으로 각 실행에 대한 모델이 직렬화되어 해당 실행에 업로드됩니다. 이렇게 하면 스튜디오의 실행에서 모델 파일을 다운로드할 수 있습니다.
 1. 각 반복이 끝날 때마다 `run.complete()`을 호출하여 실행이 완료됩니다.
 
-학습이 완료되면 `experiment` 변수를 호출하여 포털의 실험에 대한 링크를 가져옵니다.
+학습이 완료되면 `experiment` 변수를 호출하여 스튜디오의 실험에 대한 링크를 가져옵니다.
 
 ```python
 experiment
 ```
 
-<table style="width:100%"><tr><th>속성</th><th>작업 영역</th><th>보고서 페이지</th><th>문서 페이지</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Azure Portal에 연결</td><td>설명서 링크</td></tr></table>
+<table style="width:100%"><tr><th>속성</th><th>작업 영역</th><th>보고서 페이지</th><th>문서 페이지</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Azure Machine Learning Studio에 연결</td><td>설명서 링크</td></tr></table>
 
-## <a name="view-training-results-in-portal"></a>포털에서 학습 결과 보기
+## <a name="view-training-results-in-studio"></a>스튜디오에서 학습 결과 보기
 
-**Azure Portal에 연결**을 따르면 기본 실험 페이지로 이동합니다. 여기에는 실험의 개별 실행이 모두 표시됩니다. 사용자 지정 로그 값(이 경우 `alpha_value` 및 `rmse`)은 각 실행에 대한 필드가 되며, 실험 페이지 위쪽의 차트 및 타일에서도 사용할 수 있습니다. 로그 메트릭을 차트 또는 타일에 추가하려면 마우스로 해당 차트 또는 타일 위를 가리키고 편집 단추를 클릭하고 사용자 지정 로그 메트릭을 찾습니다.
+**Azure Machine Learning Studio에 연결**에 따라 기본 실험 페이지로 이동합니다. 여기에는 실험의 개별 실행이 모두 표시됩니다. 사용자 지정 로그 값(이 경우 `alpha_value` 및 `rmse`)은 각 실행에 대한 필드가 되며, 실험 페이지 위쪽의 차트 및 타일에서도 사용할 수 있습니다. 로그 메트릭을 차트 또는 타일에 추가하려면 마우스로 해당 차트 또는 타일 위를 가리키고 편집 단추를 클릭하고 사용자 지정 로그 메트릭을 찾습니다.
 
 모델이 수백 수천 개의 개별 실행을 통해 대규모로 학습되는 경우 이 페이지에서 학습시킨 모든 모델, 특히 학습시킨 방법 및 시간이 지남에 따라 고유 메트릭이 변경되는 상황을 쉽게 확인할 수 있습니다.
 
-![포털의 기본 실험 페이지](./media/tutorial-1st-experiment-sdk-train/experiment-main.png)
+:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/experiment-main.png" alt-text="스튜디오의 기본 실험 페이지.":::
 
-`RUN NUMBER` 열의 실행 번호 링크를 클릭하면 각 개별 실행에 대한 페이지로 이동합니다. 기본 **세부 정보** 탭에는 각 실행에 대한 자세한 정보가 표시됩니다. **출력** 탭으로 이동합니다. 그러면 각 학습 반복 중에 실행에 업로드된 모델에 대한 `.pkl` 파일이 표시됩니다. 여기서는 모델 파일을 수동으로 다시 학습시키지 않고 다운로드할 수 있습니다.
 
-![포털의 실행 세부 정보 페이지](./media/tutorial-1st-experiment-sdk-train/model-download.png)
+`RUN NUMBER` 열에서 실행 번호 링크를 선택하여 개별 실행에 대한 페이지를 표시합니다. 기본 **세부 정보** 탭에는 각 실행에 대한 자세한 정보가 표시됩니다. **출력 + 로그** 탭으로 이동합니다. 그러면 각 학습 반복 중에 실행에 업로드된 모델에 대한 `.pkl` 파일이 표시됩니다. 여기서는 모델 파일을 수동으로 다시 학습시키지 않고 다운로드할 수 있습니다.
+
+:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/model-download.png" alt-text="스튜디오에서 세부 정보 페이지를 실행합니다.":::
 
 ## <a name="get-the-best-model"></a>최적 모델 가져오기
 
-모델 파일은 포털의 실험에서 다운로드할 수 있을 뿐만 아니라 프로그래밍 방식으로도 다운로드할 수 있습니다. 다음 코드에서는 실험의 각 실행을 반복하고 기록된 실행 메트릭과 실행 세부 정보(run_id 포함) 모두에 액세스합니다. 그러면 최상의 실행(이 경우 평균 제곱근 오차가 가장 낮은 실행)을 추적합니다.
+모델 파일은 스튜디오의 실험에서 다운로드할 수 있을 뿐만 아니라 프로그래밍 방식으로도 다운로드할 수 있습니다. 다음 코드에서는 실험의 각 실행을 반복하고 기록된 실행 메트릭과 실행 세부 정보(run_id 포함) 모두에 액세스합니다. 그러면 최상의 실행(이 경우 평균 제곱근 오차가 가장 낮은 실행)을 추적합니다.
 
 ```python
 minimum_rmse_runid = None
@@ -214,7 +215,7 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 > [!div class="checklist"]
 > * 작업 영역 연결 및 실험 만들기
 > * 데이터 로드 및 scikit-learn 모델 학습
-> * 포털 및 검색된 모델에서 학습 결과 보기
+> * 스튜디오 및 검색된 모델에서 학습 결과 보기
 
 Azure Machine Learning을 사용하여 [모델을 배포합니다](tutorial-deploy-models-with-aml.md).
 [자동화된 기계 학습](tutorial-auto-train-models.md) 실험을 개발하는 하는 방법을 알아봅니다.

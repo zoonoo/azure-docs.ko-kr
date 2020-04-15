@@ -7,20 +7,24 @@ ms.topic: overview
 ms.date: 03/10/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3a7bb7939921bfcc3a870193cb9025a8f3dff72c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: aff6f99c119ba2854fd7923d2a15efb2e1a6b601
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78969140"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666806"
 ---
 # <a name="what-is-azure-files"></a>Azure Files란?
 Azure Files는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure File 공유는 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포를 통해 동시에 탑재될 수 있습니다. 또한 데이터가 사용되는 위치 근처에서 빠르게 액세스하기 위해 Azure 파일 동기화를 사용하여 Azure 파일 공유를 Windows Server에서 캐시할 수 있습니다.
 
 ## <a name="videos"></a>동영상
-| Azure 파일 동기화 소개(2분) | Sync를 사용하는 Azure Files(Ignite 2017)(85분)  |
+| Azure 파일 동기화 소개 | 동기화된 Azure Files(Ignite 2019)  |
 |-|-|
-| [![Azure 파일 동기화 소개 비디오의 동영상 가이드 - 재생하려면 클릭하세요.](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Sync를 사용하는 Azure Files 프레젠테이션의 동영상 가이드 - 재생하려면 클릭하세요.](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/watch?v=GMzh2M66E9o) |
+| [![Azure 파일 동기화 소개 비디오의 동영상 가이드 - 재생하려면 클릭하세요.](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Sync를 사용하는 Azure Files 프레젠테이션의 동영상 가이드 - 재생하려면 클릭하세요.](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/embed/6E2p28XwovU) |
+
+Azure Files의 일반적인 사용 사례에 대한 몇 가지 비디오는 다음과 같습니다.
+* [파일 서버를 서버리스 Azure 파일 공유로 바꾸기](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)
+* [AD 인증을 활용하여 Windows Virtual Desktop의 Azure Files에서 FSLogix 프로필 컨테이너 시작](https://www.youtube.com/embed/9S5A1IJqfOQ)
 
 ## <a name="why-azure-files-is-useful"></a>Azure Files가 유용한 이유
 Azure 파일 공유를 사용하여 다음을 수행할 수 있습니다.

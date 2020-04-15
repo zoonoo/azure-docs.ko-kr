@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: 25c0fe549dfc850a53b06f79f348a87cba3b70a1
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: f067bae55c38fc783c12bf9d0bc6fbcdf881e4e4
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77109938"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756693"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>빠른 시작: QnA Maker 포털을 사용하여 질문 및 답변 추가
 
@@ -27,7 +27,7 @@ ms.locfileid: "77109938"
 |#1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
 |#2|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Cognitive Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Cognitive Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Cognitive Search tier supports.`|`service=search`<br>`link_in_answer=false`|
 
-메타데이터가 QnA 집합에 추가되면 클라이언트 애플리케이션에서 다음을 수행할 수 있습니다.
+메타데이터가 QnA 쌍에 추가되면 클라이언트 애플리케이션에서 다음을 수행할 수 있습니다.
 
 * 특정 메타데이터와만 일치하는 답변을 요청합니다.
 * 모든 답변을 받지만 각 답변의 메타데이터에 따라 해당 답변을 사후 처리합니다.
@@ -45,7 +45,7 @@ ms.locfileid: "77109938"
 
 ## <a name="add-additional-alternatively-phrased-questions"></a>대체 구문이 추가된 질문 추가
 
-현재 기술 자료에는 QnA Maker 문제 해결 QnA 집합이 있습니다. 이러한 세트는 만들기 프로세스 중에 URL이 기술 자료에 추가될 때 만들어졌습니다.
+현재 기술 자료에는 QnA Maker 문제 해결 QnA 쌍이 있습니다. 이러한 세트는 만들기 프로세스 중에 URL이 기술 자료에 추가될 때 만들어졌습니다.
 
 이 URL을 가져올 때 하나의 답변이 있는 하나의 질문만 만들어졌습니다. 이 절차에서는 추가 질문을 추가합니다.
 
@@ -82,7 +82,7 @@ ms.locfileid: "77109938"
 
 1. **보기 옵션**을 선택한 다음, **메타데이터 표시**를 선택합니다.
 
-1. 방금 추가한 QnA 집합에 대해 **메타데이터 태그 추가**를 선택한 다음, `service` 이름과 `search` 값을 추가합니다. `service:search`와 같이 표시됩니다.
+1. 방금 추가한 QnA 쌍에 대해 **메타데이터 태그 추가**를 선택한 다음, `service` 이름과 `search` 값을 추가합니다. `service:search`와 같이 표시됩니다.
 
 1. 이름이 `link_in_answer`이고 값이 `false`인 다른 메타데이터 태그를 추가합니다. `link_in_answer:false`와 같이 표시됩니다.
 

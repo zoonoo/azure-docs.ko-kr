@@ -1,28 +1,28 @@
 ---
-title: SSL 바인딩으로 사용자 지정 DNS 보호
+title: TLS/SSL 바인딩으로 사용자 지정 DNS 보호
 description: 인증서로 TLS/SSL 바인딩을 만들어 사용자 지정 도메인에 대한 HTTPS 액세스를 보호합니다. HTTPS 또는 TLS 1.2를 적용하여 웹 사이트의 보안을 향상시킵니다.
 tags: buy-ssl-certificates
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 263b4e76d334aab82f6bbac9aa268a50f4dd3784
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9792181379bfa6f9e0337bf14208fe853c16b745
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223840"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811756"
 ---
-# <a name="secure-a-custom-dns-name-with-an-ssl-binding-in-azure-app-service"></a>Azure App Service에서 SSL 바인딩으로 사용자 지정 DNS 이름 보호
+# <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호
 
-이 문서에서는 인증서 바인딩을 만들어 [App Service 앱](app-service-web-tutorial-custom-domain.md) 또는 [함수 앱](https://docs.microsoft.com/azure/app-service/)에서 [사용자 지정 도메인](https://docs.microsoft.com/azure/azure-functions/)을 보호하는 방법을 보여 줍니다. 완료되면 사용자 지정 DNS 이름(예: `https://`)의 `https://www.contoso.com` 엔드포인트에서 App Service 앱에 액세스할 수 있습니다. 
+이 문서에서는 인증서 바인딩을 만들어 [App Service 앱](https://docs.microsoft.com/azure/app-service/) 또는 [함수 앱](https://docs.microsoft.com/azure/azure-functions/)에서 [사용자 지정 도메인](app-service-web-tutorial-custom-domain.md)을 보호하는 방법을 보여 줍니다. 완료되면 사용자 지정 DNS 이름(예: `https://www.contoso.com`)의 `https://` 엔드포인트에서 App Service 앱에 액세스할 수 있습니다. 
 
-![사용자 지정 SSL 인증서가 포함된 웹앱](./media/configure-ssl-bindings/app-with-custom-ssl.png)
+![사용자 지정 TLS/SSL 인증서가 포함된 웹앱](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
 인증서로 [사용자 지정 도메인](app-service-web-tutorial-custom-domain.md)을 보호하려면 다음 두 단계가 필요합니다.
 
-- [SSL 바인딩 요구 사항](configure-ssl-certificate.md)을 모두 만족시키는 [프라이빗 인증서를 App Service에 추가](configure-ssl-certificate.md#private-certificate-requirements)합니다.
--  해당 사용자 지정 도메인에 대한 SSL 바인딩을 만듭니다. 이 두 번째 단계는 이 문서에서 설명합니다.
+- 모든 [프라이빗 인증서 요구 사항](configure-ssl-certificate.md#private-certificate-requirements)을 충족하는 [프라이빗 인증서를 App Service에 추가](configure-ssl-certificate.md)합니다.
+-  해당 사용자 지정 도메인에 대한 TLS 바인딩을 만듭니다. 이 두 번째 단계는 이 문서에서 설명합니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -77,17 +77,17 @@ ms.locfileid: "79223840"
 
 ### <a name="create-binding"></a>바인딩 만들기
 
-다음 표를 사용하여 **TLS/SSL 바인딩** 대화 상자에서 SSL 바인딩을 구성한 다음, **바인딩 추가**를 클릭합니다.
+다음 표를 사용하여 **TLS/SSL 바인딩** 대화 상자에서 TLS 바인딩을 구성한 다음, **바인딩 추가**를 클릭합니다.
 
 | 설정 | Description |
 |-|-|
-| 사용자 지정 도메인 | SSL 바인딩을 추가할 도메인 이름입니다. |
+| 사용자 지정 도메인 | TLS/SSL 바인딩을 추가할 도메인 이름입니다. |
 | 프라이빗 인증서 지문 | 바인딩할 인증서입니다. |
-| TLS/SSL 유형 | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** - 여러 개의 SNI SSL 바인딩을 추가할 수 있습니다. 이 옵션을 사용하면 여러 SSL 인증서로 같은 IP 주소의 여러 도메인을 보호할 수 있습니다. 최신 브라우저(Internet Explorer, Chrome, Firefox 및 Opera 포함)는 SNI를 지원합니다(자세한 내용은 [서버 이름 표시](https://wikipedia.org/wiki/Server_Name_Indication) 참조).</li><li>**IP SSL** - IP SSL 바인딩 하나만 추가할 수 있습니다. 이 옵션을 사용하면 전용 공용 IP 주소를 보호하는 데 하나의 SSL 인증서만 사용할 수 있습니다. 바인딩을 구성한 후에 [IP SSL에 대한 A 레코드 다시 매핑](#remap-a-record-for-ip-ssl)의 단계를 따릅니다.<br/>IP SSL은 프로덕션 또는 격리 계층에서만 지원됩니다. </li></ul> |
+| TLS/SSL 유형 | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** - 여러 개의 SNI SSL 바인딩을 추가할 수 있습니다. 이 옵션을 사용하면 여러 TLS/SSL 인증서로 같은 IP 주소의 여러 도메인을 보호할 수 있습니다. 최신 브라우저(Internet Explorer, Chrome, Firefox 및 Opera 포함)는 SNI를 지원합니다(자세한 내용은 [서버 이름 표시](https://wikipedia.org/wiki/Server_Name_Indication) 참조).</li><li>**IP SSL** - IP SSL 바인딩 하나만 추가할 수 있습니다. 이 옵션을 사용하면 전용 공용 IP 주소를 보호하는 데 하나의 TLS/SSL 인증서만 사용할 수 있습니다. 바인딩을 구성한 후에 [IP SSL에 대한 A 레코드 다시 매핑](#remap-a-record-for-ip-ssl)의 단계를 따릅니다.<br/>IP SSL은 프로덕션 또는 격리 계층에서만 지원됩니다. </li></ul> |
 
-작업이 완료되면 사용자 지정 도메인의 SSL 상태가 **보안**으로 변경됩니다.
+작업이 완료되면 사용자 지정 도메인의 TLS/SSL 상태가 **보안**으로 변경됩니다.
 
-![SSL 바인딩 성공](./media/configure-ssl-bindings/secure-domain-finished.png)
+![TLS/SSL 바인딩 성공](./media/configure-ssl-bindings/secure-domain-finished.png)
 
 > [!NOTE]
 > **사용자 지정 도메인**의 **보호** 상태는 인증서를 사용하여 보호됨을 의미하지만, App Service는 인증서가 자체 서명되었는지 아니면 만료되었는지 확인하지 않습니다. 예를 들어 브라우저가 오류 또는 경고를 표시할 수도 있습니다.
@@ -139,7 +139,7 @@ A 레코드를 앱에 매핑한 경우 이 새로운 전용 IP 주소로 도메�
 
 ## <a name="enforce-tls-versions"></a>TLS 버전 적용
 
-앱에는 [PCI DSS](https://wikipedia.org/wiki/Transport_Layer_Security)와 같이 업계 표준에서 권장되는 TLS 수준인 [TLS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard) 1.2가 기본적으로 허용됩니다. 다른 TLS 버전을 적용하려면 다음 단계를 수행합니다.
+앱에는 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)와 같이 업계 표준에서 권장되는 TLS 수준인 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2가 기본적으로 허용됩니다. 다른 TLS 버전을 적용하려면 다음 단계를 수행합니다.
 
 앱 페이지의 왼쪽 탐색 영역에서 **SSL 설정**을 선택합니다. 그런 다음, **TLS 버전**에서 원하는 최소 TLS 버전을 선택합니다. 이 설정은 인바운드 호출만 제어합니다. 
 
@@ -147,9 +147,9 @@ A 레코드를 앱에 매핑한 경우 이 새로운 전용 IP 주소로 도메�
 
 작업이 완료되면 앱에서 더 낮은 TLS 버전과의 모든 연결을 거부합니다.
 
-## <a name="handle-ssl-termination"></a>SSL 종료 처리
+## <a name="handle-tls-termination"></a>TLS 종료 처리
 
-App Service에서, [SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy)는 네트워크 부하 분산 장치에서 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 앱 논리에서 사용자 요청의 암호화 여부를 확인해야 하는 경우 `X-Forwarded-Proto` 헤더를 검사합니다.
+App Service에서, [TLS 종료](https://wikipedia.org/wiki/TLS_termination_proxy)는 네트워크 부하 분산 장치에서 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 앱 논리에서 사용자 요청의 암호화 여부를 확인해야 하는 경우 `X-Forwarded-Proto` 헤더를 검사합니다.
 
 [Linux Node.js 구성](containers/configure-language-nodejs.md#detect-https-session) 가이드와 같은 언어별 구성 가이드에서는 애플리케이션 코드에서 HTTPS 세션을 검색하는 방법을 보여 줍니다.
 
@@ -157,13 +157,13 @@ App Service에서, [SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy
 
 ### <a name="azure-cli"></a>Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>추가 리소스
 
-* [애플리케이션 코드에서 SSL 인증서 사용](configure-ssl-certificate-in-code.md)
-* [FAQ : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [Azure App Service의 코드에서 TLS/SSL 인증서 사용](configure-ssl-certificate-in-code.md)
+* [FAQ: App Service Certificate](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
