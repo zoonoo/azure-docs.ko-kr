@@ -1,6 +1,6 @@
 ---
 title: 아파치 하두프 & 비주얼 스튜디오 데이터 레이크 도구 - Azure HDInsight
-description: Data Lake Tools for Visual Studio를 설치하고 사용하여 Azure HDInsight에서 Apache Hadoop 클러스터에 연결한 다음, Hive 쿼리를 실행하는 방법을 알아봅니다.
+description: Visual Studio용 데이터 레이크 도구를 설치하고 사용하는 방법을 알아봅니다. 도구를 사용하여 Azure HDInsight에서 아파치 하두롭 클러스터에 연결한 다음 Hive 쿼리를 실행합니다.
 keywords: Hadoop 도구, Hive 쿼리, Visual Studio, Visual Studio Hadoop Hive
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,21 +8,21 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 10/29/2019
-ms.openlocfilehash: 4ad58bc2d61f063dce2c23f60a65dcbec48a2303
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 7504826f267d717f30c5e88621578412c744e5f9
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272787"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383517"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 및 Apache Hive 쿼리 실행
 
-Azure [HDInsight의 아파치 하두롭 클러스터에](apache-hadoop-introduction.md) 연결하고 Hive 쿼리를 제출하기 위해 Visual Studio용 Microsoft Azure 데이터 레이크 및 스트림 분석 도구를 사용하는 방법을 알아봅니다.  
+비주얼 스튜디오(데이터 레이크 도구)에 Microsoft Azure 데이터 레이크 및 스트림 분석 도구를 사용하는 방법에 대해 알아봅니다. 이 도구를 사용하여 [Azure HDInsight의 아파치 하두롭 클러스터에](apache-hadoop-introduction.md) 연결하고 Hive 쿼리를 제출합니다.  
 
 HDInsight 사용에 대한 자세한 내용은 [HDInsight 시작 을](apache-hadoop-linux-tutorial-get-started.md)참조하십시오.  
 
-아파치 스톰 클러스터에 연결하는 것에 대한 자세한 내용은 [Visual Studio용 데이터 레이크 도구를 사용하여 아파치 스톰에 대한 C# 토폴로지 개발을](../storm/apache-storm-develop-csharp-visual-studio-topology.md)참조하십시오.
+아파치 스톰에 연결하는 방법에 대한 자세한 내용은 [데이터 레이크 도구를 사용하여 아파치 스톰에 대한 C# 토폴로지 개발을](../storm/apache-storm-develop-csharp-visual-studio-topology.md)참조하십시오.
 
 Data Lake Tools for Visual Studio를 사용하여 Azure Data Lake Analytics 및 HDInsight에 액세스할 수 있습니다. Data Lake Tools에 대한 자세한 내용은 [Data Lake Tools for Visual Studio를 사용하여 U-SQL 스크립트 개발](../../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
 
@@ -38,15 +38,15 @@ Data Lake Tools for Visual Studio를 사용하여 Azure Data Lake Analytics 및 
 
 적절한 지침에 따라 Visual Studio 버전에 데이터 레이크 도구를 설치합니다.
 
-- 비주얼 스튜디오 2017 또는 비주얼 스튜디오 2019의 경우:
+* 비주얼 스튜디오 2017 또는 비주얼 스튜디오 2019의 경우:
 
     Visual Studio를 설치하는 동안 **Azure 개발** 워크로드 또는 데이터 저장소 **및 처리** 워크로드를 포함해야 합니다.  
 
-    기존 Visual Studio 설치의 경우 IDE 메뉴 모음으로 이동하여 **도구** > **받기 도구 및 기능을** 선택하여 Visual Studio 설치 프로그램을 엽니다. **워크로드** 탭에서 최소한 **Azure 개발** 워크로드(웹 **& 클라우드)** 또는 **데이터 저장소 및 처리** 워크로드(기타 **도구 집합**아래)를 선택합니다.
+    기존 Visual Studio 설치의 경우 IDE 메뉴 모음으로 이동하여 **도구** > **받기 도구 및 기능을** 선택하여 Visual Studio 설치 프로그램을 엽니다. 워크로드 탭에서 최소한 **Azure 개발** 워크로드(웹 **& 클라우드)를** **선택합니다.** 또는 **데이터 저장소 및 처리** 워크로드(기타 도구 **집합**아래)를 선택합니다.
 
   ![워크로드 선택, 비주얼 스튜디오 설치 프로그램](./media/apache-hadoop-visual-studio-tools-get-started/vs-installation.png)
 
-- 비주얼 스튜디오 2015의 경우:
+* 비주얼 스튜디오 2015의 경우:
 
     [데이터 호수 도구를 다운로드합니다.](https://www.microsoft.com/download/details.aspx?id=49504) Visual Studio 버전과 일치하는 Data Lake Tools 버전을 선택하세요.
 
@@ -96,7 +96,7 @@ Azure 구독에 연결하려면,
 
    ![HDInsight 클러스터 목록, 서버 탐색기, 비주얼 스튜디오](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-server-explorer.png)
 
-6. HDInsight 클러스터를 확장합니다. 클러스터에는 **Hive Database에**대한 노드, 기본 저장소 계정, 연결된 추가 저장소 계정 및 **Hadoop 서비스 로그가**포함되어 있습니다. 엔터티를 더 확장할 수 있습니다.
+6. HDInsight 클러스터를 확장합니다. 클러스터에는 Hive 데이터베이스에 대한 **노드가 포함되어 있습니다.** 또한 기본 저장소 계정, 연결된 추가 저장소 계정 및 **Hadoop 서비스 로그**. 엔터티를 더 확장할 수 있습니다.
 
 Azure 구독에 연결되면 다음 작업을 수행할 수 있습니다.
 
@@ -110,7 +110,7 @@ Visual Studio에서 Azure Portal에 연결하려면,
 
 ### <a name="offer-questions-and-feedback-from-visual-studio"></a>비주얼 스튜디오의 질문과 피드백 제공
 
-Visual Studio에서 질문 및/또는 피드백을 제공하려면 다음 단계를 수행하십시오.
+질문을 하거나 Visual Studio의 피드백을 제공하려면 다음 단계를 수행하십시오.
 
 1. 서버 탐색기에서 **Azure** > **HDInsight를**선택합니다.
 
@@ -125,7 +125,7 @@ HDInsight 클러스터를 연결하려면 다음을 수행하십시오.
 
 1. **HDInsight를**마우스 오른쪽 단추로 클릭한 다음 **HDInsight 클러스터 링크를** 선택하여 **HDInsight 클러스터 연결** 대화 상자를 표시합니다.
 
-2. 양식 *\://https\<&nbsp;클러스터 이름>.azurehdinsight.net에* **연결 URL을** 입력합니다. **클러스터 이름은** 다른 필드로 이동하면 URL의 클러스터 이름 부분으로 자동으로 채워지습니다. 그런 다음 **사용자 이름과** **암호를**입력하고 **다음**을 선택합니다.
+2. 양식에 `https://CLUSTERNAME.azurehdinsight.net` **연결 URL을** 입력합니다. **클러스터 이름은** 다른 필드로 이동하면 URL의 클러스터 이름 부분으로 자동으로 채워지습니다. 그런 다음 **사용자 이름과** **암호를**입력하고 **다음**을 선택합니다.
 
     ![클러스터 링크, HDInsight, 비주얼 스튜디오](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-dialog.png)
 
@@ -136,6 +136,7 @@ HDInsight 클러스터를 연결하려면 다음을 수행하십시오.
 ![링크된 클러스터 편집, HDInsight, 비주얼 스튜디오](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-update.png)
 
 ## <a name="explore-linked-resources"></a>연결된 리소스 탐색
+
 서버 탐색기에서 기본 스토리지 계정 및 연결된 스토리지 계정을 확인할 수 있습니다. 기본 스토리지 계정을 확장한 경우 스토리지 계정의 컨테이너를 확인할 수 있습니다. 기본 스토리지 계정과 기본 컨테이너가 표시되어 있습니다.
 
 ![서버 탐색기에서 Visual Studio 연결 리소스를 위한 데이터 레이크 도구](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-linked-resources.png)
@@ -145,6 +146,7 @@ HDInsight 클러스터를 연결하려면 다음을 수행하십시오.
 ![컨테이너 목록 및 Blob 작업, HDInsight 클러스터, 비주얼 스튜디오](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-blob-operations.png)
 
 ## <a name="run-interactive-apache-hive-queries"></a>대화형 Apache Hive 쿼리 실행
+
 [Apache Hive](https://hive.apache.org)는 Hadoop을 기반으로 하는 데이터 웨어하우스 인프라입니다. Hive는 데이터 요약, 쿼리 및 분석에 사용됩니다. Data Lake Tools for Visual Studio를 사용하여 Visual Studio에서 Hive 쿼리를 실행할 수 있습니다. 하이브에 대한 자세한 내용은 [Azure HDInsight에서 아파치 하이브 및 HiveQL이란 무엇입니까?](hdinsight-use-hive.md)
 
 [Azure HDInsight의 대화형 쿼리는](../interactive-query/apache-interactive-query-get-started.md) 아파치 하이브 2.1의 [LLAP에서 하이브를](https://cwiki.apache.org/confluence/display/Hive/LLAP) 사용합니다. 대화형 쿼리는 대규모의 저장된 데이터 집합에서 복잡한 데이터 웨어하우스 스타일 쿼리에 상호 작용을 제공합니다. 대화형 쿼리에서 Hive 쿼리를 실행하는 것은 기존 Hive 일괄 처리 작업보다 훨씬 빠릅니다. 
@@ -152,7 +154,7 @@ HDInsight 클러스터를 연결하려면 다음을 수행하십시오.
 > [!NOTE]  
 > [HDInsight 대화형 쿼리](../interactive-query/apache-interactive-query-get-started.md) 클러스터에 연결하는 경우에만 대화형 Hive 쿼리를 실행할 수 있습니다.
 
-또한 Data Lake Tools for Visual Studio를 사용하여 Hive 작업에 대해 자세히 확인할 수도 있습니다. Data Lake Tools for Visual Studio는 특정 Hive 작업에 대한 YARN 로그를 수집하고 표시합니다.
+또한 Visual Studio용 데이터 레이크 도구를 사용하여 Hive 작업 의 내부 내용을 확인할 수도 있습니다. Data Lake Tools for Visual Studio는 특정 Hive 작업에 대한 YARN 로그를 수집하고 표시합니다.
 
 **서버 탐색기에서** **Azure** > **HDInsight를** 선택하고 클러스터를 선택합니다.  이 노드는 섹션을 따를 **서버 탐색기의** 시작점입니다.
 
@@ -162,11 +164,11 @@ HDInsight 클러스터를 연결하려면 다음을 수행하십시오.
 
 클러스터에서 **Hive 데이터베이스** > **기본** > **하이브 샘플 테이블을**선택합니다.
 
-- 스키마를 `hivesampletable` 보려면 다음을 수행하십시오.
+* 스키마를 `hivesampletable` 보려면 다음을 수행하십시오.
 
     **하이브 샘플 테이블을 확장합니다.** 열의 이름과 데이터 `hivesampletable` 형식이 표시됩니다.
 
-- 데이터를 보려면 `hivesampletable` 다음을 수행하십시오.
+* 데이터를 보려면 `hivesampletable` 다음을 수행하십시오.
 
     **하이브 샘플 테이블을**마우스 오른쪽 단추로 클릭하고 상위 **100개 행 보기를**선택합니다. 100개의 결과 목록이 **하이브 테이블: 하이브 샘플 테이블** 창에 나타납니다. 이 작업은 Hive ODBC 드라이버를 사용하여 다음 Hive 쿼리를 실행하는 것과 같습니다.
 
@@ -175,6 +177,7 @@ HDInsight 클러스터를 연결하려면 다음을 수행하십시오.
     행 수를 변경하여 행 **수를**사용자 지정할 수 있습니다. 드롭다운 목록에서 50개, 100개, 200개 또는 1000개의 행을 선택할 수 있습니다.
 
 ### <a name="create-hive-tables"></a>Hive 테이블 만들기
+
 Hive 테이블을 만들려면 GUI를 사용하거나 Hive 쿼리를 사용할 수 있습니다. Hive 쿼리 사용에 대한 자세한 내용은 [Hive 쿼리 만들기 및 실행](#create-and-run-hive-queries)을 참조하십시오.
 
 1. 클러스터에서 Hive 데이터베이스**기본값.을** **선택합니다.** > 
@@ -188,6 +191,7 @@ Hive 테이블을 만들려면 GUI를 사용하거나 Hive 쿼리를 사용할 �
     ![테이블 창 만들기, 하이브, HDInsight 클러스터, 비주얼 스튜디오](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-create-hive-table.png)
 
 ### <a name="create-and-run-hive-queries"></a>Hive 쿼리 만들기 및 실행
+
 Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 
 * 임시 쿼리 만들기
@@ -227,9 +231,9 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 
         ![인터랙티브 모드, 하이브 애드혹 쿼리, HDInsight 클러스터, 비주얼 스튜디오](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-execute.png)  
 
-    * **일괄 처리**  
+    * **Batch**  
 
-        첫 번째 드롭다운 목록에서 **일괄 처리를**선택한 다음 **제출을** 선택합니다(또는 **제출** 옆에 있는 드롭다운 아이콘을 선택하고 **고급**을 선택합니다).
+        첫 번째 드롭다운 목록에서 **일괄 처리를**선택한 다음 **제출을**선택합니다. 또는 **제출** 옆에 있는 드롭다운 아이콘을 선택하고 고급 을 **선택합니다.**
 
         ![배치 모드, 하이브 임시 쿼리, HDInsight 클러스터, 비주얼 스튜디오](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-batch.png)
 
@@ -274,7 +278,7 @@ Hive 솔루션을 만들고 실행하려면,
 
 정점 내부의 모든 연산을 보려면 작업 그래프의 정점을 두 번 클릭합니다. 또한 특정 연산자를 가리켜서 연산자에 대한 자세한 정보를 볼 수도 있습니다.
 
-Tez가 실행 엔진으로 지정되더라도 Tez 응용 프로그램이 실행되지 않으면 작업 그래프가 나타나지 않을 수 있습니다.  작업에 DML 문이 포함되어 있지 않거나 Tez 응용 프로그램을 시작하지 않고 DML 문이 반환될 수 있기 때문에 이러한 상황이 발생할 수 있습니다. 예를 들어 `SELECT * FROM table1` Tez 응용 프로그램을 실행하지 않습니다.
+Tez가 실행 엔진으로 지정되더라도 Tez 응용 프로그램이 실행되지 않으면 작업 그래프가 나타나지 않을 수 있습니다.  작업에 DML 문이 포함되어 있지 않기 때문에 이 상황이 발생할 수 있습니다. 또는 DML 문이 Tez 응용 프로그램을 시작하지 않고 반환할 수 있기 때문입니다. 예를 들어 `SELECT * FROM table1` Tez 응용 프로그램을 실행하지 않습니다.
 
 ![아파치 하이브 작업 그래프, 비주얼 스튜디오](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-fast-path-hive-execution.png)
 
@@ -288,7 +292,7 @@ Tez가 실행 엔진으로 지정되더라도 Tez 응용 프로그램이 실행�
 
 Hive 작업에 대한 작업 쿼리, 작업 출력, 작업 로그 및 Yarn 로그를 볼 수 있습니다.
 
-최신 릴리스의 도구에서는 YARN 로그를 수집하고 표시하여 Hive 작업에 대한 자세한 정보를 확인할 수 있습니다. Yarn 로그는 성능 문제를 조사하는 데 도움이 됩니다. HDInsight가 원사 로그를 수집하는 방법에 대한 자세한 내용은 [액세스 아파치 하두롭 YARN 응용 프로그램 로그를](../hdinsight-hadoop-access-yarn-app-logs-linux.md)참조하십시오.
+도구의 최신 릴리스에서는 원사 로그를 수집하고 표면화하여 Hive 작업 내부의 내용을 확인할 수 있습니다. Yarn 로그는 성능 문제를 조사하는 데 도움이 됩니다. HDInsight가 원사 로그를 수집하는 방법에 대한 자세한 내용은 [액세스 아파치 하두롭 YARN 응용 프로그램 로그를](../hdinsight-hadoop-access-yarn-app-logs-linux.md)참조하십시오.
 
 Hive 작업을 보려면,
 
@@ -310,7 +314,7 @@ Hive 작업을 보려면,
 
 2. **시작** 창에서 검색 상자를 선택하고 **돼지를**입력합니다. 그런 다음 **돼지 응용 프로그램을** 선택하고 **다음을**선택합니다.
 
-3. 새 **프로젝트 구성** 창에서 **프로젝트 이름을**입력하고 프로젝트의 **위치를** 선택하거나 만듭니다. 그런 다음 **을 선택합니다.**
+3. 새 **프로젝트 구성** 창에서 **프로젝트 이름을**입력하고 프로젝트의 **위치를** 선택하거나 만듭니다. 그런 다음 **만들기**를 선택합니다.
 
 4. IDE **솔루션 탐색기** 창에서 **Script.pig를** 두 번 클릭하여 스크립트를 엽니다.
 
@@ -322,7 +326,7 @@ Hive 작업을 보려면,
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Data Lake Tools for Visual Studio 패키지를 사용하여 Visual Studio에서 HDInsight 클러스터에 연결하는 방법을 알아보았습니다. 또한 Hive 쿼리를 실행하는 방법도 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 Data Lake Tools for Visual Studio 패키지를 사용하여 Visual Studio에서 HDInsight 클러스터에 연결하는 방법을 알아보았습니다. 또한 Hive 쿼리를 실행하는 방법도 알아보았습니다. 
 
 * [Data Lake tools for Visual Studio를 사용하여 Apache Hive 쿼리 실행](apache-hadoop-use-hive-visual-studio.md)
 * [Azure HDInsight에서 아파치 하이브와 하이브QL이란?](hdinsight-use-hive.md)

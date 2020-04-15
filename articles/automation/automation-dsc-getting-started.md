@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2c33fbed6c547897847c79cc1260d2bdc9ec6b17
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: eb285d15814f1105462c414541657d43b5371d98
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010327"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383230"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Azure 자동화 상태 구성 시작
 
@@ -59,7 +59,7 @@ ms.locfileid: "81010327"
         }
     }
     ```
-1. 파일을 `TestConfig.ps1`로 저장합니다.
+1. **파일을 TestConfig.ps1로**저장합니다.
 
 이 구성은 각 노드 블록에서 [웹 서버](/powershell/scripting/dsc/reference/resources/windows/windowsfeatureresource)기능의 존재 또는 부재를 확인하는 하나의 리소스, **WindowsFeature 리소스** 를 호출합니다.
 
@@ -105,7 +105,7 @@ ms.locfileid: "81010327"
    ![컴파일 단추를 강조 표시하는 TestConfig 구성 페이지의 스크린샷](./media/automation-dsc-getting-started/CompileConfig.png)
 
 > [!NOTE]
-> Azure Automation에서 구성을 컴파일하면 생성된 모든 노드 구성 MOF를 끌어오기 서버에 자동으로 배포합니다.
+> Azure Automation에서 구성을 컴파일하면 생성된 노드 구성 MOF 파일을 끌어오기 서버에 자동으로 배포합니다.
 
 ## <a name="viewing-a-compilation-job"></a>컴파일 작업 보기
 
@@ -123,7 +123,7 @@ ms.locfileid: "81010327"
 
 ## <a name="viewing-node-configurations"></a>노드 구성 보기
 
-컴파일 작업을 성공적으로 완료하면 하나 이상의 새 노드 구성을 만듭니다. 노드 구성은 끌어오기 서버에 배포되고 하나 이상의 노드에서 가져오고 적용될 준비가 된 MOF 문서입니다. **상태 구성(DSC)** 페이지의 Automation 계정에서 노드 구성을 볼 수 있습니다. 노드 구성은 *ConfigurationName*.*NodeName*의 형식으로 이름을 가집니다.
+컴파일 작업을 성공적으로 완료하면 하나 이상의 새 노드 구성을 만듭니다. 노드 구성은 끌어오기 서버에 배포되고 하나 이상의 노드에서 가져오고 적용될 준비가 된 MOF 문서입니다. **상태 구성(DSC)** 페이지에서 자동화 계정에서 노드 구성을 볼 수 있습니다. 노드 구성에는 양식이 `ConfigurationName.NodeName`있는 이름이 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽에서 **모든 리소스**를 클릭한 다음 Automation 계정의 이름을 클릭합니다.
@@ -134,7 +134,7 @@ ms.locfileid: "81010327"
 
 ## <a name="onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 통한 관리용 Azure VM 온보드
 
-Azure Automation 상태 구성을 사용하여 Azure VM(클래식 및 Resource Manager), 온-프레미스 VM, Linux 머신, AWS VM 및 온-프레미스 물리적 머신을 관리할 수 있습니다. 이 문서에서는 Azure Resource Manager VM만 온보딩하는 방법을 배웁니다. 다른 유형의 머신 온보드에 대한 정보는 [Azure Automation 상태 구성을 통한 관리용 머신 온보드](automation-dsc-onboarding.md)를 참조하세요.
+Azure 자동화 상태 구성을 사용하여 Azure VM(클래식 및 리소스 관리자), 온-프레미스 VM, Linux 컴퓨터, AWS VM 및 온-프레미스 물리적 컴퓨터를 관리할 수 있습니다. 이 문서에서는 Azure Resource Manager VM만 온보딩하는 방법을 배웁니다. 다른 유형의 머신 온보드에 대한 정보는 [Azure Automation 상태 구성을 통한 관리용 머신 온보드](automation-dsc-onboarding.md)를 참조하세요.
 
 ### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 통한 관리용 Azure Resource Manager VM 온보드하려면
 

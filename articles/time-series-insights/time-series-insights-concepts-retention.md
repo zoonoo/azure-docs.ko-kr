@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 34cf1e91b1fe5aae516c77bf2c280dfe70000611
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd34595d5ea942602efc920904ff326fc203c088
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75894747"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380682"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Azure 서열 인사이트내 데이터 보존 이해
 
@@ -60,7 +60,7 @@ ms.locfileid: "75894747"
 
 보존 동작이 **수신을 계속하고 이전 데이터 삭제**로 구성되어 있는 환경도 생각해 보세요. 이 예제에서는 **데이터 보존 시간**이 더 낮은 값인 180일로 설정됩니다. **용량**은 30GB의 총 용량을 포함하는 S1 단위로 설정됩니다. 180일 내내 데이터를 저장하려면 일일 수신 규모가 0.166GB(166MB)를 초과하지 않아야 합니다.  
 
-이 환경의 일일 수신 속도가 0.166GB를 초과할 때마다 일부 데이터가 삭제되므로 데이터가 180일 동안 보관되지 않습니다. 이와 동일한 환경을 바쁜 시간대에 사용한다고 생각해 보세요. 환경의 수신 속도가 일 평균 0.189GB로 증가할 수 있다고 가정해 보겠습니다. 이러한 바쁜 시간대에는 데이터가 약 158일 동안 보존됩니다(30GB/0.189 = 158.73일). 원하는 데이터 보존 기간보다 줄어든 기간입니다.
+이 환경의 일일 침투 속도가 하루에 0.166GB를 초과할 때마다 일부 데이터가 제거되므로 180일 동안 데이터를 저장할 수 없습니다. 이와 동일한 환경을 바쁜 시간대에 사용한다고 생각해 보세요. 환경의 침투 속도가 하루 평균 0.189GB로 증가할 수 있다고 가정합니다. 이러한 바쁜 시간대에는 데이터가 약 158일 동안 보존됩니다(30GB/0.189 = 158.73일). 원하는 데이터 보존 기간보다 줄어든 기간입니다.
 
 ## <a name="pause-ingress"></a>수신 일시 중지
 

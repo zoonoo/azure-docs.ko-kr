@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: ad54b60d8f15e36636f887015d97967740123669
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 21f645e64c9944ed102f538710ea6facc26c7e83
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74195875"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314024"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>Azure PowerShell을 사용하여 여러 공용 IP 주소로 Azure Firewall 배포
 
@@ -102,4 +102,4 @@ $azFw | Set-AzFirewall
 
 ## <a name="next-steps"></a>다음 단계
 
-* [자습서: Azure Firewall 로그 모니터링](./tutorial-diagnostics.md)
+* [빠른 시작: 여러 공용 IP 주소가 있는 Azure 방화벽 만들기 - 리소스 관리자 템플릿](quick-create-multiple-ip-template.md)

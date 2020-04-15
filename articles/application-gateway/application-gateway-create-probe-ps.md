@@ -8,17 +8,17 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 1fef24f4065ca6fc749f35a07143487e049ee6ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f720a94d3467ce15ea5d58a8ece6de2a669f6258
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74075267"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312581"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Azure Resource Manager에 대해 PowerShell을 사용하여 Azure Application Gateway에 대한 사용자 지정 프로브 만들기
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](application-gateway-create-probe-portal.md)
+> * [Azure Portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure 클래식 파워쉘](application-gateway-create-probe-classic-ps.md)
 
@@ -197,5 +197,5 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>다음 단계
 
-방문하여 SSL 오프로드 구성 배우기: [SSL 오프로드 구성](application-gateway-ssl-arm.md)
+방문을 통해 TLS 오프로드 구성 배우기: [TLS 오프로드 구성](application-gateway-ssl-arm.md)
 

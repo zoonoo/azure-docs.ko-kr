@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 04/14/2020
 ms.author: sstein
-ms.openlocfilehash: b677fd7fe2b14e1c42443478a887ddfa2481dfbf
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 7d922aa0727ad28054d050a29039951d3f04985f
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011449"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383381"
 ---
 # <a name="sql-database-release-notes"></a>SQL 데이터베이스 릴리스 정보
 
@@ -49,6 +49,7 @@ ms.locfileid: "81011449"
 | <a href="https://aka.ms/managed-instance-aadlogins">인스턴스 수준 Azure AD 서버 주체(로그인)</a> | <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">외부 공급자 문에서 로그인 만들기를</a> 사용하여 서버 수준 로그인을 만듭니다. |
 | [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md) | 테이블의 변경 내용을 관리되는 인스턴스, 단일 데이터베이스 또는 SQL Server 인스턴스에 배치된 다른 데이터베이스로 복제하거나 다른 관리형 인스턴스 또는 SQL Server 인스턴스에서 일부 행이 변경될 때 테이블을 업데이트합니다. 자세한 내용은 [Azure SQL Database 관리 인스턴스 데이터베이스의 복제 구성을](replication-with-sql-database-managed-instance.md)참조하십시오. |
 | 위협 감지 |자세한 내용은 [Azure SQL Database 관리 인스턴스에서 위협 검색 구성을](sql-database-managed-instance-threat-detection.md)참조하십시오.|
+| 장기 백업 보존 | 자세한 내용은 [Azure SQL Database 관리 인스턴스에서 장기 백업 보존 구성을](sql-database-managed-instance-long-term-backup-retention-configure.md)참조하십시오. | 
 
 ---
 
@@ -167,7 +168,7 @@ SQL [Server/관리인스턴스는 사용자가 비어 있지 않은 파일을 �
 ### <a name="impersonification-of-azure-ad-login-types-is-not-supported"></a>Azure AD 로그인 형식의 비personification이 지원되지 않습니다.
 
 다음 AAD `EXECUTE AS LOGIN` 보안 주체를 사용하거나 `EXECUTE AS USER` 사용하는 사칭은 지원되지 않습니다.
--   별칭 AAD 사용자. 이 경우 `15517`다음 오류가 반환됩니다.
+-    별칭 AAD 사용자. 이 경우 `15517`다음 오류가 반환됩니다.
 - AAD 응용 프로그램 또는 서비스 주체를 기반으로 하는 AAD 로그인 및 사용자입니다. 이 경우 `15517` 다음 오류가 반환됩니다. `15406`
 
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@querysp_send_db_mail 지원되지 않는 매개 변수

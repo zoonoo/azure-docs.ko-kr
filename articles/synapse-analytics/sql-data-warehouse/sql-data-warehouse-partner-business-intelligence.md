@@ -11,19 +11,19 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1a026cc241eb372e15f2600e52ec53a46efb1024
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 75020b0dd58a80f989bd03eb92031d904ebf4c82
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81256011"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313705"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Azure 시냅스 분석 비즈니스 인텔리전스 파트너
 
 Azure Synapse 내에서 Synapse SQL 풀을 사용하여 완벽한 데이터 웨어하우스 솔루션을 만들려면 업계 를 선도하는 다양한 도구 중에서 선택할 수 있습니다.  이 문서에서는 Azure SQL 데이터 웨어하우스를 지원하는 공식 BI(공식 비즈니스 인텔리전스) 솔루션을 갖춘 Microsoft 파트너 회사를 강조합니다.
 
 ## <a name="our-business-intelligence-partners"></a>비즈니스 인텔리전스 파트너
-| 파트너 | Description | 웹 사이트/제품 링크 |
+| 파트너 | 설명 | 웹 사이트/제품 링크 |
 | ------- | ----------- | -------------------- |
 | ![Birst](./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png) |**Birst**<br>Birst는 공통 분석 패브릭 위에 통합된 가상화된 BI 인스턴스 네트워크를 통해 전체 조직을 연결합니다.|[제품 페이지](https://www.birst.com/)<br>[Azure Marketplace](https://azure.microsoft.com/marketplace/partners/birst/birst/)<br> |
 | ![ClearStory Data](./media/sql-data-warehouse-partner-business-intelligence/clearstory_data_logo.png) |**클리어스토리 데이터(지속적인 비즈니스 인사이트)**<br>ClearStory 데이터를 사용하면 Synapse SQL 풀에 저장된 서로 다른 데이터에서 빠른 주기 분석을 수행할 수 있습니다. ClearStory의 통합 스파크 기반 플랫폼 및 분석 애플리케이션은 서로 다른 데이터 세트의 데이터 액세스 및 조화에 속도를 높입니다. 이를 통해 비즈니스 사용자가 빠른 통찰력을 얻는 데 자립할 수 있도록 지원하는 빠르고 협업적인 탐색이 가능합니다. |[제품 페이지](https://www.clearstorydata.com/product/continuous-insights/)<br> |
@@ -38,6 +38,7 @@ Azure Synapse 내에서 Synapse SQL 풀을 사용하여 완벽한 데이터 웨�
 | ![SiSense](./media/sql-data-warehouse-partner-business-intelligence/sisense_logo.png) |**시센스 (것)들**<br>SiSense는 비즈니스가 데이터를 분석하고 시각화하는 데 필요한 도구와 함께 제공되는 전체 스택 비즈니스 인텔리전스 소프트웨어입니다. 고성능 분석 데이터베이스, 여러 원본, 단순 데이터 추출(ETL) 및 웹 기반 데이터 시각화를 조인하는 기능입니다. SiSense BI 및 Analytics로 큰 데이터 집합 분석 및 시각화를 시작합니다. |[제품 페이지](https://www.sisense.com/product/)<br> |
 | ![Tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png) |**Tableau**<br>Tableau의 셀프 서비스 분석은 플랫 파일에서 데이터베이스에 이르는 다양한 종류의 데이터에 걸쳐 누구나 자신의 데이터를 보고 이해할 수 있도록 도와줍니다. Tableau에는 라이브 데이터와 메모리 내 분석을 모두 지원하는 Synapse SQL 풀에 최적화된 네이티브 커넥터가 있습니다. |[제품 페이지](https://www.tableau.com/)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/)<br>|
 | ![Targit](./media/sql-data-warehouse-partner-business-intelligence/targit_logo.png) |**타기트 (디고지트 스위트)**<br>Targit Decision Suite는 실시간 대시보드, 셀프 서비스 분석, 사용자에게 친숙한 보고, 멋진 모바일 기능 및 단일 통합 솔루션으로 제공하는 간단한 데이터 검색 기술을 제공하는 BI 및 분석 플랫폼을 제공합니다. Targit는 회사들이 행동을 취하도록 용기를 줍니다. |[제품 페이지](https://www.targit.com/targit-decision-suite/analytics)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/)<br> |
+| ![사고 스팟](./media/sql-data-warehouse-partner-business-intelligence/thoughtspot-logo.png) |**사고 스팟**<br>세계에서 가장 혁신적인 기업은 ThoughtSpot을 사용하여 C-suite 임원에서 일선 직원에 이르기까지 조직의 모든 사람에게 데이터 기반 통찰력을 신속하게 파악할 수 있는 권한을 부여합니다. ThoughtSpot을 사용하면 비즈니스 사람들은 간단한 검색을 입력하여 수십억 개의 데이터를 즉시 분석하고 인공 지능을 활용하여 신뢰할 수 있고 관련성 이 같은 통찰력을 얻을 수 있습니다. ThoughtSpot은 모든 비즈니스 담당자가 사용할 수 있을 만큼 간단하면서도 속도, 보안 또는 거버넌스를 희생하지 않고도 가장 크고 복잡한 엔터프라이즈 데이터도 처리할 수 있을 만큼 강력합니다. 월마트, 7-11, BT, 다임러, 엑손, 훌루, 캐나다 왕립 은행, 서부 은행, 전국 건축 협회와 같은 고객은 자신의 의사 결정 문화와 분석가 회사 가트너가 2020 매직 쿼드런트의 리더로 생각 스팟을 변환하기 위해 ThoughtSpot로 전환한 이유입니다. ThoughtSpot은 모든 대화와 모든 결정의 일부로 통찰력을 제공함으로써 보다 사실 중심의 세상을 만드는 데 있어 데이터의 역할을 재구상하고 있습니다. |[제품 페이지](https://www.thoughtspot.com)<br>|
 | ![Yellowfin](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_logo.png) |**Yellowfin**<br>옐로핀은 BARC의 임시 보고 및 대시보드에서 최고 등급의 클라우드 BI 공급업체입니다. BI 설문 조사. Synapse SQL 풀에 연결한 다음 수상 경력에 빛나는 협업 BI 및 위치 인텔리전스 기능을 통해 아름다운 보고서와 대시보드를 만들고 공유할 수 있습니다. |[제품 페이지](https://www.yellowfinbi.com/)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/) |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->

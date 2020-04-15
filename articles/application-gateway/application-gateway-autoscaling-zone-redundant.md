@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 4cd2969f9a56c96af2b2c6db216f6829a080260c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7feb0f00c5431048d19d4ad6cb3860f6eb8ed052
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371268"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312698"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>자동 크기 조정 및 영역 중복 Application Gateway v2 
 
@@ -26,16 +26,16 @@ ms.locfileid: "80371268"
   영역 중복성은 Azure 영역을 사용할 수 있는 경우에만 사용할 수 있습니다. 다른 지역에서는 다른 모든 기능이 지원됩니다. 자세한 내용은 [Azure의 가용성 영역이란 무엇입니까?](../availability-zones/az-overview.md#services-support-by-region)
 - **정적 VIP**: 응용 프로그램 게이트웨이 v2 SKU는 정적 VIP 유형을 독점적으로 지원합니다. 이렇게 하면 응용 프로그램 게이트웨이와 연결된 VIP가 다시 시작한 후에도 배포 수명 주기에 대해 변경되지 않습니다.  v1에는 정적 VIP가 없으므로 응용 프로그램 게이트웨이를 통해 앱 서비스로 라우팅하는 도메인 이름 라우팅에 IP 주소 대신 응용 프로그램 게이트웨이 URL을 사용해야 합니다.
 - **헤더 다시 쓰기**: 응용 프로그램 게이트웨이를 사용하면 v2 SKU를 사용하여 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트할 수 있습니다. 자세한 내용은 [응용 프로그램 게이트웨이를 사용 하 여 HTTP 헤더 다시 작성](rewrite-http-headers.md) 을 참조 하십시오.
-- **키 볼트 통합**: 응용 프로그램 게이트웨이 v2는 HTTPS 지원 수신기에 연결된 서버 인증서에 대한 키 볼트와의 통합을 지원합니다. 자세한 내용은 [Key Vault 인증서를 통해 SSL 종료를](key-vault-certs.md)참조하십시오.
+- **키 볼트 통합**: 응용 프로그램 게이트웨이 v2는 HTTPS 지원 수신기에 연결된 서버 인증서에 대한 키 볼트와의 통합을 지원합니다. 자세한 내용은 [Key Vault 인증서를 통해 TLS 종료를](key-vault-certs.md)참조하십시오.
 - **Azure Kubernetes 서비스 침투 컨트롤러**: 응용 프로그램 게이트웨이 v2 침투 컨트롤러를 사용하면 Azure 응용 프로그램 게이트웨이를 AKS 클러스터로 알려진 AZURE Kubernetes 서비스(AKS)의 침투로 사용할 수 있습니다. 자세한 내용은 [응용 프로그램 게이트웨이 침투 컨트롤러란 무엇입니까?](ingress-controller-overview.md)
-- **성능 향상**: v2 SKU는 표준/WAF SKU에 비해 최대 5배 향상된 SSL 오프로드 성능을 제공합니다.
+- **성능 향상**: v2 SKU는 표준/WAF SKU에 비해 최대 5배 더 나은 TLS 오프로드 성능을 제공합니다.
 - **더 빠른 배포 및 업데이트 시간** v2 SKU는 표준/WAF SKU에 비해 더 빠른 배포 및 업데이트 시간을 제공합니다. 여기에는 WAF 구성 변경사항도 포함됩니다.
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-Standard_v2 및 WAF_v2 SKU는 미국 중북부, 미국 중남부, 미국 서부, 미국 서부 2, 미국 동부, 미국 동부 2, 미국 중부, 북유럽, 서유럽, 동남아시아, 프랑스 중부, 영국 서부, 일본 동부, 일본 서부, 호주 동부 지역에서 사용할 수 있습니다. , 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 동아시아, 한국 중부, 한국 남부, 영국 남부, 중앙 인도, 서인도, 남인도.
+Standard_v2 및 WAF_v2 SKU는 미국 중북부, 미국 중남부, 미국 서부, 미국 서부 2, 미국 동부, 동부 미국 2, 중부 미국, 북유럽, 서유럽, 동남아시아, 프랑스 중부, 영국 서부, 일본 동부, 일본 서부, 오스트레일리아 동부, 호주 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 동아시아, 한국 중부, 한국 , 영국 남부, 인도 중부, 서인도, 인도 남부.
 
 ## <a name="pricing"></a>가격 책정
 
@@ -77,7 +77,7 @@ v2 SKU를 사용하면 가격 책정 모델이 소비에 의해 구동되며 더
 
 **실시예 2**
 
-애플리케이션 게이트웨이 standard_v2 최소 인스턴스가 0개인 한 달 동안 프로비전되며, 이 기간 동안 평균 8.88Mbps의 데이터 전송인 초당 25개의 새로운 SSL 연결을 수신합니다. 연결이 짧다고 가정하면 가격은 다음과 같습니다.
+애플리케이션 게이트웨이 standard_v2 최소 인스턴스가 0개인 한 달 동안 프로비전되며, 이 기간 동안 평균 8.88Mbps의 데이터 전송인 초당 25개의 새로운 TLS 연결을 수신합니다. 연결이 짧다고 가정하면 가격은 다음과 같습니다.
 
 고정 가격 = 744(시간) * $0.20 = $148.8
 
@@ -105,7 +105,7 @@ v2 SKU를 사용하면 가격 책정 모델이 소비에 의해 구동되며 더
 
 **실시예 4**
 
-애플리케이션 게이트웨이 standard_v2 최소 5개의 인스턴스로 한 달 동안 프로비전되지만, 이번에는 평균 125mbps의 데이터 전송과 초당 25개의 SSL 연결이 있습니다. 트래픽이 없고 연결이 짧다고 가정하면 가격은 다음과 같습니다.
+애플리케이션 게이트웨이 standard_v2 최소 5개의 인스턴스로 한 달 동안 프로비전되지만, 이번에는 평균 125mbps의 데이터 전송과 초당 25개의 TLS 연결이 있습니다. 트래픽이 없고 연결이 짧다고 가정하면 가격은 다음과 같습니다.
 
 고정 가격 = 744(시간) * $0.20 = $148.8
 
@@ -117,7 +117,7 @@ v2 SKU를 사용하면 가격 책정 모델이 소비에 의해 구동되며 더
 
 **예제 5**
 
-응용 프로그램 게이트웨이 WAF_v2 한 달 동안 프로비전됩니다. 이 기간 동안 초당 25개의 새로운 SSL 연결, 평균 8.88Mbps의 데이터 전송을 수신하며 초당 80건의 요청을 수행합니다. 연결이 수명이 짧고 응용 프로그램에 대한 계산 단위 계산이 계산 단위당 10RPS를 지원한다고 가정하면 가격은 다음과 같습니다.
+응용 프로그램 게이트웨이 WAF_v2 한 달 동안 프로비전됩니다. 이 기간 동안 초당 25개의 새로운 TLS 연결, 평균 8.88Mbps의 데이터 전송을 수신하며 초당 80건의 요청을 수행합니다. 연결이 수명이 짧고 응용 프로그램에 대한 계산 단위 계산이 계산 단위당 10RPS를 지원한다고 가정하면 가격은 다음과 같습니다.
 
 고정 가격 = 744(시간) * $0.36 = $267.84
 
@@ -152,8 +152,8 @@ v2 SKU를 사용하면 가격 책정 모델이 소비에 의해 구동되며 더
 | 트래픽 리디렉션                               | &#x2713; | &#x2713; |
 | WAF(웹 애플리케이션 방화벽)                    | &#x2713; | &#x2713; |
 | WAF 사용자 지정 규칙                                  |          | &#x2713; |
-| SSL(Secure Sockets Layer) 종료            | &#x2713; | &#x2713; |
-| 종단 간 SSL 암호화                         | &#x2713; | &#x2713; |
+| 전송 계층 보안(TLS)/보안 소켓 계층(SSL) 종료            | &#x2713; | &#x2713; |
+| 종단 간 TLS 암호화                         | &#x2713; | &#x2713; |
 | 세션 선호도                                  | &#x2713; | &#x2713; |
 | 사용자 지정 오류 페이지                                | &#x2713; | &#x2713; |
 | WebSocket 지원                                 | &#x2713; | &#x2713; |
@@ -167,8 +167,8 @@ v2 SKU를 사용하면 가격 책정 모델이 소비에 의해 구동되며 더
 
 |차이|세부 정보|
 |--|--|
-|인증 인증서|지원되지 않습니다.<br>자세한 내용은 [응용 프로그램 게이트웨이를 사용하여 종단 간 SSL 개요를](ssl-overview.md#end-to-end-ssl-with-the-v2-sku)참조하십시오.|
-|동일한 서브넷에서 Standard_v2와 표준 애플리케이션 게이트웨이 혼합|지원되지 않음|
+|인증 인증서|지원되지 않습니다.<br>자세한 내용은 [응용 프로그램 게이트웨이를 사용하여 종단 간 TLS 개요를](ssl-overview.md#end-to-end-tls-with-the-v2-sku)참조하십시오.|
+|동일한 서브넷에서 Standard_v2와 표준 애플리케이션 게이트웨이 혼합|지원 안 함|
 |응용 프로그램 게이트웨이 서브넷의 사용자 정의 경로(UDR)|지원되는(특정 시나리오). 미리 보기에서.<br> 지원되는 시나리오에 대한 자세한 내용은 [응용 프로그램 게이트웨이 구성 개요를](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet)참조하십시오.|
 |인바운드 포트 범위에 대한 NSG| - 65200 ~ 65535(Standard_v2 SKU)<br>- 65503 ~ 65534(Standard SKU)<br>자세한 내용은 [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet)을 참조하세요.|
 |Azure 진단의 성능 로그|지원되지 않습니다.<br>Azure 메트릭을 사용해야 합니다.|

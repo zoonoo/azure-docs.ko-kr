@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/24/2020
-ms.openlocfilehash: 4265f6050b237cb40afeddfc228ade9be06be039
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.date: 04/14/2020
+ms.openlocfilehash: 098aeaa06a26c57744402722aa3eacc51ea85fb7
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396774"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382865"
 ---
 # <a name="collect-and-analyze-azure-activity-log-in-azure-monitor"></a>Azure 모니터에서 Azure 활동 로그 수집 및 분석
 [Azure 활동 로그는](platform-logs-overview.md) Azure에서 발생한 구독 수준 이벤트에 대한 통찰력을 제공하는 [플랫폼 로그입니다.](platform-logs-overview.md) Azure 포털에서 활동 로그를 볼 수 있지만 Azure Monitor의 추가 기능을 사용하도록 Log Analytics 작업 영역으로 보내도록 구성해야 합니다. 이 문서에서는 이 구성을 수행하는 방법과 활동 로그를 Azure 저장소 및 이벤트 허브로 보내는 방법에 대해 설명합니다.
@@ -25,7 +25,8 @@ ms.locfileid: "80396774"
 - 90일 이상 활동 로그 항목을 저장합니다.
 - 여러 Azure 구독 및 테넌트에서 로그 항목을 함께 분석할 수 있는 한 위치로 통합합니다.
 
-
+> [!IMPORTANT]
+> 테넌자 간에 로그를 수집하려면 [Azure 등대가](/azure/lighthouse)필요합니다.
 
 ## <a name="collecting-activity-log"></a>활동 로그 수집
 활동 로그는 [Azure 포털에서 볼](activity-log-view.md)수 있도록 자동으로 수집됩니다. Log Analytics 작업 영역에서 수집하거나 Azure 저장소 또는 이벤트 허브를 보내려면 [진단 설정을](diagnostic-settings.md)만듭니다. 이는 리소스 로그가 사용하는 것과 동일한 방법으로 모든 플랫폼 로그에 대해 [일관되게 유지됩니다.](platform-logs-overview.md)  

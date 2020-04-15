@@ -1,5 +1,5 @@
 ---
-title: IoT용 Azure 보안 센터의 Linux C# 에이전트 설치 및 배포 가이드| 마이크로 소프트 문서
+title: 설치 & Linux C# 에이전트 배포
 description: 32비트 및 64비트 Linux모두에서 IoT 에이전트용 Azure 보안 센터를 설치하는 방법에 대해 알아봅니다.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,34 +15,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2019
 ms.author: mlottner
-ms.openlocfilehash: b675198756ff7bc0791d49fee3649717e3e4da7f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40c6ea91fd84a0f088ed770cd7c4c3ea7b8b1c91
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75367419"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311138"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Linux에 IoT용 Azure Security Center C# 기반 보안 에이전트 배포
 
-
 이 가이드는 Linux에서 IoT C#기반 보안 에이전트용 Azure 보안 센터를 설치하고 배포하는 방법을 설명합니다.
 
-이 가이드에서는 다음 작업 방법을 배웁니다. 
+이 가이드에서는 다음 작업 방법을 배웁니다.
+
 > [!div class="checklist"]
 > * 설치
 > * 배포 확인
 > * 에이전트 제거
-> * 문제 해결 
+> * 문제 해결
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 다른 플랫폼 및 에이전트 맛의 경우 [올바른 보안 에이전트 선택을](how-to-deploy-agent.md)참조하십시오.
 
-1. 보안 에이전트를 배포하려면 설치하려는 머신에 대한 로컬 관리자 권한이 필요합니다. 
+1. 보안 에이전트를 배포하려면 설치하려는 머신에 대한 로컬 관리자 권한이 필요합니다.
 
 1. 디바이스에 대한 [보안 모듈을 만듭니다](quickstart-create-security-twin.md).
 
-## <a name="installation"></a>설치 
+## <a name="installation"></a>설치
 
 보안 에이전트를 배포하려면 다음 단계를 사용합니다.
 
@@ -50,14 +50,14 @@ ms.locfileid: "75367419"
 
 1. 패키지의 내용을 추출하고 _/Install_ 폴더로 이동합니다.
 
-1. `chmod +x InstallSecurityAgent.sh`를 실행하여 **InstallSecurityAgent 스크립트**에 실행 권한을 추가합니다. 
+1. `chmod +x InstallSecurityAgent.sh`를 실행하여 **InstallSecurityAgent 스크립트**에 실행 권한을 추가합니다.
 
-1. 그런 다음 루트 권한으로 다음 명령을 **실행합니다.** 
+1. 그런 다음 루트 권한으로 다음 명령을 **실행합니다.**
 
    ```
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
    ```
-   
+
    인증 매개 변수에 대한 자세한 내용은 [인증을 구성하는 방법을](concept-security-agent-authentication-methods.md)참조하십시오.
 
 이 스크립트는 다음 작업을 수행합니다.
@@ -72,23 +72,22 @@ ms.locfileid: "75367419"
 
 - 제공된 인증 매개 변수를 사용하여 에이전트를 구성합니다.
 
-
 추가 도움말을 보려면 -help 매개 변수를 사용하여 스크립트를 실행합니다(`./InstallSecurityAgent.sh --help`).
 
 ### <a name="uninstall-the-agent"></a>에이전트 제거
 
-에이전트를 제거하려면 -u 매개 변수를 사용하여 스크립트를 실행합니다(`./InstallSecurityAgent.sh -u`). 
+에이전트를 제거하려면 -u 매개 변수를 사용하여 스크립트를 실행합니다(`./InstallSecurityAgent.sh -u`).
 
 > [!NOTE]
 > 설치 제거는 설치 중에 설치된 모든 누락된 필수 구성 요소를 제거하지 않습니다.
 
-## <a name="troubleshooting"></a>문제 해결  
+## <a name="troubleshooting"></a>문제 해결
 
 1. 다음을 실행하여 배포 상태를 확인합니다.
 
     `systemctl status ASCIoTAgent.service`
 
-2. 로깅을 사용하도록 설정합니다.  
+1. 로깅을 사용하도록 설정합니다.
    에이전트가 시작되지 않는 경우 자세한 정보를 얻으려면 로깅을 설정합니다.
 
    다음을 수행하여 로깅을 설정합니다.
@@ -97,15 +96,16 @@ ms.locfileid: "75367419"
 
         `vi /var/ASCIoTAgent/General.config`
 
-   1. 다음 값을 편집합니다. 
+   1. 다음 값을 편집합니다.
 
       ```
       <add key="logLevel" value="Debug"/>
       <add key="fileLogLevel" value="Debug"/>
-      <add key="diagnosticVerbosityLevel" value="Some" /> 
+      <add key="diagnosticVerbosityLevel" value="Some" />
       <add key="logFilePath" value="IotAgentLog.log"/>
       ```
-       **logFilePath** 값은 구성할 수 있습니다. 
+
+       **logFilePath** 값은 구성할 수 있습니다.
 
        > [!NOTE]
        > 문제가 해결되면 로깅을 **해제**하는 것이 좋습니다. 로깅을 **설정**으로 그대로 두면 로그 파일 크기와 데이터 사용량이 증가합니다.
@@ -114,11 +114,11 @@ ms.locfileid: "75367419"
 
        `systemctl restart ASCIoTAgent.service`
 
-   1. 오류에 대한 자세한 내용을 확인하려면 로그 파일을 살펴봅니다.  
+   1. 오류에 대한 자세한 내용을 확인하려면 로그 파일을 살펴봅니다.
 
        로그 파일 위치는 `/var/ASCIoTAgent/IotAgentLog.log`입니다.
 
-       2단계에서 **logFilePath**에 대해 선택한 이름에 따라 파일 위치 경로를 변경합니다. 
+       2단계에서 **logFilePath**에 대해 선택한 이름에 따라 파일 위치 경로를 변경합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

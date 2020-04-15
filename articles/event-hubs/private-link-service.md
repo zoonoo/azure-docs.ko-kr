@@ -7,19 +7,19 @@ ms.author: spelluru
 ms.date: 03/12/2020
 ms.service: event-hubs
 ms.topic: article
-ms.openlocfilehash: cff1b3b79b34d3f0bed27a2ea50799185958a8ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcc360bbe4dd58200993b9377317ccb608b3529d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477851"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383639"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link-preview"></a>Azure 이벤트 허브를 Azure 개인 링크와 통합(미리 보기)
 Azure 개인 링크 서비스를 사용하면 가상 네트워크의 **개인 끝점을** 통해 Azure 서비스(예: Azure 이벤트 허브, Azure Storage 및 Azure Cosmos DB) 및 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다.
 
 개인 끝점은 Azure 개인 링크에서 제공하는 서비스에 개인적으로 안전하게 연결하는 네트워크 인터페이스입니다. 프라이빗 엔드포인트는 VNet의 개인 IP 주소를 사용하여 서비스를 VNet으로 효과적으로 가져옵니다. 서비스에 대한 모든 트래픽은 프라이빗 엔드포인트를 통해 라우팅할 수 있으므로 게이트웨이, NAT 디바이스, ExpressRoute 또는 VPN 연결 또는 공용 IP 주소가 필요하지 않습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. Azure 리소스의 인스턴스에 연결하여 액세스 제어에서 가장 높은 수준의 세분성을 제공할 수 있습니다.
 
-자세한 내용은 [Azure 개인 링크란 무엇입니까?](../private-link/private-link-overview.md)
+자세한 내용은 [Azure Private Link란?](../private-link/private-link-overview.md)을 참조하세요.
 
 > [!NOTE]
 > 이 기능은 **전용** 계층에서만 지원됩니다. 전용 계층에 대한 자세한 내용은 [이벤트 허브 전용 개요를](event-hubs-dedicated-overview.md)참조하십시오. 
@@ -45,7 +45,7 @@ Azure 개인 링크 서비스를 사용하면 가상 네트워크의 **개인 �
 ### <a name="steps"></a>단계
 이벤트 허브 네임스페이스가 이미 있는 경우 다음 단계를 수행하여 개인 링크 연결을 만들 수 있습니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 2. 검색 표시줄에서 **이벤트 허브를 입력합니다.**
 3. 개인 끝점을 추가할 목록에서 **네임스페이스를** 선택합니다.
 4. **설정**에서 **네트워킹** 탭을 선택합니다.
@@ -153,6 +153,32 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName  `
 
 ```
 
+### <a name="configure-the-private-dns-zone"></a>개인 DNS 영역 구성
+이벤트 허브 도메인에 대한 개인 DNS 영역을 만들고 가상 네트워크와의 연결 링크를 만듭니다.
+
+```azurepowershell-interactive
+$zone = New-AzPrivateDnsZone -ResourceGroupName $rgName `
+                            -Name "privatelink.servicebus.windows.net" 
+ 
+$link  = New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName $rgName `
+                                            -ZoneName "privatelink.servicebus.windows.net" `
+                                            -Name "mylink" `
+                                            -VirtualNetworkId $virtualNetwork.Id  
+ 
+$networkInterface = Get-AzResource -ResourceId $privateEndpoint.NetworkInterfaces[0].Id -ApiVersion "2019-04-01" 
+ 
+foreach ($ipconfig in $networkInterface.properties.ipConfigurations) { 
+    foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) { 
+        Write-Host "$($ipconfig.properties.privateIPAddress) $($fqdn)"  
+        $recordName = $fqdn.split('.',2)[0] 
+        $dnsZone = $fqdn.split('.',2)[1] 
+        New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink.servicebus.windows.net"  `
+                                -ResourceGroupName $rgName -Ttl 600 `
+                                -PrivateDnsRecords (New-AzPrivateDnsRecordConfig -IPv4Address $ipconfig.properties.privateIPAddress)  
+    } 
+}
+```
+
 ## <a name="manage-private-endpoints-using-azure-portal"></a>Azure 포털을 사용하여 개인 끝점 관리
 
 프라이빗 엔드포인트를 만들 때 연결이 승인되어야 합니다. 개인 끝점을 만드는 리소스가 디렉터리에 있는 경우 충분한 권한이 있는 경우 연결 요청을 승인할 수 있습니다. 다른 디렉터리의 Azure 리소스에 연결하는 경우 해당 리소스의 소유자가 연결 요청을 승인할 때까지 기다려야 합니다.
@@ -161,7 +187,7 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName  `
 
 | 서비스 작업 | 서비스 소비자 프라이빗 엔드포인트 상태 | 설명 |
 |--|--|--|
-| None | Pending | 연결이 수동으로 만들어지고, Private Link 리소스 소유자의 승인이 보류 중입니다. |
+| 없음 | Pending | 연결이 수동으로 만들어지고, Private Link 리소스 소유자의 승인이 보류 중입니다. |
 | 승인 | 승인됨 | 연결이 자동 또는 수동으로 승인되었으며, 사용할 준비가 되었습니다. |
 | 거부 | 거부됨 | Private Link 리소스 소유자가 연결을 거부했습니다. |
 | 제거 | 연결 끊김 | Private Link 리소스 소유자가 연결을 제거했습니다. 프라이빗 엔드포인트는 정보를 제공하므로 정리를 위해 삭제해야 합니다. |

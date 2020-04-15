@@ -3,20 +3,20 @@ title: Azure 정문 - 자주 묻는 질문
 description: 이 페이지에서는 Azure 정문에 대한 자주 묻는 질문에 대한 답변을 제공합니다.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: sohamnchatterjee
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/08/2019
-ms.author: sharadag
-ms.openlocfilehash: 0fe5d245d629c731a47ca5441afd2a3388a22de4
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.date: 04/13/2020
+ms.author: sohamnc
+ms.openlocfilehash: e2785baab27f5bfc996b57607816062195a19b2b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878020"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313764"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Azure 정문에 자주 묻는 질문
 
@@ -159,7 +159,11 @@ Front Door 사용자 지정 도메인에서 콘텐츠를 안전하게 전달하�
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door"></a>Azure 정문에서 지원하는 현재 암호 제품군은 무엇입니까?
 
-다음은 Azure 정문에서 지원하는 현재 암호 제품군입니다.
+TLS1.2의 경우 다음 암호 제품군이 지원됩니다.
+
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+
+TLS1.0/1.1에서 사용자 지정 도메인을 사용하는 경우 다음 암호 제품군이 지원됩니다.
 
 - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384

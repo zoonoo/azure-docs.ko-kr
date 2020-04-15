@@ -1,25 +1,19 @@
 ---
 title: 패턴 구문 참조 - LUIS
-titleSuffix: Azure Cognitive Services
 description: 개체를 만들어 LUIS(언어 이해) 앱에서 사용자 발언에서 주요 데이터를 추출합니다. 추출된 데이터는 클라이언트 응용 프로그램에서 사용됩니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/09/2019
+ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: 696f4bdc22bed01a4b5be8bff63ade482a8dbe0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cc24667f43dfedc032f52c40fc5f8fe5c80bad70
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79221282"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382152"
 ---
 # <a name="pattern-syntax"></a>패턴 구문
 
-패턴 구문은 발언의 템플릿입니다. 템플릿에는 무시하려는 단어 및 문장 부호 뿐만 아니라 일치시키려는 단어 및 엔터티도 포함되어야 합니다. 정규식은 **아닙니다**.
+패턴 구문은 발언의 템플릿입니다. 템플릿에는 무시할 단어와 [문장 부호뿐만](luis-reference-application-settings.md#punctuation-normalization) 아니라 일치하려는 단어와 엔터티가 포함되어야 합니다. 정규식은 **아닙니다**.
 
 > [!CAUTION]
 > 패턴에는 하위 구성 요소가 아닌 기계 학습 엔터티 부모만 포함됩니다.
@@ -62,7 +56,7 @@ Entity1이 출발지(시애틀) 및 대상(카이로)과 같은 역할이 있는
 
 |허용됨|예제|
 |--|--|
-|yes|( ( ((1 &#x7c; 테스트2) ] &#x7c; 테스트3)|
+|예|( ( ((1 &#x7c; 테스트2) ] &#x7c; 테스트3)|
 |예|( [ [ [test1] &#x7c; 테스트2 ] &#x7c; 테스트3 )|
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>또는-ing 구문이 있는 그룹에 대한 중첩 제한
@@ -71,7 +65,7 @@ Entity1이 출발지(시애틀) 및 대상(카이로)과 같은 역할이 있는
 
 |허용됨|예제|
 |--|--|
-|yes|(test1 &#x7c; &#x7c; (테스트3 &#x7c; 테스트4)|
+|예|(test1 &#x7c; &#x7c; (테스트3 &#x7c; 테스트4)|
 |예|(test1 &#x7c; test2 &#x7c; &#x7c; (테스트4 &#x7c; 테스트5) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>패턴 템플릿에 엔터티를 추가하는 구문

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 4f2b192765aab4c7cf18c62988ae2f6080b4b17c
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 426294f20dd51538920182a0e7a2915f6a47ba54
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436894"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383569"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive와 Apache Beeline 클라이언트 사용
 
@@ -40,8 +40,7 @@ beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
 beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 ```
 
-클러스터 `<headnode-FQDN>` 헤드노드의 정규화된 도메인 이름으로 바꿉니다. 헤드 노드의 정규화된 도메인 이름을 찾으려면 [Apache Ambari REST API를 사용하여 HDInsight 관리](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 문서의 정보를 사용합니다.
-
+<a name="replace-headnode-fqdn-with-the-fully-qualified-domain-name-of-a-cluster-headnode-to-find-the-fully-qualified-domain-name-of-a-headnode-use-the-information-in-the-manage-hdinsight-using-the-apache-ambari-rest-api-document"></a>클러스터 `<headnode-FQDN>` 헤드노드의 정규화된 도메인 이름으로 바꿉니다. 헤드 노드의 정규화된 도메인 이름을 찾으려면 [Apache Ambari REST API를 사용하여 HDInsight 관리](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes) 문서의 정보를 사용합니다.
 ---
 
 ### <a name="to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos"></a>Kerberos를 사용하여 HDInsight 엔터프라이즈 보안 패키지(ESP) 클러스터로
@@ -199,13 +198,13 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
     이러한 명령문은 다음과 같은 작업을 수행합니다.
 
-    |인수를 제거합니다. |Description |
+    |인수를 제거합니다. |설명 |
     |---|---|
     |DROP TABLE|테이블이 있으면 삭제됩니다.|
     |외부 테이블 만들기|Hive에서 **외부** 테이블을 만듭니다. 외부 테이블만 테이블 정의를 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.|
     |행 형식|데이터의 서식이 지정되는 방식입니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.|
     |텍스트 파일 위치로 저장|데이터가 저장되는 위치 및 파일 형식입니다.|
-    |선택|열 **t4에** 값 **[ERROR]이**포함된 모든 행의 개수를 선택합니다. 이 값을 포함하는 세 개의 행이 있으므로 이 쿼리는 **3** 값을 반환합니다.|
+    |SELECT|열 **t4에** 값 **[ERROR]이**포함된 모든 행의 개수를 선택합니다. 이 값을 포함하는 세 개의 행이 있으므로 이 쿼리는 **3** 값을 반환합니다.|
     |INPUT__FILE__NAME '%.log'를 좋아합니다.|Hive는 디렉터리내의 모든 파일에 스키마를 적용하려고 시도합니다. 이 경우 디렉터리에는 스키마와 일치하지 않는 파일이 포함되어 있습니다. 결과에 가비지 데이터가 나타나는 것을 방지하기 위해 이 명령문은 .log로 끝나는 파일의 데이터만 반환해야 함을 Hive에게 알립니다.|
 
    > [!NOTE]  
@@ -262,7 +261,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
     이러한 명령문은 다음과 같은 작업을 수행합니다.
 
-    |인수를 제거합니다. |Description |
+    |인수를 제거합니다. |설명 |
     |---|---|
     |테이블 만들기 존재하지 않는 경우|테이블이 아직 존재하지 않으면 테이블이 만들어집니다. **외부** 키워드가 사용되지 않으므로 이 문은 내부 테이블을 만듭니다. 내부 테이블은 Hive 데이터 웨어하우스에 저장되며 Hive에 서 완전히 관리됩니다.|
     |ORC로 저장|데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. ORC 형식은 Hive 데이터를 저장하기 위해 고도로 최적화되고 효율적인 형식입니다.|

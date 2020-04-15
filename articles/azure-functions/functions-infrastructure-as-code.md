@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 48d98d6fef896f9288be88824a62fa1c8179217f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7155a3fa9481ef5f2da62d85d4a932ad5e8e8ab1
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276895"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382517"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions의 함수 앱에 대한 리소스 배포 자동화
 
@@ -30,10 +30,10 @@ Azure Functions 배포는 일반적으로 다음과 같은 리소스로 구성�
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
 | 함수 앱                                                                     | 필수    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
 | [Azure 저장소](../storage/index.yml) 계정                                   | 필수    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
-| [애플리케이션 인사이트](../azure-monitor/app/app-insights-overview.md) 구성 요소 | Optional    | [마이크로소프트.인사이트/구성 요소](/azure/templates/microsoft.insights/components)         |   |
+| [애플리케이션 인사이트](../azure-monitor/app/app-insights-overview.md) 구성 요소 | 옵션    | [마이크로소프트.인사이트/구성 요소](/azure/templates/microsoft.insights/components)         |   |
 | [호스팅 계획](./functions-scale.md)                                             | 옵션<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 
-<sup>1개</sup> 호스팅 계획은 [프리미엄 계획(미리](./functions-premium-plan.md) 보기) 또는 [앱 서비스 계획에서](../app-service/overview-hosting-plans.md)함수 앱을 실행하도록 선택할 때만 필요합니다.
+<sup>1개</sup> 호스팅 계획은 [프리미엄 계획](./functions-premium-plan.md) 또는 [앱 서비스 계획에서](../app-service/overview-hosting-plans.md)함수 앱을 실행하도록 선택할 때만 필요합니다.
 
 > [!TIP]
 > 필수는 아니지만 앱에 대한 응용 프로그램 인사이트를 구성하는 것이 좋습니다.
@@ -75,7 +75,7 @@ Azure Functions 런타임에서는 `AzureWebJobsStorage` 연결 문자열을 사
 ]
 ```
 
-### <a name="application-insights"></a>애플리케이션 정보
+### <a name="application-insights"></a>Application Insights
 
 응용 프로그램 인사이트는 기능 앱을 모니터링하는 데 권장됩니다. 응용 프로그램 인사이트 리소스는 **Microsoft.Insights/구성 요소** 유형 및 종류 **웹으로**정의됩니다.
 
@@ -111,7 +111,7 @@ Azure Functions 런타임에서는 `AzureWebJobsStorage` 연결 문자열을 사
 
 호스팅 계획의 정의는 다양하며 다음 중 하나가 될 수 있습니다.
 * [소비](#consumption) 계획(기본값)
-* [프리미엄 플랜(미리](#premium) 보기)
+* [프리미엄 플랜](#premium)
 * [앱 서비스 계획](#app-service-plan)
 
 ### <a name="function-app"></a>함수 앱
@@ -647,10 +647,10 @@ Linux 앱에는 아래의 `linuxFxVersion` `siteConfig`속성도 포함되어야
 
 다음 방법 중 하나를 사용하여 템플릿을 배포할 수 있습니다.
 
-* [Powershell](../azure-resource-manager/templates/deploy-powershell.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
-* [Azure 포털](../azure-resource-manager/templates/deploy-portal.md)
-* [나머지 API](../azure-resource-manager/templates/deploy-rest.md)
+* [Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
+* [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Azure 단추에 배포
 

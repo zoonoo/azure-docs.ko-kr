@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: f06480767b697dca8fe41e484c02aefc58f040bf
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 3a885f071c89ff6d9bb79d908b19c9451b4ed735
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261333"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383313"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>독립 실행형 Azure Automation 계정 만들기
 
@@ -84,7 +84,7 @@ Azure Portal에서 Azure Automation 계정을 만들려면 다음 단계를 완�
 
 Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자동으로 만들어집니다. 이러한 Runbook을 만든 후 유지하지 않으려는 경우 안전하게 삭제할 수 있습니다. 실행 계정은 Runbook에서 사용자 계정으로 인증하는 데 사용할 수 있으며 다른 실행 계정을 만들거나 필요 없는 상황이 아니라면 남겨두는 것이 좋습니다. 다음 표에는 실행 계정에 대한 리소스가 요약되어 있습니다.
 
-| 리소스 | Description |
+| 리소스 | 설명 |
 | --- | --- |
 | AzureAutomationTutorial Runbook |실행 계정을 사용하여 인증하는 방법을 보여주는 예제 그래픽 Runbook입니다. Runbook은 Resource Manager 리소스를 모두 가져옵니다. |
 | AzureAutomationTutorialScript Runbook |실행 계정을 사용하여 인증하는 방법을 보여주는 예제 PowerShell Runbook입니다. Runbook은 Resource Manager 리소스를 모두 가져옵니다. |
@@ -92,11 +92,11 @@ Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자
 | AzureRunAsCertificate |Automation 계정을 만드는 경우 또는 기존 계정에 대해 PowerShell 스크립트를 사용하여 자동으로 만들어지는 인증서 자산입니다. 인증서는 Runbook에서 Azure Resource Manager 리소스를 관리할 수 있도록 Azure로 인증할 수 있습니다. 이 인증서는 수명이 1년입니다. |
 | AzureRunAsConnection |Automation 계정을 만드는 경우 또는 기존 계정에 대해 PowerShell 스크립트를 사용하여 자동으로 만들어지는 연결 자산입니다. |
 
-## <a name="create-a-classic-run-as-account"></a>클래식 런-As 계정 만들기
+## <a name="create-a-classic-run-as-account"></a>계정으로 클래식 실행 만들기
 
-클래식 Run-As 계정은 Azure Automation 계정을 만들 때 기본적으로 더 이상 만들어지지 않습니다. 그래도 클래식 실행-As 계정이 필요한 경우 다음 단계를 수행하십시오.
+클래식 실행 로 계정은 Azure 자동화 계정을 만들 때 기본적으로 더 이상 만들어지지 않습니다. 그래도 클래식 실행 계정이 필요한 경우:
 
-1. 자동화 **계정** 페이지에서 **계정 설정에서** **계정으로 실행을** 선택합니다.
+1. 자동화 계정에서 **계정 설정에서** **계정으로 실행을** 선택합니다.
 2. **Azure 클래식 실행을 계정으로 선택합니다.**
 3. **만들기를** 클릭하여 클래식 실행 계정 만들기를 진행합니다.
 
@@ -105,5 +105,6 @@ Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자
 * 그래픽 작성에 대한 자세한 내용은 [Azure Automation의 그래픽 작성을](automation-graphical-authoring-intro.md)참조하십시오.
 * PowerShell 실행책을 시작하려면 [내 첫 번째 PowerShell 실행책을](automation-first-runbook-textual-powershell.md)참조하십시오.
 * PowerShell 워크플로 런북을 시작하려면 [내 첫 번째 PowerShell 워크플로 런북을](automation-first-runbook-textual.md)참조하십시오.
-* Python2 런북을 시작하려면 [내 첫 번째 Python2 runbook을](automation-first-runbook-textual-python2.md)참조하십시오.
-
+* 파이썬 2 런북으로 시작하려면 [내 첫 번째 Python2 runbook을](automation-first-runbook-textual-python2.md)참조하십시오.
+* PowerShell cmdlet 참조는 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+)을 참조하십시오.

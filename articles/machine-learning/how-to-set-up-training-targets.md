@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 24c0d9955a857e8bbc1e1c09e600031a7541026c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fcfac923da1c0daee58b10d92cbc6a6ad5e7910
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80296955"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383414"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>모델 학습에 계산 대상 설정 및 사용 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -152,32 +152,19 @@ Azure Machine Learning은 자신만의 컴퓨팅 리소스를 가져와서 작�
     > [!WARNING]
     > Azure Machine Learning은 Ubuntu를 실행하는 가상 머신만 지원합니다. VM을 만들거나 기존 VM을 선택하는 경우 Ubuntu를 사용하는 VM을 선택해야 합니다.
 
-1. **연결**: 기존 가상 컴퓨터를 계산 대상으로 연결하려면 가상 시스템에 대해 정규화된 도메인 이름(FQDN), 사용자 이름 및 암호를 제공해야 합니다. 이 예제에서는 \<fqdn>을 VM의 공용 FQDN 또는 공용 IP 주소로 바꿉니다. \<사용자 이름> 및 \<암호>를 VM에 대한 SSH 사용자 이름 및 암호로 바꿉니다.
+1. **연결**: 기존 가상 컴퓨터를 계산 대상으로 연결하려면 가상 시스템에 대한 리소스 ID, 사용자 이름 및 암호를 제공해야 합니다. VM의 리소스 ID는 다음 문자열 형식을 사용하여 구독 ID, 리소스 그룹 이름 및 VM 이름을 사용하여 생성할 수 있습니다.`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`
 
-    > [!IMPORTANT]
-    > 다음 Azure 리전은 VM의 공용 IP 주소를 사용하여 가상 시스템 연결이 지원되지 않습니다. 대신 매개 변수와 함께 VM의 Azure `resource_id` 리소스 관리자 ID를 사용합니다.
-    >
-    > * 미국 동부
-    > * 미국 서부 2
-    > * 미국 중남부
-    >
-    > VM의 리소스 ID는 구독 ID, 리소스 그룹 이름 및 다음 문자열 형식을 사용하여 `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`VM 이름을 사용하여 생성할 수 있습니다.
-
-
+ 
    ```python
    from azureml.core.compute import RemoteCompute, ComputeTarget
 
    # Create the compute config 
    compute_target_name = "attach-dsvm"
-   attach_config = RemoteCompute.attach_configuration(address='<fqdn>',
-                                                    ssh_port=22,
-                                                    username='<username>',
-                                                    password="<password>")
-   # If in US East, US West 2, or US South Central, use the following instead:
-   # attach_config = RemoteCompute.attach_configuration(resource_id='<resource_id>',
-   #                                                 ssh_port=22,
-   #                                                 username='<username>',
-   #                                                 password="<password>")
+   
+   attach_config = RemoteCompute.attach_configuration(resource_id='<resource_id>',
+                                                   ssh_port=22,
+                                                   username='<username>',
+                                                   password="<password>")
 
    # If you authenticate with SSH keys instead, use this code:
    #                                                  ssh_port=22,
@@ -211,16 +198,7 @@ Azure HDInsight는 빅 데이터 분석을 위한 인기 있는 플랫폼입니�
     
     클러스터를 만든 후 호스트이름 \<clustername>.azurehdinsight.net과 연결합니다. 여기서 \<clustername>은 클러스터에 대해 사용자가 제공한 이름입니다. 
 
-1. **연결**: HDInsight 클러스터를 계산 대상으로 연결하려면 HDInsight 클러스터에 대한 호스트 이름, 사용자 이름 및 암호를 제공해야 합니다. 다음 예제에서는 SDK를 사용하여 작업 영역에 클러스터를 연결합니다. 예제에서는 \<clustername>을 클러스터의 이름으로 바꿉니다. \<username> 및 \<password>를 클러스터에 대한 SSH 사용자 이름 및 암호로 바꿉니다.
-
-    > [!IMPORTANT]
-    > 다음 Azure 리전은 클러스터의 공용 IP 주소를 사용하여 HDInsight 클러스터 를 연결하는 것을 지원하지 않습니다. 대신, 매개 변수와 함께 클러스터의 `resource_id` Azure 리소스 관리자 ID를 사용 합니다.
-    >
-    > * 미국 동부
-    > * 미국 서부 2
-    > * 미국 중남부
-    >
-    > 클러스터의 리소스 ID는 구독 ID, 리소스 그룹 이름 및 클러스터 이름을 사용하여 `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`다음 문자열 형식을 사용하여 구성할 수 있습니다.
+1. **연결**: HDInsight 클러스터를 계산 대상으로 연결하려면 HDInsight 클러스터에 대한 리소스 ID, 사용자 이름 및 암호를 제공해야 합니다. HDInsight 클러스터의 리소스 ID는 다음 문자열 형식을 사용하여 구독 ID, 리소스 그룹 이름 및 HDInsight 클러스터 이름을 사용하여 구성할 수 있습니다.`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
 
    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
@@ -228,15 +206,11 @@ Azure HDInsight는 빅 데이터 분석을 위한 인기 있는 플랫폼입니�
 
    try:
     # if you want to connect using SSH key instead of username/password you can provide parameters private_key_file and private_key_passphrase
-    attach_config = HDInsightCompute.attach_configuration(address='<clustername>-ssh.azurehdinsight.net', 
+
+    attach_config = HDInsightCompute.attach_configuration(resource_id='<resource_id>',
                                                           ssh_port=22, 
                                                           username='<ssh-username>', 
                                                           password='<ssh-pwd>')
-    # If you are in US East, US West 2, or US South Central, use the following instead:
-    # attach_config = HDInsightCompute.attach_configuration(resource_id='<resource_id>',
-    #                                                      ssh_port=22, 
-    #                                                      username='<ssh-username>', 
-    #                                                      password='<ssh-pwd>')
     hdi_compute = ComputeTarget.attach(workspace=ws, 
                                        name='myhdi', 
                                        attach_configuration=attach_config)

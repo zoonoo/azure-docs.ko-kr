@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: e0c1a93ef663762bec199abc5aa7eabbc821168d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5af6aec2267384c37f664522d075bf26c632e7e9
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77654956"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382876"
 ---
 # <a name="availability-alerts"></a>가용성 경고
 
@@ -33,6 +33,9 @@ ms.locfileid: "77654956"
 2. 원하는 심각도 수준, 규칙 설명 및 가장 중요한 것으로 이 경고 규칙에 대해 사용하려는 알림 기본 설정을 보유한 작업 그룹을 설정합니다.
 
    ![저장 후 편집](./media/availability-alerts/set-action-group.png)
+
+> [!NOTE]
+> 이 환경을 통해 생성된 가용성 경고는 상태 기반입니다. 즉, 경고 기준이 충족되면 사이트를 사용할 수 없는 것으로 감지되면 단일 경고가 생성됩니다. 다음에 경고 기준을 평가할 때 사이트가 여전히 다운된 경우 새 경고가 생성되지 않습니다. 따라서 사이트가 한 시간 동안 다운되어 전자 메일 경고를 설정한 경우 사이트가 다운되었을 때만 전자 메일이 수신되고 사이트가 백업될 때 후속 전자 메일이 표시됩니다. 사이트를 계속 사용할 수 없음을 알리는 지속적인 경고가 수신되지 않습니다.
 
 ### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Y 위치에서 오류를 보고하는 X에 대해 경고
 

@@ -1,5 +1,5 @@
 ---
-title: 상태 구성 개요
+title: Azure 자동화 상태 구성 개요
 description: Azure 자동화 상태 구성(DSC), 해당 용어 및 알려진 문제에 대한 개요
 keywords: PowerShell DSC, 필요한 상태 구성, PowerShell DSC Azure
 services: automation
@@ -10,12 +10,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 02e540c9ac2654be97ff247749d1ed18573cfc24
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: afceb11180662416aa4953b8b58ef03ffaa70eec
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010259"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383195"
 ---
 # <a name="state-configuration-overview"></a>상태 구성 개요
 
@@ -123,6 +123,7 @@ Azure ExpressRoute 사용자는 이 파일을 사용해 Azure 공간에 대한 B
 - Azure 자동화 상태 구성에서 DSC 사용을 시작하려면 [Azure 자동화 상태 구성을 시작하십시오.](automation-dsc-getting-started.md)
 - 노드온보딩 하는 방법을 알아보려면 [Azure 자동화 상태 구성에 의해 관리를 위한 온보딩 컴퓨터를](automation-dsc-onboarding.md)참조하십시오.
 - 대상 노드에 할당할 수 있도록 DSC 구성을 컴파일하는 방법에 대해 알아보려면 [Azure 자동화 상태 구성의 구성 컴파일을](automation-dsc-compile.md)참조하십시오.
-- PowerShell cmdlet 참조에 대 한 [Azure 자동화 상태 구성 cmdlet](/powershell/module/azurerm.automation/#automation)을 참조 하십시오.
+- PowerShell cmdlet 참조는 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+)을 참조하십시오.
 - 가격 정보는 [Azure 자동화 상태 구성 가격 책정을](https://azure.microsoft.com/pricing/details/automation/)참조하십시오.
 - 연속 배포 파이프라인에서 Azure 자동화 상태 구성을 사용하는 예제를 보려면 [Azure 자동화 상태 구성 및 초콜릿을 사용하여 연속 배포를](automation-dsc-cd-chocolatey.md)참조하십시오.

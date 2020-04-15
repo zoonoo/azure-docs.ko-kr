@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: d31b7531e00199ea63c7b057dacff1b67d7cedc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: 506bf076c955beb5c5e57811bbdb42bfedb8cbe3
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528934"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382960"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Azure 포털에서 감사 로그 구성 및 액세스
 
@@ -30,7 +30,7 @@ Azure 포털에서 [MariaDB 감사 로그](concepts-audit-logs.md) 및 진단 �
 
 감사 로깅을 활성화하고 구성합니다.
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. Azure Database for MariaDB 서버를 선택합니다.
 
@@ -69,4 +69,5 @@ Azure 포털에서 [MariaDB 감사 로그](concepts-audit-logs.md) 및 진단 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- MariaDB용 Azure 데이터베이스에서 [감사 로그에](concepts-audit-logs.md) 대해 자세히 알아봅니다.
+- MariaDB용 Azure 데이터베이스의 [감사 로그에](concepts-audit-logs.md) 대해 자세히 알아보기
+- [Azure CLI에서](howto-configure-audit-logs-cli.md) 감사 로그를 구성하는 방법에 대해 알아봅니다.

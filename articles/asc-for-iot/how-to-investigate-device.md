@@ -1,5 +1,5 @@
 ---
-title: IoT 장치 조사를 위한 Azure 보안 센터 | 마이크로 소프트 문서
+title: 의심스러운 장치 조사
 description: 이 가이드는 IoT용 Azure 보안 센터를 사용하여 Log Analytics를 사용하여 의심스러운 IoT 장치를 조사하는 방법을 설명합니다.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,23 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 8d2fe8d63c7ece6f3b3426d8fc5a3454a61826f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f333f28dc0e02e8d010f5521f298d0f0b031dbf2
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68596243"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311042"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>의심스러운 IoT 디바이스 조사
 
-IoT 서비스 용 Azure 보안 센터 경고는 IoT 장치가 의심스러운 활동에 관여한 것으로 의심되거나 장치가 손상되었다는 표시가 있는 경우 명확한 표시를 제공합니다. 
+IoT 서비스 용 Azure 보안 센터 경고는 IoT 장치가 의심스러운 활동에 관여한 것으로 의심되거나 장치가 손상되었다는 표시가 있는 경우 명확한 표시를 제공합니다.
 
-이 가이드에서는 제공된 조사 제안을 사용하여 조직에 대한 잠재적 위험을 파악하고, 해결하는 방법을 결정하고, 향후 유사한 공격을 방지하는 가장 좋은 방법을 찾아내십시오.  
+이 가이드에서는 제공된 조사 제안을 사용하여 조직에 대한 잠재적 위험을 파악하고, 해결하는 방법을 결정하고, 향후 유사한 공격을 방지하는 가장 좋은 방법을 찾아내십시오.
 
 > [!div class="checklist"]
 > * 디바이스 데이터 찾기
 > * kql 쿼리를 사용하여 조사
-
 
 ## <a name="how-can-i-access-my-data"></a>내 데이터에 액세스하는 방법은 무엇입니까?
 
@@ -39,15 +38,15 @@ IoT 서비스 용 Azure 보안 센터 경고는 IoT 장치가 의심스러운 �
 
 데이터 저장을 위한 로그 분석 작업 영역을 찾으려면 다음을 수행하십시오.
 
-1. IoT Hub를 엽니다. 
+1. IoT Hub를 엽니다.
 1. **보안에서** **개요를**클릭한 다음 **설정을**선택합니다.
-1. Log Analytics 작업 영역의 구성 세부 정보를 변경합니다. 
-1. **저장**을 클릭합니다. 
+1. Log Analytics 작업 영역의 구성 세부 정보를 변경합니다.
+1. **저장**을 클릭합니다.
 
 구성이 완료되면 다음을 수행하여 Log Analytics 작업 영역에 저장된 데이터에 액세스합니다.
 
-1. IoT 허브에서 IoT 경고를 위한 Azure 보안 센터를 선택하고 클릭합니다. 
-1. **추가 조사**를 클릭합니다. 
+1. IoT 허브에서 IoT 경고를 위한 Azure 보안 센터를 선택하고 클릭합니다.
+1. **추가 조사**를 클릭합니다.
 1. **이 경고가 있는 디바이스를 확인하려면 여기를 클릭하여 DeviceId 열을 보십시오**를 선택합니다.
 
 ## <a name="investigation-steps-for-suspicious-iot-devices"></a>의심스러운 IoT 디바이스에 대한 조사 단계
@@ -70,7 +69,7 @@ IoT 장치에 대한 인사이트 및 원시 데이터를 보려면 Log Analytic
 
 ### <a name="users-with-access"></a>액세스 권한이 있는 사용자
 
-이 디바이스에 액세스할 수 있는 사용자를 확인하려면 다음 kql 쿼리를 사용합니다. 
+이 디바이스에 액세스할 수 있는 사용자를 확인하려면 다음 kql 쿼리를 사용합니다.
 
  ```
   let device = "YOUR_DEVICE_ID";
@@ -85,13 +84,14 @@ IoT 장치에 대한 인사이트 및 원시 데이터를 보려면 Log Analytic
      UserName=extractjson("$.UserName", EventDetails, typeof(string))
   | summarize FirstObserved=min(TimestampLocal) by GroupNames, UserName
  ```
-이 데이터를 사용하여 다음을 검색합니다. 
+이 데이터를 사용하여 다음을 검색합니다.
+
 - 어떤 사용자가 디바이스에 액세스할 수 있습니까?
 - 액세스 권한이 있는 사용자에게 예상 권한 수준이 있습니까?
 
 ### <a name="open-ports"></a>포트 열기
 
-장치의 현재 사용 중이거나 사용 중인 포트를 확인하려면 다음 kql 쿼리를 사용합니다. 
+장치의 현재 사용 중이거나 사용 중인 포트를 확인하려면 다음 kql 쿼리를 사용합니다.
 
  ```
   let device = "YOUR_DEVICE_ID";
@@ -112,14 +112,15 @@ IoT 장치에 대한 인사이트 및 원시 데이터를 보려면 Log Analytic
  ```
 
 이 데이터를 사용하여 다음을 검색합니다.
+
 - 디바이스에서 현재 활성 중인 수신 대기 소켓은 무엇입니까?
 - 현재 활성 상태인 수신 대기 소켓을 허용해야 합니까?
 - 장치에 연결된 의심스러운 원격 주소가 있습니까?
 
 ### <a name="user-logins"></a>사용자 로그인
 
-장치에 로그인한 사용자를 찾으려면 다음 kql 쿼리를 사용합니다. 
- 
+장치에 로그인한 사용자를 찾으려면 다음 kql 쿼리를 사용합니다.
+
  ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
@@ -143,13 +144,14 @@ IoT 장치에 대한 인사이트 및 원시 데이터를 보려면 Log Analytic
  ```
 
 이 쿼리 결과를 사용하여 다음을 검색합니다.
+
 - 어떤 사용자가 디바이스에 로그인했습니까?
 - 로그인한 사용자가 로그인해야 합니까?
 - 로그인한 사용자가 예상 IP 주소 또는 예기치 않은 IP 주소에서 연결했습니까?
-  
+
 ### <a name="process-list"></a>프로세스 목록
 
-프로세스 목록이 예상대로 인지 확인하려면 다음 kql 쿼리를 사용합니다. 
+프로세스 목록이 예상대로 인지 확인하려면 다음 kql 쿼리를 사용합니다.
 
  ```
   let device = "YOUR_DEVICE_ID";
@@ -186,4 +188,4 @@ IoT 장치에 대한 인사이트 및 원시 데이터를 보려면 Log Analytic
 
 ## <a name="next-steps"></a>다음 단계
 
-디바이스를 조사하고 위험을 더 잘 이해한 후에는 IoT 솔루션 보안 상태를 향상시키기 위해 [사용자 지정 경고 구성](quickstart-create-custom-alerts.md)을 고려할 수 있습니다. 디바이스 에이전트가 아직 없는 경우 결과를 향상시키려면 [보안 에이전트를 배포](how-to-deploy-agent.md)하거나 [기존 디바이스 에이전트의 구성을 변경](how-to-agent-configuration.md)하는 것이 좋습니다. 
+디바이스를 조사하고 위험을 더 잘 이해한 후에는 IoT 솔루션 보안 상태를 향상시키기 위해 [사용자 지정 경고 구성](quickstart-create-custom-alerts.md)을 고려할 수 있습니다. 디바이스 에이전트가 아직 없는 경우 결과를 향상시키려면 [보안 에이전트를 배포](how-to-deploy-agent.md)하거나 [기존 디바이스 에이전트의 구성을 변경](how-to-agent-configuration.md)하는 것이 좋습니다.

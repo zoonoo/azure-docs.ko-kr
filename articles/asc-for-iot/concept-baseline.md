@@ -1,5 +1,5 @@
 ---
-title: IoT 기준을 위한 Azure 보안 센터 이해 | 마이크로 소프트 문서
+title: 기준 선 및 사용자 지정 검사
 description: IoT 기준을 위한 Azure 보안 센터의 개념에 대해 알아봅니다.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: ce5a0625a16c5a02d03ee74f894c585820414fa4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c52a3e55e3801eaaac885b9a3c364283f74906ba
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72176611"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311650"
 ---
 # <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>IoT 기준 및 사용자 지정 검사를 위한 Azure 보안 센터
 
@@ -28,11 +28,11 @@ ms.locfileid: "72176611"
 
 ## <a name="baseline"></a>기초
 
-기준은 각 장치에 대한 표준 동작을 설정하고 예상 된 규범에서 비정상적인 동작 또는 편차를 쉽게 설정할 수 있습니다.  
+기준은 각 장치에 대한 표준 동작을 설정하고 예상 된 규범에서 비정상적인 동작 또는 편차를 쉽게 설정할 수 있습니다.
 
 ## <a name="baseline-custom-checks"></a>기준선 사용자 지정 검사
 
-기준 사용자 지정 검사는 장치의 **Module ID 쌍선을** 사용하여 각 장치 베이스기준에 대한 사용자 지정 검사 목록을 설정합니다. 
+기준 사용자 지정 검사는 장치의 **Module ID 쌍선을** 사용하여 각 장치 베이스기준에 대한 사용자 지정 검사 목록을 설정합니다.
 
 ## <a name="setting-baseline-properties"></a>기준선 속성 설정
 
@@ -64,7 +64,7 @@ ms.locfileid: "72176611"
 
 ## <a name="baseline-custom-check-properties"></a>기준선 사용자 지정 검사 속성
 
-| 이름| 상태 | 유효한 값| 기본값| 설명 |
+| 속성| 상태 | 유효한 값| 기본값| 설명 |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |기준선사용자정의검사사용 가능|필수: true |유효한 값: **부울** |기본값: **false** |우선 순위가 높은 메시지를 보내기 전의 최대 시간 간격입니다.|
 |기준선사용자 정의 검사파일 경로 |필수: true|유효한 값: **문자열,** **null** |기본값: **null** |기준선 xml 구성의 전체 경로|

@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: b8c2ba54fcc69ba126bf5f68aed99b25f8156155
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b564373780da5bba71bc46ddbac3dc69a0c94a4a
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76046183"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382773"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights 탐색기
 
@@ -76,7 +76,7 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
          |**<**, **>**, **<=**, **>=**    |  **더블**, **날짜 시간**, **시간 범위**       |         |
          |**=**, **!=**,**<>**     | **문자열,** **Bool**, **더블**, **날짜 시간,** **시간 범위,** **NULL**        |         |
          |**에서**     | **문자열,** **Bool**, **더블**, **날짜 시간,** **시간 범위,** **NULL**        |  모든 발산자는 동일한 형식이거나 **NULL** 상수여야 합니다.        |
-         |**HAS**     | **문자열**        |  오른쪽에는 상수 문자열 리터럴만 허용됩니다. 빈 문자열과 **NULL은** 허용되지 않습니다.       |
+         |**HAS**     | **String**        |  오른쪽에는 상수 문자열 리터럴만 허용됩니다. 빈 문자열과 **NULL은** 허용되지 않습니다.       |
 
       - **쿼리 예**
 

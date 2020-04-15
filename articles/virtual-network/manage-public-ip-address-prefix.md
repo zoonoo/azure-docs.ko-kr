@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: anavin
-ms.openlocfilehash: 26d8ee34c735cab8f1033a9aad897ec0b1bed524
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f0c2d9757f3652b0f83b8c36d89c855f7a92fdd
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65952690"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383861"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>공용 IP 주소 접두사 만들기, 변경 또는 삭제
 
@@ -41,19 +41,19 @@ ms.locfileid: "65952690"
 ## <a name="create-a-public-ip-address-prefix"></a>공용 IP 주소 접두사 만들기
 
 1. 포털의 왼쪽 위 모서리에서 **+ 리소스 만들기**를 선택합니다.
-2. *마켓플레이스 검색* 상자에 *공용 IP 주소 접두사*를 입력합니다. 검색 결과에 표시된 **공용 IP 주소 접두사**를 선택합니다.
+2. *마켓플레이스 검색* 상자에 *공용 IP 접두사를* 입력합니다. 검색 결과에 표시된 **공용 IP 주소 접두사**를 선택합니다.
 3. **공용 IP 주소 접두사** 아래에서 **만들기**를 선택합니다.
 4. **공용 IP 주소 접두사 만들기** 아래에서 다음 설정의 값을 입력하거나 선택한 다음, 만들기**를 선택합니다**:
 
    |설정|필수 여부|세부 정보|
    |---|---|---|
-   |Subscription|yes|공용 IP 주소를 연결하려는 리소스와 동일한 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)에 있어야 합니다.|
-   |Resource group|yes|공용 IP 주소를 연결하려는 리소스와 동일하거나 다른 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)에 있을 수 있습니다.|
-   |이름|yes|이름은 선택한 리소스 그룹 내에서 고유해야 합니다.|
-   |지역|yes|범위에서 주소를 할당할 공용 IP 주소와 동일한 [지역](https://azure.microsoft.com/regions)에 있어야 합니다.|
-   |접두사 크기|yes| 필요한 접두사의 크기입니다. /28 또는 16개의 IP 주소가 기본값입니다.
+   |Subscription|예|공용 IP 주소를 연결하려는 리소스와 동일한 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)에 있어야 합니다.|
+   |Resource group|예|공용 IP 주소를 연결하려는 리소스와 동일하거나 다른 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)에 있을 수 있습니다.|
+   |속성|예|이름은 선택한 리소스 그룹 내에서 고유해야 합니다.|
+   |지역|예|범위에서 주소를 할당할 공용 IP 주소와 동일한 [지역](https://azure.microsoft.com/regions)에 있어야 합니다.|
+   |접두사 크기|예| 필요한 접두사의 크기입니다. /28 또는 16개의 IP 주소가 기본값입니다.
 
-**명령을**
+**명령**
 
 |도구|명령|
 |---|---|
@@ -70,7 +70,7 @@ ms.locfileid: "65952690"
 
    |설정|필수 여부|세부 정보|
    |---|---|---|
-   |이름|yes|공용 IP 주소의 이름은 선택한 리소스 그룹 내에서 고유해야 합니다.|
+   |속성|예|공용 IP 주소의 이름은 선택한 리소스 그룹 내에서 고유해야 합니다.|
    |유휴 제한 시간(분)|예|연결 유지 메시지를 보내는 데 클라이언트를 사용하지 않고 TCP 또는 HTTP 연결을 유지하는 데 걸리는 시간(분)입니다. |
    |DNS 이름 레이블|예|이름을 만드는 Azure 지역 내에서(모든 구독 및 모든 고객에서) 고유해야 합니다. Azure는 해당 DNS에서 이름과 IP 주소를 자동으로 등록하므로 해당 이름을 사용하는 리소스에 연결할 수 있습니다. Azure에서는 정규화된 DNS 이름을 만드는 데 제공하는 이름에 *location.cloudapp.azure.com*(여기서 location은 선택한 위치임)과 같은 기본 서브넷을 추가합니다. 자세한 내용은 [Azure 공용 IP 주소와 Azure DNS 사용](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)을 참조하세요.|
 
@@ -89,7 +89,7 @@ ms.locfileid: "65952690"
    - **보기**: **개요** 섹션에서는 공용 IP 주소 접두사의 주요 설정을 보여줍니다(예: 접두사).
    - **삭제**: 공용 IP 주소 접두사를 삭제하려면 **개요** 섹션에서 **삭제**를 선택합니다. 접두사 내 주소가 공용 IP 주소 리소스에 연결되어 있으면 공용 IP 주소 리소스를 먼저 삭제해야 합니다. [공용 IP 주소 삭제](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address)를 참조하세요.
 
-**명령을**
+**명령**
 
 |도구|명령|
 |---|---|
@@ -100,7 +100,7 @@ ms.locfileid: "65952690"
 
 공용 IP 주소 접두사에 대한 작업을 수행하려면 다음 표에 나열된 적절한 작업이 할당된 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할 또는 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 계정이 할당되어야 합니다.
 
-| 작업                                                            | 이름                                                           |
+| 작업                                                            | 속성                                                           |
 | ---------                                                         | -------------                                                  |
 | Microsoft.Network/publicIPPrefixes/read                           | 공용 IP 주소 접두사 읽기                                |
 | Microsoft.Network/publicIPPrefixes/write                          | 공용 IP 주소 접두사 만들기 또는 업데이트                    |

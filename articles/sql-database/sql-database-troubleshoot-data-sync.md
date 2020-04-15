@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: data sync
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 8e223d0c6243bfddc1e5a56867c4c69de5e2a62e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6ea604446cb9d56bb699685d24c81992bcac3a2
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73822448"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382902"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>SQL 데이터 동기화 문제 해결
 
@@ -110,7 +110,7 @@ SQL 데이터 동기화의 동기화 그룹이 오랫동안 처리 중 상태입
 -  CREATE INDEX 문에 WHERE 절이 있습니다. 데이터 동기화는 이러한 상황을 처리하지 않습니다. 이 문제를 해결하려면 WHERE 절을 제거하거나 수동으로 모든 데이터베이스를 변경합니다. 
  
 ### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a><a name="sync-circ"></a> 데이터 동기화에서는 어떻게 순환 참조가 처리되나요? 즉, 여러 동기화 그룹에서 동일한 데이터가 동기화되어 결과적으로 계속 변경되는 경우 어떻게 처리되나요?
-데이터 동기화에서는 순환 참조가 처리되지 않습니다. 순환 참조가 발생하지 않도록 해야 합니다. 
+데이터 동기화는 순환 참조를 처리하지 않습니다. 순환 참조가 발생하지 않도록 해야 합니다. 
 
 ## <a name="client-agent-issues"></a>클라이언트 에이전트 문제
 

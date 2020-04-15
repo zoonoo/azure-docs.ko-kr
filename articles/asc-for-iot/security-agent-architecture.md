@@ -1,5 +1,5 @@
 ---
-title: IoT 보안 에이전트 아키텍처를 위한 Azure 보안 센터 이해 | 마이크로 소프트 문서
+title: 보안 에이전트 아키텍처
 description: IoT 서비스에 대한 Azure 보안 센터에서 사용되는 에이전트에 대한 보안 에이전트 아키텍처를 이해합니다.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 998aeab197931a75579fc39b28e3a248b85fc57b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9029ece923b7cda09c7a57d07736791e241c9e70
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68596916"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310679"
 ---
 # <a name="security-agent-reference-architecture"></a>보안 에이전트 참조 아키텍처
 
@@ -38,9 +38,9 @@ IoT용 Azure 보안 센터는 IoT Hub를 통해 보안 데이터를 기록, 처�
 
 - **azureiot보안** 모듈 쌍둥이를 사용하여 원격으로 구성합니다. 자세한 내용은 [IoT 에이전트용 Azure 보안 센터 구성을](how-to-agent-configuration.md)참조하십시오.
 
-IoT 보안 에이전트용 Azure 보안 센터는 오픈 소스 프로젝트로 개발되며 GitHub에서 사용할 수 있습니다. 
+IoT 보안 에이전트용 Azure 보안 센터는 오픈 소스 프로젝트로 개발되며 GitHub에서 사용할 수 있습니다.
 
-- [IoT C 기반 에이전트용 Azure 보안 센터](https://github.com/Azure/Azure-IoT-Security-Agent-C) 
+- [IoT C 기반 에이전트용 Azure 보안 센터](https://github.com/Azure/Azure-IoT-Security-Agent-C)
 - [IoT C#기반 에이전트용 Azure 보안 센터](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
 
 ## <a name="agent-supported-platforms"></a>에이전트 지원 플랫폼

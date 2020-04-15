@@ -7,20 +7,23 @@ manager: craigg
 ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 11/4/2019
+ms.date: 04/14/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8cee874106598c7d81b923d7dd32ba91902d9326
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 5d73ba8f21fe7731fb751d42a8497ff8e1ebba7d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745178"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383636"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>리소스 클래스를 워크로드 그룹으로 변환
 
 워크로드 그룹은 시스템 리소스를 격리하고 포함하는 메커니즘을 제공합니다.  또한 워크로드 그룹을 사용하면 워크로드그룹에서 실행 중인 요청에 대한 실행 규칙을 설정할 수 있습니다.  쿼리 시간 시간 시간 실행 규칙을 사용하면 사용자 개입 없이 런어웨이 쿼리를 취소할 수 있습니다.  이 문서에서는 기존 리소스 클래스를 사용 하 고 비슷한 구성을 사용 하 여 워크로드 그룹을 만드는 방법에 대해 설명 합니다.  또한 선택적 쿼리 시간 시간 규칙이 추가됩니다.
+
+> [!NOTE]
+> [워크로드 그룹](sql-data-warehouse-workload-classification.md) 및 리소스 클래스를 동시에 사용하는 방법에 대한 지침은 워크로드 분류 개념 문서의 [분류자와 리소스 클래스 할당 혼합](sql-data-warehouse-workload-classification.md#mixing-resource-class-assignments-with-classifiers) 섹션을 참조하십시오.
 
 ## <a name="understanding-the-existing-resource-class-configuration"></a>기존 리소스 클래스 구성 이해
 
@@ -86,4 +89,6 @@ SELECT request_id, [label], classifier_name, group_name, command
 ## <a name="next-steps"></a>다음 단계
 
 - [워크로드 격리](sql-data-warehouse-workload-isolation.md)
-- [워크로드 그룹 링크를 만드는 방법](quickstart-configure-workload-isolation-tsql.md)
+- [워크로드 그룹을 만드는 방법](quickstart-configure-workload-isolation-tsql.md)
+- [워크로드 분류자 만들기(Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?&view=azure-sqldw-latest)
+- [CREATE WORKLOAD GROUP(Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)

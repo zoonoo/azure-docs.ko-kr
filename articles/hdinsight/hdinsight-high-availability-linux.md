@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 085933f9a74ee37779ce63ce499d89ea53a9f7d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 767d87efcf94d720159dcf3b9dc42981ec957ef0
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198942"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381406"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>HDInsight에서 Apache Hadoop 클러스터의 가용성 및 안정성
 
@@ -33,7 +33,7 @@ HDInsight 클러스터에 있는 노드는 Azure Virtual Machines를 사용하�
 
 Hadoop 서비스의 고가용성을 보장하기 위해 HDInsight는 두 개의 헤드 노드를 제공합니다. 두 헤드 노드가 모두 활성화되어 HDInsight 클러스터 내에서 동시에 실행됩니다. 일부 서비스(예: Apache HDFS 또는 Apache Hadoop YARN)는 항상 헤드 노드 하나에서만 '활성' 상태입니다. 다른 서비스(예: HiveServer2 또는 Hive 메타스토어)는 두 헤드 노드에서 동시에 활성화됩니다.
 
-클러스터의 다른 노드 유형에 대한 호스트 이름을 얻으려면 [Ambari REST API를](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes)사용하십시오.
+클러스터의 다른 노드 유형에 대한 호스트 이름을 얻으려면 [Ambari REST API를](hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes)사용하십시오.
 
 > [!IMPORTANT]  
 > 숫자 값을 노드가 기본 또는 보조 노드와 연결하지 마세요. 숫자 값은 각 노드에 대해 고유한 이름을 제공하기 위해 존재합니다.
@@ -97,7 +97,7 @@ Ambari REST API 작업에 대한 자세한 내용은 [Apache Ambari REST API를 
 
 다음 방법을 사용하여 인터넷을 통해 직접 액세스할 수 없는 노드에 연결할 수 있습니다.
 
-|방법 |설명 |
+|메서드 |설명 |
 |---|---|
 |SSH|SSH를 사용하여 헤드 노드에 연결되면 SSH를 사용하여 헤드 노드에서 클러스터의 다른 노드에 연결할 수 있습니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md) 문서를 참조하세요.|
 |SSH 터널|인터넷에 노출되지 않는 노드 중 하나에서 호스팅되는 웹 서비스에 액세스해야 하는 경우 SSH 터널을 사용해야 합니다. 자세한 내용은 [HDInsight와 SSH 터널 사용](hdinsight-linux-ambari-ssh-tunnel.md) 문서를 참조하세요.|

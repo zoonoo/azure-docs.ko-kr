@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 12/12/2019
+ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: c88f5a4dd4f2997ce01b1f6a3ae192c62f530e76
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: b6a8bc083b589463b67f2e25e262b15456355d05
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011426"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383853"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2. ID에 액세스 권한 할당
 
@@ -98,7 +98,7 @@ icacls를 사용하여 NTFS 사용 권한을 설정하는 방법과 지원되는
 
 ### <a name="mount-a-file-share-from-the-command-prompt"></a>명령 프롬프트에서 파일 공유 탑재
 
-Windows **net use** 명령을 사용하여 Azure 파일 공유를 탑재합니다. 다음 예제의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다. 파일 공유 탑재에 대한 자세한 내용은 [Windows에서 Azure 파일 공유 사용을](../articles/storage/files/storage-how-to-use-files-windows.md)참조하십시오.
+Windows **net use** 명령을 사용하여 Azure 파일 공유를 탑재합니다. 다음 예제의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다. 파일 공유 탑재에 대한 자세한 내용은 [Windows에서 Azure 파일 공유 사용을](../articles/storage/files/storage-how-to-use-files-windows.md)참조하십시오. 
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
@@ -123,7 +123,7 @@ Windows 파일 탐색기를 사용하여 루트 디렉터리를 포함하여 파
 
 ![사용자 인증용 Azure AD 로그인 화면이 표시된 스크린샷](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
-다음 명령을 사용하여 Azure 파일 공유를 탑재합니다. 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다. 인증되었기 때문에 저장소 계정 키, AD 자격 증명 또는 Azure AD 자격 증명을 제공할 필요가 없습니다. AD 또는 Azure AD DS를 사용하면 단일 사인온 환경이 지원됩니다.
+다음 명령을 사용하여 Azure 파일 공유를 탑재합니다. 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다. 인증되었기 때문에 저장소 계정 키, AD 자격 증명 또는 Azure AD 자격 증명을 제공할 필요가 없습니다. AD 또는 Azure AD DS를 사용하면 단일 사인온 환경이 지원됩니다. AD 자격 증명을 사용하는 데 문제가 발생하면 [Windows에서 Azure 파일 문제 해결을](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) 확인하여 자체 진단 지침을 확인합니다.
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>

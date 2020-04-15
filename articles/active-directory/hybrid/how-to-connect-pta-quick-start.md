@@ -1,5 +1,5 @@
 ---
-title: Azure AD 통과 인증 - 빠른 시작 | Microsoft Docs
+title: Azure AD 통과 인증 - 빠른 시작 | 마이크로 소프트 문서
 description: 이 문서에서는 Azure AD(Azure Active Directory) 통과 인증을 시작하는 방법을 설명합니다.
 services: active-directory
 keywords: Azure AD Connect 통과 인증, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fc45033cdf1bdaa6d4ecd6ab58cc7f90ff9c1ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b84e972584562be741919c7dccb6bdfe1bdea628
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80331424"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312867"
 ---
-# <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 통과 인증: 빠른 시작
+# <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active 디렉터리 통과 인증: 빠른 시작
 
 ## <a name="deploy-azure-ad-pass-through-authentication"></a>Azure AD 통과 인증 배포
 
@@ -61,14 +61,19 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 
      | 포트 번호 | 사용 방법 |
      | --- | --- |
-     | **80** | TLS/SSL 인증서의 유효성을 검사하는 동안 인증서 해지 목록(CRL)을 다운로드합니다. |
+     | **80** | TLS/SSL 인증서의 유효성을 검사하는 동안 CRL(인증서 해지 목록) 다운로드 |
      | **443** | 서비스와의 모든 아웃바운드 통신 처리 |
      | **8080**(선택 사항) | 인증 에이전트는 포트 443을 사용할 수 없는 경우 포트 8080을 통해 10분마다 해당 상태를 보고합니다. 이 상태는 Azure AD 포털에 표시됩니다. 포트 8080은 사용자 로그인에 사용되지 _않습니다_. |
      
      방화벽이 원래 사용자에 따라 규칙에 적용되는 경우 네트워크 서비스로 실행하는 Windows 서비스의 트래픽에 대해 이러한 포트를 엽니다.
-   - 방화벽 또는 프록시에서 DNS 허용 목록 지정을 허용하는 경우 ** \*.msappproxy.net** 및 ** \*.servicebus.windows.net**. 그렇지 않으면 매주 업데이트되는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 액세스하도록 허용합니다.
+   - 방화벽 또는 프록시에서 DNS 허용 목록을 허용하는 경우 ** \*.msappproxy.net** 및 ** \*.servicebus.windows.net**에 대한 연결을 추가합니다. 그렇지 않으면 매주 업데이트되는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 액세스하도록 허용합니다.
    - 인증 에이전트는 초기 등록을 위해 **login.windows.net** 및 **login.microsoftonline.com**에 액세스해야 합니다. 이러한 URL에 대한 방화벽도 엽니다.
    - 인증서 유효성 검사를 위해 **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** 및 **www\.microsoft.com:80** URL을 차단 해제합니다. 이러한 URL은 다른 Microsoft 제품과의 인증서 유효성 검사에 사용되므로 이러한 URL을 이미 차단 해제했을 수 있습니다.
+
+### <a name="azure-government-cloud-prerequisite"></a>Azure 정부 클라우드 전제 조건
+2단계와 Azure AD Connect를 통한 통과 인증을 사용하도록 설정하기 전에 Azure 포털에서 PTA 에이전트의 최신 릴리스를 다운로드합니다.  에이전트가 **x.x.xxx.x** 버전 이상인지 확인해야 합니다.  상담원이 확인하려면 [업그레이드 인증 에이전트를](how-to-connect-pta-upgrade-preview-authentication-agents.md) 참조하십시오.
+
+에이전트의 최신 릴리스를 다운로드한 후 아래 지침을 진행하여 Azure AD Connect를 통해 통과 인증을 구성합니다.
 
 ## <a name="step-2-enable-the-feature"></a>2단계: 기능 활성화
 
@@ -114,8 +119,8 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 여러 개의 통과 인증 에이전트를 설치하면 높은 가용성을 보장하지만 인증 에이전트 간에 결정적인 부하 분산은 없습니다. 테넌트에 필요한 인증 에이전트 수를 확인하려면 테넌트에서 볼 것으로 예상되는 로그인 요청의 피크 및 평균 로드를 고려하십시오. 벤치마크의 경우, 단일 인증 에이전트는 표준 4코어 CPU, 16GB RAM 서버에서 초당 300~400건의 인증을 처리할 수 있습니다.
 
 네트워크 트래픽을 예측하려면 다음 크기 조정 지침을 사용합니다.
-- 각 요청에는 크기가 (0.5K + 1K * num_of_agents)바이트인 페이로드(즉, Azure AD에서 인증 에이전트로 이동하는 데이터)가 있습니다. 여기에서 "num_of_agents"는 테넌트에 등록된 인증 에이전트 수를 나타냅니다.
-- 각 응답의 페이로드(즉, 인증 에이전트에서 Azure AD로 이동하는 데이터) 크기는 1K 바이트입니다.
+- 각 요청에는 페이로드 크기(0.5K + 1K * num_of_agents)의 바이트, 즉 Azure AD에서 인증 에이전트에 이르는 데이터가 있습니다. 여기에서 "num_of_agents"는 테넌트에 등록된 인증 에이전트 수를 나타냅니다.
+- 각 응답에는 1K 바이트의 페이로드 크기, 즉 인증 에이전트에서 Azure AD에 이르는 데이터가 있습니다.
 
 대부분의 고객의 경우 총 3개의 인증 에이전트가 고가용성 및 용량에 충분합니다. 로그인 대기 시간을 개선하려면 도메인 컨트롤러에 가까운 곳에 인증 에이전트를 설치해야 합니다.
 

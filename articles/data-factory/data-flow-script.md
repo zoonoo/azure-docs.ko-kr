@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: 92421125ecb5f4336922c6e6b4508fcdaf92be6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/13/2020
+ms.openlocfilehash: 251507c5740af69bd0818391dd2e8f857338b6cf
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246401"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313907"
 ---
 # <a name="data-flow-script-dfs"></a>데이터 흐름 스크립트(DFS)
 
@@ -139,6 +139,11 @@ derive1 sink(allowSchemaDrift: true,
 ```
 
 ## <a name="script-snippets"></a>스크립트 조각
+
+스크립트 스니펫은 데이터 흐름 간에 공유하는 데 사용할 수 있는 데이터 흐름 스크립트의 공유 가능한 코드입니다. 아래 비디오에서는 스크립트 스니펫을 사용하고 데이터 흐름 스크립트를 사용하여 데이터 흐름 그래프 뒤에 스크립트 부분을 복사하고 붙여 넣는 방법에 대해 설명합니다.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tA9b]
+
 
 ### <a name="aggregated-summary-stats"></a>집계된 요약 통계
 "SummaryStats"라는 데이터 흐름에 집계 변환을 추가 한 다음 스크립트의 집계 함수에 대해 아래 코드에 붙여 넣어 기존 SummaryStats를 대체합니다. 이렇게 하면 데이터 프로필 요약 통계에 대한 일반 패턴이 제공됩니다.

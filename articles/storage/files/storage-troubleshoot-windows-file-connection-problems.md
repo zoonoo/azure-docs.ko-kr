@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3237fe7d87ad058f255d1c77cb6d814bcd1c292e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: b4e1ef4fbc3ade38b55fc06f8e4e9a119938581b
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262250"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383897"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
@@ -133,7 +133,7 @@ Azure 파일은 SMB 외에도 REST도 지원합니다. REST 액세스는 포트 
 
 파일 공유가 탑재되어 있는 컴퓨터의 파일에 허용되는 동시 오픈 핸들의 상한값에 도달하는 경우 오류 1816이 발생합니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 일부 핸들을 닫아 동시 열린 핸들 수를 줄이고 다시 시도하세요. 자세한 내용은 [Microsoft Azure 저장소 성능 및 확장성 검사 목록을](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)참조하십시오.
 
@@ -172,7 +172,7 @@ Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(I
 ### <a name="cause"></a>원인
 이 문제는 일반적으로 파일 또는 디렉터리에 열린 핸들이 있는 경우에 발생합니다. 
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 SMB 클라이언트가 열려 있는 모든 핸들을 닫았고 문제가 계속 발생하면 다음을 수행합니다.
 
@@ -218,7 +218,7 @@ net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하�
 
 기본적으로 Windows File Explorer는 관리자 권한으로 실행되지 않습니다. 관리자 명령 프롬프트에서 net use를 실행할 경우 네트워크 드라이브를 관리자 권한으로 매핑합니다. 매핑된 드라이브는 사용자 중심이므로 다른 사용자 계정으로 탑재될 경우 로그인된 사용자 계정에 드라이브가 표시되지 않습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 비관리자 명령줄에서 공유를 탑재하세요. 또는 [이 TechNet 항목](https://technet.microsoft.com/library/ee844140.aspx)에 따라 **EnableLinkedConnections** 레지스트리 값을 구성할 수 있습니다.
 
 <a id="netuse"></a>
@@ -228,7 +228,7 @@ net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하�
 
 net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용자 계정 이름이 슬래시로 시작되면 드라이브 매핑에 실패합니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 다음 단계 중 하나를 사용하여 문제를 해결할 수 있습니다.
 
@@ -249,7 +249,7 @@ net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용
 
 드라이브는 사용자별로 탑재됩니다. 애플리케이션 또는 서비스가 드라이브를 탑재한 계정이 아닌 다른 사용자 계정으로 실행되는 경우 애플리케이션에는 드라이브가 표시되지 않습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 다음 솔루션 중 하나를 사용하세요.
 
@@ -290,7 +290,7 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 이 문제는 클라이언트 머신에서 대규모 디렉터리에 대한 캐시가 충분하지 않을 때 발생할 수 있습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 이 문제를 해결하려면 **DirectoryCacheEntrySizeMax** 레지스트리 값을 조정하여 클라이언트 머신에 더 큰 디렉터리 목록의 캐시를 허용합니다.
 
@@ -307,7 +307,7 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 오류 AadsTenantFoundAD 도메인 [서비스(AAD DS)가](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) 연결된 구독의 AAD 테넌트에서 만들어지지 않은 저장소 계정의 [Azure Active Directory 도메인 서비스(Azure AD DS) 인증을 사용하도록 설정하려고](storage-files-identity-auth-active-directory-domain-service-enable.md) 할 때 발생합니다.  
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 스토리지 계정이 배포된 구독의 AAD 테넌트에 AAD DS를 사용하도록 설정합니다. 관리형 도메인을 만들려면 AAD 테넌트의 관리자 권한이 필요합니다. Azure AD 테넌트의 관리자가 아니라면 관리자에게 문의하고 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)를 위한 단계별 지침을 따르세요.
 
@@ -319,11 +319,35 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 시스템 오류 1359가 발생했습니다. AAD DS 인증을 사용하도록 설정된 AAD DS 인증을 사용하여 파일 공유에 연결하려고 할 때 내부 오류'가 발생하며, 숫자 문자로 시작하는 도메인 DNS 이름이 있는 AAD DS에 대해 사용됩니다. 예를 들어 AAD DS 도메인 DNS 이름이 "1domain"인 경우 AAD 자격 증명을 사용하여 파일 공유를 탑재하려고 할 때 이 오류가 발생합니다. 
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 현재 아래 규칙에 적용되는 새 도메인 DNS 이름을 사용하여 AAD DS를 다시 배포하는 것이 좋습니다.
 - 이름은 숫자 문자로 시작할 수 없습니다.
 - 이름은 3자에서 63자여야 합니다.
+
+## <a name="unable-to-mount-azure-files-with-ad-credentials"></a>AD 자격 증명으로 Azure 파일을 탑재할 수 없음 
+
+### <a name="self-diagnostics-steps"></a>자가 진단 단계
+먼저 [Azure 파일 AD 인증을 사용하도록 설정하는](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable)네 가지 단계를 모두 수행했는지 확인합니다.
+
+둘째, [저장소 계정 키를 사용 하](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows)고 Azure 파일 공유를 탑재 해 보십시오. 마운트에 실패한 경우 [AzFileDiagnostics.ps1을](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) 다운로드하여 클라이언트 실행 환경의 유효성을 검사하고, Azure Files에 대한 액세스 실패를 일으킬 호환되지 않는 클라이언트 구성을 검색하고, 자체 수정에 대한 규범적인 지침을 제공하고, 진단 추적을 수집합니다.
+
+셋째, 디버그-AzStorageAccountAth cmdlet을 실행하여 AD 에 기록된 사용자와 함께 AD 구성에 대한 기본 검사 집합을 수행할 수 있습니다. 이 cmdlet은 [AzFiles하이브리드 v0.1.2+ 버전에서](https://github.com/Azure-Samples/azure-files-samples/releases)지원됩니다. 대상 저장소 계정에 대한 소유자 권한이 있는 AD 사용자와 함께 이 cmdlet을 실행해야 합니다.  
+```PowerShell
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
+Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
+```
+cmdlet은 아래에서 이러한 검사를 순서대로 수행하고 오류에 대한 지침을 제공합니다.
+1. CheckPort445Connectivity: SMB 연결에 대 한 포트 445가 열려 있는지 확인
+2. 체크도메인조인: 클라이언트 컴퓨터가 AD에 도메인으로 조인되어 있는지 확인
+3. CheckADObject: 로그온한 사용자가 AD 도메인에 저장소 계정이 연결된 유효한 표현이 있는지 확인합니다.
+4. CheckGetKerberos티켓: 저장소 계정에 연결하려면 Kerberos 티켓을 얻으려고 시도합니다. 
+5. CheckADObjectPassword올바른: 저장소 계정을 나타내는 AD ID에 구성된 암호가 저장소 계정 연석 키의 암호와 일치하는지 확인합니다.
+6. CheckSidHasAadUser: 로그온된 AD 사용자가 Azure AD에 동기화되어 있는지 확인합니다.
+
+우리는 더 나은 문제 해결 지침을 제공하기 위해이 진단 cmdlet을 확장하기 위해 적극적으로 노력하고 있습니다.
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

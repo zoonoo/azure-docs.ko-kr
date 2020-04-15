@@ -1,6 +1,6 @@
 ---
-title: CLI를 사용한 SSL 종료 - Azure 응용 프로그램 게이트웨이
-description: Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들고 SSL 종료를 위한 인증서를 추가하는 방법을 알아봅니다.
+title: CLI - Azure 응용 프로그램 게이트웨이를 사용한 TLS 종료
+description: 응용 프로그램 게이트웨이를 만들고 Azure CLI를 사용하여 TLS 종료에 대한 인증서를 추가하는 방법에 대해 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: c297a7d34e8b85420329abaca0e15029ce207861
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6cd8cca65762de3da6a0e69e93c8d79bbe498dde
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78246607"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311970"
 ---
-# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Azure CLI를 사용하여 SSL 종료로 애플리케이션 게이트웨이 만들기
+# <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Azure CLI를 사용하여 TLS 종료를 사용하여 응용 프로그램 게이트웨이 만들기
 
-Azure CLI를 사용하여 [SSL 종료에](ssl-overview.md)대한 인증서가 있는 [응용 프로그램 게이트웨이를](overview.md) 만들 수 있습니다. 백 엔드 서버의 경우 [가상 시스템 크기 집합을](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) 사용할 수 있습니다. 이 예제에서 확장 집합은 애플리케이션 게이트웨이의 기본 백 엔드 풀에 추가되는 두 개의 가상 머신 인스턴스를 포함합니다.
+Azure CLI를 사용하여 [TLS 종료에](ssl-overview.md)대한 인증서가 있는 [응용 프로그램 게이트웨이를](overview.md) 만들 수 있습니다. 백 엔드 서버의 경우 [가상 시스템 크기 집합을](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) 사용할 수 있습니다. 이 예제에서 확장 집합은 애플리케이션 게이트웨이의 기본 백 엔드 풀에 추가되는 두 개의 가상 머신 인스턴스를 포함합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하기로 선택할 경우 이 문서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하십시오.
+CLI를 로컬로 설치하여 사용하기로 선택할 경우 이 문서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9f33dc9528d5f7043dda2c6fad207a9a51347a2b
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 8e0b874e0ce56d7b4ed9fce15b2d88503d6c49b7
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631487"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309139"
 ---
 # <a name="troubleshoot-issues-with-azure-automation-desired-state-configuration-dsc"></a>Azure 자동화 원하는 상태 구성(DSC)의 문제 해결
 
@@ -114,6 +114,8 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 ### <a name="cause"></a>원인
 
 이 문제는 잘못되었거나 만료된 인증서로 인해 발생합니다.  자세한 내용은 [인증서 만료 및 재등록을](../automation-dsc-onboarding.md#re-registering-a-node)참조하십시오.
+
+이 문제는 ***.azure-automation.net**에 대한 액세스를 허용하지 않는 프록시 구성으로 인해 발생할 수도 있습니다. 자세한 내용은 [개인 네트워크 구성을](../automation-dsc-overview.md#network-planning)참조하십시오. 
 
 ### <a name="resolution"></a>해결 방법
 

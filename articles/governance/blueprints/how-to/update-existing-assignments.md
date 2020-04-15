@@ -1,14 +1,14 @@
 ---
 title: 포털에서 기존 할당 업데이트
 description: Azure Blueprint의 포털에서 기존 Blueprint 할당을 업데이트하는 메커니즘에 대해 알아봅니다.
-ms.date: 11/21/2019
+ms.date: 04/15/2020
 ms.topic: how-to
-ms.openlocfilehash: 2c1a24399d8fa1529665bfa60d1b889a84a29a60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a00a8bcc10b37af576777e3816a794225a3832f7
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264662"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381800"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>기존 청사진 할당을 업데이트하는 방법
 
@@ -22,22 +22,22 @@ ms.locfileid: "79264662"
 
 1. 왼쪽 창에서 **모든 서비스**를 선택합니다. **청사진**을 검색하고 선택합니다.
 
-1. 왼쪽 의 페이지에서 **할당된 청사진을 선택합니다.**
+1. 왼쪽 페이지에서 **할당된 청사진**을 선택합니다.
 
 1. 청사진 목록에서 청사진 할당을 마우스 왼쪽 단추로 클릭하고 그런 다음 **할당 업데이트** 단추를 클릭하거나 Blueprint 할당을 마우스 오른쪽 단추로 클릭하고 할당 **업데이트**를 선택합니다.
 
-   ![기존 청사진 할당 업데이트](../media/update-existing-assignments/update-assignment.png)
+   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="기존 청사진 할당 업데이트" border="false":::
 
 1. **청사진 할당** 페이지는 원래 할당의 모든 값으로 미리 채워진 로드됩니다.
    **청사진 정의 버전**, **잠금 할당** 상태, 청사진 정의에 있는 동적 매개 변수를 변경합니다. 변경을 마쳤으면 **할당**을 클릭합니다.
 
 1. 업데이트된 할당 세부 정보 페이지에서 새 상태를 확인합니다. 이 예제에서는 할당에 **잠금**을 추가했습니다.
 
-   ![기존 청사진 할당 업데이트 - 잠금 모드변경](../media/update-existing-assignments/updated-assignment.png)
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="기존 청사진 할당 업데이트 - 잠금 모드변경" border="false":::
 
 1. 드롭다운을 사용하여 다른 **할당 작업에** 대한 세부 정보를 탐색합니다. **관리되는 리소스** 테이블은 선택한 할당 작업에 의해 업데이트됩니다.
 
-   ![청사진 할당의 할당 작업](../media/update-existing-assignments/assignment-operations.png)
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="청사진 할당의 할당 작업" border="false":::
 
 ## <a name="rules-for-updating-assignments"></a>할당 업데이트에 대한 규칙
 

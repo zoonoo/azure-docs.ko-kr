@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: mimckitt
-ms.openlocfilehash: 7e6b8ea702d28fcd2747115710a8b1a8ec2bb1b2
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9f048c7d89da0ab75c321cd8e3932ea97c7ed09c
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270522"
+ms.locfileid: "81310021"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 네트워킹
 
@@ -69,6 +69,14 @@ az vmss create \
 
 >[!NOTE]
 > 축척 세트를 만든 후에는 로드 밸런서의 상태 프로브에서 사용하는 부하 분산 규칙에 대해 백 엔드 포트를 수정할 수 없습니다. 포트를 변경하려면 Azure 가상 시스템 크기 집합을 업데이트하여 상태 프로브를 제거하고 포트를 업데이트한 다음 상태 프로브를 다시 구성할 수 있습니다. 
+
+로드 밸러워 및 가상 시스템 규모 집합에 대한 자세한 내용은 [Azure의 가상 네트워크 및 가상 컴퓨터를](../../articles/virtual-machines/windows/network-overview.md)참조하십시오.
+
+다음 방법을 사용하여 기존 Azure 로드 밸런서가 있는 가상 시스템 규모 집합을 배포할 수 있습니다.
+
+* [Azure 포털을 사용하여 기존 Azure 로드 밸런서를 사용하여 가상 시스템 확장 집합을 구성합니다.](../../articles/load-balancer/configure-vm-scale-set-portal.md)
+* [Azure PowerShell을 사용하여 기존 Azure 로드 밸런서를 사용하여 가상 시스템 확장 집합을 구성합니다.](../../articles/load-balancer/configure-vm-scale-set-powershell.md)
+* [Azure CLI를 사용하여 기존 Azure 로드 밸런서를 사용하여 가상 시스템 확장 집합을 구성합니다.](../../articles/load-balancer/configure-vm-scale-set-cli.md)
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Application Gateway를 참조하는 확장 집합 만들기
 애플리케이션 게이트웨이를 사용하는 확장 집합을 만들려면 이 ARM 템플릿 구성과 같이 설정된 확장의 ipConfigurations 섹션에서 애플리케이션 게이트웨이의 백 엔드 주소 풀을 참조합니다.

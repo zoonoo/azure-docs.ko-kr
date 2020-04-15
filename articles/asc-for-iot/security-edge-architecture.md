@@ -1,5 +1,5 @@
 ---
-title: IoT 에지를 위한 IoT 보안 모듈을 위한 Azure 보안 센터 이해 | 마이크로 소프트 문서
+title: IoT 에지용 보안 모듈
 description: IoT Edge용 IoT 보안 모듈용 Azure 보안 센터의 아키텍처 및 기능을 이해합니다.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 148c68234a937efde554ef00a6014cdc1a350f34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0eb68f517c4c5b04dd4f92dd1a804dcf5ad24362
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71315901"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310639"
 ---
 # <a name="azure-iot-edge-security-module"></a>Azure IoT 에지 보안 모듈
 
@@ -36,7 +36,7 @@ IoT 장치를 위한 IoT 보안 에이전트용 Azure 보안 센터와 마찬가
 IoT Edge용 IoT 보안 모듈용 Azure 보안 센터는 다음과 같은 기능을 제공합니다.
 
 - 기본 운영 체제(Linux) 및 IoT Edge 컨테이너 시스템에서 원시 보안 이벤트를 수집합니다.
-  
+
   사용 가능한 보안 데이터 수집기에 대해 자세히 알아보려면 [IoT 에이전트 구성용 Azure 보안 센터를](how-to-agent-configuration.md) 참조하십시오.
 
 - IoT 에지 배포 매니페스트 분석
@@ -52,7 +52,7 @@ IoT Edge용 IoT 보안 모듈용 Azure 보안 센터는 IoT Edge에서 권한 �
 
 ## <a name="module-supported-platforms"></a>모듈 지원 플랫폼
 
-IoT Edge용 IoT 보안 모듈용 Azure 보안 센터는 현재 Linux에서만 사용할 수 있습니다. 
+IoT Edge용 IoT 보안 모듈용 Azure 보안 센터는 현재 Linux에서만 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

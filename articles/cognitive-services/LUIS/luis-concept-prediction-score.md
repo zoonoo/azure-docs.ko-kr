@@ -1,28 +1,20 @@
 ---
 title: 예측 점수 - LUIS
-titleSuffix: Azure Cognitive Services
 description: 예측 점수는 사용자 발언을 기반으로 LUIS API 서비스가 예측 결과에 대해 가지고 있는 신뢰도를 나타냅니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/10/2019
-ms.author: diberry
-ms.openlocfilehash: b360bc82b80e834492b524acc5c4535b0409eda1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 709a34f0a278d8a17267c7544583798d54167dad
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74280819"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382371"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>예측 점수는 의도 및 엔터티에 대한 예측 정확도를 나타냅니다.
 
 예측 점수는 LUIS가 사용자 발언의 예측 결과에 대해 가지고 있는 신뢰도를 나타냅니다.
 
-예측 점수는 0(영)과 1(일) 사이입니다. 신뢰도가 높은 LUIS 점수의 예는 0.99입니다. 신뢰도 점수의 예는 0.01입니다. 
+예측 점수는 0(영)과 1(일) 사이입니다. 신뢰도가 높은 LUIS 점수의 예는 0.99입니다. 신뢰도 점수의 예는 0.01입니다.
 
 |점수 값|신뢰도|
 |--|--|
@@ -33,11 +25,11 @@ ms.locfileid: "74280819"
 
 ## <a name="top-scoring-intent"></a>상위 점수 의도
 
-모든 발화 예측은 상위 점수 의도를 반환합니다. 이 예측은 예측 점수의 수치 비교입니다. 
+모든 발화 예측은 상위 점수 의도를 반환합니다. 이 예측은 예측 점수의 수치 비교입니다.
 
 ## <a name="proximity-of-scores-to-each-other"></a>서로 점수의 근접성
 
-상위 2개의 점수는 그(것)들 사이 아주 작은 다름이 있을 수 있습니다. LUIS는 최고 점수를 반환하는 것 이외에 는 이 근접성을 나타내지 않습니다.  
+상위 2개의 점수는 그(것)들 사이 아주 작은 다름이 있을 수 있습니다. LUIS는 최고 점수를 반환하는 것 이외에 는 이 근접성을 나타내지 않습니다.
 
 ## <a name="return-prediction-score-for-all-intents"></a>모든 의도의 예측 점수 반환
 
@@ -74,9 +66,11 @@ ms.locfileid: "74280819"
 |--|--|
 |9.910309E-07|.0000009910309|
 
-## <a name="punctuation"></a>문장 부호
+<a name="punctuation"></a>
 
-문장 부호를 사용하거나 무시하는 방법에 대해 [자세히 알아보세요.](luis-concept-utterance.md#punctuation-marks) 
+## <a name="application-settings"></a>애플리케이션 설정
+
+[응용 프로그램 설정을](luis-reference-application-settings.md) 사용하여 분음 부호 및 문장 부호 영향 예측 점수를 제어합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

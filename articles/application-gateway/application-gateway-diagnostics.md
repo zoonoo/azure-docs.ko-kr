@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: c7b38ad40977e1042032210d3a82a73ff6169adc
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: b458537c7cf8a254cd188c565ab1925afa202369
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411053"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312662"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>응용 프로그램 게이트웨이에 대한 백 엔드 상태 및 진단 로그
 
@@ -158,7 +158,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 
 이전 단계에서 설명한 대로 액세스 로그는 각 Application Gateway 인스턴스에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 스토리지 계정에 저장됩니다. 응용 프로그램 게이트웨이의 각 액세스는 v1에 대한 다음 예제와 같이 JSON 형식으로 기록됩니다.
 
-|값  |Description  |
+|값  |설명  |
 |---------|---------|
 |instanceId     | 요청을 처리한 Application Gateway 인스턴스        |
 |clientIP     | 요청에 대한 원래 IP        |
@@ -172,7 +172,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 |receivedBytes     | 받은 패킷의 크기(바이트)        |
 |sentBytes| 보낸 패킷의 크기(바이트)|
 |timeTaken| 요청을 처리하고 응답을 보내는 데 걸리는 시간(밀리초)입니다. 이 값은 Application Gateway에서 HTTP 요청의 첫 번째 바이트를 받은 시점부터 응답 보내기 작업을 완료하는 시점까지의 간격으로 계산됩니다. 걸린 시간(Time-Taken) 필드에는 대개 요청 및 응답 패킷이 네트워크를 통해 이동하는 시간이 포함됩니다. |
-|sslEnabled| 백 엔드 풀에 대한 통신에서 SSL이 사용되었는지 여부입니다. 유효한 값은 on과 off입니다.|
+|sslEnabled| 백 엔드 풀에 대한 통신이 TLS/SSL을 사용했는지 여부입니다. 유효한 값은 on과 off입니다.|
 |host| 요청이 백 엔드 서버로 전송된 호스트 이름입니다. 백 엔드 호스트 이름을 재정의하는 경우 이 이름은 이를 반영합니다.|
 |오리지널 호스트| 클라이언트에서 응용 프로그램 게이트웨이에서 요청을 받은 호스트 이름입니다.|
 ```json
@@ -202,7 +202,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 ```
 응용 프로그램 게이트웨이 및 WAF v2의 경우 로그에 는 다음과 같은 추가 정보가 표시됩니다.
 
-|값  |Description  |
+|값  |설명  |
 |---------|---------|
 |instanceId     | 요청을 처리한 Application Gateway 인스턴스        |
 |clientIP     | 요청에 대한 원래 IP        |
@@ -215,9 +215,9 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 |receivedBytes     | 받은 패킷의 크기(바이트)        |
 |sentBytes| 보낸 패킷의 크기(바이트)|
 |timeTaken| 요청을 처리하고 응답을 **seconds**전송하는 데 걸리는 시간(초)입니다. 이 값은 Application Gateway에서 HTTP 요청의 첫 번째 바이트를 받은 시점부터 응답 보내기 작업을 완료하는 시점까지의 간격으로 계산됩니다. 걸린 시간(Time-Taken) 필드에는 대개 요청 및 응답 패킷이 네트워크를 통해 이동하는 시간이 포함됩니다. |
-|sslEnabled| 백 엔드 풀에 대한 통신에서 SSL이 사용되었는지 여부입니다. 유효한 값은 on과 off입니다.|
-|sslCipher| SSL 통신(SSL이 활성화된 경우)에 사용되는 암호 제품군입니다.|
-|sslProtocol| 사용 중인 SSL/TLS 프로토콜(SSL이 활성화된 경우).|
+|sslEnabled| 백 엔드 풀에 대한 통신이 TLS를 사용했는지 여부입니다. 유효한 값은 on과 off입니다.|
+|sslCipher| TLS 통신(TLS가 활성화된 경우)에 사용되는 암호 제품군입니다.|
+|sslProtocol| 사용 중인 SSL/TLS 프로토콜(TLS가 활성화된 경우).|
 |서버라우팅| 응용 프로그램 게이트웨이가 요청을 라우팅하는 백 엔드 서버입니다.|
 |serverStatus| 백 엔드 서버의 HTTP 상태 코드입니다.|
 |서버응답지연| 백 엔드 서버의 응답 대기 시간입니다.|
@@ -256,7 +256,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 이전 단계에서 설명한 대로 성능 로그는 각 Application Gateway 인스턴스에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 스토리지 계정에 저장됩니다. 성능 로그 데이터는 1분 간격으로 생성됩니다. v1 SKU에서만 사용할 수 있습니다. v2 SKU의 경우 성능 데이터에 [메트릭을](application-gateway-metrics.md) 사용합니다. 다음 데이터가 로깅됩니다.
 
 
-|값  |Description  |
+|값  |설명  |
 |---------|---------|
 |instanceId     |  성능 데이터가 생성되는 Application Gateway 인스턴스입니다. 다중 인스턴스 애플리케이션 게이트웨이의 경우 인스턴스마다 하나의 행이 있습니다.        |
 |healthyHostCount     | 백 엔드 풀의 정상 호스트 수        |
@@ -293,7 +293,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 이전 단계에서 설명한 대로 방화벽 로그는 각 애플리케이션 게이트웨이에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 또한 이 로그를 사용하려면 애플리케이션 게이트웨이에서 웹 애플리케이션 방화벽을 구성해야 합니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 스토리지 계정에 저장됩니다. 다음 데이터가 로깅됩니다.
 
 
-|값  |Description  |
+|값  |설명  |
 |---------|---------|
 |instanceId     | 방화벽 데이터가 생성되는 Application Gateway 인스턴스입니다. 다중 인스턴스 애플리케이션 게이트웨이의 경우 인스턴스마다 하나의 행이 있습니다.         |
 |clientIp     |   요청에 대한 원래 IP      |

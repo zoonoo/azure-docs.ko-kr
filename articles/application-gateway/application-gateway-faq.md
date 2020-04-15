@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: victorh
-ms.openlocfilehash: d9691a6fd5c320242b9677776cbd08be4f800921
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: e64b0a8602a4a0806ada15546972856743c38161
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80544498"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312461"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>애플리케이션 게이트웨이에 대한 자주 묻는 질문
 
@@ -28,11 +28,11 @@ Azure 응용 프로그램 게이트웨이는 ADC(응용 프로그램 배달 컨�
 
 ### <a name="what-features-does-application-gateway-support"></a>Application Gateway에서 지원하는 기능은 어떤 것이 있나요?
 
-응용 프로그램 게이트웨이는 자동 크기 조정, SSL 오프로딩 및 종단 간 SSL, 웹 응용 프로그램 방화벽(WAF), 쿠키 기반 세션 선호도, URL 경로 기반 라우팅, 다중 사이트 호스팅 및 기타 기능을 지원합니다. 지원되는 기능의 전체 목록은 [Application Gateway 소개](application-gateway-introduction.md)를 참조하세요.
+애플리케이션 게이트웨이는 자동 크기 조정, TLS 오프로딩 및 종단 간 TLS, WAF(웹 응용 프로그램 방화벽), 쿠키 기반 세션 선호도, URL 경로 기반 라우팅, 다중 사이트 호스팅 및 기타 기능을 지원합니다. 지원되는 기능의 전체 목록은 [Application Gateway 소개](application-gateway-introduction.md)를 참조하세요.
 
 ### <a name="how-do-application-gateway-and-azure-load-balancer-differ"></a>응용 프로그램 게이트웨이와 Azure 로드 밸러블러는 어떻게 다른가요?
 
-응용 프로그램 게이트웨이는 계층 7 로드 밸러블러이며, 이는 웹 트래픽(HTTP, HTTPS, WebSocket 및 HTTP/2)에서만 작동한다는 것을 의미합니다. 로드 밸런싱 트래픽을 위한 SSL 종료, 쿠키 기반 세션 선호도 및 라운드 로빈과 같은 기능을 지원합니다. 로드 밸러저는 계층 4(TCP 또는 UDP)에서 트래픽을 균형 조정합니다.
+응용 프로그램 게이트웨이는 계층 7 로드 밸러블러이며, 이는 웹 트래픽(HTTP, HTTPS, WebSocket 및 HTTP/2)에서만 작동한다는 것을 의미합니다. TLS 종료, 쿠키 기반 세션 선호도 및 로드 밸런싱 트래픽을 위한 라운드 로빈과 같은 기능을 지원합니다. 로드 밸러저는 계층 4(TCP 또는 UDP)에서 트래픽을 균형 조정합니다.
 
 ### <a name="what-protocols-does-application-gateway-support"></a>Application Gateway에서 지원하는 프로토콜은 무엇인가요?
 
@@ -98,7 +98,7 @@ v2 SKU의 경우 공용 IP 리소스를 열고 **구성을**선택합니다. **D
 
 ### <a name="does-application-gateway-v2-support-user-defined-routes-udr"></a>애플리케이션 게이트웨이 v2가 UDR(사용자 정의 경로)을 지원합니까?
 
-예, 하지만 특정 시나리오만 가능합니다. 자세한 내용은 [응용 프로그램 게이트웨이 구성 개요를](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet)참조하십시오.
+예, 하지만 특정 시나리오만 가능합니다. 자세한 내용은 [Application Gateway 구성 개요](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet)를 참조하세요.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Application Gateway에서 x-forwarded-for 헤더를 지원하나요?
 
@@ -216,7 +216,7 @@ IP 연결이 있는 한 애플리케이션 게이트웨이는 IP에 있는 가�
 
 응용 프로그램 게이트웨이 v2는 현재 IPv6를 지원하지 않습니다. IPv4만 사용하여 이중 스택 VNet에서 작동할 수 있지만 게이트웨이 서브넷은 IPv4 전용이어야 합니다. 응용 프로그램 게이트웨이 v1은 듀얼 스택 VNet을 지원하지 않습니다. 
 
-## <a name="configuration---ssl"></a>구성 - SSL
+## <a name="configuration---tls"></a>구성 - TLS
 
 ### <a name="what-certificates-does-application-gateway-support"></a>응용 프로그램 게이트웨이가 지원하는 인증서는 무엇입니까?
 
@@ -255,13 +255,13 @@ IP 연결이 있는 한 애플리케이션 게이트웨이는 IP에 있는 가�
 - TLS_RSA_WITH_3DES_EDE_CBC_SHA
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
-SSL 옵션을 사용자 지정하는 방법에 대한 자세한 내용은 [응용 프로그램 게이트웨이에서 SSL 정책 버전 및 암호 제품군 구성을](application-gateway-configure-ssl-policy-powershell.md)참조하십시오.
+TLS 옵션을 사용자 지정하는 방법에 대한 자세한 내용은 [응용 프로그램 게이트웨이에서 TLS 정책 버전 및 암호 제품군 구성을](application-gateway-configure-ssl-policy-powershell.md)참조하십시오.
 
 ### <a name="does-application-gateway-support-reencryption-of-traffic-to-the-backend"></a>응용 프로그램 게이트웨이는 백 엔드에 대한 트래픽의 재암호화를 지원합니까?
 
-예. 응용 프로그램 게이트웨이는 백 엔드에 대한 트래픽을 다시 암호화하는 SSL 오프로드 및 종단 간 SSL을 지원합니다.
+예. 응용 프로그램 게이트웨이는 백 엔드에 대한 트래픽을 다시 암호화하는 TLS 오프로드 및 종단 간 TLS를 지원합니다.
 
-### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>SSL 프로토콜 버전을 제어하도록 SSL 정책을 구성할 수 있습니까?
+### <a name="can-i-configure-tls-policy-to-control-tls-protocol-versions"></a>TLS 프로토콜 버전을 제어하도록 TLS 정책을 구성할 수 있습니까?
 
 예. TLS1.0, TLS1.1 및 TLS1.2를 거부하도록 응용 프로그램 게이트웨이를 구성할 수 있습니다. 기본적으로 SSL 2.0 및 3.0은 이미 비활성화되어 있으며 구성할 수 없습니다.
 
@@ -278,9 +278,9 @@ SSL 옵션을 사용자 지정하는 방법에 대한 자세한 내용은 [응�
 
 응용 프로그램 게이트웨이는 SHA256을 백 엔드 관리를 위해 사용합니다.
 
-### <a name="how-many-ssl-certificates-does-application-gateway-support"></a>응용 프로그램 게이트웨이가 지원하는 SSL 인증서는 몇 개입니까?
+### <a name="how-many-tlsssl-certificates-does-application-gateway-support"></a>응용 프로그램 게이트웨이가 지원하는 TLS/SSL 인증서는 몇 개입니까?
 
-애플리케이션 게이트웨이는 최대 100개의 SSL 인증서를 지원합니다.
+애플리케이션 게이트웨이는 최대 100개의 TLS/SSL 인증서를 지원합니다.
 
 ### <a name="how-many-authentication-certificates-for-backend-reencryption-does-application-gateway-support"></a>응용 프로그램 게이트웨이가 지원하는 백 엔드 재암호화에 대한 인증 인증서는 몇 개입니까?
 
@@ -288,7 +288,7 @@ SSL 옵션을 사용자 지정하는 방법에 대한 자세한 내용은 [응�
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>응용 프로그램 게이트웨이는 기본적으로 Azure 키 볼트와 통합됩니까?
 
-예. 응용 프로그램 게이트웨이 v2 SKU는 키 볼트를 지원합니다. 자세한 내용은 [Key Vault 인증서를 통해 SSL 종료를](key-vault-certs.md)참조하십시오.
+예. 응용 프로그램 게이트웨이 v2 SKU는 키 볼트를 지원합니다. 자세한 내용은 [Key Vault 인증서를 통해 TLS 종료를](key-vault-certs.md)참조하십시오.
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>.com 및 .net 사이트에 대한 HTTPS 수신기를 구성하려면 어떻게 해야 합니까? 
 
@@ -338,7 +338,7 @@ WAF는 현재 [CRS 2.2.9,](../web-application-firewall/ag/application-gateway-cr
 
 ### <a name="what-is-an-ingress-controller"></a>인그레스 컨트롤러란?
 
-Kubernetes를 사용하면 `deployment` `service` 클러스터 내부에 포드 그룹을 노출할 수 있는 리소스와 생성을 사용할 수 있습니다. 동일한 서비스를 외부에 노출하기 [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) 위해 부하 분산, SSL 종료 및 이름 기반 가상 호스팅을 제공하는 리소스가 정의됩니다.
+Kubernetes를 사용하면 `deployment` `service` 클러스터 내부에 포드 그룹을 노출할 수 있는 리소스와 생성을 사용할 수 있습니다. 동일한 서비스를 외부에 노출하기 [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) 위해 로드 분산, TLS 종료 및 이름 기반 가상 호스팅을 제공하는 리소스가 정의됩니다.
 이 `Ingress` 리소스를 충족하려면 `Ingress` 리소스의 변경 내용을 수신하고 로드 밸런서 정책을 구성하는 수신 컨트롤러가 필요합니다.
 
 응용 프로그램 게이트웨이 침투 컨트롤러를 사용하면 [Azure 응용 프로그램 게이트웨이를](https://azure.microsoft.com/services/application-gateway/) AKS 클러스터라고도 하는 [Azure Kubernetes 서비스의](https://azure.microsoft.com/services/kubernetes-service/) 침투로 사용할 수 있습니다.

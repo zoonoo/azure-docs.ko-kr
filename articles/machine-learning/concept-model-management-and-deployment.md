@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: f5aaf8adf33d27f8ebb99c8ca3a873d958632a4f
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 7857d11c625911cd1b49dfcf0e0d612fc6a3871e
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616841"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314302"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MlOps: Azure 기계 학습을 통해 모델 관리, 배포 및 모니터링
 
@@ -124,6 +124,16 @@ Azure 기계 학습을 사용하여 ONNX에 대한 자세한 내용은 [ML 모�
 
 자세한 내용은 [모델 배포](how-to-deploy-and-where.md)를 참조하십시오.
 
+#### <a name="controlled-rollout"></a>제어된 롤아웃
+
+Azure Kubernetes 서비스에 배포할 때 제어된 롤아웃을 사용하여 다음 시나리오를 활성화할 수 있습니다.
+
+* 배포를 위한 여러 버전의 엔드포인트 만들기
+* 트래픽을 다른 버전의 끝점으로 라우팅하여 A/B 테스트를 수행합니다.
+* 끝점 구성에서 트래픽 백분율을 업데이트하여 끝점 버전 간에 전환합니다.
+
+자세한 내용은 [ML 모델의 제어형 롤아웃을](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview)참조하십시오.
+
 #### <a name="iot-edge-devices"></a>IoT 에지 장치
 
 Azure IoT **Edge 모듈을**통해 IoT 장치와 함께 모델을 사용할 수 있습니다. IoT Edge 모듈은 하드웨어 장치에 배포되어 장치에서 추론 또는 모델 점수를 계산할 수 있습니다.
@@ -136,12 +146,20 @@ Microsoft Power BI는 데이터 분석을 위해 기계 학습 모델을 사용�
 
 ## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>종단 간 ML 수명 주기 캡처에 필요한 거버넌스 데이터 캡처
 
-Azure ML은 모든 ML 자산의 종단 간 감사 추적추적 기능을 제공합니다. 특히 다음에 대한 내용을 설명합니다.
+Azure ML은 메타데이터를 사용하여 모든 ML 자산의 종단 간 감사 추적추적 기능을 제공합니다.
 
 - Azure [ML은 Git과 통합되어](how-to-set-up-training-targets.md#gitintegration) 코드가 어떤 리포지토리/분기/커밋에서 왔는지 에 대한 정보를 추적합니다.
-- [Azure ML 데이터 집합을](how-to-create-register-datasets.md) 사용하면 데이터 추적, 프로필 및 버전 데이터를 추적할 수 있습니다. 
+- [Azure ML 데이터 집합을](how-to-create-register-datasets.md) 사용하면 데이터 추적, 프로필 및 버전 데이터를 추적할 수 있습니다.
+- [해석기능을](how-to-machine-learning-interpretability.md) 통해 모델을 설명하고, 규정 준수를 충족하며, 주어진 입력에 대한 모델에 대한 결과를 이해할 수 있습니다.
 - Azure ML 실행 기록은 모델을 학습하는 데 사용되는 코드, 데이터 및 계산의 스냅숏을 저장합니다.
 - Azure ML 모델 레지스트리는 모델과 연결된 모든 메타데이터를 캡처합니다(배포가 정상인 경우 모델에서 학습된 실험, 배포중인 위치).
+- [Azure 이벤트 그리드와의 통합을](concept-event-grid-integration.md) 사용하면 ML 수명 주기의 이벤트에 대해 조치를 수행할 수 있습니다. 예를 들어 모델 등록, 배포, 데이터 드리프트 및 교육(실행) 이벤트가 있습니다.
+
+> [!TIP]
+> 모델 및 데이터 집합에 대한 일부 정보가 자동으로 캡처되지만 태그를 사용하여 추가 정보를 추가할 수 __있습니다.__ 작업 영역에서 등록된 모델 및 데이터 집합을 검색할 때 태그를 필터로 사용할 수 있습니다.
+>
+> 데이터 집합을 등록된 모델과 연결하는 것은 선택적 단계입니다. 모델을 등록할 때 데이터 집합을 참조하는 방법에 대한 자세한 내용은 [Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py) 클래스 참조를 참조하십시오.
+
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>ML 수명 주기의 이벤트에 대한 알림, 자동화 및 경고
 Azure ML은 ML 수명 주기의 이벤트를 알리고 자동화하는 데 사용할 수 있는 Azure EventGrid에 주요 이벤트를 게시합니다. 자세한 내용은 이 [문서를](how-to-use-event-grid.md)참조하십시오.
@@ -157,7 +175,7 @@ Azure ML은 ML 수명 주기의 이벤트를 알리고 자동화하는 데 사�
 
 ## <a name="retrain-your-model-on-new-data"></a>새 데이터에 대한 모델 재교육
 
-종종 새 정보를 받으면 모델을 업데이트하거나 처음부터 다시 학습할 수 있습니다. 경우에 따라 새 데이터를 받는 것이 도메인의 예상 부분입니다. [데이터 집합의 데이터 드리프트(미리 보기)에서](how-to-monitor-datasets.md)설명한 것처럼 특정 센서의 변경, 계절적 효과와 같은 자연 데이터 변경 또는 다른 기능과의 관계에서 이동하는 기능 등의 측면에서 모델 성능이 저하될 수 있습니다. 
+새 정보를 받을 때 모델의 유효성을 검사하거나 업데이트하거나 처음부터 다시 학습하는 경우가 많습니다. 경우에 따라 새 데이터를 받는 것이 도메인의 예상 부분입니다. [데이터 집합의 데이터 드리프트(미리 보기)에서](how-to-monitor-datasets.md)설명한 것처럼 특정 센서의 변경, 계절적 효과와 같은 자연 데이터 변경 또는 다른 기능과의 관계에서 이동하는 기능 등의 측면에서 모델 성능이 저하될 수 있습니다. 
 
 "재교육을 받아야 하는지 어떻게 알 수 있습니까?" 그러나 이전에 설명한 Azure ML 이벤트 및 모니터링 도구는 자동화를 위한 좋은 출발점입니다. 재교육하기로 결정한 후에는 다음을 수행해야 합니다. 
 

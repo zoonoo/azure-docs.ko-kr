@@ -1,7 +1,7 @@
 ---
 title: 웹 서비스로 배포된 모델에 대한 클라이언트 만들기
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 모델을 사용하여 모델을 배포한 경우 생성된 웹 서비스를 사용하는 방법을 알아봅니다. REST API를 노출하는 웹 서비스입니다. 선택한 프로그래밍 언어를 사용하여 이 API에 대한 클라이언트를 만듭니다.
+description: Azure Machine Learning에서 모델을 배포할 때 생성된 웹 서비스 끝점을 호출하는 방법을 알아봅니다. 끝점은 모델에서 추론을 수행하기 위해 호출할 수 있는 REST API를 노출합니다. 선택한 프로그래밍 언어를 사용하여 이 API에 대한 클라이언트를 만듭니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 01/07/2020
+ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: a86b8ddb59719db9bdaffea44aecd5428ad16834
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0222b63323c4e546628d790fabb881eba006494e
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282667"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383387"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Azure Machine Learning 모델을 웹 서비스로 배포하면 REST API가 생성됩니다. 이 API로 데이터를 보내고 모델에서 반환된 예측을 받을 수 있습니다. 이 문서에서는 C#, Go, Java 및 Python을 사용하여 웹 서비스용 클라이언트를 만드는 방법에 대해 알아봅니다.
+Azure 기계 학습 모델을 웹 서비스로 배포하면 REST API 끝점이 만들어집니다. 이 끝점으로 데이터를 보내고 모델에서 반환된 예측을 받을 수 있습니다. 이 문서에서는 C#, Go, Java 및 Python을 사용하여 웹 서비스용 클라이언트를 만드는 방법에 대해 알아봅니다.
 
-Azure 컨테이너 인스턴스, Azure Kubernetes 서비스 또는 필드 프로그래밍 가능한 게이트 배열(FPGA)에 이미지를 배포할 때 웹 서비스를 만듭니다. 등록된 모델과 채점 파일에서 이미지를 만듭니다. [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용하여 웹 서비스에 액세스하는 데 사용되는 URI를 검색합니다. 인증을 사용하도록 설정한 경우 SDK를 사용하여 인증 키 또는 토큰을 받을 수도 있습니다.
+로컬 환경, Azure 컨테이너 인스턴스, Azure Kubernetes 서비스 또는 필드 프로그래밍 가능한 게이트 배열(FPGA)에 모델을 배포할 때 웹 서비스를 만듭니다. [Azure 기계 학습 SDK를](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)사용하여 웹 서비스에 액세스하는 데 사용되는 URI를 검색합니다. 인증을 사용하도록 설정한 경우 SDK를 사용하여 인증 키 또는 토큰을 받을 수도 있습니다.
 
 기계 학습 웹 서비스를 사용하는 클라이언트를 만들기 위한 일반적인 워크플로는 다음과 같습니다.
 
@@ -88,7 +88,7 @@ Azure 기계 학습은 웹 서비스에 대한 액세스를 제어하는 두 가
 
 |인증 방법|Aci|AKS|
 |---|---|---|
-|Key|기본적으로 사용할 수 없게 설정되어 있습니다.| 기본적으로 사용하도록 설정됨|
+|키|기본적으로 사용할 수 없게 설정되어 있습니다.| 기본적으로 사용하도록 설정됨|
 |토큰| 사용할 수 없음| 기본적으로 사용할 수 없게 설정되어 있습니다. |
 
 키 또는 토큰으로 보호되는 서비스에 요청을 보낼 때 __권한 부여__ 헤더를 사용하여 키 또는 토큰을 전달합니다. 키 또는 토큰의 서식을 `Bearer <key-or-token>` `<key-or-token>` 지정해야 합니다.
@@ -174,6 +174,17 @@ REST API는 요청 본문이 다음과 같은 구조의 JSON 문서가 될 것�
 ### <a name="binary-data"></a>이진 데이터
 
 서비스에서 이진 데이터에 대한 지원을 활성화하는 방법에 대한 자세한 내용은 [이진 데이터를](how-to-deploy-and-where.md#binary)참조하십시오.
+
+> [!TIP]
+> 이진 데이터에 대한 지원 활성화는 배포된 모델에서 사용하는 score.py 파일에서 발생합니다. 클라이언트에서 프로그래밍 언어의 HTTP 기능을 사용합니다. 예를 들어 다음 코드 조각은 JPG 파일의 내용을 웹 서비스로 보냅니다.
+>
+> ```python
+> import requests
+> # Load image data
+> data = open('example.jpg', 'rb').read()
+> # Post raw data to scoring URI
+> res = request.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/> octet-stream'})
+> ```
 
 ### <a name="cross-origin-resource-sharing-cors"></a>원본 간 리소스 공유(CORS)
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 188ef3a1b9777c37f8557a69e19887638a973611
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: fcd436f87b24d8cdc246d2f1d33a49311e72d46b
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062535"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380297"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql-in-the-azure-portal"></a>Azure 포털에서 MySQL용 Azure 데이터베이스에 대한 감사 로그 구성 및 액세스
 
@@ -30,7 +30,7 @@ Azure 포털에서 [MySQL 감사 로그](concepts-audit-logs.md) 및 진단 설�
 
 감사 로깅을 활성화하고 구성합니다.
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. Azure Database for MySQL 서버를 선택합니다.
 
@@ -69,4 +69,5 @@ Azure 포털에서 [MySQL 감사 로그](concepts-audit-logs.md) 및 진단 설�
 
 ## <a name="next-steps"></a>다음 단계
 
-- MySQL용 Azure 데이터베이스에서 [감사 로그에](concepts-audit-logs.md) 대해 자세히 알아봅니다.
+- MySQL용 Azure 데이터베이스에서 [감사 로그에](concepts-audit-logs.md) 대해 자세히 알아보기
+- [Azure CLI에서](howto-configure-audit-logs-cli.md) 감사 로그를 구성하는 방법에 대해 알아봅니다.

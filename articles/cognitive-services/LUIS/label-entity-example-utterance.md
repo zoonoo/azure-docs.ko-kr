@@ -1,21 +1,14 @@
 ---
 title: 예제 발화의 엔터티에 레이블 지정
-titleSuffix: Azure Cognitive Services
 description: LUIS 포털의 의도 세부 정보 페이지에서 예제 발화의 하위 구성 요소를 사용하여 기계 학습된 엔터티에 레이블을 지정하는 방법에 대해 알아봅니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/16/2019
-ms.author: diberry
-ms.openlocfilehash: 5499e8362e1107a18b997a6a485e11343c328d0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: ea5fbea902c9694d9a8a6a8a5bffcf5e7234bbbd
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898366"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382411"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>예제 발화의 기계 학습된 엔터티에 레이블 지정
 
@@ -88,6 +81,10 @@ ms.locfileid: "78898366"
 1. **엔터티 검사자**로 이동하여 기존 역할을 선택하거나 새 역할을 만듭니다.
 1. 예제 발화 텍스트에서 엔터티 역할을 사용하여 텍스트에 레이블을 지정합니다.
 
+## <a name="labeling-for-punctuation"></a>문장 부호에 대한 레이블 지정
+
+문장 부호에 레이블을 붙일 필요가 없습니다. [응용 프로그램 설정을](luis-reference-application-settings.md) 사용하여 문장 부호가 발화 예측에 영향을 미치는지 제어합니다.
+
 ## <a name="unlabel-entities"></a>엔터티 레이블 지정 해제
 
 엔터티의 레이블 지정을 해제하려면 텍스트 아래에서 엔터티 이름을 선택하고 **레이블 지정 해제**를 선택합니다. 레이블 지정을 해제하려는 엔터티에 레이블이 지정된 하위 구성 요소가 있는 경우 먼저 하위 구성 요소의 레이블 지정을 해제해야 합니다.
@@ -96,7 +93,7 @@ ms.locfileid: "78898366"
 
 레이블을 지정하면서 실수하는 경우 엔터티 팔레트는 빠른 편집을 수행할 수 있는 손쉬운 도구입니다. 예를 들어 엔터티 레이블이 실수로 추가 단어 범위에 걸쳐 있고 이미 하위 구성 요소에 레이블이 지정된 경우 엔터티 팔레트를 사용하여 필요한 더 짧은 단어 범위 위를 브러시할 수 있습니다.
 
-예를 들어:
+다음은 그 예입니다.
 
 1. 피자 유형 하위 구성 요소는 "cheese pizza with"에 걸쳐 있고, 여기에는 잘못된 "with" 단어가 추가로 포함되어 있습니다.
 

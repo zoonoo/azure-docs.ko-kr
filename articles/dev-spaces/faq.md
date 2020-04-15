@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Azure 개발자 공간에 대한 몇 가지 일반적인 질문에 대한 답변 찾기
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: f3ac6ec3c3ddbe8ff508befba2eb4a8423e66f07
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 1fd176084cd0737a290e037ed19af510fcab3e78
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998726"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381990"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Azure 개발자 공간에 대해 자주 묻는 질문
 
@@ -79,7 +79,7 @@ Visual Studio를 사용하여 프로젝트를 준비할 때 서비스에 대한 
 
 ## <a name="can-i-use-pod-managed-identities-with-azure-dev-spaces"></a>Azure 개발자 공간에서 포드 관리 ID를 사용할 수 있습니까?
 
-현재 Azure 개발자 공간은 Azure 개발자 공간이 활성화된 AKS 클러스터에서 [포드 관리 ID를][aks-pod-managed-id] 사용하는 것을 지원하지 않습니다. 포드 관리 ID가 설치되어 있고 제거하려는 경우 [제거 노트에서][aks-pod-managed-id-uninstall]자세한 내용을 찾을 수 있습니다.
+예. Azure 개발자 공간을 사용하도록 설정한 경우 AKS 클러스터에서 [포드 관리 ID를][aks-pod-managed-id] 사용할 수 있지만 포드 관리 ID를 사용하여 클러스터에서 Azure 개발자 공간을 사용하도록 설정한 후 [추가 구성 단계가][dev-spaces-pod-managed-id-steps] 있습니다. 포드 관리 ID가 설치되어 있고 제거하려는 경우 [제거 노트에서][aks-pod-managed-id-uninstall]자세한 내용을 찾을 수 있습니다.
 
 ## <a name="can-i-use-azure-dev-spaces-with-multiple-microservices-in-an-application"></a>응용 프로그램에서 여러 마이크로 서비스와 함께 Azure 개발자 공간을 사용할 수 있습니까?
 
@@ -98,6 +98,7 @@ Visual Studio에서 Azure 개발자 공간을 통해 디버깅하기 위한 .NET
 [aks-pod-managed-id-uninstall]: https://github.com/Azure/aad-pod-identity#uninstall-notes
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
 [bike-sharing]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
+[dev-spaces-pod-managed-id-steps]: troubleshooting.md#error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state
 [dev-spaces-prep]: how-dev-spaces-works-prep.md
 [dev-spaces-routing]: how-dev-spaces-works-routing.md#how-routing-works
 [ingress-nginx]: how-to/ingress-https-nginx.md#configure-a-custom-nginx-ingress-controller

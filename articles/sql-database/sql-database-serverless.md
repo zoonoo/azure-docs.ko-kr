@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 4/3/2020
-ms.openlocfilehash: 07f29a01ae0128ba0a35504dea54ba1ae2dde944
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 6a1d2f6079280002c868702a6547c8fd359a7c21
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657072"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310115"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL 데이터베이스 서버가 없는
 
@@ -138,6 +138,8 @@ SQL 캐시는 프로비저닝된 데이터베이스와 동일한 방식으로 �
 |SQL 데이터 동기화|구성 가능한 예약에 따라 실행되거나 수동으로 수행되는 허브 및 멤버 데이터베이스 간의 동기화|
 |특정 데이터베이스 메타데이터 수정|새 데이터베이스 태그 추가.<br>최대 vCore, 최소 vCore 또는 자동 정지 지연 변경.|
 |SSMS(SQL Server Management Studio)|18.1 이전의 SSMS 버전을 사용하고 서버의 모든 데이터베이스에 대한 새 쿼리 창을 열면 동일한 서버에서 자동 일시 중지된 데이터베이스가 다시 시작됩니다. SSMS 버전 18.1 이상을 사용하는 경우에는 이 문제가 발생하지 않습니다.|
+
+위에 나열된 작업을 수행하는 모니터링, 관리 또는 기타 솔루션은 자동 다시 시작을 트리거합니다.
 
 데이터베이스가 온라인 상태가 되어야 하는 일부 서비스 업데이트를 배포하는 동안 자동 추가 작업이 트리거됩니다.
 

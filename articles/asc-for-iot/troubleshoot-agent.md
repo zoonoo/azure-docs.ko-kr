@@ -1,5 +1,5 @@
 ---
-title: IoT Linux 보안 에이전트 문제 해결 가이드를 위한 Azure 보안 센터 | 마이크로 소프트 문서
+title: 보안 에이전트 시작 문제 해결(Linux)
 description: Linux용 IoT 보안 에이전트용 Azure 보안 센터와 함께 작업하는 문제 해결
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f3bd4be3ef927f73643146a457bc551ef86a450
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 935a99dd34b0a4e3d4970e8d91f9332d2bc1489a
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68600567"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310560"
 ---
 # <a name="security-agent-troubleshoot-guide-linux"></a>보안 에이전트 문제 해결 가이드(Linux)
 
@@ -29,56 +29,70 @@ ms.locfileid: "68600567"
 IoT 에이전트용 Azure 보안 센터는 설치 직후 자체 시작됩니다. 에이전트 시작 프로세스에는 로컬 구성 읽기, Azure IoT Hub 연결 및 원격 쌍 구성 검색이 포함됩니다. 이러한 단계 중 하나에서 실패하면 보안 에이전트가 실패할 수 있습니다.
 
 이 문제 해결 가이드에서는 다음 방법을 알아봅니다.
+
 > [!div class="checklist"]
 > * 보안 에이전트가 실행 중인지 확인
 > * 보안 에이전트 오류 받기
-> * 보안 에이전트 오류 이해 및 해결 
+> * 보안 에이전트 오류 이해 및 해결
 
 ## <a name="validate-if-the-security-agent-is-running"></a>보안 에이전트가 실행 중인지 확인
 
-1. 보안 에이전트가 실행 중임을 확인하려면 에이전트를 설치한 후 몇 분 간 기다렸다가 다음 명령을 실행합니다. 
+1. 보안 에이전트가 실행 중임을 확인하려면 에이전트를 설치한 후 몇 분 간 기다렸다가 다음 명령을 실행합니다.
      <br>
 
     **C 에이전트**
+
     ```bash
     grep "ASC for IoT Agent initialized" /var/log/syslog
     ```
+
     **C# 에이전트**
+
     ```bash
     grep "Agent is initialized!" /var/log/syslog
     ```
-2. 명령이 빈 줄을 반환하는 경우 보안 에이전트가 성공적으로 시작할 수 없습니다.    
 
-## <a name="force-stop-the-security-agent"></a>보안 에이전트를 강제로 중지 
+1. 명령이 빈 줄을 반환하는 경우 보안 에이전트가 성공적으로 시작할 수 없습니다.
+
+## <a name="force-stop-the-security-agent"></a>보안 에이전트를 강제로 중지
+
 보안 에이전트를 시작할 수 없는 경우 다음 명령을 사용하여 에이전트를 중지한 다음 아래 오류 표로 계속하십시오.
 
 ```bash
 systemctl stop ASCIoTAgent.service
 ```
+
 ## <a name="get-security-agent-errors"></a>보안 에이전트 오류 받기
+
 1. 다음 명령을 실행하여 보안 에이전트 오류를 검색합니다.
+
     ```bash
     grep ASCIoTAgent /var/log/syslog
     ```
-2. Get 보안 에이전트 오류 명령은 IoT 에이전트용 Azure 보안 센터에서 만든 모든 로그를 검색합니다. 다음 표를 사용하여 오류를 이해하고 수정에 대한 올바른 단계를 수행합니다. 
+
+1. Get 보안 에이전트 오류 명령은 IoT 에이전트용 Azure 보안 센터에서 만든 모든 로그를 검색합니다. 다음 표를 사용하여 오류를 이해하고 수정에 대한 올바른 단계를 수행합니다.
 
 > [!Note]
-> 오류 로그는 시간순으로 표시됩니다. 각 오류의 타임스탬프를 기록하여 수정에 도움을 줍니다. 
+> 오류 로그는 시간순으로 표시됩니다. 각 오류의 타임스탬프를 기록하여 수정에 도움을 줍니다.
 
 ## <a name="restart-the-agent"></a>에이전트 다시 시작
 
-1. 보안 에이전트 오류를 찾아 수정한 후 다음 명령을 실행하여 에이전트를 다시 시작해 보십시오. 
+1. 보안 에이전트 오류를 찾아 수정한 후 다음 명령을 실행하여 에이전트를 다시 시작해 보십시오.
+
     ```bash
     systemctl restart ASCIoTAgent.service
     ```
-1. 이전 프로세스를 반복하여 중지를 검색하고 에이전트가 시작 프로세스에 계속 실패하는 경우 오류를 검색합니다. 
+
+1. 이전 프로세스를 반복하여 중지를 검색하고 에이전트가 시작 프로세스에 계속 실패하는 경우 오류를 검색합니다.
 
 ## <a name="understand-security-agent-errors"></a>보안 에이전트 오류 이해
 
-대부분의 보안 에이전트 오류는 다음과 같은 형식으로 표시됩니다. 
+대부분의 보안 에이전트 오류는 다음과 같은 형식으로 표시됩니다.
+
 ```
 Azure Security Center for IoT agent encountered an error! Error in: {Error Code}, reason: {Error sub code}, extra details: {error specific details}
 ```
+
 | 오류 코드 | 오류 하위 코드 | 오류 세부 정보 | C 수정 | C 수정 # |
 |:-----------|:---------------|:--------|:------------|:------------|
 | 로컬 구성 | 누락된 구성 | 로컬 구성 파일에 구성이 없습니다. 오류 메시지는 누락된 키를 명시해야 합니다. | /var/LocalConfiguration.json 파일에 누락된 키를 추가하고 자세한 내용은 [cs-localconfig-참조를](azure-iot-security-local-configuration-c.md) 참조하십시오.| General.config 파일에 누락된 키를 추가하고 자세한 내용은 [c#-localconfig-참조를](azure-iot-security-local-configuration-csharp.md) 참조하십시오. |
@@ -95,14 +109,17 @@ Azure Security Center for IoT agent encountered an error! Error in: {Error Code}
 |
 
 ## <a name="restart-the-agent"></a>에이전트 다시 시작
+
 1. 보안 에이전트 오류를 찾아 수정한 후 다음 명령을 실행하여 에이전트를 다시 시작합니다.
 
     ```bash
     systemctl restart ASCIoTAgent.service
     ```
-2. 필요한 경우 이전 프로세스를 반복하여 에이전트를 강제로 중지하고 에이전트가 시작 프로세스에 계속 실패할 경우 오류를 검색합니다. 
+
+1. 필요한 경우 이전 프로세스를 반복하여 에이전트를 강제로 중지하고 에이전트가 시작 프로세스에 계속 실패할 경우 오류를 검색합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 - IoT 서비스를 위한 Azure 보안 센터 [개요](overview.md) 읽기
 - IoT [아키텍처를](architecture.md) 위한 Azure 보안 센터에 대해 자세히 알아보기
 - IoT [서비스에](quickstart-onboard-iot-hub.md) 대한 Azure 보안 센터 사용

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 09209c21fe1b2b115c1ba6d6e00fcd0ee59a9393
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 0fa1b58547e0260ec5486003cf4cb85d855de33a
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365412"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310225"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Azure CLI를 사용하여 디바이스 연결 모니터링
 
@@ -21,7 +21,7 @@ ms.locfileid: "80365412"
 
 Azure CLI IoT 확장을 사용하여 장치가 IoT Central으로 보내는 메시지를 확인하고 장치 쌍의 변경 내용을 관찰합니다. 이 도구를 사용하여 장치 연결을 디버깅 및 관찰하고 클라우드에 도달하지 않는 장치 메시지또는 쌍변경에 응답하지 않는 장치 문제를 진단할 수 있습니다.
 
-[자세한 내용은 Azure CLI 확장 참조를 방문하십시오.](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/central)
+[자세한 내용은 Azure CLI 확장 참조를 방문하십시오.](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/central?view=azure-cli-latest)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

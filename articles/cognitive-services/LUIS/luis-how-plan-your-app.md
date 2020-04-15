@@ -1,22 +1,14 @@
 ---
 title: 앱 계획 - LUIS
-titleSuffix: Azure Cognitive Services
 description: 관련 앱 의도 및 엔터티를 간략하게 설명한 다음, LUIS(Language Understanding Intelligent Services)에서 애플리케이션 계획을 만듭니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/20/2019
-ms.author: diberry
-ms.openlocfilehash: 6a155f4c43da03ccdc40d289742918973aa6da7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: dfed27a05973a2ea2e9a97eaa1c233b847b33d87
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74326787"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382299"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>제목 도메인 및 데이터 추출을 사용하여 LUIS 앱 스키마 계획
 
@@ -44,7 +36,7 @@ LUIS 앱은 주제 도메인을 중심으로 합니다. 예를 들어 항공권,
 
 ## <a name="create-example-utterances-for-each-intent"></a>각 의도의 예제 발화 만들기
 
-먼저 각 의도에 대해 너무 많은 발언을 만들지 마십시오. 의도를 결정한 후에는 의도당 15~30개의 예제 발언을 만듭니다. 각 발언은 이전에 제공된 발언과 달라야 합니다. 발언의 좋은 다양성은 전체 단어 수, 단어 선택, 동사 시제 및 문장 부호를 포함한다.
+먼저 각 의도에 대해 너무 많은 발언을 만들지 마십시오. 의도를 결정한 후에는 의도당 15~30개의 예제 발언을 만듭니다. 각 발언은 이전에 제공된 발언과 달라야 합니다. 발언의 좋은 다양성은 전체 단어 수, 단어 선택, 동사 시제 및 [문장 부호를](luis-reference-application-settings.md#punctuation-normalization)포함한다.
 
 자세한 내용은 [LUIS 앱에 대한 양호한 발언 이해를](luis-concept-utterance.md)참조하십시오.
 

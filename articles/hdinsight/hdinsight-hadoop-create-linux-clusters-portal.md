@@ -1,19 +1,19 @@
 ---
 title: 웹 브라우저, Azure HDInsight를 사용하여 아파치 하두롭 클러스터 만들기
-description: 웹 브라우저와 Azure 포털을 사용하여 HDInsight용 리눅스에서 아파치 하두프, 아파치 HBase, 아파치 스톰 또는 아파치 스파크 클러스터를 만드는 방법에 대해 알아봅니다.
+description: HDInsight에서 아파치 하두프, 아파치 HBase, 아파치 스톰 또는 아파치 스파크 클러스터를 만드는 방법을 배웁니다. 웹 브라우저 및 Azure 포털을 사용합니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/19/2020
-ms.openlocfilehash: bcc71b7244ba3498b2fcde023d372e67f41d6117
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/13/2020
+ms.openlocfilehash: a5f6ac76d509a0a63c2d641f91cd91cdb2e0d19d
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77623239"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313817"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 
@@ -25,13 +25,13 @@ Azure 포털은 Microsoft Azure 클라우드에 호스트된 서비스와 리소
 
 Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure Resource Manager 템플릿을 사용하여 많은 세부 정보를 숨길 수 있습니다. 자세한 내용은 [Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 
-Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 만드세요.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="create-clusters"></a>클러스터 만들기
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. 상단 메뉴에서 **+ 리소스 만들기를 선택합니다.**
 
@@ -45,13 +45,13 @@ Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://azu
 
 **기본** 탭에서 다음 정보를 제공합니다.
 
-|속성 |설명 |
+|속성 |Description |
 |---|---|
 |Subscription|드롭다운 목록에서 클러스터에 사용되는 Azure 구독을 선택합니다.|
 |Resource group|드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새**.|
 |클러스터 이름|전역적으로 고유한 이름을 입력합니다.|
 |지역|드롭다운 목록에서 클러스터가 생성되는 영역을 선택합니다.|
-|클러스터 유형|목록을 열려면 **클러스터 유형 선택을** 선택합니다. 목록에서 원하는 클러스터 유형을 선택합니다. HDInsight 클러스터는 다양한 유형으로 제공됩니다. 클러스터가 튜닝되는 워크로드 또는 기술에 해당합니다. 여러 유형을 결합한 클러스터를 만드는 데 지원되는 방법은 없습니다.|
+|클러스터 유형|**클러스터 유형 선택을** 클릭하여 목록을 엽니다. 목록에서 원하는 클러스터 유형을 선택합니다. HDInsight 클러스터는 다양한 유형으로 제공됩니다. 클러스터가 튜닝되는 워크로드 또는 기술에 해당합니다. 여러 유형을 결합한 클러스터를 만드는 데 지원되는 방법은 없습니다.|
 |버전|드롭다운 목록에서 **버전을**선택합니다. 어떤 버전을 선택할지 잘 모르는 경우 기본 버전을 사용합니다. 자세한 내용은 [HDInsight 클러스터 버전](hdinsight-component-versioning.md)을 참조하세요.|
 |클러스터 로그인 사용자 이름|사용자 이름을 제공하면 기본값이 **관리자입니다.**|
 |클러스터 로그인 암호|암호를 입력합니다.|
@@ -67,7 +67,7 @@ Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://azu
 
 ### <a name="primary-storage"></a>기본 스토리지
 
-**기본 저장소 유형에**대한 드롭다운 목록에서 기본 저장소 유형을 선택합니다. 완료할 후속 필드는 선택한 필드에 따라 달라집니다. **Azure 저장소의**경우:
+**기본 저장소 유형에**대한 드롭다운 목록에서 기본 저장소 유형을 선택합니다. 완료할 이후 필드는 선택한 필드에 따라 다릅니다. **Azure 저장소의**경우:
 
 1. **선택 방법의**경우 **목록에서 선택**또는 액세스 키 **사용**중 하나를 선택합니다.
     * **목록에서 선택하려면**드롭다운 목록에서 **기본 저장소 계정을** 선택하거나 새 **.**
@@ -81,7 +81,7 @@ Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://azu
 
 ### <a name="metastore-settings"></a>메타스토어 설정
 
-선택 사항: 기존 SQL 데이터베이스를 지정하여 아파치 하이브, 아파치 Oozie 및/또는 아파치 암바리 메타데이터를 클러스터 외부에 저장합니다. 메타스토어에 사용되는 Azure SQL 데이터베이스는 Azure HDInsight를 비롯한 다른 Azure 서비스에 대한 연결을 허용해야 합니다. metastore를 만드는 경우 데이터베이스 이름은 대시 또는 하이픈을 사용하여 지정하지 않습니다. 이러한 문자로 인해 클러스터 만들기 프로세스가 실패할 수 있습니다.
+선택 사항: 기존 SQL 데이터베이스를 지정하여 아파치 하이브, 아파치 Oozie 및 클러스터 외부에 아파치 암바리 메타데이터를 저장합니다. 메타스토어에 사용되는 Azure SQL 데이터베이스는 Azure HDInsight를 비롯한 다른 Azure 서비스에 대한 연결을 허용해야 합니다. metastore를 만드는 경우 데이터베이스 이름은 대시 또는 하이픈을 사용하여 지정하지 않습니다. 이러한 문자로 인해 클러스터 만들기 프로세스가 실패할 수 있습니다.
 
 **다음 을 선택: 보안 + 네트워킹 >>** 다음 탭으로 진행합니다.
 
@@ -98,7 +98,7 @@ Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://azu
 |가상 네트워크|선택 사항: 드롭다운 목록에서 기존 가상 네트워크 및 서브넷을 선택합니다. 자세한 내용은 [Azure HDInsight 클러스터에 대한 가상 네트워크 배포 계획을](hdinsight-plan-virtual-network-deployment.md)참조하십시오. 이 문서에는 가상 네트워크에 대한 특정 구성 요구 사항이 포함되어 있습니다.|
 |디스크 암호화 설정|선택 사항: 암호화를 사용할 확인란을 선택합니다. 자세한 내용은 [고객이 관리하는 키 디스크 암호화](./disk-encryption.md)를 참조하십시오.|
 |Kafka REST 프록시|이 설정은 클러스터 유형 Kafka에서만 사용할 수 있습니다. 자세한 내용은 [REST 프록시 사용을](./kafka/rest-proxy.md)참조하십시오.|
-|Identity|선택 사항: 드롭다운 목록에서 기존 사용자가 할당한 서비스 ID를 선택합니다. 자세한 내용은 [Azure HDInsight의 관리되는 ID를](./hdinsight-managed-identities.md)참조하십시오.|
+|ID|선택 사항: 드롭다운 목록에서 기존 사용자가 할당한 서비스 ID를 선택합니다. 자세한 내용은 [Azure HDInsight의 관리되는 ID를](./hdinsight-managed-identities.md)참조하십시오.|
 
 **다음 을 선택: 구성 + 가격 책정 >>** 다음 탭으로 진행합니다.
 
@@ -158,25 +158,7 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 
 HDInsight 클러스터를 성공적으로 만들었습니다. 이제 클러스터를 사용하는 방법을 알아봅니다.
 
-### <a name="apache-hadoop-clusters"></a>Apache Hadoop 클러스터
-
 * [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
-* [HDInsight와 함께 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
-
-### <a name="apache-hbase-clusters"></a>Apache HBase 클러스터
-
 * [HDInsight에서 Apache HBase 사용 시작](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [HDInsight에서 Apache HBase용 Java 애플리케이션 개발](hbase/apache-hbase-build-java-maven-linux.md)
-
-### <a name="apache-storm-clusters"></a>Apache Storm 클러스터
-
 * [HDInsight에서 Apache Storm용 Java 토폴로지 개발](storm/apache-storm-develop-java-topology.md)
-* [HDInsight의 Apache Storm에서 Python 구성 요소 사용](storm/apache-storm-develop-python-topology.md)
-* [HDInsight에서 Apache Storm을 사용하는 토폴로지 배포 및 모니터링](storm/apache-storm-deploy-monitor-topology-linux.md)
-
-### <a name="apache-spark-clusters"></a>Apache Spark 클러스터
-
 * [Scala를 사용하여 독립 실행형 애플리케이션 만들기](spark/apache-spark-create-standalone-application.md)
-* [Apache Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](spark/apache-spark-livy-rest-interface.md)
-* [BI와 Apache Spark: BI 도구와 함께 HDInsight의 Spark를 사용하여 대화형 데이터 분석 수행](spark/apache-spark-use-bi-tools.md)
-* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](spark/apache-spark-machine-learning-mllib-ipython.md)

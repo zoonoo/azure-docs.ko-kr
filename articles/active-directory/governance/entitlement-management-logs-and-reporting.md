@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 04/14/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 070b7c5e0fef7d50f84271190432a65d29699bdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d59a508d03730a51e793a5e30e2c99a91af77ce8
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128634"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380184"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Azure 모니터에서 Azure AD 권한 관리에서 로그 및 보고 보관
 
@@ -49,6 +49,38 @@ Azure AD 감사 로그를 보관하려면 Azure 구독에 Azure 모니터가 있
 1. **사용량 및 예상 비용을** 선택하고 데이터 **보존을 클릭합니다.** 감사 요구 사항을 충족하기 위해 데이터를 유지할 일 수로 슬라이더를 변경합니다.
 
     ![로그 분석 작업 영역 창](./media/entitlement-management-logs-and-reporting/log-analytics-workspaces.png)
+
+1. 나중에 작업 영역에 보관된 날짜 범위를 보려면 *보관된 로그 날짜 범위* 통합 문서를 사용할 수 있습니다.  
+    
+    1. **Azure 활성 디렉터리를** 선택한 다음 **통합 문서를 클릭합니다.** 
+    
+    1. **Azure Active Directory 문제 해결**섹션을 확장하고 **보관된 로그 날짜 범위를**클릭합니다. 
+
+
+## <a name="view-events-for-an-access-package"></a>액세스 패키지에 대한 이벤트 보기  
+
+액세스 패키지에 대한 이벤트를 보려면 기본 Azure 모니터 작업 영역(정보를 보려면 [Azure Monitor의 로그 데이터 및 작업 영역에 대한 액세스 관리](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) 참조) 및 다음 역할 중 하나에 액세스할 수 있어야 합니다. 
+
+- 전역 관리자  
+- 보안 관리자  
+- 보안 판독기  
+- 보고서 판독기  
+- 애플리케이션 관리자  
+
+다음 절차를 사용하여 이벤트를 봅니다. 
+
+1. Azure 포털에서 **Azure Active Directory를** 선택한 다음 **통합 문서를**클릭합니다. 구독이 하나만 있는 경우 3단계로 이동합니다. 
+
+1. 구독이 여러 개인 경우 작업 영역이 포함된 구독을 선택합니다.  
+
+1. *액세스 패키지 활동이라는*통합 문서를 선택합니다. 
+
+1. 해당 통합 문서에서 시간 범위(확실하지 않은 경우 **모두로** 변경)를 선택하고 해당 시간 범위 동안 활동이 있는 모든 액세스 패키지의 드롭다운 목록에서 액세스 패키지 ID를 선택합니다. 선택한 시간 범위 동안 발생한 액세스 패키지와 관련된 이벤트가 표시됩니다.  
+
+    ![액세스 패키지 이벤트 보기](./media/entitlement-management-logs-and-reporting/view-events-access-package.png) 
+
+    각 행에는 시간, 액세스 패키지 ID, 작업 이름, 개체 ID, UPN 및 작업을 시작한 사용자의 표시 이름이 포함됩니다.  자세한 내용은 JSON에 포함되어 있습니다.   
+
 
 ## <a name="create-custom-azure-monitor-queries-using-the-azure-portal"></a>Azure 포털을 사용하여 사용자 지정 Azure 모니터 쿼리 만들기
 권한 관리 이벤트를 포함하여 Azure AD 감사 이벤트에 대한 고유한 쿼리를 만들 수 있습니다.  
@@ -86,6 +118,7 @@ Azure AD를 구성하여 Azure 모니터로 로그를 보내도록 구성한 후
 Azure AD에 인증할 사용자 또는 서비스 주체가 Log Analytics 작업 영역에서 적절한 Azure 역할에 있는지 확인합니다. 역할 옵션은 로그 분석 리더 또는 로그 분석 기여자입니다. 이러한 역할 중 하나에 이미 있는 경우 [하나의 Azure 구독으로 Log Analytics ID 검색으로](#retrieve-log-analytics-id-with-one-azure-subscription)건너뜁니다.
 
 역할 할당을 설정하고 쿼리를 만들려면 다음 단계를 수행합니다.
+
 1. Azure 포털에서 [로그 분석 작업 영역을](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces
 )찾습니다.
 
@@ -150,7 +183,7 @@ $aResponse.Results |ft
 다음과 같은 쿼리를 사용하여 권한 관리 이벤트를 검색할 수도 있습니다.
 
 ```azurepowershell
-$bQuery = = 'AuditLogs | where Category == "EntitlementManagement"'
+$bQuery = 'AuditLogs | where Category == "EntitlementManagement"'
 $bResponse = Invoke-AzOperationalInsightsQuery -WorkspaceId $wks[0].CustomerId -Query $Query
 $bResponse.Results |ft 
 ```

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: af66da115e228efe39e4cd5dda3c494b71428676
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: ea94e452b463fffc1800e09fa1302abacdf015cc
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113566"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383064"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -72,9 +72,9 @@ WAF(웹 애플리케이션 방화벽)는 일반적인 악용 및 취약점으로
 
 Azure Firewall 서비스는 네트워크 보안 그룹 기능을 보완합니다. 그뿐 아니라 더 나은 "심층 방어" 네트워크 보안을 제공합니다. 네트워크 보안 그룹은 각 구독의 가상 네트워크 내 리소스에 대한 트래픽을 제한하는 분산 네트워크 레이어 트래픽 필터링을 제공합니다. Azure Firewall은 상태를 저장하는 서비스 형태의 완전한 중앙 집중식 네트워크 방화벽으로, 다양한 구독 및 가상 네트워크에 네트워크 및 애플리케이션 수준의 보호를 제공합니다.
 
-## <a name="are-network-security-groups-nsgs-supported-on-the-azure-firewall-subnet"></a>Azure 방화벽 서브넷에서 네트워크 보안 그룹(NSG)이 지원되나요?
+## <a name="are-network-security-groups-nsgs-supported-on-the-azurefirewallsubnet"></a>AzureFirewallSubnet에서 네트워크 보안 그룹(NSG)이 지원되나요?
 
-Azure 방화벽은 NIC 수준 NSG를 사용하는 플랫폼 보호를 포함하여 여러 보호 계층을 사용하는 관리되는 서비스입니다(볼 수 없습니다).  서브넷 수준 NSG는 Azure 방화벽 서브넷에 필요하지 않으며 서비스 중단을 보장하기 위해 비활성화됩니다.
+Azure 방화벽은 NIC 수준 NSG를 사용하는 플랫폼 보호를 포함하여 여러 보호 계층을 사용하는 관리되는 서비스입니다(볼 수 없습니다).  서브넷 수준 NSG는 AzureFirewallSubnet에 필요하지 않으며 서비스 중단을 보장하기 위해 비활성화됩니다.
 
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>서비스 엔드포인트를 사용하여 Azure Firewall을 설정하려면 어떻게 해야 하나요?
 

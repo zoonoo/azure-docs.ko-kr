@@ -1,5 +1,5 @@
 ---
-title: 키 볼트 인증서로 SSL 종료 구성 - PowerShell
+title: 키 볼트 인증서로 TLS 종료 구성 - PowerShell
 titleSuffix: Azure Application Gateway
 description: HTTPS 지원 수신기에 연결된 서버 인증서에 대해 Azure 응용 프로그램 게이트웨이를 키 볼트와 통합하는 방법에 대해 알아봅니다.
 services: application-gateway
@@ -8,20 +8,20 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/27/2020
 ms.author: victorh
-ms.openlocfilehash: 15e10d34120ab5475f241235bbebeb0c7689ca14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1979f759f5a1b037adfd7b67a7be50cbba0f596f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371221"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312207"
 ---
-# <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 키 볼트 인증서로 SSL 종료 구성
+# <a name="configure-tls-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 키 볼트 인증서로 TLS 종료 구성
 
-[Azure Key Vault는](../key-vault/key-vault-overview.md) 보안 암호, 키 및 SSL 인증서를 보호하는 데 사용할 수 있는 플랫폼 관리 비밀 저장소입니다. Azure 응용 프로그램 게이트웨이는 HTTPS 지원 수신기에 연결된 서버 인증서에 대해 Key Vault와의 통합을 지원합니다. 이 지원은 응용 프로그램 게이트웨이 v2 SKU로 제한됩니다.
+[Azure Key Vault는](../key-vault/key-vault-overview.md) 보안 암호, 키 및 TLS/SSL 인증서를 보호하는 데 사용할 수 있는 플랫폼 관리 비밀 저장소입니다. Azure 응용 프로그램 게이트웨이는 HTTPS 지원 수신기에 연결된 서버 인증서에 대해 Key Vault와의 통합을 지원합니다. 이 지원은 응용 프로그램 게이트웨이 v2 SKU로 제한됩니다.
 
-자세한 내용은 [Key Vault 인증서를 통해 SSL 종료를](key-vault-certs.md)참조하십시오.
+자세한 내용은 [Key Vault 인증서를 통해 TLS 종료를](key-vault-certs.md)참조하십시오.
 
-이 문서에서는 Azure PowerShell 스크립트를 사용하여 키 자격 증명 모음을 SSL 종료 인증서에 대한 응용 프로그램 게이트웨이와 통합하는 방법을 보여 줍니다.
+이 문서에서는 Azure PowerShell 스크립트를 사용하여 키 자격 증명 모음을 TLS/SSL 종료 인증서에 대한 응용 프로그램 게이트웨이와 통합하는 방법을 보여 줍니다.
 
 이 문서에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요합니다. 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 이 문서에서 명령을 실행하려면 을 실행하여 `Connect-AzAccount`Azure와의 연결을 만들어야 합니다.
 
@@ -71,7 +71,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> -EnableSoftDelete 플래그가 제대로 작동하려면 SSL 종료를 위해 사용해야 합니다. [포털을 통해 키 볼트 소프트 삭제를](../key-vault/key-vault-ovw-soft-delete.md#soft-delete-behavior)구성하는 경우 보존 기간은 기본값인 90일로 유지해야 합니다. 응용 프로그램 게이트웨이는 아직 다른 보존 기간을 지원하지 않습니다. 
+> -EnableSoftDelete 플래그가 제대로 작동하려면 TLS 종료를 위해 사용해야 합니다. [포털을 통해 키 볼트 소프트 삭제를](../key-vault/key-vault-ovw-soft-delete.md#soft-delete-behavior)구성하는 경우 보존 기간은 기본값인 90일로 유지해야 합니다. 응용 프로그램 게이트웨이는 아직 다른 보존 기간을 지원하지 않습니다. 
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
@@ -102,7 +102,7 @@ $fp01 = New-AzApplicationGatewayFrontendPort -Name "port1" -Port 443
 $fp02 = New-AzApplicationGatewayFrontendPort -Name "port2" -Port 80
 ```
 
-### <a name="point-the-ssl-certificate-to-your-key-vault"></a>SSL 인증서를 키 자격 증명 모음으로 가리킵니다.
+### <a name="point-the-tlsssl-certificate-to-your-key-vault"></a>TLS/SSL 인증서를 키 자격 증명 모음으로 가리킵니다.
 
 ```azurepowershell
 $sslCert01 = New-AzApplicationGatewaySslCertificate -Name "SSLCert1" -KeyVaultSecretId $secretId
@@ -144,4 +144,4 @@ $appgw = New-AzApplicationGateway -Name $appgwName -Identity $appgwIdentity -Res
 
 ## <a name="next-steps"></a>다음 단계
 
-[SSL 종단에 대해 자세히 알아보기](ssl-overview.md)
+[TLS 종단에 대해 자세히 알아보기](ssl-overview.md)

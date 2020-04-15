@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 11/26/2019
 ms.author: shvija
-ms.openlocfilehash: 6de51c23bd6358a6f54fe3baf9e9b256047d4ab5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: abd7940551f7a8182364475b0cf50b60afb5e1b7
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064887"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313787"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Azure Event Hubs에서 Virtual Network 서비스 엔드포인트 사용
 
@@ -25,6 +25,22 @@ ms.locfileid: "80064887"
 하나 이상의 가상 네트워크 서브넷 서비스 엔드포인트에 바인딩하도록 구성된 각 Event Hubs 네임스페이스는 더 이상 가상 네트워크의 권한이 부여된 서브넷을 제외한 다른 곳에서의 트래픽을 허용하지 않습니다. 가상 네트워크 큐브 뷰에서 Event Hubs 네임스페이스를 서비스 엔드포인트에 바인딩하면 가상 네트워크 서브넷에서 메시징 서비스로 격리된 네트워킹 터널을 구성합니다. 
 
 메시징 서비스 엔드포인트의 관찰 가능한 네트워크 주소가 공용 IP 범위에 있음에도 서브넷에 바인딩된 워크로드와 해당하는 Event Hubs 네임스페이스 간에 격리된 프라이빗 관계가 생성됩니다. 이 동작에는 예외가 있습니다. 기본적으로 서비스 끝점을 사용하도록 설정하면 `denyall` 가상 네트워크와 연결된 [IP 방화벽의](event-hubs-ip-filtering.md) 규칙을 사용할 수 있습니다. IP 방화벽에 특정 IP 주소를 추가하여 Event Hub 공용 끝점에 액세스할 수 있습니다. 
+
+>[!WARNING]
+> Virtual Networks 통합을 구현하면 다른 Azure 서비스가 Event Hubs와 상호 작용하지 않도록 방지할 수 있습니다.
+>
+> 신뢰할 수 있는 Microsoft 서비스는 Virtual Networks가 구현되는 시점에 지원되지 않습니다.
+>
+> Virtual Networks가 작동하지 않는 일반적인 Azure 시나리오(목록은 전체 목록이 **아님**) -
+> - Azure Stream Analytics
+> - Azure Event Grid와 통합
+> - Azure IoT Hub 경로
+> - Azure IoT Device Explorer
+>
+> 다음 Microsoft 서비스는 가상 네트워크에 있어야 합니다.
+> - Azure Web Apps
+> - Azure 기능
+
 
 > [!IMPORTANT]
 > 가상 네트워크는 Event Hubs의 **표준** 및 **전용** 계층에서 지원되며 **기본** 계층에서는 지원되지 않습니다.

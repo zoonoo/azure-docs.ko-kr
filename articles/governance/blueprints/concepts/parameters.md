@@ -1,14 +1,14 @@
 ---
 title: 매개 변수를 사용하여 동적 청사진 만들기
 description: 정적 및 동적 매개 변수와 이를 사용하여 안전하고 역동적인 청사진을 만드는 방법에 대해 알아봅니다.
-ms.date: 03/12/2019
+ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 36735d71b746301819e5079aba1697b55fe5e183
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: ed596db2050ac788c2d98c63cb7314de473b5f4e
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677577"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383607"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>매개 변수를 통해 동적 청사진 만들기
 
@@ -28,8 +28,7 @@ REST API를 통해 청사진 자체에 매개 변수를 만들 수 있습니다.
 
 ### <a name="using-securestring-and-secureobject-parameters"></a>secureString 및 secureObject 매개 변수 사용
 
-Resource Manager 템플릿 _아티팩트_가 **secureString** 및 **secureObject** 유형의 매개 변수를 지원하지만, Azure Blueprints는 각 매개 변수를 Azure Key Vault와 연결할 것을 요구합니다.
-이 보안 조치를 사용하면 비밀을 청사진과 함께 저장하는 안전하지 않은 사례를 방지하고 안전한 패턴을 사용하도록 장려할 수 있습니다. Azure Blueprints는 Resource Manager 템플릿 _아티팩트_에 보안 매개 변수가 포함되었는지 검색하여 이 보안 조치를 지원합니다. 그런 다음, 서비스에서 할당 중에 검색된 보안 매개 변수를 기준으로 다음 Key Vault 속성을 확인하는 메시지를 표시합니다.
+Resource Manager 템플릿 _아티팩트_가 **secureString** 및 **secureObject** 유형의 매개 변수를 지원하지만, Azure Blueprints는 각 매개 변수를 Azure Key Vault와 연결할 것을 요구합니다. 이 보안 조치를 사용하면 비밀을 청사진과 함께 저장하는 안전하지 않은 사례를 방지하고 안전한 패턴을 사용하도록 장려할 수 있습니다. Azure Blueprints는 Resource Manager 템플릿 _아티팩트_에 보안 매개 변수가 포함되었는지 검색하여 이 보안 조치를 지원합니다. 그런 다음, 서비스에서 할당 중에 검색된 보안 매개 변수를 기준으로 다음 Key Vault 속성을 확인하는 메시지를 표시합니다.
 
 - Key Vault 리소스 ID
 - Key Vault 비밀 이름
@@ -62,11 +61,11 @@ Azure Key Vault에 대한 자세한 내용은 [Key Vault 개요](../../../key-va
 
 1. 청사진에 추가되고 매개 변수 옵션이 있는 아티팩트는 **매개 변수** 열에 **X/Y 매개 변수 채워짐**으로 표시됩니다. 아티팩트 행을 클릭하여 아티팩트 매개 변수를 편집합니다.
 
-   ![청사진 정의의 청사진 매개변수](../media/parameters/parameter-column.png)
+   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="청사진 정의의 청사진 매개변수" border="false":::
 
 1. **아티팩트 편집** 페이지에는 클릭한 아티팩트에 적절한 값 옵션이 표시됩니다. 아티팩트의 각 매개 변수에는 제목, 값 상자 및 확인란이 있습니다. **정적 매개 변수**로 만들려면 확인란을 선택 취소하도록 상자를 설정합니다. 아래 예제에서는 _위치_가 선택 취소되고 _리소스 그룹 이름_이 선택되었기 때문에 위치만이 **정적 매개 변수**입니다.
 
-   ![청사진 아티팩트의 청사진 정적 매개변수](../media/parameters/static-parameter.png)
+   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="청사진 아티팩트의 청사진 정적 매개변수" border="false":::
 
 #### <a name="setting-static-parameters-from-rest-api"></a>REST API에서 정적 매개 변수 설정
 
@@ -177,7 +176,7 @@ REST API를 통해 청사진을 만들 때 [청사진 매개 변수](#blueprint-
 
 1. 청사진 **할당** 페이지에서 **아티팩트 매개변수** 섹션을 찾습니다. **동적 매개 변수**가 하나 이상 있는 아티팩트는 아티팩트 및 구성 옵션을 표시합니다. 매개 변수에 필요한 값을 제공한 후 청사진을 할당합니다. 아래 예제에서 _이름_은 청사진을 완료하려면 정의해야 하는 **동적 매개 변수**입니다.
 
-   ![청사진 할당 중 청사진 동적 매개 변수](../media/parameters/dynamic-parameter.png)
+   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="청사진 할당 중 청사진 동적 매개 변수" border="false":::
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>REST API에서 정적 매개 변수 설정
 

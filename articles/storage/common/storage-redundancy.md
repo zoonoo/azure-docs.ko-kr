@@ -1,7 +1,7 @@
 ---
 title: 데이터 중복
 titleSuffix: Azure Storage
-description: Microsoft Azure Storage 계정의 데이터는 내구성 및 고가용성을 위해 복제됩니다. 중복 구성에는 로컬 중복 저장소(LRS), 영역 중복 저장소(ZRS), 지리적 중복 저장소(GRS), 읽기 액세스 지리적 중복 저장소(RA-GRS), 지리적 영역 중복 저장소(GZRS) (미리 보기) 및 읽기 액세스가 포함됩니다. 지리적 영역 중복 저장소(RA-GZRS) (미리 보기)
+description: Microsoft Azure Storage 계정의 데이터는 내구성 및 고가용성을 위해 복제됩니다. 중복 구성에는 로컬 중복 저장소(LRS), 영역 중복 저장소(ZRS), 지리적 중복 저장소(GRS), 읽기 액세스 지리적 중복 저장소(RA-GRS), 지리적 영역 중복 저장소(GZRS) (미리 보기), 읽기 액세스 지리적 영역 중복 스토리지(RA-GZRS) 및 읽기 액세스 지오 존 중복 스토리지(RA-GZRS) (미리 보기)가 포함됩니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.date: 02/25/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 7ae5f59a1bd96362d5466b2f6363185ba168d942
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1961797f37a760fe3a31dc8aa3830889965b69b5
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255263"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81379933"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -147,9 +147,9 @@ Azure PowerShell, Azure CLI 또는 Azure Storage 클라이언트 라이브러리
 
 | 시나리오                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS(미리 보기)                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| 데이터 센터 내의 노드를 사용할 수 없게 됩니다.                                                                 | yes                             | yes                              | yes                                  | yes                                  |
-| 전체 데이터 센터(영역 또는 비영역)를 사용할 수 없게 됨                                           | 예                              | yes                              | yes                                  | yes                                  |
-| 지역 전체의 가동 중단 발생                                                                                     | 예                              | 예                               | yes                                  | yes                                  |
+| 데이터 센터 내의 노드를 사용할 수 없게 됩니다.                                                                 | 예                             | 예                              | 예                                  | 예                                  |
+| 전체 데이터 센터(영역 또는 비영역)를 사용할 수 없게 됨                                           | 예                              | 예                              | 예                                  | 예                                  |
+| 지역 전체의 가동 중단 발생                                                                                     | 예                              | 예                               | 예                                  | 예                                  |
 | 기본 지역을 사용할 수 없게 된 경우 보조 지역의 데이터에 대한 액세스 읽기 | 예                              | 예                               | 예(RA-GRS)                                   | 예(RA-GZRS)                                 |
 | 주어진 연도<sup>1에</sup> 걸쳐 개체의 내구성 퍼센트                                          | 최소 99.999999999% | 최소 99.9999999999% | 최소 99.99999999999999% | 최소 99.99999999999999% |
 | 지원되는 저장소 계정 유형<sup>2</sup>                                                                   | GPv2, GPv1, 블록블블록스토리지, 블블록스토리지, 파일스토리지                | GPv2, 블록블블록스토리지, 파일스토리지                             | GPv2, GPv1, BlobStorage                     | GPv2                     |

@@ -1,7 +1,7 @@
 ---
-title: 파워쉘을 사용한 SSL 종단
+title: 파워쉘을 사용한 TLS 종단
 titleSuffix: Azure Application Gateway
-description: Azure PowerShell을 사용하여 애플리케이션 게이트웨이를 만들고 SSL 종료를 위한 인증서를 추가하는 방법을 알아봅니다.
+description: Azure PowerShell을 사용하여 응용 프로그램 게이트웨이를 만들고 TLS 종료에 대한 인증서를 추가하는 방법에 대해 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2ce5b8472fe10b51cff34677c9ce5a89888bdc01
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bd625982ebd051b92df2f66515fd5b0d0612303
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74075071"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311926"
 ---
-# <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>Azure PowerShell을 사용하여 SSL 종료로 애플리케이션 게이트웨이 만들기
+# <a name="create-an-application-gateway-with-tls-termination-using-azure-powershell"></a>Azure PowerShell을 사용하여 TLS 종료를 사용하여 응용 프로그램 게이트웨이 만들기
 
-Azure PowerShell을 사용하여 백엔드 서버에 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하는 [SSL 종료](ssl-overview.md)용 인증서가 있는 [애플리케이션 게이트웨이](overview.md)를 만들 수 있습니다. 이 예제에서 확장 집합은 애플리케이션 게이트웨이의 기본 백 엔드 풀에 추가되는 두 개의 가상 머신 인스턴스를 포함합니다. 
+Azure PowerShell을 사용하여 백 엔드 서버에 대한 [가상 시스템 규모 집합을](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) 사용하는 [TLS/SSL 종료에](ssl-overview.md) 대한 인증서가 있는 [응용 프로그램 게이트웨이를](overview.md) 만들 수 있습니다. 이 예제에서 확장 집합은 애플리케이션 게이트웨이의 기본 백 엔드 풀에 추가되는 두 개의 가상 머신 인스턴스를 포함합니다. 
 
 이 문서에서는 다음 방법을 설명합니다.
 

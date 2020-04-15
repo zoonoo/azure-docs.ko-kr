@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 04/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63271567e70955f6dfb0b10a5c882b6dce9545ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55ce0233fdefb8360376e94c0baafabe4c62ced7
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74932490"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309204"
 ---
 # <a name="blocking-legacy-authentication"></a>레거시 인증 차단
  
@@ -31,11 +31,11 @@ ms.locfileid: "74932490"
 
 디렉터리에서 레거시 인증을 차단하려면 먼저 사용자에게 레거시 인증을 사용하는 앱이 있는지, 그리고 레거시 인증을 사용하는 앱이 전체 디렉터리에 미치는 영향을 이해해야 합니다. Azure AD 로그인 로그를 사용하여 레거시 인증을 사용하는지 확인할 수 있습니다.
 
-1. Azure active 디렉터리 > 로그인을 > Azure 포털로 이동합니다.
-1. 클라이언트 앱의 열을 클릭하여 표시되지 않으면 클라이언트 앱 열을 추가합니다>.
-1. 클라이언트 앱별로 필터링> 제시된 다른 모든 클라이언트 옵션을 확인하고 적용을 클릭합니다.
-1. > 상태별 필터링및 적용을 클릭합니다. 
-1. 날짜 필터를 사용하여 필요한 경우 날짜 범위를 확장합니다.
+1.  **Azure 포털** > **Azure Active 디렉터리** > **로그인으로 이동합니다.**
+1. 열 **클라이언트 응용** 프로그램을 클릭하여 표시되지 않는 경우 클라이언트 **앱 열을** **추가합니다.** >
+1. 클라이언트 **앱별로**   필터링> 제시된 모든 **레거시 인증 클라이언트** 옵션을 확인합니다.
+1. **상태** > **별 성공**으로 필터링 합니다. 
+1. 날짜 필터를 사용하여 필요한 경우 **날짜** 범위를 확장합니다.
 
 필터링은 선택한 레거시 인증 프로토콜에 의해 이루어진 성공적인 로그인 시도만 표시합니다. 각 개별 로그인 시도를 클릭하면 추가 세부 정보가 표시됩니다. 개별 데이터 행을 선택한 후 기본 정보 탭 아래의 클라이언트 앱 열 또는 클라이언트 앱 필드는 사용된 레거시 인증 프로토콜을 나타냅니다. 이러한 로그는 레거시 인증에 따라 남아 있는 사용자와 인증 요청을 하기 위해 레거시 프로토콜을 사용하는 응용 프로그램을 나타냅니다. 이러한 로그에 나타나지 않고 레거시 인증을 사용하지 않는 것으로 확인된 사용자의 경우 조건부 액세스 정책을 구현하거나 기준 정책(이러한 사용자에 대해서만 레거시 인증을 차단)을 사용하도록 설정합니다.
 
@@ -62,7 +62,7 @@ Office 2013 Windows 클라이언트 를 사용하는 경우 Office 2016 이상�
 
 Office 2010은 최신 인증을 지원하지 않습니다. Office 2010을 사용하여 모든 사용자를 최신 버전의 Office로 업그레이드해야 합니다. 기본적으로 레거시 인증을 차단하므로 Office 2016 이상으로 업그레이드하는 것이 좋습니다.
 
-MacOS를 사용하는 경우 Mac 2016 이상용 Office로 업그레이드하는 것이 좋습니다. 네이티브 메일 클라이언트를 사용하는 경우 모든 장치에서 MacOS 버전 10.14 이상이 있어야 합니다.
+macOS를 사용하는 경우 Mac 2016 이상Office로 업그레이드하는 것이 좋습니다. 네이티브 메일 클라이언트를 사용하는 경우 모든 장치에서 macOS 버전 10.14 이상이 있어야 합니다.
 
 ### <a name="step-3-exchange-and-sharepoint"></a>3단계: 교환 및 공유점
 

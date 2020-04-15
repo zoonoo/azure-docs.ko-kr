@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
-ms.date: 03/10/2020
-ms.openlocfilehash: 4c635d285f83e8e9c4c5547a9ee983686c507819
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 04/14/2020
+ms.openlocfilehash: d62d05cdbda86af3c3a38757877624e87f6d1719
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261740"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383765"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 마켓플레이스 계정 만들기
 
@@ -100,7 +100,7 @@ Microsoft 파트너 센터에 이미 등록되어 있는 경우 이 섹션을 �
 
 이미 Microsoft 파트너 네트워크에 등록되어 있는 경우 이 섹션을 사용하여 파트너 센터에서 직접 계정을 만들 수 있습니다.
 
-회사의 회사 전자 메일 계정 도메인을 새 파트너 센터 계정에 연결하려면 Microsoft 파트너 네트워크 계정으로 [파트너 센터에](https://partner.microsoft.com/) 로그인합니다. 이러한 계정을 연결하면 회사 직원이 회사 계정 사용자 이름과 암호를 통해 파트너 센터에 로그인할 수 있습니다.
+회사의 회사 전자 메일 계정 도메인을 새 파트너 센터 계정에 연결하려면 Microsoft 파트너 네트워크 계정으로 [파트너 센터에](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 로그인합니다. 이러한 계정을 연결하면 회사 직원이 회사 계정 사용자 이름과 암호를 통해 파트너 센터에 로그인할 수 있습니다.
 
 >[!NOTE]
 >회사에 이미 파트너 센터 회사 계정이 있는지 여부, 새 회사 계정을 만드는 방법 또는 파트너 센터에서 사용할 여러 회사 계정을 설정하는 방법을 확인하려면 [회사 회사 계정 및 파트너 센터를](./company-work-accounts.md)방문하십시오.
@@ -130,7 +130,7 @@ Microsoft 파트너 센터에 이미 등록되어 있는 경우 이 섹션을 �
 >
 >개별 계정은 자체적으로 작업하는 단일 개발자를 위한 계정입니다. 회사 계정은 조직 및 기업을 위한 계정입니다. 회사 계정을 사용하면 추가 기능이 있는 앱을 제출할 수 있습니다. 회사에 대한 계정을 설정할 권한이 있는지 확인하려면 등록 후 회사 계정에 대한 더 많은 확인이 필요합니다. 이 확인은 며칠에서 몇 주까지 걸릴 수 있으며 회사에 전화하는 경우가 많습니다. 두 유형의 계정을 모두 사용하면 앱, 추가 기능 및 서비스를 제출할 수 있습니다. 자세한 내용은 [계정 유형, 위치 및 수수료를](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees)참조하십시오.
 
-Microsoft 파트너 센터 계정으로 [파트너 센터에](https://partner.microsoft.com/) 로그인하여 동일한 계정으로 상용 마켓플레이스 프로그램에 등록합니다. 동일한 계정을 사용하여 상업용 마켓플레이스에 가입하면 파트너 센터의 왼쪽 탐색 메뉴에서 기존 프로그램 등록및 상업용 마켓플레이스를 모두 볼 수 있습니다.
+Microsoft 파트너 센터 계정으로 [파트너 센터에](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 로그인하여 동일한 계정으로 상용 마켓플레이스 프로그램에 등록합니다. 동일한 계정을 사용하여 상업용 마켓플레이스에 가입하면 파트너 센터의 왼쪽 탐색 메뉴에서 기존 프로그램 등록및 상업용 마켓플레이스를 모두 볼 수 있습니다.
 
 로그인한 후 다음 단계를 사용하여 계정 설정을 완료합니다.
 

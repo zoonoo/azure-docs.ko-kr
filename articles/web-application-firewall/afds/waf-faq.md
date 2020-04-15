@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2019
 ms.author: victorh
-ms.openlocfilehash: c40210f3a6f0fb10be1f20deef87b2acfa076a4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fefbb038cec0c061f1fd191a77164880372555a0
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460639"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314315"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Azure 정문 서비스에서 Azure 웹 응용 프로그램 방화벽에 대해 자주 묻는 질문
 
@@ -31,7 +31,7 @@ Azure Front Door는 확장성이 뛰어나고 전 세계적으로 분산된 응�
 
 ## <a name="does-azure-waf-support-https"></a>Azure WAF가 HTTPS를 지원합니까?
 
-프론트 도어는 SSL 오프로딩을 제공합니다. WAF는 기본적으로 프론트 도어와 통합되어 있으며 해독 된 후 요청을 검사 할 수 있습니다.
+프론트 도어는 TLS 오프로딩을 제공합니다. WAF는 기본적으로 프론트 도어와 통합되어 있으며 해독 된 후 요청을 검사 할 수 있습니다.
 
 ## <a name="does-azure-waf-support-ipv6"></a>Azure WAF가 IPv6를 지원합니까?
 

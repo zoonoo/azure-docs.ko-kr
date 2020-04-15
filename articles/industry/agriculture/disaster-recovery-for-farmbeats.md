@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
 ms.author: v-umha
-ms.openlocfilehash: fbda28ce588aad5f6bc0d89de60069c4220fa523
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: d64735e683ba1133e7d381a68611d204c4068026
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266176"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313104"
 ---
 # <a name="disaster-recovery-for-farmbeats"></a>FarmBeats에 대한 재해 복구
 
@@ -34,7 +34,7 @@ FarmBeats는 **Azure 저장소,** 코스모스 DB 및 타임 시리즈 **인사�
 
 ## <a name="restore-service-from-online-backup"></a>온라인 백업에서 서비스 복원
 
-장애 조치(failover)를 시작하고 저장된 데이터를 복구할 수 있으며, 이 데이터는 위에서 언급한 각 FarmBeats 배포에 대해 저장됩니다. Azure 저장소 및 Cosmos DB에 대한 데이터를 복구한 후 Azure 쌍을 이루는 리전에서 다른 FarmBeats 배포를 만든 다음 다음 단계를 사용하여 복원된 데이터 저장소(예: Azure Storage 및 Cosmos DB)의 데이터를 사용하도록 새 배포를 구성합니다.
+Failover를 시작하고 FarmBeats 배포에 대해 위에서 언급한 각 데이터가 저장되는 데이터를 복구할 수 있습니다. Azure 저장소 및 Cosmos DB에 대한 데이터를 복구한 후 Azure 쌍을 이루는 리전에서 다른 FarmBeats 배포를 만든 다음 다음 단계를 사용하여 복원된 데이터 저장소(예: Azure Storage 및 Cosmos DB)의 데이터를 사용하도록 새 배포를 구성합니다.
 
 1. [Cosmos DB 구성](#configure-cosmos-db)
 2. [저장소 계정 구성](#configure-storage-account)
@@ -45,18 +45,18 @@ FarmBeats는 **Azure 저장소,** 코스모스 DB 및 타임 시리즈 **인사�
 복원된 코스모스 DB의 액세스 키를 복사하고 새로운 FarmBeats Datahub 키 볼트를 업데이트합니다.
 
 
-  ![재해 복구](./media/disaster-recovery-for-farmbeats/keyvault-secrets.png)
+  ![재해 복구](./media/disaster-recovery-for-farmbeats/key-vault-secrets.png)
 
 > [!NOTE]
 > 복원된 코스모스 DB의 URL을 복사하여 새 FarmBeats Datahub 앱 서비스 구성에서 업데이트합니다. 이제 새 FarmBeats 배포에서 코스모스 DB 계정을 삭제할 수 있습니다.
 
-  ![재해 복구](./media/disaster-recovery-for-farmbeats/northeu-ehub-api-configuration.png)
+  ![재해 복구](./media/disaster-recovery-for-farmbeats/configuration.png)
 
 ### <a name="configure-storage-account"></a>저장소 계정 구성
 
 복원된 저장소 계정의 액세스 키를 복사하고 새 FarmBeats Datahub 키 자격 증명 모음에서 업데이트합니다.
 
-![재해 복구](./media/disaster-recovery-for-farmbeats/keyvault-7udqm-secrets.png)
+![재해 복구](./media/disaster-recovery-for-farmbeats/key-vault-7-secrets.png)
 
 >[!NOTE]
 > 새 FarmBeats 일괄 처리 VM 구성 파일에서 저장소 계정 이름을 업데이트해야 합니다.

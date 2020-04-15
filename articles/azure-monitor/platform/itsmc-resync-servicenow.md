@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 9d32b66b7e3ab27012ee671ba8d70735dce73884
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: f09f5010c18f5ea064b02f0fbbae107bf473e1f8
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/14/2020
-ms.locfileid: "81274277"
+ms.locfileid: "81313678"
 ---
 # <a name="how-to-manually-fix-servicenow-sync-problems"></a>수동으로 서비스 지금 동기화 문제를 해결하는 방법
 
-Azure Monitor는 타사 IT 서비스 관리(ITSM) 공급자에 연결할 수 있습니다. ServiceNow는 이러한 공급자 중 하나입니다. 
+Azure Monitor는 타사 IT 서비스 관리(ITSM) 공급자에 연결할 수 있습니다. ServiceNow는 이러한 공급자 중 하나입니다.
 
 보안상의 이유로 ServiceNow와의 연결에 사용되는 인증 토큰을 새로 고쳐야 할 수 있습니다.
-다음 동기화 프로세스를 사용하여 연결을 다시 활성화하고 토큰을 새로 고칩니다. 
+다음 동기화 프로세스를 사용하여 연결을 다시 활성화하고 토큰을 새로 고칩니다.
 
 
 1. 상단 검색 배너에서 솔루션을 검색한 다음 관련 솔루션을 선택합니다.

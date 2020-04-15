@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/14/2020
 ms.author: aahi
-ms.openlocfilehash: 4d597b872cf31a823f314d9f3c67c9f45201c542
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 17582244aef173da6ac700c980f7bd7fb0fec307
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258476"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383092"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>음성 서비스 컨테이너 자주 묻는 질문(FAQ)
 
@@ -379,7 +379,7 @@ https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d
 <b>15초 길이의 오디오를 &lt;처리하기 위해 비배치 API를 얻으려면 어떻게 해야 합니까?</b>
 </summary>
 
-**답변:** 이것은 대화형 모드입니다. 문제가 되지 않는 받아쓰기 나 대화를 사용하는 경우.
+**답변:** `RecognizeOnce()` 대화형 모드에서는 발언이 짧을 것으로 예상되는 음성 명령 모드를 위한 모드이기 때문에 최대 15초의 오디오만 처리합니다. 받아쓰기 `StartContinuousRecognition()` 나 대화에 사용하는 경우 15 초 제한이 없습니다.
 
 
 <br>

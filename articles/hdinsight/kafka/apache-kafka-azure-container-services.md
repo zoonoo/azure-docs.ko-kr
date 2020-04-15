@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 6abb4f632535f1bda7e9f337f111ba372a624f2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55373f71c78b6d45b9c78c52dea61a37b89b4a00
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239609"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383053"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka에서 Azure Kubernetes Service 사용
 
@@ -163,7 +163,7 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
     * `var topic = 'mytopic'`: `mytopic`을 이 애플리케이션에 사용되는 Kafka 항목의 이름으로 바꿉니다.
     * `var brokerHost = '176.16.0.13:9092`: `176.16.0.13`을 클러스터의 broker 호스트 중 하나의 내부 IP 주소와 바꿉니다.
 
-        클러스터에서 broker 호스트(작업자 노드)의 내부 IP 주소를 찾으려면 [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes) 문서를 참조하세요. 도메인 이름이 `wn`으로 시작하는 항목 중 하나의 IP 주소를 선택합니다.
+        클러스터에서 broker 호스트(작업자 노드)의 내부 IP 주소를 찾으려면 [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-internal-ip-address-of-cluster-nodes) 문서를 참조하세요. 도메인 이름이 `wn`으로 시작하는 항목 중 하나의 IP 주소를 선택합니다.
 
 4. `src` 디렉터리의 명령줄에서 종속성을 설치하고 Docker를 사용하여 배포용 이미지를 빌드합니다.
 

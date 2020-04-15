@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cfec30e56b0fd523896cbc1a7e84e92f639075a8
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 15a4c9b16b102310fd02f8db3a4fb93cff84882b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879057"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314062"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>윈도우 가상 데스크톱에 마이크로 소프트 팀 사용
 
@@ -67,3 +67,7 @@ Windows 가상 데스크톱 환경에서 최적화되지 않은 Microsoft 팀을
 
       > [!NOTE]
       > MSI가 ALLUSER=1을 설정한 팀을 설치하면 자동 업데이트가 비활성화됩니다. 한 달에 한 번 이상 팀을 업데이트하는 것이 좋습니다.
+      
+### <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>호스트 풀에 대한 원격 데스크톱 프로토콜 속성 사용자 지정
+멀티 모니터 환경과 같은 호스트 풀의 RDP(원격 데스크톱 프로토콜) 속성을 사용자 지정하여 마이크 및 오디오 리디렉션을 활성화하면 사용자의 필요에 따라 최적의 환경을 제공할 수 있습니다. **설정 RdsHostPool** cmdlet의 **-CustomRdpProperty** 매개 변수를 사용하여 Windows 가상 데스크톱에서 RDP 속성을 사용자 지정할 수 있습니다.
+지원되는 속성 및 해당 기본값의 전체 목록은 [지원되는 RDP 파일 설정을](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) 참조하십시오.

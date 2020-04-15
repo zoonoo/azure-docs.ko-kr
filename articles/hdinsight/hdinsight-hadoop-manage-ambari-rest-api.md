@@ -1,19 +1,19 @@
 ---
 title: Ambari REST API를 사용하여 Hadoop 모니터링 및 관리 - Azure HDInsight
-description: Ambari를 사용하여 Azure HDInsight에서 Hadoop 클러스터를 모니터링하고 관리하는 방법에 대해 알아봅니다. 이 문서에서는 HDInsight 클러스터에 포함된 Ambari REST API를 사용하는 방법을 배웁니다.
+description: Ambari를 사용하여 Azure HDInsight에서 Hadoop 클러스터를 모니터링하고 관리하는 방법에 대해 알아봅니다. 이 문서에서는 HDInsight 클러스터에 포함된 Ambari REST API를 사용하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/07/2019
-ms.openlocfilehash: 1d684957939c5cb83aae05962c1694f7a8d8da23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/14/2020
+ms.openlocfilehash: 317d12f6d5dee92d998266d4e9b6d52e6ef9c7a5
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272397"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381392"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Apache Ambari REST API를 사용하여 HDInsight 클러스터 관리
 
@@ -21,21 +21,21 @@ ms.locfileid: "79272397"
 
 Apache Ambari REST API를 사용하여 Azure HDInsight에서 Apache Hadoop 클러스터를 관리하고 모니터링하는 방법에 대해 알아봅니다.
 
-## <a name="what-is-apache-ambari"></a><a id="whatis"></a>아파치 암바리란?
+## <a name="what-is-apache-ambari"></a>아파치 암바리란?
 
 [아파치 암바리는](https://ambari.apache.org) [REST API를](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)통해 사용이 간편한 웹 UI를 제공하여 하둡 클러스터의 관리 및 모니터링을 간소화합니다.  Ambari는 Linux 기반 HDInsight 클러스터를 기본으로 제공합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* **HDInsight에 하두프 클러스터**. [리눅스에서 HDInsight로 시작하기를](hadoop/apache-hadoop-linux-tutorial-get-started.md)참조하십시오.
+* HDInsight의 하두프 클러스터. [리눅스에서 HDInsight로 시작하기를](hadoop/apache-hadoop-linux-tutorial-get-started.md)참조하십시오.
 
-* **윈도우 10에 우분투에 강타**.  이 문서의 예제에서는 Windows 10의 Bash 셸을 사용합니다. [Windows 10을 위한 Linux용 Windows 하위 시스템 설치 가이드](https://docs.microsoft.com/windows/wsl/install-win10)에서 설치 단계를 참조하세요.  다른 [Unix 셸](https://www.gnu.org/software/bash/)도 작동합니다.  몇 가지 약간의 수정이 있는 예제는 Windows 명령 프롬프트에서 작동할 수 있습니다.  또는 Windows PowerShell을 사용할 수 있습니다.
+* 윈도우 에 우분투에 강타 10.  이 문서의 예제에서는 Windows 10의 Bash 셸을 사용합니다. [Windows 10을 위한 Linux용 Windows 하위 시스템 설치 가이드](https://docs.microsoft.com/windows/wsl/install-win10)에서 설치 단계를 참조하세요.  다른 [Unix 셸](https://www.gnu.org/software/bash/)도 작동합니다.  몇 가지 약간의 수정이 있는 예제는 Windows 명령 프롬프트에서 작동할 수 있습니다.  또는 Windows PowerShell을 사용할 수 있습니다.
 
-* **jq,** 명령줄 JSON 프로세서.  을 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)참조하십시오.
+* 간단한 jq 명령줄 JSON 프로세서.  을 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)참조하십시오.
 
-* **윈도우 파워 쉘**.  또는 [Bash](https://www.gnu.org/software/bash/).
+* Windows PowerShell.  또는 [Bash](https://www.gnu.org/software/bash/).
 
-## <a name="base-uri-for-ambari-rest-api"></a>Ambari REST API의 기본 URI
+## <a name="base-uniform-resource-identifier-for-ambari-rest-api"></a>Ambari 나머지 API에 대 한 기본 균일 한 리소스 식별자
 
  HDInsight의 Ambari REST API의 기본 균일 리소스 식별자(URI)는 클러스터 이름이 있는 `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` `CLUSTERNAME` 위치입니다.  URI의 클러스터 이름은 **대/소문자를 구분합니다.**  URI(URI)의`CLUSTERNAME.azurehdinsight.net`정규화된 도메인 이름(FQDN) 부분의 클러스터 이름은 대/소문자를 구분하지 않지만 URI의 다른 발생은 대/소문자를 구분합니다.
 
@@ -48,6 +48,7 @@ HTTPS를 요구하는 HDInsight에서 Ambari로 연결 클러스터 만들기 �
 ## <a name="examples"></a>예
 
 ### <a name="setup-preserve-credentials"></a>설정(자격 증명 보존)
+
 자격 증명을 보존하여 각 예제에 대해 자격 증명을 다시 입력하지 않도록 합니다.  클러스터 이름은 별도의 단계로 유지됩니다.
 
 **A. 배쉬**  
@@ -64,7 +65,8 @@ $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 ```
 
 ### <a name="identify-correctly-cased-cluster-name"></a>올바르게 대/소문자 클러스터 이름 식별
-클러스터 생성 방법에 따라 클러스터 이름의 실제 대/소문자가 예상과 다를 수 있습니다.  여기에 있는 단계는 실제 대/소문자와 함께 다음 모든 후속 예제에 대 한 변수에 저장 됩니다.
+
+클러스터 이름의 실제 대/소문자는 예상과 다를 수 있습니다.  여기에 있는 단계는 실제 대/소문자와 함께 다음 모든 이후 예제에 대 한 변수에 저장 됩니다.
 
 클러스터 이름으로 바꾸려면 `CLUSTERNAME` 아래 스크립트를 편집합니다. 그런 다음 명령을 입력합니다. (FQDN의 클러스터 이름은 대/소문자를 구분하지 않습니다.)
 
@@ -99,9 +101,9 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.Clusters.health_report
 ```
 
-### <a name="get-the-fqdn-of-cluster-nodes"></a><a name="example-get-the-fqdn-of-cluster-nodes"></a>클러스터 노드의 FQDN 받기
+### <a name="get-the-fqdn-of-cluster-nodes"></a>클러스터 노드의 FQDN 가져오기
 
-HDInsight에서 작업할 때 클러스터 노드의 정규화된 도메인 이름(FQDN)에 대해 알아야 할 수도 있습니다. 다음 예제를 사용하여 클러스터의 다양한 노드에 대한 FQDN을 쉽게 검색할 수 있습니다.
+클러스터 노드의 정규화된 도메인 이름(FQDN)을 알아야 할 수 있습니다. 다음 예제를 사용하여 클러스터의 다양한 노드에 대한 FQDN을 쉽게 검색할 수 있습니다.
 
 **모든 노드**  
 
@@ -159,13 +161,13 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.host_components.HostRoles.host_name
 ```
 
-### <a name="get-the-internal-ip-address-of-cluster-nodes"></a><a name="example-get-the-internal-ip-address-of-cluster-nodes"></a>클러스터 노드의 내부 IP 주소 받기
+### <a name="get-the-internal-ip-address-of-cluster-nodes"></a>클러스터 노드의 내부 IP 주소 가져오기
 
-이 섹션의 예제에서 반환된 IP 주소는 인터넷을 통해 직접 액세스할 수 없습니다. HDInsight 클러스터를 포함하는 Azure Virtual Network 내에서만 액세스할 수 있습니다.
+이 섹션의 예제에서 반환되는 IP 주소는 인터넷을 통해 직접 액세스할 수 없습니다. HDInsight 클러스터가 포함된 Azure 가상 네트워크 내에서만 액세스할 수 있습니다.
 
 HDInsight 및 가상 네트워크 작업에 대한 자세한 내용은 [HDInsight용 가상 네트워크 계획을](hdinsight-plan-virtual-network-deployment.md)참조하십시오.
 
-IP 주소를 찾으려면 클러스터 노드의 내부 FQDN(정규화된 도메인 이름)을 알아야 합니다. FQDN을 알고 있으므로 호스트의 IP 주소를 얻을 수 있습니다. 다음 예제에서는 먼저 Ambari를 쿼리하여 모든 호스트 노드의 FQDN을 알아낸 다음 다시 Ambari를 쿼리하여 각 호스트의 IP 주소를 알아냅니다.
+IP 주소를 찾으려면 클러스터 노드의 내부 FQDN(정규화된 도메인 이름)을 알아야 합니다. FQDN을 알고 있으므로 호스트의 IP 주소를 얻을 수 있습니다. 다음 예제는 모든 호스트 노드의 FQDN에 대한 Ambari를 먼저 쿼리합니다. 그런 다음 각 호스트의 IP 주소에 대해 Ambari를 쿼리합니다.
 
 ```bash
 for HOSTNAME in $(curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/hosts" | jq -r '.items[].Hosts.host_name')
@@ -183,7 +185,7 @@ foreach($item in $respObj.items) {
     $hostName = [string]$item.Hosts.host_name
     $hostInfoResp = Invoke-WebRequest -Uri "$uri/$hostName" `
         -Credential $creds -UseBasicParsing
-    $hostInfoObj = ConvertFrom-Json $hostInfoResp 
+    $hostInfoObj = ConvertFrom-Json $hostInfoResp
     $hostIp = $hostInfoObj.Hosts.ip
     "$hostName <--> $hostIp"
 }
@@ -191,7 +193,7 @@ foreach($item in $respObj.items) {
 
 ### <a name="get-the-default-storage"></a>기본 스토리지 가져오기
 
-HDInsight 클러스터를 만드는 경우 Azure Storage 계정 또는 Data Lake Storage를 클러스터에 대한 기본 스토리지로 사용해야 합니다. 클러스터를 만든 후 Ambari를 사용하여 이 정보를 검색할 수 있습니다. 예를 들어 HDInsight 외부 컨테이너에 데이터를 읽고 쓰려는 경우가 여기에 해당합니다.
+HDInsight 클러스터는 Azure 저장소 계정 또는 데이터 레이크 저장소를 기본 저장소로 사용해야 합니다. 클러스터를 만든 후 Ambari를 사용하여 이 정보를 검색할 수 있습니다. 예를 들어 HDInsight 외부 컨테이너에 데이터를 읽고 쓰려는 경우가 여기에 해당합니다.
 
 다음 예제에서는 클러스터에서 기본 스토리지 구성을 검색합니다.
 
@@ -253,7 +255,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 > [!NOTE]  
 > [Azure PowerShell에서](/powershell/azure/overview) 제공하는 [Get-AzHDInsight클러스터](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) cmdlet도 클러스터에 대한 저장소 정보를 반환합니다.
 
-### <a name="get-all-configurations"></a><a name="get-all-configurations"></a>모든 구성 받기
+### <a name="get-all-configurations"></a>모든 구성 받기
 
 클러스터에 사용할 수 있는 구성을 가져옵니다.
 
@@ -267,7 +269,7 @@ $respObj = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v
 $respObj.Content
 ```
 
-이 예제는 클러스터에 설치된 구성 요소에 대한 현재 구성이 포함된 JSON 문서(*tag* 값으로 식별됨)를 반환합니다. 다음 예제는 Spark 클러스터 형식에서 반환된 데이터에서 발췌한 것입니다.
+이 예제는 설치된 구성 요소에 대한 현재 구성을 포함하는 JSON 문서를 반환합니다. *태그* 값을 참조하십시오. 다음 예제는 Spark 클러스터 형식에서 반환된 데이터에서 발췌한 것입니다.
 
 ```json
 "jupyter-site" : {
@@ -305,10 +307,11 @@ $resp.Content
 1. `newconfig.json`를 만듭니다.  
    수정한 다음 아래 명령을 입력합니다.
 
-   * 원하는 `livy2-conf` 구성 요소로 바꿉을 참조하십시오.
+   * 새 `livy2-conf` 구성 요소로 바꿉습니다.
    * 모든 `INITIAL` 구성 `tag` 받기에서 검색된 실제 [값으로 바꿉꿉입니다.](#get-all-configurations)
 
-     **A. 배쉬**  
+     **A. 배쉬**
+
      ```bash
      curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL" \
      | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
@@ -326,11 +329,11 @@ $resp.Content
      $resp.Content | C:\HD\jq\jq-win64 --arg newtag "version$unixTimeStamp" '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
      ```
 
-     Jq는 HDInsight에서 검색한 데이터를 새 구성 템플릿으로 반환하는 데 사용됩니다. 특히, 이러한 예제에서는 다음 작업을 수행합니다.
+     Jq는 HDInsight에서 검색한 데이터를 새 구성 템플릿으로 반환하는 데 사용됩니다. 특히 이러한 예제에서는 다음과 같은 작업을 수행합니다.
 
    * 문자열 "version" 및 날짜를 포함하는 고유 값을 만듭니다. 이 값은 `newtag`에 저장됩니다.
 
-   * 필요한 새 구성의 루트 문서를 만듭니다.
+   * 새 구성에 대한 루트 문서를 만듭니다.
 
    * `.items[]` 배열의 내용을 가져와서 **desired_config** 요소에 추가합니다.
 
@@ -363,7 +366,7 @@ $resp.Content
 
         "livy.server.csrf_protection.enabled": "false",
 
-    수정을 완료했으면 파일을 저장합니다.
+    수정작업이 완료되면 파일을 저장합니다.
 
 3. 을 `newconfig.json`제출합니다.  
    다음 명령을 사용하여 업데이트된 구성을 Ambari에 제출합니다.
@@ -382,11 +385,11 @@ $resp.Content
     $resp.Content
     ```  
 
-    이러한 명령은 **newconfig.json** 파일의 내용을 새 구성으로 클러스터에 제출합니다. 이 요청은 JSON 문서를 반환합니다. 이 문서의 **versionTag** 요소는 제출한 버전과 일치해야 하며, **configs** 개체에는 요청한 구성 변경 내용이 포함됩니다.
+    이러한 명령은 new 구성으로 클러스터에 **newconfig.json** 파일의 내용을 제출합니다. 이 요청은 JSON 문서를 반환합니다. 이 문서의 **versionTag** 요소는 제출한 버전과 일치해야 하며, **configs** 개체에는 요청한 구성 변경 내용이 포함됩니다.
 
 ### <a name="restart-a-service-component"></a>서비스 구성 요소 다시 시작
 
-이제 새 구성을 적용하려면 먼저 Spark 서비스를 다시 시작해야 한다는 메시지가 Ambari 웹 UI에 표시됩니다. 다음 단계를 사용하여 서비스를 다시 시작합니다.
+이 시점에서 Ambari 웹 UI는 새 구성을 적용하기 전에 Spark 서비스를 다시 시작해야 한다는 것을 나타냅니다. 다음 단계를 사용하여 서비스를 다시 시작합니다.
 
 1. Spark2 서비스에 대한 유지 관리 모드를 활성화하려면 다음을 사용합니다.
 

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: 554a4c64700bb189b4b9f085bd7c259312a36b4b
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: c718b9a66b378044618c8c52eec3a1a498ace83c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80410945"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383197"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드
 
@@ -39,6 +39,9 @@ Azure Automation 상태 구성을 다양한 머신의 관리에 사용할 수 �
 > 설치된 Azure VM 원하는 상태 구성 확장 버전이 2.70보다 큰 경우 Azure 자동화 상태 구성을 통해 Azure VM을 관리하는 것은 추가 비용 없이 포함됩니다. 자세한 내용은 [**자동화 가격 책정 페이지를**](https://azure.microsoft.com/pricing/details/automation/)참조하십시오.
 
 이 문서의 다음 섹션에서는 위에 나열된 컴퓨터를 Azure 자동화 상태 구성에 온보온하는 방법을 설명합니다.
+
+>[!NOTE]
+>이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. 하이브리드 Runbook 작업자의 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치를](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)참조하십시오. 자동화 계정의 경우 Azure 자동화 에서 [Azure PowerShell 모듈을 업데이트하는 방법을](automation-update-azure-modules.md)사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
 
 ## <a name="onboarding-azure-vms"></a>Azure VM 온보딩
 
@@ -280,15 +283,15 @@ PowerShell의 [레지스터-AzAutomationDscNode](/powershell/module/az.automatio
 PowerShell DSC LCM 기본값이 사용 사례와 일치하고 컴퓨터를 온보딩하여 Azure 자동화 상태 구성으로 가져오고 보고하려는 경우 Azure 자동화 cmdlet을 사용하여 필요한 DSC 메타구성을 더 간단하게 생성할 수 있습니다.
 
 1. 로컬 환경에서 컴퓨터에서 관리자로 PowerShell 콘솔 또는 VSCode를 엽니다.
-2. `Connect-AzAccount`를 사용하여 Azure Resource Manager에 연결
+2. [Connect-AzAccount](https://docs.microsoft.com/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0)를 사용하여 Azure 리소스 관리자에 연결합니다.
 3. 노드를 설정하는 자동화 계정에서 온보딩하려는 컴퓨터에 대한 PowerShell DSC 메타구성을 다운로드합니다.
 
    ```powershell
    # Define the parameters for Get-AzAutomationDscOnboardingMetaconfig using PowerShell Splatting
    $Params = @{
-       ResourceGroupName = 'ContosoResources'; # The name of the Resource Group that contains your Azure Automation Account
-       AutomationAccountName = 'ContosoAutomation'; # The name of the Azure Automation Account where you want a node on-boarded to
-       ComputerName = @('web01', 'web02', 'sql01'); # The names of the computers that the meta configuration will be generated for
+       ResourceGroupName = 'ContosoResources'; # The name of the Resource Group that contains your Azure Automation account
+       AutomationAccountName = 'ContosoAutomation'; # The name of the Azure Automation account where you want a node on-boarded to
+       ComputerName = @('web01', 'web02', 'sql01'); # The names of the computers that the metaconfiguration will be generated for
        OutputFolder = "$env:UserProfile\Desktop\";
    }
    # Use PowerShell splatting to pass parameters to the Azure Automation cmdlet being invoked
@@ -296,7 +299,7 @@ PowerShell DSC LCM 기본값이 사용 사례와 일치하고 컴퓨터를 온�
    Get-AzAutomationDscOnboardingMetaconfig @Params
    ```
 
-1. 이제 컴퓨터가 온보딩할 수 있는 PowerShell DSC 메타구성을 포함하는 **DscMetaConfigs라는**폴더가 있어야 합니다.
+1. 이제 관리자로 온보딩할 컴퓨터에 대한 PowerShell DSC 메타구성이 포함된 **DscMetaConfigs** 폴더가 있어야 합니다.
 
     ```powershell
     Set-DscLocalConfigurationManager -Path $env:UserProfile\Desktop\DscMetaConfigs
@@ -325,7 +328,7 @@ Azure 자동화 상태 구성에서 컴퓨터를 DSC 노드로 등록한 후 나
 
 - **DSC LCM 값을 변경합니다.** 예를 들어 노드를 처음 등록하는 동안 설정된 [PowerShell DSC LCM 값을](/powershell/scripting/dsc/managing-nodes/metaConfig4) 변경해야 할 수 `ConfigurationMode`있습니다. 현재는 재등록을 통해서만 이러한 DSC 에이전트 값을 변경할 수 있습니다. 한 가지 예외는 노드에 할당된 노드 구성 값입니다. Azure 자동화 DSC에서 직접 변경할 수 있습니다.
 
-이 문서에 설명된 온보딩 방법을 사용하여 노드를 처음 등록한 것과 동일한 방식으로 노드를 다시 등록할 수 있습니다. 노드를 다시 등록하기 전에 Azure 자동화 상태 구성에서 노드를 등록 취소할 필요가 없습니다.
+이 문서에 설명된 온보딩 방법을 사용하여 노드를 처음 등록한 것처럼 노드를 다시 등록할 수 있습니다. 노드를 다시 등록하기 전에 Azure 자동화 상태 구성에서 노드를 등록 취소할 필요가 없습니다.
 
 ## <a name="troubleshooting-azure-virtual-machine-onboarding"></a>Azure 가상 머신 온보드 문제 해결
 
@@ -347,6 +350,7 @@ Azure VM 원하는 상태 구성 확장의 상태를 해결하거나 보려면 �
 
 - 시작하려면 Azure [자동화 상태 구성을 시작하십시오.](automation-dsc-getting-started.md)
 - 대상 노드에 할당할 수 있도록 DSC 구성을 컴파일하는 방법에 대해 알아보려면 [Azure 자동화 상태 구성의 구성 컴파일을](automation-dsc-compile.md)참조하십시오.
-- PowerShell cmdlet 참조에 대 한 [Azure 자동화 상태 구성 cmdlet](/powershell/module/az.automation#automation)을 참조 하십시오.
+- PowerShell cmdlet 참조는 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+)을 참조하십시오.
 - 가격 정보는 [Azure 자동화 상태 구성 가격 책정을](https://azure.microsoft.com/pricing/details/automation/)참조하십시오.
 - 연속 배포 파이프라인에서 Azure 자동화 상태 구성을 사용하는 예는 [사용 예제: Azure 자동화 상태 구성 및 초콜릿을 사용하여 가상 시스템에 대한 지속적인 배포를](automation-dsc-cd-chocolatey.md)참조하십시오.

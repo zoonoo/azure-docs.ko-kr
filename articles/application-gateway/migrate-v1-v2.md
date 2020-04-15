@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 96f3825288846e86771ef3907eb4da4e58630df3
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 2a6165cf2739482805d712ddffb5c6a9f5ebabf8
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475184"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312043"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Azure 응용 프로그램 게이트웨이 및 웹 응용 프로그램 방화벽을 v1에서 v2로 마이그레이션
 
@@ -36,7 +36,7 @@ Azure PowerShell 스크립트는 다음을 수행하는 데 사용할 수 있습
 
 * 새 v2 게이트웨이에는 새 공용 및 개인 IP 주소가 있습니다. 기존 v1 게이트웨이와 연결된 IP 주소를 v2로 원활하게 이동할 수 없습니다. 그러나 기존(할당되지 않은) 공용 또는 개인 IP 주소를 새 v2 게이트웨이에 할당할 수 있습니다.
 * v1 게이트웨이가 있는 가상 네트워크 내의 다른 서브넷에 대한 IP 주소 공간을 제공해야 합니다. 스크립트는 이미 v1 게이트웨이가 있는 기존 서브넷에서 v2 게이트웨이를 만들 수 없습니다. 그러나 기존 서브넷에 이미 v2 게이트웨이가 있는 경우 IP 주소 공간이 충분하면 여전히 작동할 수 있습니다.
-* SSL 구성을 마이그레이션하려면 v1 게이트웨이에 사용되는 모든 SSL 인증서를 지정해야 합니다.
+* TLS/SSL 구성을 마이그레이션하려면 v1 게이트웨이에 사용되는 모든 TLS/SSL 인증서를 지정해야 합니다.
 * V1 게이트웨이에 대해 FIPS 모드를 사용하도록 설정한 경우 새 v2 게이트웨이로 마이그레이션되지 않습니다. FIPS 모드는 v2에서 지원되지 않습니다.
 * v2는 IPv6를 지원하지 않으므로 IPv6 사용 가능한 v1 게이트웨이는 마이그레이션되지 않습니다. 스크립트를 실행하면 완료되지 않을 수 있습니다.
 * v1 게이트웨이에 개인 IP 주소만 있는 경우 스크립트는 새 v2 게이트웨이에 대한 공용 IP 주소와 개인 IP 주소를 만듭니다. v2 게이트웨이는 현재 개인 IP 주소만 지원하지 않습니다.
@@ -101,7 +101,7 @@ Azure Az 모듈이 설치되어 있는지 확인하려면 을 실행합니다. `
 
    * **subnetAddressRange: [문자열]: 필수** - 새 v2 게이트웨이가 포함된 새 서브넷에 할당(또는 할당하려는 IP 주소 공간)입니다. CIDR 표기법의 명시를 지정해야 합니다. 예: 10.0.0.0/24. 이 서브넷을 미리 만들 필요는 없습니다. 스크립트가 존재하지 않는 경우 스크립트를 만듭니다.
    * **appgwName: [문자열]: 선택 사항**. 새 Standard_v2 또는 WAF_v2 게이트웨이의 이름으로 사용하도록 지정한 문자열입니다. 이 매개 변수가 제공되지 않으면 기존 v1 게이트웨이의 이름이 추가된 접미사 *_v2* 함께 사용됩니다.
-   * **ssl인증서: [PSApplication게이트웨이Ssl인증서]: 선택 사항**.  v1 게이트웨이에서 SSL 인증서를 나타내기 위해 만든 PSApplicationGatewaySslCertificate 개체의 쉼표로 구분된 목록은 새 v2 게이트웨이에 업로드해야 합니다. 표준 v1 또는 WAF v1 게이트웨이에 대해 구성된 각 SSL 인증서에 대해 여기에 표시된 `New-AzApplicationGatewaySslCertificate` 명령을 통해 새 PSApplicationGatewaySslCertificate 개체를 만들 수 있습니다. SSL 인증서 파일과 암호에 대한 경로가 필요합니다.
+   * **ssl인증서: [PSApplication게이트웨이Ssl인증서]: 선택 사항**.  v1 게이트웨이에서 TLS/SSL 인증서인증서를 나타내기 위해 만든 PSApplicationGatewaySslCertificate 개체의 쉼표로 구분된 목록은 새 v2 게이트웨이에 업로드해야 합니다. 표준 v1 또는 WAF v1 게이트웨이에 대해 구성된 각 TLS/SSL 인증서에 대해 여기에 표시된 `New-AzApplicationGatewaySslCertificate` 명령을 통해 새 PSApplicationGatewaySslCertificate 개체를 만들 수 있습니다. TLS/SSL 인증서 파일과 암호에 대한 경로가 필요합니다.
 
      이 매개 변수는 v1 게이트웨이 또는 WAF에 대해 구성된 HTTPS 수신기가 없는 경우에만 선택 사항입니다. HTTPS 수신기 설정이 하나 이상 있는 경우 이 매개 변수를 지정해야 합니다.
 

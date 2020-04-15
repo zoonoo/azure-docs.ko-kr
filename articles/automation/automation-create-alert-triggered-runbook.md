@@ -5,16 +5,19 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: df28116c588ed77f02c78a42a85feb91ca339e7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d5eb330cd6e5d02432298a5b58e84ae7d24ee7e
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75366703"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383329"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>경고를 사용하여 Azure Automation Runbook 트리거
 
 [Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2ftoc.json)를 사용하여 대부분의 Azure 서비스에 대한 기본 수준의 메트릭과 로그를 모니터링합니다. [작업 그룹](../azure-monitor/platform/action-groups.md?toc=%2fazure%2fautomation%2ftoc.json)을 사용하거나 경고에 따라 작업을 자동화하기 위한 클래식 경고를 통해 Azure Automation Runbook을 호출할 수 있습니다. 이 문서에서는 경고를 사용하여 Runbook을 구성하고 실행하는 방법을 보여 줍니다.
+
+>[!NOTE]
+>이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. 하이브리드 Runbook 작업자의 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치를](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)참조하십시오. 자동화 계정의 경우 Azure 자동화 에서 [Azure PowerShell 모듈을 업데이트하는 방법을](automation-update-azure-modules.md)사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
 
 ## <a name="alert-types"></a>경고 유형
 
@@ -45,14 +48,14 @@ ms.locfileid: "75366703"
 
 이 예제에서는 VM에서 발생한 경고를 사용합니다. 페이로드에서 VM 데이터를 검색한 다음 해당 정보를 사용하여 VM을 중지합니다. Runbook이 실행되는 Automation 계정에서 연결을 설정해야 합니다. 경고를 사용하여 Runbook을 트리거하는 경우 트리거되는 Runbook에서 경고 상태를 확인하는 것이 중요합니다. 경고 상태가 변경될 때마다 Runbook이 트리거됩니다. 경고에는 여러 가지 상태가 있으며, 가장 일반적인 두 가지 상태는 `Activated` 및 `Resolved`입니다. Runbook 논리에서 이 상태를 확인하여 Runbook이 두 번 이상 실행되지 않도록 합니다. 이 문서의 예제에서는 `Activated` 경고만 찾는 방법을 보여 줍니다.
 
-Runbook은 **AzureRunAsConnection** [실행 계정](automation-create-runas-account.md)을 사용하여 VM에 대한 관리 작업을 수행하도록 Azure를 인증합니다.
+Runbook은 `AzureRunAsConnection` [Run As 계정을](automation-create-runas-account.md) 사용하여 Azure를 사용하여 VM에 대한 관리 작업을 수행합니다.
 
 이 예제를 사용하여 Runbook에서 호출한 **Stop-AzureVmInResponsetoVMAlert**을 만듭니다. PowerShell 스크립트를 수정하고 여러 다른 리소스와 함께 사용할 수 있습니다.
 
 1. Azure Automation 계정으로 이동합니다.
 2. **프로세스 자동화** 아래에서 **Runbook**을 선택합니다.
 3. Runbook의 목록 맨 위에서 **+ Runbook 만들기**를 선택합니다.
-4. 실행 **책 추가** 페이지에서 실행 책 이름에 대해 **중지-AzureVmInResponsetoVMAlert를** 입력합니다. Runbook 형식으로 **PowerShell**을 선택합니다. 그런 다음 **만들기**를 선택합니다.  
+4. 실행 **책 추가** 페이지에서 실행 책 이름에 대해 **중지-AzureVmInResponsetoVMAlert를** 입력합니다. Runbook 형식으로 **PowerShell**을 선택합니다. 그런 다음 **을 선택합니다.**  
 5. 다음 PowerShell 예제를 **편집** 페이지에 복사합니다.
 
     ```powershell-interactive
@@ -139,13 +142,13 @@ Runbook은 **AzureRunAsConnection** [실행 계정](automation-create-runas-acco
                     throw "Could not retrieve connection asset: $ConnectionAssetName. Check that this asset exists in the Automation account."
                 }
                 Write-Verbose "Authenticating to Azure with service principal." -Verbose
-                Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
+                Add-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
                 Write-Verbose "Setting subscription to work against: $SubId" -Verbose
-                Set-AzureRmContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
+                Set-AzContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
 
                 # Stop the Resource Manager VM
                 Write-Verbose "Stopping the VM - $ResourceName - in resource group - $ResourceGroupName -" -Verbose
-                Stop-AzureRmVM -Name $ResourceName -ResourceGroupName $ResourceGroupName -Force
+                Stop-AzVM -Name $ResourceName -ResourceGroupName $ResourceGroupName -Force
                 # [OutputType(PSAzureOperationResponse")]
             }
             else {
@@ -175,7 +178,7 @@ Runbook은 **AzureRunAsConnection** [실행 계정](automation-create-runas-acco
 1. **리소스**에서 **선택을** 클릭합니다. 리소스 **선택** 페이지에서 VM을 선택하여 경고를 해제하고 **완료 를 클릭합니다.**
 1. **조건**아래에서 **조건 추가를** 클릭합니다. 사용하려는 신호를 선택합니다(예: **백분율 CPU)를** 선택하고 **완료를 클릭합니다.**
 1. 신호 **논리 구성** 페이지에서 **경고 논리**아래에 **임계값을** 입력하고 **완료를 클릭합니다.**
-1. 작업 그룹에서 **새 만들기를 선택합니다.** **Action groups**
+1. **작업 그룹** 아래에서 **새로 만들기**를 선택합니다.
 1. 작업 **추가 그룹** 페이지에서 작업 그룹에 이름과 짧은 이름을 지정합니다.
 1. 작업에 이름을 지정합니다. 작업 유형에 대해 **자동화 Runbook을 선택합니다.**
 1. **세부 정보 편집**을 선택합니다. **Runbook 구성** 페이지의 **Runbook 원본**에서 **사용자**를 선택합니다.  
@@ -195,3 +198,5 @@ Runbook은 **AzureRunAsConnection** [실행 계정](automation-create-runas-acco
 * Runbook을 시작하는 다양한 방법에 대한 자세한 내용은 [Runbook 시작](automation-starting-a-runbook.md)을 참조하세요.
 * 활동 로그 경고를 만드는 방법을 알아보려면 [활동 로그 경고 만들기를](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)참조하십시오.
 * 근 실시간 경고를 만드는 방법을 보려면 [Azure Portal에서 경고 규칙 만들기](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json)를 참조하세요.
+* PowerShell cmdlet 참조는 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+)을 참조하십시오.

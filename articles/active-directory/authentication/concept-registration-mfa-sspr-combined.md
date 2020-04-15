@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cb5aca128679b21072a2a3daa503dc43a8e2885
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 26656b6dafd91d47c05c2d1f923e53f4ba790cf8
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78942884"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309924"
 ---
 # <a name="combined-security-information-registration-preview"></a>통합 보안 정보 등록(미리 보기)
 
@@ -49,16 +49,16 @@ Azure AD 결합 보안 정보 등록은 현재 Azure 미국 정부, Azure 독일
 
 |   | 등록 | 변경 | DELETE |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | 예(최대 5개) | 예 | yes |
-| 기타 인증자 앱 | 예(최대 5개) | 예 | yes |
-| 하드웨어 토큰 | 예 | 예 | yes |
-| Phone | yes | yes | yes |
-| 대체 전화 | yes | yes | yes |
+| Microsoft Authenticator | 예(최대 5개) | 예 | 예 |
+| 기타 인증자 앱 | 예(최대 5개) | 예 | 예 |
+| 하드웨어 토큰 | 예 | 예 | 예 |
+| Phone | 예 | 예 | 예 |
+| 대체 전화 | 예 | 예 | 예 |
 | 사무실 전화 | 예 | 예 | 예 |
-| Email | yes | yes | yes |
-| 보안 질문 | yes | 예 | yes |
-| 앱 암호 | yes | 예 | yes |
-| FIDO2 보안 키<br />*[보안 정보](https://mysignins.microsoft.com/security-info) 페이지에서만 관리 모드*| yes | yes | yes |
+| Email | 예 | 예 | 예 |
+| 보안 질문 | 예 | 예 | 예 |
+| 앱 암호 | 예 | 예 | 예 |
+| FIDO2 보안 키<br />*[보안 정보](https://mysignins.microsoft.com/security-info) 페이지에서만 관리 모드*| 예 | 예 | 예 |
 
 > [!NOTE]
 > 앱 암호는 다단계 인증을 적용한 사용자만 사용할 수 있습니다. 조건부 액세스 정책을 통해 다단계 인증을 사용하도록 설정된 사용자는 앱 암호를 사용할 수 없습니다.
@@ -96,7 +96,7 @@ Azure AD에 인증 메서드를 계속 추가하면 이러한 메서드를 결�
 
 등록이 적용되면 사용자는 다단계 인증 및 SSPR 정책을 모두 준수하는 데 필요한 최소 방법 수가 가장 안전한 방법부터 가장 안전하지 않은 메서드까지 표시됩니다.
 
-예를 들어:
+다음은 그 예입니다.
 
 - 사용자는 SSPR에 대해 사용할 수 있습니다. SSPR 정책에는 재설정하는 두 가지 방법이 필요하며 모바일 앱 코드, 전자 메일 및 전화를 사용하도록 설정했습니다.
    - 이 사용자는 두 가지 방법을 등록해야 합니다.
@@ -139,7 +139,7 @@ SSPR 정책에서 사용자가 정기적으로 보안 정보를 검토하도록 
 
 ## <a name="next-steps"></a>다음 단계
 
-[사용자가 인증 방법을 다시 등록하도록 강제](howto-mfa-userdevicesettings.md#manage-authentication-methods)
+[사용자가 인증 방법을 다시 등록하도록 강제](howto-mfa-userdevicesettings.md#manage-user-authentication-options)
 
 [테넌트에서 결합된 등록 사용](howto-registration-mfa-sspr-combined.md)
 

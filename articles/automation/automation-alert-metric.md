@@ -4,12 +4,12 @@ description: 이 문서에서는 메트릭을 기반으로 Azure Automation Runb
 services: automation
 ms.date: 11/01/2018
 ms.topic: article
-ms.openlocfilehash: 9bd028157b33817898ef69f9e47cb8b5d9b8f381
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f288029bb35fe4e3c71db37a1de265edbcd913b1
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75367096"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310549"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>메트릭 경고로 Runbook 모니터링
 
@@ -23,7 +23,7 @@ https://portal.azure.com 에서 Azure에 로그인
 
 경고를 사용하면 모니터링할 조건 및 조건이 충족될 때 수행할 작업을 정의할 수 있습니다.
 
-Azure Portal에서 Automation 계정으로 이동합니다. **모니터링**에서 **경고**를 선택하고 **+ 새 경고 규칙**을 클릭합니다. 대상의 범위는 이미 사용자의 Automation 계정에 정의되어 있습니다.
+Azure Portal에서 Automation 계정으로 이동합니다. **모니터링**에서 **경고**를 선택하고 **+ 새 경고 규칙**을 클릭합니다. 대상의 범위는 이미 자동화 계정에 정의되어 있습니다.
 
 ### <a name="configure-alert-criteria"></a>경고 기준 구성
 
@@ -50,7 +50,7 @@ Azure Portal에서 Automation 계정으로 이동합니다. **모니터링**에�
 
 ### <a name="define-the-action-to-take"></a>수행할 작업 정의
 
-1. **3. 작업 그룹 정의,** 클릭 **+ 새 작업 그룹**. 작업 그룹은 하나 이상의 경고에서 사용할 수 있는 작업의 그룹입니다. 여기에는 이메일 알림, Runbook, 웹후크 등이 포함되며 이에 국한되지 않습니다. 작업 그룹에 대해 자세히 알아보려면 [작업 그룹 만들기 및 관리](../azure-monitor/platform/action-groups.md)를 참조하세요.
+1. **3. 작업 그룹 정의,** 클릭 **+ 새 작업 그룹**. 작업 그룹은 하나 이상의 경고에서 사용할 수 있는 작업의 그룹입니다. 여기에는 이메일 알림, Runbook, 웹후크 등이 포함되며 이에 국한되지 않습니다. 작업 그룹에 대해 자세히 알아보려면 [작업 그룹 만들기 및 관리를](../azure-monitor/platform/action-groups.md) 참조하세요.
 
 1. **작업 그룹 이름** 상자에 표시 이름과 약식 이름을 입력합니다. 약식 이름은 이 그룹을 사용하여 알림을 보내는 경우 전체 작업 그룹 이름 대신 사용됩니다.
 
@@ -77,7 +77,7 @@ Azure Portal에서 Automation 계정으로 이동합니다. **모니터링**에�
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 문서를 계속 진행하여 Automation 계정에 경고를 통합하는 다른 방법을 알아보세요.
+다음 문서를 계속 하여 자동화 계정에 경고를 통합할 수 있는 다른 방법에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [경고를 사용하여 Azure Automation Runbook 트리거](automation-create-alert-triggered-runbook.md)

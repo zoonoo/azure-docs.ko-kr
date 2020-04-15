@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Azure 개발자 공간을 활성화하고 사용할 때 일반적인 문제를 해결하고 해결하는 방법을 알아보십시오.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: c12dfd385962d8dd7de8239a0d4ecd46746499c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9fcf14bf42fc843a126fea269038087ee7fb0c6c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239778"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382054"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure 개발자 공간 문제 해결
 
@@ -52,13 +52,13 @@ CLI 또는 Visual Studio에서 컨트롤러를 다시 만들 수 있습니다. �
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>컨트롤러 이름 길이 때문에 컨트롤러 생성 실패
 
-Azure 개발자 공간 컨트롤러의 이름은 31자 보다 길수 없습니다. AKS 클러스터에서 개발자 공백을 활성화하거나 컨트롤러를 만들 때 컨트롤러 이름이 31자를 초과하면 오류가 발생합니다. 예를 들어:
+Azure 개발자 공간 컨트롤러의 이름은 31자 보다 길수 없습니다. AKS 클러스터에서 개발자 공백을 활성화하거나 컨트롤러를 만들 때 컨트롤러 이름이 31자를 초과하면 오류가 발생합니다. 다음은 그 예입니다.
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
 ```
 
-이 문제를 해결하려면 대체 이름으로 컨트롤러를 만듭니다. 예를 들어:
+이 문제를 해결하려면 대체 이름으로 컨트롤러를 만듭니다. 다음은 그 예입니다.
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
@@ -95,7 +95,7 @@ azure-cli                         2.0.60 *
 
 ### <a name="error-unable-to-reach-kube-apiserver"></a>오류 "쿠베 apiserver에 연결할 수 없습니다"
 
-Azure 개발자 공간이 AKS 클러스터의 API 서버에 연결할 수 없는 경우 이 오류가 표시될 수 있습니다. 
+Azure 개발자 공간이 AKS 클러스터의 API 서버에 연결할 수 없는 경우 이 오류가 표시될 수 있습니다.
 
 AKS 클러스터 API 서버에 대한 액세스가 잠겨 있거나 [AKS](../aks/api-server-authorized-ip-ranges.md) 클러스터에 대해 API 서버 권한 부여 IP 주소 범위가 활성화된 경우 지역에 따라 추가 범위를 [허용하도록 클러스터를](https://github.com/Azure/dev-spaces/tree/master/public-ips) [만들거나](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) [업데이트해야](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) 합니다.
 
@@ -162,7 +162,7 @@ Dev Spaces를 통해 빌드하거나 디버깅하려는 서비스가 VM 노드�
 
 Azure 개발자 공간은 프로젝트의 특정 _Dockerfile을_ 가리키도록 구성할 수 있습니다. Azure Dev Spaces가 컨테이너를 빌드하는 데 필요한 _Dockerfile_을 사용하지 않는 것 같으면 Azure Dev Spaces에서 사용할 Dockerfile을 명시적으로 지정해야 할 수 있습니다. 
 
-이 문제를 해결하려면 프로젝트에서 Azure 개발자 공백이 생성한 _azds.yaml_ 파일을 엽니다. 업데이트 *구성: 개발: 빌드: 도커파일을* 사용하여 사용할 Dockerfile을 가리킵니다. 예를 들어:
+이 문제를 해결하려면 프로젝트에서 Azure 개발자 공백이 생성한 _azds.yaml_ 파일을 엽니다. 업데이트 *구성: 개발: 빌드: 도커파일을* 사용하여 사용할 Dockerfile을 가리킵니다. 다음은 그 예입니다.
 
 ```yaml
 ...
@@ -209,7 +209,7 @@ install:
 
 서비스 코드를 시작하지 못하면 이 오류가 발생할 수 있습니다. 사용자 코드에 원인이 있는 경우가 많습니다. 더 많은 진단 정보를 얻으려면 서비스를 시작할 때 더 자세한 로깅을 사용하도록 설정합니다.
 
-명령줄에서 를 `--verbose` 사용하여 보다 자세한 로깅을 활성화합니다. 을 사용하여 `--output`출력 형식을 지정할 수도 있습니다. 예를 들어:
+명령줄에서 를 `--verbose` 사용하여 보다 자세한 로깅을 활성화합니다. 을 사용하여 `--output`출력 형식을 지정할 수도 있습니다. 다음은 그 예입니다.
 
 ```cmd
 azds up --verbose --output json
@@ -271,6 +271,113 @@ Azure 개발자 공간을 사용하여 [AKS 클러스터를 개발 컴퓨터에 
 * *중지*를 클릭합니다.
 * 선택적으로 *시작 유형을* 사용 *안 함으로*설정하여 비활성화할 수 있습니다.
 * *확인*을 클릭합니다.
+
+### <a name="error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state"></a>오류 "Pod:azds/azds-webhook-배포-할당된\<상태의 ID에\> 대해 AzureAssignedId를 찾을 수 없습니다."
+
+[관리되는 ID](../aks/use-managed-identity.md) 및 [포드 관리 ID가](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) 설치된 AKS 클러스터에서 Azure 개발자 공간으로 서비스를 실행하는 경우 *차트 설치* 단계 후에 프로세스가 중단될 수 있습니다. azds 이름 공간에서 *azds-injector-webhook을* 검사하는 경우 이 오류가 표시될 수 있습니다. *azds*
+
+Azure 개발자 공간은 클러스터에서 실행되는 서비스를 클러스터의 관리ID를 활용하여 클러스터 외부의 Azure 개발자 공간 백엔드 서비스와 대화합니다. 포드 관리 ID가 설치되면 클러스터의 노드에 네트워킹 규칙이 구성되어 관리되는 ID 자격 증명에 대한 모든 호출을 [클러스터에 설치된 NMI(노드 관리 ID) DaemonSet으로](https://github.com/Azure/aad-pod-identity#node-managed-identity)리디렉션합니다. 이 NMI DaemonSet 호출 창을 식별 하 고 요청 된 관리 되는 ID에 액세스 하기 위해 포드적절 하 게 레이블이 지정 되었는지 확인 합니다. Azure 개발자 공간은 클러스터에 포드 관리 ID가 설치되어 있는지 검색할 수 없으며 Azure 개발자 공간 서비스가 클러스터의 관리되는 ID에 액세스할 수 있도록 필요한 구성을 수행할 수 없습니다. Azure 개발자 공간 서비스는 클러스터의 관리되는 ID에 액세스하도록 구성되지 않았으므로 NMI DaemonSet은 관리되는 ID에 대한 AAD 토큰을 가져오고 Azure 개발자 공간 백엔드 서비스와 통신하지 못하게 합니다.
+
+이 문제를 해결하려면 *azds-인젝터-웹후크에* 대해 [AzurePodIdentityException을](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md) 적용하고 Azure 개발자 공간에서 계측한 포드를 업데이트하여 관리되는 ID에 액세스합니다.
+
+*webhookException.yaml라는* 파일을 만들고 다음 YAML 정의를 복사합니다.
+
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzurePodIdentityException
+metadata:
+  name: azds-infrastructure-exception
+  namespace: azds
+spec:
+  PodLabels:
+    azds.io/uses-cluster-identity: "true"
+```
+
+위의 파일은 *azds-인젝터-웹후크에*대한 *AzurePodIdentityException* 개체를 만듭니다. 이 개체를 배포하려면 다음을 사용합니다. `kubectl`
+
+```cmd
+kubectl apply -f webhookException.yaml
+```
+
+Azure 개발자 공간에서 계측한 포드를 업데이트하여 관리되는 ID에 액세스하려면 아래 YAML 정의의 *네임스페이스를* 업데이트하고 각 개발 공간에 적용하는 데 사용합니다. `kubectl`
+
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzurePodIdentityException
+metadata:
+  name: azds-infrastructure-exception
+  namespace: myNamespace
+spec:
+  PodLabels:
+    azds.io/instrumented: "true"
+```
+
+또는 *AzureIdentity* 및 *AzureIdentityBinding* 개체를 만들고 Azure 개발자 공간에서 계측된 공간에서 실행되는 워크로드에 대한 포드 레이블을 업데이트하여 AKS 클러스터에서 만든 관리되는 ID에 액세스할 수 있습니다.
+
+관리되는 ID의 세부 정보를 나열하려면 AKS 클러스터에 대해 다음 명령을 실행합니다.
+
+```azurecli
+az aks show -g <resourcegroup> -n <cluster> -o json --query "{clientId: identityProfile.kubeletidentity.clientId, resourceId: identityProfile.kubeletidentity.resourceId}"
+```
+
+위의 명령은 관리되는 ID에 대해 *clientId* 및 *resourceId를* 출력합니다. 다음은 그 예입니다.
+
+```json
+{
+  "clientId": "<clientId>",
+  "resourceId": "/subscriptions/<subid>/resourcegroups/<resourcegroup>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<name>"
+}
+```
+
+*AzureIdentity* 개체를 만들려면 *clusteridentity.yaml라는* 파일을 만들고 이전 명령에서 관리되는 ID의 세부 정보로 업데이트된 다음 YAML 정의를 사용합니다.
+
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzureIdentity
+metadata:
+  name: my-cluster-mi
+spec:
+  type: 0
+  ResourceID: /subscriptions/<subid>/resourcegroups/<resourcegroup>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<name>
+  ClientID: <clientId>
+```
+
+*AzureIdentityBinding* 개체를 만들려면 *clusteridentitybinding.yaml라는* 파일을 만들고 다음 YAML 정의를 사용합니다.
+
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzureIdentityBinding
+metadata:
+  name: my-cluster-mi-binding
+spec:
+  AzureIdentity: my-cluster-mi
+  Selector: my-label-value
+```
+
+*AzureIdentity* 및 *AzureIdentityBinding* 개체를 `kubectl`배포하려면 다음을 사용합니다.
+
+```cmd
+kubectl apply -f clusteridentity.yaml
+kubectl apply -f clusteridentitybinding.yaml
+```
+
+*AzureIdentity* 및 *AzureIdentityBinding* 개체를 배포한 후 *aadpodidbinding: my-label-value* 레이블이 있는 모든 워크로드는 클러스터의 관리되는 ID에 액세스할 수 있습니다. 이 레이블을 추가하고 개발 공간에서 실행 중인 모든 워크로드를 다시 배포합니다. 다음은 그 예입니다.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sample
+        aadpodidbinding: my-label-value
+    spec:
+      [...]
+```
 
 ## <a name="common-issues-using-visual-studio-and-visual-studio-code-with-azure-dev-spaces"></a>Azure 개발자 공간을 사용하여 Visual Studio 및 Visual Studio 코드를 사용하는 일반적인 문제
 
@@ -338,7 +445,7 @@ Visual Studio 코드 디버거를 실행할 때 이 오류가 표시될 수 있�
 
 ### <a name="authorization-error-microsoftdevspacesregisteraction"></a>권한 부여 오류 "Microsoft.DevSpaces/레지스터/작업"
 
-Azure Dev Spaces를 관리하려면 Azure 구독에서 ‘owner’ 또는 ‘contributor’ 액세스 권한이 있어야 합니다.**** 개발자 공간을 관리하려고 하는 데 사용 중이며 연결된 Azure 구독에 대한 *소유자* 또는 *기여자* 액세스 권한이 없는 경우 권한 부여 오류가 표시될 수 있습니다. 예를 들어:
+Azure Dev Spaces를 관리하려면 Azure 구독에서 ‘owner’ 또는 ‘contributor’ 액세스 권한이 있어야 합니다.**** 개발자 공간을 관리하려고 하는 데 사용 중이며 연결된 Azure 구독에 대한 *소유자* 또는 *기여자* 액세스 권한이 없는 경우 권한 부여 오류가 표시될 수 있습니다. 다음은 그 예입니다.
 
 ```output
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
@@ -387,7 +494,7 @@ Azure 개발자 공간 컨트롤러에 액세스하는 사용자는 AKS 클러�
 
 컨트롤러에 대한 사용자의 RBAC 역할을 업데이트하려면 다음을 수행하십시오.
 
-1. [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 1. 일반적으로 AKS 클러스터와 동일한 컨트롤러가 포함된 리소스 그룹으로 이동합니다.
 1. 숨겨진 유형 표시 확인란을 *활성화합니다.*
 1. 컨트롤러를 클릭합니다.
@@ -497,7 +604,7 @@ kubeconfig 파일이 Azure Dev Spaces 클라이언트 측 툴링과 다른 클�
 
 [AKS 클러스터에서 인증서를 회전한](../aks/certificate-rotation.md)후 특정 `azds space list` 작업(예: 및 `azds up` 실패)이 실패합니다. 또한 클러스터에서 인증서를 회전한 후 Azure 개발자 공간 컨트롤러에서 인증서를 새로 고쳐야 합니다.
 
-이 문제를 해결하려면 *kubeconfig에* 명령을 실행하여 `az aks get-credentials` 업데이트된 `azds controller refresh-credentials` 인증서가 있는지 확인합니다. 예를 들어:
+이 문제를 해결하려면 *kubeconfig에* 명령을 실행하여 `az aks get-credentials` 업데이트된 `azds controller refresh-credentials` 인증서가 있는지 확인합니다. 다음은 그 예입니다.
 
 ```azurecli
 az aks get-credentials -g <resource group name> -n <cluster name>

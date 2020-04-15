@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 76e3ac85a6725976ebd14dac1805079613c94ec6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fbc2cbc29cb23a21e7d3713091fc22f01bb1b15a
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76980990"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81379825"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>C를 사용하여 Azure Time Series 인사이트 미리 보기 환경의 쿼리 데이터 #
 
@@ -65,7 +65,7 @@ ms.locfileid: "76980990"
 
 **Build** > **빌드 솔루션** 옵션을 선택하여 Visual Studio 2019에서 패키지를 다운로드합니다. 
 
-또는 [NuGet 2.12+](https://www.nuget.org/)를 사용하여 각 패키지를 추가합니다. 예를 들어:
+또는 [NuGet 2.12+](https://www.nuget.org/)를 사용하여 각 패키지를 추가합니다. 다음은 그 예입니다.
 
 * `dotnet add package Microsoft.IdentityModel.Clients.ActiveDirectory --version 4.5.1`
 

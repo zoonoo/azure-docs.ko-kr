@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 0f024bac535ed792d8480c991e470cf5d85932b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2afeae937d56a84c39167ad55a57c86f2623e52d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247424"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382714"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB의 고가용성
 
@@ -50,18 +50,25 @@ Cosmos 계정이 *N* Azure 지역에 분산되어 있는 경우 모든 데이터
 
 - 단일 지역 계정은 지역 중단으로 인해 가용성이 손실될 수도 있습니다. 항상 고가용성을 보장하기 위해 Cosmos 계정으로 최소 두 개의 리전(가급적이면 두 개 이상의 쓰기 영역)을 설정하는 것이 좋습니다. **at least two regions**
 
-- **단일 쓰기 영역이 있는 다중 지역 계정(지역 중단 쓰기):**
-  - 쓰기 영역이 중단되는 동안 Cosmos 계정은 Azure Cosmos 계정에서 자동 장애 **조치(failover)를 사용하도록** 설정하면 보조 영역을 새 기본 쓰기 영역으로 자동으로 승격합니다. 사용하도록 설정하면 장애 조치(failover)가 지정한 지역 우선 순위의 순서대로 다른 지역으로 발생합니다.
-  - 고객은 수동 장애 **조치(failover)를** 사용하고 Cosmos가 직접 구축한 에이전트를 사용하여 끝점 URL을 직접 작성하는 것을 모니터링할 수도 있습니다. 복잡하고 정교한 상태 모니터링이 필요한 고객의 경우 쓰기 영역에서 오류가 발생할 경우 RTO를 줄일 수 있습니다.
-  - 이전에 영향을 받은 지역이 다시 온라인 상태가 되면 지역이 실패했을 때 복제되지 않은 모든 쓰기 데이터를 [충돌 피드를](how-to-manage-conflicts.md#read-from-conflict-feed)통해 사용할 수 있습니다. 응용 프로그램은 충돌 피드를 읽고, 응용 프로그램 별 논리에 따라 충돌을 해결하고, 업데이트된 데이터를 Azure Cosmos 컨테이너에 적절하게 다시 쓸 수 있습니다.
-  - 이전에 영향을 받는 쓰기 지역이 복구되고 나면, 자동으로 읽기 지역으로 사용할 수 있게 됩니다. 복구된 영역을 쓰기 영역으로 다시 전환할 수 있습니다. [Azure CLI 또는 Azure 포털을](how-to-manage-database-account.md#manual-failover)사용하여 지역을 전환할 수 있습니다. 쓰기 영역을 전환하기 전, 도중 또는 후에 **데이터 또는 가용성 손실이 없으며** 응용 프로그램의 가용성이 계속 향상됩니다.
+### <a name="multi-region-accounts-with-a-single-write-region-write-region-outage"></a>단일 쓰기 영역이 있는 다중 지역 계정(쓰기 지역 중단)
 
-- **단일 쓰기 영역이 있는 다중 지역 계정(지역 중단 읽기):**
-  - 읽기 지역 중단 동안 이러한 계정은 읽기 및 쓰기에 대해 고가용성을 유지합니다.
-  - 영향을 받은 영역은 자동으로 연결이 끊어지고 오프라인으로 표시됩니다. [Azure Cosmos DB SDK는](sql-api-sdk-dotnet.md) 읽기 호출을 기본 설정 지역 목록에서 사용 가능한 다음 리전으로 리디렉션합니다.
-  - 기본 지역 목록의 어느 지역도 사용할 수 없는 경우 호출은 현재 쓰기 지역으로 자동으로 대체됩니다.
-  - 읽기 지역 중단을 처리하기 위해 애플리케이션 코드를 변경할 필요가 없습니다. 결국 영향을 받은 지역이 다시 온라인 상태가 되면 이전에 영향을 받은 읽기 지역이 현재 쓰기 지역과 자동으로 동기화되고 읽기 요청을 제공하는 데 다시 사용할 수 있게 됩니다.
-  - 후속 읽기는 애플리케이션 코드를 변경하지 않고도 복구된 지역으로 리디렉션됩니다. 장애 조치와 이전에 실패한 리전의 재가입 동안 읽기 일관성 보장은 Cosmos DB에서 계속 적용됩니다.
+- 쓰기 영역이 중단되는 동안 Cosmos 계정은 Azure Cosmos 계정에서 자동 장애 **조치(failover)를 사용하도록** 설정하면 보조 영역을 새 기본 쓰기 영역으로 자동으로 승격합니다. 사용하도록 설정하면 장애 조치(failover)가 지정한 지역 우선 순위의 순서대로 다른 지역으로 발생합니다.
+- 이전에 영향을 받은 지역이 다시 온라인 상태가 되면 지역이 실패했을 때 복제되지 않은 모든 쓰기 데이터가 [충돌 피드를](how-to-manage-conflicts.md#read-from-conflict-feed)통해 사용할 수 있습니다. 응용 프로그램은 충돌 피드를 읽고, 응용 프로그램 별 논리에 따라 충돌을 해결하고, 업데이트된 데이터를 Azure Cosmos 컨테이너에 적절하게 다시 쓸 수 있습니다.
+- 이전에 영향을 받는 쓰기 지역이 복구되고 나면, 자동으로 읽기 지역으로 사용할 수 있게 됩니다. 복구된 영역을 쓰기 영역으로 다시 전환할 수 있습니다. [PowerShell, Azure CLI 또는 Azure 포털을](how-to-manage-database-account.md#manual-failover)사용하여 지역을 전환할 수 있습니다. 쓰기 영역을 전환하기 전, 도중 또는 후에 **데이터 또는 가용성 손실이 없으며** 응용 프로그램의 가용성이 계속 향상됩니다.
+
+> [!IMPORTANT]
+> **자동 장애 조치(failover)를 사용하도록**프로덕션 워크로드에 사용되는 Azure Cosmos 계정을 구성하는 것이 좋습니다. 수동 장애 조치에는 장애 조치 중에 데이터 손실이 없는지 확인하기 위해 일관성 검사를 완료하기 위해 보조 쓰기 영역과 기본 쓰기 영역 간의 연결이 필요합니다. 기본 지역을 사용할 수 없는 경우 이 일관성 검사를 완료할 수 없으며 수동 장애 조치(failover)가 성공하지 않아 쓰기 가용성이 손실됩니다.
+
+### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>단일 쓰기 영역이 있는 다중 지역 계정(읽기 지역 중단)
+
+- 읽기 영역이 중단되는 동안 Cosmos 계정은 3개 이상의 읽기 영역과 일관성 수준이나 강력한 일관성을 사용하여 읽기 및 쓰기에 사용할 수 있습니다.
+- 영향을 받은 영역은 자동으로 연결이 끊어지고 오프라인으로 표시됩니다. [Azure Cosmos DB SDK는](sql-api-sdk-dotnet.md) 읽기 호출을 기본 설정 지역 목록에서 사용 가능한 다음 리전으로 리디렉션합니다.
+- 기본 지역 목록의 어느 지역도 사용할 수 없는 경우 호출은 현재 쓰기 지역으로 자동으로 대체됩니다.
+- 읽기 지역 중단을 처리하기 위해 애플리케이션 코드를 변경할 필요가 없습니다. 영향을 받는 읽기 영역이 다시 온라인 상태가 되면 현재 쓰기 영역과 자동으로 동기화되고 읽기 요청을 다시 제공할 수 있습니다.
+- 후속 읽기는 애플리케이션 코드를 변경하지 않고도 복구된 지역으로 리디렉션됩니다. 장애 조치와 이전에 실패한 리전의 재가입 동안 읽기 일관성 보장은 Cosmos DB에서 계속 적용됩니다.
+
+> [!IMPORTANT]
+> 읽기 영역이 두 개 이하인 강력한 일관성을 사용하는 Azure Cosmos 계정은 읽기 영역 중단 중에 쓰기 가용성을 잃지만 나머지 영역에 대한 읽기 가용성을 유지합니다.
 
 - Azure 지역을 영구적으로 복구할 수 없는 드문 경우라도 다중 지역 Cosmos 계정이 *강력한* 일관성으로 구성된 경우 데이터 손실이 발생하지 않습니다. 영구적으로 복구할 수 없는 쓰기 영역인 경계가 없는 부실 일관성으로 구성된 다중 영역 Cosmos 계정의 경우 잠재적인 데이터 손실 창은 K=100,000 업데이트 및 T=5분의 부실*창(K* 또는 *T)으로*제한됩니다. 세션, 일관된 접두사 및 최종 일관성 수준의 경우 잠재적인 데이터 손실 기간은 최대 15분으로 제한됩니다. Azure Cosmos DB의 RTO 및 RPO 대상에 대한 자세한 내용은 [일관성 수준 및 데이터 내구성을](consistency-levels-tradeoffs.md#rto) 참조하세요.
 
@@ -112,12 +119,12 @@ Azure Cosmos 계정에 대해 다중 지역 쓰기를 구성할 때 추가 비�
 > [!NOTE]
 > 다중 지역 Azure Cosmos 계정에 대한 가용성 영역 지원을 사용하려면 계정에 다중 마스터 쓰기가 활성화되어 있어야 합니다.
 
-새 또는 기존 Azure Cosmos 계정에 리전을 추가할 때 영역 중복을 활성화할 수 있습니다. Azure Cosmos 계정에서 영역 중복을 사용하려면 플래그를 `isZoneRedundant` 특정 `true` 위치에 대해 설정해야 합니다. 위치 속성 내에서 이 플래그를 설정할 수 있습니다. 예를 들어 다음 powershell 스니펫을 사용하면 "동남아시아" 지역에 대한 영역 중복성을 사용할 수 있습니다.
+새 또는 기존 Azure Cosmos 계정에 리전을 추가할 때 영역 중복을 활성화할 수 있습니다. Azure Cosmos 계정에서 영역 중복을 사용하려면 플래그를 `isZoneRedundant` 특정 `true` 위치에 대해 설정해야 합니다. 위치 속성 내에서 이 플래그를 설정할 수 있습니다. 예를 들어 다음 PowerShell 스니펫을 사용하면 "동남아시아" 지역에 대한 영역 중복이 가능합니다.
 
 ```powershell
 $locations = @(
     @{ "locationName"="Southeast Asia"; "failoverPriority"=0; "isZoneRedundant"= "true" },
-    @{ "locationName"="East US"; "failoverPriority"=1 }
+    @{ "locationName"="East US"; "failoverPriority"=1; "isZoneRedundant"= "true" }
 )
 ```
 
@@ -143,7 +150,7 @@ Azure Cosmos 계정을 만들 때 Azure 포털을 사용하여 가용성 영역�
 
 - 단일 쓰기 영역으로 구성된 다중 영역 Cosmos 계정의 경우 [Azure CLI 또는 Azure 포털을 사용하여 자동 장애 조치(failover)를 사용하도록 설정합니다.](how-to-manage-database-account.md#automatic-failover) 자동 장애 조치(failover)를 사용하도록 설정하면, Cosmos DB는 지역 재해가 있을 때마다 자동으로 사용자 계정을 장애 조치(failover)합니다.  
 
-- Cosmos 계정의 가용성이 높더라도 애플리케이션이 고가용성을 유지하도록 올바르게 설계되지 않았을 수도 있습니다. 응용 프로그램의 종단 간 고가용성을 테스트하려면 응용 프로그램 테스트 또는 DR(재해 복구) 드릴의 일부로 계정에 대한 자동 장애 해제를 일시적으로 비활성화하고 [Azure CLI 또는 Azure 포털을 사용하여 수동 장애 조치(failover)를](how-to-manage-database-account.md#manual-failover)호출한 다음 응용 프로그램의 장애 중지를 모니터링합니다. 완료되면 기본 지역으로 다시 장애 조치(failover)하고 계정에 대한 자동 장애 조치(failover)를 복원할 수 있습니다.
+- Azure Cosmos 계정이 고가용성인 경우에도 응용 프로그램이 가용성을 유지하도록 올바르게 설계되지 않았을 수 있습니다. 응용 프로그램의 종단 간 고가용성을 테스트하려면 응용 프로그램 테스트 또는 DR(재해 복구) 드릴의 일부로 계정에 대한 자동 장애 해제를 일시적으로 사용하지 않도록 설정하고 [PowerShell, Azure CLI 또는 Azure 포털을 사용하여 수동 장애 해제를](how-to-manage-database-account.md#manual-failover)호출한 다음 응용 프로그램의 장애 중지를 모니터링합니다. 완료되면 기본 지역으로 다시 장애 조치(failover)하고 계정에 대한 자동 장애 조치(failover)를 복원할 수 있습니다.
 
 - 전역적으로 분산된 데이터베이스 환경 내에서 는 지역 전체의 가동 중단이 있을 때 일관성 수준과 데이터 내구성 사이에 직접적인 관계가 있습니다. 비즈니스 연속성 계획을 개발할 때는 중단 이벤트가 발생한 후 애플리케이션이 완전히 복구되기까지 허용되는 최대 시간을 이해해야 합니다. 애플리케이션을 완전히 복구하는 데 필요한 시간을 RTO(복구 시간 목표)라고 합니다. 또한 중단 이벤트가 발생한 후 복구될 때 애플리케이션에서 손실을 허용할 수 있는 최근 데이터 업데이트의 최대 기간도 이해해야 합니다. 손실될 수 있는 업데이트 기간을 RPO(복구 지점 목표)라고 합니다. Azure Cosmos DB의 RPO 및 RTO를 확인하려면 [일관성 수준 및 데이터 내구성](consistency-levels-tradeoffs.md#rto)을 참조하세요.
 

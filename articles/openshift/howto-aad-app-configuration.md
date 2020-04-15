@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: a2eade6c5a9c826d28d435a09861ba58463ae8c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f6c4fb5caf746650f95872d50afe31e5693422be
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280535"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382908"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Red Hat 오픈시프트용 Azure Active Directory 통합
 
@@ -25,13 +25,13 @@ Azure [포털에서](https://portal.azure.com)테넌트가 포털 오른쪽 상�
 
 ![오른쪽 상단에 테넌트가 나열된](./media/howto-create-tenant/tenant-callout.png) 테넌트의 스크린샷 잘못된 테넌트가 표시되는 경우 오른쪽 상단에서 사용자 이름을 클릭한 다음 **디렉터리 전환**을 클릭하고 **모든 디렉터리** 목록에서 올바른 테넌트를 선택합니다.
 
-Azure Red Hat OpenShift 클러스터에 로그인할 새 Azure Active Directory 글로벌 관리자 사용자를 만듭니다.
+Azure Red Hat OpenShift 클러스터에 로그인할 새 Azure Active Directory '소유자' 사용자를 만듭니다.
 
 1. [사용자-모든 사용자](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) 블레이드로 이동합니다.
 2. **새 사용자를 클릭하여** **사용자** 창을 엽니다.
 3. 이 사용자의 **이름을** 입력합니다.
 4. 만든 테넌트의 이름을 기반으로 **사용자 이름을** 만들고 `.onmicrosoft.com` 끝에 추가합니다. `yourUserName@yourTenantName.onmicrosoft.com`)을 입력합니다. 이 사용자 이름을 적어 둡니다. 클러스터에 로그인해야 합니다.
-5. **디렉터리 역할을** 클릭하여 디렉터리 역할 창을 열고 **전역 관리자를** 선택한 다음 창 하단에서 **확인을** 클릭합니다.
+5. **디렉터리 역할을** 클릭하여 디렉터리 역할 창을 열고 **소유자를** 선택한 다음 창 하단에서 **확인을** 클릭합니다.
 6. **사용자** 창에서 암호 **표시를** 클릭하고 임시 암호를 기록합니다. 처음 로그인하면 재설정하라는 메시지가 표시됩니다.
 7. 창 아래쪽에서 **만들기를** 클릭하여 사용자를 만듭니다.
 

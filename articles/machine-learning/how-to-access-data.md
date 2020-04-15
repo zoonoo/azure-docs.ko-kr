@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 97aa446636ea3131246a06f69f74b5868abff608
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: ca892b5f360f523ee2b5ff875dfb0707136a5ab5
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668655"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383434"
 ---
 # <a name="connect-to-azure-storage-services"></a>Azure 저장소 서비스에 연결
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -73,7 +73,7 @@ ms.locfileid: "80668655"
 작업 영역을 만들면 Azure Blob 컨테이너와 Azure 파일 공유가 작업 영역에 자동으로 등록됩니다. 각각 명명되고 `workspaceblobstore` `workspacefilestore`, `workspaceblobstore`는 작업 영역 아티팩트와 기계 학습 실험 로그를 저장하는 데 사용됩니다. `workspacefilestore`은 [계산 인스턴스를](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files)통해 승인된 전자 필기장 및 R 스크립트를 저장하는 데 사용됩니다. 컨테이너가 `workspaceblobstore` 기본 데이터 저장소로 설정됩니다.
 
 > [!IMPORTANT]
-> Azure 기계 학습 디자이너(미리 보기)는 디자이너 홈페이지에서 샘플을 열 때 자동으로 **azureml_globaldatasets** 라는 데이터스토어를 만듭니다. 이 데이터 스토어에는 샘플 데이터 집합만 포함됩니다. 기밀 데이터 액세스를 위해 이 데이터 스토어를 사용하지 **마십시오!**
+> Azure 기계 학습 디자이너(미리 보기)는 디자이너 홈페이지에서 샘플을 열 때 자동으로 **azureml_globaldatasets** 라는 데이터스토어를 만듭니다. 이 데이터 스토어에는 샘플 데이터 집합만 포함됩니다. 기밀 데이터 액세스를 위해 이 데이터스토어를 사용하지 **마십시오.**
 > ![디자이너 샘플 데이터 집합을 위한 자동 생성된 데이터스토어](media/how-to-access-data/datastore-designer-sample.png)
 
 <a name="access"></a>
@@ -94,7 +94,7 @@ Azure 저장소 솔루션을 데이터 스토어로 등록하면 해당 데이�
 Azure `register()` [포털](https://portal.azure.com)에서 메서드를 채우는 데 필요한 정보를 찾을 수 있습니다.
 왼쪽 창에서 **저장소 계정을** 선택하고 등록할 저장소 계정을 선택합니다. **개요** 페이지에서는 계정 이름, 컨테이너 및 파일 공유 이름과 같은 정보를 제공합니다. 
 
-* 계정 키 또는 SAS 토큰과 같은 인증 항목의 경우 **설정** 창에서 **계정 키로** 이동합니다. 
+* 계정 키 또는 SAS 토큰과 같은 인증 항목의 경우 **설정** 창에서 **액세스 키로** 이동합니다. 
 
 * 테넌트 ID 및 클라이언트 ID와 같은 서비스 주체 항목의 경우 **앱 등록으로** 이동하여 사용할 앱을 선택합니다. 해당 **개요** 페이지에는 이러한 항목이 포함됩니다.
 
@@ -107,13 +107,13 @@ Azure `register()` [포털](https://portal.azure.com)에서 메서드를 채우�
 
 Azure Blob 컨테이너를 데이터스토어로 등록하려면 을 사용합니다. [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)
 
-다음 코드는 데이터스토어를 `blob_datastore_name` `ws` 만들고 작업 영역에 등록합니다. 이 데이터 스토어는 `my-container-name` 제공된 계정 `my-account-name` 키를 사용하여 저장소 계정의 Blob 컨테이너에 액세스합니다.
+다음 코드는 데이터스토어를 `blob_datastore_name` `ws` 만들고 작업 영역에 등록합니다. 이 데이터 스토어는 `my-container-name` 제공된 계정 `my-account-name` 액세스 키를 사용하여 저장소 계정의 Blob 컨테이너에 액세스합니다.
 
 ```Python
 blob_datastore_name='azblobsdk' # Name of the datastore to workspace
 container_name=os.getenv("BLOB_CONTAINER", "<my-container-name>") # Name of Azure blob container
 account_name=os.getenv("BLOB_ACCOUNTNAME", "<my-account-name>") # Storage account name
-account_key=os.getenv("BLOB_ACCOUNT_KEY", "<my-account-key>") # Storage account key
+account_key=os.getenv("BLOB_ACCOUNT_KEY", "<my-account-key>") # Storage account access key
 
 blob_datastore = Datastore.register_azure_blob_container(workspace=ws, 
                                                          datastore_name=blob_datastore_name, 
@@ -126,13 +126,13 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
 
 Azure 파일 공유를 데이터 스토어로 [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)등록하려면 을 사용합니다. 
 
-다음 코드는 데이터스토어를 `file_datastore_name` `ws` 만들고 작업 영역에 등록합니다. 이 데이터 스토어는 `my-fileshare-name` 제공된 계정 `my-account-name` 키를 사용하여 저장소 계정의 파일 공유에 액세스합니다.
+다음 코드는 데이터스토어를 `file_datastore_name` `ws` 만들고 작업 영역에 등록합니다. 이 데이터 스토어는 `my-fileshare-name` 제공된 계정 `my-account-name` 액세스 키를 사용하여 저장소 계정의 파일 공유에 액세스합니다.
 
 ```Python
 file_datastore_name='azfilesharesdk' # Name of the datastore to workspace
 file_share_name=os.getenv("FILE_SHARE_CONTAINER", "<my-fileshare-name>") # Name of Azure file share container
 account_name=os.getenv("FILE_SHARE_ACCOUNTNAME", "<my-account-name>") # Storage account name
-account_key=os.getenv("FILE_SHARE_ACCOUNT_KEY", "<my-account-key>") # Storage account key
+account_key=os.getenv("FILE_SHARE_ACCOUNT_KEY", "<my-account-key>") # Storage account access key
 
 file_datastore = Datastore.register_azure_file_share(workspace=ws,
                                                      datastore_name=file_datastore_name, 
@@ -181,7 +181,7 @@ Azure 기계 학습 스튜디오에서 몇 단계로 새 데이터 스토어를 
   
 [Azure 포털](https://portal.azure.com)에서 양식을 채우는 데 필요한 정보를 찾을 수 있습니다. 왼쪽 창에서 **저장소 계정을** 선택하고 등록할 저장소 계정을 선택합니다. **개요** 페이지에서는 계정 이름, 컨테이너 및 파일 공유 이름과 같은 정보를 제공합니다. 
 
-* 계정 키 또는 SAS 토큰과 같은 인증 항목의 경우 **설정** 창에서 **계정 키로** 이동합니다. 
+* 계정 키 또는 SAS 토큰과 같은 인증 항목의 경우 **설정** 창에서 **액세스 키로** 이동합니다. 
 
 * 테넌트 ID 및 클라이언트 ID와 같은 서비스 주체 항목의 경우 **앱 등록으로** 이동하여 사용할 앱을 선택합니다. 해당 **개요** 페이지에는 이러한 항목이 포함됩니다. 
 
@@ -268,7 +268,7 @@ run_config.source_directory_data_store = "workspaceblobstore"
 
 Azure 기계 학습은 점수를 매기기 위해 모델을 사용하는 여러 가지 방법을 제공합니다. 이러한 방법 중 일부는 데이터 스토어에 대한 액세스를 제공하지 않습니다. 다음 표를 사용하여 채점 하는 동안 데이터 스토어에 액세스할 수 있는 메서드를 이해합니다.
 
-| 방법 | 데이터스토어 액세스 | 설명 |
+| 메서드 | 데이터스토어 액세스 | 설명 |
 | ----- | :-----: | ----- |
 | [일괄 처리 예측](how-to-use-parallel-run-step.md) | ✔ | 많은 양의 데이터에 대해 비동기적으로 예측합니다. |
 | [웹 서비스](how-to-deploy-and-where.md) | &nbsp; | 모델을 웹 서비스로 배포합니다. |

@@ -8,18 +8,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 01/30/2020
 ms.author: victorh
-ms.openlocfilehash: f56929e14aef34f675139782328ed5c559df12c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 809274aba35e9607aeacf7c6483ec3d10f899667
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198601"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312363"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>ILB(내부 로드 밸런서) 엔드포인트로 애플리케이션 게이트웨이 구성
 
 Azure 응용 프로그램 게이트웨이는 인터넷 을 향한 VIP 또는 인터넷에 노출되지 않는 내부 끝점으로 구성할 수 있습니다. 내부 끝점은 프런트 엔드에 대한 개인 IP 주소를 사용합니다. *internal load balancer (ILB) endpoint*
 
-프런트 엔드 개인 IP 주소를 사용하여 게이트웨이를 구성하는 것은 인터넷에 노출되지 않는 내부 업무 용 업무 용 응용 프로그램에 유용합니다. 또한 인터넷에 노출되지 않지만 라운드 로빈 로드 배포, 세션 끈기 또는 SSL(보안 소켓 계층) 종료가 필요한 보안 경계에 있는 다중 계층 응용 프로그램 내의 서비스 및 계층에도 유용합니다.
+프런트 엔드 개인 IP 주소를 사용하여 게이트웨이를 구성하는 것은 인터넷에 노출되지 않는 내부 업무 용 업무 용 응용 프로그램에 유용합니다. 또한 인터넷에 노출되지 않지만 이전에 SSL(보안 소켓 계층)이라고 알려진 TLS(라운드 로빈 로드 배포, 세션 끈기 또는 전송 계층 보안)가 필요한 보안 경계에 있는 다중 계층 응용 프로그램 내의 서비스 및 계층에도 유용합니다.
 
 이 문서에서는 Azure 포털을 사용하여 프런트 엔드 개인 IP 주소로 응용 프로그램 게이트웨이를 구성하는 단계를 안내합니다.
 

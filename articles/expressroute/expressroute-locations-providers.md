@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0b8c8a0baba5a80c6a383e6f8f14e29b482dbc82
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 0133322eab9a554cf28c0a90fbadf9afe6fbcd64
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878615"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314276"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -137,7 +137,7 @@ ExpressRoute 위치(피어링 위치 또는 모임 위치라고도 함)는 Micro
 | **도쿄** | [에퀴닉스 TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | 일본 동부 | 10G, 100G | 아리아카 네트웍스, AT&T 넷본드, BBIX, 브리티시 텔레콤, 센추리링크 클라우드 커넥트, 콜트, 에퀴닉스, 인터넷 이니셔티브 재팬 사 - IIJ, 메가포트, NTT 커뮤니케이션, NTT EAST, 오렌지, 소프트뱅크, 버라이존 |
 | **도쿄2** | [도쿄에서](https://www.attokyo.com/) | 2 | 일본 동부 | 10G, 100G | 도쿄에서 |
 | **토론토** | [콜로닉스 토르1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | 캐나다 중부 | 10G, 100G | AT&T 넷본드, 벨 캐나다, 센추리링크 클라우드 커넥트, 콜로닉스, 에퀴닉스, IX 리치 메가포트, 텔루스, 버라이존, 자요 |
-| **밴쿠버** | [콜로닉스 VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | 해당 없음 | 10G, 100G | |
+| **밴쿠버** | [콜로닉스 VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | Cologix | 10G, 100G | |
 | **워싱턴 DC** | [에퀴닉스 DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | 1 | 미국 동부, 미국 동부 2 | 10G, 100G | 아리아카 네트웍스, AT&T NetBond, 영국 텔레콤, 센추리링크 클라우드 커넥트, 콜로닉스, 콜트, 컴캐스트, 코어사이트, 에퀴닉스, 인터넷2, 인터클라우드, IX 리치, 레벨 3 커뮤니케이션, 메가포트, 뉴트로나 네트웍스, NTT 커뮤니케이션, 오렌지, 패킷패브릭, SES, 스프린트, 타타 커뮤니케이션, 텔리아 캐리어, 버라이존, 자요 |
 | **워싱턴 DC2** | [코어사이트 레스턴](https://www.coresite.com/data-centers/locations/northern-virginia-washington-dc/reston-campus) | 1 | 미국 동부, 미국 동부 2 | 10G, 100G | 센추리링크 클라우드 커넥트, 코어사이트, 인텔샛, 비아사트, 자요 | 
 | **취리히** | [인터렉시온 ZUR2](https://www.interxion.com/Locations/zurich/) | 1 | 스위스 북부 | 10G, 100G | 인터클라우드, 인터렉시온, 메가포트, 스위스콤 |

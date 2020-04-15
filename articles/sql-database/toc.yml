@@ -708,6 +708,8 @@
               href: sql-database-managed-instance-configure-vm.md
             - name: 지점 및 사이트 간 연결
               href: sql-database-managed-instance-configure-p2s.md
+            - name: 장기 백업 보존
+              href: sql-database-managed-instance-long-term-backup-retention-configure.md
         - name: 데이터 로드
           items:
             - name: 데이터베이스 백업 복원

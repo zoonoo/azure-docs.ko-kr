@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: b19052b8a71b582b47308c41d170f50352d643e2
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 314445275f99898913bd91eb8abc2a5acdab098a
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618352"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381004"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 깜박임 구성
 
@@ -121,7 +121,7 @@ Azure AD를 사용하여 자동 사용자 프로비전을 위해 Blink를 구성
 
 9. **속성 매핑** 섹션에서 Azure AD에서 깜박임으로 동기화된 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업에 대해 Blink의 사용자 계정을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![사용자 속성 깜박임](media/blink-provisioning-tutorial/User_attributes.png)
+    ![사용자 속성 깜박임](media/blink-provisioning-tutorial/user-attributes.png)
 
 10. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 

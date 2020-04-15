@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.author: ryanwi
+ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8b2489a5e6a4481ffa2bd9df0ccf6b082e3f6956
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 9186f633b773a243a84692c30ddc2c2261fb69ba
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886282"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309403"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 장치 권한 부여 흐름
 
@@ -54,7 +54,7 @@ scope=user.read%20openid%20profile
 
 ```
 
-| 매개 변수 | 조건 | Description |
+| 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
 | `tenant` | 필수 | /common, /consumers 또는 /조직일 수 있습니다.  GUID 또는 친숙한 이름 형식에서 권한을 요청하려는 디렉터리 테넌트일 수도 있습니다.  |
 | `client_id` | 필수 | Azure 포털 - 앱 [등록이](https://go.microsoft.com/fwlink/?linkid=2083908) 앱에 할당된 응용 **프로그램(클라이언트) ID입니다.** |
@@ -64,7 +64,7 @@ scope=user.read%20openid%20profile
 
 성공적인 응답은 사용자가 로그인할 수 있는 필수 정보가 포함된 JSON 개체입니다.  
 
-| 매개 변수 | 형식 | Description |
+| 매개 변수 | 형식 | 설명 |
 | ---              | --- | --- |
 |`device_code`     | String | 클라이언트와 권한 서버 간의 세션을 확인하는 데 사용되는 긴 문자열입니다. 클라이언트는 이 매개 변수를 사용하여 권한 부여 서버에서 액세스 토큰을 요청합니다. |
 |`user_code`       | String | 보조 장치에서 세션을 식별하는 데 사용되는 사용자에게 표시되는 짧은 문자열입니다.|
@@ -93,7 +93,7 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 ```
 
-| 매개 변수 | 필수 | Description|
+| 매개 변수 | 필수 | 설명|
 | -------- | -------- | ---------- |
 | `tenant`  | 필수 | 초기 요청에 사용된 동일한 테넌트 또는 테넌트 별칭입니다. | 
 | `grant_type` | 필수 | `urn:ietf:params:oauth:grant-type:device_code`이어야 합니다.|
@@ -104,7 +104,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 
 장치 코드 흐름은 폴링 프로토콜이므로 사용자가 인증을 완료하기 전에 클라이언트가 오류를 수신할 것으로 예상해야 합니다.  
 
-| Error | Description | 클라이언트 작업 |
+| Error | 설명 | 클라이언트 작업 |
 | ------ | ----------- | -------------|
 | `authorization_pending` | 사용자가 인증을 완료하지 않았지만 흐름을 취소하지 않았습니다. | 최소 `interval`초 후에 요청을 반복하세요. |
 | `authorization_declined` | 일반 사용자가 권한 요청을 거부했습니다.| 폴링을 중지하고 인증되지 않은 상태로 되돌립니다.  |
@@ -126,7 +126,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 }
 ```
 
-| 매개 변수 | 형식 | Description |
+| 매개 변수 | 형식 | 설명 |
 | --------- | ------ | ----------- |
 | `token_type` | String| 항상 “전달자입니다. |
 | `scope` | 공백으로 구분된 문자열 | 액세스 토큰이 반환된 경우, 이는 액세스 토큰이 유효한 범위를 나열합니다. |

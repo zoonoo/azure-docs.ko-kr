@@ -204,6 +204,8 @@
           items:
             - name: Azure portal
               href: howto-configure-audit-logs-portal.md
+            - name: Azure CLI
+              href: howto-configure-audit-logs-cli.md
     - name: 모니터
       items:
         - name: 메트릭에 대한 경고 만들기

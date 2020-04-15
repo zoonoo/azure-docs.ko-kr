@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f454b0296a3463d7346c2945b21162e5a38c0eb7
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: e22871114f260417e8a1514546c88ec4541064a4
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652517"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309743"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>통합 보안 정보 등록(미리 보기)
 
@@ -89,7 +89,7 @@ Internet Explorer에서 사이트 대 영역 할당 목록을 구성한 경우 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[사용자가 인증 방법을 다시 등록하도록 강제](howto-mfa-userdevicesettings.md#manage-authentication-methods)
+[사용자가 인증 방법을 다시 등록하도록 강제](howto-mfa-userdevicesettings.md#manage-user-authentication-options)
 
 [다단계 인증 및 SSPR에 사용할 수 있는 방법](concept-authentication-methods.md)
 

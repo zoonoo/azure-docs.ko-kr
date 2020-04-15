@@ -1,5 +1,5 @@
 ---
-title: Azure 컨테이너 기술 자산 준비
+title: Azure VM 기술 자산 만들기
 description: 이 문서에서는 Azure Marketplace에서 컨테이너 오퍼를 구성하기 위한 단계 및 요구 사항에 대해 설명합니다.
 author: anbene
 ms.author: mingshen
@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 62c77681accb19183b5e8aa3ae8d80c225b2d284
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 262129084be5c6a68bfd8d8708c9a10fbb606144
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266020"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383736"
 ---
-# <a name="prepare-your-azure-container-technical-assets"></a>Azure 컨테이너 기술 자산 준비
+# <a name="create-an-azure-vm-technical-asset"></a>Azure VM 기술 자산 만들기
 
 > [!IMPORTANT]
 > Azure 컨테이너 오퍼의 관리를 클라우드 파트너 포털에서 파트너 센터로 이전합니다. 오퍼가 마이그레이션될 때까지 클라우드 파트너 포털에 대한 [컨테이너 기술 자산 준비의](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-create-technical-assets) 지침을 따라 오퍼를 관리하십시오.

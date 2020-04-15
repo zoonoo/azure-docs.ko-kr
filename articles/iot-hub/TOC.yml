@@ -85,8 +85,6 @@
   items:
     - name: TLS 지원
       href: iot-hub-tls-support.md
-    - name: TLS 1.0 및 1.1 사용 중단
-      href: iot-hub-tls-deprecating-1-0-and-1-1.md
     - name: 가상 네트워크 지원
       href: virtual-network-support.md
     - name: 메시지 보강 개요
@@ -444,6 +442,8 @@
           href: iot-hub-operations-monitoring.md
         - name: 진단 설정으로 마이그레이션
           href: iot-hub-migrate-to-diagnostics-settings.md
+        - name: TLS 1.0 및 1.1 사용 중단
+          href: iot-hub-tls-deprecating-1-0-and-1-1.md
 - name: 리소스
   items:
     - name: 지원 및 도움말 옵션

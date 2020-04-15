@@ -3,12 +3,12 @@ title: Windows용 게스트 구성 정책을 만드는 방법
 description: Windows용 Azure 정책 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 24069ff6518c4244026378e48216d4568fffeb8a
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: deb51cf502d26dc994bf74ef3cb0c728f624afde
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365463"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313988"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Windows용 게스트 구성 정책을 만드는 방법
 
@@ -73,7 +73,11 @@ DSC 개념 및 용어에 대한 개요는 [PowerShell DSC 개요를](/powershell
 
 ### <a name="how-guest-configuration-modules-differ-from-windows-powershell-dsc-modules"></a>게스트 구성 모듈이 Windows PowerShell DSC 모듈과 다른 방법
 
-게스트 구성이 컴퓨터를 감사할 때 `Test-TargetResource` 먼저 실행되어 올바른 상태인지 확인합니다. 함수에서 반환되는 부울 값은 게스트 할당에 대한 Azure 리소스 관리자 상태가 준수/비준수상태여야 하는지 여부를 결정합니다. 다음으로 공급자가 `Get-TargetResource` 실행되어 각 설정의 현재 상태를 반환하여 컴퓨터가 호환되지 않는 이유에 대한 세부 정보를 사용할 수 있도록 하거나 현재 상태가 호환되는지 확인합니다.
+게스트 구성이 컴퓨터를 감사할 때:
+
+1. 에이전트가 먼저 `Test-TargetResource` 실행되어 구성이 올바른 상태인지 확인합니다.
+1. 함수에서 반환되는 부울 값은 게스트 할당에 대한 Azure 리소스 관리자 상태가 준수/비준수상태여야 하는지 여부를 결정합니다.
+1. 공급자는 `Get-TargetResource` 각 설정의 현재 상태를 반환하기 위해 실행되므로 컴퓨터가 호환되지 않는 이유와 현재 상태가 호환되는지 확인하는 세부 정보를 모두 사용할 수 있습니다.
 
 ### <a name="get-targetresource-requirements"></a>대상 리소스 요구 사항 받기
 
@@ -102,6 +106,25 @@ return @{
     reasons = $reasons
 }
 ```
+
+Reasons 속성은 포함된 클래스로 리소스에 대한 스키마 MOF에도 추가되어야 합니다.
+
+```mof
+[ClassVersion("1.0.0.0")] 
+class Reason
+{
+    [Read] String Phrase;
+    [Read] String Code;
+};
+
+[ClassVersion("1.0.0.0"), FriendlyName("ResourceName")]
+class ResourceName : OMI_BaseResource
+{
+    [Key, Description("Example description")] String Example;
+    [Read, EmbeddedInstance("Reason")] String Reasons[];
+};
+```
+
 ### <a name="configuration-requirements"></a>구성 요구 사항
 
 사용자 지정 구성의 이름은 모든 곳에서 일관되어야 합니다. 콘텐츠 패키지에 대한 .zip 파일의 이름, MOF 파일의 구성 이름 및 리소스 관리자 템플릿의 게스트 할당 이름은 동일해야 합니다.
@@ -134,7 +157,7 @@ PowerShell cmdlet은 패키지 작성을 지원합니다.
 
 ## <a name="step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows"></a>단계별로 Windows용 사용자 지정 게스트 구성 감사 정책을 만듭니다.
 
-DSC 구성을 만듭니다. 다음 PowerShell 스크립트 예제에서는 **AuditBitLocker라는**구성을 만들고 **PsDscResources** 리소스 `Service` 모듈을 가져오고 리소스를 사용하여 실행 중인 서비스에 대해 감사합니다. 구성 스크립트는 Windows 또는 macOS 컴퓨터에서 실행할 수 있습니다.
+DSC 구성을 만들어 설정을 감사합니다. 다음 PowerShell 스크립트 예제에서는 **AuditBitLocker라는**구성을 만들고 **PsDscResources** 리소스 `Service` 모듈을 가져오고 리소스를 사용하여 실행 중인 서비스에 대해 감사합니다. 구성 스크립트는 Windows 또는 macOS 컴퓨터에서 실행할 수 있습니다.
 
 ```powershell
 # Define the DSC configuration and import GuestConfiguration
@@ -160,7 +183,7 @@ AuditBitLocker -out ./Config
 
 MOF가 컴파일되면 지원 파일을 함께 패키징해야 합니다. 완성된 패키지는 게스트 구성에서 Azure 정책 정의를 만드는 데 사용됩니다.
 
-cmdlet이 `New-GuestConfigurationPackage` 패키지를 만듭니다. Windows 콘텐츠를 `New-GuestConfigurationPackage` 만들 때 cmdlet의 매개 변수:
+cmdlet이 `New-GuestConfigurationPackage` 패키지를 만듭니다. 구성에 필요한 모듈은 에서 `$Env:PSModulePath`사용할 수 있어야 합니다. Windows 콘텐츠를 `New-GuestConfigurationPackage` 만들 때 cmdlet의 매개 변수:
 
 - **이름**: 게스트 구성 패키지 이름입니다.
 - **구성**: 컴파일된 DSC 구성 문서 전체 경로입니다.
@@ -176,7 +199,7 @@ New-GuestConfigurationPackage `
 
 구성 패키지를 만든 후 Azure에 게시하기 전에 워크스테이션 또는 CI/CD 환경에서 패키지를 테스트할 수 있습니다. GuestConfiguration cmdlet `Test-GuestConfigurationPackage` Azure 컴퓨터 내에서 사용 되는 것과 개발 환경에서 동일한 에이전트를 포함 합니다. 이 솔루션을 사용하면 요금이 청구된 클라우드 환경에 릴리스하기 전에 로컬에서 통합 테스트를 수행할 수 있습니다.
 
-에이전트가 실제로 로컬 환경을 평가하기 때문에 대부분의 경우 감사하려는 것과 동일한 OS 플랫폼에서 Test-cmdlet을 실행해야 합니다.
+에이전트가 실제로 로컬 환경을 평가하기 때문에 대부분의 경우 감사하려는 것과 동일한 OS 플랫폼에서 Test-cmdlet을 실행해야 합니다. 테스트는 콘텐츠 패키지에 포함된 모듈만 사용합니다.
 
 cmdlet의 `Test-GuestConfigurationPackage` 매개 변수:
 

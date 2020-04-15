@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: 1b807908c9fb54ecf15de6d44a04760659196a31
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb1af86e04c0b4ba0b59398161fa111fd8065042
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75980979"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310060"
 ---
 # <a name="diagnostic-logs-for-azure-web-application-firewall"></a>Azure 웹 응용 프로그램 방화벽에 대한 진단 로그
 
@@ -101,7 +101,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 |receivedBytes     | 받은 패킷의 크기(바이트)        |
 |sentBytes| 보낸 패킷의 크기(바이트)|
 |timeTaken| 요청을 처리하고 응답을 보내는 데 걸리는 시간(밀리초)입니다. 이 값은 Application Gateway에서 HTTP 요청의 첫 번째 바이트를 받은 시점부터 응답 보내기 작업을 완료하는 시점까지의 간격으로 계산됩니다. 걸린 시간(Time-Taken) 필드에는 대개 요청 및 응답 패킷이 네트워크를 통해 이동하는 시간이 포함됩니다. |
-|sslEnabled| 백 엔드 풀에 대한 통신에서 SSL이 사용되었는지 여부입니다. 유효한 값은 on과 off입니다.|
+|sslEnabled| 백 엔드 풀에 대한 통신이 TLS/SSL을 사용했는지 여부입니다. 유효한 값은 on과 off입니다.|
 |host| 요청이 백 엔드 서버로 전송된 호스트 이름입니다. 백 엔드 호스트 이름을 재정의하는 경우 이 이름은 이를 반영합니다.|
 |오리지널 호스트| 클라이언트에서 응용 프로그램 게이트웨이에서 요청을 받은 호스트 이름입니다.|
 ```json
@@ -144,9 +144,9 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 |receivedBytes     | 받은 패킷의 크기(바이트)        |
 |sentBytes| 보낸 패킷의 크기(바이트)|
 |timeTaken| 요청을 처리하고 응답을 보내는 데 걸리는 시간(밀리초)입니다. 이 값은 Application Gateway에서 HTTP 요청의 첫 번째 바이트를 받은 시점부터 응답 보내기 작업을 완료하는 시점까지의 간격으로 계산됩니다. 걸린 시간(Time-Taken) 필드에는 대개 요청 및 응답 패킷이 네트워크를 통해 이동하는 시간이 포함됩니다. |
-|sslEnabled| 백 엔드 풀에 대한 통신에서 SSL이 사용되었는지 여부입니다. 유효한 값은 on과 off입니다.|
-|sslCipher| SSL 통신(SSL이 활성화된 경우)에 사용되는 암호 제품군입니다.|
-|sslProtocol| 사용 중인 SSL 프로토콜(SSL이 활성화된 경우).|
+|sslEnabled| 백 엔드 풀에 대한 통신이 TLS를 사용했는지 여부입니다. 유효한 값은 on과 off입니다.|
+|sslCipher| TLS 통신(TLS가 활성화된 경우)에 사용되는 암호 제품군입니다.|
+|sslProtocol| TLS 프로토콜이 사용 중입니다(TLS가 활성화된 경우).|
 |서버라우팅| 응용 프로그램 게이트웨이가 요청을 라우팅하는 백 엔드 서버입니다.|
 |serverStatus| 백 엔드 서버의 HTTP 상태 코드입니다.|
 |서버응답지연| 백 엔드 서버의 응답 대기 시간입니다.|

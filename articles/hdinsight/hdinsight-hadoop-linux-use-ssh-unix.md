@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: 31e85876d60ae6fcd8f3b29633506d698a323acb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a53037b5f6c43de0e08bb1c5143f27d14600ca62
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272436"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381412"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>SSH를 사용하여 HDInsight(Apache Hadoop)에 연결
 
@@ -108,7 +108,7 @@ SSH 계정은 암호를 사용하여 보호될 수 있습니다. SSH를 사용�
 | --------------- | ---------------- |
 | Azure portal | 기본적으로 SSH 사용자 계정에는 클러스터 로그인 계정인 동일한 암호가 있습니다. 다른 암호를 사용하려면 __SSH에 대한 클러스터 로그인 암호 사용을__선택 취소한 다음 __SSH 암호__ 필드에 암호를 입력합니다.</br>![HDInsight 클러스터 생성의 SSH 암호 대화 상자](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
 | Azure PowerShell | [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet의 `--SshCredential` 매개 변수를 `PSCredential` 사용하고 SSH 사용자 계정 이름과 암호가 포함된 개체를 전달합니다. |
-| Azure CLI | az `--sshPassword` [hdinsight 생성](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 명령의 매개 변수를 사용하고 암호 값을 제공합니다. |
+| Azure CLI | az `--ssh-password` [hdinsight 생성](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 명령의 매개 변수를 사용하고 암호 값을 제공합니다. |
 | Resource Manager 템플릿 | 템플릿에서 암호를 사용하는 예제는 [SSH 암호를 사용하여 Linux에서 HDInsight 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/)를 참조하세요. [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) 파일의 `linuxOperatingSystemProfile` 요소는 클러스터를 만들 때 Azure에 SSH 계정 이름 및 암호를 전달하는 데 사용됩니다.|
 
 ### <a name="change-the-ssh-password"></a>SSH 암호 변경
@@ -178,7 +178,7 @@ sudo service sshd restart
     ssh sshuser@wn0-myhdi
     ```
 
-    노드 이름 목록을 검색하려면 [Apache Ambari REST API를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 문서를 참조하세요.
+    노드 이름 목록을 검색하려면 [Apache Ambari REST API를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes) 문서를 참조하세요.
 
 __암호__를 사용하여 SSH 계정을 보호하는 경우 연결할 때 해당 암호를 입력합니다.
 

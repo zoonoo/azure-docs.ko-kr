@@ -8,18 +8,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 0547f254a64cecc7072ee9ff79eb50204b34bc17
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 5ceefb076b63df942cfff202946f6b82050bbab9
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548857"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311934"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>사용자 지정 루트 CA를 사용 하 고 Azure 응용 프로그램 게이트웨이 자체 서명 된 인증서를 생성 합니다.
 
-응용 프로그램 게이트웨이 v2 SKU백 엔드 서버를 허용 하기 위해 신뢰할 수 있는 루트 인증서의 사용을 소개 합니다. 이렇게 하면 v1 SKU에 필요한 인증 인증서가 제거됩니다. *루트 인증서는* Base-64 인코딩된 X.509(입니다. CER) 백 엔드 인증서 서버에서 루트 인증서를 포맷합니다. 서버 인증서를 발급한 CA(루트 인증 기관)를 식별한 다음 서버 인증서를 SSL 통신에 사용합니다.
+응용 프로그램 게이트웨이 v2 SKU백 엔드 서버를 허용 하기 위해 신뢰할 수 있는 루트 인증서의 사용을 소개 합니다. 이렇게 하면 v1 SKU에 필요한 인증 인증서가 제거됩니다. *루트 인증서는* Base-64 인코딩된 X.509(입니다. CER) 백 엔드 인증서 서버에서 루트 인증서를 포맷합니다. 서버 인증서를 발급한 CA(루트 인증 기관)를 식별한 다음 서버 인증서를 TLS/SSL 통신에 사용합니다.
 
-응용 프로그램 게이트웨이는 잘 알려진 CA(예: GoDaddy 또는 DigiCert)에 의해 서명된 경우 기본적으로 웹 사이트의 인증서를 신뢰합니다. 이 경우 루트 인증서를 명시적으로 업로드할 필요가 없습니다. 자세한 내용은 [응용 프로그램 게이트웨이를 사용하여 SSL 종료 및 종단 간 SSL](ssl-overview.md)개요를 참조하십시오. 그러나 개발/테스트 환경이 있고 확인된 CA 서명된 인증서를 구입하지 않으려면 사용자 지정 CA를 직접 만들고 자체 서명된 인증서를 만들 수 있습니다. 
+응용 프로그램 게이트웨이는 잘 알려진 CA(예: GoDaddy 또는 DigiCert)에 의해 서명된 경우 기본적으로 웹 사이트의 인증서를 신뢰합니다. 이 경우 루트 인증서를 명시적으로 업로드할 필요가 없습니다. 자세한 내용은 [응용 프로그램 게이트웨이를 사용하여 TLS 종료 및 끝 TLS](ssl-overview.md)에 대한 개요를 참조하십시오. 그러나 개발/테스트 환경이 있고 확인된 CA 서명된 인증서를 구입하지 않으려면 사용자 지정 CA를 직접 만들고 자체 서명된 인증서를 만들 수 있습니다. 
 
 > [!NOTE]
 > 자체 서명된 인증서는 기본적으로 신뢰할 수 없으며 유지 관리가 어려울 수 있습니다. 또한 강하지 않을 수 있는 오래된 해시 및 암호 제품군을 사용할 수도 있습니다. 보안을 강화하려면 잘 알려진 인증 기관에서 서명한 인증서를 구입하십시오.
@@ -125,15 +125,15 @@ CSR은 인증서를 요청할 때 CA에 부여되는 공개 키입니다. CA는 
    - fabrikam.crt
    - fabrikam.key
 
-## <a name="configure-the-certificate-in-your-web-servers-ssl-settings"></a>웹 서버의 SSL 설정에서 인증서 구성
+## <a name="configure-the-certificate-in-your-web-servers-tls-settings"></a>웹 서버의 TLS 설정에서 인증서 구성
 
-웹 서버에서 fabrikam.crt 및 fabrikam.key 파일을 사용하여 SSL을 구성합니다. 웹 서버에서 두 개의 파일을 사용할 수 없는 경우 OpenSSL 명령을 사용하여 파일을 단일 .pem 또는 .pfx 파일에 결합할 수 있습니다.
+웹 서버에서 fabrikam.crt 및 fabrikam.key 파일을 사용하여 TLS를 구성합니다. 웹 서버에서 두 개의 파일을 사용할 수 없는 경우 OpenSSL 명령을 사용하여 파일을 단일 .pem 또는 .pfx 파일에 결합할 수 있습니다.
 
 ### <a name="iis"></a>IIS
 
 인증서를 가져오고 IIS에서 서버 인증서로 업로드하는 방법에 대한 지침은 [Windows Server 2003의 웹 서버에 가져온 인증서 설치](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server)방법을 참조하십시오.
 
-SSL 바인딩 지침은 [IIS 7에서 SSL을 설정하는 방법을](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1)참조하십시오.
+TLS 바인딩 지침은 [IIS 7에서 SSL을 설정하는 방법을](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1)참조하십시오.
 
 ### <a name="apache"></a>Apache
 
@@ -151,9 +151,9 @@ SSL 바인딩 지침은 [IIS 7에서 SSL을 설정하는 방법을](https://docs
 
 ### <a name="nginx"></a>NGINX
 
-다음 구성은 SSL 구성이 있는 [NGINX 서버 블록의](https://nginx.org/docs/http/configuring_https_servers.html) 예입니다.
+다음 구성은 TLS 구성이 있는 [NGINX 서버 블록의](https://nginx.org/docs/http/configuring_https_servers.html) 예입니다.
 
-![SSL을 가진 NGINX](media/self-signed-certificates/nginx-ssl.png)
+![TLS가 있는 NGINX](media/self-signed-certificates/nginx-ssl.png)
 
 ## <a name="access-the-server-to-verify-the-configuration"></a>서버에 액세스하여 구성을 확인합니다.
 
@@ -232,7 +232,7 @@ $probe = Get-AzApplicationGatewayProbeConfig `
 
 ## Add the configuration to the HTTP Setting and don't forget to set the "hostname" field
 ## to the domain name of the server certificate as this will be set as the SNI header and
-## will be used to verify the backend server's certificate. Note that SSL handshake will
+## will be used to verify the backend server's certificate. Note that TLS handshake will
 ## fail otherwise and might lead to backend servers being deemed as Unhealthy by the probes
 
 Add-AzApplicationGatewayBackendHttpSettings `
@@ -272,5 +272,5 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ## <a name="next-steps"></a>다음 단계
 
-응용 프로그램 게이트웨이의 SSL\TLS에 대한 자세한 내용은 [응용 프로그램 게이트웨이를 사용하여 SSL 종료 및 종단 간 SSL 개요를](ssl-overview.md)참조하십시오.
+응용 프로그램 게이트웨이의 SSL\TLS에 대한 자세한 내용은 [응용 프로그램 게이트웨이를 사용하여 TLS 종료 및 종단 간 TLS 개요를](ssl-overview.md)참조하십시오.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 4df6396d156c3fe1b75e3cac3d3f4aad7f23553a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e22641e9d4f9959c26cd2043ea2acd7e260e0f0
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77660668"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314051"
 ---
 # <a name="message-sessions"></a>메시지 세션
 Microsoft Azure Service Bus 세션을 사용하면 관련 메시지의 무제한 시퀀스를 공동으로 순서를 지정하여 처리할 수 있습니다. 세션은 선에서, 선외(FIFO) 및 요청 응답 패턴에서 사용할 수 있습니다. 이 문서에서는 Service Bus를 사용할 때 세션을 사용하여 이러한 패턴을 구현하는 방법을 보여 줍니다. 
@@ -68,7 +68,7 @@ Service Bus의 세션 기능을 사용하면 C# 및 Java API의 [MessageSession]
 
 ### <a name="message-session-state"></a>메시지 세션 상태
 
-워크플로가 대규모고가용성 클라우드 시스템에서 처리되는 경우 특정 세션과 연결된 워크플로 핸들러는 예기치 않은 오류로부터 복구할 수 있어야 하며 다른 프로세스 또는 컴퓨터에서 부분적으로 완료된 작업을 다시 시작할 수 있어야 합니다. 작업이 시작된 곳.
+워크플로가 대규모 고가용성 클라우드 시스템에서 처리되는 경우 특정 세션과 연결된 워크플로 핸들러는 예기치 않은 오류로부터 복구할 수 있어야 하며 작업이 시작된 다른 프로세스 또는 컴퓨터에서 부분적으로 완료된 작업을 다시 시작할 수 있어야 합니다.
 
 세션 상태 기능을 통해 broker 내부의 메시지 세션에 대한 애플리케이션 정의 주석을 사용할 수 있기 때문에 세션을 새 프로세서로 가져올 때 해당 세션에 대해 기록된 처리 상태를 즉시 사용할 수 있습니다.
 
@@ -78,7 +78,7 @@ Service Bus 측면에서 메시지 세션 상태는 한 개 메시지 크기의 
 
 세션 상태는 세션의 모든 메시지가 사용되더라도 정리되지 않는 **한(null**반환)으로 유지됩니다.
 
-큐 또는 구독의 모든 기존 세션은 Java API의 **SessionBrowser** 메서드 및 .NET 클라이언트의 [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) 및 [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient)의 [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions)를 사용하여 열거할 수 있습니다.
+큐 또는 구독의 모든 기존 세션은 Java API의 **SessionBrowser** 메서드와 .NET Framework 클라이언트의 [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) 및 [구독 클라이언트에서](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient) [GetMessageSessions를](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) 사용하여 열거할 수 있습니다.
 
 큐 또는 구독에 보관된 세션 상태는 해당 엔터티의 스토리지 할당량에 포함됩니다. 애플리케이션이 세션을 끝내면 외부 관리 비용을 피하기 위해 애플리케이션이 보유 상태를 정리하는 것이 좋습니다.
 
@@ -88,7 +88,7 @@ Service Bus 측면에서 메시지 세션 상태는 한 개 메시지 크기의 
 
 | 시나리오 | 메시지의 배달 수가 증가합니까? |
 |----------|---------------------------------------------|
-| 세션이 수락되었지만 시간 으로 인해 세션 잠금이 만료됩니다. | yes |
+| 세션이 수락되었지만 시간 으로 인해 세션 잠금이 만료됩니다. | 예 |
 | 세션이 수락되고 세션 내의 메시지가 완료되지 않고(잠긴 경우에도) 세션이 닫힙됩니다. | 예 |
 | 세션이 수락되고 메시지가 완료된 다음 세션이 명시적으로 닫힙됩니다. | 해당/A(표준 흐름입니다. 여기에서 메시지는 세션에서 제거됩니다) |
 

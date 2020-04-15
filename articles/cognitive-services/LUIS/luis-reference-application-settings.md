@@ -1,26 +1,20 @@
 ---
 title: 응용 프로그램 설정 - LUIS
-titleSuffix: Azure Cognitive Services
 description: Azure Cognitive Services 언어 이해 앱에 대한 응용 프로그램 설정은 앱 및 포털에 저장됩니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 11/12/2019
-ms.author: diberry
-ms.openlocfilehash: d1ead09f6248a6ad14646371aa70b42b57cf8e3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 9e17736cd6ff5074a6eab76a6cf5bdb8acedc185
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78270813"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382197"
 ---
 # <a name="application-settings"></a>애플리케이션 설정
 
 이러한 응용 프로그램 설정은 [내보낸](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) 앱에 저장되고 REST API로 [업데이트됩니다.](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) 앱 버전 설정을 변경하면 앱 학습 상태가 학습되지 않은 상태로 재설정됩니다.
+
+분음 부호 및 문장 부호의 [개념을](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) 알아봅니다.
 
 |설정|기본값|메모|
 |--|--|--|
@@ -183,3 +177,7 @@ ms.locfileid: "78270813"
 |`}`|
 |`+`|
 |`¡`|
+
+## <a name="next-steps"></a>다음 단계
+
+* 분음 부호 및 문장 부호의 [개념을](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) 알아봅니다.

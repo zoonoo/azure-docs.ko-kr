@@ -1,6 +1,6 @@
 ---
-title: 장기 백업 보존 관리
-description: 자동화된 백업을 SQL Azure Storage에 저장한 다음, 복원하는 방법 알아보기
+title: '단일 데이터베이스: 장기 백업 보존 관리'
+description: Azure 포털 및 PowerShell을 사용하여 Azure SQL Database 단일 또는 풀린 데이터베이스에 대한 자동화된 백업을 Azure 저장소에 최대 10년 동안 저장하고 복원하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 08/21/2019
-ms.openlocfilehash: a560f4f1399792a7b150b37c3c048ccc0079b98d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 2564fd0ffd980dae4ca1835f4211fee0a0cf040c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74420794"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380928"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL Database 장기 백업 보존 관리
 
@@ -186,7 +186,7 @@ Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 
 > [!IMPORTANT]
-> LTR 백업을 삭제하면 되돌릴 수 없습니다. 서버가 삭제된 후 LTR 백업을 삭제하려면 구독 범위 권한이 있어야 합니다. ‘장기 보존 백업 삭제’ 작업으로 필터링하여 Azure Monitor에서 각 삭제에 대한 알림을 설정할 수 있습니다. 활동 로그에는 요청한 사람과 시기에 대한 정보가 포함되어 있습니다. 자세한 지침은 [활동 로그 경고 만들기](../azure-monitor/platform/alerts-activity-log.md)를 참조하세요.
+> LTR 백업을 삭제하면 되돌릴 수 없습니다. 서버가 삭제된 후 LTR 백업을 삭제하려면 구독 범위 권한이 있어야 합니다. '장기 보존 백업 삭제' 작업을 필터링하여 Azure Monitor에서 각 삭제에 대한 알림을 설정할 수 있습니다. 활동 로그에는 요청한 사람과 시기에 대한 정보가 포함되어 있습니다. 자세한 지침은 [활동 로그 경고 만들기](../azure-monitor/platform/alerts-activity-log.md)를 참조하세요.
 
 ### <a name="restore-from-ltr-backups"></a>LTR 백업에서 복원
 

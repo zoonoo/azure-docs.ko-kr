@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 03/13/2020
-ms.openlocfilehash: ea65956a73874b717ecab25d83ed25b59f2ada55
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: f70c24c91e048270696b244bb9775cb24f0ef30d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257252"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383482"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Azure 가상 네트워크 내에서 안전한 Azure ML 실험 및 추론 작업
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -484,6 +484,21 @@ az rest --method put --uri https://management.azure.com"/subscriptions/<subscrip
 > 현재 기존 클러스터에서 __연결__ 작업을 수행할 때 로드 밸런서를 구성할 수 없습니다. 먼저 클러스터를 연결한 다음 업데이트 작업을 수행하여 로드 밸런서를 변경해야 합니다.
 
 AKS를 사용하여 내부 로드 밸러터 사용에 대한 자세한 내용은 [Azure Kubernetes 서비스의 내부 부하 분산 기 사용을](/azure/aks/internal-lb)참조하십시오.
+
+## <a name="use-azure-container-instances-aci"></a>Azure 컨테이너 인스턴스(ACI) 사용
+
+Azure 컨테이너 인스턴스는 모델을 배포할 때 동적으로 만들어집니다. Azure 기계 학습에서 가상 네트워크 내에서 ACI를 만들 수 있도록 설정하려면 배포에서 사용하는 서브넷에 대한 __서브넷 위임을__ 사용하도록 설정해야 합니다.
+
+가상 네트워크에서 ACI를 작업 영역에 사용하려면 다음 단계를 사용합니다.
+
+1. 가상 네트워크에서 서브넷 위임을 활성화하려면 서브넷 위임 아티클의 정보를 [사용하거나 제거합니다.](../virtual-network/manage-subnet-delegation.md) 가상 네트워크를 만들 때 위임을 사용하도록 설정하거나 기존 네트워크에 추가할 수 있습니다.
+
+    > [!IMPORTANT]
+    > 위임을 사용하도록 설정하면 서비스 값에 대한 `Microsoft.ContainerInstance/containerGroups` __대리자 서브넷으로__ 사용합니다.
+
+2. [AciWebservice.deploy_configuration()를](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-)사용하여 모델을 `vnet_name` 배포하고 `subnet_name` 및 매개 변수를 사용합니다. 이러한 매개 변수를 위임을 사용하도록 설정한 가상 네트워크 이름 및 서브넷으로 설정합니다.
+
+
 
 ## <a name="use-azure-firewall"></a>Azure 방화벽 사용
 
