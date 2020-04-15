@@ -2,19 +2,19 @@
 title: 자습서 - 매개 변수 파일을 사용하여 템플릿 배포
 description: Azure Resource Manager 템플릿을 배포하는 데 사용할 값이 포함된 매개 변수 파일을 사용합니다.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6a12d92c0cfb9d86ebf4c335c351944997f79b4e
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: b91041b96a3819dbace3898d92226f0351f0f973
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773159"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411515"
 ---
-# <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>자습서: 매개 변수 파일을 사용하여 Resource Manager 템플릿 배포
+# <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>자습서: 매개 변수 파일을 사용하여 ARM 템플릿 배포
 
-이 자습서에서는 [매개 변수 파일](parameter-files.md)을 사용하여 배포 중에 전달하는 값을 저장하는 방법을 알아봅니다. 이전 자습서에서는 배포 명령에 인라인 매개 변수를 사용했습니다. 이 방식은 템플릿을 테스트하는 데 적당하지만 배포를 자동화하는 경우에는 환경에 맞는 값 세트를 전달하는 것이 더 쉬울 수 있습니다. 매개 변수 파일을 사용하면 특정 환경에 대한 매개 변수 값을 쉽게 패키징할 수 있습니다. 이 자습서에서는 개발 및 프로덕션 환경에 대한 매개 변수 파일을 생성합니다. 완료하는 데 **12분** 정도 걸립니다.
+이 자습서에서는 [매개 변수 파일](parameter-files.md)을 사용하여 배포 중에 전달하는 값을 저장하는 방법을 알아봅니다. 이전 자습서에서는 배포 명령에 인라인 매개 변수를 사용했습니다. 이 방식은 ARM(Azure Resource Manager) 템플릿을 테스트하는 데 적당하지만 배포를 자동화하는 경우에는 환경에 맞는 값 세트를 전달하는 것이 더 쉬울 수 있습니다. 매개 변수 파일을 사용하면 특정 환경에 대한 매개 변수 값을 쉽게 패키징할 수 있습니다. 이 자습서에서는 개발 및 프로덕션 환경에 대한 매개 변수 파일을 생성합니다. 완료하는 데 **12분** 정도 걸립니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -54,10 +54,10 @@ Azure CLI 또는 Azure PowerShell을 사용하여 템플릿을 배포합니다.
 
 먼저 개발 환경에 배포합니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$templateFile = "{provide-the-path-to-the-template-file}"
+$templateFile = "{path-to-the-template-file}"
 $parameterFile="{path-to-azuredeploy.parameters.dev.json}"
 New-AzResourceGroup `
   -Name myResourceGroupDev `
@@ -69,25 +69,28 @@ New-AzResourceGroupDeployment `
   -TemplateParameterFile $parameterFile
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+이 배포 명령을 실행하려면 Azure CLI의 [최신 버전](/cli/azure/install-azure-cli)이 있어야 합니다.
 
 ```azurecli
-templateFile="{provide-the-path-to-the-template-file}"
+templateFile="{path-to-the-template-file}"
+devParameterFile="{path-to-azuredeploy.parameters.dev.json}"
 az group create \
   --name myResourceGroupDev \
   --location "East US"
-az group deployment create \
+az deployment group create \
   --name devenvironment \
   --resource-group myResourceGroupDev \
   --template-file $templateFile \
-  --parameters azuredeploy.parameters.dev.json
+  --parameters $devParameterFile
 ```
 
 ---
 
 이제 프로덕션 환경에 배포합니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $parameterFile="{path-to-azuredeploy.parameters.prod.json}"
@@ -101,20 +104,24 @@ New-AzResourceGroupDeployment `
   -TemplateParameterFile $parameterFile
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
+prodParameterFile="{path-to-azuredeploy.parameters.prod.json}"
 az group create \
   --name myResourceGroupProd \
   --location "West US"
-az group deployment create \
+az deployment group create \
   --name prodenvironment \
   --resource-group myResourceGroupProd \
   --template-file $templateFile \
-  --parameters azuredeploy.parameters.prod.json
+  --parameters $prodParameterFile
 ```
 
 ---
+
+> [!NOTE]
+> 배포에 실패한 경우 배포 명령과 함께 **debug** 스위치를 사용하여 디버그 로그를 표시합니다.  **verbose** 스위치를 사용하여 전체 디버그 로그를 표시할 수도 있습니다.
 
 ## <a name="verify-deployment"></a>배포 확인
 
@@ -136,7 +143,7 @@ Azure Portal에서 리소스 그룹을 탐색하여 배포를 확인할 수 있�
 
 축하합니다, Azure에 템플릿을 배포하는 방법을 마쳤습니다. 의견이나 제안 사항이 있으면 사용자 의견 섹션에서 알려주십시오. 감사합니다.
 
-템플릿에 대한 고급 개념을 자세히 살펴볼 준비가 되었습니다. 다음 자습서에서는 배포할 리소스를 정의하는 데 유용한 템플릿 참조 설명서를 사용하는 방법에 대해 자세히 설명합니다.
+다음 자습서 시리즈는 템플릿 배포에 대해 자세히 설명합니다.
 
 > [!div class="nextstepaction"]
-> [템플릿 참조 활용](template-tutorial-create-encrypted-storage-accounts.md)
+> [로컬 템플릿 배포](./deployment-tutorial-local-template.md)
