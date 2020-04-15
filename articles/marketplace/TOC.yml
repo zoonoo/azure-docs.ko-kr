@@ -1,11 +1,11 @@
-- name: Azure Marketplace 및 AppSource 설명서
+- name: 상용 마켓플레이스 설명서
   href: index.yml
   items:
-    - name: Azure Marketplace 및 AppSource 로드맵
+    - name: 상용 마켓플레이스 로드맵
       href: ./marketplace-roadmap.md
-    - name: Azure Marketplace 정책 및 용어
+    - name: 상용 마켓플레이스 정책 및 용어
       href: ./policies-terms.md
-    - name: Azure Marketplace 및 AppSource 개요 및 이점
+    - name: 상용 마켓플레이스 개요 및 혜택
       href: ./marketplace-publishers-guide.md
       items:
         - name: '하나의 Marketplace, 두 개의 상점'
@@ -15,7 +15,7 @@
           items:
             - name: 잠재 고객 관리
               href: ./lead-management-for-cloud-marketplace.md
-            - name: Azure Marketplace에서 거래
+            - name: 상용 마켓플레이스에서의 거래
               href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
             - name: 프라이빗 제품
               href: ./private-offers.md
@@ -55,7 +55,7 @@
               href: ./gtm-how-to-get-featured.md
             - name: Marketplace 콘텐츠 유효성 검사
               href: ./marketplace-criteria-content-validation.md
-            - name: 클라우드 솔루션 공급자
+            - name: 클라우드 솔루션 공급 기업
               href: ./cloud-solution-providers.md
         - name: Marketplace 혜택
           href: ./gtm-your-marketplace-benefits.md
@@ -66,7 +66,7 @@
               href: ./preferred-solutions.md
             - name: 통합된 솔루션
               href: ./integrated-solutions.md
-        - name: Azure Marketplace 및 AppSource 지원
+        - name: 상용 마켓플레이스 지원
           href: ./support-azure-marketplace.md
           items:
             - name: Marketplace FAQ
@@ -78,6 +78,8 @@
   items:
     - name: 파트너 센터로 클라우드 파트너 포털 마이그레이션
       href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md
+    - name: 마이그레이션 FAQ
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-faq.md
     - name: 포털 둘러보기
       href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
       items:
@@ -130,7 +132,7 @@
               href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md
         - name: Seller Insights
           items:
-            - name: 시작
+            - name: 시작하기
               href: ./cloud-partner-portal-orig/si-getting-started.md
             - name: 새로운 기능
               href: ./cloud-partner-portal-orig/si-changes.md
@@ -427,12 +429,10 @@
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: 지원 받기
       href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
-- name: 파트너 센터의 상용 마켓플레이스 포털
+- name: 파트너 센터의 상용 마켓플레이스
   items:
-    - name: 개요
-      items:
-        - name: 상용 마켓플레이스란?
-          href: ./partner-center-portal/commercial-marketplace-overview.md
+    - name: 상용 마켓플레이스 개요
+      href: ./partner-center-portal/commercial-marketplace-overview.md
     - name: 계정 관리
       items:
         - name: 새 파트너 센터 계정 만들기
@@ -453,6 +453,30 @@
               href: ./partner-center-portal/azure-apps-review-feedback.md
             - name: 온보딩용 API
               href: ./partner-center-portal/azure-app-apis.md
+        - name: Azure Container 제품
+          items:
+            - name: 기술 자산 준비
+              href: ./partner-center-portal/create-azure-container-technical-assets.md
+            - name: Azure Container 제품 만들기
+              href: ./partner-center-portal/create-azure-container-offer.md
+        - name: Virtual Machine 제품
+          items:
+            - name: Azure Virtual Machine 제품 만들기
+              href: ./partner-center-portal/azure-vm-create-offer.md
+            - name: Azure VM 기술 자산 만들기
+              items:
+                - name: Azure VM 기술 자산 만들기
+                  href: ./partner-center-portal/create-azure-vm-technical-asset.md
+                - name: Azure VM 기술 자산 FAQ
+                  href: ./partner-center-portal/common-issues-during-vhd-creation.md
+                - name: Azure VM 이미지 인증
+                  href: ./partner-center-portal/azure-vm-image-certification.md
+                - name: SAS URI
+                  items:
+                    - name: SAS URI 가져오기
+                      href: ./partner-center-portal/get-sas-uri.md
+                    - name: SAS URI FAQ
+                      href: ./partner-center-portal/common-sas-uri-issues.md
         - name: 컨설팅 서비스
           items:
             - name: 사전 요구 사항

@@ -1,22 +1,22 @@
 ---
 title: Bing Web Search API란?
 titleSuffix: Azure Cognitive Services
-description: Bing Web Search API는 사용자 쿼리에 즉각적인 답변을 제공하는 RESTful 서비스입니다. 검색 결과는 웹 페이지, 이미지, 비디오, 뉴스, 번역 등을 포함하도록 쉽게 구성됩니다. 결과는 JSON으로 제공되며, 검색 관련성 및 Bing Web Search 구독을 기반으로 합니다.
+description: Bing Web Search API는 웹 검색 쿼리에 즉각적인 답변을 제공하는 RESTful 서비스입니다. 웹 페이지, 이미지, 비디오, 뉴스 등을 포함하도록 결과를 구성합니다. 결과는 JSON으로 제공되며, 검색 관련성 및 Bing Web Search 구독을 기반으로 합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a7b2627b5837a124ebbcd76783bb49679cbe6313
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 5ea98a4ef759937c5962dc86f0384051b8fa0bb3
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77650285"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477475"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>Bing Web Search API란?
 

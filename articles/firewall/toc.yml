@@ -20,6 +20,9 @@
     - name: IP 그룹을 사용하여 배포
       displayName: Resource Manager
       href: quick-create-ipgroup-template.md
+    - name: 여러 주소를 사용하여 배포
+      displayName: Resource Manager
+      href: quick-create-multiple-ip-template.md
 - name: 샘플
   items:
     - name: Azure PowerShell

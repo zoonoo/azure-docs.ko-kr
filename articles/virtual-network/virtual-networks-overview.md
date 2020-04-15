@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 3b908406c8717d2fa8834bc4dff1bcd27ec4761f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 967d391d4ac9a9704688dce9636d9a71b2002549
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290201"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879363"
 ---
 # <a name="what-is-azure-virtual-network"></a>Azure Virtual Network란?
 
@@ -76,6 +76,15 @@ Azure 리소스는 다음 방법 중 하나를 사용하여 서로 안전하게 
 
 - **경로 테이블:** 각 서브넷에 대해 트래픽이 라우팅되는 위치를 제어하는 경로를 사용하여 사용자 지정 경로 테이블을 만들 수 있습니다. [경로 테이블](virtual-networks-udr-overview.md#user-defined)에 대해 자세히 알아보세요.
 - **BGP(Border Gateway Protocol) 경로:** Azure VPN Gateway 또는 ExpressRoute 연결을 사용하여 가상 네트워크를 온-프레미스 네트워크에 연결하는 경우 온-프레미스 BGP 경로를 가상 네트워크에 전파할 수 있습니다. [Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange)에서 BGP를 사용하는 방법을 자세히 알아봅니다.
+
+## <a name="virtual-network-integration-for-azure-services"></a>Azure 서비스에 대한 가상 네트워크 통합
+
+Azure 서비스를 Azure 가상 네트워크에 통합하면 가상 네트워크의 가상 머신 또는 컴퓨팅 리소스에서 서비스에 대한 비공개 액세스가 가능합니다.
+다음 옵션을 사용하여 가상 네트워크의 Azure 서비스를 통합할 수 있습니다.
+- [서비스의 전용 인스턴스](virtual-network-for-azure-services.md)를 가상 네트워크에 배포합니다. 이렇게 하면 가상 네트워크 내에서 그리고 온-프레미스에서 서비스에 비공개적으로 액세스할 수 있습니다.
+- [Private Link](../private-link/private-link-overview.md)를 사용하여 가상 네트워크 및 온-프레미스 네트워크에서 서비스의 특정 인스턴스에 비공개로 액세스할 수 있습니다.
+- [서비스 엔드포인트](virtual-network-service-endpoints-overview.md)를 통해 가상 네트워크를 서비스로 확장하여 퍼블릭 엔드포인트를 사용하여 서비스에 액세스할 수도 있습니다. 서비스 엔드포인트를 통해 서비스 리소스를 가상 네트워크로 보호할 수 있습니다.
+ 
 
 ## <a name="azure-vnet-limits"></a>Azure VNet 제한
 

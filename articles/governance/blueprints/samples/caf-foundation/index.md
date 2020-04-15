@@ -1,14 +1,14 @@
 ---
 title: CAF Foundation 청사진 샘플 개요
 description: Azure에 대한 CAF(Cloud Adoption Framework) Foundation 청사진 샘플의 개요 및 아키텍처입니다.
-ms.date: 08/20/2019
+ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 79b47127b81caf148054f4223e5fa7ad9fbf86fe
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: a5616667ae909b63f406e399a23bdf568089bf52
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "75562564"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383585"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Azure에 대한 Microsoft 클라우드 채택 프레임워크 Foundation 청사진 샘플
 
@@ -18,7 +18,7 @@ Azure에 대한 Microsoft CAF(클라우드 채택 프레임워크) Foundation �
 
 CAF Foundation 청사진 샘플은 조직에서 클라우드 자산을 관리하는 데 필요한 기본 컨트롤을 배치하는 데 사용할 수 있는 권장 인프라 리소스를 Azure에 배포합니다. 이 샘플은 조직이 Azure를 안전하게 시작할 수 있도록 리소스, 정책 및 템플릿을 배포하고 적용합니다.
 
-![CAF Foundation, 이미지는 Azure를 시작하기 위한 기초를 만들기 위해 CAF 지침의 일부로 설치되는 항목을 설명합니다.](../../media/caf-blueprints/caf-foundation-architecture.png)
+:::image type="content" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="CAF Foundation, 이미지는 Azure를 시작하기 위한 기초를 만들기 위해 CAF 지침의 일부로 설치되는 항목을 설명합니다." border="false":::
 
 이 구현에서는 안전하고 완벽하게 모니터링되는 엔터프라이즈 지원 파운데이션을 제공하는 데 사용되는 여러 Azure 서비스를 통합합니다. 이 환경은 다음과 같은 요소로 구성됩니다.
 

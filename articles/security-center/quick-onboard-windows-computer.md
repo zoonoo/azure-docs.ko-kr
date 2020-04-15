@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center에 Windows 컴퓨터 온보딩
-description: 이 빠른 시작은 Windows 컴퓨터에서 Microsoft Monitoring Agent를 프로비전하는 방법을 보여 줍니다.
+description: 이 빠른 시작에서는 Windows 컴퓨터에서 Log Analytics 에이전트를 프로비저닝하는 방법을 보여줍니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 417d8379d019a9ef0da41638cba4a1f9cb7b8bc2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2840b6636c2b511ab57a8bae8adf411f4d8a27d2
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73686511"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435919"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>빠른 시작: Azure Security Center에 Windows 컴퓨터 온보딩
-Azure 구독을 온보딩한 후 Microsoft Monitoring Agent를 프로비전하여 Azure 외부(예: 온-프레미스 또는 다른 클라우드)에서 실행되는 리소스에 Security Center를 사용하도록 설정할 수 있습니다.
+Azure 구독을 온보딩한 후 Log Analytics 에이전트를 프로비저닝하여 Azure 외부(예: 온-프레미스 또는 다른 클라우드)에서 실행되는 리소스에 Security Center를 사용하도록 설정할 수 있습니다.
 
-이 빠른 시작은 Windows 컴퓨터에서 Microsoft Monitoring Agent를 설치하는 방법을 보여 줍니다.
+이 빠른 시작에서는 Windows 컴퓨터에서 Log Analytics 에이전트를 설치하는 방법을 보여줍니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)으로 등록할 수 있습니다.
@@ -72,7 +72,7 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 9. **설치 준비** 페이지에서 선택 항목을 검토한 다음 **설치**를 선택합니다.
 10. **구성 완료** 페이지에서 **마침**을 선택합니다.
 
-완료되면 **제어판**에 **Microsoft Monitoring Agent**가 나타납니다. 구성을 검토하고 에이전트에 연결되었는지 확인할 수 있습니다.
+완료되면 **제어판**에 **Log Analytics 에이전트**가 나타납니다. 구성을 검토하고 에이전트에 연결되었는지 확인할 수 있습니다.
 
 에이전트 설치 및 구성에 대한 자세한 내용은 [Windows 컴퓨터 연결](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard)을 참조하세요.
 
@@ -93,10 +93,10 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 
 1. **제어판**을 엽니다.
 2. **프로그램 및 기능**을 엽니다.
-3. **프로그램 및 기능**에서 **Microsoft Monitoring Agent**를 선택하고 **제거**를 클릭합니다.
+3. **프로그램 및 기능**에서 **Log Analytics 에이전트**를 선택하고 **제거**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 Windows 컴퓨터에서 Microsoft Monitoring Agent를 프로비전했습니다. Security Center를 사용하는 방법에 대한 자세한 내용은 보안 정책 구성 및 리소스 보안 평가를 위한 자습서로 계속 진행하세요.
+이 빠른 시작에서는 Windows 컴퓨터에서 Log Analytics 에이전트를 프로비저닝했습니다. Security Center를 사용하는 방법에 대한 자세한 내용은 보안 정책 구성 및 리소스 보안 평가를 위한 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [자습서: 보안 정책 정의 및 평가](tutorial-security-policy.md)

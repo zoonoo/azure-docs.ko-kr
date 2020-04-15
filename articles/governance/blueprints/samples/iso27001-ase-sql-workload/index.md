@@ -3,12 +3,12 @@ title: ISO 27001 ASE/SQL 워크로드 청사진 샘플 개요
 description: ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플에 대한 개요 및 아키텍처입니다.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: d77029b93b1e77bdba85c5dd5608cbdc5d6543a5
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 9957ab1bef5b65fc90b5a357bd56d6f0013ea690
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "75920765"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381742"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플 개요
 
@@ -24,7 +24,7 @@ ISO 27001 청사진 샘플은 두 가지로, 이 샘플과 [ISO 27001 Shared Ser
 
 ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플은 PaaS(Platform as a Service) 기반 웹 환경을 배포합니다. 이 환경은 ISO 27001 표준을 따르는 다수의 웹 애플리케이션, 웹 API 및 SQL Database 인스턴스를 호스팅하는 데 사용할 수 있습니다. 이 청사진 샘플은 [ISO 27001 Shared Services](../iso27001-shared/index.md) 청사진 샘플에 종속됩니다.
 
-![ISO 27001 ASE/SQL 워크로드 청사진 샘플 디자인](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
+:::image type="content" source="../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png" alt-text="ISO 27001 ASE/SQL 워크로드 청사진 샘플 디자인" border="false":::
 
 이 환경은 ISO 27001 표준을 기반으로 하는 완전히 모니터링되는 안전한 엔터프라이즈급 워크로드 인프라를 제공하는 데 사용되는 여러 가지 Azure 서비스로 구성됩니다. 이 환경은 다음과 같은 요소로 구성됩니다.
 

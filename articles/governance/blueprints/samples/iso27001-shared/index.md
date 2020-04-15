@@ -1,14 +1,14 @@
 ---
 title: ISO 27001 Shared Services 청사진 샘플 개요
 description: ISO 27001 Shared Services 청사진 샘플에 대한 개요 및 아키텍처입니다. 이 청사진 샘플은 고객이 특정 ISO 27001 컨트롤을 평가하는 데 도움이 됩니다.
-ms.date: 01/13/2020
+ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 0b6a250ebac2744adca813219225388841f1776f
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 9b0b49582023ee5c68fea0f21b70290a102a038a
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "75922535"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381567"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 Shared Services 청사진 샘플 개요
 
@@ -21,7 +21,7 @@ ISO 27001 Shared Services 청사진은 ISO 27001 증명에 도움이 되는 일�
 ISO 27001 Shared Services 청사진 샘플은 VDC(Virtual Datacenter) 방식을 기반으로 여러 워크로드를 호스팅하기 위해 조직에서 사용할 수 있는 Azure의 기반 인프라를 배포합니다.
 VDC는 Microsoft에서 대기업 고객과 함께 사용하는 입증된 참조 아키텍처 세트, 자동화 도구 및 참여 모델입니다. Shared Services 청사진 샘플은 아래 표시된 완전한 네이티브 Azure VDC 환경을 기반으로 합니다.
 
-![ISO 27001 Shared Services 청사진 샘플 디자인](../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png)
+:::image type="content" source="../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png" alt-text="ISO 27001 Shared Services 청사진 샘플 디자인" border="false":::
 
 이 환경은 ISO 27001 표준을 기반으로 하는 완전히 모니터링되는 안전한 엔터프라이즈급 공유 서비스 인프라를 제공하는 데 사용되는 여러 가지 Azure 서비스로 구성됩니다. 이 환경은 다음과 같은 요소로 구성됩니다.
 

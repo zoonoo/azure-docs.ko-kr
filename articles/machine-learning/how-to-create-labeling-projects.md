@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 03/01/2020
-ms.openlocfilehash: d39cf8745c6f53cb11bb12561fd452325fe52ac6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f6723992ac3335e6abdd78f2008130dfe136f7df
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79296951"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80873891"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>데이터 레이블 지정 프로젝트 만들기 및 레이블 내보내기 
 
@@ -20,14 +20,14 @@ ms.locfileid: "79296951"
 
 기계 학습 프로젝트에서 대량의 데이터에 대한 레이블을 지정하는 작업은 처리하기가 매우 어려운 경우가 많습니다. 이미지 분류 또는 개체 감지와 같은 컴퓨터 비전 구성 요소가 있는 프로젝트에는 일반적으로 수천 개의 이미지에 대한 레이블이 필요합니다.
  
-[Azure Machine Learning](https://ml.azure.com/)은 레이블 지정 프로젝트를 만들고, 관리하고, 모니터링하는 중앙의 장소를 제공합니다. 이를 통해 데이터, 레이블 및 팀 멤버를 조정하여 레이블 지정 작업을 효율적으로 관리할 수 있습니다. Machine Learning은 이미지 분류(다중 레이블 또는 다중 클래스) 및 경계 상자를 통한 개체 식별을 지원합니다.
+[Azure Machine Learning](https://ml.azure.com/)은 레이블 지정 프로젝트를 만들고, 관리하고, 모니터링하는 중앙의 장소를 제공합니다(공개 미리 보기). 이를 통해 데이터, 레이블 및 팀 멤버를 조정하여 레이블 지정 작업을 효율적으로 관리할 수 있습니다. Machine Learning은 이미지 분류(다중 레이블 또는 다중 클래스) 및 경계 상자를 통한 개체 식별을 지원합니다.
 
 Machine Learning은 진행 상황을 추적하고 불완전한 레이블 지정 작업의 큐를 유지 관리합니다. 레이블 지정자에는 참여하기 위한 Azure 계정이 필요하지 않습니다. Microsoft 계정 또는 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)를 사용하여 인증되면 시간이 허용되는 범위 내에서 레이블을 지정할 수 있습니다.
 
 프로젝트를 시작 및 중지하고, 레이블 지정자와 팀을 추가 및 제거하고, 레이블 지정 진행률을 모니터링합니다. 레이블이 지정된 데이터는 COCO 형식 또는 Azure Machine Learning 데이터 세트로 내보낼 수 있습니다.
 
 > [!Important]
-> 현재 이미지 분류 및 개체 식별 레이블 지정 프로젝트만 지원됩니다. 또한 데이터 이미지는 Azure Blob 데이터 저장소에서 사용할 수 있어야 합니다. (기존 데이터 저장소가 없는 경우 프로젝트를 만드는 동안 이미지를 업로드할 수 있습니다.) 
+> 현재 이미지 분류 및 개체 식별 레이블 지정 프로젝트만 지원됩니다. 또한 데이터 이미지는 Azure Blob 데이터 저장소에서 사용할 수 있어야 합니다. (기존 데이터 저장소가 없는 경우 프로젝트를 만드는 동안 이미지를 업로드할 수 있습니다.)
 
 이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
@@ -41,6 +41,7 @@ Machine Learning은 진행 상황을 추적하고 불완전한 레이블 지정 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
+
 * 레이블을 지정하려는 데이터(로컬 파일 또는 Azure Blob 스토리지에 있음)
 * 적용하려는 레이블 세트
 * 레이블 지정 지침
@@ -51,11 +52,12 @@ Machine Learning은 진행 상황을 추적하고 불완전한 레이블 지정 
 
 레이블 지정 프로젝트는 Azure Machine Learning에서 관리됩니다. **레이블 지정 프로젝트** 페이지를 사용하여 프로젝트와 사용자를 관리합니다. 프로젝트에는 하나 이상의 팀이 할당되고, 팀에는 한 명 이상의 사용자가 할당됩니다.
 
-데이터가 이미 Azure Blob 스토리지에 있는 경우 레이블 지정 프로젝트를 만들기 전에 해당 스토리지를 데이터 저장소로 사용할 수 있도록 해야 합니다. 자세한 내용은 [데이터 저장소 만들기 및 등록](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores)을 참조하세요.
+데이터가 이미 Azure Blob 스토리지에 있는 경우 레이블 지정 프로젝트를 만들기 전에 해당 스토리지를 데이터 저장소로 사용할 수 있도록 해야 합니다. 데이터 저장소 사용 예제는 [자습서: 첫 번째 이미지 분류 레이블 지정 프로젝트 만들기](tutorial-labeling.md)를 참조하세요.
 
 프로젝트를 만들려면 **프로젝트 추가**를 선택합니다. 프로젝트에 대한 적절한 이름을 지정하고, **레이블 지정 작업 유형**을 선택합니다.
 
 ![레이블 지정 프로젝트 만들기 마법사](./media/how-to-create-labeling-projects/labeling-creation-wizard.png)
+
 
 * 클래스 세트에서 *단일 클래스*만 이미지에 적용하려면 프로젝트에 대해 **이미지 분류 다중 클래스**를 선택합니다.
 * 클래스 세트에서 *하나 이상*의 레이블을 이미지에 적용하려면 프로젝트에 대해 **이미지 분류 다중 레이블**을 선택합니다. 예를 들어 개의 사진에는 *dog* 및 *daytime*이라는 레이블이 모두 지정될 수 있습니다.
@@ -168,9 +170,9 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 
 ## <a name="manage-teams-and-people"></a>팀 및 사용자 관리
 
-사용자가 만드는 레이블 지정 프로젝트 각각에는 기본적으로 해당 사용자가 멤버인 새 팀이 갖추어집니다. 하지만 팀은 프로젝트 간에 공유할 수도 있습니다. 그리고 프로젝트에는 둘 이상의 팀이 있을 수 있습니다. 팀을 만들려면 **팀** 페이지에서 **팀 추가**를 선택합니다.
+사용자가 만드는 레이블 지정 프로젝트 각각에는 기본적으로 해당 사용자가 멤버인 새 팀이 갖추어집니다. 하지만 팀은 프로젝트 간에 공유할 수도 있습니다. 그리고 프로젝트에는 둘 이상의 팀이 있을 수 있습니다. 팀을 만들려면 **팀** 페이지에서 **팀 추가**를 선택합니다. 
 
-사용자는 **사용자** 페이지에서 관리됩니다. 이메일 주소로 사용자를 추가하고 제거합니다. 각 레이블 지정자는 사용하는 Microsoft 계정 또는 Azure Active Directory를 통해 인증해야 합니다.  
+**Labelers** 페이지에서 사용자를 관리합니다. 이메일 주소로 사용자를 추가하고 제거합니다. 각 레이블 지정자는 사용하는 Microsoft 계정 또는 Azure Active Directory를 통해 인증해야 합니다.  
 
 사용자가 추가되면 해당 사용자를 하나 이상의 팀에 할당할 수 있습니다. **팀** 페이지로 이동하여 팀을 선택한 다음, **사용자 할당** 또는 **사용자 제거**를 선택합니다.
 
@@ -216,5 +218,6 @@ COCO 파일은 *export/coco* 내의 폴더에 있는 Azure Machine Learning 작�
 
 ## <a name="next-steps"></a>다음 단계
 
+* [자습서: 첫 번째 이미지 분류 레이블 지정 프로젝트 만들기](tutorial-labeling.md)를 참조하세요.
 * [이미지 분류 또는 개체 감지](how-to-label-images.md)에 대한 이미지에 레이블을 지정합니다.
 * [Azure Machine Learning 및 Machine Learning Studio(클래식)](compare-azure-ml-to-studio-classic.md)에 대해 자세히 알아봅니다.

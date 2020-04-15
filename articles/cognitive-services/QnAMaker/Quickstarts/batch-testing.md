@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: e16166c741b99c1af5b36f2c7ccd25b01f7544ba
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 3bc095d8949f177ccb6c4cc111ba4b272027904e
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77108999"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756706"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>빠른 시작: 일괄 처리 질문 및 예상 대답을 사용하여 기술 자료 테스트
 
@@ -149,7 +149,7 @@ batchtesting.exe batch-test-data-1.tsv https://YOUR-RESOURCE-NAME.azurewebsites.
     |Surface Pro 4 요금 청구|
     |배터리 수준 확인|
 
-    두 개의 QnA 세트에는 메타데이터 세트가 있습니다.
+    두 개의 QnA 쌍에는 메타데이터 세트가 있습니다.
 
     > [!TIP]
     > 각 세트의 메타데이터 및 QnA ID를 확인하려면 기술 자료를 내보냅니다. **설정** 페이지를 선택한 다음, `.xls` 파일로 **내보내기**를 선택합니다. 다운로드한 이 파일을 찾고, Excel에서 열어 메타데이터 및 ID를 검토합니다.
@@ -169,7 +169,7 @@ batchtesting.exe batch-test-data-1.tsv https://YOUR-RESOURCE-NAME.azurewebsites.
 
 다음 절차에서는 채팅 로그를 처리하는 시나리오를 가정합니다.
 
-1. `batch-test-data-2.tsv`라는 선택적 데이터를 포함하는 새 일괄 처리 테스트 파일을 만듭니다. 원래의 일괄 처리 테스트 입력 파일에서 6개 행을 추가한 다음, 각 행에 대한 메타데이터, 상위 항목 대답 및 QnA 세트 ID를 추가합니다.
+1. `batch-test-data-2.tsv`라는 선택적 데이터를 포함하는 새 일괄 처리 테스트 파일을 만듭니다. 원래의 일괄 처리 테스트 입력 파일에서 6개 행을 추가한 다음, 각 행에 대한 메타데이터, 상위 항목 대답 및 QnA 쌍 ID를 추가합니다.
 
     기술 자료와 비교하여 채팅 로그의 새 텍스트를 확인하는 자동화된 프로세스를 시뮬레이션하려면 각 열에 대한 메타데이터를 동일한 값(`topic:power`)으로 설정합니다.
 

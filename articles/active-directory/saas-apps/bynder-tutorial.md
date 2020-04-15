@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 456fc2a736b3213a14e5704f89a808c120c45b33
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1848610250e696807acef118384f43d2a51442ca
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73158669"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984489"
 ---
 # <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>자습서: Azure Active Directory와 Bynder 통합
 
@@ -84,13 +84,25 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
 
-    a. **식별자** 텍스트 상자에서 `https://<company name>.getbynder.com` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
+    
+    기본 도메인의 경우: `https://<company name>.getbynder.com`
+    
+    사용자 지정 도메인의 경우: `https;//<subdomain>.<domain>.com`
 
-    b. **회신 URL** 텍스트 상자에서 `https://<company name>.getbynder.com/sso/SAML/authenticate/` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
+    
+     기본 도메인의 경우: `https://<company name>.getbynder.com/sso/SAML/authenticate/`
+    
+    사용자 지정 도메인의 경우: `https://<subdomain>.<domain>.com/sso/SAML/authenticate/`
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    **로그인 URL** 텍스트 상자에서 `https://<company name>.getbynder.com/login/` 패턴을 사용하여 URL을 입력합니다.
+    **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
+    
+     기본 도메인의 경우: `https://<company name>.getbynder.com/login/`
+    
+     사용자 지정 도메인의 경우: ` https://<subdomain>.<domain>.com/login/`
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Bynder 클라이언트 지원 팀](https://www.bynder.com/en/support/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

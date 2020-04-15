@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12a83c6381d3f068eecc2dda4838b981a8b59ab7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c3015ea26d81505c4f058846dbcb3b7858f79267
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80135782"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520187"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netvision-compas"></a>자습서: Netvision Compas와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -69,7 +69,7 @@ Netvision Compas에서 Azure AD SSO를 구성하고 테스트하려면 다음 �
     1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
     1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. **[Netvision Compas SSO 구성](#configure-netvision-compas-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    1. **[Netvision Compas 테스트 사용자 만들기](#create-netvision-compas-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Netvision Compas에 만듭니다.
+    1. **[Netvision Compas 테스트 사용자 구성](#configure-netvision-compas-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Netvision Compas에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -95,13 +95,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 해당 값을 얻으려면 [Netvision Compas 클라이언트 지원 팀](mailto:contact@net.vision)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML**을 찾고, **다운로드**를 선택하여 메타데이터 파일을 다운로드하고 컴퓨터에 저장합니다.
 
-    ![인증서 다운로드 링크](common/certificatebase64.png)
+    ![인증서 다운로드 링크](common/metadataxml.png)
 
-1. **Netvision Compas 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
-    ![구성 URL 복사](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -135,17 +133,58 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-netvision-compas-sso"></a>Netvision Compas SSO 구성
 
-**Netvision Compas** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [Netvision Compas 지원 팀](mailto:contact@net.vision)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+이 섹션에서는 **Netvision Compas**에서 SAML SSO를 사용하도록 설정합니다.
+1. 관리 계정을 사용하여 **Netvision Compas**에 로그인하고 관리 영역에 액세스합니다.
 
-### <a name="create-netvision-compas-test-user"></a>Netvision Compas 테스트 사용자 만들기
+    ![관리 영역](media/netvision-compas-tutorial/admin.png)
 
-이 섹션에서는 Netvision Compas에서 B.Simon이라는 사용자를 만듭니다. [Netvision Compas 지원 팀](mailto:contact@net.vision)과 협력하여 사용자를 Netvision Compas 플랫폼에 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+1. **시스템** 영역을 찾아서 **ID 공급자**를 선택합니다.
+
+    ![관리 IDP](media/netvision-compas-tutorial/admin-idps.png)
+
+1. **추가** 동작을 선택하여 Azure AD를 새 IDP로 등록합니다.
+
+    ![IDP 추가](media/netvision-compas-tutorial/idps-add.png)
+
+1. **공급자 형식**으로 **SAML**을 선택합니다.
+1. **표시 이름** 및 **설명** 필드에 의미 있는 값을 입력합니다.
+1. **사용 가능한 사용자** 목록에서 사용자를 선택하고 **선택한 항목 추가** 단추를 선택하여 **Netvision Compas** 사용자를 IDP에 할당합니다. 프로비저닝 절차를 수행하는 동안에도 사용자를 IDP에 할당할 수 있습니다.
+1. **메타데이터** SAML 옵션의 경우 **파일 선택** 단추를 클릭하고 이전에 컴퓨터에 저장된 메타데이터 파일을 선택합니다.
+1. **저장**을 클릭합니다.
+
+    ![IDP 편집](media/netvision-compas-tutorial/idp-edit.png)
+
+
+### <a name="configure-netvision-compas-test-user"></a>Netvision Compas 테스트 사용자 구성
+
+이 섹션에서는 SSO에 Azure AD를 사용하도록 **Netvision Compcompas**에서 기존 사용자를 구성합니다.
+1. 회사에서 정의한 **Netvision Compas** 사용자 프로비저닝 절차를 따르거나 기존 사용자 계정을 편집합니다.
+1. 사용자 프로필을 정의하는 동안 사용자의 **이메일(개인용)** 주소가 Azure AD 사용자 이름(username@companydomain.extension)과 일치하는지 확인합니다. `B.Simon@contoso.com`)을 입력합니다.
+
+    ![사용자 편집](media/netvision-compas-tutorial/user-config.png)
+
+Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ## <a name="test-sso"></a>SSO 테스트 
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+이 섹션에서는 Azure AD Single Sign-On 구성을 테스트합니다.
+
+### <a name="using-the-access-panel-idp-initiated"></a>액세스 패널(IDP 시작)을 사용합니다.
 
 액세스 패널에서 Netvision Compas 타일을 클릭하면 SSO를 설정한 Netvision Compas에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+
+### <a name="directly-accessing-netvision-compas-sp-initiated"></a>Netvision Compas(SP 시작)에 직접 액세스합니다.
+
+1. **Netvision Compas** URL에 액세스합니다. `https://tenant.compas.cloud`)을 입력합니다.
+1. **Netvision Compas** 사용자 이름을 입력하고 **다음**을 선택합니다.
+
+    ![로그인 사용자](media/netvision-compas-tutorial/login-user.png)
+
+1. **(선택 사항)** **Netvision Compas** 내에서 사용자에게 여러 IDP가 할당된 경우 사용 가능한 IDP 목록이 표시됩니다. 이전에 **Netvision Compas**에서 구성한 Azure AD IDP를 선택합니다.
+
+    ![로그인 선택](media/netvision-compas-tutorial/login-choose.png)
+
+1. 인증을 수행하기 위해 Azure AD로 리디렉션됩니다. 성공적으로 인증되면 SSO를 설정한 **Netvision Compas**에 자동으로 로그인됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

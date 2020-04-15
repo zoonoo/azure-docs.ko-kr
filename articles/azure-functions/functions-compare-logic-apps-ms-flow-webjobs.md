@@ -1,25 +1,21 @@
 ---
 title: Azure의 통합 및 자동화 플랫폼 옵션
-description: 다음 통합 작업에 최적화된 Microsoft 클라우드 서비스를 비교합니다. Microsoft Flow, Logic Apps, Functions 및 WebJobs.
+description: 다음 통합 작업에 최적화된 Microsoft 클라우드 서비스를 비교합니다. Power Automate, Logic Apps, Functions 및 WebJobs.
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: bd9f3bfe1578b632707382cfe422f19514e7ce48
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 40293056a73fd88e9ad6b3922aebfe0ba71f07dd
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290051"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878139"
 ---
-> [!NOTE]
-> Microsoft Flow는 이제 Power Automate입니다. 자세한 내용은 [이 블로그](https://aka.ms/flow-now-pa)를 참조하세요.
-> 
-> 이 콘텐츠는 향후에 브랜딩 변경을 반영하도록 업데이트됩니다.
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Azure에서 적절한 통합 및 자동화 서비스 선택
 
 이 문서에서는 다음 Microsoft 클라우드 서비스를 비교합니다.
 
-* [Microsoft Flow](https://flow.microsoft.com/)
+* [Microsoft Power Automate](https://flow.microsoft.com/)(Microsoft Flow)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [Azure App Service WebJobs](../app-service/webjobs-create.md)
@@ -28,23 +24,23 @@ ms.locfileid: "79290051"
 
 Azure Functions와 다른 Azure 컴퓨팅 옵션 간에 보다 일반적인 비교를 찾고 있는 경우 [Azure 컴퓨팅 서비스를 선택하기 위한 조건](/azure/architecture/guide/technology-choices/compute-comparison) 및 [마이크로서비스에 대한 Azure 컴퓨팅 옵션 선택](/azure/architecture/microservices/design/compute-options)을 참조하세요.
 
-## <a name="compare-microsoft-flow-and-azure-logic-apps"></a>Microsoft Flow 및 Azure Logic Apps 비교
+## <a name="compare-microsoft-power-automate-and-azure-logic-apps"></a>Microsoft Power Automate와 Azure Logic Apps 비교
 
-Microsoft Flow 및 Logic Apps는 모두 워크플로를 만들 수 있는 *디자이너 중심* 통합 서비스입니다. 두 서비스는 다양한 SaaS 및 엔터프라이즈 애플리케이션과 통합합니다. 
+Power Automate와 Logic Apps는 모두 워크플로를 만들 수 있는 *디자이너 중심* 통합 서비스입니다. 두 서비스는 다양한 SaaS 및 엔터프라이즈 애플리케이션과 통합합니다. 
 
-Microsoft Flow는 Logic Apps를 기반으로 빌드됩니다. 두 서비스는 동일한 워크플로 디자이너 및 [커넥터](../connectors/apis-list.md)를 공유합니다. 
+Power Automate는 Logic Apps를 기반으로 빌드됩니다. 두 서비스는 동일한 워크플로 디자이너 및 [커넥터](../connectors/apis-list.md)를 공유합니다. 
 
-Microsoft Flow는 개발자나 IT를 통하지 않고 사무실 작업자가 간단히 통합할 수 있도록 해줍니다(예: SharePoint 문서 라이브러리에 대한 승인 프로세스). 또한 Logic Apps를 통해 엔터프라이즈 수준의 Azure DevOps 및 보안 사례가 요구되는 고급 통합(예: B2B 프로세스)을 사용할 수 있습니다. 비즈니스 워크플로의 복잡성이 점차 증가하는 것이 일반적입니다. 그에 따라 우선 Flow를 시작한 다음, 필요에 따라 논리 앱으로 변환할 수 있습니다.
+Power Automate는 개발자나 IT를 통하지 않고 사무실 작업자가 간단히 통합할 수 있도록 해줍니다(예: SharePoint 문서 라이브러리에 대한 승인 프로세스). 또한 Logic Apps를 통해 엔터프라이즈 수준의 Azure DevOps 및 보안 사례가 요구되는 고급 통합(예: B2B 프로세스)을 사용할 수 있습니다. 비즈니스 워크플로의 복잡성이 점차 증가하는 것이 일반적입니다. 그에 따라 우선 Flow를 시작한 다음, 필요에 따라 논리 앱으로 변환할 수 있습니다.
 
-다음 표를 통해 Microsoft Flow 또는 Logic Apps가 특정 통합에 가장 적합한지 확인할 수 있습니다.
+다음 표를 통해 Power Automate 또는 Logic Apps가 특정 통합에 가장 적합한지 확인할 수 있습니다.
 
-|  | Microsoft Flow | Logic Apps |
+|  | Power Automate | Logic Apps |
 | --- | --- | --- |
 | **사용자** |사무실 직원, 비즈니스 사용자, SharePoint 관리자 |전문 통합 업체 및 개발자, IT 전문가 |
 | **시나리오** |셀프서비스 |고급 통합 |
 | **디자인 도구** |브라우저 및 모바일 앱에서 UI만 해당 |브라우저 내부 및 [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [코드 보기](../logic-apps/logic-apps-author-definitions.md) 사용 가능 |
 | **ALM(애플리케이션 수명 주기 관리)** |비 프로덕션 환경에서 디자인 및 테스트하고, 준비되면 프로덕션 환경으로 승격하세요. |Azure DevOps: [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md)의 소스 제어, 테스트, 지원, 자동화 및 관리 효율성 |
-| **관리자 환경** |Microsoft Flow 및 DLP(데이터 손실 방지) 정책 관리, 라이선스 추적: [Microsoft Flow 관리 센터](https://admin.flow.microsoft.com) |리소스 그룹, 연결, 액세스 및 로깅 관리: [Azure Portal](https://portal.azure.com) |
+| **관리자 환경** |Power Automate 환경 및 DLP(데이터 손실 방지) 정책 관리, 라이선스 추적: [관리 센터](https://admin.flow.microsoft.com) |리소스 그룹, 연결, 액세스 및 로깅 관리: [Azure Portal](https://portal.azure.com) |
 | **보안** |Office 365 보안 및 규정 준수 감사 로그, DLP, 중요한 데이터의 [저장 데이터 암호화](https://wikipedia.org/wiki/Data_at_rest#Encryption) 등 |Azure의 보안 보증: [Azure 보안](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Azure Security Center](https://azure.microsoft.com/services/security-center/), [감사 로그](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
 
 ## <a name="compare-azure-functions-and-azure-logic-apps"></a>Azure Functions 및 Azure Logic Apps 비교
@@ -107,25 +103,25 @@ Azure 또는 타사 서비스를 통합하기 위한 코드 조각을 실행하�
 
 <a name="together"></a>
 
-## <a name="microsoft-flow-logic-apps-functions-and-webjobs-together"></a>Microsoft Flow, Logic Apps, Functions 및 WebJobs를 함께 사용
+## <a name="power-automate-logic-apps-functions-and-webjobs-together"></a>Power Automate, Logic Apps, Functions 및 WebJobs를 함께 사용
 
 이러한 서비스 중 하나만 선택할 필요가 없습니다. 이러한 서비스는 서로 통합될 뿐 아니라 외부 서비스와도 통합됩니다.
 
 흐름은 논리 앱을 호출할 수 있습니다. 논리 앱은 함수를 호출할 수 있고, 함수는 논리 앱을 호출할 수 있습니다. 예를 보려면 [Azure Logic Apps와 통합되는 함수 만들기](functions-twitter-email.md)를 참조하세요.
 
-Microsoft Flow, Logic Apps 및 Functions 간의 통합은 계속해서 점차 개선됩니다. 하나의 서비스에서 어떤 기능을 빌드하여 다른 서비스에서 사용할 수 있습니다.
+Power Automate, Logic Apps 및 Functions 간의 통합은 계속해서 점차 개선됩니다. 하나의 서비스에서 어떤 기능을 빌드하여 다른 서비스에서 사용할 수 있습니다.
 
 다음 링크를 사용하여 통합 서비스에 대해 자세히 알아볼 수 있습니다.
 
 * [Christopher Anderson의 통합 시나리오에 대한 Azure Functions 및 Azure App Service 활용](https://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
 * [Integrations Made Simple by Charles Lamanna](https://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Logic Apps 라이브 웹캐스트](https://aka.ms/logicappslive)
-* [Microsoft Flow 질문과 대답](/power-automate/frequently-asked-questions)
+* [Power Automate 보고서 질문과 대답](/power-automate/frequently-asked-questions)
 
 ## <a name="next-steps"></a>다음 단계
 
 첫 번째 흐름, 논리 앱 또는 함수 앱을 만들어 시작하세요. 다음 링크 중 하나를 선택합니다.
 
-* [Microsoft Flow 시작](/power-automate/getting-started)
+* [Power Automate 시작](/power-automate/getting-started)
 * [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [첫 번째 Azure Function 만들기](functions-create-first-azure-function.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: 84ed5db54874231d8bde4d892eedbc60c42a3430
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d2e7e157156a4049a5db37b1d5c0e02773adbcc3
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77918760"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879550"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Security Center란?
 
@@ -49,7 +49,7 @@ Azure Security Center는 다음 세 가지의 가장 긴급한 보안 문제를 
 
 Security Center는 기본적으로 Azure의 일부이므로 배포하지 않고도 Security Center에서 Service Fabric, SQL 데이터베이스 및 스토리지 계정을 비롯한 Azure의 PaaS 서비스를 모니터링하고 보호합니다.
 
-또한 Security Center는 Microsoft Monitoring Agent를 설치하여 Windows 및 Linux 서버 둘 다에서 클라우드 또는 온-프레미스의 비 Azure 서버 및 가상 머신을 보호합니다. Azure 가상 머신은 Security Center에서 자동 프로비전됩니다.
+또한 Security Center는 Log Analytics 에이전트를 설치하여 Windows 및 Linux 서버 둘 다에서 클라우드 또는 온-프레미스의 비 Azure 서버 및 가상 머신을 보호합니다. Azure 가상 머신은 Security Center에서 자동 프로비전됩니다.
 
 에이전트 및 Azure에서 수집한 이벤트는 보안 분석 엔진에서 상관 관계가 파악되어, 워크로드 보안을 위해 따라야 하는 맞춤화된 권장 사항(강화 작업) 및 보안 경고를 제공합니다. 이러한 경고를 가능한 한 빨리 조사하여 워크로드가 악의적인 공격을 받지 않도록 해야 합니다.
 
@@ -146,5 +146,7 @@ Security Center는 Azure 및 Azure 리소스와의 원활한 네이티브 통합
 ## <a name="next-steps"></a>다음 단계
 
 - 보안 센터를 시작하려면 Microsoft Azure에 대한 구독이 필요합니다. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/free/)을 등록할 수 있습니다.
-- Security Center의 무료 가격 책정 계층은 Azure 구독을 사용하여 사용하도록 설정됩니다. 고급 보안 관리 및 위협 보호 기능을 활용하려면 표준 가격 책정 계층으로 업그레이드해야 합니다. 표준 계층을 30일 동안 평가판으로 사용해볼 수 있습니다. 자세한 내용은 [Security Center 가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
+
+- Azure Portal의 Azure Security Center 대시보드를 처음 방문하거나 API를 통해 프로그래밍 방식으로 사용하는 경우 현재 Azure 구독에서 Security Center의 무료 가격 책정 계층을 사용할 수 있습니다. 고급 보안 관리 및 위협 탐지 기능을 활용하려면 표준 가격 책정 계층으로 업그레이드해야 합니다. 표준 계층을 30일 동안 평가판으로 사용해볼 수 있습니다. 자세한 내용은 [Security Center 가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
+
 - 지금 Security Center 표준을 사용할 준비가 되었으면 [빠른 시작: Security Center 표준에 Azure 구독 온보드](security-center-get-started.md)에서 단계를 안내합니다.

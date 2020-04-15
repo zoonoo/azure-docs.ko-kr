@@ -3,17 +3,17 @@ title: 빠른 시작 - 비용 분석을 사용하여 Azure 비용 살펴보기
 description: 이 빠른 시작에서는 비용 분석을 사용하여 Azure 조직 비용을 탐색하고 분석하는 데 도움이 되는 정보를 제공합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 04/07/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 53e1ef2f5e4faecd3ab2dee1350f3e9087df8e9d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e63e3ef999db7053609fb098cd2b7583143a2937
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80155956"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874503"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>빠른 시작: 비용 분석을 사용하여 비용 탐색 및 분석
 
@@ -45,7 +45,7 @@ Azure Cost Management 데이터에 액세스하는 방법에 대한 정보는 [�
 
 선택한 범위는 Cost Management 전체에서 데이터 통합을 제공하고 비용 정보에 대한 액세스를 제어하는 데 사용됩니다. 범위를 사용할 때는 다중 범위가 선택되지 않습니다. 대신 다른 사용자가 롤업한 더 큰 범위를 선택한 다음, 필요한 중첩된 범위까지 필터링합니다. 이 방법은 일부 사용자가 중첩된 여러 범위를 포함하는 단일 부모 범위에 액세스할 수 없을 수도 있으므로 반드시 이해해야 합니다.
 
-비용 분석을 사용하는 방법에 대해 자세히 알아보려면 [Azure Portal에서 Cost Management를 사용하는 방법](https://www.youtube.com/watch?v=mfxysF-kTFA) 비디오를 시청하세요.
+비용 분석을 사용하는 방법에 대해 자세히 알아보려면 [Azure Portal에서 Cost Management를 사용하는 방법](https://www.youtube.com/watch?v=mfxysF-kTFA) 비디오를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
 
 >[!VIDEO https://www.youtube.com/embed/mfxysF-kTFA]
 
@@ -145,6 +145,10 @@ Azure 태그 정책을 사용하여 비용 데이터 가시성을 향상시키�
 
 ## <a name="understanding-grouping-and-filtering-options"></a>그룹화 및 필터링 옵션에 대한 이해
 
+비용 분석에는 많은 그룹화 및 필터링 옵션이 있습니다. 그룹화 및 필터링 옵션에 대한 비디오를 시청하려면 [차원 및 태그별 Cost Management 보고](https://www.youtube.com/watch?v=2Vx7V17zbmk) 비디오를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
+
+>[!VIDEO https://www.youtube.com/embed/2Vx7V17zbmk]
+
 다음 표에는 가장 일반적인 그룹화 및 필터링 옵션과 함께 이러한 옵션을 사용해야 하는 경우가 나와 있습니다.
 
 | 속성 | 사용 시기 | 메모 |
@@ -178,7 +182,7 @@ Azure 태그 정책을 사용하여 비용 데이터 가시성을 향상시키�
 
 비용 분석을 Azure Portal 대시보드에 고정시키거나 비용 분석에 대한 링크를 복사하여 사용자 지정 보기를 저장하고 다른 사용자와 공유할 수 있습니다.
 
-포털을 사용하여 조직에 대한 비용 정보를 공유하는 방법에 대해 자세히 알아보려면 [Azure Cost Management에서 보기 공유 및 저장](https://www.youtube.com/watch?v=kQkXXj-SmvQ) 비디오를 시청하세요.
+포털을 사용하여 조직에 대한 비용 정보를 공유하는 방법에 대해 자세히 알아보려면 [Azure Cost Management에서 보기 공유 및 저장](https://www.youtube.com/watch?v=kQkXXj-SmvQ) 비디오를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
 
 >[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
 

@@ -10,6 +10,9 @@
       href: analysis-services-create-server.md
     - name: 서버 만들기 - PowerShell
       href: analysis-services-create-powershell.md
+    - name: 서버 만들기 - ARM 템플릿
+      displayName: Resource Manager
+      href: analysis-services-create-template.md
     - name: 서버 방화벽 구성 - 포털
       href: analysis-services-qs-firewall.md
 - name: 자습서
@@ -122,7 +125,7 @@
       href: 'https://azure.microsoft.com/status/'
     - name: 사용자 의견
       href: 'https://feedback.azure.com/forums/556165-azure-analysis-services'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/analysis-services/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

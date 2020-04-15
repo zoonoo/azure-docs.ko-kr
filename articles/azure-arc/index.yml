@@ -10,12 +10,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/04/2019
   ms.author: robreed
-  ms.openlocfilehash: 2ff0b9a194faf4d5a6b9e5181c52dc135208bdee
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: e80cdec365a14caee5c74900e1c21f7349165e66
+  ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "73508553"
+  ms.lasthandoff: 04/13/2020
+  ms.locfileid: "81261281"
 landingContent:
 - title: Azure Arc 개요
   linkLists:
@@ -31,7 +31,9 @@ landingContent:
       url: ./servers/overview.md
   - linkListType: quickstart
     links:
-    - text: 서버용 Azure Arc를 사용하여 Azure에 머신 연결 - 포털
-      url: ./servers/quickstart-onboard-portal.md
-    - text: 서버용 Azure Arc를 사용하여 Azure에 머신 연결 - PowerShell
-      url: ./servers/quickstart-onboard-portal.md
+    - text: Azure Portal에서 Azure Arc에 머신 연결
+      url: ./servers/onboard-portal.md
+    - text: 서비스 주체를 사용하여 규모에 맞게 머신 연결
+      url: ./servers/onboard-service-principal.md
+    - text: PowerShell DSC를 사용하여 Azure에 머신 연결
+      url: ./servers/onboard-dsc.md

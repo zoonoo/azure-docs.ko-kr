@@ -3,16 +3,16 @@ title: Azure EA 계약 및 수정안
 description: 이 문서에서는 Azure EA 계약 및 수정안이 Azure EA 포털 사용에 미치는 영향을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/04/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 5198bd240f0c4e23910504fd039d64a73ddb41c9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0b007e98f37246d17679761fd601ed76fd9fb875
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78301423"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586237"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Azure EA 계약 및 수정안
 
@@ -168,13 +168,13 @@ CPP SKU를 주문한 경우 특정 데이터 센터의 특정 머신 유형에 �
 
 크레딧 구매 방법은 월별 클래스의 머신 수를 기준으로 합니다. 예를 들어 미국 동부 2에서 일년 동안 A2 VM 70대를 구매한 경우 EA Portal에는 구매할 때와 동일한 방식으로 표시되지 않습니다.
 
-월별 머신은 매월 744시간을 실행하는 것으로 계산됩니다. 이것을 시간으로 변환하면 매월 A2 VM을 70 곱하기 744 또는 52,080시간 구매한 것입니다. EA Portal 사용 요약에는 A2 VM이 100시간 증가한 것으로 보고되는데, 사용자에게는 매월 520.8(52080/100)크레딧 "포함된 단위"로 표시되고 해당 월에 소비한 단위가 표시됩니다. 사용 요금은 월별 사용 단위가 월별 포함된 단위를 초과할 때까지 0으로 표시됩니다.
+월별 머신은 매월 744시간을 실행하는 것으로 계산됩니다. 이것을 시간으로 변환하면 매월 A2 VM을 70 곱하기 744 또는 52,080시간 구매한 것입니다. EA Portal 사용 요약에는 A2 VM이 100시간 증가한 것으로 보고되는데, 사용자에게는 매월 520.8(52080/100)크레딧이 "포함된 단위"로 표시되고 해당 월에 소비한 단위가 표시됩니다. 사용 요금은 월별 사용 단위가 월별 포함된 단위를 초과할 때까지 0으로 표시됩니다.
 
 머신 유형에 따라 측정 단위가 다릅니다. 예를 들어 D3 및 D4 VM은 사용 요약 보고서에서 10시간을 측정 단위로 사용하므로 VM을 70대 구매할 경우 매월 포함된 단위가 5208(52080/10)로 표시합니다.
 
 일반적으로 아래 수식은 측정 단위를 기준으로 구매한 VM 수를 알려줍니다.
 
-<center><b> (“포함된 수량” * “측정 단위”) / 744 </b></center>
+<center><b> ("포함된 수량" * "측정 단위") / 744 </b></center>
 
 ## <a name="plan-skus"></a>플랜 SKU
 
@@ -235,7 +235,7 @@ OMS(Operations Management Suite) 구독을 예로 들 수 있습니다. OMS는 �
 
 **2단계: 구독 이름 업데이트**
 
-모든 새 구독은 기본 구독 이름인 “Microsoft Azure 엔터프라이즈”로 추가됩니다. Enterprise 등록 내의 다른 구독과 구분할 수 있도록 구독 이름을 업데이트해야 하며, 엔터프라이즈 수준의 보고서에서 구독을 식별할 수 있는지 확인해야 합니다.
+모든 새 구독은 기본 구독 이름인 "Microsoft Azure 엔터프라이즈"로 추가됩니다. Enterprise 등록 내의 다른 구독과 구분할 수 있도록 구독 이름을 업데이트해야 하며, 엔터프라이즈 수준의 보고서에서 구독을 식별할 수 있는지 확인해야 합니다.
 
 **구독**을 클릭하고, 만든 구독을 클릭한 다음, **구독 세부 정보 편집**을 클릭합니다.
 

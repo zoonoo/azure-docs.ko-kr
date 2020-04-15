@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/19/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: f853d6d59a4c23b7b52a2a0ba800ace58c997f6e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1ac508fc9fee07482e475c46e1db262c8bfa1a12
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79481588"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476210"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>자습서: Windows Server 가상 머신을 관리되는 도메인에 가입
 
@@ -76,8 +76,6 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 
     RDP는 필요한 경우에만 사용하도록 설정하고 권한 있는 IP 범위 세트로 제한해야 합니다. 이 구성은 VM의 보안을 향상시키고 잠재적인 공격 영역을 줄이는 데 도움이 됩니다. 또는 TLS를 통해 Azure Portal에서만 액세스할 수 있는 Azure Bastion 호스트를 만들고 사용합니다. 이 자습서의 다음 단계에서는 Azure Bastion 호스트를 사용하여 VM에 안전하게 연결합니다.
 
-    지금은 VM에 대한 직접 RDP 연결을 사용하지 않도록 설정합니다.
-
     **퍼블릭 인바운드 포트** 아래에서 *없음*을 선택합니다.
 
 1. 완료되면 **다음: 디스크**를 선택합니다.
@@ -96,22 +94,23 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 
     ![Azure Portal에서 서브넷 구성을 관리하도록 선택](./media/join-windows-vm/manage-subnet.png)
 
-1. 가상 네트워크 창의 왼쪽 메뉴에서 **주소 공간**을 선택합니다. 가상 네트워크는 기본 서브넷에서 사용하는 *10.0.1.0/24*의 단일 주소 공간을 사용하여 만들어집니다.
+1. 가상 네트워크 창의 왼쪽 메뉴에서 **주소 공간**을 선택합니다. 가상 네트워크는 기본 서브넷에서 사용하는 *10.0.2.0/24*의 단일 주소 공간을 사용하여 만들어집니다. *워크로드* 또는 Azure Bastion과 같은 다른 서브넷이 이미 있을 수도 있습니다.
 
     추가 IP 주소 범위를 가상 네트워크에 추가합니다. 이 주소 범위의 크기와 사용할 실제 IP 주소 범위는 이미 배포된 다른 네트워크 리소스에 따라 달라집니다. IP 주소 범위는 Azure 또는 온-프레미스 환경의 기존 주소 범위와 겹치지 않아야 합니다. 서브넷에 배포하는 데 필요한 VM의 수에 맞게 IP 주소 범위를 충분히 크게 조정해야 합니다.
 
-    다음 예에서는 *10.0.2.0/24*의 IP 주소 범위가 추가되었습니다. 준비되면 **저장**을 선택합니다.
+    다음 예제에서는 *10.0.5.0/24*의 IP 주소 범위가 추가되었습니다. 준비되면 **저장**을 선택합니다.
 
-    ![Azure Portal에서 추가 가상 네트워크 IP 주소 범위를 추가합니다.](./media/tutorial-configure-networking/add-vnet-address-range.png)
+    ![Azure Portal에서 추가 가상 네트워크 IP 주소 범위를 추가합니다.](./media/join-windows-vm/add-vnet-address-range.png)
 
 1. 다음으로, 가상 네트워크 창의 왼쪽 메뉴에서 **서브넷**을 선택한 다음, **+ 서브넷**을 선택하여 서브넷을 추가합니다.
 
-1. **+ 서브넷**을 선택한 다음, 서브넷 이름(예: *management*)을 입력합니다. **주소 범위(CIDR 블록)** (예: *10.0.2.0/24*)를 제공합니다. 이 IP 주소 범위가 기존의 다른 Azure 또는 온-프레미스 주소 범위와 겹치지 않도록 합니다. 다른 옵션은 해당 기본값으로 둔 다음, **확인**을 선택합니다.
+1. **+ 서브넷**을 선택한 다음, 서브넷 이름(예: *management*)을 입력합니다. **주소 범위(CIDR 블록)** (예: *10.0.5.0/24*)를 제공합니다. 이 IP 주소 범위가 기존의 다른 Azure 또는 온-프레미스 주소 범위와 겹치지 않도록 합니다. 다른 옵션은 해당 기본값으로 둔 다음, **확인**을 선택합니다.
 
     ![Azure Portal에서 서브넷 구성 만들기](./media/join-windows-vm/create-subnet.png)
 
 1. 서브넷을 만드는 데 몇 초 정도 걸립니다. 서브넷이 만들어지면 *X*를 선택하여 서브넷 창을 닫습니다.
 1. **네트워킹** 창으로 돌아가서 VM을 만들고, 드롭다운 메뉴에서 만든 서브넷(예: *management*)을 선택합니다. 다시 한 번 올바른 서브넷을 선택하고, Azure AD DS 관리형 도메인과 동일한 서브넷에 VM을 배포하지 않도록 합니다.
+1. **공용 IP**의 경우, Azure Bastion을 사용하여 관리에 연결하고 공용 IP 주소를 할당할 필요가 없으므로 드롭다운 메뉴에서 *없음*을 선택합니다.
 1. 다른 옵션은 해당 기본값으로 둔 다음, **관리**를 선택합니다.
 1. **부트 진단**을 *끄기*로 설정합니다. 다른 옵션은 해당 기본값으로 둔 다음, **검토 + 만들기**를 선택합니다.
 1. VM 설정을 검토한 다음, **만들기**를 선택합니다.

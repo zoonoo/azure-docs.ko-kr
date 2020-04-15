@@ -16,9 +16,11 @@
       href: powershell-samples.md
 - name: 개념
   items:
-    - name: 원격으로 작업 지원
+    - name: 원격으로 작업
       items:
-        - name: 원격으로 작업
+        - name: 원격 작업 지원
+          href: ../networking/working-remotely-support.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+        - name: Azure VPN 활용
           href: work-remotely-support.md
         - name: NVA 구성 및 원격 작업
           href: nva-work-remotely-support.md

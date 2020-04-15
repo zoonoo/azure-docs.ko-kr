@@ -6,15 +6,79 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 03/05/2020
-ms.openlocfilehash: c29790035ec4e971957784e826a1e8bd8e0c9329
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a2e6d2a459a6713aa9372496fc3a933c0a886ed9
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79500505"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802607"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Azure Monitor 설명서의 새로운 기능이란?
 이 문서에는 새롭거나 크게 업데이트된 Azure Monitor 문서가 나열되어 있습니다. 지난 달의 문서 업데이트가 포함되도록 매월 첫째 주에 새로 고쳐집니다.
+
+## <a name="march-2020"></a>2020년 3월
+
+### <a name="general"></a>일반
+- [Azure Monitor 개요](overview.md) - Azure Monitor 개요 비디오가 추가되었습니다.
+- [Azure Monitor 고객 관리형 키 구성](platform/customer-managed-keys.md) - 일반 업데이트입니다.
+- [Azure Monitor 데이터 참조](/azure/azure-monitor/reference) - 새 사이트입니다.
+
+### <a name="alerts"></a>경고
+
+- [Azure Monitor에서 활동 로그 경고 만들기, 보기 및 관리](platform/alerts-activity-log.md) - Resource Manager 템플릿에 대한 추가 설명입니다.
+- [Azure Monitor 메트릭 경고의 작동 방식 이해](platform/alerts-metric-overview.md) - 정부 지원을 위해 업데이트되었습니다.
+- [Azure Monitor 경고 및 알림 문제 해결](platform/alerts-troubleshoot.md) - 새 문서입니다.
+
+### <a name="application-insights"></a>Application Insights
+- [PowerShell을 사용하여 Azure Application Insights 자동화](app/powershell.md) - 추가된 ARMClient 예제입니다.
+- [Application Insights에서 원격 분석 연속 내보내기](app/export-telemetry.md)- 내보내기 구조의 세부 정보가 포함된 표를 추가합니다.
+- [Azure App Service에서 .NET 앱용 스냅샷 디버거 사용](app/snapshot-debugger-appservice.md) - 추가된 Resource Manager 템플릿 예제입니다.
+- [Azure Application Insights의 사용량 및 비용 관리](app/pricing.md) - 데이터 제한 경고에 대한 추가 정보입니다.
+- [Azure Monitor(미리 보기)로 Python 애플리케이션 모니터링](app/opencensus-python.md) - 추가된 표준 메트릭입니다.
+- [JavaScript 애플리케이션에 대한 소스 맵 지원 - Azure Monitor Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/source-map-support) - 새 문서입니다.
+
+
+### <a name="containers"></a>컨테이너
+- [Azure Monitor FAQ](faq.md) - 컨테이너용 Azure Monitor에 대한 업데이트입니다.
+- [컨테이너용 Azure Monitor를 사용하여 GPU 모니터링 구성](insights/container-insights-gpu-monitoring.md) - 새 문서입니다.
+
+### <a name="insights"></a>자세한 정보
+- [Azure의 Office 365 관리 솔루션](insights/solution-office-365.md) - 업데이트된 사용 중단 날짜
+
+### <a name="logs"></a>로그
+- [Azure Monitor에서 로그 쿼리 최적화](log-query/query-optimization.md) - XML 및 JSON 구문 분석을 위해 추가된 CPU 조건입니다.
+- [Azure Log Analytics 작업 영역 삭제 및 복구](platform/delete-workspace.md) - 추가된 문제 해결 방법입니다.
+- [Azure Logic Apps 및 Power Automate와 함께 Azure Monitor 로그 사용](platform/logicapp-flow-connector.md) - 새 Azure Monitor 커넥터에 대한 내용이 업데이트되었습니다.
+
+### <a name="metrics"></a>메트릭
+- [Azure Portal에서 디스크 메트릭 사용 중단](https://docs.microsoft.com/azure/azure-monitor/platform/portal-disk-metrics-deprecation)- 새 문서입니다.
+- [자습서 - Azure Monitor에서 메트릭 차트 만들기](learn/tutorial-metrics-explorer.md) - 추가된 비디오입니다.
+
+### <a name="platform-logs"></a>플랫폼 로그
+- [Azure Monitor에서 Azure 활동 로그 수집 및 분석](platform/activity-log-collect.md) - 진단 설정을 사용하여 활동 로그를 수집하는 방법을 보다 정확하게 설명하기 위해 다시 작성 되었습니다.
+
+### <a name="virtual-machines"></a>가상 머신
+- [Azure Monitor를 사용하여 Azure 가상 머신 모니터링](insights/monitor-vm-azure.md) - 새 문서입니다.
+- [빠른 시작: Azure Monitor를 사용하여 Azure 가상 머신 모니터링](learn/quick-monitor-azure-vm.md) - VM용 Azure Monitor를 추가하기 위해 업데이트되었습니다.
+- [VM용 Azure Monitor의 경고](insights/vminsights-alerts.md) - 새 문서입니다.
+- [VM용 Azure Monitor 사용 개요](insights/vminsights-enable-overview.md) - 업데이트된 에이전트 다운로드 링크입니다.
+
+
+VM용 Azure Monitor의 일반 공급에 대한 일반 업데이트
+- [VM용 Azure Monitor란?](insights/vminsights-overview.md)
+- [VM용 Azure Monitor(GA) 질문과 대답](insights/vminsights-ga-release-faq.md) 
+- [Azure Policy를 사용하여 VM용 Azure Monitor를 사용하도록 설정](insights/vminsights-enable-at-scale-policy.md) 
+- [VM용 Azure Monitor를 사용하여 성능을 차트로 표시하는 방법](insights/vminsights-performance.md)
+- [VM용 Azure Monitor에서 로그를 쿼리하는 방법](insights/vminsights-log-search.md)
+- [VM용 Azure Monitor를 사용하여 앱 종속성 보기](insights/vminsights-maps.md) 
+
+
+### <a name="visualizations"></a>시각화
+- [Azure Monitor에서 데이터 시각화](visualizations.md) - 뷰 디자이너의 계획된 사용 중단 소식을 알려주도록 업데이트되었습니다.
+
+
+
+
 
 ## <a name="february-2020"></a>2020년 2월
 

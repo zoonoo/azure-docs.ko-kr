@@ -3,12 +3,12 @@ title: 청사진 샘플 인덱스
 description: Azure 청사진을 사용하여 환경, 정책 및 Cloud Adoptions Framework 기반을 배포하기 위한 규정 준수 및 표준 샘플의 인덱스입니다.
 ms.date: 02/26/2020
 ms.topic: sample
-ms.openlocfilehash: 703c383f41cd833fb47ca489682258158f9fe179
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 745b16f8aff8fe003ec65449cdf3dc0d629ba6ff
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "78196827"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383520"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints 샘플
 
@@ -38,7 +38,7 @@ ms.locfileid: "78196827"
 
 ## <a name="samples-strategy"></a>샘플 전략
 
-![청사진 샘플 전략](../media/blueprint-samples-strategy.png)
+:::image type="content" source="../media/blueprint-samples-strategy.png" alt-text="청사진 샘플 전략" border="false":::
 
 CAF Foundation 및 CAF Migrate 방문 영역 청사진은 고객이 온-프레미스 자산과 워크로드를 Azure로 마이그레이션하기 위해 기존의 완전한 단일 구독을 준비하는 것으로 가정합니다.
 (그림의 지역 A 및 B).  

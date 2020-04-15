@@ -63,6 +63,8 @@
               href: add-users-administrator.md
             - name: B2B 사용자를 추가하는 지식 근로자
               href: add-users-information-worker.md
+            - name: 내부 사용자를 B2B로 초대
+              href: invite-internal-users.md
             - name: Google 페더레이션
               href: google-federation.md
             - name: 일회성 암호 인증
@@ -115,7 +117,7 @@
           href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
         - name: MSDN 포럼
           href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-        - name: 가격
+        - name: 가격 책정
           href: 'https://azure.microsoft.com/pricing/details/active-directory/'
         - name: 요금 계산기
           href: 'https://azure.microsoft.com/pricing/calculator/'

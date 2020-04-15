@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: 850ab0ee89ee167886d8747a0c721bb643529e14
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: ac6d72cbb69796851e58098138d51bb0988be4ec
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80052052"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520987"
 ---
 # <a name="what-is-personalizer"></a>Personalizer란?
 
@@ -59,7 +59,7 @@ Personalizer는 보충 학습을 사용하여 다음과 같은 조합에 기반�
 
 Personalizer의 **순위** [API](https://go.microsoft.com/fwlink/?linkid=2092082)는 _콘텐츠를 표시할 때마다_ 실시간으로 호출됩니다. 이를 **이벤트**라고 하며, _event ID_로 표시합니다.
 
-Personalizer의 **보상** [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward)는 실시간으로 호출하거나 인프라에 맞게 조정하기 위해 지연시킬 수 있습니다. 비즈니스 요구 사항에 따라 보상 점수를 결정합니다. 이는 양호한 경우 1, 양호하지 않은 경우 0 또는 비즈니스 목표와 메트릭을 고려하여 만든 알고리즘을 통해 생성된 숫자와 같은 단일 값일 수 있습니다.
+Personalizer의 **보상** [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward)는 실시간으로 호출하거나 인프라에 맞게 조정하기 위해 지연시킬 수 있습니다. 비즈니스 요구 사항에 따라 보상 점수를 결정합니다. 보상 점수는 0에서 1 사이입니다. 이는 양호한 경우 1, 양호하지 않은 경우 0 또는 비즈니스 목표와 메트릭을 고려하여 만든 알고리즘을 통해 생성된 숫자와 같은 단일 값일 수 있습니다.
 
 ## <a name="personalizer-content-requirements"></a>Personalizer 콘텐츠 요구 사항
 

@@ -10,12 +10,12 @@ metadata:
   author: MaggiePucciEvans
   ms.author: evansma
   ms.date: 04/02/2020
-  ms.openlocfilehash: 6351a18cf2e56152adfc0ad8433ee40cec4e9d9c
-  ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+  ms.openlocfilehash: 525b1f2fabff8cd41e0bf304526a622d7543a5e8
+  ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/06/2020
-  ms.locfileid: "80756307"
+  ms.lasthandoff: 04/13/2020
+  ms.locfileid: "81261655"
 landingContent:
 - title: 상용 마켓플레이스에서 작업
   linkLists:
@@ -27,7 +27,7 @@ landingContent:
       url: ./determine-your-listing-type.md
     - text: 정책 및 용어
       url: ./policies-terms.md
-    - text: Microsoft 상용 마켓플레이스 FAQ
+    - text: Microsoft 상업용 마켓플레이스 FAQ
       url: ./marketplace-faq-publisher-guide.md
     - text: 릴리스 정보
       url: https://aka.ms/publicmarketplaceroadmap
@@ -105,7 +105,7 @@ landingContent:
       url: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
     - text: 세금 세부 정보
       url: ./partner-center-portal/tax-details-paid-transactions.md
-    - text: 상업용 마켓플레이스 청구
+    - text: 상용 마켓플레이스 청구
       url: ./partner-center-portal/billing-details.md
 - title: API 참조
   linkLists:

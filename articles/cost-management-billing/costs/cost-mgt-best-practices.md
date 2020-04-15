@@ -3,17 +3,17 @@ title: Azure Cost Management로 클라우드 투자를 최적화
 description: 이 문서는 클라우드 투자의 가치를 극대화하고, 비용을 줄이고, 비용이 어디에 지출되는지 평가하는 데 도움이 됩니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 04/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 4941c1be8fd20dfa88e3ac36bfa30af77a2b1be1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8df98514545a2670ea18a2b4b131a097244d7b46
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80157214"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874588"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Azure Cost Management로 클라우드 투자를 최적화하는 방법
 
@@ -36,6 +36,10 @@ Azure Cost Management에는 지출을 계획, 분석 및 절약하여 클라우�
 ### <a name="key-principles"></a>핵심 원칙
 
 아래에 요약된 원칙을 사용하여 클라우드 비용 관리의 성공을 위해 포지셔닝하십시오.
+
+자세한 내용은 [성공을 위한 Cost Management 설정](https://www.youtube.com/watch?v=dVuwITdSAZ4) 비디오를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
+
+>[!VIDEO https://www.youtube.com/embed/dVuwITdSAZ4]
 
 #### <a name="planning"></a>계획
 
@@ -125,7 +129,7 @@ Azure Migrate는 온-프레미스 데이터 센터에서 조직의 현재 워크
 
 비용을 고려하여 리소스를 체계화합니다. 구독 및 리소스 그룹을 만드는 경우, 관련 비용을 담당하는 팀을 고려합니다. 조직을 고려하여 보고서를 준비해야 합니다. 구독 및 리소스 그룹은 조직 전반의 지출을 체계화하고 분류하는 유용한 버킷을 제공합니다. 태그는 비용에 특성을 부여하는 유용한 방법입니다. 태그를 필터로 사용할 수 있습니다. 데이터를 분석하고 비용을 조사할 때 태그를 사용하여 그룹화할 수 있습니다. 기업 계약 고객은 부서를 만들어서 그 아래에 구독을 배치할 수 있습니다. Azure의 비용 기반 조직은 관련 인력이 팀의 지출을 줄이는데 책임감을 갖도록 도와줍니다.
 
-조직에서 확장 가능한 리소스 태그를 지정하는 데 사용할 수 있는 도구를 이해하려면 [Azure Cost Management로 태그 정책을 검토하는 방법](https://www.youtube.com/watch?v=nHQYcYGKuyw) 비디오를 시청하세요.
+조직에서 확장 가능한 리소스 태그를 지정하는 데 사용할 수 있는 도구를 이해하려면 [Azure Cost Management로 태그 정책을 검토하는 방법](https://www.youtube.com/watch?v=nHQYcYGKuyw) 비디오를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
 
