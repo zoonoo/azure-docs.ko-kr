@@ -3,12 +3,12 @@ title: Azure 마이그레이션 서버 마이그레이션 FAQ
 description: Azure 마이그레이션 서버 마이그레이션을 사용하여 컴퓨터를 마이그레이션하는 데 사용하는 것에 대한 일반적인 질문에 대한 답변을 얻을 수 있습니다.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 507cc8088bf54b1a4f4483673ec5332efcdd36c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cc78d2087dcaad2922ca6b6d9c090a8decdb6e84
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80127811"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393806"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Azure 마이그레이션 서버 마이그레이션: 일반적인 질문
 
@@ -77,7 +77,7 @@ vCenter 서버 5.5 및 vSphere ESXi 호스트 버전 5.5 이상이 있어야 합
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>에이전트 없는 VMware 복제에 Azure Migrate 어플라이언스를 사용하여 복제를 제한하려면 어떻게 해야 합니까?  
 
-NetQosPolicy를 사용하여 스로틀을 할 수 있습니다. 예를 들어:
+NetQosPolicy를 사용하여 스로틀을 할 수 있습니다. 다음은 그 예입니다.
 
 NetQosPolicy에서 사용할 앱네임프리픽은 "게이트웨이윈도우서비스.exe"입니다. Azure Migrate 어플라이언스에서 다음과 같은 정책을 만들어 어플라이언스에서 복제 트래픽을 제한하기 위한 정책을 만들 수 있습니다.
  
@@ -93,8 +93,12 @@ New-NetQosPolicy -이름 "스로틀 복제" -AppPathNameMatchCondition "게이�
 - 현재 프라이빗 클라우드에서 실행 중인 VM을 Azure로 마이그레이션하려면
 - Amazon 웹 서비스(AWS) 또는 GCP(구글 클라우드 플랫폼)와 같은 퍼블릭 클라우드에서 실행되는 VM을 Azure로 마이그레이션하려는 경우
 
+## <a name="i-deployed-two-or-more-appliances-to-discover-vms-in-my-vcenter-server-however-when-i-try-to-migrate-the-vms-i-only-see-vms-corresponding-to-one-of-the-appliance"></a>vCenter 서버에서 VM을 검색하기 위해 두 개 이상의 어플라이언스를 배포했습니다. 그러나 VM을 마이그레이션하려고 할 때 어플라이언스 중 하나에 해당하는 VM만 표시됩니다.
+
+이것은 좋은 사용 사례일 수 있지만 현재는 지원하지 않습니다. 동일한 VM 집합을 검색하기 위해 두 개 이상의 어플라이언스를 배포하면 VM 소유권이 두 어플라이언스 간에 계속 전환되는 서비스 문제가 발생합니다. 이것이 VM이 나타나고 사라지는 이유입니다. 이러한 경우 문제를 해결하려면 하나의 어플라이언스를 삭제하고 하드 새로 고침을 수행해야 합니다.
+
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>VMware VM을 마이그레이션하려면 VMware vCenter가 필요합니까?
-VMware 에이전트 기반 또는 에이전트 없는 마이그레이션을 사용하여 [VMware VM을 마이그레이션하려면](server-migrate-overview.md) VM이 있는 ESXi 호스트는 vCenter Server에서 관리해야 합니다. vCenter 서버가 없는 경우 VMware VM을 실제 서버로 마이그레이션하여 마이그레이션할 수 있습니다. [자세히 알아봅니다](migrate-support-matrix-physical-migration.md).
+VMware 에이전트 기반 또는 에이전트 없는 마이그레이션을 사용하여 [VMware VM을 마이그레이션하려면](server-migrate-overview.md) VM이 있는 ESXi 호스트는 vCenter Server에서 관리해야 합니다. vCenter 서버가 없는 경우 VMware VM을 실제 서버로 마이그레이션하여 마이그레이션할 수 있습니다. [자세히 알아보기](migrate-support-matrix-physical-migration.md).
  
 ## <a name="next-steps"></a>다음 단계
 

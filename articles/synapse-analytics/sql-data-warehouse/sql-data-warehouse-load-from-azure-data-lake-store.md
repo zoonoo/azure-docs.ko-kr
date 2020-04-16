@@ -11,12 +11,12 @@ ms.date: 04/08/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: aeaa95090dc40c6e161f0c336c43032a50e5aad0
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 9713d73ee132f743ceea98cbaca6a83f36fd3a45
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983571"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416109"
 ---
 # <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>SQL 분석을 위해 Azure 데이터 레이크 스토리지에서 데이터 로드
 
@@ -93,7 +93,7 @@ WITH
 
 ## <a name="create-the-external-data-source"></a>외부 데이터 원본 만들기
 
-이 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 명령을 사용하여 데이터의 위치를 저장합니다. AAD 통과로 인증하는 경우 자격 증명 매개 변수가 필요하지 않습니다. 서비스 끝점에 대해 관리 되는 ID를 사용 하 여 인증 하는 경우 이 [설명서를](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#azure-sql-data-warehouse-polybase) 따라 외부 데이터 원본을 설정 합니다. 
+이 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 명령을 사용하여 데이터의 위치를 저장합니다. AAD 통과로 인증하는 경우 자격 증명 매개 변수가 필요하지 않습니다. 서비스 끝점에 대해 관리 되는 ID를 사용 하 여 인증 하는 경우 이 [설명서를](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#azure-sql-data-warehouse-polybase) 따라 외부 데이터 원본을 설정 합니다.
 
 ```sql
 -- C (for Gen1): Create an external data source

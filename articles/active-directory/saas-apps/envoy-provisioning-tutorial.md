@@ -1,6 +1,6 @@
 ---
 title: '자습서: Azure Active Directory를 사용 하 고 자동 사용자 프로비저닝에 대 한 특사 구성 | 마이크로 소프트 문서'
-description: Azure Active Directory를 구성하여 사용자 계정을 자동으로 프로비전하고 Envoy에 프로비전 해제하는 방법을 알아봅니다.
+description: Azure AD에서 Envoy로 사용자 계정을 자동으로 프로비전하고 프로비전 해제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -14,77 +14,79 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
-ms.author: jeedes
-ms.openlocfilehash: 30faae80f1af4ff63924a76b26a03b8fe354a7df
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: Zhchia
+ms.openlocfilehash: 68e17ba1dd5981e565e56d6c8137f77d33ad755b
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77058028"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393508"
 ---
 # <a name="tutorial-configure-envoy-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Envoy 구성
 
-이 자습서의 목적은 사용자 및/또는 그룹을 Envoy에 자동으로 프로비전 및 프로비저닝 해제하도록 Azure AD를 구성하는 Envoy 및 Azure Active Directory(Azure AD)에서 수행할 단계를 보여 주는 것입니다.
+이 자습서에서는 자동 사용자 프로비저닝을 구성하기 위해 Envoy 및 Azure Active Directory(Azure AD)에서 수행해야 하는 단계를 설명합니다. 구성되면 Azure AD는 Azure AD 프로비저닝 서비스를 사용하여 사용자 및 그룹을 [Envoy에](https://envoy.com/pricing/) 자동으로 프로비전하고 해제합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요. 
 
-> [!NOTE]
-> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요.
->
-> 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+## <a name="capabilities-supported"></a>지원되는 기능
+> [!div class="checklist"]
+> * Envoy에서 사용자 만들기
+> * 더 이상 액세스가 필요하지 않은 경우 Envoy에서 사용자 제거
+> * Azure AD와 Envoy 간에 사용자 특성 동기화 유지
+> * Envoy에서 그룹 및 그룹 구성원 자격 제공
+> * [Envoy에 대한 단일 사인온(권장)](https://docs.microsoft.com/azure/active-directory/saas-apps/envoy-tutorial)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
-* Azure AD 테넌트
-* [특사 테넌트](https://envoy.com/pricing/)
+* [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
+* 프로비저닝을 구성할 수 [있는 권한이](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 있는 Azure AD의 사용자 계정(예: 응용 프로그램 관리자, 클라우드 응용 프로그램 관리자, 응용 프로그램 소유자 또는 전역 관리자). 
+* [Envoy 테넌트](https://envoy.com/pricing/).
 * 관리자 권한이 있는 Envoy의 사용자 계정입니다.
 
-## <a name="add-envoy-from-the-gallery"></a>갤러리에서 특사 추가
+## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획
+1. [프로비저닝 서비스의 작동 방식에](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)대해 알아봅니다.
+2. [프로비저닝 범위에](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)속할 사람을 결정합니다.
+3. [Azure AD와 Envoy 간에 매핑할](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)데이터를 결정합니다. 
 
-Azure AD를 사용하여 자동 사용자 프로비전을 위해 Envoy를 구성하기 전에 Azure AD 응용 프로그램 갤러리에서 관리되는 SaaS 응용 프로그램 목록에 Envoy를 추가해야 합니다.
+## <a name="step-2-configure-envoy-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD로 프로비전을 지원하도록 Envoy 구성
 
-**Azure AD 응용 프로그램 갤러리에서 Envoy를 추가하려면 다음 단계를 수행합니다.**
+1. Envoy 관리 [콘솔에](https://dashboard.envoy.com/login)로그인합니다. 통합 **을 클릭합니다.**
 
-1. Azure **[포털에서](https://portal.azure.com)** 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택합니다.
+    ![특사 통합](media/envoy-provisioning-tutorial/envoy01.png)
 
-    ![Azure Active Directory 단추](common/select-azuread.png)
+2. **마이크로소프트 Azure SCIM 통합에**대 한 **설치를** 클릭 합니다.
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
+    ![특사 설치](media/envoy-provisioning-tutorial/envoy02.png)
 
-    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
+3. 모든 사용자 **동기화를**위해 **저장을** 클릭합니다. 
 
-3. 새 응용 프로그램을 추가하려면 창 상단의 **새 응용 프로그램** 단추를 선택합니다.
+    ![특사 저장](media/envoy-provisioning-tutorial/envoy03.png)
 
-    ![새 애플리케이션 단추](common/add-new-app.png)
+4. **오오스 베어러 토큰을**복사합니다. 이 값은 Azure 포털에서 Envoy 응용 프로그램의 프로비저닝 탭에서 **비밀 토큰** 필드에 입력됩니다.
+    
+    ![오귀스 특사](media/envoy-provisioning-tutorial/envoy04.png)
 
-4. 검색 상자에서 **Envoy를**입력하고 결과 패널에서 **Envoy를** 선택한 다음 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+## <a name="step-3-add-envoy-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 사절 추가
 
-    ![결과 목록의 Envoy](common/search-new-app.png)
+Azure AD 응용 프로그램 갤러리에서 Envoy를 추가하여 Envoy에 대한 프로비저닝 관리를 시작합니다. 이전에 SSO에 대한 Envoy를 설정한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음에 통합을 테스트할 때 별도의 앱을 만드는 것이 좋습니다. 갤러리에서 응용 프로그램을 추가하는 방법에 대한 자세한 내용은 [여기를](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)참조하십시오. 
 
-## <a name="assigning-users-to-envoy"></a>사용자를 특사에 할당
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>4단계. 프로비저닝 범위에 속할 사람 정의 
 
-Azure Active Directory는 *할당이라는* 개념을 사용하여 선택한 앱에 대한 액세스 권한을 받아야 하는 사용자를 결정합니다. 자동 사용자 프로비저닝의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당된 사용자 및/또는 그룹만 동기화됩니다.
+Azure AD 프로비전 서비스를 사용하면 응용 프로그램에 할당하거나 사용자/그룹의 특성을 기반으로 프로비전할 사용자를 범위를 지정할 수 있습니다. 할당에 따라 앱에 프로비전할 사용자를 지정하는 경우 다음 [단계를](../manage-apps/assign-user-or-group-access-portal.md) 사용하여 응용 프로그램에 사용자 및 그룹을 할당할 수 있습니다. 사용자 또는 그룹의 특성만을 기반으로 프로비전할 범위를 지정하는 경우 [여기에](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)설명된 대로 범위 지정 필터를 사용할 수 있습니다. 
 
-자동 사용자 프로비저닝을 구성하고 활성화하기 전에 Azure AD에서 Envoy에 액세스해야 하는 사용자 및/또는 그룹을 결정해야 합니다. 일단 결정, 당신은 여기에 지침에 따라 이러한 사용자 및 / 또는 그룹을 Envoy에 할당 할 수 있습니다 :
+* 사용자 및 그룹을 Envoy에 할당할 때 기본 **액세스**가 아닌 다른 역할을 선택해야 합니다. 기본 액세스 역할을 가진 사용자는 프로비저닝에서 제외되며 프로비저닝 로그에서 효과적으로 사용할 수 없는 것으로 표시됩니다. 응용 프로그램에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우 [응용 프로그램 매니페스트를 업데이트하여](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) 추가 역할을 추가할 수 있습니다. 
 
-* [엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)
+* 작게 시작하십시오. 모든 사용자에게 배포하기 전에 작은 사용자 및 그룹으로 테스트합니다. 프로비저닝 범위가 할당된 사용자 및 그룹으로 설정된 경우 앱에 하나 또는 두 개의 사용자 또는 그룹을 할당하여 이를 제어할 수 있습니다. 범위가 모든 사용자 및 그룹으로 설정된 경우 [특성 기반 범위 지정 필터를](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)지정할 수 있습니다. 
 
-### <a name="important-tips-for-assigning-users-to-envoy"></a>사용자를 특사에 할당하기 위한 중요한 팁
 
-* 자동 사용자 프로비저닝 구성을 테스트하기 위해 단일 Azure AD 사용자가 Envoy에 할당되는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
+## <a name="step-5-configure-automatic-user-provisioning-to-envoy"></a>5단계. Envoy에 자동 사용자 프로비전 구성 
 
-* 사용자를 Envoy에 할당할 때 할당 대화 상자에서 유효한 응용 프로그램 별 역할(사용 가능한 경우)을 선택해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로비저닝에서 제외됩니다.
-
-## <a name="configuring-automatic-user-provisioning-to-envoy"></a>Envoy에 자동 사용자 프로비전 구성 
-
-이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당을 기반으로 Envoy에서 사용자 및/또는 그룹을 생성, 업데이트 및 비활성화하도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
-
-> [!TIP]
-> Envoy Single [sign-on 자습서에서](envoy-tutorial.md)제공된 지침에 따라 SamL 기반 단일 사인온을 사용하도록 선택할 수도 있습니다. Single Sign-On과 자동 사용자 프로비저닝은 서로 보완적이지만, 별개로 구성할 수 있습니다.
+이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당을 기반으로 TestApp에서 사용자 및/또는 그룹을 생성, 업데이트 및 비활성화하도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
 
 ### <a name="to-configure-automatic-user-provisioning-for-envoy-in-azure-ad"></a>Azure AD에서 Envoy에 대한 자동 사용자 프로비전을 구성하려면 다음을 수행하십시오.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다. **엔터프라이즈 응용 프로그램을**선택한 다음 모든 응용 프로그램을 **선택합니다.**
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램을**선택한 다음 모든 응용 프로그램을 **선택합니다.**
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -100,74 +102,80 @@ Azure Active Directory는 *할당이라는* 개념을 사용하여 선택한 앱
 
     ![프로비저닝 탭](common/provisioning-automatic.png)
 
-5. 관리자 **자격 증명** 섹션에서 `https://app.envoy.com/scim/v2` **테넌트 URL에**입력합니다. Envoy 계정의 **비밀 토큰을** 검색하려면 6단계에 설명된 대로 연습에 따릅니다.
+5. 관리자 **자격 증명** 섹션에서 `https://app.envoy.com/scim/v2` **테넌트 URL에**입력합니다. **비밀**토큰의 앞에서 검색된 **OAUTH BEARER 토큰** 값을 입력합니다. Azure AD가 Envoy에 연결할 수 있도록 **테스트 연결을** 클릭합니다. 연결이 실패하면 Envoy 계정에 관리자 권한이 있는지 확인하고 다시 시도하십시오.
 
-6. Envoy 관리 [콘솔에](https://dashboard.envoy.com/login)로그인합니다. 통합 **을 클릭합니다.**
+   ![프로비전](./media/envoy-tutorial/provisioning.png)
 
-    ![특사 통합](media/envoy-provisioning-tutorial/envoy01.png)
-
-    **마이크로소프트 Azure SCIM 통합에**대 한 **설치를** 클릭 합니다.
-
-    ![특사 설치](media/envoy-provisioning-tutorial/envoy02.png)
-
-    모든 사용자 **동기화를**위해 **저장을** 클릭합니다. 
-
-    ![특사 저장](media/envoy-provisioning-tutorial/envoy03.png)
-
-    채워진 비밀 토큰을 검색합니다.
-    
-    ![오귀스 특사](media/envoy-provisioning-tutorial/envoy04.png)
-
-7. 5단계에 표시된 필드를 채우면 **테스트 연결을** 클릭하여 Azure AD가 Envoy에 연결할 수 있도록 합니다. 연결이 실패하면 Envoy 계정에 관리자 권한이 있는지 확인하고 다시 시도하십시오.
-
-    ![토큰](common/provisioning-testconnection-tenanturltoken.png)
-
-8. **알림 메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우, 메일 알림 보내기** 확인란을 선택합니다.
+6. 알림 **전자 메일** 필드에 프로비저닝 오류 알림을 받아야 하는 개인 또는 그룹의 전자 메일 주소를 입력하고 오류가 발생할 때 전자 메일 알림 보내기 확인란을 선택합니다. **Send an email notification when a failure occurs**
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-9. **저장**을 클릭합니다.
+7. **저장**을 선택합니다.
 
-10. 매핑 섹션에서 **Azure Active Directory 사용자를 Envoy에 동기화를** **선택합니다.**
-    
-    ![사절 사용자 속성](media/envoy-provisioning-tutorial/envoy-user-mappings.png)
-    
-11. **속성 매핑** 섹션에서 Azure AD에서 Envoy로 동기화된 사용자 특성을 검토합니다. **일치** 속성으로 선택된 특성은 업데이트 작업에 대한 Envoy의 사용자 계정을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+8. 매핑 섹션에서 **Azure Active Directory 사용자를 Envoy에 동기화를** **선택합니다.**
 
-    ![사절 사용자 속성](media/envoy-provisioning-tutorial/envoy-user-attribute.png)
+9. **속성 매핑** 섹션에서 Azure AD에서 Envoy로 동기화된 사용자 특성을 검토합니다. **일치** 속성으로 선택된 특성은 업데이트 작업에 대한 Envoy의 사용자 계정을 일치시키는 데 사용됩니다. [일치하는 대상 특성을](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)변경하도록 선택한 경우 Envoy API가 해당 특성을 기반으로 필터링 사용자를 지원하는지 확인해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-12. **매핑** 섹션에서 **Azure Active Directory 그룹 동기화를 참조로 선택합니다.**
+   |특성|Type|
+   |---|---|
+   |userName|String|
+   |externalId|String|
+   |displayName|String|
+   |title|String|
+   |emails[type eq "work"].value|String|
+   |preferredLanguage|String|
+   |department|String|
+   |주소[eq "작업"을 입력하십시오.국가|String|
+   |주소[eq "작업"을 입력하십시오.지역성|String|
+   |주소[eq "작업"을 입력합니다.영역|String|
+   |addresses[type eq "work"].postalCode|String|
+   |주소[eq "작업"을 입력하십시오.형식|String|
+   |addresses[type eq "work"].streetAddress|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |name.형식|String|
+   |phoneNumbers[type eq "mobile"].value|String|
+   |phoneNumbers[type eq "work"].value|String|
+   |locale|String|
 
-    ![특사 사용자 매핑](media/envoy-provisioning-tutorial/envoy-group-mapping.png)
+10. **매핑** 섹션에서 **Azure Active Directory 그룹 동기화를 참조로 선택합니다.**
 
-13. **속성 매핑** 섹션에서 Azure AD에서 Envoy로 동기화된 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업에 대한 Envoy의 그룹을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+11. **속성 매핑** 섹션에서 Azure AD에서 Envoy로 동기화된 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업에 대한 Envoy의 그룹을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![특사 사용자 매핑](media/envoy-provisioning-tutorial/envoy-group-attributes.png)
-    
-14. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
+      |특성|Type|
+      |---|---|
+      |displayName|String|
+      |externalId|String|
+      |members|참조|
 
-15. Envoy에 대한 Azure AD 프로비저닝 서비스를 사용하려면 **설정** 섹션에서 **프로비저닝 상태를** **켜기로** 변경합니다.
+12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
+
+13. Envoy에 대한 Azure AD 프로비저닝 서비스를 사용하려면 **설정** 섹션에서 **프로비저닝 상태를** **켜기로** 변경합니다.
 
     ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
-16. **설정** 섹션의 **Scope에서** 원하는 값을 선택하여 Envoy에 프로비전할 사용자 및/또는 그룹을 정의합니다.
+14. **설정** 섹션의 **Scope에서** 원하는 값을 선택하여 Envoy에 프로비전할 사용자 및/또는 그룹을 정의합니다.
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-17. 프로비전할 준비가 되면 **저장**을 클릭합니다.
+15. 프로비전할 준비가 되면 **저장**을 클릭합니다.
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
-이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. 동기화 세부 **정보** 섹션을 사용하여 진행 상황을 모니터링하고 Envoy에서 Azure AD 프로비저닝 서비스에서 수행하는 모든 작업을 설명하는 프로비저닝 활동 보고서에 대한 링크를 따를 수 있습니다.
+이 작업은 **설정** 섹션의 **Scope에** 정의된 모든 사용자 및 그룹의 초기 동기화 주기를 시작합니다. Azure AD 프로비저닝 서비스가 실행되는 동안 약 40분마다 발생하는 후속 주기보다 초기 주기를 수행하는 데 시간이 더 오래 걸립니다. 
 
-Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
+## <a name="step-6-monitor-your-deployment"></a>6단계. 배포 모니터링
+프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
+
+* [프로비저닝 로그를](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) 사용하여 프로비저닝이 성공적으로 또는 실패한 사용자를 확인합니다.
+* [진행률 표시줄을](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) 확인하여 프로비저닝 주기의 상태와 완료에 얼마나 가까운지 확인합니다.
+* 프로비저닝 구성이 비정상 상태인 것 같으면 응용 프로그램이 격리됩니다. 검역 상태에 대한 자세한 내용은 [여기를 참조하십시오.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱용 사용자 계정 프로비저닝 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
+* [엔터프라이즈 앱용 사용자 계정 프로비저닝 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).
-
+* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../manage-apps/check-status-user-account-provisioning.md).

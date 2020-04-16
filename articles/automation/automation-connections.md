@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4840b135587ae776cfb80258ce513a48a79efa43
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 7a6fc2bd5cb6f5c7ae5bef9e9741fae92518d885
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383343"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392385"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure Automation의 연결 자산
 
@@ -38,7 +38,7 @@ Azure 자동화에서 사용할 수 있는 기본 제공 연결에는 세 가지
 
 다음 테이블의 cmdlet은 Windows PowerShell을 사용하여 Automation 연결을 만들고 관리하는 데 사용됩니다. 자동화 런북 및 DSC 구성에서 사용할 수 있는 [Azure PowerShell 모듈의](/powershell/azure/overview)일부로 제공됩니다.
 
-|Cmdlet|설명|
+|Cmdlet|Description|
 |---|---|
 |[Get-Az자동화연결](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|연결을 검색합니다. 연결 필드의 값이 포함된 해시 테이블을 포함합니다.|
 |[새로운 아즈오토메이션커넥션](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|새 연결을 만듭니다.|
@@ -49,7 +49,7 @@ Azure 자동화에서 사용할 수 있는 기본 제공 연결에는 세 가지
 
 다음 표의 활동은 runbook 또는 DSC 구성의 연결에 액세스하는데 사용됩니다.
 
-|활동|설명|
+|활동|Description|
 |---|---|
 |`Get-AutomationConnection` | 사용할 연결을 가져옵니다. 연결 속성이 포함된 해시 테이블을 반환합니다.|
 
@@ -89,7 +89,7 @@ $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "Tenant
 New-AzAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 ```
 
-자동화 계정을 만들 때 연결 자산을 만드는 연결 유형과 `AzureServicePrincipal` 함께 기본적으로 여러 전역 모듈이 자동으로 포함되므로 스크립트를 `AzureRunAsConnection` 사용하여 연결 자산을 만들 수 있습니다. 새 연결 자산을 만들어 다른 인증 방법으로 서비스 또는 애플리케이션에 연결하려는 경우 아직 연결 형식이 Automation 계정에 정의되어 있지 않기 때문에 실패하게 된다는 것을 명심해야 합니다. [PowerShell 갤러리에서](https://www.powershellgallery.com)사용자 지정 또는 모듈에 대한 사용자 고유의 연결 유형을 만드는 방법에 대한 자세한 내용은 [통합 모듈을 참조하십시오.](automation-integration-modules.md)
+자동화 계정을 만들 때 연결 자산을 만드는 연결 유형과 `AzureServicePrincipal` 함께 기본적으로 여러 전역 모듈이 자동으로 포함되므로 스크립트를 `AzureRunAsConnection` 사용하여 연결 자산을 만들 수 있습니다. 새 연결 자산을 만들어 다른 인증 방법으로 서비스 또는 애플리케이션에 연결하려는 경우 아직 연결 형식이 Automation 계정에 정의되어 있지 않기 때문에 실패하게 된다는 것을 명심해야 합니다. [PowerShell 갤러리에서](https://www.powershellgallery.com)사용자 지정 또는 모듈에 대한 사용자 고유의 연결 유형을 만드는 방법에 대한 자세한 내용은 [통합 모듈 을](automation-integration-modules.md)참조하십시오.
 
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>runbook 또는 DSC 구성에서 연결 사용하기
 
@@ -113,7 +113,7 @@ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.
 
 ![캔버스에 추가](media/automation-connections/connection-add-canvas.png)
 
-다음 그림에서는 그래픽 Runbook에서 연결을 사용하는 예제를 보여 줍니다. 이는 텍스트 runbook과 함께 실행 계정을 통해 인증하기 위해 위에서 보여 준 예제와 동일합니다. 이 예제에서는 `Constant value` 인증에 `Get RunAs Connection` 연결 개체를 사용하는 활동에 대한 데이터 집합을 사용합니다. 매개 변수 집합이 단일 개체를 예상하므로 파이프라인 링크가 여기에 사용됩니다. [pipeline link](automation-graphical-authoring-intro.md#links-and-workflow) `ServicePrincipalCertificate`
+다음 그림에서는 그래픽 Runbook에서 연결을 사용하는 예제를 보여 줍니다. 이는 텍스트 Runbook을 사용하여 Run As 계정을 사용하여 인증하기 위해 위에 표시된 것과 동일한 예입니다. 이 예제에서는 `Constant value` 인증에 `Get RunAs Connection` 연결 개체를 사용하는 활동에 대한 데이터 집합을 사용합니다. 매개 변수 집합이 단일 개체를 예상하므로 파이프라인 링크가 여기에 사용됩니다. [pipeline link](automation-graphical-authoring-intro.md#links-and-workflow) `ServicePrincipalCertificate`
 
 ![연결 가져오기](media/automation-connections/automation-get-connection-object.png)
 

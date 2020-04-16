@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: 3a42d7da21cfb2e3066fbdd81b27c82155d8456f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6d634d9a32ae1728e1122d863ddabd94f73ee27
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75439976"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414839"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>컨트롤 테이블이 있는 데이터베이스의 대량 복사본
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 오라클 서버, 네테자, 테라데이타 또는 SQL Server의 데이터 웨어하우스에서 Azure SQL 데이터 웨어하우스로 데이터를 복사하려면 여러 테이블에서 엄청난 양의 데이터를 로드해야 합니다. 일반적으로 단일 테이블에서 여러 스레드가 있는 행을 로드할 수 있도록 각 테이블에서 데이터를 분할해야 합니다. 이 문서에서는 이러한 시나리오에서 사용할 템플릿에 대해 설명합니다.
 

@@ -6,18 +6,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: e0c48137f5eecc96b6e7b1cbce5f0c683b2a976a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0df2680a9f17fc0af950b0ce744a655348b4cbf7
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367315"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406059"
 ---
 # <a name="my-first-powershell-runbook"></a>내 첫 번째 PowerShell Runbook
 
 > [!div class="op_single_selector"]
 > * [그래픽](automation-first-runbook-graphical.md)
-> * [Powershell](automation-first-runbook-textual-powershell.md)
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [PowerShell 워크플로](automation-first-runbook-textual.md)
 > * [Python](automation-first-runbook-textual-python2.md)
 
@@ -77,7 +77,7 @@ Runbook을 프로덕션 환경에서 사용할 수 있도록 게시하기 전에
 2. **시작** 을 클릭하여 테스트를 시작합니다. 유일하게 사용 가능한 옵션이어야 합니다.
 3. [Runbook 작업이](automation-runbook-execution.md) 만들어지고 해당 상태가 창에 표시됩니다.
 
-   작업 상태는 클라우드에서 Runbook 작업자가 사용 가능해지기를 기다리고 있음을 나타내는 것으로 시작됩니다. `Queued` 작업자가 작업을 `Starting` 클레임할 때 상태가 변경됩니다. 마지막으로 Runbook이 `Running` 실제로 실행되기 시작하면 상태가 됩니다.
+   작업 상태는 큐로 시작되며, 이는 작업이 클라우드의 Runbook 작업자를 사용할 수 있게 되기를 기다리고 있음을 나타냅니다. 작업자가 작업을 클레임할 때 상태가 시작됨으로 변경됩니다. 마지막으로 Runbook이 실제로 실행되기 시작하면 상태가 실행됩니다.
 
 4. Runbook 작업이 완료되면 테스트 창에 출력이 표시됩니다. 이 경우 을 `Hello World`볼 수 있습니다.
 
@@ -91,7 +91,7 @@ Runbook을 프로덕션 환경에서 사용할 수 있도록 게시하기 전에
 
 1. **게시**를 클릭하여 Runbook을 게시한 다음 확인 메시지가 표시되면 **예**를 클릭합니다.
 1. 왼쪽을 스크롤하여 Runbook 페이지에서 Runbook을 보고 **작성 상태** 값이 **게시됨으로**설정되어 있습니다.
-1. 다시 오른쪽으로 스크롤하면 **MyFirstRunbook-PowerShell**창이 표시됩니다.
+1. 오른쪽으로 다시 스크롤하여 **MyFirstRunbook-PowerShell의**페이지를 봅니다.
    
    상단의 옵션을 사용하면 지금 Runbook을 시작하거나, 향후 시작 시간을 예약하거나, HTTP 호출을 통해 Runbook을 시작할 수 있도록 [웹후크를](automation-webhooks.md) 만들 수 있습니다.
 1. **시작**을 선택하고 Runbook을 시작할지 확인하는 메시지가 표시되면 **예**를 선택합니다. 
@@ -99,7 +99,7 @@ Runbook을 프로덕션 환경에서 사용할 수 있도록 게시하기 전에
 
    ![작업 요약](media/automation-first-runbook-textual-powershell/job-pane-status-blade-jobsummary.png)
 
-1. Runbook 상태가 표시되면 `Completed` **출력을** 클릭하여 출력 페이지를 열어 `Hello World` 표시할 수 있습니다.
+1. Runbook 상태가 완료됨으로 표시되면 **출력을** 클릭하여 출력 페이지를 `Hello World` 열어 표시할 수 있습니다.
 
    ![작업 출력](media/automation-first-runbook-textual-powershell/job-pane-status-blade-outputtile.png)
 
@@ -110,7 +110,7 @@ Runbook을 프로덕션 환경에서 사용할 수 있도록 게시하기 전에
 
    ![모든 로그](media/automation-first-runbook-textual-powershell/job-pane-status-blade-alllogstile.png)
 
-1. 스트림 창과 작업 창을 닫고 **MyFirstRunbook-PowerShell** 페이지로 돌아갑니다.
+1. 스트림 창과 작업 창을 닫고 MyFirstRunbook-PowerShell 페이지로 돌아갑니다.
 1. **세부 정보**에서 **작업을** 클릭하여 이 Runbook의 작업 페이지를 엽니다. 이 페이지에는 Runbook에서 만든 모든 작업이 나열됩니다. 작업을 한 번만 실행했기 때문에 나열된 작업이 하나만 표시됩니다.
 
    ![작업 목록](media/automation-first-runbook-textual-powershell/runbook-control-job-tile.png)
@@ -151,7 +151,7 @@ Runbook을 프로덕션 환경에서 사용할 수 있도록 게시하기 전에
 
    Get-AzVM -ResourceGroupName myResourceGroup -AzContext $AzureContext
    ```
-1. **MyFirstRunbook-PowerShell** 페이지에서 **편집을** 클릭하여 텍스트 편집기열기를 엽니다.
+1. MyFirstRunbook-PowerShell 페이지에서 **편집**을 클릭하여 텍스트 편집기를 엽니다.
 1. 더 이상 `Write-Output` 라인이 필요하지 않습니다. 그냥 가서 삭제합니다.
 1. 자동화 실행 계정으로 인증을 처리하는 다음 코드를 입력하거나 복사하여 붙여넣습니다.
 
@@ -182,7 +182,7 @@ Runbook을 프로덕션 환경에서 사용할 수 있도록 게시하기 전에
 
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>6단계 - 가상 머신을 시작하기 위한 코드 추가
 
-이제 Runbook에서 Azure 구독을 인증하므로 리소스를 관리할 수 있습니다. 가상 컴퓨터를 시작하는 명령을 추가해 보겠습니다. Azure 구독에서 가상 컴퓨터를 선택할 수 있으며 지금은 Runbook에서 해당 이름을 하드코드할 수 있습니다.
+이제 Runbook에서 Azure 구독을 인증하므로 리소스를 관리할 수 있습니다. 가상 컴퓨터를 시작하는 명령을 추가해 보겠습니다. Azure 구독에서 가상 컴퓨터를 선택할 수 있으며 지금은 Runbook에서 해당 이름을 하드 코드로 만 지정할 수 있습니다.
 
 1. Runbook 스크립트에 [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) cmdlet을 추가하여 가상 컴퓨터를 시작합니다. 아래 그림과 같이 cmdlet은 이름과 `VMName` . `ResourceGroupName`
 
@@ -212,7 +212,7 @@ Runbook을 프로덕션 환경에서 사용할 수 있도록 게시하기 전에
 
 ## <a name="step-7---add-an-input-parameter"></a>7단계 - 입력 매개변수 추가
 
-Runbook은 현재 Runbook에서 하드코딩한 가상 컴퓨터를 시작합니다. Runbook이 시작될 때 가상 컴퓨터를 지정하면 런북이 더 유용합니다. 해당 기능을 제공하기 위해 Runbook에 입력 매개 변수를 추가해 보겠습니다.
+Runbook은 현재 Runbook에서 하드 코딩한 가상 컴퓨터를 시작합니다. Runbook이 시작될 때 가상 컴퓨터를 지정하는 경우 Runbook이 더 유용합니다. 해당 기능을 제공하기 위해 Runbook에 입력 매개 변수를 추가해 보겠습니다.
 
 1. 텍스트 편집기에서 `Start-AzVM` 매개 변수및 `VMName` `ResourceGroupName`에 대한 변수를 사용하도록 cmdlet을 수정합니다. 
 
@@ -252,6 +252,8 @@ Runbook은 현재 Runbook에서 하드코딩한 가상 컴퓨터를 시작합니
 ## <a name="next-steps"></a>다음 단계
 
 * 언어 참조 및 학습 모듈을 포함한 [PowerShell에](/powershell/scripting/overview)대한 자세한 내용은 PowerShell 문서를 참조하십시오.
+* PowerShell cmdlet 참조는 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+)을 참조하십시오.
 * 그래픽 런북을 시작하려면 [내 첫 번째 그래픽 실행북을](automation-first-runbook-graphical.md)참조하십시오.
 * PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)을 참조하세요.
 * Runbook 유형 및 해당 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure Automation Runbook 유형을](automation-runbook-types.md)참조하십시오.

@@ -8,14 +8,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 8/18/2019
 ms.author: makromer
-ms.openlocfilehash: d6885e9b30cc71bda822a29574c4d574f2b020a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d629a9031f032a77efc953311a45b55996568191
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72387043"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414383"
 ---
 # <a name="process-fixed-length-text-files-by-using-data-factory-mapping-data-flows"></a>데이터 팩터리 매핑 데이터 흐름을 사용하여 고정 길이 텍스트 파일 처리
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Microsoft Azure 데이터 팩터리에서 매핑 데이터 흐름을 사용하여 고정 너비 텍스트 파일에서 데이터를 변환할 수 있습니다. 다음 작업에서는 구분 기호없이 텍스트 파일에 대한 데이터 집합을 정의한 다음 서수 위치에 따라 하위 문자열 분할을 설정합니다.
 

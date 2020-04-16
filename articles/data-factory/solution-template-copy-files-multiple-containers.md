@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: 0c4c26ba163f83483b3eb48e51d91f9a919a887c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 383b70bbb02e7a200c7ec0a994f7cf11e9b9520e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75439816"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414812"
 ---
 # <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Azure Data Factory를 사용하여 여러 컨테이너에서 파일 복사
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 파일 저장소 간에 여러 컨테이너에서 파일을 복사하는 데 사용할 수 있는 솔루션 템플릿에 대해 설명합니다. 예를 들어 이를 사용하여 AWS S3에서 Azure Data Lake Store로 데이터 레이크를 마이그레이션할 수 있습니다. 또는 템플릿을 사용하여 한 Azure Blob 저장소 계정에서 다른 저장소 계정으로 모든 것을 복제할 수 있습니다.
 

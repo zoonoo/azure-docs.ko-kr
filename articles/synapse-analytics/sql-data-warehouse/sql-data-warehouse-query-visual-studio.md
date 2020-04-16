@@ -11,20 +11,20 @@ ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e986515a911cf1bbd88dfc73c56efcc6e81826d6
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 174ee07e389e598fed6ed8487e60303fbce81f77
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351399"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416043"
 ---
 # <a name="connect-to-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>비주얼 스튜디오 및 SSDT를 사용하여 Azure 시냅스 분석에 연결
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Azure 기계 학습](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [Sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
-> * [Ssms](sql-data-warehouse-query-ssms.md)
+> * [Sqlcmd](../sql/get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
@@ -35,7 +35,7 @@ Visual Studio를 사용하여 몇 분 만에 Azure Synapse 내에서 SQL 풀을 
 
 * 기존 SQL 풀입니다. 하나를 만들려면 [SQL 풀 만들기를](create-data-warehouse-portal.md)참조하십시오.
 * Visual Studio용 SSDT. Visual Studio가 있는 경우 Visual Studio용 SSDT가 이미 있을 수 있습니다. 설치 지침 및 옵션은 [Visual Studio 및 SSDT 설치](sql-data-warehouse-install-visual-studio.md)를 참조하세요.
-* 정규화된 SQL 서버 이름. 이 정보를 찾으려면 [SQL 풀에 연결 을](sql-data-warehouse-connect-overview.md)참조하십시오.
+* 정규화된 SQL 서버 이름. 이 정보를 찾으려면 [SQL 풀에 연결 을](../sql/connect-overview.md)참조하십시오.
 
 ## <a name="1-connect-to-your-sql-pool"></a>1. SQL 풀에 연결
 1. Visual Studio 2019를 엽니다.

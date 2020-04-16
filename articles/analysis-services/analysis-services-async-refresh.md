@@ -4,19 +4,19 @@ description: Azure 분석 서비스 REST API를 사용하여 모델 데이터의
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6457f062a40e60a491220fcf977585e8b07445b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5f6cec8b7fd1169a4f04649fcaf7bb7ada33833
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273714"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406280"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API를 사용한 비동기 새로 고침
 
-REST 호출을 지원하는 프로그래밍 언어를 사용하여 Azure Analysis Services 테이블 형식 모델에서 비동기 데이터 새로 고침 작업을 수행할 수 있습니다. 여기에는 쿼리 스케일 아웃을 위한 읽기 전용 복제본의 동기화가 포함됩니다. 
+REST 호출을 지원하는 프로그래밍 언어를 사용하면 Azure Analysis Services 테이블 형식 모델에서 비동기 데이터 새로 고침 작업을 수행할 수 있습니다. 여기에는 쿼리 스케일 아웃을 위한 읽기 전용 복제본의 동기화가 포함됩니다. 
 
 데이터 새로 고침 작업은 데이터 볼륨, 파티션을 사용한 최적화 수준 등 여러 요인에 따라 다소 시간이 걸릴 수 있습니다. 이러한 작업은 일반적으로 [TOM(테이블](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) 형식 개체 모델), [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) cmdlet 또는 [TMSL(테이블](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) 형식 모델 스크립팅 언어)을 사용하는 것과 같은 기존 메서드에서 호출되었습니다. 그러나 이러한 메서드는 종종 신뢰할 수 없는, 장기 실행 HTTP 연결을 요구할 수 있습니다.
 
@@ -97,7 +97,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 매개 변수를 지정할 필요는 없습니다. 기본값이 적용됩니다.
 
-| 이름             | Type  | Description  |기본값  |
+| 속성             | Type  | Description  |기본값  |
 |------------------|-------|--------------|---------|
 | `Type`           | 열거형  | 수행할 처리 형식입니다. 이 형식은 TMSL [새로 고침 명령](https://docs.microsoft.com/analysis-services/tmsl/refresh-command-tmsl) 형식인 full, clearValues, calculate, dataOnly, automatic 및 defragment에 맞춰 정렬됩니다. Add 형식은 지원되지 않습니다.      |   automatic      |
 | `CommitMode`     | 열거형  | 개체가 일괄로 커밋될지 또는 완료될 때만 커밋될지를 결정합니다. 모드에는 default, transactional, partialBatch가 포함됩니다.  |  transactional       |
@@ -112,7 +112,7 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 
 ### <a name="status-values"></a>상태 값
 
-|상태 값  |설명  |
+|상태 값  |Description  |
 |---------|---------|
 |`notStarted`    |   작업이 아직 시작되지 않았습니다.      |
 |`inProgress`     |   작업이 진행 중입니다.      |
@@ -208,8 +208,8 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 
 ### <a name="to-use-the-code-sample"></a>코드 샘플을 사용하려면
 
-1.  리포지토리를 복제하거나 다운로드합니다. RestApiSample 솔루션을 엽니다.
-2.  **client.BaseAddress = …** 줄을 찾은 후 [기준 URL](#base-url)을 제공합니다.
+1.    리포지토리를 복제하거나 다운로드합니다. RestApiSample 솔루션을 엽니다.
+2.    **client.BaseAddress = …** 줄을 찾은 후 [기준 URL](#base-url)을 제공합니다.
 
 코드 샘플은 [서비스 주체](#service-principal) 인증을 사용합니다.
 
@@ -217,14 +217,14 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 
 서비스 주체를 설정하고 Azure AS에서 필요한 사용 권한을 할당하는 방법에 대한 자세한 정보는 [서비스 주체 만들기 - Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md) 및 [서버 관리자 역할에 서비스 주체 추가](analysis-services-addservprinc-admins.md)를 참조하세요. 이 단계를 완료한 다음, 다음과 같은 추가 단계를 완료합니다.
 
-1.  코드 예제에서 **string authority = …** 를 찾은 후 **common**을 조직의 테넌트 ID로 바꿉니다.
-2.  ClientCredential 클래스가 자격 증명 개체를 인스턴스화하는 데 사용되도록 주석 처리하거나 주석 처리를 해제합니다. \<App ID> 및 \<App Key> 값이 안전한 방식으로 액세스되는지 확인하고, 그렇지 않은 경우 서비스 사용자에 대해 인증서 기반 인증을 사용합니다.
-3.  예제를 실행합니다.
+1.    코드 샘플에서 **문자열 기관 =**... **common**
+2.    ClientCredential 클래스가 자격 증명 개체를 인스턴스화하는 데 사용되도록 주석 처리하거나 주석 처리를 해제합니다. \<App ID> 및 \<App Key> 값이 안전한 방식으로 액세스되는지 확인하고, 그렇지 않은 경우 서비스 사용자에 대해 인증서 기반 인증을 사용합니다.
+3.    예제를 실행합니다.
 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [샘플](analysis-services-samples.md)   
-[나머지 API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
+[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 

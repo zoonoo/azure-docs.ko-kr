@@ -9,14 +9,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 03/16/2020
-ms.openlocfilehash: 115cb3e499117457629e130b6432a1cbc2224edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32088dd712cd0c70fc01de48add17a0b6a828dc8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79463053"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415323"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Azure 데이터 팩터리의 데이터 흐름 활동
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 데이터 흐름 활동을 사용하여 매핑 데이터 흐름을 통해 데이터를 변환하고 이동합니다. 데이터 흐름을 새로 접하는 경우 [데이터 흐름 매핑 개요를 참조하세요.](concepts-data-flow-overview.md)
 
@@ -52,9 +54,9 @@ ms.locfileid: "79463053"
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | 설명 | 허용되는 값 | 필수
+속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-Dataflow | 실행 중인 데이터 흐름에 대한 참조 | 데이터 흐름 참조 | yes
+Dataflow | 실행 중인 데이터 흐름에 대한 참조 | 데이터 흐름 참조 | 예
 통합런타임 | 데이터 흐름이 실행되는 계산 환경입니다. 지정하지 않으면 자동 확인 Azure 통합 런타임이 사용됩니다. | 통합런타임 참조 | 예
 계산.코어카운트 | 스파크 클러스터에 사용되는 코어 수입니다. 자동 확인 Azure 통합 런타임이 사용되는 경우에만 지정할 수 있습니다. | 8, 16, 32, 48, 80, 144, 272 | 예
 계산.계산 유형 | 스파크 클러스터에 사용되는 계산 유형입니다. 자동 확인 Azure 통합 런타임이 사용되는 경우에만 지정할 수 있습니다. | "일반", "계산 최적화", "메모리 최적화" | 예
@@ -160,9 +162,9 @@ Azure SQL 데이터 웨어하우스를 싱크 또는 원본으로 사용하는 �
 데이터 팩터리에서 지원하는 제어 흐름 활동 보기: 
 
 - [If 조건 작업](control-flow-if-condition-activity.md)
-- [파이프라인 활동 실행](control-flow-execute-pipeline-activity.md)
-- [각 활동에 대해](control-flow-for-each-activity.md)
-- [메타데이터 활동 받기](control-flow-get-metadata-activity.md)
+- [파이프라인 작업 실행](control-flow-execute-pipeline-activity.md)
+- [ForEach 작업](control-flow-for-each-activity.md)
+- [메타데이터 작업 가져오기](control-flow-get-metadata-activity.md)
 - [조회 작업](control-flow-lookup-activity.md)
-- [웹 활동](control-flow-web-activity.md)
+- [웹 작업](control-flow-web-activity.md)
 - [Until 작업](control-flow-until-activity.md)

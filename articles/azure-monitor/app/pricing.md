@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9ecd0ffd76650efff3a4c9f877522cba6f28d080
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 0225484de06ae4e595f1dcbcdd520f4e0e4d53f5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271117"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405383"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -28,7 +28,7 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 
 [다중 단계 웹 테스트](../../azure-monitor/app/availability-multistep.md)는 추가 요금이 발생합니다. 다중 단계 웹 테스트는 일련의 작업을 수행하는 웹 테스트입니다. 단일 페이지의 *ping 테스트*에 대해 별도의 요금이 부과되지 않습니다. ping 테스트와 다중 단계 테스트의 원격 분석은 앱의 다른 원격 분석과 동일하게 청구됩니다.
 
-[사용자 지정 메트릭 차원에 대한 경고 활성화를 활성화하는](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) Application Insights 옵션은 추가 집계 메트릭을 생성할 수 있으므로 추가 비용이 발생할 수도 있습니다. [자세히 알아보기] 응용 프로그램 인사이트에서 로그 기반 및 사전 집계된 메트릭및 Azure Monitor 사용자 지정 메트릭에 대한 [가격 책정에](https://azure.microsoft.com/pricing/details/monitor/) 대해 알아봅니다.
+[사용자 지정 메트릭 차원에 대한 경고 활성화를 활성화하는](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) Application Insights 옵션은 추가 집계 메트릭을 생성할 수 있으므로 추가 비용이 발생할 수도 있습니다. 애플리케이션 인사이트 내로 로그 기반 및 사전 집계된 메트릭과 Azure Monitor 사용자 지정 메트릭의 [가격 책정에](https://azure.microsoft.com/pricing/details/monitor/) 대해 [자세히 알아봅니다.](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics)
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>응용 프로그램 관리 비용 예측
 
@@ -218,7 +218,9 @@ Azure는 [Azure 비용 관리 + 청구](https://docs.microsoft.com/azure/cost-ma
 
 ![일별 원격 분석 볼륨 한도 조정](./media/pricing/pricing-005.png)
 
-보존은 매개 변수를 [사용하여 PowerShell을 사용하여 프로그래밍시로 설정할](powershell.md#set-the-data-retention) 수도 있습니다. `retentionInDays` 보존이 낮아지면 가장 오래된 데이터가 제거되기 전에 며칠의 유예 기간이 있습니다. 데이터 보존을 30일로 설정하면 `immediatePurgeDataOn30Days` 매개 변수를 사용하여 이전 데이터의 즉각적인 제거를 트리거할 수 있으며, 이는 규정 준수 관련 시나리오에 유용할 수 있습니다. 이 제거 기능은 Azure 리소스 관리자를 통해서만 노출되며 세심한 주의를 기울여 사용해야 합니다. Azure 리소스 관리자를 사용하여 데이터 볼륨 한도에 대한 일일 `dailyQuotaResetTime` 재설정 시간을 구성하여 매개 변수를 설정할 수 있습니다.
+보존이 낮아지면 가장 오래된 데이터가 제거되기 전에 며칠의 유예 기간이 있습니다.
+
+보존은 매개 변수를 [사용하여 PowerShell을 사용하여 프로그래밍시로 설정할](powershell.md#set-the-data-retention) 수도 있습니다. `retentionInDays` 데이터 보존을 30일로 설정하면 `immediatePurgeDataOn30Days` 매개 변수를 사용하여 이전 데이터의 즉각적인 제거를 트리거할 수 있으며, 이는 규정 준수 관련 시나리오에 유용할 수 있습니다. 이 제거 기능은 Azure 리소스 관리자를 통해서만 노출되며 세심한 주의를 기울여 사용해야 합니다. Azure 리소스 관리자를 사용하여 데이터 볼륨 한도에 대한 일일 `dailyQuotaResetTime` 재설정 시간을 구성하여 매개 변수를 설정할 수 있습니다.
 
 ## <a name="data-transfer-charges-using-application-insights"></a>애플리케이션 인사이트를 사용한 데이터 전송 요금
 

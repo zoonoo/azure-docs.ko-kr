@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b097ce3781a77a8c5e8a94b9c2bf0977f3efcfd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f1b8b9af8f90629d087246edf0cb3426bd9b66c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481333"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406825"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 애플리케이션 프록시 커넥터 이해
 
@@ -153,12 +153,17 @@ Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이
 
 사용된 인증서는 애플리케이션 프록시 서비스로 국한됩니다. 인증서는 초기 등록 중에 생성되며 몇 개월마다 커넥터에 의해 자동으로 갱신됩니다.
 
+첫 번째 인증서갱신 후 Azure AD 응용 프로그램 프록시 커넥터 서비스(네트워크 서비스)는 로컬 컴퓨터 저장소에서 이전 인증서를 제거할 수 있는 권한이 없습니다. 인증서가 만료되었거나 서비스에서 더 이상 사용되지 않는 경우 안전하게 삭제할 수 있습니다.
+
+인증서 갱신문제를 방지하려면 커넥터에서 [문서화된 대상을](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment) 향한 네트워크 통신이 활성화되어 있는지 확인합니다.
+
 몇 달 동안 커넥터가 서비스에 연결되지 않는 경우 인증서가 만료될 수 있습니다. 이 경우 커넥터를 제거 후 다시 설치하여 등록을 트리거합니다. 다음 PowerShell 명령을 실행하면 됩니다.
 
 ```
 Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
+인증서를 확인하고 문제를 해결하는 방법에 대한 자세한 내용은 [응용 프로그램 프록시 신뢰 인증서에 대한 컴퓨터 및 백 엔드 구성 요소 지원 확인을](application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate)참조하십시오.
 
 ## <a name="under-the-hood"></a>기본적인 이해
 

@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: ca913a4c197e04e20c962c4a4a7a1e479a3cdf92
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 2657f1998e3ca908bc52166154ac3353e1e5a66b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80990891"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415040"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 REST 엔드포인트에서 데이터 복사
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 REST 엔드포인트에서 데이터를 복사하는 방법을 간략히 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 기반으로 합니다.
 
@@ -56,7 +57,7 @@ REST 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 
 REST 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | **형식** 속성은 **RestService**로 설정해야 합니다. | 예 |
 | url | REST 서비스의 기본 URL입니다. | 예 |
@@ -68,7 +69,7 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 **authenticationType** 속성을 **Basic**으로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | userName | REST 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예 |
 | password | 사용자(**userName** 값)의 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 예 |
@@ -101,7 +102,7 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 **authenticationType** 속성을 **AadServicePrincipal**로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | servicePrincipalId | Azure Active Directory 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
 | servicePrincipalKey | Azure Active Directory 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
@@ -138,7 +139,7 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 **authenticationType** 속성을 **ManagedServiceIdentity**로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | aadResourceId | 권한 부여를 요청하는 AAD 리소스(예: `https://management.core.windows.net`)를 지정합니다.| 예 |
 
@@ -308,7 +309,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 페이지 매김 규칙의 **지원되는 키**는 다음과 같습니다.
 
-| 키 | 설명 |
+| 키 | Description |
 |:--- |:--- |
 | AbsoluteUrl | 다음 요청을 실행할 URL을 나타냅니다. **절대 URL 또는 상대 URL일**수 있습니다. |
 | QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter"는 다음 HTTP 요청 URL에 있는 하나의 쿼리 매개 변수 이름을 참조하는 사용자 정의 항목입니다. |
@@ -406,7 +407,7 @@ Facebook Graph API는 다음 구조의 응답을 반환합니다. 이 경우 다
 
 5. **웹** 활동을 선택합니다. **설정에서**해당 **URL**, **메서드,** 헤더 및 **Body를**지정하여 데이터를 복사하려는 서비스의 로그인 API에서 OAuth 베어러 토큰을 검색합니다. **Body** 템플릿의 자리 표시자는 AAD(Azure Active Directory) OAuth의 샘플을 보여 주며 있습니다. 참고 AAD 인증은 REST 커넥터에서 기본적으로 지원되며 OAuth 흐름의 예일 뿐입니다. 
 
-    | 속성 | 설명 |
+    | 속성 | Description |
     |:--- |:--- |:--- |
     | URL |OAuth 베어러 토큰을 검색할 URL을 지정합니다. 예를 들어, 여기에 샘플에서 그것은https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | 메서드 | HTTP 메서드입니다. 허용된 값은 **게시** 및 **Get입니다.** | 
@@ -417,7 +418,7 @@ Facebook Graph API는 다음 구조의 응답을 반환합니다. 이 경우 다
 
 6. **데이터 복사** 활동에서 *소스* 탭을 선택하면 이전 단계에서 검색된 전달자 토큰(access_token)이 추가 헤더에서 **권한 부여로** 데이터 활동을 복사하도록 전달되는 것을 볼 수 있습니다. 파이프라인 실행을 시작하기 전에 다음 속성에 대한 설정을 확인합니다.
 
-    | 속성 | 설명 |
+    | 속성 | Description |
     |:--- |:--- |:--- | 
     | 요청 메서드 | HTTP 메서드입니다. 허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 
     | 추가 헤더 | 추가 HTTP 요청 헤더입니다.| 

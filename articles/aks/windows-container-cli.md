@@ -4,12 +4,12 @@ description: Kubernetes 클러스터를 빠르게 만들고 Azure CLI를 사용�
 services: container-service
 ms.topic: article
 ms.date: 01/27/2020
-ms.openlocfilehash: 8d2a91f63815e7ba4bcbe4084b80a06fa7779099
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 2aecebcc45cb24c9ab3a594aa4d74b1584c7ffa7
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886724"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392670"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>미리 보기 - Azure CLI를 사용하여 AKS(Azure Kubernetes) 클러스터에서 Windows 서버 컨테이너 만들기
 
@@ -302,7 +302,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> 클러스터를 삭제할 때, AKS 클러스터에 사용되는 Azure Active Directory 서비스 주체는 제거되지 않습니다. 서비스 주체를 제거하는 방법에 대한 단계는 [AKS 서비스 주체 고려 사항 및 삭제][sp-delete]를 참조하세요.
+> 클러스터를 삭제할 때, AKS 클러스터에 사용되는 Azure Active Directory 서비스 주체는 제거되지 않습니다. 서비스 주체를 제거하는 방법에 대한 단계는 [AKS 서비스 주체 고려 사항 및 삭제][sp-delete]를 참조하세요. 관리되는 ID를 사용한 경우 ID는 플랫폼에서 관리되며 제거할 필요가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

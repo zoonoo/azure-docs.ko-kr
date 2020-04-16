@@ -7,14 +7,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/13/2020
-ms.openlocfilehash: 251507c5740af69bd0818391dd2e8f857338b6cf
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: e0042960c25d58b72bc0ab884de5a2db62e566d9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313907"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413437"
 ---
 # <a name="data-flow-script-dfs"></a>데이터 흐름 스크립트(DFS)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 DFS(데이터 흐름 스크립트)는 매핑 데이터 흐름에 포함된 변환을 실행하는 데 사용되는 코딩 언어와 유사한 기본 메타데이터입니다. 모든 변환은 작업을 제대로 실행하는 데 필요한 정보를 제공하는 일련의 속성으로 표시됩니다. 브라우저 UI의 상단 리본에 있는 "스크립트" 단추를 클릭하여 ADF에서 스크립트를 표시하고 편집할 수 있습니다.
 

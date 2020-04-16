@@ -2,18 +2,18 @@
 title: Azure HDInsight 도구를 사용하여 파이스파크 인터랙티브 환경
 description: Azure HDInsight Tools for Visual Studio Code를 사용하여 쿼리와 스크립트를 만들고 제출하는 방법에 대해 알아봅니다.
 keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,대화형 Hive,대화형 쿼리
-author: jejiang
-ms.author: jejiang
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/13/2019
-ms.openlocfilehash: db2336fb79207ada24b71e0e64f0aaaab543e4da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 2a725f3c5c9e1428079807b5b76dbe72d416a9c7
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73241552"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393668"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Visual Studio Code용 PySpark 대화형 환경 설정
 
@@ -34,7 +34,7 @@ ms.locfileid: "73241552"
 
 2. 아래 명령을 실행하여 **virtualenv**를 설치합니다.
 
-   ```
+   ```bash
    pip install virtualenv
    ```
 
@@ -44,11 +44,11 @@ ms.locfileid: "73241552"
 
    ![파이썬을위한 libkrb5 패키지를 설치](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
 
-```
+```bash
 sudo apt-get install libkrb5-dev
 ```
 
-```
+```bash
 sudo apt-get install python-dev
 ```
 
@@ -57,9 +57,11 @@ VS Code를 다시 시작하고 **HDInsight: PySpark 대화형**을 실행하는 
 ## <a name="next-steps"></a>다음 단계
 
 ### <a name="demo"></a>데모
+
 * HDInsight for VS Code: [비디오](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### <a name="tools-and-extensions"></a>도구 및 확장
+
 * [Azure HDInsight Tool for Visual Studio Code 사용](hdinsight-for-vscode.md)
 * [IntelliJ용 Azure 도구 키트를 사용하여 Apache Spark Scala 애플리케이션 만들기 및 제출](spark/apache-spark-intellij-tool-plugin.md)
 * [Azure Toolkit for IntelliJ를 사용하여 SSH를 통해 원격으로 Apache Spark 애플리케이션 디버그](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: f8f21405a79a6fcf70adef9815ba06a229d6954d
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: acf49c4247c8084a3afd3c2046003ee1b20d2f67
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886979"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393099"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -40,7 +40,7 @@ Azure에서는 SNAT(원본 네트워크 주소 변환)를 사용하여 이 기�
 
 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 사용하는 경우 Azure Load Balancer 및 관련 리소스가 명시적으로 정의됩니다.  현재 Azure는 Azure Resource Manager 리소스에 대한 아웃바운드 연결을 달성할 수 있는 세 가지 방법을 제공합니다. 
 
-| SKU | 시나리오 | 방법 | IP 프로토콜 | Description |
+| SKU | 시나리오 | 메서드 | IP 프로토콜 | Description |
 | --- | --- | --- | --- | --- |
 | 표준, 기본 | [1. 인스턴스 수준 공용 IP 주소가 있는 VM(로드 밸런서 유무)](#ilpip) | SNAT, 포트 가장 사용 안 함 | TCP, UDP, ICMP, ESP | Azure는 인스턴스 NIC의 IP 구성에 할당된 공용 IP를 사용합니다. 인스턴스에 있는 모든 삭제 포트를 사용할 수 있습니다. 표준 로드 밸런서를 사용하는 경우 공용 IP가 가상 시스템에 할당된 경우 [아웃바운드 규칙이](load-balancer-outbound-rules-overview.md) 지원되지 않습니다. |
 | 표준, 기본 | [2. VM과 연결된 공용 로드 밸런서(인스턴스의 공용 IP 주소 없음)](#lb) | Load Balancer 프런트 엔드를 사용하여 포트를 가장하는(PAT) SNAT | TCP, UDP |Azure는 공용 Load Balancer 프런트 엔드의 공용 IP 주소를 여러 개인 IP 주소와 공유합니다. Azure는 프런트 엔드의 삭제 포트를 PAT에 사용합니다. [아웃바운드 규칙을](load-balancer-outbound-rules-overview.md) 사용하여 아웃바운드 연결을 명시적으로 정의해야 합니다. |
@@ -168,7 +168,7 @@ Azure는 각 VM NIC의 IP 구성에 SNAT 포트를 미리 할당합니다. 풀�
 | 801-1,000 | 32 |
 
 >[!NOTE]
-> [여러 프런트 엔드가](load-balancer-multivip-overview.md)있는 표준 로드 밸런서를 사용하는 경우 각 프런트 엔드 IP 주소는 이전 테이블에서 사용 가능한 SNAT 포트 수를 곱합니다. 예를 들어 각각 별도의 프런트 엔드 IP 주소가 있는 2개의 부하 분산 규칙이 있는 50 VM의 백 엔드 풀은 IP 구성당 2048(2x1024) SNAT 포트를 사용합니다. [여러 프런트 엔드](#multife)에 대한 자세한 내용을 참조하세요.
+> [여러 프런트 엔드가](load-balancer-multivip-overview.md)있는 표준 로드 밸런서를 사용하는 경우 각 프런트 엔드 IP 주소는 이전 테이블에서 사용 가능한 SNAT 포트 수를 곱합니다. 예를 들어, 별도의 프런트 엔드 IP 주소가 있는 2개의 로드 분산 규칙이 있는 50VM의 백 엔드 풀은 규칙당 2048(2x 1024) SNAT 포트를 사용합니다. [여러 프런트 엔드](#multife)에 대한 자세한 내용을 참조하세요.
 
 사용 가능한 SNAT 포트 수는 연결 수에 직접 반영되지 않습니다. 여러 고유한 대상에 단일 SNAT 포트를 재사용할 수 있습니다. 포트는 흐름을 고유하게 만드는 데 필요한 경우에만 사용됩니다. 디자인 및 완화 지침은 [고갈 가능한 리소스를 관리하는 방법](#snatexhaust)에 대한 섹션과 [PAT](#pat)에 대해 설명하는 섹션을 참조하세요.
 
@@ -227,7 +227,7 @@ SNAT 포트 할당은 IP 전송 프로토콜과 관련이 있으며(TCP 및 UDP�
 >[!NOTE]
 >대부분의 경우에서 SNAT 포트 소모는 잘못된 디자인의 징후입니다.  더 많은 프런트 엔드를 사용하기 전에 SNAT 포트를 추가하기 위해 포트를 소진하는 이유를 이해해야 합니다.  나중에 오류가 발생할 수 있는 문제를 감출 수 있습니다.
 
-#### <a name="scale-out"></a><a name="scaleout"></a>규모 확장
+#### <a name="scale-out"></a><a name="scaleout"></a>확장
 
 [미리 할당된 포트](#preallocatedports)는 백 엔드 풀 크기를 기준으로 할당되며, 그다음으로 큰 백 엔드 풀 크기 계층을 수용하기 위해 일부 포트를 다시 할당해야 하는 경우, 중단 시간을 최소화하기 위해 계층으로 그룹화됩니다.  지정된 계층의 최대 크기까지 백 엔드 풀을 확장하여 지정된 프런트 엔드에 대한 SNAT 포트 사용률 강도를 늘릴 수도 있습니다.  이 경우 애플리케이션이 효율적으로 확장되어야 합니다.
 

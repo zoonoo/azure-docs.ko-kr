@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2579748d9c68512e51fe46ec70084c30d06953bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9dc4dce5a7af49529924881321b1a5080293a585
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278767"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405621"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker 배포
 
@@ -30,9 +30,27 @@ Hybrid Runbook Worker 기능은 다음 배포를 지원합니다.
 * 우분투 12.04 LTS, 14.04 LTS, 16.04 LTS 및 18.04 (x86/x64)
 * SUSE Linux Enterprise Server 11 및 12(x86/x64)
 
+## <a name="supported-runbook-types"></a>지원되는 Runbook 유형
+
+Linux Hybrid Runbook Worker는 Azure Automation에서 Runbook 유형의 전체 집합을 지원 하지 않습니다.
+
+다음의 Runbook 유형은 Linux Hybrid Worker에서 작동합니다.
+
+* Python 2
+* PowerShell
+
+  > [!NOTE]
+  > PowerShell Runbook은 Linux 컴퓨터에 PowerShell Core를 설치해야 합니다. 설치하는 방법을 알아보려면 [Linux에 PowerShell Core 설치](/powershell/scripting/install/installing-powershell-core-on-linux)를 참조하세요.
+
+다음의 Runbook 유형은 Linux Hybrid Worker에서 작동하지 않습니다.
+
+* PowerShell 워크플로
+* 그래픽
+* 그래픽 PowerShell 워크플로
+
 ## <a name="installing-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker 설치
 
-Linux 컴퓨터에서 Hybrid Runbook Worker를 설치 및 구성하려는 경우 간단한 프로세스에 따라 역할을 수동으로 설치하고 구성하면 됩니다. Azure Log Analytics 작업 영역에서 **Automation Hybrid Worker** 솔루션을 활성화한 다음, 일련의 명령을 실행하여 컴퓨터를 작업자로 등록하고 그룹에 추가해야 합니다.
+Linux 컴퓨터에 하이브리드 Runbook 작업자를 설치하고 구성하려면 간단한 수동 프로세스를 따르십시오. Azure Log Analytics 작업 영역에서 Automation Hybrid Worker 솔루션을 활성화한 다음, 일련의 명령을 실행하여 컴퓨터를 작업자로 등록하고 그룹에 추가해야 합니다.
 
 Linux Hybrid Runbook Worker에 대한 최소 요구 사항은 다음과 같습니다.
 
@@ -56,9 +74,9 @@ Linux Hybrid Runbook Worker에 대한 최소 요구 사항은 다음과 같습�
 
 계속 진행하기 전에 Automation 계정이 연결된 Log Analytics 작업 영역을 기록해 둡니다. 또한 Automation 계정에 대한 기본 키를 기록해 둡니다. 작업 영역과 기본 키는 모두 Azure Portal에서 찾을 수 있습니다. 자동화 계정을 선택하고 **작업 영역**을 선택하면 작업 영역 ID를, **키**를 선택하면 기본 키를 확인할 수 있습니다. Hybrid Runbook Worker에 필요한 포트 및 주소 정보는 [네트워크 구성](automation-hybrid-runbook-worker.md#network-planning)을 참조하세요.
 
-1. 다음 방법 중 하나를 사용하여 Azure에서 **Automation Hybrid Worker** 솔루션을 활성화합니다.
+1. 다음 방법 중 하나를 사용하여 Azure에서 Automation Hybrid Worker 솔루션을 활성화합니다.
 
-   * Azure Monitor 로그 솔루션 추가의 절차를 사용하여 작업 영역에 **자동화 하이브리드 작업자** 솔루션을 [구독에 추가합니다.](../log-analytics/log-analytics-add-solutions.md)
+   * Azure Monitor 로그 솔루션 추가의 절차를 사용하여 작업 영역에 자동화 하이브리드 작업자 [솔루션을 구독에 추가합니다.](../log-analytics/log-analytics-add-solutions.md)
    * 다음 cmdlet을 실행합니다.
 
         ```azurepowershell-interactive
@@ -79,36 +97,18 @@ Linux Hybrid Runbook Worker에 대한 최소 요구 사항은 다음과 같습�
    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <LogAnalyticsworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
    ```
 
-1. 명령이 완료되면 Azure Portal의 **Hybrid Worker 그룹** 페이지는 새 그룹 및 멤버 수를 표시합니다. 기존 그룹인 경우 멤버 수가 증가합니다. **Hybrid Worker 그룹** 페이지의 목록에서 그룹을 선택하고 **Hybrid Worker** 타일을 선택합니다. **Hybrid Worker** 페이지에서 나열된 그룹의 각 멤버를 확인합니다.
+1. 명령이 완료되면 Azure Portal의 Hybrid Worker 그룹 페이지는 새 그룹 및 멤버 수를 표시합니다. 기존 그룹인 경우 멤버 수가 증가합니다. Hybrid Worker 그룹 페이지의 목록에서 그룹을 선택하고 **Hybrid Worker** 타일을 선택합니다. Hybrid Worker 페이지에서 나열된 그룹의 각 멤버를 확인합니다.
 
 > [!NOTE]
-> Azure VM에 대 한 Linux용 Azure 모니터 가상 컴퓨터 `autoUpgradeMinorVersion` 확장을 사용 하는 경우 자동 업그레이드 버전으로 하이브리드 Runbook 워커 문제를 일으킬 수 있습니다 false로 설정 하는 것이 좋습니다. 확장을 수동으로 업그레이드하는 방법에 대해 알아보려면 [Azure CLI 배포를 ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment)참조하십시오.
+> Azure VM에 대 한 Linux용 Azure 모니터 가상 컴퓨터 `autoUpgradeMinorVersion` 확장을 사용 하는 경우 자동 업그레이드 버전 하이브리드 Runbook 워커 문제를 일으킬 수 있습니다 false로 설정 하는 것이 좋습니다. 확장을 수동으로 업그레이드하는 방법에 대해 알아보려면 [Azure CLI 배포를](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment)참조하십시오.
 
 ## <a name="turning-off-signature-validation"></a>서명 유효성 검사 끄기
 
-기본적으로 Linux Hybrid Runbook Worker는 서명 유효성 검사를 요구합니다. 작업자에 대해 서명되지 않은 Runbook을 실행하는 경우 "서명 유효성 검사에 실패"를 나타내는 오류가 표시됩니다. 서명 유효성 검사를 해제하려면 다음 명령을 실행합니다. 두 번째 매개 변수를 로그 분석 작업 영역 ID로 바꿉니다.
+기본적으로 Linux Hybrid Runbook Worker는 서명 유효성 검사를 요구합니다. 작업자에 대해 서명되지 않은 Runbook을 실행하면 `Signature validation failed` 오류가 표시됩니다. 서명 유효성 검사를 해제하려면 다음 명령을 실행합니다. 두 번째 매개 변수를 Log Analytics 작업 영역 ID로 바꿉니다.
 
  ```bash
  sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
  ```
-
-## <a name="supported-runbook-types"></a>지원되는 Runbook 유형
-
-Linux Hybrid Runbook Worker는 Azure Automation에서 Runbook 유형의 전체 집합을 지원 하지 않습니다.
-
-다음의 Runbook 유형은 Linux Hybrid Worker에서 작동합니다.
-
-* Python 2
-* PowerShell
-
-  > [!NOTE]
-  > PowerShell Runbook은 Linux 컴퓨터에 PowerShell Core를 설치해야 합니다. 설치하는 방법을 알아보려면 [Linux에 PowerShell Core 설치](/powershell/scripting/install/installing-powershell-core-on-linux)를 참조하세요.
-
-다음의 Runbook 유형은 Linux Hybrid Worker에서 작동하지 않습니다.
-
-* PowerShell 워크플로
-* 그래픽
-* 그래픽 PowerShell 워크플로
 
 ## <a name="next-steps"></a>다음 단계
 

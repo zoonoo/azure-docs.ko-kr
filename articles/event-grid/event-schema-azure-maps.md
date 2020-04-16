@@ -1,34 +1,36 @@
 ---
-title: Azure Event Grid Azure Maps 이벤트 스키마
+title: 이벤트 그리드 소스로 Azure 맵
 description: Azure Event Grid를 사용한 Azure Maps 이벤트에 대해 제공되는 속성과 스키마를 설명합니다.
 services: event-grid
-author: femila
+author: banisadr
 ms.service: event-grid
-ms.topic: reference
-ms.date: 02/08/2019
-ms.author: femila
-ms.openlocfilehash: 9acef524521e8fac6ce6f8f61e5ff3fbbb81d18d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: babanisa
+ms.openlocfilehash: e879ec3442f2e7912acb450a97079d80d7d95a01
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77486362"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393414"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-maps"></a>Azure Maps에 대한 Azure Event Grid 이벤트 스키마
+# <a name="azure-maps-as-an-event-grid-source"></a>이벤트 그리드 소스로 Azure 맵
 
-이 문서에서는 Azure Maps 이벤트에 대한 속성과 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](https://docs.microsoft.com/azure/event-grid/event-schema)를 참조하세요.
+이 문서에서는 Azure Maps 이벤트에 대한 속성과 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](https://docs.microsoft.com/azure/event-grid/event-schema)를 참조하세요. 또한 Azure Maps를 이벤트 소스로 사용할 수 있는 빠른 시작 및 자습서 목록도 제공합니다.
 
-## <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
+## <a name="event-grid-event-schema"></a>Event Grid 이벤트 스키마
+
+### <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 
 Azure Maps 계정은 다음과 같은 이벤트 유형을 내보냅니다.
 
-| 이벤트 유형 | 설명 |
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | Microsoft.Maps.GeofenceEntered | 수신된 좌표가 지정된 지오펜스 외부에서 내부로 이동한 경우에 발생합니다. |
 | Microsoft.Maps.GeofenceExited | 수신된 좌표가 지정된 지오펜스 내부에서 외부로 이동한 경우에 발생합니다. |
 | Microsoft.Maps.GeofenceResult | 상태와 관계없이 지오펜싱 쿼리에서 결과가 반환될 때마다 발생합니다. |
 
-## <a name="event-examples"></a>이벤트 예제
+### <a name="event-examples"></a>이벤트 예제
 
 다음 예제에서는 **GeofenceEntered** 이벤트의 스키마를 보여 줍니다.
 
@@ -98,7 +100,7 @@ Azure Maps 계정은 다음과 같은 이벤트 유형을 내보냅니다.
 }
 ```
 
-## <a name="event-properties"></a>이벤트 속성
+### <a name="event-properties"></a>이벤트 속성
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
@@ -162,6 +164,12 @@ InnerError는 오류에 대한 서비스 특정 정보가 포함된 개체입니
 | geometries | geometries[] |좌표 위치를 포함하거나 위치 주위의 searchBuffer와 겹치는 펜스 기하 도형을 나열합니다. |
 | invalidPeriodGeofenceGeometryId | string[]  | 요청의 사용자 시간을 기준으로, 잘못된 기간에 있는 지오펜스의 기하 도형 ID 목록입니다. |
 | isEventPublished | boolean | 하나 이상의 이벤트가 Azure Maps 이벤트 구독자에 게시된 경우에는 true이고, Azure Maps 이벤트 구독자에 이벤트가 게시되지 않은 경우에는 false입니다. |
+
+## <a name="tutorials-and-how-tos"></a>자습서 및 방법
+|제목  |Description  |
+|---------|---------|
+| [Event Grid를 사용하여 Azure Maps 이벤트에 대응](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid와 Azure Maps 통합에 관한 개요입니다. |
+| [튜토리얼: 지오펜스 설정](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 이 자습서에서는 Azure Maps를 사용하여 지오펜스를 설정하는 기본 단계를 안내합니다. Azure Event Grid를 사용하여 지오펜스 결과를 스트림하고, 지오펜스 결과를 기반으로 하는 알림을 설정합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

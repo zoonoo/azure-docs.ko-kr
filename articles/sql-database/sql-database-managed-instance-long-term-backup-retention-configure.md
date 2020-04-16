@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/14/2020
-ms.openlocfilehash: 0af322d589efd48cc224c69cef8e96fb887d9868
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: c9edbbf54696a817d0495f6890e0d796e482231f
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81384221"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393711"
 ---
 # <a name="manage-azure-sql-database-managed-instance-long-term-backup-retention-powershell"></a>Azure SQL Database 관리 인스턴스 장기 백업 보존(PowerShell) 관리
 
@@ -34,7 +34,7 @@ Azure SQL Database 관리 인스턴스에서 [장기 백업 보존](sql-database
 **Get-AzSqlInstance데이터베이스장기보존백업** 및 **복원-AzSqlInstanceDatabase의**경우 다음 역할 중 하나가 있어야 합니다.
 
 - 구독 소유자 역할 또는
-- 스컨드드 인스턴스 기여자 역할 또는
+- 관리되는 인스턴스 기여자 역할 또는
 - 다음과 같은 권한이 있는 사용자 지정 역할:
 
    ```Microsoft.Sql/locations/longTermRetentionManagedInstanceBackups/read``` ```Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read```
@@ -48,7 +48,7 @@ Azure SQL Database 관리 인스턴스에서 [장기 백업 보존](sql-database
    ```Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete```
 
 > [!NOTE]
-> SManaged 인스턴스 기여자 역할에는 LTR 백업을 삭제할 수 있는 권한이 없습니다.
+> 관리되는 인스턴스 기여자 역할에는 LTR 백업을 삭제할 수 있는 권한이 없습니다.
 
 *RBAC* 권한은 구독 또는 *리소스 그룹* 범위에서 부여될 수 있습니다. 그러나 삭제된 인스턴스에 속하는 LTR 백업에 액세스하려면 해당 인스턴스의 *구독* 범위에서 권한을 부여해야 합니다.
 

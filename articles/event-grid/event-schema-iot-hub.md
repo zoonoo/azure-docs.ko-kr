@@ -1,33 +1,31 @@
 ---
-title: IoT Hub에 대한 Azure Event Grid 스키마 | Microsoft Docs
+title: 이벤트 그리드 소스로 Azure IoT 허브
 description: 이 아티클에서는 Azure IoT Hub 이벤트에 대한 속성 및 스키마를 제공합니다. 사용 가능한 이벤트 유형, 예제 이벤트 및 이벤트 속성을 나열합니다.
 services: iot-hub
 documentationcenter: ''
-author: kgremban
-manager: timlt
+author: spelluru
 editor: ''
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/21/2020
-ms.author: kgremban
-ms.openlocfilehash: cfbd46ad961bd1dc914bae98e761cd83d445ff88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: spelluru
+ms.openlocfilehash: f9bf807884ab5592fa320532f3ca10a223081263
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76513034"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393321"
 ---
-# <a name="azure-event-grid-event-schema-for-iot-hub"></a>IoT Hub에 대한 Azure Event Grid 이벤트 스키마
-
+# <a name="azure-iot-hub-as-an-event-grid-source"></a>이벤트 그리드 소스로서의 Azure IoT 허브
 이 아티클에서는 Azure IoT Hub 이벤트에 대한 속성 및 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요. 
 
-샘플 스크립트 및 자습서 목록은 [IoT Hub 이벤트 원본](event-sources.md#iot-hub)을 참조하세요.
+## <a name="event-grid-event-schema"></a>Event Grid 이벤트 스키마
 
-## <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
+### <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 
 Azure IoT Hub는 다음과 같은 이벤트 유형을 내보냅니다.
 
-| 이벤트 유형 | 설명 |
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | IoT 허브에 디바이스를 등록하는 경우 게시합니다. |
 | Microsoft.Devices.DeviceDeleted | IoT 허브에서 디바이스를 삭제하는 경우 게시합니다. | 
@@ -37,7 +35,7 @@ Azure IoT Hub는 다음과 같은 이벤트 유형을 내보냅니다.
 
 장치 원격 분석 이벤트를 제외한 모든 장치 이벤트는 일반적으로 Event Grid에서 지원하는 모든 지역에서 사용할 수 있습니다. 장치 원격 분석 이벤트는 공개 미리 보기로 제공되며 미국 동부, 미국 서부, 서유럽, [Azure 정부,](../azure-government/documentation-government-welcome.md) [Azure China 21Vianet](/azure/china/china-welcome)및 [Azure Germany를](https://azure.microsoft.com/global-infrastructure/germany/)제외한 모든 지역에서 사용할 수 있습니다.
 
-## <a name="example-event"></a>예제 이벤트
+### <a name="example-event"></a>예제 이벤트
 
 DeviceConnected 및 DeviceDisconnected 이벤트에 대한 스키마는 구조가 동일합니다. 이 샘플 이벤트는 디바이스가 IoT 허브에 연결될 때 발생하는 이벤트의 스키마를 보여 줍니다.
 
@@ -205,6 +203,13 @@ DeviceCreated 및 DeviceDeleted 이벤트에 대한 스키마는 구조가 동�
 | 원하는 | object | 애플리케이션 백 엔드에서만 작성할 수 있고 디바이스에서 읽을 수 있는 속성의 일부입니다. | 
 | 보고된 | object | 디바이스에서만 작성할 수 있고 애플리케이션 백 엔드에서 읽을 수 있는 속성의 일부입니다. |
 | lastUpdated | 문자열 | 마지막 디바이스 쌍 속성 업데이트의 ISO8601 타임 스탬프입니다. | 
+
+## <a name="tutorials-and-how-tos"></a>자습서 및 방법
+|제목  |Description  |
+|---------|---------|
+| [Logic Apps를 사용하여 Azure IoT Hub 이벤트에 관한 이메일 알림 보내기](publish-iot-hub-events-to-logic-apps.md) | 논리 앱은 사용자의 IoT Hub에 디바이스가 추가될 때마다 알림 이메일을 보냅니다. |
+| [작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응](../iot-hub/iot-hub-event-grid.md) | Event Grid와 IoT Hub 통합의 개요입니다. |
+| [디바이스 연결 및 디바이스 연결 해제 이벤트 정렬](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | 디바이스 연결 상태 이벤트 정렬하는 방법을 보여 줍니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

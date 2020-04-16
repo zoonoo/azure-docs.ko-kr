@@ -3,12 +3,12 @@ title: Azure Functions 2.x에 대한 host.json 참조
 description: v2 런타임을 사용하는 Azure Functions host.json 파일에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 1a861d500f0b8cc31b8312d6c955916ab741b649
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 7b3c9d15fc8cf3a1651c44a5656f731a7820e344
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878252"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405480"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure 함수 2.x 이상에 대한 host.json 참조 
 
@@ -141,7 +141,7 @@ ms.locfileid: "80878252"
 전체 JSON 구조에 대 한 이전 [예제 host.json 파일을](#sample-hostjson-file)참조 하십시오.
 
 > [!NOTE]
-> 로그 샘플링으로 인해 Application Insights 모니터 블레이드에 일부 실행이 표시되지 않을 수 있습니다. 로그 샘플링을 `samplingExcludedTypes: "Request"` 방지하려면 `applicationInsights` 값을 추가합니다.
+> 로그 샘플링으로 인해 Application Insights 모니터 블레이드에 일부 실행이 표시되지 않을 수 있습니다. 로그 샘플링을 `excludedTypes: "Request"` 방지하려면 `samplingSettings` 값을 추가합니다.
 
 | 속성 | 기본값 | Description |
 | --------- | --------- | --------- | 
@@ -166,8 +166,8 @@ ms.locfileid: "80878252"
 | 최소 샘플링 백분율 | 0.1 | 샘플링 백분율이 다양하므로 이 속성은 허용되는 최소 샘플링 백분율을 결정합니다. |
 | 최대 샘플링 백분율 | 0.1 | 샘플링 백분율이 다양하므로 이 속성은 허용되는 최대 샘플링 백분율을 결정합니다. |
 | 이동평균비율 | 1.0 | 이동 평균 계산에서 가중치는 가장 최근의 값에 할당됩니다. 1보다 작거나 같은 값을 사용합니다. 값이 작을수록 알고리즘은 갑작스런 변화에 덜 반응합니다. |
-| 제외유형 | null | 샘플링하지 않으려는 세미콜론으로 구분된 형식 목록입니다. 인식되는 형식: 종속성, 이벤트, 예외, 페이지 보기, 요청, 추적 지정된 형식의 모든 인스턴스가 전송됩니다. 지정되지 않은 형식이 샘플링됩니다. |
-| 포함유형 | null | 샘플링할 세미콜론 으로 구분된 형식 목록입니다. 빈 목록은 모든 형식을 의미합니다. 여기에 나열된 `excludedTypes` 재정의 유형에 나열된 형식입니다. 인식되는 형식: 종속성, 이벤트, 예외, 페이지 보기, 요청, 추적 지정된 형식의 모든 인스턴스가 전송됩니다. 지정되지 않은 형식이 샘플링됩니다. |
+| 제외유형 | null | 샘플링하지 않으려는 세미콜론으로 구분된 형식 목록입니다. 인식된 형식은 `Dependency`" `PageView` `Request`, `Trace`" `Event` `Exception`, " 지정된 형식의 모든 인스턴스가 전송됩니다. 지정되지 않은 형식이 샘플링됩니다. |
+| 포함유형 | null | 샘플링할 세미콜론 으로 구분된 형식 목록입니다. 빈 목록은 모든 형식을 의미합니다. 여기에 나열된 `excludedTypes` 재정의 유형에 나열된 형식입니다. 인식된 형식은 `Dependency`" `PageView` `Request`, `Trace`" `Event` `Exception`, " 지정된 형식의 인스턴스가 샘플링됩니다. 지정되거나 암시되지 않은 형식은 샘플링 없이 전송됩니다. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>응용 프로그램인사이트.httpAutoCollection옵션
 

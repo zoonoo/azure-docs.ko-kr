@@ -1,30 +1,30 @@
 ---
-title: Azure 이벤트 그리드 기계 학습 이벤트 스키마
+title: 이벤트 그리드 소스로 Azure 기계 학습
 description: Azure 이벤트 그리드를 통해 기계 학습 작업 영역 이벤트에 대해 제공되는 속성에 대해 설명합니다.
 services: event-grid
-author: jenns
+author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 10/18/2019
-ms.author: jenns
-ms.openlocfilehash: 4051598a9abd787f6707e67a8c4dab12fc6d626a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: spelluru
+ms.openlocfilehash: 7d9af420c7e2b47d2aeb4a8bf42ee138a605b305
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79202147"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393269"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-machine-learning"></a>Azure 시스템 학습을 위한 Azure 이벤트 그리드 이벤트 스키마
+# <a name="azure-machine-learning-as-an-event-grid-source"></a>이벤트 그리드 소스로서의 Azure 기계 학습
 
 이 문서에서는 기계 학습 작업 영역 이벤트에 대한 속성 및 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
 
-샘플 스크립트 및 자습서 목록은 [AzureML 이벤트 소스를](event-sources.md#azure-machine-learning)참조하십시오.
+## <a name="event-grid-event-schema"></a>Event Grid 이벤트 스키마
 
-## <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
+### <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 
 Azure 기계 학습은 다음 이벤트 유형을 내보며 다음을 처리합니다.
 
-| 이벤트 유형 | 설명 |
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | 마이크로소프트.머신러닝서비스.모델등록 | 새 모델 또는 모델 버전이 성공적으로 등록되었을 때 발생합니다. |
 | 마이크로소프트.머신러닝서비스.모델 배포 | 모델이 엔드포인트에 성공적으로 배포되었을 때 발생합니다. |
@@ -32,7 +32,7 @@ Azure 기계 학습은 다음 이벤트 유형을 내보며 다음을 처리합�
 | 마이크로소프트.머신러닝서비스.데이터셋드리프트감지 | 데이터 집합 드리프트 모니터가 드리프트를 감지할 때 발생합니다. |
 | 마이크로소프트.머신러닝서비스.실행상태 변경 | 실행 상태가 '실패'로 변경될 때 발생합니다. |
 
-## <a name="the-contents-of-an-event-response"></a>이벤트 응답의 내용
+### <a name="the-contents-of-an-event-response"></a>이벤트 응답의 내용
 
 이벤트가 트리거되면 Event Grid 서비스는 해당 이벤트에 대한 데이터를 구독 끝점으로 보냅니다.
 
@@ -186,10 +186,7 @@ Azure 기계 학습은 다음 이벤트 유형을 내보며 다음을 처리합�
 }]
 ```
 
-
-
-
-## <a name="event-properties"></a>이벤트 속성
+### <a name="event-properties"></a>이벤트 속성
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
@@ -260,6 +257,11 @@ Azure 기계 학습은 다음 이벤트 유형을 내보며 다음을 처리합�
 | 런태그 | object | 완료된 실행의 태그입니다. |
 | 런프로퍼티 | object | 완료된 실행의 속성입니다. |
 | 런 상태 | 문자열 | 실행의 상태입니다. |
+
+## <a name="tutorials-and-how-tos"></a>자습서 및 방법
+| 제목 | Description |
+| ----- | ----- |
+| [Azure 기계 학습 이벤트 사용](../machine-learning/concept-event-grid-integration.md) | Azure 기계 학습을 이벤트 그리드와 통합하는 개요입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

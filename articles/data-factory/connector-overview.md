@@ -9,14 +9,15 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 7b01e9936189a40fcf1400d3e6ee948032786d3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 623ee15c5071fdc7a36677481e98872b8c2bd562
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75444159"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410423"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Azure 데이터 팩터리 커넥터 개요
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory는 복사, 데이터 흐름, 조회, 데이터 수집 및 삭제 활동을 통해 다음 데이터 저장소 및 형식을 지원합니다. 각 데이터 저장소를 클릭하여 지원되는 기능 및 해당 구성을 자세히 알아봅니다.
 
@@ -33,5 +34,5 @@ Azure Data Factory는 복사, 데이터 흐름, 조회, 데이터 수집 및 삭
 - [활동 복사](copy-activity-overview.md)
 - [데이터 흐름 매핑](concepts-data-flow-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
-- [메타데이터 활동 받기](control-flow-get-metadata-activity.md)
+- [메타데이터 작업 가져오기](control-flow-get-metadata-activity.md)
 - [활동 삭제](delete-activity.md)

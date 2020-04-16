@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: b4b13f8b21cfdedde93145a8e437bc2301bee460
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71b1b57cb2a9fa442dc3cef3bf34077040cff58e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927100"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410932"
 ---
 # <a name="azure-data-factory-whitepapers"></a>Azure 데이터 팩터리 백서 
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 백서를 사용하면 더 자세한 수준에서 Azure 데이터 팩터리를 탐색할 수 있습니다. 이 문서에서는 Azure 데이터 팩터리에 사용할 수 있는 백서 목록을 제공합니다.
 

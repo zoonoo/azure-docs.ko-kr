@@ -1,38 +1,66 @@
 ---
-title: 데이터 흐름 정렬 변환 매핑
+title: 매핑 데이터 흐름의 정렬 변환
 description: Azure 데이터 팩터리 매핑 데이터 정렬 변환
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/08/2018
-ms.openlocfilehash: c09439c5f54ae4b0884e9e25ae9a5a488f935bac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 381c6573dff1b3f1638af9090a535d9a1e59b2b5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930220"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413163"
 ---
-# <a name="azure-data-factory-data-flow-sort-transformations"></a>Azure 데이터 팩터리 데이터 흐름 정렬 변환
+# <a name="sort-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 정렬 변환
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+정렬 변환을 사용하면 현재 데이터 스트림에서 들어오는 행을 정렬할 수 있습니다. 개별 열을 선택하고 오름차순 또는 내림차순으로 정렬할 수 있습니다.
+
+> [!NOTE]
+> 매핑 데이터 흐름은 여러 노드와 파티션에 걸쳐 데이터를 분산하는 스파크 클러스터에서 실행됩니다. 후속 변환에서 데이터를 다시 분할하도록 선택하면 데이터 전환으로 인해 정렬이 손실될 수 있습니다.
+
+## <a name="configuration"></a>구성
 
 ![정렬 설정](media/data-flow/sort.png "정렬")
 
-정렬 변환을 사용하면 현재 데이터 스트림의 수신 행을 정렬할 수 있습니다. 이후에 정렬 변환의 발신 행은 설정된 순서 지정 규칙을 따릅니다. 각 필드 옆의 화살표 표시기를 사용하여 개별 열을 선택하고 ASC 또는 DEC로 정렬할 수 있습니다. 정렬을 적용하기 전에 열을 수정해야 하는 경우 “계산 열”을 클릭하여 식 편집기를 시작합니다. 그러면 단순히 정렬에 열을 적용하는 대신 정렬 작업에 대한 식을 작성할 수 있는 기회가 제공됩니다.
+**대/소문자 구분:** 문자열 또는 텍스트 필드를 정렬할 때 대/소문자를 무시할지 여부
 
-## <a name="case-insensitive"></a>대/소문자 구분하지 않음
-문자열 또는 텍스트 필드를 정렬할 때 대/소문자를 무시하려는 경우 “대/소문자 구분 안 함”을 켤 수 있습니다.
+**파티션 내에서만 정렬:** 스파크에서 데이터 흐름이 실행되면 각 데이터 스트림은 파티션으로 나뉩니다. 이 설정은 전체 데이터 스트림을 정렬하는 대신 들어오는 파티션 내에서만 데이터를 정렬합니다. 
 
-“파티션 내에서만 정렬”은 Spark 데이터 분할을 활용합니다. 각 파티션 내에서만 수신 데이터를 정렬하면 Data Flow에서 전체 데이터 스트림을 정렬하는 대신 분할된 데이터를 정렬할 수 있습니다.
+**정렬 조건:** 정렬할 열과 정렬 순서를 선택합니다. 순서에 따라 정렬 우선 순위가 결정됩니다. 데이터 스트림의 시작 또는 끝에 null이 나타날지 여부를 선택합니다.
 
-정렬 변환의 각 정렬 조건을 재배열할 수 있습니다. 따라서 정렬 우선 순위의 위로 열을 이동해야 하는 경우 마우스로 해당 행을 잡아 정렬 목록에서 위나 아래로 이동합니다.
+### <a name="computed-columns"></a>계산 열
 
-분할이 정렬에 미치는 영향
+정렬을 적용하기 전에 열 값을 수정하거나 추출하려면 열 위로 마우스를 가져가서 "계산된 열"을 선택합니다. 그러면 식 빌더가 열리고 열 값을 사용하는 대신 정렬 작업에 대한 식을 만듭니다.
 
-ADF Data Flow는 데이터가 여러 노드 및 파티션에 분산된 빅 데이터 Spark 클러스터에서 실행됩니다. 데이터를 동일한 순서로 유지하기 위해 정렬 변환을 사용하는 경우 데이터 흐름을 설계할 때 이 점에 유의하는 것이 중요합니다. 후속 변환에서 데이터를 다시 분할하는 경우 데이터가 다시 섞여 정렬이 손실될 수 있습니다.
+## <a name="data-flow-script"></a>데이터 흐름 스크립트
+
+### <a name="syntax"></a>구문
+
+```
+<incomingStream>
+    sort(
+        desc(<sortColumn1>, { true | false }),
+        asc(<sortColumn2>, { true | false }),
+        ...
+    ) ~> <sortTransformationName<>
+```
+
+### <a name="example"></a>예제
+
+![정렬 설정](media/data-flow/sort.png "정렬")
+
+위의 정렬 구성에 대한 데이터 흐름 스크립트는 아래 코드 조각에 있습니다.
+
+```
+BasketballStats sort(desc(PTS, true),
+    asc(Age, true)) ~> Sort1
+```
 
 ## <a name="next-steps"></a>다음 단계
 

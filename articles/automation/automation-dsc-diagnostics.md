@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a75b71d43b072d366ef2fcb15bf4c901680d48fb
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: badd8ba676ef25c33a5034bb04d616faeb4ef1b0
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383227"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392107"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Azure 자동화 상태 구성 보고 데이터를 Azure 모니터 로그로 전달
 
@@ -87,6 +87,7 @@ Azure 자동화 상태 구성에서 Azure 모니터 로그로 데이터 가져�
 | where OperationName contains 'DSCNodeStatusData'
 | where ResultType != 'Compliant'
 ```
+
 필터링 세부 정보:
 
 * 각 `DscNodeStatusData` 상태 구성 노드에 대한 작업을 반환하도록 필터링합니다.
@@ -104,7 +105,7 @@ Azure 자동화 상태 구성에서 Azure 모니터 로그로 데이터 가져�
 1. 로그 분석 작업 영역 개요 페이지에서 **로그를 클릭합니다.**
 1. 쿼리 필드에 다음 검색을 입력하여 경고에 대한 로그 검색 쿼리를 만듭니다.`Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
-   둘 이상의 Automation 계정 또는 구독에서 작업 영역으로의 로그를 설정한 경우 구독 또는 Automation 계정별로 경고를 그룹화할 수 있습니다. **DscNodeStatusData** `Resource` 레코드를 검색할 때 필드에서 자동화 계정 이름을 파생합니다.
+   둘 이상의 Automation 계정 또는 구독에서 작업 영역으로의 로그를 설정한 경우 구독 또는 Automation 계정별로 경고를 그룹화할 수 있습니다. 레코드 를 검색할 `Resource` 때 필드에서 자동화 `DscNodeStatusData` 계정 이름을 파생합니다.
 1. **규칙 만들기** 화면을 열려면 페이지 상단의 새 **경고 규칙을** 클릭합니다. 
 
 경고를 구성하는 옵션에 대한 자세한 내용은 [경고 규칙 만들기를](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)참조하십시오.
@@ -128,46 +129,46 @@ Azure Monitor 로그를 사용하는 한 가지 장점은 노드 간에 실패�
 
 Azure 자동화 진단은 Azure Monitor 로그에서 두 가지 레코드 범주를 만듭니다.
 
-* 노드 상태 데이터 **(DscNodeStatusData)**
-* 리소스 상태**데이터(DscResourceStatusData)**
+* 노드 상태`DscNodeStatusData`데이터 ()
+* 리소스 상태`DscResourceStatusData`데이터 ()
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | TimeGenerated |준수 확인이 실행된 날짜 및 시간입니다. |
-| OperationName |DscNode상태데이터. |
-| ResultType |노드가 규정을 준수하는지 여부입니다. |
+| OperationName |`DscNodeStatusData`. |
+| ResultType |노드가 호환되는지 나타내는 값입니다. |
 | NodeName_s |관리되는 노드의 이름입니다. |
-| NodeComplianceStatus_s |노드가 규정을 준수하는지 여부입니다. |
-| DscReportStatus |준수 검사가 성공적으로 실행되었는지 여부입니다. |
-| ConfigurationMode | 구성이 노드에 적용되는 방식입니다. 가능한 값은 다음과 같습니다. <ul><li>`ApplyOnly`: DSC는 구성을 적용하고 새 구성을 대상 노드로 푸시하거나 서버에서 새 구성을 가져온 경우를 제외하고 는 더 이상 작업을 수행하지 않습니다. 새 구성의 애플리케이션이 초기에 적용된 후 DSC는 이전에 구성된 상태에서 달라졌는지 여부를 확인하지 않습니다. DSC는 값이 적용되기 전에 구성이 `ApplyOnly` 성공할 때까지 구성을 적용하려고 시도합니다. </li><li>`ApplyAndMonitor`: 기본값입니다. LCM는 새 구성을 적용합니다. 새 구성의 애플리케이션이 초기에 적용된 후 대상 노드가 원하는 상태에서 다른 상태로 바뀌면 DSC는 불일치 상황을 로그에 보고합니다. DSC는 값이 적용되기 전에 구성이 `ApplyAndMonitor` 성공할 때까지 구성을 적용하려고 시도합니다.</li><li>`ApplyAndAutoCorrect`: DSC는 새로운 구성을 적용합니다. 새 구성의 애플리케이션이 초기에 적용된 후 대상 노드가 원하는 상태에서 다른 상태로 바뀌면 DSC는 불일치 상황을 로그에 보고하고 현재 구성을 다시 적용합니다.</li></ul> |
+| NodeComplianceStatus_s |노드가 호환되는지 지정하는 상태 값입니다. |
+| DscReportStatus |규정 준수 검사가 성공적으로 실행되었는지 여부를 나타내는 상태 값입니다. |
+| ConfigurationMode | 노드에 구성을 적용하는 데 사용되는 모드입니다. 가능한 값은 다음과 같습니다. <ul><li>`ApplyOnly`: DSC는 구성을 적용하고 새 구성을 대상 노드로 푸시하거나 서버에서 새 구성을 가져온 경우를 제외하고 는 더 이상 작업을 수행하지 않습니다. 새 구성의 애플리케이션이 초기에 적용된 후 DSC는 이전에 구성된 상태에서 달라졌는지 여부를 확인하지 않습니다. DSC는 값이 적용되기 전에 구성이 `ApplyOnly` 성공할 때까지 구성을 적용하려고 시도합니다. </li><li>`ApplyAndMonitor`: 기본값입니다. LCM는 새 구성을 적용합니다. 새 구성의 애플리케이션이 초기에 적용된 후 대상 노드가 원하는 상태에서 다른 상태로 바뀌면 DSC는 불일치 상황을 로그에 보고합니다. DSC는 값이 적용되기 전에 구성이 `ApplyAndMonitor` 성공할 때까지 구성을 적용하려고 시도합니다.</li><li>`ApplyAndAutoCorrect`: DSC는 새로운 구성을 적용합니다. 새 구성의 애플리케이션이 초기에 적용된 후 대상 노드가 원하는 상태에서 다른 상태로 바뀌면 DSC는 불일치 상황을 로그에 보고하고 현재 구성을 다시 적용합니다.</li></ul> |
 | HostName_s | 관리되는 노드의 이름입니다. |
 | IPAddress | 관리되는 노드의 IPv4 주소입니다. |
-| 범주 | DscNodeStatus. |
+| 범주 | `DscNodeStatus`. |
 | 리소스 | Azure Automation 계정의 이름입니다. |
-| Tenant_g | 호출자에 대한 테넌트를 식별하는 GUID입니다. |
-| NodeId_g |관리되는 노드를 식별하는 GUID입니다. |
-| DscReportId_g |보고서를 식별하는 GUID입니다. |
-| LastSeenTime_t |보고서를 마지막으로 본 날짜 및 시간입니다. |
-| ReportStartTime_t |보고서가 시작된 날짜 및 시간입니다. |
-| ReportEndTime_t |보고서가 완료된 날짜 및 시간입니다. |
-| NumberOfResources_d |노드에 적용된 구성에서 호출된 DSC 리소스의 수입니다. |
-| SourceSystem | Azure 모니터 로그가 데이터를 수집한 방법 Azure 진단에 대해 항상 "Azure"입니다. |
-| ResourceId |Azure 자동화 계정의 식별자입니다. |
-| ResultDescription | 이 작업에 대한 설명입니다. |
+| Tenant_g | 호출자의 테넌트를 식별하는 GUID입니다. |
+| NodeId_g | 관리되는 노드를 식별하는 GUID입니다. |
+| DscReportId_g | 보고서를 식별하는 GUID입니다. |
+| LastSeenTime_t | 보고서를 마지막으로 본 날짜 및 시간입니다. |
+| ReportStartTime_t | 보고서가 시작된 날짜 및 시간입니다. |
+| ReportEndTime_t | 보고서가 완료된 날짜 및 시간입니다. |
+| NumberOfResources_d | 노드에 적용된 구성에서 호출된 DSC 리소스의 수입니다. |
+| SourceSystem | Azure Monitor 로그가 데이터를 수집한 방법을 식별하는 원본 시스템입니다. 항상 `Azure` Azure 진단용입니다. |
+| ResourceId |Azure 자동화 계정의 리소스 식별자입니다. |
+| ResultDescription | 이 작업에 대한 리소스 설명입니다. |
 | SubscriptionId | 자동화 계정에 대한 Azure 구독 ID(GUID)입니다. |
-| ResourceGroup | Automation 계정에 대한 리소스 그룹의 이름입니다. |
+| ResourceGroup | 자동화 계정의 리소스 그룹의 이름입니다. |
 | ResourceProvider | Microsoft. 자동화. |
 | ResourceType | 자동화 계정. |
-| CorrelationId |규정 준수 보고서의 상관 관계 식별자인 GUID입니다. |
+| CorrelationId | 규정 준수 보고서의 상관 관계 식별자인 GUID입니다. |
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | TimeGenerated |준수 확인이 실행된 날짜 및 시간입니다. |
-| OperationName |DscResource상태데이터.|
+| OperationName |`DscResourceStatusData`.|
 | ResultType |리소스가 규정을 준수하는지 여부입니다. |
 | NodeName_s |관리되는 노드의 이름입니다. |
 | 범주 | DscNodeStatus. |
@@ -185,10 +186,10 @@ Azure 자동화 진단은 Azure Monitor 로그에서 두 가지 레코드 범주
 | ErrorMessage_s |리소스가 실패한 경우의 오류 메시지입니다. |
 | DscResourceDuration_d |DSC 리소스가 실행된 시간(초)입니다. |
 | SourceSystem | Azure 모니터 로그가 데이터를 수집한 방법 항상 `Azure` Azure 진단용입니다. |
-| ResourceId |Azure Automation 계정을 지정합니다. |
+| ResourceId |Azure 자동화 계정의 식별자입니다. |
 | ResultDescription | 이 작업에 대한 설명입니다. |
 | SubscriptionId | 자동화 계정에 대한 Azure 구독 ID(GUID)입니다. |
-| ResourceGroup | Automation 계정에 대한 리소스 그룹의 이름입니다. |
+| ResourceGroup | 자동화 계정의 리소스 그룹의 이름입니다. |
 | ResourceProvider | Microsoft. 자동화. |
 | ResourceType | 자동화 계정. |
 | CorrelationId |규정 준수 보고서의 상관 ID인 GUID입니다. |

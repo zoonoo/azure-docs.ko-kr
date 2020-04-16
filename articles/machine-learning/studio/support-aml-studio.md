@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: peterclu
 ms.author: amlstudiodocs
 ms.date: 01/18/2019
-ms.openlocfilehash: 5529d09d71eb9f4ef1d9b4d8185cafb11f644bc8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d330235815b746a5bbdc7682622c0e238a3ab0ea
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501313"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411920"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Azure 기계 학습 스튜디오에 대한 지원 및 교육 받기(클래식)
 
@@ -27,7 +27,6 @@ ms.locfileid: "79501313"
 다음 학습 리소스를 참조하세요.
 + [자습서 및 방법 문서](../studio/index.yml) 
 + [초보자를 위한 데이터 과학 비디오](../studio/data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) 
-+ [알고리즘 치트 시트](../../synapse-analytics/sql-data-warehouse/cheat-sheet.md) 
 
 ## <a name="submit-doc-feedback"></a>문서 피드백 제출
 

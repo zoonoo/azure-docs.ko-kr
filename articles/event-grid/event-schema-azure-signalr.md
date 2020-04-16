@@ -1,34 +1,35 @@
 ---
-title: Azure 이벤트 그리드 Azure SignalR 이벤트 스키마
+title: Azure SingnalR을 이벤트 그리드 소스로
 description: Azure Event Grid를 통해 Azure SignalR 이벤트에 대해 제공되는 속성에 대해 설명합니다.
 services: event-grid
-author: chenyl
+author: banisadr
 ms.service: event-grid
-ms.topic: reference
-ms.date: 06/11/2019
-ms.author: chenyl
-ms.openlocfilehash: 3b072ff2b680ad6d144c7441190ab2df9870f5d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: babanisa
+ms.openlocfilehash: 730d1a7a053ab636c45313dd0c35a537434eb782
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67789073"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393387"
 ---
 # <a name="azure-event-grid-event-schema-for-signalr-service"></a>SignalR 서비스에 대한 Azure 이벤트 그리드 이벤트 스키마
 
-이 문서에서는 SignalR 서비스 이벤트에 대한 속성 및 스키마를 제공합니다.이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
+이 문서에서는 SignalR 서비스 이벤트에 대한 속성 및 스키마를 제공합니다.이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요. 또한 Azure SignalR을 이벤트 소스로 사용할 수 있는 빠른 시작 및 자습서 목록도 제공합니다.
 
+## <a name="event-grid-event-schema"></a>Event Grid 이벤트 스키마
 
-## <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
+### <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 
 SignalR 서비스는 다음과 같은 이벤트 유형을 내보며 처리합니다.
 
-| 이벤트 유형 | 설명 |
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | 마이크로소프트.시그널서비스.클라이언트연결연결 | 클라이언트 연결이 연결될 때 발생합니다. |
 | 마이크로소프트.시그널RService.클라이언트연결 연결 끊김 | 클라이언트 연결이 끊어졌을 때 발생합니다. |
 
-## <a name="example-event"></a>예제 이벤트
+### <a name="example-event"></a>예제 이벤트
 
 다음 예제에서는 클라이언트 연결 연결 이벤트의 스키마를 보여 주며, 
 
@@ -71,7 +72,7 @@ SignalR 서비스는 다음과 같은 이벤트 유형을 내보며 처리합니
 }]
 ```
 
-## <a name="event-properties"></a>이벤트 속성
+### <a name="event-properties"></a>이벤트 속성
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
@@ -95,6 +96,12 @@ SignalR 서비스는 다음과 같은 이벤트 유형을 내보며 처리합니
 | connectionId | 문자열 | 클라이언트 연결의 고유 식별자입니다. |
 | userId | 문자열 | 클레임에 정의된 사용자 식별자입니다. |
 | errorMessage | 문자열 | 연결이 끊어지는 오류입니다. |
+
+## <a name="tutorials-and-how-tos"></a>자습서 및 방법
+|제목 | Description |
+|---------|---------|
+| [이벤트 그리드를 사용하여 Azure SignalR 서비스 이벤트에 대응](../azure-signalr/signalr-concept-event-grid-integration.md) | Azure SignalR 서비스를 이벤트 그리드와 통합하는 개요입니다. |
+| [Azure SignalR 서비스 이벤트를 이벤트 그리드로 보내는 방법](../azure-signalr/signalr-howto-event-grid-integration.md) | 이벤트 그리드를 통해 응용 프로그램에 Azure SignalR 서비스 이벤트를 보내는 방법을 보여 주면 됩니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

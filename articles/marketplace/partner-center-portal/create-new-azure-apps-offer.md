@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 260193b3c71e29a32e0589f50864ffcca2e9a67c
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 6b7ca1f10744bf38137c57d94d796655946c31b3
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262267"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390356"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
@@ -58,7 +58,7 @@ Azure 응용 프로그램 계획에는 관리되는 응용 프로그램 및 솔�
 
     * [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)
     * [GitHub Azure 빠른 시작 템플릿](https://github.com/azure/azure-quickstart-templates)
-    * [애플리케이션 정의 게시](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
+    * [애플리케이션 정의 게시](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [서비스 카탈로그 앱 배포](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
 * 자습서:

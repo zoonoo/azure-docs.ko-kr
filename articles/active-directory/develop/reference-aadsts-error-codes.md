@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 40a7406ea91c95daad2f180b9d0f4620cdbbf454
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 87a962709638391887eaa275f059bf4ceae9218b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80875931"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406982"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 인증 및 권한 부여 오류 코드
 
@@ -27,6 +27,49 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 > 이 정보는 임시로 제공되며 변경될 수 있습니다. 질문이 있거나 원하는 항목을 찾을 수 없나요? GitHub 문제를 만들거나 [개발자를 위한 지원 및 도움말 옵션](active-directory-develop-help-support.md)을 확인하여 도움말 및 지원을 얻을 수 있는 다른 방법을 알아보세요.
 >
 > 이 설명서는 개발자 및 관리자 지침을 위해 제공되지만 클라이언트 자체에서 사용해서는 안 됩니다. 오류 코드는 응용 프로그램을 빌드하는 동안 개발자를 돕기 위한 보다 세분화된 오류 메시지를 제공하기 위해 언제든지 변경될 수 있습니다. 텍스트 또는 오류 코드 번호에 종속된 앱은 시간이 지남에 따라 끊어집니다.
+
+## <a name="handling-error-codes-in-your-application"></a>응용 프로그램에서 오류 코드 처리
+
+[OAuth2.0 사양은](https://tools.ietf.org/html/rfc6749#section-5.2) 오류 응답 `error` 부분을 사용하여 인증 중에 오류를 처리하는 방법에 대한 지침을 제공합니다. 
+
+다음은 샘플 오류 응답입니다.
+
+```json
+{
+  "error": "invalid_scope",
+  "error_description": "AADSTS70011: The provided value for the input parameter 'scope' is not valid. The scope https://example.contoso.com/activity.read is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
+  "error_codes": [
+    70011
+  ],
+  "timestamp": "2016-01-09 02:02:12Z",
+  "trace_id": "255d1aef-8c98-452f-ac51-23d051240864",
+  "correlation_id": "fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7", 
+  "error_uri":"https://login.microsoftonline.com/error?code=70011"
+}
+```
+
+| 매개 변수         | Description    |
+|-------------------|----------------|
+| `error`       | 발생하는 오류 형식을 분류하는 데 사용할 수 있으며 오류에 반응하는 데 사용해야 하는 오류 코드 문자열입니다. |
+| `error_description` | 개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. 이 필드를 사용하여 코드의 오류에 반응하지 마십시오. |
+| `error_codes` | 진단에 도움이 될 수 있는 STS 특정 오류 코드의 목록입니다.  |
+| `timestamp`   | 오류가 발생한 시간입니다. |
+| `trace_id`    | 진단에 도움이 될 수 있는 요청에 대한 고유 식별자입니다. |
+| `correlation_id` | 여러 구성 요소에서 진단에 도움이 될 수 있는 요청에 대한 고유 식별자입니다. |
+| `error_uri` |  오류 조회 페이지에 대한 추가 정보가 있는 링크입니다.  이것은 개발자 용으로만 사용되며 사용자에게 제공하지 않습니다.  오류 조회 시스템에 오류에 대한 추가 정보가 있는 경우에만 존재하며 모든 오류에 추가 정보가 제공되는 것은 아닙니다.|
+
+이 `error` 필드에는 프로토콜 설명서 링크및 OAuth 2.0 사양을 검토하여 특정 오류(예: `authorization_pending` [장치 코드 흐름)와](v2-oauth2-device-code.md)이에 대응하는 방법에 대해 자세히 알아봅니다.  몇 가지 일반적인 것들은 여기에 나열되어 있습니다:
+
+| 오류 코드         | Description        | 클라이언트 작업    |
+|--------------------|--------------------|------------------|
+| `invalid_request`  | 프로토콜 오류(예: 필수 매개 변수 누락). | 요청을 수정하여 다시 제출하십시오.|
+| `invalid_grant`    | 일부 인증 자료(인증 코드, 새로 고침 토큰, 액세스 토큰, PKCE 챌린지)가 유효하지 않거나, 구별할 수 없거나, 누락되었거나, 사용할 수 없습니다. | `/authorize` 끝점에 새 요청을 시도하여 새 권한 부여 코드를 가져옵니다.  해당 앱의 프로토콜 사용을 검토하고 유효성을 검사하는 것이 좋습니다. |
+| `unauthorized_client` | 인증된 클라이언트는 이 권한 부여 형식을 사용할 권한이 없습니다. | 이 문제는 일반적으로 클라이언트 응용 프로그램이 Azure AD에 등록되지 않았거나 사용자의 Azure AD 테넌트에 추가되지 않은 경우에 발생합니다. 애플리케이션이 사용자에게 애플리케이션을 설치하고 Azure AD에 추가하기 위한 지침이 포함된 메시지를 표시할 수 있습니다. |
+| `invalid_client` | 클라이언트 인증에 실패했습니다.  | 클라이언트 자격 증명이 잘못되었습니다. 해결하려면 애플리케이션 관리자가 자격 증명을 업데이트합니다.   |
+| `unsupported_grant_type` | 권한 부여 서버가 해당 권한 부여 유형을 지원하지 않습니다. | 요청에서 권한 부여 유형을 변경하십시오. 이 유형의 오류는 개발 중에만 발생하며 초기 테스트 중에 검색됩니다. |
+| `invalid_resource` | 대상 리소스가 존재하지 않거나 Azure AD가 찾을 수 없거나 올바르게 구성되지 않았기 때문에 유효하지 않습니다. | 리소스가 존재하는 경우 테넌트에 구성되지 않았음을 나타냅니다. 애플리케이션이 사용자에게 애플리케이션을 설치하고 Azure AD에 추가하기 위한 지침이 포함된 메시지를 표시할 수 있습니다.  개발 하는 동안 일반적으로 잘못 된 설치 테스트 테 넌 트 또는 요청 되는 범위의 이름에 오타를 나타냅니다. |
+| `interaction_required` | 요청을 위해 사용자 상호 작용이 필요합니다. 예를 들어 추가 인증 단계가 필요합니다. | 사용자가 필요한 모든 문제를 완료할 수 있도록 동일한 리소스를 상호 작용하여 요청을 다시 시도합니다.  |
+| `temporarily_unavailable` | 서버가 일시적으로 사용량이 많아 요청을 처리할 수 없습니다. | 요청을 다시 시도하십시오. 클라이언트 응용 프로그램은 일시적인 조건으로 인해 응답이 지연되었다고 사용자에게 설명할 수 있습니다. |
 
 ## <a name="lookup-current-error-code-information"></a>조회 현재 오류 코드 정보
 오류 코드 및 메시지는 변경될 수 있습니다.  최신 정보에 대 한, AADSTS 오류 설명, 수정 프로그램 및 몇 가지 제안된 해결 방법을 찾기 위해 `https://login.microsoftonline.com/error` 페이지를 살펴.  

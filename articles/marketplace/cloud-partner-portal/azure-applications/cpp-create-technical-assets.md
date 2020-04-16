@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dsindona
-ms.openlocfilehash: 041b2133ed63a906d3fea3ab67890a0057151b9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 59f9fecb3d949d9cdf48719e6329b066d9eb3fc5
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285268"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393528"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>Azure 애플리케이션 기술 자산 준비
 
@@ -32,7 +32,7 @@ Azure Resource Manager 템플릿을 작성하여 Azure 애플리케이션 솔루
 
   - [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)
   - [GitHub Azure 빠른 시작 템플릿](https://github.com/azure/azure-quickstart-templates)
-  - [애플리케이션 정의 게시](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
+  - [애플리케이션 정의 게시](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
   - [서비스 카탈로그 앱 배포](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
   
@@ -44,7 +44,7 @@ Azure Resource Manager 템플릿을 작성하여 Azure 애플리케이션 솔루
   - 샘플:
 
     - [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
-    - [Azure 파워쉘](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
+    - [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
     - [관리되는 애플리케이션 솔루션](https://docs.microsoft.com/azure/managed-applications/sample-projects)
 
 ## <a name="fundamental-technical-knowledge"></a>기본 기술 지식
@@ -63,12 +63,12 @@ Azure Resource Manager 템플릿을 작성하여 Azure 애플리케이션 솔루
 
 Azure 애플리케이션을 관리하는 데 도움이 되는 다음 스크립팅 환경 중 하나 또는 둘 다를 선택합니다.
 
-- [Azure 파워쉘](https://docs.microsoft.com/powershell/azure/overview)
+- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 개발 환경에 다음 도구를 추가하는 것이 좋습니다.
 
-- [Azure 저장소 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+- [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 - [Visual Studio Code](https://code.visualstudio.com/)(다음 확장 포함):
 
   - 확장: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 243fea8fae071368a91bf482190442f15c372fc1
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9f95677211a89c1bb2a18076741dec08e76c5d70
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271304"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390423"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Azure-Azure VM 복제 오류 문제 해결
 
@@ -404,21 +404,20 @@ VM에서 복제를 사용하려면 해당 프로비저닝 상태가 **성공되�
 
 ### <a name="issue-1-vm-is-attached-to-a-network-thats-already-mapped-to-a-target-network"></a>문제 1: VM이 대상 네트워크에 이미 매핑된 네트워크에 연결됩니다.
 
-원본 VM이 가상 네트워크의 일부이고 동일한 가상 네트워크의 다른 VM이 대상 리소스 그룹의 네트워크와 이미 매핑된 경우 네트워크 선택 드롭다운 목록 상자를 기본적으로 사용할 수 없습니다(흐리게 표시).
+재해 복구 구성 중에 원본 VM이 가상 네트워크의 일부이고 동일한 가상 네트워크의 다른 VM이 대상 리소스 그룹의 네트워크와 이미 매핑된 경우 네트워크 선택 드롭다운 목록 상자를 기본적으로 사용할 수 없습니다(흐리게 표시).
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="네트워크 선택 목록을 사용할 수 없습니다.":::
 
 ### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>문제 2: 이전에 VM을 보호한 다음 복제를 사용하지 않도록 설정했습니다.
 
-VM의 복제를 사용하지 않도록 설정해도 네트워크 매핑은 삭제되지 않습니다. VM이 보호된 복구 서비스 자격 증명 모음에서 매핑을 삭제해야 합니다. 복구 **서비스 볼트** > **사이트 복구 인프라** > **네트워크 매핑으로**이동합니다.
+VM의 복제를 사용하지 않도록 설정해도 네트워크 매핑은 삭제되지 않습니다. VM이 보호된 복구 서비스 자격 증명 모음에서 매핑을 삭제해야 합니다. 복구 **서비스 자격 증명 모음을** 선택하고 Azure 가상 시스템 > **네트워크 매핑에****대한**사이트**복구 인프라** >  **관리로** > 이동합니다.
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="네트워크 매핑을 삭제합니다.":::
 
-재해 복구 설정 중에 구성된 대상 네트워크는 초기 설정 후 VM이 보호된 후 변경할 수 있습니다.
+재해 복구 설정 중에 구성된 대상 네트워크는 초기 설정 후 VM이 보호된 후에 변경할 수 있습니다. **네트워크 매핑을 수정하려면** 네트워크 이름을 선택합니다.
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="네트워크 매핑을 수정합니다.":::
 
-네트워크 매핑을 변경하면 동일한 네트워크 매핑을 사용하는 모든 보호된 VM에 영향을 줍니다.
 
 ## <a name="com-or-vss-error-code-151025"></a>COM+ 또는 VSS(오류 코드 151025)
 

@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: ae250c7d15801789ad22955845cfa535ed91f2c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 070b708f204006bc1ba90c4c3676696291fde902
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75921147"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414877"
 ---
 # <a name="bulk-copy-from-files-to-database"></a>파일에서 데이터베이스로 대량 복사
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Lake Storage Gen2에서 Azure 시냅스 분석/Azure SQL Database로 데이터를 대량으로 복사하는 데 사용할 수 있는 솔루션 템플릿에 대해 설명합니다.
 

@@ -8,18 +8,20 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/16/2019
-ms.openlocfilehash: 84b935d1646ea4f13d5926fc68797fd8efd03dea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3460c789909c6acd0537ef89a9ec8509bf6e135d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930365"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413724"
 ---
 # <a name="filter-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 필터 변환
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 필터 변환은 조건을 기반으로 행 필터링을 허용합니다. 출력 스트림에는 필터링 조건과 일치하는 모든 행이 포함됩니다. 필터 변환은 SQL의 WHERE 절과 유사합니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 데이터 흐름 식 빌더를 사용하여 필터 조건에 대한 식을 입력합니다. 식 작성기를 열려면 파란색 상자를 클릭합니다. 필터 조건은 부울 형식이어야 합니다. 식을 만드는 방법에 대한 자세한 내용은 [식 작성기](concepts-data-flow-expression-builder.md) 설명서를 참조하십시오.
 

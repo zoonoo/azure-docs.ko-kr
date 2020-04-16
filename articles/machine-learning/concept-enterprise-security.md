@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 4fbb3e83692ec058c03b22654e82d4093fe3541d
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 9f3a1c3455aadfbd243cdc6ab2920849c8558841
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756574"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414634"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure 기계 학습을 위한 엔터프라이즈 보안
 
@@ -42,7 +42,7 @@ Azure Active Directory(Azure AD)를 사용하도록 구성된 경우 다단계 �
 
 Azure Machine Learning은 웹 서비스에 대한 두 가지 형태의 인증( 키 및 토큰)을 지원합니다. 각 웹 서비스는 한 번에 하나의 인증 형식만 사용할 수 있습니다.
 
-|인증 방법|설명|Azure Container Instances|AKS|
+|인증 방법|Description|Azure Container Instances|AKS|
 |---|---|---|---|
 |키|키는 정적이며 새로 고칠 필요가 없습니다. 키는 수동으로 재생할 수 있습니다.|기본적으로 사용할 수 없게 설정되어 있습니다.| 기본적으로 사용하도록 설정됨|
 |토큰|토큰은 지정된 기간 이후에 만료되며 새로 고쳐야 합니다.| 사용할 수 없음| 기본적으로 사용할 수 없게 설정되어 있습니다. |
@@ -243,9 +243,9 @@ Azure 데이터 브릭은 Azure 기계 학습 파이프라인에서 사용할 �
 
 ### <a name="encryption-in-transit"></a>전송 중 암호화
 
-TLS를 사용하여 Azure Machine Learning 마이크로 서비스 간의 내부 통신을 보호하고 점수 매기기 끝점에 대한 외부 호출을 보호할 수 있습니다. 모든 Azure 저장소 액세스는 보안 채널을 통해서도 발생합니다.
+Azure 기계 학습은 TLS를 사용하여 다양한 Azure 기계 학습 마이크로 서비스 간의 내부 통신을 보호합니다. 모든 Azure 저장소 액세스는 보안 채널을 통해서도 발생합니다.
 
-자세한 내용은 [TLS 사용을 참조하여 Azure 기계 학습을 통해 웹 서비스를 보호합니다.](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service)
+채점 끝점에 대한 외부 호출을 보호하기 위해 Azure 기계 학습은 TLS를 사용합니다. 자세한 내용은 [TLS 사용을 참조하여 Azure 기계 학습을 통해 웹 서비스를 보호합니다.](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service)
 
 ### <a name="using-azure-key-vault"></a>Azure Key Vault 사용
 

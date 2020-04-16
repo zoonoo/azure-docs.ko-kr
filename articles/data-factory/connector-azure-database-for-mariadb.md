@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.openlocfilehash: 20e84b584fa4d654500efc47786fa8db0cd9c238
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c433fc5d919a57476097257cac1b7176a9da598d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440795"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410697"
 ---
 # <a name="copy-data-from-azure-database-for-mariadb-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Database for MariaDB에서 데이터 복사 
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure Database for MariaDB에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
@@ -43,10 +45,10 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 Azure Database for MariaDB 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성을 설정해야 **합니다.** | yes |
-| connectionString | Azure Database for MariaDB에 연결하는 연결 문자열입니다. Azure Portal -> Azure Database for MariaDB -> 연결 문자열 -> ADO.NET에서 찾을 수 있습니다. <br/> Azure Key Vault에 암호를 넣고, 연결 문자열에서 `pwd` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | yes |
+| type | 형식 속성을 설정해야 **합니다.** | 예 |
+| connectionString | Azure Database for MariaDB에 연결하는 연결 문자열입니다. Azure Portal -> Azure Database for MariaDB -> 연결 문자열 -> ADO.NET에서 찾을 수 있습니다. <br/> Azure Key Vault에 암호를 넣고, 연결 문자열에서 `pwd` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임입니다.](concepts-integration-runtime.md) 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
 **예제:**
@@ -99,9 +101,9 @@ Azure Database for MariaDB 연결된 서비스에 다음 속성이 지원됩니�
 
 MariaDB에 대한 Azure 데이터베이스의 데이터를 복사하려면 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 형식 속성을 **AzureMariaDBTable으로** 설정해야 합니다. | yes |
+| type | 데이터 집합의 형식 속성을 **AzureMariaDBTable으로** 설정해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -129,9 +131,9 @@ MariaDB에 대한 Azure 데이터베이스의 데이터를 복사하려면 다�
 
 MariaDB에 대 한 Azure 데이터베이스에서 데이터를 복사 하려면 다음 속성 복사 활동 **원본** 섹션에서 지원 됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 활동 원본의 형식 속성을 **AzureMariaDBSource로** 설정해야 합니다. | yes |
+| type | 복사 활동 원본의 형식 속성을 **AzureMariaDBSource로** 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**

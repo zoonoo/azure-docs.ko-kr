@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 35025bf1592f1293b9326d643f76322b4af590c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46bceeb31fa38068c6c4f9f3a86ed556ad39effb
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501199"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393158"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Azure 이벤트 그리드의 시스템 항목
 Azure 이벤트 그리드 서비스는 Azure 이벤트 원본에 대한 첫 번째 이벤트 구독을 만들 때 시스템 항목을 만듭니다. 현재 Event Grid는 2020년 3월 15일 이전에 만들어진 토픽 소스에 대한 시스템 토픽을 만들지 않습니다. 이 날짜 이후에 만든 모든 토픽 소스에 대해 Event Grid는 자동으로 시스템 토픽을 만듭니다. 이 문서에서는 Azure 이벤트 그리드의 **시스템 항목에** 대해 설명합니다.
@@ -38,5 +38,5 @@ Azure Storage 계정과 같은 Azure 이벤트 원본에 대한 첫 번째 이�
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요. 
 
-- [사용자 지정 항목](event-sources.md#custom-topics)
+- [사용자 지정 항목](custom-topics.md)
 - [도메인](event-domains.md)

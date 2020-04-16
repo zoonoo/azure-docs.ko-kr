@@ -7,14 +7,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/04/2019
-ms.openlocfilehash: da180bfb1aec29fa15b070fd73ba84d708ada927
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1618011dc3c281cb2ef06ef80cfc7c8e69c4e091
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74928317"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415501"
 ---
 # <a name="mapping-data-flow-graphs"></a>데이터 흐름 그래프 매핑
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 매핑 데이터 흐름 설계 표면은 하향식, 왼쪽에서 오른쪽으로 데이터 흐름을 빌드하는 "구성" 표면입니다. 더하기(+) 기호를 사용하여 각 변환에 연결된 도구 상자가 있습니다. 자유 형식 DAG 환경에서 가장자리를 통해 노드에 연결하는 대신 비즈니스 논리에 집중합니다.
 

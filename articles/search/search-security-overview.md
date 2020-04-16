@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 6de6f23fe9564b28a5d436ac00999dbb3e9183e1
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/15/2020
+ms.openlocfilehash: fe7d076fab6a70736843fc644cd56bef44a55df2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548973"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415119"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Azure 인지 검색의 보안 및 데이터 개인 정보 보호
 
@@ -31,7 +31,6 @@ Azure Cognitive Search는 [2018년 6월에 발표된](https://azure.microsoft.co
 + [GxP(21 CFR Part 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
 + [HITRUST](https://en.wikipedia.org/wiki/HITRUST)
 + [PCI DSS Level 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
-+ [Australia IRAP Unclassified DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm)
 
 표준 규정 준수는 일반적으로 사용 가능한 기능에 적용됩니다. 미리 보기 기능은 일반적인 가용성으로 전환될 때 인증되며 엄격한 표준 요구 사항이 있는 솔루션에는 사용하면 안 됩니다. 규정 준수 인증은 [Microsoft Azure 규정 준수 개요](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 및 [보안 센터](https://www.microsoft.com/en-us/trustcenter)에 설명되어 있습니다. 
 
@@ -132,7 +131,7 @@ Microsoft 데이터 센터는 업계 최고의 물리적 보안을 제공하고 
 > [!VIDEO https://www.youtube.com/embed/r1cyTL8JqRg]
 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [.NET 시작(관리자 키를 사용하여 인덱스를 만드는 방법을 보여줍니다.)](search-create-index-dotnet.md)
 + [REST 시작(관리자 키를 사용하여 인덱스를 만드는 방법을 보여줍니다.)](search-create-index-rest-api.md)

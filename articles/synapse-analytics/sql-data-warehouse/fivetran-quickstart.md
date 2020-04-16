@@ -11,12 +11,12 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: b4742f48ee9ad0db60e21dd53c5c0f447c1ded67
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8f164232a3b1782511758f93a9e9b8d17d3714d5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348930"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414278"
 ---
 # <a name="quickstart-fivetran-with-data-warehouse"></a>빠른 시작: 데이터 웨어하우스가 있는 Fivetran 
 
@@ -26,7 +26,7 @@ ms.locfileid: "80348930"
 
 1. 데이터 웨어하우스에 연결하는 데 사용하는 정규화된 서버 이름과 데이터베이스 이름을 찾습니다.
     
-    이 정보를 찾는 데 도움이 필요하면 [데이터 웨어하우스에 연결](sql-data-warehouse-connect-overview.md)을 참조하십시오.
+    이 정보를 찾는 데 도움이 필요하면 [데이터 웨어하우스에 연결](../sql/connect-overview.md)을 참조하십시오.
 
 2. 설정 마법사에서 데이터베이스를 직접 연결할지 또는 SSH 터널을 통해 연결할지 선택합니다.
 
@@ -75,9 +75,9 @@ ms.locfileid: "80348930"
     자세한 내용은 [메모리 및 동시성 한도](memory-concurrency-limits.md) 및 [리소스 클래스](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory)를 참조하세요.
 
 
-## <a name="sign-in-to-fivetran"></a>Fivetran에 로그인
+## <a name="connect-from-fivetran"></a>파이브트란에서 연결
 
-Fivetran에 로그인하려면 데이터 웨어하우스에 액세스하는 데 사용하는 자격 증명을 입력합니다. 
+Fivetran 계정에서 데이터 웨어하우스에 연결하려면 데이터 웨어하우스에 액세스하는 데 사용하는 자격 증명을 입력합니다. 
 
 * 호스트(서버 이름).
 * 포트.

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 4f39ff5726c23db32c7b039335f406641ee090cb
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 8140fc4286ac97260e0b23ea700a70303ec69e2e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754249"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411193"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Azure 기계 학습 작업 영역에 대한 Azure 개인 링크 구성(미리 보기)
 
@@ -47,8 +47,7 @@ Azure 개인 링크를 사용하면 개인 끝점을 사용하여 작업 영역�
 * 작업 영역 버전(기본 또는 엔터프라이즈)
 * 작업 영역에 대한 높은 기밀 설정을 사용하도록 설정해야 하는 경우
 * 고객 관리 키가 있는 작업 영역에 대한 암호화를 사용하도록 설정하고 키에 대한 연결된 값을 사용하는 경우
-* 가상 네트워크 이름 및 서브넷
-* 서브넷 이름
+* 가상 네트워크 및 서브넷 이름, 템플릿은 새로운 가상 네트워크 및 서브넷을 만듭니다.
 
 템플릿이 제출되고 프로비저닝이 완료되면 작업 영역이 포함된 리소스 그룹에는 비공개 링크와 관련된 세 가지 새 아티팩트 유형이 포함됩니다.
 

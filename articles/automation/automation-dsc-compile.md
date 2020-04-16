@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3145c7db064432e443aae5dcd503905b865ffe46
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: f7558745442ac26fc33a063ff66fe170d08487ac
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383260"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392080"
 ---
 # <a name="compile-dsc-configurations-in-azure-automation-state-configuration"></a>Azure 자동화 상태 구성에서 DSC 구성 컴파일
 
@@ -36,7 +36,7 @@ DSC(Azure 원하는 상태 구성) 확장이 있는 Azure 리소스 관리자 �
 
 ### <a name="portal"></a>포털
 
-1. Automation 계정에서 **상태 구성(DSC)** 을 클릭합니다.
+1. 자동화 계정에서 **DSC(상태 구성)를**클릭합니다.
 1. **구성** 탭 및 컴파일할 구성 이름을 차례로 클릭합니다.
 1. **컴파일**을 클릭합니다.
 1. 구성에 매개 변수가 없는 경우 컴파일할지 확인하라는 메시지가 표시됩니다. 구성에 매개 변수가 있는 경우 매개 변수 값을 제공할 수 있도록 **구성 컴파일** 블레이드가 열립니다.
@@ -130,12 +130,12 @@ Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -Automa
 
 ### <a name="manage-configurationdata-when-compiling-configurations-in-azure-automation"></a>Azure 자동화에서 구성을 컴파일할 때 ConfigurationData 관리
 
-**ConfigurationData** 를 사용하면 PowerShell DSC를 사용하는 동안 구조적 구성을 환경별 구성과 구분할 수 있습니다. 자세한 내용은 [PowerShell DSC의 "위치"에서 "What"을 분리하는](https://devblogs.microsoft.com/powershell/separating-what-from-where-in-powershell-dsc/)것을 참조하십시오.
+`ConfigurationData`PowerShell DSC를 사용하는 동안 모든 환경별 구성에서 구조 구성을 분리할 수 있는 기본 제공 DSC 매개 변수입니다. 자세한 내용은 [PowerShell DSC의 "위치"에서 "What"을 분리하는](https://devblogs.microsoft.com/powershell/separating-what-from-where-in-powershell-dsc/)것을 참조하십시오.
 
 > [!NOTE]
-> Azure 자동화 상태 구성에서 컴파일할 때 Azure PowerShell에서 **ConfigurationData를** 사용할 수 있지만 Azure 포털에서는 사용할 수 없습니다.
+> Azure 자동화 상태 구성에서 컴파일할 때 `ConfigurationData` Azure PowerShell에서 사용할 수 있지만 Azure 포털에서는 사용할 수 없습니다.
 
-다음 예제 DSC 구성은 및 `$ConfigurationData` `$AllNodes` 키워드를 통해 **ConfigurationData를** 사용합니다. 이 예제에서는 [xWeb관리 모듈도](https://www.powershellgallery.com/packages/xWebAdministration/) 필요합니다.
+다음 예제DSC 구성은 `$ConfigurationData` 및 `$AllNodes` 키워드를 통해 사용합니다. `ConfigurationData` 이 예제에서는 [xWeb관리 모듈도](https://www.powershellgallery.com/packages/xWebAdministration/) 필요합니다.
 
 ```powershell
 Configuration ConfigurationDataSample
@@ -198,7 +198,7 @@ Azure Automation에서 DSC 구성은 `Get-AutomationPSCredential` cmdlet를 사�
 
 자격 증명을 노드 구성(MOF 구성 문서)에서 안전하게 유지하려면 노드 구성 MOF 파일에 자격 증명을 암호화해야 합니다. 현재 Node 구성 MOF 생성 중에 일반 텍스트로 자격 증명을 출력할 수 있는 PowerShell DSC 권한을 제공해야 합니다. PowerShell DSC는 Azure Automation이 컴파일 작업을 통해 생성 후 전체 MOF 파일을 암호화한다는 것을 인식하지 못하고 있습니다.
 
-PowerShell DSC는 구성 데이터를 사용하여 생성된 노드 구성 MoF에서 자격 증명을 일반 텍스트로 출력해도 괜찮다고 알릴 수 있습니다. DSC `PSDscAllowPlainTextPassword = $true` 구성에 나타나고 자격 증명을 사용하는 각 노드 블록 이름에 대해 **ConfigurationData를** 통해 전달해야 합니다.
+PowerShell DSC는 구성 데이터를 사용하여 생성된 노드 구성 MoF에서 자격 증명을 일반 텍스트로 출력해도 괜찮다고 알릴 수 있습니다. DSC `PSDscAllowPlainTextPassword = $true` `ConfigurationData` 구성에 나타나고 자격 증명을 사용하는 각 노드 블록 이름에 대해 통과해야 합니다.
 
 다음 예제에서는 Automation 자격 증명 자산을 사용하는 DSC 구성을 보여줍니다.
 
@@ -262,9 +262,9 @@ Windows PowerShell에서 DSC 구성을 컴파일하는 프로세스는 PowerShel
 
 ### <a name="import-a-node-configuration-in-the-azure-portal"></a>Azure 포털에서 노드 구성 가져오기
 
-1. Automation 계정 페이지의 **구성 관리**에서 **상태 구성(DSC)** 을 클릭합니다.
+1. 자동화 계정에서 구성 관리 에서 **상태 구성(DSC)을** **클릭합니다.**
 1. DSC(상태 구성) 페이지에서 구성 탭을 클릭한 다음 **을 추가를** **클릭합니다.**
-1. 가져오기 페이지에서 **노드 구성 파일** 텍스트 상자 옆에 있는 폴더 아이콘을 클릭하여 로컬 컴퓨터에서 노드 구성 파일(MOF)을 찾아봅니다.
+1. 가져오기 페이지에서 **노드 구성 파일** 필드 옆에 있는 폴더 아이콘을 클릭하여 로컬 컴퓨터에서 노드 구성 MOF 파일을 찾아봅봅을 클릭합니다.
 
    ![로컬 파일 찾기](./media/automation-dsc-compile/import-browse.png)
 

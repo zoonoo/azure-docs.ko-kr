@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/08/2020
-ms.openlocfilehash: a061df302680488377c3006dcef57b818a101d67
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 2e4e554bb6564adb8c6722533e127a758e5a9c24
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011534"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415389"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Azure 데이터 레이크 저장소 Gen2에서 데이터 복사 및 변환
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure 데이터 레이크 스토리지 Gen2(ADLS Gen2)는 [Azure Blob 저장소에](../storage/blobs/storage-blobs-introduction.md)기본 제공된 빅 데이터 분석에 전념하는 기능 집합입니다. 파일 시스템과 개체 저장소 패러다임을 모두 사용하여 데이터와 인터페이스하는 데 사용할 수 있습니다.
 
@@ -72,7 +74,7 @@ Azure 데이터 레이크 저장소 Gen2 커넥터는 다음 인증 유형을 �
 
 스토리지 계정 키 인증을 사용하는 데 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **AzureBlobFS**로 설정되어야 합니다. |예 |
 | url | 의 패턴이 있는 데이터 레이크 스토리지 `https://<accountname>.dfs.core.windows.net`Gen2용 끝점 | 예 |
@@ -124,7 +126,7 @@ Azure 데이터 레이크 저장소 Gen2 커넥터는 다음 인증 유형을 �
 
 이러한 속성은 연결된 서비스에 대해 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **AzureBlobFS**로 설정되어야 합니다. |예 |
 | url | 의 패턴이 있는 데이터 레이크 스토리지 `https://<accountname>.dfs.core.windows.net`Gen2용 끝점 | 예 |
@@ -178,7 +180,7 @@ Azure 리소스 인증에 관리되는 ID를 사용하려면 다음 단계를 �
 
 이러한 속성은 연결된 서비스에 대해 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **AzureBlobFS**로 설정되어야 합니다. |예 |
 | url | 의 패턴이 있는 데이터 레이크 스토리지 `https://<accountname>.dfs.core.windows.net`Gen2용 끝점 | 예 |
@@ -210,7 +212,7 @@ Azure 리소스 인증에 관리되는 ID를 사용하려면 다음 단계를 �
 
 형식 기반 데이터 집합의 설정에서 `location` Data Lake Storage Gen2에 대해 다음 속성이 지원됩니다.
 
-| 속성   | 설명                                                  | 필수 |
+| 속성   | Description                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | 데이터 집합에서 `location` 아래의 형식 속성은 **AzureBlobFSLocation**로 설정해야 합니다. | 예      |
 | 파일 시스템 | 데이터 레이크 스토리지 Gen2 파일 시스템 이름입니다.                              | 예       |
@@ -254,7 +256,7 @@ Azure 리소스 인증에 관리되는 ID를 사용하려면 다음 단계를 �
 
 형식 기반 복사 소스의 설정에서 `storeSettings` Data Lake Storage Gen2에 대해 다음 속성이 지원됩니다.
 
-| 속성                 | 설명                                                  | 필수                                      |
+| 속성                 | Description                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | 아래의 `storeSettings` 형식 속성은 **AzureBlobFSReadSettings로**설정해야 합니다. | 예                                           |
 | recursive                | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. 재귀가 true로 설정되고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에서 복사되거나 생성되지 않습니다. 허용된 **true** 값은 true(기본값) 및 **false입니다.** | 예                                            |
@@ -311,7 +313,7 @@ Azure 리소스 인증에 관리되는 ID를 사용하려면 다음 단계를 �
 
 형식 기반 복사 싱크의 설정에서 `storeSettings` Data Lake Storage Gen2에 대해 다음 속성이 지원됩니다.
 
-| 속성                 | 설명                                                  | 필수 |
+| 속성                 | Description                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | 아래의 `storeSettings` 형식 속성은 **AzureBlobFSWriteSettings로**설정해야 합니다. | 예      |
 | copyBehavior             | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- 병합 계층 :</b>소스 폴더의 모든 파일은 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 예       |
@@ -487,7 +489,7 @@ Azure Data Lake Storage Gen1/Gen2에서 Gen2로 파일을 복사할 때 데이�
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 집합 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 형식 속성을 **AzureBlobFSFile**로 설정해야 합니다. |예 |
 | folderPath | 데이터 레이크 스토리지 Gen2의 폴더로 가는 경로입니다. 지정하지 않으면 루트를 가리킵니다. <br/><br/>와일드카드 필터가 지원됩니다. 허용된 와일드카드는 `*` (0자 이상과 `?` 일치) 및(0또는 단일 문자일치)입니다. 실제 `^` 폴더 이름에 와일드카드가 있거나 이 이스케이프 문자가 내부에 있는 경우 이스케이프하는 데 사용합니다. <br/><br/>예: 파일 시스템/폴더/. 더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. |예 |
@@ -532,7 +534,7 @@ Azure Data Lake Storage Gen1/Gen2에서 Gen2로 파일을 복사할 때 데이�
 
 ### <a name="legacy-copy-activity-source-model"></a>레거시 복사 활동 소스 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 형식 속성을 **AzureBlobFSSource**로 설정해야 합니다. |예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. 재귀가 true로 설정되고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에서 복사되거나 생성되지 않습니다.<br/>허용된 **true** 값은 true(기본값) 및 **false입니다.** | 예 |
@@ -572,7 +574,7 @@ Azure Data Lake Storage Gen1/Gen2에서 Gen2로 파일을 복사할 때 데이�
 
 ### <a name="legacy-copy-activity-sink-model"></a>레거시 복사 활동 싱크 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 형식 속성은 **AzureBlobFSSink**로 설정해야 합니다. |예 |
 | copyBehavior | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- 병합 계층 :</b>소스 폴더의 모든 파일은 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 예 |

@@ -11,14 +11,17 @@ author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
-ms.openlocfilehash: 006d4fa9ed09170a423e796e893b817e079e861b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: dce7fb87ee49aefdedf5653243fa5729eee34519
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261937"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414319"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Azure 지원 dtexec 유틸리티를 사용하여 SQL 서버 통합 서비스 패키지 실행
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 이 문서에서는 Azure 지원 dtexec(AzureDTExec) 명령 프롬프트 유틸리티에 대해 설명합니다. Azure 데이터 팩터리의 IR(Azure-SSIS 통합 런타임)에서 SQL 서버 통합 서비스(SSIS) 패키지를 실행하는 데 사용됩니다.
 
 기존의 dtexec 유틸리티는 SQL Server와 함께 제공됩니다. 자세한 내용은 [dtexec 유틸리티](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017)를 참조하십시오. ActiveBatch 및 Control-M과 같은 타사 오케스트레이터 또는 스케줄러가 SSIS 패키지를 온-프레미스에서 실행하기 위해 호출하는 경우가 많습니다. 

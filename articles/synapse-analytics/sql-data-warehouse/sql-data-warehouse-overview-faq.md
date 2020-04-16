@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: dcefe6a6144c9a8f9c6ab7daf5b34b2d81a73c3f
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 260086d186f7e2b2d6f76c437057f5fbc8af39b5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743008"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416084"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure 시냅스 분석(이전 SQL DW) 자주 묻는 질문
 
@@ -92,7 +92,7 @@ A. 예. SQL 데이터베이스와 함께 사용할 수 있는 대부분의 REST 
 
 17. 어떤 클라이언트 드라이버가 지원되나요?
 
-A. Synapse SQL 풀에 대한 드라이버 지원은 연결 문자열 페이지에서 찾을 수 [있습니다.](sql-data-warehouse-connection-strings.md)
+A. Synapse SQL 풀에 대한 드라이버 지원은 연결 문자열 페이지에서 찾을 수 [있습니다.](../sql/connection-strings.md)
 
 Q: PolyBase에서 지원하는 파일 형식은 무엇입니까?
 

@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/09/2020
-ms.openlocfilehash: 44efd0d402d6cb9f1ee44c583c88140121ca3001
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: d96b2b1f8465132549c59ac5555adf99e7758a3b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011619"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415228"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 SAP 테이블의 데이터 복사
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory의 복사 활동을 사용하여 SAP 테이블에서 데이터를 복사하는 방법을 설명합니다. 자세한 내용은 [활동 복사 개요를](copy-activity-overview.md)참조하십시오.
 
@@ -72,7 +73,7 @@ SAP 테이블에서 지원되는 모든 싱크 데이터 저장소에 데이터�
 
 SAP BW 오픈 허브 연결 서비스에 대해 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | `type` | 합니다 `type` 속성으로 설정 되어 있어야 `SapTable`합니다. | 예 |
 | `server` | SAP 인스턴스가 있는 서버의 이름입니다.<br/>SAP 응용 프로그램 서버에 연결하는 데 사용합니다. | 예 |
@@ -180,7 +181,7 @@ SAP BW 오픈 허브 연결 서비스에 대해 다음 속성이 지원됩니다
 
 SAP BW Open Hub 연결 서비스에서 데이터를 복사하려면 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | `type` | 합니다 `type` 속성으로 설정 되어 있어야 `SapTableResource`합니다. | 예 |
 | `tableName` | 데이터를 복사할 SAP 테이블의 이름입니다. | 예 |
@@ -212,7 +213,7 @@ SAP BW Open Hub 연결 서비스에서 데이터를 복사하려면 다음 속�
 
 SAP 테이블에서 데이터를 복사하려면 다음 속성이 지원됩니다.
 
-| 속성                         | 설명                                                  | 필수 |
+| 속성                         | Description                                                  | 필수 |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
 | `type`                             | 합니다 `type` 속성으로 설정 되어 있어야 `SapTableSource`합니다.         | 예      |
 | `rowCount`                         | 검색할 행 수입니다.                              | 예       |
@@ -234,7 +235,7 @@ SAP 테이블에서 데이터를 복사하려면 다음 속성이 지원됩니�
 
 에서 `rfcTableOptions`다음과 같은 일반적인 SAP 쿼리 연산자에서 행을 필터링할 수 있습니다.
 
-| 연산자 | 설명 |
+| 연산자 | Description |
 | :------- | :------- |
 | `EQ` | 같음 |
 | `NE` | 같지 않음 |

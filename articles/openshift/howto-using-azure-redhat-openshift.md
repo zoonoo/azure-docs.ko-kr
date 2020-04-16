@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
 keywords: aro, 오픈 시프트, 아즈 아로, 빨간 모자, cli
-ms.openlocfilehash: 9488ef593cf4ec8600dcb42ea4a2cefa4fcb1446
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: f909c5870be6e394e457ad8f44ea5a253054ffe6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998791"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398885"
 ---
 # <a name="create-access-and-manage-an-azure-red-hat-openshift-43-cluster"></a>Azure Red Hat OpenShift 4.3 클러스터 생성, 액세스 및 관리
 
@@ -68,7 +68,19 @@ Azure Red Hat OpenShift 4.3 클러스터를 만들려면 다음이 필요합니�
    aro                                0.3.0
    ...
    ```
-  
+
+### <a name="get-a-red-hat-pull-secret-optional"></a>빨간 모자 당기기 비밀 받기(선택 사항)
+
+Red Hat 끌어오기 비밀을 사용하면 클러스터가 Red Hat 컨테이너 레지스트리 및 추가 콘텐츠에 액세스할 수 있습니다. 끌어오기 비밀을 사용하는 것은 선택 사항이지만 권장됩니다.
+
+풀 시크릿을 얻으려면 다음을 수행하십시오.
+
+1. [https://editor.swagger.io](https://cloud.redhat.com/openshift/install/azure/aro-provisioned ) 로 이동합니다.
+1. Red Hat 계정에 로그인하거나 비즈니스 이메일을 사용하여 새 Red Hat 계정을 만드세요. 이용 약관에 동의해야 합니다.
+1. **클릭 비밀 다운로드를 선택합니다.**
+
+어딘가에 안전하게 *pull-secret.txt* 파일을 저장합니다. 클러스터를 만들 때마다 파일을 사용합니다.
+
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>두 개의 빈 서브넷이 포함된 가상 네트워크 만들기
 
 다음 단계에 따라 두 개의 빈 서브넷이 포함된 가상 네트워크를 만듭니다.
@@ -79,15 +91,7 @@ Azure Red Hat OpenShift 4.3 클러스터를 만들려면 다음이 필요합니�
    LOCATION=eastus        #the location of your cluster
    RESOURCEGROUP="v4-$LOCATION"    #the name of the resource group where you want to create your cluster
    CLUSTER=cluster        #the name of your cluster
-   PULL_SECRET="<optional-pull-secret>"
    ```
-   >[!NOTE]
-   > 선택적 끌어오기 비밀을 사용하면 클러스터가 추가 콘텐츠와 함께 Red Hat 컨테이너 레지스트리에 액세스할 수 있습니다.
-   >
-   > 로 https://cloud.redhat.com/openshift/install/azure/installer-provisioned 이동하여 *비밀 복사를*클릭하여 끌어오기 비밀에 액세스합니다.
-   >
-   > Red Hat 계정에 로그인하거나 비즈니스 이메일로 새 Red Hat 계정을 만들고 이용 약관에 동의해야 합니다.
- 
 
 2. 클러스터에 대한 리소스 그룹을 만듭니다.
 
@@ -143,7 +147,7 @@ az aro create \
   --worker-subnet "$CLUSTER-worker" \
   --cluster-resource-group "aro-$CLUSTER" \
   --domain "$CLUSTER" \
-  --pull-secret "$PULL_SECRET"
+  --pull-secret @pull-secret.txt
 ```
 
 >[!NOTE]

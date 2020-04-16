@@ -4,16 +4,16 @@ description: 테스트 인증서를 만들고 Azure IoT Edge 장치에 인증서
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/26/2020
+ms.date: 04/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5afb9b7a6ba1ffb99df064c9f92780dc820b2e8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 364846f6cef196f6cefa7872af48f262b387db4f
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535989"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393812"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>데모 인증서를 만들어 IoT Edge 장치 기능을 테스트합니다.
 
@@ -247,8 +247,9 @@ New-CACertsEdgeDeviceIdentity "<name>"
 
 이 명령에 전달하는 이름은 IoT Hub의 IoT Edge 장치의 장치 ID입니다.
 
-새 장치 ID 명령은 DPS에 개별 등록을 만들고 IoT Edge 런타임을 설치할 때 사용할 두 개의 인증서와 키 파일을 포함하여 여러 인증서 및 키 파일을 만듭니다.
+새 장치 ID 명령은 DPS에 개별 등록을 만들고 IoT Edge 런타임을 설치할 때 사용할 세 가지 를 포함하여 여러 인증서 및 키 파일을 만듭니다.
 
+* `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>\private\iot-edge-device-identity-<name>.key.pem`
 
@@ -262,8 +263,9 @@ New-CACertsEdgeDeviceIdentity "<name>"
 
 이 명령에 전달하는 이름은 IoT Hub의 IoT Edge 장치의 장치 ID입니다.
 
-스크립트는 DPS에 개별 등록을 만들고 IoT Edge 런타임을 설치할 때 사용할 두 개의 인증서와 키 파일을 포함하여 여러 인증서 및 키 파일을 만듭니다.
+스크립트는 DPS에 개별 등록을 만들고 IoT Edge 런타임을 설치할 때 사용할 세 가지 를 포함하여 여러 인증서 및 키 파일을 만듭니다.
 
+* `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>/private/iot-edge-device-identity-<name>.key.pem`
 
@@ -290,7 +292,7 @@ Ca(인증)에 서명한 X.509 인증 기관의 경우 IoT 장치에 대한 인�
 
 1. 인증서 생성 스크립트및 루트 CA 인증서가 있는 작업 디렉터리로 이동합니다.
 
-2. 다운스트림 장치에 대해 두 개의 인증서(기본 및 보조 인증서)를 만듭니다. 사용하기 쉬운 명명 규칙은 IoT 장치의 이름으로 인증서를 만든 다음 기본 또는 보조 레이블을 만드는 것입니다. 예를 들어:
+2. 다운스트림 장치에 대해 두 개의 인증서(기본 및 보조 인증서)를 만듭니다. 사용하기 쉬운 명명 규칙은 IoT 장치의 이름으로 인증서를 만든 다음 기본 또는 보조 레이블을 만드는 것입니다. 다음은 그 예입니다.
 
    ```PowerShell
    New-CACertsDevice "<device name>-primary"
@@ -320,7 +322,7 @@ Ca(인증)에 서명한 X.509 인증 기관의 경우 IoT 장치에 대한 인�
 
 1. 인증서 생성 스크립트및 루트 CA 인증서가 있는 작업 디렉터리로 이동합니다.
 
-2. 다운스트림 장치에 대해 두 개의 인증서(기본 및 보조 인증서)를 만듭니다. 사용하기 쉬운 명명 규칙은 IoT 장치의 이름으로 인증서를 만든 다음 기본 또는 보조 레이블을 만드는 것입니다. 예를 들어:
+2. 다운스트림 장치에 대해 두 개의 인증서(기본 및 보조 인증서)를 만듭니다. 사용하기 쉬운 명명 규칙은 IoT 장치의 이름으로 인증서를 만든 다음 기본 또는 보조 레이블을 만드는 것입니다. 다음은 그 예입니다.
 
    ```bash
    ./certGen.sh create_device_certificate "<device name>-primary"

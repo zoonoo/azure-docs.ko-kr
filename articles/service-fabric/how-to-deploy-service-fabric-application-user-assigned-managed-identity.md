@@ -3,14 +3,14 @@ title: 사용자 할당된 관리 ID로 앱 배포
 description: 이 문서에서는 사용자 지정 관리 되는 ID를 사용 하 고 Service Fabric 응용 프로그램을 배포 하는 방법을 보여 주며
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: a5eeaf0d6420fa36c0a78f7553ddfd82197d8ec4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9aef81db7a455b72c83cf96898a0c228f1c382fd
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75610338"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415639"
 ---
-# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity-preview"></a>사용자 할당된 관리 ID를 사용 하 고 서비스 패브릭 응용 프로그램 배포 (미리 보기)
+# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>사용자 할당된 관리ID로 서비스 패브릭 응용 프로그램 배포
 
 관리되는 ID를 사용하여 Service Fabric 응용 프로그램을 배포하려면 일반적으로 Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램을 Azure 리소스 관리자를 통해 배포해야 합니다. Azure 리소스 관리자를 통해 서비스 패브릭 응용 프로그램을 배포하는 방법에 대한 자세한 내용은 [응용 프로그램 및 서비스 관리를 Azure 리소스 관리자 리소스로 참조하세요.](service-fabric-application-arm-resource.md)
 

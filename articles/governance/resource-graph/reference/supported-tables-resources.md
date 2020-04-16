@@ -1,14 +1,14 @@
 ---
 title: 지원되는 리소스 관리자 리소스 유형
 description: Azure 리소스 그래프 및 변경 기록에서 지원하는 리소스 관리자 리소스 유형 목록을 제공합니다.
-ms.date: 04/06/2020
+ms.date: 04/15/2020
 ms.topic: reference
-ms.openlocfilehash: 85cab92981568f5ea3770e1102c3480ae4f3e638
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 99cb2176e4b0642be1fc31d49528ebf915ea440a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677063"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415150"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure 리소스 그래프 테이블 및 리소스 유형 참조
 
@@ -392,7 +392,6 @@ Azure 리소스 그래프는 Azure [리소스 관리자의](../../../azure-resou
 - 마이크로 소프트.스토리지싱크인트/스토리지싱크서비스
 - 마이크로 소프트.storsimple / 관리자
 - 마이크로소프트.stream분석/스트리밍작업
-- 마이크로 소프트.지원 / 지원 티켓
 - 마이크로 소프트.시냅스 / 작업 공간
 - 마이크로 소프트.시냅스 / 작업 공간 / 빅 데이터 풀
 - 마이크로 소프트.시냅스 / 작업 공간 / sqlpools

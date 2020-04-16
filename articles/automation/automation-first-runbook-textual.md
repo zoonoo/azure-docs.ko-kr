@@ -6,18 +6,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/24/2018
 ms.topic: conceptual
-ms.openlocfilehash: a5a1cad3179063f75a5d9a19567624180b5793a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b103437ab30c05ddab88b7a8a723cd2b4b1d5f6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367264"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405901"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>내 첫 번째 PowerShell 워크플로 Runbook
 
 > [!div class="op_single_selector"]
 > * [그래픽](automation-first-runbook-graphical.md)
-> * [Powershell](automation-first-runbook-textual-powershell.md)
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [PowerShell 워크플로](automation-first-runbook-textual.md)
 > * [Python](automation-first-runbook-textual-python2.md)
 
@@ -79,7 +79,7 @@ Runbook을 프로덕션 환경에서 사용할 수 있도록 게시하기 전에
 1. 시작을 **Start** 클릭하여 유일한 사용 가능한 옵션을 테스트하여 테스트를 시작합니다.
 1. [Runbook 작업이](automation-runbook-execution.md) 만들어지고 해당 상태가 창에 표시됩니다.
 
-   작업 상태는 클라우드에서 Runbook 작업자가 사용 가능해지기를 기다리고 있음을 나타내는 것으로 시작됩니다. `Queued` 작업자가 작업을 `Starting` 클레임할 때 상태가 변경됩니다. 마지막으로 Runbook이 `Running` 실제로 실행되기 시작하면 상태가 됩니다.
+   작업 상태는 큐로 시작되며, 이는 작업이 클라우드의 Runbook 작업자를 사용할 수 있게 되기를 기다리고 있음을 나타냅니다. 작업자가 작업을 클레임할 때 상태가 시작됨으로 변경됩니다. 마지막으로 Runbook이 실제로 실행되기 시작하면 상태가 실행됩니다.
 
 1. Runbook 작업이 완료되면 테스트 창에 출력이 표시됩니다. 이 경우 을 `Hello World`볼 수 있습니다.
 
@@ -107,7 +107,7 @@ Runbook을 프로덕션 환경에서 사용할 수 있도록 게시하기 전에
 
    ![작업 요약](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
 
-1. Runbook 상태가 표시되면 `Completed` **출력**을 클릭합니다. `Hello World` 메시지를 볼 수 있는 출력 페이지가 열립니다.
+1. Runbook 상태가 완료됨으로 표시되면 **출력**을 클릭합니다. `Hello World` 메시지를 볼 수 있는 출력 페이지가 열립니다.
 
    ![작업 요약](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)
 
@@ -117,7 +117,7 @@ Runbook을 프로덕션 환경에서 사용할 수 있도록 게시하기 전에
 
    ![작업 요약](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
 
-1. 스트림 창과 작업 창을 닫고 **MyFirstRunbook** 페이지로 돌아갑니다.
+1. 스트림 창과 작업 창을 닫고 MyFirstRunbook 페이지로 돌아갑니다.
 1. **리소스** 아래의 **작업을** 클릭하여 이 Runbook의 작업 페이지를 엽니다. 이 페이지에는 Runbook에서 만든 모든 작업이 나열됩니다. 작업을 한 번만 실행했기 때문에 나열된 작업이 하나만 표시됩니다.
 
    ![작업](media/automation-first-runbook-textual/runbook-control-job-tile.png)
@@ -126,12 +126,12 @@ Runbook을 프로덕션 환경에서 사용할 수 있도록 게시하기 전에
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>5 단계-Azure 리소스를 관리 인증 추가
 
-지금까지 Runbook을 테스트 하고 게시했지만, 딱히 유용하지는 않습니다. Azure 리소스를 관리하려고 합니다. 구독에 대한 자격 증명을 사용하여 인증하지 않는 한 그렇게 할 수 없습니다. 인증은 `Connect-AzAccount` cmdlet을 사용합니다.
+지금까지 Runbook을 테스트 하고 게시했지만, 딱히 유용하지는 않습니다. Azure 리소스를 관리하려고 합니다. 구독에 대한 자격 증명을 사용하여 인증하지 않는 한 그렇게 할 수 없습니다. 인증은 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) cmdlet을 사용합니다.
 
 >[!NOTE]
 >PowerShell `Add-AzAccount` 런북의 `Add-AzureRMAccount` 경우 에 대한 `Connect-AzAccount`별칭입니다. 이러한 cmdlet을 사용하거나 자동화 계정의 모듈을 최신 버전으로 [업데이트할](automation-update-azure-modules.md) 수 있습니다. 새 자동화 계정을 방금 만든 경우에도 모듈을 업데이트해야 할 수 있습니다.
 
-1. **MyFirstRunbook-워크플로** 페이지로 이동하여 **편집을**클릭하여 텍스트 편집기를 엽니다.
+1. MyFirstRunbook-워크플로 페이지로 이동하여 **편집을**클릭하여 텍스트 편집기를 엽니다.
 2. 선을 `Write-Output` 삭제합니다.
 3. 중괄호 사이의 빈 줄에 커서를 놓습니다.
 4. 자동화 실행 계정으로 인증을 처리하는 다음 코드를 입력하거나 복사하여 붙여넣습니다.
@@ -213,6 +213,8 @@ Runbook은 현재 Runbook에서 하드코딩한 VM을 시작합니다. Runbook�
 ## <a name="next-steps"></a>다음 단계
 
 * 언어 참조 및 학습 모듈을 포함한 [PowerShell에](https://docs.microsoft.com/powershell/scripting/overview)대한 자세한 내용은 PowerShell 문서를 참조하십시오.
+* PowerShell cmdlet 참조는 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+)을 참조하십시오.
 * 그래픽 런북을 시작하려면 [내 첫 번째 그래픽 실행북을](automation-first-runbook-graphical.md)참조하십시오.
 * PowerShell 실행책을 시작하려면 [내 첫 번째 PowerShell 실행책을](automation-first-runbook-textual-powershell.md)참조하십시오.
 * Runbook 유형 및 해당 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure Automation Runbook 유형을](automation-runbook-types.md)참조하십시오.

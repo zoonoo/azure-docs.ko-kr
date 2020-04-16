@@ -1,33 +1,34 @@
 ---
-title: Azure Event Grid Blob Storage 이벤트 스키마
+title: Azure Blob 저장소를 이벤트 그리드 원본으로
 description: Azure Event Grid를 사용하여 Blob Storage 이벤트에 제공되는 속성을 설명합니다.
 services: event-grid
 author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/17/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 71aa937536f35c9af44adb5822ce7a2bb8f3a9eb
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: cfc6e4790b67137b423cc90d93874d4914f81251
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756010"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393384"
 ---
-# <a name="azure-event-grid-event-schema-for-blob-storage"></a>Azure Event Grid Blob Storage에 대한 이벤트 스키마
+# <a name="azure-blob-storage-as-an-event-grid-source"></a>Azure Blob 저장소를 이벤트 그리드 원본으로
 
-이 문서에서는 Blob Storage 이벤트에 대한 속성 및 스키마를 제공합니다.이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
+이 문서에서는 Blob Storage 이벤트에 대한 속성 및 스키마를 제공합니다.이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요. 또한 Azure Blob Storage를 이벤트 소스로 사용할 수 있는 빠른 시작 및 자습서 목록도 제공합니다.
 
-샘플 스크립트 및 자습서 목록은 [스토리지 이벤트 원본](event-sources.md#storage)을 참조하세요.
 
 >[!NOTE]
 > 저장소 계정만 **StorageV2 (범용 v2)**, **BlockBlobStorage**및 **BlobStorage** 지원 이벤트 통합. **스토리지(범용 v1)** 는 Event Grid와의 통합을 지원하지 *않습니다*.
 
-## <a name="list-of-events-for-blob-rest-apis"></a>Blob REST API의 이벤트 목록
+## <a name="event-grid-event-schema"></a>Event Grid 이벤트 스키마
+
+### <a name="list-of-events-for-blob-rest-apis"></a>Blob REST API의 이벤트 목록
 
 이러한 이벤트는 클라이언트가 Blob REST API를 호출하여 Blob을 만들거나 바꾸거나 삭제할 때 트리거됩니다.
 
- |이벤트 이름 |설명|
+ |이벤트 이름 |Description|
  |----------|-----------|
  |**Microsoft.Storage.BlobCreated** |Blob을 만들거나 대체할 때 트리거됩니다. <br>특히 이 이벤트는 클라이언트가 Blob `PutBlob` `PutBlockList`REST `CopyBlob` API에서 사용할 수 있는 " 또는 작업을 사용할 때 트리거됩니다.   |
  |**Microsoft.Storage.BlobDeleted** |Blob이 삭제될 때 트리거됩니다. <br>특히 이 이벤트는 클라이언트가 Blob `DeleteBlob` REST API에서 사용할 수 있는 작업을 호출할 때 트리거됩니다. |
@@ -35,11 +36,11 @@ ms.locfileid: "80756010"
 > [!NOTE]
 > **Microsoft.Storage.BlobCreated** 이벤트가 블록 Blob이 완전히 커밋된 경우에만 트리거되도록 하려면 `CopyBlob`에 `PutBlob`대한 이벤트를 필터링합니다. `PutBlockList` 이러한 API 호출은 데이터가 블록 Blob에 완전히 커밋된 후에만 **Microsoft.Storage.BlobCreated** 이벤트를 트리거합니다. 필터를 만드는 방법에 대해 알아보려면 [이벤트 그리드에 대한 이벤트 필터](https://docs.microsoft.com/azure/event-grid/how-to-filter-events)를 참조하십시오.
 
-## <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Azure 데이터 레이크 스토리지 세대 2 REST API에 대한 이벤트 목록
+### <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Azure 데이터 레이크 스토리지 세대 2 REST API에 대한 이벤트 목록
 
 이러한 이벤트는 저장소 계정에서 계층적 네임스페이스를 사용하도록 설정하고 클라이언트가 Azure Data Lake Storage Gen2 REST API를 호출하는 경우 트리거됩니다. 자세한 내용은 Azure Data Lake Storage [Introduction to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)Gen2를 참조하세요.
 
-|이벤트 이름|설명|
+|이벤트 이름|Description|
 |----------|-----------|
 |**Microsoft.Storage.BlobCreated** | Blob을 만들거나 대체할 때 트리거됩니다. <br>특히 이 이벤트는 클라이언트가 Azure `CreateFile` Data `FlushWithClose` Lake Storage Gen2 REST API에서 사용할 수 있는 및 작업을 사용할 때 트리거됩니다. |
 |**Microsoft.Storage.BlobDeleted** |Blob이 삭제될 때 트리거됩니다. <br>특히 이 이벤트는 클라이언트가 Azure Data `DeleteFile` Lake Storage Gen2 REST API에서 사용할 수 있는 작업을 호출할 때도 트리거됩니다. |
@@ -53,7 +54,7 @@ ms.locfileid: "80756010"
 
 <a id="example-event" />
 
-## <a name="the-contents-of-an-event-response"></a>이벤트 응답의 내용
+### <a name="the-contents-of-an-event-response"></a>이벤트 응답의 내용
 
 이벤트가 트리거되면 Event Grid 서비스는 해당 이벤트에 대한 데이터를 구독 끝점으로 보냅니다.
 
@@ -288,7 +289,7 @@ Blob 저장소 계정에 계층적 네임스페이스가 있는 경우 데이터
 }]
 ```
 
-## <a name="event-properties"></a>이벤트 속성
+### <a name="event-properties"></a>이벤트 속성
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
@@ -321,6 +322,17 @@ Blob 저장소 계정에 계층적 네임스페이스가 있는 경우 데이터
 | recursive | 문자열 | `True`모든 자식 디렉토리에서 작업을 수행하기 위해; 그렇지 `False`않으면 . <br>계층적 네임스페이스가 있는 Blob 저장소 계정에서 트리거된 이벤트에 대해서만 나타납니다. |
 | sequencer | 문자열 | 특정 Blob 이름에 대한 이벤트의 논리적 순서를 나타내는 불투명 문자열 값입니다.  사용자는 표준 문자열 비교를 사용하여 동일한 Blob 이름에 대한 두 이벤트의 상대적 순서를 이해할 수 있습니다. |
 | storageDiagnostics | object | 경우에 따라 Azure Storage 서비스에 의해 포함되는 진단 데이터입니다. 포함될 경우, 이벤트 소비자는 무시해야 합니다. |
+
+## <a name="tutorials-and-how-tos"></a>자습서 및 방법
+|제목  |Description  |
+|---------|---------|
+| [빠른 시작: Azure CLI를 사용하여 Blob Storage 이벤트를 사용자 지정 웹 엔드포인트로 라우팅](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Azure CLI를 사용하여 Blob Storage 이벤트를 WebHook로 전송하는 방법을 보여줍니다. |
+| [빠른 시작: PowerShell을 사용하여 Blob Storage 이벤트를 사용자 지정 웹 엔드포인트로 라우팅](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Azure PowerShell을 사용하여 Blob Storage 이벤트를 WebHook로 전송하는 방법을 보여줍니다. |
+| [빠른 시작: Azure Portal을 사용하여 Blob Storage 이벤트 만들기 및 라우팅](blob-event-quickstart-portal.md) | 포털를 사용하여 Blob Storage 이벤트를 WebHook로 전송하는 방법을 보여줍니다. |
+| [Azure CLI: Blob Storage 계정에 대한 이벤트 구독](./scripts/event-grid-cli-blob.md) | Blob Storage 계정에 대한 이벤트를 구독하는 샘플 스크립트입니다. 이벤트를 WebHook로 전송합니다. |
+| [PowerShell: Blob Storage 계정에 대한 이벤트 구독](./scripts/event-grid-powershell-blob.md) | Blob Storage 계정에 대한 이벤트를 구독하는 샘플 스크립트입니다. 이벤트를 WebHook로 전송합니다. |
+| [Resource Manager 템플릿: Blob Storage 및 구독 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Azure Blob Storage 계정을 배포하고 해당 스토리지 계정에 대한 이벤트를 구독합니다. WebHook에 이벤트를 보냅니다. |
+| [개요: Blob Storage 이벤트에 대응](../storage/blobs/storage-blob-event-overview.md) | Event Grid와 Blob Storage 통합의 개요입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

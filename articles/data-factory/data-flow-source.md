@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 128b15bd5b3ba3c3ac891719bf5c3ec8e5137cce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4f1369aa850a244128da470aee81b2efc2e09be
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023517"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413201"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 소스 변환 
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 원본 변환은 데이터 흐름에 대한 데이터 원본을 구성합니다. 데이터 흐름을 디자인할 때 첫 번째 단계는 항상 소스 변환을 구성하는 것입니다. 원본을 추가하려면 데이터 흐름 캔버스에서 **소스 추가** 상자를 클릭합니다.
 

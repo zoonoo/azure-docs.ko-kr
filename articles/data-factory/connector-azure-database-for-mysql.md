@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/25/2019
-ms.openlocfilehash: 16778000855b7859e261d8b996b081f779e579f9
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: bbb4aed8ca10fcf7c15e7442ee7067b2e3f8087d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991452"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410698"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-mysql-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 MySQL용 Azure 데이터베이스에서 데이터를 복사합니다.
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure Database for MySQL에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
@@ -45,7 +47,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 Azure Database for MySQL 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **AzureMySql**로 설정되어야 합니다. | 예 |
 | connectionString | Azure Database for MySQL 인스턴스에 연결하는 데 필요한 정보를 지정합니다. <br/> Azure Key Vault에 암호를 넣고, 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
@@ -53,7 +55,7 @@ Azure Database for MySQL 연결된 서비스에 다음 속성이 지원됩니다
 
 일반적인 연결 문자열은 `Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`입니다. 사례에 따라 다음과 같은 더 많은 속성을 설정할 수 있습니다.
 
-| 속성 | 설명 | 옵션 | 필수 |
+| 속성 | Description | 옵션 | 필수 |
 |:--- |:--- |:--- |:--- |
 | SSLMode | 이 옵션은 드라이버가 MySQL에 연결할 때 TLS 암호화 및 확인을 사용하는지 여부를 지정합니다. 예를 들어 `SSLMode=<0/1/2/3/4>`| 사용 안 함(0) / 기본 설정(1) **(기본값)** / 필요(2) / VERIFY_CA(3) / VERIFY_IDENTITY(4) | 예 |
 | UseSystemTrustStore | 이 옵션은 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 예를 들어 `UseSystemTrustStore=<0/1>;`| 사용(1) / 사용 안 함(0)**(기본값)** | 예 |
@@ -108,7 +110,7 @@ Azure Database for MySQL 연결된 서비스에 다음 속성이 지원됩니다
 
 Azure Database for MySQL에서 데이터를 복사하려면 데이터 세트의 형식 속성을 **AzureMySqlTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 형식 속성을 **AzureMySqlTable**로 설정해야 합니다. | 예 |
 | tableName | MySQL 데이터베이스의 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -139,7 +141,7 @@ Azure Database for MySQL에서 데이터를 복사하려면 데이터 세트의 
 
 MySQL용 Azure 데이터베이스의 데이터를 복사하려면 복사 활동 **원본** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 형식 속성을 **AzureMySqlSource**로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
@@ -181,7 +183,7 @@ MySQL용 Azure 데이터베이스의 데이터를 복사하려면 복사 활동 
 
 MySQL용 Azure 데이터베이스에 데이터를 복사하려면 복사 활동 **싱크** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 활동 싱크의 형식 속성을 설정 해야 **합니다.** | 예 |
 | preCopyScript | 각 실행에서 MySQL용 Azure 데이터베이스에 데이터를 쓰기 전에 실행할 복사 활동에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. | 예 |

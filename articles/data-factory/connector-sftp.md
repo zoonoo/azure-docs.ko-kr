@@ -12,18 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/02/2020
-ms.openlocfilehash: 06428d4a9c4a4178212d16d42b8b3adffb5c9718
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6d29f73716b04699e0cd250396df7f7d744d4c4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250278"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415240"
 ---
 # <a name="copy-data-from-and-to-sftp-server-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 SFTP 서버에서 데이터를 복사합니다.
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-sftp-connector.md)
 > * [현재 버전](connector-sftp.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 SFTP 서버에서 데이터를 복사하는 방법을 설명합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
 
@@ -45,7 +46,7 @@ ms.locfileid: "78250278"
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -55,24 +56,24 @@ ms.locfileid: "78250278"
 
 SFTP 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **Sftp**로 설정해야 합니다. |yes |
-| host | SFTP 서버의 이름 또는 IP 주소입니다. |yes |
+| type | 형식 속성은 **Sftp**로 설정해야 합니다. |예 |
+| host | SFTP 서버의 이름 또는 IP 주소입니다. |예 |
 | 포트 | SFTP 서버가 수신하는 포트입니다.<br/>허용되는 값은 정수이며 기본값은 **22**입니다. |예 |
 | skipHostKeyValidation | 호스트 키 유효성 검사를 건너뛸지 여부를 지정합니다.<br/>허용된 값은 **true**, false(기본값)입니다. **false**  | 예 |
 | hostKeyFingerprint | 호스트 키의 지문을 지정합니다. | “skipHostKeyValidation”이 false로 설정된 경우 예  |
-| authenticationType | 인증 유형을 지정합니다.<br/>허용되는 값은 **Basic** 및 **SshPublicKey**입니다. 기본 [인증 사용](#using-basic-authentication) 및 [SSH 공개 키 인증](#using-ssh-public-key-authentication) 섹션을 참조하여 더 많은 속성 및 JSON 샘플을 각각 참조합니다. |yes |
+| authenticationType | 인증 유형을 지정합니다.<br/>허용되는 값은 **Basic** 및 **SshPublicKey**입니다. 기본 [인증 사용](#using-basic-authentication) 및 [SSH 공개 키 인증](#using-ssh-public-key-authentication) 섹션을 참조하여 더 많은 속성 및 JSON 샘플을 각각 참조합니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임입니다.](concepts-integration-runtime.md) [필수 구성 조건](#prerequisites) 섹션에서 자세히 알아보십시오. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
 ### <a name="using-basic-authentication"></a>기본 인증 사용
 
 기본 인증을 사용하려면 “authenticationType” 속성을 **Basic**으로 설정하고, 마지막 섹션에서 소개한 SFTP 커넥터 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| userName | SFTP 서버에 액세스하는 사용자. |yes |
-| password | 사용자(userName) 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| userName | SFTP 서버에 액세스하는 사용자. |예 |
+| password | 사용자(userName) 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 
 **예제:**
 
@@ -106,9 +107,9 @@ SFTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **SshPublicKey**로 설정하고, 마지막 섹션에서 소개한 SFTP 커넥터 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| userName | SFTP 서버에 액세스하는 사용자 |yes |
+| userName | SFTP 서버에 액세스하는 사용자 |예 |
 | privateKeyPath | Integration Runtime에서 액세스할 수 있는 프라이빗 키 파일의 절대 경로를 지정합니다. 자체 호스팅된 유형의 Integration Runtime이 “connectVia”에 지정된 경우에만 적용됩니다. | `privateKeyPath` 또는 `privateKeyContent`를 지정합니다.  |
 | privateKeyContent | Base64 인코딩된 SSH 프라이빗 키 콘텐츠입니다. SSH 프라이빗 키가 OpenSSH 형식이어야 합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | `privateKeyPath` 또는 `privateKeyContent`를 지정합니다. |
 | passPhrase | 키 파일이 암호문으로 보호되는 경우 프라이빗 키를 해독하는 암호문/암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 프라이빗 키 파일이 암호문으로 보호되는 경우에는 필수입니다. |
@@ -183,9 +184,9 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 
 형식 기반 데이터 집합의 설정에서 `location` SFTP에 대해 다음 속성이 지원됩니다.
 
-| 속성   | 설명                                                  | 필수 |
+| 속성   | Description                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | 데이터 집합에서 `location` 아래의 형식 속성은 **SftpLocation**로 설정해야 합니다. | yes      |
+| type       | 데이터 집합에서 `location` 아래의 형식 속성은 **SftpLocation**로 설정해야 합니다. | 예      |
 | folderPath | 폴더에 대한 경로입니다. 와일드카드를 사용하여 폴더를 필터링하려면 이 설정을 건너뛰고 활동 소스 설정에서 지정합니다. | 예       |
 | fileName   | 지정된 폴더 아래의 파일 이름Path입니다. 와일드카드를 사용하여 파일을 필터링하려면 이 설정을 건너뛰고 활동 소스 설정에서 지정합니다. | 예       |
 
@@ -225,9 +226,9 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 
 형식 기반 복사 소스의 설정에서 `storeSettings` SFTP에 대해 다음 속성이 지원됩니다.
 
-| 속성                 | 설명                                                  | 필수                                      |
+| 속성                 | Description                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | 아래의 `storeSettings` 형식 속성은 **SftpReadSettings로**설정되어야 합니다. | yes                                           |
+| type                     | 아래의 `storeSettings` 형식 속성은 **SftpReadSettings로**설정되어야 합니다. | 예                                           |
 | recursive                | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive를 true로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다. 허용된 **true** 값은 true(기본값) 및 **false입니다.** | 예                                            |
 | 와일드 카드폴더패스       | 원본 폴더를 필터링하는 와일드카드 문자가 있는 폴더 경로입니다. <br>허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br>더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 예                                            |
 | 와일드카드파일이름         | 지정된 폴더패스/와일드카드FolderPath 아래에 와일드카드 문자가 있는 파일 이름으로 소스 파일을 필터링합니다. <br>허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다.  더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 데이터 `fileName` 집합에 지정되지 않은 경우 예 |
@@ -282,12 +283,12 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 
 형식 기반 복사 싱크의 설정에서 `storeSettings` SFTP에 대해 다음 속성이 지원됩니다.
 
-| 속성                 | 설명                                                  | 필수 |
+| 속성                 | Description                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | 아래의 `storeSettings` 형식 속성은 **SftpWriteSettings로**설정되어야 합니다. | yes      |
+| type                     | 아래의 `storeSettings` 형식 속성은 **SftpWriteSettings로**설정되어야 합니다. | 예      |
 | copyBehavior             | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- 병합 계층 :</b>소스 폴더의 모든 파일은 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 예       |
 | maxConcurrentConnections | 동시에 데이터 저장소에 연결할 연결 수입니다. 데이터 저장소에 대한 동시 연결을 제한하려는 경우에만 지정합니다. | 예       |
-| useTempFile 다시 이름 | 임시 파일에 업로드하고 이름을 바꿀지 또는 대상 폴더/파일 위치에 직접 쓸지 여부를 나타냅니다. 기본적으로 ADF는 먼저 임시 파일에 쓰기 를 한 다음 업로드 완료 시 파일 이름을 바꾸기 위해 1) 동일한 파일에 다른 프로세스가 있는 경우 손상된 파일이 발생하는 충돌 쓰기를 피하고 2) 파일의 원래 버전이 있는 동안 파일의 원래 버전이 있는지 확인합니다. 전체 전송. SFTP 서버에서 이름 바꾸기 작업을 지원하지 않는 경우 이 옵션을 사용하지 않도록 설정하고 대상 파일에 동시 쓰기가 없는지 확인합니다. 이 표 아래의 문제 해결 팁을 참조하십시오. | 아니요. 기본값은 true입니다. |
+| useTempFile 다시 이름 | 임시 파일에 업로드하고 이름을 바꿀지 또는 대상 폴더/파일 위치에 직접 쓸지 여부를 나타냅니다. 기본적으로 ADF는 먼저 임시 파일에 쓰기 다음 업로드 완료 시 파일 이름을 변경한 다음 1) 동일한 파일에 다른 프로세스가 있는 경우 손상된 파일이 발생하는 충돌 쓰기를 방지하고 2) 전체 전송 중에 파일의 원래 버전이 있는지 확인합니다. SFTP 서버에서 이름 바꾸기 작업을 지원하지 않는 경우 이 옵션을 사용하지 않도록 설정하고 대상 파일에 동시 쓰기가 없는지 확인합니다. 이 표 아래의 문제 해결 팁을 참조하십시오. | 아니요. 기본값은 true입니다. |
 | 작업 시간 시간 | SFTP 서버에 대한 각 쓰기 요청 의 대기 시간이 시간 단축됩니다. 기본값은 60분(01:00:00)입니다.|예 |
 
 >[!TIP]
@@ -358,10 +359,10 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 집합 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 형식 속성을 **FileShare**로 설정해야 합니다. |yes |
-| folderPath | 파일의 경로입니다. 와일드카드 필터가 지원되며, 허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 파일 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br/><br/>예: rootfolder/subfolder/(더 많은 예제는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples) 참조) |yes |
+| type | 데이터 세트의 형식 속성을 **FileShare**로 설정해야 합니다. |예 |
+| folderPath | 파일의 경로입니다. 와일드카드 필터가 지원되며, 허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 파일 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br/><br/>예: rootfolder/subfolder/(더 많은 예제는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples) 참조) |예 |
 | fileName |  지정된 "folderPath" 아래의 파일에 대한 **이름 또는 와일드 카드 필터**입니다. 이 속성의 값을 지정하지 않으면 데이터 세트는 폴더에 있는 모든 파일을 가리킵니다. <br/><br/>필터에 허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다.<br/>- 예 1: `"fileName": "*.csv"`<br/>- 예 2: `"fileName": "???20180427.txt"`<br/>실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. |예 |
 | modifiedDatetimeStart | 파일은 특성: 마지막으로 수정된 특성을 기반으로 필터링합니다. 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br/><br/> 방대한 양의 파일에서 파일 필터를 수행하려는 경우 이 설정을 사용하도록 설정하면 데이터 이동의 전반적인 성능이 영향을 받을 수 있습니다. <br/><br/> 속성은 NULL일 수 있으며 이는 데이터 집합에 파일 특성 필터가 적용되지 않는다는 의미입니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다.| 예 |
 | modifiedDatetimeEnd | 파일은 특성: 마지막으로 수정된 특성을 기반으로 필터링합니다. 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br/><br/> 방대한 양의 파일에서 파일 필터를 수행하려는 경우 이 설정을 사용하도록 설정하면 데이터 이동의 전반적인 성능이 영향을 받을 수 있습니다. <br/><br/> 속성은 NULL일 수 있으며 이는 데이터 집합에 파일 특성 필터가 적용되지 않는다는 의미입니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다.| 예 |
@@ -407,9 +408,9 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 
 ### <a name="legacy-copy-activity-source-model"></a>레거시 복사 활동 소스 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 형식 속성을 **FileSystemSource**로 설정해야 합니다. |yes |
+| type | 복사 작업 원본의 형식 속성을 **FileSystemSource**로 설정해야 합니다. |예 |
 | recursive | 하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive가 true로 설정되고 싱크가 파일 기반 저장소인 경우 싱크에서 빈 폴더/하위 폴더가 복사/생성되지 않습니다.<br/>허용된 값은 다음과 같습니다: true(기본값), **false** **true** | 예 |
 | maxConcurrentConnections | 저장소 저장소에 동시에 연결할 연결 수입니다. 데이터 저장소에 대한 동시 연결을 제한하려는 경우에만 지정합니다. | 예 |
 

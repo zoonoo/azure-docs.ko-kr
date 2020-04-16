@@ -12,14 +12,17 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/31/2019
-ms.openlocfilehash: 5f21623af9b89bbb020063dfb72f7b60e65a6ebe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11e76fea87c60ae2b56cc15d5827be6e1b2b5a01
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927716"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399437"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>SSDT에서 Azure에서 SSIS 패키지 실행
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 이 문서에서는 Azure 데이터 팩터리(ADF)에서 AZURE-SSIS 통합 런타임(IR)에서 패키지를 실행할 수 있는 SSIS(Azure 지원 SQL Server 통합 서비스) 프로젝트의 기능에 대해 설명합니다.  이 기능을 사용하여 기존 SSIS 패키지를 테스트한 & Azure로 이동/마이그레이션하거나 Azure에서 실행할 새 SSIS 패키지를 개발할 수 있습니다.
 
 이 기능을 사용하면 새 Azure-SSIS IR을 만들거나 기존 IR을 SSIS 프로젝트에 연결한 다음 패키지를 실행할 수 있습니다.  프로젝트 배포 모델의 SSIS 카탈로그(SSISDB)에 배포할 패키지 실행 및 패키지 배포 모델의 파일 시스템/파일 공유/Azure 파일에 배포할 패키지를 지원합니다. 

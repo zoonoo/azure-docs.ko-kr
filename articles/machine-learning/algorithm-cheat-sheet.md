@@ -1,5 +1,5 @@
 ---
-title: 기계 학습 알고리즘 치트 시트
+title: 기계 학습 알고리즘 치트 시트 - 디자이너
 titleSuffix: Azure Machine Learning
 description: 인쇄 가능한 기계 학습 알고리즘 치트 시트를 사용하면 Azure 기계 학습 디자이너에서 예측 모델에 적합한 알고리즘을 선택할 수 있습니다.
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: 85fbb1c1d26f71903adab2eb96b0c1dd3bf74c33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: accc4766f25f5d58ba2f31c153fe1c5d23413170
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78328622"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399075"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Azure 기계 학습 디자이너를 위한 기계 학습 알고리즘 치트 시트
 
-**Azure Machine Learning 알고리즘 치트 시트**를 사용하면 예측 분석 모델에 대한 적합한 알고리즘을 선택할 수 있습니다.
+**Azure 기계 학습 알고리즘 치트 시트를** 사용하면 예측 분석 모델에 대해 디자이너에서 올바른 알고리즘을 선택할 수 있습니다.
 
 Azure Machine Learning에는 ***분류,*** ***권장 시스템,*** ***클러스터링,*** ***변칙 검색,*** ***회귀***및 텍스트 ***분석*** 패밀리의 대규모 알고리즘 라이브러리가 있습니다. 각 항목은 다양한 유형의 기계 학습 문제를 해결하기 위해 고안되었습니다.
 
@@ -38,7 +38,7 @@ Azure Machine Learning에는 ***분류,*** ***권장 시스템,*** ***클러스�
 
 모든 Machine Learning 알고리즘에는 자체 스타일이나 귀납적 바이어스가 있습니다. 특정 문제의 경우 여러 알고리즘이 적절할 수 있으며 한 알고리즘이 다른 알고리즘보다 더 적합할 수 있습니다. 하지만 어떤 것이 가장 적합한지 항상 미리 알 수 없습니다. 이러한 경우 여러 알고리즘이 참고 자료에 함께 나열됩니다. 적절한 전략은 한 알고리즘을 시도하고, 결과가 만족스럽지 않을 경우 다른 알고리즘을 시도하는 것입니다. 
 
-Azure 기계 학습의 알고리즘에 대해 자세히 알아보려면 [알고리즘 및 모듈 참조로](algorithm-module-reference/module-reference.md)이동하십시오.
+Azure 기계 학습 디자이너의 알고리즘에 대해 자세히 알아보려면 [알고리즘 및 모듈 참조로](algorithm-module-reference/module-reference.md)이동하십시오.
 
 ## <a name="kinds-of-machine-learning"></a>기계 학습의 종류
 

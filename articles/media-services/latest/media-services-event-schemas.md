@@ -11,18 +11,18 @@ ms.workload: ''
 ms.topic: reference
 ms.date: 02/25/2020
 ms.author: juliako
-ms.openlocfilehash: d4a206bbddedfe9f23a943df27c6ac4b5fe17e8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3733a641bc116b57556c5ad4f5750bec69e10e9b
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79251350"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393742"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Media Services 이벤트에 대한 Azure Event Grid 스키마
 
 이 문서에서는 Media Services 이벤트에 대한 스키마와 속성을 제공합니다.
 
-샘플 스크립트 및 자습서 목록은 [Media Services 이벤트 원본](../../event-grid/event-sources.md#azure-subscriptions)을 참조하세요.
+샘플 스크립트 및 자습서 목록은 [Media Services 이벤트 원본](../../event-grid/event-schema-subscriptions.md)을 참조하세요.
 
 ## <a name="job-related-event-types"></a>작업 관련 이벤트 유형
 
@@ -32,7 +32,7 @@ JobStateChange 이벤트를 구독하여 모든 이벤트에 등록할 수 있�
 
 ### <a name="monitoring-job-state-changes"></a>작업 상태 변경 모니터링
 
-| 이벤트 유형 | 설명 |
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | Microsoft.Media.JobStateChange| 모든 작업 상태 변경에 대한 이벤트를 가져옵니다. |
 | Microsoft.Media.JobScheduled| 작업이 예약됨 상태로 전환되는 이벤트를 가져옵니다. |
@@ -52,7 +52,7 @@ JobStateChange 이벤트를 구독하여 모든 이벤트에 등록할 수 있�
 
 의 `JobFinished` `JobCanceled`오류 메시지는 `JobError` 각 작업 출력에 대해 집계된 결과를 출력합니다. 반면, 작업 출력 이벤트는 각 작업이 끝날 때 발생합니다. 예를 들어 인코딩 출력이 있고 비디오 분석 출력이 있는 경우 최종 JobFinished 이벤트가 집계된 데이터로 실행되기 전에 작업 출력 이벤트로 두 개의 이벤트가 발생합니다.
 
-| 이벤트 유형 | 설명 |
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | Microsoft.Media.JobOutputStateChange| 모든 작업 출력 상태 변경에 대한 이벤트를 가져옵니다. |
 | Microsoft.Media.JobOutputScheduled| 작업 출력이 예약됨 상태로 전환되는 이벤트를 가져옵니다. |
@@ -66,7 +66,7 @@ JobStateChange 이벤트를 구독하여 모든 이벤트에 등록할 수 있�
 
 ### <a name="monitoring-job-output-progress"></a>작업 출력 진행 률 모니터링
 
-| 이벤트 유형 | 설명 |
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | Microsoft.Media.JobOutputProgress| 이 이벤트는 작업 처리 진행 상태를 0%에서 100%까지 반영합니다. 진행 상태 값이 5% 이상 증가했거나 마지막 이벤트(하트비트) 이후 30초가 넘은 경우 서비스에서 이벤트 전송을 시도합니다. 진행 상태 값이 0%에서 시작하거나 100%에 도달한다고 보장되지 않는 경우 시간에 따라 일정한 비율로 증가한다고 보장되지도 않습니다. 처리가 완료되었음을 확인하는 데 이 이벤트를 사용하면 안 됩니다. 대신, 상태 변경 이벤트를 사용해야 합니다.|
 
@@ -80,7 +80,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 스트림 수준 이벤트는 스트림 또는 연결마다 발생합니다. 각 이벤트에는 연결 또는 스트림을 식별하는 `StreamId` 매개 변수가 있습니다. 각 스트림 또는 연결에는 서로 다른 유형의 트랙이 하나 이상 있습니다. 예를 들어, 인코더의 연결 하나에는 하나의 오디오 트랙과 4개의 비디오 트랙이 있을 수 있습니다. 스트림 이벤트 유형은 다음과 같습니다.
 
-| 이벤트 유형 | 설명 |
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventConnectionRejected | 인코더의 연결 시도가 거부됩니다. |
 | Microsoft.Media.LiveEventEncoderConnected | 인코더에서 라이브 이벤트와의 연결을 설정합니다. |
@@ -97,7 +97,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 트랙 수준 이벤트 유형은 다음과 같습니다.
 
-| 이벤트 유형 | 설명 |
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventIncomingDataChunkDropped | 미디어 서버가 너무 늦거나 타임스탬프가 겹치기 때문에 데이터 청크가 삭제됩니다(새 데이터 청크의 타임스탬프가 이전 데이터 청크의 종료 시간보다 이전임). |
 | Microsoft.Media.LiveEventIncomingStreamReceived | 미디어 서버에서 스트림 또는 연결의 각 트랙에 대한 첫 번째 데이터 청크를 받습니다. |
@@ -402,7 +402,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 정상적인 연결 끊기 결과 코드는 다음과 같습니다.
 
-| 결과 코드 | 설명 |
+| 결과 코드 | Description |
 | ----------- | ----------- |
 | S_OK | 인코더의 연결이 성공적으로 끊어졌습니다. |
 | MPE_CLIENT_TERMINATED_SESSION | 인코더(RTMP)의 연결이 끊어졌습니다. |
@@ -670,7 +670,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 [작업 상태 변경 이벤트 등록](job-state-events-cli-how-to.md)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [미디어 서비스 이벤트를 포함하는 EventGrid .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Media Services 이벤트의 정의](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)

@@ -5,12 +5,12 @@ description: 내부 부하 분산 장치를 만들고 사용하여 AKS(Azure Kub
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 4decd66a558b031f1aaaf9c64556dae545ed05d3
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 9c2966215d07c4ddf052d30a5757a2deee2e0b5c
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668422"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392786"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 통해 내부 부하 분산 장치 사용
 
@@ -25,7 +25,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션에 대한 액세스를 �
 
 또한 Azure CLI 버전 2.0.59 이상설치 및 구성이 필요합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
-AKS 클러스터 서비스 주체는 기존 서브넷 또는 리소스 그룹을 사용하는 경우 네트워크 리소스를 관리할 수 있는 권한이 필요합니다. 일반적으로 위임된 리소스의 서비스 주체에 *네트워크 기여자* 역할을 할당합니다. 사용 권한에 대한 자세한 내용은 [다른 Azure 리소스에 대한 AKS 액세스 대리자를][aks-sp]참조하십시오.
+AKS 클러스터 서비스 주체는 기존 서브넷 또는 리소스 그룹을 사용하는 경우 네트워크 리소스를 관리할 수 있는 권한이 필요합니다. 일반적으로 위임된 리소스의 서비스 주체에 *네트워크 기여자* 역할을 할당합니다. 서비스 주체 대신 관리되는 ID를 할당된 시스템에서 사용 권한에 사용할 수 있습니다. 자세한 내용은 [관리되는 ID 사용을](use-managed-identity.md)참조하십시오. 사용 권한에 대한 자세한 내용은 [다른 Azure 리소스에 대한 AKS 액세스 대리자를][aks-sp]참조하십시오.
 
 ## <a name="create-an-internal-load-balancer"></a>내부 부하 분산 장치 만들기
 

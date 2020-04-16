@@ -7,14 +7,16 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/21/2019
-ms.openlocfilehash: bfb4eeef482c4944e75b7805642bc93c23195208
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e1c0eb1c4f1fc74e56db8f83f1bab6406ec5306
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065531"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415544"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>데이터 흐름 매핑에 열 패턴 사용
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 여러 매핑 데이터 흐름 변환을 사용하면 하드 코딩된 열 이름 대신 패턴을 기반으로 템플릿 열을 참조할 수 있습니다. 이 일치를 *열 패턴이라고*합니다. 정확한 필드 이름을 요구하는 대신 이름, 데이터 형식, 스트림 또는 위치를 기반으로 열을 일치시키는 패턴을 정의할 수 있습니다. 열 패턴이 유용한 두 가지 시나리오가 있습니다.
 

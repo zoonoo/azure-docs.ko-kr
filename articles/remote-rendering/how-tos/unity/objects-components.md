@@ -1,20 +1,20 @@
 ---
-title: 유니티 게임 오브젝트 및 컴포넌트
+title: Unity 게임 개체 및 구성 요소
 description: 원격 렌더링 엔터티 및 구성 요소와 함께 작업하는 Unity 특정 방법을 설명합니다.
 author: jakrams
 ms.author: jakras
 ms.date: 02/28/2020
 ms.topic: how-to
-ms.openlocfilehash: 872f0e60943a674e5febf269dcb5b09fd08d77c9
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: a34276c73211c1d9bea291f449cbc7041a3e78a2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80681156"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409866"
 ---
-# <a name="interact-with-unity-game-objects-and-components"></a>Unity 게임 오브젝트 및 컴포넌트와 상호 작용
+# <a name="interact-with-unity-game-objects-and-components"></a>Unity 게임 개체 및 구성 요소와 상호 작용
 
-Azure 원격 렌더링(ARR)은 방대한 수의 개체에 대해 최적화되어 [있습니다(제한](../../reference/limits.md)참조). 호스트에서 크고 복잡한 계층 구조를 관리할 수 있지만 저전력 장치에서 Unity에서 모두 복제하는 것은 불가능합니다.
+Azure 원격 렌더링(ARR)은 방대한 수의 개체에 대해 [최적화되어 있습니다(제한](../../reference/limits.md)사항 참조). 호스트에서 크고 복잡한 계층 구조를 관리할 수 있지만 저전력 장치에서 Unity에서 모두 복제하는 것은 불가능합니다.
 
 따라서 모델이 호스트에 로드되면 Azure Remote Rendering는 클라이언트 장치에서 모델 구조에 대한 정보를 미러(네트워크 트래픽이 발생함)하지만 Unity의 개체 및 구성 요소를 복제하지는 않습니다. 대신 필요한 Unity 게임 오브젝트와 구성 요소를 수동으로 요청하여 오버헤드를 실제로 필요한 것으로 제한할 수 있습니다. 이렇게 하면 클라이언트 측 성능을 보다 세한 제어할 수 있습니다.
 
@@ -121,5 +121,5 @@ if (cutplane != null)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [유니티를 위한 원격 렌더링 설정](unity-setup.md)
-* [자습서: Unity의 원격 엔터티 작업](../../tutorials/unity/working-with-remote-entities.md)
+* [Unity용 Remote Rendering 설정](unity-setup.md)
+* [자습서: Unity에서 원격 엔터티로 작업](../../tutorials/unity/working-with-remote-entities.md)

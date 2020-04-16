@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a042897ecbe35935c1832a53f523eb0597ebafc
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 6fd8a0c3688e5056c7941d334da8caee9f21ba82
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654237"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407278"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>iOS에서 Azure Active Directory 인증서 기반 인증
 
@@ -27,7 +27,7 @@ iOS 디바이스는 연결할 때 자신의 디바이스에서 클라이언트 �
 
 이 기능을 구성하면 모바일 디바이스의 특정 메일 및 Microsoft Office 애플리케이션에 사용자 이름 및 암호 조합을 입력해야 합니다.
 
-이 항목에서는 Office 365 Enterprise, Business, Education, 미국 정부, 중국 및 독일 계획의 테넌트 사용자를 위해 iOS(Android) 디바이스에서 CBA를 구성하기 위한 요구 사항 및 지원되는 시나리오를 설명합니다.
+이 항목에서는 Office 365 엔터프라이즈, 비즈니스, 교육, 미국 정부, 중국 및 독일 계획의 테넌타 사용자를 위해 iOS 장치에서 CBA를 구성하기 위한 요구 사항 및 지원되는 시나리오를 제공합니다.
 
 이 기능은 Office 365 미국 국방부 및 연방 정부 계획에서 미리 보기 상태로 제공됩니다.
 

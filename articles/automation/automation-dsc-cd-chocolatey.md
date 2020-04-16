@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: 706ab128af4379a56223ff65fb12f29d37b524f7
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 0c61a431b985e494148500ed0a7aeb106534ed2c
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383270"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392112"
 ---
 # <a name="provide-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>자동화 상태 구성 및 초콜릿을 사용하여 가상 시스템에 지속적인 배포 제공
 
@@ -95,7 +95,7 @@ Azure Automation 계정에 DSC 리소스를 설치하기 위해 PowerShell 갤�
 
 최근에 Azure 포털에 추가된 또 다른 기술을 사용하면 새 모듈을 가져오거나 기존 모듈을 업데이트할 수 있습니다. 자동화 계정 리소스, 자산 타일 및 마지막으로 모듈 타일을 클릭합니다. 갤러리 찾아보기 아이콘을 사용하면 갤러리의 모듈 목록을 보고 세부 정보로 드릴다운한 다음 궁극적으로 자동화 계정으로 가져올 수 있습니다. 이는 모듈을 최신 상태로 유지할 수 있는 좋은 방법입니다. 그리고 가져오기 기능은 다른 모듈의 종속성을 확인하여 동기화에서 빠져 나가지 않도록 합니다.
 
-또는 수동 방법이 있습니다. 이 방법은 나중에 업그레이드하지 않으려는 경우가 아니면 리소스당 한 번만 사용됩니다. PowerShell 통합 모듈 작성에 대한 자세한 내용은 [Azure 자동화에 대한 통합 모듈 작성을](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)참조하십시오.
+나중에 업그레이드하지 않으려는 경우가 아니면 리소스당 한 번만 사용되는 수동 접근 방식도 있습니다. PowerShell 통합 모듈 작성에 대한 자세한 내용은 [Azure 자동화에 대한 통합 모듈 작성을](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)참조하십시오.
 
 >[!NOTE]
 >Windows 컴퓨터에 대한 PowerShell 통합 모듈의 폴더 구조는 Azure 자동화에서 기대하는 폴더 구조와 약간 다릅니다. 
@@ -121,7 +121,7 @@ Azure Automation 계정에 DSC 리소스를 설치하기 위해 PowerShell 갤�
     ```azurepowershell-interactive
     New-AzAutomationModule `
       -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
-      -Name MODULE-NAME –ContentLink 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
+      -Name MODULE-NAME –ContentLinkUri 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
     ```
 
 포함된 예제는 cChoco 및 xNetworking에 대한 이러한 단계를 구현합니다. 
@@ -196,18 +196,18 @@ Get-AzAutomationDscCompilationJob `
 
 ## <a name="step-5-create-and-maintain-package-metadata"></a>5단계: 패키지 메타데이터 생성 및 유지 관리
 
-패키지 리포지토리에 넣는 각 패키지에 대해 이를 설명하는 nuspec이 필요합니다.
-해당 nuspec은 NuGet 서버에서 컴파일 및 저장해야 합니다. 이 프로세스는 [여기](https://docs.nuget.org/create/creating-and-publishing-a-package)에서 설명합니다. MyGet.org를 NuGet 서버로 사용할 수 있습니다. 이 서비스를 판매하고 있지만 스타터 SKU는 무료입니다. NuGet.org 개인 패키지에 대한 자체 NuGet 서버 설치에 대한 지침을 찾을 수 있습니다.
+패키지 리포지토리에 넣는 각 패키지에 대해 이를 설명하는 Nuspec이 필요합니다. NuGet 서버에 컴파일되어 저장해야 합니다. 이 프로세스는 [여기](https://docs.nuget.org/create/creating-and-publishing-a-package)에서 설명합니다. 
+
+**MyGet.org** NuGet 서버로 사용할 수 있습니다. 이 서비스를 구입할 수 있지만, 너는 무료 스타터 SKU입니다. [NuGet에서](https://www.nuget.org/)개인 패키지에 대한 자체 NuGet 서버 설치에 대한 지침을 찾을 수 있습니다.
 
 ## <a name="step-6-tie-it-all-together"></a>6 단계 : 모두 함께 묶어
 
-버전이 QA를 통과하고 배포가 승인될 때마다 패키지가 만들어지고 nuspec 및 nupkg이 업데이트되어 NuGet 서버에 배포됩니다. 구성(위의 4단계)도 새 버전 번호에 동의하도록 업데이트해야 합니다. 그런 다음 끌어오기 서버로 전송되고 컴파일되어야 합니다.
+버전이 QA를 통과하고 배포가 승인될 때마다 패키지가 만들어지고 nuspec 및 nupkg이 업데이트되어 NuGet 서버에 배포됩니다. 구성(4단계)도 새 버전 번호에 동의하도록 업데이트해야 합니다. 그런 다음 끌어오기 서버로 전송되고 컴파일되어야 합니다.
 
 해당 지점부터 업데이트를 끌어오고 설치하는 작업은 해당 구성에 종속되는 VM의 역할입니다. 이러한 각 업데이트는 간단합니다 - PowerShell의 한 줄 또는 두 개. Azure DevOps의 경우 그 중 일부는 빌드에서 함께 연결할 수 있는 빌드 작업에 캡슐화되어 있습니다. 이 [문서](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery)에 자세한 내용이 나와 있습니다. 이 [GitHub 리포지토리는](https://github.com/Microsoft/vso-agent-tasks) 사용 가능한 빌드 작업에 대해 자세히 설명합니다.
 
 ## <a name="related-articles"></a>관련 문서
-* [Azure Automation DSC 개요](automation-dsc-overview.md)
-* [Azure Automation DSC cmdlets](https://docs.microsoft.com/powershell/module/azurerm.automation#automation)
+* [Azure 자동화 DSC 개요](automation-dsc-overview.md)
 * [Azure Automation DSC를 통한 관리를 위한 컴퓨터 온보드](automation-dsc-onboarding.md)
 
 ## <a name="next-steps"></a>다음 단계

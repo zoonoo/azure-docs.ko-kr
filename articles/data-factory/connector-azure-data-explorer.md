@@ -12,14 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/18/2020
-ms.openlocfilehash: 5f0eada5184f2c8e36b0deb5a9d27a8a9230776d
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 12bf807f5866567508b644105f377cfde1494250
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382758"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410773"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Azure 데이터 탐색기에서 또는 Azure 데이터 탐색기에서 데이터를 복사합니다.
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory에서 복사 활동을 사용하여 Azure [데이터 탐색기에서](/azure/data-explorer/data-explorer-overview)데이터를 복사하는 방법을 설명합니다. 복사 활동에 대한 일반적인 개요를 제공하는 [복사 활동 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
@@ -73,7 +75,7 @@ Azure 데이터 탐색기 커넥터는 서비스 주체 인증을 사용합니�
 
 Azure 데이터 탐색기 링크 된 서비스에 대 한 다음 속성지원 됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | **형식** 속성은 **AzureDataExplorer로**설정해야 합니다. | 예 |
 | 엔드포인트(endpoint) | `https://<clusterName>.<regionName>.kusto.windows.net` 형식의 Azure Data Explorer 클러스터의 엔드포인트 URL입니다. | 예 |
@@ -111,7 +113,7 @@ Azure Data Explorer에 데이터를 복사하려면 데이터 세트의 형식 �
 
 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | **형식** 속성은 **AzureDataExplorerTable로**설정해야 합니다. | 예 |
 | 테이블 | 연결된 서비스가 참조하는 테이블의 이름입니다. | 싱크의 경우 예이며, 원본의 경우 아니오입니다. |
@@ -143,7 +145,7 @@ Azure Data Explorer에 데이터를 복사하려면 데이터 세트의 형식 �
 
 Azure Data Explorer에서 데이터를 복사하려면 복사 작업 원본의 **형식** 속성을 **AzureDataExplorerSource**로 설정합니다. 다음 속성은 복사 활동 **소스** 섹션에서 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 활동 원본의 **형식** 속성을 **AzureDataExplorerSource로** 설정해야 합니다. | 예 |
 | Query | [KQL 형식](/azure/kusto/query/)으로 제공되는 읽기 전용 요청입니다. 사용자 지정 KQL 쿼리를 참조로 사용합니다. | 예 |
@@ -190,7 +192,7 @@ Azure Data Explorer에서 데이터를 복사하려면 복사 작업 원본의 *
 
 Azure Data Explorer로 데이터를 복사하려면 복사 작업 원본의 형식 속성을 **AzureDataExplorerSink**로 설정합니다. 다음 속성은 복사 활동 **싱크** 섹션에서 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 활동 싱크의 **형식** 속성을 **AzureDataExplorerSink**로 설정해야 합니다. | 예 |
 | ingestionMappingName | Kusto 테이블에서 미리 만들어진 [매핑의](/azure/kusto/management/mappings#csv-mapping) 이름입니다. 원본에서 Azure Data Explorer(CSV/JSON/Avro 형식을 포함하여 [지원되는 모든 원본 저장소 및 형식에](copy-activity-overview.md#supported-data-stores-and-formats)적용되는) 열을 매핑하려면 복사 활동 [열 매핑(암시적으로](copy-activity-schema-and-type-mapping.md) 이름으로 또는 명시적으로 구성된 대로) 및/또는 Azure Data 탐색기 매핑을 사용할 수 있습니다. | 예 |

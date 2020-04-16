@@ -1,30 +1,30 @@
 ---
-title: Azure Event Grid 이벤트 허브 이벤트 스키마
+title: Azure 이벤트 허브를 이벤트 그리드 원본으로
 description: Azure Event Grid를 사용하여 이벤트 허브 이벤트에 제공되는 속성을 설명합니다.
 services: event-grid
 author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/17/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 9c0113687d27bf43375f298057129a5594ec0a06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd65c20f07a091fa1fc8a6cbf003986e1096ebe3
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60561831"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393349"
 ---
-# <a name="azure-event-grid-event-schema-for-event-hubs"></a>Azure Event Grid 이벤트 허브에 대한 이벤트 스키마
+# <a name="azure-event-hubs-as-an-event-grid-source"></a>이벤트 그리드 소스로서의 Azure 이벤트 허브
 
 이 문서에서는 이벤트 허브 이벤트에 대한 속성 및 스키마를 제공합니다.이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
 
-샘플 스크립트 및 자습서 목록은 [Event Hubs 이벤트 원본](event-sources.md#event-hubs)을 참조하세요.
+## <a name="event-grid-event-schema"></a>Event Grid 이벤트 스키마
 
 ### <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 
 Event Hubs는 캡처 파일이 생성되면 **Microsoft.EventHub.CaptureFileCreated** 이벤트 유형을 내보냅니다.
 
-## <a name="example-event"></a>예제 이벤트
+### <a name="example-event"></a>예제 이벤트
 
 이 샘플 이벤트는 캡처 기능에서 파일을 저장할 때 발생하는 이벤트 허브 이벤트의 스키마를 보여 줍니다. 
 
@@ -53,7 +53,7 @@ Event Hubs는 캡처 파일이 생성되면 **Microsoft.EventHub.CaptureFileCrea
 ]
 ```
 
-## <a name="event-properties"></a>이벤트 속성
+### <a name="event-properties"></a>이벤트 속성
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
@@ -81,6 +81,12 @@ Event Hubs는 캡처 파일이 생성되면 **Microsoft.EventHub.CaptureFileCrea
 | lastSequenceNumber | integer | 큐의 마지막 시퀀스 번호입니다. |
 | firstEnqueueTime | 문자열 | 큐의 처음 시간입니다. |
 | lastEnqueueTime | 문자열 | 큐의 마지막 시간입니다. |
+
+## <a name="tutorials-and-how-tos"></a>자습서 및 방법
+
+|제목  |Description  |
+|---------|---------|
+| [자습서: 데이터 웨어하우스로 빅 데이터 스트림](event-grid-event-hubs-integration.md) | Event Hubs가 캡처 파일을 만들 때 Event Grid는 함수 앱에 이벤트를 보냅니다. 앱은 캡처 파일을 검색하고 데이터를 데이터 웨어하우스에 마이그레이션합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,20 +8,22 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/23/2020
-ms.openlocfilehash: 78c6c1363af011a90865770d88c0037e50e958c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 08ad231b462e21fefebacd4e280bfb2b13bc0eef
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240407"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413638"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 조회 변환
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 조회 변환을 사용하여 데이터 흐름 스트림의 다른 원본의 데이터를 참조합니다. 조회 변환은 일치하는 데이터에서 원본 데이터에 대한 열을 더합니다.
 
 조회 변환은 왼쪽 외부 조인과 유사합니다. 기본 스트림의 모든 행은 조회 스트림의 추가 열이 있는 출력 스트림에 존재합니다. 
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 ![조회 변환](media/data-flow/lookup1.png "조회")
 

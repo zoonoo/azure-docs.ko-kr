@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/11/2018
+ms.date: 04/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae3ace24d6f33702c15a364b913f841d90fd8872
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: d1246b5b980f60c2f3e65aa5b32a7d79dd6efc7d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654187"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407170"
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
 
@@ -235,7 +235,7 @@ ms.locfileid: "80654187"
   >
 * **Q: 암호 재설정 또는 등록 보고 데이터에 액세스하는 API가 있습니까?**
 
-  > **A:** 예. 암호 재설정 보고 데이터 스트림에 액세스하는 방법을 알아보려면 [프로그래밍 방식으로 암호 재설정 보고 이벤트에 액세스하는 방법](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent)을 참조하세요.
+  > **A:** 예. 암호 재설정 보고 데이터에 액세스하는 방법을 알아보려면 [Azure Log Analytics REST API 참조 를](/rest/api/loganalytics/)참조하십시오.
   >
   >
 

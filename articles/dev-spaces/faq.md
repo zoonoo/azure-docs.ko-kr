@@ -5,16 +5,20 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Azure 개발자 공간에 대한 몇 가지 일반적인 질문에 대한 답변 찾기
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 1fd176084cd0737a290e037ed19af510fcab3e78
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: b5a380f20640b9bc328aa30289ff7f915cc0b73c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381990"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414306"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Azure 개발자 공간에 대해 자주 묻는 질문
 
 Azure 개발자 공간에 대해 자주 묻는 질문을 해결합니다.
+
+## <a name="what-versions-of-kubernetes-are-supported-for-azure-dev-spaces"></a>Azure 개발자 공간에서 어떤 버전의 Kubernetes가 지원됩니까?
+
+Azure 개발자 공간은 현재 지원되는 모든 [GA(일반 공급) 버전의 Kubernetes를 지원합니다.][aks-supported-k8s]
 
 ## <a name="which-azure-regions-currently-provide-azure-dev-spaces"></a>현재 Azure 개발자 공간을 제공하는 Azure 지역은 무엇입니까?
 
@@ -89,6 +93,10 @@ Visual Studio 코드에서는 단일 [작업 영역에서 별도의 프로젝트
 
 Visual Studio에서 Azure 개발자 공간을 통해 디버깅하기 위한 .NET Core 솔루션을 구성할 수 있습니다.
 
+## <a name="can-i-use-azure-dev-spaces-with-a-service-mesh"></a>서비스 메시와 함께 Azure 개발자 공간을 사용할 수 있습니까?
+
+현재 [는 Istio][istio] 또는 [Linkerd][linkerd]와 같은 서비스 메시와 함께 Azure 개발자 공간을 사용할 수 없습니다. 동일한 AKS 클러스터에서 Azure 개발자 공간 및 서비스 메시를 실행할 수 있지만 동일한 네임스페이스에서 Azure 개발자 공간과 서비스 메시를 모두 사용할 수 없습니다.
+
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
 [aks-auth-range-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
@@ -97,6 +105,7 @@ Visual Studio에서 Azure 개발자 공간을 통해 디버깅하기 위한 .NET
 [aks-pod-managed-id]: ../aks/developer-best-practices-pod-security.md#use-pod-managed-identities
 [aks-pod-managed-id-uninstall]: https://github.com/Azure/aad-pod-identity#uninstall-notes
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
+[aks-supported-k8s]: ../aks/supported-kubernetes-versions.md#list-currently-supported-versions
 [bike-sharing]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
 [dev-spaces-pod-managed-id-steps]: troubleshooting.md#error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state
 [dev-spaces-prep]: how-dev-spaces-works-prep.md
@@ -105,6 +114,8 @@ Visual Studio에서 Azure 개발자 공간을 통해 디버깅하기 위한 .NET
 [ingress-traefik]: how-to/ingress-https-traefik.md#configure-a-custom-traefik-ingress-controller
 [ingress-https-nginx]: how-to/ingress-https-nginx.md#configure-the-nginx-ingress-controller-to-use-https
 [ingress-https-traefik]: how-to/ingress-https-traefik.md#configure-the-traefik-ingress-controller-to-use-https
+[istio]: https://istio.io/
+[linkerd]: https://linkerd.io/
 [quickstart-cli]: quickstart-cli.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [vs-code-multi-root-workspaces]: https://code.visualstudio.com/docs/editor/multi-root-workspaces

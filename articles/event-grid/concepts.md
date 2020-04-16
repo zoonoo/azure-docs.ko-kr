@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 348d82f704b89b97e11a09b8f88e92831901b3bf
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79265065"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393455"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid의 개념
 
@@ -35,7 +35,7 @@ ms.locfileid: "79265065"
 
 이벤트 원본은 이벤트가 발생하는 위치입니다. 각 이벤트 원본은 하나 이상의 이벤트 유형과 관련이 있습니다. 예를 들어 Azure Storage는 이벤트가 생성된 Blob에 대한 이벤트 원본입니다. IoT Hub는 디바이스에서 만든 이벤트에 대한 이벤트 원본입니다. 애플리케이션은 사용자가 정의한 사용자 지정 이벤트에 대한 이벤트 원본입니다. 이벤트 원본은 Event Grid에 이벤트를 보내는 역할을 담당합니다.
 
-지원되는 Event Grid 원본을 구현하는 방법에 대한 내용은 [Azure Event Grid의 이벤트 원본](event-sources.md)을 참조하세요.
+지원되는 Event Grid 원본을 구현하는 방법에 대한 내용은 [Azure Event Grid의 이벤트 원본](overview.md#event-sources)을 참조하세요.
 
 ## <a name="topics"></a>토픽
 

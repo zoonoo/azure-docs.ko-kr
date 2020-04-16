@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 09/16/2019
-ms.openlocfilehash: 88e42fd9626276f6c77b46b33c138407f91d06ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7b7fff913c177703f959bfa103c8e310d01059e2
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75650761"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391836"
 ---
 # <a name="custom-role-definition-artifact-in-azure-managed-applications"></a>Azure 관리 응용 프로그램의 사용자 지정 역할 정의 아티팩트
 
@@ -20,7 +20,7 @@ ms.locfileid: "75650761"
 
 ## <a name="custom-role-definition-artifact"></a>사용자 지정 역할 정의 아티팩트
 
-사용자 지정 역할 정의 아티팩트 의 이름을 지정해야 합니다. 관리되는 응용 프로그램 정의를 만드는 .zip 패키지에서 createUiDefinition.json 및 mainTemplate.json과 동일한 수준에 배치합니다. .zip 패키지를 만들고 관리되는 응용 프로그램 정의를 게시하는 방법을 알아보려면 [관리되는 응용 프로그램 정의 게시를 참조하십시오.](publish-managed-app-definition-quickstart.md)
+사용자 지정 역할 정의 아티팩트 의 이름을 지정해야 합니다. 관리되는 응용 프로그램 정의를 만드는 .zip 패키지에서 createUiDefinition.json 및 mainTemplate.json과 동일한 수준에 배치합니다. .zip 패키지를 만들고 관리되는 응용 프로그램 정의를 게시하는 방법을 알아보려면 [관리되는 응용 프로그램 정의 게시를 참조하십시오.](publish-service-catalog-app.md)
 
 ## <a name="custom-role-definition-schema"></a>사용자 지정 역할 정의 스키마
 
@@ -63,7 +63,7 @@ customRoleDefinition.json 파일에는 역할의 `roles` 배열인 최상위 속
 > [!NOTE]
 > 또는 `roleName` 필드 중 `id` 하나를 사용할 수 있습니다. 하나만 필요합니다. 이러한 필드는 적용해야 하는 역할 정의를 찾는 데 사용됩니다. 둘 다 제공된 `id` 경우 필드가 사용됩니다.
 
-|속성|필수 여부|설명|
+|속성|필수 여부|Description|
 |---------|---------|---------|
-|id|yes|기본 제공 역할의 ID입니다. 전체 ID 또는 GUID만 사용할 수 있습니다.|
-|Rolename|yes|기본 제공 역할의 이름입니다.|
+|id|예|기본 제공 역할의 ID입니다. 전체 ID 또는 GUID만 사용할 수 있습니다.|
+|Rolename|예|기본 제공 역할의 이름입니다.|

@@ -12,14 +12,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
-ms.openlocfilehash: 3c077e2c04cae94d2e1a2a84ccd7d09c7a0829b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01a6d796a9a8306da5bb707111b07786136a66cc
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75439631"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414779"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>제어 테이블이 있는 데이터베이스의 델타 복사
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 높은 워터마크 값을 저장하는 외부 제어 테이블을 사용하여 데이터베이스 테이블에서 Azure로 새 행이나 업데이트된 행을 증분적으로 로드하는 데 사용할 수 있는 템플릿에 대해 설명합니다.
 

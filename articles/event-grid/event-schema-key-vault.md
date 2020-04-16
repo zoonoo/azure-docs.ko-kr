@@ -1,28 +1,30 @@
 ---
-title: Azure 키 볼트에 대한 Azure 이벤트 그리드 이벤트 스키마
+title: Azure 키 볼트를 이벤트 그리드 소스로
 description: Azure 이벤트 그리드를 통해 Azure 키 볼트 이벤트에 대해 제공된 속성 및 스키마에 대해 설명합니다.
 services: event-grid
-author: msmbaldwin
+author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 10/25/2019
-ms.author: mbaldwin
-ms.openlocfilehash: fe186e2ba8f3cafeb4d186066ba65ae036302f70
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: spelluru
+ms.openlocfilehash: 36b7b81a18c8725929ab5676b844e1ee319e287f
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010514"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393305"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-key-vault-preview"></a>Azure Key Vault에 대한 Azure Event Grid 이벤트 스키마(미리 보기)
+# <a name="azure-key-vault-as-event-grid-source"></a>Azure 키 볼트를 이벤트 그리드 소스로
 
 이 문서에서는 현재 미리 보기 중인 [Azure Key Vault의](../key-vault/index.yml)이벤트에 대한 속성 및 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
 
-## <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
+## <a name="event-grid-event-schema"></a>Event Grid 이벤트 스키마
+
+### <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 
 Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성합니다.
 
-| 이벤트 전체 이름 | 이벤트 표시 이름 | 설명 |
+| 이벤트 전체 이름 | 이벤트 표시 이름 | Description |
 | ---------- | ----------- |---|
 | 마이크로소프트.키볼트.인증서새로운버전생성 | 인증서 새 버전 생성 | 새 인증서 또는 새 인증서 버전이 생성될 때 트리거됩니다. |
 | 마이크로소프트.키볼트.인증서가까운 엑스피리 | 만료 근처 인증서 | 현재 버전의 인증서가 만료될 때 트리거됩니다. (이벤트는 만료 날짜 30일 전에 트리거됩니다.) |
@@ -34,7 +36,7 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성합니다.
 | 마이크로소프트.키볼트.시크릿니어익스피리 | 만료 에 가까운 비밀 | 현재 버전의 보안 이 만료될 때 트리거됩니다. (이벤트는 만료 날짜 30일 전에 트리거됩니다.) |
 | 마이크로소프트.키볼트.비밀 만료됨 | 비밀이 만료됨 | 비밀이 만료되면 트리거됩니다. |
 
-## <a name="event-examples"></a>이벤트 예제
+### <a name="event-examples"></a>이벤트 예제
 
 다음 예제는 **Microsoft.KeyVault.SecretNewVersion만든**스키마를 보여 준다.
 
@@ -61,7 +63,7 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성합니다.
 ]
 ```
 
-## <a name="event-properties"></a>이벤트 속성
+### <a name="event-properties"></a>이벤트 속성
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
@@ -74,6 +76,12 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성합니다.
 | 버전 | 문자열 | 이 이벤트를 트리거한 개체의 버전 |
 | nbf | number | 이 이벤트를 트리거한 개체의 1970-01-01T00:00:00Z 이후 초이 |
 | exp | number | 이 이벤트를 트리거한 개체의 1970-01-01T00:00:00Z 이후의 만료 날짜 |
+
+## <a name="tutorials-and-how-tos"></a>자습서 및 방법
+|제목  |Description  |
+|---------|---------|
+| [Azure 이벤트 그리드를 통해 주요 볼트 이벤트 모니터링](../key-vault/event-grid-overview.md) | 키 볼트와 이벤트 그리드 통합 개요 |
+| [자습서: 이벤트 그리드를 사용하여 키 볼트 이벤트 생성 및 모니터링](../key-vault/event-grid-tutorial.md) | 키 자격 증명 모음에 대한 이벤트 그리드 알림을 설정하는 방법에 대해 알아봅니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

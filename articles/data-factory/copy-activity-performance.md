@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 231b0d77dc441e70dc0ec8de313291bb6b4f9292
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aedb3df69821d1436b03b2eb1f12873b624d426e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79261399"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414170"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>복사 활동 성능 및 확장성 가이드
 
@@ -25,7 +25,9 @@ ms.locfileid: "79261399"
 > * [버전 1](v1/data-factory-copy-activity-performance.md)
 > * [현재 버전](copy-activity-performance.md)
 
-데이터 레이크 또는 엔터프라이즈 데이터 웨어하우스(EDW)에서 Azure로 대규모 데이터 마이그레이션을 수행하거나 다른 소스에서 대규모 데이터를 Azure로 수집하여 빅 데이터 분석을 수행하려는 경우 최적의 성능을 달성하는 것이 중요합니다. 확장성.  Azure Data Factory는 대규모로 데이터를 수집할 수 있는 성능, 복원력 및 비용 효율적인 메커니즘을 제공하므로 성능이 뛰어나고 확장 성이 뛰어난 데이터 수집 파이프라인을 구축하려는 데이터 엔지니어에게 적합합니다.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+데이터 레이크 또는 엔터프라이즈 데이터 웨어하우스(EDW)에서 Azure로 대규모 데이터 마이그레이션을 수행하거나 빅 데이터 분석을 위해 다른 소스에서 Azure로 대규모로 데이터를 수집하려는 경우 최적의 성능과 확장성을 달성하는 것이 중요합니다.  Azure Data Factory는 대규모로 데이터를 수집할 수 있는 성능, 복원력 및 비용 효율적인 메커니즘을 제공하므로 성능이 뛰어나고 확장 성이 뛰어난 데이터 수집 파이프라인을 구축하려는 데이터 엔지니어에게 적합합니다.
 
 이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.
 
@@ -44,7 +46,7 @@ ADF는 다양한 수준에서 병렬 처리가 가능한 서버리스 아키텍�
 
 | 데이터 크기 / <br/> bandwidth | 50Mbps    | 100Mbps  | 500Mbps  | 1Gbps   | 5Gbps   | 10Gbps  | 50Gbps   |
 | --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
-| **1 GB**                    | 약 2.7분    | 약 1.4분   | 0.3분   | 0.1분  | 0.03 분 | 0.01 분 | 0.0분   |
+| **1GB**                    | 약 2.7분    | 약 1.4분   | 0.3분   | 0.1분  | 0.03 분 | 0.01 분 | 0.0분   |
 | **10 GB**                   | 27.3분   | 약 13.7분  | 약 2.7분   | 약 1.3분  | 0.3분  | 0.1분  | 0.03 분  |
 | **100GB**                  | 4.6시간    | 2.3시간   | 0.5시간   | 0.2시간  | 0.05시간 | 0.02시간 | 0.0시간   |
 | **1 TB**                    | 46.6시간   | 23.3시간  | 4.7시간   | 2.3시간  | 0.5시간  | 0.2시간  | 0.05시간  |
@@ -101,19 +103,19 @@ Azure 데이터 팩터리는 다음과 같은 성능 최적화 기능을 제공�
 
 ### <a name="data-integration-units"></a>데이터 통합 단위
 
-데이터 통합 단위는 Azure Data Factory에서 단일 단위의 전원(CPU, 메모리 및 네트워크 리소스 할당의 조합)을 나타내는 측정값입니다. 데이터 통합 단위는 [Azure 통합 런타임에만](concepts-integration-runtime.md#azure-integration-runtime)적용되지만 [자체 호스팅 통합 런타임에는](concepts-integration-runtime.md#self-hosted-integration-runtime)적용되지 않습니다. [자세히 알아봅니다](copy-activity-performance-features.md#data-integration-units).
+데이터 통합 단위는 Azure Data Factory에서 단일 단위의 전원(CPU, 메모리 및 네트워크 리소스 할당의 조합)을 나타내는 측정값입니다. 데이터 통합 단위는 [Azure 통합 런타임에만](concepts-integration-runtime.md#azure-integration-runtime)적용되지만 [자체 호스팅 통합 런타임에는](concepts-integration-runtime.md#self-hosted-integration-runtime)적용되지 않습니다. [자세히 알아보기](copy-activity-performance-features.md#data-integration-units).
 
 ### <a name="self-hosted-integration-runtime-scalability"></a>자체 호스팅 통합 런타임 확장성
 
-증가하는 동시 워크로드를 호스팅하거나 더 높은 성능을 얻으려면 자체 호스팅 통합 런타임을 확장하거나 확장할 수 있습니다. [자세히 알아봅니다](copy-activity-performance-features.md#self-hosted-integration-runtime-scalability).
+증가하는 동시 워크로드를 호스팅하거나 더 높은 성능을 얻으려면 자체 호스팅 통합 런타임을 확장하거나 확장할 수 있습니다. [자세히 알아보기](copy-activity-performance-features.md#self-hosted-integration-runtime-scalability).
 
 ### <a name="parallel-copy"></a>병렬 복사
 
-병렬 복사본을 설정하여 복사 활동을 사용할 병렬성을 나타낼 수 있습니다. 이 속성은 원본에서 읽거나 싱크 데이터 저장소에 병렬로 쓰는 복사 작업 내의 최대 스레드 수로 생각할 수 있습니다. [자세히 알아봅니다](copy-activity-performance-features.md#parallel-copy).
+병렬 복사본을 설정하여 복사 활동을 사용할 병렬성을 나타낼 수 있습니다. 이 속성은 원본에서 읽거나 싱크 데이터 저장소에 병렬로 쓰는 복사 작업 내의 최대 스레드 수로 생각할 수 있습니다. [자세히 알아보기](copy-activity-performance-features.md#parallel-copy).
 
 ### <a name="staged-copy"></a>준비된 복사
 
-원본 데이터 스토리지에서 싱크 데이터 스토리지에 데이터를 복사할 경우 중간 준비 스토리지로 Blob Storage를 사용하도록 선택할 수 있습니다. [자세히 알아봅니다](copy-activity-performance-features.md#staged-copy).
+원본 데이터 스토리지에서 싱크 데이터 스토리지에 데이터를 복사할 경우 중간 준비 스토리지로 Blob Storage를 사용하도록 선택할 수 있습니다. [자세히 알아보기](copy-activity-performance-features.md#staged-copy).
 
 ## <a name="next-steps"></a>다음 단계
 다른 복사 활동 문서를 참조하십시오.

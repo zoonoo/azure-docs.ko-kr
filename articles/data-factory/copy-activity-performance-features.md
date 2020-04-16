@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/09/2020
-ms.openlocfilehash: d37b4648c0a37f16fe5c9d8794bd78417c5780ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd7844340553809e1429097a9dda70f6bdb3e075
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257889"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414185"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>활동 성능 최적화 기능 복사
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory에서 활용할 수 있는 복사 활동 성능 최적화 기능에 대해 간략하게 설명합니다.
 
@@ -134,15 +136,15 @@ ms.locfileid: "80257889"
 
 ![준비된 복사](media/copy-activity-performance/staged-copy.png)
 
-스테이징 저장소를 사용하여 데이터 이동을 활성화할 때 원본 데이터 저장소에서 중간 또는 스테이징 데이터 저장소로 데이터를 이동하기 전에 데이터를 압축할지 여부를 지정한 다음 중간 또는 스테이징에서 데이터를 이동하기 전에 압축 해제할 수 있습니다. 싱크 데이터 저장소에 데이터 저장소를 저장합니다.
+스테이징 저장소를 사용하여 데이터 이동을 활성화할 때 원본 데이터 저장소에서 중간 또는 스테이징 데이터 저장소로 데이터를 이동하기 전에 데이터를 압축할지 여부를 지정한 다음 중간 데이터 저장소또는 스테이징 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하기 전에 압축해제할 수 있습니다.
 
 현재 는 준비된 복사본과 함께 또는 준비된 복사본없이 서로 다른 자체 호스팅 된 IRs를 통해 연결된 두 데이터 저장소 간에 데이터를 복사 할 수 없습니다. 이러한 시나리오의 경우 명시적으로 연결된 두 개의 복사 활동을 구성하여 소스에서 스테이징으로 복사한 다음 스테이징에서 싱크로 복사할 수 있습니다.
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 
 복사 활동의 **enableStaging** 설정을 구성하여 대상 데이터 저장소에 로드하기 전에 Blob 저장소에 데이터를 스테이징할지 여부를 지정합니다. **을 사용하도록** 설정할 `TRUE`때 다음 표에 나열된 추가 속성을 지정합니다. 또한 Azure 저장소 또는 저장소 공유 액세스 서명 링크 된 서비스를 준비에 대 한 하나를 없는 경우 만들어야 합니다.
 
-| 속성 | 설명 | 기본값 | 필수 |
+| 속성 | Description | 기본값 | 필수 |
 | --- | --- | --- | --- |
 | enableStaging |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |False |예 |
 | linkedServiceName |중간 준비 저장소로 사용할 Storage 인스턴스를 참조하여 이름을 [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) 연결 서비스로 지정합니다. <br/><br/> 공유 액세스 시그니처가 있는 저장소를 사용하여 PolyBase를 통해 SQL 데이터 웨어하우스에 데이터를 로드할 수 없습니다. 다른 모든 시나리오에서는 사용할 수 있습니다. |해당 없음 |예, **enableStaging**이 TRUE로 설정된 경우입니다. |
@@ -187,7 +189,7 @@ ms.locfileid: "80257889"
 복사 기간 및 복사 유형이라는 두 단계에 따라 요금이 청구됩니다.
 
 * 클라우드 데이터 저장소에서 다른 클라우드 데이터 저장소로 데이터를 복사하는 클라우드 복사본 중에 스테이징을 사용하는 경우 Azure 통합 런타임에 의해 강화되는 두 단계 모두 [1단계 및 2단계의 복사 기간 합계] x [클라우드 복사 단가]가 청구됩니다.
-* 온-프레미스 데이터 저장소에서 클라우드 데이터 저장소로 데이터를 복사하는 하이브리드 복사본 중에 스테이징을 사용하는 경우 자체 호스팅 통합 런타임으로 권한 부여되는 한 단계는 [하이브리드 복사 기간] x [하이브리드 복사 단가] + [클라우드 복사 기간]에 대한 요금이 부과됩니다. x [클라우드 복사 단가].
+* 온-프레미스 데이터 저장소에서 클라우드 데이터 저장소로 데이터를 복사하는 하이브리드 복사본 중에 스테이징을 사용하는 경우 자체 호스팅 통합 런타임으로 권한 부여되는 한 단계는 [하이브리드 복사 기간] x [하이브리드 복사 단가] + [클라우드 복사 기간] x [클라우드 복사 단가]에 대한 요금이 부과됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 다른 복사 활동 문서를 참조하십시오.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 114c632d43dbb254222def2437fbffc22ec84688
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 4c76bcbf945c63588f8471c10deca0b5982d3562
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80672452"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414243"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB의 다양한 API에 대한 질문과 대답
 
@@ -227,7 +227,7 @@ Azure Cosmos DB에는 엄격한 보안 요구 사항과 표준이 적용됩니�
 
 Azure Cosmos DB의 API for MongoDB는 일반적인 MongoDB 오류 코드 외에도 자체적인 특정 오류 코드를 갖고 있습니다.
 
-| Error               | 코드  | 설명  | 해결 방법  |
+| Error               | 코드  | Description  | 솔루션  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | 소비된 총 요청 단위 수는 컨테이너에 대한 프로비저닝된 요청 단위 비율보다 많으며 제한되었습니다. | Azure Portal에서 컨테이너 또는 컨테이너 집합에 할당된 처리량을 크기 조정하거나 다시 시도하는 것이 좋습니다. |
 | ExceededMemoryLimit | 16501 | 다중 테넌트 서비스로써 작업이 클라이언트의 메모리 할당량을 초과했습니다. | [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에서 보다 제한적인 쿼리 조건을 통해 작업 범위를 줄이거나 고객 지원에 문의하세요. <br><br><em> &nbsp; &nbsp;예: &nbsp; &nbsp;db.getCollection('사용자').aggregate(]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {이름: "앤디"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {나이: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])</em>) |
@@ -404,7 +404,7 @@ Table API는 Azure Cosmos DB라는 세계적으로 분산된 플랫폼을 활용
 
 ### <a name="is-the-table-api-enabled-for-backups"></a>백업에 Table API를 사용할 수 있나요?
 
-예, Table API는 백업을 위해 Azure Cosmos DB라는 플랫폼을 활용합니다. Backup은 자동으로 수행됩니다. 자세한 내용은 [Azure Cosmos DB로 자동 온라인 백업 및 복원](../synapse-analytics/sql-data-warehouse/backup-and-restore.md)을 참조하세요.
+예, Table API는 백업을 위해 Azure Cosmos DB라는 플랫폼을 활용합니다. Backup은 자동으로 수행됩니다. 자세한 내용은 [Azure Cosmos DB로 자동 온라인 백업 및 복원](online-backup-and-restore.md)을 참조하세요.
 
 ### <a name="does-the-table-api-index-all-attributes-of-an-entity-by-default"></a>Table API는 기본적으로 엔터티의 모든 특성을 인덱싱하나요?
 
@@ -761,7 +761,7 @@ CQLv3을 사용하는 아파치 카산드라 SDK의 클라이언트 드라이버
 ### <a name="does-cassandra-api-provide-full-backups"></a>Cassandra API에서 전체 백업을 제공하나요?
 
 Azure Cosmos DB는 모든 API에서 당일에 4시간 간격으로 수행된 두 개의 무료 전체 백업을 제공합니다. 따라서 백업 일정 및 기타 항목을 설정할 필요가 없습니다.
-보존 및 빈도를 수정하려면 전자 메일을 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) 보내거나 지원 서비스 케이스를 발생시십시오. 백업 기능에 대한 정보는 [Azure Cosmos DB로 자동 온라인 백업 및 복원](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) 문서에 나와 있습니다.
+보존 및 빈도를 수정하려면 전자 메일을 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) 보내거나 지원 서비스 케이스를 발생시십시오. 백업 기능에 대한 정보는 [Azure Cosmos DB로 자동 온라인 백업 및 복원](online-backup-and-restore.md) 문서에 나와 있습니다.
 
 ### <a name="how-does-the-cassandra-api-account-handle-failover-if-a-region-goes-down"></a>지역에서 작동이 중지된 경우 Cassandra API 계정은 장애 조치(Failover)를 어떻게 처리하나요?
 

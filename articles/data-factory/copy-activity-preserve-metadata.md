@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: jingwang
-ms.openlocfilehash: b73cd73a18d286f221c7be2c624719e1d23d7c06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5ce1b85394a7bb604841f7fb941bdebf12c0bca2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153831"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414162"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Azure 데이터 팩터리에서 복사 작업을 사용하여 메타데이터 및 ACL 보존
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory 복사 활동을 사용하여 원본에서 싱크로 데이터를 복사하는 경우 다음 시나리오에서 메타데이터 및 ACL을 보존할 수도 있습니다.
 

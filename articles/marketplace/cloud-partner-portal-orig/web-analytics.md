@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
-ms.openlocfilehash: 446e579a7205f0e785d7e940c1dbdd36cff8f370
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd6d6375b19689c582c0f129378c76936e624e04
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285336"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416278"
 ---
 <a name="web-analytics"></a>Web Analytics
 =============
@@ -40,7 +40,7 @@ ms.locfileid: "80285336"
 
 1. 캠페인의 내용과 고객이 유입되는 페이지/이벤트를 설명하는 쿼리 매개 변수 **mktcmpid**를 URL에 추가합니다.
 
-예를 들어 다음과 같은 주소를 사용할 수 있습니다. <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
+예를 들어 다음과 같은 주소를 사용할 수 있습니다. ```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign```
 
 1. (고급): URL에 지원되는 일반 캠페인 ID 중 하나를 사용합니다. 사용해야 하는 추가 ref 태그를 포함할 수 있도록 다음의 추가 태그를 자동으로 인식하는 규칙이 지원됩니다.
     
@@ -49,14 +49,14 @@ ms.locfileid: "80285336"
     3. **ref**
     4. **Src**
 
-예를 들어 다음과 같은 주소를 사용할 수 있습니다. <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=NewCampaign>
+예를 들어 다음과 같은 주소를 사용할 수 있습니다. ```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=NewCampaign```
 
 이러한 캠페인 ID를 여러 개 조합하여 캠페인의 트래픽을 생성하는 여러 출처(예: 전자 메일, 블로그, 소셜 미디어 소스 등 고객이 유입되는 위치)를 추가로 지정할 수도 있습니다.
 
-예를 들어:
+다음은 그 예입니다.
 
-1. 뉴스레터 참조 페이지: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter>
-2. LinkedIn 참조 페이지: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn>
+1. 뉴스레터 참조 페이지: ```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter```
+2. LinkedIn 참조 페이지: ```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn```
 
 ### <a name="ensuring-campaigns-pass-through-all-your-pages"></a>**모든 페이지를 통해 캠페인 전달**
 
@@ -64,13 +64,13 @@ ms.locfileid: "80285336"
 
 다음은 예제입니다.
 
-1. 마케팅 담당 직원이 회사 방문 페이지 <https://contoso.com>으로 트래픽을 전달하기 위해 Google에서 광고를 구매합니다. 이 방문 페이지에는 <https://appsource.com>으로 이동하는 \"제품 사용해 보기\" 링크가 있습니다.
+1. 마케팅 담당 직원이 회사 방문 페이지 ```https://contoso.com```으로 트래픽을 전달하기 위해 Google에서 광고를 구매합니다. 이 방문 페이지에는 ```https://appsource.com```으로 이동하는 \"제품 사용해 보기\" 링크가 있습니다.
 2. 사용자가 광고를 클릭하여 회사 방문 페이지를 방문합니다.
     1.  추천 URL = google.com
-    2.  방문 페이지 URL = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
+    2.  방문 페이지 URL = ```https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName```
 3. 사용자가 \"제품 사용해 보기\" 링크를 클릭하여 AppSource로 이동합니다.
-    1. 추천 URL = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-    2. 방문 페이지 URL(**이 URL에는 utm\_campaign 및 utm\_이 URL에 추가된 소스**가 있어야 함) = [https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+    1. 추천 URL = ```https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName```
+    2. 방문 페이지 URL **(이 URL에\_이 URL에 utm 캠페인 및 utm\_소스가 추가되어 있는지 확인합니다.**=```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**```
 
 <a name="how-to-evaluate-the-success-of-a-campaign"></a>캠페인의 성공 여부를 평가하는 방법
 -----------------------------------------

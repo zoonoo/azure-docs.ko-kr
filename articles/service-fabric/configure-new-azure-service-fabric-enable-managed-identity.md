@@ -4,14 +4,14 @@ description: 새 Azure 서비스 패브릭 클러스터에서 관리되는 ID �
 ms.topic: article
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 0e35d2192fdcdb294b349105f3f0158564cec86b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd0cbd3251185a7831852ead47ca0b120126cf55
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76930471"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415662"
 ---
-# <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster-preview"></a>새 서비스 패브릭 클러스터에 대한 관리되는 ID 지원 구성(미리 보기)
+# <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster"></a>새 서비스 패브릭 클러스터에 대한 관리되는 ID 지원 구성
 
 Service Fabric 응용 프로그램에서 [Azure 리소스에 대해 관리되는 ID를](../active-directory/managed-identities-azure-resources/overview.md) 사용하려면 먼저 클러스터에서 *관리되는 ID 토큰 서비스를* 사용하도록 설정합니다. 이 서비스는 관리되는 ID를 사용하여 Service Fabric 응용 프로그램의 인증을 담당하며 해당 응용 프로그램을 대신하여 액세스 토큰을 얻는 작업을 담당합니다. 서비스가 활성화되면 왼쪽 창의 **시스템** 섹션 아래의 서비스 패브릭 탐색기에서 다른 시스템 서비스 옆에 있는 **패브릭:/System/ManagedIdentityTokenService라는** 이름으로 실행되는 것을 볼 수 있습니다.
 

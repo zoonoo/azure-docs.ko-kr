@@ -5,22 +5,22 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9a69296ddfc93fd7e8a6650df91876829631f5d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce58fc69496f54c078b0a0a55a8a3c7cad82a051
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473067"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391703"
 ---
 # <a name="quickstart-deploy-service-catalog-app-through-azure-portal"></a>빠른 시작: Azure 포털을 통해 서비스 카탈로그 앱 배포
 
-[이전에 나온 빠른 시작](publish-managed-app-definition-quickstart.md)에서는 관리되는 애플리케이션 정의를 게시했습니다. 이 빠른 시작에서는 해당 정의에서 서비스 카탈로그 앱을 만듭니다.
+[이전에 나온 빠른 시작](publish-service-catalog-app.md)에서는 관리되는 애플리케이션 정의를 게시했습니다. 이 빠른 시작에서는 해당 정의에서 서비스 카탈로그 앱을 만듭니다.
 
 ## <a name="create-service-catalog-app"></a>서비스 카탈로그 앱 만들기
 
 Azure Portal에서 다음 단계를 사용하세요.
 
-1. **리소스 만들기를 선택합니다.**
+1. **리소스 만들기**를 선택합니다.
 
    ![리소스 만들기](./media/deploy-service-catalog-quickstart/create-new.png)
 

@@ -11,15 +11,17 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 03/27/2020
-ms.openlocfilehash: d6252b7a0ecce553bc3a1519055375fd4cd034f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 3aabf68b6763e5815a03021cb02683d509c26190
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336203"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415064"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임에 대한 설정 사용자 지정
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Azure-SQL 서버 통합 서비스 통합 런타임(Azure-SSIS IR)에 대한 사용자 지정 설정은 Azure-SSIS IR의 설정 또는 재구성 중에 고유한 단계를 추가하기 위한 인터페이스를 제공합니다. 
 
@@ -32,7 +34,7 @@ Azure-SSIS IR에 대한 사용자 지정 설정은 다음 두 가지 방법 중 
 무료, 라이선스가 부여되지 않은 구성 요소 및 익스프레스 및 표준 사용자 지정 설정을 통해 유료 라이선스 구성 요소를 모두 설치할 수 있습니다. 독립 소프트웨어 공급업체(ISV)인 경우 [Azure-SSIS IR에 대해 유료 또는 사용이 허가된 구성 요소 개발을](how-to-develop-azure-ssis-ir-licensed-components.md)참조하십시오.
 
 > [!IMPORTANT]
-> Azure-SSIS IR의 v2 시리즈 노드는 사용자 지정 설정에 적합하지 않으므로 대신 v3 계열 노드를 사용합니다. 이미 v2 시리즈 노드를 사용하고 있는 경우 가능한 한 빨리 v3 시리즈 노드로 전환하십시오.
+> 향후 향상된 기능을 활용하려면 사용자 지정 설정을 사용하여 Azure-SSIS IR에 v3 또는 이후 의 노드 시리즈를 사용하는 것이 좋습니다.
 
 ## <a name="current-limitations"></a>현재 제한 사항
 

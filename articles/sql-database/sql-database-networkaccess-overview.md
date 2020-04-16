@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 822fab5c00501d415c3c184587141e869523e417
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b4ee679b21d904f997f727f5f26275c86acc9c5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78945389"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414406"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Azure SQL 데이터베이스 및 데이터 웨어하우스 네트워크 액세스 제어
 
@@ -29,7 +29,7 @@ ms.locfileid: "78945389"
 
 [Azure 포털에서](sql-database-single-database-get-started.md)새 Azure SQL Server를 만들 때 결과는 형식의 공용 끝점인 *yourservername.database.windows.net.*
 
-다음 네트워크 액세스 컨트롤을 사용하여 공용 끝점을 통해 SQl 데이터베이스에 대한 액세스를 선택적으로 허용할 수 있습니다.
+다음 네트워크 액세스 컨트롤을 사용하여 공용 끝점을 통해 SQL Database에 대한 액세스를 선택적으로 허용할 수 있습니다.
 - Azure 서비스 허용: ON으로 설정하면 Azure 경계 내의 다른 리소스(예: Azure 가상 컴퓨터)가 SQL 데이터베이스에 액세스할 수 있습니다.
 
 - IP 방화벽 규칙: 이 기능을 사용하여 온-프레미스 컴퓨터와 같은 특정 IP 주소의 연결을 명시적으로 허용합니다.
@@ -59,10 +59,10 @@ Azure SQL Server를 다음과 같이 만든 후 방화벽 창을 통해 이 설�
 대부분의 경우 **ON** 설정은 대부분의 고객이 원하는 것보다 더 허용적입니다. 이 설정을 **OFF로** 설정하고 보다 제한적인 IP 방화벽 규칙 또는 가상 네트워크 방화벽 규칙으로 대체할 수 있습니다. 이렇게 하면 Azure의 VM에서 실행되는 다음 기능에 영향을 주며, 따라서 VNet의 일부가 아니므로 Azure IP 주소를 통해 Sql Database에 연결됩니다.
 
 ### <a name="import-export-service"></a>가져오기/내보내기 서비스
-내보내기 서비스가 작동하지 않습니다 Azure 서비스가 OFF로 설정된 **서버에 액세스하도록 허용합니다.** 그러나 [Azure VM에서 sqlpackage.exe를 수동으로 실행하거나](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) DACFx API를 사용하여 코드에서 직접 내보내기를 수행하여 문제를 해결할 수 있습니다.
+**Azure 서비스에 대한 액세스 허용이** **꺼짐으로**설정되어 있을 때 내보내기 서비스 가져오기가 작동하지 않습니다. 그러나 [Azure VM에서 sqlpackage.exe를 수동으로 실행하거나](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) DACFx API를 사용하여 코드에서 직접 내보내기를 수행하여 문제를 해결할 수 있습니다.
 
 ### <a name="data-sync"></a>데이터 동기화
-Azure 서비스가 OFF로 설정된 **서버에 액세스할 수 있도록 허용과** 함께 데이터 동기화 기능을 사용하려면 개별 방화벽 규칙 항목을 만들어 **허브** 데이터베이스를 호스팅하는 지역의 Sql **서비스 태그에서** [IP 주소를 추가해야](sql-database-server-level-firewall-rule.md) 합니다.
+Azure **서비스에 대한 액세스 허용을** **사용하여**데이터 동기화 기능을 사용하려면 개별 방화벽 규칙 항목을 만들어 **허브** 데이터베이스를 호스팅하는 지역의 Sql **서비스 태그에서** IP 주소를 [추가해야](sql-database-server-level-firewall-rule.md) 합니다.
 **허브** 및 **멤버** 데이터베이스를 모두 호스팅하는 논리 서버에 이러한 서버 수준 방화벽 규칙을 추가합니다(다른 지역에 있을 수 있음).
 
 다음 PowerShell 스크립트를 사용하여 미국 서부 지역의 Sql 서비스 태그에 해당하는 IP 주소를 생성합니다.

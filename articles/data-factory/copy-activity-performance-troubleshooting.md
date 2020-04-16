@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: a14f4d548053fb7aaf6f450176fdc49bc7b119bf
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 6df1903e828c0c4cafa6589d4a85f4016bed893e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421030"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414135"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>복사 작업 성능 문제 해결
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory에서 복사 작업 성능 문제를 해결하는 방법을 설명합니다. 
 
@@ -33,7 +35,7 @@ ms.locfileid: "80421030"
 
 참고로 현재 성능 튜닝 팁은 다음과 같은 경우에 대한 제안을 제공합니다.
 
-| Category              | 성능 튜닝 팁                                      |
+| 범주              | 성능 튜닝 팁                                      |
 | --------------------- | ------------------------------------------------------------ |
 | 데이터 저장소 별   | **Azure Synpase 분석(이전 SQL DW)에**데이터를 로드: PolyBase 또는 COPY 문을 사용하지 않는 경우 사용하는 것이 좋습니다. |
 | &nbsp;                | **Azure SQL 데이터베이스에서/로**데이터를 복사 : DTU의 사용률이 높은 경우 상위 계층으로 업그레이드하는 것이 좋습니다. |

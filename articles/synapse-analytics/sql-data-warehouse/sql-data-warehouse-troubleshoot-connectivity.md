@@ -11,25 +11,16 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8aaca40961b1294336b236305ecdffcc92c5a4d9
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: d69c8dd28b946df3fff500c31c7cdefa4767c0c4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742584"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408178"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>연결 문제 해결
 
 이 문서에서는 SQL Analytics 데이터베이스에 연결하는 일반적인 문제 해결 방법을 나열합니다.
-
-- [서비스 가용성 확인](sql-data-warehouse-troubleshoot-connectivity.md#check-service-availability)
-- [일시 중지 또는 크기 조정 작업 확인](sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
-- [방화벽 설정 확인](sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
-- [VNet/서비스 엔드포인트 설정 확인](sql-data-warehouse-troubleshoot-connectivity.md#check-your-vnetservice-endpoint-settings)
-- [최신 드라이버 확인](sql-data-warehouse-troubleshoot-connectivity.md#check-for-the-latest-drivers)
-- [연결 문자열 확인](sql-data-warehouse-troubleshoot-connectivity.md#check-your-connection-string)
-- [일시적 연결 문제](sql-data-warehouse-troubleshoot-connectivity.md#intermittent-connection-issues)
-- [일반적인 오류 메시지](sql-data-warehouse-troubleshoot-connectivity.md#common-error-messages)
 
 ## <a name="check-service-availability"></a>서비스 가용성 확인
 

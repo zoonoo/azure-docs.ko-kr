@@ -3,17 +3,17 @@ title: AKS(Azure Kubernetes Service)에 대한 서비스 주체
 description: AKS(Azure Kubernetes Service)에서 클러스터에 대한 Azure Active Directory 서비스 주체 만들기 및 관리
 services: container-service
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.openlocfilehash: 523f08ddbf22e175af5b0604b04d4a2460ffd634
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 2c792eb4dc060e3f5d7fa2d8f2176bdd51538c43
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259423"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392733"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하는 서비스 주체
 
-Azure API와 상호 작용하기 위해 AKS 클러스터에는 [Azure AD(Active Directory) 서비스 주체][aad-service-principal]가 필요합니다. 서비스 주체는 Azure 부하 분산 장치 또는 컨테이너 레지스트리(ACR)와 같은 다른 Azure 리소스를 동적으로 만들고 관리하는 데 필요합니다.
+Azure API와 상호 작용하려면 AKS 클러스터에 [Azure Active Directory(AD) 서비스 주체][aad-service-principal] 또는 [관리되는 ID가](use-managed-identity.md)필요합니다. Azure 로드 밸런서 또는 컨테이너 레지스트리(ACR)와 같은 다른 Azure 리소스를 동적으로 만들고 관리하려면 서비스 주체 또는 관리되는 ID가 필요합니다.
 
 이 문서에서는 AKS 클러스터에 대한 서비스 주체를 만들고 사용하는 방법을 보여줍니다.
 

@@ -16,12 +16,12 @@ ms.date: 03/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59bf7ae5914f5cc886d95f25b36abccfdf09c4a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 661d4f622dce45aeca1d41ead60f05ccdcfbc9c9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80331279"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406874"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 통과 인증: 질문과 대답
 
@@ -121,7 +121,7 @@ AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그�
 
 ## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>다중 포리스트 Active Directory 환경에서 통과 인증을 사용할 수 있나요?
 
-예. Active Directory 포리스트 간에 포리스트 신뢰가 있고 이름 접미사 라우팅이 제대로 구성된 경우 다중 포리스트 환경이 지원됩니다.
+예. Active Directory 포리스트 사이에 포리스트 트러스트(양방향)가 있고 이름 접미사 라우팅이 올바르게 구성된 경우 다중 포리스트 환경이 지원됩니다.
 
 ## <a name="does-pass-through-authentication-provide-load-balancing-across-multiple-authentication-agents"></a>통과 인증이 여러 인증 에이전트에 대한 부하 분산을 제공하나요?
 

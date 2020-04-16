@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: cd2b530375beb3e8fa1f79e004f4f1ac7fd4d0bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3422176ed89b7f575c11cc40e5be8420da0018b0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443920"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415807"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Office 365에서 데이터 로드
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 이 문서에서는 Data Factory를 사용하여 _Office 365에서 Azure Blob Storage로 데이터를 로드_하는 방법을 설명합니다. Azure Data Lake Gen1 또는 Gen2로 데이터를 복사할 때도 이와 유사한 단계를 따를 수 있습니다. Office 365에서 데이터를 복사하는 작업과 관련된 일반 정보는 [Office 365 커넥터 문서](connector-office-365.md)를 참조하세요.
 
@@ -97,7 +99,7 @@ ms.locfileid: "75443920"
 
 5. 속성 창의 **연결 탭으로** 이동합니다. **연결된 서비스** 텍스트 상자 옆에 있는 + 새로 만들기를 선택합니다.
 
-6. 새 연결된 서비스 창에서 "AzureStorageLinkedService"를 이름으로 입력하고 인증 방법의 드롭다운 목록에서 "서비스 주체"를 선택하고 서비스 끝점, 테넌트, 서비스 주체 ID 및 서비스 주체 키를 입력한 다음 저장을 선택합니다. 연결된 서비스를 배포할 수 있습니다.  Azure Blob Storage용 서비스 주체 인증을 설정하는 방법은 [여기](connector-azure-blob-storage.md#service-principal-authentication)를 참조하세요.
+6. 새 연결된 서비스 창에서 "AzureStorageLinkedService"를 이름으로 입력하고 인증 방법의 드롭다운 목록에서 "서비스 주체"를 선택하고 서비스 끝점, 테넌트, 서비스 주체 ID 및 서비스 주체 키를 입력한 다음 저장을 선택하여 연결된 서비스를 배포합니다.  Azure Blob Storage용 서비스 주체 인증을 설정하는 방법은 [여기](connector-azure-blob-storage.md#service-principal-authentication)를 참조하세요.
 
     ![새 Blob 연결된 서비스](./media/load-office-365-data/configure-blob-linked-service.png)
 

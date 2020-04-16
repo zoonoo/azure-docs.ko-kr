@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/13/2019
-ms.openlocfilehash: 56cc7425eea184cd26010cde48e42e38b27e68a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6975c876bb31e36b7b6268d284f747fd51803d63
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75893288"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415465"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon 단순 스토리지 서비스에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 >
 > * [버전 1](v1/data-factory-amazon-simple-storage-service-connector.md)
 > * [현재 버전](connector-amazon-simple-storage-service.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Amazon 단순 스토리지 서비스(Amazon S3)에서 데이터를 복사하는 방법을 설명합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
 
@@ -62,11 +64,11 @@ Amazon S3 사용 권한의 전체 목록은 [정책에서 사용 권한 지정](
 
 Amazon S3 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **AmazonS3**으로 설정되어야 합니다. | yes |
-| accessKeyId | 비밀 액세스 키의 ID입니다. |yes |
-| secretAccessKey | 비밀 액세스 키 자체입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |yes |
+| type | 형식 속성은 **AmazonS3**으로 설정되어야 합니다. | 예 |
+| accessKeyId | 비밀 액세스 키의 ID입니다. |예 |
+| secretAccessKey | 비밀 액세스 키 자체입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | serviceUrl | 공식 Amazon S3 서비스가 아닌 S3 호환 스토리지 공급 기업의 데이터를 복사하는 경우 사용자 지정 S3 엔드포인트를 지정합니다. 예를 들어 Google Cloud Storage에서 데이터를 복사하려면 `https://storage.googleapis.com`을 지정합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임입니다.](concepts-integration-runtime.md) Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
@@ -107,10 +109,10 @@ Amazon S3 연결된 서비스에 다음 속성이 지원됩니다.
 
 형식 기반 데이터 집합의 설정에서 `location` Amazon S3에 대해 다음 속성이 지원됩니다.
 
-| 속성   | 설명                                                  | 필수 |
+| 속성   | Description                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | 데이터 집합에서 `location` 아래의 형식 속성은 **AmazonS3Location**으로 설정해야 합니다. | yes      |
-| bucketName | S3 버킷 이름입니다.                                          | yes      |
+| type       | 데이터 집합에서 `location` 아래의 형식 속성은 **AmazonS3Location**으로 설정해야 합니다. | 예      |
+| bucketName | S3 버킷 이름입니다.                                          | 예      |
 | folderPath | 지정된 버킷 아래의 폴더 경로입니다. 와일드카드를 사용하여 폴더를 필터링하려면 이 설정을 건너뛰고 활동 소스 설정에서 지정합니다. | 예       |
 | fileName   | 지정된 버킷 + folder 패스 아래의 파일 이름입니다. 와일드카드를 사용하여 파일을 필터링하려면 이 설정을 건너뛰고 활동 소스 설정에서 지정합니다. | 예       |
 | 버전 | S3 버전 관리를 사용하도록 설정하면 S3 개체의 버전입니다. 지정하지 않으면 최신 버전이 가져옵니다. |예 |
@@ -152,9 +154,9 @@ Amazon S3 연결된 서비스에 다음 속성이 지원됩니다.
 
 형식 기반 복사 소스의 설정에서 `storeSettings` Amazon S3에 대해 다음 속성이 지원됩니다.
 
-| 속성                 | 설명                                                  | 필수                                                    |
+| 속성                 | Description                                                  | 필수                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| type                     | 아래의 `storeSettings` 형식 속성은 **AmazonS3ReadSettings**로 설정해야 합니다. | yes                                                         |
+| type                     | 아래의 `storeSettings` 형식 속성은 **AmazonS3ReadSettings**로 설정해야 합니다. | 예                                                         |
 | recursive                | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive를 true로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다. 허용된 **true** 값은 true(기본값) 및 **false입니다.** | 예                                                          |
 | 접두사                   | 원본 개체를 필터링하기 위해 데이터 집합에 구성된 지정된 버킷 아래의 S3 개체 키에 대한 접두사입니다. 이 접두사로 시작하는 키를 가진 개체가 선택됩니다. <br>속성이 `wildcardFileName` `wildcardFolderPath` 지정되지 않은 경우에만 적용됩니다. | 예                                                          |
 | 와일드 카드폴더패스       | 원본 폴더를 필터링하기 위해 데이터 집합에 구성된 지정된 버킷 아래에 와일드카드 문자가 있는 폴더 경로입니다. <br>허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br>더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 예                                                          |
@@ -238,9 +240,9 @@ Amazon S3에서 Azure 데이터 레이크 저장소 Gen2/Azure Blob로 파일을
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 집합 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 type 속성을 **AmazonS3Object**로 설정해야 합니다. |yes |
+| type | 데이터 세트의 type 속성을 **AmazonS3Object**로 설정해야 합니다. |예 |
 | bucketName | S3 버킷 이름입니다. 와일드카드 필터는 지원되지 않습니다. |Copy/Lookup 활동의 경우 예, GetMetadata 활동의 경우 아니요 |
 | key | 지정된 버킷에서 S3 개체 키의 **이름 또는 와일드카드 필터**입니다. "prefix" 속성이 지정되어 있지 않은 경우에만 적용됩니다. <br/><br/>와일드카드 필터가 폴더 부분과 파일 이름 부분에 모두 지원됩니다. 허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다.<br/>- 예 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- 예 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. 실제 폴더/파일 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. |예 |
 | 접두사 | S3 개체 키에 대한 접두사입니다. 이 접두사로 시작하는 키를 가진 개체가 선택됩니다. "key" 속성이 지정되어 있지 않은 경우에만 적용됩니다. |예 |
@@ -314,9 +316,9 @@ Amazon S3에서 Azure 데이터 레이크 저장소 Gen2/Azure Blob로 파일을
 
 ### <a name="legacy-copy-activity-source-model"></a>레거시 복사 활동 소스 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 형식 속성을 **FileSystemSource**로 설정해야 합니다. |yes |
+| type | 복사 작업 원본의 형식 속성을 **FileSystemSource**로 설정해야 합니다. |예 |
 | recursive | 하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive가 true로 설정되고 싱크가 파일 기반 저장소인 경우 싱크에서 빈 폴더/하위 폴더가 복사/생성되지 않습니다.<br/>허용된 값은 다음과 같습니다: true(기본값), **false** **true** | 예 |
 | maxConcurrentConnections | 동시에 데이터 저장소에 연결할 연결 수입니다. 데이터 저장소에 대한 동시 연결을 제한하려는 경우에만 지정합니다. | 예 |
 

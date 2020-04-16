@@ -7,14 +7,16 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 196d917d31eb08af80587bba30d9f7e67bf8cbea
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: c28305cc55fcc561863670a15480782ce63e75b4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991708"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415510"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>매핑 데이터 흐름에서 표현식 빌드
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 데이터 흐름을 매핑할 때 많은 변환 속성이 식으로 입력됩니다. 이러한 식은 런타임에 스파크 데이터 유형으로 평가하는 열 값, 매개 변수, 함수, 연산자 및 리터럴로 구성됩니다.
 
@@ -24,7 +26,7 @@ ms.locfileid: "80991708"
 
 Azure 데이터 팩터리 사용자 환경의 식 편집 인터페이스를 식 작성기라고 합니다. 식 논리를 입력할 때 Data Factory는 강조 표시, 구문 검사 및 자동 완성을 위해 [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense?view=vs-2019) 코드 완성을 사용합니다.
 
-![식 작성기](media/data-flow/xpb1.png "식 작성기")
+![표현식 작성기](media/data-flow/xpb1.png "식 작성기")
 
 파생 된 열 및 필터와 같은 변환에서 식이 필수인 경우 파란색 식 상자를 선택하여 식 작성기 열기를 엽니다.
 

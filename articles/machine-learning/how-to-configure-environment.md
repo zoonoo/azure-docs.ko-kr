@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: a5f46f5af723e1245afbc6bca90d25ae9036d646
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10ea0002b2e99c4675f56e48a638f3c1cb87e6c0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472429"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399003"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "79472429"
 | --- | --- | --- |
 | [클라우드 기반 Azure 기계 학습 계산 인스턴스(미리 보기)](#compute-instance) | 시작하는 가장 쉬운 방법. 전체 SDK가 이미 작업 영역 VM에 설치되어 있으며 노트북 자습서를 미리 복제하여 실행할 준비가 되었습니다. | 개발 환경 및 종속성을 제어할 수 없습니다. Linux VM에 대해 발생하는 추가 비용(요금을 피하기 위해 사용하지 않을 때 VM을 중지할 수 있음). [가격 세부 정보를](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)참조하십시오. |
 | [로컬 환경](#local) | 개발 환경 및 종속성을 완전히 제어합니다. 선택한 빌드 도구, 환경 또는 IDE로 실행합니다. | 시작하는 데 시간이 더 오래 걸립니다. 필요한 SDK 패키지를 설치해야 하며 아직 패키지가 없는 환경도 설치해야 합니다. |
-| [Azure 데이터 브릭](#aml-databricks) | 확장 가능한 Apache Spark 플랫폼에서 대규모의 집약적 기계 학습 워크플로를 실행하는 데 적합합니다. | 실험용 기계 학습 또는 소규모 실험 및 워크플로우를 위한 과잉 조정. Azure 데이터 브릭에 대해 발생하는 추가 비용입니다. [가격 세부 정보를](https://azure.microsoft.com/pricing/details/databricks/)참조하십시오. |
+| [Azure Databricks](#aml-databricks) | 확장 가능한 Apache Spark 플랫폼에서 대규모의 집약적 기계 학습 워크플로를 실행하는 데 적합합니다. | 실험용 기계 학습 또는 소규모 실험 및 워크플로우를 위한 과잉 조정. Azure 데이터 브릭에 대해 발생하는 추가 비용입니다. [가격 세부 정보를](https://azure.microsoft.com/pricing/details/databricks/)참조하십시오. |
 | [데이터 과학 가상 머신(DSVM)](#dsvm) | 클라우드 기반 컴퓨팅 인스턴스(Python 및 SDK가 사전 설치됨)와 유사하지만 인기 있는 데이터 과학 및 기계 학습 도구가 사전 설치되어 있습니다. 다른 사용자 지정 도구 및 워크플로와 쉽게 확장하고 결합할 수 있습니다. | 클라우드 기반 컴퓨팅 인스턴스에 비해 시작 환경이 느려집니다. |
 
 이 문서에서는 다음 도구에 대한 추가 사용 팁도 제공합니다.
@@ -63,7 +63,7 @@ Azure 기계 학습 [계산 인스턴스(미리 보기)는](concept-compute-inst
 
 계산 요금 발생을 중지하려면 [계산 인스턴스를 중지합니다.](tutorial-1st-experiment-sdk-train.md#clean-up-resources)
 
-## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>데이터 과학 가상 머신
+## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>데이터 과학 Virtual Machine
 
 DSVM는 사용자 지정된 VM(가상 머신) 이미지입니다. 데이터 과학 작업을 위해 설계되었으며 다음 요소가 미리 구성되어 있습니다.
 
@@ -201,7 +201,7 @@ DSVM을 개발 환경으로 사용하려면 다음을 수행하십시오.
     pip install <new package>
     ```
 
-### <a name="jupyter-notebooks"></a><a id="jupyter"></a>Jupyter 노트북
+### <a name="jupyter-notebooks"></a><a id="jupyter"></a>Jupyter Notebook
 
 Jupyter Notebook은 [Jupyter 프로젝트](https://jupyter.org/)의 일부입니다. 라이브 코드를 설명 테스트 및 그래픽과 혼합하는 문서를 만드는 대화형 코딩 환경을 제공합니다. Jupyter Notebook은 코드 섹션의 출력을 문서에 저장할 수 있으므로 다른 사람과 결과를 공유하는 좋은 방법이기도 합니다. Jupyter Notebook은 다양한 플랫폼에 설치할 수 있습니다.
 
@@ -288,7 +288,7 @@ Azure 데이터 브릭이 Azure 기계 학습과 함께 작동하는 방법:
 | 설정 |적용 대상| 값 |
 |----|---|---|
 | 클러스터 이름 |always| yourclustername |
-| Databricks Runtime |always|비 ML 런타임 6.0 (스칼라 2.11, 스파크 2.4.3) |
+| Databricks Runtime |always|비 ML 런타임 6.5 (스칼라 2.11, 스파크 2.4.3) |
 | Python 버전 |always| 3 |
 | 작업자 |always| 2 이상 |
 | 작업자 노드 VM 유형 <br>(동시 반복의 최대 # 결정) |자동화된 ML<br>전용| 메모리 최적화 VM 기본 설정 |

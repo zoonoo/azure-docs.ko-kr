@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 04/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: c3b06289ba6ce98d4307a8255981ecdba069fdfa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 021ac5fccf4d694895ab9941bd46dd2388f49af9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76905399"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407450"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Time Series Insights 환경에 이벤트 허브 이벤트 원본 추가
 
@@ -54,7 +54,7 @@ ms.locfileid: "76905399"
 
 ## <a name="add-a-new-event-source"></a>새 이벤트 원본 추가
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. 기존 Time Series Insights 환경을 찾습니다. 왼쪽 메뉴에서 **모든 리소스**를 선택한 다음, Time Series Insights 환경을 선택합니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "76905399"
 
        [![구독 및 이벤트 허브 세부 정보](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png#lightbox)
 
-       | 속성 | 설명 |
+       | 속성 | Description |
        | --- | --- |
        | Subscription | 원하는 이벤트 허브 인스턴스 및 네임스페이스구독이 속합니다. |
        | 이벤트 허브 네임스페이스 | 원하는 이벤트 허브 인스턴스가 속한 이벤트 허브 네임스페이스입니다. |
@@ -88,7 +88,7 @@ ms.locfileid: "76905399"
 
        다음 표에서는 **수동으로 이벤트 허브 설정 제공** 옵션에 필요한 속성을 설명합니다.
  
-       | 속성 | 설명 |
+       | 속성 | Description |
        | --- | --- |
        | 구독 ID | 원하는 이벤트 허브 인스턴스 및 네임스페이스구독이 속합니다. |
        | Resource group | 리소스는 원하는 이벤트 허브 인스턴스 및 네임스페이스에 속합니다. |
@@ -99,7 +99,7 @@ ms.locfileid: "76905399"
 
     * 두 옵션 모두 다음 구성 옵션을 공유합니다.
 
-       | 속성 | 설명 |
+       | 속성 | Description |
        | --- | --- |
        | 이벤트 허브 소비자 그룹 | 이벤트 허브에서 이벤트를 읽는 소비자 그룹입니다. 이벤트 원본에 대한 전용 소비자 그룹을 사용하는 것이 좋습니다. |
        | 이벤트 직렬화 형식 | 현재, JSON이 사용 가능한 유일한 직렬화 형식입니다. 이벤트 메시지는 이 형식이어야 하며 데이터를 읽을 수 없습니다. |

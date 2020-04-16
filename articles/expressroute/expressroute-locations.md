@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 03/25/2020
+ms.date: 04/14/2020
 ms.author: cherylmc
-ms.openlocfilehash: 913bc16f7408acebb0e65359e8845ce0f6a3a2f4
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: b99bd20b9b9e18bbc09edd5bb49f34147ccfaabd
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314259"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390243"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -81,7 +81,7 @@ ExpressRoute 위치(피어링 위치 또는 모임 위치라고도 함)는 Micro
 | **[AIS](https://business.ais.co.th/solution/en/azure-expressroute.html)** | 지원됨 | 지원됨 | 방콕 |
 | **[Aryaka Networks](https://www.aryaka.com/)** |지원됨 |지원됨 |암스테르담, 시카고, 달라스, 홍콩 특별 행정구, 상파울루, 시애틀, 실리콘 밸리, 싱가포르, 도쿄, 워싱턴 DC |
 | **[Ascenty Data Cente](https://www.ascenty.com/en/cloud/microsoft-express-route)** |지원됨 |지원됨 |상파울루 |
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |지원됨 |지원됨 |암스테르담, 시카고, 댈러스, 런던, 실리콘밸리, 싱가포르, 시드니, 도쿄, 토론토, 워싱턴 DC |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |지원됨 |지원됨 |암스테르담, 시카고, 달라스, 프랑크푸르트, 런던, 실리콘 밸리, 싱가포르, 시드니, 도쿄, 토론토, 워싱턴 DC |
 | **[도쿄에서](https://www.attokyo.com/service/cloudsconnection/forazure.html)** | 지원됨 | 지원됨 | 도쿄2 |
 | **[BBIX](https://www.bbix.net/en/service/ix/)** | 지원됨 | 지원됨 | 도쿄 |
 | **[BC 주](https://www.bcx.co.za/solutions)** |지원됨 |지원됨 |케이프타운|
@@ -138,7 +138,7 @@ ExpressRoute 위치(피어링 위치 또는 모임 위치라고도 함)는 Micro
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |지원됨 |지원됨 |암스테르담, 암스테르담2, 두바이2, 프랑크푸르트, 홍콩 특별 행정구, 요하네스버그, 런던, 파리, 상파울루, 실리콘 밸리, 싱가포르, 시드니, 도쿄, 워싱턴 DC |
 | **[오릭스콤](https://www.orixcom.com/cloud-solutions/)** | 지원됨 | 지원됨 | 두바이2 |
 | **[패킷 패브릭](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |지원됨 |지원됨 |시카고, 실리콘밸리, 워싱턴 DC |
-| **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |지원됨 |지원됨 |시카고, 홍콩 특별 행정구, 런던 |
+| **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |지원됨 |지원됨 |시카고, 홍콩 특별 행정구, 런던, 싱가포르2 |
 | **[세종텔레콤](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |지원됨 |지원됨 |서울 |
 | **[Ses](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | 지원됨 |지원됨 | 워싱턴 DC |
 | **[Sify](http://telecom.sify.com/azure-expressroute.html)** |지원됨 |지원됨 |첸나이, 뭄바이2 |
@@ -296,7 +296,7 @@ Azure 국가 클라우드는 서로 및 전역 상용 Azure에서 격리됩니�
 
 ## <a name="connectivity-through-datacenter-providers"></a>데이터 센터 공급자를 통한 연결
 
-| **공급 기업** | **Connector** |
+| **공급자** | **Connector** |
 | --- | --- |
 | **[CyrusOne](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/cloud-connectivity-reaching-amazon-microsoft-google-and-more/microsoft-azure-expressroute/?doing_wp_cron=1498512235.6733090877532958984375)** | 메가포트, 패킷패브릭 |
 | **[Cyxtera](https://www.cyxtera.com/data-center-services/interconnection)** | 메가포트, 패킷패브릭 |
@@ -313,7 +313,7 @@ Azure 국가 클라우드는 서로 및 전역 상용 Azure에서 격리됩니�
 
 ## <a name="connectivity-through-national-research-and-education-networks-nren"></a>국가 연구 및 교육 네트워크를 통한 연결성 (NREN)
 
-| **공급 기업**|
+| **공급자**|
 | --- |
 | **AARNET**| 
 | **DeIC(GÉANT를 통해)**|

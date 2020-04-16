@@ -11,15 +11,17 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 03/27/2020
-ms.openlocfilehash: 9a1923057bc318869f491791520aacb4d0d17591
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.date: 04/15/2020
+ms.openlocfilehash: ecfdf2a11f31c18064be9a607f2bb3938d26e661
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346628"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414906"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Azure 데이터 팩터리에서 Azure-SSIS IR에 대한 프록시로 자체 호스팅 IR 구성
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 이 문서에서는 Azure-SSIS 통합 런타임(Azure-SSIS IR)에서 프록시로 구성된 자체 호스팅 통합 런타임(자체 호스팅 IR)을 사용하여 Azure-SSIS 통합 런타임(Azure-SSIS IR)에서 SQL Server 통합 서비스(SSIS) 패키지를 실행하는 방법을 설명합니다. 
 
@@ -52,7 +54,7 @@ ms.locfileid: "80346628"
 
 아직 설정하지 않은 경우 Azure-SSIS IR이 설정된 동일한 데이터 팩터리에서 Azure Blob 저장소 연결 서비스를 만듭니다. 이렇게 하려면 [Azure 데이터 팩터리 연결 서비스 만들기를](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-linked-service)참조하십시오. 다음을 수행해야 합니다.
 - **데이터 저장소의**경우 **Azure Blob 저장소를**선택합니다.  
-- **통합 런타임을 통해 연결하려면**Azure Blob Storage에 대한 액세스 자격 증명을 가져오기 위해 기본 Azure IR을 사용하기 때문에 **자동 해결 통합 런타임(Azure-SSIS** IR또는 자체 호스팅IR이 아님)을 선택합니다.  
+- **통합 런타임을 통해 연결하려면**Azure Blob Storage에 대한 액세스 자격 증명을 가져오기 위해 기본 Azure IR을 사용하기 때문에 **자동 해결 통합 런타임(Azure-SSIS** IR이나 자체 호스팅 IR이 아님)을 선택합니다.
 - **인증 방법의**경우 **계정 키,** **SAS URI**또는 서비스 **주체를 선택합니다.**  
 
     >[!TIP]
@@ -171,7 +173,7 @@ Azure-SSIS IR에서 실행되는 두 번째 스테이징 작업은 별도로 청
 
 ## <a name="current-limitations"></a>현재 제한 사항
 
-- 현재 개방형 데이터베이스 연결(ODBC)/OLEDB/플랫 파일 소스가 있는 데이터 흐름 작업만 지원됩니다. 
+- 현재 개방형 데이터베이스 연결(ODBC)/OLEDB/플랫 파일 소스 또는 OLEDB 대상이 있는 데이터 흐름 작업만 지원됩니다. 
 - *계정 키,* *SAS(공유 액세스 서명) URI*또는 *서비스 주체* 인증으로 구성된 Azure Blob 저장소 연결 서비스만 현재 지원됩니다.
 - OLEDB 소스의 *매개 변수 매핑은* 아직 지원되지 않습니다. 해결 방법으로 *변수에서 SQL 명령을* *AccessMode로* 사용하고 *표현식을* 사용하여 SQL 명령에 변수/매개 변수를 삽입하십시오. 그림에서는 공개 미리 보기 컨테이너의 *SelfHostedIRProxy/제한* 폴더에서 찾을 수 있는 *ParameterMappingSample.dtsx* 패키지를 참조하십시오. Azure 저장소 탐색기를 사용 하 여 위의 SAS URI를 입력 하 여 공용 미리 보기 컨테이너에 연결할 수 있습니다.
 

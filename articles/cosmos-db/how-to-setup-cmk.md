@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: 6e2a90b8f81b9b945905ee98beb1686c54a62e8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 733a85e492185e7e83922a3cc91d53c848b939a1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063752"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411153"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Azure 키 자격 증명 모음을 통해 Azure Cosmos 계정에 대한 고객 관리 키 구성
 
@@ -231,7 +231,7 @@ Azure Cosmos 계정에 저장된 모든 데이터는 다음 메타데이터를 �
 
 ### <a name="how-do-customer-managed-keys-affect-a-backup"></a>고객 관리 키는 백업에 어떤 영향을 미칩니까?
 
-Azure Cosmos DB는 계정에 저장된 데이터의 [정기적이고 자동적인 백업을](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) 수행합니다. 이 작업은 암호화된 데이터를 백업합니다. 복원된 백업을 사용하려면 백업 시 사용한 암호화 키가 필요합니다. 즉, 해지되지 않았으며 백업 시 사용된 키 의 버전은 계속 활성화됩니다.
+Azure Cosmos DB는 계정에 저장된 데이터의 [정기적이고 자동적인 백업을](./online-backup-and-restore.md) 수행합니다. 이 작업은 암호화된 데이터를 백업합니다. 복원된 백업을 사용하려면 백업 시 사용한 암호화 키가 필요합니다. 즉, 해지되지 않았으며 백업 시 사용된 키 의 버전은 계속 활성화됩니다.
 
 ### <a name="how-do-i-revoke-an-encryption-key"></a>암호화 키를 해지하려면 어떻게 해야 합니까?
 

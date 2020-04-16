@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 6e0c98cffef06fb6d6345fc2b23bbc22715909b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3432f981df3f666d6276eee4564ef33000faa6b1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79370188"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410887"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>방화벽을 사용하여 Azure HDInsight 클러스터에 대한 아웃바운드 네트워크 트래픽 구성
 
@@ -62,19 +62,19 @@ Azure 방화벽을 사용하여 기존 HDInsight에서 송신을 잠그는 단�
 
     | 속성|  값|
     |---|---|
-    |이름| FwAppRule|
+    |속성| FwAppRule|
     |우선 순위|200|
     |작업|Allow|
 
     **FQDN 태그 섹션**
 
-    | 이름 | 소스 주소 | FQDN 태그 | 메모 |
+    | 속성 | 소스 주소 | FQDN 태그 | 메모 |
     | --- | --- | --- | --- |
     | Rule_1 | * | 윈도우업데이트 및 HD인사이트 | HDI 서비스에 필요 |
 
     **대상 FQDNs 섹션**
 
-    | 이름 | 소스 주소 | 프로토콜:포트 | 대상 FQDNS | 메모 |
+    | 속성 | 소스 주소 | 프로토콜:포트 | 대상 FQDNS | 메모 |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Windows 로그인 작업 허용 |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Windows 로그인 작업 허용 |
@@ -96,13 +96,13 @@ Azure 방화벽을 사용하여 기존 HDInsight에서 송신을 잠그는 단�
 
     | 속성|  값|
     |---|---|
-    |이름| FwNetRule|
+    |속성| FwNetRule|
     |우선 순위|200|
     |작업|Allow|
 
     **IP 주소 섹션**
 
-    | 이름 | 프로토콜 | 소스 주소 | 목적지 주소 | 대상 포트 | 메모 |
+    | 속성 | 프로토콜 | 소스 주소 | 목적지 주소 | 대상 포트 | 메모 |
     | --- | --- | --- | --- | --- | --- |
     | Rule_1 | UDP | * | * | 123 | 시간 서비스 |
     | Rule_2 | 모두 | * | DC_IP_Address_1, DC_IP_Address_2 | * | ESP(엔터프라이즈 보안 패키지)를 사용하는 경우 IP 주소 섹션에 ESP 클러스터에 대한 AAD-DS와의 통신을 허용하는 네트워크 규칙을 추가합니다. 포털의 AAD-DS 섹션에서 도메인 컨트롤러의 IP 주소를 찾을 수 있습니다. |
@@ -111,7 +111,7 @@ Azure 방화벽을 사용하여 기존 HDInsight에서 송신을 잠그는 단�
 
     **서비스 태그 섹션**
 
-    | 이름 | 프로토콜 | 원본 주소 | 서비스 태그 | 대상 포트 | 메모 |
+    | 속성 | 프로토콜 | 원본 주소 | 서비스 태그 | 대상 포트 | 메모 |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | 방화벽을 우회하는 HDInsight 서브넷에서 SQL Server용 서비스 엔드포인트를 구성하지 않는 한 SQL 트래픽에 대한 서비스 태그 섹션을 구성하여 SQL 트래픽을 기록하고 감사할 수 있도록 하는 네트워크 규칙을 구성합니다. |
 
@@ -202,7 +202,7 @@ Azure 방화벽의 확장 제한 및 요청 증가에 대해 알아보려면 [�
 
 ### <a name="service-endpoint-capable-dependencies"></a>서비스 엔드포인트 가능 종속성
 
-| **엔드포인트** |
+| **끝점** |
 |---|
 | Azure SQL |
 | Azure Storage |
@@ -210,7 +210,7 @@ Azure 방화벽의 확장 제한 및 요청 증가에 대해 알아보려면 [�
 
 #### <a name="ip-address-dependencies"></a>IP 주소 종속성
 
-| **엔드포인트** | **세부 정보** |
+| **끝점** | **세부 정보** |
 |---|---|
 | \*:123 | NTP 클록 확인. 트래픽이 포트 123의 여러 엔드포인트에서 확인됩니다. |
 | [여기에](hdinsight-management-ip-addresses.md) 게시된 IP | 이들은 HDInsight 서비스입니다 |
@@ -221,9 +221,9 @@ Azure 방화벽의 확장 제한 및 요청 증가에 대해 알아보려면 [�
 #### <a name="fqdn-httphttps-dependencies"></a>FQDN HTTP/HTTPS 종속성
 
 > [!Important]
-> 아래 목록은 가장 중요한 FQDNs 중 몇 개만 제공합니다. [이 파일에서](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json)NVA를 구성하기 위한 전체 FQDNs 목록을 얻을 수 있습니다.
+> 아래 목록은 가장 중요한 FQDNs 중 몇 개만 제공합니다. [이 파일에서](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json)NVA를 구성하기 위한 추가 FQDNs(주로 Azure 저장소 및 Azure Service Bus)를 얻을 수 있습니다.
 
-| **엔드포인트**                                                          |
+| **끝점**                                                          |
 |---|
 | azure.archive.ubuntu.com:80                                           |
 | security.ubuntu.com:80                                                |

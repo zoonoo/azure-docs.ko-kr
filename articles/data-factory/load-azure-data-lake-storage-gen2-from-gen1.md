@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: 81f8577592f1d53627bc09a2f9ace8c060ad4660
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 6655510a4cfdb88e98319c7fc26c7ae83255bb6f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668858"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415816"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에서 Gen2로 데이터 복사
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Azure 데이터 레이크 저장소 Gen2Azure [Blob 저장소에](../storage/blobs/storage-blobs-introduction.md)내장된 빅 데이터 분석에 전념하는 기능 집합입니다. 파일 시스템과 개체 저장소 패러다임을 모두 사용하여 데이터와 인터페이스하는 데 사용할 수 있습니다.
 
@@ -105,7 +107,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
    a. **저장소 계정 이름** 드롭다운 목록에서 데이터 레이크 스토리지 Gen2 지원 계정을 선택합니다.
    
-   b. **마침**을 선택하여 연결을 만듭니다. 그런 다음 을 **선택합니다.**
+   b. **마침**을 선택하여 연결을 만듭니다. 그런 후 **다음**을 선택합니다.
    
    ![Azure Data Lake Storage Gen2 계정 지정](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 

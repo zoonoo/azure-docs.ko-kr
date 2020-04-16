@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 17e474de9c221126d67cc2982ba11c6ff75e7aa3
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: c1d2c0e48394fbde1b595ae4b405d84f437dc5e4
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668506"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392823"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스(AKS)에서 표준 SKU 로드 밸러커 사용
 
@@ -32,7 +32,7 @@ CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 문서에서�
 
 이 문서에서는 *표준* SKU Azure 로드 밸런서가 있는 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-AKS 클러스터 서비스 주체는 기존 서브넷 또는 리소스 그룹을 사용하는 경우 네트워크 리소스를 관리할 수 있는 권한도 필요합니다. 일반적으로 위임된 리소스의 서비스 주체에 *네트워크 기여자* 역할을 할당합니다. 사용 권한에 대한 자세한 내용은 [다른 Azure 리소스에 대한 AKS 액세스 대리자를][aks-sp]참조하십시오.
+AKS 클러스터 서비스 주체는 기존 서브넷 또는 리소스 그룹을 사용하는 경우 네트워크 리소스를 관리할 수 있는 권한도 필요합니다. 일반적으로 위임된 리소스의 서비스 주체에 *네트워크 기여자* 역할을 할당합니다. 서비스 주체 대신 관리되는 ID를 사용할 수 있는 시스템에 사용 권한을 사용할 수도 있습니다. 자세한 내용은 [관리되는 ID 사용을](use-managed-identity.md)참조하십시오. 사용 권한에 대한 자세한 내용은 [다른 Azure 리소스에 대한 AKS 액세스 대리자를][aks-sp]참조하십시오.
 
 ### <a name="moving-from-a-basic-sku-load-balancer-to-standard-sku"></a>기본 SKU 로드 밸레인저에서 표준 SKU로 전환
 

@@ -6,18 +6,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6bd360b2075c337e3ed3d69d84368d16571a9335
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcef0574e16e0b4d28755716c32670b00c65af14
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536057"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406101"
 ---
 # <a name="my-first-graphical-runbook"></a>내 첫 번째 그래픽 Runbook
 
 > [!div class="op_single_selector"]
 > * [그래픽](automation-first-runbook-graphical.md)
-> * [Powershell](automation-first-runbook-textual-powershell.md)
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [PowerShell 워크플로](automation-first-runbook-textual.md)
 > * [Python](automation-first-runbook-textual-python2.md)
 > 
@@ -100,7 +100,7 @@ Runbook을 프로덕션 환경에서 사용할 수 있도록 게시하기 전에
 1. **모든 로그** 를 클릭하여 Runbook 작업에 대한 스트림 창을 엽니다. 출력 스트림에만 표시됩니다. `Hello World` 
 
     스트림 창은 Runbook이 해당 스트림에 쓰는 경우 자세한 내용 및 오류 스트림과 같은 Runbook 작업에 대한 다른 스트림을 표시할 수 있습니다.
-1. 스트림 창과 작업 창을 닫고 **MyFirstRunbook-그래픽** 페이지로 돌아갑니다.
+1. 스트림 창과 작업 창을 닫고 MyFirstRunbook-그래픽 페이지로 돌아갑니다.
 1. Runbook의 모든 작업을 보려면 **리소스**에서 **작업을** 선택합니다. 작업 페이지에는 Runbook에서 만든 모든 작업이 나열됩니다. 작업을 한 번만 실행했기 때문에 나열된 작업이 하나만 표시됩니다.
 1. 작업 이름을 클릭하여 Runbook을 시작할 때 보았던 것과 동일한 작업 창을 엽니다. 이 창을 사용하여 Runbook에 대해 생성된 모든 작업의 세부 정보를 볼 수 있습니다.
 
@@ -126,7 +126,7 @@ Runbook을 테스트하고 게시했지만 지금까지는 Azure 리소스를 �
 >[!NOTE]
 >PowerShell `Add-AzAccount` 런북의 `Add-AzureRMAccount` 경우 에 대한 `Connect-AzAccount`별칭입니다. 이러한 별칭은 그래픽 런북에 사용할 수 없습니다. 그래픽 런북은 자체만 `Connect-AzAccount`사용할 수 있습니다.
 
-1. Runbook으로 이동하여 **MyFirstRunbook-그래픽** 페이지에서 **편집을** 선택합니다.
+1. Runbook으로 이동하여 MyFirstRunbook-그래픽 페이지에서 **편집을** 선택합니다.
 1. 더 이상 항목이 `Write Hello World to output` 필요하지 않습니다. 타원을 클릭하고 **삭제를**선택하기만 하면 됩니다.
 1. 라이브러리 컨트롤에서 **ASSETS**를 확장한 다음 **연결을**확장합니다. 캔버스에 추가를 선택하여 `AzureRunAsConnection` **캔버스에 추가합니다.**
 1. `AzureRunAsConnection`의 이름을 `Get Run As Connection`으로 바꿉니다.
@@ -185,7 +185,7 @@ Runbook을 테스트하고 게시했지만 지금까지는 Azure 리소스를 �
 
 Runbook은 현재 cmdlet에 대해 지정한 리소스 `Start-AzVM` 그룹의 VM을 시작합니다. Runbook이 시작될 때 이름과 리소스 그룹을 모두 지정하면 Runbook이 더 유용합니다. 해당 기능을 제공하기 위해 Runbook에 입력 매개 변수를 추가해 보겠습니다.
 
-1. **MyFirstRunbook-Graphical** 창에서 **편집**을 클릭하여 그래픽 편집기를 엽니다.
+1. MyFirstRunbook-그래픽 페이지에서 **편집을** 클릭하여 그래픽 편집기열기를 엽니다.
 1. **입력 및 출력**과 **입력 추가**를 차례로 선택하여 Runbook 입력 매개 변수 창을 엽니다.
 1. 제공된 필드에서 다음 설정을 한 다음 **확인을**클릭합니다.
    * **이름** -- `VMName`를 지정합니다.
@@ -243,7 +243,7 @@ Runbook은 현재 cmdlet에 대해 지정한 리소스 `Start-AzVM` 그룹의 VM
 1. 첫 번째 `Write-Output` 컨트롤의 경우 **매개 변수를** 클릭하고 **레이블** 값을 **VM 시작 알림으로**변경합니다.
 1. **InputObject의**경우 **데이터 원본을** **PowerShell 식으로** `$VMName successfully started.`변경하고 식을 입력합니다.
 1. 두 번째 `Write-Output` 컨트롤에서 **매개 변수를** 클릭하고 **레이블** 값을 **VM 시작 실패 알림으로**변경합니다.
-1. **InputObject의**경우 **데이터 원본을** **PowerShell 식으로** `$VMName could not start.`변경하고 식을 입력합니다.
+1. **InputObject의**경우 **데이터 원본을** **PowerShell 식으로** `$VMName could not start`변경하고 식을 입력합니다.
 1. 에서 `Start-AzVM` `Notify VM Started` 및 `Notify VM Start Failed`에 대한 링크를 만듭니다.
 1. 링크를 선택하고 `Notify VM Started` 적용 **조건을** true로 변경합니다.
 1. 조건 **식에**대해 `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true`을 입력합니다. 이제 `Write-Output` 이 컨트롤은 VM이 성공적으로 시작되는 경우에만 실행됩니다.
@@ -259,3 +259,5 @@ Runbook은 현재 cmdlet에 대해 지정한 리소스 `Start-AzVM` 그룹의 VM
 * 그래픽 작성에 대한 자세한 내용은 [Azure Automation의 그래픽 작성을](automation-graphical-authoring-intro.md)참조하십시오.
 * PowerShell 실행책을 시작하려면 [내 첫 번째 PowerShell 실행책을](automation-first-runbook-textual-powershell.md)참조하십시오.
 * PowerShell 워크플로 런북을 시작하려면 [내 첫 번째 PowerShell 워크플로 런북을](automation-first-runbook-textual.md)참조하십시오.
+* PowerShell cmdlet 참조는 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+)을 참조하십시오.

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: cb1444261a2ba4810f4fddb3d7aa3bc172f09654
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e4470ce5ac69390cf8d361577b9ebf0013e4e51
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278871"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405796"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Hybrid Runbook Worker를 사용하여 데이터 센터 또는 클라우드의 리소스 자동화
 
@@ -22,21 +22,21 @@ Azure Automation의 Runbook은 Azure 클라우드 플랫폼에서 실행되므�
 
 각 Hybrid Runbook Worker는 에이전트를 설치할 때 지정한 Hybrid Runbook Worker 그룹의 구성원입니다. 그룹은 단일 에이전트를 포함할 수 있지만 고가용성을 위해 그룹에 여러 에이전트를 설치할 수 있습니다. 각 컴퓨터는 하나의 자동화 계정에 하나의 하이브리드 작업자 보고를 호스트할 수 있습니다.
 
-Hybrid Runbook Worker에서 Runbook을 시작할 경우 이를 실행할 그룹을 지정합니다. 그룹의 각 작업자는 Azure Automation을 폴링하여 사용할 수 있는 작업이 있는지 확인합니다. 작업을 사용할 수 있는 경우 작업을 가져올 수 있는 첫 번째 작업자가 해당 작업을 수행합니다. 작업 큐의 처리 시간은 하이브리드 작업자 하드웨어 프로필 및 로드에 따라 달라집니다. 특정 작업자를 지정할 수 없습니다. Hybrid Runbook Worker는 Azure의 샌드박스에 있는 제한 중 다수를 공유하지 않습니다. 디스크 공간, 메모리 또는 네트워크 소켓에 동일한 제한이 없습니다. Hybrid Runbook Worker는 Hybrid Runbook Worker 자체의 리소스에 의해서만 제한됩니다. 또한 Hybrid Runbook Worker는 Azure 샌드박스가 적용하는 180분 [공평 분배](automation-runbook-execution.md#fair-share) 시한을 공유하지 않습니다. Azure 샌드박스 및 Hybrid Runbook Worker의 서비스 제한에 대해 자세히 알아보려면 [한도](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) 페이지를 참조하세요.
+Hybrid Runbook Worker에서 Runbook을 시작할 경우 이를 실행할 그룹을 지정합니다. 그룹의 각 작업자는 Azure Automation을 폴링하여 사용할 수 있는 작업이 있는지 확인합니다. 작업을 사용할 수 있는 경우 작업을 가져올 수 있는 첫 번째 작업자가 해당 작업을 수행합니다. 작업 큐의 처리 시간은 하이브리드 작업자 하드웨어 프로필 및 로드에 따라 달라집니다. 특정 작업자를 지정할 수 없습니다. Hybrid Runbook Worker는 Azure의 샌드박스에 있는 제한 중 다수를 공유하지 않습니다. 디스크 공간, 메모리 또는 네트워크 소켓에 동일한 제한이 없습니다. Hybrid Runbook Worker는 Hybrid Runbook Worker 자체의 리소스에 의해서만 제한됩니다. 또한 하이브리드 Runbook 작업자는 Azure 샌드박스에 있는 180분의 [공정 공유](automation-runbook-execution.md#fair-share) 시간 제한을 공유하지 않습니다. Azure 샌드박스 및 하이브리드 Runbook 작업자의 서비스 제한에 대해 자세히 알아보려면 작업 [제한을](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)참조하세요.
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker 설치
 
-Hybrid Runbook Worker를 설치하는 프로세스는 OS에 따라 다릅니다. 설치에 사용할 수 있는 방법에 대한 링크는 다음 표에 있습니다.
-
-Windows Hybrid Runbook Worker를 설치 및 구성하려면 2가지 방법을 사용할 수 있습니다. 권장되는 방법은 Automation Runbook을 사용하여 Windows 컴퓨터를 구성하는 프로세스를 완전히 자동화하는 것입니다. 두 번째 방법은 단계별 절차에 따라 역할을 수동으로 설치하고 구성하는 것입니다. Linux 컴퓨터의 경우 Python 스크립트를 실행하여 컴퓨터에 에이전트를 설치합니다.
+하이브리드 Runbook 작업자를 설치하는 프로세스는 운영 체제에 따라 다릅니다. 아래 표는 배포 유형을 정의합니다.
 
 |OS  |배포 형식  |
 |---------|---------|
-|Windows     | [Powershell](automation-windows-hrw-install.md#automated-deployment)<br>[수동](automation-windows-hrw-install.md#manual-deployment)        |
+|Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[수동](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
 
+권장되는 설치 방법은 자동화 runbook을 사용하여 Windows 컴퓨터 구성 프로세스를 완전히 자동화하는 것입니다. 두 번째 방법은 역할을 수동으로 설치하고 구성하는 단계별 절차를 따르는 것입니다. Linux 컴퓨터의 경우 Python 스크립트를 실행하여 컴퓨터에 에이전트를 설치합니다.
+
 > [!NOTE]
-> DSC(필요한 상태 구성)로 Hybrid Runbook Worker 역할을 지원하는 서버의 구성을 관리하려면 이들을 DSC 노드로 추가해야 합니다. DSC를 통한 관리를 위한 온보드에 대한 정보는 [Azure Automation DSC를 통한 관리를 위한 컴퓨터 온보드](automation-dsc-onboarding.md)를 참조하세요.
+> 원하는 상태 구성(DSC)을 사용하여 하이브리드 Runbook 작업자 역할을 지원하는 서버의 구성을 관리하려면 서버를 DSC 노드로 추가해야 합니다. DSC를 통한 관리를 위한 온보드에 대한 정보는 [Azure Automation DSC를 통한 관리를 위한 컴퓨터 온보드](automation-dsc-onboarding.md)를 참조하세요.
 >
 >[업데이트 관리 솔루션](automation-update-management.md)을 사용하도록 설정하면 이 솔루션에 포함된 Runbook을 지원하기 위해 Azure Log Analytics 작업 영역에 연결된 모든 컴퓨터가 자동으로 Hybrid Runbook Worker로 구성됩니다. 그러나 컴퓨터가 Automation 계정에서 이미 정의한 어떤 Hybrid Worker 그룹에도 등록되지 않았습니다. 솔루션과 Hybrid Runbook Worker 그룹 멤버 자격에 동일한 계정을 사용하는 한 Automation Runbook을 지원하기 위해 Automation 계정의 Hybrid Runbook Worker 그룹에 컴퓨터를 추가할 수 있습니다. 이 기능은 Hybrid Runbook Worker의 7.2.12024.0 버전에 추가되었습니다.
 
@@ -44,44 +44,38 @@ Hybrid Runbook Worker 배포를 시작하기 전에 [네트워크 계획 정보]
 
 솔루션과 Hybrid Runbook Worker 그룹 멤버 자격에 동일한 계정을 사용하는 한 Automation Runbook을 지원하기 위해 Automation 계정의 Hybrid Runbook Worker 그룹에 컴퓨터를 추가할 수 있습니다. 이 기능은 Hybrid Runbook Worker의 7.2.12024.0 버전에 추가되었습니다.
 
-## <a name="remove-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker 제거
+## <a name="a-nameremove-a-hybrid-runbook-workerremove-a-hybrid-runbook-worker-from-an-on-premises-computer"></a><a name="remove-a-hybrid-runbook-worker">온-프레미스 컴퓨터에서 하이브리드 Runbook 작업자 제거
 
-그룹에서 하나 이상의 Hybrid Runbook Worker를 제거하거나 요구 사항에 따라 그룹을 제거할 수 있습니다. 온-프레미스 컴퓨터에서 Hybrid Runbook Worker를 제거하려면 다음 단계를 수행합니다.
+Windows 및 Linux용 이 섹션에 설명된 대로 온-프레미스 컴퓨터에서 하이브리드 Runbook 워커를 제거할 수 있습니다.
+
+### <a name="remove-the-worker-on-windows"></a>Windows에서 작업자 제거
 
 1. Azure Portal에서 Automation 계정으로 이동합니다.
-2. **계정 설정**에서 **키**를 선택하고 **URL** 및 **기본 액세스 키**의 값을 확인합니다. 이 정보는 다음 단계에서 필요합니다.
+2. **계정 설정**에서 **키**를 선택하고 **URL** 및 **기본 액세스 키**의 값을 확인합니다.
 
-### <a name="windows"></a>Windows
-
-관리자 모드에서 PowerShell 세션을 열고 다음 명령을 실행합니다. 제거 과정에 대한 자세한 로그를 보려면 **-Verbose** 스위치를 사용합니다.
-
-```powershell-interactive
-Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
-```
-
-Hybrid Worker 그룹에서 부실한 컴퓨터를 제거하려면 선택적 `machineName` 매개 변수를 사용합니다.
+3. 관리자 모드에서 PowerShell 세션을 열고 URL 및 기본 액세스 키 값을 통해 다음 명령을 실행합니다. 제거 `Verbose` 프로세스의 자세한 로그에 매개 변수를 사용합니다. Hybrid Worker 그룹에서 부실한 컴퓨터를 제거하려면 선택적 `machineName` 매개 변수를 사용합니다.
 
 ```powershell-interactive
 Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <ComputerName>
 ```
 
-### <a name="linux"></a>Linux
+### <a name="remove-the-worker-on-linux"></a>리눅스에서 작업자 제거
 
-Hybrid Runbook Worker에서 `ls /var/opt/microsoft/omsagent` 명령을 사용하여 workspaceid를 가져올 수 있습니다. 디렉터리에 폴더 이름이 작업 영역 ID인 폴더가 있습니다.
+하이브리드 Runbook `ls /var/opt/microsoft/omsagent` 작업자의 명령을 사용하여 작업 영역 ID를 얻을 수 있습니다. 작업 영역 ID로 이름이 지정된 폴더가 만들어집니다.
 
 ```bash
 sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
 ```
 
 > [!NOTE]
-> 이 코드는 컴퓨터의 Microsoft Monitoring Agent가 아닌 Hybrid Runbook Worker 역할의 기능 및 구성만을 제거합니다.
+> 이 코드는 컴퓨터에서 Microsoft 모니터링 에이전트를 제거하지 않습니다. 하이브리드 Runbook 작업자 역할의 기능 및 구성만 제거합니다.
 
 ## <a name="remove-a-hybrid-worker-group"></a>Hybrid Worker 그룹 제거
 
-그룹을 제거하려면 먼저 앞서 보았던 절차를 사용하여 그룹의 구성원인 모든 컴퓨터에서 Hybrid Runbook Worker를 제거합니다. 이후 다음 단계를 사용하여 그룹을 제거합니다.
+하이브리드 Runbook 작업자 그룹을 제거하려면 먼저 그룹의 구성원인 모든 컴퓨터에서 하이브리드 Runbook 워커를 제거해야 합니다. 그런 다음 다음 단계를 사용하여 그룹을 제거합니다.
 
 1. Azure Portal에서 Automation 계정을 엽니다.
-2. **프로세스 자동화에서** **하이브리드 작업자 그룹을**선택합니다. 삭제할 그룹을 선택합니다. 해당 그룹에 대한 속성 페이지가 표시됩니다.
+2. **프로세스 자동화**에서 하이브리드 **작업자 그룹을** 선택합니다. 삭제할 그룹을 선택합니다. 해당 그룹에 대한 속성 페이지가 표시됩니다.
 
    ![속성 페이지](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
@@ -108,7 +102,7 @@ Hybrid Runbook Worker 역할에서 Automation 역할과 통신하려면 다음 �
 * US Gov 버지니아의 전역 URL: *.azure-automation.us
 * 에이전트 서비스: https://\<workspaceId\>.agentsvc.azure-automation.net
 
-예외를 정의할 때 나열된 주소를 사용하는 것이 좋습니다. IP 주소의 경우 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/en-us/download/details.aspx?id=56519)를 다운로드할 수 있습니다. 이 파일은 매주 업데이트되고 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 포함합니다.
+예외를 정의할 때 나열된 주소를 사용하는 것이 좋습니다. IP 주소의 경우 Microsoft [Azure 데이터 센터 IP 범위를 다운로드할](https://www.microsoft.com/en-us/download/details.aspx?id=56519)수 있습니다. 이 파일은 매주 업데이트되고 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 포함합니다.
 
 특정 지역에 대해 정의된 Automation 계정이 있는 경우 해당 지역 데이터 센터에 대한 통신을 제한할 수 있습니다. 다음 표에서는 각 지역에 대한 DNS 레코드를 제공합니다.
 
@@ -152,5 +146,4 @@ Hybrid Runbook Worker에 필요한 표준 주소 및 포트 외에도, 업데이
 ## <a name="next-steps"></a>다음 단계
 
 * 온-프레미스 데이터 센터 또는 다른 클라우드 환경의 프로세스를 자동화하도록 Runbook을 구성하는 방법을 알아보려면 [Hybrid Runbook Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)을 참조하세요.
-* Hybrid Runbook Worker 문제를 해결하는 방법을 알아보려면 [Hybrid Runbook Worker 문제 해결](troubleshoot/hybrid-runbook-worker.md#general)을 참조하세요.
-
+* 하이브리드 Runbook 작업자 문제를 해결하는 방법에 대한 자세한 내용은 [하이브리드 Runbook 작업자 문제를 해결합니다.](troubleshoot/hybrid-runbook-worker.md#general)

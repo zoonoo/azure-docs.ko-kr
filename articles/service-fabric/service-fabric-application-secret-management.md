@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: 4a489993f982993d5703a9b46d42fffaa6134038
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d2138935122b9e08b21963519fce3f72466ab1f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259059"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414506"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Service Fabric 애플리케이션에서 암호화된 비밀 관리
 이 가이드에서는 Service Fabric 애플리케이션에서 비밀을 관리하는 단계를 안내합니다. 스토리지 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 모든 민감한 정보를 비밀로 처리할 수 있습니다.
@@ -57,6 +57,11 @@ Service Fabric 애플리케이션에서 암호화된 비밀을 사용하는 데�
   </Certificates>
 </ApplicationManifest>
 ```
+> [!NOTE]
+> SecretsCertificate을 지정 하는 응용 프로그램을 활성화 하면 서비스 패브릭 일치 하는 인증서를 찾을 것입니다 및 응용 프로그램이 인증서의 개인 키에 대 한 전체 권한으로 실행 되는 ID를 부여 합니다. 또한 서비스 패브릭은 인증서에서 변경 내용을 모니터링하고 그에 따라 권한을 다시 적용합니다. 일반 이름으로 선언된 인증서의 변경 내용을 검색하기 위해 Service Fabric은 일치하는 모든 인증서를 검색하고 캐시된 지문 목록과 비교하는 정기적인 작업을 실행합니다. 새 지문이 검색되면 해당 주체의 인증서가 갱신되었음을 의미합니다. 작업은 클러스터의 각 노드에서 분당 한 번 실행됩니다.
+>
+> SecretsCertificate은 제목 기반 선언을 허용하지만 암호화된 설정은 클라이언트의 설정을 암호화하는 데 사용된 키 쌍에 연결됩니다. 원본 암호화 인증서(또는 이에 상응하는 인증서)가 주체 기반 선언과 일치하고 해당 개인 키를 포함하여 응용 프로그램을 호스팅할 수 있는 클러스터의 모든 노드에 설치되었는지 확인해야 합니다. 주체 기반 선언과 일치하고 원래 암호화 인증서와 동일한 키 쌍에서 빌드된 모든 시간 유효한 인증서는 등가물로 간주됩니다.
+>
 
 ### <a name="inject-application-secrets-into-application-instances"></a>애플리케이션 비밀을 애플리케이션 인스턴스에 삽입
 여러 환경에 배포할 때에는 배포를 최대한 자동화하는 것이 좋습니다. 빌드 환경에서 비밀 암호화를 수행하고 애플리케이션 인스턴스를 만들 때 암호화된 비밀을 매개 변수로 제공하면 배포를 자동화할 수 있습니다.

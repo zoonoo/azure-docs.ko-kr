@@ -8,14 +8,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: makromer
-ms.openlocfilehash: 3fe3403ad06d82ba5ccd33d2718bf0e5eff64490
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f65421a6457d4bf4d438ce9d035d46476829da2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73166539"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414366"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>데이터 팩터리 매핑 데이터 흐름에서 SQL 잘림 오류 행 처리
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 매핑 데이터 흐름을 사용할 때 Data Factory의 일반적인 시나리오는 변환된 데이터를 Azure SQL 데이터베이스에 작성하는 것입니다. 이 시나리오에서는 방지 해야 하는 일반적인 오류 조건은 열 잘림이 가능 합니다. 다음 단계에 따라 대상 문자열 열에 맞지 않는 열로깅을 제공하여 이러한 시나리오에서 데이터 흐름을 계속할 수 있도록 합니다.
 

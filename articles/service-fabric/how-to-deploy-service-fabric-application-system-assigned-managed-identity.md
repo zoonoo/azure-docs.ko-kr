@@ -3,14 +3,14 @@ title: 시스템 할당 MI를 사용 하 여 서비스 패브릭 응용 프로�
 description: 이 문서에서는 Azure Service Fabric 응용 프로그램에 시스템 할당된 관리되는 ID를 할당하는 방법을 보여 주며
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: d5a14722363d642957904f9c7c699d3cf1d66c0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5c7a17c51eee18d9b7276f2c57289a5de5c8181
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614828"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415648"
 ---
-# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>시스템 할당된 관리 ID를 사용한 서비스 패브릭 응용 프로그램 배포(미리 보기)
+# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>시스템 할당된 관리 ID로 서비스 패브릭 응용 프로그램 배포
 
 Azure Service Fabric 응용 프로그램에 대한 관리되는 ID 기능에 액세스하려면 먼저 클러스터에서 관리되는 ID 토큰 서비스를 사용하도록 설정해야 합니다. 이 서비스는 관리되는 ID를 사용하여 Service Fabric 응용 프로그램의 인증을 담당하며 해당 응용 프로그램을 대신하여 액세스 토큰을 얻는 작업을 담당합니다. 서비스가 활성화되면 왼쪽 창의 **시스템** 섹션 아래의 서비스 패브릭 탐색기에서 다른 시스템 서비스 옆에 있는 **패브릭:/System/ManagedIdentityTokenService라는** 이름으로 실행되는 것을 볼 수 있습니다.
 

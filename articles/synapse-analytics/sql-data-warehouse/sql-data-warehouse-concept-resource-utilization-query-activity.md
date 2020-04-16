@@ -11,12 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: ce2fe66888893d82debcc412bb16752914d8a190
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: d38c0df45da3a751a456846813543a4ce5de98eb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011109"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416208"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Azure Synapse 분석에서 리소스 사용률 및 쿼리 활동 모니터링
 
@@ -26,7 +26,7 @@ Azure Synapse Analytics는 Azure 포털 내에서 풍부한 모니터링 환경�
 
 다음 메트릭은 SQL 분석에 대한 Azure 포털에서 사용할 수 있습니다. 이러한 메트릭은 [Azure Monitor](../../azure-monitor/platform/data-collection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#metrics)를 통해 나타납니다.
 
-| 메트릭 이름             | 설명                                                  | 집계 형식 |
+| 메트릭 이름             | Description                                                  | 집계 형식 |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
 | CPU 비율          | 데이터 웨어하우스에 대한 모든 노드에서의 CPU 사용률      | 평균, 최소, 최대    |
 | 데이터 IO 비율      | 데이터 웨어하우스에 대한 모든 노드에서의 IO 사용률       | 평균, 최소, 최대    |
@@ -56,14 +56,14 @@ Azure Synapse Analytics는 Azure 포털 내에서 풍부한 모니터링 환경�
 
 T-SQL을 통해 SQL 분석을 모니터링할 때 프로그래밍 방식으로 환경을 제공하는 경우 이 서비스는 DMV(동적 관리 뷰) 집합을 제공합니다. 이러한 보기는 워크로드로 인한 성능 병목 상태를 적극적으로 해결하고 식별할 때 유용합니다.
 
-SQL 애널리틱스에서 제공하는 DMV 목록을 보려면 이 [설명서를](sql-data-warehouse-reference-tsql-system-views.md#sql-data-warehouse-dynamic-management-views-dmvs)참조하십시오.
+Synapse SQL에 적용되는 DMV 목록을 보려면 이 [설명서를](../sql/reference-tsql-system-views.md#sql-pool-dynamic-management-views-dmvs)참조하십시오. 
 
-## <a name="metrics-and-diagnostics-logging"></a>메트릭 및 진단 로깅
+## <a name="metrics-and-diagnostics-logging"></a>메트릭 및 진단 로깅 
 
 메트릭과 로그는 모두 Azure Monitor, 특히 [Azure Monitor 로그](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 구성 요소로 내보낼 수 있으며 [로그 쿼리를](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)통해 프로그래밍 방식으로 액세스할 수 있습니다. SQL 분석의 로그 대기 시간은 약 10~15분입니다. 대기 시간에 영향을 미치는 요인에 대한 자세한 내용은 다음 설명서를 참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 방법 가이드에서는 데이터 웨어하우스를 모니터링하고 관리할 때의 일반적인 시나리오와 사용 사례에 대해 설명합니다.
+다음 방법 가이드는 데이터 웨어하우스를 모니터링하고 관리할 때 의 일반적인 시나리오 및 사용 사례를 설명합니다.
 
 - [DMV를 사용하여 데이터 웨어하우스 워크로드 모니터링](sql-data-warehouse-manage-monitor.md)

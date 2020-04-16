@@ -11,14 +11,16 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: 52b1d93935e6428563c72361655893ffddf8a507
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0324044d93f12f6ac6ec96ff1a31be8ee02ada41
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74941861"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414707"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Azure 데이터 팩터리에서 SSIS 통합 런타임 관리 문제 해결
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 이 문서에서는 SSIS IR(SSIS IR)이라고도 하는 Azure-SQL 서버 통합 서비스(SSIS) 통합 런타임(IR)의 관리 문제에 대한 문제 해결 지침을 제공합니다.
 
@@ -41,7 +43,7 @@ SSIS 카탈로그 데이터베이스를 사용하여 SSIS IR을 프로비전하�
 * 네트워크 연결 이슈. SQL Server 또는 관리되는 인스턴스 호스트 이름에 액세스할 수 있는지 확인합니다. 또한 방화벽 또는 NSG(네트워크 보안 그룹)가 서버에 대한 SSIS IR 액세스를 차단하고 있지 않은지 확인합니다.
 * SQL 인증 중에 로그인에 실패했습니다. 제공된 계정은 SQL Server 데이터베이스에 로그인할 수 없습니다. 올바른 사용자 계정을 제공해야 합니다.
 * Microsoft Azure AD(Active Directory) 인증 중에 로그인에 실패했습니다(관리 ID). AAD 그룹에 팩터리의 관리 ID를 추가하고 관리 ID에 카탈로그 데이터베이스 서버에 대한 액세스 권한이 있는지 확인합니다.
-* 연결 시간 제한. 이 오류는 항상 보안 관련 구성으로 인해 발생합니다. 다음을 수행하는 것이 좋습니다.
+* 연결 시간 제한. 이 오류는 항상 보안 관련 구성으로 인해 발생합니다. 다음을 권장합니다.
   1. 새 VM을 만듭니다.
   1. IR이 가상 네트워크에 있는 경우 동일한 Microsoft Azure IR 가상 네트워크에 VM에 가입합니다.
   1. SSMS를 설치하고 Azure SQL Database 서버 또는 관리되는 인스턴스 상태를 확인합니다.
@@ -167,7 +169,7 @@ Azure-SSIS IR을 Azure 가상 네트워크에 가입하면 IR이 특정 IP 주�
 
 이 오류는 Azure-SSIS IR을 시작할 때 여러 가지 이유로 발생할 수 있습니다.
 
-| 오류 메시지 | 해결 방법|
+| 오류 메시지 | 솔루션|
 |:--- |:--- |
 | 제공된 정적 공용 IP 주소가 이미 사용중이며 Azure-SSIS 통합 런타임에 사용하지 않는 두 개의 주소를 제공하십시오. | 사용되지 않는 정적 공용 IP 주소 두 개를 선택하거나 지정된 공용 IP 주소에 대한 현재 참조를 제거한 다음 Azure-SSIS IR을 다시 시작해야 합니다. |
 | 제공된 정적 공용 IP 주소에는 DNS 이름이 없으며 Azure-SSIS 통합 런타임에 대해 DNS 이름을 두 개 제공하십시오. | 아래 그림과 같이 Azure 포털에서 공용 IP 주소의 DNS 이름을 설정할 수 있습니다. 특정 단계는 다음과 같습니다: (1) Azure 포털을 열고 이 공용 IP 주소의 리소스 페이지로 이동합니다. (2) **구성** 섹션을 선택하고 DNS 이름을 설정한 다음 **저장** 단추를 클릭합니다. (3) Azure-SSIS IR을 다시 시작합니다. |

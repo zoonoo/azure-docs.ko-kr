@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service)에서 Kubernetes 네트워크 정책�
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 01ba9e7353b6783d1b4fd1649291a64405fd9382
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: a2794f53407be3ce3d7e69caa8039c13217a0356
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886707"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392606"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 네트워크 정책을 사용하여 pod 간 트래픽 보호
 
@@ -82,6 +82,8 @@ Azure 네트워크 정책을 사용하려면 [Azure CNI 플러그인을][azure-c
 * 가상 네트워크에서 AKS 클러스터 서비스 주체에 대해 *참가자* 권한을 할당합니다.
 * 정의된 가상 네트워크에서 AKS 클러스터를 만들고 네트워크 정책을 활성화합니다.
     * *Azure* 네트워크 정책 옵션이 사용됩니다. 대신 Calico를 네트워크 정책 옵션으로 사용하려면 매개 변수를 `--network-policy calico` 사용합니다. 참고 : 칼리코는 중 `--network-plugin azure` 하나 `--network-plugin kubenet`또는 .
+
+서비스 주체를 사용하는 대신 관리되는 ID를 사용 권한에 사용할 수 있습니다. 자세한 내용은 [관리되는 ID 사용을](use-managed-identity.md)참조하십시오.
 
 사용자 고유의 보안 *SP_PASSWORD*를 제공합니다. *RESOURCE_GROUP_NAME* 및 *CLUSTER_NAME* 변수를 바꿀 수 있습니다.
 

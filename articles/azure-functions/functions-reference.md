@@ -4,14 +4,14 @@ description: 프로그래밍 언어 및 바인딩에 관계 없이 Azure에서 �
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 7dd7ef3c4833fb9ffa3781f06faba4f40cd40cfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b6af3d7ab1fdd35391c9a189162c57dfb259f2d4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276622"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405348"
 ---
-# <a name="azure-functions-developers-guide"></a>Azure Functions 개발자 가이드
+# <a name="azure-functions-developer-guide"></a>Azure Functions 개발자 가이드
 Azure Functions에서 특정 함수는 사용하는 언어나 바인딩에 관계없이 몇 가지 핵심적 기술 개념과 구성 요소를 공유합니다. 특정 언어나 바인딩에 해당하는 세부 정보를 학습하기 전에, 모든 항목에 해당하는 이 개요를 꼼꼼히 읽어 보시기 바랍니다.
 
 이 문서에서는 [Azure Functions 개요](functions-overview.md)를 이미 읽었다고 가정합니다.
@@ -98,7 +98,7 @@ Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리�
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 다음 자료를 참조하세요.
 
-* [Azure 함수 트리거 및 바인딩](functions-triggers-bindings.md)
+* [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 * [Azure Functions를 로컬에서 코딩 및 테스트](./functions-develop-local.md)
 * [Azure Functions에 대한 모범 사례](functions-best-practices.md)
 * [Azure Functions C# 개발자 참조](functions-dotnet-class-library.md)

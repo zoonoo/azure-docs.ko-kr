@@ -9,12 +9,12 @@ ms.topic: reference
 author: peterclu
 ms.author: peterlu
 ms.date: 02/22/2020
-ms.openlocfilehash: c24c7ce1d47a4734d79d7e17e9fb4b3a2d4d70e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fcfc7c15f94d7b569629e53534d731126172260
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064151"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399054"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Azure 기계 학습 디자이너에 대한 알고리즘 & 모듈 참조(미리 보기)
 
@@ -24,7 +24,7 @@ ms.locfileid: "80064151"
 
 알고리즘 선택에 대한 도움말은 
 * [알고리즘을 선택하는 방법](../how-to-select-algorithms.md)
-* [Azure 기계 학습 알고리즘 치트 시트](../../synapse-analytics/sql-data-warehouse/cheat-sheet.md)
+* [Azure 기계 학습 알고리즘 치트 시트](../algorithm-cheat-sheet.md)
 
 > [!TIP]
 > 디자이너의 모든 파이프라인에서 특정 모듈에 대한 정보를 얻을 수 있습니다. 모듈을 선택한 다음, **빠른 도움말** 창에서 **추가 도움말** 링크를 선택합니다.
@@ -32,16 +32,16 @@ ms.locfileid: "80064151"
 ## <a name="data-preparation-modules"></a>데이터 준비 모듈
 
 
-| 기능 | 설명 | Module |
+| 기능 | Description | Module |
 | --- |--- | --- |
 | 데이터 입력 및 출력 | 클라우드 소스에서 파이프라인으로 데이터를 이동합니다. 파이프라인을 실행하는 동안 결과 또는 중간 데이터를 Azure Storage, SQL 데이터베이스 또는 Hive에 쓰거나 클라우드 저장소를 사용하여 파이프라인 간에 데이터를 교환합니다.  | [수동으로 데이터 입력](enter-data-manually.md) <br/> [데이터 내보내기](export-data.md) <br/> [데이터 가져오기](import-data.md) |
-| 데이터 변환 | 데이터 정규화 또는 비닝, 치수 감소 및 다양한 파일 형식 간에 데이터를 변환하는 등 기계 학습에 고유한 데이터에 대한 작업입니다.| [열 추가](add-columns.md) <br/> [행 추가](add-rows.md) <br/> [수학 연산 적용](apply-math-operation.md) <br/> [SQL 변환 적용](apply-sql-transformation.md) <br/> [누락 데이터 정리](clean-missing-data.md) <br/> [값 잘라내기](clip-values.md) <br/> [CSV로 변환](convert-to-csv.md) <br/> [데이터 세트로 변환](convert-to-dataset.md) <br/> [표시기 값으로 변환](convert-to-indicator-values.md) <br/> [메타데이터 편집](edit-metadata.md) <br/> [데이터 조인](join-data.md) <br/> [데이터 정규화](normalize-data.md) <br/> [파티션 및 샘플](partition-and-sample.md)  <br/> [중복 행 제거](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [열 변환 선택](select-columns-transform.md) <br/> [데이터 세트의 열 선택](select-columns-in-dataset.md) <br/> [데이터 분할](split-data.md) |
+| 데이터 변환 | 데이터 정규화 또는 비닝, 치수 감소 및 다양한 파일 형식 간에 데이터를 변환하는 등 기계 학습에 고유한 데이터에 대한 작업입니다.| [열 추가](add-columns.md) <br/> [행 추가](add-rows.md) <br/> [수학 연산 적용](apply-math-operation.md) <br/> [SQL 변환 적용](apply-sql-transformation.md) <br/> [누락된 데이터 정리](clean-missing-data.md) <br/> [값 잘라내기](clip-values.md) <br/> [CSV로 변환](convert-to-csv.md) <br/> [데이터 세트로 변환](convert-to-dataset.md) <br/> [표시기 값으로 변환](convert-to-indicator-values.md) <br/> [메타데이터 편집](edit-metadata.md) <br/> [데이터 조인](join-data.md) <br/> [데이터 정규화](normalize-data.md) <br/> [파티션 및 샘플](partition-and-sample.md)  <br/> [중복 행 제거](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [열 변환 선택](select-columns-transform.md) <br/> [데이터 세트의 열 선택](select-columns-in-dataset.md) <br/> [데이터 분할](split-data.md) |
 | 기능 선택 | 분석 모델을 작성하는 데 사용할 관련, 유용한 피쳐의 하위 집합을 선택합니다. | [필터 기반 기능 선택](filter-based-feature-selection.md) <br/> [순열 기능 중요도](permutation-feature-importance.md) |
 | 통계 함수 | 데이터 과학과 관련된 다양한 통계 방법을 제공합니다. | [데이터 요약](summarize-data.md)|
 
 ## <a name="machine-learning-algorithms"></a>기계 학습 알고리즘
 
-| 기능 | 설명 | Module |
+| 기능 | Description | Module |
 | --- |--- | --- |
 | 회귀 | 값을 예측합니다. | [향상된 의사 결정 트리 회귀](boosted-decision-tree-regression.md) <br/> [의사 결정 포리스트 회귀](decision-forest-regression.md) <br/> [선형 회귀](linear-regression.md)  <br/> [신경망 회귀](neural-network-regression.md)  <br/> |
 | Clustering | 데이터를 함께 그룹화합니다.| [K-평균 클러스터링](k-means-clustering.md)
@@ -49,7 +49,7 @@ ms.locfileid: "80064151"
 
 ## <a name="modules-for-building-and-evaluating-models"></a>모델 작성 및 평가를 위한 모듈
 
-| 기능 | 설명 | Module |
+| 기능 | Description | Module |
 | --- |--- | --- |
 | 모델 학습 | 알고리즘을 통해 데이터를 실행합니다. |  [클러스터링 모델 학습](train-clustering-model.md) <br/> [기차 모델](train-model.md)  <br/> [모델 하이퍼 매개 변수 튜닝](tune-model-hyperparameters.md) |
 | 모델 채점 및 평가 | 학습된 모델의 정확도를 측정합니다. | [변환 적용](apply-transformation.md) <br/> [클러스터에 데이터 할당](assign-data-to-clusters.md) <br/> [모델 교차 유효성 검사](cross-validate-model.md) <br/> [모델 평가](evaluate-model.md) <br/> [모델 채점](score-model.md) |

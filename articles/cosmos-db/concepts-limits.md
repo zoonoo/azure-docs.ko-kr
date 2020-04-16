@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 343e94fe681d398b695e0e24c22544bca470d75a
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: b24d7db679bb9cb9dacd5e1db8e6410b883548cc
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652182"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415702"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure 코스모스 DB 서비스 할당량
 
@@ -70,7 +70,7 @@ Azure 포털, Azure PowerShell, Azure CLI 및 Azure 리소스 관리자 템플�
 > [!NOTE]
 > 지역 장애 조치(장애)는 단일 리전 기록 계정에만 적용됩니다. 다중 지역 쓰기 계정은 쓰기 영역 을 변경하거나 변경할 필요가 없습니다.
 
-코스모스 DB는 정기적으로 데이터를 자동으로 백업합니다. 백업 보존 간격 및 창에 대한 자세한 내용은 [Azure Cosmos DB의 온라인 백업 및 주문형 데이터 복원을](../synapse-analytics/sql-data-warehouse/backup-and-restore.md)참조하십시오.
+코스모스 DB는 정기적으로 데이터를 자동으로 백업합니다. 백업 보존 간격 및 창에 대한 자세한 내용은 [Azure Cosmos DB의 온라인 백업 및 주문형 데이터 복원을](online-backup-and-restore.md)참조하십시오.
 
 ## <a name="per-account-limits"></a>계정당 한도
 
@@ -208,10 +208,10 @@ Try Cosmos DB는 미국 중부, 북유럽 및 동남아시아 지역에서만 �
 다음 요약 설명서를 통해 Azure Cosmos DB를 시작해 보세요.
 
 * [Azure Cosmos DB SQL API 시작](create-sql-api-dotnet.md)
-* [Azure Cosmos DB의 MongoDB용 API 시작](create-mongodb-nodejs.md)
+* [Azure Cosmos DB의 MongoDB API 시작](create-mongodb-nodejs.md)
 * [Azure Cosmos DB Cassandra API 시작](create-cassandra-dotnet.md)
 * [Azure Cosmos DB Gremlin API 시작](create-graph-dotnet.md)
 * [Azure Cosmos DB Table API 시작](create-table-dotnet.md)
 
 > [!div class="nextstepaction"]
-> [무료로 Azure 코스모스 DB를 사용해보십시오.](https://azure.microsoft.com/try/cosmosdb/)
+> [무료로 Azure Cosmos DB 사용해 보기](https://azure.microsoft.com/try/cosmosdb/)

@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 6ceace1ee93fab8c0a46ed4a67850fc87a5cdad2
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 2e862410e2bf12e09e1a6388bbb6f7105b5b2edf
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991231"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405260"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -314,7 +314,7 @@ logger.warning('After the span')
 
 그러나 이러한 메서드는 자동 분산 추적 지원을 사용할 수 없습니다. `DiagnosticSource`자동 교차 시스템 상관 관계를 지원합니다. .NET 라이브러리는 HTTP와 같은 전송을 통해 상관 관계 컨텍스트의 자동 교차 시스템 전파를 지원하고 `DiagnosticSource` 허용합니다.
 
-[활동 사용자 가이드에서](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) `DiagnosticSource` 추적 활동의 기본 사항에 대해 설명합니다.
+[활동 사용자 가이드에서](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) `DiagnosticSource` 추적 활동의 기본 사항에 대해 설명합니다.
 
 ASP.NET Core 2.0은 HTTP 헤더 추출 및 새 작업을 지원합니다.
 

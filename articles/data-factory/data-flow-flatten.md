@@ -7,18 +7,20 @@ ms.review: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: b19aae8ab6730936a826f5bb069bfdb7d696cdfa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a0e75957a0ab49394dab56f2b7fb847dee4b43cb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246639"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413686"
 ---
 # <a name="flatten-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 변환 병합
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 병합 변환을 사용하여 JSON과 같은 계층 구조 내에서 배열 값을 가져 와서 개별 행으로 풀어줍니다. 이 프로세스를 비정규화라고 합니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 병합 변환에는 다음 구성 설정이 포함됩니다.
 

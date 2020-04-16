@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: a8ba8b212a504a8f8e4e29fbd50126189998e81a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61bb8fe950de8cd9be91bc76bd24aa0151f3fb79
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065477"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415407"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Azure 데이터 레이크 저장소 Gen1에서 또는 Azure 데이터 에서 데이터를 복사합니다.
 
 > [!div class="op_single_selector" title1="사용 하는 Azure 데이터 팩터리의 버전을 선택 합니다."]
 > * [버전 1](v1/data-factory-azure-datalake-connector.md)
 > * [현재 버전](connector-azure-data-lake-store.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Lake 저장소 Gen1에서 데이터를 복사하는 방법을 간략하게 설명합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
 
@@ -45,7 +47,7 @@ ms.locfileid: "80065477"
 > [!IMPORTANT]
 > 자체 호스팅 통합 런타임을 사용하여 데이터를 복사하는 경우 회사 방화벽을 `<ADLS account name>.azuredatalakestore.net` 구성하여 포트 443과 `login.microsoftonline.com/<tenant>/oauth2/token` 의 아웃바운드 트래픽을 허용합니다. 후자는 액세스 토큰을 가져오기 위해 통합 런타임이 통신해야 하는 Azure 보안 토큰 서비스입니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 > [!TIP]
 > Azure Data Lake Store 커넥터를 사용하는 방법에 대한 자세한 내용은 [Azure Data Lake Store에 데이터 로드를](load-azure-data-lake-store.md)참조하세요.
@@ -58,10 +60,10 @@ ms.locfileid: "80065477"
 
 Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | `type` 속성은 **AzureDataLakeStore**로 설정해야 합니다. | yes |
-| dataLakeStoreUri | Azure Data Lake Store 계정에 대한 정보. 이 정보는 `https://[accountname].azuredatalakestore.net/webhdfs/v1` 또는 `adl://[accountname].azuredatalakestore.net/` 형식 중 하나를 사용합니다. | yes |
+| type | `type` 속성은 **AzureDataLakeStore**로 설정해야 합니다. | 예 |
+| dataLakeStoreUri | Azure Data Lake Store 계정에 대한 정보. 이 정보는 `https://[accountname].azuredatalakestore.net/webhdfs/v1` 또는 `adl://[accountname].azuredatalakestore.net/` 형식 중 하나를 사용합니다. | 예 |
 | subscriptionId | Data Lake Store 계정이 속하는 Azure 구독 ID입니다. | 싱크에 필요 |
 | resourceGroupName | Data Lake Store 계정이 속하는 Azure 리소스 그룹 이름입니다. | 싱크에 필요 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 데이터 저장소가 개인 네트워크에 있는 경우 Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 이 속성을 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. |예 |
@@ -83,11 +85,11 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 
 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | yes |
-| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 `SecureString`으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
-| tenant | 응용 프로그램이 있는 도메인 이름 또는 테넌트 ID와 같은 테넌트 정보를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | yes |
+| servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
+| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 `SecureString`으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| tenant | 응용 프로그램이 있는 도메인 이름 또는 테넌트 ID와 같은 테넌트 정보를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 예 |
 
 **예제:**
 
@@ -158,9 +160,9 @@ Azure Data Factory에서 연결된 서비스의 일반 Data Lake Store 정보 �
 
 다음 속성은 형식 기반 데이터 집합의 `location` 설정에서 Azure Data Lake Store Gen1에 대해 지원됩니다.
 
-| 속성   | 설명                                                  | 필수 |
+| 속성   | Description                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | 데이터 집합에서 `location` 아래의 형식 속성은 **AzureDataLakeStoreLocation**로 설정해야 합니다. | yes      |
+| type       | 데이터 집합에서 `location` 아래의 형식 속성은 **AzureDataLakeStoreLocation**로 설정해야 합니다. | 예      |
 | folderPath | 폴더의 경로입니다. 와일드카드를 사용하여 폴더를 필터링하려면 이 설정을 건너뛰고 활동 소스 설정에서 지정합니다. | 예       |
 | fileName   | 지정된 폴더 아래의 파일 이름Path입니다. 와일드카드를 사용하여 파일을 필터링하려면 이 설정을 건너뛰고 활동 소스 설정에서 지정합니다. | 예       |
 
@@ -200,9 +202,9 @@ Azure Data Factory에서 연결된 서비스의 일반 Data Lake Store 정보 �
 
 다음 속성은 형식 기반 복사 원본의 `storeSettings` 설정에서 Azure Data Lake Store Gen1에 대해 지원됩니다.
 
-| 속성                 | 설명                                                  | 필수                                      |
+| 속성                 | Description                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | 아래의 `storeSettings` 형식 속성은 **AzureDataLakeStoreReadSettings**로 설정해야 합니다. | yes                                           |
+| type                     | 아래의 `storeSettings` 형식 속성은 **AzureDataLakeStoreReadSettings**로 설정해야 합니다. | 예                                           |
 | recursive                | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. 재귀가 true로 설정되고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에서 복사되거나 생성되지 않습니다. 허용된 **true** 값은 true(기본값) 및 **false입니다.** | 예                                            |
 | 와일드 카드폴더패스       | 원본 폴더를 필터링하는 와일드카드 문자가 있는 폴더 경로입니다. <br>허용된 와일드카드는 `*` (0자 이상과 `?` 일치) 및(0또는 단일 문자일치)입니다. 실제 `^` 폴더 이름에 와일드카드 또는 내부에 이스케이프 문자가 있는 경우 이스케이프하는 데 사용합니다. <br>더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 예                                            |
 | 와일드카드파일이름         | 지정된 폴더패스/와일드카드FolderPath 아래에 와일드카드 문자가 있는 파일 이름으로 소스 파일을 필터링합니다. <br>허용된 와일드카드는 `*` (0자 이상과 `?` 일치) 및(0또는 단일 문자일치)입니다. 실제 `^` 폴더 이름에 와일드카드 또는 내부에 이스케이프 문자가 있는 경우 이스케이프하는 데 사용합니다. 더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 데이터 `fileName` 집합에 지정되지 않은 경우 예 |
@@ -257,9 +259,9 @@ Azure Data Factory에서 연결된 서비스의 일반 Data Lake Store 정보 �
 
 형식 기반 복사 싱크의 설정에서 `storeSettings` Azure Data Lake Store Gen1에 대해 다음 속성이 지원됩니다.
 
-| 속성                 | 설명                                                  | 필수 |
+| 속성                 | Description                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | 아래의 `storeSettings` 형식 속성은 **AzureDataLakeStoreWriteSettings로**설정해야 합니다. | yes      |
+| type                     | 아래의 `storeSettings` 형식 속성은 **AzureDataLakeStoreWriteSettings로**설정해야 합니다. | 예      |
 | copyBehavior             | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- 병합 계층 :</b>소스 폴더의 모든 파일은 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 예       |
 | 만료날짜시간 | 기록된 파일의 만료 시간을 지정합니다. 시간은 "2020-03-01T08:00:00Z"의 형식으로 UTC 시간에 적용됩니다. 기본적으로 NULL이며 기록된 파일이 만료되지 않습니다. | 예 |
 | maxConcurrentConnections | 동시에 데이터 저장소에 연결할 연결 수입니다. 데이터 저장소에 대한 동시 연결을 제한하려는 경우에만 지정합니다. | 예       |
@@ -429,9 +431,9 @@ Azure Data Factory에서 연결된 서비스의 일반 Data Lake Store 정보 �
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 집합 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 형식 속성은 **AzureDataLakeStoreFile**로 설정해야 합니다. |yes |
+| type | 데이터 집합의 형식 속성은 **AzureDataLakeStoreFile**로 설정해야 합니다. |예 |
 | folderPath | Data Lake Store의 폴더 경로입니다. 지정하지 않으면 루트를 가리킵니다. <br/><br/>와일드카드 필터가 지원됩니다. 허용된 와일드카드는 `*` (0자 이상과 `?` 일치) 및(0또는 단일 문자일치)입니다. 실제 `^` 폴더 이름에 와일드카드 또는 내부에 이스케이프 문자가 있는 경우 이스케이프하는 데 사용합니다. <br/><br/>예를 들어 루트 폴더 / 하위 폴더 / . 더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. |예 |
 | fileName | 지정된 "folderPath"에서 파일의 이름 또는 와일드카드 필터입니다. 이 속성의 값을 지정하지 않으면 데이터 세트는 폴더에 있는 모든 파일을 가리킵니다. <br/><br/>필터의 경우 허용되는 와일드카드는 `*` (0자 이상과 `?` 일치) 및(0또는 단일 문자 일치)입니다.<br/>- 예 1: `"fileName": "*.csv"`<br/>- 예 2: `"fileName": "???20180427.txt"`<br/>실제 `^` 파일 이름에 와일드카드 또는 내부에 이스케이프 문자가 있는 경우 이스케이프를 사용합니다.<br/><br/>fileName 출력 데이터 집합에 대 한 지정 되지 않은 및 **preserveHierarchy** 활동 싱크에 지정 되지 않은 경우 복사 활동은 자동으로 다음 패턴으로 파일 이름을 생성 합니다.* 활동 실행 ID GUID]. [지침 이면 병합]. [구성된 경우 형식]을 지정합니다. [압축 구성하는 경우]*", 예를 들어, "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". 쿼리 대신 테이블 이름을 사용하여 테이블 형식의 원본에서 복사하는 경우 이름 패턴은 *"[테이블 이름]입니다.] 형식]을 지정합니다. [압축 구성 하는 경우]*", 예를 들어, "MyTable.csv". |예 |
 | modifiedDatetimeStart | 파일은 마지막으로 수정된 특성을 기반으로 필터링합니다. 마지막으로 수정된 시간이 사이의 시간 범위 내에 `modifiedDatetimeStart` 있는 `modifiedDatetimeEnd`경우 파일이 선택됩니다. 시간은 "2018-12-01T05:00:00Z"의 형식으로 UTC 표준 시간대에 적용됩니다. <br/><br/> 방대한 양의 파일로 파일 필터를 수행하려는 경우 이 설정을 사용하도록 설정하면 데이터 이동의 전반적인 성능이 영향을 받습니다. <br/><br/> 속성은 NULL일 수 있으며, 이는 데이터 집합에 파일 특성 필터가 적용되지 않는다는 것을 의미합니다. datetime 값이 있지만 `modifiedDatetimeStart` `modifiedDatetimeEnd` NULL인 경우 마지막으로 수정된 특성이 날짜 시간 값보다 크거나 같은 파일이 선택됨을 의미합니다. datetime 값이 있지만 `modifiedDatetimeEnd` `modifiedDatetimeStart` NULL인 경우 마지막으로 수정된 특성이 날짜 시간 값보다 작은 파일이 선택됨을 의미합니다.| 예 |
@@ -474,9 +476,9 @@ Azure Data Factory에서 연결된 서비스의 일반 Data Lake Store 정보 �
 
 ### <a name="legacy-copy-activity-source-model"></a>레거시 복사 활동 소스 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 `type` 활동 원본의 속성은 **AzureDataLakeStoreSource로**설정해야 합니다. |yes |
+| type | 복사 `type` 활동 원본의 속성은 **AzureDataLakeStoreSource로**설정해야 합니다. |예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. true로 설정되고 싱크가 파일 기반 저장소인 경우 `recursive` 빈 폴더 또는 하위 폴더가 싱크대에서 복사되거나 생성되지 않습니다. 허용된 **true** 값은 true(기본값) 및 **false입니다.** | 예 |
 | maxConcurrentConnections | 동시에 데이터 저장소에 연결할 연결 수입니다. 데이터 저장소에 대한 동시 연결을 제한하려는 경우에만 지정합니다. | 예 |
 
@@ -514,9 +516,9 @@ Azure Data Factory에서 연결된 서비스의 일반 Data Lake Store 정보 �
 
 ### <a name="legacy-copy-activity-sink-model"></a>레거시 복사 활동 싱크 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 `type` 활동 싱크의 속성은 **AzureDataLakeStore싱크로**설정해야 합니다. |yes |
+| type | 복사 `type` 활동 싱크의 속성은 **AzureDataLakeStore싱크로**설정해야 합니다. |예 |
 | copyBehavior | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- 병합 계층 :</b>소스 폴더의 모든 파일은 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않은 경우 파일 이름이 자동으로 생성됩니다. | 예 |
 | maxConcurrentConnections | 동시에 데이터 저장소에 연결할 연결 수입니다. 데이터 저장소에 대한 동시 연결을 제한하려는 경우에만 지정합니다. | 예 |
 

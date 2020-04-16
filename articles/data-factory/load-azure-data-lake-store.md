@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/17/2018
-ms.openlocfilehash: 1325910877d1e030b3bf4114e16d0f81ecea8cf7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1b1b19814709451bdbbea97462c459149484e71f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443987"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415858"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에 데이터 로드
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md)(이전의 Azure Data Lake Store)은 빅 데이터 분석 워크로드를 위한 엔터프라이즈 수준의 하이퍼스케일 리포지토리입니다. Data Lake Storage Gen1을 사용하면 크기, 유형 및 수집 속도에 관계없이 모든 데이터를 캡처할 수 있습니다. 데이터는 운영 및 탐색적 분석을 위해 단일 위치에서 캡처됩니다.
 
@@ -38,7 +40,7 @@ Azure Data Factory를 사용하여 Data Lake Storage Gen1으로 데이터를 로
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* Azure 구독: Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://azure.microsoft.com/free/) 만듭니다.
 * Data Lake Storage Gen1 계정: Data Lake Storage Gen1 계정이 없는 경우 [Data Lake Storage Gen1 계정 만들기](../data-lake-store/data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account)의 지침을 참조하세요.
 * Amazon S3: 이 문서는 Amazon S3에서 데이터를 복사하는 방법을 보여줍니다. 다음과 같은 유사한 단계를 수행하여 다른 데이터 저장소를 사용할 수 있습니다.
 

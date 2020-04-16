@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 971871c28bd1b38b134c04b0334fbe99d1d655c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 96b23696164514ad2f16de72f0f76aa237ffce2e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440191"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415833"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 SAP 비즈니스 웨어하우스에서 데이터 복사
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure 데이터 팩터리를 사용하여 BW(SAP 비즈니스 웨어하우스)에서 개방형 허브를 통해 Azure Data Lake Gen2로 데이터를 복사하는 방법을 보여 주며 있습니다. 유사한 프로세스를 사용하여 지원되는 다른 [싱크 데이터 저장소에](copy-activity-overview.md#supported-data-stores-and-formats)데이터를 복사할 수 있습니다.
 
@@ -76,7 +77,7 @@ Azure Portal에서 데이터 팩터리로 이동합니다. **모니터 작성을
 
 6. 필터가 필요한 경우 필터를 지정합니다. OHD에 단일 요청 ID가 있는 단일 데이터 전송 프로세스(DTP) 실행의 데이터만 포함되어 있거나 DTP가 완료되어 데이터를 복사하려는 경우 **마지막 요청 제외** 확인란을 선택 취소합니다.
 
-   이 문서의 [SAP BW 오픈 허브 대상 구성](#sap-bw-open-hub-destination-configurations) 섹션에서 이러한 설정에 대해 자세히 알아봅니다. 반환할 데이터를 다시 확인하려면 **유효성 검사를** 선택합니다. 그런 다음 을 **선택합니다.**
+   이 문서의 [SAP BW 오픈 허브 대상 구성](#sap-bw-open-hub-destination-configurations) 섹션에서 이러한 설정에 대해 자세히 알아봅니다. 반환할 데이터를 다시 확인하려면 **유효성 검사를** 선택합니다. 그런 후 **다음**을 선택합니다.
 
    ![SAP BW 오픈 허브 필터 구성](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
@@ -87,9 +88,9 @@ Azure Portal에서 데이터 팩터리로 이동합니다. **모니터 작성을
    ![ADLS Gen2 링크된 서비스 페이지 만들기](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
    1. **이름** 드롭다운 목록에서 데이터 레이크 스토리지 Gen2 지원 계정을 선택합니다.
-   2. **마침**을 선택하여 연결을 만듭니다. 그런 다음 을 **선택합니다.**
+   2. **마침**을 선택하여 연결을 만듭니다. 그런 후 **다음**을 선택합니다.
 
-9. 출력 **파일 또는 폴더 선택** 페이지에서 **copyfromopenhub를** 출력 폴더 이름으로 입력합니다. 그런 다음 을 **선택합니다.**
+9. 출력 **파일 또는 폴더 선택** 페이지에서 **copyfromopenhub를** 출력 폴더 이름으로 입력합니다. 그런 후 **다음**을 선택합니다.
 
    ![출력 폴더 페이지 선택](media/load-sap-bw-data/choose-output-folder.png)
 
@@ -97,11 +98,11 @@ Azure Portal에서 데이터 팩터리로 이동합니다. **모니터 작성을
 
     ![싱크 형식 페이지 지정](media/load-sap-bw-data/specify-sink-format.png)
 
-11. **설정** 페이지에서 성능 **설정을**확장합니다. SAP BW에서 병렬로 로드할 5와 같은 **복사 병렬 처리 정도** 값을 입력합니다. 그런 다음 을 **선택합니다.**
+11. **설정** 페이지에서 성능 **설정을**확장합니다. SAP BW에서 병렬로 로드할 5와 같은 **복사 병렬 처리 정도** 값을 입력합니다. 그런 후 **다음**을 선택합니다.
 
     ![복사 설정 구성](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. **요약** 페이지에서 설정을 검토합니다. 그런 다음 을 **선택합니다.**
+12. **요약** 페이지에서 설정을 검토합니다. 그런 후 **다음**을 선택합니다.
 
 13. **배포** 페이지에서 파이프라인을 모니터링하려면 **모니터를** 선택합니다.
 

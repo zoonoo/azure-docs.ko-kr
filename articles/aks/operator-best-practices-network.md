@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Services)의 가상 네트워크 리소스 및
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: c8aee9967e09d2ae8bec3ee170756d8d22de0fe4
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 1eed6f1f82a8a91b2335760e99ea6b895d15547e
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668216"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392708"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 네트워크 연결 및 보안에 대한 모범 사례
 
@@ -43,7 +43,7 @@ Azure CNI 네트워킹을 사용하면 가상 네트워크 리소스가 AKS 클�
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
-AKS 서비스 주체 위임에 대한 자세한 내용은 [다른 Azure 리소스에 대한 액세스 권한 위임][sp-delegation]을 참조하세요.
+AKS 서비스 주체 위임에 대한 자세한 내용은 [다른 Azure 리소스에 대한 액세스 권한 위임][sp-delegation]을 참조하세요. 서비스 주체 대신 관리되는 ID를 사용할 수 있는 시스템에 사용 권한을 사용할 수도 있습니다. 자세한 내용은 [관리되는 ID 사용을](use-managed-identity.md)참조하십시오.
 
 각 노드 및 pod가 자체 IP 주소를 수신하는 경우 AKS 서브넷의 주소 범위를 계획하세요. 서브넷은 배포하는 모든 노드, pod 및 네트워크 리소스에 대해 IP 주소를 제공할 만큼 충분히 커야 합니다. 각 AKS 클러스터는 자체 서브넷에 배치해야 합니다. Azure에서 온-프레미스 또는 피어링된 네트워크에 대한 연결을 허용하려면 기존 네트워크 리소스와 겹치는 IP 주소 범위를 사용하지 마세요. Kubenet 및 Azure CNI 네트워킹을 사용하여 각 노드에서 실행되는 pod 수는 기본적으로 제한되어 있습니다. 확장 이벤트 또는 클러스터 업그레이드를 처리하려면 할당된 서브넷에서 사용할 수 있는 추가 IP 주소도 필요합니다. 이 추가 주소 공간은 해당 노드 풀에서 최신 보안 패치를 적용하기 위해 업그레이드가 필요하므로 Windows Server 컨테이너(현재 AKS에서 미리 보기)를 사용하는 경우에 특히 중요합니다. Windows 서버 노드에 대한 자세한 내용은 [AKS의 노드 풀 업그레이드를][nodepool-upgrade]참조하십시오.
 

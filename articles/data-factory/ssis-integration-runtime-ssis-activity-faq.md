@@ -11,14 +11,16 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 1c2db107302e4851641ef430db61ec9b29ee151f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c85a652cde840336c51e1a5b5459f9dc591e0be
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77187472"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414682"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>SSIS 통합 런타임에서 패키지 실행 문제 해결
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 이 문서에는 SSIS 통합 런타임에서 SSIS(SQL Server 통합 서비스) 패키지를 실행할 때 찾을 수 있는 가장 일반적인 오류가 포함되어 있습니다. 오류를 해결하기 위한 잠재적인 원인과 작업을 설명합니다.
 
@@ -144,7 +146,7 @@ Azure-SSIS 통합 런타임이 자체 호스팅 통합 런타임으로 구성되
 
 패키지의 OLE DB 커넥터에서 사용하는 해당 공급자가 자체 호스팅 통합 런타임 컴퓨터에 제대로 설치되어 있는지 확인합니다. 자세한 내용은 [ADF의 Azure-SSIS IR에 대한 프록시로 자체 호스팅 IR 구성에서](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir) 찾을 수 있습니다.
 
-### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>오류 메시지: "스테이징 작업 오류: 오류 코드: 2906, ErrorMessage: 패키지 실행 실패., 출력: {"OperationErrorMessages": "오류: System.IO.FileLoadException: 파일 또는 어셈블리를 로드할 수 없습니다 ' Microsoft.WindowsAzure.Storage, 버전=..., 문화문화=중립, PublicKeyToken=31bf3856ad364e35' 또는 해당 종속성 중 하나. 위치 된 어셈블리의 매니페스트 정의 어셈블리 참조와 일치하지 않습니다.' ..."
+### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>오류 메시지: "스테이징 작업 오류: 오류 코드: 2906, ErrorMessage: 패키지 실행 실패., 출력: {"OperationErrorMessages": "오류: System.IO.FileLoadException: 파일 또는 어셈블리를 로드할 수 없습니다 ' Microsoft.WindowsAzure.Storage, 버전=..., 문화=중립, PublicKeyToken=31bf3856ad36e35' 또는 해당 종속성 중 하나. 위치 된 어셈블리의 매니페스트 정의 어셈블리 참조와 일치하지 않습니다.' ..."
 
 한 가지 잠재적인 원인은 자체 호스팅 통합 런타임이 제대로 설치되거나 업그레이드되지 않았기 입니다. 최신 자체 호스팅 통합 런타임을 다운로드하고 다시 설치하는 것이 좋습니다. 자세한 내용은 자체 [호스팅 통합 런타임 만들기 및 구성에서](create-self-hosted-integration-runtime.md#installation-best-practices) 찾을 수 있습니다.
 

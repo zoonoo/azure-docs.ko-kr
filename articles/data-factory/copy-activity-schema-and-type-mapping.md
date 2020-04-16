@@ -9,16 +9,17 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 04/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 9ae07e2a471cc417b467092a2616a5a0cdafb1fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f04955fb910a6159dc09ac40a87a398e67d59d6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260814"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414124"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>복사 작업의 스키마 매핑
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory 복사 활동이 데이터 복사본을 실행할 때 원본 데이터에서 데이터 싱크에 이르는 스키마 매핑 및 데이터 형식 매핑을 수행하는 방법을 설명합니다.
 
@@ -87,9 +88,9 @@ ms.locfileid: "79260814"
 
 다음 속성은 다음과 `translator`  ->  `mappings` > `source` 개체에서 `sink`지원됩니다.
 
-| 속성 | 설명                                                  | 필수 |
+| 속성 | Description                                                  | 필수 |
 | -------- | ------------------------------------------------------------ | -------- |
-| name     | 소스 또는 싱크 열의 이름입니다.                           | yes      |
+| name     | 소스 또는 싱크 열의 이름입니다.                           | 예      |
 | ordinal  | 열 인덱스입니다. 1부터 시작합니다. <br>헤더 줄없이 구분된 텍스트를 사용할 때 적용및 필요합니다. | 예       |
 | 경로     | 추출하거나 매핑할 각 필드에 대한 JSON 경로 표현식입니다. MongoDB/REST와 같은 계층 적 데이터를 신청하십시오.<br>루트 개체 아래의 필드의 경우 JSON 경로는 루트 $로 시작합니다. 속성에서 `collectionReference` 선택한 배열 내부필드의 경우 JSON 경로는 배열 요소에서 시작됩니다. | 예       |
 | type     | 원본 또는 싱크 열의 데이터 팩터리 중간 데이터 형식입니다. | 예       |
@@ -98,7 +99,7 @@ ms.locfileid: "79260814"
 
 다음 속성은 다음과 `translator`  ->  `mappings` 같은 개체 `source` 와 `sink`함께 지원됩니다.
 
-| 속성            | 설명                                                  | 필수 |
+| 속성            | Description                                                  | 필수 |
 | ------------------- | ------------------------------------------------------------ | -------- |
 | collectionReference | MongoDB/REST와 같은 계층적 데이터가 원본인 경우에만 지원됩니다.<br>동일한 패턴으로 **배열 필드 내부**의 개체에서 데이터를 반복 및 추출하고 행별 개체별로 변환하려면 교차 적용하도록 해당 배열의 JSON 경로를 지정합니다. | 예       |
 
@@ -200,10 +201,10 @@ ms.locfileid: "79260814"
 
 복사 활동 -> `translator`  ->  `schemaMapping` 지정하여 계층적 모양의 데이터와 표 모양 의 데이터 간에 매핑할 수 있습니다(예: MongoDB/REST에서 텍스트 파일로 복사) 및 오라클에서 MongoDB용 Azure Cosmos DB의 API로 복사할 수 있습니다. 다음 속성은 복사 작업 `translator` 섹션에서 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 활동 변환기의 형식 속성을 **설정해야** 합니다. | yes |
-| schemaMapping | **소스 측에서 싱크 측까지의**매핑 관계를 나타내는 키-값 쌍의 컬렉션입니다.<br/>- **키:** 소스를 나타냅니다. **테이블 형식 소스의**경우 데이터 집합 구조에 정의된 열 이름을 지정합니다. **계층적 소스의**경우 추출 및 매핑할 각 필드에 대한 JSON 경로 식을 지정합니다.<br>- **값:** 싱크를 나타냅니다. **테이블 형식 싱크의**경우 데이터 집합 구조에 정의된 열 이름을 지정합니다. **계층 적 싱크의**경우 추출 및 매핑할 각 필드에 대한 JSON 경로 표현식을 지정합니다. <br>계층 적 데이터의 경우 루트 개체 아래의 필드의 경우 JSON 경로는 루트 $로 시작합니다. 속성에서 `collectionReference` 선택한 배열 내부필드의 경우 JSON 경로는 배열 요소에서 시작됩니다.  | yes |
+| type | 복사 활동 변환기의 형식 속성을 **설정해야** 합니다. | 예 |
+| schemaMapping | **소스 측에서 싱크 측까지의**매핑 관계를 나타내는 키-값 쌍의 컬렉션입니다.<br/>- **키:** 소스를 나타냅니다. **테이블 형식 소스의**경우 데이터 집합 구조에 정의된 열 이름을 지정합니다. **계층적 소스의**경우 추출 및 매핑할 각 필드에 대한 JSON 경로 식을 지정합니다.<br>- **값:** 싱크를 나타냅니다. **테이블 형식 싱크의**경우 데이터 집합 구조에 정의된 열 이름을 지정합니다. **계층 적 싱크의**경우 추출 및 매핑할 각 필드에 대한 JSON 경로 표현식을 지정합니다. <br>계층 적 데이터의 경우 루트 개체 아래의 필드의 경우 JSON 경로는 루트 $로 시작합니다. 속성에서 `collectionReference` 선택한 배열 내부필드의 경우 JSON 경로는 배열 요소에서 시작됩니다.  | 예 |
 | collectionReference | 동일한 패턴으로 **배열 필드 내부**의 개체에서 데이터를 반복 및 추출하고 행별 개체별로 변환하려면 교차 적용하도록 해당 배열의 JSON 경로를 지정합니다. 이 속성은 계층적 데이터가 원본인 경우에만 지원됩니다. | 예 |
 
 **예: 몽고DB에서 오라클로 복사:**
@@ -278,11 +279,7 @@ ms.locfileid: "79260814"
 1. 원시 원본 형식을 Azure Data Factory 중간 데이터 형식으로 변환
 2. Azure Data Factory 중간 데이터 형식을 원시 싱크 형식으로 변환
 
-각 커넥터 항목의 "데이터 형식 매핑" 섹션에서 원시 형식과 중간 형식 간의 매핑을 확인할 수 있습니다.
-
-### <a name="supported-data-types"></a>지원되는 데이터 형식
-
-Data Factory는 다음 중간 데이터 형식을 지원합니다: [데이터 집합 구조](concepts-datasets-linked-services.md#dataset-structure-or-schema) 구성에서 형식 정보를 구성할 때 아래 값을 지정할 수 있습니다.
+복사 활동은 다음과 같은 중간 데이터 형식을 지원합니다. 
 
 * Byte[]
 * 부울

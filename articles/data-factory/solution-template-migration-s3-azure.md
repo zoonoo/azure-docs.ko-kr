@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
-ms.openlocfilehash: e918fe01426202746f0225d25304b9c1b26cb74b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 23d799f84cb3ac3ca911a5669041b0a25394a7ff
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927320"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414769"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>아마존 S3에서 Azure 데이터 레이크 스토리지 Gen2로 데이터 마이그레이션
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 템플릿을 사용하여 Amazon S3에서 Azure Data Lake Storage Gen2로 수억 개의 파일로 구성된 페타바이트 규모의 데이터를 마이그레이션합니다. 
 
@@ -71,7 +73,7 @@ ms.locfileid: "74927320"
 
     > [!NOTE]
     > 테이블 이름이 s3_partition_control_table.
-    > 컨트롤 테이블의 스키마는 PartitionPrefix 및 SuccessOrFailure이며, PartitionPrefix는 S3의 접두사 설정으로 아마존 S3의 폴더와 파일을 이름으로 필터링하고 SuccessOrFailure은 각 파티션을 복사하는 상태입니다: 0은 이 파티션을 의미합니다. Azure에 복사되지 않았으며 1은 이 파티션이 Azure에 성공적으로 복사되었음을 의미합니다.
+    > 컨트롤 테이블의 스키마는 PartitionPrefix 및 SuccessOrFailure이며, PartitionPrefix는 S3의 접두사 설정으로 Amazon S3의 폴더와 파일을 이름으로 필터링하고 SuccessOrFailure은 각 파티션을 복사하는 상태입니다.
     > 컨트롤 테이블에정의된 5개의 파티션이 있으며 각 파티션을 복사하는 기본 상태는 0입니다.
 
     ```sql
@@ -132,7 +134,7 @@ ms.locfileid: "74927320"
 
     > [!NOTE]
     > 테이블 이름이 s3_partition_delta_control_table.
-    > 컨트롤 테이블의 스키마는 PartitionPrefix, JobRunTime 및 SuccessOrfailure이며, PartitionPrefix는 S3의 접두사 설정으로 이름으로 Amazon S3의 폴더와 파일을 필터링하고 JobRunTime은 복사 작업이 실행될 때 날짜 시간 값이며 SuccessOrFailure은 각 파티션 복사 상태: 0은 이 파티션이 Azure에 복사되지 않았으며 1은 이 파티션이 Azure에 성공적으로 복사되었음을 의미합니다.
+    > 컨트롤 테이블의 스키마는 PartitionPrefix, JobRunTime 및 SuccessOrFailure이며, PartitionPrefix는 S3의 접두사 설정으로 아마존 S3의 폴더와 파일을 이름으로 필터링하고, JobRunTime은 복사 작업이 실행될 때 의 날짜 시간 값이며, SuccessOrFailure은 각 파티션을 복사할 때 의 날짜 값이며, SuccessOrFailure은 이 파티션이 Azure에 복사되지 않음을 의미하며 1은 이 파티션이 Azure에 복사되지 않음을 의미합니다.
     > 컨트롤 테이블에정의된 5개의 파티션이 있습니다. JobRunTime의 기본값은 일회성 기록 데이터 마이그레이션이 시작되는 시간일 수 있습니다. ADF 복사 활동은 해당 시간 이후에 마지막으로 수정된 AWS S3의 파일을 복사합니다. 각 파티션을 복사하는 기본 상태는 1입니다.
 
     ```sql

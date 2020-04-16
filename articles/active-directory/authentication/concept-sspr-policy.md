@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fba4dae66b5adcea6cc33e61d8cf88946e29546e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f5987bee82dc22d3742cb5d87040930e5d2c52d
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051180"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393042"
 ---
 # <a name="self-service-password-reset-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory에서 셀프 서비스 암호 재설정 정책 및 제한
 
@@ -160,16 +160,6 @@ Microsoft 클라우드 서비스의 *글로벌 관리자* 또는 *사용자 관�
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 문서에서는 Azure AD를 통한 암호 재설정에 대한 추가 정보를 제공합니다.
+SSPR을 시작하려면 [자습서: 사용자가 Azure Active Directory 셀프 서비스 암호 재설정을 사용하여 계정 잠금을 해제하거나 암호를 재설정할 수 있도록 설정합니다.](tutorial-enable-sspr.md)
 
-* [성공적인 SSPR 롤아웃을 어떻게 완료합니까?](howto-sspr-deployment.md)
-* [암호 재설정 또는 변경](../user-help/active-directory-passwords-update-your-own-password.md)
-* [셀프 서비스 암호 재설정 등록](../user-help/active-directory-passwords-reset-register.md)
-* [라이선스 문제가 있습니까?](concept-sspr-licensing.md)
-* [SSPR에서 사용하는 데이터는 무엇이며, 사용자에 대해 어떤 데이터를 채워야 합니까?](howto-sspr-authenticationdata.md)
-* [사용자가 사용할 수 있는 인증 방법은 무엇입니까?](concept-sspr-howitworks.md#authentication-methods)
-* [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](howto-sspr-writeback.md)
-* [SSPR 작업은 어떻게 보고 합니까?](howto-sspr-reporting.md)
-* [모든 SSPR 옵션과 그 의미는 무엇입니까?](concept-sspr-howitworks.md)
-* [뭔가 깨진 것 같아요. SSPR 문제를 해결하려면 어떻게 해야 합니까?](active-directory-passwords-troubleshoot.md)
-* [다른 곳에서 다루지 않았던 질문이 있습니다.](active-directory-passwords-faq.md)
+사용자 또는 사용자가 SSPR에 문제가 있는 경우 [셀프 서비스 암호 재설정 문제를](active-directory-passwords-troubleshoot.md) 참조하십시오.

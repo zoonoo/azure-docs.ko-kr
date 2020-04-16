@@ -4,16 +4,16 @@ description: SSH 및 Azure Logic Apps를 사용하여 SFTP 서버에 대한 파�
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: estfan, klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 03/7/2020
+ms.date: 04/13/2020
 tags: connectors
-ms.openlocfilehash: d4ab7425c967d3a176c0a576d0be38ece1701b8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7fafdd5830ec2825771d4d611a5f4bd5d87260a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128404"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393629"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>SSH 및 Azure Logic Apps를 사용하여 SFTP 파일 모니터링, 만들기 및 관리
 
@@ -43,12 +43,12 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점에 대해 이 항목의 �
   | 작업 | 청크 지원 | 청크 크기 지원 재정의 |
   |--------|------------------|-----------------------------|
   | **파일 복사** | 예 | 해당 없음 |
-  | **파일 만들기** | yes | yes |
+  | **파일 만들기** | 예 | 예 |
   | **폴더 만들기** | 해당 없음 | 해당 없음 |
   | **파일 삭제** | 해당 없음 | 해당 없음 |
   | **폴더에 보관 추출** | 해당 없음 | 해당 없음 |
-  | **파일 콘텐츠 가져오기** | yes | yes |
-  | **경로를 사용하여 파일 콘텐츠 가져오기** | yes | yes |
+  | **파일 콘텐츠 가져오기** | 예 | 예 |
+  | **경로를 사용하여 파일 콘텐츠 가져오기** | 예 | 예 |
   | **파일 메타데이터 가져오기** | 해당 없음 | 해당 없음 |
   | **경로를 사용하여 파일 메타데이터 가져오기** | 해당 없음 | 해당 없음 |
   | **폴더의 파일 나열** | 해당 없음 | 해당 없음 |
@@ -127,7 +127,7 @@ SFTP-SSH는 SFTP 파일 시스템을 폴링하고 마지막 폴링 이후 변경
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   예를 들어:
+   다음은 그 예입니다.
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -146,6 +146,16 @@ SFTP-SSH는 SFTP 파일 시스템을 폴링하고 마지막 폴링 이후 변경
    !["열기 내보내기 키"를 선택합니다.](./media/connectors-sftp-ssh/export-openssh-key.png)
 
 1. 파일 이름 확장명으로 `.pem` 개인 키 파일을 저장합니다.
+
+## <a name="considerations"></a>고려 사항
+
+이 섹션에서는 이 커넥터의 트리거 및 작업에 대해 검토할 고려 사항에 대해 설명합니다.
+
+<a name="create-file"></a>
+
+### <a name="create-file"></a>파일 만들기
+
+SFTP 서버에서 파일을 만들려면 SFTP-SSH 파일 **만들기** 작업을 사용할 수 있습니다. 이 작업을 수행하면 Logic Apps 서비스에서도 자동으로 SFTP 서버를 호출하여 파일의 메타데이터를 가져옵니다. 그러나 Logic Apps 서비스가 메타데이터를 가져오는 호출을 하기 전에 새로 만든 파일을 `404` 이동하면 `'A reference was made to a file or folder which does not exist'`오류 메시지가 나타납니다. 파일 생성 후 파일의 메타데이터 읽기를 건너뛰려면 단계를 따라 [ **모든 파일 메타데이터** 속성 **을 추가한 다음 [아니요]로**설정합니다.](#file-does-not-exist)
 
 <a name="connect"></a>
 
@@ -211,9 +221,27 @@ SFTP-SSH는 SFTP 파일 시스템을 폴링하고 마지막 폴링 이후 변경
 
 <a name="get-content"></a>
 
-### <a name="sftp---ssh-action-get-content-using-path"></a>SFTP - SSH 액션: 경로를 사용하여 콘텐츠 받기
+### <a name="sftp---ssh-action-get-file-content-using-path"></a>SFTP - SSH 작업: 경로를 사용하여 파일 콘텐츠 가져옵니다.
 
-이 작업은 SFTP 서버의 파일에서 콘텐츠를 가져옵니다. 따라서 예를 들어 이전 예제의 트리거와 파일의 콘텐츠가 충족해야 하는 조건을 추가할 수 있습니다. 조건이 true인 경우 콘텐츠를 가져오는 작업을 실행할 수 있습니다.
+이 작업은 파일 경로를 지정하여 SFTP 서버의 파일에서 콘텐츠를 가져옵니다. 따라서 예를 들어 이전 예제의 트리거와 파일의 콘텐츠가 충족해야 하는 조건을 추가할 수 있습니다. 조건이 true인 경우 콘텐츠를 가져오는 작업을 실행할 수 있습니다.
+
+<a name="troubleshooting-errors"></a>
+
+## <a name="troubleshoot-errors"></a>오류 문제 해결
+
+이 섹션에서는 일반적인 오류 또는 문제에 대한 가능한 해결 방법을 설명합니다.
+
+<a name="file-does-not-exist"></a>
+
+### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>404 오류: "존재하지 않는 파일이나 폴더에 대한 참조가 만들어졌습니다."
+
+이 오류는 논리 앱이 SFTP-SSH **만들기 파일** 작업을 통해 SFTP 서버에 새 파일을 만들지만 새로 생성된 파일이 로직 앱 서비스에서 파일의 메타데이터를 받기 전에 즉시 이동될 때 발생할 수 있습니다. 논리 앱에서 **파일 만들기** 작업을 실행하면 Logic Apps 서비스에서도 자동으로 SFTP 서버를 호출하여 파일의 메타데이터를 가져옵니다. 그러나 파일을 이동하면 Logic Apps 서비스가 더 이상 파일을 찾을 수 `404` 없으므로 오류 메시지가 나타납니다.
+
+파일 이동을 피하거나 지연할 수 없는 경우 다음 단계를 수행하여 파일 생성 후 파일의 메타데이터 읽기를 건너뛸 수 있습니다.
+
+1. 파일 **만들기** 작업에서 **새 매개 변수 목록 추가를** 열고 모든 파일 메타데이터 속성 **받기를** 선택하고 값을 **아니요로**설정합니다.
+
+1. 나중에 이 파일 메타데이터가 필요한 경우 **파일 메타데이터 받기** 작업을 사용할 수 있습니다.
 
 ## <a name="connector-reference"></a>커넥터 참조
 

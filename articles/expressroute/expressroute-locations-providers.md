@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 04/14/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0133322eab9a554cf28c0a90fbadf9afe6fbcd64
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 3b45c20e2d3e8829913c9e566516f85866ee80d4
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314276"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390313"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -95,7 +95,7 @@ ExpressRoute 위치(피어링 위치 또는 모임 위치라고도 함)는 Micro
 | **두바이** | [PCCS](https://www.pacificcontrols.net/cloudservices/index.html) | 3 | 아랍에미리트 북부 | 해당 없음 | 에티살라트 아랍에미리트 |
 | **두바이2** | [뒤 데이터 메나](http://datamena.com/solutions/data-centre) | 3 | 아랍에미리트 북부 | 해당 없음 | 뒤 데이터 메나, 메가 포트, 오렌지, 오릭스콤 |
 | **더블린** | [에퀴닉스 DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | 북유럽 | 10G, 100G | 콜트, 어, 에퀴닉스, 유네트웍스, 인터렉시온, 메가포트 |
-| **프랑크푸르트** | [인터렉시온 FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | 독일 웨스트 센트럴 | 10G, 100G | 센추리링크 클라우드 커넥트, 콜트, DE-CIX, 에퀴닉스, GEANT, 인터렉션, 메가포트, 오렌지, 텔리아 캐리어 |
+| **프랑크푸르트** | [인터렉시온 FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | 독일 웨스트 센트럴 | 10G, 100G | AT&T 넷본드, 센추리링크 클라우드 커넥트, 콜트, DE-CIX, 에퀴닉스, GEANT, 인터렉션, 메가포트, 오렌지, 텔리아 캐리어 |
 | **제네바** | [에퀴닉스 GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | 스위스 웨스트 | 10G, 100G | Equinix, Megaport |
 | **홍콩** | [에퀴닉스 HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | 동아시아 | 해당 없음 | 아리아카 네트웍스, 브리티시 텔레콤, 센추리링크 클라우드 커넥트, 수석 텔레콤, 차이나 텔레콤 글로벌, 에퀴닉스, 인터클라우드, 메가포트, NTT 커뮤니케이션, 오렌지, PCCW 글로벌 리미티드, 타타 커뮤니케이션, 텔리아 캐리어, 버라이존 |
 | **홍콩2** | [메가이](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | 해당 없음 | 10G | |
@@ -128,7 +128,7 @@ ExpressRoute 위치(피어링 위치 또는 모임 위치라고도 함)는 Micro
 | **실리콘밸리** | [에퀴닉스 SV1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/silicon-valley-data-centers/sv1/) | 1 | 미국 서부 | 10G, 100G | 아리아카 네트웍스, AT&T NetBond, 영국 텔레콤, 센추리링크 클라우드 커넥트, 콜트, 컴캐스트, 코어사이트, 에퀴닉스, 인터클라우드, 인터넷2, IX 리치, 패킷, 패킷패브릭, 레벨 3 커뮤니케이션, 메가포트, 오렌지, 스프린트, 타타 커뮤니케이션, 텔리아 캐리어, 버라이존, 자요 |
 | **실리콘 밸리2** | [코어사이트 SV7](https://www.coresite.com/data-centers/locations/silicon-valley/sv7) | 1 | 미국 서부 | 10G, 100G | 콜트, 코어사이트 | 
 | **싱가포르** | [에퀴닉스 SG1](https://www.equinix.com/locations/asia-colocation/singapore-colocation/singapore-data-center/sg1/) | 2 | 동남아시아 | 10G, 100G | 아리아카 네트웍스, AT&T 넷본드, 영국 텔레콤, 차이나 모바일 인터내셔널, 엡실론 글로벌 커뮤니케이션, 에퀴닉스, 인터클라우드, 레벨 3 커뮤니케이션, 메가포트, NTT 커뮤니케이션, 오렌지, 싱텔, 타타 커뮤니케이션, 텔스트라 코퍼레이션, 버라이존, 보다폰 |
-| **Singapore2** | [글로벌 스위치 타이셍](https://www.globalswitch.com/locations/singapore-data-centres/) | 2 | 동남아시아 | 10G, 100G | 중국 유니콤 글로벌, 콜트, 엡실론 글로벌 커뮤니케이션, 메가포트, 싱텔 |
+| **Singapore2** | [글로벌 스위치 타이셍](https://www.globalswitch.com/locations/singapore-data-centres/) | 2 | 동남아시아 | 10G, 100G | 중국 유니콤 글로벌, 콜트, 엡실론 글로벌 커뮤니케이션, 메가포트, PCCW 글로벌 리미티드, 싱텔 |
 | **스타방에르** | [그린 마운틴 DC1](https://greenmountain.no/dc1-stavanger/) | 1 | 노르웨이 웨스트 | 10G, 100G | |
 | **스톡홀름** | [에퀴닉스 SK1](https://www.equinix.com/locations/europe-colocation/sweden-colocation/stockholm-data-centers/sk1/) | 1 | 해당 없음 | 10G | 에퀴닉스, 텔리아 캐리어 |
 | **시드니** | [에퀴닉스 SY2](https://www.equinix.com/locations/asia-colocation/australia-colocation/sydney-data-centers/sy2/) | 2 | 오스트레일리아 동부 | 10G, 100G | AARNet, AT&T 넷본드, 영국 텔레콤, 데볼리, 에퀴닉스, 코르디아, 메가포트, NEXTDC, NTT 커뮤니케이션, 옵터스, 오렌지, 스파크 NZ, 텔스트라 코퍼레이션, TPG 텔레콤, 버라이존, 보커스 그룹 NZ |

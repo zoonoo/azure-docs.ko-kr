@@ -5,17 +5,17 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: c239f7062dc39492a0cf63ac3aadbaf94acbf032
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 8573a88d5371bbde07a541c789f52e6c44f1e279
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80680441"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411122"
 ---
 # <a name="system-requirements"></a>시스템 요구 사항
 
 > [!IMPORTANT]
-> **Azure 원격 렌더링은** 현재 공개 미리 보기 상태입니다.
+> **Azure Remote Rendering**은 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 장에서는 *ARR(Azure 원격 렌더링)에서* 작동하기 위한 최소 시스템 요구 사항을 나열합니다.
@@ -45,7 +45,7 @@ ms.locfileid: "80680441"
 
 ## <a name="devices"></a>디바이스
 
-Azure 원격 렌더링은 현재 **HoloLens 2** 및 Windows 데스크톱 UWP만 대상 장치로 지원합니다.
+Azure 원격 렌더링은 현재 **HoloLens 2** 및 Windows 데스크톱을 대상 장치로만 지원합니다. 플랫폼 [제한](../reference/limits.md#platform-limitations) 섹션을 참조하십시오.
 
 최신 버전은 대기 시간이 크게 향상되어 최신 HEVC 코덱을 사용하는 것이 중요합니다. 장치에 설치된 버전을 확인하려면 다음 을 수행하십시오.
 
@@ -66,7 +66,7 @@ Azure 원격 렌더링은 현재 **HoloLens 2** 및 Windows 데스크톱 UWP만 
 
 ## <a name="software"></a>소프트웨어
 
-다음 소프트웨어를 설치해야 합니다.
+다음 소프트웨어가 설치되어 있어야 합니다.
 
 * 비주얼 스튜디오 **2019의** 최신 버전 [(다운로드)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * **윈도우 SDK 10.0.18362.0** [(다운로드)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
@@ -77,11 +77,11 @@ Azure 원격 렌더링은 현재 **HoloLens 2** 및 Windows 데스크톱 UWP만 
 
 Unity개발을 위해
 
-* 유니티 2019.3.1 [(다운로드)](https://unity3d.com/get-unity/download)
-* 유니티에 다음 모듈을 설치합니다.
-  * **UWP** - 유니버설 윈도우 플랫폼 빌드 지원
-  * **IL2CPP** - 윈도우 빌드 지원(IL2CPP)
+* Unity 2019.3.1[(다운로드)](https://unity3d.com/get-unity/download)
+* 다음 모듈을 Unity에 설치합니다.
+  * **UWP** - 유니버설 Windows 플랫폼 빌드 지원
+  * **IL2CPP** - Windows 빌드 지원(IL2CPP)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [빠른 시작: Unity로 모델 렌더링](../quickstarts/render-model.md)
+* [빠른 시작: Unity를 사용하여 모델 렌더링](../quickstarts/render-model.md)

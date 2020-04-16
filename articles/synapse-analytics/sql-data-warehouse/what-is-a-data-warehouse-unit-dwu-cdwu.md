@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 62cf1f369cbde372e82e7c3ffe26473f09668bc7
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: db282bae92ec14c1cb4f6a61b61d435814b0f13c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742548"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408060"
 ---
 # <a name="data-warehouse-units-dwus"></a>데이터 웨어하우스 단위(DWUs)
 
@@ -32,7 +32,7 @@ ms.locfileid: "80742548"
 
 더 높은 성능을 위해 데이터 웨어하우스 단위 수를 늘릴 수 있습니다. 성능이 저하되면 데이터 웨어하우스 단위를 줄입니다. 스토리지 및 컴퓨팅 비용은 별도로 청구되므로 데이터 웨어하우스 단위를 변경해도 스토리지 비용에 영향을 미치지 않습니다.
 
-데이터 웨어하우스 단위의 성능은 다음 워크로드 메트릭을 기반으로 합니다.
+데이터 웨어하우스 단위의 성능은 다음과 같은 데이터 웨어하우스 워크로드 메트릭을 기반으로 합니다.
 
 - 표준 SQL 풀 쿼리가 많은 수의 행을 검색한 다음 복잡한 집계를 수행하는 속도입니다. 이 작업은 I/O 및 CPU를 많이 사용합니다.
 - SQL 풀이 Azure 저장소 Blob 또는 Azure 데이터 레이크에서 데이터를 수집할 수 있는 속도 이 작업은 네트워크 및 CPU를 많이 사용합니다.
@@ -46,21 +46,37 @@ DWU 늘리기:
 
 ## <a name="service-level-objective"></a>서비스 수준 목표
 
+SLO(서비스 수준 목표)는 데이터 웨어하우스의 비용 및 성능 수준을 결정하는 확장성 설정입니다. Gen2에 대한 서비스 수준은 cDWU(컴퓨팅 데이터 웨어하우스 단위)로 측정됩니다(예: DW2000c). Gen1 서비스 수준은 DWU로 측정됩니다(예: DW2000).
+
 SLO(서비스 수준 목표)는 SQL 풀의 비용 및 성능 수준을 결정하는 확장성 설정입니다. Gen2 SQL 풀의 서비스 수준은 DW2000c와 같은 데이터 웨어하우스 단위(DWU)로 측정됩니다.
 
-T-SQL에서 SERVICE_OBJECTIVE 설정은 SQL 풀의 서비스 수준을 결정합니다.
+> [!NOTE]
+> Azure SQL Data Warehouse Gen2는 최근에 100cDWU만큼 낮은 컴퓨팅 계층을 지원하기 위해 크기 조정 기능을 추가했습니다. 현재 Gen1에 있는 기존 데이터 웨어하우스는 하위 컴퓨팅 계층이 필요한 경우 이제 추가 비용 없이 현재 사용 가능한 지역에서 Gen2로 업그레이드할 수 있습니다.  해당 지역이 아직 지원되지 않는 경우에도 지원되는 지역으로 업그레이드할 수 있습니다. 자세한 내용은 [Gen2로 업그레이드](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+
+T-SQL에서 SERVICE_OBJECTIVE 설정은 SQL 풀의 서비스 수준과 성능 계층을 결정합니다.
 
 ```sql
 CREATE DATABASE mySQLDW
-( EDITION = 'Datawarehouse'
+(Edition = 'Datawarehouse'
  ,SERVICE_OBJECTIVE = 'DW1000c'
 )
 ;
 ```
 
-## <a name="capacity-limits"></a>용량 제한
+## <a name="performance-tiers-and-data-warehouse-units"></a>성능 계층 및 데이터 웨어하우스 단위
+
+각 성능 계층은 약간 다른 데이터 웨어하우스의 측정 단위를 사용합니다. 이러한 차이는 크기 단위를 직접 요금 청구로 변환하므로 송장에 반영됩니다.
+
+- Gen1 데이터 웨어하우스는 DWU(데이터 웨어하우스 단위)로 측정됩니다.
+- Gen2 데이터 웨어하우스는 cDWU(컴퓨팅 데이터 웨어하우스 단위)로 측정됩니다.
+
+DWU 및 cDWU 모두 컴퓨팅을 확장 또는 축소할 수 있고 데이터 웨어하우스를 사용할 필요가 없는 경우 컴퓨팅을 일시 중지할 수 있습니다. 이러한 작업은 모두 주문형 작업입니다. Gen2는 컴퓨팅 노드에서 로컬 디스크 기반 캐시를 사용하여 성능을 향상시킵니다. 시스템의 크기를 조정하거나 시스템을 일시 중지할 경우 캐시가 무효화되므로 최적의 성능을 얻으려면 캐시 준비 시간이 필요합니다.  
 
 각 SQL Server(예: myserver.database.windows.net)에는 특정 데이터 웨어하우스 단위 수를 허용하는 [DTU(데이터베이스 트랜잭션 단위)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 할당량이 지정되어 있습니다. 자세한 내용은 [워크로드 관리 용량 제한](sql-data-warehouse-service-capacity-limits.md#workload-management)을 참조하세요.
+
+## <a name="capacity-limits"></a>용량 제한
+
+각 SQL Server(예: myserver.database.windows.net)에는 특정 데이터 웨어하우스 단위 수를 허용하는 [DTU(데이터베이스 트랜잭션 단위)](../../sql-database/sql-database-what-is-a-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 할당량이 지정되어 있습니다. 자세한 내용은 [워크로드 관리 용량 제한](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management)을 참조하세요.
 
 ## <a name="how-many-data-warehouse-units-do-i-need"></a>필요한 데이터 웨어하우스 단위 수
 
@@ -115,17 +131,17 @@ DWUS를 변경하려면 다음을 수행하십시오.
 
 3. **저장**을 클릭합니다. 확인 메시지가 표시됩니다. **예**를 클릭하여 확인하거나 **아니요**를 클릭하여 취소합니다.
 
-### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-DWUS를 변경하려면 [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet을 사용합니다. 다음 예제에서는 서버 MyServer에서 호스팅되는 데이터베이스 MySQLDW에 대한 서비스 수준 목표를 DW1000c로 설정합니다.
+DWUS를 변경하려면 [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet을 사용합니다. 다음 예제에서는 MyServer에서 호스트되는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000으로 설정합니다.
 
 ```Powershell
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
-자세한 내용은 [SQL Data Warehouse용 PowerShell cmdlet](sql-data-warehouse-reference-powershell-cmdlets.md)을 참조하세요.
+자세한 내용은 [SQL Data Warehouse용 PowerShell cmdlet](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 참조하세요.
 
 ### <a name="t-sql"></a>T-SQL
 
@@ -152,12 +168,12 @@ Content-Type: application/json; charset=UTF-8
 
 {
     "properties": {
-        "requestedServiceObjectiveName": DW1000c
+        "requestedServiceObjectiveName": DW1000
     }
 }
 ```
 
-추가 REST API 예제를 보려면 [SQL Data Warehouse용 REST API](sql-data-warehouse-manage-compute-rest-api.md)를 참조하세요.
+추가 REST API 예제를 보려면 [SQL Data Warehouse용 REST API](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
 
 ## <a name="check-status-of-dwu-changes"></a>DWU 변경 상태 확인
 
@@ -170,14 +186,13 @@ Azure Portal에서 스케일 아웃 작업에 대한 데이터베이스 상태�
 DWU 변경 상태를 확인하려면:
 
 1. 논리적 SQL Database 서버와 연결된 마스터 데이터베이스에 연결합니다.
+2. 다음 쿼리를 제출하여 데이터베이스 상태를 확인합니다.
 
-1. 다음 쿼리를 제출하여 데이터베이스 상태를 확인합니다.
-
-    ```sql
-    SELECT    *
-    FROM      sys.databases
-    ;
-    ```
+```sql
+SELECT    *
+FROM      sys.databases
+;
+```
 
 1. 다음 쿼리를 제출하여 작업 상태를 확인합니다.
 

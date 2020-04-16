@@ -5,16 +5,16 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: kevindaw
-ms.date: 03/06/2020
+ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b4d247f151240da8c3f0d38bbd22e43e230a1b95
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: d5e968e578428a16a0005149a409986015a1fc5c
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668624"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393746"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>X.509 인증서를 사용하여 IoT Edge 장치 생성 및 프로비전
 
@@ -44,6 +44,12 @@ X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기
 장치 ID 인증서는 IoT Edge 장치를 프로비전하고 Azure IoT Hub를 사용하여 장치를 인증하는 데만 사용됩니다. IoT Edge 장치가 확인을 위해 모듈 또는 리프 장치에 제공하는 CA 인증서와 달리 인증서에 서명하지 않습니다. 자세한 내용은 [Azure IoT Edge 인증서 사용 세부 정보를](iot-edge-certs.md)참조하십시오.
 
 장치 ID 인증서를 만든 후에는 인증서의 공용 부분이 포함된 .cer 또는 .pem 파일과 인증서의 개인 키가 있는 .cer 또는 .pem 파일이라는 두 개의 파일이 있어야 합니다. DPS에서 그룹 등록을 사용하려는 경우 동일한 트러스트 인증서 체인에 중간 또는 루트 CA 인증서의 공용 부분도 필요합니다.
+
+X.509로 자동 프로비저닝을 설정하려면 다음 파일이 필요합니다.
+
+* 장치 ID 인증서 및 개인 키 인증서입니다. 개별 등록을 만들면 장치 ID 인증서가 DPS에 업로드됩니다. 개인 키는 IoT Edge 런타임에 전달됩니다.
+* 장치 ID와 중간 인증서가 있어야 하는 전체 체인 인증서입니다. 전체 체인 인증서가 IoT Edge 런타임에 전달됩니다.
+* 트러스트 인증서 체인의 중간 또는 루트 CA 인증서입니다. 이 인증서는 그룹 등록을 만들 면 DPS에 업로드 됩니다.
 
 ### <a name="use-test-certificates"></a>테스트 인증서 사용
 
@@ -86,7 +92,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
    * **기본 인증서 .pem 또는 .cer 파일**: 장치 ID 인증서에서 공용 파일을 업로드합니다. 스크립트를 사용하여 테스트 인증서를 생성하는 경우 다음 파일을 선택합니다.
 
-      `<WRKDIR>/certs/iot-edge-device-identity-<name>-full-chain.cert.pem`
+      `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
 
    * **IoT 허브 장치 ID**: 원하는 경우 장치에 ID를 제공합니다. 디바이스 ID를 사용하여 모듈 배포에 대한 개별 디바이스를 대상으로 할 수 있습니다. 장치 ID를 제공하지 않으면 X.509 인증서의 CN(일반 이름)이 사용됩니다.
 
@@ -205,7 +211,7 @@ DPS를 갖춘 X.509 프로비전은 IoT Edge 버전 1.0.9 이상에서만 지원
 기기를 프로비전할 때 다음 정보가 필요합니다.
 
 * DPS **ID 범위** 값입니다. Azure 포털에서 DPS 인스턴스의 개요 페이지에서 이 값을 검색할 수 있습니다.
-* 장치의 장치 ID 인증서 파일입니다.
+* 장치의 장치 ID 인증서 체인 파일입니다.
 * 장치의 장치 ID 키 파일입니다.
 * 선택적 등록 ID(제공되지 않은 경우 장치 ID 인증서의 일반 이름에서 가져온 값).
 
@@ -217,7 +223,7 @@ DPS를 갖춘 X.509 프로비전은 IoT Edge 버전 1.0.9 이상에서만 지원
 
 config.yaml 파일에 X.509 인증서 및 키 정보를 추가할 때 경로는 파일 URI로 제공되어야 합니다. 다음은 그 예입니다.
 
-* `file:///<path>/identity_certificate.pem`
+* `file:///<path>/identity_certificate_chain.pem`
 * `file:///<path>/identity_key.pem`
 
 X.509 자동 프로비저닝에 대한 구성 파일의 섹션은 다음과 같습니다.
@@ -235,7 +241,7 @@ provisioning:
     identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
 ```
 
-에 대한 `scope_id` `identity_cert` `identity_pk` 자리 표시자 값을 DPS 인스턴스의 범위 ID로 바꾸고 URI를 장치의 인증서 및 키 파일 위치로 바꿉습니다. 원하는 `registration_id` 경우 장치에 대한 장치를 제공하거나 ID 인증서의 CN 이름으로 장치를 등록하기 위해 주석처리 된이 줄을 둡니다.
+에 대한 `scope_id` `identity_cert`자리 표시자 `identity_pk` 값을 DPS 인스턴스의 범위 ID로 바꾸고 URI를 장치의 인증서 체인 및 키 파일 위치로 바꿉습니다. 원하는 `registration_id` 경우 장치에 대한 장치를 제공하거나 ID 인증서의 CN 이름으로 장치를 등록하기 위해 주석처리 된이 줄을 둡니다.
 
 config.yaml 파일을 업데이트한 후 항상 보안 데몬을 다시 시작합니다.
 
@@ -245,7 +251,7 @@ sudo systemctl restart iotedge
 
 ### <a name="windows-device"></a>Windows 디바이스
 
-ID 인증서 및 ID 키를 생성한 장치에 IoT Edge 런타임을 설치합니다. IoT Edge 런타임을 수동이 아닌 자동 프로비저닝용으로 구성합니다.
+ID 인증서 체인 및 ID 키를 생성한 장치에 IoT Edge 런타임을 설치합니다. IoT Edge 런타임을 수동이 아닌 자동 프로비저닝용으로 구성합니다.
 
 컨테이너 관리 및 IoT 에지 업데이트와 같은 작업에 대한 필수 구성 프로그램 및 지침을 포함하여 Windows에 IoT Edge를 설치하는 방법에 대한 자세한 내용은 [Windows에서 Azure IoT Edge 런타임 설치를](how-to-install-iot-edge-windows.md)참조하십시오.
 
@@ -262,11 +268,11 @@ ID 인증서 및 ID 키를 생성한 장치에 IoT Edge 런타임을 설치합�
 
 1. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 자동 프로비저닝을 사용 하려면 `-Dps` 플래그를 사용 하지 않는 한 명령은 수동 프로비저닝으로 기본설정 됩니다.
 
-   의 자리 표시자 `{scope_id}` `{identity cert path}`값을 `{identity key path}` 및 DPS 인스턴스의 적절한 값과 장치의 파일 경로로 바꿉습니다. 등록 ID를 지정하려면 자리 `-RegistrationId {registration_id}` 표시자를 적절하게 교체하는 것도 포함합니다.
+   의 자리 표시자 `{scope_id}` `{identity cert chain path}`값을 `{identity key path}` 및 DPS 인스턴스의 적절한 값과 장치의 파일 경로로 바꿉습니다. 등록 ID를 지정하려면 자리 `-RegistrationId {registration_id}` 표시자를 적절하게 교체하는 것도 포함합니다.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -X509IdentityCertificate {identity cert path} -X509IdentityPrivateKey {identity key path}
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -X509IdentityCertificate {identity cert chain path} -X509IdentityPrivateKey {identity key path}
    ```
 
    >[!TIP]

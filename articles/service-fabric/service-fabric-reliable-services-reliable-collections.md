@@ -2,13 +2,13 @@
 title: 신뢰할 수 있는 컬렉션 소개
 description: Service Fabric 상태 저장 서비스는 가용성 높고, 확장 가능하며, 대기 시간이 낮은 클라우드 애플리케이션을 작성할 수 있는 안정적인 컬렉션을 제공합니다.
 ms.topic: conceptual
-ms.date: 1/3/2019
-ms.openlocfilehash: 48fa682f4c017f66911729e1f581f3aa91cdc28d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 3/10/2020
+ms.openlocfilehash: 78ecc57a4da43bf416839226253e6d0e2f4c1651
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75609726"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398423"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure 서비스 패브릭 상태 저장 서비스의 신뢰할 수 있는 컬렉션 소개
 
@@ -24,10 +24,9 @@ ms.locfileid: "75609726"
 신뢰할 수 있는 컬렉션은 **System.Collections** 클래스의 자연스러운 진화로 생각할 수 있습니다. 즉, 개발자의 복잡성을 늘리지 않고 클라우드 및 다중 컴퓨터 애플리케이션을 위해 설계된 컬렉션의 새 집합입니다. 따라서 신뢰할 수 있는 컬렉션은 다음과 같습니다.
 
 * 복제됨: 고가용성을 위해 상태 변경 내용이 복제됩니다.
-* 유지됨: 대규모 정전에 대한 내구성을 위해 데이터가 디스크에 유지됩니다(예: 데이터 센터 전원 정전).
-* 쓰기는 유지되고 복제되므로 메모리 내 데이터만 유지하는 휘발성 ReliableDictionary, ReliableQueue 또는 기타 신뢰할 수 있는 컬렉션은 만들 수 없습니다.
 * 비동기: API는 IO를 초래할 때 스레드가 차단되지 않도록 비동기적입니다.
 * 트랜잭션: API가 트랜잭션 추상화를 활용하므로 서비스 내에서 여러 신뢰할 수 있는 컬렉션을 쉽게 관리할 수 있습니다.
+* 지속 또는 휘발성: 대규모 가동 중단(예: 데이터 센터 정전)에 대한 내구성을 위해 데이터를 디스크에 유지시킬 수 있습니다. 일부 신뢰할 수 있는 컬렉션은 복제된 메모리 캐시와 같이 모든 데이터가 메모리에 유지되는 휘발성 [모드(주의](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections)사항 사용)도 지원합니다.
 
 신뢰할 수 있는 컬렉션은 기본적으로 강력한 일관성을 보장하여 애플리케이션 상태에 대한 추론을 보다 쉽게 해줍니다.
 강력한 일관성은 주 복제본을 포함한 복제본의 과반수 쿼럼에 전체 트랜잭션이 기록된 후에만 트랜잭션 커밋을 완료하여 수행됩니다.
@@ -52,10 +51,10 @@ ms.locfileid: "75609726"
 * [트랜잭션 및 잠금](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * 데이터 관리
   * [백업 및 복원](service-fabric-reliable-services-backup-restore.md)
-  * [알림을](service-fabric-reliable-services-notifications.md)
-  * [신뢰할 수 있는 컬렉션 serialization](service-fabric-reliable-services-reliable-collections-serialization.md)
+  * [공지](service-fabric-reliable-services-notifications.md)
+  * [신뢰할 수 있는 컬렉션 직렬화](service-fabric-reliable-services-reliable-collections-serialization.md)
   * [Serialization 및 업그레이드](service-fabric-application-upgrade-data-serialization.md)
   * [신뢰할 수 있는 상태 관리자 구성](service-fabric-reliable-services-configuration.md)
 * 기타
-  * [신뢰할 수 있는 서비스 빠른 시작](service-fabric-reliable-services-quick-start.md)
+  * [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start.md)
   * [신뢰할 수 있는 컬렉션에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

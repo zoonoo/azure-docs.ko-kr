@@ -3,14 +3,14 @@ title: Azure AD 인증 구성
 description: 앱 서비스 또는 Azure Functions 앱의 ID 공급자로 Azure Active Directory 인증을 구성하는 방법을 알아봅니다.
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
-ms.date: 09/03/2019
+ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: dbbe58df4f1cfe93555b494e525fad18f5b02664
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 6f4dbedad56f6867558a8b70575ad906c8796612
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632580"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392554"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Azure AD 로그인을 사용하도록 앱 서비스 또는 Azure Functions 앱 구성
 
@@ -19,8 +19,7 @@ ms.locfileid: "80632580"
 이 문서에서는 Azure App Service 또는 Azure 함수를 인증 공급자로 Azure Active Directory(Azure AD)를 사용하도록 구성하는 방법을 보여 주며 있습니다.
 
 > [!NOTE]
-> 현재 Azure [Active Directory v2.0(MSAL](../active-directory/develop/v2-overview.md) 포함)은 Azure 앱 서비스 및 Azure 함수에 대해 지원되지 않습니다. [MSAL](../active-directory/develop/msal-overview.md) 업데이트를 다시 확인하시기 바랍니다.
->
+> 익스프레스 설정 흐름은 AAD V1 응용 프로그램 등록을 설정합니다. [Azure Active Directory v2.0(MSAL](../active-directory/develop/v2-overview.md) [MSAL](../active-directory/develop/msal-overview.md)포함)을 사용하려면 고급 [구성 지침을](#advanced)따르십시오.
 
 앱 및 인증을 설정할 때 다음 모범 사례를 따르십시오.
 
@@ -101,7 +100,7 @@ ms.locfileid: "80632580"
     |필드|Description|
     |-|-|
     |클라이언트 ID| 앱 등록의 **응용 프로그램(클라이언트) ID를** 사용합니다. |
-    |발급자 URL| 을 `https://login.microsoftonline.com/<tenant-id>`사용하고 * \<테넌트 id>* 앱 등록의 **디렉터리(테넌트) ID로** 바꿉니다. 이 값은 사용자를 올바른 Azure AD 테넌트로 리디렉션하고 적절한 메타데이터를 다운로드하여 적절한 토큰 서명 키 및 토큰 발급자 클레임 값을 결정하는 데 사용됩니다. |
+    |발급자 URL| 을 `https://login.microsoftonline.com/<tenant-id>/v2.0`사용하고 * \<테넌트 id>* 앱 등록의 **디렉터리(테넌트) ID로** 바꿉니다. 이 값은 사용자를 올바른 Azure AD 테넌트로 리디렉션하고 적절한 메타데이터를 다운로드하여 적절한 토큰 서명 키 및 토큰 발급자 클레임 값을 결정하는 데 사용됩니다. AAD v1을 사용하는 응용 프로그램에는 `/v2.0` 섹션을 생략할 수 있습니다. |
     |클라이언트 보안(선택 사항)| 앱 등록에서 생성한 클라이언트 비밀을 사용합니다.|
     |허용된 토큰 잠재고객| 클라우드 또는 서버 앱이고 웹 앱에서 인증 토큰을 허용하려는 경우 여기에 웹 앱의 **응용 프로그램 ID URI를** 추가합니다. 구성된 **클라이언트 ID는** *항상* 암시적으로 허용된 대상으로 간주됩니다. |
 
@@ -133,4 +132,4 @@ ms.locfileid: "80632580"
 
 <!-- URLs. -->
 
-[Azure portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/

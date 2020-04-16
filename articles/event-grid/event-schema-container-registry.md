@@ -1,36 +1,38 @@
 ---
-title: Azure Event Grid Container Registry 이벤트 스키마
+title: 이벤트 그리드 원본으로 Azure 컨테이너 레지스트리
 description: Azure 이벤트 그리드를 통해 컨테이너 레지스트리 이벤트에 대해 제공되는 속성에 대해 설명합니다.
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
-ms.topic: reference
-ms.date: 03/12/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e33feb04edf42f1e2a32b9b8c8e2fd214692f31
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60345467"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393356"
 ---
-# <a name="azure-event-grid-event-schema-for-container-registry"></a>Container Reigstry에 대한 Azure Event Grid 이벤트 스키마
+# <a name="azure-container-registry-as-an-event-grid-source"></a>이벤트 그리드 원본으로 Azure 컨테이너 레지스트리
 
 이 문서에서는 Container Reigstry 이벤트에 대한 속성 및 스키마를 제공합니다.이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
 
-## <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
+## <a name="event-grid-event-schema"></a>Event Grid 이벤트 스키마
+
+### <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 
 Azure 컨테이너 레지스트리는 다음 이벤트 유형을 내보전합니다.
 
-| 이벤트 유형 | 설명 |
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | 이미지를 푸시할 때 발생합니다. |
 | Microsoft.ContainerRegistry.ImageDeleted | 이미지를 삭제할 때 발생합니다. |
 | 마이크로소프트.컨테이너레지스트리.차트 푸시 | 투구 차트가 푸시될 때 발생합니다. |
 | 마이크로소프트.컨테이너레지스트리.차트삭제됨 | 투구 차트가 삭제될 때 발생합니다. |
 
-## <a name="example-event"></a>예제 이벤트
+### <a name="example-event"></a>예제 이벤트
 
 다음 예제는 이미지가 푸시된 이벤트의 스키마를 보여줍니다. 
 
@@ -151,7 +153,7 @@ Azure 컨테이너 레지스트리는 다음 이벤트 유형을 내보전합니
 }]
 ```
 
-## <a name="event-properties"></a>이벤트 속성
+### <a name="event-properties"></a>이벤트 속성
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
@@ -196,8 +198,14 @@ Azure 컨테이너 레지스트리는 다음 이벤트 유형을 내보전합니
 | id | 문자열 | 이벤트를 시작한 요청의 ID입니다. |
 | addr | 문자열 | IP 또는 호스트 이름 및 가능한 경우 이벤트를 시작한 클라이언트 연결의 포트입니다. 이 값은 표준 http 요청에서 온 RemoteAddr입니다. |
 | host | 문자열 | 외부에서 액세스할 수 있는 레지스트리 인스턴스의 호스트 이름으로, 들어오는 요청의 http 호스트 헤더를 통해 지정됩니다. |
-| method | 문자열 | 이벤트를 생성한 요청 메서드입니다. |
+| 메서드 | 문자열 | 이벤트를 생성한 요청 메서드입니다. |
 | useragent | 문자열 | 요청의 사용자 에이전트 헤더입니다. |
+
+## <a name="tutorials-and-how-tos"></a>자습서 및 방법
+|제목 |Description  |
+|---------|---------|
+| [빠른 시작: 컨테이너 레지스트리 이벤트 전송](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Azure CLI를 사용하여 Container Registry 이벤트를 전송하는 방법을 보여줍니다. |
+
 
 ## <a name="next-steps"></a>다음 단계
 

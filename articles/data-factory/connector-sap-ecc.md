@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/02/2019
-ms.openlocfilehash: f875d8f4603a8f51b8b8fed2438e6f3a30c87aeb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad26fca94527864af10bb0051336c372ea65b3e0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74931182"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413792"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 SAP ECC의 데이터 복사
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure 데이터 팩터리에서 복사 활동을 사용하여 ECC(SAP 엔터프라이즈 중앙 구성 요소)의 데이터를 복사하는 방법을 설명합니다. 자세한 내용은 [활동 복사 개요를](copy-activity-overview.md)참조하십시오.
 
@@ -61,7 +62,7 @@ SAP ECC에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -71,10 +72,10 @@ SAP ECC에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 
 SAP ECC 연결 서비스에 는 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| `type` | 합니다 `type` 속성으로 설정 되어 있어야 `SapEcc`합니다. | yes |
-| `url` | SAP ECC OData 서비스의 URL입니다. | yes |
+| `type` | 합니다 `type` 속성으로 설정 되어 있어야 `SapEcc`합니다. | 예 |
+| `url` | SAP ECC OData 서비스의 URL입니다. | 예 |
 | `username` | SAP ECC에 연결하는 데 사용되는 사용자 이름입니다. | 예 |
 | `password` | SAP ECC에 연결하는 데 사용되는 일반 텍스트 암호입니다. | 예 |
 | `connectVia` | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [필수 구성 조건](#prerequisites) 섹션에서 자세히 알아보십시오. 런타임을 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. | 예 |
@@ -110,9 +111,9 @@ SAP ECC에서 데이터를 복사하려면 `type` 데이터 집합의 `SapEccRes
 
 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| `path` | SAP ECC OData 엔터티의 경로입니다. | yes |
+| `path` | SAP ECC OData 엔터티의 경로입니다. | 예 |
 
 ### <a name="example"></a>예제
 
@@ -143,10 +144,10 @@ SAP ECC에서 데이터를 복사하려면 `type` 복사 `source` 활동 섹션�
 
 다음 속성은 복사 활동 `source` 섹션에서 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| `type` | 복사 `type` 활동 섹션의 `source` 속성을 로 `SapEccSource`설정해야 합니다. | yes |
-| `query` | 데이터를 필터링하는 OData 쿼리 옵션입니다. 예를 들어:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>SAP ECC 커넥터는 결합된 URL에서 데이터를 복사합니다.<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>자세한 내용은 [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 예 |
+| `type` | 복사 `type` 활동 섹션의 `source` 속성을 로 `SapEccSource`설정해야 합니다. | 예 |
+| `query` | 데이터를 필터링하는 OData 쿼리 옵션입니다. 다음은 그 예입니다.<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>SAP ECC 커넥터는 결합된 URL에서 데이터를 복사합니다.<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>자세한 내용은 [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 예 |
 
 ### <a name="example"></a>예제
 

@@ -3,12 +3,12 @@ title: 헬름 차트 저장
 description: Azure 컨테이너 레지스트리의 리포지토리를 사용하여 Kubernetes 응용 프로그램에 대한 Helm 차트를 저장하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 03/20/2020
-ms.openlocfilehash: 6304486ac493e235ed74f26ab4be4f843ef52513
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3f1a68258b758380a66b63e3c3137f1d460d288c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131474"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399384"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>헬름 차트를 Azure 컨테이너 레지스트리로 푸시및 끌어올릴 수 있습니다.
 
@@ -41,7 +41,7 @@ Helm 3 또는 Helm 2를 사용하여 Azure 컨테이너 레지스트리에서 �
 - **Azure** 구독의 Azure 컨테이너 레지스트리입니다. 필요한 경우 [Azure 포털](container-registry-get-started-portal.md) 또는 [Azure CLI를](container-registry-get-started-azure-cli.md)사용하여 레지스트리를 만듭니다.
 - **헬름 클라이언트 버전 3.1.0 이상** - 실행하여 `helm version` 현재 버전을 찾습니다. Helm을 설치하고 업그레이드하는 방법에 대한 자세한 내용은 [Helm 설치][helm-install]를 참조하세요.
 - 투구 차트를 설치할 **Kubernetes 클러스터입니다.** 필요한 경우 [Azure Kubernetes 서비스 클러스터를][aks-quickstart]만듭니다. 
-- **Azure CLI 버전 2.0.71** `az --version` 이상 - 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하십시오.
+- **Azure CLI 버전 2.0.71** `az --version` 이상 - 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ### <a name="high-level-workflow"></a>높은 수준의 워크플로우
 
@@ -77,18 +77,21 @@ helm create hello-world
 기본 예로 디렉터리를 `templates` 폴더로 변경하고 먼저 다음 내용을 삭제합니다.
 
 ```console
+cd hello-world/templates
 rm -rf *
 ```
 
 폴더에서 `templates` 다음 내용으로 `configmap.yaml` 호출된 파일을 만듭니다.
 
-```yml
+```console
+cat <<EOF > configmap.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: hello-world-configmap
 data:
   myvalue: "Hello World"
+EOF
 ```
 
 이 예제를 만들고 실행하는 자세한 내용은 Helm 문서에서 [시작하기](https://helm.sh/docs/chart_template_guide/getting_started/) 를 참조하십시오.
@@ -175,7 +178,7 @@ az acr repository show \
 }
 ```
 
-az [acr 리포지토리 쇼 매니페스트][az-acr-repository-show-manifests] 명령을 실행하여 리포지토리에 저장된 차트의 세부 정보를 확인합니다. 예를 들어:
+az [acr 리포지토리 쇼 매니페스트][az-acr-repository-show-manifests] 명령을 실행하여 리포지토리에 저장된 차트의 세부 정보를 확인합니다. 다음은 그 예입니다.
 
 ```azurecli
 az acr repository show-manifests \
@@ -243,7 +246,7 @@ version: 0.1.0
 
 ### <a name="install-helm-chart"></a>헬름 차트 설치
 
-로컬 `helm install` 캐시로 가져와 내보낸 Helm 차트를 설치하려면 실행합니다. *myhelmtest*와 같은 릴리스 이름을 지정하거나 매개 변수를 전달합니다. `--generate-name` 예를 들어:
+로컬 `helm install` 캐시로 가져와 내보낸 Helm 차트를 설치하려면 실행합니다. *myhelmtest*와 같은 릴리스 이름을 지정하거나 매개 변수를 전달합니다. `--generate-name` 다음은 그 예입니다.
 
 ```console
 helm install myhelmtest ./hello-world
@@ -282,7 +285,7 @@ az acr repository delete --name mycontainerregistry --image helm/hello-world:v1
 
 - **Azure** 구독의 Azure 컨테이너 레지스트리입니다. 필요한 경우 [Azure 포털](container-registry-get-started-portal.md) 또는 [Azure CLI를](container-registry-get-started-azure-cli.md)사용하여 레지스트리를 만듭니다.
 - **Helm 클라이언트 버전 2.11.0(RC 버전 아님) 이상** - `helm version`을 실행하여 현재 버전을 찾습니다. Kubernetes 클러스터 내에서 Helm 서버(Tiller)도 초기화해야 합니다. 필요한 경우 [Azure Kubernetes 서비스 클러스터를][aks-quickstart]만듭니다. Helm을 설치하고 업그레이드하는 방법에 대한 자세한 내용은 [Helm 설치][helm-install-v2]를 참조하세요.
-- **Azure CLI 버전 2.0.46 이상** - `az --version`을 실행하여 버전을 확인합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하십시오.
+- **Azure CLI 버전 2.0.46 이상** - `az --version`을 실행하여 버전을 확인합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ### <a name="high-level-workflow"></a>높은 수준의 워크플로우
 

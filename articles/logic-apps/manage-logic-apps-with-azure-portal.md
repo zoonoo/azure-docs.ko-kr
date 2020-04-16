@@ -8,13 +8,13 @@ ms.author: ladolan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/06/2020
-ms.openlocfilehash: a35f34ed27299077dca78630511ea3c291caff60
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.date: 04/13/2020
+ms.openlocfilehash: f726ca90c215c4aff3734bd8022bbc1ad4dc5f87
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804976"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415949"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Azure 포털에서 논리 앱 관리
 
@@ -58,7 +58,7 @@ ms.locfileid: "80804976"
    * **리소스 ID**
    * **리소스 그룹**
    * **위치**
-   * **Type** 
+   * **형식** 
    * **구독 이름**
    * **구독 ID**
    * **액세스 끝점**
@@ -177,6 +177,46 @@ Azure 포털에서 [단일 논리 앱을 삭제하거나](#delete-single-logic-a
    ![로직 앱 삭제 확인](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
 
    Azure 포털에는 작업의 성공 또는 실패 여부를 확인하는 기본 Azure 도구 모음에 알림이 표시됩니다.
+
+<a name="manage-logic-app-versions"></a>
+
+## <a name="manage-logic-app-versions"></a>논리 앱 버전 관리
+
+논리 앱의 버전 제어에 Azure 포털을 사용할 수 있습니다. 논리 앱의 버전 기록을 찾고 이전 버전을 승격할 수 있습니다.
+
+<a name="find-version-history"></a>
+
+### <a name="find-and-view-previous-versions"></a>이전 버전 찾기 및 보기
+
+1. Azure 포털에서 [관리하려는 논리 앱을 찾습니다.](#find-logic-app)
+
+1. 논리 앱의 메뉴에서 **개발 도구에서** **버전을 선택합니다.**
+
+   ![논리 앱 의 메뉴에서 "개발 도구"에서 "버전"을 선택합니다.](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
+
+1. 목록에서 관리할 논리 앱의 **버전을** 선택합니다. 검색 막대에 **버전** 식별자를 입력하여 목록을 필터링할 수 있습니다.
+
+1. **히스토리 버전** 페이지에서 이전 버전의 세부 정보를 읽기 전용 모드로 볼 수 있습니다. 로직 앱 **디자이너와** **코드 보기** 모드 중에서 선택할 수 있습니다.
+
+   ![코드 보기 및 논리 앱 디자이너 보기가 있는 논리 앱의 기록 버전 페이지](./media/manage-logic-apps-with-azure-portal/history-version.png)
+
+<a name="promote-previous-versions"></a>
+
+### <a name="promote-previous-versions"></a>이전 버전 홍보
+
+1. 논리 앱의 버전 기록에서 [승격할 버전을 찾아 선택합니다.](#find-version-history)
+
+1. 기록 **버전** 페이지에서 **승격을**선택합니다.
+
+   ![논리 앱의 버전 기록에서 단추 승격](./media/manage-logic-apps-with-azure-portal/promote-button.png)
+
+1. 열리는 **로직 앱 디자이너** 페이지에서 필요에 따라 홍보할 버전을 편집합니다. **디자이너** 보기 모드와 **코드 보기** 모드 간에 전환할 수 있습니다. **매개 변수,** **템플릿**및 **커넥터를 업데이트할**수도 있습니다.
+
+   ![이전 버전을 홍보하기 위한 논리 앱 디자이너 페이지](./media/manage-logic-apps-with-azure-portal/promote-page.png)
+
+1. 업데이트를 저장하고 이전 버전 승격을 완료하려면 **저장을**선택합니다. (또는 변경 내용을 취소하려면 **삭제를**선택합니다.) 
+
+   논리 [앱의 버전 기록을](#find-version-history) 다시 보면 승격된 버전이 목록의 맨 위에 나타나고 새 식별자가 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

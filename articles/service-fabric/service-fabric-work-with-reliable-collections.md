@@ -2,16 +2,16 @@
 title: 신뢰할 수 있는 컬렉션 작업
 description: Azure 서비스 패브릭 응용 프로그램 내에서 신뢰할 수 있는 컬렉션으로 작업하는 모범 사례를 알아봅니다.
 ms.topic: conceptual
-ms.date: 02/22/2019
-ms.openlocfilehash: 4a1f48d9523e5d753c222f0526e210a30e1927e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/10/2020
+ms.openlocfilehash: 94836a37a62e3eeffb94d891980cc02694bd973e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75645976"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409800"
 ---
 # <a name="working-with-reliable-collections"></a>신뢰할 수 있는 컬렉션 작업
-Service Fabric은 신뢰할 수 있는 컬렉션을 통해 .NET 개발자에게 사용할 수 있는 상태 저장 프로그래밍 모델을 제공합니다. 즉, 서비스 패브릭은 신뢰할 수 있는 사전 및 신뢰할 수 있는 큐 클래스를 제공합니다. 이러한 클래스를 사용하는 경우 상태가 분할되고(확장성의 경우) 복제되며(가용성의 경우) 파티션 내에서 트랜잭션 처리됩니다(ACID 의미 체계의 경우). 신뢰할 수 있는 사전 개체의 일반적인 사용을 살펴보고 실제로 어떤 역할을 하는지 살펴보겠습니다.
+Service Fabric은 신뢰할 수 있는 컬렉션을 통해 .NET 개발자에게 사용할 수 있는 상태 저장 프로그래밍 모델을 제공합니다. 즉, 서비스 패브릭은 신뢰할 수 있는 사전 및 신뢰할 수 있는 큐 클래스를 제공합니다. 이러한 클래스를 사용하는 경우 상태가 분할되고(확장성의 경우) 복제되며(가용성의 경우) 파티션 내에서 트랜잭션 처리됩니다(ACID 의미 체계의 경우). 신뢰할 수 있는 사전 개체의 일반적인 사용을 살펴보고 실제로 수행하는 작업을 살펴보겠습니다.
 
 ```csharp
 try
@@ -38,20 +38,33 @@ catch (TimeoutException)
 }
 ```
 
-신뢰할 수 있는 사전 개체에 대한 모든 작업(취소할 수 없는 ClearAsync 실행 제외)은 ITransaction 개체를 필요로 합니다. 이 개체는 단일 파티션 내의 신뢰할 수 있는 모든 사전 및 신뢰할 수 있는 큐 개체에 시도하려는 모든 변경 사항과 관련됩니다. 파티션의 StateManager에 있는 CreateTransaction 메서드를 호출하여 ITransaction 개체를 인식합니다.
+신뢰할 수 있는 사전 개체에 대한 모든 작업(취소할 수 없는 ClearAsync 실행 제외)은 ITransaction 개체를 필요로 합니다. 이 개체는 단일 파티션 내에서 신뢰할 수 있는 사전 및/또는 신뢰할 수 있는 큐 개체에 대해 변경하려는 모든 변경 내용과 연결되어 있습니다. 파티션의 상태 관리자의 CreateTransaction 메서드를 호출 하 여 ITransaction 개체를 획득 합니다.
 
-위 코드에서 ITransaction 개체를 신뢰할 수 있는 사전의 AddAsync 메서드에 전달합니다. 내부적으로 키를 허용하는 사전 메서드는 키와 관련된 판독기/기록기 잠금을 수행합니다. 메서드가 키 값을 수정하는 경우 메서드는 키에 쓰기 잠금을 사용하고 메서드가 키 값을 읽기만 하는 경우 키에 읽기 잠금이 수행됩니다. AddAsync가 키 값을 새로 전달된 값으로 수정하므로 키의 쓰기 잠금을 수행합니다. 따라서 2개(이상)의 스레드가 동시에 동일한 키 값을 추가하려는 경우 하나의 스레드가 쓰기 잠금을 인식하고 다른 스레드는 차단됩니다. 기본적으로 메서드는 잠금을 인식하기 위해 최대 4초 동안 차단되며 4초 후에 메서드는 TimeoutException을 throw합니다. 선호하는 경우 메서드 오버로드는 명시적인 시간 제한 값을 전달할 수 있습니다.
+위의 코드에서 ITransaction 개체는 신뢰할 수 있는 사전의 AddAsync 메서드에 전달 됩니다. 내부적으로 키를 허용하는 사전 메서드는 키와 관련된 판독기/기록기 잠금을 수행합니다. 메서드가 키 값을 수정하는 경우 메서드는 키에 대한 쓰기 잠금을 취하고 메서드가 키 값에서만 읽는 경우 키에서 읽기 잠금이 수행됩니다. AddAsync는 키의 값을 전달된 새 값으로 수정하므로 키의 쓰기 잠금이 수행됩니다. 따라서 2개(이상)의 스레드가 동시에 동일한 키 값을 추가하려는 경우 하나의 스레드가 쓰기 잠금을 인식하고 다른 스레드는 차단됩니다. 기본적으로 메서드는 잠금을 인식하기 위해 최대 4초 동안 차단되며 4초 후에 메서드는 TimeoutException을 throw합니다. 메서드 오버로드가 존재하므로 원하는 경우 명시적 시간 초과 값을 전달할 수 있습니다.
 
-일반적으로 위 코드에서 보여준 대로 TimeoutException을 catch하고 전체 작업을 다시 시도하여 이에 반응하는 코드를 작성합니다. 간단한 코드에서 매번 100밀리초를 전달하는 Task.Delay를 호출하려 합니다. 그러나 실제로는 대신 일종의 지수 백오프 지연을 사용하는 것이 좋습니다.
+일반적으로 위 코드에서 보여준 대로 TimeoutException을 catch하고 전체 작업을 다시 시도하여 이에 반응하는 코드를 작성합니다. 간단한 코드에서는 Task.Delay가 매번 100밀리초를 전달하는 것처럼 호출합니다. 그러나 실제로는 대신 일종의 지수 백오프 지연을 사용하는 것이 좋습니다.
 
 잠금이 설정되면 AddAsync는 ITransaction 개체와 관련된 내부 임시 사전에 키와 값 개체 참조를 추가합니다. 고유한 쓰기 읽기 의미 체계를 제공하여 수행됩니다. 즉, AddAsync를 호출한 후에 트랜잭션을 커밋하지 않더라도 (동일한 ITransaction 개체를 사용하는) TryGetValueAsync에 대한 이후의 호출은 값을 반환합니다. 다음으로 AddAsync는 키 및 값 개체를 바이트 배열로 직렬화하고 로컬 노드의 로그 파일에 이러한 바이트 배열을 추가합니다. 마지막으로, AddAsync가 바이트 배열을 모든 보조 복제본에 보내므로 동일한 키/값 정보를 얻습니다. 키/값 정보가 로그 파일에 작성된 경우라도 연결되어 있는 트랜잭션을 커밋할 때까지 정보는 사전의 일부로 간주되지 않습니다.
 
-위 코드에서 CommitAsync에 대한 호출은 모든 트랜잭션의 작업을 커밋합니다. 특히, 로컬 노드에서 로그 파일에 커밋 정보를 추가하고 모든 보조 복제본에 커밋 레코드를 보냅니다. 복제본의 쿼럼(다수)이 응답하면 모든 데이터 변경 사항이 영구적인 것으로 간주됩니다. ITransaction 개체를 통해 조작된 키와 관련된 모든 잠금이 해제되어 다른 스레드/트랜잭션이 동일한 키와 해당 값을 조작할 수 있게 됩니다.
+위의 코드에서 CommitAsync 호출은 트랜잭션의 모든 작업을 커밋합니다. 특히, 로컬 노드에서 로그 파일에 커밋 정보를 추가하고 모든 보조 복제본에 커밋 레코드를 보냅니다. 복제본의 쿼럼(다수)이 응답하면 모든 데이터 변경 사항이 영구적인 것으로 간주됩니다. ITransaction 개체를 통해 조작된 키와 관련된 모든 잠금이 해제되어 다른 스레드/트랜잭션이 동일한 키와 해당 값을 조작할 수 있게 됩니다.
 
-(일반적으로 throw된 예외로 인해)CommitAsync를 호출하지 않으면 ITransaction 개체는 삭제됩니다. 커밋되지 않은 ITransaction 개체를 삭제하는 경우 서비스 패브릭은 중단 정보를 로컬 노드의 로그 파일로 추가하고 아무 것도 보조 복제본 중 하나에 전송되지 않아야 합니다. 그런 다음 트랜잭션을 통해 조작된 키와 관련된 모든 잠금을 해제합니다.
+(일반적으로 throw된 예외로 인해)CommitAsync를 호출하지 않으면 ITransaction 개체는 삭제됩니다. 커밋되지 않은 ITransaction 개체를 삭제할 때 Service Fabric은 로컬 노드의 로그 파일에 대한 정보를 추가하며 보조 복제본으로 전송할 필요가 없습니다. 그런 다음 트랜잭션을 통해 조작된 키와 관련된 모든 잠금을 해제합니다.
+
+## <a name="volatile-reliable-collections"></a>휘발성 신뢰할 수 있는 컬렉션 
+복제된 캐시와 같은 일부 워크로드에서는 가끔 데이터 손실을 허용할 수 있습니다. 데이터를 디스크에 지속성을 피하면 신뢰할 수 있는 사전에 쓸 때 더 나은 대기 시간 및 처리량을 허용할 수 있습니다. 지속성 부족에 대 한 절충은 쿼럼 손실이 발생 하는 경우 전체 데이터 손실이 발생 합니다. 쿼럼 손실이 드물게 발생하기 때문에 성능 향상은 해당 워크로드에 대한 데이터 손실의 드문 가능성이 있을 수 있습니다.
+
+현재 휘발성 지원은 신뢰할 수 있는 사전 및 신뢰할 수 있는 큐에만 사용할 수 있으며 신뢰할 수 있는 ConcurrentQueues가 아닙니다. 휘발성 컬렉션을 사용할지 여부를 결정하려면 [주의 사항](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections) 목록을 참조하십시오.
+
+서비스에서 휘발성 지원을 활성화하려면 다음과 ```HasPersistedState``` 같이 서비스 유형 ```false```선언의 플래그를 설정합니다.
+```xml
+<StatefulServiceType ServiceTypeName="MyServiceType" HasPersistedState="false" />
+```
+
+>[!NOTE]
+>기존 지속 된 서비스는 휘발성 을 만들 수 없습니다., 그 반대의 경우도 마찬가지입니다. 이렇게 하려면 기존 서비스를 삭제한 다음 업데이트된 플래그로 서비스를 배포해야 합니다. 즉, ```HasPersistedState``` 플래그를 변경하려면 전체 데이터 손실이 발생할 수 있습니다. 
 
 ## <a name="common-pitfalls-and-how-to-avoid-them"></a>일반적인 실수 및 방지하는 방법
-신뢰할 수 있는 컬렉션이 내부적으로 작업하는 방법을 이해했으므로 이 중에서 몇 가지 일반적인 오용을 살펴보겠습니다. 아래 코드를 확인합니다.
+이제 신뢰할 수 있는 컬렉션이 내부적으로 어떻게 작동하는지 이해되었으므로 일반적인 오용을 살펴보겠습니다. 아래 코드를 확인합니다.
 
 ```csharp
 using (ITransaction tx = StateManager.CreateTransaction())
@@ -60,7 +73,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
    // & sends the bytes to the secondary replicas.
    await m_dic.AddAsync(tx, name, user);
 
-   // The line below updates the property’s value in memory only; the
+   // The line below updates the property's value in memory only; the
    // new value is NOT serialized, logged, & sent to secondary replicas.
    user.LastLogin = DateTime.UtcNow;  // Corruption!
 
@@ -68,7 +81,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 }
 ```
 
-일반 .NET 디렉터리로 작업할 경우 키/값을 사전에 추가한 다음 속성(예: LastLogin)의 값을 변경할 수 있습니다. 그러나 이 코드는 신뢰할 수 있는 사전으로 제대로 작동하지 않습니다. 이전 토론에서 AddAsync에 대한 호출이 바이트 배열에 키/값 개체를 직렬화한 다음 배열을 로컬 파일에 저장하고 보조 복제본에 보내기도 합니다. 나중에 속성을 변경하면 이는 메모리에서 이 속성의 값을 변경하고 복제본에 전송되는 로컬 파일 또는 데이터에 영향을 주지 않습니다. 프로세스가 충돌하는 경우 메모리의 내용이 삭제됩니다. 새 프로세스가 시작되거나 다른 복제본이 기본 복제본이 되는 경우 이전 속성 값을 사용할 수 있습니다.
+일반 .NET 디렉터리로 작업할 경우 키/값을 사전에 추가한 다음 속성(예: LastLogin)의 값을 변경할 수 있습니다. 그러나 이 코드는 신뢰할 수 있는 사전으로 제대로 작동하지 않습니다. 이전 토론에서 AddAsync에 대한 호출이 바이트 배열에 키/값 개체를 직렬화한 다음 배열을 로컬 파일에 저장하고 보조 복제본에 보내기도 합니다. 나중에 속성을 변경하면 메모리에서만 속성 값이 변경됩니다. 로컬 파일이나 복제본으로 전송된 데이터에는 영향을 미치지 않습니다. 프로세스가 충돌하면 메모리에 있는 내용이 버려지게 됩니다. 새 프로세스가 시작되거나 다른 복제본이 기본 복제본이 되는 경우 이전 속성 값을 사용할 수 있습니다.
 
 위에 표시된 종류의 실수를 쉽게 저지를 수 있습니다. 그리고 프로세스가 다운되는 경우/때 실수에 대해 살펴봅니다. 코드를 작성하는 올바른 방법은 다음 두 줄을 반전하는 것입니다.
 
@@ -87,13 +100,13 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```csharp
 using (ITransaction tx = StateManager.CreateTransaction())
 {
-   // Use the user’s name to look up their data
+   // Use the user's name to look up their data
    ConditionalValue<User> user = await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
    if (user.HasValue)
    {
-      // The line below updates the property’s value in memory only; the
+      // The line below updates the property's value in memory only; the
       // new value is NOT serialized, logged, & sent to secondary replicas.
       user.Value.LastLogin = DateTime.UtcNow; // Corruption!
       await tx.CommitAsync();
@@ -101,7 +114,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 }
 ```
 
-다시 일반 .NET 사전으로 위의 코드가 제대로 작동하며 이는 일반적인 패턴입니다. 개발자는 키를 사용하여 값을 조회합니다. 값이 있는 경우 개발자는 속성의 값을 변경합니다. 그러나 신뢰할 수 있는 컬렉션으로 이 코드는 **개체를 신뢰할 수 있는 컬렉션에 제공하면 수정해서는 안됩니다**에서 설명한 바와 같이 동일한 문제를 보여줍니다.
+다시 일반 .NET 사전으로 위의 코드가 제대로 작동하며 이는 일반적인 패턴입니다. 개발자는 키를 사용하여 값을 조회합니다. 값이 있으면 개발자는 속성의 값을 변경합니다. 그러나 신뢰할 수 있는 컬렉션으로 이 코드는 **개체를 신뢰할 수 있는 컬렉션에 제공하면 수정해서는 안됩니다**에서 설명한 바와 같이 동일한 문제를 보여줍니다.
 
 신뢰할 수 있는 컬렉션에서 값을 업데이트하는 올바른 방법은 기존 값에 대한 참조를 가져오고 변경할 수 없는 이 참조에서 참조하는 개체를 고려하는 것입니다. 그런 다음, 원본 개체의 정확한 복사본인 새 개체를 만듭니다. 이제 이 새 개체의 상태를 수정하고 새 개체를 컬렉션에 작성하여 바이트 배열로 직렬화되며 이는 로컬 파일에 추가되고 복제본에 전송됩니다. 변경 내용을 커밋한 후에 메모리내 개체인 로컬 파일 및 모든 복제본은 정확히 동일한 상태입니다. 모두 정상입니다.
 
@@ -110,7 +123,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```csharp
 using (ITransaction tx = StateManager.CreateTransaction())
 {
-   // Use the user’s name to look up their data
+   // Use the user's name to look up their data
    ConditionalValue<User> currentUser = await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
@@ -124,7 +137,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
       // In the new object, modify any properties you desire
       updatedUser.LastLogin = DateTime.UtcNow;
 
-      // Update the key’s value to the updateUser info
+      // Update the key's value to the updateUser info
       await m_dic.SetValue(tx, name, updatedUser);
       await tx.CommitAsync();
    }
@@ -132,13 +145,13 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>변경할 수 없는 데이터 형식을 정의하여 프로그래머 오류 방지
-이상적으로는 변경할 수 없다고 간주되는 개체의 상태를 변경하는 코드를 실수로 생성한 경우 컴파일러가 오류를 보고할 수 있어야 합니다. 하지만 C# 컴파일러에는 이 작업을 수행하는 기능이 없습니다. 따라서 잠재적인 프로그래머 버그를 방지하려면 신뢰할 수 있는 컬렉션을 사용하여 사용할 형식을 변경할 수 없는 형식으로 정의하는 것이 좋습니다. 즉, 핵심 값 형식(예: 숫자[Int32, UInt64 등], DateTime, Guid, TimeSpan 등)을 사용해야 합니다. 문자열을 사용할 수도 있습니다. 직렬화 및 역직렬화하면 성능이 떨어질 수 있기 때문에 컬렉션 속성을 피하는 것이 가장 좋습니다. 그러나 컬렉션 속성을 사용 하려는 경우 를 사용 하는 것이 좋습니다. NET의 변경할 수 없는 컬렉션[라이브러리(System.Collections.Immutable).](https://www.nuget.org/packages/System.Collections.Immutable/) 이 라이브러리는 에서 https://nuget.org다운로드할 수 있습니다. 또한 수업을 봉인하고 가능하면 필드를 읽기 전용으로 만드는 것이 좋습니다.
+이상적으로는 실수로 변경할 수 없는 것으로 간주해야 하는 개체의 상태를 변경하는 코드를 생성할 때 컴파일러에서 오류를 보고하는 것이 좋습니다. 하지만 C# 컴파일러에는 이 작업을 수행하는 기능이 없습니다. 따라서 잠재적인 프로그래머 버그를 방지하려면 신뢰할 수 있는 컬렉션을 사용하여 사용할 형식을 변경할 수 없는 형식으로 정의하는 것이 좋습니다. 즉, 핵심 값 형식(예: 숫자[Int32, UInt64 등], DateTime, Guid, TimeSpan 등)을 사용해야 합니다. 문자열을 사용할 수도 있습니다. 직렬화 및 역직렬화하면 성능이 떨어질 수 있기 때문에 컬렉션 속성을 피하는 것이 가장 좋습니다. 그러나 컬렉션 속성을 사용 하려는 경우 를 사용 하는 것이 좋습니다. NET의 변경할 수 없는 컬렉션[라이브러리(System.Collections.Immutable).](https://www.nuget.org/packages/System.Collections.Immutable/) 이 라이브러리는 에서 https://nuget.org다운로드할 수 있습니다. 또한 수업을 봉인하고 가능하면 필드를 읽기 전용으로 만드는 것이 좋습니다.
 
 아래의 UserInfo 형식은 앞에서 설명한 권장 사항을 활용하는 변경할 수 없는 형식을 정의하는 방법을 보여줍니다.
 
 ```csharp
 [DataContract]
-// If you don’t seal, you must ensure that any derived classes are also immutable
+// If you don't seal, you must ensure that any derived classes are also immutable
 public sealed class UserInfo
 {
    private static readonly IEnumerable<ItemId> NoBids = ImmutableList<ItemId>.Empty;
@@ -190,12 +203,12 @@ public struct ItemId
 ```
 
 ## <a name="schema-versioning-upgrades"></a>스키마 버전 관리(업그레이드)
-내부적으로 신뢰할 수 있는 컬렉션은 .NET에 있는 DataContractSerializer를 사용하여 개체를 직렬화합니다. 직렬화된 개체는 기본 복제본의 로컬 디스크에 유지되고 보조 복제본에도 전송됩니다. 서비스가 완성되면 서비스에 필요한 데이터(스키마)의 종류를 변경할 가능성이 높습니다. 데이터의 버전 관리에 신중해야 합니다. 무엇보다도 언제든 오래된 데이터를 역직렬화할 수 있어야 합니다. 즉, 역직렬화 코드는 이전 버전과 제한 없이 호환되어야 합니다. 서비스 코드의 버전 333은 5년 전에 서비스 코드의 버전 1이 신뢰할 수 있는 컬렉션에 배치한 데이터에서 작동할 수 있어야 합니다.
+내부적으로 신뢰할 수 있는 컬렉션은 을 사용하여 개체를 직렬화합니다. NET의 데이터 계약 직렬화. 직렬화된 개체는 기본 복제본의 로컬 디스크에 유지되며 보조 복제본으로도 전송됩니다. 서비스가 성숙해짐에 따라 서비스에 필요한 데이터(스키마)의 종류를 변경해야 할 수 있습니다. 데이터의 버전 관리에 신중해야 합니다. 무엇보다도 언제든 오래된 데이터를 역직렬화할 수 있어야 합니다. 즉, 역직렬화 코드는 이전 버전과 제한 없이 호환되어야 합니다. 서비스 코드의 버전 333은 5년 전에 서비스 코드의 버전 1이 신뢰할 수 있는 컬렉션에 배치한 데이터에서 작동할 수 있어야 합니다.
 
-또한 서비스 코드는 한 번에 하나의 업그레이드 도메인을 업그레이드합니다. 따라서 업그레이드하는 동안 다른 두 버전의 서비스 코드를 동시에 실행합니다. 이전 버전의 서비스 코드가 새 스키마를 처리할 수 없을 수 있으므로 서비스 코드의 새 버전이 새 스키마를 사용하지 않도록 해야 합니다. 가능하면 서비스의 각 버전이 1버전에서 앞으로의 버전과 호환되도록 디자인해야 합니다. 즉, 서비스 코드의 V1이 명시적으로 처리하지 않는 스키마 요소를 무시할 수 있어야 합니다. 그러나 명시적으로 알지 못하는 모든 데이터를 저장하고 사전 키 또는 값을 업데이트하는 경우 다시 작성할 수 있어야 합니다.
+또한 서비스 코드는 한 번에 하나의 업그레이드 도메인을 업그레이드합니다. 따라서 업그레이드하는 동안 다른 두 버전의 서비스 코드를 동시에 실행합니다. 이전 버전의 서비스 코드가 새 스키마를 처리할 수 없을 수 있으므로 서비스 코드의 새 버전이 새 스키마를 사용하지 않도록 해야 합니다. 가능하면 서비스의 각 버전이 1버전에서 앞으로의 버전과 호환되도록 디자인해야 합니다. 즉, 서비스 코드의 V1이 명시적으로 처리하지 않는 스키마 요소를 무시할 수 있어야 합니다. 그러나 사전에 대해 명시적으로 알지 못하는 데이터를 저장하고 사전 키 또는 값을 업데이트할 때 다시 쓸 수 있어야 합니다.
 
 > [!WARNING]
-> 키의 스키마를 수정할 수 있는 반면 키의 해시 코드 및 같음 알고리즘이 안정적인지 확인해야 합니다. 이러한 알고리즘 중 하나의 작동 방법을 변경하면 신뢰할 수 있는 사전 내에서 키를 다시 검색할 수 없습니다.
+> 키스키마를 수정할 수 있지만 키의 해시 코드와 동일한 알고리즘이 안정적인지 확인해야 합니다. 이러한 알고리즘 중 하나의 작동 방법을 변경하면 신뢰할 수 있는 사전 내에서 키를 다시 검색할 수 없습니다.
 > .NET 문자열은 키로 사용할 수 있지만 문자열 자체를 키로 사용하십시오.
 
 또는 일반적으로 참조되는 요소를 2단계 업그레이드로 수행할 수 있습니다. 2단계 업그레이드를 사용하면 서비스를 V1에서 V2로 업그레이드합니다: V2에는 새 스키마 변경을 처리하는 방법을 알고 있는 코드가 포함되어 있지만 이 코드는 실행되지 않습니다. V2 코드가 V1 데이터를 읽는 경우 해당 위치에서 작동하고 V1 데이터를 작성합니다. 그런 다음 모든 업그레이드 도메인에서 업그레이드가 완료되면 어떤 이유로든 실행 중인 V2 인스턴스에 업그레이드가 완료되었음을 알릴 수 있습니다. (이를 알리는 한 가지 방법은 구성 업그레이드를 롤아웃하는 것입니다. 이것이 2단계 업그레이드를 만드는 것입니다.) 이제 V2 인스턴스는 V1 데이터를 읽고, V2 데이터로 변환하고, 작동하고, V2 데이터로 쓸 수 있습니다. 다른 인스턴스가 V2 데이터를 읽을 경우 변환할 필요가 없이 해당 위치에서 작동하고 V2 데이터를 작성합니다.

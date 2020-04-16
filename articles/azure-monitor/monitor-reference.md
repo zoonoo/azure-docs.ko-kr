@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: e0e98b87cf3612bf01f90f806ea64ef06d08c60a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 27503defa23b2a35e767156139228aa2e177652f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255331"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405173"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링하는 항목
 이 문서에서는 Azure Monitor에서 모니터링하는 다양한 응용 프로그램 및 서비스에 대해 설명합니다. 
@@ -26,7 +26,7 @@ Insights는 특정 응용 프로그램 및 서비스에 대한 맞춤형 모니�
 | 인사이트 | Description |
 |:---|:---|
 | [Application Insights](app/app-insights-overview.md) | 모든 플랫폼에서 라이브 웹 응용 프로그램을 모니터링하는 확장 가능한 응용 프로그램 성능 관리(APM) 서비스입니다. |
-| [컨테이너용 Azure 모니터](insights/container-insights-overview.md) | Azure 컨테이너 인스턴스 또는 관리되는 Kubernetes 클러스터에 배포된 컨테이너 워크로드의 성능을 모니터링합니다. |
+| [컨테이너용 Azure Monitor](insights/container-insights-overview.md) | Azure 컨테이너 인스턴스 또는 관리되는 Kubernetes 클러스터에 배포된 컨테이너 워크로드의 성능을 모니터링합니다. |
 | [코스모스 DB용 Azure 모니터(미리 보기)](insights/cosmosdb-insights-overview.md) | 통합대화형 환경에서 모든 Azure Cosmos DB 리소스의 전반적인 성능, 실패, 용량 및 운영 상태를 볼 수 있습니다. |
 | [네트워크를 위한 Azure 모니터(미리 보기)](insights/network-insights-overview.md) | 모든 네트워크 리소스에 대한 상태 및 메트릭에 대한 포괄적인 보기를 제공합니다. 고급 검색 기능을 사용하면 리소스 종속성을 식별할 수 있으므로 웹 사이트 이름을 검색하기만 하면 웹 사이트를 호스팅하는 리소스를 식별하는 등의 시나리오가 가능합니다. |
 [리소스 그룹에 대한 Azure 모니터(미리 보기)](insights/resource-group-insights.md) |  리소스 그룹의 상태 및 성능에 대한 컨텍스트를 제공하면서 개별 리소스가 발생하는 문제를 분류하고 진단합니다. |
@@ -37,7 +37,7 @@ Insights는 특정 응용 프로그램 및 서비스에 대한 맞춤형 모니�
 
 솔루션은 특정 응용 프로그램 또는 서비스에 맞게 사용자 지정된 로그 쿼리 및 보기를 기반으로 합니다. 로그만 수집하고 분석하며 시간이 지남에 따라 통찰력을 위해 더 이상 사용되지 않습니다.
 
-| 해결 방법 | Description |
+| 솔루션 | Description |
 |:---|:---|
 | [에이전트 상태](insights/solution-agenthealth.md) | 로그 분석 에이전트의 상태 및 구성을 분석합니다. |
 | [경고 관리](platform/alert-management-solution.md) | 시스템 센터 운영 관리자, Nagios 또는 Zabbix에서 수집한 경고를 분석합니다. |
@@ -194,7 +194,7 @@ Insights는 특정 응용 프로그램 및 서비스에 대한 맞춤형 모니�
 ## <a name="other-solutions"></a>기타 솔루션
 다른 솔루션은 다른 응용 프로그램 및 서비스를 모니터링하는 데 사용할 수 있지만 활성 개발이 중지되어 모든 지역에서 사용하지 못할 수 있습니다. Azure Log Analytics 데이터 수집 서비스 수준 계약에 의해 처리됩니다.
 
-| 해결 방법 | Description |
+| 솔루션 | Description |
 |:---|:---|
 | [Active 디렉터리 상태 확인](insights/ad-assessment.md) | Active Directory 환경의 위험과 상태를 평가합니다. |
 | [활성 디렉터리 복제 상태](insights/ad-replication-status.md) | Active Directory 환경을 정기적으로 모니터링하여 복제 실패가 있는지 확인합니다. |
@@ -206,10 +206,9 @@ Insights는 특정 응용 프로그램 및 서비스에 대한 맞춤형 모니�
 | [SQL 상태 확인](insights/sql-assessment.md) | SQL Server 환경의 위험과 상태를 평가합니다.  |
 | [실시간 데이터](insights/wire-data.md) | 로그 분석 에이전트와 Windows 연결 및 Linux 연결 컴퓨터에서 수집된 통합 네트워크 및 성능 데이터입니다. |
 
-
 ## <a name="third-party-integration"></a>타사 통합
 
-| 해결 방법 | Description |
+| 솔루션 | Description |
 |:---|:---|
 | [ITSM](platform/itsmc-overview.md) | ITSMC(IT 서비스 관리 커넥터)를 사용하면 Azure와 지원되는 ITSM(IT 서비스 관리) 제품/서비스를 연결할 수 있습니다.  |
 

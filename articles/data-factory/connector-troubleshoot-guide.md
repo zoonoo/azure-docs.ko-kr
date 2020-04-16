@@ -8,14 +8,16 @@ ms.topic: troubleshooting
 ms.date: 01/09/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 9f3a13a097d7cce87aead4ec2d76ce7cbbb1a206
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 62ad337646cf3fc0bbe4305dccad5adb56f8ee15
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75778229"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410222"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Azure Data Factory 커넥터 문제 해결
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure 데이터 팩터리에서 커넥터에 대한 일반적인 문제 해결 방법을 살펴봅니다.
   
@@ -509,7 +511,7 @@ ms.locfileid: "75778229"
 
 
 
-## <a name="parquet-format"></a>Parquet 형식
+## <a name="parquet-format"></a>마루 형식
 
 ### <a name="error-code--parquetjavainvocationexception"></a>오류 코드: 마루자바인호출예외
 

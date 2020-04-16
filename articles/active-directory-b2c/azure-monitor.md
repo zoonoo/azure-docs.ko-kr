@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
-ms.openlocfilehash: acba378badb41324b2124b84833407da920a0e00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 99e04c95156e40eed8c2b9aa88a2bee6f39e90c9
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78190061"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392887"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Azure 모니터를 통해 Azure AD B2C 모니터링
 
@@ -84,8 +84,8 @@ Azure AD 테넌트(고객)를 온보딩하려면 다음 정보를 사용하여 �
 
 Azure 리소스 관리자 템플릿 및 매개 변수 파일을 다운로드합니다.
 
-- [rgDelegatedResourceManagement.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
-- [rgDelegatedResourceManagement.parameters.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
+- [rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
+- [rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
 
 그런 다음 매개 변수 파일을 이전에 기록한 값으로 업데이트합니다. 다음 JSON 코드 조각은 Azure 리소스 관리자 템플릿 매개 변수 파일의 예를 보여 주며 있습니다. 의 `authorizations.value.roleDefinitionId`경우 *참여자 역할에*대한 기본 제공 `b24988ac-6180-42a0-ab88-20f7382dd24c` [역할](../role-based-access-control/built-in-roles.md) 값을 사용합니다.
 
@@ -213,7 +213,7 @@ Parameters              :
 
 - [Azure 저장소 계정](../azure-monitor/platform/resource-logs-collect-storage.md)
 - [이벤트 허브](../azure-monitor/platform/resource-logs-stream-event-hubs.md) 솔루션.
-- [로그 분석 작업 영역](../azure-monitor/platform/resource-logs-collect-workspace.md)
+- [Log Analytics 작업 영역](../azure-monitor/platform/resource-logs-collect-workspace.md)
 
 아직 지정하지 않은 경우 [Azure Resource Manager 템플릿에서](#create-an-azure-resource-manager-template)지정한 리소스 그룹에서 선택한 대상 유형의 인스턴스를 만듭니다.
 
@@ -223,7 +223,7 @@ Azure 포털에서 [진단 설정을 만들](../active-directory/reports-monitor
 
 Azure AD B2C 활동 로그에 대한 모니터링 설정을 구성하려면 다음을 수행하십시오.
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음 Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 1. **Azure 활성 디렉터리** 선택
 1. **모니터링** 아래에서 **진단 설정**을 선택합니다.
@@ -234,7 +234,7 @@ Azure AD B2C 활동 로그에 대한 모니터링 설정을 구성하려면 다�
 1. 아직 이름이 없는 경우 설정을 지정합니다.
 1. 로그를 보낼 각 대상에 대한 확인란을 선택합니다. 다음 표에 설명된 대로 설정을 지정하려면 **구성을** 선택합니다.
 
-    | 설정 | 설명 |
+    | 설정 | Description |
     |:---|:---|
     | 스토리지 계정에 보관 | 저장소 계정의 이름입니다. |
     | 이벤트 허브로 스트림 | 이벤트 허브가 만들어지거나(이 경우 처음으로 스트리밍 로그를 하는 경우) 또는 스트리밍된 네임스페이스(해당 로그 범주를 이 네임스페이스로 스트리밍하는 리소스가 이미 있는 경우)입니다.

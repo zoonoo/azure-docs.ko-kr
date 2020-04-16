@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: d0c60f5738bf634f9d43d6d4f0d78c1239b7ff3c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a3d2234a140d1fb2eede50e3fe2eef5575da648
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75650696"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391685"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Azure 관리 형 응용 프로그램의 정의 아티팩트 보기
 
@@ -20,7 +20,7 @@ ms.locfileid: "75650696"
 
 ## <a name="view-definition-artifact"></a>보기 정의 아티팩트
 
-뷰 정의 아티팩트는 **viewDefinition.json이라는** 이름을 지정하고 관리되는 응용 프로그램 정의를 만드는 .zip 패키지의 **createUiDefinition.json** 및 **mainTemplate.json과** 동일한 수준에 배치되어야 합니다. .zip 패키지를 만들고 관리되는 응용 프로그램 정의를 게시하는 방법을 알아보려면 [Azure 관리되는 응용 프로그램 정의 게시를](publish-managed-app-definition-quickstart.md) 참조하십시오.
+뷰 정의 아티팩트는 **viewDefinition.json이라는** 이름을 지정하고 관리되는 응용 프로그램 정의를 만드는 .zip 패키지의 **createUiDefinition.json** 및 **mainTemplate.json과** 동일한 수준에 배치되어야 합니다. .zip 패키지를 만들고 관리되는 응용 프로그램 정의를 게시하는 방법을 알아보려면 [Azure 관리되는 응용 프로그램 정의 게시를](publish-service-catalog-app.md) 참조하십시오.
 
 ## <a name="view-definition-schema"></a>정의 스키마 보기
 
@@ -125,7 +125,7 @@ ms.locfileid: "75650696"
 }
 ```
 
-|속성|필수|설명|
+|속성|필수|Description|
 |---------|---------|---------|
 |머리글|예|개요 페이지의 헤더입니다.|
 |description|예|관리되는 응용 프로그램에 대한 설명입니다.|
@@ -164,29 +164,29 @@ ms.locfileid: "75650696"
 }
 ```
 
-|속성|필수|설명|
+|속성|필수|Description|
 |---------|---------|---------|
 |displayName|예|뷰의 표시된 제목입니다.|
 |버전|예|뷰를 렌더링하는 데 사용되는 플랫폼 버전입니다.|
-|차트|yes|메트릭 페이지의 차트 배열입니다.|
+|차트|예|메트릭 페이지의 차트 배열입니다.|
 
 ### <a name="chart"></a>차트
 
-|속성|필수|설명|
+|속성|필수|Description|
 |---------|---------|---------|
-|displayName|yes|차트의 표시된 제목입니다.|
+|displayName|예|차트의 표시된 제목입니다.|
 |차트유형|예|이 차트에 사용할 시각화입니다. 기본적으로 선부 차트를 사용합니다. 지원되는 차트 `Bar, Line, Area, Scatter`유형: .|
-|메트릭|yes|이 차트에서 플롯할 메트릭의 배열입니다. Azure 포털에서 지원되는 메트릭에 대해 자세히 알아보려면 [Azure 모니터를 사용하여 지원되는 메트릭을](../../azure-monitor/platform/metrics-supported.md) 참조하십시오.|
+|메트릭|예|이 차트에서 플롯할 메트릭의 배열입니다. Azure 포털에서 지원되는 메트릭에 대해 자세히 알아보려면 [Azure 모니터를 사용하여 지원되는 메트릭을](../../azure-monitor/platform/metrics-supported.md) 참조하십시오.|
 
 ### <a name="metric"></a>메트릭
 
-|속성|필수|설명|
+|속성|필수|Description|
 |---------|---------|---------|
-|name|yes|메트릭의 이름입니다.|
-|집계 유형|yes|이 메트릭에 사용할 집계 유형입니다. 지원되는 집계 유형:`none, sum, min, max, avg, unique, percentile, count`|
-|namespace|예|올바른 메트릭 공급자를 결정할 때 사용할 추가 정보입니다.|
+|name|예|메트릭의 이름입니다.|
+|집계 유형|예|이 메트릭에 사용할 집계 유형입니다. 지원되는 집계 유형:`none, sum, min, max, avg, unique, percentile, count`|
+|네임스페이스|예|올바른 메트릭 공급자를 결정할 때 사용할 추가 정보입니다.|
 |리소스 태그 필터|예|메트릭이 표시될 리소스 태그 배열(단어로 `or` 구분). 리소스 유형 필터 위에 적용됩니다.|
-|resourceType|yes|메트릭이 표시될 리소스 유형입니다.|
+|resourceType|예|메트릭이 표시될 리소스 유형입니다.|
 
 ![메트릭](./media/view-definition/metrics.png)
 
@@ -224,11 +224,11 @@ ms.locfileid: "75650696"
 }
 ```
 
-|속성|필수|설명|
+|속성|필수|Description|
 |---------|---------|---------|
-|displayName|yes|뷰의 표시된 제목입니다. 제목은 **viewDefinition.json**의 각 사용자 지정 리소스 보기에 대해 **고유해야** 합니다.|
+|displayName|예|뷰의 표시된 제목입니다. 제목은 **viewDefinition.json**의 각 사용자 지정 리소스 보기에 대해 **고유해야** 합니다.|
 |버전|예|뷰를 렌더링하는 데 사용되는 플랫폼 버전입니다.|
-|resourceType|yes|사용자 지정 리소스 유형입니다. 사용자 지정 공급자의 **고유한** 사용자 지정 리소스 유형이어야 합니다.|
+|resourceType|예|사용자 지정 리소스 유형입니다. 사용자 지정 공급자의 **고유한** 사용자 지정 리소스 유형이어야 합니다.|
 |icon|예|뷰의 아이콘입니다. 예제 아이콘 목록은 [JSON 스키마에](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#)정의되어 있습니다.|
 |createUI정의|예|사용자 지정 리소스 명령을 만들기 위해 UI 정의 스키마를 만듭니다. UI 정의 만들기에 대한 소개는 [CreateUiDefinition를 시작하기](create-uidefinition-overview.md) 를 참조하십시오.|
 |명령|예|CustomResources 보기의 추가 도구 모음 단추 배열은 [명령을](#commands)참조하십시오.|
@@ -253,10 +253,10 @@ ms.locfileid: "75650696"
 }
 ```
 
-|속성|필수|설명|
+|속성|필수|Description|
 |---------|---------|---------|
-|displayName|yes|명령 단추의 표시된 이름입니다.|
-|경로|yes|사용자 지정 공급자 작업 이름입니다. 작업은 **mainTemplate.json**.|
+|displayName|예|명령 단추의 표시된 이름입니다.|
+|경로|예|사용자 지정 공급자 작업 이름입니다. 작업은 **mainTemplate.json**.|
 |icon|예|명령 단추의 아이콘입니다. 예제 아이콘 목록은 [JSON 스키마에](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#)정의되어 있습니다.|
 |createUI정의|예|명령에 대한 UI 정의 스키마를 만듭니다. UI 정의 만들기에 대한 소개는 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.|
 
@@ -280,11 +280,11 @@ ms.locfileid: "75650696"
 }
 ```
 
-|속성|필수|설명|
+|속성|필수|Description|
 |---------|---------|---------|
-|displayName|yes|뷰의 표시된 제목입니다. 제목은 **ViewDefinition.json**에서 각 연결 보기에 대해 **고유해야** 합니다.|
+|displayName|예|뷰의 표시된 제목입니다. 제목은 **ViewDefinition.json**에서 각 연결 보기에 대해 **고유해야** 합니다.|
 |버전|예|뷰를 렌더링하는 데 사용되는 플랫폼 버전입니다.|
-|targetResourceType|yes|대상 리소스 유형입니다. 리소스 온보딩에 대해 표시되는 리소스 유형입니다.|
+|targetResourceType|예|대상 리소스 유형입니다. 리소스 온보딩에 대해 표시되는 리소스 유형입니다.|
 |createUI정의|예|연결 리소스 명령을 만들기 위해 UI 정의 스키마를 만듭니다. UI 정의 만들기에 대한 소개는 [CreateUiDefinition를 시작하기](create-uidefinition-overview.md) 를 참조하십시오.|
 
 ## <a name="looking-for-help"></a>도움말 찾기

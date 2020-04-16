@@ -13,14 +13,17 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 5263af2708ee30566e90cdf59ef69f52f76a9d32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39f758b779e7c4935feab2424be16b829db8e46b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440314"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399525"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>일정에 따라 Azure-SSIS 통합 런타임을 시작하고 중지하는 방법
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 이 문서에서는 ADF(Azure Data Factory)를 사용하여 Azure-SSIS IR(통합 런타임)의 시작 및 중지를 예약하는 방법을 설명합니다. Azure-SSIS IR은 SSIS(SQL Server Integration Services) 패키지 전용으로 사용되는 ADF 컴퓨팅 리소스입니다. Azure-SSIS IR 실행 시 관련 비용이 발생합니다. 따라서 일반적으로 Azure에서 SSIS 패키지를 실행해야 할 때만 IR을 실행하고, 더 이상 필요 없으면 중지하는 것이 좋습니다. ADF UI(사용자 인터페이스)/앱 또는 Azure PowerShell을 사용하여 [수동으로 IR을 시작 또는 중지](manage-azure-ssis-integration-runtime.md)할 수 있습니다.
 
 또는 ADF 파이프라인에서 일정에 따라 IR을 시작/중지하는 웹 작업을 만들 수 있습니다. 예를 들어 오전에 일일 ETL 워크로드를 실행하기 전에 IR을 시작하고, 오후에 워크로드가 완료되면 IR을 중지할 수 있습니다.  IR을 시작하고 중지하는 두 웹 작업 간에 SSIS 패키지 실행 작업을 연결할 수도 있습니다. 이렇게 하면 주문형으로, 패키지 실행 전/후에 적시에 IR이 시작/중지됩니다. SSIS 패키지 실행 작업에 대한 자세한 내용은 [SSIS 패키지 실행 작업을 사용하여 ADF 파이프라인에서 SSIS 패키지 실행](how-to-invoke-ssis-package-ssis-activity.md) 문서를 참조하세요.
@@ -45,7 +48,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
 
 ### <a name="create-your-adf"></a>ADF 만들기
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.    
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.    
 2. 왼쪽 메뉴에서 **새** 메뉴를 클릭하고 **데이터 + 분석을**클릭하고 데이터 팩터리 를 **클릭합니다.** 
    
    ![새로 만들기->DataFactory](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
@@ -214,7 +217,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
 아직 Azure Automation 계정이 없는 경우 이 단계의 지침에 따라 하나 만듭니다. 자세한 단계는 [Azure Automation 계정 만들기](../automation/automation-quickstart-create-account.md) 문서를 참조하세요. 이 단계의 일부로 **Azure 실행** 계정(Azure Active Directory의 서비스 사용자)을 만들어서 Azure 구독의 **기여자** 역할에 할당합니다. Azure SSIS IR이 있는 ADF를 포함하고 있는 구독과 동일한 구독인지 확인합니다. Azure Automation은 이 계정을 사용하여 Azure Resource Manager에 인증하고 리소스를 작동합니다. 
 
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 ADF UI/앱은 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
-2. [Azure 포털에](https://portal.azure.com/)로그인합니다.    
+2. [Azure 포털](https://portal.azure.com/)에 로그인합니다.    
 3. 왼쪽 메뉴에서 **새로 만들기**를 선택하고 **모니터링 + 관리**를 선택한 후 **Automation**을 선택합니다. 
 
    ![새로 만들기 -> 모니터링 + 관리 -> Automation](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)

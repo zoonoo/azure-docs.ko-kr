@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: f2f6be1022a7100a23f49534f2c18fc951d56284
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c803d489b70cda6910865f6096d21c2021c4ae3a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255510"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393698"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: 핫, 쿨 및 보관 스토리지 계층
 
@@ -122,7 +122,7 @@ Blob이 더 따뜻한 계층(아카이브->쿨, 아카이브 >핫 또는 쿨 >�
 | **사용 요금**                         | 스토리지 비용 증가, 액세스 및 트랜잭션 비용 절감 | 스토리지 비용 더 높음, 액세스 및 트랜잭션 비용 더 낮음 | 스토리지 비용 더 낮음, 액세스 및 트랜잭션 비용 더 높음 | 스토리지 비용 가장 낮음, 액세스 및 트랜잭션 비용 가장 높음 |
 | **최소 개체 크기**                   | 해당 없음                       | 해당 없음          | 해당 없음                 | 해당 없음               |
 | **최소 스토리지 기간**              | 해당 없음                       | 해당 없음          | 30 일<sup>1</sup> | 180일
-| **대기 시간이** <br> **(첫 번째 바이트까지의 시간)** | 한 자리 밀리초 | 밀리초 | 밀리초        | <sup>2시간</sup> |
+| **대기 시간** <br> **(첫 번째 바이트까지의 시간)** | 한 자리 밀리초 | 밀리초 | 밀리초        | <sup>2시간</sup> |
 
 <sup>1</sup> GPv2 계정의 멋진 계층에 있는 개체의 보존 기간은 최소 30일입니다. Blob 저장소 계정에는 멋진 계층에 대한 최소 보존 기간이 없습니다.
 
@@ -141,7 +141,7 @@ Blob이 더 따뜻한 계층(아카이브->쿨, 아카이브 >핫 또는 쿨 >�
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>GPv2 또는 Blob Storage 계정의 기본 계정 액세스 계층을 변경합니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. Azure 포털에서 모든 리소스를 검색하고 **선택합니다.**
 
@@ -169,7 +169,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>GPv2 또는 Blob 저장소 계정에서 Blob 계층 변경
 # <a name="portal"></a>[포털](#tab/azure-portal)
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. Azure 포털에서 모든 리소스를 검색하고 **선택합니다.**
 
@@ -199,7 +199,7 @@ $storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountN
 $ctx = $storageAccount.Context
 
 #Select the blob from a container
-$blobs = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $context
+$blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
 
 #Change the blob’s access tier to archive
 $blob.ICloudBlob.SetStandardBlobTier("Archive")
@@ -234,7 +234,7 @@ GPv1과 GPv2 계정 간에 가격 책정 구조가 다르며 고객은 GPv2 계�
 
 **Blob 또는 GPv2 저장소 계정의 기본 액세스 계층을 변경할 수 있습니까?**
 
-예. 저장소 계정에 **Access 계층** 특성을 설정하여 기본 계정 계층을 변경할 수 있습니다. 계정 계층 변경은 명시적 계층 집합이 없는 계정에 저장된 모든 개체(예: **핫(추론)** 또는 **쿨(추론))에**적용됩니다. 계정 계층을 핫에서 냉각으로 전환하면 GPv2 계정의 설정 계층이 없는 모든 Blob에 대해 쓰기 작업(10,000개당)을 설정하고 쿨에서 핫으로 전환하면 읽기 작업(10,000개당)과 Blob 저장소의 모든 Blob에 대한 데이터 검색(GB당) 요금이 모두 발생합니다. 및 GPv2 계정.
+예. 저장소 계정에 **Access 계층** 특성을 설정하여 기본 계정 계층을 변경할 수 있습니다. 계정 계층 변경은 명시적 계층 집합이 없는 계정에 저장된 모든 개체(예: **핫(추론)** 또는 **쿨(추론))에**적용됩니다. 계정 계층을 핫에서 냉각으로 전환하면 GPv2 계정의 설정 계층이 없는 모든 Blob에 대해 쓰기 작업(10,000개당)을 설정하고 쿨에서 핫으로 전환하면 읽기 작업(10,000개당)과 Blob 저장소 및 GPv2 계정의 모든 Blob에 대한 데이터 검색(GB당) 요금이 모두 발생합니다.
 
 **기본 계정 액세스 계층을 보관 계층으로 설정할 수 있나요?**
 

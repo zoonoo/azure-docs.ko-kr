@@ -3,14 +3,14 @@ title: Azure Automation에서 Runbook 실행
 description: Azure Automation의 Runbook이 처리되는 방법에 대한 자세한 내용을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/04/2019
+ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: de01a7a76a5d225770c273c67f864c83226ecd07
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: a7dd9de1f2ae41b20d94cf31de48e92fbb71ca6a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261315"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405635"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -22,7 +22,7 @@ Azure Automation에서 Runbook을 시작하면 Runbook의 단일 실행 인스�
 
 Azure Automation은 Runbook 실행 중에 각 작업을 실행하도록 작업자를 할당합니다. 작업자가 많은 Azure 계정에서 공유되지만 여러 Automation 계정의 작업은 서로 격리됩니다. 작업 요청 서비스를 제어할 수 없습니다.
 
-Azure 포털에서 Runbook 목록을 보면 각 Runbook에 대해 시작된 각 작업의 상태가 표시됩니다. Azure Automation은 작업 로그를 최대 30일 동안 저장합니다. 
+Azure 포털에서 Runbook 목록을 보면 각 Runbook에 대해 시작된 각 작업의 상태가 표시됩니다. Azure Automation은 작업 로그를 최대 30일 동안 저장합니다.
 
 다음 다이어그램은 [PowerShell Runbook,](automation-runbook-types.md#powershell-runbooks) [PowerShell 워크플로 런북](automation-runbook-types.md#powershell-workflow-runbooks)및 [그래픽 런북에](automation-runbook-types.md#graphical-runbooks)대한 Runbook 작업의 수명 주기를 보여 주었습니다.
 
@@ -35,7 +35,7 @@ Azure 포털에서 Runbook 목록을 보면 각 Runbook에 대해 시작된 각 
 
 ## <a name="where-to-run-your-runbooks"></a>Runbook을 실행하는 위치
 
-Azure 자동화의 Runbook은 Azure 샌드박스 또는 [하이브리드 Runbook 작업자에서](automation-hybrid-runbook-worker.md)실행할 수 있습니다. 여러 작업에서 사용할 수 있는 공유 환경인 Azure 샌드박스에서 대부분의 Runbook을 쉽게 실행할 수 있습니다. 동일한 샌드박스를 사용하는 작업에는 샌드박스의 리소스 제한이 적용됩니다.
+Azure 자동화의 Runbook은 Azure 샌드박스 또는 [하이브리드 Runbook 작업자에서](automation-hybrid-runbook-worker.md)실행할 수 있습니다. Runbook이 Azure의 리소스를 인증하고 실행하도록 설계된 경우 여러 작업에서 사용할 수 있는 공유 환경인 Azure 샌드박스에서 실행됩니다. 동일한 샌드박스를 사용하는 작업에는 샌드박스의 리소스 제한이 적용됩니다.
 
 >[!NOTE]
 >Azure 샌드박스 환경은 대화형 작업을 지원하지 않습니다. 또한 Win32 호출을 만드는 runbook에 로컬 MOF 파일을 사용해야 합니다.
@@ -44,21 +44,21 @@ Azure 자동화의 Runbook은 Azure 샌드박스 또는 [하이브리드 Runbook
 
 다음 표에는 각 실행에 대해 나열된 권장 실행 환경이 있는 일부 Runbook 실행 작업이 나열되어 있습니다.
 
-|Task|최선의 선택|메모|
+|Task|권장|메모|
 |---|---|---|
 |Azure 리소스와 통합|Azure 샌드박스|Azure에서 호스팅되는 인증은 더 간단합니다. Azure VM에서 하이브리드 Runbook 워커를 사용하는 경우 [Azure 리소스에 관리되는 ID를](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)사용할 수 있습니다.|
 |Azure 리소스 를 관리하기 위한 최적의 성능 확보|Azure 샌드박스|스크립트는 대기 시간이 적은 동일한 환경에서 실행됩니다.|
 |운영 비용 최소화|Azure 샌드박스|계산 오버헤드가 없고 VM이 필요하지 않습니다.|
-|장기 실행 스크립트 실행|Hybrid Runbook Worker|Azure 샌드박스에는 [리소스에 제한이 있습니다.](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
-|로컬 서비스와 상호 작용|Hybrid Runbook Worker|호스트 컴퓨터에 직접 액세스할 수 있습니다.|
+|장기 실행 스크립트 실행|Hybrid Runbook Worker|Azure 샌드박스에는 [리소스 제한이](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)있습니다.|
+|로컬 서비스와 상호 작용|Hybrid Runbook Worker|호스트 컴퓨터 또는 다른 클라우드 환경 또는 온-프레미스 환경에서 리소스에 직접 액세스할 수 있습니다. |
 |타사 소프트웨어 및 실행 정보 요구|Hybrid Runbook Worker|운영 체제를 관리하고 소프트웨어를 설치할 수 있습니다.|
 |Runbook으로 파일 또는 폴더 모니터링|Hybrid Runbook Worker|하이브리드 Runbook 작업자에서 [감시자 작업을](automation-watchers-tutorial.md) 사용합니다.|
-|리소스 를 사용하는 스크립트 실행|Hybrid Runbook Worker| Azure 샌드박스에는 [리소스에 제한이 있습니다.](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
-|특정 요구 사항이 있는 모듈 사용| Hybrid Runbook Worker|예는 다음과 같습니다.</br> WinSCP - winscp.exe에 대한 종속성 </br> IIS 관리 - IIS 의 사용 설정에 대한 종속성입니다.|
+|리소스 를 사용하는 스크립트 실행|Hybrid Runbook Worker| Azure 샌드박스에는 [리소스 제한이](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)있습니다.|
+|특정 요구 사항이 있는 모듈 사용| Hybrid Runbook Worker|예는 다음과 같습니다.</br> WinSCP - winscp.exe에 대한 종속성 </br> IIS 관리 - IIS 사용 또는 관리에 대한 종속성입니다.|
 |설치 프로그램이 있는 모듈 설치|Hybrid Runbook Worker|샌드박스용 모듈은 복사를 지원해야 합니다.|
-|4.7.2와 다른 .NET Framework 버전이 필요한 Runbook 또는 모듈 사용|Hybrid Runbook Worker|자동화 샌드박스에는 .NET Framework 4.7.2가 있으며 버전을 업그레이드할 수 있는 방법은 없습니다.|
+|4.7.2와 다른 .NET Framework 버전이 필요한 Runbook 또는 모듈 사용|Hybrid Runbook Worker|자동화 샌드박스는 .NET Framework 4.7.2를 지원하며 다른 버전으로 업그레이드하는 것은 지원되지 않습니다.|
 |고도가 필요한 스크립트 실행|Hybrid Runbook Worker|샌드박스는 고도를 허용하지 않습니다. 하이브리드 Runbook 워커를 사용하면 고도가 필요한 명령을 실행할 때 UAC를 끄고 [Invoke-Command를](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) 사용할 수 있습니다.|
-|WMI(Windows 관리 계측)에 액세스해야 하는 스크립트 실행|Hybrid Runbook Worker|클라우드의 샌드박스에서 실행중인 작업은 WMI에 액세스할 수 없습니다. |
+|WMI(Windows 관리 계측)에 액세스해야 하는 스크립트 실행|Hybrid Runbook Worker|클라우드의 샌드박스에서 실행중인 작업은 WMI 공급자에 액세스할 수 없습니다. |
 
 ## <a name="runbook-behavior"></a>Runbook 동작
 
@@ -75,7 +75,7 @@ $vmExists = Get-AzResource -Name $vmName -ResourceGroupName $resourceGroupName
 if(!$vmExists)
     {
     Write-Output "VM $vmName does not exist, creating"
-    New-AzureRMVM -Name $vmName -ResourceGroupName $resourceGroupName -Credential $myCred
+    New-AzVM -Name $vmName -ResourceGroupName $resourceGroupName -Credential $myCred
     }
 else
     {
@@ -278,7 +278,7 @@ Azure 샌드박스에서 실행되는 Runbook에서 시작된 PowerShell 작업�
 
 ### <a name="retrieving-job-status-using-powershell"></a>PowerShell을 사용하여 작업 상태 검색
 
-cmdlet을 `Get-AzAutomationJob` 사용하여 Runbook에 대해 생성된 작업과 특정 작업의 세부 정보를 검색합니다. 을 사용하여 `Start-AzAutomationRunbook`RunBook을 시작하면 결과 작업이 반환됩니다. [Get-AzAutomationJobOutput을](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) 사용하여 작업 출력을 검색합니다.
+[Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) cmdlet을 사용하여 Runbook에 대해 생성된 작업과 특정 작업의 세부 정보를 검색합니다. 을 사용하여 `Start-AzAutomationRunbook`RunBook을 시작하면 결과 작업이 반환됩니다. [Get-AzAutomationJobOutput을](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) 사용하여 작업 출력을 검색합니다.
 
 다음 예제에서는 샘플 Runbook에 대한 마지막 작업을 가져옵니다 및 해당 상태, Runbook 매개 변수에 대해 제공된 값 및 작업 출력을 표시합니다.
 
@@ -356,3 +356,5 @@ $JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 * Runbook을 사용하는 방법을 알아보려면 [Azure Automation의 Runbook 관리를](manage-runbooks.md)참조하십시오.
 * Azure 자동화에서 Runbook을 시작하는 데 사용할 수 있는 방법에 대해 자세히 알아보려면 [Azure Automation에서 Runbook 시작을](automation-starting-a-runbook.md)참조하십시오.
 * 언어 참조 및 학습 모듈을 포함한 [PowerShell에](https://docs.microsoft.com/powershell/scripting/overview)대한 자세한 내용은 PowerShell 문서를 참조하십시오.
+* PowerShell cmdlet 참조는 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+)을 참조하십시오.

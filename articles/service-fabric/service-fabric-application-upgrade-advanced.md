@@ -2,13 +2,13 @@
 title: 고급 응용 프로그램 업그레이드 항목
 description: 이 문서에서는 서비스 패브릭 애플리케이션 업그레이드와 관련된 고급 항목을 다룹니다.
 ms.topic: conceptual
-ms.date: 1/28/2020
-ms.openlocfilehash: 182ab6dc1663e160561b8941ebf3a36b5af3d950
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.date: 03/11/2020
+ms.openlocfilehash: a12d2ec55bda95c1c61d4a73c76f4a777f4237f2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422802"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414496"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>서비스 패브릭 응용 프로그램 업그레이드: 고급 항목
 
@@ -18,7 +18,7 @@ ms.locfileid: "80422802"
 
 마찬가지로, 업그레이드의 일부로 애플리케이션에서 서비스 유형을 제거할 수도 있습니다. 그러나 제거하려는 서비스 유형의 모든 서비스 인스턴스를 제거한 후 업그레이드를 진행해야 합니다([Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps) 참조).
 
-## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>상태 비수기 서비스 계획된 가동 중지 시간 동안 연결 중단 방지(미리 보기)
+## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>상태 비수기 서비스 계획된 가동 중지 시간 동안 연결 중단 방지
 
 응용 프로그램/클러스터 업그레이드 또는 노드 비활성화와 같은 계획된 상태 비해제 인스턴스 가동 중단의 경우 인스턴스가 다운된 후 노출된 끝점이 제거되어 강제 연결 클로저가 발생하므로 연결이 끊어질 수 있습니다.
 

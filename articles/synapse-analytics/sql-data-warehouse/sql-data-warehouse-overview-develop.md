@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 933a175213afd81c81eb237a2b2dd4c3e24e3315
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 12f91633834ee98582eaad886b48eb8619378265
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633149"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411664"
 ---
 # <a name="design-decisions-and-coding-techniques-for-a-synapse-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse 분석에서 시냅스 SQL 풀에 대한 설계 의사 결정 및 코딩 기술 
  이 문서에서는 Azure Synapse의 SQL 풀에 대한 주요 디자인 결정, 권장 사항 및 코딩 기술을 더 잘 이해하는 데 도움이 되는 추가 리소스를 찾을 수 있습니다.
@@ -23,7 +23,7 @@ ms.locfileid: "80633149"
 ## <a name="key-design-decisions"></a>주요 디자인 결정
 다음 문서에서는 Azure Synapse의 SQL 풀 기능을 사용하여 분산 데이터 웨어하우스를 개발하기 위한 개념 및 디자인 결정을 강조 표시합니다.
 
-* [연결](sql-data-warehouse-connect-overview.md)
+* [연결](../sql/connect-overview.md)
 * [동시성](resource-classes-for-workload-management.md)
 * [트랜잭션을](sql-data-warehouse-develop-transactions.md)
 * [사용자 정의 스키마](sql-data-warehouse-develop-user-defined-schemas.md)

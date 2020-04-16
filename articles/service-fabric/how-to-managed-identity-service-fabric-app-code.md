@@ -1,16 +1,16 @@
 ---
 title: 응용 프로그램과 함께 관리되는 ID 사용
-description: Azure Service Fabric 응용 프로그램 코드에서 관리되는 ID를 사용하여 Azure 서비스에 액세스하는 방법 이 기능은 공개 미리 보기 상태입니다.
+description: Azure Service Fabric 응용 프로그램 코드에서 관리되는 ID를 사용하여 Azure 서비스에 액세스하는 방법
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: 59680ec7911f55c3dc49d8834b410a039aa435dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cbdb1190ec3238a6accd34db3025e08c194d60b8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75610321"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415612"
 ---
-# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>서비스 패브릭 응용 프로그램의 관리되는 ID를 활용하여 Azure 서비스에 액세스하는 방법(미리 보기)
+# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>서비스 패브릭 응용 프로그램의 관리되는 ID를 활용하여 Azure 서비스에 액세스하는 방법
 
 Service Fabric 응용 프로그램은 관리되는 ID를 활용하여 Azure Active Directory 기반 인증을 지원하는 다른 Azure 리소스에 액세스할 수 있습니다. 응용 프로그램은 시스템 할당 또는 사용자 할당될 수 있는 ID를 나타내는 [액세스 토큰을](../active-directory/develop/developer-glossary.md#access-token) 가져오고 이를 'bearer' 토큰으로 사용하여 [보호된 리소스 서버라고도](../active-directory/develop/developer-glossary.md#resource-server)하는 다른 서비스에 자신을 인증할 수 있습니다. 토큰은 Service Fabric 응용 프로그램에 할당된 ID를 나타내며 해당 ID를 공유하는 Azure 리소스(SF 응용 프로그램 포함)에만 발급됩니다. [관리되는 ID에](../active-directory/managed-identities-azure-resources/overview.md) 대한 자세한 설명과 시스템 할당 및 사용자 할당 ID 간의 차이에 대한 자세한 설명은 관리되는 ID 개요 설명서를 참조하십시오. 이 문서 전체에서 관리되는 ID 지원 서비스 패브릭 응용 [프로그램을 클라이언트 응용 프로그램으로](../active-directory/develop/developer-glossary.md#client-application) 참조합니다.
 
@@ -24,19 +24,18 @@ Service Fabric 응용 프로그램은 관리되는 ID를 활용하여 Azure Acti
 관리되는 ID에 대해 사용하도록 설정된 클러스터에서 Service Fabric 런타임은 응용 프로그램이 액세스 토큰을 가져오는 데 사용할 수 있는 로컬 호스트 끝점을 노출합니다. 끝점은 클러스터의 모든 노드에서 사용할 수 있으며 해당 노드의 모든 엔터티에 액세스할 수 있습니다. 권한이 부여된 호출자는 이 끝점을 호출하고 인증 코드를 표시하여 액세스 토큰을 얻을 수 있습니다. 코드는 각 별개의 서비스 코드 패키지 활성화에 대한 Service Fabric 런타임에 의해 생성되며 해당 서비스 코드 패키지를 호스팅하는 프로세스의 수명에 바인딩됩니다.
 
 특히 관리되는 ID 기반 서비스 패브릭 서비스의 환경은 다음과 같은 변수로 시드됩니다.
-- 'MSI_ENDPOINT': 해당 서비스의 관리되는 ID에 해당하는 경로, API 버전 및 매개 변수가 포함된 로컬 호스트 끝점
-- 'MSI_SECRET': 불투명 문자열이며 현재 노드의 서비스를 고유하게 나타내는 인증 코드
-
-> [!NOTE]
-> 'MSI_ENDPOINT' 및 'MSI_SECRET'라는 이름은 관리되는 ID("관리되는 서비스 ID")의 이전 지정을 나타내며 이제 더 이상 사용되지 않습니다. 이름은 관리되는 ID를 지원하는 다른 Azure 서비스에서 사용하는 동등한 환경 변수 이름과도 일치합니다.
+- 'IDENTITY_ENDPOINT': 서비스의 관리되는 ID에 해당하는 로컬 호스트 끝점
+- 'IDENTITY_HEADER': 현재 노드에서 서비스를 나타내는 고유 인증 코드
+- 'IDENTITY_SERVER_THUMBPRINT' : 서비스 패브릭 관리 ID 서버의 지문
 
 > [!IMPORTANT]
-> 응용 프로그램 코드는 'MSI_SECRET' 환경 변수의 값을 중요한 데이터로 간주해야 합니다. 인증 코드는 로컬 노드 외부또는 서비스를 호스팅하는 프로세스가 종료된 후 값이 없지만 서비스 패브릭 서비스의 ID를 나타내므로 액세스 토큰 자체와 동일한 예방 조치로 처리해야 합니다.
+> 응용 프로그램 코드는 'IDENTITY_HEADER' 환경 변수의 값을 중요한 데이터로 간주해야 합니다. 인증 코드는 로컬 노드 외부또는 서비스를 호스팅하는 프로세스가 종료된 후 값이 없지만 서비스 패브릭 서비스의 ID를 나타내므로 액세스 토큰 자체와 동일한 예방 조치로 처리해야 합니다.
 
 토큰을 얻기 위해 클라이언트는 다음 단계를 수행합니다.
-- 관리되는 ID 끝점(MSI_ENDPOINT 값)을 API 버전및 토큰에 필요한 리소스(audience)와 연결하여 URI를 형성합니다.
-- 지정된 URI에 대한 GET http 요청을 만듭니다.
-- 인증 코드(MSI_SECRET 값)를 요청에 헤더로 추가합니다.
+- 관리되는 ID 끝점(IDENTITY_ENDPOINT 값)을 API 버전및 토큰에 필요한 리소스(audience)와 연결하여 URI를 형성합니다.
+- 지정된 URI에 대한 GET http(들) 요청을 만듭니다.
+- 적절한 서버 인증서 유효성 검사 논리를 추가합니다.
+- 인증 코드(IDENTITY_HEADER 값)를 요청에 헤더로 추가합니다.
 - 요청을 제출합니다.
 
 성공적인 응답에는 결과 액세스 토큰을 나타내는 JSON 페이로드와 이를 설명하는 메타데이터가 포함됩니다. 실패한 응답에는 오류에 대한 설명도 포함됩니다. 오류 처리에 대한 자세한 내용은 아래를 참조하십시오.
@@ -44,19 +43,22 @@ Service Fabric 응용 프로그램은 관리되는 ID를 활용하여 Azure Acti
 액세스 토큰은 다양한 수준(노드, 클러스터, 리소스 공급자 서비스)에서 Service Fabric에 의해 캐시되므로 성공적인 응답이 반드시 사용자 응용 프로그램의 요청에 대한 응답으로 토큰이 직접 발행되었음을 의미하지는 않습니다. 토큰은 수명보다 적은 기간 동안 캐시되므로 응용 프로그램은 유효한 토큰을 받을 수 있습니다. 응용 프로그램 코드는 획득한 모든 액세스 토큰을 캐시하는 것이 좋습니다. 캐싱 키에는 대상(파생)이 포함되어야 합니다. 
 
 
+> [!NOTE]
+> 허용되는 유일한 API 버전은 `2019-07-01-preview`현재 변경될 수 있습니다.
+
 샘플 요청:
 ```http
-GET 'http://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://keyvault.azure.com/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
+GET 'https://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://vault.azure.net/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
 ```
 각 항목이 나타내는 의미는 다음과 같습니다.
 
-| 요소 | 설명 |
+| 요소 | Description |
 | ------- | ----------- |
 | `GET` | HTTP 동사는 엔드포인트에서 데이터를 검색한다는 것을 나타냅니다. 이 경우에는 OAuth 액세스 토큰입니다. | 
-| `http://localhost:2377/metadata/identity/oauth2/token` | MSI_ENDPOINT 환경 변수를 통해 제공되는 서비스 패브릭 응용 프로그램에 대한 관리되는 ID 끝점입니다. |
+| `https://localhost:2377/metadata/identity/oauth2/token` | IDENTITY_ENDPOINT 환경 변수를 통해 제공되는 서비스 패브릭 응용 프로그램에 대한 관리되는 ID 끝점입니다. |
 | `api-version` | 관리되는 ID 토큰 서비스의 API 버전을 지정하는 쿼리 문자열 매개 변수; 현재 허용되는 유일한 `2019-07-01-preview`값은 은 변경될 수 있습니다. |
-| `resource` | 쿼리 문자열 매개 변수는 대상 리소스의 앱 ID URI를 나타냅니다. 이는 발행된 토큰의 `aud` (대상) 클레임으로 반영됩니다. 이 예제에서는 앱 ID URI가 https인 Azure Key\/Vault에 액세스하기 위해 토큰을 요청합니다: /keyvault.azure.com/. |
-| `Secret` | 서비스 패브릭 서비스에 대한 서비스 패브릭 관리 ID 토큰 서비스에서 호출자 인증을 위해 필요한 HTTP 요청 헤더 필드입니다. 이 값은 환경 변수를 통해 SF 런타임에서 MSI_SECRET. |
+| `resource` | 쿼리 문자열 매개 변수는 대상 리소스의 앱 ID URI를 나타냅니다. 이는 발행된 토큰의 `aud` (대상) 클레임으로 반영됩니다. 이 예제에서는 앱 ID URI가 https인 Azure Key\/Vault에 액세스하기 위해 토큰을 요청합니다: /vault.azure.net/. |
+| `Secret` | 서비스 패브릭 서비스에 대한 서비스 패브릭 관리 ID 토큰 서비스에서 호출자 인증을 위해 필요한 HTTP 요청 헤더 필드입니다. 이 값은 환경 변수를 통해 SF 런타임에서 IDENTITY_HEADER. |
 
 
 샘플 응답:
@@ -67,12 +69,12 @@ Content-Type: application/json
     "token_type":  "Bearer",
     "access_token":  "eyJ0eXAiO...",
     "expires_on":  1565244611,
-    "resource":  "https://keyvault.azure.com/"
+    "resource":  "https://vault.azure.net/"
 }
 ```
 각 항목이 나타내는 의미는 다음과 같습니다.
 
-| 요소 | 설명 |
+| 요소 | Description |
 | ------- | ----------- |
 | `token_type` | 토큰의 유형; 이 경우 이 토큰의 발표자('보유자')가 토큰의 의도된 주체임을 의미하는 "Bearer" 액세스 토큰입니다. |
 | `access_token` | 요청된 액세스 토큰입니다. 보안이 설정된 REST API를 호출할 때 토큰은 호출자를 인증하는 API를 허용하는 "전달자" 토큰으로 `Authorization` 요청 헤더 필드에 포함됩니다. | 
@@ -124,20 +126,33 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
         /// <returns>Access token</returns>
         public static async Task<string> AcquireAccessTokenAsync()
         {
-            var managedIdentityEndpoint = Environment.GetEnvironmentVariable("MSI_ENDPOINT");
-            var managedIdentityAuthenticationCode = Environment.GetEnvironmentVariable("MSI_SECRET");
+            var managedIdentityEndpoint = Environment.GetEnvironmentVariable("IDENTITY_ENDPOINT");
+            var managedIdentityAuthenticationCode = Environment.GetEnvironmentVariable("IDENTITY_HEADER");
+            var managedIdentityServerThumbprint = Environment.GetEnvironmentVariable("IDENTITY_SERVER_THUMBPRINT");
+            // Latest api version, 2019-07-01-preview is still supported.
+            var managedIdentityApiVersion = Environment.GetEnvironmentVariable("IDENTITY_API_VERSION");
             var managedIdentityAuthenticationHeader = "secret";
-            var managedIdentityApiVersion = "2019-07-01-preview";
             var resource = "https://management.azure.com/";
 
             var requestUri = $"{managedIdentityEndpoint}?api-version={managedIdentityApiVersion}&resource={HttpUtility.UrlEncode(resource)}";
 
             var requestMessage = new HttpRequestMessage(HttpMethod.Get, requestUri);
             requestMessage.Headers.Add(managedIdentityAuthenticationHeader, managedIdentityAuthenticationCode);
+            
+            var handler = new HttpClientHandler();
+            handler.ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, certChain, policyErrors) =>
+            {
+                // Do any additional validation here
+                if (policyErrors == SslPolicyErrors.None)
+                {
+                    return true;
+                }
+                return 0 == string.Compare(cert.GetCertHashString(), managedIdentityServerThumbprint, StringComparison.OrdinalIgnoreCase);
+            };
 
             try
             {
-                var response = await new HttpClient().SendAsync(requestMessage)
+                var response = await new HttpClient(handler).SendAsync(requestMessage)
                     .ConfigureAwait(false);
 
                 response.EnsureSuccessStatusCode();
@@ -321,7 +336,7 @@ HTTP 응답 헤더의 '상태 코드' 필드는 요청의 성공 상태를 나�
 
 오류가 발생하면 해당 HTTP 응답 본문에 오류 세부 정보가 포함된 JSON 개체가 포함되어 있습니다.
 
-| 요소 | 설명 |
+| 요소 | Description |
 | ------- | ----------- |
 | 코드 | 오류 코드 |
 | correlationId | 디버깅에 사용할 수 있는 상관 관계 ID입니다. |
@@ -334,7 +349,7 @@ HTTP 응답 헤더의 '상태 코드' 필드는 요청의 성공 상태를 나�
 
 다음은 관리되는 ID와 관련된 일반적인 서비스 패브릭 오류 목록입니다.
 
-| 코드 | 메시지 | 설명 | 
+| 코드 | 메시지 | Description | 
 | ----------- | ----- | ----------------- |
 | 시크릿헤더발견되지않음 | 요청 헤더에서 비밀이 찾을 수 없습니다. | 요청과 함께 인증 코드가 제공되지 않았습니다. | 
 | 관리되는 IdNotFound | 지정된 응용 프로그램 호스트에 대해 관리되는 ID를 찾을 수 없습니다. | 응용 프로그램에 ID가 없거나 인증 코드를 알 수 없습니다. |

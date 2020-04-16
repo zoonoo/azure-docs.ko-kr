@@ -8,18 +8,20 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/16/2019
-ms.openlocfilehash: efcc45dcf3565b70305323701810c49c4a720394
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 512d9a688d7f808056a91b5bc0484c378af33948
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930405"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413808"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름에 변환이 존재
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 존재 변환은 데이터가 다른 원본 또는 스트림에 있는지 여부를 확인하는 행 필터링 변환입니다. 출력 스트림에는 오른쪽 스트림에 존재하거나 존재하지 않는 왼쪽 스트림의 모든 행이 포함됩니다. 존재 변환은 ```SQL WHERE EXISTS``` 및 ```SQL WHERE NOT EXISTS```와 유사합니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 1. **오른쪽 스트림** 드롭다운에서 확인 중인 데이터 스트림을 선택합니다.
 1. **존재 유형** 설정에 존재할 데이터를 찾고 있는지 여부를 지정합니다.

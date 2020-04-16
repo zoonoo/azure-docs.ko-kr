@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 4faead13c10171c31e76fe2dd59be32a93a12f86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7032f9e8f57ea9400bf6a92f89b13fa1866f8fc1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124741"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414386"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>데이터베이스 서버에 대한 가상 네트워크 서비스 엔드포인트 및 규칙 사용
 
@@ -64,6 +64,7 @@ Azure에서 [RBAC(역할 기반 액세스 제어)][rbac-what-is-813s]를 사용�
 
 > [!NOTE]
 > 일부 경우에 Azure SQL Database 및 VNet 서브넷은 서로 다른 구독에 있습니다. 이러한 경우에는 다음과 같은 구성을 확인해야 합니다.
+>
 > - 두 구독은 모두 동일한 Azure Active Directory 테넌트에 있어야 합니다.
 > - 서비스 엔드포인트를 사용하도록 설정하고 지정된 서버에 VNet 서브넷을 추가하는 등의 작업을 시작하는 데 필요한 권한이 사용자에게 있습니다.
 > - 두 구독 모두 Microsoft.Sql 공급자에 등록되어야 합니다.
@@ -134,7 +135,7 @@ PolyBase는 대개 Azure Storage 계정에서 Azure SQL Data Warehouse로 데이
    > [!NOTE]
    > - 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)를 사용하여 **v2로 업그레이드**해야 합니다.
    > - Azure Data Lake Storage Gen2의 알려진 문제에 대해서는 이 [가이드](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues)를 참조하세요.
-    
+
 1. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가**를 클릭합니다. 단계 #1과 같이 Azure Active Directory(AAD)에 등록한 Azure SQL 데이터 웨어하우스를 호스팅하는 Azure SQL Server에 **저장소 Blob 데이터 기여자** RBAC 역할을 할당합니다.
 
    > [!NOTE]
@@ -235,7 +236,7 @@ Azure SQL Database에 관련된 특정 Virtual Network 서비스 엔드포인트
 
 ## <a name="azure-portal-steps"></a>Azure Portal 단계
 
-1. [Azure 포털에][http-azure-portal-link-ref-477t]로그인합니다.
+1. [Azure Portal][http-azure-portal-link-ref-477t]에 로그인합니다.
 
 2. **SQL 서버를**검색하고 선택한 다음 서버를 선택합니다. **보안에서** **방화벽 및 가상 네트워크를 선택합니다.**
 
@@ -264,6 +265,7 @@ Azure SQL Database에 관련된 특정 Virtual Network 서비스 엔드포인트
 
 > [!NOTE]
 > 다음 상태는 규칙에 적용됩니다.
+>
 > - **Ready:** 시작한 작업이 성공했음을 나타냅니다.
 > - **Failed:** 시작한 작업이 실패했음을 나타냅니다.
 > - **Deleted:** 삭제 작업에만 적용되고 규칙이 삭제되었으며 더 이상 적용되지 않음을 나타냅니다.

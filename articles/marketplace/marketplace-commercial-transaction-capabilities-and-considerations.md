@@ -1,40 +1,41 @@
 ---
-title: Marketplace 상용 트랜잭션 기능 및 고려 사항 | Azure
-description: 이 문서에서는 제품 유형에 대한 거래 가격 책정, 청구, 송장 및 지급 고려 사항을 설명합니다.
-services: Azure, Marketplace, Compute, Storage, Networking, Transact Offer Type
+title: Microsoft 상용 마켓플레이스 거래 기능
+description: 이 문서에서는 Microsoft 상용 마켓플레이스 거래 옵션에 대한 가격 책정, 청구, 인보이스 및 지급 고려 사항에 대해 설명합니다.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: de93a3c48e0b0aceb447e54e11190f487d1aa2d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 768fa9ca2080fc9a58fb321e62d8d61a608f9564
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80279830"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415268"
 ---
-# <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>상업용 Marketplace 트랜잭션 기능 및 고려 사항
+# <a name="commercial-marketplace-transact-capabilities"></a>상용 마켓플레이스 거래 기능
 
-이 문서에서는 상업 시장에 대한 다음과 같은 상거래 관련 주제를 다룹니다.
+이 문서에서는 Microsoft 상용 시장에 대한 다음 상거래 관련 항목을 다룹니다.
 
-* Marketplace 게시 옵션
+* 다양한 게시 옵션에 대한 트랜잭션 책임
 * 거래 일반 개요
 * 거래 청구 모델
 * 거래 요구 사항
 
-## <a name="marketplace-publishing-options"></a>Marketplace 게시 옵션
+## <a name="transactions-by-publishing-option"></a>게시 옵션에 의한 트랜잭션
 
-다음 게시 옵션은 상업용 마켓플레이스 게시자가 사용할 수 있습니다.
+게시자 또는 Microsoft는 상용 시장에서 오퍼에 대한 소프트웨어 라이센스 트랜잭션을 관리할 책임이 있습니다. 오퍼에 대해 선택한 게시 옵션에 따라 거래를 관리하는 사람이 결정됩니다. 각 [게시 옵션의](./determine-your-listing-type.md#choose-a-publishing-option) 가용성 및 설명에 대한 게시 옵션 확인을 참조하십시오.
 
-### <a name="list--trial-publishing-options"></a>목록 및 평가판 게시 옵션
+### <a name="list-trial-and-byol-publishing-options"></a>목록, 평가판 및 BYOL 게시 옵션
 
-게시자는 프로모션 및 사용자 확보를 위해 목록, 평가판 및 BYOL 게시 옵션을 활용할 수 있습니다. 이러한 옵션을 사용하면 Microsoft는 게시자의 소프트웨어 라이센스 트랜잭션에 직접 참여하지 않으며 관련 트랜잭션 수수료가 없습니다. 게시자는 주문, 이행, 계량, 청구, 송장, 지불 및 수금을 포함하되 이에 제한되지 않는 소프트웨어 라이선스 트랜잭션의 모든 측면을 지원할 책임이 있습니다. 목록 및 평가판 게시 옵션을 사용할 때 게시자는 고객으로부터 수금된 게시자 소프트웨어 라이선스 요금을 100% 보유합니다. 
+기존 상거래 기능을 보유한 게시자는 홍보 및 사용자 확보를 위해 BYOL(사용자 라이선스) 게시 옵션, 평가판 및 가져오기 옵션을 선택할 수 있습니다. 이러한 옵션을 사용하면 Microsoft는 게시자의 소프트웨어 라이센스 트랜잭션에 직접 참여하지 않으며 관련 트랜잭션 수수료가 없습니다. 게시자는 주문, 이행, 계량, 청구, 송장, 지불 및 수금을 포함하되 이에 제한되지 않는 소프트웨어 라이선스 트랜잭션의 모든 측면을 지원할 책임이 있습니다. 목록 및 평가판 게시 옵션을 사용할 때 게시자는 고객으로부터 수금된 게시자 소프트웨어 라이선스 요금을 100% 보유합니다.
 
 ### <a name="transact-publishing-option"></a>거래 게시 옵션
 
-목록 및 평가판 게시 옵션 외에도 게시자가 거래 게시 옵션을 사용할 수 있습니다. 이를 통해 Microsoft는 전 세계적으로 사용 가능한 상거래 기능을 활용하고 Microsoft가 게시자를 대신하여 클라우드 마켓플레이스 트랜잭션을 호스팅할 수 있습니다.
+거래 게시 옵션은 Microsoft 상거래 기능을 활용하고 검색 및 평가에서 구매 및 구현에 이르는 종단 간 환경을 제공합니다. 거래 제안은 기존 Microsoft 구독 또는 신용 카드에 대해 청구되므로 Microsoft는 게시자를 대신하여 클라우드 마켓플레이스 트랜잭션을 호스팅할 수 있습니다.
+
+파트너 센터에서 새 오퍼를 만들 때 거래 옵션을 선택합니다. **설치 세부 정보**아래의 제안 **설정** 페이지에서 "예, Microsoft를 통해 판매하고 Microsoft 호스트 트랜잭션을 대신하고 싶습니다."를 선택합니다. 이 옵션은 쿠폰 유형에 대해 거래할 수 있는 경우에만 표시됩니다.
 
 ## <a name="transact-general-overview"></a>거래 일반 개요
 
@@ -42,43 +43,39 @@ ms.locfileid: "80279830"
 
 현재 가상 컴퓨터, Azure 응용 프로그램 및 SaaS 앱과 같은 제안 유형에 대해 Transact 게시 옵션이 지원됩니다.
 
-
-![[Azure Marketplace에서 거래 중인 기업 거래]](./media/marketplace-publishers-guide/Transact-enterprise-deals.png)
-
 ### <a name="billing-infrastructure-costs"></a>인프라 비용 청구
 
-**Virtual Machines 및 Azure 애플리케이션의 경우**
+**가상 컴퓨터 및 Azure 응용 프로그램의 경우**
 
-가상 시스템 및 Azure 응용 프로그램의 경우 Azure 인프라 사용 요금은 고객의 Azure 구독에 청구됩니다.  인프라 사용 요금은 가격이 책정되며 고객의 송장에 있는 소프트웨어 공급자의 라이선스 비용과 별도로 제공됩니다.
+가상 시스템 및 Azure 응용 프로그램의 경우 Azure 인프라 사용 요금은 고객의 Azure 구독에 청구됩니다. 인프라 사용 요금은 가격이 책정되며 고객의 송장에 있는 소프트웨어 공급자의 라이선스 비용과 별도로 제공됩니다.
 
-**SaaS 앱의 경우**
+**SaaS 앱용**
 
-SaaS 앱의 경우 게시자는 Azure 인프라 사용 요금 및 소프트웨어 라이선스 요금을 단일 비용 항목으로 처리해야 합니다.  그것은 고객에게 정액 요금으로 표시됩니다. Azure 인프라 사용량은 관리되며 파트너에게 직접 청구됩니다.  실제 인프라 사용 요금은 고객에게 표시되지 않습니다.  일반적으로 게시자는 Azure 인프라 사용 요금을 소프트웨어 라이선스 가격 책정에 추가하는 것을 선택합니다.  소프트웨어 라이선스 요금은 측정되거나 사용되지 않습니다.
+SaaS 앱의 경우 게시자는 Azure 인프라 사용 요금 및 소프트웨어 라이선스 요금을 단일 비용 항목으로 처리해야 합니다.  그것은 고객에게 정액 요금으로 표시됩니다. Azure 인프라 사용량은 관리되며 파트너에게 직접 청구됩니다. 실제 인프라 사용 요금은 고객에게 표시되지 않습니다. 일반적으로 게시자는 Azure 인프라 사용 요금을 소프트웨어 라이선스 가격 책정에 추가하는 것을 선택합니다. 소프트웨어 라이선스 요금은 측정되거나 사용되지 않습니다.
 
 ## <a name="transact-billing-models"></a>거래 청구 모델
 
 사용된 거래 옵션에 따라 게시자의 소프트웨어 라이센스 요금은 다음과 같이 표시될 수 있습니다.  
 
-* 무료: 소프트웨어 라이선스 요금이 부과되지 않습니다. 
+* 무료: 소프트웨어 라이선스 요금이 부과되지 않습니다.
 
-* BYOL(사용자 라이선스 필요): 소프트웨어 라이선스에 대한 적용 가능한 요금이 게시자와 고객 간에 직접 관리됩니다. Microsoft는 Azure 인프라 사용 요금을 통해서만 전달합니다. (Virtual Machines 및 Azure 애플리케이션의 경우만 해당)
+* BYOL(사용자 라이선스 필요): 소프트웨어 라이선스에 대한 적용 가능한 요금이 게시자와 고객 간에 직접 관리됩니다. Microsoft는 Azure 인프라 사용 요금을 통해서만 전달합니다. 이는 가상 컴퓨터 및 Azure 응용 프로그램에만 적용됩니다.
 
-* 종량제: 소프트웨어 라이선스 요금이 사용된 Azure 인프라를 기준으로 시간당, 코어당(vCPU) 가격 책정 요금으로 표시됩니다. 이는 Virtual Machines 및 Azure 애플리케이션에만 적용됩니다.
+* 종량제: 소프트웨어 라이선스 요금이 사용된 Azure 인프라를 기준으로 시간당, 코어당(vCPU) 가격 책정 요금으로 표시됩니다. 이는 가상 컴퓨터 및 Azure 응용 프로그램에만 적용됩니다.
 
-* 구독 가격: 소프트웨어 라이선스 요금은 정액 요금 또는 시트당 청구되는 월별 또는 연간 반복 요금으로 표시됩니다. 이는 SaaS 앱 및 Azure 응용 프로그램- 관리되는 앱에만 적용됩니다.
+* 구독 가격: 소프트웨어 라이선스 요금은 정액 요금 또는 시트당 청구되는 월별 또는 연간 반복 요금으로 표시됩니다. 이는 SaaS 앱 및 Azure 응용 프로그램 - 관리되는 앱에만 적용됩니다.
 
 * 평가판 소프트웨어: 30일 또는 90일 동안 소프트웨어 라이선스 요금이 부과되지 않습니다.
 
 ### <a name="free-and-bring-your-own-license-byol-pricing"></a>무료 및 BYOL(사용자 라이선스 필요) 가격 책정
 
-무료 또는 사용자 라이선스 필요 트랜잭션 제품을 게시하는 경우 Microsoft는 해당 소프트웨어 라이선스 요금에 대한 판매 트랜잭션을 촉진하는 역할을 담당하지 않습니다. 목록 및 평가판 게시 옵션과 같이 게시자는 소프트웨어 라이선스 요금을 100% 보유합니다. 
+무료 또는 사용자 라이선스 필요 트랜잭션 제품을 게시하는 경우 Microsoft는 해당 소프트웨어 라이선스 요금에 대한 판매 트랜잭션을 촉진하는 역할을 담당하지 않습니다. 목록 및 평가판 게시 옵션과 같이 게시자는 소프트웨어 라이선스 요금을 100% 보유합니다.
 
 ### <a name="pay-as-you-go-and-subscription-site-based-pricing"></a>종량제 및 구독(사이트 기준) 가격 책정
 
 종량제 또는 구독 트랜잭션 제품을 게시하는 경우 Microsoft는소프트웨어 라이선스 구입, 반품 및 지불 거절을 처리하는 기술 및 서비스를 제공합니다. 이 시나리오에서 게시자는 Microsoft가 이러한 목적을 위한 에이전트 역할을 하도록 권한을 부여합니다. 게시자는 Microsoft가 판매자, 공급 기업, 배포자 및 라이선스 허가자로서의 역할을 유지하는 동시에 소프트웨어 라이선스 트랜잭션을 촉진하도록 허용합니다.
 
-Microsoft를 사용하면 고객이 Microsoft의 상용 마켓플레이스와 게시자의 최종 사용자 라이선스 계약의 이용 약관에 따라 게시자 소프트웨어를 주문, 라이선스 및 사용할 수 있습니다. 게시자는 최종 사용자 라이선스 계약을 제공하거나 제품을 만들 때 [표준 계약을](https://docs.microsoft.com/azure/marketplace/standard-contract) 선택해야 합니다.
-
+Microsoft를 사용하면 고객이 Microsoft의 상용 마켓플레이스와 게시자의 최종 사용자 라이선스 계약의 이용 약관에 따라 게시자 소프트웨어를 주문, 라이선스 및 사용할 수 있습니다. 게시자는 최종 사용자 라이선스 계약을 제공하거나 제품을 만들 때 [표준 계약을](./standard-contract.md) 선택해야 합니다.
 
 ### <a name="free-software-trials"></a>소프트웨어 평가판
 
@@ -162,7 +159,7 @@ Microsoft를 사용하면 고객이 Microsoft의 상용 마켓플레이스와 �
 
 예를 들어, 고객이 신용 카드를 사용하여 구매하는 경우:
 
-|설명    |    Date  |
+|Description    |    Date  |
 |----------|----------|
 |주문 기간   | 2018년 8월 15일 - 2018년 8월 30일 |
 |기간 종료일(월)   | 2018년 8월 30일 |
@@ -176,7 +173,7 @@ Microsoft를 사용하면 고객이 Microsoft의 상용 마켓플레이스와 �
 
 고객이 기업 계약을 사용하여 구매하는 경우:
 
-| 설명 |    Date  |
+| Description |    Date  |
 |----------|----------|
 |주문 기간 | 2018년 8월 15일 - 2018년 8월 30일 |
 |기간 종료일(분기) | 2018년 9월 30일 |
@@ -204,7 +201,7 @@ Microsoft를 사용하면 고객이 Microsoft의 상용 마켓플레이스와 �
 
 * 고객은 일반적으로 기업 계약 또는 종량제 계약이 활성화된 신용 카드를 사용하여 구매합니다. 계약 유형에 따라 청구, 송장, 수금 및 지급 시점이 결정됩니다.
 
->[!NOTE] 
+>[!NOTE]
 >거래 게시 옵션에 대한 모든 보고 및 인사이트는 파트너 센터의 클라우드 파트너 포털의 인사이트 섹션 또는 분석 섹션을 통해 확인할 수 있습니다.
 
 #### <a name="billing-questions-and-support"></a>청구 관련 질문 및 지원
@@ -219,15 +216,14 @@ Microsoft를 사용하면 고객이 Microsoft의 상용 마켓플레이스와 �
 
 ### <a name="requirements-for-all-offer-types"></a>모든 제품 유형에 대한 요구 사항
 
-- 오퍼의 가격 책정 모델에 관계없이 거래 게시 옵션에는 Microsoft 계정 및 재무 정보가 필요합니다.
-- 필수 금융 정보에는 지급 계정 및 세금 프로필이 포함됩니다.
+* 오퍼의 가격 책정 모델에 관계없이 거래 게시 옵션에는 Microsoft 계정 및 재무 정보가 필요합니다.
+* 필수 금융 정보에는 지급 계정 및 세금 프로필이 포함됩니다.
 
-이러한 계정 설정에 대한 자세한 내용은 [파트너 센터 계정 관리)를 참조하세요.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)
-
+이러한 계정 설정에 대한 자세한 내용은 [파트너 센터의 상업용 마켓플레이스 계정 관리를 참조하세요.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)
 
 ### <a name="requirements-for-specific-offer-types"></a>특정 제품 유형에 대한 요구 사항
 
-거래 게시 옵션은 다음과 같은 Marketplace 제품 유형에서만 사용할 수 있습니다. 
+거래 게시 옵션은 다음과 같은 Marketplace 제품 유형에서만 사용할 수 있습니다.
 
 **가상 머신** 
 

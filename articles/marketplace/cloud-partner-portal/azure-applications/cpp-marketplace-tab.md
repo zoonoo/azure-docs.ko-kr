@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 94bbfb16a967a97b1ee6f6d51a5f55bc8ba13227
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6113759cc68d07af4c22edf03b3274d92dcbe780
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281768"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416306"
 ---
 # <a name="azure-application-marketplace-tab"></a>Azure 애플리케이션 Marketplace 탭
 
@@ -26,13 +26,13 @@ Marketplace 탭을 사용하여 Azure 애플리케이션을 설명하고 마케�
 
 다음 표에서는 제품용 상점을 만드는 데 사용할 설정을 설명합니다.   별표가 추가된 필드는 필수입니다.
 
-|      필드         |    설명    |
+|      필드         |    Description    |
 |  ---------------   |  ---------------  |
 | **제목\***        | 제품의 제목입니다. 마켓플레이스에서 눈에 띄게 표시됩니다. 최대 길이는 50자입니다. |
 | **요약\***      | 제품의 간단한 요약입니다. 최대 길이는 100자입니다.           |
 | **긴 요약\*** | 제품의 더 긴 요약입니다(요약과 동일할 수 있음). 최대 길이는 256자입니다.           |
-| **설명\***  | 제품에 대한 설명입니다. 최대 길이는 3,000자입니다. &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; 및 header 태그를 포함하는 간단한 HTML이 허용됩니다.  |
-| **마케팅 식별자\*** | 이 제안과 연결할 고유 URL이며, 일반적으로 조직 및 솔루션 이름을 포함하고 최대 길이는 50자입니다. 서비스에 대한 짧고 친숙한 마케팅 식별자를 선택합니다. 이 제품의 Marketplace URL에서 사용됩니다. 예를 들어 게시자 ID가 "contoso"이고 마케팅 식별자가 "sampleApp"인 경우 Azure Marketplace에서 제공되는 URL이https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp  
+| **Description\***  | 제품에 대한 설명입니다. 최대 길이는 3,000자입니다. &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; 및 header 태그를 포함하는 간단한 HTML이 허용됩니다.  |
+| **마케팅 식별자\*** | 이 제안과 연결할 고유 URL이며, 일반적으로 조직 및 솔루션 이름을 포함하고 최대 길이는 50자입니다. 서비스에 대한 짧고 친숙한 마케팅 식별자를 선택합니다. 이 제품의 Marketplace URL에서 사용됩니다. 예를 들어 게시자 ID가 "contoso"이고 마케팅 식별자가 "sampleApp"인 경우 Azure Marketplace에서 제공되는 URL이`https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  
 | **구독 아이디 미리 보기\*** | 1~100개의 미리 보기 구독 식별자를 추가합니다. 이러한 화이트리스트 구독은 공개되기 전에 미리 보기에서 사용할 수 있는 동안 쿠폰에 액세스할 수 있습니다.          |
 | **유용한 링크**    | 선택적으로 지원, 설명서, 포럼 등과 같은 오퍼의 사용자에게 다양한 리소스에 대한 링크를 제공할 수 있습니다.  설명서에 하나 이상의 링크를 추가하는 것이 좋습니다.            |
 | **추천 카테고리(최대 5개)\*** | 1~5개의 범주를 선택합니다. 선택한 범주는 고객의 제품을 Azure Marketplace 및 Azure Portal에서 사용할 수 있는 제품 범주에 매핑하는 데 사용됩니다. 이러한 범주는 찾아보기 페이지 및 제품 세부 정보 페이지에 표시됩니다. |
@@ -47,10 +47,10 @@ Marketplace 탭을 사용하여 Azure 애플리케이션을 설명하고 마케�
 
 다음 표는 마케팅 아티팩트에 대해 설명합니다.
 
-|      필드         |    설명    |
+|      필드         |    Description    |
 |  ---------------   |  ---------------  |
 | **작은\***        | 작은 로고: PNG 형식의 40x40 픽셀     |
-| **매체\***       | 중간 로고: PNG 형식의 90x90 픽셀    |
+| **중형\***       | 중간 로고: PNG 형식의 90x90 픽셀    |
 | **큰\***        | 대형 로고: PNG 형식의 115x115 픽셀   |
 | **넓은\***         | 와이드 로고: PNG 형식의 255x115 픽셀    |
 | **대표**           | 옵션 영웅 로고: PNG 형식의 815x290 픽셀. **참고:** 영웅 아이콘은 업로드한 후에는 삭제할 수 없습니다. |

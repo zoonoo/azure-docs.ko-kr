@@ -3,24 +3,25 @@ title: 관리 ID
 description: Azure 앱 서비스 및 Azure Functions에서 관리되는 ID가 작동하는 방법, 관리되는 ID를 구성하고 백 엔드 리소스에 대한 토큰을 생성하는 방법에 대해 알아봅니다.
 author: mattchenderson
 ms.topic: article
-ms.date: 03/04/2020
+ms.date: 04/14/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 6e3169f2bfcba0a02af1490f875cbab8a14d02f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 875d2bbebdfa95c6d180979399d876eb2afc01b4
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280028"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392532"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법
 
 > [!Important] 
 > 앱이 구독/테넌트 간에 마이그레이션되면 App Service 및 Azure Functions에 대한 관리 ID가 예상대로 작동하지 않습니다. 앱에서 새 ID를 확보해야 하며 해당 기능을 사용 중지했다가 다시 사용하도록 설정하여 확보할 수 있습니다. 아래 [ID 제거](#remove)를 참조하세요. 다운스트림 리소스에도 새 ID를 사용하려면 액세스 정책을 업데이트해야 합니다.
 
-이 항목에서는 App Service 및 Azure Functions 애플리케이션에 대한 관리 ID를 만드는 방법과 다른 리소스에 액세스하는 데 사용하는 방법을 보여 줍니다. AAD(Azure Active Directory)에서 관리되는 ID를 사용하면 앱에서 Azure 키 자격 증명 모음과 같은 다른 AAD 보호 리소스에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. AAD의 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
+이 항목에서는 App Service 및 Azure Functions 애플리케이션에 대한 관리 ID를 만드는 방법과 다른 리소스에 액세스하는 데 사용하는 방법을 보여 줍니다. Azure Active Directory(Azure AD)에서 관리되는 ID를 사용하면 앱에서 Azure 키 자격 증명 모음과 같은 다른 Azure AD 보호 리소스에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. Azure AD에서 관리되는 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리ID를](../active-directory/managed-identities-azure-resources/overview.md)참조하십시오.
 
-애플리케이션에 두 가지 형식의 ID를 부여할 수 있습니다. 
+애플리케이션에 두 가지 형식의 ID를 부여할 수 있습니다.
+
 - **시스템 할당 ID**는 애플리케이션에 연결되어 있어 해당 앱을 삭제하면 이 ID도 삭제됩니다. 앱에는 하나의 시스템 할당 ID만 있을 수 있습니다.
 - **사용자 할당된 ID는** 앱에 할당할 수 있는 독립 실행형 Azure 리소스입니다. 앱에는 여러 사용자 할당 ID가 있을 수 있습니다.
 
@@ -57,6 +58,7 @@ Azure CLI를 사용하여 관리 ID를 설정하려면 기존 애플리케이션
     ```azurecli-interactive
     az login
     ```
+
 2. CLI를 사용하여 웹 애플리케이션을 만듭니다. App Service에서 CLI를 사용하는 방법에 대한 예제는 [App Service CLI 샘플](../app-service/samples-cli.md)을 참조하세요.
 
     ```azurecli-interactive
@@ -84,10 +86,10 @@ Azure CLI를 사용하여 관리 ID를 설정하려면 기존 애플리케이션
     ```azurepowershell-interactive
     # Create a resource group.
     New-AzResourceGroup -Name myResourceGroup -Location $location
-    
+
     # Create an App Service plan in Free tier.
     New-AzAppServicePlan -Name $webappname -Location $location -ResourceGroupName myResourceGroup -Tier Free
-    
+
     # Create a web app.
     New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
     ```
@@ -103,18 +105,20 @@ Azure CLI를 사용하여 관리 ID를 설정하려면 기존 애플리케이션
 Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자동화할 수 있습니다. App Service 및 Functions에 배포하는 방법에 대한 자세한 내용은 [App Service에서 리소스 배포 자동화](../app-service/deploy-complex-application-predictably.md) 및 [Azure Functions에서 리소스 배포 자동화](../azure-functions/functions-infrastructure-as-code.md)를 참조하세요.
 
 모든 `Microsoft.Web/sites` 유형의 리소스는 ID를 사용하여 리소스 정의에 다음 속성을 포함하는 방법으로 만들 수 있습니다.
+
 ```json
 "identity": {
     "type": "SystemAssigned"
-}    
+}
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > 애플리케이션에는 시스템 할당 ID와 사용자 할당 ID 둘 다 동시에 있을 수 있습니다. 이 경우에 `type` 속성이 `SystemAssigned,UserAssigned`가 됩니다.
 
 시스템 할당 형식을 추가하면 애플리케이션에 대한 ID를 만들어서 관리하라고 Azure에 알려주는 것입니다.
 
 예를 들어 웹앱이 다음과 같을 수 있습니다.
+
 ```json
 {
     "apiVersion": "2016-08-01",
@@ -138,6 +142,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자�
 ```
 
 사이트가 생성되면 다음과 같은 추가 속성이 있습니다.
+
 ```json
 "identity": {
     "type": "SystemAssigned",
@@ -146,8 +151,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자�
 }
 ```
 
-tenantId 속성은 ID가 속한 AAD 테넌트를 식별합니다. principalId는 애플리케이션 새 ID의 고유 식별자입니다. AAD 내에서 서비스 주체는 사용자가 App Service 또는 Azure Functions 인스턴스에 지정한 이름과 동일한 이름을 갖습니다.
-
+tenantId 속성은 ID가 속한 Azure AD 테넌트를 식별합니다. principalId는 애플리케이션 새 ID의 고유 식별자입니다. Azure AD 내에서 서비스 주체는 앱 서비스 또는 Azure Functions 인스턴스에 부여한 이름과 동일한 이름을 가수 있습니다.
 
 ## <a name="add-a-user-assigned-identity"></a>사용자 할당된 ID 추가
 
@@ -176,21 +180,23 @@ tenantId 속성은 ID가 속한 AAD 테넌트를 식별합니다. principalId는
 Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자동화할 수 있습니다. App Service 및 Functions에 배포하는 방법에 대한 자세한 내용은 [App Service에서 리소스 배포 자동화](../app-service/deploy-complex-application-predictably.md) 및 [Azure Functions에서 리소스 배포 자동화](../azure-functions/functions-infrastructure-as-code.md)를 참조하세요.
 
 모든 `Microsoft.Web/sites` 형식의 리소스는 `<RESOURCEID>`를 원하는 ID의 리소스 ID로 바꿔 리소스 정의에 다음 블록을 포함한 ID로 만들 수 있습니다.
+
 ```json
 "identity": {
     "type": "UserAssigned",
     "userAssignedIdentities": {
         "<RESOURCEID>": {}
     }
-}    
+}
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > 애플리케이션에는 시스템 할당 ID와 사용자 할당 ID 둘 다 동시에 있을 수 있습니다. 이 경우에 `type` 속성이 `SystemAssigned,UserAssigned`가 됩니다.
 
 사용자 할당 형식을 추가하면 Azure가 응용 프로그램에 대해 지정된 사용자 할당 ID를 사용하도록 지시합니다.
 
 예를 들어 웹앱이 다음과 같을 수 있습니다.
+
 ```json
 {
     "apiVersion": "2016-08-01",
@@ -218,6 +224,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자�
 ```
 
 사이트가 생성되면 다음과 같은 추가 속성이 있습니다.
+
 ```json
 "identity": {
     "type": "UserAssigned",
@@ -230,12 +237,11 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자�
 }
 ```
 
-principalId는 AAD 관리에 사용되는 ID에 대한 고유 식별자입니다. clientId는 런타임 호출 중에 사용할 ID를 지정하는 데 사용되는 응용 프로그램의 새 ID에 대한 고유 식별자입니다.
-
+principalId는 Azure AD 관리에 사용되는 ID에 대한 고유 식별자입니다. clientId는 런타임 호출 중에 사용할 ID를 지정하는 데 사용되는 응용 프로그램의 새 ID에 대한 고유 식별자입니다.
 
 ## <a name="obtain-tokens-for-azure-resources"></a>Azure 리소스에 대한 토큰 가져오기
 
-앱은 관리되는 ID를 사용하여 토큰을 사용하여 Azure Key Vault와 같이 AAD로 보호되는 다른 리소스에 액세스할 수 있습니다. 이러한 토큰은 애플리케이션의 특정 사용자가 아닌 리소스에 액세스하는 애플리케이션을 나타냅니다. 
+앱은 관리되는 ID를 사용하여 토큰을 사용하여 Azure Key Vault와 같이 Azure AD로 보호되는 다른 리소스에 액세스할 수 있습니다. 이러한 토큰은 애플리케이션의 특정 사용자가 아닌 리소스에 액세스하는 애플리케이션을 나타냅니다. 
 
 애플리케이션의 액세스를 허용하도록 대상 리소스를 구성해야 할 수도 있습니다. 예를 들어 Key Vault에 액세스하기 위해 토큰을 요청하는 경우 응용 프로그램의 ID를 포함하는 액세스 정책을 추가했는지 확인해야 합니다. 그렇지 않으면 토큰이 포함되어 있더라도 Key Vault 호출이 거부됩니다. Azure Active Directory 토큰을 지원하는 리소스에 대한 자세한 내용은 [Azure AD 인증을 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)를 참조하세요.
 
@@ -248,56 +254,61 @@ App Service 및 Azure Functions에서 토큰을 가져오는 간단한 REST 프�
 
 관리 ID가 있는 앱에는 다음 두 가지 환경 변수가 정의되어 있습니다.
 
-- MSI_ENDPOINT - 로컬 토큰 서비스의 URL입니다.
-- MSI_SECRET - SSRF(서버 쪽 요청 위조) 공격을 완화하는 데 사용되는 헤더입니다. 플랫폼에서 값을 회전합니다.
+- IDENTITY_ENDPOINT - 로컬 토큰 서비스에 대한 URL입니다.
+- IDENTITY_HEADER - 서버 측 요청 위조(SSRF) 공격을 완화하는 데 사용되는 헤더입니다. 플랫폼에서 값을 회전합니다.
 
-**MSI_ENDPOINT**는 앱이 토큰을 요청할 수 있는 로컬 URL입니다. 리소스 토큰을 가져오려면 이 엔드포인트에 다음 매개 변수를 포함하여 HTTP GET 요청을 보냅니다.
+**IDENTITY_ENDPOINT** 앱에서 토큰을 요청할 수 있는 로컬 URL입니다. 리소스 토큰을 가져오려면 이 엔드포인트에 다음 매개 변수를 포함하여 HTTP GET 요청을 보냅니다.
 
-> |매개 변수 이름|그런 다음|설명|
-> |-----|-----|-----|
-> |resource|쿼리|토큰을 가져와야 하는 리소스의 AAD 리소스 URI입니다. [Azure AD 인증](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) 또는 기타 리소스 URI를 지원하는 Azure 서비스 중 하나일 수 있습니다.|
-> |api-version|쿼리|사용할 토큰 API의 버전입니다. "2017-09-01"은 현재 지원되는 유일한 버전입니다.|
-> |secret|헤더|MSI_SECRET 환경 변수의 값입니다. 이 헤더는 SSRF(서버 쪽 요청 위조) 공격을 완화하는 데 사용됩니다.|
-> |clientid|쿼리|(사용자 할당이 없는 경우) 사용할 사용자 할당 ID의 ID입니다. 생략하면 시스템 할당 ID가 사용됩니다.|
+> | 매개 변수 이름    | 그런 다음     | Description                                                                                                                                                                                                                                                                                                                                |
+> |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> | resource          | 쿼리  | 토큰을 가져와야 하는 리소스의 Azure AD 리소스 URI입니다. [Azure AD 인증](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) 또는 기타 리소스 URI를 지원하는 Azure 서비스 중 하나일 수 있습니다.    |
+> | api-version       | 쿼리  | 사용할 토큰 API의 버전입니다. "2019-08-01" 이상에서 사용하십시오.                                                                                                                                                                                                                                                                 |
+> | X-ID 헤더 | 헤더 | IDENTITY_HEADER 환경 변수의 값입니다. 이 헤더는 SSRF(서버 쪽 요청 위조) 공격을 완화하는 데 사용됩니다.                                                                                                                                                                                                    |
+> | client_id         | 쿼리  | (선택 사항) 사용할 사용자 할당 ID의 클라이언트 ID입니다. `mi_res_id`을 `object_id`포함하는 `principal_id`요청에는 사용할 수 없습니다. 모든 ID 매개`client_id`변수 `principal_id` `object_id`(, `mi_res_id`및) 를 생략하면 시스템 할당 ID가 사용됩니다.                                             |
+> | principal_id      | 쿼리  | (선택 사항) 사용할 사용자 할당 ID의 주 ID입니다. `object_id`은 대신 사용할 수 있는 별칭입니다. client_id, mi_res_id 또는 object_id 포함하는 요청에는 사용할 수 없습니다. 모든 ID 매개`client_id`변수 `principal_id` `object_id`(, `mi_res_id`및) 를 생략하면 시스템 할당 ID가 사용됩니다. |
+> | mi_res_id         | 쿼리  | (선택 사항) 사용할 사용자 할당 ID의 Azure 리소스 ID입니다. `client_id`을 `object_id`포함하는 `principal_id`요청에는 사용할 수 없습니다. 모든 ID 매개`client_id`변수 `principal_id` `object_id`(, `mi_res_id`및) 를 생략하면 시스템 할당 ID가 사용됩니다.                                      |
 
 > [!IMPORTANT]
-> 사용자 할당된 ID에 대한 토큰을 가져오려는 경우 `clientid` 속성을 포함해야 합니다. 그렇지 않으면 토큰 서비스가 시스템에 할당된 ID에 대한 토큰을 얻으려고 시도합니다.
+> 사용자 할당된 ID에 대한 토큰을 가져오려는 경우 선택적 속성 중 하나를 포함해야 합니다. 그렇지 않으면 토큰 서비스가 시스템에 할당된 ID에 대한 토큰을 얻으려고 시도합니다.
 
 성공적인 200 OK 응답에는 다음 속성을 가진 JSON 본문이 포함됩니다.
 
-> |속성 이름|설명|
-> |-------------|----------|
-> |access_token|요청된 액세스 토큰입니다. 호출 웹 서비스는 이 토큰을 사용하여 수신 웹 서비스에 인증할 수 있습니다.|
-> |expires_on|액세스 토큰이 만료되는 시간입니다. 날짜는 1970-01-01T0:0:0Z UTC부터 만료 시간까지 기간(초)으로 표시됩니다. 이 값은 캐시된 토큰의 수명을 결정하는 데 사용됩니다.|
-> |resource|수신 웹 서비스의 앱 ID URI입니다.|
-> |token_type|토큰 유형 값을 나타냅니다. Azure AD는 전달자 유형만 지원합니다. 베어러 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 베어러 토큰 사용량(RFC 6750)을](https://www.rfc-editor.org/rfc/rfc6750.txt)참조하십시오.|
+> | 속성 이름 | Description                                                                                                                                                                                                                                        |
+> |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> | access_token  | 요청된 액세스 토큰입니다. 호출 웹 서비스는 이 토큰을 사용하여 수신 웹 서비스에 인증할 수 있습니다.                                                                                                                               |
+> | client_id     | 사용된 ID의 클라이언트 ID입니다.                                                                                                                                                                                                       |
+> | expires_on    | 액세스 토큰이 만료되는 시간 범위입니다. 날짜는 "1970-01-01T0:0:0Z UTC"부터 시간(초)으로 표시됩니다(토큰의 `exp` 클레임에 해당함).                                                                                |
+> | not_before    | 액세스 토큰이 적용되고 허용될 수 있는 시간 범위입니다. 날짜는 "1970-01-01T0:0:0Z UTC"부터 시간(초)으로 표시됩니다(토큰의 `nbf` 클레임에 해당함).                                                      |
+> | resource      | 액세스 토큰이 요청되는 리소스는 요청의 `resource` 쿼리 문자열 매개 변수와 일치합니다.                                                                                                                               |
+> | token_type    | 토큰 유형 값을 나타냅니다. Azure AD가 지원하는 유일한 유형은 FBearer입니다. 베어러 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 베어러 토큰 사용량(RFC 6750)을](https://www.rfc-editor.org/rfc/rfc6750.txt)참조하십시오. |
 
-이 응답은 [AAD 서비스 간 액세스 토큰 요청에 대한 응답](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#get-a-token)과 동일합니다.
+이 응답은 Azure [AD 서비스 간 액세스 토큰 요청에 대한 응답과 동일합니다.](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)
 
 > [!NOTE]
-> 환경 변수는 프로세스를 처음 시작할 때 설정되므로 애플리케이션에 대한 관리 ID를 사용하도록 설정한 후 코드에서 `MSI_ENDPOINT` 및 `MSI_SECRET`를 사용하기 전에 먼저 애플리케이션을 다시 시작하거나 해당 코드를 다시 배포해야 할 수 있습니다.
+> "2017-09-01" API 버전을 사용하는 이 프로토콜의 이전 `secret` 버전은 사용자 `X-IDENTITY-HEADER` 할당에 `clientid` 대한 속성 대신 헤더를 사용하고 허용했습니다. 또한 타임스탬프 `expires_on` 형식으로 반환했습니다. MSI_ENDPOINT IDENTITY_ENDPOINT 별칭으로 사용할 수 있으며 MSI_SECRET IDENTITY_HEADER 별칭으로 사용할 수 있습니다.
 
 ### <a name="rest-protocol-examples"></a>REST 프로토콜 예제
 
 예제 요청은 다음과 유사할 수 있습니다.
 
-```
-GET /MSI/token?resource=https://vault.azure.net&api-version=2017-09-01 HTTP/1.1
+```http
+GET /MSI/token?resource=https://vault.azure.net&api-version=2019-08-01 HTTP/1.1
 Host: localhost:4141
-Secret: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
+X-IDENTITY-HEADER: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
 ```
 
 샘플 응답은 다음과 유사할 수 있습니다.
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
     "access_token": "eyJ0eXAi…",
-    "expires_on": "09/14/2017 00:00:00 PM +00:00",
+    "expires_on": "1586984735",
     "resource": "https://vault.azure.net",
-    "token_type": "Bearer"
+    "token_type": "Bearer",
+    "client_id": "5E29463D-71DA-4FE0-8E69-999B57DB23B0"
 }
 ```
 
@@ -313,21 +324,21 @@ private readonly HttpClient _client;
 // ...
 public async Task<HttpResponseMessage> GetToken(string resource)  {
     var request = new HttpRequestMessage(HttpMethod.Get, 
-        String.Format("{0}/?resource={1}&api-version=2017-09-01", Environment.GetEnvironmentVariable("MSI_ENDPOINT"), resource));
-    request.Headers.Add("Secret", Environment.GetEnvironmentVariable("MSI_SECRET"));
+        String.Format("{0}/?resource={1}&api-version=2019-08-01", Environment.GetEnvironmentVariable("IDENTITY_ENDPOINT"), resource));
+    request.Headers.Add("X-IDENTITY-HEADER", Environment.GetEnvironmentVariable("IDENTITY_HEADER"));
     return await _client.SendAsync(request);
 }
 ```
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, cb) {
     let options = {
-        uri: `${process.env["MSI_ENDPOINT"]}/?resource=${resource}&api-version=2017-09-01`,
+        uri: `${process.env["IDENTITY_ENDPOINT"]}/?resource=${resource}&api-version=2019-08-01`,
         headers: {
-            'Secret': process.env["MSI_SECRET"]
+            'X-IDENTITY-HEADER': process.env["IDENTITY_HEADER"]
         }
     };
     rp(options)
@@ -341,12 +352,12 @@ const getToken = function(resource, cb) {
 import os
 import requests
 
-msi_endpoint = os.environ["MSI_ENDPOINT"]
-msi_secret = os.environ["MSI_SECRET"]
+identity_endpoint = os.environ["IDENTITY_ENDPOINT"]
+identity_header = os.environ["IDENTITY_HEADER"]
 
 def get_bearer_token(resource_uri):
-    token_auth_uri = f"{msi_endpoint}?resource={resource_uri}&api-version=2017-09-01"
-    head_msi = {'Secret':msi_secret}
+    token_auth_uri = f"{identity_endpoint}?resource={resource_uri}&api-version=2019-08-01"
+    head_msi = {'X-IDENTITY-HEADER':identity_header}
 
     resp = requests.get(token_auth_uri, headers=head_msi)
     access_token = resp.json()['access_token']
@@ -354,12 +365,12 @@ def get_bearer_token(resource_uri):
     return access_token
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
-$tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=2017-09-01"
-$tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
+$tokenAuthURI = $env:IDENTITY_ENDPOINT + "?resource=$resourceURI&api-version=2019-08-01"
+$tokenResponse = Invoke-RestMethod -Method Get -Headers @{"X-IDENTITY-HEADER"="$env:IDENTITY_HEADER"} -Uri $tokenAuthURI
 $accessToken = $tokenResponse.access_token
 ```
 
@@ -423,7 +434,7 @@ Java 응용 프로그램 및 함수의 경우 관리되는 ID로 작업하는 �
 }
 ```
 
-이런 방식으로 시스템 할당 ID를 제거하면 AAD에서도 삭제됩니다. 앱 리소스가 삭제될 때 시스템 할당 ID도 AAD에서 자동으로 제거됩니다.
+이러한 방식으로 시스템 할당된 ID를 제거하면 Azure AD에서도 해당 ID가 삭제됩니다. 앱 리소스가 삭제되면 Azure AD에서 시스템 할당 ID도 자동으로 제거됩니다.
 
 > [!NOTE]
 > 설정할 수 있는 애플리케이션 설정인 WEBSITE_DISABLE_MSI도 있으며 이것은 로컬 토큰 서비스를 비활성화합니다. 그러나 ID는 그대로 유지되고, 도구에는 여전히 관리 ID가 "on" 또는 "enabled"로 표시됩니다. 따라서 이 설정은 사용하지 않는 것이 좋습니다.

@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c93dab2f6086b10e1e8d75c4fc3334a95c3fcafa
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 118653efc8829ac5ef6287bb36fb5595cff1147b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633266"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416121"
 ---
-# <a name="load-contoso-retail-data-to-a-synapse-sql-data-warehouse"></a>Contoso 소매 데이터를 시냅스 SQL 데이터 웨어하우스에 로드
+# <a name="load-contoso-retail-data-to-synapse-sql"></a>Contoso 소매 데이터를 시냅스 SQL에 로드 
 
 이 자습서에서는 PolyBase 및 T-SQL 명령을 사용하여 Contoso 소매 데이터에서 두 개의 테이블을 시냅스 SQL 데이터 웨어하우스에 로드하는 방법을 배웁니다.
 
@@ -221,7 +221,7 @@ GO
 
 ### <a name="load-the-data-into-new-tables"></a>데이터를 새 테이블에 로드합니다.
 
-Azure Blob 저장소의 데이터를 데이터 웨어하우스 테이블에 로드하려면 [테이블 을 SELECT(Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 문을 사용합니다. [CTAS로](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md) 로드하면 만든 강력한 형식의 외부 테이블을 활용합니다. 데이터를 새 테이블에 로드하려면 테이블당 하나의 CTAS 문을 사용합니다.
+Azure Blob 저장소의 데이터를 데이터 웨어하우스 테이블에 로드하려면 [테이블 을 SELECT(Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 문을 사용합니다. [CTAS로](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 로드하면 만든 강력한 형식의 외부 테이블을 활용합니다. 데이터를 새 테이블에 로드하려면 테이블당 하나의 CTAS 문을 사용합니다.
 
 CTAS는 새 테이블을 만들고 select 문의 결과와 함께 새 테이블을 정보표시합니다. CTAS는 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 가지도록 새 테이블을 정의합니다. 외부 테이블에서 모든 열을 선택하는 경우 새 테이블은 외부 테이블의 열과 데이터 형식의 복제본이 됩니다.
 

@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/08/2020
-ms.openlocfilehash: e5ac25c002da121be3adadf0eed978dd60ba26d9
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 6f0310f13ab23b5b3d4fba649d0faf0da4dad5b8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010649"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413153"
 ---
 # <a name="surrogate-key-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 대리 키 변환 
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 서로게이트 키 변환을 사용하여 각 데이터 행에 증분 키 값을 추가합니다. 이 기능은 별표 스키마 분석 데이터 모델에서 치수 테이블을 디자인할 때 유용합니다. 스타 스키마에서 차원 테이블의 각 구성원에는 비비즈니스 키인 고유한 키가 필요합니다.
 

@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/02/2020
-ms.openlocfilehash: 32100e9cad86f12dc8111ee8a0282a515540a4db
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 0c0e35f7f06afd0cafa4a1e353b7eda84ed226f2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346602"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413658"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 변환 조인
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 조인 변환을 사용하여 매핑 데이터 흐름에서 두 소스 또는 스트림의 데이터를 결합합니다. 출력 스트림에는 조인 조건에 따라 일치하는 두 소스의 모든 열이 포함됩니다. 
 
@@ -53,7 +55,7 @@ ms.locfileid: "80346602"
 > [!NOTE]
 > 사용자 지정 교차 조인에 왼쪽 및 오른쪽 관계의 각 측면에서 하나 이상의 열을 포함해야 합니다. 교차 를 실행하면 각 측면의 열 대신 정적 값으로 조인을 실행하면 전체 데이터 집합이 전체 검색되어 데이터 흐름이 제대로 수행되지 않습니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 1. **오른쪽 스트림** 드롭다운에서 참여할 데이터 스트림을 선택합니다.
 1. **조인 유형** 선택

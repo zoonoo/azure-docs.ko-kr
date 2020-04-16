@@ -10,13 +10,12 @@ ms.subservice: ''
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 64490bbd44066389186a59e851045b6becbe7acc
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 56d8ab81fcf9200fec2cfb4a741724b8f79db820
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632475"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408037"
 ---
 # <a name="temporary-tables-in-synapse-sql-pool"></a>시냅스 SQL 풀의 임시 테이블
 이 문서에서는 임시 테이블을 사용하기 위한 필수 지침을 제공하고 세션 수준 임시 테이블의 원리를 강조해서 설명합니다. 
@@ -30,7 +29,14 @@ ms.locfileid: "80632475"
 
 임시 테이블은 결과가 원격 스토리지 대신 로컬로 기록되기 때문에 성능상의 이점을 제공합니다.
 
-## <a name="create-a-temporary-table"></a>임시 테이블 만들기
+임시 테이블은 특히 중간 결과가 일시적인 변환 중에 데이터를 처리할 때 유용합니다. SQL 분석을 사용하면 세션 수준에 임시 테이블이 있습니다.  생성된 세션에만 표시됩니다. 따라서 해당 세션이 로그오프되면 자동으로 삭제됩니다. 
+
+## <a name="temporary-tables-in-sql-pool"></a>SQL 풀의 임시 테이블
+
+SQL 풀 리소스에서 임시 테이블은 결과가 원격 저장소가 아닌 로컬저장소에 기록되므로 성능 이점을 제공합니다.
+
+### <a name="create-a-temporary-table"></a>임시 테이블 만들기
+
 임시 테이블은 테이블 이름 앞에 `#`을 붙여 만듭니다.  다음은 그 예입니다.
 
 ```sql
@@ -89,7 +95,7 @@ GROUP BY
 ,        st.[has_filter]
 )
 ;
-``` 
+```
 
 > [!NOTE]
 > `CTAS`는(은) 강력한 명령이며 트랜잭션 로그 공간을 사용한다는 점에서 효율적이라는 추가적인 이점이 있습니다. 
@@ -226,5 +232,6 @@ SQL 풀은 임시 테이블을 구현할 때 몇 가지 제한 사항이 적용�
 또한 임시 테이블에서보기를 만들 수 없습니다.  임시 테이블은 해시 또는 라운드 로빈 분포로만 만들 수 있습니다.  복제된 임시 테이블 배포는 지원되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-테이블 개발에 대해 자세히 알아보려면 [테이블 개요](sql-data-warehouse-tables-overview.md)를 참조하세요.
+
+테이블 개발에 대한 자세한 내용은 [SQL Analytics 리소스 문서를 사용하여 테이블 디자인](sql-data-warehouse-tables-overview.md) 문서를 참조하세요.
 

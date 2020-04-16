@@ -11,14 +11,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 3313c9c362a9b82cf7ed8db63479aaa5cf0c777e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4488c174ba5ff35ec2709d7c1b9f3093b4ee90a3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73683250"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409066"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>리소스 업데이트 작업을 사용하여 Azure Machine Learning 모델 업데이트
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 이 문서는 주요 Azure Data Factory - Azure Machine Learning 통합 문서인 [Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)를 보완합니다. 수행하지 않았다면 이 문서를 읽기 전에 기본 문서를 검토하세요.
 
 ## <a name="overview"></a>개요
@@ -56,15 +59,15 @@ Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이�
 }
 ```
 
-| 속성                      | 설명                              | 필수 |
+| 속성                      | Description                              | 필수 |
 | :---------------------------- | :--------------------------------------- | :------- |
-| name                          | 파이프라인의 작업 이름입니다.     | yes      |
+| name                          | 파이프라인의 작업 이름입니다.     | 예      |
 | description                   | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |
-| type                          | Azure Machine Learning 리소스 업데이트 작업의 경우 작업 유형은 **AzureMLUpdateResource**입니다. | yes      |
-| linkedServiceName             | updateResourceEndpoint 속성을 포함하는 Azure Machine Learning 연결된 서비스입니다. | yes      |
-| trainedModelName              | 업데이트할 웹 서비스 실험의 학습된 모델 모듈의 이름입니다. | yes      |
-| trainedModelLinkedServiceName | 업데이트 작업으로 업로드되는 ilearner 파일을 보유한 Azure Storage 연결된 서비스의 이름입니다. | yes      |
-| trainedModelFilePath          | 업데이트 작업으로 업로드되는 ilearner 파일을 나타내는 trainedModelLinkedService의 상대 파일 경로입니다. | yes      |
+| type                          | Azure Machine Learning 리소스 업데이트 작업의 경우 작업 유형은 **AzureMLUpdateResource**입니다. | 예      |
+| linkedServiceName             | updateResourceEndpoint 속성을 포함하는 Azure Machine Learning 연결된 서비스입니다. | 예      |
+| trainedModelName              | 업데이트할 웹 서비스 실험의 학습된 모델 모듈의 이름입니다. | 예      |
+| trainedModelLinkedServiceName | 업데이트 작업으로 업로드되는 ilearner 파일을 보유한 Azure Storage 연결된 서비스의 이름입니다. | 예      |
+| trainedModelFilePath          | 업데이트 작업으로 업로드되는 ilearner 파일을 나타내는 trainedModelLinkedService의 상대 파일 경로입니다. | 예      |
 
 ## <a name="end-to-end-workflow"></a>엔드투엔드 워크플로
 
@@ -276,4 +279,4 @@ Azure Storage는 다음 데이터를 보관합니다.
 * [하두롭 스트리밍 활동](transform-data-using-hadoop-streaming.md)
 * [스파크 액티비티](transform-data-using-spark.md)
 * [.NET 사용자 지정 활동](transform-data-using-dotnet-custom-activity.md)
-* [저장 프로시저 작업](transform-data-using-stored-procedure.md)
+* [저장 프로시저 활동](transform-data-using-stored-procedure.md)

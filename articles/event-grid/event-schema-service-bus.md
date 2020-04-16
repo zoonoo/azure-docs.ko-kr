@@ -1,36 +1,35 @@
 ---
-title: Azure Event Grid Service Bus 이벤트 스키마
+title: 이벤트 그리드 소스로 Azure 서비스 버스
 description: Azure Event Grid를 사용하여 Service Bus 이벤트에 제공되는 속성을 설명합니다.
 services: event-grid
 author: banisadr
-manager: darosa
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/17/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: babanisa
-ms.openlocfilehash: f44d2c1c5be6ac895b6f5ea9feca29c0f8ed09f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 141a0e96071014dc3705d30f72b1a9257737298a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60561764"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393235"
 ---
-# <a name="azure-event-grid-event-schema-for-service-bus"></a>Service Bus에 대한 Azure Event Grid 이벤트 스키마
+# <a name="azure-service-bus-as-an-event-grid-source"></a>이벤트 그리드 소스로 Azure 서비스 버스
 
 이 문서에서는 Service Bus 이벤트에 대한 속성 및 스키마를 제공합니다.이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
 
-샘플 스크립트 및 자습서 목록은 [Service Bus 이벤트 원본](event-sources.md#service-bus)을 참조하세요.
+## <a name="event-grid-event-schema"></a>Event Grid 이벤트 스키마
 
-## <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
+### <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 
 Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 
-| 이벤트 유형 | 설명 |
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | 큐 또는 구독에 활성 메시지가 있고 수신 대기 중인 수신기가 없는 경우 발생합니다. |
 | Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | 배달 못한 편지 큐에 활성 메시지가 있고 수신 대기 중인 수신기가 없는 경우 발생합니다. |
 
-## <a name="example-event"></a>예제 이벤트
+### <a name="example-event"></a>예제 이벤트
 
 다음 예제에서는 수신기 이벤트가 없는 활성 메시지의 스키마를 보여줍니다.
 
@@ -76,7 +75,7 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 }]
 ```
 
-## <a name="event-properties"></a>이벤트 속성
+### <a name="event-properties"></a>이벤트 속성
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
@@ -101,6 +100,12 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 | queueName | 문자열 | 큐를 구독하는 경우 활성 메시지가 있는 큐입니다. 토픽/구독을 사용하는 경우 값이 null입니다. |
 | topicName | 문자열 | 활성 메시지가 있는 Service Bus 구독이 속하는 토픽입니다. 큐를 사용하는 경우 null 값입니다. |
 | subscriptionName | 문자열 | 활성 메시지가 있는 Service Bus 구독입니다. 큐를 사용하는 경우 null 값입니다. |
+
+## <a name="tutorials-and-how-tos"></a>자습서 및 방법
+|제목  |Description  |
+|---------|---------|
+| [자습서: Azure Service Bus-Azure Event Grid 통합 예제](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid는 Service Bus 토픽의 메시지를 함수 앱 및 논리 앱에 전송합니다. |
+| [Azure 서비스 버스에서 이벤트 그리드 통합](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Event Grid와 Service Bus 통합의 개요입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

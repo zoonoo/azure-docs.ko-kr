@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 04/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1c8f14bb1bca082a9d887e5d6d88aec213448c3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1735daf66483df496141a642ac6633973aa0abf0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79254353"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407537"
 ---
 # <a name="grant-data-access-to-an-environment"></a>환경에 대한 데이터 액세스 권한 부여
 
@@ -27,8 +27,8 @@ ms.locfileid: "79254353"
 
 ## <a name="sign-in-to-time-series-insights"></a>타임시리즈 인사이트에 로그인
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
-1. Time Series Insights 환경을 찾습니다. **검색** 상자에 `Time Series`를 입력합니다. 검색 결과에서 **시계열 환경**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. Time Series Insights 환경을 찾습니다. **검색** 상자에 `Time Series`를 입력합니다. 검색 결과에서 **시간계 환경을** 선택합니다.
 1. 목록에서 Time Series Insights 환경을 선택합니다.
 
 ## <a name="grant-data-access"></a>데이터 액세스 권한 부여

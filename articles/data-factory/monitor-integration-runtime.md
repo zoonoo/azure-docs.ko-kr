@@ -10,14 +10,17 @@ ms.date: 07/25/2018
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 2399849b87e44c5cb70d2db987ae18d8d2d9c552
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d2ea5c0b7354867086fc0cce43732f2d73c53ab
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79261139"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398957"
 ---
-# <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 모니터링  
+# <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 모니터링
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+  
 **통합 런타임**은 서로 다른 네트워크 환경에서 다양한 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 컴퓨팅 인프라입니다. Data Factory는 세 가지 유형의 통합 런타임을 제공합니다.
 
 - Azure 통합 런타임
@@ -40,14 +43,14 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 ### <a name="properties"></a>속성
 다음 테이블은 Azure 통합 런타임에 대해 cmdlet에서 반환하는 속성에 대한 설명을 제공합니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 -------- | ------------- | 
-| 이름 | Azure 통합 런타임의 이름. |  
+| 속성 | Azure 통합 런타임의 이름. |  
 | 시스템 상태 | Azure 통합 런타임의 상태. | 
 | 위치 | Azure 통합 런타임의 위치. Azure 통합 런타임의 위치에 대한 자세한 내용은 [통합 런타임 소개](concepts-integration-runtime.md)를 참조하세요. |
 | DataFactoryName | Azure 통합 런타임이 속한 데이터 팩터리의 이름. | 
 | ResourceGroupName | 데이터 팩터리가 속한 리소스 그룹의 이름.  |
-| 설명 | 통합 런타임에 대한 설명.  |
+| Description | 통합 런타임에 대한 설명.  |
 
 ### <a name="status"></a>상태
 다음 테이블은 Azure 통합 런타임의 가능한 상태를 제공합니다.
@@ -67,9 +70,9 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 
 다음 테이블은 **각 노드**의 속성 모니터링에 대한 설명을 제공합니다.
 
-| 속성 | 설명 | 
+| 속성 | Description | 
 | -------- | ----------- | 
-| 이름 | 자체 호스팅 통합 런타임의 이름 및 이와 연결된 노드. 노드는 자체 호스팅 통합 런타임이 설치된 온-프레미스 Windows 컴퓨터입니다. |  
+| 속성 | 자체 호스팅 통합 런타임의 이름 및 이와 연결된 노드. 노드는 자체 호스팅 통합 런타임이 설치된 온-프레미스 Windows 컴퓨터입니다. |  
 | 상태 | 전반적인 자체 호스팅 통합 런타임 및 각 노드의 상태. 예: 온라인/오프라인/제한/기타 이러한 상태에 대한 자세한 내용은 다음 섹션을 참조하십시오. | 
 | 버전 | 자체 호스팅 통합 런타임 및 각 노드의 버전. 자체 호스팅 통합 런타임 버전은 그룹에 있는 노드의 대다수 버전을 기반으로 결정됩니다. 자체 호스팅 통합 런타임 설정에 다른 버전의 노드가 있는 경우 논리 자체 호스팅 통합 런타임과 버전 번호가 동일한 노드만 제대로 작동합니다. 다른 버전의 노드는 제한된 모드에 있으므로 수동으로 업데이트해야 합니다(자동 업데이트가 실패할 경우에만). | 
 | 사용 가능한 메모리 | 자체 호스팅 통합 런타임 노드에서 사용 가능한 메모리. 이 값은 거의 실시간 스냅샷입니다. | 
@@ -91,7 +94,7 @@ Azure Portal에서 계산된 기본값을 재정의할 수 있습니다. 작성�
 ### <a name="status-per-node"></a>상태(노드당)
 다음 테이블은 자체 호스팅 통합 런타임 노드의 가능한 상태를 제공합니다.
 
-| 상태 | 설명 |
+| 상태 | Description |
 | ------ | ------------------ | 
 | 온라인 | 노드가 Data Factory 서비스에 연결되어 있습니다. |
 | 오프라인 | 노드가 오프라인 상태입니다. |
@@ -104,7 +107,7 @@ Azure Portal에서 계산된 기본값을 재정의할 수 있습니다. 작성�
 ### <a name="status-overall-self-hosted-integration-runtime"></a>상태(전반적인 자체 호스팅 통합 런타임)
 다음 테이블은 자체 호스팅 통합 런타임의 가능한 상태를 제공합니다. 이 상태는 런타임에 속한 모든 노드의 상태에 따라 달라집니다. 
 
-| 상태 | 설명 |
+| 상태 | Description |
 | ------ | ----------- | 
 | 등록 필요 | 자체 호스팅 통합 런타임에 등록된 노드가 아직 없습니다. |
 | 온라인 | 모든 노드가 온라인 상태입니다. |
@@ -156,7 +159,7 @@ Azure-SSIS 통합 런타임은 SSIS 패키지 실행 전용 Azure 가상 머신(
 
 ### <a name="properties"></a>속성
 
-| 속성/상태 | 설명 |
+| 속성/상태 | Description |
 | --------------- | ----------- |
 | CreateTime | Azure-SSIS 통합 런타임이 만들어진 UTC 시간. |
 | 노드 | 노드별 상태(시작 중/사용 가능/재생 중/사용할 수 없음)와 조치 가능한 오류가 있는 Azure-SSIS 통합 런타임의 할당 된/사용 가능한 노드. |
@@ -177,13 +180,13 @@ Azure-SSIS 통합 런타임은 SSIS 패키지 실행 전용 Azure 가상 머신(
 | Type | Azure-SSIS 통합 런타임의 유형(관리되는/자체 호스팅). |
 | ResourceGroupName | 데이터 팩터리 및 Azure-SSIS 통합 런타임이 만들어진 Azure 리소스 그룹의 이름입니다. |
 | DataFactoryName | Azure Data Factory의 이름. |
-| 이름 | Azure-SSIS 통합 런타임의 이름. |
-| 설명 | Azure-SSIS 통합 런타임에 대한 설명. |
+| 속성 | Azure-SSIS 통합 런타임의 이름. |
+| Description | Azure-SSIS 통합 런타임에 대한 설명. |
 
   
 ### <a name="status-per-node"></a>상태(노드당)
 
-| 상태 | 설명 |
+| 상태 | Description |
 | ------ | ----------- | 
 | 시작 중 | 이 노드가 준비 중입니다. |
 | 사용 가능 | 이 노드는 SSIS 패키지를 배포/실행할 준비가 되었습니다. |
@@ -192,7 +195,7 @@ Azure-SSIS 통합 런타임은 SSIS 패키지 실행 전용 Azure 가상 머신(
 
 ### <a name="status-overall-azure-ssis-integration-runtime"></a>상태(전반적인 Azure-SSIS 통합 런타임)
 
-| 전반적인 상태 | 설명 | 
+| 전반적인 상태 | Description | 
 | -------------- | ----------- | 
 | Initial | Azure-SSIS 통합 런타임의 노드가 할당/준비되지 않았습니다. | 
 | 시작 중 | Azure-SSIS 통합 런타임의 노드가 할당/준비 중이고 청구가 시작되었습니다. |

@@ -11,14 +11,16 @@ ms.author: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 5/14/2019
-ms.openlocfilehash: 70367a38fbf7b59486e2eaaf6c05634aa7575869
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2359b378b1f54cf6e03218f819b3a7c5740ba596
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260710"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416399"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime을 위한 Azure Active Directory 인증 활성화
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 이 문서에서는 ADF(Azure Data Factory)에 대해 관리되는 ID를 사용하여 Azure Active Directory(Azure AD) 인증을 사용하도록 설정하고 SQL 인증과 같은 기존 인증 방법 대신 사용하는 방법을 보여 줍니다.
 
@@ -26,7 +28,7 @@ ms.locfileid: "79260710"
 
 - Azure-SSIS IR에서 SSIS 패키지를 실행할 때 다양한 Azure 리소스에 연결합니다.
 
-ADF의 관리 ID에 대한 자세한 내용은 [데이터 팩터리에 대한 관리 ID를](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)참조하십시오.
+ADF의 관리ID에 대한 자세한 내용은 [데이터 팩터리의 관리 ID](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)를 참조하십시오.
 
 > [!NOTE]
 >-  이 시나리오에서는 ADF에 대 한 관리되는 ID를 사용 하는 Azure AD 인증은 차례로 프로비저닝 하 고 SSISDB에 연결 하는 SSIS IR의 생성 및 후속 시작 작업에만 사용 됩니다. SSIS 패키지 실행의 경우 SSIS IR은 SSISDB 프로비전 중에 생성되는 완전히 관리되는 계정으로 SQL 인증을 사용하여 SSISDB에 계속 연결합니다.
@@ -63,7 +65,7 @@ Azure SQL Database 서버는 Azure AD 사용자로 데이터베이스 만들기�
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  ADF의 관리 ID를 그룹에 추가합니다. 데이터 팩터리의 관리 ID ID ID(예: 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc)를 얻으려면 [데이터 팩터리에 대한 관리 ID ID를](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) 확인할 수 있지만 이 목적을 위해 관리되는 ID 응용 프로그램 ID를 사용하지 마십시오.
+3.  ADF의 관리 ID를 그룹에 추가합니다. [데이터 팩터리의 ID 관리](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) 되는 ID를 따라 주요 관리 되는 ID 개체 ID (예: 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc,하지만 이 목적을 위해 관리되는 ID 응용 프로그램 ID를 사용 하지 마십시오)를 얻을 수 있습니다.
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -198,7 +200,7 @@ PowerShell을 사용하여 Azure-SSIS IR을 프로비전하려면 다음 작업�
 
 1.  [Azure PowerShell 모듈을](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018) 설치합니다.
 
-2.  스크립트에서 `CatalogAdminCredential` 매개 변수를 설정하지 마세요. 예를 들어:
+2.  스크립트에서 `CatalogAdminCredential` 매개 변수를 설정하지 마세요. 다음은 그 예입니다.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
@@ -227,4 +229,4 @@ Azure-SSIS IR에서 SSIS 패키지를 실행하는 경우 관리되는 ID 인증
 
 - [ADO.NET 연결 관리자](https://docs.microsoft.com/sql/integration-services/connection-manager/ado-net-connection-manager#managed-identities-for-azure-resources-authentication)
 
-- [Azure 저장소 연결 관리자](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication)
+- [Azure Storage 연결 관리자](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication)

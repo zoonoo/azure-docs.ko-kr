@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2d5eb330cd6e5d02432298a5b58e84ae7d24ee7e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: e8ddcaf6a5c9ab51147e540e2426ef8c4a1fdd3a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383329"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392381"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>경고를 사용하여 Azure Automation Runbook 트리거
 
@@ -32,11 +32,11 @@ ms.locfileid: "81383329"
 
 경고가 Runbook을 호출할 때 실제 호출은 웹후크에 대한 HTTP POST 요청입니다. POST 요청의 본문에는 경고와 관련된 유용한 속성을 포함하는 JSON으로 포맷된 개체가 포함되어 있습니다. 다음 표에는 각 경고 유형에 대한 페이로드 스키마 링크가 나열되어 있습니다.
 
-|경고  |설명|페이로드 스키마  |
+|경고  |Description|페이로드 스키마  |
 |---------|---------|---------|
 |[일반적인 경고](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|현재 Azure에서 경고 알림에 대한 소비 환경을 표준화하는 일반적인 경고 스키마입니다.|일반적인 경고 페이로드 스키마|
-|[활동 로그 경고](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Azure 활동 로그의 새 이벤트가 특정 조건과 일치하는 경우 알림을 보냅니다. 예를 들어 `Delete VM` 작업이 **myProductionResourceGroup**에서 발생하거나 새 Azure Service Health 이벤트가 **활성** 상태로 표시되는 경우입니다.| [활동 로그 경고 페이로드 스키마](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
-|[근 실시간 메트릭 경고 만들기](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |하나 이상의 플랫폼 수준 메트릭이 지정된 조건을 충족하는 경우 메트릭 경고보다 빠르게 알림을 보냅니다. 예를 들어 VM의 **CPU %** 값이 **90**보다 큰 경우 및 **네트워크 입력**의 값이 지난 5분 동안 **500MB**보다 큰 경우입니다.| [근 실시간 메트릭 경고 페이로드 스키마](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
+|[활동 로그 경고](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Azure 활동 로그의 새 이벤트가 특정 조건과 일치하는 경우 알림을 보냅니다. 예를 들어 `Delete VM` 작업이 **myProductionResourceGroup**에서 발생하거나 새 Azure Service Health 이벤트가 활성 상태로 표시되는 경우입니다.| [활동 로그 경고 페이로드 스키마](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
+|[근 실시간 메트릭 경고 만들기](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |하나 이상의 플랫폼 수준 메트릭이 지정된 조건을 충족하는 경우 메트릭 경고보다 빠르게 알림을 보냅니다. 예를 들어 VM의 **CPU %에** 대한 값이 90보다 크고 **네트워크 In** 값이 지난 5분 동안 500MB보다 큰 경우입니다.| [근 실시간 메트릭 경고 페이로드 스키마](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
 
 각 유형의 경고에서 제공되는 데이터가 다르기 때문에 각 경고 유형이 다르게 처리됩니다. 다음 섹션에서는 다양한 유형의 경고를 처리하는 Runbook을 만드는 방법에 대해 배웁니다.
 
@@ -44,11 +44,11 @@ ms.locfileid: "81383329"
 
 경고와 함께 자동화를 사용하려면 Runbook에 전달되는 경고 JSON 페이로드를 관리하는 논리가 있는 Runbook이 필요합니다. 다음 Runbook 예제는 Azure 경고에서 호출되어야 합니다.
 
-앞 섹션에서 설명한 것처럼 각 경고 유형은 서로 다른 스키마를 사용합니다. 스크립트는 경고의 `WebhookData` Runbook 입력 매개 변수에서 웹후크 데이터를 가져옵니다. 그런 다음 스크립트가 JSON 페이로드를 평가하여 어떤 경고 유형이 사용되었는지 확인합니다.
+앞 섹션에서 설명한 것처럼 각 경고 유형은 서로 다른 스키마를 사용합니다. 스크립트는 `WebhookData` Runbook 입력 매개 변수의 경고에서 웹후크 데이터를 사용합니다. 그런 다음 스크립트는 JSON 페이로드를 평가하여 사용 중인 경고 유형을 결정합니다.
 
-이 예제에서는 VM에서 발생한 경고를 사용합니다. 페이로드에서 VM 데이터를 검색한 다음 해당 정보를 사용하여 VM을 중지합니다. Runbook이 실행되는 Automation 계정에서 연결을 설정해야 합니다. 경고를 사용하여 Runbook을 트리거하는 경우 트리거되는 Runbook에서 경고 상태를 확인하는 것이 중요합니다. 경고 상태가 변경될 때마다 Runbook이 트리거됩니다. 경고에는 여러 가지 상태가 있으며, 가장 일반적인 두 가지 상태는 `Activated` 및 `Resolved`입니다. Runbook 논리에서 이 상태를 확인하여 Runbook이 두 번 이상 실행되지 않도록 합니다. 이 문서의 예제에서는 `Activated` 경고만 찾는 방법을 보여 줍니다.
+이 예제에서는 VM에서 발생한 경고를 사용합니다. 페이로드에서 VM 데이터를 검색한 다음 해당 정보를 사용하여 VM을 중지합니다. Runbook이 실행되는 Automation 계정에서 연결을 설정해야 합니다. 경고를 사용하여 Runbook을 트리거할 때 트리거되는 Runbook에서 경고 상태를 확인하는 것이 중요합니다. Runbook은 경고가 상태를 변경할 때마다 트리거됩니다. 경고에는 여러 상태가 있으며 가장 일반적인 두 상태는 활성화 및 해결됩니다. Runbook 논리에서 상태가 두 번 이상 실행되지 않는지 확인합니다. 이 문서의 예제에서는 활성화된 상태로만 경고를 찾는 방법을 보여 주며 이 문서의 예입니다.
 
-Runbook은 `AzureRunAsConnection` [Run As 계정을](automation-create-runas-account.md) 사용하여 Azure를 사용하여 VM에 대한 관리 작업을 수행합니다.
+Runbook은 연결 자산 `AzureRunAsConnection` [Run As 계정을](automation-create-runas-account.md) 사용하여 Azure를 사용하여 VM에 대한 관리 작업을 수행합니다.
 
 이 예제를 사용하여 Runbook에서 호출한 **Stop-AzureVmInResponsetoVMAlert**을 만듭니다. PowerShell 스크립트를 수정하고 여러 다른 리소스와 함께 사용할 수 있습니다.
 

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: dsindona
-ms.openlocfilehash: 524ae203a311d538431205bf8c6498de45aeb4d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d64c8460f5653f28b96396025f29ea13af15c8c3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280306"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416315"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>Dynamics CRM Online의 잠재 고객 관리 구성
 
@@ -139,7 +139,7 @@ Dynamics CRM에 대해 Office 365를 구성하려면 다음 단계를 사용합�
 
 ## <a name="wrap-up"></a>마무리
 
-생성된 계정 정보를 Cloud 파트너 포털에 추가하여 잠재 고객 관리용으로 Dynamics CRM 구성을 완료합니다. 예를 들어:
+생성된 계정 정보를 Cloud 파트너 포털에 추가하여 잠재 고객 관리용으로 Dynamics CRM 구성을 완료합니다. 다음은 그 예입니다.
 
 -   **Azure Active Directory** - **애플리케이션 ID**(예: *23456052-aaaa-bbbb-8662-1234df56788f*), **디렉터리 ID**(예: *12345678-8af1-4asf-1234-12234d01db47*) 및 **애플리케이션 키**(예: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=*).
--   **Office 365** - **URL**(예: *https://contoso.crm4.dynamics.com*), **사용자 이름**(예: *contoso\@contoso.onmicrosoft.com*) 및 **암호**(예: *P\@ssw0rd*).
+-   **Office 365** - **URL(예:** **`https://contoso.crm4.dynamics.com`**), 사용자 **이름(예:** **`contoso\@contoso.onmicrosoft.com`**) 및 **암호(예:** P *\@ssw0rd).*

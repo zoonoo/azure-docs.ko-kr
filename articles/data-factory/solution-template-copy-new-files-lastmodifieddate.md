@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
-ms.openlocfilehash: 971d311dfb54d417a8f66f504d01f08f8bcfc48b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 979977b2dd2eb5742d4e488623c79cb91427f055
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74942096"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414809"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Azure 데이터 팩터리에서 LastModifiedDate로 새 파일 및 변경된 파일 복사
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 파일 기반 저장소에서 대상 저장소에 LastModifiedDate에서만 새 파일및 변경된 파일을 복사하는 데 사용할 수 있는 솔루션 템플릿에 대해 설명합니다. 
 

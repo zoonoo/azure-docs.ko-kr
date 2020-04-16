@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: e6109a87750e588b12bfc9836c5db3db55420ec2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40a715ea27be161f09dea59e57799b08406e8ca7
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77133792"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393769"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Azure에서 사용할 수 있는 레드 햇 엔터프라이즈 리눅스 (RHEL) 이미지
 Azure는 다양한 사용 사례에 대해 다양한 RHEL 이미지를 제공합니다.
@@ -76,6 +76,9 @@ RHEL-SAP-HA   | 7.4          | LVM    | Linux 에이전트 | HA 및 업데이트
 |             |rhel-lvm76| LVM    | Linux 에이전트 | RHEL 7.6 BYOS 이미지는 업데이트 소스에 첨부되지 않으며 RHEL 프리미엄은 청구되지 않습니다.
 |             |rhel-lvm77| LVM    | Linux 에이전트 | RHEL 7.7 BYOS 이미지는 업데이트 소스에 첨부되지 않으며 RHEL 프리미엄은 청구되지 않습니다.
 |             |rhel-lvm8 | LVM    | Linux 에이전트 | RHEL 8 BYOS 이미지(RHEL 마이너 버전은 이미지 버전 값에 표시됨)는 업데이트 소스에 첨부되지 않으며 RHEL 프리미엄이 청구되지 않습니다.
+
+> [!NOTE]
+> RHEL-SAP-HANA 제품은 Red Hat의 수명이 다한 것으로 간주됩니다. 기존 배포는 계속 정상적으로 작동하지만 Red Hat은 고객이 RHEL-SAP-HANA 이미지에서 SAP HANA 리포지토리와 HA 추가 기능을 포함하는 RHEL-SAP-HA 이미지로 마이그레이션할 것을 권장합니다. Red Hat의 SAP 클라우드 제품에 대한 자세한 내용은 [여기에서](https://access.redhat.com/articles/3751271)확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure의 Red Hat 이미지에](./redhat-images.md)대해 자세히 알아보십시오.

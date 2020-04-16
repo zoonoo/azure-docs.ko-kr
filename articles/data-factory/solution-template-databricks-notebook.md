@@ -1,5 +1,5 @@
 ---
-title: Azure 데이터 브릭으로 변환
+title: Azure Databricks를 통한 변환
 description: 솔루션 템플릿을 사용하여 Azure Data Factory의 Databricks 노트북을 통해 데이터를 변환하는 방법을 알아봅니다.
 services: data-factory
 ms.author: abnarain
@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/03/2020
-ms.openlocfilehash: 9a05b09f958d741fa56c586fbc7f5c5908dbbce6
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 65b89a13637f5a4e1712995a6ac58d88b4421806
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384384"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414859"
 ---
-# <a name="transformation-with-azure-databricks"></a>Azure 데이터 브릭으로 변환
+# <a name="transformation-with-azure-databricks"></a>Azure Databricks를 통한 변환
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 자습서에서는 Azure Data Factory에서 **유효성 검사,** **데이터 복사**및 전자 **필기장** 활동을 포함하는 종단 간 파이프라인을 만듭니다.
 

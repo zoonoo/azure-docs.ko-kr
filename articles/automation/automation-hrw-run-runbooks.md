@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 902734ddc7195d643c3aedb4054f57723d1a51c2
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: b65c72e0c65cf9aa84cb614478fbdf78258f3054
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632131"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405819"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -27,7 +27,7 @@ Azure 이외의 리소스에 액세스하는 경우 하이브리드 Runbook Work
 
 ### <a name="runbook-authentication"></a>Runbook 인증
 
-기본적으로 Runbook은 로컬 컴퓨터에서 실행됩니다. Windows의 경우 로컬 시스템 계정의 컨텍스트에서 실행됩니다. 리눅스의 경우, 그들은 특별한 사용자 계정 **nxautomation의**맥락에서 실행됩니다. 두 시나리오 모두 Runbook은 액세스하는 리소스에 자체 인증을 제공해야 합니다.
+기본적으로 Runbook은 로컬 컴퓨터에서 실행됩니다. Windows의 경우 로컬 **시스템** 계정의 컨텍스트에서 실행됩니다. 리눅스의 경우, 그들은 특별한 사용자 계정 **nxautomation의**맥락에서 실행됩니다. 두 시나리오 모두 Runbook은 액세스하는 리소스에 자체 인증을 제공해야 합니다.
 
 runbook에서 [다른](automation-credentials.md) 리소스에 대해 인증할 수 있도록 자격 증명을 지정할 수 있는 cmdlet을 사용하여 Runbook에서 자격 증명 및 [인증서](automation-certificates.md) 자산을 사용할 수 있습니다. 다음 예제에서는 컴퓨터를 다시 시작하는 Runbook의 일부를 보여 줍니다. 자격 증명 자산과 가변 자산에서 컴퓨터 이름에서 자격 증명을 검색한 `Restart-Computer` 다음 cmdlet과 함께 이러한 값을 사용합니다.
 
@@ -84,7 +84,7 @@ Azure 가상 시스템의 하이브리드 Runbook 작업자는 Azure 리소스�
 ```
 
 > [!NOTE]
-> `Connect-AzAccount -Identity`시스템 할당 된 ID와 단일 사용자 할당 된 ID를 사용 하 여 하이브리드 Runbook 워커에 대 한 작동 합니다. 하이브리드 Runbook Worker에서 여러 사용자 할당 ID를 사용하는 경우 Runbook에서 `Connect-AzAccount` 특정 사용자 할당 ID를 선택하기 위해 *AccountId* 매개 변수를 지정해야 합니다.
+> `Connect-AzAccount -Identity`시스템 할당 된 ID와 단일 사용자 할당 된 ID를 사용 하 여 하이브리드 Runbook 워커에 대 한 작동 합니다. 하이브리드 Runbook Worker에서 여러 사용자 할당 ID를 사용하는 경우 `AccountId` Runbook에서 특정 사용자 할당 ID를 선택할 `Connect-AzAccount` 매개 변수를 지정해야 합니다.
 
 ### <a name="automation-run-as-account"></a><a name="runas-script"></a>Automation 실행 계정
 
@@ -166,7 +166,7 @@ Get-AzAutomationAccount | Select-Object AutomationAccountName
 
 1. **.ps1** 확장을 사용하여 **내보내기-RunAsCertificateToHybridWorker** 실행책을 컴퓨터에 저장합니다.
 2. 자동화 계정으로 가져옵니다.
-3. Runbook을 편집하여 `Password` 변수 o 자신의 암호의 값을 변경합니다. 
+3. Runbook을 편집하여 `Password` 변수 값을 자신의 암호로 변경합니다. 
 4. Runbook을 게시합니다.
 5. Runbook을 실행하여 Run As 계정을 사용하여 Runbook을 실행하고 인증하는 하이브리드 Runbook 작업자 그룹을 대상으로 실행합니다. 
 6. 작업 스트림을 검사하여 인증서를 로컬 컴퓨터 저장소로 가져오려는 시도를 보고하고 여러 줄로 따르는지 확인합니다. 이 동작은 구독에서 정의하는 자동화 계정 수와 인증 성공 정도에 따라 달라집니다.
@@ -185,14 +185,14 @@ Azure 자동화는 하이브리드 Runbook 작업자의 작업을 Azure 샌드�
 
 Azure 포털에서 Runbook을 시작하면 **Azure** 또는 **하이브리드 워커를**선택할 수 있는 **실행 옵션옵션이** 표시됩니다. **하이브리드 워커를**선택하는 경우 드롭다운에서 하이브리드 Runbook 작업자 그룹을 선택할 수 있습니다.
 
-cmdlet에서 `RunOn` `Start-AzureAutomationRunbook` 매개 변수를 사용합니다. 다음 예제에서는 Windows PowerShell을 사용하여 MyHybridGroup이라는 하이브리드 Runbook 작업자 그룹에서 **테스트-Runbook이라는 런북을** 시작합니다.
+`RunOn` [시작-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) cmdlet와 함께 매개 변수를 사용합니다. 다음 예제에서는 Windows PowerShell을 사용하여 MyHybridGroup이라는 하이브리드 Runbook 작업자 그룹에서 **테스트-Runbook이라는 런북을** 시작합니다.
 
 ```azurepowershell-interactive
-Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
+Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
 
 > [!NOTE]
-> 매개 `RunOn` 변수는 `Start-AzureAutomationRunbook` Microsoft Azure PowerShell의 버전 0.9.1에 추가되었습니다. 이전 버전을 설치한 경우 [최신 버전을 다운로드](https://azure.microsoft.com/downloads/)해야 합니다. PowerShell에서 Runbook을 시작하는 워크스테이션에만 이 버전을 설치합니다. 이 컴퓨터에서 Runbook을 시작하려는 경우가 아니면 하이브리드 Runbook Worker 컴퓨터에 설치할 필요가 없습니다.
+> 이전 버전이 설치되어 있는 경우 [최신 PowerShell 버전을 다운로드해야](https://azure.microsoft.com/downloads/) 합니다. PowerShell에서 Runbook을 시작하는 워크스테이션에만 이 버전을 설치합니다. 이 컴퓨터에서 Runbook을 시작하려는 경우가 아니면 하이브리드 Runbook Worker 컴퓨터에 설치할 필요가 없습니다.
 
 ## <a name="working-with-signed-runbooks-on-a-windows-hybrid-runbook-worker"></a>Windows 하이브리드 Runbook 작업자에서 서명된 Runbook 작업
 
@@ -307,7 +307,7 @@ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/
 gpg –-clear-sign <runbook name>
 ```
 
-서명된 Runbook을 `<runbook name>.asc`라고 합니다.
+서명된 Runbook을 ** <runbook name>.asc라고 합니다.**
 
 이제 서명된 Runbook을 Azure Automation에 업로드하고 일반 Runbook처럼 실행할 수 있습니다.
 
@@ -317,3 +317,5 @@ gpg –-clear-sign <runbook name>
 * 텍스트 편집기를 사용하여 Azure 자동화에서 PowerShell Runbook을 사용하는 방법을 이해하려면 [Azure Automation에서 Runbook 편집을](automation-edit-textual-runbook.md)참조하십시오.
 * Runbook이 성공적으로 완료되지 않은 경우 Runbook 실행 실패에 대한 문제 해결 [가이드를 검토하십시오.](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails)
 * 언어 참조 및 학습 모듈을 포함한 [PowerShell에](https://docs.microsoft.com/powershell/scripting/overview)대한 자세한 내용은 PowerShell 문서를 참조하십시오.
+* PowerShell cmdlet 참조는 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+)을 참조하십시오.

@@ -6,17 +6,17 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 03/10/2020
-ms.openlocfilehash: 34ec05a8362f5947cb61924b19c6b1a52e5d91a4
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.date: 04/15/2020
+ms.openlocfilehash: 5608d0cd83e506bc6b30337db5148f344f59f80e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437666"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410865"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Azure HDInsight에 대한 NSG 서비스 태그
 
-NSG(네트워크 보안 그룹)에 대한 Azure HDInsight 서비스 태그는 상태 및 관리 서비스에 대한 IP 주소 그룹입니다. 이러한 그룹은 보안 규칙 만들기의 복잡성을 최소화하는 데 도움이 됩니다. [서비스 태그는](../virtual-network/security-overview.md#service-tags) NSG의 각 [관리 IP 주소를](hdinsight-management-ip-addresses.md) 입력하지 않고 특정 IP 주소의 인바운드 트래픽을 허용하는 대체 방법을 제공합니다.
+NSG(네트워크 보안 그룹)에 대한 Azure HDInsight 서비스 태그는 상태 및 관리 서비스에 대한 IP 주소 그룹입니다. 이러한 그룹은 보안 규칙 만들기의 복잡성을 최소화하는 데 도움이 됩니다. [서비스 태그는](../virtual-network/security-overview.md#service-tags) NSG의 각 관리 IP 주소를 입력하지 않고 특정 IP의 인바운드 [트래픽을 허용합니다.](hdinsight-management-ip-addresses.md)
 
 HDInsight 서비스는 이러한 서비스 태그를 관리합니다. 사용자 고유의 서비스 태그를 만들거나 기존 태그를 수정할 수 없습니다. Microsoft는 서비스 태그와 일치하는 주소 접두사를 관리하고 주소가 변경될 때 서비스 태그를 자동으로 업데이트합니다.
 
@@ -46,13 +46,13 @@ HDInsight 클러스터에서 서비스 태그를 사용하는 가장 쉬운 방�
 
 ## <a name="use-regional-hdinsight-service-tags"></a>지역 HDInsight 서비스 태그 사용
 
-더 제한적인 권한이 필요하기 때문에 전역 태그 옵션이 작동하지 않는 경우 해당 지역에 적용되는 서비스 태그만 허용할 수 있습니다. 클러스터가 생성되는 지역에 따라 1개, 2개 또는 3개의 해당 서비스 태그가 있을 수 있습니다.
+더 제한적인 권한이 필요하기 때문에 전역 태그 옵션이 작동하지 않는 경우 해당 지역에 적용되는 서비스 태그만 허용할 수 있습니다. 클러스터가 생성된 지역에 따라 여러 서비스 태그가 있을 수 있습니다.
 
 해당 지역에 추가할 서비스 태그를 확인하려면 문서의 다음 섹션을 읽어보세요.
 
 ### <a name="use-a-single-regional-service-tag"></a>단일 지역 서비스 태그 사용
 
-지역 서비스 태그를 사용하려는 경우 클러스터가 이 테이블에 나열된 지역 중 하나에 있는 경우 네트워크 보안 그룹에 단일 지역 서비스 태그를 추가하기만 하면 됩니다.
+클러스터가 이 테이블에 나열된 지역에 있는 경우 NSG에 단일 지역 서비스 태그만 추가하면 됩니다.
 
 | 국가 | 지역 | 서비스 태그 |
 | ---- | ---- | ---- |
@@ -80,13 +80,13 @@ HDInsight 클러스터에서 서비스 태그를 사용하는 가장 쉬운 방�
 
 ### <a name="use-multiple-regional-service-tags"></a>여러 지역 서비스 태그 사용
 
-지역 서비스 태그를 사용하지만 클러스터가 생성된 지역이 이전 표에 나열되지 않은 경우 여러 지역 서비스 태그를 허용해야 합니다. 둘 이상의 사용을 해야 하는 이유는 다양한 지역에 대한 리소스 공급자의 배열의 차이 때문입니다.
+클러스터가 만들어진 지역이 이전 표에 나열되지 않은 경우 여러 지역 서비스 태그를 허용해야 합니다. 둘 이상의 사용을 해야 하는 이유는 다양한 지역에 대한 리소스 공급자의 배열이 다하기 때문입니다.
 
 나머지 지역은 사용하는 지역 서비스 태그를 기반으로 그룹으로 나뉩니다.
 
 #### <a name="group-1"></a>그룹 1
 
-다음 표의 지역 중 하나에서 클러스터를 만든 경우 서비스 `HDInsight.WestUS` 태그와 `HDInsight.EastUS` 나열된 지역 서비스 태그 외에 허용합니다. 이 섹션의 지역에는 세 개의 서비스 태그가 필요합니다.
+다음 표의 지역 중 하나에서 클러스터를 만든 경우 서비스 `HDInsight.WestUS` 태그 `HDInsight.EastUS`및 을 허용합니다. 또한 지역 서비스 태그가 나열됩니다. 이 섹션의 지역에는 세 개의 서비스 태그가 필요합니다.
 
 예를 `East US 2` 들어, 지역에서 클러스터를 만든 경우 네트워크 보안 그룹에 다음 서비스 태그를 추가해야 합니다.
 

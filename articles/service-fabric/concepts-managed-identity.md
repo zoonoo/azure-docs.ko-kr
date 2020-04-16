@@ -4,14 +4,14 @@ description: 서비스 패브릭을 사용하여 Azure에 대해 관리되는 ID
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 06ebcfdf3d6a3815908752153acb09437d745d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f6f3736bed4d3d59bce08d4df3ee0aa164a0a764
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76986753"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415107"
 ---
-# <a name="using-managed-identities-for-azure-with-service-fabric-preview"></a>서비스 패브릭을 사용하여 Azure에 관리되는 ID 사용(미리 보기)
+# <a name="using-managed-identities-for-azure-with-service-fabric"></a>서비스 패브릭을 사용하여 Azure에 관리되는 ID 사용
 
 클라우드 응용 프로그램을 빌드할 때 일반적인 과제는 개발자 워크스테이션이나 소스 제어에 로컬로 저장하지 않고 다양한 서비스를 인증하기 위해 코드의 자격 증명을 안전하게 관리하는 방법입니다. *Azure에 대한 관리되는 ID는* Azure AD 내에서 자동으로 관리되는 ID를 제공하여 Azure Active Directory(Azure AD)의 모든 리소스에 대해 이 문제를 해결합니다. 코드에 저장된 자격 증명 없이 키 볼트를 포함하여 Azure AD 인증을 지원하는 모든 서비스에 대해 인증하기 위해 서비스의 ID를 사용할 수 있습니다.
 
@@ -47,7 +47,7 @@ Azure에 대한 관리되는 ID는 다음과 같은 몇 가지 주요 개념을 
 
 응용 프로그램의 시스템 할당 ID는 해당 응용 프로그램에 고유합니다. 사용자 할당된 ID는 여러 응용 프로그램에 할당될 수 있는 독립 실행형 리소스입니다. 응용 프로그램 내에서 단일 ID(시스템 할당 또는 사용자 할당 여부)를 응용 프로그램의 여러 서비스에 할당할 수 있지만 각 개별 서비스에는 하나의 ID만 할당할 수 있습니다. 마지막으로 이 기능에 액세스하려면 서비스에 ID를 명시적으로 할당해야 합니다. 실제로 응용 프로그램의 ID를 구성 서비스에 매핑하면 응용 프로그램 내에서 격리할 수 있습니다.  
 
-현재 이 미리 보기 기능에는 다음 시나리오가 지원됩니다.
+현재 이 기능에는 다음 시나리오가 지원됩니다.
 
 - 하나 이상의 서비스와 하나 이상의 할당된 ID를 사용 하 여 새 응용 프로그램 배포
 
@@ -57,12 +57,7 @@ Azure에 대한 관리되는 ID는 다음과 같은 몇 가지 주요 개념을 
 
 - 응용 프로그램에 할당된 ID를 제거하거나 변경합니다. 변경해야 하는 경우 별도의 배포를 제출하여 먼저 새 ID 할당을 추가한 다음 이전에 할당된 배포를 제거합니다. 기존 응용 프로그램에서 ID를 제거하면 응용 프로그램을 업그레이드할 수 없는 상태로 두는 등 바람직하지 않은 영향을 미칠 수 있습니다. ID를 제거해야 하는 경우 응용 프로그램을 완전히 삭제해도 안전합니다. 이렇게 하면 응용 프로그램과 연결된 시스템 할당 ID(정의된 경우)가 삭제되고 응용 프로그램에 할당된 사용자 할당 ID와의 연결이 제거됩니다.
 
-- 관리되는 ID에 대한 서비스 패브릭 지원은 현재 [AzureServiceTokenProvider에](../key-vault/service-to-service-authentication.md)통합되지 않습니다. 통합은 관리되는 ID 기능에 대한 미리 보기 기간이 끝날 때까지 달성됩니다.
-
->
-> [!NOTE]
->
-> 이 기능은 미리 보기 상태입니다. 자주 변경될 수 있으며 프로덕션 배포에 적합하지 않을 수 있습니다.
+- 관리되는 ID에 대한 서비스 패브릭 지원은 현재 [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md)에 통합되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
