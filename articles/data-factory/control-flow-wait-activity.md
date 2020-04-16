@@ -11,15 +11,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: f9dd53fded06eec169219d00993620a0f2aa2bf0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6158938d01b6e5da74ed046d2a74e0dfd827f47
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73678237"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417915"
 ---
 # <a name="execute-wait-activity-in-azure-data-factory"></a>Azure 데이터 팩터리에서 대기 활동 실행
 파이프라인에서 대기 작업을 사용하는 경우 파이프라인은 후속 작업을 계속 실행하기 전에 지정된 기간 동안 대기합니다. 
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 
 ## <a name="syntax"></a>구문
 
@@ -36,11 +39,11 @@ ms.locfileid: "73678237"
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | 설명 | 허용되는 값 | 필수
+속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-name | `Wait` 작업의 이름입니다. | String | yes
-type | **대기**로 설정해야 합니다. | String | yes
-waitTimeInSeconds | 계속 처리하기 전에 파이프라인이 대기하는 시간(초)입니다. | 정수 | yes
+name | `Wait` 작업의 이름입니다. | String | 예
+type | **대기**로 설정해야 합니다. | String | 예
+waitTimeInSeconds | 계속 처리하기 전에 파이프라인이 대기하는 시간(초)입니다. | 정수 | 예
 
 ## <a name="example"></a>예제
 
@@ -102,9 +105,9 @@ waitTimeInSeconds | 계속 처리하기 전에 파이프라인이 대기하는 �
 Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요. 
 
 - [If 조건 작업](control-flow-if-condition-activity.md)
-- [파이프라인 활동 실행](control-flow-execute-pipeline-activity.md)
-- [각 활동에 대해](control-flow-for-each-activity.md)
-- [메타데이터 활동 받기](control-flow-get-metadata-activity.md)
+- [파이프라인 작업 실행](control-flow-execute-pipeline-activity.md)
+- [ForEach 작업](control-flow-for-each-activity.md)
+- [메타데이터 작업 가져오기](control-flow-get-metadata-activity.md)
 - [조회 작업](control-flow-lookup-activity.md)
-- [웹 활동](control-flow-web-activity.md)
+- [웹 작업](control-flow-web-activity.md)
 - [Until 작업](control-flow-until-activity.md)

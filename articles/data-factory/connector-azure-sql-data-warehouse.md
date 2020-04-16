@@ -11,18 +11,27 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/25/2020
-ms.openlocfilehash: 822a981b84919670aa476567625cdf914206eaa8
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 7fb1560fb9be809d816dde7dd69f1ec8afe5649f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422174"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417568"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Azure 시냅스 분석(이전의 Azure SQL 데이터 웨어하우스)에서 데이터 복사 및 변환 
 
 > [!div class="op_single_selector" title1="사용 하는 데이터 팩터리 서비스의 버전을 선택 합니다."]
 > * [버전 1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [현재 버전](connector-azure-sql-data-warehouse.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+이 문서에서는 Azure Data Factory에서 복사 활동을 사용하여 Azure 시냅스 분석에서 데이터를 복사하고 데이터 흐름을 사용하여 Azure Data Lake Storage Gen2의 데이터를 변환하는 방법을 설명합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
+
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+이 문서에서는 Azure Data Factory에서 복사 활동을 사용하여 Azure SQL 데이터 웨어하우스의 데이터를 복사하고 데이터 흐름을 사용하여 Azure Data Lake Storage Gen2의 데이터를 변환하는 방법을 설명합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
 
 이 문서에서는 Azure Data Factory에서 복사 활동을 사용하여 Azure 시냅스 분석에서 데이터를 복사하고 데이터 흐름을 사용하여 Azure Data Lake Storage Gen2의 데이터를 변환하는 방법을 설명합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
 
@@ -372,7 +381,7 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 | 허용복사 명령 | [COPY 문(미리](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) 보기)을 사용하여 데이터를 SQL 데이터 웨어하우스에 로드할지 여부를 나타냅니다. `allowCopyCommand`둘 `allowPolyBase` 다 사실이 될 수 없습니다. <br/><br/>COPY 문을 사용하여 제약 조건 및 세부 정보에 대한 [Azure SQL 데이터 웨어하우스 섹션에 데이터를 로드합니다.](#use-copy-statement)<br/><br/>허용된 값은 **참** 및 False(기본값)입니다. **False** | 아니요.<br>COPY를 사용할 때 적용하십시오. |
 | 카피명령설정 | 속성이 TRUE로 설정될 `allowCopyCommand` 때 지정할 수 있는 속성 그룹입니다. | 아니요.<br/>COPY를 사용할 때 적용하십시오. |
 | writeBatchSize    | **일괄 처리당**SQL 테이블에 삽입할 행 수입니다.<br/><br/>허용되는 값은 **정수**(행 수)입니다. 기본적으로 Data Factory는 행 크기에 따라 적절한 일괄 처리 크기를 동적으로 결정합니다. | 아니요.<br/>벌크 인서트를 사용할 때 는 적용하십시오.     |
-| writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다.<br/><br/>허용된 값은 **시간 범위입니다.** 예: “00:30:00”(30분). | 아니요.<br/>벌크 인서트를 사용할 때 는 적용하십시오.        |
+| writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다.<br/><br/>허용된 값은 **시간 범위입니다.** 예제: "00:30:00"(30분). | 아니요.<br/>벌크 인서트를 사용할 때 는 적용하십시오.        |
 | preCopyScript     | 각 실행 시 Azure SQL Data Warehouse에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 예                                            |
 | 테이블 옵션 | 원본 스키마에 따라 싱크 테이블이 없는 경우 싱크 테이블을 자동으로 만들지 여부를 지정합니다. 준비된 복사본이 복사 활동에서 구성될 때 자동 테이블 만들기는 지원되지 않습니다. 허용된 값은 `none` 다음과 `autoCreate`같습니다(기본값) . |예 |
 | 비활성화메트릭스컬렉션 | Data Factory는 복사 성능 최적화 및 권장 사항을 위해 SQL 데이터 웨어하우스 DW와 같은 메트릭을 수집합니다. 이 동작과 관련된 경우 `true` 해제하도록 지정합니다. | 아니요(기본값: `false`) |
@@ -407,7 +416,7 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 
 | 속성          | Description                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| rejectValue       | 쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다.<br/><br/>[CREATE EXTERNAL TABLE(Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx)의 인수 섹션에서 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. <br/><br/>허용되는 값은 0(기본값), 1, 2 등입니다. | 예                                            |
+| rejectValue       | 쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다.<br/><br/>[외부 테이블 만들기(Transact-SQL)의](https://msdn.microsoft.com/library/dn935021.aspx)인수 섹션에서 PolyBase의 거부 옵션에 대해 자세히 알아보십시오. <br/><br/>허용되는 값은 0(기본값), 1, 2 등입니다. | 예                                            |
 | rejectType        | **rejectValue** 옵션이 리터럴 값인지 또는 백분율인지를 지정합니다.<br/><br/>허용된 **Value** 값은 값(기본값) 및 **백분율입니다.** | 예                                            |
 | rejectSampleValue | PolyBase가 거부된 행의 백분율을 다시 계산하기 전에 검색할 행 수를 결정합니다.<br/><br/>허용되는 값은 1, 2 등입니다. | **rejectType**이 **percentage**인 경우 예 |
 | useTypeDefault    | PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)를 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다.<br/><br/>허용된 값은 **참** 및 False(기본값)입니다. **False**<br><br> | 예                                            |
@@ -531,7 +540,7 @@ SQL 데이터 웨어하우스 PolyBase는 Azure Blob, Azure 데이터 레이크 
 
 ### <a name="best-practices-for-using-polybase"></a>PolyBase를 사용하는 모범 사례
 
-다음 섹션에서는 [Azure Synapse 분석의 모범 사례에](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md)언급된 모범 사례 외에도 모범 사례를 제공합니다.
+다음 섹션에서는 [Azure Synapse 분석의 모범 사례에](../synapse-analytics/sql/best-practices-sql-pool.md)언급된 모범 사례 외에도 모범 사례를 제공합니다.
 
 #### <a name="required-database-permission"></a>필수 데이터베이스 권한
 
@@ -740,7 +749,7 @@ Azure 시냅스 분석과 관련된 설정은 싱크 변환의 **설정** 탭에
 Azure Synapse Analytics에서 또는 Azure Synapse Analytics로 데이터를 복사하면 Azure 시냅스 분석 데이터 형식에서 Azure Data Factory 중간 데이터 유형으로 다음 매핑이 사용됩니다. [스키마 및 데이터 유형 매핑을](copy-activity-schema-and-type-mapping.md) 참조하여 복사 활동이 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법을 알아봅니다.
 
 >[!TIP]
->SQL DW 지원 데이터 형식에 대한 [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) 문서의 테이블 데이터 형식과 지원되지 않는 데이터 형식에 대한 해결 방법을 참조하십시오.
+>SQL DW 지원 데이터 형식에 대한 [Azure Synapse Analytics](../synapse-analytics/sql/develop-tables-data-types.md) 문서의 테이블 데이터 형식과 지원되지 않는 데이터 형식에 대한 해결 방법을 참조하십시오.
 
 | Azure 시냅스 분석 데이터 유형    | Data Factory 중간 데이터 형식 |
 | :------------------------------------ | :----------------------------- |

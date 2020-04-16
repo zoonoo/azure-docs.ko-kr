@@ -10,18 +10,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 4913152125b0fafd74db575f835d53fa992b075e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74e381a9ad32acdaa8cbb719824d74ca6d339f30
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260580"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418952"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-use-custom-activities.md)
 > * [현재 버전](transform-data-using-dotnet-custom-activity.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory 파이프라인에서 사용할 수 있는 두 가지 작업 유형이 있습니다.
 
@@ -99,13 +100,13 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 
 다음 표에는 이 작업과 관련된 속성 이름과 설명이 나와 있습니다.
 
-| 속성              | 설명                              | 필수 |
+| 속성              | Description                              | 필수 |
 | :-------------------- | :--------------------------------------- | :------- |
-| name                  | 파이프라인의 작업 이름입니다.     | yes      |
+| name                  | 파이프라인의 작업 이름입니다.     | 예      |
 | description           | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |
-| type                  | 사용자 지정 작업의 경우 작업 유형은 **사용자 지정**입니다. | yes      |
-| linkedServiceName     | Azure Batch에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요.  | yes      |
-| command               | 실행할 사용자 지정 애플리케이션의 명령입니다. Azure Batch 풀 노드에 사용할 수 있는 애플리케이션이 이미 있으면 resourceLinkedService 및 folderPath를 건너뛸 수 있습니다. 예를 들어 명령을 기본적으로 Windows Batch 풀 노드에 의해 지원되는 `cmd /c dir`로 지정할 수 있습니다. | yes      |
+| type                  | 사용자 지정 작업의 경우 작업 유형은 **사용자 지정**입니다. | 예      |
+| linkedServiceName     | Azure Batch에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요.  | 예      |
+| command               | 실행할 사용자 지정 애플리케이션의 명령입니다. Azure Batch 풀 노드에 사용할 수 있는 애플리케이션이 이미 있으면 resourceLinkedService 및 folderPath를 건너뛸 수 있습니다. 예를 들어 명령을 기본적으로 Windows Batch 풀 노드에 의해 지원되는 `cmd /c dir`로 지정할 수 있습니다. | 예      |
 | resourceLinkedService | 사용자 지정 애플리케이션이 저장된 스토리지 계정에 대한 Azure Storage 연결된 서비스입니다. | 아니요 &#42;       |
 | folderPath            | 사용자 지정 애플리케이션 및 모든 해당 종속성 폴더에 대한 경로입니다.<br/><br/>종속성이 하위 폴더(즉, *folderPath* 아래의 계층 폴더 구조)에 저장된 경우, 해당 파일이 Azure Batch에 복사될 때 폴더 구조가 손쉽게 평면화됩니다. 즉, 모든 파일이 하위 폴더가 없는 단일 폴더에 복사됩니다. 이 동작을 해결하려면 파일을 압축하고 압축 파일을 복사한 다음, 원하는 위치에서 사용자 지정 코드로 압축을 푸세요. | 아니요 &#42;       |
 | referenceObjects      | 기존 연결된 서비스 및 데이터 세트의 배열입니다. 사용자 지정 코드가 Data Factory의 리소스를 참조할 수 있도록 참조된 연결된 서비스 및 데이터 세트는 JSON 형식으로 사용자 지정 애플리케이션에 전달됩니다. | 예       |
@@ -115,7 +116,7 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 &#42; 속성 `resourceLinkedService` 및 `folderPath`를 둘 다 지정하거나 둘 다 생략해야 합니다.
 
 > [!NOTE]
-> 사용자 지정 활동에서 링크된 서비스를 참조 개체로 전달하는 경우 Azure Key Vault 사용 링크된 서비스를 전달하고 보안 문자열을 포함하지 않으므로 Key에서 직접 비밀 이름을 사용하여 자격 증명을 가져오는 것이 좋습니다. 코드에서 볼트. [AKV](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) 지원 링크된 서비스를 참조하고 Key Vault에서 자격 증명을 검색한 다음 코드의 저장소에 액세스하는 예제를 여기에서 찾을 수 있습니다.
+> 사용자 지정 활동에서 링크된 서비스를 참조 개체로 전달하는 경우 Azure Key Vault 사용 링크된 서비스를 전달하고(보안 문자열이 포함되어 있지 않기 때문에) 코드에서 Key Vault에서 직접 비밀 이름을 사용하여 자격 증명을 가져오는 것이 좋습니다. [AKV](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) 지원 링크된 서비스를 참조하고 Key Vault에서 자격 증명을 검색한 다음 코드의 저장소에 액세스하는 예제를 여기에서 찾을 수 있습니다.
 
 ## <a name="custom-activity-permissions"></a>사용자 지정 활동 권한
 
@@ -309,7 +310,7 @@ Activity Error section:
 
 ## <a name="retrieve-securestring-outputs"></a>SecureString 출력 검색
 
-이 문서의 일부 예제에 표시된 대로 *SecureString* 유형으로 지정된 민감한 속성 값은 Data Factory 사용자 인터페이스의 모니터링 탭에서 마스크 처리됩니다.  그러나 실제 파이프라인 실행에서는 *SecureString* 속성이 일반 텍스트로 `activity.json` 파일 내에서 JSON으로 serialize됩니다. 예를 들어:
+이 문서의 일부 예제에 표시된 대로 *SecureString* 유형으로 지정된 민감한 속성 값은 Data Factory 사용자 인터페이스의 모니터링 탭에서 마스크 처리됩니다.  그러나 실제 파이프라인 실행에서는 *SecureString* 속성이 일반 텍스트로 `activity.json` 파일 내에서 JSON으로 serialize됩니다. 다음은 그 예입니다.
 
 ```json
 "extendedProperties": {
@@ -341,7 +342,7 @@ Data Factory V2 사용자 지정 작업이 변경되면서 이제 기본 설정 
 |사용자 지정 논리를 정의하는 방법      |실행 파일을 제공하여      |.NET DLL을 구현하여      |
 |사용자 지정 논리의 실행 환경      |Windows 또는 Linux      |윈도우 (.NET 프레임 워크 4.5.2)      |
 |스크립트 실행      |실행 중인 스크립트 직접 지원(예: Windows VM의 "cmd/c echo hello world")      |.NET DLL에서 구현해야 합니다.      |
-|필요한 데이터 세트      |Optional      |작업을 연결하고 정보를 전달하는 데 필요      |
+|필요한 데이터 세트      |옵션      |작업을 연결하고 정보를 전달하는 데 필요      |
 |작업에서 사용자 지정 논리에 정보 전달      |ReferenceObjects(LinkedServices 및 데이터 세트) 및 ExtendedProperties(사용자 지정 속성)를 통해      |ExtendedProperties(사용자 지정 속성), 입력 및 출력 데이터 세트를 통해      |
 |사용자 지정 논리에서 정보 검색      |실행 파일의 동일한 폴더에 저장된 activity.json, linkedServices.json 및 datasets.json 구문 분석      |.NET SDK(.NET 프레임 4.5.2)를 통해      |
 |로깅      |STDOUT에 직접 작성      |.NET DLL에서 로거 구현      |
@@ -386,5 +387,5 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 * [MapReduce 작업](transform-data-using-hadoop-map-reduce.md)
 * [하두롭 스트리밍 활동](transform-data-using-hadoop-streaming.md)
 * [스파크 액티비티](transform-data-using-spark.md)
-* [Machine Learning Batch 실행 작업](transform-data-using-machine-learning.md)
-* [저장 프로시저 작업](transform-data-using-stored-procedure.md)
+* [기계 학습 일괄 실행 활동](transform-data-using-machine-learning.md)
+* [저장 프로시저 활동](transform-data-using-stored-procedure.md)

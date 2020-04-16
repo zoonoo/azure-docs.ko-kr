@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 6fdfbce6dce2428a8f2757b0755e6f982f02240f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2028aac9c01aedc4baa568d370c9f7d21c920647
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256420"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419266"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 연결 아키텍처
 > [!NOTE]
@@ -45,7 +45,7 @@ ms.locfileid: "79256420"
 Azure SQL Database는 SQL Database 서버의 연결 정책 설정에 대한 다음 세 가지 옵션을 지원합니다.
 
 - **리디렉션(권장):** 클라이언트는 데이터베이스를 호스팅하는 노드에 직접 연결을 설정하여 대기 시간을 줄이고 처리량을 개선합니다. 이 모드를 사용하려면 클라이언트는 다음을 수행해야 합니다.
-   - 클라이언트에서 11000 11999 범위의 포트에 있는 리전의 모든 Azure IP 주소로 아웃바운드 통신을 허용합니다. SQL용 서비스 태그를 사용하여 이 작업을 보다 쉽게 관리할 수 있습니다.  
+   - 클라이언트에서 11000 11999 범위의 포트에 있는 리전의 모든 Azure SQL IP 주소로 아웃바운드 통신을 허용합니다. SQL용 서비스 태그를 사용하여 이 작업을 보다 쉽게 관리할 수 있습니다.  
    - 포트 1433에서 클라이언트에서 Azure SQL Database 게이트웨이 IP 주소로의 아웃바운드 통신을 허용합니다.
 
 - **프록시:** 이 모드에서는 모든 연결이 Azure SQL Database 게이트웨이를 통해 프록시되어 대기 시간이 증가하고 처리량이 줄어듭니다. 이 모드를 사용하려면 클라이언트가 포트 1433에서 클라이언트에서 Azure SQL Database 게이트웨이 IP 주소로 아웃바운드 통신을 허용해야 합니다.

@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: b4786b612dedb065239f57e0286bafb688180dff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63873a4f8301d3cb20488b02b32200f476922276
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440366"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417949"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Azure Data Factory의 Until 작업
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Until 작업은 do-until 반복 구조에서 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 작업과 관련된 조건이 참으로 평가될 때까지 일단의 반복 작업을 실행합니다. Data Factory에서 until 작업의 시간 제한 값을 지정할 수 있습니다. 
 
 ## <a name="syntax"></a>구문
@@ -51,13 +53,13 @@ Until 작업은 do-until 반복 구조에서 프로그래밍 언어로 제공하
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | 설명 | 허용되는 값 | 필수
+속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-name | `Until` 작업의 이름입니다. | String | yes
-type | **Until**로 설정해야 합니다. | String | yes
-식 | true 또는 false로 평가되어야 하는 식입니다. | 식  | yes
+name | `Until` 작업의 이름입니다. | String | 예
+type | **Until**로 설정해야 합니다. | String | 예
+식 | true 또는 false로 평가되어야 하는 식입니다. | 식  | 예
 시간 제한 | 지정한 시간이 지나면 do-until 반복 작업이 시간 초과됩니다. | 문자열입니다. `d.hh:mm:ss` 또는 `hh:mm:ss`입니다. 기본값은 7일입니다. 최대값은 90일입니다. | 예
-활동 | 식이 `true`로 평가될 때까지 실행되는 작업 집합입니다. | 작업의 배열 |  yes
+활동 | 식이 `true`로 평가될 때까지 실행되는 작업 집합입니다. | 작업의 배열 |  예
 
 ## <a name="example-1"></a>예 1
 
@@ -289,8 +291,8 @@ while ($True) {
 Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요. 
 
 - [If 조건 작업](control-flow-if-condition-activity.md)
-- [파이프라인 활동 실행](control-flow-execute-pipeline-activity.md)
-- [각 활동에 대해](control-flow-for-each-activity.md)
-- [메타데이터 활동 받기](control-flow-get-metadata-activity.md)
+- [파이프라인 작업 실행](control-flow-execute-pipeline-activity.md)
+- [ForEach 작업](control-flow-for-each-activity.md)
+- [메타데이터 작업 가져오기](control-flow-get-metadata-activity.md)
 - [조회 작업](control-flow-lookup-activity.md)
-- [웹 활동](control-flow-web-activity.md)
+- [웹 작업](control-flow-web-activity.md)

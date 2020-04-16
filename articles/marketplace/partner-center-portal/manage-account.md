@@ -1,22 +1,22 @@
 ---
-title: 파트너 센터에서 상업용 마켓플레이스 계정을 관리하는 방법
-description: 파트너 센터에서 상업용 마켓플레이스 계정을 관리하는 방법을 알아보세요.
+title: Microsoft 파트너 센터에서 상용 마켓플레이스 계정을 관리하는 방법
+description: Microsoft 파트너 센터에서 상용 마켓플레이스 계정을 관리하는 방법을 알아봅니다.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 50ea56a8c743636f9fdd9105e5b07a868e71d3d0
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 256ea1a03cd22df443362623177f91893f28b664
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262930"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419156"
 ---
-# <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상업용 마켓플레이스 계정을 관리하는 방법
+# <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 마켓플레이스 계정 관리
 
-파트너 센터 [계정을 만든](./create-account.md)후에는 상용 [마켓플레이스 대시보드를](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)사용하여 계정 및 오퍼를 관리할 수 있습니다.
+파트너 센터 [계정을 만든](./create-account.md)후에는 상용 [마켓플레이스 대시보드를](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) 사용하여 계정 및 오퍼를 관리할 수 있습니다.
 
 이 문서에서는 다음 방법을 포함하여 파트너 센터 계정을 관리하는 방법을 자세히 설명합니다.
 
@@ -35,12 +35,12 @@ ms.locfileid: "81262930"
 
 아직 수행하지 않은 경우 사용자(또는 조직의 관리자)는 파트너 센터 계정의 [계정 설정에](https://partner.microsoft.com/dashboard/account/management) 액세스하여 다음을 수행해야 합니다.
 - 회사의 계정 확인 상태 확인
-- 시만텍 ID, 판매자 ID, MPN ID, 게시자 ID 및 회사 승인자 및 판매자 연락처를 포함한 연락처 정보 확인
+- 시만텍 ID, 판매자 ID, MPN(Microsoft 파트너 네트워크) ID, 게시자 ID 및 회사 승인자 및 판매자 연락처를 포함한 연락처 정보 확인
 - 파트너 센터에서 비즈니스 계정을 사용할 모든 사용자를 위한 사용자 계정 만들기
 
 ### <a name="open-developer-settings"></a>개발자 설정 열기
 
-계정 설정은 파트너 센터의 [상용 마켓플레이스 대시보드의](https://partner.microsoft.com/dashboard/commercial-marketplace) 오른쪽 상단에 있습니다. 기어 아이콘(대시보드의 오른쪽 상단 모서리 근처)을 선택한 다음 **개발자 설정을**선택합니다.
+**계정 설정은** 파트너 센터의 [상용 마켓플레이스 대시보드의](https://partner.microsoft.com/dashboard/commercial-marketplace) 오른쪽 상단에 있습니다. 기어 아이콘(대시보드의 오른쪽 상단 모서리 근처)을 선택한 다음 **개발자 설정을**선택합니다.
 
 ![파트너 센터의 계정 설정 메뉴](./media/dashboard-developer-settings.png)
 
@@ -70,7 +70,7 @@ ms.locfileid: "81262930"
 1. 파트너 센터의 [상용 마켓플레이스 개요 페이지로](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) 이동합니다.
 2. 프로필 섹션에서 Microsoft 계정 연결 을 **선택합니다.**
 3. 메시지가 표시되면 MSA(Microsoft 계정)로 로그인합니다. 이 계정은 다른 파트너 센터 계정과 이미 연결할 수 없습니다.
-4. 결제 계정 설정을 완료하려면 파트너 센터에서 완전히 로그아웃한 다음 직장 계정이 아닌 Microsoft 계정으로 다시 로그인합니다.
+4. 지급 계정 설정을 완료하려면 파트너 센터에서 로그아웃한 다음 직장 계정이 아닌 Microsoft 계정으로 다시 로그인합니다.
 
 이제 Microsoft 계정이 연결되어 있으면 지급 계정을 추가해야 합니다.
 - **결제 방법 선택**: 은행 계좌 또는 페이팔
@@ -91,7 +91,7 @@ ms.locfileid: "81262930"
 
 파트너 센터에서 세금 양식을 전자적으로 작성하고 제출할 수 있습니다. 대부분의 경우 양식을 인쇄하고 우편으로 보낼 필요가 없습니다.
 
-국가 및 지역에 따라 세금 요구 사항이 다릅니다. 세금을 납부해야 하는 정확한 금액은 쿠폰을 판매하는 국가 및 지역에 따라 다릅니다. Microsoft는 일부 국가에서 는 판매 및 사용 세를 송금합니다. 이러한 국가는 쿠폰을 등록하는 과정에서 식별됩니다. 다른 국가에서는 등록된 위치에 따라 판매세를 송금하고 판매에 대한 세금을 현지 과세 당국에 직접 송금해야 할 수 있습니다. 또한, 당신이받는 판매 수익금은 소득으로 과세 될 수 있습니다. Microsoft 판매 거래에 적합한 세금 정보를 결정하는 데 가장 도움이 되는 국가 또는 지역의 관련 기관에 문의하는 것이 좋습니다.
+국가 및 지역에 따라 세금 요구 사항이 다릅니다. 세금을 납부해야 하는 정확한 금액은 쿠폰을 판매하는 국가 및 지역에 따라 다릅니다. Microsoft는 판매를 송금하고 일부 국가에서는 해당 국가를 대신하여 세금을 사용합니다. 이러한 국가는 쿠폰을 등록하는 과정에서 식별됩니다. 다른 국가에서는 등록된 위치에 따라 판매세를 송금하고 판매에 대한 세금을 현지 과세 당국에 직접 송금해야 할 수 있습니다. 또한, 당신이받는 판매 수익금은 소득으로 과세 될 수 있습니다. Microsoft 판매 거래에 적합한 세금 정보를 결정하는 데 가장 도움이 되는 국가 또는 지역의 관련 기관에 문의하는 것이 좋습니다.
 
 ##### <a name="withholding-rates"></a>원천징수율
 세금 양식에 제출하는 정보에 따라 적절한 세금 원천징수율이 결정됩니다. 원천징수율은 귀하가 미국으로 유입하는 판매에만 적용됩니다. 미국 외 지역으로 이루어진 판매는 원천징수 대상이 아닙니다. 원천징수율은 다양하지만 미국 이외 지역에 등록하는 대부분의 개발자의 경우 기본 세율은 30%입니다. 해당 국가가 미국과 소득세 조약에 동의한 경우 이 세율을 줄일 수 있습니다.
@@ -124,7 +124,7 @@ ms.locfileid: "81262930"
 
 각 제품에 대한 모든 제안 및 배포 채널에 대해 고유한 GUID를 만드는 것이 좋습니다. 보고를 분할하지 않으려면 제품의 여러 배포 채널에 대해 단일 GUID를 사용하도록 선택할 수 있습니다.
 
-템플릿을 사용하여 제품을 배포하고 Azure Marketplace 및 GitHub에서 모두 사용할 수 있는 경우, 2개의 고유 GUID를 만들고 등록할 수 있습니다.
+템플릿을 사용하여 제품을 배포하고 Azure 마켓플레이스와 GitHub에서 사용할 수 있는 경우 두 가지 GUIDS를 만들고 등록할 수 있습니다.
 
 *    Azure Marketplace의 제품 A
 *    GitHub의 제품 A
@@ -145,23 +145,20 @@ ms.locfileid: "81262930"
 
 ## <a name="manage-users"></a>사용자 관리
 
-파트너 센터의 **사용자** 섹션(계정 **설정)에서**Azure AD를 사용하여 파트너 센터 계정에 액세스할 수 있는 사용자, 그룹 및 Azure AD 응용 프로그램을 관리해 보겠습니다. 사용자를 관리하려면 [작업 계정(연결된](./company-work-accounts.md) Azure AD 테넌트)으로 로그인해야 합니다. 다른 직장 계정/테넌트 내에서 사용자를 관리하려면 로그아웃한 다음 해당 직장 계정/테넌트에 대한 **Manager** 권한이 있는 사용자로 다시 로그인해야 합니다.
+파트너 센터의 **사용자** 섹션(계정 **설정)에서**Azure AD를 사용하여 파트너 센터 계정에 액세스할 수 있는 사용자, 그룹 및 Azure AD 응용 프로그램을 관리할 수 있습니다. 계정에 사용자를 추가하거나 편집할 [작업 계정(Azure AD 테넌트)에](./company-work-accounts.md) 대한 [**관리자 수준**](#define-user-roles-and-permissions) 권한이 있어야 합니다. 다른 직장 계정/테넌트 내에서 사용자를 관리하려면 로그아웃한 다음 해당 직장 계정/테넌트에 대한 **Manager** 권한이 있는 사용자로 다시 로그인해야 합니다.
 
 직장 계정(Azure AD 테넌트)으로 로그인한 후에는 다음을 수행할 수 있습니다.
-- [사용자 추가 또는 제거](#add-or-remove-users)
+
+- [사용자 추가 또는 제거](#add-existing-users)
 - [사용자 암호를 변경합니다.](#change-a-user-password)
-- [그룹 추가 또는 제거](#add-or-remove-users)
+- [그룹 추가 또는 제거](#manage-groups)
 - [Azure AD 응용 프로그램 추가 또는 제거](#add-new-azure-ad-applications)
 - [Azure AD 응용 프로그램의 키 관리](#manage-keys-for-an-azure-ad-application)
 - [사용자 역할 및 사용 권한 정의](#define-user-roles-and-permissions)
 
 모든 파트너 센터 사용자(그룹 및 Azure AD 응용 프로그램 포함)는 파트너 센터 계정과 연결된 [Azure AD 테넌트에](#manage-tenants) 활성 작업 계정이 있어야 합니다.
 
-### <a name="add-or-remove-users"></a>사용자 추가 또는 제거
-
-계정에 사용자를 추가하거나 편집할 [작업 계정(Azure AD 테넌트)에](./company-work-accounts.md) 대한 [**관리자 수준**](#define-user-roles-and-permissions) 권한이 있어야 합니다.
-
-#### <a name="add-existing-users"></a>기존 사용자 추가
+### <a name="add-existing-users"></a>기존 사용자 추가
 
 회사의 [회사 회사 계정(Azure AD 테넌트)에](./company-work-accounts.md)이미 있는 파트너 센터 계정에 사용자를 추가하려면 다음을 수행합니다.
 
@@ -172,7 +169,7 @@ ms.locfileid: "81262930"
 4. **역할** 섹션에서 선택한 사용자에 대한 역할 또는 사용자 지정 권한을 지정합니다.
 5. **저장**을 선택합니다.
 
-#### <a name="create-new-users"></a>새 사용자 만들기
+### <a name="create-new-users"></a>새 사용자 만들기
 
 새 사용자 계정을 만들려면 [**글로벌 관리자**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 권한이 있는 계정이 있어야 합니다. 
 
@@ -186,7 +183,7 @@ ms.locfileid: "81262930"
 
 파트너 센터에서 새 사용자를 만들면 로그인한 작업 계정(Azure AD 테넌트)에서 해당 사용자에 대한 계정도 생성됩니다. 파트너 센터에서 사용자 이름을 변경하면 조직의 작업 계정(Azure AD 테넌트)에서 동일한 변경 사항이 변경됩니다.
 
-#### <a name="invite-new-users-by-email"></a>이메일로 새 사용자 초대
+### <a name="invite-new-users-by-email"></a>이메일로 새 사용자 초대
 
 전자 메일을 통해 현재 회사 회사 계정(Azure AD 테넌트)의 일부가 아닌 사용자를 초대하려면 [**글로벌 관리자**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 권한이 있는 계정이 있어야 합니다.
 
@@ -202,11 +199,11 @@ ms.locfileid: "81262930"
 > [!NOTE]
 > 조직에서 [디렉터리 통합을](https://go.microsoft.com/fwlink/p/?LinkID=724033) 사용하여 온-프레미스 디렉터리 서비스를 Azure AD와 동기화하는 경우 파트너 센터에서 새 사용자, 그룹 또는 Azure AD 응용 프로그램을 만들 수 없습니다. 파트너 센터에서 보고 추가하려면 사용자(또는 온-프레미스 디렉터리의 다른 관리자)가 온-프레미스 디렉터리에서 직접 만들어야 합니다.
 
-#### <a name="remove-a-user"></a>사용자 제거
+### <a name="remove-a-user"></a>사용자 제거
 
 직장 계정(Azure AD 테넌트)에서 사용자를 제거하려면 **사용자(계정** **설정)로**이동하여 맨 오른쪽 열의 확인란을 사용하여 제거할 사용자를 선택한 다음 사용 가능한 작업에서 **제거를** 선택합니다. 선택한 사용자를 제거할지 확인하는 팝업 창이 나타납니다.
 
-#### <a name="change-a-user-password"></a>사용자 암호를 변경합니다.
+### <a name="change-a-user-password"></a>사용자 암호를 변경합니다.
 
 사용자 중 한 명이 암호를 변경해야 하는 경우 사용자 계정을 만들 때 **암호 복구 전자 메일을** 제공한 경우 암호를 변경할 수 있습니다. 아래 단계에 따라 사용자의 암호를 업데이트할 수도 있습니다. 회사 회사 계정(Azure AD 테넌트)에서 사용자의 암호를 변경하려면 [**글로벌 관리자**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 권한이 있는 계정에서 로그인해야 합니다. 이렇게 하면 Azure AD 테넌트의 사용자 암호와 파트너 센터에 액세스하는 데 사용하는 암호가 변경됩니다.
 
@@ -218,7 +215,7 @@ ms.locfileid: "81262930"
 
 그룹을 사용하면 여러 사용자 역할과 사용 권한을 모두 함께 제어할 수 있습니다.
 
-#### <a name="add-an-existing-group"></a>기존 그룹 추가
+### <a name="add-an-existing-group"></a>기존 그룹 추가
 
 조직의 직장 계정(Azure AD 테넌트)에 이미 있는 그룹을 파트너 센터 계정에 추가하려면 다음을 수행하십시오.
 
@@ -231,7 +228,7 @@ ms.locfileid: "81262930"
 
 기존 그룹을 추가하면 해당 그룹의 구성원인 모든 사용자가 그룹의 할당된 역할과 연결된 권한으로 파트너 센터 계정에 액세스할 수 있습니다.
 
-#### <a name="add-a-new-group"></a>새 그룹 추가
+### <a name="add-a-new-group"></a>새 그룹 추가
 
 파트너 센터 계정에 새 그룹을 추가하려면 다음 을 수행하세요.
 
@@ -245,7 +242,7 @@ ms.locfileid: "81262930"
 
 이 새 그룹은 파트너 센터 계정뿐만 아니라 조직의 직장 계정(Azure AD 테넌트)에서도 만들어집니다.
 
-#### <a name="remove-a-group"></a>그룹 제거
+### <a name="remove-a-group"></a>그룹 제거
 
 직장 계정(Azure AD 테넌트)에서 그룹을 제거하려면 **사용자(계정 설정)로**이동하여 맨 오른쪽 열의 확인란을 사용하여 제거할 그룹을 선택한 다음 사용 가능한 작업에서 **Users** **제거를** 선택합니다. 선택한 그룹을 제거할지 확인하는 팝업 창이 나타납니다.
 
@@ -253,7 +250,7 @@ ms.locfileid: "81262930"
 
 회사의 Azure AD에 속한 응용 프로그램 이나 서비스가 파트너 센터 계정에 액세스하도록 허용할 수 있습니다.
 
-#### <a name="add-existing-azure-ad-applications"></a>기존 Azure AD 응용 프로그램 추가
+### <a name="add-existing-azure-ad-applications"></a>기존 Azure AD 응용 프로그램 추가
 
 회사의 Azure Active Directory에 이미 있는 응용 프로그램을 추가하려면 다음을 수행하십시오.
 
@@ -263,7 +260,7 @@ ms.locfileid: "81262930"
 4. **역할** 섹션에서 선택한 Azure AD 응용 프로그램에 대한 역할 또는 사용자 지정된 사용 권한을 지정합니다.
 5. **저장**을 선택합니다.
 
-#### <a name="add-new-azure-ad-applications"></a>새 Azure AD 응용 프로그램 추가
+### <a name="add-new-azure-ad-applications"></a>새 Azure AD 응용 프로그램 추가
 
 파트너 센터에 새 Azure AD 응용 프로그램 계정에 대한 액세스 권한을 부여하려는 경우 **사용자** 섹션에서 하나를 만들 수 있습니다. 이렇게 하면 파트너 센터 계정뿐만 아니라 회사 회사 회사 계정(Azure AD 테넌트)에 새 계정이 생성됩니다. 주로 파트너 센터 인증을 위해 이 Azure AD 응용 프로그램을 사용하고 있고 사용자가 직접 액세스할 필요가 없는 경우 디렉터리의 다른 Azure AD 응용 프로그램에서 해당 값을 사용하지 않는 한 **회신 URL** 및 **앱 ID URI에**대한 유효한 주소를 입력할 수 있습니다.
 
@@ -276,11 +273,11 @@ ms.locfileid: "81262930"
 
 Azure AD 응용 프로그램을 추가하거나 만든 후 **사용자** 섹션으로 돌아가 서 테넌트 ID, 클라이언트 ID, 회신 URL 및 앱 ID URI를 비롯한 응용 프로그램의 설정을 검토할 응용 프로그램 이름을 선택할 수 있습니다.
 
-#### <a name="remove-an-application"></a>애플리케이션 제거
+### <a name="remove-an-azure-ad-application"></a>Azure AD 응용 프로그램 제거
 
 직장 계정(Azure AD 테넌트)에서 응용 프로그램을 제거하려면 **사용자(계정** **설정)로**이동하여 맨 오른쪽 열의 확인란을 사용하여 제거할 응용 프로그램을 선택한 다음 사용 가능한 작업에서 **제거를** 선택합니다. 선택한 응용 프로그램을 제거할지 확인하는 팝업 창이 나타납니다.
 
-#### <a name="manage-keys-for-an-azure-ad-application"></a>Azure AD 응용 프로그램의 키 관리
+### <a name="manage-keys-for-an-azure-ad-application"></a>Azure AD 응용 프로그램의 키 관리
 
 Azure AD 응용 프로그램이 Microsoft Azure AD에서 데이터를 읽고 쓰는 경우 키가 필요합니다. 파트너 센터에서 정보를 편집하여 Azure AD 응용 프로그램에 대한 키를 만들 수 있습니다. 더 이상 필요하지 않은 키를 제거할 수도 있습니다.
 
@@ -350,7 +347,3 @@ Azure Active Directory(AD), 클라우드 솔루션 공급자(CSP), CPV(제어판
 파트너 센터의 **계약** 섹션(계정 **설정**아래)에서 승인한 게시 계약 목록을 살펴보겠습니다. 이러한 계약은 수락된 날짜와 계약을 수락한 사용자의 이름을 포함하여 이름 및 버전 번호에 따라 나열됩니다.
 
 주의가 필요한 계약 업데이트가 있는 경우 **필요한 작업이** 이 페이지 상단에 나타날 수 있습니다. 업데이트된 계약을 수락하려면 먼저 연결된 계약 버전을 읽은 다음 **계약 수락을**선택합니다.
-
-## <a name="next-steps"></a>다음 단계
-
-- [새로운 SaaS 제품 만들기](./create-new-saas-offer.md)

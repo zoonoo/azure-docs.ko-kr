@@ -1,16 +1,16 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/27/2020
-ms.author: dapine
-ms.openlocfilehash: 8e838ab94edca2cd5d40a06258be6d456b43878f
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.author: trbye
+ms.openlocfilehash: 5f526f4bd826ebc0963e3ee780c8cd0b9322470b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76900306"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81421677"
 ---
 > [!div class="nextstepaction"]
 > [GitHub에서 C++ 샘플 살펴보기](https://aka.ms/speech/github-cpp)

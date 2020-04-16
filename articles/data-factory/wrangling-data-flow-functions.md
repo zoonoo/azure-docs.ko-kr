@@ -7,14 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: e2517ec4a02a5d61fb3ce1d9ca9ffa2b5f4e8bf8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7235e95e5b33fb931411a51796a8dbec96c46355
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74287039"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417660"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>랭글링 데이터 흐름의 변환 함수
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory에서 데이터 흐름을 랭글링하면 클라우드 규모에서 코드 없는 민첩한 데이터 준비 및 랭글링 작업을 수행할 수 있습니다. 랭글링 데이터 흐름은 [Power Query Online과](https://docs.microsoft.com/powerquery-m/power-query-m-reference) 통합되며 스파크 실행을 통해 데이터 랭글링에 Power Query M 기능을 사용할 수 있습니다. 
 
@@ -93,8 +95,8 @@ M 함수 [Table.SelectRows를](https://docs.microsoft.com/powerquery-m/table-sel
 | Table.RemoveLastN | 아래쪽 행을 제거하는 것은 지원되지 않습니다. |
 | Table.RowCount | 지원되지는 않지만 모든 셀이 비어 있는 추가 열을 사용하여 (조건 열을 사용할 수 있음) 해당 열에서 그룹을 사용하여 수행할 수 있습니다. Table.Group이 지원됩니다. | 
 | 행 수준 오류 처리 | 행 수준 오류 처리는 현재 지원되지 않습니다. 예를 들어 열에서 비숫자 값을 필터링하려면 텍스트 열을 숫자로 변환하는 것이 한 가지 방법입니다. 변환에 실패한 모든 셀은 오류 상태가 되어 필터링해야 합니다. 이 시나리오는 데이터 흐름을 랭글링할 때불가능합니다. |
-| Table.Transpose | 지원되지 않음 |
-| Table.Pivot | 지원되지 않음 |
+| Table.Transpose | 지원 안 함 |
+| Table.Pivot | 지원 안 함 |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.openlocfilehash: 5794a2c754e2082fdf45ad689bdb89ea494541c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c8ada22b4492bef0239b6f811d5a7bd58e58510
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73679868"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417218"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Azure Data Factory의 필터 작업
 입력 배열에 필터 식을 적용하려면 파이프라인에서 필터 작업을 사용할 수 있습니다. 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## <a name="syntax"></a>구문
 
@@ -36,12 +37,12 @@ ms.locfileid: "73679868"
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | 설명 | 허용되는 값 | 필수
+속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-name | `Filter` 작업의 이름입니다. | String | yes
-type | **필터**로 설정되어야 합니다. | String | yes
-condition(조건) | 입력을 필터링하는 데 사용할 조건입니다. | 식 | yes
-items | 필터를 적용해야 하는 입력 배열입니다. | 식 | yes
+name | `Filter` 작업의 이름입니다. | String | 예
+type | **필터**로 설정되어야 합니다. | String | 예
+condition(조건) | 입력을 필터링하는 데 사용할 조건입니다. | 식 | 예
+items | 필터를 적용해야 하는 입력 배열입니다. | 식 | 예
 
 ## <a name="example"></a>예제
 
@@ -115,9 +116,9 @@ items | 필터를 적용해야 하는 입력 배열입니다. | 식 | yes
 Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요. 
 
 - [If 조건 작업](control-flow-if-condition-activity.md)
-- [파이프라인 활동 실행](control-flow-execute-pipeline-activity.md)
-- [각 활동에 대해](control-flow-for-each-activity.md)
-- [메타데이터 활동 받기](control-flow-get-metadata-activity.md)
+- [파이프라인 작업 실행](control-flow-execute-pipeline-activity.md)
+- [ForEach 작업](control-flow-for-each-activity.md)
+- [메타데이터 작업 가져오기](control-flow-get-metadata-activity.md)
 - [조회 작업](control-flow-lookup-activity.md)
-- [웹 활동](control-flow-web-activity.md)
+- [웹 작업](control-flow-web-activity.md)
 - [Until 작업](control-flow-until-activity.md)

@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 065610a9de4898d012cef8a16849c09a81f0774c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7470af23059ccd07e48050e6dc34521e299a986f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76841100"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418612"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>가상 네트워크에 가입하도록 Azure-SQL 서버 통합 서비스(SSIS) 통합 런타임(IR) 구성
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 자습서에서는 Azure 포털을 사용하여 가상 네트워크에 가입하도록 Azure-SQL 서버 통합 서비스(SSIS) 통합 런타임(IR)을 구성하기 위한 기본 단계를 제공합니다.
 
@@ -70,7 +72,7 @@ Azure-SSIS IR에 가입하기 전에 Azure 포털을 사용하여 가상 네트�
 
 1. Microsoft Edge 또는 Google Chrome을 시작합니다. 현재 이러한 웹 브라우저만 데이터 팩터리 UI를 지원합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. **더 많은 서비스를 선택합니다.** **가상 네트워크**를 필터링하여 선택합니다.
 

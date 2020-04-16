@@ -12,14 +12,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.openlocfilehash: ca57f4611b9eb483104d8d0b8fc5636726203195
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e2c9da9c1a37b087a31d1910094f51a39288c192
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927774"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416701"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 QuickBooks Online에서 데이터 복사
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 QuickBooks Online에서 데이터를 복사하는 방법을 간략하게 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
@@ -49,15 +50,15 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 다음은 QuickBooks 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성은 **QuickBooks**로 설정해야 합니다. | yes |
-| 엔드포인트(endpoint) | QuickBooks Online 서버의 엔드포인트입니다. 즉, quickbooks.api.intuit.com입니다.  | yes |
-| companyId | 권한 부여할 QuickBooks 회사의 회사 ID입니다. 회사 ID를 찾는 방법에 대한 자세한 내용은 [회사 ID를 찾으려면 어떻게 하나요?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551)를 참조하세요. | yes |
-| consumerKey | OAuth 1.0 인증에 대한 소비자 키입니다. | yes |
-| consumerSecret | OAuth 1.0 인증에 대한 소비자 비밀입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
-| accessToken | OAuth 1.0 인증에 대한 액세스 토큰입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
-| accessTokenSecret | OAuth 1.0 인증에 대한 액세스 토큰 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| type | type 속성은 **QuickBooks**로 설정해야 합니다. | 예 |
+| 엔드포인트(endpoint) | QuickBooks Online 서버의 엔드포인트입니다. 즉, quickbooks.api.intuit.com입니다.  | 예 |
+| companyId | 권한 부여할 QuickBooks 회사의 회사 ID입니다. 회사 ID를 찾는 방법에 대한 자세한 내용은 [회사 ID를 찾으려면 어떻게 하나요?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551)를 참조하세요. | 예 |
+| consumerKey | OAuth 1.0 인증에 대한 소비자 키입니다. | 예 |
+| consumerSecret | OAuth 1.0 인증에 대한 소비자 비밀입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| accessToken | OAuth 1.0 인증에 대한 액세스 토큰입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| accessTokenSecret | OAuth 1.0 인증에 대한 액세스 토큰 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
 
 **예제:**
@@ -95,9 +96,9 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 QuickBooks Online에서 데이터를 복사하려면 데이터 세트의 type 속성을 **QuickBooksObject**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 형식 속성을 다음으로 설정해야 **합니다.** | yes |
+| type | 데이터 집합의 형식 속성을 다음으로 설정해야 **합니다.** | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -125,9 +126,9 @@ QuickBooks Online에서 데이터를 복사하려면 데이터 세트의 type �
 
 QuickBooks Online에서 데이터를 복사하려면 복사 작업의 원본 형식을 **QuickBooksSource**로 설정합니다. 다음 속성은 복사 활동 **소스** 섹션에서 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성은 **QuickBooksSource**로 설정해야 합니다. | yes |
+| type | 복사 작업 원본의 type 속성은 **QuickBooksSource**로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM "Bill" WHERE Id = '123'"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**

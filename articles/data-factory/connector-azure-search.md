@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/13/2019
-ms.openlocfilehash: 418026d5569cd7e4a7c5239f99650833b1b9514d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfa1ad318ccc9e891b646ec050f6a0776e108206
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75892931"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418238"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Azure 인지 검색 인덱스에 데이터 복사
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-azure-search-connector.md)
 > * [현재 버전](connector-azure-search.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure 데이터 팩터리에서 활동 복사를 사용하여 데이터를 Azure 인지 검색 인덱스로 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
@@ -40,11 +42,11 @@ ms.locfileid: "75892931"
 
 Azure 인지 검색 링크된 서비스에 대 한 다음 속성지원 됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **AzureSearch**로 설정되어야 합니다. | yes |
-| url | 검색 서비스에 대한 URL입니다. | yes |
-| key | 검색 서비스의 관리자 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| type | 형식 속성은 **AzureSearch**로 설정되어야 합니다. | 예 |
+| url | 검색 서비스에 대한 URL입니다. | 예 |
+| key | 검색 서비스의 관리자 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임입니다.](concepts-integration-runtime.md) Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
 > [!IMPORTANT]
@@ -78,10 +80,10 @@ Azure 인지 검색 링크된 서비스에 대 한 다음 속성지원 됩니다
 
 Azure Cognitive Search에 데이터를 복사하려면 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 type 속성을 **AzureSearchIndex**로 설정해야 합니다. | yes |
-| indexName | 검색 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. 인덱스는 Azure 인지 검색에 있어야 합니다. | yes |
+| type | 데이터 세트의 type 속성을 **AzureSearchIndex**로 설정해야 합니다. | 예 |
+| indexName | 검색 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. 인덱스는 Azure 인지 검색에 있어야 합니다. | 예 |
 
 **예제:**
 
@@ -110,9 +112,9 @@ Azure Cognitive Search에 데이터를 복사하려면 다음 속성이 지원�
 
 Azure 인지 검색에 데이터를 복사하려면 복사 활동의 원본 유형을 **AzureSearch싱크**로 설정합니다. 다음 속성은 복사 활동 **싱크** 섹션에서 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 **AzureSearchIndexSink**로 설정해야 합니다. | yes |
+| type | 복사 작업 원본의 type 속성을 **AzureSearchIndexSink**로 설정해야 합니다. | 예 |
 | writeBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. [WriteBehavior 속성](#writebehavior-property)을 참조하세요.<br/><br/>허용되는 값은 **Merge**(기본값) 및 **Upload**입니다. | 예 |
 | writeBatchSize | 버퍼 크기가 writeBatchSize에 도달하면 데이터를 검색 인덱스에 업로드합니다. 자세한 내용은 [WriteBatchSize 속성](#writebatchsize-property)을 참조하세요.<br/><br/>허용되는 값은 정수 1~1,000이고 기본값은 1,000입니다. | 예 |
 

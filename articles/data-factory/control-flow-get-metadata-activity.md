@@ -10,16 +10,17 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 04/15/2020
 ms.author: jingwang
-ms.openlocfilehash: a0c07aaf27825254f776a03b9b9ca2cbeddca02d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 344ad8e106c119c1de59570d1ec4e3df5e1cc8af
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250267"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417116"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure 데이터 팩터리에서 메타데이터 작업 가져옵니다.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 메타데이터 받기 활동을 사용하여 Azure 데이터 팩터리에서 데이터의 메타데이터를 검색할 수 있습니다. 다음 시나리오에서 이 활동을 사용할 수 있습니다.
 
@@ -40,7 +41,7 @@ ms.locfileid: "78250267"
 
 ### <a name="supported-connectors"></a>지원되는 커넥터
 
-**File Storage**
+**파일 저장**
 
 | 커넥터/메타데이터 | itemName<br>(파일/폴더) | itemType<br>(파일/폴더) | 크기<br>(파일) | created<br>(파일/폴더) | lastModified<br>(파일/폴더) |childItems<br>(폴더) |contentMD5<br>(파일) | structure<br/>(파일) | columnCount<br>(파일) | exists<br>(파일/폴더) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -54,6 +55,7 @@ ms.locfileid: "78250267"
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
+- 폴더에 대해 메타데이터 받기 작업을 사용하는 경우 지정된 폴더에 대한 LIST/EXECUTE 권한이 있는지 확인합니다.
 - Amazon S3 및 Google `lastModified` 클라우드 스토리지의 경우 버킷과 키에 적용되지만 `exists` 가상 폴더에는 적용되지 않으며 버킷과 키에는 적용되지만 접두사 나 가상 폴더에는 적용되지 않습니다.
 - Azure Blob 저장소의 경우 컨테이너 및 Blob에는 `lastModified` 적용되지만 가상 폴더에는 적용되지 않습니다.
 - `lastModified`필터는 현재 자식 항목을 필터링하지만 지정된 폴더/파일 자체는 적용되지 않습니다.
@@ -72,7 +74,7 @@ ms.locfileid: "78250267"
 
 메타데이터 받기 작업 필드 목록에서 다음 메타데이터 유형을 지정하여 해당 정보를 검색할 수 있습니다.
 
-| 메타데이터 유형 | 설명 |
+| 메타데이터 유형 | Description |
 |:--- |:--- |
 | itemName | 파일 또는 폴더의 이름입니다. |
 | itemType | 파일 또는 폴더의 형식입니다. 반환된 `File` 값은 또는 . `Folder` |
@@ -93,7 +95,7 @@ ms.locfileid: "78250267"
 
 ## <a name="syntax"></a>구문
 
-**메타데이터 가져오기 작업**
+**메타데이터 활동 받기**
 
 ```json
 {
@@ -135,10 +137,10 @@ ms.locfileid: "78250267"
 
 현재 메타데이터 받기 활동은 다음과 같은 메타데이터 정보를 반환할 수 있습니다.
 
-속성 | 설명 | 필수
+속성 | Description | 필수
 -------- | ----------- | --------
-fieldList | 필요한 메타데이터 정보의 유형입니다. 지원되는 메타데이터에 대한 자세한 내용은 이 문서의 [메타데이터 옵션](#metadata-options) 섹션을 참조하세요. | yes 
-데이터 세트 | 메타데이터 받기 활동에서 메타데이터를 검색할 참조 데이터 집합입니다. 지원되는 커넥터에 대한 자세한 내용은 [기능](#capabilities) 섹션을 참조하십시오. 데이터 집합 구문 세부 정보는 특정 커넥터 항목을 참조하십시오. | yes
+fieldList | 필요한 메타데이터 정보의 유형입니다. 지원되는 메타데이터에 대한 자세한 내용은 이 문서의 [메타데이터 옵션](#metadata-options) 섹션을 참조하세요. | 예 
+데이터 세트 | 메타데이터 받기 활동에서 메타데이터를 검색할 참조 데이터 집합입니다. 지원되는 커넥터에 대한 자세한 내용은 [기능](#capabilities) 섹션을 참조하십시오. 데이터 집합 구문 세부 정보는 특정 커넥터 항목을 참조하십시오. | 예
 형식설정 | 형식 형식 데이터 집합을 사용할 때 적용됩니다. | 예
 매장 설정 | 형식 형식 데이터 집합을 사용할 때 적용됩니다. | 예
 
@@ -196,7 +198,7 @@ fieldList | 필요한 메타데이터 정보의 유형입니다. 지원되는 �
 ## <a name="next-steps"></a>다음 단계
 데이터 팩터리에서 지원하는 다른 제어 흐름 활동에 대해 알아봅니다.
 
-- [파이프라인 실행 작업](control-flow-execute-pipeline-activity.md)
+- [파이프라인 활동 실행](control-flow-execute-pipeline-activity.md)
 - [ForEach 작업](control-flow-for-each-activity.md)
 - [조회 활동](control-flow-lookup-activity.md)
 - [웹 활동](control-flow-web-activity.md)

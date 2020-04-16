@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
-ms.openlocfilehash: b207012335e68d389a07b54408e840dbb305a30c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f42b44fdab28cb60ff903a048d9162115bf67d9c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930129"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417762"
 ---
 # <a name="azure-data-factory-unpivot-transformation"></a>Azure 데이터 팩터리 언피벗 변환
 
-
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 ADF 매핑 데이터 흐름에서 Unpivot를 사용하면 단일 레코드의 여러 열에서 단일 열의 여러 열에서 동일한 값을 가진 여러 레코드로 확장하여 비정규화된 데이터 집합을 보다 정규화된 버전으로 변환할 수 있습니다.
 

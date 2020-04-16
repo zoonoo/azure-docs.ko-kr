@@ -1,5 +1,5 @@
 ---
-title: 복사 활동 모니터링
+title: 복사 작업 모니터
 description: Azure 데이터 팩터리에서 복사 활동 실행을 모니터링하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: jingwang
-ms.openlocfilehash: 6494352bf957af83b45488493bf12a094c730c09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 47824095e892ca3c919d2d871feb612758ab2308
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79125759"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417847"
 ---
-# <a name="monitor-copy-activity"></a>복사 활동 모니터링
+# <a name="monitor-copy-activity"></a>복사 작업 모니터
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory에서 복사 활동 실행을 모니터링하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
@@ -48,7 +50,7 @@ Azure Data Factory에서 파이프라인을 만들고 게시한 후에는 파이
 
 복사 활동 실행 세부 정보 및 성능 특성은 UI 모니터링 보기를 렌더링하는 데 사용되는 **복사 활동 실행 결과** > **출력** 섹션에서도 반환됩니다. 다음은 반환될 수 있는 속성의 전체 목록입니다. 복사 시나리오에 적용할 수 있는 속성만 표시됩니다. 일반적으로 프로그래밍 방식으로 실행되는 활동을 모니터링하는 방법에 대한 자세한 내용은 [프로그래밍 방식으로 Azure 데이터 팩터리 를 모니터링합니다.](monitor-programmatically.md)
 
-| 속성 이름  | 설명 | 출력 단위 |
+| 속성 이름  | Description | 출력 단위 |
 |:--- |:--- |:--- |
 | DataRead | 원본에서 읽은 실제 데이터 양입니다. | INt64 값(바이트) |
 | DataWritten | 싱크대에 기록/커밋된 데이터의 실제 마운트입니다. 크기는 각 데이터 `dataRead` 저장소가 데이터를 저장하는 방법과 관련이 있으므로 크기와 다를 수 있습니다. | INt64 값(바이트) |
@@ -153,4 +155,4 @@ Azure Data Factory에서 파이프라인을 만들고 게시한 후에는 파이
 
 \-[활동 개요 복사](copy-activity-overview.md)
 
-\-[활동 성능 복사](copy-activity-performance.md)
+\- [복사 작업 성능](copy-activity-performance.md)

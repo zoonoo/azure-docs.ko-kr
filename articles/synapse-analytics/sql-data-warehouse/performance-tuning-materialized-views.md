@@ -10,19 +10,18 @@ ms.subservice: ''
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 6e942130d9acf803665e52498ef6a4976cc9ade7
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 6a3235d5edc5249bbbdc2e79dac8575ad26fd5e1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743182"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417036"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>구체화된 뷰를 사용한 성능 조정
 
 Synapse SQL 풀의 구체화된 뷰는 복잡한 분석 쿼리가 쿼리를 변경하지 않고 빠른 성능을 얻을 수 있도록 낮은 유지 관리 방법을 제공합니다. 이 문서에서는 구체화된 뷰 사용에 대한 일반적인 지침에 대해 설명합니다.
 
-Azure SQL Data Warehouse의 구체화된 보기는 복잡한 분석 쿼리가 쿼리를 변경하지 않고 빠른 성능을 얻을 수 있도록 낮은 유지 관리 방법을 제공합니다. 이 문서에서는 구체화된 뷰 사용에 대한 일반적인 지침에 대해 설명합니다.
+SQL 풀의 구체화된 뷰는 복잡한 분석 쿼리가 쿼리를 변경하지 않고 빠른 성능을 얻을 수 있도록 낮은 유지 관리 방법을 제공합니다. 이 문서에서는 구체화된 뷰 사용에 대한 일반적인 지침에 대해 설명합니다.
 
 ## <a name="materialized-views-vs-standard-views"></a>구체화된 뷰와 표준 뷰
 
@@ -34,7 +33,7 @@ SQL 풀은 표준 및 구체화된 뷰를 지원합니다.  둘 다 SELECT 식�
 
 표준 뷰의 대부분의 요구 사항은 여전히 구체화된 뷰에 적용됩니다. 구체화된 뷰 구문 및 기타 요구 사항에 대한 자세한 내용은 [구체화된 뷰 만들기 를 선택으로](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 참조하십시오.
 
-| 비교                     | View                                         | 구체화된 뷰
+| 비교                     | 보기                                         | 구체화된 뷰
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
 |정의 보기                 | SQL 풀에 저장됩니다.              | SQL 풀에 저장됩니다.
 |콘텐츠 보기                    | 뷰를 사용할 때마다 생성됩니다.   | 뷰를 만드는 동안 SQL 풀에 미리 처리되고 저장됩니다. 데이터가 기본 테이블에 추가될 때 업데이트됩니다.
@@ -45,7 +44,7 @@ SQL 풀은 표준 및 구체화된 뷰를 지원합니다.  둘 다 SELECT 식�
 
 ## <a name="benefits-of-using-materialized-views"></a>구체화된 뷰 사용의 이점
 
-적절하게 설계된 구체화된 뷰는 다음과 같은 이점을 제공할 수 있습니다.
+적절하게 설계된 구체화된 뷰는 다음과 같은 이점을 제공합니다.
 
 - JOIN 및 집계 함수를 사용하면 복잡한 쿼리의 실행 시간을 줄일 수 있습니다. 쿼리가 복잡할수록 실행 시간 절약 가능성이 높아지습니다. 쿼리의 계산 비용이 높고 결과 데이터 집합이 작을 때 가장 큰 이점을 얻을 수 있습니다.  
 - SQL 풀의 최적화 프로그램은 배포된 구체화된 뷰를 자동으로 사용하여 쿼리 실행 계획을 개선할 수 있습니다.  이 프로세스는 더 빠른 쿼리 성능을 제공하는 사용자에게 투명하며 구체화된 뷰를 직접 참조하기 위해 쿼리가 필요하지 않습니다.
@@ -118,7 +117,7 @@ JOIN sys.indexes I ON V.object_id= I.object_id AND I.index_id < 2;
 
 - 사용량이 적거나 더 이상 필요하지 않은 구체화된 뷰를 삭제합니다.  비활성화된 구체화된 뷰는 유지 관리되지 않지만 저장소 비용이 계속 발생합니다.  
 
-- 데이터가 겹치지 않더라도 동일하거나 유사한 기본 테이블에서 만든 구체화된 뷰를 결합합니다.  구체화된 뷰를 빗질하면 별도의 뷰의 합계보다 크기가 커질 수 있지만 뷰 유지 관리 비용은 줄어듭니다.  다음은 그 예입니다.
+- 데이터가 겹치지 않더라도 동일하거나 유사한 기본 테이블에서 만든 구체화된 뷰를 결합합니다.  구체화된 뷰를 결합하면 별도의 뷰의 합계보다 크기가 커질 수 있지만 뷰 유지 관리 비용은 줄어듭니다.  다음은 그 예입니다.
 
 ```sql
 

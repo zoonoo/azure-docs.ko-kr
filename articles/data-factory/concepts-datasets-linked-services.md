@@ -12,17 +12,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/25/2019
-ms.openlocfilehash: 878ad98b118fa02a6659584ac60e3343a948cd20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33b2ca8db75acff1ce423aa50087961cce6092b2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246267"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418408"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure 데이터 팩터리의 데이터 세트
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-create-datasets.md)
 > * [현재 버전](concepts-datasets-linked-services.md)
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 
 이 문서에서는 데이터 세트의 정의, 데이터 세트를 JSON 형식으로 정의하는 방법, Azure Data Factory 파이프라인에서 데이터 세트를 사용하는 방법에 대해 설명합니다.
 
@@ -67,12 +70,12 @@ Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduct
 ```
 다음 표에서는 위의 JSON에서 속성을 설명합니다.
 
-속성 | 설명 | 필수 |
+속성 | Description | 필수 |
 -------- | ----------- | -------- |
-name | 데이터 세트의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  yes |
-type | 데이터 세트의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | yes |
+name | 데이터 세트의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  예 |
+type | 데이터 세트의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |
 structure | 데이터 세트의 스키마입니다. 자세한 내용은 [데이터 집합 스키마](#dataset-structure-or-schema)를 참조하십시오. | 예 |
-typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azure SQL 테이블). 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 집합 형식을](#dataset-type)참조하십시오. | yes |
+typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azure SQL 테이블). 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 집합 형식을](#dataset-type)참조하십시오. | 예 |
 
 ### <a name="data-flow-compatible-dataset"></a>데이터 흐름 호환 데이터 집합
 
@@ -112,12 +115,12 @@ typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azu
 
 다음 표에서는 위의 JSON에서 속성을 설명합니다.
 
-속성 | 설명 | 필수 |
+속성 | Description | 필수 |
 -------- | ----------- | -------- |
-name | 데이터 세트의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  yes |
-type | 데이터 세트의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | yes |
+name | 데이터 세트의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  예 |
+type | 데이터 세트의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |
 스키마 | 데이터 세트의 스키마입니다. 자세한 내용은 [데이터 흐름 호환 데이터 집합을](#dataset-type)참조하십시오. | 예 |
-typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azure SQL 테이블). 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 집합 형식을](#dataset-type)참조하십시오. | yes |
+typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azure SQL 테이블). 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 집합 형식을](#dataset-type)참조하십시오. | 예 |
 
 
 ## <a name="dataset-example"></a>데이터 세트 예제
@@ -178,9 +181,9 @@ typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azu
 
 structure의 각 열에는 다음과 같은 속성이 포함됩니다.
 
-속성 | 설명 | 필수
+속성 | Description | 필수
 -------- | ----------- | --------
-name | 열의 이름입니다. | yes
+name | 열의 이름입니다. | 예
 type | 열의 데이터 형식입니다. Data Factory는 **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset 및 Timespan** 값을 허용하는 중간 데이터 형식을 지원합니다. | 예
 culture | type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 .NET 기반 culture(문화권)입니다. 기본값은 `en-us`입니다. | 예
 format | type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 format(서식) 문자열입니다. 날짜/시간 형식을 지정하는 방법은 [사용자 지정 날짜 및 시간 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)을 참조하세요. | 예

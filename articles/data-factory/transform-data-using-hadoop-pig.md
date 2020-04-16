@@ -11,18 +11,20 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 01/16/2018
-ms.openlocfilehash: 4064d62a6dc826b23ff1f51e9f61e48d362ae695
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73ce8c670940a31af6a88f98bfd5880ede259e01
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74912929"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418901"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop Pig 작업을 사용하여 데이터 변환
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-pig-activity.md)
 > * [현재 버전](transform-data-using-hadoop-pig.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Data Factory [파이프라인](concepts-pipelines-activities.md)의 HDInsight Pig 작업은 [사용자 고유](compute-linked-services.md#azure-hdinsight-linked-service) 또는 [주문형](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight 클러스터의 Pig 쿼리를 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](transform-data.md) 문서에서 작성합니다.
 
@@ -57,12 +59,12 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 ```
 ## <a name="syntax-details"></a>구문 세부 정보
 
-| 속성            | 설명                              | 필수 |
+| 속성            | Description                              | 필수 |
 | ------------------- | ---------------------------------------- | -------- |
-| name                | 작업의 이름                     | yes      |
+| name                | 작업의 이름                     | 예      |
 | description         | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 예       |
-| type                | Hive 작업의 경우 작업 유형은 HDinsightPig입니다. | yes      |
-| linkedServiceName   | Data Factory에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요. | yes      |
+| type                | Hive 작업의 경우 작업 유형은 HDinsightPig입니다. | 예      |
+| linkedServiceName   | Data Factory에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요. | 예      |
 | scriptLinkedService | 실행할 Pig 스크립트를 저장하는 데 사용되는 Azure Storage 연결된 서비스에 대한 참조입니다. 이 연결된 서비스를 지정하지 않으면 HDInsight 연결된 서비스에 정의된 Azure Storage 연결된 서비스가 사용됩니다. | 예       |
 | scriptPath          | scriptLinkedService에서 참조하는 Azure Storage에 저장된 스크립트 파일의 경로를 제공합니다. 파일 이름은 대/소문자를 구분합니다. | 예       |
 | getDebugInfo        | scriptLinkedService에 지정되었거나 HDInsight 클러스터에 사용된 Azure Storage에 로그 파일을 언제 복사할지 지정합니다. 허용되는 값: None, Always 또는 Failure. 기본값: None. | 예       |
@@ -78,5 +80,5 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 * [하두롭 스트리밍 활동](transform-data-using-hadoop-streaming.md)
 * [스파크 액티비티](transform-data-using-spark.md)
 * [.NET 사용자 지정 활동](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Batch 실행 작업](transform-data-using-machine-learning.md)
-* [저장 프로시저 작업](transform-data-using-stored-procedure.md)
+* [기계 학습 일괄 실행 활동](transform-data-using-machine-learning.md)
+* [저장 프로시저 활동](transform-data-using-stored-procedure.md)

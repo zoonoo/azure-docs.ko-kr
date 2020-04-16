@@ -7,17 +7,17 @@ ms.subservice: studio
 ms.topic: how-to
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 03/12/2020
-ms.openlocfilehash: 9c4215d2c2e811b4c6369ee3773fb811695da4fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: a342ef86817f4f66a6e74b72b4d167fa548b6345
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79204361"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419190"
 ---
 # <a name="download-notebookspreview-data"></a>노트북(미리 보기) 데이터 다운로드
 
-노트북(미리 보기) 기능은 *2020년 4월 13일에*제거됩니다. 이 날짜 이후에는 전자 필기장(미리 보기) 탭이 사라지고 노트북 데이터를 복원할 수 없습니다. 2020년 4월 13일 이전에 노트북 데이터를 다운로드합니다.
+노트북(미리 보기) 기능은 *2020년 4월 13일에*제거되었습니다. 노트북(미리 보기) 탭 및 사용자 전자 필기장 파일의 제거는 현재 전 세계 Azure 지역으로 롤아웃되고 있습니다.
 
 이 문서에서는 전자 필기장(미리 보기) 데이터를 다운로드하는 방법에 대한 단계별 지침을 제공합니다.
 

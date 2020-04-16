@@ -12,17 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
-ms.openlocfilehash: 257c71f7994b889540ec8cc5d0f384f3f8894f4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 427b7fff7b8f76412d7bd9d63aeb64583637779c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74913281"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418969"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 스크립트를 실행하여 데이터 변환 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-usql-activity.md)
 > * [현재 버전](transform-data-using-data-lake-analytics.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure 데이터 팩터리의 파이프라인은 연결된 컴퓨팅 서비스를 사용하여 스토리지 서비스의 데이터를 처리합니다. 파이프라인에는 일련의 작업이 포함되며 각 작업에서는 특정 처리 작업을 수행합니다. 이 문서는 **Azure Data Lake Analytics** 컴퓨팅 연결 서비스에서 **U-SQL** 스크립트를 실행하는 **Data Lake Analytics U-SQL 작업**에 대해 설명합니다. 
 
@@ -34,10 +36,10 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 
 다음 표에는 JSON 정의에서 사용하는 일반 속성에 대한 설명이 나와 있습니다. 
 
-| 속성                 | 설명                              | 필수                                 |
+| 속성                 | Description                              | 필수                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **종류**                 | type 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. | yes                                      |
-| **계정 이름**          | Azure 데이터 레이크 분석 계정 이름입니다.  | yes                                      |
+| **종류**                 | type 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. | 예                                      |
+| **계정 이름**          | Azure 데이터 레이크 분석 계정 이름입니다.  | 예                                      |
 | **dataLakeAnalyticsUri** | Azure 데이터 레이크 분석 URI입니다.           | 예                                       |
 | **구독ID**       | Azure 구독 ID입니다.                    | 예                                       |
 | **리소스 그룹 이름**    | Azure 리소스 그룹 이름                | 예                                       |
@@ -53,11 +55,11 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
 
 다음 속성을 지정하여 서비스 주체 인증을 사용합니다.
 
-| 속성                | 설명                              | 필수 |
+| 속성                | Description                              | 필수 |
 | :---------------------- | :--------------------------------------- | :------- |
-| **서비스PrincipalId**  | 애플리케이션의 클라이언트 ID를 지정합니다.     | yes      |
-| **servicePrincipalKey** | 애플리케이션의 키를 지정합니다.           | yes      |
-| **테 넌 트**              | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | yes      |
+| **서비스PrincipalId**  | 애플리케이션의 클라이언트 ID를 지정합니다.     | 예      |
+| **servicePrincipalKey** | 애플리케이션의 키를 지정합니다.           | 예      |
+| **테 넌 트**              | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 예      |
 
 **예제: 서비스 주체 인증**
 ```json
@@ -117,14 +119,14 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
 
 다음 표에는 이 작업과 관련된 속성 이름과 설명이 나와 있습니다. 
 
-| 속성            | 설명                              | 필수 |
+| 속성            | Description                              | 필수 |
 | :------------------ | :--------------------------------------- | :------- |
-| name                | 파이프라인의 작업 이름입니다.     | yes      |
+| name                | 파이프라인의 작업 이름입니다.     | 예      |
 | description         | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |
-| type                | Data Lake Analytics U-SQL 작업의 경우 작업 형식은 **DataLakeAnalyticsU-SQL**입니다. | yes      |
-| linkedServiceName   | Azure Data Lake Analytics에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요.  |yes       |
-| scriptPath          | U-SQL 스크립트가 포함된 폴더 경로입니다. 파일 이름은 대/소문자를 구분합니다. | yes      |
-| scriptLinkedService | 스크립트가 포함된 스토리지를 **Azure Data Lake Store** 또는 **Azure Storage**에 연결하는 연결된 서비스입니다. | yes      |
+| type                | Data Lake Analytics U-SQL 작업의 경우 작업 형식은 **DataLakeAnalyticsU-SQL**입니다. | 예      |
+| linkedServiceName   | Azure Data Lake Analytics에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요.  |예       |
+| scriptPath          | U-SQL 스크립트가 포함된 폴더 경로입니다. 파일 이름은 대/소문자를 구분합니다. | 예      |
+| scriptLinkedService | 스크립트가 포함된 스토리지를 **Azure Data Lake Store** 또는 **Azure Storage**에 연결하는 연결된 서비스입니다. | 예      |
 | degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 예       |
 | priority            | 대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. | 예       |
 | 매개 변수          | U-SQL 스크립트에 전달할 매개 변수입니다.    | 예       |
@@ -176,7 +178,7 @@ Azure Data Lake Analytics 서비스에서 실행되는 작업에 대한 파이�
 }
 ```
 
-동적 매개 변수를 대신 사용할 수 있습니다. 예를 들어: 
+동적 매개 변수를 대신 사용할 수 있습니다. 다음은 그 예입니다. 
 
 ```json
 "parameters": {
@@ -196,5 +198,5 @@ Azure Data Lake Analytics 서비스에서 실행되는 작업에 대한 파이�
 * [하두롭 스트리밍 활동](transform-data-using-hadoop-streaming.md)
 * [스파크 액티비티](transform-data-using-spark.md)
 * [.NET 사용자 지정 활동](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Batch 실행 작업](transform-data-using-machine-learning.md)
-* [저장 프로시저 작업](transform-data-using-stored-procedure.md)
+* [기계 학습 일괄 실행 활동](transform-data-using-machine-learning.md)
+* [저장 프로시저 활동](transform-data-using-stored-procedure.md)

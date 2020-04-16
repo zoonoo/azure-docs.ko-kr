@@ -1,16 +1,16 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/27/2020
-ms.author: dapine
-ms.openlocfilehash: d59a55a9b6d57d90ac6ae893b05e1064c11eb58b
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.author: trbye
+ms.openlocfilehash: 8d70d282ffb1a39f9ffb3eb6addf694ac9d0d060
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76900523"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81422277"
 ---
 이 빠른 시작에서는 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) 및 LUIS(Language Understanding) 서비스를 사용하여 마이크에서 캡처한 오디오 데이터의 의도를 인식합니다. 특히 Speech SDK를 사용하여 음성을 캡처하고 LUIS에서 미리 빌드된 도메인을 사용하여 광원 설정 및 해제와 같은 홈 자동화의 의도를 식별할 수 있습니다. 
 
@@ -19,6 +19,6 @@ ms.locfileid: "76900523"
 > [!div class="checklist"]
 >
 > * 구독 키 및 지역에서 `SpeechConfig` 개체를 만듭니다.
-> * 위의 `IntentRecognizer` 개체를 사용하여 `SpeechConfig` 개체를 만듭니다.
+> * 위의 `SpeechConfig` 개체를 사용하여 `IntentRecognizer` 개체를 만듭니다.
 > * `IntentRecognizer` 개체를 사용하여 단일 발화에 대한 인식 프로세스를 시작합니다.
 > * 반환된 `IntentRecognitionResult`를 검사합니다.

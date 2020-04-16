@@ -11,14 +11,15 @@ author: djpmsft
 ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
-ms.openlocfilehash: e736cc95628bd0e15bdb7ffd425608278788c353
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: e5bd3d10e4e43daf3031aae5083ee917cfe65ede
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879271"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417983"
 ---
-# <a name="set-variable-activity-in-azure-data-factory"></a>Azure 데이터 팩터리에서 변수 활동 설정
+# <a name="set-variable-activity-in-azure-data-factory"></a>Azure Data Factory의 변수 설정 작업
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Data Factory 파이프라인에서 정의된 String, Bool 또는 Array 형식의 기존 변수 값을 설정하려면 변수 설정 작업을 사용합니다.
 
@@ -29,7 +30,7 @@ Data Factory 파이프라인에서 정의된 String, Bool 또는 Array 형식의
 name | 파이프라인의 작업 이름 | 예
 description | 작업이 어떤 일을 수행하는지 설명하는 텍스트 | 아니요
 type | **Set변수로** 설정해야 합니다. | 예
-값 | 변수가 할당될 문자열 리터럴 또는 식 개체 값 | 예
+value | 변수가 할당될 문자열 리터럴 또는 식 개체 값 | 예
 variableName | 이 작업에 의해 설정되는 변수의 이름입니다. | 예
 
 ## <a name="incrementing-a-variable"></a>변수 증분

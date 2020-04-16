@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 02/04/2020
+ms.date: 04/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9dfe499a7d6084a23fd71ab98db472befe71fc04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10616c8003d9bbbe42cb70bd1bac4193044907c0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77024367"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416987"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>매개 변수가 있는 URL을 사용하여 사용자 지정 보기 공유
 
@@ -29,7 +29,7 @@ ms.locfileid: "77024367"
 
 ## <a name="environment-id"></a>환경 ID
 
-`environmentId=<guid>` 매개 변수는 대상 환경 ID를 지정합니다. 데이터 액세스 FQDN의 구성 요소이며 Azure 포털에서 환경 개요의 오른쪽 상단 모서리에서 찾을 수 있습니다. `env.timeseries.azure.com` 앞에 있는 모든 것이 환경 ID입니다.
+`environmentId=<guid>` 매개 변수는 대상 환경 ID를 지정합니다. 데이터 액세스 FQDN의 구성 요소이며 Azure 포털에서 환경 개요의 오른쪽 상단 모서리에서 찾을 수 있습니다. 그것은 앞에 모든 `env.timeseries.azure.com`것입니다.
 
 예를 들어 `?environmentId=10000000-0000-0000-0000-100000000108`은 환경 ID 매개 변수입니다.
 
@@ -68,9 +68,9 @@ ms.locfileid: "77024367"
 
 매개 `timeSeriesDefinitions=<collection of term objects>` 변수는 타임시리즈 인사이트 보기에 표시되는 조건자 용어를 지정합니다.
 
-| 매개 변수 | URL 항목 | 설명 |
+| 매개 변수 | URL 항목 | Description |
 | --- | --- | --- |
-| **(이름)** | `\<string>` | *조건*의 이름입니다. |
+| **name** | `\<string>` | *조건*의 이름입니다. |
 | **분할 바이** | `\<string>` | *분할의 기준*이 되는 열 이름입니다. |
 | **측정값 이름** | `\<string>` | *측정값*의 열 이름입니다. |
 | **조건자** | `\<string>` | 서버 쪽 필터링에 대한 *where* 절입니다. |
@@ -85,7 +85,7 @@ ms.locfileid: "77024367"
 * 을 `timeBucketUnit=<Unit>&timeBucketSize=<integer>` 사용하면 간격 슬라이더를 조정하여 차트의 보다 세분화적이거나 매끄럽고 집계된 보기를 제공할 수 있습니다.  
 * 매개 `timezoneOffset=<integer>` 변수를 사용하면 차트를 UTC에 대한 오프셋으로 볼 시간대를 설정할 수 있습니다.
 
-| 쌍 (들) | 설명 |
+| 쌍 (들) | Description |
 | --- | --- |
 | `multiChartStack=false` | `true`스택에 전달되도록 `false` 기본적으로 활성화됩니다. |
 | `multiChartStack=false&multiChartSameScale=true` | 용어 전체에서 동일한 Y-축 눈금 사용하려면 스택을 사용하도록 설정해야 합니다.  기본적으로 전달하면 `false` 이 기능을 `true` 사용할 수 있습니다. |

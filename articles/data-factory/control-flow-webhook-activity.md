@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: ced2279878ee2eb361ec7338647418658e411513
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4056550ae0a71138d136878fc7e3aa5f6f8f4180
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79213014"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417881"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Azure 데이터 팩터리의 웹후크 활동
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 웹후크 활동은 사용자 지정 코드를 통해 파이프라인 실행을 제어할 수 있습니다. webhook 활동을 사용하면 고객의 코드가 끝점을 호출하고 콜백 URL을 전달할 수 있습니다. 파이프라인 실행은 다음 활동으로 진행되기 전에 콜백 호출을 기다립니다.
 
@@ -51,14 +53,14 @@ ms.locfileid: "79213014"
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | 설명 | 허용되는 값 | 필수
+속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-**(이름)** | 웹후크 활동의 이름입니다. | String | yes |
-**종류** | "WebHook"으로 설정해야 합니다. | String | yes |
-**메서드** | 대상 끝점에 대한 REST API 메서드입니다. | 문자열입니다. 지원되는 형식은 "POST"입니다. | yes |
-**url** | 대상 끝점 및 경로입니다. | 결과가 있는 문자열 또는 **식입니다.문자열의** 값입니다. | yes |
+**name** | 웹후크 활동의 이름입니다. | String | 예 |
+**종류** | "WebHook"으로 설정해야 합니다. | String | 예 |
+**메서드** | 대상 끝점에 대한 REST API 메서드입니다. | 문자열입니다. 지원되는 형식은 "POST"입니다. | 예 |
+**url** | 대상 끝점 및 경로입니다. | 결과가 있는 문자열 또는 **식입니다.문자열의** 값입니다. | 예 |
 **헤더** | 요청에 전송되는 헤더입니다. 다음은 요청에 대한 언어 및 유형을 설정하는 예제입니다. `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 결과가 있는 문자열 또는 **식입니다.문자열의** 값입니다. | 예. 같은 `Content-Type` `"headers":{ "Content-Type":"application/json"}` 헤더가 필요합니다. |
-**몸** | 엔드포인트에 전송된 페이로드를 나타냅니다. | 유효한 JSON 또는 결과가 있는 **식입니다JSON의** Type 값입니다. 요청 페이로드의 스키마에 대한 [페이로드 스키마](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) 요청을 참조하십시오. | yes |
+**몸** | 엔드포인트에 전송된 페이로드를 나타냅니다. | 유효한 JSON 또는 결과가 있는 **식입니다JSON의** Type 값입니다. 요청 페이로드의 스키마에 대한 [페이로드 스키마](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) 요청을 참조하십시오. | 예 |
 **인증** | 끝점을 호출하는 데 사용되는 인증 방법입니다. 지원되는 형식은 "기본" 및 "ClientCertificate"입니다. 자세한 내용은 [인증](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication)을 참조하세요. 인증이 필요하지 않은 경우 이 속성을 제외합니다. | 결과가 있는 문자열 또는 **식입니다.문자열의** 값입니다. | 예 |
 **타임 아웃** | 활동이 **호출될 callBackUri에** 의해 지정된 콜백이 호출될 때까지 대기하는 시간입니다. 기본값은 10분("00:10:00")입니다. 값에는 TimeSpan 형식 *d가*있습니다. *hh*:*mm*:*ss*. | String | 예 |
 **콜백 시 상태 보고** | 사용자가 웹후크 활동의 실패한 상태를 보고할 수 있습니다. | 부울 | 예 |
@@ -143,9 +145,9 @@ PFX 파일과 암호의 Base64 인코딩 내용을 지정합니다.
 데이터 팩터리에서 지원하는 다음 제어 흐름 활동을 참조하십시오.
 
 - [If 조건 작업](control-flow-if-condition-activity.md)
-- [파이프라인 활동 실행](control-flow-execute-pipeline-activity.md)
-- [각 활동에 대해](control-flow-for-each-activity.md)
-- [메타데이터 활동 받기](control-flow-get-metadata-activity.md)
+- [파이프라인 작업 실행](control-flow-execute-pipeline-activity.md)
+- [ForEach 작업](control-flow-for-each-activity.md)
+- [메타데이터 작업 가져오기](control-flow-get-metadata-activity.md)
 - [조회 작업](control-flow-lookup-activity.md)
-- [웹 활동](control-flow-web-activity.md)
+- [웹 작업](control-flow-web-activity.md)
 - [Until 작업](control-flow-until-activity.md)

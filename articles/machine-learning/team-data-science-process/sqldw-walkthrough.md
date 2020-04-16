@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 96d0a5b2fb59e4612107d8ccbf7285fff7576585
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c4c1cfdb927cfd2ee607bfe2a951e06c80f9bfb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128384"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418544"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>팀 데이터 과학 프로세스 실행 중: Azure 시냅스 분석 사용
 이 자습서에서는 공개적으로 사용 가능한 데이터 집합인 [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) 데이터 집합에 Azure Synapse Analytics를 사용하여 기계 학습 모델을 빌드하고 배포하는 방법을 안내합니다. 구성된 이진 분류 모델은 팁이 트립에 대해 지불되는지 여부를 예측합니다.  모델에는 다중 클래스 분류(팁이 있는지 여부) 및 회귀(지불한 팁 금액에 대한 분포)가 포함됩니다.
@@ -24,7 +24,7 @@ ms.locfileid: "80128384"
 이 절차에서는 [TDSP(팀 데이터 과학 프로세스)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) 워크플로를 따릅니다. 데이터 과학 환경을 설정하는 방법, Azure Synapse 분석에 데이터를 로드하는 방법, Azure Synapse Analytics 또는 IPython 노트북을 사용하여 모델링할 데이터 및 엔지니어링 기능을 탐색하는 방법을 보여 드립니다. 그런 다음 Azure Machine Learning으로 모델을 빌드하고 배포하는 방법을 보여 줍니다.
 
 ## <a name="the-nyc-taxi-trips-dataset"></a><a name="dataset"></a>NYC Taxi Trips 데이터 세트
-NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여정의 요금으로 기록된 약 20GB의 압축된 CSV 파일(압축되지 않은 경우 약 48GB)로 구성됩니다. 각 여정 레코드는 승차 및 하차 위치, 익명 처리된 hack(기사) 면허증 번호 및 medallion(택시의 고유 ID) 번호를 포함합니다. 데이터는 2013년의 모든 여정을 포괄하며, 매월 다음 두 개의 데이터 세트로 제공됩니다.
+NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여정의 요금으로 기록된 약 20GB의 압축된 CSV 파일(압축되지 않은 경우 약 48GB)로 구성됩니다. 각 운행 기록에는 픽업 및 하차 위치 및 시간, 익명해킹(운전기사) 라이센스 번호, 메달리온(택시고유 ID) 번호가 포함됩니다. 데이터는 2013년의 모든 여정을 포괄하며, 매월 다음 두 개의 데이터 세트로 제공됩니다.
 
 1. **trip_data.csv** 파일에는 승객 수, 승차 및 하차 지점, 여정 기간, 여정 거리 등 여정 세부 정보가 포함됩니다. 다음은 몇 가지 샘플 레코드입니다.
 
@@ -79,12 +79,12 @@ Azure 데이터 과학 환경을 설정하려면 다음 단계를 수행합니�
 
 * **서버**이름 \<: 서버 이름>.database.windows.net
 * **SQLDW(데이터베이스) 이름**
-* **사용자**
+* **사용자 이름**
 * **암호**
 
 **비주얼 스튜디오 및 SQL 서버 데이터 도구를 설치합니다.** 지침은 SQL [데이터 웨어하우스에 대한 Visual Studio 2019 를 시작하기](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md)를 참조하십시오.
 
-**비주얼 스튜디오를 사용하여 Azure 시냅스 분석에 연결합니다.** 지침은 [Azure SQL 데이터 웨어하우스에 연결에서](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-connect-overview.md)1단계 & 2를 참조하십시오.
+**비주얼 스튜디오를 사용하여 Azure 시냅스 분석에 연결합니다.** 지침은 [Azure 시냅스 분석의 SQL 분석에 연결에서](../../synapse-analytics/sql/connect-overview.md)& 1단계를 참조하십시오.
 
 > [!NOTE]
 > Azure Synapse Analytics에서 만든 데이터베이스에서 다음 SQL 쿼리를 실행하여 연결 항목의 3단계에서 제공된 쿼리 대신 **마스터 키를 만듭니다.**
@@ -126,7 +126,7 @@ Windows PowerShell 명령 콘솔을 엽니다. 다음 PowerShell 명령을 실�
 PowerShell 스크립트가 처음으로 실행되면 Azure Synapse 분석 및 Azure Blob 저장소 계정에서 정보를 입력하라는 메시지가 표시됩니다. 이 PowerShell 스크립트가 처음 실행을 완료하는 경우 입력한 자격 증명은 현재 작업 디렉터리의 SQLDW.conf 구성 파일에 작성됩니다. 이 PowerShell 스크립트 파일을 나중에 실행하는 경우 이 구성 파일에서 필요한 매개 변수를 모두 읽는 옵션이 있습니다. 일부 매개 변수를 변경해야 할 경우 표시되는 메시지에 따라 이 구성 파일을 삭제하고 매개 변수 값을 입력하여 화면에 매개 변수를 입력하거나 *-DestDir* 디렉터리의 SQLDW.conf 파일을 편집하여 매개 변수 값을 변경하도록 선택할 수 있습니다.
 
 > [!NOTE]
-> SQLDW.conf 파일에서 직접 매개 변수를 읽을 때 스키마 이름 충돌을 피하기 위해 SQLDW.conf 파일에서 스키마 이름에 기본 스키마로 3자리 난수가 추가됩니다. 각 실행에 대한 이름을 지정합니다. PowerShell 스크립트에서 스키마 이름을 지정하라는 메시지가 표시될 수 있습니다. 이 이름은 사용자가 임의로 지정할 수 있습니다.
+> 스키마 이름 충돌을 피하기 위해 Azure Azure Synapse 분석에 이미 있는 스키마 이름과 충돌하지 않으려면 SQLDW.conf 파일에서 직접 매개 변수를 읽을 때 SQLDW.conf 파일의 스키마 이름에 3자리 난수가 각 실행의 기본 스키마 이름으로 추가됩니다. PowerShell 스크립트에서 스키마 이름을 지정하라는 메시지가 표시될 수 있습니다. 이 이름은 사용자가 임의로 지정할 수 있습니다.
 >
 >
 
@@ -310,7 +310,7 @@ PowerShell 스크립트가 처음으로 실행되면 Azure Synapse 분석 및 Az
 스토리지 계정의 지리적 위치는 로드 시간을 영향을 줍니다.
 
 > [!NOTE]
-> 개인 Blob 저장소 계정의 지리적 위치에 따라 공용 Blob에서 개인 저장소 계정으로 데이터를 복사하는 프로세스는 약 15분 또는 더 오래 걸릴 수 있으며 저장소 계정에서 Azure로 데이터를 로드하는 프로세스는 더 오래 걸릴 수 있습니다. Azure 시냅스 분석은 20분 이상 걸릴 수 있습니다.
+> 개인 Blob 저장소 계정의 지리적 위치에 따라 공용 Blob에서 개인 저장소 계정으로 데이터를 복사하는 프로세스는 약 15분 또는 더 오래 걸릴 수 있으며 저장소 계정에서 Azure Synapse Analytics로 데이터를 로드하는 프로세스는 20분 이상 걸릴 수 있습니다.
 >
 >
 
@@ -330,7 +330,7 @@ PowerShell 스크립트가 처음으로 실행되면 Azure Synapse 분석 및 Az
 >
 >
 
-이 PowerShell 스크립트는 또한 Azure Synapse Analytics 정보를 데이터 탐색 예제 파일 SQLDW_Explorations.sql, SQLDW_Explorations.ipynb 및 SQLDW_Explorations_Scripts.py에 연결하여 이 세 파일을 시험해 볼 준비가 되도록 합니다. PowerShell 스크립트가 완료된 직후에
+또한 이 PowerShell 스크립트는 Azure Synapse Analytics 정보를 데이터 탐색 예제 파일 SQLDW_Explorations.sql, SQLDW_Explorations.ipynb 및 SQLDW_Explorations_Scripts.py에 연결하여 PowerShell 스크립트가 완료된 후 즉시 이 세 파일을 즉시 시작할 수 있도록 합니다.
 
 성공적으로 실행한 후에 다음과 같이 화면에 표시됩니다.
 
@@ -839,7 +839,7 @@ and
 5. **서버 사용자 계정 이름**에 *SQL 사용자 이름*을 입력하고, **서버 사용자 계정 암호**에 *암호*를 입력합니다.
 7. 데이터베이스 **쿼리** 편집 텍스트 영역에서 필요한 데이터베이스 필드(레이블과 같은 계산된 필드 포함)를 추출하는 쿼리를 붙여넣은 다음 데이터를 원하는 샘플 크기로 샘플링합니다.
 
-Azure Synapse Analytics 데이터베이스에서 직접 데이터를 읽는 이진 분류 실험의 예는 아래 그림에 있습니다(nyctaxi_trip 테이블 이름을 스키마 이름과 nyctaxi_fare 스키마 이름으로 바꿔야 합니다. 연습)을 참조하십시오. 다중 클래스 분류 및 회귀 문제에 대한 유사한 실험을 생성할 수 있습니다.
+Azure Synapse Analytics 데이터베이스에서 직접 데이터를 읽는 이진 분류 실험의 예는 아래 그림에 nyctaxi_trip 스키마 이름과 연습에서 사용한 테이블 이름으로 nyctaxi_fare 참조)입니다. 다중 클래스 분류 및 회귀 문제에 대한 유사한 실험을 생성할 수 있습니다.
 
 ![Azure 기계 학습][10]
 
@@ -880,7 +880,7 @@ Azure Machine Learning에서는 학습 실험의 구성 요소를 기반으로 �
 ### <a name="license-information"></a>라이선스 정보
 이 샘플 연습 및 이와 함께 제공되는 스크립트와 IPython Notebook은 MIT 라이선스에 따라 Microsoft에서 공유한 것입니다. 자세한 내용은 GitHub의 샘플 코드 디렉터리에 있는 LICENSE.txt 파일을 참조하세요.
 
-## <a name="references"></a>참조
+## <a name="references"></a>참조 항목
 - [안드레스 먼로이 뉴욕 택시 여행 다운로드 페이지](https://www.andresmh.com/nyctaxitrips/)
 - [크리스 응에 의해 FOILing 뉴욕의 택시 여행 데이터](https://chriswhong.com/open-data/foil_nyc_taxi/)
 - [뉴욕 시 택시 및 리무진 위원회 연구 및 통계](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)

@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 11/22/2019
-ms.openlocfilehash: 025b5c5c1e3b8543111e112202906ef6f1fdb482
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 7a299ce16f6e9c7292cebf198c9c3077f8e05fcb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74561795"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417603"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>HDInsight의 Apache Hadoop에서 MapReduce 스트리밍으로 C# 사용
 
 HDInsight에서 C#을 사용하여 MapReduce 솔루션을 만드는 방법에 대해 알아보세요.
 
-Apache Hadoop 스트리밍은 스크립트 또는 실행 파일을 사용하여 MapReduce 작업을 실행할 수 있는 유틸리티입니다. 이 예제에서는 단어 수 세기 솔루션을 위해 .NET을 사용하여 매퍼와 리듀서를 구현합니다.
+아파치 하두롭 스트리밍을 사용하면 스크립트 또는 실행 기능을 사용하여 MapReduce 작업을 실행할 수 있습니다. 여기서 .NET은 단어 수 솔루션에 대한 매퍼 및 감속기를 구현하는 데 사용됩니다.
 
 ## <a name="net-on-hdinsight"></a>HDInsight에서.NET
 
@@ -49,12 +49,9 @@ HDInsight 클러스터는 [Mono(.NEThttps://mono-project.com) ](https://mono-pro
 
 * PowerShell을 사용하는 경우 Az [모듈이](https://docs.microsoft.com/powershell/azure/overview)필요합니다.
 
-* SSH 클라이언트(선택 사항)입니다. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
-
 * HDInsight의 Apache Hadoop 클러스터. [리눅스에서 HDInsight로 시작하기를](../hadoop/apache-hadoop-linux-tutorial-get-started.md)참조하십시오.
 
-* 클러스터 기본 스토리지에 대한 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. Azure Storage는 `wasb://`, Azure Data Lake Storage Gen2는 `abfs://`, Azure Data Lake Storage Gen1은 `adl://`입니다. Azure Storage 또는 Data Lake Storage Gen2에 보안 전송을 사용하는 경우 URI는 각각 `wasbs://` 또는 `abfss://`가 됩니다. [보안 전송](../../storage/common/storage-require-secure-transfer.md)도 참조하세요.
-
+* 클러스터 기본 스토리지에 대한 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. 이 체계는 `wasb://` Azure 저장소, `abfs://` Azure 데이터 레이크 `adl://` 저장소 Gen2 또는 Azure 데이터 레이크 저장소 Gen1용용입니다. Azure Storage 또는 Data Lake Storage Gen2에 보안 전송을 사용하는 경우 URI는 각각 `wasbs://` 또는 `abfss://`가 됩니다. [보안 전송](../../storage/common/storage-require-secure-transfer.md)도 참조하세요.
 
 ## <a name="create-the-mapper"></a>매퍼 만들기
 
@@ -221,14 +218,16 @@ namespace reducer
 
    다음 목록에서는 각 매개 변수 및 옵션이 나타내는 내용을 설명합니다.
 
-   * *hadoop-streaming.jar*: 스트리밍 MapReduce 기능이 포함된 jar 파일을 지정합니다.
-   * `-files`: 이 작업에 대한 *mapper.exe* 및 *reducer.exe* 파일을 지정합니다. 각 `wasbs:///` `adl:///`파일 `abfs:///` 앞에 있는 의 는 의 건 반망의 루트에 대한 경로입니다.
-   * `-mapper`: 매퍼를 구현하는 파일을 지정합니다.
-   * `-reducer`: 감속기 구현 파일을 지정합니다.
-   * `-input`: 입력 데이터를 지정합니다.
-   * `-output`: 출력 디렉토리를 지정합니다.
+   |매개 변수 | Description |
+   |---|---|
+   |hadoop-streaming.jar|스트리밍 MapReduce 기능이 포함된 jar 파일을 지정합니다.|
+   |-파일|이 작업에 대한 *mapper.exe* 및 *reducer.exe* 파일을 지정합니다. 각 `wasbs:///` `adl:///`파일 `abfs:///` 앞에 있는 의 는 의 건 반망의 루트에 대한 경로입니다.|
+   |-매퍼|매퍼를 구현하는 파일을 지정합니다.|
+   |- 감속기|감속기 구현 파일을 지정합니다.|
+   |-입력|입력 데이터를 지정합니다.|
+   |- 출력|출력 디렉토리를 지정합니다.|
 
-3. MapReduce 작업이 완료되면 다음 명령을 사용하여 결과를 봅니다.
+1. MapReduce 작업이 완료되면 다음 명령을 사용하여 결과를 봅니다.
 
    ```bash
    hdfs dfs -text /example/wordcountout/part-00000

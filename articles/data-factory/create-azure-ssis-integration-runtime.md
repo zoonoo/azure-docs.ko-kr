@@ -11,14 +11,16 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 18555fbffbc48594793163894c010998094b3b59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1c3f58d42b6f311e4e238dcffe7da42afd8a5306
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336221"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416721"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure Integration Runtime 만들기 | Microsoft Docs
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 이 문서에서는 Azure 데이터 팩터리에서 Azure-SQL 서버 통합 서비스(SSIS) 통합 런타임(IR)을 프로비전하기 위한 단계를 제공합니다. Azure-SSIS IR에서 지원하는 작업은 다음과 같습니다.
 
@@ -77,7 +79,7 @@ Azure-SSIS IR이 프로비저닝되면 익숙한 도구를 사용하여 Azure에
 
 | 기능 | 단일 데이터베이스/탄력적 풀| 관리되는 인스턴스 |
 |---------|--------------|------------------|
-| **일정** | SQL 서버 에이전트를 사용할 수 없습니다.<br/><br/>[데이터 팩터리 파이프라인에서 패키지 실행 예약](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity)을 참조하십시오.| 관리되는 인스턴스 에이전트를 사용할 수 있습니다. |
+| **일정 계획** | SQL 서버 에이전트를 사용할 수 없습니다.<br/><br/>[데이터 팩터리 파이프라인에서 패키지 실행 예약](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity)을 참조하십시오.| 관리되는 인스턴스 에이전트를 사용할 수 있습니다. |
 | **인증** | 데이터 팩터리의 관리되는 ID를 **db_owner** 역할의 구성원으로 사용하여 Azure AD 그룹을 나타내는 포함된 데이터베이스 사용자로 SSISDB 인스턴스를 만들 수 있습니다.<br/><br/>[Azure AD 인증 활성화를 참조하여 Azure SQL Database 서버에서 SSISDB 인스턴스를 만듭니다.](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database) | 데이터 팩터리의 관리되는 ID를 나타내는 포함된 데이터베이스 사용자로 SSISDB 인스턴스를 만들 수 있습니다. <br/><br/>[Azure AD 인증 활성화를 참조하여 Azure SQL Database 관리 인스턴스에서 SSISDB 인스턴스를 만듭니다.](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance) |
 | **서비스 계층** | Azure SQL Database 서버를 사용하여 Azure-SSIS IR을 만들 때 SSISDB에 대한 서비스 계층을 선택할 수 있습니다. 여러 서비스 계층이 있습니다. | 관리되는 인스턴스를 사용하여 Azure-SSIS IR을 만들 때 SSISDB에 대한 서비스 계층을 선택할 수 없습니다. 관리되는 인스턴스의 모든 데이터베이스는 해당 인스턴스에 할당된 동일한 리소스를 공유합니다. |
 | **가상 네트워크** | IP 방화벽 규칙/가상 네트워크 서비스 끝점이 있는 Azure SQL Database 서버를 사용하는 경우 Azure-SSIS IR은 Azure Resource Manager 가상 네트워크에 가입할 수 있습니다. | Azure-SSIS IR은 개인 끝점에서 관리되는 인스턴스를 사용하는 경우 Azure Resource Manager 가상 네트워크에 가입할 수 있습니다. 관리되는 인스턴스에 대한 공용 끝점을 사용하도록 설정하지 않으면 가상 네트워크가 필요합니다.<br/><br/>Azure-SSIS IR을 관리되는 인스턴스와 동일한 가상 네트워크에 조인하는 경우 Azure-SSIS IR이 관리되는 인스턴스와 다른 서브넷에 있는지 확인합니다. Azure-SSIS IR을 관리되는 인스턴스의 다른 가상 네트워크에 연결하는 경우 가상 네트워크 피어링 또는 네트워크 간 연결을 권장합니다. [응용 프로그램을 Azure SQL Database 관리 인스턴스에 연결](../sql-database/sql-database-managed-instance-connect-app.md)합니다. |

@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: 93d92286fa9eecbc64229059274cc8f9ed99e21e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b06000d6b3cd7a429b7ad0fc9c453595f21bd893
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74928270"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418476"
 ---
 # <a name="monitor-data-flows"></a>데이터 흐름 모니터링
 
-
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 데이터 흐름 빌드 및 디버그를 완료한 후에는 파이프라인의 컨텍스트 내에서 일정에 따라 실행되도록 데이터 흐름을 예약하는 것이 좋습니다. 트리거를 사용하여 Azure Data Factory에서 파이프라인을 예약할 수 있습니다. 또는 Azure Data Factory 파이프라인 작성기에서 지금 트리거 옵션을 사용하여 단일 실행을 수행하여 파이프라인 컨텍스트 내에서 데이터 흐름을 테스트할 수 있습니다.
 

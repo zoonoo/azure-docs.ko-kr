@@ -1,0 +1,236 @@
+---
+title: 시냅스 SQL에서 임시 테이블 사용
+description: Synapse SQL에서 임시 테이블을 사용하기 위한 필수 지침입니다.
+services: synapse-analytics
+author: XiaoyuMSFT
+manager: craigg
+ms.service: synapse-analytics
+ms.topic: conceptual
+ms.subservice: ''
+ms.date: 04/15/2020
+ms.author: xiaoyul
+ms.reviewer: igorstan
+ms.openlocfilehash: 090f453771dba6f537ad60605c6e9b96f3ca9957
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81428759"
+---
+# <a name="temporary-tables-in-synapse-sql"></a>시냅스 SQL의 임시 테이블
+
+이 문서에는 임시 테이블 사용에 대한 필수 지침이 포함되어 있으며 Synapse SQL 내에서 세션 수준 임시 테이블의 원칙을 강조합니다. 
+
+SQL 풀과 SQL 온디맨드(미리 보기) 리소스 모두 임시 테이블을 사용할 수 있습니다. 주문형 SQL에는 이 문서의 끝에서 설명하는 제한 사항이 있습니다. 
+
+## <a name="what-are-temporary-tables"></a>임시 테이블이란?
+
+임시 테이블은 특히 중간 결과가 일시적인 변환 중에 데이터를 처리할 때 유용합니다. Synapse SQL을 사용하면 세션 수준에 임시 테이블이 있습니다.  생성된 세션에만 표시됩니다. 따라서 해당 세션이 로그오프되면 자동으로 삭제됩니다. 
+
+## <a name="temporary-tables-in-sql-pool"></a>SQL 풀의 임시 테이블
+
+SQL 풀 리소스에서 임시 테이블은 결과가 원격 저장소가 아닌 로컬저장소에 기록되므로 성능 이점을 제공합니다.
+
+### <a name="create-a-temporary-table"></a>임시 테이블 만들기
+
+임시 테이블은 테이블 이름 앞에 `#`을 붙여 만듭니다.  다음은 그 예입니다.
+
+```sql
+CREATE TABLE #stats_ddl
+(
+    [schema_name]        NVARCHAR(128) NOT NULL
+,    [table_name]            NVARCHAR(128) NOT NULL
+,    [stats_name]            NVARCHAR(128) NOT NULL
+,    [stats_is_filtered]     BIT           NOT NULL
+,    [seq_nmbr]              BIGINT        NOT NULL
+,    [two_part_name]         NVARCHAR(260) NOT NULL
+,    [three_part_name]       NVARCHAR(400) NOT NULL
+)
+WITH
+(
+    DISTRIBUTION = HASH([seq_nmbr])
+,    HEAP
+)
+```
+
+정확히 동일한 접근 방식을 사용하여 `CTAS` 를 통해 임시 테이블을 만들 수도 있습니다.
+
+```sql
+CREATE TABLE #stats_ddl
+WITH
+(
+    DISTRIBUTION = HASH([seq_nmbr])
+,    HEAP
+)
+AS
+(
+SELECT
+        sm.[name]                                                                AS [schema_name]
+,        tb.[name]                                                                AS [table_name]
+,        st.[name]                                                                AS [stats_name]
+,        st.[has_filter]                                                            AS [stats_is_filtered]
+,       ROW_NUMBER()
+        OVER(ORDER BY (SELECT NULL))                                            AS [seq_nmbr]
+,                                 QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [two_part_name]
+,        QUOTENAME(DB_NAME())+'.'+QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [three_part_name]
+FROM    sys.objects            AS ob
+JOIN    sys.stats            AS st    ON    ob.[object_id]        = st.[object_id]
+JOIN    sys.stats_columns    AS sc    ON    st.[stats_id]        = sc.[stats_id]
+                                    AND st.[object_id]        = sc.[object_id]
+JOIN    sys.columns            AS co    ON    sc.[column_id]        = co.[column_id]
+                                    AND    sc.[object_id]        = co.[object_id]
+JOIN    sys.tables            AS tb    ON    co.[object_id]        = tb.[object_id]
+JOIN    sys.schemas            AS sm    ON    tb.[schema_id]        = sm.[schema_id]
+WHERE    1=1
+AND        st.[user_created]   = 1
+GROUP BY
+        sm.[name]
+,        tb.[name]
+,        st.[name]
+,        st.[filter_definition]
+,        st.[has_filter]
+)
+;
+```
+
+> [!NOTE]
+> `CTAS`는(은) 강력한 명령이며 트랜잭션 로그 공간을 사용한다는 점에서 효율적이라는 추가적인 이점이 있습니다. 
+> 
+> 
+
+### <a name="dropping-temporary-tables"></a>임시 테이블 삭제
+새 세션이 만들어지면 임시 테이블이 존재하지 않습니다.  그러나 동일한 이름의 임시 를 만드는 동일한 저장 프로시저를 호출하는 경우 `CREATE TABLE` 명령문이 성공했는지 확인하려면 다음을 `DROP`사용하여 간단한 사전 확인을 사용합니다. 
+
+```sql
+IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
+BEGIN
+    DROP TABLE #stats_ddl
+END
+```
+
+코딩 일관성을 위해 이 패턴을 테이블과 임시 테이블 모두에 사용하는 것이 좋습니다.  임시 테이블을 완료하면 임시 `DROP TABLE` 테이블을 제거하는 데도 사용하는 것이 좋습니다.  
+
+저장 프로시저 개발에서는 이러한 개체가 정리되도록 프로시저 끝에 드롭 명령이 함께 번들로 제공되는 것을 확인하는 것이 일반적입니다.
+
+```sql
+DROP TABLE #stats_ddl
+```
+
+### <a name="modularizing-code"></a>코드 모듈화
+임시 테이블은 사용자 세션의 어느 곳에서나 사용할 수 있습니다. 그런 다음 이 기능을 사용하여 응용 프로그램 코드를 모듈화할 수 있습니다.  설명하기 위해 다음 저장 프로시저는 DDL을 생성하여 데이터베이스의 모든 통계를 통계 이름으로 업데이트합니다.
+
+```sql
+CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
+(   @update_type    tinyint -- 1 default 2 fullscan 3 sample 4 resample
+    ,@sample_pct     tinyint
+)
+AS
+
+IF @update_type NOT IN (1,2,3,4)
+BEGIN;
+    THROW 151000,'Invalid value for @update_type parameter. Valid range 1 (default), 2 (fullscan), 3 (sample) or 4 (resample).',1;
+END;
+
+IF @sample_pct IS NULL
+BEGIN;
+    SET @sample_pct = 20;
+END;
+
+IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
+BEGIN
+    DROP TABLE #stats_ddl
+END
+
+CREATE TABLE #stats_ddl
+WITH
+(
+    DISTRIBUTION = HASH([seq_nmbr])
+)
+AS
+(
+SELECT
+        sm.[name]                                                                AS [schema_name]
+,        tb.[name]                                                                AS [table_name]
+,        st.[name]                                                                AS [stats_name]
+,        st.[has_filter]                                                            AS [stats_is_filtered]
+,       ROW_NUMBER()
+        OVER(ORDER BY (SELECT NULL))                                            AS [seq_nmbr]
+,                                 QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [two_part_name]
+,        QUOTENAME(DB_NAME())+'.'+QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [three_part_name]
+FROM    sys.objects            AS ob
+JOIN    sys.stats            AS st    ON    ob.[object_id]        = st.[object_id]
+JOIN    sys.stats_columns    AS sc    ON    st.[stats_id]        = sc.[stats_id]
+                                    AND st.[object_id]        = sc.[object_id]
+JOIN    sys.columns            AS co    ON    sc.[column_id]        = co.[column_id]
+                                    AND    sc.[object_id]        = co.[object_id]
+JOIN    sys.tables            AS tb    ON    co.[object_id]        = tb.[object_id]
+JOIN    sys.schemas            AS sm    ON    tb.[schema_id]        = sm.[schema_id]
+WHERE    1=1
+AND        st.[user_created]   = 1
+GROUP BY
+        sm.[name]
+,        tb.[name]
+,        st.[name]
+,        st.[filter_definition]
+,        st.[has_filter]
+)
+SELECT
+    CASE @update_type
+    WHEN 1
+    THEN 'UPDATE STATISTICS '+[two_part_name]+'('+[stats_name]+');'
+    WHEN 2
+    THEN 'UPDATE STATISTICS '+[two_part_name]+'('+[stats_name]+') WITH FULLSCAN;'
+    WHEN 3
+    THEN 'UPDATE STATISTICS '+[two_part_name]+'('+[stats_name]+') WITH SAMPLE '+CAST(@sample_pct AS VARCHAR(20))+' PERCENT;'
+    WHEN 4
+    THEN 'UPDATE STATISTICS '+[two_part_name]+'('+[stats_name]+') WITH RESAMPLE;'
+    END AS [update_stats_ddl]
+,   [seq_nmbr]
+FROM    t1
+;
+GO
+```
+
+이 단계에서 발생한 유일한 작업은 #stats_ddl 임시 테이블을 생성하는 저장 프로시저를 만드는 것입니다.  저장 프로시저가 이미 있는 경우 #stats_ddl 삭제됩니다. 이 드롭은 세션 내에서 두 번 이상 실행해도 실패하지 않습니다.  
+
+`DROP TABLE` 저장 프로시저가 끝날 때 저장 프로시저가 완료되면 생성된 테이블이 남아 있고 저장 프로시저 외부에서 읽을 수 있습니다.  
+
+다른 SQL Server 데이터베이스와 달리 Synapse SQL을 사용하면 임시 테이블을 만든 프로시저 외부에서 임시 테이블을 사용할 수 있습니다.  SQL 풀을 통해 생성된 임시 테이블은 세션 **내의 어느 곳에서나** 사용할 수 있습니다. 따라서 아래 샘플에서 설명한 대로 모듈식 및 관리 용 코드를 사용할 수 있습니다.
+
+```sql
+EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
+
+DECLARE @i INT              = 1
+,       @t INT              = (SELECT COUNT(*) FROM #stats_ddl)
+,       @s NVARCHAR(4000)   = N''
+
+WHILE @i <= @t
+BEGIN
+    SET @s=(SELECT update_stats_ddl FROM #stats_ddl WHERE seq_nmbr = @i);
+
+    PRINT @s
+    EXEC sp_executesql @s
+    SET @i+=1;
+END
+
+DROP TABLE #stats_ddl;
+```
+
+### <a name="temporary-table-limitations"></a>임시 테이블 제한 사항
+
+SQL 풀에는 임시 테이블에 대한 몇 가지 구현 제한이 있습니다.
+
+- 세션 범위의 임시 테이블만 지원됩니다.  전역 임시 테이블은 지원되지 않습니다.
+- 임시 테이블에서는 뷰를 만들 수 없습니다.
+- 임시 테이블은 해시 또는 라운드 로빈 분포로만 만들 수 있습니다.  복제된 임시 테이블 배포는 지원되지 않습니다. 
+
+## <a name="temporary-tables-in-sql-on-demand-preview"></a>SQL 온디맨드의 임시 테이블(미리 보기)
+
+SQL 온디맨드 테이블의 임시 테이블은 지원되지만 사용이 제한됩니다. 대상 파일을 쿼리에 사용할 수 없습니다. 
+
+예를 들어 저장소에 있는 파일의 데이터로 임시 테이블을 조인할 수 없습니다. 임시 테이블의 수는 100개로 제한되며 총 크기는 100MB로 제한됩니다.
+
+## <a name="next-steps"></a>다음 단계
+
+테이블 개발에 대한 자세한 내용은 [Synapse SQL 리소스](develop-tables-overview.md) 문서를 사용하여 테이블 디자인 문서를 참조하세요.
+

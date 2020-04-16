@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
-ms.openlocfilehash: e4b076d96cad280c4da6c2424f056c2216c47602
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 050fcc33f0e3d65ca8e94b3be143c5b1ae77608d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408863"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416548"
 ---
-# <a name="aggregate-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 집계 변환 
+# <a name="aggregate-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 집계 변환
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 집계 변환은 데이터 스트림의 열 집계를 정의합니다. 표현식 작성기에서는 기존 또는 계산된 열별로 그룹화된 SUM, MIN, MAX 및 COUNT와 같은 다양한 유형의 집계를 정의할 수 있습니다.
 

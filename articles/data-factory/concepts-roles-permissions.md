@@ -10,14 +10,17 @@ ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: d143992317c77c6fc3137527bea485a98c046daa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b7791c5c04e986b30959d2fcae17142fdd8b7ec
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75969217"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418323"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Azure Data Factory용 역할 및 권한
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 
 이 문서에서는 Azure Data Factory 리소스를 만들고 관리하는 데 필요한 역할 및 이러한 역할을 통해 부여되는 권한에 대해 설명합니다.
 
@@ -56,7 +59,7 @@ Azure 리포지토리 및 GitHub에 대한 사용 권한은 Data Factory 사용 
 
 ### <a name="custom-scenarios-and-custom-roles"></a>사용자 지정 시나리오 및 사용자 지정 역할
 
-데이터 팩터리 사용자에게 각기 다른 액세스 수준을 부여해야 하는 경우도 있습니다. 예를 들어:
+데이터 팩터리 사용자에게 각기 다른 액세스 수준을 부여해야 하는 경우도 있습니다. 다음은 그 예입니다.
 - 사용자에게 특정 데이터 팩터리에 대한 권한만 있는 그룹이 필요할 수 있습니다.
 - 사용자가 데이터 팩터리를 하나 이상 모니터링할 수는 있지만 수정할 수는 없는 그룹이 필요할 수도 있습니다.
 

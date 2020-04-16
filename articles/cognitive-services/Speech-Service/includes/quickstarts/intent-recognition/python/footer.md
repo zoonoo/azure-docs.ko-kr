@@ -1,16 +1,16 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/27/2020
-ms.author: dapine
-ms.openlocfilehash: 8a6e822b6235b4193ccc5efc5f7712658efebf8e
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.author: trbye
+ms.openlocfilehash: 2ddd7db17f8e54e9075790b11d3a798ce9074a45
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76900527"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81421770"
 ---
 > [!div class="nextstepaction"]
 > [GitHub에서 Python 샘플 살펴보기](https://aka.ms/speech/github-python)

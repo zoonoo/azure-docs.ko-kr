@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 9/03/2019
-ms.openlocfilehash: 80c9929f37b4890387a7625f04db6ce3e37f0cdd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a0263880262da95f4d26ee8388da464e9a59efca
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74922129"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416452"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Azure 데이터 팩터리를 사용하여 온-프레미스 Netezza 서버에서 Azure로 데이터를 마이그레이션합니다. 
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Azure Data Factory는 온-프레미스 Netezza 서버에서 Azure 저장소 계정 또는 Azure SQL Data Warehouse 데이터베이스로 대규모로 데이터를 마이그레이션하는 성능이 뛰어나고 강력하며 비용 효율적인 메커니즘을 제공합니다. 
 
@@ -139,7 +141,7 @@ Azure SQL 데이터 웨어하우스 데이터베이스에 데이터를 로드하
 
 ### <a name="configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 구성
 
-Netezza 서버에서 Azure로 데이터를 마이그레이션하는 경우, 서버가 회사 방화벽 뒤의 온-프레미스인지 가상 네트워크 환경 내에 있든 간에 Windows 컴퓨터 또는 VM에 자체 호스팅 IR을 설치해야 합니다. 데이터를 이동합니다. 자체 호스팅 IR을 설치할 때 다음 방법을 권장합니다.
+Netezza 서버에서 Azure로 데이터를 마이그레이션하는 경우 서버가 회사 방화벽 뒤의 온-프레미스인지 가상 네트워크 환경 내에 있든 간에 데이터를 이동하는 데 사용되는 엔진인 Windows 컴퓨터 또는 VM에 자체 호스팅 IR을 설치해야 합니다. 자체 호스팅 IR을 설치할 때 다음 방법을 권장합니다.
 
 - 각 Windows 컴퓨터 또는 VM에 대해 32vCPU 및 128GB 메모리의 구성으로 시작합니다. 데이터 마이그레이션 중에 IR 시스템의 CPU 및 메모리 사용량을 계속 모니터링하여 더 나은 성능을 위해 컴퓨터를 추가로 확장해야 하는지 또는 비용을 절감하기 위해 컴퓨터를 축소해야 하는지 확인할 수 있습니다.
 
@@ -151,7 +153,7 @@ Netezza 서버에서 Azure로 데이터를 마이그레이션하는 경우, 서�
 
 테이블을 복사하려면 자체 호스팅IR 컴퓨터로 단일 복사 활동으로 시작합니다. 테이블의 `parallelCopies` 데이터 조각 파티션 수에 따라 설정을 점진적으로 늘립니다. 복사 작업의 처리량에 따라 전체 테이블을 2시간 이내에 Azure에 로드할 수 있는지 확인합니다. 
 
-2시간 이내에 Azure에 로드할 수 없고 자체 호스팅 IR 노드및 데이터 저장소의 용량이 완전히 사용되지 않는 경우 네트워크 제한 또는 데이터의 대역폭 제한에 도달할 때까지 동시 복사 활동 수를 점진적으로 늘립니다. 저장. 
+2시간 이내에 Azure에 로드할 수 없고 자체 호스팅 IR 노드및 데이터 저장소의 용량이 완전히 사용되지 않는 경우 네트워크 제한 또는 데이터 저장소의 대역폭 제한에 도달할 때까지 동시 복사 활동 수를 점진적으로 늘립니다. 
 
 자체 호스팅 IR 컴퓨터에서 CPU 및 메모리 사용량을 계속 모니터링하고 CPU와 메모리가 완전히 사용되는 경우 컴퓨터를 확장하거나 여러 컴퓨터로 확장할 준비를 하십시오. 
 
@@ -199,7 +201,7 @@ Azure Data Factory 복사 활동에 의해 보고된 제한 오류가 발생하�
 - [자체 호스팅 통합 런타임 만들기 및 구성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
 - [자체 호스팅 통합 런타임 HA 및 확장성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
 - [데이터 이동 보안 고려 사항](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [Azure 키 자격 증명에 자격 증명 저장](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
+- [Azure Key Vault에 자격 증명 저장](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
 - [한 테이블에서 데이터를 증분 방식으로 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-portal)
 - [여러 테이블에서 데이터를 증분 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal)
 - [Azure 데이터 팩터리 가격 책정 페이지](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)

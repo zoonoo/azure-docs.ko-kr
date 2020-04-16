@@ -9,14 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: fd0e6d526f0c47304e7bf53f91d08f42b924ff23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f839de6e276727fa910f91eccc34601cf34f85c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440395"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418017"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Azure 데이터 팩터리의 활동 전환
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Switch 활동은 switch 문이 프로그래밍 언어에서 제공하는 것과 동일한 기능을 제공합니다. 조건 평가와 일치하는 사례에 해당하는 활동 집합을 평가합니다.
 
@@ -65,13 +67,13 @@ Switch 활동은 switch 문이 프로그래밍 언어에서 제공하는 것과 
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | 설명 | 허용되는 값 | 필수
+속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-name | 스위치 활동의 이름입니다. | String | yes
-type | 스위치로 설정해야 *합니다.** | String | yes
-식 | 문자열 값으로 평가해야 하는 식 | 결과 형식 문자열이 있는 표현식 | yes
-cases | 값이 식 평가와 일치할 때 실행할 값 및 활동 집합을 포함하는 서비스 케이스 집합입니다. 하나 이상의 사례를 제공해야 합니다. 최대 제한은 25건입니다. | 케이스 객체의 배열 | yes
-기본 활동 | 식 평가가 충족되지 않을 때 실행되는 활동 집합입니다. | 활동 배열 | yes
+name | 스위치 활동의 이름입니다. | String | 예
+type | 스위치로 설정해야 *합니다.** | String | 예
+식 | 문자열 값으로 평가해야 하는 식 | 결과 형식 문자열이 있는 표현식 | 예
+cases | 값이 식 평가와 일치할 때 실행할 값 및 활동 집합을 포함하는 서비스 케이스 집합입니다. 하나 이상의 사례를 제공해야 합니다. 최대 제한은 25건입니다. | 케이스 객체의 배열 | 예
+기본 활동 | 식 평가가 충족되지 않을 때 실행되는 활동 집합입니다. | 활동 배열 | 예
 
 ## <a name="example"></a>예제
 
@@ -332,8 +334,8 @@ $result.Error -join "`r`n"
 Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요. 
 
 - [If 조건 작업](control-flow-if-condition-activity.md)
-- [파이프라인 활동 실행](control-flow-execute-pipeline-activity.md)
-- [각 활동에 대해](control-flow-for-each-activity.md)
-- [메타데이터 활동 받기](control-flow-get-metadata-activity.md)
+- [파이프라인 작업 실행](control-flow-execute-pipeline-activity.md)
+- [ForEach 작업](control-flow-for-each-activity.md)
+- [메타데이터 작업 가져오기](control-flow-get-metadata-activity.md)
 - [조회 작업](control-flow-lookup-activity.md)
-- [웹 활동](control-flow-web-activity.md)
+- [웹 작업](control-flow-web-activity.md)

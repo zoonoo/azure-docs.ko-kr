@@ -10,14 +10,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
-ms.openlocfilehash: 09051ad3633ddc720cb34d3d145ccf649fa9cb08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2531ebfd8b1eafc04fa6eda660b0eec3d1147f2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77200115"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417086"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>파이프라인 작업에서 Azure Key Vault 비밀 사용
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Key Vault에 자격 증명 또는 비밀 값을 저장하고 파이프라인 실행 중에 사용하여 활동에 전달할 수 있습니다.
 
@@ -51,7 +53,7 @@ Azure Key Vault에 자격 증명 또는 비밀 값을 저장하고 파이프라�
     |---------|---------|
     |안전한 출력     |True         |
     |URL     |[비밀 URI 값]?api 버전=7.0         |
-    |방법     |GET         |
+    |메서드     |GET         |
     |인증     |MSI         |
     |리소스        |https://vault.azure.net       |
 

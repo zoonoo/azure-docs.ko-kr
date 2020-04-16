@@ -7,14 +7,16 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: c717d9ab44493d15589030073cd2ab260ef52e1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82660cdb4ab6523bae7608fe3b071f20cb3603f8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76760218"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419173"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>매핑 데이터 흐름 매개 변수화
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
 
 Azure 데이터 팩터리의 데이터 흐름 매핑은 매개 변수 사용을 지원합니다. 데이터 흐름 정의 내에서 매개 변수를 정의할 수 있으며, 이 매개 변수는 식 전체에서 사용할 수 있습니다. 매개 변수 값은 데이터 흐름 실행 활동을 통해 호출 파이프라인에 의해 설정할 수 있습니다. 데이터 흐름 활동 식의 값을 설정하는 세 가지 옵션이 있습니다.
 

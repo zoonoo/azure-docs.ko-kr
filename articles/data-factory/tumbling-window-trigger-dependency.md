@@ -11,14 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/29/2019
-ms.openlocfilehash: 0557c9b9eb65654c4a11c1389ace4776ab60a61d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39ea8dda0fd823d3061b2cb29e1c548f99281c82
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79532573"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418799"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>연속 창 트리거 종속성 만들기
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 항목에서는 연속 창 트리거에 대한 종속성을 만드는 단계를 제공합니다. 연속 창 트리거에 대한 자세한 내용은 [연속 창 트리거를 만드는 방법](how-to-create-tumbling-window-trigger.md)을 참조하세요.
 
@@ -74,9 +75,9 @@ ms.locfileid: "79532573"
 
 다음 표에서는 연속 창 종속성을 정의하는 데 필요한 특성 목록을 제공합니다.
 
-| **속성 이름** | **설명**  | **유형** | **필수** |
+| **속성 이름** | **설명**  | **형식** | **필수** |
 |---|---|---|---|
-| type  | 이 드롭다운에는 기존의 연속 창 트리거가 모두 표시됩니다. 종속성을 적용할 트리거를 선택합니다.  | 텀블링윈도우트리거독립성참조 또는 자체의존성텀블링윈도우트리거참조 | yes |
+| type  | 이 드롭다운에는 기존의 연속 창 트리거가 모두 표시됩니다. 종속성을 적용할 트리거를 선택합니다.  | 텀블링윈도우트리거독립성참조 또는 자체의존성텀블링윈도우트리거참조 | 예 |
 | offset | 종속성 트리거의 오프셋입니다. 시간 범위 형식의 값을 제공하며 음수 및 양수 오프셋이 모두 허용됩니다. 트리거가 자체에 따라 달라지며 다른 모든 경우에는 선택 사항인 경우 이 속성은 필수입니다. 자체 종속성은 항상 음수 오프셋이어야 합니다. 값을 지정하지 않으면 창이 트리거 자체와 동일합니다. | Timespan<br/>(hh:mm:ss) | 자체 종속성: 예<br/>기타: 아니오 |
 | 크기 | 종속성 연속 창의 크기입니다. 양수 시간 범위 값을 제공합니다. 이 속성은 선택 사항입니다. | Timespan<br/>(hh:mm:ss) | 예  |
 

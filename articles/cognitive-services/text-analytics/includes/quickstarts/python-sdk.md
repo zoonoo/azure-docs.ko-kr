@@ -2,14 +2,14 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/24/2020
+ms.date: 04/13/2020
 ms.author: aahi
-ms.openlocfilehash: 988de8da839a677b47d679e7bd44059c7477a517
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: d58f294195efc393c07ecc3886c29e33dba02e6d
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986670"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81422204"
 ---
 <a name="HOLTop"></a>
 
@@ -40,7 +40,7 @@ Python을 설치한 후, 다음을 사용하여 클라이언트 라이브러리�
 #### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
 
 ```console
-pip install azure-ai-textanalytics==1.0.0b3
+pip install azure-ai-textanalytics
 ```
 
 > [!TIP]
@@ -105,10 +105,11 @@ Text Analytics 클라이언트는 키를 사용하여 Azure에 인증하는 [Tex
 위에서 만든 `key` 및 `endpoint`를 사용하여 `TextAnalyticsClient` 개체를 인스턴스화하는 기능을 만듭니다. 그런 다음, 새 클라이언트를 만듭니다. 
 
 ```python
-from azure.ai.textanalytics import TextAnalyticsClient, TextAnalyticsApiKeyCredential
+from azure.ai.textanalytics import TextAnalyticsClient
+from azure.core.credentials import AzureKeyCredential
 
 def authenticate_client():
-    ta_credential = TextAnalyticsApiKeyCredential(key)
+    ta_credential = AzureKeyCredential(key)
     text_analytics_client = TextAnalyticsClient(
             endpoint=endpoint, credential=ta_credential)
     return text_analytics_client
@@ -136,8 +137,8 @@ client = authenticate_client()
 ```python
 def sentiment_analysis_example(client):
 
-    document = ["I had the best day of my life. I wish you were there with me."]
-    response = client.analyze_sentiment(inputs=document)[0]
+    documents = ["I had the best day of my life. I wish you were there with me."]
+    response = client.analyze_sentiment(documents = documents)[0]
     print("Document Sentiment: {}".format(response.sentiment))
     print("Overall scores: positive={0:.2f}; neutral={1:.2f}; negative={2:.2f} \n".format(
         response.confidence_scores.positive,
@@ -152,8 +153,7 @@ def sentiment_analysis_example(client):
             sentence.confidence_scores.neutral,
             sentence.confidence_scores.negative,
         ))
-
-            
+          
 sentiment_analysis_example(client)
 ```
 
@@ -161,7 +161,7 @@ sentiment_analysis_example(client)
 
 ```console
 Document Sentiment: positive
-Overall scores: positive=1.00; neutral=0.00; negative=0.00
+Overall scores: positive=1.00; neutral=0.00; negative=0.00 
 
 [Length: 30]
 Sentence 1 sentiment: positive
@@ -207,8 +207,8 @@ Document ID: 4 , Sentiment Score: 1.00
 ```python
 def language_detection_example(client):
     try:
-        document = ["Ce document est rédigé en Français."]
-        response = client.detect_language(inputs = document, country_hint = 'us')[0]
+        documents = ["Ce document est rédigé en Français."]
+        response = client.detect_language(documents = documents, country_hint = 'us')[0]
         print("Language: ", response.primary_language.name)
 
     except Exception as err:
@@ -245,8 +245,7 @@ Document ID: 3 , Language: Chinese_Simplified
 #### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
 
 > [!NOTE]
-> 버전 `3.0-preview`에서 다음을 수행합니다.
-> * NER에는 개인 정보를 검색하기 위한 별도의 방법이 포함되어 있습니다. 
+> 버전 `3.0-preview`에서 다음을 수행합니다. 
 > * 엔터티 연결은 NER과 별개의 요청입니다.
 
 클라이언트를 인수로 사용하는 `entity_recognition_example`이라는 새 함수를 만든 다음, `recognize_entities()` 함수를 호출하여 결과를 반복합니다. 반환된 응답 개체에는 성공하면 `entity`에서 검색된 엔티티 목록이 포함되고, 그렇지 않으면 `error`가 포함됩니다. 검색된 각 엔터티에 대해 해당 범주 및 하위 범주(있는 경우)를 인쇄합니다.
@@ -255,13 +254,13 @@ Document ID: 3 , Language: Chinese_Simplified
 def entity_recognition_example(client):
 
     try:
-        document = ["I had a wonderful trip to Seattle last week."]
-        result = client.recognize_entities(inputs= document)[0]
+        documents = ["I had a wonderful trip to Seattle last week."]
+        result = client.recognize_entities(documents = documents)[0]
 
         print("Named Entities:\n")
         for entity in result.entities:
             print("\tText: \t", entity.text, "\tCategory: \t", entity.category, "\tSubCategory: \t", entity.subcategory,
-                    "\n\tLength: \t", entity.grapheme_length, "\tConfidence Score: \t", round(entity.score, 2), "\n")
+                    "\n\tLength: \t", entity.grapheme_length, "\tConfidence Score: \t", round(entity.confidence_score, 2), "\n")
 
     except Exception as err:
         print("Encountered exception. {}".format(err))
@@ -280,35 +279,6 @@ Named Entities:
     Length:          9      Confidence Score:        0.8
 ```
 
-## <a name="using-ner-to-detect-personal-information"></a>NER을 사용하여 개인 정보 검색
-
-클라이언트를 인수로 사용하는 `entity_pii_example()`이라는 새 함수를 만든 다음, `recognize_pii_entities()` 함수를 호출하여 결과를 가져옵니다. 그런 다음, 결과를 반복하고 엔터티를 인쇄합니다.
-
-```python
-def entity_pii_example(client):
-
-        document = ["Insurance policy for SSN on file 123-12-1234 is here by approved."]
-
-
-        result = client.recognize_pii_entities(inputs= document)[0]
-        
-        print("Personally Identifiable Information Entities: ")
-        for entity in result.entities:
-            print("\tText: ",entity.text,"\tCategory: ", entity.category,"\tSubCategory: ", entity.subcategory)
-            print("\t\tLength: ", entity.grapheme_length, "\tScore: {0:.2f}".format(entity.score), "\n")
-        
-entity_pii_example(client)
-```
-
-### <a name="output"></a>출력
-
-```console
-Personally Identifiable Information Entities:
-    Text:  123-12-1234      Category:  U.S. Social Security Number (SSN)    SubCategory:  None
-        Length:  11     Score: 0.85
-```
-
-
 ## <a name="entity-linking"></a>엔터티 연결
 
 클라이언트를 인수로 사용하는 `entity_linking_example()`이라는 새 함수를 만든 다음, `recognize_linked_entities()` 함수를 호출하여 결과를 반복합니다. 반환된 응답 개체에는 성공하면 `entities`에서 검색된 엔티티 목록이 포함되고, 그렇지 않으면 `error`가 포함됩니다. 연결된 엔터티가 고유하게 식별되므로 동일한 엔터티의 발생은 `entity` 개체 아래에서 `match` 개체 목록으로 그룹화됩니다.
@@ -317,12 +287,12 @@ Personally Identifiable Information Entities:
 def entity_linking_example(client):
 
     try:
-        document = ["""Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, 
+        documents = ["""Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, 
         to develop and sell BASIC interpreters for the Altair 8800. 
         During his career at Microsoft, Gates held the positions of chairman,
         chief executive officer, president and chief software architect, 
         while also being the largest individual shareholder until May 2014."""]
-        result = client.recognize_linked_entities(inputs= document)[0]
+        result = client.recognize_linked_entities(documents = documents)[0]
 
         print("Linked Entities:\n")
         for entity in result.entities:
@@ -331,7 +301,7 @@ def entity_linking_example(client):
             print("\tMatches:")
             for match in entity.matches:
                 print("\t\tText:", match.text)
-                print("\t\tScore: {0:.2f}".format(match.score), "\tLength: {}\n".format(match.grapheme_length))
+                print("\t\tConfidence Score: {0:.2f}".format(match.confidence_score), "\tLength: {}\n".format(match.grapheme_length))
             
     except Exception as err:
         print("Encountered exception. {}".format(err))
@@ -343,48 +313,47 @@ entity_linking_example(client)
 ```console
 Linked Entities:
 
-    Name:  Altair 8800      Id:  Altair 8800        Url:  https://en.wikipedia.org/wiki/Altair_8800
+    Name:  Altair 8800     Id:  Altair 8800     Url:  https://en.wikipedia.org/wiki/Altair_8800 
     Data Source:  Wikipedia
     Matches:
         Text: Altair 8800
-        Score: 0.78     Length: 11
+        Confidence Score: 0.00     Length: 11
 
-    Name:  Bill Gates       Id:  Bill Gates         Url:  https://en.wikipedia.org/wiki/Bill_Gates
+    Name:  Bill Gates     Id:  Bill Gates     Url:  https://en.wikipedia.org/wiki/Bill_Gates 
     Data Source:  Wikipedia
     Matches:
         Text: Bill Gates
-        Score: 0.55     Length: 10
+        Confidence Score: 0.00     Length: 10
 
         Text: Gates
-        Score: 0.55     Length: 5
+        Confidence Score: 0.00     Length: 5
 
-    Name:  Paul Allen       Id:  Paul Allen         Url:  https://en.wikipedia.org/wiki/Paul_Allen
+    Name:  Paul Allen     Id:  Paul Allen     Url:  https://en.wikipedia.org/wiki/Paul_Allen 
     Data Source:  Wikipedia
     Matches:
         Text: Paul Allen
-        Score: 0.53     Length: 10
+        Confidence Score: 0.00     Length: 10
 
-    Name:  Microsoft        Id:  Microsoft  Url:  https://en.wikipedia.org/wiki/Microsoft
+    Name:  Microsoft     Id:  Microsoft     Url:  https://en.wikipedia.org/wiki/Microsoft 
     Data Source:  Wikipedia
     Matches:
         Text: Microsoft
-        Score: 0.47     Length: 9
+        Confidence Score: 0.00     Length: 9
 
         Text: Microsoft
-        Score: 0.47     Length: 9
+        Confidence Score: 0.00     Length: 9
 
-    Name:  April 4  Id:  April 4    Url:  https://en.wikipedia.org/wiki/April_4
+    Name:  April 4     Id:  April 4     Url:  https://en.wikipedia.org/wiki/April_4 
     Data Source:  Wikipedia
     Matches:
         Text: April 4
-        Score: 0.25     Length: 7
+        Confidence Score: 0.00     Length: 7
 
-    Name:  BASIC    Id:  BASIC      Url:  https://en.wikipedia.org/wiki/BASIC
+    Name:  BASIC     Id:  BASIC     Url:  https://en.wikipedia.org/wiki/BASIC 
     Data Source:  Wikipedia
     Matches:
         Text: BASIC
-        Score: 0.28     Length: 5
-
+        Confidence Score: 0.00     Length: 5
 ```
 
 #### <a name="version-21"></a>[버전 2.1](#tab/version-2)
@@ -448,9 +417,9 @@ Document ID: 2
 def key_phrase_extraction_example(client):
 
     try:
-        document = ["My cat might need to see a veterinarian."]
+        documents = ["My cat might need to see a veterinarian."]
 
-        response = client.extract_key_phrases(inputs= document)[0]
+        response = client.extract_key_phrases(documents = documents)[0]
 
         if not response.is_error:
             print("\tKey Phrases:")

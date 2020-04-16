@@ -3,12 +3,12 @@ title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0ac5d62fbf6b6ee418cd4b2f2b00dfc12e05f809
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 66e2b2f7fbbae5940b576ead22a416625af3c058
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754140"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418520"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -25,11 +25,7 @@ Azure AD(Azure Active Directory) 테넌트는 조직을 나타냅니다. Azure, 
 
 Azure 위임 리소스 관리를 통해 온보딩 프로세스는 고객 테넌트의 구독, 리소스 그룹 및 리소스를 액세스하고 관리할 수 있는 서비스 공급자의 테넌트 내의 사용자를 지정합니다. 그러면 이러한 사용자는 자신의 자격 증명을 사용하여 Azure Portal에 로그인할 수 있습니다. Azure Portal 내에서 액세스 권한이 있는 모든 고객에게 속한 리소스를 관리할 수 있습니다. 이 작업은 Azure Portal에서 [내 고객](../how-to/view-manage-customers.md) 페이지에서 수행하거나 Azure Portal 또는 API를 통해 해당 고객의 구독 컨텍스트 내에서 직접 수행할 수 있습니다.
 
-Azure 위임 리소스 관리를 사용하면 다른 테넌트의 다른 계정에 로그인하지 않고도 여러 고객을 위한 리소스를 더욱 유연하게 관리할 수 있습니다. 예를 들어, 서비스 공급자는 다음과 같이 책임 및 액세스 수준이 서로 다른 3명의 고객을 보유할 수 있습니다.
-
-![서비스 공급자의 책임을 보여 주는 세 개의 고객 테넌트](../media/azure-delegated-resource-management-customer-tenants.jpg)
-
-권한이 있는 사용자는 Azure 위임된 리소스 관리를 사용하여 서비스 공급자의 테넌트에 로그인하여 다음과 같이 이러한 리소스에 액세스할 수 있습니다.
+Azure 위임 리소스 관리를 사용하면 다른 테넌트의 다른 계정에 로그인하지 않고도 여러 고객을 위한 리소스를 더욱 유연하게 관리할 수 있습니다. 예를 들어 서비스 공급자는 서로 다른 책임과 액세스 수준을 가진 두 고객을 가질 수 있습니다. 권한이 있는 사용자는 Azure 위임된 리소스 관리를 사용하여 서비스 공급자의 테넌트에 로그인하여 이러한 리소스에 액세스할 수 있습니다.
 
 ![하나의 서비스 공급자 테넌트를 통해 관리되는 고객 리소스](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
@@ -88,7 +84,7 @@ Azure PowerShell [Get-AzSubscription cmdlet각](https://docs.microsoft.com/power
 
 - 이제 반환된 쿼리 결과에 테넌트 ID를 포함하여 구독이 고객 테넌트 또는 서비스 공급자 테넌트에 속하는지 여부를 식별할 수 있습니다.
 
-[Azure Security Center](../../security-center/index.yml):
+[Azure 보안 센터](../../security-center/index.yml):
 
 - 테넌트 간 표시 유형
   - 보안 정책 준수 를 모니터링하고 모든 테넌트의 리소스에 대한 보안 적용 범위 보장

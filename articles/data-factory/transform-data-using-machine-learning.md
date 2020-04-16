@@ -10,17 +10,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/20/2019
-ms.openlocfilehash: 44371c78a4d02588eef21aae5a4bba3d033763d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3587ee711864eb33fea9bc4e61fe226562e8f612
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76029999"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418867"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-azure-ml-batch-execution-activity.md)
 > * [현재 버전](transform-data-using-machine-learning.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)을 사용하여 예측 분석 솔루션을 빌드, 테스트 및 배포할 수 있습니다. 대략적인 관점에서 이 작업은 다음 세 단계로 수행됩니다.
 
@@ -123,12 +125,12 @@ Azure Machine Learning은 예측 실험에 클래식 웹 서비스 및 새 웹 �
 }
 ```
 
-| 속성          | 설명                              | 필수 |
+| 속성          | Description                              | 필수 |
 | :---------------- | :--------------------------------------- | :------- |
-| name              | 파이프라인의 작업 이름입니다.     | yes      |
+| name              | 파이프라인의 작업 이름입니다.     | 예      |
 | description       | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |
-| type              | 데이터 레이크 분석 U-SQL 활동의 경우 활동 유형은 **AzureMLBatchExecution**입니다. | yes      |
-| linkedServiceName | Azure Machine Learning 연결된 서비스에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요. | yes      |
+| type              | 데이터 레이크 분석 U-SQL 활동의 경우 활동 유형은 **AzureMLBatchExecution**입니다. | 예      |
+| linkedServiceName | Azure Machine Learning 연결된 서비스에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요. | 예      |
 | webServiceInputs  | Azure Machine Learning 웹 서비스 입력의 이름을 매핑하는 키, 값 쌍입니다. 키는 게시된 Azure Machine Learning 웹 서비스에 정의된 입력 매개 변수와 일치해야 합니다. 값은 Azure Storage 연결된 서비스 및 입력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 예       |
 | webServiceOutputs | Azure Machine Learning 웹 서비스 출력의 이름을 매핑하는 키, 값 쌍입니다. 키는 게시된 Azure Machine Learning 웹 서비스에 정의된 출력 매개 변수와 일치해야 합니다. 값은 Azure Storage 연결된 서비스 및 출력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 예       |
 | globalParameters  | 키, 값 쌍Azure 기계 학습 스튜디오 (클래식) 일괄 처리 실행 서비스 끝점에 전달 합니다. 키는 게시된 Azure 기계 학습 스튜디오(클래식) 웹 서비스에 정의된 웹 서비스 매개 변수의 이름과 일치해야 합니다. 값은 Azure 기계 학습 스튜디오 (클래식) 일괄 처리 실행 요청의 GlobalParameters 속성에 전달 됩니다. | 예       |
@@ -226,4 +228,4 @@ Azure 기계 학습 스튜디오(클래식) 실험을 만들 때 또 다른 일�
 * [하두롭 스트리밍 활동](transform-data-using-hadoop-streaming.md)
 * [스파크 액티비티](transform-data-using-spark.md)
 * [.NET 사용자 지정 활동](transform-data-using-dotnet-custom-activity.md)
-* [저장 프로시저 작업](transform-data-using-stored-procedure.md)
+* [저장 프로시저 활동](transform-data-using-stored-procedure.md)

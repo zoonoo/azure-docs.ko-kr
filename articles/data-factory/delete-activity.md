@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: f265cdc955becd53ae7ba61ad827b2be69b92907
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: d90f38f83bd4d2d5311f277fcc928e442d7ea793
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618277"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416391"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Azure Data Factory의 삭제 작업
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 
 Azure Data Factory에서 활동 삭제를 사용하여 온-프레미스 저장소 저장소 또는 클라우드 저장소 저장소에서 파일 또는 폴더를 삭제할 수 있습니다. 파일이 더 이상 필요하지 않을 때 파일을 정리하거나 보관하려면 이 작업을 사용합니다.
 
@@ -43,7 +45,7 @@ Azure Data Factory에서 활동 삭제를 사용하여 온-프레미스 저장�
 -   [Azure Blob 스토리지](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
--   [Azure 파일 저장소](connector-azure-file-storage.md)
+-   [Azure File Storage](connector-azure-file-storage.md)
 
 ### <a name="file-system-data-stores"></a>파일 시스템 데이터 저장소
 
@@ -80,7 +82,7 @@ Azure Data Factory에서 활동 삭제를 사용하여 온-프레미스 저장�
 
 ## <a name="type-properties"></a>형식 속성
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | 데이터 세트 | 삭제할 파일이나 폴더를 결정하기 위한 데이터 세트 참조를 제공합니다. | 예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 파일을 재귀적으로 삭제할지 여부를 나타냅니다.  | 아니요. 기본값은 `false`입니다. |
@@ -116,7 +118,7 @@ Azure Data Factory에서 활동 삭제를 사용하여 온-프레미스 저장�
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>샘플 로그 샘플 로그 파일
 
-| 속성 | Category | 상태 | Error |
+| 속성 | 범주 | 상태 | Error |
 |:--- |:--- |:--- |:--- |
 | 테스트1/yy.json | 파일 | Deleted |  |
 | test2/hello789.txt | 파일 | Deleted |  |

@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 6f2db91a35573bc2cbdd0df2cb1ac09914cc956b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3f40ad7346219b48a38ade38b2a75ddf71940875
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76122647"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416411"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Azure 데이터 팩터리를 사용하여 Amazon S3에서 Azure 저장소로 데이터 마이그레이션 
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Azure Data Factory는 Amazon S3에서 Azure Blob 저장소 또는 Azure Data Lake Gen2로 대규모로 데이터를 마이그레이션하는 성능이 뛰어나고 강력하며 비용 효율적인 메커니즘을 제공합니다.  이 문서에서는 데이터 엔지니어와 개발자를 위한 다음 정보를 제공합니다. 
 
@@ -143,7 +145,7 @@ S3에서 Azure Blob Storage로 데이터를 마이그레이션하기 위해 구�
 - [자체 호스팅 통합 런타임 생성 및 구성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
 - [자체 호스팅 통합 런타임 HA 및 확장성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
 - [데이터 이동 보안 고려 사항](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [Azure 키 자격 증명에 자격 증명 저장](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
+- [Azure Key Vault에 자격 증명 저장](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
 - [시간 분할 된 파일 이름에 따라 증분 파일 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
 - [LastModifiedDate를 기반으로 새 파일 및 변경된 파일 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
 - [ADF 가격 책정 페이지](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)

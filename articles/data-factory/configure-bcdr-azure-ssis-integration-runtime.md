@@ -12,14 +12,16 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/09/2020
-ms.openlocfilehash: 532258cecd823e10057ddc3536cd24071e444581
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 75dd5a917d718f4ccef034e953a415d575d42bd9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80992065"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418306"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Azure SQL Database 지역에서 복제 및 장애 조치(failover)를 사용하여 Azure-SSIS Integration Runtime 구성
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 이 문서에서는 SSISDB 데이터베이스에 대해 Azure SQL Database 지역에서 복제를 사용하여 Azure SSIS Integration Runtime을 구성하는 방법을 설명합니다. 장애 조치(Failover)가 발생하는 경우 Azure-SSIS IR이 보조 데이터베이스를 계속 사용하는지 확인할 수 있습니다.
 
@@ -39,7 +41,7 @@ SQL Database의 지역에서 복제 및 장애 조치(Failover)에 대한 자세
 
 - SQL Database 서버가 가상 네트워크 서비스 엔드포인트 규칙으로 구성되지 *않았습니다*.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 장애 조치(Failover)가 발생하는 경우 Azure-SSIS IR에 투명하게 진행됩니다. Azure-SSIS IR은 장애 조치(Failover) 그룹의 새로운 주 데이터베이스에 자동으로 연결됩니다.
 
@@ -59,7 +61,7 @@ SQL Database의 지역에서 복제 및 장애 조치(Failover)에 대한 자세
 
 - 데이터베이스 서버는 가상 네트워크로 구성된 SQL Database Managed Instance입니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 장애 조치(Failover)가 발생하면 다음을 수행해야 합니다.
 

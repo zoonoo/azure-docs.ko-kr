@@ -12,18 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: e7f91d60a0e181690859da64e491c4c0fa1e1a3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 063ac32c98d4eb64b676247c0a16f98fa7d1702d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80238708"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416696"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 SQL Server에서 데이터를 복사합니다.
 
 > [!div class="op_single_selector" title1="사용 하는 Azure 데이터 팩터리의 버전을 선택 합니다."]
 > * [버전 1](v1/data-factory-sqlserver-connector.md)
 > * [현재 버전](connector-sql-server.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory에서 복사 활동을 사용하여 SQL Server 데이터베이스에서 데이터를 복사하는 방법을 설명합니다. 복사 활동에 대한 일반적인 개요를 제공하는 [복사 활동 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
@@ -53,7 +54,7 @@ SQL Server 데이터베이스의 데이터를 지원되는 싱크 데이터 저�
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -63,10 +64,10 @@ SQL Server 데이터베이스의 데이터를 지원되는 싱크 데이터 저�
 
 SQL Server 연결 서비스에 대해 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **SqlServer**로 설정해야 합니다. | yes |
-| connectionString |SQL 인증 또는 Windows 인증을 사용하여 SQL Server 데이터베이스에 연결하는 데 필요한 **연결String** 정보를 지정합니다. 다음 샘플을 참조하세요.<br/>Azure 키 자격 증명 모음에 암호를 넣을 수도 있습니다. SQL 인증인 경우 연결 `password` 문자열에서 구성을 가져옵니다. 자세한 내용은 Azure Key Vault의 테이블 및 [스토어 자격 증명 다음의](store-credentials-in-key-vault.md)JSON 예제를 참조하십시오. |yes |
+| type | 형식 속성은 **SqlServer**로 설정해야 합니다. | 예 |
+| connectionString |SQL 인증 또는 Windows 인증을 사용하여 SQL Server 데이터베이스에 연결하는 데 필요한 **연결String** 정보를 지정합니다. 다음 샘플을 참조하세요.<br/>Azure 키 자격 증명 모음에 암호를 넣을 수도 있습니다. SQL 인증인 경우 연결 `password` 문자열에서 구성을 가져옵니다. 자세한 내용은 Azure Key Vault의 테이블 및 [스토어 자격 증명 다음의](store-credentials-in-key-vault.md)JSON 예제를 참조하십시오. |예 |
 | userName |Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. **domainname\\username**을 예로 들 수 있습니다. |예 |
 | password |사용자 이름에 대해 지정한 사용자 계정에 대한 암호를 지정합니다. 이 필드를 **SecureString으로** 표시하여 Azure 데이터 팩터리에 안전하게 저장합니다. 또는 Azure [키 자격 증명 모음에 저장된 비밀을 참조할](store-credentials-in-key-vault.md)수 있습니다. |예 |
 | connectVia | 이 [Integration Runtime](concepts-integration-runtime.md)은 데이터 저장소에 연결하는 데 사용됩니다. [필수 구성 조건](#prerequisites) 섹션에서 자세히 알아보십시오. 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. |예 |
@@ -147,9 +148,9 @@ SQL Server 연결 서비스에 대해 다음 속성이 지원됩니다.
 
 SQL Server 데이터베이스에서 데이터를 복사하려면 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 형식 속성은 **SqlServerTable**으로 설정해야 합니다. | yes |
+| type | 데이터 집합의 형식 속성은 **SqlServerTable**으로 설정해야 합니다. | 예 |
 | 스키마 | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
 | 테이블 | 테이블/뷰의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
 | tableName | 스키마가 있는 테이블/보기의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원됩니다. 새 워크로드의 `schema` 경우 `table`및 를 사용합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
@@ -183,9 +184,9 @@ SQL Server 데이터베이스에서 데이터를 복사하려면 다음 속성�
 
 SQL Server의 데이터를 복사하려면 복사 작업의 원본 형식을 **SqlSource**로 설정합니다. 복사 작업 source 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 활동 소스의 형식 속성을 **SqlSource**로 설정해야 합니다. | yes |
+| type | 복사 활동 소스의 형식 속성을 **SqlSource**로 설정해야 합니다. | 예 |
 | SqlReaderQuery |사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `select * from MyTable`입니다. |예 |
 | sqlReaderStoredProcedureName |이 속성은 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. |예 |
 | storedProcedureParameters |저장 프로시저용 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름과 대/소문자는 저장된 프로시저 매개 변수의 이름과 대/소문자를 일치해야 합니다. |예 |
@@ -290,9 +291,9 @@ GO
 
 SQL Server에 데이터를 복사하려면 복사 작업의 싱크 형식을 **SqlSink**로 설정합니다. 복사 작업 sink 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 활동 싱크의 형식 속성을 **SqlSink로**설정해야 합니다. | yes |
+| type | 복사 활동 싱크의 형식 속성을 **SqlSink로**설정해야 합니다. | 예 |
 | writeBatchSize |*일괄 처리당*SQL 테이블에 삽입할 행 수입니다.<br/>허용되는 값은 행 수에 해당하는 정수입니다. 기본적으로 Azure Data Factory는 행 크기에 따라 적절한 일괄 처리 크기를 동적으로 결정합니다. |예 |
 | writeBatchTimeout |이 속성은 시간이 초과되기 전에 완료하려는 배치 삽입 작업의 대기 시간을 지정합니다.<br/>허용된 값은 시간 범위에 대한 값입니다. 예를 들어 30분 동안 "00:30:00"입니다. 값을 지정하지 않으면 시간 지정이 기본값 "02:00:00"입니다. |예 |
 | preCopyScript |이 속성은 SQL Server에 데이터를 작성하기 전에 복사 작업이 실행되도록 SQL 쿼리를 지정합니다. 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |예 |

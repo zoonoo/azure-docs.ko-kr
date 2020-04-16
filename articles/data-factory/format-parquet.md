@@ -9,14 +9,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 81bbd476cea0472647ca183fb188fc13725d1469
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 223b1b996b82acaa753eb55723e251dc5901bbec
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77597629"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417711"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Azure 데이터 팩터리의 마루 형식
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 **당신이 마루 파일을 구문 분석하거나 마루 형식으로 데이터를 작성하려는**경우이 문서를 따르십시오. 
 
@@ -26,10 +27,10 @@ ms.locfileid: "77597629"
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Parquet 데이터 집합에서 지원하는 속성 목록을 제공합니다.
 
-| 속성         | 설명                                                  | 필수 |
+| 속성         | Description                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | 데이터 집합의 형식 속성은 **Parquet로**설정해야 합니다. | yes      |
-| 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 고유한 위치 유형과 `location`지원되는 속성이 있습니다. **커넥터 문서 -> 데이터 집합 속성 섹션의 세부 정보를 참조하십시오.** | yes      |
+| type             | 데이터 집합의 형식 속성은 **Parquet로**설정해야 합니다. | 예      |
+| 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 고유한 위치 유형과 `location`지원되는 속성이 있습니다. **커넥터 문서 -> 데이터 집합 속성 섹션의 세부 정보를 참조하십시오.** | 예      |
 | 압축 코덱 | 마루 파일에 쓸 때 사용하는 압축 코덱. Parquet 파일에서 읽을 때 데이터 팩터리에서는 파일 메타데이터를 기반으로 압축 코덱을 자동으로 결정합니다.<br>지원되는 유형은 "**없음**",**"gzip",****"스냅**"(기본값) 및 "**lzo**"입니다. 참고 현재 복사 활동은 마루 파일을 읽음/쓰기할 때 LZO를 지원하지 않습니다. | 예       |
 
 > [!NOTE]
@@ -67,18 +68,18 @@ ms.locfileid: "77597629"
 
 다음 속성은 복사 활동 *** \*소스\* *** 섹션에서 지원됩니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 복사 활동 소스의 형식 속성은 **ParquetSource로**설정해야 합니다. | yes      |
+| type          | 복사 활동 소스의 형식 속성은 **ParquetSource로**설정해야 합니다. | 예      |
 | 매장 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대한 속성 그룹입니다. 각 파일 기반 커넥터에는 에서 `storeSettings`자체 지원되는 읽기 설정이 있습니다. **커넥터 문서 -> 복사 활동 속성 섹션의 세부 정보를 참조하십시오.** | 예       |
 
 ### <a name="parquet-as-sink"></a>싱크대로 마루
 
 다음 속성은 복사 활동 *** \*싱크\* *** 섹션에서 지원됩니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 복사 활동 소스의 형식 속성은 **ParquetSink로**설정해야 합니다. | yes      |
+| type          | 복사 활동 소스의 형식 속성은 **ParquetSink로**설정해야 합니다. | 예      |
 | 매장 설정 | 데이터 저장소에 데이터를 작성하는 방법에 대한 속성 그룹입니다. 각 파일 기반 커넥터에는 에서 `storeSettings`자체 지원되는 쓰기 설정이 있습니다. **커넥터 문서 -> 복사 활동 속성 섹션의 세부 정보를 참조하십시오.** | 예       |
 
 ## <a name="mapping-data-flow-properties"></a>데이터 흐름 속성 매핑

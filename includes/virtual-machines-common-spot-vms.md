@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d56964b7415e4ca5903950cd46c02b3c27f62d5e
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 4063751a71cd9cecc424dfe3daddaecfd9ea4071
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547399"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81422149"
 ---
 스팟 VM을 사용하면 사용되지 않는 용량을 크게 절감할 수 있습니다. Azure에서 용량을 다시 필요로 하는 모든 시점에서 Azure 인프라는 스팟 VM을 제거합니다. 따라서 스팟 VM은 일괄 처리 작업, 개발/테스트 환경, 대규모 컴퓨팅 워크로드 등과 같은 중단을 처리할 수 있는 워크로드에 적합합니다.
 
@@ -88,6 +88,7 @@ VM은 용량 또는 설정한 최대 가격에 따라 제거될 수 있습니다
 | 기업 계약         | 예                               |
 | 종량제 통화 요금                | 예                               |
 | CSP(클라우드 서비스 공급자) | [파트너에게 문의하기](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Microsoft 고객 계약 | 예                               |
 | 이점                     | 사용할 수 없음                     |
 | 스폰서                    | 사용할 수 없음                     |
 | 평가판                   | 사용할 수 없음                     |

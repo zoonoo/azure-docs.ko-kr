@@ -11,14 +11,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 08cc7ce8f306095a66bc0f8cf74dff8c8b551ecf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02abdaf46ca2af6c96d3b5e8d4ce5876831bd415
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440465"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418003"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory에서 조회 작업
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 조회 작업은 Azure Data Factory에서 지원하는 데이터 원본에서 데이터 세트를 검색할 수 있습니다. 조회 작업은 다음과 같은 시나리오에 사용합니다.
 - 개체 이름을 하드 코딩하는 대신, 후속 작업에서 작동할 개체를 동적으로 결정합니다. 개체의 예로는 파일과 테이블이 있습니다.
@@ -53,10 +54,10 @@ ms.locfileid: "75440465"
 
 ## <a name="type-properties"></a>형식 속성
 
-이름 | 설명 | Type | 필수 여부
+속성 | Description | Type | 필수 여부
 ---- | ----------- | ---- | --------
-데이터 세트 | 조회를 위한 데이터 세트 참조를 제공합니다. 자세한 내용은 해당하는 각 커넥터 문서의 **데이터 세트 속성** 섹션에서 확인하세요. | 키/값 쌍 | yes
-source | 복사 작업 원본과 동일한 데이터 세트 관련 원본 속성을 포함하고 있습니다. 각 해당 커넥터 문서의 **활동 복사 속성** 섹션에서 세부 정보를 가져옵니다. | 키/값 쌍 | yes
+데이터 세트 | 조회를 위한 데이터 세트 참조를 제공합니다. 자세한 내용은 해당하는 각 커넥터 문서의 **데이터 세트 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예
+source | 복사 작업 원본과 동일한 데이터 세트 관련 원본 속성을 포함하고 있습니다. 각 해당 커넥터 문서의 **활동 복사 속성** 섹션에서 세부 정보를 가져옵니다. | 키/값 쌍 | 예
 firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반환할 것인지 여부를 나타냅니다. | 부울 | 아니요. 기본값은 `true`입니다.
 
 > [!NOTE]
@@ -303,7 +304,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 ## <a name="next-steps"></a>다음 단계
 Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요. 
 
-- [파이프라인 실행 작업](control-flow-execute-pipeline-activity.md)
+- [파이프라인 활동 실행](control-flow-execute-pipeline-activity.md)
 - [ForEach 작업](control-flow-for-each-activity.md)
 - [GetMetadata 작업](control-flow-get-metadata-activity.md)
 - [웹 활동](control-flow-web-activity.md)

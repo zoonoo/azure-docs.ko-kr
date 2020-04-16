@@ -10,14 +10,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jingwang
-ms.openlocfilehash: 45699680ad2003c034bce588857f8b102a0b6d26
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d47450f3252074d3bae8df97766bf8858fca5972
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79261126"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416590"
 ---
 # <a name="managed-identity-for-data-factory"></a>Data Factory에 대한 관리 ID
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 이 문서에서는 데이터 팩터리(이전의 관리 서비스 ID/MSI)에 대해 관리되는 ID와 작동 방식을 이해하는 데 도움이 됩니다.
 

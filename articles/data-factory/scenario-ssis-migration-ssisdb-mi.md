@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 38010e3aaa2d0544dfbfe19135d25250d2b021a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2e35e4eb750aa2244df920111b201d886599eaf6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929773"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419054"
 ---
 # <a name="ssis-migration-with-azure-sql-database-managed-instance-as-the-database-workload-destination"></a>Azure SQL Database를 사용하여 SSIS 마이그레이션을 데이터베이스 워크로드 대상으로 관리됨 인스턴스
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 온프레미스에서 SQL Server로 데이터베이스 워크로드를 Azure SQL Database 관리 인스턴스로 마이그레이션할 [때는 Azure 데이터 마이그레이션](https://docs.microsoft.com/azure/dms/dms-overview)서비스(DMS) 및 [DMS를 사용하여 관리되는 Azure SQL Database 관리 인스턴스 마이그레이션에 대한 네트워크 토폴로지에](https://docs.microsoft.com/azure/dms/resource-network-topologies)대해 잘 알고 있어야 합니다.
 
@@ -34,7 +36,7 @@ Azure SQL Database 관리 형 인스턴스에는 온-프레미스의 SQL Server 
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure 데이터 팩터리](https://docs.microsoft.com/azure/data-factory/introduction)
+- [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction)
 - [Azure SSIS 통합 런타임](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)
 - [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)
 - [Azure SQL Database관리 인스턴스 마이그레이션에 대 한 네트워크 topologies DMS를 사용 하 여](https://docs.microsoft.com/azure/dms/resource-network-topologies)

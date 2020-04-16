@@ -8,14 +8,15 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: e284060893e00ed7459edd0d1a03075c813dc5b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c9a1ac831c4300c0523717fddc1fa53417068b89
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065389"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416568"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Azure 데이터 팩터리 문제 해결
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory에서 외부 제어 활동에 대한 일반적인 문제 해결 방법을 살펴봅니다.
 
@@ -1034,7 +1035,7 @@ Fiddler를 사용하여 모니터링되는 웹 응용 프로그램의 HTTP 세�
    
    1. 필요한 경우 헤더와 요청 본문을 추가합니다.
 
-   1. **실행**을 선택합니다.
+   1. **실행을 선택합니다.**
 
 1. 트래픽 캡처를 다시 켜고 페이지에서 문제가 있는 트랜잭션을 완료합니다.
 

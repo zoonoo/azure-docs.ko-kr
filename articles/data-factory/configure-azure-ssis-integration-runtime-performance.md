@@ -10,14 +10,17 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 15aac35a7ebc505e76ddfd0c538c4fddb7b2d9ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca88e42438c7cb48b062aa67d82053afbb9244bf
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930552"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418289"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>고성능을 위해 Azure-SSIS Integration Runtime 구성
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 
 이 문서는 고성능을 위해 Azure-SSIS IR(Integration Runtime)을 구성하는 방법을 설명합니다. Azure-SSIS IR을 사용하면 Azure에서 SSIS(SQL Server Integration Services) 패키지를 배포하고 실행할 수 있습니다. Azure-SSIS IR에 대한 자세한 내용은 [통합 런타임](concepts-integration-runtime.md#azure-ssis-integration-runtime)을 참조하세요. Azure에서 SSIS 패키지를 배포하고 실행하는 데 대한 자세한 내용은 [SQL Server Integration Services 워크로드를 클라우드로 이동](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview)을 참조하세요.
 

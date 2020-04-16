@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 4a05d955be88f68b3c0db1f4a29b3f6e1155aa0d
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 730efb552ef218cc5a5ce6a984d20b4e23b364ac
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80992184"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416952"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HTTP 엔드포인트에서 데이터 복사
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-http-connector.md)
 > * [현재 버전](connector-http.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 HTTP 엔드포인트에서 데이터를 복사하는 방법을 간략히 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 기반으로 합니다.
 
@@ -64,7 +66,7 @@ HTTP 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 
 HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | **type** 속성은 **HttpServer**로 설정해야 합니다. | 예 |
 | url | 웹 서버의 기본 URL입니다. | 예 |
@@ -76,7 +78,7 @@ HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 **authenticationType** 속성을 **Basic**, **Digest** 또는 **Windows**로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | userName | HTTP 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예 |
 | password | 사용자(**userName** 값)의 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 예 |
@@ -109,7 +111,7 @@ HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **ClientCertificate**로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | embeddedCertData | Base64로 인코딩된 인증서 데이터입니다. | **embeddedCertData** 또는 **certThumbprint**를 지정합니다. |
 | certThumbprint | 자체 호스팅 통합 런타임 머신의 인증서 저장소에 설치된 인증서의 지문입니다. 자체 호스팅 형식의 통합 런타임이 **connectVia** 속성에 지정된 경우에만 적용됩니다. | **embeddedCertData** 또는 **certThumbprint**를 지정합니다. |
@@ -174,7 +176,7 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 형식 기반 데이터 집합의 `location` 설정에서 HTTP에 대해 다음 속성이 지원됩니다.
 
-| 속성    | 설명                                                  | 필수 |
+| 속성    | Description                                                  | 필수 |
 | ----------- | ------------------------------------------------------------ | -------- |
 | type        | 데이터 집합에서 `location` 아래의 형식 속성은 **HttpServerLocation**로 설정해야 합니다. | 예      |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. HTTP 커넥터는 결합된 URL에서 데이터를 `[URL specified in linked service][relative URL specified in dataset]`복사합니다.   | 예       |
@@ -220,7 +222,7 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 형식 기반 복사 소스의 `storeSettings` 설정에서 HTTP에 대해 다음 속성이 지원됩니다.
 
-| 속성                 | 설명                                                  | 필수 |
+| 속성                 | Description                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | 아래의 `storeSettings` 형식 속성은 **HttpReadSettings**로 설정해야 합니다. | 예      |
 | requestMethod            | HTTP 메서드입니다. <br>허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 예       |
@@ -281,7 +283,7 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 집합 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 **형식** 속성을 **HttpFile**로 설정해야 합니다. | 예 |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. | 예 |
@@ -335,7 +337,7 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 ### <a name="legacy-copy-activity-source-model"></a>레거시 복사 활동 소스 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 활동 소스의 **형식** 속성은 **HttpSource**로 설정해야 합니다. | 예 |
 | httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40**입니다.  | 예 |

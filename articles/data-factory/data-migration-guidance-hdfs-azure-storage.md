@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
-ms.openlocfilehash: afccbdbbfd5b8ddeefa621448d6170d937b518f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63b657e77172282225a9bc890b2f185b0f4d42a1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74931443"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417123"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Azure 데이터 팩터리를 사용하여 온-프레미스 Hadoop 클러스터에서 Azure 저장소로 데이터를 마이그레이션합니다. 
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Azure Data Factory는 온-프레미스 HDFS에서 Azure Blob 저장소 또는 Azure Data Lake 저장소 Gen2로 대규모로 데이터를 마이그레이션하기 위한 성능이 뛰어나고 강력하며 비용 효율적인 메커니즘을 제공합니다. 
 
@@ -146,7 +148,7 @@ HDFS에서 Azure Blob 저장소로 데이터를 마이그레이션하기 위한 
 - [자체 호스팅 통합 런타임 만들기 및 구성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
 - [자체 호스팅 통합 런타임 고가용성 및 확장성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
 - [데이터 이동 보안 고려 사항](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [Azure 키 자격 증명에 자격 증명 저장](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
+- [Azure Key Vault에 자격 증명 저장](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
 - [시간 분할된 파일 이름에 따라 증분 방식으로 파일 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
 - [LastModifiedDate를 기반으로 새 파일 및 변경된 파일 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
 - [데이터 팩토리 가격 책정 페이지](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)

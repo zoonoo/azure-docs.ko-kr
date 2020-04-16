@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/27/2019
-ms.openlocfilehash: d6110065e28b8f179cd1d113107fb3508e1c3e44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc2179efcda4ee11dda3b424b16a072a2bb2c26e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75892538"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418187"
 ---
 # <a name="copy-data-from-and-to-microsoft-access-data-stores-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Microsoft Access 데이터 저장소에서 데이터를 복사합니다.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure 데이터 팩터리에서 복사 활동을 사용하여 Microsoft Access 데이터 저장소의 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
@@ -51,15 +52,15 @@ Microsoft Access 원본의 데이터를 지원되는 싱크 데이터 저장소�
 
 다음 속성은 Microsoft Access 연결 서비스에 대해 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성을 설정 해야 **합니다.** | yes |
-| connectionString | 자격 증명 부분을 제외한 ODBC 연결 문자열입니다. 연결 문자열을 지정하거나 통합 런타임 컴퓨터에서 설정한 시스템 DSN(데이터 원본 이름)을 사용할 수 있습니다(그에 따라 연결된 서비스에서 자격 증명 부분을 지정해야 합니다).<br> Azure Key Vault에 암호를 입력하고 연결 `password` 문자열에서 구성을 가져올 수도 있습니다.자세한 내용은 [Azure 키 자격 증명 모음의](store-credentials-in-key-vault.md) 자격 증명 저장을 참조하십시오.| yes |
-| authenticationType | Microsoft Access 데이터 저장소에 연결하는 데 사용되는 인증 유형입니다.<br/>허용되는 값은 **Basic** 및 **Anonymous**입니다. | yes |
+| type | 형식 속성을 설정 해야 **합니다.** | 예 |
+| connectionString | 자격 증명 부분을 제외한 ODBC 연결 문자열입니다. 연결 문자열을 지정하거나 통합 런타임 컴퓨터에서 설정한 시스템 DSN(데이터 원본 이름)을 사용할 수 있습니다(그에 따라 연결된 서비스에서 자격 증명 부분을 지정해야 합니다).<br> Azure Key Vault에 암호를 입력하고 연결 `password` 문자열에서 구성을 가져올 수도 있습니다.자세한 내용은 [Azure 키 자격 증명 모음의](store-credentials-in-key-vault.md) 자격 증명 저장을 참조하십시오.| 예 |
+| authenticationType | Microsoft Access 데이터 저장소에 연결하는 데 사용되는 인증 유형입니다.<br/>허용되는 값은 **Basic** 및 **Anonymous**입니다. | 예 |
 | userName | 기본 인증을 사용하는 경우 사용자 이름을 지정합니다. | 예 |
 | password | userName에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | 자격 증명(credential) | 드라이버 관련 속성 값 형식에 지정된 연결 문자열의 액세스 자격 증명 부분입니다. 이 필드를 SecureString으로 표시합니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임입니다.](concepts-integration-runtime.md) [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |yes |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임입니다.](concepts-integration-runtime.md) [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
 
 **예제:**
 
@@ -91,9 +92,9 @@ Microsoft Access 원본의 데이터를 지원되는 싱크 데이터 저장소�
 
 Microsoft Access에서 데이터를 복사하려면 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 형식 속성을 다음으로 설정해야 **합니다.** | yes |
+| type | 데이터 집합의 형식 속성을 다음으로 설정해야 **합니다.** | 예 |
 | tableName | Microsoft 액세스의 테이블 이름입니다. | 원본: 아니요(작업 원본에서 "query"가 지정된 경우)<br/>싱크: 예 |
 
 **예제**
@@ -122,9 +123,9 @@ Microsoft Access에서 데이터를 복사하려면 다음 속성이 지원됩�
 
 Microsoft Access 호환 데이터 저장소의 데이터를 복사하려면 복사 작업 **원본** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 활동 소스의 형식 속성을 다음으로 설정해야 **합니다.** | yes |
+| type | 복사 활동 소스의 형식 속성을 다음으로 설정해야 **합니다.** | 예 |
 | Query | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**

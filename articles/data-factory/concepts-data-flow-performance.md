@@ -7,14 +7,16 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 04/14/2020
-ms.openlocfilehash: 18f8b0732e4af0229ff225d9c3b423e27bf342a8
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: c09a035c8994118b0fb116f357485766e05883ac
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382791"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418442"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>데이터 흐름 성능 및 튜닝 가이드 매핑
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Azure 데이터 팩터리의 데이터 흐름 매핑은 대규모 데이터 변환을 설계, 배포 및 오케스트레이션할 수 있는 코드 없는 인터페이스를 제공합니다. 데이터 흐름 매핑에 익숙하지 않은 경우 [데이터 흐름 매핑 개요를](concepts-data-flow-overview.md)참조하십시오.
 

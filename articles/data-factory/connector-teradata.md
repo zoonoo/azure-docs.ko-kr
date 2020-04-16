@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 1e1d7cc4bb7762d3ebd29e349467f3e33c0887f9
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 4eed79210e3e39f82b892ac0681e161ebb59597e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421231"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418034"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Teradata Vantage의 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 >
 > * [버전 1](v1/data-factory-onprem-teradata-connector.md)
 > * [현재 버전](connector-teradata.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory의 복사 활동을 사용하여 Teradata Vantage의 데이터를 복사하는 방법을 설명합니다. [복사 활동 개요를](copy-activity-overview.md)기반으로 합니다.
 
@@ -69,8 +71,8 @@ Teradata 연결 서비스는 다음 속성을 지원합니다.
 
 | 속성 | Description | 기본값 |
 |:--- |:--- |:--- |
-| CharacterSet | 세션에 사용할 문자 집합입니다. 예를 들어, `CharacterSet=UTF16`.<br><br/>이 값은 사용자 정의 문자 집합이거나 다음 미리 정의된 문자 집합 중 하나일 수 있습니다. <br/>- 아시이<br/>- UTF8<br/>- UTF16<br/>- LATIN1252_0A<br/>- LATIN9_0A<br/>- LATIN1_0A<br/>- 시프트 지스 (윈도우, DOS 호환, KANJISJIS_0S)<br/>- EUC (유닉스 호환, KANJIEC_0U)<br/>- IBM 메인프레임 (KANJIEBCDIC5035_0I)<br/>- KANJI932_1S0<br/>- BIG5 (TCHBIG5_1R0)<br/>- GB (SCHGB2312_1T0)<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- 네트워크한국어 (HANGULKSC5601_2R4)<br/>- HANGUL949_7R0<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HEBREW1255_5A0<br/>- LATIN1250_1A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- THAI874_4A0 | 기본값은 `ASCII`입니다. |
-| 맥스레스프사이즈 |SQL 요청에 대한 응답 버퍼의 최대 크기(KB)입니다. 예를 들어, `MaxRespSize=‭10485760‬`.<br/><br/>Teradata 데이터베이스 버전 16.00 이상에서 최대값은 7361536입니다. 이전 버전을 사용하는 연결의 경우 최대값은 1048576입니다. | 기본값은 `65536`입니다. |
+| CharacterSet | 세션에 사용할 문자 집합입니다. 예를 들어, `CharacterSet=UTF16`.<br><br/>이 값은 사용자 정의 문자 집합이거나 다음 미리 정의된 문자 집합 중 하나일 수 있습니다. <br/>- 아시이<br/>- UTF8<br/>- UTF16<br/>- LATIN1252_0A<br/>- LATIN9_0A<br/>- LATIN1_0A<br/>- 시프트 지스 (윈도우, DOS 호환, KANJISJIS_0S)<br/>- EUC (유닉스 호환, KANJIEC_0U)<br/>- IBM 메인프레임 (KANJIEBCDIC5035_0I)<br/>- KANJI932_1S0<br/>- BIG5 (TCHBIG5_1R0)<br/>- GB (SCHGB2312_1T0)<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- 네트워크한국어 (HANGULKSC5601_2R4)<br/>- HANGUL949_7R0<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HEBREW1255_5A0<br/>- LATIN1250_1A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- THAI874_4A0 | 기본값은 `ASCII`여야 합니다. |
+| 맥스레스프사이즈 |SQL 요청에 대한 응답 버퍼의 최대 크기(KB)입니다. 예를 들어, `MaxRespSize=‭10485760‬`.<br/><br/>Teradata 데이터베이스 버전 16.00 이상에서 최대값은 7361536입니다. 이전 버전을 사용하는 연결의 경우 최대값은 1048576입니다. | 기본값은 `65536`여야 합니다. |
 
 **기본 인증 사용 예**
 
@@ -256,7 +258,7 @@ Teradata의 데이터를 복사하려면 복사 활동 **소스** 섹션에서 �
 
 | 시나리오                                                     | 권장 설정                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 큰 테이블에서 전체 로드.                                   | **파티션 옵션**: 해시. <br><br/>실행 하는 동안 Data Factory 는 PK 열을 자동으로 감지하고 해시를 적용하며 파티션별로 데이터를 복사합니다. |
+| 큰 테이블에서 전체 로드.                                   | **파티션 옵션**: 해시. <br><br/>실행 하는 동안 Data Factory는 자동으로 기본 인덱스 열을 검색 하 고 해시를 적용 하 고 파티션별로 데이터를 복사 합니다. |
 | 사용자 지정 쿼리를 사용하여 많은 양의 데이터를 로드합니다.                 | **파티션 옵션**: 해시.<br>**쿼리** `SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>`: .<br>**파티션 열**: 해시 파티션 적용에 사용되는 열을 지정합니다. 지정하지 않으면 데이터 팩터리는 Teradata 데이터 집합에 지정한 테이블의 PK 열을 자동으로 검색합니다.<br><br>실행 하는 동안 데이터 `?AdfHashPartitionCondition` 팩터리는 해시 파티션 논리로 대체 하 고 Teradata에 보냅니다. |
 | 범위 분할에 대해 균등하게 분산된 값을 가진 정수 열을 갖는 사용자 지정 쿼리를 사용하여 많은 양의 데이터를 로드합니다. | **파티션 옵션**: 동적 범위 파티션.<br>**쿼리** `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`: .<br>**분할 열**: 데이터를 분할하는 데 사용되는 열을 지정합니다. 정수 데이터 형식을 사용하여 열에 대해 분할할 수 있습니다.<br>**파티션 상한** 및 **파티션 하한**: 파티션 열에 대해 필터링하여 하위 범위와 상위 범위 간에만 데이터를 검색할지 지정합니다.<br><br>실행 하는 동안 Data `?AdfRangePartitionColumnName` `?AdfRangePartitionUpbound`Factory `?AdfRangePartitionLowbound` 는 에서 를 대체하고 각 파티션의 실제 열 이름 및 값 범위로 Teradata로 보냅니다. <br>예를 들어, 파티션 열 "ID"가 하한을 1로 설정하고 상한을 80으로 설정하고 병렬 복사본을 4로 설정한 경우 Data Factory는 4개의 파티션으로 데이터를 검색합니다. 그들의 아이디는 각각 [1,20], [21, 40], [41, 60], [61, 80] 사이입니다. |
 

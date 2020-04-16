@@ -9,14 +9,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: e104c4c8e976207859b75212d5406558f04c6377
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b68d3724c6390fc5d30745924451e27ef9855b3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77597493"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417728"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Azure 데이터 팩터리의 ORC 형식
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 **ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면**이 문서를 따르십시오. 
 
@@ -26,10 +28,10 @@ ORC 형식은 다음과 같은 커넥터에 대 한 지원 됩니다: [아마존
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 ORC 데이터 집합에서 지원하는 속성 목록을 제공합니다.
 
-| 속성         | 설명                                                  | 필수 |
+| 속성         | Description                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | 데이터 집합의 형식 속성은 **Orc로**설정해야 합니다. | yes      |
-| 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 고유한 위치 유형과 `location`지원되는 속성이 있습니다. **커넥터 문서 -> 데이터 집합 속성 섹션의 세부 정보를 참조하십시오.** | yes      |
+| type             | 데이터 집합의 형식 속성은 **Orc로**설정해야 합니다. | 예      |
+| 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 고유한 위치 유형과 `location`지원되는 속성이 있습니다. **커넥터 문서 -> 데이터 집합 속성 섹션의 세부 정보를 참조하십시오.** | 예      |
 
 다음은 Azure Blob 저장소의 ORC 데이터 집합의 예입니다.
 
@@ -68,18 +70,18 @@ ORC 형식은 다음과 같은 커넥터에 대 한 지원 됩니다: [아마존
 
 다음 속성은 복사 활동 *** \*소스\* *** 섹션에서 지원됩니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 복사 활동 소스의 형식 속성은 **OrcSource**로 설정해야 합니다. | yes      |
+| type          | 복사 활동 소스의 형식 속성은 **OrcSource**로 설정해야 합니다. | 예      |
 | 매장 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대한 속성 그룹입니다. 각 파일 기반 커넥터에는 에서 `storeSettings`자체 지원되는 읽기 설정이 있습니다. **커넥터 문서 -> 복사 활동 속성 섹션의 세부 정보를 참조하십시오.** | 예       |
 
 ### <a name="orc-as-sink"></a>싱크대와 같은 ORC
 
 다음 속성은 복사 활동 *** \*싱크\* *** 섹션에서 지원됩니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 복사 활동 소스의 형식 속성은 **OrcSink**로 설정해야 합니다. | yes      |
+| type          | 복사 활동 소스의 형식 속성은 **OrcSink**로 설정해야 합니다. | 예      |
 | 매장 설정 | 데이터 저장소에 데이터를 작성하는 방법에 대한 속성 그룹입니다. 각 파일 기반 커넥터에는 에서 `storeSettings`자체 지원되는 쓰기 설정이 있습니다. **커넥터 문서 -> 복사 활동 속성 섹션의 세부 정보를 참조하십시오.** | 예       |
 
 ## <a name="using-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 사용

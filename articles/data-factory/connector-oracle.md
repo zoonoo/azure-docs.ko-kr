@@ -11,17 +11,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 534e5c913685eeac92022f6694ea31b24816da5d
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: d37a9bd4cc29ee60f9833ffbcb5a2701a19bbaa7
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011653"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416820"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Oracle 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-onprem-oracle-connector.md)
 > * [현재 버전](connector-oracle.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory에서 복사 활동을 사용하여 Oracle 데이터베이스에서 데이터를 복사하는 방법을 설명합니다. [복사 활동 개요를](copy-activity-overview.md)기반으로 합니다.
 
@@ -66,7 +68,7 @@ Oracle 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 
 Oracle 연결 서비스는 다음 속성을 지원합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Oracle**로 설정해야 합니다. | 예 |
 | connectionString | Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. <br/>Azure Key Vault에 암호를 입력하고 연결 `password` 문자열에서 구성을 가져올 수도 있습니다. 자세한 내용은 Azure Key Vault의 다음 샘플 및 [스토어 자격 증명을](store-credentials-in-key-vault.md) 참조하십시오. <br><br>**지원되는 연결 유형**: 데이터베이스를 식별하기 위해 **Oracle SID** 또는 **Oracle 서비스 이름**을 사용할 수 있습니다.<br>- SID를 사용하는 경우: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 서비스 이름을 사용하는 경우: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>고급 Oracle 기본 연결 옵션의 경우 TNSNAMES에 항목을 추가하도록 선택할 수 [있습니다. ](http://www.orafaq.com/wiki/Tnsnames.ora)오라클 서버및 ADF 오라클 연결 서비스에서 ORA 파일은 오라클 서비스 이름 연결 유형을 사용하고 해당 서비스 이름을 구성하도록 선택합니다. | 예 |
@@ -77,7 +79,7 @@ Oracle 연결 서비스는 다음 속성을 지원합니다.
 
 케이스당 연결 문자열에서 설정할 수 있는 연결 속성이 더 많아요.
 
-| 속성 | 설명 | 허용되는 값 |
+| 속성 | Description | 허용되는 값 |
 |:--- |:--- |:--- |
 | ArraySize |커넥터가 단일 네트워크 왕복에서 가져올 수 있는 바이트 수입니다. 예를 들어, `ArraySize=‭10485760‬`.<br/><br/>값이 클수록 네트워크를 통해 데이터를 가져오는 횟수를 줄여 처리량이 증가합니다. 값이 작을수록 서버가 데이터를 전송할 때까지 기다리는 지연이 적기 때문에 응답 시간이 늘어나오게 됩니다. | 1에서 4294967296(4GB)의 정수입니다. 기본값은 `60000`여야 합니다. 값 1은 바이트 수를 정의하지 않지만 정확히 한 행의 데이터에 대한 공간 할당을 나타냅니다. |
 
@@ -171,7 +173,7 @@ Oracle 연결에서 암호화를 사용하도록 설정하려면 다음 두 가�
 
 Oracle에서 데이터를 복사하려면 데이터 집합의 형식 속성을 `OracleTable`로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 형식 속성을 로 `OracleTable`설정해야 합니다. | 예 |
 | 스키마 | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
@@ -210,7 +212,7 @@ Oracle에서 데이터를 복사하려면 데이터 집합의 형식 속성을 `
 
 Oracle에서 데이터를 복사하려면 복사 활동의 소스 유형을 `OracleSource`로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 활동 원본의 형식 속성을 로 `OracleSource`설정해야 합니다. | 예 |
 | oracleReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `"SELECT * FROM MyTable"`입니다.<br>분할된 로드를 사용하도록 설정하면 쿼리에 해당 기본 제공 파티션 매개 변수를 연결해야 합니다. 예를 들어 Oracle [섹션의 병렬 복사본을](#parallel-copy-from-oracle) 참조하십시오. | 예 |
@@ -257,7 +259,7 @@ Oracle에서 데이터를 복사하려면 복사 활동의 소스 유형을 `Ora
 
 데이터를 Oracle에 복사하려면 복사 활동의 싱크 유형을 `OracleSink`로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 활동 싱크의 형식 속성을 로 `OracleSink`설정해야 합니다. | 예 |
 | writeBatchSize | 버퍼 크기에 도달하면 `writeBatchSize`SQL 테이블에 데이터를 삽입합니다.<br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 10,000) |

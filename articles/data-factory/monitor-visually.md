@@ -10,14 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 85b1d6b532ba11819947558226291e62af6b5119
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40b1b8d040c4b3ea76372920f88551fba35c5f26
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75690918"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419445"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Azure 데이터 팩터리를 시각적으로 모니터링
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Azure Data Factory에서 파이프라인을 만들고 게시한 후에는 파이프라인을 트리거와 연결하거나 임시 실행을 수동으로 시작할 수 있습니다. Azure Data Factory 사용자 환경에서 기본적으로 실행되는 모든 파이프라인을 모니터링할 수 있습니다. 모니터링 환경을 열려면 [Azure 포털의](https://portal.azure.com/)데이터 팩터리 블레이드에서 & 관리 타일 **모니터링을** 선택합니다. 이미 ADF UX에 있는 경우 왼쪽 사이드바의 **모니터** 아이콘을 클릭합니다.
 

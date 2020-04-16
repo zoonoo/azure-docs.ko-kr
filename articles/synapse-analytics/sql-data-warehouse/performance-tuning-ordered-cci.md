@@ -11,12 +11,12 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 2113e5ac3563a22c5f2c6b755230b05fb9a2cb35
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 088a0d10b96a30ef830b4e8a8dc12c19127141db
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583868"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417052"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>순서가 지정된 클러스터형 columnstore 인덱스를 사용한 성능 조정  
 
@@ -28,7 +28,7 @@ ms.locfileid: "80583868"
 
 정렬된 CCI를 만들 때 Synapse SQL 엔진은 인덱스 빌더가 인덱스 세그먼트로 압축하기 전에 메모리의 기존 데이터를 순서 키로 정렬합니다.  정렬된 데이터를 사용하면 세그먼트 중복이 줄어들어 쿼리가 보다 효율적인 세그먼트 제거를 할 수 있으므로 디스크에서 읽을 세그먼트 수가 적기 때문에 성능이 빨라집니다.  모든 데이터를 한 번에 메모리에 정렬할 수 있는 경우 세그먼트 중복을 방지할 수 있습니다.  데이터 웨어하우스의 큰 테이블로 인해 이 시나리오는 자주 발생하지 않습니다.  
 
-열의 세그먼트 범위를 확인하려면 테이블 이름과 열 이름으로 이 명령을 실행합니다.
+열의 세그먼트 범위를 확인하려면 테이블 이름과 열 이름으로 다음 명령을 실행합니다.
 
 ```sql
 SELECT o.name, pnp.index_id, 
