@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
-ms.author: dapine
-ms.openlocfilehash: 9f1fdca94edc6d3938c137185e037ba0c57b7a0f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.author: trbye
+ms.openlocfilehash: 73e6e117428808aae39e361a3b119e9b2af1ac27
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266669"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399644"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -62,7 +62,7 @@ public class App {
 * 호스트 사용: 호스트 주소를 전달합니다. 키 또는 권한 부여 토큰은 선택 사항입니다.
 * 권한 부여 토큰 사용: 권한 부여 토큰 및 연결된 영역을 전달합니다.
 
-키와 영역을 사용하여 [`SpeechTranslationConfig`][config]를 만드는 방법을 살펴보겠습니다. 지역 [식별자를](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) 찾으려면 지역 지원 페이지를 참조하세요.
+키와 영역을 사용하여 [`SpeechTranslationConfig`][config]를 만드는 방법을 살펴보겠습니다. 지역 식별자를 찾으려면 [지역 지원](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) 페이지를 참조하세요.
 
 ```java
 public class App {
@@ -101,7 +101,7 @@ static void translateSpeech() {
 }
 ```
 
-함수는 [`setSpeechRecognitionLanguage`][recognitionlang] 언어 로캘 형식 문자열을 기대합니다. 지원되는 [로캘/언어](../../../language-support.md)목록에서 **로캘** 열에 값을 제공할 수 있습니다.
+함수는 [`setSpeechRecognitionLanguage`][recognitionlang] 언어 로캘 형식 문자열을 기대합니다. 지원되는 [로캘/언어](../../../language-support.md) 목록의 **로캘** 열에 원하는 값을 입력할 수 있습니다.
 
 ## <a name="add-translation-language"></a>번역 언어 추가
 

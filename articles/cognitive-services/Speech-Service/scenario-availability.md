@@ -10,19 +10,25 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 6f8f892e7ca81881b0cc00e1708e3f05052c573c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a72e5055a3b0f858a732ec28eeab511b09dd450c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76264206"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400154"
 ---
 # <a name="scenario-availability"></a>시나리오 가용성
 
 Speech SDK는 다양한 프로그래밍 언어 및 환경에 걸쳐 다양한 시나리오를 제공합니다. 모든 시나리오가 아직 모든 프로그래밍 언어 또는 모든 환경에서 사용할 수 있는 것은 아닙니다. 다음은 각 시나리오의 가용성입니다.
 
 - **음성 인식(SR), 구 목록, 의도, 번역 및 온-프레미스 컨테이너**
-  - 화살표 링크가 있는 모든 프로그래밍 언어/환경 <img src="media/index/link.jpg" height="15" width="15"></img> [여기에](https://aka.ms/csspeech)빠른 시작 테이블에서 .
+  - C ++/윈도우 & 리눅스 & 맥 OS
+  - C # (프레임 & .NET 코어)/윈도우 UWP & 유니티 & 자마린 & 리눅스 & 맥OS를 &
+  - 자바 (제레와 안드로이드)
+  - 자바 스크립트 (브라우어와 노드 JS)
+  - Python
+  - Swift
+  - Objective-C  
 - **텍스트 음성 변환(TTS)**
   - C ++/윈도우 & 리눅스
   - UWP & 유니티를 & C#/윈도우

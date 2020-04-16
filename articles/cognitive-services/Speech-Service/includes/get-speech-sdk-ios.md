@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
-ms.author: dapine
-ms.openlocfilehash: 1f3864b28ba6f5bdbffe6601d059a21328d56a5e
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.author: trbye
+ms.openlocfilehash: 7ce193c2c2f5e10a27550da68a4c2d2fdcd1db7f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656517"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399896"
 ---
 :::row:::
     :::column span="3":::
@@ -73,7 +73,7 @@ end
 
 ---
 
-#### <a name="additional-resources"></a>추가 자료
+#### <a name="additional-resources"></a>추가 리소스
 
 - <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios" target="_blank">iOS 스피치 SDK 퀵스타트 목표-C 소스 코드<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios" target="_blank">iOS 음성 SDK 빠른 시작 스위프트 소스 코드<span class="docon docon-navigate-external x-hidden-focus"></span></a>

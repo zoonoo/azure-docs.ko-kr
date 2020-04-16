@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
-ms.author: dapine
-ms.openlocfilehash: 59835890a5baaf050868951ea683fd97b795ce3e
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.author: trbye
+ms.openlocfilehash: 47cb20f3a23caf586777523e56902af20b747ea1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656700"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399988"
 ---
 :::row:::
     :::column span="3":::
@@ -37,7 +37,7 @@ Android Studio 프로젝트의 패키지를 사용하는 경우 다음과 같이
 
 Java SDK는 [Speech Devices SDK](../speech-devices-sdk.md)에도 포함됩니다.
 
-#### <a name="additional-resources"></a>추가 자료
+#### <a name="additional-resources"></a>추가 리소스
 
 - <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android" target="_blank">안드로이드 특정 자바 빠른 시작 소스 코드<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/jre" target="_blank">자바 런타임 (JRE) 빠른 시작 소스 코드<span class="docon docon-navigate-external x-hidden-focus"></span></a>

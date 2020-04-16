@@ -3,19 +3,19 @@ title: 사용자 지정 키워드 만들기 - 음성 서비스
 titleSuffix: Azure Cognitive Services
 description: 기기는 항상 키워드(또는 구)를 수신 대기하고 있습니다. 사용자가 키워드를 말하면 장치는 사용자가 말하기를 멈출 때까지 모든 후속 오디오를 클라우드로 보냅니다. 키워드를 사용자 지정하면 기기를 차별화하고 브랜딩을 강화할 수 있습니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.author: dapine
-ms.openlocfilehash: 46e9f8e660c3fd62807d630481e6b3057d2351a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 8e67d624c77eb838f7646731bbdedd8f97f81b96
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76717012"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400070"
 ---
 # <a name="create-a-custom-keyword-using-speech-studio"></a>스피치 스튜디오를 사용하여 사용자 지정 키워드 만들기
 

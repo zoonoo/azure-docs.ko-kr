@@ -3,19 +3,19 @@ title: 텍스트 음성 변환 - 음성 서비스
 titleSuffix: Azure Cognitive Services
 description: Speech 서비스의 텍스트 음성 변환 기능을 사용하면 응용 프로그램, 도구 또는 장치에서 텍스트를 인간과 같은 자연스러운 합성 음성으로 변환할 수 있습니다. 미리 설정된 음성을 선택하거나 사용자 지정 음성을 만들 수 있습니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: dapine
-ms.openlocfilehash: 7c7574ee4e9f75b9b650ff63a10666c5e379fca8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 1a8b458eb004b44d0045f36b18d88e11e019c4d2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131574"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399497"
 ---
 # <a name="what-is-text-to-speech"></a>텍스트 음성 변환이란?
 
@@ -39,7 +39,7 @@ ms.locfileid: "80131574"
 
 * 음성 합성 태그 언어(SSML) - 음성-텍스트 출력을 사용자 지정하는 데 사용되는 XML 기반 태그 언어입니다. SSML을 사용하면 피치를 조정하고, 일시 중지를 추가하고, 발음을 향상시키고, 말하기 속도를 높이거나 느리게 하고, 볼륨을 늘리거나 줄이며, 여러 음성을 단일 문서에 특성화할 수 있습니다. [SSML](speech-synthesis-markup.md)을 참조하십시오.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 텍스트 음성 변환 서비스는 [음성 SDK를](speech-sdk.md)통해 사용할 수 있습니다. 퀵스타트로 사용할 수 있는 몇 가지 일반적인 시나리오가 있으며, 다양한 언어와 플랫폼에서 제공됩니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "80131574"
 
 ## <a name="reference-docs"></a>참조 문서
 
-- [음성 SDK](speech-sdk.md)
+- [Speech SDK](speech-sdk.md)
 - [REST API: 텍스트 음성 변환](rest-text-to-speech.md)
 
 ## <a name="next-steps"></a>다음 단계

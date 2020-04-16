@@ -5,18 +5,18 @@ metadata:
   title: 의도 인식 설명서 - 자습서, API 참조 - Azure 코그너티브 서비스 | 마이크로 소프트 문서
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
-  ms.author: dapine
-  ms.openlocfilehash: 87e698c2a9b09b54c6015293b5be26ea2006a786
-  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+  ms.author: trbye
+  ms.openlocfilehash: 65b3f2322c4683eedef8cdfbc328664d4597df58
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/28/2020
-  ms.locfileid: "79415175"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81401498"
 landingContent:
 - title: 의도 인식에 대해
   linkLists:
@@ -30,7 +30,7 @@ landingContent:
     links:
     - text: LUIS 및 C#을 통해 음성 의도 인식
       url: how-to-recognize-intents-from-speech-csharp.md
-- title: 참고
+- title: 참조
   linkLists:
   - linkListType: reference
     links:

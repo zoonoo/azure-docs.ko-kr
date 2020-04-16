@@ -3,19 +3,19 @@ title: 사용자 지정 음성 - 음성 서비스 시작하기
 titleSuffix: Azure Cognitive Services
 description: 사용자 지정 음성은 응용 프로그램, 도구 및 제품에 대한 음성-텍스트 정확도를 평가하고 개선할 수 있는 온라인 도구 집합입니다. 시작하기 위해 필요한 것은 소수의 테스트 오디오 파일뿐입니다. 아래 링크를 따라 사용자 지정 음성-텍스트 환경 만들기를 시작합니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.author: dapine
-ms.openlocfilehash: e30587ed4d09ba792516ebc7b16529a6ee5ac57c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: a52735ee62f564a5dc536fd2b7d3539406388341
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77918957"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402075"
 ---
 # <a name="what-is-custom-speech"></a>사용자 지정 음성이란 무엇입니까?
 
@@ -69,5 +69,5 @@ Azure 계정 및 음성 서비스 구독을 만든 후에는 사용자 지정 [�
 * [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
 * [데이터 검사](how-to-custom-speech-inspect-data.md)
 * [데이터 평가](how-to-custom-speech-evaluate-data.md)
-* [모델 학습](how-to-custom-speech-train-model.md)
+* [모델 교육](how-to-custom-speech-train-model.md)
 * [모델 배포](how-to-custom-speech-deploy-model.md)

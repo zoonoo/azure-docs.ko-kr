@@ -3,20 +3,20 @@ title: 음성 에서 텍스트에 대한 자동 언어 감지를 사용하는 �
 titleSuffix: Azure Cognitive Services
 description: 음성 SDK는 음성 간 텍스트에 대한 자동 언어 검색을 지원합니다. 이 기능을 사용하는 경우 제공된 오디오가 제공된 언어 목록과 비교되며 가장 가능성이 높은 일치가 결정됩니다. 그런 다음 반환된 값을 사용하여 음성 에서 텍스트에 사용되는 언어 모델을 선택할 수 있습니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 5592fc3e50db892c6abb09fc2516b8e1c03f0f03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fefbe793fa4a6b90ba9bf8d468d42dcbd315759c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239597"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402199"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>음성에서 텍스트로 음성을 위한 자동 언어 감지
 

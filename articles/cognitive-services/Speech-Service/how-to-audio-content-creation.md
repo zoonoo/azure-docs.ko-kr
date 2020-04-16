@@ -3,19 +3,19 @@ title: 오디오 콘텐츠 제작 - 음성 서비스
 titleSuffix: Azure Cognitive Services
 description: 오디오 콘텐츠 만들기는 앱 및 제품에 대한 Microsoft의 텍스트 음성 변환 출력을 사용자 지정하고 미세 조정할 수 있는 온라인 도구입니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.author: dapine
-ms.openlocfilehash: 8184d30471b4d9171a23c8d03e17b2a54dca2ece
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.author: trbye
+ms.openlocfilehash: a263e7e17cda64a8519bab215f97fdf26e88d9d2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397826"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402235"
 ---
 # <a name="improve-synthesis-with-audio-content-creation"></a>오디오 콘텐츠 제작으로 합성 개선
 
@@ -95,7 +95,7 @@ Welcome to use Audio Content Creation to customize audio output for your product
 2. 튜닝된 오디오의 출력 형식을 선택합니다. 지원되는 형식 및 샘플 요금 목록은 아래에서 확인할 수 있습니다.
 3. **내보내기 작업** 탭에서 작업 상태를 볼 수 있습니다. 작업이 실패하면 전체 보고서의 자세한 정보 페이지를 참조하세요.
 4. 작업이 완료되면 오디오 **라이브러리** 탭에서 오디오를 다운로드할 수 있습니다.
-5. **다운로드**를 이제 앱 또는 제품에서 사용자 지정 오디오를 사용할 준비가 되었습니다.
+5. **다운로드**를 클릭합니다. 이제 앱 또는 제품에서 사용자 지정 오디오를 사용할 준비가 되었습니다.
 
 ### <a name="supported-audio-formats"></a>지원되는 오디오 형식
 
@@ -104,7 +104,7 @@ Welcome to use Audio Content Creation to customize audio output for your product
 | wav | 리프-16khz-16비트 모노-pcm | 리프-24khz-16비트 모노-pcm |
 | mp3 | 오디오 16khz-128kbitrate-모노-mp3 | 오디오 24khz-160kbitrate-모노-mp3 |
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [긴 오디오 API](https://aka.ms/long-audio-api)
 

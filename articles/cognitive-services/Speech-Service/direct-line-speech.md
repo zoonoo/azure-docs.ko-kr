@@ -3,19 +3,19 @@ title: 직회 음성 - 음성 서비스
 titleSuffix: Azure Cognitive Services
 description: 음성 소프트웨어 개발 키트(SDK)를 사용하여 직접 회선 음성을 사용하는 음성 비서의 기능, 기능 및 제한 사항에 대한 개요입니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: dapine
-ms.openlocfilehash: 714cdefa7100160a510d1922a2547ae53692d76c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 6dc125b68af8f9a07731aaae9d858c19c51f934f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367808"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402385"
 ---
 # <a name="what-is-direct-line-speech"></a>Direct Line Speech란?
 
@@ -59,7 +59,7 @@ ms.locfileid: "79367808"
 
 ## <a name="reference-docs"></a>참조 문서
 
-* [음성 SDK](speech-sdk-reference.md)
+* [Speech SDK](speech-sdk-reference.md)
 * [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
 ## <a name="next-steps"></a>다음 단계

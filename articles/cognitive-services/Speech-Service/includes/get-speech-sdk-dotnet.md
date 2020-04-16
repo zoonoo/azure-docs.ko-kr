@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
-ms.author: dapine
-ms.openlocfilehash: 90aa46fbef13e6eb584bd8c47664742f665312d3
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.author: trbye
+ms.openlocfilehash: 49a38c06e3a6105ad12133268b83ea73bcea2fc4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656657"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400044"
 ---
 :::row:::
     :::column span="3":::
@@ -37,6 +37,6 @@ dotnet add package Microsoft.CognitiveServices.Speech
 Install-Package Microsoft.CognitiveServices.Speech
 ```
 
-#### <a name="additional-resources"></a>추가 자료
+#### <a name="additional-resources"></a>추가 리소스
 
 - <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp" target="_blank">.NET 코어, .NET 프레임워크, 유니티, UWP 및 자마린 퀵스타트 C# 소스 코드<span class="docon docon-navigate-external x-hidden-focus"></span></a>

@@ -3,19 +3,19 @@ title: 음성-텍스트 API 참조(REST) - 음성 서비스
 titleSuffix: Azure Cognitive Services
 description: 음성-텍스트 REST API를 사용하는 방법에 대해 알아봅니다. 이 문서에서는 권한 부여 옵션, 쿼리 옵션, 요청을 구성하고 응답을 받는 방법을 알아봅니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.author: dapine
-ms.openlocfilehash: 759ea697e4093da5bfc1c082c886c6dfda636f42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: fbb4d114d1fee21d7950e53b06fc16c96b5c930b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474801"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400176"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-Text REST API
 
@@ -49,23 +49,23 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 
 이 매개 변수는 REST 요청의 쿼리 문자열에 포함할 수 있습니다.
 
-| 매개 변수 | 설명 | 필수/선택 |
+| 매개 변수 | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `language` | 인식되는 음성 언어를 식별합니다. [지원되는 언어를](language-support.md#speech-to-text)참조하십시오. | 필수 |
-| `format` | 결과 형식을 지정합니다. 허용되는 값은 `simple` 및 `detailed`입니다. simple 결과에는 `RecognitionStatus`, `DisplayText`, `Offset` 및 `Duration`이 포함됩니다. detailed 응답에는 신뢰도 값 및 4가지 다른 표현과 함께 여러 결과가 포함됩니다. 기본 설정은 `simple`입니다. | Optional |
-| `profanity` | 인식 결과에서 욕설의 처리 방법을 지정합니다. 허용된 `masked`값은 욕설을 별표로 대체하며, `removed`결과에서 모든 욕설을 제거하거나 `raw`결과에 욕설을 포함합니다. 기본 설정은 `masked`입니다. | Optional |
-| `cid` | [사용자 지정 음성 포털을](how-to-custom-speech.md) 사용하여 사용자 지정 모델을 만들 때 **배포** 페이지에 있는 **끝점 ID를** 통해 사용자 지정 모델을 사용할 수 있습니다. **끝점 ID를** `cid` 쿼리 문자열 매개 변수에 대한 인수로 사용합니다. | Optional |
+| `format` | 결과 형식을 지정합니다. 허용되는 값은 `simple` 및 `detailed`입니다. simple 결과에는 `RecognitionStatus`, `DisplayText`, `Offset` 및 `Duration`이 포함됩니다. detailed 응답에는 신뢰도 값 및 4가지 다른 표현과 함께 여러 결과가 포함됩니다. 기본 설정은 `simple`입니다. | 옵션 |
+| `profanity` | 인식 결과에서 욕설의 처리 방법을 지정합니다. 허용된 `masked`값은 욕설을 별표로 대체하며, `removed`결과에서 모든 욕설을 제거하거나 `raw`결과에 욕설을 포함합니다. 기본 설정은 `masked`입니다. | 옵션 |
+| `cid` | [사용자 지정 음성 포털을](how-to-custom-speech.md) 사용하여 사용자 지정 모델을 만들 때 **배포** 페이지에 있는 **끝점 ID를** 통해 사용자 지정 모델을 사용할 수 있습니다. **끝점 ID를** `cid` 쿼리 문자열 매개 변수에 대한 인수로 사용합니다. | 옵션 |
 
 ## <a name="request-headers"></a>헤더 요청
 
 이 표에는 음성 텍스트 변환 요청에 대한 필수 헤더 및 선택적 헤더가 나와 있습니다.
 
-|헤더| 설명 | 필수/선택 |
+|헤더| Description | 필수/선택 |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Speech Service 구독 키입니다. | 이 헤더 또는 `Authorization`가 필요합니다. |
 | `Authorization` | 앞에 `Bearer` 단어가 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 이 헤더 또는 `Ocp-Apim-Subscription-Key`가 필요합니다. |
 | `Content-type` | 제공된 오디오 데이터의 형식과 코덱을 설명합니다. 허용되는 값은 `audio/wav; codecs=audio/pcm; samplerate=16000` 및 `audio/ogg; codecs=opus`입니다. | 필수 |
-| `Transfer-Encoding` | 단일 파일이 아닌 청크 분할된 오디오 데이터가 전송되고 있음을 지정합니다. 오디오 데이터를 청크 분할하는 경우에만 이 헤더를 사용합니다. | Optional |
+| `Transfer-Encoding` | 단일 파일이 아닌 청크 분할된 오디오 데이터가 전송되고 있음을 지정합니다. 오디오 데이터를 청크 분할하는 경우에만 이 헤더를 사용합니다. | 옵션 |
 | `Expect` | 청크 분할된 전송을 사용하는 경우 `Expect: 100-continue`를 전송합니다. Speech Service는 초기 요청을 인식하고 추가 데이터를 대기합니다.| 청크 분할된 오디오 데이터를 전송하는 경우에 필요합니다. |
 | `Accept` | 제공하는 경우 `application/json`이어야 합니다. 음성 서비스는 JSON의 결과를 제공합니다. 일부 요청 프레임워크는 호환되지 않는 기본값을 제공합니다. 항상 을 포함하는 `Accept`것이 좋습니다. | 선택 사항이지만 권장됩니다. |
 
@@ -99,7 +99,7 @@ Expect: 100-continue
 
 각 응답의 HTTP 상태 코드는 성공 또는 일반 오류를 나타냅니다.
 
-| HTTP 상태 코드 | 설명 | 가능한 원인 |
+| HTTP 상태 코드 | Description | 가능한 원인 |
 |------------------|-------------|-----------------|
 | `100` | 계속 | 초기 요청이 수락되었습니다. 나머지 데이터의 전송을 계속합니다. (청크 전송과 함께 사용) |
 | `200` | 확인 | 요청이 성공했습니다. 응답 본문이 JSON 개체입니다. |
@@ -147,7 +147,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 결과는 JSON으로 제공됩니다. `simple` 형식에는 이러한 최상위 수준 필드가 포함됩니다.
 
-| 매개 변수 | 설명  |
+| 매개 변수 | Description  |
 |-----------|--------------|
 |`RecognitionStatus`|상태(예: 인식 성공에 `Success`)입니다. 다음 표를 참조하세요.|
 |`DisplayText`|대문자, 구두점, 역텍스트 정규화("이백" 또는 "닥터 스미스"의 경우 "스미스 박사"의 경우 200과 같은 짧은 양식으로 음성 텍스트를 변환) 및 욕설 마스킹 후 인식된 텍스트입니다. 성공 시만 표시합니다.|
@@ -156,7 +156,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 `RecognitionStatus` 필드에는 다음 값이 포함될 수 있습니다.
 
-| 상태 | 설명 |
+| 상태 | Description |
 |--------|-------------|
 | `Success` | 성공적으로 인식했고 `DisplayText` 필드가 있습니다. |
 | `NoMatch` | 오디오 스트림에서 음성이 감지되었지만 대상 언어의 단어가 일치하지 않습니다. 일반적으로 인식 언어는 사용자가 말하는 것과 다른 언어를 의미합니다. |
@@ -171,7 +171,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 `NBest` 목록의 각 개체에는 다음이 포함됩니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |-----------|-------------|
 | `Confidence` | 0.0(신뢰도 없음)에서 1.0(완전 신뢰도)까지 항목의 신뢰도 점수입니다. |
 | `Lexical` | 인식된 텍스트의 어휘 형태, 즉 인식된 실제 단위입니다. |

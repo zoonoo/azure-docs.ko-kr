@@ -8,13 +8,11 @@
   expanded: true
   items:
     - name: 애플리케이션 정의 게시
-      href: publish-managed-app-definition-quickstart.md
+      href: publish-service-catalog-app.md
     - name: 서비스 카탈로그 앱 배포
       href: deploy-service-catalog-quickstart.md
 - name: 자습서
   items:
-    - name: 정의 파일 만들기
-      href: publish-service-catalog-app.md
     - name: 마켓플레이스 애플리케이션 게시
       href: publish-marketplace-app.md
     - name: 사용자 지정 공급자를 사용하여 관리되는 애플리케이션 만들기
@@ -130,7 +128,7 @@
   items:
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/managed-applications/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

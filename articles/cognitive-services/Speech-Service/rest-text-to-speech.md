@@ -3,19 +3,19 @@ title: 텍스트 음성 변환 API 참조(REST) - 음성 서비스
 titleSuffix: Azure Cognitive Services
 description: 텍스트 음성 변환 REST API를 사용하는 방법을 알아봅니다. 이 문서에서는 권한 부여 옵션, 쿼리 옵션, 요청을 구성하고 응답을 받는 방법을 알아봅니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: dapine
-ms.openlocfilehash: 977c6ec9aa1cd6a8b8a545d123c5308bb8c51651
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.author: trbye
+ms.openlocfilehash: 77bba9433052c00df671caf73198ff75356b1c9a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409016"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400164"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech REST API
 
@@ -221,7 +221,7 @@ Authorization: Bearer [Base64 access_token]
 
 * [.NET 코어, C #](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
 * [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
-* [Node.js](quickstart-nodejs-text-to-speech.md)
+* [Node.JS](quickstart-nodejs-text-to-speech.md)
 
 ### <a name="http-status-codes"></a>HTTP 상태 코드
 

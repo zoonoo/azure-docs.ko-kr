@@ -3,19 +3,19 @@ title: 음성 합성 마크업 언어(SSML) - 음성 서비스
 titleSuffix: Azure Cognitive Services
 description: Speech Synthesis Markup Language를 사용하여 텍스트 음성 변환의 발음 및 운율을 제어합니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: dapine
-ms.openlocfilehash: 7d5dd79399b15ade90173a55aeb71dacbc61fa78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: dc11d26c73c52b5e6c4d8e05cc27dd6ebce0c5d8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80365815"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399830"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>음성 합성 마크 업 언어 (SSML)와 합성을 개선
 
@@ -55,7 +55,7 @@ SSML을 사용하는 동안 인용 부호, 아포스트로피 및 대괄호와 �
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `version` | 문서 태그를 해석하는 데 사용되는 SSML 사양의 버전을 나타냅니다. 현재 버전은 1.0입니다. | 필수 |
 | `xml:lang` | 루트 문서의 언어를 지정합니다. 이 값에는 소문자, 두 글자 언어 코드(예: `en`또는 언어 코드 및 대문자 `en-US`국가/지역)가 포함될 수 있습니다. | 필수 |
@@ -75,7 +75,7 @@ SSML을 사용하는 동안 인용 부호, 아포스트로피 및 대괄호와 �
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `name` | 텍스트 음성 변환에 사용되는 음성을 식별합니다. 지원되는 음성의 전체 목록은 [언어 지원](language-support.md#text-to-speech)을 참조하십시오. | 필수 |
 
@@ -98,7 +98,7 @@ SSML을 사용하는 동안 인용 부호, 아포스트로피 및 대괄호와 �
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `name` | 텍스트 음성 변환에 사용되는 음성을 식별합니다. 지원되는 음성의 전체 목록은 [언어 지원](language-support.md#text-to-speech)을 참조하십시오. | 필수 |
 
@@ -109,7 +109,7 @@ SSML을 사용하는 동안 인용 부호, 아포스트로피 및 대괄호와 �
 
 Speech SDK 언어에 따라 `"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"` `false` `SpeechConfig` 속성이 개체의 인스턴스로 설정됩니다.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 자세한 내용은 을 <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>참조하십시오.
 
@@ -118,7 +118,7 @@ speechConfig.SetProperty(
     "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
 ```
 
-# <a name="c"></a>[C + +](#tab/cpp)
+# <a name="c"></a>[C++](#tab/cpp)
 
 자세한 내용은 을 <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>참조하십시오.
 
@@ -145,7 +145,7 @@ speech_config.set_property_by_name(
     "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
 ```
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 자세한 내용은 을 <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>참조하십시오.
 
@@ -196,7 +196,6 @@ speechConfig!.setPropertyTo(
 현재 말하기 스타일 조정은 다음과 같은 신경 음성에 대해 지원됩니다.
 * `en-US-AriaNeural`
 * `zh-CN-XiaoxiaoNeural`
-* `pt-BR-FranciscaNeural`
 
 변경 사항은 문장 수준에서 적용되며 스타일은 음성에 따라 다릅니다. 스타일이 지원되지 않으면 서비스는 기본 중립 말하기 스타일로 음성을 반환합니다.
 
@@ -208,24 +207,23 @@ speechConfig!.setPropertyTo(
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `style` | 말하기 스타일을 지정합니다. 현재 말하기 스타일은 음성에 따라 다릅니다. | 신경 음성에 대한 말하기 스타일을 조정하는 경우 필요합니다. 을 `mstts:express-as`사용하는 경우 스타일을 제공해야 합니다. 잘못된 값이 제공되면 이 요소는 무시됩니다. |
 
 이 표를 사용하여 각 신경 음성에 대해 지원되는 말하기 스타일을 결정합니다.
 
-| 음성 | Style | 설명 |
-|-------|------|-------------|
-| `en-US-AriaNeural` | `style="newscast"` | 뉴스 내레이션을 위한 공식적이고 전문적인 어조표현 |
-| | `style="customerservice"` | 고객 지원을 위한 친절하고 유용한 어조 표현 |
-| | `style="chat"` | 캐주얼하고 편안한 톤을 표현 |
-| | `style="cheerful"` | 긍정적이고 행복한 톤을 표현합니다 |
-| | `style="empathetic"` | 배려심과 이해감을 표현합니다 |
-| `zh-CN-XiaoxiaoNeural` | `style="newscast"` | 뉴스 내레이션을 위한 공식적이고 전문적인 어조표현 |
-| | `style="customerservice"` | 고객 지원을 위한 친절하고 유용한 어조 표현 |
-| | `style="assistant"` | 디지털 어시스턴트를 위한 따뜻하고 편안한 톤 표현  |
-| | `style="lyrical"` | 멜로디와 감성적인 방식으로 감정을 표현합니다. |
-| `pt-BR-FranciscaNeural` | `style="cheerful"` | 긍정적이고 행복한 톤을 표현합니다 |
+| 음성                   | 스타일                     | Description                                                 |
+|-------------------------|---------------------------|-------------------------------------------------------------|
+| `en-US-AriaNeural`      | `style="newscast"`        | 뉴스 내레이션을 위한 공식적이고 전문적인 어조표현 |
+|                         | `style="customerservice"` | 고객 지원을 위한 친절하고 유용한 어조 표현  |
+|                         | `style="chat"`            | 캐주얼하고 편안한 톤을 표현                         |
+|                         | `style="cheerful"`        | 긍정적이고 행복한 톤을 표현합니다                         |
+|                         | `style="empathetic"`      | 배려심과 이해감을 표현합니다               |
+| `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | 뉴스 내레이션을 위한 공식적이고 전문적인 어조표현 |
+|                         | `style="customerservice"` | 고객 지원을 위한 친절하고 유용한 어조 표현  |
+|                         | `style="assistant"`       | 디지털 어시스턴트를 위한 따뜻하고 편안한 톤 표현    |
+|                         | `style="lyrical"`         | 멜로디와 감성적인 방식으로 감정을 표현합니다.         |
 
 **예제**
 
@@ -258,20 +256,19 @@ speechConfig!.setPropertyTo(
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
-| `strength` | 다음 값 중 하나를 사용하여 일시 중지의 상대 기간을 지정합니다.<ul><li>none</li><li>x-약한</li><li>약한</li><li>중간(기본값)</li><li>강력</li><li>x-강한</li></ul> | Optional |
-| `time` | 일시 중지의 절대 지속 시간을 초 또는 밀리초로 지정합니다. 유효한 값의 예는 `2s``500` | Optional |
+| `strength` | 다음 값 중 하나를 사용하여 일시 중지의 상대 기간을 지정합니다.<ul><li>없음</li><li>x-약한</li><li>약한</li><li>중간(기본값)</li><li>강력</li><li>x-강한</li></ul> | 옵션 |
+| `time` | 일시 중지의 절대 지속 시간을 초 또는 밀리초로 지정합니다. 유효한 값의 예는 `2s``500` | 옵션 |
 
-| 강도 | 설명 |
-|----------|-------------|
-| 없음 또는 값이 제공되지 않은 경우 | 0 ms |
-| x-약한 | 250 ms |
-| 약한 | 500ms |
-| 중간 | 750ms |
-| 강력 | 1000 ms |
-| x-강한 | 1250 ms |
-
+| 강도                      | Description |
+|-------------------------------|-------------|
+| 없음 또는 값이 제공되지 않은 경우 | 0 ms        |
+| x-약한                        | 250 ms      |
+| 약한                          | 500ms      |
+| 중간                        | 750ms      |
+| 강력                        | 1000 ms     |
+| x-강한                      | 1250 ms     |
 
 **예제**
 
@@ -329,9 +326,9 @@ speechConfig!.setPropertyTo(
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
-| `alphabet` | 특성에서 문자열의 발음을 합성할 때 사용할 발음 알파벳을 `ph` 지정합니다. 알파벳을 지정하는 문자열은 소문자로 지정해야 합니다. 다음은 지정할 수 있는 가능한 알파벳입니다.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">국제 음성 <span class="docon docon-navigate-external x-hidden-focus"></span> 알파벳</a></li><li>`sapi`&ndash; [음성 서비스 음성 알파벳](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; 범용 전화 세트</li></ul><br>알파벳은 요소의 `phoneme` 에만 적용됩니다. | Optional |
+| `alphabet` | 특성에서 문자열의 발음을 합성할 때 사용할 발음 알파벳을 `ph` 지정합니다. 알파벳을 지정하는 문자열은 소문자로 지정해야 합니다. 다음은 지정할 수 있는 가능한 알파벳입니다.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">국제 음성 <span class="docon docon-navigate-external x-hidden-focus"></span> 알파벳</a></li><li>`sapi`&ndash; [음성 서비스 음성 알파벳](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; 범용 전화 세트</li></ul><br>알파벳은 요소의 `phoneme` 에만 적용됩니다. | 옵션 |
 | `ph` | 요소에서 단어의 발음을 지정하는 전화가 포함된 문자열입니다. `phoneme` 지정된 문자열에 인식되지 않는 휴대폰이 포함된 경우 TTS(텍스트 음성 변환) 서비스는 전체 SSML 문서를 거부하고 문서에 지정된 음성 출력을 생성하지 않습니다. | 음등을 사용하는 경우 필요합니다. |
 
 **예**
@@ -372,9 +369,9 @@ speechConfig!.setPropertyTo(
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
-|-----------|-------------|---------------------|
-| `uri` | 외부 PLS 문서의 주소입니다. | 필수 사항입니다. |
+| attribute | Description                               | 필수/선택 |
+|-----------|-------------------------------------------|---------------------|
+| `uri`     | 외부 PLS 문서의 주소입니다. | 필수 사항입니다.           |
 
 **사용**
 
@@ -469,14 +466,14 @@ prosodic 특성 값은 넓은 범위에 따라 다를 수 있으므로 음성 �
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
-| `pitch` | 텍스트의 기준선 피치를 나타냅니다. 피치를 다음과 같이 표현할 수 있습니다.<ul><li>"Hz"(Hertz) 다음에 숫자로 표현되는 절대 값입니다. 예를 들어, 600 Hz.</li><li>"+" 또는 "-" 앞에 오는 숫자로 표현되고 피치를 변경할 양을 지정하는 "Hz" 또는 "st"가 뒤에 오는 상대값입니다. 예: +80 Hz 또는 -2st. "st"는 표준 규음선에서 톤(반단계)의 절반인 반음인 변경 단위를 나타냅니다.</li><li>상수 값:<ul><li>x-낮음</li><li>low</li><li>중간</li><li>high</li><li>x-높음</li><li>default</li></ul></li></ul>. | Optional |
-| `contour` | 윤곽선은 신경 음성에 대해 지원되지 않습니다. 등고선은 피치의 변화를 나타냅니다. 이러한 변경 내용은 음성 출력의 지정된 시간 위치에서 대상의 배열로 표시됩니다. 각 대상은 매개 변수 쌍 집합으로 정의됩니다. 예를 들어: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>각 매개변수 집합의 첫 번째 값은 피치 변경 위치를 텍스트 지속 시간의 백분율로 지정합니다. 두 번째 값은 피치에 대한 상대값 또는 열거값을 사용하여 피치를 올리거나 낮출 `pitch`양을 지정합니다(참조). | Optional |
-| `range` | 텍스트의 피치 범위를 나타내는 값입니다. 을 설명하는 `range` `pitch`데 사용되는 것과 동일한 절대 값, 상대 값 또는 열거형 값을 사용하여 표현할 수 있습니다. | Optional |
-| `rate` | 텍스트의 말하기 속도를 나타냅니다. 다음과 같이 `rate` 표현할 수 있습니다.<ul><li>기본값의 승수 역할을 하는 숫자로 표현되는 상대값입니다. 예를 들어 값이 *1이면* 속도는 변경되지 않습니다. 값이 *0.5이면* 비율이 절반으로 됩니다. *값이 3이면* 비율이 세 배로 됩니다.</li><li>상수 값:<ul><li>x-느림</li><li>slow</li><li>중간</li><li>빠른</li><li>x-빠른</li><li>default</li></ul></li></ul> | Optional |
-| `duration` | TTS(음성 합성) 서비스가 텍스트를 초 또는 밀리초 단위로 읽는 동안 경과해야 하는 시간입니다. 예를 들어, *2s* 또는 *1800ms.* | Optional |
-| `volume` | 말하기 음성의 볼륨 레벨을 나타냅니다. 볼륨을 다음과 같이 표현할 수 있습니다.<ul><li>0.0에서 100.0 범위의 숫자로 표현되는 절대 *quietest* 값입니다. *loudest* 예를 들어, 75. 기본값은 100.0입니다.</li><li>볼륨을 변경할 양을 지정하는 "+" 또는 "-" 앞에 오는 숫자로 표현되는 상대값입니다. 예를 들어 +10 또는 -5.5입니다.</li><li>상수 값:<ul><li>무음</li><li>x-소프트</li><li>부드러운</li><li>중간</li><li>시끄러운</li><li>x-큰 소리로</li><li>default</li></ul></li></ul> | Optional |
+| `pitch` | 텍스트의 기준선 피치를 나타냅니다. 피치를 다음과 같이 표현할 수 있습니다.<ul><li>"Hz"(Hertz) 다음에 숫자로 표현되는 절대 값입니다. 예를 들어, 600 Hz.</li><li>"+" 또는 "-" 앞에 오는 숫자로 표현되고 피치를 변경할 양을 지정하는 "Hz" 또는 "st"가 뒤에 오는 상대값입니다. 예: +80 Hz 또는 -2st. "st"는 표준 규음선에서 톤(반단계)의 절반인 반음인 변경 단위를 나타냅니다.</li><li>상수 값:<ul><li>x-낮음</li><li>low</li><li>중간</li><li>high</li><li>x-높음</li><li>default</li></ul></li></ul>. | 옵션 |
+| `contour` | 윤곽선은 신경 음성에 대해 지원되지 않습니다. 등고선은 피치의 변화를 나타냅니다. 이러한 변경 내용은 음성 출력의 지정된 시간 위치에서 대상의 배열로 표시됩니다. 각 대상은 매개 변수 쌍 집합으로 정의됩니다. 다음은 그 예입니다. <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>각 매개변수 집합의 첫 번째 값은 피치 변경 위치를 텍스트 지속 시간의 백분율로 지정합니다. 두 번째 값은 피치에 대한 상대값 또는 열거값을 사용하여 피치를 올리거나 낮출 `pitch`양을 지정합니다(참조). | 옵션 |
+| `range` | 텍스트의 피치 범위를 나타내는 값입니다. 을 설명하는 `range` `pitch`데 사용되는 것과 동일한 절대 값, 상대 값 또는 열거형 값을 사용하여 표현할 수 있습니다. | 옵션 |
+| `rate` | 텍스트의 말하기 속도를 나타냅니다. 다음과 같이 `rate` 표현할 수 있습니다.<ul><li>기본값의 승수 역할을 하는 숫자로 표현되는 상대값입니다. 예를 들어 값이 *1이면* 속도는 변경되지 않습니다. 값이 *0.5이면* 비율이 절반으로 됩니다. *값이 3이면* 비율이 세 배로 됩니다.</li><li>상수 값:<ul><li>x-느림</li><li>slow</li><li>중간</li><li>빠른</li><li>x-빠른</li><li>default</li></ul></li></ul> | 옵션 |
+| `duration` | TTS(음성 합성) 서비스가 텍스트를 초 또는 밀리초 단위로 읽는 동안 경과해야 하는 시간입니다. 예를 들어, *2s* 또는 *1800ms.* | 옵션 |
+| `volume` | 말하기 음성의 볼륨 레벨을 나타냅니다. 볼륨을 다음과 같이 표현할 수 있습니다.<ul><li>0.0에서 100.0 범위의 숫자로 표현되는 절대 *quietest* 값입니다. *loudest* 예를 들어, 75. 기본값은 100.0입니다.</li><li>볼륨을 변경할 양을 지정하는 "+" 또는 "-" 앞에 오는 숫자로 표현되는 상대값입니다. 예를 들어 +10 또는 -5.5입니다.</li><li>상수 값:<ul><li>무음</li><li>x-소프트</li><li>부드러운</li><li>중간</li><li>시끄러운</li><li>x-큰 소리로</li><li>default</li></ul></li></ul> | 옵션 |
 
 ### <a name="change-speaking-rate"></a>말하기 속도 변경
 
@@ -552,11 +549,11 @@ prosodic 특성 값은 넓은 범위에 따라 다를 수 있으므로 음성 �
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `interpret-as` | 요소 텍스트의 콘텐츠 유형을 나타냅니다. 형식 목록은 아래 표를 참조하십시오. | 필수 |
-| `format` | 모호한 형식이 있을 수 있는 콘텐츠 형식에 대한 요소 텍스트의 정확한 서식에 대한 추가 정보를 제공합니다. SSML은 이를 사용하는 콘텐츠 형식에 대한 형식을 정의합니다(아래 표 참조). | Optional |
-| `detail` | 말할 세부 수준을 나타냅니다. 예를 들어 이 특성은 음성 합성 엔진이 문장 부호를 발음해 달라는 요청을 할 수 있습니다. 에 대해 `detail`정의된 표준 값이 없습니다. | Optional |
+| `format` | 모호한 형식이 있을 수 있는 콘텐츠 형식에 대한 요소 텍스트의 정확한 서식에 대한 추가 정보를 제공합니다. SSML은 이를 사용하는 콘텐츠 형식에 대한 형식을 정의합니다(아래 표 참조). | 옵션 |
+| `detail` | 말할 세부 수준을 나타냅니다. 예를 들어 이 특성은 음성 합성 엔진이 문장 부호를 발음해 달라는 요청을 할 수 있습니다. 에 대해 `detail`정의된 표준 값이 없습니다. | 옵션 |
 
 <!-- I don't understand the last sentence. Don't we know which one Cortana uses? -->
 
@@ -614,9 +611,9 @@ SSML 문서에 포함된 오디오는 다음 요구 사항을 충족해야 합�
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
-|-----------|-------------|---------------------|
-| `src` | 오디오 파일의 위치/URL을 지정합니다. | SSML 문서에서 오디오 요소를 사용하는 경우 필요합니다. |
+| attribute | Description                                   | 필수/선택                                        |
+|-----------|-----------------------------------------------|------------------------------------------------------------|
+| `src`     | 오디오 파일의 위치/URL을 지정합니다. | SSML 문서에서 오디오 요소를 사용하는 경우 필요합니다. |
 
 **예제**
 
@@ -650,12 +647,12 @@ SSML 문서당 하나의 백그라운드 오디오 파일만 허용됩니다. �
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `src` | 백그라운드 오디오 파일의 위치/URL을 지정합니다. | SSML 문서에서 백그라운드 오디오를 사용하는 경우 필요합니다. |
-| `volume` | 백그라운드 오디오 파일의 볼륨을 지정합니다. **허용된** `0` 값 `100` : 포함값. 기본값은 `1`입니다. | Optional |
-| `fadein` | 백그라운드 오디오 "페이드 인"의 지속 시간을 밀리초로 지정합니다. 기본값은 `0`페이드 인 없음과 동일합니다. **허용된** `0` 값 `10000` : 포함값.  | Optional |
-| `fadeout` | 백그라운드 오디오의 지속 시간이 밀리초 단위로 페이드 아웃되는 것을 지정합니다. 기본값은 `0`페이드 아웃되지 않는 것과 동일합니다. **허용된** `0` 값 `10000` : 포함값.  | Optional |
+| `volume` | 백그라운드 오디오 파일의 볼륨을 지정합니다. **허용된** `0` 값 `100` : 포함값. 기본값은 `1`입니다. | 옵션 |
+| `fadein` | 백그라운드 오디오 "페이드 인"의 지속 시간을 밀리초로 지정합니다. 기본값은 `0`페이드 인 없음과 동일합니다. **허용된** `0` 값 `10000` : 포함값.  | 옵션 |
+| `fadeout` | 백그라운드 오디오의 지속 시간이 밀리초 단위로 페이드 아웃되는 것을 지정합니다. 기본값은 `0`페이드 아웃되지 않는 것과 동일합니다. **허용된** `0` 값 `10000` : 포함값.  | 옵션 |
 
 **예제**
 

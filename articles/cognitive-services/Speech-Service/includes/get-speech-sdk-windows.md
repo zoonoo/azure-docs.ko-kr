@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
-ms.author: dapine
-ms.openlocfilehash: dea6a1afaa2348fc5054bee20c534936dcafe5b5
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.author: trbye
+ms.openlocfilehash: 138a9ef9d483ca0d460bab7185d646669650f83e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656671"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399962"
 ---
 :::row:::
     :::column span="3":::
@@ -39,7 +39,7 @@ Windows의 음성 SDK에는 시스템에서 <a href="https://support.microsoft.c
 
 필요한 Speech SDK 파일은 애플리케이션과 동일한 디렉터리에 배포할 수 있습니다. 이렇게 하면 애플리케이션이 라이브러리에 직접 액세스할 수 있습니다. 응용 프로그램과 일치하는 올바른 버전(x86/x64)을 선택해야 합니다.
 
-| 이름                                            | 함수                                             |
+| 속성                                            | 함수                                             |
 |-------------------------------------------------|------------------------------------------------------|
 | `Microsoft.CognitiveServices.Speech.core.dll`   | 네이티브 및 관리된 배포에 필요한 핵심 SDK |
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | 관리된 배포에 필요                      |

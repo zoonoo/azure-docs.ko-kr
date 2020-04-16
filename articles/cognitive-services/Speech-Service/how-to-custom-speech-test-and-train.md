@@ -3,21 +3,21 @@ title: 사용자 지정 음성 - 음성 서비스에 대한 데이터 준비
 titleSuffix: Azure Cognitive Services
 description: Microsoft 음성 인식의 정확성을 테스트하거나 사용자 지정 모델을 교육할 때 오디오 및 텍스트 데이터가 필요합니다. 이 페이지에서는 데이터 유형, 사용 방법 및 관리 방법을 다룹니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.author: dapine
-ms.openlocfilehash: d6e377ca4f33c0160267b23daaaaef5e07c271bb
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.author: trbye
+ms.openlocfilehash: 78857709447f99895c36f23d8760f44f8468ba7c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398751"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402132"
 ---
-# <a name="prepare-data-for-custom-speech"></a>사용자 지정 음성에 대한 데이터 준비
+# <a name="prepare-data-for-custom-speech"></a>Custom Speech에 대한 데이터 준비
 
 Microsoft 음성 인식의 정확성을 테스트하거나 사용자 지정 모델을 교육할 때 오디오 및 텍스트 데이터가 필요합니다. 이 페이지에서는 데이터 유형, 사용 방법 및 관리 방법을 다룹니다.
 
@@ -72,7 +72,7 @@ Microsoft 음성 인식의 정확성을 테스트하거나 사용자 지정 모�
 
 <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX를 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 사용하여 오디오 속성을 확인하거나 기존 오디오를 적절한 형식으로 변환합니다. 다음은 SoX 명령줄을 통해 이러한 각 작업을 수행하는 방법에 대한 몇 가지 예입니다.
 
-| 활동 | Description | SoX 명령 |
+| 작업 | Description | SoX 명령 |
 |----------|-------------|-------------|
 | 오디오 형식 확인 | 이 명령을 사용하여<br>오디오 파일 형식입니다. | `sox --i <filename>` |
 | 오디오 형식 변환 | 이 명령을 사용하여 변환<br>오디오 파일을 단일 채널, 16비트, 16KHz로 이동합니다. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
@@ -182,5 +182,5 @@ Microsoft 음성 인식의 정확성을 테스트하거나 사용자 지정 모�
 
 * [데이터 검사](how-to-custom-speech-inspect-data.md)
 * [데이터 평가](how-to-custom-speech-evaluate-data.md)
-* [모델 학습](how-to-custom-speech-train-model.md)
+* [모델 교육](how-to-custom-speech-train-model.md)
 * [모델 배포](how-to-custom-speech-deploy-model.md)

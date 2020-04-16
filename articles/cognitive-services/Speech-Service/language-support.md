@@ -3,20 +3,20 @@ title: 언어 지원 - 음성 서비스
 titleSuffix: Azure Cognitive Services
 description: 음성 변환 서비스는 음성 변환과 함께 음성 간 변환을 위한 다양한 언어를 지원합니다. 이 문서에서는 서비스 기능별 언어 지원의 포괄적인 목록을 제공합니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.author: dapine
+ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: d01ab60790311649e424a98d5a08c6af0bca90f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a876349af2bd53a46737dda82961afe442bae05
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336048"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81401077"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>음성 서비스에 대한 언어 및 음성 지원
 
@@ -36,47 +36,47 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Locale  | 언어                          | 지원됨 | 사용자 지정                                    |
 |---------|-----------------------------------|-----------|---------------------------------------------------|
-| `ar-AE` | 아랍어(아랍에미리트)                      | yes       | 예                                                |
-| `ar-BH` | 아랍어(바레인), 현대 표준 | yes       | 언어 모델                                    |
-| `ar-EG` | 아랍어(이집트)                    | yes       | 언어 모델                                    |
-| `ar-KW` | 아랍어(쿠웨이트)                   | yes       | 예                                                |
-| `ar-QA` | 아랍어(카타르)                    | yes       | 예                                                |
-| `ar-SA` | 아랍어(사우디아라비아)             | yes       | 예                                                |
-| `ar-SY` | 아랍어(시리아)                    | yes       | 언어 모델                                    |
-| `ca-ES` | 카탈로니아어                           | yes       | 언어 모델                                    |
-| `da-DK` | 덴마크어(덴마크)                  | yes       | 언어 모델                                    |
-| `de-DE` | 독일어(독일)                  | yes       | 음향 모델<br>언어 모델<br>발음 |
-| `en-AU` | 영어(오스트레일리아)               | yes       | 음향 모델<br>언어 모델                  |
-| `en-CA` | 영어(캐나다)                  | yes       | 음향 모델<br>언어 모델                  |
-| `en-GB` | 영어(영국)          | yes       | 음향 모델<br>언어 모델<br>발음 |
-| `en-IN` | 영어(인도)                   | yes       | 음향 모델<br>언어 모델                  |
-| `en-NZ` | 영어(뉴질랜드)             | yes       | 음향 모델<br>언어 모델                  |
-| `en-US` | 영어(미국)           | yes       | 음향 모델<br>언어 모델<br>발음 |
-| `es-ES` | 스페인어(스페인)                   | yes       | 음향 모델<br>언어 모델                  |
-| `es-MX` | 스페인어(멕시코)                  | yes       | 음향 모델<br>언어 모델                  |
-| `fi-FI` | 핀란드어(핀란드)                 | yes       | 언어 모델                                    |
-| `fr-CA` | 프랑스어(캐나다)                   | yes       | 음향 모델<br>언어 모델                  |
-| `fr-FR` | 프랑스어(프랑스)                   | yes       | 음향 모델<br>언어 모델<br>발음 |
-| `gu-IN` | 구자라트어(인도)                 | yes       | 언어 모델                                    |
-| `hi-IN` | 힌디어(인도)                     | yes       | 음향 모델<br>언어 모델                  |
-| `it-IT` | 이탈리아어(이탈리아)                   | yes       | 음향 모델<br>언어 모델<br>발음 |
-| `ja-JP` | 일본어(일본)                  | yes       | 언어 모델                                    |
-| `ko-KR` | 한국어(한국)                    | yes       | 언어 모델                                    |
-| `mr-IN` | 마라티어(인도)                   | yes       | 언어 모델                                    |
-| `nb-NO` | 노르웨이어(복말)(노르웨이)       | yes       | 언어 모델                                    |
-| `nl-NL` | 네덜란드어(네덜란드)               | yes       | 언어 모델                                    |
-| `pl-PL` | 폴란드어(폴란드)                   | yes       | 언어 모델                                    |
-| `pt-BR` | 포르투갈어(브라질)               | yes       | 음향 모델<br>언어 모델<br>발음 |
-| `pt-PT` | 포르투갈어(포르투갈)             | yes       | 언어 모델                                    |
-| `ru-RU` | 러시아어(러시아)                  | yes       | 음향 모델<br>언어 모델                  |
-| `sv-SE` | 스웨덴어(스웨덴)                  | yes       | 언어 모델                                    |
-| `ta-IN` | 타밀어(인도)                     | yes       | 언어 모델                                    |
-| `te-IN` | 텔루구어(인도)                    | yes       | 예                                                |
-| `th-TH` | 태국어(태국)                   | yes       | 예                                                |
-| `tr-TR` | 터키어(터키)                  | yes       | 예                                                |
-| `zh-CN` | 중국어(북경어, 간체)    | yes       | 음향 모델<br>언어 모델                  |
-| `zh-HK` | 중국어(광둥어, 전통)  | yes       | 언어 모델                                    |
-| `zh-TW` | 중국어(대만어)      | yes       | 언어 모델                                    |
+| `ar-AE` | 아랍어(아랍에미리트)                      | 예       | 예                                                |
+| `ar-BH` | 아랍어(바레인), 현대 표준 | 예       | 언어 모델                                    |
+| `ar-EG` | 아랍어(이집트)                    | 예       | 언어 모델                                    |
+| `ar-KW` | 아랍어(쿠웨이트)                   | 예       | 예                                                |
+| `ar-QA` | 아랍어(카타르)                    | 예       | 예                                                |
+| `ar-SA` | 아랍어(사우디아라비아)             | 예       | 예                                                |
+| `ar-SY` | 아랍어(시리아)                    | 예       | 언어 모델                                    |
+| `ca-ES` | 카탈로니아어                           | 예       | 언어 모델                                    |
+| `da-DK` | 덴마크어(덴마크)                  | 예       | 언어 모델                                    |
+| `de-DE` | 독일어(독일)                  | 예       | 음향 모델<br>언어 모델<br>발음 |
+| `en-AU` | 영어(오스트레일리아)               | 예       | 음향 모델<br>언어 모델                  |
+| `en-CA` | 영어(캐나다)                  | 예       | 음향 모델<br>언어 모델                  |
+| `en-GB` | 영어(영국)          | 예       | 음향 모델<br>언어 모델<br>발음 |
+| `en-IN` | 영어(인도)                   | 예       | 음향 모델<br>언어 모델                  |
+| `en-NZ` | 영어(뉴질랜드)             | 예       | 음향 모델<br>언어 모델                  |
+| `en-US` | 영어(미국)           | 예       | 음향 모델<br>언어 모델<br>발음 |
+| `es-ES` | 스페인어(스페인)                   | 예       | 음향 모델<br>언어 모델                  |
+| `es-MX` | 스페인어(멕시코)                  | 예       | 음향 모델<br>언어 모델                  |
+| `fi-FI` | 핀란드어(핀란드)                 | 예       | 언어 모델                                    |
+| `fr-CA` | 프랑스어(캐나다)                   | 예       | 음향 모델<br>언어 모델                  |
+| `fr-FR` | 프랑스어(프랑스)                   | 예       | 음향 모델<br>언어 모델<br>발음 |
+| `gu-IN` | 구자라트어(인도)                 | 예       | 언어 모델                                    |
+| `hi-IN` | 힌디어(인도)                     | 예       | 음향 모델<br>언어 모델                  |
+| `it-IT` | 이탈리아어(이탈리아)                   | 예       | 음향 모델<br>언어 모델<br>발음 |
+| `ja-JP` | 일본어(일본)                  | 예       | 언어 모델                                    |
+| `ko-KR` | 한국어(한국)                    | 예       | 언어 모델                                    |
+| `mr-IN` | 마라티어(인도)                   | 예       | 언어 모델                                    |
+| `nb-NO` | 노르웨이어(복말)(노르웨이)       | 예       | 언어 모델                                    |
+| `nl-NL` | 네덜란드어(네덜란드)               | 예       | 언어 모델                                    |
+| `pl-PL` | 폴란드어(폴란드)                   | 예       | 언어 모델                                    |
+| `pt-BR` | 포르투갈어(브라질)               | 예       | 음향 모델<br>언어 모델<br>발음 |
+| `pt-PT` | 포르투갈어(포르투갈)             | 예       | 언어 모델                                    |
+| `ru-RU` | 러시아어(러시아)                  | 예       | 음향 모델<br>언어 모델                  |
+| `sv-SE` | 스웨덴어(스웨덴)                  | 예       | 언어 모델                                    |
+| `ta-IN` | 타밀어(인도)                     | 예       | 언어 모델                                    |
+| `te-IN` | 텔루구어(인도)                    | 예       | 예                                                |
+| `th-TH` | 태국어(태국)                   | 예       | 예                                                |
+| `tr-TR` | 터키어(터키)                  | 예       | 예                                                |
+| `zh-CN` | 중국어(북경어, 간체)    | 예       | 음향 모델<br>언어 모델                  |
+| `zh-HK` | 중국어(광둥어, 전통)  | 예       | 언어 모델                                    |
+| `zh-TW` | 중국어(대만어)      | 예       | 언어 모델                                    |
 
 ## <a name="text-to-speech"></a>텍스트 음성 변환
 

@@ -1,19 +1,19 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/06/2020
-ms.author: dapine
-ms.openlocfilehash: 2604d56d3e635b9973d1dedd4d602fd326069c15
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.author: trbye
+ms.openlocfilehash: 6c0ba0fc067d548bdfd02397100b759c56895956
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266671"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399631"
 ---
 ## <a name="additional-language-and-platform-support"></a>추가 언어 및 플랫폼 지원
 
-이 탭을 클릭한 경우 즐겨 찾는 프로그래밍 언어로 기본 문서가 표시되지 않았을 수 있습니다. GitHub에서 사용할 수 있는 추가 코드 샘플이 있어 걱정이 되지 않습니다. 표를 사용하여 프로그래밍 언어 및 플랫폼/OS 조합에 적합한 샘플을 찾습니다.
+이 탭을 클릭한 경우 선호하는 프로그래밍 언어로 된 기본 문서가 표시되지 않을 수 있습니다. 걱정하지 마세요. GitHub에서 사용 가능한 추가 코드 샘플이 있습니다. 표를 사용하여 프로그래밍 언어 및 플랫폼/OS 조합에 적합한 샘플을 찾습니다.
 
 | 언어    | 코드 샘플                                                                                                                            |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------|
@@ -21,9 +21,9 @@ ms.locfileid: "81266671"
 | C++         | [빠른 시작][cpp-quickstarts], [샘플][cpp-samples]                                                                                  |
 | Java        | [Android][java-android], [JRE][java-jre]                                                                                                |
 | JavaScript  | [브라우저][js-browser]                                                                                                                   |
-| Node.js     | [윈도우, 리눅스, 맥OS][node-js]                                                                                                        |
+| Node.js     | [Windows, Linux, macOS][node-js]                                                                                                        |
 | Objective-C | [iOS][objective-c-ios], [macOS][objective-c-macos]                                                                                      |
-| Python      | [윈도우, 리눅스, 맥OS][python]                                                                                                         |
+| Python      | [Windows, Linux, macOS][python]                                                                                                         |
 | Swift       | [iOS][swift-ios], [macOS][swift-macos]                                                                                                  |
 
 <!-- Links -->

@@ -740,6 +740,8 @@
           href: insights/containers.md
     - name: 기타 리소스 모니터링
       items:
+        - name: Key Vault
+          href: insights/key-vault-insights-overview.md
         - name: 스토리지
           items:
             - name: Storage용 Azure Monitor
@@ -1075,6 +1077,8 @@
               href: platform/itsmc-connections.md
             - name: Service Manager 웹앱 만들기
               href: platform/itsmc-service-manager-script.md
+            - name: ServiceNow ITSM 동기화 문제 수정
+              href: platform/itsmc-resync-servicenow.md
     - name: 자동화
       items:
         - name: 자동 크기 조정

@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
-ms.author: dapine
-ms.openlocfilehash: 296dea2e92d494cb9feaeb9f0c942b6a7da57abb
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.author: trbye
+ms.openlocfilehash: 5a06a0663601c221dd456b9cf4437cb9f32a18f8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656728"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400011"
 ---
 :::row:::
     :::column span="3":::
@@ -35,7 +35,7 @@ Install-Package Microsoft.CognitiveServices.Speech
 
 또는 바이너리에서 C++ 음성 SDK를 설치할 수 있습니다. SDK를 <a href="https://aka.ms/csspeech/linuxbinary" target="_blank">.tar 패키지로 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 다운로드하고 선택한 디렉토리에 있는 파일의 압축을 풀어줍니다. 이 패키지의 내용(x86 및 x64 대상 아키텍처 모두에 대한 헤더 파일 포함)은 다음과 같이 구성됩니다.
 
-  | 경로                   | 설명                                          |
+  | 경로                   | Description                                          |
   |------------------------|------------------------------------------------------|
   | `license.md`           | License                                              |
   | `ThirdPartyNotices.md` | 타사 알림                                  |
@@ -45,6 +45,6 @@ Install-Package Microsoft.CognitiveServices.Speech
 
   애플리케이션을 만들려면 개발 환경에 필수 이진 파일(및 라이브러리)을 복사하고 이동합니다. 필요에 따라 빌드 프로세스에 포함합니다.
 
-#### <a name="additional-resources"></a>추가 자료
+#### <a name="additional-resources"></a>추가 리소스
 
 - <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp" target="_blank">윈도우, 리눅스, 맥OS 퀵스타트 C++ 소스 코드<span class="docon docon-navigate-external x-hidden-focus"></span></a>

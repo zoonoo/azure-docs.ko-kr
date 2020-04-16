@@ -2,19 +2,19 @@
 title: Speech Service
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/06/2019
-ms.author: dapine
-ms.openlocfilehash: b24918f377e0d0744331974993cbb94f963e521e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 50dd7ddb636658ec6d29c2669d02320c73167fde
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75379960"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399713"
 ---
 ## <a name="reference-docs"></a>참조 문서
 
@@ -42,6 +42,6 @@ ms.locfileid: "75379960"
 
 다양한 음성 서비스 REST API에 대한 참조는 아래 목록을 참조하십시오.
 
-- [REST API: 음성-텍스트](../rest-speech-to-text.md)
+- [REST API: 음성 텍스트 변환](../rest-speech-to-text.md)
 - [REST API: 텍스트 음성 변환](../rest-text-to-speech.md)
 - <a href="https://cris.ai/swagger/ui/index" target="_blank" rel="noopener">REST API: 일괄 전사 및 사용자 지정<span class="docon docon-navigate-external x-hidden-focus"></span></a>

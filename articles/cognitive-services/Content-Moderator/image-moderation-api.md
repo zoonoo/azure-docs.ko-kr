@@ -1,25 +1,25 @@
 ---
 title: 이미지 조정 - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Content Moderator의 머신 지원 이미지 조정 및 인간 참여형 검토 도구를 사용하여 성인 및 외설 콘텐츠에 대한 이미지를 조정합니다.
+description: 콘텐츠 운영자의 기계 지원 이미지 조정 및 휴먼 인 더 루프 검토 도구를 사용하여 성인용 및 외설적인 콘텐츠에 대한 이미지를 조정합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6d419135a1da68d23689f66d3134a638d71a3eab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36777208dc8ac179f1aaf345c374a33001e3f8bd
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73044111"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404257"
 ---
 # <a name="learn-image-moderation-concepts"></a>이미지 조정 개념 알아보기
 
-Content Moderator의 머신 지원 이미지 조정 및 [인간 참여형 검토 도구](Review-Tool-User-Guide/human-in-the-loop.md)를 사용하여 성인 및 외설 콘텐츠에 대한 이미지를 조정합니다. 텍스트 콘텐츠에 대한 이미지를 검색하고 해당 텍스트를 추출한 후 얼굴을 감지합니다. 사용자 지정 목록에서 이미지와 일치하는 사용자를 검색한 후 후속 조치를 취할 수 있습니다.
+콘텐츠 운영자의 기계 지원 이미지 조정 및 [휴먼 인 더 루프 검토 도구를](Review-Tool-User-Guide/human-in-the-loop.md) 사용하여 성인용 및 외설적인 콘텐츠에 대한 이미지를 조정합니다. 텍스트 콘텐츠에 대한 이미지를 검색하고 해당 텍스트를 추출한 후 얼굴을 감지합니다. 사용자 지정 목록에서 이미지와 일치하는 사용자를 검색한 후 후속 조치를 취할 수 있습니다.
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>성인 및 외설 콘텐츠 평가
 
@@ -139,9 +139,9 @@ Content Moderator는 사용자 지정 이미지 목록을 관리하기 위한 �
     ....
     }
 
-## <a name="human-review-tool"></a>사용자 검토 도구
+## <a name="review-tool"></a>검토 도구
 
-좀 더 미묘한 차이가 있는 경우 Content Moderator의 [검토 도구](Review-Tool-User-Guide/human-in-the-loop.md) 및 해당 API를 사용하여 사용자 중재자가 검토할 수 있게 조정 결과 및 콘텐츠를 제공합니다. 컴퓨터 할당 태그를 검토하고 최종 결정을 확인합니다.
+보다 미묘한 경우 콘텐츠 중재자 [검토 도구및](Review-Tool-User-Guide/human-in-the-loop.md) API를 사용하여 검토 결과에 대한 검토 결과 및 콘텐츠를 개인 중재자에 표시합니다. 컴퓨터 할당 태그를 검토하고 최종 결정을 확인합니다.
 
 ![사용자 중재자를 위한 이미지 검토](images/moderation-reviews-quickstart-dotnet.PNG)
 

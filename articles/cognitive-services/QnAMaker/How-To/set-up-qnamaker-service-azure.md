@@ -3,12 +3,12 @@ title: QnA 메이커 서비스 설정 - QnA 메이커
 description: QnA Maker 기술 자료를 만들려면 먼저 Azure에서 QnA Maker 서비스를 설정해야 합니다. 구독에 새 리소스를 만들 수 있는 권한이 있으면 누구든지 QnA Maker 서비스를 설정할 수 있습니다.
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: 8ec57f441ba58227e45398c35c7931dc75fa658f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 563a56fdb288568e7fe667fa54658400064a560f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131725"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402980"
 ---
 # <a name="manage-qna-maker-resources"></a>QnA 메이커 리소스 관리
 
@@ -89,7 +89,7 @@ QnA Maker 리소스를 만든 Azure 포털에서 구독 키를 보고 재설정�
     >[!NOTE]
     >키가 손상되었다고 생각되면 키를 새로 고칩니다. 클라이언트 애플리케이션 또는 봇 코드에 해당 변경 내용을 적용해야 할 수도 있습니다.
 
-### <a name="upgrade-qna-maker-sku"></a>업그레이드 QnA 메이커 SKU
+## <a name="upgrade-qna-maker-sku"></a>업그레이드 QnA 메이커 SKU
 
 현재 계층을 넘어 기술 자료에 더 많은 질문과 답변을 원할 경우 QnA Maker 서비스 가격 책정 계층을 업그레이드하십시오.
 
@@ -103,7 +103,7 @@ QnA Maker 관리 SKU를 업그레이드하려면
 
     ![QnA Maker 가격 책정](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
 
-### <a name="upgrade-app-service"></a>앱 서비스 업그레이드
+## <a name="upgrade-app-service"></a>앱 서비스 업그레이드
 
  기술 자료가 클라이언트 앱에서 더 많은 요청을 제공해야 하는 경우 앱 서비스 가격 책정 계층을 업그레이드합니다.
 
@@ -113,7 +113,7 @@ Azure 포털의 앱 서비스 리소스로 이동하여 필요에 따라 **확�
 
 ![QnA 메이커 앱 서비스 규모](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
-### <a name="upgrade-the-azure-cognitive-search-service"></a>Azure 인지 검색 서비스 업그레이드
+## <a name="upgrade-the-azure-cognitive-search-service"></a>Azure 인지 검색 서비스 업그레이드
 
 많은 기술 자료가 있는 경우 Azure 인지 검색 서비스 가격 책정 계층을 업그레이드합니다.
 
@@ -197,7 +197,7 @@ Azure 리소스 관리자 템플릿을 통해 QnA 서비스를 만드는 경우 
 
 트래픽이 없는 경우에도 예측 끝점 앱을 로드된 상태로 유지하려면 유휴 상태를 항상 켜두도록 설정합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. QnA Maker 리소스의 앱 서비스를 검색하고 선택합니다. QnA Maker 리소스와 이름이 같지만 다른 **유형의** 앱 서비스를 갖게 됩니다.
 1. **설정을** 찾은 다음 **구성을**선택합니다.
 1. 구성 창에서 일반 **설정을**선택한 다음 **항상 을**찾은 다음 **켜짐을** 값으로 선택합니다.

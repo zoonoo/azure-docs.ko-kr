@@ -3,20 +3,20 @@ title: 음성 번역 기본 사항 - 음성 서비스
 titleSuffix: Azure Cognitive Services
 description: 음성 SDK를 사용하여 음성을 번역하는 방법을 알아봅니다. 이 문서에서는 개체 구성, 지원되는 오디오 입력 형식 및 음성 번역을 위한 구성 옵션에 대해 알아봅니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 966407a1e88856c041ae453cfa1bf0ecf55da9d1
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 04ece5ccf91056af02bd450eb760534b82de5959
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266665"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399579"
 ---
 # <a name="learn-the-basics-of-speech-translation"></a>음성 번역의 기본 사항 알아보기
 

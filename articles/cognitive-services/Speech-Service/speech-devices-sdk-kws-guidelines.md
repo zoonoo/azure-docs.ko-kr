@@ -3,19 +3,19 @@ title: 키워드 이름 지정 지침 - 음성 서비스
 titleSuffix: Azure Cognitive Services
 description: 효과적인 키워드를 만드는 것은 기기가 일관되고 정확하게 응답할 수 있도록 하는 데 매우 중요합니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: dapine
-ms.openlocfilehash: 1d363f9f6f9cb5b1ea28e6ae15a9cef857304cab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: c00d27e5e7b7a8d614ce94ea4024b6093669757c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79370681"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399838"
 ---
 # <a name="guidelines-for-creating-an-effective-keyword"></a>효과적인 키워드 를 만들기 위한 지침
 

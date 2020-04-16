@@ -5,18 +5,18 @@ metadata:
   title: 대화 시나리오 설명서 - 자습서, API 참조 - Azure 코그너티브 서비스 | 마이크로 소프트 문서
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/16/2020
-  ms.author: dapine
-  ms.openlocfilehash: 75254b0b0b3afb391006a422300c0d4cb9d27fdb
-  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+  ms.author: trbye
+  ms.openlocfilehash: 1766174d053b480674da26ef3e915bcf3fdf280a
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/28/2020
-  ms.locfileid: "79479691"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81401476"
 landingContent:
 - title: 대화 녹음에 관하여(회의 시나리오)
   linkLists:
@@ -46,7 +46,7 @@ landingContent:
     links:
     - text: 콜 센터 시나리오 처리
       url: call-center-transcription.md
-- title: 참고
+- title: 참조
   linkLists:
   - linkListType: reference
     links:

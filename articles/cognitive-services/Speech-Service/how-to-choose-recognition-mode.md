@@ -3,20 +3,20 @@ title: 음성 SDK를 사용하면 음성 인식 모드 선택
 titleSuffix: Azure Cognitive Services
 description: 음성 SDK를 사용할 때 최상의 인식 모드를 선택하는 방법을 알아봅니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: d997cb592d9d648998f2b44d9f61f465f05faeb0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5fdca371e9188ef69068ddbcaa416cbb2b44054c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79079815"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402148"
 ---
 # <a name="choose-a-speech-recognition-mode"></a>음성 인식 모드 선택
 
@@ -160,7 +160,7 @@ speech_recognizer.stop_continuous_recognition()
 
 ## <a name="dictation"></a>받아쓰기
 
-연속 인식을 사용하는 경우 해당 "받아쓰기 사용" 기능을 사용하여 받아쓰기 처리를 활성화할 수 있습니다. 이 모드는 구두점과 같은 문장 구조의 단어 설명을 해석하는 음성 구성 인스턴스를 발생시게 됩니다. 예를 들어 ,"당신은 마을 물음표에 살고 있습니까"라는 발언은 "마을에 살고 있습니까?"라는 텍스트로 해석됩니다.
+연속 인식을 사용하면 해당하는 "받아쓰기 사용" 함수를 사용하여 받아쓰기 처리를 사용하도록 설정할 수 있습니다. 이 모드에서는 음성 구성 인스턴스가 문장 부호와 같은 문장 구조의 단어 설명을 해석합니다. 예를 들어 "도시에 살고 계신가요 물음표"라는 발화는 "도시에 살고 계신가요?"라는 텍스트로 해석됩니다.
 
 ::: zone pivot="programming-language-csharp"
 

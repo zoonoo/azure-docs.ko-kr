@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
-ms.author: dapine
-ms.openlocfilehash: 18a2e5118ab8ab30de5cc4dbf75342cc5275256c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.author: trbye
+ms.openlocfilehash: 57de7f1e7c37fec66cda666d3f144e52849a026f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656519"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399868"
 ---
 macOS용으로 개발할 때 세 가지 음성 SDK를 사용할 수 있습니다.
 
@@ -69,7 +69,7 @@ end
 
 ---
 
-#### <a name="additional-resources"></a>추가 자료
+#### <a name="additional-resources"></a>추가 리소스
 
 - <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos" target="_blank">맥OS 스피치 SDK 퀵스타트 목표-C 소스 코드<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos" target="_blank">맥OS 음성 SDK 빠른 시작 스위프트 소스 코드<span class="docon docon-navigate-external x-hidden-focus"></span></a>

@@ -3,19 +3,19 @@ title: 텍스트 음성 변환, Python - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 파이썬 및 텍스트 음성 변환 REST API를 사용하여 텍스트 음성 변환 방법을 배웁니다. 이 가이드에 포함된 샘플 텍스트는 SSML(Speech Synthesis Markup Language)로 구조화되어 있습니다. 이를 통해 음성 응답의 음성 및 언어를 선택할 수 있습니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 04/13/2020
-ms.author: dapine
-ms.openlocfilehash: 6ea3f63bea0701dcd0f4b38f6584816d9a1bfbc7
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.author: trbye
+ms.openlocfilehash: 171fdb033cba422d8ba580da3ab54db88ca20872
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258438"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400827"
 ---
 # <a name="convert-text-to-speech-using-python"></a>Python을 사용하여 텍스트 음성 변환
 

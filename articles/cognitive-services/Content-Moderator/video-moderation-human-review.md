@@ -1,25 +1,25 @@
 ---
 title: 사용자 검토를 사용한 비디오 조정 - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: 컴퓨터 지원 비디오 조정 및 사용자 검토 도구를 사용하여 부적절한 콘텐츠 조정
+description: 기계 지원 비디오 조정 및 검토 도구를 사용하여 부적절한 콘텐츠를 조정합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: a4e7b079367a4b4dec1d2b3d6c0afde1d8276766
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c031a890efc7fad7e5d9caefce3b0e66c515d90
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "72754166"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404246"
 ---
 # <a name="video-moderation-with-human-review"></a>사용자 검토를 사용한 비디오 조정
 
-콘텐츠 운영자의 기계 지원 [동영상 중재](video-moderation-api.md) 및 [인적 검토 도구를](Review-Tool-User-Guide/human-in-the-loop.md) 사용하여 성인용(노골적인) 및 외설적인(암시적) 콘텐츠에 대한 동영상 및 성적표를 검토하여 비즈니스에 가장 좋은 결과를 얻을 수 있습니다.
+콘텐츠 운영자의 기계 지원 [비디오 중재](video-moderation-api.md) 및 검토 [도구를](Review-Tool-User-Guide/human-in-the-loop.md) 사용하여 성인용(노골적인) 및 외설적인(암시적) 콘텐츠에 대한 동영상 및 성적표를 검토하여 비즈니스에 가장 적합한 결과를 얻을 수 있습니다.
 
 ## <a name="video-trained-classifier-preview"></a>비디오 학습 분류자(미리 보기)
 

@@ -3,19 +3,19 @@ title: 음성-텍스트 - 음성 서비스
 titleSuffix: Azure Cognitive Services
 description: 음성-텍스트 기능을 통해 오디오 스트림을 텍스트로 실시간으로 녹음할 수 있습니다. 응용 프로그램, 도구 또는 장치는 이 텍스트 입력을 사용, 표시 및 조치를 취할 수 있습니다. 이 서비스는 텍스트 음성 변환(음성 합성) 및 음성 변환 기능과 원활하게 작동합니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.author: dapine
-ms.openlocfilehash: 2854f4e8d91164c8ae1f35761d6f605cae725245
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: e0aea7e55381e9571b156701699f5f45315bb384
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80052639"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399693"
 ---
 # <a name="what-is-speech-to-text"></a>음성 텍스트 변환이란?
 

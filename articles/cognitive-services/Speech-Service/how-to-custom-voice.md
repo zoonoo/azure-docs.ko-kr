@@ -3,19 +3,19 @@ title: 사용자 정의 음성으로 합성 개선 - 음성 서비스
 titleSuffix: Azure Cognitive Services
 description: 커스텀 보이스는 브랜드를 위해 인식할 수 있는 유일무이한 음성을 만들 수 있는 온라인 도구 세트입니다. 시작하기 위해 필요한 것은 소수의 오디오 파일과 관련 전사뿐입니다. 아래 링크를 따라 사용자 지정 음성-텍스트 환경 만들기를 시작합니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.author: dapine
-ms.openlocfilehash: 786cf687e569af172eabfaa9068ae61ffd6b2988
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 2aacf8881a57f0677177cd341a0ddc63224b26b6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79221418"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402047"
 ---
 # <a name="get-started-with-custom-voice"></a>Custom Voice 시작
 

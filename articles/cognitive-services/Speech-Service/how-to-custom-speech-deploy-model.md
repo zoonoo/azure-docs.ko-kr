@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: e41653e4644b09cc357510223e5ee86c3806ae2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9d48f09fe5d5c736f65b6a76211dd3fec85479ea
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74806116"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402189"
 ---
 # <a name="deploy-a-custom-model"></a>사용자 지정 모델 배포
 
@@ -42,12 +42,12 @@ ms.locfileid: "74806116"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [음성 SDK로](speech-sdk.md) 사용자 지정 끝점 사용
+* 사용자 지정 모델을 사용하는 방법은 [여기를](how-to-specify-source-language.md)참조하십시오.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
 * [데이터 검사](how-to-custom-speech-inspect-data.md)
 * [데이터 평가](how-to-custom-speech-evaluate-data.md)
-* [모델 학습](how-to-custom-speech-train-model.md)
+* [모델 교육](how-to-custom-speech-train-model.md)
 * [모델 배포](how-to-custom-speech-deploy-model.md)
