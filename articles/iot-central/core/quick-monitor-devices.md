@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: e56b733a567c706c2a15f2c30ed93a47c244db11
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1dec52bbf1435cd7e363edf111f769d3e2cffb6a
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77168714"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998909"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>빠른 시작: Azure IoT Central을 사용하여 디바이스 모니터링
 
@@ -24,7 +24,7 @@ ms.locfileid: "77168714"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-시작하기 전에 세 가지 이전 빠른 시작인 [Azure IoT Central 애플리케이션 만들기](./quick-deploy-iot-central.md), [IoT Central 애플리케이션에 시뮬레이션된 디바이스 추가](./quick-create-pnp-device.md) 및 [디바이스의 규칙 및 작업 구성](quick-configure-rules.md)을 완료해야 합니다.
+시작하기 전에 세 가지 이전 빠른 시작인 [Azure IoT Central 애플리케이션 만들기](./quick-deploy-iot-central.md), [IoT Central 애플리케이션에 시뮬레이션된 디바이스 추가](./quick-create-simulated-device.md) 및 [디바이스의 규칙 및 작업 구성](quick-configure-rules.md)을 완료해야 합니다.
 
 ## <a name="receive-a-notification"></a>알림 수신
 

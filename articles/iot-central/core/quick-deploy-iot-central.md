@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: d69a761df8066b4a84312c0c3ae8be5a79490960
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0ed32a4c1272c23c9500b35e05c383eac6dea185
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77169391"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998959"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Azure IoT Central 애플리케이션 만들기
 
@@ -62,4 +62,4 @@ ms.locfileid: "77169391"
 이 빠른 시작에서는 IoT Central 애플리케이션을 만들었습니다. 권장되는 단계는 다음과 같습니다.
 
 > [!div class="nextstepaction"]
-> [IoT Central 애플리케이션에 시뮬레이트된 디바이스 추가](./quick-create-pnp-device.md)
+> [IoT Central 애플리케이션에 시뮬레이트된 디바이스 추가](./quick-create-simulated-device.md)

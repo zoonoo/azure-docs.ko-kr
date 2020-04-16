@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: dapine
-ms.openlocfilehash: 33173390b9bdd874936ac6625e1755b96297cd7c
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 84801428bf79beb861e2f7c424ba3f2d1829d941
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80671054"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81275488"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -55,4 +55,4 @@ ms.locfileid: "80671054"
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

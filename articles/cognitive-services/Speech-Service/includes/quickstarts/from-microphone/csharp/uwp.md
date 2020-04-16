@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
-ms.openlocfilehash: 9a3f478604547819162ad13d39a9383263321857
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 1c631f4dea3b182c97f11f3892dff834c7681507
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80671040"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81274794"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -93,4 +93,5 @@ Speech Service에서 인식 결과가 반환되면 이에 따라 작업을 수�
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [footer](../footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
+

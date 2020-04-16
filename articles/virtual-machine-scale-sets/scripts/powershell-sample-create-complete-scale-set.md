@@ -1,19 +1,19 @@
 ---
 title: Azure PowerShell 샘플 - 전체 가상 머신 확장 집합 만들기
 description: 이 스크립트는 개별 리소스가 구성 및 생성되는 Windows Server 2016을 실행하는 가상 머신 확장 집합을 만듭니다.
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: sample
 ms.date: 05/29/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 522dc1e24b8d3c4abd7b24dd3e0901e02b78992d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2459aee8c93df3b039922ee53c0fe86d302505cf
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76278700"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011517"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>PowerShell을 사용하여 전체 가상 머신 확장 집합 만들기
 

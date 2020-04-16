@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 2fbd4270221cb23a4f99a0f8155bb1de76472f31
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 09569be88daa6295834e58da6b51656d0438bed4
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74976981"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270930"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>자습서: 비디오 및 대본 조정
 
@@ -82,7 +82,7 @@ ms.locfileid: "74976981"
 명령줄 인수가 없는 경우 `Main()`은 `GetUserInputs()`을 호출합니다. 이 메서드는 사용자가 단일 비디오 파일의 경로를 입력하고 텍스트 대본을 생성해야 할지 여부를 지정하게 합니다.
 
 > [!NOTE]
-> 콘솔 애플리케이션은 [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2)를 사용하여 업로드된 비디오의 오디오 트랙에서 대본을 생성합니다. 결과는 WebVTT 형식으로 제공됩니다. 이 형식에 대한 자세한 내용은 [Web Video Text Tracks 형식](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API)을 참조하세요.
+> 콘솔 애플리케이션은 [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2)를 사용하여 업로드된 비디오의 오디오 트랙에서 대본을 생성합니다. 결과는 WebVTT 형식으로 제공됩니다. 이 형식에 대한 자세한 내용은 [Web Video Text Tracks 형식](https://developer.mozilla.org/docs/Web/API/WebVTT_API)을 참조하세요.
 
 ### <a name="initialize-and-processvideo-methods"></a>초기화 및 ProcessVideo 메서드
 
@@ -223,7 +223,7 @@ ms.locfileid: "74976981"
 비디오에서 오디오의 전사는 `GenerateVTT` 플래그가 설정되는 경우 생성됩니다.
 
 > [!NOTE]
-> 콘솔 애플리케이션은 [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2)를 사용하여 업로드된 비디오의 오디오 트랙에서 대본을 생성합니다. 결과는 WebVTT 형식으로 제공됩니다. 이 형식에 대한 자세한 내용은 [Web Video Text Tracks 형식](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API)을 참조하세요.
+> 콘솔 애플리케이션은 [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2)를 사용하여 업로드된 비디오의 오디오 트랙에서 대본을 생성합니다. 결과는 WebVTT 형식으로 제공됩니다. 이 형식에 대한 자세한 내용은 [Web Video Text Tracks 형식](https://developer.mozilla.org/docs/Web/API/WebVTT_API)을 참조하세요.
 
 ## <a name="create-a-human-review"></a>휴먼 검토 만들기
 

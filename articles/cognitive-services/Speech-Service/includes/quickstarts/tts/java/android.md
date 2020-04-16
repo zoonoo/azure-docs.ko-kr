@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: yulili
-ms.openlocfilehash: 916626111c76a5d4b380a1225897a1eef719541b
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: d114e75a08f31a664772b84e19ec4d93b453af0b
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80671842"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81275338"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -78,7 +78,7 @@ ms.locfileid: "80671842"
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## <a name="see-also"></a>참고 항목
 

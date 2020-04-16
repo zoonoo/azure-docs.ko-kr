@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 813117bce4abd3550ac559109c1650ea4a7cff5c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 686d6e2ff01fd4d8283350ab8097e1f73c914af0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74538254"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260999"
 ---
 # <a name="create-and-publish-a-product"></a>제품 만들기 및 게시  
 
@@ -85,7 +85,7 @@ Azure API Management에서 제품은 하나 이상의 API뿐만 아니라 사용
 4. API를 선택하고 **선택**을 클릭합니다.
 
 > [!TIP]
-> [REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate) 또는 PowerShell 명령을 통해 사용자 구독을 만들거나 사용자 지정 구독 키가 포함된 *제품*으로 업데이트할 수 있습니다.
+> [REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription/createorupdate) 또는 PowerShell 명령을 통해 사용자 구독을 만들거나 사용자 지정 구독 키가 포함된 *제품*으로 업데이트할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,12 +4,12 @@ description: Azure Resource Manager 템플릿을 지속적으로 빌드, 테스�
 ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 303edac9221b2a58986129388e33c84c3817d96e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ce6f176a52a742a3216a5b761b34254027a1c5b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369372"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255076"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>자습서: Azure Pipelines를 사용한 Azure Resource Manager 템플릿의 지속적인 통합
 
@@ -44,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prepare-a-github-repository"></a>GitHub 리포지토리 준비
 
-GitHub는 Resource Manager 템플릿을 비롯한 프로젝트 소스 코드를 저장하는 데 사용됩니다. 지원되는 다른 리포지토리에 대한 내용은 [Azure DevOps에서 지원하는 리포지토리](/azure/devops/pipelines/repos/?view=azure-devops#supported-repository-types)를 참조하세요.
+GitHub는 Resource Manager 템플릿을 비롯한 프로젝트 소스 코드를 저장하는 데 사용됩니다. 지원되는 다른 리포지토리에 대한 내용은 [Azure DevOps에서 지원하는 리포지토리](/azure/devops/pipelines/repos/?view=azure-devops)를 참조하세요.
 
 ### <a name="create-a-github-repository"></a>GitHub 리포지토리 만들기
 

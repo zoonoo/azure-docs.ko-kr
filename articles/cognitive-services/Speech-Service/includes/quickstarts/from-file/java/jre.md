@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: dapine
-ms.openlocfilehash: a33bc7dd59f8f5ac04d9d016c11e44efa438158d
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 06d8037011fbd837dc6169480877518c825de897
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80671180"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81274815"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -130,4 +130,4 @@ F11 키를 누르거나 **실행** > **디버그**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

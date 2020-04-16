@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/15/2019
 ms.topic: tutorial
-ms.openlocfilehash: 332d7e4cae3b65d794d48d208b54db3809b78a8f
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: f12b5c158025db89dcc64a3be03b263f95a3a64c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632377"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261362"
 ---
 # <a name="tutorial-send-an-email-from-an-azure-automation-runbook"></a>자습서: Azure Automation Runbook에서 이메일 보내기
 
@@ -81,7 +81,7 @@ Runbook 내에서 Azure KeyVault를 사용하려면 Automation 계정에 다음 
 
 설치 옵션 아래의 Azure Automation 탭에서 <kbd>Azure Automation에 배포</kbd>를 클릭합니다. 이 작업을 수행하면 Azure Portal이 열립니다. 가져오기 페이지에서 Automation 계정을 선택하고 <kbd>확인</kbd>을 클릭합니다.
 
-필요한 모듈을 추가하는 방법에 대한 자세한 내용은 [모듈 가져오기](/azure/automation/shared-resources/modules#import-modules)를 참조하세요.
+필요한 모듈을 추가하는 방법에 대한 자세한 내용은 [모듈 가져오기](/azure/automation/shared-resources/modules#importing-modules)를 참조하세요.
 
 ## <a name="create-the-runbook-to-send-an-email"></a>이메일을 보내는 Runbook 만들기
 

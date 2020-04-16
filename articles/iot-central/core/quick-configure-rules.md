@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 4bbf571d6b73a6f43c1c3b1ce261da6963a74183
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 66c3bd8650d1194d5d753c1dc967ec8e870c8748
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77169509"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998975"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>빠른 시작: Azure IoT Central에서 디바이스에 대한 규칙 및 작업 구성
 
@@ -24,7 +24,7 @@ ms.locfileid: "77169509"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-시작하기 전에 두 가지 이전 빠른 시작인 [Azure IoT Central 애플리케이션 만들기](./quick-deploy-iot-central.md) 및 [IoT Central 애플리케이션에 시뮬레이션된 디바이스 추가](./quick-create-pnp-device.md)를 완료하여 작업할 **MXChip IoT DevKit** 디바이스 템플릿을 만들어야 합니다.
+시작하기 전에 두 가지 이전 빠른 시작인 [Azure IoT Central 애플리케이션 만들기](./quick-deploy-iot-central.md) 및 [IoT Central 애플리케이션에 시뮬레이션된 디바이스 추가](./quick-create-simulated-device.md)를 완료하여 작업할 **MXChip IoT DevKit** 디바이스 템플릿을 만들어야 합니다.
 
 ## <a name="create-a-telemetry-based-rule"></a>원격 분석 기반 규칙 만들기
 

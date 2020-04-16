@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d44391624e29d2bdd182bb07452e0e8def2d1407
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c4d0f753e23e42b1064fec3f56957dfe97c30ca4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67656688"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261196"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>자습서: ITRP와 Azure Active Directory 통합
 
@@ -113,7 +113,7 @@ ITRP에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
        `https://<tenant-name>.itrp.com`
 
     > [!NOTE]
-    > 이러한 값은 자리 표시자입니다. 실제 로그온 URL 및 식별자를 사용해야 합니다. 이 값을 얻으려면 [ITRP 지원 팀](https://www.itrp.com/support)에 문의하세요. Azure Portal의 **기본 SAML 구성** 대화 상자에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 자리 표시자입니다. 실제 로그온 URL 및 식별자를 사용해야 합니다. 이 값을 얻으려면 [ITRP 지원 팀](https://www.4me.com/support/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 대화 상자에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML 서명 인증서** 섹션에서 **편집** 아이콘을 선택하여 **SAML 서명 인증서** 대화 상자를 엽니다.
 
