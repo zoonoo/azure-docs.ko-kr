@@ -83,10 +83,12 @@
           href: logic-apps-author-definitions.md
         - name: 콘텐츠 형식 처리
           href: logic-apps-content-type.md
-        - name: 오류 및 예외 처리
+        - name: 예외 처리
           href: logic-apps-exception-handling.md
         - name: 대용량 메시지 처리
           href: logic-apps-handle-large-messages.md
+        - name: 대역폭 제한 문제 또는 429 오류 처리
+          href: handle-throttling-problems-429-errors.md
         - name: 보안
           items:
             - name: 논리 앱의 보안 향상

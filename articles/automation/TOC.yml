@@ -18,17 +18,17 @@
     - name: 역할 기반 액세스 제어 관리
       href: automation-role-based-access-control.md
       displayName: RBAC
-    - name: Azure Automation에서 Azure AD를 사용하여 Azure에 인증
+    - name: Azure AD를 사용하여 Azure에 인증
       href: automation-use-azure-ad.md
-    - name: Azure Automation을 사용하여 Office 365 서비스 관리
+    - name: Office 365 서비스 관리
       href: manage-office-365.md
-    - name: AWS를 사용하여 인증 구성
+    - name: Amazon Web Services를 사용하여 Azure Automation Runbook 인증
       href: automation-config-aws-account.md
     - name: Azure Automation에서 보안 자산 암호화
       href: automation-secure-asset-encryption.md
     - name: Automation 계정을 다른 구독으로 이동
       href: how-to/move-account.md
-    - name: Automation Services의 온보딩 자동화
+    - name: Automation 서비스의 온보딩 자동화
       href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
     - name: Azure Automation 데이터 관리
       href: automation-managing-data.md
@@ -42,6 +42,9 @@
           displayName: troubleshoot
 - name: 프로세스 Automation
   items:
+    - name: Azure Automation에서 Runbook 실행
+      href: automation-runbook-execution.md
+      displayName: 'fair share, activity log'
     - name: Hybrid Runbook Worker 개요
       href: automation-hybrid-runbook-worker.md
     - name: Runbook 갤러리
@@ -111,9 +114,6 @@
             - name: Runbook 출력
               href: automation-runbook-output-and-messages.md
               displayName: 'message streams, progress records, preference'
-            - name: Runbook 작업 추적
-              href: automation-runbook-execution.md
-              displayName: 'fair share, activity log'
             - name: 그래픽 Runbook에서 오류 처리
               href: automation-runbook-graphical-error-handling.md
         - name: Hybrid Runbook Worker
