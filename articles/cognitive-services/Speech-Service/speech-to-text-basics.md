@@ -3,20 +3,20 @@ title: 음성 인식 기본 사항 - 음성 서비스
 titleSuffix: Azure Cognitive Services
 description: 음성 SDK를 사용하여 음성을 텍스트로 변환하는 방법을 알아봅니다. 이 문서에서는 개체 생성, 지원되는 오디오 입력 형식 및 음성 인식을 위한 구성 옵션에 대해 알아봅니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/14/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-sixteen
-ms.openlocfilehash: e78ef272e9e95e8015059d53dfe10b9c496473bd
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: bdf8db4a7c946a50698d35aada5950ded671afb7
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314181"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399803"
 ---
 # <a name="learn-the-basics-of-speech-recognition"></a>음성 인식의 기본 사항 알아보기
 

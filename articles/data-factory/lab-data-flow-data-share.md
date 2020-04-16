@@ -7,16 +7,20 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 6c501205812ac72da8cd970b61b71e493888cef1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7d453b2724c308e48366d653a51d9e6aa8e82c96
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76156729"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415917"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Azure Data Factory 및 Azure Data Share를 사용하여 데이터 통합
 
-고객은 최신 데이터 웨어하우스 및 분석 프로젝트에 착수할 때 더 많은 데이터가 필요할 뿐 아니라 전체 데이터 자산의 데이터를 좀 더 자세히 볼 수 있어야 합니다. 이 워크샵에서는 Azure Data Factory 및 Azure Data Share의 향상된 기능을 활용하여 Azure에서 데이터 통합 및 관리를 간소화하는 방법을 자세히 살펴봅니다. 코드 없는 ETL/ELT 사용부터 데이터에 대한 포괄적인 뷰 만들기까지, 데이터 엔지니어들은 Azure Data Factory의 향상된 기능을 사용하여 안심하고 더 많은 데이터를 가져올 수 있으며, 따라서 기업에 더 많은 가치를 제공할 수 있습니다. Azure Data Share를 사용하면 관리되는 방식으로 B2B 공유를 수행할 수 있습니다.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+고객은 최신 데이터 웨어하우스 및 분석 프로젝트에 착수할 때 더 많은 데이터가 필요할 뿐 아니라 전체 데이터 자산의 데이터를 좀 더 자세히 볼 수 있어야 합니다. 이 워크샵에서는 Azure Data Factory 및 Azure Data Share의 향상된 기능을 활용하여 Azure에서 데이터 통합 및 관리를 간소화하는 방법을 자세히 살펴봅니다. 
+
+코드 없는 ETL/ELT 사용부터 데이터에 대한 포괄적인 뷰 만들기까지, 데이터 엔지니어들은 Azure Data Factory의 향상된 기능을 사용하여 안심하고 더 많은 데이터를 가져올 수 있으며, 따라서 기업에 더 많은 가치를 제공할 수 있습니다. Azure Data Share를 사용하면 관리되는 방식으로 B2B 공유를 수행할 수 있습니다.
 
 이 워크샵에서는 ADF(Azure Data Factory)를 사용하여 Azure SQL DB(SQL 데이터베이스)에서 ADLS gen2(Azure Data Lake Storage gen2)로 데이터를 수집합니다. 데이터를 레이크로 가져온 후에는 데이터 팩터리의 네이티브 변환 서비스인 매핑 데이터 흐름을 통해 데이터를 변환하고 Azure Synapse Analytics(이전의 SQL DW)로 싱크합니다. 그런 다음, Azure Data Share를 사용하여 일부 추가 데이터와 함께 테이블을 변환된 데이터와 공유합니다. 
 
