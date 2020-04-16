@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2020
+ms.date: 04/14/2020
 ms.author: dapine
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 6e1b366ee23f472489eeaa6c08df99bdfc892f00
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+zone_pivot_groups: programming-languages-set-sixteen
+ms.openlocfilehash: e78ef272e9e95e8015059d53dfe10b9c496473bd
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79372385"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314181"
 ---
 # <a name="learn-the-basics-of-speech-recognition"></a>음성 인식의 기본 사항 알아보기
 
@@ -36,6 +36,10 @@ ms.locfileid: "79372385"
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Java Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [JavaScript Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

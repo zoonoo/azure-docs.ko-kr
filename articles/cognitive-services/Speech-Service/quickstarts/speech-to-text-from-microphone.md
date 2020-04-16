@@ -3,20 +3,20 @@ title: '빠른 시작: 마이크에서 음성 인식 - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Speech SDK를 사용하여 마이크에서 캡처된 오디오 데이터의 음성을 대화형으로 인식합니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: eb02f273e66266b1e445df73aea61610640e9868
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 3c0d648d48bc39949071f39f5b49959a92576769
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77119530"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400707"
 ---
 # <a name="quickstart-recognize-speech-from-a-microphone"></a>빠른 시작: 마이크에서 음성 인식
 

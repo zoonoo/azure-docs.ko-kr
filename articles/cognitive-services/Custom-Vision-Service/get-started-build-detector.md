@@ -3,19 +3,19 @@ title: 개체 탐지기 빌드 빠른 시작 - Custom Vision Service
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Custom Vision 웹 사이트를 사용하여 이미지 분류 모델을 만드는 방법을 알아봅니다.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
-ms.author: anroth
-ms.openlocfilehash: 8aef46f0b9c3dc526f1fbed3d9bc59f97771b509
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 04/14/2020
+ms.author: pafarley
+ms.openlocfilehash: ba121400368f37c4a562a9c34e209c59d15b173c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76169999"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404104"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>빠른 시작: Custom Vision을 사용하여 개체 탐지기를 빌드하는 방법
 

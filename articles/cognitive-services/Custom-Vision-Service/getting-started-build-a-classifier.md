@@ -3,19 +3,19 @@ title: 빠른 시작 분류자 빌드 - Custom Vision Service
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Custom Vision 웹 사이트를 사용하여 이미지 분류 모델을 만드는 방법을 알아봅니다.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
-ms.author: anroth
-ms.openlocfilehash: b664a586398e297a00ea9cd8fe68dc65e6ade5c8
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 04/14/2020
+ms.author: pafarley
+ms.openlocfilehash: 56bdaa324420bf274e7cda8ac1c6506e4bc9ad21
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76170020"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404065"
 ---
 # <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>빠른 시작: Custom Vision을 사용하여 분류자를 빌드하는 방법
 
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 프로젝트에 대한 이름과 설명을 입력합니다. 그런 다음 리소스 그룹을 선택합니다. 로그인한 계정이 Azure 계정과 연결되어 있으면 리소스 그룹 드롭다운에는 Custom Vision Service 리소스를 포함하는 모든 Azure 리소스 그룹이 표시됩니다. 
 
    > [!NOTE]
-   > 사용 가능한 리소스 그룹이 없는 경우 [Azure Portal](https://portal.azure.com/)에 로그인하는 데 사용한 계정과 동일한 계정으로 [customvision.ai](https://customvision.ai)에 로그인했는지 확인합니다. 또한 Custom Vision 리소스가 있는 Azure Portal의 디렉터리와 동일한 “디렉터리”를 Custom Vision 포털에서 선택했는지 확인합니다. 두 사이트 모두, 화면 오른쪽 위에 있는 드롭다운 계정 메뉴에서 디렉터리를 선택할 수 있습니다. 
+   > 사용 가능한 리소스 그룹이 없는 경우 [Azure Portal](https://portal.azure.com/)에 로그인하는 데 사용한 계정과 동일한 계정으로 [customvision.ai](https://customvision.ai)에 로그인했는지 확인합니다. 또한 Custom Vision 포털에서 Custom Vision 리소스가 있는 Azure Portal의 디렉터리와 동일한 "디렉터리"를 선택했는지 확인하세요. 두 사이트 모두, 화면 오른쪽 위에 있는 드롭다운 계정 메뉴에서 디렉터리를 선택할 수 있습니다. 
 
 1. __프로젝트 형식__ 아래에서 __분류__를 선택합니다. 그런 다음 __분류 유형__ 아래에서 사용 사례에 따라 **다중 레이블** 또는 **다중 클래스**를 선택합니다. 다중 레이블 분류에서는 0개 이상의 태그가 이미지에 적용되는 반면 다중 클래스 분류에서는 이미지가 단일 범주로 정렬됩니다. 즉, 제출하는 모든 이미지가 가장 적합한 태그로 정렬됩니다. 원하는 경우 나중에 분류 유형을 변경할 수 있습니다.
 

@@ -3,19 +3,19 @@ title: '빠른 시작: 음성 합성, Python - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Speech SDK를 사용하여 Python에서 음성을 합성하는 방법 알아보기
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
-ms.author: dapine
-ms.openlocfilehash: 6f501ffd7bd9405fb5818c4af06156912021c6e4
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.author: trbye
+ms.openlocfilehash: e6daa0aaaca283dec11937d961886f95f1972b49
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81275302"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400405"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 

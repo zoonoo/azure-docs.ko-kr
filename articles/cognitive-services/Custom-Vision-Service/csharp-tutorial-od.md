@@ -3,19 +3,19 @@ title: '빠른 시작: C#용 SDK를 사용하여 개체 검색 프로젝트 만�
 titleSuffix: Azure Cognitive Services
 description: C#과 함께 .NET SDK를 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 교육하고, 개체를 검색합니다.
 services: cognitive-services
-author: areddish
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
-ms.author: areddish
-ms.openlocfilehash: c6aaf69ba3ed682a00a203079b024a47121334e3
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 04/14/2020
+ms.author: pafarley
+ms.openlocfilehash: d56953932a92eb4d9e39c8fe5f0d709a83ba3eaa
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76170062"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404193"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>빠른 시작: Custom Vision .NET SDK를 사용하여 개체 검색 프로젝트 만들기
 

@@ -3,20 +3,20 @@ title: '빠른 시작: 오디오 파일에 음성 합성 - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Speech SDK를 사용하여 텍스트를 오디오 파일의 합성된 음성으로 변환합니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: d5df28728c2e911537d67b9276157dc94b080e23
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: b02b43b0f10e1a120ac7e2e3e763aa1e918075b1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77119435"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400339"
 ---
 # <a name="quickstart-synthesize-speech-into-an-audio-file"></a>빠른 시작: 오디오 파일로 음성 합성
 

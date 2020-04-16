@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: ab107a0afe8be1d95de8dafb21f239e6da733271
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a418841d91ab6b8fe5457f3fd64d91306fe08dfe
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199333"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383119"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Azure Data Explorer에 예약 할인이 적용되는 방식 이해
 
@@ -65,7 +65,7 @@ Azure Data Explorer 태그 단위 8개에 대해 Azure Data Explorer 예약된 �
 
 Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Data Explorer 예약된 용량을 사용한 Azure Data Explorer 컴퓨팅 리소스에 대한 선불](../../data-explorer/pricing-reserved-capacity.md)  
+* [Azure Data Explorer 예약된 용량을 사용한 Azure Data Explorer 컴퓨팅 리소스에 대한 선불](/azure/data-explorer/pricing-reserved-capacity)  
 * [Azure 예약이란?](save-compute-costs-reservations.md)  
 * [Azure 예약 관리](manage-reserved-vm-instance.md)  
 * [종량제 구독의 예약 사용량 이해](understand-reserved-instance-usage.md)

@@ -1,42 +1,36 @@
 ---
-title: '빠른 시작: 마이크에서 음성 인식, C++(macOS) - Speech Service'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: wolfma61
-manager: nitinme
+author: trevorbye
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 12/17/2019
-ms.author: wolfma
-ms.openlocfilehash: 96836c494cdf8f3df1621ee0e2eea6c6f64a039c
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 04/03/2020
+ms.author: trbye
+ms.openlocfilehash: c35f30e1f403baf5fa01d450f77b77120a5b28cf
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78924818"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400812"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에:
 
 > [!div class="checklist"]
-> * [Azure Speech 리소스 만들기](../../../../get-started.md)
-> * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=macos)
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Azure Speech 리소스 만들기<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=macos&pivots=programming-language-cpp)
 > * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 
-## <a name="add-sample-code"></a>샘플 코드 추가
+## <a name="source-code"></a>소스 코드
 
-1. `helloworld.cpp`라는 C++ 원본 파일을 만들고 다음 코드를 파일에 붙여넣습니다.
+*helloworld.cpp*라는 C++ 원본 파일을 만들고 다음 코드를 파일에 붙여넣습니다.
 
-   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/macos/from-microphone/helloworld.cpp#code)]
+[!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/macos/from-microphone/helloworld.cpp#code)]
 
-1. 이 새 파일에서 `YourSubscriptionKey` 문자열을 음성 서비스 구독 키로 바꿉니다.
+[!INCLUDE [replace key and region](../replace-key-and-region.md)]
 
-1. 문자열 `YourServiceRegion`을 구독과 연결된 [지역](https://aka.ms/speech/sdkregion)의 **영역 식별자**로 바꿉니다(예: 평가판 구독의 경우 `westus`).
+## <a name="code-explanation"></a>코드 설명
 
-> [!NOTE]
-> Speech SDK는 기본적으로 언어에 en-us를 사용하여 인식합니다. 원본 언어 선택에 대한 자세한 내용은 [음성 텍스트 변환에 대한 원본 언어 지정](../../../../how-to-specify-source-language.md)을 참조하세요.
+[!INCLUDE [code explanation](../code-explanation.md)]
 
 ## <a name="build-the-app"></a>앱 빌드
 
@@ -72,4 +66,4 @@ ms.locfileid: "78924818"
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

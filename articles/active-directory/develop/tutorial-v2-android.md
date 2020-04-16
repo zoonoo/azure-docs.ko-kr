@@ -12,12 +12,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5c8bd5accefceee042601c3cf7d71f5e9131e04e
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b899e1d651f41c9c1e1e54af1b5ec19162dfc28d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80880825"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380051"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-application"></a>자습서: Android 애플리케이션에서 사용자 로그인 및 Microsoft Graph 호출 
 
@@ -91,7 +91,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. Android Studio의 프로젝트 창에서 **app\src\main\res**로 이동합니다.
 2. **res**를 마우스 오른쪽 단추로 클릭하고 **새로 만들기** > **디렉터리**를 선택합니다. 새 디렉터리 이름으로 `raw`를 입력하고 **확인**을 클릭합니다.
-3. **app** > **src** > **main** > **res** > **raw**에서 `auth_configbn_single_account.json`이라는 새 JSON 파일을 만들고, 앞에서 저장한 MSAL 구성을 붙여넣습니다. 
+3. **app** > **src** > **main** > **res** > **raw**에서 `auth_config_single_account.json`이라는 새 JSON 파일을 만들고, 앞에서 저장한 MSAL 구성을 붙여넣습니다. 
 
     리디렉션 URI 아래에 다음을 복사합니다. 
     ```json
@@ -190,7 +190,7 @@ import com.microsoft.identity.client.exception.*;
 ## <a name="instantiate-publicclientapplication"></a>PublicClientApplication 인스턴스화
 #### <a name="initialize-variables"></a>변수 초기화 
 ```java
-private final static String[] SCOPES = {"File.Read"};
+private final static String[] SCOPES = {"Files.Read"};
 /* Azure AD v2 Configs */
 final static String AUTHORITY = "https://login.microsoftonline.com/common";
 private ISingleAccountPublicClientApplication mSingleAccountApp;
@@ -583,8 +583,3 @@ private void performOperationOnSignOut() {
 ## <a name="get-help"></a>도움말 보기
 
 이 자습서 또는 Microsoft ID 플랫폼과 관련하여 문제가 있는 경우 [도움말 및 지원](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options)을 방문하세요.
-
-Microsoft ID 플랫폼을 개선할 수 있도록 도와주세요. 간단한 두 가지 설문 조사를 완료하여 의견을 알려주세요.
-
-> [!div class="nextstepaction"]
-> [Microsoft ID 플랫폼 설문 조사](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

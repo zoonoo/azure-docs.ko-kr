@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
-ms.author: dapine
-ms.openlocfilehash: 327000173b4c5c378f60c76eb1a24bd155901671
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.author: trbye
+ms.openlocfilehash: 924532318fc6638059bbe9eef0065349463523ae
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80666900"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400869"
 ---
 이 가이드에서는 Python용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다. 패키지 이름을 직접 시작하려면 `pip install azure-cognitiveservices-speech`를 실행합니다.
 

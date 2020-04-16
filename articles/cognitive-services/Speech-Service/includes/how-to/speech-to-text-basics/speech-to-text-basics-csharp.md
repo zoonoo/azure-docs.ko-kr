@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
-ms.author: dapine
-ms.openlocfilehash: c3c24a803a9fe2774f52cbb1e2cef04191d7995d
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.author: trbye
+ms.openlocfilehash: 982c3c6011936c184c55dd92a76d4aec023baaf6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79372381"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399792"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -39,7 +39,7 @@ ms.locfileid: "79372381"
 * 호스트 사용: 호스트 주소를 전달합니다. 키 또는 권한 부여 토큰은 선택 사항입니다.
 * 권한 부여 토큰 사용: 권한 부여 토큰 및 연결된 영역을 전달합니다.
 
-키와 영역을 사용하여 [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet)를 만드는 방법을 살펴보겠습니다.
+키와 영역을 사용하여 [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet)를 만드는 방법을 살펴보겠습니다. 지역 식별자를 찾으려면 [지역 지원](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) 페이지를 참조하세요.
 
 ```csharp
 var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -83,7 +83,7 @@ using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 
 ## <a name="recognize-speech"></a>음성 인식
 
-C#용 음성 SDK의 [인식기 클래스](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotne)는 음성 인식에 사용할 수 있는 몇 가지 메서드를 공개합니다.
+C#용 음성 SDK의 [인식기 클래스](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet)는 음성 인식에 사용할 수 있는 몇 가지 메서드를 공개합니다.
 
 * 단일 샷 인식(비동기) - 비차단(비동기) 모드에서 인식을 수행합니다. 단일 발화를 인식합니다. 단일 발화의 끝은 끝에서 무음을 수신하거나 최대 15초의 오디오가 처리될 때까지 대기하여 결정됩니다.
 * 연속 인식(비동기) - 연속 인식 작업을 비동기적으로 시작합니다. 사용자는 이벤트에 등록하고 다양한 애플리케이션 상태를 처리합니다. 비동기 연속 인식을 중지하려면 [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync?view=azure-dotnet)를 호출합니다.

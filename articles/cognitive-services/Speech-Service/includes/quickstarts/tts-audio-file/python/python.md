@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/20/2020
-ms.author: dapine
-ms.openlocfilehash: 983a3c38c19d60a2ad890255ab2120ea58776436
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 04/04/2020
+ms.author: trbye
+ms.openlocfilehash: 10a11168b8046dbcc877f45141571fccdca879f0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80117051"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400297"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -18,7 +18,7 @@ ms.locfileid: "80117051"
 * Python Speech SDK 패키지는 다음과 같은 운영 체제용으로 제공됩니다.
     * Windows: x64 및 x86
     * Mac: macOS X 버전 10.12 이상.
-    * Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8(x64 기반).
+    * Linux: Ubuntu 16.04/18.04, Debian 9, RHEL 7/8, CentOS 7/8(x64 기반).
 * Linux에서 필요한 패키지를 설치하려면 다음 명령을 실행합니다.
 
 # <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
@@ -43,7 +43,7 @@ sudo yum install alsa-lib openssl python3
 ```
 
 > [!NOTE]
-> RHEL/CentOS 8에서 [Linux용 OpenSSL을 구성하는 방법](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md)의 지침을 따르세요.
+> RHEL/CentOS 7/8에서 [Linux용 OpenSSL을 구성하는 방법](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md)의 지침을 따르세요.
 
 ---
 
@@ -148,7 +148,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## <a name="see-also"></a>참고 항목
 

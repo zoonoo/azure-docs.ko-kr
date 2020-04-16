@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: b0204673c0706403c8c5a7367be19e590d9cb134
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 46dd89694857138d28255d5b1a86a8c947680520
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "65604097"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398690"
 ---
 # <a name="tutorial-order-azure-data-box"></a>자습서: Azure Data Box 주문
 
@@ -33,21 +33,13 @@ Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레�
 
 ### <a name="for-service"></a>서비스의 경우
 
-시작하기 전에 다음 사항을 확인합니다.
-- 액세스 자격 증명이 있는 Microsoft Azure Storage 계정이 있습니다.
-- Data Box 서비스에 사용할 구독이 다음 형식 중 하나인지 확인합니다.
-    - Microsoft EA(기업계약). [EA 구독](https://azure.microsoft.com/pricing/enterprise-agreement/)에 대해 자세히 알아보세요.
-    - CSP(클라우드 솔루션 공급자). [CSP 프로그램](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)에 대해 자세히 알아보세요.
-    - Microsoft Azure 스폰서쉽. [Azure 스폰서쉽 프로그램](https://azure.microsoft.com/offers/ms-azr-0036p/)에 대해 자세히 알아보세요.
-
-- Data Box 주문을 작성할 구독에 대한 소유자 또는 참가자 권한이 있는지 확인합니다.
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### <a name="for-device"></a>디바이스의 경우
 
 시작하기 전에 다음 사항을 확인합니다.
 - 호스트 컴퓨터를 데이터 센터 네트워크에 연결해야 합니다. Data Box는 이 컴퓨터에서 데이터를 복사합니다. [Azure Data Box 시스템 요구 사항](data-box-system-requirements.md)에 설명된 대로 호스트 컴퓨터는 지원되는 운영 체제를 실행해야 합니다.
 - 데이터 센터에는 고속 네트워크가 있어야 합니다. 10GbE 연결이 하나 이상 있는 것이 좋습니다. 10GbE 연결을 사용할 수 없으면 1GbE 데이터 링크를 사용할 수 있지만 복사 속도에 영향을 미칩니다.
-
 
 ## <a name="order-data-box"></a>Data Box 주문
 

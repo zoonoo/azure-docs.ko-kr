@@ -5,12 +5,12 @@ ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 03/17/2020
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: 7fb76a3189e7650183b3000fe2e1b4e7614312bb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: be7c4a2fb65f913bc97617af1a0f21ee8fcca714
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79532913"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313292"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>빠른 시작: Azure에서 ASP.NET Core 웹앱 만들기
 
@@ -20,7 +20,7 @@ ms.locfileid: "79532913"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/dotnet/).
 - 이 빠른 시작에서는 Windows의 App Service에 앱을 배포합니다. _Linux_의 App Service에 배포하려면 [Linux의 App Service에서 .NET Core 웹앱 만들기](./containers/quickstart-dotnetcore.md)를 참조하세요.
 - **ASP.NET 및 웹 개발** 워크로드가 있는 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>를 설치합니다.
 

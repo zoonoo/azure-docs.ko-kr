@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 70d5481c37777150927914042133286a77f53b89
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 15140ef392d8108b59bf50c396e529dc15951232
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76514411"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410903"
 ---
 ::: zone target = "docs"
 
@@ -39,11 +39,7 @@ ms.locfileid: "76514411"
 
 ### <a name="for-service"></a>서비스의 경우
 
-시작하기 전에 다음 사항을 확인합니다.
-
-- 액세스 자격 증명이 있는 Microsoft Azure Storage 계정이 있습니다.
-- Data Box 서비스에 사용하는 구독은 [Microsoft EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/), [CSP(클라우드 솔루션 공급자)](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview) 또는 [Microsoft Azure 스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/)입니다.
-- Data Box Heavy 주문을 만들 구독에 대한 소유자 또는 기여자 권한이 있습니다.
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### <a name="for-device"></a>디바이스의 경우
 
@@ -57,7 +53,6 @@ ms.locfileid: "76514411"
     - 40Gbps 케이블의 경우 케이블의 디바이스 끝이 QSFP+여야 합니다.
     - 10Gbps 케이블의 경우 한쪽 끝에는 10G 스위치에 꽂을 SFP+ 케이블이 필요하고, 디바이스에 꽂는 쪽에는 QSFP+ ~ SFP+ 어댑터(또는 QSA 어댑터)가 필요합니다.
 - 전원 케이블은 디바이스 뒷면의 트레이에 들어 있습니다.
-
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 

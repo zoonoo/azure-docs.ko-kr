@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 4f1760c32117b34d4d453964473cba3c7d07f725
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1c3a73cba6a2ece0c9c7459b3515f053a648d683
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79202181"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408620"
 ---
 # <a name="azure-virtual-network-nat-metrics"></a>Azure Virtual Network NAT 메트릭
 
-Azure Virtual Network NAT 게이트웨이 리소스는 다차원 메트릭을 제공합니다. 이러한 메트릭을 사용하여 작업을 관찰하고 [문제를 해결](nat-metrics.md)할 수 있습니다.  SNAT 소모와 같은 중요한 문제에 대해 경고를 구성할 수 있습니다.
+Azure Virtual Network NAT 게이트웨이 리소스는 다차원 메트릭을 제공합니다. 이러한 메트릭을 사용하여 작업을 관찰하고 [문제를 해결](troubleshoot-nat.md)할 수 있습니다.  SNAT 소모와 같은 중요한 문제에 대해 경고를 구성할 수 있습니다.
 
 <p align="center">
   <img src="media/nat-overview/flow-direction1.svg" width="256" title="인터넷으로의 아웃바운드를 위한 Virtual Network NAT">

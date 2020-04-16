@@ -3,20 +3,20 @@ title: '빠른 시작: Blob 스토리지에 저장된 음성 인식 - Speech Ser
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 03/13/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 567d8cec10543f233a384635daba1474b41bde9b
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 514d1197c5e6d0f4c0f38faf24c6c2522d489820
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80573186"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400996"
 ---
 이 빠른 시작에서는 REST API를 사용하여 일괄 처리 프로세스에서 파일의 음성을 인식합니다. 일괄 처리 프로세스는 사용자 상호 작용 없이 음성 전사를 실행합니다. 동시성, 사용자 지정 음성 모델 또는 기타 세부 정보를 관리할 필요 없이 간단한 프로그래밍 모델을 제공합니다. Azure 음성 서비스 리소스를 효율적으로 사용하는 동시에 고급 제어 옵션이 수반됩니다.
 

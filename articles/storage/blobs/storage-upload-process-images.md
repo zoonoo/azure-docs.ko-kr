@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.openlocfilehash: 49078d2f374203a9fab4fe0f5e3881f6b1b22959
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e2ee959fb6fc7e8454919c71cfa20e2bb9055dfb
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79130336"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393855"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>자습서: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드
 
@@ -134,12 +134,12 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 ```
 
 # <a name="nodejs-v10-sdk"></a>[Node.js v10 SDK](#tab/nodejsv10)
-App Service는 웹앱에 콘텐츠를 배포하는 여러 가지 방법을 지원합니다. 이 자습서에서는 [공용 GitHub 샘플 리포지토리](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node)에서 웹앱을 배포합니다. [az webapp deployment source config](/cli/azure/webapp/deployment/source) 명령을 사용하여 웹앱에 대한 Git 배포를 구성합니다.
+App Service는 웹앱에 콘텐츠를 배포하는 여러 가지 방법을 지원합니다. 이 자습서에서는 [공용 GitHub 샘플 리포지토리](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10)에서 웹앱을 배포합니다. [az webapp deployment source config](/cli/azure/webapp/deployment/source) 명령을 사용하여 웹앱에 대한 Git 배포를 구성합니다.
 
 ```azurecli-interactive
 az webapp deployment source config --name $webapp --resource-group myResourceGroup \
   --branch master --manual-integration \
-  --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node
+  --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10
 ```
 
 ---

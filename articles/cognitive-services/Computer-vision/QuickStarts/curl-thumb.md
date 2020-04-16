@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6cb9dadc107c6907f1ccb28a876270e577f10395
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: d60f1101fc858e9dcaa22162be97417544e13693
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74977304"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405050"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>빠른 시작: Computer Vision REST API 및 cURL을 사용하여 썸네일 생성
 
@@ -28,23 +28,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 - [cURL](https://curl.haxx.se/windows)이 있어야 합니다.
 - Computer Vision에 대한 구독 키가 있어야 합니다. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)에서 평가판 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Computer Vision을 구독하고 키를 가져옵니다.
-
-## <a name="get-thumbnail-request"></a>썸네일 가져오기 요청
-
-[썸네일 가져오기 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb)를 사용하여 이미지의 썸네일을 생성할 수 있습니다.
-
-샘플을 실행하려면 다음 단계를 수행합니다.
-
-1. 다음 코드를 편집기에 복사합니다.
-1. `<Subscription Key>`를 유효한 구독 키로 바꿉니다.
-1. `<File>`을 썸네일을 저장할 경로와 파일 이름으로 바꿉니다.
-1. 필요한 경우 요청 URL(`https://westcentralus.api.cognitive.microsoft.com/vision/v2.1`)을 변경하여 구독 키를 가져온 위치를 사용합니다.
-1. 필요에 따라 분석할 이미지(`{\"url\":\"...`)를 변경합니다.
-1. cURL이 설치된 컴퓨터에서 명령 창을 엽니다.
-1. 창에 코드를 붙여넣고 명령을 실행합니다.
-
->[!NOTE]
->구독 키를 가져오는 데 사용한 것과 동일한 위치를 REST 호출에서 사용해야 합니다. 예를 들어, westus에서 구독 키를 받은 경우 아래 URL의 "westcentralus"를 "westus"로 바꿉니다.
 
 ## <a name="create-and-run-the-sample-command"></a>샘플 명령 만들기 및 실행
 

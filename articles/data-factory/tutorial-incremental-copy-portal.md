@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: a908b44f596e6ca1ecd2960110a35661448c2e1a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 78cb58bca9b06b6dcf8549eefa5ebf0eb2b4b01c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75982660"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409326"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure SQL 데이터베이스에서 Azure Blob 스토리지로 데이터 증분 로드
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 이 자습서에서는 Azure SQL 데이터베이스의 테이블에서 Azure Blob Storage로 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.
 

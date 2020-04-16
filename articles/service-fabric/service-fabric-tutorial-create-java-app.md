@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 019e50057497c9f98d303a93dfa3f905226fa246
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: cf1ede2db8dbdc7557775cf7b22dde53b69280da
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75465458"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314231"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>자습서: Azure Service Fabric에서 Java API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 애플리케이션 만들기
 
@@ -889,7 +889,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
     Mac을 사용하는 경우 다음 명령을 사용하여 로컬 클러스터를 실행합니다. **-v** 매개 변수로 전달된 명령을 사용자의 작업 영역 경로로 바꿉니다.
 
     ```bash
-    docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox
+    docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest
     ```
     [OS X 설치 가이드](service-fabric-get-started-mac.md)에서 자세한 지침을 확인하세요.
 

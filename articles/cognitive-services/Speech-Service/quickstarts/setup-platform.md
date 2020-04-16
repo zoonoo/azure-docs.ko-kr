@@ -3,20 +3,20 @@ title: '빠른 시작: 개발 플랫폼 설정'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 기본 플랫폼 및 프로그래밍 언어 조합을 위한 Speech SDK를 설치하는 방법을 알아봅니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-three
-ms.openlocfilehash: 074d1cb2003db45bbddf6c747b3fd024886492f1
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 67ade64cdb3b2da6f78f77beb4d0cdc993715c9a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80666895"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400886"
 ---
 # <a name="quickstart-setup-development-environment"></a>빠른 시작: 개발 환경 설정
 

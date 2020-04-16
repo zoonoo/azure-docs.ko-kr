@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/20/2020
-ms.author: dapine
-ms.openlocfilehash: e01e6f0e38abe9bdd3afa83306b90725daf287ce
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.author: trbye
+ms.openlocfilehash: 2e6be94a7fc83c6da8bf7a46fde6ea0f5ef7c764
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80117154"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400563"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -121,4 +121,4 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

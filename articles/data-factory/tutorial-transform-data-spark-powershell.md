@@ -10,14 +10,17 @@ ms.date: 01/22/2018
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: e70a59a75531cb7c3a7e5c5573f9e50cc574ab09
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bef80cdeab32d14aeaae350adda869a8ea7b05c7
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75439142"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409096"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 클라우드의 데이터 변환
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 이 자습서에서는 Azure PowerShell을 사용하여 Spark 작업 및 주문형 HDInsight 연결된 서비스를 통해 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]

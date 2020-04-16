@@ -9,14 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: e23268d21b01435aa71d4f471afc6d37ee9e9c1d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 327aadbc2996e91ef0f7639da86a647ddd42247c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73672692"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410937"
 ---
 # <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요?
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 빅 데이터 세계에서 구성되지 않은 원시 데이터는 흔히 관계형, 비관계형 및 기타 스토리지 시스템에 저장됩니다. 그러나 원시 데이터 자체는 분석자, 데이터 과학자 또는 비즈니스 의사 결정자에게 의미 있는 통찰력을 제공하는 적절한 컨텍스트나 의미를 가지고 있지 않습니다. 
 
