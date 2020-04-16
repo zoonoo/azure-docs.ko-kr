@@ -3,7 +3,7 @@ title: 자습서 - Azure CDN 엔드포인트에 사용자 지정 도메인 추�
 description: 이 자습서에서는 Azure CDN 엔드포인트 콘텐츠를 사용자 지정 도메인에 매핑합니다.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.service: azure-cdn
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/11/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 22283833ebb414372de16cbe4ce7d3986cd400a9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ab4845a93771bace5bca15ea3afa7027884e36f4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222410"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260584"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>자습서: Azure CDN 엔드포인트에 사용자 지정 도메인 추가
 이 자습서에서는 Azure CDN(Content Delivery Network) 엔드포인트에 사용자 지정 도메인을 추가하는 방법을 보여줍니다. CDN 엔드포인트를 사용하여 콘텐츠를 제공할 때 고유한 도메인 이름을 CDN URL에 표시하려는 경우 사용자 지정 도메인이 필요합니다. 볼 수 있는 도메인 이름이 있다면 고객에게 편리하고 브랜딩 목적상 유용합니다. 
@@ -50,7 +50,7 @@ Azure CDN 엔드포인트에 사용자 지정 도메인을 사용하려면 먼�
 사용자 지정 도메인 및 해당 하위 도메인은 한 번에 하나의 단일 엔드포인트와 연결될 수 있습니다. 그러나 여러 CNAME 레코드를 사용하여 Azure 서비스 엔드포인트에 동일한 사용자 지정 도메인의 다른 하위 도메인을 사용할 수 있습니다. 여러 하위 도메인을 포함한 사용자 지정 도메인을 동일한 CDN 엔드포인트에 매핑할 수도 있습니다.
 
 > [!NOTE]
-> Azure DNS를 도메인 공급 기업으로 사용하는 경우 사용자 지정 도메인에 모든 별칭 레코드 종류를 사용할 수 있습니다. 이 연습에서는 CNAME 레코드 종류를 사용합니다. A 또는 AAAA 레코드 종류를 사용하는 경우 CNAME을 선택한 레코드 종류로 바꾸면서 아래의 동일한 단계를 수행합니다. 별칭 레코드를 사용하여 루트 도메인을 사용자 지정 도메인으로 추가하고 SSL을 사용하도록 설정하는 경우 [이 문서](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint)에서 설명한 대로 수동 유효성 검사를 사용해야 합니다. 자세한 내용은 [Azure CDN 엔드포인트로 지점 영역 Apex 지시](https://docs.microsoft.com/azure/dns/dns-alias#point-zone-apex-to-azure-cdn-endpoints)를 참조하세요.
+> Azure DNS를 도메인 공급 기업으로 사용하는 경우 사용자 지정 도메인에 모든 별칭 레코드 종류를 사용할 수 있습니다. 이 연습에서는 CNAME 레코드 종류를 사용합니다. A 또는 AAAA 레코드 종류를 사용하는 경우 CNAME을 선택한 레코드 종류로 바꾸면서 아래의 동일한 단계를 수행합니다. 별칭 레코드를 사용하여 루트 도메인을 사용자 지정 도메인으로 추가하고 TLS를 사용하도록 설정하는 경우 [이 문서](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint)에서 설명한 대로 수동 유효성 검사를 사용해야 합니다. 자세한 내용은 [Azure CDN 엔드포인트로 지점 영역 Apex 지시](https://docs.microsoft.com/azure/dns/dns-alias#point-zone-apex-to-azure-cdn-endpoints)를 참조하세요.
 
 ## <a name="map-the-temporary-cdnverify-subdomain"></a>임시 cdnverify 하위 도메인 매핑
 

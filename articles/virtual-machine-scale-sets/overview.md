@@ -1,19 +1,19 @@
 ---
 title: Azure 가상 머신 확장 집합 개요
 description: Azure 가상 머신 확장 집합 및 애플리케이션의 크기를 자동으로 조정하는 방법을 알아봅니다.
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/26/2019
-ms.author: manayar
-ms.openlocfilehash: e6201f9ac2e9b813de5a4622fc7996eb1202a164
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.author: mimckitt
+ms.openlocfilehash: 03e3c7b5c0696069729d3067faad8ceb91fc611f
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76273701"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272545"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>가상 머신 확장 집합이란?
 Azure 가상 머신 확장 집합을 사용하면 부하 분산된 동일한 VM 그룹을 만들고 관리할 수 있습니다. VM 인스턴스의 수는 요구 또는 정의된 일정에 따라 자동으로 늘리거나 줄일 수 있습니다. 확장 집합은 애플리케이션에 고가용성을 제공하고 많은 수의 VM을 중앙에서 관리, 구성 및 업데이트할 수 있게 합니다. 가상 머신 확장 집합을 사용하면 컴퓨팅, 빅 데이터 및 컨테이너 작업과 같은 영역에 대한 대규모 서비스를 구축할 수 있습니다.
@@ -27,7 +27,7 @@ Azure 가상 머신 확장 집합은 많은 VM에서 실행되는 애플리케�
 - **손쉬운 여러 VM 만들기 및 관리**
     - 애플리케이션을 실행하는 VM을 많이 사용하는 경우 환경 전체에서 일관된 구성을 유지해야 합니다. 신뢰할 수 있는 애플리케이션 성능을 위해 VM 크기, 디스크 구성 및 애플리케이션 설치가 모든 VM에서 일치해야 합니다.
     - 확장 집합을 사용하면 동일한 기본 OS 이미지 및 구성에 모든 VM 인스턴스가 만들어집니다. 이 방법을 사용하면 추가 구성 작업 또는 네트워크 관리 없이 수백 개의 VM을 쉽게 관리할 수 있습니다.
-    - 확장 집합은 기본 4계층 트래픽 분산에는 [Azure 부하 분산 장치](../load-balancer/load-balancer-overview.md)를 사용하고, 고급 7계층 트래픽 분산 및 SSL 종료에는 [Azure Application Gateway](../application-gateway/application-gateway-introduction.md)를 사용하도록 지원합니다.
+    - 확장 집합은 기본 4계층 트래픽 분산에는 [Azure 부하 분산 장치](../load-balancer/load-balancer-overview.md)를 사용하고, 고급 7계층 트래픽 분산 및 TLS 종료에는 [Azure Application Gateway](../application-gateway/application-gateway-introduction.md)를 사용하도록 지원합니다.
 
 - **고가용성 및 애플리케이션 복원력 제공**
     - 확장 집합은 애플리케이션의 여러 인스턴스를 실행하는 데 사용됩니다. 이러한 VM 인스턴스 중 하나에 문제가 있는 경우, 고객은 중단을 최소화하면서 다른 VM 인스턴스 중 하나를 통해 애플리케이션에 계속 액세스합니다.

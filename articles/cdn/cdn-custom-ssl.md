@@ -3,7 +3,7 @@ title: 자습서 - Azure CDN 사용자 지정 도메인에서 HTTPS 구성 | Mic
 description: 이 자습서에서는 Azure CDN 엔드포인트 사용자 지정 도메인에서 HTTPS를 활성화하거나 비활성화하는 방법을 알아봅니다.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: 10337468-7015-4598-9586-0b66591d939b
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/1/2019
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f1af388d1f8b9542d196a53cc6c143f9b48e6d5a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5cf1181c41af1edc752205f4477f18b78680f484
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222430"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254005"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 
@@ -58,8 +58,8 @@ Azure CDN은 기본적으로 CDN 엔드포인트에서 HTTPS를 지원합니다.
 
 ---
 
-## <a name="ssl-certificates"></a>SSL 인증서
-Azure CDN 사용자 지정 도메인에서 콘텐츠를 안전하게 제공하기 위해 HTTPS 프로토콜을 활성화하려면 SSL 인증서를 사용해야 합니다. Azure CDN에서 관리되는 인증서를 사용하거나 사용자 고유의 인증서를 사용하도록 선택할 수 있습니다.
+## <a name="tlsssl-certificates"></a>TLS/SSL 인증서
+Azure CDN 사용자 지정 도메인에서 콘텐츠를 안전하게 제공하기 위해 HTTPS 프로토콜을 활성화하려면 TLS/SSL 인증서를 사용해야 합니다. Azure CDN에서 관리되는 인증서를 사용하거나 사용자 고유의 인증서를 사용하도록 선택할 수 있습니다.
 
 
 # <a name="option-1-default-enable-https-with-a-cdn-managed-certificate"></a>[옵션 1(기본값): CDN 관리되는 인증서를 사용하여 HTTPS 활성화](#tab/option-1-default-enable-https-with-a-cdn-managed-certificate)
@@ -99,7 +99,7 @@ CDN 관리되는 인증서를 사용하면 단 몇 번의 클릭으로 HTTPS 기
 > 이 옵션은 **Microsoft의 Azure CDN** 및 **Verizon의 Azure CDN** 프로필에서만 사용할 수 있습니다. 
 >
  
-사용자 고유의 인증서를 사용하여 HTTPS 기능을 활성화합니다. 이 프로세스는 인증서를 안전하게 저장할 수 있도록 하는 Azure Key Vault와의 통합을 통해 수행됩니다. Azure CDN은 이 보안 메커니즘을 사용하여 인증서를 가져오며 몇 가지 추가 단계를 수행해야 합니다. SSL 인증서를 만들 때 허용된 CA(인증 기관)에서 만들어야 합니다. 그렇지 않고 허용되지 않는 CA를 사용하는 경우 요청이 거부됩니다. 허용되는 CA 목록은 [Azure CDN에서 사용자 지정 HTTPS를 사용하기 위해 허용되는 인증 기관](cdn-troubleshoot-allowed-ca.md)을 참조하세요. **Verizon의 Azure CDN**의 경우 유효한 CA가 허용됩니다. 
+사용자 고유의 인증서를 사용하여 HTTPS 기능을 활성화합니다. 이 프로세스는 인증서를 안전하게 저장할 수 있도록 하는 Azure Key Vault와의 통합을 통해 수행됩니다. Azure CDN은 이 보안 메커니즘을 사용하여 인증서를 가져오며 몇 가지 추가 단계를 수행해야 합니다. TLS/SSL 인증서를 만들 때 허용된 CA(인증 기관)에서 만들어야 합니다. 그렇지 않고 허용되지 않는 CA를 사용하는 경우 요청이 거부됩니다. 허용되는 CA 목록은 [Azure CDN에서 사용자 지정 HTTPS를 사용하기 위해 허용되는 인증 기관](cdn-troubleshoot-allowed-ca.md)을 참조하세요. **Verizon의 Azure CDN**의 경우 유효한 CA가 허용됩니다. 
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Azure 키 자격 증명 모음 계정 및 인증서 준비
  
@@ -308,7 +308,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 4. *SAN 인증서를 사용하는 것보다 전용 인증서를 사용하는 것이 더 안전한가요?*
     
-    SAN 인증서는 전용 인증서와 동일한 암호화 및 보안 표준을 따릅니다. 발급된 모든 SSL 인증서는 향상된 서버 보안을 위해 SHA-256을 사용합니다.
+    SAN 인증서는 전용 인증서와 동일한 암호화 및 보안 표준을 따릅니다. 발급된 모든 TLS/SSL 인증서는 향상된 서버 보안을 위해 SHA-256을 사용합니다.
 
 5. *내 DNS 공급자에게 CAA(Certificate Authority Authorization) 레코드가 필요합니까?*
 
@@ -320,7 +320,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 7. *사용자 고유의 인증서 가져오기로 인증서를 갱신하는 방법*
 
-    최신 인증서가 PoP 인프라에 배포되도록 하려면 새 인증서를 Azure KeyVault에 업로드한 다음, Azure CDN의 SSL 설정에서 최신 인증서 버전을 선택하고 저장을 누릅니다. 그러면 Azure CDN이 새로 업데이트된 인증서를 전파합니다. 
+    최신 인증서가 PoP 인프라에 배포되도록 하려면 새 인증서를 Azure KeyVault에 업로드한 다음, Azure CDN의 TLS 설정에서 최신 인증서 버전을 선택하고 저장을 누릅니다. 그러면 Azure CDN이 새로 업데이트된 인증서를 전파합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

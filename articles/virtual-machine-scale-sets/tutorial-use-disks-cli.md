@@ -1,19 +1,19 @@
 ---
 title: 자습서 - Azure CLI를 사용하여 확장 집합용 디스크 만들기 및 사용
 description: Azure CLI를 사용하여 가상 머신 확장 집합이 있는 관리 디스크를 만들고 사용하는 방법(디스크를 추가, 준비, 나열 및 분리하는 방법 포함)을 알아봅니다.
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 12bde51222e1e648f97476d5dab039b4ad2adfe8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3759fa426a712308e1956376d559c1ac84eadbd7
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067051"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008831"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합이 있는 디스크 만들기 및 사용
 가상 머신 확장 집합은 디스크를 사용하여 VM 인스턴스의 운영 체제, 애플리케이션 및 데이터를 저장합니다. 확장 집합을 만들고 관리할 때 예상 작업에 적합한 디스크 크기와 구성을 선택해야 합니다. 이 자습서에서는 VM 디스크를 만들고 관리하는 방법에 대해 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -51,18 +51,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 
 ## <a name="azure-data-disks"></a>Azure 데이터 디스크
-애플리케이션을 설치하고 데이터를 저장해야 하는 경우 추가 데이터 디스크를 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 스토리지가 필요한 상황에 사용해야 합니다. 각 데이터 디스크의 최대 용량은 4TB입니다. VM 인스턴스의 크기에 따라 연결할 수 있는 데이터 디스크 수가 결정됩니다. 각 VM vCPU에 대해 두 개의 데이터 디스크를 연결할 수 있습니다.
-
-### <a name="max-data-disks-per-vm"></a>VM당 최대 데이터 디스크 수
-| Type | 일반적인 크기 | VM당 최대 데이터 디스크 수 |
-|----|----|----|
-| [범용](../virtual-machines/linux/sizes-general.md) | A, B 및 D 시리즈 | 64 |
-| [컴퓨팅 최적화](../virtual-machines/linux/sizes-compute.md) | F 시리즈 | 64 |
-| [메모리에 최적화](../virtual-machines/linux/sizes-memory.md) | D, E, G 및 M 시리즈 | 64 |
-| [Storage에 최적화](../virtual-machines/linux/sizes-storage.md) | L 시리즈 | 64 |
-| [GPU](../virtual-machines/linux/sizes-gpu.md) | N 시리즈 | 64 |
-| [고성능](../virtual-machines/linux/sizes-hpc.md) | A 및 H 시리즈 | 64 |
-
+애플리케이션을 설치하고 데이터를 저장해야 하는 경우 추가 데이터 디스크를 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 스토리지가 필요한 상황에 사용해야 합니다. 각 데이터 디스크의 최대 용량은 4TB입니다. VM 인스턴스의 크기에 따라 연결할 수 있는 데이터 디스크 수가 결정됩니다. 각 VM vCPU에 대해 2개의 데이터 디스크를 가상 머신당 최대 64개의 디스크에 연결할 수 있습니다.
 
 ## <a name="vm-disk-types"></a>VM 디스크 유형
 Azure는 두 가지 유형의 디스크를 제공합니다.

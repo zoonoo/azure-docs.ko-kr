@@ -1,26 +1,22 @@
 ---
-title: Microsoft ID 플랫폼 Windows 데스크톱 시작 | Microsoft Docs
+title: Microsoft ID 플랫폼 Windows 데스크톱 시작
 description: Windows Desktop .NET(XAML) 애플리케이션이 액세스 토큰을 얻고 Microsoft ID 플랫폼에 의해 보호되는 API를 호출하는 방법.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 422251da25ae0ef911eb723bb0342a84fe99559c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aa09d06af4706af3ae120f62a897c0bc632fb657
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79129916"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990942"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Windows 데스크톱 앱에서 Microsoft Graph API 호출
 
@@ -313,7 +309,7 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
 <!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>보호되는 API에 대한 REST 호출에 관한 추가 정보
 
-이 애플리케이션 예제에서는 토큰이 필요한 보호되는 리소스에 대한 HTTP `GetHttpContentWithToken` 요청을 실행한 다음, 호출자에게 콘텐츠를 반환하는 데 `GET` 메서드를 사용합니다. 이 메서드는 HTTP 인증 헤더에 획득된 토큰을 추가합니다. 이 샘플에서 리소스는 사용자 프로필 정보를 표시하는 Microsoft Graph API *me* 엔드포인트입니다.
+이 애플리케이션 예제에서는 토큰이 필요한 보호되는 리소스에 대한 HTTP `GET` 요청을 실행한 다음, 호출자에게 콘텐츠를 반환하는 데 `GetHttpContentWithToken` 메서드를 사용합니다. 이 메서드는 HTTP 인증 헤더에 획득된 토큰을 추가합니다. 이 샘플에서 리소스는 사용자 프로필 정보를 표시하는 Microsoft Graph API *me* 엔드포인트입니다.
 <!--end-collapse-->
 
 ## <a name="add-a-method-to-sign-out-a-user"></a>사용자를 로그아웃하는 메서드 추가
@@ -379,8 +375,3 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 <!--end-collapse-->
 
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]
-
-Microsoft ID 플랫폼을 개선할 수 있도록 도와주세요. 간단한 두 가지 설문 조사를 완료하여 의견을 알려주세요.
-
-> [!div class="nextstepaction"]
-> [Microsoft ID 플랫폼 설문 조사](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

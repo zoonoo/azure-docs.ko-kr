@@ -13,12 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: a565aba12f1b10f215d8f6cc7fc0b7247a0441d2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 854bf2d1ed2155290c2ecebd17695049fdd0c8bb
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80066307"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314280"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -65,9 +65,9 @@ NVA(네트워크 가상 어플라이언스)는 라우팅 및 방화벽 최적화
 
     ![기본 사항, 가상 머신 만들기, Azure Portal](./media/tutorial-create-route-table-portal/basics-create-virtual-machine.png)
 
-    그런 다음, 페이지 아래쪽의 **다음: 디스크 >** 를 선택합니다.
+    그런 다음, 페이지 아래쪽의 **다음: 디스크 >** 를 클릭합니다.
 
-1. **디스크** 아래에서 요구 사항에 맞는 설정을 선택하고, **다음: 네트워킹 >** 을 선택합니다.
+1. **디스크** 아래에서 요구 사항에 맞는 설정을 선택하고, **다음: 네트워킹 >** 을 클릭합니다.
 
 1. **네트워킹** 아래에서 다음을 수행합니다.
 
@@ -208,7 +208,7 @@ NVA(네트워크 가상 어플라이언스)는 라우팅 및 방화벽 최적화
 | 기본 사항 | Resource group | **myResourceGroup** |
 | | 가상 머신 이름 | *myVmPublic* |
 | | 공용 인바운드 포트 | **선택한 포트 허용** |
-| | 인바운드 포트 선택 | **HTTP** 및 **RDP** |
+| | 인바운드 포트 선택 | **RDP** |
 | 네트워킹 | 가상 네트워크 | **myVirtualNetwork** |
 | | 서브넷 | **공용(10.0.0.0/24)** |
 | | 공용 IP 주소 | 기본값 |
@@ -221,7 +221,7 @@ NVA(네트워크 가상 어플라이언스)는 라우팅 및 방화벽 최적화
 | 기본 사항 | Resource group | **myResourceGroup** |
 | | 가상 머신 이름 | *myVmPrivate* |
 | | 공용 인바운드 포트 | **선택한 포트 허용** |
-| | 인바운드 포트 선택 | **HTTP** 및 **RDP** |
+| | 인바운드 포트 선택 | **RDP** |
 | 네트워킹 | 가상 네트워크 | **myVirtualNetwork** |
 | | 서브넷 | **개인(10.0.1.0/24)** |
 | | 공용 IP 주소 | 기본값 |

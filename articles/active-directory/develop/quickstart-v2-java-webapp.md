@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: c2f3272beb463a16f9488139b6c3a45febae6493
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f3ede3ef0557c5ca425901e7404746b4e85aefcb
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79529637"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991129"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>빠른 시작: Java 웹앱에 Microsoft로 로그인 추가
 
@@ -36,27 +36,27 @@ ms.locfileid: "79529637"
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
-> 1. [Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)으로 이동합니다.
+> 1. [Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs) 빠른 시작 환경으로 이동합니다.
 > 1. 애플리케이션 이름을 입력하고 **등록**을 선택합니다.
-> 1. 지침에 따라 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
+> 1. 포털의 빠른 시작 환경에 있는 지침에 따라 자동으로 구성된 애플리케이션 코드를 다운로드합니다.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성
 >
 > #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 >
-> 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
+> 애플리케이션을 등록하고 앱의 등록 정보를 애플리케이션에 수동으로 추가하려면 다음 단계를 따르세요.
 >
 > 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 > 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 >
-> 1. 개발자용 Microsoft ID 플랫폼 [앱 등록](/azure/active-directory/develop/) 페이지로 이동합니다.
+> 1. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
 > 1. **새 등록**을 선택합니다.
 > 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
 >    - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `java-webapp`)을 입력합니다.
->    - 지금은 **Redirect URI**를 비워 두고 **등록**을 선택합니다.
+>    - **등록**을 선택합니다.
 > 1. **개요** 페이지에서 애플리케이션의 **애플리케이션(클라이언트) ID**와 **디렉터리(테넌트) ID** 값을 찾습니다. 나중에 사용할 수 있도록 이러한 값을 복사합니다.
 > 1. 메뉴에서 **인증**을 선택한 후 다음 정보를 추가합니다.
->    - **리디렉션 URI**에 `https://localhost:8080/msal4jsample/secure/aad` 및 `https://localhost:8080/msal4jsample/graph/me`를 추가합니다.
+>    - **웹** 플랫폼 구성을 추가합니다.  이러한 `https://localhost:8080/msal4jsample/secure/aad` 및 `https://localhost:8080/msal4jsample/graph/me`를 **리디렉션 URI**로 추가합니다.
 >    - **저장**을 선택합니다.
 > 1. 메뉴에서 **인증서 및 암호**를 선택하고 **클라이언트 암호** 섹션에서 **새 클라이언트 암호**를 클릭합니다.
 >
@@ -84,7 +84,7 @@ ms.locfileid: "79529637"
 
 > [!div class="sxs-lookup" renderon="portal"]
 > 프로젝트를 다운로드하고 zip 파일을 루트 폴더에 가까운 로컬 폴더(예제: **C:\Azure-Samples**)로 추출합니다.
-> 
+>
 > Localhost와 함께 https를 사용하려면 server.ssl.key 속성을 입력합니다. 자체 서명된 인증서를 생성하려면 JRE에 포함된 keytool 유틸리티를 사용합니다.
 >
 >  ```
@@ -97,9 +97,13 @@ ms.locfileid: "79529637"
 >   server.ssl.key-alias=testCert
 >   ```
 >   생성된 키 저장소 파일을 "resources" 폴더에 배치합니다.
-   
+
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
 > [코드 샘플 다운로드](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-the-code-sample"></a>3단계: 코드 샘플 구성
@@ -153,8 +157,56 @@ IDE에서 웹 애플리케이션을 실행하는 경우 실행을 클릭한 다�
     - *로그아웃*: 애플리케이션에서 현재 사용자를 로그아웃하고 홈페이지로 리디렉션합니다.
     - *사용자 정보 표시*: Microsoft Graph에 대한 토큰을 획득하고, 로그인한 사용자에 대한 기본 정보를 반환하는 토큰을 포함하는 요청을 사용하여 Microsoft Graph를 호출합니다.
 
+##### <a name="running-from-tomcat"></a>Tomcat에서 실행
 
-   
+웹 샘플을 Tomcat에 배포하려면 소스 코드를 몇 가지 변경해야 합니다.
+
+1. ms-identity-java-webapp/pom.xml 열기
+    - `<name>msal-web-sample</name>`에서 `<packaging>war</packaging>` 추가
+    - 종속성 추가:
+
+         ```xml
+         <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-tomcat</artifactId>
+          <scope>provided</scope>
+         </dependency>
+         ```
+
+2. ms-identity-java-webapp/src/main/java/com.microsoft.azure.msalwebsample/MsalWebSampleApplication 열기
+
+    - 모든 소스 코드를 삭제하고 다음으로 바꿉니다.
+
+   ```Java
+    package com.microsoft.azure.msalwebsample;
+
+    import org.springframework.boot.SpringApplication;
+    import org.springframework.boot.autoconfigure.SpringBootApplication;
+    import org.springframework.boot.builder.SpringApplicationBuilder;
+    import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+
+    @SpringBootApplication
+    public class MsalWebSampleApplication extends SpringBootServletInitializer {
+
+     public static void main(String[] args) {
+      SpringApplication.run(MsalWebSampleApplication.class, args);
+     }
+
+     @Override
+     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+      return builder.sources(MsalWebSampleApplication.class);
+     }
+    }
+   ```
+
+3. 명령 프롬프트를 열고 프로젝트의 루트 폴더로 이동하여 `mvn package`를 실행합니다.
+    - 그러면 /대상 디렉터리에 `msal-web-sample-0.1.0.war` 파일이 생성됩니다.
+    - 이 파일의 이름을 `ROOT.war`로 변경
+    - Tomcat 또는 기타 J2EE 컨테이너 솔루션을 사용하여 이 war 파일을 배포합니다.
+        - Tomcat 컨테이너에 배포하려면 .war 파일을 Tomcat 설치 아래의 webapps 폴더에 복사한 다음, Tomcat 서버를 시작합니다.
+
+이 WAR은 https://localhost:8080/ 에서 자동으로 호스팅됩니다.
+
 > [!IMPORTANT]
 > 이 빠른 시작 애플리케이션에서는 클라이언트 비밀을 사용하여 자체를 기밀 클라이언트로 식별합니다. 클라이언트 암호는 보안상의 이유로 프로젝트 파일에 일반 텍스트로 추가되므로, 이 애플리케이션을 프로덕션 애플리케이션으로 사용하는 방안을 고려하기 전에 클라이언트 암호 대신 인증서를 사용하는 것이 좋습니다. 인증서를 사용하는 방법에 대한 자세한 내용은 [애플리케이션 인증을 위한 인증서 자격 증명](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials)을 참조하세요.
 
@@ -169,6 +221,8 @@ Java용 MSAL(MSAL4J)은 사용자를 로그인하고 Microsoft ID 플랫폼으�
 
 Maven이나 Gradle을 사용하여 MSAL4J를 애플리케이션에 추가하고 애플리케이션의 pom.xml(Maven) 또는 build.gradle(Gradle) 파일을 다음과 같이 변경하여 종속성을 관리합니다.
 
+pom.xml에서:
+
 ```XML
 <dependency>
     <groupId>com.microsoft.azure</groupId>
@@ -176,6 +230,8 @@ Maven이나 Gradle을 사용하여 MSAL4J를 애플리케이션에 추가하고 
     <version>1.0.0</version>
 </dependency>
 ```
+
+build.gradle에서:
 
 ```$xslt
 compile group: 'com.microsoft.azure', name: 'msal4j', version: '1.0.0'
@@ -200,10 +256,5 @@ import com.microsoft.aad.msal4j.*;
 
 > [!div class="nextstepaction"]
 > [인증 코드 Oauth 흐름](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow)
-
-Microsoft ID 플랫폼을 개선할 수 있도록 도와주세요. 간단한 두 가지 설문 조사를 완료하여 의견을 알려주세요.
-
-> [!div class="nextstepaction"]
-> [Microsoft ID 플랫폼 설문 조사](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

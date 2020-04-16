@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 01/15/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: cde731f9d9e673446bc4d08117004b028db2a7f9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5df21b2c1926803a65eca911c66b059f36ee18aa
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77462465"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393610"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Azure Cosmos DB의 API for MongoDB(3.6 버전): 지원되는 기능 및 구문
 
@@ -44,7 +44,7 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 |getPrevError | 예  |
 |insert  |   예  |
 |parallelCollectionScan  | 예   |
-|resetError |   예  |
+|resetError |    예  |
 |update  |   예  |
 |[스트림 변경](mongodb-change-streams.md)  |  예  |
 |GridFS |   예  |
@@ -88,18 +88,18 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 
 |명령  |지원됨 |
 |---------|---------|
-|buildInfo       |   예      |
+|buildInfo         |   예      |
 |collStats    |  예       |
 |connPoolStats     |  예       |
 |connectionStatus     |  예       |
 |dataSize     |   예      |
 |dbHash    |    예     |
 |dbStats     |   예      |
-|설명     | 예        |
-|설명: executionStats     |     예    |
+|설명     |   예      |
+|설명: executionStats     |   예      |
 |기능     |    예     |
 |hostInfo     |   예      |
-|listDatabases       |   예      |
+|listDatabases         |   예      |
 |listCommands     |  예       |
 |프로파일러     |  예       |
 |serverStatus     |  예       |
@@ -123,31 +123,31 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 
 |명령  |지원됨 |
 |---------|---------|
-|$collStats |예|
-|$project   |예|
-|$match |예|
-|$redact|   예|
-|$limit |예|
-|$skip  |예|
-|$unwind|   예|
-|$group |   예|
-|$sample|       예|
-|$sort  |예|
-|$geoNear|  예|
-|$lookup    |   예|
-|$out       |예|
-|$indexStats|       예|
-|$facet |예|
-|$bucket|   예|
-|$bucketAuto|   예|
-|$sortByCount|  예|
-|$addFields |예|
-|$replaceRoot|  예|
-|$count |예|
+|$collStats    |예|
+|$project    |예|
+|$match    |예|
+|$redact|    예|
+|$limit    |예|
+|$skip    |예|
+|$unwind|    예|
+|$group    |    예|
+|$sample|        예|
+|$sort    |예|
+|$geoNear|    예|
+|$lookup    |    예|
+|$out        |예|
+|$indexStats|        예|
+|$facet    |예|
+|$bucket|    예|
+|$bucketAuto|    예|
+|$sortByCount|    예|
+|$addFields    |예|
+|$replaceRoot|    예|
+|$count    |예|
 |$currentOp|    예|
-|$listLocalSessions |예|
-|$listSessions  |예|
-|$graphLookup   |예|
+|$listLocalSessions    |예|
+|$listSessions    |예|
+|$graphLookup    |예|
 
 ### <a name="boolean-expressions"></a>부울 식
 
@@ -174,14 +174,14 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 |명령  |지원됨 |
 |---------|---------|
 |$cmp     |  예       |
-|$eq|   예| 
-|$gt |  예| 
-|$gte|  예| 
+|$eq|    예| 
+|$gt |    예| 
+|$gte|    예| 
 |$lt    |예|
-|$lte|  예| 
-|$ne    |   예| 
-|$in    |   예| 
-|$nin   |   예| 
+|$lte|    예| 
+|$ne    |    예| 
+|$in    |    예| 
+|$nin    |    예| 
 
 ### <a name="arithmetic-expressions"></a>산술 식
 
@@ -230,66 +230,66 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 
 |명령  |지원됨 |
 |---------|---------|
-|$arrayElemAt   |   예|
+|$arrayElemAt    |    예|
 |$arrayToObject|    예|
-|$concatArrays  |   예|
-|$filter    |   예|
-|$indexOfArray  |예|
-|$isArray   |   예|
-|$objectToArray |예|
-|$range |예|
-|$reverseArray  |   예|
-|$reduce|   예|
-|$size  |   예|
-|$slice |   예|
-|$zip   |   예|
-|$in    |   예|
+|$concatArrays    |    예|
+|$filter    |    예|
+|$indexOfArray    |예|
+|$isArray    |    예|
+|$objectToArray    |예|
+|$range    |예|
+|$reverseArray    |    예|
+|$reduce|    예|
+|$size    |    예|
+|$slice    |    예|
+|$zip    |    예|
+|$in    |    예|
 
 ### <a name="variable-operators"></a>변수 연산자
 
 |명령  |지원됨 |
 |---------|---------|
-|$map   |예|
-|$let   |예|
+|$map    |예|
+|$let    |예|
 
 ### <a name="system-variables"></a>시스템 변수
 
 |명령  |지원됨 |
 |---------|---------|
-|$$CURRENT| 예|
-|$$DESCEND|     예|
-|$$KEEP     |예|
-|$$PRUNE    |   예|
-|$$REMOVE   |예|
-|$$ROOT     |예|
+|$$CURRENT|    예|
+|$$DESCEND|        예|
+|$$KEEP        |예|
+|$$PRUNE    |    예|
+|$$REMOVE    |예|
+|$$ROOT        |예|
 
 ### <a name="literal-operator"></a>리터럴 연산자
 
 |명령  |지원됨 |
 |---------|---------|
-|$literal   |예|
+|$literal    |예|
 
 ### <a name="date-expressions"></a>날짜 식
 
 |명령  |지원됨 |
 |---------|---------|
-|$dayOfYear |예    |
-|$dayOfMonth|   예 |
-|$dayOfWeek |예    |
-|$year  |예    |
-|$month |예|   
-|$week  |예    |
-|$hour  |예    |
-|$minute|   예|    
+|$dayOfYear    |예    |
+|$dayOfMonth|    예    |
+|$dayOfWeek    |예    |
+|$year    |예    |
+|$month    |예|    
+|$week    |예    |
+|$hour    |예    |
+|$minute|    예|    
 |$second    |예    |
-|$millisecond|  예|    
-|$dateToString  |예    |
-|$isoDayOfWeek  |예    |
-|$isoWeek   |예    |
-|$dateFromParts|    예| 
-|$dateToParts   |예 |
-|$dateFromString|   예|
-|$isoWeekYear   |예    |
+|$millisecond|    예|    
+|$dateToString    |예    |
+|$isoDayOfWeek    |예    |
+|$isoWeek    |예    |
+|$dateFromParts|    예|    
+|$dateToParts    |예    |
+|$dateFromString|    예|
+|$isoWeekYear    |예    |
 
 ### <a name="conditional-expressions"></a>조건부 식
 
@@ -309,16 +309,16 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 
 |명령  |지원됨 |
 |---------|---------|
-|$sum   |예    |
-|$avg   |예    |
+|$sum    |예    |
+|$avg    |예    |
 |$first|    예|
-|$last  |예    |
-|$max   |예    |
-|$min   |예    |
-|$push| 예|
-|$addToSet| 예|
-|$stdDevPop|    예  |
-|$stdDevSamp|   예|
+|$last    |예    |
+|$max    |예    |
+|$min    |예    |
+|$push|    예|
+|$addToSet|    예|
+|$stdDevPop|    예    |
+|$stdDevSamp|    예|
 
 ### <a name="merge-operator"></a>Merge 연산자
 
@@ -330,25 +330,25 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 
 |명령  |지원됨 |
 |---------|---------|
-|Double |예    |
-|String |예    |
-|Object |예    |
-|Array  |예    |
-|이진 데이터    |예|   
-|ObjectId   |예    |
+|Double    |예    |
+|String    |예    |
+|Object    |예    |
+|Array    |예    |
+|이진 데이터    |예|    
+|ObjectId    |예    |
 |부울    |예    |
-|Date   |예    |
-|Null   |예    |
-|32비트 정수(int)   |예    |
-|타임스탬프  |예    |
-|64비트 정수(long)  |예    |
-|MinKey |예    |
-|MaxKey |예    |
-|Decimal128 |예|   
-|정규식 |예|
-|JavaScript |예|
-|JavaScript(범위 포함)|   예 |
-|정의되지 않음  |예    |
+|Date    |예    |
+|Null    |예    |
+|32비트 정수(int)    |예    |
+|타임스탬프    |예    |
+|64비트 정수(long)    |예    |
+|MinKey    |예    |
+|MaxKey    |예    |
+|Decimal128    |예|    
+|정규식    |예|
+|JavaScript    |예|
+|JavaScript(범위 포함)|    예    |
+|정의되지 않음    |예    |
 
 ## <a name="indexes-and-index-properties"></a>인덱스 및 인덱스 속성
 
@@ -356,23 +356,23 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 
 |명령  |지원됨 |
 |---------|---------|
-|단일 필드 인덱스 |예    |
-|복합 인덱스 |예    |
-|Multikey 인덱스 |예    |
-|텍스트 인덱스 |예|
-|2dsphere   |예    |
-|2d 인덱스   |예 |
-|해시된 인덱스   | 예|
+|단일 필드 인덱스    |예    |
+|복합 인덱스    |예    |
+|Multikey 인덱스    |예    |
+|텍스트 인덱스    |예|
+|2dsphere    |예    |
+|2d 인덱스    |예    |
+|해시된 인덱스    | 예|
 
 ### <a name="index-properties"></a>인덱스 속성
 
 |명령  |지원됨 |
 |---------|---------|
-|TTL|   예 |
-|고유한 |예|
-|부분|   예|
-|대/소문자 구분 안 함   |예|
-|스파스 |예 |
+|TTL|    예    |
+|고유한    |예|
+|부분|    예|
+|대/소문자 구분 안 함    |예|
+|스파스    |예 |
 |배경|    예 |
 
 ## <a name="operators"></a>연산자
@@ -381,28 +381,28 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 
 |명령  |지원됨 |
 |---------|---------|
-|$or    |   예|
-|$and   |   예|
-|$not   |   예|
-|$nor   |   예| 
+|$or    |    예|
+|$and    |    예|
+|$not    |    예|
+|$nor    |    예| 
 
 ### <a name="element-operators"></a>요소 연산자
 
 |명령  |지원됨 |
 |---------|---------|
-|$exists|   예|
-|$type  |   예|
+|$exists|    예|
+|$type    |    예|
 
 ### <a name="evaluation-query-operators"></a>평가 쿼리 연산자
 
 |명령  |지원됨 |
 |---------|---------|
-|$expr  |   예|
-|$jsonSchema    |   예|
-|$mod   |   예|
-|$regex |   예|
-|$text  | 아니요(지원되지 않습니다. 대신 $regex를 사용합니다.)| 
-|$where |예| 
+|$expr    |    예|
+|$jsonSchema    |    예|
+|$mod    |    예|
+|$regex |    예|
+|$text    | 아니요(지원되지 않습니다. 대신 $regex를 사용합니다.)| 
+|$where    |예| 
 
 $regex 쿼리에서 왼쪽에 고정된 식은 인덱스 검색을 허용합니다. 그러나 ‘i’ 한정자(대/소문자 구분 없음) 및 ‘m’ 한정자(여러 줄)를 사용하면 모든 식에서 컬렉션 검사가 수행됩니다.
 
@@ -430,9 +430,9 @@ $comment |예|
 
 |명령  |지원됨 |
 |---------|---------|
-|$elemMatch |예|
-|$meta| 예|
-|$slice | 예|
+|$elemMatch    |예|
+|$meta|    예|
+|$slice    | 예|
 
 ### <a name="update-operators"></a>업데이트 연산자
 
@@ -440,28 +440,28 @@ $comment |예|
 
 |명령  |지원됨 |
 |---------|---------|
-|$inc   |   예|
-|$mul   |   예|
-|$rename    |   예|
-|$setOnInsert|  예|
-|$set   |예|
+|$inc    |    예|
+|$mul    |    예|
+|$rename    |    예|
+|$setOnInsert|    예|
+|$set    |예|
 |$unset| 예|
-|$min   |예|
-|$max   |예|
-|$currentDate   | 예|
+|$min    |예|
+|$max    |예|
+|$currentDate    | 예|
 
 #### <a name="array-update-operators"></a>배열 업데이트 연산자
 
 |명령  |지원됨 |
 |---------|---------|
-|$  |예|
-|$[]|   예|
-|$[<identifier>]|   예|
-|$addToSet  |예|
-|$pop   |예|
-|$pullAll|  예|
-|$pull  |예|
-|$push  |예|
+|$    |예|
+|$[]|    예|
+|$[<identifier>]|    예|
+|$addToSet    |예|
+|$pop    |예|
+|$pullAll|    예|
+|$pull    |예|
+|$push    |예|
 |$pushAll| 예|
 
 
@@ -469,20 +469,20 @@ $comment |예|
 
 |명령  |지원됨 |
 |---------|---------|
-|$each  |   예|
-|$slice |예|
-|$sort  |예|
-|$position  |예|
+|$each    |    예|
+|$slice    |예|
+|$sort    |예|
+|$position    |예|
 
 #### <a name="bitwise-update-operator"></a>비트 업데이트 연산자
 
 |명령  |지원됨 |
 |---------|---------|
-| $bit  |   예|    
-|$bitsAllSet    |   예|
-|$bitsAnySet    |   예|
-|$bitsAllClear  |예|
-|$bitsAnyClear  |예|
+| $bit    |    예|    
+|$bitsAllSet    |    예|
+|$bitsAnySet    |    예|
+|$bitsAllClear    |예|
+|$bitsAnyClear    |예|
 
 ### <a name="geospatial-operators"></a>지리 공간적 연산자
 
@@ -504,37 +504,37 @@ $polygon |  예 |
 
 |명령  |지원됨 |
 |---------|---------|
-|cursor.batchSize() |   예|
-|cursor.close() |예|
-|cursor.isClosed()|     예|
+|cursor.batchSize()    |    예|
+|cursor.close()    |예|
+|cursor.isClosed()|        예|
 |cursor.collation()|    예|
-|cursor.comment()   |예|
-|cursor.count() |예|
-|cursor.explain()|  예|
-|cursor.forEach()   |예|
-|cursor.hasNext()   |예|
-|cursor.hint()  |예|
-|cursor.isExhausted()|  예|
-|cursor.itcount()   |예|
-|cursor.limit() |예|
-|cursor.map()   |예|
-|cursor.maxScan()   |예|
+|cursor.comment()    |예|
+|cursor.count()    |예|
+|cursor.explain()|    예|
+|cursor.forEach()    |예|
+|cursor.hasNext()    |예|
+|cursor.hint()    |예|
+|cursor.isExhausted()|    예|
+|cursor.itcount()    |예|
+|cursor.limit()    |예|
+|cursor.map()    |예|
+|cursor.maxScan()    |예|
 |cursor.maxTimeMS()|    예|
-|cursor.max()   |예|
-|cursor.min()   |예|
-|cursor.next()| 예|
-|cursor.noCursorTimeout()   |예|
-|cursor.objsLeftInBatch()   |예|
-|cursor.pretty()|   예|
-|cursor.readConcern()|  예|
-|cursor.readPref()      |예|
-|cursor.returnKey() |예|
-|cursor.showRecordId()| 예|
-|cursor.size()  |Nes|
-|cursor.skip()  |예|
-|cursor.sort()  |   예|
-|cursor.tailable()| 예|
-|cursor.toArray()   |예|
+|cursor.max()    |예|
+|cursor.min()    |예|
+|cursor.next()|    예|
+|cursor.noCursorTimeout()    |예|
+|cursor.objsLeftInBatch()    |예|
+|cursor.pretty()|    예|
+|cursor.readConcern()|    예|
+|cursor.readPref()        |예|
+|cursor.returnKey()    |예|
+|cursor.showRecordId()|    예|
+|cursor.size()    |예|
+|cursor.skip()    |예|
+|cursor.sort()    |    예|
+|cursor.tailable()|    예|
+|cursor.toArray()    |예|
 
 ## <a name="sort-operations"></a>정렬 작업
 
@@ -542,7 +542,7 @@ $polygon |  예 |
 
 ## <a name="unique-indexes"></a>고유 인덱스
 
-고유 인덱스를 사용하면 컬렉션의 모든 문서에서 특정 필드에 중복된 값이 나타나지 않으며, 이는 기본 “_id” 키에서 고유성이 유지되는 방식과 유사합니다. '고유' 제약 조건을 포함하여 createIndex 명령을 사용하여 Cosmos DB에서 사용자 지정 인덱스를 만들 수 있습니다.
+고유 인덱스를 사용하면 컬렉션의 모든 문서에서 특정 필드에 중복된 값이 나타나지 않으며, 이는 기본 "_id" 키에서 고유성이 유지되는 방식과 유사합니다. '고유' 제약 조건을 포함하여 createIndex 명령을 사용하여 Cosmos DB에서 사용자 지정 인덱스를 만들 수 있습니다.
 
 ## <a name="time-to-live-ttl"></a>TTL(Time to Live)
 

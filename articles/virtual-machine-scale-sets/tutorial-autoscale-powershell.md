@@ -1,19 +1,19 @@
 ---
 title: 자습서 - Azure PowerShell을 사용하여 자동으로 확장 집합 크기 조정
 description: Azure PowerShell을 사용하여 CPU 요구량이 늘거나 줄어듦에 따라 가상 머신 확장 집합의 크기를 자동으로 조정하는 방법을 알아봅니다.
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 50fb0c1c13ceba88b1894fa0f3165dd40b8e23cf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b2451779119ab8fb6c1446631797ce32fd376146
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76278419"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81009001"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합의 크기를 자동으로 조정
 
@@ -209,7 +209,7 @@ mstsc /v 52.168.121.216:50002
 
 
 ## <a name="monitor-the-active-autoscale-rules"></a>활성 자동 크기 조정 규칙 모니터링
-확장 집합의 VM 인스턴스 수를 모니터링하려면 **while**을 사용합니다. 각 VM 인스턴스의 **CPUStress*에서 생성된 CPU 로드에 응답하여 자동 크기 조정 확장 집합에서 규모 확장 프로세스를 시작하는 데 5분이 걸립니다.
+확장 집합의 VM 인스턴스 수를 모니터링하려면 **while**을 사용합니다. 각 VM 인스턴스의 **CPUStress**에서 생성된 CPU 로드에 응답하여 자동 크기 조정 확장 집합에서 규모 확장 프로세스를 시작하는 데 5분이 걸립니다.
 
 ```azurepowershell-interactive
 while (1) {Get-AzureRmVmssVM `
