@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
-ms.author: dapine
-ms.openlocfilehash: 0e8a6a0ffa451337b9e7ea7590cfe614fc1129a1
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.author: trbye
+ms.openlocfilehash: 21c4f88083fab28ae132379eae1b5d8a2afa5d9f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409696"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81422055"
 ---
 압축된 오디오 형식으로 음성 서비스로 스트리밍하려면 `PullAudioInputStream` `PushAudioInputStream`를 만들거나 를 만듭니다. 그런 다음 `AudioConfig` 스트림 클래스의 인스턴스에서 스트림의 압축 형식을 지정하여 만듭니다.
 

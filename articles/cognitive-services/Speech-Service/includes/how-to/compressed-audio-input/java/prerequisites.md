@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
-ms.author: dapine
-ms.openlocfilehash: 5cbd1a0d18045a24d4de68f6c48323244d49b2b4
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.author: trbye
+ms.openlocfilehash: ccc7fcd748323e05f21edcfff1535085d2cdbdc7
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409661"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81421737"
 ---
 압축 된 오디오 처리는 [GStreamer를](https://gstreamer.freedesktop.org)사용하여 구현됩니다. 라이선스상의 이유로 GStreamer 바이너리는 컴파일되고 음성 SDK와 연결되지 않습니다. 대신 Android용 미리 빌드된 바이너리를 사용해야 합니다. 미리 빌드된 라이브러리를 다운로드하려면 [Android 개발을 위한 설치를](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c)참조하십시오.
 

@@ -18,8 +18,6 @@
       href: spring-cloud-quickstart-launch-app-maven.md
 - name: 자습서
   items:
-    - name: 배포용 Java Spring 앱 준비
-      href: spring-cloud-tutorial-prepare-app-deployment.md
     - name: Config 서버 설정
       href: spring-cloud-tutorial-config-server.md
     - name: 수동으로 애플리케이션 크기 조정
@@ -44,6 +42,8 @@
       href: disaster-recovery.md
 - name: 방법 가이드
   items:
+    - name: 배포용 Java Spring 앱 준비
+      href: spring-cloud-tutorial-prepare-app-deployment.md
     - name: 'Azure Spring Cloud 애플리케이션을 시작, 중지 및 삭제하는 방법'
       href: spring-cloud-howto-start-stop-delete.md
     - name: 스테이징 환경을 설정하는 방법

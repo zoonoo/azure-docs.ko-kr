@@ -3,25 +3,25 @@ title: 음성 컨테이너 설치
 titleSuffix: Azure Cognitive Services
 description: 음성-텍스트 투구 차트 구성 옵션에 대해 자세히 설명합니다.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/22/2019
-ms.author: dapine
-ms.openlocfilehash: 3f390affe7badb401277aa86d1867c763aa0ae3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: f7ca8fdaddab9757292939c4f7e658179d6e517c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "69971343"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81421795"
 ---
 ### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>음성-텍스트(하위 차트: 차트/speechToText)
 
 "우산" 차트를 재정의하려면 매개 `speechToText.` 변수에 접두사를 추가하여 보다 구체적으로 만듭니다. 예를 들어, 해당 매개 변수를 재정의합니다. `speechToText.numberOfConcurrentRequest` `numberOfConcurrentRequest`
 
-|매개 변수|설명|기본값|
+|매개 변수|Description|기본값|
 | -- | -- | -- |
 | `enabled` | **음성-텍스트** 서비스가 활성화되어 있는지 여부입니다. | `false` |
 | `numberOfConcurrentRequest` | 음성-텍스트 서비스에 대한 동시 요청 **수입니다.** 이 차트는 이 값을 기반으로 CPU 및 메모리 리소스를 자동으로 계산합니다. | `2` |
