@@ -199,6 +199,8 @@
           href: stream-analytics-tools-for-visual-studio-cicd.md
     - name: Visual Studio Code
       items:
+        - name: IntelliSense를 사용하여 코드 완성
+          href: vs-code-intellisense.md
         - name: 샘플 데이터를 사용하여 로컬로 테스트
           href: visual-studio-code-local-run.md
         - name: 라이브 데이터를 사용하여 로컬로 테스트

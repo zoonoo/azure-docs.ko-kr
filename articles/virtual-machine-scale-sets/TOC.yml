@@ -252,7 +252,7 @@
           href: virtual-machine-scale-sets-networking.md
         - name: 자동 OS 업그레이드
           href: virtual-machine-scale-sets-automatic-upgrade.md
-        - name: 자동 인스턴스 복구(미리 보기)
+        - name: 자동 인스턴스 복구
           href: virtual-machine-scale-sets-automatic-instance-repairs.md
         - name: 인스턴스 보호
           href: virtual-machine-scale-sets-instance-protection.md

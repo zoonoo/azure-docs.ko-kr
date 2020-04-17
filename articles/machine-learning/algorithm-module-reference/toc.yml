@@ -152,5 +152,9 @@
       href: pca-based-anomaly-detection.md
     - name: 변칙 검색 모델 학습
       href: train-anomaly-detection-model.md
+- name: 웹 서비스
+  items:
+    - name: 웹 서비스 입력/출력
+      href: web-service-input-output.md
 - name: 모듈 오류 및 문제 해결
   href: designer-error-codes.md

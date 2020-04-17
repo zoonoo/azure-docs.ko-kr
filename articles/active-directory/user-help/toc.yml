@@ -24,6 +24,10 @@
       href: active-directory-passwords-reset-register.md
     - name: 암호 재설정
       href: active-directory-passwords-update-your-own-password.md
+- name: 내 직원 포털 도움말
+  items:
+    - name: 내 직원 사용자 관리
+      href: my-staff-team-manager.md
 - name: Microsoft Authenticator 앱 도움말
   items:
     - name: Microsoft Authenticator 앱이란?
@@ -74,6 +78,8 @@
           href: security-info-setup-text-msg.md
         - name: 전화 통화 설정
           href: security-info-setup-phone-number.md
+        - name: SMS 로그인 설정
+          href: sms-sign-in-explainer.md
         - name: 보안 키 설정
           href: security-info-setup-security-key.md
         - name: 이메일 설정

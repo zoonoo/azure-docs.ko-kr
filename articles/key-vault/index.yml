@@ -1,96 +1,102 @@
-### YamlMime:Landing
-title: Azure Key Vault 설명서
+### YamlMime:Hub
+title: Azure Key Vault
 summary: Key Vault를 사용하여 클라우드 리소스, 앱 및 솔루션에 액세스하고 암호화하는 키를 만들고 유지 관리하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다.
+brand: azure
 metadata:
   title: Azure Key Vault 설명서
   description: Key Vault를 사용하여 클라우드 리소스, 앱 및 솔루션에 액세스하고 암호화하는 키를 만들고 유지 관리하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다.
   services: key-vault
   ms.service: key-vault
-  ms.topic: landing-page
+  ms.subservice: na
+  ms.topic: hub-page
+  ms.collection: na
   author: msmbaldwin
   ms.author: mbaldwin
-  manager: rkarlin
-  ms.date: 09/19/2019
-  ms.openlocfilehash: cbd1ca9ead64bfda8401876ec54487f767363d3c
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.date: 04/07/2020
+  ms.openlocfilehash: e969d71be3c8f77607e69205c24d6c980c9943a2
+  ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "71299783"
-landingContent:
-- title: Azure Key Vault 정보
-  linkLists:
-  - linkListType: overview
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81536270"
+highlightedContent:
+  items:
+  - title: Azure Key Vault 소개
+    itemType: overview
+    url: ./general/overview.md
+  - title: 기본 개념
+    itemType: overview
+    url: ./general/basic-concepts.md
+  - title: 일시 삭제
+    itemType: overview
+    url: ./general/overview-soft-delete.md
+  - title: 로깅
+    itemType: overview
+    url: ./general/logging.md
+  - title: 제한
+    itemType: overview
+    url: ./general/overview-throttling.md
+  - title: 보안 권장 사항
+    itemType: overview
+    url: ./general/security-recommendations.md
+conceptualContent:
+  items:
+  - title: 인증서
     links:
-    - text: Azure Key Vault란?
-      url: key-vault-overview.md
-  - linkListType: concept
+    - url: ./certificates/about-certificates.md
+      itemType: overview
+      text: 인증서 정보
+    - url: ./certificates/quick-create-portal.md
+      itemType: quickstart
+      text: Azure Portal을 사용하여 Azure Key Vault에서 인증서 설정 및 검색
+    - url: ./certificates/certificate-scenarios.md
+      itemType: overview
+      text: Key Vault 인증서 시작
+    - url: ./certificates/create-certificate-scenarios.md
+      itemType: overview
+      text: 인증서 만들기 모니터링 및 관리
+    footerLink:
+      url: ./certificates/index.yml
+      text: 자세히 보기
+  - title: 구성
     links:
-    - text: 기본 개념
-      url: basic-concepts.md
-    - text: 일시 삭제
-      url: key-vault-ovw-soft-delete.md
-    - text: 제한
-      url: key-vault-ovw-throttling.md
-- title: 시작하기
-  linkLists:
-  - linkListType: quickstart
+    - url: ./keys/about-keys.md
+      itemType: overview
+      text: 키 정보
+    - url: ./keys/quick-create-portal.md
+      itemType: quickstart
+      text: Azure Portal을 사용하여 Azure Key Vault에서 키 설정 및 검색
+    - url: ./keys/hsm-protected-keys.md
+      itemType: tutorial
+      text: Key Vault로 HSM 보호 키 가져오기
+    - url: ./keys/hsm-protected-keys-vendor-agnostic-byok.md
+      itemType: overview
+      text: 공급업체 독립적 HSM 보호 키 가져오기
+    footerLink:
+      url: ./keys/index.yml
+      text: 자세히 보기
+  - title: 비밀
     links:
-    - text: Azure CLI
-      url: quick-create-cli.md
-    - text: Azure PowerShell
-      url: quick-create-powershell.md
-    - text: 포털
-      url: quick-create-portal.md
-    - text: .NET
-      url: quick-create-net.md
-    - text: Node.js
-      url: quick-create-node.md
-- title: 자습서
-  linkLists:
-  - linkListType: tutorial
+    - url: ./secrets/about-secrets.md
+      itemType: overview
+      text: 비밀 정보
+    - url: ./secrets/quick-create-portal.md
+      itemType: quickstart
+      text: Azure Portal을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
+    - url: ./secrets/tutorial-rotation.md
+      itemType: tutorial
+      text: 단일 사용자 리소스에 대한 비밀 회전
+    footerLink:
+      url: ./secrets/index.yml
+      text: 자세히 보기
+  - title: 스토리지 키 관리
     links:
-    - text: 웹 애플리케이션의 Key Vault
-      url: tutorial-net-create-vault-azure-web-app.md
-    - text: Azure Linux Virtual Machine이 포함된 Key Vault
-      url: tutorial-net-linux-virtual-machine.md
-    - text: Azure Windows Virtual Machine이 포함된 Key Vault
-      url: tutorial-net-windows-virtual-machine.md
-    - text: Python이 포함된 Key Vault - Linux
-      url: tutorial-python-linux-virtual-machine.md
-    - text: Python이 포함된 Key Vault - Windows
-      url: tutorial-python-windows-virtual-machine.md
-- title: Key Vault 및 스토리지 키
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Azure CLI를 사용하여 스토리지 키 관리
-      url: key-vault-ovw-storage-keys.md
-    - text: Azure PowerShell을 사용하여 스토리지 키 관리
-      url: key-vault-overview-storage-keys-powershell.md
-    - text: 코드에서 SAS 토큰 페치
-      url: storage-keys-sas-tokens-code.md
-- title: Key Vault 앱 통합
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: 개발자 가이드
-      url: key-vault-developers-guide.md
-    - text: 관리 ID를 사용하여 Key Vault 액세스
-      url: managed-identity.md
-  - linkListType: tutorial
-    links:
-    - text: .NET Azure 웹앱과 함께 Key Vault 사용
-      url: tutorial-net-create-vault-azure-web-app.md
-  - linkListType: reference
-    links:
-    - text: 인증, 요청 및 응답
-      url: authentication-requests-and-responses.md
-    - text: Key Vault REST API 참조
-      url: /rest/api/keyvault/
-- title: Microsoft Learn
-  linkLists:
-  - linkListType: learn
-    links:
-    - text: Azure Key Vault를 사용하여 서버 앱의 비밀 관리
-      url: /learn/modules/manage-secrets-with-azure-key-vault/
+    - url: ./secrets/overview-storage-keys.md
+      itemType: overview
+      text: 스토리지 키 - CLI
+    - url: ./secrets/overview-storage-keys-powershell.md
+      itemType: overview
+      text: 스토리지 키 - PowerShell
+    - url: ./secrets/storage-keys-sas-tokens-code.md
+      itemType: overview
+      text: 코드에서 SAS 토큰 페치

@@ -98,6 +98,8 @@
         - name: 기능
           href: luis-concept-feature.md
           displayName: 'descriptor, phrase list'
+        - name: 런타임에 앱 확장
+          href: schema-change-prediction-runtime.md
     - name: 예측 점수
       href: luis-concept-prediction-score.md
     - name: 모범 사례
@@ -394,7 +396,7 @@
       href: 'https://github.com/Azure-Samples/cognitive-services-language-understanding'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-    - name: 언어 및 지역 지원
+    - name: 언어 지원
       href: luis-language-support.md
       displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, German, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
     - name: Azure 로드맵

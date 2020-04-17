@@ -1,0 +1,64 @@
+### YamlMime:Landing
+title: 인증서
+summary: Azure Key Vault를 사용하면 Microsoft Azure 애플리케이션 및 사용자가 키와 비밀을 기반으로 하여 빌드되고 자동화된 갱신 기능이 추가된 인증서를 저장하고 사용할 수 있습니다.
+metadata:
+  title: Azure Key Vault 설명서 - 인증서
+  description: Azure Key Vault를 사용하면 Microsoft Azure 애플리케이션 및 사용자가 키와 비밀을 기반으로 하여 빌드되고 자동화된 갱신 기능이 추가된 인증서를 저장하고 사용할 수 있습니다.
+  services: key-vault
+  ms.service: key-vault
+  ms.subservice: certificates
+  ms.topic: landing-page
+  author: msmbaldwin
+  ms.author: mbaldwin
+  ms.date: 04/07/2020
+  ms.openlocfilehash: 78963c02d35d93b4756c12f948c5ba214fb23e90
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81423533"
+landingContent:
+- title: 인증서
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Key Vault 인증서란?
+      url: about-certificates.md
+    - text: Key Vault 인증서 시작
+      url: certificate-scenarios.md
+    - text: 인증서 생성 방법
+      url: create-certificate.md
+    - text: 인증서 만들기 모니터링 및 관리
+      url: create-certificate-scenarios.md
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure CLI
+      url: quick-create-cli.md
+    - text: Azure PowerShell
+      url: quick-create-powershell.md
+    - text: 포털
+      url: quick-create-portal.md
+    - text: Python
+      url: quick-create-python.md
+    - text: Key Vault에서 인증서 가져오기
+      url: tutorial-import-certificate.md
+- title: Key Vault에 대한 자세한 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Key Vault 개요
+      url: ../general/overview.md
+    - text: 기본 개념
+      url: ../general/basic-concepts.md
+    - text: 일시 삭제 개요
+      url: ../general/overview-soft-delete.md
+    - text: 보안 개요
+      url: ../general/overview-security.md
+- title: Microsoft Learn
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Azure Key Vault를 사용하여 서버 앱의 비밀 관리
+      url: /learn/modules/manage-secrets-with-azure-key-vault/

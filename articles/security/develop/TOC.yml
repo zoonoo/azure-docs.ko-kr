@@ -41,6 +41,8 @@
           href: security-code-analysis-faq.md
         - name: YAML 구성
           href: yaml-configuration.md
+        - name: 릴리스 및 로드맵
+          href: security-code-analysis-releases.md
     - name: Microsoft 위협 모델링 도구
       displayName: stride
       href: threat-modeling-tool.md

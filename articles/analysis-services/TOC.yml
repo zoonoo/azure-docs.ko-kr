@@ -39,6 +39,8 @@
       href: analysis-services-connect.md
     - name: 고가용성
       href: analysis-services-bcdr.md
+    - name: 장기 실행 작업
+      href: analysis-services-long-operations.md
     - name: 지원되는 데이터 원본
       href: analysis-services-datasource.md
 - name: 방법

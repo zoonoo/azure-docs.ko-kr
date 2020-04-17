@@ -22,44 +22,38 @@
   items:
     - name: 인증 방법
       href: concept-authentication-methods.md
-    - name: 암호 없는 인증
-      href: concept-authentication-passwordless.md
-    - name: 보안 정보 등록
-      href: concept-registration-mfa-sspr-combined.md
-    - name: 암호 재설정
+    - name: 셀프 서비스 암호 재설정
       items:
         - name: 암호 재설정 작동 방법
           href: concept-sspr-howitworks.md
-        - name: 암호 재설정 옵션
-          href: concept-sspr-customization.md
-        - name: 암호 재설정 정책
-          href: concept-sspr-policy.md
-        - name: 어떤 라이선스가 필요한가요?
-          href: concept-sspr-licensing.md
         - name: 온-프레미스 통합
           href: concept-sspr-writeback.md
+        - name: 정책
+          href: concept-sspr-policy.md
+        - name: 라이선스
+          href: concept-sspr-licensing.md
     - name: Multi-Factor Authentication
       items:
         - name: MFA 작동 방법
           href: concept-mfa-howitworks.md
-        - name: 사용자 라이선스
-          href: concept-mfa-licensing.md
-        - name: 인증 공급자 관리
-          href: concept-mfa-authprovider.md
-        - name: 보안 지침
-          href: multi-factor-authentication-security-best-practices.md
         - name: 데이터 상주
           href: concept-mfa-data-residency.md
+        - name: 라이선스
+          href: concept-mfa-licensing.md
         - name: Office 365용 MFA
           href: 'https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide'
-        - name: MFA FAQ
+        - name: FAQ
           href: multi-factor-authentication-faq.md
-    - name: Azure AD 암호 보호
+    - name: 암호 없는 인증
+      href: concept-authentication-passwordless.md
+    - name: 암호 보호
       items:
         - name: 클라우드에서 취약한 암호 제거
           href: concept-password-ban-bad.md
         - name: 온-프레미스에서 취약한 암호 제거
           href: concept-password-ban-bad-on-premises.md
+    - name: 보안 정보 등록
+      href: concept-registration-mfa-sspr-combined.md
     - name: 복원력 있는 액세스 제어
       href: concept-resilient-controls.md
 - name: 방법 가이드
@@ -68,20 +62,24 @@
       items:
         - name: 배포 가이드
           href: howto-sspr-deployment.md
+        - name: 사용자 지정 옵션
+          href: howto-sspr-customization.md
         - name: 인증 데이터 미리 등록
           href: howto-sspr-authenticationdata.md
         - name: Windows 클라이언트에 대한 SSPR
           href: howto-sspr-windows.md
-    - name: 클라우드 기반 MFA
+    - name: Azure Multi-Factor Authentication
       items:
         - name: 배포 가이드
           href: howto-mfa-getstarted.md
-        - name: 사용자 MFA 기준
-          href: howto-mfa-userstates.md
-        - name: 사용자 및 디바이스 설정
-          href: howto-mfa-userdevicesettings.md
         - name: 설정 구성
           href: howto-mfa-mfasettings.md
+        - name: 사용자 구성
+          href: howto-mfa-userdevicesettings.md
+        - name: 사용자별 MFA 사용
+          href: howto-mfa-userstates.md
+        - name: 인증 공급자 구성
+          href: concept-mfa-authprovider.md
         - name: 디렉터리 페더레이션
           items:
             - name: Windows Server 2016 AD FS 어댑터
@@ -102,28 +100,6 @@
               href: howto-mfa-nps-extension-rdg.md
             - name: VPN
               href: howto-mfa-nps-extension-vpn.md
-    - name: 보안 정보 등록
-      items:
-        - name: 결합 등록 사용
-          href: howto-registration-mfa-sspr-combined.md
-        - name: 결합 등록 문제 해결
-          href: howto-registration-mfa-sspr-combined-troubleshoot.md
-    - name: Azure AD 암호 보호
-      items:
-        - name: 온-프레미스 계획 및 배포
-          href: howto-password-ban-bad-on-premises-deploy.md
-        - name: 온-프레미스 사용 및 구성
-          href: howto-password-ban-bad-on-premises-operations.md
-        - name: 온-프레미스 배포 모니터링
-          href: howto-password-ban-bad-on-premises-monitor.md
-        - name: 온-프레미스 배포 문제 해결
-          href: howto-password-ban-bad-on-premises-troubleshoot.md
-        - name: 온-프레미스 FAQ
-          href: howto-password-ban-bad-on-premises-faq.md
-        - name: 온-프레미스 에이전트 버전 기록
-          href: howto-password-ban-bad-on-premises-agent-versions.md
-    - name: Azure AD 스마트 잠금
-      href: howto-password-smart-lockout.md
     - name: 암호 없음
       items:
         - name: 암호 없는 배포
@@ -140,14 +116,38 @@
           href: howto-authentication-passwordless-phone.md
         - name: 비즈니스용 Windows Hello
           href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
+    - name: 보안 정보 등록
+      items:
+        - name: 결합 등록 사용
+          href: howto-registration-mfa-sspr-combined.md
+        - name: 결합 등록 문제 해결
+          href: howto-registration-mfa-sspr-combined-troubleshoot.md
+    - name: 온-프레미스 암호 보호
+      items:
+        - name: 계획 및 배포
+          href: howto-password-ban-bad-on-premises-deploy.md
+        - name: 사용 설정 및 구성
+          href: howto-password-ban-bad-on-premises-operations.md
+        - name: 모니터
+          href: howto-password-ban-bad-on-premises-monitor.md
+        - name: 문제 해결
+          href: howto-password-ban-bad-on-premises-troubleshoot.md
+        - name: FAQ
+          href: howto-password-ban-bad-on-premises-faq.md
+        - name: 에이전트 버전 기록
+          href: howto-password-ban-bad-on-premises-agent-versions.md
+    - name: SMS 기반 인증 사용(미리 보기)
+      href: howto-authentication-sms-signin.md
+    - name: Azure AD 스마트 잠금
+      href: howto-password-smart-lockout.md
     - name: 인증서 기반 인증
       items:
         - name: 인증서 인증 시작
           href: active-directory-certificate-based-authentication-get-started.md
           items:
-            - name: Android 디바이스의 CBA
+            - name: Android 디바이스에서 사용
               href: active-directory-certificate-based-authentication-android.md
-            - name: iOS 디바이스의 CBA
+            - name: iOS 디바이스에서 사용
               href: active-directory-certificate-based-authentication-ios.md
     - name: 보고
       items:
@@ -225,7 +225,7 @@
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: 서비스 업데이트
       href: ../fundamentals/whats-new.md

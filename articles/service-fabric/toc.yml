@@ -133,6 +133,8 @@
           href: service-fabric-cluster-security.md
         - name: 기본 제공 보안 컨트롤
           href: service-fabric-security-controls.md
+        - name: Service Fabric의 인증서 기반 인증
+          href: cluster-security-certificates.md
     - name: 용어
       href: service-fabric-technical-overview.md
     - name: 애플리케이션 빌드
@@ -145,6 +147,8 @@
               href: service-fabric-containers-overview.md
             - name: Docker Compose(미리 보기)
               href: service-fabric-docker-compose.md
+            - name: 프로브
+              href: probes-codepackage.md
         - name: Reliable Services
           items:
             - name: 신뢰할 수 있는 서비스 개요
@@ -264,6 +268,10 @@
               href: service-fabric-backup-restore-service-trigger-restore.md
             - name: 파티션의 요청 시 백업
               href: service-fabric-backup-restore-service-ondemand-backup.md
+        - name: 이니셜라이저 CodePackage
+          href: initializer-codepackages.md
+        - name: RunToCompletion
+          href: run-to-completion.md
     - name: 클러스터
       items:
         - name: 클러스터 개요
@@ -316,6 +324,8 @@
               href: service-fabric-cluster-resource-manager-defragmentation-metrics.md
             - name: 클러스터 균형 조정
               href: service-fabric-cluster-resource-manager-balancing.md
+            - name: 서브 클러스터링
+              href: cluster-resource-manager-subclustering.md
             - name: 제한
               href: service-fabric-cluster-resource-manager-advanced-throttling.md
             - name: 서비스 이동
@@ -354,7 +364,7 @@
       href: service-fabric-api-management-overview.md
     - name: 앱 리소스 모델
       href: service-fabric-concept-resource-model.md
-    - name: 관리 ID(미리 보기)
+    - name: 관리 ID
       href: concepts-managed-identity.md
     - name: 컨테이너 리포지토리 인증 구성
       href: configure-container-repository-credentials.md
@@ -751,7 +761,7 @@
           href: service-fabric-reverse-proxy-diagnostics.md
         - name: 로컬 클러스터 문제 해결
           href: service-fabric-troubleshoot-local-cluster-setup.md
-    - name: Service Fabric 앱의 관리 ID 사용(미리 보기)
+    - name: Service Fabric 앱에 관리 ID 사용
       items:
         - name: 클러스터 설정
           items:
