@@ -3,12 +3,12 @@ title: Azure 마이그레이션 서버 마이그레이션 FAQ
 description: Azure 마이그레이션 서버 마이그레이션을 사용하여 컴퓨터를 마이그레이션하는 데 사용하는 것에 대한 일반적인 질문에 대한 답변을 얻을 수 있습니다.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: cc78d2087dcaad2922ca6b6d9c090a8decdb6e84
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: bf33c276c721f3be16d75b964c2b223e90c2a560
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393806"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81529804"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Azure 마이그레이션 서버 마이그레이션: 일반적인 질문
 
@@ -18,6 +18,10 @@ ms.locfileid: "81393806"
 - [Azure 마이그레이션 어플라이언스에](common-questions-appliance.md) 대한 질문
 - [검색, 평가 및 종속성 시각화에](common-questions-discovery-assessment.md) 대한 질문
 - [Azure 마이그레이션 포럼에서](https://aka.ms/AzureMigrateForum) 질문에 대한 답변 받기
+
+## <a name="what-geographies-are-supported-for-migration-with-azure-migrate"></a>Azure 마이그레이션을 통해 마이그레이션할 때 지원되는 지역은 무엇입니까?
+
+[지원되는](migrate-support-matrix.md#supported-geographies-public-cloud) 지역을 공용 및 정부 클라우드에 대해 [검토합니다.](migrate-support-matrix.md#supported-geographies-azure-government)
 
 ## <a name="how-does-agentless-vmware-replication-work"></a>에이전트없는 VMware 복제는 어떻게 작동합니까?
 

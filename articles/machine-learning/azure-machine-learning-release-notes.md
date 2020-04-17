@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: ce9919a0b0f614e427c12ee3e3fbda0be46470ea
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9ed17ed0825e0011d1402efc45155755a1ecbadf
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273310"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459171"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure 기계 학습 릴리스 정보
 
@@ -721,10 +721,10 @@ Azure 기계 학습은 이제 이벤트 그리드의 리소스 공급자이며 A
       + 입력된 특정 start_time 및/또는 end_time 예약된 실행의 결과만 반환됩니다.
       + 매개 변수 'daily_latest_only'은 더 이상 사용되지 않습니다.
     + 데이터 집합 기반 데이터 드리프트 출력 검색을 지원합니다.
-  + **[azureml-explain-model](https://docs.microsoft.com/python/api/azureml-explain-model)**
+  + **azureml-explain-model**
     + AzureML 설명 모델 패키지의 이름을 AzureML 해석으로 변경하여 이전 패키지를 이전 패키지로 유지하여 이전 버전과의 호환성을 유지합니다.
     + 설명 클라이언트에서 다운로드에 기본적으로 회귀 대신 분류 작업으로 설정 원시 설명과 AutoML 버그를 수정했습니다.
-    + [MimicWrapper를](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic_wrapper.mimicwrapper) 사용하여 직접 만들 수 있는 [점수 매기기 설명자에](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py) 대한 지원 추가
+    + MimicWrapper를 사용하여 직접 만들 수 있는 [점수 매기기 설명자에](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py) 대한 지원 추가
   + **[azureml 파이프라인 코어](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
     + 대규모 파이프라인 생성을 위한 성능 이 향상되었습니다.
   + **[azureml-train-core](https://docs.microsoft.com/python/api/azureml-train-core)**
@@ -798,7 +798,7 @@ Azure 기계 학습은 이제 이벤트 그리드의 리소스 공급자이며 A
     + [supported_vmsizes()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-) 기능에 VM 크기 필드(OS 디스크, GPU 수)를 추가했습니다.
     + 실행, 개인 및 공용 IP, 포트 등을 표시 하기 위해 [list_nodes()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#list-nodes--) 함수에 추가 된 필드를 추가 했습니다.
     + 클러스터 [프로비저닝](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remote-login-port-public-access--notspecified--) `--remotelogin_port_public_access` 중에 SSH 포트를 열어 두거나 닫아 둘지 여부에 따라 활성화 또는 비활성화하도록 설정할 수 있는 클러스터 프로비저닝 중에 새 필드를 지정하는 기능입니다. 지정하지 않으면 VNet 내에 클러스터를 배포하는지 여부에 따라 서비스가 포트를 현명하게 열거나 닫습니다.
-  + **[azureml-explain-model](https://docs.microsoft.com/python/api/azureml-explain-model)**
+  + **azureml-explain-model**
     + 분류 시나리오에서 설명 출력에 대한 향상된 설명서입니다.
     + 평가 예에 대한 설명에 예측된 y 값을 업로드하는 기능을 추가했습니다. 더 유용한 시각화의 잠금을 해제합니다.
     + 기본 MimicExplainer를 가져오는 데 사용할 수 있도록 MimicWrapper에 설명자 속성을 추가했습니다.

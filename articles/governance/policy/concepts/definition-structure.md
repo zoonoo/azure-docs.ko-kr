@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용하여 조직에서 Azure 리소스에 대한 규칙을 설정하는 방법을 설명합니다.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 017878c4c47a5645ea8815580d2176c7a2ff5d66
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 0a7c4e05270ff242fa97b253b27a5de92895368a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314011"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461007"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -89,7 +89,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - `Microsoft.ContainerService.Data`[Azure Kubernetes 서비스의](../../../aks/intro-kubernetes.md)입학 컨트롤러 규칙 관리를 위한 것입니다. 이 리소스 공급자 모드를 사용하는 정책은 [EnforceRegoPolicy](./effects.md#enforceregopolicy) 효과를 사용해야 **합니다.**
 - `Microsoft.Kubernetes.Data`Azure에서 자체 관리되는 AKS 엔진 Kubernetes 클러스터를 관리하기 위한 것입니다.
   이 리소스 공급자 모드를 사용하는 정책은 [EnforceOPAConstraint](./effects.md#enforceopaconstraint) 효과를 사용해야 **합니다.**
-- `Microsoft.KeyVault.Data`Azure 키 자격 증명 모음에서 볼트 및 인증서 를 [관리하기 위한](../../../key-vault/key-vault-overview.md)것입니다.
+- `Microsoft.KeyVault.Data`Azure 키 자격 증명 모음에서 볼트 및 인증서 를 [관리하기 위한](../../../key-vault/general/overview.md)것입니다.
 
 > [!NOTE]
 > 리소스 공급자 모드는 기본 제공 정책 정의만 지원하며 미리 보기 동안 이니셔티브를 지원하지 않습니다.
@@ -550,7 +550,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 }
 ```
 
-### <a name="effect"></a>효과
+### <a name="effect"></a>영향
 
 Azure 정책은 다음과 같은 유형의 효과를 지원합니다.
 

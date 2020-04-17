@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 0643ae792c890b65f239d9a0c16a05639dd4f8b9
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 9adbe7b03283a00f78222ffdc77dca7aaadcbda0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811480"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461704"
 ---
 # <a name="securing-paas-deployments"></a>PaaS 배포 보안
 
@@ -74,7 +74,7 @@ PaaS 배포와 기존 온-프레미스 배포 간의 또 다른 중요한 차이
 ID 경계 관리를 위한 모범 사례는 다음과 같습니다.
 
 **모범 사례**: 키와 자격 증명을 안전하게 보관하여 PaaS 배포를 보호합니다.   
-**세부 정보**: 키와 자격 증명 분실은 흔히 발생하는 문제입니다. 키와 비밀을 하드웨어 보안 모듈(HSM)에 저장할 수 있는 중앙 집중식 솔루션을 사용할 수 있습니다. [Azure Key Vault는](../../key-vault/key-vault-overview.md) HSM으로 보호되는 키를 사용하여 인증 키, 저장소 계정 키, 데이터 암호화 키, .pfx 파일 및 암호를 암호화하여 키와 비밀을 보호합니다.
+**세부 정보**: 키와 자격 증명 분실은 흔히 발생하는 문제입니다. 키와 비밀을 하드웨어 보안 모듈(HSM)에 저장할 수 있는 중앙 집중식 솔루션을 사용할 수 있습니다. [Azure Key Vault는](../../key-vault/general/overview.md) HSM으로 보호되는 키를 사용하여 인증 키, 저장소 계정 키, 데이터 암호화 키, .pfx 파일 및 암호를 암호화하여 키와 비밀을 보호합니다.
 
 **모범 사례**: 소스 코드 또는 GitHub에 자격 증명 및 기타 비밀을 포함하지 않습니다.   
 **세부 정보**: 키 및 자격 증명을 분실하는 것보다 더 위험한 상황은 권한이 없는 사람이 해당 정보에 액세스하는 것뿐입니다. 공격자는 봇 기술을 이용하여 GitHub와 같은 코드 리포지토리에 저장된 키와 비밀을 찾을 수 있습니다. 따라서 공용 코드 리포지토리에 키와 비밀 정보를 보관해서는 안 됩니다.

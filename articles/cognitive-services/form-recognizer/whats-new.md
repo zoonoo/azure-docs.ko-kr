@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 7f20244906581dd2869bbc7fcd997d5245540eda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f8c66db491b93278fedf1378d3df86e7ce5fdbf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80155174"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531085"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Form Recognizer의 새로운 기능
 
@@ -25,48 +25,46 @@ ms.locfileid: "80155174"
 
 ## <a name="march-2020"></a>2020년 3월 
 
+### <a name="new-features"></a>새로운 기능
+
+* **레이블 지정값 유형** 이제 양식 인식기 샘플 레이블 지정 도구를 사용하여 레이블을 지정하는 값 유형을 지정할 수 있습니다. 다음 값 유형 및 변형은 현재 지원됩니다.
+  * `string`
+    * 기본값, `no-whitespaces`"`alphanumeric`
+  * `number`
+    * 기본`currency`
+  * `date` 
+    * `dmy`기본값, `mdy`"`ymd`
+  * `time`
+  * `integer`
+
+  이 기능을 사용하는 방법에 대해 알아보려면 [샘플 라벨링 도구](./quickstarts/label-tool.md#specify-tag-value-types) 가이드를 참조하십시오.
+
+
+* **표 시각화** 이제 샘플 레이블 지정 도구에 문서에서 인식된 테이블이 표시됩니다. 이렇게 하면 레이블을 지정하고 분석하기 전에 문서에서 인식되고 추출된 테이블을 볼 수 있습니다. 이 기능은 레이어 옵션을 사용하여 켜기/끄기를 전환할 수 있습니다.
+
+  다음은 테이블을 인식하고 추출하는 방법의 예입니다.
+
+  > [!div class="mx-imgBorder"]
+  > ![샘플 라벨링 도구를 사용한 테이블 시각화](./media/whats-new/formre-table-viz.png)
+
+    추출된 테이블은 아래의 `"pageResults"`JSON 출력에서 사용할 수 있습니다.
+
+  > [!IMPORTANT]
+  > 테이블 에 레이블지정은 지원되지 않습니다. 테이블이 자동으로 인식되지 않고 추가되는 경우 테이블은 키/값 쌍으로만 레이블을 지정할 수 있습니다. 테이블에 키/값 쌍으로 레이블을 지정할 때 각 셀에 고유한 값으로 레이블을 지정합니다.
+
 ### <a name="extraction-enhancements"></a>추출 개선 사항
 
 이 릴리스에는 추출 향상 및 정확도 향상, 특히 동일한 텍스트 줄에서 여러 키/값 쌍에 레이블을 지정하고 추출하는 기능이 포함됩니다. 
  
-### <a name="form-recognizer-sample-labeling-tool-is-now-open-source"></a>양식 인식기 샘플 라벨링 도구가 이제 오픈 소스입니다.
+### <a name="sample-labeling-tool-is-now-open-source"></a>샘플 라벨링 도구가 이제 오픈 소스가 되었습니다.
 
 양식 인식기 샘플 라벨링 도구를 이제 오픈 소스 프로젝트로 사용할 수 있습니다. 솔루션 내에 통합하고 고객별 변경을 통해 필요에 맞게 변경할 수 있습니다.
 
 양식 인식기 샘플 레이블 지정 도구에 대한 자세한 내용은 [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md)에서 사용할 수 있는 설명서를 참조하십시오.
 
-### <a name="labeling-value-types"></a>값 유형에 레이블 지정
-
-이제 양식 인식기 샘플 레이블 지정 도구에서 값 유형을 사용할 수 있습니다. 이러한 값 형식은 현재 지원됩니다. 
-
-* String
-* Number 
-* 정수
-* Date 
-* Time
-
-이 이미지는 양식 인식기 샘플 레이블 지정 도구 내에서 값 유형 선택의 모양을 보여 주며 있습니다.
-
-> [!div class="mx-imgBorder"]
-> ![샘플 라벨링 도구를 사용하여 값 유형 선택](./media/whats-new/formre-value-type.png)
-
-추출된 테이블은 의 JSON 출력에서 `pageResults`사용할 수 있습니다.
-
-### <a name="table-visualization"></a>표 시각화 
-
-양식 인식기 레이블 지정 도구에 문서에서 인식된 테이블이 표시됩니다. 이렇게 하면 양식 인식기 샘플 레이블 지정 도구를 사용하여 레이블을 지정하고 분석하기 전에 문서에서 인식되고 추출된 테이블을 볼 수 있습니다. 이 기능은 레이어 옵션을 사용하여 켜기/끄기를 전환할 수 있습니다. 
-
-다음은 테이블을 인식하고 추출하는 방법의 예입니다.
-
-> [!div class="mx-imgBorder"]
-> ![샘플 라벨링 도구를 사용한 테이블 시각화](./media/whats-new/formre-table-viz.png)
-
-> [!IMPORTANT]
-> 테이블 에 레이블지정은 지원되지 않습니다. 테이블이 자동으로 인식되지 않고 추가되는 경우 테이블은 키/값 쌍으로만 레이블을 지정할 수 있습니다. 테이블에 키/값 쌍으로 레이블을 지정할 때각 셀에 값으로 레이블을 지정하십시오.
-
 ### <a name="tls-12-enforcement"></a>TLS 1.2 적용
 
-* 이제 이 서비스에 대한 모든 HTTP 요청에 대해 TLS 1.2가 적용됩니다. 자세한 내용은 [Azure 코그너티브 서비스 보안](../cognitive-services-security.md)을 참조하십시오.
+이제 TLS 1.2는 이 서비스에 대한 모든 HTTP 요청에 적용됩니다. 자세한 내용은 [Azure Cognitive Services 보안](../cognitive-services-security.md)을 참조하세요.
 
 ## <a name="january-2020"></a>2020년 1월
 

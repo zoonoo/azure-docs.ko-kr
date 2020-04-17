@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: ae3743530440c9df9094a0b9784922d2d6a3dfdf
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 753d606e1fc2dc966c970a210cf6fc5066d5ed83
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985408"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460140"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>리눅스 가상 머신 에 대한 Azure 디스크 암호화 FAQ
 
@@ -148,7 +148,9 @@ Azure 디스크 암호화는 256비트 볼륨 마스터 키를 사용하여 aes-
 아니요. Azure Disk Encryption을 사용하여 이미 암호화된 데이터 드라이브에서는 데이터가 지워지지 않습니다. EncryptFormatAll은 OS 드라이브를 다시 암호화하지 않은 것과 유사하게 이미 암호화된 데이터 드라이브를 다시 암호화하지 않습니다. 자세한 내용은 [EncryptFormatAll 기준](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms)을 참조하세요.        
 
 ## <a name="is-xfs-filesystem-supported"></a>XFS 파일 시스템이 지원되고 있습니까?
-XFS 볼륨은 암호화FormatAll을 통해서만 데이터 디스크 암호화에 대해 지원됩니다. 이렇게 하면 볼륨을 다시 포자화하여 이전에 데이터를 지워집니다. 자세한 내용은 [EncryptFormatAll 기준](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms)을 참조하세요.
+XFS OS 디스크의 암호화가 지원됩니다.
+
+XFS 데이터 디스크의 암호화는 암호화FormatAll 매개 변수가 사용되는 경우에만 지원됩니다. 이렇게 하면 볼륨을 다시 포자화하여 이전에 데이터를 지워집니다. 자세한 내용은 [EncryptFormatAll 기준](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms)을 참조하세요.
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>암호화된 VM을 백업하고 복원할 수 있습니까? 
 

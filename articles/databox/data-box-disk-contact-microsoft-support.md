@@ -8,14 +8,14 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 000659793707c860de881f150e6ce07e4506c602
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3d533080af373ca209a9b393d02d1606d7cb22d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064962"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461738"
 ---
-# <a name="open-a-support-ticket-for-azure-data-box"></a>Azure Data Box에 대한 지원 티켓 열기 
+# <a name="open-a-support-ticket-for-azure-data-box"></a>Azure Data Box에 대한 지원 티켓 열기
 
 이 문서는 Azure 데이터 상자, Azure 데이터 상자 헤비 및 Azure 데이터 상자 디스크에 적용되며, 모두 Azure 데이터 상자 서비스에서 관리됩니다. Azure Data Box 서비스에 문제가 발생하는 경우 기술 지원을 위한 서비스 요청을 만들 수 있습니다. 이 문서에서는 다음을 안내합니다.
 
@@ -27,11 +27,11 @@ ms.locfileid: "80064962"
 지원 요청을 만들려면 다음 단계를 수행합니다.
 
 1. Data Box 또는 Data Box Disk 주문으로 이동합니다. **지원 + 문제 해결** 섹션으로 이동한 다음 **새 지원 요청**을 클릭합니다.
-     
+
     ![새 지원 요청](./media/data-box-disk-contact-microsoft-support/data-box-disk-support-request.png)
-   
+
 2. **새 지원 요청**에서 **기본**을 선택합니다. **기본**에서 다음 단계를 수행합니다.
-    
+
     1. **문제점 유형** 드롭다운 목록에서 **기술**을 선택합니다.
     2. **구독을**선택합니다.
     3. **서비스** 아래에서 **모든 서비스**를 선택합니다. 드롭다운 목록에서 데이터 **상자를**선택합니다. 
@@ -41,7 +41,7 @@ ms.locfileid: "80064962"
         ![기본 사항](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
 
 3. **새 지원 요청**에서 **2단계 문제**를 선택합니다. **문제**에서 다음 단계를 수행합니다.
-    
+
     1. **심각도**를 **C - 최소 영향**으로 선택합니다. 필요한 경우 지원을 업데이트합니다.
     2. 드롭다운 목록에서 **문제 유형**을 선택합니다.
     3. 선택한 문제 유형에 따라 해당 **범주**를 선택합니다.
@@ -58,7 +58,7 @@ ms.locfileid: "80064962"
    1. **연락처 옵션**에서 기본 연락 방법(전화 또는 전자 메일) 및 언어를 지정합니다. 응답 시간은 구독 계획에 따라 자동으로 선택됩니다.
    2. 연락처 **정보에서**이름, 이메일, 선택적 연락처, 국가/지역을 입력합니다. **향후 지원 요청에 대한 연락처 변경 내용 저장**을 선택합니다.
    3. **만들기**를 클릭합니다.
-   
+
        ![연락처 정보](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 
       Microsoft 지원에서 이 정보를 사용하여 사용자에게 자세한 정보, 진단 및 해결 방법을 알려줍니다.
@@ -72,15 +72,14 @@ ms.locfileid: "80064962"
 
 1. 도움말 및 지원 페이지로 이동하려면 **찾아보기 > 도움말 + 지원**으로 이동합니다.
 
-    ![지원 요청 관리](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket1.png)   
+    ![지원 요청 관리](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket1.png)
 
 2. **최근 지원 요청**의 테이블 형식 목록이 **도움말 + 지원**에 표시됩니다.
 
-    ![지원 요청 관리](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png) 
+    ![지원 요청 관리](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png)
 
 3. 지원 요청을 클릭하여 선택합니다. 이 요청의 상태 및 세부 정보를 볼 수 있습니다. 이 요청에 대해 후속 작업을 수행하려는 경우 **+ 새 메시지**를 클릭합니다.
 
-   
 ## <a name="next-steps"></a>다음 단계
 
 [Data Box Disk 관련 문제 해결 방법](data-box-disk-troubleshoot.md)을 알아봅니다.

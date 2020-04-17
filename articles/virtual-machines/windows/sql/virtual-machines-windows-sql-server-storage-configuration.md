@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: 9d8fce0772f13c6e009b2441ecd85779a7622c5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93f01b3c23e08e7f432841d8a77cbe3602bff1c5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243199"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482149"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM에 대한 스토리지 구성
 
@@ -56,7 +56,7 @@ SQL Server 갤러리 이미지를 사용하여 Azure VM을 프로비전할 때 *
 
 프리미엄 SSD에 대한 디스크 캐싱은 *ReadOnly,* *ReadWrite* 또는 없음일 수 *있습니다.* 
 
-- *ReadOnly* 캐싱은 프리미엄 저장소에 저장된 SQL Server 데이터 파일에 매우 유용합니다. *ReadOnly* 캐싱은 낮은 읽기 대기 시간, 높은 읽기 IOPS 및 처리량을 제공하며, 읽기는 VM 메모리 및 로컬 SSD 내에서 os캐시에서 수행됩니다. 이러한 읽기는 Azure Blob 저장소의 데이터 디스크에서 읽는 것보다 훨씬 빠릅니다. 프리미엄 저장소는 캐시에서 제공된 읽기를 디스크 IOPS 및 처리량으로 계산하지 않습니다. 따라서 적용 가능한 총 IOPS 개미 처리량을 더 높게 달성할 수 있습니다. 
+- *ReadOnly* 캐싱은 프리미엄 저장소에 저장된 SQL Server 데이터 파일에 매우 유용합니다. *ReadOnly* 캐싱은 낮은 읽기 대기 시간, 높은 읽기 IOPS 및 처리량을 VM 메모리 및 로컬 SSD 내에 있는 캐시에서 수행됩니다. 이러한 읽기는 Azure Blob 저장소의 데이터 디스크에서 읽는 것보다 훨씬 빠릅니다. 프리미엄 저장소는 캐시에서 제공된 읽기를 디스크 IOPS 및 처리량으로 계산하지 않습니다. 따라서 적용 가능한 총 IOPS 및 처리량을 더 높게 달성할 수 있습니다. 
 - 로그 파일이 순차적으로 작성되고 *ReadOnly* 캐싱의 이점을 얻지 않으므로 SQL Server Log 파일을 호스팅하는 디스크에는 *캐시* 구성을 사용할 수 없습니다. 
 - *ReadWrite* 캐싱은 SQL Server가 *ReadWrite* 캐시와의 데이터 일관성을 지원하지 않으므로 SQL Server 파일을 호스트하는 데 사용해서는 안 됩니다. *ReadOnly* Blob 캐시의 낭비 용량을 쓰고 쓰기가 *ReadOnly* Blob 캐시 계층을 통과하는 경우 대기 가 약간 증가합니다. 
 
@@ -140,7 +140,7 @@ Azure는 다음 설정을 사용하여 SQL Server VM에 스토리지 풀을 만�
 
 다음 테이블에서는 사용할 수 있는 세 가지 워크로드 유형 옵션 및 이에 해당하는 최적화를 설명합니다.
 
-| 워크로드 유형 | 설명 | 최적화 |
+| 워크로드 유형 | Description | 최적화 |
 | --- | --- | --- |
 | **일반** |대부분의 워크로드를 지원하는 기본 설정 |None |
 | **트랜잭션 처리** |기존의 데이터베이스 OLTP 워크로드용으로 스토리지를 최적화합니다. |추적 플래그 1117<br/>추적 플래그 1118 |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: yelevin
-ms.openlocfilehash: bc2fa02925e7f5c671085eb87ca0431d3fca7691
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5eed208ed79aeab4e46ed90dd4d340a8b445be96
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77587960"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461636"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Azure Sentinel 고객 관리 키 설정
 
@@ -60,11 +60,11 @@ CMK를 프로비전하려면 다음 단계를 따르십시오. 
     > [!NOTE]
     >  Azure 키 볼트는 키와 액세스를 보호하기 위해 복구 가능한 것으로 구성되어야 합니다.
 
-1.  [복구 옵션을 켜십시오.](../key-vault/key-vault-best-practices.md#turn-on-recovery-options)
+1.  [복구 옵션을 켜십시오.](../key-vault/general/best-practices.md#turn-on-recovery-options)
 
-    -   소프트 [삭제가](../key-vault/key-vault-ovw-soft-delete.md) 켜져 있는지 확인합니다.
+    -   소프트 [삭제가](../key-vault/general/overview-soft-delete.md) 켜져 있는지 확인합니다.
 
-    -   [지우기 보호를](../key-vault/key-vault-ovw-soft-delete.md#purge-protection) 켜면 소프트 삭제 후에도 비밀/볼트의 강제 삭제를 방지할 수 있습니다.
+    -   [지우기 보호를](../key-vault/general/overview-soft-delete.md#purge-protection) 켜면 소프트 삭제 후에도 비밀/볼트의 강제 삭제를 방지할 수 있습니다.
 
 ### <a name="step-2-enable-cmk-on-your-log-analytics-workspace"></a>2단계: 로그 분석 작업 영역에서 CMK 사용
 

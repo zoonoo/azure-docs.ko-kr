@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 29a4d20390575778ccdecde390c257ccf6a48eb1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ca36a7081aaf70ee2045ee7586184c89591df16
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76720931"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461517"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Azure DevTest Labs의 키 자격 증명 모음에서 비밀 저장
 Azure DevTest Labs를 사용하는 경우 복잡한 비밀을 입력해야 할 수 있습니다. 예를 들어 Windows VM의 암호, Linux VM의 공용 SSH 키 또는 아티팩트를 통해 Git 리포지토리를 복제하기 위한 개인용 액세스 토큰 등입니다. 비밀은 일반적으로 길며 임의 문자를 포함합니다. 따라서 특히 여러 번 동일한 비밀을 사용하는 경우 비밀 입력은 까다롭고 불편할 수 있습니다.
 
-이 문제를 해결하고 비밀을 안전한 장소에 보관하기 위해 DevTest Labs가 [Azure 키 자격 증명 모음](../key-vault/key-vault-overview.md)에서 비밀 저장을 지원합니다. 사용자가 처음으로 비밀을 저장하는 경우 DevTest Labs 서비스는 랩을 포함하고 키 자격 증명 모음에 비밀을 저장하는 동일한 리소스 그룹에서 키 자격 증명 모음을 자동으로 만듭니다. DevTest Labs에서는 각 사용자에 대한 별도 키 자격 증명 모음을 만듭니다. 
+이 문제를 해결하고 비밀을 안전한 장소에 보관하기 위해 DevTest Labs가 [Azure 키 자격 증명 모음](../key-vault/general/overview.md)에서 비밀 저장을 지원합니다. 사용자가 처음으로 비밀을 저장하는 경우 DevTest Labs 서비스는 랩을 포함하고 키 자격 증명 모음에 비밀을 저장하는 동일한 리소스 그룹에서 키 자격 증명 모음을 자동으로 만듭니다. DevTest Labs에서는 각 사용자에 대한 별도 키 자격 증명 모음을 만듭니다. 
 
 랩 사용자는 키 자격 증명 모음에서 비밀을 만들려면 먼저 랩 가상 컴퓨터를 만들어야 합니다. 이는 DevTest Lab 서비스가 랩 사용자를 유효한 사용자 문서와 연결해야 키 자격 증명 모음에 비밀을 만들고 저장할 수 있기 때문입니다. 
 

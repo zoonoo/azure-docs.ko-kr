@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: f38fd7c8e14f58052912f68a277f194fd3866f2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 029743dbb44ab0ebb6ab8f695c0c966137c45107
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970574"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459800"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Azure AD를 사용한 Azure 디스크 암호화(이전 릴리스)
 
@@ -35,7 +35,7 @@ Azure 디스크 암호화의 새로운 릴리스는 VM 디스크 암호화를 �
   - 키 자격 증명 모음에 연결하는 토큰을 얻으려면 IaaS VM이 Azure AD 끝점인 \[login.microsoftonline.com\]연결할 수 있어야 합니다.
   - 암호화 키를 고객 Key Vault에 쓰려면 IaaS VM에서 Key Vault 엔드포인트에 연결할 수 있어야 합니다.
   - IaaS VM은 Azure 확장 리포지토리를 호스팅하는 Azure Storage 엔드포인트 및 VHD 파일을 호스팅하는 Azure Storage 계정에 연결할 수 있어야 합니다.
-  -  보안 정책에서 Azure VM에서 인터넷으로의 액세스를 제한하는 경우 이전 URI를 해결하고 특정 규칙을 구성하여 IP에 대한 아웃바운드 연결을 허용할 수 있습니다. 자세한 내용은 [방화벽 뒤에 있는 Azure Key Vault](../../key-vault/key-vault-access-behind-firewall.md)를 참조하세요.
+  -  보안 정책에서 Azure VM에서 인터넷으로의 액세스를 제한하는 경우 이전 URI를 해결하고 특정 규칙을 구성하여 IP에 대한 아웃바운드 연결을 허용할 수 있습니다. 자세한 내용은 [방화벽 뒤에 있는 Azure Key Vault](../../key-vault/general/access-behind-firewall.md)를 참조하세요.
   - Windows에서 TLS 1.0을 명시적으로 사용하지 않도록 설정하고 .NET 버전이 4.6 이상으로 업데이트되지 않은 경우 다음 레지스트리 변경을 통해 Azure Disk 암호화를 사용하여 최신 TLS 버전을 선택할 수 있습니다.
     
             [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]

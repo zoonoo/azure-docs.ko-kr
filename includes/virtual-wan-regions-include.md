@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 757367e2b9773908b81ad35615a23b1b5c67aa3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c822e8af076f74e1bccc46b7a71717d9631de0a1
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80116981"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461957"
 ---
 ### <a name="azure-regions-within-a-geopolitical-region"></a>지정학적 지역 내의 Azure 지역
 
@@ -42,5 +42,5 @@ ms.locfileid: "80116981"
 |지역 | Azure 지역|
 |---|---|
 | 미국 정부 클라우드 | US Gov 애리조나, US Gov 아이오와, US Gov 텍사스, US Gov 버지니아, US DoD 중부, US DoD 동부 |
-| 중국 동부 | 중국 동부, 중국 동부2|
-| 중국 북부 | 중국 북부, 중국 북부2 |
+| 중국 동부 | 중국 동부2|
+| 중국 북부 | 중국 북부2 |

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92d96abd343266372984918fd0c942ec1cae865f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 2b2b901f652564c47ca35cb0f75a69f26fa2fa71
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81428304"
+ms.locfileid: "81533227"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Azure Active Directory의 관리 단위에 사용자 추가 및 관리
 
@@ -51,9 +51,9 @@ Azure Active Directory(Azure AD)에서 보다 세분화된 관리 범위의 제�
 
 ### <a name="powershell"></a>PowerShell
 
-    $administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+    $administrativeunitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
     $UserObj = Get-AzureADUser -Filter "UserPrincipalName eq 'billjohn@fabidentity.onmicrosoft.com'"
-    Add-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId -RefObjectId $UserObj.ObjectId
+    Add-AzureADAdministrativeUnitMember -ObjectId $administrativeunitObj.ObjectId -RefObjectId $UserObj.ObjectId
 
 위의 예에서 cmdlet 추가-AzureAD관리UnitMember 관리 단위에 사용자를 추가 하는 데 사용 됩니다. 사용자를 추가할 관리 단위의 개체 ID와 추가할 사용자의 개체 ID가 인수로 사용됩니다. 강조 표시된 섹션은 특정 환경에 필요에 따라 변경될 수 있습니다.
 
@@ -66,7 +66,7 @@ Azure Active Directory(Azure AD)에서 보다 세분화된 관리 범위의 제�
       "@odata.id":"https://graph.microsoft.com/beta/users/{id}"
     }
 
-예제:
+예:
 
     {
       "@odata.id":"https://graph.microsoft.com/beta/users/johndoe@fabidentity.com"

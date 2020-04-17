@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 7bc637b5719da3c5f5e5607436aa7da0721f5a9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fcc7c5b8fa182cace6e3dae0b1cae4cd41c5dcb9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266014"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532593"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>FTP/S를 사용하여 앱에 Azure App Service에 배포
 
@@ -67,7 +67,7 @@ FTP 대시보드에서 **복사를** 선택하여 FTPS 끝점 및 앱 자격 증
 
 ## <a name="enforce-ftps"></a>FTPS 적용
 
-보안 향상을 위해 SSL을 통한 FTP만 허용해야 합니다. FTP 배포를 사용하지 않을 경우 FTP 및 FTPS를 둘 다 사용하지 않도록 설정할 수도 있습니다.
+보안을 강화하려면 TLS/SSL에 대해서만 FTP를 허용해야 합니다. FTP 배포를 사용하지 않을 경우 FTP 및 FTPS를 둘 다 사용하지 않도록 설정할 수도 있습니다.
 
 [Azure 포털의](https://portal.azure.com)앱 리소스 페이지에서 왼쪽 탐색에서 일반 **구성** > **설정을** 선택합니다.
 

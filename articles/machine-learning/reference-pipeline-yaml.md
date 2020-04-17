@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
-ms.openlocfilehash: a677aaa891e21f4c9eeda02eebcb94e9d79a55ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40e6d7f3d9c28708c5adec26ddc3c0463e75adc0
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368828"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81529708"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>YAML에서 기계 학습 파이프라인 정의
 
@@ -25,14 +25,14 @@ ms.locfileid: "79368828"
 
 | 단계 유형 | 지원 여부 |
 | ----- | :-----: |
-| 파이썬 스크립트 스텝 | yes |
-| 애들라스텝 | yes |
-| Azure 배치 단계 | yes |
-| 데이터 브릭스스스스텝 | yes |
-| 데이터 전송 단계 | yes |
+| 파이썬 스크립트 스텝 | 예 |
+| 애들라스텝 | 예 |
+| Azure 배치 단계 | 예 |
+| 데이터 브릭스스스스텝 | 예 |
+| 데이터 전송 단계 | 예 |
 | 자동 ML 스텝 | 예 |
 | HyperDriveStep | 예 |
-| 모듈 스텝 | yes |
+| 모듈 스텝 | 예 |
 | MPIStep | 예 |
 | EstimatorStep | 예 |
 
@@ -40,7 +40,7 @@ ms.locfileid: "79368828"
 
 파이프라인 정의는 파이프라인 클래스에 해당하는 다음 [키를](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline?view=azure-ml-py) 사용합니다.
 
-| YAML 키 | 설명 |
+| YAML 키 | Description |
 | ----- | ----- |
 | `name` | 파이프라인에 대한 설명입니다. |
 | `parameters` | 파이프라인에 대한 매개 변수입니다. |
@@ -52,7 +52,7 @@ ms.locfileid: "79368828"
 
 이 `parameters` 섹션에서는 [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py) 클래스에 해당하는 다음 키를 사용합니다.
 
-| YAML 키 | 설명 |
+| YAML 키 | Description |
 | ---- | ---- |
 | `type` | 매개 변수의 값 형식입니다. `string`유효한 형식은 `int` `float`" `bool`, `datapath` |
 | `default` | 기본값입니다. |
@@ -80,7 +80,7 @@ pipeline:
 
 이 `data_references` 섹션에서는 [DataReference에](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py)해당하는 다음 키를 사용합니다.
 
-| YAML 키 | 설명 |
+| YAML 키 | Description |
 | ----- | ----- |
 | `datastore` | 참조할 데이터스토어입니다. |
 | `path_on_datastore` | 데이터 참조에 대한 백업 저장소의 상대 경로입니다. |
@@ -104,7 +104,7 @@ pipeline:
 
 단계는 환경에서 실행할 파일과 함께 계산 환경을 정의합니다. 단계 유형을 정의하려면 키를 `type` 사용합니다.
 
-| 단계 유형 | 설명 |
+| 단계 유형 | Description |
 | ----- | ----- |
 | `AdlaStep` | Azure 데이터 레이크 분석기능을 사용하여 U-SQL 스크립트를 실행합니다. [AdlaStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.adlastep?view=azure-ml-py) 클래스에 해당합니다. |
 | `AzureBatchStep` | Azure 일괄 처리를 사용하여 작업을 실행합니다. [AzureBatchStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep?view=azure-ml-py) 클래스에 해당 합니다. |
@@ -114,7 +114,7 @@ pipeline:
 
 ### <a name="adla-step"></a>ADLA 단계
 
-| YAML 키 | 설명 |
+| YAML 키 | Description |
 | ----- | ----- |
 | `script_name` | U-SQL 스크립트의 이름입니다(에 `source_directory`상대). |
 | `compute_target` | Azure Data Lake는 이 단계에 사용할 대상을 계산합니다. |
@@ -165,7 +165,7 @@ pipeline:
 
 ### <a name="azure-batch-step"></a>Azure 일괄 처리 단계
 
-| YAML 키 | 설명 |
+| YAML 키 | Description |
 | ----- | ----- |
 | `compute_target` | Azure Batch는 이 단계에 사용할 대상을 계산합니다. |
 | `inputs` | 입력은 [입력포트바인딩,](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py) [데이터 참조,](#data-reference) [포트데이터참조,](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py) [파이프라인데이터,](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) [데이터집합,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) [데이터집합정의,](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)또는 [파이프라인데이터셋일](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py)수 있습니다. |
@@ -219,7 +219,7 @@ pipeline:
 
 ### <a name="databricks-step"></a>데이터 브릭 스텝
 
-| YAML 키 | 설명 |
+| YAML 키 | Description |
 | ----- | ----- |
 | `compute_target` | Azure Databricks는 이 단계에 사용할 대상을 계산합니다. |
 | `inputs` | 입력은 [입력포트바인딩,](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py) [데이터 참조,](#data-reference) [포트데이터참조,](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py) [파이프라인데이터,](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) [데이터집합,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) [데이터집합정의,](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)또는 [파이프라인데이터셋일](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py)수 있습니다. |
@@ -273,7 +273,7 @@ pipeline:
 
 ### <a name="data-transfer-step"></a>데이터 전송 단계
 
-| YAML 키 | 설명 |
+| YAML 키 | Description |
 | ----- | ----- |
 | `compute_target` | Azure 데이터 팩터리는 이 단계에 사용할 대상을 계산합니다. |
 | `source_data_reference` | 데이터 전송 작업의 소스 역할을 하는 입력 연결입니다. 지원되는 값은 [inputPortBinding,](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py) [데이터 참조,](#data-reference) [포트데이터 참조,](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py) [파이프라인 데이터,](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) [데이터 집합,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) [데이터 집합 정의](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)또는 [파이프라인데이터 집합입니다.](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py) |
@@ -317,9 +317,8 @@ pipeline:
 
 ### <a name="python-script-step"></a>파이썬 스크립트 단계
 
-| YAML 키 | 설명 |
+| YAML 키 | Description |
 | ----- | ----- |
-| `compute_target` | 이 단계에 사용할 계산 대상입니다. 계산 대상은 Azure 기계 학습 계산, 가상 컴퓨터(예: 데이터 과학 VM) 또는 HDInsight일 수 있습니다. |
 | `inputs` | 입력은 [입력포트바인딩,](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py) [데이터 참조,](#data-reference) [포트데이터참조,](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py) [파이프라인데이터,](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) [데이터집합,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) [데이터집합정의,](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)또는 [파이프라인데이터셋일](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py)수 있습니다. |
 | `outputs` | 출력은 [파이프라인데이터](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) 또는 [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py)입니다. |
 | `script_name` | 파이썬 스크립트의 이름(상대)입니다. `source_directory` |
@@ -363,11 +362,70 @@ pipeline:
                     bind_mode: mount
 ```
 
+### <a name="pipeline-with-multiple-steps"></a>여러 단계가 있는 파이프라인 
+
+| YAML 키 | Description |
+| ----- | ----- |
+| `steps` | 하나 이상의 파이프라인스텝 정의 시퀀스입니다. 한 `destination` 단계의 키가 의 `outputs` 의 키가 `inputs` 됩니다.| 
+
+```yaml
+pipeline:
+    name: SamplePipelineFromYAML
+    description: Sample multistep YAML pipeline
+    data_references:
+        TitanicDS:
+            dataset_name: 'titanic_ds'
+            bind_mode: download
+    default_compute: cpu-cluster
+    steps:
+        Dataprep:
+            type: "PythonScriptStep"
+            name: "DataPrep Step"
+            compute: cpu-cluster
+            runconfig: ".\\default_runconfig.yml"
+            script_name: "prep.py"
+            arguments:
+            - '--train_path'
+            - output:train_path
+            - '--test_path'
+            - output:test_path
+            allow_reuse: True
+            inputs:
+                titanic_ds:
+                    source: TitanicDS
+                    bind_mode: download
+            outputs:
+                train_path:
+                    destination: train_csv
+                    datastore: workspaceblobstore
+                test_path:
+                    destination: test_csv
+        Training:
+            type: "PythonScriptStep"
+            name: "Training Step"
+            compute: cpu-cluster
+            runconfig: ".\\default_runconfig.yml"
+            script_name: "train.py"
+            arguments:
+            - "--train_path"
+            - input:train_path
+            - "--test_path"
+            - input:test_path
+            inputs:
+                train_path:
+                    source: train_csv
+                    bind_mode: download
+                test_path:
+                    source: test_csv
+                    bind_mode: download
+
+```
+
 ## <a name="schedules"></a>일정
 
 파이프라인의 일정을 정의할 때 시간 간격에 따라 데이터 스토어 트리거되거나 되풀이될 수 있습니다. 다음은 일정을 정의하는 데 사용되는 키입니다.
 
-| YAML 키 | 설명 |
+| YAML 키 | Description |
 | ----- | ----- |
 | `description` | 일정에 대한 설명입니다. |
 | `recurrence` | 일정이 되풀이되는 경우 되풀이 설정을 포함합니다. |
@@ -398,7 +456,7 @@ Schedule:
 
 **되풀이 일정을**정의할 때 다음 `recurrence`키를 사용합니다.
 
-| YAML 키 | 설명 |
+| YAML 키 | Description |
 | ----- | ----- |
 | `frequency` | 일정이 되풀이되는 빈도입니다. `"Minute"`유효한 값은 `"Hour"` `"Day"`" `"Week"`, `"Month"` |
 | `interval` | 일정이 얼마나 자주 발생합니다. 정수 값은 일정이 다시 발생할 때까지 기다릴 시간 단위의 수입니다. |

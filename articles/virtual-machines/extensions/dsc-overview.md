@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: c61ba0840b75bff10af1d802a9b90c922ef1f12f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: adb36e14bb7b772d3e28361bdc48d248bd84f41f
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415880"
+ms.locfileid: "81458967"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 필요한 상태 구성 확장 처리기 소개
 
@@ -73,7 +73,7 @@ DSC 확장을 사용하여 노드를 상태 구성 서비스에 등록하는 경
 - RegistrationKey - 서비스에 노드를 등록하는 데 사용되는 공유 비밀
 - NodeConfigurationName - 서버 역할을 구성하기 위해 서비스에서 가져올 노드 구성(MOF)의 이름입니다.
 
-이 정보는 [Azure 포털에서](../../automation/automation-dsc-onboarding.md#onboard-vms-by-using-the-azure-portal) 볼 수 있거나 PowerShell을 사용할 수 있습니다.
+이 정보는 Azure 포털에서 볼 수 있거나 PowerShell을 사용할 수 있습니다.
 
 ```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint

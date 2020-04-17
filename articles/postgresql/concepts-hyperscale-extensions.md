@@ -1,18 +1,18 @@
 ---
 title: 확장 - 하이퍼 스케일 (시터스) - PostgreSQL에 대한 Azure 데이터베이스
 description: PostgreSQL - 하이퍼스케일(Citus)에 대한 Azure 데이터베이스의 확장을 사용하여 데이터베이스의 기능을 확장하는 기능에 대해 설명합니다.
-author: rachel-msft
-ms.author: raagyema
+author: jonels-msft
+ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 02/18/2020
-ms.openlocfilehash: 84b28096904db49f98c16601c5927928ad38743b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: 5d0798c77135b15e26c9787d9844cd9525cf12c5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77485406"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532020"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>PostgreSQL에 대 한 Azure 데이터베이스에서 PostgreSQL 확장 – 하이퍼 스케일 (시터스)
 
@@ -31,7 +31,7 @@ PostgreSQL용 Azure 데이터베이스 - 하이퍼스케일(Citus)은 현재 여
 ### <a name="data-types-extensions"></a>데이터 형식 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [citext](https://www.postgresql.org/docs/current/static/citext.html) | 대/소문자 구분 문자 문자열 형식을 제공합니다. |
 > | [큐브](https://www.postgresql.org/docs/current/static/cube.html) | 다차원 큐브의 데이터 형식을 제공합니다. |
@@ -46,7 +46,7 @@ PostgreSQL용 Azure 데이터베이스 - 하이퍼스케일(Citus)은 현재 여
 ### <a name="full-text-search-extensions"></a>전체 텍스트 검색 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [dict\_int](https://www.postgresql.org/docs/current/static/dict-int.html) | 정수에 대한 텍스트 검색 사전 템플릿을 제공합니다. |
 > | [딕트\_xsyn](https://www.postgresql.org/docs/current/dict-xsyn.html) | 확장 된 동의어 처리를위한 텍스트 검색 사전 템플릿. |
@@ -55,7 +55,7 @@ PostgreSQL용 Azure 데이터베이스 - 하이퍼스케일(Citus)은 현재 여
 ### <a name="functions-extensions"></a>함수 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [오토인크](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.7) | 자동 증분 필드에 대한 함수입니다. |
 > | [earthdistance](https://www.postgresql.org/docs/current/static/earthdistance.html) | 지구 표면의 대원 거리를 계산하는 방법을 제공합니다. |
@@ -77,7 +77,7 @@ PostgreSQL용 Azure 데이터베이스 - 하이퍼스케일(Citus)은 현재 여
 ### <a name="hyperscale-extensions"></a>하이퍼스케일 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [시터스 (있는)](https://github.com/citusdata/citus) | 시터스 분산 데이터베이스. |
 > | 샤드\_리밸저 | 노드 추가 또는 제거시 서버 그룹의 데이터를 안전하게 재조정합니다. |
@@ -85,7 +85,7 @@ PostgreSQL용 Azure 데이터베이스 - 하이퍼스케일(Citus)은 현재 여
 ### <a name="index-types-extensions"></a>인덱스 유형 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [꽃](https://www.postgresql.org/docs/current/bloom.html) | Bloom 액세스 방법 - 서명 파일 기반 인덱스입니다. |
 > | [btree\_gin](https://www.postgresql.org/docs/current/static/btree-gin.html) | 특정 데이터 형식에 대해 B-트리와 같은 동작을 구현하는 샘플 GIN 연산자 클래스를 제공합니다. |
@@ -94,14 +94,14 @@ PostgreSQL용 Azure 데이터베이스 - 하이퍼스케일(Citus)은 현재 여
 ### <a name="language-extensions"></a>언어 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/current/static/plpgsql.html) | PL/pgSQL 로드 가능 절차 언어. |
 
 ### <a name="miscellaneous-extensions"></a>기타 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [관리 팩](https://www.postgresql.org/docs/current/adminpack.html) | PostgreSQL에 대한 관리 기능. |
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | 관계 무결성을 확인하는 기능입니다. |
@@ -127,7 +127,7 @@ PostgreSQL용 Azure 데이터베이스 - 하이퍼스케일(Citus)은 현재 여
 ### <a name="postgis-extensions"></a>PostGIS 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | PostgreSQL에 대한 공간 및 지리적 개체입니다. |
 > | address\_standardizer, address\_standardizer\_data\_us | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. 지오코딩 주소 정규화 단계를 지원하는 데 사용됩니다. |

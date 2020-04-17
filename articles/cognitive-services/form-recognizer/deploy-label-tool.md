@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 03/20/2020
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 795d21e05ade652b52c06d597ca4c5fef85e7245
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ddb4b2cd465b5e9542d777d33b9bd8cb952becd
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80152845"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531340"
 ---
-# <a name="deploy-the-sample-labeling-tool"></a>샘플 라벨링 도구 배포
+# <a name="deploy-the-sample-labeling-tool"></a>샘플 레이블 지정 도구 배포
 
 양식 인식기 샘플 레이블 지정 도구는 간단한 사용자 인터페이스(UI)를 제공하는 응용 프로그램으로, 감독 학습을 위해 양식(문서)에 수동으로 레이블을 지정하는 데 사용할 수 있습니다. 이 문서에서는 다음 방법을 알려주는 링크와 지침을 제공합니다.
 
@@ -34,15 +34,15 @@ ms.locfileid: "80152845"
 
 시작하기 전에 샘플 레이블 지정 도구를 ACI(Azure 컨테이너 인스턴스)에 배포하는 두 가지 방법이 있습니다. 두 옵션 모두 ACI를 사용하여 샘플 레이블 지정 도구를 실행하는 데 사용됩니다. 
 
-* [Azure 포털 사용](#azure-portal)
+* [Azure Portal 사용](#azure-portal)
 * [Azure CLI 사용](#azure-cli)
 
 ### <a name="azure-portal"></a>Azure portal
 
 다음 단계에 따라 Azure 포털을 사용하여 새 리소스를 만듭니다. 
 
-1. [Azure 포털에](https://portal.azure.com/signin/index/)로그인합니다.
-2. **리소스 만들기를 선택합니다.** 
+1. [Azure Portal](https://portal.azure.com/signin/index/)에 로그인합니다.
+2. **리소스 만들기**를 선택합니다. 
 3. 다음으로 **웹 앱을**선택합니다. 
 
    > [!div class="mx-imgBorder"]
@@ -76,6 +76,7 @@ ms.locfileid: "80152845"
    * 사용자 이름(선택 사항) - 사용자 이름을 만듭니다. 
    * 암호(선택 사항) - 기억할 보안 암호를 만듭니다.
    * 이미지 및 태그 - 이 것을 다음으로 설정합니다.`mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+   * 연속 배포 - 개발 팀이 샘플 레이블 지정 도구를 변경할 때 자동 업데이트를 받으려면 이 설정을 **On으로** 설정합니다.
    * 시작 명령 - 이 것을`./run.sh eula=accept`
 
    > [!div class="mx-imgBorder"]
@@ -120,7 +121,7 @@ az container create \
 
 ## <a name="open-source-on-github"></a>GitHub의 오픈 소스
 
-OCR 양식 라벨링 도구는 GitHub의 오픈 소스 프로젝트로도 사용할 수 있습니다. 이 도구는 React + Redux를 사용하여 빌드된 웹 응용 프로그램으로 TypeScript로 작성되었습니다. 자세한 내용을 보거나 기여하려면 [OCR 양식 레이블 지정 도구를](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md)참조하십시오.
+OCR 양식 라벨링 도구는 GitHub의 오픈 소스 프로젝트로도 사용할 수 있습니다. 도구는 React + Redux를 사용하여 빌드한 웹 애플리케이션으로, TypeScript로 작성되었습니다. 자세히 알아보거나 기여하려면 [OCR 양식 레이블 지정 도구](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

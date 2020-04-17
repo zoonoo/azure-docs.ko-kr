@@ -3,12 +3,12 @@ title: 관리 테넌트의 위임 변경 사항 모니터링
 description: 고객 테넌트에서 관리 테넌트에 이르는 위임 활동을 모니터링하는 방법을 알아봅니다.
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 322580cc3d0246f7a34e28cdae94da57fda070b5
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: a4593b34311eca34e4fb68926a3820899ab3f324
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985153"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458814"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>관리 테넌트의 위임 변경 사항 모니터링
 
@@ -44,7 +44,7 @@ ms.locfileid: "80985153"
 
 - 이 역할을 다른 자동화에 사용되는 기존 서비스 주체에 할당하는 대신 이 함수에만 사용할 [새 서비스 주체 계정을 만듭니다.](../../active-directory/develop/howto-create-service-principal-portal.md)
 - 이 서비스 주체가 위임된 고객 리소스에 액세스할 수 없는지 확인합니다.
-- [인증서를 사용하여 Azure](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) [Key Vault에 인증서를 안전하게](../../key-vault/key-vault-best-practices.md)인증하고 저장합니다.
+- [인증서를 사용하여 Azure](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) [Key Vault에 인증서를 안전하게](../../key-vault/general/best-practices.md)인증하고 저장합니다.
 - 서비스 주체를 대신하여 조치를 사용할 수 있는 사용자를 제한합니다.
 
 다음 방법 중 하나를 사용하여 루트 범위를 할당합니다.

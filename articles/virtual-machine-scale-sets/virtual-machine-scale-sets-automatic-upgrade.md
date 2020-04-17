@@ -7,12 +7,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mimckitt
-ms.openlocfilehash: ee6a25ac5a4cc7de8b8340afb186d170cc147a38
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 70810b21def1672758683abd49f92b86776c9d7b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393781"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458984"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Azure Virtual Machine Scale Sets 자동 OS 업그레이드
 
@@ -158,7 +158,7 @@ az provider register --namespace Microsoft.Compute
 - 새 이미지 버전은 해당 갤러리 이미지의 최신 버전에서 제외해서는 안 됩니다. 갤러리 이미지의 최신 버전에서 제외된 이미지 버전은 자동 OS 이미지 업그레이드를 통해 설정된 축척으로 롤아웃되지 않습니다.
 
 > [!NOTE]
->자동 OS 업그레이드를 위해 스케일 세트를 구성한 후 스케일 세트가 첫 번째 이미지 롤아웃을 얻는 데 최대 2시간이 걸릴 수 있습니다. 이는 스케일 집합당 일회성 지연입니다. 이 지연 없이 배율 집합에 후속 이미지 롤아웃이 적용됩니다.
+>확장 집합이 자동 OS 업그레이드를 위해 스케일 세트를 구성한 후 첫 번째 이미지 업그레이드 롤아웃을 트리거하는 데 최대 3시간이 걸릴 수 있습니다. 이는 스케일 집합당 일회성 지연입니다. 이후의 이미지 롤아웃은 30분 이내에 설정된 스케일에서 트리거됩니다.
 
 
 ## <a name="configure-automatic-os-image-upgrade"></a>자동 OS 이미지 업그레이드 구성

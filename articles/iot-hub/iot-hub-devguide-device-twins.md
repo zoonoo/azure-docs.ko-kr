@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/01/2020
-ms.openlocfilehash: 51e58de92f111c8854add613a299f2b8ccec0503
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 251c9c9717bae1728bffa48827a45d4535d66c15
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79285241"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482085"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>IoT Hub의 디바이스 쌍 이해 및 사용
 
@@ -58,7 +58,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 * **reported 속성**. desired 속성과 함께 디바이스 구성 또는 상황을 동기화하는 데 사용됩니다. 디바이스 앱은 reported 속성을 설정할 수 있으며 솔루션 백 엔드는 이를 읽고 쿼리할 수 있습니다.
 
-* **디바이스 ID 속성**. 디바이스 쌍 JSON 문서의 루트에는 [ID 레지스트리](iot-hub-devguide-identity-registry.md)에 포함된 해당 디바이스 ID의 읽기 전용 속성이 포함됩니다.
+* **디바이스 ID 속성**. 디바이스 쌍 JSON 문서의 루트에는 [ID 레지스트리](iot-hub-devguide-identity-registry.md)에 포함된 해당 디바이스 ID의 읽기 전용 속성이 포함됩니다. 속성및는 `connectionStateUpdatedTime` `generationId` 포함되지 않습니다.
 
 ![디바이스 쌍 속성의 스크린샷](./media/iot-hub-devguide-device-twins/twin.png)
 
@@ -119,7 +119,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 ### <a name="desired-property-example"></a>desired 속성 예제
 
-이전 예제에서 `telemetryConfig` 디바이스 쌍 desired 및 reported 속성은 솔루션 백 엔드 및 디바이스 앱에서 이 디바이스의 원격 분석 구성을 동기화하는 데 사용됩니다. 예를 들어:
+이전 예제에서 `telemetryConfig` 디바이스 쌍 desired 및 reported 속성은 솔루션 백 엔드 및 디바이스 앱에서 이 디바이스의 원격 분석 구성을 동기화하는 데 사용됩니다. 다음은 그 예입니다.
 
 1. 솔루션 백 엔드는 desired 구성 값으로 desired 속성을 설정합니다. 다음은 desired 속성 집합이 포함된 문서의 일부분입니다.
 
@@ -182,7 +182,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
   - 속성
 
-    | 이름 | 값 |
+    | 속성 | 값 |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  알림이 전송된 시간 |
@@ -307,7 +307,7 @@ IoT Hub는 `tags`에러로 거부하여 의 `properties/desired`크기를 늘리
 
 IoT Hub는 디바이스 쌍 desired 또는 reported 속성의 각 JSON 개체에 대한 마지막 업데이트의 타임스탬프를 유지합니다. 타임스탬프는 UTC 형식이며 [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 형식 `YYYY-MM-DDTHH:MM:SS.mmmZ`로 인코딩됩니다.
 
-예를 들어:
+다음은 그 예입니다.
 
 ```json
 {
@@ -405,4 +405,4 @@ IoT Hub는 연결되지 않은 디바이스에 대한 desired 속성 업데이�
 
 * [디바이스 쌍을 사용하는 방법](iot-hub-node-node-twin-getstarted.md)
 * [장치 쌍 속성 사용 방법](tutorial-device-twins.md)
-* [VS Code용 Azure IoT Tools를 사용한 디바이스 관리](iot-hub-device-management-iot-toolkit.md)
+* [VS Code용 Azure IoT Tools를 사용하여 디바이스 관리](iot-hub-device-management-iot-toolkit.md)

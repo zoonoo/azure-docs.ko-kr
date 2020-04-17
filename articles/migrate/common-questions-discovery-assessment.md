@@ -2,13 +2,13 @@
 title: Azure 마이그레이션에서 검색, 평가 및 종속성 분석에 대한 질문
 description: Azure 마이그레이션에서 검색, 평가 및 종속성 분석에 대한 일반적인 질문에 대한 답변을 가져옵니다.
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 7a63271811053ee2da79f134ac117559e31b0fed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 700e5318b66cdf4993a17b1dae85fb43f75ab035
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460809"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81529776"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>검색, 평가 및 종속성 분석 - 일반적인 질문
 
@@ -19,9 +19,16 @@ ms.locfileid: "79460809"
 - 서버 [마이그레이션에](common-questions-server-migration.md) 대한 질문
 - [Azure 마이그레이션 포럼에서](https://aka.ms/AzureMigrateForum) 질문에 대한 답변 받기
 
+
+## <a name="what-geographies-are-supported-for-discovery-and-assessment-with-azure-migrate"></a>Azure 마이그레이션을 통해 검색 및 평가에 지원되는 지역은 무엇입니까?
+
+[지원되는](migrate-support-matrix.md#supported-geographies-public-cloud) 지역을 공용 및 정부 클라우드에 대해 [검토합니다.](migrate-support-matrix.md#supported-geographies-azure-government)
+
+
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>어플라이언스를 통해 몇 개의 VM을 검색할 수 있습니까?
 
 단일 어플라이언스를 사용하여 최대 10,000개의 VM웨어 VM, 최대 5,000개의 Hyper-V VM 및 최대 250개의 물리적 서버를 검색할 수 있습니다. 컴퓨터가 더 많은 경우 [Hyper-V 평가 크기 조정,](scale-hyper-v-assessment.md) [VMware 평가 크기 조정](scale-vmware-assessment.md)또는 [실제 서버 평가 확장에](scale-physical-assessment.md)대해 읽어보십시오.
+
 
 ## <a name="the-size-of-my-vm-changed-can-i-run-an-assessment-again"></a>VM의 크기가 변경되었습니다. 평가를 다시 실행할 수 있습니까?
 
@@ -77,7 +84,7 @@ Azure에서 평가를 만들 때 성능 기간 및 설정된 성능 기록 백�
 
 ## <a name="what-is-dependency-visualization"></a>종속성 시각화란?
 
-종속성 시각화를 사용하면 VM 그룹을 평가하여 보다 안심하고 마이그레이션할 수 있습니다. 종속성 시각화는 평가를 실행하기 전에 컴퓨터 종속성을 교차 검사합니다. 아무 것도 남지 않도록 하고 Azure로 마이그레이션할 때 예기치 않은 중단을 방지하는 데 도움이 됩니다. Azure Migrate는 Azure Monitor의 서비스 맵 솔루션을 사용하여 종속성 시각화를 사용하도록 설정합니다. [자세히 알아봅니다](concepts-dependency-visualization.md).
+종속성 시각화를 사용하면 VM 그룹을 평가하여 보다 안심하고 마이그레이션할 수 있습니다. 종속성 시각화는 평가를 실행하기 전에 컴퓨터 종속성을 교차 검사합니다. 아무 것도 남지 않도록 하고 Azure로 마이그레이션할 때 예기치 않은 중단을 방지하는 데 도움이 됩니다. Azure Migrate는 Azure Monitor의 서비스 맵 솔루션을 사용하여 종속성 시각화를 사용하도록 설정합니다. [자세히 알아보기](concepts-dependency-visualization.md).
 
 > [!NOTE]
 > Azure 정부에서는 종속성 시각화를 사용할 수 없습니다.
@@ -88,10 +95,10 @@ Azure에서 평가를 만들 때 성능 기간 및 설정된 성능 기록 백�
 
 **요구 사항** | **에이전트 없음** | **에이전트 기반**
 --- | --- | ---
-고객 지원팀 | 이 옵션은 현재 미리 보기 중이며 VMware VM에서만 사용할 수 있습니다. 지원되는 운영 체제를 [검토합니다.](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) | 일반 공급 (GA).
+지원 | 이 옵션은 현재 미리 보기 중이며 VMware VM에서만 사용할 수 있습니다. 지원되는 운영 체제를 [검토합니다.](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) | 일반 공급 (GA).
 에이전트 | 교차 확인하려는 컴퓨터에 에이전트를 설치할 필요가 없습니다. | 분석하려는 각 온-프레미스 컴퓨터에 설치할 에이전트: [MMA(Microsoft 모니터링 에이전트)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)및 [종속성 에이전트](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
 사전 요구 사항 | 필수 구성 조건 및 배포 요구 사항을 [검토합니다.](concepts-dependency-visualization.md#agentless-analysis) | 필수 구성 조건 및 배포 요구 사항을 [검토합니다.](concepts-dependency-visualization.md#agent-based-analysis)
-Log Analytics | 필요하지 않습니다. | Azure Migrate는 종속성 시각화를 위해 [Azure Monitor 로그의](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) [서비스 맵](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) 솔루션을 사용합니다. [자세히 알아봅니다](concepts-dependency-visualization.md#agent-based-analysis).
+Log Analytics | 필요하지 않습니다. | Azure Migrate는 종속성 시각화를 위해 [Azure Monitor 로그의](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) [서비스 맵](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) 솔루션을 사용합니다. [자세히 알아보기](concepts-dependency-visualization.md#agent-based-analysis).
 작동 방법 | 종속성 시각화에 사용하도록 설정된 컴퓨터에서 TCP 연결 데이터를 캡처합니다. 검색 후 5분 간격으로 데이터를 수집합니다. | 컴퓨터에 설치된 서비스 맵 에이전트는 각 프로세스에 대한 TCP 프로세스 및 인바운드/아웃바운드 연결에 대한 데이터를 수집합니다.
 데이터 | 소스 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다. | 소스 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다.<br/><br/> 연결 수, 대기 시간 및 데이터 전송 정보가 수집되어 Log Analytics 쿼리에 사용할 수 있습니다. 
 시각화 | 단일 서버의 종속성 맵은 1시간에서 30일 동안 볼 수 있습니다. | 단일 서버의 종속성 맵입니다.<br/><br/> 지도는 한 시간 동안만 볼 수 있습니다.<br/><br/> 서버 그룹의 종속성 맵입니다.<br/><br/> 맵 보기에서 그룹의 서버를 추가 및 제거합니다.

@@ -7,19 +7,19 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7dd9106539b6756d74629ac663241a5b5562cefb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d48f83df4e83fd1d1fe38eea76432e1b1c711b76
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75437053"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461466"
 ---
 # <a name="expressroute-encryption"></a>익스프레스루트 암호화
  
 ExpressRoute는 네트워크와 Microsoft 네트워크 간에 트래버스하는 데이터의 기밀성과 무결성을 보장하기 위해 몇 가지 암호화 기술을 지원합니다.
 
 ## <a name="point-to-point-encryption-by-macsec-faq"></a>MACsec FAQ에 의한 포인트 간 암호화
-MACsec은 [IEEE 표준입니다.](https://1.ieee802.org/security/802-1ae/) MAC(미디어 액세스 제어) 수준 또는 네트워크 계층 2에서 데이터를 암호화합니다. [ExpressRoute Direct를](expressroute-erdirect-about.md)통해 Microsoft에 연결할 때 MACsec을 사용하여 네트워크 장치와 Microsoft 네트워크 장치 간의 물리적 링크를 암호화할 수 있습니다. MACsec은 기본적으로 익스프레스루트 다이렉트 포트에서 비활성화됩니다. 암호화를 위해 고유한 MACsec 키를 가져와 [Azure 키 볼트](../key-vault/key-vault-overview.md)에 저장합니다. 키를 회전할 시기를 결정합니다. 아래의 다른 자주 묻는 질문(FAQ)을 참조하십시오.
+MACsec은 [IEEE 표준입니다.](https://1.ieee802.org/security/802-1ae/) MAC(미디어 액세스 제어) 수준 또는 네트워크 계층 2에서 데이터를 암호화합니다. [ExpressRoute Direct를](expressroute-erdirect-about.md)통해 Microsoft에 연결할 때 MACsec을 사용하여 네트워크 장치와 Microsoft 네트워크 장치 간의 물리적 링크를 암호화할 수 있습니다. MACsec은 기본적으로 익스프레스루트 다이렉트 포트에서 비활성화됩니다. 암호화를 위해 고유한 MACsec 키를 가져와 [Azure 키 볼트](../key-vault/general/overview.md)에 저장합니다. 키를 회전할 시기를 결정합니다. 아래의 다른 자주 묻는 질문(FAQ)을 참조하십시오.
 ### <a name="can-i-enable-macsec-on-my-expressroute-circuit-provisioned-by-an-expressroute-provider"></a>익스프레스루트 제공업체가 프로비전한 익스프레스루트 서킷에서 MACsec을 활성화할 수 있습니까?
 아니요. MACsec은 한 엔터티(예: 고객)가 소유한 키로 물리적 링크의 모든 트래픽을 암호화합니다. 따라서 익스프레스루트 다이렉트에서만 사용할 수 있습니다.
 ### <a name="can-i-encrypt-some-of-the-expressroute-circuits-on-my-expressroute-direct-ports-and-leave-other-circuits-on-the-same-ports-unencrypted"></a>ExpressRoute 다이렉트 포트의 일부 ExpressRoute 회로를 암호화하고 동일한 포트에 다른 회로를 암호화하지 않은 상태로 둘 수 있습니까? 

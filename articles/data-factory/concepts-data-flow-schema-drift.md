@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/12/2019
-ms.openlocfilehash: a6b3b1d11242434088c138460d968f39d5273e4f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/15/2020
+ms.openlocfilehash: 4c510cae7ba5a952e6dc7f7cb7ae7591fe801560
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418425"
+ms.locfileid: "81461296"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>매핑 데이터 흐름의 스키마 드리프트
 
@@ -30,6 +30,10 @@ ms.locfileid: "81418425"
 Azure Data Factory는 기본적으로 실행에서 실행으로 변경되는 유연한 스키마를 지원하므로 데이터 흐름을 다시 컴파일할 필요 없이 제네릭 데이터 변환 논리를 빌드할 수 있습니다.
 
 흐름 전체의 스키마 드리프트를 허용하도록 데이터 흐름의 아키텍처를 결정해야 합니다. 이렇게 하면 원본의 스키마 변경으로부터 보호할 수 있습니다. 그러나 데이터 흐름 전체에서 열및 형식의 초기 바인딩이 손실됩니다. Azure Data Factory는 스키마 드리프트 흐름을 늦은 바인딩 흐름으로 처리하므로 변환을 빌드할 때 흐름 전체의 스키마 뷰에서 드리프트 열 이름을 사용할 수 없습니다.
+
+이 비디오에서는 데이터 흐름의 스키마 드리프트 기능을 사용하여 ADF에서 쉽게 빌드할 수 있는 몇 가지 복잡한 솔루션에 대해 소개합니다. 이 예제에서는 유연한 데이터베이스 스키마를 기반으로 재사용 가능한 패턴을 작성합니다.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tyx7]
 
 ## <a name="schema-drift-in-source"></a>소스에서 스키마 드리프트
 

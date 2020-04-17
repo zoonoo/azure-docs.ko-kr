@@ -759,14 +759,6 @@
           items:
             - name: 1 - 데이터 쿼리
               href: tutorial-query-graph.md
-        - name: 참조
-          items:
-            - name: 응답 헤더
-              href: gremlin-headers.md
-            - name: 제한
-              href: gremlin-limits.md
-            - name: 호환성
-              href: gremlin-compatibility.md
         - name: 방법 가이드
           items:
             - name: 그래프 데이터 모델링
@@ -794,6 +786,14 @@
               href: powershell-samples-gremlin.md
             - name: Azure CLI를 사용하여 관리
               href: cli-samples-gremlin.md
+        - name: 참조
+          items:
+            - name: 응답 헤더
+              href: gremlin-headers.md
+            - name: 제한
+              href: gremlin-limits.md
+            - name: 호환성
+              href: gremlin-compatibility.md
     - name: 테이블 API
       items:
         - name: 개요

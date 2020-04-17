@@ -4,12 +4,12 @@ description: Azure Service Fabric 클러스터에 대한 보안 시나리오 및
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 5912f98f6a1c82250a66ec4d9fe39f2f69b1cc8f
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: c43cfbd4468a64867d50482d9c8055622602f159
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80753804"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461585"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>서비스 패브릭 클러스터 보안 시나리오
 
@@ -65,7 +65,7 @@ Azure의 클러스터에서 인증서 보안을 설정하는 방법을 알아보
 
 조직(테넌트)에서는 Azure AD를 사용하여 애플리케이션에 대한 사용자 액세스를 관리할 수 있습니다. 애플리케이션은 웹 기반 로그인 UI를 갖는 항목과 네이티브 클라이언트 환경을 갖는 항목으로 나뉩니다. 테넌트를 아직 만들지 않은 경우 [Azure Active Directory 테넌트를 얻는 방법][active-directory-howto-tenant]을 참조하세요.
 
-Service Fabric 클러스터는 웹 기반 [Service Fabric Explorer][service-fabric-visualizing-your-cluster] 및 [Visual Studio][service-fabric-manage-application-in-visual-studio]를 포함하여 관리 기능에 대한 여러 진입점을 제공합니다. 결과적으로 두 개의 Azure AD 애플리케이션(웹 애플리케이션과 네이티브 애플리케이션)을 만들어 클러스터에 대한 액세스를 제어합니다.
+Service Fabric 클러스터는 웹 기반 [Service Fabric Explorer][service-fabric-visualizing-your-cluster] 및 [Visual Studio][service-fabric-manage-application-in-visual-studio]를 포함하여 관리 기능에 대한 몇 가지 진입점을 제공합니다. 결과적으로 두 개의 Azure AD 애플리케이션(웹 애플리케이션과 네이티브 애플리케이션)을 만들어 클러스터에 대한 액세스를 제어합니다.
 
 Azure에서 실행 중인 클라이언트의 경우 Azure AD(Azure Active Directory)를 사용하여 관리 엔드포인트에 대한 액세스를 보호할 수 있습니다. 필요한 Azure AD 아티팩트를 만드는 방법 및 클러스터를 만들 때 채우는 방법을 알아보려면 [클라이언트를 인증하도록 Azure AD 설정](service-fabric-cluster-creation-setup-aad.md)을 참조하세요.
 
@@ -90,7 +90,7 @@ Azure에 호스트된 공용 네트워크에 배포된 Service Fabric 클러스�
 
 ## <a name="x509-certificates-and-service-fabric"></a>X.509 인증서 및 서비스 패브릭
 
-X.509 디지털 인증서는 클라이언트 및 서버를 인증하는 데 일반적으로 사용됩니다. 또한 암호화하고 디지털로 메시지를 서명하는 데 사용됩니다. 서비스 패브릭은 클러스터에 보안 적용을 하고 애플리케이션 보안 기능을 제공하기 위해 X.509 인증서를 사용합니다. X.509 디지털 인증서에 대한 자세한 내용은 [인증서 사용](https://msdn.microsoft.com/library/ms731899.aspx)을 참조하세요. [Key Vault](../key-vault/key-vault-overview.md)를 사용하여 Azure에서 Service Fabric 클러스터에 대한 인증서를 관리합니다.
+X.509 디지털 인증서는 클라이언트 및 서버를 인증하는 데 일반적으로 사용됩니다. 또한 암호화하고 디지털로 메시지를 서명하는 데 사용됩니다. 서비스 패브릭은 클러스터에 보안 적용을 하고 애플리케이션 보안 기능을 제공하기 위해 X.509 인증서를 사용합니다. X.509 디지털 인증서에 대한 자세한 내용은 [인증서 사용](https://msdn.microsoft.com/library/ms731899.aspx)을 참조하세요. [Key Vault](../key-vault/general/overview.md)를 사용하여 Azure에서 Service Fabric 클러스터에 대한 인증서를 관리합니다.
 
 고려할 몇 가지 중요한 사항은 다음과 같습니다.
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 8ce949ac997ba7ee38cb057752d89f4b4d22388f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8578c518ac45bea147790028c2904c7ce36fffb
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73838713"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459035"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Azure 저장소 계정을 다른 리전으로 이동
 
@@ -51,7 +51,7 @@ ms.locfileid: "73838713"
 
 Azure 포털을 사용하여 템플릿을 내보내려면 다음을 수행합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. **모든 리소스를** 선택한 다음 저장소 계정을 선택합니다.
 
@@ -63,7 +63,7 @@ Azure 포털을 사용하여 템플릿을 내보내려면 다음을 수행합니
 
    이 zip 파일에는 템플릿을 배포하는 템플릿 및 스크립트를 구성하는 .json 파일이 포함되어 있습니다.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 PowerShell을 사용하여 템플릿을 내보내려면 다음을 수행합니다.
 
@@ -139,7 +139,7 @@ Azure 포털을 사용하여 템플릿을 배포하려면 다음을 수행합니
     ```
     지역 위치 코드를 얻으려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조하십시오.  지역의 코드는 공백이 없는 지역 이름, **미국** = **중부 중앙입니다.**
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 PowerShell을 사용하여 템플릿을 배포하려면 다음을 수행합니다.
 
@@ -194,7 +194,7 @@ PowerShell을 사용하여 템플릿을 배포하려면 다음을 수행합니�
 
 3. 위에 **명시된 이용 약관에 동의함을** 클릭한 다음 **구매 선택** 버튼을 클릭합니다.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. [Get-AzSubscription를](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0)사용하여 대상 공용 IP를 배포하려는 구독 ID를 가져옵니다.
 
@@ -274,9 +274,9 @@ Azure 포털을 사용하여 저장소 계정을 제거하려면 다음을 수�
 
 3. **삭제를**선택하고 확인합니다.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-새 저장소 계정을 포함하여 리소스 그룹 및 관련 리소스를 제거하려면 [제거-AzStorageAccount](/powershell/module/az.resources/remove-azstorageaccount) 명령을 사용합니다.
+새 저장소 계정을 포함하여 리소스 그룹 및 관련 리소스를 제거하려면 [제거-AzStorageAccount](/powershell/module/az.storage/remove-azstorageaccount) 명령을 사용합니다.
 
 ```powershell
 Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storageAccount

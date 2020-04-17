@@ -3,12 +3,12 @@ title: 응용 프로그램과 함께 관리되는 ID 사용
 description: Azure Service Fabric 응용 프로그램 코드에서 관리되는 ID를 사용하여 Azure 서비스에 액세스하는 방법
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: cbdb1190ec3238a6accd34db3025e08c194d60b8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415612"
+ms.locfileid: "81461568"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>서비스 패브릭 응용 프로그램의 관리되는 ID를 활용하여 Azure 서비스에 액세스하는 방법
 
@@ -41,10 +41,6 @@ Service Fabric 응용 프로그램은 관리되는 ID를 활용하여 Azure Acti
 성공적인 응답에는 결과 액세스 토큰을 나타내는 JSON 페이로드와 이를 설명하는 메타데이터가 포함됩니다. 실패한 응답에는 오류에 대한 설명도 포함됩니다. 오류 처리에 대한 자세한 내용은 아래를 참조하십시오.
 
 액세스 토큰은 다양한 수준(노드, 클러스터, 리소스 공급자 서비스)에서 Service Fabric에 의해 캐시되므로 성공적인 응답이 반드시 사용자 응용 프로그램의 요청에 대한 응답으로 토큰이 직접 발행되었음을 의미하지는 않습니다. 토큰은 수명보다 적은 기간 동안 캐시되므로 응용 프로그램은 유효한 토큰을 받을 수 있습니다. 응용 프로그램 코드는 획득한 모든 액세스 토큰을 캐시하는 것이 좋습니다. 캐싱 키에는 대상(파생)이 포함되어야 합니다. 
-
-
-> [!NOTE]
-> 허용되는 유일한 API 버전은 `2019-07-01-preview`현재 변경될 수 있습니다.
 
 샘플 요청:
 ```http

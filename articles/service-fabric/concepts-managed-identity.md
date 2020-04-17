@@ -4,12 +4,12 @@ description: 서비스 패브릭을 사용하여 Azure에 대해 관리되는 ID
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: f6f3736bed4d3d59bce08d4df3ee0aa164a0a764
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a26f188ed2f5e18bdf775cd1fb21001495ffdc89
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415107"
+ms.locfileid: "81461449"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>서비스 패브릭을 사용하여 Azure에 관리되는 ID 사용
 
@@ -57,7 +57,7 @@ Azure에 대한 관리되는 ID는 다음과 같은 몇 가지 주요 개념을 
 
 - 응용 프로그램에 할당된 ID를 제거하거나 변경합니다. 변경해야 하는 경우 별도의 배포를 제출하여 먼저 새 ID 할당을 추가한 다음 이전에 할당된 배포를 제거합니다. 기존 응용 프로그램에서 ID를 제거하면 응용 프로그램을 업그레이드할 수 없는 상태로 두는 등 바람직하지 않은 영향을 미칠 수 있습니다. ID를 제거해야 하는 경우 응용 프로그램을 완전히 삭제해도 안전합니다. 이렇게 하면 응용 프로그램과 연결된 시스템 할당 ID(정의된 경우)가 삭제되고 응용 프로그램에 할당된 사용자 할당 ID와의 연결이 제거됩니다.
 
-- 관리되는 ID에 대한 서비스 패브릭 지원은 현재 [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md)에 통합되지 않습니다.
+- 관리되는 ID에 대한 서비스 패브릭 지원은 현재 [AzureServiceTokenProvider](../key-vault/general/service-to-service-authentication.md)에 통합되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.openlocfilehash: 2ae389be25cd8633a53a49cf000796c1510733a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1d941fbf86d453a56a5157ed988a32173c614fc
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76965165"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461534"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>시나리오: 디스크 암호화가 있는 Azure HDInsight 클러스터가 키 볼트 액세스 권한을 잃게 됩니다.
 
@@ -32,7 +32,7 @@ RHC(리소스 상태 센터) `The HDInsight cluster is unable to access the key 
 
 ### <a name="kvaad-outage"></a>KV/AAD 중단
 
-자세한 내용은 Azure 키 볼트 가용성 및 중복 성 및 Azure 상태 페이지를 [참조하십시오.](../../key-vault/key-vault-disaster-recovery-guidance.md)https://status.azure.com/
+자세한 내용은 Azure 키 볼트 가용성 및 중복 성 및 Azure 상태 페이지를 [참조하십시오.](../../key-vault/general/disaster-recovery-guidance.md)https://status.azure.com/
 
 ### <a name="kv-accidental-deletion"></a>KV 우발적 삭제
 

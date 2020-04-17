@@ -7,21 +7,31 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0684f626553946619a0db2cd895df39576bd17b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8666f51b88d2a70a2cb27e3606f24010771c8017
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255120"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460711"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
-[Azure 파일은](storage-files-introduction.md) 서버가 없는 Azure 파일 공유를 직접 탑재하거나 Azure File Sync를 사용하여 온-프레미스에 Azure 파일 공유를 캐싱하는 두 가지 주요 방법으로 배포할 수 있습니다. 어떤 배포 옵션을 선택하든 배포를 계획할 때 고려해야 할 사항을 변경합니다. 
+
+:::row:::
+    :::column:::
+        [![인터뷰 및 Azure 파일 동기화를 소개하는 데모 - 클릭하여 재생!](./media/storage-sync-files-planning/azure-file-sync-interview-video-snapshot.png)](https://www.youtube.com/watch?v=nfWLO7F52-s)
+    :::column-end:::
+    :::column:::
+        Azure 파일 동기화는 온-프레미스 Windows 서버 또는 클라우드 VM에서 여러 Azure 파일 공유를 캐시할 수 있는 서비스입니다. 
+        
+        이 문서에서는 Azure 파일 동기화 개념 및 기능을 소개합니다. Azure 파일 동기화에 익숙해지면 Azure [File Sync 배포 가이드를](storage-sync-files-deployment-guide.md) 따라 이 서비스를 사용해 보십시오.        
+    :::column-end:::
+:::row-end:::
+
+파일은 [Azure 파일 공유의](storage-files-introduction.md)클라우드에 저장됩니다. Azure 파일 공유는 이러한 SMB(서버없는 Azure 파일 공유)를 직접 탑재하거나 Azure 파일 동기화를 사용하여 온-프레미스에 Azure 파일 공유를 캐싱하는 두 가지 방법으로 사용할 수 있습니다. 어떤 배포 옵션을 선택하든 배포를 계획할 때 고려해야 할 측면을 변경합니다. 
 
 - **Azure 파일 공유의 직접 마운트**: Azure Files는 SMB 액세스를 제공하기 때문에 Windows, macOS 및 Linux에서 사용할 수 있는 표준 SMB 클라이언트를 사용하여 온-프레미스 또는 클라우드에 Azure 파일 공유를 탑재할 수 있습니다. Azure 파일 공유는 서버가 없기 때문에 프로덕션 시나리오에 배포할 때 파일 서버 또는 NAS 장치를 관리할 필요가 없습니다. 즉, 소프트웨어 패치를 적용하거나 실제 디스크를 교체할 필요가 없습니다. 
 
 - **Azure 파일 동기화를 사용하여 온-프레미스에 Azure 파일 공유 캐시**: Azure File Sync를 사용하면 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure 파일에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure File Sync는 온-프레미스(또는 클라우드) Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. 
-
-이 문서에서는 주로 Azure File Sync 배포에 대한 배포 고려 사항을 다룹니다. 온-프레미스 또는 클라우드 클라이언트에서 Azure 파일 공유를 직접 탑재할 Azure 파일 공유 배포를 계획하려면 [Azure Files 배포 계획을](storage-files-planning.md)참조하십시오.
 
 ## <a name="management-concepts"></a>관리 개념
 Azure 파일 동기화 배포에는 세 가지 기본 관리 개체가 있습니다.
@@ -136,7 +146,7 @@ NTFS 볼륨만 지원됩니다. ReFS, FAT, FAT32 및 기타 파일 시스템은 
 
 다음 표에서는 NTFS 파일 시스템 피처의 중간 상태를 보여 주십습니다. 
 
-| 기능 | 상태 지원 | 메모 |
+| 기능 | 상태 지원 | 참고 |
 |---------|----------------|-------|
 | ACL(액세스 제어 목록) | 완벽하게 지원 | Windows 스타일의 임의 액세스 제어 목록은 Azure 파일 동기화에 의해 유지되며 서버 끝점에 있는 Windows Server에서 적용됩니다. Azure 파일 공유를 직접 탑재할 때 ACL을 적용할 수도 있지만 추가 구성이 필요합니다. 자세한 내용은 [ID 섹션을](#identity) 참조하십시오. |
 | 하드 링크 | 건너뜀 | |
@@ -181,10 +191,10 @@ Windows Server 2016 및 Windows Server 2019에서 클라우드 계층화를 사�
 > [!Note]  
 > Windows Server 2019에서 클라우드 계층화를 사용하도록 설정한 볼륨에서 데이터 중복 제거를 지원하려면 Windows 업데이트 [KB4520062를](https://support.microsoft.com/help/4520062) 설치해야 하며 Azure 파일 동기화 에이전트 버전 9.0.0.0 이상이 필요합니다.
 
-**윈도우 서버 2012 R2**  
+**Windows Server 2012 R2**  
 Azure 파일 동기화는 Windows Server 2012 R2에서 동일한 볼륨에서 데이터 중복 제거 및 클라우드 계층화를 지원하지 않습니다. 볼륨에서 데이터 중복 제거를 사용하도록 설정한 경우 클라우드 계층화를 사용하지 않도록 설정해야 합니다. 
 
-**참고**
+**참고 사항**
 - Azure File Sync 에이전트를 설치하기 전에 데이터 중복 제거가 설치된 경우 동일한 볼륨에서 데이터 중복 제거 및 클라우드 계층화를 지원하려면 다시 시작해야 합니다.
 - 클라우드 계층화를 사용하도록 설정한 후 볼륨에서 데이터 중복 제거가 활성화된 경우 초기 중복 제거 최적화 작업은 아직 계층화되지 않은 볼륨에서 파일을 최적화하고 클라우드 계층화에 다음과 같은 영향을 미칩니다.
     - 사용 가능한 공간 정책은 히트맵을 사용하여 볼륨의 사용 가능한 공간에 따라 파일을 계층화합니다.
@@ -226,7 +236,7 @@ Azure File Sync 에이전트가 설치된 서버에서 sysprep을 사용하면 �
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>다른 HSM(계층적 스토리지 관리) 솔루션
 다른 HSM 솔루션은 Azure 파일 동기화와 함께 사용하면 안 됩니다.
 
-## <a name="identity"></a>Identity
+## <a name="identity"></a>ID
 Azure File Sync는 동기화 설정 외에 특별한 설정 없이 표준 AD 기반 ID와 함께 작동합니다. Azure File Sync를 사용하는 경우 대부분의 액세스가 Azure 파일 공유를 통하지 않고 Azure 파일 동기화 캐싱 서버를 통과해야 합니다. 서버 끝점은 Windows Server에 있고 Windows Server는 오랫동안 AD 및 Windows 스타일 ACL을 지원했기 때문에 저장소 동기화 서비스에 등록된 Windows 파일 서버가 도메인에 가입되도록 하는 것 외에는 아무것도 필요하지 않습니다. Azure 파일 동기화는 Azure 파일 공유의 파일에 ACL을 저장하고 모든 서버 끝점에 복제합니다.
 
 Azure 파일 공유에 직접 변경하면 동기화 그룹의 서버 끝점에 동기화하는 데 시간이 더 오래 걸리지만 클라우드에서 직접 파일 공유에 대한 AD 권한을 적용할 수도 있습니다. 이렇게 하려면 Windows 파일 서버가 도메인에 가입되는 방식과 마찬가지로 저장소 계정을 온-프레미스 AD에 도메인으로 가입해야 합니다. 고객 소유 Active Directory에 저장소 계정을 조인하는 도메인에 대해 자세히 알아보려면 [Azure Files Active Directory 개요를](storage-files-active-directory-overview.md)참조하십시오.

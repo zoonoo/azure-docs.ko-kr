@@ -1,11 +1,11 @@
 ---
-title: Azure Active Directory 포털에서 사용자 목록(미리 보기) 다운로드 | 마이크로 소프트 문서
+title: Azure Active Directory 포털에서 사용자 목록 다운로드 | 마이크로 소프트 문서
 description: Azure Active Directory의 Azure 관리 센터에서 사용자 레코드를 대량으로 다운로드합니다.
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 02/06/2020
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,20 +13,20 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4716ff9547f64dc6551b4d4adb0a8578da9fa83e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b35163387ed4ce71f7a2019835a1d9fdbff3051
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063835"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532652"
 ---
-# <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Azure Active Directory 포털에서 사용자 목록 다운로드(미리 보기)
+# <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Azure Active Directory 포털의 사용자 목록 다운로드
 
 Azure Active Directory(Azure AD)는 대량 사용자 가져오기(만들기) 작업을 지원합니다.
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 
-Azure AD 관리자 센터에서 사용자 목록을 다운로드하려면 Azure AD에서 하나 이상의 조직 수준 관리자 역할에 할당된 사용자와 함께 로그인해야 합니다. 게스트 초대자 및 응용 프로그램 개발자는 관리자 역할로 간주되지 않습니다.
+Azure AD 관리자 센터에서 사용자 목록을 다운로드하려면 Azure AD에서 하나 이상의 조직 수준 관리자 역할에 할당된 사용자와 함께 로그인해야 합니다(사용자 관리자는 필요한 최소 역할임). 게스트 초대자 및 응용 프로그램 개발자는 관리자 역할로 간주되지 않습니다.
 
 ## <a name="to-download-a-list-of-users"></a>사용자 목록을 다운로드하려면
 
@@ -70,9 +70,9 @@ Azure AD 관리자 센터에서 사용자 목록을 다운로드하려면 Azure 
 
 ## <a name="check-status"></a>상태 확인
 
-**대량 작업 결과(미리 보기)** 페이지에서 보류 중인 대량 요청의 상태를 확인할 수 있습니다.
+**대량 작업 결과** 페이지에서 보류 중인 대량 요청의 상태를 확인할 수 있습니다.
 
-   ![대량 작업 결과 페이지에서 업로드 상태 확인](./media/users-bulk-download/bulk-center.png)
+[![](media/users-bulk-download/bulk-center.png "Check status in the Bulk Operations Results page")](media/users-bulk-download/bulk-center.png#lightbox)
 
 ## <a name="bulk-download-service-limits"></a>대량 다운로드 서비스 제한
 

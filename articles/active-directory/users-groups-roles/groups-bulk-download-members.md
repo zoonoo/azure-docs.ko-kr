@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 09/11/2019
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e29aacb1357509e2b000a9d05c5ced8f9a30dce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3faca8d1a2538ed03a917d6db8d54323fe626369
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72517167"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533689"
 ---
-# <a name="bulk-download-members-of-a-group-preview-in-azure-active-directory"></a>Azure Active Directory에서 그룹의 일괄 다운로드 멤버(미리 보기)
+# <a name="bulk-download-members-of-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹의 일괄 다운로드 멤버
 
 Azure Active Directory(Azure AD) 포털을 사용하여 조직의 그룹 구성원을 CSV(쉼표로 구분된 값) 파일에 대량 다운로드할 수 있습니다.
 
@@ -35,9 +35,9 @@ Azure Active Directory(Azure AD) 포털을 사용하여 조직의 그룹 구성�
 
 ## <a name="check-download-status"></a>다운로드 상태 확인
 
-**대량 작업 결과(미리 보기)** 페이지에서 보류 중인 모든 대량 요청의 상태를 확인할 수 있습니다.
+**대량 작업 결과** 페이지에서 보류 중인 모든 대량 요청의 상태를 볼 수 있습니다.
 
-   ![대량 작업 결과 페이지에 대량 요청 상태가 표시 됩니다.](./media/groups-bulk-download-members/bulk-center.png)
+[![](media/groups-bulk-download-members/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-download-members/bulk-center.png#lightbox)
 
 ## <a name="bulk-download-service-limits"></a>대량 다운로드 서비스 제한
 

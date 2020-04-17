@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 631a20c7bf73aa2af363fdc0019ef24cccc58f9e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 0c7566df870b3c41b1f1dd7d4a4129ff9d9d9407
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258612"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481732"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Azure IoT Hub에 IoT DevKit AZ3166 연결
 
@@ -175,9 +175,7 @@ DevKit는 IoT 허브의 장치별 엔드포인트에 연결하여 온도 및 습
 
     ![Azure IoT Tools 설치](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
 
-    또는 이 직접 링크를 사용합니다.
-    > [!div class="nextstepaction"]
-    > [Azure IoT 도구 확장 팩 설치](vscode:extension/vsciot-vscode.azure-iot-tools)
+    또는 이 직접 URL을 사용합니다.`vscode:extension/vsciot-vscode.azure-iot-tools`
 
     > [!NOTE]
     > Azure IoT 도구 확장 팩에는 다양한 IoT devkit 장치에서 개발하고 디버깅하는 데 사용되는 [Azure IoT 장치 워크벤치가](https://aka.ms/iot-workbench) 포함되어 있습니다. Azure IoT 도구 확장 팩에 포함된 [Azure IoT Hub 확장은](https://aka.ms/iot-toolkit)Azure IoT Hub를 관리하고 상호 작용하는 데 사용됩니다.
@@ -190,7 +188,7 @@ DevKit는 IoT 허브의 장치별 엔드포인트에 연결하여 온도 및 습
 
     플랫폼에 따라 다음 줄을 추가하여 Arduino를 구성합니다. 
 
-    * **윈도우**:
+    * **Windows**:
 
         ```json
         "arduino.path": "C:\\Program Files (x86)\\Arduino",

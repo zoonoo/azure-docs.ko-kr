@@ -5,15 +5,15 @@ services: app-service\mobile
 author: conceptdev
 ms.service: app-service-mobile
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 04/15/2020
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: a7e543dcad9ad1b016d1244451cd87cda5ad7492
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5b6389491fd91b716a05e7c57c98addb6352bd9
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67440200"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461966"
 ---
 1. 다음 플랫폼에 대한 클라이언트 SDK 퀵스타트를 다운로드합니다.
     
@@ -69,23 +69,13 @@ ms.locfileid: "67440200"
    - **Node.js 백 엔드**
     
      Node.js 퀵스타트 앱을 사용하려면 아래 지침을 따르십시오.
-
-     1. Azure 포털에서 Easy **테이블로**이동하면 이 화면이 표시됩니다.
-      
-        ![노드 간편테이블](./media/app-service-mobile-configure-new-backend/node-easy-tables.png)
-
-     2. SQL 연결 문자열이 **구성** 탭에 이미 추가되어 있는지 확인합니다. 그런 다음 **모든 사이트 내용을 덮어쓰고** **TodoItem 만들기 테이블** 단추를 클릭합니다.
      
-        ![노드 간편테이블 구성](./media/app-service-mobile-configure-new-backend/node-easy-tables-configuration.png)
-
-     3. **쉬운 테이블에서**+ **추가** 버튼을 클릭합니다.
-    
-        ![노드 쉬운 테이블 추가 버튼](./media/app-service-mobile-configure-new-backend/node-easy-tables-add.png)
-
-     4. 익명 `TodoItem` 액세스 권한이 있는 테이블을 만듭니다.
-      
-        ![노드 쉬운 테이블 추가 테이블](./media/app-service-mobile-configure-new-backend/node-easy-tables-table-add.png)
-
+        1. 새 API 만들기 - Azure Portal에서 바로 변경하거나 개발 환경에서 로컬로 코드를 수정한 다음 Azure에 게시할 수 있습니다. 앱 `App Service Editor (Preview)` 코드에 `Development Tools` 대한 브라우저 내 편집 환경을 제공하는 아래 메뉴를 클릭합니다.
+        
+        2. 앱 `Go` 서비스 편집기에서 클릭하고 일단 열리면 소스 코드를 완전히 제어할 수 있습니다. npm 설치 명령이 있는 익스프레스 및 azure-mobile-apps 패키지를 이미 설치했다고 가정하면 WWWROOT 아래의 API 폴더를 클릭하여 사용자 지정 API를 만들거나 편집합니다. 코드 파일을 변경하면 변경 내용이 자동으로 저장됩니다.
+        
+        3. 응용 프로그램 데이터를 저장하는 데 사용되는 Azure SQL Database에 대한 모든 권한을 가지게 됩니다. 데이터베이스에서 새 테이블을 쉽게 만들 수 있습니다.
+ 
    - **.NET 백 엔드**
     
         .NET 퀵스타트 앱을 사용하려면 아래 지침을 따르세요.

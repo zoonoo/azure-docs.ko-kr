@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: d058ff5f9863642f73725db3472c942161447f25
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: fa7e085f723d4f4c411f52e045c9437d5cb293b3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548446"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459783"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>리눅스 VM에 대 한 Azure 디스크 암호화 
 
@@ -105,7 +105,7 @@ Azure 디스크 암호화 기능을 사용하려면 Linux VM이 다음 네트워
   - 키 자격 증명 모음에 연결하는 토큰을 얻으려면 Linux VM이 Azure Active Directory \[끝점인 login.microsoftonline.com\]연결할 수 있어야 합니다.
   - 키 자격 증명 모음에 암호화 키를 쓰려면 Linux VM이 키 자격 증명 모음 끝점에 연결할 수 있어야 합니다.
   - Linux VM은 Azure 확장 리포지토리를 호스팅하는 Azure 저장소 끝점과 VHD 파일을 호스트하는 Azure 저장소 계정에 연결할 수 있어야 합니다.
-  -  보안 정책이 Azure VM에서 인터넷으로 액세스를 제한하는 경우 이전 URI를 확인하고 IP에 대한 아웃바운드 연결을 허용하도록 특정 규칙을 구성할 수 있습니다. 자세한 내용은 [방화벽 뒤에 있는 Azure Key Vault](../../key-vault/key-vault-access-behind-firewall.md)를 참조하세요.  
+  -  보안 정책이 Azure VM에서 인터넷으로 액세스를 제한하는 경우 이전 URI를 확인하고 IP에 대한 아웃바운드 연결을 허용하도록 특정 규칙을 구성할 수 있습니다. 자세한 내용은 [방화벽 뒤에 있는 Azure Key Vault](../../key-vault/general/access-behind-firewall.md)를 참조하세요.  
 
 ## <a name="encryption-key-storage-requirements"></a>암호화 키 스토리지 요구 사항  
 

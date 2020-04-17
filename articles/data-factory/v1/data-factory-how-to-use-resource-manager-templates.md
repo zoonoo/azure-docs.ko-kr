@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 930a3f0cf629c99fc03a84c701bcf7b2807c77c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73498b3537f4cf9313fc9e2464785f63c2af0d5a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75972855"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460735"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>템플릿을 사용하여 Azure Data Factory 엔터티 만들기
 > [!NOTE]
@@ -233,7 +233,7 @@ dataFactoryName은 “variables”에 다음과 같이 정의됩니다.
 * 설정은 환경에 따라 달라집니다(예: 개발, 테스트, 프러덕션 환경).
 * 암호(Secret)(예: 암호(password))
 
-템플릿을 사용하여 Azure Data Factory 엔터티를 배포할 때 [Azure Key Vault](../../key-vault/key-vault-overview.md)에서 암호를 가져와야 할 경우 다음 예제처럼 **키 자격 증명 모음**과 **암호 이름**을 표시합니다.
+템플릿을 사용하여 Azure Data Factory 엔터티를 배포할 때 [Azure Key Vault](../../key-vault/general/overview.md)에서 암호를 가져와야 할 경우 다음 예제처럼 **키 자격 증명 모음**과 **암호 이름**을 표시합니다.
 
 ```JSON
 "parameters": {

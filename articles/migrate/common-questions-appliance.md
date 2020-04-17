@@ -2,13 +2,13 @@
 title: Azure 마이그레이션 어플라이언스 FAQ
 description: Azure 마이그레이션 어플라이언스에 대한 일반적인 질문에 대한 답변을 가져옵니다.
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: a08423637f255b973f52616f53172ef6e48d0804
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.date: 04/15/2020
+ms.openlocfilehash: 529ead1baa769ee3e71f6fcf77ef7e020ed196a6
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437606"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81529691"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure 마이그레이션 어플라이언스: 일반적인 질문
 
@@ -31,6 +31,15 @@ Azure 마이그레이션 어플라이언스에 대한 자세한 내용은 다음
 
 어플라이언스에 대해 [자세히 알아보세요.](migrate-appliance.md)
 
+## <a name="how-can-i-deploy-the-appliance"></a>어플라이언스는 어떻게 배포할 수 있습니까?
+
+어플라이언스는 다음과 같이 배포할 수 있습니다.
+
+- VMware VM 및 하이퍼 VM용 템플릿 사용(VM웨어용 OVA 템플릿 또는 하이퍼-V용 VHD용).
+- 템플릿을 사용하지 않으려거나 Azure 정부에 있는 경우 PowerShell 스크립트를 사용하여 VMware 또는 Hyper-V용 어플라이언스를 배포할 수 있습니다.
+- 실제 서버의 경우 항상 스크립트를 사용하여 어플라이언스를 배포합니다.
+
+
 ## <a name="how-does-the-appliance-connect-to-azure"></a>어플라이언스는 Azure에 어떻게 연결됩니까?
 
 어플라이언스는 인터넷을 통해 또는 공용/Microsoft 피어링과 Azure ExpressRoute를 사용하여 연결할 수 있습니다.
@@ -45,11 +54,8 @@ Azure 마이그레이션 어플라이언스 프로필 온-프레미스 컴퓨터
 
 ## <a name="what-network-connectivity-is-required"></a>어떤 네트워크 연결이 필요합니까?
 
-Azure 마이그레이션 어플라이언스에 대한 네트워크 연결 요구 사항에 대한 자세한 내용은 다음 문서를 참조하십시오.
 
-- **VM웨어 평가**: [URL 액세스](migrate-appliance.md#url-access) 및 [포트 액세스](migrate-support-matrix-vmware.md#port-access)
-- **VMware 에이전트 없는 마이그레이션**: [URL 액세스](migrate-appliance.md#url-access) 및 [포트 액세스](migrate-support-matrix-vmware-migration.md#agentless-ports)
-- **하이퍼-V 평가**: [URL 액세스](migrate-appliance.md#url-access) 및 [포트 액세스](migrate-support-matrix-hyper-v.md#port-access)
+어플라이언스는 Azure URL에 액세스해야 합니다. URL 목록을 [검토합니다.](migrate-appliance.md#url-access)
 
 ## <a name="what-data-does-the-appliance-collect"></a>어플라이언스는 어떤 데이터를 수집합니까?
 

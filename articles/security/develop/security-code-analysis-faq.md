@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: de76467cc741a65a851e5f3a7ec424d0326aebb2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb04a8e5a6d8c982a35cb5c448e4b6d93825bf73
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74851522"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460225"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 질문이 있으신가요? 자세한 내용은 다음 FAQ를 참조하십시오.
@@ -154,12 +154,12 @@ ms.locfileid: "74851522"
 
 다음 리소스는 응용 프로그램 내에서 기밀 정보를 안전하게 관리하고 액세스하는 데 도움이 됩니다.
 
- - [Azure 키 볼트](../../key-vault/index.yml)
+ - [Azure Key Vault](../../key-vault/index.yml)
  - [Azure Active 디렉터리(Azure AD)](../../sql-database/sql-database-aad-authentication.md)
  - [AZURE AD 관리 서비스 ID(MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
- - [Azure 리소스에 대한 관리되는 ID](../../active-directory/managed-identities-azure-resources/overview.md)
+ - [Azure 리소스에 대한 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Azure 앱 서비스 및 Azure 함수에서 관리되는 ID](../../app-service/overview-managed-identity.md)
- - [앱 인증 라이브러리](../../key-vault/service-to-service-authentication.md)
+ - [앱 인증 라이브러리](../../key-vault/general/service-to-service-authentication.md)
 
 
 자세한 내용은 [클라우드에서 비밀 관리](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/)블로그 게시물을 참조하십시오.

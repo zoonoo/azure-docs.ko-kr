@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: befe8945468d220a04ec7f0b515f22159cb72b0f
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549240"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461653"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric 보안 모범 사례
 Azure에 애플리케이션을 배포하는 것은 빠르고, 쉽고, 비용 효율적입니다. 프로덕션에 클라우드 애플리케이션을 배포하기 전에 애플리케이션에서 보안 클러스터를 구현하기 위한 필수 및 권장 모범 사례의 목록을 검토합니다.
@@ -155,7 +155,7 @@ Service Fabric은 인증서를 사용하여 클러스터와 해당 애플리케�
 
 Service Fabric은 클러스터에 보안을 적용하고 애플리케이션 보안 기능을 제공하기 위해 X.509 인증서를 사용합니다. Azure Key Vault는 Azure의 Service Fabric 클러스터에 대한 [인증서를 관리](../../service-fabric/service-fabric-cluster-security-update-certs-azure.md)하는 데 사용됩니다. 클러스터를 만드는 Azure 리소스 공급자는 키 자격 증명 모음에서 인증서를 가져옵니다. 그런 다음 공급자는 Azure에서 클러스터를 배포할 때 인증서를 VM에 설치합니다.
 
-인증서 관계는 [Azure Key Vault](../../key-vault/key-vault-secure-your-key-vault.md), Service Fabric 클러스터, 인증서를 사용하는 리소스 공급자 사이에 존재합니다. 클러스터가 생성될 때 인증서 관계에 관한 정보는 키 자격 증명 모음에 저장됩니다.
+인증서 관계는 [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md), Service Fabric 클러스터, 인증서를 사용하는 리소스 공급자 사이에 존재합니다. 클러스터가 생성될 때 인증서 관계에 관한 정보는 키 자격 증명 모음에 저장됩니다.
 
 키 자격 증명 모음을 설정하는 데는 다음과 같은 두 가지 기본적인 단계가 있습니다.
 1. 키 자격 증명 모음 전용 리소스 그룹을 만듭니다.
@@ -166,7 +166,7 @@ Service Fabric은 클러스터에 보안을 적용하고 애플리케이션 보�
 
     배포 시 키 자격 증명 모음을 사용해야 합니다. 그러면 컴퓨팅 리소스 공급자가 자격 증명 모음에서 인증서를 가져와서 VM 인스턴스에 설치할 수 있습니다.
 
-키 자격 증명 모음 설정 방법에 대한 자세한 내용은 [Azure Key Vault란?](../../key-vault/key-vault-overview.md)을 참조하세요.
+키 자격 증명 모음 설정 방법에 대한 자세한 내용은 [Azure Key Vault란?](../../key-vault/general/overview.md)을 참조하세요.
 
 ## <a name="assign-users-to-roles"></a>역할에 사용자 할당
 클러스터를 나타내는 응용 프로그램을 만든 후 서비스 패브릭에서 지원하는 역할( 읽기 전용 및 관리자)에 사용자를 할당합니다. Azure 포털을 사용하여 이러한 역할을 할당할 수 있습니다.

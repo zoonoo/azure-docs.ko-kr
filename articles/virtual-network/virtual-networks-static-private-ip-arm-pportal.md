@@ -5,7 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: KumudD
 manager: twooley
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 11245645-357d-4358-9a14-dd78e367b494
 ms.service: virtual-network
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
-ms.openlocfilehash: b50875105696dc5c556e2a4a9e756078cf995327
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 946926a8a805ec3c53ea3c57dc3eded2462f7673
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060417"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461551"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Azure 포털을 사용하여 VM에 대한 개인 IP 주소 구성
 
@@ -32,7 +31,7 @@ ms.locfileid: "80060417"
 
 | 설정 | 값 |
 | ------- | ----- |
-| 이름 | *테스트V넷* |
+| 속성 | *테스트V넷* |
 | 주소 공간 | *192.168.0.0/16* |
 | Resource group | **TestRG(필요한** 경우 **새 만들기를** 선택하여 생성) |
 | 서브넷 - 이름 | *프론트 엔드* |
@@ -55,11 +54,11 @@ ms.locfileid: "80060417"
     | --- | --- |
     | **구독** | 현재 구독 |
     | **리소스 그룹** | **TestRG(드롭다운** 목록에서 선택) |
-    | **가상 컴퓨터 이름** | *DNS01* |
+    | **가상 머신 이름** | *DNS01* |
     | **지역** | **(미국) 미국 동부** |
     | **이미지** | **윈도우 서버 2019 데이터 센터** |
     | **크기** | **B1ls의** **VM 크기,** **표준** **제공** |
-    | **사용자** | 관리자 계정의 사용자 이름 |
+    | **사용자 이름** | 관리자 계정의 사용자 이름 |
     | **암호** | 관리자 계정의 사용자 이름에 대한 암호 |
     | **암호 확인** | 암호를 다시 |
 
@@ -86,7 +85,7 @@ VM이 만들어지면 다음 메시지가 나타납니다.
 ## <a name="retrieve-private-ip-address-information-for-a-vm"></a>VM에 대한 개인 IP 주소 정보 검색
 새 VM의 개인 IP 주소 정보를 보려면 다음을 수행하십시오.
 
-1. [Azure 포털로](https://portal.azure.com) 이동하여 VM을 찾습니다. **가상 컴퓨터를**검색하고 선택합니다.
+1. [Azure 포털로](https://portal.azure.com) 이동하여 VM을 찾습니다. **가상 머신**을 검색하여 선택합니다.
 
     ![가상 컴퓨터, 검색 상자, Azure 포털](./media/virtual-networks-static-ip-arm-pportal/search-box-virtual-machines.png)
 

@@ -1,17 +1,14 @@
 ---
 title: Azure 마이그레이션 FAQ
 description: Azure 마이그레이션 서비스에 대한 일반적인 질문에 대한 답변을 가져옵니다.
-author: snehaamicrosoft
-ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: snehaa
-ms.openlocfilehash: c85c5c6e11beb0178139dad152f56f420b2ac26f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 9b71888b284fd9cc125def4758d1e3800a92acf2
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78926721"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81530320"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure 마이그레이션: 일반적인 질문
 
@@ -22,7 +19,7 @@ ms.locfileid: "78926721"
 
 ## <a name="what-is-azure-migrate"></a>Azure Migrate란?
 
-Azure Migrate는 온-프레미스 앱 및 워크로드및 프라이빗 및 퍼블릭 클라우드 VM을 Azure로 검색, 평가 및 마이그레이션하는 중앙 허브를 제공합니다. 허브는 평가 및 마이그레이션 및 타사 ISV 오퍼링을 위한 Azure 마이그레이션 도구를 제공합니다. [자세히 알아봅니다](migrate-services-overview.md).
+Azure Migrate는 온-프레미스 앱 및 워크로드및 프라이빗 및 퍼블릭 클라우드 VM을 Azure로 검색, 평가 및 마이그레이션하는 중앙 허브를 제공합니다. 허브는 평가 및 마이그레이션 및 타사 ISV 오퍼링을 위한 Azure 마이그레이션 도구를 제공합니다. [자세히 알아보기](migrate-services-overview.md).
 
 ## <a name="what-can-i-do-with-azure-migrate"></a>Azure 마이그레이션으로 무엇을 할 수 있습니까?
 
@@ -56,10 +53,9 @@ Azure 마이그레이션: 서버 마이그레이션 도구는 일부 온-프레�
 
 ## <a name="which-geographies-are-supported"></a>어떤 지역에서 지원되나요?
 
-- **VMware VM**: VMware VM에 대해 [지원되는 지리적으로](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) Azure 마이그레이션을 검토합니다.
-- **하이퍼 VM**: 하이퍼 VM에 대해 [지원되는 지리적 으로](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v) Azure 마이그레이션을 검토합니다.
+[지원되는](migrate-support-matrix.md#supported-geographies-public-cloud) 지역을 공용 및 정부 클라우드에 대해 [검토합니다.](migrate-support-matrix.md#supported-geographies-azure-government)
 
-## <a name="how-do-i-get-started"></a>어떻게 시작하나요?
+## <a name="how-do-i-get-started"></a>시작하는 방법
 
 필요한 도구를 식별한 다음 Azure 마이그레이션 프로젝트에 도구를 추가합니다. 
 

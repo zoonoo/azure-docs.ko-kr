@@ -5,7 +5,6 @@ services: azure-portal
 documentationcenter: ''
 author: sewatson
 manager: mtillman
-editor: tysonn
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.service: azure-portal
 ms.devlang: NA
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 4c01321662b302103cdedfb5b78dadf89860fb8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6eda3b522a5b46cd82ef29ae493891a624d3272
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132053"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459290"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Azure Portal에서 대시보드 만들기 및 공유
 
@@ -31,7 +30,7 @@ Azure 포털은 기본 대시보드를 시작점으로 제공합니다. 기본 �
 
 이 예제에서는 새 개인 대시보드를 만들고 이름을 할당합니다. 시작하려면 다음 단계를 수행하세요.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. Azure 포털 메뉴에서 **대시보드**를 선택합니다. 기본 보기가 이미 대시보드로 설정되어 있을 수 있습니다.
 

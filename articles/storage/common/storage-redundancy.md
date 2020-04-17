@@ -10,12 +10,12 @@ ms.date: 02/25/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 1961797f37a760fe3a31dc8aa3830889965b69b5
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 78f7c935e64276e7f4862dad966b99bff6bd246d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81379933"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481935"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -160,7 +160,7 @@ Azure PowerShell, Azure CLI 또는 Azure Storage 클라이언트 라이브러리
 
 <sup>2</sup> 저장소 계정 유형에 대한 자세한 내용은 [저장소 계정 개요를](storage-account-overview.md)참조하십시오.
 
-모든 유형의 저장소 계정에 대한 모든 데이터는 저장소 계정의 중복 옵션에 따라 복사됩니다. 블록 Blob, 추가 Blob, 페이지 Blob, 큐, 테이블 및 파일을 포함한 개체가 복사됩니다.
+모든 유형의 저장소 계정 및 [모든 계층(아카이브 포함)의 모든](../blobs/storage-blob-storage-tiers.md) 데이터는 저장소 계정의 중복 옵션에 따라 복사됩니다. 블록 Blob, 추가 Blob, 페이지 Blob, 큐, 테이블 및 파일을 포함한 개체가 복사됩니다.
 
 각 중복 옵션에 대한 가격 정보는 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하십시오.
 
@@ -171,7 +171,7 @@ Azure PowerShell, Azure CLI 또는 Azure Storage 클라이언트 라이브러리
 
 Azure Storage는 주기적으로 CRC(순환 중복 검사)를 사용하여 저장된 데이터의 무결성을 정기적으로 확인합니다. 데이터 손상이 감지되면 중복 데이터를 사용하여 복구됩니다. 또한 Azure Storage는 데이터를 저장하거나 검색할 때 데이터 패킷의 손상을 감지하기 위해 모든 네트워크 트래픽에 대한 체크섬을 계산합니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [저장소 계정의 마지막 동기화 시간 속성을 확인합니다.](last-sync-time-get.md)
 - [저장소 계정의 중복 옵션 변경](redundancy-migration.md)

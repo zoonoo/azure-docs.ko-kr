@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 89de6bf80d14ec77fe6b1f98b6e1d15c6e573fbe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46a1db94d576174b837a40c646fcf9e082e339c8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76756286"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461619"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Azure Active Directory를 사용하여 관리되는 ID를 인증하여 Azure Service Bus 리소스에 액세스
 [Azure 리소스용 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)는 애플리케이션 코드가 실행되는 배포와 관련된 보안 ID를 만들 수 있도록 하는 Azure 간 기능입니다. 그런 다음 애플리케이션에 필요한 특정 Azure 리소스에 액세스하기 위한 사용자 지정 권한을 부여하는 액세스 제어 역할에 해당 ID를 연결할 수 있습니다.
@@ -75,10 +75,10 @@ Azure Service Bus의 경우 Azure Portal 및 Azure 리소스 관리 API를 통�
 ## <a name="enable-managed-identities-on-a-vm"></a>VM에서 관리 ID 사용
 Azure Resources에 대해 관리되는 ID를 사용하여 VM에서 서비스 버스 리소스에 권한을 부여하려면 먼저 VM에서 Azure 리소스에 대해 관리되는 ID를 사용하도록 설정해야 합니다. Azure 리소스의 관리 ID를 사용하도록 설정하는 방법을 알아보려면 다음 문서 중 하나를 참조하세요.
 
-- [Azure 포털](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
-- [Azure 파워쉘](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+- [Azure Portal](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
+- [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Azure 리소스 관리자 템플릿](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Azure Resource Manager 템플릿](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Azure 리소스 관리자 클라이언트 라이브러리](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Azure AD에서 관리되는 ID에 대한 사용 권한 부여
@@ -140,7 +140,7 @@ Default.aspx 페이지가 방문 페이지입니다. 코드는 Default.aspx.cs �
 
 
 > [!NOTE]
-> - 관리 ID는 Azure 환경, App 서비스, Azure VM 및 확장 집합 내에서만 작동합니다. .NET 애플리케이션의 경우 Service Bus NuGet 패키지에서 사용되는 Microsoft.Azure.Services.AppAuthentication 라이브러리는 이 프로토콜에 대한 추상화를 제공하고 로컬 개발 환경을 지원합니다. 또한 이 라이브러리를 통해 개발 머신에서 Visual Studio, Azure CLI 2.0 또는 Active Directory 통합 인증의 사용자 계정을 사용하여 코드를 로컬로 테스트할 수 있습니다. 이 라이브러리를 통한 로컬 개발 옵션에 대한 자세한 내용은 [.NET을 사용하여 Azure Key Vault에 대한 서비스 간 인증](../key-vault/service-to-service-authentication.md)을 참조하세요.  
+> - 관리 ID는 Azure 환경, App 서비스, Azure VM 및 확장 집합 내에서만 작동합니다. .NET 애플리케이션의 경우 Service Bus NuGet 패키지에서 사용되는 Microsoft.Azure.Services.AppAuthentication 라이브러리는 이 프로토콜에 대한 추상화를 제공하고 로컬 개발 환경을 지원합니다. 또한 이 라이브러리를 통해 개발 머신에서 Visual Studio, Azure CLI 2.0 또는 Active Directory 통합 인증의 사용자 계정을 사용하여 코드를 로컬로 테스트할 수 있습니다. 이 라이브러리를 통한 로컬 개발 옵션에 대한 자세한 내용은 [.NET을 사용하여 Azure Key Vault에 대한 서비스 간 인증](../key-vault/general/service-to-service-authentication.md)을 참조하세요.  
 > 
 > - 현재 관리 ID는 App Service 배포 슬롯에서 작동하지 않습니다.
 

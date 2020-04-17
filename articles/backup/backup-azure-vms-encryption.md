@@ -3,12 +3,12 @@ title: 암호화된 Azure VM 백업 및 복원
 description: Azure 백업 서비스를 사용하여 암호화된 Azure VM을 백업하고 복원하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: a3976cc83f749b1abe00cef3f5bf867ffbc30ab6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 98febe9f91cb4b71d546300d4e65ade073d19e67
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206693"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461772"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>암호화된 Azure VM 백업 및 복원
 
@@ -27,10 +27,10 @@ Azure Backup은 다음 표에 요약된 대로 Azure AD 앱의 유무에 관계�
 
 **VM 디스크 유형** | **ADE (BEK/dm-crypt)** | **에이드와 케크**
 --- | --- | ---
-**관리 되지 않는** | yes | yes
-**관리**  | yes | yes
+**관리 되지 않는** | 예 | 예
+**관리**  | 예 | 예
 
-- [ADE,](../security/azure-security-disk-encryption-overview.md)키 [볼트](../key-vault/key-vault-overview.md)및 [KEK에](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek)대해 자세히 알아보십시오.
+- [ADE,](../security/azure-security-disk-encryption-overview.md)키 [볼트](../key-vault/general/overview.md)및 [KEK에](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek)대해 자세히 알아보십시오.
 - Azure VM 디스크 암호화에 대한 [FAQ를](../security/azure-security-disk-encryption-faq.md) 읽어보십시오.
 
 ### <a name="limitations"></a>제한 사항
@@ -136,8 +136,8 @@ Azure VM은 연결된 VM과 함께 키와 비밀을 백업하기 위해 읽기 �
 
 1. [VM 디스크 복원](backup-azure-arm-restore-vms.md#restore-disks).
 2. 다음 중 하나를 수행하여 가상 시스템 인스턴스를 다시 만듭니다.
-    1. 복원 작업 중에 생성된 템플릿을 사용하여 VM 설정을 사용자 지정하고 VM 배포를 트리거합니다. [자세히 알아봅니다](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
-    2. PowerShell을 사용하여 복원된 디스크에서 새 VM을 만듭니다. [자세히 알아봅니다](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+    1. 복원 작업 중에 생성된 템플릿을 사용하여 VM 설정을 사용자 지정하고 VM 배포를 트리거합니다. [자세히 알아보기](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
+    2. PowerShell을 사용하여 복원된 디스크에서 새 VM을 만듭니다. [자세히 알아보기](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 3. Linux VM의 경우 데이터 디스크가 열리고 탑재되도록 ADE 확장을 다시 설치합니다.
 
 ## <a name="next-steps"></a>다음 단계

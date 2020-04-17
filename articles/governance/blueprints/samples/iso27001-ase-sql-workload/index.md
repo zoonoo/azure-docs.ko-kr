@@ -3,12 +3,12 @@ title: ISO 27001 ASE/SQL 워크로드 청사진 샘플 개요
 description: ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플에 대한 개요 및 아키텍처입니다.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 9957ab1bef5b65fc90b5a357bd56d6f0013ea690
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 834096ec529673bae1728877310ba7153ae94cb3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381742"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460582"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플 개요
 
@@ -32,7 +32,7 @@ ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플은 
 - [Azure 정책](../../../policy/overview.md): 환경에 배포할 수 있는 서비스를 잠그고 PIP(공용 IP 주소) 리소스 생성을 거부합니다.
 - 가상 네트워크: 단일 서브넷을 포함하며 기존 [공유 서비스](../iso27001-shared/index.md) 환경으로 다시 피어링되고 모든 트래픽이 [공유 서비스](../iso27001-shared/index.md) 방화벽을 통과하도록 적용합니다. 가상 네트워크는 다음 리소스를 호스팅합니다.
   - 하나 이상의 웹 애플리케이션, 웹 API 또는 함수를 호스팅하는 데 사용할 수 있는 [Azure App Service Environments](../../../../app-service/environment/intro.md)
-  - 워크로드 환경에서 실행되는 애플리케이션에 사용되는 비밀을 저장하기 위해, VNet 서비스 엔드포인트를 사용하는 [Azure Key Vault](../../../../key-vault/key-vault-overview.md) 인스턴스
+  - 워크로드 환경에서 실행되는 애플리케이션에 사용되는 비밀을 저장하기 위해, VNet 서비스 엔드포인트를 사용하는 [Azure Key Vault](../../../../key-vault/general/overview.md) 인스턴스
   - 워크로드 환경의 애플리케이션에 사용되는 데이터베이스를 호스팅하기 위해, VNet 서비스 엔드포인트를 사용하는 [Azure SQL Database](../../../../sql-database/sql-database-technical-overview.md) 인스턴스
 
 ## <a name="next-steps"></a>다음 단계

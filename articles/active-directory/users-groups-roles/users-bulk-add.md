@@ -1,11 +1,11 @@
 ---
-title: Azure Active Directory 포털에서 대량 사용자 만들기(미리 보기) | 마이크로 소프트 문서
+title: Azure Active Directory 포털에서 대량으로 사용자 만들기 | 마이크로 소프트 문서
 description: Azure Active Directory의 Azure AD 관리자 센터에 사용자를 일괄 추가
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 08/30/2019
+ms.date: 04/16/2020
 ms.topic: article
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a10dfffa69652ee2b75053c04b97f6492c46811e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c3a8b9cb9701288d24534ab08940f6dbd4a698ad
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72174343"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532942"
 ---
-# <a name="bulk-create-users-preview-in-azure-active-directory"></a>Azure Active 디렉터리에서 대량 사용자 만들기(미리 보기)
+# <a name="bulk-create-users-in-azure-active-directory"></a>Azure Active 디렉터리에서 대량 으로 사용자 만들기
 
 Azure Active Directory(Azure AD)는 대량 사용자 만들기 및 삭제 작업, 게스트에 대한 일괄 초대를 지원하며 사용자, 그룹 및 그룹 구성원의 다운로드 목록을 지원합니다.
 
@@ -40,7 +40,7 @@ Azure Active Directory(Azure AD)는 대량 사용자 만들기 및 삭제 작업
 
    ![CSV 파일에는 만들 사용자의 이름과 ID가 포함되어 있습니다.](./media/users-bulk-add/add-csv-file.png)
 
-1. 대량 **만들기 사용자(미리 보기)** 페이지에서 CSV 파일 업로드 에서 파일을 찾아봅니다. 파일을 선택하고 **제출을**클릭하면 CSV 파일의 유효성 검사가 시작됩니다.
+1. 대량 **생성 사용자** 페이지에서 CSV 파일 업로드 에서 파일을 찾아봅습니다. 파일을 선택하고 **제출을**클릭하면 CSV 파일의 유효성 검사가 시작됩니다.
 1. 파일 내용의 유효성이 검사되면 **파일이 성공적으로 업로드된**것을 볼 수 있습니다. 오류가 있는 경우 해당 오류를 해결해야 작업을 제출할 수 있습니다.
 1. 파일이 유효성 검사를 통과하면 **제출을** 선택하여 새 사용자를 가져오는 Azure 대량 작업을 시작합니다.
 1. 가져오기 작업이 완료되면 대량 작업 작업 상태에 대한 알림이 표시됩니다.
@@ -49,9 +49,9 @@ Azure Active Directory(Azure AD)는 대량 사용자 만들기 및 삭제 작업
 
 ## <a name="check-status"></a>상태 확인
 
-**대량 작업 결과(미리 보기)** 페이지에서 보류 중인 모든 대량 요청의 상태를 확인할 수 있습니다.
+**대량 작업 결과** 페이지에서 보류 중인 모든 대량 요청의 상태를 볼 수 있습니다.
 
-   ![대량 작업 결과 페이지에서 업로드 상태 확인](./media/users-bulk-add/bulk-center.png)
+   [![](media/users-bulk-add/bulk-center.png "Check create status in the Bulk Operations Results page")](media/users-bulk-add/bulk-center.png#lightbox)
 
 그런 다음 만든 사용자가 Azure 포털또는 PowerShell을 사용하여 Azure AD 조직에 있는지 확인할 수 있습니다.
 
@@ -64,7 +64,7 @@ Azure Active Directory(Azure AD)는 대량 사용자 만들기 및 삭제 작업
 
 ### <a name="verify-users-with-powershell"></a>PowerShell으로 사용자 확인
 
-다음 명령 실행:
+다음 명령을 실행합니다.
 
 ``` PowerShell
 Get-AzureADUser -Filter "UserType eq 'Member'"

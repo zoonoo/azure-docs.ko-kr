@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 889897cfd4dc8714ae3aea556f0924c9dbcd7825
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c9e3cfa689f2e528f4d20e796017ae9d91c29fe2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78299417"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461721"
 ---
 # <a name="design-secure-applications-on-azure"></a>Azure에서 안전한 응용 프로그램 디자인
 이 문서에서는 클라우드용 응용 프로그램을 디자인할 때 고려해야 할 보안 활동 및 컨트롤을 제시합니다. Microsoft [보안 개발 수명 주기(SDL)의](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 요구 사항 및 디자인 단계에서 고려해야 할 보안 질문 및 개념과 함께 교육 리소스가 다룹니다. 목표는 보다 안전한 응용 프로그램을 디자인하는 데 사용할 수 있는 활동 및 Azure 서비스를 정의하는 데 도움을 주는 것입니다.
@@ -242,7 +242,7 @@ SDL의 확인 단계에서 [공격 표면 검토를 수행하는](secure-develop
 
 키와 자격 증명을 잃어 버리는 것은 일반적인 문제입니다. 키 및 자격 증명을 분실하는 것보다 더 위험한 상황은 권한이 없는 사람이 해당 정보에 액세스하는 것뿐입니다. 공격자는 자동화 된 수동 기술을 활용하여 GitHub와 같은 코드 리포지토리에 저장된 키와 암호를 찾을 수 있습니다. 이러한 공용 코드 리포지토리 또는 다른 서버에 키와 비밀을 넣지 마십시오.
 
-항상 키 관리 솔루션에 키, 인증서, 비밀 및 연결 문자열을 배치합니다. 키와 비밀이 하드웨어 보안 모듈(HSM)에 저장되는 중앙 집중식 솔루션을 사용할 수 있습니다. Azure는 [Azure 키 볼트를](../../key-vault/key-vault-overview.md)통해 클라우드에서 HSM을 제공합니다.
+항상 키 관리 솔루션에 키, 인증서, 비밀 및 연결 문자열을 배치합니다. 키와 비밀이 하드웨어 보안 모듈(HSM)에 저장되는 중앙 집중식 솔루션을 사용할 수 있습니다. Azure는 [Azure 키 볼트를](../../key-vault/general/overview.md)통해 클라우드에서 HSM을 제공합니다.
 
 키 볼트는 *비밀 저장소입니다*: 그것은 응용 프로그램 비밀을 저장하기위한 중앙 집중식 클라우드 서비스입니다. Key Vault는 응용 프로그램 기밀을 단일 중앙 위치에 유지하고 보안 액세스, 권한 제어 및 액세스 로깅을 제공하여 기밀 데이터를 안전하게 유지합니다.
 
@@ -273,11 +273,11 @@ SDL의 확인 단계에서 [공격 표면 검토를 수행하는](secure-develop
 
 어떤 것들은 소프트웨어에서 하드 코딩해서는 안됩니다. 호스트 이름 또는 IP 주소, URL, 이메일 주소, 사용자 이름, 암호, 저장소 계정 키 및 기타 암호화 키를 예로 들 수 있습니다. 코드의 주석 섹션을 포함하여 코드에서 하드 코딩할 수 있는 것 또는 할 수 없는 것과 관련된 요구 사항을 구현하는 것이 좋습니다.
 
-코드에 주석을 넣을 때 중요한 정보를 저장하지 않도록 해야 합니다. 여기에는 전자 메일 주소, 암호, 연결 문자열, 조직의 다른 사람만 알 수 있는 응용 프로그램에 대한 정보 및 공격자가 응용 프로그램이나 조직을 공격하는 데 이점을 줄 수 있는 모든 정보가 포함됩니다. .
+코드에 주석을 넣을 때 중요한 정보를 저장하지 않도록 해야 합니다. 여기에는 전자 메일 주소, 암호, 연결 문자열, 조직의 다른 사용자가 만 알 수 있는 응용 프로그램에 대한 정보 및 공격자가 응용 프로그램이나 조직을 공격하는 데 이점을 줄 수 있는 모든 정보가 포함됩니다.
 
 기본적으로 개발 프로젝트의 모든 것이 배포될 때 공개적인 지식이 된다고 가정합니다. 프로젝트에 모든 종류의 중요한 데이터를 포함하지 마십시오.
 
-앞서 Azure [키 자격 증명 모음에](../../key-vault/key-vault-overview.md)대해 설명했습니다. 키 볼트를 사용하여 키와 암호와 같은 암호를 하드 코딩하는 대신 저장할 수 있습니다. Azure 리소스에 대한 관리ID와 함께 Key Vault를 사용하는 경우 Azure 웹 앱은 소스 제어 또는 구성에 비밀을 저장하지 않고도 비밀 구성 값에 쉽고 안전하게 액세스할 수 있습니다. 자세한 내용은 [Azure 키 자격 증명 모음을 사용하여 서버 앱의 비밀 관리를](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/)참조하십시오.
+앞서 Azure [키 자격 증명 모음에](../../key-vault/general/overview.md)대해 설명했습니다. 키 볼트를 사용하여 키와 암호와 같은 암호를 하드 코딩하는 대신 저장할 수 있습니다. Azure 리소스에 대한 관리ID와 함께 Key Vault를 사용하는 경우 Azure 웹 앱은 소스 제어 또는 구성에 비밀을 저장하지 않고도 비밀 구성 값에 쉽고 안전하게 액세스할 수 있습니다. 자세한 내용은 [Azure 키 자격 증명 모음을 사용하여 서버 앱의 비밀 관리를](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/)참조하십시오.
 
 ### <a name="implement-fail-safe-measures"></a>페일 세이프 조치 구현
 

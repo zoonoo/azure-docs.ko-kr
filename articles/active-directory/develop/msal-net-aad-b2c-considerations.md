@@ -13,12 +13,12 @@ ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 697b4bc8e3a25085ac6f7d600ea2227dd30a6624
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d31cf3a4e024dc59b865d096cbd0829d50f61a1a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262816"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533958"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>MSAL.NET 사용하여 소셜 ID로 사용자 로그인
 
@@ -34,7 +34,7 @@ azure [Active Directory B2C(Azure AD B2C)를](https://aka.ms/aadb2c)사용하여
 사용할 권한은 `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}` 다음과 같은 위치입니다.
 
 - `azureADB2CHostname`은 Azure AD B2C 테넌트와 호스트의 `{your-tenant-name}.b2clogin.com`이름입니다(예: )
-- `tenant`는 Azure AD B2C 테넌트(예: `{your-tenant-name}.onmicrosoft.com`또는 테넌트의 GUID)의 전체 이름입니다. 
+- `tenant`는 Azure AD B2C 테넌트(예: `{your-tenant-name}.onmicrosoft.com`또는 테넌트의 GUID)의 전체 이름입니다.
 - `policyName`신청할 정책 또는 사용자 흐름의 이름(예: 등록/로그인을 위한 "b2c_1_susi").
 
 Azure AD B2C 기관에 대한 자세한 내용은 이 [설명서를](/azure/active-directory-b2c/b2clogin)참조하십시오.
@@ -74,11 +74,11 @@ AuthenticationResult ar = await application .AcquireTokenInteractive(scopes)
                                             .ExecuteAsync();
 ```
 
-다음 구문으로 바꿉니다.
+다음으로 바꿉니다.
 
 - `policy`이전 문자열 중 하나(예:)가 `PolicySignUpSignIn`됩니다.
 - `ParentActivityOrWindow`Android(활동)에 필요하며 windows의 창 및 iOS의 UIViewController와 같이 상위 UI를 지원하는 다른 플랫폼에는 선택 사항입니다. [UI 대화 상자에서](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow)자세한 내용은 여기를 참조하십시오.
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)`은 지정된 정책에 대한 계정을 찾는 방법입니다. 예를 들어:
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)`은 지정된 정책에 대한 계정을 찾는 방법입니다. 다음은 그 예입니다.
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -121,7 +121,7 @@ private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
 ## <a name="resource-owner-password-credentials-ropc-with-azure-ad-b2c"></a>Azure AD B2C를 사용 하 고 리소스 소유자 암호 자격 증명 (ROPC)
 ROPC 흐름에 대한 자세한 내용은 이 [설명서를](v2-oauth-ropc.md)참조하십시오.
 
-사용자에게 암호를 묻는 응용 프로그램이 안전하지 않으므로 이 흐름은 **권장되지 않습니다.** 이 문제에 대한 자세한 내용은 [이 문서를](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/)참조하십시오. 
+사용자에게 암호를 묻는 응용 프로그램이 안전하지 않으므로 이 흐름은 **권장되지 않습니다.** 이 문제에 대한 자세한 내용은 [이 문서를](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/)참조하십시오.
 
 사용자 이름/암호를 사용하면 다음과 같은 여러 가지 를 포기합니다.
 - 현대 정체성의 핵심 신조 : 암호는 물고기, 재생됩니다. 왜냐하면 우리는 가로챌 수 있는 공유 비밀의 개념을 가지고 있기 때문입니다. 이것은 암호가 없는 것과 호환되지 않습니다.
@@ -155,15 +155,15 @@ Google을 ID 공급자로 사용하는 Azure AD B2C 개발자인 경우 Google�
 
 상황이 변경되면 이 [문제에](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/688) 대한 업데이트를 제공합니다.
 
-## <a name="caching-with-azure-ad-b2c-in-msalnet"></a>MSAL.Net Azure AD B2C로 캐싱 
+## <a name="caching-with-azure-ad-b2c-in-msalnet"></a>MSAL.Net Azure AD B2C로 캐싱
 
 ### <a name="known-issue-with-azure-ad-b2c"></a>Azure AD B2C에서 알려진 문제
 
-MSAL.Net [토큰 캐시를](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet)지원합니다. 토큰 캐싱 키는 ID 공급자가 반환한 클레임을 기반으로 합니다. 현재 MSAL.Net 토큰 캐시 키를 빌드하려면 두 가지 클레임이 필요합니다.  
-- `tid`Azure AD 테넌트 ID이며 
-- `preferred_username` 
+MSAL.Net [토큰 캐시를](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet)지원합니다. 토큰 캐싱 키는 ID 공급자가 반환한 클레임을 기반으로 합니다. 현재 MSAL.Net 토큰 캐시 키를 빌드하려면 두 가지 클레임이 필요합니다.
+- `tid`Azure AD 테넌트 ID이며
+- `preferred_username`
 
-이러한 클레임은 많은 Azure AD B2C 시나리오에서 누락되었습니다. 
+이러한 클레임은 많은 Azure AD B2C 시나리오에서 누락되었습니다.
 
 고객의 영향은 사용자 이름 필드를 표시하려고 할 때 값으로 "토큰 응답에서 누락"을 받고 있다는 것입니다. 이 경우 Azure AD B2C는 소셜 계정 및 외부 ID 공급자(IdP)의 제한으로 인해 preferred_username 대한 IdToken에서 값을 반환하지 않기 때문입니다. Azure AD는 사용자가 누구인지 알고 있기 때문에 preferred_username 값을 반환하지만 Azure AD B2C의 경우 사용자가 로컬 계정, Facebook, Google, GitHub 등으로 로그인할 수 있기 때문에 Azure AD B2C가 preferred_username 사용할 일관된 값이 없습니다. MsAL이 ADAL과의 캐시 호환성을 롤아웃하지 못하도록 차단하기 위해 IdToken이 preferred_username 동안 아무 것도 반환하지 않는 Azure AD B2C 계정을 처리할 때 끝에 "토큰 응답에서 누락"을 사용하기로 결정했습니다. MSAL은 라이브러리 간에 캐시 호환성을 유지하기 위해 preferred_username 값을 반환해야 합니다.
 
@@ -178,10 +178,10 @@ MSAL.Net [토큰 캐시를](/dotnet/api/microsoft.identity.client.tokencache?vie
 #### <a name="mitigation-for-missing-from-the-token-response"></a>"토큰 응답에서 누락" 완화
 한 가지 옵션은 "이름" 클레임을 기본 사용자 이름으로 사용하는 것입니다. 프로세스는 이 [B2C 문서](../../active-directory-b2c/user-flow-overview.md) -> "Return 클레임 열에서 성공적인 프로필 편집 환경 후 응용 프로그램으로 다시 전송된 권한 부여 토큰에서 반환할 클레임을 선택합니다. 예를 들어 이름 표시, 우편 번호를 선택합니다."
 
-## <a name="next-steps"></a>다음 단계 
+## <a name="next-steps"></a>다음 단계
 
 Azure AD B2C 응용 프로그램에 대한 MSAL.NET 대화식으로 토큰을 획득하는 것에 대한 자세한 내용은 다음 샘플에서 제공합니다.
 
-| 예제 | 플랫폼 | 설명|
+| 예제 | 플랫폼 | Description|
 |------ | -------- | -----------|
 |[액티브 디렉토리 b2c-자마린 네이티브](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | 자마린 아이폰 OS, 자마린 안드로이드, UWP | Azure AD B2C를 통해 사용자를 인증하고 결과 토큰을 사용하여 웹 API에 액세스하는 방법을 MSAL.NET 사용하는 방법을 보여주는 간단한 Xamarin Forms 앱입니다.|

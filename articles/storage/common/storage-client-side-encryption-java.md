@@ -10,12 +10,12 @@ ms.date: 05/11/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8fe95a471df6ea86aad90f387088824c3c92bd3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32691e0ddcee3f5410b12f07a2fb80806345bc26
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75460440"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460514"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Microsoft Azure Storage용 Java를 사용하는 클라이언트 쪽 암호화 및 Azure Key Vault
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -103,7 +103,7 @@ ms.locfileid: "75460440"
 > 쿼리 작업을 수행 하려면 결과 집합에 있는 모든 키를 확인할 수 있는 키 확인자를 지정 해야 합니다. 공급자에는 쿼리 결과에 포함 된 엔터티를 확인할 수 없으면, 클라이언트 라이브러리는 오류를 throw 합니다. 서버 쪽 프로젝션을 수행하는 모든 쿼리에 대해 클라이언트 라이브러리는 선택한 열에 기본적으로 특별한 암호 메타데이터 속성(_ClientEncryptionMetadata1 및 _ClientEncryptionMetadata2)을 추가합니다.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
-Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. Azure Key Vault를 사용하여, 사용자는 키와 비밀(예: 인증 키, 스토리지 계정 키, 데이터 암호화 키, PFX 파일 및 암호)을 암호화하여 하드웨어 보안 모듈(HSM)로 보호된 키를 사용합니다. 자세한 내용은 [Azure Key Vault란?](../../key-vault/key-vault-overview.md)을 참조하세요.
+Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. Azure Key Vault를 사용하여, 사용자는 키와 비밀(예: 인증 키, 스토리지 계정 키, 데이터 암호화 키, PFX 파일 및 암호)을 암호화하여 하드웨어 보안 모듈(HSM)로 보호된 키를 사용합니다. 자세한 내용은 [Azure Key Vault란?](../../key-vault/general/overview.md)을 참조하세요.
 
 스토리지 클라이언트 라이브러리는 Azure 내에서 키를 관리 하기 위한 공통 프레임 워크를 제공 하기 위해 키 자격 증명 모음 핵심 라이브러리를 사용 합니다. 사용자는 또한 키 자격 증명 모음 확장 라이브러리를 사용하여 추가적인 이점을 제공을 받습니다. 이 확장 라이브러리는 간단하고 원활한 대칭/RSA 로컬 및 집계와 캐싱같은 클라우드 키 공급자 관련 유용한 기능을 제공합니다. .
 
@@ -121,7 +121,7 @@ Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되
 3. 암호화 정책을 생성하는 동안 캐싱 확인자를 입력으로 사용합니다.
    주요 자격 증명 모음 사용법에 대한 자세한 내용은 암호화 코드 샘플에서 찾을 있습니다.
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 암호화 지원은 Java용 스토리지 클라이언트 라이브러리에만 사용할 수 있습니다.
 
 > [!IMPORTANT]
@@ -228,7 +228,7 @@ TableOperation operation = TableOperation.retrieve(ent.PartitionKey, ent.RowKey,
 TableResult result = currentTable.execute(operation, retrieveOptions, null);
 ```
 
-### <a name="using-attributes"></a>특성을 사용하여
+### <a name="using-attributes"></a>특성 사용
 앞서 설명한 것처럼 엔터티가 TableEntity를 구현하는 경우 **EncryptionResolver**를 지정하는 대신 [Encrypt] 특성으로 속성 getter와 setter를 데코레이트할 수 있습니다.
 
 ```java
@@ -256,4 +256,4 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 * Java Maven 패키지에 대한 Azure Key Vault Maven 라이브러리 다운로드
   * [코어](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) 패키지
   * [클라이언트](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) 패키지
-* [Azure Key Vault 설명서](../../key-vault/key-vault-overview.md)
+* [Azure Key Vault 설명서](../../key-vault/general/overview.md)

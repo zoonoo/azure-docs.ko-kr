@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: 354b0eae1620c49006b350371aae38f8867c18b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 07fa72f086b676723279ee4b8efd927beb2692f0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124667"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481982"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Azure 스트림 분석을 Azure 기계 학습과 통합(미리 보기)
 
@@ -31,7 +31,7 @@ Azure Stream Analytics 작업에서 사용자 정의 함수(UDF)로 기계 학�
 
 3. 웹 서비스가 JSON 직렬화된 데이터를 수락하고 반환하는지 확인합니다.
 
-4. 대규모 프로덕션 배포를 위해 [Azure Kubernetes 서비스에](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) 모델을 배포합니다. 웹 서비스가 작업에서 들어오는 요청 수를 처리할 수 없는 경우 Stream Analytics 작업의 성능이 저하되어 대기 시간에 영향을 미칩니다.
+4. 대규모 프로덕션 배포를 위해 [Azure Kubernetes 서비스에](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) 모델을 배포합니다. 웹 서비스가 작업에서 들어오는 요청 수를 처리할 수 없는 경우 Stream Analytics 작업의 성능이 저하되어 대기 시간에 영향을 미칩니다. Azure 컨테이너 인스턴스에 배포된 모델은 현재 지원되지 않지만 향후 몇 개월 내에 사용할 수 있게 됩니다.
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>작업에 기계 학습 모델 추가
 
@@ -47,7 +47,7 @@ Azure 포털에서 직접 Stream Analytics 작업에 Azure 기계 학습 기능�
 
 다음 표에서는 스트림 분석에서 Azure ML 서비스 함수의 각 속성에 대해 설명합니다.
 
-|속성|설명|
+|속성|Description|
 |--------|-----------|
 |함수 별칭|쿼리에서 함수를 호출하는 이름을 입력합니다.|
 |Subscription|Azure 구독.|

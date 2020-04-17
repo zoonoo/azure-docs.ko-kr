@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: c778130a95be1aa0afe81241130b7daf165360c4
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: fcdd7c13c9e0a5f9e858309bea50bb0264b7b301
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80522135"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460684"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Azure CLI를 사용하여 PostgreSQL 단일 서버에 대한 Azure 데이터베이스에 대한 데이터 암호화
 
@@ -33,13 +33,13 @@ Azure CLI를 사용하여 PostgreSQL 단일 서버에 대한 Azure 데이터베�
     ```
 
 * 기존 키 자격 증명 모음을 사용하려면 고객 관리 키로 사용할 다음 속성이 있어야 합니다.
-  * [소프트 삭제](../key-vault/key-vault-ovw-soft-delete.md)
+  * [소프트 삭제](../key-vault/general/overview-soft-delete.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
-  * [보호된 제거](../key-vault/key-vault-ovw-soft-delete.md#purge-protection)
+  * [보호된 제거](../key-vault/general/overview-soft-delete.md#purge-protection)
 
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true

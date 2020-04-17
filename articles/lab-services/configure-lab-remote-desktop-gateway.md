@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 2cdafa9a36a5f906151ca6946e18ef82bc7f1e01
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: eac195babebf300aa9770d35b7b98eba29c234cf
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529415"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460990"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>원격 데스크톱 게이트웨이를 사용하도록 Azure DevTest Labs에서 랩 구성
 Azure DevTest Labs에서 RDP 포트를 노출하지 않고도 랩 가상 컴퓨터(VM)에 대한 보안 액세스를 보장하도록 랩용 원격 데스크톱 게이트웨이를 구성할 수 있습니다. 랩은 랩 사용자가 액세스할 수 있는 모든 가상 컴퓨터를 보고 연결할 수 있는 중앙 위치를 제공합니다. **가상 컴퓨터** 페이지의 **연결** 단추는 컴퓨터에 연결하기 위해 열 수 있는 컴퓨터별 RDP 파일을 만듭니다. 랩을 원격 데스크톱 게이트웨이에 연결하여 RDP 연결을 추가로 사용자 지정하고 보호할 수 있습니다. 
@@ -64,7 +64,7 @@ Azure 함수는 요청을 형식으로 `https://{function-app-uri}/app/host/{lab
 ## <a name="configure-the-lab-to-use-token-authentication"></a>토큰 인증을 사용하도록 랩 구성 
 이 섹션에서는 토큰 인증을 지원하는 원격 데스크톱 게이트웨이 컴퓨터를 사용하도록 랩을 구성하는 방법을 보여 주며 있습니다. 이 섹션에서는 원격 데스크톱 게이트웨이 팜 자체를 설정하는 방법을 다루지 않습니다. 이 정보에 대 한 이 문서의 끝에 [원격 데스크톱 게이트웨이](#sample-to-create-a-remote-desktop-gateway) 섹션을 만들 수 샘플을 참조 하십시오. 
 
-랩 설정을 업데이트하기 전에 함수를 성공적으로 실행하여 랩의 키 자격 증명 모음에 인증 토큰을 반환하는 데 필요한 키를 저장합니다. Azure 포털의 함수에 대한 **관리** 페이지에서 함수 키 값을 얻을 수 있습니다. 키 자격 증명 모음에 비밀을 저장하는 방법에 대한 자세한 내용은 [키 자격 증명 모음에 비밀 추가를](../key-vault/quick-create-portal.md#add-a-secret-to-key-vault)참조하십시오. 나중에 사용할 수 있는 비밀의 이름을 저장합니다.
+랩 설정을 업데이트하기 전에 함수를 성공적으로 실행하여 랩의 키 자격 증명 모음에 인증 토큰을 반환하는 데 필요한 키를 저장합니다. Azure 포털의 함수에 대한 **관리** 페이지에서 함수 키 값을 얻을 수 있습니다. 키 자격 증명 모음에 비밀을 저장하는 방법에 대한 자세한 내용은 [키 자격 증명 모음에 비밀 추가를](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)참조하십시오. 나중에 사용할 수 있는 비밀의 이름을 저장합니다.
 
 랩의 키 자격 증명 모음의 ID를 찾으려면 다음 Azure CLI 명령을 실행합니다. 
 

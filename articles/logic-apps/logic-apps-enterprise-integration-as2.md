@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 0ce813e91750db3cdfa1e651a68fbb82d593eb32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e7c34e42d0ab68a5dab9718075f02a85322ce6c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77650568"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458831"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 AS2 메시지 교환
 
@@ -61,7 +61,7 @@ Azure Logic Apps에서 AS2 메시지로 작업하려면 AS2 통신 관리를 위
 
 * AS2 커넥터를 사용하려면 먼저 거래 업체 간에 AS2 [계약을](../logic-apps/logic-apps-enterprise-integration-agreements.md) 만들고 해당 계약을 통합 계정에 저장해야 합니다.
 
-* 인증서 관리에 [Azure Key Vault를](../key-vault/key-vault-overview.md) 사용하는 경우 자격 증명 모음 키에서 **암호화** 및 **암호 해독** 작업을 허용하는지 확인합니다. 그렇지 않으면 인코딩 및 디코딩 작업이 실패합니다.
+* 인증서 관리에 [Azure Key Vault를](../key-vault/general/overview.md) 사용하는 경우 자격 증명 모음 키에서 **암호화** 및 **암호 해독** 작업을 허용하는지 확인합니다. 그렇지 않으면 인코딩 및 디코딩 작업이 실패합니다.
 
   Azure 포털에서 키 자격 증명 모음의 키로 이동하여 키의 **허용된 작업을**검토하고 **암호화** 및 **암호 해독** 작업이 선택되어 있는지 확인합니다.
 
@@ -81,14 +81,14 @@ Azure Logic Apps에서 AS2 메시지로 작업하려면 AS2 통신 관리를 위
 
 1. 이제 이러한 속성에 대한 정보를 제공합니다.
 
-   | 속성 | 설명 |
+   | 속성 | Description |
    |----------|-------------|
    | **인코딩할 메시지** | 메시지 페이로드 |
    | **AS2 부터** | AS2 계약에 지정된 메시지 발신자의 식별자 |
    | **AS2 ~** | AS2 계약에 지정된 메시지 수신자의 식별자 |
    |||
 
-   예를 들어:
+   다음은 그 예입니다.
 
    ![메시지 인코딩 속성](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
 

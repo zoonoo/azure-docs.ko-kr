@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/16/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: c6455930f88d02e11cb0c45d29594ae40eaad9e3
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 82d8c8ca94f3d0f4289902ae40928ff507e2d1ec
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113286"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460667"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -23,7 +23,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 ## <a name="supported-versions"></a>지원되는 버전
 다음 버전은 Azure 파일 동기화 에이전트에 대해 지원됩니다.
 
-| Milestone | 에이전트 버전 번호 | 릴리스 날짜 | 상태 |
+| Milestone | 에이전트 버전 번호 | 릴리스 날짜 | Status |
 |----|----------------------|--------------|------------------|
 | V10 릴리스 - [KB4522359](https://support.microsoft.com/en-us/help/4522409/azure-file-sync-agent-v10-release-march-2020)| 10.0.0.0 | 2020년 4월 9일 | 비행 중 |
 | 2019년 12월 업데이트 롤업 - [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | 2019년 12월 12일 | 지원됨 |
@@ -36,10 +36,10 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 | 2019년 6월 업데이트 롤업 - [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 2019년 6월 13일 | 지원됨 - 에이전트 버전은 2020년 4월 21일에 만료됩니다. |
 | 2019년 5월 업데이트 롤업 - [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 2019년 5월 7일 | 지원됨 - 에이전트 버전은 2020년 4월 21일에 만료됩니다. |
 | V6 릴리스 - [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 2019년 4월 21일 | 지원됨 - 에이전트 버전은 2020년 4월 21일에 만료됩니다. |
-| V5 릴리스 | 5.0.2.0 - 5.2.0.0 | N/A | 지원되지 않음 - 에이전트 버전이 2020년 3월 18일에 만료되었습니다. |
-| V4 릴리스 | 4.0.1.0 - 4.3.0.0 | N/A | 지원되지 않음 - 에이전트 버전이 2019년 11월 6일에 만료되었습니다. |
-| V3 릴리스 | 3.1.0.0 - 3.4.0.0 | N/A | 지원되지 않음 - 에이전트 버전이 2019년 8월 19일에 만료되었습니다. |
-| PRE-GA 에이전트 | 1.1.0.0 - 3.0.13.0 | N/A | 미지원 - 2018년 10월 1일에 에이전트 버전 만료 |
+| V5 릴리스 | 5.0.2.0 - 5.2.0.0 | 해당 없음 | 지원되지 않음 - 에이전트 버전이 2020년 3월 18일에 만료되었습니다. |
+| V4 릴리스 | 4.0.1.0 - 4.3.0.0 | 해당 없음 | 지원되지 않음 - 에이전트 버전이 2019년 11월 6일에 만료되었습니다. |
+| V3 릴리스 | 3.1.0.0 - 3.4.0.0 | 해당 없음 | 지원되지 않음 - 에이전트 버전이 2019년 8월 19일에 만료되었습니다. |
+| PRE-GA 에이전트 | 1.1.0.0 - 3.0.13.0 | 해당 없음 | 미지원 - 2018년 10월 1일에 에이전트 버전 만료 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 파일 동기화 에이전트 업데이트 정책
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
@@ -63,9 +63,6 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 - 저장소 동기화 서비스 및/또는 저장소 계정을 다른 Azure Active Directory(AAD) 테넌트로 이동하기 위한 지원
     - 이제 Azure File Sync는 저장소 동기화 서비스 및/또는 저장소 계정을 다른 리소스 그룹, 구독 또는 Azure AD 테넌트로 이동하는 것을 지원합니다.
     
-- 평가 도구는 이제 마침표로 끝나는 파일 또는 디렉터리를 식별합니다.
-    - 마침표로 끝나는 파일이나 디렉터리를 식별하도록 [평가 도구가](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) 업데이트되었습니다. 마침표로 끝나는 파일 또는 디렉터리는 현재 Azure 파일 동기화에서 지원되지 않습니다. [평가 도구의](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet)업데이트된 버전을 사용하려면 [Azure PowerShell 모듈의](https://docs.microsoft.com/powershell/azure/install-az-ps)최신 버전을 설치합니다.
- 
 - 기타 성능 및 안정성 향상
     - 저장소 계정에서 가상 네트워크(VNET) 및 방화벽 규칙을 구성하면 Azure 파일 공유에 대한 변경 검색이 실패할 수 있습니다.
     - 리콜과 관련된 메모리 소비 감소. 

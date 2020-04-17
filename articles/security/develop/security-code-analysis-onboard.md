@@ -1,10 +1,10 @@
 ---
 title: 마이크로소프트 보안 코드 분석 온보딩 가이드
 description: 이 문서에서는 Microsoft 보안 코드 분석 확장 프로그램 설치에 대해 설명합니다.
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 07/31/2019
+ms.date: 04/14/2020
 ms.topic: article
 ms.service: security
 services: azure
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6132aab98cc8145cb99cf153c64f20fbac00131c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ef111817b6351277f975b9b7e454f9a89982451
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78197008"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460208"
 ---
 # <a name="onboarding-and-installing"></a>온보딩 및 설치
 
@@ -49,6 +49,7 @@ Microsoft 보안 코드 분석을 시작하기 위한 필수 구성 조건:
 >**파트너:**
 
 - 영역 - 연락처 세부 정보:cloudsupport@zones.com
+- Wortell – 연락처 정보:info@wortell.nl
 
 ### <a name="become-a-partner"></a>파트너 되기
 
@@ -61,7 +62,7 @@ Microsoft 보안 코드 분석 팀은 파트너를 위한 프리미어 지원 �
 1. **공유**를 선택합니다.
 1. Microsoft 보안 코드 분석 확장을 선택하고 **설치를**선택합니다.
 1. 드롭다운 목록에서 Azure DevOps 조직을 선택하여 확장을 설치합니다.
-1. **설치**을 선택합니다. 설치가 완료되면 확장을 사용할 수 있습니다.
+1. **설치**를 선택합니다. 설치가 완료되면 확장을 사용할 수 있습니다.
 
 >[!NOTE]
 > 확장을 설치할 수 있는 권한이 없는 경우에도 설치 단계를 계속합니다. 설치 프로세스 중에 Azure DevOps 조직 관리자에게 액세스를 요청할 수 있습니다.
