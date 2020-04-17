@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 36b7b81a18c8725929ab5676b844e1ee319e287f
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 40bff9585e64163039a8847ff868c982ffb20414
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393305"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458252"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure 키 볼트를 이벤트 그리드 소스로
 
@@ -80,18 +80,18 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성합니다.
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
 |제목  |Description  |
 |---------|---------|
-| [Azure 이벤트 그리드를 통해 주요 볼트 이벤트 모니터링](../key-vault/event-grid-overview.md) | 키 볼트와 이벤트 그리드 통합 개요 |
-| [자습서: 이벤트 그리드를 사용하여 키 볼트 이벤트 생성 및 모니터링](../key-vault/event-grid-tutorial.md) | 키 자격 증명 모음에 대한 이벤트 그리드 알림을 설정하는 방법에 대해 알아봅니다. |
+| [Azure 이벤트 그리드를 통해 주요 볼트 이벤트 모니터링](../key-vault/general/event-grid-overview.md) | 키 볼트와 이벤트 그리드 통합 개요 |
+| [자습서: 이벤트 그리드를 사용하여 키 볼트 이벤트 생성 및 모니터링](../key-vault/general/event-grid-tutorial.md) | 키 자격 증명 모음에 대한 이벤트 그리드 알림을 설정하는 방법에 대해 알아봅니다. |
 
 
 ## <a name="next-steps"></a>다음 단계
 
 * Azure 이벤트 그리드에 대한 소개는 [이벤트 그리드란 무엇입니까?](overview.md)
 * Azure Event Grid 구독을 만드는 방법에 대한 자세한 내용은 [Event Grid 구독 스키마](subscription-creation-schema.md)를 참조하십시오.
-* 이벤트 그리드와의 키 볼트 통합에 대한 자세한 내용은 [Azure 이벤트 그리드를 사용하여 키 볼트 모니터링(미리 보기)을](../key-vault/event-grid-overview.md)참조하십시오.
-* 이벤트 그리드와의 키 볼트 통합에 대한 자습서는 [Azure 이벤트 그리드(미리 보기)를 사용하여 키 볼트 알림 수신 및 응답을](../key-vault/event-grid-tutorial.md)참조합니다.
+* 이벤트 그리드와의 키 볼트 통합에 대한 자세한 내용은 [Azure 이벤트 그리드를 사용하여 키 볼트 모니터링(미리 보기)을](../key-vault/general/event-grid-overview.md)참조하십시오.
+* 이벤트 그리드와의 키 볼트 통합에 대한 자습서는 [Azure 이벤트 그리드(미리 보기)를 사용하여 키 볼트 알림 수신 및 응답을](../key-vault/general/event-grid-tutorial.md)참조합니다.
 * 키 자격 증명 모음 및 Azure 자동화에 대한 추가 지침을 얻으려면 다음을 참조하십시오.
-    - [Azure Key Vault란?](../key-vault/key-vault-overview.md)
-    - [Azure Event Grid를 사용하여 Key Vault 모니터링(미리 보기)](../key-vault/event-grid-overview.md)
-    - [Azure Event Grid를 사용하여 키 자격 증명 모음 알림 수신 및 응답(미리보기)](../key-vault/event-grid-tutorial.md)
+    - [Azure Key Vault란?](../key-vault/general/overview.md)
+    - [Azure Event Grid를 사용하여 Key Vault 모니터링(미리 보기)](../key-vault/general/event-grid-overview.md)
+    - [Azure Event Grid를 사용하여 키 자격 증명 모음 알림 수신 및 응답(미리보기)](../key-vault/general/event-grid-tutorial.md)
     - [Azure Automation 개요](../automation/index.yml)

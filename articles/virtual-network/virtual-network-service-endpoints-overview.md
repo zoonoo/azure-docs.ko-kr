@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 72c2c90f7a71bd9bf251adb492168fa5d2baa60a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b75e0c1e53f1e00579de73897197cdd2f14d79af
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244785"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455413"
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
@@ -35,7 +35,7 @@ ms.locfileid: "79244785"
 - **[MySQL 서버용 Azure](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *데이터베이스(Microsoft.Sql):* 데이터베이스 서비스를 사용할 수 있는 Azure 지역에서 일반적으로 사용할 수 있습니다.
 - **[MariaDB(Microsoft.Sql)에 대한 Azure 데이터베이스:](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** 데이터베이스 서비스를 사용할 수 있는 Azure 지역에서 일반적으로 사용할 수 있습니다.*Microsoft.Sql*
 - **[Azure 코스모스 DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.AzureCosmosDB):* 일반적으로 모든 Azure 지역에서 사용할 수 있습니다.
-- **[Azure 키 볼트](../key-vault/key-vault-overview-vnet-service-endpoints.md)** *(Microsoft.KeyVault):* 일반적으로 모든 Azure 지역에서 사용할 수 있습니다.
+- **[Azure 키 볼트](../key-vault/general/overview-vnet-service-endpoints.md)** *(Microsoft.KeyVault):* 일반적으로 모든 Azure 지역에서 사용할 수 있습니다.
 - **[Azure 서비스](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *버스(Microsoft.ServiceBus):* 일반적으로 모든 Azure 지역에서 사용할 수 있습니다.
 - **[Azure 이벤트](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** 허브(Microsoft.EventHub): 일반적으로 모든 Azure 지역에서 사용할 수 있습니다.*Microsoft.EventHub*
 - **[Azure 데이터 레이크 저장소 세대 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.AzureActiveDirectory):* 일반적으로 ADLS Gen1을 사용할 수 있는 모든 Azure 지역에서 사용할 수 있습니다.
@@ -45,7 +45,7 @@ ms.locfileid: "79244785"
 
 - **[Azure 컨테이너](../container-registry/container-registry-vnet.md)** 레지스트리(Microsoft.ContainerRegistry): Azure 컨테이너 레지스트리를 사용할 수 있는 모든 Azure 지역에서 미리 보기를 사용할 수 있습니다.*Microsoft.ContainerRegistry*
 
-최신 알림은 [Azure Virtual Network 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 확인하세요.
+최신 알림은 [Azure 가상 네트워크 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 확인합니다.
 
 ## <a name="key-benefits"></a>주요 이점
 
@@ -151,5 +151,5 @@ FAQ는 가상 [네트워크 서비스 엔드포인트 FAQ를](https://docs.micro
 - [Azure SQL 데이터 웨어하우스를 가상 네트워크에 보호](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [가상 네트워크의 Azure 서비스 통합](virtual-network-for-azure-services.md)
 - [Virtual Network 서비스 엔드포인트 정책](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
-- [Azure 리소스 관리자 템플릿](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
+- [Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
 

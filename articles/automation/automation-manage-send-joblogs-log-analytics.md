@@ -5,24 +5,27 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 54f77f55a127cd712d43419eb6a85fd5d93a478c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: a9f4e641e60d6cf1c481c445767422e8b4df683b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652170"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457691"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>자동화에서 Azure 모니터 로그로 작업 상태 및 작업 스트림 전달
 
 Automation에서는 Log Analytics 작업 영역으로 Runbook 작업 상태 및 작업 스트림을 보낼 수 있습니다. 이 프로세스는 작업 영역 링크 설정을 포함하지 않고 완전히 독립적입니다. 개별 작업에 대해 Azure Portal에서 또는 PowerShell을 사용하여 작업 로그 및 작업 스트림을 볼 수 있으며 이를 통해 보다 간단한 조사가 가능합니다. 이제 Azure 모니터 로그를 사용하면 다음을 수행할 수 있습니다.
 
-* Automation 작업에 대한 통찰력 확보
+* 자동화 작업의 상태에 대한 통찰력을 얻을 수 있습니다.
 * Runbook 작업 상태(예: 실패 또는 일시 중단)를 기반으로 이메일 또는 경고 트리거
 * 작업 스트림에서 고급 쿼리 작성
 * Automation 계정 간에 작업 상호 연결
-* 시간별 작업 기록 시각화
+* 사용자 지정 보기 및 검색 쿼리를 사용하여 Runbook 결과, Runbook 작업 상태 및 기타 관련 주요 지표 또는 메트릭을 시각화합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+>[!NOTE]
+>이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. 하이브리드 Runbook 작업자의 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치를](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)참조하십시오. 자동화 계정의 경우 Azure 자동화 에서 [Azure PowerShell 모듈을 업데이트하는 방법을](automation-update-azure-modules.md)사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
 
 ## <a name="prerequisites-and-deployment-considerations"></a>필수 구성 요소 및 배포 고려 사항
 
@@ -35,7 +38,7 @@ Automation에서는 Log Analytics 작업 영역으로 Runbook 작업 상태 및 
 다음 명령을 사용하여 Azure 자동화 계정의 리소스 ID를 찾습니다.
 
 ```powershell-interactive
-# Find the ResourceId for the Automation Account
+# Find the ResourceId for the Automation account
 Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
 ```
 
@@ -50,8 +53,9 @@ Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 
 1. Azure 포털에서 **자동화 계정** 블레이드에서 자동화 계정을 선택하고 **모든 설정을**선택합니다. 
 2. 모든 **설정** 블레이드에서 **계정 설정에서** **속성을**선택합니다.  
-3. **속성** 블레이드에서 이러한 값을 기록합니다.<br> ![자동화 계정](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png)속성 .
+3. **속성** 블레이드에서 아래 와 같은 속성을 기록해 둡을 참조하십시오.
 
+    ![자동화 계정 속성](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
 
 ## <a name="azure-monitor-log-records"></a>Azure Monitor 로그 레코드
 
@@ -59,7 +63,7 @@ Azure 자동화 진단은 `AzureDiagnostics`Azure Monitor 로그에서 두 가�
 
 ### <a name="job-logs"></a>작업 로그
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | TimeGenerated |runbook 작업이 실행된 날짜 및 시간입니다. |
 | RunbookName_s |runbook의 이름입니다. |
@@ -67,7 +71,7 @@ Azure 자동화 진단은 `AzureDiagnostics`Azure Monitor 로그에서 두 가�
 | Tenant_g | 호출자의 테넌트를 식별하는 GUID입니다. |
 | JobId_g |Runbook 작업을 식별하는 GUID입니다. |
 | ResultType |runbook 작업의 상태입니다. 가능한 값은 다음과 같습니다.<br>- 신규<br>- 생성됨<br>- 시작됨<br>- 중지됨<br>- 일시 중단됨<br>- 실패<br>- 완료됨 |
-| Category | 데이터 유형의 분류입니다. Automation의 경우 값은 JobLogs입니다. |
+| 범주 | 데이터 유형의 분류입니다. Automation의 경우 값은 JobLogs입니다. |
 | OperationName | Azure에서 수행되는 작업 유형입니다. Automation의 경우 이 값은 Job입니다. |
 | 리소스 | 자동화 계정의 이름 |
 | SourceSystem | Azure 모니터 로그가 데이터를 수집하는 데 사용하는 시스템입니다. 값은 항상 Azure 진단에 대 한 Azure입니다. |
@@ -80,7 +84,7 @@ Azure 자동화 진단은 `AzureDiagnostics`Azure Monitor 로그에서 두 가�
 | ResourceType | 리소스 형식입니다. 값은 자동화 계정입니다. |
 
 ### <a name="job-streams"></a>작업 스트림
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | TimeGenerated |runbook 작업이 실행된 날짜 및 시간입니다. |
 | RunbookName_s |runbook의 이름입니다. |
@@ -89,7 +93,7 @@ Azure 자동화 진단은 `AzureDiagnostics`Azure Monitor 로그에서 두 가�
 | Tenant_g | 호출자의 테넌트를 식별하는 GUID입니다. |
 | JobId_g |Runbook 작업을 식별하는 GUID입니다. |
 | ResultType |runbook 작업의 상태입니다. 가능한 값은 다음과 같습니다.<br>- 진행 중 |
-| Category | 데이터 유형의 분류입니다. Automation의 경우 값은 JobStreams입니다. |
+| 범주 | 데이터 유형의 분류입니다. Automation의 경우 값은 JobStreams입니다. |
 | OperationName | Azure에서 수행된 작업 유형입니다. Automation의 경우 이 값은 Job입니다. |
 | 리소스 | 자동화 계정의 이름입니다. |
 | SourceSystem | Azure 모니터 로그가 데이터를 수집하는 데 사용하는 시스템입니다. 값은 항상 Azure 진단에 대 한 Azure입니다. |
@@ -104,7 +108,7 @@ Azure 자동화 진단은 `AzureDiagnostics`Azure Monitor 로그에서 두 가�
 ## <a name="setting-up-integration-with-azure-monitor-logs"></a>Azure 모니터 로그와의 통합 설정
 
 1. 컴퓨터의 **시작** 화면에서 Windows PowerShell을 시작합니다.
-2. 다음 PowerShell 명령을 실행하고 이전 섹션의 `[your resource ID]` `[resource ID of the log analytics workspace]` 값과 에 대한 값을 편집합니다.
+2. 다음 PowerShell 명령을 실행하고 이전 섹션의 `[your resource ID]` 값에 대한 `[resource ID of the log analytics workspace]` 값을 편집합니다.
 
    ```powershell-interactive
    $workspaceId = "[resource ID of the log analytics workspace]"
@@ -146,7 +150,7 @@ Get-AzDiagnosticSetting -ResourceId $automationAccountId
 2. 다음 검색을 쿼리 필드에 입력하여 경고에 대한 로그 검색 쿼리를 만듭니다.`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`<br><br>다음을 사용하여 Runbook 이름으로 그룹화할 수도 있습니다.`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    둘 이상의 Automation 계정 또는 구독에서 작업 영역으로의 로그를 설정한 경우 구독 또는 Automation 계정별로 경고를 그룹화할 수 있습니다. 자동화 계정 이름은 의 `Resource` 검색 필드에서 찾을 `JobLogs`수 있습니다.
-3. **규칙 만들기** 화면을 열려면 페이지 위쪽에서 **+ 새 경고 규칙**을 클릭합니다. 경고 구성 옵션에 자세한 내용은 [Azure의 로그 경고](../azure-monitor/platform/alerts-unified-log.md)를 참조하세요.
+3. **규칙 만들기** 화면을 열려면 페이지 상단의 새 **경고 규칙을** 클릭합니다. 경고 구성 옵션에 자세한 내용은 [Azure의 로그 경고](../azure-monitor/platform/alerts-unified-log.md)를 참조하세요.
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>오류와 함께 완료된 모든 작업 찾기
 
@@ -178,15 +182,6 @@ $automationAccountId = "[resource ID of your Automation account]"
 
 Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
-
-## <a name="summary"></a>요약
-
-자동화 작업 상태 및 스트림 데이터를 Azure Monitor 로그로 전송하면 다음을 통해 자동화 작업의 상태에 대한 더 나은 통찰력을 얻을 수 있습니다.
-+ 문제가 발생할 때 알리도록 경고 설정
-+ 사용자 지정 보기와 검색 쿼리를 사용하여 runbook 결과, runbook 작업 상태 및 기타 관련된 핵심 지표 또는 메트릭 시각화.
-
-Azure Monitor 로그는 자동화 작업에 대한 운영 가시성을 높이고 인시던트를 더 빠르게 해결하는 데 도움이 될 수 있습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 * 로그 분석 문제 해결에 대한 도움말은 [로그 애널리틱스가 더 이상 데이터를 수집하지 않는 이유 문제 해결을](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data)참조하세요.
@@ -194,4 +189,3 @@ Azure Monitor 로그는 자동화 작업에 대한 운영 가시성을 높이고
 * Runbook에서 출력 및 오류 메시지를 만들고 검색하는 방법을 이해하려면 [Runbook 출력 및 메시지를](automation-runbook-output-and-messages.md)참조하십시오.
 * Runbook 실행, Runbook 작업 모니터링 방법 및 기타 기술 세부 정보에 대한 자세한 내용은 [Runbook 작업 추적을](automation-runbook-execution.md)참조하십시오.
 * Azure 모니터 로그 및 데이터 수집 원본에 대한 자세한 내용은 [Azure Monitor 로그 개요에서 Azure 저장소 데이터 수집을](../azure-monitor/platform/collect-azure-metrics-logs.md)참조하십시오.
-

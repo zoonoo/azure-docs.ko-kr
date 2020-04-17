@@ -4,18 +4,17 @@ description: Azure Monitor에서 수집된 데이터 모니터링은 간단한 �
 documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: tysonn
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: a1b5859341237c1b177ee8deaf636a67f4824948
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 58f542238c952088777ed9809b57dae3cdb9cf12
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666550"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457266"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure 모니터 데이터 플랫폼
 
@@ -66,7 +65,7 @@ Azure 모니터의 분산 추적은 [응용 프로그램 인사이트 SDK를](..
 
 다음 표에서는 Azure 모니터의 메트릭 및 로그를 비교합니다.
 
-| 특성  | 메트릭 | 로그 |
+| attribute  | 메트릭 | 로그 |
 |:---|:---|:---|
 | 이점 | 가볍고 경고와 같은 거의 실시간 시나리오가 가능합니다. 문제를 빠르게 감지하는 데 이상적입니다. | 풍부한 쿼리 언어로 분석되었습니다. 근본 원인을 심층 분석 및 식별하는 데 이상적입니다. |
 | 데이터 | 숫자 값만 | 텍스트 또는 숫자 데이터 |

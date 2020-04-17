@@ -5,7 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: KumudD
 manager: carmonm
-editor: tysonn
 ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
 ms.service: virtual-network
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 80a9397838e90a2af504125b2dc4c4ef39251d4e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "64575597"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455365"
 ---
 # <a name="virtual-appliance-scenario"></a>가상 어플라이언스 시나리오
 대규모 Azure 고객 간에 일반적인 시나리오는 온-프레미스 데이터 센터에서 후면 계층에 액세스를 허용하는 동안 인터넷에 노출된 2계층 애플리케이션을 제공해야 하는 경우입니다. 이 문서에서는 UDR(사용자 정의 경로), VPN Gateway 및 네트워크 가상 어플라이언스를 사용하여 다음 요구 사항을 충족하는 2계층 환경을 배포하는 시나리오를 설명합니다.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 7ac657e6627aff4eb588506118e5eeeaef70efba
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: ce78ade4df3c5bcea9e4e44750c430065cbfc5b0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548616"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454648"
 ---
 # <a name="azure-encryption-overview"></a>Azure 암호화 개요
 
@@ -61,7 +61,7 @@ Azure는 서비스 관리 키를 사용하는 서버 쪽 암호화, Key Vault의
 
 [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) 기술과 Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt)를 사용하여 전체 볼륨 암호화로 운영 체제 디스크와 데이터 디스크를 모두 보호하는 [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss)으로 Windows 및 Linux 가상 머신을 보호할 수 있습니다.
 
-암호화 키 및 비밀은 사용자의 [Azure Key Vault](../../key-vault/key-vault-overview.md) 구독에서 보호됩니다. Azure Backup 서비스를 사용하여 KEK(키 암호화) 구성으로 암호화된 VM을 백업 및 복원할 수 있습니다.
+암호화 키 및 비밀은 사용자의 [Azure Key Vault](../../key-vault/general/overview.md) 구독에서 보호됩니다. Azure Backup 서비스를 사용하여 KEK(키 암호화) 구성으로 암호화된 VM을 백업 및 복원할 수 있습니다.
 
 ### <a name="azure-storage-service-encryption"></a>Azure Storage 서비스 암호화
 

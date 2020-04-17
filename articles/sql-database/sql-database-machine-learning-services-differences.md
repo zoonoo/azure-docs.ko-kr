@@ -12,12 +12,13 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 11/20/2019
-ms.openlocfilehash: 533e2b9e50a92cce1419da521d8cebc4955e4df6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ROBOTS: NOINDEX
+ms.openlocfilehash: 34ba75b6126024c9cd43d6fe474f7c1b62dd990f
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74462127"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453152"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Azure SQL 데이터베이스(미리 보기)의 기계 학습 서비스와 SQL Server 간의 주요 차이점
 
@@ -31,7 +32,7 @@ SQL Server는 [확장성 프레임워크](https://docs.microsoft.com/sql/advance
 
 - R은 SQL Database에서 유일하게 지원되는 언어입니다. 현재 Python에 대한 다른 지원은 제공되지 않습니다.
 - R 버전은 3.4.4입니다.
-- `sp_configure`를 통해 `external scripts enabled`를 구성할 필요가 없습니다. [등록](sql-database-machine-learning-services-overview.md#signup)하면 SQL 데이터베이스에 대한 기계 학습을 사용할 수 있습니다.
+- `sp_configure`를 통해 `external scripts enabled`를 구성할 필요가 없습니다.
 
 ## <a name="package-management"></a>패키지 관리
 

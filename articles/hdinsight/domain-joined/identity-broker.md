@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 508eac08284f91821223a78cafdfee7b4c9c540b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: fb82cec6874f8ef4f41897cc22939fe69ed02ec2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81410876"
+ms.locfileid: "81457419"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>자격 증명 관리를 위해 ID 브로커(미리 보기) 사용
 
@@ -56,7 +56,7 @@ ID 브로커를 사용하도록 설정한 후에도 도메인 계정이 있는 S
 
 SSH 인증을 사용하려면 Azure AD DS에서 해시를 사용할 수 있어야 합니다. 관리 시나리오에만 SSH를 사용하려는 경우 하나의 클라우드 전용 계정을 만들고 클러스터에 SSH에 사용할 수 있습니다. 다른 사용자는 Azure AD DS에서 사용할 수 있는 암호 해시없이 Ambari 또는 HDInsight 도구(예: IntelliJ 플러그인)를 계속 사용할 수 있습니다.
 
-## <a name="clinets-using-oauth-to-connect-to-hdinsight-gateway-with-id-broker-setup"></a>ID 브로커 설정으로 HDInsight 게이트웨이에 연결하기 위해 OAuth를 사용하는 클라인트
+## <a name="clients-using-oauth-to-connect-to-hdinsight-gateway-with-id-broker-setup"></a>ID 브로커 설정으로 HDInsight 게이트웨이에 연결하기 위해 OAuth를 사용하는 클라이언트
 
 ID 브로커 설정에서 게이트웨이에 연결하는 사용자 지정 앱 및 클라이언트를 업데이트하여 필요한 OAuth 토큰을 먼저 획득할 수 있습니다. 이 [문서의](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) 단계를 수행하여 다음 정보를 사용하여 토큰을 획득할 수 있습니다.
 

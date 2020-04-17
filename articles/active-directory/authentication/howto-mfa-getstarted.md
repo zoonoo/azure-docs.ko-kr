@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a70c6ae3ebc7f5b39550508594bd4d4907e68a67
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 845a202faccbbe0a604560ac57ae30f87344b95a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80667337"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451128"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Azure 다단계 인증 배포 계획
 
@@ -144,7 +144,7 @@ Microsoft 인증자 앱과 같은 모바일 앱은 30초마다 새로운 OATH �
 
 ## <a name="plan-registration-policy"></a>계획 등록 정책
 
-관리자는 사용자가 메서드를 등록하는 방법을 결정해야 합니다. 조직은 Azure MFA 및 셀프 서비스 암호 재설정(SSPR)에 대한 [새 결합된 등록 환경을 사용하도록 설정해야](howto-registration-mfa-sspr-combined.md) 합니다. SSPR을 사용하면 다단계 인증에 사용하는 것과 동일한 방법을 사용하여 안전하게 암호를 재설정할 수 있습니다. 두 서비스에 대해 한 번 등록할 수 있는 사용자와 함께 사용자에게 좋은 환경이므로 현재 공개 미리 보기에서 이 통합 등록을 권장합니다. SSPR 및 Azure MFA에 대해 동일한 메서드를 사용하도록 설정하면 사용자가 두 기능을 모두 사용하도록 등록할 수 있습니다.
+관리자는 사용자가 메서드를 등록하는 방법을 결정해야 합니다. 조직은 Azure MFA 및 셀프 서비스 암호 재설정(SSPR)에 대한 [새 결합된 등록 환경을 사용하도록 설정해야](howto-registration-mfa-sspr-combined.md) 합니다. SSPR을 사용하면 다단계 인증에 사용하는 것과 동일한 방법을 사용하여 안전하게 암호를 재설정할 수 있습니다. 두 서비스에 대해 한 번 등록할 수 있는 기능을 갖춘 사용자에게 는 훌륭한 환경이므로 이 결합 된 등록을 권장합니다. SSPR 및 Azure MFA에 대해 동일한 메서드를 사용하도록 설정하면 사용자가 두 기능을 모두 사용하도록 등록할 수 있습니다.
 
 ### <a name="registration-with-identity-protection"></a>ID 보호 등록
 

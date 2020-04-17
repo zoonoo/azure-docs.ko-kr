@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/23/2020
+ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 487559aaf632a30b7efcda490f92a90d4f59b8f5
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 9f2ed6ea8cc75e2ee72f15c14f3de7bb8bf8cef6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80883477"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450887"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 앱 매니페스트
 
-애플리케이션 매니페스트는 Microsoft ID 플랫폼에 있는 애플리케이션 개체의 모든 특성 정의를 포함합니다. 또한 애플리케이션 개체를 업데이트하기 위한 메커니즘으로도 사용됩니다. 응용 프로그램 엔터티 및 해당 스키마에 대한 자세한 내용은 [그래프 API 응용 프로그램 엔터티 설명서를](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)참조하십시오.
+애플리케이션 매니페스트는 Microsoft ID 플랫폼에 있는 애플리케이션 개체의 모든 특성 정의를 포함합니다. 또한 애플리케이션 개체를 업데이트하기 위한 메커니즘으로도 사용됩니다. 응용 프로그램 엔터티 및 해당 스키마에 대한 자세한 내용은 [그래프 API 응용 프로그램 엔터티 설명서를](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)참조하십시오.
 
 Azure 포털을 통해 또는 [REST API](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) 또는 [PowerShell을](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications)프로그래밍 방식으로 사용하여 앱의 특성을 구성할 수 있습니다. 그러나 앱 매니페스트를 편집하여 앱 특성을 구성해야 하는 경우도 있습니다. 이 시나리오에는 다음이 포함됩니다.
 
@@ -41,6 +41,20 @@ Azure 포털을 통해 또는 [REST API](https://docs.microsoft.com/previous-ver
 
 이 섹션에서는 응용 프로그램 매니페스트에 있는 특성에 대해 설명합니다.
 
+### <a name="id-attribute"></a>id 특성
+
+| 키 | 값 형식 |
+| :--- | :--- |
+| id | String |
+
+디렉터리의 앱에 대한 고유 식별자입니다. 이 ID는 프로토콜 트랜잭션에서 앱을 식별하는 데 사용되는 식별자가 아닙니다. 디렉터리 쿼리의 개체를 참조하는 데 사용됩니다.
+
+예:
+
+```json
+    "id": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
+```
+
 ### <a name="accesstokenacceptedversion-attribute"></a>액세스 토큰 수락 버전 특성
 
 | 키 | 값 형식 |
@@ -55,7 +69,7 @@ Azure 포털을 통해 또는 [REST API](https://docs.microsoft.com/previous-ver
 
 있는 `signInAudience` `AzureADandPersonalMicrosoftAccount`경우 값은 `2`이어야 합니다.
 
-예제:
+예:
 
 ```json
     "accessTokenAcceptedVersion": 2,
@@ -69,7 +83,7 @@ Azure 포털을 통해 또는 [REST API](https://docs.microsoft.com/previous-ver
 
 사용하는 서비스가 특정 컨텍스트에서 앱을 호출하는 데 사용할 수 있는 사용자 지정 동작을 정의합니다. 예를 들어 파일 스트림을 렌더링할 수 `addIns` 있는 응용 프로그램은 "FileHandler" 기능에 대한 속성을 설정할 수 있습니다. 이 매개 변수를 사용하면 Office 365와 같은 서비스가 사용자가 작업 중인 문서의 컨텍스트에서 응용 프로그램을 호출할 수 있습니다.
 
-예제:
+예:
 
 ```json
     "addIns": [
@@ -94,7 +108,7 @@ Azure 포털을 통해 또는 [REST API](https://docs.microsoft.com/previous-ver
 
 대체 애플리케이션 유형을 지정합니다. Azure AD는 기본적으로 replyUrlsWithType에서 애플리케이션 유형을 유추합니다. Azure AD에서 클라이언트 앱 유형을 확인할 수 없는 특정 시나리오가 있습니다. 예를 들어 이러한 시나리오 중 하나는 HTTP 요청이 URL 리디렉션 없이 발생하는 [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) 흐름입니다. 이러한 경우 Azure AD는 이 속성의 값을 기반으로 응용 프로그램 형식을 해석합니다. 이 값을 true로 설정하면 대체 애플리케이션 유형이 모바일 디바이스에서 실행 중인 설치된 애플리케이션과 같은 공용 클라이언트로 설정됩니다. 기본값은 false이며, 대체 애플리케이션 유형이 웹앱과 같은 기밀 클라이언트임을 의미합니다.
 
-예제:
+예:
 
 ```json
     "allowPublicClient": false,
@@ -119,7 +133,7 @@ Azure 포털을 통해 또는 [REST API](https://docs.microsoft.com/previous-ver
 
 Azure AD가 할당한 앱의 고유 식별자를 지정합니다.
 
-예제:
+예:
 
 ```json
     "appId": "601790de-b632-4f57-9523-ee7cb6ceba95",
@@ -133,7 +147,7 @@ Azure AD가 할당한 앱의 고유 식별자를 지정합니다.
 
 앱에서 선언할 수 있는 역할의 컬렉션을 지정합니다. 이러한 역할은 사용자, 그룹 또는 서비스 주체에게 할당될 수 있습니다. 자세한 예제 및 정보는 [응용 프로그램에서 앱 역할 추가를 참조하고 토큰에서 수신합니다.](howto-add-app-roles-in-azure-ad-apps.md)
 
-예제:
+예:
 
 ```json
     "appRoles": [
@@ -181,7 +195,7 @@ Azure AD가 할당한 앱의 고유 식별자를 지정합니다.
 - `"SecurityGroup"`(보안 그룹 및 Azure AD 역할의 경우)
 - `"All"`(로그인한 사용자가 속한 모든 보안 그룹, 배포 그룹, Azure AD 디렉터리 역할을 가져옵니다.)
 
-예제:
+예:
 
 ```json
     "groupMembershipClaims": "SecurityGroup",
@@ -208,7 +222,7 @@ Azure AD가 할당한 앱의 고유 식별자를 지정합니다.
 
 앱 **등록(레거시)** 환경에서만 사용할 수 있습니다. `id` 앱 등록 환경에서 [대체됩니다.](https://go.microsoft.com/fwlink/?linkid=2083908)
 
-예제:
+예:
 
 ```json
     "objectId": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
@@ -224,25 +238,13 @@ Azure AD가 할당한 앱의 고유 식별자를 지정합니다.
 
 현재 앱 등록 포털을 통해 등록된 Azure AD 및 개인 계정을 모두 지원하는 앱은 선택적 클레임을 사용할 수 없습니다. 그러나 v2.0 엔드포인트를 사용하여 Azure AD에만 등록된 앱은 매니페스트에서 요청한 선택적 클레임을 가져올 수 있습니다. 자세한 내용은 [선택적 클레임](active-directory-optional-claims.md)을 참조하십시오.
 
-예제:
+예:
 
 ```json
     "optionalClaims": null,
 ```
 
-### <a name="id-attribute"></a>id 특성
 
-| 키 | 값 형식 |
-| :--- | :--- |
-| id | String |
-
-디렉터리의 앱에 대한 고유 식별자입니다. 이 ID는 프로토콜 트랜잭션에서 앱을 식별하는 데 사용되는 식별자가 아닙니다. 디렉터리 쿼리의 개체를 참조하는 데 사용됩니다.
-
-예제:
-
-```json
-    "id": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
-```
 
 ### <a name="identifieruris-attribute"></a>식별자Uris 특성
 
@@ -252,7 +254,7 @@ Azure AD가 할당한 앱의 고유 식별자를 지정합니다.
 
 Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 사용자 지정 도메인 안에서 웹앱을 고유하게 식별하는 사용자 정의 URI입니다.
 
-예제:
+예:
 
 ```json
     "identifierUris": "https://MyRegisteredApp",
@@ -266,7 +268,7 @@ Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 
 
 앱의 서비스 약관 및 개인정보처리방침 링크를 지정합니다. 서비스 약관 및 개인정보처리방침은 사용자 동의 환경을 통해 사용자에게 표시됩니다. 자세한 내용은 [등록된 Azure AD 앱의 서비스 약관 및 개인정보처리방침을 추가하는 방법](howto-add-terms-of-service-privacy-statement.md)을 참조하세요.
 
-예제:
+예:
 
 ```json
     "informationalUrls": {
@@ -285,7 +287,7 @@ Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 
 
 앱 할당 자격 증명, 문자열 기반 공유 비밀, X.509 인증서에 대한 참조가 들어 있습니다. 이러한 자격 증명은 액세스 토큰을 요청할 때 사용됩니다(앱이 리소스로 클라이언트 역할을 하는 경우).
 
-예제:
+예:
 
 ```json
     "keyCredentials": [
@@ -309,7 +311,7 @@ Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 
 
 클라이언트 앱과 사용자 지정 웹 API 앱 등 두 부분을 포함하는 솔루션이 있을 때 동의를 묶는 데 사용됩니다. 클라이언트 앱의 appID를 이 값에 입력하면 사용자는 클라이언트 앱에 대해 한 번만 동의하면 됩니다. Azure AD는 클라이언트에 동의한다는 것은 웹 API에 암시적으로 동의한다는 것을 의미합니다. 클라이언트와 웹 API모두에 대한 서비스 주체를 동시에 프로비전합니다. 클라이언트와 웹 API 앱은 모두 동일한 테넌트에 등록되어야 합니다.
 
-예제:
+예:
 
 ```json
     "knownClientApplications": ["f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"],
@@ -323,7 +325,7 @@ Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 
 
 포털에서 업로드된 로고에 대한 CDN URL을 가리키는 읽기 전용 값입니다.
 
-예제:
+예:
 
 ```json
     "logoUrl": "https://MyRegisteredAppLogo",
@@ -337,7 +339,7 @@ Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 
 
 앱을 로그아웃하는 URL입니다.
 
-예제:
+예:
 
 ```json
     "logoutUrl": "https://MyRegisteredAppLogout",
@@ -351,7 +353,7 @@ Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 
 
 앱의 표시 이름입니다.
 
-예제:
+예:
 
 ```json
     "name": "MyRegisteredApp",
@@ -365,7 +367,7 @@ Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 
 
 이 웹앱이 OAuth2.0 암시적 흐름 액세스 토큰을 요청할 수 있는지 여부를 지정합니다. 기본값은 false입니다. 이 플래그는 JavaScript 단일 페이지 앱과 같은 브라우저 기반 앱에 사용됩니다. 자세히 알아보려면 목차에서 `OAuth 2.0 implicit grant flow`을 입력하여 암시적 흐름에 대한 항목을 참조하세요.
 
-예제:
+예:
 
 ```json
     "oauth2AllowImplicitFlow": false,
@@ -379,7 +381,7 @@ Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 
 
 이 웹앱이 OAuth2.0 암시적 흐름 ID 토큰을 요청할 수 있는지 여부를 지정합니다. 기본값은 false입니다. 이 플래그는 JavaScript 단일 페이지 앱과 같은 브라우저 기반 앱에 사용됩니다.
 
-예제:
+예:
 
 ```json
     "oauth2AllowIdTokenImplicitFlow": false,
@@ -393,7 +395,7 @@ Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 
 
 웹 API(리소스) 앱을 클라이언트 앱에 노출하는 OAuth 2.0 권한 범위 컬렉션을 지정합니다. 이러한 권한 범위를 동의를 통해 클라이언트 앱에 부여할 수 있습니다.
 
-예제:
+예:
 
 ```json
     "oauth2Permissions": [
@@ -418,7 +420,7 @@ Azure AD 테넌트 안에서 또는 앱이 멀티 테넌트인 경우 확인된 
 
 OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST 요청 허용 여부를 지정합니다. 기본값은 false로, GET 요청만 허용하도록 지정합니다.
 
-예제:
+예:
 
 ```json
     "oauth2RequirePostResponse": false,
@@ -433,7 +435,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 - `countriesBlockedForMinors`는 미성년자가 사용할 수 없도록 앱이 차단되는 국가를 지정합니다.
 - `legalAgeGroupRule`은 앱 사용자에게 적용되는 법적 연령 그룹 규칙을 지정합니다. 설정 가능한 값은 `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors`, `RequireConsentForKids` 또는 `BlockMinors`입니다.  
 
-예제:
+예:
 
 ```json
     "parentalControlSettings": {
@@ -450,7 +452,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 
 `keyCredentials`에 대한 설명을 참조하세요.
 
-예제:
+예:
 
 ```json
     "passwordCredentials": [
@@ -472,7 +474,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 
 암시적 동의에 대해 요청된 사용 권한 및 애플리케이션을 나열합니다. 관리자가 애플리케이션에 대한 동의를 제공한 상태여야 합니다. preAuthorizedApplications는 사용자가 요청된 사용 권한에 동의하지 않아도 됩니다. preAuthorizedApplications에 나열된 사용 권한은 사용자 동의가 필요하지 않습니다. 그러나 preAuthorizedApplications에 나열되지 않은 요청된 추가 사용 권한에는 사용자 동의가 필요합니다.
 
-예제:
+예:
 
 ```json
     "preAuthorizedApplications": [
@@ -503,7 +505,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 
 응용 프로그램에 대해 확인된 게시자 도메인입니다. 읽기 전용입니다.
 
-예제:
+예:
 
 ```json
     "publisherDomain": "https://www.contoso.com",
@@ -532,7 +534,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 
 자세한 내용은 [replyUrl 제한 및 제한 사항을](https://docs.microsoft.com/azure/active-directory/develop/reply-url)참조하십시오.
 
-예제:
+예:
 
 ```json
     "replyUrlsWithType": [
@@ -554,7 +556,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 - `resourceAppId`는 앱이 액세스를 요청하는 대상 리소스의 고유 식별자입니다. 이 값은 대상 리소스 앱에 대해 선언된 appId와 같아야 합니다.
 - `resourceAccess`는 앱이 지정된 리소스에서 요구하는 OAuth2.0 권한 범위 및 앱 역할을 나열하는 배열입니다. 지정된 리소스의 `id` 및 `type` 값을 포함합니다.
 
-예제:
+예:
 
 ```json
     "requiredResourceAccess": [
@@ -578,7 +580,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 
 앱의 SAML 메타데이터 URL입니다.
 
-예제:
+예:
 
 ```json
     "samlMetadataUrl": "https://MyRegisteredAppSAMLMetadata",
@@ -592,7 +594,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 
 앱의 홈페이지 URL을 지정합니다.
 
-예제:
+예:
 
 ```json
     "signInUrl": "https://MyRegisteredApp",
@@ -610,7 +612,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 - `AzureADandPersonalMicrosoftAccount`- 개인 Microsoft 계정 또는 조직의 Azure AD 테넌트에 있는 직장 또는 학교 계정이 있는 사용자
 - `PersonalMicrosoftAccount`- Xbox 및 Skype와 같은 서비스에 로그인하는 데 사용되는 개인 계정입니다.
 
-예제:
+예:
 
 ```json
     "signInAudience": "AzureADandPersonalMicrosoftAccount",
@@ -624,7 +626,7 @@ OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST
 
 애플리케이션을 범주화하고 식별하는 데 사용할 수 있는 사용자 지정 문자열입니다.
 
-예제:
+예:
 
 ```json
     "tags": [

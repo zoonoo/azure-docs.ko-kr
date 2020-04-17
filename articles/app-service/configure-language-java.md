@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2b09a7765cff20fb49ce6ab3d1e7bce2e15f0e9e
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 179a2120714460c955d1fd3e345ebcd963ae564d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475204"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453560"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Azure 앱 서비스에 대한 Windows Java 앱 구성
 
@@ -187,7 +187,7 @@ public int getServerPort()
 
 ### <a name="use-keyvault-references"></a>키볼트 참조 사용
 
-[Azure KeyVault는](../key-vault/key-vault-overview.md) 액세스 정책 및 감사 기록을 통해 중앙 집중식 비밀 관리를 제공합니다. KeyVault에 암호(예: 암호 또는 연결 문자열)를 저장하고 환경 변수를 통해 응용 프로그램에서 이러한 비밀에 액세스할 수 있습니다.
+[Azure KeyVault는](../key-vault/general/overview.md) 액세스 정책 및 감사 기록을 통해 중앙 집중식 비밀 관리를 제공합니다. KeyVault에 암호(예: 암호 또는 연결 문자열)를 저장하고 환경 변수를 통해 응용 프로그램에서 이러한 비밀에 액세스할 수 있습니다.
 
 먼저 키 자격 [증명 모음에](app-service-key-vault-references.md#granting-your-app-access-to-key-vault) 대한 앱 액세스 권한을 부여하고 [응용 프로그램 설정에서 비밀에 대한 KeyVault 참조를 만드는](app-service-key-vault-references.md#reference-syntax)방법에 대한 지침을 따릅니다. App Service 터미널에 원격으로 액세스하는 동안 환경 변수를 인쇄하여 참조가 비밀로 확인되는지 확인할 수 있습니다.
 

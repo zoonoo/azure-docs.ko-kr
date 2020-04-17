@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aeffa0bb736f03403bf483b22775ef468bbcb2bd
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: f0034d06c852d4d71284093879a456d296d98715
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405474"
+ms.locfileid: "81457470"
 ---
 # <a name="troubleshoot-issues-with-azure-automation-desired-state-configuration-dsc"></a>Azure 자동화 원하는 상태 구성(DSC)의 문제 해결
 
@@ -113,7 +113,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 ### <a name="cause"></a>원인
 
-이 문제는 잘못되었거나 만료된 인증서로 인해 발생합니다.  자세한 내용은 [인증서 만료 및 재등록을](../automation-dsc-onboarding.md#re-register-a-node)참조하십시오.
+이 문제는 잘못되었거나 만료된 인증서로 인해 발생합니다.  자세한 내용은 [인증서 만료 및 재등록을](../automation-dsc-onboarding.md#re-registering-a-node)참조하십시오.
 
 이 문제는 ***.azure-automation.net**에 대한 액세스를 허용하지 않는 프록시 구성으로 인해 발생할 수도 있습니다. 자세한 내용은 [개인 네트워크 구성을](../automation-dsc-overview.md#network-planning)참조하십시오. 
 
@@ -135,7 +135,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 셋째, 노드에서 불량 또는 만료된 모든 인증서를 제거합니다.
 
-상승된 Powershell 프롬프트에서 실패한 노드에서 다음을 실행합니다.
+상승된 PowerShell 프롬프트에서 실패한 노드에서 다음을 실행합니다.
 
 ```powershell
 $certs = @()
@@ -279,8 +279,8 @@ One or more errors occurred.
 
 아래 단계에 따라 노드를 등록합니다.
 
-* Windows - [온-프레미스 또는 Azure/AWS 이외의 클라우드에서 물리적/가상 Windows 컴퓨터](../automation-dsc-onboarding.md#onboard-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure).
-* Linux - [온-프레미스 또는 Azure 이외의 클라우드에서 물리적/가상 Linux 컴퓨터](../automation-dsc-onboarding.md#onboard-physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure).
+* Windows - [온-프레미스 또는 Azure/AWS 이외의 클라우드에서 물리적/가상 Windows 컴퓨터](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines).
+* Linux - [온-프레미스 또는 Azure 이외의 클라우드에서 물리적/가상 Linux 컴퓨터](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines).
 
 ### <a name="scenario-error-message---provisioning-failed"></a><a name="agent-has-a-problem"></a>시나리오: 오류 메시지 - "프로비저닝 실패"
 

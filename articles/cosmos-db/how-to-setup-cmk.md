@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: 733a85e492185e7e83922a3cc91d53c848b939a1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8f58887a056c8ca0cd175a44127556562338de38
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411153"
+ms.locfileid: "81450035"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Azure 키 자격 증명 모음을 통해 Azure Cosmos 계정에 대한 고객 관리 키 구성
 
@@ -23,7 +23,7 @@ Azure Cosmos 계정에 저장된 데이터는**Microsoft(서비스 관리 키)�
 
 ![고객 데이터를 둘러싼 암호화 계층](./media/how-to-setup-cmk/cmk-intro.png)
 
-Azure [키 볼트에](../key-vault/key-vault-overview.md) 고객 관리 키를 저장하고 고객 관리 키로 활성화된 각 Azure Cosmos 계정에 대한 키를 제공해야 합니다. 이 키는 해당 계정에 저장된 모든 데이터를 암호화하는 데 사용됩니다.
+Azure [키 볼트에](../key-vault/general/overview.md) 고객 관리 키를 저장하고 고객 관리 키로 활성화된 각 Azure Cosmos 계정에 대한 키를 제공해야 합니다. 이 키는 해당 계정에 저장된 모든 데이터를 암호화하는 데 사용됩니다.
 
 > [!NOTE]
 > 현재 고객 관리 키는 새 Azure Cosmos 계정에서만 사용할 수 있습니다. 계정을 만드는 동안 구성해야 합니다.
@@ -44,8 +44,8 @@ Azure Cosmos DB에서 고객 관리 키를 사용하려면 암호화 키를 호�
 
 기존 Azure Key Vault 인스턴스에서 이러한 속성을 활성화하는 방법을 알아보려면 다음 문서 중 하나에서 "소프트 삭제 사용" 및 "지우기 방지 사용" 섹션을 참조하십시오.
 
-- [PowerShell에서 소프트 삭제를 사용하는 방법](../key-vault/key-vault-soft-delete-powershell.md)
-- [Azure CLI에서 소프트 삭제를 사용하는 방법](../key-vault/key-vault-soft-delete-cli.md)
+- [PowerShell에서 소프트 삭제를 사용하는 방법](../key-vault/general/soft-delete-powershell.md)
+- [Azure CLI에서 소프트 삭제를 사용하는 방법](../key-vault/general/soft-delete-cli.md)
 
 ## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a>Azure 키 볼트 인스턴스에 액세스 정책 추가
 

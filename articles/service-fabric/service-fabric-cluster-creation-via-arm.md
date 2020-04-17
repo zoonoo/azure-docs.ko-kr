@@ -3,17 +3,17 @@ title: Azure 서비스 패브릭 클러스터 만들기
 description: Azure Resource Manager를 사용하여 Azure에 보안 Service Fabric 클러스터를 설정하는 방법에 대해 알아봅니다.  기본 템플릿을 사용하거나 사용자 고유의 클러스터 템플릿을 사용하여 클러스터를 만들 수 있습니다.
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.openlocfilehash: 8cf14230f3abd37d91f1ec369f597ee594876100
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 24bc80a7ab3ce61b79466cdd943c60efd367ce01
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77624123"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458303"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기 
 > [!div class="op_single_selector"]
 > * [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
-> * [Azure 포털](service-fabric-cluster-creation-via-portal.md)
+> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
@@ -251,7 +251,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ### <a name="use-a-pointer-to-a-secret-uploaded-into-a-key-vault"></a>키 자격 증명 모음에 업로드된 비밀에 대해 포인터 사용
 
-기존 키 자격 증명 모음을 사용하려면 컴퓨팅 리소스 공급자가 인증서를 가져와 클러스터 노드에 설치할 수 있도록 배포에 키 자격 증명 모음을 [사용하도록 설정해야](../key-vault/key-vault-manage-with-cli2.md#bkmk_KVperCLI) 합니다.
+기존 키 자격 증명 모음을 사용하려면 컴퓨팅 리소스 공급자가 인증서를 가져와 클러스터 노드에 설치할 수 있도록 배포에 키 자격 증명 모음을 [사용하도록 설정해야](../key-vault/general/manage-with-cli2.md#bkmk_KVperCLI) 합니다.
 
 PowerShell을 사용하여 클러스터 배포
 

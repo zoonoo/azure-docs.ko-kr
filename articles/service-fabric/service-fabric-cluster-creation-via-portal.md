@@ -3,17 +3,17 @@ title: Azure Portal에서 Service Fabric 클러스터 만들기
 description: Azure Portal 및 Azure Key Vault를 사용하여 Azure에서 보안 Service Fabric 클러스터를 설정하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: e2de920ce9517e156934a636559a6fd6f5a71eb5
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: e0cd3d5e5a37720134a5bce596bba211b375f19d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754099"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458320"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure에서 서비스 패브릭 클러스터 만들기
 > [!div class="op_single_selector"]
 > * [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
-> * [Azure portal](service-fabric-cluster-creation-via-portal.md)
+> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -204,7 +204,7 @@ Powershell 또는 CLI를 사용하여 클러스터에 대한 관리 작업을 �
 <!-- Links -->
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [azure-portal]: https://portal.azure.com/
-[key-vault-get-started]: ../key-vault/key-vault-overview.md
+[key-vault-get-started]: ../key-vault/general/overview.md
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md

@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c11521ec074b63843b873c39102b68bf185d2821
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 8bec28b98a8d2640b5a8034569d49077ce6b4177
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80676735"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450992"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Azure Active Directory 셀프 서비스 암호 재설정 배포 계획
 
@@ -105,7 +105,7 @@ Azure Active Directory는 사용자별로 라이선스가 부여되므로 각 �
 
 참고: [암호 해시 동기화(PHS)가](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) 비활성화된 사용자의 경우 SSPR은 온-프레미 Active Directory에만 암호를 저장합니다.
 
-### <a name="best-practices"></a>모범 사례
+### <a name="best-practices"></a>최선의 구현 방법
 
 조직에서 널리 사용되는 다른 응용 프로그램 이나 서비스와 함께 SSPR을 배포 하여 사용자가 신속 하 게 등록 할 수 있습니다. 이 작업을 수행하면 많은 양의 로그인이 생성되고 등록이 유도됩니다.
 
@@ -115,7 +115,7 @@ SSPR을 배포하기 전에 각 암호 재설정 호출의 수와 평균 비용�
 
 조직에서 SSPR 및 다단계 인증에 대한 통합 등록 환경을 사용하도록 설정하는 것이 좋습니다. 이 통합 등록 환경을 사용하도록 설정하면 두 기능을 모두 활성화하려면 등록 정보를 한 번만 선택하면 됩니다.
 
-결합된 등록 환경은 조직이 SSPR 및 Azure 다단계 인증을 모두 사용하도록 설정할 필요가 없습니다. 결합된 등록은 조직에 더 나은 사용자 환경을 제공합니다. 자세한 내용은 [결합 보안 정보 등록(미리 보기)을](concept-registration-mfa-sspr-combined.md) 참조하십시오.
+결합된 등록 환경은 조직이 SSPR 및 Azure 다단계 인증을 모두 사용하도록 설정할 필요가 없습니다. 결합된 등록은 조직에 더 나은 사용자 환경을 제공합니다. 자세한 내용은 [통합 보안 정보 등록을](concept-registration-mfa-sspr-combined.md) 참조하십시오.
 
 ## <a name="plan-the-deployment-project"></a>구축 프로젝트 계획
 
@@ -254,7 +254,7 @@ SSPR은 일반적으로 사용자 문제를 일으키지는 않지만 발생할 
 
 지원 팀의 성공을 위해 사용자로부터 받은 질문에 따라 FAQ를 만들 수 있습니다. 다음은 몇 가지 예입니다.
 
-| 시나리오| 설명 |
+| 시나리오| Description |
 | - | - |
 | 사용자에게 사용 가능한 등록된 인증 방법이 없습니다.| 사용자가 암호를 재설정하려고 하지만 사용 가능한 등록 인증 방법이 없습니다(예: 휴대폰을 집에 두고 전자 메일에 액세스할 수 없음). |
 | 사용자가 사무실이나 휴대폰에서 문자 또는 전화를 받지 않습니다.| 사용자가 문자 또는 전화를 통해 신원을 확인하려고 하지만 문자/전화를 받지 않습니다. |

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8f44e9a1e43da2b9ce6c817898c1722fba715c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 104bf51fb03d88ab0e5efd25ebebb0e3060bc264
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262179"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457929"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가
 
@@ -38,7 +38,7 @@ Azure 구독에는 Azure Active Directory(Azure AD)와 트러스트 관계가 �
 > Azure Kubernetes 서비스(AKS) 클러스터를 다른 구독으로 이동하거나 클러스터 소유 구독을 새 테넌트로 이동하면 역할 할당 및 서비스 주체의 권한이 손실되어 클러스터가 기능을 잃게 됩니다. AKS에 대한 자세한 내용은 [AZURE Kubernetes 서비스(AKS)를](https://docs.microsoft.com/azure/aks/)참조하십시오.
 
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 구독을 연결하거나 추가하려면 다음 작업을 수행합니다.
 
@@ -85,7 +85,7 @@ Azure 구독에는 Azure Active Directory(Azure AD)와 트러스트 관계가 �
 
 구독을 다른 디렉터리에 연결한 후 작업을 다시 시작하려면 다음 작업을 수행해야 할 수 있습니다.
 
-- 키 자격 증명 모음이 있는 경우 키 자격 증명 모음 테넌트 ID를 변경해야 합니다. 자세한 내용은 [구독 이동 후 키 자격 증명 모음 테넌트 ID 변경을](../../key-vault/key-vault-subscription-move-fix.md)참조하십시오.
+- 키 자격 증명 모음이 있는 경우 키 자격 증명 모음 테넌트 ID를 변경해야 합니다. 자세한 내용은 [구독 이동 후 키 자격 증명 모음 테넌트 ID 변경을](../../key-vault/general/subscription-move-fix.md)참조하십시오.
 
 - 리소스에 대해 시스템 할당된 관리 ID를 사용한 경우 이러한 ID를 다시 활성화해야 합니다. 사용자가 할당한 관리 ID를 사용한 경우 이러한 ID를 다시 만들어야 합니다. 관리되는 ID를 다시 사용하거나 다시 만든 후에는 해당 ID에 할당된 권한을 다시 설정해야 합니다. 자세한 내용은 [Azure 리소스에 대한 관리ID란 무엇입니까?](../managed-identities-azure-resources/overview.md)
 

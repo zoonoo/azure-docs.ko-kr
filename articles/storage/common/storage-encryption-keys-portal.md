@@ -10,18 +10,18 @@ ms.date: 03/19/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e7878cae7bc6aabf1db58bfd63338955b9e830d3
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 192e58b101b824ca0cc0c732e02647838be6dc35
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478246"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456484"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure 키 자격 증명 모음을 사용하여 고객 관리 키 구성
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-이 문서에서는 Azure [포털을](https://portal.azure.com/)사용하여 고객 관리 키로 Azure 키 자격 증명 모음을 구성하는 방법을 보여 주며 있습니다. Azure 포털을 사용하여 키 자격 증명 모음을 만드는 방법을 알아보려면 [빠른 시작: Azure 포털을 사용하여 Azure 키 자격 증명 모음에서 비밀 설정 및 검색을](../../key-vault/quick-create-portal.md)참조하세요.
+이 문서에서는 Azure [포털을](https://portal.azure.com/)사용하여 고객 관리 키로 Azure 키 자격 증명 모음을 구성하는 방법을 보여 주며 있습니다. Azure 포털을 사용하여 키 자격 증명 모음을 만드는 방법을 알아보려면 [빠른 시작: Azure 포털을 사용하여 Azure 키 자격 증명 모음에서 비밀 설정 및 검색을](../../key-vault/secrets/quick-create-portal.md)참조하세요.
 
 ## <a name="configure-azure-key-vault"></a>Azure Key Vault 구성
 
@@ -29,8 +29,8 @@ Azure Storage 암호화를 사용하여 고객 관리 키를 사용하려면 키
 
 기존 키 자격 증명 모음에서 이러한 속성을 사용하도록 설정하는 방법을 알아보려면 다음 문서 중 하나에서 **연무 및** **지우기 보호 활성화** 라는 섹션을 참조하십시오.
 
-- [PowerShell에서 소프트 삭제를 사용하는 방법](../../key-vault/key-vault-soft-delete-powershell.md).
-- [CLI와 소프트 삭제를 사용하는 방법](../../key-vault/key-vault-soft-delete-cli.md).
+- [PowerShell에서 소프트 삭제를 사용하는 방법](../../key-vault/general/soft-delete-powershell.md).
+- [CLI와 소프트 삭제를 사용하는 방법](../../key-vault/general/soft-delete-cli.md).
 
 Azure 저장소 암호화를 통해 2048비트 RSA 및 RSA-HSM 키만 지원됩니다. 키에 대한 자세한 내용은 Azure [키 볼트 정보 키, 비밀 및 인증서의](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)키 자격 증명 모음 **키를** 참조하십시오.
 

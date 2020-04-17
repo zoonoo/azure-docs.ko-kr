@@ -5,16 +5,16 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: f434ad6e19c89f248fec948c0a049fabb0f7c476
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5dc219747b9cc74b6c6aac8ab190ebfbe5ae9b32
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248438"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458286"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Azure Managed Applications를 배포할 때 Key Vault 비밀 액세스
 
-배포 중에 보안 값(예: 암호)을 매개 변수로 전달해야 할 경우 [Azure Key Vault](../../key-vault/key-vault-overview.md)에서 값을 검색할 수 있습니다. Managed Applications를 배포할 때 Key Vault에 액세스하려면 **어플라이언스 리소스 공급자** 서비스 주체에 액세스를 허용해야 합니다. Managed Applications 서비스는 이 ID를 사용하여 작업을 실행합니다. 배포하는 동안 Key Vault에서 값을 검색하려면 서비스 주체가 Key Vault에 액세스할 수 있어야 합니다.
+배포 중에 보안 값(예: 암호)을 매개 변수로 전달해야 할 경우 [Azure Key Vault](../../key-vault/general/overview.md)에서 값을 검색할 수 있습니다. Managed Applications를 배포할 때 Key Vault에 액세스하려면 **어플라이언스 리소스 공급자** 서비스 주체에 액세스를 허용해야 합니다. Managed Applications 서비스는 이 ID를 사용하여 작업을 실행합니다. 배포하는 동안 Key Vault에서 값을 검색하려면 서비스 주체가 Key Vault에 액세스할 수 있어야 합니다.
 
 이 문서에서는 Managed Applications로 작업하려면 Key Vault를 구성하는 방법을 설명합니다.
 

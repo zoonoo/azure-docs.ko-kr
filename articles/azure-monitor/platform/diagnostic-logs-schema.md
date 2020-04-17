@@ -4,12 +4,12 @@ description: Azure 리소스 로그에 대해 지원되는 서비스 및 이벤�
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
-ms.openlocfilehash: 8abd8767d9bb7e3c4336f6600b94f6b3f4ea48f1
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 352310a6e489a96c38e85b16e9504d8eb9be38b1
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380513"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457249"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Azure 리소스 로그에 대한 지원되는 서비스, 스키마 및 범주
 
@@ -22,7 +22,7 @@ ms.locfileid: "81380513"
 
 ## <a name="top-level-resource-logs-schema"></a>최상위 리소스 로그 스키마
 
-| 속성 | 필수/선택 | 설명 |
+| 속성 | 필수/선택 | Description |
 |---|---|---|
 | time | 필수 | 이벤트의 타임스탬프(UTC)입니다. |
 | resourceId | 필수 | 이벤트를 내보낸 리소스의 리소스 ID입니다. 테넌트 서비스의 경우 /tenants/tenant-id/providers/provider-name의 형태입니다. |
@@ -66,7 +66,7 @@ ms.locfileid: "81380513"
 | Express 경로 | 스키마를 사용할 수 없음 |
 | Azure Firewall | 스키마를 사용할 수 없음 |
 | IoT Hub | [IoT Hub 작업](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| Key Vault |[Azure 키 볼트 로깅](../../key-vault/key-vault-logging.md) |
+| Key Vault |[Azure 키 볼트 로깅](../../key-vault/general/logging.md) |
 | Kubernetes 서비스 |[Azure Kubernetes 로깅](../../aks/view-master-logs.md#log-event-schema) |
 | Load Balancer |[Azure Load Balancer에 대한 Log analytics](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps B2B 사용자 지정 추적 스키마](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |

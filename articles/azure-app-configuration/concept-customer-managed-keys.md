@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 5749b2fc58c4e1c5c75142f85a5132946714e25b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ace34cf4a72b871ba6646b279007b8ce21c03e9b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77472636"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457436"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>고객 관리 키를 사용하여 앱 구성 데이터 암호화
 Azure 앱 [구성은 미사용 정보를 암호화합니다.](../security/fundamentals/encryption-atrest.md) 고객이 관리하는 키를 사용하면 암호화 키를 관리할 수 있으므로 향상된 데이터 보호 기능을 사용할 수 있습니다.  관리키 암호화를 사용하는 경우 앱 구성의 모든 중요한 정보는 사용자가 제공한 Azure Key Vault 키로 암호화됩니다.  이렇게 하면 필요에 따라 암호화 키를 회전할 수 있습니다.  또한 앱 구성 인스턴스의 키에 대한 액세스를 취소하여 중요한 정보에 대한 Azure 앱 구성의 액세스를 취소하는 기능도 제공합니다.
@@ -20,7 +20,7 @@ Azure 앱 [구성은 미사용 정보를 암호화합니다.](../security/fundam
 Azure 앱 구성은 Microsoft에서 제공하는 256비트 AES 암호화 키를 사용하여 미사용 정보를 암호화합니다. 모든 앱 구성 인스턴스에는 서비스에서 관리되고 중요한 정보를 암호화하는 데 사용되는 자체 암호화 키가 있습니다. 중요한 정보에는 키-값 쌍에 있는 값이 포함됩니다.  고객 관리 키 기능을 사용하도록 설정하면 앱 구성은 앱 구성 인스턴스에 할당된 관리되는 ID를 사용하여 Azure Active Directory로 인증합니다. 그런 다음 관리되는 ID는 Azure Key Vault를 호출하고 앱 구성 인스턴스의 암호화 키를 래핑합니다. 래핑된 암호화 키가 저장되고 래핑되지 않은 암호화 키가 앱 구성 내에서 1시간 동안 캐시됩니다. 앱 구성은 매시간 앱 구성 인스턴스의 암호화 키의 래핑되지 않은 버전을 새로 고칩니다. 이를 통해 정상적인 작동 조건에서 가용성을 확보할 수 있습니다. 
 
 >[!IMPORTANT]
-> 앱 Configuration 인스턴스에 할당된 ID가 더 이상 인스턴스의 암호화 키의 래핑을 해제할 권한이 없거나 관리 키가 영구적으로 삭제된 경우 앱에 저장된 중요한 정보의 암호를 해독할 수 없습니다. 구성 인스턴스입니다. Azure Key Vault의 [소프트 삭제](../key-vault/key-vault-ovw-soft-delete.md) 기능을 사용하면 실수로 암호화 키가 삭제될 가능성이 완화됩니다.
+> 앱 구성 인스턴스에 할당된 ID가 더 이상 인스턴스의 암호화 키의 래핑을 해제할 권한이 없거나 관리 키가 영구적으로 삭제된 경우 앱 구성 인스턴스에 저장된 중요한 정보를 더 이상 해독할 수 없습니다. Azure Key Vault의 [소프트 삭제](../key-vault/general/overview-soft-delete.md) 기능을 사용하면 실수로 암호화 키가 삭제될 가능성이 완화됩니다.
 
 사용자가 Azure 앱 구성 인스턴스에서 고객이 관리하는 키 기능을 사용하도록 설정하면 서비스의 중요한 정보에 액세스하는 기능을 제어합니다. 관리되는 키는 루트 암호화 키역할을 합니다. 사용자는 키 자격 증명 모음 액세스 정책을 변경하여 관리키에 대한 앱 구성 인스턴스의 액세스를 취소할 수 있습니다. 이 액세스가 취소되면 앱 구성은 1시간 이내에 사용자 데이터를 해독할 수 없게 됩니다. 이 시점에서 앱 구성 인스턴스는 모든 액세스 시도를 금지합니다. 이 상황은 관리되는 키에 대한 서비스 액세스 권한을 다시 한 번 부여하여 복구할 수 있습니다.  1시간 이내에 앱 구성은 사용자 데이터를 해독하고 정상적인 조건에서 작동할 수 있습니다.
 

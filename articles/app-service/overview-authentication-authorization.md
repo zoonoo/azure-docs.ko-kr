@@ -3,23 +3,20 @@ title: 인증 및 권한 부여
 description: Azure App Service 및 Azure Functions의 기본 제공 인증 및 권한 부여 지원에 대해 알아보고 무단 액세스에 대해 앱을 보호하는 방법을 알아보십시오.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 04/15/2020
 ms.reviewer: mahender
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: 0fe436b1da551bbc8a0064cb3cfdff864d8f9eb8
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: a4ceed0d897f069a7895a3eb6b10c327566afbe5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520688"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457861"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Azure 앱 서비스 및 Azure 함수의 인증 및 권한 부여
 
-> [!NOTE]
-> 현재 Azure [Active Directory v2.0(MSAL](../active-directory/develop/v2-overview.md) 포함)은 Azure 앱 서비스 및 Azure 함수에 대해 지원되지 않습니다. [MSAL](../active-directory/develop/msal-overview.md) 업데이트를 다시 확인하시기 바랍니다.
->
 > [!NOTE]
 > 현재 ASP.NET Core는 현재 인증/권한 부여 기능을 통해 현재 사용자를 채우는 것을 지원하지 않습니다.
 >
@@ -84,7 +81,7 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 | - | - |
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` |
 | [Microsoft 계정](../active-directory/develop/v2-overview.md) | `/.auth/login/microsoftaccount` |
-| [페이스 북](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
+| [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
 

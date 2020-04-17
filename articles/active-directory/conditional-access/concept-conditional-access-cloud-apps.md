@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69bdd2d6825427597e9030a03aae7d219361ba25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b15b022726c09ccbaf9674775d114c8dd1916e1d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671939"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457300"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>조건부 액세스: 클라우드 앱 또는 작업
 
@@ -120,7 +120,7 @@ Microsoft Azure 관리 응용 프로그램에는 여러 기본 서비스가 포�
 
 ## <a name="user-actions"></a>사용자 작업
 
-사용자 작업은 사용자가 수행할 수 있는 작업입니다. 현재 지원되는 유일한 작업은 **등록 보안 정보(미리 보기)로,** 통합 등록을 사용하도록 설정된 사용자가 보안 정보를 등록하려고 할 때 조건부 액세스 정책을 적용할 수 있습니다. 자세한 내용은 문서에서 찾을 수 있습니다., [결합 된 보안 정보 등록 (미리 보기)](../authentication/concept-registration-mfa-sspr-combined.md).
+사용자 작업은 사용자가 수행할 수 있는 작업입니다. 현재 지원되는 유일한 작업은 **등록 보안 정보입니다.** 자세한 내용은 본 문서에서 찾을 수 [있습니다.](../authentication/concept-registration-mfa-sspr-combined.md)
 
 ## <a name="next-steps"></a>다음 단계
 

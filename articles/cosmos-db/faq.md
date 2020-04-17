@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 4c76bcbf945c63588f8471c10deca0b5982d3562
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e904f650c9fc11aab2dcb002ac68a9f19287940e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414243"
+ms.locfileid: "81449955"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB의 다양한 API에 대한 질문과 대답
 
@@ -34,7 +34,7 @@ Azure Cosmos DB에는 개발자로부터 스키마 또는 보조 인덱스를 �
 
 ### <a name="can-i-use-multiple-apis-to-access-my-data"></a>여러 API를 사용하여 데이터에 액세스할 수 있습니까?
 
-Azure Cosmos DB는 전 세계에 배포되는 Microsoft의 다중 모델 데이터베이스 서비스입니다. 다중 모델이 Azure Cosmos DB가 여러 API 와 여러 데이터 모델을 지원하는 경우 다른 API는 저장소 및 와이어 프로토콜에 대해 서로 다른 데이터 형식을 사용합니다. 예를 들어, SQL은 JSON을 사용하고, 몽고DB는 BSON을 사용하고, 테이블은 EDM을 사용하고, 카산드라는 CQL을 사용하고, 그렘린은 그래프슨을 사용합니다. 따라서 지정된 계정의 데이터에 대한 모든 액세스에 동일한 API를 사용하는 것이 좋습니다.
+Azure Cosmos DB는 전 세계에 배포되는 Microsoft의 다중 모델 데이터베이스 서비스입니다. 다중 모델이 Azure Cosmos DB가 여러 API 와 여러 데이터 모델을 지원하는 경우 다른 API는 저장소 및 와이어 프로토콜에 대해 서로 다른 데이터 형식을 사용합니다. 예를 들어, SQL은 JSON을 사용하고, 몽고DB는 BSON을 사용하고, 테이블은 EDM을 사용하고, 카산드라는 CQL을 사용하고, 그렘린은 JSON 형식을 사용합니다. 따라서 지정된 계정의 데이터에 대한 모든 액세스에 동일한 API를 사용하는 것이 좋습니다.
 
 각 API는 상호 운용 가능한 Gremlin 및 SQL API를 제외하고 독립적으로 작동합니다.
 
@@ -234,7 +234,7 @@ Azure Cosmos DB의 API for MongoDB는 일반적인 MongoDB 오류 코드 외에�
 
 ### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB에 사용할 수 있도록 MongoDB용 Simba 드라이버가 지원됩니까?
 
-예, Azure Cosmos DB의 API for MongoDB를 통해 Simba의 Mongo ODBC 드라이버를 사용할 수 있습니다.
+예, 당신은 몽고 DB에 대한 Azure 코스모스 DB의 API와 심바의 몽고 ODBC 드라이버를 사용할 수 있습니다
 
 ## <a name="table-api"></a><a id="table"></a>테이블 API
 
@@ -523,7 +523,7 @@ Azure Cosmos DB Gremlin API는 서비스의 기본 커넥터로 오픈 소스 �
 
 RU 청구는 결과 집합이 아닌 횡단의 유효 데이터 집합에 기반합니다. 예를 들어 쿼리가 결과로 단일 꼭짓점을 획득하려고 하지만 도중에 둘 이상의 다른 개체를 트래버스해야 한다면 비용은 한 개의 결과 꼭짓점을 컴퓨팅하기 위해 사용되는 모든 그래프 개체에 기반합니다.
 
-### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>그래프 데이터베이스가 Azure Cosmos DB Gremlin API에서 가질 수 있는 최대 축적은 얼마입니까?
+### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>Azure 코스모스 DB 그렘린 API에서 그래프 데이터베이스가 가질 수 있는 최대 규모는 무엇입니까?
 
 Azure Cosmos DB는 [수평 분할](partition-data.md)을 활용하여 스토리지 및 처리량 요구 사항 증가를 자동으로 해결합니다. 워크로드의 최대 처리량 및 저장소 용량은 지정된 컨테이너와 연결된 파티션 수에 따라 결정됩니다. 그러나 Gremlin API 컨테이너에는 적절한 성능 환경을 대규모로 보장하기 위한 특정 지침 집합이 있습니다. 분할에 대한 자세한 내용 및 모범 사례는 [Azure Cosmos DB에서 분할](partition-data.md) 문서를 참조하세요.
 
@@ -531,13 +531,13 @@ Azure Cosmos DB는 [수평 분할](partition-data.md)을 활용하여 스토리�
 
 대부분의 네이티브 아파치 Tinkerpop 그렘린 드라이버는 쿼리 실행을 위한 매개 변수 사전을 제공할 수 있는 옵션을 허용합니다. 다음은 [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) 및 [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js)에서 수행하는 방법의 예제입니다.
 
-### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>"Gremlin 쿼리 컴파일 오류: 메서드를 찾을 수 없음” 오류가 표시되는 이유는 무엇인가요?
+### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>"Gremlin 쿼리 컴파일 오류: 메서드를 찾을 수 없습니다" 오류가 발생하는 이유는 무엇입니까?
 
 Azure Cosmos DB Gremlin API는 Gremlin 노출 영역에 정의된 기능의 하위 집합을 구현합니다. 지원되는 단계 및 자세한 내용은 [Gremlin 지원](gremlin-support.md) 문서를 참조하세요.
 
 가장 좋은 해결 방법은 모든 필수 Gremlin 단계가 Azure Cosmos DB에서 지원되므로 지원되는 기능을 사용하여 필요한 Gremlin 단계를 다시 작성하는 것입니다.
 
-### <a name="why-am-i-getting-the-websocketexception-the-server-returned-status-code-200-when-status-code-101-was-expected-error"></a>“WebSocketException: 상태 코드 ‘101’을 예상했을 때 서버가 상태 코드 ‘200’을 반환함” 오류가 표시되는 이유가 무엇인가요?
+### <a name="why-am-i-getting-the-websocketexception-the-server-returned-status-code-200-when-status-code-101-was-expected-error"></a>상태 코드 '101'이 예상되었을 때 서버가 반환된 상태 코드 '200' 오류가 있는 이유는 무엇입니까?
 
 이 오류는 잘못된 엔드포인트를 사용하는 경우 발생할 가능성이 높습니다. 이 오류를 생성하는 엔드포인트에는 다음과 같은 패턴이 있습니다.
 
@@ -547,7 +547,7 @@ Azure Cosmos DB Gremlin API는 Gremlin 노출 영역에 정의된 기능의 하�
 
 `https://YOUR_DATABASE_ACCOUNT.gremlin.cosmosdb.azure.com:443/`
 
-### <a name="why-am-i-getting-the-requestrateistoolarge-error"></a>"RequestRateIsTooLarge" 오류가 표시되는 이유가 무엇인가요?
+### <a name="why-am-i-getting-the-requestrateistoolarge-error"></a>"RequestRateIsTooLarge" 오류가 있는 이유는 무엇입니까?
 
 이 오류는 초당 할당된 요청 단위가 쿼리를 처리할 정도로 충분하지 않다는 것을 의미합니다. 이 오류는 일반적으로 모든 꼭짓점을 가져오는 쿼리를 실행할 때 표시됩니다.
 
@@ -562,7 +562,7 @@ g.V()
 
 Gremlin 연결은 WebSocket 연결을 통해 이루어집니다. WebSocket 연결에 특정 TTL(Time to Live)이 없을 경우 Azure Cosmos DB Gremlin API는 30분의 비활성 후 유휴 연결을 종료합니다.
 
-### <a name="why-cant-i-use-fluent-api-calls-in-the-native-gremlin-drivers"></a>네이티브 Gremlin 드라이버에서 흐름 API 호출을 왜 사용할 수 없나요?
+### <a name="why-cant-i-use-fluent-api-calls-in-the-native-gremlin-drivers"></a>네이티브 Gremlin 드라이버에서 유창한 API 호출을 사용할 수 없는 이유는 무엇입니까?
 
 흐름 API 호출은 Azure Cosmos DB Gremlin API에서 아직 지원되지 않습니다. Fluent API 호출은 Azure Cosmos DB Gremlin API에서 현재 지원되지 않는, 바이트코드 지원이라는 내부 서식 지정 기능이 필요합니다. 같은 이유로 인해 최신 Gremlin-JavaScript 드라이버도 현재 지원되지 않습니다.
 

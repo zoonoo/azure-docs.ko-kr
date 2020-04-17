@@ -6,39 +6,39 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 7fdb7c980a278e2dcd4b64a4b70de50721d0b72a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd0a03ea76d517486bb9bda6d9628fb529166dd8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280340"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453730"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>앱 서비스 및 Azure 기능에 키 볼트 참조 사용
 
-이 항목에서는 코드 변경 없이도 App Service 또는 Azure Functions 애플리케이션에서 Azure Key Vault의 비밀을 사용하는 방법을 보여 줍니다. [Azure Key Vault](../key-vault/key-vault-overview.md)는 액세스 정책 및 감사 기록에 대한 전체 제어와 함께 중앙 집중식 비밀 관리를 제공하는 서비스입니다.
+이 항목에서는 코드 변경 없이도 App Service 또는 Azure Functions 애플리케이션에서 Azure Key Vault의 비밀을 사용하는 방법을 보여 줍니다. [Azure Key Vault](../key-vault/general/overview.md)는 액세스 정책 및 감사 기록에 대한 전체 제어와 함께 중앙 집중식 비밀 관리를 제공하는 서비스입니다.
 
 ## <a name="granting-your-app-access-to-key-vault"></a>Key Vault에 앱 액세스 권한 부여
 
 Key Vault에서 비밀을 읽으려면 자격 증명 모음을 만들고 해당 자격 증명에 앱 권한을 부여해야 합니다.
 
-1. [Key Vault 빠른 시작](../key-vault/quick-create-cli.md)에 따라 키 자격 증명 모음을 만듭니다.
+1. [Key Vault 빠른 시작](../key-vault/secrets/quick-create-cli.md)에 따라 키 자격 증명 모음을 만듭니다.
 
 1. 애플리케이션에 대한 [시스템 할당 관리형 ID](overview-managed-identity.md)를 만듭니다.
 
    > [!NOTE] 
    > Key Vault 참조는 현재 시스템 할당 관리형 ID만 지원합니다. 사용자 할당 ID를 사용할 수 없습니다.
 
-1. 이전에 만든 애플리케이션 ID에 대한 [Key Vault에서 액세스 정책](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies)을 만듭니다. 이 정책에 대한 “가져오기” 비밀 권한을 사용하도록 설정합니다. "권한 있는 애플리케이션" 또는 `applicationId` 설정은 관리 ID와 호환되지 않으므로 구성하지 마세요.
+1. 이전에 만든 애플리케이션 ID에 대한 [Key Vault에서 액세스 정책](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies)을 만듭니다. 이 정책에 대한 “가져오기” 비밀 권한을 사용하도록 설정합니다. "권한 있는 애플리케이션" 또는 `applicationId` 설정은 관리 ID와 호환되지 않으므로 구성하지 마세요.
 
     > [!NOTE]
-    > 키 Vault 참조는 현재 [네트워크 제한이](../key-vault/key-vault-overview-vnet-service-endpoints.md)있는 키 자격 증명 모음에 저장된 비밀을 확인할 수 없습니다.
+    > 키 Vault 참조는 현재 [네트워크 제한이](../key-vault/general/overview-vnet-service-endpoints.md)있는 키 자격 증명 모음에 저장된 비밀을 확인할 수 없습니다.
 
 ## <a name="reference-syntax"></a>참조 구문
 
 Key Vault 참조는 `@Microsoft.KeyVault({referenceString})` 형식이며, 여기서 `{referenceString}`은 다음 옵션 중 하나로 대체됩니다.
 
 > [!div class="mx-tdBreakAll"]
-> | 참조 문자열                                                            | 설명                                                                                                                                                                                 |
+> | 참조 문자열                                                            | Description                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | SecretUri=_secretUri_                                                       | **SecretUri**는 버전을 포함하여 Key Vault에 있는 비밀의 전체 데이터 평면 URI여야 합니다(예: https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931).  |
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName**은 Key Vault 리소스의 이름이어야 합니다. **SecretName**은 대상 비밀의 이름이어야 합니다. **SecretVersion**은 사용할 비밀의 버전이어야 합니다. |

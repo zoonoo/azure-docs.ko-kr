@@ -5,18 +5,18 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7a6fc2bd5cb6f5c7ae5bef9e9741fae92518d885
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: d1ce59322b0cbfaf5a4f7b31371f0d0929a3a3ab
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392385"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457725"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure Automation의 연결 자산
 
 Automation 연결 자산은 외부 서비스 또는 runbook의 애플리케이션이나 DSC 구성 연결에 필요한 정보를 포함합니다. 여기에는 URL 또는 포트와 같은 연결 정보 외에 사용자 이름 및 암호와 같은 인증에 필요한 정보가 포함될 수 있습니다. 연결 값은 여러 변수를 만드는 대신, 특정 애플리케이션에 연결하기 위한 모든 속성을 하나의 자산에 유지합니다. 사용자는 한 위치의 연결에 대한 값을 편집할 수 있고 단일 매개 변수에서 연결 이름을 runbook 이나 DSC구성에 전달할 수 있습니다. 연결에 대한 속성은 `Get-AutomationConnection` 활동이 있는 Runbook 또는 DSC 구성에서 액세스할 수 있습니다.
 
-연결을 만들 때는 *연결 유형*을 지정해야 합니다. 연결 형식은 속성 집합을 정의하는 템플릿입니다. 연결은 해당 연결 형식에 정의된 각 속성의 값을 정의합니다. 연결 형식은 통합 모듈의 Azure Automation에 추가되어 있거나 통합 모듈에 연결 형식이 포함되어 있고 이 유형을 Automation 계정으로 가져올 경우 [Azure Automation API](/previous-versions/azure/reference/mt163818(v=azure.100))를 사용하여 만들어집니다. 그렇지 않으면 자동화 연결 유형을 지정하려면 메타데이터 파일을 만들어야 합니다. 이에 대한 자세한 내용은 [통합 모듈 을 참조하십시오.](automation-integration-modules.md)
+연결을 만들 때는 연결 유형을 지정해야 합니다. 연결 형식은 속성 집합을 정의하는 템플릿입니다. 연결은 해당 연결 형식에 정의된 각 속성의 값을 정의합니다. 연결 형식은 통합 모듈의 Azure Automation에 추가되어 있거나 통합 모듈에 연결 형식이 포함되어 있고 이 유형을 Automation 계정으로 가져올 경우 [Azure Automation API](/previous-versions/azure/reference/mt163818(v=azure.100))를 사용하여 만들어집니다. 그렇지 않으면 자동화 연결 유형을 지정하려면 메타데이터 파일을 만들어야 합니다. 이에 대한 자세한 내용은 [통합 모듈 을 참조하십시오.](automation-integration-modules.md)
 
 >[!NOTE]
 >Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 자동화 계정에 대해 생성되는 고유 키를 사용하여 Azure 자동화에 암호화되고 저장됩니다. 이 키는 시스템에서 관리하는 Key Vault에 저장됩니다. 보안 자산을 저장하기 전에 Key Vault에서 키가 로드된 다음, 자산을 암호화하는 데 사용됩니다. Azure Automation에서 이 프로세스를 관리합니다.

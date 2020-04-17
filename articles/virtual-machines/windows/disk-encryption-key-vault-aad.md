@@ -7,18 +7,18 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5a42b1e0dc82b3340bbebe176c71cb1754d00664
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b80d2e5e7c9157da2a3b05a7b422f0c0a950f90c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243381"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452046"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Azure AD를 사용한 Azure 디스크 암호화에 대한 키 자격 증명 모음 만들기 및 구성(이전 릴리스)
 
 **Azure 디스크 암호화의 새 릴리스는 VM 디스크 암호화를 사용하도록 사용하도록 Azure AD 응용 프로그램 매개 변수를 제공하는 데 대한 요구 사항을 제거합니다. 새 릴리스에서는 암호화 활성화 단계에서 Azure AD 자격 증명을 더 이상 제공할 필요가 없습니다. 모든 새 VM은 새 릴리스를 사용하는 Azure AD 응용 프로그램 매개 변수 없이 암호화되어야 합니다. 새 릴리스를 사용하여 VM 디스크 암호화를 사용하도록 설정하는 지침을 보려면 [Azure 디스크 암호화](disk-encryption-overview.md)를 참조하십시오. Azure AD 응용 프로그램 매개 변수로 이미 암호화된 VM은 여전히 지원되며 AAD 구문으로 계속 유지 관리해야 합니다.**
 
-Azure 디스크 암호화는 Azure Key Vault를 사용하여 디스크 암호화 키 및 비밀을 제어하고 관리합니다.  키 자격 증명 모음에 대한 자세한 내용은 [Azure Key Vault 시작](../../key-vault/key-vault-get-started.md) 및 [키 자격 증명 모음 보안](../../key-vault/key-vault-secure-your-key-vault.md)을 참조하세요. 
+Azure 디스크 암호화는 Azure Key Vault를 사용하여 디스크 암호화 키 및 비밀을 제어하고 관리합니다.  키 자격 증명 모음에 대한 자세한 내용은 [Azure Key Vault 시작](../../key-vault/key-vault-get-started.md) 및 [키 자격 증명 모음 보안](../../key-vault/general/secure-your-key-vault.md)을 참조하세요. 
 
 Azure AD(이전 릴리스)를 사용하여 Azure 디스크 암호화에 사용할 키 자격 증명 모음을 만들고 구성하려면 다음 세 단계가 포함됩니다.
 
@@ -36,7 +36,7 @@ Azure AD(이전 릴리스)를 사용하여 Azure 디스크 암호화에 사용�
 
 
 ## <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기 
-Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/)와 통합되어 키 자격 증명 모음 구독에서 디스크 암호화 키 및 비밀을 제어하고 관리할 수 있습니다. Azure Disk Encryption에 대한 키 자격 증명 모음을 만들거나 기존 키 자격 증명 모음을 사용할 수 있습니다. 키 자격 증명 모음에 대한 자세한 내용은 [Azure Key Vault 시작](../../key-vault/key-vault-get-started.md) 및 [키 자격 증명 모음 보안](../../key-vault/key-vault-secure-your-key-vault.md)을 참조하세요. Resource Manager 템플릿, Azure PowerShell 또는 Azure CLI를 사용하여 키 자격 증명 모음을 만들 수 있습니다. 
+Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/)와 통합되어 키 자격 증명 모음 구독에서 디스크 암호화 키 및 비밀을 제어하고 관리할 수 있습니다. Azure Disk Encryption에 대한 키 자격 증명 모음을 만들거나 기존 키 자격 증명 모음을 사용할 수 있습니다. 키 자격 증명 모음에 대한 자세한 내용은 [Azure Key Vault 시작](../../key-vault/key-vault-get-started.md) 및 [키 자격 증명 모음 보안](../../key-vault/general/secure-your-key-vault.md)을 참조하세요. Resource Manager 템플릿, Azure PowerShell 또는 Azure CLI를 사용하여 키 자격 증명 모음을 만들 수 있습니다. 
 
 
 >[!WARNING]
@@ -149,7 +149,7 @@ Azure AD 애플리케이션에 자격 증명 모음의 키 또는 암호에 액�
      ```
 
 ### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-cli"></a> Azure CLI를 사용하여 Azure AD 응용 프로그램에 대한 키 자격 증명 모음 액세스 정책 설정
-[az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy)를 사용하여 액세스 정책을 설정합니다. 자세한 내용은 [CLI 2.0을 사용하여 Key Vault 관리](../../key-vault/key-vault-manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret)를 참조하세요.
+[az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy)를 사용하여 액세스 정책을 설정합니다. 자세한 내용은 [CLI 2.0을 사용하여 Key Vault 관리](../../key-vault/general/manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret)를 참조하세요.
 
 다음 명령을 사용하여 비밀 및 래핑 키를 가져오려면 Azure CLI 액세스를 통해 만든 서비스 주체에게 액세스 권한을 부여합니다.
  
@@ -225,7 +225,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
 
 
 ## <a name="set-up-a-key-encryption-key-optional"></a>주요 암호화 키 설정(선택 사항)
-암호화 키에 대한 추가 보안 계층에 KEK(키 암호화 키)를 사용하려면 키 자격 증명 모음에 KEK를 추가합니다. [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet을 사용하여 키 자격 증명 모음에서 키 암호화 키를 만듭니다. 또한 온-프레미스 키 관리 HSM에서 KEK를 가져올 수도 있습니다. 자세한 내용은 [키 자격 증명 모음 문서를](../../key-vault/key-vault-hsm-protected-keys.md)참조하십시오. 키 암호화 키가 지정되면 Azure Disk Encryption에서 해당 키를 사용하여 Key Vault에 쓰기 전에 암호화 비밀을 래핑합니다. 
+암호화 키에 대한 추가 보안 계층에 KEK(키 암호화 키)를 사용하려면 키 자격 증명 모음에 KEK를 추가합니다. [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet을 사용하여 키 자격 증명 모음에서 키 암호화 키를 만듭니다. 또한 온-프레미스 키 관리 HSM에서 KEK를 가져올 수도 있습니다. 자세한 내용은 [키 자격 증명 모음 문서를](../../key-vault/keys/hsm-protected-keys.md)참조하십시오. 키 암호화 키가 지정되면 Azure Disk Encryption에서 해당 키를 사용하여 Key Vault에 쓰기 전에 암호화 비밀을 래핑합니다. 
 
 * 키를 생성할 때 RSA 키 유형을 사용합니다. Azure 디스크 암호화는 아직 타원 곡선 키를 사용하여 지원하지 않습니다.
 

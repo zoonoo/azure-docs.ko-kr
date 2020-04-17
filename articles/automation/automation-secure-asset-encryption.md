@@ -1,5 +1,5 @@
 ---
-title: Azure 자동화에서 보안 자산 암호화
+title: Azure Automation에서 보안 자산 암호화
 description: Azure 자동화는 여러 수준의 암호화를 사용하여 안전한 자산을 보호합니다. 기본적으로 암호화는 Microsoft에서 관리하는 키를 사용하여 수행됩니다. 고객은 암호화를 위해 고객 관리 키를 사용하도록 자동화 계정을 구성할 수 있습니다. 이 문서에서는 두 암호화 모드의 세부 정보와 둘 사이를 전환하는 방법에 대해 설명합니다.
 services: automation
 ms.service: automation
@@ -9,14 +9,14 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: 0b1d194209122fa71272243c80a2d4c57f6834a1
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: a82d2b6d9521ba7dd5e7b194c26ff8fe5a100871
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547750"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457487"
 ---
-# <a name="encrypt-secure-assets-in-azure-automation"></a>Azure 자동화에서 보안 자산 암호화
+# <a name="encrypt-secure-assets-in-azure-automation"></a>Azure Automation에서 보안 자산 암호화
 
 Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 여러 수준의 암호화를 사용하여 Azure 자동화에서 보호됩니다. 암호화에 사용되는 최상위 키를 기반으로 암호화에 대한 두 가지 모델이 있습니다.
 -    Microsoft 에서 관리하는 키 사용
@@ -32,7 +32,7 @@ Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암
 
 자체 키로 자동화 계정에 대한 보안 자산의 암호화를 관리할 수 있습니다. 자동화 계정 수준에서 고객 관리 키를 지정하면 해당 키가 자동화 계정의 계정 암호화 키에 대한 액세스를 보호하고 제어하는 데 사용됩니다. 이것은 차례로 모든 보안 자산을 암호화하고 해독하는 데 사용됩니다. 고객 관리 키는 액세스 제어를 생성, 회전, 비활성화 및 해지할 수 있는 유연성을 제공합니다. 보안 자산을 보호하는 데 사용되는 암호화 키를 감사할 수도 있습니다.
 
-Azure 키 자격 증명 모음을 사용하여 고객 관리 키를 저장합니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장하거나 Azure Key Vault API를 사용하여 키를 생성할 수 있습니다.  Azure 키 자격 증명 모음에 대한 자세한 내용은 [Azure 키 자격 증명 모음이란 무엇입니까?](../key-vault/key-vault-overview.md)
+Azure 키 자격 증명 모음을 사용하여 고객 관리 키를 저장합니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장하거나 Azure Key Vault API를 사용하여 키를 생성할 수 있습니다.  Azure 키 자격 증명 모음에 대한 자세한 내용은 [Azure 키 자격 증명 모음이란 무엇입니까?](../key-vault/general/overview.md)
 
 ## <a name="enable-customer-managed-keys-for-an-automation-account"></a>자동화 계정에 대한 고객 관리 키 사용
 
@@ -192,7 +192,7 @@ PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Key Vault란?](../key-vault/key-vault-overview.md)
+- [Azure Key Vault란?](../key-vault/general/overview.md)
 
 - [Azure Automation의 인증서 자산](shared-resources/certificates.md)
 

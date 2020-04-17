@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cathysull
 manager: cathys
-editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.custom: vs-azure
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 12/04/2019
 ms.author: cathys
 keywords: visualstudio
-ms.openlocfilehash: 2977fb6f14468429eb651e4f8a6034c060cdee2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 76c8ec8f3d691a897ec924e06b76beec746ad14a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75895937"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451587"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure의 Visual Studio 이미지
 미리 구성된 Azure VM(가상 머신)에서 Visual Studio를 사용하면 아무 작업도 하지 않고 실행 중인 개발 환경으로 빠르고 쉽게 이동할 수 있습니다. 다양한 Visual Studio 구성이 적용된 시스템 이미지를 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure)에서 사용할 수 있습니다.

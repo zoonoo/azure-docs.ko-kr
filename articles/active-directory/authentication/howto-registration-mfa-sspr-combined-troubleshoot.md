@@ -1,31 +1,26 @@
 ---
 title: 통합 등록 문제 해결 - Azure Active Directory
-description: Azure AD 다단계 인증 및 셀프 서비스 암호 재설정 결합 등록(미리 보기) 문제 해결
+description: Azure AD 다단계 인증 및 셀프 서비스 암호 재설정 결합 등록 문제 해결
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 11/21/2019
+ms.date: 04/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab7c38d23cb1f05e07488810640aeb791ded3d4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c840df2c53554519f62a3d1d7a7d8b305187ffb
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74847391"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450941"
 ---
-# <a name="troubleshooting-combined-security-information-registration-preview"></a>통합 보안 정보 등록 문제 해결(미리 보기)
+# <a name="troubleshooting-combined-security-information-registration"></a>통합 보안 정보 등록 문제 해결
 
 이 문서의 정보는 결합된 등록 환경의 사용자가 보고한 문제를 해결하는 관리자를 안내하기 위한 것입니다.
-
-|     |
-| --- |
-| Azure 다단계 인증 및 Azure Active Directory(Azure AD) 셀프 서비스 암호 재설정에 대한 통합 보안 정보 등록은 Azure AD의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관을](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)참조하십시오.|
-|     |
 
 ## <a name="audit-logs"></a>감사 로그
 
@@ -35,7 +30,7 @@ ms.locfileid: "74847391"
 
 다음 표에는 결합된 등록으로 생성된 모든 감사 이벤트가 나열됩니다.
 
-| 활동 | 상태 | 이유 | 설명 |
+| 작업 | Status | 이유 | Description |
 | --- | --- | --- | --- |
 | 사용자가 필요한 모든 보안 정보를 등록했습니다. | Success | 사용자는 필요한 모든 보안 정보를 등록했습니다. | 이 이벤트는 사용자가 등록을 성공적으로 완료한 경우에 발생합니다.|
 | 사용자가 필요한 모든 보안 정보를 등록했습니다. | 실패 | 사용자가 보안 정보 등록을 취소했습니다. | 이 이벤트는 사용자가 인터럽트 모드에서 등록을 취소할 때 발생합니다.|
@@ -150,16 +145,16 @@ PowerShell 창에서 다음 명령을 실행하여 스크립트 및 사용자 �
 
 `<script location> -path <user file location>`
 
-### <a name="disable-the-preview-experience"></a>미리 보기 환경 사용 안 함
+### <a name="disable-the-updated-experience"></a>업데이트된 환경 사용 안 함
 
-사용자에 대한 미리 보기 환경을 사용하지 않도록 설정하려면 다음 단계를 완료합니다.
+사용자에 대해 업데이트된 환경을 사용하지 않도록 설정하려면 다음 단계를 완료합니다.
 
 1. 사용자 관리자로 Azure 포털에 로그인합니다.
 2. Azure **Active Directory** > **사용자 설정** > **액세스 패널 미리 보기에 대한 설정 관리로**이동합니다.
 3. 사용자 아래에서 **보안 정보를 등록 및 관리하기 위한 미리 보기 기능을 사용하고**선택기를 **없음으로**설정한 다음 **저장을**선택할 수 있습니다.
 
-미리 보기 환경을 사용하여 더 이상 등록하라는 메시지가 표시되지 않습니다.
+업데이트된 환경을 사용하여 등록하라는 메시지가 더 이상 표시되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [셀프 서비스 암호 재설정 및 Azure 다단계 인증에 대한 통합 등록의 공개 미리 보기에 대해 자세히 알아보기](concept-registration-mfa-sspr-combined.md)
+* [셀프 서비스 암호 재설정 및 Azure 다단계 인증에 대한 결합된 등록에 대해 자세히 알아보기](concept-registration-mfa-sspr-combined.md)

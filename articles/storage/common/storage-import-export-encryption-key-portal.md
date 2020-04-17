@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: a7077b5e94800d93833f259fefd0cd4c168ec867
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: ddcb47bfe8ba2b77efd8ff0aed52f1412107f0c5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811449"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456501"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>가져오기/내보내기 서비스에 Azure 키 자격 증명 모음에서 고객 관리 키 사용
 
 Azure 가져오기/내보내기는 암호화 키를 통해 드라이브를 잠그는 데 사용되는 BitLocker 키를 보호합니다. 기본적으로 BitLocker 키는 Microsoft에서 관리하는 키로 암호화됩니다. 암호화 키를 추가로 제어하려면 고객 관리 키를 제공할 수도 있습니다.
 
-고객 관리 키는 Azure 키 자격 증명 모음에 만들고 저장해야 합니다. Azure 키 자격 증명 모음에 대한 자세한 내용은 [Azure 키 자격 증명 모음이란 무엇입니까?](../../key-vault/key-vault-overview.md)
+고객 관리 키는 Azure 키 자격 증명 모음에 만들고 저장해야 합니다. Azure 키 자격 증명 모음에 대한 자세한 내용은 [Azure 키 자격 증명 모음이란 무엇입니까?](../../key-vault/general/overview.md)
 
 이 문서에서는 [Azure 포털에서](https://portal.azure.com/)가져오기/내보내기 서비스와 함께 고객 관리 키를 사용하는 방법을 보여 주며 있습니다.
 
@@ -33,12 +33,12 @@ Azure 가져오기/내보내기는 암호화 키를 통해 드라이브를 잠�
     - [파일에 대한 가져오기 작업을 만듭니다.](storage-import-export-data-to-files.md)
     - [Blob에 대한 내보내기 작업 만들기](storage-import-export-data-from-blobs.md)
 
-2. BitLocker 키를 보호하는 데 사용할 수 있는 키가 있는 기존 Azure 키 볼트가 있습니다. Azure 포털을 사용하여 키 자격 증명 모음을 만드는 방법을 알아보려면 [빠른 시작: Azure 포털을 사용하여 Azure 키 자격 증명 모음에서 비밀 설정 및 검색을](../../key-vault/quick-create-portal.md)참조하세요.
+2. BitLocker 키를 보호하는 데 사용할 수 있는 키가 있는 기존 Azure 키 볼트가 있습니다. Azure 포털을 사용하여 키 자격 증명 모음을 만드는 방법을 알아보려면 [빠른 시작: Azure 포털을 사용하여 Azure 키 자격 증명 모음에서 비밀 설정 및 검색을](../../key-vault/secrets/quick-create-portal.md)참조하세요.
 
     - **기존** 키 볼트에 일시 삭제 및 **제거 금지가** 설정되어 있습니다. 이러한 속성은 기본적으로 활성화되지 않습니다. 이러한 속성을 사용하려면 다음 문서 중 하나에서 **일시 삭제 및** **지우기 보호 활성화** 라는 섹션을 참조하십시오.
 
-        - [PowerShell에서 소프트 삭제를 사용하는 방법](../../key-vault/key-vault-soft-delete-powershell.md).
-        - [CLI와 소프트 삭제를 사용하는 방법](../../key-vault/key-vault-soft-delete-cli.md).
+        - [PowerShell에서 소프트 삭제를 사용하는 방법](../../key-vault/general/soft-delete-powershell.md).
+        - [CLI와 소프트 삭제를 사용하는 방법](../../key-vault/general/soft-delete-cli.md).
     - 기존 키 자격 증명 모음에는 2048 크기 이상의 RSA 키가 있어야 합니다. 키에 대한 자세한 내용은 Azure [키 볼트 정보 키, 암호 및 인증서의](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)키 자격 증명 모음 **키를** 참조하십시오.
     - 키 자격 증명 모음은 데이터의 저장소 계정과 동일한 지역에 있어야 합니다.  
     - 기존 Azure 키 볼트가 없는 경우 다음 섹션에 설명된 대로 인라인을 만들 수도 있습니다.
@@ -64,7 +64,7 @@ Azure 가져오기/내보내기는 암호화 키를 통해 드라이브를 잠�
 
     ![Azure 키 자격 증명 모음 선택 또는 만들기](./media/storage-import-export-encryption-key-portal/encryption-key-4.png)
 
-6. 새 키 자격 증명 모음을 만들려면 **새 만들기를** 선택할 수도 있습니다. 키 **자격 증명 모음 만들기 블레이드에서**리소스 그룹과 키 자격 증명 모음 이름을 입력합니다. 다른 모든 기본값을 적용합니다. **검토 + 만들기를**선택합니다.
+6. 새 키 자격 증명 모음을 만들려면 **새 만들기를** 선택할 수도 있습니다. 키 **자격 증명 모음 만들기 블레이드에서**리소스 그룹과 키 자격 증명 모음 이름을 입력합니다. 다른 모든 기본값을 적용합니다. **검토 + 만들기**를 선택합니다.
 
     ![새 Azure 키 볼트 만들기](./media/storage-import-export-encryption-key-portal/encryption-key-5.png)
 

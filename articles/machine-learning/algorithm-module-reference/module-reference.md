@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: peterclu
-ms.author: peterlu
-ms.date: 02/22/2020
-ms.openlocfilehash: 7fcfc7c15f94d7b569629e53534d731126172260
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+author: likebupt
+ms.author: keli19
+ms.date: 04/13/2020
+ms.openlocfilehash: c46c21b5662b924552f850f226a12c7350b4625a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399054"
+ms.locfileid: "81458202"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Azure 기계 학습 디자이너에 대한 알고리즘 & 모듈 참조(미리 보기)
 
@@ -59,6 +59,10 @@ ms.locfileid: "81399054"
 | 권장 | 권장 모델을 빌드합니다. | [추천 평가](evaluate-recommender.md) <br/> [SVD 추천 점수 매기기](score-svd-recommender.md) <br/> [SVD 추천 학습](train-SVD-recommender.md) |
 | 이상 감지 | 변칙 검색 모델을 빌드합니다. | [PCA 기반 변칙 검색](pca-based-anomaly-detection.md) <br/> [이상 탐지 모델 학습](train-anomaly-detection-model.md) |
 
+
+## <a name="web-service"></a>웹 서비스
+
+Azure 기계 학습 디자이너에서 실시간 추론에 필요한 [웹 서비스 모듈에](web-service-input-output.md) 대해 알아봅니다.
 
 ## <a name="error-messages"></a>오류 메시지
 

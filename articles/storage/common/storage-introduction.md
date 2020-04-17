@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 1cc047ee60cf8287f32a42b878371c5fc9680b7a
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 6c75b9c2feeab32c139998f617cacf540733e3bd
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985748"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456348"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>핵심 Azure 저장소 서비스 소개
 
@@ -21,7 +21,7 @@ Azure 저장소 플랫폼은 최신 데이터 저장소 시나리오를 위한 M
 
 - **내구성 및 고가용성** 중복성을 통해 일시적인 하드웨어 오류가 발생할 경우 데이터를 안전하게 보호합니다. 또한 로컬 재해 또는 자연 재해로부터 추가 보호를 위해 데이터 센터 또는 지리적 영역에서 데이터를 복제하도록 선택할 수도 있습니다. 이러한 방식으로 복제된 데이터는 예기치 않은 중단이 발생할 경우 항상 사용 가능한 상태로 유지됩니다.
 - **보안.** Azure 저장소 계정에 기록된 모든 데이터는 서비스에 의해 암호화됩니다. Azure Storage는 데이터에 액세스할 수 있는 사용자에 대한 세분화된 제어를 제공합니다.
-- **확장성** Azure Storage는 오늘날의 애플리케이션의 데이터 스토리지 및 성능 요구 사항을 충족하기 위해 확장성이 매우 뛰어나도록 설계되었습니다.
+- **확장성.** Azure Storage는 오늘날의 애플리케이션의 데이터 스토리지 및 성능 요구 사항을 충족하기 위해 확장성이 매우 뛰어나도록 설계되었습니다.
 - **관리** Azure는 하드웨어 유지 관리, 업데이트 및 중요한 문제를 처리합니다.
 - **액세스 가능** Azure Storage의 데이터는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. Microsoft는 .NET, Java, Node.js, 파이썬, PHP, 루비, 이동 및 기타 언어뿐만 아니라 성숙한 REST API를 비롯한 다양한 언어로 Azure 저장소용 클라이언트 라이브러리를 제공합니다. Azure Storage는 Azure PowerShell 또는 Azure CLI에서 스크립트를 지원합니다. 또한 Azure Portal 및 Azure Storage Explorer는 데이터 작업을 위한 쉬운 시각적 솔루션을 제공합니다.  
 
@@ -131,7 +131,7 @@ Azure Storage 클라이언트 라이브러리는 클라이언트 라이브러리
 
 ## <a name="redundancy"></a>중복
 
-데이터의 내구성을 보장하기 위해 Azure Storage는 데이터의 여러 복사본을 저장합니다. 스토리지 계정을 설정할 때 중복 옵션을 선택합니다. 자세한 내용은 [Azure Storage 중복성](/storage-redundancy?toc=/azure/storage/blobs/toc.json)을 참조하세요.
+데이터의 내구성을 보장하기 위해 Azure Storage는 데이터의 여러 복사본을 저장합니다. 스토리지 계정을 설정할 때 중복 옵션을 선택합니다. 자세한 내용은 [Azure Storage 중복성](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json)을 참조하세요.
 
 ## <a name="transfer-data-to-and-from-azure-storage"></a>Azure 저장소로 데이터 전송
 

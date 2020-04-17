@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8574fcdff12e61f7039174ed6297d0558a66dc4
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 066ab7892bed6e7505e7ee114ff37a7850ef5c9b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80653944"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450924"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>암호 없는 보안 키 로그인(미리 보기) 활성화
 
@@ -48,7 +48,7 @@ ms.locfileid: "80653944"
 
 ### <a name="enable-the-combined-registration-experience"></a>결합된 등록 환경 사용
 
-암호 없는 인증 방법에 대 한 등록 기능은 결합 된 등록 미리 보기에 의존 합니다. 결합된 등록 미리 보기를 사용하려면 다음 문서의 단계를 [따르십시오.](howto-registration-mfa-sspr-combined.md)
+암호 없는 인증 방법에 대 한 등록 기능은 결합 된 등록 기능에 의존 합니다. 결합된 등록을 [활성화하려면 통합 보안 정보 등록(미리 보기)](howto-registration-mfa-sspr-combined.md)활성화 문서의 단계를 따릅니다.
 
 ### <a name="enable-fido2-security-key-method"></a>FIDO2 보안 키 방법 사용
 

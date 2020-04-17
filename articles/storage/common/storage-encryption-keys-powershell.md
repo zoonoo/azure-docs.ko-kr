@@ -10,18 +10,18 @@ ms.date: 04/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f24c89a53af5e618d64b78d6001040190c1f339c
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: bfc2e256396904456a7ee0fd8b6173c00a5f53d7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618340"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456399"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>PowerShell을 사용하여 Azure 키 자격 증명 모음을 사용하여 고객 관리 키 구성
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-이 문서에서는 PowerShell을 사용하여 고객 관리 키로 Azure 키 자격 증명 모음을 구성하는 방법을 보여 주며 있습니다. Azure CLI를 사용하여 키 자격 증명 모음을 만드는 방법을 알아보려면 [빠른 시작: PowerShell을 사용하여 Azure 키 자격 증명 모음에서 비밀을 설정하고 검색합니다.](../../key-vault/quick-create-powershell.md)
+이 문서에서는 PowerShell을 사용하여 고객 관리 키로 Azure 키 자격 증명 모음을 구성하는 방법을 보여 주며 있습니다. Azure CLI를 사용하여 키 자격 증명 모음을 만드는 방법을 알아보려면 [빠른 시작: PowerShell을 사용하여 Azure 키 자격 증명 모음에서 비밀을 설정하고 검색합니다.](../../key-vault/secrets/quick-create-powershell.md)
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>저장소 계정에 ID 할당
 
@@ -51,7 +51,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnablePurgeProtection
 ```
 
-PowerShell을 사용하여 기존 키 자격 증명 모음에서 소프트 삭제 및 **제거 안 함** 사용 권한을 설정하는 방법을 알아보려면 [PowerShell에서 소프트](../../key-vault/key-vault-soft-delete-powershell.md) **삭제** 를 **사용하고** **지우기 보호 활성화** 라는 섹션을 참조하십시오.
+PowerShell을 사용하여 기존 키 자격 증명 모음에서 소프트 삭제 및 **제거 안 함** 사용 권한을 설정하는 방법을 알아보려면 [PowerShell에서 소프트](../../key-vault/general/soft-delete-powershell.md) **삭제** 를 **사용하고** **지우기 보호 활성화** 라는 섹션을 참조하십시오.
 
 ## <a name="configure-the-key-vault-access-policy"></a>키 자격 증명 모음 액세스 정책 구성
 

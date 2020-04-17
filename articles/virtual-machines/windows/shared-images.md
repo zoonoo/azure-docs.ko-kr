@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -15,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: db877c96167fc011c1a8bd52cc1d0b63260007c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cfaf545ad2388688666a04076559ff82b7a5d120
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74066247"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458065"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Azure PowerShell을 사용하여 공유 이미지 갤러리 만들기 
 
@@ -32,7 +31,7 @@ ms.locfileid: "74066247"
 
 공유 이미지 갤러리 기능에는 여러 가지 리소스가 있습니다. 이 문서에서는 이러한 리소스를 사용하거나 작성하게 됩니다.
 
-| 리소스 | 설명|
+| 리소스 | Description|
 |----------|------------|
 | **관리되는 이미지** | 이는 단독으로 사용하거나 이미지 갤러리에 **이미지 버전**을 만드는 데 사용할 수 있는 기본 이미지입니다. 관리되는 이미지는 일반화된 VM에서 생성됩니다. 관리되는 이미지는 여러 VM을 만드는 데 사용할 수 있는 특수한 유형의 VHD로, 이제 공유 이미지 버전을 만드는 데 사용할 수 있습니다. |
 | **이미지 갤러리** | Azure Marketplace와 마찬가지로 **이미지 갤러리**는 이미지를 관리하고 공유하는 데 사용되는 리포지토리이지만 액세스할 수 있는 사람을 제어할 수 있습니다. |
@@ -41,7 +40,7 @@ ms.locfileid: "74066247"
 
 동시에 만드는 20개의 VM마다 하나의 복제본을 유지하는 것이 좋습니다. 예를 들어 리전에서 동일한 이미지를 사용하여 120개의 VM을 동시에 만드는 경우 이미지의 복제본을 6개 이상 유지하는 것이 좋습니다. 자세한 내용은 [크기 조정](/azure/virtual-machines/windows/shared-image-galleries#scaling)을 참조하십시오.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 이 문서의 예제를 완료하려면 기존 관리 이미지가 있어야 합니다. 자습서: Azure [PowerShell을 사용하여 Azure VM의 사용자 지정 이미지를 만들어](tutorial-custom-images.md) 필요한 경우 만들 수 있습니다. 관리되는 이미지에 데이터 디스크가 포함된 경우 데이터 디스크 크기는 1TB를 초과할 수 없습니다.
 

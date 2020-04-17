@@ -3,16 +3,16 @@ title: 템플릿이 있는 키 볼트 비밀
 description: 배포하는 동안 키 자격 증명 모음의 비밀을 매개 변수로 전달하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 08b4042c6bad83f13ebaea0f46046ea7707fd868
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d21a7d727091b427fee59e22db6a77a495a4eab7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460197"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458269"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달
 
-템플릿 또는 매개 변수 파일에 암호와 같은 보안 값을 직접 배치하는 대신 배포 하는 동안 [Azure Key Vault에서](../../key-vault/key-vault-overview.md) 값을 검색할 수 있습니다. 매개 변수 파일에서 Key Vault 및 비밀을 참조하여 이 값을 검색합니다. 해당 Key Vault ID만 참조하므로 이 값은 절대 노출되지 않습니다. 키 자격 증명 모음은 배포하는 리소스 그룹과 다른 구독에 존재할 수 있습니다.
+템플릿 또는 매개 변수 파일에 암호와 같은 보안 값을 직접 배치하는 대신 배포 하는 동안 [Azure Key Vault에서](../../key-vault/general/overview.md) 값을 검색할 수 있습니다. 매개 변수 파일에서 Key Vault 및 비밀을 참조하여 이 값을 검색합니다. 해당 Key Vault ID만 참조하므로 이 값은 절대 노출되지 않습니다. 키 자격 증명 모음은 배포하는 리소스 그룹과 다른 구독에 존재할 수 있습니다.
 
 이 문서에서는 중요한 값을 템플릿 매개 변수로 전달하는 시나리오에 중점을 둡니다. 키 자격 증명 모음에서 인증서의 URL에 가상 시스템 속성을 설정하는 시나리오는 다루지 않습니다. 해당 시나리오의 빠른 시작 템플릿은 [가상 컴퓨터에 Azure 키 자격 증명 모음의 인증서 설치를](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)참조하십시오.
 
@@ -28,7 +28,7 @@ ms.locfileid: "79460197"
 az keyvault update  --name ExampleVault --enabled-for-template-deployment true
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Set-AzKeyVaultAccessPolicy -VaultName ExampleVault -EnabledForTemplateDeployment
@@ -50,7 +50,7 @@ az keyvault create \
 az keyvault secret set --vault-name ExampleVault --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name ExampleGroup -Location centralus
@@ -76,7 +76,7 @@ az keyvault set-policy \
   --secret-permissions set delete get list
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $userPrincipalName = "<Email Address of the deployment operator>"
@@ -91,11 +91,11 @@ Set-AzKeyVaultAccessPolicy `
 
 키 자격 증명 모음을 만들고 비밀을 추가하는 자세한 내용은 다음을 참조하십시오.
 
-- [CLI를 사용하여 비밀 설정 및 검색](../../key-vault/quick-create-cli.md)
-- [PowerShell을 사용하여 비밀 설정 및 검색](../../key-vault/quick-create-powershell.md)
-- [포털을 사용하여 비밀 설정 및 검색](../../key-vault/quick-create-portal.md)
-- [.NET을 사용하여 비밀 설정 및 검색](../../key-vault/quick-create-net.md)
-- [Node.js를 사용하여 비밀 설정 및 검색](../../key-vault/quick-create-node.md)
+- [CLI를 사용하여 비밀 설정 및 검색](../../key-vault/secrets/quick-create-cli.md)
+- [PowerShell을 사용하여 비밀 설정 및 검색](../../key-vault/secrets/quick-create-powershell.md)
+- [포털을 사용하여 비밀 설정 및 검색](../../key-vault/secrets/quick-create-portal.md)
+- [.NET을 사용하여 비밀 설정 및 검색](../../key-vault/secrets/quick-create-net.md)
+- [Node.js를 사용하여 비밀 설정 및 검색](../../key-vault/secrets/quick-create-node.md)
 
 ## <a name="grant-access-to-the-secrets"></a>비밀 액세스 권한 부여
 
@@ -135,7 +135,7 @@ Set-AzKeyVaultAccessPolicy `
       --resource-group ExampleGroup
     ```
 
-    # <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
     ```azurepowershell-interactive
     New-AzRoleDefinition -InputFile "<path-to-role-file>"
@@ -241,7 +241,7 @@ az deployment group create \
   --parameters <parameter-file>
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name $resourceGroupName -Location $location
@@ -375,5 +375,5 @@ New-AzResourceGroupDeployment `
 
 ## <a name="next-steps"></a>다음 단계
 
-- Key Vault에 대한 일반적 내용은 [Azure Key Vault란?](../../key-vault/key-vault-overview.md)을 참조하세요.
+- Key Vault에 대한 일반적 내용은 [Azure Key Vault란?](../../key-vault/general/overview.md)을 참조하세요.
 - 키 비밀을 참조하는 전체 예제는 [키 자격 증명 모음 예제](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)를 참조하세요.

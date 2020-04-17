@@ -8,16 +8,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/27/2020
 ms.author: victorh
-ms.openlocfilehash: 1979f759f5a1b037adfd7b67a7be50cbba0f596f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: ffda4b41497a9fd84db5fcee36202eb1c1dca2c0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312207"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457844"
 ---
 # <a name="configure-tls-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 키 볼트 인증서로 TLS 종료 구성
 
-[Azure Key Vault는](../key-vault/key-vault-overview.md) 보안 암호, 키 및 TLS/SSL 인증서를 보호하는 데 사용할 수 있는 플랫폼 관리 비밀 저장소입니다. Azure 응용 프로그램 게이트웨이는 HTTPS 지원 수신기에 연결된 서버 인증서에 대해 Key Vault와의 통합을 지원합니다. 이 지원은 응용 프로그램 게이트웨이 v2 SKU로 제한됩니다.
+[Azure Key Vault는](../key-vault/general/overview.md) 보안 암호, 키 및 TLS/SSL 인증서를 보호하는 데 사용할 수 있는 플랫폼 관리 비밀 저장소입니다. Azure 응용 프로그램 게이트웨이는 HTTPS 지원 수신기에 연결된 서버 인증서에 대해 Key Vault와의 통합을 지원합니다. 이 지원은 응용 프로그램 게이트웨이 v2 SKU로 제한됩니다.
 
 자세한 내용은 [Key Vault 인증서를 통해 TLS 종료를](key-vault-certs.md)참조하십시오.
 
@@ -71,7 +71,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> -EnableSoftDelete 플래그가 제대로 작동하려면 TLS 종료를 위해 사용해야 합니다. [포털을 통해 키 볼트 소프트 삭제를](../key-vault/key-vault-ovw-soft-delete.md#soft-delete-behavior)구성하는 경우 보존 기간은 기본값인 90일로 유지해야 합니다. 응용 프로그램 게이트웨이는 아직 다른 보존 기간을 지원하지 않습니다. 
+> -EnableSoftDelete 플래그가 제대로 작동하려면 TLS 종료를 위해 사용해야 합니다. [포털을 통해 키 볼트 소프트 삭제를](../key-vault/general/overview-soft-delete.md#soft-delete-behavior)구성하는 경우 보존 기간은 기본값인 90일로 유지해야 합니다. 응용 프로그램 게이트웨이는 아직 다른 보존 기간을 지원하지 않습니다. 
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 

@@ -10,18 +10,18 @@ ms.date: 04/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ea944d4cfa3006c33f1dee3dd8e6ee6088681aa7
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 796e3b3f46bc83b776826baf6e078c696eda543b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618638"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456774"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Azure CLI를 사용하여 Azure 키 자격 증명 모음을 사용하여 고객 관리 키 구성
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-이 문서에서는 Azure CLI를 사용하여 고객 관리 키로 Azure 키 자격 증명 모음을 구성하는 방법을 보여 주며 있습니다. Azure CLI를 사용하여 키 자격 증명 모음을 만드는 방법을 알아보려면 [빠른 시작: Azure CLI를 사용하여 Azure 키 자격 증명 모음에서 비밀을 설정하고 검색합니다.](../../key-vault/quick-create-cli.md)
+이 문서에서는 Azure CLI를 사용하여 고객 관리 키로 Azure 키 자격 증명 모음을 구성하는 방법을 보여 주며 있습니다. Azure CLI를 사용하여 키 자격 증명 모음을 만드는 방법을 알아보려면 [빠른 시작: Azure CLI를 사용하여 Azure 키 자격 증명 모음에서 비밀을 설정하고 검색합니다.](../../key-vault/secrets/quick-create-cli.md)
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>저장소 계정에 ID 할당
 
@@ -55,7 +55,7 @@ az keyvault create \
     --enable-purge-protection
 ```
 
-Azure CLI를 사용하여 기존 키 자격 증명 모음에서 **소프트 삭제** 및 제거 안 함 사용(권한 **제거)을** 활성화하는 방법을 알아보려면 [CLI에서 소프트 삭제를 사용하는 방법에서](../../key-vault/key-vault-soft-delete-cli.md) **소프트 삭제 사용** 및 **지우기 보호 활성화** 라는 섹션을 참조하십시오.
+Azure CLI를 사용하여 기존 키 자격 증명 모음에서 **소프트 삭제** 및 제거 안 함 사용(권한 **제거)을** 활성화하는 방법을 알아보려면 [CLI에서 소프트 삭제를 사용하는 방법에서](../../key-vault/general/soft-delete-cli.md) **소프트 삭제 사용** 및 **지우기 보호 활성화** 라는 섹션을 참조하십시오.
 
 ## <a name="configure-the-key-vault-access-policy"></a>키 자격 증명 모음 액세스 정책 구성
 

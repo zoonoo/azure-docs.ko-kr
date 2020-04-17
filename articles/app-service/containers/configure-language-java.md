@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 970701606811cbd61a9bfebe39ff82cdc91d5693
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4f6de807628704051cdddf74bcefbed678f8fcd
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80245840"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457895"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Azure App Service용 Linux Java 앱 구성
 
@@ -230,7 +230,7 @@ Spring Boot 개발자는 [Azure Active Directory Spring Boot starter](/java/azur
 
 ### <a name="use-keyvault-references"></a>키볼트 참조 사용
 
-[Azure KeyVault는](../../key-vault/key-vault-overview.md) 액세스 정책 및 감사 기록을 통해 중앙 집중식 비밀 관리를 제공합니다. KeyVault에 암호(예: 암호 또는 연결 문자열)를 저장하고 환경 변수를 통해 응용 프로그램에서 이러한 비밀에 액세스할 수 있습니다.
+[Azure KeyVault는](../../key-vault/general/overview.md) 액세스 정책 및 감사 기록을 통해 중앙 집중식 비밀 관리를 제공합니다. KeyVault에 암호(예: 암호 또는 연결 문자열)를 저장하고 환경 변수를 통해 응용 프로그램에서 이러한 비밀에 액세스할 수 있습니다.
 
 먼저 키 자격 [증명 모음에](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault) 대한 앱 액세스 권한을 부여하고 [응용 프로그램 설정에서 비밀에 대한 KeyVault 참조를 만드는](../app-service-key-vault-references.md#reference-syntax)방법에 대한 지침을 따릅니다. App Service 터미널에 원격으로 액세스하는 동안 환경 변수를 인쇄하여 참조가 비밀로 확인되는지 확인할 수 있습니다.
 
@@ -242,9 +242,9 @@ Spring Boot 개발자는 [Azure Active Directory Spring Boot starter](/java/azur
 
 Java 키 저장소의 인증서와 JDBC 연결을 암호화하려면 추가 구성이 필요할 수 있습니다. 선택한 JDBC 드라이버에 대한 설명서를 참조하십시오.
 
-- [Postgresql](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
+- [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
-- [Mysql](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
+- [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 - [Mongodb](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
 - [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 

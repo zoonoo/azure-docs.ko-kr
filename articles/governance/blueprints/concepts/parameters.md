@@ -3,12 +3,12 @@ title: 매개 변수를 사용하여 동적 청사진 만들기
 description: 정적 및 동적 매개 변수와 이를 사용하여 안전하고 역동적인 청사진을 만드는 방법에 대해 알아봅니다.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: ed596db2050ac788c2d98c63cb7314de473b5f4e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: e5953617d5fa27098380f3f0e95843c69800f823
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383607"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458491"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>매개 변수를 통해 동적 청사진 만들기
 
@@ -41,7 +41,7 @@ Blueprint 할당에서 **사용자가 할당한 관리 ID를**사용하는 경�
 > [!IMPORTANT]
 > 두 경우 모두 키 볼트는 **액세스 정책** 페이지에서 구성된 **템플릿 배포에 대해 Azure 리소스 관리자에 대한 액세스 활성화권한이** 있어야 합니다. 이 기능을 사용하는 방법에 대한 지침은 [Key Vault - 템플릿 배포 사용](../../../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment)을 참조하세요.
 
-Azure Key Vault에 대한 자세한 내용은 [Key Vault 개요](../../../key-vault/key-vault-overview.md)를 참조하세요.
+Azure Key Vault에 대한 자세한 내용은 [Key Vault 개요](../../../key-vault/general/overview.md)를 참조하세요.
 
 ## <a name="parameter-types"></a>매개 변수 유형
 
@@ -234,7 +234,7 @@ REST API를 통해 청사진을 만들 때 [청사진 매개 변수](#blueprint-
 ## <a name="next-steps"></a>다음 단계
 
 - [청사진 함수](../reference/blueprint-functions.md)목록을 참조하십시오.
-- [청사진 수명 주기에](lifecycle.md)대해 자세히 알아봅니다.
+- [청사진 수명 주기](lifecycle.md)에 대해 알아봅니다.
 - [청사진 시퀀싱 순서](sequencing-order.md)를 사용자 지정하는 방법 알아보기
 - [청사진 리소스 잠금](resource-locking.md)을 활용하는 방법 알아보기
 - [기존 할당을 업데이트](../how-to/update-existing-assignments.md)하는 방법 알아보기

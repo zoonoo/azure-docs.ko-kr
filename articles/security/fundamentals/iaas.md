@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: fadf07f312c86f8ca15f5a97ebbe99e84bcffc89
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 49a40d78b4ba3bc1e90bb341cca90bece0b998a8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548236"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450018"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure의 IaaS 작업에 대한 보안 모범 사례
 이 문서에서는 VM 및 운영 체제에 대한 보안 모범 사례를 설명합니다.
@@ -155,7 +155,7 @@ Azure Disk Encryption을 사용하는 모범 사례는 다음과 같습니다.
 **세부 정보**: Azure Disk Encryption은 암호화 키를 생성하고 키 자격 증명 모음에 작성합니다. Key Vault에서 암호화 키를 관리하려면 Azure AD 인증이 필요합니다. 이를 위해 Azure AD 애플리케이션을 만듭니다. 인증을 위해 클라이언트 비밀 기반 인증 또는 [클라이언트 인증서 기반 Azure AD 인증을](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)사용할 수 있습니다.
 
 **모범 사례**: 암호화 키에 대한 추가 보안 계층에 KEK(키 암호화 키)를 사용합니다. KEK를 키 자격 증명 모음에 추가합니다.   
-**세부 정보**: [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet을 사용하여 키 자격 증명 모음에 키 암호화 키를 만듭니다. 또한 키를 관리하기 위해 온-프레미스 HSM(하드웨어 보안 모듈)에서 KEK를 가져올 수도 있습니다. 자세한 내용은 [Key Vault 설명서](../../key-vault/key-vault-hsm-protected-keys.md)를 참조하세요. 키 암호화 키가 지정되면 Azure Disk Encryption에서 해당 키를 사용하여 Key Vault에 쓰기 전에 암호화 비밀을 래핑합니다. 온-프레미스 키 관리 HSM에서 이 키의 에스크로 복사본을 유지하면 키를 실수로 삭제하는 경우에 추가적인 보호를 제공합니다.
+**세부 정보**: [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet을 사용하여 키 자격 증명 모음에 키 암호화 키를 만듭니다. 또한 키를 관리하기 위해 온-프레미스 HSM(하드웨어 보안 모듈)에서 KEK를 가져올 수도 있습니다. 자세한 내용은 [Key Vault 설명서](../../key-vault/keys/hsm-protected-keys.md)를 참조하세요. 키 암호화 키가 지정되면 Azure Disk Encryption에서 해당 키를 사용하여 Key Vault에 쓰기 전에 암호화 비밀을 래핑합니다. 온-프레미스 키 관리 HSM에서 이 키의 에스크로 복사본을 유지하면 키를 실수로 삭제하는 경우에 추가적인 보호를 제공합니다.
 
 **모범 사례**: 디스크가 암호화되기 전에 먼저 [스냅샷](../../virtual-machines/windows/snapshot-copy-managed-disk.md) 및/또는 백업을 수행하세요. 백업은 암호화 중에 예상치 않은 오류가 발생하는 경우 복구 옵션을 제공합니다.   
 **세부 정보**: 암호화가 수행되기 전에 관리 디스크가 있는 VM에는 백업이 필요합니다. 백업이 끝나면 **Set-AzVMDisk암호화확장** cmdlet을 사용하여 *-skipVmBackup* 매개 변수를 지정하여 관리 디스크를 암호화할 수 있습니다. 암호화된 VM을 백업하고 복원하는 방법에 대한 자세한 내용은 [Azure Backup](../../backup/backup-azure-vms-encryption.md) 문서를 참조하세요.

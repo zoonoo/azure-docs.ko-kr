@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8d7d0baacd5f702e8f435ab440eaf0338a60f4cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a043bcc2f81214b68b166d443baead6cd230184
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500762"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457504"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation 실행 계정 관리
 
@@ -63,9 +63,9 @@ Azure 클래식 실행 로 계정은 다음 작업을 수행합니다.
 
 |Task|Cmdlet  |최소 권한  |권한을 설정하는 위치|
 |---|---------|---------|---|
-|Azure AD 애플리케이션 만들기|[새-AzAD응용 프로그램](https://docs.microsoft.com/powershell/module/az.resources/new-azadapplication?view=azps-3.5.0)     | 응용 프로그램 개발자 역할<sup>1</sup>        |[Azure 광고](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>홈 > Azure AD > 앱 등록 |
-|애플리케이션에 자격 증명을 추가합니다.|[새로운 아자드앱 자격 증명](https://docs.microsoft.com/powershell/module/az.resources/new-azadappcredential?view=azps-3.5.0)     | 응용 프로그램 관리자 또는 글로벌 관리자<sup>1</sup>         |[Azure 광고](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>홈 > Azure AD > 앱 등록|
-|Azure AD 서비스 주체 만들기 및 받기|[New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-3.5.0)</br>[Get-AzAD서비스교장](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal?view=azps-3.5.0)     | 응용 프로그램 관리자 또는 글로벌 관리자<sup>1</sup>        |[Azure 광고](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>홈 > Azure AD > 앱 등록|
+|Azure AD 애플리케이션 만들기|[새-AzAD응용 프로그램](https://docs.microsoft.com/powershell/module/az.resources/new-azadapplication?view=azps-3.5.0)     | 응용 프로그램 개발자 역할<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>홈 > Azure AD > 앱 등록 |
+|애플리케이션에 자격 증명을 추가합니다.|[새로운 아자드앱 자격 증명](https://docs.microsoft.com/powershell/module/az.resources/new-azadappcredential?view=azps-3.5.0)     | 응용 프로그램 관리자 또는 글로벌 관리자<sup>1</sup>         |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>홈 > Azure AD > 앱 등록|
+|Azure AD 서비스 주체 만들기 및 받기|[New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-3.5.0)</br>[Get-AzAD서비스교장](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal?view=azps-3.5.0)     | 응용 프로그램 관리자 또는 글로벌 관리자<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>홈 > Azure AD > 앱 등록|
 |지정된 보안 주체의 RBAC 역할 할당 또는 가져오기|[New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment?view=azps-3.5.0)</br>[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleAssignment?view=azps-3.5.0)      | 사용자 액세스 관리자 또는 소유자 또는 다음 권한이 있습니다.</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [구독](../role-based-access-control/role-assignments-portal.md)</br>홈 > 구독 > \<구독 이름\> - 액세스 제어(IAM)|
 |Automation 인증서 생성 또는 제거|[뉴 아즈자동화 인증서](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationCertificate?view=azps-3.5.0)</br>[제거-아즈자동화 인증서](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationcertificate?view=azps-3.5.0)     | 리소스 그룹에 대한 기여자         |자동화 계정 리소스 그룹|
 |Automation 연결 생성 또는 제거|[새로운 아즈오토메이션커넥션](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection?view=azps-3.5.0)</br>[제거-아즈오토메이션커넥션](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationconnection?view=azps-3.5.0)|리소스 그룹에 대한 기여자 |자동화 계정 리소스 그룹|
@@ -464,7 +464,7 @@ Azure 자동화를 허용하여 키 자격 증명 모음 및 계정 서비스 �
 * 키 볼트에 권한을 부여합니다.
 * 액세스 정책을 설정합니다.
 
-PowerShell 갤러리에서 [확장 자동화RunAsAccountRoleToAki.ps1](https://aka.ms/AA5hugb) 스크립트를 사용하여 키 자격 증명 모음에 대한 계정 사용 권한을 부여할 수 있습니다. 키 자격 증명 모음에 대한 사용 권한 설정에 대한 자세한 내용은 [키 자격 증명 모음에](../key-vault/key-vault-group-permissions-for-apps.md) 대한 권한 부여 액세스를 참조하십시오.
+PowerShell 갤러리에서 [확장 자동화RunAsAccountRoleToAki.ps1](https://aka.ms/AA5hugb) 스크립트를 사용하여 키 자격 증명 모음에 대한 계정 사용 권한을 부여할 수 있습니다. 키 자격 증명 모음에 대한 사용 권한 설정에 대한 자세한 내용은 [키 자격 증명 모음에](../key-vault/general/group-permissions-for-apps.md) 대한 권한 부여 액세스를 참조하십시오.
 
 ## <a name="resolving-misconfiguration-issues-for-run-as-accounts"></a>계정으로 실행의 잘못된 구성 문제 해결
 

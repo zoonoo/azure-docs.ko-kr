@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: cf82dddf281e8e6f1348884702e32330dee4781b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57378005bd668fa9c0f2aea70c411bbf911130db
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278676"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457657"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 등록
 
@@ -18,7 +18,7 @@ Azure Automation은 운영 체제 보안 업데이트를 관리하고, 변경 �
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure에 로그인
+에서 https://portal.azure.comAzure에 로그인합니다.
 
 ## <a name="enable-solutions"></a>솔루션 사용
 
@@ -61,7 +61,7 @@ https://portal.azure.com 에서 Azure에 로그인
 
 로그 분석 작업 영역으로 이동하여 **일반**에서 **저장된 검색을** 선택합니다. 다음 표에는 이러한 솔루션에서 사용하는 두 가지 저장된 검색이 나와 있습니다.
 
-|이름     |Category  |Alias  |
+|속성     |범주  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | 업데이트        | Updates__MicrosoftDefaultComputerGroup         |
@@ -82,7 +82,7 @@ https://portal.azure.com 에서 Azure에 로그인
 
 Azure에 없는 컴퓨터는 수동으로 추가해야 합니다. 자동화 계정에서 **구성 관리에서** **인벤토리** 또는 **변경 추적을** 선택하거나 **업데이트 관리에서** **업데이트 관리를** 선택합니다.
 
-**비Azure 컴퓨터 추가**를 클릭합니다. 이 작업은 머신에서 솔루션에 보고를 시작할 수 있도록 [머신에 Microsoft Monitoring Agent를 설치 및 구성하는 방법에 대한 지침](../azure-monitor/platform/log-analytics-agent.md)이 포함된 새 브라우저 창을 엽니다. System Center Operations Manager에서 현재 관리하고 있는 머신을 등록하는 경우에는 새 에이전트가 필요하지 않으며 작업 영역 정보가 기존 에이전트에 입력됩니다.
+**비Azure 컴퓨터 추가**를 클릭합니다. 이 작업은 컴퓨터가 솔루션에 대한 보고를 시작할 수 있도록 [Windows용 Log Analytics 에이전트를 설치하고 구성하는 지침이](../azure-monitor/platform/log-analytics-agent.md) 포함된 새 브라우저 창을 엽니다. 시스템 센터 운영 관리자에서 현재 관리 중인 컴퓨터를 온보딩하는 경우 새 에이전트가 필요하지 않으며 작업 영역 정보가 기존 에이전트에 입력됩니다.
 
 ## <a name="onboard-machines-in-the-workspace"></a>작업 영역에서 컴퓨터 등록
 
@@ -111,8 +111,8 @@ Azure에 없는 컴퓨터는 수동으로 추가해야 합니다. 자동화 계�
 다음 솔루션은 Log Analytics 작업 영역에 따라 다릅니다.
 
 * [업데이트 관리](automation-update-management.md)
-* [변경 추적](automation-change-tracking.md)
-* [작업이 없는 동안 VM 시작/중지](automation-solution-vm-management.md)
+* [변경 내용 추적](automation-change-tracking.md)
+* [근무 외 시간 동안 VM 시작/중지](automation-solution-vm-management.md)
 
 자동화 계정을 Log Analytics 작업 영역과 더 이상 통합하지 않으려면 Azure 포털에서 직접 계정을 연결 해제할 수 있습니다.  계속하기 전에 앞에서 언급한 솔루션을 제거해야 합니다. 제거하지 않으면 이 프로세스를 계속 진행할 수 없습니다. 가져온 특정 솔루션에 대한 문서를 검토하여 제거하는 데 필요한 단계를 파악합니다.
 
@@ -141,7 +141,7 @@ Azure에 없는 컴퓨터는 수동으로 추가해야 합니다. 자동화 계�
 
 * VM runbook 시작 및 중지 일정
 * VM runbook 시작 및 중지
-* 변수
+* variables
 
 또는 Log Analytics 작업 영역에서 자동화 계정에서 작업 영역의 연결을 해제할 수도 있습니다. 작업 영역에서 **관련 리소스**에서 **자동화 계정을** 선택합니다. 자동화 계정 페이지에서 **계정 연결 해제를 선택합니다.**
 
@@ -150,7 +150,7 @@ Azure에 없는 컴퓨터는 수동으로 추가해야 합니다. 자동화 계�
 업데이트 관리에서 VM을 제거하려면:
 
 * Log Analytics 작업 영역에서, 범위 구성 `MicrosoftDefaultScopeConfig-Updates`에 대한 저장된 검색에서 VM을 제거합니다. 저장된 검색은 작업 영역의 **일반**에서 찾을 수 있습니다.
-* [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) 또는 [Linux용 Log Analytics 에이전트](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources)를 제거합니다.
+* [Windows용 로그 분석 에이전트](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) 또는 [Linux용 로그 분석 에이전트를](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources)제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

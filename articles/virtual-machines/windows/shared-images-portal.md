@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -15,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 6273b58d9db53cfc4f6647885c70148982f0b950
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 83cdae95d43884647e257cbf1808222a542a212e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74975502"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458099"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>포털을 사용하여 Azure 공유 이미지 갤러리 만들기
 
@@ -32,10 +31,10 @@ ms.locfileid: "74975502"
 
 공유 이미지 갤러리 기능에는 여러 가지 리소스가 있습니다. 이 문서에서는 이러한 리소스를 사용하거나 작성하게 됩니다.
 
-| 리소스 | 설명|
+| 리소스 | Description|
 |----------|------------|
 | **관리되는 이미지** | 단독으로 사용하거나 이미지 갤러리에서 이미지 버전을 만드는 데 사용할 수 있는 기본 **이미지입니다.** 관리되는 이미지는 [일반화된](shared-image-galleries.md#generalized-and-specialized-images) VM에서 만들어집니다. 관리되는 이미지는 여러 VM을 만드는 데 사용할 수 있는 특수한 유형의 VHD로, 이제 공유 이미지 버전을 만드는 데 사용할 수 있습니다. |
-| **스냅숏** | **이미지 버전을**만드는 데 사용할 수 있는 VHD 의 복사본입니다. 스냅샷은 특수VM(일반화되지 않은 VM)에서 단독으로 사용하거나 데이터 디스크의 스냅숏과 함께 사용하여 특수화된 이미지 버전을 만들 수 있습니다. [specialized](shared-image-galleries.md#generalized-and-specialized-images)
+| **스냅샷** | **이미지 버전을**만드는 데 사용할 수 있는 VHD 의 복사본입니다. 스냅샷은 특수VM(일반화되지 않은 VM)에서 단독으로 사용하거나 데이터 디스크의 스냅숏과 함께 사용하여 특수화된 이미지 버전을 만들 수 있습니다. [specialized](shared-image-galleries.md#generalized-and-specialized-images)
 | **이미지 갤러리** | Azure Marketplace와 마찬가지로 **이미지 갤러리**는 이미지를 관리하고 공유하는 데 사용되는 리포지토리이지만 액세스할 수 있는 사람을 제어할 수 있습니다. |
 | **이미지 정의** | 이미지는 갤러리 내에 정의되며 이미지에 대한 정보와 조직 내에서 이미지 사용 요구 사항을 전달합니다. 이미지가 일반화되어 있는지 또는 전문화되었는지, 운영 체제, 최소 및 최대 메모리 요구 사항 및 릴리스 정보와 같은 정보를 포함할 수 있습니다. 이미지의 형식 정의입니다. |
 | **이미지 버전** | **이미지 버전**은 갤러리를 사용하는 경우 VM을 만들 때 사용합니다. 사용 환경에 필요한 만큼 여러 버전의 이미지를 가질 수 있습니다. 관리되는 이미지와 마찬가지로 **이미지 버전**을 사용하여 VM을 만들 때는 이미지 버전을 사용하여 VM의 새 디스크를 만듭니다. 이미지 버전은 여러 번 사용할 수 있습니다. |
@@ -49,7 +48,7 @@ ms.locfileid: "74975502"
 >
 > **알려진 미리 보기 제한 사항** VM은 포털 또는 API를 사용하여 특수 이미지에서만 만들 수 있습니다. 미리 보기에 대한 CLI 또는 PowerShell 지원이 없습니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 이 문서의 예제를 완료하려면 일반화된 VM의 기존 관리되는 이미지 또는 특수 VM의 스냅숏이 있어야 합니다. [자습서: Azure PowerShell을 사용하여 Azure VM의 사용자 지정 이미지를 만들어](tutorial-custom-images.md) 관리되는 이미지를 만들거나 특수 VM에 대한 [스냅숏을 만들](snapshot-copy-managed-disk.md) 수 있습니다. 관리되는 이미지와 스냅숏 모두 데이터 디스크 크기가 1TB를 초과할 수 없습니다.
 
@@ -78,7 +77,7 @@ ms.locfileid: "74975502"
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-리소스 그룹, 가상 머신 및 모든 관련 리소스가 더 이상 필요 없는 경우 삭제해도 됩니다. 이렇게 하려면 가상 시스템의 리소스 그룹을 선택하고 **삭제를**선택한 다음 삭제할 리소스 그룹의 이름을 확인합니다.
+리소스 그룹, 가상 머신 및 모든 관련 리소스가 더 이상 필요 없는 경우 삭제해도 됩니다. 삭제하려면 가상 머신의 리소스 그룹을 선택하고 **삭제**를 선택한 다음, 삭제할 리소스 그룹의 이름을 확인합니다.
 
 개별 리소스를 삭제하려면 역순으로 삭제해야 합니다. 예를 들어 이미지 정의를 삭제하려면 해당 이미지에서 만든 모든 이미지 버전을 삭제해야 합니다.
 

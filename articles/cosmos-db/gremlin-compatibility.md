@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/10/2019
 ms.author: sngun
-ms.openlocfilehash: 581bc813ca27067b1f27ab9866a45df3084dbbcc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 989a033a843b861c34dc9dbdbced50399f8e5cd7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75644735"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81449887"
 ---
 # <a name="azure-cosmos-db-gremlin-compatibility"></a>Azure 코스모스 DB 그렘린 호환성
 Azure 코스모스 DB 그래프 엔진은 [아파치 TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) 통과 단계 사양을 밀접하게 따르지만 차이점이 있습니다.
@@ -35,7 +35,7 @@ Azure 코스모스 DB 그래프 엔진은 [아파치 TinkerPop](https://tinkerpo
 
 * ***기본이 아닌 JSON 형식은*** 지원되지 않습니다. 을 `string` `number`사용하거나 `true` / `false` 형식을 사용합니다. `null`값은 지원되지 않습니다. 
 
-* ***GraphSONv3*** 직렬화기는 현재 지원되지 않습니다. 연결 `GraphSONv2` 구성에서 직렬화기, 판독기 및 기록기 클래스를 사용합니다.
+* ***GraphSONv3*** 직렬화기는 현재 지원되지 않습니다. 연결 `GraphSONv2` 구성에서 직렬화기, 판독기 및 기록기 클래스를 사용합니다. Azure 코스모스 DB 그렘린 API에서 반환된 결과는 GraphSON 형식과 동일한 형식을 갖지 않습니다. 
 
 * **Lambda 식 및 함수는** 현재 지원되지 않습니다. 여기에는 `.map{<expression>}`에서 `.by{<expression>}`및 함수가 `.filter{<expression>}` 포함됩니다. 자세한 내용을 알아보고 그렘린 단계를 사용하여 다시 작성하는 방법을 알아보려면 [Lambdas의 참고 를](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas)참조하십시오.
 

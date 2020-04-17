@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 81927575b99604e71f7b0920bc3a448f7796f565
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b1c985eeec9af25ec576f4e2375c417dc376f95
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067183"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452760"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 및 CLI: Azure 키 자격 증명 모음에서 고객 관리 키로 투명한 데이터 암호화 를 사용하도록 설정합니다.
 
@@ -28,19 +28,19 @@ ms.locfileid: "80067183"
 - [권장되는 선택 사항] TDE 보호기 키 자료의 로컬 복사본을 만들기 위한 HSM(하드웨어 보안 모듈) 또는 로컬 키 저장소가 있어야 합니다.
 - Azure PowerShell을 설치하고 실행중이어야 합니다.
 - TDE에 사용할 Azure Key Vault 및 키를 만듭니다.
-  - [HSM(하드웨어 보안 모듈) 및 Key Vault 사용 지침](../key-vault/key-vault-hsm-protected-keys.md)
+  - [HSM(하드웨어 보안 모듈) 및 Key Vault 사용 지침](../key-vault/keys/hsm-protected-keys.md)
     - 키 자격 증명 모음에는 TDE에 사용할 다음 속성이 있어야 합니다.
-  - [소프트 삭제](../key-vault/key-vault-ovw-soft-delete.md) 및 퍼지 보호
+  - [소프트 삭제](../key-vault/general/overview-soft-delete.md) 및 퍼지 보호
 - 키에는 TDE에 사용할 다음 특성이 있어야 합니다.
    - 만료 날짜 없음
    - 사용 안 함 없음
    - *가져오기*, *키 래핑*, *키 래핑 해제* 작업도 수행 가능
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Az 모듈 설치 지침은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요. 특정 cmdlet에 대 한 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조하십시오.
 
-키 볼트에 대한 자세한 내용은 [키 볼트의 PowerShell 지침](../key-vault/quick-create-powershell.md) 및 [PowerShell에서 키 볼트 소프트 삭제를 사용하는 방법을](../key-vault/key-vault-soft-delete-powershell.md)참조하십시오.
+키 볼트에 대한 자세한 내용은 [키 볼트의 PowerShell 지침](../key-vault/secrets/quick-create-powershell.md) 및 [PowerShell에서 키 볼트 소프트 삭제를 사용하는 방법을](../key-vault/general/soft-delete-powershell.md)참조하십시오.
 
 > [!IMPORTANT]
 > PowerShell Azure 리소스 관리자(RM) 모듈은 Azure SQL Database에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈용입니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 계속 받을 것입니다.  Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 거의 동일합니다. 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개를](/powershell/azure/new-azureps-module-az)참조하십시오.
@@ -123,7 +123,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 필요한 명령줄 인터페이스 버전 2.0 이상에 설치하고 Azure 구독에 연결하려면 [Azure 교차 플랫폼 명령줄 인터페이스 2.0 설치 및 구성을](https://docs.microsoft.com/cli/azure/install-azure-cli)참조하십시오.
 
-키 볼트에 대한 자세한 내용은 [CLI 2.0을 사용하여 키 볼트 관리](../key-vault/key-vault-manage-with-cli2.md) 및 [CLI에서 키 볼트 소프트 삭제를 사용하는 방법을](../key-vault/key-vault-soft-delete-cli.md)참조하십시오.
+키 볼트에 대한 자세한 내용은 [CLI 2.0을 사용하여 키 볼트 관리](../key-vault/general/manage-with-cli2.md) 및 [CLI에서 키 볼트 소프트 삭제를 사용하는 방법을](../key-vault/general/soft-delete-cli.md)참조하십시오.
 
 ## <a name="assign-an-azure-ad-identity-to-your-server"></a>서버에 Azure AD ID 할당
 
@@ -182,7 +182,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
 
 ## <a name="useful-powershell-cmdlets"></a>유용한 PowerShell cmdlet
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 - [설정-AzSqlDatabase투명데이터 암호화](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet을 사용하여 TDE를 해제합니다.
 
@@ -221,7 +221,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
 
 - 키 자격 증명 모음을 찾을 수 없는 경우 올바른 구독에 있는지 확인합니다.
 
-   # <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+   # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
    ```powershell
    Get-AzSubscription -SubscriptionId <SubscriptionId>

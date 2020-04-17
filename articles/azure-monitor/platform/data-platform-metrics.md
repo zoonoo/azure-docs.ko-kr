@@ -4,18 +4,17 @@ description: 거의 실시간 시나리오를 지원할 수 있는 경량 모니
 documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: tysonn
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 80bbf83da17d833c4f8bb1abac9610d70e9a23cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a02b3df02d455db8a7dfd21f63d659f75a66e446
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274828"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457317"
 ---
 # <a name="metrics-in-azure-monitor"></a>Azure Monitor의 메트릭
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 7a2becf8cb43568383c324bb9f4f5b2e7b844268
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7da2fa2ddfbd9c71563dd8bd2e17b14c6dee62b3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77667146"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455464"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure 모니터의 Azure 키 볼트 분석 솔루션
 
@@ -94,9 +94,9 @@ Azure Blob Storage에 로그를 작성하지 않아도 되며 데이터 수집�
     로그 검색 페이지에서, 시간별 결과, 자세한 결과 및 로그 검색 기록을 볼 수 있습니다. 패싯으로 필터링하여 결과 범위를 좁힐 수 있습니다.
 
 ## <a name="azure-monitor-log-records"></a>Azure Monitor 로그 레코드
-Azure Key Vault 솔루션은 Azure Diagnostics에서 [AuditEvent logs](../../key-vault/key-vault-logging.md)에서 수집된 **KeyVaults** 형식의 레코드를 분석합니다.  이러한 레코드의 속성은 다음 표에 있습니다.  
+Azure Key Vault 솔루션은 Azure Diagnostics에서 [AuditEvent logs](../../key-vault/general/logging.md)에서 수집된 **KeyVaults** 형식의 레코드를 분석합니다.  이러한 레코드의 속성은 다음 표에 있습니다.  
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | `Type` |*AzureDiagnostics* |
 | `SourceSystem` |*Azure* |
@@ -107,7 +107,7 @@ Azure Key Vault 솔루션은 Azure Diagnostics에서 [AuditEvent logs](../../key
 | `httpStatusCode_d` |요청에서 반환한 HTTP 상태 코드(예: *200*)입니다. |
 | `id_s` |요청의 고유 ID |
 | `identity_claim_appid_g` | 응용 프로그램 ID에 대한 GUID |
-| `OperationName` |[Azure Key Vault 로깅](../../key-vault/key-vault-logging.md)에 설명된 대로 작업의 이름입니다. |
+| `OperationName` |[Azure Key Vault 로깅](../../key-vault/general/logging.md)에 설명된 대로 작업의 이름입니다. |
 | `OperationVersion` |클라이언트에서 요청한 REST API 버전(예: *2015-06-01*)입니다. |
 | `requestUri_s` |요청의 URI입니다. |
 | `Resource` |Key Vault의 이름입니다. |

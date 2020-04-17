@@ -4,18 +4,17 @@ description: 모니터링 데이터의 고급 분석에 사용되는 Azure Monit
 documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: tysonn
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: dd499a82ba1011d96772d6722e25a434d43a6bf0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b288bf6d987b9db682c8d1439879cf6b499f213
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480201"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457334"
 ---
 # <a name="logs-in-azure-monitor"></a>Azure Monitor의 로그
 
@@ -75,14 +74,14 @@ Azure Monitor는 Azure 내와 온-프레미스 리소스의 다양한 원본에�
 
 ### <a name="azure-tenant-and-subscription"></a>Azure 테넌트 및 구독
 
-| 데이터 | 설명 |
+| 데이터 | Description |
 |:---|:---|
 | Azure Active Directory 감사 로그 | 각 디렉터리에 대한 진단 설정을 통해 구성됩니다. [Azure AD 로그 및 Azure AD 로그 통합을](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)참조하십시오.  |
 | 활동 로그 | 기본적으로 별도로 저장되며 거의 실시간 경고에 사용할 수 있습니다. 활동 로그 분석 솔루션을 설치하여 로그 애널리틱스 작업 영역에 작성합니다. [로그 분석에서 Azure 활동 로그 수집 및 분석](activity-log-collect.md) |
 
 ### <a name="azure-resources"></a>Azure 리소스
 
-| 데이터 | 설명 |
+| 데이터 | Description |
 |:---|:---|
 | 리소스 진단 | 로그 분석 작업 영역에 메트릭을 포함하여 진단 데이터에 쓸 진단 설정을 구성합니다. [로그 분석에 Azure 리소스 로그 스트림](resource-logs-collect-workspace.md)을 참조하십시오. |
 | 모니터링 솔루션 | 모니터링 솔루션은 수집한 데이터를 Log Analytics 작업 영역에 기록합니다. 솔루션 목록은 [Azure의 관리 솔루션에](../insights/solutions-inventory.md) 대한 데이터 수집 세부 정보를 참조하십시오. 솔루션 설치 및 사용에 대한 자세한 내용은 [Azure 모니터의 모니터링 솔루션을](../insights/solutions.md) 참조하십시오. |
@@ -91,7 +90,7 @@ Azure Monitor는 Azure 내와 온-프레미스 리소스의 다양한 원본에�
 
 ### <a name="virtual-machines"></a>Virtual Machines
 
-| 데이터 | 설명 |
+| 데이터 | Description |
 |:---|:---|
 |  에이전트 데이터 원본 | [Windows](agent-windows.md) 및 [Linux](../learn/quick-collect-linux-computer.md) 에이전트에서 수집된 데이터 원본에는 이벤트, 성능 데이터 및 사용자 지정 로그가 포함됩니다. [Azure 모니터의 에이전트 데이터 원본을](data-sources.md) 참조하여 데이터 원본 목록 및 구성에 대한 세부 정보를 확인합니다. |
 | 모니터링 솔루션 | 모니터링 솔루션은 에이전트에서 수집한 데이터를 Log Analytics 작업 영역으로 작성합니다. 솔루션 목록은 [Azure의 관리 솔루션에](../insights/solutions-inventory.md) 대한 데이터 수집 세부 정보를 참조하십시오. 솔루션 설치 및 사용에 대한 자세한 내용은 [Azure 모니터의 모니터링 솔루션을](../insights/solutions.md) 참조하십시오. |
@@ -100,7 +99,7 @@ Azure Monitor는 Azure 내와 온-프레미스 리소스의 다양한 원본에�
 
 ### <a name="applications"></a>애플리케이션
 
-| 데이터 | 설명 |
+| 데이터 | Description |
 |:---|:---|
 | 요청 및 예외 | 응용 프로그램 요청 및 예외에 대한 자세한 데이터는 _요청,_ _pageView_및 예외 테이블에 _있습니다._ 외부 [구성 요소에](../app/asp-net-dependencies.md) 대한 호출은 _종속성_ 테이블에 있습니다. |
 | 사용 및 성능 | 응용 프로그램의 성능은 _요청,_ _브라우저타이밍_ 및 성능 카운터 테이블에서 사용할 수 _있습니다._ 사용자 [지정 메트릭에](../app/api-custom-events-metrics.md#trackevent) 대한 데이터는 사용자 지정 메트릭 테이블에 _있습니다._|
@@ -109,21 +108,21 @@ Azure Monitor는 Azure 내와 온-프레미스 리소스의 다양한 원본에�
 
 ### <a name="insights"></a>자세한 정보
 
-| 데이터 | 설명 |
+| 데이터 | Description |
 |:---|:---|
 | 컨테이너용 Azure Monitor | [컨테이너에 대 한 Azure 모니터에서](../insights/container-insights-overview.md)수집 하는 인벤토리 및 성능 데이터 입니다. 테이블 목록은 [컨테이너 데이터 수집 세부 정보를](../insights/container-insights-log-search.md#container-records) 참조하십시오. |
 | VM용 Azure Monitor | [VM에 대한 Azure 모니터에서](../insights/vminsights-overview.md)수집한 맵 및 성능 데이터 이 데이터 쿼리에 대한 자세한 [내용은 Azure Monitor에서 VM에 대한 로그를 쿼리하는 방법을](../insights/vminsights-log-search.md) 참조하십시오. |
 
 ### <a name="custom"></a>사용자 지정 
 
-| 데이터 | 설명 |
+| 데이터 | Description |
 |:---|:---|
 | REST API | REST 클라이언트의 로그 분석 작업 영역에 데이터를 씁니다. 자세한 내용은 [HTTP 데이터 수집기 API를 사용하여 Azure 모니터로 로그 데이터 보내기를](data-collector-api.md) 참조하십시오.
 | 논리 앱 | Azure Log Analytics **데이터 수집기** 작업을 사용하여 논리 앱 워크플로에서 로그 분석 작업 영역에 데이터를 씁니다. |
 
 ### <a name="security"></a>보안
 
-| 데이터 | 설명 |
+| 데이터 | Description |
 |:---|:---|
 | Azure Security Center | [Azure Security Center는](/azure/security-center/) 수집한 데이터를 로그 분석 작업 영역에 저장하여 다른 로그 데이터로 분석할 수 있습니다. 작업 영역 구성에 대한 자세한 내용은 [Azure 보안 센터의 데이터 수집을](../../security-center/security-center-enable-data-collection.md) 참조하십시오. |
 | Azure Sentinel | [Azure Sentinel은](/azure/sentinel/) 데이터 원본의 데이터를 로그 분석 작업 영역에 저장합니다. [데이터 원본 연결을](/azure/sentinel/connect-data-sources)참조하십시오.  |

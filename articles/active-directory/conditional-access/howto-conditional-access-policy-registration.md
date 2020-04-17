@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f69a94e17155ff93510d09f666bce12f628274f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c8081bb8145a6654c168fb2d664e1666b32dc18
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295168"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457912"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>조건부 액세스: 보안 정보 등록 보안
 
@@ -32,9 +32,9 @@ ms.locfileid: "80295168"
 1. **할당에서**사용자 **및 그룹을**선택하고 이 정책을 적용할 사용자 및 그룹을 선택합니다.
 
    > [!WARNING]
-   > [결합된 등록 미리 보기에](../authentication/howto-registration-mfa-sspr-combined.md)대해 사용자는 활성화되어야 합니다.
+   > [결합된 등록에](../authentication/howto-registration-mfa-sspr-combined.md)대해 사용자를 사용하도록 설정해야 합니다.
 
-1. **클라우드 앱 또는 작업에서**사용자 **작업을**선택하고 보안 **정보 등록(미리 보기)을**선택합니다.
+1. **클라우드 앱 또는 작업에서**사용자 **작업을**선택하고 보안 **정보 등록을**선택합니다.
 1. **조건** > **위치.**
    1. **구성 예**.
    1. **모든 위치를**포함합니다.

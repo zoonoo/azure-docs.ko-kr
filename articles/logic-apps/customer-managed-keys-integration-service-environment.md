@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: fa39c8f65b00283044ef31dc7577a4668b3e634b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7314559849f0b2019820ec3cb4fb10c684d330d6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127641"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458440"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Azure Logic Apps에서 통합 서비스 환경(ISEs)에 대한 미사용 데이터를 암호화하도록 고객 관리 키 설정
 
 Azure 논리 앱은 Azure 저장소를 사용하여 [미사용 데이터를](../storage/common/storage-service-encryption.md)저장하고 자동으로 암호화합니다. 이 암호화는 데이터를 보호하고 조직의 보안 및 규정 준수 약정을 충족하는 데 도움이 됩니다. 기본적으로 Azure Storage는 Microsoft에서 관리하는 키를 사용하여 데이터를 암호화합니다. Azure Storage 암호화의 작동 방식에 대한 자세한 내용은 [미사용 데이터에 대한 Azure 저장소 암호화](../storage/common/storage-service-encryption.md) 및 [미사용](../security/fundamentals/encryption-atrest.md)데이터 암호화 를 참조하십시오.
 
-논리 앱을 호스팅하기 위한 [ISE(통합 서비스 환경)를](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 만들고 Azure Storage에서 사용하는 암호화 키를 보다 세게 제어하려는 경우 [Azure Key Vault를](../key-vault/key-vault-overview.md)사용하여 자체 키를 설정, 사용 및 관리할 수 있습니다. 이 기능은 BYOK(사용자 고유의 키 가져오기)라고도 하며 키를 "고객 관리 키"라고 합니다.
+논리 앱을 호스팅하기 위한 [ISE(통합 서비스 환경)를](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 만들고 Azure Storage에서 사용하는 암호화 키를 보다 세게 제어하려는 경우 [Azure Key Vault를](../key-vault/general/overview.md)사용하여 자체 키를 설정, 사용 및 관리할 수 있습니다. 이 기능은 BYOK(사용자 고유의 키 가져오기)라고도 하며 키를 "고객 관리 키"라고 합니다.
 
 이 항목에서는 Logic Apps REST API를 사용하여 ISE를 만들 때 사용할 고유한 암호화 키를 설정하고 지정하는 방법을 보여 줍니다. 논리 앱 REST API를 통해 ISE를 만드는 일반적인 단계는 [논리 앱 REST API를 사용하여 ISE(통합 서비스 환경 만들기)를](../logic-apps/create-integration-service-environment-rest-api.md)참조하십시오.
 
@@ -39,7 +39,7 @@ Azure 논리 앱은 Azure 저장소를 사용하여 [미사용 데이터를](../
 
 * **소프트 삭제** 및 **지우기 안** 함 속성이 활성화된 Azure 키 자격 증명 모음
 
-  이러한 속성을 사용하도록 설정하는 자세한 내용은 [Azure Key Vault 소프트 삭제 개요](../key-vault/key-vault-ovw-soft-delete.md) 및 Azure Key [Vault를 사용 하 여 고객 관리 키 구성](../storage/common/storage-encryption-keys-portal.md)을 참조 하십시오. Azure 키 볼트를 사용하는 경우 Azure 포털을 사용하거나 Azure PowerShell 명령인 [New-AzKeyVault를](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault)사용하여 [키 자격 증명 모음을 만드는 방법을](../key-vault/quick-create-portal.md#create-a-vault) 알아봅니다.
+  이러한 속성을 사용하도록 설정하는 자세한 내용은 [Azure Key Vault 소프트 삭제 개요](../key-vault/general/overview-soft-delete.md) 및 Azure Key [Vault를 사용 하 여 고객 관리 키 구성](../storage/common/storage-encryption-keys-portal.md)을 참조 하십시오. Azure 키 볼트를 사용하는 경우 Azure 포털을 사용하거나 Azure PowerShell 명령인 [New-AzKeyVault를](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault)사용하여 [키 자격 증명 모음을 만드는 방법을](../key-vault/secrets/quick-create-portal.md#create-a-vault) 알아봅니다.
 
 * 키 자격 증명 모음에서 이러한 속성 값으로 만든 키:
 
@@ -47,7 +47,7 @@ Azure 논리 앱은 Azure 저장소를 사용하여 [미사용 데이터를](../
   |----------|-------|
   | **키 유형** | RSA |
   | **RSA 키 크기** | 2048 |
-  | **사용** | yes |
+  | **Enabled** | 예 |
   |||
 
   ![고객 관리 암호화 키 만들기](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
@@ -225,8 +225,8 @@ ISE를 만들기 위해 HTTP PUT 요청을 보낸 후 *30분* 이내에 ISE의 �
 
    1. **액세스 정책** 창이 완료되면 **저장을**선택합니다.
 
-자세한 내용은 [관리되는 ID를 사용한 키 자격 증명 인증 제공을](../key-vault/managed-identity.md#grant-your-app-access-to-key-vault)참조하십시오.
+자세한 내용은 [관리되는 ID를 사용한 키 자격 증명 인증 제공을](../key-vault/general/managed-identity.md#grant-your-app-access-to-key-vault)참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Key Vault](../key-vault/key-vault-overview.md)에 대해 자세히 알아봅니다.
+* [Azure Key Vault](../key-vault/general/overview.md)에 대해 자세히 알아봅니다.

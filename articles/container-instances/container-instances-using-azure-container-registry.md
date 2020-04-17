@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 50c209483a12adc3545b63fb66685e386d9ad10a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 212624b857d65297830995018603c2627f83369b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252132"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453526"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Azure Container Registry에서 Azure Container Instances에 배포
 
@@ -36,7 +36,7 @@ Azure 컨테이너 레지스트리는 추가 [인증 옵션을](../container-reg
 
 ### <a name="create-key-vault"></a>주요 자격 증명 모음 만들기
 
-[Azure Key Vault](../key-vault/key-vault-overview.md)에 자격 증명 모음이 아직 없는 경우 Azure CLI에서 다음 명령을 사용하여 만듭니다.
+[Azure Key Vault](../key-vault/general/overview.md)에 자격 증명 모음이 아직 없는 경우 Azure CLI에서 다음 명령을 사용하여 만듭니다.
 
 `RES_GROUP` 변수를 키 자격 증명 모음을 만들 기존 리소스 그룹의 이름으로 업데이트하고 `ACR_NAME` 변수를 컨테이너 레지스트리의 이름으로 바꿉니다. 간결하게 하기 위해 이 문서의 명령은 레지스트리, 키 자격 증명 모음 및 컨테이너 인스턴스가 모두 동일한 리소스 그룹에서 생성된다고 가정합니다.
 

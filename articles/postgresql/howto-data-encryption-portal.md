@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 847e3c612a200743fa08cf939c9995ebb6f3dbfc
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 07e103c3e1f56e8a46ea24e750d83e719abab3d5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520340"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457980"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-portal"></a>Azure 포털을 사용 하 여 PostgreSQL 단일 서버에 대 한 Azure 데이터베이스에 대 한 데이터 암호화
 
@@ -22,13 +22,13 @@ Azure 포털을 사용하여 PostgreSQL 단일 서버에 대한 Azure 데이터�
 * Azure 구독 및 해당 구독에 대한 관리자 권한이 있어야 합니다.
 * Azure 키 자격 증명 모음에서 고객 관리 키에 사용할 키 자격 증명 모음 및 키를 만듭니다.
 * 키 자격 증명 모음에는 고객 관리 키로 사용할 다음 속성이 있어야 합니다.
-  * [소프트 삭제](../key-vault/key-vault-ovw-soft-delete.md)
+  * [소프트 삭제](../key-vault/general/overview-soft-delete.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -test -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
-  * [보호된 제거](../key-vault/key-vault-ovw-soft-delete.md#purge-protection)
+  * [보호된 제거](../key-vault/general/overview-soft-delete.md#purge-protection)
 
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true

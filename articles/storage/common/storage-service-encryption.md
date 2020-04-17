@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ff9191c0994d4e26da69e1c4ceaf7ef6c93e9960
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: c737ccf83dae0cc4b198b9cd708a55b988e6593b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81253155"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457946"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>미사용 데이터에 대한 Azure 저장소 암호화
 
@@ -54,7 +54,7 @@ Azure Storage 암호화의 기본 암호화 모듈에 대한 자세한 내용은
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Key Vault란?](../../key-vault/key-vault-overview.md)
+- [Azure Key Vault란?](../../key-vault/general/overview.md)
 - [Azure Portal에서 Azure Storage 암호화를 위해 고객이 관리하는 키 구성](storage-encryption-keys-portal.md)
 - [PowerShell에서 Azure Storage 암호화용 고객 관리형 키 구성](storage-encryption-keys-powershell.md)
 - [Azure CLI에서 Azure Storage 암호화용 고객 관리형 키 구성](storage-encryption-keys-cli.md)

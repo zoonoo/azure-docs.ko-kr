@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9dc4dce5a7af49529924881321b1a5080293a585
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: f2584a8d4e68b7c16b3acdc29f64f0a19d83d735
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405621"
+ms.locfileid: "81457674"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker 배포
 
@@ -76,7 +76,7 @@ Linux Hybrid Runbook Worker에 대한 최소 요구 사항은 다음과 같습�
 
 1. 다음 방법 중 하나를 사용하여 Azure에서 Automation Hybrid Worker 솔루션을 활성화합니다.
 
-   * Azure Monitor 로그 솔루션 추가의 절차를 사용하여 작업 영역에 자동화 하이브리드 작업자 [솔루션을 구독에 추가합니다.](../log-analytics/log-analytics-add-solutions.md)
+   * 작업 영역에 Azure Monitor 로그 솔루션 추가의 프로시저를 사용하여 자동화 하이브리드 작업자 [솔루션을 구독에 추가합니다.](../log-analytics/log-analytics-add-solutions.md)
    * 다음 cmdlet을 실행합니다.
 
         ```azurepowershell-interactive

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1e4470ce5ac69390cf8d361577b9ebf0013e4e51
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 861c7ffa647c8d2f37b32c359253ca991eeb314f
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405796"
+ms.locfileid: "81457708"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Hybrid Runbook Worker를 사용하여 데이터 센터 또는 클라우드의 리소스 자동화
 
@@ -68,7 +68,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 ```
 
 > [!NOTE]
-> 이 코드는 컴퓨터에서 Microsoft 모니터링 에이전트를 제거하지 않습니다. 하이브리드 Runbook 작업자 역할의 기능 및 구성만 제거합니다.
+> 이 코드는 컴퓨터에서 Linux용 로그 분석 에이전트를 제거하지 않습니다. 하이브리드 Runbook 작업자 역할의 기능 및 구성만 제거합니다.
 
 ## <a name="remove-a-hybrid-worker-group"></a>Hybrid Worker 그룹 제거
 
@@ -89,7 +89,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 
 ### <a name="hybrid-worker-role"></a>Hybrid Worker 역할
 
-하이브리드 Runbook 워커가 Azure 자동화에 연결하고 등록하려면 이 섹션에 설명된 포트 번호 및 URL에 액세스할 수 있어야 합니다. 이 액세스는 Microsoft [모니터링 에이전트가](../azure-monitor/platform/agent-windows.md) Azure Monitor 로그에 연결하는 데 필요한 포트 및 URL 위에 있습니다.
+하이브리드 Runbook 워커가 Azure 자동화에 연결하고 등록하려면 이 섹션에 설명된 포트 번호 및 URL에 액세스할 수 있어야 합니다. 이 액세스는 [로그 분석 에이전트가](../azure-monitor/platform/agent-windows.md) Azure Monitor 로그에 연결하는 데 필요한 포트 및 URL 위에 있습니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

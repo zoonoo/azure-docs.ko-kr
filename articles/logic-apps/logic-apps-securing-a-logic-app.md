@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 4fc4960eb3af8a3d3c9902c9b24505bb5610b709
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: e591a7035db82425952a16f5c4c220e25d8517fe
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657169"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457181"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure 논리 앱의 보안 액세스 및 데이터
 
@@ -45,7 +45,7 @@ Azure Logic Apps에서 액세스를 제어하고 데이터를 보호하려면 �
 
 각 URL에는 `sp` `sv`이 `sig` 테이블에 설명된 대로 의 에서 와 서 및 쿼리 매개 변수가 포함 됩니다.
 
-| 쿼리 매개 변수 | 설명 |
+| 쿼리 매개 변수 | Description |
 |-----------------|-------------|
 | `sp` | 허용되는 HTTP 메서드에 대한 사용 권한을 지정합니다. |
 | `sv` | 서명을 생성하는 데 사용할 SAS 버전을 지정합니다. |
@@ -182,7 +182,7 @@ Resource [Manager 템플릿을 사용하여 논리 앱에 대한 배포를 자�
 
 논리 앱을 실행하는 동안 전송 계층 보안(TLS) 및 [미 사용 중](../security/fundamentals/encryption-atrest.md)에서 전송 중에 모든 데이터가 [암호화됩니다.](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) 논리 앱 실행이 완료되면 각 작업에 대한 상태, 기간, 입력 및 출력과 함께 실행된 단계를 포함하여 해당 실행의 기록을 볼 수 있습니다. 이 풍부한 세부 정보를 통해 논리 앱이 실행된 방법과 발생하는 문제 해결을 시작할 수 있는 위치에 대한 통찰력을 제공합니다.
 
-논리 앱의 실행 기록을 볼 때 Logic Apps는 액세스를 인증한 다음 각 실행에 대한 요청 및 응답에 대한 입력 및 출력에 대한 링크를 제공합니다. 그러나 암호, 암호, 키 또는 기타 중요한 정보를 처리하는 작업의 경우 다른 사용자가 해당 데이터를 보고 액세스하지 못하도록 해야 합니다. 예를 들어 로직 앱에서 HTTP 작업을 인증할 때 사용할 [Azure Key Vault의](../key-vault/key-vault-overview.md) 비밀을 받는 경우 해당 비밀을 보기에서 숨기려고 합니다.
+논리 앱의 실행 기록을 볼 때 Logic Apps는 액세스를 인증한 다음 각 실행에 대한 요청 및 응답에 대한 입력 및 출력에 대한 링크를 제공합니다. 그러나 암호, 암호, 키 또는 기타 중요한 정보를 처리하는 작업의 경우 다른 사용자가 해당 데이터를 보고 액세스하지 못하도록 해야 합니다. 예를 들어 로직 앱에서 HTTP 작업을 인증할 때 사용할 [Azure Key Vault의](../key-vault/general/overview.md) 비밀을 받는 경우 해당 비밀을 보기에서 숨기려고 합니다.
 
 논리 앱의 실행 기록에서 입력 및 출력에 대한 액세스를 제어하려면 다음 옵션이 있습니다.
 
@@ -370,7 +370,7 @@ Resource [Manager 템플릿을 사용하여 논리 앱에 대한 배포를 자�
 
 Resource [Manager 템플릿을 사용하여 논리 앱에 대한 배포를 자동화하는](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)경우 및 `secureobject` 형식을 사용하여 배포 `securestring` 시 평가되는 보안 템플릿 매개 [변수를](../azure-resource-manager/templates/template-parameters.md)정의할 수 있습니다. 템플릿 매개 변수를 정의하려면 워크플로 `parameters` 정의 `parameters` 섹션과 별개로 다른 템플릿의 최상위 섹션을 사용합니다. 템플릿 매개 변수에 대한 값을 제공하려면 별도의 [매개 변수 파일을](../azure-resource-manager/templates/parameter-files.md)사용합니다.
 
-예를 들어 암호를 사용하는 경우 배포 시 [Azure Key Vault에서](../key-vault/key-vault-overview.md) 해당 암호를 검색하는 보안 템플릿 매개 변수를 정의하고 사용할 수 있습니다. 그런 다음 매개 변수 파일에서 키 자격 증명 모음 및 비밀을 참조할 수 있습니다. 자세한 내용은 다음 항목을 참조하세요.
+예를 들어 암호를 사용하는 경우 배포 시 [Azure Key Vault에서](../key-vault/general/overview.md) 해당 암호를 검색하는 보안 템플릿 매개 변수를 정의하고 사용할 수 있습니다. 그런 다음 매개 변수 파일에서 키 자격 증명 모음 및 비밀을 참조할 수 있습니다. 자세한 내용은 다음 항목을 참조하세요.
 
 * [Azure 키 볼트를 사용하여 배포시 중요한 값 전달](../azure-resource-manager/templates/key-vault-parameter.md)
 * [이 항목의 후반부에서 Azure 리소스 관리자 템플릿의 보안 매개 변수](#secure-parameters-deployment-template)
@@ -425,7 +425,7 @@ Resource [Manager 템플릿을 사용하여 논리 앱에 대한 배포를 자�
 
 ### <a name="secure-parameters-in-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿의 안전한 매개 변수
 
-논리 앱의 [리소스 관리자 템플릿에는](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) 여러 `parameters` 섹션이 있습니다. 암호, 키, 암호 및 기타 중요한 정보를 보호하려면 또는 `securestring` `secureobject` 형식을 사용하여 템플릿 수준 및 워크플로 정의 수준에서 보안 매개 변수를 정의합니다. 그런 다음 이러한 값을 [Azure Key Vault에](../key-vault/key-vault-overview.md) 저장하고 [매개 변수 파일을](../azure-resource-manager/templates/parameter-files.md) 사용하여 키 자격 증명 모음 및 비밀을 참조할 수 있습니다. 그런 다음 템플릿은 배포 시 해당 정보를 검색합니다. 자세한 내용은 Azure Key Vault 를 [사용하여 배포시 중요한 값 전달을](../azure-resource-manager/templates/key-vault-parameter.md)참조하십시오.
+논리 앱의 [리소스 관리자 템플릿에는](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) 여러 `parameters` 섹션이 있습니다. 암호, 키, 암호 및 기타 중요한 정보를 보호하려면 또는 `securestring` `secureobject` 형식을 사용하여 템플릿 수준 및 워크플로 정의 수준에서 보안 매개 변수를 정의합니다. 그런 다음 이러한 값을 [Azure Key Vault에](../key-vault/general/overview.md) 저장하고 [매개 변수 파일을](../azure-resource-manager/templates/parameter-files.md) 사용하여 키 자격 증명 모음 및 비밀을 참조할 수 있습니다. 그런 다음 템플릿은 배포 시 해당 정보를 검색합니다. 자세한 내용은 Azure Key Vault 를 [사용하여 배포시 중요한 값 전달을](../azure-resource-manager/templates/key-vault-parameter.md)참조하십시오.
 
 다음은 이 `parameters` 섹션에 대한 자세한 정보입니다.
 
@@ -437,7 +437,7 @@ Resource [Manager 템플릿을 사용하여 논리 앱에 대한 배포를 자�
 
 이 예제 템플릿은 형식을 사용하는 여러 `securestring` 보안 매개 변수 정의가 있습니다.
 
-| 매개 변수 이름 | 설명 |
+| 매개 변수 이름 | Description |
 |----------------|-------------|
 | `TemplatePasswordParam` | 암호를 수락한 다음 워크플로 정의의 `basicAuthPasswordParam` 매개 변수로 전달되는 템플릿 매개 변수 |
 | `TemplateUsernameParam` | 그런 다음 워크플로 정의의 `basicAuthUserNameParam` 매개 변수로 전달되는 사용자 이름을 허용하는 템플릿 매개 변수 |
@@ -684,7 +684,7 @@ HTTP 및 HTTPS 끝점은 다양한 종류의 인증을 지원합니다. 이러�
 * [Azure API 관리에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스에 대한 보안 향상](../api-management/api-management-howto-mutual-certificates.md)
 * [클라이언트 인증서를 사용하여 RESTfuL 서비스에 대한 보안 향상](../active-directory-b2c/secure-rest-api.md)
 * [애플리케이션 인증을 위한 인증서 자격 증명](../active-directory/develop/active-directory-certificate-credentials.md)
-* [Azure 앱 서비스의 코드에서 TLS/SSL 인증서 사용](../app-service/configure-ssl-certificate-in-code.md)
+* [Azure App Service의 코드에서 TLS/SSL 인증서 사용](../app-service/configure-ssl-certificate-in-code.md)
 
 <a name="azure-active-directory-oauth-authentication"></a>
 

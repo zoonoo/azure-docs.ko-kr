@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c3491a54682e8f2b244c0400480a69e083335f5c
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 1e08e758fbba911d3391794f5bab31aaf6a5fc73
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81008392"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454682"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 미사용 데이터 암호화
 
@@ -163,7 +163,7 @@ Azure Key Vault에서 고객 관리 키를 사용하는 서버 쪽 암호화 모
 미사용 데이터를 암호화하거나 암호 해독하는 데 사용할 키를 얻으려면, 리소스 관리자 서비스 인스턴스가 실행될 서비스 ID에 UnwrapKey(암호 해독 키를 가져옴) 및 WrapKey(새 키를 만들 때 키 자격 증명 모음에 키를 삽입함)가 있어야 합니다.
 
 >[!NOTE]
->Key Vault 권한 부여에 대한 자세한 내용은 [Azure Key Vault 설명서](../../key-vault/key-vault-secure-your-key-vault.md)의 키 자격 증명 모음 보호 페이지를 참조하세요.
+>Key Vault 권한 부여에 대한 자세한 내용은 [Azure Key Vault 설명서](../../key-vault/general/secure-your-key-vault.md)의 키 자격 증명 모음 보호 페이지를 참조하세요.
 
 **장점**
 
@@ -282,7 +282,7 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 | Azure Data Catalog               | 예                | -                  | -                  |
 | Azure HDInsight                  | 예                | 모두                | -                  |
 | Azure 모니터 응용 프로그램 인사이트 | 예                | 예                | -                  |
-| Azure 모니터 로그 분석 | 예                | 예                | -                  |
+| Azure 모니터 로그 분석      | 예                | 예                | -                  |
 | Azure Data Explorer              | 예                | 예                | -                  |
 | Azure 데이터 팩터리               | 예                | 예                | -                  |
 | Azure Data Lake Store            | 예                | 예, RSA 2048비트  | -                  |
@@ -290,15 +290,16 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 | Azure Kubernetes Service         | 예                | 예                | -                  |
 | Container Instances              | 예                | 예                | -                  |
 | Container Registry               | 예                | 예                | -                  |
-| **계산**                      |                    |                    |                    |
+| **컴퓨팅**                      |                    |                    |                    |
 | Virtual Machines                 | 예                | 예, RSA 2048비트  | -                  |
 | 가상 머신 스케일 세트        | 예                | 예, RSA 2048비트  | -                  |
 | SAP HANA                         | 예                | 예, RSA 2048비트  | -                  |
-| App Service                      | 예                | 예                | -                  |
-| Automation                       | 예                | 예                | -                  |
-| Azure Portal                     | 예                | 예                | -                  |
+| App Service                      | 예                | 예\*\*            | -                  |
+| Automation                       | 예                | 예\*\*            | -                  |
+| Azure 기능                  | 예                | 예\*\*            | -                  |
+| Azure Portal                     | 예                | 예\*\*            | -                  |
 | Logic Apps                       | 예                | 예                | -                  |
-| Azure 관리되는 애플리케이션       | 예                | 예                | -                  |
+| Azure 관리되는 애플리케이션       | 예                | 예\*\*            | -                  |
 | Service Bus                      | 예                | 예                | -                  |
 | Site Recovery                    | 예                | 예                | -                  |
 | **데이터베이스**                    |                    |                    |                    |
@@ -312,10 +313,11 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 | Table Storage                    | 예                | 예                | 예                |
 | Azure Cosmos DB                  | 예                | 예                | -                  |
 | Azure Databricks                 | 예                | 예                | -                  |
+| Azure Database Migration Service | 예                | 해당 없음\*              | -                  |
 | **DevOps**                       |                    |                    |                    |
 | Azure DevOps Services            | 예                | -                  | 예                |
 | Azure Repos                      | 예                | -                  | 예                |
-| **ID**                     |                    |                    |                    |
+| **Id**                     |                    |                    |                    |
 | Azure Active Directory           | 예                | -                  | -                  |
 | Azure Active Directory Domain Services | 예          | 예, RSA 2048비트  | -                  |
 | **통합**                  |                    |                    |                    |
@@ -344,6 +346,7 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 | 파일 동기화                        | 예                | 예, RSA 2048비트  | -                  |
 | Queue Storage                    | 예                | 예                | 예                |
 | Avere vFXT                       | 예                | -                  | -                  |
+| Azure Cache for Redis            | 예                | 해당 없음\*              | -                  |
 | Azure NetApp Files               | 예                | 예                | -                  |
 | Archive Storage                  | 예                | 예, RSA 2048비트  | -                  |
 | StorSimple                       | 예                | 예, RSA 2048비트  | 예                |
@@ -352,6 +355,8 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 | Data Box Edge                    | 예                | 예                | -                  |
 
 \*이 서비스는 데이터를 유지하지 않습니다. 일시적인 캐시(있는 경우)는 Microsoft 키로 암호화됩니다.
+
+\*\*이 서비스는 고객 관리 키를 사용하여 서버 측 암호화를 이미 지원하는 키 자격 증명 모음, 저장소 계정 또는 기타 데이터 유지 서비스에 데이터를 저장하는 것을 지원합니다.
 
 ## <a name="conclusion"></a>결론
 

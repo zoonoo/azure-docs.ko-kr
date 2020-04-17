@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: tamram
-ms.openlocfilehash: b4e91aa59168deb18375bf86ae77f655ca3dab47
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 50c0980800bbc9b2951bf9107114c1a4d9265558
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521290"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454665"
 ---
 # <a name="manage-storage-account-access-keys"></a>저장소 계정 액세스 키 관리
 
@@ -31,8 +31,8 @@ Azure Key Vault를 사용하여 액세스 키를 관리하고 키를 정기적�
 
 Azure 키 볼트를 사용하여 액세스 키를 관리하고 회전하는 것이 좋습니다. 응용 프로그램은 키 볼트에서 키에 안전하게 액세스할 수 있으므로 응용 프로그램 코드와 함께 키를 저장하지 않도록 할 수 있습니다. 키 관리에 키 볼트를 사용하는 자세한 내용은 다음 문서를 참조하십시오.
 
-- [Azure 키 자격 증명 모음 및 PowerShell을 통해 저장소 계정 키 관리](../../key-vault/key-vault-overview-storage-keys-powershell.md)
-- [Azure 키 자격 증명 모음 및 Azure CLI를 통해 저장소 계정 키 관리](../../key-vault/key-vault-ovw-storage-keys.md)
+- [Azure 키 자격 증명 모음 및 PowerShell을 통해 저장소 계정 키 관리](../../key-vault/secrets/overview-storage-keys-powershell.md)
+- [Azure 키 자격 증명 모음 및 Azure CLI를 통해 저장소 계정 키 관리](../../key-vault/secrets/overview-storage-keys.md)
 
 ## <a name="manually-rotate-access-keys"></a>액세스 키를 수동으로 회전
 

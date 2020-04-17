@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 7e6981fb57421846b491693bb6195ecef31a3773
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 012d27b44ecfbdd460adf241742df397880f78c6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986305"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450354"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Azure 코스모스 DB에서 피드 디자인 패턴 변경
 
@@ -99,7 +99,7 @@ Azure Cosmos DB는 수평 확장성과 고가용성의 강점으로 인해 이�
 
 1. 고객이 장바구니에 항목 A를 추가합니다.
 2. 고객이 장바구니에 항목 B를 추가합니다.
-3. 고객이 장바구니에서 항목 A를 제거추가합니다.
+3. 고객이 장바구니에서 항목 A를 제거합니다.
 4. 고객 체크 아웃 및 장바구니 내용물 발송
 
 각 고객에 대해 현재 장바구니 내용에 대한 구체화된 보기가 유지됩니다. 이 응용 프로그램은 이러한 이벤트가 발생하는 순서대로 처리되도록 해야 합니다. 예를 들어 항목 A를 제거하기 전에 카트 체크아웃을 처리해야 하는 경우 고객이 원하는 항목 B가 아닌 항목 A를 배송했을 가능성이 높습니다. 이러한 네 이벤트가 발생 순서대로 처리되도록 하려면 동일한 파티션 키 값 에 속해야 합니다. **파티션** 키로 사용자 이름(각 고객에게 고유한 사용자 이름 있음)을 선택하면 이러한 이벤트가 Azure Cosmos DB에 기록된 것과 동일한 순서로 변경 피드에 표시되도록 보장할 수 있습니다.

@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 26093d051da8f2182a40f80837acbd9ef7dd008f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: be558c3e3a68ce6c194dcf98d8f5ff92c4c14edb
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312081"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457827"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>키 볼트 인증서를 가진 TLS 종료
 
-[Azure Key Vault는](../key-vault/key-vault-overview.md) 보안 암호, 키 및 TLS/SSL 인증서를 보호하는 데 사용할 수 있는 플랫폼 관리 비밀 저장소입니다. Azure 응용 프로그램 게이트웨이는 HTTPS 지원 수신기에 연결된 서버 인증서에 대해 Key Vault와의 통합을 지원합니다. 이 지원은 응용 프로그램 게이트웨이의 v2 SKU로 제한됩니다.
+[Azure Key Vault는](../key-vault/general/overview.md) 보안 암호, 키 및 TLS/SSL 인증서를 보호하는 데 사용할 수 있는 플랫폼 관리 비밀 저장소입니다. Azure 응용 프로그램 게이트웨이는 HTTPS 지원 수신기에 연결된 서버 인증서에 대해 Key Vault와의 통합을 지원합니다. 이 지원은 응용 프로그램 게이트웨이의 v2 SKU로 제한됩니다.
 
 키 볼트 통합은 TLS 종단을 위한 두 가지 모델을 제공합니다.
 

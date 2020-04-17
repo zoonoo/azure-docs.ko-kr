@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 8552fc8555207c5b6ca59bbd0da0fdebaae2e87b
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 3b4362e4c5e69efddfbc99ef0f98ad3c5966165c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546102"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450880"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>방법: iOS/macOS용 브라우저 및 웹뷰 사용자 지정
 
@@ -75,10 +75,10 @@ iOS의 `ASWebAuthenticationSession`경우 `SFAuthenticationSession`, `SFSafariVi
 | 기술    | 브라우저 유형  | iOS 가용성 | macOS 가용성 | 쿠키 및 기타 데이터 공유  | MSAL 가용성 | SSO |
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
 | [AS웹 인증세션](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | 시스템 | iOS12 이상 | 맥 OS 10.15 이상 | 예 | iOS 및 macOS 10.15+ | w / 사파리 인스턴스
-| [SF 인증 세션](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | 시스템 | iOS11 이상 | N/A | 예 | iOS만 |  w / 사파리 인스턴스
-| [SF사파리뷰컨트롤러](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | 시스템 | iOS11 이상 | N/A | 아니요 | iOS만 | 아니요**
-| **SF사파리뷰컨트롤러** | 시스템 | iOS10 | N/A | 예 | iOS만 |  w / 사파리 인스턴스
-| **WK웹뷰**  | 인앱 | iOS8 이상 | 맥 OS 10.10 이상 | 아니요 | iOS 및 macOS | 아니요**
+| [SF 인증 세션](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | 시스템 | iOS11 이상 | 해당 없음 | 예 | iOS만 |  w / 사파리 인스턴스
+| [SF사파리뷰컨트롤러](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | 시스템 | iOS11 이상 | 해당 없음 | 예 | iOS만 | 아니요**
+| **SF사파리뷰컨트롤러** | 시스템 | iOS10 | 해당 없음 | 예 | iOS만 |  w / 사파리 인스턴스
+| **WK웹뷰**  | 인앱 | iOS8 이상 | 맥 OS 10.10 이상 | 예 | iOS 및 macOS | 아니요**
 
 ** SSO가 작동하려면 앱 간에 토큰을 공유해야 합니다. 이를 위해서는 iOS용 Microsoft 인증기와 같은 토큰 캐시 또는 브로커 응용 프로그램이 필요합니다.
 
@@ -102,7 +102,7 @@ Objective-C
 ```objc
 UIViewController *myParentController = ...;
 WKWebView *myCustomWebView = ...;
-MSALWebviewParameters *webViewParameters = [[MSALWebviewParameters alloc] initWithParentViewController:myParentController];
+MSALWebviewParameters *webViewParameters = [[MSALWebviewParameters alloc] initWithAuthPresentationViewController:myParentController];
 webViewParameters.webviewType = MSALWebviewTypeWKWebView;
 webViewParameters.customWebview = myCustomWebView;
 MSALInteractiveTokenParameters *interactiveParameters = [[MSALInteractiveTokenParameters alloc] initWithScopes:@[@"myscope"] webviewParameters:webViewParameters];
@@ -113,7 +113,7 @@ Swift
 ```swift
 let myParentController: UIViewController = ...
 let myCustomWebView: WKWebView = ...
-let webViewParameters = MSALWebviewParameters(parentViewController: myParentController)
+let webViewParameters = MSALWebviewParameters(authPresentationViewController: myParentController)
 webViewParameters.webviewType = MSALWebviewType.wkWebView
 webViewParameters.customWebview = myCustomWebView
 let interactiveParameters = MSALInteractiveTokenParameters(scopes: ["myscope"], webviewParameters: webViewParameters)

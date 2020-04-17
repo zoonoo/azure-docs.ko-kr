@@ -7,18 +7,18 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 626302845dfb4b19deb921675601818b35ab8edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 572147ca43e9a4dea9d9601dfa1dac8ba1c97ed0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74083542"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458235"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>익스프레스루트 다이렉트 포트에서 MACsec 구성
 
 이 문서에서는 PowerShell을 사용하여 에지 라우터와 Microsoft의 에지 라우터 간의 연결을 보호하도록 MACsec을 구성하는 데 도움이 됩니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 구성을 시작하기 전에 다음을 확인합니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "74083542"
     $keyVault = New-AzKeyVault -Name "your_key_vault_name" -ResourceGroupName "your_resource_group" -Location "resource_location" -EnableSoftDelete 
     ```
 
-    키 자격 증명 모음 또는 리소스 그룹이 이미 있는 경우 다시 사용할 수 있습니다. 그러나 기존 키 자격 증명 모음에서 [ **소프트 삭제** 기능을](../key-vault/key-vault-ovw-soft-delete.md) 사용하도록 설정하는 것이 중요합니다. 소프트 삭제를 사용하도록 설정하지 않은 경우 다음 명령을 사용하여 활성화할 수 있습니다.
+    키 자격 증명 모음 또는 리소스 그룹이 이미 있는 경우 다시 사용할 수 있습니다. 그러나 기존 키 자격 증명 모음에서 [ **소프트 삭제** 기능을](../key-vault/general/overview-soft-delete.md) 사용하도록 설정하는 것이 중요합니다. 소프트 삭제를 사용하도록 설정하지 않은 경우 다음 명령을 사용하여 활성화할 수 있습니다.
 
     ```azurepowershell-interactive
     ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "your_existing_keyvault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"

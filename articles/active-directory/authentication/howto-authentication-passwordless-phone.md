@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 853e7143834a340b870b71ef1a287dab136e2783
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 3412938cfc2ad3fbec293fd33f64e114e14e6f7e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654064"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450975"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Microsoft 인증자 앱에서 암호 없는 로그인 사용(미리 보기)
 
@@ -41,7 +41,7 @@ ms.locfileid: "80654064"
 
 ### <a name="enable-the-combined-registration-experience"></a>결합된 등록 환경 사용
 
-암호 없는 인증 방법에 대 한 등록 기능은 결합 된 등록 미리 보기에 의존 합니다. 결합된 등록 미리 보기를 사용하려면 다음 문서의 단계를 [따르십시오.](howto-registration-mfa-sspr-combined.md)
+암호 없는 인증 방법에 대 한 등록 기능은 결합 된 등록 기능에 의존 합니다. 결합된 등록을 활성화하려면 [결합된 보안 정보 등록을](howto-registration-mfa-sspr-combined.md)활성화하는 문서의 단계를 따릅니다.
 
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>암호없는 전화 로그인 인증 방법 사용
 

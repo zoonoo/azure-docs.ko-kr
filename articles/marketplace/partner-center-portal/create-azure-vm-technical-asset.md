@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: eb885d0e965579b1ab2d66395f9f96eab0845bae
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 46c59e8b4e60fbe17887ea0fc375b6da758ebf50
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266501"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457402"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Azure 가상 머신 기술 자산 만들기
 
@@ -129,7 +129,7 @@ Azure는 지정한 가상 시스템 프로비저닝을 시작합니다. 왼쪽�
 Linux 기반 VM에 연결하려면 보안 셸 프로토콜(SSH) 클라이언트가 필요합니다. 다음 단계는 무료 [PuTTY](https://www.ssh.com/ssh/putty/) SHH 터미널을 사용합니다.
 
 1. [Azure 포털](https://ms.portal.azure.com/)로 이동합니다.
-2. **가상 컴퓨터를**검색하고 선택합니다.
+2. **가상 머신**을 검색하여 선택합니다.
 3. 연결할 VM을 선택합니다.
 4. VM이 아직 실행되지 않은 경우 VM을 시작합니다.
 5. **개요** 페이지를 열려면 VM 이름을 선택합니다.
@@ -176,7 +176,7 @@ Azure 포털 또는 Azure PowerShell을 사용하여 이미지를 만듭니다.
 3. 이 [JSON 템플릿을](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-json-template) 편집기에 붙여넣고 **저장을**선택합니다.
 4. 표시된 **사용자 지정 배포** 속성 페이지에 대한 매개 변수 값을 제공합니다.
 
-    | 매개 변수 | 설명 |
+    | 매개 변수 | Description |
     | ------------ | ------------- |
     | 사용자 스토리지 계정 이름 | 셀 2의 내용 |
     | 사용자 스토리지 컨테이너 이름 | 일반화된 VHD가 있는 스토리지 계정 이름 |
@@ -281,8 +281,8 @@ Windows OS 디스크는 [sysprep 도구](https://docs.microsoft.com/windows-hard
 
 ## <a name="next-steps"></a>다음 단계
 
-새 Azure 기반 VHD를 만드는 데 어려움이 있는 경우 [일반적인 VHD 만들기 문제](https://aka.ms/AzureVM_VHDCreationFAQ)를 참조하세요.
+새 Azure 기반 VHD를 만드는 데 어려움이 있는 경우 [일반적인 VHD 만들기 문제](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues)를 참조하세요.
 
 그렇지 않은 경우는 다음과 같습니다.
 
-* [VM 이미지를 인증하면](https://aks.ms/CertifyVMimage) Azure 인증 도구에 *대한 인증 테스트 도구를* 받을 수 있는 위치와 이를 사용하여 VM 이미지를 인증하는 방법을 포함하여 Azure Marketplace 인증을 위한 VM 이미지를 테스트하고 제출하는 방법을 설명합니다.
+* [VM 이미지를 인증하면](https://docs.microsoft.com/azure/marketplace/partner-center-portal/get-sas-uri) Azure 인증 도구에 *대한 인증 테스트 도구를* 받을 수 있는 위치와 이를 사용하여 VM 이미지를 인증하는 방법을 포함하여 Azure Marketplace 인증을 위한 VM 이미지를 테스트하고 제출하는 방법을 설명합니다.

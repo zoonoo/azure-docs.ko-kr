@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c9933e75a39af43af9e2745d5f7732d40027b34
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: e3ed549e51b911452bca7d4d4a16c7ef45594a8f
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582467"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451434"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Azure Active Directory에서 암호 없는 인증 배포 계획
 
@@ -67,7 +67,7 @@ Microsoft의 암호 없는 인증 방법은 다양한 시나리오를 사용할 
 
 | 필수 요소 | 인증자 앱 | FIDO2 보안 키 |
 | --- | --- | --- |
-| [Azure 다단계 인증 및 셀프 서비스 암호 재설정(SSPR)에 대한 결합 등록이](howto-registration-mfa-sspr-combined.md) 활성화되어 있습니다(미리 보기 기능). | √ | √ |
+| [Azure 다단계 인증 및 셀프 서비스 암호 재설정(SSPR)에 대한 통합 등록이](howto-registration-mfa-sspr-combined.md) 활성화됩니다. | √ | √ |
 | [사용자는 Azure 다단계 인증을 수행할 수 있습니다.](howto-mfa-getstarted.md) | √ | √ |
 | [사용자가 Azure 다단계 인증 및 SSPR에 등록했습니다.](howto-registration-mfa-sspr-combined.md) | √ | √ |
 | [사용자가 Azure Active Directory에 모바일 장치를 등록했습니다.](../devices/overview.md) | √ |   |
@@ -93,7 +93,7 @@ Windows Hello의 전제 조건은 온-프레미스, 하이브리드 또는 클�
 
 다음 표에서는 이 프로젝트 중에 구현할 사용 사례를 간략하게 설명합니다.
 
-| Area | 설명 |
+| 영역 | Description |
 | --- | --- |
 | **액세스** | 암호 없는 로그인은 회사 네트워크 내부 또는 외부의 회사 또는 개인 장치에서 사용할 수 있습니다. |
 | **감사** | 사용 현황 데이터는 관리자가 거의 실시간으로 감사할 수 있습니다. <br> 사용 현황 데이터는 적어도 29일마다 회사 시스템에 다운로드하거나 SIEM 도구가 사용됩니다. |
@@ -292,7 +292,7 @@ FIDO2 보안 장치를 이미 등록한 사용자는 다음 로그인 시 보안
 
 ### <a name="required-administrative-roles"></a>필수 관리 역할
 
-| Azure AD 역할 | 설명 |
+| Azure AD 역할 | Description |
 | --- | --- |
 | 전역 관리자|결합된 등록 환경을 구현할 수 있는 최소 권한 역할입니다. |
 | 인증 관리자 | 인증 방법을 구현하고 관리할 수 있는 최소 권한 역할입니다. |
@@ -308,7 +308,7 @@ FIDO2 보안 장치를 이미 등록한 사용자는 다음 로그인 시 보안
 
 ### <a name="troubleshoot-phone-sign-in"></a>전화 로그인 문제 해결
 
-| 시나리오 | 해결 방법 |
+| 시나리오 | 솔루션 |
 | --- | --- |
 | 사용자는 결합된 등록을 수행할 수 없습니다. | [결합된 등록이](concept-registration-mfa-sspr-combined.md) 활성화되어 있는지 확인합니다. |
 | 사용자가 전화 로그인 인증자 앱을 사용할 수 없습니다. | 사용자가 배포 범위에 있는지 확인합니다. |
@@ -316,7 +316,7 @@ FIDO2 보안 장치를 이미 등록한 사용자는 다음 로그인 시 보안
 
 ### <a name="troubleshoot-security-key-sign-in"></a>보안 키 로그인 문제 해결
 
-| 시나리오 | 해결 방법 |
+| 시나리오 | 솔루션 |
 | --- | --- |
 | 사용자는 결합된 등록을 수행할 수 없습니다. | [결합된 등록이](concept-registration-mfa-sspr-combined.md) 활성화되어 있는지 확인합니다. |
 | 사용자는 [보안 설정에서](https://aka.ms/mysecurityinfo)보안 키를 추가할 수 없습니다. | 보안 [키가](howto-authentication-passwordless-security-key.md) 활성화되어 있는지 확인합니다. |

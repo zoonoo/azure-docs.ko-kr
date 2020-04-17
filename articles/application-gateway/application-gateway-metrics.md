@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: abff2f16d9559f015417711820a993badd636f7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ebbdda39f019f374f8e5abe951d0180c0dd453f6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80133085"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457878"
 ---
 # <a name="metrics-for-application-gateway"></a>애플리케이션 게이트웨이에 대한 메트릭
 
@@ -102,7 +102,7 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 
 - **실패한 요청**
 
-  응용 프로그램 게이트웨이가 제공한 실패한 요청 수입니다. 요청 수를 추가로 필터링하여 각 백 엔드/특정 백 엔드 풀-http 설정 조합당 개수를 표시할 수 있습니다.
+  응용 프로그램 게이트웨이가 5xx 서버 오류 코드와 함께 제공한 요청 수입니다. 여기에는 응용 프로그램 게이트웨이에서 생성되는 5xx 코드와 백 엔드에서 생성된 5xx 코드가 포함됩니다. 요청 수를 추가로 필터링하여 각 백 엔드/특정 백 엔드 풀-http 설정 조합당 개수를 표시할 수 있습니다.
    
 - **고정 청구 가능 용량 단위**
 
@@ -162,7 +162,7 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 
 - **실패한 요청**
 
-  응용 프로그램 게이트웨이가 제공한 실패한 요청 수입니다. 요청 수를 추가로 필터링하여 각 백 엔드/특정 백 엔드 풀-http 설정 조합당 개수를 표시할 수 있습니다.
+  응용 프로그램 게이트웨이가 5xx 서버 오류 코드와 함께 제공한 요청 수입니다. 여기에는 응용 프로그램 게이트웨이에서 생성되는 5xx 코드와 백 엔드에서 생성된 5xx 코드가 포함됩니다. 요청 수를 추가로 필터링하여 각 백 엔드/특정 백 엔드 풀-http 설정 조합당 개수를 표시할 수 있습니다.
 
 - **응답 상태**
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: ee51be1d994c3b81765266e95c48d321a2f43b14
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 6e357e98d6c5190c6dfef675dc1ab9cf30a717c1
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80989445"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455090"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>SSMS를 사용하여 SQL 서버 에이전트 작업을 ADF로 마이그레이션
 
@@ -29,13 +29,13 @@ ms.locfileid: "80989445"
     > 파일 시스템의 패키지 위치는 지원됩니다.
 - 적용 가능한 작업 단계를 사용하여 해당 작업을 다음과 같이 해당 ADF 리소스로 마이그레이션합니다.
 
-|SQL 에이전트 작업 개체  |ADF 리소스  |메모|
+|SQL 에이전트 작업 개체  |ADF 리소스  |참고|
 |---------|---------|---------|
 |SQL 에이전트 작업|pipeline     |>작업 이름에 *대해 \< *파이프라인 이름이 생성됩니다. <br> <br> 기본 제공 에이전트 작업은 적용되지 않습니다. <li> SSIS 서버 유지 관리 작업 <li> syspolicy_purge_history <li> collection_set_* <li> mdw_purge_data_* <li> sysutility_*|
 |SSIS 작업 단계|SSIS 패키지 활동 실행|<li> 활동의 이름은> \<단계 이름입니다. <li> 작업 단계에 사용되는 프록시 계정은 이 활동의 Windows 인증으로 마이그레이션됩니다. <li> 작업 단계에 정의된 *32비트 런타임 사용을* 제외한 *실행 옵션은* 마이그레이션시 무시됩니다. <li> 작업 단계에 정의된 *확인은* 마이그레이션시 무시됩니다.|
 |schedule      |일정 트리거        |일정 트리거의 이름은 *>\<일정 이름에 대해 생성됩니다. * <br> <br> SQL Agent 작업 일정의 아래 옵션은 마이그레이션에서 무시됩니다. <li> 두 번째 수준 간격입니다. <li> *SQL Server 에이전트가 시작될 때 자동으로 시작* <li> *CPU가 유휴 상태로 될 때마다 시작* <li> *평일* 및 *주말*<time zone> <br> 다음은 SQL 에이전트 작업 일정이 ADF 일정 트리거로 마이그레이션된 후의 차이점입니다. <li> ADF 일정 트리거 후속 실행은 선행 트리거 실행의 실행 상태와 독립적입니다. <li> ADF 일정 트리거 되풀이 구성은 SQL 에이전트 작업의 일일 빈도와 다릅니다.|
 
-- 로컬 출력 폴더에서 AZURE 리소스 관리자(ARM) 템플릿을 생성하고 직접 또는 나중에 수동으로 데이터 팩터리에 배포합니다. ADF 리소스 관리자 템플릿에 대한 자세한 내용은 [Microsoft.DataFactory 리소스 유형을](https://docs.microsoft.com/azure/templates/microso.ft.datafactory/allversions)참조하십시오.
+- 로컬 출력 폴더에서 AZURE 리소스 관리자(ARM) 템플릿을 생성하고 직접 또는 나중에 수동으로 데이터 팩터리에 배포합니다. ADF 리소스 관리자 템플릿에 대한 자세한 내용은 [Microsoft.DataFactory 리소스 유형을](https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions)참조하십시오.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
