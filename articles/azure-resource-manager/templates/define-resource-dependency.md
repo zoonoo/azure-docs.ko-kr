@@ -3,12 +3,12 @@ title: 리소스에 대한 배포 순서 설정
 description: 리소스가 올바른 순서대로 배포되도록 배포 중 다른 리소스에 종속된 것으로 리소스를 설정하는 방법에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: f11f79df875492a568a76f494dfffb4a163f64cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 764b718416e1185f56c7eb6b8335792a5822f212
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153287"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535471"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>ARM 템플릿에 리소스 배포 순서 정의
 
@@ -18,7 +18,7 @@ Resource Manager는 리소스 간의 종속성을 평가한 후 종속된 순서
 
 ## <a name="dependson"></a>dependsOn
 
-템플릿 내에서 dependsOn 요소를 사용하면 하나의 리소스를 하나 이상의 리소스에 종속된 것으로 정의할 수 있습니다. 해당 값은 쉼표로 구분된 리소스 이름 목록입니다. 목록에는 [조건부로 배포된](conditional-resource-deployment.md)리소스가 포함될 수 있습니다. 조건부 리소스가 배포되지 않으면 Azure Resource Manager는 필요한 종속성에서 자동으로 제거합니다.
+템플릿 내에서 dependsOn 요소를 사용하면 하나의 리소스를 하나 이상의 리소스에 종속된 것으로 정의할 수 있습니다. 해당 값은 JSON 문자열 배열이며 각 문자열은 리소스 이름입니다. 배열에는 [조건부로 배포된](conditional-resource-deployment.md)리소스가 포함될 수 있습니다. 조건부 리소스가 배포되지 않으면 Azure Resource Manager는 필요한 종속성에서 자동으로 제거합니다.
 
 다음 예제에서는 부하 분산 디바이스, 가상 네트워크 및 여러 스토리지 계정을 만드는 루프에 종속된 가상 머신 확장 집합을 보여 줍니다. 이러한 다른 리소스는 다음 예제에 표시되어 있지 않지만 템플릿 내 다른 곳에 존재해야 합니다.
 

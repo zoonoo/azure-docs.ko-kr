@@ -30,6 +30,11 @@
     - name: 인덱스
       displayName: 'list, examples'
       href: ./samples/index.md
+    - name: Azure 보안 벤치마크
+      items:
+        - name: 컨트롤 매핑
+          displayName: 'standards, azure, benchmark'
+          href: ./samples/azure-security-benchmark/control-mapping.md
     - name: 캐나다 연방 PBMM
       items:
         - name: 개요

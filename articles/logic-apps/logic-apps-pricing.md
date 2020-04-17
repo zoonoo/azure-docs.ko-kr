@@ -3,17 +3,17 @@ title: 가격 & 청구 모델
 description: Azure Logic Apps에 대한 가격 책정 및 청구 모델의 작동 방식에 대한 개요
 services: logic-apps
 ms.suite: integration
-author: kevinlam1
-ms.author: klam
+author: jonfancey
+ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 795acd67a8d4a9f8b8b7d78799a92134f249cf8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f47c7412bdd5ada1e50d1005b8e740e3f46ffd8d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270460"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536236"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps용 가격 책정 모델
 
@@ -23,50 +23,55 @@ ms.locfileid: "79270460"
 
 ## <a name="consumption-pricing-model"></a>소비 가격 책정 모델
 
-공용 또는 "글로벌" Azure Logic Apps 서비스에서 실행되는 새 논리 앱의 경우 사용한 것에 대해서만 비용을 지불합니다. 이러한 논리 앱은 사용량 기반 계획 및 가격 책정 모델을 사용합니다. 논리 앱에서 각 단계는 작업이며 Azure Logic Apps는 논리 앱에서 실행되는 모든 작업을 측정합니다.
+공용에서 실행되는 새 논리 앱인 "전역", 다중 테넌트 Azure Logic Apps 서비스의 경우 사용한 것에 대해서만 비용을 지불합니다. 이러한 논리 앱은 사용량 기반 계획 및 가격 책정 모델을 사용합니다. 논리 앱에서 각 단계는 작업이며 Azure Logic Apps는 논리 앱에서 실행되는 모든 작업을 측정합니다.
 
 예를 들어, 작업에는 다음이 포함됩니다.
 
-* 트리거( 특수 작업)입니다. 모든 논리 앱은 첫 번째 단계로 트리거가 필요합니다.
+* [트리거는](#triggers)특수 작업입니다. 모든 논리 앱은 첫 번째 단계로 트리거가 필요합니다.
+
 * ["기본 제공" 또는](../connectors/apis-list.md#built-in) HTTP, Azure Functions 및 API 관리 에 대한 호출 등과 같은 기본 작업
+
 * Outlook 365, Dropbox 등과 같은 [관리형 커넥터에](../connectors/apis-list.md#managed-connectors) 대한 호출
-* 루프, 조건문 등과 같은 흐름 단계를 제어합니다.
+
+* 루프, 조건문 등과 같은 [워크플로 우위 작업을 제어합니다.](../connectors/apis-list.md#control-workflow)
 
 [표준 커넥터는 표준](../connectors/apis-list.md#managed-connectors) [커넥터 가격으로](https://azure.microsoft.com/pricing/details/logic-apps)충전됩니다. 일반적으로 사용 가능한 [엔터프라이즈 커넥터는](../connectors/apis-list.md#managed-connectors) [엔터프라이즈 커넥터 가격으로](https://azure.microsoft.com/pricing/details/logic-apps)요금이 부과되고 공용 미리 보기 엔터프라이즈 커넥터는 표준 커넥터 [가격으로](https://azure.microsoft.com/pricing/details/logic-apps)청구됩니다.
 
-[트리거](#triggers) 및 [작업에](#actions)대한 청구 작동 방식에 대해 자세히 알아보세요.
+[트리거](#triggers) 및 [작업](#actions) 수준에서 청구가 작동하는 방식에 대해 자세히 알아보세요. 또는 제한에 대한 자세한 내용은 [Azure 논리 앱에 대한 제한 및 구성을](logic-apps-limits-and-config.md)참조하십시오.
 
 <a name="fixed-pricing"></a>
 
 ## <a name="fixed-pricing-model"></a>고정 가격 책정 모델
 
-[ *ISE(통합 서비스 환경)는* ](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) Azure 가상 네트워크의 리소스에 액세스할 수 있는 논리 앱을 만들고 실행하는 격리된 방법을 제공합니다. ISE 내에서 실행되는 새 논리 앱의 경우 다음 기능에 대해 [고정월별 요금을](https://azure.microsoft.com/pricing/details/logic-apps) 지불합니다.
+[ *ISE(통합 서비스 환경)는* ](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) Azure 가상 네트워크의 리소스에 액세스할 수 있는 논리 앱을 만들고 실행하는 격리된 방법을 제공합니다. ISE에서 실행되는 논리 앱에는 데이터 보존 비용이 발생하지 않습니다. ISE를 만들 때만 만드는 동안에만 [다른 가격 요금이](https://azure.microsoft.com/pricing/details/logic-apps)있는 [ISE 수준 또는 "SKU"를](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)선택할 수 있습니다.
+
+* **프리미엄 (주)** ISE: 이 SKU의 기본 장치에는 고정 용량이 있지만 처리량이 더 필요한 경우 ISE 생성 중에 또는 이후에 [더 많은 배율 단위를 추가할](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) 수 있습니다. ISE 제한에 대 한 [Azure 논리 앱에 대 한 제한 및 구성을](logic-apps-limits-and-config.md#integration-service-environment-ise)참조 합니다.
+
+* **개발자** ISE: 이 SKU는 확장 할 수 없으며 서비스 수준 계약 (SLA)이 없으며 게시된 제한이 없습니다. 프로덕션 또는 성능 테스트가 아닌 실험, 개발 및 테스트에만 이 SKU를 사용합니다.
+
+ISE에서 만들고 실행하는 논리 앱의 경우 다음 기능에 대해 [고정월별 요금을](https://azure.microsoft.com/pricing/details/logic-apps) 지불합니다.
 
 * [기본 제공](../connectors/apis-list.md#built-in) 트리거 및 작업
 
   ISE 내에서 기본 제공 트리거 및 작업은 **Core** 레이블을 표시하고 논리 앱과 동일한 ISE에서 실행됩니다.
 
-* [표준](../connectors/apis-list.md#managed-connectors) 커넥터 및 [엔터프라이즈](../connectors/apis-list.md#enterprise-connectors) 커넥터(원하는 만큼 엔터프라이즈 연결)
+* [원하는](../connectors/apis-list.md#managed-connectors) 만큼 엔터프라이즈 연결을 할 수 있는 표준 커넥터 및 [엔터프라이즈](../connectors/apis-list.md#enterprise-connectors) 커넥터
 
-   **ISE** 레이블을 표시하는 표준 및 엔터프라이즈 커넥터는 논리 앱과 동일한 ISE에서 실행됩니다. ISE 레이블을 표시하지 않는 커넥터는 글로벌 로직 앱 서비스에서 실행됩니다. 고정 월별 가격 책정은 ISE에서 실행되는 논리 앱과 함께 사용할 때 전역 서비스에서 실행되는 커넥터에도 적용됩니다.
+   **ISE** 레이블을 표시하는 표준 및 엔터프라이즈 커넥터는 논리 앱과 동일한 ISE에서 실행됩니다. ISE 레이블을 표시하지 않는 커넥터는 공용에서 실행되는 "글로벌" 다중 테넌트 논리 앱 서비스입니다. 고정 월별 가격 책정은 ISE에서 실행되는 논리 앱과 함께 사용할 때 다중 테넌트 서비스에서 실행되는 커넥터에도 적용됩니다.
 
 * [ISE SKU에](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)따라 추가 비용 없이 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 사용:
 
-  * **프리미엄 SKU**: 단일 [표준 계층](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) 통합 계정
+  * **프리미엄 (주)** ISE SKU: 단일 [표준 계층](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) 통합 계정
 
-  * **개발자 SKU**: 단일 [프리 티어](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) 통합 계정
+  * **개발자** ISE SKU: 단일 [프리 티어](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) 통합 계정
 
   각 ISE SKU는 총 5개의 통합 계정으로 제한됩니다. 추가 비용의 경우 ISE SKU를 기반으로 더 많은 통합 계정을 가질 수 있습니다.
 
-  * **프리미엄 SKU**: 최대 4 개의 표준 계정. 무료 또는 기본 계정이 없습니다.
+  * **프리미엄 (주)** ISE SKU: 최대 4개의 표준 계정. 무료 또는 기본 계정이 없습니다.
 
-  * **개발자 SKU**: 최대 4 개의 표준 계정 또는 최대 5 개의 총 표준 계정. 기본 계정이 없습니다.
+  * **개발자** ISE SKU: 최대 4개의 표준 계정 또는 최대 5개의 총 표준 계정. 기본 계정이 없습니다.
 
-  통합 계정 제한에 대한 자세한 내용은 [논리 앱 제한 및 구성을](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)참조하십시오. [통합 계정 계층 및 해당 가격 모델에](#integration-accounts) 대해 자세히 알아볼 수 있습니다.
-
-프리미엄 ISE SKU를 선택하면 기본 장치에 고정 용량이 있습니다. 처리량이 더 필요한 경우 생성 중이거나 나중에 [배율 단위를 더 추가할](../logic-apps/ise-manage-integration-service-environment.md#add-capacity)수 있습니다. 개발자 ISE SKU에는 더 많은 축척 단위를 추가할 수 있는 기능이 없습니다. ISE에서 실행되는 논리 앱에는 데이터 보존 비용이 발생하지 않습니다.
-
-가격 책정 요금은 [논리 앱 가격 책정을](https://azure.microsoft.com/pricing/details/logic-apps)참조하십시오.
+  통합 계정 제한에 대한 자세한 내용은 [Azure Logic Apps에 대한 제한 및 구성을](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)참조하십시오. [통합 계정 계층 및 해당 가격 모델에](#integration-accounts) 대해 자세히 알아볼 수 있습니다.
 
 <a name="connectors"></a>
 

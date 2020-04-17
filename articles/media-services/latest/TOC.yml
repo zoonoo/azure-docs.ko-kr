@@ -98,6 +98,7 @@
           href: live-events-outputs-concept.md
           displayName: 'vanity, ingest'
         - name: 테스트된 온-프레미스 라이브 인코더
+          displayName: recommended
           href: recommended-on-premises-live-encoders.md
         - name: 시간 이동 및 실시간 VOD
           displayName: 'archive, dvr'

@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 04/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3ea73e2ca20faea30294bc5d5e1788415095c39f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a0a2f703d9224b8b9dd77c80b2b6a7faee70f5bb
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76905376"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538106"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Time Series Insights 환경에 IoT Hub 이벤트 원본 추가
 
@@ -50,7 +50,7 @@ IoT Hub에 새 소비자 그룹을 추가하려면
 
 ## <a name="add-a-new-event-source"></a>새 이벤트 원본 추가
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. Time Series Insights 환경을 선택합니다.
 
@@ -72,7 +72,7 @@ IoT Hub에 새 소비자 그룹을 추가하려면
 
        [![새 이벤트 원본 창 - 사용 가능한 구독에서 IoT Hub 사용에서 설정하는 속성](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png#lightbox)
 
-       | 속성 | 설명 |
+       | 속성 | Description |
        | --- | --- |
        | Subscription | 원하는 iot 허브가 속한 구독입니다. |
        | IoT Hub 이름 | 선택한 iot 허브의 이름입니다. |
@@ -83,7 +83,7 @@ IoT Hub에 새 소비자 그룹을 추가하려면
 
       다음 표에서는 **수동으로 IoT Hub 설정 제공**에 대한 필수 속성을 설명합니다.
 
-       | 속성 | 설명 |
+       | 속성 | Description |
        | --- | --- |
        | 구독 ID | 원하는 iot 허브가 속한 구독입니다. |
        | Resource group | 이 IoT Hub가 만들어진 리소스 그룹 이름입니다. |
@@ -93,7 +93,7 @@ IoT Hub에 새 소비자 그룹을 추가하려면
 
     * 두 옵션 모두 다음 구성 옵션을 공유합니다.
 
-       | 속성 | 설명 |
+       | 속성 | Description |
        | --- | --- |
        | IoT Hub 소비자 그룹 | IoT Hub에서 이벤트를 읽는 소비자 그룹입니다. 이벤트 원본에 대한 전용 소비자 그룹을 사용하는 것이 좋습니다. |
        | 이벤트 직렬화 형식 | 현재, JSON이 사용 가능한 유일한 직렬화 형식입니다. 이벤트 메시지는 이 형식이어야 합니다. 그렇지 않으면 데이터를 읽을 수 없습니다. |

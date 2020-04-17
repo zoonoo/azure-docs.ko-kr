@@ -12,12 +12,12 @@ ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5596f5f40e293a7bd11ac6a5f900e05c0b8d3b0e
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 15578b6adc19eb3513e0d7e1d3d2c400c9170250
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80883137"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535981"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft ID 플랫폼 코드 샘플(v2.0 끝점)
 
@@ -53,7 +53,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 | 플랫폼 | 사용자만 로그인 | 사용자를 로그인하고 Microsoft Graph를 호출 |
 | -------- | ------------------- | --------------------------------- |
-| ![이 이미지는 ASP.NET 코어 로고를 보여줍니다.](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET 코어 2.2 | [ASP.NET 코어 WebApp 에 사용자 자습서](https://aka.ms/aspnetcore-webapp-sign-in) | ASP.NET 코어 [웹 앱에서](https://aka.ms/aspnetcore-webapp-call-msgraph) 동일한 샘플은 Microsoft 그래프 단계를 호출합니다. |
+| ![이 이미지는 ASP.NET 코어 로고를 보여줍니다.](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET 코어 2.2 | [ASP.NET 코어 WebApp 에 사용자 자습서](https://aka.ms/aspnetcore-webapp-sign-in) | ASP.NET 코어 [웹 앱에서](https://aka.ms/aspnetcore-webapp-call-msgraph) 동일한 샘플은 마이크로 소프트 그래프 단계를 호출 |
 | ![이 이미지는 ASP.NET 로고를 보여줍니다.](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET 빠른 시작](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 | ![이 이미지는 Java 로고를 보여줍니다.](media/sample-v2-code/logo_java.png)  |                   | [MS-아이덴티티-자바 웹 앱](https://github.com/Azure-Samples/ms-identity-java-webapp) |
 | ![이 이미지는 파이썬 로고를 보여줍니다.](media/sample-v2-code/logo_python.png)  |                   | [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
@@ -103,7 +103,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 다음 샘플에서는 Microsoft ID 플랫폼 끝점을 사용하여 웹 API를 보호하는 방법과 웹 API에서 다운스트림 API를 호출하는 방법을 보여 주며, 이 샘플에서는 웹 API를 호출하는 방법을 보여 준다.
 
-| 플랫폼 | 샘플 |
+| 플랫폼 | 예제 |
 | -------- | ------------------- |
 | ![이 이미지는 ASP.NET 코어 로고를 보여줍니다.](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET 코어 2.2 | ASP.NET 코어 웹 API(서비스) [-네이티브-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
 | ![이 이미지는 ASP.NET 로고를 보여줍니다.](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | [MS-ID-aspnet-webapi-onbeof의](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) 웹 API(서비스) |
@@ -115,7 +115,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 다음 샘플에서는 HttpTrigger를 사용하여 Azure Function을 보호하고 Microsoft ID 플랫폼 끝점을 사용하여 웹 API를 노출하는 방법과 웹 API에서 다운스트림 API를 호출하는 방법을 보여 주며,
 
-| 플랫폼 | 샘플 |
+| 플랫폼 | 예제 |
 | -------- | ------------------- |
 | ![이 이미지는 ASP.NET 코어 로고를 보여줍니다.](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET 코어 2.2 | ASP.NET 코어 웹 API (서비스) [도트넷 네이티브 aspnetcore-v2의](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions) Azure 기능  |
 | ![이 이미지는 Node.js 로고를 보여 주며](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | [NodeJS 및 여권 azure 광고의](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) 웹 API(서비스) |

@@ -12,12 +12,12 @@ ms.date: 04/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 143a2ec0bfbcc6997eb6d8b2599b848a509ee773
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: bdbda8bed38819ca2b4d2fb1ef3d9bf591269890
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309485"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535913"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft ID 플랫폼용 응용 프로그램 유형
 
@@ -80,11 +80,11 @@ Microsoft ID 플랫폼 끝점에서 받은 공개 서명 키를 사용 하 여 I
 
 이 시나리오가 실행중이면 [Microsoft ID 플랫폼의](v2-overview.md#getting-started) 웹 앱 로그인 코드 샘플 중 하나를 시작섹션에 사용해 보십시오.
 
-간단한 로그인뿐 아니라 웹 서버 앱은 REST API와 같은 다른 웹 서비스에 액세스해야 할 수도 있습니다. 이 경우 웹 서버 앱은 [OAuth 2.0 권한 부여 코드 흐름](active-directory-v2-protocols.md)을 사용하여 결합된 OpenID Connect 및 OAuth 2.0 흐름에 참여합니다. 이 시나리오에 대한 자세한 내용은 [웹앱 및 Web API 시작](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)을 참조하세요.
+간단한 로그인뿐 아니라 웹 서버 앱은 REST API와 같은 다른 웹 서비스에 액세스해야 할 수도 있습니다. 이 경우 웹 서버 앱은 [OAuth 2.0 권한 부여 코드 흐름](active-directory-v2-protocols.md)을 사용하여 결합된 OpenID Connect 및 OAuth 2.0 흐름에 참여합니다. 이 시나리오에 대한 자세한 내용은 [웹 앱 및 웹 API 시작에](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)대해 읽어보십시오.
 
 ## <a name="web-apis"></a>Web API
 
-Microsoft ID 플랫폼 엔드포인트를 사용하여 앱의 RESTful Web API와 같은 웹 서비스의 보안을 유지할 수 있습니다. 웹 API는 다양한 플랫폼과 언어로 구현할 수 있습니다. 또한 Azure 함수에서 HTTP 트리거를 사용하여 구현할 수도 있습니다. ID 토큰 및 세션 쿠키 대신 Web API는 OAuth 2.0 액세스 토큰을 사용하여 데이터 보안을 유지하고 들어오는 요청을 인증합니다. Web API 호출자는 다음과 같이 HTTP 요청의 인증 헤더에 액세스 토큰을 추가합니다.
+Microsoft ID 플랫폼 끝점을 사용하여 앱의 RESTful 웹 API와 같은 웹 서비스를 보호할 수 있습니다. 웹 API는 다양한 플랫폼과 언어로 구현할 수 있습니다. 또한 Azure 함수에서 HTTP 트리거를 사용하여 구현할 수도 있습니다. 웹 API는 ID 토큰 및 세션 쿠키 대신 OAuth 2.0 액세스 토큰을 사용하여 데이터를 보호하고 들어오는 요청을 인증합니다. 웹 API의 호출자는 다음과 같이 HTTP 요청의 권한 부여 헤더에 액세스 토큰을 추가합니다.
 
 ```HTTP
 GET /api/items HTTP/1.1
@@ -94,11 +94,11 @@ Accept: application/json
 ...
 ```
 
-Web API는 액세스 토큰을 사용하여 API 호출자의 ID를 확인하고 액세스 토큰에 인코딩된 클레임에서 호출자에 대한 정보를 추출합니다. Microsoft ID 플랫폼 끝점에서 사용되는 다양한 유형의 토큰에 대한 자세한 내용은 [액세스 토큰](access-tokens.md) 참조 및 [id_token](id-tokens.md) 참조에서 확인할 수 있습니다.
+웹 API는 액세스 토큰을 사용하여 API 호출자의 ID를 확인하고 액세스 토큰에 인코딩된 클레임에서 호출자에 대한 정보를 추출합니다. Microsoft ID 플랫폼 끝점에서 사용되는 다양한 유형의 토큰에 대한 자세한 내용은 [액세스 토큰](access-tokens.md) 참조 및 [id_token](id-tokens.md) 참조에서 확인할 수 있습니다.
 
-Web API를 통해 사용자는 [범위](v2-permissions-and-consent.md)라고도 하는 사용 권한을 노출하여 특정 기능이나 데이터를 옵트인(opt-in)하거나 옵트아웃(opt-out)할 수 있습니다. 호출 앱이 범위에 대한 사용 권한을 얻으려면 사용자가 흐름 중 범위에 동의해야 합니다. Microsoft ID 플랫폼 끝점에서 사용자에게 권한을 요청한 다음 웹 API가 받는 모든 액세스 토큰에 권한을 기록합니다. Web API는 각 호출에서 받은 액세스 토큰의 유효성을 검사하고 권한 부여 검사를 수행합니다.
+웹 API는 사용자에게 범위라고도 하는 권한을 노출하여 특정 기능 이나 데이터를 옵트인하거나 옵트아웃할 수 있는 권한을 [부여할 수 있습니다.](v2-permissions-and-consent.md) 호출 앱이 범위에 대한 사용 권한을 얻으려면 사용자가 흐름 중 범위에 동의해야 합니다. Microsoft ID 플랫폼 끝점은 사용자에게 권한을 요청한 다음 웹 API가 받는 모든 액세스 토큰에 권한을 기록합니다. 웹 API는 각 호출에서 수신하는 액세스 토큰의 유효성을 검사하고 권한 부여 검사를 수행합니다.
 
-Web API는 웹 서버 앱, 데스크톱 및 모바일 앱, 단일 페이지 앱, 서버 쪽 데몬 및 다른 Web API까지 포함하여 모든 유형의 앱에서 액세스 토큰을 받을 수 있습니다. Web API에 대한 개략적인 흐름은 다음과 같습니다.
+웹 API는 웹 서버 앱, 데스크톱 및 모바일 앱, 단일 페이지 앱, 서버 측 데몬 및 기타 웹 API를 비롯한 모든 유형의 앱에서 액세스 토큰을 받을 수 있습니다. 웹 API의 상위 수준 흐름은 다음과 같습니다.
 
 ![웹 API 인증 흐름 표시](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
@@ -108,15 +108,15 @@ OAuth2 액세스 토큰을 사용하여 웹 API를 보호하는 방법을 알아
 
 ## <a name="mobile-and-native-apps"></a>모바일 및 네이티브 앱
 
-모바일 및 데스크톱 앱과 같은 디바이스 설치 앱은 데이터를 저장하고 사용자 대신 기능을 수행하는 백 엔드 서비스 또는 Web API에 액세스해야 하는 경우가 많습니다. 이러한 앱은 [OAuth 2.0 권한 부여 코드 흐름](v2-oauth2-auth-code-flow.md)을 사용하여 백 엔드 서비스에 로그인 및 권한 부여를 추가할 수 있습니다.
+모바일 및 데스크톱 앱과 같은 장치 설치 앱은 데이터를 저장하고 사용자를 대신하여 기능을 수행하는 백 엔드 서비스 또는 웹 API에 액세스해야 하는 경우가 많습니다. 이러한 앱은 [OAuth 2.0 권한 부여 코드 흐름](v2-oauth2-auth-code-flow.md)을 사용하여 백 엔드 서비스에 로그인 및 권한 부여를 추가할 수 있습니다.
 
-이 흐름에서 앱은 사용자가 로그인할 때 Microsoft ID 플랫폼 끝점에서 권한 부여 코드를 받습니다. 권한 부여 코드는 현재 로그인한 사용자를 대신해 백 엔드 서비스를 호출할 앱의 사용 권한을 나타냅니다. 앱은 백그라운드에서 권한 부여 코드를 OAuth 2.0 액세스 토큰 및 새로 고침 토큰으로 교환할 수 있습니다. 앱은 액세스 토큰을 사용하여 HTTP 요청 시 Web API에 인증할 수 있고 새로 고침 토큰을 사용하여 이전 액세스 토큰 만료 시 새 액세스 토큰을 가져올 수 있습니다.
+이 흐름에서 앱은 사용자가 로그인할 때 Microsoft ID 플랫폼 끝점에서 권한 부여 코드를 받습니다. 권한 부여 코드는 현재 로그인한 사용자를 대신해 백 엔드 서비스를 호출할 앱의 사용 권한을 나타냅니다. 앱은 백그라운드에서 권한 부여 코드를 OAuth 2.0 액세스 토큰 및 새로 고침 토큰으로 교환할 수 있습니다. 앱은 액세스 토큰을 사용하여 HTTP 요청에서 웹 API를 인증하고 새로 고침 토큰을 사용하여 이전 액세스 토큰이 만료되면 새 액세스 토큰을 얻을 수 있습니다.
 
 ![네이티브 앱 인증 흐름 표시](./media/v2-app-types/convergence-scenarios-native.svg)
 
 ## <a name="daemons-and-server-side-apps"></a>디먼 및 서버 쪽 앱
 
-장기 실행 프로세스가 있거나 사용자와의 상호 작용 없이 작동하는 앱은 Web API와 같은 보안 리소스에 액세스하는 방법도 필요로 합니다. 이러한 앱은 OAuth 2.0 클라이언트 자격 증명 흐름을 사용하여 사용자의 위임된 ID 대신 앱 ID로 인증하고 토큰을 가져올 수 있습니다. 클라이언트 암호 또는 인증서를 사용하여 앱 ID를 증명할 수 있습니다. 자세한 내용은 [Microsoft ID 플랫폼을 사용하는 .NET Core 데몬 콘솔 응용 프로그램을](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)참조하십시오.
+장기 실행 프로세스가 있거나 사용자와상호 작용없이 작동하는 앱도 웹 API와 같은 보안 리소스에 액세스할 수 있는 방법이 필요합니다. 이러한 앱은 OAuth 2.0 클라이언트 자격 증명 흐름을 사용하여 사용자의 위임된 ID 대신 앱 ID로 인증하고 토큰을 가져올 수 있습니다. 클라이언트 암호 또는 인증서를 사용하여 앱 ID를 증명할 수 있습니다. 자세한 내용은 [Microsoft ID 플랫폼을 사용하는 .NET Core 데몬 콘솔 응용 프로그램을](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)참조하십시오.
 
 이 흐름에서 앱은 `/token` 끝점과 직접 상호 작용하여 액세스를 얻습니다.
 

@@ -3,12 +3,12 @@ title: 별일 것 - 언어 이해 (LUIS)
 description: 이 문서는 Azure 인지 서비스 언어 이해 API에 대한 뉴스로 정기적으로 업데이트됩니다.
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.openlocfilehash: 562f7f8b4974363daab91991e6a8219b352432fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6334b157f68f09f2b165c6073ba63f45a0caf3c4
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156007"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538021"
 ---
 # <a name="whats-new-in-language-understanding"></a>언어 이해의 새로운 내용
 
@@ -18,7 +18,7 @@ ms.locfileid: "80156007"
 
 ### <a name="march-2020"></a>2020년 3월
 
-* 이제 이 서비스에 대한 모든 HTTP 요청에 대해 TLS 1.2가 적용됩니다. 자세한 내용은 [Azure 코그너티브 서비스 보안](../cognitive-services-security.md)을 참조하십시오.
+* 이제 TLS 1.2는 이 서비스에 대한 모든 HTTP 요청에 적용됩니다. 자세한 내용은 [Azure Cognitive Services 보안](../cognitive-services-security.md)을 참조하세요.
 
 ### <a name="november-4-2019---ignite"></a>2019년 11월 4일 - 점화
 
@@ -73,14 +73,14 @@ ms.locfileid: "80156007"
 * [V3 API 마이그레이션 가이드 미리 보기](luis-migration-api-v3.md)
 * [향상된 분석 대시보드](luis-how-to-use-dashboard.md)
 * [미리 빌드된 도메인개선](luis-reference-prebuilt-domains.md)
-* [동적 목록 엔터티](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
-* [외부 엔터티](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
+* [동적 목록 엔터티](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time)
+* [외부 엔터티](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time)
 
 ## <a name="blogs"></a>블로그
 
 [Bot Framework](https://blog.botframework.com/)
 
-## <a name="videos"></a>비디오
+## <a name="videos"></a>동영상
 
 ### <a name="2019-ignite-videos"></a>2019 점화 동영상
 

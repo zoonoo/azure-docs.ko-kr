@@ -2,13 +2,13 @@
 title: Azure 마이그레이션 서버 평가의 종속성 분석
 description: Azure 마이그레이션 서버 평가를 사용하여 평가에 종속성 분석을 사용하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: f96496b66d6bcfd397fb0a7303d3dbfb4fd6f6b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: b11796f2c5d7c1d87f383e6780444e572352eff5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455641"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537749"
 ---
 # <a name="dependency-analysis"></a>종속성 분석
 
@@ -30,7 +30,7 @@ ms.locfileid: "79455641"
 - **에이전트리스**: 에이전트없는 분석을 사용하면 교차 검사하려는 컴퓨터에 에이전트를 설치할 필요가 없습니다. 이 옵션은 현재 미리 보기 중이며 VMware VM에서만 사용할 수 있습니다.
 
 > [!NOTE]
-> Azure 정부에서는 종속성 분석을 사용할 수 없습니다.
+> Azure 정부에서는 에이전트 기반 종속성 분석을 사용할 수 없습니다. 에이전트 없는 종속성 분석을 사용할 수 있습니다.
 
 ## <a name="agentless-analysis"></a>에이전트 없는 분석
 
@@ -64,7 +64,7 @@ ms.locfileid: "79455641"
 
 **요구 사항** | **에이전트 없음** | **에이전트 기반**
 --- | --- | ---
-고객 지원팀 | 이 옵션은 현재 미리 보기 중이며 VMware VM에서만 사용할 수 있습니다. 지원되는 운영 체제를 [검토합니다.](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) | 일반 공급 (GA).
+지원 | 이 옵션은 현재 미리 보기 중이며 VMware VM에서만 사용할 수 있습니다. 지원되는 운영 체제를 [검토합니다.](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) | 일반 공급 (GA).
 에이전트 | 교차 확인하려는 컴퓨터에 에이전트를 설치할 필요가 없습니다. | 분석하려는 각 온-프레미스 컴퓨터에 설치할 에이전트: [MMA(Microsoft 모니터링 에이전트)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)및 [종속성 에이전트](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
 Log Analytics | 필요하지 않습니다. | Azure 마이그레이션은 종속성 분석을 위해 [Azure Monitor 로그의](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) [서비스 맵](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) 솔루션을 사용합니다. 
 작동 방법 | 종속성 시각화에 사용하도록 설정된 컴퓨터에서 TCP 연결 데이터를 캡처합니다. 검색 후 5분 간격으로 데이터를 수집합니다. | 컴퓨터에 설치된 서비스 맵 에이전트는 각 프로세스에 대한 TCP 프로세스 및 인바운드/아웃바운드 연결에 대한 데이터를 수집합니다.

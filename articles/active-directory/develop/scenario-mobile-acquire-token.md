@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: cf967525283f28d5829d80b75e40e263f7eaedef
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 5750f4a5aa62b33c7d793b3e0c34f304ce1b187e
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80882746"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535930"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>웹 API를 호출하는 모바일 앱에 대한 토큰 받기
 
@@ -26,7 +26,7 @@ ms.locfileid: "80882746"
 
 ## <a name="define-a-scope"></a>범위 정의
 
-토큰을 요청할 때 범위를 정의해야 합니다. 범위는 앱에서 액세스할 수 있는 데이터를 결정합니다.  
+토큰을 요청할 때 범위를 정의해야 합니다. 범위는 앱에서 액세스할 수 있는 데이터를 결정합니다.
 
 범위를 정의하는 가장 쉬운 방법은 원하는 웹 API를 `App ID URI` 범위와 `.default`결합하는 것입니다. 이 정의는 앱에 포털에 설정된 모든 범위가 필요하다는 것을 Microsoft ID 플랫폼에 알려줍니다.
 
@@ -41,7 +41,7 @@ let scopes = ["https://graph.microsoft.com/.default"]
 ```
 
 ### <a name="xamarin"></a>Xamarin
-```csharp 
+```csharp
 var scopes = new [] {"https://graph.microsoft.com/.default"};
 ```
 
@@ -72,13 +72,13 @@ sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
             /* No accounts or > 1 account. */
         }
     }
-});    
+});
 
 [...]
 
 // No accounts found. Interactively request a token.
 // TODO: Create an interactive callback to catch successful or failed requests.
-sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());        
+sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());
 ```
 
 #### <a name="ios"></a>iOS
@@ -89,22 +89,22 @@ sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());
 
 NSArray *scopes = @[@"https://graph.microsoft.com/.default"];
 NSString *accountIdentifier = @"my.account.id";
-    
+
 MSALAccount *account = [application accountForIdentifier:accountIdentifier error:nil];
-    
+
 MSALSilentTokenParameters *silentParams = [[MSALSilentTokenParameters alloc] initWithScopes:scopes account:account];
 [application acquireTokenSilentWithParameters:silentParams completionBlock:^(MSALResult *result, NSError *error) {
-        
+
     if (!error)
     {
         // You'll want to get the account identifier to retrieve and reuse the account
         // for later acquireToken calls
         NSString *accountIdentifier = result.account.identifier;
-            
-        // Access token to call the Web API
+
+        // Access token to call the web API
         NSString *accessToken = result.accessToken;
     }
-        
+
     // Check the error
     if (error && [error.domain isEqual:MSALErrorDomain] && error.code == MSALErrorInteractionRequired)
     {
@@ -113,34 +113,34 @@ MSALSilentTokenParameters *silentParams = [[MSALSilentTokenParameters alloc] ini
     }
 }];
 ```
- 
+
 ```swift
 
 let scopes = ["https://graph.microsoft.com/.default"]
 let accountIdentifier = "my.account.id"
-        
+
 guard let account = try? application.account(forIdentifier: accountIdentifier) else { return }
 let silentParameters = MSALSilentTokenParameters(scopes: scopes, account: account)
 application.acquireTokenSilent(with: silentParameters) { (result, error) in
-            
+
     guard let authResult = result, error == nil else {
-                
+
     let nsError = error! as NSError
-                
+
     if (nsError.domain == MSALErrorDomain &&
         nsError.code == MSALError.interactionRequired.rawValue) {
-                    
+
             // Interactive auth will be required, call acquireToken()
             return
          }
          return
      }
-            
+
     // You'll want to get the account identifier to retrieve and reuse the account
     // for later acquireToken calls
     let accountIdentifier = authResult.account.identifier
-            
-    // Access token to call the Web API
+
+    // Access token to call the web API
     let accessToken = authResult.accessToken
 }
 ```
@@ -149,15 +149,15 @@ MSAL이 `MSALErrorInteractionRequired`반환되면 대화식으로 토큰을 획
 
 ```objc
 UIViewController *viewController = ...; // Pass a reference to the view controller that should be used when getting a token interactively
-MSALWebviewParameters *webParameters = [[MSALWebviewParameters alloc] initWithParentViewController:viewController];
+MSALWebviewParameters *webParameters = [[MSALWebviewParameters alloc] initWithAuthPresentationViewController:viewController];
 MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopes webviewParameters:webParameters];
 [application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) {
-    if (!error) 
+    if (!error)
     {
         // You'll want to get the account identifier to retrieve and reuse the account
         // for later acquireToken calls
         NSString *accountIdentifier = result.account.identifier;
-            
+
         NSString *accessToken = result.accessToken;
     }
 }];
@@ -165,15 +165,15 @@ MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParame
 
 ```swift
 let viewController = ... // Pass a reference to the view controller that should be used when getting a token interactively
-let webviewParameters = MSALWebviewParameters(parentViewController: viewController)
+let webviewParameters = MSALWebviewParameters(authPresentationViewController: viewController)
 let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: webviewParameters)
 application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in
-                
+
     guard let authResult = result, error == nil else {
         print(error!.localizedDescription)
         return
     }
-                
+
     // Get access token from result
     let accessToken = authResult.accessToken
 })
@@ -207,7 +207,7 @@ catch(MsalUiRequiredException)
 
 #### <a name="mandatory-parameters-in-msalnet"></a>MSAL.NET 필수 매개 변수
 
-`AcquireTokenInteractive`필수 매개 변수는 `scopes`하나만 있습니다. 매개 `scopes` 변수는 토큰이 필요한 범위를 정의하는 문자열을 개명합니다. 토큰이 Microsoft 그래프용인 경우 각 Microsoft 그래프 API의 API 참조에서 필요한 범위를 찾을 수 있습니다. 참조에서 "권한" 섹션으로 이동합니다. 
+`AcquireTokenInteractive`필수 매개 변수는 `scopes`하나만 있습니다. 매개 `scopes` 변수는 토큰이 필요한 범위를 정의하는 문자열을 개명합니다. 토큰이 Microsoft 그래프용인 경우 각 Microsoft 그래프 API의 API 참조에서 필요한 범위를 찾을 수 있습니다. 참조에서 "권한" 섹션으로 이동합니다.
 
 예를 들어 [사용자의 연락처를 나열하려면](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts)"User.Read", "Contacts.Read" 범위를 사용합니다. 자세한 내용은 [Microsoft 그래프 사용 권한 참조를](https://developer.microsoft.com/graph/docs/concepts/permissions_reference)참조하십시오.
 
@@ -215,7 +215,7 @@ Android에서 `PublicClientApplicationBuilder`응용 프로그램을 만들 때 
 
 #### <a name="specific-optional-parameters-in-msalnet"></a>MSAL.NET 특정 선택적 매개 변수
 
-다음 섹션에서는 MSAL.NET 선택적 매개 변수를 설명합니다. 
+다음 섹션에서는 MSAL.NET 선택적 매개 변수를 설명합니다.
 
 ##### <a name="withprompt"></a>프롬프트
 
@@ -225,19 +225,19 @@ Android에서 `PublicClientApplicationBuilder`응용 프로그램을 만들 때 
 
 클래스는 다음 상수를 정의합니다.
 
-- `SelectAccount`을 강제로 보안 토큰 서비스(STS)하여 계정 선택 대화 상자를 표시합니다. 대화 상자에는 사용자에게 세션이 있는 계정이 포함되어 있습니다. 사용자가 다른 ID 중에서 선택할 수 있도록 하려는 경우 이 옵션을 사용할 수 있습니다. 이 옵션은 MSAL을 `prompt=select_account` ID 공급자에게 보냅니다. 
-    
+- `SelectAccount`을 강제로 보안 토큰 서비스(STS)하여 계정 선택 대화 상자를 표시합니다. 대화 상자에는 사용자에게 세션이 있는 계정이 포함되어 있습니다. 사용자가 다른 ID 중에서 선택할 수 있도록 하려는 경우 이 옵션을 사용할 수 있습니다. 이 옵션은 MSAL을 `prompt=select_account` ID 공급자에게 보냅니다.
+
     상수는 `SelectAccount` 기본값이며 사용 가능한 정보를 기반으로 최상의 환경을 효과적으로 제공합니다. 사용 가능한 정보에는 계정, 사용자에 대한 세션의 존재 등이 포함될 수 있습니다. 이 기본값을 변경할 만한 이유가 없는 한 변경하지 마십시오.
-- `Consent`이전에 동의가 부여된 경우에도 사용자에게 동의를 요청하면 됩니다. 이 경우 MSAL은 `prompt=consent` ID 공급자에게 보냅니다. 
+- `Consent`이전에 동의가 부여된 경우에도 사용자에게 동의를 요청하면 됩니다. 이 경우 MSAL은 `prompt=consent` ID 공급자에게 보냅니다.
 
     조직 거버넌스에서 사용자가 `Consent` 응용 프로그램을 사용할 때마다 동의 대화 상자를 볼 것을 요구하는 보안 중심 응용 프로그램에서 상수를 사용할 수 있습니다.
-- `ForceLogin`을 사용하면 프롬프트가 필요하지 않은 경우에도 사용자에게 자격 증명을 묻는 메시지가 표시됩니다. 
+- `ForceLogin`을 사용하면 프롬프트가 필요하지 않은 경우에도 사용자에게 자격 증명을 묻는 메시지가 표시됩니다.
 
     이 옵션은 토큰 획득에 실패하고 사용자가 다시 로그인하도록 하려는 경우에 유용할 수 있습니다. 이 경우 MSAL은 `prompt=login` ID 공급자에게 보냅니다. 조직 거버넌스에서 사용자가 응용 프로그램의 특정 부분에 액세스할 때마다 로그인해야 하는 보안 중심 응용 프로그램에서 이 옵션을 사용할 수 있습니다.
 - `Never`.NET 4.5 및 Windows 런타임(WinRT)에 만 사용할 수 있습니다. 이 상수는 사용자에게 메시지를 표시하지 않지만 숨겨진 포함된 웹 보기에 저장된 쿠키를 사용하려고 시도합니다. 자세한 내용은 [MSAL.NET 있는 웹 브라우저 사용을 참조하십시오.](https://docs.microsoft.com/azure/active-directory/develop/msal-net-web-browsers)
 
     이 옵션이 실패하면 `AcquireTokenInteractive` 예외를 throw하여 UI 상호 작용이 필요하다는 것을 알립니다. 그런 다음 다른 `Prompt` 매개 변수를 사용해야합니다.
-- `NoPrompt`을 사용 하려면 메시지를 ID 공급자에 보내지 않습니다. 
+- `NoPrompt`을 사용 하려면 메시지를 ID 공급자에 보내지 않습니다.
 
     이 옵션은 Azure Active Directory B2C의 편집 프로필 정책에만 유용합니다. 자세한 내용은 [B2C 세부 사항을](https://aka.ms/msal-net-b2c-specificities)참조하십시오.
 
@@ -245,7 +245,7 @@ Android에서 `PublicClientApplicationBuilder`응용 프로그램을 만들 때 
 
 사용자가 `WithExtraScopeToConsent` 여러 리소스에 대한 사전 동의를 제공하려는 고급 시나리오에서 수정자를 사용합니다. 일반적으로 MSAL.NET 또는 Microsoft ID 플랫폼 2.0에서 사용되는 증분 동의를 사용하지 않으려는 경우 이 수정자를 사용할 수 있습니다. 자세한 내용은 [여러 리소스에 대한 사용자 동의를 미리 확인을](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources)참조하십시오.
 
-코드 예제는 다음과 같습니다. 
+코드 예제는 다음과 같습니다.
 
 ```csharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
@@ -261,7 +261,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
 
 토큰을 얻기 위해 프로토콜을 직접 사용하지 않는 것이 좋습니다. 이렇게 하면 앱은 단일 사인온(SSO), 장치 관리 및 조건부 액세스를 포함하는 일부 시나리오를 지원하지 않습니다.
 
-프로토콜을 사용하여 모바일 앱에 대한 토큰을 얻을 때 다음 두 가지 요청을 합니다. 
+프로토콜을 사용하여 모바일 앱에 대한 토큰을 얻을 때 다음 두 가지 요청을 합니다.
 
 * 권한 부여 코드를 가져옵니다.
 * 토큰에 대한 코드를 교환합니다.

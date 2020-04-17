@@ -3,12 +3,12 @@ title: Azure Migrate 복제 어플라이언스
 description: 에이전트 기반 VMWare 마이그레이션을 위한 Azure 마이그레이션 복제 어플라이언스에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 4521fce6310b319d155a2f0c418cd934be7e2cb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85641f514fc4367f02901eb1dd394cfa204c3ec4
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245864"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535216"
 ---
 # <a name="replication-appliance"></a>복제 어플라이언스
 
@@ -28,8 +28,11 @@ ms.locfileid: "79245864"
 
 **사용 대상** | **세부 정보**
 --- |  ---
-VMware VM 에이전트 기반 마이그레이션 | Azure 마이그레이션 허브에서 OVA 템플릿을 다운로드하고 vCenter 서버로 가져와 어플라이언스 VM을 만듭니다.
-물리적 컴퓨터 에이전트 기반 마이그레이션 | VMware 인프라가 없거나 OVA 템플릿을 사용하여 VMware VM을 만들 수 없는 경우 Azure 마이그레이션 허브에서 소프트웨어 설치 관리자를 다운로드하고 실행하여 어플라이언스 컴퓨터를 설정합니다.
+**VMware VM 에이전트 기반 마이그레이션** | Azure 마이그레이션 허브에서 OVA 템플릿을 다운로드하고 vCenter 서버로 가져와 어플라이언스 VM을 만듭니다.
+**물리적 컴퓨터 에이전트 기반 마이그레이션** | VMware 인프라가 없거나 OVA 템플릿을 사용하여 VMware VM을 만들 수 없는 경우 Azure 마이그레이션 허브에서 소프트웨어 설치 관리자를 다운로드하고 실행하여 어플라이언스 컴퓨터를 설정합니다.
+
+> [!NOTE]
+> Azure 정부에서 배포하는 경우 설치 파일을 사용하여 복제 어플라이언스를 배포합니다.
 
 ## <a name="appliance-requirements"></a>어플라이언스 요구 사항
 
@@ -66,7 +69,7 @@ NIC 유형 | VMXNET3
 
 MySQL은 복제 어플라이언스 컴퓨터에 설치해야 합니다. 이러한 방법 중 하나를 사용하여 설치할 수 있습니다.
 
-**메서드** | **세부 정보**
+**방법** | **세부 정보**
 --- | ---
 수동으로 다운로드 및 설치 | MySQL 응용 프로그램을 다운로드& 폴더 C에 배치:\Temp\ASRSetup, 다음 수동으로 설치.<br/> 어플라이언스를 설정하면 MySQL이 이미 설치된 것으로 표시됩니다.
 온라인 다운로드 없이 | MySQL 설치 프로그램 응용 프로그램을 폴더 C:\Temp\ASRSetup에 배치합니다. 어플라이언스를 설치하고 MySQL을 다운로드하여 설치하려면 설치 프로그램에서 추가한 설치 프로그램을 사용합니다.
@@ -74,9 +77,9 @@ Azure 마이그레이션에서 다운로드 및 설치 | 어플라이언스를 �
 
 ## <a name="url-access"></a>URL 액세스
 
-복제 어플라이언스는 이러한 URL에 액세스해야 합니다.
+복제 어플라이언스는 Azure 공용 클라우드에서 이러한 URL에 액세스해야 합니다.
 
-**Url** | **세부 정보**
+**URL** | **세부 정보**
 --- | ---
 \*.backup.windowsazure.com | 복제된 데이터 전송 및 조정에 사용됩니다.
 \*.store.core.windows.net | 복제된 데이터 전송 및 조정에 사용됩니다.
@@ -84,10 +87,26 @@ Azure 마이그레이션에서 다운로드 및 설치 | 어플라이언스를 �
 \*.hypervrecoverymanager.windowsazure.com | 복제 관리 작업 및 조정에 사용됩니다.
 https:\//management.azure.com | 복제 관리 작업 및 조정에 사용됩니다.
 *.services.visualstudio.com | 원격 분석 용도로 사용(선택 사항)
-time.nist.gov | 시스템 시간과 글로벌 시간 사이의 시간 동기화를 확인하는 데 사용됩니다.
 time.windows.com | 시스템 시간과 글로벌 시간 사이의 시간 동기화를 확인하는 데 사용됩니다.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | OVF 설정은 이러한 URL에 액세스해야 합니다. Azure Active Directory에서 액세스 제어 및 ID 관리에 사용됩니다.
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | MySQL 다운로드를 완료하려면
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | 어플라이언스 설정은 이러한 URL에 액세스해야 합니다. Azure Active Directory에서 액세스 제어 및 ID 관리에 사용됩니다.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | MySQL 다운로드를 완료합니다. 일부 지역에서는 다운로드가 CDN URL로 리디렉션될 수 있습니다. 필요한 경우 CDN URL도 허용되는지 확인합니다.
+
+
+## <a name="azure-government-url-access"></a>Azure 정부 URL 액세스
+
+복제 어플라이언스는 Azure 정부에서 이러한 URL에 액세스해야 합니다.
+
+**URL** | **세부 정보**
+--- | ---
+\*.backup.windowsazure.us | 복제된 데이터 전송 및 조정에 사용됩니다.
+\*.store.core.windows.net | 복제된 데이터 전송 및 조정에 사용됩니다.
+\*.blob.core.windows.net | 복제된 데이터를 저장하는 스토리지 계정에 액세스하는 데 사용됩니다.
+\*.hypervrecoverymanager.windowsazure.us | 복제 관리 작업 및 조정에 사용됩니다.
+https:\//management.usgovcloudapi.net | 복제 관리 작업 및 조정에 사용됩니다.
+*.services.visualstudio.com | 원격 분석 용도로 사용(선택 사항)
+time.nist.gov | 시스템 시간과 글로벌 시간 사이의 시간 동기화를 확인하는 데 사용됩니다.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | OVA를 사용하여 어플라이언스 설정을 사용하면 이러한 URL에 액세스해야 합니다. Azure Active Directory에서 액세스 제어 및 ID 관리에 사용됩니다.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | MySQL 다운로드를 완료합니다. 일부 지역에서는 다운로드가 CDN URL로 리디렉션될 수 있습니다. 필요한 경우 CDN URL도 허용되는지 확인합니다.
 
 ## <a name="port-access"></a>포트 액세스
 
@@ -107,7 +126,7 @@ VM | VM에서 실행되는 모빌리티 서비스는 복제 관리를 위해 포
     - VM은 복제 관리를 위해 포트 HTTPS 443 인바운드의 복제 어플라이언스와 통신합니다.
     - 복제 어플라이언스는 포트 HTTPS 443 아웃바운드를 통해 Azure를 통해 복제를 오케스트레이션합니다.
     - VM은 포트 HTTPS 9443 인바운드에서 복제 서버(복제 어플라이언스에서 실행 중)로 복제 데이터를 보냅니다. 이 포트는 수정할 수 있습니다.
-    - 프로세스 서버는 복제 데이터를 수신하고, 이를 최적화 및 암호화하며, 443 아웃바운드 포트를 통해 Azure Storage로 보냅니다.
+    - 프로세스 서버는 복제 데이터를 수신하고 최적화하고 암호화한 다음 포트 443 아웃바운드를 통해 Azure 저장소로 보냅니다.
 5. 복제 데이터는 Azure의 캐시 저장소 계정에 첫 번째 토지를 기록합니다. 이러한 로그는 처리되고 데이터는 Azure 관리 디스크에 저장됩니다.
 
 ![Architecture](./media/migrate-replication-appliance/architecture.png)

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: cd5ca5039b537859d5b31c901ed1f93877ecb629
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a0eb83b4b056230e8e7ef103f220b216fceb9e9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275725"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537460"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>응용 프로그램 인사이트 에이전트(이전 이름 상태 모니터 v2): 자세한 지침
 
@@ -154,7 +154,7 @@ SerializationVersion           1.1.0.1
 
 ### <a name="manually-download-the-latest-nupkg-file"></a>수동으로 최신 nupkg 파일을 다운로드
 
-1. [https://editor.swagger.io](https://www.powershellgallery.com/packages/Az.ApplicationMonitor) 로 이동합니다.
+1. [https://editor.swagger.io](https://www.powershellgallery.com/packages/Az.ApplicationMonitor ) 로 이동합니다.
 2. **버전 기록** 테이블에서 파일의 최신 버전을 선택합니다.
 3. **설치 옵션에서** **수동 다운로드를 선택합니다.**
 
@@ -227,7 +227,7 @@ PowerShell 명령은 A.Application모니터를 다운로드하여 설치하도�
 
  원격 분석 보기:
 
-- [메트릭을 탐색하여](../../azure-monitor/app/metrics-explorer.md) 성능 및 사용량을 모니터링합니다.
+- [메트릭을 탐색하여](../../azure-monitor/platform/metrics-charts.md) 성능 및 사용량을 모니터링합니다.
 - [이벤트 및 로그를 검색하여](../../azure-monitor/app/diagnostic-search.md) 문제를 진단합니다.
 - 고급 쿼리에 [애널리틱스를 사용합니다.](../../azure-monitor/app/analytics.md)
 - [대시보드를 만듭니다.](../../azure-monitor/app/overview-dashboard.md)

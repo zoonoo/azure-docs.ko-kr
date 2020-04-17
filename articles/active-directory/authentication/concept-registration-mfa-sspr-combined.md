@@ -1,26 +1,31 @@
 ---
 title: SSPR 및 MFA에 대한 결합된 등록 - Azure Active Directory
-description: Azure AD 다단계 인증 및 셀프 서비스 암호 재설정 등록(미리 보기)
+description: Azure AD 다단계 인증 및 셀프 서비스 암호 재설정 등록
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/06/2020
+ms.date: 04/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26656b6dafd91d47c05c2d1f923e53f4ba790cf8
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 48350bf8f0ffb8681d95f6f42f9aa93256395f9a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309924"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534689"
 ---
-# <a name="combined-security-information-registration-preview"></a>통합 보안 정보 등록(미리 보기)
+# <a name="combined-security-information-registration-overview"></a>통합 보안 정보 등록 개요
 
 결합된 등록 전에 사용자는 Azure 다단계 인증 및 셀프 서비스 암호 재설정(SSPR)에 대한 인증 방법을 별도로 등록했습니다. 사람들은 다단계 인증 및 SSPR에 유사한 방법이 사용되었지만 두 기능에 대해 등록해야 한다는 사실에 혼란스러워했습니다. 이제 결합 된 등록으로 사용자는 한 번 등록하고 다단계 인증 및 SSPR의 이점을 얻을 수 있습니다.
+
+이 문서에서는 결합된 보안 등록이 무엇인지 간략하게 설명합니다. 통합 보안 등록을 시작하려면 다음 문서를 참조하십시오.
+
+> [!div class="nextstepaction"]
+> [결합된 보안 등록 사용](howto-registration-mfa-sspr-combined.md)
 
 ![사용자에 대한 등록된 보안 정보를 보여주는 내 프로필](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
@@ -28,16 +33,10 @@ ms.locfileid: "81309924"
 
 Azure AD 결합 보안 정보 등록은 현재 Azure 미국 정부, Azure 독일 또는 Azure China 21Vianet과 같은 국가 클라우드에서 사용할 수 없습니다.
 
-|     |
-| --- |
-| 다단계 인증 및 Azure Active Directory(Azure AD) 셀프 서비스 암호 재설정에 대한 통합 보안 정보 등록은 Azure AD의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관을](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)참조하십시오.|
-|     |
-
 > [!IMPORTANT]
 > 원래 미리 보기와 향상된 통합 등록 환경을 모두 사용할 수 있는 사용자는 새 동작을 볼 수 있습니다. 두 경험 모두에 대해 사용하도록 설정된 사용자는 새 내 프로필 환경만 볼 수 있습니다. 새로운 내 프로필은 통합 등록의 모양과 느낌에 부합하며 사용자에게 원활한 환경을 제공합니다. 사용자가 내 프로필로 이동하여 내 프로필을 볼 수 [https://myprofile.microsoft.com](https://myprofile.microsoft.com)있습니다.
-
-> [!NOTE] 
-> 보안 정보 옵션에 액세스하는 동안 오류 메시지가 표시될 수 있습니다. 예를 들어 "죄송합니다, 로그인할 수 없습니다". 이 경우 웹 브라우저에서 타사 쿠키를 차단하는 구성 또는 그룹 정책 개체가 없는지 확인합니다. 
+>
+> 보안 정보 옵션에 액세스하는 동안 오류 메시지가 표시될 수 있습니다. 예를 들어 "죄송합니다, 로그인할 수 없습니다". 이 경우 웹 브라우저에서 타사 쿠키를 차단하는 구성 또는 그룹 정책 개체가 없는지 확인합니다.
 
 내 프로필 페이지는 페이지에 액세스하는 컴퓨터의 언어 설정에 따라 지역화됩니다. Microsoft는 브라우저 캐시에 사용된 최신 언어를 저장하므로 이후 페이지에 액세스하려는 시도는 사용된 마지막 언어로 계속 렌더링됩니다. 캐시를 지우면 페이지가 다시 렌더링됩니다. 특정 언어를 강제로 사용하려는 경우 렌더링하려는 언어의 코드가 `?lng=<language>` 있는 `<language>` URL 끝에 추가할 수 있습니다.
 
@@ -77,7 +76,6 @@ Azure AD에 인증 메서드를 계속 추가하면 이러한 메서드를 결�
 통합 등록에는 인터럽트 및 관리의 두 가지 모드가 있습니다.
 
 - **인터럽트 모드는** 로그인 시 보안 정보를 등록하거나 새로 고칠 때 사용자에게 표시되는 마법사와 같은 환경입니다.
-
 - **관리 모드는** 사용자 프로필의 일부이며 사용자가 보안 정보를 관리할 수 있도록 합니다.
 
 두 모드 모두 이전에 다단계 인증에 사용할 수 있는 메서드를 등록한 사용자는 보안 정보에 액세스하기 전에 다단계 인증을 수행해야 합니다.
@@ -139,14 +137,8 @@ SSPR 정책에서 사용자가 정기적으로 보안 정보를 검토하도록 
 
 ## <a name="next-steps"></a>다음 단계
 
-[사용자가 인증 방법을 다시 등록하도록 강제](howto-mfa-userdevicesettings.md#manage-user-authentication-options)
+시작하려면 셀프 서비스 암호 [재설정을 활성화하고](tutorial-enable-sspr.md) Azure [다단계 인증을 사용하도록 설정하는](tutorial-enable-azure-mfa.md)자습서를 참조하십시오.
 
-[테넌트에서 결합된 등록 사용](howto-registration-mfa-sspr-combined.md)
+[테넌트에서 결합된 등록을 사용하도록 설정하거나](howto-registration-mfa-sspr-combined.md) [사용자가 인증 방법을 다시 등록하도록 하는](howto-mfa-userdevicesettings.md#manage-user-authentication-options)방법을 알아봅니다.
 
-[SSPR 및 MFA 사용 및 인사이트 보고](howto-authentication-methods-usage-insights.md)
-
-[다단계 인증 및 SSPR에 사용할 수 있는 방법](concept-authentication-methods.md)
-
-[셀프 서비스 암호 재설정 구성](howto-sspr-deployment.md)
-
-[Azure Multi-Factor Authentication 구성](howto-mfa-getstarted.md)
+[Azure 다단계 인증 및 SSPR에 사용할 수](concept-authentication-methods.md)있는 메서드를 검토할 수도 있습니다.

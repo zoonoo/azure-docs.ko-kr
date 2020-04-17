@@ -3,15 +3,15 @@ title: 제한 및 구성
 description: Azure Logic Apps의 경우 기간, 처리량 및 용량, IP 주소와 같은 구성 값과 같은 서비스 제한
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 03/12/2020
-ms.openlocfilehash: 4359c5581d14f4a918a49cf2b91ac58561ea93d3
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 04/17/2020
+ms.openlocfilehash: 40950be2e5caeb17d20086720a7b65c15147c2f5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257456"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535114"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -23,7 +23,7 @@ ms.locfileid: "81257456"
 
 다음은 단일 논리 앱 정의에 대한 제한 사항입니다.
 
-| 속성 | 제한 | 메모 |
+| 속성 | 제한 | 참고 |
 | ---- | ----- | ----- |
 | 워크플로당 작업 | 500 | 이 제한을 확장하려면 필요에 따라 중첩된 워크플로를 추가할 수 있습니다. |
 | 작업에 허용되는 중첩 깊이 | 8 | 이 제한을 확장하려면 필요에 따라 중첩된 워크플로를 추가할 수 있습니다. |
@@ -45,7 +45,7 @@ ms.locfileid: "81257456"
 
 다음은 단일 논리 앱 실행에 대한 제한 사항입니다.
 
-| 속성 | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 메모 |
+| 속성 | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 참고 |
 |------|--------------------|---------------------------------------|-------|
 | 실행 기간 | 90일 | 366일 | 실행 기간은 실행의 시작 시간과 워크플로 설정, 실행 기록 보존을 일 단위로 설정하여 *시작 시간에* 지정된 제한을 사용하여 [**계산됩니다.**](#change-duration) <p><p>90일인 기본 제한을 변경하려면 [변경 실행 기간을](#change-duration)참조하십시오. |
 | 저장소에서 보존 실행 | 90일 | 366일 | 실행 보존은 실행의 시작 시간과 워크플로 설정, 실행 기록 보존을 일로 현재 *시간에* 지정한 제한을 사용하여 [**계산됩니다.**](#change-retention) 실행이 완료되든 시간 시간이 부족하든 보존 계산은 항상 실행의 시작 시간을 사용합니다. 실행 의 지속 시간이 *현재* 보존 한계를 초과하면 실행 기록에서 실행이 제거됩니다. <p><p>이 설정을 변경하면 이전 제한에 관계없이 현재 제한이 항상 보존을 계산하는 데 사용됩니다. 예를 들어 보존 제한을 90일에서 30일로 줄이면 60일이 지난 실행이 실행 기록에서 제거됩니다. 보존 기간을 30일에서 60일로 늘리면 20일 된 실행이 다른 40일 동안 실행 기록에 유지됩니다. <p><p>90일인 기본 제한을 변경하려면 [저장소의 변경 실행 보존을](#change-retention)참조하십시오. |
@@ -82,7 +82,7 @@ ms.locfileid: "81257456"
 
 다음은 단일 논리 앱 실행에 대한 제한 사항입니다.
 
-| 속성 | 제한 | 메모 |
+| 속성 | 제한 | 참고 |
 | ---- | ----- | ----- |
 | 트리거 동시성 | - 동시성 컨트롤이 꺼져있을 때 무제한 <p><p>- 25는 동시성 컨트롤이 켜져 있을 때 기본 제한으로, 동시성을 활성화한 후에는 취소할 수 없습니다. 기본값을 1~50 사이의 값으로 변경할 수 있습니다. | 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 논리 앱 인스턴스 수를 나타냅니다. <p><p>**참고:** 동시성이 켜져 있으면 배열을 [분산하기](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)위해 SplitOn 제한이 100개 항목으로 줄어듭니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 [트리거 동시성 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) 또는 [순차적으로 인스턴스 트리거](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)를 참조하세요. |
 | 최대 대기 중인 실행 | - 동시성없이, 대기 실행의 최소 수는 1, 최대 수는 50입니다. <p><p>- 동시성의 경우 최소 대기 실행 수는 10개에 동시 실행 횟수(트리거 동시성)입니다. 최대 수를 100까지 변경할 수 있습니다. | 이 제한은 논리 앱에서 이미 최대 동시 인스턴스를 실행 중인 경우 실행될 때까지 기다릴 수 있는 최대 논리 앱 인스턴스 수를 나타냅니다. <p><p>기본 제한을 변경하려면 [대기 실행 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)을 참조하세요. |
@@ -100,7 +100,7 @@ ms.locfileid: "81257456"
 
 ### <a name="multi-tenant-logic-apps-service"></a>다중 테넌트 논리 앱 서비스
 
-| 속성 | 제한 | 메모 |
+| 속성 | 제한 | 참고 |
 | ---- | ----- | ----- |
 | 작업: 5분당 실행 | 100,000은 기본 한이지만 300,000은 최대 제한입니다. | 기본 제한을 변경하려면 미리 보기 상태인 ["높은 처리량" 모드에서 논리 앱 실행](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode)을 참조하세요. 또는 필요에 따라 둘 이상의 논리 앱에 워크로드를 배포할 수 있습니다. |
 | 작업: 나가는 동시 호출 | ~2,500 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축할 수 있습니다. |
@@ -112,9 +112,9 @@ ms.locfileid: "81257456"
 
 ### <a name="integration-service-environment-ise"></a>통합 서비스 환경(ISE)
 
-프리미엄 SKU의 처리량 한도는 다음과 같습니다.
+[프리미엄 ISE SKU의](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)처리량 한도는 다음과 같습니다.
 
-| 속성 | 제한 | 메모 |
+| 속성 | 제한 | 참고 |
 |------|-------|-------|
 | 기본 단위 실행 제한 | 인프라 용량이 80%에 도달하면 시스템 제한 | 분당 ~4,000건의 작업 실행(매월 1억 6천만 건의 작업 실행)을 제공합니다. | |
 | 스케일 단위 실행 제한 | 인프라 용량이 80%에 도달하면 시스템 제한 | 각 스케일 단위는 분당 ~2,000건의 추가 작업 실행을 제공할 수 있으며, 이는 매월 8천만 건의 추가 작업 실행입니다. | |
@@ -124,8 +124,7 @@ ms.locfileid: "81257456"
 정상적인 처리에서 이러한 제한을 초과하거나 이러한 제한을 초과하는 부하 테스트를 실행하려면 [Logic Apps 팀에 문의](mailto://logicappsemail@microsoft.com)하여 요구 사항에 대해 도움을 받으세요.
 
 > [!NOTE]
-> 이 SKU에는 SLA(서비스 수준 계약) 또는 확장 기능이 없기 때문에 [개발자 SKU에는](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) 게시된 제한이 없습니다.
-> 프로덕션 또는 성능 테스트가 아닌 실험, 개발 및 테스트에만 이 SKU를 사용합니다.
+> [개발자 ISE SKU에는](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) 게시된 제한, 확장 기능 및 SLA(서비스 수준 계약)가 없습니다. 프로덕션 또는 성능 테스트가 아닌 실험, 개발 및 테스트에만 이 SKU를 사용합니다.
 
 <a name="gateway-limits"></a>
 
@@ -143,7 +142,7 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 비롯�
 
 일부 커넥터 작업은 비동기 호출을 하거나 웹후크 요청을 수신하므로 이 작업에 대한 시간 제한이 이 제한보다 길 수 있습니다. 자세한 내용은 특정 커넥터에 대한 기술 정보 및 [워크플로 트리거 및 작업](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)을 참조하세요.
 
-| 속성 | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 메모 |
+| 속성 | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 참고 |
 |------|--------------------|---------------------------------------|-------|
 | 아웃바운드 요청 | 120초 <br>(2분) | 240초 <br>(4분) | 아웃바운드 요청의 예로는 HTTP 트리거에 의한 호출이 있습니다. <p><p>**팁**: 더 긴 실행 작업의 경우 [비동기 폴링 패턴](../logic-apps/logic-apps-create-api-app.md#async-pattern) 또는 [until 루프를](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action)사용합니다. |
 | 인바운드 요청 | 120초 <br>(2분) | 240초 <br>(4분) | 인바운드 요청의 예로는 요청 트리거 및 웹후크 트리거에서 받은 호출이 있습니다. <p><p>**참고**: 원래 호출자의 응답을 받으려면 다른 논리 앱을 중첩 워크플로로 호출하지 않는 한 응답의 모든 단계가 제한 내에서 완료되어야 합니다. 자세한 내용은 [논리 앱 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조하세요. |
@@ -153,7 +152,7 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 비롯�
 
 #### <a name="message-size"></a>메시지 크기
 
-| 속성 | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 메모 |
+| 속성 | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 참고 |
 |------|--------------------|---------------------------------------|-------|
 | 메시지 크기 | 100MB | 200MB | ISE 레이블이 지정된 커넥터는 ISE가 아닌 ISE 커넥터 제한이 아닌 ISE 제한을 사용합니다. <p><p>이 제한을 해결하려면 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. 그러나 일부 커넥터 및 API는 청킹 또는 기본 제한을 지원하지 않을 수 있습니다. |
 | 청킹이 있는 메시지 크기 | 1 GB | 5GB | 이 제한은 기본적으로 청크를 지원하거나 런타임 구성에서 청크를 사용하도록 설정하는 작업에 적용됩니다. <p><p>통합 서비스 환경의 경우 Logic Apps 엔진은 이 제한을 지원하지만 커넥터에는 엔진 제한까지 의 자체 청크 제한이 있습니다(예: [Azure Blob Storage 커넥터의 API 참조 참조).](https://docs.microsoft.com/connectors/azureblob/) 청크에 대한 자세한 내용은 [청크가 있는 큰 메시지 처리를](../logic-apps/logic-apps-handle-large-messages.md)참조하십시오. |
@@ -161,7 +160,7 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 비롯�
 
 #### <a name="character-limits"></a>문자 제한
 
-| 속성 | 메모 |
+| 속성 | 참고 |
 |------|-------|
 | 식 평가 제한 | 131,072자 | `@concat()`, `@base64()`, `@string()` 식은 이 제한보다 길 수 없습니다. |
 | 요청 URL 문자 제한 | 16,384자 |
@@ -171,7 +170,7 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 비롯�
 
 #### <a name="retry-policy"></a>다시 시도 정책
 
-| 속성 | 제한 | 메모 |
+| 속성 | 제한 | 참고 |
 | ---- | ----- | ----- |
 | 다시 시도 횟수 | 90 | 기본값은 4입니다. 기본값을 변경하려면 [정책 매개 변수 재시도](../logic-apps/logic-apps-workflow-actions-triggers.md)를 사용합니다. |
 | 재시도 최대 지연 시간 | 1일 | 기본값을 변경하려면 [정책 매개 변수 재시도](../logic-apps/logic-apps-workflow-actions-triggers.md)를 사용합니다. |
@@ -184,7 +183,7 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 비롯�
 
 다음은 웹 API에서 만들 수 있는 사용자 지정 커넥터에 대한 제한 사항입니다.
 
-| 속성 | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 메모 |
+| 속성 | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 참고 |
 |------|--------------------|---------------------------------------|-------|
 | 사용자 지정 커넥터 수 | Azure 구독당 1,000개 | Azure 구독당 1,000개 ||
 | 사용자 지정 커넥터의 분당 요청 수 | 연결당 분당 500건의 요청 | *사용자 지정 커넥터당* 분당 2,000개 요청 ||
@@ -245,7 +244,7 @@ ISE에 포함된 통합 계정 외에 추가하는 통합 계정에는 추가 �
 
 ### <a name="artifact-capacity-limits"></a>아티팩트 용량 제한
 
-| 아티팩트 | 제한 | 메모 |
+| 아티팩트 | 제한 | 참고 |
 | -------- | ----- | ----- |
 | Assembly | 8MB | 2MB보다 큰 파일을 업로드하려면 [Azure 스토리지 계정 및 Blob 컨테이너](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 사용합니다. |
 | 맵(XSLT 파일) | 8MB | 2MB보다 큰 파일을 업로드하려면 [Azure Logic Apps REST API - Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate)를 사용합니다. <p><p>**참고:** 맵이 성공적으로 처리할 수 있는 데이터 또는 레코드의 양은 Azure Logic Apps의 메시지 크기 및 작업 시간 제한에 따라 다다. 예를 들어 HTTP 메시지 크기 및 [시간 제한 제한에](#request-limits)따라 HTTP 작업을 사용하는 경우 HTTP 시간 제한 내에서 작업이 완료되면 맵이 HTTP 메시지 크기 제한까지 데이터를 처리할 수 있습니다. |
@@ -256,7 +255,7 @@ ISE에 포함된 통합 계정 외에 추가하는 통합 계정에는 추가 �
 
 ### <a name="throughput-limits"></a>처리량 한도
 
-| 런타임 엔드포인트 | 무료 | Basic | Standard | 메모 |
+| 런타임 엔드포인트 | 무료 | Basic | Standard | 참고 |
 |------------------|------|-------|----------|-------|
 | 5분당 읽기 호출 | 3,000 | 30,000 | 60,000 | 필요에 따라 둘 이상의 계정에 워크로드를 배포할 수 있습니다. |
 | 5분당 Invoke 호출 | 3,000 | 30,000 | 45,000 | 필요에 따라 둘 이상의 계정에 워크로드를 배포할 수 있습니다. |
@@ -270,7 +269,7 @@ ISE에 포함된 통합 계정 외에 추가하는 통합 계정에는 추가 �
 
 B2B 프로토콜에 적용되는 메시지 크기 제한은 다음과 같습니다.
 
-| 속성 | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 메모 |
+| 속성 | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 참고 |
 |------|--------------------|---------------------------------------|-------|
 | AS2 | v2 - 100 MB<br>v1 - 50 MB | v2 - 200 MB <br>v1 - 50 MB | 디코딩 및 인코딩에 적용됩니다. |
 | X12 | 50MB | 50MB | 디코딩 및 인코딩에 적용됩니다. |
@@ -281,12 +280,9 @@ B2B 프로토콜에 적용되는 메시지 크기 제한은 다음과 같습니�
 
 ## <a name="disabling-or-deleting-logic-apps"></a>논리 앱을 사용하지 않도록 설정 또는 삭제
 
-논리 앱을 사용하지 않도록 설정하면 새 실행이 인스턴스화되지 않습니다.
-진행 중인 모든 실행 및 보류 중인 실행이 완료될 때까지 계속되며 완료하는 데 시간이 걸릴 수 있습니다.
+논리 앱을 사용하지 않도록 설정하면 새 실행이 인스턴스화되지 않습니다. 진행 중인 모든 실행 및 보류 중인 실행이 완료될 때까지 계속되며 완료하는 데 시간이 걸릴 수 있습니다.
 
-논리 앱을 삭제하면 새 실행이 인스턴스화되지 않습니다.
-모든 진행 중 및 보류 중인 실행이 취소됩니다.
-수천 개의 실행이 있다면 취소를 완료하는 데 상당한 시간이 소요될 수 있습니다.
+논리 앱을 삭제하면 새 실행이 인스턴스화되지 않습니다. 모든 진행 중 및 보류 중인 실행이 취소됩니다. 수천 개의 실행이 있다면 취소를 완료하는 데 상당한 시간이 소요될 수 있습니다.
 
 <a name="configuration"></a>
 
@@ -300,17 +296,17 @@ Azure Logic Apps에서 수신 및 나가는 호출에 사용하는 IP 주소는 
 > * **LogicAppsManagement**: 논리 앱 서비스에 대한 인바운드 IP 주소 접두사를 나타냅니다.
 > * **LogicApps**: 논리 앱 서비스에 대한 아웃바운드 IP 주소 접두사를 나타냅니다.
 
+* [Azure China 21Vianet의](https://docs.microsoft.com/azure/china/)경우 Azure 저장소, SQL Server, Office 365 Outlook [등과](../logic-apps/custom-connector-overview.md) 같은 사용자 지정 커넥터 및 [관리되는 커넥터에는](../connectors/apis-list.md#managed-api-connectors)고정 또는 예약IP 주소를 사용할 수 없습니다.
+
 * 논리 앱이 [HTTP,](../connectors/connectors-native-http.md) [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)및 기타 HTTP 요청으로 직접 수행하는 호출을 지원하려면 논리 앱이 있는 지역에 따라 논리 앱 서비스에서 사용하는 모든 [인바운드](#inbound) *및* [아웃바운드](#outbound) IP 주소로 방화벽을 설정합니다. 이러한 주소는 이 섹션의 **인바운드** 및 **아웃바운드** 제목 아래에 표시되고 지역별로 정렬됩니다.
 
-* [Microsoft 관리되는 커넥터](../connectors/apis-list.md)가 호출하도록 지원하려면 논리 앱이 있는 지역에 따라 ** 모든 [아웃바운드](#outbound) IP 주소가 포함되도록 방화벽을 설정합니다. 이러한 주소는 이 섹션의 **아웃바운드** 제목 아래에 표시되고 지역별로 정렬됩니다.
+* [관리되는 커넥터가](../connectors/apis-list.md#managed-api-connectors) 수행하는 호출을 지원하려면 논리 앱이 있는 지역에 따라 이러한 커넥터에서 사용하는 *모든* [아웃바운드](#outbound) IP 주소로 방화벽을 설정합니다. 이러한 주소는 이 섹션의 **아웃바운드** 제목 아래에 표시되고 지역별로 정렬됩니다.
 
 * 통합 서비스 환경(ISE)에서 실행되는 논리 앱에 대한 통신을 사용하려면 [이러한 포트를 열어야](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise)합니다.
 
 * 논리 앱에서 [방화벽 및 방화벽 규칙을](../storage/common/storage-network-security.md)사용하는 Azure 저장소 계정에 액세스하는 데 문제가 있는 경우 액세스를 사용하도록 설정하는 다양한 옵션이 [있습니다.](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls)
 
   예를 들어 논리 앱은 방화벽 규칙을 사용하고 동일한 지역에 있는 저장소 계정에 직접 액세스할 수 없습니다. 그러나 해당 지역의 [관리되는 커넥터에 대한 아웃바운드 IP 주소를](../logic-apps/logic-apps-limits-and-config.md#outbound)허용하는 경우 논리 앱은 Azure 테이블 저장소 또는 Azure 큐 저장소 커넥터를 사용하는 경우를 제외하고 다른 지역에 있는 저장소 계정에 액세스할 수 있습니다. 테이블 저장소 또는 큐 저장소에 액세스하려면 대신 HTTP 트리거 및 작업을 사용할 수 있습니다. 다른 옵션은 [방화벽 뒤의 저장소 계정 액세스를](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls)참조하십시오.
-
-* 사용자 지정 커넥터의 경우 [Azure 정부](../azure-government/documentation-government-overview.md)및 Azure [China 21Vianet에서](https://docs.microsoft.com/azure/china/)고정 또는 예약된 IP 주소를 사용할 수 없습니다.
 
 <a name="inbound"></a>
 

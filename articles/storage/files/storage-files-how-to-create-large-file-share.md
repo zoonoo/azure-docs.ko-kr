@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c683e9847864de4e3409fb6dbd533497a5ae3cea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd7726d2bbf2830d18d78b5f0b0d7202b734124d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061007"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537681"
 ---
 # <a name="enable-and-create-large-file-shares"></a>대용량 파일 공유 활성화 및 생성
 
@@ -33,9 +33,9 @@ ms.locfileid: "80061007"
 
 ### <a name="portal"></a>포털
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure 포털에서 **모든 서비스를**선택합니다. 
-1. 리소스 목록에서 **저장소 계정을**입력합니다. 입력하는 대로 입력 내용에 따라 목록이 필터링됩니다. **Storage 계정**을 선택합니다.
+1. 리소스 목록에서 **저장소 계정을**입력합니다. 입력하는 대로 입력 내용에 따라 목록이 필터링됩니다. **저장소 계정을**선택합니다.
 1. 표시되는 **저장소 계정** 창에서 **추가**를 선택합니다.
 1. 저장소 계정을 만드는 데 사용할 구독을 선택합니다.
 1. **리소스 그룹** 필드 아래에서 **새로 만들기**를 선택합니다. 새 리소스 그룹에 대한 이름을 입력합니다.
@@ -43,7 +43,7 @@ ms.locfileid: "80061007"
     ![포털에서 리소스 그룹을 만드는 방법을 보여주는 스크린샷](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
 1. 그런 다음, 스토리지 계정의 이름을 입력합니다. 이름은 Azure에서 고유해야 합니다. 또한 이름은 길이가 3~24자여야 하며 숫자와 소문자만 가질 수 있습니다.
-1. 저장소 계정의 위치를 선택하고 [대용량 파일 공유에 대해 지원되는 복제 중 하나인지](storage-files-planning.md#regional-availability)확인합니다.
+1. 스토리지 계정의 위치를 선택합니다.
 1. 복제를 **로컬 중복 저장소** 또는 영역 중복 **저장소로**설정합니다.
 1. 이러한 필드를 기본값으로 둡니다.
 
@@ -126,7 +126,7 @@ Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAc
 
 1. 저장소 계정에서 파일 **공유를**선택합니다.
 1. +파일 공유 를 **선택합니다.**
-1. 파일 공유의 이름을 입력합니다. 원하는 할당량 크기를 최대 100TiB까지 설정할 수도 있습니다. 그런 다음 **을 선택합니다.** 
+1. 파일 공유의 이름을 입력합니다. 원하는 할당량 크기를 최대 100TiB까지 설정할 수도 있습니다. 그런 다음 **만들기**를 선택합니다. 
 
 ![이름 및 할당량 상자를 표시하는 Azure 포털 UI](media/storage-files-how-to-create-large-file-share/large-file-shares-create-share.png)
 

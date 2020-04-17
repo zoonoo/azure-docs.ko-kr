@@ -13,12 +13,12 @@ ms.date: 09/27/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 0262d22ae00456ce06cb8efbf995f1a093b20043
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4595a63613afa3c6fef2fa2a85647d8b70b1388
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262894"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534468"
 ---
 # <a name="application-configuration-options"></a>응용 프로그램 구성 옵션
 
@@ -106,11 +106,11 @@ MSAL은 Azure AD 기관 대상 과 테넌트 ID를 모두 지정하는 경우 �
 ### <a name="redirect-uri-for-public-client-apps"></a>공용 클라이언트 앱에 대한 URI 리디렉션
 
 MSAL을 사용하는 공용 클라이언트 앱 개발자인 경우:
-- 데스크톱 또는 UWP `.WithDefaultRedirectUri()` 응용 프로그램(MSAL.NET 4.1 이상)에서 사용하려고 합니다. 이 메서드는 공용 클라이언트 응용 프로그램의 리디렉션 uri 속성을 공용 클라이언트 응용 프로그램에 대 한 기본 권장 리디렉션 uri로 설정 합니다. 
+- 데스크톱 또는 UWP `.WithDefaultRedirectUri()` 응용 프로그램(MSAL.NET 4.1 이상)에서 사용하려고 합니다. 이 메서드는 공용 클라이언트 응용 프로그램의 리디렉션 uri 속성을 공용 클라이언트 응용 프로그램에 대 한 기본 권장 리디렉션 uri로 설정 합니다.
 
-  플랫폼  | 리디렉션 URI  
+  플랫폼  | 리디렉션 URI
   ---------  | --------------
-  데스크톱 앱(.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient` 
+  데스크톱 앱(.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient`
   UWP | 의 `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`값입니다. 이렇게 하면 등록해야 하는 WebAuthenticationBroker.GetCurrentApplicationCallbackUri() 결과에 값을 설정하여 브라우저에서 SSO를 사용할 수 있습니다.
   .NET Core | `https://localhost`. 이렇게 하면 .NET Core에 현재 포함된 웹 보기에 대한 UI가 없기 때문에 대화형 인증을 위해 시스템 브라우저를 사용할 수 있습니다.
 

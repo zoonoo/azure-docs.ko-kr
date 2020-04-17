@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: 12dd17045715a24d1e5151b30a5e7706b0e58717
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 161fd9276427db0d0d7d56da1bfc0bb8ccf52a52
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383792"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536661"
 ---
 # <a name="create-an-azure-virtual-machine-offer"></a>Azure 가상 시스템 오퍼 만들기
 
@@ -32,7 +32,7 @@ Azure 마켓플레이스에 게시하는 경우 다음과 같은 이점이 있�
 - 이러한 마켓플레이스에서 고품질 잠재 고객 얻기
 - Microsoft 현장 및 원격 판매 팀에서 서비스 홍보
 
-### <a name="before-you-begin"></a>시작하기 전에
+### <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 아직 수행하지 않은 경우 [가상 컴퓨터 제공 게시 가이드](https://aka.ms/Virtualmachineofferpublishingguide) 및 이 Azure 가상 시스템 자료를 검토하십시오.
 
@@ -192,7 +192,7 @@ Azure 가상 시스템 오퍼를 만들려면 먼저 파트너 센터에 상용 
 
 오퍼에 대한 더 긴 설명을 제공합니다. 최대 256자까지 사용할 수 있으며 마켓플레이스 검색 결과에 사용됩니다.
 
-#### <a name="description"></a>설명
+#### <a name="description"></a>Description
 
 최대 3,000자까지 오퍼에 대한 자세한 설명을 제공합니다. 이는 상업용 마켓플레이스 목록 개요의 고객에게 표시됩니다.
 
@@ -296,7 +296,7 @@ Azure 가상 시스템 오퍼를 만들려면 먼저 파트너 센터에 상용 
 
 ## <a name="plan-overview"></a>계획 개요
 
-파트너 센터에서 동일한 혜택 내에서 다양한 플랜 옵션을 제공할 수 있습니다. 이러한 계획은 이전에 SCO라고 합니다. 오퍼에는 수익 창출 대상, Azure 클라우드, 기능 또는 VM 이미지 측면에서 다를 수 있는 하나 이상의 요금제가 필요합니다.
+파트너 센터에서 동일한 혜택 내에서 다양한 플랜 옵션을 제공할 수 있습니다. 이러한 계획은 이전에 SCO라고 합니다. 오퍼에는 수익 창출 대상, Azure 지역, 기능 또는 VM 이미지 측면에서 다를 수 있는 하나 이상의 요금제가 필요합니다.
 
 계획을 만든 후 **계획 개요** 탭에 다음이 표시됩니다.
 
@@ -326,7 +326,7 @@ Azure 가상 시스템 오퍼를 만들려면 먼저 파트너 센터에 상용 
 
 ### <a name="plan-setup"></a>계획 설정
 
-계획 유형에 대한 상위 수준 구성, 다른 계획에서 기술 구성을 재사용하는지 여부 및 계획을 사용할 수 있어야 하는 클라우드에 대해 설정합니다. 여기에서 선택한 항목은 동일한 계획에 대해 다른 탭에 표시되는 필드를 결정합니다.
+계획 유형에 대한 상위 수준 구성, 다른 계획에서 기술 구성을 다시 사용하는지 여부 및 계획을 사용할 수 있어야 하는 Azure 지역을 설정합니다. 여기에서 선택한 항목은 동일한 계획에 대해 다른 탭에 표시되는 필드를 결정합니다.
 
 #### <a name="reuse-technical-configuration"></a>기술 구성 재사용
 
@@ -335,24 +335,24 @@ Azure 가상 시스템 오퍼를 만들려면 먼저 파트너 센터에 상용 
 > [!NOTE]
 > 다른 계획에서 기술 구성을 다시 사용하면 전체 **기술 구성** 탭이 이 계획에서 사라집니다. 향후 업데이트를 포함하여 다른 계획의 기술 구성 세부 정보도 이 계획에 사용됩니다. 이 계획은 게시된 후에는 이 설정을 변경할 수 없습니다.
 
-#### <a name="cloud-availability"></a>클라우드 가용성
+#### <a name="azure-regions"></a>Azure 지역
 
-계획은 하나 이상의 클라우드에서 사용할 수 있어야 합니다.
+계획은 하나 이상의 Azure 리전에서 사용할 수 있어야 합니다.
 
-Azure **Global** 옵션을 선택하여 상용 마켓플레이스 통합이 있는 모든 공용 Azure 지역의 고객이 플랜을 사용할 수 있도록 합니다. 자세한 내용은 [지리적 가용성 및 통화 지원을](https://aka.ms/AzureGovCurrencies)참조하십시오.
+Azure **Global** 옵션을 선택하여 상용 마켓플레이스 통합이 있는 모든 공용 Azure 지역의 고객이 플랜을 사용할 수 있도록 합니다. 자세한 내용은 [지리적 가용성 및 통화 지원을](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)참조하십시오.
 
-Azure **정부 클라우드** 에서 계획을 사용할 수 있도록 Azure 정부 클라우드 옵션을 [선택합니다.](https://aka.ms/WhatIsAzureGovernment) 미국 연방, 주, 지역 또는 부족 기관의 고객뿐만 아니라 이러한 엔터티에 서비스를 제공할 자격이 있는 파트너의 고객에 대한 제어된 액세스 권한이 있는 정부 커뮤니티 클라우드입니다. 퍼블리셔는 이 클라우드 커뮤니티에 서비스를 제공하기 위한 규정 준수 제어, 보안 조치 및 모범 사례를 담당합니다. Azure 정부는 물리적으로 격리된 데이터 센터 및 네트워크를 사용합니다(미국에만 있음).
+Azure **정부** 지역에서 플랜을 사용할 수 있도록 하려면 [Azure 정부](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) 옵션을 선택합니다. 이 리전은 미국 연방, 주, 지역 또는 부족 기관의 고객뿐만 아니라 서비스를 제공할 자격이 있는 파트너에 대한 제어된 액세스를 제공합니다. 게시자는 규정 준수 제어, 보안 조치 및 모범 사례를 담당합니다. Azure 정부는 물리적으로 격리된 데이터 센터 및 네트워크를 사용합니다(미국에만 있음).
 
-[Azure 정부에](https://aka.ms/azuregovpublish)게시하기 전에 특정 끝점이 다를 수 있으므로 환경에서 계획을 테스트하고 유효성을 검사합니다. 계획을 설정하고 테스트하려면 Microsoft Azure 정부 [평가판에서](https://aka.ms/AzureGovernmentTrial)평가판 계정을 요청하십시오.
+[Azure 정부에](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)게시하기 전에 특정 끝점이 다를 수 있으므로 환경에서 계획을 테스트하고 유효성을 검사합니다. 계획을 설정하고 테스트하려면 Microsoft Azure 정부 [평가판에서](https://azure.microsoft.com/global-infrastructure/government/request/)평가판 계정을 요청하십시오.
 
 > [!NOTE]
-> 계획이 게시되고 특정 클라우드에서 사용할 수 있게 되면 해당 클라우드를 제거할 수 없습니다.
+> 계획이 게시되고 특정 Azure 지역에서 사용할 수 있게 되면 해당 지역을 제거할 수 없습니다.
 
-#### <a name="azure-government-cloud-certifications"></a>Azure 정부 클라우드 인증
+#### <a name="azure-government-certifications"></a>Azure 정부 인증
 
-이 옵션은 Azure **정부 클라우드가** **클라우드 가용성**에서 선택된 경우에만 표시됩니다.
+이 옵션은 **Azure 지역에서** **Azure 정부를** 선택한 경우에만 표시됩니다.
 
-Azure 정부 서비스는 특정 정부 규정 및 요구 사항이 적용되는 데이터를 처리합니다. 예를 들어, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 및 CJIS. 이러한 프로그램에 대한 인증을 인식하려면 해당 프로그램을 설명하는 링크를 최대 100개까지 제공할 수 있습니다. 이러한 링크는 프로그램에 직접 리스팅에 대한 링크이거나 자신의 웹 사이트에서 해당 목록에 대한 사용자 준수에 대한 설명으로 연결되는 링크일 수 있습니다. 이러한 링크는 Azure 정부 클라우드 고객에게만 표시됩니다.
+Azure 정부 서비스는 특정 정부 규정 및 요구 사항이 적용되는 데이터를 처리합니다. 예를 들어, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 및 CJIS. 이러한 프로그램에 대한 인증을 인식하려면 해당 프로그램을 설명하는 링크를 최대 100개까지 제공할 수 있습니다. 이러한 링크는 프로그램에 직접 리스팅에 대한 링크이거나 자신의 웹 사이트에서 해당 목록에 대한 사용자 준수에 대한 설명으로 연결되는 링크일 수 있습니다. 이러한 링크는 Azure 정부 고객에게만 표시됩니다.
 
 계속하기 전에 **초안 저장을** 선택합니다.
 
@@ -384,7 +384,7 @@ Azure 정부 서비스는 특정 정부 규정 및 요구 사항이 적용되는
 
 #### <a name="markets"></a>시장
 
-모든 플랜은 적어도 하나의 시장에서 사용할 수 있어야 합니다. 이 플랜을 구매할 수 있어야 하는 모든 시장 위치에 대한 확인란을 선택합니다(이러한 시장의 사용자는 선택한 클라우드에 대해 모든 Azure 지역에 오퍼를 배포할 수 있음). **세금 송금** 단추는 Microsoft가 판매를 송금하고 대신 세금을 사용하는 국가를 표시합니다. 중국에 게시하는 것은 **무료** 또는 **BYOL(자체 라이선스** 가져오기)인 계획으로 제한됩니다.
+모든 플랜은 적어도 하나의 시장에서 사용할 수 있어야 합니다. 이 플랜을 구매할 수 있어야 하는 모든 시장 위치에 대한 확인란을 선택합니다(이러한 시장의 사용자는 **[계획 설정에서](#plan-setup)** 선택한 모든 Azure 지역에 여전히 쿠폰을 배포할 수 있음). **세금 송금** 단추는 Microsoft가 판매를 송금하고 대신 세금을 사용하는 국가를 표시합니다. 중국에 게시하는 것은 **무료** 또는 **BYOL(자체 라이선스** 가져오기)인 계획으로 제한됩니다.
 
 이미 미국 달러(USD)로 플랜 가격을 설정하고 다른 시장 위치를 추가한 경우 새 시장의 가격은 현재 환율에 따라 계산됩니다. 게시하기 전에 항상 각 시장의 가격을 검토하십시오. 변경 사항을 저장한 후 **내보내기 가격(xlsx)** 링크를 사용하여 가격을 검토합니다.
 

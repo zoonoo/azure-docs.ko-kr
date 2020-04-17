@@ -3,12 +3,12 @@ title: Azure Application Insights의 스마트 감지 | Microsoft Docs
 description: Application Insights는 앱 원격 분석의 자동 심층 분석을 수행하여 잠재적 성능 문제에 대해 경고합니다.
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: e232295f9da2a2ae8f3c6fafdd1dc33a42e92e69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ff9f88e1d2e643d04c4417283420217e7d496caf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671803"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536797"
 ---
 # <a name="smart-detection-in-application-insights"></a>Application Insights의 스마트 감지
  스마트 감지는 웹 응용 프로그램에서 잠재적인 성능 문제 및 오류 이상에 대해 자동으로 경고합니다. 앱에서 [Application Insights](../../azure-monitor/app/app-insights-overview.md)로 보내는 원격 분석의 사전 분석을 수행합니다. 실패율이나 클라이언트 또는 서버 성능의 비정상적인 패턴이 갑자기 증가하는 경우 경고가 발생합니다. 이 기능에는 구성이 필요하지 않습니다. 애플리케이션에서 충분한 원격 분석을 보내는 경우 작동합니다.
@@ -34,7 +34,7 @@ ms.locfileid: "77671803"
 
 * [스마트 감지 - 실패](../../azure-monitor/app/proactive-failure-diagnostics.md). 기계 학습을 사용하여 앱에 대해 실패한 요청의 예상 비율을 설정하고 로드 및 다른 요소와 상관 관계를 지정합니다. 실패율이 예상된 범위를 벗어나는 경우 경고를 보냅니다.
 * [스마트 감지 - 성능 이상](../../azure-monitor/app/proactive-performance-diagnostics.md). 작업 또는 종속성 지속 시간의 응답 시간이 기록 기준과 비교하여 느려지거나 응답 시간 또는 페이지 로드 시간에서 비정상적인 패턴을 식별하는 경우 알림을 받습니다.   
-* [무단전재 및 [재배포](https://docs.microsoft.com/azure/azure-monitor/app/proactive-application-security-detection-pack)금지] [Trace degredation](https://docs.microsoft.com/azure/azure-monitor/app/proactive-trace-severity) [Memory leak](https://docs.microsoft.com/azure/azure-monitor/app/proactive-potential-memory-leak) [Abnormal rise in Exception volume](https://docs.microsoft.com/azure/azure-monitor/app/proactive-exception-volume)
+* 추적 [저하,](https://docs.microsoft.com/azure/azure-monitor/app/proactive-trace-severity) [메모리 누수,](https://docs.microsoft.com/azure/azure-monitor/app/proactive-potential-memory-leak) [예외 볼륨의 비정상적인 증가](https://docs.microsoft.com/azure/azure-monitor/app/proactive-exception-volume) 및 [보안 방지 패턴과](https://docs.microsoft.com/azure/azure-monitor/app/proactive-application-security-detection-pack)같은 일반적인 저하 및 문제 .
 
 (각 알림에서 도움말 링크를 통해 관련 문서로 이동할 수 있습니다.)
 
@@ -53,7 +53,7 @@ _미리 보기로_표시된 규칙을 제외한 모든 스마트 검색 규칙�
 ## <a name="next-steps"></a>다음 단계
 이러한 진단 도구를 사용하면 앱에서 원격 분석을 검사할 수 있습니다.
 
-* [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md)
+* [메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md)
 * [탐색기 검색](../../azure-monitor/app/diagnostic-search.md)
 * [분석 - 강력한 쿼리 언어](../../azure-monitor/log-query/get-started-portal.md)
 

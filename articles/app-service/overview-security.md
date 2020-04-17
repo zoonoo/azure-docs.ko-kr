@@ -5,12 +5,12 @@ keywords: azure app service, 웹앱, 모바일 앱, API 앱, 함수 앱, 보안,
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: e28935f73511e5ad973929517658cc626b5a6ea2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a098b1924bf7c2866f6afd7452b8dd3b93f3109
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475377"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535658"
 ---
 # <a name="security-in-azure-app-service"></a>Azure App Service의 보안
 
@@ -31,14 +31,14 @@ Azure의 인프라 및 플랫폼 보안에 대한 자세한 내용은 [Azure 보
 
 ## <a name="https-and-certificates"></a>HTTPS 및 인증서
 
-App Service를 사용하면 [HTTPS](https://wikipedia.org/wiki/HTTPS)를 통해 앱을 보호할 수 있습니다. 앱을 만들 때 기본 도메인 이름(\<app_name>.azurewebsites.net)은 이미 HTTPS를 사용하여 액세스할 수 있습니다. [앱에 대한 사용자 지정 도메인을 구성하는](app-service-web-tutorial-custom-domain.md)경우 클라이언트 브라우저가 사용자 지정 도메인에 대한 보안 HTTPS 연결을 만들 수 있도록 [SSL 인증서로](configure-ssl-bindings.md) 보호해야 합니다. 앱 서비스에서 지원하는 인증서에는 여러 가지 유형이 있습니다.
+App Service를 사용하면 [HTTPS](https://wikipedia.org/wiki/HTTPS)를 통해 앱을 보호할 수 있습니다. 앱을 만들 때 기본 도메인 이름(\<app_name>.azurewebsites.net)은 이미 HTTPS를 사용하여 액세스할 수 있습니다. [앱에 대한 사용자 지정 도메인을 구성하는](app-service-web-tutorial-custom-domain.md)경우 클라이언트 브라우저가 사용자 지정 도메인에 대한 보안 HTTPS 연결을 만들 수 있도록 [TLS/SSL 인증서로](configure-ssl-bindings.md) 보호해야 합니다. 앱 서비스에서 지원하는 인증서에는 여러 가지 유형이 있습니다.
 
 - 무료 앱 서비스 관리 인증서
 - 앱 서비스 인증서
 - 타사 인증서
 - Azure 키 자격 증명 모음에서 가져온 인증서
 
-자세한 내용은 [Azure 앱 서비스의 SSL 인증서 추가를](configure-ssl-certificate.md)참조하십시오.
+자세한 내용은 [Azure 앱 서비스에서 TLS/SSL 인증서 추가를](configure-ssl-certificate.md)참조하십시오.
 
 ## <a name="insecure-protocols-http-tls-10-ftp"></a>보안되지 않은 프로토콜(HTTP, TLS 1.0, FTP)
 

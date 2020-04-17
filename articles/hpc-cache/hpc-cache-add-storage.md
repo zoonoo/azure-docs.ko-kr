@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: 3fbc4e683c2b0e72c3a084a59793dbf9eb4b658c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: cecafd9209b095270e9a06ca59ffef162326efc2
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657419"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538004"
 ---
 # <a name="add-storage-targets"></a>스토리지 대상 추가
 
@@ -117,8 +117,6 @@ NFS 저장소 대상은 각 경로가 동일한 저장소 시스템에서 다른
 각 네임스페이스 경로에 대해 다음 값을 채웁니다.
 
 * **가상 네임스페이스 경로** - 이 저장소 대상에 대한 클라이언트 대상 파일 경로를 설정합니다. 가상 네임스페이스 기능에 대해 자세히 알아보려면 [집계된 네임스페이스 구성을](hpc-cache-namespace.md) 읽어보십시오.
-
-<!--  The virtual path should start with a slash ``/``. -->
 
 * **NFS 내보내기 경로** - NFS 내보내기 경로를 입력합니다.
 

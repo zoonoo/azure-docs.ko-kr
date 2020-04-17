@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: rohogue
-ms.openlocfilehash: da260074fc69fac9e98d3698bb2d40fdf80d7118
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57d6a2024cd6fd979426ca5de5e261f110f6156f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77252045"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537953"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Azure 포털에서 캐시 관리
 
@@ -88,13 +88,6 @@ Azure 포털의 캐시 개요 페이지에는 캐시에 대한 프로젝트 세�
 > Azure HPC 캐시는 캐시를 삭제하기 전에 캐시에서 백 엔드 저장소 시스템으로 변경된 데이터를 자동으로 쓰지 않습니다.
 >
 > 캐시의 모든 데이터가 장기 저장소에 기록되었는지 확인하려면 [캐시를](#stop-the-cache) 삭제하기 전에 캐시를 중지합니다. 삭제 단추를 클릭하기 전에 **중지된** 상태가 표시되는지 확인합니다.
-<!--... written to long-term storage, follow this procedure:
->
-> 1. [Remove](hpc-cache-edit-storage.md#remove-a-storage-target) each storage target from the Azure HPC Cache by using the delete button on the Storage targets page. The system automatically writes any changed data from the cache to the back-end storage system before removing the target.
-> 1. Wait for the storage target to be completely removed. The process can take an hour or longer if there is a lot of data to write from the cache. When it is done, a portal notification says that the delete operation was successful, and the storage target disappears from the list.
-> 1. After all affected storage targets have been deleted, it is safe to delete the cache.
->
-> Alternatively, you can use the [flush](#flush-cached-data) option to save cached data, but there is a small risk of losing work if a client writes a change to the cache after the flush completes but before the cache instance is destroyed.-->
 
 ## <a name="cache-metrics-and-monitoring"></a>캐시 메트릭 및 모니터링
 
@@ -106,6 +99,5 @@ Azure 포털의 캐시 개요 페이지에는 캐시에 대한 프로젝트 세�
 
 ## <a name="next-steps"></a>다음 단계
 
-<!-- * Learn more about metrics and statistics for hpc cache -->
 * [Azure 측정항목 및 통계 도구에](../azure-monitor/index.yml) 대해 자세히 알아보기
 * [Azure HPC 캐시에 대한 도움말](hpc-cache-support-ticket.md) 받기

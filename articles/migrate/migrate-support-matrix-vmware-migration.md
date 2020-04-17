@@ -2,13 +2,13 @@
 title: Azure 마이그레이션에서 VM웨어 마이그레이션 지원
 description: Azure 마이그레이션에서 VMware VM 마이그레이션에 대한 지원에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: bf9cc471eef31edd513358a97d2ece17015ba781
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.date: 04/15/2020
+ms.openlocfilehash: eee16b244ae4f9d517bdd42a0b7f37b1494ac480
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314004"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538140"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>VMware 마이그레이션을 위한 지원 매트릭스
 
@@ -64,10 +64,12 @@ ms.locfileid: "81314004"
 
 
 ## <a name="agentless-azure-migrate-appliance"></a>에이전트 없는 Azure 마이그레이션 어플라이언스 
-에이전트 없는 마이그레이션은 VMware VM에 배포된 Azure 마이그레이션 어플라이언스를 사용합니다.
+
+에이전트 없는 마이그레이션은 [Azure 마이그레이션 어플라이언스를](migrate-appliance.md)사용합니다. OVA 템플릿을 사용하거나 vCenter 서버로 가져오거나 [PowerShell 스크립트를](deploy-appliance-script.md)사용하여 어플라이언스를 VMWare VM으로 배포할 수 있습니다.
 
 - VMware의 [어플라이언스 요구 사항에](migrate-appliance.md#appliance---vmware) 대해 알아봅니다.
-- 어플라이언스가 액세스해야 하는 [URL에](migrate-appliance.md#url-access) 대해 알아봅니다.
+- 어플라이언스가 [공용](migrate-appliance.md#public-cloud-urls) 및 [정부](migrate-appliance.md#government-cloud-urls) 클라우드에서 액세스해야 하는 URL에 대해 알아봅니다.
+- Azure 정부에서는 스크립트를 사용하여 어플라이언스를 배포해야 합니다.
 
 ## <a name="agentless-ports"></a>에이전트 없는 포트
 
@@ -123,7 +125,8 @@ Azure 마이그레이션 허브에서 제공 하는 OVA 템플릿을 사용 하 
 
 - VMware의 [복제 어플라이언스 요구 사항에](migrate-replication-appliance.md#appliance-requirements) 대해 알아봅니다.
 - MySQL은 어플라이언스에 설치해야 합니다. 설치 [옵션에](migrate-replication-appliance.md#mysql-installation)대해 자세히 알아봅니다.
-- 복제 어플라이언스에 액세스하는 데 필요한 [URL](migrate-replication-appliance.md#url-access) 및 [포트에](migrate-replication-appliance.md#port-access) 대해 알아봅니다.
+- 복제 어플라이언스가 [공용](migrate-replication-appliance.md#url-access) 및 [정부](migrate-replication-appliance.md#azure-government-url-access) 클라우드에서 액세스해야 하는 URL에 대해 알아봅니다.
+- 복제 어플라이언스가 액세스해야 하는 [포트를](migrate-replication-appliance.md#port-access) 검토합니다.
 
 ## <a name="agent-based-ports"></a>에이전트 기반 포트
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: 6da35cb60dc5f22be01ae25393bd62327db64867
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: ab342dba5c8be2ff3793c0eb36926969b3e364e5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655656"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537290"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC 캐시에 대한 필수 구성 조건
 
@@ -20,9 +20,6 @@ Azure 포털을 사용하여 새 Azure HPC 캐시를 만들기 전에 환경이 
 ## <a name="azure-subscription"></a>Azure 구독
 
 유료 구독을 권장합니다.
-
-> [!NOTE]
-> GA 릴리스의 처음 몇 개월 동안 Azure HPC 캐시 팀은 액세스 목록에 구독을 추가해야 캐시 인스턴스를 만드는 데 사용할 수 있습니다. 이 절차는 각 고객이 캐시에서 고품질 응답을 얻을 수 있도록 하는 데 도움이 됩니다. 액세스를 요청하려면 [이 양식을](https://aka.ms/onboard-hpc-cache) 작성하십시오.
 
 ## <a name="network-infrastructure"></a>네트워크 인프라
 
@@ -84,11 +81,11 @@ Azure 가상 네트워크의 [리소스에 대한 이름 확인에서](https://d
 * 액세스 계층(기본값): **핫**
 
 캐시와 동일한 위치에 저장소 계정을 사용하는 것이 좋습니다.
-<!-- clarify location - same region or same resource group or same virtual network? -->
 
 또한 위의 [사용 권한에](#permissions)언급된 대로 Azure 저장소 계정에 대한 캐시 응용 프로그램 액세스 권한을 부여해야 합니다. 저장소 대상 [추가의](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) 절차를 수행하여 캐시에 필요한 액세스 역할을 제공합니다. 저장소 계정 소유자가 아닌 경우 소유자가 이 단계를 수행해야 합니다.
 
 ### <a name="nfs-storage-requirements"></a>NFS 스토리지 요구 사항
+<!-- linked from configuration.md -->
 
 NFS 스토리지 시스템(예: 온-프레미스 하드웨어 NAS 시스템)을 사용하는 경우 이러한 요구 사항을 충족하는지 확인합니다. 이러한 설정을 확인하려면 저장소 시스템(또는 데이터 센터)에 대해 네트워크 관리자 또는 방화벽 관리자와 협력해야 할 수 있습니다.
 

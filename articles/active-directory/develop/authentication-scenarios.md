@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: e78f822a88b093992f065a509c2250e6a5c0dec2
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 5252fdbbaf425662fc9725e618f8fc450b435722
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885568"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534655"
 ---
 # <a name="authentication-basics"></a>인증 기본 사항
 
@@ -80,16 +80,16 @@ Microsoft ID 플랫폼은 [OAuth 2.0](https://oauth.net/2/) 및 [OpenID Connect�
 
 클라이언트를 빌드하는 방법에 따라 Azure AD에서 지원하는 인증 흐름 중 하나(또는 여러 개)를 사용할 수 있습니다. 이러한 흐름은 권한 부여 코드뿐만 아니라 다양한 토큰(id_tokens, 새로 고침 토큰, 액세스 토큰)을 생성할 수 있으며 작동하도록 하기 위해 다른 토큰이 필요합니다. 이 차트는 개요를 제공합니다.
 
-|흐름 | 필요 | id_token | 액세스 토큰 | 토큰 새로 고침 | 인증 코드 | 
+|흐름 | 필요 | id_token | 액세스 토큰 | 토큰 새로 고침 | 인증 코드 |
 |-----|----------|----------|--------------|---------------|--------------------|
-|[권한 부여 코드 흐름](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[권한 부여 코드 흐름](v2-oauth2-auth-code-flow.md) | | x | x | x | x|
 |[암시적 흐름](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
 |[하이브리드 OIDC 흐름](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
 |[토큰 사용 새로 고침](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | 토큰 새로 고침 | x | x | x| |
 |[흐름을 대신하여](v2-oauth2-on-behalf-of-flow.md) | 액세스 토큰| x| x| x| |
 |[클라이언트 자격 증명](v2-oauth2-client-creds-grant-flow.md) | | | x(앱 전용)| | |
 
-암시적 모드를 통해 발급된 토큰은 URL(위치 `response_mode` `query` 또는 `fragment`있음)을 통해 브라우저로 다시 전달되기 때문에 길이 제한이 있습니다.  일부 브라우저는 브라우저 표시줄에 넣을 수 있는 URL의 크기에 제한이 있으며 너무 길면 실패합니다.  따라서 이러한 토큰에는 `groups` `wids` 클레임이 없거나 클레임이 없습니다. 
+암시적 모드를 통해 발급된 토큰은 URL(위치 `response_mode` `query` 또는 `fragment`있음)을 통해 브라우저로 다시 전달되기 때문에 길이 제한이 있습니다.  일부 브라우저는 브라우저 표시줄에 넣을 수 있는 URL의 크기에 제한이 있으며 너무 길면 실패합니다.  따라서 이러한 토큰에는 `groups` `wids` 클레임이 없거나 클레임이 없습니다.
 
 기본 사항에 대한 개요를 읽고 ID 앱 모델 및 API를 이해하고 Azure AD에서 프로비저닝이 작동하는 방식을 알아보고 Azure AD가 지원하는 일반적인 시나리오에 대한 자세한 정보에 대한 링크를 가져옵니다.
 
@@ -126,7 +126,7 @@ Microsoft ID 플랫폼:
 
 Microsoft ID 플랫폼에서 [응용 프로그램 개체는](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-object) 응용 프로그램을 설명합니다. 배포 시 Microsoft ID 플랫폼은 응용 프로그램 개체를 청사진으로 사용하여 디렉터리 또는 테넌트 내에서 응용 프로그램의 구체적인 인스턴스를 나타내는 [서비스 주체를](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#service-principal-object)만듭니다. 서비스 주체는 앱이 실제로 특정 대상 디렉터리에서 수행할 수 있는 일, 사용할 수 있는 사용자, 액세스할 수 있는 리소스 등을 정의합니다. Microsoft ID 플랫폼은 **동의를**통해 응용 프로그램 개체에서 서비스 주체를 만듭니다.
 
-다음 다이어그램에는 동의를 통해 구동되는 간소화된 Microsoft ID 플랫폼 프로비저닝 흐름이 나와 있습니다. A와 B. 테넌트 A가 응용 프로그램을 소유하는 두 개의 테넌트를 보여 주십습니다. 테넌트 B는 서비스 주체를 통해 응용 프로그램을 인스턴스화합니다.  
+다음 다이어그램에는 동의를 통해 구동되는 간소화된 Microsoft ID 플랫폼 프로비저닝 흐름이 나와 있습니다. A와 B. 테넌트 A가 응용 프로그램을 소유하는 두 개의 테넌트를 보여 주십습니다. 테넌트 B는 서비스 주체를 통해 응용 프로그램을 인스턴스화합니다.
 
 ![동의를 통해 구동되는 간소화된 프로비전 흐름](./media/authentication-scenarios/simplified-provisioning-flow-consent-driven.svg)
 
@@ -160,7 +160,7 @@ Microsoft ID 플랫폼에서 [응용 프로그램 개체는](https://docs.micros
 
 ### <a name="how-a-web-app-determines-if-the-user-is-authenticated"></a>웹 앱이 사용자가 인증되는지 여부를 결정하는 방법
 
-웹 앱 개발자는 전체 또는 특정 페이지에 인증이 필요한지 여부를 나타낼 수 있습니다. 예를 들어 ASP.NET/ASP.NET 이 작업은 컨트롤러 작업에 `[Authorize]` 특성을 추가하여 수행됩니다. 
+웹 앱 개발자는 전체 또는 특정 페이지에 인증이 필요한지 여부를 나타낼 수 있습니다. 예를 들어 ASP.NET/ASP.NET 이 작업은 컨트롤러 작업에 `[Authorize]` 특성을 추가하여 수행됩니다.
 
 이 특성으로 인해 ASP.NET 사용자의 ID를 포함하는 세션 쿠키의 존재를 확인합니다. 쿠키가 없는 경우 ASP.NET 지정된 ID 공급자에게 인증을 리디렉션합니다. ID 공급자가 Azure AD인 경우 웹 앱은 `https://login.microsoftonline.com`인증을 로 리디렉션하여 로그인 대화 상자를 표시합니다.
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 3b1fc5dc427a8a9a1987b0ef916b99edb25e292a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dc30318027962247f7504b734385d7642550ec87
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063972"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536355"
 ---
 # <a name="reuse-environments-for-training-and-deployment-by-using-azure-machine-learning"></a>Azure 기계 학습을 사용하여 교육 및 배포를 위한 환경 재사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -141,7 +141,7 @@ Conda, pip 또는 개인 휠 파일을 사용하여 환경에 패키지를 추�
 
 Conda 패키지 리포지토리에서 패키지를 사용할 수 있는 경우 pip 설치 대신 Conda 설치를 사용하는 것이 좋습니다. Conda 패키지에는 일반적으로 설치의 신뢰성을 높이는 사전 제작된 바이너리가 함께 제공됩니다.
 
-다음 예제는 환경에 추가합니다. 의 버전 0.21.3을 `scikit-learn`추가합니다. 또한 `pillow` 패키지를 `myenv`추가합니다. 이 예제에서는 [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-) 메서드와 [`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-) 메서드를 각각 사용합니다.
+다음 예제는 환경에 추가합니다. 의 버전 1.17.0을 `numpy`추가합니다. 또한 `pillow` 패키지를 `myenv`추가합니다. 이 예제에서는 [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-) 메서드와 [`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-) 메서드를 각각 사용합니다.
 
 ```python
 from azureml.core.environment import Environment
@@ -150,8 +150,11 @@ from azureml.core.conda_dependencies import CondaDependencies
 myenv = Environment(name="myenv")
 conda_dep = CondaDependencies()
 
-# Installs scikit-learn version 0.21.3 conda package
-conda_dep.add_conda_package("scikit-learn==0.21.3")
+# Installs numpy version 1.17.0 conda package
+conda_dep.add_conda_package("numpy==1.17.0")
+
+# Installs pillow package
+conda_dep.add_pip_package("pillow")
 
 # Adds dependencies to PythonSection of myenv
 myenv.python.conda_dependencies=conda_dep

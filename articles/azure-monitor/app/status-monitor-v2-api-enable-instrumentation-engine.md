@@ -5,18 +5,18 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: b3f298ac31cc584cd16553186359c87f69f27aad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70102395b94c89d4ce0edfddeda1df0be0e2f216
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671360"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536763"
 ---
 # <a name="application-insights-agent-api-enable-instrumentationengine"></a>애플리케이션 인사이트 에이전트 API: 인에이블-계측엔진
 
 이 문서에서는 [Az.ApplicationMonitor PowerShell 모듈의](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)구성원인 cmdlet에 대해 설명합니다.
 
-## <a name="description"></a>설명
+## <a name="description"></a>Description
 
 일부 레지스트리 키를 설정하여 계측 엔진을 활성화합니다.
 변경 사항이 적용되면 IIS를 다시 시작합니다.
@@ -44,7 +44,7 @@ PS C:\> Enable-InstrumentationEngine
 ## <a name="parameters"></a>매개 변수
 
 ### <a name="-acceptlicense"></a>- 수락라이센스
-**선택적.** 이 스위치를 사용하여 헤드리스 설치에서 라이선스 및 개인 정보 취급 방침을 수락합니다.
+**(선택 사항)** 이 스위치를 사용하여 헤드리스 설치에서 라이선스 및 개인 정보 취급 방침을 수락합니다.
 
 ### <a name="-verbose"></a>-Verbose
 **공통 매개 변수입니다.** 이 스위치를 사용하여 자세한 로그를 출력합니다.
@@ -62,7 +62,7 @@ Configuring registry for instrumentation engine...
 ## <a name="next-steps"></a>다음 단계
 
   원격 분석 보기:
- - [메트릭을 탐색하여](../../azure-monitor/app/metrics-explorer.md) 성능 및 사용량을 모니터링합니다.
+ - [메트릭을 탐색하여](../../azure-monitor/platform/metrics-charts.md) 성능 및 사용량을 모니터링합니다.
 - [이벤트 및 로그를 검색하여](../../azure-monitor/app/diagnostic-search.md) 문제를 진단합니다.
 - 고급 쿼리에 [대한 분석을](../../azure-monitor/app/analytics.md) 사용합니다.
 - [대시보드를 만듭니다.](../../azure-monitor/app/overview-dashboard.md)

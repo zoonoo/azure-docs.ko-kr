@@ -1,7 +1,7 @@
 ---
 title: Azure Active 디렉토리 B2CLearn과 함께 MSAL 사용 | Azure
 titleSuffix: Microsoft identity platform
-description: 자바 스크립트에 대 한 Microsoft 인증 라이브러리 (MSAL.js) 응용 프로그램 Azure AD B2C와 함께 작동 하 고 보안된 웹 API를 호출 하는 토큰을 획득 할 수 있습니다. 이러한 웹 API에는 Microsoft Graph, 기타 Microsoft API, 타사 웹 API 또는 사용자의 웹 API가 있습니다.
+description: 자바 스크립트에 대 한 Microsoft 인증 라이브러리 (MSAL.js) 응용 프로그램 Azure AD B2C와 함께 작동 하 고 보안 된 웹 API를 호출 하는 토큰을 획득 할 수 있습니다. 이러한 웹 API에는 Microsoft Graph, 기타 Microsoft API, 타사 웹 API 또는 사용자의 웹 API가 있습니다.
 services: active-directory
 author: negoe
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 09/16/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: dc8a330bc09f37f7941534ed7c17d1ffd14d08c5
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 8e076dfd6670265d458eb35d8e1b3e4500009a12
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80875965"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534485"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-active-directory-b2c"></a>자바 스크립트에 대 한 마이크로소프트 인증 라이브러리를 사용 하 여 Azure 활성 디렉토리 B2C와 함께 작동
 
@@ -37,7 +37,7 @@ ms.locfileid: "80875965"
 - 웹 API를 보호하는 방법을 확인할 수 있습니다.
 - 단일 페이지 응용 프로그램을 등록하여 해당 *웹* API를 인증하고 호출하는 방법.
 
-## <a name="nodejs-web-api"></a>노드.js 웹 API
+## <a name="nodejs-web-api"></a>Node.js Web API
 
 > [!NOTE]
 > 현재 노드에 대한 MSAL.js는 아직 개발 [중입니다(로드맵](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)참조). 한편 Microsoft에서 개발하고 지원하는 Node.js에 대한 인증 라이브러리인 [여권 azure-ad를](https://github.com/AzureAD/passport-azure-ad)사용하는 것이 좋습니다.
@@ -63,7 +63,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 2. 응용 프로그램을 등록하는 동안 이전에 얻은 응용 프로그램 자격 증명으로 샘플을 구성합니다. 값을 clientID, 호스트, tenantId 및 정책 이름의 이름으로 대체하여 다음 코드 줄을 변경합니다.
 
 ```JavaScript
-const clientID = "<Application ID for your Node.js Web API - found on Properties page in Azure portal e.g. 93733604-cc77-4a3c-a604-87084dd55348>";
+const clientID = "<Application ID for your Node.js web API - found on Properties page in Azure portal e.g. 93733604-cc77-4a3c-a604-87084dd55348>";
 const b2cDomainHost = "<Domain of your B2C host eg. fabrikamb2c.b2clogin.com>";
 const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can use your Directory (tenant) ID (GUID)
 const policyName = "<Name of your sign in / sign up policy, e.g. B2C_1_signupsignin1>";
@@ -104,7 +104,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
     // The current application coordinates were pre-registered in a B2C tenant.
     const apiConfig = {
         b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"], //API scopes you exposed during api registration
-        webApi: "https://fabrikamb2chello.azurewebsites.net/hello" 
+        webApi: "https://fabrikamb2chello.azurewebsites.net/hello"
     };
    ```
 

@@ -3,12 +3,12 @@ title: Azure 응용 프로그램 인사이트에서 원격 분석 분리
 description: 개발, 테스트 및 프로덕션 스탬프에 대한 다양한 리소스에 직접 원격 분석
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 3580d162f4b3955a04ffcd0f13933221bfef3b65
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 565d51751ad50479f4e227b6855ac63b80bd949e
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671463"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536780"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>개발, 테스트 및 프로덕션의 원격 분석 구분
 
@@ -34,7 +34,7 @@ ms.locfileid: "77671463"
 
 ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설정합니다.
 
-*C #*
+*C#*
 
     protected void Application_Start()
     {
@@ -69,7 +69,7 @@ iKey는 [빠른 시작 블레이드에서 얻은 스크립트에서](../../azure
 
 ![새로 만들기, Application Insights 클릭](./media/separate-resources/01-new.png)
 
-* **애플리케이션 유형**은 개요 블레이드에 표시되는 내용 및 [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md)에서 사용할 수 있는 속성에 영향을 줍니다. 앱 유형이 표시되지 않으면 웹 페이지에 대해 웹 유형 중 하나를 선택합니다.
+* **애플리케이션 유형**은 개요 블레이드에 표시되는 내용 및 [메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md)에서 사용할 수 있는 속성에 영향을 줍니다. 앱 유형이 표시되지 않으면 웹 페이지에 대해 웹 유형 중 하나를 선택합니다.
 * **리소스 그룹은** [액세스 제어](../../azure-monitor/app/resources-roles-access-control.md)와 같은 속성을 관리하기 위한 편리함입니다. 개발, 테스트 및 프로덕션 환경에 대 한 별도 리소스 그룹을 사용할 수 있습니다.
 * **구독** 은 Azure의 지불 계정입니다.
 * **위치** 는 데이터를 보관하는 곳입니다. 현재는 변경할 수 없습니다. 
@@ -89,7 +89,7 @@ PowerShell [스크립트를](https://docs.microsoft.com/azure/azure-monitor/app/
 ## <a name="filter-on-build-number"></a>빌드 번호 필터링
 앱의 새 버전을 게시하면서 다른 빌드의 원격 분석을 구분하고자 할 수 있습니다.
 
-애플리케이션 버전 속성을 설정하여 [검색](../../azure-monitor/app/diagnostic-search.md) 및 [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md) 결과를 필터링할 수 있습니다.
+애플리케이션 버전 속성을 설정하여 [검색](../../azure-monitor/app/diagnostic-search.md) 및 [메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md) 결과를 필터링할 수 있습니다.
 
 ![속성 필터링](./media/separate-resources/050-filter.png)
 
@@ -139,7 +139,7 @@ PowerShell [스크립트를](https://docs.microsoft.com/azure/azure-monitor/app/
     </PropertyGroup>
 ```
 
-빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **애플리케이션 버전**을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색](../../azure-monitor/app/diagnostic-search.md)을 수행하거나 [메트릭을 탐색](../../azure-monitor/app/metrics-explorer.md)할 때 버전을 기준으로 필터링할 수 있습니다.
+빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **애플리케이션 버전**을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색](../../azure-monitor/app/diagnostic-search.md)을 수행하거나 [메트릭을 탐색](../../azure-monitor/platform/metrics-charts.md)할 때 버전을 기준으로 필터링할 수 있습니다.
 
 그러나 빌드 버전 번호는 Visual Studio의 개발자 빌드가 아닌 Microsoft 빌드 엔진에서만 생성됩니다.
 

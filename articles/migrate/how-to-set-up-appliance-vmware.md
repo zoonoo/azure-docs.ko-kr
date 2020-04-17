@@ -2,21 +2,26 @@
 title: VMware용 Azure 마이그레이션 어플라이언스 설정
 description: VMware VM을 평가하고 마이그레이션하기 위해 Azure 마이그레이션 어플라이언스를 설정하는 방법에 대해 알아봅니다.
 ms.topic: article
-ms.date: 03/23/2020
-ms.openlocfilehash: 7a7d0007d2824abc781411f9529f9fa4ac89e55c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: b32c6a9b703e4d341fe353d6b472ea7a18adadf3
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336787"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538259"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>VMware VM용 어플라이언스 설정
 
-이 문서에서는 [Azure Migrate:Server 평가](migrate-services-overview.md#azure-migrate-server-assessment-tool) 도구를 사용하여 평가를 위해 Azure 마이그레이션 어플라이언스를 설정하고 [Azure Migrate:Server 마이그레이션](migrate-services-overview.md#azure-migrate-server-migration-tool) 도구를 사용하는 에이전트 없는 마이그레이션에 대해 설명합니다.
+이 문서에 따라 [Azure Migrate:Server 평가](migrate-services-overview.md#azure-migrate-server-assessment-tool) 도구를 사용하여 평가를 위한 Azure 마이그레이션 어플라이언스를 설정하고 [Azure Migrate:Server 마이그레이션](migrate-services-overview.md#azure-migrate-server-migration-tool) 도구를 사용하는 에이전트 없는 마이그레이션을 설정합니다.
 
 [Azure 마이그레이션 어플라이언스는](migrate-appliance.md) Azure Migrate:Server 평가 및 서버 마이그레이션에서 온-프레미스 VM을 검색하고, VM 메타데이터/성능 데이터를 Azure로 보내고, 에이전트 없는 마이그레이션 중에 VM웨어 VM을 복제하는 데 사용되는 경량 어플라이언스입니다.
 
-다운로드하는 OVA 템플릿을 사용하거나 PowerShell 설치 스크립트를 사용하여 VMware VM 평가에 대한 Azure 마이그레이션 어플라이언스를 설정할 수 있습니다. 이 문서에서는 OVA 템플릿을 사용하여 어플라이언스를 설정하는 방법에 대해 설명합니다. 스크립트를 사용하여 어플라이언스를 설정하려면 [이 문서의](deploy-appliance-script.md)지침을 따르십시오.
+다음 몇 가지 방법을 사용하여 어플라이언스를 배포할 수 있습니다.
+
+- 다운로드한 OVA 템플릿을 사용하여 VMware VM에 설정합니다. 이 문서에서 설명하는 방법입니다.
+- PowerShell 설치 관리자 스크립트를 통해 VMware VM 또는 실제 컴퓨터에 설정합니다. OVA 템플릿을 사용하여 VM을 설정할 수 없거나 Azure 정부에 있는 경우 [이 메서드를](deploy-appliance-script.md) 사용해야 합니다.
+
+어플라이언스가 만들어지면 Azure Migrate:Server Assessment에 연결하여 처음으로 구성하고, Azure Migrate 프로젝트에 등록할 수 있는지 확인합니다.
 
 
 ## <a name="appliance-deployment-ova"></a>어플라이언스 배포(OVA)
@@ -28,7 +33,7 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 
 ## <a name="download-the-ova-template"></a>OVA 템플릿 다운로드
 
-1. **마이그레이션 목표** > **서버 Azure** > **마이그레이션: 서버 평가**, **검색**을 클릭합니다.
+1. **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 평가**에서 **검색**을 클릭합니다.
 2. **검색 컴퓨터에서** > **컴퓨터가 가상화되어 있습니까?** **Yes, with VMWare vSphere hypervisor**
 3. **다운로드**를 클릭하여 .OVA 템플릿 파일을 다운로드합니다.
 
@@ -53,7 +58,7 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 1. vSphere 클라이언트 콘솔에서 **OVF** > **템플릿 파일 배포를**클릭합니다.
 ![OVF 템플릿을 배포하는 메뉴 명령](./media/tutorial-assess-vmware/deploy-ovf.png)
 
-2. OVF 템플릿 배포 마법사 > **소스에서**OVA 파일의 위치를 지정합니다.
+2. OVF 템플릿 배포 마법사 > **원본**에서 OVA 파일의 위치를 지정합니다.
 3. **이름** 및 **위치**에서 친숙한 VM 이름을 지정합니다. VM을 호스팅할 인벤토리 개체를 선택합니다.
 5. **호스트/클러스터**에서 VM이 실행될 호스트 또는 클러스터를 지정합니다.
 6. **스토리지**에서 VM에 대한 스토리지 대상을 지정합니다.
@@ -62,9 +67,9 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 9. 설정을 검토 및 확인한 다음 **마침**을 클릭합니다.
 
 
-### <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
+## <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
 
-어플라이언스 VM에서 [Azure URL](migrate-appliance.md#url-access)에 연결할 수 있는지 확인합니다.
+어플라이언스 VM이 [공용](migrate-appliance.md#public-cloud-urls) 및 [정부](migrate-appliance.md#government-cloud-urls) 클라우드에 대한 Azure URL에 연결할 수 있는지 확인합니다.
 
 
 ## <a name="configure-the-appliance"></a>어플라이언스 구성
@@ -73,12 +78,12 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 
 1. vSphere Client 콘솔에서 VM > **Open Console**을 마우스 오른쪽 단추로 클릭합니다.
 2. 어플라이언스에 대한 언어, 표준 시간대 및 암호를 제공합니다.
-3. VM에 연결할 수 있는 모든 컴퓨터에서 브라우저를 열고 어플라이언스 웹 앱의 URL을 엽니다: **https://*어플라이언스 이름 또는 IP 주소:* 44368**.
+3. VM에 연결할 수 있는 모든 머신에서 브라우저를 열고, 어플라이언스 웹앱의 URL(**https://*어플라이언스 이름 또는 IP 주소*: 44368**)을 엽니다.
 
    또는 앱 바로 가기를 클릭하여 어플라이언스 데스크톱에서 앱을 열 수 있습니다.
 4. 웹앱 > **필수 구성 요소 설정**에서 다음을 수행합니다.
-    - **라이센스**: 라이센스 약관을 수락하고 타사 정보를 읽습니다.
-    - **연결**: 앱에서 VM에 인터넷에 액세스할 수 있도록 합니다. VM에서 프록시를 사용하는 경우:
+    - **라이선스**: 사용 조건에 동의하고 타사 정보를 읽습니다.
+    - **연결**: 앱에서 VM이 인터넷에 액세스할 수 있는지 확인합니다. VM에서 프록시를 사용하는 경우:
         - **프록시 설정**을 클릭하고, 프록시 주소와 수신 포트를 http://ProxyIPAddress 또는 http://ProxyFQDN 형식으로 지정합니다.
         - 프록시에 인증이 필요한 경우 자격 증명을 지정합니다.
         - HTTP 프록시만 지원됩니다.
@@ -90,7 +95,7 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 
 ## <a name="register-the-appliance-with-azure-migrate"></a>Azure Migrate를 사용하여 어플라이언스 등록
 
-1. **Log In(로그인)** 을 클릭합니다. 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
+1. **로그인**을 클릭합니다. 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
 2. 새로 만들기 탭에서 Azure 자격 증명을 사용하여 로그인합니다.
     - 사용자 이름과 암호를 사용하여 로그인합니다.
     - PIN을 사용한 로그인은 지원되지 않습니다.
@@ -106,7 +111,7 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 
 ### <a name="specify-vcenter-server-details"></a>vCenter Server 세부 정보 지정
 1. **vCenter Server 세부 정보 지정**에서 vCenter Server의 이름(FQDN) 또는 IP 주소를 지정합니다. 기본 포트를 그대로 유지하거나 vCenter Server에서 수신하는 사용자 지정 포트를 지정할 수 있습니다.
-2. **사용자 이름** 및 **암호**에서 어플라이언스가 vCenter Server에서 VM을 검색하는 데 사용할 읽기 전용 계정 자격 증명을 지정합니다. 검색 범위는 vCenter 계정에 대한 액세스를 제한하여 지정할 수 있습니다. [자세히 알아봅니다](set-discovery-scope.md).
+2. **사용자 이름** 및 **암호**에서 어플라이언스가 vCenter Server에서 VM을 검색하는 데 사용할 읽기 전용 계정 자격 증명을 지정합니다. 검색 범위는 vCenter 계정에 대한 액세스를 제한하여 지정할 수 있습니다. [자세히 알아보기](set-discovery-scope.md).
 3. **연결 유효성 검사**를 클릭하여 어플라이언스에서 vCenter Server에 연결할 수 있는지 확인합니다.
 
 ### <a name="specify-vm-credentials"></a>VM 자격 증명 지정

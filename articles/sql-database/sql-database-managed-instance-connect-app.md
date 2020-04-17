@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 9f592c345b7cfcf5f21d816fde1fae6b8e6b98c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d920fb7815e5a9fe30d8f3b4e40f36133d83222
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73823392"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538089"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>애플리케이션을 Azure SQL Database 관리형 인스턴스에 연결
 
@@ -133,6 +133,8 @@ Managed Instance는 개인 IP 주소를 통해서만 액세스할 수 있습니�
 
 - VNet 피어링을 사용하는 경우 [게이트웨이 전송 허용 및 원격 게이트웨이 사용](#connect-from-on-premises-with-vnet-peering) 설정을 위한 지침을 따랐는지 확인합니다.
 
+- VNet 피어링을 사용하여 Azure App Service 호스팅 응용 프로그램을 연결하고 관리되는 인스턴스 VNet에 공용 IP 주소 범위가 있는 경우 호스팅된 응용 프로그램 설정을 통해 아웃바운드 트래픽을 공용 IP 네트워크로 라우팅할 수 있도록 해야 합니다. [지역 VNet 통합의](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)지침을 따릅니다.
+
 ## <a name="required-versions-of-drivers-and-tools"></a>드라이버 및 도구의 필요한 버전
 
 Managed Instance에 연결하려면 다음과 같은 버전 이상의 도구와 드라이버를 사용하는 것이 좋습니다.
@@ -146,7 +148,7 @@ Managed Instance에 연결하려면 다음과 같은 버전 이상의 도구와 
 |Node.js 드라이버| 2.1.1 |
 |OLEDB 드라이버| 18.0.2.0 |
 |SSMS| 18.0 [이상](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
-|[Smo](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) 이상 |
+|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) 이상 |
 
 ## <a name="next-steps"></a>다음 단계
 

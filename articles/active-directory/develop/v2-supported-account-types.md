@@ -12,18 +12,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a6c9ccb3dc29865c790e5d8cc9cfc35e68f5561d
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b3b0114bb5d545755fe59c49605d6def341d2275
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886146"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535777"
 ---
 # <a name="supported-account-types"></a>지원되는 계정 유형
 
 이 문서에서는 응용 프로그램에서 지원되는 계정 유형(때로는 명명된 대상)에 대해 설명합니다.
 
-<!-- This section can be in an include for many of the scenarios (SPA, Web App signing-in users, protecting a Web API, Desktop (depending on the flows), Mobile -->
+<!-- This section can be in an include for many of the scenarios (SPA, web app signing-in users, protecting a web API, Desktop (depending on the flows), Mobile -->
 
 ## <a name="supported-accounts-types-in-microsoft-identity-platform-applications"></a>Microsoft ID 플랫폼 애플리케이션에서 지원하는 계정 유형
 
@@ -44,7 +44,7 @@ Microsoft Azure 퍼블릭 클라우드에서는 대부분의 앱 유형이 모�
 
 일부 계정 유형은 특정 인증 흐름에 사용할 수 없습니다. 예를 들어 데스크톱, UWP 애플리케이션 또는 디먼 애플리케이션은 다음과 같습니다.
 
-- 디먼 애플리케이션은 Azure Active Directory 조직에만 사용할 수 있습니다. 디먼 애플리케이션을 사용하여 Microsoft 개인 계정을 조작할 수 없습니다(관리자 동의를 절대 얻을 수 없음).  
+- 디먼 애플리케이션은 Azure Active Directory 조직에만 사용할 수 있습니다. 디먼 애플리케이션을 사용하여 Microsoft 개인 계정을 조작할 수 없습니다(관리자 동의를 절대 얻을 수 없음).
 - 소속 조직 또는 타 조직의 회사 또는 학교 계정에 Windows 통합 인증 흐름만 사용할 수 있습니다. 실제로 Windows 통합 인증은 도메인 계정과 호환되며, 머신을 도메인 또는 Azure AD에 조인해야 합니다. 이 흐름에는 Microsoft 개인 계정이 적합하지 않습니다.
 - [리소스 소유자 암호 권한 부여](./v2-oauth-ropc.md)(사용자 이름/암호)는 Microsoft 개인 계정에 사용할 수 없습니다. 실제로 Microsoft 개인 계정을 사용하려면 사용자가 각 로그인 세션에서 개인 리소스 액세스에 동의해야 합니다. 그렇기 때문에 이 동작은 비 대화형 흐름과 호환되지 않습니다.
 - 디바이스 코드 흐름은 아직 Microsoft 개인 계정과 호환되지 않습니다.

@@ -5,18 +5,18 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 8bbdc96a49fffc91f80d24a9eb0926766f86ee16
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5d66c5c21f7491e3bdc6bb70f693c3b98bf62dd
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671310"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536746"
 ---
 # <a name="application-insights-agent-api-enable-applicationinsightsmonitoring"></a>애플리케이션 인사이트 에이전트 API: 인에이블-애플리케이션 인사이트 모니터링
 
 이 문서에서는 [Az.ApplicationMonitor PowerShell 모듈의](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)구성원인 cmdlet에 대해 설명합니다.
 
-## <a name="description"></a>설명
+## <a name="description"></a>Description
 
 대상 컴퓨터에서 IIS 앱을 코드 없이 첨부모니터링할 수 있습니다.
 
@@ -45,7 +45,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ```
 
 ### <a name="example-with-an-instrumentation-key-map"></a>계측 키 맵의 예
-이 예제에 대한 설명:
+이 예제에서:
 - `MachineFilter`와일드카드를 사용하여 현재 `'.*'` 컴퓨터와 일치합니다.
 - `AppFilter='WebAppExclude'`계측 `null` 키를 제공합니다. 지정된 앱은 계측되지 않습니다.
 - `AppFilter='WebAppOne'`지정된 앱에 고유한 계측 키를 할당합니다.
@@ -89,12 +89,12 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 
 
 ### <a name="-enableinstrumentationengine"></a>-인에이블계측 엔진
-**선택적.** 이 스위치를 사용하여 계측 엔진이 관리되는 프로세스를 실행하는 동안 발생하는 일에 대한 이벤트 및 메시지를 수집할 수 있습니다. 이러한 이벤트 및 메시지에는 종속성 결과 코드, HTTP 동사 및 SQL 명령 텍스트가 포함됩니다.
+**(선택 사항)** 이 스위치를 사용하여 계측 엔진이 관리되는 프로세스를 실행하는 동안 발생하는 일에 대한 이벤트 및 메시지를 수집할 수 있습니다. 이러한 이벤트 및 메시지에는 종속성 결과 코드, HTTP 동사 및 SQL 명령 텍스트가 포함됩니다.
 
 계측 엔진은 오버헤드를 추가하고 기본적으로 꺼져 있습니다.
 
 ### <a name="-acceptlicense"></a>- 수락라이센스
-**선택적.** 이 스위치를 사용하여 헤드리스 설치에서 라이선스 및 개인 정보 취급 방침을 수락합니다.
+**(선택 사항)** 이 스위치를 사용하여 헤드리스 설치에서 라이선스 및 개인 정보 취급 방침을 수락합니다.
 
 ### <a name="-ignoresharedconfig"></a>-무시공유구성
 웹 서버 클러스터가 있는 경우 [공유 구성을](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211)사용하고 있을 수 있습니다.
@@ -147,7 +147,7 @@ Successfully enabled Application Insights Status Monitor
 ## <a name="next-steps"></a>다음 단계
 
   원격 분석 보기:
- - [메트릭을 탐색하여](../../azure-monitor/app/metrics-explorer.md) 성능 및 사용량을 모니터링합니다.
+ - [메트릭을 탐색하여](../../azure-monitor/platform/metrics-charts.md) 성능 및 사용량을 모니터링합니다.
 - [이벤트 및 로그를 검색하여](../../azure-monitor/app/diagnostic-search.md) 문제를 진단합니다.
 - 고급 쿼리에 [애널리틱스를 사용합니다.](../../azure-monitor/app/analytics.md)
 - [대시보드를 만듭니다.](../../azure-monitor/app/overview-dashboard.md)

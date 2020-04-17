@@ -4,12 +4,12 @@ description: Azure 마이그레이션 서비스에 대한 지원 설정 및 제�
 ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: raynew
-ms.openlocfilehash: bf719f9179384ec3dca99d2429f569ef209b5daa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f766bf95bb7e26d942e7dde3f315bbef6d5dc5c
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80127715"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535199"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure 마이그레이션 지원 매트릭스
 
@@ -30,7 +30,7 @@ Azure 마이그레이션 [서비스를](migrate-overview.md) 사용하여 컴퓨
 
 특정 도구 지원은 표에 요약되어 있습니다.
 
-**도구** | **평가** | **마이그레이션할** 
+**도구** | **평가** | **마이그레이션** 
 --- | --- | ---
 Azure Migrate 서버 평가 | [VMware VM,](tutorial-prepare-vmware.md) [하이퍼 VM](tutorial-prepare-hyper-v.md)및 [물리적 서버를 평가합니다.](tutorial-prepare-physical.md) |  사용할 수 없음(NA)
 Azure Migrate 서버 마이그레이션 | 해당 없음 | [VM웨어 VM,](tutorial-migrate-vmware.md) [하이퍼 VM](tutorial-migrate-hyper-v.md)및 [물리적 서버를 마이그레이션합니다.](tutorial-migrate-physical-virtual-machines.md)
@@ -63,19 +63,18 @@ Hyper-V VM    | 단일 프로젝트에서 최대 35,000개의 Hyper-V VM을 평�
 
 Azure 마이그레이션을 위해 Azure를 사용하려면 컴퓨터 평가 및 마이그레이션을 시작하기 전에 이러한 권한이 필요합니다.
 
-**작업** | **권한을** | **세부 정보**
+**Task** | **사용 권한** | **세부 정보**
 --- | --- | ---
 Azure Migrate 프로젝트 만들기 | Azure 계정에는 프로젝트를 만들 수 있는 권한이 필요합니다. | [VMware,](tutorial-prepare-vmware.md#assign-permissions-to-create-project) [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project)또는 물리적 서버에 대해 [설정합니다.](tutorial-prepare-physical.md#assign-permissions-to-create-project)
 Azure Migrate 어플라이언스 등록| Azure Migrate는 간단한 [Azure 마이그레이션 어플라이언스를](migrate-appliance.md) 사용하여 Azure 마이그레이션 서버 평가를 사용하여 컴퓨터를 평가하고 Azure 마이그레이션 서버 마이그레이션을 사용하여 VM웨어 VM의 [에이전트 없는 마이그레이션을](server-migrate-overview.md) 실행합니다. 이 어플라이언스는 컴퓨터를 검색하고 메타데이터 및 성능 데이터를 Azure Migrate로 보냅니다.<br/><br/> 등록 하는 동안 등록 공급자 (Microsoft.OffAzure, Microsoft.Migrate 및 Microsoft.KeyVault) 응용 프로그램에서 선택 된 구독에 등록 됩니다., 구독 리소스 공급자와 함께 작동 되도록. 등록하려면 구독에 기여자 또는 소유자 액세스가 필요합니다.<br/><br/> **VMware**-온보딩 하는 동안 Azure 마이그레이션 두 개의 Azure Active Directory (Azure AD) 앱을 만듭니다. 첫 번째 앱은 어플라이언스 에이전트와 Azure 마이그레이션 서비스 간에 통신합니다. 앱에는 Azure 리소스 관리 호출을 하거나 리소스에 대한 RBAC 액세스 권한을 가질 수 있는 권한이 없습니다. 두 번째 앱은 에이전트 없는 VMware 마이그레이션에 대해서만 사용자 구독에서 만든 Azure 키 볼트에 액세스합니다. 에이전트 없는 마이그레이션에서 Azure Migrate는 키 볼트를 만들어 구독의 복제 저장소 계정에 대한 액세스 키를 관리합니다. 어플라이언스에서 검색을 시작할 때 Azure 키 자격 증명 모음(고객 테넌트)에서 RBAC 액세스 권한이 있습니다.<br/><br/> **하이퍼-V**-온보딩 중. Azure 마이그레이션은 하나의 Azure AD 앱을 만듭니다. 앱은 어플라이언스 에이전트와 Azure 마이그레이션 서비스 간에 통신합니다. 앱에는 Azure 리소스 관리 호출을 하거나 리소스에 대한 RBAC 액세스 권한을 가질 수 있는 권한이 없습니다. | [VMware,](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance) [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-register-the-appliance)또는 물리적 서버에 대해 [설정합니다.](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance)
 VMware 에이전트 없는 마이그레이션을 위한 키 자격 증명 모음 만들기 | 에이전트가 없는 Azure 마이그레이션 서버 마이그레이션을 사용하여 VMware VM을 마이그레이션하기 위해 Azure Migrate는 키 자격 증명 모음을 만들어 구독의 복제 저장소 계정에 대한 액세스 키를 관리합니다. 볼트를 만들려면 Azure Migrate 프로젝트가 있는 리소스 그룹에 사용 권한(소유자 또는 기여자 및 사용자 액세스 관리자)을 설정합니다. | 사용 권한을 [설정합니다.](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault)
 
-## <a name="supported-geographies"></a>지원되는 지역
+## <a name="supported-geographies-public-cloud"></a>지원되는 지역(퍼블릭 클라우드)
 
-여러 지역에서 Azure 마이그레이션 프로젝트를 만들 수 있습니다. 이러한 지역에서만 프로젝트를 만들 수 있지만 다른 대상 위치에 대한 컴퓨터를 평가하거나 마이그레이션할 수 있습니다. 프로젝트 지역은 검색된 메타데이터를 저장하는 데만 사용됩니다.
+퍼블릭 클라우드의 여러 지역에서 Azure 마이그레이션 프로젝트를 만들 수 있습니다. 이러한 지역에서만 프로젝트를 만들 수 있지만 다른 대상 위치에 대한 컴퓨터를 평가하거나 마이그레이션할 수 있습니다. 프로젝트 지역은 검색된 메타데이터를 저장하는 데만 사용됩니다.
 
 **지리** | **메타데이터 스토리지 위치**
 --- | ---
-Azure Government | US Gov 버지니아
 아시아 태평양 | 동아시아 또는 동남 아시아
 오스트레일리아 | 오스트레일리아 동부 또는 오스트레일리아 남동부
 브라질 | 브라질 남부
@@ -89,9 +88,13 @@ United Kingdom | 영국 남부 또는 영국 서부
 미국 | 미국 중부 또는 미국 서부 2
 
 
- > [!NOTE]
- > Azure 정부에 대한 지원은 현재 [이전 버전의](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) Azure 마이그레이션에만 사용할 수 있습니다.
+## <a name="supported-geographies-azure-government"></a>지원되는 지역(Azure 정부)
 
+**Task** | **지리** | **세부 정보**
+--- | --- | ---
+프로젝트 만들기 | 미국 | 메타데이터는 미국 정부 애리조나, 미국 정부 버지니아에 저장됩니다.
+대상 평가 | 미국 | 대상 지역: 미국 정부 애리조나, 미국 정부 버지니아/미국 정부 텍사스
+대상 복제 | 미국 | 대상 지역: 미국 법무부 중부, 미국 DoD 동부, 미국 정부 애리조나, 미국 정부 아이오와, 미국 정부 텍사스, 미국 정부 버지니아
 
 
 ## <a name="vmware-assessment-and-migration"></a>VM웨어 평가 및 마이그레이션
@@ -108,7 +111,7 @@ VMware VM에 대한 Azure 마이그레이션 서버 평가 및 서버 마이그�
 
 Azure Migrate 서비스에는 다음과 같은 두 가지 버전이 있습니다.
 
-- **현재 버전**: 이 버전을 사용하여 새 Azure 마이그레이션 프로젝트를 만들고, 온-프레미스 평가를 검색하고, 평가 및 마이그레이션을 오케스트레이션할 수 있습니다. [자세히 알아봅니다](whats-new.md).
+- **현재 버전**: 이 버전을 사용하여 새 Azure 마이그레이션 프로젝트를 만들고, 온-프레미스 평가를 검색하고, 평가 및 마이그레이션을 오케스트레이션할 수 있습니다. [자세히 알아보기](whats-new.md).
 - **이전 버전**: 이전 버전의 Azure 마이그레이션을 사용하는 고객의 경우(온-프레미스 VMware VM에 대한 평가만 지원됨) 이제 현재 버전을 사용해야 합니다. 이전 버전에서는 새 Azure 마이그레이션 프로젝트를 만들거나 새 검색을 수행할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계

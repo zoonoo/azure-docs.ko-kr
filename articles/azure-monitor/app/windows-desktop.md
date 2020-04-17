@@ -3,12 +3,12 @@ title: Windows 데스크톱 앱의 사용량 및 성능 모니터링
 description: Application Insights를 사용하여 Windows 데스크톱 앱의 사용량 및 성능을 분석합니다.
 ms.topic: conceptual
 ms.date: 10/29/2019
-ms.openlocfilehash: 8234b9ba2c92fc64cfa8f598db99954e00caab45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eb9e0fc480098478a3a68265ac85e0d5450e27fe
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670834"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537392"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>클래식 Windows 데스크톱 앱에서 사용량 및 성능 모니터링
 
@@ -109,6 +109,6 @@ namespace CustomInitializer.Telemetry
 ## <a name="next-steps"></a>다음 단계
 * [대시보드 만들기](../../azure-monitor/app/overview-dashboard.md)
 * [진단 검색](../../azure-monitor/app/diagnostic-search.md)
-* [메트릭 탐색](../../azure-monitor/app/metrics-explorer.md)
+* [메트릭 탐색](../../azure-monitor/platform/metrics-charts.md)
 * [분석 쿼리 작성](../../azure-monitor/app/analytics.md)
 

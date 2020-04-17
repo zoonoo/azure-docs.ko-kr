@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/13/2020
+ms.date: 04/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0866db6b549bc940d2e73bccfc77b8fad19abd51
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 4a361f384167fa522278b9c84a7927e938c12cb8
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273225"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534808"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오를 호스트하고 실행
 
@@ -110,6 +110,8 @@ Azure 서비스를 SAP 구성 요소에 통합하는 방법에 대한 자세한 
 
 
 ## <a name="change-log"></a>변경 로그
+
+- 2020년 04/16: SAP HANA를 SAP(Hybris) 상거래 플랫폼에 지원되는 DBMS로 추가한 [기사에 SAP 소프트웨어가 Azure 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) 및 [SAP 인증 및 Microsoft Azure에서 실행되는 구성에](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications) 대해 지원됩니다.
 - 2020년 04/13: [SAP 워크로드에 대한 SAP ASE Azure 가상 시스템 DBMS 배포에서 정확한 SAP ASE](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sapase) 릴리스 번호 수정
 - 2020/04/07: 클라우드-netconfig-azure 지침을 명확히 하기 위해 [Azure에서 SLES에서 페이스 메이커 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) 변경
 - 2020년 04/06: [SAP HANA 확장 노드에서 SLES의 Azure NetApp 파일이 있는 Azure VM및](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) [SAP HANA의 대기 노드에서 RHEL의 Azure NetApp 파일이 있는 Azure NetApp 파일이 있는 대기 노드로](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel) 확장되어 NetApp [TR-4435에](https://www.netapp.com/us/media/tr-4746.pdf) 대한 참조를 제거합니다(TR-4746으로 대체됨) [TR-4746](https://www.netapp.com/us/media/tr-4746.pdf)

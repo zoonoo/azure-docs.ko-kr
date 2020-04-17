@@ -1,7 +1,7 @@
 ---
 title: MSAL에 대해 알아보기 | Azure
 titleSuffix: Microsoft identity platform
-description: MSAL(Microsoft 인증 라이브러리)을 통해 애플리케이션 개발자는 보안 웹 API를 호출하기 위한 토큰을 획득할 수 있습니다. 이러한 웹 API에는 Microsoft Graph, 기타 Microsoft API, 타사 웹 API 또는 사용자의 웹 API가 있습니다. MSAL은 다수의 애플리케이션 아키텍처와 플랫폼을 지원합니다.
+description: MSAL(Microsoft 인증 라이브러리)을 사용하면 응용 프로그램 개발자가 보안 웹 API를 호출하기 위해 토큰을 획득할 수 있습니다. 이러한 웹 API는 Microsoft 그래프, 다른 Microsoft API, 타사 웹 API 또는 사용자 고유의 웹 API일 수 있습니다. MSAL은 다수의 애플리케이션 아키텍처와 플랫폼을 지원합니다.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,15 +13,15 @@ ms.date: 10/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c20d93c70484dc7ea800898da4309af2699c718e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89c5117e59f7856c3bd572bbea297a836b5ad589
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77085743"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536219"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>MSAL(Microsoft 인증 라이브러리) 개요
-MSAL(Microsoft 인증 라이브러리)을 사용하면 개발자가 Microsoft ID 플랫폼 끝점에서 [토큰을](developer-glossary.md#security-token) 획득하여 보안 웹 API에 액세스할 수 있습니다. 이러한 웹 API에는 Microsoft Graph, 기타 Microsoft API, 타사 웹 API 또는 사용자의 웹 API가 있습니다. MSAL은 다양한 애플리케이션 아키텍처와 플랫폼을 지원하는 .NET, JavaScript, Android 및 iOS에서 사용할 수 있습니다.
+MSAL(Microsoft 인증 라이브러리)을 사용하면 개발자가 Microsoft ID 플랫폼 끝점에서 [토큰을](developer-glossary.md#security-token) 획득하여 보안 웹 API에 액세스할 수 있습니다. 이러한 웹 API는 Microsoft 그래프, 다른 Microsoft API, 타사 웹 API 또는 사용자 고유의 웹 API일 수 있습니다. MSAL은 다양한 애플리케이션 아키텍처와 플랫폼을 지원하는 .NET, JavaScript, Android 및 iOS에서 사용할 수 있습니다.
 
 MSAL을 통해 여러 플랫폼에 대해 일관된 API를 사용하여 토큰을 얻을 수 있는 방법은 여러 가지입니다. MSAL을 사용하면 다음과 같은 이점이 있습니다.
 

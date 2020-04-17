@@ -3,12 +3,12 @@ title: Azure Backup Server를 사용하여 VMware VM 백업
 description: 이 문서에서는 Azure 백업 서버를 사용하여 VMware vCenter/ESXi 서버에서 실행 중인 VM웨어 VM을 백업하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 951016d393b095b0329ff18861421402e0e18a1a
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 92846f9bb9259e55a2c957716676ff42c032b2b5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529500"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537409"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup Server를 사용하여 VMware VM 백업
 
@@ -31,7 +31,7 @@ ms.locfileid: "80529500"
 
 기본적으로 Azure Backup Server는 HTTPS를 통해 VMware 서버와 통신합니다. HTTPS 연결을 설정하려면 VMware CA(인증 기관) 인증서를 다운로드하여 Azure Backup Server에서 가져옵니다.
 
-### <a name="before-you-begin"></a>시작하기 전에
+### <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 - HTTPS를 사용하지 않으려면 [모든 VMware 서버에 대한 HTTPS 인증서 유효성 검사를 사용하지 않도록 설정할](backup-azure-backup-server-vmware.md#disable-https-certificate-validation)수 있습니다.
 - 일반적으로 vSphere Web Client를 사용하여 Azure Backup Server 머신의 브라우저에서 vCenter/ESXi 서버로 연결합니다. 이 작업을 처음 수행하면 연결이 안전하지 않으며 다음이 표시됩니다.
@@ -96,11 +96,11 @@ ms.locfileid: "80529500"
 
 1. 다음 텍스트를 복사하여 .txt 파일에 붙여넣습니다.
 
-```text
-Windows Registry Editor Version 5.00
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
-"IgnoreCertificateValidation"=dword:00000001
-```
+    ```text
+    Windows Registry Editor Version 5.00
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
+    "IgnoreCertificateValidation"=dword:00000001
+    ```
 
 2. 파일 이름을 **DisableSecureAuthentication.reg**로 지정하여 Azure Backup Server 머신에 저장합니다.
 
@@ -130,27 +130,49 @@ v-Center Server/ESXi 호스트에 액세스할 수 있는 권한을 가진 사�
 
 ### <a name="role-permissions"></a>역할 권한
 
-| **vCenter 6.7 사용자 계정에 대한 권한**              | **vCenter 6.5 사용자 계정에 대한 권한**             |
-| --------------------------------------------------------- | -------------------------------------------------------- |
-| 데이터스토어.공간 할당                                  | 데이터스토어.공간 할당                                 |
-| 글로벌.로그 이벤트                                          | 글로벌.로그 이벤트                                         |
-| 전역.사용자 지정 특성 관리                           | 전역.사용자 지정 특성 관리                          |
-| Network.Assign                                            | Network.Assign                                           |
-| Resource. 리소스 풀에 가상 컴퓨터 할당        | Resource. 리소스 풀에 가상 컴퓨터 할당       |
-| 가상 머신.구성.AddNewDisk                   | 가상 머신.구성.AddNewDisk                  |
-| 가상 머신.구성. 장치 추가 또는 제거       | 가상 머신.구성. 장치 추가 또는 제거      |
-| 가상 머신.구성.고급                     | 가상 머신.구성.고급                    |
-| 가상 머신.구성.디스크 변경 변경 추적 을 전환 | 가상 머신.구성.디스크 변경 추적       |
-| 가상 머신.구성.호스트 USB 장치 구성   | 가상 머신.구성.호스트 USB 장치            |
-| 가상 머신.구성.검색되지 않은 파일 쿼리         | 가상 머신.구성.검색되지 않은 파일 쿼리        |
-| 가상 머신.구성.변경 스왑 파일 배치   | 가상 머신.구성.스왑 파일 배치         |
-| 가상 머신.상호 작용.전원 끄기                      | 가상 머신.상호 작용.전원 끄기                     |
-| 가상 머신.인벤토리.새 만들기                       | 가상 머신.인벤토리.새 만들기                      |
-| 가상 머신.프로비저닝.디스크 액세스 허용            | 가상 머신.프로비저닝.디스크 액세스 허용           |
-| 가상 머신.프로비저닝.파일 액세스 허용            | 가상 머신.프로비저닝.파일 액세스 허용           |
-| 가상 머신.프로비저닝.읽기 전용 디스크 액세스 허용  | 가상 머신.프로비저닝.읽기 전용 디스크 액세스 허용 |
-| 가상 머신.스냅샷 관리.스냅샷 만들기       | 가상 머신.스냅샷 관리.스냅샷 만들기      |
-| 가상 머신.스냅샷 관리.스냅샷 제거       | 가상 머신.스냅샷 관리.스냅샷 제거      |
+| vCenter 6.7 사용자 계정에 대한 권한                     | vCenter 6.5 사용자 계정에 대한 권한                     |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 데이터 스토어 클러스터입니다. 데이터 저장소 클러스터 구성            | 데이터 스토어 클러스터입니다. 데이터 저장소 클러스터 구성            |
+| Datastore.AllocateSpace                                      | Datastore.AllocateSpace                                      |
+| Datastore.Browse datastore                                   | Datastore.Browse datastore                                   |
+| Datastore.Low-level file operations                          | Datastore.Low-level file operations                          |
+| Global.Disable methods                                       | Global.Disable methods                                       |
+| Global.Enable methods                                        | Global.Enable methods                                        |
+| Global.Licenses                                              | Global.Licenses                                              |
+| Global.Log event                                             | Global.Log event                                             |
+| Global.Manage custom attributes                              | Global.Manage custom attributes                              |
+| Global.Set custom attribute                                  | Global.Set custom attribute                                  |
+| Host.Local 작업. 가상 컴퓨터 만들기                | Host.Local 작업. 가상 컴퓨터 만들기                |
+| Network.Assign network                                       | Network.Assign network                                       |
+| Resource. 리소스 풀에 가상 시스템 할당           | Resource. 리소스 풀에 가상 시스템 할당           |
+| vApp.Add virtual machine                                     | vApp.Add virtual machine                                     |
+| vApp.Assign resource pool                                    | vApp.Assign resource pool                                    |
+| vApp.Unregister                                              | vApp.Unregister                                              |
+| 가상 머신.구성. 장치 추가 또는 제거          | 가상 머신.구성. 장치 추가 또는 제거          |
+| 가상 머신. 구성.디스크 임대 획득            | Virtual machine.Configuration.Disk lease                     |
+| Virtual machine.Configuration.Add new disk                   | Virtual machine.Configuration.Add new disk                   |
+| 가상 머신. 구성.고급 구성        | Virtual machine.Configuration.Advanced                       |
+| 가상 머신. 구성.디스크 변경 변경 추적 전환   | 가상 머신. 구성.디스크 변경 추적          |
+| 가상 머신. 구성.호스트 USB 장치 구성     | 가상 머신. 구성.호스트 USB 장치               |
+| 가상 머신. 구성.가상 디스크 확장           | 가상 머신. 구성.가상 디스크 확장           |
+| 가상 머신. Configuration.Kr 소유되지 않은 파일 쿼리           | 가상 머신. Configuration.Kr 소유되지 않은 파일 쿼리           |
+| 가상 머신. 구성.스왑파일 배치 변경     | 가상 머신. 구성.스왑파일 배치            |
+| 가상 머신. 게스트 운영.게스트 운영 프로그램 실행 | 가상 머신. 게스트 운영.게스트 운영 프로그램 실행 |
+| 가상 머신. 게스트 운영.게스트 운영 수정 | 가상 머신. 게스트 운영.게스트 운영 수정 |
+| 가상 머신. 게스트 운영.게스트 작업 쿼리    | 가상 머신. 게스트 운영.게스트 작업 쿼리    |
+| 가상 머신 . 상호 작용. 장치 연결             | 가상 머신 . 상호 작용. 장치 연결             |
+| 가상 머신 . 상호 작용. VIX API에 의한 게스트 운영 체제 관리 | 가상 머신 . 상호 작용. VIX API에 의한 게스트 운영 체제 관리 |
+| 가상 머신 . 상호 작용. 전원 끄기                      | 가상 머신 . 상호 작용. 전원 끄기                      |
+| 가상 머신 . 인벤토리.새 만들기                        | 가상 머신 . 인벤토리.새 만들기                        |
+| Virtual machine .Inventory.Remove                            | Virtual machine .Inventory.Remove                            |
+| Virtual machine .Inventory.Register                          | Virtual machine .Inventory.Register                          |
+| 가상 머신 . 프로비저닝.디스크 액세스 허용             | 가상 머신 . 프로비저닝.디스크 액세스 허용             |
+| 가상 머신 . 프로비저닝.파일 액세스 허용             | 가상 머신 . 프로비저닝.파일 액세스 허용             |
+| 가상 머신 . 프로비저닝.읽기 전용 디스크 액세스 허용   | 가상 머신 . 프로비저닝.읽기 전용 디스크 액세스 허용   |
+| 가상 머신 . 프로비저닝.가상 컴퓨터 다운로드 허용 | 가상 머신 . 프로비저닝.가상 컴퓨터 다운로드 허용 |
+| Virtual machine .Snapshot management.  스냅샷 만들기       | Virtual machine .Snapshot management.  스냅샷 만들기       |
+| 가상 머신 . 스냅샷 관리. 스냅샷 제거        | 가상 머신 . 스냅샷 관리. 스냅샷 제거        |
+| 가상 머신 . 스냅샷 관리. 스냅샷으로 되돌리기     | 가상 머신 . 스냅샷 관리. 스냅샷으로 되돌리기     |
 
 <br>
 
@@ -174,8 +196,6 @@ v-Center Server/ESXi 호스트에 액세스할 수 있는 권한을 가진 사�
 | 가상 머신. 프로 비전. Allow read-only disk access |                                             |
 | 가상 머신. 스냅샷 관리. 스냅샷 만들기       |                                             |
 | 가상 머신. 스냅샷 관리. 스냅샷 제거       |                                             |
-
-
 
 ## <a name="create-a-vmware-account"></a>VMware 계정 만들기
 
@@ -255,7 +275,7 @@ Azure Backup Server에 vCenter Server를 추가합니다.
 
     ![자격 증명 지정](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. **추가**를 클릭하여 VMware 서버를 서버 목록에 추가합니다. 그리고 **다음**을 클릭합니다.
+6. **추가**를 클릭하여 VMware 서버를 서버 목록에 추가합니다. 그런 후 **Next** 를 클릭합니다.
 
     ![VMWare 서버 및 자격 증명 추가](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
@@ -283,14 +303,14 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 
 1. **보호 그룹 형식 선택** 페이지에서 **서버**를 선택하고 **다음**을 클릭합니다. **그룹 구성원 선택** 페이지가 나타납니다.
 
-1. **그룹 구성원 선택에서**백업할 VM(또는 VM 폴더)을 선택합니다. 그리고 **다음**을 클릭합니다.
+1. **그룹 구성원 선택에서**백업할 VM(또는 VM 폴더)을 선택합니다. 그런 후 **Next** 를 클릭합니다.
 
     - 폴더를 선택하면 해당 폴더 내의 VM 또는 폴더도 백업되도록 선택됩니다. 백업하지 않으려는 폴더 또는 VM을 선택 취소할 수 있습니다.
 1. VM 또는 폴더가 이미 백업 중인 경우에는 선택할 수 없습니다. 이렇게 하면 VM에 대해 중복 복구 지점이 만들어지지 않습니다.
 
     ![그룹 구성원 선택](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
-1. **데이터 보호 방법 선택** 페이지에서 보호 그룹의 이름과 보호 설정을 입력합니다. Azure에 백업하려면 단기 보호를 **디스크**로 설정하고 온라인 보호를 사용하도록 설정합니다. 그리고 **다음**을 클릭합니다.
+1. **데이터 보호 방법 선택** 페이지에서 보호 그룹의 이름과 보호 설정을 입력합니다. Azure에 백업하려면 단기 보호를 **디스크**로 설정하고 온라인 보호를 사용하도록 설정합니다. 그런 후 **Next** 를 클릭합니다.
 
     ![데이터 보호 방법 선택](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
@@ -321,17 +341,17 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 
     ![복제본 만들기 방법 선택](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. **일관성 확인 옵션**에서 일관성 확인을 자동화할 방법 및 시기를 선택합니다. 그리고 **다음**을 클릭합니다.
+1. **일관성 확인 옵션**에서 일관성 확인을 자동화할 방법 및 시기를 선택합니다. 그런 후 **Next** 를 클릭합니다.
       - 복제 데이터가 일관성을 잃은 경우 또는 설정된 일정에 따라 일관성 확인을 실행할 수 있습니다.
       - 자동 일관성 확인을 구성하지 않으려면 수동 검사를 실행할 수 있습니다. 이 작업을 수행하려면 보호 그룹을 마우스 오른쪽 단추로 클릭하고 > **일관성 확인 수행**을 클릭합니다.
 
-1. **온라인 보호 데이터 지정** 페이지에서 백업할 VM 또는 VM 폴더를 선택합니다. 구성원을 개별적으로 선택하거나 **모두 선택**을 클릭하여 모든 구성원을 선택할 수 있습니다. 그리고 **다음**을 클릭합니다.
+1. **온라인 보호 데이터 지정** 페이지에서 백업할 VM 또는 VM 폴더를 선택합니다. 구성원을 개별적으로 선택하거나 **모두 선택**을 클릭하여 모든 구성원을 선택할 수 있습니다. 그런 후 **Next** 를 클릭합니다.
 
     ![온라인 보호 데이터 지정](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. **온라인 백업 예약 지정** 페이지에서 로컬 스토리지의 데이터를 Azure로 백업할 빈도를 지정합니다.
 
-    - 일정에 따라 데이터에 대한 클라우드 복구 지점이 생성됩니다. 그리고 **다음**을 클릭합니다.
+    - 일정에 따라 데이터에 대한 클라우드 복구 지점이 생성됩니다. 그런 후 **Next** 를 클릭합니다.
     - 복구 지점이 생성되면 Azure에서 Recovery Services 자격 증명 모음으로 전송됩니다.
 
     ![온라인 백업 일정 지정](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)

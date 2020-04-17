@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 457b2d2211ea1ba5fa36cec4b7e9a214f5bcad77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92b6378b00e12f618d07798b5ce789cbd9971544
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367094"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535539"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure Automation에서 Runbook 출력 및 메시지
 
@@ -18,7 +18,7 @@ ms.locfileid: "79367094"
 
 다음 표에서는 게시된 Runbook에 대한 Azure 포털의 동작과 [Runbook을 테스트하는](automation-testing-runbook.md)동안 각 스트림에 대해 간략하게 설명합니다. 출력 스트림은 Runbook 간의 통신에 사용되는 기본 스트림입니다. 다른 스트림은 사용자에게 정보를 전달하기 위한 메시지 스트림으로 분류됩니다. 
 
-| 스트림 | 설명 | 게시 날짜 | 테스트 |
+| 스트림 | Description | 게시 날짜 | 테스트 |
 |:--- |:--- |:--- |:--- |
 | Error |사용자를 위한 오류 메시지입니다. 예외와 달리 Runbook은 기본적으로 오류 메시지 후에 계속됩니다. |직무 기록에 기록 |테스트 출력 창에 표시 |
 | 디버그 |대화형 사용자를 위한 메시지입니다. Runbook에서 사용하지 않아야 합니다. |작업 기록에 기록되지 않음 |테스트 출력 창에 표시되지 않음 |
@@ -240,7 +240,7 @@ Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
 **활동 수준 추적을 사용하려면 다음을 수행합니다.**
 
 1. Azure Portal에서 Automation 계정을 엽니다.
-2. **프로세스 자동화** 섹션에서 **Runbook을** 선택하여 Runbook 목록을 엽니다.
+2. **프로세스 자동화에서** **Runbook을** 선택하여 Runbook 목록을 엽니다.
 3. Runbook 페이지에서 Runbook 목록에서 그래픽 런북을 선택합니다.
 4. **설정**에서 **로깅 및 추적**을 클릭합니다.
 5. 로깅 및 추적 페이지에서 **로그 자세한 기록**에서 자세한 로깅을 사용하려면 **계속을** 클릭합니다.

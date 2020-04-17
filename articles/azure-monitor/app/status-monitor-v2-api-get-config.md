@@ -5,18 +5,18 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 93ab8f613e5634b2eabe7c02189e223d3dfbb0a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0cb5991b381acc9a0ec36113d0e15a7731b5074d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671276"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537494"
 ---
 # <a name="application-insights-agent-api-get-applicationinsightsmonitoringconfig"></a>애플리케이션 인사이트 에이전트 API: 애플리케이션 인사이트 모니터링구성
 
 이 문서에서는 [Az.ApplicationMonitor PowerShell 모듈의](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)구성원인 cmdlet에 대해 설명합니다.
 
-## <a name="description"></a>설명
+## <a name="description"></a>Description
 
 구성 파일을 가져옵니다 및 콘솔에 값을 인쇄 합니다.
 
@@ -49,7 +49,7 @@ Filters:
 ## <a name="next-steps"></a>다음 단계
 
   원격 분석 보기:
- - [메트릭을 탐색하여](../../azure-monitor/app/metrics-explorer.md) 성능 및 사용량을 모니터링합니다.
+ - [메트릭을 탐색하여](../../azure-monitor/platform/metrics-charts.md) 성능 및 사용량을 모니터링합니다.
 - [이벤트 및 로그를 검색하여](../../azure-monitor/app/diagnostic-search.md) 문제를 진단합니다.
 - 고급 쿼리에 [대한 분석을](../../azure-monitor/app/analytics.md) 사용합니다.
 - [대시보드를 만듭니다.](../../azure-monitor/app/overview-dashboard.md)

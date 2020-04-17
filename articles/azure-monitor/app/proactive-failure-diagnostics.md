@@ -4,12 +4,12 @@ description: 웹앱에 요청 실패율의 비정상적인 변경 내용에 대�
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: e1c07fca3a4eee19e56c313a889e5b86ce2b4c42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1bce3ab86748d8247a72da3bd70e0f2e8155dbf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671752"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536814"
 ---
 # <a name="smart-detection---failure-anomalies"></a>스마트 감지 - 실패
 [응용 프로그램 인사이트는](../../azure-monitor/app/app-insights-overview.md) 웹 앱이 실패한 요청의 비율이 비정상적으로 증가하는 경우 거의 실시간으로 자동으로 경고합니다. 실패했다고 보고된 HTTP 요청 또는 종속성 호출의 비율이 비정상적으로 증가하는 것을 감지합니다. 요청의 경우 실패한 요청에는 일반적으로 응답 코드가 400 이상입니다. 문제를 분류하고 진단하는 데 도움이 되는 오류 및 관련 응용 프로그램 데이터의 특성에 대한 분석이 경고 세부 정보에 제공됩니다. 또한 추가 진단을 위해 Application Insights 포털에 링크가 제공됩니다. 기능이 Machine Learning 알고리즘을 사용하여 일반 실패율을 예측하려면 설정 또는 구성이 필요하지 않습니다.
@@ -353,7 +353,7 @@ ms.locfileid: "77671752"
 ## <a name="next-steps"></a>다음 단계
 이러한 진단 도구를 사용하면 앱의 데이터를 검사하는 데 도움이 됩니다.
 
-* [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md)
+* [메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md)
 * [탐색기 검색](../../azure-monitor/app/diagnostic-search.md)
 * [분석 - 강력한 쿼리 언어](../../azure-monitor/log-query/get-started-portal.md)
 

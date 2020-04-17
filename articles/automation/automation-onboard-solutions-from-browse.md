@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 385806dca7dcac9fd0aac4c1bf9e1072e7fe5ecb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5f18e9365b09f06c1bd4f25a8efe909cc308dad
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979482"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537018"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>여러 VM에서 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 사용
 
@@ -33,9 +33,9 @@ Azure Portal에서 **가상 머신**으로 이동합니다.
 명령 모음에서 **서비스**를 클릭하고 **변경 내용 추적**, **인벤토리** 또는 **업데이트 관리**를 선택합니다.
 
 > [!NOTE]
-> **변경 내용 추적** 및 **인벤토리**는 동일한 솔루션을 사용하며, 하나가 활성화되면 다른 솔루션도 활성화됩니다.
+> 변경 추적 및 인벤토리는 동일한 솔루션을 사용합니다. 하나는 활성화되어 있으면 다른 것도 활성화됩니다.
 
-다음 이미지는 업데이트 관리에 대한 것입니다. 변경 내용 추적 및 인벤토리의 레이아웃과 동작도 동일합니다.
+다음 이미지는 업데이트 관리에 대한 것입니다. 변경 추적 및 인벤토리에 레이아웃과 동작이 동일합니다.
 
 가상 머신 목록은 동일한 구독 및 위치에 있는 가상 머신만 표시하도록 필터링됩니다. 가상 머신이 3개 초과 리소스 그룹에 있는 경우 처음 3개 리소스 그룹이 선택됩니다.
 
@@ -71,8 +71,8 @@ Azure Portal에서 **가상 머신**으로 이동합니다.
 다음 솔루션은 Log Analytics 작업 영역에 따라 다릅니다.
 
 * [업데이트 관리](automation-update-management.md)
-* [변경 추적](automation-change-tracking.md)
-* [작업이 없는 동안 VM 시작/중지](automation-solution-vm-management.md)
+* [변경 내용 추적](automation-change-tracking.md)
+* [근무 외 시간 동안 VM 시작/중지](automation-solution-vm-management.md)
 
 자동화 계정을 Log Analytics 작업 영역과 더 이상 통합하지 않으려면 Azure 포털에서 직접 계정을 연결 해제할 수 있습니다. 계속하기 전에 앞에서 언급한 솔루션을 제거해야 합니다. 그러지 않으면 이 프로세스가 계속 진행되지 않습니다. 가져온 특정 솔루션에 대한 문서를 검토하여 제거에 필요한 단계를 이해하세요.
 
@@ -101,19 +101,19 @@ Azure Portal에서 **가상 머신**으로 이동합니다.
 
 * VM runbook 시작 및 중지 일정
 * VM runbook 시작 및 중지
-* 변수
+* variables
 
 또는 Log Analytics 작업 영역에서 자동화 계정에서 작업 영역의 연결을 해제할 수도 있습니다. 작업 영역에서 **관련 리소스**에서 **자동화 계정을** 선택합니다. 자동화 계정 페이지에서 **계정 연결 해제를 선택합니다.**
 
 ## <a name="troubleshooting"></a>문제 해결
 
-여러 컴퓨터를 등록할 때 일부 컴퓨터가 **사용할 수 없음**으로 표시될 수 있습니다. 일부 컴퓨터를 사용할 수 없는 여러 가지 이유가 있습니다. 다음 섹션에서는 컴퓨터를 등록하려고 시도하면 VM 상태가 **사용할 수 없음**으로 표시되는 이유를 설명합니다.
+여러 컴퓨터를 온보딩할 때 로 `Cannot enable`표시되는 컴퓨터가 있을 수 있습니다. 일부 컴퓨터를 사용할 수 없는 여러 가지 이유가 있습니다. 다음 섹션에서는 온보로 `Cannot enable` 전송하려고 할 때 VM의 상태에 대한 가능한 이유를 보여 준다.
 
 ### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>VM이 다른 작업 영역('\<workspaceName\>')에 보고합니다.  활성화에 사용하도록 구성 변경
 
 **원인**: 이 오류는 등록하려는 VM이 다른 작업 영역에 보고함을 나타냅니다.
 
-**해결 방법**: **구성으로 사용**을 클릭하여 대상 Automation 계정 및 Log Analytics 작업 영역을 변경합니다.
+**해결 방법:** **구성으로 사용을** 클릭하여 대상 자동화 계정 및 로그 분석 작업 영역을 변경합니다.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>VM이 이 구독에서 사용할 수 있는 작업 영역에 보고
 
@@ -148,7 +148,7 @@ Azure Portal에서 **가상 머신**으로 이동합니다.
 업데이트 관리에서 VM을 제거하려면:
 
 * Log Analytics 작업 영역에서, 범위 구성 `MicrosoftDefaultScopeConfig-Updates`에 대한 저장된 검색에서 VM을 제거합니다. 저장된 검색은 작업 영역의 **일반**에서 찾을 수 있습니다.
-* [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) 또는 [Linux용 Log Analytics 에이전트](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources)를 제거합니다.
+* [Windows용 로그 분석 에이전트](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) 또는 [Linux용 로그 분석 에이전트를](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources)제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

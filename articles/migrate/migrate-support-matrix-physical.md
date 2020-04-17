@@ -2,13 +2,13 @@
 title: Azure 마이그레이션의 물리적 서버 평가 지원
 description: Azure 마이그레이션 서버 평가를 통해 물리적 서버 평가 지원에 대해 알아보기
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: 4bf7af74be35a521cdaa02e9209a7d7c0b91184f
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.date: 04/15/2020
+ms.openlocfilehash: ae76a6b570ec58e71a8a1728a2a601728030f58c
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389463"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538157"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>물리적 서버 평가를 위한 지원 매트릭스 
 
@@ -34,7 +34,7 @@ ms.locfileid: "80389463"
 | **지원**                | **세부 정보**               
 | :-------------------       | :------------------- |
 | **물리적 서버 배포**       | 물리적 서버는 독립 실행형이거나 클러스터에 배포될 수 있습니다. |
-| **권한을**           | **윈도우:** 검색하려는 모든 Windows 서버에서 로컬 또는 도메인 사용자 계정이 필요합니다. 사용자 계정은 원격 데스크톱 사용자, 성능 모니터 사용자 및 성능 로그 사용자 등의 그룹에 추가되어야 합니다. <br/><br/> **리눅스 :** 검색하려는 Linux 서버의 루트 계정이 필요합니다. |
+| **사용 권한**           | **윈도우:** 검색하려는 모든 Windows 서버에서 로컬 또는 도메인 사용자 계정이 필요합니다. 사용자 계정은 원격 데스크톱 사용자, 성능 모니터 사용자 및 성능 로그 사용자 등의 그룹에 추가되어야 합니다. <br/><br/> **Linux:** 검색하려는 Linux 서버의 루트 계정이 필요합니다. |
 | **운영 체제** | Windows [Server](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 2003 및 SUSE Linux를 제외한 모든 Windows 및 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 운영 체제는 Azure에서 지원합니다.|
 
 
@@ -43,7 +43,7 @@ ms.locfileid: "80389463"
 Azure Migrate는 검색 및 평가를 위해 [Azure 마이그레이션 어플라이언스를](migrate-appliance.md) 사용합니다. 물리적 서버의 어플라이언스는 VM 또는 물리적 컴퓨터에서 실행할 수 있습니다. Azure 포털에서 다운로드하는 PowerShell 스크립트를 사용하여 어플라이언스를 설정합니다.
 
 - 물리적 서버에 대한 [어플라이언스 요구 사항에](migrate-appliance.md#appliance---physical) 대해 알아봅니다.
-- 어플라이언스가 액세스해야 하는 [URL에](migrate-appliance.md#url-access) 대해 알아봅니다.
+- 어플라이언스가 [공용](migrate-appliance.md#public-cloud-urls) 및 [정부](migrate-appliance.md#government-cloud-urls) 클라우드에서 액세스해야 하는 URL에 대해 알아봅니다.
 
 ## <a name="port-access"></a>포트 액세스
 
@@ -64,10 +64,11 @@ Azure Migrate는 검색 및 평가를 위해 [Azure 마이그레이션 어플라
 **Azure Government** | Azure 정부에서는 종속성 시각화를 사용할 수 없습니다.
 **Log Analytics** | Azure Migrate는 종속성 시각화를 위해 [Azure Monitor 로그의](../log-analytics/log-analytics-overview.md) [서비스 맵](../operations-management-suite/operations-management-suite-service-map.md) 솔루션을 사용합니다.<br/><br/> 새 또는 기존 로그 분석 작업 영역을 Azure 마이그레이션 프로젝트와 연결합니다. Azure 마이그레이션 프로젝트의 작업 영역은 추가된 후에는 수정할 수 없습니다. <br/><br/> 작업 영역은 Azure 마이그레이션 프로젝트와 동일한 구독에 있어야 합니다.<br/><br/> 작업 영역은 미국 동부, 동남아시아 또는 서유럽 지역에 있어야 합니다. 다른 지역의 작업 영역은 프로젝트와 연결할 수 없습니다.<br/><br/> 작업 영역은 [서비스 맵이 지원되는](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites)지역에 있어야 합니다.<br/><br/> 로그 분석에서 Azure 마이그레이션과 연관된 작업 영역에 마이그레이션 프로젝트 키 및 프로젝트 이름이 태그가 지정됩니다.
 **필수 에이전트** | 분석하려는 각 컴퓨터에서 다음 에이전트를 설치합니다.<br/><br/> [마이크로 소프트 모니터링 에이전트 (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows).<br/> [종속성 에이전트](../azure-monitor/platform/agents-overview.md#dependency-agent).<br/><br/> 온-프레미스 컴퓨터가 인터넷에 연결되어 있지 않은 경우 Log Analytics 게이트웨이를 다운로드하여 설치해야 합니다.<br/><br/> [종속성 에이전트](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) 및 [MMA](how-to-create-group-machine-dependencies.md#install-the-mma)설치에 대해 자세히 알아봅니다.
-**로그 분석 작업 영역** | 작업 영역은 Azure 마이그레이션 프로젝트와 동일한 구독에 있어야 합니다.<br/><br/> Azure Migrate는 미국 동부, 동남아시아 및 서유럽 지역에 있는 작업 영역을 지원합니다.<br/><br/>  작업 영역은 [서비스 맵이 지원되는](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#prerequisites)지역에 있어야 합니다.<br/><br/> Azure 마이그레이션 프로젝트의 작업 영역은 추가된 후에는 수정할 수 없습니다.
+**Log Analytics 작업 영역** | 작업 영역은 Azure 마이그레이션 프로젝트와 동일한 구독에 있어야 합니다.<br/><br/> Azure Migrate는 미국 동부, 동남아시아 및 서유럽 지역에 있는 작업 영역을 지원합니다.<br/><br/>  작업 영역은 [서비스 맵이 지원되는](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#prerequisites)지역에 있어야 합니다.<br/><br/> Azure 마이그레이션 프로젝트의 작업 영역은 추가된 후에는 수정할 수 없습니다.
 **비용** | 서비스 맵 솔루션은 처음 180일 동안(로그 애널리틱스 작업 영역을 Azure 마이그레이션 프로젝트와 연결하는 날부터) 요금이 발생하지 않습니다.<br/><br/> 180일 후에는 표준 Log Analytics 요금이 적용됩니다.<br/><br/> 연결된 로그 분석 작업 영역에서 서비스 맵 이외의 솔루션을 사용하면 로그 분석에 대한 [표준 요금이 부과됩니다.](https://azure.microsoft.com/pricing/details/log-analytics/)<br/><br/> Azure Migrate 프로젝트가 삭제될 때 작업 영역은 함께 삭제되지 않습니다. 프로젝트를 삭제한 후 서비스 맵 사용량은 무료가 아니며 각 노드는 Log Analytics 작업 영역의 유료 계층에 따라 요금이 부과됩니다.<br/><br/>Azure 마이그레이션 일반 가용성(GA- 2018년 2월 28일) 이전에 만든 프로젝트가 있는 경우 추가 서비스 맵 요금이 부과되었을 수 있습니다. 180일 후에만 결제를 보장하려면 GA 이전의 기존 작업 영역이 여전히 유료이므로 새 프로젝트를 만드는 것이 좋습니다.
 **관리** | 에이전트를 작업 영역에 등록할 때 Azure Migrate 프로젝트에서 제공하는 ID와 키를 사용합니다.<br/><br/> Azure Migrate 외부에서 Log Analytics 작업 영역을 사용할 수 있습니다.<br/><br/> 연결된 Azure Migrate 프로젝트를 삭제하면 작업 영역이 자동으로 삭제되지 않습니다. [수동으로 삭제합니다.](../azure-monitor/platform/manage-access.md)<br/><br/> Azure 마이그레이션 프로젝트를 삭제하지 않는 한 Azure 마이그레이션에서 만든 작업 영역을 삭제하지 마십시오. 작업 영역을 삭제하면 종속성 시각화 기능이 정상적으로 작동하지 않습니다.
 **인터넷 연결** | 컴퓨터가 인터넷에 연결되어 있지 않은 경우 Log Analytics 게이트웨이를 설치해야 합니다.
+**Azure Government** | 에이전트 기반 종속성 분석은 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

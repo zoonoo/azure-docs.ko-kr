@@ -318,8 +318,6 @@
               href: app/pre-aggregated-metrics-log-metrics.md
             - name: 로그 기반 메트릭 정의
               href: platform/app-insights-metrics.md
-            - name: 클래식 메트릭 탐색기
-              href: app/metrics-explorer.md
         - name: 검색
           href: app/diagnostic-search.md
         - name: 프로파일러

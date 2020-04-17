@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 4eb203915c8fedbef6af0e5a3bc14eff1835a92b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 21074ae6bc4959da031bc7065cd7d0639ec2a14f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75982170"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537273"
 ---
 # <a name="use-multiple-caches-for-regional-failover-recovery"></a>지역 장애 복구에 여러 캐시 사용
 
@@ -58,4 +58,3 @@ ms.locfileid: "75982170"
 ## <a name="learn-more"></a>자세한 정보
 
 Azure 응용 프로그램 아키텍처 가이드에는 [지역 전체 서비스 중단에서 복구하는](<https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region>)방법에 대한 자세한 정보가 포함되어 있습니다.
-<!-- this should be an internal link instead of a URL but I can't find the tree  -->

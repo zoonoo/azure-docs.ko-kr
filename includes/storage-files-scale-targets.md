@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: 8a8619da831dfa5b240bd93d3a046c49cc30affa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6cf9be653da2dd587b93724b6e319dc4d20686c2
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76901420"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536444"
 ---
 | 리소스 | 표준 파일 공유 | 프리미엄 파일 공유 |
 |----------|---------------|------------------------------------------|
@@ -27,4 +27,4 @@ ms.locfileid: "76901420"
 | 최대 개체(디렉터리 및 파일) 이름 길이 | 2,048자 | 2,048자 |
 | 최대 경로 이름 구성 요소(경로 \A\B\C\D의 각 문자가 구성 요소) | 255자 | 255자 |
 
-\*대부분의 지역에서 사용할 수 있는 사용 가능한 지역에 대한 자세한 내용은 [지역 별 가용성을](../articles/storage/files/storage-files-planning.md#regional-availability) 참조하십시오.
+\*표준 파일 공유의 기본값은 5 TiB이며, 표준 파일 공유를 최대 100TiB까지 늘리는 방법에 대한 자세한 내용은 [사용 및 큰 파일 공유를 만듭니다.](../articles/storage/files/storage-files-how-to-create-large-file-share.md)

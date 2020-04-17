@@ -1,17 +1,14 @@
 ---
 title: Azure 마이그레이션에서 평가/마이그레이션 도구 추가
 description: Azure 마이그레이션 프로젝트를 만들고 평가/마이그레이션 도구를 추가하는 방법을 설명합니다.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
-ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: 319d97d96bd054aed90079777e2ff83d0e308e5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: how-to
+ms.date: 04/16/2020
+ms.openlocfilehash: 48bdea31d17ea1ddf0b983af962dce30b22d8dcf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74185946"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537732"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>처음으로 평가/마이그레이션 도구에 추가
 
@@ -37,28 +34,14 @@ Azure 구독에서 새 Azure 마이그레이션 프로젝트를 설정하고 도
 
 1. **서버 검색, 평가 및 마이그레이션**에서 **도구 추가**를 클릭합니다.
 2. **프로젝트 마이그레이션**에서 Azure 구독을 선택하고, 아직 없는 경우 리소스 그룹을 만듭니다.
-3. **프로젝트 세부 정보에서**프로젝트 이름과 프로젝트를 작성할 지역을 지정합니다. 
+3. **프로젝트 세부 정보에서**프로젝트 이름과 프로젝트를 작성할 지역을 지정합니다.  [공용](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드에](migrate-support-matrix.md#supported-geographies-azure-government)대해 지원되는 지역을 검토합니다.
 
     ![Azure Migrate 프로젝트 만들기](./media/how-to-add-tool-first-time/migrate-project.png)
 
-    Azure Migrate 프로젝트는 다음 지역 중 하나에서 만들 수 있습니다.
+    - 프로젝트에 대해 지정된 지리는 온-프레미스 VM에서 수집된 메타데이터를 저장하는 데 사용됩니다. 실제 마이그레이션에 대한 대상 지역을 선택할 수 있습니다.
+    - 특정 지역에 프로젝트를 배포해야 하는 경우 다음 API를 사용하여 프로젝트를 만듭니다. 위치와 함께 구독 ID, 리소스 그룹 이름 및 프로젝트 이름을 지정합니다. 지역/지역을 검토하여 [공용](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드를 검토합니다.](migrate-support-matrix.md#supported-geographies-azure-government)
 
-   **지리** | **스토리지 위치 지역**
-    --- | ---
-    아시아   | 동남 아시아 또는 동아시아
-    유럽 | 북유럽 또는 서유럽
-    일본  | 일본 동부 또는 일본 서부
-    United Kingdom | 영국 남부 또는 영국 서부
-    미국 | 미국 중부 또는 미국 서부 2
-    Canada | 캐나다 중부
-    인도  | 인도 중부 또는 인도 남부
-    오스트레일리아 | 오스트레일리아 남동부
-
-    프로젝트에 대해 지정된 지리는 온-프레미스 VM에서 수집된 메타데이터를 저장하는 데 사용됩니다. 실제 마이그레이션에 대한 대상 지역을 선택할 수 있습니다.
-
-    마이그레이션 프로젝트 및 관련 리소스를 배포하기 위해 지역 내에서 특정 지역을 지정하려는 경우(구독의 정책 제한으로 인해 특정 Azure 지역에만 Azure 리소스배포를 허용할 수 있음) 아래 API를 사용하여 마이그레이션 프로젝트를 만듭니다. 구독 ID, 리소스 그룹 이름 지정, 위치(Azure Migrate가 배포된 테이블에 언급된 Azure 지역)와 함께 프로젝트 이름 마이그레이션
-
-    `PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"`   
+        `PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"`   
 
 
 4. **다음을**클릭하고 평가 또는 마이그레이션 도구를 추가합니다.
@@ -68,7 +51,7 @@ Azure 구독에서 새 Azure 마이그레이션 프로젝트를 설정하고 도
 
 5. **평가 선택 도구에서**평가 도구를 추가합니다. 평가 도구가 필요하지 않은 경우 지금 > 다음에 대한 평가 도구 추가 **건너뛰기(건너뛰기)를****선택합니다.** 
 2. **마이그레이션 선택 도구에서**필요에 따라 마이그레이션 도구를 추가합니다. 지금 당장 마이그레이션 도구가 필요하지 않은 경우 지금 > 다음에 대한 마이그레이션 도구 추가 **건너뛰기(건너뛰기)를****선택합니다.**
-3. **검토 + 도구 추가에서**설정을 검토하고 도구 **추가를**클릭합니다.
+3. **검토 + 도구 추가**에서 설정을 검토하고, **도구 추가**를 클릭합니다.
 
 프로젝트를 만든 후 서버 및 워크로드, 데이터베이스 및 웹 앱의 평가 및 마이그레이션을 위한 추가 도구를 선택할 수 있습니다.
 

@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: c606f6e60b1c906a0d5c29992287d126aaa37b7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1fd22772e72cba4cce3f9fa2751dc0df0e15bb9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77602946"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535601"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
@@ -155,14 +155,14 @@ static void Main(string[] args)
 ```cs
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
-    [Blob("samples-workitems/{myQueueItem}", FileAccess.Read)] Stream myBlob,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
     ILogger log)
 {
     log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```
 
-이 `QueueTrigger` 특성은 큐 에 큐 메시지가 나타날 때마다 `myqueue-items` 런타임에 함수를 호출하도록 지시합니다. 이 `Blob` 특성은 런타임에 큐 메시지를 사용하여 *샘플 작업 항목* 컨테이너에서 Blob을 읽도록 지시합니다. `myQueueItem` 매개 변수의 함수에 전달되는 큐 메시지의 내용은 Blob의 이름입니다.
+이 `QueueTrigger` 특성은 큐 에 큐 메시지가 나타날 때마다 `myqueue-items` 런타임에 함수를 호출하도록 지시합니다. 이 `Blob` 특성은 런타임에 큐 메시지를 사용하여 *샘플 작업 항목* 컨테이너에서 Blob을 읽도록 지시합니다. `samples-workitems` 컨테이너의 Blob 항목 이름은 큐 트리거에서 바인딩 식()으로`{queueTrigger}`직접 가져옵니다.
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 

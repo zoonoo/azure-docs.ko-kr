@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 82c516eeac6d3e88ca7b6ac1c97ebb638ba27979
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 01b5f87c2557e2195573b90766ee45e001798cca
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383922"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537698"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -164,7 +164,7 @@ ms.locfileid: "81383922"
 * <a id="ad-support"></a>
 **Azure 파일에서 ID 기반 인증 및 액세스 제어를 지원합니까?**  
     
-    예. Azure Files는 ID 기반 인증 및 액세스 제어를 지원합니다. ID 기반 액세스 제어를 사용하는 두 가지 방법 중 하나를 선택할 수 있습니다: Active Directory (AD) (미리 보기) 또는 Azure Active Directory 도메인 서비스 (Azure AD DS) (GA). AD는 온-프레미스 또는 Azure에서 AD 도메인에 가입한 컴퓨터를 사용하여 SMB를 통해 Azure 파일 공유에 액세스하는 인증을 지원합니다. Azure 파일에 대한 SMB에 대한 Azure AD DS 인증을 통해 Azure AD DS 도메인에 가입한 Windows VM을 사용하여 Azure AD 자격 증명을 사용하여 공유, 디렉터리 및 파일에 액세스할 수 있습니다. 자세한 내용은 [SMB 액세스에 대한 Azure Files ID 기반 인증 지원 개요를](storage-files-active-directory-overview.md)참조하십시오. 
+    예. Azure Files는 ID 기반 인증 및 액세스 제어를 지원합니다. ID 기반 액세스 제어를 사용하는 두 가지 방법 중 중 하나를 선택할 수 있습니다. 온-프레미스 Active Directory 도메인 서비스(AD DS)는 온-프레미스 또는 Azure에서 AD DS 도메인 에 가입한 컴퓨터를 사용하여 SMB를 통해 Azure 파일 공유에 액세스하는 인증을 지원합니다. Azure 파일에 대한 SMB에 대한 Azure AD DS 인증을 통해 Azure AD DS 도메인에 가입한 Windows VM을 사용하여 Azure AD 자격 증명을 사용하여 공유, 디렉터리 및 파일에 액세스할 수 있습니다. 자세한 내용은 [SMB 액세스에 대한 Azure Files ID 기반 인증 지원 개요를](storage-files-active-directory-overview.md)참조하십시오. 
 
     Azure Files는 액세스 제어를 관리하기 위한 두 가지 방법을 추가로 제공합니다.
 
@@ -185,30 +185,30 @@ ms.locfileid: "81383922"
     예. [2019-07-07(또는](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) 이후) REST API를 사용할 때 디렉터리 또는 파일에 대해 NTFS ACL을 받거나 설정하거나 복사하는 REST API를 지원합니다.
 
 * <a id="ad-vm-subscription"></a>
-**다른 구독으로 VM에서 Azure AD 자격 증명을 사용하여 Azure Files에 액세스할 수 있나요?**
+**다른 구독에서 VM에서 Azure AD 자격 증명으로 Azure 파일 공유에 액세스할 수 있습니까?**
 
-    파일 공유가 배포된 구독과 VM이 도메인에 조인된 Azure AD Domain Services 배포와 동일한 Azure AD 테넌트가 연결되어 있는 경우 동일한 Azure AD 자격 증명을 사용하여 Azure Files에 액세스할 수 있습니다. 제한 사항은 연결된 Azure AD 테넌트가 아닌 구독에만 적용됩니다.
+    파일 공유가 배포되는 구독이 VM이 도메인에 조인된 Azure AD DS 배포와 동일한 Azure AD 테넌트와 연결된 경우 동일한 Azure AD 자격 증명을 사용하여 Azure 파일 공유에 액세스할 수 있습니다. 제한 사항은 연결된 Azure AD 테넌트가 아닌 구독에만 적용됩니다.
     
 * <a id="ad-support-subscription"></a>
-**파일 공유가 연결된 기본 테넌트와 다른 Azure AD 테넌트를 사용하여 Azure 파일 Azure AD DS 또는 AD 인증을 활성화할 수 있습니까?**
+**Azure 파일 공유의 기본 테넌트와 다른 Azure AD 테넌트를 사용하여 Azure AD DS 또는 온-프레미스 AD DS 인증을 Azure AD DS 공유에 사용하도록 설정할 수 있습니까?**
 
-    아니요, Azure Files는 파일 공유와 동일한 구독에 있는 Azure AD 테넌트와의 Azure AD DS 또는 AD 통합만 지원합니다. 하나의 구독만 Azure AD 테넌트와 연결할 수 있습니다. 이 제한은 Azure AD DS 및 AD 인증 방법 모두에 적용됩니다. 인증을 위해 AD를 사용하는 경우 저장소 계정이 연결된 Azure AD에 AD 자격 증명을 동기화해야 합니다.
+    아니요, Azure Files는 파일 공유와 동일한 구독에 있는 Azure AD 테넌트와의 Azure AD DS 또는 온-프레미스 AD DS 통합만 지원합니다. 하나의 구독만 Azure AD 테넌트와 연결할 수 있습니다. 이 제한은 Azure AD DS 및 온-프레미스 AD DS 인증 방법에 모두 적용됩니다. 온-프레미스 AD DS를 인증에 사용하는 경우 저장소 계정이 연결된 [Azure AD에 AD DS 자격 증명을 동기화해야 합니다.](../../active-directory/hybrid/how-to-connect-install-roadmap.md)
 
 * <a id="ad-linux-vms"></a>
-**Azure 파일 Azure AD DS 또는 AD 인증이 Linux VM을 지원합니까?**
+**Azure 파일 공유에 대한 Azure AD DS 또는 온-프레미스 AD DS 인증이 Linux VM을 지원합니까?**
 
     아니요, Linux VM의 인증은 지원되지 않습니다.
 
 * <a id="ad-aad-smb-afs"></a>
-**Azure 파일 동기화에서 관리하는 파일 공유에서 Azure 파일 Azure AD DS 인증 또는 AD(활성 디렉터리) 인증(미리 보기)을 활용할 수 있습니까?**
+**Azure 파일 동기화에서 관리하는 파일 공유가 Azure AD DS 또는 온-프레미스 AD DS(미리 보기) 인증을 지원합니까?**
 
-    예. Azure 파일 동기화에서 관리하는 파일 공유에서 Azure AD DS 또는 AD 인증을 사용하도록 설정할 수 있습니다. 로컬 파일 서버의 디렉터리/파일 NTFS ACL에 대한 변경 사항은 Azure 파일로 계층화되고 그 반대의 경우도 마찬가지입니다.
+    예. Azure 파일 동기화에서 관리하는 파일 공유에서 Azure AD DS 또는 온-프레미스 AD DS 인증을 사용하도록 설정할 수 있습니다. 로컬 파일 서버의 디렉터리/파일 NTFS ACL에 대한 변경 사항은 Azure 파일로 계층화되고 그 반대의 경우도 마찬가지입니다.
 
 * <a id="ad-aad-smb-files"></a>
-**내 저장소 계정 및 AD 도메인 정보에서 AD 인증을 사용하도록 설정했는지 확인하려면 어떻게 해야 합니까?**
+**저장소 계정에서 AD DS 인증을 활성화했는지 확인하고 도메인 정보를 검색하려면 어떻게 해야 합니까?**
 
-    [여기에](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account) 제공된 지침을 참조하여 저장소 계정에서 Azure Files AD 인증이 활성화되어 있는지 확인하고 AD 도메인 정보를 검색할 수 있습니다.
-
+    지침은 [여기를](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account)참조하십시오.
+    
 * <a id="encryption-at-rest"></a>
 **Azure 파일 공유가 미사용 암호화되도록 하려면 어떻게 해야 하나요?**  
 
@@ -241,15 +241,15 @@ ms.locfileid: "81383922"
     아니요, Linux VM의 인증은 지원되지 않습니다.
 
 * <a id="ad-multiple-forest"></a>
-**Azure Files AD 인증이 여러 포리스트를 사용하여 AD 환경과의 통합을 지원합니까?**    
+**Azure 파일에 대한 온-프레미스 AD DS 인증이 여러 포리스트를 사용하는 AD DS 환경과의 통합을 지원합니까?**    
 
-    Azure 파일 AD 인증은 저장소 계정이 등록된 AD 도메인 서비스의 포리스트와만 통합됩니다. 다른 AD 포리스트의 인증을 지원하려면 환경에 포리스트 신뢰가 제대로 구성되어 있어야 합니다. Azure Files가 AD 도메인 서비스에 등록하는 방식은 인증을 위해 AD에 ID(컴퓨터 또는 서비스 로그온 계정)를 만드는 일반 파일 서버와 대부분 동일합니다. 유일한 차이점은 저장소 계정의 등록된 SPN이 도메인 접미사와 일치하지 않는 "file.core.windows.net"으로 끝난다는 것입니다. 도메인 관리자에게 문의하여 다른 도메인 접미사로 인해 여러 포리스트 인증을 활성화하려면 DNS 라우팅 정책에 대한 업데이트가 필요한지 확인합니다.
+    Azure 파일 온-프레미스 AD DS 인증은 저장소 계정이 등록된 도메인 서비스의 포리스트와만 통합됩니다. 다른 포리스트의 인증을 지원하려면 환경에 포리스트 트러스트가 올바르게 구성되어 있어야 합니다. Azure 파일이 AD DS에 등록하는 방식은 인증을 위해 AD DS에서 ID(컴퓨터 또는 서비스 로그온 계정)를 만드는 일반 파일 서버와 거의 동일합니다. 유일한 차이점은 저장소 계정의 등록된 SPN이 도메인 접미사와 일치하지 않는 "file.core.windows.net"으로 끝난다는 것입니다. 도메인 관리자에게 문의하여 다른 도메인 접미사로 인해 여러 포리스트 인증을 활성화하려면 DNS 라우팅 정책에 대한 업데이트가 필요한지 확인합니다.
 
 * <a id=""></a>
-**Azure 파일 AD 인증(미리 보기)에 사용할 수 있는 지역은 무엇입니까?**
+**Azure 파일 AD DS 인증(미리 보기)에 사용할 수 있는 지역은 무엇입니까?**
 
-    자세한 내용은 [AD 지역 별 가용성을](storage-files-identity-auth-active-directory-enable.md#regional-availability) 참조하십시오.
-
+    자세한 내용은 [AD DS 지역 별 가용성을](storage-files-identity-auth-active-directory-enable.md#regional-availability) 참조하십시오.
+    
 * <a id="ad-aad-smb-afs"></a>
 **Azure 파일 동기화에서 관리하는 파일 공유에 Azure 파일 활성 디렉터리(AD) 인증(미리 보기)을 활용할 수 있습니까?**
 
@@ -414,7 +414,7 @@ ms.locfileid: "81383922"
 **IBM MQ에서 Azure Files를 어떻게 사용하나요?**  
     IBM은 IBM MQ 고객이 IBM 서비스로 Azure Files를 구성할 수 있도록 돕는 문서를 발표했습니다. 자세한 내용은 [Microsoft Azure 파일 서비스와 IBM MQ 다중 인스턴스 큐 관리자를 설치하는 방법](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)을 참조하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [Windows에서 Azure Files 문제 해결](storage-troubleshoot-windows-file-connection-problems.md)
 * [Linux에서 Azure Files 문제 해결](storage-troubleshoot-linux-file-connection-problems.md)
 * [Azure 파일 동기화 문제 해결](storage-sync-files-troubleshoot.md)

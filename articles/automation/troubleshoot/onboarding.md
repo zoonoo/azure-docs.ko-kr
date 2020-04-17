@@ -8,12 +8,12 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c949556949e0c187d7c23c4dd32436e245bfbb95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae359e5210a9a11c33dd3ff9b474e28aa2548c57
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75889325"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536967"
 ---
 # <a name="troubleshoot-errors-when-onboarding-update-management-change-tracking-and-inventory"></a>업데이트 관리, 변경 정보 추적 및 인벤토리온보딩 시 오류 문제 해결
 
@@ -72,7 +72,7 @@ The solution cannot be enabled on this VM because the permission to read the wor
 
 #### <a name="resolution"></a>해결 방법
 
-가상 머신 온보딩을 위한 권한이 올바른지 확인합니다. [가상 머신을 온보딩하는 데 필요한 권한](../automation-role-based-access-control.md#onboarding)을 검토한 후에 솔루션을 다시 온보딩해 보세요. 오류가 `The solution cannot be enabled on this VM because the permission to read the workspace is missing`발생하면 VM이 `Microsoft.OperationalInsights/workspaces/read` 작업 영역에 온보온되어 있는지 확인할 수 있는 권한이 있는지 확인합니다.
+가상 머신 온보딩을 위한 권한이 올바른지 확인합니다. [가상 머신을 온보딩하는 데 필요한 권한](../automation-role-based-access-control.md#onboarding-permissions)을 검토한 후에 솔루션을 다시 온보딩해 보세요. 오류가 `The solution cannot be enabled on this VM because the permission to read the workspace is missing`발생하면 VM이 작업 영역에 `Microsoft.OperationalInsights/workspaces/read` 온보온되어 있는지 확인할 수 있는 권한이 있는지 확인합니다.
 
 ### <a name="scenario-onboarding-fails-with-the-message---failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>시나리오: 메시지와 함께 온보딩 실패 - 진단 로깅을 위해 자동화 계정을 구성하지 못했습니다.
 
@@ -162,7 +162,7 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-솔루션을 배포하는 경우 다양한 관련 리소스가 배포됩니다. Microsoft Monitoring Agent 확장이나 Linux용 Log Analytics 에이전트는 이러한 리소스 중 하나입니다. 이들은 이별및 기타 파일의 다운로드를 나중에 조정하기 위한 목적으로 구성된 Log Analytics 작업 영역과 통신할 책임이 있는 가상 머신 의 게스트 에이전트가 설치한 가상 머신 확장프로그램입니다. 온보딩하는 솔루션은 실행을 시작하면 따라 달라집니다.
+솔루션을 배포하는 경우 다양한 관련 리소스가 배포됩니다. Microsoft Monitoring Agent 확장이나 Linux용 Log Analytics 에이전트는 이러한 리소스 중 하나입니다. 이러한 가상 컴퓨터확장은 구성된 Log Analytics 작업 영역과 통신하는 가상 머신 확장기능으로, 나중에 이너리 및 기타 파일을 다운로드하는 작업을 조정하기 위해 온보딩중인 솔루션이 실행을 시작하면 달라집니다.
 일반적으로 알림 허브에 나타나는 알림을 통해 MMA 또는 Linux용 Log Analytics 에이전트 설치 실패를 먼저 인식하게 됩니다. 알림을 클릭하면 특정 실패에 대한 자세한 정보가 제공됩니다. 리소스 그룹 리소스로 이동한 다음, 여기에 포함된 배포 요소로 이동하면 배포 실패에 대한 자세한 내용이 제공됩니다.
 MMA나 Linux용 Log Analytics 에이전트 설치는 다양한 이유로 인해 실패할 수 있으며 이러한 실패를 처리하는 단계는 문제에 따라 달라집니다. 구체적인 문제 해결 단계가 이어집니다.
 

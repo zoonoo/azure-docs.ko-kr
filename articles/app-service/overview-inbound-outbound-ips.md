@@ -4,12 +4,12 @@ description: Azure App Service에서 인바운드 및 아웃바운드 IP 주소�
 ms.topic: article
 ms.date: 06/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: aebce04fe2f1b055a4d498021dcd25144cd122a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8bcd80fde95e467513590f3ed09b1dadd2646aee
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279209"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537630"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure App Service의 인바운드 및 아웃바운드 IP 주소
 
@@ -23,7 +23,7 @@ ms.locfileid: "79279209"
 
 - 앱을 삭제하고 다른 리소스 그룹에서 다시 만듭니다.
 - 리소스 그룹 _및_ 지역 조합에서 마지막 앱을 삭제하고 다시 만듭니다.
-- 인증서 갱신 중과 같은 기존 SSL 바인딩을 삭제합니다(인증서 [갱신](configure-ssl-certificate.md#renew-certificate)참조).
+- 인증서 갱신 중과 같은 기존 TLS 바인딩을 삭제합니다(인증서 [갱신](configure-ssl-certificate.md#renew-certificate)참조).
 
 ## <a name="find-the-inbound-ip"></a>인바운드 IP 찾기
 
@@ -35,7 +35,7 @@ nslookup <app-name>.azurewebsites.net
 
 ## <a name="get-a-static-inbound-ip"></a>정적 인바운드 IP 받기
 
-경우에 따라 앱에 대해 고정 전용 IP 주소를 사용하고자 할 수 있습니다. 고정 인바운드 IP 주소를 얻으려면 [IP 기반 SSL 바인딩](configure-ssl-bindings.md#secure-a-custom-domain)을 구성해야 합니다. 실제로 앱을 보호하는 SSL 기능이 필요하지 않은 경우 이 바인딩에 대한 자체 서명된 인증서를 업로드할 수도 있습니다. IP 기반 SSL 바인딩에서는 인증서가 자체 IP 주소에 바인딩되므로 App Service는 고정 IP 주소를 프로비전하여 이를 구현합니다. 
+경우에 따라 앱에 대해 고정 전용 IP 주소를 사용하고자 할 수 있습니다. 정적 인바운드 IP 주소를 얻으려면 [사용자 지정 도메인을 보호해야](configure-ssl-bindings.md#secure-a-custom-domain)합니다. 실제로 앱을 보호하기 위해 TLS 기능이 필요하지 않은 경우 이 바인딩에 대해 자체 서명된 인증서를 업로드할 수도 있습니다. IP 기반 TLS 바인딩에서 인증서는 IP 주소 자체에 바인딩되므로 앱 서비스는 정적 IP 주소를 프로비저닝하여 이를 실현합니다. 
 
 ## <a name="when-outbound-ips-change"></a>아웃바운드 IP가 변경되는 경우
 

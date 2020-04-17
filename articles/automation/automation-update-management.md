@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: c76b14e4f08ec930159498da4a35fdad0341929e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eaba4bf7760e150f2477ee743c797f94784b8506
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278507"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535505"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -77,7 +77,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 
 다음 표에는 업데이트 평가를 위해 지원되는 운영 체제가 나열되어 있습니다. 패치를 사용하려면 하이브리드 Runbook 작업자가 필요합니다. 하이브리드 Runbook 작업자 요구 사항에 대한 자세한 내용은 [Windows 하이브리드 Runbook 작업자](automation-windows-hrw-install.md) 및 Linux 하이브리드 [Runbook 작업자를](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)설치하기 위한 설치 가이드를 참조하십시오.
 
-|운영 체제  |메모  |
+|운영 체제  |참고  |
 |---------|---------|
 |Windows 서버 2019(데이터 센터/데이터 센터 코어/표준)<br><br>Windows 서버 2016(데이터 센터/데이터 센터 코어/표준)<br><br>윈도우 서버 2012 R2(데이터 센터/표준)<br><br>Windows Server 2012 || 
 |윈도우 서버 2008 R2 (RTM 및 SP1 표준)| 업데이트 관리는 이 운영 체제에 대한 평가 수행만 지원하며 [하이브리드 Runbook 작업자가](automation-windows-hrw-install.md) Windows Server 2008 R2에서 지원되지 않기 때문에 패치가 지원되지 않습니다. |
@@ -94,7 +94,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 
 다음 표에는 지원되지 않는 운영 체제가 나열되어 있습니다.
 
-|운영 체제  |메모  |
+|운영 체제  |참고  |
 |---------|---------|
 |Windows 클라이언트     | 클라이언트 운영 체제(예: Windows 7 및 Windows 10)는 지원되지 않습니다.        |
 |Windows Server 2016 Nano Server     | 지원되지 않습니다.       |
@@ -127,7 +127,7 @@ Azure 마켓플레이스에서 사용할 수 있는 주문형 Red Hat 엔터프�
 
 ## <a name="permissions"></a>사용 권한
 
-업데이트 배포를 만들고 관리하려면 특정 권한이 필요합니다. 이러한 권한에 대해 자세히 알아보려면 [역할 기반 액세스 - 업데이트 관리를](automation-role-based-access-control.md#update-management)참조하십시오.
+업데이트 배포를 만들고 관리하려면 특정 권한이 필요합니다. 이러한 권한에 대해 자세히 알아보려면 [역할 기반 액세스 - 업데이트 관리를](automation-role-based-access-control.md#update-management-permissions)참조하십시오.
 
 ## <a name="solution-components"></a>솔루션 구성 요소
 
@@ -163,11 +163,11 @@ Azure 마켓플레이스에서 사용할 수 있는 주문형 Red Hat 엔터프�
 
 다음 표에서는 솔루션이 지원하는 연결된 원본을 설명합니다.
 
-| 연결된 원본 | 지원됨 | 설명 |
+| 연결된 원본 | 지원됨 | Description |
 | --- | --- | --- |
-| Windows 에이전트 |yes |솔루션은 Windows 에이전트에서 시스템 업데이트에 대한 정보를 수집한 후 필수 업데이트를 설치하기 시작합니다. |
-| Linux 에이전트 |yes |이 솔루션은 Linux 에이전트에서 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필수 업데이트 설치를 시작합니다. |
-| Operations Manager 관리 그룹 |yes |솔루션은 연결된 관리 그룹의 에이전트에서 시스템 업데이트에 대한 정보를 수집합니다.<br/><br/>운영 관리자 에이전트에서 Azure Monitor 로그에 직접 연결할 필요는 없습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
+| Windows 에이전트 |예 |솔루션은 Windows 에이전트에서 시스템 업데이트에 대한 정보를 수집한 후 필수 업데이트를 설치하기 시작합니다. |
+| Linux 에이전트 |예 |이 솔루션은 Linux 에이전트에서 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필수 업데이트 설치를 시작합니다. |
+| Operations Manager 관리 그룹 |예 |솔루션은 연결된 관리 그룹의 에이전트에서 시스템 업데이트에 대한 정보를 수집합니다.<br/><br/>운영 관리자 에이전트에서 Azure Monitor 로그에 직접 연결할 필요는 없습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
 
 ### <a name="collection-frequency"></a>수집 빈도
 
@@ -206,7 +206,7 @@ Red Hat Linux 컴퓨터의 경우 필요한 끝점에 [대한 RHUI 콘텐츠 전
 
 ### <a name="windows"></a>Windows
 
-|분류  |설명  |
+|분류  |Description  |
 |---------|---------|
 |중요 업데이트     | 보안 관련 중요 버그를 해결하는 특정 문제에 대한 업데이트입니다.        |
 |보안 업데이트     | 제품이 특정된 보안 관련 문제에 대한 업데이트입니다.        |
@@ -219,7 +219,7 @@ Red Hat Linux 컴퓨터의 경우 필요한 끝점에 [대한 RHUI 콘텐츠 전
 
 ### <a name="linux"></a><a name="linux-2"></a>Linux
 
-|분류  |설명  |
+|분류  |Description  |
 |---------|---------|
 |중요 업데이트 및 보안 업데이트     | 특정 문제 또는 제품이 특정된 보안 관련 문제에 대한 업데이트입니다.         |
 |다른 업데이트     | 본질적으로 중요하지 않거나 보안 업데이트가 아닌 다른 모든 업데이트.        |

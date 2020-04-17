@@ -3,12 +3,12 @@ title: Azure Backup 지원 매트릭스
 description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 120882b15dcf9f27c280984ff6d0df31e38ebb73
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: b87430c9ff7d806fd1fc74d5d2a8270f9db43b53
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878955"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537324"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure 백업을 위한 지원 매트릭스
 
@@ -90,7 +90,7 @@ Azure BackupAzure VM 백업에 대 한 일광 절약 시간에 대 한 자동 �
 
 디스크 중복 제거 지원은 다음과 같습니다.
 
-- DPM 또는 MAB를 사용하여 Windows를 실행하는 Hyper-VM을 백업할 때 디스크 중복 제거가 온-프레미스에서 지원됩니다. Windows Server는 VM에 백업 저장소로 연결된 VH(가상 하드 디스크)에서 호스트 수준에서 데이터 중복 제거를 수행합니다.
+- DPM 또는 MABS를 사용하여 Windows를 실행하는 Hyper-VM을 백업할 때 디스크 중복 제거가 온-프레미스에서 지원됩니다. Windows Server는 VM에 백업 저장소로 연결된 VH(가상 하드 디스크)에서 호스트 수준에서 데이터 중복 제거를 수행합니다.
 - Azure에서는 백업 구성 요소에 대한 중복 제거가 지원되지 않습니다. Azure에 DPM 및 MABS를 배포하면 VM에 연결된 저장소 디스크를 중복 제거할 수 없습니다.
 
 ## <a name="security-and-encryption-support"></a>보안 및 암호화 지원

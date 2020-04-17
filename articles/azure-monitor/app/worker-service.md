@@ -3,12 +3,12 @@ title: 작업자 서비스 앱(HTTP가 아닌 앱)에 대한 응용 프로그램
 description: Azure 모니터 응용 프로그램 인사이트를 통해 .NET Core/.NET 프레임워크 비HTTP 앱을 모니터링합니다.
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 34a64ffa67b1a43a77391e0d50ddf1bfad0f73ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f043140e5a342d114f777ad16bba588790b7f8cc
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501168"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536729"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>작업자 서비스 응용 프로그램에 대한 응용 프로그램 인사이트(HTTP가 아닌 응용 프로그램)
 
@@ -207,9 +207,9 @@ ms.locfileid: "79501168"
             {
                 _logger.LogWarning("A sample warning message. By default, logs with severity Warning or higher is captured by Application Insights");
                 _logger.LogInformation("Calling bing.com");
-                var res = await httpClient.GetAsync("https://bing.com");
+                var res = httpClient.GetAsync("https://bing.com").GetAwaiter().GetResult();
                 _logger.LogInformation("Calling bing completed with status:" + res.StatusCode);
-                telemetryClient.TrackEvent("Bing call event completed");
+                _telemetryClient.TrackEvent("Bing call event completed");
             }
         }
     }
@@ -351,7 +351,7 @@ SDK는 위에서 설명한 대로 원격 분석을 자동으로 수집하지만 
 
 에서 일반적으로 사용되는 설정`ApplicationInsightsServiceOptions`
 
-|설정 | 설명 | 기본값
+|설정 | Description | 기본값
 |---------------|-------|-------
 |인에이블퀵펄스메트릭스트림 | 라이브메트릭 사용/비활성화 기능 | true
 |인에이블적응샘플링 | 어댑티브 샘플링 사용/비활성화 | true

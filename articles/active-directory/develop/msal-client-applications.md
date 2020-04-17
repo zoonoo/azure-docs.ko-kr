@@ -13,12 +13,12 @@ ms.date: 04/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: d59819c0ab614b0f6cc102c7ebe8c760fb851599
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c3292a31e5f750c16933acf94509e0ad226080a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77084128"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534315"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>공용 클라이언트 및 기밀 클라이언트 응용 프로그램
 MSAL(Microsoft 인증 라이브러리)은 공용 클라이언트와 기밀 클라이언트의 두 가지 유형의 클라이언트를 정의합니다. 두 클라이언트 유형은 권한 부여 서버를 사용하여 안전하게 인증하고 클라이언트 자격 증명의 기밀성을 유지하는 능력에 의해 구별됩니다. 반면, Azure AD 인증 라이브러리(ADAL)는 *인증 컨텍스트(Azure* AD에 대한 연결)를 사용합니다.

@@ -6,12 +6,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
-ms.openlocfilehash: 3b8c2f6ec33965317d2aaa23a36b6becff11a54a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1fc4bce988b13a9ff76fd961d524ce945876054
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75725729"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535403"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Azure Migrate 프로젝트 문제 해결
 
@@ -32,7 +32,7 @@ Azure 마이그레이션 프로젝트를 만들려면 구독에서 기여자 또
 
 ## <a name="cant-find-a-geography"></a>지역을 찾을 수 없습니다.
 
-[지원되는 지역에서](migrate-support-matrix.md#supported-geographies)Azure 마이그레이션 프로젝트를 만들 수 있습니다. 프로젝트 지역은 검색된 컴퓨터 메타데이터를 저장하는 데 사용됩니다. 다른 위치에서도 컴퓨터를 평가하거나 마이그레이션할 수 있습니다.
+[공용](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드에](migrate-support-matrix.md#supported-geographies-azure-government)대해 지원되는 지역에서 Azure 마이그레이션 프로젝트를 만들 수 있습니다.
 
 ## <a name="what-are-vm-limits"></a>VM 제한이란 무엇입니까?
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: d667dd09c2276936e10cea0581e4c8d2810b2ccb
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 4d7d2f0a423a50f85160a856480eaa973be7e2b0
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81311089"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537613"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Windows에 IoT용 Azure Security Center C# 기반 보안 에이전트 배포
 
@@ -135,9 +135,9 @@ Get-Help 예제:```Get-Help .\InstallSecurityAgent.ps1```
      sc.exe start "ASC IoT Agent"
      ```
 
-1. 오류에 대한 자세한 내용을 확인하려면 로그 파일을 검토합니다.
+1. 오류에 대한 자세한 내용을 확인하려면 로그 파일을 검토합니다. 로그 파일은 스크립트를 실행하는 작업 디렉토리에 있습니다. 
 
-   로그 파일 위치: `%WinDir%/System32/IoTAgentLog.log`
+   로그 파일 위치: `.\IoTAgentLog.log`
 
 ## <a name="next-steps"></a>다음 단계
 

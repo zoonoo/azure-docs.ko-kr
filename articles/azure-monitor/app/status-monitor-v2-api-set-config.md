@@ -5,18 +5,18 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 1226b3e10adf786ed3335844a5d3f4e530911705
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c47b9b5f297fa62c474e6c29737d6d11b887130d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671242"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537477"
 ---
 # <a name="application-insights-agent-api-set-applicationinsightsmonitoringconfig"></a>애플리케이션 인사이트 에이전트 API: 설정-애플리케이션 인사이트모니터링구성
 
 이 문서에서는 [Az.ApplicationMonitor PowerShell 모듈의](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)구성원인 cmdlet에 대해 설명합니다.
 
-## <a name="description"></a>설명
+## <a name="description"></a>Description
 
 전체 재설치를 수행하지 않고 구성 파일을 설정합니다.
 변경 사항이 적용되면 IIS를 다시 시작합니다.
@@ -35,7 +35,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ```
 
 ### <a name="example-with-an-instrumentation-key-map"></a>계측 키 맵의 예
-이 예제에 대한 설명:
+이 예제에서:
 - `MachineFilter`와일드카드를 사용하여 현재 `'.*'` 컴퓨터와 일치합니다.
 - `AppFilter='WebAppExclude'`계측 `null` 키를 제공합니다. 지정된 앱은 계측되지 않습니다.
 - `AppFilter='WebAppOne'`지정된 앱에 고유한 계측 키를 할당합니다.
@@ -113,7 +113,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 ## <a name="next-steps"></a>다음 단계
 
   원격 분석 보기:
- - [메트릭을 탐색하여](../../azure-monitor/app/metrics-explorer.md) 성능 및 사용량을 모니터링합니다.
+ - [메트릭을 탐색하여](../../azure-monitor/platform/metrics-charts.md) 성능 및 사용량을 모니터링합니다.
 - [이벤트 및 로그를 검색하여](../../azure-monitor/app/diagnostic-search.md) 문제를 진단합니다.
 - 고급 쿼리에 [애널리틱스를 사용합니다.](../../azure-monitor/app/analytics.md)
 - [대시보드를 만듭니다.](../../azure-monitor/app/overview-dashboard.md)

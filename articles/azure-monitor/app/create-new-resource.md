@@ -3,12 +3,12 @@ title: 새 Azure Application Insights 리소스 만들기 | Microsoft Docs
 description: 새 라이브 애플리케이션에 대한 Application Insights 모니터링을 수동으로 설정합니다.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: c1b3a6920723ad59b714cce4bd69e1b95fe1995f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c8b9ccaa70a2fd1bf46c6f4537f54d702ecc48f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132414"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537579"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 
@@ -16,7 +16,7 @@ Azure Application Insights는 Microsoft Azure *리소스*에 애플리케이션�
 
 ## <a name="sign-in-to-microsoft-azure"></a>Microsoft Azure에 로그인
 
-Azure 구독이 없는 경우 시작하기 전에 [무료](https://azure.microsoft.com/free/) 계정을 만드세요.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 
@@ -24,7 +24,7 @@ Azure 구독이 없는 경우 시작하기 전에 [무료](https://azure.microso
 
 ![왼쪽 상단 모서리에 있는 '+' 기호를 클릭합니다. 개발자 도구 선택 후 애플리케이션 인사이트](./media/create-new-resource/new-app-insights.png)
 
-   | 설정        |  값           | 설명  |
+   | 설정        |  값           | Description  |
    | ------------- |:-------------|:-----|
    | **이름**      | 고유 값 | 모니터링 중인 앱을 식별하는 이름입니다. |
    | **리소스 그룹**     | myResourceGroup      | App Insights 데이터를 호스트할 새 리소스 또는 기존 리소스 그룹의 이름입니다. |
@@ -153,12 +153,12 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 
 ## <a name="next-steps"></a>다음 단계
 * [진단 검색](../../azure-monitor/app/diagnostic-search.md)
-* [메트릭 탐색](../../azure-monitor/app/metrics-explorer.md)
+* [메트릭 탐색](../../azure-monitor/platform/metrics-charts.md)
 * [분석 쿼리 작성](../../azure-monitor/app/analytics.md)
 
 <!--Link references-->
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../../azure-monitor/platform/metrics-charts.md
 [start]: ../../azure-monitor/app/app-insights-overview.md

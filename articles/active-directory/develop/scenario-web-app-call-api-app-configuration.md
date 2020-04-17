@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b0f60e13ca4bc5115f9a49885c3c659ad1147fcc
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 7f05d33b43df85c49a0c92b60157e2a6448325ac
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80881896"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537137"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>웹 API를 호출하는 웹 앱: 코드 구성
 
@@ -94,7 +94,7 @@ ASP.NET 코어에서 `Startup.cs` 파일에서 `OnAuthorizationCodeReceived` Ope
 다음은 [Startup.cs#L40-L42의](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/2-WebApp-graph-user/2-1-Call-MSGraph/Startup.cs#L40-L42)코드입니다. 그것은 기능을 호출:
 
 - 웹 `AddMicrosoftIdentityPlatformAuthentication` 앱에 인증을 추가하는 메서드입니다.
-- 웹 `AddMsal` API를 호출하는 기능을 추가하는 메서드입니다.
+- 웹 `AddMsal` API 호출 기능을 추가하는 메서드입니다.
 - 토큰 `AddInMemoryTokenCaches` 캐시 구현을 선택하는 방법에 대한 메서드입니다.
 
 ```csharp
@@ -253,7 +253,7 @@ public class TokenAcquisition : ITokenAcquisition
 
 ### <a name="the-tokenacquisitionbuildconfidentialclientapplication-method"></a>토큰 획득.빌드기밀 클라이언트 응용 프로그램 메서드
 
-ASP.NET Core에서 기밀 클라이언트 응용 프로그램을 빌드하면 `HttpContext`에 있는 정보가 사용됩니다. 요청과 연결된 속성은 `HttpContext` `CurrentHttpContext` 속성을 사용하여 액세스됩니다. `HttpContext`웹 앱의 URL 및 로그인한 사용자(에)에 `ClaimsPrincipal`대한 정보가 있습니다. 
+ASP.NET Core에서 기밀 클라이언트 응용 프로그램을 빌드하면 `HttpContext`에 있는 정보가 사용됩니다. 요청과 연결된 속성은 `HttpContext` `CurrentHttpContext` 속성을 사용하여 액세스됩니다. `HttpContext`웹 앱의 URL 및 로그인한 사용자(에)에 `ClaimsPrincipal`대한 정보가 있습니다.
 
 이 `BuildConfidentialClientApplication` 메서드는 ASP.NET 코어 구성도 사용합니다. 구성에는 "AzureAD" 섹션이 있으며 다음 요소 모두에 바인딩됩니다.
 

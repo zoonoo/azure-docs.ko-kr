@@ -3,12 +3,12 @@ title: Azure Application Insights에서 어떻게 할까요? | Microsoft Docs
 description: Application Insights의 FAQ
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 5b65087c361911f0714723c315e0b7f7e9bb74e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d4b1e79c48b14ed7dce756468e4c48d633c3f04
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663860"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536865"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights에서 어떻게 할까요?
 ## <a name="get-an-email-when-"></a>전자 메일을 받는 경우
@@ -45,7 +45,7 @@ ms.locfileid: "77663860"
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-[메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md) 에서 차트를 만들어 경고를 확인합니다.
+[메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md) 에서 차트를 만들어 경고를 확인합니다.
 
 ![](./media/how-do-i/010-alarm.png)
 
@@ -82,12 +82,12 @@ ms.locfileid: "77663860"
 
 ## <a name="visualize-data"></a>데이터 시각화
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>여러 앱의 메트릭이 있는 대시보드
-* [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md)에서 차트를 사용자 지정하고 즐겨찾기에 저장합니다. Azure 대시보드에 고정합니다.
+* [메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md)에서 차트를 사용자 지정하고 즐겨찾기에 저장합니다. Azure 대시보드에 고정합니다.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>다른 원본 및 Application Insights의 데이터가 표시된 대시보드
 * [Power BI에 원격 분석을 내보냅니다](../../azure-monitor/app/export-power-bi.md ).
 
-또는
+Or
 
 * SharePoint를 대시보드로 사용하여 SharePoint 웹 파트에 데이터를 표시 합니다. [연속 내보내기 및 Stream Analytics를 사용하여 SQL로 내보냅니다](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md).  PowerView를 사용하여 데이터베이스를 검사하고 PowerView에 대한 SharePoint 웹 파트를 만듭니다.
 
@@ -159,5 +159,5 @@ ASP.NET 핵심 응용 프로그램의 `TelemetryConfiguration` 경우 [ASP.NET C
 * **유닉스 서버** - [설치 수집](../../azure-monitor/app/java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>더 많은 성능 카운터를 표시하려면
-* 먼저 [새 차트를 추가하고](../../azure-monitor/app/metrics-explorer.md) 제공한 기본 집합에 카운터가 있는지 확인합니다.
+* 먼저 [새 차트를 추가하고](../../azure-monitor/platform/metrics-charts.md) 제공한 기본 집합에 카운터가 있는지 확인합니다.
 * 없으면 [성능 카운터 모듈에서 수집한 집합에 카운터를 추가합니다](../../azure-monitor/app/performance-counters.md).

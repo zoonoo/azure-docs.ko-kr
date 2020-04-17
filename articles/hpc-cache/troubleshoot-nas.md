@@ -4,14 +4,14 @@ description: NFS 저장소 대상을 만들 때 오류가 발생할 수 있는 �
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 03/18/2020
 ms.author: rohogue
-ms.openlocfilehash: c88ffb9e87bc0688cc87b816efaa8e101e23407c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a24530810a448a713c01efbc8933b9f22d15b3b
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77652088"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536372"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>NAS 구성 및 NFS 스토리지 대상 문제 해결
 
@@ -63,6 +63,9 @@ Azure HPC 캐시는 저장소 대상을 만들려면 저장소 시스템의 내�
 
 내보내기 규칙을 사용하는 경우 캐시는 캐시 서브넷에서 여러 개의 서로 다른 IP 주소를 사용할 수 있습니다. 가능한 서브넷 IP 주소의 전체 범위에서 액세스를 허용합니다.
 
+> [!NOTE]
+> 기본적으로 Azure HPC 캐시는 루트 액세스를 스쿼시합니다. 자세한 내용은 [추가 캐시 설정 구성을](configuration.md#configure-root-squash) 읽습니다.
+
 NAS 스토리지 공급업체와 협력하여 캐시에 대한 적절한 수준의 액세스를 활성화합니다.
 
 ### <a name="allow-root-access-on-directory-paths"></a>디렉터리 경로에 대한 루트 액세스 허용
@@ -100,7 +103,7 @@ NAS는 Azure HPC 캐시가 내보내기를 쿼리할 때 내보내기를 나열�
 해당 명령에 내보내기가 나열되지 않으면 캐시가 저장소 시스템에 연결하는 데 문제가 있습니다. NAS 공급업체와 협력하여 내보내기 목록을 활성화합니다.
 
 ## <a name="adjust-vpn-packet-size-restrictions"></a>VPN 패킷 크기 제한 조정
-<!-- link in prereqs article -->
+<!-- link in prereqs article and configuration article -->
 
 캐시와 NAS 장치 사이에 VPN이 있는 경우 VPN은 전체 크기의 1500바이트 이더넷 패킷을 차단할 수 있습니다. NAS와 Azure HPC 캐시 인스턴스 간의 대규모 교환이 완료되지 않지만 작은 업데이트가 예상대로 작동하는 경우 이 문제가 발생할 수 있습니다.
 
@@ -128,7 +131,11 @@ VPN 구성의 세부 정보를 알지 못하면 시스템에 이 문제가 있�
   1480 bytes from 10.54.54.11: icmp_seq=1 ttl=64 time=2.06 ms
   ```
 
-  1472바이트로 ping에 실패하면 원격 시스템이 최대 프레임 크기를 올바르게 감지하도록 VPN에서 MSS 클램핑을 구성해야 할 수 있습니다. 자세한 내용은 [VPN 게이트웨이 IPsec/IKE 매개 변수 설명서를](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) 참조하십시오.
+  ping이 1472바이트로 실패하면 패킷 크기 문제가 있을 수 있습니다.
+
+이 문제를 해결하려면 원격 시스템이 최대 프레임 크기를 올바르게 감지하도록 VPN에서 MSS 클램핑을 구성해야 할 수 있습니다. 자세한 내용은 [VPN 게이트웨이 IPsec/IKE 매개 변수 설명서를](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) 참조하십시오.
+
+경우에 따라 Azure HPC 캐시에 대한 MTU 설정을 1400으로 변경하면 도움이 될 수 있습니다. 그러나 캐시에서 MTU를 제한하는 경우 캐시와 상호 작용하는 클라이언트 및 백 엔드 저장소 시스템에 대한 MTU 설정도 제한해야 합니다. 읽기 자세한 내용은 [추가 Azure HPC 캐시 설정 구성을](configuration.md#adjust-mtu-value) 참조합니다.
 
 ## <a name="check-for-acl-security-style"></a>ACL 보안 스타일 확인
 

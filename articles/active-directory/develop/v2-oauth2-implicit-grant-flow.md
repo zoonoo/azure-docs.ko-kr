@@ -12,12 +12,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0a884850d57418e9daafba980d0a08dc86fc0974
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: b946ab6157ba63213a4c140221d36f231aa62f0d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309387"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535845"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft ID 플랫폼 및 암시적 부여 흐름
 
@@ -38,16 +38,16 @@ Microsoft ID 플랫폼 끝점을 사용하면 Microsoft의 개인 및 직장 또
 
 ## <a name="suitable-scenarios-for-the-oauth2-implicit-grant"></a>OAuth2 암시적 허용에 적합한 시나리오
 
-OAuth2 사양에서는 사용자 에이전트 애플리케이션, 즉 JavaScript 애플리케이션을 브라우저 내에서 실행할 수 있도록 하기 위해 암시적 허용이 고안되었다고 선언하고 있습니다. 이러한 애플리케이션의 결정적인 특징은 JavaScript 코드를 사용하여 서버 리소스(대개 웹 API)에 액세스하고, 이에 따라 애플리케이션 사용자 환경을 업데이트한다는 것입니다. 받은 편지함에서 메시지를 선택할 때 메시지 시각화 패널에만 새 선택 내용이 표시되고 나머지 페이지는 수정되지 않은 채로 남아 있는 Gmail 또는 Outlook Web Access와 같은 애플리케이션을 생각해 보세요. 이 특징은 모든 사용자 상호 작용으로 인해 전체 페이지를 다시 게시하고 새 서버 응답의 전체 페이지를 렌더링하는 기존 리디렉션 기반 웹앱과는 대조적입니다.
+OAuth2 사양에서는 사용자 에이전트 애플리케이션, 즉 JavaScript 애플리케이션을 브라우저 내에서 실행할 수 있도록 하기 위해 암시적 허용이 고안되었다고 선언하고 있습니다. 이러한 응용 프로그램의 정의 특성은 JavaScript 코드가 서버 리소스(일반적으로 웹 API)에 액세스하고 그에 따라 응용 프로그램 사용자 환경을 업데이트하는 데 사용된다는 것입니다. 받은 편지함에서 메시지를 선택할 때 메시지 시각화 패널에만 새 선택 내용이 표시되고 나머지 페이지는 수정되지 않은 채로 남아 있는 Gmail 또는 Outlook Web Access와 같은 애플리케이션을 생각해 보세요. 이 특징은 모든 사용자 상호 작용으로 인해 전체 페이지를 다시 게시하고 새 서버 응답의 전체 페이지를 렌더링하는 기존 리디렉션 기반 웹앱과는 대조적입니다.
 
-JavaScript 기반 접근 방법을 극한까지 확장하는 애플리케이션을 단일 페이지 애플리케이션 또는 SPA라고 합니다. 이러한 애플리케이션은 초기 HTML 페이지 및 연결된 JavaScript만 제공하고, 모든 후속 상호 작용은 JavaScript를 통해 수행된 Web API 호출에 의해 구동됩니다. 그러나 애플리케이션이 대부분 포스트백을 기반으로 하지만 가끔 JS 호출을 수행하는 하이브리드 방법은 흔치 않습니다. 암시적 흐름 사용에 관한 설명은 그러한 경우에도 관련됩니다.
+JavaScript 기반 접근 방법을 극한까지 확장하는 애플리케이션을 단일 페이지 애플리케이션 또는 SPA라고 합니다. 아이디어는 이러한 응용 프로그램은 초기 HTML 페이지와 관련 자바 스크립트를 제공, 모든 후속 상호 작용은 자바 스크립트를 통해 수행 되는 웹 API 호출에 의해 구동 되는. 그러나 애플리케이션이 대부분 포스트백을 기반으로 하지만 가끔 JS 호출을 수행하는 하이브리드 방법은 흔치 않습니다. 암시적 흐름 사용에 관한 설명은 그러한 경우에도 관련됩니다.
 
-일반적으로 리디렉션 기반 애플리케이션은 쿠키를 통해 해당 요청을 보호하지만 해당 접근 방식은 JavaScript 애플리케이션에도 작동하지 않습니다. 쿠키는 생성된 도메인에 대해서만 작동하지만 JavaScript 호출은 다른 도메인으로 편향될 수 있습니다. 사실 이러한 경우는 아주 많습니다. 모두 애플리케이션을 제공한 도메인의 외부에 상주하는 Graph API, Office API, Azure API를 호출하는 애플리케이션을 생각해 보세요. JavaScript 애플리케이션이 증가하는 추세는 타사 웹 API에 전적으로 의존하여 비즈니스 기능을 구현하는 백 엔드가 전혀 없다는 것입니다.
+일반적으로 리디렉션 기반 애플리케이션은 쿠키를 통해 해당 요청을 보호하지만 해당 접근 방식은 JavaScript 애플리케이션에도 작동하지 않습니다. 쿠키는 생성된 도메인에 대해서만 작동하지만 JavaScript 호출은 다른 도메인으로 편향될 수 있습니다. 사실 이러한 경우는 아주 많습니다. 모두 애플리케이션을 제공한 도메인의 외부에 상주하는 Graph API, Office API, Azure API를 호출하는 애플리케이션을 생각해 보세요. JavaScript 응용 프로그램의 증가하는 추세는 비즈니스 기능을 구현하기 위해 타사 웹 API에 100% 의존하는 백엔드가 전혀 없는 것입니다.
 
-현재 웹 API에 대한 호출을 보호하는 기본 방법은 모든 호출이 OAuth2 액세스 토큰과 함께 동반되는 OAuth2 전달자 토큰 접근 방법을 사용하는 것입니다. 웹 API는 들어오는 액세스 토큰을 검사하고 필요한 범위에서 찾으면 요청된 작업에 대한 액세스를 부여합니다. 암시적 흐름은 JavaScript 애플리케이션이 웹 API에 대한 액세스 토큰을 가져오기에 편리한 메커니즘을 제공하여 쿠키에 관한 다양한 장점을 제공합니다.
+현재 웹 API에 대한 호출을 보호하는 기본 방법은 모든 호출에 OAuth2 액세스 토큰이 동반되는 OAuth2 베어러 토큰 접근 방식을 사용하는 것입니다. 웹 API는 들어오는 액세스 토큰을 검사하고 필요한 범위를 발견하면 요청된 작업에 대한 액세스 권한을 부여합니다. 암시적 흐름은 JavaScript 응용 프로그램이 웹 API에 대한 액세스 토큰을 가져오는 편리한 메커니즘을 제공하므로 쿠키와 관련하여 다음과 같은 많은 이점을 제공합니다.
 
 * 토큰을 원래 호출과 교차할 필요 없이 신뢰성 있게 가져올 수 있음 - 토큰을 반환하는 리디렉션 URI의 필수 등록을 통해 토큰이 이동되지 않도록 보증
-* JavaScript 애플리케이션이 대상으로 하는 웹 API 수만큼 액세스 토큰을 필요한 대로 가져올 수 있음 - 도메인에 대한 제한 없음
+* JavaScript 응용 프로그램은 도메인에 대한 제한 없이 대상인 많은 웹 API에 대해 필요한 만큼 의 액세스 토큰을 얻을 수 있습니다.
 * 세션 또는 로컬 스토리지와 같은 HTML5 기능이 토큰 캐싱 및 수명 관리를 완전히 제어할 수 있으면서도 쿠키 관리는 앱에서 신경쓸 필요가 없음
 * 액세스 토큰은 CSRF(교차 사이트 요청 위조) 공격에 취약하지 않습니다.
 
@@ -59,7 +59,7 @@ JavaScript 기반 접근 방법을 극한까지 확장하는 애플리케이션�
 
 ## <a name="is-the-implicit-grant-suitable-for-my-app"></a>암시적 허용이 내 앱에 적합할까요?
 
-암시적 허용은 다른 허용보다 더 많은 위험을 초래하며, 주의해야 하는 영역은 잘 문서화되어 있습니다(예: [암시적 흐름에서 리소스 소유자를 가장하는 액세스 토큰 오용][OAuth2-Spec-Implicit-Misuse] 및 [OAuth 2.0 위협 모델 및 보안 고려 사항][OAuth2-Threat-Model-And-Security-Implications]). 그러나 더 높은 위험 프로필은 주로 원격 리소스에서 브라우저에 제공한 활성 코드를 실행하는 애플리케이션을 사용하도록 설정하는 것을 의미한다는 사실 때문입니다. SPA 아키텍처를 계획하는 경우 백 엔드 구성 요소가 없거나 JavaScript를 통해 웹 API를 호출하려고 하므로 토큰 획득을 위해 암시적 흐름을 사용하는 것이 좋습니다.
+암시적 허용은 다른 허용보다 더 많은 위험을 초래하며, 주의해야 하는 영역은 잘 문서화되어 있습니다(예: [암시적 흐름에서 리소스 소유자를 가장하는 액세스 토큰 오용][OAuth2-Spec-Implicit-Misuse] 및 [OAuth 2.0 위협 모델 및 보안 고려 사항][OAuth2-Threat-Model-And-Security-Implications]). 그러나 더 높은 위험 프로필은 주로 원격 리소스에서 브라우저에 제공한 활성 코드를 실행하는 애플리케이션을 사용하도록 설정하는 것을 의미한다는 사실 때문입니다. SPA 아키텍처를 계획중이거나 백 엔드 구성 요소가 없거나 JavaScript를 통해 웹 API를 호출하려는 경우 토큰 수집을 위한 암시적 흐름을 사용하는 것이 좋습니다.
 
 응용 프로그램이 네이티브 클라이언트인 경우 암시적 흐름은 적합하지 않습니다. 네이티브 클라이언트 상황에서 Azure AD 세션 쿠키가 없으면 오래 지속되는 세션을 유지 관리하는 수단에서 애플리케이션을 사용하지 않게 됩니다. 즉 애플리케이션은 새 리소스에 대한 액세스 토큰을 가져올 때 사용자에게 반복해서 메시지를 표시합니다.
 
@@ -98,7 +98,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > 암시적 흐름을 사용하여 로그인을 테스트하려면 <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank"> https://login.microsoftonline.com/common/oauth2/v2.0/authorize..을 클릭합니다.</a> 로그인한 후 브라우저가 주소 `https://localhost/myapp/` 표시줄에 `id_token` 있는 것으로 리디렉션되어야 합니다.
 >
 
-| 매개 변수 |  | 설명 |
+| 매개 변수 |  | Description |
 | --- | --- | --- |
 | `tenant` | required |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
 | `client_id` | required | [Azure 포털 - 앱에](https://go.microsoft.com/fwlink/?linkid=2083908) 할당된 앱 등록 페이지인 응용 프로그램(클라이언트) ID입니다. |
@@ -128,7 +128,7 @@ GET https://localhost/myapp/#
 &state=12345
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | `access_token` |`response_type`이 `token`을 포함하는 경우 포함됩니다. 앱에서 요청한 액세스 토큰입니다. 액세스 토큰은 디코딩되거나 검사해서는 안 되며 불투명 문자열로 처리되어야 합니다. |
 | `token_type` |`response_type`이 `token`을 포함하는 경우 포함됩니다. 항상 `Bearer`입니다. |
@@ -147,7 +147,7 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | `error` |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -196,7 +196,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &scope=https%3A%2F%2Fgraph.microsoft.com%2Fdirectory.read
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | `access_token` |`response_type`이 `token`을 포함하는 경우 포함됩니다. Microsoft Graph의 경우 앱에서 요청한 액세스 토큰입니다. 액세스 토큰은 디코딩되거나 검사해서는 안 되며 불투명 문자열로 처리되어야 합니다. |
 | `token_type` | 항상 `Bearer`입니다. |
@@ -215,7 +215,7 @@ error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | `error` |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -234,7 +234,7 @@ OpenID Connect를 `end_session_endpoint` 사용하면 앱에서 Microsoft ID 플
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
 ```
 
-| 매개 변수 |  | 설명 |
+| 매개 변수 |  | Description |
 | --- | --- | --- |
 | `tenant` |required |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
 | `post_logout_redirect_uri` | 권장 | 로그아웃이 완료된 후 사용자가 반환되어야 하는 URL입니다. 이 값은 애플리케이션에 대해 등록된 리디렉션 URI 중 하나와 일치해야 합니다. 포함되지 않은 경우 사용자에게 Microsoft ID 플랫폼 끝점에 의해 일반 메시지가 표시됩니다. |

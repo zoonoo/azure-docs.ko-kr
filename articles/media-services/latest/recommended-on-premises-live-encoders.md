@@ -6,15 +6,15 @@ keywords: 인코딩, 인코더, 미디어
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 02/10/2020
+ms.date: 04/16/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 5e16f1fb948ddb435c5002c16125b36fa61d50a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bbd2929e245fa5fc01245e7bd02e537db8d5ef36
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336240"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536338"
 ---
 # <a name="tested-on-premises-live-streaming-encoders"></a>테스트된 온-프레미스 라이브 스트리밍 인코더
 
@@ -58,7 +58,6 @@ RTMPS를 통해 스트리밍할 때 방화벽 및/또는 프록시 설정을 검
 - 텔레스트림 와이어캐스트 S(RTMP만 지원)
 - Teradek Slice 756
 - TriCaster 8000
-- Tricaster Mini HD-4
 - VMIX
 - xStream
 - [Ffmpeg](https://www.ffmpeg.org)
@@ -106,7 +105,7 @@ Media Services는 다중 비트 전송률 부드러운 스트리밍(조각난 MP
 > [!IMPORTANT]
 > 클라우드에 조각을 업로드하는 CPU및 IO 작업을 포함으로 기계 (CPU / 메모리 / 등)의 물리적 상태를보십시오. 인코더의 설정을 변경하는 경우 변경 사항이 적용될 채널/라이브 이벤트를 특정 재설정해야 합니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [Media Services v3을 통한 라이브 스트리밍](live-streaming-overview.md)
 

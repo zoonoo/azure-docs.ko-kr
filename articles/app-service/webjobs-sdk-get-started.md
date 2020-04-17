@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: bfbae282f9c383c19aae84a70dfc53f754bd9367
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4976be485a9b7609c6e8d23f6b897092217663fc
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77592614"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535675"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 시작
 
@@ -37,28 +37,31 @@ ms.locfileid: "77592614"
 
 ## <a name="webjobs-nuget-packages"></a>WebJobs NuGet 패키지
 
-1. `Microsoft.Azure.WebJobs.Extensions` 포함 되는 NuGet 패키지의 최신 안정 3.x 버전을 설치 합니다. `Microsoft.Azure.WebJobs`
+1. NuGet 패키지의 최신 안정 3.x 버전을 `Microsoft.Azure.WebJobs`설치합니다. [ `Microsoft.Azure.WebJobs.Extensions` ](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions/)
 
-     버전 3.0.2에 대한 **패키지 관리자 콘솔** 명령은 다음과 같습니다.
+     패키지 관리자 **콘솔** 명령은 다음과 같습니다.
 
      ```powershell
-     Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.2
+     Install-Package Microsoft.Azure.WebJobs.Extensions -version <3_X_VERSION>
      ```
+
+    이 명령에서 `<3_X_VERSION>` 지원되는 패키지 버전으로 바꿉습니다. 
 
 ## <a name="create-the-host"></a>호스트 만들기
 
 호스트는 트리거 및 호출 함수를 수신하는 함수의 런타임 컨테이너입니다. 다음 단계에서는 ASP.NET 코어의 [`IHost`](/dotnet/api/microsoft.extensions.hosting.ihost)일반 호스트인 호스트를 구현합니다.
 
-1. *Program.cs*에 `using` 문을 추가합니다.
+1. *Program.cs*다음 `using` 문을 추가합니다.
 
     ```cs
+    using System.Threading.Tasks;
     using Microsoft.Extensions.Hosting;
     ```
 
 1. `Main` 메서드를 다음 코드로 바꿉니다.
 
     ```cs
-    static void Main(string[] args)
+    static async Task Main()
     {
         var builder = new HostBuilder();
         builder.ConfigureWebJobs(b =>
@@ -68,7 +71,7 @@ ms.locfileid: "77592614"
         var host = builder.Build();
         using (host)
         {
-            host.Run();
+            await host.RunAsync();
         }
     }
     ```
@@ -79,12 +82,12 @@ ASP.NET Core에서는 호스트 구성이 인스턴스에서 메서드를 [`Host
 
 이 섹션에서는 [ASP.NET 코어 로깅 프레임워크를](/aspnet/core/fundamentals/logging)사용하는 콘솔 로깅을 설정합니다.
 
-1. `Microsoft.Extensions.Logging.Console` 포함 되는 NuGet 패키지의 최신 안정 `Microsoft.Extensions.Logging`버전을 설치 합니다.
+1. 포함 되는 NuGet 패키지의 최신 안정 `Microsoft.Extensions.Logging`버전을 설치 합니다. [ `Microsoft.Extensions.Logging.Console` ](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/)
 
-   2.2.0 버전에 대한 **패키지 관리자 콘솔** 명령은 다음과 같습니다.
+   패키지 관리자 **콘솔** 명령은 다음과 같습니다.
 
    ```powershell
-   Install-Package Microsoft.Extensions.Logging.Console -version 2.2.0
+   Install-Package Microsoft.Extensions.Logging.Console -version <3_X_VERSION>
    ```
 
 1. *Program.cs*에 `using` 문을 추가합니다.
@@ -92,6 +95,8 @@ ASP.NET Core에서는 호스트 구성이 인스턴스에서 메서드를 [`Host
    ```cs
    using Microsoft.Extensions.Logging;
    ```
+
+    이 명령에서 `<3_X_VERSION>` 지원되는 패키지 3.x 버전으로 바꿉습니다.
 
 1. 에서 [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) [`ConfigureLogging`](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) 메서드를 호출합니다. 메서드는 [`AddConsole`](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) 구성에 콘솔 로깅을 추가합니다.
 
@@ -105,7 +110,7 @@ ASP.NET Core에서는 호스트 구성이 인스턴스에서 메서드를 [`Host
     `Main` 메서드는 이제 다음과 같습니다.
 
     ```cs
-    static void Main(string[] args)
+    static async Task Main()
     {
         var builder = new HostBuilder();
         builder.ConfigureWebJobs(b =>
@@ -119,7 +124,7 @@ ASP.NET Core에서는 호스트 구성이 인스턴스에서 메서드를 [`Host
         var host = builder.Build();
         using (host)
         {
-            host.Run();
+            await host.RunAsync();
         }
     }
     ```
@@ -137,11 +142,13 @@ ASP.NET Core에서는 호스트 구성이 인스턴스에서 메서드를 [`Host
 
 1. [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet 패키지의 안정적인 최신 버전인 버전 3.x를 설치합니다. 
 
-    버전 3.0.4에 대한 **패키지 관리자 콘솔** 명령은 다음과 같습니다.
+    패키지 관리자 **콘솔** 명령은 다음과 같습니다.
 
     ```powershell
-    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.4
+    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version <3_X_VERSION>
     ```
+    
+    이 명령에서 `<3_X_VERSION>` 지원되는 패키지 버전으로 바꿉습니다. 
 
 2. 확장 `ConfigureWebJobs` 메서드에서 인스턴스의 `AddAzureStorage` 메서드를 [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) 호출하여 저장소 확장을 초기화합니다. 이 시점에서 `ConfigureWebJobs` 메서드는 다음 예제와 유사합니다.
 
@@ -158,22 +165,22 @@ ASP.NET Core에서는 호스트 구성이 인스턴스에서 메서드를 [`Host
 1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 새**항목** **추가를** > 선택하고 **클래스를**선택하고 새 C# 클래스 파일 *Functions.cs*이름을 지정하고 **에 추가를**선택합니다.
 
 1. Functions.cs에서 생성된 템플릿을 다음 코드로 바꿉니다.
-
-   ```cs
-   using Microsoft.Azure.WebJobs;
-   using Microsoft.Extensions.Logging;
-
-   namespace WebJobsSDKSample
-   {
-       public class Functions
-       {
-           public static void ProcessQueueMessage([QueueTrigger("queue")] string message, ILogger logger)
-           {
-               logger.LogInformation(message);
-           }
-       }
-   }
-   ```
+    
+    ```cs
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Extensions.Logging;
+    
+    namespace WebJobsSDKSample
+    {
+        public class Functions
+        {
+            public static void ProcessQueueMessage([QueueTrigger("queue")] string message, ILogger logger)
+            {
+                logger.LogInformation(message);
+            }
+        }
+    }
+    ```
 
    `QueueTrigger` 특성은 런타임에 새 메시지가 `queue`라는 Azure Storage 큐에 기록될 때 이 함수를 호출하도록 지시합니다. 큐 메시지의 내용은 `message` 매개 변수의 메서드 코드에 제공됩니다. 메서드 본문은 트리거 데이터를 처리하는 위치입니다. 이 예제에서 코드는 단지 메시지만 기록합니다.
 
@@ -320,13 +327,13 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
 1. **연결 문자열** 상자에서 다음 항목을 추가합니다.
 
-   |이름  |연결 문자열  |데이터베이스 유형|
+   |속성  |연결 문자열  |데이터베이스 유형|
    |---------|---------|------|
    |AzureWebJobsStorage | {앞에서 복사한 Storage 연결 문자열}|사용자 지정|
 
 1. **애플리케이션 설정** 상자에 Application Insights 계측 키가 없으면 앞에서 복사한 계측 키를 추가합니다. (계측 키는 App Service 앱을 만든 방법에 따라 이미 있을 수 있습니다.)
 
-   |이름  |값  |
+   |속성  |값  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {계측 키} |
 
@@ -351,21 +358,22 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
 [Application Insights](../azure-monitor/app/app-insights-overview.md) 로깅을 활용하려면 다음을 수행하도록 로깅 코드를 업데이트합니다.
 
-* 기본 [필터링](webjobs-sdk-how-to.md#log-filtering)을 사용하여 Application Insights 로깅 공급자를 추가합니다. 로컬로 실행 중인 경우 모든 정보 및 상위 수준의 로그가 콘솔 및 Application Insights 둘 다로 이동합니다.
+* 기본 필터링을 통해 응용 프로그램 인사이트 로깅 [공급자를 추가합니다.](webjobs-sdk-how-to.md#log-filtering) 로컬로 실행하면 콘솔 및 응용 프로그램 인사이트 모두에 모든 정보 및 상위 수준의 로그가 기록됩니다.
 * [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) 개체를 `using` 블록에 배치하여 호스트가 종료될 때 로그 출력이 플러시되도록 합니다.
 
-1. Application Insights 로깅 공급자에 대한 NuGet 패키지의 안정적인 최신 3.x 버전인 `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`를 설치합니다.
+1. NuGet 패키지의 최신 안정 3.x 버전을 설치합니다. [ `Microsoft.Azure.WebJobs.Logging.ApplicationInsights` ](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/)
 
-   버전 3.0.2에 대한 **패키지 관리자 콘솔** 명령은 다음과 같습니다.
+   패키지 관리자 **콘솔** 명령은 다음과 같습니다.
 
    ```powershell
-   Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version 3.0.2
+   Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version <3_X_VERSION>
    ```
+    이 명령에서 `<3_X_VERSION>` 지원되는 패키지 버전으로 바꿉습니다.
 
 1. *Program.cs*를 열고 `Main` 메서드의 코드를 다음 코드로 바꿉니다.
 
     ```cs
-    static void Main(string[] args)
+    static async Task Main()
     {
         var builder = new HostBuilder();
         builder.UseEnvironment(EnvironmentName.Development);
@@ -388,7 +396,7 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
         var host = builder.Build();
         using (host)
         {
-            host.Run();
+            await host.RunAsync();
         }
     }
     ```

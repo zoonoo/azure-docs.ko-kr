@@ -3,12 +3,12 @@ title: Azure Application Insights로 라이브 ASP.NET 웹앱 모니터링 | Mic
 description: 다시 배포하지 않고 웹 사이트의 성능을 모니터링합니다. 온-프레미스 또는 VM에서 호스트되는 ASP.NET 웹앱으로 작업합니다.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 63d632df61548d15a1e0a606cf2e198207faf341
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba17ee275a744b88f2c76e7e3f99a1ac9cc8e758
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670052"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536831"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>응용 프로그램 인사이트 코드리스 첨부를 사용하여 런타임시 계측기 웹 앱
 
@@ -39,14 +39,14 @@ Application Insights를 .NET 웹 애플리케이션에 적용하는 두 가지 �
 
 |  | 빌드 시간 | 실행 시간 |
 | --- | --- | --- |
-| 요청 및 예외 |yes |yes |
-| [자세한 예외 정보](../../azure-monitor/app/asp-net-exceptions.md) | |yes |
+| 요청 및 예외 |예 |예 |
+| [자세한 예외 정보](../../azure-monitor/app/asp-net-exceptions.md) | |예 |
 | [종속성 진단](../../azure-monitor/app/asp-net-dependencies.md) |.NET 4.6+, 간단히 |예, 전체 세부 정보: 결과 코드, SQL 명령 텍스트, HTTP 동사|
-| [시스템 성능 카운터](../../azure-monitor/app/performance-counters.md) |yes |yes |
-| [사용자 지정 원격 분석에 대 한 API][api] |yes |예 |
-| [추적 로그 통합](../../azure-monitor/app/asp-net-trace-logs.md) |yes |예 |
-| [페이지 보기 및 사용자 데이터](../../azure-monitor/app/javascript.md) |yes |예 |
-| 코드를 다시 빌드해야 함 |yes | 예 |
+| [시스템 성능 카운터](../../azure-monitor/app/performance-counters.md) |예 |예 |
+| [사용자 지정 원격 분석에 대 한 API][api] |예 |예 |
+| [추적 로그 통합](../../azure-monitor/app/asp-net-trace-logs.md) |예 |예 |
+| [페이지 보기 및 사용자 데이터](../../azure-monitor/app/javascript.md) |예 |예 |
+| 코드를 다시 빌드해야 함 |예 | 예 |
 
 
 
@@ -314,7 +314,7 @@ IIS 웹 서버에 설치한 데스크톱 애플리케이션입니다. 웹앱을 
 
 원격 분석 보기:
 
-* [메트릭을 탐색하여](../../azure-monitor/app/metrics-explorer.md) 성능 및 사용량을 모니터링합니다.
+* [메트릭을 탐색하여](../../azure-monitor/platform/metrics-charts.md) 성능 및 사용량을 모니터링합니다.
 * [이벤트 및 로그를 검색하여][diagnostic] 문제를 진단합니다.
 * [분석](../../azure-monitor/app/analytics.md)을 통해 고급 쿼리를 수행합니다.
 

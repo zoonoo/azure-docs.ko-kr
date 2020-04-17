@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: b6a8bc083b589463b67f2e25e262b15456355d05
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: e40171b95e6faae0020f8bf61410aad8999ddecb
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383853"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536535"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2. ID에 액세스 권한 할당
 
@@ -31,7 +31,7 @@ ID 기반 인증을 사용하여 Azure Files 리소스에 액세스하려면 ID(
 Azure 포털, PowerShell 또는 Azure CLI를 사용하여 공유 수준 권한을 부여하기 위해 사용자의 Azure AD ID에 기본 제공 역할을 할당할 수 있습니다.
 
 > [!NOTE]
-> 인증을 위해 AD를 사용하려는 경우 AD 자격 증명을 Azure AD에 동기화해야 합니다. AD에서 Azure AD로의 암호 해시 동기화는 선택 사항입니다. 공유 수준 권한은 AD에서 동기화되는 Azure AD ID에 부여됩니다.
+> 온-프레미스 AD DS 인증을 인증에 사용하려는 경우 [AD DS 자격 증명을 Azure AD에 동기화해야](../articles/active-directory/hybrid/how-to-connect-install-roadmap.md) 합니다. AD DS에서 Azure AD로의 암호 해시 동기화는 선택 사항입니다. 공유 수준 권한은 온-프레미스 AD DS에서 동기화되는 Azure AD ID에 부여됩니다.
 
 일반적인 권장 사항은 사용자 및 ID 그룹을 나타내는 AD 그룹에 높은 수준의 액세스 관리에 대한 공유 수준 권한을 사용한 다음 디렉터리/파일 수준에서 세분화된 액세스 제어를 위해 NTFS 권한을 활용하는 것입니다. 
 
@@ -73,7 +73,7 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 ## <a name="3-configure-ntfs-permissions-over-smb"></a>3. 중소기업에 대한 NTFS 권한 구성 
 RBAC를 사용하여 공유 수준 권한할당을 한 후에는 루트, 디렉터리 또는 파일 수준에서 적절한 NTFS 권한을 할당해야 합니다. 공유 수준 사용 권한은 사용자가 공유에 액세스할 수 있는지 여부를 결정하는 상위 수준의 게이트키퍼라고 생각하면 됩니다. NTFS 권한은 사용자가 디렉터리 또는 파일 수준에서 수행할 수 있는 작업을 결정하기 위해 보다 세분화된 수준에서 작동합니다.
 
-Azure Files는 NTFS 기본 및 고급 권한의 전체 집합을 지원합니다. 공유를 탑재한 다음 Windows 파일 탐색기를 사용하거나 Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) 또는 [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) 명령을 실행하여 Azure 파일 공유의 디렉터리 및 파일에 대한 NTFS 권한을 보고 구성할 수 있습니다. 
+Azure Files는 NTFS 기본 및 고급 권한의 전체 집합을 지원합니다. 공유를 탑재한 다음 Windows 파일 탐색기를 사용하거나 Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) 또는 [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) 명령을 실행하여 Azure 파일 공유의 디렉터리 및 파일에 대한 NTFS 권한을 보고 구성할 수 있습니다. 
 
 수퍼유저 권한으로 NTFS를 구성하려면 도메인에 가입한 VM의 저장소 계정 키를 사용하여 공유를 탑재해야 합니다. 다음 섹션의 지침에 따라 명령 프롬프트에서 Azure 파일 공유를 탑재하고 그에 따라 NTFS 권한을 구성합니다.
 
@@ -101,29 +101,29 @@ icacls를 사용하여 NTFS 사용 권한을 설정하는 방법과 지원되는
 Windows **net use** 명령을 사용하여 Azure 파일 공유를 탑재합니다. 다음 예제의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다. 파일 공유 탑재에 대한 자세한 내용은 [Windows에서 Azure 파일 공유 사용을](../articles/storage/files/storage-how-to-use-files-windows.md)참조하십시오. 
 
 ```
-net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
+net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
 ```
 ### <a name="configure-ntfs-permissions-with-windows-file-explorer"></a>Windows 파일 탐색기를 사용 하 고 NTFS 권한 구성
 Windows 파일 탐색기를 사용하여 루트 디렉터리를 포함하여 파일 공유 아래의 모든 디렉터리 및 파일에 대한 전체 권한을 부여합니다.
 
-1. Windows 파일 탐색기를 열고 파일/디렉터리오른쪽 단추를 클릭하고 **속성을** 선택합니다.
-2. **보안** 탭을 클릭합니다.
-3. **편집을 클릭합니다. . .** 사용 권한을 변경하는 단추
-4. 기존 사용자의 권한을 변경하거나 **추가를** 클릭하여 새 사용자에게 권한을 부여할 수 있습니다.
-5. 새 사용자를 추가하기 위한 프롬프트 창에서 개체 이름 입력에 권한을 부여할 대상 사용자 이름을 **Check Names** **입력하여 선택합니다.**
-7.  **확인을** 클릭합니다.
-8.  보안 탭에서 새로 추가된 사용자에게 부여할 모든 권한을 선택합니다.
-9.  **적용**을 클릭합니다.
+1. Windows 파일 탐색기를 열고 파일/디렉터리를 마우스 오른쪽 단추로 클릭하고 **속성을**선택합니다.
+2. **보안** 탭을 선택합니다.
+3. **편집을 선택합니다.** 을 사용하여 권한을 변경합니다.
+4. 기존 사용자의 권한을 변경하거나 **추가를** 선택하여 새 사용자에게 권한을 부여할 수 있습니다.
+5. 새 사용자를 추가하기 위한 프롬프트 창에서 개체 이름 입력에 권한을 부여할 대상 사용자 **Check Names** 이름을 **입력하여 선택합니다.**
+7.    **확인**을 선택합니다.
+8.    **보안** 탭에서 새 사용자에게 부여할 모든 권한을 선택합니다.
+9.    **적용**을 선택합니다.
 
 ## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4. 도메인 에 가입된 VM에서 파일 공유 마운트
 
 다음 프로세스는 파일 공유 및 액세스 권한이 올바르게 설정되었는지, 도메인에 가입한 VM에서 Azure File 공유에 액세스할 수 있는지 확인합니다. 공유 수준 RBAC 역할 할당이 적용되는 데 다소 시간이 걸릴 수 있습니다. 
 
-다음 이미지와 같이 사용 권한을 부여한 Azure AD ID를 사용하여 VM에 로그인합니다. Azure 파일에 대해 AD 인증을 사용하도록 설정한 경우 AD 자격 증명을 사용합니다. Azure AD DS 인증의 경우 Azure AD 자격 증명으로 로그인합니다.
+다음 이미지와 같이 사용 권한을 부여한 Azure AD ID를 사용하여 VM에 로그인합니다. Azure 파일에 대해 온-프레미스 AD DS 인증을 사용하도록 설정한 경우 AD DS 자격 증명을 사용합니다. Azure AD DS 인증의 경우 Azure AD 자격 증명으로 로그인합니다.
 
 ![사용자 인증용 Azure AD 로그인 화면이 표시된 스크린샷](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
-다음 명령을 사용하여 Azure 파일 공유를 탑재합니다. 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다. 인증되었기 때문에 저장소 계정 키, AD 자격 증명 또는 Azure AD 자격 증명을 제공할 필요가 없습니다. AD 또는 Azure AD DS를 사용하면 단일 사인온 환경이 지원됩니다. AD 자격 증명을 사용하는 데 문제가 발생하면 [Windows에서 Azure 파일 문제 해결을](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) 확인하여 자체 진단 지침을 확인합니다.
+다음 명령을 사용하여 Azure 파일 공유를 탑재합니다. 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다. 인증되었기 때문에 저장소 계정 키, 온-프레미스 AD DS 자격 증명 또는 Azure AD DS 자격 증명을 제공할 필요가 없습니다. 온-프레미스 AD DS 또는 Azure AD DS를 사용하면 단일 사인온 환경이 지원됩니다. AD DS 자격 증명으로 장착하는 문제가 발생하면 [Windows에서 Azure 파일 문제 해결을](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) 참조하여 지침을 참조하십시오.
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>

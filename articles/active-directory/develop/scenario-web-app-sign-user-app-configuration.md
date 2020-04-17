@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3de1edc8560cfc85f52293c095fa824b364d2058
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 3cb51a57baa87849e97f7b05762dc4d6eba787a6
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80881641"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537114"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>사용자에 서명하는 웹 앱: 코드 구성
 
@@ -24,7 +24,7 @@ ms.locfileid: "80881641"
 
 ## <a name="libraries-for-protecting-web-apps"></a>웹 앱 보호를 위한 라이브러리
 
-<!-- This section can be in an include for Web App and Web APIs -->
+<!-- This section can be in an include for web app and web APIs -->
 웹 앱(및 웹 API)을 보호하는 데 사용되는 라이브러리는 다음과 같습니다.
 
 | 플랫폼 | 라이브러리 | Description |

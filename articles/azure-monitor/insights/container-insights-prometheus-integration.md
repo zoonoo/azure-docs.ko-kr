@@ -2,13 +2,13 @@
 title: 컨테이너 프로메테우스 통합을 위한 Azure 모니터 구성 | 마이크로 소프트 문서
 description: 이 문서에서는 Kubernetes 클러스터를 사용하여 Prometheus의 메트릭을 스크레이핑하도록 컨테이너 에이전트에 대한 Azure 모니터를 구성하는 방법에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: b774bf042778ca9118a7bc9f051655b200d87659
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: 7fcf52cceb69834f68f8e4ce7a2674972a6430fd
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75931414"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537375"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>컨테이너에 대한 Azure 모니터를 사용 하 고 프로메테우스 메트릭의 스크래핑 구성
 
@@ -22,7 +22,6 @@ ms.locfileid: "75931414"
 Prometheus 메트릭의 스크래핑은 다음에서 호스팅되는 Kubernetes 클러스터를 통해 지원됩니다.
 
 - AKS(Azure Kubernetes Service)
-- Azure Container Instances
 - Azure 스택 또는 온-프레미스
 - Azure Red Hat OpenShift
 
@@ -65,7 +64,7 @@ Prometheus의 메트릭의 활성 스크래핑은 다음 두 가지 관점 중 �
 * 클러스터 전체 - HTTP URL 및 서비스의 나열된 끝점에서 대상을 검색합니다. 예를 들어 kube-dns 및 kube-state-metrics와 같은 k8s 서비스 및 응용 프로그램에 특정한 포드 주석입니다. 이 컨텍스트에서 수집된 메트릭은 ConfigMap 섹션 *[프로메테우스 data_collection_settings.cluster]* 에서 정의됩니다.
 * 노드 전체 - HTTP URL 및 서비스의 나열된 끝점에서 대상을 검색합니다. 이 컨텍스트에서 수집된 메트릭은 ConfigMap 섹션 *[Prometheus_data_collection_settings.node]에*정의됩니다.
 
-| 엔드포인트 | Scope | 예제 |
+| 엔드포인트 | 범위 | 예제 |
 |----------|-------|---------|
 | 포드 추가 | 클러스터 전체 | 주석: <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
 | Kubernetes 서비스 | 클러스터 전체 | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
@@ -73,7 +72,7 @@ Prometheus의 메트릭의 활성 스크래핑은 다음 두 가지 관점 중 �
 
 URL을 지정하면 컨테이너에 대한 Azure Monitor는 끝점만 긁어냅니다. Kubernetes 서비스를 지정하면 서비스 이름이 클러스터 DNS 서버로 확인되어 IP 주소를 얻은 다음 해결된 서비스가 스크랩됩니다.
 
-|Scope | Key | 데이터 형식 | 값 | 설명 |
+|범위 | 키 | 데이터 형식 | 값 | Description |
 |------|-----|-----------|-------|-------------|
 | 클러스터 전체 | | | | 메트릭에 대한 끝점을 스크레이핑할 다음 세 가지 방법 중 하나를 지정합니다. |
 | | `urls` | String | 쉼표 로 구분된 배열 | HTTP 끝점(IP 주소 또는 유효한 URL 경로 지정). 예: `urls=[$NODE_IP/metrics]` ($NODE_IP는 컨테이너 매개 변수에 대 한 특정 Azure 모니터 이며 노드 IP 주소 대신 사용할 수 있습니다. 모든 대문자여야 합니다.) |

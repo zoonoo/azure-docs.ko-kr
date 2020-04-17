@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/03/2020
+ms.date: 04/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a6ab13dea1a1db96cbb2f2ac70b9779eca60591
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 5310c999cc44f0cf35f129751da7472031e6c57a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885392"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537086"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>자습서: 아마존 웹 서비스(AWS)와의 Azure Active Directory 통합(레거시 자습서)
 
@@ -37,7 +37,7 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용을 알고 싶으시면
 ![결과 목록의 AWS(Amazon Web Services)](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
 > [!NOTE]
-> 모든 AWS 계정에 하나의 AWS 앱을 연결하는 것은 권장되는 접근 방식이 아닙니다. 대신 [이](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) 방법을 사용하여 Azure AD에 있는 여러 AWS 앱 인스턴스에 대해 여러 AWS 계정 인스턴스를 구성하는 것이 좋습니다. AWS 계정 및 역할의 수가 매우 적은 경우에만 [이](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) 방법을 사용해야 합니다. [이러한](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) 계정 내의 AWS 계정 및 역할이 증가함에 따라 이 모델은 확장할 수 없습니다. 또한 [이](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) 방법은 Azure AD 사용자 프로비저닝을 사용하여 AWS 역할 가져오기 기능을 사용하지 않으므로 역할을 수동으로 추가/업데이트/삭제해야 합니다. [이](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) 방법에 대한 다른 제한 사항은 아래 의 세부 사항을 참조하십시오.
+> 모든 AWS 계정에 하나의 AWS 앱을 연결하는 것은 권장되는 접근 방식이 아닙니다. 대신 [이](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) 방법을 사용하여 Azure AD에 있는 여러 AWS 앱 인스턴스에 대해 여러 AWS 계정 인스턴스를 구성하는 것이 좋습니다. AWS 계정 및 역할의 수가 매우 적은 경우에만 이 방법을 사용해야 하며, 이러한 계정 내의 AWS 계정 및 역할이 증가함에 따라 이 모델은 확장할 수 없습니다. 또한 이 방법은 Azure AD 사용자 프로비저닝을 사용하여 AWS 역할 가져오기 기능을 사용하지 않으므로 역할을 수동으로 추가/업데이트/삭제해야 합니다. 이 방법에 대한 다른 제한 사항은 아래 의 세부 사항을 참조하십시오.
 
 **다음과 같은 이유로 이 방법을 사용하지 않는 것이 좋습니다.**
 

@@ -6,14 +6,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 01/30/2020
+ms.date: 04/16/2020
 ms.author: victorh
-ms.openlocfilehash: 809274aba35e9607aeacf7c6483ec3d10f899667
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: df21a2c40dd532ac1ff321638099ceee8a2b3e53
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312363"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535590"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>ILB(내부 로드 밸런서) 엔드포인트로 애플리케이션 게이트웨이 구성
 
@@ -89,14 +89,14 @@ Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워�
 
 ### <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
-1. **리소스 만들기를 선택합니다.**
+1. **리소스 만들기**를 선택합니다.
 2. **계산을** 선택한 다음 **가상 컴퓨터를**선택합니다.
 4. 가상 머신에 대해 다음 값을 입력합니다.
    - 리소스 그룹에 대한 *myResourceGroupAG를* **선택합니다.**
    - *myVM* - **가상 컴퓨터 이름**.
    - **이미지에**대한 **Windows 서버 2019 데이터 센터를** 선택합니다.
-   - *azureadmin* - **사용자 이름에**대 한 .
-   - *Azure123456!* **암호에**대한 .
+   - 유효한 **사용자 이름**.
+   - 유효한 **암호**.
 5. 나머지 기본값을 수락하고 **다음 : 디스크를 선택합니다.**
 6. 기본값을 수락하고 **다음 : 네트워킹을**선택합니다.
 7. 가상 네트워크에 대해 **myVNet**이 선택되어 있고 서브넷이 **myBackendSubnet**인지 확인합니다.

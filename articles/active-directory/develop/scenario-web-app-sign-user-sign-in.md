@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 317ca55adb9f680dc93343a185395abad08889da
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 2ab5697ceff612e65174fdb7f9ef6137e2c8b9a5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80881318"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537069"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>사용자에 로그인하는 웹 앱: 로그인 및 로그아웃
 
@@ -205,7 +205,7 @@ def _get_token_from_cache(scope=None):
 ## <a name="sign-out"></a>로그아웃
 
 웹 앱에서 로그아웃하려면 웹 앱의 상태에서 로그인한 계정에 대한 정보를 제거하는 것 이상의 작업이 포함됩니다.
-웹 앱은 로그아웃하려면 사용자를 Microsoft `logout` ID 플랫폼 끝점으로 리디렉션해야 합니다. 
+웹 앱은 로그아웃하려면 사용자를 Microsoft `logout` ID 플랫폼 끝점으로 리디렉션해야 합니다.
 
 웹 앱이 사용자를 `logout` 끝점으로 리디렉션하면 이 끝점에서 브라우저에서 사용자의 세션이 지워지게 됩니다. 앱이 `logout` 끝점으로 이동하지 않은 경우 사용자는 자격 증명을 다시 입력하지 않고 앱에 다시 인증됩니다. 그 이유는 Microsoft ID 플랫폼 끝점을 가진 유효한 단일 로그인 세션이 있기 때문입니다.
 
@@ -306,7 +306,7 @@ Java 빠른 시작에서 로그아웃 버튼은 main/resources/templates/auth_pa
     <meta charset="UTF-8">
 </head>
 <body>
-    <h1>Microsoft Identity Python Web App</h1>
+    <h1>Microsoft Identity Python web app</h1>
     Welcome {{ user.get("name") }}!
     <li><a href='/graphcall'>Call Microsoft Graph API</a></li>
     <li><a href="/logout">Logout</a></li>

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 76a96d36387f55889b65f16ea1ca6ec07359c377
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d5bf3a6df9d7292c18a93737fb7dea5d8c91f984
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502442"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536496"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 [Azure 파일은](storage-files-introduction.md) 서버가 없는 Azure 파일 공유를 직접 탑재하거나 Azure File Sync를 사용하여 온-프레미스에 Azure 파일 공유를 캐싱하는 두 가지 주요 방법으로 배포할 수 있습니다. 어떤 배포 옵션을 선택하든 배포를 계획할 때 고려해야 할 사항을 변경합니다. 
@@ -28,16 +28,16 @@ ms.locfileid: "79502442"
 
 Azure 파일 공유를 저장소 계정에 배포할 때 는 다음을 권장합니다.
 
-- Azure 파일 공유를 다른 Azure 파일 공유가 있는 저장소 계정에만 배포합니다. GPv2 저장소 계정을 사용하면 용도가 혼합된 저장소 계정을 사용할 수 있지만 Azure 파일 공유 및 Blob 컨테이너와 같은 저장소 리소스가 저장소 계정의 제한을 공유하므로 리소스를 함께 혼합하면 문제 해결이 더 어려워질 수 있습니다. 나중에 성능 문제가 있습니다. 
+- Azure 파일 공유를 다른 Azure 파일 공유가 있는 저장소 계정에만 배포합니다. GPv2 저장소 계정을 사용하면 용도가 혼합된 저장소 계정을 사용할 수 있지만 Azure 파일 공유 및 Blob 컨테이너와 같은 저장소 리소스가 저장소 계정의 제한을 공유하므로 리소스를 함께 혼합하면 나중에 성능 문제를 해결하기가 더 어려워질 수 있습니다. 
 
 - Azure 파일 공유를 배포할 때 저장소 계정의 IOPS 제한에 주의합니다. 이상적으로는 저장소 계정으로 파일 공유를 1:1로 매핑하는 것이 이상적이지만 조직과 Azure의 다양한 제한 및 제한으로 인해 항상 가능하지않을 수 있습니다. 하나의 저장소 계정에 하나의 파일 공유만 배포할 수 없는 경우 가장 인기 있는 파일 공유가 동일한 저장소 계정에 함께 배치되지 않도록 활성 상태가 매우 높은 공유와 덜 활성화된 공유를 고려합니다.
 
 - 사용자 환경에서 GPv2 및 FileStorage 계정을 배포하고 GPv1 및 클래식 저장소 계정을 업그레이드할 때만 해당 계정을 업그레이드합니다. 
 
-## <a name="identity"></a>Identity
+## <a name="identity"></a>ID
 Azure 파일 공유에 액세스하려면 파일 공유 의 사용자를 인증하고 공유에 액세스할 수 있는 권한이 있어야 합니다. 이 작업은 파일 공유에 액세스하는 사용자의 ID를 기반으로 수행됩니다. Azure Files는 세 가지 주요 ID 공급자와 통합됩니다.
-- **고객 소유 Active Directory(미리** 보기): Azure 저장소 계정은 Windows Server 파일 서버 또는 NAS 장치와 마찬가지로 고객 소유의 Windows 서버 Active Directory에 도메인으로 조인될 수 있습니다. Active Directory 도메인 컨트롤러는 온-프레미스, Azure VM 또는 다른 클라우드 공급자의 VM으로 배포할 수 있습니다. Azure 파일은 DC가 호스팅되는 위치에 구애받지 않습니다. 저장소 계정이 도메인에 가입되면 최종 사용자는 PC에 로그인한 사용자 계정으로 파일 공유를 탑재할 수 있습니다. AD 기반 인증은 Kerberos 인증 프로토콜을 사용합니다.
-- **Azure Active Directory 도메인 서비스(Azure AD DS)**: Azure AD DS는 Azure 리소스에 사용할 수 있는 Microsoft 관리 활성 디렉터리 도메인 컨트롤러를 제공합니다. 저장소 계정을 Azure AD DS에 조인하는 도메인은 고객 소유 Active Directory에 도메인을 조인하는 것과 유사한 이점을 제공합니다. 이 배포 옵션은 AD 기반 사용 권한이 필요한 응용 프로그램 리프트 앤 시프트 시나리오에 가장 유용합니다. Azure AD DS는 AD 기반 인증을 제공하기 때문에 이 옵션은 Kerberos 인증 프로토콜도 사용합니다.
+- **온-프레미스 Active Directory 도메인 서비스(AD DS 또는 온-프레미스 AD DS)** (미리 보기): Azure 저장소 계정은 Windows 서버 파일 서버 또는 NAS 장치와 마찬가지로 고객 소유의 Active Directory 도메인 서비스에 도메인으로 조인될 수 있습니다. 도메인 컨트롤러를 온-프레미스, Azure VM 또는 다른 클라우드 공급자의 VM으로 배포할 수 있습니다. Azure 파일은 도메인 컨트롤러가 호스팅되는 위치에 구애받지 않습니다. 저장소 계정이 도메인 에 가입되면 최종 사용자는 PC에 로그인한 사용자 계정으로 파일 공유를 탑재할 수 있습니다. AD 기반 인증은 Kerberos 인증 프로토콜을 사용합니다.
+- **Azure Active Directory 도메인 서비스(Azure AD DS)**: Azure AD DS는 Azure 리소스에 사용할 수 있는 Microsoft 관리 도메인 컨트롤러를 제공합니다. 저장소 계정을 Azure AD DS에 조인하는 도메인은 고객 소유 Active Directory에 도메인을 조인하는 것과 유사한 이점을 제공합니다. 이 배포 옵션은 AD 기반 사용 권한이 필요한 응용 프로그램 리프트 앤 시프트 시나리오에 가장 유용합니다. Azure AD DS는 AD 기반 인증을 제공하기 때문에 이 옵션은 Kerberos 인증 프로토콜도 사용합니다.
 - **Azure 저장소 계정 키**: Azure 파일 공유는 Azure 저장소 계정 키와 함께 탑재될 수도 있습니다. 이러한 방식으로 파일 공유를 탑재하려면 저장소 계정 이름이 사용자 이름으로 사용되고 저장소 계정 키는 암호로 사용됩니다. 저장 저장소 계정 키를 사용하여 Azure 파일 공유를 탑재하는 것은 ACL이 있더라도 마운트된 파일 공유에 대한 모든 파일 및 폴더에 대한 전체 권한을 갖기 때문에 관리자 작업입니다. 저장소 계정 키를 사용하여 SMB 위에 탑재하는 경우 NTLMv2 인증 프로토콜이 사용됩니다.
 
 온-프레미스 파일 서버에서 마이그레이션하거나 Windows 파일 서버 또는 NAS 어플라이언스와 같은 방식으로 행동하기 위한 Azure Files에서 새 파일 공유를 만드는 고객의 경우 저장소 계정을 **고객 소유 Active Directory에** 조인하는 것이 좋습니다. 고객 소유 Active Directory에 저장소 계정을 조인하는 도메인에 대해 자세히 알아보려면 [Azure Files Active Directory 개요를](storage-files-active-directory-overview.md)참조하십시오.
@@ -49,7 +49,7 @@ Azure 파일 공유는 저장소 계정의 공용 끝점을 통해 어디서나 
 
 Azure 파일 공유에 대한 액세스를 차단 해제하려면 두 가지 주요 옵션이 있습니다.
 
-- 조직의 온-프레미스 네트워크에 대한 포트 445 차단 을 해제합니다. Azure 파일 공유는 SMB 3.0 및 FileREST API와 같은 인터넷 안전 프로토콜을 사용하여 공용 끝점을 통해서만 외부적으로 액세스할 수 있습니다. 이는 조직의 아웃바운드 포트 규칙을 변경하는 것 외에 고급 네트워킹 구성이 필요하지 않으므로 온-프레미스에서 Azure 파일 공유에 액세스하는 가장 쉬운 방법이지만 SMB의 레거시 및 더 이상 사용되지 않는 버전을 제거하는 것이 좋습니다. 프로토콜, 즉 SMB 1.0. 이 작업을 수행하는 방법에 대해 알아보려면 [Windows/Windows 서버 보안](storage-how-to-use-files-windows.md#securing-windowswindows-server) 및 [Linux 보안을](storage-how-to-use-files-linux.md#securing-linux)참조하십시오.
+- 조직의 온-프레미스 네트워크에 대한 포트 445 차단 을 해제합니다. Azure 파일 공유는 SMB 3.0 및 FileREST API와 같은 인터넷 안전 프로토콜을 사용하여 공용 끝점을 통해서만 외부적으로 액세스할 수 있습니다. 조직의 아웃바운드 포트 규칙을 변경하는 것 외에 고급 네트워킹 구성이 필요하지 않으므로 온-프레미스에서 Azure 파일 공유에 액세스하는 가장 쉬운 방법이지만 SMB 프로토콜의 레거시 및 더 이상 사용되지 않는 버전인 SMB 1.0을 제거하는 것이 좋습니다. 이 작업을 수행하는 방법에 대해 알아보려면 [Windows/Windows 서버 보안](storage-how-to-use-files-windows.md#securing-windowswindows-server) 및 [Linux 보안을](storage-how-to-use-files-linux.md#securing-linux)참조하십시오.
 
 - ExpressRoute 또는 VPN 연결을 통해 Azure 파일 공유에 액세스합니다. 네트워크 터널을 통해 Azure 파일 공유에 액세스하면 SMB 트래픽이 조직 경계를 통과하지 않으므로 온-프레미스 파일 공유와 같이 Azure 파일 공유를 탑재할 수 있습니다.   
 
@@ -153,7 +153,7 @@ Azure 스토리지 계정에 대해 전송 중 암호화를 사용하지 않도�
 ### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>표준 파일 공유를 최대 100TiB까지 사용할 수 있습니다.
 [!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
 
-#### <a name="regional-availability"></a>국가별 가용성
+#### <a name="limitations"></a>제한 사항
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
 ## <a name="redundancy"></a>중복
@@ -171,6 +171,6 @@ Azure 스토리지 계정에 대해 전송 중 암호화를 사용하지 않도�
     - **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: AzCopy는 간단한 명령과 최적의 성능으로 데이터를 Azure Files 및 Azure Blob Storage에서 복사하도록 디자인된 명령줄 유틸리티입니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)
+* [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md)
 * [Azure Files 배포](storage-files-deployment-guide.md)
 * [Azure 파일 동기화 배포](storage-sync-files-deployment-guide.md)

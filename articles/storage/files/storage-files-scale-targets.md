@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1a74ec3610367193b5eee53ea0e0818901433e96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46c46faf8f7ee52978ae5542ab7ebd72a41b8357
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255133"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536445"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 
@@ -51,8 +51,7 @@ Azure 파일에 대해 고려해야 할 세 가지 제한 범주는 저장소 �
 ### <a name="file-share-and-file-scale-targets"></a>파일 공유 및 파일 배율 대상
 
 > [!NOTE]
-> 5 TiB보다 큰 표준 파일 공유에는 특정 제한 사항 과 지역 제한이 있습니다.
-> 이러한 더 큰 파일 공유 크기를 활성화하기 위한 제한 사항, 지역 정보 및 지침 목록은 계획 가이드의 [더 큰 파일 공유 섹션에](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) 대한 온보드를 참조하십시오.
+> 5 TiB보다 큰 표준 파일 공유에는 특정 제한 사항이 있습니다. 더 큰 파일 공유 크기를 활성화하기 위한 제한 사항 및 지침 목록은 계획 가이드의 표준 파일 공유 섹션에서 [더 큰 파일 공유 를 사용하도록 설정합니다.](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib)
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -111,7 +110,7 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 - 개체 처리량은 서버의 동기화 그룹 수에 비례하여 크기를 조정합니다. 서버의 여러 동기화 그룹으로 데이터를 분할하면 처리량이 향상됩니다. 처리량은 서버 및 네트워크에 의해서도 제한됩니다
 - 개체 처리량은 초당 MiB 처리량에 반비례합니다. 더 작은 파일의 경우 초당 처리된 개체 수 측면에서 더 높은 처리량이 발생하지만 초당 MiB 처리량은 더 낮습니다. 반대로 큰 파일의 경우 초당 처리되는 개체는 적지만 초당 MiB 처리량은 높습니다. 초당 MiB 처리량은 Azure Files 크기 조정 목표에 의해 제한됩니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [Azure Files 배포에 대한 계획](storage-files-planning.md)
-- [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md)
+- [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)

@@ -3,12 +3,12 @@ title: Azure Application Insights로 ASP.NET에 대한 웹앱 분석 설정 | Mi
 description: Azure 또는 온-프레미스에 호스트되는 ASP.NET 웹 사이트에 대한 성능, 가용성 및 사용자 동작 분석을 구성합니다.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: 0843d6c04bf6fc9bab07207072990fb3fb8f1844
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdd5b1131a0d2d3e2f53840d21cedce1577fde03
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665921"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536899"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET 웹 사이트용 Application Insights 설정
 
@@ -23,7 +23,7 @@ Application Insights를 ASP.NET 웹 사이트에 추가하려면 다음을 수�
     - ASP.NET 및 웹 개발(선택적 구성 요소 선택 취소 안)
     - Azure 개발
 
-Azure 구독이 없는 경우 시작하기 전에 [무료](https://azure.microsoft.com/free/) 계정을 만드세요.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="step-1-add-the-application-insights-sdk"></a><a name="ide"></a> 1단계: Application Insights SDK 추가
 
@@ -40,13 +40,13 @@ Azure 구독이 없는 경우 시작하기 전에 [무료](https://azure.microso
 
 Application Insights 구성 화면:
 
-**시작**을 선택합니다.
+**시작 하기를**선택합니다.
 
 ![Application Insights에 앱 등록 페이지의 스크린샷](./media/asp-net/00004-start-free.png)
 
 데이터가 저장되는 위치나 리소스 그룹을 설정하려면 **설정 구성**을 클릭합니다. 리소스 그룹은 데이터에 대한 액세스를 제어하는 데 사용됩니다. 예를 들어, 동일한 시스템의 부분을 형성하는 몇 개의 앱이 있는 경우 해당 앱의 Application Insights 데이터를 동일한 리소스 그룹에 배치할 수 있습니다.
 
- **등록을**선택합니다.
+ **등록**을 선택합니다.
 
 ![Application Insights에 앱 등록 페이지의 스크린샷](./media/asp-net/00005-register-ed.png)
 
@@ -56,7 +56,7 @@ Application Insights 구성 화면:
 > [!NOTE]
 > 디버그하는 동안 포털에 원격 분석을 보내지 않으려면 앱에 Application Insights SDK를 추가하고 포털에서 리소스를 구성하지는 않습니다. 디버그하는 동안 Visual Studio에서 원격 분석을 볼 수 있습니다. 나중에 이 구성 페이지로 돌아오거나 앱을 배포할 때까지 기다려서 [런타임에 원격 분석으로 전환할 수 있습니다](../../azure-monitor/app/monitor-performance-live-website-now.md).
 
-## <a name="step-2-run-your-app"></a><a name="run"></a> 2단계: 앱 실행
+## <a name="step-2-run-your-app"></a><a name="run"></a>2단계: 앱 실행
 F5를 사용하여 앱을 실행합니다. 다른 페이지를 열어서 일부 원격 분석을 생성합니다.
 
 Visual Studio에서 로그된 이벤트 수가 표시됩니다.
@@ -93,7 +93,7 @@ Application Insights 리소스를 엽니다. [Azure Portal](https://portal.azure
 포털에서 타일이나 차트를 클릭하여 자세한 정보를 확인합니다.
 
 ## <a name="step-4-publish-your-app"></a>4단계: 앱 게시
-IIS 서버 또는 Azure에 앱을 게시합니다. [라이브 메트릭 스트림](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream)을 보고 모두 문제 없이 실행되고 있는지 확인합니다.
+IIS 서버 또는 Azure에 앱을 게시합니다. [라이브 메트릭 스트림](../../azure-monitor/app/live-stream.md)을 보고 모두 문제 없이 실행되고 있는지 확인합니다.
 
 원격 분석이 메트릭을 모니터링하고 원격 분석을 검색할 수 있는 Application Insights 포털에서 빌드됩니다. 또한 강력한 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하여 사용량 및 성능을 분석하거나 특정 이벤트를 찾을 수 있습니다.
 
@@ -125,7 +125,7 @@ ApplicationInsights.config에 대한 사용자 지정을 수행한 경우, 업�
 관심이 있는 경우 살펴볼만한 다른 문서:
 
 * [런타임 시 웹앱 계측](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Azure 클라우드 서비스](../../azure-monitor/app/cloudservices.md)
+* [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)
 
 ### <a name="more-telemetry"></a>추가 원격 분석
 

@@ -3,12 +3,12 @@ title: Azure Migrate 어플라이언스
 description: 서버 평가 및 마이그레이션에 사용되는 Azure 마이그레이션 어플라이언스에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: bccf4738d46b65f2d149eafc8e69591141d7d073
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 130de0824a1671fb0b0e3e980f06f4c3abc689d2
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437584"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538225"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
@@ -25,11 +25,22 @@ Azure 마이그레이션 어플라이언스는 다음 시나리오에서 사용�
 **하이퍼 V VM 평가** | Azure 마이그레이션:서버 평가 | 하이퍼 VM 살펴보기<br/><br/> 평가를 위해 컴퓨터 메타데이터 및 성능 메타데이터를 수집합니다.
 **물리적 기계 평가** |  Azure 마이그레이션:서버 평가 |  물리적 서버(또는 물리적 서버로 취급하는 VM)를 검색합니다.<br/><br/> 평가를 위해 컴퓨터 메타데이터 및 성능 메타데이터를 수집합니다.
 
+## <a name="deployment-methods"></a>배포 방법
+
+어플라이언스는 다음 몇 가지 방법을 사용하여 배포할 수 있습니다.
+
+- 어플라이언스는 VM웨어 VM 및 하이퍼 VM용 템플릿(VM웨어용 OVA 템플릿 또는 하이퍼-V용 VHD용 VHD)을 사용하여 배포할 수 있습니다.
+- 템플릿을 사용하지 않으려면 PowerShell 스크립트를 사용하여 VMware 또는 Hyper-V용 어플라이언스를 배포할 수 있습니다.
+- Azure 정부에서는 스크립트를 사용하여 어플라이언스를 배포해야 합니다.
+- 실제 서버의 경우 항상 스크립트를 사용하여 어플라이언스를 배포합니다.
+- 다운로드 링크는 아래 표에서 확인할 수 있습니다.
+
+
 ## <a name="appliance---vmware"></a>어플라이언스 - VMware 
 
 다음 표에는 VMware에 대한 Azure 마이그레이션 어플라이언스 요구 사항이 요약됩니다.
 
-**요구 사항** | **Vm 웨어** 
+**요구 사항** | **VMware** 
 --- | ---
 **어플라이언스 부품** | 어플라이언스에는 다음과 같은 구성 요소가 있습니다.<br/><br/> - **관리 앱**: 어플라이언스 배포 중에 사용자 입력을 위한 웹 앱입니다. Azure로 마이그레이션할 컴퓨터를 평가할 때 사용됩니다.<br/> - **검색 에이전트**: 에이전트는 컴퓨터 구성 데이터를 수집합니다. Azure로 마이그레이션할 컴퓨터를 평가할 때 사용됩니다.<br/>- **평가 에이전트**: 에이전트가 성능 데이터를 수집합니다. Azure로 마이그레이션할 컴퓨터를 평가할 때 사용됩니다.<br/>- **자동 업데이트 서비스**: 어플라이언스 구성 요소를 업데이트합니다(24시간마다 실행).<br/>- **DRA 에이전트**: VM 복제를 오케스트레이션하고 복제된 컴퓨터와 Azure 간의 통신을 조정합니다. 에이전트 없는 마이그레이션을 사용하여 VMware VM을 Azure로 복제할 때만 사용됩니다.<br/>- **게이트웨이**: 복제된 데이터를 Azure로 보냅니다. 에이전트 없는 마이그레이션을 사용하여 VMware VM을 Azure로 복제할 때만 사용됩니다.
 **지원되는 배포** | OVA 템플릿을 사용하여 VM웨어 VM으로 배포합니다.<br/><br/> PowerShell 설치 스크립트를 사용하여 VMware VM 또는 물리적 컴퓨터로 배포합니다.
@@ -67,7 +78,7 @@ Azure 마이그레이션 어플라이언스는 다음 시나리오에서 사용�
 **요구 사항** | **물리적** 
 --- | ---
 **어플라이언스 부품** | 어플라이언스에는 다음과 같은 구성 요소가 있습니다. <br/><br/> - **관리 앱**: 어플라이언스 배포 중에 사용자 입력을 위한 웹 앱입니다. Azure로 마이그레이션할 컴퓨터를 평가할 때 사용됩니다.<br/> - **검색 에이전트**: 에이전트는 컴퓨터 구성 데이터를 수집합니다. Azure로 마이그레이션할 컴퓨터를 평가할 때 사용됩니다.<br/>- **평가 에이전트**: 에이전트가 성능 데이터를 수집합니다. Azure로 마이그레이션할 컴퓨터를 평가할 때 사용됩니다.<br/>- **자동 업데이트 서비스**: 어플라이언스 구성 요소를 업데이트합니다(24시간마다 실행).
-**지원되는 배포** | PowerShell 설치 스크립트를 사용하여 전용 물리적 컴퓨터 또는 VM으로 배포합니다.
+**지원되는 배포** | PowerShell 설치 스크립트를 사용하여 전용 물리적 컴퓨터 또는 VM으로 배포합니다. 스크립트는 포털에서 다운로드할 수 있습니다.
 **프로젝트 지원** |  어플라이언스는 단일 프로젝트와 연결할 수 있습니다. <br/> 어플라이언스 의 수는 단일 프로젝트와 연결할 수 있습니다.<br/> 
 **검색 제한** | 어플라이언스는 최대 250개의 물리적 서버를 검색할 수 있습니다.
 **파워쉘 스크립트** | 포털의 압축된 폴더에서 스크립트(AzureMigrateInstaller.ps1)를 다운로드합니다. [자세히 알아보기](tutorial-assess-physical.md#set-up-the-appliance). 또는 [직접 다운로드합니다.](https://go.microsoft.com/fwlink/?linkid=2105112)<br/><br/> 다운로드 크기는 59.7 MB입니다.
@@ -78,8 +89,10 @@ Azure 마이그레이션 어플라이언스는 다음 시나리오에서 사용�
 
 Azure 마이그레이션 어플라이언스는 인터넷에 연결해야 합니다.
 
-- 어플라이언스를 배포할 때 Azure Migrate는 아래 표에 요약된 URL에 대한 연결 검사를 수행합니다.
+- 어플라이언스를 배포할 때 Azure Migrate는 필요한 URL에 대한 연결 검사를 수행합니다.
 - URL 기반 프록시를 사용하여 인터넷에 연결하는 경우 이러한 URL에 대한 액세스를 허용해야 하며, URL을 조회하는 동안 받은 CNAME 레코드를 프록시에서 확인할 수 있어야 합니다.
+
+### <a name="public-cloud-urls"></a>퍼블릭 클라우드 URL
 
 **URL** | **세부 정보**  
 --- | --- |
@@ -95,6 +108,25 @@ download.microsoft.com/download | Microsoft 다운로드에서 다운로드를 �
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Azure 마이그레이션 서비스 URL에 연결합니다.
 \*.hypervrecoverymanager.windowsazure.com | **VMware 에이전트 없는 마이그레이션에 사용**<br/><br/> Azure 마이그레이션 서비스 URL에 연결합니다.
 \*.blob.core.windows.net |  **VMware 에이전트 없는 마이그레이션에 사용**<br/><br/>마이그레이션을 위해 저장소에 데이터를 업로드합니다.
+
+### <a name="government-cloud-urls"></a>정부 클라우드 URL
+
+**URL** | **세부 정보**  
+--- | --- |
+*.portal.azure.us  | Azure Portal로 이동합니다.
+graph.windows.net | Azure 구독에 로그인합니다.
+login.microsoftonline.us  | 어플라이언스가 Azure 마이그레이션과 통신할 수 있도록 Azure Active Directory(AD) 앱을 만듭니다.
+management.usgovcloudapi.net | 어플라이언스에 대한 Azure AD 앱을 만들어 Azure 마이그레이션 서비스와 통신합니다.
+dc.services.visualstudio.com | 내부 모니터링에 사용되는 앱 로그를 업로드합니다.
+*.vault.usgovcloudapi.net | Azure 키 자격 증명 모음에서 비밀을 관리합니다.
+aka.ms/* | 일명 링크에 대한 액세스를 허용합니다. Azure 마이그레이션 어플라이언스 업데이트에 사용됩니다.
+download.microsoft.com/download | Microsoft 다운로드에서 다운로드를 허용합니다.
+*servicebus.usgovcloudapi.net  | 어플라이언스와 Azure 마이그레이션 서비스 간의 통신입니다.
+*.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Azure 마이그레이션 서비스 URL에 연결합니다.
+*. hypervrecoverymanager.windowsazure.us | **VMware 에이전트 없는 마이그레이션에 사용**<br/><br/> Azure 마이그레이션 서비스 URL에 연결합니다.
+*.blob.core.usgovcloudapi.net  |  **VMware 에이전트 없는 마이그레이션에 사용**<br/><br/>마이그레이션을 위해 저장소에 데이터를 업로드합니다.
+*applicationinsights.us | 어플라이언스의 게이트웨이 에이전트가 진단 모니터링을 위해 응용 프로그램 인사이트 끝점에 액세스하는 데 사용됩니다.
+
 
 
 
@@ -159,7 +191,7 @@ VM당 호스트 세부 정보 | ((호스트 시스템)컨테이너를 참조하�
 
 어플라이언스가 수집하고 Azure로 보내는 VMware VM 성능 데이터는 다음과 같습니다.
 
-**데이터** | **카운터** | **영향 평가**
+**Data** | **카운터** | **영향 평가**
 --- | --- | ---
 CPU 사용률 | cpu.usage.average | 권장 VM 크기/비용
 메모리 사용률 | mem.usage.average | 권장 VM 크기/비용
@@ -178,7 +210,7 @@ NIC는 처리량(초당 MB)을 씁니다. | net.transmitted.average  |VM 크기�
 
 에이전트 없는 종속성 분석을 위해 사용하도록 설정된 각 VM에서 어플라이언스가 수집하는 연결 데이터는 다음과 같습니다. 이 데이터는 Azure로 전송됩니다.
 
-**데이터** | **사용된 명령** 
+**Data** | **사용된 명령** 
 --- | --- 
 로컬 포트 | netstat
 로컬 IP 주소 | netstat
@@ -191,7 +223,7 @@ TCP 연결 상태 | netstat
 #### <a name="process-data"></a>데이터 처리
 에이전트 없는 종속성 분석을 위해 사용하도록 설정된 각 VM에서 어플라이언스가 수집하는 프로세스 데이터는 다음과 같습니다. 이 데이터는 Azure로 전송됩니다.
 
-**데이터** | **WMI 클래스(WMI class)** | **WMI 클래스 속성**
+**Data** | **WMI 클래스(WMI class)** | **WMI 클래스 속성**
 --- | --- | ---
 프로세스 이름 | Win32_Process | 실행 경로
 인수 처리 | Win32_Process | 명령줄
@@ -201,7 +233,7 @@ TCP 연결 상태 | netstat
 
 에이전트 없는 종속성 분석을 위해 사용 가능한 각 Linux VM에서 어플라이언스가 수집하는 연결 및 프로세스 데이터는 다음과 같습니다. 이 데이터는 Azure로 전송됩니다.
 
-**데이터** | **사용된 명령** 
+**Data** | **사용된 명령** 
 --- | ---
 로컬 포트 | netstat 
 로컬 IP 주소 | netstat 

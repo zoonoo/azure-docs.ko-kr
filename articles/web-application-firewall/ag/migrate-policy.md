@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/19/2019
+ms.date: 04/16/2020
 ms.author: ant
-ms.openlocfilehash: 1fac524af4b69f8e35934840643c6d3ad99fe1cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb3b922b753b9696aa26ea189597589ecc5772db
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74174604"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536627"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Azure PowerShell을 사용하여 웹 응용 프로그램 방화벽 정책 마이그레이션
 
@@ -28,6 +28,13 @@ ms.locfileid: "74174604"
 2. 스크립트를 클라우드 셸 창에 복사하여 실행합니다.
 3. 스크립트는 구독 ID, 리소스 그룹 이름, WAF 구성과 연결된 응용 프로그램 게이트웨이의 이름 및 만들 새 WAF 정책의 이름을 요청합니다. 이러한 입력을 입력하면 스크립트가 실행되고 새 WAF 정책이 만들어집니다.
 4. 새 WAF 정책을 응용 프로그램 게이트웨이와 연결합니다. 포털의 WAF 정책으로 이동하여 **관련 응용 프로그램 게이트웨이 탭을 선택합니다.** **응용 프로그램 게이트웨이 연결을** 선택한 다음 응용 프로그램 게이트웨이를 선택하여 WAF 정책을 연결합니다.
+
+> [!NOTE]
+> 다음 조건이 있는 경우 스크립트가 마이그레이션을 완료하지 않습니다.
+> - 전체 규칙은 사용할 수 없습니다. 마이그레이션을 완료하려면 전체 규칙 그룹이 비활성화되지 않았는지 확인합니다.
+> - 모든 연산자가 *같음이* 있는 제외 항목입니다. 마이그레이션을 완료하려면 *Equals Any* 연산자가 없는 제외 항목이 없는지 확인합니다.
+>
+> 자세한 내용은 스크립트의 *유효성 검사 입력* 함수를 참조하십시오.
 
 ```azurepowershell-interactive
 <#PSScriptInfo

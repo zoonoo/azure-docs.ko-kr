@@ -6,12 +6,12 @@ ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
 ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 79bd0a19a9bd8ebd100ed80ca0206656d73ef76c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5c1760c746aca439e19ab5727e5be02f6dbad3cb
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74672369"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535692"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Azure App Service로 활성 DNS 이름 마이그레이션
 
@@ -129,7 +129,7 @@ FTP/S URL의 `<deployment-unit>.ftp.azurewebsites.windows.net`도메인 이름�
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 지정 SSL 인증서를 App Service에 바인딩하는 방법을 알아봅니다.
+사용자 지정 TLS/SSL 인증서를 앱 서비스에 바인딩하는 방법에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure 앱 서비스에 SSL 인증서 바인딩](configure-ssl-bindings.md)
+> [Azure 앱 서비스에서 TLS 바인딩으로 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)

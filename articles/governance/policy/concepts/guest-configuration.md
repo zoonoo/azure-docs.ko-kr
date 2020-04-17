@@ -3,12 +3,12 @@ title: 가상 시스템의 내용을 감사하는 방법에 대해 알아보기
 description: Azure Policy에서 게스트 구성 에이전트를 사용하여 가상 시스템 내부의 설정을 감사하는 방법에 대해 알아봅니다.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4a2989badc099a199bf21f7e020ca8e6256ddaf0
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: e4899f6b3108cabb4e9cdd36e4b2bc5cd2f1cbd4
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113427"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538038"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -38,7 +38,7 @@ Azure Policy는 Azure 리소스를 감사하고 [수정하는](../how-to/remedia
 
 다음 표에는 지원되는 각 운영 체제에서 사용되는 로컬 도구 목록이 나와 있습니다.
 
-|운영 체제|유효성 검사 도구|메모|
+|운영 체제|유효성 검사 도구|참고|
 |-|-|-|
 |Windows|[윈도우 파워쉘 원하는 상태 구성](/powershell/scripting/dsc/overview/overview) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| 루비와 파이썬이 컴퓨터에 없는 경우 게스트 구성 확장에 의해 설치됩니다. |
@@ -52,14 +52,14 @@ Azure Policy는 Azure 리소스를 감사하고 [수정하는](../how-to/remedia
 
 다음 표에는 Azure 이미지에서 지원되는 운영 체제 목록이 나와 있습니다.
 
-|게시자|이름|버전|
+|게시자|속성|버전|
 |-|-|-|
 |Canonical|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|2012 데이터 센터, 2012 R2 데이터 센터, 2016 데이터 센터, 2019 데이터 센터|
 |Microsoft|Windows 클라이언트|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5, 7.6, 7.7|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7|
+|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7, 7.8|
 |Suse|SLES|12 SP3|
 
 ### <a name="unsupported-client-types"></a>지원되지 않는 클라이언트 유형

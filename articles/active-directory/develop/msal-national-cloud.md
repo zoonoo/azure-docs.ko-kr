@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: dfca2b1311f1b55f19d5709f7c9ca7c3e366769c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f3bb4dd1c564e5f6c4a8ee1bb5bf7424a74a339e
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76695741"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533992"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>국가 클라우드 환경에서 MSAL 사용
 
@@ -62,16 +62,16 @@ MSAL.NET 사용하여 사용자에 로그인하고 토큰을 획득하며 국가
 다음 자습서에서는 .NET Core 2.2 MVC 웹 앱을 빌드하는 방법을 보여 줍니다. 앱은 OpenID Connect를 사용하여 국가 클라우드에 속한 조직의 직장 및 학교 계정으로 사용자를 로그인합니다.
 
 - 사용자를 로그인하고 토큰을 획득하려면 이 자습서를 따르십시오: [Microsoft ID 플랫폼을 사용하여 주권 클라우드에서 ASP.NET 코어 웹 앱 로그인 사용자 빌드.](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-4-Sovereign#build-an-aspnet-core-web-app-signing-in-users-in-sovereign-clouds-with-the-microsoft-identity-platform)
-- Microsoft 그래프 API를 호출하려면 다음 자습서를 따르십시오: [Microsoft ID 플랫폼을 사용하여 Microsoft 내셔널 클라우드의 작업 및 학교 계정을 사용하여 로그인하는 사용자를 대신하여 ASP.NET 코어 2.x 웹 앱에서 Microsoft 그래프 API를 호출합니다.](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud)
+- Microsoft 그래프 API를 호출하려면 다음 자습서를 따르십시오: [Microsoft ID 플랫폼을 사용하여 Microsoft 내셔널 클라우드에서 사용자 로그인을 사용하여 로그인하는 사용자를 대신하여 ASP.NET 코어 2.x 웹 앱에서 Microsoft 그래프 API를 호출합니다.](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud)
 
-## <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 주권 클라우드에 대한 MSAL.js 응용 프로그램을 사용하려면 다음을 수행하십시오.
 
 ### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 
-1. [Azure 포털에](https://portal.azure.us/)로그인합니다.
-    
+1. [Azure Portal](https://portal.azure.us/)에 로그인합니다.
+
    다른 국가 클라우드에 대한 Azure 포털 끝점을 찾으려면 [앱 등록 끝점을](authentication-national-cloud.md#app-registration-endpoints)참조하십시오.
 
 1. 계정에서 두 개 이상의 테넌트에 대한 액세스 권한을 부여하는 경우 오른쪽 상단 모서리에서 계정을 선택하고 포털 세션을 원하는 Azure AD 테넌트로 설정합니다.
@@ -79,7 +79,7 @@ MSAL.NET 사용하여 사용자에 로그인하고 토큰을 획득하며 국가
 1. **애플리케이션 등록** 페이지가 나타나면 애플리케이션의 이름을 입력합니다.
 1. **지원되는 계정 유형에서** **모든 조직 디렉터리에서 계정을**선택합니다.
 1. URI **리디렉션** 섹션에서 **웹** 플랫폼을 선택하고 웹 서버를 기반으로 응용 프로그램의 URL로 값을 설정합니다. Visual Studio 및 Node에서 리디렉션 URL을 설정하고 가져오는 방법에 대한 지침은 다음 섹션을 참조하십시오.
-1. **등록을**선택합니다.
+1. **등록**을 선택합니다.
 1. 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
 1. 이 자습서에서는 [암시적 권한 부여 흐름을](v2-oauth2-implicit-grant-flow.md)사용하도록 설정해야 합니다. 등록된 애플리케이션의 왼쪽 창에서 **인증**을 선택합니다.
 1. **고급 설정**의 **암시적 허용**에서 **ID 토큰** 및 **액세스 토큰** 확인란을 선택합니다. ID 토큰 및 액세스 토큰은 이 앱이 사용자를 로그인하고 API를 호출해야 하기 때문에 필요합니다.
@@ -126,12 +126,12 @@ const myMSALObj = new UserAgentApplication(msalConfig);
 - `Enter_the_Tenant_Info_Here`다음 옵션 중 하나로 설정됩니다.
     - 응용 프로그램이 **이 조직 디렉터리에서 계정을**지원하는 경우 이 값을 테넌트 ID 또는 테넌트 이름(예: contoso.microsoft.com)으로 바꿉니다.
     - 응용 프로그램이 **모든 조직 디렉터리에서 계정을**지원하는 `organizations`경우 이 값을 로 바꿉습니다.
-    
+
     모든 국가 클라우드에 대한 인증 끝점을 찾으려면 [Azure AD 인증 끝점을](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints)참조하십시오.
 
     > [!NOTE]
     > 개인 Microsoft 계정은 국가 클라우드에서 지원되지 않습니다.
-  
+
 - `graphEndpoint`는 미국 정부의 마이크로소프트 클라우드용 마이크로소프트 그래프 엔드포인트입니다.
 
    모든 국가 클라우드에 대한 Microsoft 그래프 끝점을 찾으려면 [전국 클라우드에서 Microsoft 그래프 끝점을](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints)참조하십시오.
@@ -149,16 +149,16 @@ const myMSALObj = new UserAgentApplication(msalConfig);
     ```json
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
-    
+
 - Microsoft 그래프를 호출하려면 사용 중인 클라우드에 따라 특정 그래프 끝점 URL이 필요합니다. 모든 국가 클라우드에 대한 Microsoft 그래프 끝점을 찾으려면 [Microsoft 그래프 및 그래프 탐색기 서비스 루트 끝점을](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints)참조하십시오.
 
     다음은 범위가 있는 그래프 끝점의 예입니다.
-    
+
     ```json
     "endpoint" : "https://graph.microsoft.us/v1.0/me"
     "scope": "User.Read"
     ```
-    
+
 ## <a name="java"></a>[Java](#tab/java)
 
 주권 클라우드에 대한 Java 응용 프로그램에 대한 MSAL을 사용하려면 다음을 수행하십시오.
@@ -194,12 +194,12 @@ MSALAADAuthority *aadAuthority =
                                                    audienceType:MSALAzureADMultipleOrgsAudience
                                                       rawTenant:nil
                                                           error:nil];
-                                                          
+
 MSALPublicClientApplicationConfig *config =
                 [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"
                                                                 redirectUri:@"<your-redirect-uri-here>"
                                                                   authority:aadAuthority];
-                                                                  
+
 NSError *applicationError = nil;
 MSALPublicClientApplication *application =
                 [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&applicationError];
@@ -213,7 +213,7 @@ iOS 및 macOS용 MSAL은 국가 클라우드에서 토큰을 획득하는 데 `M
 
 ```swift
 let authority = try? MSALAADAuthority(cloudInstance: .usGovernmentCloudInstance, audienceType: .azureADMultipleOrgsAudience, rawTenant: nil)
-        
+
 let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>", redirectUri: "<your-redirect-uri-here>", authority: authority)
 if let application = try? MSALPublicClientApplication(configuration: config) { /* Use application */}
 ```
@@ -226,5 +226,5 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 - [내셔널 클라우드의 인증](authentication-national-cloud.md)
 - [Azure Government](https://docs.microsoft.com/azure/azure-government/)
-- [Azure 중국 21Vianet](https://docs.microsoft.com/azure/china/)
+- [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
 - [Azure 독일](https://docs.microsoft.com/azure/germany/)

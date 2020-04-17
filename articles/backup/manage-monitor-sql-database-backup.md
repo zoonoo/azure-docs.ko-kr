@@ -3,12 +3,12 @@ title: Azure VM에서 SQL 서버 B관리 및 모니터링
 description: 이 문서에서는 Azure VM에서 실행 중인 SQL Server 데이터베이스를 관리하고 모니터링하는 방법에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 4daf068e97a08d1a611ef64cb64569cacd5d7420
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 14e3a4797fe60a3d1857f1e6d947fa0c669bdcfe
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74172152"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537307"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>백업한 SQL Server 데이터베이스 관리 및 모니터링
 
@@ -38,7 +38,7 @@ Azure Backup은 **Backup 작업** 포털에서 수동으로 트리거된 모든 
 
 데이터베이스 백업 경고를 모니터링하려면 다음을 수행하십시오.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. 자격 증명 모음 대시보드에서 **경고 및 이벤트**를 선택합니다.
 
@@ -59,7 +59,7 @@ Azure Backup은 **Backup 작업** 포털에서 수동으로 트리거된 모든 
 
 - 모든 복구 지점은 영구적으로 유지되고, 모든 정리는 데이터 보관을 통해 보호 중지에서 중지됩니다.
 - 보호된 인스턴스와 사용 된 저장소에 대 한 요금이 청구 됩니다. 자세한 내용은 [Azure 백업 가격 책정을](https://azure.microsoft.com/pricing/details/backup/)참조하십시오.
-- 백업을 중지하지 않고 데이터 원본을 삭제하면 새 백업이 실패합니다.
+- 백업을 중지하지 않고 데이터 원본을 삭제하면 새 백업이 실패합니다. 이전 복구 지점은 정책에 따라 만료되지만 백업을 중지하고 데이터를 삭제할 때까지 마지막 복구 지점이 항상 유지됩니다.
 
 데이터베이스에 대한 보호를 중지하려면:
 

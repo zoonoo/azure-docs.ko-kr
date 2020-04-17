@@ -4,12 +4,12 @@ description: Azure 백업 서비스를 사용하여 MICROSOFT Azure 복구 서�
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: c11d73edd32c197aac2cec58eeb1cc20e5c6a339
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 404341c8324d9e127e8d8e6bc8083926c0d3106f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673262"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537358"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Azure 백업 서비스를 사용하여 Microsoft Azure 복구 서비스(MARS) 에이전트 백업 관리
 
@@ -90,7 +90,7 @@ ms.locfileid: "78673262"
 
 - **보호를 중지하고 백업 데이터를 유지합니다.**
   - 이 옵션을 사용하면 이후의 모든 백업 작업이 보호되지 않습니다.
-  - Azure 백업 서비스는 보존 정책에 따라 백업된 복구 지점을 유지합니다.
+  - Azure 백업 서비스는 모든 기존 복구 지점을 무기한 으로 유지합니다. 보호가 재개될 때까지 복구 지점이 만료되는지 확인되지 않습니다.
   - 만료되지 않은 복구 지점에 대해 백업된 데이터를 복원할 수 있습니다.
   - 보호를 다시 시작하려는 경우 *백업 일정 다시 활성화* 옵션을 사용할 수 있습니다. 그 후 새 보존 정책에 따라 데이터가 유지됩니다.
 - **보호를 중지하고 백업 데이터를 삭제합니다.**
@@ -106,7 +106,7 @@ ms.locfileid: "78673262"
 1. **정책 항목 선택** 페이지에서 파일 및 폴더의 백업 일정 수정을 선택하고 **다음**을 **클릭합니다.**
 
     ![예약된 백업을 수정하거나 중지합니다.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
-1. **예약된 백업 수정 또는 중지** 페이지에서 이 백업 일정 사용 **중지를 선택하지만 일정이 다시 활성화될 때까지 저장된 백업을 유지합니다.** 그런 다음 **을 선택합니다.**
+1. **예약된 백업 수정 또는 중지** 페이지에서 이 백업 일정 사용 **중지를 선택하지만 일정이 다시 활성화될 때까지 저장된 백업을 유지합니다.** 그다음에 **다음**을 선택합니다.
 
     ![예약된 백업을 수정하거나 중지합니다.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
 1. **일시 중지 예약된 백업에서** 정보를 검토하고 **완료를**클릭합니다.
@@ -117,7 +117,7 @@ ms.locfileid: "78673262"
 ### <a name="stop-protection-and-delete-backup-data"></a>보호 중지 및 백업 데이터 삭제
 
 1. MARS 관리 콘솔을 열고 **작업** 창으로 이동한 다음 **백업 예약을**선택합니다.
-2. **예약된 백업 수정 또는 중지** 페이지에서 이 백업 일정 사용 중지를 선택하고 저장된 모든 **백업을 삭제합니다.** 그런 다음 **을 선택합니다.**
+2. **예약된 백업 수정 또는 중지** 페이지에서 이 백업 일정 사용 중지를 선택하고 저장된 모든 **백업을 삭제합니다.** 그다음에 **다음**을 선택합니다.
 
     ![예약된 백업을 수정하거나 중지합니다.](./media/backup-azure-delete-vault/modify-schedule-backup.png)
 

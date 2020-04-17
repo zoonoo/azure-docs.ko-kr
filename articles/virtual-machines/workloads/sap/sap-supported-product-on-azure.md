@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/16/2020
+ms.date: 04/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0aaa13ff4d3331378cc17cd0cde29be43822397
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56341affee721b3ee6676da401e03dbbca84e597
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460792"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538242"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Azure 배포에 지원되는 SAP 소프트웨어
 이 문서에서는 Azure 배포에 지원되는 SAP 소프트웨어와 필요한 운영 체제 릴리스 또는 DBMS 릴리스에 대해 설명하는 방법을 설명합니다.
@@ -34,7 +34,7 @@ ms.locfileid: "79460792"
 
 
 ## <a name="general-restrictions-for-sap-workload"></a>SAP 워크로드에 대한 일반 제한 사항
-SAP 워크로드에 사용할 수 있는 Azure IaaS 서비스는 x86-64 또는 x64 하드웨어로 제한됩니다. SAP 워크로드에 적용되는 Sparc 또는 Power CPU 기반 오퍼가 없습니다. IBM 메인프레임 또는 AS400과 같은 하드웨어 아키텍처에 대한 운영 체제에서 애플리케이션을 실행하거나 운영 체제 HP-UX, Solaris 또는 AIX가 사용 중인 고객은 DBMS를 포함한 SAP 애플리케이션을 다음 운영 체제:
+SAP 워크로드에 사용할 수 있는 Azure IaaS 서비스는 x86-64 또는 x64 하드웨어로 제한됩니다. SAP 워크로드에 적용되는 Sparc 또는 Power CPU 기반 오퍼가 없습니다. IBM 메인프레임 또는 AS400과 같은 하드웨어 아키텍처를 독점하는 운영 체제에서 응용 프로그램을 실행하거나 HP-UX, Solaris 또는 AIX를 사용 중인 고객은 DBMS를 포함한 SAP 응용 프로그램을 다음 운영 체제 중 하나로 변경해야 합니다.
 
 - x86-64 플랫폼을 위한 윈도우 서버 64비트
 - x86-64 플랫폼을위한 SUSE 리눅스 64비트
@@ -111,20 +111,20 @@ Azure 인프라에 대해 지원되는 OS를 알고 있으므로 대상을 대�
 
 
 ## <a name="certified-azure-vms-and-hana-large-instance-units-and-business-transaction-throughput"></a>인증된 Azure VM 및 HANA 대형 인스턴스 단위 및 비즈니스 트랜잭션 처리량
-지원되는 운영 체제 릴리스, DBMS 릴리스 및 Azure 인프라 단위에 대한 종속 지원 SAP 소프트웨어 릴리스를 평가하는 것 외에도 비즈니스 트랜잭션 처리량별로 이러한 단위를 한정할 필요가 있습니다. Sap. 모든 SAP 크기 조정은 SAPS 계산에 따라 다릅니다. 기존 SAP 시스템을 평가하면 일반적으로 인프라 공급자의 도움을 받아 단위의 SAPS를 계산할 수 있습니다. 응용 프로그램 계층뿐만 아니라 DBMS 계층에 대한. 새 기능이 만들어지는 다른 경우 SAP를 사용 하 여 크기 조정 연습 응용 프로그램 계층 및 DBMS 계층에 필요한 SAPS 번호를 나타낼 수 있습니다. 인프라 공급자인 Microsoft는 NetWeaver 및/또는 HANA 인증을 받은 다른 단위의 SAP 처리량 특성화를 제공해야 합니다.
+지원되는 운영 체제 릴리스, DBMS 릴리스 및 Azure 인프라 단위에 대한 종속 지원 SAP 소프트웨어 릴리스를 평가하는 것 외에도 SAP에서 'SAP' 단위로 표현되는 비즈니스 트랜잭션 처리량별로 이러한 단위를 한정할 필요가 있습니다. 모든 SAP 크기 조정은 SAPS 계산에 따라 다릅니다. 기존 SAP 시스템을 평가하면 일반적으로 인프라 공급자의 도움을 받아 단위의 SAPS를 계산할 수 있습니다. 응용 프로그램 계층뿐만 아니라 DBMS 계층에 대한. 새 기능이 만들어지는 다른 경우 SAP를 사용 하 여 크기 조정 연습 응용 프로그램 계층 및 DBMS 계층에 필요한 SAPS 번호를 나타낼 수 있습니다. 인프라 공급자인 Microsoft는 NetWeaver 및/또는 HANA 인증을 받은 다른 단위의 SAP 처리량 특성화를 제공해야 합니다.
 
 Azure VM의 경우 이러한 SAPS 처리량 번호는 [#1928533 SAP 지원 노트에](https://launchpad.support.sap.com/#/notes/1928533)문서화되어 있습니다. Azure HANA 대형 인스턴스 단위의 경우 SAPS 처리량 번호는 [SAP 지원 노트 #2316233](https://launchpad.support.sap.com/#/notes/2316233)
 
 #1928533 [SAP 지원 노트를](https://launchpad.support.sap.com/#/notes/1928533)살펴보면 다음 설명이 적용됩니다.
 
-- **M-시리즈 Azure VM 및 Mv2 시리즈 Azure VM의 경우 다른 Azure VM 유형과 다른 최소 OS 릴리스가 적용됩니다.** 최신 OS 릴리스에 대한 요구 사항은 다른 운영 체제 공급업체가 운영 체제 릴리스에서 특정 Azure VM 유형에서 실행되는 운영 체제를 활성화하거나 성능을 최적화하기 위해 제공해야 하는 변경 사항을 기반으로 합니다. 이러한 VM 유형에 대한 SAP 워크로드 처리량
+- **M-시리즈 Azure VM 및 Mv2 시리즈 Azure VM의 경우 다른 Azure VM 유형과 다른 최소 OS 릴리스가 적용됩니다.** 최신 OS 릴리스에 대한 요구 사항은 다른 운영 체제 공급업체가 운영 체제 릴리스에서 특정 Azure VM 유형에서 실행 중인 운영 체제를 사용하도록 설정하거나 해당 VM 유형에 대한 SAP 워크로드의 성능 및 처리량을 최적화하기 위해 제공해야 하는 변경 사항을 기반으로 합니다.
 - 다른 VM 형식을 지정하는 두 개의 테이블이 있습니다. 두 번째 표는 Azure 표준 저장소만 지원하는 Azure VM 형식에 대한 SAPS 처리량을 지정합니다. 메모의 두 번째 테이블에 지정된 단위에 DBMS 배포가 지원되지 않습니다.
 
 
 ## <a name="other-sap-products-supported-on-azure"></a>Azure에서 지원되는 기타 SAP 제품
 일반적으로 Azure와 같은 하이퍼스케일 클라우드 의 상태는 대부분의 SAP 소프트웨어가 Azure에서 기능적인 문제 없이 실행되어야 한다고 가정합니다. 그럼에도 불구하고 SAP는 프라이빗 클라우드 시각화와 는 반대로 다른 hyerpscale 클라우드 공급자를 위해 명시적으로 다양한 SAP 제품에 대한 지원을 표현하고 있습니다. 따라서 다른 SAP 제품에 대한 Azure 지원을 나타내는 다른 SAP 지원 메모가 있습니다. 
 
-비즈니스 개체 BI 플랫폼의 경우 [SAP 지원 #2145537](https://launchpad.support.sap.com/#/notes/2145537) Azure에서 지원되는 SAP 비즈니스 개체 제품 목록을 제공합니다. 나열되거나 지원되지 않는 것 같고 나열된 최소 릴리스보다 최신인 소프트웨어 릴리스 및 OS 릴리스의 구성 요소 또는 조합에 대한 질문이 있는 경우 문의한 구성 요소에 대해 SAP 지원 요청을 열어야 합니다. 에 대한 지원.
+비즈니스 개체 BI 플랫폼의 경우 [SAP 지원 #2145537](https://launchpad.support.sap.com/#/notes/2145537) Azure에서 지원되는 SAP 비즈니스 개체 제품 목록을 제공합니다. 나열되거나 지원되지 않는 것 같고 나열된 최소 릴리스보다 최신인 소프트웨어 릴리스 및 OS 릴리스의 구성 요소 또는 조합에 대한 질문이 있는 경우 지원을 요청하는 구성 요소에 대해 SAP 지원 요청을 열어야 합니다.
 
 비즈니스 개체 데이터 서비스의 경우 [SAP 지원 #22288344](https://launchpad.support.sap.com/#/notes/2288344) Azure에서 실행되는 SAP 데이터 서비스의 최소 지원을 설명합니다. 
 
@@ -135,7 +135,12 @@ Azure Kubernetes 서비스(AKS)의 SAP Datahub/Vora 지원은 [SAP 지원 노트
 
 SAP BPC 10.1 SP08에 대한 지원은 [#2451795 SAP 지원 노트에](https://launchpad.support.sap.com/#/notes/2451795) 설명되어 있습니다.
 
-SAP Hybris 상거래 플랫폼 5.x 및 6.x Azure에 대한 지원은 [Hybris 위키에서](https://wiki.hybris.com/display/SUP/Using+the+hybris+Platform+with+the+Cloud) 자세히 설명되어 있습니다.
+Azure에서 SAP Hybris 상거래 플랫폼에 대한 지원은 [Hybris 위키에서](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud)자세히 설명합니다. SAP Hybris 상거래 플랫폼에 지원되는 DBMS를 사용하면 다음과 같은 목록이 나열됩니다.
+
+- Windows 운영 체제 플랫폼에서 SQL 서버 및 오라클. SAP NetWeaver와 동일한 최소 릴리스가 적용됩니다. 자세한 내용은 [SAP 지원 #1928533](https://launchpad.support.sap.com/#/notes/1928533) 참조
+- 레드 햇과 수즈 리눅스에 SAP HANA. SAP HANA 인증 VM 유형은 [이 문서의](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#sap-hana-support)앞에서 설명한 대로 필요합니다. SAP(하이브리스) 커머스 플랫폼은 OLTP 워크로드로 간주됩니다.
+
+
 
 
 ## <a name="next-steps"></a>다음 단계

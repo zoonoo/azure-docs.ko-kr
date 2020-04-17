@@ -3,12 +3,12 @@ title: 사용자 지정 이벤트 및 메트릭용 Application Insights API | Mi
 description: 디바이스 또는 데스크톱 앱, 웹 페이지, 서비스에 코드를 몇 줄 삽입하여 사용 및 진단 문제를 추적할 수 있습니다.
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.openlocfilehash: 06bd8bd0958afd26e1256a010b08c908c59aaf7d
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: d6cb2f5ab418e8d3b5935fef535565ccf55a3906
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585873"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536950"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -107,7 +107,7 @@ Node.js 프로젝트에서 `new applicationInsights.TelemetryClient(instrumentat
 
 ## <a name="trackevent"></a>TrackEvent
 
-Application Insights에서 *사용자 지정 이벤트*는 [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md)에 집계된 개수로 표시하고 [진단 검색](../../azure-monitor/app/diagnostic-search.md)에 개별 항목으로 표시할 수 있는 데이터 요소입니다. MVC 또는 다른 프레임워크 "이벤트"와 관련이 없습니다.
+Application Insights에서 *사용자 지정 이벤트*는 [메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md)에 집계된 개수로 표시하고 [진단 검색](../../azure-monitor/app/diagnostic-search.md)에 개별 항목으로 표시할 수 있는 데이터 요소입니다. MVC 또는 다른 프레임워크 "이벤트"와 관련이 없습니다.
 
 다양한 이벤트를 계산하기 위해 코드에 `TrackEvent`를 삽입합니다. 사용자가 특정 기능을 얼마나 자주 선택하는지, 특정 목표를 얼마나 자주 달성하는지 또는 특정 유형의 실수를 얼마나 자주 하는지를 계산할 수 있습니다.
 
@@ -443,7 +443,7 @@ requests
 
 Application Insights로 예외를 보냅니다.
 
-* 문제의 빈도 표시로 [계산](../../azure-monitor/app/metrics-explorer.md)하려면
+* 문제의 빈도 표시로 [계산](../../azure-monitor/platform/metrics-charts.md)하려면
 * [개별 항목을 검사](../../azure-monitor/app/diagnostic-search.md)하려면
 
 보고서는 스택 추적을 포함합니다.
@@ -521,7 +521,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 예를 들어:
+대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 다음은 그 예입니다.
 
 ```kusto
 exceptions
@@ -573,7 +573,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: Seve
 
 메서드 출입 같은 진단 이벤트를 기록합니다.
 
- 매개 변수 | 설명
+ 매개 변수 | Description
 ---|---
 `message` | 진단 데이터입니다. 이름보다 훨씬 길어질 수 있습니다.
 `properties` | 문자열에 대한 맵: 포털에서 [예외를 필터링하는](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties) 데 사용되는 추가 데이터입니다. 기본적으로 비어 있습니다.
@@ -584,7 +584,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: Seve
 `message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다.
 TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.  
 
-또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예를 들어:
+또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 다음은 그 예입니다.
 
 *C#*
 
@@ -774,7 +774,7 @@ ASP.NET 웹 MVC 애플리케이션에서의 예:
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-[메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md)에서 **사용자, 인증** 및 **사용자 계정**을 계산하는 차트를 만들 수 있습니다.
+[메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md)에서 **사용자, 인증** 및 **사용자 계정**을 계산하는 차트를 만들 수 있습니다.
 
 특정 사용자 이름과 계정으로 클라이언트 데이터 지점을 [검색](../../azure-monitor/app/diagnostic-search.md)할 수도 있습니다.
 
@@ -1147,7 +1147,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예를 들어:
+TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 다음은 그 예입니다.
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";

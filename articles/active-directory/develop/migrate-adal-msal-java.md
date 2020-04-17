@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev
-ms.openlocfilehash: 2929b94a2cb624b96649292714fe93dea09a2085
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 7ba845e79074313f0ccf2c066ba016bd72d46efe
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886503"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534570"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Java에 대한 MSAL 마이그레이션 가이드에 대한 ADAL
 
@@ -82,7 +82,7 @@ v2.0에서 `https://login.microsoftonline.com/common` 권한을 사용하는 경
 
 v1.0 엔드포인트(ADAL에서 사용)는 v1.0 토큰만 내보냅니다.
 
-msal에서 사용하는 v2.0 끝점에서는 v1.0 및 v2.0 토큰을 내보엠플니다. Web API의 애플리케이션 매니페스트 속성을 사용하면 개발자가 허용할 토큰 버전을 선택할 수 있습니다. 응용 `accessTokenAcceptedVersion` [프로그램 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) 참조 문서를 참조하십시오.
+msal에서 사용하는 v2.0 끝점에서는 v1.0 및 v2.0 토큰을 내보엠플니다. 웹 API의 응용 프로그램 매니페스트의 속성을 사용하면 개발자가 허용되는 토큰 버전을 선택할 수 있습니다. 응용 `accessTokenAcceptedVersion` [프로그램 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) 참조 문서를 참조하십시오.
 
 v1.0 및 v2.0 토큰에 대한 자세한 내용은 [Azure Active Directory 액세스 토큰을](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)참조하십시오.
 
@@ -109,7 +109,8 @@ PublicClientApplication app = PublicClientApplication.builder(CLIENT_ID) // Clie
 IAuthenticationResult result = app.acquireToken(parameters);
 ```
 
-새 `IAuthenticationResult` 새로 고침 토큰이 캐시에 저장되는 동안 액세스 토큰 및 ID 토큰을 반환합니다. 응용 프로그램에는 이제 IAccount도 포함됩니다.
+새 `IAuthenticationResult` 새로 고침 토큰이 캐시에 저장되는 동안 액세스 토큰 및 ID 토큰을 반환합니다.
+응용 프로그램에는 이제 IAccount도 포함됩니다.
 
 ```java
 Set<IAccount> accounts =  app.getAccounts().join();
@@ -118,6 +119,6 @@ Set<IAccount> accounts =  app.getAccounts().join();
 캐시에 있는 토큰을 사용하려면 다음을 호출하십시오.
 
 ```java
-SilentParameters parameters = SilentParameters.builder(scope, accounts.iterator().next()).build(); 
+SilentParameters parameters = SilentParameters.builder(scope, accounts.iterator().next()).build();
 IAuthenticationResult result = app.acquireToken(parameters);
 ```

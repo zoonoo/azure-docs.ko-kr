@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 11/09/2017
 ms.custom: seodec18
-ms.openlocfilehash: f1012f8c00de4b19bbf6206408ec1a806e09e54f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1c44fb9f44eb75e6d2a766213c5db094ebe79b1
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77482346"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537647"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 계획 개요
 
@@ -32,7 +32,7 @@ App Service 계획의 _가격 책정 계층_은 가져올 App Service 기능 및
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-또한 각 계층은 App Service 기능의 특정 하위 집합을 제공합니다. 이러한 기능에는 사용자 지정 도메인 및 SSL 인증서, 자동 크기 조정, 배포 슬롯, 백업, Traffic Manager 통합 등이 포함됩니다. 계층이 높을수록 더 많은 기능을 사용할 수 있습니다. 각 가격 책정 계층에서 지원되는 기능을 알아보려면 [App Service 계획 세부 정보](https://azure.microsoft.com/pricing/details/app-service/plans/)를 참조하세요.
+또한 각 계층은 App Service 기능의 특정 하위 집합을 제공합니다. 이러한 기능에는 사용자 지정 도메인 및 TLS/SSL 인증서, 자동 크기 조정, 배포 슬롯, 백업, 트래픽 관리자 통합 등이 포함됩니다. 계층이 높을수록 더 많은 기능을 사용할 수 있습니다. 각 가격 책정 계층에서 지원되는 기능을 알아보려면 [App Service 계획 세부 정보](https://azure.microsoft.com/pricing/details/app-service/plans/)를 참조하세요.
 
 <a name="new-pricing-tier-premiumv2"></a>
 
@@ -71,11 +71,11 @@ App Service에서 앱을 만드는 경우 App Service 계획에 배치합니다.
 - 전용 계산**계층(기본,** **표준,** **프리미엄,** **PremiumV2)에서**앱 서비스 계획은 앱의 크기조정되는 VM 인스턴스 수를 정의하므로 앱 서비스 계획의 _각 VM 인스턴스는_ 시간당 요금이 부과됩니다. 이러한 VM 인스턴스는 여기에서 실행되는 앱의 개수에 관계 없이 동일한 요금이 청구됩니다. 예기치 않은 요금을 방지하려면 [App Service 계획 정리](app-service-plan-manage.md#delete)를 참조하세요.
 - **격리** 계층에서 App Service 환경은 앱을 실행하는 격리된 작업자의 수를 정의하고 _각 작업자_는 시간당 요금이 부과됩니다. 또한 App Service 환경 자체를 실행하기 위한 시간 기반 요금이 있습니다.
 
-사용할 수 있는 App Service 기능을 사용하기 위해 요금이 청구되지 않습니다(사용자 지정 도메인, SSL 인증서, 배포 슬롯, 백업 등 구성). 예외는 다음과 같습니다.
+사용할 수 있는 앱 서비스 기능(사용자 지정 도메인, TLS/SSL 인증서, 배포 슬롯, 백업 등)에 대한 요금이 청구되지 않습니다. 예외는 다음과 같습니다.
 
 - App Service 도메인 - Azure에서 구입할 때 및 매년 갱신할 때 지불합니다.
 - App Service Certificates - Azure에서 구입할 때 및 매년 갱신할 때 지불합니다.
-- IP 기반 SSL 연결 - 각 IP 기반 SSL 연결은 시간당 요금이 청구되지만 일부 **표준** 계층 이상은 IP 기반 SSL 연결을 체험용으로 제공합니다. SNI 기반 SSL 연결을 체험용으로 사용할 수 있습니다.
+- IP 기반 TLS 연결 - 각 IP 기반 TLS 연결에 대해 시간당 요금이 부과되지만 일부 **표준** 계층 이상은 하나의 IP 기반 TLS 연결을 무료로 제공합니다. SNI 기반 TLS 연결은 무료입니다.
 
 > [!NOTE]
 > 다른 Azure 서비스와 App Service를 통합하는 경우 이러한 다른 서비스에서 청구를 고려해야 합니다. 예를 들어 Azure Traffic Manager를 사용하여 지리적으로 앱의 크기를 조정하는 경우 Azure Traffic Manager도 사용량에 기반하여 요금이 청구됩니다. Azure에서 교차 서비스 비용을 계산하려면 [가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/)를 참조하세요. 
@@ -86,7 +86,7 @@ App Service에서 앱을 만드는 경우 App Service 계획에 배치합니다.
 
 언제든지 App Service 계획을 확장하고 축소할 수 있습니다. 계획의 가격 책정 계층을 변경하는 것처럼 간단합니다. 처음에 더 낮은 가격 책정 계층을 선택하고 더 많은 App Service 기능이 필요하면 나중에 확장할 수 있습니다.
 
-예를 들어 **체험** App Service 계획에서 웹앱을 테스트하기 시작하고 비용을 지불하지 않을 수 있습니다. [사용자 지정 DNS 이름](app-service-web-tutorial-custom-domain.md)을 웹앱에 추가하려는 경우 계획을 **공유** 계층까지 확장하면 됩니다. 나중에 [SSL 바인딩을 만들려는](configure-ssl-bindings.md)경우 계획을 **기본** 계층으로 확장합니다. [스테이징 환경](deploy-staging-slots.md)이 필요하면 **표준** 계층까지 확장합니다. 더 많은 코어, 메모리 또는 스토리지가 필요한 경우 동일한 계층에서 더 큰 VM 크기로 확장합니다.
+예를 들어 **체험** App Service 계획에서 웹앱을 테스트하기 시작하고 비용을 지불하지 않을 수 있습니다. [사용자 지정 DNS 이름](app-service-web-tutorial-custom-domain.md)을 웹앱에 추가하려는 경우 계획을 **공유** 계층까지 확장하면 됩니다. 나중에 [TLS 바인딩을 만들려는](configure-ssl-bindings.md)경우 계획을 **기본** 계층으로 확장합니다. [스테이징 환경](deploy-staging-slots.md)이 필요하면 **표준** 계층까지 확장합니다. 더 많은 코어, 메모리 또는 스토리지가 필요한 경우 동일한 계층에서 더 큰 VM 크기로 확장합니다.
 
 동일하게 반대로도 작동합니다. 더 높은 계층의 기능이 더 이상 필요하지 않으면 하위 계층으로 축소하여 비용을 절약할 수 있습니다.
 
