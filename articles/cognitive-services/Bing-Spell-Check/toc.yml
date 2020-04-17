@@ -72,9 +72,9 @@
     - name: Bing Spell Check API에 대한 분석
       maintainContext: true
       href: ../bing-web-search/bing-web-stats.md
-    - name: 언어 및 지역 지원
+    - name: 언어 지원
       href: language-support.md
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/'

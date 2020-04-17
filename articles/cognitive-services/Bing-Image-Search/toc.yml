@@ -89,7 +89,7 @@
   items:
     - name: FAQ
       href: bing-image-search-resource-faq.md
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/image/'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/555907-bing-search'
@@ -107,7 +107,7 @@
       href: 'https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/'
     - name: Bing Image Search 엔드포인트
       href: image-search-endpoint.md
-    - name: 언어 및 지역 지원
+    - name: 언어 지원
       href: language-support.md
     - name: Bing Image Search API에 대한 분석
       maintainContext: true

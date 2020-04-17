@@ -98,9 +98,9 @@
           href: 'https://aka.ms/TranslatorGitHub'
         - name: FAQ
           href: 'https://www.microsoft.com/translator/faq.aspx'
-        - name: 언어 및 지역 지원
+        - name: 언어 지원
           href: language-support.md
-        - name: 가격
+        - name: 가격 책정
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
         - name: 국가별 가용성
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
@@ -168,7 +168,7 @@
           href: custom-translator/glossary.md
         - name: FAQ
           href: custom-translator/faq.md
-        - name: 가격
+        - name: 가격 책정
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
         - name: 규정 준수
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

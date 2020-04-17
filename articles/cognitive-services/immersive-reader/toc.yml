@@ -15,7 +15,7 @@
       href: ios-quickstart.md
 - name: 자습서
   items:
-    - name: 몰입형 리더(Python) 시작
+    - name: 몰입형 판독기(Python) 시작
       href: tutorial-python.md
     - name: 여러 몰입형 판독기 리소스 사용
       href: tutorial-multiple-resources.md
@@ -42,6 +42,6 @@
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: 언어 지원
-      href: 'https://aka.ms/ltlangsupport'
+      href: language-support.md
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'

@@ -48,7 +48,7 @@
   items:
     - name: 명명된 엔터티 형식
       href: named-entity-types.md
-    - name: 언어 및 지역 지원
+    - name: 언어 지원
       href: language-support.md
     - name: 텍스트 오프셋
       href: concepts/text-offsets.md
@@ -116,7 +116,7 @@
       href: text-analytics-resource-external-community.md
     - name: FAQ
       href: text-analytics-resource-faq.md
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/'

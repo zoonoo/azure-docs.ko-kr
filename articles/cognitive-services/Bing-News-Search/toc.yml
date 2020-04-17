@@ -97,7 +97,7 @@
       href: 'https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553'
     - name: Bing News Search 엔드포인트
       href: endpoint-news.md
-    - name: 언어 및 지역 지원
+    - name: 언어 지원
       href: language-support.md
     - name: Bing News Search API에 대한 분석
       href: bing-news-stats.md

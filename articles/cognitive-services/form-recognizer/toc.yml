@@ -80,5 +80,7 @@
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: 국가별 가용성
       href: 'https://go.microsoft.com/fwlink/?linkid=2087185'
+    - name: 언어 지원
+      href: language-support.md
     - name: 규정 준수
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

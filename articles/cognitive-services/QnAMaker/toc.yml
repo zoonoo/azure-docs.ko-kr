@@ -147,7 +147,7 @@
               href: Quickstarts/get-answer-from-knowledge-base-python.md
 - name: 참조
   items:
-    - name: 언어
+    - name: 언어 지원
       href: Overview/language-support.md
     - name: 제한
       href: limits.md
