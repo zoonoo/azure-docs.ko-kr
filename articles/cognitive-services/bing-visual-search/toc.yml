@@ -80,7 +80,7 @@
       maintainContext: true
 - name: 리소스
   items:
-    - name: 언어 및 지역 지원
+    - name: 언어 지원
       href: language-support.md
     - name: 사용 가능한 액세스 키 가져오기
       href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api'
