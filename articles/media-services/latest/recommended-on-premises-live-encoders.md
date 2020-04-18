@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 04/16/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: bbd2929e245fa5fc01245e7bd02e537db8d5ef36
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 0676b6b183c64dcd0fb15b87de48a4afed3a0011
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536338"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641798"
 ---
 # <a name="tested-on-premises-live-streaming-encoders"></a>테스트된 온-프레미스 라이브 스트리밍 인코더
 
@@ -57,7 +57,6 @@ RTMPS를 통해 스트리밍할 때 방화벽 및/또는 프록시 설정을 검
 - 텔레스트림 와이어캐스트(TLS 1.2 요구 사항으로 인해 버전 13.0.2 이상)
 - 텔레스트림 와이어캐스트 S(RTMP만 지원)
 - Teradek Slice 756
-- TriCaster 8000
 - VMIX
 - xStream
 - [Ffmpeg](https://www.ffmpeg.org)

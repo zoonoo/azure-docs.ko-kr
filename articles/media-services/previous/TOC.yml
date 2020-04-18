@@ -257,8 +257,6 @@
           items:
             - name: Haivision KB 인코더
               href: media-services-configure-kb-live-encoder.md
-            - name: NewTek TriCaster 인코더
-              href: media-services-configure-tricaster-live-encoder.md
             - name: Wirecast 인코더
               href: media-services-configure-wirecast-live-encoder.md
         - name: 장기 실행 작업 처리
@@ -469,7 +467,7 @@
       href: media-services-community.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/media-services/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

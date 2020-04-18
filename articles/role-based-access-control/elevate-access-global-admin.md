@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/03/2019
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1731c630cb98ac542ebcdc7aedf07f7bb63eaec0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 18490ec7c3cfde33cef186b753e2adc809f854c6
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77137454"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641362"
 ---
-# <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>모든 Azure 구독 및 관리 그룹을 관리하기 위해 액세스 권한 상승
+# <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>모든 Azure 구독 및 관리 그룹을 관리하는 액세스 권한 상승
 
 Azure AD(Azure Active Directory)의 글로벌 관리자로서 디렉터리에 있는 모든 구독 및 관리 그룹에 대한 액세스 권한을 가질 수 없습니다. 이 문서에서는 모든 구독 및 관리 그룹에 대한 액세스 권한을 상승시킬 수 있는 방법을 설명합니다.
 
@@ -30,7 +30,7 @@ Azure AD(Azure Active Directory)의 글로벌 관리자로서 디렉터리에 �
 
 ## <a name="why-would-you-need-to-elevate-your-access"></a>액세스 권한을 상승시켜야 하는 이유는 무엇인가요?
 
-글로벌 관리자인 경우 다음을 수행하려는 경우가 있을 수 있습니다.
+글로벌 관리자인 경우 다음 작업을 수행하려는 경우가 있을 수 있습니다.
 
 - 사용자가 액세스 권한을 상실할 때 Azure 구독 또는 관리 그룹에 대한 액세스 권한 다시 얻기
 - 다른 사용자 또는 사용자 자신에게 Azure 구독 또는 관리 그룹에 대한 액세스 권한 부여
@@ -55,9 +55,7 @@ Azure AD와 Azure 리소스는 서로 독립적으로 보호됩니다. 즉, Azur
 
 1. [Azure Portal](https://portal.azure.com) 또는 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 글로벌 관리자로 로그인합니다.
 
-1. **Azure Active Directory**를 검색하고 선택합니다.
-
-   ![Azure 활성 디렉터리 선택 - 스크린샷](./media/elevate-access-global-admin/search-for-azure-active-directory.png)
+1. Azure 활성 디렉터리 를 **엽니다.**
 
 1. **에서 관리**에서 **속성을**선택합니다.
 
@@ -233,7 +231,7 @@ az role assignment list --role "User Access Administrator" --scope "/"
 
 ### <a name="remove-elevated-access"></a>상승된 액세스 제거
 
-호출 `elevateAccess`할 때 직접 역할 할당을 만들므로 해당 권한을 취소하려면 루트 범위 () 에서 사용자 액세스`/`관리자 역할 할당을 제거해야합니다.
+호출할 `elevateAccess`때 직접 역할 할당을 만들므로 해당 권한을 취소하려면 루트 범위()에서`/`사용자 액세스 관리자 역할 할당을 제거해야 합니다.
 
 1. `roleName`이 사용자 액세스 관리자인 [GET roleDefinitions](/rest/api/authorization/roledefinitions/get)를 호출하여 사용자 액세스 관리자 역할의 ID 이름을 확인합니다.
 

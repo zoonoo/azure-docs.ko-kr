@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 260ddccc1a1b0bd4090284025b79e20ff5ce4fdc
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 44d6776a367a5cb1eeb86c955f083598d417aba6
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475253"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641660"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services 개념 
 
@@ -49,7 +49,7 @@ Media Service API를 사용하지 않고 Media Services에서 생성된 Blob 컨
 업로드, 저장 및 배달하려는 콘텐츠의 유형에 따라 Media Services는 선택할 수 있는 다양한 암호화 옵션을 제공합니다.
 
 >[!NOTE]
->암호화가 사용되지 않습니다. 기본값입니다. 이 옵션을 사용하면 콘텐츠가 전송 중인 상태이거나 스토리지에 저장된 상태일 때 보호되지 않습니다.
+>암호화가 사용되지 않습니다. 이것은 기본값입니다. 이 옵션을 사용하면 콘텐츠가 전송 중인 상태이거나 스토리지에 저장된 상태일 때 보호되지 않습니다.
 
 점진적 다운로드를 사용하여 MP4를 배달하려는 경우 이 옵션을 사용하여 콘텐츠를 업로드합니다.
 
@@ -111,7 +111,7 @@ Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 �
 ## <a name="live-streaming"></a>라이브 스트리밍
 Azure Media Services에서 채널은 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. 채널은 다음 두 가지 방법 중 하나로 라이브 입력 스트림을 받습니다.
 
-* 온-프레미스 라이브 인코더가 다중 비트 전송률 RTMP 또는 부드러운 스트리밍(조각화된 MP4)을 채널에 보냅니다. 다중 비트 전송률 부드러운 스트리밍을 출력하는 라이브 인코더인 MediaExcel, Ateme, Imagine Communications, Envivio, Cisco 및 Elemental을 사용할 수 있습니다. 다음 라이브 인코더 출력 RTMP : 어도비 플래시 라이브 인코더, [텔레 스트림 와이어 캐스트,](media-services-configure-wirecast-live-encoder.md)테라 덱, 하이 비전과 트리카스터 인코더. 어떠한 추가적인 트랜스코딩 및 인코딩 없이 채널을 통해 수집된 스트림이 통과합니다. 요청된 경우 Media Services는 고객에게 스트림을 배달합니다.
+* 온-프레미스 라이브 인코더가 다중 비트 전송률 RTMP 또는 부드러운 스트리밍(조각화된 MP4)을 채널에 보냅니다. 다중 비트 전송률 부드러운 스트리밍을 출력하는 라이브 인코더인 MediaExcel, Ateme, Imagine Communications, Envivio, Cisco 및 Elemental을 사용할 수 있습니다. 다음 라이브 인코더 출력 RTMP : 어도비 플래시 라이브 인코더, [텔레 스트림 와이어 캐스트,](media-services-configure-wirecast-live-encoder.md)테라 덱, 하이 비전 인코더. 어떠한 추가적인 트랜스코딩 및 인코딩 없이 채널을 통해 수집된 스트림이 통과합니다. 요청된 경우 Media Services는 고객에게 스트림을 배달합니다.
 * 단일 비트 전송률 스트림(RTMP 또는 부드러운 스트리밍(조각화된 MP4) 형식 중 하나)은 Media Services를 사용하여 라이브 인코딩을 수행할 수 있는 채널에 전송됩니다. 그러면 채널은 들어오는 단일 비트 전송률 스트림을 다중 비트 전송률(적응) 비디오 스트림으로 라이브 인코딩합니다. 요청된 경우 Media Services는 고객에게 스트림을 배달합니다.
 
 ### <a name="channel"></a>채널

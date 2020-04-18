@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: e4e4ac1b0a867130dd7b9e276db52e1ca1e72976
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 777ea7cc29679a3819e94d39913f167ea1cb3453
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062141"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641386"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Azure 리소스에 대한 역할 정의 이해
 
 역할의 작동 방식을 파악하려고 하거나, [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)을 만드는 경우 역할이 정의되는 방식을 파악하면 도움이 됩니다. 이 문서에서는 역할 정의에 대한 자세한 내용을 설명하고 몇 가지 예제를 제공합니다.
 
-## <a name="role-definition-structure"></a>역할 정의 구조
+## <a name="role-definition"></a>역할 정의
 
-*역할 정의*는 권한 컬렉션입니다. 때로는 *역할*이라고 합니다. 역할 정의에는 읽기, 쓰기 및 삭제와 같이 수행할 수 있는 작업이 나열됩니다. 또한 수행할 수 없는 작업이나 기본 데이터와 관련된 작업이 나열될 수도 있습니다. 역할 정의의 구조는 다음과 같습니다.
+*역할 정의*는 권한 컬렉션입니다. 때로는 *역할*이라고 합니다. 역할 정의에는 읽기, 쓰기 및 삭제와 같이 수행할 수 있는 작업이 나열됩니다. 또한 수행할 수 없는 작업이나 기본 데이터와 관련된 작업이 나열될 수도 있습니다. 역할 정의에는 다음과 같은 속성이 있습니다.
 
 ```
 Name
@@ -42,19 +42,35 @@ NotDataActions []
 AssignableScopes []
 ```
 
+| 속성 | Description |
+| --- | --- |
+| `Name` | 역할의 표시 이름입니다. |
+| `Id` | 역할의 고유 ID입니다. |
+| `IsCustom` | 사용자 지정 역할인지 여부를 나타냅니다. 사용자 지정 역할인 경우 `true`로 설정합니다. |
+| `Description` | 역할에 대한 설명입니다. |
+| `Actions` | 역할에서 수행할 수 있는 관리 작업을 지정하는 문자열 배열입니다. |
+| `NotActions` | 허용된 `Actions`에서 제외되는 관리 작업을 지정하는 문자열 배열입니다. |
+| `DataActions` | 역할에서 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 작업을 지정하는 문자열 배열입니다. |
+| `NotDataActions` | 허용된 `DataActions`에서 제외되는 데이터 작업을 지정하는 문자열 배열입니다. |
+| `AssignableScopes` | 역할이 할당에 사용할 수 있는 범위를 지정하는 문자열 의 배열입니다. |
+
+### <a name="operations-format"></a>작업 형식
+
 작업은 다음과 같은 형식의 문자열로 지정됩니다.
 
 - `{Company}.{ProviderName}/{resourceType}/{action}`
 
 작업 문자열의 `{action}` 부분은 리소스 종류에서 수행할 수 있는 작업의 유형을 지정합니다. 예를 들어 `{action}`에 표시되는 부분 문자열은 다음과 같습니다.
 
-| 작업 부분 문자열    | 설명         |
+| 작업 부분 문자열    | Description         |
 | ------------------- | ------------------- |
 | `*` | 와일드카드 문자는 문자열과 일치하는 모든 작업에 대한 액세스 권한을 부여합니다. |
 | `read` | 읽기 작업(GET)을 사용하도록 설정합니다. |
 | `write` | 쓰기 작업(PUT 또는 PATCH)을 활성화합니다. |
 | `action` | POST(가상 시스템 다시 시작)와 같은 사용자 지정 작업을 활성화합니다. |
 | `delete` | 삭제 작업(DELETE)을 사용하도록 설정합니다. |
+
+### <a name="role-definition-example"></a>역할 정의 예제
 
 JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있습니다. `Actions`에 포함된 와일드카드(`*`) 작업은 이 역할에 할당된 주체가 모든 작업을 수행할 수 있음, 즉 모든 항목을 관리할 수 있음을 나타냅니다. 여기에는 나중에 Azure에서 새 리소스 종류를 추가함에 따라 정의되는 작업이 포함됩니다. `NotActions`에 속한 작업은 `Actions`에서 제외됩니다. [기여자](built-in-roles.md#contributor) 역할의 경우 `NotActions`는 리소스에 대한 액세스를 관리하고 할당하는 이 역할의 기능을 제거합니다.
 
@@ -92,7 +108,7 @@ JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있�
 
 이전에는 역할 기반 액세스 제어가 데이터 작업에 사용되지 않았습니다. 데이터 작업에 대한 권한 부여는 리소스 공급자에 따라 다양합니다. 관리 작업에 사용되는 동일한 역할 기반 액세스 제어 권한 부여 모델이 데이터 작업으로 확장되었습니다.
 
-데이터 작업을 지원하기 위해 새로운 데이터 속성이 역할 정의 구조에 추가되었습니다. 데이터 작업은 `DataActions` 및 `NotDataActions` 속성에서 지정됩니다. 이러한 데이터 속성을 추가함으로써 관리와 데이터 간의 분리가 유지됩니다. 이렇게 하면 와일드카드(`*`)와 함께 현재 역할 할당을 사용하여 갑자기 데이터에 액세스하는 것을 방지할 수 있습니다. `DataActions` 및 `NotDataActions`에서 지정할 수 있는 데이터 작업은 다음과 같습니다.
+데이터 작업을 지원하기 위해 역할 정의에 새 데이터 속성이 추가되었습니다. 데이터 작업은 `DataActions` 및 `NotDataActions` 속성에서 지정됩니다. 이러한 데이터 속성을 추가함으로써 관리와 데이터 간의 분리가 유지됩니다. 이렇게 하면 와일드카드(`*`)와 함께 현재 역할 할당을 사용하여 갑자기 데이터에 액세스하는 것을 방지할 수 있습니다. `DataActions` 및 `NotDataActions`에서 지정할 수 있는 데이터 작업은 다음과 같습니다.
 
 - 컨테이너의 Blob 목록 읽기
 - 컨테이너에 Storage Blob 쓰기
@@ -160,7 +176,7 @@ Bob의 권한은 [저장소 Blob 데이터 기여자](built-in-roles.md#storage-
 
 | 도구  | 버전  |
 |---------|---------|
-| [Azure 파워쉘](/powershell/azure/install-az-ps) | 1.1.0 이상 |
+| [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 이상 |
 | [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 이상 |
 | [.NET용 Azure](/dotnet/azure/) | 2.8.0-미리 보기 이상 버전 |
 | [Azure SDK for Go](/azure/go/azure-sdk-go-install) | 15.0.0 이상 |
@@ -177,7 +193,7 @@ REST API에서 데이터 작업을 보고 사용하려면 **api-version** 매개
 `Actions` 권한은 역할에서 수행할 수 있는 관리 작업을 지정합니다. Azure 리소스 공급자의 보안 개체 작업을 식별하는 작업 문자열 모음입니다. `Actions`에서 사용할 수 있는 관리 작업의 몇 가지 예제는 다음과 같습니다.
 
 > [!div class="mx-tableFixed"]
-> | 작업 문자열    | 설명         |
+> | 작업 문자열    | Description         |
 > | ------------------- | ------------------- |
 > | `*/read` | 모든 Azure 리소스 공급자에 있는 모든 리소스 종류의 읽기 작업에 대한 액세스 권한을 부여합니다.|
 > | `Microsoft.Compute/*` | Microsoft.Compute 리소스 공급자에 있는 모든 리소스 종류의 모든 작업에 대한 액세스 권한을 부여합니다.|
@@ -198,7 +214,7 @@ REST API에서 데이터 작업을 보고 사용하려면 **api-version** 매개
 `DataActions` 권한은 역할에서 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 작업을 지정합니다. 예를 들어 사용자가 스토리지 계정에 대한 Blob 데이터 읽기 액세스 권한이 있는 경우 해당 스토리지 계정 내의 Blob을 읽을 수 있습니다. `DataActions`에서 사용할 수 있는 데이터 작업의 몇 가지 예제는 다음과 같습니다.
 
 > [!div class="mx-tableFixed"]
-> | 작업 문자열    | 설명         |
+> | 작업 문자열    | Description         |
 > | ------------------- | ------------------- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | Blob 또는 Blob 목록 반환 |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | Blob 쓰기 결과 반환 |

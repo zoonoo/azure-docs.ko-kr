@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.openlocfilehash: 100f95c20743f70bb4a9f2ac7e74853eab80f3e9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a0a01dad5ae86cf20d57ade845326838f8fd686a
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414480"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641456"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>일정에 따라 파이프라인을 실행하는 트리거 만들기
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -31,38 +31,46 @@ ms.locfileid: "81414480"
 **스케줄러 트리거**를 만들어 파이프라인이 주기적으로(매시간, 매일 등) 실행되도록 예약할 수 있습니다. 
 
 > [!NOTE]
-> 파이프라인 및 일정 트리거를 만들고, 파이프라인과 트리거를 연결하고, 파이프라인과 트리거를 연결하고, 파이프라인을 실행하고 모니터링하는 전체 연습은 [빠른 시작: Data Factory UI를 사용하여 Data Factory 만들기](quickstart-create-data-factory-portal.md)를 참조하세요.
+> 트리거를 파이프라인과 연결하고 파이프라인을 실행 및 모니터링하는 파이프라인 및 일정 트리거를 만드는 전체 연습에서는 [빠른 시작: 데이터 팩터리 UI를 사용하여 데이터 팩터리 만들기를](quickstart-create-data-factory-portal.md)참조하십시오.
 
-1. **편집** 탭으로 전환합니다. 
+1. 연필 기호가 표시된 **편집** 탭으로 전환합니다. 
 
     ![편집 탭으로 전환](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
-1. 메뉴에서 **트리거**를 클릭하고 **새로 만들기/편집**을 클릭합니다. 
+
+1. 메뉴에서 **트리거를** 선택한 다음 **새로/편집을**선택합니다. 
 
     ![새 트리거 메뉴](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
-2. **트리거 추가** 페이지에서 **트리거 선택...** 을 클릭하고 **새로 만들기**를 클릭합니다. 
+
+1. 트리거 **추가** 페이지에서 트리거 **선택을**선택한 다음 **+New**를 선택합니다. 
 
     ![트리거 추가 - 새 트리거](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
-3. **새 트리거** 페이지에서 다음 단계를 수행합니다. 
+
+1. 새 **트리거** 페이지에서 다음 단계를 수행합니다. 
 
     1. **형식**에 대해 **일정**이 선택되었는지 확인합니다. 
-    2. **날짜 시작(UTC)** 에 대한 트리거의 시작 날짜/시간을 지정합니다. 기본적으로 현재 날짜/시간으로 설정됩니다. 
-    3. 트리거에 대한 **되풀이**를 지정합니다. 드롭다운 목록에서 값 중 하나를 선택합니다(매분, 매시간, 매일, 매주 및 매월). 텍스트 상자에서 승수를 입력합니다. 예를 들어 트리거를 15분마다 한 번 실행하려는 경우 **매분**을 선택하고, 텍스트 상자에 **15**를 입력합니다. 
-    4. **종료** 필드에서 트리거에 대한 종료 날짜/시간을 지정하지 않은 경우 **종료 없음**을 선택합니다. 종료 날짜/시간을 지정하려면 **날짜에**를 선택하고, 종료 날짜/시간을 지정하고, **적용**을 클릭합니다. 각 파이프라인 실행과 관련된 비용이 있습니다. 테스트하는 경우 파이프라인을 몇 번만 트리거하도록 합니다. 그러나 게시 시간과 종료 시간 사이에 파이프라인이 실행되는 데 충분한 시간이 있는지 확인합니다. 트리거는 UI에 트리거를 저장할 때가 아니라 Data Factory에 솔루션을 게시한 후에만 적용됩니다.
+    1. **날짜 시작(UTC)** 에 대한 트리거의 시작 날짜/시간을 지정합니다. 기본적으로 현재 날짜/시간으로 설정됩니다. 
+    1. 트리거에 대한 **되풀이**를 지정합니다. 드롭다운 목록에서 값 중 하나를 선택합니다(매분, 매시간, 매일, 매주 및 매월). 텍스트 상자에서 승수를 입력합니다. 예를 들어 트리거를 15분마다 한 번 실행하려는 경우 **매분**을 선택하고, 텍스트 상자에 **15**를 입력합니다. 
+    1. **종료** 필드에서 트리거에 대한 종료 날짜/시간을 지정하지 않은 경우 **종료 없음**을 선택합니다. 종료 날짜 시간을 지정하려면 **날짜 를**선택하고 종료 날짜 시간을 지정한 다음 **확인을**선택합니다. 각 파이프라인 실행과 관련된 비용이 있습니다. 테스트하는 경우 파이프라인을 몇 번만 트리거하도록 합니다. 그러나 게시 시간과 종료 시간 사이에 파이프라인이 실행되는 데 충분한 시간이 있는지 확인합니다. 트리거는 UI에 트리거를 저장할 때가 아니라 Data Factory에 솔루션을 게시한 후에만 적용됩니다.
 
         ![트리거 설정](./media/how-to-create-schedule-trigger/trigger-settings.png)
-4. **새 트리거** 창에서 **활성화됨** 옵션을 확인하고 **다음**을 클릭합니다. 나중에 트리거를 비활성화하려면 이 확인란을 사용할 수 있습니다. 
+
+1. 새 **트리거** 창에서 **활성화** 된 옵션에서 **예를** 선택한 다음 **확인을**선택합니다. 나중에 트리거를 비활성화하려면 이 확인란을 사용할 수 있습니다. 
 
     ![트리거 설정 - 다음 단추](./media/how-to-create-schedule-trigger/trigger-settings-next.png)
-5. **새 트리거** 페이지에서 경고 메시지를 검토하고 **마침**을 클릭합니다.
+
+1. 새 **트리거** 창에서 경고 메시지를 검토한 다음 **확인을**선택합니다.
 
     ![트리거 설정 - 마침 단추](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
-6. **게시**를 클릭하여 변경 내용을 Data Factory에 클릭합니다. 트리거는 Data Factory에 변경 내용을 게시하기 전에 파이프라인 실행을 트리거하기 시작하지 않습니다. 
+
+1. 변경 내용을 데이터 팩터리에 게시하려면 **모두 게시를** 선택합니다. 변경 내용을 Data Factory에 게시할 때까지 트리거는 파이프라인 실행을 트리거하지 않습니다. 
 
     ![게시 단추](./media/how-to-create-schedule-trigger/publish-2.png)
-8. 왼쪽의 **모니터** 탭으로 전환합니다. **새로 고침**을 클릭하여 목록을 새로 고칩니다. 예약된 트리거로 트리거된 파이프라인 실행이 표시됩니다. **트리거 기준** 열의 값을 확인합니다. **지금 트리거** 옵션을 사용하는 경우 목록에서 수동 트리거 실행이 표시됩니다. 
+
+1. 왼쪽에서 **파이프라인 실행** 탭으로 전환한 다음 **새로 고침을** 선택하여 목록을 새로 고칩니다. 예약된 트리거에 의해 트리거된 파이프라인 실행이 표시됩니다. **트리거 기준** 열의 값을 확인합니다. **지금 트리거** 옵션을 사용하는 경우 목록에서 수동 트리거가 실행되는 것을 볼 수 있습니다. 
 
     ![트리거된 실행 모니터링](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
-9. **파이프라인 실행** 옆의 아래쪽 화살표를 클릭하여 **트리거 실행** 보기로 전환합니다. 
+
+1. **트리거 실행** 보기로 전환합니다. 
 
     ![트리거 실행 모니터링](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
@@ -112,31 +120,31 @@ ms.locfileid: "81414480"
     - 트리거는 **Adfv2QuickStartPipeline** 파이프라인과 연결되어 있습니다. 여러 파이프라인을 트리거와 연결하려면 **pipelineReference 섹션** 섹션을 더 추가하세요.
     - 빠른 시작의 파이프라인은 **inputPath** 및 **outputPath**라는 두 개의 **parameters** 값을 사용합니다. 따라서 이러한 매개 변수에 대한 값을 트리거에서 전달합니다.
 
-2. **Set-AzDataFactoryV2트리거** cmdlet을 사용하여 트리거를 만듭니다.
+1. **Set-AzDataFactoryV2트리거** cmdlet을 사용하여 트리거를 만듭니다.
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. **Get-AzDataFactory2Trigger** cmdlet을 사용하여 트리거 상태가 **중지되어** 있는지 확인합니다.
+1. **Get-AzDataFactory2Trigger** cmdlet을 사용하여 트리거 상태가 **중지되어** 있는지 확인합니다.
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. **시작-AzDataFactoryV2트리거** cmdlet을 사용하여 트리거를 시작합니다.
+1. **시작-AzDataFactoryV2트리거** cmdlet을 사용하여 트리거를 시작합니다.
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. **Get-AzDataFactory2Trigger** cmdlet을 사용하여 트리거 상태가 **시작되어** 있는지 확인합니다.
+1. **Get-AzDataFactory2Trigger** cmdlet을 사용하여 트리거 상태가 **시작되어** 있는지 확인합니다.
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6.  **Get-AzDataFactoryV2TriggerRun** cmdlet을 사용하여 Azure PowerShell에서 트리거 실행을 가져옵니다. 트리거 실행에 대한 정보를 가져오려면 다음 명령을 주기적으로 실행합니다. **TriggerRunStartedAfter** 및 **TriggerRunStartedBefore** 값을 업데이트하여 트리거 정의의 값과 일치시킵니다.
+1.  **Get-AzDataFactoryV2TriggerRun** cmdlet을 사용하여 Azure PowerShell에서 트리거 실행을 가져옵니다. 트리거 실행에 대한 정보를 가져오려면 다음 명령을 주기적으로 실행합니다. **TriggerRunStartedAfter** 및 **TriggerRunStartedBefore** 값을 업데이트하여 트리거 정의의 값과 일치시킵니다.
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
@@ -328,7 +336,7 @@ Azure Data Factory 버전 1은 **SliceStart**, **SliceEnd**, **WindowStart** 및
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | String | 예 | None | ISO-8601 날짜-시간 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **되풀이** | Object | 예 | None | 되풀이 개체 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **간격** | Number | 예 | 1 | 1~1,000 | `"interval":10` |
+| **간격** | 번호 | 예 | 1 | 1~1,000 | `"interval":10` |
 | **Endtime** | String | 예 | None | 현재 이후의 시간을 나타내는 날짜-시간 값입니다. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | Object | 예 | None | 일정 개체 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 

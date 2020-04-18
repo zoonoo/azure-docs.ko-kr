@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 274e85a914ebec31a03f1149bc4467ea142e7255
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 50a1971fed4cce49eea1922bc9b81f06667f4dd8
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81482119"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641013"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 리소스 공급자 작업
 
@@ -1681,7 +1681,7 @@ Azure 서비스: 클래식 배포 모델 저장소
 > | 작업 | Microsoft.ClassicStorage/checkStorageAccountAvailability/read | 스토리지 계정의 가용성을 가져옵니다. |
 > |  | **디스크** |  |
 > | 작업 | Microsoft.ClassicStorage/disks/read | 스토리지 계정 디스크를 반환합니다. |
-> |  | **이미지** |  |
+> |  | **images** |  |
 > | 작업 | Microsoft.ClassicStorage/images/read | 이미지를 반환합니다. |
 > |  | **이미지/작업 상태** |  |
 > | 작업 | Microsoft.ClassicStorage/images/operationstatuses/read | 이미지 작업 상태를 가져옵니다. |
@@ -2185,7 +2185,7 @@ Azure 서비스: [가상 컴퓨터,](../virtual-machines/index.yml) [가상 컴�
 > | 작업 | Microsoft.계산/호스트 그룹/호스트/읽기 | 호스트의 속성 받기 |
 > | 작업 | 마이크로소프트.컴퓨트/호스트 그룹/호스트/쓰기 | 새 호스트를 만들거나 기존 호스트를 업데이트합니다. |
 > | 작업 | Microsoft.Compute/호스트 그룹/호스트/삭제 | 호스트 삭제 |
-> |  | **이미지** |  |
+> |  | **images** |  |
 > | 작업 | Microsoft.Compute/images/read | 이미지의 속성을 가져옵니다. |
 > | 작업 | Microsoft.Compute/images/write | 새 이미지를 만들거나 기존 이미지를 업데이트합니다. |
 > | 작업 | Microsoft.Compute/images/delete | 이미지를 삭제합니다. |
@@ -8410,7 +8410,7 @@ Azure 서비스: [Azure 리소스 관리자](../azure-resource-manager/index.yml
 > | 작업 | Microsoft.Resources/links/delete | 리소스 링크를 삭제합니다. |
 > |  | **시장** |  |
 > | 작업 | Microsoft.Resources/marketplace/purchase/action | 마켓플레이스에서 리소스를 구매합니다. |
-> |  | **providers** |  |
+> |  | **공급자** |  |
 > | 작업 | Microsoft.Resources/providers/read | 공급자 목록을 가져옵니다. |
 > |  | **리소스** |  |
 > | 작업 | Microsoft.Resources/resources/read | 필터를 기준으로 리소스 목록을 가져옵니다. |
@@ -10859,5 +10859,5 @@ Azure 서비스: [Azure 모니터](../azure-monitor/index.yml)
 ## <a name="next-steps"></a>다음 단계
 
 - [리소스 공급자를 서비스로 일치시다](../azure-resource-manager/management/azure-services-resource-providers.md)
-- [Azure 사용자 지정 역할](custom-roles.md)
 - [Azure 기본 제공 역할](built-in-roles.md)
+- [클라우드 채택 프레임워크: Azure의 리소스 액세스 관리](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

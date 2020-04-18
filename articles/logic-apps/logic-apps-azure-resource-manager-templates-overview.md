@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 920d8bfbcef33464d528306113abe6223d752889
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a99038f41043b899886c7161f9b12c77c807c4c
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477751"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641823"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>개요: Azure 리소스 관리자 템플릿을 사용하여 Azure 논리 앱에 대한 배포 자동화
 
@@ -61,7 +61,7 @@ ms.locfileid: "79477751"
 
 논리 앱 템플릿의 경우 주로 이러한 템플릿 개체로 작업합니다.
 
-| 특성 | 설명 |
+| attribute | Description |
 |-----------|-------------|
 | `parameters` | Azure에서 배포를 위한 리소스를 만들고 사용자 지정할 때 사용할 값을 수락하기 위한 [템플릿 매개 변수를](../azure-resource-manager/templates/template-syntax.md#parameters) 선언합니다. 예를 들어 이러한 매개 변수는 논리 앱의 이름 및 위치, 연결 및 배포에 필요한 기타 리소스에 대한 값을 허용합니다. 이러한 매개 변수 값을 [매개 변수 파일에](#template-parameter-files)저장할 수 있으며 이 항목의 후반부에서 설명합니다. 일반적인 세부 정보는 [매개 변수 - 리소스 관리자 템플릿 구조 및 구문을](../azure-resource-manager/templates/template-syntax.md#parameters)참조하십시오. |
 | `resources` | 논리 앱, 연결, Azure 저장소 계정 등과 같은 Azure 리소스 그룹을 만들거나 업데이트하고 배포할 [리소스를](../azure-resource-manager/templates/template-syntax.md#resources) 정의합니다. 일반적인 세부 정보는 [리소스 - 리소스 관리자 템플릿 구조 및 구문을](../azure-resource-manager/templates/template-syntax.md#resources)참조하십시오. |
@@ -319,11 +319,11 @@ ms.locfileid: "79477751"
 
 논리 앱 리소스 정의와 관련된 특성은 다음과 같습니다.
 
-| 특성 | 필수 | Type | Description |
+| attribute | 필수 | Type | Description |
 |-----------|----------|------|-------------|
-| `state` | yes | String | 논리 앱이 활성 상태이고 `Enabled` `Disabled` 논리 앱이 비활성 상태임을 의미하는 배포시 논리 앱의 상태입니다. 예를 들어 논리 앱이 생방송으로 전환될 준비가 되지 않았지만 초안 버전을 배포하려는 `Disabled` 경우 이 옵션을 사용할 수 있습니다. |
+| `state` | 예 | String | 논리 앱이 활성 상태이고 `Enabled` `Disabled` 논리 앱이 비활성 상태임을 의미하는 배포시 논리 앱의 상태입니다. 예를 들어 논리 앱이 생방송으로 전환될 준비가 되지 않았지만 초안 버전을 배포하려는 `Disabled` 경우 이 옵션을 사용할 수 있습니다. |
 | `integrationAccount` | 예 | Object | 논리 앱에서 B2B(비즈니스 간) 시나리오에 대한 아티팩트를 저장하는 통합 계정을 사용하는 `id` 경우 이 개체에는 통합 계정에 대한 ID를 지정하는 특성이 포함됩니다. |
-| `definition` | yes | Object | 논리 앱의 기본 워크플로 정의는 코드 보기에 나타나고 [워크플로 정의 언어에 대한 스키마 참조에](../logic-apps/logic-apps-workflow-definition-language.md) 완전히 설명되어 있는 동일한 개체입니다. 이 워크플로 정의에서 `parameters` 개체는 논리 앱 런타임에서 사용할 값에 대한 매개 변수를 선언합니다. 자세한 내용은 [워크플로 정의 및 매개 변수를](#workflow-definition-parameters)참조하십시오. <p><p>논리 앱의 워크플로 정의에서 특성을 보려면 Azure 포털 또는 Visual Studio에서 "디자인 보기"에서 "코드 보기"로 전환하거나 [Azure 리소스 탐색기와](https://resources.azure.com)같은 도구를 사용하여 . |
+| `definition` | 예 | Object | 논리 앱의 기본 워크플로 정의는 코드 보기에 나타나고 [워크플로 정의 언어에 대한 스키마 참조에](../logic-apps/logic-apps-workflow-definition-language.md) 완전히 설명되어 있는 동일한 개체입니다. 이 워크플로 정의에서 `parameters` 개체는 논리 앱 런타임에서 사용할 값에 대한 매개 변수를 선언합니다. 자세한 내용은 [워크플로 정의 및 매개 변수를](#workflow-definition-parameters)참조하십시오. <p><p>논리 앱의 워크플로 정의에서 특성을 보려면 Azure 포털 또는 Visual Studio에서 "디자인 보기"에서 "코드 보기"로 전환하거나 [Azure 리소스 탐색기와](https://resources.azure.com)같은 도구를 사용하여 . |
 | `parameters` | 예 | Object | 논리 앱 런타임에 사용할 [워크플로 정의 매개 변수 값입니다.](#workflow-definition-parameters) 이러한 값에 대한 매개 변수 정의는 [워크플로 정의의 매개 변수 개체](#workflow-definition-parameters)내에 나타납니다. 또한 논리 앱이 다른 서비스 및 시스템에 액세스하기 위해 [관리되는 커넥터를](../connectors/apis-list.md) 사용하는 경우 이 개체에는 런타임에 사용할 연결 값을 설정하는 `$connections` 개체가 포함됩니다. |
 | `accessControl` | 예 | Object | 요청 트리거에 대한 IP 액세스를 제한하거나 기록 입력 및 출력을 실행하는 등 논리 앱에 대한 보안 특성을 지정하는 경우 자세한 내용은 [논리 앱에 대한 보안 액세스를](../logic-apps/logic-apps-securing-a-logic-app.md)참조하십시오. |
 ||||
@@ -391,7 +391,9 @@ ms.locfileid: "79477751"
             },
             // Workflow definition parameter value
             "parameters": {
-               "<workflow-definition-parameter-name>": "[parameters('<template-parameter-name>')]"
+               "<workflow-definition-parameter-name>": { 
+                  "value": "[parameters('<template-parameter-name>')]"
+               }
             },
             "accessControl": {}
          },
@@ -936,7 +938,7 @@ Office 365 Outlook 연결 및 해당 템플릿 매개 변수에 대한 예제 �
 }
 ```
 
-| 특성 | 설명 |
+| attribute | Description |
 |-----------|-------------|
 | `token:clientId` | 서비스 주체와 연결된 응용 프로그램 또는 클라이언트 ID |
 | `token:clientSecret` | 서비스 주체와 연결된 키 값 |
