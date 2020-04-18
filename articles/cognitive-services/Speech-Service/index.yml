@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 4b9b447ce06e0316cf229fc9a064bfded7411abf
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.openlocfilehash: 3535f1cb5f8901c0da629e7d2ef4f2a045d714f2
+  ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81401365"
+  ms.lasthandoff: 04/17/2020
+  ms.locfileid: "81604914"
 highlightedContent:
   items:
   - title: Speech Service란?
@@ -37,43 +37,43 @@ conceptualContent:
   items:
   - title: 음성 텍스트 변환
     links:
-    - itemType: how-to-guide
-      text: 음성 인식 기본 사항
-      url: speech-to-text-basics.md
     - itemType: quickstart
       text: 마이크에서 음성 인식
       url: quickstarts/speech-to-text-from-microphone.md
     - itemType: quickstart
       text: 오디오 파일에서 음성 인식
       url: quickstarts/speech-to-text-from-file.md
+    - itemType: how-to-guide
+      text: 음성 인식 기본 사항
+      url: speech-to-text-basics.md
     footerLink:
       text: 자세히 보기
       url: index-speech-to-text.yml
   - title: 텍스트 음성 변환
     links:
-    - itemType: how-to-guide
-      text: 음성 합성 기초
-      url: text-to-speech-basics.md
     - itemType: quickstart
       text: 스피커로 음성 합성
       url: quickstarts/text-to-speech.md
     - itemType: quickstart
       text: 오디오 파일로 음성 합성
       url: quickstarts/text-to-speech-audio-file.md
+    - itemType: how-to-guide
+      text: 음성 합성 기초
+      url: text-to-speech-basics.md
     footerLink:
       text: 자세히 보기
       url: index-text-to-speech.yml
   - title: 음성 번역
     links:
-    - itemType: how-to-guide
-      text: 음성 번역 기본 사항
-      url: speech-translation-basics.md
     - itemType: quickstart
       text: 음성을 텍스트로 변환
       url: quickstarts/translate-speech-to-text.md
     - itemType: quickstart
       text: 음성을 여러 대상 언어로 번역
       url: quickstarts/translate-speech-to-text-multiple-languages.md
+    - itemType: how-to-guide
+      text: 음성 번역 기본 사항
+      url: speech-translation-basics.md
     footerLink:
       text: 자세히 보기
       url: index-speech-translation.yml
