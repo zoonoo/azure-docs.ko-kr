@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 69f8cd0f78a45c6c5e53368edc5902c4b6695701
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: e610bf94dfdee4e2765e4fae4259f18a9f1036b5
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408827"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639988"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Azure AD 도메인 서비스에 대한 가상 네트워크 디자인 고려 사항 및 구성 옵션
 
@@ -109,10 +109,11 @@ Azure AD DS가 인증 및 관리 서비스를 제공하려면 다음 네트워�
 | 443         | TCP      | AzureActive 디렉터리도메인 서비스 | 모두         | Allow  | 예      | Azure AD 테넌트와 동기화합니다. |
 | 3389        | TCP      | 코프넷소                         | 모두         | Allow  | 예      | 도메인 관리. |
 | 5986        | TCP      | AzureActive 디렉터리도메인 서비스 | 모두         | Allow  | 예      | 도메인 관리. |
-| 636         | TCP      | 모두                                | 모두         | Allow  | 예       | 보안 LDAP(LDAPS)를 구성할 때만 사용하도록 설정됩니다. |
 
 > [!WARNING]
 > 이러한 네트워크 리소스 및 구성을 수동으로 편집하지 마십시오. 잘못 구성된 네트워크 보안 그룹 또는 사용자 정의 경로 테이블을 Azure AD DS가 배포되는 서브넷과 연결하면 Microsoft의 도메인 서비스 및 관리 기능이 중단될 수 있습니다. Azure AD 테넌트와 Azure AD DS 관리 도메인 간의 동기화도 중단됩니다.
+>
+> 보안 LDAP를 사용하는 경우 필요한 TCP 포트 636 규칙을 추가하여 필요한 경우 외부 트래픽을 허용할 수 있습니다. 이 규칙을 추가해도 네트워크 보안 그룹 규칙이 지원되지 않는 상태가 되지 않습니다. 자세한 내용은 [인터넷을 통해 안전한 LDAP 액세스 잠금을](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet) 참조하십시오.
 >
 > *AllowVnetInBound,* *AllowAzureLoadand,* *DenyAllInBound*, *AllowVnetOutBound*, *AllowInternetOutBound*및 *DenyAllOutBound에* 대한 기본 규칙은 네트워크 보안 그룹에 대해서도 존재합니다. 이러한 기본 규칙을 편집하거나 삭제하지 마십시오.
 >

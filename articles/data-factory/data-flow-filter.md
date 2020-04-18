@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/16/2019
-ms.openlocfilehash: 3460c789909c6acd0537ef89a9ec8509bf6e135d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 32a40f3d4da93318c6d2ec25295c89a7b53141e4
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81413724"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606432"
 ---
 # <a name="filter-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 필터 변환
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 필터 변환은 조건을 기반으로 행 필터링을 허용합니다. 출력 스트림에는 필터링 조건과 일치하는 모든 행이 포함됩니다. 필터 변환은 SQL의 WHERE 절과 유사합니다.
 

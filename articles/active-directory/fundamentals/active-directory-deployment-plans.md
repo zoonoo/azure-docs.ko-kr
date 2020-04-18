@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4538afcef85c4a6eaef4213133963ecab9987e1f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: d7a596454a48a1d6fcee77634363dd38f34a4d58
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80876220"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81603359"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory 배포 계획
 Azure Active Directory(Azure AD) 기능 배포에 대한 종단 간 지침을 찾고 계십니까? Azure AD 배포 계획은 일반적인 Azure AD 기능을 성공적으로 배포하는 데 필요한 비즈니스 가치, 계획 고려 사항 및 운영 절차를 안내합니다.
@@ -80,7 +80,7 @@ Azure Active Directory(Azure AD) 기능 배포에 대한 종단 간 지침을 �
 | -| -|
 | [암호 해시 동기화에 ADFS 사용](../hybrid/plan-migrate-adfs-password-hash-sync.md)| 암호 해시 동기화를 사용하면 사용자 암호해시가 온-프레미스 Active Directory에서 Azure AD로 동기화되므로 Azure AD는 온-프레미스 Active Directory와의 상호 작용 없이 사용자를 인증할 수 있습니다. |
 | [통과 인증에 ADFS 사용](../hybrid/plan-migrate-adfs-pass-through-authentication.md)| Azure AD 통과 인증을 사용하면 사용자가 동일한 암호를 사용하여 온-프레미스 및 클라우드 기반 응용 프로그램에 모두 로그인할 수 있습니다. 이 기능은 사용자에게 기억해야 할 암호가 하나 적고 사용자가 로그인하는 방법을 잊어버릴 가능성이 적기 때문에 IT 헬프데스크 비용을 절감할 수 있는 더 나은 환경을 제공합니다. 사람들이 Azure AD를 사용하여 로그인할 때 이 기능은 온-프레미스 Active Directory에 대해 직접 사용자 암호의 유효성을 검사합니다. |
-| [Azure AD 응용 프로그램 프록시](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-deployment-plan.md) |요즈음 직원은 어디서나 언제든지 어느 디바이스에서나 생산성을 높이기를 원합니다. 클라우드의 SaaS 앱과 온-프레미스의 회사 앱에 액세스해야 합니다. Azure AD 응용 프로그램 프록시를 사용하면 비용이 많이 들고 복잡한 가상 사설망(VPN) 또는 비무장 영역(DMZ)없이 이 강력한 액세스를 수행할 수 있습니다. |
+| [Azure AD 응용 프로그램 프록시](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-deployment-plan) |요즈음 직원은 어디서나 언제든지 어느 디바이스에서나 생산성을 높이기를 원합니다. 클라우드의 SaaS 앱과 온-프레미스의 회사 앱에 액세스해야 합니다. Azure AD 응용 프로그램 프록시를 사용하면 비용이 많이 들고 복잡한 가상 사설망(VPN) 또는 비무장 영역(DMZ)없이 이 강력한 액세스를 수행할 수 있습니다. |
 | [매끄러운 SSO](../hybrid/how-to-connect-sso-quick-start.md)| Azure AD Seamless SSO(Azure Active Directory Seamless Single Sign-On)는 회사 네트워크에 연결된 회사 디바이스에 있을 때 사용자를 자동으로 서명합니다. 이 기능을 사용하면 사용자는 Azure AD에 로그인하기 위해 암호를 입력할 필요가 없으며 일반적으로 사용자 이름을 입력할 필요가 없습니다. 이 기능은 권한이 있는 사용자에게 추가 온-프레미스 구성 요소 없이 클라우드 기반 응용 프로그램에 쉽게 액세스할 수 있도록 합니다. |
 
 ## <a name="deploy-user-provisioning"></a>사용자 프로비저닝 배포

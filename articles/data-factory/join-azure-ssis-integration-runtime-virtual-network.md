@@ -11,16 +11,16 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: cf13dbe17738ca1ae658c73bb0092a219b4823d1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: c899d3b4d132ee51679f8c7b4fd1c578417500db
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415914"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605278"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure 데이터 팩터리에서 SQL Server 통합 서비스(SSIS)를 사용하는 경우 다음 시나리오에서 Azure-SSIS 통합 런타임(IR)을 Azure 가상 네트워크에 조인해야 합니다.
 

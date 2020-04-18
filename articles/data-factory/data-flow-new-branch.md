@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: af356641b4588529aea25826ff180707ff1ef4e2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: daebd6a4a00d82706ceda68f94736f21b8fe5a84
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81413614"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606405"
 ---
 # <a name="creating-a-new-branch-in-mapping-data-flow"></a>매핑 데이터 흐름에 새 분기 만들기
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 새 분기를 추가하여 동일한 데이터 스트림에 대해 여러 작업 및 변환 집합을 수행합니다. 새 분기를 추가하면 동일한 소스를 여러 싱크에 사용하거나 데이터를 함께 자체 조인하려는 경우에 유용합니다.
 

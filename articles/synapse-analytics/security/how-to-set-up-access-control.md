@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 94699f2153fa8d1df3ab85c184f32792c7ae0b59
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ae8be848b5d12e01865fe6bd3b394b460252aa3e
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81428876"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606000"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>시냅스 작업 공간 보호(미리 보기)
 
@@ -51,8 +51,8 @@ ms.locfileid: "81428876"
 - **WS1\_WSAdmins** - 작업 영역을 완벽하게 제어해야 하는 사용자를 위한
 - **WS1\_SparkAdmins** – 작업 영역의 스파크 측면을 완벽하게 제어해야 하는 사용자를 위한
 - **WS1\_SQLAdmins** - 작업 영역의 SQL 측면을 완벽하게 제어해야 하는 사용자를 위한 사용자
-- **WS1\_** **SQLAdmins에\_WS1** 관리자 추가
-- **WS1\_** **SparkAdmins에\_WS1** 관리자 추가
+- **WS1\_SQLAdmins에** **WS1\_WSAdmins 추가**
+- **\_WS1 스파크Admins에 WS1** **\_WSAdmins 추가**
 
 ## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>2단계: 데이터 레이크 스토리지 Gen2 계정 준비
 
@@ -89,7 +89,7 @@ Synapse 작업 영역은 파이프라인을 실행하고 시스템 작업을 수
 - Azure 포털 열기
 - STG1 찾기
 - CNT1로 이동
-- WS1에 대한 MSI가 CNT1의 **Azure Blob 데이터 기여자** 역할에 할당되어 있는지 확인합니다.
+- WS1에 대한 MSI(관리되는 서비스 ID)가 CNT1의 **Azure Blob 데이터 기여자** 역할에 할당되어 있는지 확인합니다.
   - 할당되지 않은 경우 할당합니다.
   - MSI의 이름은 작업 영역과 같습니다. 이 경우 &quot;WS1&quot;.
 

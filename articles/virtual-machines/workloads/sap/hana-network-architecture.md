@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33684a6292d7e51c04f6bacc7c49ee5986dbec10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3bc87b183803c0854542d6925af7429b593d2af
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502406"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605164"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>SAP HANA(대규모 인스턴스) 네트워크 아키텍처
 
@@ -86,7 +86,7 @@ VM과 HANA 대형 인스턴스 간의 결정적인 네트워크 대기 시간을
 대기 시간을 낮추기 위해 ExpressRoute 빠른 경로는 SAP 응용 프로그램 VM을 호스팅하는 Azure 가상 네트워크에 HANA 대형 인스턴스의 특정 연결을 위해 2019년 5월에 도입및 릴리스되었습니다. 지금까지 출시된 솔루션의 가장 큰 차이점은 VM과 HANA 대형 인스턴스 간의 데이터 흐름이 더 이상 ExpressRoute 게이트웨이를 통해 라우팅되지 않는다는 점입니다. 대신 Azure 가상 네트워크의 서브넷에 할당된 VM이 전용 엔터프라이즈 에지 라우터와 직접 통신합니다. 
 
 > [!IMPORTANT] 
-> ExpressRoute 빠른 경로 기능을 사용하려면 SAP 응용 프로그램 VM을 실행하는 서브넷이 HANA 대형 인스턴스에 연결된 동일한 Azure 가상 네트워크에 있어야 합니다. HANA 대형 인스턴스 장치에 직접 연결된 Azure 가상 네트워크로 피어링되는 Azure 가상 네트워크에 있는 VM은 ExpressRoute 빠른 경로의 이점을 얻지 않습니다. 그 결과, ExpressRoute 회로가 허브 가상 네트워크와 SAP 애플리케이션 계층(스포크)을 포함하는 가상 네트워크에 대해 연결되는 일반적인 허브 및 스포크 가상 네트워크 설계가 피어링되고 있으며, ExpressRoute Fast에 의한 최적화 경로가 작동하지 않습니다. 추가에서 ExpressRoute 빠른 경로는 현재 사용자 정의 라우팅 규칙(UDR)을 지원하지 않습니다. 자세한 내용은 [ExpressRoute 가상 네트워크 게이트웨이 및 FastPath](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways)를 참조하십시오. 
+> ExpressRoute 빠른 경로 기능을 사용하려면 SAP 응용 프로그램 VM을 실행하는 서브넷이 HANA 대형 인스턴스에 연결된 동일한 Azure 가상 네트워크에 있어야 합니다. HANA 대형 인스턴스 장치에 직접 연결된 Azure 가상 네트워크로 피어링되는 Azure 가상 네트워크에 있는 VM은 ExpressRoute 빠른 경로의 이점을 얻지 않습니다. 그 결과, ExpressRoute 회로가 허브 가상 네트워크와 SAP 애플리케이션 계층(스포크)을 포함하는 가상 네트워크에 대해 연결되는 일반적인 허브 및 스포크 가상 네트워크 설계가 피어링되고 있으며 ExpressRoute Fast Path의 최적화는 작동하지 않습니다. 추가에서 ExpressRoute 빠른 경로는 현재 사용자 정의 라우팅 규칙(UDR)을 지원하지 않습니다. 자세한 내용은 [ExpressRoute 가상 네트워크 게이트웨이 및 FastPath](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways)를 참조하십시오. 
 
 
 ExpressRoute 빠른 경로를 구성하는 방법에 대한 자세한 내용은 [가상 네트워크를 HANA 대형 인스턴스에 연결하는](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route)문서를 참조하십시오.    
@@ -151,7 +151,7 @@ Azure에서 SAP HANA에 연결하기 위해 여러 SAP 시스템 또는 대형 S
 - Linux VM에서 [IPTables 규칙](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ)을 사용하여 온-프레미스 위치와 HANA 대규모 인스턴스 장치 간 또는 다른 지역의 HANA 대규모 인스턴스 장치 간에 라우팅을 사용하도록 설정합니다. IPTable을 실행하는 VM은 HANA 대형 인스턴스와 온-프레미스에 연결되는 Azure 가상 네트워크에 배포되어야 합니다. VM의 크기는 그에 따라 조정되어야 하므로 VM의 네트워크 처리량이 예상되는 네트워크 트래픽에 충분합니다. VM 네트워크 대역폭에 대한 자세한 내용은 [Azure의 Linux 가상 컴퓨터 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json)문서를 확인하십시오.
 - [Azure 방화벽은](https://azure.microsoft.com/services/azure-firewall/) 온-프레미스와 HANA 대형 인스턴스 단위 간의 직접 트래픽을 활성화하는 또 다른 솔루션입니다. 
 
-이러한 솔루션의 모든 트래픽은 Azure 가상 네트워크를 통해 라우팅되므로 트래픽이 사용되는 소프트 어플라이언스 또는 Azure Network 보안 그룹에서 추가로 제한될 수 있으므로 특정 IP 주소 또는 IP 주소가 온-프레미스는 HANA 대형 인스턴스에 액세스하는 것을 차단하거나 명시적으로 허용할 수 있습니다. 
+이러한 솔루션의 모든 트래픽은 Azure 가상 네트워크를 통해 라우팅되므로 트래픽이 사용되는 소프트 어플라이언스 또는 Azure Network 보안 그룹에서 추가로 제한될 수 있으므로 온-프레미스의 특정 IP 주소 또는 IP 주소 범위가 차단되거나 HANA 대형 인스턴스에 액세스하는 것을 명시적으로 허용할 수 있습니다. 
 
 > [!NOTE]  
 > Microsoft에서는 타사 네트워크 어플라이언스 또는 IPTables와 관련된 사용자 지정 솔루션에 대한 구현 및 지원을 제공하지 않습니다. 지원은 사용되는 구성 요소의 공급업체 또는 통합자에서 제공해야 합니다. 
@@ -182,7 +182,7 @@ ExpressRoute 글로벌 도달을 사용하도록 설정하는 방법에 대한 �
 HANA 대규모 인스턴스는 인터넷에 직접 *연결되지 않습니다*. 예를 들어 이 제한으로 인해 OS 공급업체에 OS 이미지를 직접 등록하는 기능이 제한될 수 있습니다. 로컬 SUSE Linux Enterprise Server 구독 관리 도구 서버 또는 Red Hat Enterprise Linux 구독 관리자를 사용해야 할 수도 있습니다.
 
 ## <a name="data-encryption-between-vms-and-hana-large-instance"></a>VM 및 HANA 대규모 인스턴스 간 데이터 암호화
-HANA 대규모 인스턴스 및 VM 간에 전송되는 데이터는 암호화되지 않습니다. 그러나 HANA DBMS 쪽과 JDBC/ODBC 기반 애플리케이션 간의 교환을 위해서만 트래픽 암호화를 사용할 수 있습니다. 자세한 내용은 [이 SAP 설명서](http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/db/d3d887bb571014bf05ca887f897b99/content.htm?frameset=/en/dd/a2ae94bb571014a48fc3b22f8e919e/frameset.htm&current_toc=/en/de/ec02ebbb57101483bdf3194c301d2e/plain.htm&node_id=20&show_children=false)를 참조하세요.
+HANA 대규모 인스턴스 및 VM 간에 전송되는 데이터는 암호화되지 않습니다. 그러나 HANA DBMS 쪽과 JDBC/ODBC 기반 애플리케이션 간의 교환을 위해서만 트래픽 암호화를 사용할 수 있습니다. 자세한 내용은 [이 SAP 설명서](https://help.sap.com/viewer/102d9916bf77407ea3942fef93a47da8/1.0.11/en-US/dbd3d887bb571014bf05ca887f897b99.html)를 참조하세요.
 
 ## <a name="use-hana-large-instance-units-in-multiple-regions"></a>여러 지역에서 HANA 대규모 인스턴스 장치 사용
 

@@ -1,25 +1,25 @@
 ---
 title: Ambari 웹 UI를 사용하여 Azure HDInsight 모니터링 및 관리
-description: Ambari를 사용하여 Linux 기반 HDInsight 클러스터를 모니터링하고 관리하는 방법에 대해 알아봅니다. 이 문서에서는 HDInsight 클러스터에 포함된 Ambari 웹 UI를 사용하는 방법을 배웁니다.
+description: 아파치 암바리 UI를 사용하여 HDInsight 클러스터를 모니터링하고 관리하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/05/2020
-ms.openlocfilehash: bf780897317d41c7da85140f64313546cf5c31d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: 2ed3d6b1088315b580ab8ddc4f12d8d61434ec53
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064687"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606550"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari는 손쉬운 Web UI 및 REST API 사용을 제공하여 Apache Hadoop 클러스터의 관리 및 모니터링을 간소화합니다. Ambari는 HDInsight 클러스터에 포함되어 있으며 클러스터를 모니터링하고 구성을 변경하는 데 사용됩니다.
+아파치 암바리는 아파치 하두롭 클러스터의 관리 및 모니터링을 단순화합니다. 이러한 단순화는 사용하기 쉬운 웹 UI 및 REST API를 제공함으로써 수행됩니다. Ambari는 HDInsight 클러스터에 포함되어 있으며 클러스터를 모니터링하고 구성을 변경하는 데 사용됩니다.
 
 이 문서에서는 HDInsight 클러스터와 Ambari 웹 UI를 사용하는 방법을 배웁니다.
 
@@ -49,7 +49,7 @@ Ambari 웹 UI에 연결할 때 페이지에 인증하라는 메시지가 표시�
 
 ![아파치 암바리 대시보드 개요](./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png)
 
-|항목 |설명 |
+|항목 |Description |
 |---|---|
 |암바리 로고|클러스터를 모니터링하는 데 사용할 수 있는 대시보드를 엽니다.|
 |클러스터 이름 # ops|진행 중인 Ambari 작업 수를 표시합니다. 클러스터 이름 또는 **# ops**를 선택하면 백그라운드 작업 목록이 표시됩니다.|
@@ -68,7 +68,7 @@ Ambari 웹 UI에 연결할 때 페이지에 인증하라는 메시지가 표시�
 다음 목록은 Ambari에서 사용하는 일반적인 경고 상태를 포함합니다.
 
 * **확인**
-* **경고**
+* **Warning**
 * **중요**
 * **UNKNOWN**
 
@@ -82,7 +82,7 @@ Ambari 웹 UI에 연결할 때 페이지에 인증하라는 메시지가 표시�
 
 ![아파치 암바리 경고 그룹을 관리](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
 
-경고 방법을 관리하고 __알림 관리를__선택하여 **작업** 메뉴에서 경고 알림을 만들 수도 있습니다. 모든 현재 알림이 표시됩니다. 여기에서 알림을 만들 수도 있습니다. 특정 경고/심각도 조합이 발생하면 **전자 메일** 또는 **SNMP**를 통해 알림을 보낼 수 있습니다. 예를 들어 **YARN Default** 그룹에 **위험**으로 설정된 경고가 있으면 전자 메일 메시지를 보낼 수 있습니다.
+알림 방법을 관리하고 __알림 관리를__선택하여 **작업** 메뉴에서 경고 알림을 만듭니다. 모든 현재 알림이 표시됩니다. 여기에서 알림을 만듭니다. 특정 경고/심각도 조합이 발생하면 **전자 메일** 또는 **SNMP**를 통해 알림을 보낼 수 있습니다. 예를 들어 **YARN Default** 그룹에 **위험**으로 설정된 경고가 있으면 전자 메일 메시지를 보낼 수 있습니다.
 
 ![아파치 암바리 는 경고 알림을 만들](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
@@ -119,10 +119,10 @@ Ambari 웹 UI에 연결할 때 페이지에 인증하라는 메시지가 표시�
 
 #### <a name="quick-links"></a>빠른 링크
 
-일부 서비스는 페이지의 위쪽에 **Quick Links** 링크를 표시합니다. 이를 사용하여 서비스 관련 웹 UI에 액세스할 수 있습니다.
+일부 서비스는 페이지의 위쪽에 **Quick Links** 링크를 표시합니다. 이 링크는 다음과 같이 서비스별 웹 UI에 액세스하는 데 사용할 수 있습니다.
 
 * **Job History** - MapReduce 작업 기록
-* **Resource Manager** - YARN ResourceManager UI
+* **리소스 관리자** - YARN 리소스 관리자 UI.
 * **NameNode** - HDFS(Hadoop Distributed File System) NameNode UI
 * **Oozie Web UI** - Oozie UI
 
@@ -151,9 +151,9 @@ Ambari 웹 UI에 연결할 때 페이지에 인증하라는 메시지가 표시�
 
 1. 관리하려는 호스트를 선택합니다.
 
-2. **Actions** 메뉴를 사용하여 수행할 작업을 선택합니다.
+2. **작업** 메뉴를 사용하여 수행하려는 작업을 선택합니다.
 
-    |항목 |설명 |
+    |항목 |Description |
     |---|---|
     |모든 구성 요소 시작|호스트의 모든 구성 요소를 시작합니다.|
     |모든 구성 요소 중지|호스트의 모든 구성 요소를 중지합니다.|
@@ -163,8 +163,8 @@ Ambari 웹 UI에 연결할 때 페이지에 인증하라는 메시지가 표시�
     |중지|호스트에서 데이터 노드 또는 노드 관리자를 중지합니다.|
     |시작|호스트에서 데이터 노드 또는 노드 관리자를 시작합니다.|
     |다시 시작|호스트에서 DataNode 또는 노드 관리자를 중지하고 시작합니다.|
-    |서비스 해제|클러스터에서 호스트를 제거합니다. **HDInsight 클러스터에서는 이 작업을 사용하지 마세요.**|
-    |재커로고|이전에 서비스 해제된 호스트를 클러스터에 추가합니다. **HDInsight 클러스터에서는 이 작업을 사용하지 마세요.**|
+    |서비스 해제|클러스터에서 호스트를 제거합니다. **HDInsight 클러스터에서 이 작업을 사용하지 마십시오.**|
+    |재커로고|이전에 서비스 해제된 호스트를 클러스터에 추가합니다. **HDInsight 클러스터에서 이 작업을 사용하지 마십시오.**|
 
 ### <a name="services"></a><a id="service"></a>Services
 
@@ -175,11 +175,11 @@ Ambari 웹 UI에 연결할 때 페이지에 인증하라는 메시지가 표시�
 > [!WARNING]  
 > 이 메뉴에 나열되어 있는 **서비스 추가**는 HDInsight 클러스터에 서비스를 추가하는 데 사용하면 안됩니다. 클러스터를 프로비전하는 동안 스크립트 작업을 사용하여 새 서비스를 추가해야 합니다. 스크립트 작업에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
-**Actions** 단추는 모든 서비스를 다시 시작할 수 있는 반면, 특정 서비스를 시작하거나 중지, 다시 시작하려는 경우가 많습니다. 다음 단계를 사용하여 개별 서비스에서 작업을 수행할 수 있습니다.
+**Actions** 단추는 모든 서비스를 다시 시작할 수 있는 반면, 특정 서비스를 시작하거나 중지, 다시 시작하려는 경우가 많습니다. 다음 단계를 사용하여 개별 서비스에 대한 작업을 수행합니다.
 
 1. **대시보드** 또는 **서비스** 페이지에서 서비스를 선택합니다.
 
-2. **요약** 탭 위쪽에서 **서비스 작업** 단추를 사용하여 수행할 작업을 선택합니다. 모든 노드의 서비스를 다시 시작합니다.
+2. **요약** 탭 위쪽에서 **서비스 작업** 단추를 사용하여 수행할 작업을 선택합니다. 이 작업은 모든 노드에서 서비스를 다시 시작합니다.
 
     ![아파치 암바리 개별 서비스 활동](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
@@ -211,10 +211,12 @@ Ambari Views를 사용하면 개발자가 [Apache Ambari Views 프레임워크](
 
 ## <a name="unsupported-operations"></a>지원되지 않는 작업
 
-다음 Ambari 작업은 HDInsight에서 지원되지 않습니다.
+HDInsight에서 다음 Ambari 작업은 지원되지 않습니다.
 
-* __메트릭 수집기 서비스 이동__. 메트릭 수집기 서비스에 대한 정보를 볼 경우 서비스 작업 메뉴에서 사용할 수 있는 작업 중 하나는 __메트릭 수집기 이동__입니다. 이 기능은 HDInsight에서 지원되지 않습니다.
+* __메트릭 수집기 서비스 이동__. 메트릭 수집기 서비스에 대한 정보를 볼 경우 서비스 작업 메뉴에서 사용할 수 있는 작업 중 하나는 __메트릭 수집기 이동__입니다. 이 작업은 HDInsight에서 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-HDInsight에서 [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)를 사용하는 방법을 알아봅니다.
+* [HDInsight아파치 암바리 나머지 API.](hdinsight-hadoop-manage-ambari-rest-api.md)
+* [Apache Ambari를 사용하여 HDInsight 클러스터 구성 최적화](./hdinsight-changing-configs-via-ambari.md)
+* [Azure HDInsight 클러스터 확장](./hdinsight-scaling-best-practices.md)

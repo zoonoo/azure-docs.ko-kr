@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 95373ab8ff78c5bcb856e6d7e6d67d8525cd3f7e
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 74af841b777494744c72ed219bacd3b3835d41ac
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655128"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617564"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Azure AD 도메인 서비스 관리 도메인에 우분투 리눅스 가상 머신에 가입
 
@@ -29,12 +29,12 @@ ms.locfileid: "80655128"
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
 * 활성화된 Azure 구독.
-    * Azure 구독이 없는 경우 [계정을 만듭니다.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+    * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
     * 필요한 경우 첫 번째 자습서에서 [Azure Active Directory Domain Services 인스턴스를 만들고 구성합니다][create-azure-ad-ds-instance].
-* Azure AD DS 관리 도메인의 일부인 사용자 계정입니다.
+* Azure AD DS 관리형 도메인의 일부인 사용자 계정입니다.
 
 ## <a name="create-and-connect-to-an-ubuntu-linux-vm"></a>만들고 우분투 리눅스 VM에 연결
 
@@ -42,7 +42,7 @@ Azure에 기존 우분투 리눅스 VM이 있는 경우 SSH를 사용하여 연�
 
 우분투 리눅스 VM을 만들 필요가 있거나이 문서와 함께 사용할 테스트 VM을 만들려면 다음 방법 중 하나를 사용할 수 있습니다.
 
-* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
+* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -154,6 +154,12 @@ Successfully enrolled machine in realm
 ```
 
 VM이 도메인 조인 프로세스를 성공적으로 완료할 수 없는 경우 VM의 네트워크 보안 그룹이 TCP + UDP 포트 464의 아웃바운드 Kerberos 트래픽을 Azure AD DS 관리 도메인의 가상 네트워크 서브넷에 허용해야 합니다.
+
+*지정되지 않은 GSS 오류가 발생한 경우.  마이너 코드는 자세한 정보(Kerberos 데이터베이스에서 찾을 수 없는 서버)를 제공할 수 있으며,* 파일 `[libdefaults]` */etc/krb5.conf를* 열고 섹션에서 다음 코드를 추가하고 다시 시도하십시오.
+
+```console
+rdns=false
+```
 
 ## <a name="update-the-sssd-configuration"></a>SSSD 구성 업데이트
 

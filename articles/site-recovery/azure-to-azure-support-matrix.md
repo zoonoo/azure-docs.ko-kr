@@ -4,12 +4,12 @@ description: Azure 사이트 복구를 사용 하 여 보조 지역에 Azure VM 
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: f61f32ddc0a1cc6575907bc72522228b77552947
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 3e66d71011937c3e22c6f1537bcd448d4aa3bbf3
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673797"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605516"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간의 Azure VM 재해 복구에 대한 지원 매트릭스
 
@@ -20,8 +20,8 @@ ms.locfileid: "80673797"
 
 **배포** |  **지원**
 --- | ---
-**Azure portal** | 지원됩니다.
-**PowerShell** | 지원됩니다. [자세히](azure-to-azure-powershell.md)
+**Azure Portal** | 지원됩니다.
+**PowerShell** | 지원됩니다. [자세히 알아보기](azure-to-azure-powershell.md)
 **REST API** | 지원됩니다.
 **CLI** | 현재 지원되지 않음
 
@@ -114,7 +114,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Azure virtual Machines에 대해 지원되는 Ubuntu 커널 버전
 
-**릴리스** | **모바일 서비스 버전** | **커널 버전** |
+**해제** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
 14.04 LTS | 9.32| 3.13.0-24-제네릭 ~ 3.13.0-170-제네릭,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-제네릭 ~ 4.4.0-148-제네릭,<br/>4.15.0-1023-azure에서 4.15.0-1045-azure |
 14.04 LTS | 9.31 | 3.13.0-24-제네릭 ~ 3.13.0-170-제네릭,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-제네릭 ~ 4.4.0-148-제네릭,<br/>4.15.0-1023-azure에서 4.15.0-1045-azure |
@@ -134,7 +134,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Azure virtual Machines에 대해 지원되는 Debian 커널 버전
 
-**릴리스** | **모바일 서비스 버전** | **커널 버전** |
+**해제** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
 Debian 7 | 9.28,9.29,9.30,9.31 | 3.2.0-4-amd64에서 3.2.0-6-amd64까지, 3.16.0-0.bpo.4-amd64 |
 |||
@@ -143,7 +143,7 @@ Debian 8 | 9.28 | 3.16.0-4-amd64 ~ 3.16.0-10 amd64, 4.9.0-0.bpo.4-amd64 ~ 4.9.0-
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Azure 가상 머신에 대해 지원되는 SUSE Linux Enterprise Server 12 커널 버전
 
-**릴리스** | **모바일 서비스 버전** | **커널 버전** |
+**해제** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
 SUSE 리눅스 엔터프라이즈 서버 12 (SP1, SP2, SP3, SP4) | 9.32 | 모든 [주식 SUSE 12 SP1, SP2, SP3, SP4 커널이 지원됩니다.](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12)</br></br> 4.4.138-4.7-azure에서 4.4.180-4.31-azure,</br>4.12.14-6.3-azure에서 4.12.14-6.34-azure  |
 SUSE 리눅스 엔터프라이즈 서버 12 (SP1, SP2, SP3, SP4) | 9.31 | 모든 [주식 SUSE 12 SP1, SP2, SP3, SP4 커널이 지원됩니다.](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12)</br></br> 4.4.138-4.7-azure에서 4.4.180-4.31-azure,</br>4.12.14-6.3-azure에서 4.12.14-6.29-azure  |
@@ -152,9 +152,9 @@ SUSE 리눅스 엔터프라이즈 서버 12 (SP1, SP2, SP3, SP4) | 9.29 | 모든
 
 #### <a name="supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines"></a>Azure 가상 머신에 대한 지원되는 SUSE Linux 엔터프라이즈 서버 15 커널 버전
 
-**릴리스** | **모바일 서비스 버전** | **커널 버전** |
+**해제** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
-수지 리눅스 엔터프라이즈 서버 15 및 15 SP1 | 9.32 | 모든 [재고 SUSE 15 및 15 커널이 지원됩니다.](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_15)</br></br> 4.12.14-5.5-azure에서 4.12.14-8.22-azure |
+수지 리눅스 엔터프라이즈 서버 15 및 15 SP1 | 9.32 | 모든 재고 SUSE 15 및 15 커널이 지원됩니다.</br></br> 4.12.14-5.5-azure에서 4.12.14-8.22-azure |
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>복제된 컴퓨터 - Linux 파일 시스템/게스트 스토리지
 
@@ -264,10 +264,10 @@ NIC의 NSG | 지원됨 | 복구 계획에서 Azure Automation 스크립트를 �
 Traffic Manager     | 지원됨 | 트래픽이 평소에는 원본 지역의 엔드포인트로 라우팅되고 장애 조치(Failover) 시에는 대상 지역의 엔드포인트로 라우팅되도록 Traffic Manager를 미리 구성할 수 있습니다.
 Azure DNS | 지원됨 |
 사용자 지정 DNS    | 지원됨 |
-인증되지 않은 프록시 | 지원됨 | [자세히](site-recovery-azure-to-azure-networking-guidance.md)
+인증되지 않은 프록시 | 지원됨 | [자세히 알아보기](site-recovery-azure-to-azure-networking-guidance.md)
 인증된 프록시 | 지원 안 함 | VM에서 아웃바운드 연결에 인증된 프록시를 사용하는 경우 Azure Site Recovery를 사용하여 VM을 복제할 수 없습니다.
-온-프레미스에 대한 VPN 사이트 간 연결<br/><br/>(익스프레스루트 유무에 관계없이)| 지원됨 | 사이트 복구 트래픽이 온-프레미스로 라우팅되지 않도록 DUD 및 NSG가 구성되었는지 확인합니다. [자세히](site-recovery-azure-to-azure-networking-guidance.md)
-VNet 간 연결    | 지원됨 | [자세히](site-recovery-azure-to-azure-networking-guidance.md)
+온-프레미스에 대한 VPN 사이트 간 연결<br/><br/>(익스프레스루트 유무에 관계없이)| 지원됨 | 사이트 복구 트래픽이 온-프레미스로 라우팅되지 않도록 DUD 및 NSG가 구성되었는지 확인합니다. [자세히 알아보기](site-recovery-azure-to-azure-networking-guidance.md)
+VNet 간 연결    | 지원됨 | [자세히 알아보기](site-recovery-azure-to-azure-networking-guidance.md)
 Virtual Network 서비스 엔드포인트 | 지원됨 | 스토리지 계정에 대한 가상 네트워크 액세스를 제한하는 경우 신뢰할 수 있는 Microsoft 서비스가 스토리지 계정에 액세스할 수 있는지 확인합니다.
 가속된 네트워킹 | 지원됨 | 원본 VM에서 가속 네트워킹을 사용하도록 설정해야 합니다. [자세히 알아보기](azure-vm-disaster-recovery-with-accelerated-networking.md).
 

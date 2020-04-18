@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: d4e36c0d3838af85768453496a51ecd295c22b93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be3046a343e14be4a527363751081ba3f2593cd3
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79081848"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605885"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -113,7 +113,7 @@ test_labels = test_data.pop(label).values
 
 개체는 [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) 자동화된 기계 학습 작업에 필요한 설정 및 데이터를 정의합니다. 회귀 문제와 마찬가지로 작업 유형, 반복 횟수, 학습 데이터 및 교차 유효성 검사 수와 같은 표준 학습 매개 변수를 정의합니다. 예측 작업의 경우 실험에 영향을 주는 추가 매개 변수를 설정해야 합니다. 다음 표는 각 매개 변수와 해당 용도에 대해 설명합니다.
 
-| 매개&nbsp;변수 이름 | 설명 | 필수 |
+| 매개&nbsp;변수 이름 | Description | 필수 |
 |-------|-------|-------|
 |`time_column_name`|시간계를 작성하고 빈도를 유추하는 데 사용되는 입력 데이터의 날짜 시간 열을 지정하는 데 사용됩니다.|✓|
 |`grain_column_names`|입력 데이터의 개별 계열 그룹을 정의하는 이름입니다. 그레인이 정의되지 않은 경우 데이터 집합은 하나의 타임계열로 가정합니다.||
@@ -205,12 +205,7 @@ fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
 
 최상의 모델 반복을 사용하여 테스트 데이터 집합의 값을 예측합니다.
 
-```python
-predict_labels = fitted_model.predict(test_data)
-actual_labels = test_labels.flatten()
-```
-
-또는 예측을 시작해야 하는 `forecast()` 시기의 `predict()`사양을 허용하는 대신 기능을 사용할 수 있습니다. 다음 예제에서는 먼저 모든 값을 `y_pred` 로 `NaN`바꿉꿉을 입니다. 예측 원본은 일반적으로 를 사용할 `predict()`때와 마찬가지로 이 경우 학습 데이터의 끝에 표시됩니다. 그러나 후반부만 `y_pred` 대체하면 `NaN`함수는 첫 번째 절반의 숫자 값을 수정하지 않고 그대로 두지만 후반의 값은 `NaN` 예측합니다. 함수는 예측된 값과 정렬된 피쳐를 모두 반환합니다.
+이 `forecast()` 함수는 `predict()`예측을 시작해야 하는 시기의 사양을 허용하는 대신 사용해야 합니다. 다음 예제에서는 먼저 모든 값을 `y_pred` 로 `NaN`바꿉꿉을 입니다. 예측 원본은 일반적으로 를 사용할 `predict()`때와 마찬가지로 이 경우 학습 데이터의 끝에 표시됩니다. 그러나 후반부만 `y_pred` 대체하면 `NaN`함수는 첫 번째 절반의 숫자 값을 수정하지 않고 그대로 두지만 후반의 값은 `NaN` 예측합니다. 함수는 예측된 값과 정렬된 피쳐를 모두 반환합니다.
 
 함수의 매개 `forecast_destination` 변수를 `forecast()` 사용하여 지정된 날짜까지 값을 예측할 수도 있습니다.
 

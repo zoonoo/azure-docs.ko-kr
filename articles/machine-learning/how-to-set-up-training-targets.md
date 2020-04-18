@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7fcfac923da1c0daee58b10d92cbc6a6ad5e7910
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 625efcce7305cd7b1dd415a286e6b1e92682cc0a
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383414"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81616846"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>모델 학습에 계산 대상 설정 및 사용 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -231,7 +231,7 @@ Azure HDInsight는 빅 데이터 분석을 위한 인기 있는 플랫폼입니�
 계산을 첨부하고 실행을 구성한 다음 단계는 교육 실행을 [제출하는](#submit)것입니다.
 
 
-### <a name="azure-batch"></a><a id="azbatch"></a>Azure Batch 
+### <a name="azure-batch"></a><a id="azbatch"></a>Azure 일괄 처리 
 
 Azure Batch는 클라우드에서 대규모 병렬 및 고성능 컴퓨팅(HPC) 응용 프로그램을 효율적으로 실행하는 데 사용됩니다. AzureBatchStep은 Azure 기계 학습 파이프라인에서 작업을 컴퓨터의 Azure Batch 풀에 제출하는 데 사용할 수 있습니다.
 
@@ -425,7 +425,7 @@ Azure 기계 학습에 대한 [VS 코드 확장을](tutorial-train-deploy-image-
 
 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 및 [기계 학습 CLI 확장을](reference-azure-machine-learning-cli.md) 사용하여 실행 구성을 만들고 다양한 계산 대상에서 실행을 제출할 수 있습니다. 다음 예제에서는 기존 Azure 기계 학습 작업 영역이 있고 CLI 명령을 `az login` 사용하여 Azure에 로그인했다고 가정합니다. 
 
-[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
 ### <a name="create-run-configuration"></a>실행 구성 만들기
 

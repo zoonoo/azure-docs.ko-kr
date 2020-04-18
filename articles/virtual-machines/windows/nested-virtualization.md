@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: d127d3f9e66b7d2d40aa420e2116fee17d996514
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 7858bd467c6e3fd82fcb3803a98e96b265f17d23
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437301"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605264"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Azure VM에서 중첩된 가상화를 사용하는 방법
 
@@ -42,7 +42,7 @@ Dv3 또는 Ev3 시리즈 가상 머신의 지역별 가용성은 [여기](https:
 
 1. 가상 머신 속성에서 **연결** 단추를 클릭합니다. 원격 데스크톱 프로토콜 파일(.rdp 파일)이 생성되고 다운로드됩니다.
 
-2. VM에 연결하려면 다운로드한 RDP 파일을 엽니다. 메시지가 표시되면 **연결**을 클릭합니다. Mac의 Mac 앱 스토어에서 이 [원격 데스크톱 클라이언트](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12)와 같은 RDP 클라이언트가 필요합니다.
+2. VM에 연결하려면 다운로드한 RDP 파일을 엽니다. 메시지가 표시되면 **연결**을 클릭합니다. Mac의 Mac 앱 스토어에서 이 [원격 데스크톱 클라이언트](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12)와 같은 RDP 클라이언트가 필요합니다.
 
 3. 가상 머신을 만들 때 지정한 사용자 이름 및 암호를 입력하고 **확인**을 클릭합니다.
 
@@ -98,7 +98,7 @@ Windows Server 2016 호스트에서 중첩된 가상화를 사용하도록 설�
 4. NAT 게이트웨이에 대한 IP 주소를 만듭니다.
     
 게이트웨이를 구성하려면 네트워크에 대한 일부 정보가 필요합니다.    
-  * IPAddress - NAT 게이트웨이 IP는 가상 네트워크 서브넷의 기본 게이트웨이 주소로 사용할 IPv4 또는 IPv6 주소를 지정합니다. 일반적인 형식은 a.b.c.1(예: "192.168.0.1")입니다. 최종 위치가 반드시 .1일 필요는 없지만 일반적으로(접두사 길이에 따라) .1입니다. 일반적으로 RFC 1918 프라이빗 네트워크 주소 공간을 사용해야 합니다. 
+  * IPAddress - NAT 게이트웨이 IP는 가상 네트워크 서브넷의 기본 게이트웨이 주소로 사용할 IPv4 또는 IPv6 주소를 지정합니다. 일반적인 형식은 a.b.c.1(예: "192.168.0.1")입니다. 최종 위치는 .1일 필요는 없지만 일반적으로 접두사 길이를 기준으로 합니다. 일반적으로 RFC 1918 프라이빗 네트워크 주소 공간을 사용해야 합니다. 
   * PrefixLength - 서브넷 접두사 길이는 로컬 서브넷 크기(서브넷 마스크)를 정의합니다. 서브넷 접두사 길이는 0에서 32 사이의 정수 값입니다. 0은 전체 인터넷, 32는 하나의 매핑된 IP만 허용합니다. 일반적인 값의 범위는 NAT에 몇 개의 IP를 연결해야 하는지에 따라 24에서 12까지입니다. 일반적인 PrefixLength는 24입니다. 즉, 255.255.255.0의 서브넷 마스크입니다.
   * InterfaceIndex- **ifIndex**는 이전 단계에서 만든 가상 스위치의 인터페이스 인덱스입니다. 
 
@@ -149,7 +149,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
   
 3. **DHCP 서버** 확인란을 선택하고 **기능 추가**를 클릭한 다음 마법사가 완료될 때까지 **다음**을 클릭합니다.
   
-4. **설치**를 클릭합니다.
+4. **Install**을 클릭합니다.
 
 #### <a name="configure-a-new-dhcp-scope"></a>새 DHCP 범위 구성
 

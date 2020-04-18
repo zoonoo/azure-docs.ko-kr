@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 847b6c4616cbbb7fd9c6ccad18ec426dc38a887a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: bceea53e6b177940305a2dc77f2a6ecfa37f277a
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81430852"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617893"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault 고객 데이터 기능
 
@@ -40,7 +40,7 @@ Azure Key Vault는 자격 증명 모음, 키, 비밀, 인증서 및 관리되는
 
 자격 증명 모음, 키, 비밀, 인증서 및 관리되는 스토리지 계정을 만드는 데 사용된 동일한 REST API, 포털 환경 및 SDK는 이러한 개체를 업데이트 및 삭제할 수도 있습니다.
 
-일시 삭제를 사용하면 삭제 후 90일 동안 삭제된 데이터를 복구할 수 있습니다. 일시 삭제를 사용할 경우 제거 작업을 수행하여 90일 보존 기간 전에 데이터를 영구적으로 삭제할 수 있습니다. 자격 증명 모음 또는 구독이 제거 작업을 차단하도록 구성된 경우 예약된 보존 기간이 경과될 때까지 데이터를 영구적으로 삭제할 수 없습니다.
+소프트 삭제를 사용하면 삭제 후 90 일 동안 삭제 된 데이터를 복구 할 수 있습니다. 소프트 삭제를 사용하는 경우 제거 작업을 수행하여 90일 보존 기간이 만료되기 전에 데이터가 영구적으로 삭제될 수 있습니다. 자격 증명 모음 또는 구독이 제거 작업을 차단하도록 구성된 경우 예약된 보존 기간이 경과될 때까지 데이터를 영구적으로 삭제할 수 없습니다.
 
 ## <a name="exporting-customer-data"></a>고객 데이터 내보내기
 

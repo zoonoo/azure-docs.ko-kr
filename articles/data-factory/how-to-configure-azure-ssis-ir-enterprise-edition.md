@@ -10,16 +10,16 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: c0bedde8431ce713f0cc7185d0ec607d49b48ef1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a0e35a309fd30a36263b498b6a8e74a312004a99
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414947"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606168"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime Enterprise 버전 프로비전
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure-SSIS Integration Runtime Enterprise 버전에서는 다음과 같은 고급 및 프리미엄 기능을 사용할 수 있습니다.
 -   CDC(변경 데이터 캡처) 구성 요소

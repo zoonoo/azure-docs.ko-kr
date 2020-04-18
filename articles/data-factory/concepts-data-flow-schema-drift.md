@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 4c510cae7ba5a952e6dc7f7cb7ae7591fe801560
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 6e361d23860ce8f40abba5c246242cf345bb974c
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461296"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606108"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>매핑 데이터 흐름의 스키마 드리프트
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 스키마 드리프트는 소스가 메타데이터를 자주 변경하는 경우입니다. 필드, 열 및 유형은 즉시 추가, 제거 또는 변경할 수 있습니다. 스키마 드리프트를 처리하지 않으면 데이터 흐름이 업스트림 데이터 원본 변경에 취약해집니다. 들어오는 열과 필드가 해당 소스 이름에 연결되는 경향이 있기 때문에 일반적인 ETL 패턴이 변경될 때 실패합니다.
 

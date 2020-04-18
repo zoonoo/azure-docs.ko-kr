@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/23/2020
-ms.openlocfilehash: 08ad231b462e21fefebacd4e280bfb2b13bc0eef
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 24fe11610d2a91fcdb0f09b8e45ea6ff4b81bd70
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81413638"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606375"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 조회 변환
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 조회 변환을 사용하여 데이터 흐름 스트림의 다른 원본의 데이터를 참조합니다. 조회 변환은 일치하는 데이터에서 원본 데이터에 대한 열을 더합니다.
 

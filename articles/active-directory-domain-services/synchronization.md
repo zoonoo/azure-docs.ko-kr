@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 7e0e904b182a57a51b5d76f0acebc13bce5902b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 38ed48df4d681543cc30daccf46b98635d973b89
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78944427"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639905"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD 도메인 서비스 관리 도메인에서 개체 및 자격 증명이 동기화되는 방법
 
@@ -31,6 +31,8 @@ Azure Active Directory 도메인 서비스(AD DS) 관리 도메인의 개체 및
 ## <a name="synchronization-from-azure-ad-to-azure-ad-ds"></a>Azure AD에서 Azure AD DS로의 동기화
 
 사용자 계정, 그룹 멤버 자격 및 자격 증명 해시는 Azure AD에서 Azure AD DS로 한 가지 방법으로 동기화됩니다. 이 동기화 프로세스는 자동입니다. 이 동기화 프로세스를 구성, 모니터링 또는 관리할 필요가 없습니다. Azure AD 디렉터리내 개체 수에 따라 초기 동기화는 몇 시간에서 며칠까지 걸릴 수 있습니다. 초기 동기화가 완료되면 암호 또는 특성 변경과 같은 Azure AD에서 변경된 내용이 Azure AD DS에 자동으로 동기화됩니다.
+
+Azure AD에서 사용자를 만들면 Azure AD에서 암호를 변경할 때까지 Azure AD DS에 동기화되지 않습니다. 이 암호 변경 프로세스로 인해 Kerberos 및 NTLM 인증용 암호 해시가 생성되어 Azure AD에 저장됩니다. Azure AD DS에서 사용자를 성공적으로 인증하려면 암호 해시가 필요합니다.
 
 동기화 프로세스는 설계에 의해 단방향 / 단방향입니다. Azure AD DS에서 Azure AD로 변경 내용을 역방향 동기화할 필요가 없습니다. Azure AD DS 관리 되는 도메인은 주로 만들 수 있는 사용자 지정 O를 제외 하 고 읽기 전용입니다. Azure AD DS 관리 도메인 내의 사용자 특성, 사용자 암호 또는 그룹 구성원 자격은 변경할 수 없습니다.
 
@@ -134,7 +136,7 @@ Azure AD DS를 사용하도록 설정하면 NTLM + Kerberos 인증을 위한 레
 
 그런 다음 레거시 암호 해시가 Azure AD에서 Azure AD DS 관리 도메인의 도메인 컨트롤러로 동기화됩니다. Azure AD DS에서 이러한 관리되는 도메인 컨트롤러의 디스크는 미사용 으로 암호화됩니다. 이러한 암호 해시는 온-프레미스 AD DS 환경에서 암호를 저장하고 보안하는 방법과 유사한 도메인 컨트롤러에 저장되고 보호됩니다.
 
-클라우드 전용 Azure AD 환경의 경우 필요한 암호 해시를 생성하고 Azure AD에 저장하려면 [암호를 재설정/변경해야 합니다.](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) Azure AD Domain Services를 사용하도록 설정한 후에 Azure AD에서 만든 클라우드 사용자 계정의 경우 암호 해시는 NTLM 및 Kerberos 호환 형식으로 생성되고 저장됩니다. 이러한 새 계정은 암호를 재설정하거나 변경할 필요가 없으므로 레거시 암호 해시가 생성됩니다.
+클라우드 전용 Azure AD 환경의 경우 필요한 암호 해시를 생성하고 Azure AD에 저장하려면 [암호를 재설정/변경해야 합니다.](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) Azure AD Domain Services를 사용하도록 설정한 후에 Azure AD에서 만든 클라우드 사용자 계정의 경우 암호 해시는 NTLM 및 Kerberos 호환 형식으로 생성되고 저장됩니다. 모든 클라우드 사용자 계정은 Azure AD DS에 동기화되기 전에 암호를 변경해야 합니다.
 
 Azure AD Connect를 사용하여 온-프레미스 AD DS 환경에서 동기화된 하이브리드 사용자 계정의 경우 [NTLM 및 Kerberos 호환 형식의 암호 해시를 동기화하도록 Azure AD Connect를 구성해야 합니다.](tutorial-configure-password-hash-sync.md)
 

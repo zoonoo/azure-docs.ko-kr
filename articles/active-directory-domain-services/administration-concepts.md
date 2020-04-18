@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 682935fa2324b8de4992ab2f90c7f71e05c4f8ac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba281ffb30801e0ae10cab10ceb95c0a3bffde2d
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264233"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640018"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Azure Active Directory 도메인 서비스의 사용자 계정, 암호 및 관리에 대한 관리 개념
 
@@ -48,7 +48,7 @@ Azure AD DS에는 계정 잠금, 최대 암호 수명 및 암호 복잡성과 �
 
 관리되는 도메인에서 사용자를 인증하려면 Azure AD DS에 NTLM(NT LAN Manager) 및 Kerberos 인증에 적합한 형식의 암호 해시가 필요합니다. Azure AD DS를 테넌트에서 사용하도록 설정할 때까지 Azure AD는 NTLM 또는 Kerberos 인증에 필요한 형식의 암호 해시를 생성하거나 저장하지 않습니다. 또한 보안상의 이유로 Azure AD는 암호 자격 증명을 일반 텍스트 형식으로 저장하지 않습니다. 따라서 Azure AD는 사용자의 기존 자격 증명에 따라 이러한 NTLM 또는 Kerberos 암호 해시를 자동으로 생성할 수 없습니다.
 
-클라우드 전용 사용자 계정의 경우 Azure AD DS를 사용하려면 먼저 사용자가 암호를 변경해야 합니다. 이 암호 변경 프로세스로 인해 Kerberos 및 NTLM 인증용 암호 해시가 생성되어 Azure AD에 저장됩니다.
+클라우드 전용 사용자 계정의 경우 Azure AD DS를 사용하려면 먼저 사용자가 암호를 변경해야 합니다. 이 암호 변경 프로세스로 인해 Kerberos 및 NTLM 인증용 암호 해시가 생성되어 Azure AD에 저장됩니다. 암호가 변경될 때까지 계정은 Azure AD에서 Azure AD DS로 동기화되지 않습니다.
 
 Azure AD Connect를 사용하여 온-프레미스 AD DS 환경에서 동기화된 사용자의 경우 [암호 해시 동기화를 사용하도록 설정합니다.][hybrid-phs]
 
@@ -70,7 +70,7 @@ Azure AD DS에서 포리스트에는 하나의 도메인만 포함됩니다. 온
 
 기본적으로 Azure AD DS 관리 도메인은 *사용자* 포리스트로 만들어집니다. 이 유형의 포리스트는 온-프레미스 AD DS 환경에서 만든 모든 사용자 계정을 포함하여 Azure AD의 모든 개체를 동기화합니다. 사용자 계정은 도메인 에 가입한 VM에 로그인하는 등 Azure AD DS 관리 도메인에 대해 직접 인증할 수 있습니다. 사용자 포리스트는 암호 해시를 동기화할 수 있고 사용자가 스마트 카드 인증과 같은 단독 로그인 방법을 사용하지 않는 경우에 작동합니다.
 
-Azure AD DS *리소스* 포리스트에서 사용자는 온-프레미스 AD DS에서 단방향 포리스트 *트러스트를* 통해 인증합니다. 이 방법을 사용하면 사용자 개체 및 암호 해시가 Azure AD DS에 동기화되지 않습니다. 사용자 개체 및 자격 증명은 온-프레미스 AD DS에만 존재합니다. 이 방법을 사용하면 기업은 LDAPS, Kerberos 또는 NTLM과 같은 클래식 인증에 의존하는 Azure에서 리소스 및 응용 프로그램 플랫폼을 호스팅할 수 있지만 인증 문제 나 문제는 제거됩니다. Azure AD DS 리소스 포리스트는 현재 미리 보기 상태입니다.
+Azure AD DS *리소스* 포리스트에서 사용자는 온-프레미스 AD DS에서 단방향 포리스트 *트러스트를* 통해 인증합니다. 이 방법을 사용하면 사용자 개체 및 암호 해시가 Azure AD DS에 동기화되지 않습니다. 사용자 개체 및 자격 증명은 온-프레미스 AD DS에만 존재합니다. 이 방법을 사용하면 기업은 LDAPS, Kerberos 또는 NTLM과 같은 클래식 인증에 의존하는 Azure에서 리소스 및 응용 프로그램 플랫폼을 호스팅할 수 있지만 인증 문제 나 문제는 제거됩니다. Azure AD DS 리소스 포리스트는 현재 미리 보기로 제공됩니다.
 
 Azure AD DS의 포리스트 형식에 대한 자세한 내용은 [리소스 포리스트란 무엇이며][concepts-forest] [Azure AD DS에서 포리스트 트러스트는 어떻게 작동합니까?][concepts-trust]
 

@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 01/09/2020
-ms.openlocfilehash: c1b70aaef49cc2b993c873509dc935d71069efa2
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: cdc739c7464b3deb87faaaabfd8d657ae8c28678
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985918"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617765"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>파이썬에서 교육 실행을 시작, 모니터링 및 취소
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -80,7 +80,7 @@ notebook_run.log(name="message", value="Hello from run!")
     az login
     ```
     
-    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
 1. 학습 스크립트가 포함된 폴더에 작업 영역 구성을 연결합니다. Azure `myworkspace` 기계 학습 작업 영역으로 바꿉습니다. 작업 `myresourcegroup` 영역이 포함된 Azure 리소스 그룹으로 바꿉습니다.
 

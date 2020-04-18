@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/03/2020
+ms.date: 04/17/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d2e3f8da4a05feedb8c1ab585fabcc74edbc71a
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 815d3afe68003f56a5748584b322b731ef5a3dc7
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998739"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639641"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -55,6 +55,15 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 
 ### <a name="fixed-issues"></a>해결된 문제
 이 핫픽스 빌드는 그룹 필터링 기능을 사용하도록 설정하고 mS-DS-ConsistencyGuid를 소스 앵커로 사용하는 경우 빌드 1.5.18.0문제를 해결합니다.
+
+> [!IMPORTANT]
+> mS-DS-ConsistencyGuid를 소스 앵커로 사용하고 **AD에서 In - 그룹 조인** 동기화 규칙을 복제하고 업그레이드를 계획한 경우 업그레이드의 일부로 다음 단계를 완료합니다.
+> 1. 업그레이드 하는 동안 선택을 취소 선택 취소 **구성이 완료 될 때 동기화 프로세스를 시작**합니다.
+> 2. 복제된 조인 동기화 규칙을 편집하고 다음 두 가지 변환을 추가합니다.
+>     - 에 직접 `objectGUID` `sourceAnchorBinary`흐름을 설정합니다.
+>     - 식 흐름을 `ConvertToBase64([objectGUID])` `sourceAnchor`로 설정합니다.     
+> 3. 을 사용하여 `Set-ADSyncScheduler -SyncCycleEnabled $true`스케줄러를 활성화합니다.
+
 
 ## <a name="15180"></a>1.5.18.0
 
@@ -528,7 +537,7 @@ Azure AD Connect 버전 1.1.654.0 이상에서는 Azure AD Connect가 AD DS 계�
 *   특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다. SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
 *   다음과 같은 특정 권한을 할당합니다.
 
-형식     | 이름                          | 액세스 권한               | 적용 대상
+Type     | 속성                          | 액세스 권한               | 적용 대상
 ---------|-------------------------------|----------------------|--------------|
 Allow    | SYSTEM                        | 모든 권한         | 이 개체  |
 Allow    | 엔터프라이즈 관리자             | 모든 권한         | 이 개체  |
@@ -1057,7 +1066,7 @@ AD FS 관리
 ## <a name="113800"></a>1.1.380.0
 릴리스 날짜: 2016년 12월
 
-**해결된 문제:**
+**문제 해결:**
 
 * AD FS(Active Directory Federation Services)에 대한 issuerid 클레임 규칙이 이 빌드에서 누락되는 문제를 해결했습니다.
 
@@ -1071,7 +1080,7 @@ AD FS 관리
 
 * AD FS에 대한 issuerid 클레임 규칙이 이 빌드에서 누락되었습니다. issuerid 클레임 규칙은 Azure AD(Azure Active Directory)로 여러 도메인을 통합하려는 경우에 필요합니다. Azure AD Connect를 사용하여 온-프레미스 AD FS 배포를 관리하는 경우 이 빌드로 업그레이드하면 AD FS 구성에서 기존 issuerid 클레임 규칙이 제거됩니다. 설치/업그레이드 후 issuerid 클레임 규칙을 추가하여 문제를 해결할 수 있습니다. issuerid 클레임 규칙 추가에 대한 자세한 내용은 [Azure AD와 통합에 다중 도메인 지원](how-to-connect-install-multiple-domains.md)에 대한 다음 문서를 참조하세요.
 
-**해결된 문제:**
+**문제 해결:**
 
 * 포트 9090이 아웃바운드 연결에 대해 열려있지 않으면 Azure AD Connect 설치 또는 업그레이드가 실패합니다.
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/17/2020
 ms.author: spelluru
-ms.openlocfilehash: 4f8c8d4ff0a8014fe0b9a6ae4aead35ec7df4bf6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce980167cd88adfada1aa294aafa885184565799
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501941"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641153"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Azure DevTest Labs 수식 관리
 
@@ -38,7 +38,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 ### <a name="create-a-formula-from-a-base"></a>기준에서 수식 만들기
 다음 단계에서는 사용자 지정 이미지, Marketplace 이미지 또는 다른 수식에서 수식을 만드는 과정을 안내합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 
@@ -83,7 +83,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 > 
 > 
 
-1. [Azure 포털에](https://go.microsoft.com/fwlink/p/?LinkID=525040)로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 2. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 3. 랩 목록에서 원하는 랩을 탭합니다.  
 4. 랩의 **개요** 페이지에서 만들려는 수식의 원본인 VM을 선택합니다.
@@ -100,7 +100,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 ## <a name="modify-a-formula"></a>수식 수정
 수식을 수정하려면 다음 단계를 수행합니다.
 
-1. [Azure 포털에](https://go.microsoft.com/fwlink/p/?LinkID=525040)로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 2. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 3. 랩 목록에서 원하는 랩을 탭합니다.  
 4. 랩의 페이지에서 **수식(재사용 가능 기본)** 을 선택합니다.
@@ -112,7 +112,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 ## <a name="delete-a-formula"></a>수식 삭제
 수식을 삭제하려면 다음 단계를 수행합니다.
 
-1. [Azure 포털에](https://go.microsoft.com/fwlink/p/?LinkID=525040)로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 2. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 3. 랩 목록에서 원하는 랩을 탭합니다.  
 4. 랩의 **설정** 페이지에서 **수식**을 선택합니다.
@@ -129,7 +129,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="related-blog-posts"></a>관련 블로그 게시물
-* [사용자 지정 이미지 또는 수식?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+* [사용자 지정 이미지 또는 수식?](devtest-lab-faq.md#what-is-the-difference-between-a-custom-image-and-a-formula)
 
 ## <a name="next-steps"></a>다음 단계
 VM을 만들 때 사용할 수식을 만들었으면 다음 단계는 [VM을 랩에 추가](devtest-lab-add-vm.md)하는 것입니다.

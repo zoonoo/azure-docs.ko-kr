@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/15/2019
+ms.date: 04/17/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1e8587562ff452373fe2ee3b98fa20309e77cc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be5defb85547e8750dea9ceaa481217aa40a004e
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266586"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639771"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Azure CLI를 사용하여 사용자 할당 관리 ID 생성, 나열 또는 삭제
 
@@ -37,6 +37,12 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 관리 ID를
     - Azure Portal에서 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다(다음 섹션 참조).
     - 각 코드 블록의 오른쪽 위에 있는 "사용해 보세요." 단추를 통해 포함된 Azure Cloud Shell을 사용합니다.
     - 로컬 CLI 콘솔을 사용하려는 경우 [Azure CLI의 최신 버전을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다(2.0.13 이상). 사용자 할당 관리 ID를 배포하려는 Azure 구독과 연결된 계정으로 `az login`을 사용하여 Azure에 로그인합니다.
+
+
+> [!NOTE]
+> CLI를 사용하여 앱 servivce 주체를 사용할 때 사용자 권한을 수정하려면 CLI의 일부로 Azure AD Graph API에서 서비스 주체 추가 권한을 제공해야 합니다. 그렇지 않으면 '작업을 완료하기에 부족한 권한' 메시지가 나타날 수 있습니다. 이렇게 하려면 Azure Active Directory의 앱 등록으로 이동하여 앱을 선택하고 API 권한을 클릭하고 아래로 스크롤한 다음 Azure Active Directory 그래프를 선택해야 합니다. 거기에서 응용 프로그램 권한을 선택한 다음 적절한 권한을 추가합니다. 
+
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

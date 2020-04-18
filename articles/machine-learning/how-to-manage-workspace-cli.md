@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 03/05/2020
-ms.openlocfilehash: 64c2e77ffc43ec98c13ce8c0cad002cdb2053241
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a7d0b75140c50df61ff63f350e5b312a6a684c7
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80296909"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617784"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Azure CLI를 사용하여 Azure 기계 학습을 위한 작업 영역 만들기
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,7 +42,7 @@ az login
 
 CLI가 기본 브라우저를 열 수 있는 경우, 그렇게 하고 로그인 페이지를 로드합니다. 그렇지 않으면 브라우저를 열고 명령줄의 지침을 따라야 합니다. 지침에는 권한 [https://aka.ms/devicelogin](https://aka.ms/devicelogin) 부여 코드를 검색하고 입력하는 것이 포함됩니다.
 
-[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
 다른 인증 방법에 대한 경우 [Azure CLI를 사용 하 여 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)을 참조 하십시오.
 
@@ -66,7 +66,7 @@ Azure 기계 학습 작업 영역은 다음 Azure 서비스 또는 엔터티를 
 | **Azure 리소스 그룹** | `-g <resource-group-name>`
 | **Azure Storage 계정** | `--storage-account <service-id>` |
 | **Azure Application Insights** | `--application-insights <service-id>` |
-| **Azure 키 볼트** | `--keyvault <service-id>` |
+| **Azure Key Vault** | `--keyvault <service-id>` |
 | **Azure Container Registry** | `--container-registry <service-id>` |
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기

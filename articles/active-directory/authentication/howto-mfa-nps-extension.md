@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c8606f0b7ab47d624ec66c8cda539e571cec6ce
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: cc1be4637d56d7205d50ebfc6f7d1d5d22e62edf
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393046"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617658"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -142,6 +142,14 @@ NPS 확장 프로그램을 사용하고 배포하기 전에 2단계 인증을 �
 1. 테스트 [https://aka.ms/mfasetup](https://aka.ms/mfasetup) 계정으로 로그인합니다.
 2. 지시에 따라 확인 방법을 설정합니다.
 3. 테스트 계정에 다단계 인증을 요구하는 [조건부 액세스 정책을 만듭니다.](howto-mfa-getstarted.md#create-conditional-access-policy)
+
+> [!IMPORTANT]
+>
+> 사용자가 Azure 다단계 인증에 성공적으로 등록했는지 확인합니다. 사용자가 이전에 SSPR(셀프 서비스 암호 재설정)에만 등록한 경우 해당 계정에 대해 *강력한 인증 메서드가* 활성화됩니다. Azure 다단계 인증은 사용자가 SSPR에만 등록한 경우에도 *강력한 인증 메서드를* 구성할 때 적용됩니다.
+>
+> SSPR 및 Azure 다단계 인증을 동시에 구성하는 통합 보안 등록을 활성화할 수 있습니다. 자세한 내용은 [Azure Active Directory에서 결합된 보안 정보 등록 을 참조하세요.](howto-registration-mfa-sspr-combined.md)
+>
+> 이전에SSPR만 사용하도록 설정한 경우 [사용자가 인증 방법을 다시 등록하도록 강제할](howto-mfa-userdevicesettings.md#manage-user-authentication-options) 수도 있습니다.
 
 ## <a name="install-the-nps-extension"></a>NPS 확장 설치
 

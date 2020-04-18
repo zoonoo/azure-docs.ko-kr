@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: d7ba62c795e23e41a1947def77300ffe5d2cc010
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 520699b81024de9491f34263f16872428ddbd487
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262454"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81618033"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Azure 인지 검색 - 자주 묻는 질문(FAQ)
 
@@ -82,6 +82,14 @@ Azure 인지 검색 REST [API를](https://docs.microsoft.com/rest/api/searchserv
 기본적으로 검색 결과는 [일치하는 용어의 통계적 속성](search-lucene-query-architecture.md#stage-4-scoring)에 따라 점수가 매겨지며 결과 집합에서 높은 점수에서 낮은 점수 순으로 순위가 매겨집니다. 그러나 일부 쿼리 유형(와일드카드, 접두사, regex)은 전체적인 문서 점수에 항상 상수 점수를 부여합니다. 이 동작은 의도된 것입니다. Azure Cognitive Search는 순위에 영향을 주지 않고 쿼리 확장을 통해 검색된 일치 항목이 결과에 포함될 수 있도록 일정한 점수를 부과합니다.
 
 예를 들어 와일드카드 검색에서 "tour*"의 입력이 "투어", "투렛", "투르말린"에 일치하는 항목을 생성한다고 가정합니다. 이러한 결과의 특성을 감안할 때, 어떤 용어가 더 중요한지 합리적으로 유추할 방법이 없습니다. 이러한 이유로 와일드카드, 접두사, regex 쿼리 유형의 결과에 대한 점수를 매길 때에는 용어 빈도를 무시합니다. 예기치 않은 일치의 가능성에 따른 왜곡을 방지하기 위해 부분 이력 기준 검색 결과에는 일정 점수가 부여됩니다.
+
+## <a name="skillset-operations"></a>기술 집합 운영
+
+### <a name="are-there-any-tips-or-tricks-to-reduce-cognitive-services-charges-on-ingestion"></a>섭취에 대한 인지 서비스 요금을 줄이기 위한 팁이나 요령이 있습니까?
+
+특히 처리할 수백만 개의 문서를 처리하는 경우 필요한 것보다 기본 제공 기술이나 사용자 지정 기술을 실행하고 싶지 않다는 것은 이해할 수 있습니다. 이를 염두에 두고 기술 집합 실행에 "점진적 보강" 기능을 추가했습니다. 기본적으로 "중간" 보강 단계의 출력을 저장하는 데 사용되는 캐시 위치(Blob 저장소 연결 문자열)를 제공할 수 있습니다.  이를 통해 보강 파이프라인을 스마트하게 만들고 기술 집합을 수정할 때 필요한 보강만 적용할 수 있습니다. 이렇게 하면 파이프라인의 효율성이 높아지기 때문에 자연스럽게 인덱싱 시간이 절약됩니다.
+
+[증분 보강에](cognitive-search-incremental-indexing-conceptual.md) 대해 자세히 알아보기
 
 ## <a name="design-patterns"></a>디자인 패턴
 

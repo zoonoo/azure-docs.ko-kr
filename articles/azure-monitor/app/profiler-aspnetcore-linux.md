@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9c98cd5d3d4d76f9455e4c036aa32a4ead20cfff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d845e245a242a88d16a2597f0144a0ae4a727cb0
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671718"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640965"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Application Insights Profiler를 사용하여 ASP.NET Core Azure Linux 웹앱 프로파일링
 
@@ -168,10 +168,6 @@ ms.locfileid: "77671718"
 
     ![프로파일러 추적 보기](./media/profiler-aspnetcore-linux/view-traces.png)
 
-## <a name="known-issues"></a>알려진 문제
-
-### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>프로필 지금 버튼 리눅스 프로파일러에 대 한 작동 하지 않습니다.
-앱 인사이트 프로파일러의 Linux 버전은 아직 프로필 지금 버튼을 사용하여 주문형 프로파일링을 지원하지 않습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

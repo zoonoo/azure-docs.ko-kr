@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 00f6a5f88a66f0a19943ff3a2c722ae1a9938e9e
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 472f3762ca18f71ba95053576daf025d8477fee9
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80550397"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604732"
 ---
 # <a name="how-to-query-logs-from-startstop-vms-solution"></a>VM 시작/중지 솔루션에서 로그를 쿼리하는 방법
 
@@ -21,7 +21,7 @@ Azure Automation은 연결된 로그 분석 작업 영역인 작업 로그 및 �
 |속성 | Description|
 |----------|----------|
 |Caller |  작업을 시작한 사람입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다.|
-|Category | 데이터 유형의 분류입니다. Automation의 경우 값은 JobLogs입니다.|
+|범주 | 데이터 유형의 분류입니다. Automation의 경우 값은 JobLogs입니다.|
 |CorrelationId | Runbook 작업의 상관 관계 ID인 GUID입니다.|
 |JobId | Runbook 작업의 ID인 GUID입니다.|
 |operationName | Azure에서 수행되는 작업 유형을 지정합니다. Automation의 경우 이 값은 Job입니다.|
@@ -42,7 +42,7 @@ Azure Automation은 연결된 로그 분석 작업 영역인 작업 로그 및 �
 |속성 | Description|
 |----------|----------|
 |Caller |  작업을 시작한 사람입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다.|
-|Category | 데이터 유형의 분류입니다. Automation의 경우 값은 JobStreams입니다.|
+|범주 | 데이터 유형의 분류입니다. Automation의 경우 값은 JobStreams입니다.|
 |JobId | Runbook 작업의 ID인 GUID입니다.|
 |operationName | Azure에서 수행되는 작업 유형을 지정합니다. Automation의 경우 이 값은 Job입니다.|
 |ResourceGroup | Runbook 작업의 리소스 그룹 이름을 지정합니다.|
@@ -71,4 +71,4 @@ Azure Automation은 연결된 로그 분석 작업 영역인 작업 로그 및 �
 
 ## <a name="next-steps"></a>다음 단계
 
-영업 외 시간 동안 VM 시작/중지 솔루션에는 미리 정의된 경고 집합이 포함되어 있지 않습니다. Azure 모니터를 사용하여 [로그 알림 만들기를](../azure-monitor/platform/alerts-log.md) 검토하여 DevOps 또는 운영 프로세스 및 프로시저를 지원하기 위해 작업 실패 경고를 만드는 방법을 알아봅니다.
+근무 외 솔루션 **중 VM 시작/중지에는** 미리 정의된 경고 집합이 포함되어 있지 않습니다. Azure 모니터를 사용하여 [로그 알림 만들기를](../azure-monitor/platform/alerts-log.md) 검토하여 DevOps 또는 운영 프로세스 및 프로시저를 지원하기 위해 작업 실패 경고를 만드는 방법을 알아봅니다.

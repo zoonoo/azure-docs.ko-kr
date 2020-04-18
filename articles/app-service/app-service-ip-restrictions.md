@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a02c099871ce9748f4c5f604900a7c4d57bb96b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 298555da2056bc4c16d4d7b16615604f9798b91b
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473526"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639280"
 ---
-# <a name="azure-app-service-access-restrictions"></a>Azure 앱 서비스 액세스 제한 #
+# <a name="azure-app-service-access-restrictions"></a>Azure 앱 서비스 액세스 제한
 
 액세스 제한을 사용하면 앱에 대한 네트워크 액세스를 제어하는 우선 순위의 허용/거부 목록을 정의할 수 있습니다. 목록에는 IP 주소 또는 Azure 가상 네트워크 서브넷이 포함될 수 있습니다. 하나 이상의 항목이 있는 경우 목록 끝에 있는 암시적 "모두 거부"가 있습니다.
 
@@ -125,12 +125,12 @@ management.azure.com/subscriptions/**구독 ID**/resourceGroups/**리소스 그�
 }
 ```
 
-## <a name="azure-function-app-access-restrictions"></a>Azure 함수 앱 액세스 제한
+## <a name="azure-functions-access-restrictions"></a>Azure 함수 액세스 제한
 
-앱 서비스 요금제와 동일한 기능을 가진 기능 앱에도 액세스 제한을 사용할 수 있습니다. 액세스 제한을 사용하도록 설정하면 허용되지 않는 IP에 대해 포털 코드 편집기가 비활성화됩니다.
+앱 서비스 요금제와 동일한 기능을 가진 기능 앱에 대한 액세스 제한도 사용할 수 있습니다. 액세스 제한을 사용하도록 설정하면 허용되지 않는 IP에 대해 포털 코드 편집기가 비활성화됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 기능 앱에 대한 액세스 제한](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
+[Azure 함수에 대한 액세스 제한](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
 
 [서비스 엔드포인트와의 애플리케이션 게이트웨이 통합](networking/app-gateway-with-service-endpoints.md)
 

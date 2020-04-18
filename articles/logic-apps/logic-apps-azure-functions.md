@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 68975f21ab810398da969384db4d3bddd22f1bd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 29713622be90ea280bff3c002be746bf1615718f
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284123"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605908"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Azure 논리 앱에서 Azure 함수 호출
 
@@ -101,7 +101,9 @@ function convertToDateString(request, response){
 
 ## <a name="create-functions-inside-logic-apps"></a>논리 앱 내에서 함수 만들기
 
-Logic 앱 디자이너를 사용하여 논리 앱 내부에서 시작하는 Azure 함수를 만들려면 먼저 함수에 대한 컨테이너인 Azure 함수 앱이 있어야 합니다. 함수 앱이 없는 경우 함수 앱을 먼저 만듭니다. [Azure Portal에서 첫 번째 함수 만들기](../azure-functions/functions-create-first-azure-function.md)를 참조하세요.
+논리 앱 디자이너의 기본 제공 Azure Functions 작업을 사용하여 논리 앱의 워크플로에서 직접 Azure 함수를 만들 수 있지만 JavaScript로 작성된 Azure 함수에만 이 메서드를 사용할 수 있습니다. 다른 언어의 경우 Azure 포털의 Azure Functions 환경을 통해 Azure 함수를 만들 수 있습니다. 자세한 내용은 [Azure 포털에서 첫 번째 함수 만들기를](../azure-functions/functions-create-first-azure-function.md)참조하십시오.
+
+그러나 Azure 함수를 만들려면 먼저 함수에 대한 컨테이너인 Azure 함수 앱이 이미 있어야 합니다. 함수 앱이 없는 경우 함수 앱을 먼저 만듭니다. [Azure Portal에서 첫 번째 함수 만들기](../azure-functions/functions-create-first-azure-function.md)를 참조하세요.
 
 1. Azure [포털에서](https://portal.azure.com)논리 앱 디자이너에서 논리 앱을 엽니다.
 
@@ -125,7 +127,7 @@ Logic 앱 디자이너를 사용하여 논리 앱 내부에서 시작하는 Azur
 
    1. **코드** 상자에서 함수 실행이 완료된 후 논리 앱으로 반환하려는 응답 및 페이로드를 포함하여 함수 템플릿에 코드를 추가합니다. 완료되면 **만들기**를 선택합니다.
 
-   예를 들어:
+   다음은 그 예입니다.
 
    ![함수 정의](./media/logic-apps-azure-functions/add-code-function-definition.png)
 

@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2020
-ms.openlocfilehash: c55bee9880c4134f2e304a7fc5176225477fe5f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: 01dd8422658aa0c8982733e48782efd27c1bf5be
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480762"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617844"
 ---
 # <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>VM 종속성 에이전트에 대한 Azure 모니터를 업그레이드하는 방법
 
@@ -21,7 +21,7 @@ VM 종속성 에이전트에 대한 Azure 모니터를 초기 배포한 후 버�
 
 Windows 및 Linux용 종속성 에이전트는 컴퓨터가 실행 중인 배포 시나리오 및 환경에 따라 수동으로 또는 자동으로 최신 릴리스로 업그레이드할 수 있습니다. 에이전트를 업그레이드하는 데 다음 방법을 사용할 수 있습니다.
 
-|Environment |설치 방법 |업그레이드 방법 |
+|환경 |설치 방법 |업그레이드 방법 |
 |------------|--------------------|---------------|
 |Azure VM | [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) 및 [Linux용](../../virtual-machines/extensions/agent-dependency-linux.md) 종속성 에이전트 VM 확장 | 속성 *autoUpgradeMinorVersion을* **false로**설정하여 옵트아웃하도록 Azure 리소스 관리자 템플릿을 구성하지 않는 한 에이전트는 기본적으로 자동으로 업그레이드됩니다. 자동 업그레이드가 비활성화된 부 버전의 업그레이드와 주 버전 업그레이드는 확장을 제거하고 다시 설치하는 동일한 방법을 따릅니다. |
 | 사용자 지정 Azure VM 이미지 | Windows/Linux용 종속성 에이전트의 수동 설치 | Windows 설치 관리자 패키지 또는 Linux 자체 추출 및 설치 가능한 셸 스크립트 번들을 실행하는 명령줄에서 에이전트의 최신 버전으로 VM을 업데이트해야 합니다.|
@@ -60,7 +60,7 @@ Windows VM의 에이전트를 종속성 에이전트 VM 확장을 사용하여 �
 
 Linux의 종속성 에이전트의 이전 버전에서 업그레이드가 지원되고 새 설치와 동일한 명령에 따라 수행됩니다.
 
-여기에서 최신 버전의 Windows 에이전트를 다운로드할 수 [있습니다.](https://aka.ms/dependencyagentlinux)
+여기에서 Linux 에이전트의 최신 버전을 다운로드할 수 [있습니다.](https://aka.ms/dependencyagentlinux)
 
 1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
 

@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 03/16/2020
-ms.openlocfilehash: 1f11d6667c22990b3cba2079959bec6f413d5951
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a237beb72e35a236e353c58db520a8d611fdfdcd
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80296948"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81618004"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>사용자 지정 Docker 기본 이미지를 사용하여 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -96,7 +96,7 @@ Azure 기계 학습을 사용하여 모델을 이미 학습하거나 배포한 �
 
     프롬프트에 따라 구독을 인증합니다.
 
-    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
 2. 다음 명령을 사용하여 작업 영역에 대한 컨테이너 레지스트리를 나열합니다. Azure `<myworkspace>` 기계 학습 작업 영역 이름으로 바꿉니다. 작업 `<resourcegroup>` 영역이 포함된 Azure 리소스 그룹으로 바꿉습니다.
 
@@ -190,7 +190,7 @@ Azure 컨테이너 레지스트리에 기존 이미지를 업로드하는 방법
 
 Microsoft는 공개적으로 액세스할 수 있는 리포지토리에 여러 도커 이미지를 제공하며 이 섹션의 단계와 함께 사용할 수 있습니다.
 
-| 이미지 | 설명 |
+| 이미지 | Description |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Azure 기계 학습을 위한 기본 이미지 |
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | CPU 추론을 위한 ONNX 런타임 포함 |

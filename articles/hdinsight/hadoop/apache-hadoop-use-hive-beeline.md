@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: 426294f20dd51538920182a0e7a2915f6a47ba54
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.date: 04/17/2020
+ms.openlocfilehash: 10e53b6b7b79e7d4581a1843b70b3d02778e8df5
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383569"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617795"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive와 Apache Beeline 클라이언트 사용
 
@@ -40,7 +40,8 @@ beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
 beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 ```
 
-<a name="replace-headnode-fqdn-with-the-fully-qualified-domain-name-of-a-cluster-headnode-to-find-the-fully-qualified-domain-name-of-a-headnode-use-the-information-in-the-manage-hdinsight-using-the-apache-ambari-rest-api-document"></a>클러스터 `<headnode-FQDN>` 헤드노드의 정규화된 도메인 이름으로 바꿉니다. 헤드 노드의 정규화된 도메인 이름을 찾으려면 [Apache Ambari REST API를 사용하여 HDInsight 관리](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes) 문서의 정보를 사용합니다.
+클러스터 `<headnode-FQDN>` 헤드노드의 정규화된 도메인 이름으로 바꿉니다. 헤드 노드의 정규화된 도메인 이름을 찾으려면 [Apache Ambari REST API를 사용하여 HDInsight 관리](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes) 문서의 정보를 사용합니다.
+
 ---
 
 ### <a name="to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos"></a>Kerberos를 사용하여 HDInsight 엔터프라이즈 보안 패키지(ESP) 클러스터로
@@ -84,11 +85,11 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 ### <a name="use-beeline-with-apache-spark"></a>Apache Spark와 함께 Beeline 사용
 
-Apache Spark는 자체적으로 HiveServer2를 구현하며, HiveServer2는 종종 Spark Thrift 서버라고 합니다. 이 서비스는 Hive 대신 Spark SQL을 사용하여 쿼리를 해결하고, 쿼리에 따라 더 나은 성능을 제공할 수 있습니다.
+Apache Spark는 자체적으로 HiveServer2를 구현하며, HiveServer2는 종종 Spark Thrift 서버라고 합니다. 이 서비스는 Spark SQL을 사용하여 Hive 대신 쿼리를 해결합니다. 또한 쿼리에 따라 더 나은 성능을 제공할 수 있습니다.
 
 #### <a name="through-public-or-private-endpoints"></a>공용 또는 비공개 끝점을 통해
 
-사용되는 연결 문자열은 약간 다릅니다. `httpPath=/hive2` 그것을 포함하는 대신 `httpPath/sparkhive2`. `clustername`을 HDInsight 클러스터 이름으로 바꿉니다. `admin`을 클러스터의 클러스터 로그인 계정으로 바꿉니다. ESP 클러스터의 경우 전체 UPN(예: user@domain.com)을 사용합니다. `password`를 클러스터 로그인 계정의 암호로 바꿉니다.
+사용되는 연결 문자열은 약간 다릅니다. 포함 하는 `httpPath=/hive2` 대신 `httpPath/sparkhive2`을 사용 합니다. `clustername`을 HDInsight 클러스터 이름으로 바꿉니다. `admin`을 클러스터의 클러스터 로그인 계정으로 바꿉니다. ESP 클러스터의 경우 전체 UPN(예: user@domain.com)을 사용합니다. `password`를 클러스터 로그인 계정의 암호로 바꿉니다.
 
 ```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p 'password'
@@ -118,7 +119,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 * HDInsight의 하두프 클러스터. [리눅스에서 HDInsight로 시작하기를](./apache-hadoop-linux-tutorial-get-started.md)참조하십시오.
 
-* 클러스터의 기본 저장소에 대한 [URI 구성표를](../hdinsight-hadoop-linux-information.md#URI-and-scheme) 확인합니다. 예를 들어 `wasb://` Azure 저장소, `abfs://` Azure 데이터 레이크 저장소 `adl://` Gen2 또는 Azure 데이터 레이크 저장소 Gen1의 경우입니다. Azure 저장소에 대해 보안 전송을 `wasbs://`사용하도록 설정하면 URI는 . 자세한 내용은 [보안 전송](../../storage/common/storage-require-secure-transfer.md)을 참조하십시오.
+* 클러스터의 기본 저장소에 대한 URI 구성표를 확인합니다. 예를 들어 `wasb://` Azure 저장소, `abfs://` Azure 데이터 레이크 저장소 `adl://` Gen2 또는 Azure 데이터 레이크 저장소 Gen1의 경우입니다. Azure 저장소에 대해 보안 전송을 `wasbs://`사용하도록 설정하면 URI는 . 자세한 내용은 [보안 전송](../../storage/common/storage-require-secure-transfer.md)을 참조하십시오.
 
 * 옵션 1: SSH 클라이언트입니다. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. 이 문서의 대부분의 단계는 SSH 세션에서 클러스터로 Beeline을 사용하고 있다고 가정합니다.
 
@@ -177,7 +178,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
     이 정보는 테이블의 열을 설명합니다.
 
-5. HDInsight 클러스터와 함께 제공된 샘플 데이터를 사용하여 **log4jLogs라는** 테이블을 만들려면 다음 문을 [입력합니다.](../hdinsight-hadoop-linux-information.md#URI-and-scheme)
+5. HDInsight 클러스터와 함께 제공된 샘플 데이터를 사용하여 **log4jLogs라는** 테이블을 만들려면 다음 문을 입력합니다(URI 체계에 따라 필요에 따라 수정합니다).
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -198,7 +199,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
     이러한 명령문은 다음과 같은 작업을 수행합니다.
 
-    |인수를 제거합니다. |설명 |
+    |인수를 제거합니다. |Description |
     |---|---|
     |DROP TABLE|테이블이 있으면 삭제됩니다.|
     |외부 테이블 만들기|Hive에서 **외부** 테이블을 만듭니다. 외부 테이블만 테이블 정의를 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.|
@@ -244,7 +245,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 ## <a name="run-a-hiveql-file"></a>HiveQL 파일 실행
 
-이는 이전 예제의 연속입니다. 다음 단계를 사용하여 파일을 만든 다음 Beeline를 사용하여 실행합니다.
+이 예제는 이전 예제의 연속입니다. 다음 단계를 사용하여 파일을 만든 다음 Beeline를 사용하여 실행합니다.
 
 1. 다음 명령을 사용하여 **query.hql**이라는 파일을 만듭니다.
 
@@ -261,7 +262,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
     이러한 명령문은 다음과 같은 작업을 수행합니다.
 
-    |인수를 제거합니다. |설명 |
+    |인수를 제거합니다. |Description |
     |---|---|
     |테이블 만들기 존재하지 않는 경우|테이블이 아직 존재하지 않으면 테이블이 만들어집니다. **외부** 키워드가 사용되지 않으므로 이 문은 내부 테이블을 만듭니다. 내부 테이블은 Hive 데이터 웨어하우스에 저장되며 Hive에 서 완전히 관리됩니다.|
     |ORC로 저장|데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. ORC 형식은 Hive 데이터를 저장하기 위해 고도로 최적화되고 효율적인 형식입니다.|
@@ -300,7 +301,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 ## <a name="install-beeline-client"></a>Beeline 클라이언트 설치
 
-Beeline은 HDInsight 클러스터의 헤드 노드에 포함되어 있지만 로컬 컴퓨터에 설치할 수 있습니다.  로컬 컴퓨터에 Beeline을 설치 하는 아래 단계는 [리눅스에 대 한 Windows 하위 시스템을](https://docs.microsoft.com/windows/wsl/install-win10)기반으로 합니다.
+Beeline은 헤드 노드에 포함되어 있지만 로컬로 설치할 수 있습니다.  로컬 컴퓨터에 대한 설치 단계는 [Linux용 Windows 하위 시스템을](https://docs.microsoft.com/windows/wsl/install-win10)기반으로 합니다.
 
 1. 패키지 목록을 업데이트합니다. bash 셸에 다음 명령을 입력합니다.
 
@@ -316,7 +317,7 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함되어 있지만 로
         sudo apt install openjdk-11-jre-headless
         ```
 
-    1. bashrc 파일을 엽니다 (일반적으로 ~/.bashrc에서 발견): `nano ~/.bashrc`.
+    1. bashrc 파일을 엽니다 (종종 ~/.bashrc에서 발견): `nano ~/.bashrc`.
 
     1. bashrc 파일을 수정합니다. 파일 끝에 다음 줄을 추가합니다.
 

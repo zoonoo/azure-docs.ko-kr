@@ -3,12 +3,12 @@ title: 모든 환경에서 Java 응용 프로그램 모니터링 - Azure 모니�
 description: 앱을 계측하지 않고 모든 환경에서 실행되는 Java 응용 프로그램에 대한 응용 프로그램 성능 모니터링. 분산 추적 및 응용 프로그램 맵.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 5a62be45320523ee0577d56eb557a4f87a58a1cc
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 5706d5a74bd6850a237f7418b1a86a8e9c7762e1
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886860"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604570"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java 코드리스 응용 프로그램 모니터링 Azure 모니터 응용 프로그램 인사이트 - 공개 미리 보기
 
@@ -24,11 +24,11 @@ Java 코드리스 응용 프로그램 모니터링은 단순성입니다 - 코�
 
 **1. 에이전트 다운로드**
 
-[애플리케이션 인사이트 에이전트 다운로드-3.0.0-PREVIEW.2.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.2/applicationinsights-agent-3.0.0-PREVIEW.2.jar)
+[애플리케이션 인사이트 에이전트 다운로드-3.0.0-PREVIEW.3.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.3/applicationinsights-agent-3.0.0-PREVIEW.3.jar)
 
 **2. JVM을 에이전트에 가리킵니다.**
 
-응용 `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.2.jar` 프로그램의 JVM args에 추가
+응용 `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.3.jar` 프로그램의 JVM args에 추가
 
 일반적인 JVM 아르그에는 `-Xmx512m` 및 `-XX:+UseG1GC`. 따라서 이 것들을 추가할 위치를 알고 있다면 이 것을 추가할 위치를 이미 알고 있습니다.
 
@@ -37,7 +37,14 @@ Java 코드리스 응용 프로그램 모니터링은 단순성입니다 - 코�
 **3. 에이전트를 응용 프로그램 인사이트 리소스로 가리킵니다.**
 
 아직 Application Insights 리소스가 없는 경우 [리소스 만들기 가이드의](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)단계에 따라 새 리소스를 만들 수 있습니다.
-의 구성 `ApplicationInsights.json`파일을 만들고 다음 내용을 사용하여 `applicationinsights-agent-3.0.0-PREVIEW.2.jar`와 동일한 디렉터리에 배치합니다.
+
+환경 변수를 설정하여 에이전트를 Application Insights 리소스로 가리킵니다.
+
+```
+APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
+```
+
+또는 :라는 `ApplicationInsights.json`구성 파일을 만들고 다음 내용과 함께 `applicationinsights-agent-3.0.0-PREVIEW.3.jar`와 동일한 디렉토리에 배치합니다.
 
 ```json
 {

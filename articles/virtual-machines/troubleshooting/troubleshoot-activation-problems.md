@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 5c84588290ce769b556002469b6a11c6950bb878
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd38f646b8dfc58839cd2645f7fadf7332693854
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476555"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605996"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Windows Azure 가상 컴퓨터 정품 인증 문제 해결
 
@@ -43,7 +43,7 @@ Windows Azure VM을 활성화하려고 할 때 다음 샘플과 유사한 오류
 
 일반적으로 Azure VM 정품 인증 문제는 Windows VM이 적절한 KMS 클라이언트 설정 키를 사용하여 구성되어 있지 않거나 Windows VM에 Azure KMS 서비스(kms.core.windows.net, 포트 1688)에 대한 연결 문제가 있는 경우에 발생합니다. 
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 >[!NOTE]
 >사이트 간 VPN 및 강제 터널링을 사용하는 경우 [Azure 사용자 지정 경로 사용을 참조하여 강제 터널링을 사용하여 KMS 활성화를 활성화합니다.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling) 
@@ -77,7 +77,7 @@ Windows Azure VM을 활성화하려고 할 때 다음 샘플과 유사한 오류
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>2단계 VM과 Azure KMS 서비스 간의 연결 확인
 
-1. 정품 인증되지 않은 VM의 로컬 폴더에 [PSping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) 도구를 다운로드하여 추출합니다. 
+1. 정품 인증되지 않은 VM의 로컬 폴더에 [PSping](https://docs.microsoft.com/sysinternals/downloads/psping) 도구를 다운로드하여 추출합니다. 
 
 2. 시작하고 Windows PowerShell에서 검색하고 Windows PowerShell을 마우스 오른쪽 단추로 클릭한 다음 관리자 권한으로 실행을 선택합니다.
 
@@ -98,7 +98,7 @@ Windows Azure VM을 활성화하려고 할 때 다음 샘플과 유사한 오류
 
    손실이 0(영)보다 큰 경우 VM은 KMS 서버에 연결되어 있지 않습니다. 이 경우에 VM이 가상 네트워크에 있고 사용자 지정 DNS 서버를 지정하면 해당 DNS 서버가 kms.core.windows.net을 확인할 수 있어야 합니다. 또는 DNS 서버가 kms.core.windows.net을 확인할 수 있도록 변경합니다.
 
-   모든 DNS 서버를 가상 네트워크에서 제거하면 VM은 Azure의 내부 DNS 서비스를 사용할 수 있습니다. 이 서비스는 kms.core.windows.net을 확인할 수 있습니다.
+   가상 네트워크에서 모든 DNS 서버를 제거하는 경우 VM은 Azure의 내부 DNS 서비스를 사용합니다. 이 서비스는 kms.core.windows.net을 확인할 수 있습니다.
   
     또한 1688 포트가 있는 KMS 끝점으로의 아웃바운드 네트워크 트래픽이 VM의 방화벽에 의해 차단되지 않았는지 확인합니다.
 

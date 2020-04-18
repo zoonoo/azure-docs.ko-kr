@@ -3,12 +3,12 @@ title: Linux용 게스트 구성 정책을 만드는 방법
 description: Linux용 Azure 정책 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: f93aafc8f2c016218b1b7fea82558ea6ba4b4ff8
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 65e0082f87f05104e9a57ff0342cd3d2950b63e8
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365410"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617932"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Linux용 게스트 구성 정책을 만드는 방법
 
@@ -89,7 +89,7 @@ supports:
     - os-family: unix
 ```
 
-이 파일을 프로젝트 디렉터리에 있는 이름의 `linux-path` 폴더에 저장합니다.
+이 파일을 이름으로 `inspec.yml` 프로젝트 디렉터리에 있는 이름의 `linux-path` 폴더에 저장합니다.
 
 다음으로 컴퓨터를 감사하는 데 사용되는 InSpec 언어 추상화를 사용하여 Ruby 파일을 만듭니다.
 
@@ -99,7 +99,7 @@ describe file('/tmp') do
 end
 ```
 
-이 파일을 디렉터리 내부의 `controls` `linux-path` 새 폴더에 저장합니다.
+이 파일을 디렉터리 `linux-path.rb` `controls` 내부의 새 `linux-path` 폴더에 이름으로 저장합니다.
 
 마지막으로 구성을 만들고 **GuestConfiguration** 리소스 모듈을 가져오고 리소스를 `ChefInSpecResource` 사용하여 InSpec 프로필의 이름을 설정합니다.
 

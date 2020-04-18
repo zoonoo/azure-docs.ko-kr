@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d0ef55f6f5117ffa77052118155afea716125a4
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266443"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639738"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Azure AD 로그를 Azure 모니터 로그와 통합
 
@@ -60,9 +60,13 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 * Azure AD 테넌트의 *글로벌 관리자* 또는 *보안 관리자*인 사용자.
 * Azure 구독의 Log Analytics 작업 영역. [Log Analytics 작업 영역을 만드는 방법](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)을 알아봅니다.
 
+## <a name="licensing-requirements"></a>라이선싱 요구 사항
+
+이 기능을 사용하려면 Azure AD 프리미엄 P1 또는 P2 라이선스가 필요합니다. 요구 사항에 적합한 라이선스를 찾으려면 [Free, Basic 및 Premium 버전의 일반적으로 사용할 수 있는 기능 비교](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
+
 ## <a name="send-logs-to-azure-monitor"></a>Azure 모니터로 로그 보내기
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
 2. **Azure 활성 디렉터리** > **진단 설정** -> **선택 진단 설정 추가**합니다. 또한 **감사 로그** 또는 **로그인 페이지**에서 **설정 내보내기**를 선택하여 진단 설정 구성 페이지로 이동할 수도 있습니다.  
     

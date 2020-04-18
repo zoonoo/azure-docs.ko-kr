@@ -8,12 +8,12 @@ ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 3d5f3ade3ef3b79ddb3996b5bf2d609b11aff8a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0bbffacc0a8c47950b8637e826d1d5db9fbdb234
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255965"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605077"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -516,24 +516,24 @@ Storage 클라이언트 라이브러리에서 생성한 다음 클라이언트 �
 
 | 요청 ID | 작업 텍스트 |
 | --- | --- |
-| 07b26a5d-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer에 대한 동기 요청을 시작하는 중입니다. |
+| 07b26a5d-... |`https://domemaildist.blob.core.windows.net/azuremmblobcontainer`에 대한 동기 요청을 시작하는 중입니다. |
 | 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |응답을 기다리는 중입니다. |
 | 07b26a5d-... |응답을 받았습니다. 상태 코드 = 200, 요청 ID = eeead849-...Content-MD5 = , ETag = &quot;0x8D14D2DC63D059B&quot; |
 | 07b26a5d-... |응답 헤더가 처리되었습니다. 나머지 작업을 진행합니다. |
 | 07b26a5d-... |응답 본문을 다운로드하는 중입니다. |
 | 07b26a5d-... |작업이 완료되었습니다. |
-| 07b26a5d-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer에 대한 동기 요청을 시작하는 중입니다. |
+| 07b26a5d-... |`https://domemaildist.blob.core.windows.net/azuremmblobcontainer`에 대한 동기 요청을 시작하는 중입니다. |
 | 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |응답을 기다리는 중입니다. |
 | 07b26a5d-... |응답을 받았습니다. 상태 코드 = 202, 요청 ID = 6ab2a4cf-..., Content-MD5 = , ETag = . |
 | 07b26a5d-... |응답 헤더가 처리되었습니다. 나머지 작업을 진행합니다. |
 | 07b26a5d-... |응답 본문을 다운로드하는 중입니다. |
 | 07b26a5d-... |작업이 완료되었습니다. |
-| e2d06d78-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer에 대한 비동기 요청을 시작하는 중입니다.</td> |
+| e2d06d78-... |`https://domemaildist.blob.core.windows.net/azuremmblobcontainer`에 대한 비동기 요청을 시작하는 중입니다.</td> |
 | e2d06d78-... |StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |응답을 기다리는 중입니다. |
-| de8b1c3c-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt에 대한 동기 요청을 시작하는 중입니다. |
+| de8b1c3c-... |`https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt`에 대한 동기 요청을 시작하는 중입니다. |
 | de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |요청 데이터 쓰기를 준비하는 중입니다. |
 | e2d06d78-... |응답을 기다리는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (404) 찾을 수 없음. |
@@ -541,7 +541,7 @@ Storage 클라이언트 라이브러리에서 생성한 다음 클라이언트 �
 | e2d06d78-... |응답 헤더가 처리되었습니다. 나머지 작업을 진행합니다. |
 | e2d06d78-... |응답 본문을 다운로드하는 중입니다. |
 | e2d06d78-... |작업이 완료되었습니다. |
-| e2d06d78-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer에 대한 비동기 요청을 시작하는 중입니다. |
+| e2d06d78-... |`https://domemaildist.blob.core.windows.net/azuremmblobcontainer`에 대한 비동기 요청을 시작하는 중입니다. |
 | e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |응답을 기다리는 중입니다. |
 | de8b1c3c-... |요청 데이터를 쓰는 중입니다. |
@@ -562,15 +562,15 @@ Storage 클라이언트 라이브러리에서 생성한 다음 클라이언트 �
 
 아래 표에는 스토리지 로깅 로그 파일의 샘플 서버 쪽 로그 메시지가 나와 있습니다.
 
-| 이름 | 값 |
+| 속성 | 값 |
 | --- | --- |
 | 요청 시작 시간 | 2014-05-30T06:17:48.4473697Z |
 | 작업 유형     | GetBlobProperties            |
 | 요청 상태     | SASAuthorizationError        |
-| HTTP 상태 코드   | 404                          |
+| HTTP 상태 코드   | 404                            |
 | 인증 유형| Sas                          |
 | 서비스 유형       | Blob                         |
-| 요청 URL        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| 요청 URL         | `https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt` |
 | &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | 요청 ID 헤더  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | 클라이언트 요청 ID  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |

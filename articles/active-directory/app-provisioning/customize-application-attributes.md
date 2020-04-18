@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7003899b59e409a785c3a50e89aae6674e377b4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bfee19e9cfd1def71ebad82c2210ffc10146c896
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264090"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639753"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Azure Active Directory에서 SaaS 응용 프로그램에 대한 사용자 프로비저닝 특성 매핑 사용자 지정
 
@@ -143,7 +143,10 @@ SCIM RFC는 핵심 사용자 및 그룹 스키마를 정의하는 동시에 응�
    4. **AppName에 대한 특성 편집을**선택합니다.
    5. 특성 목록 의 맨 아래에 제공된 필드에 사용자 지정 특성에 대한 정보를 입력합니다. 그런 다음 **특성 추가를**선택합니다.
 
-SCIM 응용 프로그램의 경우 특성 이름은 아래 예제에 표시된 패턴을 따라야 합니다. "CustomExtensionName" 및 "CustomAttribute"는 응용 프로그램의 요구 사항에 따라 사용자 지정할 수 있습니다. 사용자 연임부: 2.0: 사용자.사용자 속성 이름:값
+SCIM 응용 프로그램의 경우 특성 이름은 아래 예제에 표시된 패턴을 따라야 합니다. "CustomExtensionName" 및 "CustomAttribute"는 응용 프로그램의 요구 사항에 따라 사용자 지정할 수 있습니다(예:  
+ * urn:ietf:params:scim:schemas:확장:사용자 지정 확장 이름:2.0:사용자:사용자 속성 
+ * 항아리:ietf:params:scim:스키마:확장:2.0:사용자 지정 확장 이름:사용자 지정 속성  
+ * urn:ietf:params:scim:schemas:확장:사용자 지정 확장 이름:2.0:사용자.사용자 속성 이름:값
 
 이 지침은 SCIM 지원 응용 프로그램에만 적용됩니다. ServiceNow 및 Salesforce와 같은 응용 프로그램은 SCIM을 사용하여 Azure AD와 통합되지 않으므로 사용자 지정 특성을 추가할 때 이 특정 네임스페이스가 필요하지 않습니다.
 
@@ -313,7 +316,7 @@ phoneNumbers 및 이메일과 같은 특정 속성은 다양한 유형의 전화
 - 특성 매핑 업데이트는 동기화 주기의 성능에 영향을 줍니다. 특성 매핑 구성의 업데이트는 모든 관리된 개체를 다시 평가해야 합니다.
 - 특성 매핑에 대한 연속적인 변경 횟수를 최소한으로 유지하는 것이 좋습니다.
 - 사진을 동기화할 형식을 지정할 수 없으므로 앱에 프로비전할 사진 속성을 추가하는 것은 현재 지원되지 않습니다. [사용자 음성에서](https://feedback.azure.com/forums/169401-azure-active-directory) 이 기능을 요청할 수 있습니다.
-- IsSoftDeleted 특성은 종종 응용 프로그램에 대 한 기본 매핑의 일부입니다. IsSoftdeleted는 네 가지 시나리오 중 하나에서 true일 수 있습니다 (사용자가 응용 프로그램에서 할당되지 않았기 때문에 범위를 벗어났거나, 사용자가 범위 지정 필터를 충족하지 않아 범위가 벗어났거나, 사용자가 Azure AD에서 일시 삭제되었거나, 속성 AccountEnabled가 false로 설정되어 있습니다. 을). 
+- IsSoftDeleted 특성은 종종 응용 프로그램에 대 한 기본 매핑의 일부입니다. IsSoftdeleted는 네 가지 시나리오 중 하나에서 true일 수 있습니다 (사용자가 응용 프로그램에서 할당되지 않았기 때문에 범위를 벗어났거나, 사용자가 범위 지정 필터를 충족하지 않아 범위가 벗어났거나, 사용자가 Azure AD에서 일시 삭제되었거나, 속성 AccountEnabled가 사용자에 대해 false로 설정됨). 
 - Azure AD 프로비저닝 서비스는 null 값 프로비전을 지원하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계

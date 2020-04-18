@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2ddfa9611143d5c3f823539e018c8afc885c6a46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1f5ff48f4d5a658a1bbb4e6b9fb4b3f0f3fb190f
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77083219"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81602686"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Layer 2 확장 네트워크로 워크로드 마이그레이션
 
@@ -57,8 +57,8 @@ L2 VPN을 사용한 마이그레이션에 대한 자세한 내용은 VMware 설�
 
 | v스피어 버전 | 소스 vSwitch 유형 | 가상 NIC 드라이버 | 대상 vSwitch 유형 | 지원 여부 |
 ------------ | ------------- | ------------ | ------------- | ------------- 
-| 모두 | Dvs | 모두 | Dvs | yes |
-| vSphere 6.7UI 이상, 6.5P03 이상 | Dvs | VMXNET3 | N-VDS | yes |
+| 모두 | Dvs | 모두 | Dvs | 예 |
+| vSphere 6.7UI 이상, 6.5P03 이상 | Dvs | VMXNET3 | N-VDS | 예 |
 | vSphere 6.7UI 이상, 6.5P03 이상 | Dvs | E1000 | N-VDS | [VWware당 지원되지 않음](https://kb.vmware.com/s/article/56991) |
 | vSphere 6.7UI 또는 6.5P03, NSX-V 또는 NSX-T2.2 이하 버전, 6.5P03 이상 | 모두 | 모두 | N-VDS | [VWware당 지원되지 않음](https://kb.vmware.com/s/article/56991) |
 
@@ -108,7 +108,7 @@ VMware NSX-T 2.3 릴리스 현재:
 
 다음 단계는 IPsec 및 L2VPN 서비스에 대한 Tier0 DR 논리 라우터 인스턴스의 논리 라우터 ID를 가져오는 방법을 보여 주며, 이 단계는 다음과 같은 것입니다. L2VPN을 구현할 때 나중에 논리 라우터 ID가 필요합니다.
 
-1. NSX-T 관리자 https://*nsx-t-관리자 ip-주소에* 로그인하고 **네트워킹** > **라우터** > **공급자-LR** > **개요를 선택합니다.** **고가용성 모드의**경우 **활성 대기 를 선택합니다.** 이 작업은 Tier0 라우터가 현재 활성 상태인 Edge VM을 보여 주는 팝업 창을 엽니다.
+1. NSX-T `https://*nsx-t-manager-ip-address*` 관리자에 로그인하고 **네트워킹** > **라우터** > **공급자-LR** > **개요를**선택합니다. **고가용성 모드의**경우 **활성 대기 를 선택합니다.** 이 작업은 Tier0 라우터가 현재 활성 상태인 Edge VM을 보여 주는 팝업 창을 엽니다.
 
     ![활성 대기 선택](media/l2vpn-fetch01.png)
 
@@ -180,7 +180,7 @@ L2VPN에 사용되는 루프백 및 터널 인터페이스에 대해 선택된 I
 ```
 Loopback interface ip : 192.168.254.254/32
 Tunnel interface subnet : 5.5.5.0/29
-Logical-router ID : UUID of Tier0 DR logical router obtained in section “Steps to fetch Logical-Router ID needed for L2VPN”
+Logical-router ID : UUID of Tier0 DR logical router obtained in section "Steps to fetch Logical-Router ID needed for L2VPN"
 Logical-switch ID(Stretch) : UUID of Stretch Logical Switch obtained earlier
 IPSec Service ID :
 IKE profile ID :
@@ -356,7 +356,7 @@ POST : https://192.168.110.201/api/v1/vpn/l2vpn/services
 
 다음 POST 명령의 경우 L2VPN 서비스 ID는 방금 획득한 ID이며 IPsec VPN 세션 ID는 이전 섹션에서 얻은 ID입니다.
 
-``` 
+```    
 POST: https://192.168.110.201/api/v1/vpn/l2vpn/sessions
 
 {

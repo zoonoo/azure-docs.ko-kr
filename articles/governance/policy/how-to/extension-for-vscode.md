@@ -3,12 +3,12 @@ title: 비주얼 스튜디오 코드에 대 한 Azure 정책 확장
 description: Visual Studio 코드에 Azure 정책 확장을 사용하여 리소스 관리자 별칭을 찾는 방법을 알아봅니다.
 ms.date: 03/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 0e9123f2975bda0d61e9d6e9bf894ecd359e6c5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e31af652f2746adbf0eda386bdb178c752f5f84
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264675"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641014"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>시각적 스튜디오 코드에 Azure 정책 확장 사용
 
@@ -26,7 +26,7 @@ Visual Studio 코드에 대한 Azure 정책 확장은 Visual Studio 코드에서
 이 문서의 단계를 완료하려면 다음 항목이 필요합니다.
 
 - Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-- [비주얼 스튜디오 코드](https://code.visualstudio.com).
+- [Visual Studio Code](https://code.visualstudio.com)
 
 ## <a name="install-azure-policy-extension"></a>Azure 정책 확장 설치
 
@@ -121,7 +121,7 @@ Azure 정책 확장은 리소스 공급자및 **리소스** 창의 리소스 그
 
 ## <a name="discover-aliases-for-resource-properties"></a>리소스 속성에 대한 별칭 검색
 
-리소스를 선택 하면 검색 인터페이스를 통해 또는 treeview에서 선택 하 여 Azure Policy 확장자는 해당 리소스 및 리소스 관리자 속성 값을 나타내는 JSON 파일을 엽니다.
+리소스를 선택 하면 검색 인터페이스를 통해 또는 treeview에서 선택 하 여 Azure Policy 확장자는 해당 리소스 및 모든 리소스 관리자 속성 값을 나타내는 JSON 파일을 엽니다.
 
 리소스가 열리면 Resource Manager 속성 이름 또는 값 위로 마우스를 가져가면 Azure Policy 별칭이 있는 경우 표시됩니다. 이 예제에서는 리소스가 `Microsoft.Compute/virtualMachines` 리소스 유형이며 **property.storageProfile.imageReference.offer** 속성이 위에 마우스를 가져갑니다. 호버링에는 일치하는 별칭이 표시됩니다.
 
@@ -157,7 +157,7 @@ Azure 정책 확장은 정책 창에 표시하도록 선택한 구독에 대한 
 
 - Azure 정책 [샘플의 예제를 검토합니다.](../samples/index.md)
 - [Azure Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
-- [정책 효과 이해 검토](../concepts/effects.md).
+- [정책 효과 이해](../concepts/effects.md)를 검토합니다.
 - [프로그래밍 방식으로 정책을 만드는](programmatically-create.md)방법을 이해합니다.
 - [비준수 리소스를 수정하는](remediate-resources.md)방법에 대해 알아봅니다.
 - 관리 그룹이 Azure 관리 그룹으로 리소스 구성을 통해 어떤 내용인지 [검토합니다.](../../management-groups/overview.md)

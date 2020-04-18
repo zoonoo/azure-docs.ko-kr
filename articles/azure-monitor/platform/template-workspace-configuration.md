@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 60f85a30815bc1bace409b50af6332bb6622d7ca
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 81e46f53c0afc69c927918daa0488c4835d60805
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477991"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605012"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿을 사용하여 로그 분석 작업 영역 관리
 
@@ -42,7 +42,7 @@ ms.locfileid: "80477991"
 | 작업 영역   | workspaces    | 2017-03-15-preview |
 | 검색      | savedSearches | 2015-03-20 |
 | 데이터 원본 | datasources   | 2015-11-01-preview |
-| 해결 방법    | solutions     | 2015-11-01-preview |
+| 솔루션    | solutions     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
 
@@ -153,7 +153,7 @@ ms.locfileid: "80477991"
    >* "이름": "용량 예약",
    >* "용량 예약 수준": 100
 
-2. 요구 사항을 충족하도록 템플릿을 편집합니다. 매개 [변수를](../../azure-resource-manager/templates/parameter-files.md) 인라인 값으로 전달하는 대신 Resource Manager 매개 변수 파일을 만드는 것이 좋습니다. 지원되는 속성 및 값은 [Microsoft.OperationalInsights/workspaces 템플릿](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) 참조를 검토하세요. 
+2. 요구 사항을 충족하도록 템플릿을 편집합니다. 매개 [변수를](../../azure-resource-manager/templates/parameter-files.md) 인라인 값으로 전달하는 대신 Resource Manager 매개 변수 파일을 만드는 것이 좋습니다. 지원되는 속성 및 값은 [Microsoft.OperationalInsights/workspaces 템플릿](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) 참조를 검토하세요. 
 
 3. 이 파일을 로컬 폴더에 **deploylaworkspacetemplate.json**으로 저장합니다.
 

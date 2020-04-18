@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 471b26ebc4bd4aecb814ec43c7eba56e3d764fa0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 16f9080487af95e7de5c5f8c91fd5c8d356b7bde
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78402481"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81618070"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Azure 기계 학습에 CLI 확장 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,11 +35,30 @@ CLI는 Azure Machine Learning SDK를 대체하는 것이 아닙니다. 자동화
 
 * CLI를 사용하려면 Azure 구독이 있어야 합니다. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+* **로컬 환경에서**이 문서에서 CLI 명령을 사용하려면 Azure [CLI가](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)필요합니다.
+
+    Azure 클라우드 [셸을](https://azure.microsoft.com//features/cloud-shell/)사용하는 경우 CLI는 브라우저를 통해 액세스되고 클라우드에 있습니다.
 
 ## <a name="full-reference-docs"></a>전체 참조 문서
 
 Azure [CLI의 azure-cli-ml 확장에 대한 전체 참조 문서를](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/?view=azure-cli-latest)찾습니다.
+
+## <a name="connect-the-cli-to-your-azure-subscription"></a>Azure 구독에 CLI 연결
+
+> [!IMPORTANT]
+> Azure 클라우드 셸을 사용하는 경우 이 섹션을 건너뛸 수 있습니다. 클라우드 셸은 Azure 구독에 로그인한 계정을 사용하여 자동으로 인증합니다.
+
+CLI에서 Azure 구독을 인증할 수 있는 방법에는 여러 가지가 있습니다. 가장 기본적인 방법은 브라우저를 사용하여 대화형으로 인증하는 것입니다. 대화식으로 인증하려면 명령줄 또는 터미널을 열고 다음 명령을 사용합니다.
+
+```azurecli-interactive
+az login
+```
+
+CLI가 기본 브라우저를 열 수 있는 경우, 그렇게 하고 로그인 페이지를 로드합니다. 그렇지 않으면 브라우저를 열고 명령줄의 지침을 따라야 합니다. 지침에는 권한 [https://aka.ms/devicelogin](https://aka.ms/devicelogin) 부여 코드를 검색하고 입력하는 것이 포함됩니다.
+
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+
+다른 인증 방법에 대한 경우 [Azure CLI를 사용 하 여 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)을 참조 하십시오.
 
 ## <a name="install-the-extension"></a>확장 설치
 
@@ -87,7 +106,7 @@ az extension remove -n azure-cli-ml
     az group create -n myresourcegroup -l westus2
     ```
 
-+ Azure Machine Learning 작업 영역 만들기:
++ Azure 기계 학습 작업 영역 만들기:
 
     ```azurecli-interactive
     az ml workspace create -w myworkspace -g myresourcegroup

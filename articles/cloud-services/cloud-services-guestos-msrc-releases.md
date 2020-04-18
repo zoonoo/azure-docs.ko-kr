@@ -10,17 +10,55 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/3/2020
+ms.date: 04/17/2020
 ms.author: raiye
-ms.openlocfilehash: 758f0e3198ef83635ead3f9bd8565cd64f9d413c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: a271eca3c3b6e7cd364f2bc87f2e15006874fa08
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656346"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617693"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
+
+## <a name="april-2020-guest-os"></a>2020년 4월 게스트 OS
+
+>[!NOTE]
+>4월 게스트 OS는 현재 자동 업데이트를 위해 구성된 클라우드 서비스 VM에 롤아웃되고 있습니다. 롤아웃이 완료되면 이 버전은 Azure Portal 및 구성 파일을 통해 수동으로 업데이트할 수 있습니다. 다음 패치는 4월 게스트 OS에 포함되어 있습니다. 이 목록은 변경될 수 있습니다.
+
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+|  렐 20-04  |  [4550965]  |  Windows 보안  | 2.97 | 2020년 4월 14일 |
+|  렐 20-04  |  [4550905]  |  Internet Explorer  | 2.97, 3.84, 4.77 | 2020년 4월 14일 |
+|  렐 20-04  |  [4550971]  |  Windows 보안  | 3.84 | 2020년 4월 14일 |
+|  렐 20-04  |  [4550970]  |  Windows 보안  | 4.77 | 2020년 4월 14일 |
+|  렐 20-04  |  [4550929]  |  최신 누적 업데이트(LCU)  | 5.42 | 2020년 4월 14일 |
+|  렐 20-04  |  [4549949]  |  최신 누적 업데이트(LCU)  | 6.18 | 2020년 4월 14일 |
+|  렐 20-04  |  [4540688]  |  월간 롤업  | 2.97 | 2020년 3월 10일 |
+|  렐 20-04  |  [4550735]  |  서비스 스택 업데이트  | 2.97 | 2020년 3월 10일 |
+|  렐 20-04  |  [4540726]  |  서비스 스택 업데이트  | 3.84 | 2020년 3월 10일 |
+|  렐 20-04  |  [4541510]  |  월간 롤업  | 3.84 | 2020년 3월 10일 |
+|  렐 20-04  |  [4541509]  |  월간 롤업  | 4.77 | 2020년 3월 10일 |
+|  렐 20-04  |  [4540725]  |  서비스 스택 업데이트  | 4.77 | 2020년 3월 10일 |
+|  렐 20-04  |  [4540723]  |  서비스 스택 업데이트  | 5.42 | 2020년 3월 10일 |
+|  렐 20-04  |  [4539571]  |  서비스 스택 업데이트  | 6.18 | 2020년 3월 10일 |
+
+[4550965]: https://support.microsoft.com/kb/4550965
+[4550905]: https://support.microsoft.com/kb/4550905
+[4550971]: https://support.microsoft.com/kb/4550971
+[4550970]: https://support.microsoft.com/kb/4550970
+[4550929]: https://support.microsoft.com/kb/4550929
+[4549949]: https://support.microsoft.com/kb/4549949
+[4540688]: https://support.microsoft.com/kb/4540688
+[4550735]: https://support.microsoft.com/kb/4550735
+[4540726]: https://support.microsoft.com/kb/4540726
+[4541510]: https://support.microsoft.com/kb/4541510
+[4541509]: https://support.microsoft.com/kb/4541509
+[4540725]: https://support.microsoft.com/kb/4540725
+[4540723]: https://support.microsoft.com/kb/4540723
+[4539571]: https://support.microsoft.com/kb/4539571
+
 
 ## <a name="march-2020-guest-os"></a>2020년 3월 게스트 OS
 

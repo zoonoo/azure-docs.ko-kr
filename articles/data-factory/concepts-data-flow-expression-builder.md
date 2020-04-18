@@ -7,16 +7,16 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: c28305cc55fcc561863670a15480782ce63e75b4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: dda2812b5e2cc79d53658d568ba0845d593f41d6
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415510"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605370"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>매핑 데이터 흐름에서 표현식 빌드
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 데이터 흐름을 매핑할 때 많은 변환 속성이 식으로 입력됩니다. 이러한 식은 런타임에 스파크 데이터 유형으로 평가하는 열 값, 매개 변수, 함수, 연산자 및 리터럴로 구성됩니다.
 

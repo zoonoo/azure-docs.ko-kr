@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/28/2020
-ms.openlocfilehash: 39d1f15b771168b618bfbc4951f2036a8b95b027
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8420cba043e7fc9285b473b877f0ff10212e9fda
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418459"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605325"
 ---
 # <a name="what-are-mapping-data-flows"></a>데이터 흐름 매핑이란?
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 데이터 흐름 매핑은 Azure 데이터 팩터리에서 시각적으로 설계된 데이터 변환입니다. 데이터 흐름을 통해 데이터 엔지니어는 코드를 작성하지 않고도 그래픽 데이터 변환 논리를 개발할 수 있습니다. 결과 데이터 흐름은 확장된 아파치 스파크 클러스터를 사용하는 Azure Data Factory 파이프라인 내의 활동으로 실행됩니다. 데이터 흐름 활동은 기존 데이터 팩터리 스케줄링, 제어, 흐름 및 모니터링 기능을 통해 참여할 수 있습니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "81418459"
 
 ![Canvas](media/data-flow/canvas1.png "Canvas")
 
-### <a name="graph"></a>그래프
+### <a name="graph"></a>Graph
 
 그래프에 변환 스트림이 표시됩니다. 하나 이상의 싱크로 흐르는 원본 데이터의 계보를 보여 주며, 원본 데이터의 계보를 표시합니다. 새 소스를 추가하려면 **소스 추가를**선택합니다. 새 변환을 추가하려면 기존 변환의 오른쪽 하단에 있는 더하기 기호를 선택합니다.
 

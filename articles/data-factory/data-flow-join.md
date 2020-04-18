@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/02/2020
-ms.openlocfilehash: 0c0e35f7f06afd0cafa4a1e353b7eda84ed226f2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5c388dd2b3e4f40fbf2ed75cf3f1b8ab31aee394
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81413658"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606416"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 변환 조인
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 조인 변환을 사용하여 매핑 데이터 흐름에서 두 소스 또는 스트림의 데이터를 결합합니다. 출력 스트림에는 조인 조건에 따라 일치하는 두 소스의 모든 열이 포함됩니다. 
 

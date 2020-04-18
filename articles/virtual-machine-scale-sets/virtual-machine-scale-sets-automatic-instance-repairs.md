@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: avverma
-ms.openlocfilehash: 8e73ef75b3313656b45d29270d9996c3ad17c630
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 8156c563573183e51e06650914117f8787922e93
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538072"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81603671"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Azure 가상 시스템 규모 집합에 대한 자동 인스턴스 복구
 
@@ -90,6 +90,8 @@ Azure 가상 시스템 크기 집합에 대한 자동 인스턴스 복구를 사
 ## <a name="enabling-automatic-repairs-policy-when-creating-a-new-scale-set"></a>새 축척 세트를 만들 때 자동 복구 정책 사용
 
 새 축척 집합을 만드는 동안 자동 수리 정책을 사용하도록 설정하려면 이 기능에 옵트인하기 위한 모든 [요구 사항이](#requirements-for-using-automatic-instance-repairs) 충족되었는지 확인합니다. 끝점이 구성되는 동안 의도하지 않은 복구가 트리거되지 않도록 확장 집합 인스턴스에 대해 응용 프로그램 끝점을 올바르게 구성해야 합니다. 새로 생성된 축척 집합의 경우 모든 인스턴스 복구는 유예 기간 동안 기다린 후에만 수행됩니다. 축척 집합에서 자동 인스턴스 복구를 사용하려면 가상 시스템 축척 집합 모델에서 *자동수리정책* 개체를 사용합니다.
+
+또한 이 [빠른 시작 템플릿을](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-automatic-repairs-slb-health-probe) 사용하여 로드 밸러저 상태 프로브와 30분의 유예 기간을 사용하도록 설정된 자동 인스턴스 복구가 있는 가상 시스템 스케일 집합을 배포할 수도 있습니다.
 
 ### <a name="azure-portal"></a>Azure portal
  

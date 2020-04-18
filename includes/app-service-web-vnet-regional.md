@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 04/15/2020
 ms.author: ccompy
-ms.openlocfilehash: 7f2b011b2de5af0e4ace9cbeb4399911d8e83b7f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: f7208307df51ecefb76f9adaedea59b327cdc19e
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312847"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604864"
 ---
 지역 별 VNet 통합을 사용하면 앱에서 다음에 액세스할 수 있습니다.
 
@@ -19,7 +19,7 @@ ms.locfileid: "81312847"
 * Azure ExpressRoute 연결의 리소스입니다.
 * 통합된 VNet의 리소스입니다.
 * Azure ExpressRoute 연결을 포함하는 피어리 연결의 리소스입니다.
-* 개인 끝점 - 참고: Azure DNS 개인 영역을 사용하는 대신 DNS를 별도로 관리해야 합니다.
+* 프라이빗 엔드포인트 
 
 동일한 리전에서 VNet 통합을 사용하는 경우 다음 Azure 네트워킹 기능을 사용할 수 있습니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "81312847"
 * 앱과 동일한 구독에서만 VNet과 통합할 수 있습니다.
 * 앱 서비스 계획당 하나의 지역 VNet 통합만 가질 수 있습니다. 동일한 앱 서비스 계획의 여러 앱이 동일한 VNet을 사용할 수 있습니다.
 * 지역 VNet 통합을 사용하는 앱이 있는 동안에는 앱 또는 요금제의 구독을 변경할 수 없습니다.
-* 앱에서 Azure DNS 개인 영역에서 주소를 확인할 수 없습니다.
+* 앱은 구성 변경 없이 Azure DNS 개인 영역에서 주소를 확인할 수 없습니다.
 
 각 계획 인스턴스에 하나의 주소가 사용됩니다. 앱을 인스턴스 5개로 확장하면 5개의 주소가 사용됩니다. 할당 후 서브넷 크기를 변경할 수 없으므로 앱이 도달할 수 있는 규모를 수용할 수 있을 만큼 충분히 큰 서브넷을 사용해야 합니다. 주소가 64인 /26이 권장 크기입니다. 주소가 64인 /26은 30개의 인스턴스가 있는 프리미엄 요금제에 수용됩니다. 계획을 확장하거나 축소할 때 짧은 기간 동안 주소의 두 배가 필요합니다.
 
@@ -83,9 +83,22 @@ ms.locfileid: "81312847"
 
 BGP(테두리 게이트웨이 프로토콜) 경로도 앱 트래픽에 영향을 줍니다. ExpressRoute 게이트웨이와 같은 BGP 경로가 있는 경우 앱 아웃바운드 트래픽이 영향을 받습니다. 기본적으로 BGP 경로는 RFC1918 대상 트래픽에만 영향을 줍니다. WEBSITE_VNET_ROUTE_ALL 1로 설정된 경우 모든 아웃바운드 트래픽은 BGP 경로의 영향을 받을 수 있습니다.
 
+### <a name="azure-dns-private-zones"></a>Azure DNS 전용 영역 
+
+앱이 VNet과 통합되면 VNet이 구성된 것과 동일한 DNS 서버를 사용합니다. 기본적으로 앱은 Azure DNS 개인 영역에서 작동하지 않습니다. Azure DNS 개인 영역으로 작업하려면 다음 앱 설정을 추가해야 합니다.
+
+1. WEBSITE_DNS_SERVER 값이 168.63.129.16 
+1. 값이 1인 WEBSITE_VNET_ROUTE_ALL
+
+이러한 설정은 앱에서 Azure DNS 전용 영역을 사용할 수 있도록 하는 것 외에도 앱에서 모든 아웃바운드 호출을 VNet으로 보냅니다.
+
+### <a name="private-endpoints"></a>프라이빗 엔드포인트
+
+[개인 끝점을][privateendpoints]호출하려면 Azure DNS 개인 영역과 통합하거나 앱에서 사용하는 DNS 서버에서 개인 끝점을 관리해야 합니다. 
 
 <!--Image references-->
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png
 
 <!--Links-->
 [VNETnsg]: https://docs.microsoft.com/azure/virtual-network/security-overview/
+[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint

@@ -4,12 +4,12 @@ description: AZURE Kubernetes 서비스(AKS)의 API 서버에 액세스하기 �
 services: container-service
 ms.topic: article
 ms.date: 11/05/2019
-ms.openlocfilehash: 593f9e0b335e6f4d62c76ce92f833ff4e9143372
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 570d842409fc019d24446e091f83402f4c288d7c
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79126627"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640045"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스(AKS)에서 승인된 IP 주소 범위를 사용하여 API 서버에 대한 보안 액세스
 
@@ -20,7 +20,7 @@ Kubernetes에서 API 서버는 리소스를 만들거나 노드 수를 확장하
 > [!IMPORTANT]
 > 새 클러스터에서 API 서버 권한 IP 주소 범위는 *표준* SKU 로드 밸런서에서만 지원됩니다. *기본* SKU 로드 밸런서 및 구성된 API 서버 공인 IP 주소 범위가 있는 기존 클러스터는 현재와 같이 작동하지만 *표준* SKU 로드 밸런서로 마이그레이션할 수 없습니다. Kubernetes 버전 또는 제어 평면을 업그레이드하는 경우에도 기존 클러스터가 계속 작동합니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 API 서버 권한 IP 범위는 생성한 새 AKS 클러스터에 대해서만 작동합니다. 이 문서에서는 Azure CLI를 사용하여 AKS 클러스터를 만드는 방법을 보여 주며, 이 문서에서는
 
@@ -39,7 +39,7 @@ API 서버 및 기타 클러스터 구성 요소에 대한 자세한 내용은 [
 API 서버 권한 IP 범위는 새 AKS 클러스터에 대해서만 작동합니다. [az aks를][az-aks-create] 사용하여 클러스터를 만들고 *--api-server-권한 IP-ranges* 매개 변수를 지정하여 승인된 IP 주소 범위 목록을 제공합니다. 이러한 IP 주소 범위는 일반적으로 온-프레미스 네트워크 또는 공용 IP에서 사용하는 주소 범위입니다. CIDR 범위를 지정할 때 범위의 첫 번째 IP 주소로 시작합니다. 예를 들어 *137.117.106.90/29는* 유효한 범위이지만 *137.117.106.88/29와*같이 범위의 첫 번째 IP 주소를 지정해야 합니다.
 
 > [!IMPORTANT]
-> 기본적으로 클러스터는 아웃바운드 게이트웨이를 구성하는 데 사용할 수 있는 [표준 SKU 로드 밸런서를][standard-sku-lb] 사용합니다. 클러스터 를 만드는 동안 API 서버 권한 있는 IP 범위를 사용하도록 설정하면 클러스터에 대한 공용 IP도 지정한 범위 외에 기본적으로 허용됩니다. *--api-server-권한 IP 범위에*대해 *""* 또는 값을 지정하지 않으면 API 서버 권한 있는 IP 범위가 비활성화됩니다.
+> 기본적으로 클러스터는 아웃바운드 게이트웨이를 구성하는 데 사용할 수 있는 [표준 SKU 로드 밸런서를][standard-sku-lb] 사용합니다. 클러스터 를 만드는 동안 API 서버 권한 있는 IP 범위를 사용하도록 설정하면 클러스터에 대한 공용 IP도 지정한 범위 외에 기본적으로 허용됩니다. *--api-server-권한 IP 범위에*대해 *""* 또는 값을 지정하지 않으면 API 서버 권한 있는 IP 범위가 비활성화됩니다. PowerShell을 사용하는 경우 구문 분석 문제를 피하기 위해 *--api-server-권한 IP-ranges="(와* 같음 기호)를 사용합니다.
 
 다음 예제에서는 API 서버 권한 있는 IP 범위를 사용하도록 설정한 *myResourceGroup이라는* 리소스 그룹에 *myAKSCluster라는* 단일 노드 클러스터를 만듭니다. 허용되는 IP 주소 범위는 *73.140.245.0/24입니다.*
 
@@ -64,7 +64,7 @@ az aks create \
 
 ### <a name="specify-the-outbound-ips-for-the-standard-sku-load-balancer"></a>표준 SKU 로드 밸러블러의 아웃바운드 IP 지정
 
-AKS 클러스터를 만들 때 클러스터의 아웃바운드 IP 주소 또는 접두사를 지정하면 해당 주소 또는 접두사도 허용됩니다. 예를 들어:
+AKS 클러스터를 만들 때 클러스터의 아웃바운드 IP 주소 또는 접두사를 지정하면 해당 주소 또는 접두사도 허용됩니다. 다음은 그 예입니다.
 
 ```azurecli-interactive
 az aks create \
@@ -116,7 +116,7 @@ az aks update \
 
 ## <a name="disable-authorized-ip-ranges"></a>승인된 IP 범위 사용 안 함
 
-승인된 IP 범위를 비활성화하려면 [az aks 업데이트를][az-aks-update] 사용하고 빈 범위를 지정하여 API 서버 권한 있는 IP 범위를 비활성화합니다. 예를 들어:
+승인된 IP 범위를 비활성화하려면 [az aks 업데이트를][az-aks-update] 사용하고 빈 범위를 지정하여 API 서버 권한 있는 IP 범위를 비활성화합니다. 다음은 그 예입니다.
 
 ```azurecli-interactive
 az aks update \

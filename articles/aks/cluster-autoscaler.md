@@ -4,12 +4,12 @@ description: 클러스터 자동 크기 조정기를 사용하여 AKS(Azure Kube
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 0b94865d81afc56c24d470012c668662f003a1b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2baa64779713d0bac063e1d2c06107ba2ab291fb
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596252"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617543"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞게 자동으로 클러스터 크기 조정
 
@@ -17,9 +17,9 @@ AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞추려면 �
 
 이 문서에서는 AKS 클러스터에서 클러스터 자동 크기 조정기를 사용하도록 설정하고 관리하는 방법을 보여 줍니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
-이 문서에서는 Azure CLI 버전 2.0.76 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하십시오.
+이 문서에서는 Azure CLI 버전 2.0.76 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -107,7 +107,7 @@ az aks update \
 
 클러스터 전체 자동 크기 조정기 프로필의 기본값을 변경하여 클러스터 자동 크기 조정기의 세부 정보를 구성할 수도 있습니다. 예를 들어, 노드가 10분 후에 사용률이 낮은 후에 축소 이벤트가 발생합니다. 15분마다 실행되는 워크로드가 있는 경우 15분 또는 20분 후에 사용 중인 노드에서 축소되도록 자동 크기 조정기 프로필을 변경할 수 있습니다. 클러스터 자동 크기 조정기활성화를 사용하면 다른 설정을 지정하지 않는 한 기본 프로필이 사용됩니다. 클러스터 자동 크기 조정기 프로필에는 업데이트할 수 있는 다음 설정이 있습니다.
 
-| 설정                          | 설명                                                                              | 기본값 |
+| 설정                          | Description                                                                              | 기본값 |
 |----------------------------------|------------------------------------------------------------------------------------------|---------------|
 | 스캔 간격                    | 확장 또는 축소를 위해 클러스터를 재평가하는 빈도                                    | 10초    |
 | 축소 지연 후 추가       | 확장 후 확장 평가 재개 시간                               | 10분    |
@@ -117,6 +117,7 @@ az aks update \
 | 확장 축소 준비 시간          | 확장할 수 있는 노드를 사용할 수 있는 기간 전에 준비되지 않은 노드가 필요하지 않아야 하는 기간         | 20분    |
 | 축소-사용률 임계값 | 요청된 리소스의 합계를 용량으로 나눈 노드 사용률 수준, 아래 노드를 축소할 때 고려할 수 있는 노드 | 0.5 |
 | 최대 우아하게 종료-초     | 클러스터 자동 크기 조정기는 노드를 축소하려고 할 때 포드 종료를 기다립니다. | 600초   |
+| 잔액 유사 노드 그룹 | 유사한 노드 풀을 감지하고 노드 수 의 균형을 조정합니다. | false |
 
 > [!IMPORTANT]
 > 클러스터 자동 크기 조정기 프로필은 클러스터 자동 크기 조정기를 사용하는 모든 노드 풀에 영향을 줍니다. 노드 풀당 자동 스케일러 프로파일을 설정할 수 없습니다.
@@ -144,7 +145,7 @@ az aks update \
   --cluster-autoscaler-profile scan-interval=30s
 ```
 
-클러스터의 노드 풀에서 클러스터 자동 크기 조정기기능을 활성화하면 해당 클러스터도 클러스터 자동 크기 조정기 프로파일을 사용합니다. 예를 들어:
+클러스터의 노드 풀에서 클러스터 자동 크기 조정기기능을 활성화하면 해당 클러스터도 클러스터 자동 크기 조정기 프로파일을 사용합니다. 다음은 그 예입니다.
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -161,7 +162,7 @@ az aks nodepool update \
 
 ### <a name="set-the-cluster-autoscaler-profile-when-creating-an-aks-cluster"></a>AKS 클러스터를 만들 때 클러스터 자동 크기 조정기 프로파일 설정
 
-클러스터를 만들 때 *클러스터 자동 크기 조정기 프로필* 매개 변수를 사용할 수도 있습니다. 예를 들어:
+클러스터를 만들 때 *클러스터 자동 크기 조정기 프로필* 매개 변수를 사용할 수도 있습니다. 다음은 그 예입니다.
 
 ```azurecli-interactive
 az aks create \

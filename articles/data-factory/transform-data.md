@@ -10,16 +10,14 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 024d61c5bcc38c78dc5a2bd5e01cba43d7b5267e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: fdb10894ab9d1c6b805b8b43c90e54126d67b8dd
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418833"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606621"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory의 데이터 변환
-
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 > [!div class="op_single_selector"]
 > * [데이터 흐름 매핑](data-flow-create.md)
@@ -35,7 +33,9 @@ ms.locfileid: "81418833"
 > * [Databricks Jar](transform-data-databricks-jar.md)
 > * [Databricks Python](transform-data-databricks-python.md)
 > * [.NET 사용자 지정](transform-data-using-dotnet-custom-activity.md)
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 ## <a name="overview"></a>개요
 이 문서에서는 원시 데이터를 대규모 예측 및 통찰력으로 변환하고 처리하는 데 사용할 수 있는 Azure Data Factory의 데이터 변환 활동에 대해 설명합니다. 변환 활동은 Azure Databricks 또는 Azure HDInsight와 같은 컴퓨팅 환경에서 실행됩니다. 각 변환 작업에 대한 자세한 정보가 있는 문서에 대한 링크를 제공합니다.
 

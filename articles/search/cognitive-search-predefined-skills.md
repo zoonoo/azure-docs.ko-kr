@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9e1f62dcdb122726fc1c08b7bea4e4c214ce7906
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1cf1750924ab8ea8afff6ac788683565433866b
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76933377"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81618016"
 ---
 # <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>인덱싱 중 텍스트 및 이미지 처리를 위한 기본 제공 인지 기술(Azure Cognitive Search)
 
@@ -23,13 +23,15 @@ ms.locfileid: "76933377"
 > 처리 빈도를 늘리거나, 문서를 더 추가하거나, AI 알고리즘을 추가하여 범위를 확장하려면 [청구 가능한 인지 서비스 리소스를 연결해야](cognitive-search-attach-cognitive-services.md)합니다. Cognitive Services에서 API를 호출하는 경우와 Azure Cognitiv Search에서 문서 크래킹 단계의 일부로 이미지를 추출하는 경우에는 요금이 부과됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
 >
 > 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정은 [Azure Cognitiv Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다.
+>
+> [증분 보강(미리 보기)](cognitive-search-incremental-indexing-conceptual.md) 기능을 사용하면 인덱서가 나중에 기술 집합을 수정하는 데 필요한 인지 기술만 실행할 때 보다 효율적으로 실행할 수 있는 캐시를 제공하여 시간과 비용을 절약할 수 있습니다.
 
 
 ## <a name="built-in-skills"></a>기본 제공 기술
 
 여러 기술은 사용하거나 생성하는 대상에 유연성이 있습니다. 일반적으로 대부분의 기술은 미리 학습된 모델을 기반으로 하므로 고유한 학습 데이터를 사용하여 모델을 학습할 수 없습니다. 다음 표에서는 Microsoft에서 제공하는 기술을 열거하고 설명합니다. 
 
-| 기술 | 설명 |
+| 기술 | Description |
 |-------|-------------|
 |[마이크로소프트.스킬.텍스트.커스텀엔티룩업스킬](cognitive-search-skill-custom-entity-lookup.md)| 사용자 정의 단어 및 구 목록에서 텍스트를 찾습니다.|
 | [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md) | 이 기술은 미리 학습된 모델을 통해 용어 배치, 언어 규칙, 다른 용어에 대한 근접성 및 원본 데이터 내에서 용어가 비정상적인 정도에 따라 중요한 문구를 검색합니다. |
@@ -50,7 +52,7 @@ ms.locfileid: "76933377"
 
 [사용자 지정 기술](cognitive-search-custom-skill-web-api.md)만들기에 대한 지침은 사용자 지정 [인터페이스를 정의하는 방법](cognitive-search-custom-skill-interface.md) 및 [예제: AI 보강을 위한 사용자 지정 기술 만들기를](cognitive-search-create-custom-skill-example.md)참조하십시오.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [사용자 지정 기술 인터페이스 정의](cognitive-search-custom-skill-interface.md)

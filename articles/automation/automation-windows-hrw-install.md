@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2bd9b4f46e28a28f99045319d8ac606cdcee7216
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 53dfe07ebd4925c96290db140b6e613c38eef564
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536788"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617345"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker 배포
 
@@ -69,16 +69,16 @@ DSC관리를 위한 온보딩 서버에 대한 자세한 내용은 [Azure 자동
 
 [PowerShell 갤러리에서](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker) **새 온프레미스하이브리드워커.ps1** 스크립트를 다운로드하십시오. 다운로드는 하이브리드 Runbook 작업자 역할을 실행하는 컴퓨터 또는 사용자 환경의 다른 컴퓨터에서 직접 다운로드해야 합니다. 스크립트를 다운로드한 경우 작업자에게 복사합니다. **New-OnPremiseHybridWorker.ps1** 스크립트는 실행 중에 아래에 설명된 매개 변수를 사용합니다.
 
-| 매개 변수 | 상태 | 설명 |
+| 매개 변수 | Status | Description |
 | --------- | ------ | ----------- |
 | `AAResourceGroupName` | 필수 | Automation 계정과 연결된 리소스 그룹의 이름입니다. |
 | `AutomationAccountName` | 필수 | Automation 계정의 이름입니다.
-| `Credential` | Optional | Azure 환경에 로그인할 때 사용할 자격 증명입니다. |
+| `Credential` | 옵션 | Azure 환경에 로그인할 때 사용할 자격 증명입니다. |
 | `HybridGroupName` | 필수 | 이 시나리오를 지원하는 Runbook에 대한 대상으로 지정할 Hybrid Runbook Worker 그룹의 이름입니다. |
-| `OMSResourceGroupName` | Optional | Log Analytics 작업 영역에 대한 리소스 그룹의 이름입니다. 이 리소스 그룹을 지정하지 않으면 `AAResourceGroupName` 값이 사용됩니다. |
+| `OMSResourceGroupName` | 옵션 | Log Analytics 작업 영역에 대한 리소스 그룹의 이름입니다. 이 리소스 그룹을 지정하지 않으면 `AAResourceGroupName` 값이 사용됩니다. |
 | `SubscriptionID` | 필수 | 자동화 계정과 연결된 Azure 구독의 식별자입니다. |
-| `TenantID` | Optional | 자동화 계정과 연결된 테넌트 조직의 식별자입니다. |
-| `WorkspaceName` | Optional | Log Analytics 작업 영역 이름입니다. Log Analytics 작업 영역이 없는 경우 스크립트에서 하나를 만들어 구성합니다. |
+| `TenantID` | 옵션 | 자동화 계정과 연결된 테넌트 조직의 식별자입니다. |
+| `WorkspaceName` | 옵션 | Log Analytics 작업 영역 이름입니다. Log Analytics 작업 영역이 없는 경우 스크립트에서 하나를 만들어 구성합니다. |
 
 > [!NOTE]
 > 솔루션을 사용하도록 설정하는 경우 Azure Automation은 로그 분석 작업 영역과 자동화 계정을 연결하기 위한 특정 지역만 지원합니다. 지원되는 매핑 쌍 목록은 자동화 [계정 및 Log Analytics 작업 영역에 대한 지역 매핑을](how-to/region-mappings.md)참조하십시오.
@@ -144,7 +144,7 @@ Heartbeat
 다음 단계를 사용하여 에이전트 설치 및 설정을 완료합니다.
 
 1. 솔루션을 사용하여 에이전트 컴퓨터를 온보보드로 보온합니다. [작업 영역에서 온보드 컴퓨터를](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-automation-account#onboard-machines-in-the-workspace)참조하십시오.
-2. 에이전트가 자동화 솔루션을 올바르게 다운로드했는지 확인합니다. **C:\프로그램 파일\Microsoft 모니터링 에이전트\에이전트에서** **AzureAutomationFiles** 라는 폴더가 있어야 합니다. 
+2. 에이전트가 자동화 솔루션을 올바르게 다운로드했는지 확인합니다. 
 3. 하이브리드 Runbook 작업자의 버전을 확인하려면 **C:\프로그램 파일\Microsoft 모니터링 에이전트\AzureAutomation을** **찾아버전** 하위 폴더를 확인합니다.
 
 ### <a name="step-4---install-the-runbook-environment-and-connect-to-azure-automation"></a>4단계 - Runbook 환경을 설치하고 Azure 자동화에 연결

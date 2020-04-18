@@ -7,16 +7,16 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 68423bee6096357add9b5d4b107c984ac67c9cab
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0442c701f39fd3e84361ad0201aaf8d1840d8851
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81412959"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606277"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>데이터 흐름 변환 개요 매핑
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
 
 다음은 매핑 데이터 흐름에서 현재 지원되는 변환 목록입니다. 각 변환을 클릭하여 구성 세부 정보를 알아봅니다.
 
@@ -38,6 +38,6 @@ ms.locfileid: "81412959"
 | [정렬](data-flow-sort.md) | 행 수정자 | 현재 데이터 스트림에서 들어오는 행 정렬 |
 | [원본](data-flow-source.md) | - | 데이터 흐름에 대한 데이터 원본 |
 | [서로게이트 키](data-flow-surrogate-key.md) | 스키마 수정자 | 비비즈니스 임의 키 값 증분 추가 |
-| [연합](data-flow-union.md) | 다중 입력/출력 | 여러 데이터 스트림을 수직으로 결합 |
+| [Union](data-flow-union.md) | 다중 입력/출력 | 여러 데이터 스트림을 수직으로 결합 |
 | [피벗 해제](data-flow-unpivot.md) | 스키마 수정자 | 행 값으로 열 피벗 |
 | [창](data-flow-window.md) | 스키마 수정자 |  데이터 스트림에서 열의 창 기반 집계를 정의합니다. |

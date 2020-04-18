@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ffb3d590aebe80994de1e7e834a2eba5777df9a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 427ab6c4e0e769ab881af0af3023d514c1b092c6
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76262489"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604607"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>지속성 함수의 작업 허브(Azure Functions)
 
@@ -35,7 +35,13 @@ ms.locfileid: "76262489"
 
 ## <a name="task-hub-names"></a>작업 허브 이름
 
-작업 허브는 다음 예제와 같이 *host.json*에 선언된 이름으로 식별됩니다.
+작업 허브는 다음 규칙을 준수하는 이름으로 식별됩니다.
+
+* 숫자 문자만 포함
+* 문자로 시작
+* 최소 길이는 3자, 최대 길이는 45자입니다.
+
+작업 허브 이름은 다음 예제와 같이 *host.json* 파일에 선언됩니다.
 
 ### <a name="hostjson-functions-20"></a>host.json (함수 2.0)
 
@@ -98,7 +104,7 @@ ms.locfileid: "76262489"
 
 다음 코드는 [오케스트레이션 클라이언트 바인딩을](durable-functions-bindings.md#orchestration-client) 사용하여 앱 설정으로 구성된 작업 허브로 작업하는 함수를 작성하는 방법을 보여 줍니다.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -121,7 +127,7 @@ public static async Task<HttpResponseMessage> Run(
 > [!NOTE]
 > 이전 C# 예제는 지속 기능 2.x에 대 한 입니다. 지속 기능 1.x의 경우 `DurableOrchestrationContext` `IDurableOrchestrationContext`을 대신 사용해야 합니다. 버전 간의 차이점에 대한 자세한 내용은 [지속 형 기능 버전](durable-functions-versions.md) 문서를 참조하십시오.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 `function.json` 파일의 작업 허브 속성은 앱 설정을 통해 설정됩니다.
 

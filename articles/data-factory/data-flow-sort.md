@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/14/2020
-ms.openlocfilehash: 381c6573dff1b3f1638af9090a535d9a1e59b2b5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 26852ec77194714c8236856b7cb496170bf0d777
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81413163"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606333"
 ---
 # <a name="sort-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 정렬 변환
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 정렬 변환을 사용하면 현재 데이터 스트림에서 들어오는 행을 정렬할 수 있습니다. 개별 열을 선택하고 오름차순 또는 내림차순으로 정렬할 수 있습니다.
 

@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/10/2020
+ms.date: 04/16/2020
 ms.author: alsin
-ms.openlocfilehash: 40a715ea27be161f09dea59e57799b08406e8ca7
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 028c30fced14a60af9f5683e6c6e087b15591735
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393769"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605487"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Azure에서 사용할 수 있는 레드 햇 엔터프라이즈 리눅스 (RHEL) 이미지
 Azure는 다양한 사용 사례에 대해 다양한 RHEL 이미지를 제공합니다.
@@ -47,8 +47,12 @@ RHEL          | 6.7      | RAW    | Linux 에이전트 |
 |             | 7.6      | RAW    | Linux 에이전트 | 기본적으로 2019년 5월 현재 EUS 리포지토리에 첨부됩니다.
 |             | 76세대2세대  | RAW    | Linux 에이전트 | 기본적으로 EUS 리포지토리에 연결됩니다.
 |             | 7.7      | LVM    | Linux 에이전트 | 기본적으로 EUS 리포지토리에 연결됩니다.
-|             | 8        | LVM    | Linux 에이전트 | RHEL 8.x 이미지 제품군
-|             | 8세대2   | LVM    | Linux 에이전트 | 하이퍼 V 세대 2 - RHEL 8.x 이미지 제품군.
+|             | 8-LVM    | LVM    | Linux 에이전트 | RHEL 8.x 이미지 제품군입니다. 일반 리포지토리에 첨부됩니다.
+|             | 8-lvm-gen2| LVM    | Linux 에이전트 | 하이퍼 V 세대 2 - RHEL 8.x 이미지 제품군. 일반 리포지토리에 첨부됩니다.
+|             | 8        | LVM    | Linux 에이전트 | RHEL 8.0 이미지
+|             | 8세대2   | LVM    | Linux 에이전트 | 하이퍼 V 세대 2 - RHEL 8.0 이미지.
+|             | 8.1      | LVM    | Linux 에이전트 | RHEL 8.1 이미지. 현재 일반 리포지토리에 첨부되어 있습니다.
+|             | 81gen2   | LVM    | Linux 에이전트 | 하이퍼 V 세대 2 - RHEL 8.1 이미지. 현재 일반 리포지토리에 첨부되어 있습니다.
 RHEL-SAP      | 7.4      | LVM    | Linux 에이전트 | SAP HANA 및 비즈니스 앱용 RHEL 7.4. E4S 리포지토리에 부착된 SAP 및 RHEL에 대한 프리미엄과 기본 계산 요금이 부과됩니다.
 |             | 74삽 세대2| LVM    | Linux 에이전트 | SAP HANA 및 비즈니스 앱용 RHEL 7.4. 2세대 이미지. E4S 리포지토리에 부착된 SAP 및 RHEL에 대한 프리미엄과 기본 계산 요금이 부과됩니다.
 |             | 7.5       | LVM    | Linux 에이전트 | SAP HANA 및 비즈니스 앱용 RHEL 7.5. E4S 리포지토리에 부착된 SAP 및 RHEL에 대한 프리미엄과 기본 계산 요금이 부과됩니다.

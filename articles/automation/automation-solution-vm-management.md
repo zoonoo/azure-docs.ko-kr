@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: fbcd4ea174d4b6a2a45495c32f178ed1bd01bbe0
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 968e609772e08814a9943734d30c16bf6f5972e8
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261349"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604720"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Azure 자동화에서 근무 외 솔루션 중에 VM 시작/중지
 
@@ -106,7 +106,7 @@ ms.locfileid: "81261349"
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | 부모 Runbook에서 호출됩니다. 이 Runbook은 자동 중지 시나리오에 대한 리소스별로 경고를 만듭니다.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True 또는 False  | 대상 구독 또는 리소스 그룹에서 VM에 대해 Azure 경고 규칙을 만들거나 업데이트합니다. <br> `VMList`은 쉼표로 구분된 VM 목록입니다. `vm1, vm2, vm3`)을 입력합니다.<br> `WhatIf`실행하지 않고도 Runbook 논리의 유효성 검사를 수행할 수 있습니다.|
-|AutoStop_Disable | 없음 | 자동 중지 경고 및 기본 일정을 비활성화합니다.|
+|AutoStop_Disable | None | 자동 중지 경고 및 기본 일정을 비활성화합니다.|
 |AutoStop_VM_Child | WebHookData | 부모 Runbook에서 호출됩니다. 경고 규칙은 이 Runbook을 호출하여 클래식 VM을 중지합니다.|
 |AutoStop_VM_Child_ARM | WebHookData |부모 Runbook에서 호출됩니다. 경고 규칙은 이 Runbook을 호출하여 VM을 중지합니다.  |
 |ScheduledStartStop_Base_Classic | CloudServiceName<br> 작업: 시작 또는 중지<br> VMList  | 클라우드 서비스에서 클래식 VM 그룹에서 작업 시작 또는 중지를 수행합니다. |
@@ -225,11 +225,11 @@ Azure CSP 구독은 Azure 리소스 관리자 모델만 지원합니다. 비 Azu
 
 1. **로그 분석 작업 영역을**검색하고 선택합니다.
 
-2. **로그 분석 작업 영역** 페이지에서 작업 영역을 선택합니다.
+2. 로그 분석 작업 영역 페이지에서 작업 영역을 선택합니다.
 
 3. 작업 영역 설정 페이지에 있는 메뉴에서 **삭제**를 선택합니다.
 
-4. Azure 자동화 계정 구성 요소를 유지하지 않으려면 각각을 수동으로 삭제할 수 있습니다. [솔루션 구성 요소를](#solution-components)참조하십시오.
+4. Azure 자동화 계정 [솔루션 구성 요소를](#solution-components)유지하지 않으려면 각각을 수동으로 삭제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

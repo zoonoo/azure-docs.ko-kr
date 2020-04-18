@@ -3,18 +3,18 @@ title: 사용 위치 및 방법 - 개인화
 description: 애플리케이션에서 표시할 적절한 항목, 작업 또는 제품을 선택할 수 있는 모든 상황에 Personalizer를 적용하여 환경을 더 효율적으로 만들거나, 더 나은 비즈니스 결과를 달성하거나, 생산성을 향상시킬 수 있습니다.
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: 63e66315898242beb5da59927e8d506e6f2cff78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c562d7a1853736204a7a03262547e083bd85fb75
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79221208"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617677"
 ---
 # <a name="where-and-how-to-use-personalizer"></a>맞춤 설정 사용 위치 및 방법
 
 환경을 개선하고, 더 나은 비즈니스 결과를 달성하거나, 생산성을 향상시키기 위해 응용 프로그램이 표시할 올바른 작업(콘텐츠)을 선택해야 하는 모든 상황에서 Personalizer를 사용합니다.
 
-개인 설정은 기계 학습을 사용하여 사용자에게 표시할 작업(콘텐츠)을 선택합니다. 선택은 서비스에 보내는 데이터의 양, 품질, 분포에 따라 크게 달라질 수 있습니다.
+개인 설정 학습을 사용하여 사용자에게 표시할 작업(콘텐츠)을 선택합니다. 선택은 서비스에 보내는 데이터의 양, 품질, 분포에 따라 크게 달라질 수 있습니다.
 
 ## <a name="example-use-cases-for-personalizer"></a>Personalizer 사용 사례
 

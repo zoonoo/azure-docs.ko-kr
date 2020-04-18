@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 99efe375fad142963214b09df24be70bc3bc9d99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f875b4a5c4f1322f4a992dc3738ab1ce6431149d
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77131610"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641117"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Media Services를 사용하는 라이브 스트리밍 개요
 
@@ -55,7 +55,7 @@ Azure Media Services에서 **채널**, **프로그램** 및 **스트리밍 엔�
 
 **채널** 은 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. 채널은 다음 방식으로 라이브 입력 스트림을 수신할 수 있습니다.
 
-* 온-프레미스 라이브 인코더가 다중 비트 전송률 **RTMP** 또는 **부드러운 스트리밍**(조각화된 MP4)을 **통과** 전달을 위해 구성된 채널에 보냅니다. 어떠한 추가적인 처리 없이 수집된 스트림이 **채널**을 통과하는 경우를 **통과** 전달이라고 합니다. 다중 비트 전송률 부드러운 스트리밍을 출력하는 라이브 인코더인 MediaExcel, Ateme, Imagine Communications, Envivio, Cisco 및 Elemental을 사용할 수 있습니다. 다음 라이브 인코더 출력 RTMP: 텔레스트림 와이어캐스트, 하이비전, 테라덱, 트리카스터 트랜스코더.  또한 라이브 인코더는 라이브 인코딩이 사용되지 않는 채널에 단일 비트 전송률 스트림을 전송할 수 있지만 이 방법은 권장되지 않습니다. 요청된 경우 Media Services는 고객에게 스트림을 배달합니다.
+* 온-프레미스 라이브 인코더가 다중 비트 전송률 **RTMP** 또는 **부드러운 스트리밍**(조각화된 MP4)을 **통과** 전달을 위해 구성된 채널에 보냅니다. 어떠한 추가적인 처리 없이 수집된 스트림이 **채널**을 통과하는 경우를 **통과** 전달이라고 합니다. 다중 비트 전송률 부드러운 스트리밍을 출력하는 라이브 인코더인 MediaExcel, Ateme, Imagine Communications, Envivio, Cisco 및 Elemental을 사용할 수 있습니다. 다음 라이브 인코더 출력 RTMP : 텔레 스트림 와이어 캐스트, 하이 비전, 테라 덱 트랜스 코더.  또한 라이브 인코더는 라이브 인코딩이 사용되지 않는 채널에 단일 비트 전송률 스트림을 전송할 수 있지만 이 방법은 권장되지 않습니다. 요청된 경우 Media Services는 고객에게 스트림을 배달합니다.
 
   > [!NOTE]
   > 통과 방법을 사용하면 긴 기간 동안 여러 이벤트를 수행하고 온-프레미스 인코더에 이미 투자한 경우 라이브 스트리밍을 수행하는 가장 경제적인 방법입니다. [가격 책정](https://azure.microsoft.com/pricing/details/media-services/) 세부 정보를 참조하세요.
@@ -74,16 +74,16 @@ Media Services 2.10 릴리스부터, 채널을 만들 때 채널이 입력 스�
 
 | 기능 | 통과 채널 | 표준 채널 |
 | --- | --- | --- |
-| 단일 비트 전송률 입력은 클라우드에서 다중 비트 전송률로 인코딩됩니다. |예 |yes |
+| 단일 비트 전송률 입력은 클라우드에서 다중 비트 전송률로 인코딩됩니다. |예 |예 |
 | 최대 해상도, 계층 수 |1080p, 8계층, 60+fps |720p, 6계층, 30fps |
 | 입력 프로토콜 |RTMP, 부드러운 스트리밍 |RTMP, 부드러운 스트리밍 |
 | Price |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭 |가격 [책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 보기 |
 | 최대 실행 시간 |연중 무휴 |8시간 |
-| 슬레이트 삽입 지원 |예 |yes |
-| 광고 신호 지원 |예 |yes |
-| 통과 CEA 608/708 캡션 |yes |yes |
-| 균일하지 않은 입력 GOP에 대한 지원 |yes |아니요 - 입력은 고정된 2초 GOP여야 함 |
-| 변수 프레임 속도 입력에 대한 지원 |yes |아니요 - 입력은 고정된 프레임 속도여야 함.<br/>예를 들어 움직임이 많은 장면 중에는 사소한 차이가 허용됩니다. 하지만 인코더는 10프레임/초까지 떨어질 수 없습니다. |
+| 슬레이트 삽입 지원 |예 |예 |
+| 광고 신호 지원 |예 |예 |
+| 통과 CEA 608/708 캡션 |예 |예 |
+| 균일하지 않은 입력 GOP에 대한 지원 |예 |아니요 - 입력은 고정된 2초 GOP여야 함 |
+| 변수 프레임 속도 입력에 대한 지원 |예 |아니요 - 입력은 고정된 프레임 속도여야 함.<br/>예를 들어 움직임이 많은 장면 중에는 사소한 차이가 허용됩니다. 하지만 인코더는 10프레임/초까지 떨어질 수 없습니다. |
 | 입력 피드가 손실될 경우 채널 자동 차단 |예 |12시간 동안 프로그램 실행이 없는 경우 |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>온-프레미스 인코더(통과)에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 7ee219ae5ace0f0da398cc542f410d3c895c8bd4
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: ac7e721a863414cf0617177885e0ff1c9e9a35d4
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679986"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617859"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
@@ -76,6 +76,14 @@ GPU가 하드웨어 비디오 디코딩을 지원하는지 확인합니다. [개
 
 * 네트워크 문제를 [식별하는](#unstable-holograms)단계를 참조하십시오.
 * 최신 그래픽 드라이버 설치에 대한 [시스템 요구 사항을](../overview/system-requirements.md#development-pc) 참조하십시오.
+
+## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>MRC로 녹화된 비디오는 라이브 경험의 품질을 반영하지 않습니다.
+
+비디오는 [혼합 현실 캡처 (MRC)를](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers)통해 홀로렌즈에 기록 될 수있다. 그러나 결과 비디오는 두 가지 이유로 라이브 경험보다 품질이 더 나쁩습니다.
+* 비디오 프레임 속도는 60Hz가 아닌 30Hz로 제한됩니다.
+* 비디오 이미지는 후반 단계 [재투영](../overview/features/late-stage-reprojection.md) 처리 단계를 거치지 않으므로 비디오가 고르지 않은 것처럼 보입니다.
+
+둘 다 레코딩 기술의 고유한 제한 사항입니다.
 
 ## <a name="black-screen-after-successful-model-loading"></a>모델 로딩 성공 후 검은색 화면
 

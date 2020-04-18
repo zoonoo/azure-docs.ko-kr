@@ -4,15 +4,15 @@ description: Azure 앱 서비스에서 앱을 Azure 가상 네트워크와 통�
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 04/15/2020
+ms.date: 04/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cb5747c6780da134dfb2f5ab088348b848c5f04a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 4866397af244ffb3c6aa9c7547b0a9413b10ccfd
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312843"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604881"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>앱을 Azure 가상 네트워크와 통합
 
@@ -41,8 +41,6 @@ Azure 앱 서비스에는 두 가지 변형이 있습니다.
     ![클래식 VNet 선택][3]
 
 통합하는 동안에 앱이 다시 시작됩니다. 통합이 완료되면 통합된 VNet에 대한 세부 정보가 표시됩니다.
-
-앱이 VNet과 통합된 후 Azure DNS 개인 영역이 아니면 VNet이 구성한 것과 동일한 DNS 서버를 사용합니다. 현재 Azure DNS 개인 영역과 VNet 통합을 사용할 수 없습니다.
 
 ## <a name="regional-vnet-integration"></a>지역 VNet 통합
 
@@ -200,3 +198,4 @@ CLI 지원은 지역 VNet 통합에 사용할 수 있습니다. 다음 명령에
 [setp2saddresses]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool
 [VNETRouteTables]: https://docs.microsoft.com/azure/virtual-network/manage-route-table/
 [installCLI]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest/
+[privateendpoints]: networking/private-endpoint.md

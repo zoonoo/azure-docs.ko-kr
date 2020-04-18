@@ -1,20 +1,20 @@
 ---
-title: 오프 시간 솔루션 동안 VM 시작/중지 사용
+title: 외무성 솔루션 동안 Azure 자동화 시작/중지 VM 사용
 description: 이 문서에서는 Azure 가상 시스템에 대한 Azure 자동화 시작/중지 VM 솔루션을 사용하도록 설정하는 방법에 대해 설명합니다.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7b619d3c9b4b334e637d6a1c456256cb33ad5134
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 2414567b74232d634fa0a34202691a8e43ae6135
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261383"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604741"
 ---
-# <a name="enable-azure-startstop-vms-solution"></a>Azure 시작/중지 VM 솔루션 사용
+# <a name="enable-azure-automation-startstop-vms-solution"></a>Azure 자동화 시작/중지 VM 솔루션 사용
 
-다음 단계를 수행하여 근무 외 솔루션 중에 시작/중지 VM을 새 또는 기존 자동화 계정 및 연결된 Log Analytics 작업 영역에 추가합니다. 온보딩 프로세스를 완료한 후 변수를 구성하여 솔루션을 사용자 지정합니다.
+다음 단계를 수행하여 근무 외 솔루션 **중에 시작/중지 VM을** 새 또는 기존 자동화 계정 및 연결된 Log Analytics 작업 영역에 추가합니다. 온보딩 프로세스를 완료한 후 변수를 구성하여 솔루션을 사용자 지정합니다.
 
 >[!NOTE]
 >클래식 VM에서 이 솔루션을 사용하려면 기본적으로 만들어지지 않은 클래식 실행 계정이 필요합니다. 클래식 실행 계정을 만드는 방법에 대한 지침은 [[클래식 실행 계정으로 만들기]를](automation-create-standalone-account.md#create-a-classic-run-as-account)참조하십시오.
@@ -26,7 +26,7 @@ ms.locfileid: "81261383"
 
 2. **자동화 계정을**검색하고 선택합니다.
 
-3. 자동화 **계정** 페이지에서 목록에서 자동화 계정을 선택합니다.
+3. 자동화 계정 페이지에서 목록에서 자동화 계정을 선택합니다.
 
 4. 자동화 계정에서 **관련 리소스에서** **VM 시작/중지를** 선택합니다. 여기서 **자세히 알아보고 솔루션을 사용하도록 설정하세요**를 클릭할 수 있습니다. VM 시작/중지 솔루션이 이미 표시되어 있으면 **솔루션 관리**를 클릭하여 선택하고 목록에서 찾을 수 있습니다.
 
@@ -39,32 +39,32 @@ ms.locfileid: "81261383"
 
    ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)
 
-6. **솔루션 추가** 페이지가 나타납니다. Automation 구독으로 솔루션을 가져오려면 솔루션을 구성하라는 메시지가 표시됩니다.
+6. 솔루션 추가 페이지가 나타납니다. 자동화 구독으로 가져오기 전에 솔루션을 구성하라는 메시지가 표시됩니다.
 
    ![VM 관리 솔루션 추가 페이지](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
-7. **솔루션 추가** 페이지에서 **작업 영역**을 선택합니다. Automation 계정이 속하는 동일한 Azure 구독에 연결된 Log Analytics 작업 영역을 선택합니다. 작업 영역이 없으면 **새 작업 영역 만들기**를 선택합니다. **로그 분석 작업 영역** 페이지에서 다음 단계를 수행합니다.
+7. 솔루션 추가 페이지에서 **작업 영역**을 선택합니다. Automation 계정이 속하는 동일한 Azure 구독에 연결된 Log Analytics 작업 영역을 선택합니다. 작업 영역이 없으면 **새 작업 영역 만들기**를 선택합니다. 로그 분석 작업 영역 페이지에서 다음 단계를 수행합니다.
 
-   - "ContosoLAWorkspace"와 같은 새 **로그 분석 작업 영역의**이름을 지정합니다.
+   - **ContosoLAWorkspace**와 같은 새 로그 분석 작업 영역에 대한 이름을 지정합니다.
    - 기본으로 선택된 값이 적절하지 않으면 드롭다운 목록에서 선택하여 연결할 **구독**을 선택합니다.
    - **리소스 그룹**의 경우, 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택할 수 있습니다.
    - **위치**를 선택합니다.
    - 가격 **책정 계층을**선택합니다. **GB당(독립 실행형)** 옵션을 선택합니다. Azure Monitor 로그가 [가격을](https://azure.microsoft.com/pricing/details/log-analytics/) 업데이트했으며 GB당 계층이 유일한 옵션입니다.
 
    > [!NOTE]
-   > 솔루션을 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다.
+   > 솔루션을 사용하도록 설정하면 Log Analytics 작업 영역과 자동화 계정을 연결하기 위해 특정 지역만 지원됩니다.
    >
-   > 지원되는 매핑 쌍 목록은 자동화 [계정 및 로그 분석 작업 영역에 대한 지역 매핑을](how-to/region-mappings.md)참조하십시오.
+   > 지원되는 매핑 쌍 목록은 자동화 [계정 및 Log Analytics 작업 영역에 대한 지역 매핑을](how-to/region-mappings.md)참조하십시오.
 
-8. **Log Analytics 작업 영역** 페이지에서 필수 정보를 입력한 후 **만들기**를 클릭합니다. 메뉴의 **알림**에서 진행률을 추적할 수 있습니다. 완료한 후에는 **솔루션 추가** 페이지로 돌아갑니다.
+8. Log Analytics 작업 영역 페이지에서 필수 정보를 입력한 후 **만들기**를 클릭합니다. 메뉴의 **알림**에서 진행률을 추적할 수 있습니다. 완료한 후에는 솔루션 추가 페이지로 돌아갑니다.
 
-9. **솔루션 추가** 페이지에서 **Automation 계정**을 선택합니다. 새 Log Analytics 작업 영역을 만드는 경우 연결될 새 Automation 계정을 만들거나 아직 Log Analytics 작업 영역에 연결되지 않은 기존 Automation 계정을 선택할 수 있습니다. 기존 Automation 계정을 선택하거나 **Automation 계정 만들기**를 클릭하고, **Automation 계정 추가** 페이지에서 다음 정보를 제공합니다.
+9. 솔루션 추가 페이지에서 **Automation 계정**을 선택합니다. 새 Log Analytics 작업 영역을 만드는 경우 연결될 새 자동화 계정을 만들거나 Log Analytics 작업 영역에 아직 연결되지 않은 기존 자동화 계정을 선택할 수 있습니다. 기존 자동화 계정을 선택하거나 **자동화 계정 만들기를**클릭하고 자동화 계정 추가 페이지에서 다음 정보를 제공합니다.
  
    - **이름** 필드에서 Automation 계정의 이름을 입력합니다.
 
      다른 모든 옵션은 선택한 Log Analytics 작업 영역을 기반으로 자동으로 채워집니다. 이러한 옵션은 수정할 수 없습니다. Azure 실행 계정은 이 솔루션에 포함된 Runbook에 대한 기본 인증 방법입니다. **확인**을 클릭하면 구성 옵션의 유효성이 검사되고 Automation 계정이 생성됩니다. 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다.
 
-10. 마지막으로 **솔루션 추가** 페이지에서 **구성**을 선택합니다. **매개 변수** 페이지가 나타납니다.
+10. 마지막으로 솔루션 추가 페이지에서 **구성**을 선택합니다. 매개 변수 페이지가 나타납니다.
 
     ![솔루션에 대한 매개 변수 페이지](media/automation-solution-vm-management/azure-portal-add-solution-02.png)
 
@@ -85,7 +85,7 @@ ms.locfileid: "81261383"
      > [!IMPORTANT]
      > **대상 ResourceGroup 이름**의 기본값은 **&ast;** 입니다. 이것은 구독에 포함된 모든 VM을 대상으로 합니다. 솔루션에서 구독의 모든 VM을 대상으로 지정하지 않으려면 일정을 사용하기 전에 이 값을 리소스 그룹 이름 목록으로 업데이트해야 합니다.
 
-11. 솔루션에 필요한 초기 설정을 구성한 후에 **확인**을 클릭하여 **매개 변수** 페이지를 닫고 **만들기**를 선택합니다. 
+11. 솔루션에 필요한 초기 설정을 구성한 후에 **확인**을 클릭하여 매개 변수 페이지를 닫고 **만들기**를 선택합니다. 
 
 모든 설정이 확인되면 솔루션이 구독에 배포됩니다. 이 프로세스는 완료하는 데 수 초가 소요되며 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다.
 

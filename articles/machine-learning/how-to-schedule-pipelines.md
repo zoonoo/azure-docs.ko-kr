@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/12/2019
-ms.openlocfilehash: fed411ea171274513308ec3efa68da80e4d25f8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9e1bff3d25a978b5159d8e6ab8ab2453df77ca3
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77116749"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640508"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>파이썬에 대한 Azure 기계 학습 SDK로 기계 학습 파이프라인 예약
 
@@ -98,6 +98,10 @@ reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="
 ### <a name="optional-arguments-when-creating-a-schedule"></a>일람표 를 만들 때 선택적 인수
 
 앞에서 설명한 인수 외에도 `status` 비활성 일정을 만들도록 `"Disabled"` 인수를 설정할 수 있습니다. 마지막으로 파이프라인의 기본 오류 동작을 재정의하는 부울을 전달할 `continue_on_step_failure` 수 있습니다.
+
+### <a name="use-azure-logic-apps-for-more-complex-workflows"></a>보다 복잡한 워크플로우에 Azure 논리 앱 사용
+
+Azure Logic Apps는 보다 복잡한 워크플로를 지원하며 Azure 기계 학습 파이프라인보다 훨씬 광범위하게 통합됩니다. 자세한 [내용은 논리 앱에서 기계 학습 파이프라인 실행 트리거를](how-to-trigger-published-pipeline.md) 참조하십시오.
 
 ## <a name="view-your-scheduled-pipelines"></a>예약된 파이프라인 보기
 

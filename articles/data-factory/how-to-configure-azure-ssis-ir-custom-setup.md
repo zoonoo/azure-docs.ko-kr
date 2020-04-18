@@ -12,16 +12,16 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 3aabf68b6763e5815a03021cb02683d509c26190
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ab2ba31d6b712bd3399bc8bf5b491337d462dac9
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415064"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606213"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임에 대한 설정 사용자 지정
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure-SQL 서버 통합 서비스 통합 런타임(Azure-SSIS IR)에 대한 사용자 지정 설정은 Azure-SSIS IR의 설정 또는 재구성 중에 고유한 단계를 추가하기 위한 인터페이스를 제공합니다. 
 

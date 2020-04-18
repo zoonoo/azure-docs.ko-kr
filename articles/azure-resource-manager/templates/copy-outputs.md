@@ -2,13 +2,13 @@
 title: 출력 값의 여러 인스턴스 정의
 description: Azure Resource Manager 템플릿에서 복사 작업을 사용하여 배포에서 값을 반환할 때 여러 번 반복합니다.
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 3889260d02f438274c80e99e99136515499443e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/17/2020
+ms.openlocfilehash: 0315af2f083285c4704b08fec608341b6f0b2231
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153389"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617834"
 ---
 # <a name="output-iteration-in-arm-templates"></a>ARM 템플릿의 출력 반복
 
@@ -21,12 +21,10 @@ ms.locfileid: "80153389"
 복사 요소에는 다음과 같은 일반적인 형식이 있습니다.
 
 ```json
-"copy": [
-  {
-    "count": <number-of-iterations>,
-    "input": <values-for-the-variable>
-  }
-]
+"copy": {
+  "count": <number-of-iterations>,
+  "input": <values-for-the-output>
+}
 ```
 
 **count** 속성은 출력 값에 대해 원하는 반복 수를 지정합니다.

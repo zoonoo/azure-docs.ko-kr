@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: aschhab
-ms.openlocfilehash: b864f433c67d47b4b92a1d4b98693ebd42806dd3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 267965ee41280a677050d1676285dda8734bc044
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259462"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606064"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Service Bus 메시징을 사용한 성능 향상의 모범 사례
 
@@ -135,7 +135,7 @@ receiver.RegisterMessageHandler(
     new MessageHandlerOptions(e => LogErrorAsync(e.Exception))
     {
         AutoComplete = false,
-        MaxConcurrentCalls = 1
+        MaxConcurrentCalls = 20
     });
 ```
 
@@ -159,7 +159,7 @@ receiver.OnMessageAsync(
     new OnMessageOptions
     {
         AutoComplete = false,
-        MaxConcurrentCalls = 1
+        MaxConcurrentCalls = 20
     });
 ```
 
@@ -187,7 +187,7 @@ Service Bus는 수신 및 삭제 작업에 대한 트랜잭션을 지원하지 �
 
 기본적으로 클라이언트는 20ms의 배치 간격을 사용합니다. 메시지 팩터리를 만들기 전에 [BatchFlushInterval][BatchFlushInterval] 속성을 설정하여 배치 간격을 변경할 수 있습니다. 이 설정은이 이 팩터리에서 만든 모든 클라이언트에 영향을 줍니다.
 
-일괄 처리를 사용하지 않도록 설정하려면 [BatchFlushInterval][BatchFlushInterval] 속성을 **TimeSpan.Zero**로 설정합니다. 예를 들어:
+일괄 처리를 사용하지 않도록 설정하려면 [BatchFlushInterval][BatchFlushInterval] 속성을 **TimeSpan.Zero**로 설정합니다. 다음은 그 예입니다.
 
 ```csharp
 var settings = new MessagingFactorySettings

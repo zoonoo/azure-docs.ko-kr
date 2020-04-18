@@ -3,12 +3,12 @@ title: Azure 사이트 복구에서 VMware/물리적 재해 복구에 대한 지
 description: Azure 사이트 복구를 사용하여 VMware VM 및 물리적 서버의 재해 복구에 대한 지원을 Azure에 요약합니다.
 ms.topic: conceptual
 ms.date: 2/24/2020
-ms.openlocfilehash: fbd5d87b219cbb482569dc5e45adc9c81181670c
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 02448754abd92eab9e095a5eaff10861f8b5e5e4
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80672447"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606042"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -117,7 +117,7 @@ Debian 8 | [9.29][9.29 UR] | 3.16.0-4-amd64 ~ 3.16.0-10 amd64, 4.9.0-0.bpo.4-amd
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 지원되는 커널 버전
 
-**릴리스** | **모바일 서비스 버전** | **커널 버전** |
+**해제** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
 SUSE 리눅스 엔터프라이즈 서버 12 (SP1, SP2, SP3, SP4) | [9.28][9.28 UR] | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-기본값 3.12.74-60.64.118-기본값</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-기본값 4.4.121-92.117-기본값</br></br>SP3 4.4.73-5-기본값 4.4.180-94.100-기본값</br></br>SP3 4.4.138-4.7-azure에서 4.4.180-4.31-azure</br></br>SP4 4.12.14-94.41-기본값 4.12.14-95.29-기본값</br>SP4 4.12.14-6.3-azure에서 4.12.14-6.23-azure |
 SUSE 리눅스 엔터프라이즈 서버 12 (SP1, SP2, SP3, SP4) | [9.27][9.27 UR] | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-기본값 3.12.74-60.64.115-기본값</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-기본값 4.4.121-92.114-기본값</br></br>SP3 4.4.73-5-기본값 4.4.180-94.97-기본값</br></br>SP3 4.4.138-4.7-azure에서 4.4.180-4.31-azure</br></br>SP4 4.12.14-94.41-기본값 4.12.14-95.19-기본값</br>SP4 4.12.14-6.3-azure에서 4.12.14-6.15-azure |
@@ -126,9 +126,9 @@ SUSE 리눅스 엔터프라이즈 서버 12 (SP1, SP2, SP3, SP4) | [9.25][9.25 U
 
 ### <a name="suse-linux-enterprise-server-15-supported-kernel-versions"></a>SUSE 리눅스 엔터프라이즈 서버 15 지원 커널 버전
 
-**릴리스** | **모바일 서비스 버전** | **커널 버전** |
+**해제** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
-수지 리눅스 엔터프라이즈 서버 15 및 15 SP1 | [9.32](https://support.microsoft.com/help/4550047/) | 모든 [재고 SUSE 15 및 15 커널이 지원됩니다.](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_15) </br></br> 4.12.14-5.5-azure에서 4.12.14-8.22-azure
+수지 리눅스 엔터프라이즈 서버 15 및 15 SP1 | [9.32](https://support.microsoft.com/help/4550047/) | 모든 재고 SUSE 15 및 15 커널이 지원됩니다. </br></br> 4.12.14-5.5-azure에서 4.12.14-8.22-azure
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux 파일 시스템/게스트 스토리지
 

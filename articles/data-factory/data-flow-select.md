@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/18/2020
-ms.openlocfilehash: 498ce053e8a52897d9087091b92fa51a04e195a4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 71a7c812b71e67c7b729844d0672e520c88e2d08
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81413263"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606341"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 변환 선택
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 선택 변환을 사용하여 열의 이름을 바꾸거나 놓거나 순서를 변경합니다. 이 변환은 행 데이터를 변경하지 않지만 다운스트림에 전파되는 열을 선택합니다. 
 

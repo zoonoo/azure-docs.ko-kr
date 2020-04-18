@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: 8aefe851708c0b8d8780d03e4364e034e783bf4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c52f2df34faf441ab70b48b11bbc393ebcecb65
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297209"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617612"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Azure 논리 앱에서 HTTP 또는 HTTPS를 통해 서비스 끝점을 호출합니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "79297209"
 
 이 기본 제공 트리거는 끝점에 대해 지정된 URL에 대한 HTTP 호출을 만들고 응답을 반환합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다. 논리 앱 디자이너에서 빈 논리 앱을 엽니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 논리 앱 디자이너에서 빈 논리 앱을 엽니다.
 
 1. 디자이너의 검색 상자에서 **기본 제공**을 선택합니다. 검색 상자에서 필터로 `http`을 입력합니다. 트리거 목록에서 **HTTP** 트리거를 **선택합니다.**
 
@@ -88,7 +88,7 @@ ms.locfileid: "79297209"
 
 이 기본 제공 작업은 끝점에 대해 지정된 URL에 대한 HTTP 호출을 만들고 응답을 반환합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다. Logic Apps 디자이너에서 논리 앱을 엽니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. Logic Apps 디자이너에서 논리 앱을 엽니다.
 
    이 예제에서는 HTTP 트리거를 첫 번째 단계로 사용합니다.
 
@@ -140,8 +140,8 @@ HTTP 요청에 형식이 `multipart/form-data` 있는 콘텐츠를 처리하려�
 다음은 기본 워크플로 정의에서 HTTP 작업의 JSON 정의를 보여 주는 동일한 예제입니다.
 
 ```json
-{
-   "HTTP_action": {
+"HTTP_action": {
+   "inputs": {
       "body": {
          "$content-type": "multipart/form-data",
          "$multipart": [
@@ -179,7 +179,7 @@ HTTP 요청에 형식이 `multipart/form-data` 있는 콘텐츠를 처리하려�
 | 상태 코드 | int | 요청의 상태 코드 |
 |||
 
-| 상태 코드 | 설명 |
+| 상태 코드 | Description |
 |-------------|-------------|
 | 200 | 확인 |
 | 202 | 수락됨 |

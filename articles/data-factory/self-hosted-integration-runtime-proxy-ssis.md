@@ -12,16 +12,16 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: ecfdf2a11f31c18064be9a607f2bb3938d26e661
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 4cb5b84f3889dcf4e0f28d525afb42cfeac5b54c
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414906"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605504"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Azure 데이터 팩터리에서 Azure-SSIS IR에 대한 프록시로 자체 호스팅 IR 구성
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure-SSIS 통합 런타임(Azure-SSIS IR)에서 프록시로 구성된 자체 호스팅 통합 런타임(자체 호스팅 IR)을 사용하여 Azure-SSIS 통합 런타임(Azure-SSIS IR)에서 SQL Server 통합 서비스(SSIS) 패키지를 실행하는 방법을 설명합니다. 
 

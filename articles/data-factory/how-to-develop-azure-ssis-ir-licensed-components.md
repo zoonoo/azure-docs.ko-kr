@@ -11,16 +11,16 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.openlocfilehash: 3a4c1f8b95c66c26944d455a2ab6163d1da72731
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: b7079262dc7db4f4a00a9dc79193da1574c7153a
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414351"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605848"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임에 대한 라이선스 사용자 지정 구성 요소 설치
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 ISV가 Azure-SSIS 통합 런타임의 Azure에서 실행되는 SSIS(SQL Server Integration Services) 패키지에 대한 유료 또는 사용자 지정 구성 요소를 개발하고 설치하는 방법을 설명합니다.
 

@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service)의 taint/toleration, 노드 선택기
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 47b2d78f7dc831c4314c4215f5e0a9e17f75f0dc
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: d0d13a699d2559c6b4360c807721e0b748959382
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668371"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617532"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 고급 스케줄러 기능 모범 사례
 
@@ -134,7 +134,7 @@ spec:
 
 노드 선택기는 지정된 노드에 Pod를 할당하는 기본 방법입니다. *노드 선호도*를 사용하여 유연성을 높일 수 있습니다. 노드 선호도를 사용하여 Pod가 노드와 일치될 수 없는 경우 발생하는 상황을 정의합니다. Kubernetes 스케줄러가 Pod를 레이블이 지정된 호스트와 일치시키도록 ‘요구’할 수 있습니다.** 또는 일치를 ‘선호’할 수 있지만 일치 항목이 없는 경우 다른 호스트에서 Pod을 예약할 수 있습니다.**
 
-다음 예제는 노드 선호도를 *requiredDuringSchedulingIgnoredDuringExecution*으로 설정합니다. 이 선호도를 사용하려면 일치하는 레이블을 가진 노드를 사용하기 위한 Kubernetes 일정이 필요합니다. 사용 가능한 노드가 없는 경우 Pod는 예약이 계속될 때까지 기다려야 합니다. 다른 노드에서 Pod를 예약하도록 허용하려면 값을 *preferredDuringScheduledIgnoreDuringExecution*으로 설정하면 됩니다.
+다음 예제는 노드 선호도를 *requiredDuringSchedulingIgnoredDuringExecution*으로 설정합니다. 이 선호도를 사용하려면 일치하는 레이블을 가진 노드를 사용하기 위한 Kubernetes 일정이 필요합니다. 사용 가능한 노드가 없는 경우 Pod는 예약이 계속될 때까지 기다려야 합니다. 다른 노드에서 포드를 예약할 수 있도록 하려면 대신 값을 기본 값으로 설정할 수 *있습니다.행 예약무시실행:*
 
 ```yaml
 kind: Pod

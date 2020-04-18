@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: f2eb503b58f1679d138b6a1dd9304896be098ad6
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 7c1ad2581d025a9259c5cb2a84e4237f938fc892
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80419222"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81637148"
 ---
 Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리하려면 일종의 자동화가 필요합니다. 완벽한 Azure 인프라 배포 및 관리 수명 주기를 자동화할 수 있는 다양한 도구와 솔루션이 있습니다. 이 문서에서는 Azure에서 사용할 수 있는 인프라 자동화 도구 중 일부를 소개합니다. 이러한 도구는 일반적으로 다음 방법 중 하나에 적합합니다.
 
@@ -121,11 +121,11 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 다음에 대해 자세히 알아봅니다.
 
-- [Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
+- [Azure DevOps 서비스](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
 
 
 ## <a name="jenkins"></a>Jenkins
-[Jenkins](https://www.jenkins.io)는 애플리케이션을 배포 및 테스트하고 코드 전달을 위해 자동화되는 파이프라인을 만드는 데 도움이 되는 연속 통합 서버입니다. Jenkins 핵심 플랫폼을 확장하는 플러그인은 수백 가지 있으며, webhook를 통해 다른 많은 제품 및 솔루션과도 통합할 수 있습니다. Azure VM에 Jenkins를 수동으로 설치하거나, Docker 컨테이너 내에서 Jenkins를 실행하거나, 미리 빌드된 Azure Marketplace 이미지를 사용할 수 있습니다.
+[Jenkins](https://jenkins.io)는 애플리케이션을 배포 및 테스트하고 코드 전달을 위해 자동화되는 파이프라인을 만드는 데 도움이 되는 연속 통합 서버입니다. Jenkins 핵심 플랫폼을 확장하는 플러그인은 수백 가지 있으며, webhook를 통해 다른 많은 제품 및 솔루션과도 통합할 수 있습니다. Azure VM에 Jenkins를 수동으로 설치하거나, Docker 컨테이너 내에서 Jenkins를 실행하거나, 미리 빌드된 Azure Marketplace 이미지를 사용할 수 있습니다.
 
 방법 배우기:
 

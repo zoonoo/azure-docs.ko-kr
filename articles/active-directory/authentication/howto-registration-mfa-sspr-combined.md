@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 04/17/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d9544b1f4dd5ecbf66493f26c373c5502dce68a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 466b063253ee49ab58c2685f359b4bb8a4079532
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81451087"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639691"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Azure Active Directory에서 통합된 보안 정보 등록 을 활성화합니다.
 
@@ -47,34 +47,34 @@ Internet Explorer에서 사이트 대 영역 할당 목록을 구성한 경우 �
 
 ## <a name="conditional-access-policies-for-combined-registration"></a>결합 된 등록에 대 한 조건부 액세스 정책
 
-이제 조건부 액세스 정책의 사용자 작업을 통해 사용자가 Azure 다단계 인증 및 셀프 서비스 암호 재설정에 등록하는 시기와 방법을 확보할 수 있습니다. 이 기능은 [통합 등록 기능을](../authentication/concept-registration-mfa-sspr-combined.md)사용하도록 설정한 조직에서 사용할 수 있습니다. 이 기능은 사용자가 HR 온보딩 중에 신뢰할 수 있는 네트워크 위치와 같은 중앙 위치에서 Azure 다단계 인증 및 SSPR에 등록하도록 하려는 조직에서 활성화될 수 있습니다. 조건부 액세스에서 신뢰할 수 있는 위치를 만드는 것에 대한 자세한 내용은 [Azure Active Directory 조건부 액세스의 위치 조건은 무엇입니까?](../conditional-access/location-condition.md#named-locations)
+이제 조건부 액세스 정책의 사용자 작업을 통해 사용자가 Azure 다단계 인증 및 셀프 서비스 암호 재설정에 등록하는 시기와 방법을 확보할 수 있습니다. 이 기능은 [통합 등록 기능을](../authentication/concept-registration-mfa-sspr-combined.md)사용하도록 설정한 조직에서 사용할 수 있습니다. 이 기능은 사용자가 HR 온보딩 중에 신뢰할 수 있는 네트워크 위치와 같은 중앙 위치에서 Azure 다단계 인증 및 SSPR에 등록하도록 하려는 조직에서 활성화될 수 있습니다.
+
+조건부 액세스에서 신뢰할 수 있는 위치를 만드는 것에 대한 자세한 내용은 [Azure Active Directory 조건부 액세스의 위치 조건은 무엇입니까?](../conditional-access/location-condition.md#named-locations)
 
 ### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>신뢰할 수 있는 위치에서 등록을 요구하는 정책 만들기
 
 다음 정책은 결합된 등록 환경을 사용하여 등록을 시도하는 모든 선택된 사용자에게 적용되며 신뢰할 수 있는 네트워크로 표시된 위치에서 연결하지 않는 한 액세스를 차단합니다.
 
-![보안 정보 등록을 제어하는 CA 정책 만들기](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
-
 1. Azure **포털에서**Azure **Active 디렉터리** > **보안** > **조건부 액세스로** 검색
-1. **새 정책** 선택
-1. 이름으로 이 정책의 이름을 입력합니다. 예를 들어 **신뢰할 수 있는 네트워크에서 통합된 보안 정보 등록**
-1. **할당에서**사용자 **및 그룹을**클릭하고 이 정책을 적용할 사용자 및 그룹을 선택합니다.
+1. 선택 **+ 새 정책**
+1. 신뢰할 수 있는 네트워크에서 통합 보안 정보 등록과 같은 이 정책의 이름을 *입력합니다.*
+1. **할당** 아래에서 **사용자 및 그룹**을 선택합니다. 이 정책을 적용할 사용자 및 그룹을 선택한 다음 **완료**를 선택합니다.
 
    > [!WARNING]
-   > [사용자는 결합된 등록을](../authentication/howto-registration-mfa-sspr-combined.md)위해 활성화되어야 합니다.
+   > 결합된 등록을 위해 사용자는 활성화되어야 합니다.
 
-1. **클라우드 앱 또는 작업**에서 사용자 작업을 선택하고 보안 정보 **등록(미리 보기)을** **선택합니다.**
-1. **조건** > **위치** 하에서
+1. **클라우드 앱 또는 작업에서**사용자 작업을 **선택합니다.** **등록 보안 정보를**확인한 다음 **완료를 선택합니다.**
+
+    ![보안 정보 등록을 제어하는 조건부 액세스 정책 만들기](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
+
+1. **조건** > **위치에서**다음 옵션을 구성합니다.
    1. **예** 구성
    1. **모든 위치** 포함
    1. **신뢰할 수 있는 모든 위치** 제외
-   1. 위치 블레이드에서 **완료를** 클릭합니다.
-   1. 조건 블레이드에서 **완료를** 클릭합니다.
-1. **액세스 제어** > **권한 부여**
-   1. **액세스 차단을 클릭합니다.**
-   1. 그런 다음 **선택을 클릭합니다.**
+1. *위치* 창에서 **완료를** 선택한 다음 *조건* 창에서 **완료를** 선택합니다.
+1. 액세스 제어 > **권한 부여에서**액세스 **차단을**선택한 다음 **Select** **선택합니다.**
 1. **정책 사용** 설정 **켜짐**
-1. 그런 다음 **만들기를 클릭합니다.**
+1. 정책을 완료하려면 **만들기를** 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

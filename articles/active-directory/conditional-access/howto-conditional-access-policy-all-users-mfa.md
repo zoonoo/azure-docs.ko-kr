@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3e7b1a656c92e37a709b57dae463f6644003e42
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 60d0ad0a1c0a1b4d13ce4d386df22406a8ab8e51
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80755197"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617626"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>조건부 액세스: 모든 사용자에 대해 MFA 필요
 
@@ -41,7 +41,7 @@ ms.locfileid: "80755197"
 
 ## <a name="create-a-conditional-access-policy"></a>조건부 액세스 정책 만들기
 
-다음 단계는 다단계 인증을 수행하기 위해 할당된 관리 역할을 요구하는 조건부 액세스 정책을 만드는 데 도움이 됩니다.
+다음 단계는 모든 사용자가 다단계 인증을 수행하도록 요구하는 조건부 액세스 정책을 만드는 데 도움이 됩니다.
 
 1. **Azure 포털에** 글로벌 관리자, 보안 관리자 또는 조건부 액세스 관리자로 로그인합니다.
 1. Azure **Active 디렉터리** > **보안** > **조건부 액세스로**이동합니다.
@@ -50,7 +50,7 @@ ms.locfileid: "80755197"
 1. 할당에서 사용자 **및 그룹을** **선택합니다.**
    1. **포함**에서 **모든 사용자를** 선택합니다.
    1. **제외에서** **사용자 및 그룹을** 선택하고 조직의 비상 액세스 또는 브레이크 글래스 계정을 선택합니다. 
-   1. **완료를 선택합니다.**
+   1. **완료** 를 선택합니다.
 1. **클라우드 앱 또는 작업** > **에서 포함**, 모든 **클라우드 앱을**선택합니다.
    1. **제외에서**다단계 인증이 필요하지 않은 응용 프로그램을 선택합니다.
 1. **조건 클라이언트** > **앱(미리 보기)에서** **구성을** **예로**설정하고 **완료를**선택합니다.
@@ -68,8 +68,8 @@ ms.locfileid: "80755197"
    1. **구성 예**.
    1. **모든 위치를**포함합니다.
    1. **신뢰할 수 있는 모든 위치를 제외합니다.**
-   1. **완료를 선택합니다.**
-1. **완료를 선택합니다.**
+   1. **완료** 를 선택합니다.
+1. **완료** 를 선택합니다.
 1. 정책 변경 내용을 **저장합니다.**
 
 ## <a name="next-steps"></a>다음 단계

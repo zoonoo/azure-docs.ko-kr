@@ -5,16 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: eaba4bf7760e150f2477ee743c797f94784b8506
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 9bdc8cf97513854cf6a92ffd078febca6302d35c
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535505"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617410"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
-Azure 자동화의 업데이트 관리 솔루션을 사용하여 Azure, 온-프레미스 환경 및 기타 클라우드 환경에서 Windows 및 Linux 컴퓨터에 대한 운영 체제 업데이트를 관리할 수 있습니다. 모든 에이전트 컴퓨터에서 사용 가능한 업데이트의 상태를 신속하게 평가하고 서버에 필요한 업데이트를 설치하는 프로세스를 관리할 수 있습니다.
+Azure 자동화의 **업데이트 관리 솔루션을** 사용하여 Azure, 온-프레미스 환경 및 기타 클라우드 환경에서 Windows 및 Linux 컴퓨터에 대한 운영 체제 업데이트를 관리할 수 있습니다. 모든 에이전트 컴퓨터에서 사용 가능한 업데이트의 상태를 신속하게 평가하고 서버에 필요한 업데이트를 설치하는 프로세스를 관리할 수 있습니다.
 
 다음 방법을 사용하여 가상 시스템(VM)에 대한 업데이트 관리를 활성화할 수 있습니다.
 
@@ -22,14 +22,14 @@ Azure 자동화의 업데이트 관리 솔루션을 사용하여 Azure, 온-프�
 
 - Azure 포털의 가상 시스템 페이지에서 단일 Azure VM의 경우 이 시나리오는 [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) 및 [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VM에서 사용할 수 있습니다.
 
-- Azure 포털의 **가상 시스템** 페이지에서 선택하여 여러 [Azure VM의](manage-update-multi.md) 경우 
+- Azure 포털의 가상 시스템 페이지에서 선택하여 [여러 Azure VM의](manage-update-multi.md) 경우 
 
 > [!NOTE]
-> 업데이트 관리 솔루션에서는 Log Analytics 작업 영역을 자동화 계정에 연결해야 합니다. 지원되는 지역의 최종 목록은 [Azure 작업 영역 매핑을](./how-to/region-mappings.md)참조하십시오. 지역 매핑은 자동화 계정과 별도의 리전에서 VM을 관리하는 기능에 영향을 주지 않습니다.
+> **업데이트 관리 솔루션에서는** Log Analytics 작업 영역을 자동화 계정에 연결해야 합니다. 지원되는 지역의 최종 목록은 [Azure 작업 영역 매핑을](./how-to/region-mappings.md)참조하십시오. 지역 매핑은 자동화 계정과 별도의 리전에서 VM을 관리하는 기능에 영향을 주지 않습니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Azure [리소스 관리자 템플릿을](automation-update-management-deploy-template.md) 사용할 수 있으므로 새 또는 기존 자동화 계정 및 구독의 Log Analytics 작업 영역에 업데이트 관리 솔루션을 배포할 수 있습니다.
+Azure [리소스 관리자 템플릿을](automation-update-management-deploy-template.md) 사용하여 **업데이트 관리 솔루션을** 새 또는 기존 자동화 계정 및 구독의 로그 분석 작업 영역에 배포할 수 있습니다.
 
 ## <a name="solution-overview"></a>솔루션 개요
 
@@ -77,7 +77,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 
 다음 표에는 업데이트 평가를 위해 지원되는 운영 체제가 나열되어 있습니다. 패치를 사용하려면 하이브리드 Runbook 작업자가 필요합니다. 하이브리드 Runbook 작업자 요구 사항에 대한 자세한 내용은 [Windows 하이브리드 Runbook 작업자](automation-windows-hrw-install.md) 및 Linux 하이브리드 [Runbook 작업자를](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)설치하기 위한 설치 가이드를 참조하십시오.
 
-|운영 체제  |참고  |
+|운영 체제  |메모  |
 |---------|---------|
 |Windows 서버 2019(데이터 센터/데이터 센터 코어/표준)<br><br>Windows 서버 2016(데이터 센터/데이터 센터 코어/표준)<br><br>윈도우 서버 2012 R2(데이터 센터/표준)<br><br>Windows Server 2012 || 
 |윈도우 서버 2008 R2 (RTM 및 SP1 표준)| 업데이트 관리는 이 운영 체제에 대한 평가 수행만 지원하며 [하이브리드 Runbook 작업자가](automation-windows-hrw-install.md) Windows Server 2008 R2에서 지원되지 않기 때문에 패치가 지원되지 않습니다. |
@@ -94,7 +94,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 
 다음 표에는 지원되지 않는 운영 체제가 나열되어 있습니다.
 
-|운영 체제  |참고  |
+|운영 체제  |메모  |
 |---------|---------|
 |Windows 클라이언트     | 클라이언트 운영 체제(예: Windows 7 및 Windows 10)는 지원되지 않습니다.        |
 |Windows Server 2016 Nano Server     | 지원되지 않습니다.       |
@@ -137,7 +137,7 @@ Azure 마켓플레이스에서 사용할 수 있는 주문형 Red Hat 엔터프�
 
 이 솔루션을 사용하도록 설정하면 Log Analytics 작업 영역에 직접 연결된 모든 Windows 컴퓨터가 이 솔루션에 포함된 Runbook을 지원하기 위해 하이브리드 Runbook 워커로 자동으로 구성됩니다.
 
-솔루션에서 관리하는 각 Windows 컴퓨터는 하이브리드 **작업자 그룹** 창에 자동화 계정에 대한 **시스템 하이브리드 작업자 그룹으로** 나열됩니다. 솔루션은 *호스트 이름 FQDN_GUID* 명명 규칙을 사용합니다. 계정에서 Runbook을 사용하여 이러한 그룹을 대상으로 지정할 수 없습니다. 시도하면 시도가 실패합니다. 이러한 그룹은 이 관리 솔루션만 지원하기 위한 것입니다.
+솔루션에서 관리하는 각 Windows 컴퓨터는 하이브리드 작업자 그룹 창에 자동화 계정에 대한 시스템 하이브리드 작업자 그룹으로 나열됩니다. 솔루션은 `Hostname FQDN_GUID` 명명 규칙을 사용합니다. 계정에서 Runbook을 사용하여 이러한 그룹을 대상으로 지정할 수 없습니다. 시도하면 시도가 실패합니다. 이러한 그룹은 이 관리 솔루션만 지원하기 위한 것입니다.
 
 솔루션 및 하이브리드 Runbook Worker 그룹 구성원 모두에 대해 동일한 계정을 사용하는 경우 자동화 실행책을 지원하기 위해 자동화 계정의 하이브리드 Runbook Worker 그룹에 Windows 컴퓨터를 추가할 수 있습니다. 이 기능은 Hybrid Runbook Worker의 7.2.12024.0 버전에 추가되었습니다.
 
@@ -150,12 +150,12 @@ Azure 마켓플레이스에서 사용할 수 있는 주문형 Red Hat 엔터프�
 * 업데이트 배포 MP
 
 > [!NOTE]
-> 로그 데이터를 수집하기 위해 관리 그룹에 구성된 에이전트가 있는 로그 분석 작업 영역에 연결된 운영 관리자 1807 또는 2019 관리 그룹이 있는 경우 업데이트 관리로 관리하기 위해 **True** 다음 규칙을 **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init** 재정의해야 **합니다.**
+> 로그 데이터를 수집하기 위해 관리 그룹에 구성된 에이전트가 있는 로그 분석 작업 영역에 연결된 운영 관리자 1807 또는 2019 관리 그룹이 있는 경우 매개 변수를 `IsAutoRegistrationEnabled` 재정의하고 **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init** 규칙에서 True로 설정해야 합니다.
 
 솔루션 관리 팩을 업데이트하는 방법에 대한 자세한 내용은 [운영 관리자를 Azure Monitor 로그에 연결](../azure-monitor/platform/om-agents.md)참조하세요.
 
 > [!NOTE]
-> 운영 관리 에이전트가 있는 컴퓨터의 경우 업데이트 관리에서 완전히 관리하려면 에이전트를 Windows 또는 Linux용 로그 분석 에이전트로 업데이트해야 합니다. 에이전트를 업데이트하는 방법을 알아보려면 [Operations Manager 에이전트를 업그레이드하는 방법](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents)을 참조하세요. Operations Manager를 사용하는 환경에서는 시스템 센터 운영 관리자 2012 R2 UR 14 이상을 실행해야 합니다.
+> 운영 관리 에이전트가 있는 컴퓨터의 경우 에이전트를 Windows용 로그 분석 에이전트 또는 Linux용 로그 분석 에이전트로 업데이트해야 합니다. 에이전트를 업데이트하는 방법을 알아보려면 [Operations Manager 에이전트를 업그레이드하는 방법](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents)을 참조하세요. Operations Manager를 사용하는 환경에서는 시스템 센터 운영 관리자 2012 R2 UR 14 이상을 실행해야 합니다.
 
 ## <a name="data-collection"></a>데이터 수집
 
@@ -249,13 +249,9 @@ PC, 서버 및 모바일 장치를 관리하기 위해 Microsoft 엔드포인트
 시스템 업데이트를 시작하려면 업데이트 관리 솔루션을 사용하도록 설정해야 합니다. 다음은 솔루션을 온보보드로 하는 권장 및 지원되는 방법입니다.
 
 - [가상 머신에서 등록](automation-onboard-solutions-from-vm.md)
-
 - [여러 컴퓨터에서 찾아보기](automation-onboard-solutions-from-browse.md)
-
 - [Automation 계정에서 등록](automation-onboard-solutions-from-automation-account.md)
-
 - [Azure Automation Runbook 사용](automation-onboard-solutions.md)
-
 - [Azure 리소스 관리자 템플릿 사용](automation-update-management-deploy-template.md)
 
 ## <a name="next-steps"></a>다음 단계

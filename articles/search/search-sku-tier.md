@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: f103db1d0de7a9d538f56b8ade331dc856b26bce
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: eb11a5cc2deef372ca91c23a8b9c82e17143c85b
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547002"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617717"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Azure 인지 검색에 대한 가격 책정 계층 선택
 
@@ -89,6 +89,8 @@ Azure Cognitive Search를 기반으로 구축된 솔루션은 다음과 같은 �
 | 문서 크래킹, 이미지 추출 | 문서에서 추출한 이미지 수에 따라 청구됩니다. [인덱서 구성에서](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters) **imageAction은** 이미지 추출을 트리거하는 매개 변수입니다. **imageAction이** "없음"(기본값)으로 설정된 경우 이미지 추출에 대한 요금이 청구되지 않습니다. 이미지 추출 속도는 Azure 인지 검색의 [가격 세부 정보](https://azure.microsoft.com/pricing/details/search/) 페이지에 설명되어 있습니다.|
 | [기본 제공 인지 기술](cognitive-search-predefined-skills.md) | 코그너티브 서비스를 직접 사용하여 작업을 수행한 것과 동일한 비율로 청구됩니다. |
 | 사용자 지정 기술 | 사용자 지정 기술은 제공하는 기능입니다. 사용자 지정 기술을 사용하는 비용은 사용자 지정 코드가 다른 유료 서비스를 호출하는지 여부에 따라 달라집니다. |
+
+[증분 보강(미리 보기)](cognitive-search-incremental-indexing-conceptual.md) 기능을 사용하면 인덱서가 나중에 기술 집합을 수정하는 데 필요한 인지 기술만 실행할 때 보다 효율적으로 실행할 수 있는 캐시를 제공하여 시간과 비용을 절약할 수 있습니다.
 
 <a name="search-units"></a>
 
