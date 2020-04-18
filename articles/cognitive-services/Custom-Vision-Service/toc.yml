@@ -9,41 +9,33 @@
       href: whats-new.md
 - name: 빠른 시작
   items:
-    - name: 웹 포털 사용
+    - name: 분류자 빌드
       items:
-        - name: 분류자 빌드
+        - name: 웹 포털 사용
           href: getting-started-build-a-classifier.md
-        - name: 개체 감지기 빌드
-          href: get-started-build-detector.md
-    - name: .NET SDK 사용
-      items:
-        - name: 이미지 분류
+        - name: .NET SDK 사용
           href: csharp-tutorial.md
-        - name: 개체 감지
-          href: csharp-tutorial-od.md
-    - name: Python SDK 사용
-      items:
-        - name: 이미지 분류
+        - name: Python SDK 사용
           href: python-tutorial.md
-        - name: 개체 감지
-          href: python-tutorial-od.md
-    - name: Java SDK 사용
-      items:
-        - name: 이미지 분류
+        - name: Java SDK 사용
           href: java-tutorial.md
-        - name: 개체 감지
-          href: java-tutorial-od.md
-    - name: Node.js SDK 사용
-      items:
-        - name: 이미지 분류
+        - name: Node.js SDK 사용
           href: node-tutorial.md
-        - name: 개체 감지
-          href: node-tutorial-object-detection.md
-    - name: Go SDK 사용
-      items:
-        - name: 이미지 분류
+        - name: Go SDK 사용
           href: go-tutorial.md
-        - name: 개체 감지
+    - name: 개체 감지기 빌드
+      items:
+        - name: 웹 포털 사용
+          href: get-started-build-detector.md
+        - name: .NET SDK 사용
+          href: csharp-tutorial-od.md
+        - name: Python SDK 사용
+          href: python-tutorial-od.md
+        - name: Java SDK 사용
+          href: java-tutorial-od.md
+        - name: Node.js SDK 사용
+          href: node-tutorial-object-detection.md
+        - name: Go SDK 사용
           href: go-tutorial-object-detection.md
 - name: 자습서
   items:
