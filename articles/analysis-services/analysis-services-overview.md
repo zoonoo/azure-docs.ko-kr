@@ -4,21 +4,21 @@ description: 클라우드에서 엔터프라이즈급 데이터 모델을 제공
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 02/20/2020
+ms.date: 04/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3a18218635b5fc576bd9255eb73c136756ac3caa
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 350fd9c7057df96a4ad1abc0d9c8b5ec3871ef38
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215551"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271661"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
-Azure Analysis Services는 클라우드에서 엔터프라이즈급 데이터 모델을 제공하는 완전히 관리되는 PaaS(platform as a service)입니다. 고급 매시업 및 모델링 기능을 사용하여 여러 데이터 원본의 데이터를 결합하고, 메트릭을 정의하고, 신뢰할 수 있는 유의적 단일 데이터 모델에서 데이터를 보호합니다. 데이터 모델은 사용자가 임시 데이터 분석을 위해 대량의 데이터를 쉽고 빠르게 찾을 수 있는 방법을 제공합니다.
+Azure Analysis Services는 클라우드에서 엔터프라이즈급 데이터 모델을 제공하는 완전히 관리되는 PaaS(platform as a service)입니다. 고급 매시업 및 모델링 기능을 사용하여 여러 데이터 원본의 데이터를 결합하고, 메트릭을 정의하고, 신뢰할 수 있는 유의적 단일 데이터 모델에서 데이터를 보호합니다. 데이터 모델은 사용자가 Power BI 및 Excel과 같은 도구를 사용하여 임시 데이터 분석을 보다 쉽고 빠르게 수행할 수 있는 방법을 제공합니다.
 
 ![데이터 원본](./media/analysis-services-overview/aas-overview-overall.png)
 
@@ -28,7 +28,7 @@ Azure Analysis Services는 클라우드에서 엔터프라이즈급 데이터 �
 
 Azure Portal에서는 수분 내에 [서버를 만들 수 있습니다](analysis-services-create-server.md). 그리고 Azure Resource Manager [템플릿](../azure-resource-manager/resource-manager-create-first-template.md) 및 PowerShell을 사용하면 선언적 템플릿을 통해 서버를 만들 수 있습니다. 단일 템플릿을 사용하면 스토리지 계정 및 Azure Functions와 같은 다른 Azure 구성 요소와 함께 서버 리소스를 배포할 수 있습니다. 
 
-**비디오:** Azure Automation을 사용하여 서버 생성을 신속하게 할 수 있는 방법에 대한 자세한 내용을 알아보려면 [배포 자동화](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation)를 확인합니다.
+**비디오:** Azure Automation을 사용하여 서버 생성을 신속하게 하는 방법에 대한 자세한 내용을 알아보려면 [배포 자동화](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation)를 확인합니다.
 
 Azure Analysis Services는 다양한 Azure Services와 통합되어 정교한 분석 솔루션을 빌드할 수 있습니다. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)와 통합되어 중요한 데이터에 안전한 역할 기반 액세스를 제공합니다. 모델에 데이터를 로드하는 활동을 포함하여 [Azure Data Factory](../data-factory/introduction.md) 파이프라인에 통합합니다. [Azure Automation](../automation/automation-intro.md) 및 [Azure Functions](../azure-functions/functions-overview.md)는 사용자 지정 코드를 사용하여 모델의 간단한 오케스트레이션을 수행하는 데 사용할 수 있습니다. 
 
@@ -38,7 +38,7 @@ Azure Analysis Services는 **개발자**, **기본** 및 **표준** 계층에서
 
 ### <a name="developer-tier"></a>개발자 계층
 
-이 계층은 평가, 개발 및 테스트 시나리오에 권장됩니다. 단일 계획에는 표준 계층과 동일한 기능이 포함되지만, 처리 능력, QPU 및 메모리 크기가 제한됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 *사용할 수 없습니다*. 이 계층에는 SLA를 제공하지 않습니다.
+이 계층은 평가, 개발 및 테스트 시나리오에 권장됩니다. 단일 계획에는 표준 계층과 동일한 기능이 포함되지만, 처리 능력, QPU 및 메모리 크기가 제한됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 ‘사용할 수 없습니다’.  이 계층에는 SLA를 제공하지 않습니다.
 
 |계획  |QPU  |메모리(GB)  |
 |---------|---------|---------|
@@ -64,12 +64,14 @@ Azure Analysis Services는 **개발자**, **기본** 및 **표준** 계층에서
 |S1    |    100     |    25     |
 |S2    |    200     |    50     |
 |S4    |    400     |    100     |
-|S8*    |    320     |    200     |
-|S9*    |    640    |    400     |
-|S8v2*    |    640     |    200     |
-|S9v2*    |    1280    |    400     |
+|S8 <sup>[1](#depr)</sup>, <sup>[2](#rec)</sup>    |    320    |    200     |
+|S9 <sup>[1](#depr)</sup>, <sup>[2](#rec)</sup>    |    640    |    400     |
+|S8v2 <sup>[1](#depr)</sup>   |    640     |    200     |
+|S9v2 <sup>[1](#depr)</sup>    |    1280    |    400     |
 
-\* 일부 지역에서 지원되지 않습니다.  
+<a name="depr">1</a> - 일부 지역에서 사용할 수 없습니다.   
+<a name="rec">2</a> - 이 계획은 더 이상 사용되지 않습니다. v2를 사용하는 것이 좋습니다.
+
 
 ## <a name="availability-by-region"></a>지역별 가용성
 
@@ -83,15 +85,15 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 |캐나다 중부    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |미국 동부     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |미국 동부 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|미국 동부 2     |     S8, S9, S8v2, S9v2   |    1    |
+|미국 동부 2     |     S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2   |    1    |
 |미국 중북부     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |미국 중부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |미국 중남부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |미국 중서부   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |미국 서부     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|미국 서부     |    S8, S9, S8v2, S9v2   |    2  |
+|미국 서부     |    S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2   |    2  |
 |미국 서부2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
-|미국 서부2    |    S8, S9, S8v2, S9v2  |    1     |
+|미국 서부2    |    S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2  |    1     |
 
 ### <a name="europe"></a>유럽
 
@@ -101,17 +103,17 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 |북유럽     |    S8v2, S9v2      |    3     |
 |영국 남부     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |서유럽     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|서유럽    |   S8, S9, S8v2, S9v2  |  1  |
+|서유럽    |   S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>아시아 태평양 
 
 |지역  | 지원되는 계획 | 쿼리 복제본(표준 계획만) |
 |---------|---------|:---------:|
 |오스트레일리아 동부     |    B1, B2, S0, S1, S2, S4     |    3     |
-|오스트레일리아 동부     |    S8, S9, S8v2, S9v2    |    1     |
+|오스트레일리아 동부     |    S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2    |    1     |
 |오스트레일리아 남동부     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |일본 동부     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|동남아시아     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
+|동남아시아     |     B1, B2, S0, S1, S2, S4, S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2, D1     |   1      |
 |인도 서부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>사용자의 요구 사항에 맞게 규모 조정
@@ -128,7 +130,7 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 
 계층 변경과 마찬가지로 필요에 따라 쿼리 복제본을 스케일 아웃할 수 있습니다. 포털에서 또는 REST API를 사용하여 스케일 아웃을 구성합니다. 자세한 내용은 [Azure Analysis Services 스케일 아웃](analysis-services-scale-out.md)을 참조하세요.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 총 비용은 요인 수에 따라 다릅니다(예: 선택한 지역, 계층, 쿼리 복제본 및 일시 중지/다시 시작). [Azure Analysis Services 가격 책정](https://azure.microsoft.com/pricing/details/analysis-services/) 계산기를 사용하여 해당 지역에 대한 일반적인 가격 책정을 결정합니다. 이 도구는 단일 지역의 단일 서버 인스턴스에 대한 가격 책정을 계산합니다. 쿼리 복제본은 서버와 동일한 요금이 청구됩니다. 
 
@@ -208,13 +210,17 @@ Microsoft Analysis Services 프로젝트는 설치 가능한 무료 VSIX 패키�
 
 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)를 사용하여 서버 및 모델 데이터베이스를 관리합니다. 클라우드에서 서버에 연결합니다. XMLA 쿼리 창에서 TMSL 스크립트를 직접 실행하고 TMSL 스크립트 및 PowerShell을 사용하여 작업을 자동화합니다. SSMS가 매월 업데이트되므로 새 특징과 기능이 빠르게 출시됩니다.
 
+### <a name="open-source-tools"></a>오픈 소스 도구
+
+Analysis Services에는 도구를 만드는 활발한 개발자 커뮤니티가 있습니다. 직관적이고 간단한 편집기를 사용하여 테이블 형식 모델을 생성, 유지 관리 및 관리하기 위한 오픈 소스 도구인 [테이블 형식 편집기](https://tabulareditor.github.io/)를 확인해야 합니다. [DAX Studio](https://daxstudio.org/)는 DAX 제작, 진단, 성능 조정 및 분석을 위한 훌륭한 오픈 소스 도구입니다.
+
 ### <a name="powershell"></a>PowerShell
 
 서버 리소스 만들기, 서버 작업 일시 중단/다시 시작 또는 서비스 수준(계층) 변경과 같은 서버 관리 작업에서는 Azure PowerShell cmdlet을 사용합니다. 역할 멤버 추가/제거, 처리 또는 TMSL 스크립트 실행과 같은 기타 데이터베이스 관리 작업에서는 SqlServer 모듈에 포함된 cmdlet을 사용합니다. 자세한 내용은 [PowerShell을 사용하여 Azure Analysis Services 관리](analysis-services-powershell.md)를 참조하세요.
 
 ### <a name="object-model-and-scripting"></a>개체 모델 및 스크립팅
 
-테이블 형식 모델은 신속한 개발을 제공하며 손쉽게 사용자 지정할 수 있습니다. 테이블 형식 모델에는 모델 개체를 설명하는 TOM([테이블 형식 개체 모델](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo))이 포함됩니다. TOM은 JSON에서 [Microsoft.AnalysisServices.Tabular](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) 네임스페이스를 통해 [TMSL(테이블 형식 모델 스크립팅 언어)](/dotnet/api/microsoft.analysisservices.tabular) 및 AMO 데이터 정의 언어로 공개되어 있습니다. 
+테이블 형식 모델은 신속한 개발을 제공하며 손쉽게 사용자 지정할 수 있습니다. 테이블 형식 모델에는 모델 개체를 설명하는 TOM([테이블 형식 개체 모델](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo))이 포함됩니다. TOM은 JSON에서 [Microsoft.AnalysisServices.Tabular](/dotnet/api/microsoft.analysisservices.tabular) 네임스페이스를 통해 [TMSL(테이블 형식 모델 스크립팅 언어)](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) 및 AMO 데이터 정의 언어로 공개되어 있습니다. 
 
 ## <a name="supports-the-latest-client-tools"></a>최신 클라이언트 도구 지원
 
@@ -224,7 +230,7 @@ Power BI, Excel, Reporting Services 및 타사 도구와 같은 최신 데이터
 
 ## <a name="monitoring-and-diagnostics"></a>모니터링 및 진단
 
-Azure Analysis Services는 Azure 메트릭과 통합되어 서버의 성능 및 상태를 모니터링할 수 있도록 리소스 특정 메트릭의 확장된 수를 제공합니다. 자세한 내용은 [서버 메트릭 모니터링](analysis-services-monitor.md)을 참조하세요. [Azure 리소스 진단 로그란?](../azure-monitor/platform/platform-logs-overview.md)에서 메트릭을 기록합니다. 로그를 모니터링하여 [Azure Storage](https://azure.microsoft.com/services/storage/)로 보내고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트림하고, [Azure](https://azure.microsoft.com/services/log-analytics/)의 서비스인 [Azure Monitor 로그](https://www.microsoft.com/cloud-platform/operations-management-suite)로 내보낼 수 있습니다. 자세한 내용은 [진단 로깅 설정](analysis-services-logging.md)을 참조하세요.
+Azure Analysis Services는 Azure 메트릭과 통합되어 서버의 성능 및 상태를 모니터링할 수 있도록 리소스 특정 메트릭의 확장된 수를 제공합니다. 자세한 내용은 [서버 메트릭 모니터링](analysis-services-monitor.md)을 참조하세요. [Azure 리소스 진단 로그란?](../azure-monitor/platform/platform-logs-overview.md)에서 메트릭을 기록합니다. 로그를 모니터링하여 [Azure Storage](https://azure.microsoft.com/services/storage/)로 보내고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트림하고, [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite)의 서비스인 [Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/)로 내보낼 수 있습니다. 자세한 내용은 [진단 로깅 설정](analysis-services-logging.md)을 참조하세요.
 
 Azure Analysis Services는 [DMV(동적 관리 뷰)](https://docs.microsoft.com/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services)도 사용하도록 지원합니다. SQL 구문에 따라 서버 인스턴스에 대한 메타데이터 및 모니터링 정보를 반환하는 DMV 인터페이스 스키마 행 집합입니다.
 
@@ -232,19 +238,15 @@ Azure Analysis Services는 [DMV(동적 관리 뷰)](https://docs.microsoft.com/a
 
 Azure Analysis Services에 관련된 설명서는 여기에 포함됩니다. 브라우저 화면 왼쪽에 있는 목차를 사용하여 아티클을 찾습니다. 
 
-Azure Analysis Services 테이블 형식 모델은 SQL Server Analysis Services의 테이블 형식 모델과 거의 동일하기 때문에 [SQL Server Analysis Services 설명서](https://docs.microsoft.com/analysis-services/analysis-services-overview)에는 광범위한 공유 데이터 모델링 자습서, 개념, 절차, 개발자 및 참조 문서 라이브러리가 있습니다. SQL Server Analysis Services 설명서의 아티클은 제목 아래에서 적용 대상 배너에 의해 Azure Analysis Services에 적용되는지를 보여줍니다.
+Azure Analysis Services의 테이블 형식 모델은 SQL Server Analysis Services 및 Power BI Premium 데이터 세트의 테이블 형식 모델과 거의 동일하기 때문에 [Analysis Services 설명서](https://docs.microsoft.com/analysis-services/?view=azure-analysis-services-current)에는 광범위한 공유 데이터 모델링 자습서, 개념, 절차, 개발자 및 참조 문서 라이브러리가 있습니다. 공유 Analysis Services 설명서의 문서는 제목 아래의 적용 대상 배너에 의해 Azure Analysis Services에도 적용되는지를 보여줍니다. 목차 위의 버전 선택기를 사용하여 사용 중인 플랫폼에 적용되는 문서만 볼 수도 있습니다.
 
 ![공유 설명서](./media/analysis-services-overview/aas-overview-applies-to.png)
 
 ### <a name="contribute"></a>참가
 
-이 아티클과 같은 Analysis Services 설명서는 오픈 소스입니다. GitHub 계정이 있는 경우 브라우저 화면 오른쪽 위 모퉁이에 편집(연필)을 클릭하여 아티클을 편집할 수 있습니다. 브라우저 편집기에서 사용한 다음, 파일 변경 제안을 클릭합니다. 
+이 아티클과 같은 Analysis Services 설명서는 오픈 소스입니다. 기여할 수 있는 방법에 대한 자세한 내용은 [Docs 기여자 가이드](https://docs.microsoft.com/contribute/)를 참조하세요. 
 
-![공유 설명서](./media/analysis-services-overview/aas-overview-edit.png)
-
-참가는 설명서 팀에서 검토되고 승인되면 GitHub 계정 이름이 참가자로 표시됩니다. 자세한 내용은 [Docs 참가자 가이드](https://docs.microsoft.com/contribute/)를 참조하세요.
-
-Azure Analysis Services 설명서는 [GitHub 문제](https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs)도 사용합니다. 제품 또는 설명서에 대한 피드백을 제공할 수 있습니다. 아티클 맨 아래에서 **피드백**을 사용합니다. GitHub 문제는 아직 SQL Server Analysis Services 설명서에 사용하도록 설정되지 않았습니다. 
+Azure Analysis Services 설명서는 [GitHub 문제](https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs)도 사용합니다. 제품 또는 설명서에 대한 피드백을 제공할 수 있습니다. 아티클 맨 아래에서 **피드백**을 사용합니다. GitHub 문제는 공유 Analysis Services 설명서에 사용하도록 설정되지 않았습니다. 
 
 ## <a name="blogs"></a>블로그
 

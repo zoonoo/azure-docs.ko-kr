@@ -1,22 +1,22 @@
 ---
-title: '자습서: 포털에서 SSL 종료 구성 - Azure Application Gateway'
-description: 이 자습서에서는 Azure Portal을 사용하여 애플리케이션 게이트웨이를 구성하고 SSL 종료를 위한 인증서를 추가하는 방법을 알아봅니다.
+title: '자습서: 포털에서 TLS 종료 구성 - Azure Application Gateway'
+description: 이 자습서에서는 Azure Portal을 사용하여 애플리케이션 게이트웨이를 구성하고 TLS 종료를 위한 인증서를 추가하는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: b4278fc6d44f32921713681cb094b659901cc87c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b40eb107fc975d2ef0170944892b936680de3c9f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74012314"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312385"
 ---
-# <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 SSL 종료로 애플리케이션 게이트웨이 구성
+# <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 TLS 종료로 애플리케이션 게이트웨이 구성
 
-Azure Portal을 사용하여 백 엔드 서버에 가상 머신을 사용하는 SSL 종료용 인증서가 있는 [애플리케이션 게이트웨이](overview.md)를 구성할 수 있습니다.
+Azure Portal을 사용하여 백 엔드 서버에 가상 머신을 사용하는 TLS 종료용 인증서가 있는 [애플리케이션 게이트웨이](overview.md)를 구성할 수 있습니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -265,4 +265,4 @@ Export-PfxCertificate `
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Application Gateway SSL 지원에 대한 자세한 정보](ssl-overview.md)
+> [Application Gateway TLS 지원에 대한 자세한 정보](ssl-overview.md)

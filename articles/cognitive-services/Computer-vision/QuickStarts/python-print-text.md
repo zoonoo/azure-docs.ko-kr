@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: af755af9404cc98c650164e5f891661f2530f77b
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 7daa630c47fc677f6659fa51cca6583a0b583865
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80244776"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404378"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-python"></a>빠른 시작: Computer Vision REST API 및 Python을 사용하여 인쇄된 텍스트(OCR) 추출
 
@@ -226,7 +226,9 @@ response = requests.post(ocr_url, headers=headers, params=params, data = image_d
 
 ## <a name="next-steps"></a>다음 단계
 
-Computer Vision을 사용하는 Python 애플리케이션을 탐색합니다. 이 프로그램은 OCR(광학 문자 인식)을 수행하고, 스마트하게 자른 썸네일을 만들고, 이미지에서 얼굴을 비롯한 시각적 특징을 감지하고, 분류하고, 태그를 지정하고, 설명합니다. Computer Vision API를 사용하여 신속하게 실험하려면 [API 테스트 콘솔 열기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console)를 사용하세요.
+다음으로, Computer Vision을 사용하여 OCR(광학 문자 인식)을 수행하고, 스마트하게 잘리는 썸네일을 만들고, 이미지의 시각적 기능을 검색, 분류, 태그 지정 및 설명하는 Python 애플리케이션을 살펴봅니다.
 
 > [!div class="nextstepaction"]
 > [Computer Vision API Python 자습서](../Tutorials/PythonTutorial.md)
+
+* Computer Vision API를 사용하여 신속하게 실험하려면 [API 테스트 콘솔 열기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console)를 사용하세요.

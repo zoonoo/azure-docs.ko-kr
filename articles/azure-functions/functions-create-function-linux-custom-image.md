@@ -1,20 +1,20 @@
 ---
 title: 사용자 지정 이미지를 사용하여 Linux에서 Azure Functions 만들기
 description: 사용자 지정 Linux 이미지에서 실행되는 Azure Functions를 만드는 방법을 알아봅니다.
-ms.date: 01/15/2020
+ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 8c074c677c645dd03e3cf5288d82aa3e65720e8b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 80881d96d713f3dc4127c94fd324e925e3c68792
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223730"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382940"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 Linux에서 함수 만들기
 
-이 자습서에서는 Linux 기본 이미지를 사용하여 Python 코드를 사용자 지정 Docker 컨테이너로 만들어 Azure Functions에 배포합니다. 함수에 특정 언어 버전이 필요하거나 기본 제공 이미지에서 제공하지 않는 특정 종속성 또는 구성이 있는 경우 일반적으로 사용자 지정 이미지를 사용합니다.
+이 자습서에서는 Linux 기본 이미지를 사용하여 사용자 지정 Docker 컨테이너로 코드를 만들어 Azure Functions에 배포합니다. 함수에 특정 언어 버전이 필요하거나 기본 제공 이미지에서 제공하지 않는 특정 종속성 또는 구성이 있는 경우 일반적으로 사용자 지정 이미지를 사용합니다.
 
 또한 [Linux에서 호스팅되는 첫 번째 함수 만들기](functions-create-first-azure-function-azure-cli-linux.md)에서 설명한 대로 기본 Azure App Service 컨테이너를 사용할 수도 있습니다. Azure Functions에 대해 지원되는 기본 이미지는 [Azure Functions 기본 이미지 리포지토리](https://hub.docker.com/_/microsoft-azure-functions-base)에 나와 있습니다.
 
@@ -31,236 +31,158 @@ ms.locfileid: "79223730"
 > * 컨테이너에 SSH 연결 사용
 > * Queue Storage 출력 바인딩 추가 
 
-이 자습서는 Windows, Mac OS 또는 Linux를 실행하는 모든 컴퓨터에서 수행할 수 있습니다. 자습서를 완료하면 Azure 계정에서 몇 달러(US) 정도의 비용이 발생합니다.
+이 자습서는 Windows, macOS 또는 Linux를 실행하는 모든 컴퓨터에서 수행할 수 있습니다. 자습서를 완료하면 Azure 계정에서 몇 달러(US) 정도의 비용이 발생합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+[!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
-- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.7.1846 이상
-- [Azure CLI](/cli/azure/install-azure-cli) 버전 2.0.77 이상
-- [Azure Functions 2.x 런타임](functions-versions.md)
-- 언어 런타임 구성 요소는 다음과 같습니다.
-    ::: zone pivot="programming-language-csharp"
-    - [.NET Core 2.2. x 이상](https://dotnet.microsoft.com/download)
-    ::: zone-end
-    ::: zone pivot="programming-language-javascript"
-    - [Node.JS](https://nodejs.org/en/download/)
-    ::: zone-end
-    ::: zone pivot="programming-language-powershell"
-    - [PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7)
-    ::: zone-end
-    ::: zone pivot="programming-language-python"
-    - [Python 3.6 - 64비트](https://www.python.org/downloads/release/python-3610/) 또는 [Python 3.7 - 64비트](https://www.python.org/downloads/release/python-376/)
-    ::: zone-end
-    ::: zone pivot="programming-language-typescript"
-    - [Node.JS](https://nodejs.org/en/download/)
-    - [TypeScript](http://www.typescriptlang.org/#download-links)
-    ::: zone-end
-- [Docker](https://docs.docker.com/install/)
-- [Docker ID](https://hub.docker.com/signup)
+<!---Requirements specific to Docker --->
++ [Docker](https://docs.docker.com/install/)  
 
-### <a name="prerequisite-check"></a>필수 구성 요소 확인
++ [Docker ID](https://hub.docker.com/signup)
 
-1. 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 2.7.1846 버전 이상인지 확인합니다.
-1. `az --version`을 실행하여 Azure CLI 버전이 2.0.76 이상인지 확인합니다.
-1. `az login`을 실행하여 Azure에 로그인하고 활성 구독을 확인합니다.
-1. `docker login`을 실행하여 Docker에 로그인합니다. Docker가 실행되지 않으면 이 명령이 실패합니다. 이 경우 Docker를 시작하여 명령을 다시 시도하세요.
+[!INCLUDE [functions-cli-verify-prereqs](../../includes/functions-cli-verify-prereqs.md)]
+
++ `docker login`을 실행하여 Docker에 로그인합니다. Docker가 실행되지 않으면 이 명령이 실패합니다. 이 경우 Docker를 시작하여 명령을 다시 시도하세요.
+
+[!INCLUDE [functions-cli-create-venv](../../includes/functions-cli-create-venv.md)]
 
 ## <a name="create-and-test-the-local-functions-project"></a>로컬 함수 프로젝트 만들기 및 테스트
 
-1. 터미널 또는 명령 프롬프트에서 이 자습서의 폴더를 적절한 위치에 만든 다음, 해당 폴더로 이동합니다.
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+터미널 또는 명령 프롬프트에서 선택한 언어에 대해 다음 명령을 실행하여 함수 앱 프로젝트를 `LocalFunctionsProject`라는 폴더에 만듭니다.  
+::: zone-end  
+::: zone pivot="programming-language-csharp"  
+```
+func init LocalFunctionsProject --worker-runtime dotnet --docker
+```
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+```
+func init LocalFunctionsProject --worker-runtime node --language javascript --docker
+```
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
+```
+func init LocalFunctionsProject --worker-runtime powershell --docker
+```
+::: zone-end  
+::: zone pivot="programming-language-python"  
+```
+func init LocalFunctionsProject --worker-runtime python --docker
+```
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
+```
+func init LocalFunctionsProject --worker-runtime node --language typescript --docker
+```
+::: zone-end
+::: zone pivot="programming-language-java"  
+빈 폴더에서 다음 명령을 실행하여 [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html)으로부터 Functions 프로젝트를 생성합니다.
 
-1. [가상 환경 만들기 및 활성화](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv)의 지침에 따라 이 자습서에서 사용할 가상 환경을 만듭니다.
+# <a name="bash"></a>[bash](#tab/bash)
+```bash
+mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -Ddocker
+```
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+```powershell
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
+```
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+```cmd
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
+```
+---
 
-1. 선택한 언어에 대해 다음 명령을 실행하여 함수 앱 프로젝트를 `LocalFunctionsProject`라는 폴더에 만듭니다. `--docker` 옵션은 프로젝트에 대한 `Dockerfile`을 생성하는데, 이는 Azure Functions 및 선택한 런타임에서 사용하는 데 적합한 사용자 지정 컨테이너를 정의합니다.
+Maven은 배포 시 프로젝트 생성 완료를 위해 필요한 값을 요청합니다.   
+메시지가 표시되면 다음 값을 제공합니다.
 
-    ::: zone pivot="programming-language-csharp"
-    ```
-    func init LocalFunctionsProject --worker-runtime dotnet --docker
-    ```
-    ::: zone-end
+| prompt | 값 | Description |
+| ------ | ----- | ----------- |
+| **groupId** | `com.fabrikam` | Java에 대한 [패키지 명명 규칙](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7)에 따라 모든 프로젝트에서 프로젝트를 고유하게 식별하는 값입니다. |
+| **artifactId** | `fabrikam-functions` | 버전 번호가 없는 jar의 이름인 값입니다. |
+| **version** | `1.0-SNAPSHOT` | 기본값을 선택합니다. |
+| **package** | `com.fabrikam.functions` | 생성된 함수 코드에 대한 Java 패키지인 값입니다. 기본값을 사용하세요. |
 
-    ::: zone pivot="programming-language-javascript"
-    ```
-    func init LocalFunctionsProject --worker-runtime node --language javascript --docker
-    ```
-    ::: zone-end
+`Y`를 입력하거나 Enter 키를 눌러 확인합니다.
 
-    ::: zone pivot="programming-language-powershell"
-    ```
-    func init LocalFunctionsProject --worker-runtime powershell --docker
-    ```
-    ::: zone-end
+Maven은 이름이 _artifactId_인 새 폴더에 프로젝트 파일을 만드는데, 이 예제에서는 `fabrikam-functions`입니다. 
+::: zone-end
+`--docker` 옵션은 프로젝트에 대한 `Dockerfile`을 생성하는데, 이는 Azure Functions 및 선택한 런타임에서 사용하는 데 적합한 사용자 지정 컨테이너를 정의합니다.
 
-    ::: zone pivot="programming-language-python"
-    ```
-    func init LocalFunctionsProject --worker-runtime python --docker
-    ```
-    ::: zone-end
+프로젝트 폴더로 이동합니다.
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+```
+cd LocalFunctionsProject
+```
+::: zone-end  
+::: zone pivot="programming-language-java"  
+```
+cd fabrikam-functions
+```
+::: zone-end  
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
+다음 명령을 사용하여 함수를 프로젝트에 추가합니다. 여기서 `--name` 인수는 함수의 고유 이름이고, `--template` 인수는 함수의 트리거를 지정합니다. `func new`는 프로젝트의 선택한 언어에 적합한 코드 파일과 *function.json*이라는 구성 파일을 포함하는 함수 이름과 일치하는 하위 폴더를 만듭니다.
 
-    ::: zone pivot="programming-language-typescript"
-    ```
-    func init LocalFunctionsProject --worker-runtime node --language typescript --docker
-    ```
-    ::: zone-end
-    
-1. 프로젝트 폴더로 이동합니다.
+```
+func new --name HttpExample --template "HTTP trigger"
+```
+::: zone-end  
+함수를 로컬로 테스트하려면 프로젝트 폴더의 루트에서 로컬 Azure Functions 런타임 호스트를 시작합니다. 
+::: zone pivot="programming-language-csharp"  
+```
+func start --build  
+```
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"   
+```
+func start  
+```
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
+```
+npm install
+npm start
+```
+::: zone-end  
+::: zone pivot="programming-language-java"  
+```
+mvn clean package  
+mvn azure-functions:run
+```
+::: zone-end
+출력에 `HttpExample` 엔드포인트가 표시되면 [`http://localhost:7071/api/HttpExample?name=Functions`](http://localhost:7071/api/HttpExample?name=Functions)로 이동합니다. 브라우저에서 `name` 쿼리 매개 변수에 제공된 값인 `Functions`를 다시 에코하는 "hello" 메시지를 표시해야 합니다.
 
-    ```
-    cd LocalFunctionsProject
-    ```
-    
-1. 다음 명령을 사용하여 함수를 프로젝트에 추가합니다. 여기서 `--name` 인수는 함수의 고유 이름이고, `--template` 인수는 함수의 트리거를 지정합니다. `func new`는 프로젝트의 선택한 언어에 적합한 코드 파일과 *function.json*이라는 구성 파일을 포함하는 함수 이름과 일치하는 하위 폴더를 만듭니다.
-
-    ```
-    func new --name HttpExample --template "HTTP trigger"
-    ```
-
-1. 함수를 로컬로 테스트하려면 *LocalFunctionsProject* 폴더에서 로컬 Azure Functions 런타임 호스트를 시작합니다.
-   
-    ::: zone pivot="programming-language-csharp"
-    ```
-    func start --build
-    ```
-    ::: zone-end
-
-    ::: zone pivot="programming-language-javascript"
-    ```
-    func start
-    ```
-    ::: zone-end
-
-    ::: zone pivot="programming-language-powershell"
-    ```
-    func start
-    ```
-    ::: zone-end
-
-    ::: zone pivot="programming-language-python"
-    ```
-    func start
-    ```
-    ::: zone-end    
-
-    ::: zone pivot="programming-language-typescript"
-    ```
-    npm install
-    ```
-
-    ```
-    npm start
-    ```
-    ::: zone-end
-
-1. 출력에 `HttpExample` 엔드포인트가 표시되면 `http://localhost:7071/api/HttpExample?name=Functions`로 이동합니다. 브라우저에는 "Hello, Functions"와 같은 메시지(선택한 프로그래밍 언어에 따라 약간씩 다름)가 표시됩니다.
-
-1. **Ctrl**-**C**를 사용하여 호스트를 중지합니다.
+**Ctrl**-**C**를 사용하여 호스트를 중지합니다.
 
 ## <a name="build-the-container-image-and-test-locally"></a>컨테이너 이미지 빌드 및 로컬로 테스트
 
-1. (선택 사항) *LocalFunctionsProj* 폴더에서 *Dockerfile"을 검사합니다. Dockerfile은 Linux에서 함수 앱을 실행하는 데 필요한 환경을 설명합니다. 
+(선택 사항) 프로젝트 폴더의 루트에서 *Dockerfile"을 검사합니다. Dockerfile은 Linux에서 함수 앱을 실행하는 데 필요한 환경을 설명합니다.  Azure Functions에 대해 지원되는 기본 이미지의 전체 목록은 [Azure Functions 기본 이미지 페이지](https://hub.docker.com/_/microsoft-azure-functions-base)에 나와 있습니다.
+    
+루트 프로젝트 폴더에서 [docker build](https://docs.docker.com/engine/reference/commandline/build/) 명령을 실행하고 이름(`azurefunctionsimage`) 및 태그(`v1.0.0`)를 입력합니다. `<DOCKER_ID>`를 Docker 허브 계정 ID로 바꿉니다. 이 명령은 컨테이너에 대한 Docker 이미지를 빌드합니다.
 
-    ::: zone pivot="programming-language-csharp"
-    ```Dockerfile
-    FROM microsoft/dotnet:2.2-sdk AS installer-env
+```
+docker build --tag <DOCKER_ID>/azurefunctionsimage:v1.0.0 .
+```
 
-    COPY . /src/dotnet-function-app
-    RUN cd /src/dotnet-function-app && \
-        mkdir -p /home/site/wwwroot && \
-        dotnet publish *.csproj --output /home/site/wwwroot
+명령이 완료되면 새 컨테이너를 로컬에서 실행할 수 있습니다.
     
-    # To enable ssh & remote debugging on app service change the base image to the one below
-    # FROM mcr.microsoft.com/azure-functions/dotnet:2.0-appservice 
-    FROM mcr.microsoft.com/azure-functions/dotnet:2.0
-    ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
-        AzureFunctionsJobHost__Logging__Console__IsEnabled=true
-    
-    COPY --from=installer-env ["/home/site/wwwroot", "/home/site/wwwroot"]
-    ```
-    ::: zone-end
+빌드를 테스트하려면 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 로컬 컨테이너에서 이미지를 실행합니다. 여기서 `<DOCKER_ID`를 Docker ID로 다시 바꾸고, `-p 8080:80` 포트 인수를 추가합니다.
 
-    ::: zone pivot="programming-language-javascript"
-    ```Dockerfile
-    # To enable ssh & remote debugging on app service change the base image to the one below
-    # FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
-    FROM mcr.microsoft.com/azure-functions/node:2.0
-    
-    ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
-        AzureFunctionsJobHost__Logging__Console__IsEnabled=true
-    
-    COPY . /home/site/wwwroot
-    
-    RUN cd /home/site/wwwroot && \
-    npm install    
-    ```
-    ::: zone-end
+```
+docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
+```
 
-    ::: zone pivot="programming-language-powershell"
-    ```Dockerfile
-    # To enable ssh & remote debugging on app service change the base image to the one below
-    # FROM mcr.microsoft.com/azure-functions/powershell:2.0-appservice
-    FROM mcr.microsoft.com/azure-functions/powershell:2.0
-    ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
-        AzureFunctionsJobHost__Logging__Console__IsEnabled=true
-    
-    COPY . /home/site/wwwroot    
-    ```
-    ::: zone-end
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+로컬 컨테이너에서 이미지가 실행되면 브라우저가 `http://localhost:8080`으로 열립니다. 이 경우 아래 이미지와 같은 자리 표시자가 표시됩니다. Azure에서와 같이 로컬 컨테이너에서 함수가 실행되고 있으므로 이 이미지가 표시됩니다. 즉, *function.json*에서 `"authLevel": "function"` 속성을 사용하여 정의된 액세스 키로 보호됩니다. 그러나 컨테이너는 아직 Azure의 함수 앱에 게시되지 않았으므로 이 키를 아직 사용할 수 없습니다. 로컬 컨테이너에 대해 테스트하려면 docker를 중지하고, 권한 부여 속성을 `"authLevel": "anonymous"`로 변경하고, 이미지를 다시 빌드하고, docker를 다시 시작합니다. 그런 다음, *function.json*에서 `"authLevel": "function"`을 다시 설정합니다. 자세한 내용은 [권한 부여 키](functions-bindings-http-webhook-trigger.md#authorization-keys)를 참조하세요.
 
-    ::: zone pivot="programming-language-python"
-    ```Dockerfile
-    # To enable ssh & remote debugging on app service change the base image to the one below
-    # FROM mcr.microsoft.com/azure-functions/python:2.0-python3.7-appservice
-    FROM mcr.microsoft.com/azure-functions/python:2.0-python3.7
-    
-    ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
-        AzureFunctionsJobHost__Logging__Console__IsEnabled=true
-    
-    COPY requirements.txt /
-    RUN pip install -r /requirements.txt
-    
-    COPY . /home/site/wwwroot    
-    ```
-    ::: zone-end
+![컨테이너가 로컬로 실행되고 있음을 나타내는 자리 표시자 이미지](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
-    ::: zone pivot="programming-language-typescript"
-    ```Dockerfile
-    # To enable ssh & remote debugging on app service change the base image to the one below
-    # FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
-    FROM mcr.microsoft.com/azure-functions/node:2.0
-    
-    ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
-        AzureFunctionsJobHost__Logging__Console__IsEnabled=true
-    
-    COPY . /home/site/wwwroot
-    
-    RUN cd /home/site/wwwroot && \
-    npm install    
-    ```
-    ::: zone-end
+::: zone-end
+::: zone pivot="programming-language-java"  
+로컬 컨테이너에서 이미지가 실행되면 [`http://localhost:8080/api/HttpExample?name=Functions`](http://localhost:8080/api/HttpExample?name=Functions)로 이동합니다. 이 경우 이전과 동일한 "hello" 메시지를 표시해야 합니다. Maven 원형는 익명 권한 부여를 사용하는 HTTP 트리거 함수를 생성하므로 컨테이너에서 실행되고 있어도 함수를 호출할 수 있습니다. 
+::: zone-end  
 
-    > [!NOTE]
-    > Azure Functions에 대해 지원되는 기본 이미지의 전체 목록은 [Azure Functions 기본 이미지 페이지](https://hub.docker.com/_/microsoft-azure-functions-base)에 나와 있습니다.
-    
-1. *LocalFunctionsProject* 폴더에서 [docker build](https://docs.docker.com/engine/reference/commandline/build/) 명령을 실행하고 `azurefunctionsimage` 이름 및 `v1.0.0` 태그를 제공합니다. `<docker_id>`를 Docker 허브 계정 ID로 바꿉니다. 이 명령은 컨테이너에 대한 Docker 이미지를 빌드합니다.
-
-    ```
-    docker build --tag <docker_id>/azurefunctionsimage:v1.0.0 .
-    ```
-    
-    명령이 완료되면 새 컨테이너를 로컬에서 실행할 수 있습니다.
-    
-1. 빌드를 테스트하려면 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 로컬 컨테이너에서 이미지를 실행합니다. 여기서 `<docker_id>`를 Docker ID로 다시 바꾸고, `-p 8080:80` 포트 인수를 추가합니다.
-
-    ```
-    docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
-    ```
-    
-1. 로컬 컨테이너에서 이미지가 실행되면 브라우저가 `http://localhost:8080`으로 열립니다. 이 경우 아래 이미지와 같은 자리 표시자가 표시됩니다. Azure에서와 같이 로컬 컨테이너에서 함수가 실행되고 있으므로 이 이미지가 표시됩니다. 즉, *function.json*에서 `"authLevel": "function"` 속성을 사용하여 정의된 액세스 키로 보호됩니다. 그러나 컨테이너는 아직 Azure의 함수 앱에 게시되지 않았으므로 이 키를 아직 사용할 수 없습니다. 로컬로 테스트하려면 docker를 중지하고, 권한 부여 속성을 `"authLevel": "anonymous"`로 변경하고, 이미지를 다시 빌드하고, docker를 다시 시작합니다. 그런 다음, `"authLevel": "function"`function.json*에서* 을 다시 설정합니다. 자세한 내용은 [권한 부여 키](functions-bindings-http-webhook-trigger.md#authorization-keys)를 참조하세요.
-
-    ![컨테이너가 로컬로 실행되고 있음을 나타내는 자리 표시자 이미지](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
-
-1. 컨테이너에서 함수 앱이 확인되면 **Ctrl**+**C**를 사용하여 docker를 중지합니다.
+컨테이너에서 함수 앱이 확인되면 **Ctrl**+**C**를 사용하여 docker를 중지합니다.
 
 ## <a name="push-the-image-to-docker-hub"></a>Docker Hub에 이미지 푸시
 
@@ -313,7 +235,7 @@ Docker Hub는 이미지를 호스팅하고 이미지 및 컨테이너 서비스�
     
     이 자습서의 경우 스토리지 계정에 대한 약간의 비용(몇 USD 센트)만 발생합니다.
     
-1. 명령을 사용하여 `myPremiumPlan`탄력적 프리미엄 1 **가격 책정 계층(** ), 서유럽 지역(`--sku EP1` 또는 근처의 적절한 지역 사용) 또는 Linux 컨테이너(`-location westeurope`)에서 `--is-linux`이라는 Azure Functions 프리미엄 요금제를 만듭니다.
+1. 명령을 사용하여 **탄력적 프리미엄 1** 가격 책정 계층(`--sku EP1`), 서유럽 지역(`-location westeurope` 또는 근처의 적절한 지역 사용) 또는 Linux 컨테이너(`--is-linux`)에서 `myPremiumPlan`이라는 Azure Functions 프리미엄 요금제를 만듭니다.
 
     ```azurecli
     az functionapp plan create --resource-group AzureFunctionsContainers-rg --name myPremiumPlan --location westeurope --number-of-workers 1 --sku EP1 --is-linux
@@ -349,18 +271,18 @@ Azure의 함수 앱은 호스팅 계획에서 함수 실행을 관리합니다. 
 
 1. 이제 함수에서 이 연결 문자열을 사용하여 스토리지 계정에 액세스할 수 있습니다.
 
-> [!TIP]
-> bash에서는 클립보드를 사용하는 대신 셸 변수를 사용하여 연결 문자열을 캡처할 수 있습니다. 먼저, 다음 명령을 사용하여 연결 문자열이 포함된 변수를 만듭니다.
-> 
-> ```bash
-> storageConnectionString=$(az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv)
-> ```
-> 
-> 그런 다음, 두 번째 명령에서 해당 변수를 참조합니다.
-> 
-> ```azurecli
-> az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=$storageConnectionString
-> ```
+    > [!TIP]
+    > bash에서는 클립보드를 사용하는 대신 셸 변수를 사용하여 연결 문자열을 캡처할 수 있습니다. 먼저, 다음 명령을 사용하여 연결 문자열이 포함된 변수를 만듭니다.
+    > 
+    > ```bash
+    > storageConnectionString=$(az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv)
+    > ```
+    > 
+    > 그런 다음, 두 번째 명령에서 해당 변수를 참조합니다.
+    > 
+    > ```azurecli
+    > az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=$storageConnectionString
+    > ```
 
 > [!NOTE]    
 > 사용자 지정 이미지를 프라이빗 컨테이너 계정에 게시하는 경우 연결 문자열에 Dockerfile의 환경 변수를 대신 사용해야 합니다. 자세한 내용은 [ENV 명령](https://docs.docker.com/engine/reference/builder/#env)을 참조하세요. `DOCKER_REGISTRY_SERVER_USERNAME` 및 `DOCKER_REGISTRY_SERVER_PASSWORD` 변수도 설정해야 합니다. 값을 사용하려면 이미지를 다시 빌드하고, 이미지를 레지스트리로 푸시한 다음, Azure에서 함수 앱을 다시 시작해야 합니다.
@@ -511,347 +433,47 @@ Azure Functions를 사용하면 고유한 통합 코드를 작성해야 하는 �
 
 이 섹션에서는 함수를 Azure Storage 큐와 통합하는 방법을 보여줍니다. 이 함수에 추가하는 출력 바인딩은 HTTP 요청의 데이터를 큐의 메시지에 씁니다.
 
-## <a name="retrieve-the-azure-storage-connection-string"></a>Azure Storage 연결 문자열 검색
+[!INCLUDE [functions-cli-get-storage-connection](../../includes/functions-cli-get-storage-connection.md)]
 
-이전에는 함수 앱에서 사용할 Azure Storage 계정을 만들었습니다. 이 계정의 연결 문자열은 Azure의 앱 설정에 안전하게 저장됩니다. 이 설정을 *local.settings.json* 파일에 다운로드하면 함수를 로컬로 실행할 때 동일한 계정의 Storage 큐에 해당 연결 쓰기를 사용할 수 있습니다. 
+[!INCLUDE [functions-register-storage-binding-extension-csharp](../../includes/functions-register-storage-binding-extension-csharp.md)]
 
-1. 프로젝트의 루트에서 다음 명령을 실행합니다. 여기서 `<app_name>`을 이전 빠른 시작의 함수 앱 이름으로 바꿉니다. 이 명령은 파일의 기존 값을 덮어씁니다.
+[!INCLUDE [functions-add-output-binding-cli](../../includes/functions-add-output-binding-cli.md)]
 
-    ```
-    func azure functionapp fetch-app-settings <app_name>
-    ```
-    
-1. *local.settings.json*을 열고, Storage 계정 연결 문자열인 `AzureWebJobsStorage`라는 값을 찾습니다. 이 문서의 다른 섹션에서 `AzureWebJobsStorage` 이름과 연결 문자열을 사용합니다.
-
-> [!IMPORTANT]
-> *local.settings.json*에는 Azure에서 다운로드한 비밀이 포함되어 있으므로 항상 이 파일을 원본 제어에서 제외하세요. 로컬 함수 프로젝트를 사용하여 만든 *.gitignore* 파일은 기본적으로 해당 파일이 제외됩니다.
-
-### <a name="add-an-output-binding-to-functionjson"></a>function.json에 출력 바인딩 추가
-
-Azure Functions에서 각 바인딩 형식에는 `direction`function.json`type` 파일에 정의되는 `name`, *및 고유한*이 필요합니다. *function.json*에는 이미 "httpTrigger" 형식의 입력 바인딩과 HTTP 응답에 대한 출력 바인딩이 포함되어 있습니다. 바인딩을 스토리지 큐에 추가하려면 파일을 다음과 같이 수정합니다. 여기서는 큐가 코드에서 `msg`라는 입력 인수로 표시되는 "queue" 형식에 대한 출력 바인딩이 추가됩니다. 또한 큐 바인딩에는 사용할 큐의 이름(이 경우 `outqueue`)과 연결 문자열을 보유하는 설정의 이름(이 경우 `AzureWebJobStorage`)이 필요합니다.
-
-::: zone pivot="programming-language-csharp"
-
-C# 클래스 라이브러리 프로젝트에서 바인딩은 함수 메서드의 바인딩 특성으로 정의됩니다. 그런 다음, 이러한 특성을 기반으로 하여 *function.json* 파일이 자동으로 생성됩니다.
-
-1. 큐 바인딩의 경우 다음 [dotnet add package](/dotnet/core/tools/dotnet-add-package) 명령을 실행하여 Storage 확장 패키지를 프로젝트에 추가합니다.
-
-    ```
-    dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
-    ```
-
-1. *HttpTrigger.cs* 파일을 열고, 다음 `using` 문을 추가합니다.
-
-    ```cs
-    using Microsoft.Azure.WebJobs.Extensions.Storage;
-    ```
-    
-1. 다음 매개 변수를 `Run` 메서드 정의에 추가합니다.
-    
-    ```csharp
-    [Queue("outqueue"), StorageAccount("AzureWebJobsStorage")] ICollector<string> msg
-    ```
-    
-    이제 `Run` 메서드 정의는 다음 코드와 일치합니다.
-    
-    ```csharp
-    [FunctionName("HttpTrigger")]
-    public static async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
-        [Queue("outqueue"), StorageAccount("AzureWebJobsStorage")] ICollector<string> msg, ILogger log)
-    ```
-
-`msg` 매개 변수는 `ICollector<T>` 형식이며, 함수가 완료될 때 출력 바인딩에 작성되는 메시지의 컬렉션을 나타냅니다. 이 경우 출력은 `outqueue`라는 스토리지 큐입니다. 스토리지 계정에 대한 연결 문자열은 `StorageAccountAttribute`로 설정됩니다. 이 특성은 스토리지 계정 연결 문자열을 포함하는 설정을 나타내며 클래스, 메서드 또는 매개 변수 수준에서 적용될 수 있습니다. 이 경우 기본 스토리지 계정을 이미 사용하고 있으므로 `StorageAccountAttribute`를 생략할 수 있습니다.
-
-::: zone-end
-
-::: zone pivot="programming-language-javascript"
-
-HTTP 바인딩 뒤에 큐 바인딩을 추가하여 다음과 일치하도록 *function.json*을 업데이트합니다.
-
-```json
-{
-  "bindings": [
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    },
-    {
-      "type": "queue",
-      "direction": "out",
-      "name": "msg",
-      "queueName": "outqueue",
-      "connection": "AzureWebJobsStorage"
-    }
-  ]
-}
-```
-::: zone-end
-
-::: zone pivot="programming-language-powershell"
-
-HTTP 바인딩 뒤에 큐 바인딩을 추가하여 다음과 일치하도록 *function.json*을 업데이트합니다.
-
-```json
-{
-  "bindings": [
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "Request",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "Response"
-    },
-    {
-      "type": "queue",
-      "direction": "out",
-      "name": "msg",
-      "queueName": "outqueue",
-      "connection": "AzureWebJobsStorage"
-    }
-  ]
-}
-```
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-HTTP 바인딩 뒤에 큐 바인딩을 추가하여 다음과 일치하도록 *function.json*을 업데이트합니다.
-
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    },
-    {
-      "type": "queue",
-      "direction": "out",
-      "name": "msg",
-      "queueName": "outqueue",
-      "connection": "AzureWebJobsStorage"
-    }
-  ]
-}
-```
-::: zone-end
-
-::: zone pivot="programming-language-typescript"
-
-HTTP 바인딩 뒤에 큐 바인딩을 추가하여 다음과 일치하도록 *function.json*을 업데이트합니다.
-
-```json
-{
-  "bindings": [
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "Request",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "Response"
-    },
-    {
-      "type": "queue",
-      "direction": "out",
-      "name": "msg",
-      "queueName": "outqueue",
-      "connection": "AzureWebJobsStorage"
-    }
-  ]
-}
-```
-::: zone-end
+::: zone pivot="programming-language-csharp"  
+[!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]  
+::: zone-end  
+::: zone pivot="programming-language-java" 
+[!INCLUDE [functions-add-output-binding-java-cli](../../includes/functions-add-output-binding-java-cli.md)]
+::: zone-end  
 
 ## <a name="add-code-to-use-the-output-binding"></a>출력 바인딩을 사용하는 코드 추가
 
-바인딩이 정의되면 바인딩 이름(이 경우 `msg`)이 함수 코드(또는 JavaScript 및 TypeScript의 `context` 개체)에서 인수로 표시됩니다. 그런 다음, 해당 변수를 사용하여 메시지를 큐에 쓸 수 있습니다. 인증, 큐 참조 가져오기 또는 데이터 쓰기를 위한 코드를 작성해야 합니다. 이러한 모든 통합 작업은 Azure Functions 런타임 및 큐 출력 바인딩에서 편리하게 처리됩니다.
+큐 바인딩이 정의된 상태에서 이제 `msg` 출력 매개 변수를 받고 메시지를 큐에 쓰도록 함수를 업데이트할 수 있습니다.
 
-::: zone pivot="programming-language-csharp"
-```csharp
-[FunctionName("HttpTrigger")]
-public static async Task<IActionResult> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
-    [Queue("outqueue"), StorageAccount("AzureWebJobsStorage")] ICollector<string> msg, ILogger log)
-{
-    log.LogInformation("C# HTTP trigger function processed a request.");
+::: zone pivot="programming-language-python"     
+[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
+::: zone-end  
 
-    string name = req.Query["name"];
+::: zone pivot="programming-language-javascript"  
+[!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
+::: zone-end  
 
-    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-    dynamic data = JsonConvert.DeserializeObject(requestBody);
-    name = name ?? data?.name;
+::: zone pivot="programming-language-typescript"  
+[!INCLUDE [functions-add-output-binding-ts](../../includes/functions-add-output-binding-ts.md)]
+::: zone-end  
 
-    if (!string.IsNullOrEmpty(name))
-    {
-        // Add a message to the output collection.
-        msg.Add(string.Format("Name passed to the function: {0}", name));
-    }
-    
-    return name != null
-        ? (ActionResult)new OkObjectResult($"Hello, {name}")
-        : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
-}
-```
+::: zone pivot="programming-language-powershell"  
+[!INCLUDE [functions-add-output-binding-powershell](../../includes/functions-add-output-binding-powershell.md)]  
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
-```js
-module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
+::: zone pivot="programming-language-csharp"  
+[!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
+::: zone-end 
 
-    if (req.query.name || (req.body && req.body.name)) {
-        // Add a message to the Storage queue.
-        context.bindings.msg = "Name passed to the function: " +
-            (req.query.name || req.body.name);
+::: zone pivot="programming-language-java"
+[!INCLUDE [functions-add-output-binding-java-code](../../includes/functions-add-output-binding-java-code.md)]
 
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
-};
-```
-::: zone-end
-
-::: zone pivot="programming-language-powershell"
-```powershell
-using namespace System.Net
-
-# Input bindings are passed in via param block.
-param($Request, $TriggerMetadata)
-
-# Write to the Azure Functions log stream.
-Write-Host "PowerShell HTTP trigger function processed a request."
-
-# Interact with query parameters or the body of the request.
-$name = $Request.Query.Name
-if (-not $name) {
-    $name = $Request.Body.Name
-}
-
-if ($name) {
-    $outputMsg = "Name passed to the function: $name"
-    Push-OutputBinding -name msg -Value $outputMsg
-
-    $status = [HttpStatusCode]::OK
-    $body = "Hello $name"
-}
-else {
-    $status = [HttpStatusCode]::BadRequest
-    $body = "Please pass a name on the query string or in the request body."
-}
-
-# Associate values to output bindings by calling 'Push-OutputBinding'.
-Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
-    StatusCode = $status
-    Body = $body
-})
-```
-::: zone-end
-
-::: zone pivot="programming-language-python"
-```python
-import logging
-
-import azure.functions as func
-
-
-def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
-
-    name = req.params.get('name')
-    if not name:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
-
-    if name:
-        msg.set(name)
-        return func.HttpResponse(f"Hello {name}!")
-    else:
-        return func.HttpResponse(
-            "Please pass a name on the query string or in the request body",
-            status_code=400
-        )
-```
-::: zone-end
-
-::: zone pivot="programming-language-typescript"
-```typescript
-import { AzureFunction, Context, HttpRequest } from "@azure/functions"
-
-const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-    context.log('HTTP trigger function processed a request.');
-    const name = (req.query.name || (req.body && req.body.name));
-
-    if (name) {
-        // Add a message to the Storage queue.
-        context.bindings.msg = "Name passed to the function: " +
-            (req.query.name || req.body.name);
-        
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
-};
-
-export default httpTrigger;
-```
+[!INCLUDE [functions-add-output-binding-java-test-cli](../../includes/functions-add-output-binding-java-test-cli.md)]
 ::: zone-end
 
 ### <a name="update-the-image-in-the-registry"></a>레지스트리의 이미지 업데이트
@@ -874,71 +496,7 @@ export default httpTrigger;
 
 브라우저에서 이전과 동일한 URL을 사용하여 함수를 호출합니다. 함수 코드의 해당 부분을 수정하지 않았으므로 브라우저에서 이전과 동일한 응답을 표시해야 합니다. 그러나 추가된 코드에서 `name` URL 매개 변수를 사용하는 메시지를 `outqueue` 스토리지 큐에 작성했습니다.
 
-큐는 [Azure Portal](../storage/queues/storage-quickstart-queues-portal.md) 또는 [Microsoft Azure Storage Explorer](https://storageexplorer.com/)에서 볼 수 있습니다. 또한 다음 단계에서 설명한 대로 Azure CLI에서 큐를 볼 수도 있습니다.
-
-1. 함수 프로젝트의 *local.setting.json* 파일을 열고, 연결 문자열 값을 복사합니다. 터미널 또는 명령 창에서 다음 명령을 실행하여 `AZURE_STORAGE_CONNECTION_STRING`이라는 환경 변수를 만들고, `<connection_string>` 대신 특정 연결 문자열을 붙여넣습니다. (이 환경 변수는 `--connection-string` 인수를 사용하여 연결 문자열을 각 후속 명령에 제공할 필요가 없음을 의미합니다.)
-
-    # <a name="bash"></a>[bash](#tab/bash)
-    
-    ```bash
-    AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
-    ```
-    
-    # <a name="powershell"></a>[PowerShell](#tab/powershell)
-    
-    ```powershell
-    $env:AZURE_STORAGE_CONNECTION_STRING = "<connection_string>"
-    ```
-    
-    # <a name="cmd"></a>[Cmd](#tab/cmd)
-    
-    ```cmd
-    set AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
-    ```
-    
-    ---
-    
-1. (선택 사항) [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) 명령을 사용하여 계정의 Storage 큐를 봅니다. 이 명령의 출력에는 함수에서 첫 번째 메시지를 해당 큐에 쓸 때 만들어진 `outqueue`라는 이름의 큐가 포함되어야 합니다.
-    
-    # <a name="bash"></a>[bash](#tab/bash)
-    
-    ```azurecli
-    az storage queue list --output tsv
-    ```
-    
-    # <a name="powershell"></a>[PowerShell](#tab/powershell)
-    
-    ```azurecli
-    az storage queue list --output tsv
-    ```
-    
-    # <a name="cmd"></a>[Cmd](#tab/cmd)
-    
-    ```azurecli
-    az storage queue list --output tsv
-    ```
-    
-    ---
-
-1. [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) 명령을 사용하여 이 큐의 메시지를 봅니다. 이 메시지는 이전에 함수를 테스트할 때 사용한 이름이어야 합니다. 명령은 [base64 인코딩](functions-bindings-storage-queue-trigger.md#encoding)의 큐에서 첫 번째 메시지를 검색하므로 메시지를 텍스트로 보려면 해당 메시지도 디코딩해야 합니다.
-
-    # <a name="bash"></a>[bash](#tab/bash)
-    
-    ```bash
-    echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
-    ```
-    
-    # <a name="powershell"></a>[PowerShell](#tab/powershell)
-    
-    ```powershell
-    [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}')))
-    ```
-    
-    # <a name="cmd"></a>[Cmd](#tab/cmd)
-    
-    메시지 컬렉션을 역참조하고 base64에서 디코딩해야 하므로 PowerShell을 실행하고 PowerShell 명령을 사용합니다.
-
-    ---
+[!INCLUDE [functions-add-output-binding-view-queue-cli](../../includes/functions-add-output-binding-view-queue-cli.md)]
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

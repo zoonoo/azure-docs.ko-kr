@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: REST API 및 Node.js로 이미지에서 얼굴 감지'
+title: '빠른 시작: Azure REST API 및 Node.js로 이미지에서 얼굴 감지'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 이미지에서 얼굴을 감지하기 위해 Node.js와 함께 Azure Face REST API를 사용합니다.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/06/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 7897c1602a8b9ed6a1fea68e80d57cd5bae1c004
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: b88959d1dd936df0315d7365513ab0c0c5b7df17
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76165960"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402931"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>빠른 시작: Face REST API 및 Node.js를 사용하여 이미지에서 얼굴 감지
 
@@ -283,7 +283,7 @@ node facedetection.js
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Face 서비스를 호출하는 Node.js 스크립트를 작성하여 이미지에서 얼굴을 감지하고 특성을 반환했습니다. 다음에는 Face API 참조 설명서를 살펴보고 보다 자세히 알아보겠습니다.
+이 빠른 시작에서는 Azure Face 서비스를 호출하는 Node.js 스크립트를 작성하여 이미지에서 얼굴을 감지하고 특성을 반환했습니다. 이제 Face API 참조 설명서에서 자세한 내용을 알아보겠습니다.
 
 > [!div class="nextstepaction"]
 > [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

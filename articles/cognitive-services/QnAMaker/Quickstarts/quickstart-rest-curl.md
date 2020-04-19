@@ -1,16 +1,16 @@
 ---
 title: '빠른 시작: cURL 및 REST를 사용하여 기술 자료 관리 - QnA Maker'
 description: 이 빠른 시작에서는 REST API를 사용하여 기술 자료를 만들고, 게시하고, 쿼리하는 방법을 보여 줍니다.
-ms.date: 02/27/2020
+ms.date: 04/13/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: quickstart
-ms.openlocfilehash: 00ec52fe20fb0e6a976f3e7142386e835713c98c
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: facc45ab8f916181f7eeceb65c5102a60ae7d7e9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78851196"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261706"
 ---
 # <a name="quickstart-use-curl-and-rest-to-manage-knowledge-base"></a>빠른 시작: cURL 및 REST를 사용하여 기술 자료 관리
 
@@ -21,9 +21,9 @@ ms.locfileid: "78851196"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 현재 버전의 [cURL](https://curl.haxx.se/). 빠른 시작에는 몇 가지 명령줄 스위치가 사용되며, 이러한 스위치는 [cURL 설명서](https://curl.haxx.se/docs/manpage.html)에 나와 있습니다.
-* [QnA Maker 리소스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키와 리소스 이름을 검색하려면 Azure Portal에서 이 리소스에 대한 **빠른 시작**을 선택합니다. 리소스 이름은 다음 엔드포인트 URL의 첫 번째 부분입니다.
+* 키와 리소스 이름을 사용하려면 [QnA Maker 리소스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 리소스를 만드는 동안 리소스 **이름**을 입력한 다음, 키가 생성되었습니다. 리소스 이름은 엔드포인트의 하위 도메인으로 사용됩니다. 키와 리소스 이름을 검색하려면 Azure Portal에서 이 리소스에 대한 **빠른 시작**을 선택합니다. 리소스 이름은 엔드포인트 URL의 첫 번째 하위 도메인입니다.
 
-    `https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
+    `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
 
 > [!CAUTION]
 > 다음 BASH 예제에서는 `\` 줄 연속 문자를 사용합니다. 콘솔 또는 터미널에서 다른 줄 연속 문자를 사용하는 경우 이 문자를 사용하세요.

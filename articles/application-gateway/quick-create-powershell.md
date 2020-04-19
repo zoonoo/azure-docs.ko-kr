@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/05/2020
+ms.date: 04/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: abb38dfc342c8ff692ed1a3a05376b5dcefe8a3d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3e1ca14d967b0e88ea7eb559fd9962a3824ff9b0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78399563"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406220"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Application Gateway를 통해 웹 트래픽 보내기
 
@@ -99,12 +99,10 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool"></a>백 엔드 풀 만들기
 
-1. `New-AzApplicationGatewayBackendAddressPool`을 사용하여 애플리케이션 게이트웨이에 대한 백 엔드 풀을 만듭니다. 현재 백 엔드 풀은 비어 있으며 다음 섹션에서 백 엔드 서버 NIC를 만드는 동안 백 엔드 풀에 추가합니다.
+1. `New-AzApplicationGatewayBackendAddressPool`을 사용하여 애플리케이션 게이트웨이에 대한 백 엔드 풀을 만듭니다. 지금은 백 엔드 풀이 비어 있습니다. 다음 섹션에서 백 엔드 서버 NIC를 만들 때 백 엔드 풀에 추가합니다.
 2. `New-AzApplicationGatewayBackendHttpSetting`을 사용하여 백 엔드 풀에 대한 설정을 구성합니다.
 
 ```azurepowershell-interactive
-$address1 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic1
-$address2 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic2
 $backendPool = New-AzApplicationGatewayBackendAddressPool `
   -Name myAGBackendPool
 $poolSettings = New-AzApplicationGatewayBackendHttpSetting `

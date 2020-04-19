@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 98345e8585a3f6653659e0d41eb5c3308a0a6634
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b7fa447e8564fcbf77702f1d3d474cceb48705c5
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80057410"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114627"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>내부 Load Balancer App Service Environment 만들기 및 사용 
 
@@ -60,6 +60,9 @@ ILB ASE를 만들려면
 
     ![ASE 만들기](media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase.png)
 
+> [!NOTE]
+> App Service Environment 이름은 37자 이하여야 합니다.
+
 6. 네트워킹을 선택합니다.
 
 7. Virtual Network를 선택하거나 만듭니다. 여기서 새 VNet을 만들면 주소 범위가 192.168.250.0/23으로 정의됩니다. 다른 주소 범위 또는 ASE와 다른 리소스 그룹을 사용하여 VNet을 만들려면 Azure Virtual Network 만들기 포털을 사용합니다. 
@@ -69,6 +72,7 @@ ILB ASE를 만들려면
     ![ASE 네트워킹][1]
 
 7. **검토 및 만들기**를 선택한 다음, **만들기**를 선택합니다.
+
 
 ## <a name="create-an-app-in-an-ilb-ase"></a>ILB ASE에 앱 만들기 ##
 

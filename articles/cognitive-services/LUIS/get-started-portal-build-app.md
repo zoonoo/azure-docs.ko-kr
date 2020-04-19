@@ -2,13 +2,13 @@
 title: '빠른 시작: LUIS 포털에서 새 앱 만들기'
 description: 이 빠른 시작에서는 앱, 의도 및 엔터티의 기본 부분을 만들고, LUIS 포털에서 발화 샘플을 사용하여 테스트합니다.
 ms.topic: quickstart
-ms.date: 03/24/2020
-ms.openlocfilehash: f0c8f0c77f832e049dfc494f82e90edb61a8cb2a
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 04/14/2020
+ms.openlocfilehash: 2d601646c43c0f0d99dc6934cf1f1c960e0b0f79
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80244617"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382578"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>빠른 시작: LUIS 포털에서 새 앱 만들기
 
@@ -88,11 +88,10 @@ LUIS 앱이 만들어지면 의도를 만들어야 합니다. 의도는 사용�
 기본적으로 이러한 예제 발언은 다음과 같이 다양합니다.
 
 * 발화 길이
-* 문장 부호
+* [문장 부호](luis-reference-application-settings.md#punctuation-normalization)
 * 단어 선택
 * 동사 시제(is, was, will be)
 * 단어 순서
-
 
 
 ## <a name="create-a-regular-expression-entity"></a>정규식 엔터티 만들기

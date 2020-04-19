@@ -1,22 +1,14 @@
 ---
 title: '자습서: 패턴 - LUIS'
-titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 패턴을 사용하여 의도 및 엔터티 예측 정확도를 높이고 발화 예제를 줄입니다. 패턴은 템플릿 발화 예제로 제공되며, 여기에는 엔터티 및 무시해도 되는 텍스트를 식별하는 구문이 포함됩니다.
-services: cognitive-services
-author: diberry
-ms.custom: seodec18
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 69894dfc6bcbe9eb56451524c78e82da2745aa52
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.date: 04/14/2020
+ms.openlocfilehash: 826334fafd04a6357f529b1dc07408ff1c15ce5c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75979758"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380778"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>자습서: 예측을 개선하기 위해 일반적인 패턴 템플릿 발화 서식 추가
 
@@ -41,7 +33,7 @@ LUIS 앱에 다음과 같은 두 가지 발화 유형이 저장되어 있습니�
 
 템플릿 발화를 패턴으로 추가하면 의도에 대한 발화 예제를 전체적으로 줄일 수 있습니다.
 
-패턴은 식 매칭과 기계 학습의 조합으로 적용됩니다.  예제 발화와 함께 템플릿 발화는 의도에 맞는 발화를 LUIS가 더 잘 이해하도록 도와줍니다.
+패턴은 텍스트 매칭과 기계 학습의 조합으로 적용됩니다.  의도의 예제 발화와 함께 패턴의 템플릿 발화는 의도에 맞는 발화 를 LUIS가 더 잘 이해하도록 도와줍니다.
 
 ## <a name="import-example-app-and-clone-to-new-version"></a>예제 앱을 가져와서 새 버전에 복제
 
@@ -49,11 +41,13 @@ LUIS 앱에 다음과 같은 두 가지 발화 유형이 저장되어 있습니�
 
 1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true)을 다운로드하고 저장합니다.
 
-1. [미리 보기 LUIS 포털](https://preview.luis.ai)에서 JSON 파일을 새 앱으로 가져옵니다.
+1. [미리 보기 LUIS 포털](https://preview.luis.ai)에서 JSON 파일을 새 앱으로 가져옵니다. **내 앱** 페이지에서 **+ 대화용 새 앱**을 선택한 다음, **JSON으로 가져오기**를 선택합니다. 이전 단계에서 다운로드한 파일을 선택합니다.
 
-1. **관리** 섹션의 **버전** 탭에서 버전을 복제하고 `patterns`라는 이름을 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 버전 이름이 URL 경로의 일부로 사용되므로 이름에는 URL에 유효하지 않은 문자가 포함될 수 없습니다.
+1. **관리** 섹션의 **버전** 탭에서 활성 버전을 선택한 다음, **복제**를 선택합니다. 복제된 버전 `patterns`의 이름을 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 버전 이름이 URL 경로의 일부로 사용되므로 이름에는 URL에 유효하지 않은 문자가 포함될 수 없습니다.
 
 ## <a name="create-new-intents-and-their-utterances"></a>새 의도 및 해당 발언 만들기
+
+두 의도는 발화 텍스트를 기반으로 관리자 또는 관리자의 부하 직원을 찾습니다. 어려운 점은 두 의도가 서로 다른 것을 _의미_하지만 대부분의 단어는 동일하기 때문입니다. 단어 순서만 다릅니다. 의도를 정확하게 예측하려면 많은 예제가 있어야 합니다.
 
 1. 탐색 모음에서 **빌드**를 선택합니다.
 
@@ -105,7 +99,7 @@ LUIS 앱에 다음과 같은 두 가지 발화 유형이 저장되어 있습니�
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. 주소의 URL 끝으로 이동하고 `Who is the boss of Jill Jones?`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발화 `query`입니다.
+1. 주소 표시줄의 URL 끝으로 이동하여 _YOUR_QUERY_HERE_를 `Who is the boss of Jill Jones?`로 바꿉니다.
 
     ```json
     {
@@ -195,16 +189,16 @@ LUIS 앱에 다음과 같은 두 가지 발화 유형이 저장되어 있습니�
     }
     ```
 
-이 쿼리는 성공했나요? 이 학습 주기 동안에는 성공적이었습니다. 두 상위 의도의 점수는 비슷하지만, 가장 높은 의도의 점수가 크게 높지는 않으며(60% 초과) 다음 의도의 점수를 넘을 만큼 높지는 않습니다.
+두 상위 의도의 점수는 비슷하지만, 가장 높은 의도의 점수가 크게 높지는 않으며(60% 초과) 다음 의도의 점수를 넘을 만큼 높지는 않습니다.
 
-LUIS 학습이 매번 정확히 같은 것은 아니고 약간의 편차가 있으므로 이러한 두 점수는 다음 학습 주기에서 반전될 수 있습니다. 그 결과 잘못된 의도가 반환될 수 있습니다.
+LUIS 학습이 매번 정확히 같은 것은 아니고 약간의 편차가 있으므로 이러한 상위 두 점수는 다음 학습 주기에서 반전될 수 있습니다. 그 결과 잘못된 의도가 반환될 수 있습니다.
 
 패턴을 사용하면 올바른 의도 점수가 훨씬 높은 백분율 값을 가지고 다음으로 가장 높은 점수보다 훨씬 높게 만들 수 있습니다.
 
 두 번째 브라우저 창을 열어 둡니다. 자습서에서 나중에 다시 사용합니다.
 
 ## <a name="template-utterances"></a>템플릿 발언
-Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻는 몇 가지 일반적인 방법이 있습니다. 다음은 그 예입니다.
+Human Resource 주체 도메인의 특성상 조직에서 직원 관계를 묻는 몇 가지 일반적인 방법이 있습니다. 다음은 그 예입니다.
 
 |발언|
 |--|
@@ -220,11 +214,11 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
 |`Who does {Employee} report to[?]`|서로 교환 가능한 `{Employee}`<br>`[?]` 무시|
 |`Who reports to {Employee}[?]`|서로 교환 가능한 `{Employee}`<br>`[?]` 무시|
 
-`{Employee}` 구문은 템플릿 발화 내의 엔터티 위치 및 엔터티 형식을 표시합니다. 선택적 구문인 `[?]`는 선택적인 단어 또는 문장 부호를 표시합니다. LUIS는 대괄호로 묶인 선택적 텍스트는 무시하고 발언을 일치시킵니다.
+`{Employee}` 구문은 템플릿 발화 내의 엔터티 위치 및 엔터티 형식을 표시합니다. 선택적 구문인 `[?]`는 선택적인 단어 또는 [문장 부호](luis-reference-application-settings.md#punctuation-normalization)를 표시합니다. LUIS는 대괄호로 묶인 선택적 텍스트는 무시하고 발언을 일치시킵니다.
 
 구문은 정규식처럼 보이지만 정규식이 아닙니다. 중괄호(`{}`) 및 대괄호(`[]`) 구문만 지원됩니다. 최대 두 수준까지 중첩될 수 있습니다.
 
-패턴이 발언에 일치되도록 하기 위해 발언 내의 엔터티가 먼저 템플릿 발언의 엔터티와 일치되어야 합니다. 즉, 엔터티를 사용하는 패턴이 성공하려면 엔터티의 예제에 예측 수준이 높은 발화 예제가 충분히 있어야 합니다. 그러나 의도와 달리 템플릿은 엔터티 예측에 도움이 되지 않습니다.
+패턴을 발언와 일치시키려면 _먼저_ 발언 내의 엔터티가 템플릿 발언의 엔터티와 일치되어야 합니다. 즉, 엔터티를 사용하는 패턴이 성공하려면 엔터티의 예제에 예측 수준이 높은 발화 예제가 충분히 있어야 합니다. 그러나 의도와 달리 템플릿은 엔터티 예측에 도움이 되지 않습니다.
 
 **패턴을 사용하면 몇 가지 예제 발언을 제공할 수 있지만 엔터티가 검색되지 않으면 패턴이 일치되지 않습니다.**
 
@@ -245,6 +239,8 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
     |`Who is {Employee}['s] supervisor[?]`|
     |`Who is the boss of {Employee}[?]`|
 
+    이러한 템플릿 발화에는 중괄호 표기법을 사용하는 **Employee** 엔터티가 포함됩니다.
+
 1. 패턴 페이지를 나가지 않은 상태에서 **OrgChart-Reports** 의도를 선택하고, 다음 템플릿 발화를 입력합니다.
 
     |템플릿 발언|
@@ -264,7 +260,7 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
 
 1. 게시가 완료되면 브라우저 탭을 다시 엔드포인트 URL 탭으로 전환합니다.
 
-1. 주소의 URL 끝으로 이동하고 `Who is the boss of Jill Jones?`를 발언으로 입력합니다. 마지막 쿼리 문자열 매개 변수는 `query`입니다.
+1. 주소 표시줄의 URL 끝으로 이동하여 _YOUR_QUERY_HERE_를 `Who is the boss of Jill Jones?`로 바꿉니다.
 
     ```json
     {
@@ -375,7 +371,7 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
 
 |Intent|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
 |:--|:--|
-|OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
+|OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
 |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
 
 
@@ -389,14 +385,6 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
 **질문: `Who will {Employee}['s] manager be on March 3?`와 같이 표현이 부족한 발화의 경우는 어떤가요?** `will`과 `be`가 구분되는 경우와 같이 문법적으로 다른 동사 시제는 새로운 템플릿 발언이 되어야 합니다. 기존 템플릿 발언은 일치하지 않습니다. 발언의 의도는 변경되지 않았지만 발언의 단어 배치가 변경되었습니다. 이러한 변화는 LUIS의 예측에 영향을 미칩니다. 동사 시제에 대해 [Group 및 OR](#use-the-or-operator-and-groups)을 수행하여 이러한 발화를 결합할 수 있습니다.
 
 **기억해야 할 사항: 엔터티를 먼저 찾은 다음, 패턴을 일치시킵니다.**
-
-### <a name="edit-the-existing-pattern-template-utterance"></a>기존 패턴 템플릿 발언 편집
-
-1. 미리 보기 LUIS 포털의 최상위 메뉴에서 **빌드**를 선택한 다음, 왼쪽 메뉴에서 **패턴**을 선택합니다.
-
-1. 기존 템플릿 발화 `Who is {Employee}['s] manager[?]`를 검색하고, 오른쪽에 있는 줄임표(***...***)를 선택한 후 팝업 메뉴에서 **편집**을 선택합니다.
-
-1. 템플릿 발언을 `who is {Employee}['s] manager [[on]{datetimeV2}?]`로 변경합니다.
 
 ### <a name="add-new-pattern-template-utterances"></a>새 패턴 템플릿 발언 추가
 
@@ -514,7 +502,7 @@ pattern.any 엔터티를 사용하면 엔터티의 표현이 발화의 나머지
 
 1. 의도 목록에서 **FindForm**을 선택합니다.
 
-1. 다음과 같은 일부 예제 발언을 추가합니다.
+1. 일부 예제 발언을 추가합니다. Pattern.any패로 예측해야 하는 텍스트는 **굵은 텍스트**에 있습니다. 양식 이름은 발화의 다른 단어에서 확인하기 어렵습니다. Pattern.any는 엔터티의 경계를 표시하여 도움을 줍니다.
 
     |예제 발화|양식 이름|
     |--|--|

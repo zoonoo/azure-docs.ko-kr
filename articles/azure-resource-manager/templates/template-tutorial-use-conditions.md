@@ -5,12 +5,12 @@ author: mumian
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f88f141257e8e614f62c7441c313002b5735116d
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 8f51c65489efeed1fa18e70bd75e7370a9e59903
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239186"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260649"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>자습서: ARM 템플릿에서 조건 사용
 
@@ -55,23 +55,25 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템플릿을 처음부터 새로 만드는 대신 샘플 템플릿을 찾아서 사용자 지정할 수 있습니다. 이 자습서에 사용되는 템플릿의 이름은 [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/)입니다.
 
 1. Visual Studio Code에서 **파일**>**파일 열기**를 차례로 선택합니다.
-2. **파일 이름**에서 다음 URL을 붙여넣습니다.
+1. **파일 이름**에서 다음 URL을 붙여넣습니다.
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 
-3. **열기**를 선택하여 파일을 엽니다.
-4. 템플릿에 5개 리소스가 정의되어 있습니다.
+1. **열기**를 선택하여 파일을 엽니다.
+1. 템플릿에 6개의 리소스가 정의되어 있습니다.
 
-   * `Microsoft.Storage/storageAccounts`입니다. [템플릿 참조](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)를 참조하세요.
-   * `Microsoft.Network/publicIPAddresses`입니다. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)를 참조하세요.
-   * `Microsoft.Network/virtualNetworks`입니다. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)를 참조하세요.
-   * `Microsoft.Network/networkInterfaces`입니다. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)를 참조하세요.
-   * `Microsoft.Compute/virtualMachines`입니다. [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)를 참조하세요.
+   * [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
+   * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
+   * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
+   * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
+   * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
-     템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
-5. **파일**>**다른 이름으로 저장**을 선택하여 파일 복사본을 로컬 컴퓨터에 **azuredeploy.json**이라는 이름으로 저장합니다.
+    템플릿을 사용자 지정하기 전에 템플릿 참조를 검토하는 것이 좋습니다.
+
+1. **파일**>**다른 이름으로 저장**을 선택하여 파일 복사본을 로컬 컴퓨터에 **azuredeploy.json**이라는 이름으로 저장합니다.
 
 ## <a name="modify-the-template"></a>템플릿 수정
 
@@ -83,12 +85,12 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
 변경 절차는 다음과 같습니다.
 
 1. Visual Studio Code에서 **azuredeploy.json**을 엽니다.
-2. 템플릿 전체에서 3개의 **variables('storageAccountName')** 를 **parameters('storageAccountName')** 로 바꿉니다.
-3. 다음 변수 정의를 제거합니다.
+1. 템플릿 전체에서 3개의 **variables('storageAccountName')** 를 **parameters('storageAccountName')** 로 바꿉니다.
+1. 다음 변수 정의를 제거합니다.
 
     ![Resource Manager 템플릿 사용 조건 다이어그램](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
 
-4. 다음 두 매개 변수를 템플릿에 추가합니다.
+1. 매개 변수 섹션의 시작 부분에 다음 두 개의 매개 변수를 추가합니다.
 
     ```json
     "storageAccountName": {
@@ -103,11 +105,13 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
     },
     ```
 
+    Visual Studio Code에서 템플릿을 서식 지정하려면 **[ALT]+[SHIFT]+F**를 누릅니다.
+
     업데이트된 매개 변수 정의는 다음과 같습니다.
 
     ![Resource Manager 사용 조건](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-parameters.png)
 
-5. 스토리지 계정 정의의 시작 부분에 다음 줄을 추가합니다.
+1. 스토리지 계정 정의의 시작 부분에 다음 줄을 추가합니다.
 
     ```json
     "condition": "[equals(parameters('newOrExisting'),'new')]",
@@ -118,7 +122,7 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
     업데이트된 스토리지 계정 정의는 다음과 같습니다.
 
     ![Resource Manager 사용 조건](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-6. 가상 머신 리소스 정의의 **storageUri** 속성을 다음 값으로 업데이트합니다.
+1. 가상 머신 리소스 정의의 **storageUri** 속성을 다음 값으로 업데이트합니다.
 
     ```json
     "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
@@ -126,20 +130,25 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
 
     다른 리소스 그룹에서 기존 스토리지 계정을 사용하는 경우 이 변경은 필요합니다.
 
-7. 변경 내용을 저장합니다.
+1. 변경 내용을 저장합니다.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
 [템플릿 배포](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)의 지침에 따라 Cloud Shell을 열고 수정된 템플릿을 업로드한 후, 다음 PowerShell 스크립트를 실행하여 템플릿을 배포합니다.
 
+> [!IMPORTANT]
+> 스토리지 계정 이름은 Azure 내에서 고유해야 합니다. 이름에는 소문자 또는 숫자만 사용할 수 있습니다. 24자 이하여야 합니다. 스토리지 계정 이름은 "store"가 추가된 프로젝트 이름입니다. 프로젝트 이름과 생성된 스토리지 계정 이름이 스토리지 계정 이름 요구 사항을 충족하는지 확인합니다.
+
 ```azurepowershell
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
-$storageAccountName = Read-Host -Prompt "Enter the storage account name"
+$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name and resource names"
 $newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
 $location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
 $vmAdmin = Read-Host -Prompt "Enter the admin username"
 $vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
 $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
+
+$resourceGroupName = "${projectName}rg"
+$storageAccountName = "${projectName}store"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
@@ -150,6 +159,8 @@ New-AzResourceGroupDeployment `
     -storageAccountName $storageAccountName `
     -newOrExisting $newOrExisting `
     -TemplateFile "$HOME/azuredeploy.json"
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 > [!NOTE]
@@ -162,8 +173,12 @@ New-AzResourceGroupDeployment `
 Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭제하여 배포한 리소스를 정리합니다. 리소스 그룹을 삭제하려면 **사용해 보기**를 선택하여 Cloud Shell을 엽니다. PowerShell 스크립트를 붙여넣으려면 셸 창을 마우스 오른쪽 단추로 클릭한 후 **붙여넣기**를 선택합니다.
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the same resource group name you used in the last procedure"
+$projectName = Read-Host -Prompt "Enter the same project name you used in the last procedure"
+$resourceGroupName = "${projectName}rg"
+
 Remove-AzResourceGroup -Name $resourceGroupName
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 ## <a name="next-steps"></a>다음 단계

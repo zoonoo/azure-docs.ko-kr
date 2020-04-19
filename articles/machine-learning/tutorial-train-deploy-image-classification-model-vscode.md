@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 02/24/2020
-ms.openlocfilehash: ba9cd2e7dc0248aa351cb7bc4519689763f1adda
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/13/2020
+ms.openlocfilehash: f793f8c4cb84f821c098cc5ce98e693d272e725f
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79224090"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272829"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension"></a>Azure Machine Learning Visual Studio Code 확장을 사용하여 이미지 분류 TensorFlow 모델 학습 및 배포
 
@@ -99,71 +99,33 @@ Azure Machine Learning에서 애플리케이션을 빌드하려면 가장 먼저
 1. VM 크기를 선택합니다. 옵션 목록에서 **Standard_F2s_v2**를 선택합니다. VM 크기는 모델을 학습시키는 데 걸리는 시간에 영향을 줍니다. VM 크기에 대한 자세한 내용은 [Azure에서 Linux 가상 머신에 대한 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)를 참조하세요.
 1. 컴퓨팅 이름을 "TeamWkspc-com"으로 지정하고, **Enter** 키를 눌러 컴퓨팅을 만듭니다.
 
-몇 분 후에 새 컴퓨팅 대상이 작업 영역의 *컴퓨팅* 노드에 표시됩니다.
-
-## <a name="create-a-run-configuration"></a>실행 구성 만들기
-
-학습 실행을 컴퓨팅 대상에 제출할 때 학습 작업을 실행하는 데 필요한 구성도 제출됩니다. 예를 들어 학습 코드와 이를 실행하는 데 필요한 Python 종속성이 포함된 스크립트가 있습니다.
-
-실행 구성을 만들려면,
-
-1. Visual Studio Code 작업 막대에서 **Azure** 아이콘을 선택합니다. 그러면 Azure Machine Learning 보기가 표시됩니다. 
-1. 구독 노드를 펼칩니다. 
-1. **TeamWorkspace** 노드를 펼칩니다. 
-1. 작업 영역 노드 아래에서 마우스 오른쪽 단추로 **TeamWkspc-com** 컴퓨팅 노드를 클릭하고, **실행 구성 만들기**를 선택합니다.
-
-    > [!div class="mx-imgBorder"]
-    > ![실행 구성 만들기](./media/tutorial-train-deploy-image-classification-model-vscode/create-run-configuration.png)
-
-1. 실행 구성 이름을 "MNIST-rc"로 지정하고, **Enter** 키를 눌러 실행 구성을 만듭니다.
-1. 그런 다음, 학습 작업 형식으로 **TensorFlow 단일 노드 학습**을 선택합니다.
-1. **Enter** 키를 눌러 컴퓨팅에서 실행할 스크립트 파일을 찾습니다. 이 경우 모델을 학습시키는 스크립트는 `vscode-tools-for-ai/mnist-vscode-docs-sample` 디렉터리 내의 `train.py` 파일입니다.
-1. 입력 상자에서 다음을 입력하여 필요한 패키지를 지정합니다.
-    
-    ```text
-    pip: azureml-defaults; conda: python=3.6.2, tensorflow=1.15.0
-    ```
-    
-    `MNIST-rc.runconfig`라는 파일이 VS Code에서 다음과 비슷한 내용으로 표시됩니다.
+    파일이 VS Code에서 다음과 비슷한 내용으로 표시됩니다.
 
     ```json
     {
-        "script": "train.py",
-        "framework": "Python",
-        "communicator": "None",
-        "target": "TeamWkspc-com",
-        "environment": {
-            "python": {
-                "userManagedDependencies": false,
-                "condaDependencies": {
-                    "dependencies": [
-                        "python=3.6.2",
-                        "tensorflow=1.15.0",
-                        {
-                            "pip": [
-                                "azureml-defaults"
-                            ]
-                        }
-                    ]
-                }
-            },
-            "docker": {
-                "baseImage": "mcr.microsoft.com/azureml/base:0.2.4",
-                "enabled": true,
-                "baseImageRegistry": {
-                    "address": null,
-                    "username": null,
-                    "password": null
-                }
+        "location": "westus2",
+        "tags": {},
+        "properties": {
+            "computeType": "AmlCompute",
+            "description": "",
+            "properties": {
+                "vmSize": "Standard_F2s_v2",
+                "vmPriority": "dedicated",
+                "scaleSettings": {
+                    "maxNodeCount": 4,
+                    "minNodeCount": 0,
+                    "nodeIdleTimeBeforeScaleDown": 120
+                },
+                "userAccountCredentials": {
+                    "adminUserName": "",
+                    "adminUserPassword": "",
+                    "adminUserSshPublicKey": ""
+                },
+                "subnetName": "",
+                "vnetName": "",
+                "vnetResourceGroupName": "",
+                "remoteLoginPortPublicAccess": ""
             }
-        },
-        "nodeCount": 1,
-        "history": {
-            "outputCollection": true,
-            "snapshotProject": false,
-            "directoriesToWatch": [
-                "logs"
-            ]
         }
     }
     ```
@@ -175,7 +137,152 @@ Azure Machine Learning에서 애플리케이션을 빌드하려면 가장 먼저
     Azure ML: Save and Continue
     ```
 
-`MNIST-rc` 실행 구성이 *TeamWkspc-com* 컴퓨팅 노드 아래에 추가됩니다.
+몇 분 후에 새 컴퓨팅 대상이 작업 영역의 *컴퓨팅* 노드에 표시됩니다.
+
+## <a name="create-a-run-configuration"></a>실행 구성 만들기
+
+학습 실행을 컴퓨팅 대상에 제출할 때 학습 작업을 실행하는 데 필요한 구성도 제출됩니다. 예를 들어 학습 코드와 이를 실행하는 데 필요한 Python 종속성이 포함된 스크립트가 있습니다.
+
+실행 구성을 만들려면,
+
+1. Visual Studio Code 작업 막대에서 **Azure** 아이콘을 선택합니다. 그러면 Azure Machine Learning 보기가 표시됩니다. 
+1. 구독 노드를 펼칩니다. 
+1. **TeamWorkspace > 컴퓨팅** 노드를 확장합니다. 
+1. 컴퓨팅 노드 아래에서 마우스 오른쪽 단추로 **TeamWkspc-com** 컴퓨팅 노드를 클릭하고 **실행 구성 만들기**를 선택합니다.
+
+    > [!div class="mx-imgBorder"]
+    > ![실행 구성 만들기](./media/tutorial-train-deploy-image-classification-model-vscode/create-run-configuration.png)
+
+1. 실행 구성 이름을 "MNIST-rc"로 지정하고, **Enter** 키를 눌러 실행 구성을 만듭니다.
+1. 그런 다음, **새 Azure ML 환경 만들기**를 선택합니다. 환경에서는 스크립트를 실행하는 데 필요한 종속성을 정의합니다.
+1. 사용자 환경 이름을 "MNIST-env"로 지정하고 **Enter**를 누릅니다.
+1. 목록에서 **Conda 종속성 파일**을 선택합니다.
+1. **Enter**를 눌러 Conda 종속성 파일을 찾아봅니다. 이 경우 종속성 파일은 `vscode-tools-for-ai/mnist-vscode-docs-sample` 디렉터리 내의 `env.yml` 파일입니다.
+
+    파일이 VS Code에서 다음과 비슷한 내용으로 표시됩니다.
+
+    ```json
+    {
+        "name": "MNIST-env",
+        "version": "1",
+        "python": {
+            "interpreterPath": "python",
+            "userManagedDependencies": false,
+            "condaDependencies": {
+                "name": "vs-code-azure-ml-tutorial",
+                "channels": [
+                    "defaults"
+                ],
+                "dependencies": [
+                    "python=3.6.2",
+                    "tensorflow=1.15.0",
+                    "pip",
+                    {
+                        "pip": [
+                            "azureml-defaults"
+                        ]
+                    }
+                ]
+            },
+            "baseCondaEnvironment": null
+        },
+        "environmentVariables": {},
+        "docker": {
+            "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
+            "baseDockerfile": null,
+            "baseImageRegistry": {
+                "address": null,
+                "username": null,
+                "password": null
+            },
+            "enabled": false,
+            "arguments": []
+        },
+        "spark": {
+            "repositories": [],
+            "packages": [],
+            "precachePackages": true
+        },
+        "inferencingStackVersion": null
+    }
+    ```
+
+1. 구성에 만족하면 명령 팔레트를 열고 다음 명령을 입력하여 이를 저장합니다.
+
+    ```text
+    Azure ML: Save and Continue
+    ```
+
+1. **Enter** 키를 눌러 컴퓨팅에서 실행할 스크립트 파일을 찾습니다. 이 경우 모델을 학습시키는 스크립트는 `vscode-tools-for-ai/mnist-vscode-docs-sample` 디렉터리 내의 `train.py` 파일입니다.
+
+    `MNIST-rc.runconfig`라는 파일이 VS Code에서 다음과 비슷한 내용으로 표시됩니다.
+
+    ```json
+    {
+        "script": "train.py",
+        "framework": "Python",
+        "communicator": "None",
+        "target": "TeamWkspc-com",
+        "environment": {
+            "name": "MNIST-env",
+            "version": "1",
+            "python": {
+                "interpreterPath": "python",
+                "userManagedDependencies": false,
+                "condaDependencies": {
+                    "name": "vs-code-azure-ml-tutorial",
+                    "channels": [
+                        "defaults"
+                    ],
+                    "dependencies": [
+                        "python=3.6.2",
+                        "tensorflow=1.15.0",
+                        "pip",
+                        {
+                            "pip": [
+                                "azureml-defaults"
+                            ]
+                        }
+                    ]
+                },
+                "baseCondaEnvironment": null
+            },
+            "environmentVariables": {},
+            "docker": {
+                "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
+                "baseDockerfile": null,
+                "baseImageRegistry": {
+                    "address": null,
+                    "username": null,
+                    "password": null
+                },
+                "enabled": false,
+                "arguments": []
+            },
+            "spark": {
+                "repositories": [],
+                "packages": [],
+                "precachePackages": true
+            },
+            "inferencingStackVersion": null
+        },
+        "history": {
+            "outputCollection": true,
+            "snapshotProject": false,
+            "directoriesToWatch": [
+                "logs"
+            ]
+        }
+    }
+    ```
+
+1. 구성에 만족하면 명령 팔레트를 열고 다음 명령을 입력하여 이를 저장합니다.
+
+    ```text
+    Azure ML: Save and Continue
+    ```
+
+`MNIST-rc` 실행 구성은 *TeamWkspc-com* 계산 노드 아래에 추가되고 `MNIST-env` 환경 구성은 *환경* 노드 아래에 추가됩니다.
 
 ## <a name="train-the-model"></a>모델 학습
 
@@ -264,7 +371,7 @@ ACI 컨테이너는 필요에 따라 만들어지므로 미리 테스트할 ACI 
 1. 마우스 오른쪽 단추로 **MNIST-TensorFlow-model**을 클릭하고, **등록된 모델에서 서비스 배포**를 선택합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![모델 배포](./media/tutorial-train-deploy-image-classification-model-vscode/register-model.png)
+    > ![모델 배포](./media/tutorial-train-deploy-image-classification-model-vscode/deploy-model.png)
 
 1. **Azure Container Instances**를 선택합니다.
 1. 서비스 이름을 "mnist-tensorflow-svc"로 지정하고, **Enter** 키를 누릅니다.
@@ -300,6 +407,7 @@ ACI 컨테이너는 필요에 따라 만들어지므로 미리 테스트할 ACI 
         ]
     }
     ```
+
 1. 구성에 만족하면 명령 팔레트를 열고 다음 명령을 입력하여 이를 저장합니다.
 
     ```text

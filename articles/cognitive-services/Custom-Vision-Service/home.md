@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: a48c553f1c96b8777e0a591f428dca3f15d7d30e
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: bdb2b31ee3abb30e6e7339f641b778ff5dc522b0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80053633"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403801"
 ---
 # <a name="what-is-custom-vision"></a>Custom Vision이란?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Custom Vision은 사용자 고유의 이미지 분류자를 빌드, 배포 및 개선할 수 있는 인지 서비스입니다. 이미지 분류자는 이미지의 시각적 특성에 따라 레이블(_클래스_를 나타냄)을 해당 이미지에 적용하는 AI 서비스입니다. [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) 서비스와 달리 Custom Vision에서는 적용할 레이블을 결정할 수 있습니다.
+Azure Custom Vision은 사용자 고유의 이미지 분류자를 빌드, 배포 및 향상시킬 수 있는 인지 서비스입니다. 이미지 분류자는 이미지의 시각적 특성에 따라 레이블(_클래스_를 나타냄)을 해당 이미지에 적용하는 AI 서비스입니다. [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) 서비스와 달리 Custom Vision을 사용하면 적용할 레이블을 지정할 수 있습니다.
 
 ## <a name="what-it-does"></a>수행하는 작업
 

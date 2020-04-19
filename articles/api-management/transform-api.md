@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 5dec08bd4bc0a63a419d2bdc63383348a69b02db
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9a9c6897937b73786367accc33e985a268907226
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70067458"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258748"
 ---
 # <a name="transform-and-protect-your-api"></a>API 변환 및 보호
 
@@ -112,7 +112,7 @@ ms.locfileid: "70067458"
 2.  **모든 작업**을 선택합니다.
 3.  화면 맨 위에서 **디자인** 탭을 선택합니다.
 4.  **아웃바운드 처리** 섹션에서 **</>** 아이콘을 클릭합니다.
-5.  **&lt;아웃바운드&gt;** 요소 내부에 커서를 놓습니다.
+5.  **&lt;아웃 바운드&gt;** 요소 내에 커서를 놓고 오른쪽 위 모서리에 있는 **정책 삽입** 단추를 클릭합니다.
 6.  오른쪽 창의 **변환 정책** 아래에서 **+ 본문에서 문자열 찾기 및 바꾸기**를 클릭합니다.
 7.  **find-and-replace** 코드( **\<아웃바운드\>** 요소에서)를 수정하여 APIM 게이트웨이와 일치하도록 URL을 바꿉니다. 다음은 그 예입니다.
 

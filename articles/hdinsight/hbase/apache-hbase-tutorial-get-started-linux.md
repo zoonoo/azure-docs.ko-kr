@@ -1,20 +1,19 @@
 ---
 title: 자습서 - Azure HDInsight에서 Apache HBase 사용
 description: 이 Apache HBase 자습서에 따라 HDInsight에서 hadoop 사용을 시작합니다. HBase 셸에서 테이블을 만들고 Hive를 사용하여 쿼리합니다.
-keywords: hbasecommand, hbase 예제
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: tutorial
-ms.date: 06/25/2019
-ms.author: hrasheed
-ms.openlocfilehash: e43d2d64535085a9b22d2febc761fc7026498ba8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 04/14/2020
+ms.openlocfilehash: a601d54ebda074a25a988ac2a115f6418dd5c7ee
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71077146"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390272"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache HBase 사용
 
@@ -37,13 +36,13 @@ ms.locfileid: "71077146"
 
 ## <a name="create-apache-hbase-cluster"></a>Apache HBase 클러스터 만들기
 
-다음 절차에서는 Azure Resource Manager 템플릿을 사용하여 HBase 클러스터 및 종속된 기본 Azure Storage 계정을 만듭니다. 절차에 사용되는 매개 변수와 다른 클러스터 생성 메서드를 이해하려면 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
+다음 절차는 Azure Resource Manager 템플릿을 사용하여 HBase 클러스터를 만듭니다. 또한 이 템플릿은 종속된 기본 Azure Storage 계정을 만듭니다. 절차에 사용되는 매개 변수와 다른 클러스터 생성 메서드를 이해하려면 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
 1. Azure Portal에서 템플릿을 열려면 다음 이미지를 선택합니다. 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에 있습니다.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-2. **사용자 지정 배포** 블레이드에서 다음 값을 입력합니다.
+2. **사용자 지정 배포** 대화 상자에서 다음 값을 입력합니다.
 
     |속성 |Description |
     |---|---|
@@ -56,7 +55,7 @@ ms.locfileid: "71077146"
 
     다른 매개 변수는 선택 사항입니다.  
 
-    각 클러스터에는 Azure Storage 계정 종속성이 있습니다. 클러스터를 삭제한 후에는 데이터가 스토리지 계정에 유지됩니다. 클러스터 기본 스토리지 계정 이름은 &quot;스토리지&quot;가 추가된 클러스터 이름이입니다. 템플릿 변수 섹션에 하드 코딩됩니다.
+    각 클러스터에는 Azure Storage 계정 종속성이 있습니다. 클러스터를 삭제한 후에는 데이터가 스토리지 계정에 유지됩니다. 클러스터 기본 스토리지 계정 이름은 &quot;스토리지&quot;가 추가된 클러스터 이름이입니다. 템플릿 변수 섹션에 하드 코딩되어 있습니다.
 
 3. **위에 명시된 사용 약관에 동의함**을 선택한 다음, **구매**를 선택합니다. 클러스터를 만들려면 20분 정도가 걸립니다.
 
@@ -123,7 +122,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
     get 'Contacts', '1000'
     ```
 
-    행이 하나만 있기 때문에 `scan` 명령을 사용하면 동일한 결과가 표시됩니다.
+    행이 하나만 있기 때문에 `scan` 명령을 사용하는 것과 유사한 결과가 표시됩니다.
 
     HBase 테이블 스키마에 대한 자세한 내용은 [Apache HBase 스키마 디자인 소개](http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf)를 참조하세요. HBase 명령에 대한 자세한 내용은 [Apache HBase 참조 가이드](https://hbase.apache.org/book.html#quickstart)를 참조하세요.
 
@@ -180,7 +179,7 @@ HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다
 
     Beeline에 대한 자세한 내용은 [Beeline을 사용하여 HDInsight에서 Hadoop과 Hive 사용](../hadoop/apache-hadoop-use-hive-beeline.md)을 참조하세요.
 
-1. 다음 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 스크립트를 실행하여 HBase 테이블에 매핑되는 Hive 테이블을 만듭니다. 이 문을 실행하기 전에 HBase 셸을 사용하여 이 문서의 앞에서 참조한 샘플 테이블을 만들었는지 확인합니다.
+1. 다음 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 스크립트를 실행하여 HBase 테이블에 매핑되는 Hive 테이블을 만듭니다. 이 명령문을 실행하기 전에 HBase 셸을 사용하여 이 문서의 앞에서 참조한 샘플 테이블을 만들었는지 확인합니다.
 
     ```hiveql
     CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
@@ -203,7 +202,7 @@ HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다
 
 REST API는 [기본 인증](https://en.wikipedia.org/wiki/Basic_access_authentication)을 통해 보안됩니다. 자격 증명이 안전하게 서버에 전송되도록 하려면 항상 보안 HTTP(HTTPS)를 사용하여 요청해야 합니다.
 
-1. 사용 편의성을 위해 환경 변수를 시작합니다. `MYPASSWORD`를 클러스터 로그인 암호로 바꾸어 아래 명령을 편집합니다. `MYCLUSTERNAME`을 HBase 클러스터의 이름으로 바꿉니다. 그런 다음, 명령을 입력합니다.
+1. 사용 편의성을 위해 환경 변수를 설정합니다. `MYPASSWORD`를 클러스터 로그인 암호로 바꾸어 아래 명령을 편집합니다. `MYCLUSTERNAME`을 HBase 클러스터의 이름으로 바꿉니다. 그런 다음, 명령을 입력합니다.
 
     ```bash
     export password='MYPASSWORD'
@@ -240,10 +239,10 @@ REST API는 [기본 인증](https://en.wikipedia.org/wiki/Basic_access_authentic
     -v
     ```
 
-    -d 스위치에 지정된 값을 base64로 인코딩해야 합니다. 예제:
+    -d 스위치에 지정된 값을 Base64로 인코딩합니다. 예제:
 
    * MTAwMA==: 1000
-   * UGVyc29uYWw6TmFtZQ==: Personal:Name
+   * UGVyc29uYWw6TmFtZQ==: Personal: 속성
    * Sm9obiBEb2xl: John Dole
 
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single)를 사용하면 여러 (일괄 처리된) 값을 삽입할 수 있습니다.
@@ -306,7 +305,7 @@ HDInsight에서 HBase는 클러스터 모니터링에 대한 웹 UI와 함께 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Apache HBase 클러스터를 만드는 방법 및 테이블을 만들고 HBase 셸의 데이터를 이 테이블에서 보는 방법을 알아보았습니다. 또한 HBase 테이블에서 데이터에 대해 Hive 쿼리를 사용하는 방법 및 HBase C# REST API를 사용하여 HBase 테이블을 만들고 이 테이블에서 데이터를 검색하는 방법도 알아보았습니다. 자세한 내용은 다음을 참조하세요.
+이 자습서에서는 Apache HBase 클러스터를 만드는 방법을 배웠습니다. 그리고 HBase 셸에서 테이블을 만들고 해당 테이블의 데이터를 보는 방법에 대해 설명합니다. HBase 테이블의 데이터에 Hive 쿼리를 사용하는 방법도 배웠습니다. 그리고 HBase C# REST API를 사용하여 HBase 테이블을 만들고 이 테이블에서 데이터를 검색하는 방법을 설명합니다. 자세한 내용은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
 > [HDInsight HBase 개요](./apache-hbase-overview.md)

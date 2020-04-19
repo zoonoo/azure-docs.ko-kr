@@ -11,20 +11,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: quickstart
-ms.date: 01/22/2018
+ms.date: 04/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 7f527d3c57f086e7941505a9ca4396885c746762
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ad757e3d65d3094ca6883d747404906a871ed850
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75440076"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419343"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Data Factory 만들기
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [현재 버전](quickstart-create-data-factory-powershell.md)
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 이 빠른 시작에서는 PowerShell을 사용하여 Azure Data Factory를 만드는 방법을 설명합니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 **복사합니다**. Azure Data Factory를 사용하여 데이터를 **변환**하는 방법에 대한 자습서는 [자습서: Spark를 사용하여 데이터 변환](transform-data-using-spark.md)을 참조하세요.
 
@@ -111,6 +113,10 @@ ms.locfileid: "75440076"
 ## <a name="create-a-linked-service"></a>연결된 서비스 만들기
 
 데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소 및 컴퓨팅 서비스를 데이터 팩터리에 연결합니다. 이 빠른 시작에서 원본 및 싱크 저장소로 사용되는 Azure Storage 연결된 서비스를 만듭니다. 연결된 서비스에는 Data Factory 서비스가 런타임에 연결하는 데 사용하는 연결 정보가 있습니다.
+
+>[!TIP]
+>이 빠른 시작에서는 *계정 키*를 데이터 저장소의 인증 형식으로 사용하지만 지원되는 다른 인증 방법을 선택할 수 있습니다. 필요한 경우 *SAS URI*, *서비스 주체* 및 *관리 ID*를 선택합니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#linked-service-properties)의 해당 섹션을 참조하세요.
+>데이터 저장소에 대한 비밀을 안전하게 저장하려면 Azure Key Vault를 사용하는 것도 좋습니다. 자세한 그림은 [이 문서](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)를 참조하세요.
 
 1. 다음 콘텐츠가 포함된 **AzureStorageLinkedService.json**이라는 JSON 파일을 **C:\ADFv2QuickStartPSH** 폴더에 만듭니다. (아직 없는 경우 ADFv2QuickStartPSH 폴더를 만듭니다.)
 

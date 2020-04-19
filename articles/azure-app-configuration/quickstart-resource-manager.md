@@ -3,18 +3,18 @@ title: Azure App Configuration을 사용하여 자동화된 VM 배포 빠른 시
 description: 이 빠른 시작에서는 Azure PowerShell 모듈 및 Azure Resource Manager 템플릿을 사용하여 Azure App Configuration 저장소를 배포하는 방법을 보여 줍니다. 그런 다음, 저장소의 값을 사용하여 VM을 배포합니다.
 author: lisaguthrie
 ms.author: lcozzens
-ms.date: 03/05/2020
+ms.date: 04/14/2020
 ms.topic: quickstart
 ms.service: azure-app-configuration
 ms.custom:
 - mvc
 - subject-armqs
-ms.openlocfilehash: c45f6855c33dff2790ced306fd7f049b98dd1387
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 02afa2cb36323e0c3c38c2451b1924b636f7faed
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79126391"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309105"
 ---
 # <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template"></a>빠른 시작: Azure App Configuration 및 Resource Manager 템플릿을 사용하여 자동화된 VM 배포
 
@@ -152,6 +152,9 @@ Azure Resource Manager 템플릿을 사용하여 App Configuration 저장소를 
 ## <a name="deploy-vm-using-stored-key-values"></a>저장된 키-값을 사용하여 VM 배포
 
 이제 키-값을 저장소에 추가했으므로 Azure Resource Manager 템플릿을 사용하여 VM을 배포할 준비가 되었습니다. 템플릿은 사용자가 만든 **windowsOsVersion** 및 **diskSizeGB** 키를 참조합니다.
+
+> [!WARNING]
+> ARM 템플릿은 프라이빗 링크를 사용하도록 설정된 앱 구성 저장소의 키를 참조할 수 없습니다.
 
 1. 다음 json 코드를 복사하여 *azuredeploy.json*이라는 새 파일에 붙여넣거나, [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-app-configuration/azuredeploy.json)에서 파일을 다운로드합니다.
 
@@ -423,13 +426,13 @@ Azure Resource Manager 템플릿을 사용하여 App Configuration 저장소를 
    |storageAccountName|VM과 연결된 스토리지 계정에 대한 고유 이름입니다.|
    |domainNameLabel|고유한 도메인 이름입니다.|
 
-1. PowerShell 창에서 다음 명령을 실행하여 Azure App Configuration 저장소를 배포합니다. 리소스 그룹 이름, 템플릿 파일 경로 및 템플릿 매개 변수 파일 경로를 바꿔야 합니다.
+1. PowerShell 창에서 다음 명령을 실행하여 VM을 배포합니다. 리소스 그룹 이름, 템플릿 파일 경로 및 템플릿 매개 변수 파일 경로를 바꿔야 합니다.
 
    ```azurepowershell
    New-AzResourceGroupDeployment `
-       -ResourceGroupName "<your resource group>" 
-       -TemplateFile "<path to prereq.azuredeploy.json>" `
-       -TemplateParameterFile "<path to prereq.azuredeploy.parameters.json>"
+       -ResourceGroupName "<your resource group>"
+       -TemplateFile "<path to azuredeploy.json>" `
+       -TemplateParameterFile "<path to azuredeploy.parameters.json>"
    ```
 
 축하합니다! Azure App Configuration에 저장된 구성을 사용하여 VM을 배포했습니다.

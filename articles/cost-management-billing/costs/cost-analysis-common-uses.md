@@ -3,16 +3,16 @@ title: Azure Cost Management에서의 일반적인 비용 분석 사용
 description: 이 문서에서는 Azure Cost Management에서 일반적인 비용 분석 작업에 대한 결과를 가져오는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/31/2020
+ms.date: 04/10/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: a333cad51e6fc089e7e6994c7b89210b12686cd5
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 2e0e222e636f694328835e20fda97deca1d9986a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520873"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261505"
 ---
 # <a name="common-cost-analysis-uses"></a>일반적인 비용 분석 사용
 
@@ -27,6 +27,17 @@ Azure 서비스별 비용 보기는 비용이 가장 많이 드는 인프라 파
 1. 보기를 **테이블**로 변경합니다.
 
 [![Azure 서비스별 비용 분석](./media/cost-analysis-common-uses/breakdown-by-service.png)](./media/cost-analysis-common-uses/breakdown-by-service.png#lightbox)
+
+## <a name="review-invoiced-charges-in-cost-analysis"></a>비용 분석에서 송장 발부 요금 검토
+
+Azure Portal에서 청구서 세부 정보를 보려면 분석 중인 청구서와 관련된 범위에 대한 비용 분석으로 이동합니다. **청구서 세부 정보** 보기를 선택합니다. 청구서 세부 정보에는 청구서에 표시된 요금이 표시됩니다.
+
+[![청구서 세부 정보를 보여주는 예제](./media/cost-analysis-common-uses/invoice-details.png)](./media/cost-analysis-common-uses/invoice-details.png#lightbox)
+
+청구서 세부 정보를 보면 예기치 않은 비용이 드는 서비스를 식별하고 비용 분석에서 리소스와 직접 연관된 리소스를 확인할 수 있습니다. 예를 들어 Virtual Machines 서비스에 대한 요금을 분석하려면 **누적 비용** 보기로 이동합니다. 그런 다음, 세분성을 **일별**로 설정하고 요금 **서비스 이름: 가상 머신** 및 그룹 요금을 **리소스**로 필터링합니다.
+
+[![가상 머신의 누적 비용을 보여주는 예제](./media/cost-analysis-common-uses/virtual-machines.png)](./media/cost-analysis-common-uses/virtual-machines.png#lightbox)
+
 
 ## <a name="view-cost-breakdown-by-azure-resource"></a>Azure 리소스별 비용 분석 보기
 

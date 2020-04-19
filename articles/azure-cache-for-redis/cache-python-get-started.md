@@ -10,12 +10,12 @@ ms.custom:
 - mvc
 - seo-python-october2019
 ms.date: 11/05/2019
-ms.openlocfilehash: 7b05f12ad3fd3a0f56605d708bbbf06df7e341ed
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6ce3dd1cbb694988af3555765342a1c4ca3850b5
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75433478"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010854"
 ---
 # <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>빠른 시작: Azure Cache for Redis를 사용하는 Python 앱 만들기
 
@@ -54,7 +54,7 @@ b'bar'
 ```
 
 > [!IMPORTANT]
-> Azure Cache for Redis 버전이 3.0 이상인 경우 SSL 인증서 확인이 적용됩니다. Azure Cache for Redis에 연결할 때 ssl_ca_certs를 명시적으로 설정해야 합니다. RedHat Linux의 경우 ssl_ca_certs는 */etc/pki/tls/certs/ca-bundle.crt* 인증서 모듈에 있습니다.
+> Azure Cache for Redis 버전이 3.0 이상인 경우 TLS/SSL 인증서 확인이 적용됩니다. Azure Cache for Redis에 연결할 때 ssl_ca_certs를 명시적으로 설정해야 합니다. RedHat Linux의 경우 ssl_ca_certs는 */etc/pki/tls/certs/ca-bundle.crt* 인증서 모듈에 있습니다.
 
 ## <a name="create-a-python-sample-app"></a>Python 샘플 앱 만들기
 

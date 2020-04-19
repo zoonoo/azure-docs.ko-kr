@@ -1,23 +1,23 @@
 ---
 title: '자습서: 대화형 쿼리를 사용한 ETL 작업 - Azure HDInsight'
-description: 자습서 - 원시 CSV 데이터 세트에서 데이터를 추출하고, HDInsight에서 대화형 쿼리를 사용하여 변환한 다음, Apache Sqoop을 사용하여 변환된 데이터를 Azure SQL 데이터베이스로 로드하는 방법을 알아봅니다.
+description: 자습서 - 원시 CSV 데이터 세트에서 데이터를 추출하는 방법을 알아봅니다. HDInsight에서 대화형 쿼리를 사용하여 변환합니다. 그런 다음, Apache Sqoop을 사용하여 변환된 데이터를 Azure SQL 데이터베이스에 로드합니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 07/02/2019
-ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
-ms.openlocfilehash: d1136c153a529f58db1de277ec84ac332b9f78ae
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/02/2019
+ms.openlocfilehash: 7413a32fdddb579bad61c9cfe539be6aaeae9881
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73494158"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313750"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 대화형 쿼리를 사용하여 데이터 추출, 변환 및 로드
 
-이 자습서에서는 공개적으로 사용할 수 있는 비행 데이터의 원시 CSV 데이터 파일을 선택하여 HDInsight 클러스터 스토리지로 가져온 다음, Azure HDInsight에서 대화형 쿼리를 사용하여 데이터를 변환합니다. 데이터가 변환된 후 [Apache Sqoop](https://sqoop.apache.org/)을 사용하여 Azure SQL 데이터베이스로 해당 데이터를 로드합니다.
+이 자습서에서는 공개적으로 사용 가능한 비행 데이터의 원시 CSV 데이터 파일을 다운로드합니다. HDInsight 클러스터 스토리지로 가져온 다음, Azure HDInsight의 대화형 쿼리를 사용하여 데이터를 변환합니다. 데이터가 변환된 후 [Apache Sqoop](https://sqoop.apache.org/)을 사용하여 Azure SQL 데이터베이스로 해당 데이터를 로드합니다.
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "73494158"
    | --- | --- |
    | Filter Year |2019 |
    | Filter Period |January |
-   | 필드 |Year, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   | 필드 |`Year, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay`입니다. |
 
 3. **다운로드**를 선택합니다. 선택한 데이터 필드와 함께 .zip 파일을 가져옵니다.
 
@@ -60,7 +60,7 @@ HDInsight 클러스터와 연결된 스토리지로 데이터를 업로드하는
     scp FILENAME.zip sshuser@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.zip
     ```
 
-    계속하려면 yes 또는 no를 입력하라는 메시지가 표시되면 명령 프롬프트에 yes를 입력하고 Enter 키를 누릅니다. 입력하는 동안 텍스트는 창에 표시되지 않습니다.
+    메시지가 표시되면 예 또는 아니요를 입력하여 계속합니다. 입력하는 동안 텍스트는 창에 표시되지 않습니다.
 
 2. 업로드를 완료한 후에 SSH를 사용하여 클러스터에 연결합니다. `CLUSTERNAME`을 HDInsight 클러스터의 이름으로 바꾸어 아래 명령을 편집합니다. 다음 명령을 입력합니다.
 
@@ -283,7 +283,7 @@ Hive 작업의 일부로 .csv 파일에서 **지연**이라는 Hive 테이블로
     GO
     ```
 
-    테이블에 데이터 목록이 표시됩니다. 테이블은 도시 이름 및 해당 도시에 대한 평균 비행 지연 시간을 포함합니다. 
+    테이블에 데이터 목록이 표시됩니다. 테이블은 도시 이름 및 해당 도시에 대한 평균 비행 지연 시간을 포함합니다.
 
     `exit` 를 입력하여 tsql 유틸리티를 종료합니다.
 
@@ -298,4 +298,4 @@ Hive 작업의 일부로 .csv 파일에서 **지연**이라는 Hive 테이블로
 이 자습서에서는 원시 CSV 데이터 파일을 선택하고 HDInsight 클러스터 스토리지로 가져온 다음, Azure HDInsight에서 대화형 쿼리를 사용하여 데이터를 변환했습니다.  Apache Hive Warehouse 커넥터에 대해 자세히 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
->[Hive Warehouse 커넥터를 사용하여 Apache Spark 및 Apache Hive 통합](./apache-hive-warehouse-connector.md)
+> [Hive Warehouse 커넥터를 사용하여 Apache Spark 및 Apache Hive 통합](./apache-hive-warehouse-connector.md)

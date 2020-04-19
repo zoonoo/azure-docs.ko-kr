@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 사용하여 데이터 팩터리 파이프라인 만들기
-description: 이 자습서에서는 Azure Portal을 사용하여 파이프라인이 있는 데이터 팩터리를 만드는 방법에 대한 단계별 지침을 제공합니다. 파이프라인은 복사 활동을 사용하여 Azure Blob Storage에서 SQL 데이터베이스로 데이터를 복사합니다.
+description: 이 자습서에서는 Azure Portal을 사용하여 파이프라인이 있는 데이터 팩터리를 만드는 방법에 대한 단계별 지침을 제공합니다. 파이프라인은 복사 작업을 사용하여 Azure Blob 스토리지에서 Azure SQL 데이터베이스로 데이터를 복사합니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,17 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 06/21/2018
+ms.date: 04/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 135a18f275137e72b5ff4d79f6a32bd39bd9c00c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 655a98ef1b6b8b2d4086b472ee7ce4d67346e5ca
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75977396"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418714"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage에서 SQL 데이터베이스로 데이터 복사
-이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 데이터 팩터리를 만듭니다. 데이터 팩터리의 파이프라인은 Azure Blob Storage에서 SQL 데이터베이스로 데이터를 복사합니다. 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 데이터 팩터리를 만듭니다. 데이터 팩터리의 파이프라인은 Azure Blob 스토리지에서 Azure SQL 데이터베이스로 데이터를 복사합니다. 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
 > [!NOTE]
 > - Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduction.md)를 참조하세요.
@@ -38,7 +41,7 @@ ms.locfileid: "75977396"
 ## <a name="prerequisites"></a>사전 요구 사항
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Storage 계정**. Blob Storage를 *원본* 데이터 스토리지로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
-* **Azure SQL Database**. 데이터베이스를 *싱크* 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)를 참조하세요.
+* **Azure SQL Database**. 데이터베이스를 *싱크* 데이터 저장소로 사용합니다. Azure SQL 데이터베이스가 없는 경우 만드는 단계를 [SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)에서 참조하세요.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Blob 및 SQL 테이블 만들기
 
@@ -49,6 +52,7 @@ ms.locfileid: "75977396"
 1. 메모장을 시작합니다. 다음 텍스트를 복사하고 디스크에 **emp.txt** 파일로 저장합니다.
 
     ```
+    FirstName,LastName
     John,Doe
     Jane,Doe
     ```
@@ -77,10 +81,7 @@ ms.locfileid: "75977396"
 이 단계에서는 데이터 팩터리를 만들고, Data Factory UI를 시작하여 파이프라인을 데이터 팩터리에 만듭니다.
 
 1. **Microsoft Edge** 또는 **Google Chrome**을 엽니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
-2. 왼쪽 메뉴에서 **리소스 만들기** > **분석** > **Data Factory**를 선택합니다.
-
-   !["새로 만들기" 창에서 데이터 팩터리 선택](./media/doc-common-process/new-azure-data-factory-menu.png)
-
+2. 왼쪽 메뉴에서 **리소스 만들기** > **분석** > **Data Factory**를 차례로 선택합니다.
 3. **새 데이터 팩터리** 페이지의 **이름** 아래에서 **ADFTutorialDataFactory**를 입력합니다.
 
    Azure Data Factory의 이름은 *전역적으로 고유*해야 합니다. 이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. (예: yournameADFTutorialDataFactory). Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory 명명 규칙](naming-rules.md)을 참조하세요.
@@ -121,33 +122,38 @@ ms.locfileid: "75977396"
 
 ### <a name="configure-source"></a>원본 구성
 
+>[!TIP]
+>이 자습서에서는 *계정 키*를 원본 데이터 저장소의 인증 형식으로 사용하지만 지원되는 다른 인증 방법을 선택할 수 있습니다. 필요한 경우 *SAS URI*, *서비스 주체* 및 *관리 ID*를 선택합니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#linked-service-properties)의 해당 섹션을 참조하세요.
+>데이터 저장소에 대한 비밀을 안전하게 저장하려면 Azure Key Vault를 사용하는 것도 좋습니다. 자세한 그림은 [이 문서](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)를 참조하세요.
+
 1. **원본** 탭으로 이동합니다. **+ 새로 만들기**를 선택하여 원본 데이터 세트를 만듭니다.
 
 1. **새 데이터 세트** 대화 상자에서 **Azure Blob Storage**를 선택한 다음, **계속**을 선택합니다. 원본 데이터는 Blob 스토리지에 있으므로 원본 데이터 세트으로 **Azure Blob Storage**를 선택합니다.
 
 1. **형식 선택** 대화 상자에서 데이터의 형식 유형을 선택한 다음, **계속**을 선택합니다.
 
-    ![데이터 형식 유형](./media/doc-common-process/select-data-format.png)
+1. **속성 설정** 대화 상자에서 이름에 **SourceBlobDataset**를 입력합니다. **헤더로 첫 번째 행**의 확인란을 선택합니다. **연결된 서비스** 텍스트 상자에서 **+ 새로 만들기**를 선택합니다.
 
-1. **속성 설정** 대화 상자에서 이름에 **SourceBlobDataset**를 입력합니다. **연결된 서비스** 텍스트 상자 옆에 있는 **+ 새로 만들기**를 선택합니다.
-
-1. **새로 연결된 서비스(Azure Blob Storage)** 대화 상자에서 **AzureStorageLinkedService**를 이름으로 입력하고, **스토리지 계정 이름** 목록에서 스토리지 계정을 선택합니다. 연결을 테스트한 다음, **마침**을 선택하여 연결된 서비스를 배포합니다.
+1. **새로 연결된 서비스(Azure Blob Storage)** 대화 상자에서 **AzureStorageLinkedService**를 이름으로 입력하고, **스토리지 계정 이름** 목록에서 스토리지 계정을 선택합니다. 연결을 테스트하고 **만들기**를 선택하여 연결된 서비스를 배포합니다.
 
 1. 연결된 서비스가 생성된 후 **속성 설정** 페이지로 다시 이동합니다. **파일 경로** 옆에 있는 **찾아보기**를 선택합니다.
 
-1. **adftutorial/input** 폴더로 이동하고, **emp.txt** 파일을 선택한 다음, **마침**을 선택합니다.
+1. **adftutorial/input** 폴더로 이동하여 **emp.txt** 파일을 선택한 다음, **확인**을 선택합니다.
 
-1. 자동으로 파이프라인 페이지로 이동합니다. **원본** 탭에서 **SourceBlobDataset**가 선택되어 있는지 확인합니다. 이 페이지에서 데이터를 미리 보려면 **데이터 미리 보기**를 선택합니다.
+1. **확인**을 선택합니다. 자동으로 파이프라인 페이지로 이동합니다. **원본** 탭에서 **SourceBlobDataset**가 선택되어 있는지 확인합니다. 이 페이지에서 데이터를 미리 보려면 **데이터 미리 보기**를 선택합니다.
 
     ![원본 데이터 세트](./media/tutorial-copy-data-portal/source-dataset-selected.png)
 
 ### <a name="configure-sink"></a>싱크 구성
+>[!TIP]
+>이 자습서에서는 *SQL 인증*을 싱크 데이터 저장소의 인증 형식으로 사용하지만 지원되는 다른 인증 방법을 선택할 수 있습니다. 필요한 경우 *서비스 주체* 및 *관리 ID*를 선택합니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#linked-service-properties)의 해당 섹션을 참조하세요.
+>데이터 저장소에 대한 비밀을 안전하게 저장하려면 Azure Key Vault를 사용하는 것도 좋습니다. 자세한 그림은 [이 문서](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)를 참조하세요.
 
 1. **싱크** 탭으로 이동하고, **+ 새로 만들기**를 선택하여 싱크 데이터 세트를 만듭니다.
 
 1. **새 데이터 세트** 대화 상자에서 검색 상자에 “SQL”을 입력하여 커넥터를 필터링하고, **Azure SQL Database**를 선택한 다음, **마침**을 선택합니다. 이 자습서에서는 데이터를 SQL 데이터베이스에 복사합니다.
 
-1. **속성 설정** 대화 상자에서 이름에 **OutputSqlDataset**를 입력합니다. **연결된 서비스** 텍스트 상자 옆에 있는 **+ 새로 만들기**를 선택합니다. 데이터 세트는 연결된 서비스와 연결되어야 합니다. 연결된 서비스에는 런타임에 Data Factory에서 SQL 데이터베이스에 연결하는 데 사용하는 연결 문자열 있습니다. 데이터 세트는 데이터가 복사될 컨테이너, 폴더 및 파일(선택 사항)을 지정합니다.
+1. **속성 설정** 대화 상자에서 이름에 **OutputSqlDataset**를 입력합니다. **연결된 서비스** 드롭다운 목록에서 **+ 새로 만들기**를 선택합니다. 데이터 세트는 연결된 서비스와 연결되어야 합니다. 연결된 서비스에는 런타임에 Data Factory에서 SQL 데이터베이스에 연결하는 데 사용하는 연결 문자열 있습니다. 데이터 세트는 데이터가 복사될 컨테이너, 폴더 및 파일(선택 사항)을 지정합니다.
 
 1. **새로 연결된 서비스(Azure SQL Database)** 대화 상자에서 다음 단계를 수행합니다.
 
@@ -163,11 +169,11 @@ ms.locfileid: "75977396"
 
     f. **연결 테스트**를 선택하여 연결을 테스트합니다.
 
-    g. **마침**을 선택하여 연결된 서비스를 배포합니다.
+    g. **만들기**를 선택하여 연결된 서비스를 배포합니다.
 
     ![새 연결된 서비스 저장](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
-1. 자동으로 **속성 설정** 대화 상자로 이동합니다. **테이블**에서 **[dbo].[emp]** 를 선택합니다. 그런 다음, **마침**을 선택합니다.
+1. 자동으로 **속성 설정** 대화 상자로 이동합니다. **테이블**에서 **[dbo].[emp]** 를 선택합니다. 그런 다음, **확인**을 선택합니다.
 
 1. 파이프라인이 있는 탭으로 이동하고, **싱크 데이터 세트**에서 **OutputSqlDataset**가 선택되어 있는지 확인합니다.
 
@@ -185,22 +191,22 @@ ms.locfileid: "75977396"
 
 1. 파이프라인을 디버그하려면 도구 모음에서 **디버그**를 선택합니다. 창의 아래쪽에 있는 **출력** 탭에서 파이프라인 실행 상태가 표시됩니다.
 
-1. 파이프라인이 성공적으로 실행될 수 있다면 최상위 도구 모음에서 **모두 게시**를 선택합니다. 이 작업은 사용자가 만든 엔터티(데이터 세트 및 파이프라인)를 Data Factory에 게시합니다.
+1. 파이프라인이 성공적으로 실행되면 위쪽 도구 모음에서 **모두 게시**를 선택합니다. 이 작업은 사용자가 만든 엔터티(데이터 세트 및 파이프라인)를 Data Factory에 게시합니다.
 
 1. **게시됨** 메시지가 표시될 때까지 기다립니다. 알림 메시지를 보려면 왼쪽 위(종 단추)에서 **알림 표시**를 클릭합니다.
 
 ## <a name="trigger-the-pipeline-manually"></a>수동으로 파이프라인 트리거
 이 단계에서는 이전 단계에서 게시한 파이프라인을 수동으로 트리거합니다.
 
-1. 도구 모음에서 **트리거 추가**를 선택한 다음, **지금 트리거**를 선택합니다. **파이프라인 실행** 페이지에서 **마침**을 선택합니다.  
+1. 도구 모음에서 **트리거**를 선택한 다음 **지금 트리거**를 선택합니다. **파이프라인 실행** 페이지에서 **확인**을 선택합니다.  
 
-1. 왼쪽의 **모니터** 탭으로 이동합니다. 수동 트리거로 트리거되는 파이프라인 실행이 표시됩니다. **작업** 열의 링크를 사용하여 활동 세부 정보를 보고 파이프라인을 다시 실행할 수 있습니다.
+1. 왼쪽의 **모니터** 탭으로 이동합니다. 수동 트리거로 트리거되는 파이프라인 실행이 표시됩니다. **파이프라인 이름** 열 아래의 링크를 사용하여 활동 세부 정보를 보고 파이프라인을 다시 실행할 수 있습니다.
 
-    ![파이프라인 실행 모니터링](./media/tutorial-copy-data-portal/monitor-pipeline.png)
+    [![파이프라인 실행 모니터링](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png)](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png#lightbox)
 
-1. 파이프라인 실행과 연결된 활동 실행을 확인하려면 **작업** 열에서 **활동 실행 보기** 링크를 선택합니다. 이 예제에서는 활동이 하나뿐이므로 목록에 하나의 항목만 표시됩니다. 복사 활동에 대한 자세한 내용은 **작업** 열에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. 위쪽의 **파이프라인 실행**을 선택하여 파이프라인 실행 보기로 돌아갑니다. 보기를 새로 고치려면 **새로 고침**을 선택합니다.
+1. 파이프라인 실행과 관련된 활동 실행을 보려면 **파이프라인 이름** 열에서 **CopyPipeline** 링크를 선택합니다. 이 예제에서는 활동이 하나뿐이므로 목록에 하나의 항목만 표시됩니다. 복사 작업에 대한 자세한 내용을 보려면 **활동 이름** 열에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. 파이프라인 실행 보기로 돌아가려면 위쪽에 있는 **모든 파이프라인 실행**을 선택합니다. 보기를 새로 고치려면 **새로 고침**을 선택합니다.
 
-    ![작업 실행 모니터링](./media/tutorial-copy-data-portal/view-activity-runs.png)
+    [![활동 실행 모니터링](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox)
 
 1. SQL 데이터베이스의 **emp** 테이블에 둘 이상의 행이 추가되어 있는지 확인합니다.
 
@@ -209,7 +215,7 @@ ms.locfileid: "75977396"
 
 1. 왼쪽의 모니터링 탭 위에서 **작성** 탭으로 이동합니다.
 
-1. 파이프라인으로 이동하고, 도구 모음에서 **트리거 추가**를 클릭하고, **새로 만들기/편집**을 선택합니다.
+1. 파이프라인으로 이동하고, 도구 모음에서 **트리거**를 클릭하고, **새로 만들기/편집**을 선택합니다.
 
 1. **트리거 추가** 대화 상자에서 **트리거 선택** 영역에 **+ 새로 만들기**를 선택합니다.
 
@@ -225,25 +231,24 @@ ms.locfileid: "75977396"
 
     e. **종료 시간** 부분을 현재 날짜/시간 이후 몇 분으로 업데이트합니다. 트리거는 변경 내용을 게시한 후에만 활성화됩니다. 몇 분 이후로 설정하고 그때까지 게시하지 않으면 트리거 실행이 표시되지 않습니다.
 
-    f. **적용**을 선택합니다.
+    f. **확인**을 선택합니다.
 
     g. **활성화됨** 옵션에서 **예**를 선택합니다.
 
-    h. **다음**을 선택합니다.
-
-    ![활성화됨 단추](./media/tutorial-copy-data-portal/trigger-activiated-next.png)
+    h. **확인**을 선택합니다.
 
     > [!IMPORTANT]
     > 비용은 각 파이프라인 실행과 연결되므로 종료 날짜를 적절하게 설정합니다.
-1. **트리거 실행 매개 변수** 페이지에서 경고를 검토한 다음, **마침**을 선택합니다. 다음 예의 파이프라인은 매개 변수를 사용하지 않습니다.
+
+1. **트리거 편집** 페이지에서 경고를 검토한 다음, **저장**을 선택합니다. 다음 예의 파이프라인은 매개 변수를 사용하지 않습니다.
 
 1. **모두 게시**를 클릭하여 변경 내용을 게시합니다.
 
 1. 왼쪽의 **모니터** 탭으로 이동하여 트리거된 파이프라인 실행을 확인합니다.
 
-    ![트리거된 파이프라인 실행](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)   
+    [![트리거된 파이프라인 실행](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png#lightbox)
 
-1. **파이프라인 실행** 보기에서 **트리거 실행** 보기로 전환하려면 창 위쪽에서 **트리거 실행**을 선택합니다.
+1. **파이프라인 실행** 보기에서 **트리거 실행** 보기로 전환하려면 창 왼쪽에서 **트리거 실행**을 선택합니다.
 
 1. 목록에서 트리거 실행이 표시됩니다.
 

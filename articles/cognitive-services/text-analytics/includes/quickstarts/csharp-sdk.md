@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/17/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 64eb19e43223c1953a7244f8fd29c48d085f1e96
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 2fa2e40ba2a7fe84b6df57bfb711d01332b8f523
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80117201"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81275451"
 ---
 <a name="HOLTop"></a>
 
@@ -44,7 +44,7 @@ Visual Studio IDE를 사용하여 새 .NET Core 콘솔 앱을 만듭니다. 이�
 
 #### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
 
-**솔루션 탐색기**에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기**를 선택하고, **시험판 포함**을 선택하고, `Azure.AI.TextAnalytics`를 검색합니다. `1.0.0-preview.3` 버전, **설치**를 차례로 선택합니다. [패키지 관리자 콘솔](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)을 사용할 수도 있습니다.
+**솔루션 탐색기**에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기**를 선택하고, **시험판 포함**을 선택하고, `Azure.AI.TextAnalytics`를 검색합니다. `1.0.0-preview.4` 버전, **설치**를 차례로 선택합니다. [패키지 관리자 콘솔](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)을 사용할 수도 있습니다.
 
 > [!TIP]
 > 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub에서](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/TextAnalytics/program.cs) 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다. 
@@ -63,6 +63,7 @@ Visual Studio IDE를 사용하여 새 .NET Core 콘솔 앱을 만듭니다. 이�
 *program.cs* 파일을 열고 다음 `using` 지시문을 추가합니다.
 
 ```csharp
+using Azure;
 using System;
 using System.Globalization;
 using Azure.AI.TextAnalytics;
@@ -73,7 +74,7 @@ using Azure.AI.TextAnalytics;
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
 ```csharp
-private static readonly TextAnalyticsApiKeyCredential credentials = new TextAnalyticsApiKeyCredential("<replace-with-your-text-analytics-key-here>");
+private static readonly AzureKeyCredential credentials = new AzureKeyCredential("<replace-with-your-text-analytics-key-here>");
 private static readonly Uri endpoint = new Uri("<replace-with-your-text-analytics-endpoint-here>");
 ```
 
@@ -87,7 +88,6 @@ static void Main(string[] args)
     SentimentAnalysisExample(client);
     LanguageDetectionExample(client);
     EntityRecognitionExample(client);
-    EntityPIIExample(client);
     EntityLinkingExample(client);
     KeyPhraseExtractionExample(client);
 
@@ -121,14 +121,13 @@ private static readonly string endpoint = "<replace-with-your-text-analytics-end
 
 Text Analytics 클라이언트는 키를 사용하여 Azure를 인증하고 텍스트를 단일 문자열 또는 일괄 처리로 허용하는 함수를 제공하는 `TextAnalyticsClient` 개체입니다. 텍스트는 API에 동기식 또는 비동기식으로 보낼 수 있습니다. 응답 개체에는 보내는 각 문서에 대한 분석 정보가 포함됩니다. 
 
-버전 `3.0-preview`를 사용하는 경우 선택적 `TextAnalyticsClientOptions` 인스턴스를 사용하여 다양한 기본 설정(예: 기본 언어 또는 국가 힌트)으로 클라이언트를 초기화할 수 있습니다. Azure Active Directory 토큰을 사용하여 인증할 수도 있습니다. 
+서비스 버전 `3.0-preview`를 사용하는 경우 선택적 `TextAnalyticsClientOptions` 인스턴스를 사용하여 다양한 기본 설정(예: 기본 언어 또는 국가 힌트)으로 클라이언트를 초기화할 수 있습니다. Azure Active Directory 토큰을 사용하여 인증할 수도 있습니다. 
 
 ## <a name="code-examples"></a>코드 예제
 
 * [감정 분석](#sentiment-analysis)
 * [언어 감지](#language-detection)
 * [명명된 엔터티 인식](#named-entity-recognition-ner)
-* [개인 정보 검색](#detect-personal-information)
 * [엔터티 연결](#entity-linking)
 * [핵심 구 추출](#key-phrase-extraction)
 
@@ -264,7 +263,6 @@ Language: English
 
 > [!NOTE]
 > `3.0-preview` 버전의 새로운 기능:
-> * 엔터티 인식에는 이제 텍스트에서 개인 정보를 검색하는 기능이 포함됩니다.
 > * 엔터티 연결은 이제 엔터티 인식과 분리됩니다.
 
 
@@ -293,33 +291,6 @@ Named Entities:
         Text: last week,        Category: DateTime,     Sub-Category: DateRange
                 Length: 9,      Score: 0.80
 ```
-
-## <a name="detect-personal-information"></a>개인 정보 검색
-
-앞에서 만든 클라이언트를 사용하는 `EntityPIIExample()`이라는 새 함수를 만들고, `RecognizePiiEntities()` 함수를 호출하여 결과를 반복합니다. 이전 함수와 마찬가지로 반환된 `Response<IReadOnlyCollection<CategorizedEntity>>` 개체에는 검색된 엔터티의 목록이 포함됩니다. 오류가 발생하면 `RequestFailedException`이 throw됩니다.
-
-```csharp
-static void EntityPIIExample(TextAnalyticsClient client)
-{
-    string inputText = "Insurance policy for SSN on file 123-12-1234 is here by approved.";
-    var response = client.RecognizePiiEntities(inputText);
-    Console.WriteLine("Personally Identifiable Information Entities:");
-    foreach (var entity in response.Value)
-    {
-        Console.WriteLine($"\tText: {entity.Text},\tCategory: {entity.Category},\tSub-Category: {entity.SubCategory}");
-        Console.WriteLine($"\t\tLength: {entity.GraphemeLength},\tScore: {entity.ConfidenceScore:F2}\n");
-    }
-}
-```
-
-### <a name="output"></a>출력
-
-```console
-Personally Identifiable Information Entities:
-        Text: 123-12-1234,      Category: U.S. Social Security Number (SSN),    Sub-Category:
-                Length: 11,     Score: 0.85
-```
-
 
 ## <a name="entity-linking"></a>엔터티 연결
 

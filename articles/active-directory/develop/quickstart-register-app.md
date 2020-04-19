@@ -12,12 +12,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 1625b48d86eebaf5d8fcd4c100d89b83716ba459
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 79983678d13b810a521a00ba2c1978de92a5029f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79408371"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309515"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼에 애플리케이션 등록
 
@@ -28,7 +28,7 @@ ms.locfileid: "79408371"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* [Azure AD 테넌트](quickstart-create-new-tenant.md)
+* [Azure AD 테넌트](quickstart-create-new-tenant.md).
 
 ## <a name="register-a-new-application-using-the-azure-portal"></a>Azure Portal을 사용하여 새 애플리케이션 등록
 

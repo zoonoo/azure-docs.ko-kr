@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: be5a2f76a99149fde378d29f2ef7748ebe60b038
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5889afa033b30606f8981ddb826aa192f24efa10
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78303242"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312905"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>자습서: Azure Data Lake Storage Gen2, Azure Databricks 및 Spark
 
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
   > [!IMPORTANT]
   > 역할을 Data Lake Storage Gen2 스토리지 계정의 범위에 할당해야 합니다. 역할은 부모 리소스 그룹 또는 구독에 할당할 수 있지만, 이러한 역할 할당이 스토리지 계정에 전파될 때까지 권한 관련 오류가 발생합니다.
 
-  :heavy_check_mark: 문서의 [로그인을 위한 값 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션에 있는 단계를 수행하는 경우 테넌트 ID, 앱 ID 및 암호 값을 텍스트 파일에 붙여넣습니다. 곧 이 값들이 필요합니다.
+  :heavy_check_mark: 문서의 [로그인을 위한 값 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션에 있는 단계를 수행하는 경우 테넌트 ID, 앱 ID 및 클라이언트 비밀 값을 텍스트 파일에 붙여넣습니다. 곧 이 값들이 필요합니다.
 
 ### <a name="download-the-flight-data"></a>비행 데이터 다운로드
 
@@ -151,7 +151,7 @@ AzCopy를 사용하여 *.csv* 파일의 데이터를 Data Lake Storage Gen2 계�
     configs = {"fs.azure.account.auth.type": "OAuth",
            "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
            "fs.azure.account.oauth2.client.id": "<appId>",
-           "fs.azure.account.oauth2.client.secret": "<password>",
+           "fs.azure.account.oauth2.client.secret": "<clientSecret>",
            "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant>/oauth2/token",
            "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
 
@@ -161,7 +161,7 @@ AzCopy를 사용하여 *.csv* 파일의 데이터를 Data Lake Storage Gen2 계�
     extra_configs = configs)
     ```
 
-18. 이 코드 블록에서 `appId`, `password`, `tenant` 및 `storage-account-name` 자리 표시자 값을 이 자습서의 필수 조건을 수행하는 동안 수집한 값으로 바꿉니다. `container-name` 자리 표시자 값을 컨테이너 이름으로 바꿉니다.
+18. 이 코드 블록에서 `appId`, `clientSecret`, `tenant` 및 `storage-account-name` 자리 표시자 값을 이 자습서의 필수 조건을 수행하는 동안 수집한 값으로 바꿉니다. `container-name` 자리 표시자 값을 컨테이너 이름으로 바꿉니다.
 
 19. 이 블록에서 코드를 실행하려면 **SHIFT + ENTER** 키를 누릅니다.
 

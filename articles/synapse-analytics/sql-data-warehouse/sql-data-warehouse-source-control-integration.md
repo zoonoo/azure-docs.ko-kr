@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 0ffa33811957af95fc10396ffecef0b3de7959fe
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 3ec52c5274891619cf7976e99b5241bfc67a4076
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633011"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415094"
 ---
 # <a name="source-control-integration-for-sql-pool"></a>SQL 풀에 대한 원본 제어 통합
 
@@ -81,4 +81,4 @@ ms.locfileid: "80633011"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [SQL 풀 개발](sql-data-warehouse-overview-develop.md)
+- [SQL 풀 개발을 위한 개발](sql-data-warehouse-overview-develop.md)

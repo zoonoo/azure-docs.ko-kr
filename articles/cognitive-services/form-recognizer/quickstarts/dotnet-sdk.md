@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: b9db9daf06b59e1a26a9b03a93aff63984841862
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 8d05f5ad07f9b3affba9442d6caa6e63162b813c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77118355"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399414"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>빠른 시작: .NET용 Form Recognizer 클라이언트 라이브러리
 
@@ -42,7 +42,7 @@ ms.locfileid: "77118355"
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-평가판 구독 또는 리소스에서 키를 가져온 후에는 각각 `FORM_RECOGNIZER_KEY` 및 `FORM_RECOGNIZER_ENDPOINT`라는 키 및 엔드포인트에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
+키와 엔드포인트를 가져온 후에는 각각 `FORM_RECOGNIZER_KEY` 및 `FORM_RECOGNIZER_ENDPOINT`라는 키 및 엔드포인트에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
 
 ### <a name="create-a-new-c-application"></a>새 C# 애플리케이션 만들기
 
@@ -99,12 +99,6 @@ Form Recognizer SDK의 주요 기능을 처리하는 클래스는 다음과 같�
 |[ExtractedPage](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.extractedpage?view=azure-dotnet-preview)| 이 클래스는 단일 양식 문서에서 추출한 모든 데이터를 나타냅니다.|
 
 ## <a name="code-examples"></a>코드 예제
-
-<!--
-    Include code snippets and short descriptions for each task you list in the the bulleted list. Briefly explain each operation, but include enough clarity to explain complex or otherwise tricky operations.
-
-    Include links to the service's reference content when introducing a class for the first time
--->
 
 여기에 나와 있는 코드 조각에서는 .NET용 Form Recognizer 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여 줍니다.
 
@@ -193,7 +187,7 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 이 빠른 시작에서는 Form Recognizer .NET 클라이언트 라이브러리를 사용하여 사용자 지정 모델을 학습시키고 양식을 분석했습니다. 다음으로, 더 나은 학습 데이터 세트를 만들고 더 정확한 모델을 생성하기 위한 팁에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
->[학습 데이터 세트 빌드](../build-training-data-set.md)
+> [학습 데이터 세트 빌드](../build-training-data-set.md)
 
 * [Form Recognizer란?](../overview.md)
 * 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/FormRecognizer)에서 확인할 수 있습니다.

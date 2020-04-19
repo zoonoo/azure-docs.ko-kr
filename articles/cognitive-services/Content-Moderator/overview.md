@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 570d55c8523e1c1deca3242a8841b0cc34322786
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: f28f2bcf5d04c9a6354b8135bd39546b9d8b9bf3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80053885"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404294"
 ---
 # <a name="what-is-azure-content-moderator"></a>Azure Content Moderator란?
 
@@ -38,7 +38,7 @@ Azure Content Moderator는 자료에서 모욕적이거나, 위험하거나, 원
 
 ## <a name="what-it-includes"></a>포함되는 항목
 
-Content Moderator 서비스는 REST 호출 및 .NET SDK 둘 다를 통해 사용 가능한 몇 가지 웹 서비스 API로 구성됩니다. 또한 검토자 역할을 하는 사람이 서비스를 보조하고 조정 기능을 개선하거나 세부 조정하는 데 사용되는 사용자 검토 도구도 포함되어 있습니다.
+Content Moderator 서비스는 REST 호출 및 .NET SDK 둘 다를 통해 사용 가능한 몇 가지 웹 서비스 API로 구성됩니다. 또한 검토자가 역할을 하는 사람이 서비스를 보조하고 조정 기능을 개선하거나 세부 조정하는 데 사용되는 검토 도구도 포함되어 있습니다.
 
 ## <a name="moderation-apis"></a>중재 API
 
@@ -58,18 +58,18 @@ Content Moderator 서비스에는 콘텐츠에 잠재적으로 부적절하거�
 
 ## <a name="review-apis"></a>API 검토
 
-검토 API를 사용하여 중재 파이프라인과 사용자 검토자를 통합할 수 있습니다. [작업](review-api.md#jobs), [검토](review-api.md#reviews) 및 [워크플로](review-api.md#workflows) 작업을 사용하여 [검토 도구](#the-review-tool)(아래)로 인간 참여형 워크플로를 만들고 자동화합니다.
+검토 API를 사용하여 중재 파이프라인과 사용자 검토자를 통합할 수 있습니다. [작업](review-api.md#jobs), [검토](review-api.md#reviews) 및 [워크플로](review-api.md#workflows) 작업을 사용하여 [검토 도구](#review-tool)(아래)로 인간 참여형 워크플로를 만들고 자동화합니다.
 
 > [!NOTE]
 > 워크플로 API는 .NET SDK에서 아직 사용할 수 없지만 REST 엔드포인트와 함께 사용할 수는 있습니다.
 
 ![Content Moderator 검토 API의 블록 다이어그램](images/content-moderator-rev-api.png)
 
-## <a name="the-review-tool"></a>검토 도구
+## <a name="review-tool"></a>검토 도구
 
 Content Moderator 서비스에는 웹 기반 [검토 도구](Review-Tool-User-Guide/human-in-the-loop.md)도 포함되어 있습니다. 이 도구는 사용자 중재자가 처리할 콘텐츠 검토를 호스팅합니다. 사용자 입력은 서비스를 학습시키지 않지만 서비스 및 사용자 검토 팀의 협업을 통해 개발자는 효율성과 정확성 사이에 적절히 균형을 이룰 수 있습니다. 검토 도구는 여러 Content Moderator 리소스에 대한 사용자 친화적인 프런트 엔드도 제공합니다.
 
-![Content Moderator 사용자 검토 도구 홈 페이지](images/homepage.PNG)
+![Content Moderator 검토 도구 홈페이지](images/homepage.PNG)
 
 ## <a name="data-privacy-and-security"></a>데이터 개인 정보 보호 및 보안
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: c64d87b2430cc1d733a67bbc1e803590a37b1714
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9d25e2e32f09cc681d85d5adffe53f1237d7200c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78190775"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255501"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>자습서: Azure Functions에서 Python 및 TensorFlow를 사용하여 기계 학습 모델 적용
 
@@ -153,8 +153,10 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
 
 해당 콘텐츠를 기준으로 이미지를 분류하도록 `classify` 함수를 수정하려면 Azure Custom Vision Service에서 학습하고 내보낸 미리 작성된 TensorFlow 모델을 사용합니다. 이전에 복제한 샘플의 *resources* 폴더에 포함된 모델은 개 또는 고양이를 포함하고 있는지 여부에 따라 이미지를 분류합니다. 그런 다음, 일부 도우미 코드와 종속성을 프로젝트에 추가합니다.
 
+Custom Vision Service의 체험 계층을 사용하여 사용자 고유의 모델을 빌드하려면 [샘플 프로젝트 리포지토리](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md)의 지침을 따르세요.
+
 > [!TIP]
-> Custom Vision Service의 체험 계층을 사용하여 사용자 고유의 모델을 작성하려면 [샘플 프로젝트 리포지토리](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md)의 지침을 따르세요.
+> 함수 앱과 독립적으로 TensorFlow 모델을 호스팅하려는 경우 모델이 포함된 파일 공유를 Linux 함수 앱에 탑재할 수 있습니다. 자세히 알아보려면 [Azure CLI를 사용하여 Python 함수 앱에 파일 공유 탑재](./scripts/functions-cli-mount-files-storage-linux.md)를 참조하세요.
 
 1. *start* 폴더에서 다음 명령을 실행하여 모델 파일을 *classify* 폴더에 복사합니다. 명령에 `\*`을 포함해야 합니다. 
 
@@ -315,3 +317,4 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
 
 - [Visual Studio Code를 사용하여 Azure에 함수 배포](https://code.visualstudio.com/docs/python/tutorial-azure-functions)
 - [Azure Functions Python 개발자 가이드](./functions-reference-python.md)
+- [Azure CLI를 사용하여 Python 함수 앱에 파일 공유 탑재](./scripts/functions-cli-mount-files-storage-linux.md)

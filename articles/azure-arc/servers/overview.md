@@ -7,14 +7,14 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데이트 관리, 변경 내용 추적, 인벤토리, Runbook, Python, 그래픽, 하이브리드
-ms.date: 02/24/2020
+ms.date: 03/24/2020
 ms.topic: overview
-ms.openlocfilehash: 57b44db9c1bb9a607ad8478b7208df40441020c2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5fa39028f1041a063bab295adabf8145a8b46ae4
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290131"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81308780"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>서버용 Azure Arc(미리 보기)란?
 
@@ -54,7 +54,7 @@ Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및
 - CentOS Linux 7
 - SLES(SUSE Linux Enterprise Server) 15
 - Red Hat Enterprise Linux(RHEL) 7
-- Amazon Linux 7
+- Amazon Linux 2
 
 >[!NOTE]
 >이 Windows용 Connected Machine 에이전트의 미리 보기 릴리스는 영어를 사용하도록 구성된 Windows Server만 지원합니다.
@@ -143,11 +143,11 @@ Windows 및 Linux용 Azure Connected Machine 에이전트 패키지는 아래에
 >[!NOTE]
 >이 미리 보기 기간에는 Ubuntu 16.04 또는 18.04에 적합한 한 가지 패키지만 릴리스되었습니다.
 
-Windows 및 Linux용 Azure Connected Machine 에이전트는 요구 사항에 따라 수동 또는 자동으로 최신 릴리스로 업그레이드할 수 있습니다. Windows의 경우 Windows 업데이트를 사용하고, Ubuntu의 경우 [apt](https://help.ubuntu.com/lts/serverguide/apt.html) 명령줄 도구를 사용하여 에이전트를 자동으로 업데이트할 수 있습니다.
+Windows 및 Linux용 Azure Connected Machine 에이전트는 요구 사항에 따라 수동 또는 자동으로 최신 릴리스로 업그레이드할 수 있습니다. 자세한 내용은 [여기](manage-agent.md)를 참조하세요.
 
 ### <a name="agent-status"></a>에이전트 상태
 
-Connected Machine 에이전트는 5분마다 정기적인 하트비트 메시지를 서비스에 보냅니다. 15분 동안 받지 못하면 머신이 오프라인으로 간주되고, 포털에서 상태가 자동으로 **연결되지 않음**으로 변경됩니다. Connected Machine 에이전트로부터 후속 하트비트 메시지를 받으면 상태가 자동으로 **연결됨**으로 변경됩니다.
+Connected Machine 에이전트는 5분마다 정기적인 하트비트 메시지를 서비스에 보냅니다. 서비스가 머신에서 이러한 하트비트 메시지 수신을 중지하면 해당 머신은 오프라인으로 간주되며 15~30분 내에 포털에서 상태가 자동으로 **연결 끊김**으로 변경됩니다. Connected Machine 에이전트로부터 후속 하트비트 메시지를 받으면 상태가 자동으로 **연결됨**으로 변경됩니다.
 
 ## <a name="install-and-configure-agent"></a>에이전트 설치 및 구성
 
@@ -157,6 +157,7 @@ Connected Machine 에이전트는 5분마다 정기적인 하트비트 메시지
 |--------|-------------|
 | 대화형 | [Azure Portal에서 머신 연결](onboard-portal.md)의 단계에 따라 머신 한 대 또는 약간의 머신에 에이전트를 수동으로 설치합니다.<br> Azure Portal에서 스크립트를 생성하고 머신에서 실행하여 에이전트의 설치 및 구성 단계를 자동화할 수 있습니다.|
 | 대규모 | [서비스 주체를 사용하여 머신 연결](onboard-service-principal.md)의 지침에 따라 여러 머신의 에이전트를 설치하고 구성합니다.<br> 이 방법은 비 대화형으로 머신을 연결하는 서비스 주체를 만듭니다.|
+| 대규모 | [Windows PowerShell DSC 사용](onboard-dsc.md) 방법에 따라 여러 머신의 에이전트를 설치하고 구성합니다.<br> 이 메서드는 서비스 주체를 사용하여 머신을 비 대화형으로 PowerShell DSC와 연결합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

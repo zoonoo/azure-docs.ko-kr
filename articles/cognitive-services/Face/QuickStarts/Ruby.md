@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 892e7e0fe362e25cf1ca69146bd27a77baf41f24
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 3ec6eb60a7325eb87ca637541c5f4222eab98053
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76169430"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403170"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>빠른 시작: REST API 및 Ruby를 사용하여 이미지에서 얼굴 감지
 
@@ -257,7 +257,7 @@ ruby faceDetection.rb
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Face 서비스를 호출하는 Ruby 스크립트를 작성하여 이미지에서 얼굴을 감지하고 특성을 반환했습니다. 다음에는 Face API 참조 설명서를 살펴보고 보다 자세히 알아보겠습니다.
+이 빠른 시작에서는 Azure Face 서비스를 호출하는 Ruby 스크립트를 작성하여 이미지에서 얼굴을 감지하고 특성을 반환했습니다. 이제 Face API 참조 설명서에서 자세한 내용을 알아보겠습니다.
 
 > [!div class="nextstepaction"]
 > [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

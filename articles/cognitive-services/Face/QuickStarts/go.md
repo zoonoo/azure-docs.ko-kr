@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 246b9c81e3cb726236143b9749486ba362128756
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: b3e6f5746df6197938d3a91de5ff11b1a311d762
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76165831"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402959"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>빠른 시작: REST API 및 Go를 사용하여 이미지에서 얼굴 감지
 
-이 빠른 시작에서는 이미지에서 사람 얼굴을 감지하기 위해 Go과 함께 Azure Face REST API를 사용합니다.
+이 빠른 시작에서는 이미지에서 사람 얼굴을 감지하기 위해 Go와 함께 Azure Face REST API를 사용합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -311,7 +311,7 @@ detect-face
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Face 서비스를 호출하는 Go Console Application을 작성하여 이미지에서 얼굴을 감지하고 해당 특성을 반환했습니다. 다음에는 Face API 참조 설명서를 살펴보고 보다 자세히 알아보겠습니다.
+이 빠른 시작에서는 Azure Face 서비스를 호출하는 Go Console Application을 작성하여 이미지에서 얼굴을 감지하고 해당 특성을 반환했습니다. 이제 Face API 참조 설명서에서 자세한 내용을 알아보겠습니다.
 
 > [!div class="nextstepaction"]
 > [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

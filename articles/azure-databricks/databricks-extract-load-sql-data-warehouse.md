@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure Databricks를 사용하여 ETL 작업 수행
-description: 이 자습서에서는 Data Lake Storage Gen2에서 Azure Databricks로 데이터를 추출하고 데이터를 전송한 다음, Azure SQL Data Warehouse에 데이터를 로드하는 방법을 알아봅니다.
+description: 이 자습서에서는 Data Lake Storage Gen2에서 Azure Databricks로 데이터를 추출하고 데이터를 전송한 다음, Azure Synapse Analytics에 데이터를 로드하는 방법을 알아봅니다.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
@@ -8,22 +8,22 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: 8819b79a105b7a654a34e47c5ba9b3d351a1d926
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: fa7750a6e7888b6ca13c1ec32cabee9bcf803e65
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239409"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382733"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드
 
-이 자습서에서는 Azure Databricks를 사용하여 ETL(추출, 변환 및 데이터 로드) 작업을 수행합니다. Azure Data Lake Storage Gen2에서 Azure Databricks로 데이터를 추출하고, Azure Databricks에서 데이터를 변환하여, 변환된 데이터를 Azure SQL Data Warehouse에 로드합니다.
+이 자습서에서는 Azure Databricks를 사용하여 ETL(추출, 변환 및 데이터 로드) 작업을 수행합니다. Azure Data Lake Storage Gen2에서 Azure Databricks로 데이터를 추출하고, Azure Databricks에서 데이터를 변환하여, 변환된 데이터를 Azure Synapse Analytics에 로드합니다.
 
-이 자습서의 단계에서는 Azure Databricks용 SQL Data Warehouse 커넥터를 사용하여 Azure Databricks로 데이터를 전송합니다. 그러면 이 커넥터는 Azure Blob Storage를 Azure Databricks 클러스터와 Azure SQL Data Warehouse 간에 전송되는 데이터의 임시 스토리지로 사용합니다.
+이 자습서의 단계에서는 Azure Databricks용 Azure Synapse 커넥터를 사용하여 Azure Databricks로 데이터를 전송합니다. 이 커넥터는 Azure Blob Storage를 Azure Databricks 클러스터와 Azure Synapse 간에 전송되는 데이터의 임시 스토리지로 사용합니다.
 
 다음 그림에서는 애플리케이션 흐름을 보여줍니다.
 
-![Data Lake Store 및 SQL Data Warehouse가 있는 Azure Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Data Lake Store 및 SQL Data Warehouse가 있는 Azure Databricks")
+![Data Lake Store 및 Azure Synapse가 있는 Azure Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Data Lake Store 및 Azure Synapse가 있는 Azure Databricks")
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -35,9 +35,9 @@ ms.locfileid: "80239409"
 > * 서비스 주체를 생성합니다.
 > * Azure Data Lake Storage Gen2 계정에서 데이터 추출
 > * Azure Databricks에서 데이터 변환
-> * Azure SQL Data Warehouse에 데이터 로드
+> * Azure Synapse에 데이터를 로드합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 > [!Note]
 > 이 자습서는 **Azure 평가판 구독**을 사용하여 수행할 수 없습니다.
@@ -47,9 +47,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 자습서를 시작하기 전에 다음 작업을 완료합니다.
 
-* Azure SQL Data Warehouse를 만들고, 서버 수준 방화벽 규칙을 만들고, 서버 관리자로 서버에 연결합니다. [빠른 시작: Azure Portal에서 Azure SQL 데이터 웨어하우스 생성 및 쿼리](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)를 참조하세요.
+* Azure Synapse를 만들고, 서버 수준 방화벽 규칙을 만들고, 서버 관리자로 서버에 연결합니다. [빠른 시작: Azure Portal을 사용하여 Synapse SQL 풀 만들기 및 쿼리](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)를 참조하세요.
 
-* Azure SQL 데이터 웨어하우스에 대한 마스터 키를 만듭니다. [데이터베이스 마스터 키 만들기](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key)를 참조하세요.
+* Azure Synapse에 대한 마스터 키를 만듭니다. [데이터베이스 마스터 키 만들기](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key)를 참조하세요.
 
 * Azure Blob Storage 계정을 만들고, 그 안에 컨테이너를 만듭니다. 또한 스토리지 계정에 액세스하는 데 사용되는 액세스 키를 검색합니다. [빠른 시작: Azure Portal을 사용하여 BLOB 업로드, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-portal.md)
 
@@ -63,7 +63,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
       특정 파일 또는 디렉터리를 사용하여 서비스 주체를 연결하는 데 ACL(액세스 제어 목록)을 사용하려는 경우 [Azure Data Lake Storage Gen2의 액세스 제어](../storage/blobs/data-lake-storage-access-control.md)를 참조하세요.
 
-   * 문서의 [로그인을 위한 값 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션에 있는 단계를 수행하는 경우 테넌트 ID, 앱 ID 및 비밀 값을 텍스트 파일에 붙여넣습니다. 곧 이 값들이 필요합니다.
+   * 문서의 [로그인을 위한 값 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션에 있는 단계를 수행하는 경우 테넌트 ID, 앱 ID 및 비밀 값을 텍스트 파일에 붙여넣습니다.
 
 * [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -73,7 +73,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    시작하기 전에 다음 정보 항목이 있어야 합니다.
 
-   :heavy_check_mark:  데이터베이스 이름, 데이터베이스 서버 이름, 사용자 이름 및 Azure SQL Data Warehouse의 암호
+   :heavy_check_mark:  데이터베이스 이름, 데이터베이스 서버 이름, 사용자 이름 및 Azure Synapse의 암호입니다.
 
    :heavy_check_mark:  Blob Storage 계정에 대한 액세스 키
 
@@ -316,11 +316,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    +---------+----------+------+--------------------+-----------------+
    ```
 
-## <a name="load-data-into-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 데이터 로드
+## <a name="load-data-into-azure-synapse"></a>Azure Synapse에 데이터 로드
 
-이 섹션에서는 변환된 데이터를 Azure SQL Data Warehouse로 업로드합니다. Azure Databricks용 Azure SQL Data Warehouse 커넥터를 사용하여 데이터 프레임을 SQL 데이터 웨어하우스의 테이블로 직접 업로드합니다.
+이 섹션에서는 변환된 데이터를 Azure Synapse에 업로드합니다. Azure Databricks용 Azure Synapse 커넥터를 사용하여 데이터 프레임을 Synapse Spark 풀의 테이블로 직접 업로드합니다.
 
-앞서 언급했듯이, SQL Data Warehouse 커넥터는 Azure Blob 스토리지를 임시 스토리지로 사용하여 Azure Databricks와 Azure SQL Data Warehouse 간에 데이터를 업로드합니다. 따라서 스토리지 계정에 연결하는 구성을 먼저 제공해야 합니다. 이 문서의 필수 구성 요소로 이미 계정을 만들어 두셨을 것입니다.
+앞서 언급했듯이, Azure Synapse 커넥터는 Azure Blob 스토리지를 임시 스토리지로 사용하여 Azure Databricks와 Azure Synapse 간에 데이터를 업로드합니다. 따라서 스토리지 계정에 연결하는 구성을 먼저 제공해야 합니다. 이 문서의 필수 구성 요소로 이미 계정을 만들어 두셨을 것입니다.
 
 1. Azure Databricks에서 Azure Storage 계정에 액세스하기 위한 구성을 입력합니다.
 
@@ -330,7 +330,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    val blobAccessKey =  "<access-key>"
    ```
 
-2. Azure Databricks와 Azure SQL Data Warehouse 간에 데이터를 이동할 때 사용할 임시 폴더를 지정합니다.
+2. Azure Databricks와 Azure Synapse 간에 데이터를 이동할 때 사용할 임시 폴더를 지정합니다.
 
    ```scala
    val tempDir = "wasbs://" + blobContainer + "@" + blobStorage +"/tempDirs"
@@ -343,10 +343,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    sc.hadoopConfiguration.set(acntInfo, blobAccessKey)
    ```
 
-4. Azure SQL Data Warehouse 인스턴스에 연결하기 위한 값을 입력합니다. 필수 구성 요소의 일부로 SQL 데이터 웨어하우스를 이미 만들어 두셨을 것입니다. **dwServer**에 대해 정규화된 서버 이름을 사용합니다. `<servername>.database.windows.net`)을 입력합니다.
+4. Azure Synapse 인스턴스에 연결하기 위한 값을 입력합니다. 필수 구성 요소로 Azure Synapse Analytics 서비스를 만들어야 합니다. **dwServer**에 대해 정규화된 서버 이름을 사용합니다. `<servername>.database.windows.net`)을 입력합니다.
 
    ```scala
-   //SQL Data Warehouse related settings
+   //Azure Synapse related settings
    val dwDatabase = "<database-name>"
    val dwServer = "<database-server-name>"
    val dwUser = "<user-name>"
@@ -357,7 +357,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ":" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
    ```
 
-5. 다음 코드 조각을 실행하여 변환된 데이터 프레임 **renamedColumnsDF**를 SQL 데이터 웨어하우스에 테이블로 로드합니다. 이 코드 조각은 SQL 데이터베이스에 **SampleTable**이라는 테이블을 만듭니다.
+5. 다음 코드 조각을 실행하여 변환된 데이터 프레임인 **renamedColumnsDF**를 Azure Synapse의 테이블로 로드합니다. 이 코드 조각은 SQL 데이터베이스에 **SampleTable**이라는 테이블을 만듭니다.
 
    ```scala
    spark.conf.set(
@@ -368,9 +368,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    ```
 
    > [!NOTE]
-   > 이 샘플에서는 SQL Data Warehouse가 액세스 키를 사용하여 BLOB 스토리지의 데이터에 액세스하도록 하는 `forward_spark_azure_storage_credentials` 플래그를 사용합니다. 이것이 유일하게 지원되는 인증 방법입니다.
+   > 이 샘플에서는 Azure Synapse가 액세스 키를 사용하여 Blob 스토리지의 데이터에 액세스하도록 하는 `forward_spark_azure_storage_credentials` 플래그를 사용합니다. 이것이 유일하게 지원되는 인증 방법입니다.
    >
-   > Azure Blob Storage가 가상 네트워크를 선택하도록 제한되면 SQL Data Warehouse에 [액세스 키 대신 관리 서비스 ID](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)가 필요합니다. 이렇게 하면 "이 요청은 작업을 수행할 권한이 없습니다." 오류가 발생합니다.
+   > Azure Blob Storage가 가상 네트워크를 선택하도록 제한되면 Azure Synapse에 [액세스 키 대신 관리되는 서비스 ID](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)가 필요합니다. 이렇게 하면 "이 요청은 작업을 수행할 권한이 없습니다." 오류가 발생합니다.
 
 6. SQL 데이터베이스에 연결하여 **SampleTable**이라는 데이터베이스가 있는지 확인합니다.
 
@@ -398,7 +398,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 > * Azure Databricks에 Notebook 만들기
 > * Data Lake Storage Gen2 계정에서 데이터 추출
 > * Azure Databricks에서 데이터 변환
-> * Azure SQL Data Warehouse에 데이터 로드
+> * Azure Synapse에 데이터 로드
 
 다음 자습서로 넘어가서 Azure Event Hubs를 사용하여 Azure Databricks로 실시간 데이터를 스트리밍하는 방법을 알아보세요.
 

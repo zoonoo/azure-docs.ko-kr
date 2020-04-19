@@ -7,22 +7,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: c433d99fd96e99d418fd5500c1075e68dfb1742c
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 6714a0c4b967d80ad683ef023b5811423bdcb022
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80053591"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403461"
 ---
 # <a name="what-is-the-azure-face-service"></a>Azure Face 서비스란?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Cognitive Services Face 서비스는 이미지에서 사람의 얼굴을 감지, 인식 및 분석하는 데 사용되는 알고리즘을 제공합니다. 사람의 얼굴 정보를 처리하는 기능은 서로 다른 다양한 소프트웨어 시나리오에서 중요합니다. 이러한 시나리오의 예로 보안, 자연스러운 사용자 인터페이스, 이미지 콘텐츠 분석/관리, 모바일 앱 및 로봇 공학이 있습니다.
+Azure Cognitive Services Face 서비스는 이미지에서 사람의 얼굴을 감지, 인식 및 분석하는 알고리즘을 제공합니다. 사람의 얼굴 정보를 처리하는 기능은 서로 다른 다양한 소프트웨어 시나리오에서 중요합니다. 시나리오의 예에는 보안, 자연스러운 사용자 인터페이스, 이미지 콘텐츠 분석 및 관리, 모바일 앱과 로봇 공학이 포함됩니다.
 
-Face 서비스는 다양한 기능을 제공합니다. 다음 섹션에서는 각 기능에 대해 설명합니다. 계속해서 읽고 자세히 알아보세요.
+Face 서비스는 다음 섹션에 각각 설명된 여러 가지 기능을 제공합니다.
 
 ## <a name="face-detection"></a>얼굴 감지
 
@@ -69,7 +69,7 @@ Identify API는 사람 데이터베이스에서 감지된 얼굴을 식별하는
 
 사람 식별에 대한 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 참조 설명서를 참조하세요.
 
-## <a name="use-containers"></a>컨테이너 사용
+## <a name="containers"></a>컨테이너
 
 데이터에 더 유사한 표준화된 Docker 컨테이너를 설치하여 [얼굴 컨테이너를 통해](face-how-to-install-containers.md) 얼굴을 감지, 인식, 식별합니다.
 
@@ -88,4 +88,4 @@ Identify API는 사람 데이터베이스에서 감지된 얼굴을 식별하는
 
 다음 빠른 시작에 따라 코드에서 얼굴 감지 시나리오를 구현합니다.
 
-- [빠른 시작: .NET SDK 및 C#을 사용하여 이미지에서 얼굴 감지](quickstarts/csharp.md). 다른 언어를 사용할 수 있습니다.
+- [빠른 시작: .NET SDK 및 C#을 사용하여 이미지에서 얼굴 감지](quickstarts/csharp.md). 다른 언어도 사용할 수 있습니다.

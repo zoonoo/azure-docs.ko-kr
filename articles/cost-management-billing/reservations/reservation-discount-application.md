@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: banders
-ms.openlocfilehash: fb6e7e3fe3b7b45b503dca66dc5b039a9eceb689
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5781ade7b2f3cfc7514208861de025cc84944fcd
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80135490"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380645"
 ---
 # <a name="how-a-reservation-discount-is-applied"></a>예약 할인이 적용되는 방법
 
@@ -39,7 +39,7 @@ ms.locfileid: "80135490"
 서비스 플랜:
 
 - Reserved VM Instances: 예약을 구매할 때 **인스턴스 크기 유연성에 맞게 최적화**를 선택하는 경우 할인 적용 범위는 선택하는 VM 크기에 따라 달라집니다. 같은 크기 시리즈 그룹의 VM(가상 머신) 크기에 예약을 적용할 수 있습니다. 자세한 내용은 [예약 VM 인스턴스를 통해 유동적으로 가상 머신 크기 조정](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md)을 참조하세요.
-- Azure Storage 예약 용량: 표준 Azure Storage 계정에 대해 예약된 용량을 월 100TiB 또는 1PiB 단위로 구매할 수 있습니다. Azure Storage 예약 용량은 모든 액세스 계층(핫, 쿨 또는 보관) 및 모든 복제 옵션(LRS, GRS 또는 ZRS)에 대해 모든 지역에서 사용할 수 있습니다.
+- Azure Storage 예약 용량: 표준 Azure Storage 계정에 대해 예약된 용량을 월 100TiB 또는 1PiB 단위로 구매할 수 있습니다. Azure Storage 예약 용량을 지원하는 지역에 대한 자세한 내용은 [블록 Blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요. Azure Storage 예약 용량은 모든 액세스 계층(핫, 쿨 또는 보관)과 모든 복제 구성(LRS, GRS 또는 ZRS)에 사용할 수 있습니다.
 - SQL Database 예약 용량: 할인 적용 범위는 선택하는 성능 계층에 따라 달라집니다. 자세한 내용은 [Azure 예약 할인이 적용되는 방식 이해](understand-reservation-charges.md)를 참조하세요.
 - Azure Cosmos DB 예약 용량: 할인 적용 범위는 프로비전되는 처리량에 따라 달라집니다. 자세한 내용은 [Azure Cosmos DB 예약 할인이 적용되는 방식 이해](understand-cosmosdb-reservation-charges.md)를 참조하세요.
 

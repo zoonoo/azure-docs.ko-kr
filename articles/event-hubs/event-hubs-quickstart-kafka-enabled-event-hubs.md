@@ -8,15 +8,15 @@ ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 02/12/2020
-ms.openlocfilehash: 18976a29a716a0e5a627747d98edc0d3e1bf71e9
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 67ee882acab22d977f08124591289e9cfc7cded1
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587144"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261825"
 ---
 # <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>빠른 시작: Kafka 프로토콜을 사용하여 Event Hubs로 데이터 스트리밍
-이 빠른 시작에서는 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행하지 않고 Kafka 지원 Event Hubs로 스트리밍하는 방법을 보여줍니다. 생산자와 소비자가 애플리케이션 구성을 간단하게 변경하여 Kafka 지원 Event Hubs로 대화하는 방법을 알아봅니다. Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다.
+이 빠른 시작에서는 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행하지 않고 Event Hubs로 스트리밍하는 방법을 보여줍니다. 생산자와 소비자가 애플리케이션 구성을 간단하게 변경하여 Event Hubs로 대화하는 방법을 알아봅니다. Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다.
 
 > [!NOTE]
 > 이 샘플은 [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java)에서 사용할 수 있습니다.
@@ -32,7 +32,7 @@ ms.locfileid: "77587144"
 * [Git](https://www.git-scm.com/)
 
 
-## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Kafka 지원 Event Hubs 네임스페이스 만들기
+## <a name="create-an-event-hubs-namespace"></a>Event Hubs 네임스페이스 만들기
 **표준** 계층 Event Hubs 네임스페이스를 만들면 Kafka 엔드포인트를 네임스페이스에 사용하도록 자동으로 설정됩니다. Kafka 프로토콜을 사용하는 애플리케이션에서 표준 계층 Event Hubs로 이벤트를 스트리밍할 수 있습니다. [Azure Portal을 사용하여 이벤트 허브 만들기](event-hubs-create.md)의 단계별 지침에 따라 **표준** 계층 Event Hubs 네임스페이스를 만듭니다. 
 
 > [!NOTE]
@@ -46,7 +46,7 @@ ms.locfileid: "77587144"
 
 3. 다음과 같이 `src/main/resources/producer.config`에서 생산자에 대한 구성 세부 정보를 업데이트합니다.
 
-    **SSL:**
+    **TLS/SSL:**
 
     ```xml
     bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
@@ -65,7 +65,7 @@ ms.locfileid: "77587144"
     ```    
 
     GitHub에서 샘플 처리기 클래스 CustomAuthenticateCallbackHandler에 대한 소스 코드는 [여기서](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/producer/src/main/java) 찾을 수 있습니다.
-4. 생산자 코드를 실행하고 이벤트를 Kafka 지원 Event Hubs로 스트리밍합니다.
+4. 생산자 코드를 실행하고 이벤트를 Event Hubs로 스트리밍합니다.
    
     ```shell
     mvn clean package
@@ -76,7 +76,7 @@ ms.locfileid: "77587144"
 
 6. 다음과 같이 `src/main/resources/consumer.config`에서 소비자에 대한 구성 세부 정보를 업데이트합니다.
    
-    **SSL:**
+    **TLS/SSL:**
 
     ```xml
     bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
@@ -98,7 +98,7 @@ ms.locfileid: "77587144"
     GitHub에서 샘플 처리기 클래스 CustomAuthenticateCallbackHandler에 대한 소스 코드는 [여기서](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/consumer/src/main/java) 찾을 수 있습니다.
 
     Kafka의 Event Hubs에 대한 모든 OAuth 샘플은 [여기서](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth) 찾을 수 있습니다.
-7. Kafka 지원 Event Hubs에서 Kafka 클라이언트를 사용하여 소비자 코드 및 프로세스를 실행합니다.
+7. Kafka 클라이언트를 사용하여 소비자 코드를 실행하고 이벤트 허브에서 이벤트를 처리합니다.
 
     ```java
     mvn clean package
@@ -108,10 +108,4 @@ ms.locfileid: "77587144"
 Event Hubs Kafka 클러스터에 이벤트가 있는 경우 이제 소비자로부터 해당 이벤트를 수신하기 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행하지 않고 Kafka 지원 Event Hubs로 스트리밍하는 방법을 배웠습니다. 자세히 알아보려면 다음 문서 및 샘플을 참조하세요.
-
-- [Kafka용 Event Hubs에 대해 알아보기](event-hubs-for-kafka-ecosystem-overview.md)
-- [GitHub의 Kafka용 Event Hubs에 대한 빠른 시작](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart)
-- [GitHub의 Kafka용 Event Hubs에 대한 자습서](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials)
-- [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330)를 사용하여 [온-프레미스 Kafka에서 클라우드의 Kafka 지원 Event Hubs로 이벤트를 스트림합니다.](event-hubs-kafka-mirror-maker-tutorial.md)
-- [Apache Flink](event-hubs-kafka-flink-tutorial.md) 또는 [Akka 스트림](event-hubs-kafka-akka-streams-tutorial.md)을 사용하여 Kafka 지원 Event Hubs에 스트리밍하는 방법을 알아봅니다.
+이 문서에서는 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행하지 않고 Event Hubs로 스트리밍하는 방법을 배웠습니다. 자세한 내용은 [Azure Event Hubs용 Apache Kafka 개발자 가이드](apache-kafka-developer-guide.md)를 참조하세요. 

@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 72488ba339399c526e882ffd11c41410a0b011ea
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5b1c6561519bc25c2b7ac77f0a25eff89413a07a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80159099"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256487"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model"></a>자습서: R을 사용하여 기계 학습 모델 만들기
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -98,7 +98,24 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 * 학습에 사용할 원격 컴퓨팅 대상을 만듭니다.
 
 ### <a name="install-required-packages"></a>필요한 패키지를 설치합니다.
-이 자습서에서는 Azure ML SDK가 이미 설치되어 있다고 가정합니다. 계속해서 **azuremlsdk** 패키지를 가져옵니다.
+
+ * CRAN에서 최신 버전을 설치합니다.
+
+    ```R
+    # install the latest version from CRAN
+    install.packages("azuremlsdk")
+    azuremlsdk::install_azureml(envname = 'r-reticulate')
+    ```
+    
+* 또는 GitHub에서 개발 버전을 설치합니다.
+
+    ```R
+    # or install the development version from GitHub
+    remotes::install_github('https://github.com/Azure/azureml-sdk-for-r')
+    azuremlsdk::install_azureml(envname = 'r-reticulate')
+    ```
+
+이제 **azuremlsdk** 패키지를 가져옵니다.
 
 ```R
 library(azuremlsdk)

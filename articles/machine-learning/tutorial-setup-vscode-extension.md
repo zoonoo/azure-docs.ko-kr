@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 02/24/2020
-ms.openlocfilehash: 583071ee22e4fb9cffc741520b1583790002a5bf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/13/2020
+ms.openlocfilehash: 731ab18346ac9f100862174312c2c9950026f1eb
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77604833"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272923"
 ---
 # <a name="set-up-azure-machine-learning-visual-studio-code-extension"></a>Azure Machine Learning Visual Studio Code 확장 설정
 
@@ -70,36 +70,36 @@ Azure에서 리소스를 프로비저닝하고 워크로드를 실행하려면 A
 1. 명령 팔레트가 확장되면 프롬프트의 지시를 따릅니다.
 
     1. Azure 구독을 선택합니다.
-    1. **새 Azure ML 작업 영역 만들기**를 선택합니다.
-    1. **TensorFlow 단일 노드 학습** 작업 형식을 선택합니다.
-    1. 학습할 스크립트로 `train.py`를 입력합니다. 이 스크립트는 필기 숫자의 이미지를 분류하는 기계 학습 모델에 대한 코드를 포함한 파일입니다.
-    1. 실행하기 위한 요구 사항으로 다음 패키지를 지정합니다.
-
-        ```text
-        pip: azureml-defaults; conda: python=3.6.2, tensorflow=1.15.0
-        ```
+    1. 환경 목록에서 **Conda 종속성 파일**을 선택합니다.
+    1. **Enter**를 눌러 Conda 종속성 파일을 찾아봅니다. 이 파일에는 스크립트를 실행하는 데 필요한 종속성이 포함되어 있습니다. 이 경우 종속성 파일은 `mnist-vscode-docs-sample` 디렉터리 내의 `env.yml` 파일입니다.
+    1. **Enter**를 눌러 학습 스크립트 파일을 찾아봅니다. 이 스크립트는 필기 숫자의 이미지를 분류하는 기계 학습 모델에 대한 코드를 포함한 파일입니다. 이 경우 모델을 학습시키는 스크립트는 `mnist-vscode-docs-sample` 디렉터리 내의 `train.py` 파일입니다.
 
 1. 이 시점에서 아래와 비슷한 구성 파일이 텍스트 편집기에 표시됩니다. 구성에는 모델을 학습시키는 코드와 이전 단계에서 지정한 Python 종속성이 포함된 파일과 같이 학습 작업을 실행하는 데 필요한 정보가 포함되어 있습니다.
 
     ```json
     {
-        "workspace": "WS01311608",
-        "resourceGroup": "WS01311608-rg1",
+        "workspace": "WS04131142",
+        "resourceGroup": "WS04131142-rg1",
         "location": "South Central US",
-        "experiment": "WS01311608-exp1",
+        "experiment": "WS04131142-exp1",
         "compute": {
-            "name": "WS01311608-com1",
+            "name": "WS04131142-com1",
             "vmSize": "Standard_D1_v2, Cores: 1; RAM: 3.5GB;"
         },
         "runConfiguration": {
-            "filename": "WS01311608-com1-rc1",
-            "condaDependencies": [
-                "python=3.6.2",
-                "tensorflow=1.15.0"
-            ],
-            "pipDependencies": [
-                "azureml-defaults"
-            ]
+            "filename": "WS04131142-com1-rc1",
+            "environment": {
+                "name": "WS04131142-env1",
+                "conda_dependencies": [
+                    "python=3.6.2",
+                    "tensorflow=1.15.0",
+                    "pip"
+                ],
+                "pip_dependencies": [
+                    "azureml-defaults"
+                ],
+                "environment_variables": {}
+            }
         }
     }
     ```

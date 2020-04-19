@@ -4,14 +4,14 @@ description: Spring Boot 앱에 기능 플래그를 추가하고 Azure App Confi
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 01/21/2020
+ms.date: 04/13/2020
 ms.author: lcozzens
-ms.openlocfilehash: 489bc0234580e8df8dcc85c1d3cc0add547818b1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 398005b37660cfa68936a0c8b3a3d90da8160e49
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78944332"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309065"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>빠른 시작: Spring Boot 앱에 기능 플래그 추가
 
@@ -103,7 +103,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 1. 앱의 `resources` 디렉터리로 이동하여 `bootstrap.properties`를 엽니다.  파일이 없으면 새로 만듭니다. 파일에 다음 줄을 추가합니다.
 
     ```properties
-    spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
+    spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
 1. 구성 저장소에 대한 App Configuration 포털의 사이드바에서 `Access keys`를 선택합니다. 읽기 전용 키 탭을 선택합니다. 기본 연결 문자열의 값을 복사합니다.
@@ -283,7 +283,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
     mvn spring-boot:run
     ```
 
-1. 브라우저 창을 열고 로컬로 호스팅되는 웹앱의 기본 URL인 `https://localhost:8080`으로 이동합니다.
+1. 새 브라우저 창을 열고 URL(`http://localhost:8080/welcome`)로 이동합니다.
 
     ![로컬로 빠른 시작 앱 시작](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 

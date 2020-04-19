@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 1a210ff7da57147762dcf13e1dda7fee26dbe5f0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e0e5c143e619b1c381a4a618a811883ad189719b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74384104"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314352"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Azure Application Gateway의 Azure 웹 애플리케이션 방화벽
 
@@ -28,9 +28,9 @@ Application Gateway의 WAF는 OWASP(Open Web Application Security Project)의 [C
 
 ![Application Gateway WAF 다이어그램](../media/ag-overview/waf1.png)
 
-Application Gateway는 많은 ADC(애플리케이션 배달 컨트롤러)로 작동합니다. SSL(Secure Sockets Layer) 종료, 쿠키 기반 세션 선호도, 라운드 로빈 부하 분산, 콘텐츠 기반 라우팅, 다중 웹 사이트 호스트 및 향상된 보안 기능을 제공합니다.
+Application Gateway는 많은 ADC(애플리케이션 배달 컨트롤러)로 작동합니다. 이전에 SSL(Secure Sockets Layer)로 알려진 TLS(Transport Layer Security) 종료, 쿠키 기반 세션 선호도, 라운드 로빈 부하 분산, 콘텐츠 기반 라우팅, 다중 웹 사이트 호스트 및 향상된 보안 기능을 제공합니다.
 
-Application Gateway의 향상된 보안 기능으로는 SSL 정책 관리와 엔드투엔드 SSL 지원이 있습니다. 애플리케이션 보안은 Application Gateway에 WAF를 통합하여 강화됩니다. 이 조합은 일반적인 취약성으로부터 웹 애플리케이션을 보호합니다. 그리고 구성이 간편한 중앙의 위치에서 관리할 수 있습니다.
+Application Gateway의 향상된 보안 기능으로는 TLS 정책 관리와 엔드투엔드 TLS 지원이 있습니다. 애플리케이션 보안은 Application Gateway에 WAF를 통합하여 강화됩니다. 이 조합은 일반적인 취약성으로부터 웹 애플리케이션을 보호합니다. 그리고 구성이 간편한 중앙의 위치에서 관리할 수 있습니다.
 
 ## <a name="benefits"></a>이점
 

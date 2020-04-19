@@ -1,21 +1,21 @@
 ---
-title: 자습서 - Azure Spring Cloud에서 배포용 Java Spring 애플리케이션 준비
-description: 이 자습서에서는 Azure Spring Cloud에 배포할 Java Spring 애플리케이션을 준비합니다.
+title: 방법 - Azure Spring Cloud에 배포할 Java Spring 애플리케이션 준비
+description: 이 항목에서는 Azure Spring Cloud에 배포할 Java Spring 애플리케이션을 준비합니다.
 author: bmitchell287
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 49ebfec131c8b9fa7b8535163c03eb7cb692790d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
-ms.translationtype: HT
+ms.openlocfilehash: 025dbc56fb46ef5b6225d35564b8e4ac3c82e6e3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78200025"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414456"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Azure Spring Cloud에서 배포용 Java Spring 애플리케이션 준비
 
-이 빠른 시작에서는 Azure Spring Cloud에 배포하기 위해 기존 Java Spring 애플리케이션을 준비하는 방법을 보여줍니다. 제대로 구성된 경우, Azure Spring Cloud는 Java Spring Cloud 애플리케이션을 모니터링하고, 크기를 조정하고, 업데이트할 수 있는 강력한 서비스를 제공합니다.
+이 항목에서는 Azure Spring Cloud에 배포하기 위해 기존 Java Spring 애플리케이션을 준비하는 방법을 보여줍니다. 제대로 구성된 경우, Azure Spring Cloud는 Java Spring Cloud 애플리케이션을 모니터링하고, 크기를 조정하고, 업데이트할 수 있는 강력한 서비스를 제공합니다.
 
 다른 예제에서는 POM 파일이 구성된 경우 Azure Spring Cloud에 애플리케이션을 배포하는 방법을 설명합니다. 
 * [Azure Portal을 사용하여 앱 시작](spring-cloud-quickstart-launch-app-portal.md)
@@ -225,7 +225,7 @@ pom.xml 파일의 종속성 섹션에 다음 `spring-cloud-starter-sleuth` 및 `
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Spring Cloud에 배포하기 위해 Java Spring 애플리케이션을 구성하는 방법을 알아보았습니다. 구성 서버 인스턴스를 설정하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
+이 항목에서는 Azure Spring Cloud에 배포하기 위해 Java Spring 애플리케이션을 구성하는 방법을 알아보았습니다. 구성 서버 인스턴스를 설정하는 방법을 알아보려면 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
 > [구성 서버 인스턴스를 설정하는 방법 알아보기](spring-cloud-tutorial-config-server.md)

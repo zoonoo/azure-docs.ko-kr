@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9a9b49f75ad377a9377a2311ed16c17ca3d749e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2bb5dd845b03bd94f0a94db50c01b804cf6f55c2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67092584"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407107"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>자습서: RStudio Connect와 Azure Active Directory 통합
 
@@ -158,9 +158,9 @@ IdPAttributeProfile = azure
 SSOInitiated = IdPAndSP
 ```
 
-**서버 주소**를 `Server.Address` 값에 저장하고, **앱 페더레이션 메타데이터 Url**을 `SAML.IdPMetaData` 값에 저장합니다.
+**서버 주소**를 `Server.Address` 값에 저장하고, **앱 페더레이션 메타데이터 Url**을 `SAML.IdPMetaData` 값에 저장합니다. 이 샘플 구성은 암호화되지 않은 HTTP 연결을 사용하는 반면, Azure AD는 암호화된 HTTPS 연결을 사용해야 합니다. RStudio Connect 앞에 있는 [역방향 프록시](https://docs.rstudio.com/connect/admin/proxy/)를 사용하거나 [HTTPS를 직접 사용](https://docs.rstudio.com/connect/admin/appendix/configuration/#HTTPS)하도록 RStudio Connect를 구성할 수 있습니다. 
 
-구성에 문제가 있는 경우 [RStudio Connect 관리자 가이드](https://docs.rstudio.com/connect/admin/authentication.html#authentication-saml)를 읽거나 [RStudio 지원 팀](mailto:support@rstudio.com)에 이메일을 보내 도움을 받을 수 있습니다.
+구성에 문제가 있는 경우 [RStudio Connect 관리자 가이드](https://docs.rstudio.com/connect/admin/authentication/saml/)를 읽거나 [RStudio 지원 팀](mailto:support@rstudio.com)에 이메일을 보내 도움을 받을 수 있습니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 

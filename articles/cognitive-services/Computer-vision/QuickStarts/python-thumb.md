@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 21d8659e13506777f6045272f68c69dd63f09cf5
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 68a6504668b9f180a421fe20c2c89d73b87bcc35
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80244684"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404340"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-python"></a>빠른 시작: Computer Vision REST API 및 Python을 사용하여 썸네일 생성
 
@@ -93,7 +93,9 @@ print("Thumbnail is {0}-by-{1}".format(*thumbnail.size))
 
 ## <a name="next-steps"></a>다음 단계
 
-다음으로, 썸네일 생성 기능에 대해 자세히 알아봅니다.
+다음으로, Computer Vision을 사용하여 OCR(광학 문자 인식)을 수행하고, 스마트하게 잘리는 썸네일을 만들고, 이미지의 시각적 기능을 검색, 분류, 태그 지정 및 설명하는 Python 애플리케이션을 살펴봅니다.
 
 > [!div class="nextstepaction"]
-> [썸네일 생성](../concept-generating-thumbnails.md)
+> [Computer Vision API Python 자습서](../Tutorials/PythonTutorial.md)
+
+* Computer Vision API를 사용하여 신속하게 실험하려면 [API 테스트 콘솔 열기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console)를 사용하세요.

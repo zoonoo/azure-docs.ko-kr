@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 02/04/2020
+ms.date: 04/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1e4f72300752c93659db4edd4610464dbebf2503
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 73244a635bbf14efcf33f1b978db14e9e2589581
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77014422"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271066"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>Azure Time Series Insights Preview란?
 
@@ -55,8 +55,8 @@ Azure Time Series Insights는 시계열 데이터의 컨텍스트화를 위한 �
 
 * 웜 데이터의 대화형 분석 뿐만 아니라 수십 년 간의 기록 데이터에 대한 운영 인텔리전스를 위해 웜 및 콜드 데이터 간에 데이터 경로를 지정할 수 있는 옵션을 제공하는 웜 및 콜드 분석이 지원되는 다중 계층화 스토리지 솔루션 
 
-    *   훨씬 더 짧은 시간 간격의 데이터에 대해 자주 많은 수의 쿼리를 수행하기 위한 고도의 대화형 웜 분석 솔루션 
-    *   고객이 수년 가치의 시계열 데이터 추세를 몇 초 안에 파악할 수 있도록 하는 Azure Storage 기반의 확장 가능하고 성능이 뛰어나고 비용이 최적화된 시계열 계열 데이터 
+    *    훨씬 더 짧은 시간 간격의 데이터에 대해 자주 많은 수의 쿼리를 수행하기 위한 고도의 대화형 웜 분석 솔루션 
+    *    Azure Storage 기반의 확장 가능하고 성능이 뛰어나고 비용이 최적화된 시계열 데이터 레이크는 고객이 수년 가치의 시계열 데이터 추세를 몇 초 안에 파악할 수 있도록 합니다. 
 
 * 자산과 디바이스의 파생 신호 및 원시 신호와 관련된 도메인과 메타데이터를 설명하는 의미 체계 모델 지원
 
@@ -64,7 +64,7 @@ Azure Time Series Insights는 시계열 데이터의 컨텍스트화를 위한 �
 
 * 자산 기반 데이터 인사이트를 심도 깊은 분석을 위해 보간, 스칼라 및 집계 함수, 범주 변수, 산점도 및 시간 이동 시계열 신호를 지원하는 풍부한 임시 데이터 분석과 결합되는 향상된 쿼리 API 및 사용자 환경을 갖춘 풍부한 분석
 
-*   엔터프라이즈 IoT 고객의 확장성, 성능, 보안 및 안정성 요구를 지원하기 위한 엔터프라이즈급 플랫폼
+*    엔터프라이즈 IoT 고객의 확장성, 성능, 보안 및 안정성 요구를 지원하기 위한 엔터프라이즈급 플랫폼
 
 * 엔드투엔드 분석에 대한 확장성 및 통합 지원. Time Series Insights는 다양한 데이터 시나리오에 대한 확장 가능한 분석 플랫폼을 제공합니다. Time Series Insights Power BI 커넥터를 사용하여 고객은 Time Series Insights에서 수행하는 쿼리를 Power BI로 직접 가져와 단일 창구에서 통합된 BI 및 시계열 분석을 볼 수 있습니다.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: 7a929794ffaea4f863ffaef7227e58c7ccf901f0
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 9fe8bc06aafd17518d37c35034fac9b566e079ce
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74976573"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261553"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>빠른 시작: Node.js를 사용하여 텍스트-음성 변환 음성 목록 가져오기
 
@@ -27,8 +27,8 @@ ms.locfileid: "74976573"
 
 이 빠른 시작에는 다음이 필요합니다.
 
-* [Node 8.12.x 이상](https://nodejs.org/en/)
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) 또는 즐겨 사용하는 텍스트 편집기
+* <a href="https://nodejs.org/en/" target="_blank">Node 8.12.x 이상<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio <span class="docon docon-navigate-external x-hidden-focus"></span></a>, <a href="https://code.visualstudio.com/download" target="_blank"> Visual Studio Code <span class="docon docon-navigate-external x-hidden-focus"></span></a> 또는 즐겨 사용하는 텍스트 편집기
 * Speech Service에 대한 Azure 구독 키입니다. [평가판을 가져올 수 있습니다](get-started.md).
 
 ## <a name="create-a-project-and-require-dependencies"></a>프로젝트 만들기 및 종속성 요구

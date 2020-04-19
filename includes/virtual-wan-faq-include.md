@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ad821036047dcf46821b2b2722e3dd17f8e318c2
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: a2d79391832bbb5424c6d4096eb5c1a597623367
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80386125"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81422318"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Azure Virtual WAN을 사용하려면 사용자에게 SD-WAN/VPN 디바이스를 사용하는 허브 및 스포크가 있어야 하나요?
 
@@ -131,6 +131,8 @@ NVA(네트워크 가상 어플라이언스)는 가상 허브 내에 배포할 �
 
 * 가상 허브에 연결하는 ExpressRoute 회로로 인해 ExpressRoute 게이트웨이가 있을 경우 배율 단위 요금을 지불하게 됩니다. ER의 각 배율 단위는 2Gbps이며 각 연결 단위에 대한 요금은 VPN 연결 단위와 동일합니다.
 
+* 스포크 VNet을 허브에 연결한 경우 스포크 VNet의 피어링 요금이 계속 적용됩니다. 
+
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>출시 파트너 목록에 없는 새 파트너는 어떻게 온보딩하나요?
 
 모든 Virtual WAN API는 개방형 API입니다. 설명서를 참조하여 기술적 실행 가능성을 평가할 수 있습니다. 질문이 있으면 azurevirtualwan@microsoft.com으로 이메일을 보내주세요. IKEv1 또는 IKEv2 IPsec 연결용으로 프로비전 가능한 디바이스가 있는 파트너가 적합합니다.
@@ -206,6 +208,13 @@ Virtual WAN VPN으로 들어오는 연결은 항상 분기에서 사용 가능�
 ### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>어떻게 연결(VPN, ExpressRoute 또는 가상 네트워크)에서 기본 경로(0.0.0.0/0)를 사용하도록 설정할 수 있을까요?
 
 연결의 플래그가 '사용'일 경우 가상 허브가 학습된 기본 경로를 가상 네트워크/사이트 간 VPN/ExpressRoute 연결에 전파할 수 있습니다. 사용자가 가상 네트워크 연결, VPN 연결 또는 ExpressRoute 연결을 편집할 때 이 플래그를 볼 수 있습니다. 사이트 또는 ExpressRoute 회로가 허브에 연결된 경우 기본적으로 이 플래그는 사용하지 않도록 설정됩니다. VNet을 가상 허브에 연결하기 위해 가상 네트워크 연결을 추가하면 기본적으로 사용하도록 설정됩니다. 기본 경로는 Virtual WAN 허브에서 시작되지 않습니다. 허브에 방화벽을 배포한 결과로 Virtual WAN 허브에서 학습했거나 다른 연결된 사이트에서 강제 터널링을 사용할 경우 기본 경로가 전파됩니다.
+
+### <a name="how-does-the-virtual-hub-in-a-virtual-wan-select-the-best-path-for-a-route-from-multiple-hubs"></a>Virtual WAN의 가상 허브가 여러 허브의 경로에 가장 적합한 경로를 선택하는 방법
+
+Virtual Hub가 여러 원격 허브에서 동일한 경로를 학습하는 경우 이를 결정하는 순서는 다음과 같습니다.
+1) 경로 원본 a) 네트워크 경로 – Virtual Hub 게이트웨이에서 직접 학습한 VNET 접두사 b) BGP c) Hub RouteTable(정적으로 구성된 경로) d) InterHub 경로
+2)  경로 메트릭 : 가상 WAN은 ExpressRoute over VPN을 선호합니다. ExpressRoute 피어는 VPN 피어에 비해 가중치가 높습니다.
+3)  AS 경로 길이
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Virtual WAN 유형(기본 및 표준) 사이의 차이점은 무엇인가요?
 

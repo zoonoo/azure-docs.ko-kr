@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure REST API 및 Python을 사용하여 이미지에서 얼굴 검색'
+title: '빠른 시작: Azure REST API 및 Python으로 이미지에서 얼굴 감지'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Python과 함께 Azure Face REST API를 사용하여 이미지에서 얼굴을 검색합니다.
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: c4d136eaf0f6c4ac64093f417f144e422e2da52f
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: c88a60fdc6d064fba91f4b6d79e1637f45bf2716
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74977916"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403209"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>빠른 시작: Face REST API 및 Python을 사용하여 이미지에서 얼굴 검색
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>빠른 시작: Face REST API 및 Python을 사용하여 이미지에서 얼굴 감지
 
-이 빠른 시작에서는 Python과 함께 Azure Face REST API를 사용하여 이미지에서 사람의 얼굴을 검색합니다. 이 스크립트는 얼굴 주위에 프레임을 그리고 이미지에 성별 및 연령 정보를 겹쳐서 표시합니다.
+이 빠른 시작에서는 이미지에서 사람 얼굴을 감지하기 위해 Python과 함께 Azure Face REST API를 사용합니다. 이 스크립트는 얼굴 주위에 프레임을 그리고 이미지에 성별 및 연령 정보를 겹쳐서 표시합니다.
 
 ![얼굴 주위에 사각형이 그려져 있고 이미지에 연령 및 성별이 표시된 남자와 여자](../images/labelled-faces-python.png)
 

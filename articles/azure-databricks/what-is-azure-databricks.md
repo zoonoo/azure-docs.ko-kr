@@ -7,15 +7,15 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: overview
-ms.date: 05/08/2019
+ms.date: 04/10/2020
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: 53f1b9a2fde20cacccd0730213695f26c1200fa7
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 902486f7e19f2dfd7cc64e27589e192c57ef64e8
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80132531"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255518"
 ---
 # <a name="what-is-azure-databricks"></a>Azure Databricks란?
 
@@ -85,6 +85,11 @@ Azure Databricks는 Azure Active Directory 통합, 역할 기반 제어 및 데�
 * Azure Active Directory와 통합하면 Azure Databricks를 사용하여 완전한 Azure 기반 솔루션을 실행할 수 있습니다.
 * Azure Databricks 역할 기반 액세스는 노트북, 클러스터, 작업 및 데이터에 대한 세밀한 사용자 권한을 가능하게 합니다.
 * 엔터프라이즈급 SLA. 
+
+> [!IMPORTANT]
+>
+> Azure Databricks는 글로벌 Azure 퍼블릭 클라우드 인프라에 배포되는 Microsoft Azure 자사 서비스입니다. 컨트롤 플레인과 고객 데이터 평면의 공용 IP 간을 포함하여 서비스 구성 요소 간의 모든 통신은 Microsoft Azure 네트워크 백본 내에 유지됩니다. [Microsoft 글로벌 네트워크](https://docs.microsoft.com/azure/networking/microsoft-global-network)도 참조하세요.
+
 
 ## <a name="integration-with-azure-services"></a>Azure 서비스와의 통합
 

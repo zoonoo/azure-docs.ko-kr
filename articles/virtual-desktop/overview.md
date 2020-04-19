@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 03/19/2020
+ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e62b3c551f41bca0055f35cf6bf62c59d921c73b
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: 927696d029bf1b8742dc0001e03799322f368191
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80294825"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261723"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란? 
 
@@ -89,21 +89,36 @@ Windows Virtual Desktop에 대해 만드는 Azure 가상 머신은 다음과 같
 
 Windows Virtual Desktop용으로 생성한 Azure 가상 머신에는 다음 URL에 대한 액세스 권한이 있어야 합니다.
 
-|주소|아웃바운드 포트|목적|
-|---|---|---|
-|*.wvd.microsoft.com|TCP 포트 443|서비스 트래픽|
-|\*.blob.core.windows.net|TCP 포트 443|에이전트, SXS 스택 업데이트 및 에이전트 트래픽|
-|*.core.windows.net|TCP 포트 443|에이전트 트래픽|
-|\*.servicebus.windows.net|TCP 포트 443|에이전트 트래픽|
-|prod.warmpath.msftcloudes.com|TCP 포트 443|에이전트 트래픽|
-|catalogartifact.azureedge.net|TCP 포트 443|Azure Marketplace|
-|kms.core.windows.net|TCP 포트 1688|Windows 10 정품 인증|
+|주소|아웃바운드 TCP 포트|목적|서비스 태그|
+|---|---|---|---|
+|*.wvd.microsoft.com|443|서비스 트래픽|WindowsVirtualDesktop|
+|mrsglobalsteus2prod.blob.core.windows.net|443|에이전트 및 SXS 스택 업데이트|AzureCloud|
+|*.core.windows.net|443|에이전트 트래픽|AzureCloud|
+|\*.servicebus.windows.net|443|에이전트 트래픽|AzureCloud|
+|prod.warmpath.msftcloudes.com|443|에이전트 트래픽|AzureCloud|
+|catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
+|kms.core.windows.net|1688|Windows 정품 인증|인터넷|
 
 >[!IMPORTANT]
->이러한 URL을 여는 것은 신뢰할 수 있는 Windows Virtual Desktop 배포에 필수적입니다. 이러한 URL에 대한 액세스를 차단하는 것은 지원되지 않으며 서비스 기능에 영향을 줍니다. 이러한 URL은 Windows Virtual Desktop 사이트 및 리소스에만 해당하고 Azure Active Directory와 같은 다른 서비스에 대한 URL은 포함하지 않습니다.
+>대부분의 경우 서비스 문제를 방지하기 위해 URL 대신 태그를 사용하는 것이 좋습니다. 이러한 URL의 차단을 해제하는 것은 신뢰할 수 있는 Windows Virtual Desktop 배포에 필수적입니다. 이러한 URL에 대한 액세스를 차단하는 것은 지원되지 않으며 서비스 기능에 영향을 줍니다. 이러한 URL은 Windows Virtual Desktop 사이트 및 리소스에만 해당하고 Azure Active Directory와 같은 다른 서비스에 대한 URL은 포함하지 않습니다.
+
+다음 표에는 Azure 가상 머신에서 액세스할 수 있는 선택적 URL이 나열되어 있습니다.
+
+|주소|아웃바운드 TCP 포트|목적|서비스 태그|
+|---|---|---|---|
+|*.microsoftonline.com|443|MS Online Services에 대한 인증|None|
+|*.events.data.microsoft.com|443|원격 분석 서비스|None|
+|www.msftconnecttest.com|443|OS가 인터넷에 연결되어 있는지 검색합니다.|None|
+|*.prod.do.dsp.mp.microsoft.com|443|Windows 업데이트|None|
+|login.windows.net|443|MS Online Services, Office 365에 로그인|None|
+|*.sfx.ms|443|OneDrive 클라이언트 소프트웨어에 대한 업데이트|None|
+|*.digicert.com|443|인증서 해지 확인|None|
+
 
 >[!NOTE]
 >Windows Virtual Desktop에는 현재 네트워크 트래픽을 허용하도록 허용 목록화할 수 있는 IP 주소 범위 목록이 없습니다. 현재 특정 URL의 허용 목록만 지원합니다.
+>
+>필수 Azure Active Directory 관련 URL을 비롯한 Office 관련 URL 목록은 [Office 365 URL 및 IP 주소 범위](/office365/enterprise/urls-and-ip-address-ranges)를 참조하세요.
 >
 >서비스 트래픽과 관련된 URL에는 와일드카드 문자(*)를 사용해야 합니다. 에이전트 관련 트래픽에 *를 사용하지 않으려는 경우 와일드 카드 없이 URL을 찾는 방법은 다음과 같습니다.
 >
@@ -137,15 +152,15 @@ Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스
 
 원격 데스크톱 클라이언트에는 다음 URL에 액세스할 수 있어야 합니다.
 
-|주소|아웃바운드 포트|목적|클라이언트|
+|주소|아웃바운드 TCP 포트|목적|클라이언트|
 |---|---|---|---|
-|*.wvd.microsoft.com|TCP 포트 443|서비스 트래픽|모두|
-|\*.servicebus.windows.net|TCP 포트 443|데이터 문제 해결|모두|
-|go.microsoft.com|TCP 포트 443|Microsoft FWLinks|모두|
-|aka.ms|TCP 포트 443|Microsoft URL 단축기|모두|
-|docs.microsoft.com|TCP 포트 443|문서화|모두|
-|privacy.microsoft.com|TCP 포트 443|개인정보처리방침|모두|
-|query.prod.cms.rt.microsoft.com|TCP 포트 443|클라이언트 업데이트|Windows Desktop|
+|*.wvd.microsoft.com|443|서비스 트래픽|모두|
+|\*.servicebus.windows.net|443|데이터 문제 해결|모두|
+|go.microsoft.com|443|Microsoft FWLinks|모두|
+|aka.ms|443|Microsoft URL 단축기|모두|
+|docs.microsoft.com|443|문서화|모두|
+|privacy.microsoft.com|443|개인정보처리방침|모두|
+|query.prod.cms.rt.microsoft.com|443|클라이언트 업데이트|Windows Desktop|
 
 >[!IMPORTANT]
 >이러한 URL을 여는 것은 신뢰할 수 있는 클라이언트 환경을 위해 필수적입니다. 이러한 URL에 대한 액세스를 차단하는 것은 지원되지 않으며 서비스 기능에 영향을 줍니다. 이러한 URL은 클라이언트 사이트 및 리소스에만 해당하고 Azure Active Directory와 같은 다른 서비스에 대한 URL은 포함하지 않습니다.

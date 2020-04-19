@@ -1,16 +1,17 @@
 ---
-title: 빠른 시작 - 포털에서 AKS(Azure Kubernetes Service) 클러스터 만들기
+title: 포털에서 AKS 클러스터 만들기
+titleSuffix: Azure Kubernetes Service
 description: Azure Portal을 사용하여 Kubernetes 클러스터를 빠르게 만들고 애플리케이션을 배포하고 AKS(Azure Kubernetes Service)의 성능을 모니터링하는 방법을 알아봅니다.
 services: container-service
 ms.topic: quickstart
 ms.date: 01/21/2020
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: f4885bea686267ce0397e9ca6f3e2c0ac8640971
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e4ac5a953b5d88d0074c3cfb7f1bd45331577238
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215571"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392799"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -51,6 +52,8 @@ AKS 클러스터를 만들려면 다음 단계를 완료합니다.
 5. **인증** 페이지에서 다음 옵션을 구성합니다.
     - **서비스 사용자** 필드를 **(새) 기본 서비스 사용자**로 유지하여 신규 서비스 사용자를 만듭니다. 또는 기존 서비스 사용자를 사용하도록 *내 서비스 사용자 구성*을 선택할 수 있습니다. 기존 서비스 사용자를 사용하는 경우 SPN 클라이언트 ID와 비밀을 제공해야 합니다.
     - Kubernetes RBAC(역할 기반 액세스 제어)에 대한 옵션을 사용하도록 설정합니다. 이렇게 하면 AKS 클러스터에 배포된 Kubernetes 리소스에 대한 액세스를 정밀하게 제어할 수 있습니다.
+
+    또는 서비스 주체 대신 관리 ID를 사용할 수 있습니다. 자세한 내용은 [관리 ID 사용](use-managed-identity.md)을 참조하세요.
 
 기본적으로 *기본* 네트워킹이 사용되며 컨테이너에 대한 Azure Monitor가 활성화됩니다. **검토 + 만들기**를 클릭한 후 유효성 검사가 완료되면 **만들기**를 선택합니다.
 
@@ -249,7 +252,7 @@ az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 ```
 
 > [!NOTE]
-> 클러스터를 삭제할 때, AKS 클러스터에 사용되는 Azure Active Directory 서비스 주체는 제거되지 않습니다. 서비스 주체를 제거하는 방법에 대한 단계는 [AKS 서비스 주체 고려 사항 및 삭제][sp-delete]를 참조하세요.
+> 클러스터를 삭제할 때, AKS 클러스터에 사용되는 Azure Active Directory 서비스 주체는 제거되지 않습니다. 서비스 주체를 제거하는 방법에 대한 단계는 [AKS 서비스 주체 고려 사항 및 삭제][sp-delete]를 참조하세요. 관리 ID를 사용하는 경우 ID는 플랫폼에 의해 관리되며 제거할 필요가 없습니다.
 
 ## <a name="get-the-code"></a>코드 가져오기
 

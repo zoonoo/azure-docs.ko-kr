@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 3/30/2020
+ms.date: 04/10/2020
 ms.author: banders
-ms.openlocfilehash: 79af6f78e8e9bf93c49deafe79f6a421cbb77d1a
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: b1986a4cb59e0f276ba59eb99acfb459b48615d8
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475267"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262100"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure 청구 및 비용 관리를 사용하여 예기치 않은 비용 방지
 
@@ -193,6 +193,17 @@ Azure 청구서는 _미터_를 기준으로 해당 월의 요금을 집계합니
 미터에 적용되는 모든 품목을 보려면 분석할 청구서에 표시된 대로 _MeterName_을 기준으로 사용량 CSV 파일을 필터링하세요. 품목의 _InstanceID_는 요금이 발생한 실제 Azure 리소스에 해당합니다.
 
 해당 리소스를 식별한 후에는 Azure Cost Management에서 비용 분석을 사용하여 리소스와 관련된 비용을 추가로 분석할 수 있습니다. 비용 분석을 사용하는 방법에 대해 자세히 알아보려면 [비용 분석 시작](../costs/quick-acm-cost-analysis.md)을 참조하세요.
+
+### <a name="review-invoiced-charges-in-cost-analysis"></a>비용 분석에서 송장 발부 요금 검토
+
+Azure Portal에서 청구서 세부 정보를 보려면 분석 중인 청구서와 관련된 범위에 대한 비용 분석으로 이동합니다. **청구서 세부 정보** 보기를 선택합니다. 청구서 세부 정보에는 청구서에 표시된 요금이 표시됩니다.
+
+[![청구서 세부 정보를 보여주는 예제](./media/getting-started/invoice-details.png)](./media/getting-started/invoice-details.png#lightbox)
+
+청구서 세부 정보를 보면 예기치 않은 비용이 드는 서비스를 식별하고 비용 분석에서 리소스와 직접 연관된 리소스를 확인할 수 있습니다. 예를 들어 Virtual Machines 서비스에 대한 요금을 분석하려면 **누적 비용** 보기로 이동합니다. 그런 다음, 세분성을 **일별**로 설정하고 요금 **서비스 이름: 가상 머신** 및 그룹 요금을 **리소스**로 필터링합니다.
+
+[![가상 머신의 누적 비용을 보여주는 예제](./media/getting-started/virtual-machines.png)](./media/getting-started/virtual-machines.png#lightbox)
+
 
 ### <a name="identify-spikes-in-cost-over-time"></a>시간에 따른 비용 급증 식별
 

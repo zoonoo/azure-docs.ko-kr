@@ -5,12 +5,12 @@ ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 08/24/2018
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 2813d96fdd9fcd588b78cbfb58fe57bf58a4fe68
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e15d325f0cf13ae774a5dc471a1e2b447286a99c
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80047345"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81009256"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Azure에서 PHP 웹앱 만들기
 
@@ -72,12 +72,16 @@ Cloud Shell에서 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#a
 
 다음 예에서 `<app_name>`을 전역적으로 고유한 앱 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`). 런타임은 `PHP|7.0`으로 설정됩니다. 지원되는 모든 런타임을 보려면 [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes)를 실행합니다. 
 
+
 ```azurecli-interactive
 # Bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0" --deployment-local-git
 # PowerShell
 az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0" --deployment-local-git
 ```
+> [!NOTE]
+> PowerShell 3.0에 도입된 구문 분석 기호 `(--%)`는 PowerShell이 입력을 PowerShell 명령 또는 식으로 해석하지 않도록 지시합니다. 
+>
 
 웹앱이 만들어지면 Azure CLI에서 다음 예제와 비슷한 출력을 표시합니다.
 

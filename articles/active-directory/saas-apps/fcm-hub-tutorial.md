@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/25/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee1ea7d2623d6315007257218ddfc4e6ce445e65
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 5abc1e093dc7d4e8da823227dc3e3caa556e37e4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80669029"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406842"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fcm-hub"></a>자습서: FCM HUB와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -92,7 +92,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 귀사에 할당된 계정 관리자 또는 [FCM HUB 클라이언트 지원 팀](mailto:fcmssoadmin@us.fcm.travel)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. **저장**을 클릭합니다.
+1. **저장**을 선택합니다.
+
+1. **클레임 관리** 페이지의 **사용자 특성 및 클레임** 섹션에서 다음과 같은 사용자 지정 특성을 추가합니다.
+   - **Name**: PortalID
+   - **원본**: attribute
+   - **원본 특성**: PortalID, FCM에서 제공하는 값
+
+1. **SAML 서명 인증서** 섹션에서 편집 옵션을 사용하여 다음 설정을 선택하거나 입력한 다음, **저장**을 선택합니다.
+   - **서명 옵션**: SAML 응답 서명
+   - **서명 알고리즘**: SHA-256
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
