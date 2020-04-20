@@ -150,7 +150,7 @@ VS 코드를 사용하여 빌드할 수 있는 Python 솔루션 템플릿을 만
                     if "machine" in data and "temperature" in data["machine"] and data["machine"]["temperature"] > TEMPERATURE_THRESHOLD:
                         custom_properties["MessageType"] = "Alert"
                         print ( "Machine temperature %s exceeds threshold %s" % (data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
-                        await module_client.send_message_to_output(input_message, "outputs")
+                        await module_client.send_message_to_output(input_message, "output1")
                 except Exception as ex:
                     print ( "Unexpected error in input1_listener: %s" % ex )
 
