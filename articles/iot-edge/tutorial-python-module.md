@@ -131,7 +131,7 @@ VS 코드를 사용하여 빌드할 수 있는 Python 솔루션 템플릿을 만
 
     ```python
         # Define behavior for receiving an input message on input1
-        # Because this is a filter module, we forward this message to the "output1" queue.
+        # Because this is a filter module, we forward this message to the "outputs" queue.
         async def input1_listener(module_client):
             global RECEIVED_MESSAGES
             global TEMPERATURE_THRESHOLD
