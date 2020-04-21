@@ -433,7 +433,7 @@
       href: resource-known-issues.md
     - name: 사용자 포럼
       href: 'https://aka.ms/aml-forum-service'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning-service'
     - name: ML 제품 비교
       href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/service/context/ml-context
