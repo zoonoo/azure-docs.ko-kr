@@ -208,6 +208,8 @@
           href: how-to-connect-pta-quick-start.md
         - name: 통과 인증 FAQ
           href: how-to-connect-pta-faq.md
+        - name: Azure AD Connect "구성 안 함"을 사용하여 PTA를 사용하지 않도록 설정
+          href: how-to-connect-pta-disable-do-not-configure.md
     - name: 페더레이션 서비스 관리
       items:
         - name: Azure AD Connect를 사용하여 페더레이션 관리

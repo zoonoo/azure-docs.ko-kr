@@ -156,8 +156,6 @@
         - name: 설명자 추가
           displayName: 'synonym, interchange, phrase list, descriptor'
           href: luis-how-to-add-features.md
-        - name: V3 제작으로 마이그레이션
-          href: luis-migration-authoring-entities.md
         - name: REST API 사용
           items:
             - name: Node.js를 사용하여 프로그래밍 방식으로 앱 빌드
@@ -193,6 +191,8 @@
           displayName: 'import, export'
     - name: 게시
       href: luis-how-to-publish-app.md
+    - name: 예측 런타임 쿼리
+      href: luis-get-started-get-intent-from-browser.md
     - name: 앱 관리
       items:
         - name: Azure 리소스
@@ -216,11 +216,10 @@
       items:
         - name: 개발자용
           href: developer-reference-resource.md
-        - name: API 작성
-          href: luis-migration-api-authoring.md
-        - name: V3 API로 마이그레이션
+        - name: V3 제작 API로 마이그레이션
+          href: luis-migration-authoring-entities.md
+        - name: V3 예측 API로 마이그레이션
           href: luis-migration-api-v3.md
-          displayName: 'json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override'
         - name: V2 API로 마이그레이션
           href: luis-migration-api-v1-to-v2.md
     - name: 컨테이너 사용
@@ -412,7 +411,7 @@
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 암호화
       href: luis-encryption-of-data-at-rest.md
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/LUIS'
     - name: UserVoice
       href: 'https://go.microsoft.com/fwlink/?linkid=2092090'

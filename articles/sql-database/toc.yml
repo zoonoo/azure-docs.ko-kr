@@ -119,7 +119,11 @@
             - name: 데이터 검색 및 분류
               href: sql-database-data-discovery-and-classification.md
             - name: 취약점 평가
-              href: sql-vulnerability-assessment.md
+              items:
+                - name: 취약점 평가
+                  href: sql-vulnerability-assessment.md
+                - name: 방화벽 및 Vnet에서 백그라운드로 VA 검사 저장
+                  href: sql-database-vulnerability-assessment-storage.md
             - name: 고급 위협 보호
               href: sql-database-threat-detection-overview.md
             - name: 보안 특성
@@ -843,7 +847,7 @@
       href: 'https://azure.microsoft.com/pricing/details/sql-database/'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/sql-azure'
     - name: 문제 해결
       items:

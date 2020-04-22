@@ -10,12 +10,8 @@
   items:
     - name: 클라이언트 라이브러리
       items:
-        - name: 'C# 사용'
-          href: quickstarts/detect-data-anomalies-csharp-sdk.md
-        - name: Python 사용
-          href: quickstarts/detect-data-anomalies-python-sdk.md
-        - name: Node.js 사용
-          href: quickstarts/detect-data-anomalies-nodejs-sdk.md
+        - name: Anomaly Detector 클라이언트 라이브러리
+          href: ./quickstarts/client-libraries.md
     - name: REST API
       items:
         - name: 'C# 사용'
@@ -82,7 +78,7 @@
       items:
         - name: 지원 받기
           href: 'https://aka.ms/adsupport'
-        - name: 스택 오버플로
+        - name: Stack Overflow
           href: 'https://aka.ms/adso'
         - name: MSDN
           href: 'https://aka.ms/admsdn'

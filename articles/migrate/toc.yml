@@ -96,14 +96,16 @@
       href: how-to-assess.md
     - name: Azure Migrate 어플라이언스 배포
       items:
-        - name: VMware용 어플라이언스 배포(OVA)
+        - name: 템플릿을 사용하여 어플라이언스 배포(VMware)
           href: how-to-set-up-appliance-vmware.md
-        - name: Hyper-V용 어플라이언스 배포(VHD)
+        - name: 템플릿을 사용하여 어플라이언스 배포(Hyper-V)
           href: how-to-set-up-appliance-hyper-v.md
-        - name: VMware/Hyper-V용 어플라이언스 배포(스크립트)
+        - name: 스크립트를 사용하여 어플라이언스 배포(VMware/Hyper-V)
           href: deploy-appliance-script.md
         - name: 물리적 서버용 어플라이언스 배포
           href: how-to-set-up-appliance-physical.md
+        - name: Azure Government에서 어플라이언스 배포
+          href: deploy-appliance-script-government.md
     - name: VMware VM에 대한 검색 범위 제한
       href: set-discovery-scope.md
     - name: 애플리케이션/역할/기능 검색

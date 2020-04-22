@@ -87,7 +87,7 @@
             - name: CEF 기반 솔루션
               href: connect-common-event-format.md
               items:
-                - name: 1단계 에이전트 배포
+                - name: 1단계 로그 전달자 배포
                   href: connect-cef-agent.md
                 - name: 2단계 보안 솔루션 구성
                   href: connect-cef-solution-config.md

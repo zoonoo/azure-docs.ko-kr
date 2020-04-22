@@ -6,370 +6,258 @@
       href: automation-intro.md
     - name: FAQ
       href: automation-faq.md
-- name: Automation 계정
+- name: 빠른 시작
   items:
     - name: Automation 계정 만들기
       href: automation-quickstart-create-account.md
-    - name: 독립 실행형 Automation 계정 만들기
-      href: automation-create-standalone-account.md
-    - name: Automation 실행 계정 관리
-      href: manage-runas-account.md
-      displayName: certificate renewal
-    - name: 역할 기반 액세스 제어 관리
-      href: automation-role-based-access-control.md
-      displayName: RBAC
-    - name: Azure AD를 사용하여 Azure에 인증
-      href: automation-use-azure-ad.md
-    - name: Office 365 서비스 관리
-      href: manage-office-365.md
-    - name: Amazon Web Services를 사용하여 Azure Automation Runbook 인증
-      href: automation-config-aws-account.md
-    - name: Azure Automation에서 보안 자산 암호화
-      href: automation-secure-asset-encryption.md
-    - name: Automation 계정을 다른 구독으로 이동
-      href: how-to/move-account.md
-    - name: Automation 서비스의 온보딩 자동화
-      href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
-    - name: Azure Automation 데이터 관리
-      href: automation-managing-data.md
-      displayName: backup
-    - name: Log Analytics 작업 영역 매핑에 대해 지원되는 지역
-      href: how-to/region-mappings.md
-    - name: 문제 해결
-      items:
-        - name: Automation 계정 문제 해결
-          href: troubleshoot/automation-account.md
-          displayName: troubleshoot
-- name: 프로세스 Automation
+    - name: PowerShell Runbook 만들기
+      href: automation-quickstart-create-runbook.md
+    - name: 머신의 Desired State Configuration 사용
+      href: automation-quickstart-dsc-configuration.md
+- name: 자습서
   items:
-    - name: Azure Automation에서 Runbook 실행
+    - name: 그래픽 Runbook 만들기
+      href: learn/automation-tutorial-runbook-graphical.md
+    - name: PowerShell Runbook 만들기
+      href: learn/automation-tutorial-runbook-textual-powershell.md
+    - name: PowerShell 워크플로 Runbook 만들기
+      href: learn/automation-tutorial-runbook-textual.md
+    - name: Python Runbook 만들기
+      href: learn/automation-tutorial-runbook-textual-python2.md
+- name: 개념
+  items:
+    - name: Runbook 실행 개요
       href: automation-runbook-execution.md
-      displayName: 'fair share, activity log'
     - name: Hybrid Runbook Worker 개요
       href: automation-hybrid-runbook-worker.md
-    - name: Runbook 갤러리
-      href: automation-runbook-gallery.md
-    - name: 개념
+    - name: Automation Runbook 형식
+      href: automation-runbook-types.md
+    - name: PowerShell DSC
+      href: /powershell/scripting/dsc/overview/overview
+    - name: 데이터 보안
       items:
-        - name: Runbook 형식
-          href: automation-runbook-types.md
-          displayName: 'graphical, python, powershell, powershell workflow'
-        - name: 학습 PowerShell 워크플로
-          href: automation-powershell-workflow.md
-    - name: 빠른 시작
+        - name: 보안 자산 암호화
+          href: automation-secure-asset-encryption.md
+        - name: Azure Automation 데이터 관리
+          href: automation-managing-data.md
+- name: 방법 가이드
+  items:
+    - name: Automation 계정
       items:
-        - name: Runbook 만들기
-          href: automation-quickstart-create-runbook.md
-    - name: 방법 가이드
+        - name: Azure Portal을 사용하여 Automation 계정 만들기
+          href: automation-create-standalone-account.md
+        - name: Resource Manager 템플릿을 사용하여 Automation 계정 만들기
+          href: automation-create-account-template.md
+        - name: Automation 실행 계정 관리
+          href: manage-runas-account.md
+        - name: 역할 권한 및 보안 관리
+          href: automation-role-based-access-control.md
+        - name: Automation 계정을 다른 구독으로 이동
+          href: how-to/move-account.md
+        - name: System Center Orchestrator에서 마이그레이션
+          href: automation-orchestrator-migration.md
+    - name: 공유 리소스
       items:
-        - name: 작업 시간 외 VM 시작/중지
+        - name: 인증서 관리
+          href: shared-resources/certificates.md
+        - name: 연결 관리
+          href: automation-connections.md
+        - name: 자격 증명 관리
+          href: shared-resources/credentials.md
+        - name: PowerShell 모듈 관리
           items:
-            - name: 개요
-              href: automation-solution-vm-management.md
-            - name: 솔루션 사용
-              href: automation-solution-vm-management-enable.md
-            - name: 솔루션 구성
-              href: automation-solution-vm-management-config.md
-            - name: 로그 쿼리를 사용하여 데이터 분석
-              href: automation-solution-vm-management-logs.md
+            - name: Azure Automation에서 모듈 관리
+              href: shared-resources/modules.md
+            - name: Azure PowerShell 모듈 업데이트
+              href: automation-update-azure-modules.md
+        - name: 일정 관리
+          href: shared-resources/schedules.md
+        - name: 변수 관리
+          href: shared-resources/variables.md
+        - name: Python 2 패키지 관리
+          href: python-packages.md
+        - name: 공유 리소스 문제 해결
+          href: troubleshoot/shared-resources.md
+    - name: 프로세스 자동화
+      items:
+        - name: PowerShell 갤러리에서 Runbook 및 모듈 찾기
+          href: automation-runbook-gallery.md
+        - name: PowerShell 워크플로 알아보기
+          href: automation-powershell-workflow.md
         - name: Runbook 관리
           href: manage-runbooks.md
-        - name: Runbook 만들기
-          items:
-            - name: Runbook 만들기 및 가져오기
-              href: automation-creating-importing-runbook.md
-            - name: 그래픽 Runbook
-              href: automation-first-runbook-graphical.md
-            - name: PowerShell Runbook
-              href: automation-first-runbook-textual-powershell.md
-            - name: PowerShell 워크플로 Runbook
-              href: automation-first-runbook-textual.md
-            - name: Python Runbook
-              href: automation-first-runbook-textual-python2.md
-            - name: Graphical Runbook SDK로 Runbook 만들기
-              href: graphical-runbook-sdk.md
-        - name: Runbook 편집
+        - name: Runbook 작성 및 실행
           items:
             - name: 텍스트 Runbook 편집
               href: automation-edit-textual-runbook.md
-              displayName: powershell
             - name: 그래픽 Runbook 편집
               href: automation-graphical-authoring-intro.md
-        - name: Runbook 시작
-          items:
-            - name: Runbook 테스트
-              href: automation-testing-runbook.md
-            - name: Runbook 시작
-              href: automation-starting-a-runbook.md
-            - name: 웹후크에서 Runbook 시작
-              href: automation-webhooks.md
+            - name: 모듈식 Runbook 만들기
+              href: automation-child-runbooks.md
             - name: Runbook 입력 매개 변수 구성
               href: runbook-input-parameters.md
-            - name: 자식 Runbook
-              href: automation-child-runbooks.md
-            - name: Azure Automation Runbook에 JSON 개체 전달
-              href: automation-pass-json-string.md
+            - name: Runbook 테스트
+              href: manage-runbooks.md
+            - name: Runbook 시작
+              href: start-runbooks.md
+            - name: 웹후크에서 Runbook 시작
+              href: automation-webhooks.md
+            - name: 감시자 작업을 사용하여 업데이트된 파일 추적
+              href: automation-watchers-tutorial.md
+            - name: 그래픽 Runbook SDK 사용
+              href: graphical-runbook-sdk.md
         - name: Runbook 모니터링
           items:
-            - name: Runbook 출력
+            - name: Runbook 출력 모니터링
               href: automation-runbook-output-and-messages.md
-              displayName: 'message streams, progress records, preference'
-            - name: 그래픽 Runbook에서 오류 처리
+            - name: 그래픽 Runbook의 오류 처리
               href: automation-runbook-graphical-error-handling.md
-        - name: Hybrid Runbook Worker
+            - name: Azure Monitor 로그에 작업 데이터 전달
+              href: automation-manage-send-joblogs-log-analytics.md
+        - name: 문제 해결
+          items:
+            - name: Runbook 문제 해결
+              href: troubleshoot/runbooks.md
+            - name: 지원 사례를 열기 전에 수집할 데이터
+              href: troubleshoot/collect-data-microsoft-azure-automation-case.md
+        - name: Hybrid Runbook Worker 사용
           items:
             - name: Windows Hybrid Runbook Worker 배포
               href: automation-windows-hrw-install.md
             - name: Linux Hybrid Runbook Worker 배포
               href: automation-linux-hrw-install.md
-              displayName: signature validation
             - name: Hybrid Runbook Worker에서 Runbook 실행
               href: automation-hrw-run-runbooks.md
-              displayName: signed runbooks
-            - name: 감시자 작업을 사용하여 업데이트된 파일 추적
-              href: automation-watchers-tutorial.md
-              displayName: 'hybrid runbook worker, hybrid worker, trigger'
-        - name: 소스 제어 통합
+            - name: Hybrid Runbook Worker 문제 해결
+              href: troubleshoot/hybrid-runbook-worker.md
+        - name: 원본 제어 통합 사용
+          href: source-control-integration.md
+    - name: 구성 관리
+      items:
+        - name: State Configuration(DSC) 관리
           items:
-            - name: 소스 제어 통합
-              href: source-control-integration.md
-              displayName: 'github, vsts, azure devops, personal access token'
-            - name: 소스 제어 통합 - 레거시
-              href: source-control-integration-legacy.md
-    - name: 문제 해결
+            - name: 개요
+              href: automation-dsc-overview.md
+            - name: State Configuration 사용 시작
+              href: automation-dsc-getting-started.md
+            - name: 관리를 위한 머신 탑재
+              href: automation-dsc-onboarding.md
+            - name: 원하는 상태로 머신 구성
+              href: tutorial-configure-servers-desired-state.md
+            - name: DSC 구성 컴파일
+              href: automation-dsc-compile.md
+            - name: 구성 드리프트 재구성
+              href: automation-dsc-remediate.md
+            - name: DSC 구성 작성
+              href: compose-configurationwithcompositeresources.md
+            - name: Chocolatey를 통한 연속 배포 설정
+              href: automation-dsc-cd-chocolatey.md
+            - name: Azure Monitor 로그와 통합
+              href: automation-dsc-diagnostics.md
+            - name: DSC 관련 문제 해결
+              href: troubleshoot/desired-state-configuration.md
+        - name: 변경 내용 추적 및 인벤토리 관리
+          items:
+            - name: 개요
+              href: change-tracking.md
+            - name: 연결된 Log Analytics 작업 영역에 대해 지원되는 지역
+              href: how-to/region-mappings.md
+            - name: 변경 내용 추적 및 인벤토리 사용
+              items:
+                - name: Azure Portal 사용
+                  href: automation-onboard-solutions-from-browse.md
+                - name: Azure VM에서
+                  href: automation-onboard-solutions-from-vm.md
+                - name: Automation 계정에서
+                  href: automation-onboard-solutions-from-automation-account.md
+                - name: Automation Runbook에서
+                  href: automation-onboard-solutions.md
+            - name: 추적된 파일의 콘텐츠 보기
+              href: change-tracking-file-contents.md
+            - name: VM에서 인벤토리 컬렉션 관리
+              href: automation-vm-inventory.md
+            - name: 문제 해결
+              items:
+                - name: 온보딩
+                  href: troubleshoot/onboarding.md
+                - name: 변경 내용 추적 및 인벤토리 사용
+                  href: troubleshoot/change-tracking.md
+    - name: 작업 시간 외 VM 시작/중지
       items:
-        - name: Microsoft Azure Automation에 대한 사례를 열 때 수집할 데이터
-          href: troubleshoot/collect-data-microsoft-azure-automation-case.md
-        - name: Hybrid Runbook Worker 문제 해결
-          href: troubleshoot/hybrid-runbook-worker.md
-          displayName: 'troubleshoot, HRW, hybrid worker'
-        - name: Runbook 문제 해결
-          href: troubleshoot/runbooks.md
-          displayName: troubleshoot
-        - name: VM 시작/중지
+        - name: 개요
+          href: automation-solution-vm-management.md
+        - name: 연결된 Log Analytics 작업 영역에 대해 지원되는 지역
+          href: how-to/region-mappings.md
+        - name: 사용
+          href: automation-solution-vm-management-enable.md
+        - name: 구성
+          href: automation-solution-vm-management-config.md
+        - name: 로그 쿼리를 사용하여 데이터 분석
+          href: automation-solution-vm-management-logs.md
+        - name: 문제 해결
           href: troubleshoot/start-stop-vm.md
-- name: 업데이트 관리
-  items:
-    - name: 업데이트 관리 개요
-      href: automation-update-management.md
-      displayName: 'dynamic groups, pre scripts, post scripts, reboot control, first party, pre download, inclusion'
-    - name: 온보딩
+    - name: 업데이트 관리
       items:
-        - name: Resource Manager 템플릿 사용
-          href: automation-update-management-deploy-template.md
-        - name: 포털에서 다중 VM 등록
-          href: automation-onboard-solutions-from-browse.md
-        - name: Azure VM에서 온보드
-          href: automation-onboard-solutions-from-vm.md
-        - name: Automation 계정에서 온보드
-          href: automation-onboard-solutions-from-automation-account.md
-    - name: 방법 가이드
-      items:
-        - name: Azure Virtual Machines에 대한 업데이트 및 패치 관리
+        - name: 개요
+          href: automation-update-management.md
+        - name: 연결된 Log Analytics 작업 영역에 대해 지원되는 지역
+          href: how-to/region-mappings.md
+        - name: 사용
+          items:
+            - name: Resource Manager 템플릿 사용
+              href: automation-update-management-deploy-template.md
+            - name: Azure Portal 사용
+              href: automation-onboard-solutions-from-browse.md
+            - name: Azure VM에서
+              href: automation-onboard-solutions-from-vm.md
+            - name: Automation 계정에서
+              href: automation-onboard-solutions-from-automation-account.md
+        - name: Azure VM에 대한 업데이트 관리
           href: automation-tutorial-update-management.md
         - name: 여러 VM에 대한 업데이트 관리
           href: manage-update-multi.md
-        - name: 사전 및 사후 스크립트
+        - name: 업데이트 평가 보기
+          href: automation-view-update-assessments.md
+        - name: 사전 및 사후 스크립트 관리
           href: pre-post-scripts.md
-        - name: OMS 업데이트 배포를 Azure로 마이그레이션
-          href: migrate-oms-update-deployments.md
-        - name: 업데이트 관리와 SCCM 통합
-          href: oms-solution-updatemgmt-sccmintegration.md
-          displayName: Configuration Manager
-        - name: 업데이트 관리를 위한 Windows 업데이트 구성
+        - name: Configuration Manager와 상호 작용
+          href: updatemgmt-mecmintegration.md
+        - name: Windows 업데이트 클라이언트 구성
           href: automation-configure-windows-update.md
-        - name: 업데이트 관리에서 동적 그룹 사용
+        - name: 동적 그룹 사용
           href: automation-update-management-groups.md
         - name: 업데이트 관리 로그 쿼리
           href: automation-update-management-query-logs.md
-        - name: 업데이트 평가 보기
-          href: automation-view-update-assessments.md
-    - name: 문제 해결
-      items:
-        - name: 온보딩
-          href: troubleshoot/onboarding.md
-          displayName: troubleshoot
-        - name: 업데이트 관리 문제 해결
-          href: troubleshoot/update-management.md
-          displayName: troubleshoot
-        - name: 업데이트 에이전트 문제 해결
+        - name: 문제 해결
           items:
-            - name: Windows
+            - name: 온보딩
+              href: troubleshoot/onboarding.md
+            - name: 업데이트 관리 사용
+              href: troubleshoot/update-management.md
+            - name: Windows 업데이트 에이전트 문제 해결
               href: troubleshoot/update-agent-issues.md
-              displayName: 'update agent, issue, hybrid runbook worker, hybrid worker, troubleshoot, windows'
-            - name: Linux
+            - name: Linux 업데이트 에이전트 문제 해결
               href: troubleshoot/update-agent-issues-linux.md
-              displayName: 'update agent, issue, hybrid runbook worker, hybrid worker, troubleshoot, linux'
-- name: 변경 내용 추적
-  items:
-    - name: 변경 내용 추적 개요
-      href: change-tracking.md
-      displayName: 'wildcard, recursion, environment variables, registry'
-    - name: 온보딩
+    - name: 구성 요소 간 시나리오
       items:
-        - name: 포털에서 다중 VM 등록
-          href: automation-onboard-solutions-from-browse.md
-        - name: Azure VM에서 온보드
-          href: automation-onboard-solutions-from-vm.md
-        - name: Automation 계정에서 온보드
-          href: automation-onboard-solutions-from-automation-account.md
-    - name: 방법 가이드
-      items:
-        - name: Runbook에서 등록 업데이트 및 변경 내용 추적
-          href: automation-onboard-solutions.md
-        - name: 추적된 파일의 파일 콘텐츠 보기
-          href: change-tracking-file-contents.md
-          displayName: 'change tracking, hash'
-    - name: 문제 해결
-      items:
-        - name: 온보딩
-          href: troubleshoot/onboarding.md
-          displayName: troubleshoot
-        - name: 변경 내용 추적 및 인벤토리 문제 해결
-          href: troubleshoot/change-tracking.md
-          displayName: troubleshoot
-- name: 인벤토리
-  items:
-    - name: 온보딩
-      items:
-        - name: 포털에서 다중 VM 등록
-          href: automation-onboard-solutions-from-browse.md
-        - name: Azure VM에서 온보드
-          href: automation-onboard-solutions-from-vm.md
-        - name: Automation 계정에서 온보드
-          href: automation-onboard-solutions-from-automation-account.md
-    - name: 방법 가이드
-      items:
-        - name: 인벤토리 컬렉션을 사용하여 VM 관리
-          href: automation-vm-inventory.md
-          displayName: inventory
-        - name: VM에서 변경 내용 문제 해결
-          href: automation-tutorial-troubleshoot-changes.md
-          displayName: inventory
-    - name: 문제 해결
-      items:
-        - name: 온보딩
-          href: troubleshoot/onboarding.md
-          displayName: troubleshoot
-- name: 상태 구성(DSC)
-  items:
-    - name: 상태 구성 개요
-      href: automation-dsc-overview.md
-      displayName: DSC
-    - name: 개념
-      items:
-        - name: PowerShell DSC
-          href: /powershell/scripting/dsc/overview/overview
-    - name: 빠른 시작
-      items:
-        - name: 시작
-          href: automation-dsc-getting-started.md
-          displayName: DSC
-        - name: 머신 구성 관리
-          href: automation-quickstart-dsc-configuration.md
-          displayName: 'DSC, state configuration, config, node configuration, node'
-    - name: 온보딩
-      items:
-        - name: 관리를 위한 컴퓨터 탑재
-          href: automation-dsc-onboarding.md
-          displayName: 'DSC, state configuration'
-    - name: 방법 가이드
-      items:
-        - name: 원하는 상태로 서버 구성 및 상태 구성을 사용하여 드리프트 관리
-          href: tutorial-configure-servers-desired-state.md
-          displayName: 'DSC, compliance'
-        - name: DSC 구성 컴파일
-          href: automation-dsc-compile.md
-          displayName: 'state configuration, composite resources, configurationData'
-        - name: 비준수 DSC 서버 수정
-          href: automation-dsc-remediate.md
-          displayName: 'state configuration, DSC, remediate'
-        - name: 복합 리소스를 사용하여 DSC 구성 작성
-          href: compose-configurationwithcompositeresources.md
-        - name: Chocolatey를 사용하여 지속적인 배포 제공
-          href: automation-dsc-cd-chocolatey.md
-          displayName: 'dsc, state configuration'
-        - name: Azure Monitor 로그에 데이터를 보고하여 상태 구성 전달
-          href: automation-dsc-diagnostics.md
-          displayName: DSC
-    - name: 문제 해결
-      items:
-        - name: 온보딩 문제 해결
-          href: troubleshoot/onboarding.md
-          displayName: troubleshoot
-        - name: 상태 구성(DSC) 문제 해결
-          href: troubleshoot/desired-state-configuration.md
-          displayName: 'state configuration, DSC, troubleshoot'
-    - name: 참조
-      items:
-        - name: 커뮤니티 솔루션
-          items:
-            - name: 규모에 맞는 구성 데이터
-              href: automation-dsc-config-data-at-scale.md
-              displayName: 'DSC, Configuration Data, ConfigData'
-            - name: 서버에서 구성 만들기
-              href: automation-dsc-config-from-server.md
-              displayName: 'DSC, ReverseDSC'
-            - name: STIG 기반 구성
-              href: automation-dsc-configuration-based-on-stig.md
-              displayName: 'DSC, Configuration'
-            - name: 구성을 복합 리소스로 변환
-              href: automation-dsc-create-composite.md
-              displayName: 'DSC, composite'
-- name: 공유 리소스 관리
-  items:
-    - name: 인증서
-      href: shared-resources/certificates.md
-    - name: Connections
-      href: automation-connections.md
-    - name: 자격 증명
-      href: shared-resources/credentials.md
-    - name: PowerShell 모듈
-      items:
-        - name: Azure Automation에서 모듈 관리
-          href: shared-resources/modules.md
-        - name: Azure Automation의 Az 모듈 지원
-          href: az-modules.md
-        - name: Azure PowerShell 모듈 업데이트
-          href: automation-update-azure-modules.md
-    - name: 일정
-      href: shared-resources/schedules.md
-    - name: variables
-      href: shared-resources/variables.md
-    - name: Python 2 패키지 관리
-      href: python-packages.md
-    - name: 공유 리소스 문제 해결
-      href: troubleshoot/shared-resources.md
-      displayName: 'module, import'
-- name: 구성 요소 간 시나리오
-  items:
-    - name: SendGrid로 Runbook에서 이메일 보내기
-      href: automation-send-email.md
-    - name: 메트릭 경고로 Runbook 모니터링
-      href: automation-alert-metric.md
-    - name: Azure 경고에서 Runbook 시작
-      href: automation-create-alert-triggered-runbook.md
-      displayName: 'Monitor, Azure Monitor'
-    - name: Amazon 웹 서비스 VM 만들기
-      href: automation-scenario-aws-deployment.md
-      displayName: 'VSTS, CI, runbooks'
-    - name: Azure Automation PowerShell Runbook에 Azure Resource Manager 템플릿 배포
-      href: automation-deploy-template-runbook.md
-    - name: Azure Automation과 Event Grid 통합
-      href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md?toc=%2fazure%2fautomation%2ftoc.json
-    - name: Azure-SSIS IR을 시작/중지하는 Azure Automation Runbook 만들기 및 예약
-      href: '../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir'
-- name: 모니터
-  items:
-    - name: Log Analytics에 Azure Automation 작업 데이터 전달
-      href: automation-manage-send-joblogs-log-analytics.md
-    - name: Log Analytics 작업 영역 매핑에 대해 지원되는 지역
-      href: how-to/region-mappings.md
-- name: 마이그레이션
-  items:
-    - name: 조정자에서 마이그레이션
-      href: automation-orchestrator-migration.md
-      displayName: 'SCORCH, runbooks'
+        - name: Runbook에서 이메일 보내기
+          href: automation-send-email.md
+        - name: 메트릭 경고로 Runbook 모니터링
+          href: automation-alert-metric.md
+        - name: Azure 경고에서 Runbook 트리거
+          href: automation-create-alert-triggered-runbook.md
+        - name: Office 365 서비스 관리
+          href: manage-office-365.md
+        - name: Amazon Web Services를 사용하여 Runbook 인증
+          href: automation-config-aws-account.md
+        - name: Automation Runbook을 사용하여 AWS VM 배포
+          href: automation-scenario-aws-deployment.md
+        - name: Runbook을 사용하여 Resource Manager 템플릿 배포
+          href: automation-deploy-template-runbook.md
+        - name: Event Grid 및 Microsoft 팀과 통합
+          href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md
+        - name: Azure-SSIS IR 시작/중지 자동화
+          href: '../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir'
 - name: 참조
   items:
     - name: Azure PowerShell
@@ -394,7 +282,7 @@
       href: 'https://azure.microsoft.com/updates/?product=automation'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=automation'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-automation'
     - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=automation'

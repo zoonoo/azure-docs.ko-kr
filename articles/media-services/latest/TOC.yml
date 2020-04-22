@@ -13,6 +13,9 @@
     - name: 포털과 Wirecast를 사용하는 라이브 이벤트
       displayName: 'live, event, portal, wirecast'
       href: live-events-wirecast-quickstart.md
+    - name: 포털과 OBS를 사용하는 라이브 이벤트
+      displayName: 'live, event, portal, obs'
+      href: live-events-obs-quickstart.md
 - name: 자습서
   items:
     - name: 원격 파일 인코딩 및 비디오 스트리밍
@@ -406,3 +409,5 @@
       href: limits-quotas-constraints.md
     - name: Azure 클라우드 및 지역
       href: azure-clouds-regions.md
+    - name: 설명서 업데이트
+      href: docs-release-notes.md
