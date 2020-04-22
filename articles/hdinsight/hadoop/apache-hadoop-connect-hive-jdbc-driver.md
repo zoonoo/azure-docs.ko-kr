@@ -5,21 +5,21 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 8129239f152f6b359b930e56466052da12ef4d42
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 04/20/2020
+ms.openlocfilehash: 803256ab1c5201534cfbd8210f96040ba75081e5
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437024"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687292"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>HDInsight에서 JDBC 드라이버를 통해 Apache Hive 쿼리
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Java 애플리케이션에서 JDBC 드라이버를 사용하여 Azure HDInsight의 Apache Hadoop에 Apache Hive 쿼리를 제출하는 방법을 알아봅니다. 이 문서의 정보는 프로그래밍 방식으로 연결하는 방법과 SQuirreL SQL 클라이언트에서 설명하는 정보를 보여 줍니다.
+Java 응용 프로그램에서 JDBC 드라이버를 사용하는 방법을 알아봅니다. Azure HDInsight에서 아파치 하두프에 아파치 하이브 쿼리를 제출합니다. 이 문서의 정보는 프로그래밍 방식으로 연결하는 방법과 SQuirreL SQL 클라이언트에서 설명하는 정보를 보여 줍니다.
 
 Hive JDBC 인터페이스에 대한 자세한 내용은 [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface)를 참조하세요.
 
@@ -31,7 +31,7 @@ Hive JDBC 인터페이스에 대한 자세한 내용은 [HiveJDBCInterface](http
 
 ## <a name="jdbc-connection-string"></a>JDBC 연결 문자열
 
-Azure의 HDInsight 클러스터에 대한 JDBC 연결은 포트 443을 통해 이루어지며 TLS/SSL을 사용하여 트래픽이 보호됩니다. 클러스터가 뒤에 있는 공용 게이트웨이는 HiveServer2에서 실제로 수신하는 포트로 트래픽을 리디렉션합니다. 다음 연결 문자열은 HDInsight에 사용할 형식을 보여줍니다.
+Azure의 HDInsight 클러스터에 대한 JDBC 연결은 포트 443을 통해 이루어집니다. 트래픽은 TLS/SSL을 사용하여 보호됩니다. 클러스터가 뒤에 있는 공용 게이트웨이는 HiveServer2에서 실제로 수신하는 포트로 트래픽을 리디렉션합니다. 다음 연결 문자열은 HDInsight에 사용할 형식을 보여줍니다.
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
@@ -43,17 +43,17 @@ Azure의 HDInsight 클러스터에 대한 JDBC 연결은 포트 443을 통해 �
 
 ### <a name="host-name-in-connection-string"></a>연결 문자열의 호스트 이름
 
-연결 문자열의 호스트 이름 'CLUSTERNAME.azurehdinsight.net'은 클러스터 URL과 동일합니다. Azure 포털을 통해 얻을 수 있습니다. 
+연결 문자열의 호스트 이름 'CLUSTERNAME.azurehdinsight.net'은 클러스터 URL과 동일합니다. Azure 포털을 통해 얻을 수 있습니다.
 
 ### <a name="port-in-connection-string"></a>연결 문자열의 포트
 
-**포트 443을** 사용하여 Azure 가상 네트워크 외부의 일부 위치에서만 클러스터에 연결할 수 있습니다. HDInsight는 클러스터에 대한 모든 연결이 보안 게이트웨이를 통해 관리되는 관리형 서비스입니다. 이러한 포트는 외부에 노출되지 않으므로 포트 10001 또는 10000에서 직접 HiveServer 2에 연결할 수 없습니다. 
+**포트 443을** 사용하여 Azure 가상 네트워크 외부의 일부 위치에서만 클러스터에 연결할 수 있습니다. HDInsight는 클러스터에 대한 모든 연결이 보안 게이트웨이를 통해 관리되는 것을 의미하는 관리되는 서비스입니다. 포트 10001 또는 10000에서 HiveServer 2에 직접 연결할 수 없습니다. 이러한 포트는 외부에 노출되지 않습니다.
 
 ## <a name="authentication"></a>인증
 
-연결을 설정할 때 HDInsight 클러스터 관리자 이름 및 암호를 사용하여 클러스터 게이트웨이에 대해 인증해야 합니다. SQuirreL SQL 등의 JDBC 클라이언트에서 연결할 때 클라이언트 설정에 관리자 이름 및 암호를 입력해야 합니다.
+연결을 설정할 때 HDInsight 클러스터 관리자 이름과 암호를 사용하여 인증합니다. SQuirreL SQL과 같은 JDBC 클라이언트에서 클라이언트 설정에서 관리자 이름과 암호를 입력합니다.
 
-Java 애플리케이션에서 연결을 설정할 때 이름 및 암호를 사용해야 합니다. 예를 들어 다음 Java 코드는 연결 문자열, 관리자 이름 및 암호를 사용하여 새 연결을 엽니다.
+Java 애플리케이션에서 연결을 설정할 때 이름 및 암호를 사용해야 합니다. 예를 들어 다음과 같은 Java 코드는 새 연결을 엽니다.
 
 ```java
 DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
@@ -86,7 +86,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
     |속성 | 값 |
     |---|---|
     |속성|Hive|
-    |URL 예|jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2|
+    |URL 예|`jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`|
     |추가 클래스 경로|**추가** 단추를 사용하여 이전에 다운로드한 모든 jar 파일을 추가합니다.|
     |클래스 이름|org.아파치.hive.jdbc.HiveDriver|
 
@@ -96,7 +96,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
 6. SQuirreL SQL 창의 왼쪽에서 **별칭**을 선택합니다. 그런 다음 **+** 아이콘을 선택하여 연결 별칭을 만듭니다.
 
-    ![SQuirreL SQL은 새로운 별칭 대화 상자를 추가합니다.](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-new-aliases.png)
+    !['SQuirreL SQL은 새로운 별칭 대화 상자를 추가'](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-new-aliases.png)
 
 7. **별칭 추가** 대화 상자에 다음 값을 사용합니다.
 
@@ -104,7 +104,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
     |---|---|
     |속성|HDInsight의 Hive|
     |드라이버|드롭다운을 사용하여 **Hive** 드라이버를 선택합니다.|
-    |URL|jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/기본값;전송모드=http;ssl=true;httpPath=/hive2. **CLUSTERNAME**을 HDInsight 클러스터의 이름으로 바꿉니다.|
+    |URL|`jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`. **CLUSTERNAME**을 HDInsight 클러스터의 이름으로 바꿉니다.|
     |사용자 이름|HDInsight 클러스터의 클러스터 로그인 계정 이름입니다. 기본값은 **관리자입니다.**|
     |암호|클러스터 로그인 계정의 암호입니다.|
 
@@ -153,12 +153,11 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 ### <a name="connection-disconnected-by-hdinsight"></a>HDInsight에 의해 연결이 끊어진 연결
 
-**증상**: JDBC / ODBC를 통해 엄청난 양의 데이터 (예 : 여러 GBs)를 다운로드하려고 할 때 다운로드하는 동안 HDInsight에 의해 연결이 예기치 않게 끊어집니다. 
+**증상**: JDBC / ODBC를 통해 엄청난 양의 데이터 (예 : 여러 GBs)를 다운로드하려고 할 때 다운로드하는 동안 HDInsight에 의해 연결이 예기치 않게 끊어집니다.
 
-**원인**: 이 오류는 게이트웨이 노드의 제한으로 인해 발생합니다. JDBC/ODBC에서 데이터를 가져오는 경우 모든 데이터는 게이트웨이 노드를 통과해야 합니다. 그러나 게이트웨이는 방대한 양의 데이터를 다운로드하도록 설계되지 않았기 때문에 트래픽을 처리할 수 없는 경우 게이트웨이에서 연결이 닫혀 있을 수 있습니다.
+**원인**: 이 오류는 게이트웨이 노드의 제한으로 인해 발생합니다. JDBC/ODBC에서 데이터를 가져오는 경우 모든 데이터는 게이트웨이 노드를 통과해야 합니다. 그러나 게이트웨이는 엄청난 양의 데이터를 다운로드하도록 설계되지 않았기 때문에 트래픽을 처리할 수 없는 경우 게이트웨이가 연결을 닫을 수 있습니다.
 
 **해상도**: JDBC/ODBC 드라이버를 사용하여 방대한 양의 데이터를 다운로드하지 마십시오. 대신 Blob 저장소에서 직접 데이터를 복사합니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -166,12 +165,8 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 * [Azure HDInsight에서 마이크로 소프트 파워 BI로 아파치 하이브 데이터를 시각화](apache-hadoop-connect-hive-power-bi.md).
 * [Azure HDInsight에서 Power BI를 사용하여 대화형 쿼리 Hive 데이터 시각화](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
-* [아파치 제플린을 사용하여 Azure HDInsight에서 아파치 하이브 쿼리를 실행합니다.](../interactive-query/hdinsight-connect-hive-zeppelin.md)
 * [Microsoft Hive ODBC Driver로 HDInsight에 Excel 연결](apache-hadoop-connect-excel-hive-odbc-driver.md)
 * [전원 쿼리를 사용하여 아파치 하두프에 엑셀을 연결합니다.](apache-hadoop-connect-excel-power-query.md)
-* [Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 및 Apache Hive 쿼리 실행](apache-hadoop-visual-studio-tools-get-started.md)
-* [비주얼 스튜디오 코드에 대 한 Azure HDInsight 도구를 사용 하 여](../hdinsight-for-vscode.md).
-* [HDInsight에 데이터 업로드](../hdinsight-upload-data.md)
 * [HDInsight에서 Apache Hive 사용](hdinsight-use-hive.md)
-* [HDInsight에서 Apache Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Apache Pig 사용](../use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)

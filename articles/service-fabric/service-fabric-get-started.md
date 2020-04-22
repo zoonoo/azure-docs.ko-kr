@@ -3,14 +3,14 @@ title: Windows 개발 환경 설정
 description: 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 완료하면 Windows에서 애플리케이션을 빌드할 수 있습니다.
 author: peterpogorski
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 04/20/2020
 ms.custom: sfrev
-ms.openlocfilehash: f08c6b0675475b4e15ce6db3a9dbe0e2863b9ddb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1b43c838537e46ffbaf6c4adcfb117f6718bd046
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252761"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731749"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
 
@@ -33,7 +33,7 @@ Windows 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션][1]을 �
 * Windows 8/Windows 8.1
 * Windows Server 2012 R2
 * Windows Server 2016
-* 윈도우 10
+* Windows 10
 
 > [!NOTE]
 > Windows 7 지원:
@@ -68,8 +68,8 @@ SDK만 필요한 경우 다음 패키지를 설치할 수 있습니다.
 
 현재 버전은 다음과 같습니다.
 
-* 서비스 패브릭 SDK 및 도구 4.0.470
-* 서비스 패브릭 런타임 7.0.470
+* 서비스 패브릭 SDK 및 도구 4.1.409
+* 서비스 패브릭 런타임 7.1.409
 
 지원되는 버전 목록은 [Service Fabric 버전](service-fabric-versions.md)을 참조하세요.
 

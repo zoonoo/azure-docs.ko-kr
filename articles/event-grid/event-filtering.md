@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: f9fca0a9fefb5959747a4492139ae422a118db02
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce1bb3760ae73a9eaeee3cde957cc94841ebdf29
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70390187"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731950"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Event Grid 구독에 대한 이벤트 필터링 이해
 
@@ -59,7 +59,7 @@ ms.locfileid: "70390187"
 
 * 연산자 형식 - 비교의 형식입니다.
 * 키 - 필터링에 사용하는 이벤트 데이터의 필드입니다. 숫자, 부울 또는 문자열일 수 있습니다.
-* 값 - 키와 비교할 값입니다.
+* 값 - 키와 비교할 값 또는 값입니다.
 
 여러 값을 가진 단일 필터를 지정하는 경우 **OR** 작업이 수행되므로 키 필드의 값이 이러한 값 중 하나여야 합니다. 다음은 예제입니다.
 

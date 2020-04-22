@@ -10,18 +10,18 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/12/2020
 ms.author: ellbe
-ms.openlocfilehash: ba1521581316d559eb4e67bafba0061c31cc666b
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 3a71a29fdf4af10162e2f7961fb457d0e99b18e8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272953"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687134"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>언어 식별 모델로 음성 언어를 자동으로 식별
 
 비디오 인덱서 (VIDEO Indexer)는 오디오에서 음성 언어 콘텐츠를 자동으로 식별하고 미디어 파일을 주요 식별 언어로 전사하는 프로세스인 자동 언어 식별(LID)을 지원합니다. 
 
-현재 LID 지원: 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어 Chines, 일본어, 러시아어, 포르투갈어(브라질). 
+현재 LID 지원: 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어, 일본어, 러시아어, 포르투갈어(브라질어). 
 
 아래의 지침 [및 제한](#guidelines-and-limitations) 섹션을 검토하십시오.
 

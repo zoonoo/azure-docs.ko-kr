@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: a4f9833e8dd14dc7c8ec5849cb809bf2089a5dae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ecde5acb7dc57ed9e5802c1589d5813a9206643
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77206126"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684838"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Translator Text API에 대한 언어 및 지역 지원
 
@@ -63,6 +63,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 |프랑스어|    `fr`    |   신경|
 |독일어|    `de`    |   신경|
 |그리스어| `el`    |   신경|
+|구자라트어|  `gu`    |   신경|
 |아이티 크리올|    `ht`        |통계|
 |히브리어 |`he`   |신경
 |힌디어| `hi`    |   신경|
@@ -85,6 +86,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 |말라얄람어| `ml` | 신경
 |몰타어|   `mt`    |   통계|
 |마오리어| `mi`  | 신경|
+|마라티어| `mr`  | 신경|
 |노르웨이어| `nb`    |   신경|
 |페르시아어|   `fa`    |   신경|
 |폴란드어|    `pl`    |   신경|

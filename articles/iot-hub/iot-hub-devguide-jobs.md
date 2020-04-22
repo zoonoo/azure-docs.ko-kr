@@ -8,12 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 147dd0f454bd85673bcba5cd6148c5da9716c580
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 5c14e8cfcbf8df86b0f71d6b12025594d2e648c4
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65409046"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730099"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>여러 디바이스에서 작업 예약
 
@@ -182,7 +183,7 @@ Content-Type: application/json; charset=utf-8
 | **작업 ID** |작업에 대해 애플리케이션에서 제공한 ID입니다. |
 | **startTime** |작업에 대해 애플리케이션에서 제공한 시작 시간(ISO-8601)입니다. |
 | **Endtime** |작업이 완료될 때 IoT Hub에서 제공한 날짜(ISO-8601)입니다. 작업이 '완료됨' 상태에 도달한 후에만 유효합니다. |
-| **종류** |작업 형식: |
+| **type** |작업 형식: |
 | | **scheduleUpdateTwin**: 원하는 속성 또는 태그 집합을 업데이트하는 데 사용되는 작업입니다. |
 | | **scheduleDeviceMethod**: 장치 쌍 집합에서 장치 메서드를 호출하는 데 사용되는 작업입니다. |
 | **상태** |작업의 현재 상태입니다. 가능한 상태 값: |

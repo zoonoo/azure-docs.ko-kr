@@ -1,19 +1,19 @@
 ---
-title: Azure Marketplace SaaS 애플리케이션 기술 게시 가이드
+title: Azure 마켓플레이스 SaaS 응용 프로그램 게시 가이드
 description: Azure Marketplace에 SaaS 애플리케이션을 게시하는 단계별 가이드 및 게시 검사 목록
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-author: keithcharlie
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/09/2018
-ms.author: kevidal
-ms.openlocfilehash: 641297ea74a08dea163cf768b8e9b245348824a4
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/15/2020
+ms.author: dsindona
+ms.openlocfilehash: 1bc2feb4d8f3f103802bd823c66cd3f54ac5d74a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80544293"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687552"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS 애플리케이션 제품 게시 가이드
 
@@ -26,7 +26,7 @@ SaaS 애플리케이션은 모두 Azure 상점에서 사용할 수 있습니다.
 | 상점 옵션 | 나열 | 평가판/거래 |  
 | --- | --- | --- |  
 | AppSource | 예 | 예 |
-| Azure 마켓플레이스 | 아니요 | 예 |   
+| Azure 마켓플레이스 | 예 | 예 |   
 
 **목록:** 나열 게시 옵션은 연락처 제품 형식으로 이루어지고 평가판 또는 거래 수준의 참여가 불가능할 때 사용됩니다. 이 방식은 마켓 내 솔루션의 게시자가 비즈니스 수익을 창출하는 거래를 할 수 있는 잠재 고객을 바로 받을 수 있다는 장점이 있습니다.  
 **평가판/트랜잭션:** 고객은 솔루션에 대한 평가판을 직접 구입하거나 요청할 수 있습니다. 평가판 환경을 제공하면 고객에게 제공되는 참여 수준이 높아지고 고객이 솔루션을 구입하기 전에 탐색할 수 있습니다. 평가판 환경을 사용할 경우 상점에서 홍보할 기회를 갖고 고객 참여를 통해 보다 풍부하고 많은 잠재 고객을 창출할 수 있습니다. 체험의 경우 적어도 체험 기간 동안 무료 지원이 포함되어야 합니다.  
@@ -110,8 +110,8 @@ Azure AD를 사용하면 다음과 같이 앱 또는 평가판에 대한 원클�
 **다중 테넌트 응용 프로그램의 경우:**  
 
 이미 Azure AD를 지원하는 경우 다음을 수행합니다.
-1.  Azure Portal에서 애플리케이션을 등록합니다.
-2.  Azure AD의 다중 테넌트 지원 기능으로 원클릭 평가판 환경을 사용할 수 있습니다. [여기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)에서 자세한 내용을 찾을 수 있습니다.  
+1.    Azure Portal에서 애플리케이션을 등록합니다.
+2.    Azure AD의 다중 테넌트 지원 기능으로 원클릭 평가판 환경을 사용할 수 있습니다. [여기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)에서 자세한 내용을 찾을 수 있습니다.  
 
 Azure AD 페더레이션 SSO를 처음 사용하는 경우 다음을 수행합니다. 
 1.  Azure Portal에서 애플리케이션을 등록합니다.
@@ -144,9 +144,9 @@ Microsoft는 상거래를 주도합니다. Microsoft는 사용자를 대신하�
 ## <a name="next-steps"></a>다음 단계
 아직 수행하지 않았다면
 
-- Marketplace에 [등록](https://azuremarketplace.microsoft.com/sell).
+* 마켓플레이스에 대해 [알아보세요.](https://azuremarketplace.microsoft.com/sell)
 
-새 제품을 등록하고 만들거나 기존에서 작업하는 경우
+파트너 센터에 등록하려면 새 오퍼를 만들거나 기존 오퍼를 작성하기 시작합니다.
 
-- 제품을 만들거나 완료하기 위해 [Cloud 파트너 포털에 로그인](https://cloudpartner.azure.com).
-- 자세한 내용은 [Azure SaaS 애플리케이션 제품](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer)을 참조하세요.
+* [파트너 센터에 로그인하여](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 쿠폰을 만들거나 완료하세요.
+* 자세한 [내용은 SaaS 응용 프로그램 오퍼 만들기를](./partner-center-portal/create-new-saas-offer.md) 참조하십시오.

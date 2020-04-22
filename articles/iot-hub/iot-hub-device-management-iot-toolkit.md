@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 9d4d82472664900c96b77b31740573d0463465b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d85e0e967dd802a77ccbc11b884d7a9f2891524d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75911936"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81688093"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Visual Studio Code용 Azure IoT Tools를 사용한 Azure IoT Hub 디바이스 관리
 
@@ -47,8 +47,8 @@ ms.locfileid: "75911936"
 
 * 활성화된 Azure 구독.
 * 구독 중인 Azure IoT Hub
-* [비주얼 스튜디오 코드](https://code.visualstudio.com/)
-* [VS 코드에 대한 Azure IoT 도구](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 또는 [시각적 스튜디오 코드에서 이 링크를 엽니다.](vscode:extension/vsciot-vscode.azure-iot-tools)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [VS 코드용 Azure IoT 도구](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 또는 이 URL을 복사하여 브라우저 창에 붙여넣습니다.`vscode:extension/vsciot-vscode.azure-iot-tools`
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>로그인하여 IoT Hub에 액세스
 

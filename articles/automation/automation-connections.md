@@ -1,18 +1,18 @@
 ---
-title: Azure Automation의 연결 자산
+title: Azure 자동화에서 연결 관리
 description: Azure Automation의 연결 자산은 외부 서비스 또는 runbook이나 DSC 구성의 애플리케이션을 연결하는데 필요한 정보를 포함합니다. 이 문서에서는 연결에 대해 자세히 알아보고 텍스트 작성과 그래픽 작성 모두에서 연결을 사용하는 방법을 설명합니다.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: d1ce59322b0cbfaf5a4f7b31371f0d0929a3a3ab
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 90d4ec1bbfd0d76ffedf1505c9147376e3947c3c
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457725"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729047"
 ---
-# <a name="connection-assets-in-azure-automation"></a>Azure Automation의 연결 자산
+# <a name="manage-connections-in-azure-automation"></a>Azure 자동화에서 연결 관리
 
 Automation 연결 자산은 외부 서비스 또는 runbook의 애플리케이션이나 DSC 구성 연결에 필요한 정보를 포함합니다. 여기에는 URL 또는 포트와 같은 연결 정보 외에 사용자 이름 및 암호와 같은 인증에 필요한 정보가 포함될 수 있습니다. 연결 값은 여러 변수를 만드는 대신, 특정 애플리케이션에 연결하기 위한 모든 속성을 하나의 자산에 유지합니다. 사용자는 한 위치의 연결에 대한 값을 편집할 수 있고 단일 매개 변수에서 연결 이름을 runbook 이나 DSC구성에 전달할 수 있습니다. 연결에 대한 속성은 `Get-AutomationConnection` 활동이 있는 Runbook 또는 DSC 구성에서 액세스할 수 있습니다.
 
@@ -38,7 +38,7 @@ Azure 자동화에서 사용할 수 있는 기본 제공 연결에는 세 가지
 
 다음 테이블의 cmdlet은 Windows PowerShell을 사용하여 Automation 연결을 만들고 관리하는 데 사용됩니다. 자동화 런북 및 DSC 구성에서 사용할 수 있는 [Azure PowerShell 모듈의](/powershell/azure/overview)일부로 제공됩니다.
 
-|Cmdlet|Description|
+|Cmdlet|설명|
 |---|---|
 |[Get-Az자동화연결](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|연결을 검색합니다. 연결 필드의 값이 포함된 해시 테이블을 포함합니다.|
 |[새로운 아즈오토메이션커넥션](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|새 연결을 만듭니다.|
@@ -49,7 +49,7 @@ Azure 자동화에서 사용할 수 있는 기본 제공 연결에는 세 가지
 
 다음 표의 활동은 runbook 또는 DSC 구성의 연결에 액세스하는데 사용됩니다.
 
-|활동|Description|
+|활동|설명|
 |---|---|
 |`Get-AutomationConnection` | 사용할 연결을 가져옵니다. 연결 속성이 포함된 해시 테이블을 반환합니다.|
 

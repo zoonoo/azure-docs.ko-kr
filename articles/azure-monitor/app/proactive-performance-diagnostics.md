@@ -4,12 +4,12 @@ description: Application Insights는 앱 원격 분석의 스마트 분석을 �
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 3d8de08605d3dd693eb74a84a29c2efa6cad669a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c5b19c7e03993ef973cd708ed7a6fe89feb01a5
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671735"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687685"
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 감지 - 성능 이상
 
@@ -71,7 +71,7 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 
   * 아직은 가능하지 않지만 다음 작업은 가능합니다.
     * [메트릭이 임계값을](../../azure-monitor/app/alerts.md) 초과할 때를 알려주는 경고를 설정합니다.
-    * 직접 분석할 수 있는 [데이터베이스](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md), [PowerBI](../../azure-monitor/app/export-power-bi.md )에 [원격 분석을 내보냅니다](../../azure-monitor/app/export-telemetry.md).
+    * 원격 분석을 [데이터베이스또는](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) 직접 분석할 수 있는 [Power BI로](../../azure-monitor/app/export-power-bi.md ) [내보냅니다.](../../azure-monitor/app/export-telemetry.md)
 * *얼마나 자주 분석합니까?*
 
   * 원격 분석 데이터에 대한 분석은 전날부터 매일 실행됩니다(UTC 표준 시간대로 하루 종일).
@@ -125,11 +125,11 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
   * 작업 시간이 소요된 위치를 파악하는 데 도움이 되는 프로파일러 추적(검색 기간 동안 이 작업에 대해 프로파일러 추적 예제가 수집된 경우 해당 링크를 사용할 수 있음) 
   * 이 작업에 대한 시간 범위/필터를 분석 및 분할할 수 있는 메트릭 탐색기의 성능 보고서
   * 이 호출을 검색하여 특정 호출 속성을 확인합니다.
-  * 오류 보고 - 오류 수가 1보다 크면 성능 저하에 기여했을 수 있는 작업 실패가 발생한 것입니다.
+  * 오류 보고서 - 카운트 > 1인 경우 이 작업에 성능 저하로 인해 오류가 발생했습니다.
 
 ## <a name="dependency-duration-degradation"></a>종속성 기간 저하
 
-최신 애플리케이션이 점점 더 많이 마이크로 서비스 디자인 방식을 채택하게 되면서 외부 서비스에 과도하게 의존하는 경우가 많아지고 있습니다. 예를 들어 애플리케이션이 일부 데이터 플랫폼에 의존하거나 직접 bot 서비스를 구축하는 경우에도, 일부 Cognitive Services 공급자에 릴레이하여 bot이 좀 더 인간적인 방식으로 상호 작용하도록 설정하고, 일부 데이터 저장소 서비스에 릴레이하여 bot이 답변을 끌어오도록 할 수 있습니다.  
+최신 애플리케이션은 점점 더 마이크로 서비스 설계 접근 방식을 채택하고 있으며, 이는 대부분의 경우 외부 서비스에 대한 강력한 신뢰성으로 이어집니다. 예를 들어 애플리케이션이 일부 데이터 플랫폼에 의존하거나 직접 bot 서비스를 구축하는 경우에도, 일부 Cognitive Services 공급자에 릴레이하여 bot이 좀 더 인간적인 방식으로 상호 작용하도록 설정하고, 일부 데이터 저장소 서비스에 릴레이하여 bot이 답변을 끌어오도록 할 수 있습니다.  
 
 예제 종속성 성능 저하 알림:
 

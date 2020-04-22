@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/08/2020
-ms.openlocfilehash: 77c58bb8dfa7d21b108d2aa63e90142f66877fb7
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.date: 04/20/2020
+ms.openlocfilehash: 6b353967c9b9c7517f1a42581717c6394c0e6374
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606517"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729134"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 행 변환 변경
 
@@ -48,10 +48,12 @@ ms.locfileid: "81606517"
 
 ![행 싱크 변경](media/data-flow/alter-row2.png "행 싱크 변경")
 
- 기본 동작은 삽입만 허용하는 것입니다. 업데이트, upserts 또는 삭제를 허용하려면 해당 조건에 해당하는 싱크의 확인란을 선택합니다. 업데이트, upserts 또는 삭제가 활성화된 경우 싱크의 어떤 키 열과 일치할지 지정해야 합니다.
+기본 동작은 삽입만 허용하는 것입니다. 업데이트, upserts 또는 삭제를 허용하려면 해당 조건에 해당하는 싱크의 확인란을 선택합니다. 업데이트, upserts 또는 삭제가 활성화된 경우 싱크의 어떤 키 열과 일치할지 지정해야 합니다.
 
 > [!NOTE]
 > 삽입, 업데이트 또는 upserts가 싱크에서 대상 테이블의 스키마를 수정하면 데이터 흐름이 실패합니다. 데이터베이스에서 대상 스키마를 수정하려면 **테이블 만들기를** 테이블 작업으로 선택합니다. 이렇게 하면 새 스키마 정의로 테이블이 삭제되고 다시 생성됩니다.
+
+싱크 변환에는 대상 데이터베이스에서 고유한 행 식별을 위해 단일 키 또는 일련의 키가 필요합니다. SQL 싱크의 경우 싱크 설정 탭에서 키를 설정합니다. CosmosDB의 경우 설정에서 파티션 키를 설정하고 싱크 매핑에서 CosmosDB 시스템 필드 "id"를 설정합니다. CosmosDB의 경우 업데이트, upsert 및 삭제에 대한 시스템 열 "id"를 포함해야 합니다.
 
 ## <a name="data-flow-script"></a>데이터 흐름 스크립트
 

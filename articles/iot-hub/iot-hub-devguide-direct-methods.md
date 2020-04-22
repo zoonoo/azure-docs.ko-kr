@@ -7,12 +7,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: rezas
-ms.openlocfilehash: d4040a4d0cf3fadf7a6e07c0e03e105975d17040
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 13936a55baed59d5b6257f13f69305a1ce72927a
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79499256"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730395"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
 
@@ -209,4 +212,4 @@ AMQP 메시지는 메서드 요청을 나타내는 수신 링크에 도착하며
 이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 살펴보세요.
 
 * [직접 메서드 사용](quickstart-control-device-node.md)
-* [VS Code용 Azure IoT Tools를 사용한 디바이스 관리](iot-hub-device-management-iot-toolkit.md)
+* [VS Code용 Azure IoT Tools를 사용하여 디바이스 관리](iot-hub-device-management-iot-toolkit.md)

@@ -1,5 +1,5 @@
 ---
-title: 지리적 가용성 및 통화 지원 | Azure
+title: 상업 시장에 대한 지리적 가용성 및 통화 지원 | Azure 마켓플레이스
 description: 상용 시장의 지리적 가용성
 author: qianw211
 ms.service: marketplace
@@ -7,14 +7,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.author: dsindona
-ms.openlocfilehash: 82c3ed79bbcc566a91f9f249ec2df747bbc01cac
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 83906e6270ed41c2ea8f489c5a5312d32a565a29
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262012"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687579"
 ---
-# <a name="geographic-availability-and-currency-support"></a>지리적 가용성 및 통화 지원
+# <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>상용 시장에 대한 지리적 가용성 및 통화 지원
 
 상업용 마켓플레이스 오퍼링은 고객의 청구 주소에 정의된 대로 141개 지역에서 구매할 수 있으며 거래는 17개 통화로 완료할 수 있습니다. 아래 표에는 지원되는 각 지리적 위치, [ISO 3166 두 자리 알파 코드](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)및 할당된 통화가 나열되어 있습니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "81262012"
 | 카보베르데                          | CV        | USD          |
 | 케이맨 제도                      | KY        | USD          |
 | 칠레                               | CL        | USD          |
-| 중국\**                            | CN        | N/A          |
+| 중국\**                            | CN        | 해당 없음          |
 | 콜롬비아                            | CO        | USD          |
 | 코스타리카                          | CR        | USD          |
 | 코트디부아르                       | CI        | USD          |

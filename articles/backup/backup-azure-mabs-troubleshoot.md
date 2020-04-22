@@ -4,12 +4,12 @@ description: Azure Backup Server 설치, 등록 및 애플리케이션 워크로
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: deff49a7d00a335c396a6fa36d3846ef353331c5
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 7a1cac63ba6497b8580c83fe2b666b020701283a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421289"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81688044"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Azure Backup Server 문제 해결
 
@@ -62,7 +62,7 @@ Microsoft Azure 백업 서버(MABS) 문제 해결을 시작하기 전에 아래 
 
 | 작업(Operation) | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-| 보호된 서버에 에이전트 푸시 | \<ServerName>에서 DPM 에이전트 코디네이터 서비스와 통신 오류로 인해 에이전트 작업에 실패했습니다. | **제품에 표시된 권장 작업이 효과가 없으면 다음 단계를 수행합니다.** <ul><li> 신뢰할 수 없는 도메인에서 컴퓨터를 연결하는 경우 [다음 단계를](https://docs.microsoft.com/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019)따르십시오. <br> 또는 </li><li> 신뢰할 수 있는 도메인에서 컴퓨터를 연결하는 경우 [이 블로그에](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726)설명된 단계를 사용하여 문제를 해결합니다. <br>또는</li><li> 문제 해결 단계로 바이러스 백신을 사용하지 않도록 설정해 봅니다. 문제가 해결되면 [이 문서](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757911(v=sc.12))에 제안된 대로 바이러스 백신 설정을 수정합니다.</li></ul> |
+| 보호된 서버에 에이전트 푸시 | \<ServerName>에서 DPM 에이전트 코디네이터 서비스와 통신 오류로 인해 에이전트 작업에 실패했습니다. | **제품에 표시된 권장 작업이 효과가 없으면 다음 단계를 수행합니다.** <ul><li> 신뢰할 수 없는 도메인에서 컴퓨터를 연결하는 경우 [다음 단계를](https://docs.microsoft.com/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019)따르십시오. <br> 또는 </li><li> 신뢰할 수 있는 도메인에서 컴퓨터를 연결하는 경우 [이 블로그에](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726)설명된 단계를 사용하여 문제를 해결합니다. <br>또는</li><li> 문제 해결 단계로 바이러스 백신을 사용하지 않도록 설정해 봅니다. 문제가 해결되면 [이 문서](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019)에 제안된 대로 바이러스 백신 설정을 수정합니다.</li></ul> |
 
 ## <a name="setup-could-not-update-registry-metadata"></a>설치 프로그램이 레지스트리 메타데이터를 업데이트할 수 없습니다.
 
@@ -96,7 +96,7 @@ Microsoft Azure 백업 서버(MABS) 문제 해결을 시작하기 전에 아래 
 | Backup | 시스템 상태만 백업하는 경우 보호된 컴퓨터에 시스템 상태 백업을 저장하기에 충분한 여유 공간이 있는지 확인합니다. | <ol><li>보호된 컴퓨터에 Windows Server 백업이 설치되어 있는지 확인합니다.</li><li>보호된 컴퓨터에 시스템 상태를 저장할 공간이 충분히 있는지 확인합니다. 이를 간단히 확인하려면 보호된 컴퓨터로 이동하고 Windows Server 백업을 연 다음, 선택 사항을 클릭하고 BMR을 선택합니다. 그러면 UI에 얼마나 많은 공간이 필요한지 표시됩니다. **열기 WSB** > **로컬 백업** > **일정** > **선택 백업 구성** > **전체 서버** (크기가 표시 됩니다). 검증에 이 크기를 사용합니다.</li></ol>
 | Backup | BMR에 대한 백업 실패 | BMR 크기가 크면 일부 애플리케이션 파일을 OS 드라이브로 이동한 후 다시 시도합니다. |
 | Backup | 새 Microsoft Azure 백업 서버에서 VM웨어 VM을 다시 보호하는 옵션은 추가할 수 있는 옵션이 표시되지 않습니다. | VMware 속성이 더 이상 사용되지 않는 이전 Microsoft Azure Backup Server 인스턴스에 지정되어 있습니다. 이 문제를 해결하려면:<br><ol><li>VCenter(SC-VMM에 해당)에서 **요약** 탭, **사용자 지정 특성**으로 이동합니다.</li>  <li>**DPMServer** 값에서 이전 Microsoft Azure Backup Server 이름을 삭제합니다.</li>  <li>새 Microsoft Azure Backup Server로 돌아가서 PG를 수정합니다.  **새로 고침** 단추를 선택하면 VM을 보호에 추가할 수 있도록 확인란이 표시됩니다.</li></ol> |
-| Backup | 파일/공유 폴더에 액세스하는 동안 오류가 발생했습니다. | 이 문서에서 제안한 대로 바이러스 백신 설정을 수정해 [보십시오DPM 서버에서 바이러스 백신 소프트웨어 실행.](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757911(v=sc.12))|
+| Backup | 파일/공유 폴더에 액세스하는 동안 오류가 발생했습니다. | 이 문서에서 제안한 대로 바이러스 백신 설정을 수정해 [보십시오DPM 서버에서 바이러스 백신 소프트웨어 실행.](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019)|
 
 ## <a name="change-passphrase"></a>암호 변경
 
@@ -117,24 +117,24 @@ Microsoft Azure 백업 서버(MABS) 문제 해결을 시작하기 전에 아래 
 
 ### <a name="cbpsourcesnapshotfailedreplicamissingorinvalid"></a>CBPSourceSnapshotFailedReplicaMissingOrInvalid
 
-오류 메시지 | 권장 작업 |
+오류 메시지 | 권장 조치 |
 -- | --
 디스크 백업 복제본이 잘못되었거나 누락되어 백업에 실패했습니다. | 이 문제를 해결하려면 아래 단계를 확인하고 작업을 다시 시도하십시오. <br/> 1. 디스크 복구 지점 만들기<br/> 2. 데이터 소스에서 일관성 검사 실행 <br/> 3. 데이터 원본 보호 중지 한 다음이 데이터 원본에 대 한 보호를 다시 구성
 
 ### <a name="cbpsourcesnapshotfailedreplicametadatainvalid"></a>CBPSourceSnapshotFailedReplicaMetadataInvalid
 
-오류 메시지 | 권장 작업 |
+오류 메시지 | 권장 조치 |
 -- | --
 복제본의 메타데이터가 잘못되어 원본 볼륨 스냅숏이 실패했습니다. | 이 데이터 원본의 디스크 복구 지점을 만들고 온라인 백업을 다시 시도합니다.
 
 ### <a name="cbpsourcesnapshotfailedreplicainconsistent"></a>CBPSourceSnapshotFailedReplicaInconsistent
 
-오류 메시지 | 권장 작업 |
+오류 메시지 | 권장 조치 |
 -- | --
 일관되지 않은 데이터 원본 복제본으로 인해 원본 볼륨 스냅숏이 실패했습니다. | 이 데이터 원본에서 일관성 검사를 실행하고 다시 시도하십시오.
 
 ### <a name="cbpsourcesnapshotfailedreplicacloningissue"></a>CBPSourceSnapshotFailedReplicaCloningIssue
 
-오류 메시지 | 권장 작업 |
+오류 메시지 | 권장 조치 |
 -- | --
 디스크 백업 복제본을 복제할 수 없어 백업이 실패했습니다.| 온라인 백업 중에 이전의 모든 디스크 백업 복제파일(.vhdx)이 마운트 해제되지 않고 디스크 백업이 진행되지 않았는지 확인합니다.

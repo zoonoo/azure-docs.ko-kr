@@ -8,12 +8,15 @@ ms.date: 4/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6bc74e82dd04e5845e95bdec5c841d0264dd1d3e
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: f1de8330b950ffa09ce3e8ae168f05021b2ad80c
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115094"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729468"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -250,7 +253,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 #### <a name="option-adjust-log-settings-for-each-container-module"></a>옵션: 각 컨테이너 모듈에 대한 로그 설정 조정
 
-**당신은 만들기에서** 그렇게 할 수 있습니다각 모듈의 옵션. 다음은 그 예입니다.
+**당신은 만들기에서** 그렇게 할 수 있습니다각 모듈의 옵션. 예를 들어:
 
 ```yml
 "createOptions": {

@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 42f8f51545f643e1ed9e1a23c9445f6e216fdabe
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: eadbe13269ce1259b4560af117f5b15b3b294151
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273412"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730596"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>결과 집합 캐싱을 사용한 성능 조정
 
@@ -42,10 +42,11 @@ ms.locfileid: "81273412"
 - 사용자 정의 함수를 사용하여 쿼리
 - 행 수준 보안 또는 열 수준 보안이 활성화된 테이블을 사용하는 쿼리
 - 행 크기가 64KB보다 큰 데이터를 반환하는 쿼리
+- 크기가 큰 데이터를 반환하는 쿼리(>10GB) 
 
 > [!IMPORTANT]
 > 결과 집합 캐시를 만들고 캐시에서 데이터를 검색하는 작업은 Synapse SQL 풀 인스턴스의 제어 노드에서 발생합니다.
-> 결과 집합 캐싱이 켜져 있을 때 큰 결과 집합을 반환하는 쿼리(예: >100만개 행)를 실행하면 컨트롤 노드에서 CPU 사용량이 증가하고 인스턴스의 전체 쿼리 응답 속도가 느려질 수 있습니다.  이러한 쿼리는 일반적으로 데이터 탐색 또는 ETL 작업 중에 사용됩니다. 컨트롤 노드의 스트레스를 방지하고 성능 문제가 발생하는 것을 방지하려면 사용자는 해당 유형의 쿼리를 실행하기 전에 데이터베이스에서 결과 집합 캐싱을 해제해야 합니다.  
+> 결과 집합 캐싱이 켜져 있으면 큰 결과 집합(예: >1GB)을 반환하는 쿼리를 실행하면 컨트롤 노드에서 높은 제한이 발생하고 인스턴스의 전체 쿼리 응답 속도가 느려질 수 있습니다.  이러한 쿼리는 일반적으로 데이터 탐색 또는 ETL 작업 중에 사용됩니다. 컨트롤 노드의 스트레스를 방지하고 성능 문제가 발생하는 것을 방지하려면 사용자는 해당 유형의 쿼리를 실행하기 전에 데이터베이스에서 결과 집합 캐싱을 해제해야 합니다.  
 
 쿼리에 대한 결과 집합 캐싱 작업이 수행된 시간에 대해 이 쿼리를 실행합니다.
 
@@ -71,7 +72,7 @@ WHERE request_id  = <'request_id'>;
 - 새 쿼리와 결과 집합 캐시를 생성한 이전 쿼리가 정확히 일치합니다.
 - 캐시된 결과 집합이 생성된 테이블에는 데이터 또는 스키마 변경 내용이 없습니다.
 
-이 명령을 실행하여 결과 캐시 적중 또는 누락으로 쿼리를 실행했는지 확인합니다. result_cache_hit 열은 캐시 적중의 경우 1, 캐시 누락의 경우 0, 결과 집합 캐싱이 사용되지 않은 이유로 음수 값을 반환합니다. 자세한 내용은 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 확인하십시오.
+이 명령을 실행하여 결과 캐시 적중 또는 누락으로 쿼리를 실행했는지 확인합니다. result_cache_hit 열은 캐시 적중의 경우 1, 캐시 누락의 경우 0, 결과 집합 캐싱이 사용되지 않은 이유로 음수 값을 반환합니다. 자세한 내용은 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
 
 ```sql
 SELECT request_id, command, result_cache_hit FROM sys.dm_pdw_exec_requests

@@ -11,12 +11,12 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: c228f3d6591cd72845101c00188f3fc4a55be644
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 740a42dc94cdfa8d5c5a91b32b58cbff4c1bcda0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77087358"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687780"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>T-SQL(Transact-SQL)을 사용하여 Elastic Database 작업 만들기 및 관리
 
@@ -435,7 +435,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 #### <a name="syntax"></a>구문  
   
 
-```sql
+```syntaxsql
 [jobs].sp_add_job [ @job_name = ] 'job_name'  
     [ , [ @description = ] 'description' ]   
     [ , [ @enabled = ] enabled ]
@@ -500,7 +500,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 #### <a name="syntax"></a>구문
 
-```sql
+```syntaxsql
 [jobs].sp_update_job [ @job_name = ] 'job_name'  
     [ , [ @new_name = ] 'new_name' ]
     [ , [ @description = ] 'description' ]   
@@ -563,7 +563,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 #### <a name="syntax"></a>구문
 
-```sql
+```syntaxsql
 [jobs].sp_delete_job [ @job_name = ] 'job_name'
     [ , [ @force = ] force ]
 ```
@@ -596,7 +596,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 #### <a name="syntax"></a>구문
 
 
-```sql
+```syntaxsql
 [jobs].sp_add_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]   
      [ , [ @step_name = ] step_name ]   
@@ -721,7 +721,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 #### <a name="syntax"></a>구문
 
-```sql
+```syntaxsql
 [jobs].sp_update_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]   
      [ , [ @step_name = ] 'step_name' ]   
@@ -847,7 +847,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 #### <a name="syntax"></a>구문
 
 
-```sql
+```syntaxsql
 [jobs].sp_delete_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]
      [ , [ @step_name = ] 'step_name' ]   
@@ -893,7 +893,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 #### <a name="syntax"></a>구문
 
 
-```sql
+```syntaxsql
 [jobs].sp_start_job [ @job_name = ] 'job_name'   
      [ , [ @job_execution_id = ] job_execution_id OUTPUT ]   
 ```
@@ -924,7 +924,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 #### <a name="syntax"></a>구문
 
 
-```sql
+```syntaxsql
 [jobs].sp_stop_job [ @job_execution_id = ] ' job_execution_id '
 ```
 
@@ -953,7 +953,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 #### <a name="syntax"></a>구문
 
 
-```sql
+```syntaxsql
 [jobs].sp_add_target_group [ @target_group_name = ] 'target_group_name'   
      [ , [ @target_group_id = ] target_group_id OUTPUT ]
 ```
@@ -984,7 +984,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 #### <a name="syntax"></a>구문
 
 
-```sql
+```syntaxsql
 [jobs].sp_delete_target_group [ @target_group_name = ] 'target_group_name'
 ```
 
@@ -1011,7 +1011,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 #### <a name="syntax"></a>구문
 
-```sql
+```syntaxsql
 [jobs].sp_add_target_group_member [ @target_group_name = ] 'target_group_name'
          [ @membership_type = ] 'membership_type' ]   
         [ , [ @target_type = ] 'target_type' ]   
@@ -1101,7 +1101,7 @@ GO
 #### <a name="syntax"></a>구문
 
 
-```sql
+```syntaxsql
 [jobs].sp_delete_target_group_member [ @target_group_name = ] 'target_group_name'
         [ , [ @target_id = ] 'target_id']
 ```
@@ -1145,14 +1145,14 @@ EXEC jobs.sp_delete_target_group_member
 GO
 ```
 
-### <a name="sp_purge_jobhistory"></a><a name="sp_purge_jobhistory"></a>sp_purge_jobhistory 
+### <a name="sp_purge_jobhistory"></a><a name="sp_purge_jobhistory"></a>sp_purge_jobhistory
 
 작업에 대한 기록 레코드를 제거합니다.
 
 #### <a name="syntax"></a>구문
 
 
-```sql
+```syntaxsql
 [jobs].sp_purge_jobhistory [ @job_name = ] 'job_name'   
       [ , [ @job_id = ] job_id ]
       [ , [ @oldest_date = ] oldest_date []
@@ -1335,7 +1335,7 @@ GO
 |**subscription_id**    |uniqueidentifier|  구독의 고유 ID입니다.|
 |**resource_group_name**    |nvarchar(128)| 대상 그룹 멤버가 있는 리소스 그룹의 이름입니다.|
 |**server_name**    |nvarchar(128)  |대상 그룹에 포함된 SQL Database 서버의 이름입니다. target_type이 'SqlServer'인 경우에만 지정됩니다. |
-|**Database_name**  |nvarchar(128)  |대상 그룹에 포함된 데이터베이스의 이름입니다. target_type이 'SqlDatabase'인 경우에만 지정됩니다.|
+|**database_name**  |nvarchar(128)  |대상 그룹에 포함된 데이터베이스의 이름입니다. target_type이 'SqlDatabase'인 경우에만 지정됩니다.|
 |**elastic_pool_name**  |nvarchar(128)| 대상 그룹에 포함된 탄력적 풀의 이름입니다. target_type이 'SqlElasticPool'인 경우에만 지정됩니다.|
 |**shard_map_name** |nvarchar(128)| 대상 그룹에 포함된 분할된 맵의 이름입니다. target_type이 'SqlShardMap'인 경우에만 지정됩니다.|
 

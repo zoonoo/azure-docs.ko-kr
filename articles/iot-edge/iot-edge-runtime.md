@@ -8,12 +8,15 @@ ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c184972789c412406f264f725f8b94e1f7f162ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: ef31bd74c73aa081c32031b71392f69a1ca14f75
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284903"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730899"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IoT Edge 런타임 및 해당 아키텍처 이해
 
@@ -48,7 +51,7 @@ IoT Edge 솔루션이 사용하는 대역폭을 줄이기 위해 IoT Edge 허브
 
 ![IoT Edge 허브는 물리적 디바이스와 IoT Hub 간의 게이트웨이입니다.](./media/iot-edge-runtime/Gateway.png)
 
-IoT Edge 허브는 IoT Hub에 연결되어 있는지 여부를 결정할 수 있습니다. 연결이 끊어진 경우 IoT Edge 허브는 메시지 또는 쌍 업데이트를 로컬로 저장합니다. 연결이 다시 설정되면 모든 데이터가 동기화됩니다. 이 임시 캐시에 사용되는 위치는 IoT Edge 허브 모듈 쌍의 속성으로 결정됩니다. 캐시의 크기는 제한되지 않으며, 디바이스에 스토리지 용량이 있는 동안에는 증가합니다.자세한 내용은 [오프라인 기능을](offline-capabilities.md)참조하십시오.
+IoT Edge 허브는 IoT Hub에 연결되어 있는지 여부를 결정할 수 있습니다. 연결이 끊어진 경우 IoT Edge 허브는 메시지 또는 쌍 업데이트를 로컬로 저장합니다. 연결이 다시 설정되면 모든 데이터가 동기화됩니다. 이 임시 캐시에 사용되는 위치는 IoT Edge 허브의 모듈 트윈속성에 의해 결정됩니다. 캐시의 크기는 제한되지 않으며, 디바이스에 스토리지 용량이 있는 동안에는 증가합니다.자세한 내용은 [오프라인 기능을](offline-capabilities.md)참조하십시오.
 
 ### <a name="module-communication"></a>모듈 통신
 
@@ -82,7 +85,7 @@ IoT Edge 에이전트는 Azure IoT Edge 런타임을 구성하는 다른 모듈�
 
 [IoT Edge 보안 디먼](iot-edge-security-manager.md)은 디바이스 시작 시 IoT Edge 에이전트를 시작합니다. 에이전트는 IoT Hub에서 모듈 쌍을 검색하고 배포 매니페스트를 검사합니다. 배포 매니페스트는 시작되어야 하는 모듈을 선언하는 JSON 파일입니다.
 
-배포 매니페스트의 각 항목에는 모듈에 대한 특정 정보가 포함되며, 모듈의 수명 주기를 제어하기 위해 IoT Edge 에이전트에서 사용합니다. 더 유용한 속성 중 일부는 다음과 같습니다.
+배포 매니페스트의 각 항목에는 모듈에 대한 특정 정보가 포함되어 있으며 IoT Edge 에이전트가 모듈의 수명 주기를 제어하는 데 사용됩니다. 더 유용한 속성 중 일부는 다음과 같습니다.
 
 * **settings.image** – IoT Edge 에이전트에서 모듈을 시작하는 데 사용하는 컨테이너 이미지입니다. 이미지가 암호로 보호되는 경우 IoT Edge 에이전트는 컨테이너 레지스트리에 대한 자격 증명으로 구성되어야 합니다. 컨테이너 레지스트리에 대한 자격 증명은 배포 매니페스트를 사용하여 또는 IoT Edge 프로그램 폴더에서 `config.yaml` 파일을 업데이트하여 IoT Edge 디바이스 자체에서 원격으로 구성될 수 있습니다.
 * **settings.createOptions** – 모듈의 컨테이너를 시작할 때 Moby 컨테이너 데몬에 직접 전달되는 문자열입니다. 이 속성에 옵션을 추가하면 포트 포워딩 또는 볼륨을 모듈 컨테이너에 장착하는 것과 같은 고급 구성을 수행할 수 있습니다.  
@@ -119,7 +122,7 @@ IoT Edge 에이전트는 IoT Hub에 런타임 응답을 보냅니다. 가능한 
 
 ### <a name="security"></a>보안
 
-IoT Edge 에이전트는 IoT Edge 디바이스의 보안에서 중요한 역할을 합니다. 예를 들어 모듈의 이미지를 시작하기 전에 해당 이미지의 확인과 같은 작업을 수행합니다.
+IoT Edge 에이전트는 IoT Edge 디바이스의 보안에서 중요한 역할을 합니다. 예를 들어 모듈이미지를 시작하기 전에 모듈의 이미지를 확인하는 등의 작업을 수행합니다.
 
 Azure IoT Edge 보안 프레임워크에 대한 자세한 내용은 [IoT Edge 보안 관리자를](iot-edge-security-manager.md)참조하십시오.
 

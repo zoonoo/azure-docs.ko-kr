@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 262129084be5c6a68bfd8d8708c9a10fbb606144
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: e51b8c705533fd74a5e46eaa2570563fef485309
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383736"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730633"
 ---
 # <a name="create-an-azure-vm-technical-asset"></a>Azure VM 기술 자산 만들기
 
@@ -46,7 +46,7 @@ ms.locfileid: "81383736"
 
 개발 환경에 다음 도구를 추가하는 것이 좋습니다.
 
-- [Azure Storage Explorer](https://aka.ms/GetStartedWithStorageExplorer)
+- [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)
 - [Visual Studio Code](https://code.visualstudio.com/)
   - 확장: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   - 확장: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)

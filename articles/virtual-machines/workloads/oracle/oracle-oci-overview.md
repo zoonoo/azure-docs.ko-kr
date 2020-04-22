@@ -3,7 +3,7 @@ title: 마이크로소프트 Azure를 오라클 클라우드 인프라와 통합
 description: Microsoft Azure에서 실행되는 Oracle 앱을 OCI(오라클 클라우드 인프라)의 데이터베이스와 통합하는 솔루션에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: mimckitt
+author: BorisB2015
 manager: gwallace
 tags: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/16/2020
-ms.author: mimckitt
+ms.author: borisb
 ms.custom: ''
-ms.openlocfilehash: 178fb805f4bfc0762ce7e4a320752e5afa00cef5
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: e70eedcfcdf548965b79e4a48a3a8bfa643f0396
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271865"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687437"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>마이크로소프트 Azure와 오라클 클라우드 인프라를 통합한 오라클 애플리케이션 솔루션
 

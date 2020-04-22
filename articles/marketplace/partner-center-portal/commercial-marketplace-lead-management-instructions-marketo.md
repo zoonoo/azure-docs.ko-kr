@@ -2,17 +2,17 @@
 title: Marketo에서 잠재 고객 관리 구성 | Azure 마켓플레이스
 description: Azure 마켓플레이스 고객을 위한 Marketo에 대한 잠재 고객 관리를 구성합니다.
 author: qianw211
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: 04eae529efcf9509d8cd43a7629bb0b76b593cd0
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 90f42954fd4d7324a7684795fca6ec302411790c
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81252489"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731108"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Marketo의 잠재 고객 관리 구성
 
@@ -21,16 +21,21 @@ ms.locfileid: "81252489"
 ## <a name="set-up-your-marketo-crm-system"></a>Marketo CRM 시스템 설정
 
 1. Marketo에 로그인합니다.
+
 2. **Design Studio**를 선택합니다.
+
     ![Marketo Design Studio](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-1.png)
 
 3.  **새 양식**을 선택합니다.
+
     ![Marketo 새 양식](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-2.png)
 
 4.  새 양식에서 필수 필드에 정보를 입력한 다음 **만들기**를 선택합니다.
+
     ![Marketo 새 양식 만들기](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-3.png)
 
 5.  필드 세부 정보에서 **마침**을 선택합니다.
+
     ![Marketo 양식 마침](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-4.png)
 
 6.  승인하고 닫습니다.
@@ -41,7 +46,7 @@ ms.locfileid: "81252489"
 
 8. Marketo embed 태그에 다음 예제와 같은 코드가 표시됩니다.
 
-    ```
+    ```html
     <form id="mktoForm_1179"></form>
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
     ```
@@ -63,6 +68,7 @@ ms.locfileid: "81252489"
 게시 포털에서 오퍼의 잠재 고객 관리 정보를 구성할 준비가 되면 다음 단계를 따르십시오. 
 
 1. **오퍼의 제안 설정** 페이지로 이동합니다.
+
 1. 잠재 고객 관리 섹션에서 **연결을** 선택합니다. 
 
     ![잠재 고객 관리 - 연결](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
@@ -73,12 +79,13 @@ ms.locfileid: "81252489"
 
 4. 서버 **ID,** **계정**ID 및 **양식 ID를**제공합니다.
 
-    >[!Note]
-    >오퍼의 나머지 부분을 구성을 완료하고 게시해야 쿠폰에 대한 잠재 고객을 받을 수 있습니다. 
+    > [!Note]
+    > 오퍼의 나머지 부분을 구성을 완료하고 게시해야 쿠폰에 대한 잠재 고객을 받을 수 있습니다. 
 
 5. **연락처 이메일** - 새 잠재 고객으로 연결될 때 이메일 알림을 받아야 하는 회사의 사람들에게 이메일을 제공합니다. 세미콜론으로 구분하여 여러 이메일을 제공할 수 있습니다.
+
 6. **확인**을 선택합니다.
 
-잠재 고객 대상에 성공적으로 연결되었는지 확인하려면 유효성 검사 단추를 클릭합니다. 성공하면 잠재 고객 대상에 테스트 잠재 고객도 있습니다.
+   잠재 고객 대상에 성공적으로 연결되었는지 확인하려면 유효성 검사 단추를 클릭합니다. 성공하면 잠재 고객 대상에 테스트 잠재 고객도 있습니다.
 
-![연결 정보](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)
+   ![연결 정보](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)

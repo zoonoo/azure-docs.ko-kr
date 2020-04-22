@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: af99f369245d6006d0d4784e572020b820e406a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 50028e81c4ca130aa3266c164a431dc935a271cb
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71266052"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730030"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Striim을 사용하여 Azure 코스모스 DB 카산드라 API 계정으로 데이터 마이그레이션
 
@@ -22,13 +22,13 @@ Azure 마켓플레이스의 Striim 이미지는 데이터 웨어하우스 및 �
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [Azure 구독이](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)없는 경우 시작하기 전에 [무료 계정을](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 만듭니다.
+* [Azure 구독](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
 * 일부 데이터가 있는 온-프레미스에서 실행되는 Oracle 데이터베이스입니다.
 
 ## <a name="deploy-the-striim-marketplace-solution"></a>Striim 마켓플레이스 솔루션 배포
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. **리소스 만들기를** 선택하고 Azure 마켓플레이스에서 **Striim을** 검색합니다. 첫 번째 옵션을 선택하고 **을 만듭니다.**
 
@@ -155,7 +155,7 @@ Azure 마켓플레이스의 Striim 이미지는 데이터 웨어하우스 및 �
 
    ![대상에 연결](./media/cosmosdb-cassandra-api-migrate-data-striim/connect-to-target.png)
 
-1. 대상을 구성하기 전에 [Striim의 Java 환경에 볼티모어 루트 인증서를](/azure/java/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store)추가했는지 확인하십시오.
+1. 대상을 구성하기 전에 [Striim의 Java 환경에 볼티모어 루트 인증서를](/azure/developer/java/sdk/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store)추가했는지 확인하십시오.
 
 1. 대상 Azure Cosmos DB 인스턴스의 구성 속성을 입력하고 **계속하려면 저장을** 선택합니다. 주의해야 할 주요 매개 변수는 다음과 같습니다.
 

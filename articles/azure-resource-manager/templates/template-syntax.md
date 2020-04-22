@@ -2,13 +2,13 @@
 title: 템플릿 구조 및 구문
 description: 선언적 JSON 구문을 사용하여 Azure Resource Manager 템플릿의 구조 및 속성을 설명합니다.
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: 4e8334e4ddfaee52c5d1aa68fb8689fcde0a6cbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/20/2020
+ms.openlocfilehash: 60d800eb5251fb3454ba60a67bd109261c6ff9d4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79459993"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687878"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>ARM 템플릿의 구조 및 구문 이해
 
@@ -35,13 +35,13 @@ ms.locfileid: "79459993"
 
 | 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
-| $schema |yes |템플릿 언어의 버전을 설명하는 JSON 스키마 파일의 위치입니다. 사용하는 버전 번호는 배포 범위와 JSON 편집기의 범위에 따라 다릅니다.<br><br>[Azure 리소스 관리자 도구 확장과 함께 VS 코드를](use-vs-code-to-create-template.md)사용하는 경우 리소스 그룹 배포에 대한 최신 버전을 사용합니다.<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Visual Studio를 포함한 다른 편집기에서는 이 스키마를 처리하지 못할 수 있습니다. 이러한 편집자의 경우 다음을 사용합니다.<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>구독 배포의 경우 다음을 사용합니다.<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>관리 그룹 배포의 경우 다음을 사용합니다.<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>테넌트 배포의 경우 다음을 사용합니다.<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
-| contentVersion |yes |템플릿의 버전입니다(예: 1.0.0.0). 이 요소에 값을 제공할 수 있습니다. 이 값을 사용하여 템플릿에서 중요한 변경 내용을 문서화할 수 있습니다. 템플릿을 사용하여 리소스를 배포할 때 이 값을 사용하면 정확한 템플릿이 사용되도록 할 수 있습니다. |
+| $schema |예 |템플릿 언어의 버전을 설명하는 JSON 스키마 파일의 위치입니다. 사용하는 버전 번호는 배포 범위와 JSON 편집기의 범위에 따라 다릅니다.<br><br>[Azure 리소스 관리자 도구 확장과 함께 VS 코드를](use-vs-code-to-create-template.md)사용하는 경우 리소스 그룹 배포에 대한 최신 버전을 사용합니다.<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Visual Studio를 포함한 다른 편집기에서는 이 스키마를 처리하지 못할 수 있습니다. 이러한 편집자의 경우 다음을 사용합니다.<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>구독 배포의 경우 다음을 사용합니다.<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>관리 그룹 배포의 경우 다음을 사용합니다.<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>테넌트 배포의 경우 다음을 사용합니다.<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
+| contentVersion |예 |템플릿의 버전입니다(예: 1.0.0.0). 이 요소에 값을 제공할 수 있습니다. 이 값을 사용하여 템플릿에서 중요한 변경 내용을 문서화할 수 있습니다. 템플릿을 사용하여 리소스를 배포할 때 이 값을 사용하면 정확한 템플릿이 사용되도록 할 수 있습니다. |
 | apiProfile |예 | 리소스 형식에 대 한 API 버전의 컬렉션으로 사용 되는 API 버전입니다. 템플릿의 각 리소스에 대한 API 버전을 지정하지 않아도 하려면 이 값을 사용합니다. API 프로필 버전을 지정하고 리소스 유형에 대한 API 버전을 지정하지 않으면 Resource Manager는 프로필에 정의된 해당 리소스 유형에 대해 API 버전을 사용합니다.<br><br>API 프로필 속성은 Azure 스택 및 전역 Azure와 같은 다른 환경에 템플릿을 배포할 때 특히 유용합니다. API 프로필 버전을 사용하여 템플릿이 두 환경에서 지원되는 버전을 자동으로 사용하도록 합니다. 현재 API 프로필 버전 및 프로필에 정의된 리소스 API 버전 목록은 [API 프로필](https://github.com/Azure/azure-rest-api-specs/tree/master/profile)을 참조하십시오.<br><br>자세한 내용은 [API 프로필을 사용하여 버전 추적을](templates-cloud-consistency.md#track-versions-using-api-profiles)참조하십시오. |
 | [매개 변수](#parameters) |예 |배포를 실행하여 리소스 배포를 사용자 지정할 때 제공되는 값입니다. |
 | [변수](#variables) |예 |템플릿에서 템플릿 언어 식을 단순화하는 JSON 조각으로 사용되는 값입니다. |
 | [함수](#functions) |예 |템플릿 내에서 사용할 수 있는 사용자 정의 함수입니다. |
-| [리소스](#resources) |yes |리소스 그룹 또는 구독에 배포되거나 업데이트되는 리소스 종류입니다. |
+| [리소스](#resources) |예 |리소스 그룹 또는 구독에 배포되거나 업데이트되는 리소스 종류입니다. |
 | [출력](#outputs) |예 |배포 후 반환되는 값입니다. |
 
 각 요소에는 사용자가 설정할 수 있는 속성이 있습니다. 이 기사에서는 템플릿의 섹션에 대해 자세히 설명합니다.
@@ -71,8 +71,8 @@ ms.locfileid: "79459993"
 
 | 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
-| 매개 변수 이름 |yes |매개 변수의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
-| type |yes |매개 변수 값의 유형입니다. 허용되는 유형 및 값은 **string**, **securestring**, **int**, **bool**, **object**, **secureObject** 및 **array**입니다. [데이터 형식을](#data-types)참조하십시오. |
+| 매개 변수 이름 |예 |매개 변수의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
+| type |예 |매개 변수 값의 유형입니다. 허용되는 유형 및 값은 **string**, **securestring**, **int**, **bool**, **object**, **secureObject** 및 **array**입니다. [데이터 형식을](#data-types)참조하십시오. |
 | defaultValue |예 |매개 변수 값을 제공하지 않는 경우 매개 변수의 기본값입니다. |
 | allowedValues |예 |올바른 값을 제공하도록 매개 변수에 대해 허용되는 값의 배열입니다. |
 | minValue |예 |Int 형식 매개 변수의 최소값이며, 이 값이 포함됩니다. |
@@ -95,7 +95,7 @@ ms.locfileid: "79459993"
 
 데이터 형식 의 샘플은 [매개 변수 형식 형식을](parameter-files.md#parameter-type-formats)참조하십시오.
 
-## <a name="variables"></a>변수
+## <a name="variables"></a>variables
 
 변수 섹션에서 템플릿을 통해 사용할 수 있는 값을 생성합니다. 변수를 정의할 필요는 없지만 종종 변수를 통해 복잡한 식을 줄이면 템플릿이 단순화됩니다.
 
@@ -130,7 +130,7 @@ ms.locfileid: "79459993"
 
 변수를 사용하는 방법의 예는 [Azure 리소스 관리자 템플릿의 변수를](template-variables.md)참조하십시오.
 
-## <a name="functions"></a>함수
+## <a name="functions"></a>Functions
 
 템플릿 내에서 함수를 직접 만들 수 있습니다. 이러한 함수는 템플릿에서 사용할 수 있습니다. 일반적으로 템플릿 전체에서 반복하지 않으려는 복잡한 식을 정의합니다. 템플릿에서 지원되는 식 및 [함수](template-functions.md)에서 사용자 정의 함수를 만듭니다.
 
@@ -166,12 +166,12 @@ ms.locfileid: "79459993"
 
 | 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
-| namespace |yes |사용자 지정 함수의 네임스페이스입니다. 템플릿 함수와 의 이름 충돌을 방지하는 데 사용합니다. |
-| 함수 이름 |yes |사용자 지정 함수의 이름입니다. 함수를 호출할 때 함수 이름을 네임스페이스와 결합합니다. 예를 들어 namespace contoso에서 uniqueName이라는 함수를 `"[contoso.uniqueName()]"`호출하려면 을 사용합니다. |
+| namespace |예 |사용자 지정 함수의 네임스페이스입니다. 템플릿 함수와 의 이름 충돌을 방지하는 데 사용합니다. |
+| 함수 이름 |예 |사용자 지정 함수의 이름입니다. 함수를 호출할 때 함수 이름을 네임스페이스와 결합합니다. 예를 들어 namespace contoso에서 uniqueName이라는 함수를 `"[contoso.uniqueName()]"`호출하려면 을 사용합니다. |
 | 매개 변수 이름 |예 |사용자 지정 함수 내에서 사용할 매개 변수의 이름입니다. |
 | 매개 변수 값 |예 |매개 변수 값의 유형입니다. 허용되는 유형 및 값은 **string**, **securestring**, **int**, **bool**, **object**, **secureObject** 및 **array**입니다. |
-| 출력 유형 |yes |출력 값의 유형입니다. 출력 값은 함수 입력 매개 변수와 동일한 형식을 지원합니다. |
-| 출력 값 |yes |함수에서 평가되고 반환되는 템플릿 언어 식입니다. |
+| 출력 유형 |예 |출력 값의 유형입니다. 출력 값은 함수 입력 매개 변수와 동일한 형식을 지원합니다. |
+| 출력 값 |예 |함수에서 평가되고 반환되는 템플릿 언어 식입니다. |
 
 사용자 지정 함수를 사용하는 방법의 예는 [Azure 리소스 관리자 템플릿에서 사용자 정의 함수를](template-user-defined-functions.md)참조하십시오.
 
@@ -238,9 +238,9 @@ ms.locfileid: "79459993"
 | 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
 | condition(조건) | 예 | 리소스가 이 배포 중 프로비전되는지 여부를 나타내는 부울 값입니다. `true`인 경우 리소스는 배포하는 동안 만들어집니다. `false`인 경우 리소스는 이 배포에 대해 건너뛰어집니다. [조건을](conditional-resource-deployment.md)참조하십시오. |
-| type |yes |리소스 유형입니다. 이 값은 리소스 공급자의 네임스페이스와 리소스 형식을 조합한 값입니다(예: **Microsoft.Storage/storageAccounts**). 사용 가능한 값을 확인하려면 [템플릿 참조](/azure/templates/)를 참조하십시오. 자식 리소스의 경우 형식형식은 상위 리소스 내에 중첩되는지 또는 상위 리소스 외부에서 정의된지 여부에 따라 달라집니다. [자식 리소스에 대한 이름 및 형식 설정](child-resource-name-type.md)을 참조하세요. |
-| apiVersion |yes |리소스를 만들 때 사용하는 REST API의 버전입니다. 사용 가능한 값을 확인하려면 [템플릿 참조](/azure/templates/)를 참조하십시오. |
-| name |yes |리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다. 외부 당사자에 리소스 이름을 노출하는 Azure 서비스는 다른 ID를 스푸칭하려는 시도가 아닌지 확인하기 위해 이름의 유효성을 검사합니다. 자식 리소스의 경우 이름의 형식은 상위 리소스 내에 중첩되는지 또는 상위 리소스 외부에서 정의된지 여부에 따라 달라집니다. [자식 리소스에 대한 이름 및 형식 설정](child-resource-name-type.md)을 참조하세요. |
+| type |예 |리소스 유형입니다. 이 값은 리소스 공급자의 네임스페이스와 리소스 유형(예: **Microsoft.Storage/StorageAccounts)의**조합입니다. 사용 가능한 값을 확인하려면 [템플릿 참조](/azure/templates/)를 참조하십시오. 자식 리소스의 경우 형식형식은 상위 리소스 내에 중첩되는지 또는 상위 리소스 외부에서 정의된지 여부에 따라 달라집니다. [자식 리소스에 대한 이름 및 형식 설정](child-resource-name-type.md)을 참조하세요. |
+| apiVersion |예 |리소스를 만들 때 사용하는 REST API의 버전입니다. 사용 가능한 값을 확인하려면 [템플릿 참조](/azure/templates/)를 참조하십시오. |
+| name |예 |리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다. 외부 당사자에 리소스 이름을 노출하는 Azure 서비스는 다른 ID를 스푸칭하려는 시도가 아닌지 확인하기 위해 이름의 유효성을 검사합니다. 자식 리소스의 경우 이름의 형식은 상위 리소스 내에 중첩되는지 또는 상위 리소스 외부에서 정의된지 여부에 따라 달라집니다. [자식 리소스에 대한 이름 및 형식 설정](child-resource-name-type.md)을 참조하세요. |
 | comments |예 |템플릿에서 리소스를 문서화하는 내용에 대한 참고입니다. 자세한 내용은 [템플릿의 주석](template-syntax.md#comments)을 참조하세요. |
 | 위치 |다양함 |제공된 리소스의 지역적 위치를 지원합니다. 사용 가능한 위치 중 하나를 선택할 수 있지만 대개는 사용자에게 가까운 하나를 선택하는 것이 좋습니다. 일반적으로 동일한 지역에서 서로 상호 작용하도록 리소스를 배치하는 것도 좋습니다. 대부분의 리소스 종류에는 위치가 필요하지만 일부 종류(예: 역할 할당)에는 위치가 필요하지 않습니다. [리소스 위치 설정을](resource-location.md)참조하십시오. |
 | dependsOn |예 |이 리소스를 배포하기 전에 배포해야 하는 리소스입니다. Resource Manager는 리소스 간의 종속성을 평가한 후 올바른 순서에 따라 리소스를 배포합니다. 리소스는 서로 종속되지 않을 경우, 병렬로 배포됩니다. 이 값은 리소스 이름 또는 리소스 고유 식별자의 쉼표로 구분된 목록입니다. 이 템플릿에 배포된 리소스만 나열합니다. 이 템플릿에 정의되지 않은 리소스는 이미 존재해야 합니다. 불필요한 종속성은 배포 속도를 느리게 만들고 순환 종속성을 만들기 때문에 추가하지 않습니다. 종속성 설정에 대한 지침은 [Azure Resource Manager 템플릿에서 종속성 정의](define-resource-dependency.md)를 참조하세요. |
@@ -274,10 +274,10 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 일반�
 
 | 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
-| 출력 이름 |yes |출력 값의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
+| 출력 이름 |예 |출력 값의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
 | condition(조건) |예 | 이 출력 값의 반환 여부를 나타내는 부울 값입니다. `true`이면 해당 값이 배포의 출력에 포함됩니다. `false`이면 이 배포에 대한 출력 값을 건너뜁니다. 지정하지 않으면 기본값은 `true`입니다. |
-| type |yes |출력 값의 유형입니다. 출력 값은 템플릿 입력 매개 변수와 동일한 유형을 지원합니다. 출력 유형에 대한 **securestring을** 지정하면 배포 기록에 값이 표시되지 않으며 다른 템플릿에서 검색할 수 없습니다. 두 개 이상의 템플릿에서 비밀 값을 사용하려면 키 볼트에 비밀을 저장하고 매개 변수 파일의 비밀을 참조합니다. 자세한 내용은 [Azure 키 자격 증명 모음 을 사용하여 배포 하는 동안 보안 매개 변수 값을 전달](key-vault-parameter.md)합니다. |
-| value |예 |출력 값으로 계산되어 반환되는 템플릿 언어 식입니다. **값** 또는 **복사**를 지정합니다. |
+| type |예 |출력 값의 유형입니다. 출력 값은 템플릿 입력 매개 변수와 동일한 유형을 지원합니다. 출력 유형에 대한 **securestring을** 지정하면 배포 기록에 값이 표시되지 않으며 다른 템플릿에서 검색할 수 없습니다. 두 개 이상의 템플릿에서 비밀 값을 사용하려면 키 볼트에 비밀을 저장하고 매개 변수 파일의 비밀을 참조합니다. 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](key-vault-parameter.md)을 참조하세요. |
+| 값 |예 |출력 값으로 계산되어 반환되는 템플릿 언어 식입니다. **값** 또는 **복사**를 지정합니다. |
 | copy |예 | 출력에 대해 두 개 이상의 값을 반환하는 데 사용됩니다. **값** 또는 **복사를**지정합니다. 자세한 내용은 [Azure 리소스 관리자 템플릿의 출력 반복을](copy-outputs.md)참조하십시오. |
 
 출력을 사용하는 방법의 예는 [Azure 리소스 관리자 템플릿의 출력을](template-outputs.md)참조하십시오.
@@ -293,7 +293,7 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 일반�
 인라인 주석의 경우 `//` 사용하거나 `/* ... */` 사용할 수 있지만 이 구문은 모든 도구에서 작동하지 않습니다. 포털 템플릿 편집기를 사용하여 인라인 주석이 있는 템플릿에서 작업할 수 없습니다. 이 주석 스타일을 추가하는 경우 사용하는 도구가 반드시 인라인 JSON 주석을 지원해야 합니다.
 
 > [!NOTE]
-> Azure CLI를 사용하여 주석이 있는 템플릿을 `--handle-extended-json-format` 배포하려면 스위치를 사용해야 합니다.
+> 버전 2.3.0 이상에서 Azure CLI를 사용하여 주석이 있는 템플릿을 배포하려면 스위치를 `--handle-extended-json-format` 사용해야 합니다.
 
 ```json
 {
@@ -404,7 +404,7 @@ Visual Studio 코드에서 [Azure 리소스 관리자 도구 확장은](use-vs-c
   ],
 ```
 
-Azure CLI를 사용하여 여러 줄 문자열이 있는 템플릿을 `--handle-extended-json-format` 배포하려면 스위치를 사용해야 합니다.
+버전 2.3.0 이상에서 Azure CLI를 사용하여 여러 줄 문자열이 있는 템플릿을 배포하려면 스위치를 `--handle-extended-json-format` 사용해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

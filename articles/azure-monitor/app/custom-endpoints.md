@@ -3,20 +3,25 @@ title: Azure 응용 프로그램 인사이트 기본 SDK 끝점을 재정의
 description: Azure 정부와 같은 지역에 대한 기본 Azure 모니터 응용 프로그램 인사이트 SDK 끝점을 수정합니다.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: b4ab05c7ee815b385ffb2d1ff9e621063d744dd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b43bd13c73f77c6292e2062db88d68a20e5bf480
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298330"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729522"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>기본 끝점을 재정의하는 애플리케이션 인사이트
 
 응용 프로그램 인사이트에서 특정 지역으로 데이터를 보내려면 기본 끝점 주소를 재정의해야 합니다. 각 SDK에는 약간 다른 수정이 필요하며 이 문서에서 설명하는 모든 수정 사항이 있습니다. 이러한 변경 을 변경하려면 샘플 코드를 조정하고 `QuickPulse_Endpoint_Address`에 `TelemetryChannel_Endpoint_Address`대한 `Profile_Query_Endpoint_address` 자리 표시자 값을 대체하고 특정 지역의 실제 끝점 주소로 바꿔야 합니다. 이 문서의 끝에는 이 구성이 필요한 지역의 끝점 주소에 대한 링크가 포함되어 있습니다.
 
+> [!NOTE]
+> [연결 문자열은](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) 응용 프로그램 인사이트 내에서 사용자 지정 끝점을 설정하는 새로운 기본 방법입니다.
+
+---
+
 ## <a name="sdk-code-changes"></a>SDK 코드 변경
 
-### <a name="net-with-applicationinsightsconfig"></a>.NET with 어플리케이션 인사이트.config
+# <a name="net"></a>[.NET](#tab/net)
 
 > [!NOTE]
 > applicationinsights.config 파일은 SDK 업그레이드가 수행될 때마다 자동으로 덮어씁니까. SDK 업그레이드를 수행한 후에는 영역별 끝점 값을 다시 입력해야 합니다.
@@ -41,7 +46,7 @@ ms.locfileid: "80298330"
 </ApplicationInsights>
 ```
 
-### <a name="aspnet-core"></a>ASP.NET Core
+# <a name="net-core"></a>[.NET Core](#tab/netcore)
 
 프로젝트의 appsettings.json 파일을 다음과 같이 수정하여 기본 끝점을 조정합니다.
 
@@ -68,6 +73,8 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
     //Place in the ConfigureServices method. Place this before services.AddApplicationInsightsTelemetry("instrumentation key"); if it's present
 ```
+
+# <a name="azure-functions"></a>[Azure Functions](#tab/functions)
 
 ### <a name="azure-functions-v2x"></a>Azure 함수 v2.x
 
@@ -120,7 +127,7 @@ namespace Example
 }
 ```
 
-### <a name="java"></a>Java
+# <a name="java"></a>[Java](#tab/java)
 
 기본 끝점 주소를 변경하려면 applicationinsights.xml 파일을 수정합니다.
 
@@ -155,7 +162,7 @@ namespace Example
 azure.application-insights.channel.in-process.endpoint-address= TelemetryChannel_Endpoint_Address
 ```
 
-### <a name="nodejs"></a>Node.js
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
 var appInsights = require("applicationinsights");
@@ -174,7 +181,7 @@ Profile Endpoint: "Profile_Query_Endpoint_address"
 Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 ```
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascript"></a>[JavaScript](#tab/js)
 
 ```javascript
 <script type="text/javascript">
@@ -187,9 +194,11 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 </script>
 ```
 
-### <a name="python"></a>Python
+# <a name="python"></a>[Python](#tab/python)
 
 opencensus-파이썬 SDK에 대한 섭취 끝점을 수정하는 방법에 대한 지침은 [opencensus-파이썬 리포지토리를 참조하십시오.](https://github.com/census-instrumentation/opencensus-python/blob/af284a92b80bcbaf5db53e7e0813f96691b4c696/contrib/opencensus-ext-azure/opencensus/ext/azure/common/__init__.py)
+
+---
 
 ## <a name="regions-that-require-endpoint-modification"></a>끝점 수정이 필요한 영역
 

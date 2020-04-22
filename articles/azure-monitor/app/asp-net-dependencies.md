@@ -3,12 +3,12 @@ title: Azure Application Insights의 종속성 추적 | Microsoft Docs
 description: 응용 프로그램 인사이트를 통해 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램의 종속성 호출을 모니터링합니다.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 1d4e8d1a0482257c92f47a00bd440e786c09c7aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e30d8036c1fc624d39f027f38e314c6c57360f6
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80292119"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731502"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Azure 응용 프로그램 인사이트내 종속성 추적 
 
@@ -97,7 +97,7 @@ ASP.NET 응용 프로그램의 경우 계측 엔진이 필요한 바이트 코�
 | 플랫폼 | 전체 SQL 쿼리를 얻는 데 필요한 단계 |
 | --- | --- |
 | Azure 웹앱 |웹 앱 제어판에서 [응용 프로그램 인사이트 블레이드를 열고](../../azure-monitor/app/azure-web-apps.md) .NET 에서 SQL 명령을 사용하도록 설정합니다. |
-| IIS 서버(Azure VM, 온-프레임 등) | 상태 모니터 PowerShell 모듈을 사용하여 [계측 엔진을 설치하고 IIS를](../../azure-monitor/app/status-monitor-v2-api-enable-instrumentation-engine.md) 다시 시작합니다. |
+| IIS 서버(Azure VM, 온-프레임 등) | 상태 모니터 PowerShell 모듈을 사용하여 [계측 엔진을 설치하고 IIS를](../../azure-monitor/app/status-monitor-v2-api-reference.md) 다시 시작합니다. |
 | Azure 클라우드 서비스 | 시작 작업을 추가하여 [상태 모니터 설치](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> 응용 프로그램은 [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) 또는 ASP.NET 핵심 응용 프로그램에 대한 NuGet 패키지를 설치하여 빌드 시간에 ApplicationInsights SDK에 온보딩되어야 [합니다.](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
 | IIS Express | 지원되지 않음
 

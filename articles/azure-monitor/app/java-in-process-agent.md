@@ -3,12 +3,12 @@ title: 모든 환경에서 Java 응용 프로그램 모니터링 - Azure 모니�
 description: 앱을 계측하지 않고 모든 환경에서 실행되는 Java 응용 프로그램에 대한 응용 프로그램 성능 모니터링. 분산 추적 및 응용 프로그램 맵.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 5706d5a74bd6850a237f7418b1a86a8e9c7762e1
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: b9c1a52051e63beee9a784714a7bb1a6a79e8759
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604570"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687723"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java 코드리스 응용 프로그램 모니터링 Azure 모니터 응용 프로그램 인사이트 - 공개 미리 보기
 
@@ -32,7 +32,7 @@ Java 코드리스 응용 프로그램 모니터링은 단순성입니다 - 코�
 
 일반적인 JVM 아르그에는 `-Xmx512m` 및 `-XX:+UseG1GC`. 따라서 이 것들을 추가할 위치를 알고 있다면 이 것을 추가할 위치를 이미 알고 있습니다.
 
-응용 프로그램의 JVM args 구성에 대한 추가 도움말은 [3.0 미리 보기: JVM args 업데이트 팁참조.](https://github.com/microsoft/ApplicationInsights-Java/wiki/3.0-Preview:-Tips-for-updating-your-JVM-args)
+응용 프로그램의 JVM args 구성에 대한 추가 도움말은 [3.0 미리 보기: JVM args 업데이트 팁참조.](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-arguments)
 
 **3. 에이전트를 응용 프로그램 인사이트 리소스로 가리킵니다.**
 
@@ -80,7 +80,7 @@ APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000
 * HTTP 프록시
 * 자가 진단
 
-자세한 내용은 [3.0 공개 미리 보기: 구성 옵션을](https://github.com/microsoft/ApplicationInsights-Java/wiki/3.0-Preview:-Configuration-Options)참조하십시오.
+자세한 내용은 [3.0 공개 미리 보기: 구성 옵션을](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config)참조하십시오.
 
 ## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>자동 수집된 요청, 종속성, 로그 및 메트릭
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 82fa5968d004bd4460f2c05ec944f6e568508675
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 5a17f98d69cb2196f92e19b66fc23dcd89bce188
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641143"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687139"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services를 사용할 때 온-프레미스 인코더를 구성하여 다중 비트 전송률 스트림을 만드는 방법
 이 토픽에서는 추가 처리를 위해 라이브 이벤트를 캡처하고 단일 비트 전송률 라이브 스트림을 AMS 채널(라이브 인코딩 사용)로 보내는 데 사용할 수 있는 온-프레미스 라이브 인코더를 나열합니다. 또한 나열된 인코더의 구성 방법을 보여 주는 자습서에 연결합니다.
@@ -34,7 +34,7 @@ ms.locfileid: "81641143"
 단일 비트 전송률 라이브 스트림을 AMS 채널로 전송하도록 [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) 인코더를 구성하는 방법에 대한 정보는 [Wirecast 구성](media-services-configure-wirecast-live-encoder.md)을 참조하세요.
 
 ## <a name="elemental-live"></a>Elemental Live
-자세한 내용은 [Elemental Live](https://www.elementaltechnologies.com/products/elemental-live)를 참조하세요.
+자세한 내용은 [Elemental Live](https://www.elemental.com/products/aws-elemental-appliances-software/#elemental-live)를 참조하세요.
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

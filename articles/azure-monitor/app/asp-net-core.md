@@ -3,12 +3,12 @@ title: ASP.NET 핵심 응용 프로그램에 대한 Azure 응용 프로그램 �
 description: ASP.NET Core 웹 애플리케이션의 가용성, 성능 및 사용량을 모니터링합니다.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: d6a0e507022452f1491e71651ba3bc8db3d1c090
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1a9a81d76df7f14fb99b8521e7bfa2edff6c9e9e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284792"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687383"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET 핵심 애플리케이션을 위한 애플리케이션 인사이트
 
@@ -44,7 +44,7 @@ ms.locfileid: "80284792"
 
 2. 응용**프로그램 인사이트 원격 분석**추가 **프로젝트** > 선택.
 
-3. **시작**을 선택합니다. 이 선택 항목의 텍스트는 Visual Studio 버전에 따라 다를 수 있습니다. 일부 이전 버전에서는 **무료 시작** 단추를 대신 사용합니다.
+3. **시작 하기를**선택합니다. 이 선택 항목의 텍스트는 Visual Studio 버전에 따라 다를 수 있습니다. 일부 이전 버전에서는 **무료 시작** 단추를 대신 사용합니다.
 
 4. 구독을 선택합니다. 그런 다음 **리소스** > **레지스터를**선택합니다.
 
@@ -162,11 +162,11 @@ ASP.NET [코어의 성능 카운터에](https://azure.microsoft.com/documentatio
     
 또는 SDK `FullScript` `ScriptBody` v2.14에서 부터 사용할 수 있는 것을 사용하는 것입니다. 콘텐츠 보안 정책을 설정하기 `<script>` 위해 태그를 제어해야 하는 경우 다음을 사용합니다.
 
-    ```cshtml
-        <script> // apply custom changes to this script tag.
-            @Html.Raw(JavaScriptSnippet.ScriptBody)
-        </script>
-    ```
+```cshtml
+ <script> // apply custom changes to this script tag.
+     @Html.Raw(JavaScriptSnippet.ScriptBody)
+ </script>
+```
 
 이전에 `.cshtml` 참조된 파일 이름은 기본 MVC 응용 프로그램 템플릿에서 가져옵니다. 궁극적으로 응용 프로그램에 대한 클라이언트 쪽 모니터링을 올바르게 사용하려면 모니터링하려는 응용 프로그램의 `<head>` 각 페이지의 섹션에 JavaScript 스니펫이 표시되어야 합니다. 에 JavaScript 스니펫을 추가하여 이 응용 프로그램 `_Layout.cshtml`템플릿에 대해 이 목표를 달성할 수 있습니다. 
 
@@ -199,7 +199,7 @@ public void ConfigureServices(IServiceCollection services)
 
 에서 설정의 전체 목록`ApplicationInsightsServiceOptions`
 
-|설정 | 설명 | 기본값
+|설정 | Description | 기본
 |---------------|-------|-------
 |인에이블퍼포먼스카운터컬렉션모듈  | 사용/사용 안 함`PerformanceCounterCollectionModule` | true
 |인에이블요청추적텔레메트리모듈   | 사용/사용 안 함`RequestTrackingTelemetryModule` | true

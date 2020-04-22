@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: e17a76d5a017400287644ad2da46caa5b6636654
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 3979be6f49f4ad01a6092fc0d5aa767d342c4642
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262301"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730500"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Cloud 파트너 포털에서 파트너 센터로 계정 마이그레이션
 
@@ -47,7 +47,7 @@ CPP에서 파트너 센터로의 마이그레이션을 완료한 모든 계정�
 
 Microsoft와 파트너관계를 맺고자 하는 회사는 MPN(Microsoft 파트너 네트워크)에 가입하고 MPN ID를 받아야 합니다. 이미 Microsoft 파트너 네트워크의 구성원이고 MPN ID가 있는 경우 계정 활성화 프로세스 중에 필요한 정보를 편리하게 보관하십시오.  
 
-Microsoft 파트너 네트워크의 구성원이 아닌 경우 [여기에서 MPN](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/en-us/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) ID를 받을 수 있습니다. 계정 활성화 프로세스 중에 MPN ID를 입력해야 하므로 MPN ID를 기록해 둡니다.
+Microsoft 파트너 네트워크의 구성원이 아닌 경우 [여기에서 MPN](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) ID를 받을 수 있습니다. 계정 활성화 프로세스 중에 MPN ID를 입력해야 하므로 MPN ID를 기록해 둡니다.
 
 Microsoft 파트너 네트워크에 대한 자세한 내용은 파트너 웹 사이트에서 [Microsoft 파트너 네트워크 가입을](https://partner.microsoft.com/en-US/membership) 참조하세요. Microsoft 파트너 네트워크의 ISV 이점에 대한 자세한 내용은 [ISV 리소스 허브](https://partner.microsoft.com/isv-resource-hub)를 참조하십시오.  
 
@@ -61,7 +61,7 @@ Dynamics 365 고객 참여, PowerApps 및 Dynamics 365 Operations 제공에 대�
 > Dynamics 365 비즈니스 센트럴 오퍼에는 적용되지 않습니다.  
 
 1. MPN 멤버십 계정이 원래 파트너 멤버십 센터(PMC)에서 생성된 경우 [파트너 센터에](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) 로그인하여 계정이 마이그레이션되었는지 확인합니다. MPN ID가 있는 프로필 화면이 표시되면 계속할 준비가 된 것입니다. 그렇지 않은 경우 [파트너 멤버 자격 센터의](https://partners.microsoft.com/partnerprogram/Welcome.aspx)프롬프트에 따라 계정 마이그레이션을 시작해야 합니다. 도움이 필요하면 [지원을](https://partner.microsoft.com/support?issueid=100-0077)방문하십시오.
-2. [파트너 센터의 상용 마켓플레이스 개요 페이지로](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)이동하십시오. 왼쪽 탐색 창에 '상업용 마켓플레이스'가 표시되면 등록된 상태로 다음 단계로 계속 이동해야 합니다. 그렇지 않은 경우 지금 [상업 시장에 등록하십시오.](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)
+2. [파트너 센터의 상용 마켓플레이스 개요 페이지로](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)이동하십시오. 왼쪽 탐색 창에 '상업용 마켓플레이스'가 표시되면 등록된 상태로 다음 단계로 계속 이동해야 합니다. 그렇지 않은 경우 지금 [상업 시장에 등록하십시오.](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)
 3. 쿠폰을 검색하여 AppSource에 [있는 오퍼를 확인합니다.](https://appsource.microsoft.com/) 쿠폰이 AppSource에 이미 있는 경우 다음 단계로 계속합니다. AppSource에 없는 모든 오퍼의 경우 [새로운 Dynamics 365 고객 참여 제안](create-new-customer-engagement-offer.md) 또는 새로운 [Dynamics 365 운영 제안을](create-new-operations-offer.md)만듭니다.
 4. 파트너 센터의 [계약 페이지에서](https://partner.microsoft.com/dashboard/account/agreements) **비즈니스 응용 프로그램 ISV 부록을**검토하고 수락했는지 확인합니다.
 5. 파트너 센터의 [계정 설정에서](https://partner.microsoft.com/dashboard/account/v3/accountsettings/billingprofile)결제 정보가 완료되었는지 확인합니다.
@@ -73,10 +73,10 @@ Dynamics 365 고객 참여, PowerApps 및 Dynamics 365 Operations 제공에 대�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-지원 및 업데이트에 대한 주간 [역학 ISV 커뮤니티 요청에](https://aka.ms/DynamicsISV-CommunityCall) 가입하세요.
+포럼에서 전문가 및 동료의 도움을 받고 [Microsoft Dynamics CRM에서](https://community.dynamics.com/crm?wa=wsignin1.0)블로그, 웨비나, 비디오, 이벤트 등을 검색합니다.
 
-마켓플레이스 오퍼를 게시, 인증 또는 관리하는 데 도움이 필요한 경우 [지원 티켓을 제출하십시오.](https://aka.ms/MarketplacePublisherSupport)
+마켓플레이스 오퍼를 게시, 인증 또는 관리하는 데 도움이 필요한 경우 [지원 티켓을 제출하십시오.](https://partner.microsoft.com/support/v2/?stage=1)
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-step"></a>다음 단계
 
 - [파트너 센터에서 상용 마켓플레이스 계정 관리](./manage-account.md)

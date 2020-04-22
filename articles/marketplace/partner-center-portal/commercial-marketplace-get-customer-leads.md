@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 05b166b2ec46900d9e3972025efb581d9619ec6a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: a1ec89dfd2dda91a10f2cc00b6ca4d9d7abbf032
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81252644"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731151"
 ---
 # <a name="customer-leads-from-your-marketplace-offer"></a>마켓플레이스 제품의 잠재 고객
 
@@ -96,7 +96,7 @@ ms.locfileid: "81252644"
 
 ### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>리드 대상을 설정하는 데 필요한 도움은 어디에서 받을 수 있나요?
 
-[여기에서](#connect-to-your-crm-system) 문서를 찾거나 aka.ms/marketplacepublishersupport 통해 지원 티켓을 제출한 다음 **'오퍼 생성'→** '잠재 고객 **관리 구성'을** **선택합니다.**
+[여기에서](#connect-to-your-crm-system) 문서를 찾거나 https://partner.microsoft.com/support/v2/?stage=1 **'오퍼 생성'을** 선택한 다음 지원 티켓을 **'lead management configuration.'** 제출할 **수 있습니다.**
 
 ### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-on-the-marketplace"></a>마켓플레이스에 오퍼를 게시하려면 잠재 고객 대상을 구성해야 하나요?
 
@@ -133,7 +133,7 @@ Azure Blob 잠재 고객 대상은 더 이상 지원되지 않으므로 오퍼�
 
 ### <a name="i-received-an-email-from-marketplace-why-cant-i-find-the-lead-in-my-crm"></a>Marketplace에서 메일을 받았으나 CRM에서 리드를 찾을 수 없는 이유는 무엇인가요?
 
-최종 사용자의 메일 도메인 원본이 .edu일 수 있습니다. 개인 정보 보호를 위해 .edu 도메인에서 개인 식별 정보를 전달하지 않습니다. aka.ms/marketplacepublishersupport 통해 지원 티켓을 제출합니다.
+최종 사용자의 메일 도메인 원본이 .edu일 수 있습니다. 개인 정보 보호를 위해 .edu 도메인에서 개인 식별 정보를 전달하지 않습니다. 을 통해 지원 https://partner.microsoft.com/support/v2/?stage=1티켓을 제출합니다.
 
 ### <a name="i-have-configured-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Azure 테이블을 잠재 고객 대상으로 구성한 경우 잠재 고객을 어떻게 볼 수 있습니까?
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 46c59e8b4e60fbe17887ea0fc375b6da758ebf50
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 4d2d33f9d83132147b5b257ffcd6d659f272b8ec
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457402"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730714"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Azure 가상 머신 기술 자산 만들기
 
@@ -109,7 +109,7 @@ Azure는 승인된 Linux 배포판의 범위를 제공합니다. 현재 목록�
 
 Azure는 지정한 가상 시스템 프로비저닝을 시작합니다. 왼쪽에 있는 **가상 컴퓨터** 탭을 선택하여 진행 상황을 추적할 수 있습니다. 상태가 만들어지면 상태가 **실행 중으로**변경됩니다.
 
-새 Azure 기반 VHD를 만드는 데 어려움이 있는 경우 [VHD 생성(FAQ) 중 일반적인 문제를 참조하세요.](https://aka.ms/VHDcreationIssues)
+새 Azure 기반 VHD를 만드는 데 어려움이 있는 경우 [VHD 생성(FAQ) 중 일반적인 문제를 참조하세요.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-issues-during-vhd-creation)
 
 ### <a name="connect-to-your-azure-vm"></a>Azure VM에 연결
 
@@ -176,7 +176,7 @@ Azure 포털 또는 Azure PowerShell을 사용하여 이미지를 만듭니다.
 3. 이 [JSON 템플릿을](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-json-template) 편집기에 붙여넣고 **저장을**선택합니다.
 4. 표시된 **사용자 지정 배포** 속성 페이지에 대한 매개 변수 값을 제공합니다.
 
-    | 매개 변수 | Description |
+    | 매개 변수 | 설명 |
     | ------------ | ------------- |
     | 사용자 스토리지 계정 이름 | 셀 2의 내용 |
     | 사용자 스토리지 컨테이너 이름 | 일반화된 VHD가 있는 스토리지 계정 이름 |

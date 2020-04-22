@@ -8,12 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 3a7254cc9de89a297811792b4dd64b4b669ba8e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 307ab47c1f7498f71e61108a616d35ef1d4f61c9
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271240"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730004"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>IoT 허브에서 클라우드-장치 메시지 보내기
 
@@ -96,7 +97,7 @@ IoT 허브의 **최대 배달 수** 속성은 메시지가 *Enqueued* 상태와 
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | 메시지 결과가 발생한 시기를 나타내는 타임스탬프(예: 허브가 피드백 메시지를 받았거나 원래 메시지가 만료됨). |
 | OriginalMessageId  | 이 피드백 정보와 관련된 클라우드-장치 메시지 *Id* |
-| StatusCode         | IoT 허브에서 생성되는 피드백 메시지에 사용되는 필수 문자열: <br/> *Success* <br/> *만료* <br/> *배달 카운트 초과* <br/> *거부* <br/> *제거* |
+| StatusCode         | IoT 허브에서 생성되는 피드백 메시지에 사용되는 필수 문자열: <br/> *Success* <br/> *만료됨* <br/> *배달 카운트 초과* <br/> *거부* <br/> *제거* |
 | 설명        | *상태 코드에* 대한 문자열 값 |
 | deviceId           | 이 피드백과 관련된 클라우드-장치 메시지의 대상 장치의 *DeviceId* |
 | DeviceGenerationId | 이 피드백과 관련된 클라우드-장치 메시지의 대상 장치의 *DeviceGenerationId* |

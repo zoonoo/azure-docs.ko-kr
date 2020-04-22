@@ -3,12 +3,13 @@ title: Azure App Services 성능 모니터링 | Microsoft Docs
 description: Azure App Services에 대한 애플리케이션 성능 모니터링입니다. 차트 로드 및 응답 시간, 종속성 정보 및 성능에 대한 경고를 설정합니다.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: d2134e059a446c18108e8dd16bcc74504b42b15a
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.custom: fasttrack-edit
+ms.openlocfilehash: dd0d3be6ed7e5185183618cc2bdeff5ee8d749f3
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437181"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729802"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
@@ -55,15 +56,16 @@ Azure App Services 호스팅 응용 프로그램에 대한 응용 프로그램 �
 2. 사용할 리소스를 지정한 후 Application Insights에서 애플리케이션에 대한 플랫폼별 데이터를 수집하는 방법을 선택할 수 있습니다. ASP.NET 앱 모니터링은 기본적으로 두 가지 수준의 컬렉션으로 설정됩니다.
 
     ![플랫폼별 옵션 선택](./media/azure-web-apps/choose-options-new.png)
-
-   * .NET **Basic 컬렉션** 수준은 필수적인 단일 인스턴스 APM 기능을 제공합니다.
-
-   * .NET **추천 수집** 수준은 다음과 같습니다.
-       * CPU, 메모리 및 I/O 사용량 추세를 추가합니다.
-       * 요청/종속성 경계 간에 마이크로 서비스를 상호 연결합니다.
-       * 사용량 추세를 수집하고, 가용성 결과와 트랜잭션의 상관 관계를 사용하도록 설정합니다.
-       * 호스트 프로세스에서 처리되지 않은 예외를 수집합니다.
-       * 샘플링을 사용하는 경우 부하 상태에서 APM 메트릭 정확도가 향상됩니다.
+ 
+ 다음은 각 경로에 대해 수집된 데이터의 요약입니다.
+        
+|  | .NET 기본 컬렉션 | .NET 권장 컬렉션 |
+| --- | --- | --- |
+| CPU, 메모리 및 I/O 사용량 추세를 추가합니다. |예 |예 |
+| 사용량 추세를 수집하고, 가용성 결과와 트랜잭션의 상관 관계를 사용하도록 설정합니다. | 예 |예 |
+| 호스트 프로세스에서 처리되지 않은 예외를 수집합니다. | 예 |예 |
+| 샘플링을 사용하는 경우 부하 상태에서 APM 메트릭 정확도가 향상됩니다. | 예 |예 |
+| 요청/종속성 경계 간에 마이크로 서비스를 상호 연결합니다. | 아니오(단일 인스턴스 APM 기능만) |예 |
 
 3. 이전에 applicationinsights.config 파일을 통해 제어할 수 있는 샘플링과 같은 설정을 구성하려면 이제 해당 접두사가 있는 응용 프로그램 설정을 통해 동일한 설정과 상호 작용할 수 있습니다. 
 
@@ -92,7 +94,7 @@ Azure App Services 호스팅 응용 프로그램에 대한 응용 프로그램 �
 
     ![플랫폼별 옵션 선택](./media/azure-web-apps/choose-options-new-net-core.png)
 
-# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 **설정에서** > 앱 서비스 웹 앱 내에서 응용 프로그램 > 인사이트**사용 을****선택합니다.** Node.js 에이전트 기반 모니터링은 현재 미리 보기 상태입니다.
 
@@ -142,7 +144,7 @@ Java 앱 서비스 기반 웹 응용 프로그램은 현재 자동 에이전트/
 
 ![응용 프로그램 설정 UI의 스크린 샷](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
-# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 Node.js 응용 프로그램에 대한 클라이언트 측 모니터링을 사용하려면 [응용 프로그램에 클라이언트 측 JavaScript SDK를 수동으로 추가해야 합니다.](https://docs.microsoft.com/azure/azure-monitor/app/javascript)
 

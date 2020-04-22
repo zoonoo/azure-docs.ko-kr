@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 6b7ca1f10744bf38137c57d94d796655946c31b3
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: a62551b31c51836dfa50534ee6db907c8a4e111a
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81390356"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730611"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
@@ -56,7 +56,7 @@ Azure 응용 프로그램 계획에는 관리되는 응용 프로그램 및 솔�
 * [Azure 리소스 관리자 템플릿 이해](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
 * 빠른 시작:
 
-    * [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)
+    * [Azure Quickstart 템플릿](https://azure.microsoft.com/documentation/templates/)
     * [GitHub Azure 빠른 시작 템플릿](https://github.com/azure/azure-quickstart-templates)
     * [애플리케이션 정의 게시](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [서비스 카탈로그 앱 배포](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
@@ -168,7 +168,7 @@ Azure 응용 프로그램 오퍼를 만들려면 먼저 [파트너 센터 계정
 > [!NOTE]
 > 오퍼 리스팅 콘텐츠(예: 설명, 문서, 스크린샷, 이용 약관 등)는 "이 응용 프로그램은 [영어 이외의 언어]에서만 사용할 수 있습니다"라는 문구로 시작되는 한 영어로 작성할 필요가 없습니다. 또한 오퍼 리스팅 콘텐츠에 사용된 언어 이외의 언어로 콘텐츠를 제공하는 *유용한 링크 URL을* 제공하는 것도 허용됩니다.
 
-### <a name="name"></a>속성
+### <a name="name"></a>이름
 
 여기에 입력한 이름은 고객에게 쿠폰 목록의 제목으로 표시됩니다. 이 필드는 **오퍼 별칭에** 대해 입력한 텍스트로 미리 채워지지만 이 값을 변경할 수 있습니다. 이 이름은 상표가 지정될 수 있으며 상표 또는 저작권 기호가 포함될 수 있습니다. 이름은 50자를 초과할 수 없으며 이모티콘을 포함할 수 없습니다.
 
@@ -180,7 +180,7 @@ Azure 응용 프로그램 오퍼를 만들려면 먼저 [파트너 센터 계정
 
 오퍼에 대한 더 긴 설명을 제공합니다(최대 256자). 설명은 마켓플레이스 검색 결과에 사용될 수 있습니다.
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 오퍼에 대한 더 긴 설명을 제공합니다(최대 3,000자). 이 설명은 마켓플레이스 목록 개요의 고객에게 표시됩니다. 오퍼의 가치 제안, 주요 혜택, 카테고리 및/또는 산업 협회, 인앱 구매 기회 및 필요한 공개를 포함합니다. 
 
@@ -233,7 +233,7 @@ Azure 응용 프로그램 오퍼를 만들려면 먼저 [파트너 센터 계정
 
 쿠폰의 작동 방식을 보여 주는 스크린샷을 추가합니다. 최대 5개의 스크린샷을 추가할 수 있습니다. 모든 스크린샷은 1280 x 720 픽셀이어야 합니다.
 
-#### <a name="videos"></a>동영상
+#### <a name="videos"></a>비디오
 
 선택적으로 쿠폰을 보여주는 동영상을 최대 5개까지 추가할 수 있습니다. 이 동영상은 YouTube 및/또는 Vimeo에서 호스팅되어야 합니다. 각 동영상에 대해 동영상 이름, URL 및 동영상의 축소판 이미지(1280 x 720픽셀)를 입력합니다.
 
@@ -293,7 +293,7 @@ Azure 응용 [프로그램 계획의 유형에](#types-of-azure-application-plan
 
 **마켓플레이스** 통합이 있는 모든 공용 Azure 지역의 고객에게 솔루션을 배포할 수 있도록 하려면 공용 Azure 옵션을 선택합니다.  [지리적 가용성에](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)대해 자세히 알아보십시오.
 
-Azure **정부 클라우드** 옵션을 선택하여 이러한 엔터티를 제공할 자격이 있는 미국 연방, 주, 지역 또는 부족 및 파트너의 고객에 대한 제어된 액세스 권한이 있는 정부 커뮤니티 클라우드인 [Azure Government Cloud에서](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)솔루션을 배포할 수 있도록 합니다.  게시자는 이 클라우드 커뮤니티에 서비스를 제공하기 위해 규정 준수 제어, 보안 조치 및 모범 사례를 담당합니다.  Azure 정부는 물리적으로 격리된 데이터 센터 및 네트워크를 사용합니다(미국에만 있음).  [Azure 정부에](https://aka.ms/azuregovpublish)게시하기 전에 특정 끝점이 다를 수 있으므로 환경에서 솔루션을 테스트하고 유효성을 검사하는 것이 좋습니다. 솔루션을 단계및 테스트하려면 이 [링크에서](https://azure.microsoft.com/global-infrastructure/government/request/)평가판 계정을 요청하십시오.
+Azure **정부 클라우드** 옵션을 선택하여 이러한 엔터티를 제공할 자격이 있는 미국 연방, 주, 지역 또는 부족 및 파트너의 고객에 대한 제어된 액세스 권한이 있는 정부 커뮤니티 클라우드인 [Azure Government Cloud에서](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)솔루션을 배포할 수 있도록 합니다.  게시자는 이 클라우드 커뮤니티에 서비스를 제공하기 위해 규정 준수 제어, 보안 조치 및 모범 사례를 담당합니다.  Azure 정부는 물리적으로 격리된 데이터 센터 및 네트워크를 사용합니다(미국에만 있음).  [Azure 정부에](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)게시하기 전에 특정 끝점이 다를 수 있으므로 환경에서 솔루션을 테스트하고 유효성을 검사하는 것이 좋습니다. 솔루션을 단계및 테스트하려면 이 [링크에서](https://azure.microsoft.com/global-infrastructure/government/request/)평가판 계정을 요청하십시오.
 
 >[!Note]
 >계획이 특정 클라우드에서 사용 가능한 것으로 게시되면 해당 클라우드를 제거할 수 없습니다.
@@ -308,7 +308,7 @@ Azure 정부 서비스는 FedRAMP, NIST 800.171(DIB), ITAR, IRS 1075, DoD L4 및
 
 **계획 목록** 탭에는 동일한 오퍼에 대해 서로 다른 계획 간에 다를 수 있는 계획별 목록 정보가 표시됩니다.
 
-### <a name="name"></a>속성
+### <a name="name"></a>이름
 
 계획을 만들 때 지정한 이름에 따라 미리 채워집니다.  이 이름은 마켓플레이스에 표시되는 이 "소프트웨어 계획"의 제목으로 표시됩니다.  최대 100자까지 포함될 수 있습니다.
 
@@ -316,7 +316,7 @@ Azure 정부 서비스는 FedRAMP, NIST 800.171(DIB), ITAR, IRS 1075, DoD L4 및
 
 소프트웨어 계획에 대한 간략한 요약을 제공합니다.  최대 100자까지 포함될 수 있습니다.
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 이 설명은 이 소프트웨어 계획이 고유한 이유와 제품 내의 다른 소프트웨어 계획과 어떤 차이점을 설명하는 기회입니다. 최대 2,000자까지 포함될 수 있습니다.
 

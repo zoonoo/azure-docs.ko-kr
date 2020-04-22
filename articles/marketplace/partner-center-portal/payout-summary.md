@@ -6,12 +6,12 @@ ms.author: dsindona
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 678dc8b058d0ae0694dafeb4222b2fc9f10ecda7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a930dfb38007349155581424d03ee7b3e7a6b46
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288702"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730214"
 ---
 # <a name="payout-reporting"></a>지급 보고
 
@@ -47,7 +47,7 @@ Azure 마켓플레이스에서 제품을 판매하는 경우 **지급 요약에�
 |---------|---------|---------|
 | 링크 | [https://cloudpartner.azure.com/](https://cloudpartner.azure.com) | [https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory](https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory)및[https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
 | 탐색 | 인사이트 지급에 제공된 지급보고 | 파트너 센터에서 제공되는 지급 보고 – 지급 아이콘 |
-| Scope | <ul> <li>진행 중, 수집 및 지불에 대한 광고 항목당 트랜잭션이 표시됩니다. </li> <li>보고 – 구매 주문이 생성되면 수집 진행 중 및 진행 중인 청구, 아직 지급할 수 없는 컬렉션 상태 및 광고 항목을 포함한 모든 광고 항목을 표시합니다. </li> </ul> | <ul> <li>적격 수입으로 간주되면 광고 항목을 표시합니다.</li> <li>고객이 먼저 Microsoft에 비용을 지불한 다음 ISV는 지급 보고서가 시작되는 것을 볼 수 있습니다.</li> <li>지급 보고서에는 수집 진행 중 및 청구 진행 중인 컬렉션이 표시되지 않습니다.  </li> </ul>  |
+| 범위 | <ul> <li>진행 중, 수집 및 지불에 대한 광고 항목당 트랜잭션이 표시됩니다. </li> <li>보고 – 구매 주문이 생성되면 수집 진행 중 및 진행 중인 청구, 아직 지급할 수 없는 컬렉션 상태 및 광고 항목을 포함한 모든 광고 항목을 표시합니다. </li> </ul> | <ul> <li>적격 수입으로 간주되면 광고 항목을 표시합니다.</li> <li>고객이 먼저 Microsoft에 비용을 지불한 다음 ISV는 지급 보고서가 시작되는 것을 볼 수 있습니다.</li> <li>지급 보고서에는 수집 진행 중 및 청구 진행 중인 컬렉션이 표시되지 않습니다.  </li> </ul>  |
 | 결제 준비가 되지 않은 거래 | 진행 중인 청구 | 다음 예상 지급: 지급 상태가 처리되지 않은 상태입니다.  |
 | 지급 상태 |  | 처리되지 않은: <br> 수입은 지불 할 수 있습니다. 인센티브 프로그램에 대한 프로그램 가이드에 정의된 대로 냉각 기간 동안 이 상태로 유지됩니다. <br> <br> 곧: <br> 결제가 처리되기 전에 결제 주문이 생성된 내부 검토 보류 중입니다. <br> <br> 보냄: <br> 결제금액이 은행으로 전송되었습니다. |
 
@@ -175,4 +175,4 @@ Azure 마켓플레이스에서 제품을 판매하는 경우 **지급 요약에�
 
 ## <a name="billing-questions-and-support"></a>청구 관련 질문 및 지원
 
-청구 관련 질문에 대한 도움말을 보려면 [상업용 마켓플레이스 게시자 지원에](https://aka.ms/marketplacepublishersupport)문의하십시오.
+청구 관련 질문에 대한 도움말을 보려면 [상업용 마켓플레이스 게시자 지원에](https://partner.microsoft.com/support/v2/?stage=1)문의하십시오.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
-ms.openlocfilehash: 350c2bf3c4d0fc0a16f1b393e7c8d8a372679797
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42960c25c4124203b64646fdc5cbca833b246e21
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78331147"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683159"
 ---
 # <a name="configure-openssl-for-linux"></a>Linux용 OpenSSL 구성
 
@@ -50,6 +50,8 @@ Speech SDK를 사용하는 프로그램을 실행하기 전에 해당 파일을 
 ```bash
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
+> [!NOTE]
+> 또한 Linux의 일부 배포판에는 정의된 TMP 또는 TMPDIR 환경 변수가 없다는 점도 주목할 필요가 있습니다. 이렇게 하면 음성 SDK가 만료될 때까지 CRL을 디스크에 캐싱하는 대신 CRL(인증서 해지 목록)을 매번 다운로드합니다. 초기 연결 성능을 향상시키기 위해 [TMPDIR라는 환경 변수를 만들고 선택한 임시 디렉터리 경로로 설정할 수 있습니다.](https://help.ubuntu.com/community/EnvironmentVariables)
 
 ## <a name="next-steps"></a>다음 단계
 

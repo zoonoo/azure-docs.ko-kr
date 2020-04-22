@@ -6,14 +6,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 34de5f59e96a37282063741a1664f512697c167b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fa67d81546db86535c179a9c59d0602c1175cba
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288719"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687508"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Virtual Machines 제품 게시 가이드
 
@@ -53,7 +53,7 @@ IaaS(Infrastructure-as-a-Service) 또는 SaaS(Software-as-a-Service) 앱을 통�
 | 요구 사항 | 세부 정보 |  
 |:--- |:--- | 
 | 청구 및 계량 | VM은 BYOL 또는 종량제 월간 청구를 지원해야 합니다. |  
-| Azure 호환 VHD(가상 하드 디스크) | VM은 Windows 또는 Linux에서 빌드해야 합니다. <ul> <li>Linux VHD를 만드는 방법에 대한 자세한 내용은 [Azure 보증 Linux 배포판](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)을 참조하세요.</li> <li>Windows VHD를 만드는 방법에 대한 자세한 내용은 [Azure 호환 VHD 만들기](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)를 참조하세요.</li> </ul> |  
+| Azure 호환 VHD(가상 하드 디스크) | VM은 Windows 또는 Linux에서 빌드해야 합니다. <ul> <li>Linux VHD를 만드는 방법에 대한 자세한 내용은 [Azure 보증 Linux 배포판](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)을 참조하세요.</li> <li>Windows VHD를 만드는 방법에 대한 자세한 내용은 [Azure 호환 VHD 만들기](./partner-center-portal/azure-vm-create-offer.md)를 참조하세요.</li> </ul> |  
 
 >[!Note]
 >이제 CSP(클라우드 솔루션 공급자) 파트너 채널 옵트인을 사용할 수 있습니다.  Microsoft CSP 파트너 채널을 통한 오퍼 마케팅에 대한 자세한 내용은 [클라우드 솔루션 공급자를](./cloud-solution-providers.md) 참조하십시오.
@@ -62,9 +62,9 @@ IaaS(Infrastructure-as-a-Service) 또는 SaaS(Software-as-a-Service) 앱을 통�
 
 아직 수행하지 않았다면 
 
-- Marketplace에 [등록](https://azuremarketplace.microsoft.com/sell).
+- 마켓플레이스에 대해 [알아보세요.](https://azuremarketplace.microsoft.com/sell)
 
 새 제품을 등록하고 만들거나 기존에서 작업하는 경우
 
-- 제품을 만들거나 완료하기 위해 [Cloud 파트너 포털에 로그인](https://cloudpartner.azure.com).
-- 자세한 내용은 [가상 머신 제품](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer)을 참조하세요.
+- [파트너 센터에 로그인하여](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 쿠폰을 만들거나 완료하세요.
+- 자세한 내용은 [가상 시스템 오퍼 만들기를](./partner-center-portal/azure-vm-create-offer.md) 참조하십시오.

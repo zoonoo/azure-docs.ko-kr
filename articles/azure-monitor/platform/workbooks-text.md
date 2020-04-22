@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: c5fb585d0eb6aeb7866c2ab04b324ee31fe903ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c804cc8942a40e2f30c980636194daa82e0fb0e8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658052"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687338"
 ---
 # <a name="workbook-text-parameters"></a>통합 문서 텍스트 매개 변수
 
@@ -59,6 +59,8 @@ Textbox 매개 변수는 통합 문서 사용자로부터 텍스트 입력을 �
 
     ![KQL에서 참조된 텍스트 매개 변수를 보여 보이는 이미지](./media/workbooks-text/text-reference.png)
 
+> [!NOTE]
+> 위의 예에서 `{SlowRequestThreshold}` 정수 값을 나타냅니다. 문자열을 쿼리하는 경우 와 `{ComputerName}` 같은 Kusto 쿼리를 수정하여 `"{ComputerName}"` 매개 변수 필드가 따옴표없이 입력을 accept에 표시하기 위해 따옴표를 추가해야합니다.
 
 ## <a name="setting-default-values"></a>기본값 설정
 1. 편집 모드에서 빈 통합 문서로 시작합니다.

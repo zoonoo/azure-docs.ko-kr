@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 04/20/2020
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcccc64e0c766164a06932e9b65a4459816f9deb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89e09fd63ee6121ac9bf7f3c2be00f0ac22f752f
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409119"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731700"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>셀프 서비스 애플리케이션 할당을 구성하는 방법
 
@@ -42,6 +42,9 @@ ms.locfileid: "79409119"
 
 -   필요에 따라 자동으로 셀프 서비스 할당 사용자를 애플리케이션 역할에 직접 할당합니다.
 
+> [!NOTE]
+> 사용자가 셀프 서비스 앱에 가입하도록 요청하고 소유자가 요청을 승인하거나 거부하려면 Azure Active Directory Premium(P1 또는 P2) 라이선스가 필요합니다. Azure Active Directory Premium 라이선스가 없으면 사용자는 셀프 서비스 앱을 추가할 수 없습니다.
+
 ## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>셀프 서비스 애플리케이션 액세스를 활성화하여 사용자가 자신의 애플리케이션을 찾을 수 있도록 함
 
 셀프 서비스 응용 프로그램 액세스는 사용자가 응용 프로그램을 자체 검색할 수 있도록 하고 선택적으로 비즈니스 그룹이 해당 응용 프로그램에 대한 액세스를 승인할 수 있도록 하는 좋은 방법입니다. 응용 프로그램에 대한 암호 단일 사인의 경우 비즈니스 그룹이 자체 내 앱 액세스 패널에서 해당 사용자에게 할당된 자격 증명을 관리하도록 허용할 수도 있습니다.
@@ -50,7 +53,7 @@ ms.locfileid: "79409119"
 
 1. [Azure 포털에](https://portal.azure.com) 글로벌 관리자로 로그인합니다.
 
-2. **Azure 활성 디렉터리**를 선택합니다. 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램을 선택합니다.**
+2. **Azure Active Directory**를 선택합니다. 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램을 선택합니다.**
 
 3. 목록에서 응용 프로그램을 선택합니다. 응용 프로그램이 표시되지 않으면 검색 상자에 이름을 입력하십시오. 또는 필터 컨트롤을 사용하여 응용 프로그램 유형, 상태 또는 표시 를 선택한 다음 **적용을**선택합니다.
 

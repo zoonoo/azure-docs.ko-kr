@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: e83c70424c131e5324192b07e65321d63bf06e2e
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 2c0cd47acbd4639ff5eff2af78dcebdfc26270a7
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674216"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730709"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>IoT Edge 모듈 기술 자산 준비
 
@@ -25,8 +25,8 @@ ms.locfileid: "80674216"
 
 IoT Edge 모듈은 IoT Edge 장치에서 실행되는 Docker 호환 컨테이너입니다.
 
-- IoT Edge 모듈에 대한 자세한 내용은 [Azure IoT Edge 모듈 이해](https://aka.ms/UnderstandAzureIoTEdgemodules)를 참조하세요.
-- IoT Edge 모듈 개발을 시작하려면 [고유한 IoT Edge 모듈 개발을](https://aka.ms/DevelopyourownIoTEdgemodules)참조하십시오.
+- IoT Edge 모듈에 대한 자세한 내용은 [Azure IoT Edge 모듈 이해](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules)를 참조하세요.
+- IoT Edge 모듈 개발을 시작하려면 [고유한 IoT Edge 모듈 개발을](https://docs.microsoft.com/azure/iot-edge/module-development)참조하십시오.
 
 ## <a name="technical-requirements"></a>기술적인 요구 사항
 
@@ -38,15 +38,15 @@ IoT Edge 모듈은 다음 플랫폼 옵션 중 하나를 지원해야 합니다.
 
 #### <a name="tier-1-platforms-supported-by-iot-edge"></a>IoT Edge에서 지원되는 계층 1 플랫폼
 
-모듈은 IoT Edge에서 지원하는 모든 계층 1 플랫폼을 지원해야 [합니다(Azure IoT Edge 지원에](https://aka.ms/AzureIoTEdgesupport)기록됨). 더 나은 고객 경험을 제공하기 때문에 이 옵션을 권장합니다. 이 기준을 충족하는 모듈이 전시됩니다. 이 플랫폼 옵션을 사용하는 모듈은 다음을 수행해야 합니다.
+모듈은 IoT Edge에서 지원하는 모든 계층 1 플랫폼을 지원해야 [합니다(Azure IoT Edge 지원에](https://docs.microsoft.com/azure/iot-edge/support)기록됨). 더 나은 고객 경험을 제공하기 때문에 이 옵션을 권장합니다. 이 기준을 충족하는 모듈이 전시됩니다. 이 플랫폼 옵션을 사용하는 모듈은 다음을 수행해야 합니다.
 
-- [GitHub 매니페스트 도구로](https://aka.ms/GitHubmanifest-tool)빌드된 매니페스트 태그인 최신 태그와 버전 태그(예: 1.0.1)를 제공합니다.
+- [GitHub 매니페스트 도구로](https://github.com/estesp/manifest-tool)빌드된 매니페스트 태그인 최신 태그와 버전 태그(예: 1.0.1)를 제공합니다.
 
-- [파트너 센터의](https://partner.microsoft.com/dashboard/commercial-marketplace) 오퍼 목록 탭을 사용하여 [Azure IoT Edge 인증 장치 카탈로그에](https://catalog.azureiotsolutions.com/)대한 **유용한 링크** 섹션 아래에 있는 링크를 추가합니다. Azure https://aka.ms/iot-edge-certified [IoT Edge 장치 카탈로그로](https://catalog.azureiotsolutions.com/)연결되는 리디렉션 링크를 사용할 수 있습니다.
+- [파트너 센터의](https://partner.microsoft.com/dashboard/commercial-marketplace) 오퍼 목록 탭을 사용하여 [Azure IoT Edge 인증 장치 카탈로그에](https://catalog.azureiotsolutions.com/alldevices?filters={%2218%22:[%221%22]}/)대한 **유용한 링크** 섹션 아래에 있는 링크를 추가합니다.
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>IoT Edge에서 지원되는 계층 1 플랫폼의 하위 집합
 
-모듈은 IoT Edge에서 지원하는 계층 1 플랫폼의 하위 집합(하나 이상)을 지원해야 [합니다(Azure IoT Edge 지원에](https://aka.ms/AzureIoTEdgesupport)기록됨). 이 플랫폼 옵션을 사용하는 모듈은 다음을 수행해야 합니다.
+모듈은 IoT Edge에서 지원하는 계층 1 플랫폼의 하위 집합(하나 이상)을 지원해야 [합니다(Azure IoT Edge 지원에](https://docs.microsoft.com/azure/iot-edge/support)기록됨). 이 플랫폼 옵션을 사용하는 모듈은 다음을 수행해야 합니다.
 
 - 둘 이상의 플랫폼이 지원되는 경우 GitHub [매니페스트 도구로](https://github.com/estesp/manifest-tool) 빌드된 매니페스트 태그인 최신 태그와 버전 태그(예: 1.0.1)를 제공합니다. 하나의 플랫폼이 지원되는 경우에만 매니페스트 태그는 선택 사항입니다.
 - [파트너 센터의](https://partner.microsoft.com/dashboard/commercial-marketplace) 오퍼 목록 탭을 사용하여 [Azure IoT Edge 인증 장치 카탈로그에서](https://catalog.azureiotsolutions.com/)하나 이상의 IoT Edge 장치에 **유용한 링크** 섹션 아래에 있는 링크를 추가합니다.
@@ -146,4 +146,4 @@ IoT Edge 모듈을 Azure 마켓플레이스에 업로드하려면 먼저 [ACR(Az
 
 ## <a name="next-steps"></a>다음 단계
 
-- [IoT Edge 모듈 제품 만들기](https://aka.ms/AzureCreateIoT)
+- [IoT Edge 모듈 제품 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation)

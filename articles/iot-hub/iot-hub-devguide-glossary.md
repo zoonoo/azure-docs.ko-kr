@@ -8,12 +8,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.openlocfilehash: 0c4a31d6273a7d440340fc1f907f287201134244
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 5c59ddf046e7ffe936b097878d5d049b43ea8aec
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258408"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729021"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub 용어집
 
@@ -315,7 +318,7 @@ SASL PLAIN은 AMQP 프로토콜에서 보안 토큰을 전송하는 데 사용�
 
 편의를 위해 많은 IoT Hub 자습서에서 시뮬레이션된 디바이스를 사용하여 로컬 머신에서 샘플을 실행할 수 있도록 합니다. 반면에, [물리적 디바이스](#physical-device)는 Raspberry Pi처럼 IoT Hub에 연결되는 실제 디바이스입니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 _솔루션_은 하나 이상의 프로젝트를 포함하는 Visual Studio 솔루션을 나타낼 수 있습니다. _솔루션_은 또한 디바이스, [디바이스 앱](#device-app), IoT Hub, 기타 Azure 서비스 및 [백 엔드 앱](#back-end-app)과 같은 요소를 포함하는 IoT 솔루션을 나타낼 수 있습니다.
 
 ## <a name="subscription"></a>Subscription

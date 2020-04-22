@@ -5,16 +5,16 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/4/2019
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 6a142ce3c082f6f9a53287885ba347fc78f77718
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: da324e1e1a40e515cac4b26d6c9f8661f344e1d7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262029"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687598"
 ---
-# <a name="microsoft-commercial-marketplace-faqs"></a>Microsoft 상용 마켓플레이스 FAQ
+# <a name="microsoft-commercial-marketplace-faqs"></a>Microsoft 상업용 마켓플레이스 FAQ
 
 상업 시장에 대한 일반적인 질문에 대한 답변입니다.
 
@@ -46,7 +46,7 @@ Azure Marketplace는 Azure 제품과 서비스를 확장하기 위해 빌드된 
 
 **Azure Marketplace 사용을 시작하려면 어떻게 해야 하나요?**
 
-[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps)를 방문하면 Azure에서 실행 가능하도록 최적화 및 인증된 광범위한 엔터프라이즈 애플리케이션과 솔루션을 확인할 수 있습니다. 리소스를 만들 때 Azure [Marketplace를] 통해 Azure [**포털을**](https://portal.azure.com/#create/hub)통해 액세스할 수도 있습니다.
+[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps)를 방문하면 Azure에서 실행 가능하도록 최적화 및 인증된 광범위한 엔터프라이즈 애플리케이션과 솔루션을 확인할 수 있습니다. [**리소스를 만들**](https://portal.azure.com/#create/hub)때 [Azure Portal]을 통해 Azure Marketplace에 액세스할 수도 있습니다.
 
 **Azure Marketplace의 주요 이점은 무엇인가요?**
 
@@ -57,7 +57,7 @@ Azure Marketplace 고객은 Azure용으로/Azure를 기반으로 빌드된 기�
 Azure Marketplace 제품은 다음 방법을 통해 구매할 수 있습니다.
 
 * [웹 기반 스토어프론트](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [Azure 포털][Azure 포털]
+* [Azure 포털] [Azure 포털]
 * [Azure 명령줄 인터페이스(CLI)](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]
@@ -127,7 +127,7 @@ Azure 구독은 게시자의 ISV(독립 소프트웨어 공급업체) 솔루션 
 
 + *사용자당:* SaaS 구독은 월별 또는 연간 청구되는 사용자단위로 가격이 책정될 수 있습니다. 
 
-제안별 가격 정보는 Azure [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) [포털]의 솔루션 세부 정보 페이지에서 찾을 수 있습니다.
+제품별 가격 정보는 [Azure Portal]의 [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) 솔루션 세부 정보 페이지에서 찾을 수 있습니다.
 
 > [!Note]
 > 월별 요금을 제외하고는 별도로 명시된 경우가 아니면 모든 가격 책정 모델에 Azure 사용 요금이 적용됩니다.
@@ -180,9 +180,9 @@ EA(기업계약) 간접 고객의 경우 모든 Azure Marketplace 가격 관련 
 
 **Azure Marketplace 구독 정보와 청구 정보는 어디서 확인할 수 있나요?**
 
-MOSP - [Microsoft 온라인 구독 프로그램(웹](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) 직접) 고객은 [Azure 포털의]비용 관리 + 청구 섹션의 인보이스 탭에서 마켓플레이스 구매 세부 정보를 볼 수 있습니다.
+MOSP - [Microsoft 온라인 구독 프로그램(웹](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) 직접) 고객은 [Azure 포털]의 비용 관리 + 청구 섹션의 인보이스 탭에서 마켓플레이스 구매 세부 정보를 볼 수 있습니다.
 
-EA(기업 계약) 고객은 [Azure 포털의]비용 관리 + 청구 섹션의 인보이스 탭에서 마켓플레이스 구매 세부 정보를 볼 수 있습니다.
+EA(기업 계약) 고객은 [Azure Portal]의 비용 관리 + 청구 섹션의 송장 탭에서 마켓플레이스 구매 세부 정보를 볼 수 있습니다.
 
 CSP(클라우드 솔루션 공급자) 파트너는 고객 보기에서 회사를 선택한 후 주문 내역 탭에서 파트너 센터의 각 고객에 대한 마켓플레이스 구매 세부 정보를 볼 수 있습니다.
 
@@ -307,7 +307,7 @@ Azure Marketplace를 통해 목록, 평가판 또는 BYOL(사용자 라이선스
 
 **Azure Marketplace를 통해 제품을 구매할 때 거래 수수료가 발생하나요?**
 
-Azure Marketplace를 통해 솔루션 라이선스를 구매하면 판매자와 Microsoft에게 소프트웨어 라이선스 수익이 분할 지급됩니다.  수익은 [Marketplace 판매자 계약](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf)의 약관에 따라 분할됩니다. 또한 BYOL(사용자 라이선스 필요)이 포함된 솔루션의 경우 판매자에게 거래 수수료가 발생하지 않습니다.
+Azure Marketplace를 통해 솔루션 라이선스를 구매하면 판매자와 Microsoft에게 소프트웨어 라이선스 수익이 분할 지급됩니다.  수익은 [Marketplace 판매자 계약](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt)의 약관에 따라 분할됩니다. 또한 BYOL(사용자 라이선스 필요)이 포함된 솔루션의 경우 판매자에게 거래 수수료가 발생하지 않습니다.
 
 **표준 계약이란 무엇입니까?**
 
@@ -335,7 +335,7 @@ Microsoft는 AAD를 통해 모든 Marketplace 사용자를 인증합니다.  추
 
 **리드 대상을 설정하는 데 필요한 도움은 어디에서 받을 수 있나요?**
 
-[파트너 센터-고객 잠재 고객 얻기](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md) 설명서에서 자세히 [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) 알아보거나 오퍼 유형 및 잠재 고객 관리를 선택하여 지원 티켓을 제출하십시오.
+[파트너 센터-고객 잠재 고객 얻기](./partner-center-portal/commercial-marketplace-get-customer-leads.md) 설명서에서 자세히 [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) 알아보거나 오퍼 유형 및 잠재 고객 관리를 선택하여 지원 티켓을 제출하십시오.
 
 **Marketplace에서 제품을 판매하려면 리드 대상을 구성해야 하나요?**
 
@@ -343,7 +343,7 @@ Microsoft는 AAD를 통해 모든 Marketplace 사용자를 인증합니다.  추
 
 **리드 구성이 올바른지 확인하려면 어떻게 해야 하나요?**
 
-오퍼를 완료하고 잠재 고객 대상을 설정한 후 파트너 [센터에](https://cloudpartner.azure.com/)목록을 올바르게 게시할 수 있습니다. 목록이 실시간 전송되기 전에 리드 구성 설정이 올바르게 작동하는지 유효성을 검사할 수 있습니다.  이렇게 하려면 제품에 구성된 리드 대상으로 테스트 리드를 전송합니다.
+오퍼를 완료하고 잠재 고객 대상을 설정한 후 파트너 [센터에](https://partner.microsoft.com/)목록을 올바르게 게시할 수 있습니다. 목록이 실시간 전송되기 전에 리드 구성 설정이 올바르게 작동하는지 유효성을 검사할 수 있습니다.  이렇게 하려면 제품에 구성된 리드 대상으로 테스트 리드를 전송합니다.
 
 **Azure Marketplace를 통해 판매자가 제품을 판매할 수 있는 국가/지역은 어디인가요?**
 
@@ -353,13 +353,13 @@ Microsoft는 AAD를 통해 모든 Marketplace 사용자를 인증합니다.  추
 
 *Azure 앱에 & 가상 시스템:*
 
-1. [파트너 센터에 로그인합니다.](https://cloudpartner.azure.com/)
+1. [파트너 센터에 로그인합니다.](https://partner.microsoft.com/)
 1. **모든 오퍼** 탭에서 쿠폰을 선택합니다.
 1. 화면 왼쪽의 창에서 **SCO** 탭을 선택합니다.
 1. 삭제할 SKU를 선택하고 해당 SKU의 **삭제** 단추를 클릭합니다.
 1. 제품을 Azure Marketplace에 [다시 게시](./cloud-partner-portal/manage-offers/cpp-publish-offer.md)합니다.
 
-자세한 내용은 [제품 삭제](./cloud-partner-portal/manage-offers/cpp-delete-offer.md)를 참조하세요.
+자세한 내용은 [오퍼 업데이트를](./partner-center-portal/update-existing-offer.md)참조하십시오.
 
 *웹 앱(SaaS 앱, 추가 기능) & 컨설팅 서비스:*
 
@@ -392,7 +392,7 @@ Microsoft GTM 혜택 및 마켓플레이스에서 사업 범위를 확장하는 
 
 **Microsoft 웹 자산 내에서 Azure Marketplace 솔루션 프로모션이 표시되는 위치는 어디인가요?**
 
-Azure 마켓플레이스 솔루션은 Microsoft [Azure 포털]및 [Azure 마켓플레이스 웹 사이트에서](https://azuremarketplace.microsoft.com/marketplace/)사용할 수 있습니다. Azure를 사용하는 클라우드 개발자와 IT 전문가가 로그인할 때마다 파트너 솔루션이 표시됩니다. [Azure Marketplace 홈 페이지](https://azuremarketplace.microsoft.com/marketplace)와 [Azure 솔루션 페이지](https://azure.microsoft.com/solutions/)에도 일부 파트너 솔루션이 교대로 표시됩니다.
+Azure 마켓플레이스 솔루션은 Microsoft [Azure 포털]과 [Azure 마켓플레이스 웹 사이트에서](https://azuremarketplace.microsoft.com/marketplace/)사용할 수 있습니다. Azure를 사용하는 클라우드 개발자와 IT 전문가가 로그인할 때마다 파트너 솔루션이 표시됩니다. [Azure Marketplace 홈 페이지](https://azuremarketplace.microsoft.com/marketplace)와 [Azure 솔루션 페이지](https://azure.microsoft.com/solutions/)에도 일부 파트너 솔루션이 교대로 표시됩니다.
 
 ### <a name="billing-and-payments"></a>대금 청구 및 결제
 
@@ -474,6 +474,3 @@ Azure Marketplace는 고객의 청구 주소에 정의된 141개의 구매-에�
 ## <a name="next-steps"></a>다음 단계
 
 상업용 [마켓플레이스 퍼블리셔 가이드](/azure/marketplace/marketplace-publishers-guide) 페이지를 방문하세요.
-
-
-[Azure Portal]: https://portal.azure.com

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/27/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6aea537ebff4ae61e00861e6cafe742a7feb165e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cac7e6feb632456b63b97ead057f9ecaf49322ea
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78186780"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729713"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection 클레임 변환
 
@@ -159,4 +159,38 @@ StringCollection 클레임 형식에 요소가 포함되어 있는지 확인합�
 - 출력 클레임:
     - **출력 클레임**: "true"
 
+## <a name="stringcollectioncontainsclaim"></a>문자열 컬렉션포함 클레임
 
+StringCollection 클레임 형식에 클레임 값이 포함되어 있는지 확인합니다.
+
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | collection | stringCollection | 검색할 클레임 유형입니다. |
+| InputClaim | 항목|문자열| 검색할 값을 포함하는 클레임 유형입니다.|
+|InputParameter|ignoreCase|문자열|이 비교에서 비교할 문자열의 대/소문자를 무시해야 하는지 여부를 지정합니다.|
+| OutputClaim | outputClaim | boolean | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. 컬렉션에 이러한 문자열이 포함되어 있는 경우 부울 표시기 |
+
+다음 예제는 `roles` stringCollection 클레임 형식에 `role` 클레임 형식의 값이 포함되어 있는지 여부를 확인합니다.
+
+```XML
+<ClaimsTransformation Id="HasRequiredRole" TransformationMethod="StringCollectionContainsClaim">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="collection" />
+    <InputClaim ClaimTypeReferenceId="role" TransformationClaimType="item" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="ignoreCase" DataType="string" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="hasAccess" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation> 
+```
+
+- 입력 클레임:
+    - **컬렉션**: ["독자", "저자", "관리자"]
+    - **항목**: "관리자"
+- 입력 매개 변수:
+    - **무시 케이스**: "true"
+- 출력 클레임:
+    - **출력 클레임**: "true"

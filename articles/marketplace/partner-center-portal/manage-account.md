@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 256ea1a03cd22df443362623177f91893f28b664
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 2e057ca16e2e4f7fcb16ee39d090be853639fc12
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419156"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731455"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 마켓플레이스 계정 관리
 
@@ -120,11 +120,11 @@ ms.locfileid: "81419156"
 
 전역 고유 식별자(GUID)는 Azure 사용량을 추적하는 데 사용할 수 있는 고유 참조 번호(32헥사드숫자)입니다. 
 
-추적을 위한 GUID를 만들려면 GUID 생성기를 사용해야 합니다. Azure Storage 팀은 [GUID 생성기 양식](https://aka.ms/StoragePartners)을 만든 후 이 양식을 통해 올바른 형식의 GUID를 이메일로 전달합니다. 이 GUID를 다른 추적 시스템에서 다시 사용할 수 있습니다.
+추적을 위한 GUID를 만들려면 GUID 생성기를 사용해야 합니다. Azure Storage 팀은 [GUID 생성기 양식](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu)을 만든 후 이 양식을 통해 올바른 형식의 GUID를 이메일로 전달합니다. 이 GUID를 다른 추적 시스템에서 다시 사용할 수 있습니다.
 
 각 제품에 대한 모든 제안 및 배포 채널에 대해 고유한 GUID를 만드는 것이 좋습니다. 보고를 분할하지 않으려면 제품의 여러 배포 채널에 대해 단일 GUID를 사용하도록 선택할 수 있습니다.
 
-템플릿을 사용하여 제품을 배포하고 Azure 마켓플레이스와 GitHub에서 사용할 수 있는 경우 두 가지 GUIDS를 만들고 등록할 수 있습니다.
+템플릿을 사용하여 제품을 배포하고 Azure 마켓플레이스와 GitHub에서 사용할 수 있는 경우 두 개의 고유한 GUID를 만들고 등록할 수 있습니다.
 
 *    Azure Marketplace의 제품 A
 *    GitHub의 제품 A

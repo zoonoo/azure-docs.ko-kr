@@ -4,12 +4,12 @@ description: 요청을 인증하고 Azure Monitor REST API를 사용하여 사�
 ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.openlocfilehash: f52776fc6b5f5f530cc368a2f148a2ff63fb5b40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6b0e321747e0f84be5a75ab96749311ff0071e8d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294632"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687409"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API 연습
 
@@ -238,7 +238,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**요청 URI**\:: https //management.azure.com/subscriptions/*{구독 id}*/resourceGroups/{resource-group-name} /provider/{resource-provider-namespace}/*{resource-group-name}*/*{리소스-이름} {리소스-이름/{리소스 유형}**{resource-provider-namespace}*{리소스-이름/microsoft.insights/메트릭?metricname=*{메트릭}*&시간 범위=*{시작 시간/종료 시간]*&$filter =*{필터}*&결과&=*{resource-name}**api aapia }*
+**요청 URI**\:: https //management.azure.com/subscriptions/*{구독 id}*/resourceGroups/{resource-group-name} /provider/{resource-provider-namespace}*{resource-group-name}**{apiVersion}* /*{리소스-이름}*/*{리소스-이름} {리소스-이름}{리소스 이름} {리소스 이름}*/공급자/microsoft.insights/메트릭?메트릭이름=*{메트릭}*&시간 범위=*{시작 시간/종료 시간}*&$filter = {필터}&결과 *&=api* api *{resource-provider-namespace}*
 
 예를 들어 지정된 시간 범위 동안 GeoType dimension = 'Primary'인 'API Name dimension'에 대해 내보내진 차원의 값 목록을 검색하기 위해 요청은 다음과 같을 수 있습니다.
 
@@ -311,7 +311,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**요청**URI https://management.azure.com/subscriptions/: *{구독 id}*/ 리소스 그룹 / 리소스 그룹 /*{자원 그룹 이름 }*{ 자원 - 그룹 - 이름 /*{자원 - 공급자 - 네임 스페이스 }*/*{자원 유형} {자원 유형}*/*{자원 이름} {자원 이름} {자원 이름} {자원 이름} {자원 이름}**{메트릭= {메트릭}*&시간 범위 =*{시작 시간/종료 시간}*&$filter =*{필터}*&구간=*{timeGrain}*&*&* 집계= {시간]* apiVersion}*
+**요청 URI**:\/https : https : https : https : /management.azure.com/subscriptions/*{구독 -id}*/ 자원 그룹 /*{자원 - 그룹 이름 }*/ 공급자 /*{자원 - 공급자 - 네임 스페이스 }*/*{자원 -*/*이름} {자원 이름} {자원 이름}*/공급자 /microsoft.insights/메트릭?메트릭이름 =*{메트릭}*&시간 범위 =*{시작 시간/ 종료 시간}*&$filter =*{필터&}* {agg *&* *&aggation.* *{apiVersion}*
 
 예를 들어 GeotType이 'Primary'였던 5분 범위 동안 'Transactions' 수에 의한 내림차순 값에서 상위 3개의 API를 검색하기 위해 요청은 다음과 같습니다.
 
@@ -463,7 +463,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**요청 URI**:`https://management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
+**요청 URI**:`https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
 
 예를 들어, 주어진 범위와 시간 조직 1시간에 대해 RunsSucceeded 메트릭 데이터를 검색하려면 요청은 다음과 같습니다.
 

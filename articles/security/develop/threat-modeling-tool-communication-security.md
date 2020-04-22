@@ -16,27 +16,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 39ee0fa2dc973cd6c20756cae2024af79d1375dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1945025ff89a784908a1a3dffd2240172a6e2449
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294144"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687994"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>보안 프레임: 통신 보안 | 완화 
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
-| **Azure 이벤트 허브** | <ul><li>[SSL/TLS를 사용하여 이벤트 허브 통신 보안](#comm-ssltls)</li></ul> |
+| **Azure Event Hub** | <ul><li>[SSL/TLS를 사용하여 이벤트 허브 통신 보안](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[서비스 계정 권한을 확인하고 사용자 지정 서비스 또는 ASP.NET 페이지에서 CRM 보안을 준수하는지 확인합니다.](#priv-aspnet)</li></ul> |
-| **Azure 데이터 팩터리** | <ul><li>[온-프레미스 SQL Server를 Azure 데이터 팩터리에 연결하는 동안 데이터 관리 게이트웨이 사용](#sqlserver-factory)</li></ul> |
+| **Azure Data Factory** | <ul><li>[온-프레미스 SQL Server를 Azure 데이터 팩터리에 연결하는 동안 데이터 관리 게이트웨이 사용](#sqlserver-factory)</li></ul> |
 | **ID 서버** | <ul><li>[ID 서버에 대한 모든 트래픽이 HTTPS 연결을 초과하고 있는지 확인합니다.](#identity-https)</li></ul> |
 | **웹 응용 프로그램** | <ul><li>[X.509 인증서를 사용하여 SSL, TLS 및 DTLS 연결을 인증하는지 확인](#x509-ssltls)</li><li>[Azure App Service에서 사용자 지정 도메인에 대한 SSL 인증서 구성](#ssl-appservice)</li><li>[Azure App Service에 대한 모든 트래픽이 HTTPS 연결을 통과하도록 강제 적용](#appservice-https)</li><li>[HSTS(HTTP 엄격한 전송 보안)를 사용하도록 설정](#http-hsts)</li></ul> |
 | **데이터베이스** | <ul><li>[SQL 서버 연결 암호화 및 인증서 유효성 검사 확인](#sqlserver-validation)</li><li>[SQL 서버에 암호화된 통신 강제 적용](#encrypted-sqlserver)</li></ul> |
-| **Azure 저장소** | <ul><li>[Azure Storage에 대한 통신이 HTTPS를 통과하는지 확인](#comm-storage)</li><li>[HTTPS를 사용할 수 없는 경우 Blob을 다운로드한 후 MD5 해시 유효성 검사](#md5-https)</li><li>[SMB 3.0 호환 클라이언트를 사용하여 Azure File Shares에 대한 전송 중 데이터 암호화 보장](#smb-shares)</li></ul> |
+| **Azure Storage** | <ul><li>[Azure Storage에 대한 통신이 HTTPS를 통과하는지 확인](#comm-storage)</li><li>[HTTPS를 사용할 수 없는 경우 Blob을 다운로드한 후 MD5 해시 유효성 검사](#md5-https)</li><li>[SMB 3.0 호환 클라이언트를 사용하여 Azure File Shares에 대한 전송 중 데이터 암호화 보장](#smb-shares)</li></ul> |
 | **모바일 클라이언트** | <ul><li>[인증서 고정 구현](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[HTTPS 사용 설정 - 보안 전송 채널](#https-transport)</li><li>[WCF: 메시지 보안 보호 수준을 EncryptAndSign으로 설정](#message-protection)</li><li>[WCF: 최소 권한 계정을 사용하여 WCF 서비스 실행](#least-account-wcf)</li></ul> |
 | **Web API** | <ul><li>[Web API에 대한 모든 트래픽이 HTTPS 연결을 통과하도록 강제 적용](#webapi-https)</li></ul> |
-| **Redis용 Azure 캐시** | <ul><li>[Redis에 대한 Azure 캐시에 대한 통신이 SSL을 초과하고 있는지 확인합니다.](#redis-ssl)</li></ul> |
+| **Azure Cache for Redis** | <ul><li>[Redis에 대한 Azure 캐시에 대한 통신이 SSL을 초과하고 있는지 확인합니다.](#redis-ssl)</li></ul> |
 | **IoT 필드 게이트웨이** | <ul><li>[장치 에서 필드 게이트웨이 통신 보안](#device-field)</li></ul> |
 | **IoT 클라우드 게이트웨이** | <ul><li>[SSL/TLS를 사용하여 디바이스-클라우드 게이트웨이 통신 보안](#device-cloud)</li></ul> |
 
@@ -147,7 +147,7 @@ ms.locfileid: "80294144"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [OWASP HSTS(HTTP 엄격한 전송 보안) 참고 자료](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet)(영문) |
+| **참조**              | [OWASP HSTS(HTTP 엄격한 전송 보안) 참고 자료](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html)(영문) |
 | **단계** | <p>HSTS는 특수 응답 헤더를 사용하여 웹 애플리케이션에서 지정하는 옵트인 보안 고급 기능입니다. 지원되는 브라우저에서 이 헤더를 받으면 브라우저는 HTTP를 통해 지정된 도메인으로 보내는 모든 통신을 차단하고 대신 HTTPS를 통해 모든 통신을 보냅니다. 또한 브라우저에서 프롬프트를 통해 HTTPS를 클릭하지 않도록 방지합니다.</p><p>HSTS를 구현하려면 코드 또는 구성에서 전 세계 웹 사이트에 대해 다음 응답 헤더를 구성해야 합니다. 엄격한 운송 - 보안 : 최대 연령 = 300; 포함SubDomains HSTS는 다음과 같은 위협을 해결합니다.</p><ul><li>사용자가 책갈피를 설정하거나 수동으로 `https://example.com`을 입력하고 메시지 가로채기(man-in-the-middle) 공격자가 될 수 있습니다. HSTS는 대상 도메인에 대한 HTTP 요청을 HTTPS로 자동으로 리디렉션합니다.</li><li>순전히 HTTPS로 의도된 웹 애플리케이션은 실수로 HTTP 링크를 포함하거나 HTTP를 통해 콘텐츠를 제공합니다. HSTS는 대상 도메인에 대한 HTTP 요청을 HTTPS로 자동으로 리디렉션합니다.</li><li>메시지 가로채기 공격자가 잘못된 인증서를 사용하여 공격 대상 사용자의 트래픽을 가로채려고 시도하고 사용자가 잘못된 인증서를 받아들이기를 기대합니다. HSTS는 사용자가 잘못된 인증서 메시지를 재정의하도록 허용하지 않습니다.</li></ul>|
 
 ## <a name="ensure-sql-server-connection-encryption-and-certificate-validation"></a><a id="sqlserver-validation"></a>SQL 서버 연결 암호화 및 인증서 유효성 검사 확인
@@ -213,7 +213,7 @@ ms.locfileid: "80294144"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반, Windows Phone |
 | **특성**              | 해당 없음  |
-| **참조**              | [인증서 및 공개 키 고정](https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning#.Net)(영문) |
+| **참조**              | [인증서 및 공개 키 고정](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning)(영문) |
 | **단계** | <p>인증서 고정은 MITM(메시지 가로채기) 공격을 방어합니다. 고정은 예상되는 X509 인증서 또는 공개 키와 호스트를 연결하는 프로세스입니다. 호스트에 대한 인증서 또는 공개 키를 알고 있거나 확인하면 해당 인증서 또는 공개 키가 호스트에 연결되거나 '고정'됩니다. </p><p>따라서 악의적 사용자가 SSL MITM 공격을 시도하면 SSL 핸드셰이크 중에 공격자 서버의 키가 고정된 인증서 키와 다르고 요청이 무시되므로 ServicePointManager의 `ServerCertificateValidationCallback` 위임을 구현함으로써 MITM 인증서 고정을 방지할 수 있습니다.</p>|
 
 ### <a name="example"></a>예제

@@ -7,17 +7,17 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 02/05/2020
+ms.date: 04/19/2020
 ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 61a3e2eadaf79cdb30a931b31cff709298d0a22c
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: b0a783ad5db86ca783ff1cebceec8d77ab528047
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631292"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687930"
 ---
 # <a name="column-level-security"></a>열 수준 보안
 
@@ -34,7 +34,7 @@ ms.locfileid: "80631292"
 
 ## <a name="syntax"></a>구문
 
-```sql
+```syntaxsql
 GRANT <permission> [ ,...n ] ON
     [ OBJECT :: ][ schema_name ]. object_name [ ( column [ ,...n ] ) ]
     TO <database_principal> [ ,...n ]
@@ -77,8 +77,8 @@ SSN `TestUser` 열을 포함하는 경우 실행되는 쿼리는 실패합니다
 ```sql
 SELECT * FROM Membership;
 
-Msg 230, Level 14, State 1, Line 12
-The SELECT permission was denied on the column 'SSN' of the object 'Membership', database 'CLS_TestDW', schema 'dbo'.
+-- Msg 230, Level 14, State 1, Line 12
+-- The SELECT permission was denied on the column 'SSN' of the object 'Membership', database 'CLS_TestDW', schema 'dbo'.
 ```
 
 ## <a name="use-cases"></a>사용 사례

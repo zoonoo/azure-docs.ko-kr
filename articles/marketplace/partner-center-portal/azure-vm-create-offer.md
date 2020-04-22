@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: 161fd9276427db0d0d7d56da1bfc0bb8ccf52a52
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: d5626f00e9627338349d9b579bcf26256148b551
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536661"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731260"
 ---
 # <a name="create-an-azure-virtual-machine-offer"></a>Azure 가상 시스템 오퍼 만들기
 
@@ -32,21 +32,21 @@ Azure 마켓플레이스에 게시하는 경우 다음과 같은 이점이 있�
 - 이러한 마켓플레이스에서 고품질 잠재 고객 얻기
 - Microsoft 현장 및 원격 판매 팀에서 서비스 홍보
 
-### <a name="before-you-begin"></a>시작하기 전 주의 사항
+### <a name="before-you-begin"></a>시작하기 전에
 
-아직 수행하지 않은 경우 [가상 컴퓨터 제공 게시 가이드](https://aka.ms/Virtualmachineofferpublishingguide) 및 이 Azure 가상 시스템 자료를 검토하십시오.
+아직 수행하지 않은 경우 [가상 컴퓨터 제공 게시 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) 및 이 Azure 가상 시스템 자료를 검토하십시오.
 
 - 빠른 시작 가이드
-  - [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)
+  - [Azure Quickstart 템플릿](https://azure.microsoft.com/resources/templates/)
   - [GitHub Azure 빠른 시작 템플릿](https://github.com/azure/azure-quickstart-templates)
 - 자습서
-  - [Linux VM](https://aka.ms/LinuxVMtutorial)
-  - [Windows VM](https://aka.ms/windowsvms)
+  - [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
+  - [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - 샘플
-  - [리눅스 VM에 대 한 Azure CLI 샘플](https://aka.ms/linuxclisamples)
-  - [리눅스 VM에 대 한 Azure 파워 쉘](https://aka.ms/linuxpowershellsamples)
-  - [Windows VM용 Azure CLI 샘플](https://aka.ms/windowsclisamples)
-  - [윈도우 VM용 Azure 파워쉘](https://aka.ms/windowspowershellvmsamples)
+  - [리눅스 VM에 대 한 Azure CLI 샘플](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
+  - [리눅스 VM에 대 한 Azure 파워 쉘](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
+  - [Windows VM용 Azure CLI 샘플](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
+  - [윈도우 VM용 Azure 파워쉘](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick)
 
 ### <a name="fundamentals-in-technical-knowledge"></a>기술 지식의 기초
 
@@ -66,7 +66,7 @@ Azure 가상 시스템 오퍼를 만들려면 먼저 파트너 센터에 상용 
 2. 왼쪽 탐색 막대에서 **상업용 마켓플레이스를**선택한 다음 **개요를 선택합니다.**
 3. **개요** 페이지에서 **+ 새 제안을**선택한 다음 Azure 가상 **컴퓨터를**선택합니다. **새 오퍼** 대화 상자가 나타납니다.
 
-![파트너 센터의 개요 페이지를 새 오퍼 단추 및 Azure 가상 컴퓨터 제품 선택으로 보여 줍니다.](media/avm-create7.png)
+    ![파트너 센터의 개요 페이지를 새 오퍼 단추 및 Azure 가상 컴퓨터 제품 선택으로 보여 줍니다.](media/avm-create7.png)
 
 ## <a name="offer-id-and-alias"></a>제공 ID 및 별칭
 
@@ -91,7 +91,7 @@ Azure 가상 시스템 오퍼를 만들려면 먼저 파트너 센터에 상용 
 추가 테스트 드라이브 리소스:
 
 - [기술 모범 사례](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [마케팅 모범 사례](https://aka.ms/TestDriveMarketingBestPractices)
+- [마케팅 모범 사례](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
 - [테스트 드라이브 개요](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF(팝업 차단이 꺼져 있는지 확인).
 
 ### <a name="lead-management"></a>잠재 고객 관리
@@ -99,12 +99,12 @@ Azure 가상 시스템 오퍼를 만들려면 먼저 파트너 센터에 상용 
 파트너 센터를 통해 상용 마켓플레이스에 오퍼를 게시할 때 CRM(고객 관계 관리) 시스템에 연결합니다. 이렇게 하면 다른 사람이 귀사에 관심을 표명하거나 제품을 사용하는 즉시 고객 연락처 정보를 받을 수 있습니다. **테스트 드라이브를** 사용하도록 설정하려면 CRM에 연결해야 합니다(이전 섹션 참조).
 
 1. 잠재 고객을 보내려는 잠재 고객 대상을 선택합니다. 파트너 센터는 다음 CRM 시스템을 지원합니다.
-    - 고객 참여를 위한 [Dynamics 365](https://aka.ms/Dyn365LeadMgmt)
-    - [Marketo](https://aka.ms/LeadMgmtMarketo)
-    - [Salesforce](https://aka.ms/LeadMgmtSalesforce)
+    - 고객 참여를 위한 [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics)
+    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
+    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
     > [!NOTE]
-    > CRM 시스템이 위에 나열되지 않은 경우 [Azure Table](https://aka.ms/AzureTableLeadMgmt) 또는 [Https Endpoint를](https://aka.ms/LeadMgmtHTTPS) 사용하여 고객 잠재 고객 데이터를 저장합니다. 그런 다음 데이터를 CRM 시스템으로 내보냅니다.
+    > CRM 시스템이 위에 나열되지 않은 경우 [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) 또는 [Https Endpoint를](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) 사용하여 고객 잠재 고객 데이터를 저장합니다. 그런 다음 데이터를 CRM 시스템으로 내보냅니다.
 
 2. 파트너 센터에 게시할 때 잠재 고객 대상에 쿠폰을 연결합니다.
 3. 잠재 고객 대상에 대한 연결이 제대로 구성되어 있는지 확인합니다. 파트너 센터에 게시한 후 연결의 유효성을 검사하고 테스트 리드를 보냅니다. 오퍼가 시작되기 전에 쿠폰을 미리 볼 때 미리 보기 환경에서 직접 쿠폰을 배포하여 잠재 고객 연결을 테스트할 수도 있습니다.
@@ -174,7 +174,7 @@ Azure 가상 시스템 오퍼를 만들려면 먼저 파트너 센터에 상용 
 
 ### <a name="marketplace-details"></a>마켓플레이스 세부 정보
 
-#### <a name="name"></a>속성
+#### <a name="name"></a>이름
 
 여기에 입력한 이름은 고객에게 쿠폰 목록의 제목으로 표시됩니다. 이 필드는 **오퍼를** 만들 때 쿠폰 별칭 상자에 입력한 텍스트로 미리 채워져 있습니다. 이 이름은 나중에 변경할 수 있습니다.
 
@@ -192,7 +192,7 @@ Azure 가상 시스템 오퍼를 만들려면 먼저 파트너 센터에 상용 
 
 오퍼에 대한 더 긴 설명을 제공합니다. 최대 256자까지 사용할 수 있으며 마켓플레이스 검색 결과에 사용됩니다.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>설명
 
 최대 3,000자까지 오퍼에 대한 자세한 설명을 제공합니다. 이는 상업용 마켓플레이스 목록 개요의 고객에게 표시됩니다.
 
@@ -239,7 +239,7 @@ Azure 가상 시스템 오퍼를 만들려면 먼저 파트너 센터에 상용 
 
 고객이 지원 티켓을 열 때 사용할 Microsoft 파트너에 대한 연락처 정보를 제공합니다. 이 목록에 는 나열되지 않습니다.
 
-- 속성
+- 이름
 - Email
 - Phone
 
@@ -247,7 +247,7 @@ Azure 가상 시스템 오퍼를 만들려면 먼저 파트너 센터에 상용 
 
 인증 문제를 포함하여 오퍼에 문제가 있는 경우 Microsoft에서 사용할 연락처 정보를 제공합니다. 이 목록에 는 나열되지 않습니다.
 
-- 속성
+- 이름
 - Email
 - Phone
 
@@ -270,11 +270,11 @@ Azure 가상 시스템 오퍼를 만들려면 먼저 파트너 센터에 상용 
 
 쿠폰의 작동 방식을 보여주는 스크린샷을 최대 5개까지 추가합니다. 각 스크린샷의 크기와 PNG 형식은 1280 x 720 픽셀이어야 합니다. 스크린샷을 설명하기 위해 캡션을 추가해야 합니다.
 
-#### <a name="videos"></a>동영상
+#### <a name="videos"></a>비디오
 
 쿠폰을 보여주는 동영상을 최대 5개까지 추가할 수 있습니다. 이러한 서비스는 외부 비디오 서비스에서 호스팅되어야 합니다. 1280 x 720 픽셀 크기로 각 비디오의 이름, 웹 주소 및 동영상의 축소판 PNG 이미지를 입력합니다.
 
-추가 마켓플레이스 목록 리소스는 [마켓플레이스 오퍼 목록에 대한 모범 사례를 참조하세요.](https://aka.ms/LdMgmtOfferListingBestPractices)
+추가 마켓플레이스 목록 리소스는 [마켓플레이스 오퍼 목록에 대한 모범 사례를 참조하세요.](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
 계속하기 전에 **초안 저장을** 선택합니다.
 
@@ -517,7 +517,7 @@ Azure Marketplace에 표시할 권장 가상 컴퓨터 크기를 최대 6개까�
 
 **제안 개요** 페이지에는 이 제안을 게시하는 데 필요한 단계(완료 및 진행 중)와 각 단계를 완료하는 데 걸리는 시간이 시각적으로 표시됩니다.
 
-이 페이지에는 선택한 항목을 기반으로 이 오퍼에서 작업을 수행하는 링크가 포함되어 있습니다. 다음은 그 예입니다.
+이 페이지에는 선택한 항목을 기반으로 이 오퍼에서 작업을 수행하는 링크가 포함되어 있습니다. 예를 들어:
 
 - 제안이 초안인 경우 - [초안 오퍼 삭제](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - 오퍼가 실시간 인 경우 - [오퍼 판매 중지](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
@@ -554,4 +554,4 @@ Azure Marketplace에 표시할 권장 가상 컴퓨터 크기를 최대 6개까�
 
 ## <a name="next-step"></a>다음 단계
 
-- [상용 시장에서 기존 오퍼 업데이트](https://aka.ms/UpdateOfferCM)
+- [상용 시장에서 기존 오퍼 업데이트](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)

@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/07/2019
-ms.openlocfilehash: dea0f9a038958ea747147a179020545f2f6922a2
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.date: 04/17/2020
+ms.openlocfilehash: 18099e853aa44e4434a14d7ea913f968593021ec
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605336"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687906"
 ---
 # <a name="monitor-data-flows"></a>데이터 흐름 모니터링
 
@@ -32,6 +32,10 @@ ms.locfileid: "81605336"
 그래픽 노드 모니터링 보기에 있는 경우 데이터 흐름 그래프의 간소화된 보기 전용 버전이 표시됩니다.
 
 ![데이터 흐름 모니터링](media/data-flow/mon003.png "Data Flow 모니터링")
+
+다음은 ADF 모니터링 화면에서 데이터 흐름의 모니터링 성능에 대한 비디오 개요입니다.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4u4mH]
 
 ## <a name="view-data-flow-execution-plans"></a>데이터 흐름 실행 플랜 보기
 
