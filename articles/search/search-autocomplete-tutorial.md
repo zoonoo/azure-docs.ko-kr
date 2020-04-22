@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 1d8085c6056cb0d2541999c3e9c249cde3da8834
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 60e9a435d705ee0fee6509e92cdcb056ac7ab609
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641264"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758114"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>클라이언트 앱에 자동 완성 및 제안 추가
 
@@ -22,7 +22,7 @@ ms.locfileid: "81641264"
 Azure 인지 검색에서 이러한 환경을 구현하려면 다음이 필요합니다.
 
 + 백 엔드의 *제안자입니다.*
-+ 요청에 자동 완성 또는 제안 API를 지정하는 *쿼리입니다.*
++ 요청에 자동 [완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 또는 제안 API를 지정하는 [쿼리입니다.](https://docs.microsoft.com/rest/api/searchservice/suggestions) *query*
 + 클라이언트 앱에서 사용자 유형별 검색 상호 작용을 처리하는 *UI 컨트롤입니다.* 이를 위해 기존 자바스크립트 라이브러리를 사용하는 것이 좋습니다.
 
 Azure Cognitive Search에서 제안자로 등록한 선택한 필드에서 자동 완성된 쿼리 및 제안된 결과가 검색 인덱스에서 검색됩니다. 제안자는 인덱스의 일부이며 쿼리를 완료하거나 결과를 제안하거나 둘 다 수행하는 콘텐츠를 제공할 필드를 지정합니다. 인덱스를 만들고 로드하면 제안자 데이터 구조가 내부적으로 만들어 부분 쿼리에 일치하는 데 사용되는 접두사를 저장합니다. 제안의 경우, 고유하거나 적어도 반복적이지 않은 적절한 필드를 선택하는 것이 경험에 필수적입니다. 자세한 내용은 [제안자 만들기를](index-add-suggesters.md)참조하십시오.
@@ -31,7 +31,7 @@ Azure Cognitive Search에서 제안자로 등록한 선택한 필드에서 자�
 
 ## <a name="set-up-a-request"></a>요청 설정
 
-요청의 요소에는[API(자동 완성 REST](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 또는 제안 [REST),](https://docs.microsoft.com/rest/api/searchservice/suggestions)부분 쿼리 및 제안자가 포함됩니다.
+요청의 요소에는 검색 유형 API 중 하나, 부분 쿼리 및 제안자가 포함됩니다. 다음 스크립트는 자동 완성 REST API를 예로 사용하여 요청의 구성 요소를 보여 줍니다.
 
 ```http
 POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
@@ -49,7 +49,7 @@ API는 부분 쿼리에 최소 길이 요구 사항을 적용하지 않습니다
 
 일치는 입력 문자열의 아무 곳이나 용어의 시작 부분에 있습니다. "빠른 갈색 여우"를 감안할 때, 자동 완성 및 제안은 모두 """, "빠른", "갈색", 또는 "여우"의 부분 버전에 일치하지만 "rown"또는 "황소"와 같은 부분 적인 infix 용어에는 일치하지 않습니다. 또한 각 일치 는 다운스트림 확장의 범위를 설정합니다. "빠른 br"의 부분 쿼리는 "빠른 갈색"또는 "빠른 빵"과 일치하지만 "빠른"이 앞에 가지 않는 한 "갈색"이나 "빵"이 일치하지 않습니다.
 
-### <a name="apis"></a>API
+### <a name="apis-for-search-as-you-type"></a>검색 유형용 API
 
 나머지 및 .NET SDK 참조 페이지에 대 한 다음 링크를 따르십시오.
 
@@ -64,12 +64,13 @@ API는 부분 쿼리에 최소 길이 요구 사항을 적용하지 않습니다
 
 응답은 요청의 매개 변수에 의해 형성됩니다. 자동 완성의 경우 [**자동 completeMode를**](https://docs.microsoft.com/rest/api/searchservice/autocomplete#autocomplete-modes) 설정하여 텍스트 완성이 하나 또는 두 개의 용어에서 발생하는지 여부를 결정합니다. 제안의 경우 선택한 필드에 응답 내용이 결정됩니다.
 
-응답을 더 구체화하려면 요청에 더 많은 매개 변수를 포함합니다. 다음 매개 변수는 자동 완성 및 제안 모두에 적용됩니다.
+제안의 경우 중복되거나 관련이 없는 결과로 보이는 것을 피하기 위해 응답을 더 구체화해야 합니다. 결과를 제어하려면 요청에 더 많은 매개 변수를 포함합니다. 다음 매개 변수는 자동 완성 및 제안 모두에 적용되지만 제안자가 여러 필드를 포함하는 경우 특히 제안에 더 많이 필요합니다.
 
 | 매개 변수 | 사용 |
 |-----------|-------|
-| **$select** | **여러 sourceFields가**있는 경우 **$select** 사용하여 값()을`$select=GameTitle`기여하는 필드를 선택합니다. |
-| **$filter** | 결과 집합 ()에`$filter=ActionAdventure`일치 조건을 적용합니다. |
+| **$select** | 제안자에서 **여러 sourceFields가** 있는 경우 **$select** 사용하여 값()을`$select=GameTitle`기여하는 필드를 선택합니다. |
+| **searchFields** | 쿼리를 특정 필드로 제한합니다. |
+| **$filter** | 결과 집합 ()에`$filter=Category eq 'ActionAdventure'`일치 조건을 적용합니다. |
 | **$top** | 결과를 특정 숫자()로`$top=5`제한합니다.|
 
 ## <a name="add-user-interaction-code"></a>사용자 상호 작용 코드 추가
@@ -149,6 +150,8 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
     // Call suggest API and return results
     SuggestParameters sp = new SuggestParameters()
     {
+        Select = HotelName,
+        SearchFields = HotelName,
         UseFuzzyMatching = fuzzy,
         Top = 5
     };

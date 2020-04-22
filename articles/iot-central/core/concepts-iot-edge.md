@@ -7,14 +7,16 @@ ms.date: 12/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 69660152458de26e9dbcbf1f50db6ce6824351d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89d068fbd835a5b4f8886a2ed77691f94a701bb0
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77027070"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759097"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Azure IoT Edge 장치를 Azure IoT 중앙 응용 프로그램에 연결
+
+*이 문서는 솔루션 빌더 및 장치 개발자에게 적용됩니다.*
 
 IoT Edge는 다음 세 가지 구성 요소로 구성됩니다.
 
@@ -72,4 +74,4 @@ IoT Edge 디바이스를 게이트웨이 디바이스로 선택한 경우 게이
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 IoT Central 응용 프로그램 템플릿이 무엇인지 알아보셨으니 [이제 IoT 중앙 응용 프로그램을 만들어](quick-deploy-iot-central.md)시작하십시오.
+장치 개발자인 경우 다음 단계는 [IoT Central의 게이트웨이 장치 유형에](./tutorial-define-gateway-device-type.md)대해 알아보는 것입니다.

@@ -8,12 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: bed6736fda0c1815964f9017adb1e6fffa9335d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 82139eef9708ff8d76e1087c71aa5445ba898385
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77110680"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759615"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Azure IoT Hub를 통해 연결 해제를 모니터링, 진단 및 해결
 
@@ -27,7 +28,7 @@ Azure 모니터를 사용하여 장치를 연결 해제할 때 경고를 받고 
 
 디바이스 연결 이벤트 및 오류를 기록하려면 IoT Hub 진단을 켭니다. 진단 로그를 사용할 수 없는 경우 장치 연결이 끊어지면 문제를 해결할 정보가 없으므로 가능한 한 빨리 이러한 로그를 켜는 것이 좋습니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. IoT Hub로 이동합니다.
 
@@ -47,7 +48,7 @@ Azure 모니터를 사용하여 장치를 연결 해제할 때 경고를 받고 
 
 장치 연결이 끊어지는 경우 경고를 받으려면 **연결된 장치(미리 보기)** 메트릭에 대한 경고를 구성합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. IoT Hub로 이동합니다.
 
@@ -69,7 +70,7 @@ Azure 모니터를 사용하여 장치를 연결 해제할 때 경고를 받고 
 
 연결된 디바이스에 대한 진단 로그 및 경고가 켜져 있는 경우 오류가 발생하면 경고가 표시됩니다. 이 섹션에서는 경고를 받을 때 일반적인 문제를 찾는 방법을 설명합니다. 아래 단계는 진단 로그에 대한 Azure Monitor 로그를 설정했다고 가정합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. IoT Hub로 이동합니다.
 

@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: 0a393ae8629f1742002344ee717a6719269a6722
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcf1dd2f89cf049d7da5b56170b2c13874c83ba4
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158611"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756801"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결
+
+*이 문서는 장치 개발자에게 적용됩니다.*
 
 이 문서에서는 MXChip IoT DevKit(DevKit) 장치를 Azure IoT Central 응용 프로그램에 연결하는 방법을 보여 주었습니다. 이 장치는 DevKit 장치에 대해 인증된 IoT 플러그 앤 플레이(미리 보기) 모델을 사용하여 IoT Central에 대한 연결을 구성합니다.
 
@@ -44,7 +46,7 @@ ms.locfileid: "80158611"
 
     ![새 장치](media/howto-connect-devkit/new-device.png)
 
-1. 팝업 창에서 **장치 ID를** 다음과 `SampleDevKit` 같이 입력하고 `MXChip IoT DevKit - Sample`장치 **이름을** 로 입력합니다. **시뮬레이션** 옵션이 꺼져 있는지 확인합니다. 그런 다음 **을 선택합니다.**
+1. 팝업 창에서 **장치 ID를** 다음과 `SampleDevKit` 같이 입력하고 `MXChip IoT DevKit - Sample`장치 **이름을** 로 입력합니다. **시뮬레이션** 옵션이 꺼져 있는지 확인합니다. 그런 다음 **만들기**를 선택합니다.
 
     ![장치 ID 및 이름](media/howto-connect-devkit/device-id-name.png)
 
@@ -104,4 +106,7 @@ IoT 중앙 응용 프로그램에서 **장치** 탭을 선택하고 추가한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 DevKit 장치를 Azure IoT Central 응용 프로그램에 연결하는 방법을 배웠으니 다음 단계는 사용자 지정 IoT 장치에 대한 [사용자 지정 장치 템플릿을 설정하는](./howto-set-up-template.md) 방법을 알아보는 것입니다.
+장치 개발자인 경우 다음과 같은 다음 단계로 제안되는 몇 가지 단계를 수행합니다.
+
+- Azure [IoT Central의 장치 연결에](./concepts-get-connected.md) 대해 읽어보기
+- [Azure CLI를 사용하여 장치 연결을 모니터링하는](./howto-monitor-devices-azure-cli.md) 방법 알아보기

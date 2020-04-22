@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 179a2120714460c955d1fd3e345ebcd963ae564d
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: cebe5564767ee345c1aea96b6ac54b9398c3e9a3
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81453560"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733022"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Azure 앱 서비스에 대한 Windows Java 앱 구성
 
@@ -318,7 +318,7 @@ Azure에서 지원되는 JDK(Java Development Kit)는 [Azul Systems](https://www
 
 주 버전 업데이트는 Windows용 Azure 앱 서비스의 새 런타임 옵션을 통해 제공됩니다. 고객은 App Service 배포를 구성하여 최신 버전의 Java로 업데이트해야 하며, 주 업데이트를 테스트하고 요구 사항을 충족하도록 관리할 책임이 있습니다.
 
-지원되는 JDK는 매년 분기마다 1월, 4월, 7월, 10월에 자동으로 패치됩니다. Azure의 Java에 대한 자세한 내용은 [이 지원 문서를](https://docs.microsoft.com/azure/java/jdk/)참조하십시오.
+지원되는 JDK는 매년 분기마다 1월, 4월, 7월, 10월에 자동으로 패치됩니다. Azure의 Java에 대한 자세한 내용은 [이 지원 문서를](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)참조하십시오.
 
 ### <a name="security-updates"></a>보안 업데이트
 

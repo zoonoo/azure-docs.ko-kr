@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: c348a172b16e12334d33cf2718609694147fdce3
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 8f050a43cbdf4ab29df55cd5526eb231c301b271
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674528"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732674"
 ---
 # <a name="power-bi-app-creation-overview"></a>Power BI 앱 생성 개요
 
@@ -69,7 +69,7 @@ Power BI 환경 내에서만 Power [BI](https://powerbi.microsoft.com/) 앱을 �
 2. Power BI에서 앱을 만들고 테스트합니다.
 3. 앱 설치 웹 주소를 받으면 파트너 센터의 **기술 구성** 페이지에 추가합니다.
 
-Power BI에서 앱을 만들고 테스트한 후 [Power BI 앱 오퍼를 만드는](https://aka.ms/AzureCreatePBIServiceApp)데 필요한 응용 프로그램 설치 웹 주소를 저장합니다.
+Power BI에서 앱을 만들고 테스트한 후 [Power BI 앱 오퍼를 만드는](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer)데 필요한 응용 프로그램 설치 웹 주소를 저장합니다.
 
 ### <a name="business-requirements"></a>비즈니스 요구 사항
 
@@ -81,4 +81,4 @@ Power BI에서 앱을 만들고 테스트한 후 [Power BI 앱 오퍼를 만드�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [파트너 센터에서 Power BI 앱 오퍼 만들기](https://aka.ms/AzureCreatePBIServiceApp)
+- [파트너 센터에서 Power BI 앱 오퍼 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer)

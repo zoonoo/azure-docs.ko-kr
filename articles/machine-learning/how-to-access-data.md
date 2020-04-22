@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: ca892b5f360f523ee2b5ff875dfb0707136a5ab5
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 4a2102f442fc176762b7d5d69f7b367a94633ef5
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383434"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758800"
 ---
 # <a name="connect-to-azure-storage-services"></a>Azure 저장소 서비스에 연결
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -99,7 +99,7 @@ Azure `register()` [포털](https://portal.azure.com)에서 메서드를 채우�
 * 테넌트 ID 및 클라이언트 ID와 같은 서비스 주체 항목의 경우 **앱 등록으로** 이동하여 사용할 앱을 선택합니다. 해당 **개요** 페이지에는 이러한 항목이 포함됩니다.
 
 > [!IMPORTANT]
-> 저장소 계정이 가상 네트워크에 있는 경우 **SDK를 통해** Blob, 파일 공유, ADLS Gen 1 및 ADLS Gen 2 데이터스토어만 생성이 지원됩니다. 저장소 계정에 작업 영역 액세스 권한을 부여하려면 `grant_workspace_access` `True`매개 변수를 로 설정합니다.
+> 저장소 계정이 가상 네트워크에 있는 경우 **SDK를 통한** 데이터스토어 생성만 지원됩니다.
 
 다음 예제에서는 Azure Blob 컨테이너, Azure 파일 공유 및 Azure Data Lake Storage Generation 2를 데이터 스토어로 등록하는 방법을 보여 주며 있습니다. 다른 저장소 서비스의 경우 [해당 `register_azure_*` 방법에 대한 참조 문서를](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods)참조하십시오.
 
@@ -121,6 +121,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
                                                          account_name=account_name,
                                                          account_key=account_key)
 ```
+Blob 컨테이너가 가상 네트워크에 있는 `skip_validation=True` [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)경우 을 사용하여 설정합니다.
 
 #### <a name="file-share"></a>파일 공유
 
@@ -140,6 +141,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
                                                      account_name=account_name,
                                                      account_key=account_key)
 ```
+파일 공유가 가상 네트워크에 있는 `skip_validation=True` [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)경우 을 사용하여 설정합니다. 
 
 #### <a name="azure-data-lake-storage-generation-2"></a>Azure 데이터 레이크 스토리지 생성 2
 
@@ -176,7 +178,7 @@ Azure 기계 학습 스튜디오에서 몇 단계로 새 데이터 스토어를 
 
 1. [Azure Machine Learning Studio](https://ml.azure.com/)에 로그인합니다.
 1. 왼쪽 창에서 데이터 **저장소를** **선택합니다.**
-1. **+ 새 데이터 스토어를**선택합니다.
+1. **+ 새 데이터 저장소**를 선택합니다.
 1. 새 데이터 스토어에 대한 양식을 작성합니다. 양식은 Azure 저장소 유형 및 인증 유형에 대한 선택에 따라 지능적으로 업데이트됩니다.
   
 [Azure 포털](https://portal.azure.com)에서 양식을 채우는 데 필요한 정보를 찾을 수 있습니다. 왼쪽 창에서 **저장소 계정을** 선택하고 등록할 저장소 계정을 선택합니다. **개요** 페이지에서는 계정 이름, 컨테이너 및 파일 공유 이름과 같은 정보를 제공합니다. 
@@ -268,7 +270,7 @@ run_config.source_directory_data_store = "workspaceblobstore"
 
 Azure 기계 학습은 점수를 매기기 위해 모델을 사용하는 여러 가지 방법을 제공합니다. 이러한 방법 중 일부는 데이터 스토어에 대한 액세스를 제공하지 않습니다. 다음 표를 사용하여 채점 하는 동안 데이터 스토어에 액세스할 수 있는 메서드를 이해합니다.
 
-| 메서드 | 데이터스토어 액세스 | 설명 |
+| 방법 | 데이터스토어 액세스 | 설명 |
 | ----- | :-----: | ----- |
 | [일괄 처리 예측](how-to-use-parallel-run-step.md) | ✔ | 많은 양의 데이터에 대해 비동기적으로 예측합니다. |
 | [웹 서비스](how-to-deploy-and-where.md) | &nbsp; | 모델을 웹 서비스로 배포합니다. |

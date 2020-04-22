@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 10fc822f9f36512405dd4e3b5aba6270b53e163f
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 1c7e18214ec175b8b21d25643098631a044da19c
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549039"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758325"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>이벤트 허브에 대한 Azure 보안 기준
 
@@ -335,7 +335,7 @@ Azure 정책을 사용하는 방법:https://docs.microsoft.com/azure/governance/
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Azure Active Directory에서 단일 사인온(SSO) 사용
 
-**지침**: Microsoft Azure는 Azure Active Directory(AD)를 기반으로 하는 리소스 및 응용 프로그램에 대한 통합 액세스 제어 관리를 제공합니다. Azure 이벤트 허브와 Azure AD를 사용하는 주요 이점은 더 이상 코드에 자격 증명을 저장할 필요가 없다는 것입니다. 대신 Microsoft ID 플랫폼에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. 토큰을 요청하는 리소스 이름은 https://eventhubs.azure.net/. Azure AD는 응용 프로그램을 실행하는 보안 주체(사용자, 그룹 또는 서비스 주체)를 인증합니다. 인증이 성공하면 Azure AD는 응용 프로그램에 대한 액세스 토큰을 반환하고 응용 프로그램은 액세스 토큰을 사용하여 Azure Event Hubs 리소스에 대한 요청을 승인할 수 있습니다.
+**지침**: Microsoft Azure는 Azure Active Directory(AD)를 기반으로 하는 리소스 및 응용 프로그램에 대한 통합 액세스 제어 관리를 제공합니다. Azure 이벤트 허브와 Azure AD를 사용하는 주요 이점은 더 이상 코드에 자격 증명을 저장할 필요가 없다는 것입니다. 대신 Microsoft ID 플랫폼에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. 토큰을 요청하는 리소스 이름은 https:\//eventhubs.azure.net/. Azure AD는 응용 프로그램을 실행하는 보안 주체(사용자, 그룹 또는 서비스 주체)를 인증합니다. 인증이 성공하면 Azure AD는 응용 프로그램에 대한 액세스 토큰을 반환하고 응용 프로그램은 액세스 토큰을 사용하여 Azure Event Hubs 리소스에 대한 요청을 승인할 수 있습니다.
 
 Azure AD를 사용하여 응용 프로그램을 인증하여 이벤트 허브 리소스에 액세스하는 방법:https://docs.microsoft.com/azure/event-hubs/authenticate-application
 
@@ -631,7 +631,7 @@ Azure 활동 로그 이벤트에 대한 경고를 만드는 방법:https://docs.
 
 **지침**: Azure 리소스 그래프를 사용하여 구독 내의 모든 리소스(Azure Event Hubs 네임스페이스 포함)를 쿼리하고 검색합니다. 테넌트에 적절한 (읽기) 권한이 있고 구독 내의 모든 Azure 구독과 리소스를 등록할 수 있는지 확인합니다.
 
-Azure 그래프를 사용하여 쿼리를 만드는 방법:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Azure 리소스 그래프를 사용하여 쿼리를 만드는 방법:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Azure 구독을 보는 방법:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 

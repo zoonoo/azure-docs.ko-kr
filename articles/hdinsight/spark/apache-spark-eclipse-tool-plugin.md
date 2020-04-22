@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/13/2019
-ms.openlocfilehash: 07ed22879180d8126711eba9af0a2cac5b7b2953
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5ae9190213f753f8b9440ced52e4d04626af13f9
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272111"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732991"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit for Eclipse를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
@@ -35,7 +35,7 @@ Azure Toolkit for [Eclipse](https://www.eclipse.org/)의 HDInsight Tools를 사�
 
 ### <a name="install-azure-toolkit-for-eclipse"></a>Eclipse용 Azure 도구 키트 설치
 
-설치 지침은 [Eclipse용 Azure 도구 키트 설치](https://docs.microsoft.com/azure/java/eclipse/azure-toolkit-for-eclipse-installation)를 참조하세요.
+설치 지침은 [Eclipse용 Azure 도구 키트 설치](https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/installation)를 참조하세요.
 
 ### <a name="install-the-scala-plug-in"></a>Scala 플러그 인 설치
 
@@ -111,7 +111,7 @@ Ambari 관리 사용자 이름을 사용하여 일반 클러스터를 연결할 
 
 1. 이클립스 IDE 작업 영역에서**새** > 프로젝트 **파일** > **선택...**
 
-1. 새 **프로젝트** 마법사에서**HDInsight(스칼라)에서 HDInsight** **프로젝트** > 스파크를 선택합니다. 그런 다음 을 **선택합니다.**
+1. 새 **프로젝트** 마법사에서**HDInsight(스칼라)에서 HDInsight** **프로젝트** > 스파크를 선택합니다. 그런 후 **다음**을 선택합니다.
 
    ![HDInsight의 Spark(Scala) 프로젝트 선택](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
 
@@ -128,7 +128,7 @@ Ambari 관리 사용자 이름을 사용하여 일반 클러스터를 연결할 
 
 1. **패키지 탐색기에서**이전에 만든 프로젝트를 확장합니다. 마우스 오른쪽 단추로 클릭 **src,** **새로운** > **기타를**선택 ... .
 
-1. 마법사 **선택** 대화 상자에서 스칼라 마법사**스칼라 오브젝트를** **선택합니다.** >  그런 다음 을 **선택합니다.**
+1. 마법사 **선택** 대화 상자에서 스칼라 마법사**스칼라 오브젝트를** **선택합니다.** >  그런 후 **다음**을 선택합니다.
 
    ![스칼라 오브젝트 만들기 마법사 선택](./media/apache-spark-eclipse-tool-plugin/create-scala-project1.png)
 
@@ -248,7 +248,7 @@ Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행하는 �
 
 1. Eclipse를 시작하고 프로젝트를 만듭니다. **새 프로젝트** 대화 상자에서 다음과 같이 선택하고 **다음**을 선택합니다.
 
-1. 새 **프로젝트** 마법사에서 **HDInsight** > **로컬 실행 샘플(스칼라)에서 HDInsight 프로젝트 스파크를**선택합니다. 그런 다음 을 **선택합니다.**
+1. 새 **프로젝트** 마법사에서 **HDInsight** > **로컬 실행 샘플(스칼라)에서 HDInsight 프로젝트 스파크를**선택합니다. 그런 후 **다음**을 선택합니다.
 
    ![새 프로젝트에서 마법사 대화 상자를 선택합니다.](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
 

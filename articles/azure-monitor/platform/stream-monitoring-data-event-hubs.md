@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 08177165439ff7d3205e31757e5d1e28759a9836
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32bc90cc069ac82641c3aa7692c900c60db7ba87
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274191"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733092"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>이벤트 허브로 Azure 모니터링 데이터 스트리밍
 Azure Monitor는 Azure, 다른 클라우드 및 온-프레미스의 응용 프로그램 및 서비스에 대한 완전한 전체 스택 모니터링 솔루션을 제공합니다. Azure Monitor를 사용하여 데이터를 분석하고 다양한 모니터링 시나리오에 활용할 수 있을 뿐만 아니라 환경의 다른 모니터링 도구로 보내야 할 수도 있습니다. 대부분의 경우 모니터링 데이터를 외부 도구로 스트리밍하는 가장 효과적인 방법은 [Azure Event Hubs를](/azure/event-hubs/)사용하는 것입니다. 이 문서에서는 모니터링 데이터를 다른 소스에서 이벤트 허브로 스트리밍하고 자세한 지침에 대한 링크를 제공하는 방법에 대한 간략한 설명을 제공합니다.
@@ -38,7 +38,7 @@ Azure Monitor는 Azure, 다른 클라우드 및 온-프레미스의 응용 프�
 | [Azure 구독](data-sources.md#azure-subscription) | Azure 동작 로그 | 로그 프로필을 만들어 활동 로그 이벤트를 이벤트 허브로 내보냅니다.  자세한 내용은 [Azure 이벤트 허브에 대한 Azure 플랫폼 로그 스트림을](resource-logs-stream-event-hubs.md) 참조하십시오. |
 | [Azure 리소스](data-sources.md#azure-resources) | 플랫폼 메트릭<br> 리소스 로그 |두 가지 유형의 데이터는 리소스 진단 설정을 사용하여 이벤트 허브로 전송됩니다. 자세한 내용은 [이벤트 허브에 Azure 리소스 로그 스트리밍을](resource-logs-stream-event-hubs.md) 참조하세요. |
 | [운영 체제(게스트)](data-sources.md#operating-system-guest) | Azure 가상 머신 | Azure의 Windows 및 Linux 가상 컴퓨터에 [Azure 진단 확장을 설치합니다.](diagnostics-extension-overview.md) Windows VM에 대한 자세한 내용은 이벤트 허브를 사용하고 Linux 진단 [확장을 사용하여 메트릭 및 로그를 모니터링하여](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings) Linux VM에 대한 자세한 내용을 모니터링하여 [핫 경로의 Azure 진단 데이터 스트리밍을](diagnostics-extension-stream-event-hubs.md) 참조하십시오. |
-| [애플리케이션 코드](data-sources.md#application-code) | 애플리케이션 정보 | 응용 프로그램 인사이트는 이벤트 허브로 데이터를 스트리밍하는 직접적인 방법을 제공하지 않습니다. Application Insights 데이터의 [지속적인 내보내기를](../../azure-monitor/app/export-telemetry.md) 저장소 계정으로 설정한 다음 논리 앱을 사용하여 논리 앱이 있는 [수동 스트리밍에](#manual-streaming-with-logic-app)설명된 대로 이벤트 허브로 데이터를 보낼 수 있습니다. |
+| [애플리케이션 코드](data-sources.md#application-code) | Application Insights | 응용 프로그램 인사이트는 이벤트 허브로 데이터를 스트리밍하는 직접적인 방법을 제공하지 않습니다. Application Insights 데이터의 [지속적인 내보내기를](../../azure-monitor/app/export-telemetry.md) 저장소 계정으로 설정한 다음 논리 앱을 사용하여 논리 앱이 있는 [수동 스트리밍에](#manual-streaming-with-logic-app)설명된 대로 이벤트 허브로 데이터를 보낼 수 있습니다. |
 
 ## <a name="manual-streaming-with-logic-app"></a>논리 앱으로 수동 스트리밍
 이벤트 허브로 직접 스트리밍할 수 없는 데이터의 경우 Azure 저장소에 작성한 다음 [Blob 저장소에서 데이터를 가져와](../../connectors/connectors-create-api-azureblobstorage.md#add-action) 이벤트 [허브에 메시지로 푸시하는](../../connectors/connectors-create-api-azure-event-hubs.md#add-action)시간 트리거된 논리 앱을 사용할 수 있습니다. 
@@ -56,7 +56,7 @@ Azure Monitor를 사용하여 모니터링 데이터를 이벤트 허브로 라�
 | ArcSight | 예 | ArcSight Azure 이벤트 허브 스마트 커넥터는 [ArcSight 스마트 커넥터 컬렉션의](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852)일부로 사용할 수 있습니다. |
 | Syslog 서버 | 예 | Azure Monitor 데이터를 syslog 서버로 직접 스트리밍하려는 경우 [Azure 함수를 기반으로](https://github.com/miguelangelopereira/azuremonitor2syslog/)하는 솔루션을 사용할 수 있습니다.
 | 로그 리듬 | 예| 이벤트 허브에서 로그를 수집하도록 LogRhythm을 설정하는 방법에 대한 지침은 [여기에서](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/)확인할 수 있습니다. 
-|Logz.io | yes | 자세한 내용은 [Azure에서 실행되는 Java 앱에 대한 Logz.io 사용하여 모니터링 및 로깅을 시작하기](https://docs.microsoft.com/azure/java/java-get-started-with-logzio) 를 참조하십시오.
+|Logz.io | 예 | 자세한 내용은 [Azure에서 실행되는 Java 앱에 대한 Logz.io 사용하여 모니터링 및 로깅을 시작하기](https://docs.microsoft.com/azure/developer/java/fundamentals/java-get-started-with-logzio) 를 참조하십시오.
 
 
 ## <a name="next-steps"></a>다음 단계

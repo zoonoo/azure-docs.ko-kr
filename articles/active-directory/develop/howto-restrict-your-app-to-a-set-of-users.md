@@ -13,14 +13,14 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: cccd2df334828c0b8103e4da2ffcd8549673b69c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8bdc7e6e3795719128a8ecfb1e8bc97c1a9a08c7
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76696999"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759034"
 ---
-# <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users"></a>방법: Azure AD 앱을 사용자 집합으로 제한
+# <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>방법: Azure AD 테넌트의 사용자 집합으로 Azure AD 앱을 제한합니다.
 
 기본적으로 Azure AD(Azure Active Directory) 테넌트에 등록된 애플리케이션은 성공적으로 인증한 테넌트의 모든 사용자에게 제공됩니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "76696999"
 
 테넌트 관리자 및 개발자에게는 종종 앱을 특정 사용자 집합으로 제한해야 하는 요구 사항이 있습니다. 개발자는 RBAC(역할 기반 액세스 제어)처럼 인기 있는 권한 부여 패턴을 사용하여 동일하게 수행할 수 있지만, 이 접근 방식은 개발자가 상당한 양의 작업을 수행해야 합니다.
 
-Azure AD를 사용하면 테넌트 관리자 및 개발자는 앱을 테넌트의 특정 사용자 집합 또는 보안 그룹으로 제한할 수 있습니다.
+테넌트 관리자와 개발자는 Azure AD의 기본 제공 기능을 사용하여 테넌트의 특정 사용자 또는 보안 그룹으로 앱을 제한할 수 있습니다.
 
 ## <a name="supported-app-configurations"></a>지원되는 앱 구성
 
@@ -62,7 +62,7 @@ Azure AD를 사용하면 테넌트 관리자 및 개발자는 앱을 테넌트�
 
 1. 목록에서 사용자 또는 보안 그룹을 할당하려는 애플리케이션을 선택합니다.
 1. 응용 프로그램의 **개요** 페이지에서 응용 프로그램의 왼쪽 탐색 메뉴에서 **속성을** 선택합니다.
-1. **사용자 할당이 필요합니까?** 설정을 찾아 **예**로 설정합니다. 이 옵션이 **예로**설정되면 사용자가 먼저 이 응용 프로그램에 액세스하려면 먼저 이 응용 프로그램에 할당해야 합니다.
+1. **사용자 할당이 필요합니까?** 설정을 찾아 **예**로 설정합니다. 이 옵션이 **예로**설정된 경우 테넌트의 사용자가 먼저 이 응용 프로그램에 할당되거나 이 응용 프로그램에 로그인할 수 없습니다.
 1. **저장**을 선택하여 이 구성 변경을 저장합니다.
 
 ### <a name="app-registration"></a>앱 등록
@@ -75,7 +75,7 @@ Azure AD를 사용하면 테넌트 관리자 및 개발자는 앱을 테넌트�
 1. 관리하려는 앱을 만들거나 선택합니다. 이 응용 프로그램 등록의 **소유자여야** 합니다.
 1. 응용 프로그램의 **개요** 페이지에서 페이지 상단의 필수 요소 아래에 있는 로컬 디렉터리 링크에서 **관리되는 응용 프로그램을** 따릅니다. 그러면 앱 등록의 _관리되는 엔터프라이즈 응용 프로그램으로_ 이동합니다.
 1. 왼쪽의 탐색 블레이드에서 **속성**을 선택합니다.
-1. **사용자 할당이 필요합니까?** 설정을 찾아 **예**로 설정합니다. 이 옵션이 **예로**설정되면 사용자가 먼저 이 응용 프로그램에 액세스하려면 먼저 이 응용 프로그램에 할당해야 합니다.
+1. **사용자 할당이 필요합니까?** 설정을 찾아 **예**로 설정합니다. 이 옵션이 **예로**설정된 경우 테넌트의 사용자가 먼저 이 응용 프로그램에 할당되거나 이 응용 프로그램에 로그인할 수 없습니다.
 1. **저장**을 선택하여 이 구성 변경을 저장합니다.
 
 ## <a name="assign-users-and-groups-to-the-app"></a>앱에 사용자 및 그룹 할당
@@ -89,6 +89,14 @@ Azure AD를 사용하면 테넌트 관리자 및 개발자는 앱을 테넌트�
      특정 사용자 및 그룹을 검색하고 찾는 텍스트 상자와 함께 사용자 및 보안 그룹의 목록이 표시됩니다. 이 화면에서는 여러 사용자 및 그룹을 한 번에 선택할 수 있습니다.
 
 1. 사용자 및 그룹을 모두 선택하고 나면 맨 아래 **선택** 단추를 눌러서 다음 부분으로 이동합니다.
+1. (선택 사항) 응용 프로그램에서 앱 역할을 정의한 경우 **역할 선택** 옵션을 사용하여 선택한 사용자 및 그룹을 응용 프로그램의 역할 중 하나에 할당할 수 있습니다. 
 1. 맨 아래 **할당** 단추를 눌러서 앱에 사용자 및 그룹의 할당을 완료합니다. 
 1. 추가한 사용자 및 그룹이 업데이트된 **사용자 및 그룹** 목록에 보이는지 확인합니다.
 
+## <a name="more-information"></a>자세한 정보
+
+- [방법: 응용 프로그램에 앱 역할 추가](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
+- [ASP.NET 코어 웹 앱에 역할 클레임& 앱 역할을 사용하여 권한 부여 추가](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
+- [앱에서 보안 그룹 및 애플리케이션 역할 사용(비디오)](https://www.youtube.com/watch?v=V8VUPixLSiM)
+- [Azure Active Directory에 그룹 클레임 및 애플리케이션 역할 포함](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
+- [Azure Active Directory 앱 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)

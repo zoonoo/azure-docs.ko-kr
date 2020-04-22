@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 93a5bcd77bb4f42d9099cc1ddb1b5c3130c19059
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 2ddb9a9c205135707d7d96beb106074baa1ce324
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010140"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758271"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>HDInsight에 대한 Azure 보안 기준선
 
@@ -704,7 +704,7 @@ https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnos
 
 Rapid7 에이전트를 수동으로 설치하는 방법:
 
-https://insightvm.help.rapid7.com/v1.0/docs/agent-installation-on-linux
+https://insightvm.help.rapid7.com/docs/install
 
 Qualys 에이전트를 수동으로 설치하는 방법:
 
@@ -774,7 +774,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 
 리소스 그래프를 통해 클래식 Azure 리소스를 검색할 수 있지만 앞으로 Azure 리소스 관리자 리소스를 만들고 사용하는 것이 좋습니다.
 
-Azure 그래프를 사용하여 쿼리를 만드는 방법:
+Azure 리소스 그래프를 사용하여 쿼리를 만드는 방법:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 

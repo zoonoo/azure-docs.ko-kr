@@ -1293,6 +1293,9 @@
               maintainContext: true
         - name: 데이터 원본
           items:
+            - name: 잘못된 클라이언트 ID 또는 잘못된 경로를 사용하면 ABFS 클라이언트가 중단됨
+              href: /azure/databricks/kb/data-sources/abfs-client-hang
+              maintainContext: true
             - name: Sparklyr을 사용하여 ADLS Gen1에서 데이터를 읽는 동안 오류 발생
               href: /azure/databricks/kb/data-sources/access-adls1-from-sparklyr
               maintainContext: true
@@ -1509,6 +1512,9 @@
             - name: AttributeError로 인해 명령이 실패함
               href: /azure/databricks/kb/python/python-exec-display-cancelled
               maintainContext: true
+            - name: Docker에서 Python REPL이 시작되지 않음
+              href: /azure/databricks/kb/python/python-repl-fails-dcs
+              maintainContext: true
             - name: C++ 코드 실행
               href: /azure/databricks/kb/python/running-c-plus-plus-code
               maintainContext: true
@@ -1562,6 +1568,12 @@
               maintainContext: true
         - name: 스트리밍
           items:
+            - name: display()를 사용하는 경우 검사점 파일이 삭제되지 않음
+              href: /azure/databricks/kb/streaming/checkpoint-no-cleanup-display
+              maintainContext: true
+            - name: foreachBatch()를 사용하는 경우 검사점 파일이 삭제되지 않음
+              href: /azure/databricks/kb/streaming/checkpoint-no-cleanup-foreachbatch
+              maintainContext: true
             - name: 검사점 또는 출력 디렉터리 변경 후 복구 문제
               href: /azure/databricks/kb/streaming/file-sink-streaming
               maintainContext: true
@@ -1578,9 +1590,14 @@
         - name: Databricks Connect
           href: /azure/databricks/dev-tools/databricks-connect
           maintainContext: true
-        - name: Jenkins를 사용하는 CI/CD
-          href: /azure/databricks/dev-tools/ci-cd
-          maintainContext: true
+        - name: CI/CD
+          items:
+            - name: Azure DevOps를 사용하는 CI/CD
+              href: /azure/databricks/dev-tools/ci-cd/ci-cd-azure-devops
+              maintainContext: true
+            - name: Jenkins를 사용하는 CI/CD
+              href: /azure/databricks/dev-tools/ci-cd/ci-cd-jenkins
+              maintainContext: true
         - name: 데이터 파이프라인에서 종속성 관리
           href: /azure/databricks/dev-tools/data-pipelines
           maintainContext: true
@@ -1618,7 +1635,15 @@
               href: /azure/databricks/dev-tools/api/latest/mlflow
               maintainContext: true
             - name: SCIM
-              href: /azure/databricks/dev-tools/api/latest/scim
+              items:
+                - name: SCIM API 개요
+                  href: /azure/databricks/dev-tools/api/latest/scim/index
+                - name: SCIM API(Me)
+                  href: /azure/databricks/dev-tools/api/latest/scim/scim-me
+                - name: SCIM API(사용자)
+                  href: /azure/databricks/dev-tools/api/latest/scim/scim-users
+                - name: SCIM API(그룹)
+                  href: /azure/databricks/dev-tools/api/latest/scim/scim-group
               maintainContext: true
             - name: 비밀
               href: /azure/databricks/dev-tools/api/latest/secrets
@@ -1803,16 +1828,19 @@
                 - name: 런타임 릴리스
                   href: /azure/databricks/release-notes/runtime/releases
                   maintainContext: true
+                - name: Databricks Runtime 7.0 ML(베타)
+                  href: /azure/databricks/release-notes/runtime/7.0ml
+                  maintainContext: true
                 - name: Databricks Runtime 7.0(베타)
                   href: /azure/databricks/release-notes/runtime/7.0
                   maintainContext: true
-                - name: Databricks Runtime 6.5(베타)
+                - name: Databricks Runtime 6.5
                   href: /azure/databricks/release-notes/runtime/6.5
                   maintainContext: true
-                - name: Databricks Runtime 6.5 ML(베타)
+                - name: Databricks Runtime 6.5 ML
                   href: /azure/databricks/release-notes/runtime/6.5ml
                   maintainContext: true
-                - name: Databricks Runtime 6.5 Genomics(베타)
+                - name: Databricks Runtime 6.5 Genomics
                   href: /azure/databricks/release-notes/runtime/6.5genomics
                   maintainContext: true
                 - name: Databricks Runtime 6.4

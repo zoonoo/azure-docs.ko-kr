@@ -8,12 +8,13 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: robinsh
-ms.openlocfilehash: dfea53e62383409411925f2fe2f18d61a6855ec1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: amqp
+ms.openlocfilehash: d4916d651638f0d1dbb4f10e0e0732f5c330d300
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75429377"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767020"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>C용 Azure IoT 디바이스 SDK - 직렬 변환기에 대한 자세한 정보
 
@@ -53,7 +54,7 @@ END_NAMESPACE(WeatherStation);
 
 모델에는 IoT Hub로 들어오는 이벤트(*데이터*)와 IoT Hub로부터 수신할 수 있는 메시지(*동작*)에 대한 정의가 포합됩니다. 예제에서 볼 수 있듯이, 이벤트에는 형식 및 이름이, 동작에는 이름 및 선택적 매개 변수(각각 형식 포함)가 포함됩니다.
 
-이 샘플에서는 SDK에서 지원되는 추가 데이터 형식은 다루지 않습니다. 다음에 설명합니다.
+이 샘플에서 설명하지 않는 것은 SDK에서 지원하는 추가 데이터 형식입니다. 다음에 설명합니다.
 
 > [!NOTE]
 > IoT Hub는 디바이스에서 보내는 데이터를 *이벤트*로 참조하는 반면 모델링 언어는 *데이터*(**WITH_DATA**를 사용하여 정의됨)로 참조합니다. 마찬가지로 IoT Hub는 사용자가 디바이스로 보내는 데이터를 *메시지*로 참조하는 반면 모델링 언어는 *동작*(**WITH_ACTION**을 사용하여 정의됨)으로 참조합니다. 이 문서에서는 이러한 용어가 같은 의미로 사용될 수 있습니다.
@@ -81,7 +82,7 @@ END_NAMESPACE(WeatherStation);
 | EDM\_BINARY |binary |
 | DECLARE\_STRUCT |복합 데이터 형식 |
 
-마지막 데이터 형식부터 살펴보겠습니다. **DECLARE\_STRUCT**로 기타 기본 형식의 그룹인 복합 데이터 형식을 정의할 수 있습니다. 이러한 그룹을 통해 다음과 같은 모델을 정의할 수 있습니다.
+마지막 데이터 유형부터 시작해 보겠습니다. **DECLARE\_STRUCT**로 기타 기본 형식의 그룹인 복합 데이터 형식을 정의할 수 있습니다. 이러한 그룹을 통해 다음과 같은 모델을 정의할 수 있습니다.
 
 ```C
 DECLARE_STRUCT(TestType,
@@ -139,7 +140,7 @@ testModel->Test.aBinary = binaryData;
 SendAsync(iotHubClientHandle, (const void*)&(testModel->Test));
 ```
 
-기본적으로 **Test** 구조체의 모든 멤버에 값을 할당한 후 **SendAsync**를 호출하여 **Test** 데이터 이벤트를 클라우드로 보냅니다. **SendAsync** 는 단일 데이터 이벤트를 IoT Hub로 보내는 도우미 함수입니다.
+기본적으로 **테스트** 구조의 모든 구성원에 값을 할당한 다음 **SendAsync를** 호출하여 **테스트** 데이터 이벤트를 클라우드로 보냅니다. **SendAsync** 는 단일 데이터 이벤트를 IoT Hub로 보내는 도우미 함수입니다.
 
 ```C
 void SendAsync(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const void *dataEvent)
@@ -251,7 +252,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature) == IOT_AG
 }
 ```
 
-여기서는 샘플 코드에 하드 코드된 온도 및 습도 값을 사용하지만 자동 온도 조절기의 해당 센서를 샘플링하여 이러한 값을 실제로 가져온다고 상상해 보세요.
+샘플 코드에서 온도 및 습도에 대해 하드 코딩된 값을 사용하지만 온도 조절기에서 해당 센서를 샘플링하여 이러한 값을 실제로 검색한다고 가정합니다.
 
 위의 코드는 이전에 소개된 **GetDateTimeOffset** 도우미를 사용합니다. 나중에 이해가 쉽도록 이 코드에서는 직렬화와 이벤트 전송 작업을 명시적으로 구분합니다. 이전 코드는 온도 이벤트를 버퍼로 직렬화합니다. 다음으로 이벤트를 IoT Hub로 보내는 **sendMessage** 도우미 함수(**simplesample\_amqp**에 포함됨)입니다.
 
@@ -270,7 +271,7 @@ static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned 
 }
 ```
 
-이 코드는 이전 섹션에 설명된 **SendAsync** 도우미의 하위 집합으로 여기에서 다시 다루지 않겠습니다.
+이 코드는 이전 섹션에서 설명한 **SendAsync** 도우미의 하위 집합이므로 여기에서는 다시 설명하지 않습니다.
 
 이전 코드를 실행하여 온도 이벤트를 전송하면 이 직렬화된 이벤트 양식이 IoT Hub로 전송됩니다.
 
@@ -301,7 +302,7 @@ IoT Hub로 전송되는 직렬화된 양식은 다음과 같습니다.
 
 이 모델로 추가 이벤트를 어떻게 쉽게 추가할 수 있는지 생각해볼 수 있습니다. **DECLARE\_STRUCT**를 사용하여 보다 많은 구조체를 정의하고 **WITH\_DATA**를 사용하여 해당 이벤트를 모델에 포함합니다.
 
-이제 동일한 데이터를 포함하지만 다른 구조체를 사용하도록 모델을 수정해 보겠습니다.
+이제 동일한 데이터를 포함하지만 다른 구조를 사용하여 모델을 수정해 보겠습니다.
 
 ### <a name="model-2"></a>모델 2
 
@@ -317,7 +318,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 
 이 경우 **선언\_STRUCT** 매크로를 제거하고 모델링 언어의 간단한 형식을 사용하여 시나리오에서 데이터 항목을 정의하기만 하면 됩니다.
 
-일단 **시간** 이벤트는 무시하겠습니다. 이와 별개로 다음은 **온도**를 수신하는 코드입니다.
+일단 **시간** 이벤트는 무시하겠습니다. 그 옆으로, 여기에 **온도를**인고하는 코드입니다 :
 
 ```C
 time_t now;
@@ -369,7 +370,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature, thermosta
 
 [ {"Temperature":75}, {"Humidity":45} ]
 
-즉, 이 코드는 **온도** 및 **습도**를 별도로 전송하는 것과 같다고 예상할 수 있습니다. 두 이벤트를 **SERIALIZE** 하기 위해 동일한 호출로 전달하는 것은 단지 편의를 위해서입니다. 그러나 이 경우는 그렇지 않습니다. 대신, 위의 코드는 IoT Hub에 단일 데이터 이벤트를 전송합니다.
+즉, 이 코드는 **온도** 및 **습도**를 별도로 전송하는 것과 같다고 예상할 수 있습니다. 두 이벤트를 동일한 호출에서 **SERIALIZE로** 전달하는 것은 편리합니다. 그러나, 그건 사실이 아니다. 대신, 위의 코드는 IoT Hub에 단일 데이터 이벤트를 전송합니다.
 
 {"Temperature":75, "Humidity":45}
 
@@ -383,7 +384,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-더 중요한 것은 **온도** 및 **습도**가 동일한 구조체에 있는 이벤트를 모델링하지 않았다는 것입니다.
+더 구체적으로 말하자면, **온도와** **습도가** 같은 구조에 있는 이러한 이벤트를 모델링하지 않았습니다.
 
 ```C
 DECLARE_STRUCT(TemperatureAndHumidityEvent,
@@ -425,7 +426,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature, thermosta
 {"Temperature":75, "Humidity":45, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-*일부* 속성만 클라우드로 전송하고 싶을 때가 많습니다(모델에 대량의 데이터 이벤트가 포함된 경우 특히 그러함). 이전 예제처럼 데이터 이벤트의 하위 집합만 전송하는 것이 유용합니다.
+*일부* 속성만 클라우드로 전송하고 싶을 때가 많습니다(모델에 대량의 데이터 이벤트가 포함된 경우 특히 그러함). 이전 예제와 같이 데이터 이벤트의 하위 집합만 보내는 것이 유용합니다.
 
 ```C
 {"Temperature":75, "Time":"2015-09-17T18:45:56Z"}
@@ -435,9 +436,9 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature, thermosta
 
 중요한 사항은 여러 데이터 이벤트를 **SERIALIZE** 로 전달하면 각 이벤트가 단일 JSON 개체의 속성인 것으로 가정한다는 것입니다.
 
-최적의 접근 방식은 사용자와 사용자가 모델에 대해 어떻게 생각하는지에 따라 결정됩니다. "이벤트"를 클라우드로 전송하고 각 이벤트에 정의된 속성 집합이 있다면 첫 번째 접근 방식이 바람직합니다. 이 경우 **DECLARE\_STRUCT**를 사용하여 각 이벤트의 구조체를 정의한 후 **WITH\_DATA** 매크로를 사용하여 이를 모델에 포함합니다. 그런 다음 위의 첫 번째 예에서 했던 것처럼 각 이벤트를 전송합니다. 이 방법에서는 단일 데이터 이벤트만 **SERIALIZER**에 전달합니다.
+최적의 접근 방식은 사용자와 사용자가 모델에 대해 어떻게 생각하는지에 따라 결정됩니다. 클라우드에 "이벤트"를 보내고 각 이벤트에 정의된 속성 집합이 포함되어 있는 경우 첫 번째 방법은 많은 의미가 있습니다. 이 경우 **DECLARE\_STRUCT**를 사용하여 각 이벤트의 구조체를 정의한 후 **WITH\_DATA** 매크로를 사용하여 이를 모델에 포함합니다. 그런 다음 위의 첫 번째 예에서 했던 것처럼 각 이벤트를 전송합니다. 이 방법에서는 단일 데이터 이벤트만 **SERIALIZER**에 전달합니다.
 
-모델을 개체 지향 방식으로 생각한다면 두 번째 접근 방식이 적합할 수 있습니다. 이 경우에 **WITH\_DATA**를 사용하여 정의된 요소는 개체의 "속성"입니다. 클라우드로 전송하려는 "개체" 상태의 양에 따라 이벤트의 하위 집합을 원하는 대로 **SERIALIZE** 로 전달합니다.
+모델을 개체 지향 방식으로 생각한다면 두 번째 접근 방식이 적합할 수 있습니다. 이 경우에 **WITH\_DATA**를 사용하여 정의된 요소는 개체의 "속성"입니다. 클라우드에 보낼 "개체" 상태의 양에 따라 원하는 이벤트 하위 집합을 **SERIALIZE에** 전달합니다.
 
 어떤 접근 방식이 옳거나 그르다고 말할 수 없습니다. **serializer** 라이브러리가 작동하는 방식을 이해하고 사용자의 요구에 가장 잘 맞는 모델링 접근 방식을 선택하면 됩니다.
 
@@ -449,7 +450,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature, thermosta
 IoTHubClient_SetMessageCallback(iotHubClientHandle, IoTHubMessage, myWeather)
 ```
 
-그런 다음 메시지를 수신할 때 호출되는 호출 함수를 작성합니다.
+그런 다음 메시지를 받을 때 호출되는 콜백 함수를 작성합니다.
 
 ```C
 static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -535,7 +536,7 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 
 ## <a name="macro-configuration"></a>매크로 구성
 
-**Serializer** 라이브러리를 사용하는 경우 알아야 할 SDK의 중요한 내용은 azure-c-shared-utility 라이브러리에 있습니다.
+**Serializer** 라이브러리를 사용하는 경우 Azure-c 공유 유틸리티 라이브러리에서 알고 있어야 할 SDK의 중요한 부분이 있습니다.
 
 GitHub에서 Azure-iot-sdk-c 리포지토리를 복제하고 `git submodule update --init` 명령을 내린 경우 여기에서 이 공유 유틸리티 라이브러리를 찾을 수 있습니다.
 
@@ -555,7 +556,7 @@ azure-c-shared-utility\\macro\_utils\_h\_generator.
 
   ![Visual Studio 솔루션 maco_utils_h_generator의 스크린샷](media/iot-hub-device-sdk-c-serializer/01-macro_utils_h_generator.png)
 
-이 솔루션의 프로그램은 **macro\_utils.h** 파일을 생성합니다. SDK에 포함된 기본 macro\_utils.h 파일이 있습니다. 이 솔루션을 사용하면 일부 매개 변수를 수정하고 이러한 매개 변수를 기반으로 헤더 파일을 다시 작성할 수 있습니다.
+이 솔루션의 프로그램은 **macro\_utils.h** 파일을 생성합니다. SDK에 포함된\_기본 매크로 utils.h 파일이 있습니다. 이 솔루션을 사용하면 일부 매개 변수를 수정하고 이러한 매개 변수를 기반으로 헤더 파일을 다시 작성할 수 있습니다.
 
 관련해야 할 두 가지 주요 매개 변수는 매크로\_utils.tt 있는 이 두 줄에 정의된 **nArithmetic** 및 **nMacroParameters입니다.**
 
@@ -653,7 +654,7 @@ serializer_init(NULL);
 
 **IoTHubClient\_CreateFromConnectionString**을 호출하기 바로 전에 수행합니다.
 
-마찬가지로 라이브러리 작업을 완료한 후 마지막 호출은 **serializer\_deinit**입니다.
+마찬가지로 라이브러리 작업을 완료하면 마지막으로 호출할 수 있는 작업은 **serializer\_deinit입니다.**
 
 ```C
 serializer_deinit();

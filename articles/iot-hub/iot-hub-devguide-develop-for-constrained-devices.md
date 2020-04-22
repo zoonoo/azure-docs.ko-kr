@@ -7,12 +7,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: robinsh
-ms.openlocfilehash: a1918a99efcdcc5764140093ad422f7887ca3c88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 9010ff582f05e81e17e280e20f180ceccf0e746f
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73954693"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733198"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Azure IoT C SDK를 사용하여 제한된 디바이스 개발
 
@@ -82,5 +85,5 @@ _LL_ 인덱스가 없는 다른 API 집합을 편의 계층이라고 하며 작�
 ## <a name="next-steps"></a>다음 단계
 
 Azure IoT C SDK 아키텍처에 대한 자세한 내용은 다음을 참조하세요.
--   [Azure IoT C SDK 소스 코드](https://github.com/Azure/azure-iot-sdk-c/)
--   [C용 Azure IoT 디바이스 SDK 소개](iot-hub-device-sdk-c-intro.md)
+-    [Azure IoT C SDK 소스 코드](https://github.com/Azure/azure-iot-sdk-c/)
+-    [C용 Azure IoT 디바이스 SDK 소개](iot-hub-device-sdk-c-intro.md)

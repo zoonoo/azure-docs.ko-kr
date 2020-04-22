@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ad8fcf578ae1c89856a9d7929af0aec813cb4082
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b42c2a414333e7ed262441321a808fc45425fc3b
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78187596"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756751"
 ---
 # <a name="json-claims-transformations"></a>JSON 클레임 변환
 
@@ -223,6 +223,39 @@ JSON 데이터에서 지정된 숫자 (long) 요소를 가져옵니다.
 - 출력 클레임:
     - **extractedClaim**: 6353399
 
+## <a name="getsingleitemfromjson"></a>겟싱글아이템FromJson
+
+JSON 데이터에서 첫 번째 요소를 가져옵니다.
+
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputJson | 문자열 | 클레임 변환에서 JSON 데이터에서 항목을 가져옵니다. |
+| OutputClaim | key | 문자열 | JSON의 첫 번째 요소 키입니다. |
+| OutputClaim | 값 | 문자열 | JSON의 첫 번째 요소 값입니다. |
+
+다음 예제에서 클레임 변환은 JSON 데이터에서 첫 번째 요소(지정된 이름)를 추출합니다.
+
+```XML
+<ClaimsTransformation Id="GetGivenNameFromResponse" TransformationMethod="GetSingleItemFromJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="json" TransformationClaimType="inputJson" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="givenNameKey" TransformationClaimType="key" />
+    <OutputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="value" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>예제
+
+- 입력 클레임:
+  - **입력Json**: {"주어진 이름": "Emilty", "성": "스미스"}
+- 출력 클레임:
+  - **키**: 주어진 이름
+  - **값**: 에밀티
+
+
 ## <a name="getsinglevaluefromjsonarray"></a>GetSingleValueFromJsonArray
 
 JSON 데이터 배열에서 첫 번째 요소를 가져옵니다.
@@ -294,3 +327,5 @@ XML 데이터를 JSON 형식으로 변환합니다.
   }
 }
 ```
+
+

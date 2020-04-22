@@ -1,25 +1,20 @@
 ---
 title: Azure 전제 조건의 OpenShift 컨테이너 플랫폼 3.11
 description: Azure에서 OpenShift 컨테이너 플랫폼 3.11을 배포하기 위한 필수 구성 조건입니다.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
 manager: mdotson
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 8767a6ee6218223280ea6219e22540c53d1e89be
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 26b190515819378309c2b0705efdbc349ecccbe2
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409113"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759515"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Azure에서 OpenShift 컨테이너 플랫폼 3.11을 배포하기 위한 일반적인 전제 조건
 
@@ -49,7 +44,7 @@ VM(가상 머신)은 Azure Resource Manager 템플릿을 통해 배포되기 때
 > * OpenShift 클러스터에 대한 SSH 키를 관리하는 키 자격 증명 모음을 만듭니다.
 > * Azure 클라우드 공급자가 사용할 서비스 주체를 만듭니다.
 
-Azure 구독이 없는 경우 시작하기 전에 [무료 계정을](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 만드세요.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
 [az login](/cli/azure/reference-index) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따르거나 **시도**를 클릭하여 Cloud Shell을 사용합니다.

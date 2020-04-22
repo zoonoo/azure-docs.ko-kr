@@ -8,12 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: a22808b1d7ab2b2451f50470e8da3770d07407a5
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.custom: amqp
+ms.openlocfilehash: ac45cf42ed174d3e9423b4ea39cadf16b84897ef
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985663"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759642"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Azure IoT Hub의 X.509 보안 설정
 
@@ -82,7 +83,7 @@ Azure IoT Hub에서 X.509 인증서 기반 보안을 사용하려면 루트 인�
 
 ## <a name="authenticate-your-x509-device-with-the-x509-certificates"></a>X.509 인증서로 X.509 디바이스 인증
 
-X.509 디바이스를 인증하려면 먼저 CA 인증서로 디바이스에 서명해야 합니다. 리프 디바이스의 서명은 일반적으로 제조 공장에서 수행되며 제조 도구가 이에 따라 활성화됩니다. 디바이스가 한 제조업체에서 다른 제조업체로 이동함에 따라 각 제조업체의 서명 작업은 체인 내에서 중간 인증서로 캡처됩니다. 그 결과 CA 인증서에서 장치의 리프 인증서에 이르는 인증서 체인이 생성됩니다. [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)의 4단계는 디바이스 인증서를 생성합니다.
+X.509 디바이스를 인증하려면 먼저 CA 인증서로 디바이스에 서명해야 합니다. 리프 디바이스의 서명은 일반적으로 제조 공장에서 수행되며 제조 도구가 이에 따라 활성화됩니다. 장치가 한 제조업체에서 다른 제조업체로 이동함에 따라 각 제조업체의 서명 작업은 체인 내의 중간 인증서로 캡처됩니다. 그 결과 CA 인증서에서 장치의 리프 인증서에 이르는 인증서 체인이 생성됩니다. [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)의 4단계는 디바이스 인증서를 생성합니다.
 
 다음으로 IoT Hub에 등록된 X.509 디바이스를 시뮬레이트하는 C# 애플리케이션을 만드는 방법을 보여줍니다. 시뮬레이트된 디바이스에서 허브로 온도 및 습도 값을 전송합니다. 이 자습서에서는 장치 응용 프로그램만 만듭니다. 이 시뮬레이트된 디바이스에서 보낸 이벤트에 응답을 보낼 IoT Hub 서비스 애플리케이션을 작성하는 것은 독자가 연습하도록 남겨두었습니다. C# 애플리케이션은 [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)의 단계를 수행했다고 가정합니다.
 
@@ -100,7 +101,7 @@ X.509 디바이스를 인증하려면 먼저 CA 인증서로 디바이스에 서
 
     이 단계는 Azure IoT 장치 SDK NuGet 패키지 및 해당 종속성에 대한 참조를 다운로드, 설치 및 추가합니다.
 
-1. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
+1. Program.cs 파일 `using` 의 맨 위에 **Program.cs** 다음 문을 추가합니다.
 
     ```csharp
         using Microsoft.Azure.Devices.Client;

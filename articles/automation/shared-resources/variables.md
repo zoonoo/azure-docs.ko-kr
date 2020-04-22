@@ -1,5 +1,5 @@
 ---
-title: Azure Automation의 변수 자산
+title: Azure 자동화에서 변수 관리
 description: 변수 자산은 Azure Automation의 모든 runbook과 DSC 구성에서 사용할 수 있는 값입니다.  이 문서에서는 변수에 대해 자세히 알아보고 텍스트 작성과 그래픽 작성 모두에서 변수를 사용하는 방법을 설명합니다.
 services: automation
 ms.service: automation
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d4a4a92feb3e1b400c0f40076148f7898c4bdef1
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 4778e9b2c0d3b442b214966ab69810d2f42b70b8
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365821"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732756"
 ---
-# <a name="variable-assets-in-azure-automation"></a>Azure Automation의 변수 자산
+# <a name="manage-variables-in-azure-automation"></a>Azure 자동화에서 변수 관리
 
 가변 자산은 자동화 계정의 모든 Runbook 및 DSC 구성에서 사용할 수 있는 값입니다. Azure 포털, PowerShell, Runbook 내 또는 DSC 구성에서 관리할 수 있습니다.
 
@@ -45,11 +45,14 @@ Azure 포털을 사용하여 변수를 만들 때 포털이 변수 값을 입력
 * 부울
 * Null
 
-변수는 지정된 데이터 유형으로 제한되지 않습니다. 다른 형식의 값을 지정하려면 Windows PowerShell을 사용하여 변수를 설정해야 합니다. 을 지정하면 `Not defined`변수 값이 Null로 설정되고 [Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) cmdlet 또는 `Set-AutomationVariable` 활동으로 값을 설정해야 합니다.
+변수는 지정된 데이터 유형으로 제한되지 않습니다. 다른 형식의 값을 지정하려면 Windows PowerShell을 사용하여 변수를 설정해야 합니다. 변수값을 `Not defined`나타내는 경우 Null로 설정됩니다. [Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) cmdlet 또는 `Set-AutomationVariable` 활동으로 값을 설정해야 합니다.
 
 Azure 포털을 사용하여 복잡한 변수 형식의 값을 만들거나 변경할 수 없습니다. 그러나 Windows PowerShell을 사용하여 모든 형식의 값을 제공할 수 있습니다. 복잡한 형식은 [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject)로 검색됩니다.
 
 배열 또는 해시 테이블을 만들어 변수에 저장하여 여러 값을 단일 변수에 저장할 수 있습니다.
+
+>[!NOTE]
+>VM 이름 변수는 최대 80자일 수 있습니다. 리소스 그룹 변수는 최대 90자일 수 있습니다. [Azure 리소스에 대한 이름 지정 규칙 및 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules)을 참조하십시오.
 
 ## <a name="powershell-cmdlets-that-create-and-manage-variable-assets"></a>가변 자산을 만들고 관리하는 PowerShell cmdlet
 
@@ -66,7 +69,7 @@ Az 모듈의 경우 다음 표의 cmdlet을 사용하여 Windows PowerShell을 �
 
 다음 표의 활동은 Runbook 및 DSC 구성의 변수에 액세스하는 데 사용됩니다. 이러한 활동에 대한 cmdlet에는 전역 `Orchestrator.AssetManagement.Cmdlets`모듈이 함께 제공됩니다.
 
-| 활동 | 설명 |
+| 작업 | Description |
 |:---|:---|
 |`Get-AutomationVariable`|기존 변수의 값을 검색합니다.|
 |`Set-AutomationVariable`|기존 변수의 값을 설정합니다.|

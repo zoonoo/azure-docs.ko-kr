@@ -1,25 +1,20 @@
 ---
 title: Azure의 Linux VM 크기
 description: Azure의 Linux 가상 머신에 사용할 수 있는 다양한 크기를 나열합니다.
-services: virtual-machines-linux
-documentationcenter: ''
-author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: da681171-f045-4c80-a5a9-d8bd47964673
-ms.service: virtual-machines-linux
+author: ju-shim
+ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
-ms.author: jonbeck
-ms.openlocfilehash: 46fad0dd2e39f1f563ed248458da622ad83f061e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: jushiman
+ms.openlocfilehash: 246ab6551667f54e3ef4ec8f91573d9aaa98d64c
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78161119"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758401"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Azure에서 Linux 가상 머신에 대한 크기
 
@@ -29,7 +24,7 @@ ms.locfileid: "78161119"
 |------|-------|-------------|
 | [범용](../sizes-general.md)   | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC, DCv2  | CPU 대 메모리 비율이 적당합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버에 적합합니다. |
 | [컴퓨팅 최적화](../sizes-compute.md) | Fsv2 | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 웹 서버, 네트워크 어플라이언스, 일괄 처리 프로세스 및 애플리케이션 서버에 적합합니다. |
-| [메모리 최적화](../sizes-memory.md) | Esv3, Ev3, Easv4, Eav4, Mv2, M, DSv2, Dv2 | 메모리 대 CPU 비율이 높습니다. 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
+| [메모리에 최적화](../sizes-memory.md) | Esv3, Ev3, Easv4, Eav4, Mv2, M, DSv2, Dv2 | 메모리 대 CPU 비율이 높습니다. 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
 | [Storage에 최적화](../sizes-storage.md) | Lsv2 | 빅 데이터, SQL, NoSQL 데이터베이스, 데이터 웨어하우징, 대형 트랜잭션 데이터베이스에 이상적인 높은 디스크 처리량과 IO.  |
 | [GPU](../sizes-gpu.md) | NC, NCv2, NCv3, ND, NDv2 (미리보기), NV, NV3, NVv4 | 고급 그래픽 렌더링 및 비디오 편집뿐만 아니라 딥 러닝을 통한 모델 학습 및 추론(ND)도 목표로 하는 특수화된 가상 머신입니다. 한 개 이상의 GPU를 사용할 수 있습니다. |
 | [고성능 컴퓨팅](../sizes-hpc.md) | HB, HBv2, HC, H | Microsoft의 가장 빠르고 강력한 CPU 가상 머신으로, 필요한 경우 처리량이 높은 네트워크 인터페이스(RDMA)도 제공합니다. |
@@ -61,7 +56,7 @@ REST API를 사용하여 VM 크기에 대해 쿼리하는 방법은 다음을 �
 
 - [범용](../sizes-general.md)
 - [컴퓨팅 최적화](../sizes-compute.md)
-- [메모리 최적화](../sizes-memory.md)
+- [메모리에 최적화](../sizes-memory.md)
 - [Storage에 최적화](../sizes-storage.md)
 - [GPU](../sizes-gpu.md)
 - [고성능 컴퓨팅](../sizes-hpc.md)

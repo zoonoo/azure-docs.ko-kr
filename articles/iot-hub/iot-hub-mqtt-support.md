@@ -7,12 +7,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 9ccfaa57b8e8fdea325bed908ffe8815b09d0d15
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 86fc5d4845e746604c1ba69f661d1b9ea9d8dca4
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257796"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732308"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -276,7 +279,7 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
 ## <a name="sending-device-to-cloud-messages"></a>디바이스-클라우드 메시지 보내기
 
-성공적인 연결을 구축한 후 디바이스는 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **토픽 이름**으로 사용하여 IoT Hub에 메시지를 보낼 수 있습니다. `{property_bag}` 요소는 URL 인코딩 형식의 속성을 추가하여 메시지를 보내는 디바이스를 사용할 수 있습니다. 다음은 그 예입니다.
+성공적인 연결을 구축한 후 디바이스는 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **토픽 이름**으로 사용하여 IoT Hub에 메시지를 보낼 수 있습니다. `{property_bag}` 요소는 URL 인코딩 형식의 속성을 추가하여 메시지를 보내는 디바이스를 사용할 수 있습니다. 예를 들어:
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -329,7 +332,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_
 
 가능한 상태 코드:
 
-|상태 | Description |
+|Status | Description |
 | ----- | ----------- |
 | 200 | Success |
 | 429 | 너무 많은 요청(제한됨), [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md) 참조 |
@@ -349,7 +352,7 @@ reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토�
 
 3. 그러면 서비스에서는 항목 `$iothub/twin/res/{status}/?$rid={request id}`에 대해 보고된 속성 컬렉션의 새 ETag 값을 포함하는 응답 메시지를 보냅니다. 이 응답 메시지는 **요청과** 동일한 요청 ID를 사용합니다.
 
-요청 메시지 본문은 보고된 속성에 대한 새 값을 포함하는 JSON 문서를 포함합니다. JSON 문서의 각 멤버는 장치 쌍의 문서에서 해당 멤버를 업데이트하거나 추가합니다. `null`로 설정된 구성원은 포함하는 개체에서 구성원을 삭제합니다. 다음은 그 예입니다.
+요청 메시지 본문은 보고된 속성에 대한 새 값을 포함하는 JSON 문서를 포함합니다. JSON 문서의 각 멤버는 장치 쌍의 문서에서 해당 멤버를 업데이트하거나 추가합니다. `null`로 설정된 구성원은 포함하는 개체에서 구성원을 삭제합니다. 예를 들어:
 
 ```json
 {
@@ -360,7 +363,7 @@ reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토�
 
 가능한 상태 코드:
 
-|상태 | Description |
+|Status | 설명 |
 | ----- | ----------- |
 | 204 | 성공(반환되는 콘텐츠 없음) |
 | 400 | 잘못된 요청. 형식이 잘못된 JSON |
@@ -387,7 +390,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
 
 ## <a name="receiving-desired-properties-update-notifications"></a>desired 속성 업데이트 알림 수신
 
-디바이스가 연결되면 IoT Hub는 `$iothub/twin/PATCH/properties/desired/?$version={new version}` 항목에 알림을 보내는데 여기에는 솔루션 백 엔드에 의해 수행된 업데이트 콘텐츠가 포함됩니다. 다음은 그 예입니다.
+디바이스가 연결되면 IoT Hub는 `$iothub/twin/PATCH/properties/desired/?$version={new version}` 항목에 알림을 보내는데 여기에는 솔루션 백 엔드에 의해 수행된 업데이트 콘텐츠가 포함됩니다. 예를 들어:
 
 ```json
 {

@@ -10,14 +10,16 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: e8d1c4a605e8db2e9753bb80c9712dd6c2be7b59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93e4d3d0bed9090573d2b6ee87a29b86ccd72e42
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158250"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758946"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>루비태그 센서를 Azure IoT 중앙 애플리케이션에 연결
+
+*이 문서는 솔루션 빌더 및 장치 개발자에게 적용됩니다.*
 
 이 문서에서는 솔루션 빌더로서 RuuviTag 센서를 Microsoft Azure IoT Central 응용 프로그램에 연결하는 방법에 대해 설명합니다.
 
@@ -67,11 +69,14 @@ RuuviTag 장치 템플릿을 추가하려면 다음을 수행하십시오.
 시뮬레이션된 RuuviTag를 만들려면 다음을 수행합니다.
 
 1. **RuuviTag에 > 장치를**선택합니다.
-1. **+ 새**.
+1. **+새로 만들기**를 선택합니다.
 1. 고유한 **장치 ID와** 친숙한 **장치 이름을**지정합니다.  
 1. 시뮬레이션 **된** 설정을 사용 합니다.
 1. **만들기**를 선택합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
-RuuviTag를 Azure IoT Central 응용 프로그램에 연결하는 방법을 배웠으니 다음 단계는 [IoT Central 응용 프로그램을 사용자 지정하여](../retail/tutorial-in-store-analytics-customize-dashboard-pnp.md) 종단 간 솔루션을 빌드하는 방법을 알아보는 것입니다.
+장치 개발자인 경우 다음과 같은 다음 단계로 제안되는 몇 가지 단계를 수행합니다.
+
+- Azure [IoT Central의 장치 연결에](./concepts-get-connected.md) 대해 읽어보기
+- [Azure CLI를 사용하여 장치 연결을 모니터링하는](./howto-monitor-devices-azure-cli.md) 방법 알아보기

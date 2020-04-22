@@ -8,12 +8,13 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: robinsh
-ms.openlocfilehash: fd3e02101f206ebdb183da87089eadcbc9619b33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: amqp
+ms.openlocfilehash: 91527b5f2159a336e8339c6a128e8d61965292a6
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68883168"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732613"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>C용 Azure IoT 디바이스 SDK – IoTHubClient에 대한 자세한 정보
 
@@ -66,9 +67,9 @@ IoTHubClient_Destroy(iotHubClientHandle);
 
 이러한 함수는 모두 API 이름에 **LL**을 포함합니다. 이름의 **LL** 부분 외에, 이러한 각 함수의 매개 변수는 비-LL 해당 항목과 동일합니다. 그러나 이러한 함수의 동작은 한 가지 중요한 방식에서 서로 다릅니다.
 
-**IoTHubClient\_CreateFromConnectionString**을 호출하면 기본 라이브러리에서 백그라운드로 실행되는 새 스레드를 만듭니다. 이 스레드는 IoT Hub로 이벤트 전송 및 메시지 수신을 처리합니다. 이러한 스레드는 **LL** API로 작업할 때 만들어지지 않습니다. 백그라운드 스레드를 생성하면 개발자가 편리합니다. 이벤트 전송 및 IoT Hub에서 메시지 수신을 명시적으로 지정하는 것에 대해 신경 쓰지 않아도 됩니다. 백그라운드로 자동으로 이루어지기 때문입니다. 반대로 **LL** API는 필요한 경우 IoT Hub와의 통신을 명시적으로 제어할 수 있습니다.
+**IoTHubClient\_CreateFromConnectionString**을 호출하면 기본 라이브러리에서 백그라운드로 실행되는 새 스레드를 만듭니다. 이 스레드는 IoT Hub로 이벤트 전송 및 메시지 수신을 처리합니다. 이러한 스레드는 **LL** API로 작업할 때 만들어지지 않습니다. 백그라운드 스레드를 생성하면 개발자가 편리합니다. IoT Hub에서 이벤트를 명시적으로 보내고 메시지를 받는 것에 대해 걱정할 필요가 없습니다. 반대로 **LL** API는 필요한 경우 IoT Hub와의 통신을 명시적으로 제어할 수 있습니다.
 
-이 개념에 대한 이해를 돕기 위해 예제를 살펴보겠습니다.
+이 개념을 보다 정확하게 이해하기 위해 다음 예제를 살펴보겠습니다.
 
 **IoTHubClient\_SendEventAsync**를 호출하는 경우 실제로 수행하는 작업은 이벤트를 버퍼에 넣는 것입니다. **IoTHubClient\_CreateFromConnectionString** 호출 시 생성되는 백그라운드 스레드는 이 버퍼를 지속적으로 모니터하고 여기에 포함된 모든 데이터를 IoT Hub로 전송합니다. 메인 스레드에서 다른 작업을 수행하는 동안 이 작업이 백그라운드로 수행됩니다.
 
@@ -76,7 +77,7 @@ IoTHubClient_Destroy(iotHubClientHandle);
 
 **LL** API는 백그라운드 스레드를 만들지 않습니다. 대신, IoT Hub에서 데이터를 명시적으로 전송 및 수신하는 새 API를 호출해야 합니다. 다음 예제에 이 내용이 나와 있습니다.
 
-SDK에 포함된 **iothub\_client\_sample\_http** 애플리케이션은 하위 수준 API를 보여줍니다. 이 샘플에서는 다음과 같은 코드로 IoT Hub에 이벤트를 전송합니다.
+SDK에 포함된 **iothub\_클라이언트\_샘플\_http** 응용 프로그램은 하위 수준의 API를 보여 줍니다. 이 샘플에서는 다음과 같은 코드로 IoT Hub에 이벤트를 전송합니다.
 
 ```C
 EVENT_INSTANCE message;
@@ -102,7 +103,7 @@ while (1)
 IoTHubClient_LL_SetMessageCallback(iotHubClientHandle, ReceiveMessageCallback, &receiveContext)
 ```
 
-루프에서 **IoTHubClient\_LL\_DoWork**를 자주 호출하는 이유는 호출할 때마다 *일부* 버퍼링된 이벤트를 IoT Hub로 전송하고 디바이스에 대해 대기 상태인 *다음* 메시지를 가져오기 때문입니다. 호출 시마다 버퍼링된 모든 이벤트를 전송하거나 대기 상태인 모든 메시지를 가져온다고 보장할 수 없습니다. 버퍼의 모든 이벤트를 전송한 후 다른 처리를 진행하려면 다음과 같은 코드로 이 루프를 바꾸면 됩니다.
+**IoTHubClient\_LL\_DoWork가** 루프에서 호출되는 이유는 호출될 때마다 일부 버퍼링된 이벤트를 IoT Hub로 보내고 장치에 대해 큐에 대기된 *다음* 메시지를 검색하기 때문입니다. *some* 각 호출이 버퍼링된 모든 이벤트를 보내거나 큐에 대기된 모든 메시지를 검색하는 것은 보장되지 않습니다. 버퍼의 모든 이벤트를 전송한 후 다른 처리를 진행하려면 다음과 같은 코드로 이 루프를 바꾸면 됩니다.
 
 ```C
 IOTHUB_CLIENT_STATUS status;
@@ -114,15 +115,15 @@ while ((IoTHubClient_LL_GetSendStatus(iotHubClientHandle, &status) == IOTHUB_CLI
 }
 ```
 
-이 코드는 버퍼의 모든 이벤트가 IoT Hub로 전송될 때까지 **IoTHubClient\_LL\_DoWork**를 호출합니다. 이 또한 대기 상태인 모든 메시지를 수신함을 의미하지 않습니다. 이것은 "모든" 메시지를 확인하는 것으로 동작이 결정되는 것은 아니기 때문입니다. 가령, "모든" 메시지를 가져온 직후 디바이스에 다른 메시지가 전송된다면 어떻게 될까요? 이를 처리하기 위한 더 나은 방법은 프로그래밍 방식의 시간 제한을 사용하는 것입니다. 예를 들어, 메시지 콜백 함수가 호출될 때마다 타이머를 재설정할 수 있습니다. 그런 다음 예를 들어, 마지막 *X* 초에 수신된 메시지가 없으면 처리를 진행하는 논리를 작성할 수 있습니다.
+이 코드는 버퍼의 모든 이벤트가 IoT Hub로 전송될 때까지 **IoTHubClient\_LL\_DoWork**를 호출합니다. 이 또한 대기 상태인 모든 메시지를 수신함을 의미하지 않습니다. 그 이유는 "모두" 메시지를 확인하는 것이 결정적인 작업이 아니기 때문입니다. 가령, "모든" 메시지를 가져온 직후 디바이스에 다른 메시지가 전송된다면 어떻게 될까요? 이를 처리하기 위한 더 나은 방법은 프로그래밍 방식의 시간 제한을 사용하는 것입니다. 예를 들어 메시지 콜백 함수는 호출될 때마다 타이머를 재설정할 수 있습니다. 그런 다음 예를 들어, 마지막 *X* 초에 수신된 메시지가 없으면 처리를 진행하는 논리를 작성할 수 있습니다.
 
-이벤트 수신 및 메시지 수신을 완료했으면 해당 함수를 호출하여 리소스를 정리해야 합니다.
+이벤트 수신 및 메시지 수신이 완료되면 해당 함수를 호출하여 리소스를 정리해야 합니다.
 
 ```C
 IoTHubClient_LL_Destroy(iotHubClientHandle);
 ```
 
-기본적으로 백그라운드 스레드로 데이터를 전송 및 수신하는 API 집합이 하나만 있으며 백그라운드 스레드 없이 동일한 작업을 수행하는 API 집합도 있습니다. 많은 개발자들이 비-LL API를 선호하지만, 개발자가 네트워크 전송을 명시적으로 제어하고자 하는 경우에는 하위 수준 API가 유용합니다. 예를 들어, 일부 디바이스에서 시간에 따라 데이터를 수집하고 지정된 간격(예: 1시간에 한 번, 하루에 한 번)으로만 이벤트를 수신합니다. 하위 수준 API는 IoT Hub에서 데이터 전송 및 수신 시 명시적으로 제어하는 기능을 제공합니다. 하위 수준 API가 제공하는 단순성만을 선호하는 사람도 있습니다. 일부 작업이 백그라운드로 수행되지 않고 모두 메인 스레드에서 수행됩니다.
+기본적으로 백그라운드 스레드가 있는 데이터를 보내고 받는 API 집합은 하나뿐이며 백그라운드 스레드 없이동일한 작업을 수행하는 API 집합이 있습니다. 많은 개발자들이 비-LL API를 선호하지만, 개발자가 네트워크 전송을 명시적으로 제어하고자 하는 경우에는 하위 수준 API가 유용합니다. 예를 들어, 일부 디바이스에서 시간에 따라 데이터를 수집하고 지정된 간격(예: 1시간에 한 번, 하루에 한 번)으로만 이벤트를 수신합니다. 하위 수준 API는 IoT Hub에서 데이터 전송 및 수신 시 명시적으로 제어하는 기능을 제공합니다. 하위 수준 API가 제공하는 단순성만을 선호하는 사람도 있습니다. 일부 작업이 백그라운드로 수행되지 않고 모두 메인 스레드에서 수행됩니다.
 
 어떤 모델을 선택하든 사용하는 API와 일관되어야 합니다. **IoTHubClient\_LL\_CreateFromConnectionString**을 호출하여 시작하는 경우 후속 작업에 해당하는 하위 수준 API만 사용해야 합니다.
 
@@ -158,7 +159,7 @@ Map_AddOrUpdate(propMap, "SequenceNumber", propText);
 
 **Event Hubs**에서 이벤트를 읽을 때 수신기는 속성을 열거하고 해당 값을 가져옵니다. 예를 들어, .NET에서는 [EventData 개체의 속성 컬렉션](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.properties.aspx)에 액세스하여 이를 수행합니다.
 
-이전 예에서 IoT Hub로 전송하는 이벤트에 속성을 첨부합니다. IoT Hub에서 수신한 메시지에도 속성을 첨부할 수 있습니다. 메시지에서 속성을 가져오려면 메시지 콜백 함수에 다음과 같은 코드를 사용할 수 있습니다.
+이전 예제에서는 IoT Hub에 보내는 이벤트에 속성을 연결합니다. IoT Hub에서 수신한 메시지에도 속성을 첨부할 수 있습니다. 메시지에서 속성을 가져오려면 메시지 콜백 함수에 다음과 같은 코드를 사용할 수 있습니다.
 
 ```C
 static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -196,7 +197,7 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 
 ## <a name="message-handling"></a>메시지 처리
 
-앞서 설명한 것처럼 IoT Hub에서 메시지가 도착할 때 **IoTHubClient** 라이브러리가 등록된 콜백 함수를 호출하여 응답합니다. 이 함수에는 반환 매개 변수가 있으며 이에 대한 추가 설명이 필요합니다. 다음은 **iothub\_client\_sample\_http** 애플리케이션 예제에 있는 콜백 함수를 발췌한 것입니다.
+앞서 설명한 것처럼 IoT Hub에서 메시지가 도착할 때 **IoTHubClient** 라이브러리가 등록된 콜백 함수를 호출하여 응답합니다. 이 함수에는 반환 매개 변수가 있으며 이에 대한 추가 설명이 필요합니다. 다음은 **iothub\_클라이언트\_샘플\_http** 샘플 응용 프로그램에서 콜백 함수의 발췌입니다.
 
 ```C
 static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -216,7 +217,7 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 
 처음 두 반환 코드에서 **IoTHubClient** 라이브러리는 IoT Hub에 메시지를 전송하며 해당 메시지를 디바이스의 큐에서 삭제하고 다시 전달하지 않아야 함을 나타냅니다. 최종 결과는 동일하지만(디바이스의 큐에서 메시지가 삭제됨) 메시지를 수락 또는 거부할지 여부는 계속 기록됩니다.  이러한 구분을 기록하는 것은 피드백을 수신 대기하고 디바이스가 특정 메시지를 수락 또는 거부했는지를 파악하는 메시지 보낸 사람에게 유용합니다.
 
-마지막 경우에서 메시지는 IoT Hub로 전송되지만 메시지를 다시 전달해야 함을 나타냅니다. 일반적으로 일부 오류가 발생하지만 메시지를 다시 처리하려는 경우 메시지를 중단합니다. 이와 반대로, 복구할 수 없는 메시지가 발생하는 메시지를 거부하는 것이 적합합니다(또는 메시지를 처리하지 않기로 결정한 경우).
+마지막 경우에서 메시지는 IoT Hub로 전송되지만 메시지를 다시 전달해야 함을 나타냅니다. 일반적으로 오류가 있지만 메시지를 다시 처리하려는 경우 메시지를 포기합니다. 반대로 복구할 수 없는 오류가 발생하거나 메시지를 처리하지 않으려는 경우 메시지를 거부하는 것이 적절합니다.
 
 어떤 경우든 다양한 반환 코드를 파악하여 **IoTHubClient** 라이브러리에서 원하는 동작을 유도할 수 있습니다.
 
@@ -264,11 +265,11 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 일반적으로 사용되는 몇 가지 옵션이 있습니다.
 
-* **SetBatching**(bool) – **true**이면 IoT Hub로 전송된 데이터가 일괄 처리로 전송됩니다. **false**이면 메시지가 개별적으로 전송됩니다. 기본값은 **false입니다.** AMQP/AMQP-WS를 통해 일괄 처리하고 D2C 메시지에 시스템 속성을 추가하는 것이 지원됩니다.
+* **SetBatching**(bool) – **true**이면 IoT Hub로 전송된 데이터가 일괄 처리로 전송됩니다. **false**이면 메시지가 개별적으로 전송됩니다. 기본값은 **false**입니다. AMQP/AMQP-WS를 통해 일괄 처리하고 D2C 메시지에 시스템 속성을 추가하는 것이 지원됩니다.
 
 * **Timeout** (unsigned int) – 이 값은 밀리초 단위로 표시됩니다. HTTPS 요청을 전송하고 응답을 수신하는 경우 이 시간보다 오래 걸리면 연결이 시간 초과됩니다.
 
-일괄 처리 옵션은 중요합니다. 기본적으로 라이브러리는 개별적으로 이벤트를 수신합니다(**IoTHubClient\_LL\_SendEventAsync**에 전달한 단일 이벤트). 일괄 처리 옵션이 **true**인 경우 라이브러리는 버퍼에서 가져올 수 있는 만큼 이벤트를 수집합니다(IoT Hub에서 수락하는 최대 메시지 크기까지).  이벤트 일괄 처리는 단일 HTTPS 호출로 IoT Hub에 전송됩니다(개별 이벤트는 JSON 배열에 번들됨). 일괄 처리를 설정하면 네트워크 왕복이 감소되므로 성능상 이점이 상당합니다. 각 개별 이벤트에 대한 헤더 집합이 아닌, 이벤트 일괄 처리가 포함된 한 집합의 HTTPS 헤더를 전송하므로 대역폭도 크게 감소합니다. 다른 이유가 없는 한, 일반적으로 일괄 처리를 사용하도록 설정하는 것이 좋습니다.
+일괄 처리 옵션은 중요합니다. 기본적으로 라이브러리는 개별적으로 이벤트를 수신합니다(**IoTHubClient\_LL\_SendEventAsync**에 전달한 단일 이벤트). 일괄 처리 옵션이 **true**인 경우 라이브러리는 버퍼에서 가져올 수 있는 만큼 이벤트를 수집합니다(IoT Hub에서 수락하는 최대 메시지 크기까지).  이벤트 일괄 처리는 단일 HTTPS 호출로 IoT Hub에 전송됩니다(개별 이벤트는 JSON 배열에 번들됨). 일괄 처리를 사용하도록 설정하면 일반적으로 네트워크 왕복을 줄이므로 성능이 크게 향상됩니다. 각 개별 이벤트에 대한 헤더 집합이 아닌, 이벤트 일괄 처리가 포함된 한 집합의 HTTPS 헤더를 전송하므로 대역폭도 크게 감소합니다. 다른 방법으로 해야 할 특별한 이유가 없는 한 일반적으로 일괄 처리를 사용하도록 설정해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

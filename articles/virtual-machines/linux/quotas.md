@@ -1,25 +1,18 @@
 ---
-title: Azure에 대한 vCPU 할당량
+title: vCPU 할당량
 description: Azure에 대한 vCPU 할당량에 대해 알아봅니다.
-keywords: ''
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: c194dbeb0183e64535342f8aaf9a770a93b3e332
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f8d181194328725c2e7c02f6e73752cf568ef4e
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75896178"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759191"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>가상 머신 vCPU 할당량
 

@@ -5,18 +5,21 @@ services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 1/31/2020
+ms.date: 4/20/2020
 ms.author: alzam
-ms.openlocfilehash: 3b7e765dbd024d46939e8989993f0c882b2a8f4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b63bb861f4df087f852bb1bf599d32100d063f7e
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76965230"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733179"
 ---
 # <a name="download-a-global-or-hub-based-profile-for-user-vpn-clients"></a>사용자 VPN 클라이언트를 위한 글로벌 또는 허브 기반 프로필 다운로드
 
-Azure Virtual WAN은 원격 사용자를 위한 두 가지 유형의 연결, 즉 글로벌 및 허브 기반을 제공합니다. 다음 섹션을 사용하여 프로필에 대해 알아보고 다운로드합니다.
+Azure Virtual WAN은 원격 사용자를 위한 두 가지 유형의 연결, 즉 글로벌 및 허브 기반을 제공합니다. 다음 섹션을 사용하여 프로필에 대해 알아보고 다운로드합니다. 
+
+> [!IMPORTANT]
+> RADIUS 인증은 허브 기반 프로필만 지원합니다.
 
 ## <a name="global-profile"></a>글로벌 프로필
 

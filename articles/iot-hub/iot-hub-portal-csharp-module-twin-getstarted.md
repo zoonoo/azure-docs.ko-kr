@@ -9,12 +9,13 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 289c269100eb6ab672bb8d60562c1fa77d8d091a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: amqp
+ms.openlocfilehash: a3258de2ed7269ab50e6feca3c421d55de5a9d91
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73954612"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759773"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>포털 및 .NET 디바이스를 사용하여 IoT Hub 모듈 ID 및 모듈 쌍 시작
 
@@ -94,7 +95,7 @@ IoT Hub에서 모듈 ID를 성공적으로 만들었습니다. 시뮬레이트�
 
 콘솔 앱의 모듈 연결 문자열이 필요합니다. 다음 단계를 수행하세요.
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. IoT 허브로 이동하여 **IoT 장치를**선택합니다. **myFirstDevice를** 열면 **myFirstModule이** 성공적으로 만들어졌습니다.
 
@@ -106,7 +107,7 @@ IoT Hub에서 모듈 ID를 성공적으로 만들었습니다. 시뮬레이트�
 
 앱을 만들려면 다음 단계를 따르세요.
 
-1. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
+1. Program.cs 파일 `using` 의 맨 위에 **Program.cs** 다음 문을 추가합니다.
 
   ```csharp
   using Microsoft.Azure.Devices.Client;

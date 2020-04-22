@@ -9,12 +9,15 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
-ms.openlocfilehash: 7805b9b3f000b2bc2e45272ab9ff469d5711e581
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 41c29e55f04f9edf06ba375ad4539e5fb3f82c18
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77110204"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733429"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>IoT Hub(.NET)를 사용하여 클라우드에서 디바이스에 메시지 보내기
 
@@ -128,7 +131,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
    static string connectionString = "{iot hub connection string}";
    ```
 
-1. **프로그램** 클래스에 다음 메서드를 추가합니다. 장치에서 [IoT 허브로 원격 분석 보내기에서](quickstart-send-telemetry-dotnet.md)장치를 정의할 때 장치 이름을 사용한 것으로 설정합니다.
+1. **Program** 클래스에 다음 메서드를 추가합니다. 장치에서 [IoT 허브로 원격 분석 보내기에서](quickstart-send-telemetry-dotnet.md)장치를 정의할 때 장치 이름을 사용한 것으로 설정합니다.
 
    ``` csharp
    private async static Task SendCloudToDeviceMessageAsync()

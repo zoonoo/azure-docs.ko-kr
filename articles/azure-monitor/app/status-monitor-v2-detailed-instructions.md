@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 2a0eb83b4b056230e8e7ef103f220b216fceb9e9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 8f6134e8f8fdb9af3f578afaf0670c32a3896e01
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537460"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81766872"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>응용 프로그램 인사이트 에이전트(이전 이름 상태 모니터 v2): 자세한 지침
 
@@ -219,7 +219,7 @@ PowerShell 명령은 A.Application모니터를 다운로드하여 설치하도�
 
 `Enable-ApplicationInsightsMonitoring` 명령을 사용하여 모니터링을 활성화합니다.
 
-이 cmdlet을 사용하는 방법에 대한 자세한 설명은 [API 참조를](status-monitor-v2-api-enable-monitoring.md) 참조하십시오.
+이 cmdlet을 사용하는 방법에 대한 자세한 설명은 [API 참조를](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-applicationinsightsmonitoring) 참조하십시오.
 
 
 

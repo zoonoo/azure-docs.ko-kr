@@ -595,6 +595,10 @@
           href: self-hosted-integration-runtime-proxy-ssis.md
         - name: Azure-SSIS IR에 Azure AD 인증 사용
           href: enable-aad-authentication-azure-ssis-ir.md
+        - name: Windows 인증을 사용하여 데이터에 연결
+          href: ssis-azure-connect-with-windows-auth.md
+        - name: 파일 저장 및 파일 공유에 연결
+          href: ssis-azure-files-file-shares.md
         - name: Azure-SSIS IR을 위한 Enterprise Edition 프로비전
           href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: Azure-SSIS IR을 위한 설치 사용자 지정

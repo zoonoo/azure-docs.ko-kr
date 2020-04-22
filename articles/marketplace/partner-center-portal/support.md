@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/07/2020
-ms.openlocfilehash: fbfc8cc29a1584dbc9f7e4ff0b73513d85950f99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd7582877a74aa998de3a6d0a0f38e56c3c3af91
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281394"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733109"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>파트너 센터의 상용 마켓플레이스 프로그램 지원
 
@@ -40,7 +40,7 @@ Microsoft는 광범위한 제품 및 서비스에 대한 지원을 제공합니�
 
 5. **[마켓플레이스 파트너 커뮤니티 포럼을](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** 선택하여 다른 Microsoft 게시자의 지식을 활용하여 질문에 답변하십시오. 
 
-6. **새 지원 요청** 티켓을 열려면 추가 **[도움말을](https://aka.ms/marketplacepublishersupport)** 선택합니다.  
+6. **새 지원 요청** 티켓을 열려면 추가 **[도움말을](https://partner.microsoft.com/support/v2/?stage=1)** 선택합니다.  
 
 ## <a name="how-to-open-a-support-ticket"></a>지원 티켓을 여는 방법
 

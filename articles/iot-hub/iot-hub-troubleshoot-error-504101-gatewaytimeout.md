@@ -8,12 +8,13 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: b74a93e15d533bf9b15797e6371a25230f7a08f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: amqp
+ms.openlocfilehash: 373acc30ed652a7f540e840dfad5eeeda65ca179
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76960673"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759563"
 ---
 # <a name="504101-gatewaytimeout"></a>504101 GatewayTimeout
 
@@ -33,7 +34,7 @@ IoT Hub에 오류가 발생하여 타이밍이 바오기 전에 직접 메서드
 
 이전 버전의 Azure IoT C# SDK(<1.19.0)를 사용하는 경우 버그로 인해 장치와 IoT Hub 간의 AMQP 링크를 자동으로 삭제할 수 있습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 ### <a name="solution-1"></a>해결 방법 1
 

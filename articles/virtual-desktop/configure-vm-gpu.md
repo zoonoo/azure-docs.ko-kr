@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 941a1ff23668a3202028e8b693b57d902095b3b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b675a78041b68210fa7583510582783c506c720
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78384814"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767034"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Windows 가상 데스크톱용 GPU(그래픽 처리 장치) 가속 구성
 
@@ -88,7 +88,7 @@ Azure에서 배포한 드라이버만 Windows 가상 데스크톱에 대해 지�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 지침은 단일 세션 호스트 VM에서 GPU 가속을 실행하여 실행해야 합니다. 더 큰 호스트 풀에서 GPU 가속을 활성화하기 위한 몇 가지 추가 고려 사항:
+이 지침은 하나의 세션 호스트(하나의 VM)에서 GPU 가속을 실행하여 실행해야 합니다. 더 큰 호스트 풀에서 GPU 가속을 활성화하기 위한 몇 가지 추가 고려 사항:
 
 * [VM 확장을](/azure/virtual-machines/extensions/overview) 사용하여 여러 VM에서 드라이버 설치 및 업데이트를 간소화하는 것이 좋습니다. [엔비디아 GPU와](/azure/virtual-machines/extensions/hpccompute-gpu-windows) VM에 대 한 엔비디아 GPU 드라이버 확장을 사용 하 여, AMD GPU와 VM에 대 한 AMD GPU 드라이버 확장 (곧) 사용.
 * Active Directory 그룹 정책을 사용하여 여러 VM에서 그룹 정책 구성을 단순화하는 것이 좋습니다. Active Directory 도메인에 그룹 정책을 배포하는 방법에 대한 자세한 내용은 [그룹 정책 개체 작업](https://go.microsoft.com/fwlink/p/?LinkId=620889)영역을 참조하십시오.

@@ -3,12 +3,12 @@ title: Windows용 게스트 구성 정책을 만드는 방법
 description: Windows용 Azure 정책 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: deb51cf502d26dc994bf74ef3cb0c728f624afde
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 7b06aa0a70bfa17d67da9c6af447138f8bb9e712
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313988"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757422"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Windows용 게스트 구성 정책을 만드는 방법
 
@@ -25,6 +25,11 @@ Windows를 감사할 때 게스트 구성은 [원하는 DSC(상태 구성)](/pow
 
 > [!IMPORTANT]
 > 게스트 구성을 가진 사용자 지정 정책은 미리 보기 기능입니다.
+>
+> Azure 가상 컴퓨터에서 감사를 수행하려면 게스트 구성 확장이 필요합니다.
+> 확장을 대규모로 배포하려면 다음 정책 정의를 할당합니다.
+>   - Windows VM에서 게스트 구성 정책을 사용하도록 설정하기 위한 필수 조건 배포
+>   - Linux VM에서 게스트 구성 정책을 사용하도록 설정하기 위한 필수 조건 배포
 
 ## <a name="install-the-powershell-module"></a>PowerShell 모듈 설치
 
@@ -176,8 +181,10 @@ Configuration AuditBitLocker
 }
 
 # Compile the configuration to create the MOF files
-AuditBitLocker -out ./Config
+AuditBitLocker ./Config
 ```
+
+프로젝트 폴더에 `config.ps1` 이름으로 이 파일을 저장합니다. 터미널에서 실행하여 `./config.ps1` PowerShell에서 실행합니다. 새 mof 파일이 만들어집니다.
 
 `Node AuditBitlocker` 명령은 기술적으로 필요하지 않지만 기본값이 아닌 명명된 `AuditBitlocker.mof` 파일을 `localhost.mof`생성합니다. .mof 파일 이름을 사용하여 구성을 수행하면 대규모로 작동할 때 많은 파일을 쉽게 구성할 수 있습니다.
 

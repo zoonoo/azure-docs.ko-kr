@@ -1,25 +1,21 @@
 ---
 title: Azure에서 OpenShift 컨테이너 플랫폼 3.11 자체 관리형 마켓플레이스 오퍼 배포
 description: Azure에서 OpenShift 컨테이너 플랫폼 3.11 자체 관리형 마켓플레이스 오퍼를 배포합니다.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
 manager: mdotson
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 235efd746562ea4bd52b9cb57da0d8165d60de02
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1cf6c7417aa86d47e59e08786e7807e32c175a25
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75561323"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759581"
 ---
 # <a name="configure-prerequisites"></a>필수 조건 구성
 

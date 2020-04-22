@@ -370,24 +370,20 @@
       items:
         - name: 데이터 웨어하우스에
           items:
-            - name: T-SQL
+            - name: SQL
               items:
+                - name: Azure Data Lake Storage
+                  href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Data Factory
+                  href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Azure Databricks
+                  href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: SSIS
+                  href: /sql/integration-services/load-data-to-sql-data-warehouse
                 - name: 뉴욕 택시 cab 데이터
                   href: ./sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Contoso 공용 데이터
                   href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Azure Data Lake Storage
-                  href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Azure Databricks
-                  href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Data Factory
-                  items:
-                    - name: SQL 풀
-                      href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: SSIS
-                  items:
-                    - name: SQL 풀
-                      href: /sql/integration-services/load-data-to-sql-data-warehouse
                 - name: WideWorldImporters 로드
                   href: ./sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: 복사 작업 사용
@@ -870,7 +866,7 @@
       href: 'https://feedback.azure.com/forums/307516-sql-data-warehouse/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=sql-data-warehouse'
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-sqldw/'
     - name: 지원
       href: ./sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

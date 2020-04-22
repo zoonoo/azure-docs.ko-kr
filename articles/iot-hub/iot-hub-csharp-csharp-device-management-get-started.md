@@ -9,12 +9,13 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 3b37d7e049e7daabbbb4fe1a7b49feb654e8accc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 3cc74faa39b21b1ab275149db4f85de8f55fd07e
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77110250"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733468"
 ---
 # <a name="get-started-with-device-management-net"></a>장치 관리 시작(.NET)
 
@@ -76,7 +77,7 @@ ms.locfileid: "77110250"
 
    이 단계에서는 [Azure IoT 서비스 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) NuGet 패키지 및 종속 항목에 참조를 다운로드, 설치 및 추가합니다.
 
-1. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
+1. Program.cs 파일 `using` 의 맨 위에 **Program.cs** 다음 문을 추가합니다.
 
    ```csharp
    using Microsoft.Azure.Devices;
@@ -92,7 +93,7 @@ ms.locfileid: "77110250"
    static string targetDevice = "myDeviceId";
    ```
 
-1. **프로그램** 클래스에 다음 메서드를 추가합니다.  이 코드는 재부팅 디바이스에 대한 디바이스 쌍을 가져오고 reported 속성을 출력합니다.
+1. **Program** 클래스에 다음 메서드를 추가합니다.  이 코드는 재부팅 디바이스에 대한 디바이스 쌍을 가져오고 reported 속성을 출력합니다.
 
    ```csharp
    public static async Task QueryTwinRebootReported()
@@ -102,7 +103,7 @@ ms.locfileid: "77110250"
    }
    ```
 
-1. **프로그램** 클래스에 다음 메서드를 추가합니다.  이 코드는 직접 메서드를 사용하여 디바이스에서 재부팅을 시작합니다.
+1. **Program** 클래스에 다음 메서드를 추가합니다.  이 코드는 직접 메서드를 사용하여 디바이스에서 재부팅을 시작합니다.
 
    ```csharp
    public static async Task StartReboot()
@@ -153,13 +154,13 @@ ms.locfileid: "77110250"
 
 1. 솔루션 탐색기에서 새 **SimulateManagedDevice** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리를 선택합니다.**
 
-1. **찾아보기를**선택한 다음 **Microsoft.Azure.Devices.Client를**검색하고 선택합니다. **설치**을 선택합니다.
+1. **찾아보기를**선택한 다음 **Microsoft.Azure.Devices.Client를**검색하고 선택합니다. **설치**를 선택합니다.
 
     ![NuGet 패키지 관리자 창 클라이언트 앱](./media/iot-hub-csharp-csharp-device-management-get-started/create-device-nuget-devices-client.png)
 
    이 단계는 [Azure IoT 장치 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet 패키지 및 해당 종속성에 대한 참조를 다운로드, 설치 및 추가합니다.
 
-1. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
+1. Program.cs 파일 `using` 의 맨 위에 **Program.cs** 다음 문을 추가합니다.
 
     ```csharp
     using Microsoft.Azure.Devices.Client;

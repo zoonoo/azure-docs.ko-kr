@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 6bf34f8fb15bf8fddb1ba398ed678d5c98b8c84f
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 265e15713f8159e370ef22a197ffe931200a88f7
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80667778"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758990"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>REST 프록시를 사용하여 Azure HDInsight에서 아파치 카프카 클러스터와 상호 작용
 
@@ -74,7 +74,7 @@ REST 프록시 끝점 요청의 경우 클라이언트 응용 프로그램은 OA
 아래의 파이썬 코드를 사용하여 Kafka 클러스터의 REST 프록시와 상호 작용할 수 있습니다. 코드 샘플을 사용하려면 다음 단계를 따르십시오.
 
 1. 파이썬이 설치된 컴퓨터에서 샘플 코드를 저장합니다.
-1. 실행 `pip3 install adal` 및 `pip install msrestazure`을 실행하여 필요한 파이썬 종속성을 설치합니다.
+1. 실행하여 필요한 파이썬 종속성을 설치합니다. `pip3 install msal`
 1. 코드 수정 섹션 **이러한 속성을 구성하고** 환경에 대한 다음 속성을 업데이트합니다.
 
     |속성 |설명 |
@@ -84,7 +84,7 @@ REST 프록시 끝점 요청의 경우 클라이언트 응용 프로그램은 OA
     |클라이언트 암호|보안 그룹에 등록한 응용 프로그램의 비밀입니다.|
     |Kafkarest_endpoint|[배포 섹션에](#create-a-kafka-cluster-with-rest-proxy-enabled)설명된 대로 클러스터 개요의 **속성** 탭에서 이 값을 가져옵니다. 다음 형식이어야 합니다.`https://<clustername>-kafkarest.azurehdinsight.net`|
 
-1. 명령줄에서 실행하여 파이썬 파일을 실행합니다.`python <filename.py>`
+1. 명령줄에서 실행하여 파이썬 파일을 실행합니다.`sudo python3 <filename.py>`
 
 이 코드는 다음과 같은 작업을 수행합니다.
 
@@ -95,13 +95,9 @@ REST 프록시 끝점 요청의 경우 클라이언트 응용 프로그램은 OA
 
 ```python
 #Required python packages
-#pip3 install adal
-#pip install msrestazure
+#pip3 install msal
 
-import adal
-from msrestazure.azure_active_directory import AdalAuthentication
-from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD
-import requests
+import msal
 
 #--------------------------Configure these properties-------------------------------#
 # Tenant ID for your Azure Subscription
@@ -114,19 +110,24 @@ client_secret = 'password'
 kafkarest_endpoint = "https://<clustername>-kafkarest.azurehdinsight.net"
 #--------------------------Configure these properties-------------------------------#
 
-#getting token
-login_endpoint = AZURE_PUBLIC_CLOUD.endpoints.active_directory
-resource = "https://hib.azurehdinsight.net"
-context = adal.AuthenticationContext(login_endpoint + '/' + tenant_id)
+# Scope
+scope = 'https://hib.azurehdinsight.net/.default'
+#Authority
+authority = 'https://login.microsoftonline.com/' + tenant_id
 
-token = context.acquire_token_with_client_credentials(
-    resource,
-    client_id,
-    client_secret)
+# Create a preferably long-lived app instance which maintains a token cache.
+app = msal.ConfidentialClientApplication(
+    client_id , client_secret, authority,
+    #cache - For details on how look at this example: https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/app.py
+    )
 
-accessToken = 'Bearer ' + token['accessToken']
+# The pattern to acquire a token looks like this.
+result = None
 
-print(accessToken)
+result = app.acquire_token_for_client(scopes=[scope])
+
+print(result)
+accessToken = result['access_token']
 
 # relative url
 getstatus = "/v1/metadata/topics"
@@ -137,10 +138,10 @@ response = requests.get(request_url, headers={'Authorization': accessToken})
 print(response.content)
 ```
 
-curl 명령을 사용하여 Azure for REST 프록시에서 토큰을 얻는 방법에 대한 다른 샘플을 아래에서 찾아보십시오. 토큰을 `resource=https://hib.azurehdinsight.net` 받는 동안 지정된 것이 필요합니다.
+curl 명령을 사용하여 Azure for REST 프록시에서 토큰을 얻는 방법에 대한 다른 샘플을 아래에서 찾아보십시오. **토큰을 `scope=https://hib.azurehdinsight.net/.default` 받는 동안 지정된 것이 필요합니다.**
 
 ```cmd
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=<clientid>&client_secret=<clientsecret>&grant_type=client_credentials&resource=https://hib.azurehdinsight.net' 'https://login.microsoftonline.com/<tenantid>/oauth2/token'
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=<clientid>&client_secret=<clientsecret>&grant_type=client_credentials&scope=https://hib.azurehdinsight.net/.default' 'https://login.microsoftonline.com/<tenantid>/oauth2/v2.0/token'
 ```
 
 ## <a name="next-steps"></a>다음 단계

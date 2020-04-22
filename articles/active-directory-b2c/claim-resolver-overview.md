@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/30/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1c4bbd98682d964cfdf72031c7d6cb77cf42a809
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 0bdede482b79c82e6e05b1429cb7c17399bc2277
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396079"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756617"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 클레임 해결 프로그램 정보
 
@@ -90,7 +90,14 @@ Azure Active Directory B2C(Azure AD B2C) [사용자 지정 정책의](custom-pol
 | {Context:IPAddress} | 사용자 IP 주소입니다. | 11.111.111.11 |
 | {컨텍스트:KMSI} | 로그인 [유지](custom-policy-keep-me-signed-in.md) 확인란이 선택되어 있는지 여부를 나타냅니다. |  true |
 
-### <a name="non-protocol-parameters"></a>비 프로토콜 매개 변수
+### <a name="claims"></a>클레임 
+
+| 클레임 | Description | 예제 |
+| ----- | ----------- | --------|
+| {클레임:클레임 유형} | 정책 파일 또는 상위 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다.  예를 들어: `{Claim:displayName}` `{Claim:objectId}`또는 . | 클레임 유형 값입니다.|
+
+
+### <a name="oauth2-key-value-parameters"></a>OAuth2 키-값 매개 변수
 
 OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 사용자 경험에서 클레임에 매핑될 수 있습니다. 예를 들어, 애플리케이션의 요청에는 이름이 `app_session`, `loyalty_number` 또는 사용자 지정 쿼리 문자열인 쿼리 문자열 매개 변수가 포함될 수 있습니다.
 
@@ -118,6 +125,7 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 | {SAML:만들기 허용} | SAML 요청의 `AllowCreate` `NameIDPolicy` 요소에서 속성 값입니다. | True |
 | {SAML:포스오트n} | SAML 요청의 `ForceAuthN` `AuthnRequest` 요소에서 속성 값입니다. | True |
 | {SAML:공급자 이름} | SAML 요청의 `ProviderName` `AuthnRequest` 요소에서 속성 값입니다.| Contoso.com |
+| {SAML:릴레이상태} | `RelayState` 쿼리 문자열 매개 변수입니다.| 
 
 ## <a name="using-claim-resolvers"></a>클레임 확인자 사용
 

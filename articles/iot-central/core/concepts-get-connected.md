@@ -8,14 +8,19 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8178e585ecb7b1cdfd5e530f3d3406b7397f0968
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: f37b070c74abd8511fc597f9b159312d91281083
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476052"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759121"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT 센트럴에 연결하기
+
+*이 문서는 운영자 및 장치 개발자에게 적용됩니다.*
 
 이 문서에서는 Azure IoT Central 응용 프로그램에 장치를 연결하는 옵션에 대해 설명합니다.
 
@@ -265,7 +270,8 @@ IoT Hub와의 모든 디바이스 통신에 다음 IoT Hub 연결 옵션이 사�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT Central에서 장치 연결에 대해 배웠으니 다음 단계로 제안된 다음 단계는 다음과 같습니다.
+장치 개발자인 경우 다음과 같은 다음 단계로 제안되는 몇 가지 단계를 수행합니다.
 
-- [DevKit 디바이스 준비 및 연결](howto-connect-devkit.md)
-- [C SDK: 프로비저닝 장치 클라이언트 SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
+- [Azure CLI를 사용하여 장치 연결을 모니터링하는](./howto-monitor-devices-azure-cli.md) 방법 알아보기
+- [Azure IoT Central 응용 프로그램에서 새 IoT 장치 유형을 정의하는](./howto-set-up-template.md) 방법 알아보기
+- Azure [IoT 에지 장치 및 Azure IoT 센트럴에](./concepts-iot-edge.md) 대해 읽어보기

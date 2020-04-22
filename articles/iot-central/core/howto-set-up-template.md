@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 6f93d74653aab78e48e613ddf9252a0876548b95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a99f261e1a834705d081e8197e4ae627cf1cb9f
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80157673"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756654"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 새 IoT 디바이스 유형 정의
+
+*이 문서는 솔루션 빌더 및 장치 개발자에게 적용됩니다.*
 
 디바이스 템플릿은 Azure IoT Central 애플리케이션에 연결하는 디바이스 유형의 특징과 동작을 정의하는 청사진입니다.
 
@@ -253,18 +255,6 @@ IoT Central에서 디바이스 명령을 호출할 수 있습니다. 선택적�
 
 장치 템플릿을 게시한 후 운영자는 **장치** 페이지로 이동하여 장치 템플릿을 사용하는 실제 또는 시뮬레이션된 장치를 추가할 수 있습니다. 변경하면서 디바이스 템플릿을 계속 수정하고 저장할 수 있습니다. **디바이스**페이지에서 볼 수 있도록 운영자에게 이러한 변경 내용을 푸시하려면 매번 **게시**를 선택해야 합니다.
 
-
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 작업 방법을 알아보았습니다.
-
-* 새 IoT 디바이스 템플릿을 만듭니다.
-* 클라우드 속성을 만듭니다.
-* 사용자 지정을 만듭니다.
-* 디바이스 원격 분석에 대한 시각화를 정의합니다.
-* 디바이스 템플릿을 게시합니다.
-
-다음으로, 다음을 수행할 수 있습니다.
-
-> [!div class="nextstepaction"]
-> [디바이스 연결](howto-connect-devkit.md)
+장치 개발자인 경우 다음 단계는 [장치 템플릿 버전 지정에](./howto-version-device-template.md)대해 읽어야 합니다.

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/16/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: acacba591c9b895f1bd6abfbab5d3d4a4c858d12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f08107874598a68fb5ce2a1a8a98b6a81d7b94d4
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472778"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756783"
 ---
 # <a name="string-claims-transformations"></a>문자열 클레임 변환
 
@@ -127,7 +127,7 @@ ms.locfileid: "79472778"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | value | 문자열 | 설정할 문자열입니다. 이 입력 매개 변수는 [문자열 클레임 변환 식을](string-transformations.md#string-claim-transformations-expressions)지원합니다. |
+| InputParameter | 값 | 문자열 | 설정할 문자열입니다. 이 입력 매개 변수는 [문자열 클레임 변환 식을](string-transformations.md#string-claim-transformations-expressions)지원합니다. |
 | OutputClaim | createdClaim | 문자열 | 입력 매개 변수에 지정된 값을 사용하여 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
 문자열 ClaimType 값을 설정하려면 다음 클레임 변환을 사용합니다.
@@ -615,13 +615,17 @@ GetLocalized문자열변환 을 사용하려면 변환을 주장합니다.
 | inputClaim | claimToMatch | 문자열 | 비교할 클레임 형식입니다. |
 | InputParameter | matchTo | 문자열 | 일치하는 정규식입니다. |
 | InputParameter | outputClaimIfMatched | 문자열 | 문자열이 같으면 설정할 값입니다. |
+| InputParameter | 추출 그룹 | boolean | [선택 사항] 정규법 일치가 그룹 값을 추출할지 여부를 지정합니다. 가능한 값: `true` `false` " 또는 (기본값) . | 
 | OutputClaim | outputClaim | 문자열 | 정규식이 일치하는 경우 이 출력 클레임에는 `outputClaimIfMatched` 입력 매개 변수 값이 포함됩니다. 또는 null, 일치하지 않는 경우. |
 | OutputClaim | 정규식비교결과클레임 | boolean | 정규식 일치 결과 출력 클레임 유형, `true` 일치 `false` 의 결과에 따라 설정 하거나 설정 하는. |
+| OutputClaim| 클레임 이름| 문자열 | extractGroups 입력 매개 변수가 true로 설정된 경우 이 클레임 변환 이후에 생성된 클레임 유형 목록이 호출되었습니다. 클레임Type의 이름은 정규법 그룹 이름과 일치해야 합니다. | 
 
-예를 들어 제공된 전화 번호가 유효한지 여부를 전화 번호 정규식 패턴에 따라 확인합니다.
+### <a name="example-1"></a>예 1
+
+제공된 전화 번호가 유효한지 여부를 전화 번호 정규 식 패턴에 따라 확인합니다.
 
 ```XML
-<ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="setClaimsIfRegexMatch">
+<ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="SetClaimsIfRegexMatch">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phone" TransformationClaimType="claimToMatch" />
   </InputClaims>
@@ -636,8 +640,6 @@ GetLocalized문자열변환 을 사용하려면 변환을 주장합니다.
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예제
-
 - 입력 클레임:
     - **클레임토매치**: "64854114520"
 - 입력 매개 변수:
@@ -647,6 +649,39 @@ GetLocalized문자열변환 을 사용하려면 변환을 주장합니다.
     - **출력 클레임**: "isPhone"
     - **정규식비교결과 클레임**: true
 
+### <a name="example-2"></a>예제 2
+
+제공된 전자 메일 주소가 유효한지 확인하고 전자 메일 별칭을 반환합니다.
+
+```XML
+<ClaimsTransformation Id="GetAliasFromEmail" TransformationMethod="SetClaimsIfRegexMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="claimToMatch" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="matchTo" DataType="string" Value="(?&lt;mailAlias&gt;.*)@(.*)$" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="isEmail" />
+    <InputParameter Id="extractGroups" DataType="boolean" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="validationResult" TransformationClaimType="outputClaim" />
+    <OutputClaim ClaimTypeReferenceId="isEmailString" TransformationClaimType="regexCompareResultClaim" />
+    <OutputClaim ClaimTypeReferenceId="mailAlias" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+- 입력 클레임:
+    - **클레임토매치**:emily@contoso.com" "
+- 입력 매개 변수:
+    - **일치 :**`(?&lt;mailAlias&gt;.*)@(.*)$`
+    - **출력클레임일치**: "isEmail"
+    - **[사진] 추출그룹**: true
+- 출력 클레임:
+    - **출력 클레임**: "isEmail"
+    - **정규식비교결과 클레임**: true
+    - **메일알리아스**: 에밀리
+    
 ## <a name="setclaimsifstringsareequal"></a>SetClaimsIfStringsAreEqual
 
 문자열 클레임 및 `matchTo` 입력 매개 변수가 같은지를 확인하고 `stringMatchMsg` 및 `stringMatchMsgCode` 입력 매개 변수에 있는 값을 사용하여 출력 클레임을 설정하는 동시에 비교 결과 출력 클레임(비교 결과에 따라 `true` 또는 `false`로 설정됨)도 설정합니다.

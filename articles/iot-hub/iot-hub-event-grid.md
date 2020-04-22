@@ -8,12 +8,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
-ms.openlocfilehash: a1fd99ee595c4ae91ccd06aa41fa421ca8fcc074
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: a67d90a0888c39938f07c294f8e161ce98fd945a
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284552"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732509"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
 

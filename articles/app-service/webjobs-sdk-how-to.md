@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: a1fd22772e72cba4cce3f9fa2751dc0df0e15bb9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 5a8d5f96449cfecd4628c38fa2788a1e06e96b07
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535601"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758899"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
@@ -125,7 +125,7 @@ static void Main()
 
 버전 2에서. *x* [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API를 사용하여 호스트에 대한 동시 연결 수를 제어합니다. 2. *x*WebJobs 호스트를 시작하기 전에 이 값을 기본값2에서 늘려야 합니다.
 
-`HttpClient` 흐름을 통해 `ServicePointManager`함수에서 수행하는 모든 발신 HTTP 요청 `DefaultConnectionLimit`에 `ServicePointManager` 설정된 값에 도달하면 요청을 보내기 전에 요청 큐에 대기를 시작합니다. `DefaultConnectionLimit`가 2로 설정되었고 코드에서 HTTP 요청 1,000개를 만든다고 가정해 봅시다. 처음에는 OS까지 전달되는 요청이 2개밖에 없습니다. 나머지 998개는 공간이 생길 때까지 큐에서 대기합니다. 즉, `HttpClient` 요청을 한 것으로 보이지만 OS에서 대상 서버로 요청을 보내지 않았기 때문에 시간 시간이 시간 중지됩니다. 이와 같은 이유로 로컬 `HttpClient`가 요청을 완료하는 데 10초가 걸리지만 서비스가 200ms 후에 모든 요청을 반환하는 이상한 동작이 관찰될 수 있습니다. 
+`HttpClient` 흐름을 통해 `ServicePointManager`함수에서 수행하는 모든 발신 HTTP 요청 `DefaultConnectionLimit`에 `ServicePointManager` 설정된 값에 도달하면 요청을 보내기 전에 요청 큐에 대기를 시작합니다. `DefaultConnectionLimit`가 2로 설정되었고 코드에서 HTTP 요청 1,000개를 만든다고 가정해 봅시다. 처음에는 OS까지 전달되는 요청이 2개밖에 없습니다. 나머지 998명은 대기하고 있습니다. 즉, `HttpClient` 요청을 한 것으로 보이지만 OS에서 대상 서버로 요청을 보내지 않았기 때문에 시간 시간이 시간 중지됩니다. 이와 같은 이유로 로컬 `HttpClient`가 요청을 완료하는 데 10초가 걸리지만 서비스가 200ms 후에 모든 요청을 반환하는 이상한 동작이 관찰될 수 있습니다. 
 
 ASP.NET 응용 프로그램의 기본값은 `Int32.MaxValue`에 이이며 기본 또는 더 높은 앱 서비스 계획에서 실행되는 WebJobs에서 잘 작동할 수 있습니다. WebJobs는 일반적으로 항상 켜기 설정이 필요하며 기본 및 상위 앱 서비스 계획에서만 지원됩니다.
 
@@ -423,7 +423,7 @@ static async Task Main()
 }
 ```
 
-자세한 내용은 이벤트 허브 바인딩 문서를 [참조하세요.](../azure-functions/functions-bindings-event-hubs-output.md#hostjson-settings)
+자세한 내용은 이벤트 허브 바인딩 문서를 [참조하세요.](../azure-functions/functions-bindings-event-hubs-trigger.md#host-json)
 
 ### <a name="queue-storage-trigger-configuration"></a>큐 스토리지 트리거 구성
 
@@ -825,7 +825,7 @@ ASP.NET 위해 개발된 로깅 프레임워크를 권장합니다. [시작하�
 |------------|---|
 |추적       | 0 |
 |디버그       | 1 |
-|정보 | 2 |
+|Information | 2 |
 |Warning     | 3 |
 |Error       | 4 |
 |위험    | 5 |

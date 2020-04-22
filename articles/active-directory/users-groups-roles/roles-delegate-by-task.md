@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ac44661dd5a52ba19a3b2dd461aabec1ec250bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd24650c9bf0c4de155b5bfc8723cfa1fef01548
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284877"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81755405"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Azure Active Directory에서 관리 작업별 관리자 역할
 
@@ -76,9 +76,9 @@ Task | 최소 권한 역할 | 추가 역할
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
-통과 인증 | 전역 관리자 | 
-모든 구성 읽기 | 글로벌 리더 | 
-원활한 Single Sign-On | 전역 관리자 | 
+통과 인증 | 하이브리드 ID 관리자 | 
+모든 구성 읽기 | 글로벌 리더 | 하이브리드 ID 관리자 |
+원활한 Single Sign-On | 하이브리드 ID 관리자 | 
 
 ## <a name="connect-health"></a>Connect Health
 
@@ -342,11 +342,11 @@ Task | 최소 권한 역할 | 추가 역할
 사용자 설정 업데이트 | 전역 관리자 | 
 
 
-## <a name="support"></a>고객 지원팀
+## <a name="support"></a>지원
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
-지원 티켓 제출 | 서비스 관리자 | 응용 프로그램 관리자, Azure 정보 보호 관리자, 청구 관리자, 클라우드 응용 프로그램 관리자, 규정 준수 관리자, Dynamics 365 관리자, 데스크톱 분석 관리자, Exchange 관리자, 암호 관리자, Intune 관리자, 비즈니스 관리자용 Skype, Power BI 관리자, 권한 있는 인증 관리자, SharePoint 관리자, 팀 커뮤니케이션 관리자, 팀 관리자, 사용자 관리자, 직장 분석 관리자
+지원 티켓 제출 | 서비스 관리자 | 응용 프로그램 관리자, Azure 정보 보호 관리자, 청구 관리자, 클라우드 응용 프로그램 관리자, 규정 준수 관리자, Dynamics 365 관리자, 데스크톱 분석 관리자, Exchange 관리자, 암호 관리자, Intune 관리자, 비즈니스 관리자용 Skype, Power BI 관리자, 권한 있는 인증 관리자, SharePoint 관리자, 팀 통신 관리자, 팀 관리자, 사용자 관리자, Workplace 분석 관리자
 
 ## <a name="next-steps"></a>다음 단계
 

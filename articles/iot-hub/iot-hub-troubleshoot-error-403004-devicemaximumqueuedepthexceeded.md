@@ -8,12 +8,15 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: 1edf723aa885ff18d2ce2dda4d71b67700a98a5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 5cc8bae0f0245f5c4b45ca0cd446582b04788c21
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79497486"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758761"
 ---
 # <a name="403004-devicemaximumqueuedepthexceeded"></a>403004 DeviceMaximumQueueDepthExceeded
 
@@ -29,7 +32,7 @@ ms.locfileid: "79497486"
 
 이 제한을 실행하는 가장 큰 이유는 HTTPS를 사용하여 메시지를 수신하기 때문에 지속적인 폴링을 사용하여 `ReceiveAsync`IoT Hub가 요청을 제한하기 때문입니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 HTTPS에서 클라우드-디바이스 메시지에 대해 지원되는 패턴은 메시지를 가끔씩(25분에 한 번씩보다 적게) 확인하는 디바이스에 간헐적으로 연결됩니다. 큐 제한에 실행될 가능성을 줄이려면 클라우드-장치 메시지의 AMQP 또는 MQTT로 전환합니다.
 

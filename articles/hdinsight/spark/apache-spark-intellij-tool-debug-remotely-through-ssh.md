@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
-ms.openlocfilehash: 67660e3e98f5a12236798d74cc61f71616e6751d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a012c3ce8f7c9e105a42d8383a502f3608c84070
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934758"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732918"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>SSH를 통해 IntelliJ에 대한 Azure 도구 키트와 HDInsight 클러스터에 응용 프로그램을 디버그 아파치 스파크
 
@@ -25,11 +25,11 @@ ms.locfileid: "76934758"
 
 * Windows 사용자의 경우: Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행하는 동안 [SPARK-2356에](https://issues.apache.org/jira/browse/SPARK-2356)설명된 대로 예외가 발생할 수 있습니다. 이 예외는 Windows에 WinUtils.exe가 없기 때문에 발생합니다.
 
-    이 오류를 해결하려면 [Winutils.exe를](https://github.com/steveloughran/winutils) **C:\WinUtils\bin**과 같은 위치에 다운로드합니다. 그런 다음 환경 변수 **HADOOP_HOME**추가하고 변수값을 **C:\WinUtils로 설정합니다.**
+    이 오류를 해결하려면 [Winutils.exe를](https://github.com/steveloughran/winutils) **C:\WinUtils\bin**과 같은 위치에 다운로드합니다. 그런 다음 **HADOOP_HOME** 환경 변수를 추가하고 이 변수 값을 **C:\WinUtils**로 설정합니다.
 
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows) (커뮤니티 에디션은 무료입니다.).
 
-* [IntelliJ에 대한 Azure 도구 키트](https://docs.microsoft.com/azure/java/intellij/azure-toolkit-for-intellij-installation).
+* [IntelliJ에 대한 Azure 도구 키트](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/installation).
 
 * [IntelliJ에 대한 스칼라 플러그인](../spark/apache-spark-intellij-tool-plugin.md#install-scala-plugin-for-intellij-idea).
 
@@ -39,14 +39,14 @@ ms.locfileid: "76934758"
 
 1. IntelliJ IDEA를 시작하고 **새 프로젝트 만들기**를 선택하여 **새 프로젝트** 창을 엽니다.
 
-1. 왼쪽 창에서 **아파치 스파크/HDInsight를** 선택합니다.
+1. 왼쪽 창에서 **Apache Spark/HDInsight**를 선택합니다.
 
 1. 주 창에서 **샘플(스칼라)이 있는 스파크 프로젝트를 선택합니다.**
 
 1. **빌드 도구** 드롭다운 목록에서 다음 중 하나를 선택합니다.
 
-    * 스칼라 프로젝트 생성 마법사 지원에 대한 **메이븐.**
-    * **SBT는** Scala 프로젝트의 종속성을 관리하고 구축하기 위한 것입니다.
+    * **Maven**: Scala 프로젝트 만들기 마법사 지원의 경우
+    * **SBT** - 종속성 관리 및 Scala 프로젝트용 빌드의 경우
 
      ![인텔리즈, 새로운 프로젝트 스파크 만들기](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
@@ -54,7 +54,7 @@ ms.locfileid: "76934758"
 
 1. 다음 **새 프로젝트** 창에서 다음 정보를 제공합니다.
 
-    |속성 |설명 |
+    |속성 |Description |
     |---|---|
     |프로젝트 이름|이름을 입력합니다. 이 워크는 `myApp`사용을 통해 입니다.|
     |프로젝트 위치|프로젝트를 저장하기를 원하는 위치를 입력합니다.|
@@ -77,7 +77,7 @@ ms.locfileid: "76934758"
 
 1. 해당 도구는 로컬 실행 및 로컬 디버그를 수행하면 기본 로컬 실행 구성을 자동으로 설정합니다. 구성을 엽니 다 **[HDInsight에 스파크] 오른쪽** 상단 모서리에 XXX, 당신은 볼 수 있습니다 **[HDInsight에 스파크] XXX** 이미 **HDInsight에 아파치 스파크에서**만든 . **로컬로 실행** 탭으로 전환합니다.
 
-    ![Intellij Run 디버그 구성 로컬 실행](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
+    ![Intellij 구성 실행 디버그 로컬 실행](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
 
     - [환경 변수](#prerequisites): 시스템 환경 변수 **HADOOP_HOME**을 **C:\WinUtils**로 이미 설정한 경우 자동으로 감지되므로 수동으로 추가할 필요가 없습니다.
     - [WinUtils.exe 위치](#prerequisites): 시스템 환경 변수를 설정하지 않은 경우 해당 단추를 클릭하여 위치를 찾을 수 있습니다.

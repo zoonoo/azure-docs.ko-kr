@@ -1,24 +1,18 @@
 ---
 title: SysRq 및 NMI 호출을 위한 Azure 직렬 콘솔
 description: Azure Virtual Machines에서 SysRq 및 NMI 호출에 대한 직렬 콘솔 사용입니다.
-services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5eba50e7cfc00c081622972ca09f305b34c19c47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5541dec748f31818a0e9485fc0c56b7926ccaae7
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74034990"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758492"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>SysRq 및 NMI 호출에 대한 직렬 콘솔 사용
 
@@ -51,7 +45,7 @@ SysReq 구성을 영구적으로 유지하려면 다음을 수행하여 모든 S
 ### <a name="command-keys"></a>명령 키 
 위의 SysRq 관리자 가이드에서:
 
-|명령| 함수
+|명령| 기능
 | ------| ----------- |
 |``b``  |   디스크를 동기화 또는 분리하지 않고 시스템을 즉시 재부팅합니다.
 |``c``  |   NULL 포인터 역참조에 의해 시스템 크래시를 수행합니다. 구성된 경우 크래시덤프가 수행됩니다.

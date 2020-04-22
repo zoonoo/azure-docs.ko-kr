@@ -85,8 +85,6 @@
           href: batch-aad-auth-management.md
         - name: Batch를 사용하여 Key Vault에 안전하게 액세스
           href: credential-access-key-vault.md
-    - name: 애플리케이션 패키지 사용
-      href: batch-application-packages.md
     - name: 파일 및 애플리케이션을 풀 노드에 복사
       items:
         - name: 풀 노드에 애플리케이션 및 데이터 복사
@@ -259,7 +257,7 @@
       href: /azure/templates/microsoft.batch/batchaccounts
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=batch&updatetype=&platform='
-    - name: 스택 오버플로
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-batch'
     - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=batch'

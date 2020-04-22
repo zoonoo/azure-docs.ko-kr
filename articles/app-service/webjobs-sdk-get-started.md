@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 4976be485a9b7609c6e8d23f6b897092217663fc
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 4ee724ec66d5fb474f8c8a9a967cc7235fef5e85
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535675"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732619"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 시작
 
@@ -134,7 +134,7 @@ ASP.NET Core에서는 호스트 구성이 인스턴스에서 메서드를 [`Host
     * [대시보드 로깅](https://github.com/Azure/azure-webjobs-sdk/wiki/Queues#logs)을 사용하지 않도록 설정합니다. 대시보드는 레거시 모니터링 도구이며, 처리량이 많은 프로덕션 시나리오에서는 대시보드 로깅을 사용하지 않는 것이 좋습니다.
     * 콘솔 공급자에 기본 [필터링](webjobs-sdk-how-to.md#log-filtering)을 추가합니다.
 
-이제 [Azure Storage 큐](../azure-functions/functions-bindings-storage-queue.md)에 도착하는 메시지에 의해 트리거되는 함수를 추가할 수 있습니다.
+이제 Azure Storage 큐에 도착하는 메시지에 의해 트리거되는 함수를 추가할 수 있습니다.
 
 ## <a name="install-the-storage-binding-extension"></a>Storage 바인딩 확장 설치
 
@@ -184,7 +184,7 @@ ASP.NET Core에서는 호스트 구성이 인스턴스에서 메서드를 [`Host
 
    `QueueTrigger` 특성은 런타임에 새 메시지가 `queue`라는 Azure Storage 큐에 기록될 때 이 함수를 호출하도록 지시합니다. 큐 메시지의 내용은 `message` 매개 변수의 메서드 코드에 제공됩니다. 메서드 본문은 트리거 데이터를 처리하는 위치입니다. 이 예제에서 코드는 단지 메시지만 기록합니다.
 
-   `message` 매개 변수는 문자열일 필요는 없습니다. JSON 개체, 바이트 배열 또는 [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 개체에 바인딩할 수도 있습니다. [큐 트리거 사용을 참조하세요](../azure-functions/functions-bindings-storage-queue-trigger.md#usage). 각 바인딩 형식(예: 큐, Blob 또는 테이블)에는 바인딩할 수 있는 다른 매개 변수 형식 집합이 있습니다.
+   `message` 매개 변수는 문자열일 필요는 없습니다. JSON 개체, 바이트 배열 또는 [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 개체에 바인딩할 수도 있습니다. [큐 트리거 사용을 참조하세요](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#usage). 각 바인딩 형식(예: 큐, Blob 또는 테이블)에는 바인딩할 수 있는 다른 매개 변수 형식 집합이 있습니다.
 
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
@@ -280,7 +280,7 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
    `ProcessQueueMessage` 함수에서 `QueueTrigger` 특성을 사용했으므로 WeJobs SDK 런타임은 시작할 때 큐 메시지를 수신 대기합니다. *queue*라는 큐에서 새 큐 메시지를 찾아 함수를 호출합니다.
 
-   [큐 폴링 지수 백오프](../azure-functions/functions-bindings-storage-queue-trigger.md#polling-algorithm)로 인해 런타임에서 메시지를 찾고 함수를 호출하는 데 2분 정도 걸릴 수 있습니다. 이 대기 시간은 [개발 모드](webjobs-sdk-how-to.md#host-development-settings)에서 실행하여 줄일 수 있습니다.
+   [큐 폴링 지수 백오프](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm)로 인해 런타임에서 메시지를 찾고 함수를 호출하는 데 2분 정도 걸릴 수 있습니다. 이 대기 시간은 [개발 모드](webjobs-sdk-how-to.md#host-development-settings)에서 실행하여 줄일 수 있습니다.
 
    콘솔 출력은 다음과 같습니다.
 
@@ -327,13 +327,13 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
 1. **연결 문자열** 상자에서 다음 항목을 추가합니다.
 
-   |속성  |연결 문자열  |데이터베이스 유형|
+   |이름  |연결 문자열  |데이터베이스 유형|
    |---------|---------|------|
    |AzureWebJobsStorage | {앞에서 복사한 Storage 연결 문자열}|사용자 지정|
 
 1. **애플리케이션 설정** 상자에 Application Insights 계측 키가 없으면 앞에서 복사한 계측 키를 추가합니다. (계측 키는 App Service 앱을 만든 방법에 따라 이미 있을 수 있습니다.)
 
-   |속성  |값  |
+   |이름  |값  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {계측 키} |
 
@@ -444,7 +444,7 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 1. **큐** 페이지를 새로 고치면 Azure에서 실행 중인 함수가 새 메시지를 처리했기 때문에 새 메시지가 사라집니다.
 
    > [!TIP]
-   > Azure에서 테스트하는 경우 [개발 모드](webjobs-sdk-how-to.md#host-development-settings)를 사용하여 큐 트리거 함수를 즉시 호출하고 [큐 폴링 지수 백오프](../azure-functions/functions-bindings-storage-queue-trigger.md#polling-algorithm)로 인한 지연을 방지하도록 합니다.
+   > Azure에서 테스트하는 경우 [개발 모드](webjobs-sdk-how-to.md#host-development-settings)를 사용하여 큐 트리거 함수를 즉시 호출하고 [큐 폴링 지수 백오프](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm)로 인한 지연을 방지하도록 합니다.
 
 ### <a name="view-logs-in-application-insights"></a>Application Insights에서 로그 보기
 

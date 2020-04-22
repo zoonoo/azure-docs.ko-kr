@@ -3,12 +3,12 @@ title: 가상 시스템의 내용을 감사하는 방법에 대해 알아보기
 description: Azure Policy에서 게스트 구성 에이전트를 사용하여 가상 시스템 내부의 설정을 감사하는 방법에 대해 알아봅니다.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4899f6b3108cabb4e9cdd36e4b2bc5cd2f1cbd4
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 1721c0f1ca7c084d636278aabc96f8dac3293038
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538038"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759087"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -20,25 +20,31 @@ Azure Policy는 Azure 리소스를 감사하고 [수정하는](../how-to/remedia
 
 현재 대부분의 Azure 정책 게스트 구성 정책은 컴퓨터 내부의 설정만 감사합니다. 구성은 적용되지 않습니다. 예외는 [아래에 참조된](#applying-configurations-using-guest-configuration)기본 제공 정책 중 하나입니다.
 
+## <a name="resource-provider"></a>리소스 공급자
+
+게스트 구성을 사용하려면 먼저 리소스 공급자를 등록해야 합니다. 게스트 구성 정책 할당이 포털을 통해 수행되면 리소스 공급자가 자동으로 등록됩니다. [포털,](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)또는 [Azure CLI를](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli)통해 수동으로 등록할 수 있습니다.
+
 ## <a name="extension-and-client"></a>확장 및 클라이언트
 
 컴퓨터 내부의 설정을 감사하려면 [가상 컴퓨터 확장이](../../../virtual-machines/extensions/overview.md) 활성화됩니다. 이 확장은 적용 가능한 정책 할당 및 해당 구성 정의를 다운로드합니다.
+
+> [!Important]
+> Azure 가상 컴퓨터에서 감사를 수행하려면 게스트 구성 확장이 필요합니다.
+> 확장을 대규모로 배포하려면 다음 정책 정의를 할당합니다.
+>   - Windows VM에서 게스트 구성 정책을 사용하도록 설정하기 위한 필수 조건 배포
+>   - Linux VM에서 게스트 구성 정책을 사용하도록 설정하기 위한 필수 조건 배포
 
 ### <a name="limits-set-on-the-extension"></a>확장에 설정된 제한
 
 컴퓨터 내에서 실행되는 응용 프로그램에 영향을 미치지 않도록 확장을 제한하기 위해 게스트 구성은 CPU의 5% 이상을 초과할 수 없습니다. 이 제한은 기본 제공 및 사용자 지정 정의 모두에 대해 존재합니다.
 
-## <a name="register-guest-configuration-resource-provider"></a>게스트 구성 리소스 공급자 등록
-
-게스트 구성을 사용하려면 먼저 리소스 공급자를 등록해야 합니다. [포털](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)또는 [Azure CLI를](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli)통해 등록할 수 있습니다. 게스트 구성 정책 할당이 포털을 통해 수행되면 리소스 공급자가 자동으로 등록됩니다.
-
-## <a name="validation-tools"></a>유효성 검사 도구
+### <a name="validation-tools"></a>유효성 검사 도구
 
 시스템 내에서 게스트 구성 클라이언트는 로컬 도구를 사용하여 감사를 실행합니다.
 
 다음 표에는 지원되는 각 운영 체제에서 사용되는 로컬 도구 목록이 나와 있습니다.
 
-|운영 체제|유효성 검사 도구|참고|
+|운영 체제|유효성 검사 도구|메모|
 |-|-|-|
 |Windows|[윈도우 파워쉘 원하는 상태 구성](/powershell/scripting/dsc/overview/overview) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| 루비와 파이썬이 컴퓨터에 없는 경우 게스트 구성 확장에 의해 설치됩니다. |
@@ -50,17 +56,17 @@ Azure Policy는 Azure 리소스를 감사하고 [수정하는](../how-to/remedia
 
 ## <a name="supported-client-types"></a>지원되는 클라이언트 유형
 
-다음 표에는 Azure 이미지에서 지원되는 운영 체제 목록이 나와 있습니다.
+게스트 구성 정책에는 새 버전이 포함됩니다. Azure 마켓플레이스에서 사용할 수 있는 이전 버전의 운영 체제는 게스트 구성 에이전트가 호환되지 않는 경우 제외됩니다. 다음 표에서는 Azure 이미지에서 지원되는 운영 체제 목록을 보여 주며 있습니다.
 
-|게시자|속성|버전|
+|게시자|이름|버전|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04, 16.04, 18.04|
-|Credativ|Debian|8, 9|
-|Microsoft|Windows Server|2012 데이터 센터, 2012 R2 데이터 센터, 2016 데이터 센터, 2019 데이터 센터|
+|Canonical|Ubuntu Server|14.04 이상|
+|Credativ|Debian|8 이상|
+|Microsoft|Windows Server|2012년 이후|
 |Microsoft|Windows 클라이언트|Windows 10|
-|OpenLogic|CentOS|7.3, 7.4, 7.5, 7.6, 7.7|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7, 7.8|
-|Suse|SLES|12 SP3|
+|OpenLogic|CentOS|7.3 이상|
+|Red Hat|Red Hat Enterprise Linux|7.4 이상|
+|Suse|SLES|12 SP3 이상|
 
 ### <a name="unsupported-client-types"></a>지원되지 않는 클라이언트 유형
 

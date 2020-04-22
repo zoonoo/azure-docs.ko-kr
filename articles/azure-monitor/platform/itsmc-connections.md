@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: eb3b09c6f349024d30d68a6c970770e2a78924ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9441e7bb970508df4c002897ab726d6e683fa848
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132308"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733354"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요를](../../azure-monitor/platform/itsmc-overview.md)참조하십시오.
@@ -194,9 +194,17 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
     - [Istanbul에 대해 OAuth 설정](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Helsinki에 대해 OAuth 설정](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Geneva에 대해 OAuth 설정](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+> [!NOTE]
+> "OAuth 설정"의 정의의 일부로 다음을 권장합니다.
+>
+> 1) **새로 고침 토큰 수명을 90일(7,776,000초)으로 업데이트합니다.** 2단계에서 [OAuth 설정의](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_SettingUpOAuth.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696739125&sdata=Q7mF6Ej8MCupKaEJpabTM56EDZ1T8vFVyihhoM594aA%3D&reserved=0) 일부로: 클라이언트가 종점 정의 후 인스턴스에 액세스할 수 있는 [끝점을 만들고,](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_CreateEndpointforExternalClients.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696749123&sdata=hoAJHJAFgUeszYCX1Q%2FXr4N%2FAKiFcm5WV7mwR2UqeWA%3D&reserved=0) In ServiceNow 블레이드 시스템 OAuth->응용 프로그램 레지스트리에 대 한 블레이드 정의 된 OAuth의 이름을 선택 하 고 "새로 고침 토큰 수명" 필드를 업데이트 7,776,000.
+> 끝에서 업데이트를 클릭합니다.
+> 2) **연결이 계속 유지되도록 내부 절차를 설정하는 것이 좋습니다.** 토큰을 새로 고치는 "토큰 수명 새로 고침"에 따라. 다음 작업을 수행하십시오 사전 새로 고침 토큰 예상 만료 시간 ("토큰 새로 고침 수명"이 만료되기 며칠 전에 권장).
+>
+>>  1) [ITSM 커넥터 구성을 위한 수동 동기화 프로세스 완료](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow)
+ >> 2) 보안상의 이유로 이전 키를 보관하지 않는 것이 좋지 않기 때문에 이전 새로 고침 토큰을 취소합니다. ServiceNow 블레이드에서 "시스템 OAuth"-> "토큰 관리"를 검색한 다음 OAuth 이름 및 만료 날짜에 따라 목록에서 이전 토큰을 선택합니다. "액세스 취소"->"해지를 클릭합니다.
 
-
-- Microsoft Log Analytics 통합용 사용자 앱(ServiceNow 앱)을 설치합니다. [자세히 알아봅니다](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
+- Microsoft Log Analytics 통합용 사용자 앱(ServiceNow 앱)을 설치합니다. [자세히 알아보기](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - 설치된 사용자 앱에 대한 통합 사용자 역할을 만듭니다. 통합 사용자 역할을 만드는 방법에 대한 자세한 내용은 [여기](#create-integration-user-role-in-servicenow-app)에 나와 있습니다.
 
 ### <a name="connection-procedure"></a>**연결 절차**
@@ -220,7 +228,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 | --- | --- |
 | **연결 이름**   | ITSMC에 연결하려는 ServiceNow 인스턴스의 이름을 입력합니다.  이 이름은 나중에 이 ITSM/보기의 자세한 로그 분석에서 작업 항목을 구성할 때 Log Analytics에서 사용합니다. |
 | **파트너 유형**   | **ServiceNow**를 선택합니다. |
-| **사용자**   | ITSMC에 대한 연결을 지원하기 위해 ServiceNow 앱에서 만든 통합 사용자 이름을 입력합니다. 추가 정보: [ServiceNow 앱 사용자 역할 만들기](#create-integration-user-role-in-servicenow-app)|
+| **사용자 이름**   | ITSMC에 대한 연결을 지원하기 위해 ServiceNow 앱에서 만든 통합 사용자 이름을 입력합니다. 추가 정보: [ServiceNow 앱 사용자 역할 만들기](#create-integration-user-role-in-servicenow-app)|
 | **암호**   | 이 사용자 이름과 관련된 암호를 입력합니다. **참고**: 사용자 이름과 암호는 인증 토큰을 생성하는 데사용되며 ITSMC 서비스 내의 어느 곳에도 저장되지 않습니다.  |
 | **서버 URL**   | ITSMC에 연결하려는 ServiceNow 인스턴스의 URL을 입력합니다. URL은 접미사 ".servicenow.com"와 지원되는 SaaS 버전을 가리킨다.|
 | **클라이언트 ID**   | 이전에 생성한 OAuth2 인증에 사용하려는 클라이언트 ID를 입력합니다.  클라이언트 ID 및 암호 생성에 대한 추가 정보: [OAuth 설정](https://wiki.servicenow.com/index.php?title=OAuth_Setup) |
@@ -315,7 +323,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 | --- | --- |
 | **연결 이름**   | ITSMC에 연결하려는 Provance 인스턴스의 이름을 입력합니다.  이 이름은 나중에 이 ITSM의 작업 항목을 구성하고 자세한 로그 분석을 확인할 때 사용합니다. |
 | **파트너 유형**   | **Provance**를 선택합니다. |
-| **사용자**   | ITSMC에 연결할 수 있는 사용자 이름을 입력합니다.    |
+| **사용자 이름**   | ITSMC에 연결할 수 있는 사용자 이름을 입력합니다.    |
 | **암호**   | 이 사용자 이름과 관련된 암호를 입력합니다. **참고**: 사용자 이름 및 암호는 인증 토큰 생성에만 사용되며 ITSMC 서비스에는 저장되지 않습니다.|
 | **서버 URL**   | ITSMC에 연결하려는 Provance 인스턴스의 URL을 입력합니다. |
 | **클라이언트 ID**   | Provance 인스턴스에서 생성한 이 연결을 인증하기 위한 클라이언트 ID를 입력합니다.  클라이언트 ID에 대한 자세한 내용은 [Active Directory 인증을 구성하는 방법](../../app-service/configure-authentication-provider-aad.md)을 참조하세요. |
@@ -366,7 +374,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 | --- | --- |
 | **연결 이름**   | ITSMC에 연결하려는 Cherwell 인스턴스의 이름을 입력합니다.  이 이름은 나중에 이 ITSM의 작업 항목을 구성하고 자세한 로그 분석을 확인할 때 사용합니다. |
 | **파트너 유형**   | **Cherwell**을 선택합니다. |
-| **사용자**   | ITSMC에 연결할 수 있는 Cherwell 사용자 이름을 입력합니다. |
+| **사용자 이름**   | ITSMC에 연결할 수 있는 Cherwell 사용자 이름을 입력합니다. |
 | **암호**   | 이 사용자 이름과 관련된 암호를 입력합니다. **참고:** 사용자 이름과 암호는 인증 토큰을 생성하는 데만 사용되며 ITSMC 서비스 내의 어느 곳에도 저장되지 않습니다.|
 | **서버 URL**   | ITSMC에 연결하려는 Cherwell 인스턴스의 URL을 입력합니다. |
 | **클라이언트 ID**   | Cherwell 인스턴스에서 생성한 이 연결을 인증하기 위한 클라이언트 ID를 입력합니다.   |

@@ -8,12 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: kgremban
-ms.openlocfilehash: f801abc40caf273c28a0c01dedf9735f5198c2af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: amqp
+ms.openlocfilehash: a1d74085090a3e20764d7b6fee84ffca52d5cb74
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271084"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732437"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IoT Hub 상태 모니터링 및 신속한 문제 진단
 
@@ -540,7 +541,7 @@ Azure IoT Hub는 지역 수준에서 상태를 표시합니다. IoT 허브에 �
 
 IoT Hub의 상태를 확인하려면 다음 단계를 수행합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. 서비스 **상태** > **리소스 상태로**이동합니다.
 

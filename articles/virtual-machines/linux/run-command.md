@@ -2,18 +2,18 @@
 title: Azure에서 Linux VM에서 셸 스크립트 실행
 description: 이 항목에서는 명령 실행 기능을 사용하여 Azure Linux 가상 시스템 내에서 스크립트를 실행하는 방법에 대해 설명합니다.
 services: automation
-ms.service: automation
+ms.service: virtual-machines
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 21787854590d3ca0be2cbd6e9d167de33482c787
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 80fc33a93d4d83dad1e687b176b39728fc7e8807
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72597891"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758611"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>실행 명령을 사용하여 Linux VM에서 셸 스크립트 실행
 

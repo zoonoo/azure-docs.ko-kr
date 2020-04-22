@@ -3,12 +3,12 @@ title: Azure Functions 1.x에 대한 host.json 참조
 description: v1 런타임을 사용하는 Azure Functions host.json 파일에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 2b00e2343e0959e07b195e2e98c6719a1893b8c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36d028d09c94ae28e77404297bd576f5e20404c6
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79277051"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757525"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Azure Functions 1.x에 대한 host.json 참조
 
@@ -136,7 +136,7 @@ ms.locfileid: "79277051"
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------|
 |GatewayMode|게이트웨이|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 모드입니다. 옵션은 `Direct` 및 `Gateway`입니다.|
 |프로토콜|Https|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 프로토콜입니다.  [두 모드에 대한 설명은 여기](../cosmos-db/performance-tips.md#networking)를 참조하세요.|
@@ -148,9 +148,7 @@ ms.locfileid: "79277051"
 
 ## <a name="eventhub"></a>eventHub
 
-[Event Hub 트리거 및 바인딩](functions-bindings-event-hubs.md)에 대한 구성 설정입니다.
-
-[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
+[Event Hub 트리거 및 바인딩](functions-bindings-event-hubs-trigger.md#functions-1x)에 대한 구성 설정입니다.
 
 ## <a name="functions"></a>functions
 
@@ -188,7 +186,7 @@ ms.locfileid: "79277051"
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
 |사용|true|기능의 사용 여부를 지정합니다. | 
 |healthCheckInterval|10초|정기적인 백그라운드 상태 검사 사이의 간격 | 
@@ -211,7 +209,7 @@ ms.locfileid: "79277051"
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
 |dynamicThrottlesEnabled|false|사용 설정되면, 이 설정은 요청 처리 파이프라인에서 주기적으로 시스템 성능 카운터(연결/스레드/프로세스/메모리/cpu/등)를 확인하고 해당 카운터 중 하나가 기본 제공 임계값(80%)을 초과하는 경우, 요청은 카운터가 일반 수준으로 반환될 때까지 429 "작업 초과" 응답을 표시하여 거부됩니다.|
 |maxConcurrentRequests|언바운드 ()`-1`|병렬로 실행될 최대 HTTP 함수 수입니다. 그러면 리소스 사용률을 관리하는 데 도움이 되는 동시성을 제어할 수 있습니다. 예를 들어 동시성보다 높을 때 문제가 발생되도록 많은 시스템 리소스(메모리/CPU/소켓)를 사용하는 HTTP 함수가 있을 수 있습니다. 또는 타사 서비스에 아웃바운드 요청을 하는 함수가 있는 경우 해당 호출의 속도가 제한되어야 합니다. 이러한 경우 여기에서 제한을 적용하는 것이 좋습니다.|
@@ -249,7 +247,7 @@ ms.locfileid: "79277051"
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
 |categoryFilter|해당 없음|범주별 필터링을 지정합니다.| 
 |defaultLevel|정보|`categoryLevels` 배열에 지정되지 않은 범주가 있으면 이 수준 이상의 로그를 Application Insights로 보내십시오.| 
@@ -271,7 +269,7 @@ ms.locfileid: "79277051"
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
 |maxPollingInterval|60000|큐 폴링 사이 최대 간격(밀리초)입니다.| 
 |visibilityTimeout|0|메시지 처리가 실패하는 경우 재시도 사이의 간격입니다.| 
@@ -290,7 +288,7 @@ ms.locfileid: "79277051"
     }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
 |원본|해당 없음|모든 함수에서 보낸 사람의 이메일 주소입니다.| 
 
@@ -308,7 +306,7 @@ ms.locfileid: "79277051"
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|메시지 펌프가 시작되어야 하는 콜백에 대한 최대 동시 호출 수입니다. 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다. 런타임이 큐 또는 토픽 메시지를 한 번에 하나만 처리하도록 하려면, `maxConcurrentCalls`를 1로 설정합니다. | 
 |prefetchCount|해당 없음|기본 MessageReceiver에서 사용할 기본 PrefetchCount입니다.| 
@@ -330,7 +328,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|함수 수준 잠금이 적용되는 기간입니다. 잠금은 자동 갱신됩니다.| 
 |listenerLockPeriod|00:01:00|수신기 잠금이 적용되는 기간입니다.| 
@@ -353,7 +351,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
 |consoleLevel|정보|콘솔 로깅의 추적 수준입니다. 옵션은 `off`, `error`, `warning`, `info` 및 `verbose`입니다.|
 |fileLoggingMode|debugOnly|파일 로깅에 대한 추적 수준입니다. 옵션은 `never`, `always`, `debugOnly`입니다.| 

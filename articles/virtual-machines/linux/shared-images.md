@@ -1,26 +1,20 @@
 ---
 title: Azure CLI를 사용하여 공유 이미지 갤러리 만들기
 description: 이 문서에서는 Azure CLI를 사용하여 Azure에서 VM의 공유 이미지를 만드는 방법을 알아봅니다.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: axayjo
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
+author: cynthn
+ms.service: virtual-machines
+ms.subservice: imaging
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/06/2019
-ms.author: akjosh
-ms.reviewer: cynthn
-ms.custom: ''
-ms.openlocfilehash: ab0a4b98e562cda544800f2938d0b829fb1d6ef7
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.author: cynthn
+ms.reviewer: akjosh
+ms.openlocfilehash: c75d33f8310cfd143bf201cdac861954d07baf0b
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458644"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758411"
 ---
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>Azure CLI를 사용하여 공유 이미지 갤러리 만들기
 

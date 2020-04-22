@@ -28,8 +28,8 @@
       href: tutorial-custom-role-cli.md
 - name: 개념
   items:
-    - name: Azure Resource용 PIM
-      href: pim-azure-resource.md
+    - name: 모범 사례
+      href: best-practices.md
     - name: Azure 관리에 대한 조건부 액세스
       href: conditional-access-azure-management.md
 - name: 방법 가이드

@@ -3,18 +3,17 @@ title: 소프트웨어 플랜선불 - Azure 예약
 description: 종량제 비용을 절감하기 위해 소프트웨어 계획에 대한 선불 비용을 지불하는 방법을 알아보십시오.
 author: bandersmsft
 manager: yashesvi
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/06/2020
 ms.author: banders
-ms.openlocfilehash: 3e05920e495dd4aa14be6c849590a37a2bafa33f
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: a527b75d376f05ab6190187b7a03d6da775055ab
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80757238"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759294"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Azure 소프트웨어 플랜 선결제
 
@@ -63,7 +62,7 @@ RedHat 플랜 할인은 구매 시 선택한 VM 크기에만 적용됩니다. RH
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-질문이 있거나 도움이 필요한 경우 [지원 요청을 만듭니다.](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -71,7 +70,7 @@ RedHat 플랜 할인은 구매 시 선택한 VM 크기에만 적용됩니다. RH
 
 자세히 알아보려면 다음 아티클을 참조하세요.
 
-- [Azure 예약이란 무엇입니까?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Azure Reservations란?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Azure에서 예약 관리](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
 - [SUSE 예약 할인이 적용되는 방식 이해](../../cost-management-billing/reservations/understand-suse-reservation-charges.md)
 - [종량제 구독의 예약 사용량 이해](../../cost-management-billing/reservations/understand-reserved-instance-usage.md)

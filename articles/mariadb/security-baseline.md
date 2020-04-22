@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bca9c0e4c0695b6180775051d8b018930f8b808f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 9df0de443e28e0eea3224e42178eddd46108ea64
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81256470"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759167"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>MariaDB에 대 한 Azure 데이터베이스에 대 한 Azure 보안 기준
 
@@ -620,7 +620,7 @@ Azure 활동 로그 이벤트에 대한 경고를 만드는 방법:https://docs.
 
 **지침**: Azure 리소스 그래프를 사용하여 구독 내의 모든 리소스(MariaDB 서버용 Azure 데이터베이스 포함)를 쿼리하고 검색합니다. 테넌트에 적절한 (읽기) 권한이 있고 구독 내의 모든 Azure 구독과 리소스를 등록할 수 있는지 확인합니다.
 
-Azure 그래프를 사용하여 쿼리를 만드는 방법:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Azure 리소스 그래프를 사용하여 쿼리를 만드는 방법:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Azure 구독을 보는 방법:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 

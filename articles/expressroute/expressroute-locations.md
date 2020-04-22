@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/14/2020
 ms.author: cherylmc
-ms.openlocfilehash: b99bd20b9b9e18bbc09edd5bb49f34147ccfaabd
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: b825ed513f530733d7552e32206c12422a956b14
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81390243"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81766929"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -84,7 +84,7 @@ ExpressRoute 위치(피어링 위치 또는 모임 위치라고도 함)는 Micro
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |지원됨 |지원됨 |암스테르담, 시카고, 달라스, 프랑크푸르트, 런던, 실리콘 밸리, 싱가포르, 시드니, 도쿄, 토론토, 워싱턴 DC |
 | **[도쿄에서](https://www.attokyo.com/service/cloudsconnection/forazure.html)** | 지원됨 | 지원됨 | 도쿄2 |
 | **[BBIX](https://www.bbix.net/en/service/ix/)** | 지원됨 | 지원됨 | 도쿄 |
-| **[BC 주](https://www.bcx.co.za/solutions)** |지원됨 |지원됨 |케이프타운|
+| **[BC 주](https://www.bcx.co.za/solutions)** |지원됨 |지원됨 |케이프타운, 요하네스버그|
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |지원됨 |지원됨 |몬트리올, 토론토, 퀘벡 시티 |
 | **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** |지원됨 |지원됨 |암스테르담, 홍콩 특별 행정구, 요하네스버그, 런던, 뉴포트(웨일스), 상파울루, 실리콘 밸리, 싱가포르, 시드니, 도쿄, 워싱턴 DC |
 | **[C3ntro](https://www.c3ntro.com/data1/express-route1.php)** |지원됨 |지원됨 |마이애미 |
@@ -279,7 +279,7 @@ Azure 국가 클라우드는 서로 및 전역 상용 Azure에서 격리됩니�
 | **[레틴 (것)](https://retn.net/services/cloud-connect/)** | Equinix | 암스테르담 |
 | **Rogers** | Cologix, Equinix | 몬트리올, 토론토 |
 | **[스펙트럼 엔터프라이즈](https://enterprise.spectrum.com/services/cloud/cloud-connect.html)** | Equinix | 시카고, 달라스, 로스앤젤레스, 뉴욕, 실리콘 밸리 | 
-| **[Tamares Telecom](https://www.tamarestelecom.com/our-services/#Connectivity)** | Equinix | London | 
+| **[Tamares Telecom](http://www.tamarestelecom.com/our-services/#Connectivity)** | Equinix | London | 
 | **[TDC Erhverv](https://tdc.dk/Produkter/cloudaccessplus)** | Equinix | 암스테르담 | 
 | **[Telecom Italia Sparkle](https://www.tisparkle.com/our-platform/corporate-platform/sparkle-cloud-connect#catalogue)**| Equinix | 암스테르담 |
 | **[텔레콤 도이치랜드 GmbH](https://cloud.telekom.de/de/infrastruktur/managed-it-services/managed-hybrid-infrastructure-mit-microsoft-azure)** | Interxion | 암스테르담, 프랑크푸르트 |

@@ -1,21 +1,19 @@
 ---
 title: Azure의 테넌자 간에 갤러리 이미지 공유
 description: 공유 이미지 갤러리를 사용하여 Azure 테넌에서 VM 이미지를 공유하는 방법을 알아봅니다.
-services: virtual-machines-linux
 author: cynthn
-manager: gwallace
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: imaging
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/05/2019
 ms.author: cynthn
-ms.openlocfilehash: 18337620a6f9506e402149909667026e4a8ba7eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4259ca01dbe45463b73cf1ec1c620c3921ab9459
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74034980"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758475"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants"></a>Azure 테넌에서 갤러리 VM 이미지 공유
 

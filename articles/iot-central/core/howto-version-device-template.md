@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: bb77d1a09cb2692765c4c834ce617d13465d4d67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 37c7bc99881c8d1106c8464cfe18c9e63b8a1b02
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80157571"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756729"
 ---
 # <a name="create-a-new-device-template-version"></a>새 디바이스 템플릿 버전 만들기
 
-
+*이 문서는 솔루션 빌더 및 장치 개발자에게 적용됩니다.*
 
 Azure IoT Central을 사용하여 IoT 애플리케이션을 신속하게 개발할 수 있습니다. 장치 기능, 보기 및 사용자 지정기능을 추가, 편집 또는 삭제하여 장치 템플릿 디자인을 빠르게 반복할 수 있습니다. 장치 템플릿을 게시하면 장치 기능 모델이 모델 옆에 잠금 **아이콘이** 있는 게시됨으로 표시됩니다. 장치 기능 모델을 변경하려면 장치 템플릿의 새 버전을 만들어야 합니다. 한편 클라우드 속성, 사용자 지정 및 보기는 장치 템플릿을 버전 지정할 필요 없이 언제든지 편집할 수 있습니다. 이러한 변경 내용을 저장한 후에는 장치 템플릿을 게시하여 운영자가 장치 탐색기에서 볼 수 있도록 최신 변경 내용을 사용할 수 있도록 할 수 있습니다.
 
@@ -81,7 +81,4 @@ Azure IoT Central을 사용하여 IoT 애플리케이션을 신속하게 개발�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT Central 애플리케이션에서 디바이스 템플릿 버전을 사용하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
-
-> [!div class="nextstepaction"]
-> [원격 분석 규칙을 만드는 방법](tutorial-create-telemetry-rules.md)
+장치 개발자인 경우 다음 단계는 [Azure IoT Edge 장치 및 Azure IoT Central](./concepts-iot-edge.md)에 대해 읽어야 합니다.

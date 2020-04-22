@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 217629ba5c386557455cc2d2b8bd47f85fa8f84e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9bb22b12a7b3e972ff144bd121db4288801e2488
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671157"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732946"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>응용 프로그램 인사이트 에이전트 문제 해결(이전 이름 상태 모니터 v2)
 
@@ -116,7 +116,7 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
    - 애플리케이션 인사이트 SDK 버전
    - PowerShell 모듈의 파일 경로
     
-이 cmdlet을 사용하는 방법에 대한 자세한 설명은 [API 참조를](status-monitor-v2-api-get-status.md) 검토합니다.
+이 cmdlet을 사용하는 방법에 대한 자세한 설명은 [API 참조를](status-monitor-v2-api-reference.md) 검토합니다.
 
 
 ### <a name="troubleshooting-running-processes"></a>실행 중인 프로세스 문제 해결
@@ -126,7 +126,7 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 
 `Get-ApplicationInsightsMonitoringStatus -InspectProcess` 명령을 사용하여 DLL을 확인합니다.
 
-이 cmdlet을 사용하는 방법에 대한 자세한 설명은 [API 참조를](status-monitor-v2-api-get-status.md) 검토합니다.
+이 cmdlet을 사용하는 방법에 대한 자세한 설명은 [API 참조를](status-monitor-v2-api-reference.md) 검토합니다.
 
 
 ### <a name="collect-etw-logs-by-using-perfview"></a>PerfView를 사용하여 ETW 로그 수집

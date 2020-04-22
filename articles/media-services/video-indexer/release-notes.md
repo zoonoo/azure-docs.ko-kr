@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: f1387273f9736fea70682177d5d48dc2f141bbad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5aa7abf7aafc14e71af5618cec892ef9f843d88a
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76933854"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733065"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure 미디어 서비스 비디오 인덱서 릴리스 정보
 
@@ -29,6 +29,20 @@ ms.locfileid: "76933854"
 * 알려진 문제
 * 버그 수정
 * 사용되지 않는 기능
+
+## <a name="april-2020"></a>2020년 4월
+
+### <a name="new-widget-parameters-capabilities"></a>새로운 위젯 매개 변수 기능
+
+**Insights** 위젯에는 새로운 매개 `language` 변수가 포함되어 `control`있습니다.
+
+**플레이어** 위젯에 새 `locale` 매개 변수가 있습니다. 둘 `locale` `language` 다 와 매개 변수는 플레이어의 언어를 제어합니다.
+
+자세한 내용은 [위젯 유형](video-indexer-embed-widgets.md#widget-types) 섹션을 참조하세요. 
+
+## <a name="new-player-skin"></a>새로운 플레이어 스킨
+
+새로운 플레이어 스킨이 업데이트된 디자인으로 출시되었습니다.
 
 ## <a name="january-2020"></a>2020년 1월
  
@@ -46,7 +60,7 @@ ms.locfileid: "76933854"
  
 ### <a name="swagger-update"></a>스와거 업데이트
 
-비디오 인덱서 **통합 인증** 및 **작업을** 단일 [비디오 인덱서 OpenAPI 사양(swagger)으로](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson)통합합니다. Develpers는 [비디오 인덱서 개발자 포털에서](https://api-portal.videoindexer.ai/)API를 찾을 수 있습니다.
+비디오 인덱서 **통합 인증** 및 **작업을** 단일 [비디오 인덱서 OpenAPI 사양(swagger)으로](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson)통합합니다. 개발자는 [비디오 인덱서 개발자 포털에서](https://api-portal.videoindexer.ai/)API를 찾을 수 있습니다.
 
 ## <a name="december-2019"></a>2019년 12월
 
@@ -129,7 +143,7 @@ IBC 2019에서 발표된 여러 발전:
 
 ### <a name="new-editorial-shot-type-insights-available"></a>새로운 에디토리얼 샷 유형 인사이트 사용 가능
 
-비디오 샷에 추가된 새로운 태그는 에디토리얼 "샷 유형"을 제공하여 극단적인 클로즈업, 클로즈업, 와이드, 미디엄, 투샷, 실외, 실내, 왼쪽 얼굴 및 오른쪽 얼굴(에서 사용 가능) 등의 콘텐츠 제작 워크플로우에 사용되는 일반적인 에디토리얼 문구로 식별할 수 있습니다. JSON).
+비디오 샷에 추가된 새로운 태그는 에디토리얼 "샷 유형"을 제공하여 극단적인 클로즈업, 클로즈업, 와이드, 미디엄, 투샷, 실외, 실내, 왼쪽 얼굴 및 오른쪽 얼굴(JSON에서 사용 가능)과 같은 콘텐츠 제작 워크플로우에 사용되는 일반적인 에디토리얼 문구로 식별할 수 있습니다.
 
 ### <a name="new-people-and-locations-entities-extraction-available"></a>새 사람 및 위치 엔터티 추출 가능
 

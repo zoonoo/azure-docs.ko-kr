@@ -8,12 +8,13 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: menchi
-ms.openlocfilehash: e728d0ef8f52927687d56bd1d4c64f03c53ef401
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: amqp
+ms.openlocfilehash: 919d1e37e6066c78e83d58be4fe4667ec67e45ad
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73947672"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733387"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>IoT Hub 모듈 ID 및 모듈 트윈(.NET) 시작하기
 
@@ -53,7 +54,7 @@ ms.locfileid: "73947672"
 
 이 섹션에서는 시뮬레이션된 디바이스에 모듈 쌍 reported 속성을 업데이트하는 .NET 콘솔 앱을 만듭니다.
 
-시작하기 전에 모듈 연결 문자열을 가져옵니다. [Azure 포털에](https://portal.azure.com/)로그인합니다. 허브로 이동하여 **IoT 장치를**선택합니다. **myFirstDevice**찾기 . **myFirstDevice를** 선택하여 열고 **myFirstModule을** 선택합니다. **모듈 ID 세부 정보에서**다음 절차에서 필요한 경우 연결 **문자열(기본 키)을** 복사합니다.
+시작하기 전에 모듈 연결 문자열을 가져옵니다. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 허브로 이동하여 **IoT 장치를**선택합니다. **myFirstDevice**찾기 . **myFirstDevice를** 선택하여 열고 **myFirstModule을** 선택합니다. **모듈 ID 세부 정보에서**다음 절차에서 필요한 경우 연결 **문자열(기본 키)을** 복사합니다.
 
    ![Azure Portal 모듈 세부 정보](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png)
 
@@ -71,7 +72,7 @@ ms.locfileid: "73947672"
 
     ![Azure IoT Hub .NET 서비스 SDK 최신 버전 설치](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
 
-1. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
+1. Program.cs 파일 `using` 의 맨 위에 **Program.cs** 다음 문을 추가합니다.
 
     ```csharp
     using Microsoft.Azure.Devices.Client;

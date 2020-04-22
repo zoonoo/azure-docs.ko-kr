@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: reference
 ms.date: 11/1/2019
 ms.author: brendm
-ms.openlocfilehash: 70a17f3bd23333bdc4957a8eaf75e415b3917a52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36e9b272bb4648853829364b22881ab8bec1ff70
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76278866"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733050"
 ---
 # <a name="azure-spring-cloud-developer-resources"></a>Azure 스프링 클라우드 개발자 리소스
 
@@ -23,5 +23,5 @@ ms.locfileid: "76278866"
 * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home)
 * [Java Spring Cloud 웹 사이트](https://spring.io/)
 * [Spring 프레임워크](https://cloud.spring.io/spring-cloud-azure/)
-* [Azure의 Spring](https://docs.microsoft.com/azure/java/spring-framework/?view=azure-java-stable)
+* [Azure의 Spring](https://docs.microsoft.com/azure/developer/java/spring-framework/)
 * [Pivotal별 Spring Cloud 마이크로서비스 아키텍처](https://docs.pivotal.io/spring-cloud-services/1-5/common/index.html)

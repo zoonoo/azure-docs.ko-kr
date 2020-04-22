@@ -1,26 +1,19 @@
 ---
 title: Azure CLI에서 VM 이름 확인에 내부 DNS 사용
-description: 가상 네트워크 인터페이스 카드를 만들고 Azure CLI를 사용하여 Azure에서 VM 이름 확인을 위해 내부 DNS를 사용하는 방법
-services: virtual-machines-linux
-documentationcenter: ''
+description: Azure CLI를 사용하여 Azure에서 가상 네트워크 인터페이스 카드를 만들고 내부 DNS를 사용하여 Azure에서 VM 이름 확인을 수행하는 방법을 설명합니다.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: networking
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: cynthn
-ms.openlocfilehash: acfdfd4edf90b90998a913fa0c6479bedf0028b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 07a78e4987a844627824ac5034046cf6a393ad8d
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74034737"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757834"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>가상 네트워크 인터페이스 카드 만들기 및 Azure에서 VM 이름 확인을 위해 내부 DNS 사용
 
@@ -49,7 +42,7 @@ az network nic create \
 ```
 
 ### <a name="deploy-a-vm-and-connect-the-vnic"></a>VM 배포 및 vNic 연결
-[az vm 만들기를 사용하여 VM을 만듭니다.](/cli/azure/vm) `--nics` 플래그는 Azure에 배포하는 동안 VM에 vNic를 연결합니다. 다음 예제에서는 Azure Managed Disks를 사용하여 가상 컴퓨터 `myVM`을 만들고 이전 단계에서 vNic `myNic`를 연결합니다.
+[az vm create](/cli/azure/vm)로 VM을 만듭니다. `--nics` 플래그는 Azure에 배포하는 동안 VM에 vNic를 연결합니다. 다음 예제에서는 Azure Managed Disks를 사용하여 가상 컴퓨터 `myVM`을 만들고 이전 단계에서 vNic `myNic`를 연결합니다.
 
 ```azurecli
 az vm create \
@@ -149,7 +142,7 @@ az network nic create \
 ## <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>가상 네트워크 인프라에 VM 배포
 이제 가상 네트워크, 서브넷, 네트워크 보안 그룹이 SSH에 대한 포트 22 및 vNic를 제외한 모든 인바운드 트래픽을 차단하여 서브넷을 보호하는 방화벽의 역할을 하게 됩니다. 이제 이 기존 네트워크 인프라 내에 VM을 배포할 수 있습니다.
 
-[az vm 만들기를 사용하여 VM을 만듭니다.](/cli/azure/vm) 다음 예제에서는 Azure Managed Disks를 사용하여 가상 컴퓨터 `myVM`을 만들고 이전 단계에서 vNic `myNic`를 연결합니다.
+[az vm create](/cli/azure/vm)로 VM을 만듭니다. 다음 예제에서는 Azure Managed Disks를 사용하여 가상 컴퓨터 `myVM`을 만들고 이전 단계에서 vNic `myNic`를 연결합니다.
 
 ```azurecli
 az vm create \

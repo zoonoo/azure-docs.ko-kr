@@ -8,12 +8,13 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: 3c7515be573a0b74a39a77a91fbc554862c7f7aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: amqp
+ms.openlocfilehash: 20d39b1f5a11f20eb5d12f34337787b382c820f6
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76960777"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758748"
 ---
 # <a name="409002-linkcreationconflict"></a>409002 LinkCreationConflict
 
@@ -37,6 +38,6 @@ ms.locfileid: "76960777"
 
 장치 측 논리에 오류가 있으면 장치가 이미 열려 있을 때 연결이 설정됩니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 이 오류는 대부분 다른 일시적인 문제의 부작용으로 나타나므로 추가로 문제를 해결하려면 로그에서 다른 오류를 검색합니다. 그렇지 않으면, 연결이 끊어질 경우만 새 연결 요청을 발급해야 합니다.

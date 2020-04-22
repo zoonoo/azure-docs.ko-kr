@@ -8,12 +8,15 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: d0a9f643516af5945037acb3dd1da24b06944171
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: f46d41c8287d03cbe9582ed560244cbd85cdeeaa
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284409"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759587"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
@@ -51,7 +54,7 @@ MQTT의 경우 일부 SDK는 IoT Hub를 사용하여 SAS 토큰이 만료되면 
 
 IoT Hub는 인증 헤더, 규칙 또는 키를 인증할 수 없습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 ### <a name="solution-1"></a>해결 방법 1
 

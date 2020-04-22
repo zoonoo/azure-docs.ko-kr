@@ -5,19 +5,19 @@ author: KarlErickson
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: 5e18e035bd237fd489b715986e58d7ede726348d
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 34aab24bf39e387715cfa5783b801d45ed488750
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886605"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732718"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Java 및 Gradle을 사용하여 Azure에 함수를 만들고 게시합니다.
 
 이 문서에서는 Gradle 명령줄 도구를 사용하여 Java 함수 프로젝트를 Azure Functions에 빌드하고 게시하는 방법을 보여 주십습니다. 완료되면 함수 코드는 [서버리스 호스팅 계획](functions-scale.md#consumption-plan)의 Azure에서 실행되고 HTTP 요청에 의해 트리거됩니다. 
 
 > [!NOTE]
-> Gradle이 선호하는 개발 도구가 아닌 경우 [Maven,](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java) [IntelliJ IDEA](/azure/java/intellij/azure-toolkit-for-intellij-quickstart-functions) 및 [VS 코드를](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java)사용하여 Java devlopers에 대한 유사한 자습서를 확인하십시오.
+> Gradle이 선호하는 개발 도구가 아닌 경우 [Maven,](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java) [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) 및 [VS 코드를](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java)사용하는 Java 개발자를위한 유사한 자습서를 확인하십시오.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -173,4 +173,4 @@ HTTP 트리거 함수를 사용하여 Java 함수 프로젝트를 만들고, 로
 
 
 [Azure CLI]: /cli/azure
-[Azure portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

@@ -1,25 +1,19 @@
 ---
-title: CLI '를 사용하여 Azure VM용 OS 디스크 교체
+title: CLI '를 사용하여 OS 디스크 간 교환
 description: CLI를 사용하여 Azure Virtual Machine에서 사용하는 운영 체제 디스크를 변경합니다.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: disks
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: bfbe47fb68ffe7cee1ee2f9f7b94b418d8da2a1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a8c879ae56eb22d9817841667d33e37109a4f63d
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74035338"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759408"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>CLI를 사용하여 Azure VM에서 사용하는 OS 디스크 변경
 
@@ -30,7 +24,7 @@ VM은 반드시 중지/할당 취소되어야 합니다. 그래야만 관리 디
 
 VM 크기 및 스토리지 유형이 연결할 디스크와 호환되어야 합니다. 예를 들어, 사용하려는 디스크가 Premium Storage에 있으면, VM이 Premium Storage를 지원할 수 있어야 합니다(예: DS 시리즈 크기).
 
-이 문서에는 Azure CLI 버전 2.0.25 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하십시오. 
+이 문서에는 Azure CLI 버전 2.0.25 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 
 [az disk list](/cli/azure/disk)를 사용하여 사용자의 리소스 그룹에서 디스크 목록을 가져옵니다.

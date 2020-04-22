@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: cffefb294aaeeb4d66358ceae72c98becd04cc58
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 3e79d6efcbb72b73dedb5b8dfdf965736e7de3e4
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261961"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757209"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>MySQL용 Azure 데이터베이스에 대한 Azure 보안 기준선
 
@@ -650,7 +650,7 @@ Azure 보안 센터의 Azure PaaS 서비스에 대한 기능 적용 범위:https
 
 **지침**: Azure 리소스 그래프를 사용하여 구독 내의 모든 리소스(MySQL 인스턴스용 Azure 데이터베이스 포함)를 쿼리하고 검색합니다. 테넌트에 적절한 (읽기) 권한이 있고 구독 내의 모든 Azure 구독과 리소스를 등록할 수 있는지 확인합니다.
 
-Azure 그래프를 사용하여 쿼리를 만드는 방법:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Azure 리소스 그래프를 사용하여 쿼리를 만드는 방법:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Azure 구독을 보는 방법:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 

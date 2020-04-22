@@ -7,12 +7,15 @@ ms.author: robinsh
 ms.date: 07/07/2018
 ms.topic: article
 ms.service: iot-hub
-ms.openlocfilehash: 1ca7219824a00a5af0bed7d42da75fc06ce2010d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: a645ab1fa4a1be3ec8e939452a1457e84bbafe15
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284448"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759684"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Azure IoT Hub 디바이스 SDK를 사용하여 연결 및 신뢰할 수 있는 메시징 관리
 
@@ -139,6 +142,6 @@ SDK는 다음 세 가지 재시도 정책을 제공합니다.
 
 * [제한된 디바이스에 대한 개발](./iot-hub-devguide-develop-for-constrained-devices.md)
 
-* [모바일 디바이스용 개발](./iot-hub-how-to-develop-for-mobile-devices.md)
+* [모바일 디바이스에 대한 개발](./iot-hub-how-to-develop-for-mobile-devices.md)
 
 * [디바이스 연결 끊김 문제 해결](iot-hub-troubleshoot-connectivity.md)

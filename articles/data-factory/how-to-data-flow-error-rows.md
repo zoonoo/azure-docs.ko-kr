@@ -6,14 +6,14 @@ author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: makromer
-ms.openlocfilehash: 4f65421a6457d4bf4d438ce9d035d46476829da2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8225143bb75118620b45c2520bb62ea30501a617
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414366"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732695"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>데이터 팩터리 매핑 데이터 흐름에서 SQL 잘림 오류 행 처리
 
@@ -30,6 +30,9 @@ ms.locfileid: "81414366"
     ![동영상 데이터 흐름 1](media/data-flow/error4.png)
     
 3. 문제는 영화 제목이 5자만 보유할 수 있는 싱크 열 에 모두 맞지 않는다는 것입니다. 이 데이터 흐름을 실행하면 다음과 같은 오류가 발생합니다.```"Job failed due to reason: DF-SYS-01 at Sink 'WriteToDatabase': java.sql.BatchUpdateException: String or binary data would be truncated. java.sql.BatchUpdateException: String or binary data would be truncated."```
+
+이 비디오에서는 데이터 흐름에서 설정 오류 행 처리 논리의 예를 안내합니다.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4uOHj]
 
 ## <a name="how-to-design-around-this-condition"></a>이 조건을 중심으로 설계하는 방법
 

@@ -3,12 +3,12 @@ title: Azure Functions 2.x에 대한 host.json 참조
 description: v2 런타임을 사용하는 Azure Functions host.json 파일에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 7b3c9d15fc8cf3a1651c44a5656f731a7820e344
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7967cdc7f5f7cbb92c12de15d31471fda8aa6569
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405480"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758842"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure 함수 2.x 이상에 대한 host.json 참조 
 
@@ -216,7 +216,7 @@ ms.locfileid: "81405480"
 
 ## <a name="eventhub"></a>eventHub
 
-구성 설정은 [이벤트 허브 트리거 및 바인딩](functions-bindings-event-hubs-output.md#host-json)에서 찾을 수 있습니다. 
+구성 설정은 [이벤트 허브 트리거 및 바인딩](functions-bindings-event-hubs-trigger.md#host-json)에서 찾을 수 있습니다. 
 
 ## <a name="extensions"></a>확장
 

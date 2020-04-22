@@ -3,12 +3,12 @@ title: 리소스 상태 경고를 만드는 템플릿
 description: Azure 리소스를 사용할 수 없게 되면 알려주는 경고를 프로그래밍 방식으로 작성합니다.
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: c01934cc88dc29d0503abfafc203ab0f04bf1761
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 60ff5bdf2f4f0dab94c18fd7c751869c1893ad65
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062906"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759006"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 리소스 상태 경고 구성
 
@@ -228,6 +228,9 @@ Resource Health 경고는 세 가지 다른 범위에서 이벤트를 모니터�
 ```
 
 상태 이벤트의 네 가지 단계 모두에 대해 알림을 받으려면 이 조건을 모두 제거합니다. 그러면 `status` 속성에 관계없이 경고가 표시됩니다.
+
+> [!NOTE]
+> 각 "anyOf" 섹션에는 하나의 필드 유형 값만 포함되어야 합니다.
 
 ### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>"알 수 없음" 이벤트를 방지하기 위해 Resource Health 경고 조정
 

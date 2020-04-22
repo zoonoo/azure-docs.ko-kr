@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: victorh
-ms.openlocfilehash: e64b0a8602a4a0806ada15546972856743c38161
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 0e5a683c95e213a0fc37ec4f559e89abfecf034a
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312461"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758918"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>애플리케이션 게이트웨이에 대한 자주 묻는 질문
 
@@ -72,7 +72,7 @@ v2 SKU의 경우 공용 IP 리소스를 열고 **구성을**선택합니다. **D
 
 *Keep-Alive 시간 아웃은* 응용 프로그램 게이트웨이가 클라이언트가 클라이언트를 다시 사용하거나 닫기 전에 영구 연결에서 다른 HTTP 요청을 보낼 때까지 기다리는 기간을 제어합니다. *TCP 유휴 시간 초과는* 활동이 없는 경우 TCP 연결이 열려 있는 기간을 제어합니다. 
 
-응용 프로그램 게이트웨이 v1 SKU의 *Keep-Alive 시간 시간은* 120초이고 v2 SKU에서는 75초입니다. *TCP 유휴 시간 설정은* 응용 프로그램 게이트웨이의 v1 및 v2 SKU의 프런트 엔드 가상 IP(VIP)에서 4분 기본값입니다. 
+응용 프로그램 게이트웨이 v1 SKU의 *Keep-Alive 시간 시간은* 120초이고 v2 SKU에서는 75초입니다. *TCP 유휴 시간 설정은* 응용 프로그램 게이트웨이의 v1 및 v2 SKU의 프런트 엔드 가상 IP(VIP)에서 4분 기본값입니다. 이러한 값은 변경할 수 없습니다.
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>응용 프로그램 게이트웨이의 수명 동안 IP 또는 DNS 이름이 변경됩니까?
 

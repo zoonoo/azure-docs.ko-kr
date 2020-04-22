@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 72d7a2dd112e5e7a5105ff977e3917ccdfd7b53e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5724a9e4308f05a82df84ae6a7d5602747f5a140
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77500301"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757367"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 운영 보안 모범 사례
 이 문서에서는 Azure의 데이터, 응용 프로그램 및 기타 자산을 보호하기 위한 운영 모범 사례 집합을 제공합니다.
@@ -108,7 +108,7 @@ Azure 등록 포털에서 관리자 연락처 정보에 보안 작업을 알리�
 **세부 정보**: Azure [Sentinel의](/azure/sentinel/overview) 기능 과 기능을 조사하고 현재 온-프레미스에서 사용 중인 기능과 비교합니다. 조직의 SIEM 요구 사항을 충족하는 경우 Azure Sentinel을 채택하는 것이 좋습니다.
 
 **모범 사례:** 조사의 우선 순위를 지정할 수 있도록 가장 심각한 보안 취약점을 찾습니다.   
-**세부 정보**: [Azure 보안 점수를](../../security-center/security-center-secure-score.md) 검토하여 Azure 보안 센터에 기본 제공된 Azure 정책 및 이니셔티브에서 발생하는 권장 사항을 확인합니다. 이러한 권장 사항은 보안 업데이트, 엔드포인트 보호, 암호화, 보안 구성, 누락된 WAF, 인터넷에 연결된 VM 등과 같은 주요 위험을 해결하는 데 도움이 됩니다.
+**세부 정보**: [Azure 보안 점수를](../../security-center/secure-score-security-controls.md) 검토하여 Azure 보안 센터에 기본 제공된 Azure 정책 및 이니셔티브에서 발생하는 권장 사항을 확인합니다. 이러한 권장 사항은 보안 업데이트, 엔드포인트 보호, 암호화, 보안 구성, 누락된 WAF, 인터넷에 연결된 VM 등과 같은 주요 위험을 해결하는 데 도움이 됩니다.
 
 CIS(인터넷 보안 센터) 컨트롤을 기반으로 하는 보안 점수를 사용하면 외부 소스에 대해 조직의 Azure 보안을 벤치마킹할 수 있습니다. 외부 유효성 검사는 팀의 보안 전략을 검증하고 보강하는 데 도움이 됩니다.
 
@@ -116,7 +116,7 @@ CIS(인터넷 보안 센터) 컨트롤을 기반으로 하는 보안 점수를 �
 세부 정보 : 우선 순위가 가장 높은 항목으로 보안 센터 시작의 [보안 권장 사항을](../../security-center/security-center-recommendations.md) **따릅니다.**
 
 **모범 사례:** 보안 센터 경고를 보안 정보 및 SIEM(이벤트 관리) 솔루션에 통합합니다.   
-**세부 정보**: SIEM을 사용하는 대부분의 조직은 분석가 응답이 필요한 보안 경고를 위한 중앙 정보 센터로 사용합니다. 보안 센터에서 생성한 처리된 이벤트는 Azure 모니터를 통해 사용할 수 있는 로그 중 하나인 Azure 활동 로그에 게시됩니다. Azure Monitor는 모니터링 데이터를 SIEM 도구에 라우팅하는 것에 대한 통합된 파이프라인을 제공합니다. 지침은 [보안 센터의 보안 솔루션 통합을](../../security-center/security-center-partner-integration.md#exporting-data-to-a-siem) 참조하십시오. Azure Sentinel을 사용하는 경우 [Azure 보안 센터 연결](../../sentinel/connect-azure-security-center.md)을 참조하십시오.
+**세부 정보**: SIEM을 사용하는 대부분의 조직은 분석가 응답이 필요한 보안 경고를 위한 중앙 정보 센터로 사용합니다. 보안 센터에서 생성한 처리된 이벤트는 Azure 모니터를 통해 사용할 수 있는 로그 중 하나인 Azure 활동 로그에 게시됩니다. Azure Monitor는 모니터링 데이터를 SIEM 도구에 라우팅하는 것에 대한 통합된 파이프라인을 제공합니다. 지침에 대한 [보안 경고 및 권장 사항 내보내기를](../../security-center/continuous-export.md#configuring-siem-integration-via-azure-event-hubs) 참조하십시오. Azure Sentinel을 사용하는 경우 [Azure 보안 센터 연결](../../sentinel/connect-azure-security-center.md)을 참조하십시오.
 
 **모범 사례**: AZURE 로그를 SIEM과 통합합니다.   
 **세부 정보**: Azure 모니터를 사용하여 [데이터를 수집하고 내보내기합니다.](/azure/azure-monitor/overview#integrate-and-export-data) 이 방법은 보안 인시던트 조사를 활성화하는 데 중요하며 온라인 로그 보존이 제한됩니다. Azure Sentinel을 사용하는 경우 [데이터 원본 연결을](../../sentinel/connect-data-sources.md)참조하십시오.

@@ -2,17 +2,17 @@
 title: Azure 관리 디스크의 서버 측 암호화 - Azure CLI
 description: Azure Storage는 저장 클러스터에 보관하기 전에 미사용 데이터를 암호화하여 데이터를 보호합니다. 관리 디스크의 암호화를 위해 Microsoft에서 관리하는 키를 사용하거나 고객 관리 키를 사용하여 자체 키로 암호화를 관리할 수 있습니다.
 author: roygara
-ms.date: 04/02/2020
+ms.date: 04/21/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 68341de82ae15df91477947664c500caaa96a09a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 151c84424e33233cd48414875230a63df598d8e2
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81452726"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757439"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Azure 관리 디스크의 서버 측 암호화
 
@@ -72,7 +72,7 @@ DEK를 암호화하고 해독하기 위해 키를 사용하려면 키 볼트의 
 
 - 디스크에 이 기능을 사용하도록 설정하면 비활성화할 수 없습니다.
     이 방법을 해결해야 하는 경우 모든 데이터를 고객 관리 키를 사용하지 않는 완전히 다른 관리 디스크에 [복사해야](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) 합니다.
-- 크기 2048의 ["소프트" 및 "하드" RSA 키만](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) 지원되며 다른 키나 크기는 지원되지 않습니다.
+- 크기 2048의 ["소프트" 및 "하드" RSA 키만](../../key-vault/keys/about-keys.md) 지원되며 다른 키나 크기는 지원되지 않습니다.
 - 서버 측 암호화 및 고객 관리 키를 사용하여 암호화된 사용자 지정 이미지에서 생성된 디스크는 동일한 고객 관리 키를 사용하여 암호화되어야 하며 동일한 구독에 있어야 합니다.
 - 서버 측 암호화 및 고객 관리 키로 암호화된 디스크에서 생성된 스냅숏은 동일한 고객 관리 키로 암호화해야 합니다.
 - 서버 측 암호화 및 고객 관리 키를 사용하여 암호화된 사용자 지정 이미지는 공유 이미지 갤러리에서 사용할 수 없습니다.

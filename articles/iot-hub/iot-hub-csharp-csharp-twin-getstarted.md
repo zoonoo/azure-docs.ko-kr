@@ -9,12 +9,13 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
-ms.openlocfilehash: 426430c075cfcb084cfe3238ebd83a19e909369b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 620e0213733d278a28ec1bcad4b031f5764ccda9
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77110757"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733126"
 ---
 # <a name="get-started-with-device-twins-net"></a>장치 쌍으로 시작하기(.NET)
 
@@ -66,13 +67,13 @@ ms.locfileid: "77110757"
 
 1. 솔루션 탐색기에서 **AddTagsAndQuery** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리를 선택합니다.**
 
-1. **찾아보기를** 선택하고 **검색하고 Microsoft.Azure.Devices**를 선택합니다. **설치**을 선택합니다.
+1. **찾아보기를** 선택하고 **검색하고 Microsoft.Azure.Devices**를 선택합니다. **설치**를 선택합니다.
 
     ![NuGet 패키지 관리자 창](./media/iot-hub-csharp-csharp-twin-getstarted/nuget-package-addtagsandquery-app.png)
 
    이 단계에서는 [Azure IoT 서비스 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) NuGet 패키지 및 종속 항목에 참조를 다운로드, 설치 및 추가합니다.
 
-1. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
+1. Program.cs 파일 `using` 의 맨 위에 **Program.cs** 다음 문을 추가합니다.
 
     ```csharp  
     using Microsoft.Azure.Devices;
@@ -140,17 +141,17 @@ ms.locfileid: "77110757"
 
 이 섹션에서는 **myDeviceId**로 허브에 연결하는 .NET 콘솔 앱을 만든 다음 셀룰러 네트워크를 사용하여 연결되는 정보에 포함된 reported 속성을 업데이트합니다.
 
-1. 비주얼 스튜디오에서 새**프로젝트** **파일** > 을**선택합니다.** >  **새 프로젝트 만들기에서** **콘솔 앱(.NET 프레임워크)을**선택한 다음 **다음**을 선택합니다.
+1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 선택합니다. **새 프로젝트 만들기에서** **콘솔 앱(.NET 프레임워크)을**선택한 다음 **다음**을 선택합니다.
 
 1. 새 프로젝트 구성에서 프로젝트 **보고서 연결성의**이름을 **지정합니다.** **솔루션의**경우 **에 추가를**선택한 다음 **을 선택합니다.**
 
 1. 솔루션 탐색기에서 보고서 **연결** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리를 선택합니다.**
 
-1. **찾아보기를** 선택하고 **검색하고 Microsoft.Azure.Devices.Client**을 선택합니다. **설치**을 선택합니다.
+1. **찾아보기를** 선택하고 **검색하고 Microsoft.Azure.Devices.Client**을 선택합니다. **설치**를 선택합니다.
 
    이 단계는 [Azure IoT 장치 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet 패키지 및 해당 종속성에 대한 참조를 다운로드, 설치 및 추가합니다.
 
-1. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
+1. Program.cs 파일 `using` 의 맨 위에 **Program.cs** 다음 문을 추가합니다.
 
     ```csharp  
     using Microsoft.Azure.Devices.Client;

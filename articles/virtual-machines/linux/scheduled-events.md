@@ -1,25 +1,18 @@
 ---
 title: Azure에서 Linux VM에 대한 예약된 이벤트
 description: Linux 가상 머신에서 Azure 메타데이터 서비스를 사용하여 이벤트를 예약합니다.
-services: virtual-machines-windows, virtual-machines-linux, cloud-services
-documentationcenter: ''
 author: mimckitt
-manager: gwallace
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: mimckitt
-ms.openlocfilehash: b3b9914d0e5162f8f8f41b929d7bdfef68f85ad9
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: ee600d7524af27a0e9e2ce0176e7bd4d1f60bc3b
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81263321"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758549"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Linux VM에 예정된 이벤트
 
@@ -127,7 +120,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 ```
 
 ### <a name="event-properties"></a>이벤트 속성
-|속성  |  Description |
+|속성  |  설명 |
 | - | - |
 | EventId | 이 이벤트의 GUID(Globally Unique Identifier)입니다. <br><br> 예: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | EventType | 이 이벤트로 인해 발생하는 결과입니다. <br><br> 값 <br><ul><li> `Freeze`: 가상 시스템이 몇 초 동안 일시 중지하도록 예약됩니다. CPU 및 네트워크 연결이 일시 중단될 수 있지만 메모리 또는 열린 파일에는 영향을 미치지 않습니다.<li>`Reboot`: Virtual Machine을 다시 부팅하도록 예약합니다(비영구 메모리가 손실됨). <li>`Redeploy`: Virtual Machine을 다른 노드로 이동하도록 예약합니다(임시 디스크가 손실됨). <li>`Preempt`: 스팟 가상 머신이 삭제되고 있습니다(임시 디스크가 손실됨). <li> `Terminate`: 가상 시스템이 삭제될 예정입니다. |

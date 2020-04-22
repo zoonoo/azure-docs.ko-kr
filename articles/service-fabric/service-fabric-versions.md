@@ -2,13 +2,13 @@
 title: Azure 서비스 패브릭에서 지원되는 클러스터 버전
 description: 서비스 패브릭 팀 블로그의 최신 릴리스에 대한 링크를 포함하여 Azure 서비스 패브릭의 클러스터 버전에 대해 알아봅니다.
 ms.topic: troubleshooting
-ms.date: 03/02/2020
-ms.openlocfilehash: b76e498926492ce7acaa696dfe9a0299fb5573e0
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.date: 04/20/2020
+ms.openlocfilehash: b68314a116b0d9da8baf5f61eeffeef2b30835c4
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460531"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732872"
 ---
 # <a name="supported-service-fabric-versions"></a>지원되는 Service Fabric 버전
 
@@ -41,6 +41,7 @@ ms.locfileid: "81460531"
 | 7.0.466.* | 6.5.* |버전 4.0보다 작거나 같음|2020년 8월 1일 |
 | 7.0.470.* | 7.0.466.* |버전 4.0보다 작거나 같음 |2020년 8월 1일  |
 | 7.1.409.* | 7.0.466.* |버전 4.0보다 작거나 같음 |현재 버전이므로 종료 날짜가 없습니다. |
+
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
 다음 표에는 지원되는 서비스 패브릭 버전에 대해 지원되는 운영 체제가 나열되어 있습니다.
@@ -106,3 +107,4 @@ ms.locfileid: "81460531"
 | 7.0 CU2 | 7.0.464.9590 | 7.0.464.1 |
 | 7.0 CU3 | 7.0.466.9590 | 7.0.465.1 |
 | 7.0 CU4 | 7.0.470.9590 | 7.0.469.1 |
+| 7.1 RTO | 7.1.409.9590 | 7.1.410.1 |

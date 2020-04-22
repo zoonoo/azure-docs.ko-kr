@@ -3,12 +3,12 @@ title: Linux용 게스트 구성 정책을 만드는 방법
 description: Linux용 Azure 정책 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 65e0082f87f05104e9a57ff0342cd3d2950b63e8
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 24442a89d55e34f9ce9697c2f6a32cfc740bcd85
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617932"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758968"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Linux용 게스트 구성 정책을 만드는 방법
 
@@ -24,6 +24,11 @@ Linux를 감사할 때 게스트 구성은 [Chef InSpec.](https://www.inspec.io/
 
 > [!IMPORTANT]
 > 게스트 구성을 가진 사용자 지정 정책은 미리 보기 기능입니다.
+>
+> Azure 가상 컴퓨터에서 감사를 수행하려면 게스트 구성 확장이 필요합니다.
+> 확장을 대규모로 배포하려면 다음 정책 정의를 할당합니다.
+>   - Windows VM에서 게스트 구성 정책을 사용하도록 설정하기 위한 필수 조건 배포
+>   - Linux VM에서 게스트 구성 정책을 사용하도록 설정하기 위한 필수 조건 배포
 
 ## <a name="install-the-powershell-module"></a>PowerShell 모듈 설치
 
@@ -101,7 +106,7 @@ end
 
 이 파일을 디렉터리 `linux-path.rb` `controls` 내부의 새 `linux-path` 폴더에 이름으로 저장합니다.
 
-마지막으로 구성을 만들고 **GuestConfiguration** 리소스 모듈을 가져오고 리소스를 `ChefInSpecResource` 사용하여 InSpec 프로필의 이름을 설정합니다.
+마지막으로 구성을 만들고 **PSDesiredStateConfiguration** 리소스 모듈을 가져오고 구성을 컴파일합니다.
 
 ```powershell
 # Define the configuration and import GuestConfiguration
@@ -119,10 +124,15 @@ Configuration AuditFilePathExists
 }
 
 # Compile the configuration to create the MOF files
+import-module PSDesiredStateConfiguration
 AuditFilePathExists -out ./Config
 ```
 
+프로젝트 폴더에 `config.ps1` 이름으로 이 파일을 저장합니다. 터미널에서 실행하여 `./config.ps1` PowerShell에서 실행합니다. 새 mof 파일이 만들어집니다.
+
 `Node AuditFilePathExists` 명령은 기술적으로 필요하지 않지만 기본값이 아닌 명명된 `AuditFilePathExists.mof` 파일을 `localhost.mof`생성합니다. .mof 파일 이름을 사용하여 구성을 수행하면 대규모로 작동할 때 많은 파일을 쉽게 구성할 수 있습니다.
+
+
 
 이제 다음과 같이 프로젝트 구조가 있어야 합니다.
 
@@ -150,8 +160,8 @@ cmdlet이 `New-GuestConfigurationPackage` 패키지를 만듭니다. 리눅스 `
 ```azurepowershell-interactive
 New-GuestConfigurationPackage `
   -Name 'AuditFilePathExists' `
-  -Configuration './Config/AuditFilePathExists.mof'
-  -ChefProfilePath './'
+  -Configuration './Config/AuditFilePathExists.mof' `
+  -ChefInSpecProfilePath './'
 ```
 
 구성 패키지를 만든 후 Azure에 게시하기 전에 워크스테이션 또는 CI/CD 환경에서 패키지를 테스트할 수 있습니다. GuestConfiguration cmdlet `Test-GuestConfigurationPackage` Azure 컴퓨터 내에서 사용 되는 것과 개발 환경에서 동일한 에이전트를 포함 합니다. 이 솔루션을 사용하면 요금이 청구된 클라우드 환경에 릴리스하기 전에 로컬로 통합 테스트를 수행할 수 있습니다.
@@ -168,7 +178,7 @@ cmdlet의 `Test-GuestConfigurationPackage` 매개 변수:
 
 ```azurepowershell-interactive
 Test-GuestConfigurationPackage `
-  -Path ./AuditFilePathExists.zip
+  -Path ./AuditFilePathExists/AuditFilePathExists.zip
 ```
 
 cmdlet은 PowerShell 파이프라인의 입력도 지원합니다. cmdlet의 `New-GuestConfigurationPackage` 출력을 cmdlet에 파이프합니다. `Test-GuestConfigurationPackage`

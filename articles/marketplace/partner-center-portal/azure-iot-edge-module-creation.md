@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 6b56b748ef31bcfd33893e55d3ea5f8d9851a3ff
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: c4eddf68e964b412e7270319630f41fc4d802241
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674476"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733157"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>IoT Edge 모듈 제품 만들기
 
@@ -54,7 +54,7 @@ IoT Edge 모듈 오퍼를 만들려면 먼저 파트너 센터에 상용 마켓�
 
 **제안 개요** 페이지에는 이 제안을 게시하는 데 필요한 단계(완료및 예정)와 각 단계를 완료하는 데 걸리는 시간이 시각적으로 표시됩니다.
 
-이 페이지에는 선택한 항목을 기반으로 이 오퍼에서 작업을 수행하는 링크가 포함되어 있습니다. 다음은 그 예입니다.
+이 페이지에는 선택한 항목을 기반으로 이 오퍼에서 작업을 수행하는 링크가 포함되어 있습니다. 예를 들어:
 
 - 제안이 초안인 경우 - [초안 오퍼 삭제](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - 오퍼가 실시간 인 경우 - [오퍼 판매 중지](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
@@ -95,7 +95,7 @@ IoT Edge 모듈 오퍼를 만들려면 먼저 파트너 센터에 상용 마켓�
 
 이 페이지에서는 마켓플레이스에서 쿠폰을 그룹화하는 데 사용되는 카테고리와 쿠폰을 지원하는 법적 계약을 정의할 수 있습니다.
 
-#### <a name="category"></a>Category
+#### <a name="category"></a>범주
 
 최소 1개 및 최대 5개 범주를 선택합니다. 이러한 카테고리는 적절한 마켓플레이스 검색 영역에 쿠폰을 배치하는 데 사용되며 쿠폰 세부정보 페이지에 표시됩니다. 쿠폰 설명에서 쿠폰이 이러한 범주를 지원하는 방법을 설명합니다. 찾아보기 페이지에서 모든 IoT Edge 모듈은 **사물 인터넷 > IoT Edge 모듈** 범주에 표시됩니다.
 
@@ -161,7 +161,7 @@ IoT Edge 모듈 오퍼를 만들려면 먼저 파트너 센터에 상용 마켓�
 - 인앱 구매 기회
 - 필요한 모든 공개
 
-IoT Edge 모듈은 설명 하단에 최소 하드웨어 요구 사항 단락을 포함해야 합니다. 다음은 그 예입니다.
+IoT Edge 모듈은 설명 하단에 최소 하드웨어 요구 사항 단락을 포함해야 합니다. 예를 들어:
 
 *최소 하드웨어 요구 사항: Linux x64 및 arm32 OS, 1GB RAM, 500Mb 스토리지*
 
@@ -322,9 +322,9 @@ Azure 구독 ID GUID를 사용하여 미리 보기 대상을 지정하고 각 �
 
 Azure IoT Hub를 사용하여 계획을 하나 이상의 클라우드에서 사용할 수 있어야 합니다.
 
-마켓플레이스를 사용하는 모든 글로벌 Azure 지역의 고객이 계획을 사용할 수 있도록 **Azure Global** 옵션을 선택합니다. 자세한 내용은 [지리적 가용성 및 통화 지원을](https://aka.ms/AzureGovCurrencies)참조하십시오.
+마켓플레이스를 사용하는 모든 글로벌 Azure 지역의 고객이 계획을 사용할 수 있도록 **Azure Global** 옵션을 선택합니다. 자세한 내용은 [지리적 가용성 및 통화 지원을](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)참조하십시오.
 
-Azure [정부 클라우드](https://aka.ms/WhatIsAzureGovernment) 옵션을 선택하여 솔루션을 여기에 표시합니다. 이 클라우드는 미국 연방, 주, 지방 또는 부족 정부 기관뿐만 아니라 서비스를 제공할 자격이 있는 파트너의 고객에 대한 제어된 액세스 권한이 있는 정부 커뮤니티 클라우드입니다. 퍼블리셔는 이 클라우드 커뮤니티에 대한 규정 준수 제어, 보안 조치 및 모범 사례를 담당합니다. Azure 정부는 물리적으로 격리된 데이터 센터 및 네트워크를 사용합니다(미국에만 있음). Azure 정부에 [게시하기](https://aka.ms/azuregovpublish) 전에 결과가 다를 수 있으므로 해당 영역 내에서 솔루션을 테스트하고 확인합니다. 솔루션을 단계및 테스트하려면 Microsoft Azure [정부 평가판에서](https://aka.ms/AzureGovernmentTrial)평가판 계정을 요청하십시오.
+Azure [정부 클라우드](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) 옵션을 선택하여 솔루션을 여기에 표시합니다. 이 클라우드는 미국 연방, 주, 지방 또는 부족 정부 기관뿐만 아니라 서비스를 제공할 자격이 있는 파트너의 고객에 대한 제어된 액세스 권한이 있는 정부 커뮤니티 클라우드입니다. 퍼블리셔는 이 클라우드 커뮤니티에 대한 규정 준수 제어, 보안 조치 및 모범 사례를 담당합니다. Azure 정부는 물리적으로 격리된 데이터 센터 및 네트워크를 사용합니다(미국에만 있음). Azure 정부에 [게시하기](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) 전에 결과가 다를 수 있으므로 해당 영역 내에서 솔루션을 테스트하고 확인합니다. 솔루션을 단계및 테스트하려면 Microsoft Azure [정부 평가판에서](https://azure.microsoft.com/global-infrastructure/government/request/)평가판 계정을 요청하십시오.
 
 > [!NOTE]
 > 계획이 게시되고 특정 클라우드에서 사용할 수 있게 되면 해당 클라우드를 제거할 수 없습니다.
@@ -378,11 +378,11 @@ Azure 정부 서비스는 특정 정부 규정 및 요구 사항이 적용되는
 
 ## <a name="technical-configuration"></a>기술 구성
 
-**IoT Edge 모듈** 제공 유형은 IoT Edge 장치에서 실행되는 특정 유형의 컨테이너입니다. 기술 **구성** 탭에서 [Azure 컨테이너 레지스트리](https://aka.ms/ContainerRegistry)내의 컨테이너 이미지 리포지토리에 대한 참조 정보와 고객이 모듈을 쉽게 사용할 수 있도록 하는 구성 설정을 제공합니다.
+**IoT Edge 모듈** 제공 유형은 IoT Edge 장치에서 실행되는 특정 유형의 컨테이너입니다. 기술 **구성** 탭에서 [Azure 컨테이너 레지스트리](https://azure.microsoft.com/services/container-registry/)내의 컨테이너 이미지 리포지토리에 대한 참조 정보와 고객이 모듈을 쉽게 사용할 수 있도록 하는 구성 설정을 제공합니다.
 
 오퍼가 게시되면 IoT Edge 컨테이너 이미지가 특정 공용 컨테이너 레지스트리의 Azure Marketplace에 복사됩니다. 모듈을 사용하는 Azure 사용자의 모든 요청은 개인 컨테이너 레지스트리가 아닌 Azure Marketplace 공용 컨테이너 레지스트리에서 제공됩니다.
 
-여러 플랫폼을 대상으로 지정하고 태그를 사용하여 여러 버전의 모듈 컨테이너 이미지를 제공할 수 있습니다. 태그 및 버전 관리에 대한 자세한 내용은 [IoT Edge 모듈 기술 자산 준비를](https://aka.ms/AzureIoTTechAsset)참조하십시오.
+여러 플랫폼을 대상으로 지정하고 태그를 사용하여 여러 버전의 모듈 컨테이너 이미지를 제공할 수 있습니다. 태그 및 버전 관리에 대한 자세한 내용은 [IoT Edge 모듈 기술 자산 준비를](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-iot-edge-module-asset)참조하십시오.
 
 ### <a name="image-repository-details"></a>이미지 리포지토리 세부 정보
 
@@ -392,25 +392,25 @@ Azure 정부 서비스는 특정 정부 규정 및 요구 사항이 적용되는
 
 **Azure 구독 ID**: 리소스 사용량이 보고되고 컨테이너 이미지가 포함된 Azure 컨테이너 레지스트리에 대한 서비스가 청구되는 구독 ID를 제공합니다. Azure 포털의 구독 페이지에서 이 ID를 찾을 수 [있습니다.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
 
-**Azure 리소스 그룹 이름:** 컨테이너 이미지와 함께 Azure 컨테이너 레지스트리를 포함 하는 [리소스 그룹](https://aka.ms/ResourceManagerAzurePortal) 이름을 제공 합니다. 리소스 그룹은 구독 ID(위)에서 액세스할 수 있어야 합니다. Azure 포털에서 리소스 [그룹](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) 페이지에서 이름을 찾을 수 있습니다.
+**Azure 리소스 그룹 이름:** 컨테이너 이미지와 함께 Azure 컨테이너 레지스트리를 포함 하는 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) 이름을 제공 합니다. 리소스 그룹은 구독 ID(위)에서 액세스할 수 있어야 합니다. Azure 포털에서 리소스 [그룹](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) 페이지에서 이름을 찾을 수 있습니다.
 
-**Azure 컨테이너 레지스트리 이름**: 컨테이너 이미지가 있는 [Azure 컨테이너 레지스트리의](https://aka.ms/DockerContainerRegistriesAzure) 이름을 제공합니다. 컨테이너 레지스트리는 이전에 제공한 Azure 리소스 그룹에 있어야 합니다. 전체 로그인 서버 이름이 아닌 레지스트리 이름만 제공합니다. 이름에서 **azurecr.io** 생략해야 합니다. Azure 포털의 컨테이너 레지스트리 [페이지에서](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) 레지스트리 이름을 찾을 수 있습니다.
+**Azure 컨테이너 레지스트리 이름**: 컨테이너 이미지가 있는 [Azure 컨테이너 레지스트리의](https://docs.microsoft.com/azure/container-registry/container-registry-intro) 이름을 제공합니다. 컨테이너 레지스트리는 이전에 제공한 Azure 리소스 그룹에 있어야 합니다. 전체 로그인 서버 이름이 아닌 레지스트리 이름만 제공합니다. 이름에서 **azurecr.io** 생략해야 합니다. Azure 포털의 컨테이너 레지스트리 [페이지에서](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) 레지스트리 이름을 찾을 수 있습니다.
 
-**Azure 컨테이너 레지스트리의 관리자 사용자 이름**: 컨테이너 이미지가 있는 Azure 컨테이너 레지스트리와 연결된 [관리자 사용자 이름을](https://aka.ms/AdminAccountContainerRegistry) 제공합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름과 암호가 필요합니다. 관리자 사용자 이름과 암호를 얻으려면 CLI(Azure 명령줄 인터페이스)를 사용하여 **관리자 지원** 속성을 **True로** 설정합니다. 선택적으로 관리 **사용자를** Azure 포털에서 **사용** 하도록 설정할 수 있습니다.
+**Azure 컨테이너 레지스트리의 관리자 사용자 이름**: 컨테이너 이미지가 있는 Azure 컨테이너 레지스트리와 연결된 [관리자 사용자 이름을](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account) 제공합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름과 암호가 필요합니다. 관리자 사용자 이름과 암호를 얻으려면 CLI(Azure 명령줄 인터페이스)를 사용하여 **관리자 지원** 속성을 **True로** 설정합니다. 선택적으로 관리 **사용자를** Azure 포털에서 **사용** 하도록 설정할 수 있습니다.
 
 :::image type="content" source="media/iot-edge-module-creation/iot-edge-module-admin-user.png" alt-text="컨테이너 레지스트리 업데이트 대화 상자를 보여 줍니다.":::
 
-**Azure 컨테이너 레지스트리에 대한 암호**: Azure 컨테이너 레지스트리와 연결되고 컨테이너 이미지가 있는 관리자 사용자 이름에 대한 암호를 제공합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름과 암호가 필요합니다. **컨테이너 레지스트리** > **액세스 키로** 이동하거나 표시 명령을 사용하여 Azure CLI를 사용하여 Azure 포털에서 암호를 얻을 수 [있습니다.](https://aka.ms/azacrcredentialshow)
+**Azure 컨테이너 레지스트리에 대한 암호**: Azure 컨테이너 레지스트리와 연결되고 컨테이너 이미지가 있는 관리자 사용자 이름에 대한 암호를 제공합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름과 암호가 필요합니다. **컨테이너 레지스트리** > **액세스 키로** 이동하거나 표시 명령을 사용하여 Azure CLI를 사용하여 Azure 포털에서 암호를 얻을 수 [있습니다.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
 
 :::image type="content" source="media/iot-edge-module-creation/iot-edge-module-username-password.png" alt-text="Azure 포털의 액세스 키 화면을 보여 줍니다.":::
 
-**Azure 컨테이너 레지스트리 내의 리포지토리 이름**입니다. 이미지가 있는 Azure 컨테이너 레지스트리 리포지토리의 이름을 제공합니다. 레지스트리에 이미지를 푸시할 때 리포지토리의 이름을 지정합니다. [저장소의](https://aka.ms/ContainerRegistry) > 이름을 찾을 수 있습니다.컨테이너 레지스트리**리포지토리 페이지로**이동 하여 자세한 내용은 [Azure 포털의 컨테이너 레지스트리 리포지토리 보기를](https://aka.ms/ContainerRegistryRepositoriesAzure)참조하십시오. 이름을 설정한 후에는 변경할 수 없습니다. 계정의 각 오퍼에 대해 고유한 이름을 사용합니다.
+**Azure 컨테이너 레지스트리 내의 리포지토리 이름**입니다. 이미지가 있는 Azure 컨테이너 레지스트리 리포지토리의 이름을 제공합니다. 레지스트리에 이미지를 푸시할 때 리포지토리의 이름을 지정합니다. [저장소의](https://azure.microsoft.com/services/container-registry/) > 이름을 찾을 수 있습니다.컨테이너 레지스트리**리포지토리 페이지로**이동 하여 자세한 내용은 [Azure 포털의 컨테이너 레지스트리 리포지토리 보기를](https://docs.microsoft.com/azure/container-registry/container-registry-repositories)참조하십시오. 이름을 설정한 후에는 변경할 수 없습니다. 계정의 각 오퍼에 대해 고유한 이름을 사용합니다.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>새로운 버전의 오퍼에 대한 이미지 태그
 
 고객은 업데이트를 게시할 때 Azure Marketplace에서 업데이트를 자동으로 받을 수 있어야 합니다. 업데이트하지 않으려면 특정 버전의 이미지를 유지할 수 있어야 합니다. 이미지를 업데이트할 때마다 새 이미지 태그를 추가하여 이 작업을 수행할 수 있습니다.
 
-**이미지 태그**. 이 **필드에는** 지원되는 모든 플랫폼에서 이미지의 최신 버전을 가리키는 최신 태그가 포함되어야 합니다. 또한 버전 태그를 포함해야 합니다(예: xx가 숫자인 xx.xx.xx로 시작). 고객은 [매니페스트 태그를](https://aka.ms/GitHubmanifest-tool) 사용하여 여러 플랫폼을 타겟팅해야 합니다. 매니페스트 태그에서 참조하는 모든 태그는 업로드할 수 있도록 추가되어야 합니다. 모든 매니페스트 태그(최신 태그 제외)는 X,Y, Z 가 정수인 X.Y- 또는 X.Y.Z-로 시작해야 합니다. 예를 들어 최신 태그가 1.0.1-linux-x64, 1.0.1-linux-arm32 및 1.0.1-windows-arm32를 가리키는 경우 이 6개의 태그를 이 필드에 추가해야 합니다. 태그 및 버전 관리에 대한 자세한 내용은 [IoT Edge 모듈 기술 자산 준비를 참조하십시오.](https://aka.ms/PrepareIoTEdgeModTechAssets)
+**이미지 태그**. 이 **필드에는** 지원되는 모든 플랫폼에서 이미지의 최신 버전을 가리키는 최신 태그가 포함되어야 합니다. 또한 버전 태그를 포함해야 합니다(예: xx가 숫자인 xx.xx.xx로 시작). 고객은 [매니페스트 태그를](https://github.com/estesp/manifest-tool) 사용하여 여러 플랫폼을 타겟팅해야 합니다. 매니페스트 태그에서 참조하는 모든 태그는 업로드할 수 있도록 추가되어야 합니다. 모든 매니페스트 태그(최신 태그 제외)는 X,Y, Z 가 정수인 X.Y- 또는 X.Y.Z-로 시작해야 합니다. 예를 들어 최신 태그가 1.0.1-linux-x64, 1.0.1-linux-arm32 및 1.0.1-windows-arm32를 가리키는 경우 이 6개의 태그를 이 필드에 추가해야 합니다. 태그 및 버전 관리에 대한 자세한 내용은 [IoT Edge 모듈 기술 자산 준비를 참조하십시오.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets)
 
 ### <a name="default-deployment-settings-optional"></a>기본 배포 설정(선택 사항)
 
@@ -418,7 +418,7 @@ IoT Edge 모듈을 배포하는 가장 일반적인 설정을 정의합니다. �
 
 **기본 경로**. IoT Edge Hub는 모듈, IoT 허브 및 장치 간의 통신을 관리합니다. 모듈과 IoT Hub 간에 데이터 입력 및 출력에 대한 경로를 설정할 수 있으므로 메시지를 처리하거나 추가 코드를 작성하기 위해 추가 서비스가 필요 없이 필요한 곳에 메시지를 보낼 수 있는 유연성을 제공합니다. 배관은 이름/값 쌍을 사용하여 생성됩니다. 각각 최대 512자까지 기본 경로 이름을 정의할 수 있습니다.
 
-경로 값에 올바른 [경로 구문을](https://aka.ms/DeclareRoutesAzureIoT) 사용해야 합니다(일반적으로 FROM/message/* INTO $upstream 정의). 즉, 모든 모듈에서 보낸 모든 메시지는 IoT Hub로 이동합니다. 모듈을 참조하려면 공백이나 특수 문자 없이 **오퍼 이름이**되는 기본 모듈 이름을 사용합니다. 아직 알려지지 않은 다른 모듈을 참조하려면 <FROM_MODULE_NAME> 규칙을 사용하여 고객에게 이 정보를 업데이트해야 한다는 것을 알수 있습니다. IoT Edge 경로에 대한 자세한 내용은 [경로 선언을](https://aka.ms/DeclareRoutesAzureIoT)참조하십시오.
+경로 값에 올바른 [경로 구문을](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) 사용해야 합니다(일반적으로 FROM/message/* INTO $upstream 정의). 즉, 모든 모듈에서 보낸 모든 메시지는 IoT Hub로 이동합니다. 모듈을 참조하려면 공백이나 특수 문자 없이 **오퍼 이름이**되는 기본 모듈 이름을 사용합니다. 아직 알려지지 않은 다른 모듈을 참조하려면 <FROM_MODULE_NAME> 규칙을 사용하여 고객에게 이 정보를 업데이트해야 한다는 것을 알수 있습니다. IoT Edge 경로에 대한 자세한 내용은 [경로 선언을](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)참조하십시오.
 
 예를 들어, 모듈 ContosoModule ContosoInput에서 입력을 수신 하는 경우 ContosoOutput에서 데이터를 출력, 다음 두 기본 경로 정의 하는 것이 합리적:
 
@@ -427,7 +427,7 @@ IoT Edge 모듈을 배포하는 가장 일반적인 설정을 정의합니다. �
 - 이름 #2: FromContosoModuleToCloud
 - 값 #2: FROM /메시지/모듈/ContonsoModule/출력/contosoOutput into $upstream
 
-**기본 모듈 트윈 원하는 속성**. 모듈 쌍은 원하는 속성을 포함하여 모듈 인스턴스에 대한 상태 정보를 저장하는 IoT Hub의 JSON 문서입니다. 원하는 속성은 보고된 속성과 함께 모듈 구성 또는 조건을 동기화하는 데 사용됩니다. 솔루션 백 엔드는 원하는 속성을 설정할 수 있으며 모듈은 이를 읽을 수 있습니다. 모듈은 원하는 속성에서 변경 알림을 받을 수도 있습니다. 원하는 속성은 최대 5개의 이름/값 쌍을 사용하여 만들어지며 각 기본값은 512자 미만이어야 합니다. 최대 5개의 이름/값 쌍둥이 원하는 속성을 정의할 수 있습니다. 두 개의 원하는 속성의 값은 4개의 레벨의 최대 중첩 계층 구조가 있는 배열없이 유효한 JSON이어야 합니다. 기본값에 필요한 매개 변수가 적합하지 않은 시나리오(예: 고객 서버의 IP 주소)에서는 매개 변수를 기본값으로 추가할 수 있습니다. 쌍 원하는 속성에 대한 자세한 내용은 [원하는 속성 정의 또는 업데이트](https://aka.ms/DefineUpdateProperties)를 참조하십시오.
+**기본 모듈 트윈 원하는 속성**. 모듈 쌍은 원하는 속성을 포함하여 모듈 인스턴스에 대한 상태 정보를 저장하는 IoT Hub의 JSON 문서입니다. 원하는 속성은 보고된 속성과 함께 모듈 구성 또는 조건을 동기화하는 데 사용됩니다. 솔루션 백 엔드는 원하는 속성을 설정할 수 있으며 모듈은 이를 읽을 수 있습니다. 모듈은 원하는 속성에서 변경 알림을 받을 수도 있습니다. 원하는 속성은 최대 5개의 이름/값 쌍을 사용하여 만들어지며 각 기본값은 512자 미만이어야 합니다. 최대 5개의 이름/값 쌍둥이 원하는 속성을 정의할 수 있습니다. 두 개의 원하는 속성의 값은 4개의 레벨의 최대 중첩 계층 구조가 있는 배열없이 유효한 JSON이어야 합니다. 기본값에 필요한 매개 변수가 적합하지 않은 시나리오(예: 고객 서버의 IP 주소)에서는 매개 변수를 기본값으로 추가할 수 있습니다. 쌍 원하는 속성에 대한 자세한 내용은 [원하는 속성 정의 또는 업데이트](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties)를 참조하십시오.
 
 예를 들어 모듈이 원하는 쌍 속성을 사용하여 동적으로 구성 가능한 새로 고침 빈도를 지원하는 경우 다음과 같은 기본 트윈 원하는 속성을 정의하는 것이 좋습니다.
 
@@ -441,7 +441,7 @@ IoT Edge 모듈을 배포하는 가장 일반적인 설정을 정의합니다. �
 - 이름 #1: ACCEPT_EULA
 - 값 #1: Y
 
-**기본 컨테이너는 옵션을 만듭니다.** 컨테이너 생성 옵션은 IoT Edge 모듈 Docker 컨테이너를 직접 생성합니다. IoT Edge는 Docker 엔진 API 생성 컨테이너 옵션을 지원합니다. [목록 컨테이너의](https://aka.ms/ContainerList) 모든 옵션을 참조하십시오. 만들기 옵션 필드는 유효한 JSON, 이스케이프되지 않은 자 및 512자 미만이어야 합니다.
+**기본 컨테이너는 옵션을 만듭니다.** 컨테이너 생성 옵션은 IoT Edge 모듈 Docker 컨테이너를 직접 생성합니다. IoT Edge는 Docker 엔진 API 생성 컨테이너 옵션을 지원합니다. [목록 컨테이너의](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) 모든 옵션을 참조하십시오. 만들기 옵션 필드는 유효한 JSON, 이스케이프되지 않은 자 및 512자 미만이어야 합니다.
 
 예를 들어 모듈에 포트 바인딩이 필요한 경우 다음 만들기 옵션을 정의합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Automation의 자격 증명 자산
+title: Azure 자동화에서 자격 증명 관리
 description: Azure Automation의 자격 증명 자산은 runbook 또는 DSC 구성을 통해 액세스 되는 리소스를 인증하는 보안 자격 증명을 포함합니다. 이 문서에서는 자격 증명 자산을 만들고 runbook 또는 DSC 구성에 사용하는 방법을 설명합니다.
 services: automation
 ms.service: automation
@@ -9,21 +9,22 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c8b63a2676690004d23094b490fea0ef150ab9cb
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 59e32087d4489cbb155a9cff7d40094c0606c0cf
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546391"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732840"
 ---
-# <a name="credential-assets-in-azure-automation"></a>Azure Automation의 자격 증명 자산
+# <a name="manage-credentials-in-azure-automation"></a>Azure 자동화에서 자격 증명 관리
 
 자동화 자격 증명 자산에는 사용자 이름 및 암호와 같은 보안 자격 증명이 포함된 개체가 있습니다. Runbook 및 DSC 구성은 인증을 위해 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) 개체를 허용하는 cmdlet을 사용합니다. 또는 `PSCredential` 인증이 필요한 일부 응용 프로그램 이나 서비스에 제공 하는 개체의 사용자 이름 및 암호를 추출할 수 있습니다. 
 
-Azure Automation은 자격 증명의 속성을 안전하게 저장합니다. Runbook 또는 DSC 구성을 통해 속성에 대한 액세스는 [자동화 PSCredential 자격 증명](#activities-used-to-access-credentials) 설정 얻기 작업을 사용합니다.
-
 > [!NOTE]
 > Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 자동화 계정에 대해 생성되는 고유 키를 사용하여 Azure 자동화에 암호화되고 저장됩니다. 이 키는 Key Vault에 저장됩니다. 보안 자산을 저장하기 전에 Key Vault에서 키가 로드된 다음, 자산을 암호화하는 데 사용됩니다.
+
+>[!NOTE]
+>이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. 하이브리드 Runbook 작업자의 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치를](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)참조하십시오. 자동화 계정의 경우 Azure 자동화 에서 [Azure PowerShell 모듈을 업데이트하는 방법을](../automation-update-azure-modules.md)사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
 
 [!INCLUDE [gdpr-dsr-and-stp-note.md](../../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -31,7 +32,7 @@ Azure Automation은 자격 증명의 속성을 안전하게 저장합니다. Run
 
 Azure PowerShell Az 모듈의 일부로 다음 표의 cmdlet은 Windows PowerShell을 사용하여 자동화 자격 증명 자산을 만들고 관리하는 데 사용됩니다. 자동화 런북 및 DSC 구성에서 사용할 수 있는 [Az.Automation 모듈로](/powershell/azure/new-azureps-module-az?view=azps-1.1.0)제공됩니다. [Azure 자동화에서 Az 모듈 지원을](https://docs.microsoft.com/azure/automation/az-modules)참조하십시오.
 
-| Cmdlet | Description |
+| Cmdlet | 설명 |
 |:--- |:--- |
 | [Get-Az자동화 자격 증명](/powershell/module/az.automation/get-azautomationcredential?view=azps-3.3.0) |자격 증명 자산에 대한 정보를 검색합니다. 이 cmdlet은 개체를 `PSCredential` 반환하지 않습니다.  |
 | [새로운 아즈자동화 자격 증명](/powershell/module/az.automation/new-azautomationcredential?view=azps-3.3.0) |새 Automation 자격 증명을 만듭니다. |
@@ -42,15 +43,13 @@ Azure PowerShell Az 모듈의 일부로 다음 표의 cmdlet은 Windows PowerShe
 
 다음 표의 활동은 Runbook 및 DSC 구성의 자격 증명에 액세스하는 데 사용됩니다.
 
-| 활동 | Description |
+| 작업 | Description |
 |:--- |:--- |
-| `Get-AutomationPSCredential` |Runbook 또는 DSC 구성에 사용하는 자격 증명을 가져옵니다. 자격 증명은 개체의 `PSCredential` 형태입니다. |
+| `Get-AutomationPSCredential` |Runbook 또는 DSC 구성에 사용하는 자격 증명을 가져옵니다. 자격 증명은 개체의 `PSCredential` 형태입니다. 이 활동에 해당하는 cmdlet에 대한 자세한 내용은 [Azure Automation의 모듈 자산을](modules.md)참조하십시오. |
 | [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) |사용자 이름 및 암호에 대한 프롬프트가 있는 자격 증명을 가져옵니다. |
 | [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) | 자격 증명 자산을 만듭니다. |
 
-Azure 자동화 작성 도구 키트를 사용하는 `Get-AutomationPSCredential` 로컬 개발의 경우 cmdlet은 [어셈블리 AzureAutomationAuthoringToolkit](https://www.powershellgallery.com/packages/AzureAutomationAuthoringToolkit/0.2.3.9)의 일부입니다. Azure에서 자동화 컨텍스트로 작업하는 경우 cmdlet이 에 있습니다. `Orchestrator.AssetManagement.Cmdlets` [Azure 자동화에서 모듈 관리를](modules.md)참조하십시오.
-
-코드에서 `PSCredential` 개체를 검색하려면 [PowerShell ISE](https://github.com/azureautomation/azure-automation-ise-addon)에 대한 Microsoft Azure 자동화 ISE 추가 기능을 설치할 수 있습니다.
+코드에서 `PSCredential` 개체를 검색하려면 PowerShell ISE에 대한 Microsoft Azure 자동화 ISE 추가 기능을 설치할 수 있습니다. 자세한 내용은 [Azure 자동화의 모듈 자산을](modules.md)참조하십시오.
 
 ```azurepowershell
 Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser -Force
@@ -65,11 +64,11 @@ Import-Module Orchestrator.AssetManagement.Cmdlets -ErrorAction SilentlyContinue
 > [!NOTE]
 > 의 매개 변수에서 변수를 `Name` 사용하지 않아야 합니다. `Get-AutomationPSCredential` 이러한 사용으로 런북 또는 DSC 구성과 자격 증명 자산 간의 종속성이 디자인 시간에 복잡해질 수 있습니다.
 
-## <a name="python2-functions-that-access-credentials"></a>자격 증명에 액세스하는 Python2 함수
+## <a name="python-2-functions-that-access-credentials"></a>자격 증명에 액세스하는 파이썬 2 함수
 
-다음 표의 함수는 Python2 Runbook의 자격 증명에 액세스하는 데 사용됩니다.
+다음 표의 함수는 Python 2 Runbook의 자격 증명에 액세스하는 데 사용됩니다.
 
-| 함수 | Description |
+| 함수 | 설명 |
 |:---|:---|
 | `automationassets.get_automation_credential` | 자격 증명 자산에 대한 정보를 검색합니다. |
 
@@ -154,9 +153,9 @@ Connect-AzAccount -Credential $myPsCred
 
 Azure 자동화의 DSC 구성은 자격 증명 `Get-AutomationPSCredential`자산을 사용하여 작업할 수 있지만 매개 변수를 통해 자격 증명 자산을 전달할 수도 있습니다. 자세한 내용은 [Azure Automation DSC에서 구성을 컴파일](../automation-dsc-compile.md#credential-assets)을 참조하세요.
 
-## <a name="using-credentials-in-python2"></a>Python2에서 자격 증명 사용
+## <a name="using-credentials-in-python-2"></a>파이썬 2에서 자격 증명 사용
 
-다음 예제에서는 Python2 Runbook에서 자격 증명에 액세스하는 예제를 보여 주며 있습니다.
+다음 예제에서는 Python 2 Runbook에서 자격 증명에 액세스하는 예제를 보여 주며 있습니다.
 
 
 ```python
@@ -175,4 +174,4 @@ print cred["password"]
 * 자동화에 대한 다양한 인증 방법을 이해하려면 [Azure 자동화 보안](../automation-security-overview.md)을 참조하십시오.
 * 그래픽 런북을 시작하려면 [내 첫 번째 그래픽 실행북을](../automation-first-runbook-graphical.md)참조하십시오.
 * PowerShell 워크플로 런북을 시작하려면 [내 첫 번째 PowerShell 워크플로 런북을](../automation-first-runbook-textual.md)참조하십시오.
-* Python2 런북을 시작하려면 [내 첫 번째 Python2 runbook을](../automation-first-runbook-textual-python2.md)참조하십시오. 
+* 파이썬 2 런북으로 시작하려면 [내 첫 번째 파이썬 2 런북을](../automation-first-runbook-textual-python2.md)참조하십시오. 
