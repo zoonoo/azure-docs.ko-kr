@@ -1,18 +1,18 @@
 ---
-title: 시장 진출 서비스 - 마케팅 모범 사례 | Azure
+title: 시장 진출 서비스 - 마케팅 모범 사례 | Azure 마켓플레이스
 description: 시장 진출 서비스 - 이 섹션에서는 Azure Marketplace의 게시자에 대한 마케팅 모범 사례를 설명합니다.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 6/24/2018
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 2926752884576bcf3a7a15d68eecb6f1248f7e4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e874343b5bb38928ae2fc429d901d8f7ec163580
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286271"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684592"
 ---
 # <a name="marketing-best-practices"></a>마케팅 모범 사례
 
@@ -22,6 +22,6 @@ ms.locfileid: "80286271"
 
 [출시 서비스](https://partner.microsoft.com/reach-customers/gtm)로 이동하여 마켓플레이스 GTM 서비스에 대해 자세히 알아봅니다.
 
-제품을 만들고 구성하려면 [Cloud 파트너 포털](https://cloudpartner.azure.com)에 로그인합니다.
+[파트너 센터에](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 로그인하여 쿠폰을 만들고 구성하세요.
 
 ---

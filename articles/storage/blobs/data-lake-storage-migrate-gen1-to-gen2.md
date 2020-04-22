@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: fb982324b66c5ac0d2db00eb906ed850827bc72e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 80c0afafca3b0bf497689cbd4a0870eedd066cfd
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79533286"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677136"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Azure 데이터 레이크 스토리지를 Gen1에서 Gen2로 마이그레이션
 
@@ -71,7 +71,7 @@ Gen2로 마이그레이션하려면 다음 방법을 권장합니다.
 
 1. [저장소 계정을 만들고](data-lake-storage-quickstart-create-account.md) 계층적 네임스페이스 기능을 사용하도록 설정합니다. 
 
-2. 데이터 마이그레이션 
+2. 데이터를 마이그레이션합니다. 
 
 3. 워크로드에서 Gen2 끝점을 가리키도록 [서비스를](data-lake-storage-integrate-with-azure-services.md) 구성합니다. 
    
@@ -100,9 +100,9 @@ Gen2로 마이그레이션하려면 다음 방법을 권장합니다.
 |인증|[AAD 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)<br>[서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)|[AAD 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)<br>[서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)<br>[공유 액세스 키](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
 |권한 부여|관리 - [RBAC](../../role-based-access-control/overview.md)<br>데이터 – [ACL](data-lake-storage-access-control.md)|관리 – [RBAC](../../role-based-access-control/overview.md)<br>데이터 - [ACL,](data-lake-storage-access-control.md) [RBAC](../../role-based-access-control/overview.md) |
 |암호화 – 미사용 데이터|서버 측 – [Microsoft 관리](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 키 또는 고객 관리 키 [포함](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|서버 측 – [Microsoft 관리](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 키 또는 고객 관리 키 [포함](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|VNET 지원|[VNET 통합](../../data-lake-store/data-lake-store-network-security.md)|[서비스 끝점,](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) [비공개 끝점(공개 미리 보기)](../common/storage-private-endpoints.md)|
-|개발자 환경|[REST](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.NET,](../../data-lake-store/data-lake-store-data-operations-net-sdk.md) [자바,](../../data-lake-store/data-lake-store-get-started-java-sdk.md) [파이썬,](../../data-lake-store/data-lake-store-data-operations-python.md) [파워쉘,](../../data-lake-store/data-lake-store-get-started-powershell.md) [Azure CLI](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|[REST](/rest/api/storageservices/data-lake-storage-gen2), [.NET,](data-lake-storage-directory-file-acl-dotnet.md) [자바,](data-lake-storage-directory-file-acl-java.md) [파이썬,](data-lake-storage-directory-file-acl-python.md) [자바 스크립트,](data-lake-storage-directory-file-acl-javascript.md) [파워 쉘](data-lake-storage-directory-file-acl-powershell.md), [Azure CLI](data-lake-storage-directory-file-acl-cli.md) (공개 미리보기)|
-|진단 로그|클래식 로그<br>[Azure 모니터 통합](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[클래식 로그(공개](../common/storage-analytics-logging.md) 미리 보기)<br>Azure 모니터 통합 – 타임라인 TBD|
+|VNET 지원|[VNET 통합](../../data-lake-store/data-lake-store-network-security.md)|[서비스 끝점,](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) [프라이빗 엔드포인트](../common/storage-private-endpoints.md)|
+|개발자 환경|[REST](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.NET,](../../data-lake-store/data-lake-store-data-operations-net-sdk.md) [자바,](../../data-lake-store/data-lake-store-get-started-java-sdk.md) [파이썬,](../../data-lake-store/data-lake-store-data-operations-python.md) [파워쉘,](../../data-lake-store/data-lake-store-get-started-powershell.md) [Azure CLI](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|일반적으로 사용 가능 - [REST](/rest/api/storageservices/data-lake-storage-gen2), [.NET,](data-lake-storage-directory-file-acl-dotnet.md) [자바,](data-lake-storage-directory-file-acl-java.md) [파이썬](data-lake-storage-directory-file-acl-python.md)<br>공개 미리보기 - [자바 스크립트,](data-lake-storage-directory-file-acl-javascript.md) [파워 쉘](data-lake-storage-directory-file-acl-powershell.md), [Azure CLI](data-lake-storage-directory-file-acl-cli.md)|
+|진단 로그|클래식 로그<br>[Azure 모니터 통합](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[클래식 로그](../common/storage-analytics-logging.md) - 일반적으로 사용 가능<br>Azure 모니터 통합 – 타임라인 TBD|
 |에코시스템|[HDInsight (3.6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure 데이터 브릭 (3.1 이상)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [SQL DW,](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store) [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3.6, 4.0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure 데이터 브릭 (5.1 이상)](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [SQL DW,](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md) [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
 
 <a id="migration-patterns" />

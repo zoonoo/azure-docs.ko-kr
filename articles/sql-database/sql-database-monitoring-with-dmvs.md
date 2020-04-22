@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 958dcd441d35b5c28746ff79a0b341e5aa7383a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/19/2020
+ms.openlocfilehash: 6f33f49be74419a8f0cd31d973d64798f5d76a2c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79214022"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683013"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>동적 관리 뷰를 사용하여 Azure SQL Database 성능모니터링
 
@@ -604,7 +604,7 @@ ORDER BY start_time DESC
 
 3. 각 리소스 메트릭의 평균값 및 최댓값에 대한 이 정보를 사용하여 워크로드가 선택한 컴퓨팅 크기에 얼마나 적합한지 평가할 수 있습니다. 일반적으로 **sys.resource_stats**의 평균값은 대상 크기에 맞게 사용하기에 적합한 기준선을 제공합니다. 기본 측정 기준이 되어야 합니다. 예를 들어 S2 컴퓨팅 크기와 함께 표준 서비스 계층을 사용할 수 있습니다. CPU 및 IO 읽기와 쓰기에 대한 평균 사용 비율은 40% 미만, 평균 작업자 수는 50 미만, 평균 세션 수는 200 미만입니다. 워크로드가 S1 컴퓨팅 크기에 적합할 수 있습니다. 데이터베이스가 작업자 및 세션 한도 이내에서 적합한지 여부를 쉽게 확인할 수 있습니다. 데이터베이스가 CPU, 읽기, 쓰기 기준의 낮은 컴퓨팅 크기에 적합한지 확인하려면 낮은 컴퓨팅 크기의 DTU 수를 현재 컴퓨팅 크기의 DTU 수로 나눈 다음, 그 결과에 100을 곱합니다.
 
-    ```S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40```
+    `S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40`
 
     결과는 백분율로 표시한 두 컴퓨팅 크기의 상대적 성능 차이입니다. 리소스 사용량이 이 양보다 많지 않은 경우 워크로드가 낮은 컴퓨팅 크기에 적합할 수 있습니다. 하지만 모든 범위의 리소스 사용 값을 살펴보고, 데이터베이스 워크로드가 낮은 컴퓨팅 크기에 적합한 빈도를 백분율로 확인해야 합니다. 다음 쿼리는 이 예에서 계산된 40%의 임계값을 기준으로 리소스 규격당 적합률을 출력합니다.
 

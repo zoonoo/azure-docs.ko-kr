@@ -1,52 +1,31 @@
 ---
-title: Azure에서 업데이트 관리 배포에 대한 사전 및 사후 스크립트 구성
+title: Azure의 업데이트 관리 배포에서 사전 스크립트 및 사후 스크립트 관리
 description: 이 문서에서는 업데이트 배포를 위해 사전 스크립트 및 사후 스크립트를 구성하고 관리하는 방법을 설명합니다.
 services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: bbf7f2945ad6a94c51cfd0c7db1e8c85d739c6ed
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 00cde5255f9c9a2baa7c7042ae2a8f73448da0ae
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631630"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81679980"
 ---
-# <a name="manage-pre-and-post-scripts"></a>스크립트 전과 후 관리
+# <a name="manage-pre-scripts-and-post-scripts"></a>사전 스크립트 및 사후 스크립트 관리
 
-사전 스크립트 및 사후 스크립트를 사용하면 업데이트 배포 전(사전 작업) 및 사후(작업 후)에서 Azure Automation 계정에서 PowerShell Runbook을 실행할 수 있습니다. 사전 및 사후 스크립트는 로컬이 아닌 Azure 컨텍스트에서 실행됩니다. 사전 스크립트는 업데이트 배포가 시작될 때 실행됩니다. 사후 스크립트는 배포가 끝나고 구성된 재부팅 후에 실행됩니다.
+사전 스크립트와 사후 스크립트는 업데이트 배포 전(사전 작업) 및 사후(작업 후) Azure Automation 계정에서 실행되는 런북입니다. 사전 스크립트와 사후 스크립트는 로컬이 아닌 Azure 컨텍스트에서 실행됩니다. 사전 스크립트는 업데이트 배포가 시작될 때 실행됩니다. 사후 스크립트는 배포가 끝나고 구성된 재부팅 후에 실행됩니다.
 
-## <a name="runbook-requirements"></a>Runbook 요구 사항
+>[!NOTE]
+>이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. 하이브리드 Runbook 작업자의 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치를](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)참조하십시오. 자동화 계정의 경우 Azure 자동화 에서 [Azure PowerShell 모듈을 업데이트하는 방법을](automation-update-azure-modules.md)사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
 
-Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 자동화 계정으로 가져와서 게시해야 합니다. 이 프로세스에 대한 자세한 내용은 [Runbook 게시를](manage-runbooks.md#publishing-a-runbook)참조하십시오.
+## <a name="pre-script-and-post-script-requirements"></a>스크립트 전 및 스크립트 후 요구 사항
 
-## <a name="using-a-pre-script-or-post-script"></a>사전 스크립트 또는 사후 스크립트 사용
+Runbook을 사전 스크립트 또는 사후 스크립트로 사용하려면 Runbook을 자동화 계정으로 가져오고 [Runbook을 게시해야](manage-runbooks.md#publishing-a-runbook)합니다.
 
-업데이트 배포에서 사전 스크립트 또는 사후 스크립트를 사용하려면 업데이트 배포를 만드는 것으로 시작합니다. **사전 스크립트 + 사후 스크립트를 선택합니다.** 그러면 **사전 스크립트 + 사후 스크립트 선택** 페이지가 열립니다.
+## <a name="pre-script-and-post-script-parameters"></a>스크립트 전 및 스크립트 후 매개 변수
 
-![스크립트 선택](./media/pre-post-scripts/select-scripts.png)
-
-사용할 스크립트를 선택합니다. 이 예제에서는 **UpdateManagement-TurnOnVms** 실행책을 사용합니다. Runbook을 선택하면 스크립트 **구성** 페이지가 열립니다. **스크립트 이전**을 선택한 다음 **확인을**선택합니다.
-
-**UpdateManagement-TurnOffVms** 스크립트에 대해 이 프로세스를 반복합니다. 그러나 **스크립트 유형을**선택하면 **스크립트 후**를 선택합니다.
-
-이제 **선택한 항목** 섹션에 선택한 스크립트가 모두 표시됩니다. 하나는 사전 스크립트이고 다른 하나는 사후 스크립트입니다.
-
-![선택한 항목](./media/pre-post-scripts/selected-items.png)
-
-업데이트 배포 구성을 완료합니다.
-
-업데이트 배포가 완료되면 **업데이트 배포로** 이동하여 결과를 볼 수 있습니다. 당신이 볼 수 있듯이, 상태는 사전 스크립트 및 사후 스크립트에 대 한 제공 됩니다.
-
-![업데이트 결과](./media/pre-post-scripts/update-results.png)
-
-업데이트 배포 실행을 선택하면 사전 및 사후 스크립트에 추가 세부 정보가 표시됩니다. 실행 시 스크립트 원본에 대한 링크가 제공됩니다.
-
-![배포 실행 결과](./media/pre-post-scripts/deployment-run.png)
-
-## <a name="passing-parameters"></a>매개 변수 전달
-
-스크립트 이전 및 사후 를 구성할 때 Runbook 을 예약하는 것과 같은 매개 변수를 전달할 수 있습니다. 매개 변수는 업데이트 배포를 만들 때 정의됩니다. 스크립트 이전 및 사후 는 다음 형식을 지원합니다.
+사전 스크립트와 사후 스크립트를 구성할 때 Runbook 을 예약하는 것과 같은 매개 변수를 전달할 수 있습니다. 매개 변수는 업데이트 배포를 만들 때 정의됩니다. 사전 스크립트 및 사후 스크립트는 다음 형식을 지원합니다.
 
 * [char]
 * [byte]
@@ -58,13 +37,11 @@ Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 자�
 * [DateTime]
 * [string]
 
+스크립트 전 및 스크립트 후 Runbook 매개 변수는 부울, 개체 또는 배열 형식을 지원하지 않습니다. 이러한 값으로 인해 Runbook이 실패합니다. 
+
 다른 개체 형식이 필요한 경우 Runbook에서 사용자 고유의 논리를 사용하여 다른 형식으로 캐스트할 수 있습니다.
 
-표준 Runbook 매개 변수 외에도 다른 매개 변수가 제공됩니다: **SoftwareUpdateConfigurationRunContext**
-
-이 매개 변수는 JSON 문자열이며 사전 또는 사후 스크립트에서 매개 변수를 정의하는 경우 업데이트 배포에 의해 자동으로 전달됩니다. 매개 변수에는 [SoftwareUpdateconfigurations API에서](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration)반환되는 정보의 하위 집합인 업데이트 배포에 대한 정보가 포함되어 있습니다. 
-
-다음 표에서는 변수에 제공된 속성을 보여 주며,
+표준 Runbook 매개 변수 외에도 `SoftwareUpdateConfigurationRunContext` 매개 변수(JSON 문자열 유형)가 제공됩니다. 사전 스크립트 또는 스크립트 후 Runbook에서 매개 변수를 정의하는 경우 업데이트 배포에 의해 자동으로 전달됩니다. 매개 변수에는 [SoftwareUpdateconfigurations API에서](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration)반환되는 정보의 하위 집합인 업데이트 배포에 대한 정보가 포함되어 있습니다. 아래 섹션에서는 연관된 속성을 정의합니다.
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext 속성
 
@@ -74,7 +51,7 @@ Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 자�
 |SoftwareUpdateConfigurationRunId     | 실행에 대한 고유 ID입니다.        |
 |SoftwareUpdateConfigurationSettings     | 소프트웨어 업데이트 구성과 관련된 속성의 컬렉션입니다.         |
 |SoftwareUpdateConfigurationSettings.operatingSystem     | 업데이트 배포를 대상으로 하는 운영 체제입니다.         |
-|SoftwareUpdateConfigurationSettings.duration     | 업데이트 배포의 최대 기간은 `PT[n]H[n]M[n]S` ISO8601에 따라 실행됩니다. *유지 관리 기간이라고도*합니다.          |
+|SoftwareUpdateConfigurationSettings.duration     | 업데이트 배포의 최대 기간은 `PT[n]H[n]M[n]S` ISO8601에 따라 실행됩니다. 유지 관리 기간이라고도 합니다.          |
 |SoftwareUpdateConfigurationSettings.Windows     | Windows 컴퓨터와 관련된 속성의 컬렉션입니다.         |
 |SoftwareUpdateConfigurationSettings.Windows.excludedKbNumbers     | 업데이트 배포에서 제외된 B의 목록입니다.        |
 |SoftwareUpdateConfigurationSettings.Windows.includedUpdateClassifications     | 업데이트 배포에 대해 선택한 분류를 업데이트합니다.        |
@@ -115,8 +92,33 @@ Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 자�
 모든 속성이 있는 전체 예제는 다음에서 [찾을](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)수 있습니다.
 
 > [!NOTE]
-> 개체에는 `SoftwareUpdateConfigurationRunContext` 컴퓨터에 대한 중복 항목이 포함될 수 있습니다. 이로 인해 사전 및 사후 스크립트가 동일한 컴퓨터에서 여러 번 실행될 수 있습니다. 이 동작을 해결하려면 `Sort-Object -Unique` 스크립트에서 고유한 VM 이름만 선택하는 데 사용합니다.
+> 개체에는 `SoftwareUpdateConfigurationRunContext` 컴퓨터에 대한 중복 항목이 포함될 수 있습니다. 이로 인해 사전 스크립트와 사후 스크립트가 동일한 컴퓨터에서 여러 번 실행될 수 있습니다. 이 동작을 해결하려면 `Sort-Object -Unique` 고유한 VM 이름만 선택하는 데 사용합니다.
 
+## <a name="using-a-pre-script-or-post-script-in-a-deployment"></a>배포에서 사전 스크립트 또는 사후 스크립트 사용
+
+업데이트 배포에서 사전 스크립트 또는 사후 스크립트를 사용하려면 업데이트 배포를 만드는 것으로 시작합니다. **사전 스크립트 + 사후 스크립트를 선택합니다.** 그러면 **사전 스크립트 + 사후 스크립트 선택** 페이지가 열립니다.
+
+![스크립트 선택](./media/pre-post-scripts/select-scripts.png)
+
+사용할 스크립트를 선택합니다. 이 예제에서는 **UpdateManagement-TurnOnVms** 실행책을 사용합니다. Runbook을 선택하면 스크립트 **구성** 페이지가 열립니다. **스크립트 이전**을 선택한 다음 **확인을**선택합니다.
+
+**UpdateManagement-TurnOffVms** 스크립트에 대해 이 프로세스를 반복합니다. 그러나 **스크립트 유형을**선택하면 **스크립트 후**를 선택합니다.
+
+이제 **선택한 항목** 섹션에 선택한 스크립트가 모두 표시됩니다. 하나는 사전 스크립트이고 다른 하나는 사후 스크립트입니다.
+
+![선택한 항목](./media/pre-post-scripts/selected-items.png)
+
+업데이트 배포 구성을 완료합니다.
+
+업데이트 배포가 완료되면 **업데이트 배포로** 이동하여 결과를 볼 수 있습니다. 당신이 볼 수 있듯이, 상태는 사전 스크립트 및 사후 스크립트에 대 한 제공 됩니다.
+
+![업데이트 결과](./media/pre-post-scripts/update-results.png)
+
+업데이트 배포 실행을 선택하면 사전 스크립트 및 사후 스크립트에 대한 추가 세부 정보가 표시됩니다. 실행 시 스크립트 원본에 대한 링크가 제공됩니다.
+
+![배포 실행 결과](./media/pre-post-scripts/deployment-run.png)
+
+es를 스크립트에 입력합니다.
 
 ## <a name="stopping-a-deployment"></a>배포 중지
 
@@ -135,9 +137,47 @@ foreach($summary in $finalStatus)
 }
 ```
 
+
+
+## <a name="interacting-with-machines"></a>기계와의 상호 작용
+
+사전 스크립트 및 사후 작업은 배포의 컴퓨터에서 직접 실행되지 않고 자동화 계정의 런북으로 실행됩니다. 사전 작업 및 사후 작업도 Azure 컨텍스트에서 실행되며 Azure 가 아닌 컴퓨터에 액세스할 수 없습니다. 다음 섹션에서는 Azure VM이든 Azure가 아닌 컴퓨터이든 관계없이 컴퓨터와 직접 상호 작용하는 방법을 보여 줍니다.
+
+### <a name="interact-with-azure-machines"></a>Azure 컴퓨터와 상호 작용
+
+사전 작업 및 사후 작업은 런북으로 실행되며 기본적으로 배포의 Azure VM에서 실행되지 않습니다. Azure VM과 상호 작용하려면 다음 항목이 있어야 합니다.
+
+* 실행 계정
+* 실행하려는 Runbook
+
+Azure 컴퓨터와 상호 작용하려면 [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0) cmdlet을 사용하여 Azure VM과 상호 작용해야 합니다. 이 작업을 수행하는 방법에 대한 예는 Runbook 예제 [업데이트 관리 - Run 명령을 사용하여 스크립트를 실행합니다.](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc)
+
+### <a name="interact-with-non-azure-machines"></a>Azure가 아닌 컴퓨터와 상호 작용
+
+사전 작업 및 사후 작업은 Azure 컨텍스트에서 실행되며 Azure가 아닌 컴퓨터에 액세스할 수 없습니다. Azure가 아닌 컴퓨터와 상호 작용하려면 다음 항목이 있어야 합니다.
+
+* 실행 계정
+* 머신에 설치된 Hybrid Runbook Worker
+* 로컬에서 실행하려는 Runbook
+* 상위 런북
+
+Azure가 아닌 컴퓨터와 상호 작용하기 위해 상위 Runbook은 Azure 컨텍스트에서 실행됩니다. 이 실행북은 [시작-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) cmdlet을 가진 자식 실행책을 호출합니다. `RunOn` 매개 변수를 지정하고, 스크립트가 실행될 Hybrid Runbook Worker의 이름을 제공해야 합니다. Runbook 예제 [업데이트 관리 - 로컬로 스크립트실행](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44)을 참조하십시오.
+
+## <a name="aborting-patch-deployment"></a>패치 배포 중단
+
+사전 스크립트에서 오류를 반환하는 경우 배포를 중단할 수 있습니다. 이렇게 하려면 오류를 구성하는 논리에 대해 스크립트에 오류를 [throw해야](/powershell/module/microsoft.powershell.core/about/about_throw) 합니다.
+
+```powershell
+if (<My custom error logic>)
+{
+    #Throw an error to fail the patch deployment.
+    throw "There was an error, abort deployment"
+}
+```
+
 ## <a name="samples"></a>샘플
 
-스크립트 이전 및 사후 스크립트에 대한 샘플은 [스크립트 센터 갤러리](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell) 및 [PowerShell 갤러리에서](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22)찾을 수 있으며 Azure 포털을 통해 가져올 수 있습니다. 이렇게 하려면 자동화 계정, **프로세스 자동화에서** **Runbook 갤러리를**선택합니다. 필터에 대해 **업데이트 관리**를 사용합니다.
+사전 스크립트 및 사후 스크립트에 대한 샘플은 [스크립트 센터 갤러리](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell) 및 [PowerShell 갤러리에서](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22)찾을 수 있으며 Azure 포털을 통해 가져올 수 있습니다. 이렇게 하려면 자동화 계정, **프로세스 자동화에서** **Runbook 갤러리를**선택합니다. 필터에 대해 **업데이트 관리**를 사용합니다.
 
 ![갤러리 목록](./media/pre-post-scripts/runbook-gallery.png)
 
@@ -152,7 +192,7 @@ foreach($summary in $finalStatus)
 > [!IMPORTANT]
 > Runbook을 가져온 후 게시해야 사용할 수 있습니다. 이렇게 하려면 자동화 계정에서 runbook을 찾고 **편집을**선택한 다음 **게시를**선택합니다.
 
-샘플은 모두 다음 예제에 정의된 기본 템플릿을 기반으로 합니다. 이 템플릿은 사전 및 사후 스크립트와 함께 사용할 사용자 고유의 Runbook을 만드는 데 사용할 수 있습니다. Azure를 사용 하 여 인증 하 `SoftwareUpdateConfigurationRunContext` 고 매개 변수를 처리 하는 데 필요한 논리가 포함 됩니다.
+샘플은 모두 다음 예제에 정의된 기본 템플릿을 기반으로 합니다. 이 템플릿은 사전 스크립트 및 사후 스크립트와 함께 사용할 사용자 고유의 Runbook을 만드는 데 사용할 수 있습니다. Azure를 사용 하 여 인증 하 `SoftwareUpdateConfigurationRunContext` 고 매개 변수를 처리 하는 데 필요한 논리가 포함 됩니다.
 
 ```powershell
 <#
@@ -174,13 +214,13 @@ param(
 #This requires a RunAs account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
-Add-AzureRmAccount `
+Add-AzAccount `
     -ServicePrincipal `
     -TenantId $ServicePrincipalConnection.TenantId `
     -ApplicationId $ServicePrincipalConnection.ApplicationId `
     -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
 
-$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+$AzureContext = Select-AzSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
 #endregion BoilerplateAuthentication
 
 #If you wish to use the run context, it must be converted from JSON
@@ -194,7 +234,7 @@ Write-Output $context
 #Example: How to create and write to a variable using the pre-script:
 <#
 #Create variable named after this run so it can be retrieved
-New-AzureRmAutomationVariable -ResourceGroupName $ResourceGroup –AutomationAccountName $AutomationAccount –Name $runId -Value "" –Encrypted $false
+New-AzAutomationVariable -ResourceGroupName $ResourceGroup –AutomationAccountName $AutomationAccount –Name $runId -Value "" –Encrypted $false
 #Set value of variable
 Set-AutomationVariable –Name $runId -Value $vmIds
 #>
@@ -205,45 +245,8 @@ $variable = Get-AutomationVariable -Name $runId
 #>
 ```
 
-## <a name="interacting-with-machines"></a>기계와의 상호 작용
-
-사전 및 사후 작업은 자동화 계정에서 실행되지 않고 배포의 컴퓨터에서 직접 실행되지 않습니다. 사전 및 사후 작업도 Azure 컨텍스트에서 실행되며 Azure 가 아닌 컴퓨터에 액세스할 수 없습니다. 다음 섹션에서는 Azure VM이든 Azure가 아닌 컴퓨터이든 관계없이 컴퓨터와 직접 상호 작용하는 방법을 보여 줍니다.
-
-### <a name="interacting-with-azure-machines"></a>Azure 컴퓨터와의 상호 작용
-
-사전 및 사후 작업은 런북으로 실행되며 기본적으로 배포의 Azure VM에서 실행되지 않습니다. Azure VM과 상호 작용하려면 다음 항목이 있어야 합니다.
-
-* 실행 계정
-* 실행하려는 Runbook
-
-Azure 컴퓨터와 상호 작용하려면 [호출-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) cmdlet을 사용하여 Azure VM과 상호 작용해야 합니다. 이 작업을 수행하는 방법에 대한 예는 Runbook 예제 [업데이트 관리 - Run 명령을 사용하여 스크립트를 실행합니다.](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc)
-
-### <a name="interacting-with-non-azure-machines"></a>Azure가 아닌 컴퓨터와의 상호 작용
-
-사전 및 사후 작업은 Azure 컨텍스트에서 실행되며 Azure 가 아닌 컴퓨터에 액세스할 수 없습니다. Azure가 아닌 컴퓨터와 상호 작용하려면 다음 항목이 있어야 합니다.
-
-* 실행 계정
-* 머신에 설치된 Hybrid Runbook Worker
-* 로컬에서 실행하려는 Runbook
-* 상위 런북
-
-Azure가 아닌 컴퓨터와 상호 작용하기 위해 상위 Runbook은 Azure 컨텍스트에서 실행됩니다. 이 Runbook은 [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet을 사용하여 자식 Runbook을 호출합니다. `-RunOn` 매개 변수를 지정하고, 스크립트가 실행될 Hybrid Runbook Worker의 이름을 제공해야 합니다. 자세한 내용은 Runbook 예제 [업데이트 관리 - 로컬에서 스크립트를 실행합니다.](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44)
-
-## <a name="abort-patch-deployment"></a>패치 배포 중단
-
-사전 스크립트에서 오류를 반환하는 경우 배포를 중단할 수 있습니다. 이렇게 하려면 오류를 구성하는 논리에 대해 스크립트에 오류를 [throw해야](/powershell/module/microsoft.powershell.core/about/about_throw) 합니다.
-
-```powershell
-if (<My custom error logic>)
-{
-    #Throw an error to fail the patch deployment.
-    throw "There was an error, abort deployment"
-}
-```
-
-## <a name="known-issues"></a>알려진 문제
-
-* 사전 및 사후 스크립트를 사용하는 경우 부울, 개체 또는 배열을 매개 변수에 전달할 수 없습니다. 이렇게 하면 Runbook이 실패합니다. 지원되는 형식의 전체 목록은 [매개 변수 전달을](#passing-parameters)참조하십시오.
+> [!NOTE]
+> 그래픽이 아닌 PowerShell `Add-AzAccount` 런북의 `Add-AzureRMAccount` 경우 [Connect-AzAccount에](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0)대한 별칭입니다. 이러한 cmdlet을 사용하거나 자동화 계정의 모듈을 최신 버전으로 [업데이트할](automation-update-azure-modules.md) 수 있습니다. 새 자동화 계정을 방금 만든 경우에도 모듈을 업데이트해야 할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -251,4 +254,3 @@ Windows 가상 컴퓨터에 대한 업데이트를 관리하는 방법을 알아
 
 > [!div class="nextstepaction"]
 > [Azure Windows VM에 대한 업데이트 및 패치 관리](automation-tutorial-update-management.md)
-

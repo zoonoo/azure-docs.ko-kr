@@ -6,18 +6,18 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: f8f1eb353087c5121eaafb4c8789e7a2f7638b99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1ff8e0aedce5d3a6acc9a39084cf0839efdd88e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475124"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678449"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 
 Azure Functions는 클래스와 해당 종속성 간에 [제어(IoC)의 반전을](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) 달성하는 기술인 DI(종속성 주입) 소프트웨어 디자인 패턴을 지원합니다.
 
-- Azure 함수의 종속성 주입은 .NET 코어 종속성 주입 기능을 기반으로 합니다. [.NET Core 종속성 주입에](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) 익숙해지는 것이 좋습니다. 그러나 종속성을 재정의하는 방법과 소비 계획에서 Azure Functions를 통해 구성 값을 읽는 방법에는 차이가 있습니다.
+- Azure 함수의 종속성 주입은 .NET 코어 종속성 주입 기능을 기반으로 합니다. [.NET Core 종속성 주입에](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) 익숙해지는 것이 좋습니다. 종속성을 재정의하는 방법과 사용량 계획에서 Azure Functions를 통해 구성 값을 읽는 방법에는 차이가 있습니다.
 
 - 종속성 주입에 대한 지원은 Azure Functions 2.x에서 시작합니다.
 

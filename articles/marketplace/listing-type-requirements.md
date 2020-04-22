@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: dsindona
-ms.openlocfilehash: 1ff6e34936234d6636fabc6c5e17dd32416b4ac2
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: c9936e9c406e262c06d9016b88f8999e46dcb917
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387855"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684350"
 ---
 # <a name="requirements-by-listing-type"></a>등록 형식별 요구 사항  
 마케팅 및 기술 콘텐츠 요구 사항은 상점, 제품 유형 및 열거 유형에 따라 달라집니다. 준수 여부를 확인하기 위해 다음 사양을 검토합니다.  
@@ -27,7 +27,7 @@ ms.locfileid: "80387855"
 
 | 요구 사항 | 세부 정보 | 필수 또는 권장 |  
 |:--- |:--- |:--- |  
-| ***Azure Active 디렉터리(Azure AD)*** | 앱은 동의가 이루어질 경우 Azure Active Directory 페더레이션 Single Sign-On(Azure AD 페더레이션 SSO)을 허용해야 합니다.<ul> <li>Azure AD 페더레이션 SSO 사용에 대한 자세한 내용은 [docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)에 있는 Azure Active Directory 애플리케이션 갤러리에 있지 않은 애플리케이션에 Single Sign-On 구성 페이지를 참조하세요.</li> </ul> | 필수 |   
+| ***Azure AD(Azure Active Directory)*** | 앱은 동의가 이루어질 경우 Azure Active Directory 페더레이션 Single Sign-On(Azure AD 페더레이션 SSO)을 허용해야 합니다.<ul> <li>Azure AD 페더레이션 SSO 사용에 대한 자세한 내용은 [docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)에 있는 Azure Active Directory 애플리케이션 갤러리에 있지 않은 애플리케이션에 Single Sign-On 구성 페이지를 참조하세요.</li> </ul> | 필수 |   
 | ***Microsoft Cloud Services와의 통합*** | 앱은 Microsoft Power BI와 같은 Microsoft 클라우드 서비스, Cortana Intelligence 또는 Microsoft Azure 서비스와 통합되어야 합니다.<ul> <li>Microsoft 클라우드 서비스의 예로는 사물 인터넷이 있습니다.</li> </ul> | 권장 |  
 | ***관객*** | 앱은 기간 업무 사용자 및 비즈니스 소유자에 대한 것이어야 합니다. | 필수 | 
 | ***비즈니스용 SaaS(Software as a Service) 앱*** | 앱은 다음 요구 사항을 충족해야 합니다.<ul> <li>기간 업무 SaaS 앱</li> <li>비즈니스 프로세스 중점</li> <li>비즈니스 고객 대상</li> <li>사용자가 사용자 이름 및 암호와 같은 회사 자격 증명을 사용하여 로그인 가능</li> </ul> | 필수 |  
@@ -67,7 +67,7 @@ ms.locfileid: "80387855"
 | 요구 사항 | 세부 정보 |  
 |:--- |:--- |  
 | 서비스 제안 특성 | 컨설팅 서비스는 다음 기준을 충족해야 합니다.<ul> <li>고정 범위, 고정 기간, 고정 가격(또는 무료) 약정을 제공합니다.</li> <li>주로 판매 전 지원을 지향합니다.</li> <li>단일 고객으로 제한합니다.</li> <li>사이트에서 수행합니다.</li> </ul> |  
-| 컨설팅 서비스에 대한 파트너 요구 사항 | 서비스에 대한 관련 영역의 기준을 충족합니다.<table><tr><th>솔루션 영역</th><th>조건</th></tr><tr><td>Dynamics 365 for Customer Engagement</td><td>실버 또는 골드 클라우드 고객 관계 관리 역량을 갖습니다.</td></tr><tr><td>Dynamics 365 for Operations, Enterprise Edition</td><td>실버 또는 골드 엔터프라이즈 리소스 플랜 역량을 갖고, 최근 12개월 동안 클라우드 운영에서 최소 25,000 USD 수익을 달성합니다.</td></tr><tr><td>Dynamics 365 for Finance and Operations, Business Edition</td><td>한 명 이상의 고객에 대해 CSP(클라우드 서비스 공급자) 또는 DPOR(디지털 공식 파트너) 역할을 수행합니다.</td></tr><tr><td>Power BI</td><td>솔루션 파트너 기준을 충족합니다.</td></tr><tr><td>PowerApps</td><td>파트너 쇼케이스 솔루션이 있습니다.</td></tr></table><ul> <li>고객 관계 관리에 대한 자세한 내용은 [partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency)에 있는 클라우드 고객 관계 관리 페이지를 참조하세요.</li> <li>리소스 플랜에 대한 자세한 내용은 [partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency)에 있는 엔터프라이즈 리소스 플랜 페이지를 참조하세요.</li> <li>CSP에 대한 자세한 내용은 [partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider)에 있는 클라우드 서비스 공급자 페이지를 참조하세요.</li> <li>DPOR에 대한 자세한 내용은 [partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record)에 있는 디지털 공식 파트너 및 파트너 연결 페이지를 참조하세요.</li> <li>솔루션 파트너 기준에 대한 자세한 내용은 [www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf)에 있는 솔루션 파트너 개요 및 인센티브 문서를 참조하세요.</li> <li>파트너 쇼케이스에 대한 자세한 내용은 [powerapps.microsoft.com/partner-showcase](https://powerapps.microsoft.com/partner-showcase)에 있는 파트너 쇼케이스 페이지를 참조하세요.</li> </ul> |  
+| 컨설팅 서비스에 대한 파트너 요구 사항 | 서비스에 대한 관련 영역의 기준을 충족합니다.<table><tr><th>솔루션 영역</th><th>조건</th></tr><tr><td>Dynamics 365 for Customer Engagement</td><td>실버 또는 골드 클라우드 고객 관계 관리 역량을 갖습니다.</td></tr><tr><td>Dynamics 365 for Operations, Enterprise Edition</td><td>실버 또는 골드 엔터프라이즈 리소스 플랜 역량을 갖고, 최근 12개월 동안 클라우드 운영에서 최소 25,000 USD 수익을 달성합니다.</td></tr><tr><td>Dynamics 365 for Finance and Operations, Business Edition</td><td>한 명 이상의 고객에 대해 CSP(클라우드 서비스 공급자) 또는 DPOR(디지털 공식 파트너) 역할을 수행합니다.</td></tr><tr><td>Power BI</td><td>솔루션 파트너 기준을 충족합니다.</td></tr><tr><td>PowerApps</td><td>파트너 쇼케이스 솔루션이 있습니다.</td></tr></table><ul> <li>고객 관계 관리에 대한 자세한 내용은 [partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency)에 있는 클라우드 고객 관계 관리 페이지를 참조하세요.</li> <li>리소스 플랜에 대한 자세한 내용은 [partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency)에 있는 엔터프라이즈 리소스 플랜 페이지를 참조하세요.</li> <li>CSP에 대한 자세한 내용은 [partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider)에 있는 클라우드 서비스 공급자 페이지를 참조하세요.</li> <li>DPOR에 대한 자세한 내용은 [partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record)에 있는 디지털 공식 파트너 및 파트너 연결 페이지를 참조하세요.</li> <li>솔루션 파트너 기준에 대한 자세한 내용은 에 있는 솔루션 파트너 [https://partner.microsoft.com/en-us/membership/partner-incentives](https://partner.microsoft.com/en-us/membership/partner-incentives)개요 및 인센티브 문서를 참조하십시오.</li> <li>파트너 쇼케이스에 대한 자세한 내용은 [powerapps.microsoft.com/partner-showcase](https://powerapps.microsoft.com/partner-showcase)에 있는 파트너 쇼케이스 페이지를 참조하세요.</li> </ul> |  
 
 #### <a name="requirements-azure-marketplace-list-consulting-service"></a>요구 사항: Azure Marketplace: 나열: 컨설팅 서비스  
 
@@ -102,19 +102,19 @@ ms.locfileid: "80387855"
 
 #### <a name="requirements-azure-marketplace-trial-free-trial--saas-trial"></a>요구 사항: Azure Marketplace: 평가판: 평가판/SaaS 평가판  
 
-| 혜택 | 요구 사항 |  
+| 이점 | 요구 사항 |  
 |:--- |:--- |  
 | 고객이 유료 사용으로 자동 전환 방법을 사용하여 제품을 구매하기 전에 사용해 보도록 합니다. 또한 고객에 대한 개념 증명 및 Microsoft 판매 팀과의 공동 계약을 사용할 수 있습니다. | 사용자의 솔루션은 가상 머신 또는 솔루션 템플릿입니다.<br /><br />사용자의 솔루션은 SaaS 제품이며 다중 테넌트 SaaS 제품을 제공합니다.<br /><br />사용자는 고객이 빨리 정상 작동 상태에 이르도록 하는 처음 실행 환경을 가지고 있습니다.<br /><br />사용자는 단일 테넌트를 가지고 있지만 고객을 게스트 사용자로 추가합니다. |  
 
 #### <a name="requirements-azure-marketplace-trial-interactive-demo"></a>요구 사항: Azure Marketplace: 평가판: 대화형 데모  
 
-| 혜택 | 요구 사항 |  
+| 이점 | 요구 사항 |  
 |:--- |:--- |  
 | 고객이 복잡한 설치 없이 작동되는 제품을 볼 수 있도록 합니다. | 솔루션이 평가 기간에 구현하기 어려운 복잡한 설정을 요구합니다. |  
 
 #### <a name="requirements-azure-marketplace-trial-test-drive"></a>요구 사항: Azure Marketplace: 평가판: 시험 사용  
 
-| 혜택 | 요구 사항 |  
+| 이점 | 요구 사항 |  
 |:--- |:--- |  
 | 고객이 사용자의 제품을 구입하기 전에 시험 사용할 수 있도록 합니다.<br /><br />미리 구성된 설정을 사용하여 솔루션 안내 방식 환경을 제공합니다.<br /><br />시험 사용을 사용할 경우 다음과 같은 추가적인 혜택이 있습니다.<ul> <li>마켓플레이스에서 진행되는 사용자 검색의 27%는 시험 사용해본 제품만 보려는 사용자에 해당합니다.</li> <li>시험 사용을 제공하는 제품은 시험 사용을 제공하지 않는 제품보다 38% 더 많은 잠재 고객을 창출합니다.</li> <li>마켓플레이스에서 새 고객이 제품을 구입하는 경우 중 36%가 시험 사용해본 고객에 해당합니다.</li> <li>시험 사용은 Microsoft 현장 판매자들이 공동 판매를 위해 제품을 보다 잘 이해할 수 있도록 합니다.</li> </ul> | 사용자의 솔루션은 단일 테넌트가 있는 가상 머신, 솔루션 템플릿 또는 SaaS 앱이거나, 프로비전하기 복잡합니다. <br /><br />평가판을 유료 제품으로 전환할 방법이 없습니다. |  
 

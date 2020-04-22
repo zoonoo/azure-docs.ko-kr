@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 4e20129502e7538bd2f3354b75b33095970e1595
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9e8aa9bbbdf166ba0caf29cd0bce22b8ed321e4e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411854"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685195"
 ---
 # <a name="azure-sql-auditing"></a>Azure SQL 감사
 
@@ -111,9 +111,6 @@ Azure SQL 데이터베이스 감사는 감사 레코드의 문자 필드에 대�
 ### <a name=""></a><a id="audit-log-analytics-destination">로그 분석 대상에 대한 감사</a>
   
 Log Analytics 작업 영역에 감사 로그를 쓰도록 구성하려면 **Log Analytics(미리 보기)** 를 선택하고 **Log Analytics 세부 정보**를 엽니다. 로그를 쓸 Log Analytics 작업 영역을 선택하거나 만든 다음, **확인**을 클릭합니다.
-    
-  > [!WARNING]
-   > Log Analytics에 대한 감사를 사용하도록 설정하면 수집 속도에 따라 비용이 발생합니다. 이 [옵션을](https://azure.microsoft.com/pricing/details/monitor/)사용하는 데 드는 관련 비용에 유의하거나 Azure 저장소 계정에 감사 로그를 저장하는 것이 좋습니다.
    
    ![로그애널리틱스워크스페이스](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 

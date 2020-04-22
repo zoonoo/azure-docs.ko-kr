@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: f577059e1ebf70e3a9dfe9e538a9d3d49d7c8e96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ee186684b702a42335c6e1a7832cc5c761a69d0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71200000"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686932"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>OPC Vault 인증서 관리 서비스 구축 및 배포
 
@@ -90,7 +90,7 @@ PowerShell 스크립트는 OPC Vault 마이크로 서비스 및 응용 프로그
 
 방법은 다음과 같습니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 서비스가 배포된 리소스 그룹으로 이동합니다.
 3. **리소스 그룹 삭제**를 선택하고 확인합니다.
 4. 잠시 후 배포된 모든 서비스 구성 요소가 삭제됩니다.
@@ -107,7 +107,7 @@ PowerShell 스크립트는 OPC Vault 마이크로 서비스 및 응용 프로그
 
 ### <a name="website-name-already-in-use"></a>이미 사용 중이신 웹 사이트 이름
 
-웹 사이트의 이름이 이미 사용 중일 수 있습니다. 다른 리소스 그룹 이름을 사용해야 합니다. 배포 스크립트에서 사용 중인 호스트 https://resourcegroupname.azurewebsites.net 이름은 https://resourgroupname-service.azurewebsites.net다음과 같습니다.
+웹 사이트의 이름이 이미 사용 중일 수 있습니다. 다른 리소스 그룹 이름을 사용해야 합니다. 배포 스크립트에서 사용 중인 호스트 이름은\/https: https:\//resourcegroupname.azurewebsites.net 및 https: /resourgroupname-service.azurewebsites.net.
 서비스의 다른 이름은 짧은 이름 해시의 조합에 의해 만들어지며 다른 서비스와 충돌하지 않을 수 있습니다.
 
 ### <a name="azure-ad-registration"></a>Azure AD 등록 

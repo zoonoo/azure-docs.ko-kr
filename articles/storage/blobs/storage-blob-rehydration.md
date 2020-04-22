@@ -4,17 +4,17 @@ description: 데이터에 액세스할 수 있도록 아카이브 저장소에�
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/14/2019
+ms.date: 04/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 0a7012d9daa808933a51ac05862a8a9aa4cfcf77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82ea4ad23e3207f5641ade196f69595cd1e7b323
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77614793"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684090"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>아카이브 계층에서 Blob 데이터에 수화
 
@@ -31,15 +31,21 @@ Blob이 아카이브 액세스 계층에 있는 동안 오프라인으로 간주
 
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>보관된 Blob을 온라인 계층에 복사
 
-아카이브 Blob에 수분을 다시 공급하지 않으려면 [Blob 복사](https://docs.microsoft.com/rest/api/storageservices/copy-blob) 작업을 수행하도록 선택할 수 있습니다. 새 Blob이 온라인 핫 또는 쿨 계층에서 만들어지는 동안 원본 Blob은 아카이브에서 수정되지 않은 상태로 유지됩니다. Blob 복사 작업에서 선택적 *x-ms-rehydrate 우선 순위 속성을* 표준 또는 높음(미리 보기)으로 설정하여 Blob 복사본을 만들 우선 순위를 지정할 수도 있습니다.
-
-보관 할 부블은 동일한 저장소 계정 내에서 온라인 대상 계층에복사할 수 있습니다. 아카이브 Blob을 다른 아카이브 Blob에 복사하는 것은 지원되지 않습니다.
+아카이브 Blob에 수분을 다시 공급하지 않으려면 [Blob 복사](https://docs.microsoft.com/rest/api/storageservices/copy-blob) 작업을 수행하도록 선택할 수 있습니다. 새 Blob이 온라인 핫 또는 쿨 계층에서 만들어지는 동안 원본 Blob은 아카이브에서 수정되지 않은 상태로 유지됩니다. Blob 복사 작업에서 선택적 *x-ms-rehydrate 우선 순위 속성을* 표준 또는 높음으로 설정하여 Blob 복사본을 만들 우선 순위를 지정할 수도 있습니다.
 
 아카이브에서 Blob을 복사하는 것은 선택한 재수화 우선 순위에 따라 완료하는 데 몇 시간이 걸릴 수 있습니다. 뒤에서 **Blob 복사** 작업은 아카이브 소스 Blob을 읽고 선택한 대상 계층에서 새 온라인 Blob을 만듭니다. Blob을 나열할 때 새 Blob이 표시될 수 있지만 원본 아카이브 Blob에서 읽기가 완료되고 데이터가 새 온라인 대상 Blob에 기록될 때까지 데이터를 사용할 수 없습니다. 새 Blob은 독립 복사본으로 작동하며 수정하거나 삭제해도 원본 아카이브 Blob에는 영향을 주지 않습니다.
 
+보관 할 부블은 동일한 저장소 계정 내에서 온라인 대상 계층에복사할 수 있습니다. 아카이브 Blob을 다른 아카이브 Blob에 복사하는 것은 지원되지 않습니다. 다음 표는 CopyBlob의 기능을 나타냅니다.
+
+|                                           | **핫 계층 소스**   | **쿨 티어 소스** | **아카이브 계층 소스**    |
+| ----------------------------------------- | --------------------- | -------------------- | ------------------- |
+| **핫 티어 대상**                  | 지원됨             | 지원됨            | 동일한 계정 내에서 지원됩니다. 보류 중인 재수화               |
+| **쿨 티어 대상**                 | 지원됨             | 지원됨            | 동일한 계정 내에서 지원됩니다. 보류 중인 재수화               |
+| **아카이브 계층 대상**              | 지원됨             | 지원됨            | 지원되지 않음         |
+
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
-아카이브에서 핫 또는 쿨 계층으로 재수화하는 작업은 읽기 작업 및 데이터 검색시 청구됩니다. 우선 순위가 높은 미리 보기(미리 보기)를 사용하면 표준 우선 순위에 비해 작업 및 데이터 검색 비용이 더 높습니다. 우선 순위가 높은 리하이드레이션은 청구서에 별도의 광고 항목으로 표시됩니다. 몇 기가바이트의 아카이브 Blob을 반환하는 우선 순위가 높은 요청이 5시간 이상 걸리는 경우 높은 우선 순위 검색 요금이 부과되지 않습니다. 그러나 다른 요청보다 재수화의 우선 순위가 지정되었기 때문에 표준 검색 속도는 여전히 적용됩니다.
+아카이브에서 핫 또는 쿨 계층으로 재수화하는 작업은 읽기 작업 및 데이터 검색시 청구됩니다. 높은 우선 순위를 사용하면 표준 우선 순위에 비해 작업 및 데이터 검색 비용이 더 높습니다. 우선 순위가 높은 리하이드레이션은 청구서에 별도의 광고 항목으로 표시됩니다. 몇 기가바이트의 아카이브 Blob을 반환하는 우선 순위가 높은 요청이 5시간 이상 걸리는 경우 높은 우선 순위 검색 요금이 부과되지 않습니다. 그러나 다른 요청보다 재수화의 우선 순위가 지정되었기 때문에 표준 검색 속도는 여전히 적용됩니다.
 
 아카이브에서 Blob을 핫 또는 쿨 계층으로 복사하는 작업은 읽기 작업 및 데이터 검색시 청구됩니다. 쓰기 작업은 새 Blob 복사본을 만드는 데 청구됩니다. 원본 Blob이 아카이브 계층에서 수정되지 않은 상태로 유지되므로 온라인 Blob에 복사할 때 조기 삭제 수수료가 적용되지 않습니다. 선택한 경우 우선 순위가 높은 검색 요금이 적용됩니다.
 
@@ -52,7 +58,7 @@ Blob이 아카이브 액세스 계층에 있는 동안 오프라인으로 간주
 
 ### <a name="rehydrate-an-archive-blob-to-an-online-tier"></a>아카이브 Blob을 온라인 계층으로 다시 수화
 # <a name="portal"></a>[포털](#tab/azure-portal)
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. Azure 포털에서 모든 리소스를 검색하고 **선택합니다.**
 
@@ -68,9 +74,10 @@ Blob이 아카이브 액세스 계층에 있는 동안 오프라인으로 간주
 
 1. 하단에 **저장을** 선택합니다.
 
-![저장소 계정 계층 변경](media/storage-tiers/blob-access-tier.png)
+![저장소 계정](media/storage-tiers/blob-access-tier.png)
+![계층 변경 확인 다시 수화물 상태 확인](media/storage-tiers/rehydrate-status.png)
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 다음 PowerShell 스크립트를 사용하여 아카이브 Blob의 Blob 계층을 변경할 수 있습니다. 변수는 `$rgName` 리소스 그룹 이름으로 초기화되어야 합니다. 변수는 `$accountName` 저장소 계정 이름으로 초기화해야 합니다. 변수는 `$containerName` 컨테이너 이름으로 초기화되어야 합니다. 변수는 `$blobName` Blob 이름으로 초기화되어야 합니다. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names

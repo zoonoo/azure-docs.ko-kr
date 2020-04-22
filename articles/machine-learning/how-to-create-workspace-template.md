@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/05/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 457979837b1c56eb85fc19c9a1fce5dc7df8c23b
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: b802a9c9df7e7f0c44ea66ee0061efb517b80050
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81482000"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682749"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 <br>
@@ -81,7 +81,9 @@ ms.locfileid: "81482000"
 
 * 작업 영역에 대한 높은 기밀 설정 사용
 * 작업 영역에 대한 암호화 사용
-* 기존 Azure 키 자격 증명 모음 사용
+* 기존 Azure 키 자격 증명 모음을 사용하여 고객 관리 키 검색
+
+자세한 내용은 [미사용 암호화를](concept-enterprise-security.md#encryption-at-rest)참조하십시오.
 
 ```json
 {
@@ -121,7 +123,7 @@ ms.locfileid: "81482000"
         "description": "Specifies the sku, also referred to as 'edition' of the Azure Machine Learning workspace."
       }
     },
-    "hbi_workspace":{
+    "high_confidentiality":{
       "type": "string",
       "defaultValue": "false",
       "allowedValues": [
@@ -256,27 +258,31 @@ ms.locfileid: "81482000"
                     "keyIdentifier": "[parameters('resource_cmk_uri')]"
                   }
             },
-        "hbiWorkspace": "[parameters('hbi_workspace')]"
+        "hbiWorkspace": "[parameters('high_confidentiality')]"
       }
     }
   ]
 }
 ```
 
-키 볼트의 ID와 이 템플릿에 필요한 키 URI를 얻으려면 Azure CLI를 사용할 수 있습니다. 다음 명령은 Azure CLI를 사용하여 키 볼트 리소스 ID 및 URI를 얻는 예제입니다.
+키 볼트의 ID와 이 템플릿에 필요한 키 URI를 얻으려면 Azure CLI를 사용할 수 있습니다. 다음 명령은 키 볼트 ID를 가져옵니다.
 
 ```azurecli-interactive
-az keyvault show --name mykeyvault --resource-group myresourcegroup --query "[id, properties.vaultUri]"
+az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
 ```
 
-이 명령은 다음 텍스트와 유사한 값을 반환합니다. 첫 번째 값은 ID이고 두 번째 값은 URI입니다.
+이 명령은 `"/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault"`와 비슷한 값을 반환합니다.
 
-```text
-[
-  "/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault",
-  "https://mykeyvault.vault.azure.net/"
-]
+고객이 관리하는 키에 대한 URI를 얻으려면 다음 명령을 사용합니다.
+
+```azurecli-interactive
+az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
 ```
+
+이 명령은 `"https://mykeyvault.vault.azure.net/keys/mykey/{guid}"`와 비슷한 값을 반환합니다.
+
+> [!IMPORTANT]
+> 작업 영역이 만들어지면 기밀 데이터, 암호화, 키 자격 증명 모음 ID 또는 키 식별자에 대한 설정을 변경할 수 없습니다. 이러한 값을 변경하려면 새 값을 사용하여 새 작업 영역을 만들어야 합니다.
 
 ## <a name="use-the-azure-portal"></a>Azure Portal 사용
 

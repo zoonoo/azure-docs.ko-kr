@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: 4c711e1b0a63fbcf978c0e4467eadaed8d91f3de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c04fc82b8b04e474a656a0849177f7aa5d27b427
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274711"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676423"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Windows 진단 확장 스키마
 Azure 진단 확장은 Azure 계산 리소스의 게스트 운영 체제 및 워크로드에서 모니터링 데이터를 수집하는 Azure 모니터의 에이전트입니다. 이 문서에서는 Windows 가상 컴퓨터 및 기타 계산 리소스에서 진단 확장 구성에 사용되는 스키마에 대해 자세히 설명합니다.
@@ -223,9 +223,8 @@ Azure 진단 확장은 Azure 계산 리소스의 게스트 운영 체제 및 워
 
 |자식 요소|설명|  
 |-------------------|-----------------|  
-|**DataSource**|수집할 Windows 이벤트 로그입니다. 필수 특성:<br /><br /> **name** - 수집할 Windows 이벤트를 설명하는 XPath 쿼리입니다. 예를 들어:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> 모든 이벤트를 수집하려면 “*”를 지정합니다.|  
-
-
+|**DataSource**|수집할 Windows 이벤트 로그입니다. 필수 특성:<br /><br /> **name** - 수집할 Windows 이벤트를 설명하는 XPath 쿼리입니다. 예를 들어:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> 모든 이벤트를 수집하려면 “*”를 지정합니다. |
+|**sinks** | 1.5에 추가되었습니다. (선택 사항) 또한 싱크를 지원하는 모든 자식 요소에 대한 진단 데이터를 보낼 싱크 위치도 가리킵니다. 싱크 예제는 Application Insights 또는 Event Hubs입니다.|  
 
 
 ## <a name="logs-element"></a>Logs 요소  
@@ -235,12 +234,12 @@ Azure 진단 확장은 Azure 계산 리소스의 게스트 운영 체제 및 워
 
  기본 Azure 로그의 버퍼 구성을 정의합니다.  
 
-|특성|Type|Description|  
+|attribute|Type|Description|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**서명되지 않은Int**|(선택 사항) 지정된 데이터에 사용할 수 있는 파일 시스템 스토리지의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
-|**scheduledTransferLogLevelFilter**|**문자열**|(선택 사항) 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
-|**scheduledTransferPeriod**|**기간**|(선택 사항) 예약된 데이터 전송 사이의 간격(가장 가까운 시간(분)으로 반올림)을 지정합니다.<br /><br /> 기본값은 PT0S입니다.|  
-|**sinks** |**문자열**| 1.5에 추가되었습니다. (선택 사항) 또한 진단 데이터를 보내는 싱크 위치를 가리킵니다. Application Insights 또는 Event Hubs를 예로 들 수 있습니다.|  
+|**scheduledTransferLogLevelFilter**|**string**|(선택 사항) 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
+|**scheduledTransferPeriod**|**duration**|(선택 사항) 예약된 데이터 전송 사이의 간격(가장 가까운 시간(분)으로 반올림)을 지정합니다.<br /><br /> 기본값은 PT0S입니다.|  
+|**sinks** |**string**| 1.5에 추가되었습니다. (선택 사항) 또한 진단 데이터를 보내는 싱크 위치를 가리킵니다. Application Insights 또는 Event Hubs를 예로 들 수 있습니다.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
@@ -258,7 +257,7 @@ Azure 진단 확장은 Azure 계산 리소스의 게스트 운영 체제 및 워
 
 |요소 이름|설명|  
 |------------------|-----------------|  
-|**싱크**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
+|**sink**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 
 ## <a name="sink-element"></a>싱크 요소
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink*
@@ -267,14 +266,14 @@ Azure 진단 확장은 Azure 계산 리소스의 게스트 운영 체제 및 워
 
  진단 데이터를 보낼 위치를 정의합니다. 예를 들어 Application Insights 서비스입니다.  
 
-|특성|Type|Description|  
+|attribute|Type|Description|  
 |---------------|----------|-----------------|  
-|**(이름)**|문자열|sinkname을 식별하는 문자열입니다.|  
+|**name**|문자열|sinkname을 식별하는 문자열입니다.|  
 
 |요소|Type|Description|  
 |-------------|----------|-----------------|  
 |**Application Insights**|문자열|데이터를 Application Insights로 전송하는 경우에만 사용됩니다. 액세스 권한이 있는 활성 Application Insights 계정에 대한 계측 키를 포함합니다.|  
-|**채널**|문자열|스트림하는 각 추가 필터링에 대한|  
+|**Channels**|문자열|스트림하는 각 추가 필터링에 대한|  
 
 ## <a name="channels-element"></a>Channels 요소  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
@@ -296,8 +295,8 @@ Azure 진단 확장은 Azure 계산 리소스의 게스트 운영 체제 및 워
 
 |특성|Type|Description|  
 |----------------|----------|-----------------|  
-|**Loglevel**|**문자열**|전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
-|**(이름)**|**문자열**|참조 하는 채널의 고유 이름|  
+|**Loglevel**|**string**|전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
+|**name**|**string**|참조 하는 채널의 고유 이름|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig 요소
@@ -305,7 +304,7 @@ Azure 진단 확장은 Azure 계산 리소스의 게스트 운영 체제 및 워
 
  버전 1.3에 추가되었습니다.  
 
- Optional  
+ 옵션  
 
  스토리지 계정(이름, 키 및 엔드포인트)의 프라이빗 정보를 저장합니다. 이 정보는 가상 컴퓨터에 전송되지만 여기에서 검색할 수 없습니다.  
 

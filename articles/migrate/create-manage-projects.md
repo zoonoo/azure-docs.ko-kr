@@ -2,13 +2,13 @@
 title: Azure Migrate 프로젝트 만들기 및 관리
 description: Azure 마이그레이션에서 프로젝트를 찾다, 만들고, 관리하고, 삭제합니다.
 ms.topic: how-to
-ms.date: 02/17/2020
-ms.openlocfilehash: a49595f0580e71048239d5c5d8f4d1a66e24fe6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/19/2020
+ms.openlocfilehash: f5079ed979d98f2c6f0c654c860c6f176f366497
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79269641"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676386"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Azure Migrate 프로젝트 만들기 및 관리
 
@@ -23,7 +23,7 @@ Azure 마이그레이션을 처음 설정할 때 프로젝트를 만들고 평�
 
 Azure 마이그레이션 프로젝트가 이미 있고 추가 프로젝트를 만들려는 경우 다음을 수행합니다.  
 
-1. Azure [포털에서](https://portal.azure.com)Azure **마이그레이션을 검색합니다.**
+1. Azure [공용 포털](https://portal.azure.com) 또는 [Azure 정부에서](https://portal.azure.us) **Azure 마이그레이션을 검색합니다.**
 2. Azure 마이그레이션 대시보드 > 서버에서 오른쪽 상단 모서리에서 **변경 을** **선택합니다.**
 
    ![Azure 마이그레이션 프로젝트 변경](./media/create-manage-projects/switch-project.png)

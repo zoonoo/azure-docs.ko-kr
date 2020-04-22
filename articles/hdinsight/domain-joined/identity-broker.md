@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: fb82cec6874f8ef4f41897cc22939fe69ed02ec2
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 1e7eaf49fb8b62259b8c619c89edffd629dfde7f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457419"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685505"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>자격 증명 관리를 위해 ID 브로커(미리 보기) 사용
 
@@ -46,6 +46,46 @@ ID 브로커 기능은 클러스터에 VM을 하나 더 추가합니다. 이 VM�
 
 ![ID 브로커를 활성화하는 옵션](./media/identity-broker/identity-broker-enable.png)
 
+### <a name="using-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿 사용
+템플릿의 계산 프로필에 `idbrokernode` 다음 특성으로 호출된 새 역할을 추가하면 ID 브로커 노드가 활성화된 상태로 클러스터가 만들어집니다.
+
+```json
+.
+.
+.
+"computeProfile": {
+    "roles": [
+        {
+            "autoscale": null,
+            "name": "headnode",
+           ....
+        },
+        {
+            "autoscale": null,
+            "name": "workernode",
+            ....
+        },
+        {
+            "autoscale": null,
+            "name": "idbrokernode",
+            "targetInstanceCount": 1,
+            "hardwareProfile": {
+                "vmSize": "Standard_A2_V2"
+            },
+            "virtualNetworkProfile": {
+                "id": "string",
+                "subnet": "string"
+            },
+            "scriptActions": [],
+            "dataDisksGroups": null
+        }
+    ]
+}
+.
+.
+.
+```
+
 ## <a name="tool-integration"></a>공구 통합
 
 HDInsight [IntelliJ 플러그인은](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) OAuth를 지원하도록 업데이트됩니다. 이 플러그인을 사용하여 클러스터에 연결하고 작업을 제출할 수 있습니다.
@@ -62,7 +102,7 @@ ID 브로커 설정에서 게이트웨이에 연결하는 사용자 지정 앱 �
 
 *   OAuth 자원 uri:https://hib.azurehdinsight.net 
 * AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
-*   권한: (이름: Cluster.ReadWrite, id:8f89faa0-ffef-4007-974d-4989b39ad77d)
+*   권한: (이름: Cluster.ReadWrite, ID: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
 ## <a name="next-steps"></a>다음 단계
 

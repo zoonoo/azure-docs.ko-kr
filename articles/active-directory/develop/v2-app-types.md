@@ -12,19 +12,16 @@ ms.date: 04/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bdbda8bed38819ca2b4d2fb1ef3d9bf591269890
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: def92071496716f90b24158a50e4a5233e93c994
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535913"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677996"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft ID 플랫폼용 응용 프로그램 유형
 
 Microsoft ID 플랫폼(v2.0) 엔드포인트는 모두 업계 표준 프로토콜 [OAuth 2.0 또는 OpenID Connect](active-directory-v2-protocols.md)를 기반으로 하는 다양한 최신 앱 아키텍처에 대한 인증을 지원합니다. 이 문서에서는 기본 언어 나 플랫폼에 관계없이 Microsoft ID 플랫폼을 사용하여 빌드할 수 있는 앱 유형에 대해 설명합니다. 이 정보는 [코드 작업을 시작하기](v2-overview.md#getting-started)전에 고급 시나리오를 이해하는 데 도움이 되도록 설계되었습니다.
-
-> [!NOTE]
-> Microsoft ID 플랫폼 끝점이 모든 Azure Active Directory(Azure AD) 시나리오 및 기능을 지원하지는 않습니다. Microsoft ID 플랫폼 끝점을 사용해야 하는지 여부를 확인하려면 [Microsoft ID 플랫폼 제한 사항에](active-directory-v2-limitations.md)대해 읽어보십시오.
 
 ## <a name="the-basics"></a>기본 사항
 
@@ -53,7 +50,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 이 시나리오가 실행중이면 [Microsoft ID 플랫폼의](v2-overview.md#getting-started) 단일 페이지 앱 코드 샘플 중 하나를 시작해 보십시오.
 
-## <a name="web-apps"></a>웹 앱
+## <a name="web-apps"></a>웹앱
 
 사용자가 브라우저를 통해 액세스하는 웹앱(.NET, PHP, Java, Ruby, Python, Node)의 경우 사용자 로그인에 [OpenID Connect](active-directory-v2-protocols.md)를 사용할 수 있습니다. OpenID Connect에서는 웹앱이 ID 토큰을 받습니다. ID 토큰은 사용자 ID를 확인하고 클레임 형태로 사용자 정보를 제공하는 보안 토큰입니다.
 

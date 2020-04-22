@@ -1,5 +1,5 @@
 ---
-title: 구성 관리자 클라이언트를 사용하여 Azure 업데이트 관리 사용
+title: 구성 관리자 클라이언트를 사용하여 Azure 자동화 업데이트 관리 사용
 description: 이 문서는 ConfigMgr 클라이언트에 소프트웨어 업데이트를 배포하기 위해 이 솔루션으로 Microsoft 엔드포인트 구성 관리자를 구성하는 데 도움을 주기 위한 것입니다.
 services: automation
 ms.subservice: update-management
@@ -7,18 +7,18 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 12/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: f0ca836e3b53c3cce755d45b50fe168073f0bbaa
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 32a077c476d9669c3f32bd4040fdc8ff90156c19
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81618725"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678742"
 ---
 # <a name="deploy-updates-to-microsoft-endpoint-configuration-manager-clients-with-update-management"></a>업데이트 관리를 사용하여 Microsoft 엔드포인트 구성 관리자 클라이언트에 업데이트 배포
 
 PC, 서버 및 모바일 장치를 관리하기 위해 Microsoft Endpoint 구성 관리자에 투자한 고객은 SUM(소프트웨어 업데이트 관리) 주기의 일부로 소프트웨어 업데이트를 관리하는 데 강점과 성숙도를 사용합니다.
 
-Configuration Manager에서 소프트웨어 업데이트 배포를 만들고 미리 준비하여 관리되는 Windows 서버를 보고 및 업데이트하고, [업데이트 관리 솔루션](automation-update-management.md)을 사용하여 완료된 업데이트 배포에 대한 자세한 상태를 확인할 수 있습니다. 업데이트 규정 준수 보고에 구성 관리자를 사용하지만 Windows 서버에서 업데이트 배포를 관리하지 않는 경우 업데이트 관리 솔루션으로 보안 업데이트를 관리하는 동안 Configuration Manager에 계속 보고할 수 있습니다.
+Configuration Manager에서 소프트웨어 업데이트 배포를 미리 준비하고 업데이트하여 관리되는 Windows 서버를 보고 및 업데이트하고 [업데이트 관리를](automation-update-management.md)사용하여 완료된 업데이트 배포의 자세한 상태를 얻을 수 있습니다. 업데이트 규정 준수 보고에 구성 관리자를 사용하지만 Windows 서버에서 업데이트 배포를 관리하지 않는 경우 업데이트 관리 솔루션으로 보안 업데이트를 관리하는 동안 Configuration Manager에 계속 보고할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -37,7 +37,7 @@ Configuration Manager에서 업데이트 배포 관리를 계속하려는 경우
 
 1. 소프트웨어 업데이트 [배포에](https://docs.microsoft.com/configmgr/sum/deploy-use/deploy-software-updates)설명된 프로세스를 사용하여 Configuration Manager 계층 구조의 최상위 사이트에서 소프트웨어 업데이트 배포를 만듭니다. 표준 배포와 다르게 구성해야 하는 유일한 설정은 배포 패키지의 다운로드 동작을 제어하는 **소프트웨어 업데이트를 설치하지 않음** 옵션입니다. 이 동작은 다음 단계에서 예약된 업데이트 배포를 만들어 업데이트 관리 솔루션에서 관리됩니다.
 
-1. Azure Automation에서 **업데이트 관리**를 선택합니다. [업데이트 배포 만들기](automation-tutorial-update-management.md#schedule-an-update-deployment)에서 설명한 단계에 따라 새 배포를 만들고, **유형** 드롭다운에서 **가져온 그룹**을 선택하여 적절한 Configuration Manager 컬렉션을 선택합니다. 다음 중요 사항에 주의하세요. a. 선택한 Configuration Manager 디바이스 컬렉션에 유지 관리 기간이 정의되어 있는 경우 컬렉션의 멤버는 예약된 배포에 정의된 **기간** 설정 대신 이 기간을 사용합니다.
+1. Azure Automation에서 **업데이트 관리**를 선택합니다. [업데이트 배포 만들기에](automation-tutorial-update-management.md#schedule-an-update-deployment) 설명된 단계에 따라 새 배포를 만들고 **형식** 드롭다운에서 **가져온 그룹을** 선택하여 적절한 Configuration Manager 컬렉션을 선택합니다. 다음 중요 사항에 주의하세요. a. 선택한 Configuration Manager 디바이스 컬렉션에 유지 관리 기간이 정의되어 있는 경우 컬렉션의 멤버는 예약된 배포에 정의된 **기간** 설정 대신 이 기간을 사용합니다.
     b. 대상 컬렉션의 구성원은 인터넷에 연결되어 있어야 합니다(직접, 프록시 서버 또는 Log Analytics 게이트웨이를 통해).
 
 Azure Automation을 통해 업데이트 배포가 완료되면, 선택한 컴퓨터 그룹의 멤버인 대상 컴퓨터에서 로컬 클라이언트 캐시의 예약된 시간에 업데이트를 설치합니다. [업데이트 배포 상태를 확인하여](automation-tutorial-update-management.md#view-results-of-an-update-deployment) 배포 결과를 모니터링할 수 있습니다.

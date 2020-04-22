@@ -1,16 +1,16 @@
 ---
 title: Azure Automation으로 파일 콘텐츠 변경 내용 보기
-description: 변경 내용 추적의 파일 콘텐츠 변경 기능을 사용하여 변경된 파일의 콘텐츠를 확인합니다.
+description: 변경 내용 추적의 파일 콘텐츠 변경 기능을 사용하여 변경된 파일의 내용을 봅니다.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 23c4f24e430d58895eb551c3e2cb62b5f0003ac0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57c3c2c7a0c923921c727ccea7839940457bc1ee
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75418824"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682991"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>변경 내용 추적으로 추적 중인 파일의 콘텐츠 보기
 
@@ -20,9 +20,9 @@ ms.locfileid: "75418824"
 
 * 파일 콘텐츠를 저장하려면 Resource Manager 배포 모델을 사용하는 표준 스토리지 계정이 필요합니다. 프리미엄 및 클래식 배포 모델 스토리지 계정은 사용하면 안 됩니다. 저장소 계정에 대한 자세한 내용은 [Azure 저장소 계정 정보를 참조하십시오.](../storage/common/storage-create-storage-account.md)
 
-* 사용된 스토리지 계정에는 Automation 계정 하나만 연결할 수 있습니다.
+* 사용된 저장소 계정에는 1개의 자동화 계정만 연결할 수 있습니다.
 
-* [변경 내용 추적](automation-change-tracking.md)은 Automation 계정에서 사용할 수 있습니다.
+* [변경 사항은](automation-change-tracking.md) 자동화 계정에서 활성화되어 있습니다.
 
 ## <a name="enable-file-content-tracking"></a>파일 콘텐츠 추적 사용
 
@@ -44,19 +44,19 @@ ms.locfileid: "75418824"
 
 다음 단계에서는 파일에 대한 변경 내용 추적을 설정하는 과정을 안내합니다.
 
-1. **변경 내용 추적**의 **설정** 편집 페이지에서 **Windows 파일** 또는 **Linux 파일** 탭을 선택하고 **추가**를 클릭합니다.
+1. **변경 추적의**설정 편집 페이지에서 Windows **파일** 또는 **Linux 파일** 탭을 선택하고 **추가를** 클릭합니다.
 
-1. 파일 경로에 대한 정보를 입력하고 **모든 설정에 대한 파일 콘텐츠 업로드**에서 **True**를 선택합니다. 이 설정은 해당 파일 경로에 대해서만 파일 콘텐츠 추적을 사용합니다.
+1. 파일 경로에 대한 정보를 입력하고 **모든 설정에 대한 파일 콘텐츠 업로드**에서 True를 선택합니다. 이 설정은 해당 파일 경로에 대해서만 파일 콘텐츠 추적을 사용합니다.
 
    ![linux 파일 추가](./media/change-tracking-file-contents/add-linux-file.png)
 
 ## <a name="viewing-the-contents-of-a-tracked-file"></a>추적된 파일의 콘텐츠 보기
 
-1. 파일 또는 경로의 파일에 대한 변경 내용이 검색되면 포털에 표시됩니다. 변경 내용 목록에서 파일 변경을 선택합니다. **변경 세부 정보** 창이 표시됩니다.
+1. 파일 또는 경로의 파일에 대한 변경 내용이 검색되면 포털에 표시됩니다. 변경 내용 목록에서 파일 변경을 선택합니다. 변경 세부 정보 창이 표시됩니다.
 
    ![변경 내용 나열](./media/change-tracking-file-contents/change-list.png)
 
-1. **변경 세부 정보** 페이지에서는 파일 정보 앞뒤에 표준이 표시되며, 왼쪽 위에서 **파일 콘텐츠 변경 내용 보기**를 클릭하여 파일의 콘텐츠를 확인합니다.
+1. 세부 정보 변경 창에는 파일 정보 전후의 표준이 표시됩니다. **파일 컨텐츠 변경 내용을** 보려면 파일 콘텐츠 변경 내용 보기를 선택합니다.
 
    ![변경 세부 정보](./media/change-tracking-file-contents/change-details.png)
 

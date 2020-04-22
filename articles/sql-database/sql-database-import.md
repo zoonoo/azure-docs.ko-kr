@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 05698596f966f879da1affc58af0122d08d519ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7db3f6f50745526876ef2ca6e3253f1931420f0f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256238"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683256"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>빠른 시작: Azure SQL 데이터베이스의 데이터베이스에 BACPAC 파일을 가져오기
 
@@ -88,7 +88,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [!NOTE]
 > 포털 또는 Powershell을 통해 제출된 가져오기/내보내기 요청을 처리하는 컴퓨터는 데이터 계층 응용 프로그램 프레임워크(DacFX)에서 생성된 임시 파일뿐만 아니라 bacpac 파일을 저장해야 합니다. 필요한 디스크 공간은 크기가 같은 DB에 따라 크게 달라지며 데이터베이스 크기의 최대 3배를 차지할 수 있습니다. 가져오기/내보내기 요청을 실행하는 컴퓨터에는 450GB 로컬 디스크 공간만 있습니다. 따라서 일부 요청은 "디스크에 공간이 부족합니다" 오류로 인해 실패할 수 있습니다. 이 경우 해결 방법은 로컬 디스크 공간이 충분한 컴퓨터에서 sqlpackage.exe를 실행하는 것입니다. 150GB보다 큰 데이터베이스를 가져오고 내보낼 때는 SqlPackage를 사용하여 이 문제를 방지합니다.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
 > PowerShell Azure 리소스 관리자(RM) 모듈은 Azure SQL Database에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈용입니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 계속 받을 것입니다.  Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 거의 동일합니다. 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개를](/powershell/azure/new-azureps-module-az)참조하십시오.
@@ -144,7 +144,8 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 ## <a name="limitations"></a>제한 사항
 
-탄력적 풀의 데이터베이스로 가져오기는 지원되지 않습니다. 단일 데이터베이스로 데이터를 가져온 다음, 해당 데이터베이스를 탄력적 풀로 이동할 수 있습니다.
+- 탄력적 풀의 데이터베이스로 가져오기는 지원되지 않습니다. 단일 데이터베이스로 데이터를 가져온 다음, 해당 데이터베이스를 탄력적 풀로 이동할 수 있습니다.
+- Azure 서비스에 대한 액세스 허용이 꺼짐으로 설정되어 있으면 내보내기 서비스 가져오기가 작동하지 않습니다. 그러나 Azure VM에서 sqlpackage.exe를 수동으로 실행하거나 DACFx API를 사용하여 코드에서 직접 내보내기를 수행하여 문제를 해결할 수 있습니다.
 
 ## <a name="import-using-wizards"></a>마법사를 사용하여 가져오기
 

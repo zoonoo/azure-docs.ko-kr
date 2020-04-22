@@ -10,12 +10,12 @@ ms.date: 08/28/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: d6ac5961cbecf4e81c0b6bcc25c39aad42b18416
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: cd630acfd65f0a79c186ba35bc15627bf7ccfdbe
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81429838"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686186"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
@@ -88,7 +88,7 @@ Azure CLI를 사용하려면 다음을 수행합니다.
 
 1. Azure 포털에 로그인: *az 로그인하여* Azure에 로그인합니다.
 
-1. az 계정 *get-access-token --resource를 https://vault.azure.net *입력하여 액세스를 확인합니다. 오류가 발생하면 올바른 버전의 Azure CLI가 올바르게 설치되었는지 확인합니다.
+1. az 계정 *get-access-token --리소스 https:\//vault.azure.net*를 입력하여 액세스를 확인합니다. 오류가 발생하면 올바른 버전의 Azure CLI가 올바르게 설치되었는지 확인합니다.
 
    Azure CLI가 기본 디렉터리에 설치되지 않은 경우 Azure `AzureServiceTokenProvider` CLI에 대한 경로를 찾을 수 없는 오류 보고가 나타날 수 있습니다. **AzureCLIPath** 환경 변수를 사용하여 Azure CLI 설치 폴더를 정의합니다. `AzureServiceTokenProvider`는 필요한 경우 **AzureCLIPath** 환경 변수에 지정된 디렉터리를 **Path** 환경 변수에 추가합니다.
 

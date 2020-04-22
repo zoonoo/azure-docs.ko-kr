@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7eb01f3997ac4ab2e439c00f07990c51ec3e3d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdf0cbfb91332d60516432a7a67fb10404d89113
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370358"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683840"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Workday 구성
 
@@ -87,7 +87,7 @@ Workday 통합을 시작하기 전에 다음과 같은 필수 조건을 확인�
 
 이 섹션에서는 계획의 다음 측면을 다룹니다.
 
-* [필수 조건](#prerequisites)
+* [필수 구성 요소](#prerequisites)
 * [배포할 프로비전 커넥터 앱 선택](#selecting-provisioning-connector-apps-to-deploy)
 * [Azure AD Connect 프로비전 에이전트 배포 계획](#planning-deployment-of-azure-ad-connect-provisioning-agent)
 * [여러 Active Directory 도메인과 통합](#integrating-with-multiple-active-directory-domains)
@@ -281,6 +281,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
     ![도메인 보안 정책](./media/workday-inbound-tutorial/wd_isu_06.png "도메인 보안 정책")  
 2. **도메인** 텍스트 상자에서 다음 도메인을 검색하고 필터에 하나씩 추가합니다.  
    * *외부 계정 프로비저닝*
+   * *작업자 데이터: 작업자*
    * *작업자 데이터: 공용 작업자 보고서*
    * *개인 데이터: 작업 연락처 정보*
    * *작업자 데이터: 모든 위치*
@@ -312,6 +313,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
    | ---------- | ---------- |
    | 가져오기 및 넣기 | 작업자 데이터: 공용 작업자 보고서 |
    | 가져오기 및 넣기 | 개인 데이터: 작업 연락처 정보 |
+   | 가져오기 | 작업자 데이터: 작업자 |
    | 가져오기 | 작업자 데이터: 모든 위치 |
    | 가져오기 | 작업자 데이터: 현재 인력 관리 정보 |
    | 가져오기 | 작업자 데이터: 작업자 프로필 직함 |
@@ -366,7 +368,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 **Workday에서 Active Directory로의 프로비전을 구성하려면:**
 
-1. [https://editor.swagger.io](<https://portal.azure.com>) 로 이동합니다.
+1. [https://editor.swagger.io](<https://portal.azure.com> ) 로 이동합니다.
 
 2. Azure Portal에서 **Azure Active Directory**를 검색하고 선택합니다.
 
@@ -451,11 +453,15 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 1. 다음과 같이 **관리자 자격 증명** 섹션을 완료합니다.
 
-   * **관리자 사용자 이름** – 테넌트 도메인 이름이 추가된 Workday 통합 시스템 계정의 사용자 이름을 입력합니다. **사용자 이름\@tenant_name**
+   * **근무일 사용자 이름** - 테넌트 도메인 이름이 추가된 Workday 통합 시스템 계정의 사용자 이름을 입력합니다. **사용자 이름\@tenant_name**
 
-   * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
+   * **근무 일 암호 -** Workday 통합 시스템 계정의 암호를 입력합니다.
 
-   * **테넌트 URL –** 테넌트의 Workday 웹 서비스 끝점에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4 *contoso4가* 올바른 테넌트 이름으로 대체되고 *wd3 impl이* 올바른 환경 문자열로 바뀝니다.
+   * **근무일 웹 서비스 API URL –** 테넌트의 Workday 웹 서비스 끝점에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4 *contoso4가* 올바른 테넌트 이름으로 대체되고 *wd3 impl이* 올바른 환경 문자열로 바뀝니다.
+
+     > [!NOTE]
+     > URL에 버전 정보가 지정되지 않은 경우 기본적으로 앱은 Workday 웹 서비스 v21.1을 사용합니다. 특정 Workday 웹 서비스 API 버전을 사용하려면 URL 형식을 사용하십시오.https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
+     > 예: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
 
    * **Active Directory 포리스트 -** 에이전트에 등록된 Active Directory 도메인의 “이름”입니다. 드롭다운에서 프로비전을 위한 대상 도메인을 선택합니다. 이 값은 일반적으로 *contoso.com* 형태의 문자열입니다.
 
@@ -591,7 +597,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 **클라우드 전용 사용자에 대한 Workday-Azure Active Directory 프로비전을 구성하려면:**
 
-1. [https://editor.swagger.io](<https://portal.azure.com>) 로 이동합니다.
+1. [https://editor.swagger.io](<https://portal.azure.com> ) 로 이동합니다.
 
 2. Azure Portal에서 **Azure Active Directory**를 검색하고 선택합니다.
 
@@ -607,11 +613,16 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 8. 다음과 같이 **관리자 자격 증명** 섹션을 완료합니다.
 
-   * **관리자 사용자 이름** - 테넌트 도메인 이름이 추가된 Workday 통합 시스템 계정의 사용자 이름을 입력합니다. 다음과 같은 형태여야 합니다. username@contoso4
+   * **근무일 사용자 이름** - 테넌트 도메인 이름이 추가된 Workday 통합 시스템 계정의 사용자 이름을 입력합니다. 다음과 같은 형태여야 합니다. username@contoso4
 
-   * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
+   * **근무 일 암호 -** Workday 통합 시스템 계정의 암호를 입력합니다.
 
-   * **테넌트 URL –** 테넌트의 Workday 웹 서비스 끝점에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다. 이 URL을 알 수 없는 경우 Workday 통합 파트너와 협력하거나 지원 담당자에게 문의하여 사용할 올바른 URL을 확인하세요.
+   * **근무일 웹 서비스 API URL –** 테넌트의 Workday 웹 서비스 끝점에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다. 이 URL을 알 수 없는 경우 Workday 통합 파트너와 협력하거나 지원 담당자에게 문의하여 사용할 올바른 URL을 확인하세요.
+
+     > [!NOTE]
+     > 기본적으로 앱은 URL에 버전 정보가 지정되지 않은 경우 Workday 웹 서비스 v21.1을 사용합니다. 특정 Workday 웹 서비스 API 버전을 사용하려면 URL 형식을 사용하십시오.https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
+     > 예: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
+
 
    * **알림 이메일 –** 이메일 주소를 입력하고 "오류가 발생하면 이메일 보내기" 확인란을 선택합니다.
 
@@ -688,7 +699,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 **Workday 쓰기 저장 커넥터를 구성하려면**
 
-1. [https://editor.swagger.io](<https://portal.azure.com>) 로 이동합니다.
+1. [https://editor.swagger.io](<https://portal.azure.com> ) 로 이동합니다.
 
 2. Azure Portal에서 **Azure Active Directory**를 검색하고 선택합니다.
 
@@ -807,9 +818,13 @@ HR 팀은 채용 프로세스의 일부로 일반적으로 신원 조사를 실�
 
 현재 솔루션에서는 다음 Workday API를 사용합니다.
 
-* 작업자 정보를 페치하기 위한 Get_Workers(v21.1)
-* 회사 메일 쓰기 저장 기능을 위한 Maintain_Contact_Information(v26.1)
-* 사용자 이름 쓰기 Update_Workday_Account 기능의 Update_Workday_Account(v31.2)
+* 관리자 자격 증명 섹션에 사용되는 **Workday 웹 서비스 API URL** 형식은 Get_Workers 사용되는 API 버전을 **결정합니다.**
+  * URL 형식이\#\#\#\#\.https:// 경우\.com/ccx/service/tenantName, API v21.1이 사용됩니다. 
+  * URL 형식이\#\#\#\#\.https://\.경우 com/ccx/service/tenantName/인사\_부, API v21.1이 사용됩니다. 
+  * \#\#\#\#\.URL 형식이 https:// 평일\.com/ccx/service/tenantName/인사/v,\_\# \# \. \# 지정된 API 버전이 사용됩니다. (예: v34.0이 지정되면 사용됩니다.)  
+   
+* 근무일 전자 메일 쓰기 기능 사용 Maintain_Contact_Information (v26.1) 
+* 작업 일 사용자 이름 쓰기 백 기능 사용 Update_Workday_Account (v31.2) 
 
 #### <a name="can-i-configure-my-workday-hcm-tenant-with-two-azure-ad-tenants"></a>두 Azure AD 테넌트를 사용하여 Workday HCM 테넌트를 구성할 수 있나요?
 

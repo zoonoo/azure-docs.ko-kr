@@ -14,18 +14,18 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a518ff070ea021726ee382169e87cca55cad36d0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: c900b2a363a4ff271e7a436b358ecf170daca163
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81428252"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687031"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>관리 단위에 범위 지정 역할 할당
 
 Azure Active Directory(Azure AD)에서 보다 세분화된 관리 제어를 위해 하나 이상의 관리 단위(AUs)로 제한된 범위의 Azure AD 역할에 사용자를 할당할 수 있습니다.
 
-관리 단위 관리를 위해 PowerShell 및 Microsoft 그래프를 사용할 준비를 준비하는 단계는 [시작 하기](roles-admin-units-manage.md#getting-started)를 참조하십시오.
+관리 단위 관리를 위해 PowerShell 및 Microsoft 그래프를 사용할 준비를 하는 단계는 [시작 을](roles-admin-units-manage.md#get-started)참조하십시오.
 
 ## <a name="roles-available"></a>사용 가능한 역할
 

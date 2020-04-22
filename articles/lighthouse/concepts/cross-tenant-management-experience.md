@@ -1,14 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
-ms.date: 04/06/2020
+ms.date: 04/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 66e2b2f7fbbae5940b576ead22a416625af3c058
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 107350cdab90751e918d4c7845776464b43abbdd
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418520"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682824"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -72,6 +72,14 @@ Azure PowerShell [Get-AzSubscription cmdlet각](https://docs.microsoft.com/power
 - 로그 분석: 여러 테넌트에서 원격 고객 작업 영역의 데이터 쿼리
 - 웹 후크를 통해 서비스 공급자 테넌트에서 Azure Automation Runbook 또는 Azure Functions와 같은 자동화를 트리거하는 고객 테넌트에서 경고를 만듭니다.
 
+[Azure 네트워킹](../../networking/networking-overview.md):
+
+- 고객 테넌타 내에서 [Azure 가상 네트워크(VNet)](../../virtual-network/index.yml) 및 가상 네트워크 인터페이스 카드(vNI)를 배포하고 관리합니다.
+- 고객의 가상 네트워크 리소스를 보호하기 위해 [Azure 방화벽](../../firewall/overview.md) 배포 및 구성
+- 고객을 위한 Azure [가상 WAN,](../../virtual-wan/virtual-wan-about.md) [ExpressRoute](../../expressroute/expressroute-introduction.md)및 [VPN 게이트웨이와](../../vpn-gateway/vpn-gateway-about-vpngateways.md) 같은 연결 서비스 관리
+- Azure 등대를 사용하여 [Azure 네트워킹 MSP 프로그램의](../../networking/networking-partners-msp.md) 주요 시나리오를 지원합니다.
+
+
 [Azure 정책](../../governance/policy/index.yml):
 
 - 규정 준수 스냅샷에 위임된 구독 내에 할당된 정책에 대한 세부 정보를 표시합니다.
@@ -121,10 +129,6 @@ Azure PowerShell [Get-AzSubscription cmdlet각](https://docs.microsoft.com/power
 - 부팅 진단을 사용하여 고객 테넌트의 Azure VM 문제를 해결합니다.
 - 고객 테넌트에서 직렬 콘솔을 사용하여 VM에 액세스합니다.
 - VM으로의 원격 로그인에 Azure Active Directory를 사용할 수 없으며, 디스크 암호화용 암호, 비밀 또는 암호화 키를 위해 VM을 Key Vault와 통합할 수 없습니다.
-
-[Azure 가상 네트워크](../../virtual-network/index.yml):
-
-- 고객 테넌트 내에서 가상 네트워크 및 vNIC(가상 네트워크 인터페이스 카드)를 배포하고 관리합니다.
 
 지원 요청:
 

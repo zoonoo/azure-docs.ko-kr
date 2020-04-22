@@ -12,19 +12,16 @@ ms.date: 04/13/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bc635addc2a5cd7d3c698f6885bec0399e28743a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: e94bdd6e79ff13d8ba736e140538bae74091f727
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309664"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680085"
 ---
 # <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>OAuth 2.0 및 Microsoft ID 플랫폼에서 OpenID 연결 프로토콜
 
 업계 표준 프로토콜인 OpenID Connect 및 OAuth 2.0을 사용한 서비스로서의 ID를 위한 Microsoft ID 플랫폼 엔드포인트입니다. 서비스는 표준을 준수하지만 이러한 프로토콜의 두 구현 간에는 약간의 차이가 있을 수 있습니다. 여기에 있는 정보는 [오픈 소스 라이브러리](reference-v2-libraries.md) 중 하나를 사용하는 대신 HTTP 요청을 직접 전송 및 처리하여 코드를 작성하거나 타사 오픈 소스 라이브러리를 사용하도록 선택한 경우에 유용합니다.
-
-> [!NOTE]
-> 모든 Azure AD 시나리오 및 기능이 Microsoft ID 플랫폼 끝점에서 지원되는 것은 아닙니다. Microsoft ID 플랫폼 끝점을 사용해야 하는지 확인하려면 [Microsoft ID 플랫폼 제한 사항에](active-directory-v2-limitations.md)대해 읽어보십시오.
 
 ## <a name="the-basics"></a>기본 사항
 
@@ -68,7 +65,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 이러한 엔드포인트와 상호 작용하는 방법을 알아보려면 [프로토콜](#protocols) 섹션에서 특정 앱 형식을 선택하고 자세한 정보 링크를 따릅니다.
 
 > [!TIP]
-> Azure AD에 등록된 모든 앱은 개인 계정에 로그인하지 않더라도 Microsoft ID 플랫폼 끝점을 사용할 수 있습니다.  이렇게 하면 응용 프로그램을 다시 만들지 않고도 기존 응용 프로그램을 Microsoft ID 플랫폼 및 [MSAL으로](reference-v2-libraries.md) 마이그레이션할 수 있습니다.  
+> Azure AD에 등록된 모든 앱은 개인 계정에 로그인하지 않더라도 Microsoft ID 플랫폼 끝점을 사용할 수 있습니다.  이렇게 하면 응용 프로그램을 다시 만들지 않고도 기존 응용 프로그램을 Microsoft ID 플랫폼 및 [MSAL으로](reference-v2-libraries.md) 마이그레이션할 수 있습니다.
 
 ## <a name="tokens"></a>토큰
 

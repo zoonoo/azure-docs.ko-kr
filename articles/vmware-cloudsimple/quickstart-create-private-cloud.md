@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7460490dbd45862f4269d25e3910373700ec9a03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10831c0dc39fa241a43541850afae39593ae033b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77564723"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678279"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>빠른 시작 - 프라이빗 클라우드 환경 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "77564723"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-에서 [https://portal.azure.com](https://portal.azure.com)Azure 포털에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-private-cloud"></a>프라이빗 클라우드 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "77564723"
 
 프라이빗 클라우드는 CloudSimple 포털을 통해 관리됩니다. 자체 관리 도메인에 자체 vCenter 서버가 있습니다. 스택은 전용 노드 및 격리된 베어 메탈 하드웨어 노드에서 실행됩니다.
 
-1. **모든 서비스를**선택합니다.
+1. **모든 서비스**를 선택합니다.
 2. 클라우드 **간단한 서비스를**검색합니다.
 3. 프라이빗 클라우드를 만들려는 CloudSimple 서비스를 선택합니다.
 4. **개요에서**사설 **클라우드 만들기를** 클릭하여 CloudSimple 포털에 대한 새 브라우저 탭을 엽니다.  메시지가 표시되면 Azure 로그인 자격 증명으로 로그인합니다.  
@@ -66,7 +66,7 @@ ms.locfileid: "77564723"
 
 Azure 포털에서 CloudSimple 포털에 액세스할 수 있습니다.  CloudSimple 포털은 단일 사인온(SSO)을 사용하여 Azure 로그인 자격 증명으로 시작됩니다.  CloudSimple 포털에 액세스하려면 **CloudSimple 서비스 권한 부여** 응용 프로그램에 권한을 부여해야 합니다.  권한 부여에 대한 자세한 내용은 [CloudSimple 서비스 권한 부여 응용 프로그램에 대한 동의를](access-cloudsimple-portal.md#consent-to-cloudsimple-service-authorization-application)참조하십시오.
 
-1. **모든 서비스를**선택합니다.
+1. **모든 서비스**를 선택합니다.
 2. 클라우드 **간단한 서비스를**검색합니다.
 3. 프라이빗 클라우드를 만들려는 CloudSimple 서비스를 선택합니다.
 4. 개요에서 **CloudSimple 포털로 이동을** 클릭하여 CloudSimple 포털에 대한 새 브라우저 탭을 엽니다.  메시지가 표시되면 Azure 로그인 자격 증명으로 로그인합니다.  
@@ -159,8 +159,8 @@ CloudSimple은 프라이빗 클라우드를 위한 익스프레스루트 회로�
     ![vSphere 클라이언트 시작](media/launch-vcenter-from-cloudsimple-portal.png)
 
 2. 기본 vSphere 클라이언트를 선택하여 vCenter에 액세스하고 사용자 이름과 암호로 로그인합니다.  기본값은 다음과 같습니다.
-    * 사용자 이름: **클라우드 소유자\@클라우드 simple.local**
-    * 암호: **CloudSimple123!**  
+    * 사용자 이름:`CloudOwner@cloudsimple.local`
+    * 암호: `CloudSimple123!`
 
 다음 절차의 vCenter 화면은 html5(vSphere) 클라이언트에서 제공합니다.
 

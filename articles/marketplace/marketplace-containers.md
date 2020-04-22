@@ -6,14 +6,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 882d428d7a8a9b56408aaa68964fa1e36c7cc7c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 80bcf0d5d37a44cee2aab38161abac619542204a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277309"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684318"
 ---
 # <a name="containers-offer-publishing-guide"></a>컨테이너 제품 게시 가이드
 
@@ -41,9 +41,9 @@ Microsoft는 현재 무료 및 BYOL(사용자 라이선스 필요) 라이선스 
 
 아직 수행하지 않았다면 
 
-- Marketplace에 [등록](https://azuremarketplace.microsoft.com/sell).
+- 마켓플레이스에 대해 [알아보세요.](https://azuremarketplace.microsoft.com/sell)
 
-새 제품을 등록하고 만들거나 기존에서 작업하는 경우
+파트너 센터에 등록하려면 새 오퍼를 만들거나 기존 오퍼를 작성하기 시작합니다.
 
-- 제품을 만들거나 완료하기 위해 [Cloud 파트너 포털에 로그인](https://cloudpartner.azure.com).
-- 자세한 내용은 [컨테이너](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer)를 참조하세요.
+- [파트너 센터에 로그인하여](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 쿠폰을 만들거나 완료하세요.
+- 자세한 [내용은 Azure 컨테이너 오퍼 만들기를](./partner-center-portal/create-azure-container-offer.md) 참조하십시오.

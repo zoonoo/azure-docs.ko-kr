@@ -1,6 +1,6 @@
 ---
-title: Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스
-description: Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스를 얻는 방법에 대해 알아보세요.
+title: 라이센스&reg; 마이크로 소프트 부드러운 스트리밍 클라이언트 포팅 키트
+description: Microsoft&reg; 소프트 스트리밍 클라이언트 포팅 키트에 라이선스를 부여하는 방법에 대해 알아봅니다.
 services: media-services
 documentationcenter: ''
 author: xpouyat
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: 59ac3ab2e70bfa00f19bae7e551780f2b2bb8ccb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd77c53a195a9549f6aaad9ee2928206f5324b0c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79096705"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686908"
 ---
-# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스 
+# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>라이센스&reg; 마이크로 소프트 부드러운 스트리밍 클라이언트 포팅 키트 
 ## <a name="overview"></a>개요
 Microsoft 부드러운 스트리밍 클라이언트 이식 키트(줄여서**SSPK**)는 포함된 디바이스 제조업체, 케이블 및 모바일 운영자, 콘텐츠 서비스 공급자, 송수화기 제조업체, ISV(독립 소프트웨어 공급업체) 및 솔루션 공급자가 적응 콘텐츠를 부드러운 스트리밍 형식으로 스트리밍하는 제품 및 서비스를 만들 수 있도록 최적화된 부드러운 스트리밍 클라이언트 구현입니다. SSPK는 정식 사용자가 어떠한 디바이스 및 플랫폼에도 이식할 수 있는 부드러운 스트리밍 클라이언트의 디바이스 및 플랫폼 독립적인 구현입니다. 
 
@@ -73,7 +73,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 ## <a name="licensing-procedure-and-sspk-access"></a>라이선스 절차 및 SSPK 액세스
 모든 [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) 라이선스 쿼리에 대한 전자 메일입니다.
 
-[SSPK 배포 포털](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) 은 등록된 중간 정식 사용자가 액세스할 수 있습니다.
+SSPK 배포 포털 은 등록된 중간 정식 사용자가 액세스할 수 있습니다.
 
 임시 및 최종 SSPK 사용권자에 기술 질문을 제출할 수 [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com)있습니다.
 

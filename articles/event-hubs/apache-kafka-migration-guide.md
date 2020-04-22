@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2020
 ms.author: shvija
-ms.openlocfilehash: 806a1f16327ad72a7f3527c813b355e1ba807dda
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 32b08e565b86af8f6373c9848211646128bb346d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606757"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677364"
 ---
 # <a name="migrate-to-azure-event-hubs-for-apache-kafka-ecosystems"></a>아파치 카프카 생태계를 위한 Azure 이벤트 허브로 마이그레이션
 Azure 이벤트 허브는 카프카 프로토콜을 사용하여 이벤트 허브에 연결할 수 있는 아파치 카프카 엔드포인트를 노출합니다. 기존 Kafka 응용 프로그램을 최소한으로 변경하면 Azure 이벤트 허브에 연결하고 Azure 에코시스템의 이점을 얻을 수 있습니다. 카프카에 대한 이벤트 허브는 [아파치 카프카 버전 1.0](https://kafka.apache.org/10/documentation.html) 이상 을 지원합니다.
@@ -71,4 +71,3 @@ Event Hubs 및 Kafka용 Event Hubs에 대해 자세한 내용은 다음 문서�
 - [자주 묻는 질문 - 아파치 카프카의 이벤트 허브](apache-kafka-frequently-asked-questions.md)
 - [Azure 이벤트 허브에 대 한 아파치 카프카 개발자 가이드](apache-kafka-developer-guide.md)
 - [권장 구성](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
-- 

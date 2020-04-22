@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: 0b081229dcb382786fea03dff358b5cc47d77ee7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 31a5d55d1067b9dd946c1667118d0bde5ee3d59e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75912009"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682508"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Azure IoT Tools for Visual Studio Code를 사용하여 디바이스와 IoT Hub 간에 메시지 보내고 받기
 
@@ -39,9 +39,9 @@ ms.locfileid: "75912009"
 
 * 구독 중인 Azure IoT Hub
 
-* [비주얼 스튜디오 코드](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 
-* [VS 코드에 대한 Azure IoT 도구](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 또는 [시각적 스튜디오 코드에서 이 링크를 엽니다.](vscode:extension/vsciot-vscode.azure-iot-tools)
+* [VS 코드용 Azure IoT 도구](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 또는 이 URL을 복사하여 브라우저 창에 붙여넣습니다.`vscode:extension/vsciot-vscode.azure-iot-tools`
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>로그인하여 IoT Hub에 액세스
 

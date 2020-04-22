@@ -3,31 +3,22 @@ title: 스크립트를 통해 Azure 마이그레이션 어플라이언스 설정
 description: 스크립트를 사용하여 Azure 마이그레이션 어플라이언스를 설정하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: faed7f96ea8c1850af5523d35f9f891011a48df8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 0c4d85909bbfa623b5ad8590e973250474d9d95a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537715"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676306"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>스크립트로 어플라이언스 설정
 
-이 문서에서는 VMware VM 및 Hyper-VM에 대해 PowerShell 설치 관리자 스크립트를 사용하여 [Azure 마이그레이션 어플라이언스를](deploy-appliance.md) 설정하는 방법에 대해 설명합니다. 실제 서버에 대한 어플라이언스를 설정하려면 [이 문서를 검토하십시오.](how-to-set-up-appliance-physical.md)
+이 문서에 따라 VMware VM 및 Hyper-VM의 평가/마이그레이션을 위한 [Azure 마이그레이션 어플라이언스를](deploy-appliance.md) 만듭니다. 스크립트를 실행하여 어플라이언스를 만들고 Azure에 연결할 수 있는지 확인합니다. 
 
+스크립트를 사용하거나 Azure 포털에서 다운로드하는 템플릿을 사용하여 VMware 및 Hyper-V VM용 어플라이언스를 배포할 수 있습니다. 스크립트를 사용하면 다운로드한 템플릿을 사용하여 VM을 만들 수 없는 경우에 유용합니다.
 
-다음 몇 가지 방법을 사용하여 어플라이언스를 배포할 수 있습니다.
-
-
-- VMware VM(OVA) 또는 하이퍼 VM(VHD)용 템플릿 사용
-- 스크립트 사용. 이 문서에서 설명하는 방법입니다. 스크립트는 다음을 제공합니다.
-    - VMware VM의 평가 및 에이전트 없는 마이그레이션을 위해 OVA 템플릿을 사용하여 어플라이언스를 설정하는 대안입니다.
-    - 하이퍼 VM의 평가 및 마이그레이션을 위해 VHD 템플릿을 사용하여 어플라이언스를 설정하는 대안입니다.
-    - 물리적 서버(또는 물리적 서버로 마이그레이션하려는 VM)를 평가할 때 스크립트가 어플라이언스를 설정하는 유일한 방법입니다.
-    - Azure 정부에서 어플라이언스를 배포하는 방법입니다.
-
-
-어플라이언스를 만든 후 Azure Migrate에 연결할 수 있는지 확인합니다. 그런 다음 어플라이언스를 처음으로 구성하고 Azure 마이그레이션 프로젝트에 등록합니다.
-
+- 템플릿을 사용하려면 [VMware](tutorial-prepare-vmware.md) 또는 [Hyper-V](tutorial-prepare-hyper-v.md)에 대한 자습서를 따르십시오.
+- 실제 서버에 대한 어플라이언스를 설정하려면 스크립트만 사용할 수 있습니다. [이 문서를](how-to-set-up-appliance-physical.md)따르십시오.
+- Azure 정부 클라우드에서 어플라이언스를 설정하려면 [이 문서를](deploy-appliance-script-government.md)따르십시오.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -55,24 +46,15 @@ VMware에 대한 어플라이언스를 설정하려면 Azure 포털에서 압축
 1. 파일을 다운로드한 컴퓨터에서 관리자 명령 창을 엽니다.
 2. 다음 명령을 실행하여 압축된 파일의 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - 퍼블릭 클라우드의 예:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
-    - 정부 클라우드의 예:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip```
+    - 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
+3. 생성된 해시 값을 확인합니다. 최신 어플라이언스 버전의 경우:
 
-3. 생성된 해시 값을 확인합니다.
+    **알고리즘** | **해시 값**
+    --- | ---
+    MD5 | 1e92ede3e87c03bd148e56a708cdd33f
+    SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
 
-    - 퍼블릭 클라우드의 경우(최신 어플라이언스 버전의 경우):
 
-        **알고리즘** | **해시 값**
-          --- | ---
-          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
-
-    - Azure 정부(최신 어플라이언스 버전의 경우):
-
-        **알고리즘** | **해시 값**
-          --- | ---
-          MD5 | 6316bcc8bc9322204295bfe33f4be3949
-          
 
 ### <a name="run-the-script"></a>스크립트 실행
 
@@ -92,15 +74,14 @@ VMware에 대한 어플라이언스를 설정하려면 Azure 포털에서 압축
 2. 관리자(승격된) 권한으로 컴퓨터에서 PowerShell을 시작합니다.
 3. PowerShell 디렉터리를 다운로드한 압축 파일에서 추출한 내용이 포함된 폴더로 변경합니다.
 4. 다음과 같이 **스크립트를 실행합니다.**
-    - 퍼블릭 클라우드의 경우:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario VMware ```
-    - Azure 정부의 경우:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
+
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario VMware ```
    
 5. 스크립트가 성공적으로 실행되면 어플라이언스 웹 응용 프로그램을 실행하여 어플라이언스를 설정할 수 있습니다. 문제가 발생하면 C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>타임스탬프</em>.log에서 스크립트 로그를 검토합니다.
 
 ### <a name="verify-access"></a>액세스 확인
 
-어플라이언스가 [공용](migrate-appliance.md#public-cloud-urls) 및 [정부 클라우드](마이그레이션 어플라이언스.md#정부 클라우드 URL)에 대한 Azure URL에 연결할 수 있는지 확인합니다.
-
+어플라이언스가 [퍼블릭](migrate-appliance.md#public-cloud-urls) 클라우드용 Azure URL에 연결할 수 있는지 확인합니다.
 
 ## <a name="set-up-the-appliance-for-hyper-v"></a>하이퍼-V용 어플라이언스 설정
 
@@ -120,24 +101,14 @@ Hyper-V에 대한 어플라이언스를 설정하려면 Azure 포털에서 압�
 1. 파일을 다운로드한 컴퓨터에서 관리자 명령 창을 엽니다.
 2. 다음 명령을 실행하여 압축된 파일의 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - 퍼블릭 클라우드의 예:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
-    - 정부 클라우드의 예:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip MD5```
+    - 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
 
-3. 생성된 해시 값을 확인합니다.
+3. 생성된 해시 값을 확인합니다. 최신 어플라이언스 버전의 경우:
 
-    - 퍼블릭 클라우드의 경우(최신 어플라이언스 버전의 경우):
-
-        **알고리즘** | **해시 값**
-          --- | ---
-          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
-
-    - Azure 정부(최신 어플라이언스 버전의 경우):
-
-        **알고리즘** | **해시 값**
-          --- | ---
-          MD5 | 717f8b9185f565006b5aff0215ecadac
-          
+    **알고리즘** | **해시 값**
+    --- | ---
+    MD5 | 1e92ede3e87c03bd148e56a708cdd33f
+    SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
 
 ### <a name="run-the-script"></a>스크립트 실행
 
@@ -156,22 +127,17 @@ Hyper-V에 대한 어플라이언스를 설정하려면 Azure 포털에서 압�
 1. 압축된 파일을 어플라이언스를 호스트하는 컴퓨터의 폴더로 추출합니다. 기존 Azure 마이그레이션 어플라이언스에서 컴퓨터에서 스크립트를 실행하지 않도록 합니다.
 2. 관리자(승격된) 권한으로 컴퓨터에서 PowerShell을 시작합니다.
 3. PowerShell 디렉터리를 다운로드한 압축 파일에서 추출한 내용이 포함된 폴더로 변경합니다.
-4. 다음과 같이 **스크립트를 실행합니다.**
-    - 퍼블릭 클라우드의 경우:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario Hyperv ```
-    - Azure 정부의 경우:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ```
+4. 다음과 같이 **스크립트를 실행합니다.**``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario Hyperv ```
    
 5. 스크립트가 성공적으로 실행되면 어플라이언스 웹 응용 프로그램을 실행하여 어플라이언스를 설정할 수 있습니다. 문제가 발생하면 C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>타임스탬프</em>.log에서 스크립트 로그를 검토합니다.
 
 ### <a name="verify-access"></a>액세스 확인
 
-어플라이언스가 [공용](migrate-appliance.md#public-cloud-urls) 및 [정부 클라우드](마이그레이션 어플라이언스.md#정부 클라우드 URL)에 대한 Azure URL에 연결할 수 있는지 확인합니다.
-
-
+어플라이언스가 [퍼블릭](migrate-appliance.md#public-cloud-urls) 클라우드용 Azure URL에 연결할 수 있는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-템플릿또는 물리적 서버로 어플라이언스를 설정하는 방법에 대해 자세히 알아보려면 다음 문서를 검토하십시오.
+어플라이언스를 배포한 후 처음으로 구성하고 Azure Migrate 프로젝트에 등록해야 합니다.
 
 - [VMware에](how-to-set-up-appliance-vmware.md#configure-the-appliance)대한 어플라이언스를 설정합니다.
 - [하이퍼-V에](how-to-set-up-appliance-hyper-v.md#configure-the-appliance)대한 어플라이언스를 설정합니다.
-- 물리적 서버에 대한 어플라이언스를 [설정합니다.](how-to-set-up-appliance-physical.md)

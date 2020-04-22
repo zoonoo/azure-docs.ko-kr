@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: 0f86d1ad03062797764af6a0d49beacaa3458a8f
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 79dc1b188e91028a98f43dc24972228f2d2101be
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365563"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684722"
 ---
 # <a name="execute-python-script-module"></a>파이썬 스크립트 모듈 실행
 
@@ -164,7 +164,7 @@ os.system(f"pip install scikit-misc")
 # imports up here can be used to
 import pandas as pd
 
-# The entry point function can contain up to two input arguments:
+# The entry point function must have two input arguments:
 #   Param<dataframe1>: a pandas.DataFrame
 #   Param<dataframe2>: a pandas.DataFrame
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -217,10 +217,17 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 5. **파이썬 스크립트** 텍스트 상자에서 유효한 파이썬 스크립트를 입력하거나 붙여 넣습니다.
 
+    > [!NOTE]
+    > 스크립트를 작성할 때는 신고되지 않은 개체 나 가져오지 않은 모듈을 사용하는 것과 같은 구문 오류가 없는지 주의하십시오. 또한 사전 설치된 모듈 목록에 주의를 기울이야 합니다. 나열되지 않은 모듈을 가져오려면 다음과 같은 스크립트에 해당 패키지를 설치합니다.
+    >  ``` Python
+    > import os
+    > os.system(f"pip install scikit-misc")
+    > ```
+    
     **Python 스크립트** 텍스트 상자에는 주석의 몇 가지 지침과 데이터 액세스 및 출력을 위한 샘플 코드가 미리 채워집니다. 이 코드를 편집하거나 교체해야 합니다. 들여쓰기 및 대/소문자에 대한 Python 규칙을 따라야 합니다.
 
     + 스크립트에는 이 모듈의 `azureml_main` 진입점으로 명명된 함수가 포함되어야 합니다.
-    + 진입점 함수에는 최대 2개의 입력 `Param<dataframe1>` 인수가 포함될 수 있습니다.`Param<dataframe2>`
+    + 진입점 함수에는 스크립트에서 이러한 `Param<dataframe1>` 인수가 `Param<dataframe2>`사용되지 않는 경우에도 두 개의 입력 인수가 있어야 합니다.
     + 세 번째 입력 포트에 연결된 압축 파일은 압축을 풀고 디렉토리에 저장되며 파이썬에 `.\Script Bundle` `sys.path`추가됩니다. 
 
     따라서 zip 파일에 포함 `mymodule.py`된 경우 `import mymodule`을 사용하여 가져옵니다.

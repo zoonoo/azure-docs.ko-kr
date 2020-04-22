@@ -4,15 +4,15 @@ description: 클라이언트 애플리케이션 및 도구에서 Azure Analysis 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 04/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c5914c7987d5a54a6bcc779231287309517f5121
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be6ee594896384bce86d892c9a7811e09a0f4efd
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80129212"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676574"
 ---
 # <a name="client-libraries-for-connecting-to-analysis-services"></a>분석 서비스에 연결하기 위한 클라이언트 라이브러리
 
@@ -22,10 +22,10 @@ ms.locfileid: "80129212"
 
 |다운로드  |제품 버전  | 
 |---------|---------|
-|[MSOLAP(amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.29.25    |
-|[MSOLAP(x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.29.25       |
-|[Amo](https://go.microsoft.com/fwlink/?linkid=829578)     |   18.4.8.0    |
-|[Adomd](https://go.microsoft.com/fwlink/?linkid=829577)     |    18.4.8.0     |
+|[MSOLAP(amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.36.38    |
+|[MSOLAP(x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.36.38       |
+|[Amo](https://go.microsoft.com/fwlink/?linkid=829578)     |   18.6.0.1    |
+|[Adomd](https://go.microsoft.com/fwlink/?linkid=829577)     |    18.6.0.1     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO 및 ADOMD(NuGet 패키지)
 
@@ -33,8 +33,8 @@ ms.locfileid: "80129212"
 
 |패키지  | 제품 버전  | 
 |---------|---------|
-|[Amo](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    18.4.8.0     |
-|[Adomd](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   18.4.8.0      |
+|[Amo](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    18.6.0.1     |
+|[Adomd](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   18.6.0.1      |
 
 NuGet 패키지 어셈블리 AssemblyVersion은 의미 체계 버전 지정 MAJOR.MINOR.PATCH를 따릅니다. NuGet 참조는 GAC에 다른 버전이 있더라도(MSI 설치의 결과) 필요한 버전을 로드합니다. 패치는 각 릴리스에 대해 증가합니다. AMO 및 ADOMD 버전은 동기 상태로 유지됩니다.
 
@@ -72,7 +72,7 @@ Power BI Desktop 및 Excel과 같은 Microsoft 클라이언트 애플리케이�
   
 ### <a name="oleddb-msolap"></a>OLEDDB(MSOLAP)  
   
-1.  [https://editor.swagger.io](`C:\Program Files\Microsoft Analysis Services\AS OLEDB\`) 로 이동합니다. 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
+1.  [https://editor.swagger.io](`C:\Program Files\Microsoft Analysis Services\AS OLEDB\` ) 로 이동합니다. 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
   
 2.  오른쪽 단추로 클릭 **msolap.dll** > **속성** > **세부 정보.** 파일 이름이 msolap140.dll이면 최신 버전보다 오래된 것이므로 업그레이드해야 합니다.
     
@@ -81,12 +81,12 @@ Power BI Desktop 및 Excel과 같은 Microsoft 클라이언트 애플리케이�
   
 ### <a name="amo"></a>AMO
 
-1. [https://editor.swagger.io](`C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\`) 로 이동합니다. 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
+1. [https://editor.swagger.io](`C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\` ) 로 이동합니다. 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
 2. 오른쪽 마우스 오른쪽 단추로 클릭 **Microsoft.Analysis서비스** > **속성** > **세부 정보**.  
 
 ### <a name="adomd"></a>ADOMD
 
-1. [https://editor.swagger.io](`C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\`) 로 이동합니다. 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
+1. [https://editor.swagger.io](`C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\` ) 로 이동합니다. 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
 2. 오른쪽 단추로 클릭 **마이크로 소프트.AnalysisServices.AdomdClient** > **속성** > **세부 정보**.  
 
 

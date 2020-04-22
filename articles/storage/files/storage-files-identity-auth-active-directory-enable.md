@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 04/20/2020
 ms.author: rogarana
-ms.openlocfilehash: 8d1e1262c592f0120b191e18a5c16b97b887a6a2
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 44debc299054568769bfbe6cfc089cc528594274
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536536"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677067"
 ---
 # <a name="enable-on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Azure 파일 공유에 대한 SMB를 통해 온-프레미스 활성 디렉터리 도메인 서비스 인증 사용
 
@@ -68,11 +68,7 @@ Azure 파일 공유에 대한 AD DS 인증을 사용하도록 설정하기 전�
 
 ## <a name="regional-availability"></a>국가별 가용성
 
-AD DS(미리 보기)를 사용 하 여 Azure 파일 [인증대부분의 공용 지역에서](https://azure.microsoft.com/global-infrastructure/regions/)사용할 수 있습니다.
-
-온-프레미스 AD DS를 사용 하 고 Azure 파일 인증을 사용할 수 없습니다.
-- 미국 서부
-
+AD DS(미리 보기)를 사용 하 여 Azure 파일 [인증은 모든 공용 지역 및 Azure Gov 지역에서](https://azure.microsoft.com/global-infrastructure/locations/)사용할 수 있습니다.
 
 ## <a name="workflow-overview"></a>워크플로 개요
 
@@ -84,13 +80,13 @@ Azure 파일 공유에 대한 SMB를 통해 AD DS 인증을 사용하도록 설�
 
 1. 저장소 계정에서 Azure 파일 AD DS 인증을 사용하도록 설정합니다. 
 
-1. 대상 AD ID와 동기화된 Azure AD ID(사용자, 그룹 또는 서비스 주체)에 공유에 대한 액세스 권한을 할당합니다. 
+2. 대상 AD ID와 동기화된 Azure AD ID(사용자, 그룹 또는 서비스 주체)에 공유에 대한 액세스 권한을 할당합니다. 
 
-1. 디렉터리 및 파일에 대해 SMB를 통해 ACL을 구성합니다. 
+3. 디렉터리 및 파일에 대해 SMB를 통해 ACL을 구성합니다. 
  
-1. AD DS에 가입된 VM에 Azure 파일 공유를 마운트합니다. 
+4. AD DS에 가입된 VM에 Azure 파일 공유를 마운트합니다. 
 
-1. AD DS에서 저장소 계정 ID의 암호를 업데이트합니다.
+5. AD DS에서 저장소 계정 ID의 암호를 업데이트합니다.
 
 다음 다이어그램은 Azure 파일 공유에 대한 SMB에 대한 Azure AD 인증을 사용하도록 설정하는 종단 간 워크플로를 보여 줍니다. 
 

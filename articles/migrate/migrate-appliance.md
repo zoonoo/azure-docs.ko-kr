@@ -3,12 +3,12 @@ title: Azure Migrate 어플라이언스
 description: 서버 평가 및 마이그레이션에 사용되는 Azure 마이그레이션 어플라이언스에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: 130de0824a1671fb0b0e3e980f06f4c3abc689d2
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 1c21f06e674871aefde1ae952a459db16feeb717
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538225"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676348"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
@@ -125,7 +125,7 @@ download.microsoft.com/download | Microsoft 다운로드에서 다운로드를 �
 *.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Azure 마이그레이션 서비스 URL에 연결합니다.
 *. hypervrecoverymanager.windowsazure.us | **VMware 에이전트 없는 마이그레이션에 사용**<br/><br/> Azure 마이그레이션 서비스 URL에 연결합니다.
 *.blob.core.usgovcloudapi.net  |  **VMware 에이전트 없는 마이그레이션에 사용**<br/><br/>마이그레이션을 위해 저장소에 데이터를 업로드합니다.
-*applicationinsights.us | 어플라이언스의 게이트웨이 에이전트가 진단 모니터링을 위해 응용 프로그램 인사이트 끝점에 액세스하는 데 사용됩니다.
+*applicationinsights.us | 내부 모니터링에 사용되는 앱 로그를 업로드합니다.
 
 
 
@@ -176,7 +176,7 @@ IPv6 주소 | vm.Guest.Net
 읽기 처리량(초당 MB) | net.received.average
 쓰기 처리량(초당 MB) | net.transmitted.average
 **인벤토리 경로 세부 정보** | 
-속성 | container.GetType().Name
+이름 | container.GetType().Name
 자식 개체 유형 | container.ChildType
 참조 세부 정보 | container.MoRef
 부모 세부 정보 | Container.Parent

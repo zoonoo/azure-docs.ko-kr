@@ -3,12 +3,12 @@ title: 컨테이너 그룹에서 관리되는 ID 사용
 description: 다른 Azure 서비스로 인증할 수 있는 Azure 컨테이너 인스턴스에서 관리되는 ID를 사용하도록 설정하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 01/29/2020
-ms.openlocfilehash: 003055d5021dd8ad7c3bab6d2900298ffd13b222
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19d2ab22eea15278c7753046f9222c7856fbf5ef
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76901937"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685653"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Azure Container Instances에서 관리 ID를 사용하는 방법
 
@@ -31,7 +31,7 @@ ms.locfileid: "76901937"
 실행 중인 컨테이너에서 관리 ID를 사용하면 컨테이너 코드에서 자격 증명을 관리하지 않고, [Azure AD 인증을 지원하는 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)에서 인증을 받을 수 있습니다. AD 인증을 지원하지 않는 서비스의 경우 Azure 키 자격 증명에 비밀을 저장하고 관리되는 ID를 사용하여 키 자격 증명에 액세스하여 자격 증명을 검색할 수 있습니다. 관리 ID 사용에 대한 자세한 내용은 [Azure 리소스용 관리 ID란?](../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 이 기능은 현재 미리 보기로 제공됩니다. [추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 동의하는 조건으로 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다. 현재 Azure 컨테이너 인스턴스에서 관리되는 ID는 Linux 컨테이너에서만 지원되며 아직 Windows 컨테이너에서는 지원되지 않습니다.
+> 이 기능은 현재 미리 보기로 제공됩니다. [부속 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다. 현재 Azure 컨테이너 인스턴스에서 관리되는 ID는 Linux 컨테이너에서만 지원되며 아직 Windows 컨테이너에서는 지원되지 않습니다.
 >  
 
 ### <a name="enable-a-managed-identity"></a>관리 ID 사용
@@ -52,7 +52,7 @@ Azure Container Instances는 두 가지 유형의 Azure 관리 ID인 사용자 �
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서는 Azure CLI 버전 2.0.49 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하십시오.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서는 Azure CLI 버전 2.0.49 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-an-azure-key-vault"></a>Azure 키 자격 증명 모음 만들기
 
@@ -189,7 +189,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-이제 액세스 토큰을 사용하여 키 자격 증명을 인증하고 비밀을 읽습니다. URL*https://mykeyvault.vault.azure.net/..(.*) 에서 키 자격 증명 모음의 이름을 대체해야 합니다.
+이제 액세스 토큰을 사용하여 키 자격 증명을 인증하고 비밀을 읽습니다. URL에서 키 자격 증명 모음의 이름을 대체해야*합니다(https:\//mykeyvault.vault.azure.net/...*:
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"

@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/17/2020
-ms.openlocfilehash: 1f3c9f86072eeedbc999946d0f846fbc3b41f94d
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: f94136ca6bfcb7e33415f2f44fdf4c44ef9f6a6f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641748"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682786"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Azure 가상 네트워크 내에서 안전한 Azure ML 실험 및 추론 작업
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -140,12 +140,13 @@ Azure Machine Learning에서 인스턴스를 계산하거나 클러스터를 가
 > * 작업 영역에 대한 Azure 저장소 계정도 가상 네트워크에서 보호되는 경우 Azure Machine Learning계산 인스턴스 또는 클러스터와 동일한 가상 네트워크에 있어야 합니다. 
 
 > [!TIP]
-> Machine Learning은 인스턴스를 계산하거나 클러스터가 가상 네트워크를 포함하는 리소스 그룹에 추가 네트워킹 리소스를 자동으로 할당합니다. 각 계산 인스턴스 또는 클러스터에 대해 서비스는 다음 리소스를 할당합니다.
+> Machine Learning 계산 인스턴스 또는 클러스터는 가상 네트워크를 __포함하는 리소스 그룹에__추가 네트워킹 리소스를 자동으로 할당합니다. 각 계산 인스턴스 또는 클러스터에 대해 서비스는 다음 리소스를 할당합니다.
 > 
 > * 네트워크 보안 그룹 1개
 > * 공용 IP 주소 1개
 > * 부하 분산 장치 1개
 > 
+> 클러스터의 경우 클러스터가 0노드로 축소될 때마다 이러한 리소스가 삭제되고 다시 생성되지만 인스턴스의 경우 인스턴스가 완전히 삭제될 때까지 리소스가 유지됩니다(중지는 리소스를 제거하지 않음). 
 > 이러한 리소스는 구독의 [리소스 할당량](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)으로 제한됩니다.
 
 

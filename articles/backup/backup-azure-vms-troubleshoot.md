@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 시스템의 백업 및 복원으�
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 15e4b4c8850798fd2386cd2874b6ab58a18d5406
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 019c27b1f7e8560c86252aaf2ed1fb79df2439fa
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297393"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677352"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -191,6 +191,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 | **오류 코드**: 확장스냅샷실패NoSecureNetwork <br/> **오류 메시지**: 보안 네트워크 통신 채널을 만들지 못해 스냅숏 작업이 실패했습니다. | <ol><li> 관리자 권한 모드에서 **regedit.exe**를 실행하여 레지스트리 편집기를 엽니다. <li> 시스템에 있는 모든 버전의 .NET Framework를 파악합니다. 이러한 버전은 레지스트리 키 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**의 계층 구조 아래에 있습니다. <li> 레지스트리 키에 있는 각 .NET Framework에 대해 다음 키를 추가합니다. <br> **SchUseStrongCrypto"=dword:000000001**. </ol>|
 | **오류 코드**: 확장VCRedist설치실패 <br/> **오류 메시지**: Visual Studio 2012에 대해 Visual C++ 재배포 가능 을 설치하지 못해 스냅숏 작업이 실패했습니다. | C:\패키지\플러그인\Microsoft.Azure.RecoveryServices.VMSnapshot\에이전트버전으로 이동하여 vcredist2013_x64 설치합니다.<br/>서비스 설치를 허용하는 레지스트리 키 값이 올바른 값으로 설정되어 있는지 확인합니다. 즉, **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\서비스\Msiserver에서** **시작** 값을 **4가**아닌 **3으로** 설정합니다. <br><br>설치하는 데 여전히 문제가 발생할 경우 관리자 권한 명령 프롬프트에서 **MSIEXEC /UNREGISTER**를 실행한 후 **MSIEXEC /REGISTER**를 실행하여 설치 서비스를 다시 시작합니다.  |
 | **오류 코드**: 사용자 오류 요청디허용ByPolicy <BR> **오류 메시지**: 스냅숏 작업을 방해하는 VM에서 잘못된 정책이 구성됩니다. | [환경 내에서 태그를 제어하는](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags)Azure 정책이 있는 경우 거부 [효과에서](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) [수정 효과로](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)정책을 변경하거나 [Azure Backup에 필요한 명명 스키마에](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines)따라 리소스 그룹을 수동으로 만드는 것이 좋습니다.
+
 ## <a name="jobs"></a>작업
 
 | 오류 세부 정보 | 해결 방법 |
@@ -229,12 +230,12 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 #### <a name="windows-vms"></a>Windows VM
 
 * [에이전트 MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하여 설치합니다. 설치를 완료하려면 관리자 권한이 필요합니다.
-* 클래식 배포 모델을 사용하여 생성된 가상 머신의 경우 [VM 속성을 업데이트](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)하여 에이전트가 설치되었다고 표시합니다. Azure Resource Manager 가상 머신의 경우 이 단계가 필요하지 않습니다.
+* 클래식 배포 모델을 사용하여 생성된 가상 머신의 경우 [VM 속성을 업데이트](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms)하여 에이전트가 설치되었다고 표시합니다. Azure Resource Manager 가상 머신의 경우 이 단계가 필요하지 않습니다.
 
 #### <a name="linux-vms"></a>Linux VM
 
 * 배포 리포지토리에서 최신 버전의 에이전트를 설치합니다. 패키지 이름에 대한 자세한 내용은 [Linux 에이전트 리포지토리](https://github.com/Azure/WALinuxAgent)를 참조하십시오.
-* 클래식 배포 모델을 사용하여 생성된 VM의 경우 [이 블로그를 사용](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)하여 VM 속성을 업데이트하고 에이전트가 설치되어 있는지 확인합니다. Resource Manager 가상 머신의 경우 이 단계가 필요하지 않습니다.
+* 클래식 배포 모델을 사용하여 만든 VM의 경우 [VM 속성을 업데이트하고](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) 에이전트가 설치되어 있는지 확인합니다. Resource Manager 가상 머신의 경우 이 단계가 필요하지 않습니다.
 
 ### <a name="update-the-vm-agent"></a>VM 에이전트 업데이트
 
@@ -280,4 +281,3 @@ PowerShell을 통해 고정 IP를 설정하는 방법에 대한 자세한 정보
 
 * [기존 VM에 고정 내부 IP를 추가하는 방법](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterfaceipconfig?view=azps-3.5.0#description)
 * [네트워크 인터페이스에 할당된 개인 IP 주소의 할당 방법 변경](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
-

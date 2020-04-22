@@ -14,18 +14,18 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b2b901f652564c47ca35cb0f75a69f26fa2fa71
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 9c2c5c083115440e1e4da203f39f2b32734458c3
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81533227"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684967"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Azure Active Directory의 관리 단위에 사용자 추가 및 관리
 
 Azure Active Directory(Azure AD)에서 보다 세분화된 관리 범위의 제어를 위해 사용자를 관리 단위(AU)에 추가할 수 있습니다.
 
-관리 단위 관리를 위해 PowerShell 및 Microsoft 그래프를 사용할 준비를 준비하는 단계는 [시작 하기](roles-admin-units-manage.md#getting-started)를 참조하십시오.
+관리 단위 관리를 위해 PowerShell 및 Microsoft 그래프를 사용할 준비를 하는 단계는 [시작 을](roles-admin-units-manage.md#get-started)참조하십시오.
 
 ## <a name="add-users-to-an-au"></a>AU에 사용자 추가
 

@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: spelluru
-ms.openlocfilehash: 82773ab6decfe15ee1a9d839a1f10a158ae72c42
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: cde5992355d274410bb43b1e3e60fbba1afe4e44
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521313"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676364"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>공유 액세스 서명(SAS)을 사용하여 이벤트 허브 리소스에 대한 액세스 인증
 공유 액세스 서명(SAS)을 사용하면 공유 액세스 서명이 있는 클라이언트에 부여한 액세스 유형을 세부적으로 제어할 수 있습니다. 다음은 SAS에서 설정할 수 있는 몇 가지 컨트롤입니다. 
@@ -22,7 +22,7 @@ ms.locfileid: "80521313"
 - SAS에서 부여된 권한입니다. 예를 들어 이벤트 허브 네임스페이스에 대한 SAS는 수신 권한 권한을 부여할 수 있지만 전송 권한은 부여할 수 없습니다.
 - 유효한 자격 증명을 제공하는 클라이언트만 이벤트 허브로 데이터를 보낼 수 있습니다.
 - 클라이언트는 다른 클라이언트를 가장할 수 없습니다.
-- rouge 클라이언트는 이벤트 허브로 데이터를 전송하지 못하도록 차단할 수 있습니다.
+- 악성 클라이언트는 이벤트 허브로 데이터를 보내지 못하도록 차단할 수 있습니다.
 
 이 문서에서는 SAS를 사용하여 이벤트 허브 리소스에 대한 액세스를 인증합니다. SAS를 사용하여 이벤트 허브 리소스에 대한 액세스 **권한을 부여하는** 방법에 대한 자세한 내용은 [이 문서를](authorize-access-shared-access-signature.md)참조하십시오. 
 

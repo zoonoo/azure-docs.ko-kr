@@ -1,5 +1,5 @@
 ---
-title: 문제 해결 - Azure Automation Hybrid Runbook Worker
+title: Azure 자동화 하이브리드 Runbook 작업자 문제 해결
 description: 이 문서에서는 Azure 자동화 하이브리드 Runbook 작업자 문제 해결에 대한 정보를 제공합니다.
 services: automation
 ms.service: automation
@@ -9,20 +9,23 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d2587af0ada18b5c4271e7411783fe60211a3479
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 2b3bf6706e977bdb6915335dee59da3c250e7895
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637851"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81679326"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Hybrid Runbook Worker 문제 해결
 
 이 문서에서는 Hybrid Runbook Worker 문제 해결에 대한 정보를 제공합니다.
 
+>[!NOTE]
+>이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. 하이브리드 Runbook 작업자의 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치를](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)참조하십시오. 자동화 계정의 경우 Azure 자동화 에서 [Azure PowerShell 모듈을 업데이트하는 방법을](../automation-update-azure-modules.md)사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
+
 ## <a name="general"></a>일반
 
-Hybrid Runbook Worker는 Automation 계정과 통신하여 작업자를 등록하고, Runbook 작업을 수신하고, 상태를 보고하는 에이전트를 사용합니다. Windows의 경우 이 에이전트는 Microsoft 모니터링 에이전트(MMA)라고도 하는 Windows용 로그 분석 에이전트입니다. 리눅스에 대 한, 그것은 리눅스에 대 한 로그 분석 에이전트.
+Hybrid Runbook Worker는 Automation 계정과 통신하여 작업자를 등록하고, Runbook 작업을 수신하고, 상태를 보고하는 에이전트를 사용합니다. Windows의 경우 이 에이전트는 Windows용 로그 분석 에이전트입니다. 리눅스에 대 한, 그것은 리눅스에 대 한 로그 분석 에이전트.
 
 ### <a name="scenario-runbook-execution-fails"></a><a name="runbook-execution-fails"></a>시나리오: Runbook 실행 실패
 
@@ -41,10 +44,8 @@ Runbook이 세 번 실행하려고 시도한 직후에 실행이 일시 중단�
 가능한 원인은 다음과 같습니다.
 
 * Runbook은 로컬 리소스로 인증할 수 없습니다.
-
 * Hybrid Worker가 프록시 또는 방화벽 뒤에 있습니다.
-
-* 하이브리드 Runbook 작업자 기능을 실행하도록 구성된 컴퓨터가 최소 하드웨어 요구 사항을 충족하지 않습니다.
+* 하이브리드 Runbook 워커를 실행하도록 구성된 컴퓨터가 최소 하드웨어 요구 사항을 충족하지 않습니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -103,20 +104,20 @@ Runbook이 세 번 실행하려고 시도한 직후에 실행이 일시 중단�
 하이브리드 Runbook 작업자에서 실행 중인 Runbook은 다음과 같은 오류 메시지와 함께 실패합니다.
 
 ```error
-Connect-AzureRmAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
+Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
 At line:3 char:1
-+ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
++ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Connect-AzureRmAccount], ArgumentException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzureRmAccountCommand
+    + CategoryInfo          : CloseError: (:) [Connect-AzAccount], ArgumentException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand
 ```
 #### <a name="cause"></a>원인
 
-이 오류는 [RunBook에서 실행 계정으로 실행](../manage-runas-account.md) 계정 으로 실행 계정 인증서가 없는 하이브리드 Runbook 워커에서 실행 하려고 할 때 발생 합니다. 하이브리드 Runbook 작업자는 기본적으로 로컬로 인증서 자산을 가지고 있지 않으며, Run As 계정에서 제대로 작동해야 합니다.
+이 오류는 [RunAs 계정](../manage-runas-account.md) 인증서가 없는 하이브리드 Runbook 워커에서 실행되는 Runbook에서 Run As 계정을 사용하려고 할 때 발생합니다. 하이브리드 Runbook 작업자는 기본적으로 로컬에 인증서 자산을 가지고 있지 않습니다. 실행 As 계정은 이 자산이 제대로 작동하도록 요구합니다.
 
 #### <a name="resolution"></a>해결 방법
 
-하이브리드 Runbook 워커가 Azure VM인 경우 [대신 Azure 리소스에 대해 관리되는 ID를](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) 사용할 수 있습니다. 이 시나리오에서는 Run As 계정 대신 Azure VM의 관리되는 ID를 사용하여 Azure 리소스에 인증할 수 있도록 하여 인증을 단순화합니다. 하이브리드 Runbook 작업자가 온-프레미스 컴퓨터인 경우 컴퓨터에 Run As 계정 인증서를 설치해야 합니다. 인증서를 설치하는 방법을 알아보려면 [하이브리드 Runbook 작업자에서 실행 중인 runbook에서](../automation-hrw-run-runbooks.md)PowerShell 실행첩 내보내기-RunAsCertificateToHybridWorker를 실행하는 단계를 참조하세요.
+하이브리드 Runbook 워커가 Azure VM인 경우 [대신 Azure 리소스에 대해 관리되는 ID를](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) 사용할 수 있습니다. 이 시나리오에서는 Run As 계정 대신 Azure VM의 관리되는 ID를 사용하여 Azure 리소스에 인증할 수 있도록 하여 인증을 단순화합니다. 하이브리드 Runbook 작업자가 온-프레미스 컴퓨터인 경우 컴퓨터에 Run As 계정 인증서를 설치해야 합니다. 인증서를 설치하는 방법을 알아보려면 [하이브리드 Runbook 작업자에서 실행 중인 runbook에서](../automation-hrw-run-runbooks.md)PowerShell 실행첩 **내보내기-RunAsCertificateToHybridWorker를** 실행하는 단계를 참조하세요.
 
 ### <a name="scenario-error-403-during-registration-of-hybrid-runbook-worker"></a><a name="error-403-on-registration"></a>시나리오: 하이브리드 Runbook 작업자 등록 중 오류 403
 
@@ -193,15 +194,15 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 Windows 하이브리드 Runbook 작업자는 [Windows용 로그 분석 에이전트에](../../azure-monitor/platform/log-analytics-agent.md) 따라 자동화 계정과 통신하여 작업자를 등록하고 Runbook 작업을 수신하고 상태를 보고합니다. 작업자 등록에 실패하는 경우 이 섹션에는 몇 가지 가능한 이유가 포함됩니다.
 
-### <a name="scenario-the-microsoft-monitoring-agent-isnt-running"></a><a name="mma-not-running"></a>시나리오: Microsoft 모니터링 에이전트가 실행 되지 않습니다.
+### <a name="scenario-the-log-analytics-agent-for-windows-isnt-running"></a><a name="mma-not-running"></a>시나리오: Windows용 로그 분석 에이전트가 실행되고 있지 않습니다.
 
 #### <a name="issue"></a>문제
 
-`healthservice` 서비스가 Hybrid Runbook Worker 컴퓨터에서 실행되고 있지 않습니다.
+`healthservice` 하이브리드 Runbook 작업자 컴퓨터에서 실행되지 않습니다.
 
 #### <a name="cause"></a>원인
 
-Microsoft 모니터링 에이전트 서비스가 실행되지 않는 경우 하이브리드 Runbook 작업자가 Azure 자동화와 통신할 수 없습니다.
+Windows용 로그 분석 서비스가 실행되지 않는 경우 하이브리드 Runbook 작업자는 Azure 자동화와 통신할 수 없습니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -272,7 +273,7 @@ Heartbeat
 
 #### <a name="resolution"></a>해결 방법
 
-이 문제를 해결하려면 Hybrid Runbook Worker에 로그인하고 다음 스크립트를 실행합니다. 이 스크립트는 Microsoft Monitoring Agent를 중지하고 해당 캐시를 제거한 후 서비스를 다시 시작합니다. 이 작업을 통해 Hybrid Runbook Worker는 강제로 Azure Automation에서 해당 구성을 다시 다운로드하게 됩니다.
+이 문제를 해결하려면 Hybrid Runbook Worker에 로그인하고 다음 스크립트를 실행합니다. 이 스크립트는 Windows용 로그 분석 에이전트를 중지하고 캐시를 제거하고 서비스를 다시 시작합니다. 이 작업을 통해 Hybrid Runbook Worker는 강제로 Azure Automation에서 해당 구성을 다시 다운로드하게 됩니다.
 
 ```powershell
 Stop-Service -Name HealthService
@@ -304,8 +305,8 @@ Machine is already registered
 
 ## <a name="next-steps"></a>다음 단계
 
-문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
+위에 문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 통해 추가 지원을 시도해 보십시오.
 
 * Azure 포럼을 통해 Azure 전문가의 답변을 얻을 [수 있습니다.](https://azure.microsoft.com/support/forums/)
-* 연결 [@AzureSupport](https://twitter.com/azuresupport) - Azure 커뮤니티를 올바른 리소스(답변, 지원 및 전문가)에 연결하여 고객 경험을 개선하기 위한 공식 Microsoft Azure 계정과 연결합니다.
-* 추가 지원이 필요한 경우, Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동하여 **지원 받기를**선택합니다.
+* [@AzureSupport](https://twitter.com/azuresupport)Azure 커뮤니티를 올바른 리소스(답변, 지원 및 전문가)에 연결하여 고객 경험을 개선하기 위한 공식 Microsoft Azure 계정과 연결합니다.
+* Azure 지원 인시던트 제출 [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동하여 **지원 받기를**선택합니다.

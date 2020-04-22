@@ -5,16 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2660e4a348d2ffd71f912ff80c36a5a9a3c9fe88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 910f284eedbf50be5b58b6c18f02e50adda35e9a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75417776"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81679997"
 ---
-# <a name="migrate-your-oms-update-deployments-to-azure"></a>OMS 업데이트 배포를 Azure로 마이그레이션
+# <a name="migrate-your-oms-update-deployments-to-azure"></a>OMS 업데이트 배포를 Azure로 마이그레이션합니다.
 
-OMS(Operations Management Suite) 포털은 [더 이상 사용되지 않습니다](../azure-monitor/platform/oms-portal-transition.md). 업데이트 관리를 위해 OMS 포털에서 제공되었던 모든 기능은 Azure Portal에서 사용할 수 있습니다. 이 문서에서는 Azure Portal로 마이그레이션하는 데 필요한 정보를 제공합니다.
+OMS(Operations Management Suite) 포털은 [더 이상 사용되지 않습니다](../azure-monitor/platform/oms-portal-transition.md). 업데이트 관리를 위한 OMS 포털에서 사용할 수 있었던 모든 기능은 Azure Monitor 로그를 통해 Azure 포털에서 사용할 수 있습니다. 이 문서에서는 Azure 포털로 마이그레이션하는 데 필요한 정보를 제공합니다.
 
 ## <a name="key-information"></a>주요 정보
 
@@ -23,7 +23,7 @@ OMS(Operations Management Suite) 포털은 [더 이상 사용되지 않습니다
 
 ## <a name="access-the-azure-portal"></a>Azure Portal 액세스
 
-OMS 작업 영역에서 **Azure에서 열기**를 클릭합니다. OMS에서 사용한 Log Analytics 작업 영역으로 이동됩니다.
+OMS 작업 영역에서 **Azure에서 열기**를 클릭합니다. 이 선택은 OMS가 사용하고 있는 로그 분석 작업 영역으로 이동합니다.
 
 ![Azure에서 열기 - OMS 포털](media/migrate-oms-update-deployments/link-to-azure-portal.png)
 
@@ -31,11 +31,13 @@ Azure Portal에서 **Automation 계정**을 클릭합니다.
 
 ![Azure Monitor 로그](media/migrate-oms-update-deployments/log-analytics.png)
 
-Automation 계정에서 **업데이트 관리**를 클릭하여 업데이트 관리를 엽니다.
+자동화 계정에서 업데이트 **관리를 클릭합니다.**
 
 ![업데이트 관리](media/migrate-oms-update-deployments/azure-automation.png)
 
-나중에 Azure Portal로 직접 이동하여 **모든 서비스**에서 **Automation 계정**을 선택하고, **관리 도구**에서 적절한 Automation 계정을 선택한 다음, **업데이트 관리**를 클릭할 수 있습니다.
+Azure 포털에서 **모든 서비스에서** **자동화 계정을** 선택합니다. 
+
+**관리 도구에서**적절한 자동화 계정을 선택하고 **업데이트 관리를 클릭합니다.**
 
 ## <a name="recreate-existing-deployments"></a>기존 배포 다시 만들기
 
@@ -49,15 +51,15 @@ OMS 포털에서 만든 모든 업데이트 배포에는 존재하는 업데이�
 
 ![업데이트 배포 예약](media/migrate-oms-update-deployments/schedule-update-deployment.png)
 
-**새 업데이트 배포** 창이 열립니다. 다음 표에 설명된 속성의 값을 입력하고 **만들기**를 클릭합니다.
+새 업데이트 배포 창이 열립니다. 다음 표에 설명된 속성의 값을 입력하고 **만들기**를 클릭합니다.
 
-머신이 업데이트되려면 기존 OMS 배포에서 사용되는 저장된 검색을 선택합니다.
+**컴퓨터가 업데이트하려면**기존 OMS 배포에서 사용하는 저장된 검색을 선택합니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
-|이름 |업데이트 배포를 식별하는 고유 이름입니다. |
+|속성 |업데이트 배포를 식별하는 고유 이름입니다. |
 |운영 체제| **Linux** 또는 **Windows**를 선택합니다.|
-|업데이트할 컴퓨터 |저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다.</br> Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)을 참조하세요. |
+|업데이트할 컴퓨터 |저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **컴퓨터를**선택하면 컴퓨터의 준비 준비가 UPDATE **에이전트 준비** 열에 표시됩니다.</br> Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)을 참조하세요. |
 |업데이트 분류|필요한 모든 업데이트 분류를 선택합니다. CentOS는 기본적으로 이 기능을 지원하지 않습니다.|
 |제외할 업데이트|제외할 업데이트를 입력합니다. Windows의 경우 **KB** 접두사 없이 KB 문서를 입력합니다. Linux의 경우 패키지 이름을 입력하거나 와일드카드 문자를 사용합니다.  |
 |일정 설정|시작 시간을 선택하고 되풀이에 대해 **한 번** 또는 **정기**를 선택합니다. | 
@@ -72,4 +74,4 @@ OMS 포털에서 만든 모든 업데이트 배포에는 존재하는 업데이�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure의 업데이트 관리에 대한 자세한 내용은 [업데이트 관리](automation-update-management.md)를 참조하세요.
+Azure의 업데이트 관리에 대한 자세한 내용은 [업데이트 관리](automation-update-management.md)를 참조하십시오.

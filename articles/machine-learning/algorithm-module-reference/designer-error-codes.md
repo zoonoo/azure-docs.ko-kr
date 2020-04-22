@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: cc04d11475568af92ba6a617a1eb6b2b51accb45
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 38e728de22d49de760e998ddc97c5067beb3ecd1
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81481663"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684692"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>디자이너에 대한 예외 및 오류 코드(미리 보기)
 
@@ -145,6 +145,7 @@ ms.locfileid: "81481663"
 |매개 변수 "{arg_name}" 값은 매개 변수 "{upper_boundary_parameter_name}" 값보다 적거나 같아야 합니다.|
 |매개 변수 "{arg_name}"에는 {upper_boundary}보다 낮거나 같아야 하는 값 "{actual_value}"가 있습니다.|
 |매개 변수 "{arg_name}" 값 {actual_value}는 매개 변수 "{upper_boundary_parameter_name}" 값 {upper_boundary}보다 적거나 같아야 합니다.|
+|매개 변수 "{arg_name}" 값 {actual_value}는 {upper_boundary_meaning} 값 {upper_boundary}보다 적거나 같아야 합니다.|
 
 
 ## <a name="error-0008"></a>오류 0008  
@@ -253,8 +254,8 @@ Blob에 대한 전체 경로가 지정된 경우 경로가 **컨테이너/Blobna
 
 |모델 형식|교육 모듈| 채점 모듈|
 |----|----|----|
-|모든 분류자|[기차 모델](train-model.md) |[모델 채점](score-model.md)|
-|회귀 모델|[기차 모델](train-model.md) |[모델 채점](score-model.md)|
+|모든 분류자|[모델 학습](train-model.md) |[모델 채점](score-model.md)|
+|회귀 모델|[모델 학습](train-model.md) |[모델 채점](score-model.md)|
 
 <!--| clustering models| [Train Clustering Model](train-clustering-model.md) or [Sweep Clustering](sweep-clustering.md)| [Assign Data to Clusters](assign-data-to-clusters.md)|
 | anomaly detection - One-Class SVM | [Train Anomaly Detection Model](train-anomaly-detection-model.md) |[Score Model](score-model.md)|
@@ -271,6 +272,7 @@ Blob에 대한 전체 경로가 지정된 경우 경로가 **컨테이너/Blobna
 |잘못된 형식의 학습자가 전달되었습니다.|
 |수강생 "{arg_name}"에 잘못된 형식이 있습니다.|
 |수강생 "{arg_name}"에는 "{learner_type}"의 유효하지 않은 유형이 있습니다.|
+|잘못된 형식의 학습자가 전달되었습니다. 예외 메시지: {exception_message}|
 
 
 ## <a name="error-0014"></a>오류 0014  
@@ -354,7 +356,7 @@ Blob에 대한 전체 경로가 지정된 경우 경로가 **컨테이너/Blobna
 ## <a name="error-0018"></a>오류 0018  
  입력 데이터 집합이 올바르지 않으면 예외가 발생합니다.  
 
-**해결 방법:** Azure 기계 학습의 이 오류는 여러 컨텍스트에서 나타날 수 있으므로 단일 해결 방법이 없습니다. 일반적으로 오류는 모듈에 입력으로 제공된 데이터가 잘못된 열 수를 가지거나 데이터 형식이 모듈의 요구 사항과 일치하지 않음을 나타냅니다. 다음은 그 예입니다.  
+**해결 방법:** Azure 기계 학습의 이 오류는 여러 컨텍스트에서 나타날 수 있으므로 단일 해결 방법이 없습니다. 일반적으로 오류는 모듈에 입력으로 제공된 데이터가 잘못된 열 수를 가지거나 데이터 형식이 모듈의 요구 사항과 일치하지 않음을 나타냅니다. 예를 들어:  
 
 -   모듈에 레이블 열이 필요하지만 레이블로 표시된 열이 없거나 레이블 열을 아직 선택하지 않았습니다.  
   
@@ -393,6 +395,7 @@ Blob에 대한 전체 경로가 지정된 경우 경로가 **컨테이너/Blobna
 |열의 값이 정렬되어 있지 않습니다.|
 |"{col_index}" 열의 값은 정렬되지 않습니다.|
 |데이터 집합 "{데이터 집합}"의 열 "{col_index}"의 값은 정렬되지 않습니다.|
+|인수 "{arg_name}"의 값은 "{sorting_order}" 순서로 정렬되지 않습니다.|
 
 
 ## <a name="error-0020"></a>오류 0020  
@@ -435,7 +438,7 @@ Blob에 대한 전체 경로가 지정된 경우 경로가 **컨테이너/Blobna
 ## <a name="error-0022"></a>오류 0022  
  입력 데이터 집합에서 선택한 열의 수가 필요한 수와 같지 않으면 예외가 발생합니다.  
 
- Azure Machine Learning에서 이 오류는 다운스트림 모듈 또는 작업에 특정 수의 열 또는 입력이 필요하고 너무 적거나 너무 많은 열또는 입력을 제공한 경우에 발생할 수 있습니다. 다음은 그 예입니다.  
+ Azure Machine Learning에서 이 오류는 다운스트림 모듈 또는 작업에 특정 수의 열 또는 입력이 필요하고 너무 적거나 너무 많은 열또는 입력을 제공한 경우에 발생할 수 있습니다. 예를 들어:  
 
 -   단일 레이블 열 또는 키 열을 지정하고 실수로 여러 열을 선택했습니다.  
   
@@ -633,6 +636,7 @@ Azure Machine Learning에서 이 오류는 대상 열(모듈 매개 변수에서
 |------------------------|
 |인수는 유한해야 합니다.|
 |"{arg_name}"는 유한하지 않습니다.|
+|열 "{column_name}" 무한 값을 포함 합니다.|
 
 
 ## <a name="error-0034"></a>오류 0034  
@@ -738,7 +742,7 @@ For general information about how the Matchbox recommendation algorithm works, a
     + 유니코드가 아닌 문자, 탭 문자 또는 컨트롤 문자에 대한 텍스트 열 검사
     + 모델링 오류를 방지하려면 Datetime 데이터가 일관되어야 하지만 여러 형식때문에 정리가 복잡할 수 있습니다. 사용해 보십시오. <!--the [Execute R Script](execute-r-script.md) or -->[파이썬 스크립트](execute-python-script.md) 모듈을 실행하여 정리를 수행합니다.  
 + 필요한 경우 열을 성공적으로 변환할 수 있도록 입력 데이터 집합의 값을 수정합니다. 수정에는 비닝, 잘림 또는 반올림 작업, 이상값 제거 또는 누락된 값의 대치가 포함될 수 있습니다. 기계 학습의 몇 가지 일반적인 데이터 변환 시나리오는 다음 문서를 참조하십시오.
-    + [누락된 데이터 정리](clean-missing-data.md)
+    + [누락 데이터 정리](clean-missing-data.md)
     + [데이터 정규화](normalize-data.md)
 <!--+ [Clip Values](clip-values.md) 
     + [Group Data Into Bins](group-data-into-bins.md)
@@ -1492,6 +1496,18 @@ Azure 기계 학습에서 이 오류는 지원되지 않는 메서드를 사용�
 |------------------------------------------------------------|
 |주어진 변환디렉터리가 유효하지 않습니다.|
 |변환디렉터 "{arg_name}"이 유효하지 않습니다. 이유: {이유}. 변환 파일을 생성하는 학습 실험을 다시 실행하십시오. 학습 실험이 삭제된 경우 변환 파일을 다시 만들고 저장하십시오.|
+|변환디렉터 "{arg_name}"이 유효하지 않습니다. 이유: {이유}. {troubleshoot_hint}|
+
+
+## <a name="error-0159"></a>오류 0159
+ 모듈 모델 디렉터리로 전달된 경우 예외가 발생합니다. 
+
+|예외 메시지|
+|------------------------------------------------------------|
+|주어진 모델 디렉터리가 유효하지 않습니다.|
+|모델 디렉토리 "{arg_name}"이 유효하지 않습니다.|
+|모델 디렉토리 "{arg_name}"이 유효하지 않습니다. 이유: {이유}.|
+|모델 디렉토리 "{arg_name}"이 유효하지 않습니다. 이유: {이유}. {troubleshoot_hint}|
 
 
 ## <a name="error-1000"></a>오류 1000  

@@ -13,21 +13,18 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 9186f633b773a243a84692c30ddc2c2261fb69ba
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 2a39dbb3676df5ed916203bdcbbc51d5a0da32a4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309403"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677843"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 장치 권한 부여 흐름
 
-Microsoft ID 플랫폼은 사용자가 스마트 TV, IoT 장치 또는 프린터와 같은 입력이 제한된 장치에 로그인할 수 있는 [장치 권한 부여를](https://tools.ietf.org/html/rfc8628)지원합니다.  이 흐름을 활성화하기 위해, 해당 장비는 사용자가 로그인할 웹 페이지를 다른 장비의 브라우저에서 방문하도록 합니다.  사용자가 로그인하면 디바이스는 필요에 따라 액세스 토큰 및 새로 고침 토큰을 가져올 수 있습니다.  
+Microsoft ID 플랫폼은 사용자가 스마트 TV, IoT 장치 또는 프린터와 같은 입력이 제한된 장치에 로그인할 수 있는 [장치 권한 부여를](https://tools.ietf.org/html/rfc8628)지원합니다.  이 흐름을 활성화하기 위해, 해당 장비는 사용자가 로그인할 웹 페이지를 다른 장비의 브라우저에서 방문하도록 합니다.  사용자가 로그인하면 디바이스는 필요에 따라 액세스 토큰 및 새로 고침 토큰을 가져올 수 있습니다.
 
 이 문서에서는 응용 프로그램의 프로토콜에 대해 직접 프로그래밍하는 방법을 설명합니다.  가능하면 지원되는 MSAL(Microsoft 인증 라이브러리)을 사용하여 [토큰을 획득하고 보안웹 API를 호출하는](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows)것이 좋습니다.  또한 [MSAL을 사용하는 샘플 앱을](sample-v2-code.md)살펴보십시오.
-
-> [!NOTE]
-> Microsoft ID 플랫폼 끝점이 모든 Azure Active Directory 시나리오 및 기능을 지원하지는 않습니다. Microsoft ID 플랫폼 끝점을 사용해야 하는지 여부를 확인하려면 [Microsoft ID 플랫폼 제한 사항에](active-directory-v2-limitations.md)대해 읽어보십시오.
 
 ## <a name="protocol-diagram"></a>프로토콜 다이어그램
 
@@ -62,9 +59,9 @@ scope=user.read%20openid%20profile
 
 ### <a name="device-authorization-response"></a>디바이스 권한 부여 응답
 
-성공적인 응답은 사용자가 로그인할 수 있는 필수 정보가 포함된 JSON 개체입니다.  
+성공적인 응답은 사용자가 로그인할 수 있는 필수 정보가 포함된 JSON 개체입니다.
 
-| 매개 변수 | 형식 | 설명 |
+| 매개 변수 | 형식 | Description |
 | ---              | --- | --- |
 |`device_code`     | String | 클라이언트와 권한 서버 간의 세션을 확인하는 데 사용되는 긴 문자열입니다. 클라이언트는 이 매개 변수를 사용하여 권한 부여 서버에서 액세스 토큰을 요청합니다. |
 |`user_code`       | String | 보조 장치에서 세션을 식별하는 데 사용되는 사용자에게 표시되는 짧은 문자열입니다.|
@@ -80,11 +77,11 @@ scope=user.read%20openid%20profile
 
 `user_code` 및, `verification_uri`클라이언트는 사용자에게 이러한 것을 표시하여 휴대폰 또는 PC 브라우저를 사용하여 로그인하도록 지시합니다.
 
-사용자가 개인 계정(on /common 또는 /consumers)으로 인증하는 경우 인증 상태를 장치에 이전하기 위해 다시 로그인하라는 메시지가 표시됩니다.  또한 허가를 받을 수 있는 권한을 인식하도록 동의를 요청받게 됩니다.  인증에 사용되는 직장 또는 학교 계정에는 적용되지 않습니다. 
+사용자가 개인 계정(on /common 또는 /consumers)으로 인증하는 경우 인증 상태를 장치에 이전하기 위해 다시 로그인하라는 메시지가 표시됩니다.  또한 허가를 받을 수 있는 권한을 인식하도록 동의를 요청받게 됩니다.  인증에 사용되는 직장 또는 학교 계정에는 적용되지 않습니다.
 
 사용자가 `verification_uri`에서 인증하는 동안 클라이언트는 `device_code`을(를) 사용하여 요청된 토큰에 대한 `/token` 엔드포인트를 폴링해야 합니다.
 
-``` 
+```
 POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 Content-Type: application/x-www-form-urlencoded
 
@@ -95,21 +92,21 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 
 | 매개 변수 | 필수 | 설명|
 | -------- | -------- | ---------- |
-| `tenant`  | 필수 | 초기 요청에 사용된 동일한 테넌트 또는 테넌트 별칭입니다. | 
+| `tenant`  | 필수 | 초기 요청에 사용된 동일한 테넌트 또는 테넌트 별칭입니다. |
 | `grant_type` | 필수 | `urn:ietf:params:oauth:grant-type:device_code`이어야 합니다.|
 | `client_id`  | 필수 | 초기 요청에 사용된 `client_id`과(와) 일치해야 합니다. |
 | `device_code`| 필수 | 디바이스 권한 요청에서 반환된 `device_code`입니다.  |
 
 ### <a name="expected-errors"></a>예상 오류
 
-장치 코드 흐름은 폴링 프로토콜이므로 사용자가 인증을 완료하기 전에 클라이언트가 오류를 수신할 것으로 예상해야 합니다.  
+장치 코드 흐름은 폴링 프로토콜이므로 사용자가 인증을 완료하기 전에 클라이언트가 오류를 수신할 것으로 예상해야 합니다.
 
 | Error | 설명 | 클라이언트 작업 |
 | ------ | ----------- | -------------|
 | `authorization_pending` | 사용자가 인증을 완료하지 않았지만 흐름을 취소하지 않았습니다. | 최소 `interval`초 후에 요청을 반복하세요. |
 | `authorization_declined` | 일반 사용자가 권한 요청을 거부했습니다.| 폴링을 중지하고 인증되지 않은 상태로 되돌립니다.  |
 | `bad_verification_code`| `/token` 끝점으로 `device_code` 전송된 것이 인식되지 않았습니다. | 클라이언트가 요청에서 올바른 `device_code`을(를) 보내는지 확인하세요. |
-| `expired_token` | `expires_in`초 이상이 경과했으며 이 `device_code`을(를) 사용하여 더 이상 인증할 수 없습니다. | 폴링을 중지하고 인증되지 않은 상태로 되돌려합니다. |   
+| `expired_token` | `expires_in`초 이상이 경과했으며 이 `device_code`을(를) 사용하여 더 이상 인증할 수 없습니다. | 폴링을 중지하고 인증되지 않은 상태로 되돌려합니다. |
 
 ### <a name="successful-authentication-response"></a>성공적인 인증 응답
 
@@ -126,7 +123,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 }
 ```
 
-| 매개 변수 | 형식 | 설명 |
+| 매개 변수 | 형식 | Description |
 | --------- | ------ | ----------- |
 | `token_type` | String| 항상 “전달자입니다. |
 | `scope` | 공백으로 구분된 문자열 | 액세스 토큰이 반환된 경우, 이는 액세스 토큰이 유효한 범위를 나열합니다. |
@@ -135,4 +132,4 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 | `id_token`   | JWT | 원래 `scope` 매개 변수에 `openid` 범위가 포함된 경우에 발급됩니다.  |
 | `refresh_token` | 불투명 문자열 | 원래 `scope` 매개 변수에 `offline_access`가 포함된 경우에 발급됩니다.  |
 
-새로 고침 토큰을 사용하여 [OAuth Code 흐름 설명서에](v2-oauth2-auth-code-flow.md#refresh-the-access-token)설명된 동일한 흐름을 사용하여 새 액세스 토큰을 획득하고 토큰을 새로 고칠 수 있습니다.  
+새로 고침 토큰을 사용하여 [OAuth Code 흐름 설명서에](v2-oauth2-auth-code-flow.md#refresh-the-access-token)설명된 동일한 흐름을 사용하여 새 액세스 토큰을 획득하고 토큰을 새로 고칠 수 있습니다.

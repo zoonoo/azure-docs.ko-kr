@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: jingwang
-ms.openlocfilehash: c18d767afd3721bd6f6250058b9fbe66990133e4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7b554ea5c2868559574979c58697fd31f8d2a2c4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417745"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686276"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Azure 데이터 팩터리의 JSON 형식
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,7 +27,7 @@ JSON 형식은 다음과 같은 커넥터에 대 한 지원 됩니다: [아마�
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 JSON 데이터 집합에서 지원하는 속성 목록을 제공합니다.
 
-| 속성         | Description                                                  | 필수 |
+| 속성         | 설명                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | 데이터 집합의 형식 속성은 **Json으로**설정해야 합니다. | 예      |
 | 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 고유한 위치 유형과 `location`지원되는 속성이 있습니다. **커넥터 문서 -> 데이터 집합 속성 섹션의 세부 정보를 참조하십시오.** | 예      |
@@ -70,7 +70,7 @@ JSON 형식은 다음과 같은 커넥터에 대 한 지원 됩니다: [아마�
 
 다음 속성은 복사 활동 *** \*소스\* *** 섹션에서 지원됩니다.
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 활동 소스의 형식 속성은 **JSONSource**로 설정해야 합니다. | 예      |
 | 매장 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대한 속성 그룹입니다. 각 파일 기반 커넥터에는 에서 `storeSettings`자체 지원되는 읽기 설정이 있습니다. **커넥터 문서 -> 복사 활동 속성 섹션의 세부 정보를 참조하십시오.** | 예       |
@@ -79,7 +79,7 @@ JSON 형식은 다음과 같은 커넥터에 대 한 지원 됩니다: [아마�
 
 다음 속성은 복사 활동 *** \*싱크\* *** 섹션에서 지원됩니다.
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 활동 소스의 형식 속성은 **JSONSink로**설정해야 합니다. | 예      |
 | 형식설정 | 속성 그룹입니다. 아래의 **JSON 쓰기 설정** 표를 참조하십시오. | 예       |
@@ -87,7 +87,7 @@ JSON 형식은 다음과 같은 커넥터에 대 한 지원 됩니다: [아마�
 
 **지원JSON 쓰기** `formatSettings`설정 아래에서 :
 
-| 속성      | Description                                                  | 필수                                              |
+| 속성      | 설명                                                  | 필수                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | 형식설정의 형식은 **JsonWriteSettings로**설정해야 합니다. | 예                                                   |
 | filePattern |각 JSON 파일에 저장된 데이터의 패턴을 나타냅니다. 사용 가능한 값은 **setOfObjects** 및 **arrayOfObjects**이고 **기본값은** **setOfObjects**. 이러한 패턴에 대한 자세한 내용은 [JSON 파일 패턴](#json-file-patterns) 섹션을 참조하세요. |예 |
@@ -260,7 +260,7 @@ JSON 데이터 집합을 데이터 흐름의 원본으로 사용하면 5개의 �
 
 ![JSON 설정](media/data-flow/json-settings.png "JSON 설정")
 
-#### <a name="default"></a>기본값
+#### <a name="default"></a>기본
 
 기본적으로 JSON 데이터는 다음과 같은 형식으로 읽습니다.
 
@@ -288,6 +288,8 @@ File3.json
     "json": "record 3"
 }
 ```
+> [!NOTE]
+> 데이터 흐름이 JSON 데이터를 미리 볼 때 "corrupt_record"라는 오류가 발생하면 데이터에 JSON 파일에 단일 문서가 포함되어 있을 수 있습니다. "단일 문서"를 설정하면 해당 오류가 지워져야 합니다.
 
 #### <a name="unquoted-column-names"></a>인용되지 않은 열 이름
 

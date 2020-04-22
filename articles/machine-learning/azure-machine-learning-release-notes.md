@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: 9ed17ed0825e0011d1402efc45155755a1ecbadf
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 2739e960c4bc6d35ac9ad757e80ed620e5dc04f8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81459171"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684660"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure 기계 학습 릴리스 정보
 
@@ -503,7 +503,7 @@ ms.locfileid: "81459171"
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스합니다.
 
-| 웹 기반 도구 | Description | 버전 |
+| 웹 기반 도구 | 설명 | 버전 |
 |-|-|-|
 | 노트북 VM(미리 보기) | 완벽하게 관리되는 클라우드 기반 워크스테이션 | 기본 & 엔터프라이즈 |
 | [자동화된 기계 학습(미리](tutorial-first-experiment-automated-ml.md) 보기) | 기계 학습 모델 개발 자동화를 위한 코드 경험 없음 | Enterprise |
@@ -825,7 +825,7 @@ Azure 기계 학습은 이제 이벤트 그리드의 리소스 공급자이며 A
 ### <a name="azure-machine-learning-sdk-for-python-v1062"></a>파이썬 v1.0.62에 대한 Azure 기계 학습 SDK
 
 + **새로운 기능**
-  + 표형식데이터 집합에서 `timeseries` 특성을 도입했습니다. 이 특성을 사용하면 시간 범위 또는 최신 데이터 간에 모든 데이터를 가져가는 등 TabularDataset 데이터에 대한 쉬운 타임스탬프 필터링이 가능합니다. 이 에 대해 `timeseries` 자세히 알아보려면 TabularDataset의 특성에 대해 자세히 알아보려면 설명서 또는 https://aka.ms/azureml-data https://aka.ms/azureml-tsd-notebook 예제 노트북을 방문하십시오.
+  + 표형식데이터 집합에서 `timeseries` 특성을 도입했습니다. 이 특성을 사용하면 시간 범위 또는 최신 데이터 간에 모든 데이터를 가져가는 등 TabularDataset 데이터에 대한 쉬운 타임스탬프 필터링이 가능합니다. 이 에 대해 `timeseries` 자세히 알아보려면 TabularDataset의 특성에 대해 자세히 알아보려면 설명서 또는 https://aka.ms/azureml-data https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb 예제 노트북을 방문하십시오.
   + 테이블 형식데이터 집합 및 파일 데이터 집합을 사용하여 교육을 활성화했습니다. 예제 https://aka.ms/dataset-tutorial 노트북을 방문하십시오.
 
   + **azureml-train-core**
@@ -1339,7 +1339,7 @@ Azure Databricks를 사용하는 일부 고객에게 문제가 발생했기 때�
 + **기능 미리 보기**
     + Azureml-mlflow 패키지[(예 : 노트북)를](https://aka.ms/azureml-mlflow-examples)통해 [MLflow](https://mlflow.org) 1.0.0 추적과 통합.
     + 실행으로 주피터 노트북을 제출합니다. [API 참조 문서](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
-    + azureml-contrib-datadrift 패키지[(예 노트북)를](https://aka.ms/azureml-datadrift-example)통해 [데이터 드리프트 검출기의](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) 공개 미리보기. 데이터 드리프트는 시간이 지남에 따라 모델 정확도가 저하되는 가장 큰 이유 중 하나입니다. 프로덕션 환경에서 모델에 제공된 데이터가 모델이 학습된 데이터와 다른 경우에 발생합니다. AML 데이터 드리프트 검출기는 고객이 데이터 드리프트를 모니터링하고 드리프트가 감지될 때마다 경고를 전송하는 데 도움이 됩니다.
+    + azureml-contrib-datadrift 패키지[(예 노트북)를](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/monitor-models/data-drift)통해 [데이터 드리프트 검출기의](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) 공개 미리보기. 데이터 드리프트는 시간이 지남에 따라 모델 정확도가 저하되는 가장 큰 이유 중 하나입니다. 프로덕션 환경에서 모델에 제공된 데이터가 모델이 학습된 데이터와 다른 경우에 발생합니다. AML 데이터 드리프트 검출기는 고객이 데이터 드리프트를 모니터링하고 드리프트가 감지될 때마다 경고를 전송하는 데 도움이 됩니다.
 
 + **주요 변경 내용**
 

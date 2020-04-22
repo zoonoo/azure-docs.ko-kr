@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8b38b38789edfd5a0a30fdd589849bfa345eaac9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e1aeaf105ce371e965b433ac78e2b257f4bc18b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77157859"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682037"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Azure AD 인증을 사용하여 Azure Media Services API 액세스  
 
@@ -79,7 +79,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 두 가지 인�
        Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 둡니다.
    * Media Services 리소스 URI. 
 
-       이 URI는 동일한 Azure 환경(예: https://rest.media.azure.net))에 있는 Media Services 계정에 대해서는 동일합니다.
+       이 URI는 동일한 Azure 환경에 있는 미디어 서비스 계정(예:\/https: /rest.media.azure.net)에 대해 동일합니다.
 
    * Media Services(원시) 애플리케이션 클라이언트 ID.
    * Media Services(원시) 애플리케이션 리디렉션 URI.
@@ -121,7 +121,7 @@ Azure AD 애플리케이션을 만든 후 다음 설정에 대한 값을 가져�
        Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 둡니다.
    * Media Services 리소스 URI. 
 
-       이 URI는 동일한 Azure 환경(예: https://rest.media.azure.net))에 있는 Media Services 계정에 대해서는 동일합니다.
+       이 URI는 동일한 Azure 환경에 있는 미디어 서비스 계정(예: https:\//rest.media.azure.net)에 대해 동일합니다.
 
    * REST Media Services의 리소스 URI.
 

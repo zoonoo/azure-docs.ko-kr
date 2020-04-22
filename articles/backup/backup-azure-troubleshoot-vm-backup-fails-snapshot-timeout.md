@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 4583c02b52ab6b3a4e5056a47db096d4e34399ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3eedb5440711c7a45a13dcd53dd489c490588fc
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248022"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677419"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -142,11 +142,18 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 이 오류는 IaaS VM에서 보고됩니다. 문제의 근본 원인을 확인하려면 복구 서비스 자격 증명 모음 설정으로 이동하십시오. **모니터링** 섹션에서 백업 **작업을** 선택하여 상태를 필터링하고 봅니다. **실패를** 클릭하여 기본 오류 메시지 세부 정보를 검토합니다. 오류 세부 정보 페이지의 권장 사항에 따라 추가 작업을 수행합니다.
 
+## <a name="usererrorbcmdatasourcenotpresent---backup-failed-this-virtual-machine-is-not-actively-protected-by-azure-backup"></a>UserErrorBcmDatasourceNot현재 - 백업 실패: 이 가상 시스템은 Azure 백업에 의해 보호되지 않습니다(능동적으로) 보호되지 않음
+
+**오류 코드**: 사용자 오류BcmData원본Not <br>
+**오류 메시지**: 백업 실패: 이 가상 시스템은 Azure Backup에서 보호되지 않습니다.
+
+지정된 가상 시스템이 Azure Backup에 의해 보호되는 상태(일시 중지 상태가 아님)인지 확인하십시오. 이 문제를 해결하려면 가상 시스템이 활성 상태인지 확인하고 작업을 다시 시도합니다.
+
 ## <a name="causes-and-solutions"></a>원인 및 해결 방법
 
 ### <a name="the-agent-is-installed-in-the-vm-but-its-unresponsive-for-windows-vms"></a><a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에이전트를 다시 설치하면 최신 버전을 가져올 수 있습니다. 또한 서비스와의 통신을 다시 시작하는 데도 도움이 됩니다.
 
@@ -162,7 +169,7 @@ VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이전 VM 에이전트에 영향을 주는 문제로 인해 발생합니다. 이 문제를 해결하려면 다음과 같은 일반 지침을 수행하세요.
 
@@ -200,18 +207,18 @@ VM 에이전트 구성 파일 옵션의 전체 목록은<https://github.com/Azur
 
 VM 백업은 기본 스토리지 계정에 대한 스냅샷 명령 실행을 사용합니다. 스토리지 계정에 액세스할 수 없거나 스냅샷 작업의 실행이 지연되기 때문에 백업이 실패할 수 있습니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 다음 조건으로 인해 스냅샷 작업이 실패할 수 있습니다.
 
-| 원인 | 해결 방법 |
+| 원인 | 솔루션 |
 | --- | --- |
 | VM이 RDP(원격 데스크톱 프로토콜)에서 종료되므로 VM 상태가 잘못 보고됩니다. | RDP에서 VM을 종료하는 경우 VM 상태가 올바른지 여부를 확인하려면 포털을 확인합니다. 올바르지 않은 경우 VM 대시보드의 **종료** 옵션을 사용하여 포털에서 VM을 종료합니다. |
 | VM이 DHCP에서 호스트 또는 패브릭 주소를 가져올 수 없습니다. | IaaS VM 백업이 작동하려면 게스트 내에 DHCP를 사용하도록 설정되어야 합니다. VM이 DHCP 응답 245에서 호스트 또는 패브릭 주소를 가져올 수 없는 경우에는 어떠한 확장도 다운로드하거나 실행할 수 없습니다. 정적 개인 IP가 필요한 경우 **Azure 포털** 또는 **PowerShell을** 통해 구성하고 VM 내부의 DHCP 옵션이 활성화되어 있는지 확인해야 합니다. PowerShell을 통해 정적 IP 주소를 설정하는 방법에 대해 [자세히 알아보세요.](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 
 ### <a name="remove-lock-from-the-recovery-point-resource-group"></a><a name="remove_lock_from_the_recovery_point_resource_group"></a>복구 지점 리소스 그룹에서 잠금 제거
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 모든 **리소스 옵션으로**이동하여 다음 형식의 복원 포인트`<Geo>`수집`<number>`리소스 그룹을 선택AzureBackupRG_ _ .
 3. **설정** 섹션에서 **잠금**을 선택하여 잠금을 표시합니다.
 4. 잠금을 제거하려면 줄임표를 선택하고 **삭제**를 클릭합니다.
@@ -240,7 +247,7 @@ VM의 리소스 그룹 또는 VM 자체를 삭제하면 관리디스크의 즉�
 
 리소스 그룹의 잠금으로 인해 지워지지 않은 복원 포인트 컬렉션을 수동으로 지우려면 다음 단계를 시도하십시오.
 
-1. [Azure 포털에](https://portal.azure.com/)로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **허브** 메뉴에서 **모든 리소스**를 클릭하고 사용자 VM이 있는, AzureBackupRG_`<Geo>`_`<number>` 형식의 리소스 그룹을 선택합니다.
 
     ![잠금 삭제](./media/backup-azure-arm-vms-prepare/resource-group.png)

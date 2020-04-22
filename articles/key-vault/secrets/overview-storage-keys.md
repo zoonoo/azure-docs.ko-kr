@@ -9,12 +9,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 0b855584ef6efef574e8264f3cead79000a51b13
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1125bafa43ce1752c58d1cce0bba66a6bbd32c32
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81432009"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685427"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>키 볼트 및 Azure CLI를 통해 저장소 계정 키 관리
 
@@ -71,13 +71,23 @@ az login
 Azure CLI [az 역할 할당 만들기](/cli/azure/role/assignment?view=azure-cli-latest) 명령을 사용하여 Key Vault가 저장소 계정에 액세스할 수 있도록 합니다. 명령에 다음 매개 변수 값을 제공합니다.
 
 - `--role`: "저장소 계정 키 운영자 서비스 역할" RBAC 역할을 전달합니다. 이 역할은 저장소 계정에 대한 액세스 범위를 제한합니다. 클래식 저장소 계정의 경우 대신 "클래식 저장소 계정 키 운영자 서비스 역할"을 전달합니다.
-- `--assignee-object-id`: Azure 공용 클라우드의 키 볼트에 대한 개체 ID인 "93c27d83-f79b-4cb2-8dd4-4aa716542e74"값을 전달합니다. Azure 정부 클라우드에서 키 자격 증명 모음에 대한 개체 ID를 얻으려면 [서비스 주체 응용 프로그램 ID를](#service-principal-application-id)참조하십시오.
+- `--assignee`: Azure 공용https://vault.azure.net클라우드에서 키 볼트의 URL인 값 "을 전달합니다. (Azure Goverment 클라우드에서 '--asingee-object-id'를 대신 사용하지만 [서비스 주체 응용 프로그램 ID를](#service-principal-application-id)참조하십시오.)
 - `--scope`: 양식에 `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`있는 저장소 계정 리소스 ID를 전달합니다. 구독 ID를 찾으려면 Azure CLI [az 계정 목록](/cli/azure/account?view=azure-cli-latest#az-account-list) 명령을 사용합니다. 저장소 계정 이름 및 저장소 계정 리소스 그룹을 찾으려면 Azure CLI [az 저장소 계정 목록](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) 명령을 사용합니다.
 
 ```azurecli-interactive
-az role assignment create --role "Storage Account Key Operator Service Role" --assignee-object-id 93c27d83-f79b-4cb2-8dd4-4aa716542e74 --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
+az role assignment create --role "Storage Account Key Operator Service Role" --assignee 'https://vault.azure.net' --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
  ```
+### <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>관리 스토리지 계정에 사용자 계정 권한 부여
 
+Azure CLI [az 키볼트 설정 정책](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) cmdlet을 사용하여 키 볼트 액세스 정책을 업데이트하고 사용자 계정에 저장소 계정 권한을 부여합니다.
+
+```azurecli-interactive
+# Give your user principal access to all storage account permissions, on your Key Vault instance
+
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --storage-permissions get list delete set update regeneratekey getsas listsas deletesas setsas recover backup restore purge
+```
+
+스토리지 계정에 대한 권한은 Azure Portal의 스토리지 계정 “액세스 정책” 페이지에서 제공되지 않습니다.
 ### <a name="create-a-key-vault-managed-storage-account"></a>키 볼트 관리 저장소 계정 만들기
 
  Azure CLI [az 키볼트](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) 저장소 명령을 사용하여 키 볼트 관리 저장소 계정을 만듭니다. 재생 기간을 90일로 설정합니다. 90일이 지나면 키 볼트가 활성 키를 `key1` `key2` 에서 `key1`로 다시 생성하고 교환합니다. `key1`그러면 활성 키로 표시됩니다. 명령에 다음 매개 변수 값을 제공합니다.

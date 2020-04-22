@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: ac7e721a863414cf0617177885e0ff1c9e9a35d4
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: b86af2ff8fad3793fc47cec9399fd499c1cabba7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617859"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681848"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
@@ -101,6 +101,35 @@ GPU가 하드웨어 비디오 디코딩을 지원하는지 확인합니다. [개
 **모델이 뷰 절두체 내부에 있지 않습니다.**
 
 대부분의 경우 모델이 올바르게 표시되지만 카메라 프러스트 외부에 있습니다. 일반적인 이유는 모델이 멀리 중심에서 벗어난 피벗으로 내보내져 카메라의 원거리 클리핑 평면에 의해 잘리기 때문입니다. 모델의 경계 상자를 프로그래밍 방식으로 쿼리하고 Unity를 사용하여 상자를 줄 상자로 시각화하거나 해당 값을 디버그 로그에 인쇄하는 데 도움이 됩니다.
+
+또한 변환 프로세스는 변환 된 모델과 함께 [출력 json 파일을](../how-tos/conversion/get-information.md) 생성합니다. 모델 위치 지정 문제를 디버깅하려면 `boundingBox` [outputStatistics 섹션의](../how-tos/conversion/get-information.md#the-outputstatistics-section)항목을 살펴볼 가치가 있습니다.
+
+```JSON
+{
+    ...
+    "outputStatistics": {
+        ...
+        "boundingBox": {
+            "min": [
+                -43.52,
+                -61.775,
+                -79.6416
+            ],
+            "max": [
+                43.52,
+                61.775,
+                79.6416
+            ]
+        }
+    }
+}
+```
+
+경계 상자는 미터에서 `min` 3D 공간에서 및 `max` 위치로 설명됩니다. 따라서 좌표가 1000.0이면 원점에서 1km 떨어져 있습니다.
+
+보이지 않는 형상으로 이어지는 이 경계 상자에는 두 가지 문제가 있을 수 있습니다.
+* **상자는 멀리 중앙에 있을 수**있으므로 멀리 평면 클리핑으로 인해 오브젝트가 완전히 잘립니다. 이 `boundingBox` 경우의 값은 다음과 `min = [-2000, -5,-5], max = [-1990, 5,5]`같습니다. 이러한 유형의 문제를 해결하려면 `recenterToOrigin` 모델 [변환 구성에서](../how-tos/conversion/configure-model-conversion.md)옵션을 사용하도록 설정합니다.
+* **상자는 가운데에 있을 수 있지만 크기가 너무 큽할 수 있습니다.** 즉, 카메라가 모델의 중심에서 시작하지만 형상이 모든 방향으로 잘립니다. 이 `boundingBox` 경우 일반적인 값은 다음과 `min = [-1000,-1000,-1000], max = [1000,1000,1000]`같습니다. 이러한 유형의 문제의 원인은 일반적으로 단위 눈금 불일치입니다. 이를 보완하려면 [변환 중에 배율 조정 값을](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) 지정하거나 올바른 단위로 소스 모델을 표시합니다. 런타임시 모델을 로드할 때 루트 노드에 배율 조정을 적용할 수도 있습니다.
 
 **Unity 렌더 파이프라인에는 렌더 후크가 포함되지 않습니다.**
 

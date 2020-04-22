@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 0b2b9dbe52a5696f21b287402fc4cbaa32b29c73
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4138c4ae24ae599d4058c9fd06c33b69657fe38
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263180"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680063"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Azure Active Directory에서 구성 가능한 토큰 수명(미리 보기)
 
@@ -83,7 +83,7 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
 토큰 수명 정책은 토큰 수명 규칙을 포함하는 정책 개체의 형식입니다. 정책의 속성을 사용하여 지정된 토큰 수명을 제어할 수 있습니다. 설정된 정책이 없는 경우 시스템에서 기본 수명값을 적용합니다.
 
 ### <a name="configurable-token-lifetime-properties"></a>구성 가능한 토큰 수명 속성
-| 속성 | 정책 속성 문자열 | 영향 | 기본값 | 최소 | 최대 |
+| 속성 | 정책 속성 문자열 | 영향 | 기본 | 최소 | 최대 |
 | --- | --- | --- | --- | --- | --- |
 | 액세스 토큰 수명 |액세스 토큰 수명<sup>2</sup> |액세스 토큰, ID 토큰, SAML2 토큰 |1시간 |10분 |1일 |
 | 새로 고침 토큰 최대 비활성 시간 |MaxInactiveTime |새로 고침 토큰 |90일 |10분 |90일 |
@@ -96,7 +96,7 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
 * <sup>2개</sup> Microsoft Teams 웹 클라이언트가 작동하도록 하려면 AccessTokenLifetime을 Microsoft Teams의 경우 15분 이상으로 유지하는 것이 좋습니다.
 
 ### <a name="exceptions"></a>예외
-| 속성 | 영향 | 기본값 |
+| 속성 | 영향 | 기본 |
 | --- | --- | --- |
 | 새로 고침 토큰 최대 기간(해지 정보가 부족한 페더레이션된 사용자에 대해 발급됨<sup>1</sup>) |새로 고침 토큰(해지 정보가 부족한 페더레이션된 사용자에 대해 발급됨<sup>1</sup>) |12시간 |
 | 새로 고침 토큰 최대 비활성 시간(비밀 클라이언트에 대해 발급됨) |새로 고침 토큰(비밀 클라이언트에 대해 발급됨) |90일 |
@@ -243,19 +243,25 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
         }')
         ```
 
-    2. 정책을 만들려면 다음 명령을 실행합니다.
+    1. 정책을 만들려면 다음 명령을 실행합니다.
 
         ```powershell
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    3. 새 정책을 보고 정책의 **ObjectId**를 가져오려면 다음 명령을 실행합니다.
+    1. 공백을 제거하려면 다음 명령을 실행합니다.
+
+        ```powershell
+        Get-AzureADPolicy -id | set-azureadpolicy -Definition @($((Get-AzureADPolicy -id ).Replace(" ","")))
+        ```
+
+    1. 새 정책을 보고 정책의 **ObjectId**를 가져오려면 다음 명령을 실행합니다.
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. 정책을 업데이트합니다.
+1. 정책을 업데이트합니다.
 
     이 예에서 설정한 첫 번째 정책이 서비스에 필요한 만큼 엄격한지 확인할 수 있습니다. 단일 단계 새로 고침 토큰이 이틀 후에 만료되도록 설정하려면 다음 명령을 실행합니다.
 
@@ -277,13 +283,13 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2. 새 정책을 보고 **정책 ObjectId를**얻으려면 다음 명령을 실행합니다.
+    1. 새 정책을 보고 **정책 ObjectId를**얻으려면 다음 명령을 실행합니다.
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. 서비스 주체에게 정책을 할당합니다. 서비스 주체의 **ObjectId**도 가져와야 합니다.
+1. 서비스 주체에게 정책을 할당합니다. 서비스 주체의 **ObjectId**도 가져와야 합니다.
 
     1. [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet을 사용하여 조직의 모든 서비스 주체 또는 단일 서비스 주체를 확인합니다.
         ```powershell
@@ -291,7 +297,7 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
         $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
         ```
 
-    2. 서비스 주체가 있는 경우 다음 명령을 실행합니다.
+    1. 서비스 주체가 있는 경우 다음 명령을 실행합니다.
         ```powershell
         # Assign policy to a service principal
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
@@ -308,13 +314,13 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2. 새 정책을 보려면 다음 명령을 실행합니다.
+    1. 새 정책을 보려면 다음 명령을 실행합니다.
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. web API에 정책을 할당합니다. 애플리케이션의 **ObjectId**도 가져와야 합니다. [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) cmdlet을 사용하여 앱의 **ObjectId를**찾거나 [Azure 포털을](https://portal.azure.com/)사용합니다.
+1. web API에 정책을 할당합니다. 애플리케이션의 **ObjectId**도 가져와야 합니다. [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) cmdlet을 사용하여 앱의 **ObjectId를**찾거나 [Azure 포털을](https://portal.azure.com/)사용합니다.
 
     앱의 **ObjectId를** 받고 정책을 할당합니다.
 
@@ -337,19 +343,19 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    2. 새 정책을 보려면 다음 명령을 실행합니다.
+    1. 새 정책을 보려면 다음 명령을 실행합니다.
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. 서비스 주체에게 정책을 할당합니다.
+1. 서비스 주체에게 정책을 할당합니다.
 
     이제 조직 전체에 적용되는 정책이 생겼습니다. 특정 서비스 주체에 대해 이 30일 정책을 유지하지만 조직 기본 정책을 "until-revoked"의 상한으로 변경하고 싶은 경우가 있습니다.
 
     1. 조직의 모든 서비스 주체를 보려면 [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet을 사용합니다.
 
-    2. 서비스 주체가 있는 경우 다음 명령을 실행합니다.
+    1. 서비스 주체가 있는 경우 다음 명령을 실행합니다.
 
         ```powershell
         # Get ID of the service principal
@@ -359,13 +365,13 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
         ```
 
-3. `IsOrganizationDefault` 플래그를 false로 설정합니다.
+1. `IsOrganizationDefault` 플래그를 false로 설정합니다.
 
     ```powershell
     Set-AzureADPolicy -Id $policy.Id -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
-4. 새로운 조직 기본 정책을 만듭니다.
+1. 새로운 조직 기본 정책을 만듭니다.
 
     ```powershell
     New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "ComplexPolicyScenarioTwo" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"

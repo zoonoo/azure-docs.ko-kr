@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: ad1fcb67704e79f5aef62a59604e47f477804405
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68385723"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680713"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Azure Logic Apps으로 IoT Hub와 사서함을 연결하여 IoT 원격 모니터링 및 알림
 
@@ -22,7 +22,7 @@ ms.locfileid: "68385723"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[Azure Logic Apps를](https://docs.microsoft.com/azure/logic-apps/) 사용하면 온-프레미스 및 클라우드 서비스, 하나 이상의 기업 및 다양한 프로토콜에서 워크플로를 오케스트레이션할 수 있습니다. 논리 앱은 트리거로 시작한 다음 조건 및 이터레이터와 같은 기본 제공 컨트롤을 사용하여 순서를 정할 수 있는 하나 이상의 작업이 뒤따릅니다. 이러한 유연성으로 로직 앱은 IoT 모니터링 시나리오에 이상적인 IoT 솔루션입니다. 예를 들어 IoT Hub 엔드포인트에 있는 장치에서 원격 분석 데이터가 도착하면 Azure Storage Blob에서 데이터를 웨어하우스하는 논리 앱 워크플로를 시작하고, 전자 메일 경고를 보내 데이터 이상 경고를 보내고, 장치가 오류를 보고하는 경우 기술자 방문을 예약할 수 있습니다. 등등.
+[Azure Logic Apps를](https://docs.microsoft.com/azure/logic-apps/) 사용하면 온-프레미스 및 클라우드 서비스, 하나 이상의 기업 및 다양한 프로토콜에서 워크플로를 오케스트레이션할 수 있습니다. 논리 앱은 트리거로 시작한 다음 조건 및 이터레이터와 같은 기본 제공 컨트롤을 사용하여 순서를 정할 수 있는 하나 이상의 작업이 뒤따릅니다. 이러한 유연성으로 로직 앱은 IoT 모니터링 시나리오에 이상적인 IoT 솔루션입니다. 예를 들어 IoT Hub 끝점에서 장치에서 원격 분석 데이터가 도착하면 Azure Storage Blob에서 데이터를 웨어하우스하는 논리 앱 워크플로를 시작하고, 데이터 이상 경고를 경고하는 전자 메일 경고를 보내고, 장치가 오류를 보고하는 경우 기술자 방문을 예약할 수 있습니다.
 
 ## <a name="what-you-learn"></a>학습 내용
 
@@ -212,7 +212,7 @@ Service Bus 네임스페이스 및 큐를 만듭니다. 이 항목의 후반부�
       [Hotmail/Outlook.com](https://support.office.com/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970), [Gmail](https://support.google.com/a/answer/176600?hl=en) 및 [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html)에 대한 SMTP 정보를 가져옵니다.
 
       > [!NOTE]
-      > 연결을 설정하려면 SSL을 사용하지 않도록 설정해야 할 수 있습니다. 이 경우 연결이 설정된 후 SSL을 다시 사용하려면 이 섹션의 끝에 있는 선택적 단계를 참조하십시오.
+      > 연결을 설정하려면 TLS/SSL을 사용하지 않도록 설정해야 할 수 있습니다. 이 경우 연결이 설정된 후 TLS를 다시 활성화하려면 이 섹션의 끝에 있는 선택적 단계를 참조하십시오.
 
    1. From the **Add new parameter** drop-down on the **Send Email** step, select **From**, **To**, **Subject** and **Body**. 화면의 아무 곳이나 클릭하거나 탭하여 선택 상자를 닫습니다.
 
@@ -224,7 +224,7 @@ Service Bus 네임스페이스 및 큐를 만듭니다. 이 항목의 후반부�
 
    1. SMTP 연결을 저장하려면 **저장을** 선택합니다.
 
-1. (선택 사항) 이메일 제공업체와 연결을 설정하기 위해 SSL을 사용하지 않도록 설정해야 하고 다시 사용하려면 다음 단계를 따르세요.
+1. (선택 사항) 이메일 제공업체와 연결을 설정하기 위해 TLS를 사용하지 않도록 설정해야 하고 다시 활성화하려면 다음 단계를 따르세요.
 
    1. **로직 앱** 창에서 **개발 도구에서** **API 연결을**선택합니다.
 

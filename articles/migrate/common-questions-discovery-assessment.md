@@ -3,12 +3,12 @@ title: Azure 마이그레이션에서 검색, 평가 및 종속성 분석에 대
 description: Azure 마이그레이션에서 검색, 평가 및 종속성 분석에 대한 일반적인 질문에 대한 답변을 가져옵니다.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 700e5318b66cdf4993a17b1dae85fb43f75ab035
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: b4b2a50bc88768d46c82f6bce73447dc901e5dfd
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81529776"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681915"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>검색, 평가 및 종속성 분석 - 일반적인 질문
 
@@ -28,6 +28,10 @@ ms.locfileid: "81529776"
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>어플라이언스를 통해 몇 개의 VM을 검색할 수 있습니까?
 
 단일 어플라이언스를 사용하여 최대 10,000개의 VM웨어 VM, 최대 5,000개의 Hyper-V VM 및 최대 250개의 물리적 서버를 검색할 수 있습니다. 컴퓨터가 더 많은 경우 [Hyper-V 평가 크기 조정,](scale-hyper-v-assessment.md) [VMware 평가 크기 조정](scale-vmware-assessment.md)또는 [실제 서버 평가 확장에](scale-physical-assessment.md)대해 읽어보십시오.
+
+## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Azure 정부에서 일부 VM 형식을 볼 수 없습니다.
+
+평가 및 마이그레이션에 지원되는 VM 유형은 Azure 정부 위치의 가용성에 따라 다릅니다. Azure 정부에서 VM 형식을 [검토하고 비교할](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) 수 있습니다.
 
 
 ## <a name="the-size-of-my-vm-changed-can-i-run-an-assessment-again"></a>VM의 크기가 변경되었습니다. 평가를 다시 실행할 수 있습니까?
@@ -87,7 +91,7 @@ Azure에서 평가를 만들 때 성능 기간 및 설정된 성능 기록 백�
 종속성 시각화를 사용하면 VM 그룹을 평가하여 보다 안심하고 마이그레이션할 수 있습니다. 종속성 시각화는 평가를 실행하기 전에 컴퓨터 종속성을 교차 검사합니다. 아무 것도 남지 않도록 하고 Azure로 마이그레이션할 때 예기치 않은 중단을 방지하는 데 도움이 됩니다. Azure Migrate는 Azure Monitor의 서비스 맵 솔루션을 사용하여 종속성 시각화를 사용하도록 설정합니다. [자세히 알아보기](concepts-dependency-visualization.md).
 
 > [!NOTE]
-> Azure 정부에서는 종속성 시각화를 사용할 수 없습니다.
+> Azure 정부에서는 에이전트 기반 종속성 분석을 사용할 수 없습니다. 에이전트 없는 종속성 분석을 사용할 수 있습니다.
 
 ## <a name="whats-the-difference-between-agent-based-and-agentless"></a>에이전트 기반과 에이전트리스의 차이점은 무엇입니까?
 

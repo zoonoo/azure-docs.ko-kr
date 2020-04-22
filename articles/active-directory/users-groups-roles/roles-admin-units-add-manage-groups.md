@@ -14,18 +14,18 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78f45d9e1ca5b8237779fe096154c83749aa08fe
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1f0b0c0a7b666aed56ad24625c80c0a57683b998
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81428434"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683267"
 ---
 # <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Azure Active Directory에서 관리 단위로 그룹 추가 및 관리
 
 Azure Active Directory(Azure AD)에서 보다 세분화된 관리 범위의 제어를 위해 관리 단위(AU)에 그룹을 추가할 수 있습니다.
 
-관리 단위 관리를 위해 PowerShell 및 Microsoft 그래프를 사용할 준비를 준비하는 단계는 [시작 하기](roles-admin-units-manage.md#getting-started)를 참조하십시오.
+관리 단위 관리를 위해 PowerShell 및 Microsoft 그래프를 사용할 준비를 하는 단계는 [시작 을](roles-admin-units-manage.md#get-started)참조하십시오.
 
 ## <a name="add-groups-to-an-au"></a>AU에 그룹 추가
 
@@ -63,7 +63,7 @@ Azure Active Directory(Azure AD)에서 보다 세분화된 관리 범위의 제�
       "@odata.id":"https://graph.microsoft.com/beta/groups/{id}"
     }
 
-예제:
+예:
 
     {
       "@odata.id":"https://graph.microsoft.com/beta/users/ 871d21ab-6b4e-4d56-b257-ba27827628f3"

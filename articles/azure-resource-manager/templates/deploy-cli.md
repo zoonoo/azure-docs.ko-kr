@@ -2,13 +2,13 @@
 title: Azure CLI 및 템플릿을 통해 리소스 배포
 description: Azure 리소스 관리자 및 Azure CLI를 사용하여 Azure에 리소스를 배포합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 241b84bc7b8c0b213e74cd7ee5f3d7668fe0d808
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/20/2020
+ms.openlocfilehash: 8ee15699a085178add05137be895fe6b660b715b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282650"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685697"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>ARM 템플릿 및 Azure CLI를 통해 리소스 배포
 
@@ -168,7 +168,7 @@ az deployment group create \
 
 ## <a name="handle-extended-json-format"></a>확장 JSON 형식 처리
 
-여러 줄 문자열 이나 주석이 있는 템플릿을 배포 `--handle-extended-json-format` 하려면 스위치를 사용 해야 합니다.  예를 들어:
+버전 2.3.0 이상이 있는 Azure CLI를 사용하여 여러 줄 문자열또는 주석이 `--handle-extended-json-format` 있는 템플릿을 배포하려면 스위치를 사용해야 합니다.  예를 들어:
 
 ```json
 {

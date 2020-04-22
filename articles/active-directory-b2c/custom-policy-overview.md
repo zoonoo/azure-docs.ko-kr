@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f72aedb010301f9c7b12778432c4f10feb10f7a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f18f44208b97ab5bc8d9cd9ff01d604c62deb963
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246046"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678157"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책
 
@@ -43,7 +43,9 @@ ms.locfileid: "79246046"
 - **확장 파일** - 테넌트에 대한 고유한 구성 변경 내용을 보유합니다.
 - **RP(신뢰 당사자) 파일** - 애플리케이션 또는 서비스(신뢰 당사자라고도 함)에 의해 직접 호출되는 단일 작업 중심 파일입니다. 각 고유 작업에는 고유한 RP이 필요하고 브랜딩 요구 사항에 따라 "전체 애플리케이션 x 전체 사용 사례 수"일 수 있습니다.
 
-Azure AD B2C의 사용자 흐름은 위에 표시된 3개의 파일 패턴을 따르지만 개발자는 Azure Portal이 확장 파일에 대한 변경 내용을 백그라운드에서 수행하는 동안 개발자는 RP 파일만을 확인할 수 있습니다.
+Azure AD B2C의 사용자 흐름은 위에 설명된 파일 패턴을 따르지만 개발자는 RP 파일만 보는 반면 Azure 포털은 확장자 파일에 대한 백그라운드에서 변경합니다.
+
+세 가지 유형의 정책 파일이 있지만 세 개의 파일로만 제한되지는 않습니다. 각 파일 형식의 파일이 여러 개 있을 수 있습니다. 예를 들어 확장 파일을 변경하지 않으려면 Extensions2 파일을 만들어 확장 파일을 더 확장할 수 있습니다.
 
 ## <a name="custom-policy-core-concepts"></a>사용자 지정 정책 핵심 개념
 
@@ -55,7 +57,7 @@ Azure의 CIAM(고객 ID 및 액세스 관리) 서비스에는 다음이 포함�
 
 Azure AD B2C는 순서대로 ID 공급자, 사용자, 고객, 기타 시스템 및 로컬 사용자 디렉터리와 상호 작용하여 ID 작업을 완료합니다. 예를 들어 사용자를 로그인하거나, 새 사용자를 등록하거나, 암호를 다시 설정합니다. ID 경험 프레임워크 및 정책(사용자 경험 또는 보안 프레임워크 정책이라고도 함)은 다자간 신뢰를 설정하고 행위자, 작업, 프로토콜 및 완료할 단계 시퀀스를 명시적으로 정의합니다.
 
-ID 환경 프레임워크는 OpenID Connect, OAuth, SAML 및 일부 비표준 프로토콜 형식(예: REST)과 같은 표준 프로토콜 형식의 엔터티 간 신뢰를 오케스트레이션하는 완전히 구성 가능한 정책 기반 클라우드 기반 Azure 플랫폼입니다. API 기반 시스템 간 클레임 교환. 이 프레임워크는 HTML 및 CSS를 지원하는 사용자에게 친숙한 화이트 레이블 환경을 만듭니다.
+ID 경험 프레임워크는 OpenID Connect, OAuth, SAML 및 일부 비표준 프로토콜 형식(예: REST API 기반 시스템 대 시스템 클레임 교환)과 같은 표준 프로토콜 형식의 엔터티 간 신뢰를 오케스트레이션하는 완전히 구성 가능한 정책 기반 클라우드 기반 Azure 플랫폼입니다. 이 프레임워크는 HTML 및 CSS를 지원하는 사용자에게 친숙한 화이트 레이블 환경을 만듭니다.
 
 사용자 지정 정책은 계층 구조 체인에서 서로를 참조하는 하나 또는 여러 XML 형식 파일로 표시됩니다. XML 요소는 다른 요소 간에 클레임 스키마, 클레임 변환, 콘텐츠 정의, 클레임 공급자, 기술 프로필 및 사용자 경험 오케스트레이션 단계를 정의합니다. 사용자 지정 정책은 신뢰 당사자에서 호출할 때 ID 경험 프레임워크에서 실행하는 하나 이상의 XML 파일에 액세스할 수 있습니다. 사용자 지정 정책을 구성하는 개발자는 신뢰할 수 있는 관계를 세부적으로 신중하게 정의하여 메타데이터 엔드포인트, 정확한 클레임 정의 교환을 포함하고 ID 공급자 각각의 필요에 따라 암호, 키 및 인증서를 구성해야 합니다.
 
@@ -66,4 +68,4 @@ ID 환경 프레임워크는 OpenID Connect, OAuth, SAML 및 일부 비표준 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [사용자 지정 정책 시작하기](custom-policy-get-started.md)
+> [사용자 지정 정책 시작](custom-policy-get-started.md)

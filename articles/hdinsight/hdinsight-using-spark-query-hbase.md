@@ -7,25 +7,23 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/24/2020
-ms.openlocfilehash: 888f24e13ce67c878592068927383dd8cbfefa60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/20/2020
+ms.openlocfilehash: 4f2e8b2a691a6b17b5ed075745d556db4e330535
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77623098"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682476"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Apache Spark를 사용하여 Apache HBase 데이터 읽기 및 쓰기
 
-Apache HBase는 일반적으로 낮은 수준의 API(scans, gets, puts) 또는 Apache Phoenix를 사용하는 SQL 구문을 사용하여 쿼리됩니다. 또한 Apache는 Apache Spark HBase 커넥터를 제공하며 이 커넥터는 HBase에서 저장한 데이터를 쿼리하고 수정하는 대신 편리하고 효율적인 대안입니다.
+Apache HBase는 일반적으로 낮은 수준의 API(scans, gets, puts) 또는 Apache Phoenix를 사용하는 SQL 구문을 사용하여 쿼리됩니다. 아파치는 또한 아파치 스파크 HBase 커넥터를 제공합니다. 커넥터는 HBase에 의해 저장된 데이터를 쿼리하고 수정하는 편리하고 성능이 뛰어난 대안입니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 동일한 [가상 네트워크에](./hdinsight-plan-virtual-network-deployment.md)배포된 두 개의 별도 HDInsight 클러스터. 하나의 HBase, 그리고 적어도 스파크 와 하나의 스파크 2.1 (HDInsight 3.6) 설치. 자세한 내용은 [Azure Portal을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
 
-* SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
-
-* 클러스터 기본 스토리지에 대한 [URI 체계](hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. 이 체계는 Azure Blob 저장소, azure 데이터 호수 저장소 세대2에 대 한 abfs:// 또는 Azure 데이터 호수 저장소 Gen1에 대 한 adl:// 대 한 wasb:// 합니다. Blob Storage에 대해 보안 전송을 사용하도록 `wasbs://`설정하면 URI가 됩니다.  [보안 전송](../storage/common/storage-require-secure-transfer.md)도 참조하세요.
+* 클러스터 기본 스토리지에 대한 URI 체계입니다. 이 체계는 Azure 데이터 호수 `abfs://` 저장소 Gen2 또는 Azure 데이터 호수 저장소 Gen1에 대 한 adl:// 대 한 Azure Blob 저장소에 대 한 wasb:// 합니다. Blob Storage에 대해 보안 전송을 사용하도록 `wasbs://`설정하면 URI가 됩니다.  [보안 전송](../storage/common/storage-require-secure-transfer.md)도 참조하세요.
 
 ## <a name="overall-process"></a>전체 프로세스
 
@@ -152,7 +150,7 @@ exit
     |}""".stripMargin
     ```
 
-    코드는 다음을 수행합니다.  
+    코드는 다음과 같은 작업을 수행합니다.  
 
      a. 이름이 `Contacts`인 HBase 테이블에 대한 카탈로그 스키마를 정의합니다.  
      b. rowkey를 `key`로 식별하고 Spark에서 사용된 열 이름을 HBase에서 사용되는 열 패밀리, 열 이름 및 열 유형으로 매핑합니다.  

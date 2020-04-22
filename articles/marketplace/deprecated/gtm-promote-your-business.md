@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/12/2019
 ms.author: dsindona
-ms.openlocfilehash: 8e5165d000ee98212b3fd76091ffbd030b6b787f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fde249f22342ed2a0c50f5fdda3bde9dc2cde183
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281547"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685732"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Microsoft를 통한 비즈니스 홍보
 
@@ -36,6 +36,6 @@ Marketplace 파트너는 MPN(Microsoft 파트너 네트워크)에 속해야 합�
 
 [출시 서비스](https://partner.microsoft.com/reach-customers/gtm)로 이동하여 마켓플레이스 GTM 서비스에 대해 자세히 알아봅니다.
 
-제품을 만들고 구성하려면 [Cloud 파트너 포털](https://cloudpartner.azure.com)에 로그인합니다.
+[파트너 센터에 로그인하여](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 오퍼를 만들거나 완료합니다.
 
 ---

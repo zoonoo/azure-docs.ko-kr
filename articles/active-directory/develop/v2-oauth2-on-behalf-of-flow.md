@@ -12,12 +12,12 @@ ms.date: 1/3/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7a91f61302b5944e69f71c3cfee2f41cd87b809f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 947286a7238e3ddf2aebe66c6ea87e0e1cf8a853
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309370"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677726"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>마이크로소프트 아이덴티티 플랫폼 및 OAuth 2.0 대신-의 흐름
 
@@ -27,9 +27,7 @@ OAuth 2.0 OBO(On-Behalf-Of) 흐름은 애플리케이션이 서비스/웹 API를
 이 문서에서는 응용 프로그램의 프로토콜에 대해 직접 프로그래밍하는 방법을 설명합니다.  가능하면 지원되는 MSAL(Microsoft 인증 라이브러리)을 사용하여 [토큰을 획득하고 보안웹 API를 호출하는](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows)것이 좋습니다.  또한 [MSAL을 사용하는 샘플 앱을](sample-v2-code.md)살펴보십시오.
 
 > [!NOTE]
->
-> - Microsoft ID 플랫폼 끝점이 모든 시나리오와 기능을 지원하지는 않습니다. Microsoft ID 플랫폼 끝점을 사용해야 하는지 여부를 확인하려면 [Microsoft ID 플랫폼 제한 사항에](active-directory-v2-limitations.md)대해 읽어보십시오. 
-> - 2018년 5월을 기준으로 일부 암시적 흐름 파생 `id_token`은 OBO 흐름에 사용할 수 없습니다. SPA(단일 페이지 앱)는 OBO 흐름을 수행하려면, 대신 중간 계층 기밀 클라이언트에 **액세스** 토큰을 전달해야 합니다. OBO 호출을 수행할 수 있는 클라이언트에 대한 자세한 내용은 [제한 사항](#client-limitations)을 참조하세요.
+> 2018년 5월을 기준으로 일부 암시적 흐름 파생 `id_token`은 OBO 흐름에 사용할 수 없습니다. SPA(단일 페이지 앱)는 OBO 흐름을 수행하려면, 대신 중간 계층 기밀 클라이언트에 **액세스** 토큰을 전달해야 합니다. OBO 호출을 수행할 수 있는 클라이언트에 대한 자세한 내용은 [제한 사항](#client-limitations)을 참조하세요.
 
 ## <a name="protocol-diagram"></a>프로토콜 다이어그램
 
@@ -186,10 +184,10 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>중간 계층 애플리케이션에 대한 동의 얻기
 
-응용 프로그램의 아키텍처 또는 사용법에 따라 OBO 흐름이 성공하도록 하기 위한 다양한 전략을 고려할 수 있습니다. 모든 경우에 궁극적인 목표는 클라이언트 앱이 중간 계층 앱을 호출할 수 있도록 적절한 동의가 제공되도록 하는 것이며 중간 계층 앱에는 백 엔드 리소스를 호출할 수 있는 권한이 있습니다. 
+응용 프로그램의 아키텍처 또는 사용법에 따라 OBO 흐름이 성공하도록 하기 위한 다양한 전략을 고려할 수 있습니다. 모든 경우에 궁극적인 목표는 클라이언트 앱이 중간 계층 앱을 호출할 수 있도록 적절한 동의가 제공되도록 하는 것이며 중간 계층 앱에는 백 엔드 리소스를 호출할 수 있는 권한이 있습니다.
 
 > [!NOTE]
-> 이전에는 Microsoft 계정 시스템(개인 계정)이 "알려진 클라이언트 응용 프로그램" 필드를 지원하지 않았으며 결합된 동의를 표시할 수도 없었습니다.  이 추가 되었습니다 및 Microsoft ID 플랫폼의 모든 애플 리 케이 션 OBO 호출에 대 한 gettign 동의에 대 한 알려진된 클라이언트 응용 프로그램 접근 방식을 사용할 수 있습니다. 
+> 이전에는 Microsoft 계정 시스템(개인 계정)이 "알려진 클라이언트 응용 프로그램" 필드를 지원하지 않았으며 결합된 동의를 표시할 수도 없었습니다.  이 추가 되었습니다 및 Microsoft ID 플랫폼의 모든 애플 리 케이 션 OBO 호출에 대 한 gettign 동의에 대 한 알려진된 클라이언트 응용 프로그램 접근 방식을 사용할 수 있습니다.
 
 ### <a name="default-and-combined-consent"></a>/.default 및 결합된 승인
 

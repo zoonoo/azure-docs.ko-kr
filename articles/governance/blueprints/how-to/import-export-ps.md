@@ -3,12 +3,12 @@ title: PowerShell을 사용 하 고 청사진 가져오기 및 내보내기
 description: Blueprint 정의를 코드로 작업하는 방법을 알아봅니다. 내보내기 및 가져오기 명령을 사용하여 공유, 소스 제어 및 관리합니다.
 ms.date: 09/03/2019
 ms.topic: how-to
-ms.openlocfilehash: 98bd21aad944346a17d8bdce7fb74c0eb8be2ed7
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: dcdf48f8941198591b39d6cf89ec5e6dac7ba94c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677147"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686832"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>PowerShell을 사용 하 고 청사진 정의 가져오기 및 내보내기
 
@@ -88,7 +88,7 @@ Blueprint 정의를 내보내는 단계는 간단합니다. Blueprint 정의를 
 
 [내보낸 Blueprint 정의가](#export-your-blueprint-definition) 있거나 [필수 폴더 구조에](#folder-structure-of-a-blueprint-definition)수동으로 생성된 Blueprint 정의가 있으면 해당 Blueprint 정의를 다른 관리 그룹 또는 구독으로 가져올 수 있습니다.
 
-기본 제공 Blueprint 정의의 예는 [Azure Blueprint GitHub 리포지토리를](https://github.com/Azure/azure-blueprints/tree/master/samples/builtins)참조하십시오.
+기본 제공 Blueprint 정의의 예는 [Azure Blueprint GitHub 리포지토리를](https://github.com/Azure/azure-blueprints/tree/master/samples/001-builtins)참조하십시오.
 
 - **이름** [필수]
   - 새 Blueprint 정의의 이름을 지정합니다.
@@ -121,7 +121,7 @@ Blueprint 정의를 가져오면 [PowerShell 에 할당합니다.](./manage-assi
 
 ## <a name="next-steps"></a>다음 단계
 
-- [청사진 수명 주기에](../concepts/lifecycle.md)대해 자세히 알아봅니다.
+- [청사진 수명 주기](../concepts/lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](../concepts/parameters.md) 사용 방법 이해
 - [청사진 시퀀싱 순서](../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
 - [청사진 리소스 잠금](../concepts/resource-locking.md)을 활용하는 방법 알아보기

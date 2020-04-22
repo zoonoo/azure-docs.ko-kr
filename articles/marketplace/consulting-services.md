@@ -6,14 +6,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 987d04a4138c37d9073e5e9925f06c93d7ebb8e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 528c393983cb3d8d96dbcee9157e38ebc4f193f4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281581"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685400"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Marketplace 및 AppSource 컨설팅 서비스
 Azure Marketplace 및 AppSource의 컨설팅 서비스는 Microsoft 파트너에게 고객과 서비스를 연결하여 고객의 Azure 사용을 지원하고 확대한다는 목표와 비즈니스 목표를 제공합니다. 
@@ -27,22 +27,22 @@ Azure Marketplace 및 AppSource는 고객이 필요한 전문가 서비스와 �
 
 |         |Azure Marketplace  |Microsoft AppSource |
 |---------|---------|---------|
-|**관객**   |**IT 전문가 및 클라우드 개발자**|**비즈니스 사용자/LOB(기간 업무) 의사 결정자**|
-|솔루션 연관성     |Azure용으로 또는 Azure에서 빌드된 기술 앱|D365, Power BI, O365, Azure를 활용/확장하는 비즈니스 앱. (추가 기능 또는 추가 항목 완성 앱)|
-|게시 옵션     |Azure용 평가판, 평가판, 거래 또는 서비스에 문의하기|역학 365 및 Power BI를 위한 나, 평가판 또는 서비스에 문의하기|
+|**관객**      |**IT 전문가 및 클라우드 개발자**|**비즈니스 사용자/LOB(기간 업무) 의사 결정자**|
+|솔루션 연관성      |Azure용으로 또는 Azure에서 빌드된 기술 앱|D365, Power BI, O365, Azure를 활용/확장하는 비즈니스 앱. (추가 기능 또는 추가 항목 완성 앱)|
+|게시 옵션      |Azure용 평가판, 평가판, 거래 또는 서비스에 문의하기|역학 365 및 Power BI를 위한 나, 평가판 또는 서비스에 문의하기|
 |제품 환경 내      |Azure 관리 포털|Dynamics 365, Office 365, Office 클라이언트 앱| 
 |기타      |Azure 스택을 통한 온-프레미스 게시, Azure에 대한 컨설팅 서비스, Azure용 관리형 서비스|Dynamics 및 Power BI용 컨설팅 서비스|
 
 Microsoft Dynamics 365, 파워 앱 및 Power BI를 기반으로 하는 컨설팅 서비스는 Microsoft AppSource에 등록될 수 있습니다. 자세한 내용은 [Microsoft AppSource 컨설팅 서비스 목록 지침](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409)을 참조하세요.
 
-Microsoft Azure를 기반으로 하는 컨설팅 서비스 및 관리 서비스 오퍼는 Azure 마켓플레이스에 나열될 수 있습니다. 자세한 내용은 [Azure 컨설팅 서비스 게시에](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) 대한 문서를 참조하고 [관리되는 서비스 제안을 Azure Marketplace에 게시합니다.](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers)
+Microsoft Azure를 기반으로 하는 컨설팅 서비스 및 관리 서비스 오퍼는 Azure 마켓플레이스에 나열될 수 있습니다. 자세한 내용은 [Azure 컨설팅 서비스 게시에](./partner-center-portal/create-consulting-service-offer.md) 대한 문서를 참조하고 [관리되는 서비스 제안을 Azure Marketplace에 게시합니다.](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers)
 
 > [!Note]
 > Azure Marketplace의 컨설팅 서비스는 Azure 기술 솔루션 및 서비스에 중점을 둔 **기술 잠재고객을 대상으로 하는 제품을 활용해야 *합니다.* ** AppSource의 컨설팅 서비스는 Dynamics 365, Power BI 또는 Power Apps를 위한 고품질 솔루션을 제공하는 전문 지식에 적합한 제품을 활용하여 AppSource에 컨설팅 서비스를 나열해야 합니다.
 > 
 > 
 > [!TIP]
-> Azure Marketplace 상점에 게시하려면 Cloud 파트너 포털의 "기본 제품" 드롭다운 메뉴에서 "Azure"를 선택하여 이러한 옵션을 선택합니다. AppSource에 게시하려면 Cloud 파트너 포털의 "기본 제품" 드롭다운 메뉴에서 "Dynamics 365", "Power BI" 또는 "Power Apps"를 선택하여 이 옵션을 선택합니다.
+> Azure 마켓플레이스 스토어프론트에 게시하려면 파트너 센터의 "기본 제품" 드롭다운 메뉴에서 "Azure"를 선택하여 이 옵션을 선택합니다. AppSource에 게시하려면 파트너 센터의 "기본 제품" 드롭다운 메뉴에서 "Dynamics 365", "Power BI" 또는 "전원 앱"을 선택하여 이 옵션을 선택합니다.
 
 ## <a name="eligible-partners-and-supported-countriesregions"></a>적격 파트너 및 지원 국가/지역
 
@@ -87,13 +87,18 @@ Microsoft Azure를 기반으로 하는 컨설팅 서비스 및 관리 서비스 
 | United Kingdom  |
 
 
-## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Azure Marketplace 및 AppSource에서 컨설팅 서비스를 등록하는 방법
-먼저 Marketplace에서 회사 정보를 [등록](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)합니다. 게시자는 [Marketplace에서 게시자 되기](https://docs.microsoft.com/azure/marketplace/become-publisher)에서 등록 요구 사항의 전체 검사 목록을 참조할 수 있습니다. 
+## <a name="how-to-register-for-consulting-services-in-commercial-marketplace"></a>상용 시장에서 컨설팅 서비스에 등록하는 방법
 
-**등록 후 예상 결과** 온보딩 팀이 영업일 기준 1~3일 이내에 CPP(Cloud 파트너 포털) 로그인 정보를 포함하는 환영 이메일로 연락을 드립니다. [Cloud 파트너 포털](https://cloudpartner.azure.com)은 게시자가 목록 정보 및 제안을 제출하는 제품 목록 포털입니다. 
+먼저 Marketplace에서 회사 정보를 [등록](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)합니다. 게시자는 [Marketplace에서 게시자 되기](https://docs.microsoft.com/azure/marketplace/become-publisher)에서 등록 요구 사항의 전체 검사 목록을 참조할 수 있습니다. 
+
+<!---
+**What To Expect After Registration**
+The Onboarding Team will reach out in 1-3 business days with a welcome email, which will include your Cloud Partner Portal (CPP) login information. [Cloud Partner Portal](https://cloudpartner.azure.com) is the offer listing portal where publishers submit listing information and submissions. 
 
 >[!Note]
->파트너는 게시자가 되려면 한 번만 등록하면 됩니다. 환영 전자 메일 및 Cloud 파트너 포털 로그인을 받게 되면 게시자는 다른 목록 형식을 게시하기 위해 다시 등록할 필요가 없습니다. 
+>Partners only need to register once to become a publisher. Once you receive your welcome email and Partner Center login, publishers do not need to re-register in order to publish different listing types. 
+
+--->
 
 ## <a name="prepare-your-publishing-artifacts"></a>게시 아티팩트 준비
 등록 전에 목록을 통해 서비스 및 솔루션의 가치를 대상 고객에게 설명하는 데 도움이 될 만한 콘텐츠를 수집하고 준비할 수 있습니다. 
@@ -120,7 +125,7 @@ Microsoft Azure를 기반으로 하는 컨설팅 서비스 및 관리 서비스 
 ## <a name="publishing-process"></a>게시 프로세스
 Azure Marketplace 및 AppSource에 컨설팅 서비스 제품을 나열하려면 다음 단계를 거쳐야 합니다.
 
-1. **나열**: [Cloud 파트너 포털](https://cloudpartner.azure.com) 계정에 로그인하여 새 제품 목록의 초안을 작성합니다. 드롭다운 메뉴에서 '새 제품' 및 '컨설팅 서비스'를 선택합니다. 목록 아티팩트를 입력하고 게시합니다.
+1. **목록**: [파트너 센터](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 계정에 로그인하여 새 오퍼 목록 초안 작성을 시작합니다. 드롭다운 메뉴에서 '새 제품' 및 '컨설팅 서비스'를 선택합니다. 목록 아티팩트를 입력하고 게시합니다.
 2. **유효성 검사**: 요청을 검토하여 자격 기준을 충족하는지 확인합니다. 그런 후 컨설팅 서비스 제품을 나열하기 위한 지침을 보내드립니다. 
 3. **제출**: 지침에 나열된 필수 정보를 제공합니다. 모든 콘텐츠 및 지원 자료는 영어로 제출해야 합니다. 
 4. **검토**: 마케팅 및 편집 팀에서 제출을 검토하고 가독성, 문법 및 효율성에 최적화합니다. 
@@ -165,7 +170,7 @@ Azure Marketplace 및 AppSource에 컨설팅 서비스 제품을 나열하려면
 |**개념 증명**    |    고객이 계약의 결과로 기대할 수 있는 엔지니어링 변경, 기술 아티팩트 또는 기타 아티팩트를 결정합니다.     | 상위 검색 엔진 최적화 키워드로 제품 요약 최적화        |
 |**워크샵**    |   선택한 제공 기간에 따라, 매일, 매주 또는 매월 자세한 주제를 포함합니다. 워크샵에서 다룰 학습 목적 또는 기타 결과물 결정     |   상위 검색 엔진 최적화 키워드로 제품 요약 최적화      |
 
-Cloud 파트너 포털 내에서 [Markdown](/contribute/markdown-reference)을 사용하여 목록에 서식을 추가할 수 있습니다. 이것은 목록을 정리하는 데 도움이 되는 간단한 디자인 언어입니다. 
+파트너 센터 내에서 [마크다운](/contribute/markdown-reference)을 사용하여 목록에 서식을 추가할 수 있습니다. 이것은 목록을 정리하는 데 도움이 되는 간단한 디자인 언어입니다. 
 
 **샘플 Markdown 참고 사항**
 * 사본 블록 맨 앞과 맨 끝에 공백 없이 *를 추가하여 기울임꼴 만들기(예: *content*)
@@ -181,9 +186,9 @@ Cloud 파트너 포털 내에서 [Markdown](/contribute/markdown-reference)을 �
 
 아직 수행하지 않았다면 
 
-- Marketplace에 [등록](https://azuremarketplace.microsoft.com/sell).
+- 마켓플레이스에 대해 [알아보세요.](https://azuremarketplace.microsoft.com/sell)
 
-등록하고 Cloud 파트너 포털에서 작업 중이라면 
+파트너 센터에 등록하고 작업을 시작하려면 
 
-- 제품을 만들거나 완료하기 위해 [Cloud 파트너 포털에 로그인](https://cloudpartner.azure.com).
-- 자세한 내용은 [Azure 및 Dynamics 365 컨설팅 서비스 제품](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer)을 참조하세요.
+- [파트너 센터에 로그인하여](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 쿠폰을 만들거나 완료하세요.
+- 자세한 내용은 [컨설팅 서비스 오퍼 만들기를](./partner-center-portal/create-consulting-service-offer.md) 참조하십시오.

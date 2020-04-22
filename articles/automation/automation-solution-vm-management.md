@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 968e609772e08814a9943734d30c16bf6f5972e8
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 369e3bcf4e5913f4a3ff82206d1e24a206db3f34
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604720"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681304"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Azure 자동화에서 근무 외 솔루션 중에 VM 시작/중지
 
@@ -102,7 +102,7 @@ ms.locfileid: "81604720"
 
 모든 상위 Runbook에는 매개 변수가 포함됩니다. `WhatIf` True로 설정하면 매개 변수없이 실행할 때 Runbook에서 걸리는 정확한 동작을 자세히 설명하고 올바른 VM이 대상으로 있는지 확인합니다. Runbook은 `WhatIf` 매개 변수가 False로 설정된 경우에만 정의된 작업을 수행합니다.
 
-|Runbook | 매개 변수 | Description|
+|Runbook | 매개 변수 | 설명|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | 부모 Runbook에서 호출됩니다. 이 Runbook은 자동 중지 시나리오에 대한 리소스별로 경고를 만듭니다.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True 또는 False  | 대상 구독 또는 리소스 그룹에서 VM에 대해 Azure 경고 규칙을 만들거나 업데이트합니다. <br> `VMList`은 쉼표로 구분된 VM 목록입니다. `vm1, vm2, vm3`)을 입력합니다.<br> `WhatIf`실행하지 않고도 Runbook 논리의 유효성 검사를 수행할 수 있습니다.|
@@ -120,7 +120,7 @@ ms.locfileid: "81604720"
 다음 표에는 Automation 계정에서 만든 변수가 나열되어 있습니다. `External`에 접두번으로 고정된 변수만 수정합니다. 접두사로 고정된 `Internal` 변수를 수정하면 바람직하지 않은 효과가 발생합니다.
 
 > [!NOTE]
-> VM 이름 및 리소스 그룹에 대한 제한은 대체로 가변 크기의 결과입니다.
+> VM 이름 및 리소스 그룹에 대한 제한은 대체로 가변 크기의 결과입니다. [Azure 자동화에서 가변 자산을](https://docs.microsoft.com/azure/automation/shared-resources/variables)참조하십시오.
 
 |변수 | Description|
 |---------|------------|
@@ -154,13 +154,13 @@ ms.locfileid: "81604720"
 
 이렇게 하면 겹치는 일정 작업이 발생할 수 있으므로 모든 일정을 사용하도록 설정하지 마십시오. 수행할 최적화를 결정하고 그에 따라 수정하는 것이 가장 좋습니다. 추가 설명을 보려면 개요 섹션에서 예제 시나리오를 참조하세요.
 
-|일정 이름 | 빈도 | Description|
+|일정 이름 | 빈도 | 설명|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | 8시간마다 | **8시간마다 AutoStop_CreateAlert_Parent** 런북을 실행하여 VM 기반 값의 `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames`. `External_ExcludeVMNames` 및 변수를 중지합니다. 또는 매개 변수를 사용하여 쉼표로 구분된 VM `VMList` 목록을 지정할 수 있습니다.|
 |Scheduled_StopVM | 사용자 정의, 매일 | 지정된 **ScheduledStopStart_Parent** 시간에 매일 매개 `Stop` 변수로 ScheduledStopStart_Parent Runbook을 실행합니다.가변 자산에 의해 정의된 규칙을 충족하는 모든 VM을 자동으로 중지합니다.관련 일정 **예약-StartVM을**사용하도록 설정합니다.|
 |Scheduled_StartVM | 사용자 정의, 매일 | 지정된 **ScheduledStopStart_Parent** 시간에 매일 매개 `Start` 변수 값으로 ScheduledStopStart_Parent Runbook을 실행합니다. 가변 자산에 의해 정의된 규칙을 충족하는 모든 VM이 자동으로 시작됩니다.관련 일정 **예약-StopVM을**사용하도록 설정합니다.|
-|Sequenced-StopVM | 오전 1시(UTC), 매주 금요일 | 지정된 시간에 매주 금요일의 `Stop` 매개 변수 값으로 Sequenced_Parent Runbook을 실행합니다.적절한 변수로 **SequenceStop** 태그가 정의되어 있는 모든 VM이 순차적으로(오름차순으로) 중지됩니다. 태그 값과 자산 변수에 대한 자세한 내용은 Runbook 섹션을 참조하세요.관련된 일정, **Sequenced-StartVM**을 사용하도록 설정합니다.|
-|Sequenced-StartVM | 오후 1시(UTC), 매주 월요일 | 지정된 **SequencedStopStart_Parent** 시간에 매주 월요일의 `Start` 매개 변수 값으로 SequencedStopStart_Parent Runbook을 실행합니다. 적절한 변수로 **SequenceStart** 태그가 정의되어 있는 모든 VM이 순차적으로(내림차순으로) 시작됩니다. 태그 값 및 가변 자산에 대한 자세한 내용은 [Runbooks](#runbooks)를 참조하십시오. 관련된 일정, **Sequenced-StopVM**을 사용하도록 설정합니다.
+|Sequenced-StopVM | 오전 1시(UTC), 매주 금요일 | 지정된 **Sequenced_StopStop_Parent** 시간에 매주 금요일의 `Stop` 매개 변수 값으로 Sequenced_StopStop_Parent Runbook을 실행합니다.적절한 변수로 **SequenceStop** 태그가 정의되어 있는 모든 VM이 순차적으로(오름차순으로) 중지됩니다. 태그 값 및 자산 변수에 대한 자세한 내용은 [Runbook](#runbooks)을 참조하십시오.관련된 일정, **Sequenced-StartVM**을 사용하도록 설정합니다.|
+|Sequenced-StartVM | 오후 1시(UTC), 매주 월요일 | 지정된 **SequencedStopStart_Parent** 시간에 매주 월요일의 `Start` 매개 변수 값으로 SequencedStopStart_Parent Runbook을 실행합니다. 적절한 변수로 **SequenceStart** 태그가 정의되어 있는 모든 VM이 순차적으로(내림차순으로) 시작됩니다. 태그 값 및 가변 자산에 대한 자세한 내용은 [Runbook](#runbooks)을 참조하십시오. 관련된 일정, **Sequenced-StopVM**을 사용하도록 설정합니다.
 
 ## <a name="use-of-the-solution-with-classic-vms"></a>클래식 VM을 사용한 솔루션 사용
 

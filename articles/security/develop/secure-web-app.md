@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 55c6d374c8a3c308323c0d003726492477e33ff8
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 730e478622da8cd90af1c559e4d0c6fd04151cca
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811230"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686801"
 ---
 # <a name="develop-a-secure-web-app"></a>보안 웹앱 개발
 
@@ -803,7 +803,7 @@ Azure 포털에서 필요한 자격 증명을 사용하도록 앱을 구성합�
 키 볼트에 Azure AD 구성 및 비밀을 추가한 후 Azure OAuth 인증을 사용하여 사용자를 앱에 인증할 수 있습니다.
 앱 코드에서 이 문제는 ADAL(Azure Active Directory 인증 라이브러리)에서 처리합니다.
 
-비밀이 Key Vault에 있고 응용 프로그램이 암호 및 데이터베이스에 액세스할 수 있게 되면 게이트웨이의 응용https://GATEWAY_HASH.cloudapp.net)프로그램 URL(블레이드에서 얻을 수 있는 응용 프로그램 URL)을 통해 응용 프로그램 서비스에 액세스할 수 있습니다.
+비밀이 키 볼트에 있고 응용 프로그램이 암호 및 데이터베이스에 액세스 하면 응용 프로그램 서비스는 게이트웨이의 응용\/프로그램 URL (https: /GATEWAY_HASH.cloudapp.net)을 통해 액세스할 수 있습니다.
 
 Azure AD에 로그인할 때 "사용자가 로그인하려는 디렉터리에 등록되지 않았습니다"라는 오류가 발생하면 사용자를 추가해야 합니다. 사용자를 추가하려면 Azure AD의 **사용자** 탭으로 이동하여 세부 정보를 입력하여 사용자를 수동으로 추가하거나 **게스트 초대** 블레이드에서 Azure AD에 게스트 사용자로 전자 메일 주소를 입력하여 사용자를 초대합니다.
 
@@ -978,7 +978,7 @@ linting 도구에서 찾은 코드 오류 중 일부를 수정한 후에는 코�
 
 ### <a name="find-and-fix-vulnerabilities-in-app-dependencies"></a>앱 종속성의 취약점 찾기 및 수정
 
-응용 프로그램 종속성을 찾아 수정하려면 [OWASP의 종속성 검사를](https://www.owasp.org/index.php/OWASP_Dependency_Check)사용할 수 있습니다.
+응용 프로그램 종속성을 찾아 수정하려면 [OWASP의 종속성 검사를](https://owasp.org/www-project-dependency-check/)사용할 수 있습니다.
 
 안전은 종속성을 확인하는 유사한 응용 프로그램입니다. [GitHub](https://github.com/pyupio/safety)에서 찾을 수 있습니다. 잘 알려진 취약점 데이터베이스에서 발견된 취약점에 대한 안전 검사
 

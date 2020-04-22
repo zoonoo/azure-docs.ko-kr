@@ -8,18 +8,18 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 0014b67443797f45de51ec1bc459f71bde55cdc9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f8e93cf34ac56344ff7e3d145ce8c7c3529767b7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774433"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678669"
 ---
-다음 예제에서는 시애틀의 Equinix 인터넷 교환에서 Exchange 연결을 만드는 방법을 보여 주며 있습니다. 다른 공급자와 다른 설정을 사용하는 경우, 요청을 수행할 때 해당 정보를 대체합니다.
+다음 예제에서는 시애틀의 Equinix 인터넷 교환에서 Exchange 연결을 만드는 방법을 보여 주입니다. 다른 공급자와 다른 설정을 사용하는 경우, 요청을 수행할 때 해당 정보를 대체합니다.
 
 PowerShell cmdlet **New-AzPeeringExchangeExchangeObject를** 사용하여 새 피어링 요청을 생성하는 데 사용되는 PowerShell 연결 개체를 만듭니다.
 
-다음은 Exchange 연결을 만드는 예제입니다.
+이 예제에서는 Exchange 연결을 만드는 방법을 보여 주며 있습니다.
 
 ```powershell
 $connection1 = New-AzPeeringExchangeConnectionObject `
@@ -54,7 +54,7 @@ New-AzPeering `
 ```
 &nbsp;
 
-다음은 하나의 연결을 사용하여 요청이 실행되었을 때의 예제 응답입니다.
+이 예제 응답은 하나의 연결을 사용하여 요청이 실행된 시기를 보여 주며, 이 에 대한 응답은 다음과 같은 것입니다.
 
 ```powershell
 
@@ -74,9 +74,9 @@ Tags              : {}
 
 > [!IMPORTANT]
 > Microsoft는 요청된 피어링 프로비저닝을 시작하고 진행 상황을 `ConnectionState` 반영합니다.
-> 관련 단계를 프로비전하려면 [Exchange 피어링 연습](../walkthrough-exchange-all.md) 문서를 참조하십시오.
+> 프로비저닝 관련 단계에 대한 자세한 내용은 [Exchange 피어링 연습을](../walkthrough-exchange-all.md)참조하십시오.
 
-아래와 같이 ConnectionState를 확인할 수 있습니다.
+여기에 표시된 대로 연결 상태를 확인할 수 있습니다.
 
 ```powershell
 

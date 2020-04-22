@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 백업을 사용하여 Azure 가상 컴�
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 5b10907738feeecbec06669175e82578f2915f92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 887f15deed74330cf132e0574d166c074d2c7cad
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273333"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685721"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM의 SQL Server 데이터베이스 백업
 
@@ -112,7 +112,7 @@ HTTP 프록시 사용 | VM에 대한 인터넷 액세스의 단일 지점 <br/> 
 * 세미콜론 ';'
 * 정방향 슬래시 '/'
 
-지원되지 않는 문자에는 앨리어싱을 사용할 수 있지만 이를 피하는 것이 좋습니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN)를 참조하세요.
+지원되지 않는 문자에는 앨리어싱을 사용할 수 있지만 이를 피하는 것이 좋습니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)를 참조하세요.
 
 >[!NOTE]
 >이름에 "+" 또는 "&"과 같은 특수 문자가 있는 데이터베이스에 대한 **보호 구성** 작업은 지원되지 않습니다. 데이터베이스 이름을 변경하거나 이러한 데이터베이스를 성공적으로 보호할 수 있는 **자동 보호를**사용하도록 설정할 수 있습니다.

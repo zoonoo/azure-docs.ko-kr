@@ -1,6 +1,6 @@
 ---
-title: Azure 업데이트 관리를 통해 오류 문제 해결
-description: Azure의 업데이트 관리 솔루션으로 문제를 해결하고 해결하는 방법을 알아봅니다.
+title: Azure 자동화 업데이트 관리 문제 해결
+description: Azure 자동화의 업데이트 관리 솔루션으로 문제를 해결하고 해결하는 방법을 알아봅니다.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,22 +8,22 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c9ff05591c98fda8be39e32f26da484f56e0831b
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 91ecff311b8820d3b97e1de0e4b4e87c150e749b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984626"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678932"
 ---
-# <a name="troubleshooting-issues-with-update-management"></a>업데이트 관리 문제 해결
+# <a name="troubleshoot-issues-with-the-update-management-solution"></a>업데이트 관리 솔루션문제 해결
 
-이 문서에서는 업데이트 관리를 사용할 때 발생할 수 있는 문제에 대한 해결 방법을 설명합니다.
+이 문서에서는 업데이트 관리 솔루션을 사용할 때 발생할 수 있는 문제에 대해 설명합니다. 하이브리드 Runbook 작업자 에이전트가 근본적인 문제를 확인하는 에이전트 문제 해결사가 있습니다. 문제 해결사에 대한 자세한 내용은 [Windows 업데이트 에이전트 문제](update-agent-issues.md) 해결 및 Linux 업데이트 에이전트 [문제를](update-agent-issues-linux.md)참조하십시오. 기타 온보딩 문제에 대한 [해결 방법은 온보딩](onboarding.md)을 참조하십시오.
 
-하이브리드 작업자 에이전트가 근본적인 문제를 확인하는 에이전트 문제 해결사가 있습니다. 이 문제 해결사에 대한 자세한 내용은 [업데이트 에이전트 문제 해결](update-agent-issues.md)을 참조하세요. 기타 모든 문제의 경우 다음 문제 해결 지침을 사용합니다.
+>[!NOTE]
+>가상 시스템(VM)에서 솔루션을 온보딩할 때 문제가 발견되면 로컬 컴퓨터의 응용 프로그램 및 서비스 로그 아래의 **Operations Manager** **로그를 확인하십시오.** 이벤트 ID 4502 및 포함된 이벤트 `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`세부 정보가 포함된 이벤트를 찾습니다.
 
-가상 시스템(VM)에서 솔루션을 온보딩할 때 문제가 발견되면 로컬 컴퓨터의 응용 프로그램 및 서비스 로그 아래의 **Operations Manager** **로그를 확인하십시오.** 이벤트 ID 4502 및 포함된 이벤트 `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`세부 정보가 포함된 이벤트를 찾습니다.
-
-다음 섹션에서는 특정 오류 메시지와 각 오류에 대한 가능한 해결 을 강조 합니다. 기타 온보딩 문제에 대한 [해결 방법은 온보딩](onboarding.md)을 참조하십시오.
+>[!NOTE]
+>이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. 하이브리드 Runbook 작업자의 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치를](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)참조하십시오. 자동화 계정의 경우 Azure 자동화 에서 [Azure PowerShell 모듈을 업데이트하는 방법을](../automation-update-azure-modules.md)사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
 
 ## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a>시나리오: "업데이트 솔루션을 사용하도록 설정하지 못했습니다" 오류가 발생합니다.
 
@@ -299,7 +299,7 @@ The components for the 'Update Management' solution have been enabled, and now t
 
 * 다른 원본 컴퓨터 아이디와 중복된 컴퓨터 이름이 있습니다. 이 시나리오는 특정 컴퓨터 이름이 있는 VM이 다른 리소스 그룹에서 만들어지고 구독의 동일한 물류 에이전트 작업 영역에 보고하는 경우에 발생합니다.
 
-* 온보던 VM 이미지는 MMA(Microsoft 모니터링 에이전트)가 설치된 시스템 준비(sysprep)로 준비되지 않은 복제된 컴퓨터에서 올 수 있습니다.
+* 온보던 VM 이미지는 Windows용 로그 분석 에이전트가 설치된 시스템 준비(sysprep)로 준비되지 않은 복제된 컴퓨터에서 올 수 있습니다.
 
 ### <a name="resolution"></a>해결 방법
 
@@ -351,17 +351,16 @@ The client has permission to perform action 'Microsoft.Compute/virtualMachines/w
 
 ### <a name="resolution"></a>해결 방법
 
-다음 해결 방법을 사용하여 이러한 항목을 예약합니다. [새-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet 매개 변수를 `ForUpdate` 사용 하 여 일정을 만들 수 있습니다. 그런 다음 [New-AzureRmAutomationSoftwareConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
-) cmdlet을 사용하고 다른 테넌트의 `NonAzureComputer` 컴퓨터를 매개 변수에 전달합니다. 다음 예제에 이 작업을 수행하는 방법이 나와 있습니다.
+다음 해결 방법을 사용하여 이러한 항목을 예약합니다. `ForUpdateConfiguration` 매개 변수와 함께 [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) cmdlet을 사용하여 일정을 만들 수 있습니다. 그런 다음 [New-AzAutomationSoftwareConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) cmdlet을 사용하고 다른 테넌트의 `NonAzureComputer` 컴퓨터를 매개 변수에 전달합니다. 다음 예제에 이 작업을 수행하는 방법이 나와 있습니다.
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
 
 $startTime = ([DateTime]::Now).AddMinutes(10)
 
-$s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
+$s = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdateConfiguration
 
-New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
 ## <a name="scenario-unexplained-reboots"></a><a name="node-reboots"></a>시나리오: 설명할 수 없는 재부팅

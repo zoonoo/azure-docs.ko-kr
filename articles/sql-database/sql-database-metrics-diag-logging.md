@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: 9c9f069ad38c65aa0bbfdcde9eef3fed32585d9e
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 288d4e4d0c5faa6bb2b51451fb36bbb6d666c9eb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756407"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683188"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-diagnostic-telemetry"></a>Azure SQL Database 진단 원격 분석의 스트리밍 내보내기 구성
 
@@ -95,7 +95,7 @@ Azure 포털의 **진단 설정** 메뉴를 사용하여 진단 원격 분석의
 
 Azure 포털에서 진단 원격 분석의 스트리밍 내보내기를 구성하기 위한 단계별 지침과 PowerShell 및 Azure CLI를 통해 동일한 작업을 수행하기 위한 스크립트에 대한 다음 탭 중 하나를 선택합니다.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
 ### <a name="elastic-pools"></a>탄력적 풀
 
@@ -363,7 +363,7 @@ SQL Analytics를 계층 대시보드로 사용하여 SQL 데이터베이스 리�
 
 ## <a name="stream-into-event-hubs"></a>Event Hubs로 스트림
 
-Azure 포털의 이벤트 허브 에 기본 제공 Stream을 사용하여 SQL Database 메트릭 및 리소스 로그를 이벤트 **허브로 스트리밍할** 수 있습니다. PowerShell cmdlet, Azure CLI 또는 Azure 모니터 REST API를 통해 진단 설정을 사용하여 서비스 버스 규칙 ID를 활성화할 수도 있습니다.
+Azure 포털의 이벤트 허브 에 기본 제공 Stream을 사용하여 SQL Database 메트릭 및 리소스 로그를 이벤트 **허브로 스트리밍할** 수 있습니다. PowerShell cmdlet, Azure CLI 또는 Azure 모니터 REST API를 통해 진단 설정을 사용하여 서비스 버스 규칙 ID를 활성화할 수도 있습니다. 이벤트 허브는 데이터베이스 및 서버와 동일한 지역에 있어야 합니다.
 
 ### <a name="what-to-do-with-metrics-and-resource-logs-in-event-hubs"></a>이벤트 허브의 메트릭 및 리소스 로그로 수행할 일
 
@@ -475,9 +475,9 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure|
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|형식|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: ResourceUsageStats |
+|범주|범주 이름. 항상: ResourceUsageStats |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: MANAGEDINSTANCES |
 |SubscriptionId|데이터베이스의 구독 GUID |
@@ -500,9 +500,9 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|형식|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: QueryStoreRuntimeStatistics |
+|범주|범주 이름. 항상: QueryStoreRuntimeStatistics |
 |OperationName|작업의 이름입니다. 항상: QueryStoreRuntimeStatisticsEvent |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
@@ -551,9 +551,9 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|형식|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: QueryStoreWaitStatistics |
+|범주|범주 이름. 항상: QueryStoreWaitStatistics |
 |OperationName|작업의 이름입니다. 항상: QueryStoreWaitStatisticsEvent |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
@@ -589,9 +589,9 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|형식|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: Errors |
+|범주|범주 이름. 항상: Errors |
 |OperationName|작업의 이름입니다. 항상: ErrorEvent |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
@@ -618,9 +618,9 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|형식|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: DatabaseWaitStatistics |
+|범주|범주 이름. 항상: DatabaseWaitStatistics |
 |OperationName|작업의 이름입니다. 항상: DatabaseWaitStatisticsEvent |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
@@ -647,9 +647,9 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|형식|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: Timeouts |
+|범주|범주 이름. 항상: Timeouts |
 |OperationName|작업의 이름입니다. 항상: TimeoutEvent |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
@@ -670,9 +670,9 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|형식|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: Blocks |
+|범주|범주 이름. 항상: Blocks |
 |OperationName|작업의 이름입니다. 항상: BlockEvent |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
@@ -694,9 +694,9 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC] |로그가 기록된 때의 타임스탬프 |
-|형식|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: 교착 상태 |
+|범주|범주 이름. 항상: 교착 상태 |
 |OperationName|작업의 이름입니다. 항상: DeadlockEvent |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
@@ -715,9 +715,9 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|형식|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: AutomaticTuning |
+|범주|범주 이름. 항상: AutomaticTuning |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
 |SubscriptionId|데이터베이스의 구독 GUID |

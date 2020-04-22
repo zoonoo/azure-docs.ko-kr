@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
 ms.author: v-umha
-ms.openlocfilehash: d64735e683ba1133e7d381a68611d204c4068026
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 1665c535d4b1fb6190ee5736b688b402f8b4a541
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313104"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683903"
 ---
 # <a name="disaster-recovery-for-farmbeats"></a>FarmBeats에 대한 재해 복구
 
@@ -28,7 +28,7 @@ Azure FarmBeats의 데이터 복구는 기본 기능이 아닙니다. FarmBeats�
 
 FarmBeats는 **Azure 저장소,** 코스모스 DB 및 타임 시리즈 **인사이트인**세 개의 Azure 자사 서비스에 데이터를 **저장합니다.** 다음 단계를 사용하여 이러한 서비스에 대한 데이터 중복성을 쌍을 이루는 Azure 리전에 사용하도록 설정합니다.
 
-1.  **Azure 저장소** - 이 지침을 따라 FarmBbeats 배포의 각 저장소 계정에 대한 데이터 중복성을 활성화합니다.
+1.  **Azure 저장소** - 이 지침을 따라 FarmBeats 배포의 각 저장소 계정에 대한 데이터 중복성을 활성화합니다.
 2.  **Azure Cosmos DB** - 이 지침을 따라 Cosmos DB 계정에 대한 데이터 중복성을 FarmBeats 배포에 사용할 수 있습니다.
 3.  **Azure Time Series Insights(TSI)** - TSI는 현재 데이터 중복성을 제공하지 않습니다. Time Series Insights 데이터를 복구하려면 센서/날씨 파트너에게 가서 데이터를 FarmBeats 배포로 다시 푸시합니다.
 

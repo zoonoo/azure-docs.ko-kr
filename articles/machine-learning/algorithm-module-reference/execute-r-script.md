@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: f038293b48956ac89314e426df3f5dc491954df3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eb778c8d24639320b60927438de76a29de724ac2
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064215"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684706"
 ---
 # <a name="execute-r-script"></a>R 스크립트 실행
 
@@ -44,7 +44,10 @@ azureml_main <- function(dataframe1, dataframe2){
 ```
 
 ## <a name="installing-r-packages"></a>R 패키지 설치
-추가 R 패키지를 설치하려면 `install.packages()` 메서드를 사용합니다. CRAN 리포지토리를 지정해야 합니다. 패키지는 각 **실행 R 스크립트** 모듈에 대해 설치되며 다른 실행 R **스크립트** 모듈에서 공유되지 않습니다.
+추가 R 패키지를 설치하려면 `install.packages()` 메서드를 사용합니다. 패키지는 각 **실행 R 스크립트** 모듈에 대해 설치되며 다른 실행 R **스크립트** 모듈에서 공유되지 않습니다.
+
+> [!NOTE]
+> 와 같은 패키지를 설치할 때 CRAN 리포지토리를 지정하십시오.`install.packages("zoo",repos = "http://cran.us.r-project.org")`
 
 이 샘플에서는 Zoo를 설치하는 방법을 보여 주며,
 ```R
@@ -52,7 +55,13 @@ azureml_main <- function(dataframe1, dataframe2){
 # The script MUST contain a function named azureml_main
 # which is the entry point for this module.
 
-# The entry point function can contain up to two input arguments:
+# Please note that functions dependant on X11 library
+# such as "View" are not supported because X11 library
+# is not pre-installed.
+
+# The entry point function MUST have two input arguments.
+# If the input port is not connected, the corresponding
+# dataframe argument will be null.
 #   Param<dataframe1>: a R DataFrame
 #   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
@@ -77,7 +86,13 @@ azureml_main <- function(dataframe1, dataframe2){
 # The script MUST contain a function named azureml_main
 # which is the entry point for this module.
 
-# The entry point function can contain up to two input arguments:
+# Please note that functions dependant on X11 library
+# such as "View" are not supported because X11 library
+# is not pre-installed.
+
+# The entry point function MUST have two input arguments.
+# If the input port is not connected, the corresponding
+# dataframe argument will be null.
 #   Param<dataframe1>: a R DataFrame
 #   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
@@ -124,6 +139,12 @@ azureml_main <- function(dataframe1, dataframe2){
 
 1. R **스크립트** 텍스트 상자에서 유효한 R 스크립트를 입력하거나 붙여 넣습니다.
 
+    > [!NOTE]
+    > 스크립트를 작성할 때는 선언되지 않은 변수 나 가져오지 않은 모듈 또는 함수를 사용하는 것과 같이 구문 오류가 없는지 확인하십시오. 또한 이 문서의 끝에 있는 미리 설치된 패키지 목록에 주의를 기울여야 합니다. 나열되지 않은 패키지를 사용하려면 다음과 같은 스크립트에 패키지를 설치하십시오.`install.packages("zoo",repos = "http://cran.us.r-project.org")`
+    
+    > [!NOTE]
+    > X11 라이브러리가 사전 설치되어 있지 않으므로 "보기"와 같은 X11 라이브러리에 종속된 기능은 지원되지 않습니다.
+    
     시작하기 위해 **R 스크립트** 텍스트 상자에 편집하거나 바꿀 수 있는 샘플 코드가 미리 채워집니다.
     
     ```R
@@ -131,7 +152,13 @@ azureml_main <- function(dataframe1, dataframe2){
     # The script MUST contain a function named azureml_main
     # which is the entry point for this module.
 
-    # The entry point function can contain up to two input arguments:
+    # Please note that functions dependant on X11 library
+    # such as "View" are not supported because X11 library
+    # is not pre-installed.
+    
+    # The entry point function MUST have two input arguments.
+    # If the input port is not connected, the corresponding
+    # dataframe argument will be null.
     #   Param<dataframe1>: a R DataFrame
     #   Param<dataframe2>: a R DataFrame
     azureml_main <- function(dataframe1, dataframe2){
@@ -148,8 +175,8 @@ azureml_main <- function(dataframe1, dataframe2){
 
  * 스크립트에는 이 모듈의 `azureml_main`진입점인 함수가 포함되어야 합니다.
 
- * 진입점 함수에는 최대 2개의 입력 `Param<dataframe1>` 인수가 포함될 수 있습니다.`Param<dataframe2>`
- 
+ * 진입점 함수에는 두 개의 입력 `Param<dataframe1>` `Param<dataframe2>`인수가 있어야 합니다.
+
    > [!NOTE]
     > **실행 R 스크립트** 모듈에 전달된 데이터는 `dataframe1` `dataframe2`Azure 기계 학습 디자이너(디자이너 참조) `dataset1` `dataset2`와 다른 참조 및 참조됩니다. 입력 데이터가 스크립트에서 올바르게 참조되었는지 확인하십시오.  
  
@@ -195,7 +222,14 @@ R 스크립트에서 결과를 인쇄해야 하는 경우 모듈의 오른쪽 �
 # R version: 3.5.1
 # The script MUST contain a function named azureml_main
 # which is the entry point for this module.
-# The entry point function can contain up to two input arguments:
+
+# Please note that functions dependant on X11 library
+# such as "View" are not supported because X11 library
+# is not pre-installed.
+
+# The entry point function MUST have two input arguments.
+# If the input port is not connected, the corresponding
+# dataframe argument will be null.
 #   Param<dataframe1>: a R DataFrame
 #   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){

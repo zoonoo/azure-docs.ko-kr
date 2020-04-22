@@ -4,15 +4,15 @@ description: Azure의 Analysis Services 서버에서 데이터에 연결하고 �
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2875959a833134131fa6db6d51df0c2b47a39377
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: cc671629934d80b3e727ca69f9026f534d05e160
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411308"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676639"
 ---
 # <a name="connecting-to-servers"></a>서버에 연결
 
@@ -23,6 +23,9 @@ ms.locfileid: "80411308"
 [최신 클라이언트 라이브러리 가져오기](analysis-services-data-providers.md)
 
 종류에 관계없이 모든 서버 연결에서 Analysis Services 서버에 연결하고 인터페이스하려면 업데이트된 AMO, ADOMD.NET 및 OLEDB 클라이언트 라이브러리가 필요합니다. SSMS, Visual Studio, Excel 2016 이상 및 Power BI의 경우 최신 클라이언트 라이브러리가 월별 릴리스로 설치되거나 업데이트됩니다. 그러나 경우에 따라 애플리케이션에 최신 버전이 없을 수 있습니다. 예를 들어 정책 지연 업데이트 또는 Office 365 업데이트가 지연된 채널에 있는 경우입니다.
+
+> [!NOTE]
+> 클라이언트 라이브러리는 사용자 이름과 암호가 필요한 프록시 서버를 통해 Azure Analysis 서비스에 연결할 수 없습니다. 
 
 ## <a name="server-name"></a>서버 이름
 

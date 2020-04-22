@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 04/20/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: d03b053f2aa5de4a6f7874dbf4e6ccb3a305a964
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 9a7d0530c4f03138fad3e4aaa473d54e1cfd5b0a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80992082"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686569"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure 모니터 로그를 통해 사용량 및 비용 관리
 
@@ -38,8 +38,7 @@ Log Analytics의 기본 가격은 수집된 데이터 볼륨을 기반으로 하
   - 모니터링되는 VM 수
   - 모니터링되는 각 VM에서 수집된 데이터 유형 
   
-종량제 모델 외에도 Log Analytics에는 **용량 예약** 계층이 있어 종량제 가격대비 최대 25%를 절약할 수 있습니다. 용량 예약 가격을 사용하면 1일 100GB부터 예약을 구매할 수 있습니다. 예약 수준 이상의 모든 사용량은 종량제 요금으로 청구됩니다. 용량 예약 계층에는 31일 약정 기간이 있습니다. 약정 기간 동안 더 높은 수준의 용량 예약 계층(31일 약정 기간을 다시 시작)으로 변경할 수 있지만 약정 기간이 완료될 때까지 종량제 또는 더 낮은 용량 예약 계층으로 이동할 수 없습니다. 
-로그 애널리틱스 종량제 및 용량 예약 가격에 대해 [자세히 알아보세요.](https://azure.microsoft.com/pricing/details/monitor/) 
+종량제 모델 외에도 Log Analytics에는 **용량 예약** 계층이 있어 종량제 가격대비 최대 25%를 절약할 수 있습니다. 용량 예약 가격을 사용하면 1일 100GB부터 예약을 구매할 수 있습니다. 예약 수준 이상의 모든 사용량은 종량제 요금으로 청구됩니다. 용량 예약 계층에는 31일 약정 기간이 있습니다. 약정 기간 동안 더 높은 수준의 용량 예약 계층(31일 약정 기간을 다시 시작)으로 변경할 수 있지만 약정 기간이 완료될 때까지 종량제 또는 더 낮은 용량 예약 계층으로 이동할 수 없습니다. 용량 예약 계층에 대한 청구는 매일 이루어집니다. 로그 애널리틱스 종량제 및 용량 예약 가격에 대해 [자세히 알아보세요.](https://azure.microsoft.com/pricing/details/monitor/) 
 
 모든 가격 책정 계층에서 데이터 볼륨은 저장될 준비가 된 데이터의 문자열 표현에서 계산됩니다. [모든 데이터 형식에 공통적인](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) 몇 가지 속성은 을 `_ResourceId` `_ItemId` `_IsBillable` 포함하여 이벤트 `_BilledSize`크기 계산에 포함되지 않습니다.
 
@@ -112,10 +111,14 @@ Azure는 [Azure 비용 관리 + 청구](https://docs.microsoft.com/azure/cost-ma
 3. 창에서 슬라이더를 이동하여 일 수를 늘리거나 줄인 다음, **확인**을 클릭합니다.  *무료* 계층에서 작업 중인 경우 데이터 보존 기간을 수정할 수 없으며 이 설정을 제어하기 위해 유료 계층으로 업그레이드해야 합니다.
 
     ![작업 영역 데이터 보존 설정 변경](media/manage-cost-storage/manage-cost-change-retention-01.png)
+
+보존이 낮아지면 가장 오래된 데이터가 제거되기 전에 며칠의 유예 기간이 있습니다. 
     
 매개 변수를 [사용하여 Azure 리소스 관리자를 통해](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) 보존을 `retentionInDays` 설정할 수도 있습니다. 또한 데이터 보존을 30일로 설정하면 `immediatePurgeDataOn30Days` 매개 변수를 사용하여 이전 데이터의 즉각적인 제거를 트리거할 수 있으며, 이는 규정 준수 관련 시나리오에 유용할 수 있습니다. 이 기능은 Azure 리소스 관리자를 통해서만 노출됩니다. 
 
 기본적으로 두 `Usage` 가지 `AzureActivity` 데이터 유형이 기본적으로 90일 동안 유지되며 이 90일 보존에 대한 요금은 없습니다. 이러한 데이터 형식은 데이터 수집 비용도 무료입니다. 
+
+
 
 ### <a name="retention-by-data-type"></a>데이터 유형별 보존
 
@@ -446,7 +449,7 @@ union
 이 평가를 용이하게 하기 위해 다음 쿼리를 사용하여 작업 영역의 사용 패턴을 기반으로 최적의 가격 책정 계층에 대한 권장 사항을 만들 수 있습니다.  이 쿼리는 지난 7일 동안 작업 영역으로 수집된 모니터링된 노드 및 데이터를 살펴보고 매일 어떤 가격 책정 계층이 최적이었을지 평가합니다. To use the query, you need to specify whether the workspace is using Azure Security Center by setting `workspaceHasSecurityCenter` to `true` or `false`, and then (optionally) updating the Per Node and Per GB prices that your organizaiton receives. 
 
 ```kusto
-// Set these paramaters before running query
+// Set these parameters before running query
 let workspaceHasSecurityCenter = true;  // Specify if the workspace has Azure Security Center
 let PerNodePrice = 15.; // Enter your price per node / month 
 let PerGBPrice = 2.30; // Enter your price per GB 
@@ -459,6 +462,14 @@ union withsource = tt *
 | summarize nodesPerHour = dcount(computerName) by bin(TimeGenerated, 1h)  
 | summarize nodesPerDay = sum(nodesPerHour)/24.  by day=bin(TimeGenerated, 1d)  
 | join (
+    Heartbeat 
+    | where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
+    | where Computer != ""
+    | summarize ASCnodesPerHour = dcount(Computer) by bin(TimeGenerated, 1h) 
+    | extend ASCnodesPerHour = iff(workspaceHasSecurityCenter, ASCnodesPerHour, 0)
+    | summarize ASCnodesPerDay = sum(ASCnodesPerHour)/24.  by day=bin(TimeGenerated, 1d)   
+) on day
+| join (
     Usage 
     | where TimeGenerated > ago(8d)
     | where StartTime >= startofday(now(-7d)) and EndTime < startofday(now())
@@ -469,18 +480,20 @@ union withsource = tt *
 ) on day
 | extend AvgGbPerNode =  NonSecurityDataGB / nodesPerDay
 | extend PerGBDailyCost = iff(workspaceHasSecurityCenter,
-             (NonSecurityDataGB + max_of(SecurityDataGB - 0.5*nodesPerDay, 0.)) * PerGBPrice,
+             (NonSecurityDataGB + max_of(SecurityDataGB - 0.5*ASCnodesPerDay, 0.)) * PerGBPrice,
              DataGB * PerGBPrice)
 | extend OverageGB = iff(workspaceHasSecurityCenter, 
-             max_of(DataGB - 1.0*nodesPerDay, 0.), 
+             max_of(DataGB - 0.5*nodesPerDay - 0.5*ASCnodesPerDay, 0.), 
              max_of(DataGB - 0.5*nodesPerDay, 0.))
 | extend PerNodeDailyCost = nodesPerDay * PerNodePrice / 31. + OverageGB * PerGBPrice
 | extend Recommendation = iff(PerNodeDailyCost < PerGBDailyCost, "Per Node tier", 
              iff(NonSecurityDataGB > 85., "Capacity Reservation tier", "Pay-as-you-go (Per GB) tier"))
-| project day, nodesPerDay, NonSecurityDataGB, SecurityDataGB, OverageGB, AvgGbPerNode, PerGBDailyCost, PerNodeDailyCost, Recommendation | sort by day asc
+| project day, nodesPerDay, ASCnodesPerDay, NonSecurityDataGB, SecurityDataGB, OverageGB, AvgGbPerNode, PerGBDailyCost, PerNodeDailyCost, Recommendation | sort by day asc
 | project day, Recommendation // Comment this line to see details
 | sort by day asc
 ```
+
+이 쿼리는 사용량계산 방법에 대한 정확한 복제는 아니지만 대부분의 경우 가격 책정 계층 권장 사항을 제공하는 데 사용됩니다.  
 
 ## <a name="create-an-alert-when-data-collection-is-high"></a>데이터 수집이 높을 때 경고 만들기
 
@@ -558,7 +571,7 @@ Operation | where OperationCategory == 'Data Collection Status'
 
 데이터 수집이 중지되는 경우 OperationStatus가 **Warning**입니다. 데이터 수집이 시작되는 경우 OperationStatus가 **Succeeded**입니다. 다음 표에서 데이터 수집을 중지하는 이유 및 데이터 수집을 다시 시작하는 권장되는 작업을 설명합니다.  
 
-|수집 중지 이유| 해결 방법| 
+|수집 중지 이유| 솔루션| 
 |-----------------------|---------|
 |레거시 무료 가격 책정 계층의 일일 한도에 도달함 |수집이 다음 날에 자동으로 다시 시작될 때까지 대기 또는 유료 가격 책정 계층으로 변경합니다.|
 |작업 영역의 일일 상한에 도달함|수집이 자동으로 다시 시작될 때까지 대기하거나, 최대 일일 데이터 볼륨 관리의 설명처럼 일일 데이터 볼륨 한도를 늘립니다. 일일 상한 다시 설정 시간이 **데이터 볼륨 관리** 페이지에 표시됩니다. |

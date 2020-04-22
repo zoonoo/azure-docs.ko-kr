@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 9d98660230e0ab9f4edcd9a7af8a3797106dd17a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03f5b0124f95465c4a5da5043364a2f5816dae62
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78255653"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685743"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 개발
 이 문서에서는 클라우드용 응용 프로그램을 개발할 때 고려해야 할 보안 활동 및 컨트롤을 소개합니다. Microsoft [보안 개발 수명 주기(SDL)의](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 구현 및 확인 단계에서 고려해야 할 보안 질문 및 개념이 다룹니다. 목표는 보다 안전한 응용 프로그램을 개발하는 데 사용할 수 있는 활동 및 Azure 서비스를 정의하는 데 도움을 주는 것입니다.
@@ -44,7 +44,7 @@ Azure Marketplace는 정적 코드 분석을 수행하고 코드 검토를 지�
 
 ### <a name="validate-and-sanitize-every-input-for-your-application"></a>애플리케이션의 모든 입력 유효성 검사 및 소독
 
-모든 입력을 신뢰할 수 없는 것으로 처리하여 가장 일반적인 웹 응용 프로그램 취약점으로부터 응용 프로그램을 보호합니다. 신뢰할 수 없는 데이터는 주입 공격을 위한 수단입니다. 응용 프로그램에 대한 입력에는 URL의 매개 변수, 사용자의 입력, 데이터베이스 또는 API의 데이터 및 사용자가 잠재적으로 조작할 수 있는 모든 항목이 포함됩니다. 응용 프로그램은 응용 프로그램이 어떤 식으로든 데이터를 사용하기 전에(사용자에게 다시 표시하는 등) 데이터가 구문적으로 그리고 시맨티컬적으로 유효한지 [확인해야](https://www.owasp.org/index.php/OWASP_Proactive_Controls_2016#4:_Validate_All_Inputs) 합니다.
+모든 입력을 신뢰할 수 없는 것으로 처리하여 가장 일반적인 웹 응용 프로그램 취약점으로부터 응용 프로그램을 보호합니다. 신뢰할 수 없는 데이터는 주입 공격을 위한 수단입니다. 응용 프로그램에 대한 입력에는 URL의 매개 변수, 사용자의 입력, 데이터베이스 또는 API의 데이터 및 사용자가 잠재적으로 조작할 수 있는 모든 항목이 포함됩니다. 응용 프로그램은 응용 프로그램이 어떤 식으로든 데이터를 사용하기 전에(사용자에게 다시 표시하는 등) 데이터가 구문적으로 그리고 시맨티컬적으로 유효한지 [확인해야](https://owasp.org/www-project-proactive-controls/v3/en/c5-validate-inputs) 합니다.
 
 데이터 흐름의 초기에 입력의 유효성을 검사하여 제대로 형성된 데이터만 워크플로에 들어가지 않도록 합니다. 잘못된 형식의 데이터가 데이터베이스에 유지되지 않거나 다운스트림 구성 요소의 오작동을 유발하지 않도록 합니다.
 

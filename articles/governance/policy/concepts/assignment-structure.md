@@ -1,14 +1,14 @@
 ---
 title: 정책 할당 구조에 대한 세부 정보
 description: Azure Policy에서 정책 정의 및 매개 변수를 평가를 위해 리소스에 관련하는 데 사용하는 정책 할당 정의를 설명합니다.
-ms.date: 09/23/2019
+ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: f03c654dfc4c8dfdf2bdc5103a5961b4d8ce1e64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cdb2fc0c6f057ece44383f68bc79fca54507db9b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79265299"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683213"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure Policy 할당 구조
 
@@ -20,6 +20,7 @@ JSON을 사용하여 정책 할당을 만듭니다. 정책 할당에는 다음�
 - description
 - metadata
 - 적용 모드
+- 제외된 범위
 - 정책 정의
 - 매개 변수
 
@@ -34,6 +35,7 @@ JSON을 사용하여 정책 할당을 만듭니다. 정책 할당에는 다음�
             "assignedBy": "Cloud Center of Excellence"
         },
         "enforcementMode": "DoNotEnforce",
+        "notScopes": [],
         "policyDefinitionId": "/subscriptions/{mySubscriptionID}/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
         "parameters": {
             "prefix": {
@@ -61,10 +63,14 @@ JSON을 사용하여 정책 할당을 만듭니다. 정책 할당에는 다음�
 
 |Mode |JSON 값 |Type |수동으로 수정 |활동 로그 항목 |설명 |
 |-|-|-|-|-|-|
-|사용 |기본값 |문자열 |yes |yes |정책 효과는 리소스를 만들거나 업데이트하는 동안 적용됩니다. |
-|사용 안 함 |DoNotEnforce |문자열 |yes |예 | 리소스를 만들거나 업데이트하는 동안 정책 효과가 적용되지 않습니다. |
+|사용 |기본 |문자열 |예 |예 |정책 효과는 리소스를 만들거나 업데이트하는 동안 적용됩니다. |
+|사용 안 함 |DoNotEnforce |문자열 |예 |예 | 리소스를 만들거나 업데이트하는 동안 정책 효과가 적용되지 않습니다. |
 
 **enforcementMode가** 정책 또는 이니셔티브 정의에 지정되지 않은 경우 _기본값_ 값이 사용됩니다. **적용 모드가** _DoNotEnforce로_설정되어 있는 경우에도 [배포IfNotExists](./effects.md#deployifnotexists) 정책에 대한 [업데이트 관리 작업을](../how-to/remediate-resources.md) 시작할 수 있습니다.
+
+## <a name="excluded-scopes"></a>제외된 범위
+
+할당 **범위에는** 모든 자식 리소스 컨테이너 및 자식 리소스가 포함됩니다. 자식 리소스 컨테이너 또는 자식 리소스에 정의가 적용되지 않아야 하는 경우 **notScopes**를 설정하여 각 리소스를 평가에서 제외할 수 있습니다. 이 속성은 하나 이상의 리소스 컨테이너 또는 리소스를 평가에서 제외할 수 있는 배열입니다. **notScopes는** 초기 할당을 만든 후 추가하거나 업데이트할 수 있습니다.
 
 ## <a name="policy-definition-id"></a>정책 정의 ID
 

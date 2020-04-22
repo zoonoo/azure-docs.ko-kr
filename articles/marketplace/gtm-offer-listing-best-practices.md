@@ -1,22 +1,22 @@
 ---
-title: 시장 진출 서비스 - 목록에 제품 추가 모범 사례 | Azure
+title: 시장 진출 서비스 - 목록 목록 모범 사례 제공 | Azure 마켓플레이스
 description: 시장 진출 서비스 - 이 섹션에서는 목록에 제품을 추가하는 모범 사례를 설명합니다.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/21/2018
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 3cb625e613d8dbe9398e947925a8dc574a277614
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95f5083b5f00834e65a8385835635588033bd977
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286254"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684572"
 ---
 # <a name="offer-listing-best-practices"></a>목록에 제품 추가 모범 사례
 
-이 섹션의 표에서는 마켓플레이스 제품을 만들고 연결하기 위한 제안 사항을 제공합니다. 마케팅 자료를 작성하고 구성하려면 [Cloud 파트너 포털](https://cloudpartner.azure.com/#insights)로 이동합니다. 
+이 섹션의 표에서는 마켓플레이스 제품을 만들고 연결하기 위한 제안 사항을 제공합니다. 마케팅 자료를 작성하고 구성하려면 [파트너 센터로](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights)이동하십시오. 
 
 ## <a name="storefront-offer-details"></a>상점 제품 세부 정보
 
@@ -25,18 +25,18 @@ ms.locfileid: "80286254"
 | 제품 이름 | 강력한 제목을 입력합니다.<br> <ul> <li> 앱 이름은 고객을 위한 핵심 가치를 전달해야 합니다. </li> <li> 검색 엔진 결과에서 더 높은 순위를 받으려면 앱 제목에 검색 키워드를 포함합니다. </li> </ul> 다음과 같이 컨설팅 서비스 목록에 대한 일단의 제목 형식을 따릅니다.<br>[오퍼 이름: [기간] [오퍼 유형] (예: *Contoso: 2주 구현)* <br><br> 브랜드 지침을 준수합니다.<br>Microsoft 상표와 Microsoft, 소프트웨어, 제품 및 서비스의 이름을 언급하는 경우 [Microsoft 상표 및 브랜드 지침](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) 및 기타 관련 제품별 지침을 따릅니다. |
 | 제품 설명 | 다음과 같이 명확한 제품 설명을 제공합니다.<br> <ul> <li> 설명의 처음 몇 문장에서 제품의 가치 제안을 명확하게 설명합니다. </li> <li> 처음 몇 문장은 검색 엔진 결과에 표시될 수 있다는 점에 유의하세요. </li> <li> 제품을 판매하는 특징과 기능에 의존하지 않습니다. 대신, 전달하는 가치에 중점을 둡니다. </li> <li> 산업별 어휘 또는 혜택 기반 단어를 최대한 많이 사용합니다.</li> <li> 또한 컨설팅 서비스 목록에서 제공되는 전문 서비스를 명확하게 설명해야 합니다. </li></ul> 가치 제안의 핵심 구성 요소에 포함되어야 하는 정보는 다음과 같습니다.<ul><li>제품에 대한 설명입니다.</li><li>제품의 혜택을 받는 사용자 유형</li><li>제품에서 처리하는 고객의 요구 사항 또는 불만 사항</li></ul> |
 
-이 섹션의 표에서는 마켓플레이스 제품을 만들고 연결하기 위한 제안 사항을 제공합니다. 마케팅 자료를 작성하고 구성하려면 [Cloud 파트너 포털](https://cloudpartner.azure.com/#insights)로 이동합니다. 
+이 섹션의 표에서는 마켓플레이스 제품을 만들고 연결하기 위한 제안 사항을 제공합니다. 마케팅 자료를 작성하고 구성하려면 파트너 [센터로](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights)이동하십시오. 
 
 ## <a name="storefront-listing-details"></a>상점 목록 세부 정보
 
 | 상점 설정 | 모범 사례 |
 |:--- |:--- |  
-| 산업: AppSource 앱 및 컨설팅 서비스만 해당 | 제품에서 산업별 요구 사항을 처리하는 경우 산업을 선택합니다. <ul><li> 제품 설명에서 산업 관련 기능을 호출합니다.</li> </ul> **참고**: 최대 옵션 수는 제안 유형에 따라 다르며 [클라우드 파트너 포털에](https://cloudpartner.azure.com/#insights)표시됩니다. |
-| 범주 | 제품에 가장 적합한 범주를 선택합니다.<br> <ul> <li> 고객이 관련 앱을 검색할 때 사용하므로 범주를 신중하게 선택합니다. </li> <li> 제품에서 제품 설명의 범주 관련 요구 사항을 지원하는 방법을 호출해야 합니다. </li> </ul> **참고**: 최대 옵션 수는 제안 유형에 따라 다르며 [클라우드 파트너 포털에](https://cloudpartner.azure.com/#insights)표시됩니다. |
+| 산업: AppSource 앱 및 컨설팅 서비스만 해당 | 제품에서 산업별 요구 사항을 처리하는 경우 산업을 선택합니다. <ul><li> 제품 설명에서 산업 관련 기능을 호출합니다.</li> </ul> **참고**: 최대 옵션 수는 쿠폰 유형에 따라 다르며 [파트너 센터에](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights)표시됩니다. |
+| 범주 | 제품에 가장 적합한 범주를 선택합니다.<br> <ul> <li> 고객이 관련 앱을 검색할 때 사용하므로 범주를 신중하게 선택합니다. </li> <li> 제품에서 제품 설명의 범주 관련 요구 사항을 지원하는 방법을 호출해야 합니다. </li> </ul> **참고**: 최대 옵션 수는 쿠폰 유형에 따라 다르며 [파트너 센터에](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights)표시됩니다. |
 | 앱에서 작동하는 제품(최대 3개): AppSource 앱만 | 솔루션에서 사용하거나 확장하는 추가 제품과 기술을 나열합니다. 예: Azure IoT Hub 또는 Azure Machine Learning |
 | 검색 키워드(최대 3개) | 검색 키워드는 비즈니스 사용자가 검색 시 제품을 찾을 수 있도록 도와줍니다. <ul> <li> Azure Marketplace </li> <li> AppSource </li> <li> 검색 엔진 사용 </li> </ul> 목록이 이러한 검색에 표시되려면 다음을 수행해야 합니다. <ul> <li> 제품의 상위 검색 키워드 3개를 식별합니다. </li> <li> 제품 요약 및 설명에 검색 키워드를 통합합니다. </li> <li> 여기에 검색 키워드를 나열합니다. </li> </ul> |
 
-### <a name="category"></a>Category
+### <a name="category"></a>범주
 
 Azure 마켓플레이스와 Microsoft AppSource는 서로 다른 고유한 고객 요구 사항을 제공하는 상점입니다. 각 오퍼에 적합한 매장과 카테고리를 선택하여 역할별로 고객을 타겟팅합니다. 
 
@@ -89,12 +89,12 @@ AppSource에서 선택한 제품 아래에 표시할 오퍼에 대해 앱에서 
 
 다음 예제 URL에는 앞의 두 쿼리 매개 변수가 모두 포함되어 있습니다. `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 
-이러한 매개 변수를 AppSource URL에 추가하면 [Cloud 파트너 포털](https://cloudpartner.azure.com/#insights)의 분석 대시보드에서 캠페인 효과를 검토할 수 있습니다.
+AppSource URL에 매개변수를 추가하면 [파트너 센터의](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights)분석 대시보드에서 캠페인의 효과를 검토할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[상업용 마켓플레이스 혜택에](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)대해 자세히 알아보십시오.
+[상업용 마켓플레이스 혜택에](./gtm-your-marketplace-benefits.md)대해 자세히 알아보십시오.
 
-제품을 만들고 구성하려면 [Cloud 파트너 포털](https://cloudpartner.azure.com)에 로그인합니다.
+[파트너 센터에](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 로그인하여 쿠폰을 만들고 구성하세요.
 
 ---

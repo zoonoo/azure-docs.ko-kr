@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 72e1d3b0ad72b1e68b88eb0550cbe839ade9d929
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74d38af4a64a184b26bd6ba1105db0d2530d8ba6
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260021"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676403"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Azure 데이터 상자 및 Azure 데이터 상자 중대한 에 대한 추적 및 이벤트 로깅
 
@@ -47,7 +47,7 @@ Azure 데이터 박스 서비스에 대해 정의할 수 있는 두 가지 역�
 - 주문 수준에서 역할을 할당합니다. 사용자는 특정 데이터 상자 순서만 상호 작용하는 역할에 정의된 권한만 가지고 있으며 다른 권한은 없습니다.
 - 리소스 그룹 수준에서 역할을 할당하면 사용자는 리소스 그룹 내의 모든 데이터 상자 주문에 액세스할 수 있습니다.
 
-제안된 RBAC 사용에 대한 자세한 내용은 [RBAC에 대한 모범 사례를](../role-based-access-control/overview.md#best-practice-for-using-rbac)참조하십시오.
+제안된 RBAC 사용에 대한 자세한 내용은 [Azure RBAC에 대한 모범 사례를](../role-based-access-control/best-practices.md)참조하십시오.
 
 ## <a name="track-the-order"></a>주문 추적
 

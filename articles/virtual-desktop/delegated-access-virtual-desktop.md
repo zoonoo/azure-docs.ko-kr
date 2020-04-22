@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3e27550ecc5b42c2bf0d947690da09e13d88ea4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 91451ff3024a9a5019b3982b0e4471e2c4d80c74
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128040"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683911"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Windows Virtual Desktop에서 위임된 액세스
 
@@ -26,7 +26,7 @@ Windows 가상 데스크톱 위임된 액세스는 역할 할당의 각 요소�
     * 서비스 사용자
 * 역할 정의
     * 기본 제공 역할
-* Scope
+* 범위
     * 테넌트 그룹
     * 테넌트
     * 호스트 풀
@@ -37,7 +37,7 @@ Windows 가상 데스크톱 위임된 액세스는 역할 할당의 각 요소�
 Windows Virtual Desktop의 위임된 액세스에는 사용자 및 서비스 주체에게 할당할 수 있는 몇 가지 기본 제공 역할 정의가 있습니다.
 
 * RDS 소유자는 리소스에 대한 액세스를 포함하여 모든 것을 관리할 수 있습니다.
-* RDS 기고자는 리소스에 대한 액세스를 제외한 모든 것을 관리할 수 있습니다.
+* RDS 기고자는 모든 것을 관리할 수 있지만 리소스에 액세스할 수는 없습니다.
 * RDS 리더는 모든 것을 볼 수 있지만 변경할 수는 없습니다.
 * RDS 운영자는 진단 활동을 볼 수 있습니다.
 

@@ -4,12 +4,12 @@ description: 이 문서에서는 Microsoft Azure 백업 서버(MABS) v3에 대�
 ms.topic: conceptual
 ms.date: 11/22/2018
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: b47d83e0e3714f3f035397acaadeac9cda39d12a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03863f7598da06bb36cbb7497d7c773f811a004e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74172273"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685621"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Microsoft Azure Backup Server 릴리스 정보
 
@@ -60,7 +60,7 @@ ms.locfileid: "74172273"
 4. SSMS(SQL Server Management Studio)를 [설치](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)합니다.
 5. [SQL 2017에서 SSRS 구성](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs)에서 설명한 대로 매개 변수를 사용하여 보고를 구성합니다.
 6. MABS V3을 [설치](backup-azure-microsoft-azure-backup.md)합니다.
-7. SSMS를 사용하여 SQL을 [복원](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017)하고, [여기](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10))서 설명한 대로 DPM 동기화 도구를 실행합니다.
+7. SSMS를 사용하여 SQL을 [복원](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017)하고, [여기](https://docs.microsoft.com/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019#using-dpmsync)서 설명한 대로 DPM 동기화 도구를 실행합니다.
 8. 다음 명령을 사용하여 dbo.tbl_DLS_GlobalSetting 테이블의 'DataBaseVersion' 속성을 업데이트합니다.
 
 ```sql

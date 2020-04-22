@@ -1,14 +1,14 @@
 ---
 title: 지원되는 리소스 관리자 리소스 유형
 description: Azure 리소스 그래프 및 변경 기록에서 지원하는 리소스 관리자 리소스 유형 목록을 제공합니다.
-ms.date: 04/15/2020
+ms.date: 04/20/2020
 ms.topic: reference
-ms.openlocfilehash: 99cb2176e4b0642be1fc31d49528ebf915ea440a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 99a10e084f8ae24156c447f7abca31a8ef977720
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415150"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685473"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure 리소스 그래프 테이블 및 리소스 유형 참조
 
@@ -50,7 +50,11 @@ Azure 리소스 그래프는 Azure [리소스 관리자의](../../../azure-resou
 - livearena.방송/서비스
 - 메일젯.이메일/서비스
 - 마이크로 소프트.aad / 도메인 서비스
+- 마이크로소프트.aadiam/개인 링크포자다드
 - microsoft.aadiam/tenants
+- 마이크로 소프트.aisuper컴퓨터/계정
+- 마이크로 소프트.aisupercomputer / 계정 / 작업 그룹
+- 마이크로 소프트.aisupercomputer / 계정 / 작업 그룹 / 작업
 - 마이크로 소프트.경고 관리 / 작업 규칙
 - 마이크로 소프트.경고 관리 / 스마트 검출기경고 규칙
 - 마이크로 소프트 분석 서비스 / 서버
@@ -63,6 +67,7 @@ Azure 리소스 그래프는 Azure [리소스 관리자의](../../../azure-resou
 - 마이크로 소프트.자동화 / 자동화 계정 / 실행 책
 - 마이크로 소프트.아즈콘피그 / 구성 상점
 - 마이크로 소프트.azureactivedirectory/b2cdirectories
+- 마이크로 소프트.azuredata / 데이터 컨트롤러
 - 마이크로소프트.azuredata/하이브리드 데이터 관리자
 - 마이크로소프트.azuredata/포스트그레스인스턴스
 - 마이크로 소프트.azuredata/sqlbigdata클러스터
@@ -351,6 +356,7 @@ Azure 리소스 그래프는 Azure [리소스 관리자의](../../../azure-resou
 - 마이크로 소프트.리모컨 / 컬렉션
 - 마이크로 소프트.리소스 그래프 / 쿼리
 - microsoft.resources/배포 스크립트
+- microsoft.resources/템플릿 스펙
 - 마이크로 소프트.saas / 응용 프로그램
 - 마이크로 소프트.스케줄러 / 작업 컬렉션
 - 마이크로 소프트 검색 / 검색 서비스
@@ -405,6 +411,7 @@ Azure 리소스 그래프는 Azure [리소스 관리자의](../../../azure-resou
 - 마이크로 소프트.비주얼 스튜디오 / 계정
 - 마이크로 소프트.비주얼 스튜디오 / 계정 / 확장
 - 마이크로 소프트.비주얼 스튜디오 / 계정 / 프로젝트
+- 마이크로 소프트.vmware / 아크 존
 - 마이크로 소프트.vm웨어 클라우드 간단플 / 전용 클라우드 노드
 - 마이크로 소프트.vm웨어 클라우드 간단 / 전용 클라우드 서비스
 - 마이크로 소프트.vm웨어 클라우드 단순 / 가상 머신
@@ -454,7 +461,6 @@ Azure 리소스 그래프는 Azure [리소스 관리자의](../../../azure-resou
 
 ## <a name="securityresources"></a>보안 리소스
 
-- 평가 메타데이터
 - microsoft.보안/평가
 - microsoft.보안/평가/하위 평가
 - 마이크로 소프트.보안 / 가격
@@ -471,6 +477,6 @@ Azure 리소스 그래프는 Azure [리소스 관리자의](../../../azure-resou
 
 ## <a name="next-steps"></a>다음 단계
 
-- [쿼리 언어에](../concepts/query-language.md)대해 자세히 알아봅니다.
+- [쿼리 언어](../concepts/query-language.md)에 대해 자세히 알아보기
 - [리소스 검색](../concepts/explore-resources.md) 방법에 대해 자세히 알아보기
 - [시작 쿼리](../samples/starter.md) 샘플 보기

@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: feaa0c22ec98d170a65e5c9bee119ba3904a95cf
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: cc7a8df80e719173c7818055ab8771ddd7f73691
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673735"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682781"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure 기계 학습 데이터 집합 만들기
 
@@ -164,7 +164,7 @@ sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'
 
 TabularDataset에서 데이터 또는 경로 패턴 데이터가 저장되는 모든 위치에서 타임스탬프를 지정하여 시간계 계열 특성을 활성화할 수 있습니다. 이 사양은 시간에 따라 쉽고 효율적인 필터링을 허용합니다.
 
-클래스의 [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) 메서드를`TabularDataset` 사용하여 타임스탬프 열을 지정하고 시간별로 필터링을 사용하도록 설정합니다. 자세한 내용은 [NOAA 날씨 데이터가 있는 표 열열 관련 API 데모를](https://aka.ms/azureml-tsd-notebook)참조하십시오.
+클래스의 [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) 메서드를`TabularDataset` 사용하여 타임스탬프 열을 지정하고 시간별로 필터링을 사용하도록 설정합니다. 자세한 내용은 [NOAA 날씨 데이터가 있는 표 열열 관련 API 데모를](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb)참조하십시오.
 
 ```Python
 # create a TabularDataset with time series trait

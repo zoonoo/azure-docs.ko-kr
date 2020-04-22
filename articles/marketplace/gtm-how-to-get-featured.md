@@ -1,18 +1,18 @@
 ---
-title: 시장 진출 서비스 - 마켓플레이스에서 추천되는 방법 | Azure
+title: 시장 진출 서비스 - 마켓플레이스에서 소개하는 방법 | Azure 마켓플레이스
 description: 시장 진출 서비스 - 이 섹션에서는 Azure Marketplace에서 목록이 추천되는 방법을 설명합니다.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/21/2018
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 266070a6292e41af6ce1b4258774d20a9bd90312
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe18ca41942ff58b8d9eefef3122c90980029766
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286288"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684613"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>AppSource 및 Azure Marketplace에서 추천되는 방법
 
@@ -38,7 +38,7 @@ Azure Marketplace와 AppSource에는 **추천 앱** 섹션이 있으며, 여기�
 추천 앱 프로모션은 검색 알고리즘과 별도로 작동합니다.
 
 >[!Note]
->솔루션이 검색 결과에 올바르게 표시되지 않는 경우 [Cloud 파트너 포털](https://cloudpartner.azure.com/)의 도움말 메뉴를 통해 지원 티켓을 제출합니다.
+>검색 결과에 솔루션이 올바르게 표시되지 않으면 [파트너 센터의](https://partner.microsoft.com/)도움말 메뉴를 통해 지원 티켓을 제출하십시오.
 
 GTM 지원에는 목록과 비즈니스의 추가 홍보에 도움이 되는 자가 진단 템플릿, 웹 콘텐츠, 교육 및 도구의 전체 라이브러리도 포함되어 있습니다.
 
@@ -46,6 +46,6 @@ GTM 지원에는 목록과 비즈니스의 추가 홍보에 도움이 되는 자
 
 [상업용 마켓플레이스 혜택에](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)대해 자세히 알아보십시오.
 
-제품을 만들고 구성하려면 [Cloud 파트너 포털](https://cloudpartner.azure.com)에 로그인합니다.
+[파트너 센터에](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 로그인하여 쿠폰을 만들고 구성하세요.
 
 ---

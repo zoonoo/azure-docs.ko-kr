@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: 6dfeab3530445f8f9a102f47039d15b04fdf134a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f11c19ba33ee2fbae0fef265371bedad2fe29cb7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73821733"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684947"
 ---
 # <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>공용 끝점을 사용하여 Azure SQL Database 관리 인스턴스를 안전하게 사용
 
@@ -35,7 +35,7 @@ SQL Database 관리 인스턴스는 가상 네트워크 내부에서 연결을 �
 
 ## <a name="secure-data-in-motion"></a>이동 중인 데이터 보안
 
-클라이언트 드라이버가 암호화를 지원하는 경우 관리되는 인스턴스 데이터 트래픽은 항상 암호화됩니다. 관리되는 인스턴스와 다른 Azure 가상 시스템 또는 Azure 서비스 간에 전송된 데이터는 Azure의 백본을 벗어나지 않습니다. 관리되는 인스턴스와 온-프레미스 네트워크 간에 연결이 있는 경우 Microsoft 피어링과 함께 Azure ExpressRoute를 사용하는 것이 좋습니다. ExpressRoute는 공용 인터넷을 통해 데이터를 이동하지 않도록 도와줍니다. 관리형 인스턴스 개인 연결의 경우 개인 피어링만 사용할 수 있습니다.
+클라이언트 드라이버가 암호화를 지원하는 경우 관리되는 인스턴스 데이터 트래픽은 항상 암호화됩니다. 관리되는 인스턴스와 다른 Azure 가상 시스템 또는 Azure 서비스 간에 전송된 데이터는 Azure의 백본을 벗어나지 않습니다. 관리되는 인스턴스와 온-프레미스 네트워크 간에 연결이 있는 경우 Azure ExpressRoute를 사용하는 것이 좋습니다. ExpressRoute는 공용 인터넷을 통해 데이터를 이동하지 않도록 도와줍니다. 관리형 인스턴스 개인 연결의 경우 개인 피어링만 사용할 수 있습니다.
 
 ## <a name="lock-down-inbound-and-outbound-connectivity"></a>인바운드 및 아웃바운드 연결 잠금
 

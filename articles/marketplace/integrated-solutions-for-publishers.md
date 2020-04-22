@@ -5,18 +5,18 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/16/2019
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 356713bd7d51be6f3550a6975a766fe1b6a0fc05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce3dbf416da11fd6863622f1c6911eecb3726461
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286220"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684469"
 ---
 # <a name="publish-an-integrated-solution"></a>통합 솔루션 게시
 
-단일 번들 오퍼에서 통합 솔루션은 소프트웨어 공급업체의 포인트 솔루션 기술과 서비스 파트너의 배포 및 지원을 결합합니다. 서비스 파트너는 Microsoft AppSource 또는 Azure 마켓플레이스에서 [제안을 컨설팅 서비스로](https://docs.microsoft.com/azure/marketplace/consulting-services)나열합니다.
+단일 번들 오퍼에서 통합 솔루션은 소프트웨어 공급업체의 포인트 솔루션 기술과 서비스 파트너의 배포 및 지원을 결합합니다. 서비스 파트너는 Microsoft AppSource 또는 Azure 마켓플레이스에서 [제안을 컨설팅 서비스로](./consulting-services.md)나열합니다.
 
 통합 솔루션은 특정 고객의 요구 또는 시나리오를 해결하는 것을 목표로 합니다. 공급자는 업계의 과제 나 문제점을 이해하는 것으로 시작합니다. 그런 다음 두 개 이상의 동급 최강의 기술을 통합하여 고객을 위한 통합적이고 반복 가능한 배포 환경을 만듭니다. 공급자는 고객을 신속하게 가동하고 실행할 수 있도록 합니다. 고객과의 단일 연락 지점을 제공하여 관련 사용자 지정, 컨설팅 및 솔루션 지원을 제공합니다. 그 결과는 기술과 서비스를 포함한 통합 솔루션입니다.
 
@@ -61,7 +61,7 @@ ms.locfileid: "80286220"
 1. 워크샵 형식으로 주요 비즈니스 및 기술 토론을 완료하여 솔루션 및 통합 접근 방식을 정의합니다.
 
     솔루션에 대한 토론에는 다음 사항이 포함되어야 합니다.
-    * Scope
+    * 범위
     * 고객 타겟팅
     * 가치 제안
     * 가격 책정
@@ -97,21 +97,21 @@ ms.locfileid: "80286220"
 1. 다음을 포함하여 Microsoft AppSource 또는 Azure 마켓플레이스 목록에 대한 마케팅 자료 작성:
 
     * 결합된 솔루션 이름입니다.
-    * 통합 솔루션에 대한 목록 설명입니다. [오퍼 리스팅 모범 사례를](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)따르십시오.
+    * 통합 솔루션에 대한 목록 설명입니다. [오퍼 리스팅 모범 사례를](./gtm-offer-listing-best-practices.md)따르십시오.
     * 고객에게 한 페이지 짜리 피치. [1호출기 템플릿을](https://aka.ms/AA5s08a)사용합니다.
     * 고객 프레젠테이션. 프레젠테이션 [템플릿을](https://aka.ms/AA5s7ql)사용합니다.
     * 결합된 솔루션용 로고입니다.
 
 ## <a name="publish-your-integrated-solution"></a>통합 솔루션 게시
 
-기술 통합 및 마케팅 자료가 완료되면 [Microsoft AppSource 및 Azure 마켓플레이스에](https://docs.microsoft.com/azure/marketplace/consulting-services)대한 컨설팅 서비스에 대한 게시자 가이드를 참조하십시오. 이 리소스를 사용하여 솔루션이 Microsoft AppSource 또는 Azure 마켓플레이스에 게시될지 여부를 결정합니다. 또한 이 가이드를 사용하여 게시 아티팩트를 준비하고 게시 프로세스를 완료합니다.
+기술 통합 및 마케팅 자료가 완료되면 [Microsoft AppSource 및 Azure 마켓플레이스에](./consulting-services.md)대한 컨설팅 서비스에 대한 게시자 가이드를 참조하십시오. 이 리소스를 사용하여 솔루션이 Microsoft AppSource 또는 Azure 마켓플레이스에 게시될지 여부를 결정합니다. 또한 이 가이드를 사용하여 게시 아티팩트를 준비하고 게시 프로세스를 완료합니다.
 
 컨설팅 서비스 제공에 사용할 수 있는 다섯 가지 서비스 유형은 있지만 통합 솔루션은 개념 증명 또는 전체 구현이어야 합니다.
 
 ## <a name="go-to-market-with-your-integrated-solution"></a>통합 솔루션으로 시장 진출
 
-솔루션이 Microsoft AppSource 또는 Azure 마켓플레이스에 있는 경우 마케팅 활동을 통해 인지도와 수요를 유도할 수 있습니다. 프로젝트 계획 및 [일정에](https://aka.ms/AA5qiuc)나열된 활동을 검토합니다. 이 리소스에는 파트너가 자신의 팀 내에서 그리고 서로 운전할 수 있는 활동이 포함됩니다. 그런 다음 마켓플레이스에 게시하는 파트너의 [시장 진출 혜택에](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) 액세스합니다. 모든 통합 솔루션 오퍼는 평가판 수준의 혜택을 받을 수 있습니다.
+솔루션이 Microsoft AppSource 또는 Azure 마켓플레이스에 있는 경우 마케팅 활동을 통해 인지도와 수요를 유도할 수 있습니다. 프로젝트 계획 및 [일정에](https://aka.ms/AA5qiuc)나열된 활동을 검토합니다. 이 리소스에는 파트너가 자신의 팀 내에서 그리고 서로 운전할 수 있는 활동이 포함됩니다. 그런 다음 마켓플레이스에 게시하는 파트너의 [시장 진출 혜택에](./gtm-your-marketplace-benefits.md#list-trial-and-consulting-benefits) 액세스합니다. 모든 통합 솔루션 오퍼는 평가판 수준의 혜택을 받을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-시장에서 통합 솔루션을 구입하는 것에 대한 자세한 내용은 [통합 솔루션을](https://docs.microsoft.com/azure/marketplace/integrated-solutions)참조하십시오.
+시장에서 통합 솔루션을 구입하는 것에 대한 자세한 내용은 [통합 솔루션을](./integrated-solutions.md)참조하십시오.

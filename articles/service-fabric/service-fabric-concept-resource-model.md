@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 리소스 관리자를 사용하여 Azure
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 69c10b0e9d3b7c29122c8432ab1e4bc06d3a3120
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a9f59e3e44d3302ac19c7a9e7e77beb51947ce4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481119"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682638"
 ---
 # <a name="service-fabric-application-resource-model"></a>서비스 패브릭 응용 프로그램 리소스 모델
 
@@ -99,7 +99,7 @@ Resource Manager 응용 프로그램 리소스 모델을 사용하여 응용 프
 | 응용 프로그램유형버전 | 응용 프로그램 형식의 버전         | 1.0.0                                                        | 응용 프로그램 매니페스트.xml일치해야 합니다.                 |
 | serviceName            | 서비스 이름         | 투표~투표웹                                             | 형식에 있어야 합니다 응용 프로그램 이름 ~ 서비스 유형            |
 | 서비스 유형 이름        | 서비스의 형식 이름                | VotingWeb                                                    | 서비스 매니페스트.xml과 일치해야 합니다.                 |
-| 앱패키지Url          | 응용 프로그램의 Blob 저장소 URL     | https://servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | Blob 저장소의 응용 프로그램 패키지의 URL(URL을 설정하는 절차는 문서의 후반부설명) |
+| 앱패키지Url          | 응용 프로그램의 Blob 저장소 URL     | https:\//servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | Blob 저장소의 응용 프로그램 패키지의 URL(URL을 설정하는 절차는 문서의 후반부설명) |
 
 ```json
 {

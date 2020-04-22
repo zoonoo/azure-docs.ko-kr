@@ -8,12 +8,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Azure 개발자 공간을 사용하여 Azure DevOps를 사용하여 지속적인 통합/연속 배포를 설정하는 방법에 대해 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
-ms.openlocfilehash: 66ff2080ad44098757a5d9360fd3307e65f7431a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2eb9449518b32ab74f2dbbca6b5489aed325db7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75438457"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685628"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Azure Dev Spaces로 CI/CD 사용
 
@@ -131,7 +131,7 @@ _azds_updates_ 분기에 *mywebapi* 및 *webfrontend*에 필요한 빌드 단계
 릴리스는 모든 작업이 완료되면 수행됩니다.
 
 > [!TIP]
-> 릴리스가 *업그레이드 실패: 조건을 기다리는 동안 시간 초과되었습니다.* 와 같은 오류 메시지를 나타내며 실패하는 경우 [Kubernetes 대시보드를 사용하여](../../aks/kubernetes-dashboard.md) 클러스터의 pod를 검사하세요. 포드가 *이미지 "azdsexample.azurecr.io/mywebapi:122": rpc 오류: 코드 = 알 수 없음 desc = 데몬의 오류 응답: https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: 무단 가져오기: 인증 이 필요하므로*클러스터가 Azure 컨테이너 레지스트리에서 가져올 권한이 없기 때문일 수 있습니다. [AKS 클러스터가 Azure Container Registry에서 끌어오도록 허가](../../aks/cluster-container-registry-integration.md)를 완료했는지 확인합니다.
+> 릴리스가 *업그레이드 실패: 조건을 기다리는 동안 시간 초과되었습니다.* 와 같은 오류 메시지를 나타내며 실패하는 경우 [Kubernetes 대시보드를 사용하여](../../aks/kubernetes-dashboard.md) 클러스터의 pod를 검사하세요. 포드가 *이미지 "azdsexample.azurecr.io/mywebapi:122": rpc 오류 : rpc 오류 : 코드 = 알 수없는 desc = 데몬의\/오류 응답 : https : /azdsexample.azurecr.io/v2/mywebapi/manifests/122 : 인증이 필요하므로*클러스터가 Azure 컨테이너 레지스트리에서 가져올 권한이 없기 때문일 수 있습니다. [AKS 클러스터가 Azure Container Registry에서 끌어오도록 허가](../../aks/cluster-container-registry-integration.md)를 완료했는지 확인합니다.
 
 이제 Dev Spaces 샘플 앱의 GitHub 포크에 대해 완전 자동화 CI/CD 파이프라인이 구현되었습니다. 코드를 커밋하고 푸시할 때마다 빌드 파이프라인은 *mywebapi* 및 *webfrontend* 이미지를 빌드한 후 사용자 지정 ACR 인스턴스로 푸시합니다. 그러면 릴리스 파이프라인은 각 앱의 Helm 차트를 Dev Spaces 지원 클러스터의 _dev_ 공간으로 배포합니다.
 

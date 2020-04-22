@@ -3,12 +3,12 @@ title: Linux에서 개발 환경 설정
 description: Linux에서 런타임 및 SDK를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 마치면 애플리케이션을 빌드할 수 있습니다.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 1048e1ccf6b9bc921daa3014ab8003fd53473461
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 6cedd97144a3fd32d9af8582e24ad5c12914e575
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309127"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682618"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -265,7 +265,7 @@ Java 개발자용 또는 Java EE 개발자용 Eclipse IDE 내에서 Service Fabr
 
 2. 서비스 패브릭 플러그인을 설치하려면**새 소프트웨어 설치** **도움말을** > 선택합니다.
 
-3. **작업 대상** 상자에서 **https://dl.microsoft.com/eclipse**을 입력합니다.
+3. 상자가 **있는 작업에서** https를 입력 **\/dl.microsoft.com/eclipse합니다.**
 
 4. **추가**를 선택합니다.
 

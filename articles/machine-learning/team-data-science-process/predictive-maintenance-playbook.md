@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 5cf3f02284777a54a9d26cad8a7f3b5b4fa6b335
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 301e2be0c8b971a0236de6a8b5c8bd5f278c3aee
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79087816"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686746"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>예측 유지 관리 솔루션에 대한 Azure AI 가이드
 
@@ -445,10 +445,10 @@ Microsoft Azure는 일반적인 AI 개념과 연습에 대한 콘텐츠 및 학�
 | [Azure의 AI 개발자](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Public |
 | [Microsoft AI School](https://aischool.microsoft.com/learning-paths) | Public |
 | [GitHub의 Azure AI 학습](https://github.com/Azure/connectthedots/blob/master/readme.md) | Public |
-| [LinkedIn Learning](https://www.linkedin.com/learning) | Public |
+| [LinkedIn 학습](https://www.linkedin.com/learning) | Public |
 | [마이크로소프트 AI 유튜브 웨비나](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
 | [Microsoft AI Show](https://channel9.msdn.com/Shows/AI-Show) | Public |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | 파트너 |
-| [Microsoft 파트너 네트워크](https://learningportal.microsoft.com) | 파트너 |
+| [Microsoft 파트너 네트워크](https://partner.microsoft.com/training/training-center) | 파트너 |
 
 또한 AI에서 무료 MOOCS(대규모 오픈 온라인 강의)는 스탠퍼드 및 MIT와 같은 교육 기관 및 기타 교육 회사에서 온라인으로 제공합니다.

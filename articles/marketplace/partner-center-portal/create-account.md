@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 04/14/2020
-ms.openlocfilehash: d62d05cdbda86af3c3a38757877624e87f6d1719
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 1bd71a4fb150d544125703679cf0fa0b8951e1eb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383765"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684128"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 마켓플레이스 계정 만들기
 
@@ -164,7 +164,7 @@ Microsoft 파트너 센터 계정으로 [파트너 센터에](https://partner.mi
 
 동일한 Azure Active Directory 테넌트의 다른 사용자는 다음 단계에 따라 새 게시자를 추가할 수 있습니다.
 
-1. [Microsoft 파트너 센터에서](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/azureisv)가입 흐름을 시작합니다.
+1. [Microsoft 파트너 센터에서](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)가입 흐름을 시작합니다.
 2. **직장 계정으로 로그인을** 선택하고 직장 이메일 주소를 입력합니다.
 3. **게시자 추가** 단추를 선택합니다.
 4. 게시자에 연결할 MPN ID를 선택합니다.

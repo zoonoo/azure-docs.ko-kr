@@ -1,6 +1,6 @@
 ---
-title: 리눅스 하이브리드 Runbook 작업자 진단 - Azure 업데이트 관리
-description: 업데이트 관리를 지원하는 Linux의 Azure 자동화 하이브리드 Runbook 작업자를 사용하여 문제를 해결하고 해결하는 방법을 알아봅니다.
+title: Azure 자동화 업데이트 관리에서 Linux 업데이트 에이전트 문제 해결
+description: 업데이트 관리 솔루션을 사용하여 Linux Windows 업데이트 에이전트의 문제를 해결하고 해결하는 방법을 알아봅니다.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,36 +9,36 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: e60ba71607b99f0ea97e0725ffdd0740f3e9c579
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bba1c7e89a9c3bb1c9aa1567e36dd71a40f14636
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278299"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81679069"
 ---
-# <a name="understand-and-resolve-linux-hybrid-runbook-worker-health-for-update-management"></a>업데이트 관리를 위한 Linux 하이브리드 Runbook 작업자 상태 이해 및 해결
+# <a name="troubleshoot-linux-update-agent-issues"></a>리눅스 업데이트 에이전트 문제 해결
 
-업데이트 관리에서 컴퓨터가 **준비**를 표시하지 않는 이유에는 여러 가지가 있을 수 있습니다. 업데이트 관리에서 하이브리드 Runbook 작업자 에이전트의 상태를 확인하여 근본적인 문제를 확인할 수 있습니다. 이 문서에서는 [오프라인 시나리오에서](#troubleshoot-offline)Azure 포털 및 Azure가 아닌 컴퓨터에서 Azure 컴퓨터에 대한 문제 해결사를 실행하는 방법에 대해 설명합니다.
+업데이트 관리에서 컴퓨터가 준비됨(정상)으로 표시되지 않는 데는 여러 가지 이유가 있을 수 있습니다. 업데이트 관리에서 하이브리드 Runbook 작업자 에이전트의 상태를 확인하여 근본적인 문제를 확인할 수 있습니다. 이 문서에서는 [오프라인 시나리오에서](#troubleshoot-offline)Azure 포털 및 Azure가 아닌 컴퓨터에서 Azure 컴퓨터에 대한 문제 해결사를 실행하는 방법에 대해 설명합니다. 
 
 다음 목록은 컴퓨터가 나타낼 수 있는 세 가지 준비 상태입니다.
 
-* **준비** - 하이브리드 Runbook 작업자가 배포되었으며 1시간 전에 마지막으로 보였습니다.
-* **연결 해제** - 하이브리드 Runbook 작업자가 배포되었으며 1시간 전에 마지막으로 보였습니다.
-* **구성되지 않음** - 하이브리드 Runbook 작업자를 찾을 수 없거나 온보딩이 완료되지 않았습니다.
+* 준비 - 하이브리드 Runbook 작업자가 배포되었으며 1시간 전에 마지막으로 보였습니다.
+* 연결 해제 - 하이브리드 Runbook 작업자가 배포되었으며 1시간 전에 마지막으로 보였습니다.
+* 구성되지 않음 - 하이브리드 Runbook 작업자를 찾을 수 없거나 온보딩이 완료되지 않았습니다.
 
 > [!NOTE]
 > Azure 포털에 표시되는 내용과 컴퓨터의 현재 상태 사이에 약간의 지연이 있을 수 있습니다.
 
 ## <a name="start-the-troubleshooter"></a>문제 해결사 시작
 
-Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 **문제 해결** 링크를 클릭하여 **업데이트 에이전트 문제 해결** 페이지를 시작합니다. Azure가 아닌 컴퓨터의 경우 링크가 이 문서에 대해 제공합니다. 비 Azure 컴퓨터 의 문제 해결을 위해 오프라인 지침을 참조하세요.
+Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 **문제 해결** 링크를 클릭하여 업데이트 에이전트 문제 해결 페이지를 시작합니다. Azure가 아닌 컴퓨터의 경우 링크가 이 문서에 대해 제공합니다. 비 Azure 컴퓨터 의 문제 해결을 위해 오프라인 지침을 참조하세요.
 
 ![VM 목록 페이지](../media/update-agent-issues-linux/vm-list.png)
 
 > [!NOTE]
-> 검사를 수행하려면 VM이 실행되고 있어야 합니다. VM이 실행되고 있지 않으면 **VM 시작** 단추가 제공됩니다.
+> 검사를 수행하려면 VM이 실행되고 있어야 합니다. VM이 실행되고 있지 않으면 **VM 시작 버튼이** 표시됩니다.
 
-**업데이트 에이전트 문제 해결** 페이지에서 **검사 실행**을 클릭하여 문제 해결사를 시작합니다. 문제 해결사는 [Run 명령을](../../virtual-machines/linux/run-command.md) 사용하여 컴퓨터에서 스크립트를 실행하여 종속성을 확인합니다. 문제 해결사가 완료되면 검사 결과를 반환합니다.
+업데이트 에이전트 문제 해결 페이지에서 **검사 실행**을 클릭하여 문제 해결사를 시작합니다. 문제 해결사는 [Run 명령을](../../virtual-machines/linux/run-command.md) 사용하여 컴퓨터에서 스크립트를 실행하여 종속성을 확인합니다. 문제 해결사가 완료되면 검사 결과를 반환합니다.
 
 ![문제 해결 페이지](../media/update-agent-issues-linux/troubleshoot-page.png)
 
@@ -50,7 +50,7 @@ Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 
 
 ### <a name="operating-system"></a>운영 체제
 
-운영 체제 검사는 하이브리드 Runbook 작업자가 다음 운영 체제 중 하나를 실행 중인지 확인합니다.
+운영 체제 검사는 하이브리드 Runbook 작업자가 다음 운영 체제 중 하나를 실행중인지 확인합니다.
 
 |운영 체제  |메모  |
 |---------|---------|

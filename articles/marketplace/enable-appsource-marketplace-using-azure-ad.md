@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 45855038e60dcdc3be4f98cfdceed69df5e8c946
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2f33fc8b1bdd15b53ad9130b5cc598dd6d5ee1a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286322"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684619"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Azure Active Directory를 사용하여 AppSource와 Marketplace 목록을 사용하도록 설정
 
@@ -37,7 +37,7 @@ AppSource 및 Azure Marketplace에 대한 다양한 [목록 옵션 및 제품 �
 | Virtual Machine | 해당 없음 | 예 | 예 | 예 |
 | Azure 앱(솔루션 템플릿)  | 해당 없음 | 해당 없음 | 해당 없음 | 해당 없음 |
 | 관리되는 앱  | 해당 없음 | 해당 없음 | 해당 없음 | 예 |
-| SaaS  | 예 | yes | yes | yes |
+| SaaS  | 예 | 예 | 예 | 예 |
 | 컨테이너  | 해당 없음 | 해당 없음 | 해당 없음 | 예 |
 | 컨설팅 서비스  | 예 | 해당 없음 | 해당 없음 | 해당 없음 |
 
@@ -87,5 +87,10 @@ Azure AD를 사용하여 다음 작업 중 하나를 지원합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Marketplace에 등록](https://azuremarketplace.microsoft.com/sell)했는지 확인합니다.
-- 쿠폰을 [만들거나](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 완료하는 방법에 대한 자세한 내용은 파트너 센터 계정을 만드는 방법을 참조하세요.
+아직 수행하지 않았다면 
+
+- 마켓플레이스에 대해 [알아보세요.](https://azuremarketplace.microsoft.com/sell)
+
+파트너 센터에 등록하려면 새 오퍼를 만들거나 기존 오퍼를 작성하기 시작합니다.
+
+- [파트너 센터에 로그인하여](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 쿠폰을 만들거나 완료하세요.

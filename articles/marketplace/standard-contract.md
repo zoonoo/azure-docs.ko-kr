@@ -1,24 +1,24 @@
 ---
-title: 표준 계약 | Azure
+title: 표준 계약 | Azure 마켓플레이스
 description: Azure 마켓플레이스 및 앱 소스에 대한 표준 계약
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 00a83a1b3005043f317ed49cafa735540cd21793
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: facb500299f7196e0e1387c3a7267a917d13a3a6
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284962"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681457"
 ---
 # <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>마이크로소프트 상용 시장에 대 한 표준 계약
 
 고객을 위한 조달 프로세스를 간소화하고 소프트웨어 공급업체의 법적 복잡성을 줄이기 위해 Microsoft는 시장에서 의 트랜잭션을 용이하게 하기 위해 Microsoft 상용 시장에 대한 표준 계약을 제공합니다. 상업용 마켓플레이스 퍼블리셔는 사용자 지정 이용 약관을 만드는 대신 고객이 한 번만 수의사와 수락을 할 수 있는 표준 계약에 따라 소프트웨어를 제공하도록 선택할 수 있습니다. 표준 계약은 여기에서 찾을 [https://go.microsoft.com/fwlink/?linkid=2041178](https://go.microsoft.com/fwlink/?linkid=2041178)수 있습니다.
 
-오퍼의 이용 약관은 파트너 센터 또는 클라우드 파트너 포털에서 오퍼를 만들 때 정의됩니다. 사용자 지정 이용 약관을 제공하는 대신 Microsoft 상용 마켓플레이스에 표준 계약을 사용하도록 선택할 수 있습니다.
+오퍼의 이용 약관은 파트너 센터에서 오퍼를 만들 때 정의됩니다. 사용자 지정 이용 약관을 제공하는 대신 Microsoft 상용 마켓플레이스에 표준 계약을 사용하도록 선택할 수 있습니다.
 
 >[!Note]
 >Microsoft 상용 마켓플레이스의 표준 계약을 사용하여 오퍼를 게시하면 사용자 지정 이용 약관을 사용할 수 없습니다. "또는" 시나리오입니다. 귀하는 표준 계약 *또는* 사용자 고유의 이용 약관에 따라 솔루션을 제공합니다. 표준 계약 약관을 수정하려면 표준 계약 개정을 통해 수정할 수 있습니다.
@@ -36,7 +36,7 @@ ms.locfileid: "80284962"
 >[!Note]
 >이 두 가지 유형의 개정은 서로 겹치게 됩니다. 사용자 지정 개정 대상 고객은 구매 시 표준 계약에 대한 보편적 인 개정을 받게됩니다.
 
-Azure 응용 프로그램(솔루션 템플릿 및 관리되는 응용 프로그램), 가상 컴퓨터, 컨테이너, 컨테이너 응용 프로그램, IoT Edge 모듈 및 SaaS의 다음 제안 유형에 대해 Microsoft 상용 마켓플레이스에 대한 표준 계약을 활용할 수 있습니다. .
+Azure 응용 프로그램(솔루션 템플릿 및 관리되는 응용 프로그램), 가상 컴퓨터, 컨테이너, 컨테이너 응용 프로그램, IoT Edge 모듈 및 SaaS의 다음 제안 유형에 대해 Microsoft 상용 시장에 대한 표준 계약을 활용할 수 있습니다.
 
 ## <a name="customer-experience"></a>고객 환경
 

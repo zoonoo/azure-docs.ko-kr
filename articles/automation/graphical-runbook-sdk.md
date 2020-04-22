@@ -1,24 +1,24 @@
 ---
-title: Azure Automation Graphical Runbook SDK의 개요
-description: 이 문서에서는 Azure Automation Graphical Runbook SDK를 사용하는 방법을 설명합니다.
+title: Azure 자동화 그래픽 런북 SDK 사용
+description: 이 문서에서는 Azure 자동화 그래픽 runbook SDK를 사용하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
 ms.date: 07/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: d4dcf6681ade977847c204dd1237f7cd7a67775e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 21f6ff8078d5a1db88b2fde33c9063a56b3ee43a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75418255"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682915"
 ---
-# <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Azure Automation Graphical Runbook SDK 사용
+# <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Azure 자동화 그래픽 런북 SDK 사용
 
-[Graphical Runbook](automation-graphical-authoring-intro.md)은 기본 Windows PowerShell 또는 PowerShell 워크플로 코드의 복잡성을 관리하는 데 도움이 되는 Runbook입니다. Microsoft Azure Automation Graphical Authoring SDK를 통해 개발자는 Azure Automation 서비스 사용을 위한 Graphical Runbook을 만들고 편집할 수 있습니다. 다음 코드 조각은 코드에서 Graphical Runbook 만들기의 기본 흐름을 보여줍니다.
+[그래픽 런북은](automation-graphical-authoring-intro.md) 기본 Windows PowerShell 또는 PowerShell 워크플로 코드의 복잡성을 관리하는 데 도움이 됩니다. Microsoft Azure 자동화 그래픽 작성 SDK를 사용하면 개발자가 Azure 자동화와 함께 사용할 그래픽 런북을 만들고 편집할 수 있습니다. 이 문서에서는 코드에서 그래픽 런북을 만드는 기본 단계를 설명합니다.
 
-## <a name="pre-requisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-시작하려면 프로젝트로 `Microsoft.Azure.Automation.GraphicalRunbook.Model` 패키지를 가져옵니다.
+패키지를 `Microsoft.Azure.Automation.GraphicalRunbook.Model` 프로젝트로 가져옵니다.
 
 ## <a name="create-a-runbook-object-instance"></a>Runbook 개체 인스턴스 만들기
 
@@ -89,9 +89,9 @@ var initializeRunbookVariable = runbook.AddActivity(
  });
 ```
 
-작업은 `Orchestrator.GraphRunbook.Model` 네임스페이스에서 다음 클래스에 의해 구현됩니다.
+활동은 `Orchestrator.GraphRunbook.Model` 네임스페이스의 다음 클래스에 의해 구현됩니다.
 
-|클래스  |활동  |
+|클래스  |작업  |
 |---------|---------|
 |CommandActivity     | PowerShell 명령(cmdlet, 함수 등)을 호출합니다.        |
 |InvokeRunbookActivity     | 다른 Runbook 인라인을 호출합니다.        |
@@ -99,9 +99,9 @@ var initializeRunbookVariable = runbook.AddActivity(
 |WorkflowScriptActivity     | Runbook의 컨텍스트에서 PowerShell 또는 PowerShell 워크플로 코드의 블록을 실행합니다(Runbook 유형에 따라). 강력한 도구이지만 과도하게 사용하지 마십시오. UI는 이 스크립트 블록을 텍스트로 표시합니다. 실행 엔진은 제공된 블록을 검은색 상자로 처리하고 기본 구문 검사를 제외하고 해당 콘텐츠를 분석하는 시도를 하지 않습니다. 단일 PowerShell 명령을 호출해야 하는 경우 CommandActivity를 사용합니다.        |
 
 > [!NOTE]
-> 제공된 클래스에서 사용자 고유의 작업을 파생하지 마십시오. Azure Automation은 사용자 지정 작업 유형으로 Runbook을 사용할 수 없습니다.
+> 제공된 클래스에서 사용자 고유의 활동을 파생하지 마십시오. Azure Automation은 사용자 지정 활동 유형이 있는 Runbook을 사용할 수 없습니다.
 
-CommandActivity 및 InvokeRunbookActivity 매개 변수는 직접 값이 아닌 값 설명자로 제공되어야 합니다. 값 설명자는 실제 매개 변수 값이 생성되어야 하는 방법을 지정합니다. 다음 값 설명자가 현재 제공됩니다.
+직접 값이 `CommandActivity` 아닌 값 설명자로 매개 변수를 제공해야 합니다. `InvokeRunbookActivity` 값 설명자는 실제 매개 변수 값을 생성하는 방법을 지정합니다. 다음 값 설명자가 현재 제공됩니다.
 
 
 |설명자  |정의  |
@@ -115,7 +115,7 @@ CommandActivity 및 InvokeRunbookActivity 매개 변수는 직접 값이 아닌 
 |PowerShellExpressionValueDescriptor     | 작업을 호출하기 직전에 평가될 자유 양식 PowerShell 식을 지정합니다.  <br/>강력한 도구이지만 과도하게 사용하지 마십시오. UI는 이 식을 텍스트로 표시합니다. 실행 엔진은 제공된 블록을 검은색 상자로 처리하고 기본 구문 검사를 제외하고 해당 콘텐츠를 분석하는 시도를 하지 않습니다. 가능한 경우 보다 구체적인 값 설명자를 사용합니다.      |
 
 > [!NOTE]
-> 제공된 클래스에서 사용자 고유의 값 설명자를 파생하지 마십시오. Azure Automation은 사용자 지정 값 설명자 유형으로 Runbook을 사용할 수 없습니다.
+> 제공된 클래스에서 사용자 고유의 값 설명자도 파생하지 마십시오. Azure Automation은 사용자 지정 값 설명자 형식이 있는 Runbook을 사용할 수 없습니다.
 
 작업을 연결하는 링크를 인스턴스화하고 Runbook에 추가합니다.
 
@@ -136,10 +136,9 @@ runbook.AddLink(
 var serialized = RunbookSerializer.Serialize(runbook);
 ```
 
-**.graphrunbook** 확장을 사용하여 이 문자열을 파일에 저장할 수 있으며 이 파일을 Azure Automation으로 가져올 수 있습니다.
-직렬화된 형식은 `Orchestrator.GraphRunbook.Model.dll`의 향후 버전에서 변경될 수 있습니다. 이전 버전과의 호환성을 약속 드립니다. `Orchestrator.GraphRunbook.Model.dll`의 이전 버전으로 직렬화된 모든 Runbook은 모든 새 버전으로 역직렬화될 수 있습니다. 이후 버전과의 호환성은 보장되지 않습니다. 최신 버전으로 직렬화된 Runbook을 이전 버전으로 역직렬화할 수 없습니다.
+이 문자열을 **.graphrunbook** 확장이 있는 파일에 저장할 수 있습니다. 해당 Runbook을 Azure 자동화로 가져올 수 있습니다.
+직렬화된 형식은 이후 버전에서 `Orchestrator.GraphRunbook.Model.dll`변경될 수 있습니다. 이전 버전과의 호환성을 약속 드립니다. `Orchestrator.GraphRunbook.Model.dll`의 이전 버전으로 직렬화된 모든 Runbook은 모든 새 버전으로 역직렬화될 수 있습니다. 이후 버전과의 호환성은 보장되지 않습니다. 최신 버전으로 직렬화된 Runbook을 이전 버전으로 역직렬화할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Automation에서 Graphical Runbook에 대해 자세히 알아보려면 [그래픽 작성 소개](automation-graphical-authoring-intro.md)를 참조하세요.
-
+Azure 자동화의 그래픽 런북에 대한 자세한 내용은 [그래픽 작성 소개를](automation-graphical-authoring-intro.md)참조하십시오.

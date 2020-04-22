@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 9fbf55fbe16d958bf10541894159dade26668bef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6cb83a87f2e96eb62696e5d92095ef2b8d7c7def
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336717"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677335"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Azure 마이그레이션 어플라이언스 및 검색 문제 해결
 
@@ -27,7 +27,7 @@ ms.locfileid: "80336717"
 
 "제공된 매니페스트 파일이 유효하지 않음: 잘못된 OVF 매니페스트 항목"이라는 오류가 발생하면 다음을 수행합니다.
 
-1. Azure 마이그레이션 어플라이언스 OVA 파일이 해시 값을 확인하여 올바르게 다운로드되었는지 확인합니다. [자세히 알아봅니다](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware). 해시 값이 일치하지 않으면 OVA 파일을 다시 다운로드하고 배포를 다시 시도하십시오.
+1. Azure 마이그레이션 어플라이언스 OVA 파일이 해시 값을 확인하여 올바르게 다운로드되었는지 확인합니다. [자세히 알아보기](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware). 해시 값이 일치하지 않으면 OVA 파일을 다시 다운로드하고 배포를 다시 시도하십시오.
 2. 배포가 여전히 실패하고 VMware vSphere 클라이언트를 사용하여 OVF 파일을 배포하는 경우 vSphere 웹 클라이언트를 통해 배포해 보십시오. 배포가 여전히 실패하면 다른 웹 브라우저를 사용해 보십시오.
 3. vSphere 웹 클라이언트를 사용하고 vCenter 서버 6.5 또는 6.7에 배포하려는 경우 ESXi 호스트에 직접 OVA를 배포해 보십시오.
    - 웹 클라이언트(https://<호스트 IP 주소>/ui)와 함께 직접(vCenter 서버 대신) ESXi *호스트에* 연결합니다.
@@ -41,6 +41,15 @@ ms.locfileid: "80336717"
 - 프록시에 필요한 경우 권한 부여 자격 증명을 제공해야 합니다.
 - URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어하는 경우 허용 목록에 [이러한 URL을](migrate-appliance.md#url-access) 추가합니다.
 - 가로채기 프록시를 사용하여 인터넷에 연결하는 경우 [다음 단계를](https://docs.microsoft.com/azure/migrate/concepts-collector)사용하여 프록시 인증서를 어플라이언스 VM으로 가져옵니다.
+
+## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>어플라이언스 웹 앱에서 Azure에 로그인할 수 없습니다.
+
+잘못된 Azure 계정을 사용하여 Azure에 로그인하는 경우 "죄송합니다. 이 오류는 다음과 같은 몇 가지 이유로 발생합니다.
+
+- 퍼블릭 클라우드의 어플라이언스 웹 애플리케이션에 로그인하는 경우 정부 클라우드 포털에 대한 사용자 계정 자격 증명을 사용합니다.
+- 프라이빗 클라우드 포털에 대한 사용자 계정 자격 증명을 사용하여 정부 클라우드의 어플라이언스 웹 애플리케이션에 로그인하는 경우
+
+올바른 자격 증명을 사용하고 있는지 확인합니다.
 
 ##  <a name="datetime-synchronization-error"></a>날짜/시간 동기화 오류
 

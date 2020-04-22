@@ -5,14 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 5fec72ce5f86c1bee9ec0e978e458f5be454c8e3
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: e061baa8e7eb73bae0a78f4215f0d48610e85fcb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81256589"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686740"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>상용 마켓플레이스 파트너 및 고객 사용 기여
 
@@ -31,7 +31,7 @@ Azure Marketplace, 빠른 시작 리포지토리, 개인 GitHub 리포지토리 
 >
 >- 고객 사용 기여는 새 배포에 대한 것이며 이미 배포된 기존 리소스에 태그를 지정하는 것을 지원하지 않습니다.
 >
->- Azure 마켓플레이스에 게시된 Azure [응용 프로그램](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer) 오퍼의 경우 고객 사용 기여가 필요합니다.
+>- Azure 마켓플레이스에 게시된 Azure [응용 프로그램](./partner-center-portal/create-new-azure-apps-offer.md) 오퍼의 경우 고객 사용 기여가 필요합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -83,7 +83,7 @@ GUID는 고객 사용 기여가 가능하도록 파트너 센터에 등록해야
 > [!NOTE]
 > 솔루션 템플릿을 만들고 게시하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 > * [첫 번째 Resource Manager 템플릿 만들기 및 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)
->* [Azure 응용 프로그램 제공](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
+>* [Azure 응용 프로그램 제공](./partner-center-portal/create-new-azure-apps-offer.md).
 >* 비디오: [Azure 마켓플레이스에 대한 솔루션 템플릿 및 관리되는 응용 프로그램 빌드.](https://channel9.msdn.com/Events/Build/2018/BRK3603)
 
 

@@ -1,18 +1,18 @@
 ---
-title: 시장 진출 서비스 - 상용 마켓플레이스 혜택 | Azure
+title: 시장 진출 서비스 - 상용 마켓플레이스 혜택 | Azure 마켓플레이스
 description: 이 섹션에서는 게시자가 사용할 수 있는 시장 진출 서비스 - Microsoft 리소스에 대해 설명합니다.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/08/2020
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: d34fb989e7f656df93faae63ef4dc42ed0fe5abe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d5c8b2f5cb03c7e1777137100547fbbbaf107f0b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286237"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684549"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>상업적 시장 혜택
 
@@ -24,7 +24,7 @@ ms.locfileid: "80286237"
 
 마켓플레이스 리워드는 첫 번째 고객을 확보하도록 돕는 인식 활동부터 시작하여 특정 성장 단계에서 고객을 지원하도록 설계되었습니다. 마켓플레이스를 통해 성장함에 따라 고객을 전환하고 거래를 성사시킬 수 있도록 설계된 새로운 혜택을 잠금 해제할 수 있습니다. 
 
-이 프로그램은 긍정적인 피드백 루프를 만듭니다: 성장의 각 단계에서 혜택은 다음 단계로 진행하도록 설계되어 Microsoft 고객, Microsoft 필드 및 Microsoft 채널을 통해 비즈니스를 성장시킬 수 있습니다. 상용 시장을 플랫폼으로 제공합니다. 
+이 프로그램은 긍정적인 피드백 루프를 만듭니다: 성장의 각 단계에서 이점은 다음 단계로 진행하도록 설계되어 Microsoft 고객, Microsoft 필드 및 플랫폼으로 상용 마켓플레이스를 활용하여 Microsoft 채널을 통해 비즈니스를 성장시킬 수 있도록 합니다. 
 
 혜택은 혜택이 [목록, 평가판 또는 거래](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option)여부에 따라 차별화됩니다.
 
@@ -44,7 +44,7 @@ Transact 파트너의 경우 마켓플레이스 플랫폼을 통해 청구된 �
 2. 팀은 마켓플레이스 오퍼당 "소유자" 또는 "기본 연락처"에 연락합니다. 정기적으로 확인하는 개인 이나 별칭을 입력 하는 info@company.com 것이 좋습니다.
 
 >[!Note]
->쿠폰이 4주 이상 라이브로 사용되었지만 메시지를 받지 못한 경우 Cloud 파트너 포털 또는 파트너 센터에서 해당 오퍼의 소유자인 조직 내에서 확인하십시오. 통신 및 다음 단계가 있어야 합니다. <br> <br> 소유자를 확인할 수 없거나 소유자가 회사를 떠난 경우 에서 https://aka.ms/marketplacepublishersupport지원 티켓을 올릴 수 있습니다.
+>쿠폰이 4주 이상 라이브로 제공되었지만 메시지를 받지 못한 경우 파트너 센터를 통해 해당 오퍼의 소유자인 조직 내에서 확인하시기 바랍니다. 통신 및 다음 단계가 있어야 합니다. <br> <br> 소유자를 확인할 수 없거나 소유자가 회사를 떠난 경우 에서 https://aka.ms/marketplacepublishersupport지원 티켓을 올릴 수 있습니다.
 
 마켓플레이스에서 제품을 확장함에 따라 사용 가능한 활동 범위도 확장됩니다. 모든 목록은 리소스 및 모범 사례의 셀프 서비스 이메일의 일부로 기본 수준의 최적화 권장 사항 및 프로모션을 받습니다.
 
@@ -106,9 +106,7 @@ Microsoft는 다음과 같은 게시자에게 마켓플레이스 리워드 혜�
 
 ## <a name="next-steps"></a>다음 단계
 
-[클라우드 파트너 포털에서](https://cloudpartner.azure.com)쿠폰을 만든 경우 로그인하여 쿠폰을 만들거나 구성합니다.
-
-[파트너 센터에서](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview)쿠폰을 만든 경우 로그인하여 쿠폰을 만들거나 구성합니다.
+[파트너 센터에서](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)쿠폰을 만든 경우 로그인하여 쿠폰을 만들거나 구성합니다.
 
 사용 [가능한 셀프 서비스 리소스를 검토합니다.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)
 

@@ -2,14 +2,14 @@
 title: Azure 마이그레이션 지원 매트릭스
 description: Azure 마이그레이션 서비스에 대한 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 04/19/2020
 ms.author: raynew
-ms.openlocfilehash: 0f766bf95bb7e26d942e7dde3f315bbef6d5dc5c
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 44a971894f53a3f31c068b3c3ed4912bc7e00dab
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535199"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680706"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure 마이그레이션 지원 매트릭스
 
@@ -25,6 +25,8 @@ Azure 마이그레이션 [서비스를](migrate-overview.md) 사용하여 컴퓨
 **온-프레미스 평가** | VMware VM, Hyper-VM 및 물리적 서버에서 실행되는 온-프레미스 워크로드 및 데이터를 평가합니다. Azure 마이그레이션 서버 평가 및 Microsoft 데이터 마이그레이션 도우미(DMA)를 사용 하 여 평가 뿐만 아니라 다른 도구 및 ISV 제품입니다.
 **온-프레미스 에서 Azure로 마이그레이션** | 물리적 서버, VM웨어 VM, 하이퍼 VM, 물리적 서버 및 클라우드 기반 VMS에서 실행되는 워크로드 및 데이터를 Azure로 마이그레이션합니다. Azure 마이그레이션 서버 평가 및 Azure 데이터베이스 마이그레이션 서비스(DMS) 및 기타 도구 및 ISV 오퍼링을 사용하여 마이그레이션합니다.
 
+> [!NOTE]
+> 현재 ISV 도구는 Azure 정부에서 Azure 마이그레이션에 데이터를 보낼 수 없습니다. 통합 된 Microsoft 도구를 사용하거나 파트너 도구를 독립적으로 사용할 수 있습니다.
 
 ## <a name="supported-tools"></a>지원되는 도구
 
@@ -93,7 +95,7 @@ United Kingdom | 영국 남부 또는 영국 서부
 **Task** | **지리** | **세부 정보**
 --- | --- | ---
 프로젝트 만들기 | 미국 | 메타데이터는 미국 정부 애리조나, 미국 정부 버지니아에 저장됩니다.
-대상 평가 | 미국 | 대상 지역: 미국 정부 애리조나, 미국 정부 버지니아/미국 정부 텍사스
+대상 평가 | 미국 | 대상 지역: 미국 정부 애리조나, 미국 정부 버지니아, 미국 정부 텍사스
 대상 복제 | 미국 | 대상 지역: 미국 법무부 중부, 미국 DoD 동부, 미국 정부 애리조나, 미국 정부 아이오와, 미국 정부 텍사스, 미국 정부 버지니아
 
 

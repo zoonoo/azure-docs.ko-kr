@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 29ac9239b8dc87b1ed12fc8333bf5201fe8fa204
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: a1229ee389b41625554fb2869089b08a3cb9cb6d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617135"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676506"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Azure Automation에서 Runbook 관리
 
@@ -28,7 +28,7 @@ Azure Portal 또는 Windows PowerShell 중 하나를 사용하여 Azure Automati
 1. Azure Portal에서 Automation 계정을 엽니다.
 2. 허브에서 **프로세스 자동화** 에서 **Runbook을** 선택하여 Runbook 목록을 엽니다.
 3. **런북 만들기를 클릭합니다.**
-4. Runbook의 이름을 입력하고 [해당 유형을](automation-runbook-types.md)선택합니다. Runbook 이름은 문자로 시작해야 하며 문자, 숫자, 밑줄 및 대시를 포함할 수 있습니다.
+4. Runbook의 이름을 입력하고 해당 [유형을](automation-runbook-types.md)선택합니다. Runbook 이름은 문자로 시작해야 하며 문자, 숫자, 밑줄 및 대시를 포함할 수 있습니다.
 5. **만들기** 를 클릭하여 Runbook을 만들고 편집기를 엽니다.
 
 ### <a name="create-a-runbook-with-powershell"></a>PowerShell을 사용하여 Runbook 만들기
@@ -46,13 +46,13 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 PowerShell 스크립트 또는 PowerShell**워크플로(.ps1),** 내보낸 그래픽**런북(.graphrunbook)** 또는 Python2**스크립트(.py)를**가져와 Azure 자동화에서 새 Runbook을 만들 수 있습니다.  다음 사항을 고려하여 가져오기 동안 만들어지는 [Runbook 유형](automation-runbook-types.md)을 지정해야 합니다.
 
-* 워크플로를 포함하지 않는 **.ps1** 파일을 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 또는 [PowerShell 워크플로 러북으로](automation-runbook-types.md#powershell-workflow-runbooks)가져올 수 있습니다. PowerShell 워크플로 러북으로 가져오면 워크플로로 변환됩니다. 이 경우 변경 내용을 설명하는 주석이 Runbook에 포함됩니다.
+* 워크플로를 포함하지 않는 **.ps1** 파일을 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 또는 [PowerShell 워크플로 런북으로](automation-runbook-types.md#powershell-workflow-runbooks)가져올 수 있습니다. PowerShell 워크플로 러북으로 가져오면 워크플로로 변환됩니다. 이 경우 변경 내용을 설명하는 주석이 Runbook에 포함됩니다.
 
-* PowerShell 워크플로가 포함된 **.ps1** 파일은 [PowerShell 워크플로 러북으로만](automation-runbook-types.md#powershell-workflow-runbooks)가져올 수 있습니다. 파일에 여러 PowerShell 워크플로가 포함된 경우 가져오기가 실패합니다. 각 워크플로를 자체 파일에 저장하 고 각각 개별적으로 가져와야 합니다.
+* PowerShell 워크플로가 포함된 **.ps1** 파일만 [PowerShell 워크플로 러북으로](automation-runbook-types.md#powershell-workflow-runbooks)가져올 수 있습니다. 파일에 여러 PowerShell 워크플로가 포함된 경우 가져오기가 실패합니다. 각 워크플로를 자체 파일에 저장하 고 각각 개별적으로 가져와야 합니다.
 
-* PowerShell 스크립트 엔진이 이를 인식할 수 없기 때문에 PowerShell 워크플로가 포함된 **.ps1** 파일을 [PowerShell 실행책으로](automation-runbook-types.md#powershell-runbooks)가져오면 안 됩니다.
+* PowerShell 스크립트 엔진에서 인식할 수 없기 때문에 PowerShell 워크플로가 포함된 **.ps1** 파일을 [PowerShell 실행책으로](automation-runbook-types.md#powershell-runbooks)가져오지 마십시오.
 
-* **.graphrunbook** 파일은 새 [그래픽 런북으로만](automation-runbook-types.md#graphical-runbooks)가져올 수 있습니다. **.graphrunbook** 파일에서만 그래픽 런북을 만들 수 있습니다.
+* **.graphrunbook** 파일을 새 [그래픽 런북으로만](automation-runbook-types.md#graphical-runbooks)가져올 수 있습니다. **.graphrunbook** 파일에서만 그래픽 런북을 만들 수 있습니다.
 
 ### <a name="import-a-runbook-from-a-file-with-the-azure-portal"></a>Azure 포털이 있는 파일에서 Runbook 가져오기
 

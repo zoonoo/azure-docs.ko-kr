@@ -1,18 +1,18 @@
 ---
-title: 서비스 액세스 토큰 받기
+title: 서비스 액세스 토큰 가져오기
 description: ARR REST API에 액세스하기 위한 토큰을 만드는 방법에 대해 설명합니다.
 author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 001a77734a8cedf08c5523380c1cbd00dce89f40
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: fd510f90887353d7486908ee076d5308db72c59d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80681195"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687076"
 ---
-# <a name="get-service-access-tokens"></a>서비스 액세스 토큰 받기
+# <a name="get-service-access-tokens"></a>서비스 액세스 토큰 가져오기
 
 ARR REST API에 대한 액세스는 권한이 부여된 사용자에게만 허용됩니다. 승인을 증명하려면 REST 요청과 함께 *액세스 토큰을* 보내야 합니다. 이러한 토큰은 계정 키에 대한 대가로 *STS(보안 토큰 서비스)에서* 발급됩니다. 토큰의 **수명은 24시간이므로** 서비스에 대한 모든 권한을 부여하지 않고 사용자에게 발급할 수 있습니다.
 
@@ -24,7 +24,7 @@ ARR REST API에 대한 액세스는 권한이 부여된 사용자에게만 허�
 
 ## <a name="token-service-rest-api"></a>토큰 서비스 REST API
 
-액세스 토큰을 만들기 위해 *보안 토큰 서비스는* 단일 REST API를 제공합니다. ARR STS 서비스의 URL은 [https://sts.mixedreality.azure.com](https://sts.mixedreality.azure.com).
+액세스 토큰을 만들기 위해 *보안 토큰 서비스는* 단일 REST API를 제공합니다. ARR STS 서비스의 URL은 https:\//sts.mixedreality.azure.com.
 
 ### <a name="get-token-request"></a>'토큰 받기' 요청
 

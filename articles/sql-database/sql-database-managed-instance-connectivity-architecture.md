@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: f30ccd498b79c36c8892ae38a3e26d169249621a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4d6098b7b4de76461e924fc7d42d039046d7ce5
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481102"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677164"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL 데이터베이스에서 관리되는 인스턴스에 대한 연결 아키텍처
 
@@ -39,7 +39,7 @@ SQL Database 관리 인스턴스는 Azure 가상 네트워크 및 관리되는 �
 
 최종 사용자 또는 응용 프로그램에서 시작한 일부 SQL Server 작업은 관리되는 인스턴스가 플랫폼과 상호 작용해야 할 수 있습니다. 한 가지 경우는 관리되는 인스턴스 데이터베이스를 만드는 것입니다. 이 리소스는 Azure 포털, PowerShell, Azure CLI 및 REST API를 통해 노출됩니다.
 
-관리되는 인스턴스는 백업용 Azure 저장소, 원격 분석을 위한 Azure 이벤트 허브, 인증을 위한 Azure Active Directory, 투명 데이터 암호화를 위한 Azure 키 자격 증명 모음 및 제공하는 몇 가지 Azure 플랫폼 서비스와 같은 Azure 서비스에 따라 달라집니다. 보안 및 지원 기능. 관리되는 인스턴스는 이러한 서비스에 연결합니다.
+관리되는 인스턴스는 백업용 Azure 저장소, 원격 분석을 위한 Azure 이벤트 허브, 인증을 위한 Azure Active Directory, TDE(투명 데이터 암호화를 위한 Azure 키 자격 증명) 및 보안 및 지원 기능을 제공하는 몇 가지 Azure 플랫폼 서비스와 같은 Azure 서비스에 의존합니다. 관리되는 인스턴스는 이러한 서비스에 연결합니다.
 
 모든 통신은 암호화되고 인증서를 사용하여 서명됩니다. 통신 당사자의 신뢰성을 확인하기 위해 관리되는 인스턴스는 인증서 해지 목록을 통해 이러한 인증서를 지속적으로 확인합니다. 인증서가 해지되면 관리되는 인스턴스가 연결을 닫아 데이터를 보호합니다.
 
@@ -306,6 +306,7 @@ Microsoft는 관리 끝점을 사용하여 관리되는 인스턴스를 관리�
 - **Microsoft 피어링:** 관리형 인스턴스가 상주하는 가상 네트워크에서 직접 또는 전이적으로 피어링된 고속 경로 회로에서 [Microsoft 피어링을](../expressroute/expressroute-faqs.md#microsoft-peering) 사용하도록 설정하면 가상 네트워크 내의 관리되는 인스턴스 구성 요소와 서비스 간의 트래픽 흐름에 영향을 미치므로 가용성 문제가 발생하는 데 따라 달라집니다. Microsoft 피어링을 이미 사용하도록 설정한 가상 네트워크에 대한 관리형 인스턴스 배포는 실패할 것으로 예상됩니다.
 - **글로벌 가상 네트워크 피어링**: [문서화된 로드 밸러서 제약 조건으로](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)인해 Azure 리전 전반에 걸친 [가상 네트워크 피어링](../virtual-network/virtual-network-peering-overview.md) 연결이 관리되는 인스턴스에서 작동하지 않습니다.
 - **AzurePlatformDNS**: AzurePlatformDNS [서비스 태그를](../virtual-network/service-tags-overview.md) 사용하여 플랫폼 DNS 확인을 차단하면 관리되는 인스턴스를 사용할 수 없게 됩니다. 관리되는 인스턴스는 엔진 내부의 DNS 해결을 위해 고객이 정의한 DNS를 지원하지만 플랫폼 운영을 위한 플랫폼 DNS에 대한 종속성이 있습니다.
+- **NAT 게이트웨이**: [가상 네트워크 NAT를](../virtual-network/nat-overview.md) 사용하여 특정 공용 IP 주소와의 아웃바운드 연결을 제어하면 관리되는 인스턴스를 사용할 수 없게 됩니다. 관리되는 인스턴스 서비스는 현재 가상 네트워크 NAT와 인바운드 및 아웃바운드 흐름의 공존을 제공하지 않는 기본 로드 밸런서의 사용으로 제한됩니다.
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>[더 이상 사용되지 않습니다] 서비스 지원 서브넷 구성이 없는 네트워크 요구 사항
 

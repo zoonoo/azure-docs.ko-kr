@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1730939de399cacd13c62988259904ba84ee78ff
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 053b052abf6f23c385dc7447639aa40b6c2c58a1
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654139"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680198"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>인증 방법 사용 & 인사이트(미리 보기)
 
@@ -93,6 +93,8 @@ ms.locfileid: "80654139"
 이러한 보고서에 표시된 데이터는 최대 60분까지 지연됩니다. Azure 포털에 "마지막으로 새로 고쳐진" 필드가 존재하여 데이터의 최근 을 식별합니다.
 
 사용 및 인사이트 데이터는 Azure AD 로그인 보고서에 포함된 Azure 다단계 인증 활동 보고서 또는 정보를 대체하지 않습니다.
+
+외부 사용자를 제외하도록 보고서를 현재 필터링할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

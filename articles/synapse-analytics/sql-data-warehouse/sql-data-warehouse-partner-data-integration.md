@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 395f0ff2880f4889cb0c214772f1056e26f1c616
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: de6be27183ecc621edeb0f3b89c509fa39f239cb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81253098"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678339"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Azure 시냅스 분석 데이터 통합 파트너
 
@@ -24,7 +24,7 @@ Azure Synapse의 Synapse SQL 풀 기능을 사용하여 데이터 웨어하우�
 
 ## <a name="data-integration-partners"></a>데이터 통합 파트너
 
-| 파트너 | Description | 웹 사이트/제품 링크 |
+| 파트너 | 설명 | 웹 사이트/제품 링크 |
 | ------- | ----------- | -------------------- |
 | ![Alooma](./media/sql-data-warehouse-partner-data-integration/alooma_logo.png) |**Alooma**<br> Alooma는 데이터 팀이 다양한 데이터 사일로에서 Azure Synapse 데이터 웨어하우스로 데이터를 실시간으로 통합, 보강 및 스트리밍할 수 있는 ETL(추출, 변환 및 로드) 솔루션입니다. |[제품 페이지](https://www.alooma.com/) |
 | ![Alteryx](./media/sql-data-warehouse-partner-data-integration/alteryx_logo.png) |**Alteryx**<br>  Alteryx Designer는 주간 단위로 이해하는 전형적인 접근 방식이 아니라 시간 단위로 심층 분석하는 셀프 서비스 데이터 분석을 위한 반복 가능한 워크플로를 제공합니다. Alteryx Designer는 동일한 직관적 사용자 인터페이스를 사용하여 데이터 준비, 데이터 혼합 및 분석(예측, 통계 및 공간)을 결합함으로써 데이터 분석을 도와줍니다. |[제품 페이지](https://www.alteryx.com/partners/microsoft/)<br>[Azure Marketplace](https://azure.microsoft.com/marketplace/partners/alteryx/alteryx-designer/)<br>|
@@ -34,6 +34,7 @@ Azure Synapse의 Synapse SQL 풀 기능을 사용하여 데이터 웨어하우�
 | ![Informatica](./media/sql-data-warehouse-partner-data-integration/informatica_logo.png) |**1.Azure를 위한 인포마티카 클라우드 서비스**<br> Informatica Cloud는 셀프 서비스 데이터 마이그레이션, 통합 및 관리 기능을 위한 동급 최강의 솔루션을 제공합니다. 고객은 빠르고 안정적으로 가져올 수 있으며 다양한 종류의 소스에서 페타바이트 규모의 데이터를 Azure로 내보낼 수 있습니다. Azure용 Informatica 클라우드 서비스는 Azure Synapse, SQL Database, Blob 저장소, 데이터 레이크 저장소 및 Azure Cosmos DB에 대한 네이티브, 대량의 고성능 연결을 제공합니다. <br><br> **2.인포마티카 파워센터** PowerCenter는 데이터 통합 프로젝트를 시작하고 가속화하여 수동 수동 코딩보다 더 빠르게 비즈니스에 데이터를 전달하는 메타데이터 기반 데이터 통합 플랫폼입니다. 데이터 통합 투자의 토대역할을 합니다. |**Azure용 인포마티카 클라우드 서비스**<br>[제품 페이지](https://www.informatica.com/products/cloud-integration.html)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/informatica.iics-winter)<br><br> **Informatica PowerCenter**<br>[제품 페이지](https://www.informatica.com/products/data-integration/powercenter.html)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/informatica.powercenter/)<br>|
 | ![정보 빌더](./media/sql-data-warehouse-partner-data-integration/informationbuilders_logo.png) |**정보 빌더(옴니젠 데이터 관리)**<br>정보 빌더의 Omni-Gen 데이터 관리 플랫폼은 데이터 통합, 데이터 품질 및 마스터 데이터 관리 솔루션을 제공합니다. 형식, 위치, 볼륨 또는 대기 시간에 관계없이 모든 데이터에 쉽게 액세스하고 이동하고 혼합할 수 있습니다.|[제품 페이지](https://www.informationbuilders.com/3i-platform)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/informationbuilders.omni-gen-mdm) |
 | ![마틸리온](./media/sql-data-warehouse-partner-data-integration/matillion-logo.png) |**마틸리온**<br>Matillion은 클라우드 데이터 웨어하우스를 위한 데이터 변환 소프트웨어입니다. Matillion만이 Azure Synapse를 위해 특별히 제작되어 기업이 새로운 수준의 단순성, 속도, 확장 및 절감을 달성할 수 있도록 합니다. Matillion 제품은 데이터 통합 및 변환 요구 사항을 충족하기 위해 모든 규모의 회사에서 높은 평가를 받고 신뢰받고 있습니다. 데이터 변환에 대한 Matillion의 클라우드 기반 접근 방식을 통해 데이터의 잠재력을 실현하는 방법에 대해 자세히 알아보십시오.| [제품 페이지](https://www.matillion.com/technology/cloud-data-warehouse/microsoft-azure-synapse/)<br> [조기 액세스 요청](https://www.matillion.com/lp/etl-azure-synapse-access) |
+| ![oh22 HEDDA. Io](./media/sql-data-warehouse-partner-data-integration/heddaiowhitebg-logo.png) |**oh22 HEDDA<span></span>. Io**<br>oh22의 HEDDA<span></span>. IO는 Microsoft Azure를 위해 구축된 지식 기반 데이터 품질 제품입니다. 이를 통해 기술 자료를 구축하고 이를 사용하여 데이터의 수정, 보강 및 표준화를 비롯한 다양한 중요한 데이터 품질 작업을 수행할 수 있습니다. 헤다<span></span>. 또한 IO를 사용하면 참조 데이터 공급자가 제공하거나 사용자가 개발하고 제공하는 클라우드 기반 참조 데이터 서비스를 사용하여 데이터 정리를 수행할 수 있습니다.| [제품 페이지](https://hedda.io)<br> [Azure Marketplace]( https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oh22.hedda-io) |
 | ![Qubole](./media/sql-data-warehouse-partner-data-integration/qubole_logo.png) |**Qubole**<br>Qubole는 사용자가 ETL, 분석 및 AI/ML 워크로드를 수행할 수 있는 클라우드 네이티브 플랫폼을 제공합니다. 아파치 스파크, 텐서플로우, 프레스토, 에어플로우, 하두프, 하이브 등 다양한 종류의 오픈 소스 엔진을 지원합니다. SQL 쿼리 도구에서 노트북, 강력한 오픈 소스 엔진을 활용하는 대시보드에 이르기까지 데이터 처리를 위한 사용하기 쉬운 최종 사용자 도구를 제공합니다.|[제품 페이지](https://www.qubole.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qubole-inc.qubole-data-service?tab=Overview) |
 | ![Segment](./media/sql-data-warehouse-partner-data-integration/segment_logo.png) |**Segment**<br>세그먼트는 다양한 소스에서 오는 고객 데이터를 이해하는 데 도움이 되는 데이터 관리 및 분석 솔루션입니다. 이를 통해 데이터를 200개 이상의 도구에 연결하여 더 나은 의사 결정, 제품 및 환경을 만들 수 있습니다. 세그먼트는 내장 된 데이터 커넥터를 사용하여 여러 데이터 원본을 변환하고 웨어하우스에 로드합니다.|[제품 페이지](https://segment.com/)<br> |
 | ![스카이비아](./media/sql-data-warehouse-partner-data-integration/skyvia_logo.png) |**스카이비아 (데이터 통합)**<br>Skyvia 데이터 통합은 데이터 가져오기를 자동화하는 마법사를 제공합니다. 이 마법사를 사용하면 CRM, 응용 프로그램 데이터베이스, CSV 파일 등 다양한 종류의 소스 간에 데이터를 마이그레이션할 수 있습니다. |[제품 페이지](https://skyvia.com/)<br> |

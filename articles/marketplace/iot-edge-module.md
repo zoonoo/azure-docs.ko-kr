@@ -1,18 +1,18 @@
 ---
-title: Azure IoT Edge 모듈
+title: Azure 마켓플레이스 IoT 에지 모듈
 description: 앱 및 서비스 게시자용으로 Azure Marketplace에서 제공되는 IoT Edge 모듈에 대해 설명합니다.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/22/2018
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: aadbf33914f919e393a5ec88cf6fc0a6103911b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 762d9947046f159e992f09211bfcd76ff8d6712e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286152"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684332"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge 모듈
 
@@ -58,7 +58,7 @@ IoT Edge 모듈 제품에는 Microsoft Azure Marketplace 계약 및 정책의 �
 
 IoT Edge 모듈을 Azure Marketplace에 게시하려면 다음 필수 구성 요소를 갖춰야 합니다.
 
-- CPP(Cloud 파트너 포털) 액세스 권한. 자세한 내용은 [Azure Marketplace 및 AppSource 게시 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide)를 참조하세요.
+- 파트너 센터에 액세스합니다. 자세한 내용은 [Azure Marketplace 및 AppSource 게시 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide)를 참조하세요.
 - Azure Container Registry에서 IoT Edge 모듈 호스팅 
 - 다음과 같은 IoT Edge 모듈 메타데이터 준비(아래 목록에는 일부 메타데이터만 나와 있음) 
     - 제목
@@ -71,19 +71,19 @@ IoT Edge 모듈을 Azure Marketplace에 게시하려면 다음 필수 구성 요
 
 **기술 요구 사항**
 
-IoT Edge 모듈 인증을 받고 Azure Marketplace에 모듈을 게시하기 위한 기본적인 기술 요구 사항은 [IoT Edge 모듈 기술 자산 준비](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets)에 자세히 나와 있습니다.  
+IoT Edge 모듈 인증을 받고 Azure Marketplace에 모듈을 게시하기 위한 기본적인 기술 요구 사항은 [IoT Edge 모듈 기술 자산 준비](./partner-center-portal/create-iot-edge-module-asset.md)에 자세히 나와 있습니다.
 
 ## <a name="documentation-and-resources"></a>설명서 및 리소스
 
-[IoT Edge 모듈 오퍼 생성](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) - 클라우드 게시 포털을 사용하여 새로운 IoT Edge 모듈 오퍼를 게시하는 단계입니다.
+파트너 센터에서 새로운 IoT Edge 모듈 오퍼를 게시하기 위한 단계인 [IoT Edge 모듈 오퍼 를 만듭니다.](./partner-center-portal/azure-iot-edge-module-creation.md)
 
 ## <a name="next-steps"></a>다음 단계
 
 아직 수행하지 않았다면
 
-- Marketplace에 [등록](https://azuremarketplace.microsoft.com/sell).
+- 마켓플레이스에 대해 [알아보세요.](https://azuremarketplace.microsoft.com/sell)
 
-새 제품을 등록하고 만들거나 기존에서 작업하는 경우
+파트너 센터에 등록하고 새 오퍼를 만들거나 기존 오퍼를 작성하려면
 
-- 제품을 만들거나 완성할 수 있도록 [Cloud 파트너 포털에 로그인](https://cloudpartner.azure.com/)합니다.
-- IoT Edge 모듈 제품을 게시하는 방법에 대한 정보는 [IoT Edge 모듈 제품 게시 개요](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts)를 참조하세요.
+- [파트너 센터에](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 로그인하여 쿠폰을 만들거나 완료하세요.
+- [IoT Edge 모듈 오퍼를](./partner-center-portal/azure-iot-edge-module-creation.md) 게시하는 방법에 대한 자세한 내용은 IoT Edge 모듈 오퍼 를 작성하십시오.

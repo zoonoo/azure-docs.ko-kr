@@ -3,12 +3,12 @@ title: Azure Functions에서 함수를 사용하지 않도록 설정하는 방�
 description: Azure Functions에서 기능을 사용하지 않도록 설정하고 활성화하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/05/2019
-ms.openlocfilehash: fb8edf635856078655b8640ba0e1723fdd5e8a5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11585e92e7d239731b02d06c5093f979cd65cfba
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77116152"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686896"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Azure Functions에서 함수를 사용하지 않도록 설정하는 방법
 
@@ -42,6 +42,9 @@ az functionapp config appsettings set --name <myFunctionApp> \
 함수의 **관리** 탭에서 **기능 상태** 스위치를 사용할 수도 있습니다. 스위치는 `AzureWebJobs.<FUNCTION_NAME>.Disabled` 앱 설정을 만들고 삭제하여 작동합니다.
 
 ![함수 상태 스위치](media/disable-function/function-state-switch.png)
+
+> [!NOTE]  
+> 포털 통합 테스트 기능은 `Disabled` 설정을 무시합니다. 즉, 포털의 **테스트** 창에서 시작할 때 비활성화된 함수가 계속 실행됩니다. 
 
 ## <a name="other-methods"></a>다른 방법
 
