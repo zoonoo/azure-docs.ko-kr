@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/30/2020
+ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: dd41596b6631bb63e1625325f8bec065b43881cd
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: dc57978dd881532cab59150dec921df9ffa958c3
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421392"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767205"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>비디오 인덱서 자주 묻는 질문
 
@@ -43,7 +43,7 @@ Video Indexer가 미디어 파일에서 수행할 수 있는 일부 작업은 �
 
 ### <a name="how-do-i-get-started-with-video-indexer"></a>Video Indexer를 시작하려면 어떻게 하나요?
 
-Video Indexer에는 웹 기반 인터페이스에서 600분, API를 통해 2,400분을 제공하는 평가판 제품이 포함되어 있습니다. [Video Indexer 웹 기반 인터페이스에 로그인](https://www.videoindexer.ai/)한 다음, Azure 구독을 설정할 필요 없이 웹 ID를 사용하여 직접 사용해 볼 수 있습니다. 
+Video Indexer에는 웹 기반 인터페이스에서 600분, API를 통해 2,400분을 제공하는 평가판 제품이 포함되어 있습니다. [Video Indexer 웹 기반 인터페이스에 로그인](https://www.videoindexer.ai/)한 다음, Azure 구독을 설정할 필요 없이 웹 ID를 사용하여 직접 사용해 볼 수 있습니다. [이 간편한 소개 랩을](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md) 따라 비디오 인덱서 를 사용하는 방법에 대한 더 나은 아이디어를 얻을 수 있습니다.
 
 비디오 및 오디오 파일을 대규모로 인덱싱하려면 Video Indexer를 유료 Microsoft Azure 구독에 연결할 수 있습니다. [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/) 페이지에서 가격 책정에 대한 자세한 정보를 찾을 수 있습니다.
 
@@ -61,9 +61,18 @@ Video Indexer에는 웹 기반 인터페이스에서 600분, API를 통해 2,400
 
 Video Indexer는 가장 일반적인 미디어 형식을 지원합니다. 자세한 내용은 [Azure Media Encoder Standard 형식](https://docs.microsoft.com/azure/media-services/latest/media-encoder-standard-formats) 목록을 참조하세요.
 
-### <a name="how-to-do-i-upload-a-media-into-video-indexer"></a>Video Indexer로 미디어를 어떻게 업로드하나요?
+### <a name="how-do-i-upload-a-media-file-into-video-indexer-and-what-are-the-limitations"></a>미디어 파일을 비디오 인덱서에 업로드하려면 어떻게 해야 합니까?
 
-Video Indexer 웹 기반 포털에서 파일 업로드 대화 상자를 사용하거나 소스 파일을 직접 호스트하는 URL을 가리켜 미디어 파일을 업로드할 수 있습니다([예제](https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4) 참조). iFrame 또는 embed 태그를 사용하여 미디어 콘텐츠를 호스트하는 URL은 작동하지 않습니다([예제](https://www.videoindexer.ai/accounts/7e1282e8-083c-46ab-8c20-84cae3dc289d/videos/5cfa29e152/?t=4.11) 참조). Video Indexer API를 사용하려면 URL 또는 바이트 배열을 통해 입력 파일을 지정해야 합니다. API를 사용하여 URL을 통해 업로드하는 작업은 10GB로 제한되지만 기간 제한은 없습니다. 자세한 내용은 이 [방법 가이드](https://docs.microsoft.com/azure/media-services/video-indexer/upload-index-videos)를 참조하세요.
+Video Indexer 웹 기반 포털에서 파일 업로드 대화 상자를 사용하거나 소스 파일을 직접 호스트하는 URL을 가리켜 미디어 파일을 업로드할 수 있습니다([예제](https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4) 참조). iFrame 또는 embed 태그를 사용하여 미디어 콘텐츠를 호스트하는 URL은 작동하지 않습니다([예제](https://www.videoindexer.ai/accounts/7e1282e8-083c-46ab-8c20-84cae3dc289d/videos/5cfa29e152/?t=4.11) 참조). 
+
+자세한 내용은 이 [방법 가이드](https://docs.microsoft.com/azure/media-services/video-indexer/upload-index-videos)를 참조하세요.
+
+#### <a name="limitations"></a>제한 사항
+
+* 동영상 이름은 80자를 초과할 수 없습니다.
+* 바이트 배열을 사용하여 동영상을 업로드하는 경우 동영상 크기는 2GB(URL 사용 시 30GB)로 제한됩니다. 
+
+포괄적인 목록은 고려 [사항 및 제한 사항 업로드를](upload-index-videos.md#uploading-considerations-and-limitations)참조하십시오.
 
 ### <a name="how-long-does-it-take-video-indexer-to-extract-insights-from-media"></a>Video Indexer가 미디어에서 인사이트를 추출하는 데 얼마나 소요되나요?
 
@@ -71,7 +80,7 @@ Video Indexer API 및 Video Indexer 웹 기반 인터페이스를 사용하여 �
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>사용자 지정 워크플로를 만들어 Video Indexer를 사용한 프로세스를 자동화할 수 있나요?
 
-예, Logic Apps, Flow 및 [Azure Functions](https://azure.microsoft.com/services/functions/)과 같은 서버리스 기술에 Video Indexer를 통합할 수 있습니다. [여기](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/)에서 Video Indexer용 [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 및 [Flow](https://flow.microsoft.com/en-us/) 커넥터에 대한 자세한 정보를 확인할 수 있습니다. 
+예, Logic Apps, Flow 및 [Azure Functions](https://azure.microsoft.com/services/functions/)과 같은 서버리스 기술에 Video Indexer를 통합할 수 있습니다. [여기](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/)에서 Video Indexer용 [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 및 [Flow](https://flow.microsoft.com/en-us/) 커넥터에 대한 자세한 정보를 확인할 수 있습니다. [비디오 인덱서 샘플](https://github.com/Azure-Samples/media-services-video-indexer) 리포지토리에서 파트너가 수행한 일부 자동화 프로젝트를 볼 수 있습니다.
 
 ### <a name="in-which-azure-regions-is-video-indexer-available"></a>어떤 Azure 지역에서 Video indexer를 사용할 수 있나요?
 
@@ -84,6 +93,12 @@ Video Indexer API 및 Video Indexer 웹 기반 인터페이스를 사용하여 �
 예를 들어 Person 모델은 즉시 사용할 수 있는 1,000,000개의 얼굴인식을 지원하지만 해당 데이터베이스에 없는 다른 얼굴을 인식하도록 학습할 수도 있습니다. 
 
 자세한 내용은 [사용자 지정,](customize-person-model-overview.md) [브랜드](customize-brands-model-overview.md)및 [언어](customize-language-model-overview.md) 모델에 대한 문서를 참조하세요. 
+
+###  <a name="can-i-edit-the-videos-in-my-library"></a>내 라이브러리에서 동영상을 편집할 수 있나요?
+
+예. 라이브러리 디스플레이에서 **비디오 편집** 버튼을 누르거나 플레이어 디스플레이의 **편집기** 열기 버튼을 눌러 **프로젝트** 탭으로 이동합니다. 새 프로젝트를 만들고 라이브러리에서 비디오를 더 추가하여 함께 편집할 수 있으며, 완료되면 비디오를 렌더링하고 다운로드할 수 있습니다. 
+
+새 동영상에 대한 인사이트를 얻으려면 비디오 인덱서로 색인을 생성하면 인사이트가 있는 라이브러리에 표시됩니다.
 
 ### <a name="what-is-the-sla-for-video-indexer"></a>Video Indexer에 대한 SLA는 무엇인가요?
 

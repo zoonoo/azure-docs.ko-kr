@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/28/2019
-ms.openlocfilehash: ad9b4b69b0be34c89d03b677c1889e486aae0379
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db37a56ffbf0cb64530f8f7af38841bac72c77d4
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75931687"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767544"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight를 사용하여 스크립트 작업 개발
 
@@ -159,7 +159,7 @@ hdfs dfs -put /usr/hdp/current/hadoop-client/hadoop-common.jar /example/jars/
 HDInsight는 STDOUT 및 STDERR로 작성된 스크립트 출력을 기록합니다. Ambari 웹 UI를 사용하여 이 정보를 볼 수 있습니다.
 
 > [!NOTE]  
-> Apache Ambari는 클러스터를 정상적으로 만든 경우에만 사용할 수 있습니다. 클러스터를 만드는 동안 스크립트 작업을 사용하며 만들기에 실패하는 경우 문제 해결 섹션 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) 에서 로깅된 정보에 액세스하는 다른 방법을 확인해보세요.
+> Apache Ambari는 클러스터를 정상적으로 만든 경우에만 사용할 수 있습니다. 클러스터 를 만드는 동안 스크립트 작업을 사용하고 생성에 실패한 경우 기록된 정보에 액세스하는 다른 방법에 대한 [스크립트 문제 해결 작업을](./troubleshoot-script-action.md) 참조하세요.
 
 대부분의 유틸리티 및 설치 패키지는 STDOUT 및 STDERR에 정보를 쓰지만 추가 로깅을 추가하려 할 수도 있습니다. 텍스트를 STDOUT에 보내려면 `echo`를 사용합니다. 예를 들어:
 
@@ -175,7 +175,7 @@ echo "Getting ready to install Foo"
 
 이는 STDOUT에 작성된 정보를 STDERR(2)로 대신 리디렉션합니다. IO 리디렉션에 대한 자세한 [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html)내용은 을 참조하십시오.
 
-스크립트 동작에서 기록된 정보 보기에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
+스크립트 작업으로 기록된 정보 보기에 대한 자세한 내용은 [스크립트 작업 문제 해결 을](./troubleshoot-script-action.md)참조하십시오.
 
 ### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a>LF 라인 엔딩으로 파일을 ASCII로 저장
 

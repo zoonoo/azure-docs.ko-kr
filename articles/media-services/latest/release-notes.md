@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 76ef9f92b6b6633982242ccafab1950e0ef5f410
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: b4849b4fbfdbaece46f5669f4c242e864b1ca533
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582792"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769762"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -35,7 +35,13 @@ ms.locfileid: "80582792"
 > [Azure Portal](https://portal.azure.com/)을 사용하여 v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리하고, v3 [자산](assets-concept.md)을 보고, API 액세스에 대한 정보를 가져올 수 있습니다. 다른 모든 관리 작업(예제: 변환 및 작업)의 경우 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.
 
 자세한 내용은 [Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침](migrate-from-v2-to-v3.md#known-issues)을 참조하세요.
- 
+
+## <a name="april-2020"></a>2020년 4월
+
+### <a name="improvements-in-documentation"></a>문서 개선
+
+Azure Media Player 문서가 Azure [설명서로](../azure-media-player/azure-media-player-overview.md)마이그레이션되었습니다.
+
 ## <a name="january-2020"></a>2020년 1월
 
 ### <a name="improvements-in-media-processors"></a>미디어 프로세서 개선
@@ -54,7 +60,7 @@ ms.locfileid: "80582792"
 |HTTP 헤더|값|보낸 사람|받는 사람|목적|
 | ---- | ---- | ---- | ---- | ----- |
 |CDN-오리진 어시스트-프리페치 지원 | 1(기본값) 또는 0 |CDN|원본|CDN이 프리페치가 활성화되었음을 나타내려면|
-|CDN-오리진 어시스트-프리페치-패스| 예제: <br/>조각(비디오=14000000000,포맷=mpd 시간-cmaf)|원본|CDN|CDN에 프리페치 경로를 제공하려면|
+|CDN-오리진 어시스트-프리페치-패스| 예: <br/>조각(비디오=14000000000,포맷=mpd 시간-cmaf)|원본|CDN|CDN에 프리페치 경로를 제공하려면|
 |CDN-오리진-어시스트-프리페치-요청|1 (프리페치 요청) 또는 0(일반 요청)|CDN|원본|CDN의 요청이 프리페치임을 나타냅니다.|
 
 헤더 교환의 일부를 확인하려면 다음 단계를 시도해 볼 수 있습니다.
@@ -361,4 +367,5 @@ Media Services v3 CLI 또는 API를 통해 9월 28일에서 10월 12일 사이�
 ## <a name="next-steps"></a>다음 단계
 
 - [개요](media-services-overview.md)
+- [미디어 서비스 v3 문서 업데이트](docs-release-notes.md)
 - [미디어 서비스 v2 릴리스 정보](../previous/media-services-release-notes.md)

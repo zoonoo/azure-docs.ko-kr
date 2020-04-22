@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 8fe9e551a4ca7dea8f53e0f8c2975ca3d88c48f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b25e9d860f118c1b044b13e01a80aaf7a24963cf
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366260"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768238"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 사용자 지정 Apache Hadoop 애플리케이션 설치
 
@@ -77,7 +77,7 @@ Azure 포털에서 애플리케이션 상태를 확인하여 애플리케이션 
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 응용 프로그램을 설치한 클러스터를 선택합니다.
 1. **설정** 메뉴에서 **응용 프로그램을 선택합니다.**
 1. 목록에서 **색조를** 선택하여 속성을 봅니다.  
@@ -119,13 +119,13 @@ Azure 포털에서 애플리케이션 상태를 확인하여 애플리케이션 
 
 * 아파치 암바리 웹 UI: 설치 스크립트가 실패의 원인인 경우 Ambari 웹 UI를 사용하여 설치 스크립트에 대한 전체 로그를 확인합니다.
 
-    자세한 내용은 [문제 해결](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)을 참조하세요.
+    자세한 내용은 [스크립트 작업 문제 해결을](./troubleshoot-script-action.md)참조하십시오.
 
 ## <a name="remove-hdinsight-applications"></a>HDInsight 애플리케이션 제거
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 응용 프로그램을 설치한 클러스터를 선택합니다.
 1. **설정** 메뉴에서 **응용 프로그램을 선택합니다.**
 1. 제거할 응용 프로그램을 마우스 오른쪽 단추로 클릭한 다음 **삭제를**선택합니다.

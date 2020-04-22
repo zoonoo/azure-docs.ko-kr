@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
-ms.openlocfilehash: a5f6ac76d509a0a63c2d641f91cd91cdb2e0d19d
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 88392e4e61c28d4fe821c8176242246d10e52b23
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313817"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770889"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 
@@ -94,7 +94,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |속성 |설명 |
 |---|---|
 |엔터프라이즈 보안 패키지|선택 사항: **엔터프라이즈 보안 패키지를**사용하려면 확인란을 선택합니다. 자세한 내용은 [Azure Active Directory 도메인 서비스를 사용하여 엔터프라이즈 보안 패키지를 사용하여 HDInsight 클러스터 구성을](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)참조하십시오.|
-|TLS|선택 사항: 드롭다운 목록에서 TLS 버전을 선택합니다. 자세한 내용은 [전송 계층 보안](./hdinsight-plan-virtual-network-deployment.md#transport-layer-security)을 참조하십시오.|
+|TLS|선택 사항: 드롭다운 목록에서 TLS 버전을 선택합니다. 자세한 내용은 [전송 계층 보안](./transport-layer-security.md)을 참조하십시오.|
 |가상 네트워크|선택 사항: 드롭다운 목록에서 기존 가상 네트워크 및 서브넷을 선택합니다. 자세한 내용은 [Azure HDInsight 클러스터에 대한 가상 네트워크 배포 계획을](hdinsight-plan-virtual-network-deployment.md)참조하십시오. 이 문서에는 가상 네트워크에 대한 특정 구성 요구 사항이 포함되어 있습니다.|
 |디스크 암호화 설정|선택 사항: 암호화를 사용할 확인란을 선택합니다. 자세한 내용은 [고객이 관리하는 키 디스크 암호화](./disk-encryption.md)를 참조하십시오.|
 |Kafka REST 프록시|이 설정은 클러스터 유형 Kafka에서만 사용할 수 있습니다. 자세한 내용은 [REST 프록시 사용을](./kafka/rest-proxy.md)참조하십시오.|

@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/16/2020
+ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: ''
-ms.openlocfilehash: e803da238ebdd728e772a15b0f29ae36d401a699
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: c19471fee9235faffba12a12d9f92de77f60fd4d
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536406"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770514"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Microsoft Azure에서 실행되는 SAP 인증 및 구성
 
@@ -68,3 +68,4 @@ Microsoft Azure는 다음과 같은 SAP 제품에서 인증되었고 Microsoft�
 | SAP 하이브리스 커머스 플랫폼  | Windows | SQL Server, Oracle | 모든 NetWeaver 인증 VM 유형 <br /> [Hybris Wiki](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud) |
 | SAP 하이브리스 커머스 플랫폼  | SLES 12 이상 최근 | SAP HANA | 모든 NetWeaver 인증 VM 유형 <br /> [Hybris Wiki](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud) |
 | SAP 하이브리스 커머스 플랫폼  | RHEL 7 이상 최근 | SAP HANA | 모든 NetWeaver 인증 VM 유형 <br /> [Hybris Wiki](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud) |
+| SAP (하이브리스) 상거래 플랫폼 1811 이상  | 창, SLES 또는 RHEL | SQL Azure DB | 모든 NetWeaver 인증 VM 유형 <br /> [하이브리스 문서](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1811/en-US/8c71300f866910149b40c88dfc0de431.html) |

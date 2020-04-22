@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/16/2020
+ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 56341affee721b3ee6676da401e03dbbca84e597
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 0cfc66789360f78c927dd157305074ed5ea6f32a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538242"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768450"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Azure 배포에 지원되는 SAP 소프트웨어
 이 문서에서는 Azure 배포에 지원되는 SAP 소프트웨어와 필요한 운영 체제 릴리스 또는 DBMS 릴리스에 대해 설명하는 방법을 설명합니다.
@@ -139,6 +139,7 @@ Azure에서 SAP Hybris 상거래 플랫폼에 대한 지원은 [Hybris 위키에
 
 - Windows 운영 체제 플랫폼에서 SQL 서버 및 오라클. SAP NetWeaver와 동일한 최소 릴리스가 적용됩니다. 자세한 내용은 [SAP 지원 #1928533](https://launchpad.support.sap.com/#/notes/1928533) 참조
 - 레드 햇과 수즈 리눅스에 SAP HANA. SAP HANA 인증 VM 유형은 [이 문서의](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#sap-hana-support)앞에서 설명한 대로 필요합니다. SAP(하이브리스) 커머스 플랫폼은 OLTP 워크로드로 간주됩니다.
+- Sql Azure DB SAP(하이브리스) 상거래 플랫폼 버전 1811
 
 
 

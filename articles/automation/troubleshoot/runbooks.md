@@ -1,5 +1,5 @@
 ---
-title: Azure Automation Runbook을 사용하여 오류 해결
+title: Azure 자동화 Runbook 오류 문제 해결
 description: Azure 자동화 실행책에서 발생할 수 있는 문제를 해결하고 해결하는 방법을 알아봅니다.
 services: automation
 author: mgoedtel
@@ -8,16 +8,23 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 26c5c5b31d5f3f9e1a642c0bafb947190e479055
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 5ed25821f606b98bacf2acf3c2c389a8437406fa
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632622"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770914"
 ---
-# <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
+# <a name="troubleshoot-runbook-errors"></a>Runbook 오류 문제 해결
 
-Azure 자동화에서 Runbook을 실행하는 오류가 있는 경우 다음 단계를 사용하여 문제를 진단할 수 있습니다.
+ 이 문서에서는 발생할 수 있는 다양한 Runbook 오류와 이를 해결하는 방법에 대해 설명합니다.
+
+>[!NOTE]
+>이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. 하이브리드 Runbook 작업자의 Az 모듈 설치 지침은 [Azure PowerShell 모듈 설치를](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)참조하십시오. 자동화 계정의 경우 Azure 자동화 에서 [Azure PowerShell 모듈을 업데이트하는 방법을](../automation-update-azure-modules.md)사용하여 모듈을 최신 버전으로 업데이트할 수 있습니다.
+
+## <a name="diagnosing-runbook-issues"></a>Runbook 문제 진단
+
+Azure Automation에서 Runbook 을 실행하는 동안 오류가 발생하면 다음 단계를 사용하여 문제를 진단할 수 있습니다.
 
 1. **Runbook 스크립트가 로컬 컴퓨터에서 성공적으로 실행되는지 확인합니다.** 
 
@@ -67,25 +74,32 @@ Run Login-AzureRMAccount to login.
 다른 구독의 리소스에 액세스하려는 경우 아래 단계에 따라 권한을 구성할 수 있습니다.
 
 1. 자동화 실행 계정으로 이동하여 응용 프로그램 ID와 지문을 복사합니다.
-  ![응용 프로그램 ID 및 지문 복사](../media/troubleshoot-runbooks/collect-app-id.png)
+
+    ![아이디와 지문 복사](../media/troubleshoot-runbooks/collect-app-id.png)
+
 1. 자동화 계정이 호스팅되지 않는 구독의 액세스 제어로 이동하여 새 역할 할당을 추가합니다.
-  ![액세스 제어](../media/troubleshoot-runbooks/access-control.png)
+
+    ![Access Control](../media/troubleshoot-runbooks/access-control.png)
+
 1. 이전에 수집한 응용 프로그램 ID를 추가합니다. 기고자 권한을 선택합니다.
-   ![역할 할당 추가](../media/troubleshoot-runbooks/add-role-assignment.png)
+
+    ![역할 할당 추가](../media/troubleshoot-runbooks/add-role-assignment.png)
+
 1. 구독 이름을 복사합니다.
-1. 이제 다음 Runbook 코드를 사용하여 자동화 계정에서 다른 구독으로의 사용 권한을 테스트할 수 있습니다. 1단계에서 복사한 값으로 바꿉습니다. `"\<CertificateThumbprint\>"` 4단계에서 복사한 값으로 바꿉습니다. `"\<SubscriptionName\>"`
+
+1. 이제 다음 Runbook 코드를 사용하여 자동화 계정에서 다른 구독으로의 사용 권한을 테스트할 수 있습니다. 1단계에서 복사된 값으로 바꿉습니다. `"\<CertificateThumbprint\>"` 4단계에서 복사된 값으로 바꿉습니다. `"\<SubscriptionName\>"`
 
     ```powershell
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint "<CertificateThumbprint>"
+    Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint "<CertificateThumbprint>"
     #Select the subscription you want to work with
-    Select-AzureRmSubscription -SubscriptionName '<YourSubscriptionNameGoesHere>'
+    Select-AzSubscription -SubscriptionName '<YourSubscriptionNameGoesHere>'
 
     #Test and get outputs of the subscriptions you granted access.
-    $subscriptions = Get-AzureRmSubscription
+    $subscriptions = Get-AzSubscription
     foreach($subscription in $subscriptions)
     {
-        Set-AzureRmContext $subscription
+        Set-AzContext $subscription
         Write-Output $subscription.Name
     }
     ```
@@ -94,7 +108,7 @@ Run Login-AzureRMAccount to login.
 
 ### <a name="issue"></a>문제
 
-`Select-AzureSubscription` 또는 `Select-AzureRmSubscription` cmdlet으로 작업할 때 다음과 같은 오류가 발생합니다.
+`Select-AzureSubscription`에서 `Select-AzureRMSubscription`또는 `Select-AzSubscription` cmdlet로 작업할 때 다음과 같은 오류가 발생합니다.
 
 ```error
 The subscription named <subscription name> cannot be found.
@@ -106,25 +120,26 @@ The subscription named <subscription name> cannot be found.
 
 * 구독 이름이 잘못되었습니다.
 * 구독 세부 정보를 얻으려고 하는 Azure Active Directory 사용자는 구독관리자로 구성되지 않습니다.
+* cmdlet은 사용할 수 없습니다.
 
 ### <a name="resolution"></a>해결 방법
 
 아래 단계에 따라 Azure에 인증했는지 확인하고 선택하려는 구독에 액세스할 수 있는지 확인합니다.
 
 1. 스크립트가 독립 실행형으로 작동하는지 확인하려면 Azure Automation 외부에서 테스트합니다.
-2. cmdlet을 실행하기 `Add-AzureAccount` 전에 스크립트가 `Select-AzureSubscription` cmdlet을 실행했는지 확인합니다.
-3. Runbook의 시작 부분에 `Disable-AzureRmContextAutosave –Scope Process`를 추가합니다. 이 cmdlet 호출은 모든 자격 증명이 현재 Runbook의 실행에만 적용되도록 합니다.
-4. 이 오류 메시지가 계속 표시되면 `AzureRmContext` `Add-AzureAccount` cmdlet에 대한 매개 변수를 추가하여 코드를 수정한 다음 코드를 실행합니다.
+2. cmdlet을 실행하기 전에 스크립트가 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) cmdlet을 `Select-*` 실행했는지 확인합니다.
+3. Runbook의 시작 부분에 `Disable-AzContextAutosave –Scope Process`를 추가합니다. 이 cmdlet 호출은 모든 자격 증명이 현재 Runbook의 실행에만 적용되도록 합니다.
+4. 이 오류 메시지가 계속 표시되면 에 대한 `AzContext` `Connect-AzAccount`매개 변수를 추가하여 코드를 수정한 다음 코드를 실행합니다.
 
    ```powershell
-   Disable-AzureRmContextAutosave –Scope Process
+   Disable-AzContextAutosave –Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
-   $context = Get-AzureRmContext
+   $context = Get-AzContext
 
-   Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
+   Get-AzVM -ResourceGroupName myResourceGroup -AzContext $context
     ```
 
 ## <a name="scenario-authentication-to-azure-failed-because-multi-factor-authentication-is-enabled"></a><a name="auth-failed-mfa"></a>시나리오: Multi-Factor Authentication이 활성화되어 Azure 인증에 실패
@@ -152,15 +167,15 @@ Azure 클래식 배포 모델 cmdlet이 있는 인증서를 사용하려면 [Azu
 Runbook에 대한 작업 스트림에 다음과 같은 오류가 표시됩니다.
 
 ```error
-Connect-AzureRMAccount : Method 'get_SerializationSettings' in type
+Connect-AzAccount : Method 'get_SerializationSettings' in type
 'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly
 'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
 does not have an implementation.
 At line:16 char:1
-+ Connect-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
++ Connect-AZAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (:) [Connect-AzureRmAccount], TypeLoadException
-    + FullyQualifiedErrorId : System.TypeLoadException,Microsoft.Azure.Commands.Profile.ConnectAzureRmAccountCommand
+    + CategoryInfo          : NotSpecified: (:) [Connect-AzAccount], TypeLoadException
+    + FullyQualifiedErrorId : System.TypeLoadException,Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand
 ```
 
 ### <a name="cause"></a>원인
@@ -169,7 +184,7 @@ At line:16 char:1
 
 ### <a name="resolution"></a>해결 방법
 
-Az 및 AzureRM cmdlet을 가져오고 동일한 Runbook에서 사용할 수 없습니다. Azure 자동화의 Az cmdlet에 대한 자세한 내용은 [Azure 자동화의 Az 모듈 지원을](../az-modules.md)참조하십시오.
+Az 및 AzureRM cmdlet을 가져오고 동일한 Runbook에서 사용할 수 없습니다. Azure 자동화의 Az cmdlet에 대해 자세히 알아보려면 [Azure 자동화의 모듈 관리를](../shared-resources/modules.md)참조하십시오.
 
 ## <a name="scenario-the-runbook-fails-with-the-error-a-task-was-canceled"></a><a name="task-was-cancelled"></a>시나리오: 다음 오류로 인해 Runbook이 실패합니다. 작업이 취소됨
 
@@ -210,26 +225,26 @@ Runbook이 여러 Runbook을 호출할 때 구독 컨텍스트가 손실될 수 
 
 ```azurepowershell-interactive
 # Ensures that any credentials apply only to the execution of this runbook
-Disable-AzureRmContextAutosave –Scope Process
+Disable-AzContextAutosave –Scope Process
 
 # Connect to Azure with Run As account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
-Add-AzureRmAccount `
+Connect-AzAccount `
     -ServicePrincipal `
-    -TenantId $ServicePrincipalConnection.TenantId `
+    -Tenant $ServicePrincipalConnection.TenantId `
     -ApplicationId $ServicePrincipalConnection.ApplicationId `
     -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
 
-$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+$AzContext = Select-AzSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
 
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
 
-Start-AzureRmAutomationRunbook `
+Start-AzAutomationRunbook `
     –AutomationAccountName 'MyAutomationAccount' `
     –Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
-    -AzureRmContext $AzureContext `
+    -AzContext $AzureContext `
     –Parameters $params –wait
 ```
 
@@ -240,7 +255,7 @@ Start-AzureRmAutomationRunbook `
 다음 예제와 비슷한 오류가 발생하여 Runbook이 실패합니다.
 
 ```error
-The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if the path was included verify that the path is correct and try again.
+The term 'Connect-AzAccount' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if the path was included verify that the path is correct and try again.
 ```
 
 ### <a name="cause"></a>원인
@@ -298,7 +313,7 @@ The job was tried three times but it failed
 
 ### <a name="issue"></a>문제
 
-`Add-AzureAccount` 또는 `Connect-AzureRmAccount` cmdlet으로 작업할 때 다음 오류 중 하나가 발생합니다.
+`Connect-AzAccount` cmdlet으로 작업할 때 다음 오류 중 하나가 표시됩니다.
 
 ```error
 Unknown_user_type: Unknown User Type
@@ -324,7 +339,7 @@ No certificate was found in the certificate store with thumbprint
    #Using Azure Service Management
    Add-AzureAccount –Credential $Cred
    #Using Azure Resource Manager
-   Connect-AzureRmAccount –Credential $Cred
+   Connect-AzAccount –Credential $Cred
    ```
 
 3. 인증이 로컬에서 실패하면 Azure Active Directory 자격 증명을 제대로 설정하지 않은 것입니다. Azure Active Directory 블로그 게시물을 [사용하여 Azure에 대한 인증을](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) 참조하여 Azure Active Directory 계정을 올바르게 설정합니다.
@@ -343,9 +358,9 @@ No certificate was found in the certificate store with thumbprint
    {
        $LogonAttempt++
        #Logging in to Azure...
-       $connectionResult = Connect-AzureRmAccount `
+       $connectionResult = Connect-AzAccount `
                               -ServicePrincipal `
-                              -TenantId $servicePrincipalConnection.TenantId `
+                              -Tenant $servicePrincipalConnection.TenantId `
                               -ApplicationId $servicePrincipalConnection.ApplicationId `
                               -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint
 
@@ -365,11 +380,11 @@ Object reference not set to an instance of an object
 
 ### <a name="cause"></a>원인
 
-`Start-AzureRmAutomationRunbook`스트림에 개체가 포함된 경우 Output 스트림을 올바르게 처리하지 않습니다.
+`Start-AzAutomationRunbook`스트림에 개체가 포함된 경우 Output 스트림을 올바르게 처리하지 않습니다.
 
 ### <a name="resolution"></a>해결 방법
 
-폴링 논리를 구현하고 [Get-AzureRmAutomationJobOutput](/powershell/module/azurerm.automation/get-azurermautomationjoboutput) cmdlet을 사용하여 출력을 검색하는 것이 좋습니다. 이 논리의 샘플은 아래에 정의되어 있습니다.
+폴링 논리를 구현하고 [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) cmdlet을 사용하여 출력을 검색하는 것이 좋습니다. 이 논리의 샘플은 아래에 정의되어 있습니다.
 
 ```powershell
 $automationAccountName = "ContosoAutomationAccount"
@@ -380,17 +395,17 @@ function IsJobTerminalState([string] $status) {
     return $status -eq "Completed" -or $status -eq "Failed" -or $status -eq "Stopped" -or $status -eq "Suspended"
 }
 
-$job = Start-AzureRmAutomationRunbook -AutomationAccountName $automationAccountName -Name $runbookName -ResourceGroupName $resourceGroupName
+$job = Start-AzAutomationRunbook -AutomationAccountName $automationAccountName -Name $runbookName -ResourceGroupName $resourceGroupName
 $pollingSeconds = 5
 $maxTimeout = 10800
 $waitTime = 0
 while((IsJobTerminalState $job.Status) -eq $false -and $waitTime -lt $maxTimeout) {
    Start-Sleep -Seconds $pollingSeconds
    $waitTime += $pollingSeconds
-   $job = $job | Get-AzureRmAutomationJob
+   $job = $job | Get-AzAutomationJob
 }
 
-$jobResults | Get-AzureRmAutomationJobOutput | Get-AzureRmAutomationJobOutputRecord | Select-Object -ExpandProperty Value
+$jobResults | Get-AzAutomationJobOutput | Get-AzAutomationJobOutputRecord | Select-Object -ExpandProperty Value
 ```
 
 ## <a name="scenario-runbook-fails-because-of-deserialized-object"></a><a name="fails-deserialized-object"></a>시나리오: 역직렬화된 개체로 인해 Runbook 실패
@@ -487,9 +502,9 @@ Runbook은 Azure 샌드박스에서 공정한 공유로 허용되는 3시간 제
 
 자식 Runbook 시나리오를 사용하도록 설정하는 PowerShell cmdlet은 다음과 같습니다.
 
-* [시작-AzureRM 자동화Runbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook). 이 cmdlet을 사용하면 Runbook을 시작하고 매개 변수를 Runbook에 전달할 수 있습니다.
+* [시작-아즈오토메이션런북](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0). 이 cmdlet을 사용하면 Runbook을 시작하고 매개 변수를 Runbook에 전달할 수 있습니다.
 
-* [Get-AzureRm 자동화 작업](/powershell/module/azurerm.automation/get-azurermautomationjob). 자식 Runbook이 완료된 후 수행해야 하는 작업이 있는 경우 이 cmdlet을 사용하면 각 자식의 작업 상태를 확인할 수 있습니다.
+* [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0). 자식 Runbook이 완료된 후 수행해야 하는 작업이 있는 경우 이 cmdlet을 사용하면 각 자식의 작업 상태를 확인할 수 있습니다.
 
 ## <a name="scenario-status-400-bad-request-when-calling-a-webhook"></a><a name="expired webhook"></a>시나리오: 상태: 웹후크를 호출할 때 400 개의 잘못된 요청
 
@@ -513,7 +528,7 @@ webhook가 비활성화된 경우Azure Portal을 통해 webhook를 다시 활성
 
 ### <a name="issue"></a>문제
 
-`Get-AzureRmAutomationJobOutput` cmdlet을 실행할 때 다음 오류 메시지가 나타납니다.
+`Get-AzAutomationJobOutput` cmdlet을 실행할 때 다음 오류 메시지가 나타납니다.
 
 ```error
 429: The request rate is currently too large. Please try again
@@ -529,7 +544,7 @@ webhook가 비활성화된 경우Azure Portal을 통해 webhook를 다시 활성
 
 * Runbook을 편집하고 내보내는 작업 스트림 수를 줄입니다.
 
-* cmdlet을 실행할 때 검색할 스트림 수를 줄입니다. 이렇게 하려면 `Stream` `Get-AzureRmAutomationJobOutput` cmdlet에 대한 매개 변수 값을 설정하여 출력 스트림만 검색할 수 있습니다. 
+* cmdlet을 실행할 때 검색할 스트림 수를 줄입니다. 이렇게 하려면 [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) `Stream` cmdlet에 대한 매개 변수 값을 설정하여 출력 스트림만 검색할 수 있습니다. 
 
 ## <a name="scenario-powershell-job-fails-with-error-cannot-invoke-method"></a><a name="cannot-invoke-method"></a>시나리오: PowerShell 작업이 오류로 실패: 메서드를 호출할 수 없음
 
@@ -549,7 +564,7 @@ Exception was thrown - Cannot invoke method. Method invocation is supported only
 
 이 오류를 해결하는 방법에는 두 가지가 있습니다.
 
-* 을 사용하는 `Start-Job`대신 `Start-AzureRmAutomationRunbook` Runbook을 시작하는 데 사용합니다.
+* [시작 작업을](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/start-job?view=powershell-7)사용하는 대신 [시작-AzAutomationRunbook을](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) 사용하여 Runbook을 시작합니다.
 * 하이브리드 Runbook 작업자에서 Runbook을 실행해 보십시오.
 
 이 동작 및 Azure 자동화 Runbook의 다른 동작에 대해 자세히 알아보려면 [Runbook 동작을](../automation-runbook-execution.md#runbook-behavior)참조하십시오.
@@ -594,6 +609,33 @@ cmdlet이 표준 출력에 전체 개체를 작성하지 않도록 스크립트�
 $SomeVariable = add-pnplistitem ....
 if ($SomeVariable.someproperty -eq ....
 ```
+
+## <a name="scenario-invalid-status-code-forbidden-when-using-key-vault-inside-a-runbook"></a>시나리오: Runbook 내에서 키 볼트를 사용할 때 잘못된 상태 코드 "금지됨"
+
+### <a name="issue"></a>문제
+
+Azure 자동화 실행책을 통해 키 볼트에 액세스하려고 할 때 다음과 같은 오류가 발생합니다.
+
+```error
+Operation returned an invalid status code 'Forbidden' 
+```
+
+### <a name="cause"></a>원인
+
+이 문제의 가능한 원인:
+
+* 실행 계정을 사용하지 않습니다.
+* 사용 권한 부족
+
+### <a name="resolution"></a>해결 방법
+
+#### <a name="not-using-run-as-account"></a>계정으로 실행을 사용하지 않음
+
+[5단계 - 인증 추가를 통해 Azure 리소스를 관리하여](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) Run As 계정을 사용하여 키 자격 증명 모음에 액세스하고 있는지 확인합니다. 
+
+#### <a name="insufficient-permissions"></a>권한 부족
+
+[키 자격 증명 모음에 대한 사용 권한 추가의](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) 단계를 수행하여 Run As 계정에 키 자격 증명 모음에 액세스할 수 있는 충분한 권한이 있는지 확인합니다. 
 
 ## <a name="my-problem-isnt-listed-above"></a><a name="other"></a>위 목록에 없는 문제가 발생함
 

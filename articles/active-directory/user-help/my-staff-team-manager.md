@@ -13,12 +13,12 @@ ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: c5804d9e386ff1b17c08fc4ce4f3a232ebe1a39b
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 29c27c876e90bce6a38226f68adf44a26465cfea
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81394437"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770863"
 ---
 # <a name="delegate-user-management-with-my-staff-preview"></a>내 직원을 통해 사용자 관리 위임(미리 보기)
 
@@ -30,7 +30,7 @@ ms.locfileid: "81394437"
 
 둘 이상의 위치를 관리하는 경우 내 직원으로 이동하면 위치에 할당된 팀 멤버를 볼 위치를 선택해야 합니다.
 
-아직 내 직원에 액세스할 수 있는 충분한 권한이 없는 경우 "죄송합니다, 현재 내 직원을 볼 권한이 없는 것 같습니다. 자세한 내용은 관리자에게 문의하십시오."
+아직 내 직원에 액세스할 수 있는 충분한 권한이 없는 경우 "죄송합니다, 현재 내 직원을 볼 수 있는 권한이 없는 것 같습니다. 자세한 내용은 관리자에게 문의하십시오."
 
 ### <a name="find-a-staff-member-in-my-staff"></a>내 직원의 직원 찾기
 

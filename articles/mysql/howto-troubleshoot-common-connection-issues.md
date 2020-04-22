@@ -2,17 +2,17 @@
 title: 연결 문제 해결 - MySQL용 Azure 데이터베이스
 description: 재시도가 필요한 일시적인 오류, 방화벽 문제 및 중단을 포함하여 MySQL용 Azure 데이터베이스에 대한 연결 문제를 해결하는 방법을 알아봅니다.
 keywords: MySQL 연결, 연결 문자열, 연결 문제, 일시적 오류, 연결 오류
-author: jan-eng
-ms.author: janeng
+author: jasonwhowell
+ms.author: jasonh
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: a68f351276c47f623728a279ad551744c61b6d14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b22d47d177c4606396b0c8b2279301121c905ca2
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063222"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768282"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Azure Database for MySQL에 대한 연결 문제 해결
 

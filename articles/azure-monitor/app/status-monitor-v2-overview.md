@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 4042fc05f278915fe72bf8fc4e6afd69a5bbb4b9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 626a8c96fdc247db174e2cbcd2e5c99cec43d2ea
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537426"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770960"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>온-프레미스 서버에 Azure 모니터 응용 프로그램 인사이트 에이전트 배포
 
@@ -36,14 +36,14 @@ ms.locfileid: "81537426"
 - 시작하는 방법에 대한 [자세한 지침을](status-monitor-v2-detailed-instructions.md) 참조하십시오.
 
 ## <a name="powershell-api-reference"></a>파워쉘 API 참조
-- [비활성화-애플리케이션 인사이트모니터링](status-monitor-v2-api-disable-monitoring.md)
-- [비활성화 계측엔진](status-monitor-v2-api-disable-instrumentation-engine.md)
-- [애플리케이션 인사이트 모니터링 지원](status-monitor-v2-api-enable-monitoring.md)
-- [인에이블 계측 엔진](status-monitor-v2-api-enable-instrumentation-engine.md)
-- [응용 프로그램 인사이트 모니터링구성](status-monitor-v2-api-get-config.md)
-- [응용 프로그램 인사이트 모니터링 상태 얻기](status-monitor-v2-api-get-status.md)
-- [설정 응용 프로그램 인사이트모니터링구성](status-monitor-v2-api-set-config.md)
-- [시작-응용 프로그램 인사이트모니터링추적](status-monitor-v2-api-start-trace.md)
+- [비활성화-애플리케이션 인사이트모니터링](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#disable-applicationinsightsmonitoring)
+- [비활성화 계측엔진](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#disable-instrumentationengine)
+- [애플리케이션 인사이트 모니터링 지원](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-applicationinsightsmonitoring)
+- [인에이블 계측 엔진](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-instrumentationengine)
+- [응용 프로그램 인사이트 모니터링구성](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringconfig)
+- [응용 프로그램 인사이트 모니터링 상태 얻기](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringstatus)
+- [설정 응용 프로그램 인사이트모니터링구성](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#set-applicationinsightsmonitoringconfig)
+- [시작-응용 프로그램 인사이트모니터링추적](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#start-applicationinsightsmonitoringtrace)
 
 ## <a name="troubleshooting"></a>문제 해결
 - [문제 해결](status-monitor-v2-troubleshoot.md)
@@ -64,7 +64,7 @@ ms.locfileid: "81537426"
 
 - 사용 설정이 성공했는지 확인하려면 어떻게 해야 합니까?
 
-  - [응용 프로그램 인사이트 모니터링 상태](status-monitor-v2-api-get-status.md) cmdlet을 사용하여 인에이블먼트가 성공했는지 확인할 수 있습니다.
+  - [응용 프로그램 인사이트 모니터링 상태](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringstatus) cmdlet을 사용하여 인에이블먼트가 성공했는지 확인할 수 있습니다.
   - [라이브 메트릭을](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) 사용하여 앱이 원격 분석을 보내는지 빠르게 확인하는 것이 좋습니다.
 
   - [Log Analytics를](../log-query/get-started-portal.md) 사용하여 현재 원격 분석을 보내는 모든 클라우드 역할을 나열할 수도 있습니다.

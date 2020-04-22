@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1054328216d0517b3f450ba4fe08f3bef32d68f7
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 645baf9102785d223fd1f23ae52a4609725f795b
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81431723"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770802"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Azure 시냅스 분석에서 SQL 온디맨드(미리 보기)를 사용하여 JSON 파일 쿼리
 
@@ -145,4 +145,4 @@ WHERE
 이 시리즈의 다음 문서에서는 다음 방법을 보여 줍니다.
 
 - [폴더 및 여러 파일 쿼리](query-folders-multiple-csv-files.md)
-- [뷰를 만들고 사용합니다.](create-use-views.md)
+- [보기 만들기 및 사용](create-use-views.md)

@@ -1,45 +1,46 @@
 ---
-title: HTTPS 엔드포인트 | Azure 마켓플레이스
-description: HTTPS 엔드포인트에 대한 잠재 고객 관리 구성
+title: HTTPS 엔드포인트를 사용하여 잠재 고객 관리 구성 | Azure 마켓플레이스
+description: HTTP 끝점을 사용하여 Microsoft AppSource 및 Azure 마켓플레이스 잠재 고객을 처리하는 방법을 알아봅니다.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/24/2018
+ms.date: 04/21/2020
 ms.author: dsindona
-ms.openlocfilehash: cb6ef173e97a7c2bbd7d7cad5e5074b1f2d0f066
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f56cc5aaad7d77ff8dc753115ef1becb08ddde73
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288600"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770155"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>HTTPS 엔드포인트를 사용하여 잠개 고객 관리 구성
 
-HTTPS 엔드포인트를 사용하여 Azure Marketplace 및 AppSource 잠재 고객을 처리할 수 있습니다. 이러한 잠재 고객은 CRM(고객 관계 관리) 시스템에 기록하거나 이메일 알림으로 보낼 수 있습니다. 이 문서에서는 [Microsoft Flow](https://powerapps.microsoft.com/automate-processes/) 자동화 서비스를 사용하여 잠재 고객 관리를 구성하는 방법을 설명합니다.
+HTTPS 끝점을 사용하여 Microsoft AppSource 및 Azure 마켓플레이스 잠재 고객을 처리할 수 있습니다. 이러한 잠재 고객은 CRM(고객 관계 관리) 시스템에 기록하거나 전자 메일 알림으로 보낼 수 있습니다. 이 문서에서는 [Microsoft Power 자동화](https://powerapps.microsoft.com/automate-processes/) 서비스를 사용하여 잠재 고객 관리를 구성하는 방법을 설명합니다.
 
-## <a name="create-a-flow-using-microsoft-flow"></a>Microsoft Flow를 사용하여 흐름 만들기
+## <a name="create-a-flow-using-microsoft-power-automate"></a>마이크로소프트 파워 자동화를 사용 하 여 흐름 만들기
 
-1. [Flow](https://flow.microsoft.com/) 웹 페이지를 엽니다. **로그인**을 선택하거나 **무료 등록**을 선택하여 무료 Flow 계정을 만듭니다.
+1. 전원 [자동 자동화](https://flow.microsoft.com/) 웹 페이지를 엽니다. **로그인**을 선택하거나 **무료 등록**을 선택하여 무료 Flow 계정을 만듭니다.
 
-2. 로그인하고 메뉴 모음에서 **내 흐름**을 선택합니다.
+1. 로그인하고 메뉴 모음에서 **내 흐름**을 선택합니다.
+    > [!div class="mx-imgBorder"]
+    > ![내 흐름](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows.png)
 
-    ![내 흐름](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows.png)
+1. **[아래] [** **공백에서 + 인스턴트-를**선택한다.
+    > [!div class="mx-imgBorder"]
+    > ![빈 페이지에서 만들기](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-create-fromblank.png)
 
-3. **+빈 페이지에서 만들기**를 선택합니다.
+1. 흐름 이름을 지정한 다음 **이 흐름을 트리거하는 방법 선택에서** **HTTP 요청이 수신된 경우**를 선택합니다.
 
-    ![빈 페이지에서 만들기](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-create-fromblank.png)
+    > [!div class="mx-imgBorder"]
+    > ![HTTP 요청을 받은 트리거 선택](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
 
-4. **빈 페이지에서 만들기**를 선택합니다.
+1. 흐름 단계를 클릭하여 확장합니다.
 
-    ![빈 페이지에서 만들기](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-create-fromblank2.png)
+    > [!div class="mx-imgBorder"]
+    > ![유동 단계 확장](./media/cloud-partner-portal-lead-management-instructions-https/expand-flow-step.png)
 
-5. **커넥터 및 트리거 검색** 필드에서 “요청”을 입력하여 요청 커넥터를 찾습니다.
-6. **트리거**에서 **HTTP 요청을 받은 경우**를 선택합니다. 
-
-    ![HTTP 요청을 받은 트리거 선택](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
-
-7. 다음 단계 중 하나를 사용하여 **요청 본문 JSON 스키마**를 구성합니다.
+1. 다음 방법 중 하나를 사용하여 **요청 본문 JSON 스키마를**구성합니다.
 
    - 이 문서의 끝에 나오는 [JSON 스키마](#json-schema)를 **요청 본문 JSON 스키마** 텍스트 상자에 복사합니다.
    - **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다. **샘플 JSON 페이로드 입력 및 붙여넣기** 텍스트 상자에서 [JSON 예제](#json-example)에 붙여넣습니다. **완료**를 선택하여 스키마를 만듭니다.
@@ -90,6 +91,7 @@ HTTPS 엔드포인트를 사용하여 Azure Marketplace 및 AppSource 잠재 고
    ![이메일 작업 추가](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-action.png)
 
 5. **저장**을 선택하여 흐름을 마칩니다.
+
 6. HTTP POST URL이 요청에 만들어집니다. 이 URL을 복사하고 HTTPS 엔드포인트로 사용합니다.
 
     ![HTTP POST URL](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-get-post-url.png)
@@ -100,7 +102,7 @@ HTTPS 엔드포인트를 사용하여 Azure Marketplace 및 AppSource 잠재 고
 
 ![동적 콘텐츠 추가](./media/cloud-partner-portal-lead-management-instructions-https/https-image017.png)
 
-잠재 고객이 생성되면 Microsoft는 Flow로 잠재 고객을 보냅니다. 그러면 이 잠재 고객은 사용자가 구성한 CRM 시스템 또는 이메일 주소로 라우팅됩니다.
+잠재 고객을 생성하면 Microsoft는 전원 자동 자동화 흐름으로 리드를 전송하여 구성한 CRM 시스템 또는 전자 메일 주소로 라우팅됩니다.
 
 ## <a name="json-schema-and-example"></a>JSON 스키마 및 예제
 
@@ -124,6 +126,10 @@ JSON 테스트 예제에서는 다음 스키마를 사용합니다.
     },
     "LeadSource": {
       "id": "/properties/LeadSource",
+      "type": "string"
+    },
+    "Description": {
+      "id": "/properties/Description",
       "type": "string"
     },
     "UserDetails": {
@@ -165,23 +171,25 @@ JSON 테스트 예제에서는 다음 스키마를 사용합니다.
 }
 ```
 
-다음 JSON 예제를 복사하고 편집하여 MS Flow에서 테스트로 사용할 수 있습니다.
+다음 JSON 예제를 복사하고 편집하여 흐름에서 테스트로 사용할 수 있습니다.
 
 ### <a name="json-example"></a>JSON 예제
 
 ```json
 {
-"OfferTitle": "Test Microsoft",
-"LeadSource": "Test run through MS Flow",
-"UserDetails": {
-"Company": "Contoso",
-"Country": "USA",
-"Email": "someone@contoso.com",
-"FirstName": "Some",
-"LastName": "One",
-"Phone": "16175555555",
-"Title": "Esquire"
-}
+  "UserDetails": {
+    "FirstName": "Some",
+    "LastName": "One",
+    "Email": "someone@contoso.com",
+    "Phone": "16175555555",
+    "Country": "USA",
+    "Company": "Contoso",
+    "Title": "Esquire"
+ },
+  "LeadSource": "AzureMarketplace",
+  "ActionCode": "INS",
+  "OfferTitle": "Test Microsoft",
+  "Description": "Test run through Power Automate"
 }
 ```
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: cosmos-db
 ms.date: 09/26/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b9bac14ff47107a4b39f12989685e2e510569ba2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adf1db2d737de7004b5ab71c8e0e44d61d1da8c9
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72757068"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768509"
 ---
 # <a name="use-cases-for-built-in-analytics-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 기본 제공 분석을 위한 사용 사례
 
@@ -37,7 +37,7 @@ Azure Cosmos DB는 기본적으로 내장된 아파치 스파크를 사용하여
 
 경우에 따라 과거에 완료된 이벤트에 대한 특정 시점과 같이 데이터를 기반으로 질문에 답해야 할 수도 있습니다. 예를 들어 특정 날짜에 CRM 활동 상태 수를 가져옵니다. 일주일 전에 보고서를 실행한 경우 상태 수는 해당 시점의 각 활동의 상태에 따라 표시됩니다. 오늘 같은 보고서를 실행하면 상태상태가 현재와 같은 활동의 수를 제공 할 것입니다, 이는 지난 주 이후 변경 되었을 수 있습니다, 그들은 오픈에서 닫기자신의 수명 주기를 통해 이동으로. 따라서 사례의 수명 주기의 각 단계에서 스냅숏을 보고해야 합니다.
 
-기존의 데이터 웨어하우스 시나리오에서는 데이터 웨어하우스가 통합하도록 설계되지 않았으며 데이터가 현재 진행 되는 보기만 제공하기 때문에 스냅숏 개념이 불가능합니다. Azure Cosmos DB를 사용하면 사용자는 시간 이동의 개념을 구현하여 데이터에 대한 분석을 소급하여 쿼리하고 실행하고 데이터가 기록의 특정 시점에서 어떻게 보였는지 물어볼 수 있습니다. 즉, 사용자는 데이터의 현재 보기와 기록 보기를 모두 쉽게 보고 분석을 실행할 수 있습니다.
+Azure Cosmos DB를 사용하면 사용자는 시간 이동의 개념을 구현하여 데이터에 대한 분석을 소급하여 쿼리하고 실행하고 데이터가 기록의 특정 시점에서 어떻게 보였는지 물어볼 수 있습니다. 즉, 사용자는 데이터의 현재 보기와 기록 보기를 모두 쉽게 보고 분석을 실행할 수 있습니다.
 
 ## <a name="globally-distributed-machine-learning-and-ai"></a>전 세계적으로 분산된 머신 러닝 및 AI
 

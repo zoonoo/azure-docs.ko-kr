@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/20/2020
-ms.openlocfilehash: e5a96d2eb67937ce4eeaa1999d8168e7f5d3d926
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cdb31f1a46d7f46b69e9e0ad47a77ba6b32a50a0
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130185"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770827"
 ---
 # <a name="release-notes"></a>릴리스 정보
 
@@ -34,7 +34,7 @@ Azure HDInsight는 Azure에서 오픈 소스 분석을 위한 엔터프라이즈
 ### <a name="tls-12-enforcement"></a>TLS 1.2 적용
 TLS(전송 계층 보안) 및 SSL(Secure Sockets Layer)은 컴퓨터 네트워크를 통해 통신 보안을 제공하는 암호화 프로토콜입니다. [TLS에](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)대해 자세히 알아보십시오. HDInsight는 공용 HTTP 끝점에서 TLS 1.2를 사용하지만 TLS 1.1은 이전 버전과의 호환성을 위해 계속 지원됩니다. 
 
-이 릴리스를 통해 고객은 공용 클러스터 엔드포인트를 통한 모든 연결에 대해서만 TLS 1.2를 선택할 수 있습니다. 이를 지원하기 위해 새 속성 **minSupportedTlsVersion이** 도입되고 클러스터 생성 중에 지정할 수 있습니다. 속성이 설정되지 않은 경우에도 클러스터는 오늘날의 동작과 동일한 TLS 1.0, 1.1 및 1.2를 계속 지원합니다. 고객은 이 속성의 값을 "1.2"로 설정할 수 있으며, 이는 클러스터가 TLS 1.2 이상만 지원한다는 것을 의미합니다. 자세한 내용은 [가상 네트워크 계획 - 전송 계층 보안](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#transport-layer-security)을 참조하십시오.
+이 릴리스를 통해 고객은 공용 클러스터 엔드포인트를 통한 모든 연결에 대해서만 TLS 1.2를 선택할 수 있습니다. 이를 지원하기 위해 새 속성 **minSupportedTlsVersion이** 도입되고 클러스터 생성 중에 지정할 수 있습니다. 속성이 설정되지 않은 경우에도 클러스터는 오늘날의 동작과 동일한 TLS 1.0, 1.1 및 1.2를 계속 지원합니다. 고객은 이 속성의 값을 "1.2"로 설정할 수 있으며, 이는 클러스터가 TLS 1.2 이상만 지원한다는 것을 의미합니다. 자세한 내용은 [전송 계층 보안](./transport-layer-security.md)을 참조하십시오.
 
 ### <a name="bring-your-own-key-for-disk-encryption"></a>디스크 암호화를 위해 고유한 키 가져오기
 HDInsight의 모든 관리 디스크는 Azure SSE(스토리지 서비스 암호화)로 보호됩니다. 이러한 디스크의 데이터는 기본적으로 Microsoft에서 관리하는 키에 의해 암호화됩니다. 이 릴리스부터 디스크 암호화를 위해 BYOK(사용자 고유의 키)를 가져오고 Azure Key Vault를 사용하여 관리할 수 있습니다. BYOK 암호화는 추가 비용 없이 클러스터를 만드는 동안 한 단계 구성입니다. Azure Key Vault를 사용하여 HDInsight를 관리되는 ID로 등록하고 클러스터를 만들 때 암호화 키를 추가하기만 하면 됩니다. 자세한 내용은 [고객이 관리하는 키 디스크 암호화](https://docs.microsoft.com/azure/hdinsight/disk-encryption)를 참조하십시오.

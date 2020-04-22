@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/21/2019
 ms.author: spelluru
-ms.openlocfilehash: a0dbd92533703a56f1ec2478fab8944656129247
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bb871119bece71c705ad9621a7c76c4b5ed0bc7
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295503"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770252"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>개발자 테스트 연구소의 랩에 아티팩트 리포지토리 추가
 DevTest Labs를 사용하면 VM을 만들 때 또는 VM을 만든 후 VM에 추가할 아티팩트를 지정할 수 있습니다. 이 아티팩트는 VM에 설치하려는 도구 또는 응용 프로그램일 수 있습니다. 아티팩트는 GitHub 또는 Azure DevOps Git 리포지토리에서 로드된 JSON 파일에 정의됩니다.
@@ -52,20 +52,20 @@ DevTest 연구소에서 관리하는 [공용 아티팩트 리포지토리는](ht
 4. URL을 저장합니다. URL은 나중에 사용합니다.
 5. 개인 액세스 토큰을 만들려면 사용자 계정 드롭다운 메뉴에서 **내 프로필**을 선택합니다.
 6. 프로필 정보 페이지에서 **보안**을 탭합니다.
-7. **보안** 탭에서 **추가**를 선택합니다.
-8. **개인 액세스 토큰 만들기** 페이지에서:
-   1. 토큰에 대한 **설명** 을 입력합니다.
-   2. **다음 기간 내에 만료** 목록에서 **180일**을 선택합니다.
-   3. **계정** 목록에서 **액세스 가능한 모든 계정**을 선택합니다.
-   4. **모든 범위** 옵션을 선택합니다.
-   5. **토큰 만들기**를 선택합니다.
+7. 보안 > 개인 액세스 토큰 탭에서 **+ 새 토큰**을 **선택합니다.**
+8. 새 개인 액세스 토큰 만들기 페이지에서 **다음을 수행합니다.**
+   1. 토큰의 **이름을** 입력합니다.
+   2. **조직** 목록에서 액세스 **가능한 모든 조직을**선택합니다.
+   3. **UTC(만료)** 목록에서 **90일**또는 사용자 정의 만료 기간을 선택합니다.
+   4. 범위에 대한 **전체 액세스** 옵션을 선택합니다.
+   5. **만들기**를 선택합니다.
 9. 새 토큰이 **개인 액세스 토큰** 목록에 표시됩니다. **토큰 복사**를 선택하고 나중에 사용할 수 있게 토큰 값을 저장합니다.
 10. 리포지토리에 랩 연결 섹션을 계속 진행합니다.
 
 ## <a name="use-azure-portal"></a>Azure Portal 사용
 이 섹션에서는 Azure 포털의 랩에 아티팩트 리포지토리를 추가하는 단계를 제공합니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **추가 서비스**를 선택한 후 서비스 목록에서 **DevTest Labs**를 선택합니다.
 3. 랩 목록에서 랩을 선택합니다.
 4. 왼쪽 메뉴에서 **구성 및 정책을** 선택합니다.

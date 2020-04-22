@@ -7,16 +7,16 @@ manager: saudas
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: saudas
-ms.openlocfilehash: 8a150e2f197f24db5da331195290d11ad925c47e
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 907aa83bc293aacd9920d8fd79a1b3184dd1d5dc
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392647"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767601"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Azure Kubernetes 서비스에서 관리되는 ID 사용
 
-현재, Azure Kubernetes 서비스(AKS) 클러스터(특히 Kubernetes 클라우드 공급자)는 Azure에서 로드 밸런서 및 관리되는 디스크와 같은 추가 리소스를 만들기 위해 ID와 ID를 필요로 하며, 이 ID는 *관리되는 ID* 또는 *서비스 주체일*수 있습니다. [서비스 주체를](kubernetes-service-principal.md)사용하는 경우 하나를 제공하거나 AKS가 귀하를 대신하여 생성을 제공해야 합니다. 관리되는 ID를 사용하는 경우 AKS에서 자동으로 생성됩니다. 서비스 주체를 사용하는 클러스터는 결국 클러스터작업을 유지하기 위해 서비스 주체를 갱신해야 하는 상태에 도달합니다. 서비스 주체를 관리하면 복잡성이 추가되기 때문에 관리되는 ID를 사용하는 것이 더 쉬워집니다. 서비스 주체와 관리되는 ID 모두에 대해 동일한 권한 요구 사항이 적용됩니다.
+현재, Azure Kubernetes 서비스(AKS) 클러스터(특히 Kubernetes 클라우드 공급자)는 Azure에서 로드 밸런서 및 관리되는 디스크와 같은 추가 리소스를 만들기 위해 ID가 필요하며, 이 ID는 *관리되는 ID* 또는 *서비스 주체일*수 있습니다. [서비스 주체를](kubernetes-service-principal.md)사용하는 경우 하나를 제공하거나 AKS가 귀하를 대신하여 생성을 제공해야 합니다. 관리되는 ID를 사용하는 경우 AKS에서 자동으로 생성됩니다. 서비스 주체를 사용하는 클러스터는 결국 클러스터작업을 유지하기 위해 서비스 주체를 갱신해야 하는 상태에 도달합니다. 서비스 주체를 관리하면 복잡성이 추가되기 때문에 관리되는 ID를 사용하는 것이 더 쉬워집니다. 서비스 주체와 관리되는 ID 모두에 대해 동일한 권한 요구 사항이 적용됩니다.
 
 *관리되는 ID는* 기본적으로 서비스 주체에 대한 래퍼이며 관리를 더 간단하게 만듭니다. 자세한 내용은 Azure [리소스에 대한 관리되는 ID에 대해](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)읽어보십시오.
 

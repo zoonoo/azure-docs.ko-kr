@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b199854867c48906061cff65bad21e514456c911
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 845948d9aec28ee79a11fb11aaef4cfbf1b263fa
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81378705"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770562"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Azure Active Directory(미리 보기)를 사용하여 SMS 기반 인증을 위한 사용자 구성 및 사용 설정
 
@@ -34,13 +34,14 @@ ms.locfileid: "81378705"
 이 문서를 완료하려면 다음과 같은 리소스와 권한이 필요합니다.
 
 * 활성화된 Azure 구독.
-    * Azure 구독이 없는 경우 [계정을 만듭니다.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+    * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 구독과 연결된 Azure Active Directory 테넌트입니다.
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * SMS 기반 인증을 사용하려면 Azure AD 테넌트에서 *글로벌 관리자* 권한이 필요합니다.
 * 문자 메시지 인증 방법 정책에서 활성화된 각 사용자는 사용하지 않더라도 라이선스가 부여되어야 합니다. 활성화된 각 사용자는 다음 Azure AD 또는 Microsoft 365 라이선스 중 하나를 가져야 합니다.
     * [Azure AD Premium P1 또는 P2][azuread-licensing]
-    * [마이크로 소프트 365 F1 또는 F3][m365-firstline-workers-licensing]
+    * [마이크로소프트 365 (M365) F1 또는 F3][m365-firstline-workers-licensing]
+    * [엔터프라이즈 이동성 + 보안 (EMS) E3 또는 E5][ems-licensing] 또는 [마이크로 소프트 365 (M365) E3 또는 E5][m365-licensing]
 
 ## <a name="limitations"></a>제한 사항
 
@@ -161,3 +162,5 @@ Microsoft 인증자 앱 또는 FIDO2 보안 키와 같은 암호 없이 Azure AD
 [office]: https://www.office.com
 [m365-firstline-workers-licensing]: https://www.microsoft.com/licensing/news/m365-firstline-workers
 [azuread-licensing]: https://azure.microsoft.com/pricing/details/active-directory/
+[ems-licensing]: https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing
+[m365-licensing]: https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans
