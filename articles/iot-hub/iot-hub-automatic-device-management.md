@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub를 통한 대규모 자동 장치 관리 | 마이크로 소프트 문서
 description: Azure IoT Hub 자동 구성을 사용하여 여러 IoT 장치 및 모듈 관리
-author: ChrisGMsft
+author: Philmea
 manager: bruz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
-ms.author: chrisgre
-ms.openlocfilehash: 75c6b7d89e7ae540e7428afde127281aa3f15fc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: philmea
+ms.openlocfilehash: 1de7c34d8f8cbfa139212f29ca6be5d4eca64655
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271305"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767496"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Azure 포털을 사용한 자동 IoT 장치 및 모듈 관리
 
@@ -225,7 +225,7 @@ SELECT deviceId, moduleId FROM devices.modules
 
 3. 확인란을 사용하여 삭제하려는 구성을 선택합니다. 
 
-4. **삭제를 선택합니다.**
+4. **삭제**를 선택합니다.
 
 5. 메시지에서 확인을 요청합니다.
 

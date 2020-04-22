@@ -1,27 +1,24 @@
 ---
-title: ACL을 & 파일용 Azure 데이터 레이크 스토리지 Gen2 PowerShell(미리 보기)
+title: ACL을 & 파일용 Azure 데이터 레이크 스토리지 Gen2 PowerShell
 description: PowerShell cmdlet을 사용하여 계층적 네임스페이스(HNS)가 활성화된 저장소 계정에서 디렉터리 및 파일 및 디렉터리 액세스 제어 목록(ACL)을 관리합니다.
 services: storage
 author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: b59c68e3f2edc0fbe5eee3c3861a3e5116d4fac6
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 68ffe40f93be3d10666ebad2eaa153fc9dc9687f
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262386"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768025"
 ---
-# <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>PowerShell을 사용하여 Azure 데이터 레이크 저장소 Gen2의 디렉터리, 파일 및 ACL관리(미리 보기)
+# <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>PowerShell을 사용하여 Azure 데이터 레이크 저장소 Gen2에서 디렉터리, 파일 및 ACL관리
 
 이 문서에서는 PowerShell을 사용하여 계층적 네임스페이스(HNS)가 활성화된 저장소 계정에서 디렉터리, 파일 및 사용 권한을 만들고 관리하는 방법을 보여 주며, 이 문서에서는 
-
-> [!IMPORTANT]
-> 이 문서에 소개된 PowerShell 모듈은 현재 공개 미리 보기상태입니다.
 
 [Gen 1에서 Gen2 매핑에](#gen1-gen2-map) | [피드백 제공](https://github.com/Azure/azure-powershell/issues)
 
@@ -33,7 +30,7 @@ ms.locfileid: "81262386"
 > * .NET 프레임워크는 4.7.2 이상 설치되어 있습니다. [.NET 프레임워크 다운로드를 참조하십시오.](https://dotnet.microsoft.com/download/dotnet-framework)
 > * 파워쉘 `5.1` 버전 이상.
 
-## <a name="install-powershell-modules"></a>PowerShell 모듈 설치
+## <a name="install-the-powershell-module"></a>PowerShell 모듈 설치
 
 1. 다음 명령을 사용하여 설치한 PowerShell `5.1` 버전이 더 높은지 확인합니다.    
 
@@ -43,16 +40,10 @@ ms.locfileid: "81262386"
     
    PowerShell 버전을 업그레이드하려면 [기존 Windows PowerShell 업그레이드를](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) 참조하세요.
     
-2. 최신 **PowershellGet** 모듈을 설치합니다. 그런 다음 PowerShell 콘솔을 닫고 다시 엽니다.
+2. **Az.Storage 모듈을 설치합니다.**
 
    ```powershell
-   Install-Module PowerShellGet –Repository PSGallery –Force 
-   ```
-
-3. **Az.Storage** 미리 보기 모듈을 설치합니다.
-
-   ```powershell
-   Install-Module az.storage -RequiredVersion 1.13.3-preview -Repository PSGallery -AllowClobber -AllowPrerelease -Force 
+   Install-Module Az.Storage -Repository PSGallery -Force  
    ```
 
    PowerShell 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 모듈을](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0) 참조하십시오.
@@ -423,7 +414,7 @@ Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirna
 
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Azure 저장소와 함께 Azure PowerShell 을 사용 하 여](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)입니다.

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/16/2020
-ms.openlocfilehash: 98461928e465a103f73761afce5270234224fbae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/21/2020
+ms.openlocfilehash: 47f686f810f62fe03a9b0217677c436f3b91782b
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76167339"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767877"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL의 읽기 복제본
 
@@ -45,7 +45,6 @@ MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설�
 
 *미국 서부 2는 교차 지역 복제 위치로 일시적으로 사용할 수 없습니다.
 
-
 ### <a name="paired-regions"></a>쌍을 이루는 지역
 범용 복제본 영역 외에도 마스터 서버의 Azure 쌍을 이루는 리전에서 읽기 복제본을 만들 수 있습니다. 리전 쌍을 모르는 경우 [Azure 쌍을 이루는 지역 문서에서](../best-practices-availability-paired-regions.md)자세히 알아볼 수 있습니다.
 
@@ -71,7 +70,7 @@ MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설�
 
 ## <a name="connect-to-a-replica"></a>복제본에 연결
 
-생성 시 복제본은 마스터 서버의 방화벽 규칙 또는 VNet 서비스 끝점을 상속합니다. 이후에 이러한 규칙은 마스터 서버와 독립적입니다.
+생성 시 복제본은 마스터 서버의 방화벽 규칙을 상속합니다. 이후에 이러한 규칙은 마스터 서버와 독립적입니다.
 
 복제본은 마스터 서버에서 해당 관리자 계정을 상속합니다. 마스터 서버의 모든 사용자 계정은 읽기 복제본으로 복제됩니다. 마스터 서버에서 사용 가능한 사용자 계정을 사용해야만 읽기 복제본에 연결할 수 있습니다.
 
@@ -124,7 +123,7 @@ MySQL용 Azure 데이터베이스는 Azure **모니터에서 초 단위로 복�
 > [!IMPORTANT]
 > 마스터 서버 구성을 새 값으로 업데이트하기 전에 복제본의 구성을 같거나 더 큰 값으로 업데이트합니다. 이렇게 하면 복제본이 마스터에 대한 변경 내용을 유지할 수 있습니다.
 
-방화벽 규칙, 가상 네트워크 규칙 및 매개 변수 설정은 복제본을 만들 때 마스터 서버에서 복제본으로 상속됩니다. 이후에 복제본의 규칙은 독립적입니다.
+방화벽 규칙 및 매개 변수 설정은 복제본을 만들 때 마스터 서버에서 복제본으로 상속됩니다. 이후에 복제본의 규칙은 독립적입니다.
 
 ### <a name="stopped-replicas"></a>중지된 복제본
 

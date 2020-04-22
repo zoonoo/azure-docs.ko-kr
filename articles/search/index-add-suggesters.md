@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: 1e2a837acef976b6b872c2d4002ee49d662ad594
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.date: 04/21/2020
+ms.openlocfilehash: 7eb2988628d60fa72c7d83b81a58a1e0fae5de33
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641336"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770090"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>제안자 만들기하여 쿼리에서 자동 완성 및 제안된 결과를 사용하도록 설정합니다.
 
-Azure Cognitive Search에서 검색 [인덱스에](search-what-is-an-index.md)추가된 **제안** 자 구문에서 "사용자 유형으로 검색"을 사용할 수 있습니다. 제안자는 용어 또는 구를 완료하는 *자동 완성및*일치하는 문서의 짧은 목록을 반환하는 *제안의* 두 가지 환경을 지원합니다.  
+Azure Cognitive Search에서 검색 [인덱스에](search-what-is-an-index.md)추가된 **제안** 자 구문에서 "사용자 유형으로 검색"을 사용할 수 있습니다. 제안자는 전체 용어 쿼리에 대한 부분 입력을 완료하는 *자동 완성및*특정 일치에 클릭을 초대하는 *제안의* 두 가지 환경을 지원합니다. 자동 완성은 쿼리를 생성합니다. 제안은 일치하는 문서를 생성합니다.
 
 [C#에서 첫 번째 앱 만들기의](tutorial-csharp-type-ahead-and-suggestions.md) 다음 스크린샷은 둘 다 를 보여 줍니다. 자동 완성은 잠재적인 용어를 예상하여 "in"으로 "tw"를 마무리합니다. 제안은 호텔 이름과 같은 필드가 인덱스에서 일치하는 호텔 검색 문서를 나타내는 미니 검색 결과입니다. 제안사항의 경우 설명 정보를 제공하는 모든 필드를 표시할 수 있습니다.
 
@@ -33,27 +33,36 @@ Azure Cognitive Search에서 검색 [인덱스에](search-what-is-an-index.md)�
 
 ## <a name="what-is-a-suggester"></a>제안자란 무엇입니까?
 
-제안자는 부분 쿼리에 일치하기 위한 접두사를 저장하여 사용자 유형별 검색 동작을 지원하는 데이터 구조입니다. 토큰화된 용어와 마찬가지로 접두사는 제안자 필드 컬렉션에 지정된 각 필드에 대해 하나씩 반전된 인덱스에 저장됩니다.
-
-접두사를 만들 때 제안자는 전체 텍스트 검색에 사용되는 것과 유사한 자체 분석 체인을 가있습니다. 그러나 전체 텍스트 검색에서 분석과 달리 제안자는 표준 Lucene 분석기(기본값) 또는 [언어 분석기를](index-add-language-analyzers.md)사용하는 필드에서만 작동할 수 있습니다. [사용자 지정 분석기](index-add-custom-analyzers.md) 또는 [미리 정의된 분석기를](index-add-custom-analyzers.md#predefined-analyzers-reference) 사용하는 필드(표준 Lucene 제외)는 잘못된 결과를 방지하기 위해 명시적으로 허용되지 않습니다.
-
-> [!NOTE]
-> 분석기 제약 조건을 해결해야 하는 경우 동일한 콘텐츠에 대해 두 개의 별도 필드를 사용합니다. 이렇게 하면 필드 중 하나에 제안자가 있고 다른 필드는 사용자 지정 분석기 구성으로 설정할 수 있습니다.
+제안자는 부분 쿼리에 일치하기 위한 접두사를 저장하여 사용자 유형별 검색을 지원하는 내부 데이터 구조입니다. 토큰화된 용어와 마찬가지로 접두사는 제안자 필드 컬렉션에 지정된 각 필드에 대해 하나씩 반전된 인덱스에 저장됩니다.
 
 ## <a name="define-a-suggester"></a>제안자 정의
 
-제안기를 만들려면 [인덱스 스키마에](https://docs.microsoft.com/rest/api/searchservice/create-index) 하나를 추가하고 [각 속성을 설정합니다.](#property-reference) 인덱스에서 하나의 제안자(특히 제안자 컬렉션의 제안자 1명)를 가질 수 있습니다. 제안기를 만드는 가장 좋은 시기는 제안기를 사용할 필드를 정의하는 경우입니다.
+제안기를 만들려면 [인덱스 스키마에](https://docs.microsoft.com/rest/api/searchservice/create-index) 하나를 추가하고 [각 속성을 설정합니다.](#property-reference) 제안기를 만드는 가장 좋은 시기는 제안기를 사용할 필드를 정의하는 경우입니다.
+
++ 문자열 필드만 사용
+
++ 필드에 기본 표준 Lucene`"analyzer": null`분석기 () 또는 언어 `"analyzer": "en.Microsoft"` [분석기](index-add-language-analyzers.md) (예를 들어, )를 사용
 
 ### <a name="choose-fields"></a>필드 선택
 
-제안자는 여러 속성을 가지고 있지만 주로 검색 유형 환경을 사용하도록 설정하는 필드 컬렉션입니다. 특히 제안의 경우 단일 결과를 가장 잘 나타내는 필드를 선택합니다. 여러 일치 항목을 구분하는 이름, 제목 또는 기타 고유 필드가 가장 적합합니다. 필드가 반복값으로 구성된 경우 제안 내용은 동일한 결과로 구성되며 사용자는 클릭할 값을 알 수 없습니다.
+제안자는 여러 속성을 가지고 있지만 주로 검색 유형 환경을 사용하도록 설정하는 문자열 필드의 컬렉션입니다. 각 인덱스에 대해 하나의 제안자가 있으므로 제안자 목록에는 제안 및 자동 완성 모두에 대한 콘텐츠에 기여하는 모든 필드가 포함되어야 합니다.
 
-각 필드는 인덱싱 중에 어휘 분석을 수행하는 분석기를 사용하는지 확인합니다. 기본 표준 Lucene 분석기 ()`"analyzer": null`또는 [언어 분석기](index-add-language-analyzers.md) (예 `"analyzer": "en.Microsoft"`:)를 사용할 수 있습니다. 
+추가 콘텐츠는 용어 완료 가능성이 더 높기 때문에 더 큰 필드 풀에서 자동 완성이 이점을 얻을 수 있습니다.
 
-분석기를 선택하면 필드가 토큰화되고 이후에 접두사되는 방식이 결정됩니다. 예를 들어 "컨텍스트에 민감한"과 같은 하이픈이 있는 문자열의 경우 언어 분석기를 사용하면 "컨텍스트", "민감", "컨텍스트 구분"과 같은 토큰 조합이 생성됩니다. 표준 Lucene 분석기를 사용한 경우 하이픈이 있는 문자열이 존재하지 않습니다.
+반면에 필드 선택이 선택적일 때 더 나은 결과를 얻을 수 있습니다. 제안은 검색 문서의 프록시이므로 단일 결과를 가장 잘 나타내는 필드를 원할 수 있습니다. 여러 일치 항목을 구분하는 이름, 제목 또는 기타 고유 필드가 가장 적합합니다. 필드가 반복값으로 구성된 경우 제안 내용은 동일한 결과로 구성되며 사용자는 클릭할 값을 알 수 없습니다.
 
-> [!TIP]
-> [텍스트 분석 API를](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) 사용하여 용어가 토큰화되고 이후에 접두사되는 방법에 대한 통찰력을 가지는 것이 좋습니다. 인덱스를 작성하면 문자열에서 다양한 분석기를 사용하여 인덱스가 방출되는 토큰을 볼 수 있습니다.
+검색 유형 이 내 검색 환경을 모두 충족하려면 자동 완성에 필요한 모든 필드를 추가한 다음 **$select**, **$top,** **$filter**및 **searchFields를** 사용하여 제안 결과를 제어합니다.
+
+### <a name="choose-analyzers"></a>분석기 선택
+
+분석기를 선택하면 필드가 토큰화되고 이후에 접두사되는 방식이 결정됩니다. 예를 들어 "컨텍스트에 민감한"과 같은 하이픈이 있는 문자열의 경우 언어 분석기를 사용하면 "컨텍스트", "민감", "컨텍스트 구분"과 같은 토큰 조합이 생성됩니다. 표준 Lucene 분석기를 사용한 경우 하이픈이 있는 문자열이 존재하지 않습니다. 
+
+분석기를 평가할 때 [텍스트 분석 API를](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) 사용하여 용어가 토큰화되고 이후에 접두사되는 방법에 대한 통찰력을 가지는 것이 좋습니다. 인덱스를 작성하면 문자열에서 다양한 분석기를 사용하여 토큰 출력을 볼 수 있습니다.
+
+[사용자 지정 분석기](index-add-custom-analyzers.md) 또는 [미리 정의된 분석기를](index-add-custom-analyzers.md#predefined-analyzers-reference) 사용하는 필드(표준 Lucene 제외)는 잘못된 결과를 방지하기 위해 명시적으로 허용되지 않습니다.
+
+> [!NOTE]
+> 분석기 제약 조건을 해결해야 하는 경우(예: 특정 쿼리 시나리오에 대한 키워드 또는 ngram 분석기)가 필요한 경우 동일한 콘텐츠에 대해 두 개의 별도 필드를 사용해야 합니다. 이렇게 하면 필드 중 하나에 제안자가 있고 다른 필드는 사용자 지정 분석기 구성으로 설정할 수 있습니다.
 
 ### <a name="when-to-create-a-suggester"></a>제안자 만들기 시기
 
@@ -124,7 +133,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 ## <a name="property-reference"></a>속성 참조
 
-|속성      |Description      |
+|속성      |설명      |
 |--------------|-----------------|
 |`name`        |제안기의 이름입니다.|
 |`searchMode`  |후보 구를 검색하는 데 사용되는 전략입니다. 현재 지원되는 유일한 `analyzingInfixMatching`모드는 용어의 시작 부분에 현재 일치하는 모드입니다.|
@@ -161,7 +170,7 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 예제에서는 요청이 공식화되는 방법을 확인하는 것이 좋습니다.
+요청 공식화 방법에 대해 자세히 알아보려면 다음 문서를 권장합니다.
 
 > [!div class="nextstepaction"]
 > [클라이언트 코드에 자동 완성 및 제안 추가](search-autocomplete-tutorial.md) 

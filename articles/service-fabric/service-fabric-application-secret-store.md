@@ -3,12 +3,12 @@ title: Azure 서비스 패브릭 중앙 비밀 저장소
 description: 이 문서에서는 Azure 서비스 패브릭에서 중앙 비밀 저장소를 사용하는 방법에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.openlocfilehash: 11fb94a9fba40e6f2474ad64f5eb0c454be28ca0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4087e7ccdcb2281c4a08af155d35a10c66147a85
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77589167"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770420"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Azure 서비스 패브릭의 중앙 비밀 저장소 
 이 문서에서는 Azure 서비스 패브릭에서 CSS(중앙 비밀 저장소)를 사용하여 서비스 패브릭 응용 프로그램에서 비밀을 만드는 방법에 대해 설명합니다. CSS는 암호, 토큰 및 키와 같은 중요한 데이터를 메모리에서 암호화된 로컬 비밀 저장소 캐시로 유지합니다.
@@ -47,31 +47,9 @@ CSS를 사용하도록 설정하려면 `fabricSettings` 아래클러스터 구�
      ]
 ```
 ## <a name="declare-a-secret-resource"></a>비밀 리소스 선언
-Azure 리소스 관리자 템플릿 또는 REST API를 사용하여 비밀 리소스를 만들 수 있습니다.
-
-### <a name="use-resource-manager"></a>Resource Manager 사용
-
-다음 템플릿을 사용하여 리소스 관리자를 사용하여 비밀 리소스를 만듭니다. 템플릿은 비밀 `supersecret` 리소스를 생성하지만 비밀 리소스에 대한 값은 아직 설정되지 않았습니다.
-
-
-```json
-   "resources": [
-      {
-        "apiVersion": "2018-07-01-preview",
-        "name": "supersecret",
-        "type": "Microsoft.ServiceFabricMesh/secrets",
-        "location": "[parameters('location')]", 
-        "dependsOn": [],
-        "properties": {
-          "kind": "inlinedValue",
-            "description": "Application Secret",
-            "contentType": "text/plain",
-          }
-        }
-      ]
-```
-
-### <a name="use-the-rest-api"></a>REST API 사용
+REST API를 사용하여 비밀 리소스를 만들 수 있습니다.
+  > [!NOTE] 
+  > 클러스터가 Windows 인증을 사용하는 경우 REST 요청이 보안되지 않은 HTTP 채널을 통해 전송됩니다. 보안 끝점이 있는 X509 기반 클러스터를 사용하는 것이 좋습니다.
 
 REST API를 사용하여 비밀 리소스를 `supersecret` 만들려면 PUT `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview`요청을 에 대해 확인합니다. 비밀 리소스를 만들려면 클러스터 인증서 또는 관리자 클라이언트 인증서가 필요합니다.
 
@@ -81,48 +59,6 @@ Invoke-WebRequest  -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecre
 ```
 
 ## <a name="set-the-secret-value"></a>비밀 값 설정
-
-### <a name="use-the-resource-manager-template"></a>리소스 관리자 템플릿 사용
-
-다음 리소스 관리자 템플릿을 사용하여 비밀 값을 만들고 설정합니다. 이 템플릿은 `supersecret` 비밀 리소스의 비밀 `ver1`값을 버전으로 설정합니다.
-```json
-  {
-  "parameters": {
-  "supersecret": {
-      "type": "string",
-      "metadata": {
-        "description": "supersecret value"
-      }
-   }
-  },
-  "resources": [
-    {
-      "apiVersion": "2018-07-01-preview",
-        "name": "supersecret",
-        "type": "Microsoft.ServiceFabricMesh/secrets",
-        "location": "[parameters('location')]", 
-        "dependsOn": [],
-        "properties": {
-          "kind": "inlinedValue",
-            "description": "Application Secret",
-            "contentType": "text/plain",
-        }
-    },
-    {
-      "apiVersion": "2018-07-01-preview",
-      "name": "supersecret/ver1",
-      "type": "Microsoft.ServiceFabricMesh/secrets/values",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "Microsoft.ServiceFabricMesh/secrets/supersecret"
-      ],
-      "properties": {
-        "value": "[parameters('supersecret')]"
-      }
-    }
-  ],
-  ```
-### <a name="use-the-rest-api"></a>REST API 사용
 
 다음 스크립트를 사용하여 REST API를 사용하여 비밀 값을 설정합니다.
 ```powershell

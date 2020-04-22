@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e52c37e293941a767621cf56ef75f8cc83b1925
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 541deb5cf44ad5440e31641b673ed5da5b5d2b26
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79298006"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768550"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Azure Active Directory에서 셀프 서비스 그룹 관리 설정 
 
@@ -33,7 +33,7 @@ Azure 포털에서 보안 그룹을 만들거나 Azure AD PowerShell을 사용�
 에서 만든 그룹 | 보안 그룹 기본 동작 | Office 365 그룹 기본 동작
 ------------------ | ------------------------------- | ---------------------------------
 [Azure AD PowerShell](groups-settings-cmdlets.md) | 소유자만 구성원을 추가할 수 있습니다.<br>액세스 패널에 참여할 수 있지만 참여할 수 없음 | 모든 사용자에 대해 가입 할 수 열려 있습니다.
-[Azure 포털](https://portal.azure.com) | 소유자만 구성원을 추가할 수 있습니다.<br>액세스 패널에 참여할 수 있지만 참여할 수 없음<br>그룹 생성 시 소유자가 자동으로 할당되지 않음 | 모든 사용자에 대해 가입 할 수 열려 있습니다.
+[Azure Portal](https://portal.azure.com) | 소유자만 구성원을 추가할 수 있습니다.<br>액세스 패널에 참여할 수 있지만 참여할 수 없음<br>그룹 생성 시 소유자가 자동으로 할당되지 않음 | 모든 사용자에 대해 가입 할 수 열려 있습니다.
 [액세스 패널](https://account.activedirectory.windowsazure.com/r#/joinGroups) | 모든 사용자에 대해 가입 할 수 열려 있습니다.<br>그룹을 만들 때 멤버 자격 옵션을 변경할 수 있습니다. | 모든 사용자에 대해 가입 할 수 열려 있습니다.<br>그룹을 만들 때 멤버 자격 옵션을 변경할 수 있습니다.
 
 ## <a name="self-service-group-management-scenarios"></a>셀프 서비스 그룹 관리 시나리오
@@ -55,6 +55,9 @@ Azure 포털에서 보안 그룹을 만들거나 Azure AD PowerShell을 사용�
 또한 Azure **포털에서 그룹 소유자로 구성원을 할당할 수** 있는 소유자를 사용할 수 있으며, Azure **포털에서 그룹 소유자로 구성원을 할당할 수 있는 소유자를** 사용하여 사용자에 대한 셀프 서비스 그룹 관리에 대한 보다 세분화된 액세스 제어를 수행할 수 있습니다.
 
 사용자가 그룹을 만들 수 있는 경우 조직의 모든 사용자가 새 그룹을 만들 수 있으며 기본 소유자로 이러한 그룹에 구성원을 추가할 수 있습니다. 자신의 그룹을 만들 수 있는 개인은 지정할 수 없습니다. 다른 그룹 구성원을 그룹 소유자로 만들기 위한 개인만 지정할 수 있습니다.
+
+> [!NOTE]
+> 사용자가 보안 그룹 또는 Office 365 그룹에 가입하도록 요청하고 소유자가 멤버 자격 요청을 승인하거나 거부하려면 Azure Active Directory Premium(P1 또는 P2) 라이선스가 필요합니다. Azure Active Directory Premium 라이선스가 없으면 사용자는 액세스 패널에서 그룹을 계속 관리할 수 있지만 액세스 패널에서 소유자의 승인이 필요한 그룹을 만들 수 없으며 그룹 가입을 요청할 수 없습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

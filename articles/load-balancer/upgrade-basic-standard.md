@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: a4c8b029b199915cce9a417430e67675a03d327f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a2d6f41756d87e43ac7db9e6a8670c453920c834
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659954"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770362"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Azure 공용 로드 밸런서 업그레이드
 [Azure 표준 로드 밸러저는](load-balancer-overview.md) 영역 중복성을 통해 풍부한 기능과 고가용성을 제공합니다. 로드 밸러워 SKU에 대한 자세한 내용은 [비교 표를](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus)참조하십시오.
@@ -21,7 +21,6 @@ ms.locfileid: "77659954"
 
 1. 구성 마이그레이션
 2. 표준 로드 밸러커의 백 엔드 풀에 VM 추가
-3. 아웃바운드 연결을 위한 로드 밸런서에 아웃바운드 규칙 만들기
 
 이 문서에서는 구성 마이그레이션에 대해 다룹니다. 백 엔드 풀에 VM을 추가하는 것은 특정 환경에 따라 다를 수 있습니다. 그러나 일부 고급 일반 권장 사항이 [제공됩니다.](#add-vms-to-backend-pools-of-standard-load-balancer)
 
@@ -31,17 +30,18 @@ Azure PowerShell 스크립트는 다음을 수행하는 데 사용할 수 있습
 
 * 리소스 그룹에 표준 SKU 로드 밸러커를 만들고 지정한 위치를 지정합니다.
 * 기본 SKU 로드 밸러블러의 구성을 새로 만든 표준 로드 밸러블러에 원활하게 복사합니다.
+* 아웃바운드 연결을 가능하게 하는 기본 아웃바운드 규칙을 만듭니다.
 
 ### <a name="caveatslimitations"></a>주의 사항\제한 사항
 
-* 스크립트는 공용 로드 밸런서 업그레이드만 지원합니다. 내부 기본 로드 밸런서 업그레이드의 경우 아웃바운드 연결이 필요하지 않은 경우 표준 내부 부하 밸런서를 만들고 아웃바운드 연결이 필요한 경우 표준 내부 부하 밸런서 및 표준 공용 로드 밸런서를 만듭니다.
+* 스크립트는 공용 로드 밸런서 업그레이드만 지원합니다. 내부 기본 로드 밸러저 업그레이드의 경우 [이 페이지를](https://docs.microsoft.com/azure/load-balancer/upgrade-basicinternal-standard) 참조하여 지침을 참조하세요.
 * 표준 로드 밸런서에는 새 공용 주소가 있습니다. 기존 기본 로드 밸러블러와 관련된 IP 주소를 다른 SCO를 가지고 있으므로 표준 로드 밸러저로 원활하게 이동하는 것은 불가능합니다.
 * 표준 로드 밸러블러가 다른 리전에서 생성되는 경우 이전 지역에 있는 VM을 새로 만든 표준 로드 밸러커에 연결할 수 없습니다. 이러한 제한을 해결하려면 새 리전에서 새 VM을 만들어야 합니다.
 * 로드 밸런서에 프런트 엔드 IP 구성 또는 백 엔드 풀이 없는 경우 스크립트를 실행하는 오류가 발생할 수 있습니다. 비어 있지 않은지 확인하십시오.
 
 ## <a name="download-the-script"></a>스크립트 다운로드
 
-[PowerShell 갤러리에서](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/1.0)마이그레이션 스크립트를 다운로드합니다.
+[PowerShell 갤러리에서](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/2.0)마이그레이션 스크립트를 다운로드합니다.
 ## <a name="use-the-script"></a>스크립트 사용
 
 로컬 PowerShell 환경 설정 및 기본 설정에 따라 두 가지 옵션이 있습니다.

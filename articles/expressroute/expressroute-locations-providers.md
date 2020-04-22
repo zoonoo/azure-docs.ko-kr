@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3b45c20e2d3e8829913c9e566516f85866ee80d4
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: ba0573af59c2924648361fec10bffed189291d28
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81390313"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768565"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -100,7 +100,7 @@ ExpressRoute 위치(피어링 위치 또는 모임 위치라고도 함)는 Micro
 | **홍콩** | [에퀴닉스 HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | 동아시아 | 해당 없음 | 아리아카 네트웍스, 브리티시 텔레콤, 센추리링크 클라우드 커넥트, 수석 텔레콤, 차이나 텔레콤 글로벌, 에퀴닉스, 인터클라우드, 메가포트, NTT 커뮤니케이션, 오렌지, PCCW 글로벌 리미티드, 타타 커뮤니케이션, 텔리아 캐리어, 버라이존 |
 | **홍콩2** | [메가이](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | 해당 없음 | 10G | |
 | **자카르타** | 텔콤 인도네시아 | 4 | 해당 없음 | 10G | |
-| **요하네스버그** | [테라코 JB1](https://www.teraco.co.za/data-centre-locations/johannesburg/#jb1) | 3 | 남아프리카 북부 | 10G | 영국 텔레콤, 인터넷 솔루션 - 클라우드 커넥트, 리퀴드 텔레콤, 오렌지, 테라코 |
+| **요하네스버그** | [테라코 JB1](https://www.teraco.co.za/data-centre-locations/johannesburg/#jb1) | 3 | 남아프리카 북부 | 10G | BCX, 영국 텔레콤, 인터넷 솔루션 - 클라우드 커넥트, 리퀴드 텔레콤, 오렌지, 테라코 |
 | **콸라룸푸르** | [타임닷컴 메나라 목표](https://www.aims.com.my/co-location/points-of-presence.html) | 2 | 해당 없음 | 해당 없음 | TIME dotCom |
 | **라스베이거스** | [스위치 LV](https://www.switch.com/las-vegas) | 1 | 해당 없음 | 해당 없음 | CenturyLink Cloud Connect, Megaport |
 | **런던** | [에퀴닉스 LD5](https://www.equinix.com/locations/europe-colocation/united-kingdom-colocation/london-data-centers/ld5/) | 1 | 영국 남부 | 10G, 100G | AT&T 넷본드, 영국 텔레콤, 콜트, 에퀴닉스, 유네트웍스, 인터클라우드, 인터넷 솔루션 - 클라우드 커넥트, 인터렉션, 지스크, 레벨 3 커뮤니케이션, 메가포트, MTN, NTT 커뮤니케이션, 오렌지, PCCW 글로벌 리미티드, 타타 커뮤니케이션, 텔레하우스 - KDDI, 텔레노어, 텔리아 캐리어, 버라이존, 보다폰, 자요 |

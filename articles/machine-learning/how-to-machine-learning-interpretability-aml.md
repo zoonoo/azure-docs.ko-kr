@@ -1,5 +1,5 @@
 ---
-title: 기계 학습 모델 및 예측 설명
+title: 파이썬에서 ML 모델을 설명하는 & 해석
 titleSuffix: Azure Machine Learning
 description: 기계 학습 모델이 기능 의 중요성을 결정하고 Azure 기계 학습 SDK를 사용할 때 예측을 만드는 방법에 대한 설명을 얻는 방법을 알아봅니다.
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/12/2020
-ms.openlocfilehash: c1282ed16c9e3b92e7d5ec3f9969bee6fc3d917f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 45eef976fe10bbb5acda2cd348a77b28c3ffbe02
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257205"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769798"
 ---
-# <a name="explain-machine-learning-models-and-predictions"></a>기계 학습 모델 및 예측 설명
+# <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>해석 가능성 패키지를 사용하여 파이썬에서 ML 모델 & 예측 설명
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -41,10 +41,10 @@ ms.locfileid: "81257205"
 ## <a name="generate-feature-importance-value-on-your-personal-machine"></a>개인 기기에서 기능 중요도 가치 생성 
 다음 예제에서는 Azure 서비스에 연결하지 않고 개인 컴퓨터에서 해석 가능성 패키지를 사용하는 방법을 보여 줍니다.
 
-1. 설치 `azureml-interpret` `azureml-interpret-contrib` 및 패키지.
+1. 설치 `azureml-interpret` `azureml-contrib-interpret` 및 패키지.
     ```bash
     pip install azureml-interpret
-    pip install azureml-interpret-contrib
+    pip install azureml-contrib-interpret
     ```
 
 2. 로컬 Jupyter 노트북에서 샘플 모델을 학습합니다.
@@ -303,7 +303,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 다음 플롯은 예측 및 설명과 함께 학습된 모델의 전체 보기를 제공합니다.
 
-|플롯|Description|
+|플롯|설명|
 |----|-----------|
 |데이터 탐색| 예측 값과 함께 데이터 집합의 개요를 표시합니다.|
 |글로벌 중요성|집계는 모델의 전체 상위 K(구성 가능한 K)의 중요한 피처를 표시하기 위해 개별 데이터 포인트의 중요도 값을 특징으로 합니다. 기본 모델의 전반적인 동작을 이해하는 데 도움이 됩니다.|
@@ -317,7 +317,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 전체 플롯의 개별 데이터 점을 클릭하여 모든 데이터 포인트에 대한 개별 피쳐 중요도 플롯을 로드할 수 있습니다.
 
-|플롯|Description|
+|플롯|설명|
 |----|-----------|
 |지역 적 중요성|개별 예측에 대한 상위 K(구성 가능한 K) 중요한 피처를 표시합니다. 특정 데이터 포인트에서 기본 모델의 로컬 동작을 보여 줍니다.|
 |섭동 탐색(분석하는 경우 는 무엇인가)|선택한 데이터 포인트의 피처 값을 변경하고 예측 값에 대한 결과 변경 사항을 관찰할 수 있습니다.|

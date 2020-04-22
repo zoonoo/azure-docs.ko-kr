@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 02/12/2020
-ms.openlocfilehash: 246ec08e9b4edb33fa49318b68cc4364534282b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6bba71ab35920027cc7296e774936c3d1deb8f92
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064659"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770310"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Apache Hadoop, Apache Spark, Apache Kafka 등을 사용하여 HDInsight에서 클러스터 설정
 
@@ -32,10 +32,10 @@ Hadoop 클러스터는 작업의 분산 처리에 사용되는 여러 가상 머
 
 | 다음을 사용하여 만든 클러스터 | 웹 브라우저 사용 | 명령줄 | REST API | SDK) |
 | --- |:---:|:---:|:---:|:---:|
-| [Azure 포털](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
-| [Azure 데이터 팩터리](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
+| [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
+| [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
 | [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
-| [Azure 파워쉘](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [컬](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
 | [Azure 리소스 관리자 템플릿](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
@@ -80,7 +80,7 @@ Azure HDInsight는 현재 각각이 특정 기능을 제공하는 구성 요소 
 | [Kafka](kafka/apache-kafka-introduction.md) | 실시간 스트리밍 데이터 파이프라인과 애플리케이션을 만드는 데 사용할 수 있는 분산형 스트리밍 플랫폼 |
 | [ML 서비스](r-server/r-server-overview.md) |다양한 빅 데이터 통계, 예측 모델링 및 기계 학습 기능 |
 | [Spark](spark/apache-spark-overview.md) |메모리 내 처리, 대화형 쿼리, 마이크로 배치 스트림 처리 |
-| [폭풍](storm/apache-storm-overview.md) |실시간 이벤트 처리 |
+| [Storm](storm/apache-storm-overview.md) |실시간 이벤트 처리 |
 
 #### <a name="version"></a>버전
 
@@ -104,7 +104,7 @@ SSH 사용자 이름에는 다음과 같은 제한 사항이 있습니다.
 * 허용된 특수`_` 문자: 및`@`
 * 허용되지 않는 문자: #;',\/:'!*?$(){}[]<>|&--=+%~^공간
 * 최대 길이: 64
-* 예약 된 이름 : hadoop, 사용자, oozie, 하이브, 매핑 된, ambari-qa, 사육사, 테즈, HDFS, sqoop, 원사, hcat, ams, hbase, 폭풍, 관리자, 관리자, 사용자, 사용자1, 테스트, 사용자2, test1, 사용자3, admin1, 1, 123, a, actuser, adm, adminnet, 게스트, 존, 소유자, 루트, 서버, SQL, 지원, support_388945a0, sys, test2, test3, user4, user5, 스파크
+* 예약 된 이름 : hadoop, 사용자, oozie, 하이브, 매핑, ambari-qa, 사육사, 테즈, HDFS, sqoop, 원사, hcat, ams, hbase, 폭풍, 관리자, 관리자, 사용자, user1, 테스트, user2, test1, user3, admin1, 1, 123, a, actuser, adm, admin2, aspnet, 백업, 콘솔, 데이비드, 게스트, 존, 소유자, 루트, 서버, sql, 지원, support_388945a0, sys, test2, 사용자4, 사용자4, 사용자1
 
 ## <a name="storage"></a>스토리지
 
@@ -169,7 +169,7 @@ Hadoop, Spark, HBase, Kafaka 및 대화형 쿼리 클러스터 형식의 경우 
 
 ### <a name="tls"></a>TLS
 
-자세한 내용은 [전송 계층 보안을](./hdinsight-plan-virtual-network-deployment.md#transport-layer-security) 참조하십시오.
+자세한 내용은 [전송 계층 보안을](./transport-layer-security.md) 참조하십시오.
 
 ### <a name="virtual-network"></a>가상 네트워크
 
@@ -187,7 +187,7 @@ Azure Virtual Network 내에서 두 개의 클러스터 유형을 사용하는 �
 
 이 설정은 클러스터 유형 Kafka에서만 사용할 수 있습니다. 자세한 내용은 [REST 프록시 사용을](./kafka/rest-proxy.md)참조하십시오.
 
-### <a name="identity"></a>Identity
+### <a name="identity"></a>ID
 
 자세한 내용은 [Azure HDInsight의 관리되는 ID를](./hdinsight-managed-identities.md)참조하십시오.
 
@@ -203,7 +203,7 @@ Azure Virtual Network 내에서 두 개의 클러스터 유형을 사용하는 �
 
 | Type | 노드 | 다이어그램 |
 | --- | --- | --- |
-| Hadoop은 |헤드 노드(2), 작업자 노드(1+) |![HDInsight Hadoop 클러스터 노드](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
+| Hadoop |헤드 노드(2), 작업자 노드(1+) |![HDInsight Hadoop 클러스터 노드](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |헤드 서버(2), 지역 서버(1+), 마스터/ZooKeeper 노드(3) |![HDInsight HBase 클러스터 유형 설정](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
 | Storm |Nimbus 노드(2), 감독자 서버(1+), ZooKeeper 노드(3) |![HDInsight 스톰 클러스터 유형 설정](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
 | Spark |헤드 노드 (2), 작업자 노드 (1+), 사육사 노드 (3) (A1 사육사 VM 크기에 대해 무료) |![HDInsight 스파크 클러스터 유형 설정](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |

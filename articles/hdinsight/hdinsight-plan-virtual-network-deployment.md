@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/25/2020
-ms.openlocfilehash: 30664d533215cb49fa6f436ec4cf88fa319c3300
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/21/2020
+ms.openlocfilehash: 18774ae4a98b795846459251174ee47671aef39c
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272267"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769895"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Azure HDInsight를 위한 가상 네트워크 계획
 
@@ -243,7 +243,7 @@ HDInsight 클러스터에서 아웃바운드 트래픽 제어에 대한 자세�
 
 ## <a name="required-ports"></a><a id="hdinsight-ports"></a> 필수 포트
 
-**방화벽**을 사용하여 특정 포트 외부에서 클러스터에 액세스하려는 경우 시나리오에 필요한 포트에서 트래픽을 허용해야 합니다. 기본적으로 이전 섹션에서 설명한 대로 Azure 관리 트래픽이 443 포트의 클러스터에 도달하도록 허용되어 있는 한 특별한 포트를 허용 목록에 추가할 필요는 없습니다.
+**방화벽**을 사용하여 특정 포트 외부에서 클러스터에 액세스하려는 경우 시나리오에 필요한 포트에서 트래픽을 허용해야 합니다. 기본적으로 이전 섹션에서 설명한 Azure 관리 트래픽이 포트 443의 클러스터에 도달할 수 있는 한 포트의 특별한 허용 목록이 필요하지 않습니다.
 
 특정 서비스에 대한 포트 목록은 [HDInsight의 Apache Hadoop 서비스에서 사용되는 포트](hdinsight-hadoop-port-settings-for-services.md) 문서를 참조하세요.
 
@@ -253,21 +253,10 @@ HDInsight 클러스터에서 아웃바운드 트래픽 제어에 대한 자세�
 
 HDInsight 클러스터를 만들 면 로드 밸런서도 만들어집니다. 이 로드 밸러블러의 유형은 특정 제약 조건이 있는 [기본 SKU 수준에](../load-balancer/concepts-limitations.md#skus)있습니다. 이러한 제약 조건 중 하나는 서로 다른 지역에 두 개의 가상 네트워크가 있는 경우 기본 로드 밸로드에 연결할 수 없다는 것입니다. 자세한 내용은 [가상 네트워크 FAQ: 전역 vnet 피어링에 대한 제약 조건을](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)참조하십시오.
 
-## <a name="transport-layer-security"></a>Transport Layer Security(전송 계층 보안)
-
-공용 클러스터 끝점을 `https://<clustername>.azurehdinsight.net` 통해 클러스터에 대한 연결은 클러스터 게이트웨이 노드를 통해 프록시됩니다. 이러한 연결은 TLS라는 프로토콜을 사용하여 보호됩니다. 게이트웨이에서 더 높은 버전의 TLS를 적용하여 이러한 연결에 대한 보안을 향상시킵니다. 최신 버전의 TLS를 사용해야 하는 이유에 대한 자세한 내용은 [TLS 1.0 문제 해결을](https://docs.microsoft.com/security/solving-tls1-problem)참조하십시오.
-
-기본적으로 Azure HDInsight 클러스터는 이전 버전의 이전 버전과 공용 HTTPS 끝점에서 TLS 1.2 연결을 허용합니다. Azure 포털 또는 리소스 관리자 템플릿을 사용하여 클러스터 를 만드는 동안 게이트웨이 노드에서 지원되는 최소 TLS 버전을 제어할 수 있습니다. 포털의 경우 클러스터 를 만드는 동안 **보안 + 네트워킹** 탭에서 TLS 버전을 선택합니다. 배포 시 리소스 관리자 템플릿의 경우 **minSupportedTlsVersion** 속성을 사용합니다. 샘플 템플릿은 [HDInsight 최소 TLS 1.2 빠른 시작 템플릿을](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls)참조하십시오. 이 속성은 각각 TLS 1.0+, TLS 1.1+ 및 TLS 1.2+에 해당하는 "1.0", "1.1" 및 "1.2"의 세 가지 값을 지원합니다.
-
-> [!IMPORTANT]
-> 2020년 6월 30일부터 Azure HDInsight는 모든 HTTPS 연결에 대해 TLS 1.2 이상 버전을 적용합니다. 모든 클라이언트가 TLS 1.2 이상 버전을 처리할 준비가 되었는지 확인하는 것이 좋습니다. 자세한 내용은 [Azure HDInsight TLS 1.2 적용을](https://azure.microsoft.com/updates/azure-hdinsight-tls-12-enforcement/)참조하십시오.
-
 ## <a name="next-steps"></a>다음 단계
 
 * Azure 가상 네트워크 생성의 코드 샘플 및 예제는 [Azure HDInsight 클러스터에 대한 가상 네트워크 만들기를](hdinsight-create-virtual-network.md)참조하십시오.
 * 온-프레미스 네트워크에 연결하기 위해 HDInsight를 구성하는 엔드투엔드 예제는 [HDInsight를 온-프레미스 네트워크에 연결](./connect-on-premises-network.md)을 참조하세요.
-* Azure 가상 네트워크에서 아파치 HBase 클러스터를 구성하는 경우 [Azure 가상 네트워크의 HDInsight에서 아파치 HBase 클러스터 만들기를](hbase/apache-hbase-provision-vnet.md)참조하십시오.
-* Apache HBase 지리적 복제를 구성하려면 [Azure 가상 네트워크에서 Apache HBase 클러스터 복제 설정](hbase/apache-hbase-replication.md)을 참조하세요.
 * Azure 가상 네트워크에 대한 자세한 내용은 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 * 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 참조하세요.
 * 사용자 정의 경로에 대한 자세한 내용은 [사용자 정의 경로 및 IP 전달](../virtual-network/virtual-networks-udr-overview.md)을 참조하십시오.

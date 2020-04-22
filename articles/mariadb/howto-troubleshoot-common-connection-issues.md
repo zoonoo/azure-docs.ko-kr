@@ -1,17 +1,17 @@
 ---
 title: 연결 문제 해결 - MariaDB용 Azure 데이터베이스
 description: 재시도가 필요한 일시적인 오류, 방화벽 문제 및 중단을 포함하여 MariaDB용 Azure 데이터베이스에 대한 연결 문제를 해결하는 방법을 알아봅니다.
-author: jan-eng
-ms.author: janeng
+author: jasonwhowell
+ms.author: jasonh
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: d134bcd0c5f9bfde0fdb095122d54848873174be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6817807d0a85b1465beafc86045ea1e0dd8a31ec
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536363"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770329"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대한 연결 문제 해결
 

@@ -1,17 +1,17 @@
 ---
 title: 가격 책정 계층 - Azure Database for MariaDB
 description: 계산 세대, 저장소 유형, 저장소 크기, vCores, 메모리 및 백업 보존 기간을 포함하여 MariaDB용 Azure 데이터베이스의 다양한 가격 책정 계층에 대해 알아봅니다.
-author: jan-eng
-ms.author: janeng
+author: jasonwhowell
+ms.author: jasonh
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 39af6850810fa471003cea27ed274972fb2ff046
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c057bebf94362b3b9e42db9d311e99f1e35c651
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528033"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770123"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB 가격 책정 계층
 

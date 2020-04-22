@@ -1,18 +1,18 @@
 ---
-title: Azure Automation에서 Azure 모듈 업데이트
+title: Azure 자동화에서 Azure PowerShell 모듈 업데이트
 description: 이 문서에서는 Azure Automation에 기본적으로 제공되는 일반 Azure PowerShell 모듈을 즉시 업데이트하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
 ms.date: 06/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ba926ccbb069c8620259514e0a64c56957529a0f
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: bb73b3d644e96f9596f887faaf62eb15f01956ab
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617481"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769664"
 ---
-# <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법
+# <a name="update-azure-powershell-modules-in-azure-automation"></a>Azure 자동화에서 Azure PowerShell 모듈 업데이트
 
 자동화 계정의 Azure 모듈을 업데이트하려면 오픈 소스로 사용할 수 있는 [Azure 모듈 Runbook 업데이트를](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)사용해야 합니다. **Update-AutomationAzureModulesForAccount** Runbook을 사용하여 Azure 모듈을 업데이트하려면 GitHub의 [Azure 모듈 Runbook 리포지토리 업데이트](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)에서 다운로드합니다. 그런 다음 자동화 계정으로 가져오거나 스크립트로 실행할 수 있습니다. 자동화 계정에서 Runbook을 가져오는 방법을 알아보려면 [runbook 가져오기](manage-runbooks.md#importing-a-runbook)를 참조하십시오.
 
@@ -37,7 +37,7 @@ ms.locfileid: "81617481"
 
 다음은 이 문서를 사용하여 Azure 모듈을 업데이트할 때 고려해야 할 몇 가지 고려 사항입니다.
 
-* 이 문서에서 설명하는 Runbook은 기본적으로 Azure, AzureRM 및 Az 모듈 업데이트를 지원합니다. 이 [Runbook을](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) 통해 Az.Automation 모듈 업데이트에 대한 자세한 내용은 Azure 모듈 런북 README 업데이트를 검토하십시오. 자동화 계정에서 Az 모듈을 사용할 때 고려해야 할 중요한 요소가 추가로 있습니다. 자세한 내용은 [자동화 계정의 Az 모듈 사용을](az-modules.md)참조하십시오.
+* 이 문서에서 설명하는 Runbook은 기본적으로 Azure, AzureRM 및 Az 모듈 업데이트를 지원합니다. 이 [Runbook을](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) 통해 Az.Automation 모듈 업데이트에 대한 자세한 내용은 Azure 모듈 런북 README 업데이트를 검토하십시오. 자동화 계정에서 Az 모듈을 사용할 때 고려해야 할 중요한 요소가 추가로 있습니다. 자세한 내용은 [Azure 자동화의 모듈 관리를](shared-resources/modules.md)참조하십시오.
 
 * 이 Runbook을 시작하기 전에 Automation 계정에 [Azure 실행 계정 자격 증명](manage-runas-account.md)이 만들어져 있는지 확인합니다.
 

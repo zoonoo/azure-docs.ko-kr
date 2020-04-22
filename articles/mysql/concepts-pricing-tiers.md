@@ -1,17 +1,17 @@
 ---
 title: 가격 책정 계층 - Azure Database for MySQL
 description: 세대 계산, 저장소 유형, 저장소 크기, vCores, 메모리 및 백업 보존 기간을 포함하여 MySQL용 Azure 데이터베이스의 다양한 가격 책정 계층에 대해 알아봅니다.
-author: jan-eng
-ms.author: janeng
+author: jasonwhowell
+ms.author: jasonh
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: cf959112a2a717da1005be062dda3b83163d8d6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0123436eab2cdfa91066a2bd0652e16896ee838a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79269446"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767857"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL 가격 책정 계층
 
@@ -51,7 +51,7 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 | IOPS | 변수 |3IOPS/GB<br/>최소 100IOPS<br/>최대 20,000 IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 20,000 IOPS |
 
 > [!NOTE]
-> 미국 동부, 미국 동부 2, 미국 중부, 미국 서부, 미국 중북부, 미국 중남부, 미국 중남부, 북유럽, 서유럽, 영국 남부, 영국 서부, 동남아시아, 동아시아, 일본 동부, 일본 서부, 한국 중부 등 에서 최대 16TB 및 20,000IOPS의 스토리지가 지원됩니다. , 한국, 오스트레일리아 동부, 오스트레일리아 남동부.
+> 미국 동부, 미국 동부 2, 미국 중부, 미국 서부, 미국 중북부, 미국 중남부, 미국 중남부, 북유럽, 서유럽, 영국 남부, 영국 서부, 동남아시아, 동아시아, 일본 동부, 일본 서부, 한국 중부, 한국, 호주 동부, 호주 남동부 등 에서 최대 16TB 및 20,000IOPS의 스토리지가 지원됩니다.
 >
 > 다른 모든 리전은 최대 4TB의 스토리지와 최대 6000개의 IOPS를 지원합니다.
 >

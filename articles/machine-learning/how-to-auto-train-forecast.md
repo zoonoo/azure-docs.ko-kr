@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: be3046a343e14be4a527363751081ba3f2593cd3
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 9f80156f61ad82e5563f1c38764c81297f5979f2
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605885"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767303"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,13 +36,13 @@ ms.locfileid: "81605885"
 
 학습 데이터에서 추출된 기능은 중요한 역할을 합니다. 또한 자동화된 ML은 표준 전처리 단계를 수행하고 추가 타임계 기능을 생성하여 계절적 효과를 포착하고 예측 정확도를 극대화합니다.
 
-## <a name="time-series-and-deep-learning-models"></a>타임 시리즈 및 딥 러닝 모델
+## <a name="time-series-and-deep-learning-models"></a>타임시리즈 및 딥 러닝 모델
 
 
 자동 ML은 사용자에게 권장 시스템의 일부로 네이티브 타임시리즈 및 딥 러닝 모델을 모두 제공합니다. 이러한 학습자는 다음과 같습니다.
-+ 예언자
-+ 자동 아리마
-+ 예보TCN
++ 예언자 (미리보기)
++ 자동 ARIMA(미리 보기)
++ 예측TCN (미리보기)
 
 자동화된 ML의 딥 러닝을 통해 일변량 및 다변량 타임시리즈 데이터를 예측할 수 있습니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "81605885"
 1. 여러 입력 및 출력을 지원합니다.
 1. 긴 시퀀스에 걸쳐 입력 데이터에서 패턴을 자동으로 추출할 수 있습니다.
 
-더 큰 데이터를 감안할 때 Microsoft의 ForecastTCN과 같은 딥 러닝 모델은 결과 모델의 점수를 향상시킬 수 있습니다. 
+더 큰 데이터를 감안할 때 Microsoft의 ForecastTCN과 같은 딥 러닝 모델은 결과 모델의 점수를 향상시킬 수 있습니다. [딥 러닝을 위해 실험을 구성하는](#configure-a-dnn-enable-forecasting-experiment)방법에 대해 알아봅니다.
 
 네이티브 타임시리즈 학습자는 자동화된 ML의 일부로도 제공됩니다. Prophet는 계절에 따라 강한 효과와 여러 시즌의 역사적 데이터가 있는 타임시리즈와 가장 잘 어갖 효과를 내며 작업합니다. Prophet는 정확하고 & 빠르며 이상값에 견고하며 데이터가 누락되었으며 타임 시리즈의 극적인 변화가 있습니다. 
 
@@ -113,7 +113,7 @@ test_labels = test_data.pop(label).values
 
 개체는 [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) 자동화된 기계 학습 작업에 필요한 설정 및 데이터를 정의합니다. 회귀 문제와 마찬가지로 작업 유형, 반복 횟수, 학습 데이터 및 교차 유효성 검사 수와 같은 표준 학습 매개 변수를 정의합니다. 예측 작업의 경우 실험에 영향을 주는 추가 매개 변수를 설정해야 합니다. 다음 표는 각 매개 변수와 해당 용도에 대해 설명합니다.
 
-| 매개&nbsp;변수 이름 | Description | 필수 |
+| 매개&nbsp;변수 이름 | 설명 | 필수 |
 |-------|-------|-------|
 |`time_column_name`|시간계를 작성하고 빈도를 유추하는 데 사용되는 입력 데이터의 날짜 시간 열을 지정하는 데 사용됩니다.|✓|
 |`grain_column_names`|입력 데이터의 개별 계열 그룹을 정의하는 이름입니다. 그레인이 정의되지 않은 경우 데이터 집합은 하나의 타임계열로 가정합니다.||
@@ -181,6 +181,17 @@ best_run, fitted_model = local_run.get_output()
 > 자동화된 기계 학습에서 예측에 대한 DNN 지원은 미리 보기로 되어 있으며 로컬 실행에는 지원되지 않습니다.
 
 DNN을 예측에 활용하려면 AutoMLConfig의 `enable_dnn` 매개 변수를 true로 설정해야 합니다. 
+
+```python
+automl_config = AutoMLConfig(task='forecasting',
+                             enable_dnn=True,
+                             ...
+                             **time_series_settings)
+```
+[자동 MLConfig 에](#configure-and-run-experiment)대해 자세히 알아보십시오.
+
+또는 스튜디오에서 `Enable deep learning` 옵션을 선택할 수 있습니다.
+![대체 텍스트](./media/how-to-auto-train-forecast/enable_dnn.png)
 
 GPU SCO가 있는 AML Compute 클러스터와 두 개 이상의 노드를 계산 대상으로 사용하는 것이 좋습니다. DNN 교육이 완료될 때까지 충분한 시간을 허용하려면 실험 시간 시간을 최소 2시간으로 설정하는 것이 좋습니다.
 GPU를 포함하는 AML 컴퓨팅 및 VM 크기에 대한 자세한 내용은 [AML 컴퓨팅 설명서](how-to-set-up-training-targets.md#amlcompute) 및 [GPU 최적화 가상 머신 크기 설명서를](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)참조하십시오.

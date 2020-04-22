@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 204b5dd4661b34aae8b76d65505a65e20f293f0f
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: dfa4d65464192b90d4a6f74255faaf8b664ce118
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115337"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767968"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -62,14 +62,11 @@ Blob API 및 데이터 레이크 스토리지 Gen2 API는 동일한 데이터에
 
 <a id="api-scope-data-lake-client-library" />
 
-## <a name="file-system-support-in-sdks"></a>SDK의 파일 시스템 지원
+## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>SDK, PowerShell 및 Azure CLI의 파일 시스템 지원
 
-Get 및 set ACL 작업은 현재 재귀적이지 않습니다.
-
-## <a name="file-system-support-in-powershell-and-azure-cli"></a>PowerShell 및 Azure CLI의 파일 시스템 지원
-
-- [PowerShell](data-lake-storage-directory-file-acl-powershell.md) 및 [Azure CLI](data-lake-storage-directory-file-acl-cli.md) 지원은 공개 미리 보기입니다.
 - Get 및 set ACL 작업은 현재 재귀적이지 않습니다.
+- [Azure CLI](data-lake-storage-directory-file-acl-cli.md) 지원은 공개 미리 보기입니다.
+
 
 ## <a name="lifecycle-management-policies"></a>수명 주기 관리 정책
 

@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/16/2020
+ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4a361f384167fa522278b9c84a7927e938c12cb8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 3ce3311fd0538109dbe9ba5ae71a17dcfd4b8abe
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81534808"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769738"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오를 호스트하고 실행
 
@@ -111,6 +111,7 @@ Azure 서비스를 SAP 구성 요소에 통합하는 방법에 대한 자세한 
 
 ## <a name="change-log"></a>변경 로그
 
+- 2020년 04/21: SAP(Hybris) 상거래 플랫폼 1811 및 이후 문서에서 Microsoft Azure에서 실행되는 Azure 배포 및 [SAP 인증 및 구성에](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications) [대해 지원되는 SAP 소프트웨어에](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) 대해 지원되는 DBMS로 SQL Azure DB를 추가했습니다.
 - 2020년 04/16: SAP HANA를 SAP(Hybris) 상거래 플랫폼에 지원되는 DBMS로 추가한 [기사에 SAP 소프트웨어가 Azure 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) 및 [SAP 인증 및 Microsoft Azure에서 실행되는 구성에](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications) 대해 지원됩니다.
 - 2020년 04/13: [SAP 워크로드에 대한 SAP ASE Azure 가상 시스템 DBMS 배포에서 정확한 SAP ASE](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sapase) 릴리스 번호 수정
 - 2020/04/07: 클라우드-netconfig-azure 지침을 명확히 하기 위해 [Azure에서 SLES에서 페이스 메이커 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) 변경

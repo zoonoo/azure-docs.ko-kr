@@ -4,12 +4,12 @@ description: Azure의 경고에 대한 개요입니다. 경고, 클래식 경고
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: 7ca77531ed3e1fae8ec297e430597452c7512aea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e02c23623062f5cb3e4c597b0bb257b30aa9f44a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274789"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769779"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고 개요 
 
@@ -69,7 +69,7 @@ ms.locfileid: "79274789"
 | **모니터 소스** | **신호 유형**  | **설명** |
 |-------------|----------------|-------------|
 | 서비스 상태 | 활동 로그  | 지원되지 않습니다. [서비스 알림에 대한 활동 로그 경고 만들기](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)를 참조하세요.  |
-| 애플리케이션 정보 | 웹 가용성 테스트 | 지원되지 않습니다. [웹 테스트 경고](../../azure-monitor/app/monitor-web-app-availability.md)를 참조하세요. Application Insights에 데이터를 보내도록 계측되는 모든 웹 사이트에서 사용할 수 있습니다. 웹 사이트의 가용성이나 응답성이 기대 이하이면 알림을 받습니다. |
+| Application Insights | 웹 가용성 테스트 | 지원되지 않습니다. [웹 테스트 경고](../../azure-monitor/app/monitor-web-app-availability.md)를 참조하세요. Application Insights에 데이터를 보내도록 계측되는 모든 웹 사이트에서 사용할 수 있습니다. 웹 사이트의 가용성이나 응답성이 기대 이하이면 알림을 받습니다. |
 
 ## <a name="manage-alerts"></a>경고 관리
 경고가 해결 과정에 있는지 지정하는 경고 상태를 설정할 수 있습니다. 경고 규칙에 지정된 조건이 충족되면 경고가 만들어지거나 발생하며 *새로*이됨 의 상태가 있습니다. 경고를 확인할 때 및 경고를 닫을 때 상태를 변경할 수 있습니다. 모든 상태 변경은 경고 기록에 저장됩니다.
@@ -78,7 +78,7 @@ ms.locfileid: "79274789"
 
 | 시스템 상태 | 설명 |
 |:---|:---|
-| 새로 만들기 | 문제가 방금 검색되었으며 아직 검토되지 않았습니다. |
+| 단추를 사용하여 새 | 문제가 방금 검색되었으며 아직 검토되지 않았습니다. |
 | 확인됨 | 관리자가 경고를 검토하고 작업을 시작했습니다. |
 | 닫힘 | 문제가 해결되었습니다. 경고가 닫힌 후 다른 상태로 변경하면 경고를 다시 열 수 있습니다. |
 
@@ -103,7 +103,7 @@ ms.locfileid: "79274789"
 
 페이지 상단의 드롭다운 메뉴에서 값을 선택하여 이 보기를 필터링할 수 있습니다.
 
-| 열 | 설명 |
+| 열 | Description |
 |:---|:---|
 | Subscription | 경고를 보려는 Azure 구독을 선택합니다. 선택적으로 모든 구독을 선택하도록 선택할 수 있습니다. 선택한 구독에 액세스할 수 있는 경고만 보기에 포함됩니다. |
 | Resource group | 단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. |
@@ -125,7 +125,10 @@ ms.locfileid: "79274789"
 
 
 ## <a name="create-an-alert-rule"></a>경고 규칙 만들기
-모니터링 서비스 또는 신호 유형에 관계없이 일관된 방식으로 경고를 작성할 수 있습니다. 발생한 모든 경고 및 관련 세부 정보는 단일 페이지에 제공됩니다.
+모니터링 서비스 또는 신호 유형에 관계없이 일관된 방식으로 경고 규칙을 작성할 수 있습니다.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tflw]
+
  
 새 경고 규칙을 만드는 방법은 다음과 같습니다.
 1. 경고의 _대상_을 선택합니다.
@@ -146,7 +149,7 @@ ms.locfileid: "79274789"
 
 페이지 상단의 드롭다운 메뉴에서 다음 값을 선택하여 보기를 필터링할 수 있습니다.
 
-| 열 | 설명 |
+| 열 | Description |
 |:---|:---|
 | Subscription | 경고를 보려는 Azure 구독을 선택합니다. 선택적으로 모든 구독을 선택하도록 선택할 수 있습니다. 선택한 구독에 액세스할 수 있는 경고만 보기에 포함됩니다. |
 | Resource group | 단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. |

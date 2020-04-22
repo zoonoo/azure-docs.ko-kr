@@ -3,12 +3,12 @@ title: 컨테이너에 대한 Azure 모니터로 하이브리드 Kubernetes 클�
 description: 이 문서에서는 Azure 스택 또는 기타 환경에서 호스팅되는 Kubernetes 클러스터를 모니터링하도록 컨테이너에 대한 Azure Monitor를 구성하는 방법에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 01/24/2020
-ms.openlocfilehash: 5a973e7e500906ebe833ec4cc6fd2fa8ee79c19e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 6c2782fdd810403a793f6ef682d1112fadc22465
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255433"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769036"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>컨테이너에 대한 Azure 모니터를 통해 하이브리드 Kubernetes 클러스터 구성
 
@@ -240,6 +240,9 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
        모니터링을 사용하도록 설정하고 약 15분 후에 클러스터에 대한 상태 메트릭을 볼 수 있습니다.
 
 ## <a name="install-the-chart"></a>차트 설치
+
+>[!NOTE]
+>다음 명령은 Helm 버전 2에만 적용됩니다. --name 매개 변수의 사용은 Helm 버전 3에는 적용되지 않습니다.
 
 HELM 차트를 사용하려면 다음을 수행합니다.
 

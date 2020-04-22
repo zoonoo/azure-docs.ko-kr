@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e17cc4bf6f70901e3bb5d250f0a55f073ad8d99e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1e5861e802f39adecb5661bc17c22b432f137d59
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81406723"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770294"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시의 와일드카드 애플리케이션
 
@@ -48,8 +48,6 @@ Azure AD(Azure Active Directory)에서 다수의 온-프레미스 애플리케�
 예: `http(s)://*.adventure-works.com`
 
 내부 및 외부 URL이 서로 다른 도메인을 사용할 수도 있지만 동일한 것이 좋습니다. 애플리케이션을 게시할 때 URL 중 하나에 와일드카드가 없으면 오류가 표시됩니다.
-
-다른 구성 설정을 가진 추가 애플리케이션이 있는 경우, 이러한 예외를 별도의 애플리케이션으로 게시하여 와일드카드에 설정된 기본값을 덮어써야 합니다. 와일드카드가 없는 애플리케이션이 와일드카드 애플리케이션보다 항상 우선합니다. 구성 측면에서는 “단순히” 일반적인 애플리케이션입니다.
 
 와일드카드 애플리케이션 생성은 다른 모든 애플리케이션에 사용할 수 있는 것과 동일한 [애플리케이션 게시 흐름](application-proxy-add-on-premises-application.md)을 기반으로 합니다. 유일한 차이점은 URL에 와일드카드를 포함하고 잠재적으로 SSO 구성이라는 것뿐입니다.
 
@@ -158,7 +156,7 @@ DNS 관리를 통해 와일드카드를 특정 애플리케이션에 대해서�
 
 ![예제 구성에 의해 구현된 구조를 표시합니다.](./media/application-proxy-wildcard/05.png)
 
-| 색 | Description |
+| 색 | 설명 |
 | ---   | ---         |
 | 파랑  | Azure 포털에 명시적으로 게시되고 표시되는 응용 프로그램입니다. |
 | 회색  | 부모 애플리케이션을 통해 액세스할 수 있는 애플리케이션입니다. |

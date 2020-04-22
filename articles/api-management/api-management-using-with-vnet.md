@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 462a44f7766e0ec52ba7156d6de5ae5261e21376
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 0ecb7ee7f5c7c0ebaa87eb6b32eee1926d9e294d
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547360"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768964"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 비인터넷 라우팅 가능 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -108,7 +108,7 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 
 <a name="required-ports"> </a> API 관리 서비스 인스턴스가 VNET에서 호스팅되면 다음 테이블의 포트가 사용됩니다.
 
-| 소스/대상 포트 | Direction          | 전송 프로토콜 |   [서비스 태그](../virtual-network/security-overview.md#service-tags) <br> 원본 / 대상   | 목적( * )                                                 | 가상 네트워크 유형 |
+| 소스/대상 포트 | Direction          | 전송 프로토콜 |   [서비스 태그](../virtual-network/security-overview.md#service-tags) <br> 원본 / 대상   | 목적\*()                                                 | 가상 네트워크 유형 |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / [80], 443                  | 인바운드            | TCP                | 인터넷 / VIRTUAL_NETWORK            | API Management에 대한 클라이언트 통신                      | 외부             |
 | * / 3443                     | 인바운드            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Azure Portal 및 Powershell용 관리 엔드포인트         | 외부 및 내부  |
@@ -132,9 +132,7 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 
 + **DNS 액세스**: DNS 서버와의 통신을 위해서는 53 포트에서 아웃바운드 액세스가 필요합니다. 사용자 지정 DNS 서버가 VPN 게이트웨이의 다른 쪽 끝에 있는 경우 API Management를 호스팅하는 서브넷에서 DNS 서버에 연결할 수 있어야 합니다.
 
-+ **메트릭 및 상태 모니터링**: Azure Monitoring 엔드포인트에 대한 아웃바운드 네트워크 연결은 다음 도메인에서 확인합니다.
-
-+ **지역 서비스 태그**": 스토리지, SQL 및 EventHubs 서비스 태그에 대한 아웃바운드 연결을 허용하는 NSG 규칙은 API 관리 인스턴스를 포함하는 리전(예: 미국 서부 지역의 API 관리 인스턴스에 대한 Storage.WestUS)을 포함하는 지역에 해당하는 해당 태그의 지역 버전을 사용할 수 있습니다. 다중 지역 배포에서 각 지역의 NSG는 해당 지역의 서비스 태그에 대한 트래픽을 허용해야 합니다.
++ **메트릭 및 상태 모니터링**: 다음 도메인에서 해결하는 Azure 모니터링 끝점에 대한 아웃바운드 네트워크 연결입니다. 표에 표시된 대로 이러한 URL은 네트워크 보안 그룹과 함께 사용할 AzureMonitor 서비스 태그 아래에 표시됩니다.
 
     | Azure 환경 | 엔드포인트                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -142,8 +140,10 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com **(신규)**</li><li>shoebox2.metrics.nsatc.net **(더 이상 사용되지 않을)**</li><li>prod3.metrics.microsoftmetrics.com **(신규)**</li><li>prod3.metrics.nsatc.net **(더 이상 사용되지 않을)**</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
     | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com **(신규)**</li><li>shoebox2.metrics.nsatc.net **(더 이상 사용되지 않을)**</li><li>prod3.metrics.microsoftmetrics.com **(신규)**</li><li>prod3.metrics.nsatc.net **(더 이상 사용되지 않을)**</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
 
->[!IMPORTANT]
-> dns 영역 **.nsatc.net .microsoftmetrics.com** 위의 클러스터를 **변경하는** 것은 대부분 DNS 변경입니다. 클러스터의 IP 주소는 변경되지 않습니다.
+  >[!IMPORTANT]
+  > dns 영역 **.nsatc.net .microsoftmetrics.com** 위의 클러스터를 **변경하는** 것은 대부분 DNS 변경입니다. 클러스터의 IP 주소는 변경되지 않습니다.
+
++ **지역 서비스 태그**: 스토리지, SQL 및 이벤트 허브 서비스 태그에 대한 아웃바운드 연결을 허용하는 NSG 규칙은 API 관리 인스턴스를 포함하는 리전(예: 미국 서부 지역의 API 관리 인스턴스에 대한 Storage.WestUS)을 포함하는 지역에 해당하는 해당 태그의 지역 버전을 사용할 수 있습니다. 다중 지역 배포에서 각 지역의 NSG는 해당 지역 및 기본 지역에 대한 서비스 태그에 대한 트래픽을 허용해야 합니다.
 
 + **SMTP 릴레이**: `smtpi-co1.msn.com`호스트 , `smtpi-ch1.msn.com`및 `smtpi-db3.msn.com` `smtpi-sin.msn.com``ies.global.microsoft.com`
 
@@ -151,7 +151,7 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 
 + **Azure Portal 진단**: Virtual Network 내부에서 API Management 확장을 사용할 때 Azure Portal에서 진단 로그의 흐름을 사용하도록 설정하려면 포트 443에서 `dc.services.visualstudio.com`에 대한 아웃바운드 액세스가 필요합니다. 이는 확장을 사용할 때 발생할 수 있는 문제 해결에 도움이 됩니다.
 
-+ **익스프레스 경로 또는 네트워크 가상 어플라이언스를 사용하여 온프레미스 방화벽으로 트래픽을 터널링하는**경우: 일반적인 고객 구성은 API 관리 위임서브넷의 모든 트래픽이 온-프레미스 방화벽또는 네트워크 가상 어플라이언스를 통해 흐르도록 강제하는 자체 기본 경로(0.0.0.0/0)를 정의하는 것입니다. 이 트래픽 흐름은 변함없이 Azure API Management와의 연결을 끊습니다. 그 이유는 아웃바운드 트래픽이 온-프레미스에서 막히거나 다양한 Azure 엔드포인트에서 더 이상 작동하지 않는 인식 불가능한 주소 집합으로 NAT되기 때문입니다. 이 솔루션을 사용하려면 다음 몇 가지 작업을 수행해야 합니다.
++ **익스프레스 경로 또는 네트워크 가상 어플라이언스를 사용하여 온-프레미스 방화벽으로 트래픽을 강제 터널링:** 일반적인 고객 구성은 API 관리 위임서브넷의 모든 트래픽이 온-프레미스 방화벽또는 네트워크 가상 어플라이언스를 통해 흐르도록 하는 자체 기본 경로(0.0.0.0/0)를 정의하는 것입니다. 이 트래픽 흐름은 변함없이 Azure API Management와의 연결을 끊습니다. 그 이유는 아웃바운드 트래픽이 온-프레미스에서 막히거나 다양한 Azure 엔드포인트에서 더 이상 작동하지 않는 인식 불가능한 주소 집합으로 NAT되기 때문입니다. 이 솔루션을 사용하려면 다음 몇 가지 작업을 수행해야 합니다.
 
   * API 관리 서비스가 배포되는 서브넷에서 서비스 끝점을 활성화합니다. Azure Sql, Azure 저장소, Azure EventHub 및 Azure ServiceBus에 대해 [서비스 끝점을][ServiceEndpoints] 사용하도록 설정해야 합니다. API Management가 이러한 서비스에 대해 위임한 서브넷에서 직접 엔드포인트를 사용하도록 설정하면 서비스 트래픽에 대한 최적의 라우팅을 제공하는 Microsoft Azure 백본 네트워크를 사용할 수 있습니다. 강제 터널을 통해 된 Api 관리와 함께 서비스 끝점을 사용하는 경우 위의 Azure 서비스 트래픽은 강제 터널로 처리되지 않습니다. 다른 API 관리 서비스 종속성 트래픽은 강제로 터널을 통해 손실되거나 API 관리 서비스가 제대로 작동하지 않습니다.
     

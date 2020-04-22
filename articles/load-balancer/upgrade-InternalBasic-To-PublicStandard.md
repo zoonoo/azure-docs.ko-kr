@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 346fc3d5a4e7b165caafd9847b9797abae0c9113
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3eca498e5716ae7c0a03e5e624d618899da8dc8
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659988"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770394"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Azure 내부 부하 분산 검사기 업그레이드 - 아웃바운드 연결이 필요합니다.
 [Azure 표준 로드 밸러저는](load-balancer-overview.md) 영역 중복성을 통해 풍부한 기능과 고가용성을 제공합니다. 로드 밸러워 SKU에 대한 자세한 내용은 [비교 표를](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus)참조하십시오. 표준 내부 부하 밸런서가 아웃바운드 연결을 제공하지 않으므로 대신 표준 공용 부하 밸런서를 만드는 솔루션을 제공합니다.
@@ -21,8 +21,7 @@ ms.locfileid: "77659988"
 
 1. 구성을 표준 공용 부하 밸런서로 마이그레이션
 2. 표준 공용 로드 밸런서의 백 엔드 풀에 VM 추가
-3. 아웃바운드 연결을 위한 로드 밸런서에 아웃바운드 규칙 만들기
-4. 인터넷에서/인터넷을 자제해야 하는 서브넷/VM에 대한 NSG 규칙 설정
+3. 인터넷에서/인터넷을 자제해야 하는 서브넷/VM에 대한 NSG 규칙 설정
 
 이 문서에서는 구성 마이그레이션에 대해 다룹니다. 백 엔드 풀에 VM을 추가하는 것은 특정 환경에 따라 다를 수 있습니다. 그러나 일부 고급 일반 권장 사항이 [제공됩니다.](#add-vms-to-backend-pools-of-standard-load-balancer)
 
@@ -32,6 +31,7 @@ Azure PowerShell 스크립트는 다음을 수행하는 데 사용할 수 있습
 
 * 지정한 리소스 그룹 및 위치에 표준 SKU 공용 로드 밸런서를 만듭니다.
 * 기본 SKU 내부 부하 밸런서의 구성을 새로 만든 표준 공공 부하 밸런서에 원활하게 복사합니다.
+* 송신 연결을 가능하게 하는 아웃바운드 규칙을 만듭니다.
 
 ### <a name="caveatslimitations"></a>주의 사항\제한 사항
 
@@ -42,7 +42,7 @@ Azure PowerShell 스크립트는 다음을 수행하는 데 사용할 수 있습
 
 ## <a name="download-the-script"></a>스크립트 다운로드
 
-[PowerShell 갤러리에서](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/1.0)마이그레이션 스크립트를 다운로드합니다.
+[PowerShell 갤러리에서](https://www.powershellgallery.com/packages/AzureLBUpgrade/2.0)마이그레이션 스크립트를 다운로드합니다.
 ## <a name="use-the-script"></a>스크립트 사용
 
 로컬 PowerShell 환경 설정 및 기본 설정에 따라 두 가지 옵션이 있습니다.
