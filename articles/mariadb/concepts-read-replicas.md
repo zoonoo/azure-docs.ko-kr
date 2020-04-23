@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/21/2020
-ms.openlocfilehash: b2e8bec18f4f5df6fb78a3c31aa0956ec7333eb5
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 9129cb308a364a3ed0654055f8afe9dd8c89010a
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770119"
+ms.locfileid: "82024628"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 읽기 복제본
 
@@ -33,9 +33,6 @@ GTID 복제에 대한 자세한 내용은 [MariaDB 복제 설명서를](https://
 
 ## <a name="cross-region-replication"></a>지역 간 복제
 마스터 서버와 다른 지역에서 읽기 복제본을 만들 수 있습니다. 지역 간 복제는 재해 복구 계획 또는 사용자에게 데이터를 더 가까이 가져오는 등의 시나리오에 유용할 수 있습니다.
-
-> [!NOTE]
-> 교차 지역 복제가 미리 보기상태입니다.
 
 [MariaDB 지역에 대한](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb)모든 Azure 데이터베이스에 마스터 서버를 가질 수 있습니다.  마스터 서버는 쌍을 이루는 리전 또는 범용 복제본 지역에 복제본을 가질 수 있습니다. 아래 그림은 마스터 지역에 따라 사용할 수 있는 복제본 영역을 보여 줍니다.
 

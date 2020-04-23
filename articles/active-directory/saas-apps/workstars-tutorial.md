@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: c13c6ab180a172c034d25ac84781f5d3f83ae186
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 43fbc158c9ed0bbe87a75cd845433c7a7be2e6d1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67086633"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867905"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workstars"></a>자습서: Workstars와 Azure Active Directory 통합
 
@@ -110,7 +110,7 @@ Workstars에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
     b. **회신 URL** 텍스트 상자에서 `https://<subdomain>.workstars.com/saml/login_check` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 실제 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Workstars 클라이언트 지원 팀](https://support.workstars.com/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이 값은 실제 값이 아닙니다. 실제 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Workstars 클라이언트 지원 팀](http://support.workstars.com/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -210,7 +210,7 @@ Workstars에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
 ### <a name="create-workstars-test-user"></a>Workstars 테스트 사용자 만들기
 
-이 섹션에서는 Workstars에서 Britta Simon이라는 사용자를 만듭니다. Workstars 플랫폼에서 사용자를 추가하려면 [Workstars 지원 팀](https://support.workstars.com)에 문의하세요.
+이 섹션에서는 Workstars에서 Britta Simon이라는 사용자를 만듭니다. Workstars 플랫폼에서 사용자를 추가하려면 [Workstars 지원 팀](http://support.workstars.com)에 문의하세요.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

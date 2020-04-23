@@ -1,24 +1,19 @@
 ---
 title: 2세대 VM에 대한 Azure 지원
 description: 2세대 VM에 대한 Azure 지원 개요
-services: virtual-machines-windows
-documentationcenter: ''
 author: ju-shim
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: sizes
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 99abb6cb493cca3aa4e2ac0c42744e1fbaf84f12
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
-ms.translationtype: MT
+ms.openlocfilehash: 239e339d1870060d95d6c7e7b602be7d61af5f77
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272987"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869633"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure에서 2세대 VM 지원
 
@@ -76,7 +71,7 @@ Azure는 현재 온-프레미스 Hyper-V가 2세대 VM에 지원하는 일부 �
 | 가상화 기반 보안(VBS) | :heavy_check_mark:  | :x:   |
 | VHDX 형식                         | :heavy_check_mark:  | :x:   |
 
-## <a name="features-and-capabilities"></a>특징과 기능
+## <a name="features-and-capabilities"></a>기능 및 특성
 
 ### <a name="generation-1-vs-generation-2-features"></a>1세대 대 2 세대 기능
 
@@ -109,7 +104,7 @@ Azure 포털 또는 Azure CLI에서 UEFI 부팅을 지원하는 마켓플레이�
 다음은 Azure 포털에서 세대 2(Gen2) VM을 만드는 단계입니다.
 
 1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
-1. **리소스 만들기를 선택합니다.**
+1. **리소스 만들기**를 선택합니다.
 1. 왼쪽의 Azure 마켓플레이스에서 **모두 보기를** 클릭합니다.
 1. Gen2를 지원하는 이미지를 선택합니다.
 1. **만들기**를 클릭합니다.
@@ -153,7 +148,7 @@ Windows Server 2012를 OS로 만드는 경우 다음과 같이 보이는 1세대
 
 가상 시스템 규모 집합을 사용하여 생성 2 VM을 만들 수도 있습니다. Azure CLI에서 Azure 배율 집합을 사용하여 2세대 VM을 만듭니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 * **모든 Azure 리전에서 2세대 VM을 사용할 수 있습니까?**  
     예. 그러나 모든 지역에서 모든 [세대 2 VM 크기를](#generation-2-vm-sizes) 사용할 수 있는 것은 아닙니다. 2세대 VM의 가용성은 VM 크기의 가용성에 따라 달라집니다.

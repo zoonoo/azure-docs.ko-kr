@@ -3,12 +3,12 @@ title: Linux용 게스트 구성 정책을 만드는 방법
 description: Linux용 Azure 정책 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 24442a89d55e34f9ce9697c2f6a32cfc740bcd85
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 219b38bd81cae8d16241d1ee16cfdd2f400ae91e
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758968"
+ms.locfileid: "82024985"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Linux용 게스트 구성 정책을 만드는 방법
 
@@ -26,9 +26,8 @@ Linux를 감사할 때 게스트 구성은 [Chef InSpec.](https://www.inspec.io/
 > 게스트 구성을 가진 사용자 지정 정책은 미리 보기 기능입니다.
 >
 > Azure 가상 컴퓨터에서 감사를 수행하려면 게스트 구성 확장이 필요합니다.
-> 확장을 대규모로 배포하려면 다음 정책 정의를 할당합니다.
->   - Windows VM에서 게스트 구성 정책을 사용하도록 설정하기 위한 필수 조건 배포
->   - Linux VM에서 게스트 구성 정책을 사용하도록 설정하기 위한 필수 조건 배포
+> 모든 Linux 컴퓨터에 확장 프로그램을 대규모로 배포하려면 다음 정책 정의를 할당합니다.
+>   - [Linux VM에서 게스트 구성 정책을 사용하도록 설정하기 위한 필수 조건 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ## <a name="install-the-powershell-module"></a>PowerShell 모듈 설치
 

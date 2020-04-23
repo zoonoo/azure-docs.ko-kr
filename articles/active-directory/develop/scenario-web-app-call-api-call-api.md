@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b6f7634d16eeaa631f6d9f3c13ce23181ce7b40b
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: c07241345a724e4489fb137cfe862cde6518b318
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80881811"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868727"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>웹 API를 호출하는 웹 앱: 웹 API 호출
 
@@ -26,7 +26,7 @@ ms.locfileid: "80881811"
 
 다음은 의 작업에 대한 단순화된 `HomeController`코드입니다. 이 코드는 Microsoft Graph를 호출하는 토큰을 가져옵니다. Microsoft Graph를 REST API로 호출하는 방법을 보여 줄 코드가 추가되었습니다. Microsoft 그래프 API의 URL은 appsettings.json 파일에 제공되며 다음 이라는 `webOptions`변수에서 읽습니다.
 
-```JSon
+```json
 {
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",

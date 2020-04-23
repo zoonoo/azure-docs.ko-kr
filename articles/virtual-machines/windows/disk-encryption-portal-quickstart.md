@@ -3,15 +3,16 @@ title: Azure Portal을 사용하여 Windows VM 만들기 및 암호화
 description: 이 빠른 시작에서 Azure Portal을 사용하여 Windows 가상 머신을 만들고 암호화하는 방법을 배웁니다.
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: security
+ms.service: virtual-machines-windows
+ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 2518de3ad5d0f583cd4962796e4adda5751351df
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3a5fb354ab32dd560a94875dd84d891ce0b9d68c
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74151068"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081747"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Windows 가상 머신 만들기 및 암호화
 

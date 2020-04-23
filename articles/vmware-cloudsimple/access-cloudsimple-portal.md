@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 95d27bab243f6805436465f5027e519d33e20f6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 91d3dd2eee6f771df23b72eae7a33122c42f1690
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244733"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869324"
 ---
 # <a name="access-the-vmware-solution-by-cloudsimple-portal-from-the-azure-portal"></a>Azure 포털에서 CloudSimple 포털로 VMware 솔루션 에 액세스
 
@@ -34,11 +34,11 @@ Microsoft.VMwareCloudSimple/dedicatedCloudServices/*/write
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-에서 [https://portal.azure.com](https://portal.azure.com)Azure 포털에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
 ## <a name="access-the-cloudsimple-portal"></a>CloudSimple 포털 액세스
 
-1. **모든 서비스를**선택합니다.
+1. **모든 서비스**를 선택합니다.
 
 2. 클라우드 **간단한 서비스를**검색합니다.
 
@@ -71,5 +71,5 @@ Azure 포털에서 처음으로 CloudSimple 포털을 실행하려면 CloudSimpl
 
 ## <a name="next-steps"></a>다음 단계
 
-* [프라이빗 클라우드 를 만드는](https://docs.azure.cloudsimple.com/create-private-cloud/) 방법 알아보기
+* [프라이빗 클라우드 를 만드는](https://docs.microsoft.com/azure/vmware-cloudsimple/create-private-cloud/) 방법 알아보기
 * [프라이빗 클라우드 환경 구성](quickstart-create-private-cloud.md) 방법 알아보기

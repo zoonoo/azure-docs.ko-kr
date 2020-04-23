@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: f1354ce824bc4e57ab55846c714d4a0a73a46966
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: eff37750f0580a28c9644ee1ffb7fe4e95038709
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80873823"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869787"
 ---
 # <a name="create-a-consulting-service-offer"></a>컨설팅 서비스 오퍼 만들기
 
@@ -115,7 +115,7 @@ Azure 마켓플레이스 또는 AppSource 컨설팅 서비스에서 컨설팅 �
 > [!NOTE]
 > 제안 설명이 문구로 시작하는 경우 제공 세부 사항은 영어로 &quot;&#39;필요하지 않습니다,이 응용 프로그램은 [비 영어 언어]에서만 사용할 수 있습니다. &quot; 또한 오퍼 목록 세부 정보에 사용된 것과 다른 언어로 콘텐츠를 제공하는 유용한 링크를 제공하는&#39;&#39;.
 
-### <a name="name"></a>속성
+### <a name="name"></a>이름
 
 여기에 입력한 이름은 오퍼링의 제목으로 표시됩니다. 이 필드는 **오퍼를** 만들 때 쿠폰 별칭 상자에 입력한 텍스트로 미리 채워져 있습니다. 이 이름은 나중에 변경할 수 있습니다.
 
@@ -129,7 +129,7 @@ Azure 마켓플레이스 또는 AppSource 컨설팅 서비스에서 컨설팅 �
 
 오퍼에 대한 간략한 설명을 제공합니다. 최대 100자까지 사용할 수 있으며 마켓플레이스 검색 결과에 사용됩니다.
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 최대 3,000자까지 오퍼에 대한 더 긴 설명을 제공합니다. 이는 마켓플레이스 목록 개요의 고객에게 표시됩니다.
 
@@ -173,6 +173,9 @@ Azure 마켓플레이스 또는 AppSource 컨설팅 서비스에서 컨설팅 �
 ### <a name="marketplace-images"></a>마켓플레이스 이미지
 
 오퍼와 함께 사용할 로고와 이미지를 제공합니다. 모든 이미지는 .png 형식이어야 합니다. 흐릿한 이미지는 거부됩니다.
+
+>[!Note]
+>파일을 업로드하는 데 문제가 있는 경우 로컬 네트워크가 파트너 https://upload.xboxlive.com 센터에서 사용하는 서비스를 차단하지 않는지 확인합니다.
 
 #### <a name="store-logos"></a>스토어 로고
 

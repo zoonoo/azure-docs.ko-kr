@@ -1,26 +1,21 @@
 ---
 title: AWS 및 기타 플랫폼에서 Azure의 Managed Disks로 마이그레이션
 description: AWS 또는 기타 가상화 플랫폼과 같은 다른 클라우드에서 업로드한 VHD를 사용하여 Azure에서 VM을 만들고 Azure Managed Disks를 활용합니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: roygara
 manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dbce2969ccb508c2bf3ee33730d0b112caa45c9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dc283d1845926b79fb541d8ccb011fe853f50484
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243160"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870291"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>AWS(Amazon Web Services) 및 기타 플랫폼에서 Azure의 Managed Disks로 마이그레이션
 

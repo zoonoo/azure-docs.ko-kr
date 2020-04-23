@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 6102b1e1d6ddbac01033b9cecfeba96a7eb33777
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41f9f267880d199d2e221453eea5c3584ce96881
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473543"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868404"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory를 사용하여 개발자 계정에 권한 부여
 
@@ -26,19 +26,19 @@ ms.locfileid: "79473543"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 다음 빠른 시작 완료: [Azure API 관리 인스턴스 만들기.](get-started-create-service-instance.md)
+- 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 - Azure API Management 인스턴스를 가져오고 게시합니다. 자세한 내용은 [가져오기 및 게시](import-and-publish.md)를 참조하세요.
 
 [!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Azure AD를 사용하여 개발자 계정에 권한 부여
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 2. 선택 ![화살표](./media/api-management-howto-aad/arrow.png).
 3. 검색 상자에 **api**를 입력합니다.
 4. **API 관리 서비스를 선택합니다.**
 5. API Management 서비스 인스턴스를 선택합니다.
-6. **보안에서** **ID를**선택합니다.
+6. **개발자 포털에서** **ID를**선택합니다.
 7. 위에서 **+추가**를 선택합니다.
 
     **ID 공급자 추가** 창이 오른쪽에 나타납니다.
@@ -50,7 +50,7 @@ ms.locfileid: "79473543"
    ![Azure Portal에서 ID 공급자를 추가하는 단계](./media/api-management-howto-aad/api-management-with-aad001.png)  
 10. 브라우저에서 다른 탭을 엽니다. 
 11. Azure 포털로 이동 [- 앱 등록을](https://go.microsoft.com/fwlink/?linkid=2083908) 통해 Active Directory에 앱을 등록합니다.
-12. **관리에서** **앱 등록을 선택합니다.**
+12. **관리** 아래에서 **앱 등록**을 선택합니다.
 13. **새 등록**을 선택합니다. 응용 **프로그램 등록** 페이지에서 다음과 같이 값을 설정합니다.
     
     * **이름을** 의미 있는 이름으로 설정합니다. 예를 들어, *개발자-포털*

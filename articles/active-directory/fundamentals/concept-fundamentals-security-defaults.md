@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3139d39797c3bc576bb39f1438b7e6d3f37e3c5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f307553a97973d03b0699248373e53e4845aa39a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78248857"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869909"
 ---
 # <a name="what-are-security-defaults"></a>보안 기본값이란 무엇입니까?
 
@@ -92,8 +92,6 @@ Azure 리소스 관리자를 사용하여 서비스를 관리하는 것은 권�
 Azure 리소스 관리자 및 업데이트 구성에 액세스하려는 사용자의 ID를 확인하는 것이 중요합니다. 액세스를 허용하기 전에 추가 인증을 요구하여 ID를 확인합니다.
 
 테넌트에서 보안 기본값을 사용하도록 설정하면 Azure 포털, Azure PowerShell 또는 Azure CLI에 액세스하는 모든 사용자는 추가 인증을 완료해야 합니다. 이 정책은 관리자든 사용자이든 Azure 리소스 관리자에 액세스하는 모든 사용자에게 적용됩니다. 
-
-사용자가 다단계 인증에 등록되지 않은 경우 진행하려면 Microsoft 인증자 앱을 사용하여 등록해야 합니다. 14일 의 다단계 인증 등록 기간은 제공되지 않습니다.
 
 > [!NOTE]
 > 2017년 이전 Exchange Online 테넌은 기본적으로 최신 인증을 사용하지 않도록 설정했습니다. 이러한 테넌트를 통해 인증하는 동안 로그인 루프의 가능성을 방지하려면 [최신 인증을 사용하도록 설정해야](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online)합니다.

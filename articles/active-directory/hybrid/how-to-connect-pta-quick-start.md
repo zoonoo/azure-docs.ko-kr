@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b84e972584562be741919c7dccb6bdfe1bdea628
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 18ffb48b2e7978831155afaf2e675bb720e57544
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312867"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082206"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active 디렉터리 통과 인증: 빠른 시작
 
@@ -37,6 +37,9 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 ## <a name="step-1-check-the-prerequisites"></a>1단계: 필수 구성 요소 확인
 
 다음 필수 조건이 충족되는지 확인합니다.
+
+>[!IMPORTANT]
+>보안 관점에서 관리자는 PTA 에이전트를 실행하는 서버를 도메인 컨트롤러인 것처럼 처리해야 합니다.  PTA 에이전트 서버는 [공격으로부터 도메인 컨트롤러 보안에](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack) 설명된 것과 동일한 라인을 따라 강화되어야 합니다.
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>Azure Active Directory 관리 센터에서
 

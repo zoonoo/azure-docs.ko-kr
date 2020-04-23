@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: tagore
-ms.openlocfilehash: 4d397279ac7e5949398d695db615d9a003ab7acd
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: c69b74cf91d8e097f8ad8a9ba2a16f3375f483ae
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811672"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024849"
 ---
 # <a name="configuring-tls-for-an-application-in-azure"></a>Azure에서 응용 프로그램에 대한 TLS 구성
 
@@ -32,7 +32,7 @@ ms.locfileid: "80811672"
 
 인증서는 Azure의 TLS/SSL 인증서에 대한 다음 요구 사항을 충족해야 합니다.
 
-* 인증서에 프라이빗 키가 포함되어 있어야 합니다.
+* 인증서에는 공개 키가 포함되어야 합니다.
 * 개인 정보 교환(.pfx) 파일로 내보낼 수 있는 키 교환용 인증서를 만들어야 합니다.
 * 인증서의 주체 이름은 클라우드 서비스 액세스에 사용되는 도메인과 일치해야 합니다. cloudapp.net 도메인에 대한 인증 기관(CA)에서 TLS/SSL 인증서를 가져올 수 없습니다. 서비스에 액세스할 때 사용할 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 애플리케이션 액세스에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다. 예를 들어 사용자 지정 도메인 이름이 **contoso.com** 경우 CA에서 ***.contoso.com** 또는 **\.www contoso.com**대한 인증서를 요청합니다.
 * 인증서는 최소한 2048비트 암호화를 사용해야 합니다.
@@ -76,7 +76,7 @@ ms.locfileid: "80811672"
 
    권한(`permissionLevel` 특성)은 다음 값 중 하나로 설정될 수 있습니다.
 
-   | 권한 값 | Description |
+   | 권한 값 | 설명 |
    | --- | --- |
    | limitedOrElevated |**(기본값)** 모든 역할 프로세스는 프라이빗 키에 액세스할 수 있습니다. |
    | elevated |승격된 프로세스만 프라이빗 키에 액세스할 수 있습니다. |

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 6baf5d77b70fa6e2717b492163826f27d80fbb88
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: c040907c6101d11ee645f9967278d3cf297bd74a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991623"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869809"
 ---
 # <a name="create-a-new-managed-service-offer"></a>새 관리형 서비스 오퍼 만들기
 
@@ -137,6 +137,9 @@ ms.locfileid: "80991623"
 ### <a name="marketplace-images"></a>마켓플레이스 이미지
 
 이 섹션에서는 고객에게 제안을 표시할 때 사용할 로고와 이미지를 제공할 수 있습니다. 모든 이미지는 .png 형식이어야 합니다.
+
+>[!Note]
+>파일을 업로드하는 데 문제가 있는 경우 로컬 네트워크가 파트너 https://upload.xboxlive.com 센터에서 사용하는 서비스를 차단하지 않는지 확인합니다.
 
 #### <a name="marketplace-logos"></a>마켓플레이스 로고
 

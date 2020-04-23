@@ -1,18 +1,18 @@
 ---
 title: 클라우드 파트너 포털에서 파트너 센터로의 계정 마이그레이션 - Azure용 상용 마켓플레이스
-description: CPP에서 파트너 센터로 계정을 마이그레이션하는 방법. - Azure용 상용 마켓플레이스
+description: CPP에서 파트너 센터로 계정을 마이그레이션하는 방법 - Azure용 상용 마켓플레이스
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 3979be6f49f4ad01a6092fc0d5aa767d342c4642
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 49fb2da05b7284fff10e6271de177551000995ed
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81730500"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024424"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Cloud 파트너 포털에서 파트너 센터로 계정 마이그레이션
 
@@ -42,6 +42,16 @@ CPP에서 파트너 센터로의 마이그레이션을 완료한 모든 계정�
 2. Microsoft 파트너 네트워크 프로그램 등록
 
     CPP 계정에 Microsoft 파트너 네트워크 ID가 없거나 유효하지 않은 계정이 있는 경우 활성화 프로세스의 일부로 Microsoft 파트너 네트워크 프로그램에 등록해야 합니다.
+
+## <a name="publishers-moving-from-cpp"></a>CPP에서 이사하는 게시자
+
+[CPP(클라우드 파트너 포털)에서](https://cloudpartner.azure.com)계정이 마이그레이션된 경우 새 파트너 센터 계정을 만들 필요가 없습니다. 새 파트너 센터 계정에 대한 사용자 지정 링크를 이메일로 받았고 기존 CPP 계정에 로그인한 후 배너 알림을 받아야 합니다.
+
+이 맞춤형 링크를 방문하여 새 파트너 센터 계정을 활성화한 후에는 파트너 센터의 [상용 마켓플레이스 대시보드를](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) 방문하여 계정으로 돌아갈 수 있습니다.
+
+게시 계약 및 회사 프로필 정보는 이전에 설정한 계정 지급 프로필 정보, 사용자 계정 및 사용 권한 및 CPP 계정과 연결된 활성 제안과 함께 새 파트너 센터 계정으로 마이그레이션됩니다.
+
+계정 정보를 CPP에서 파트너 센터로 이동하면 더 이상 CPP를 사용하여 계정을 업데이트하거나 사용자, 권한 및 청구를 관리하지 않습니다. 제한된 시간 동안 파트너 센터에서 하는 모든 계정 업데이트는 CPP 포털이 결국 사용되지 않을 때까지 읽기 전용 CPP 계정에서 자동으로 업데이트됩니다.
 
 ## <a name="sign-up-for-microsoft-partner-network-program"></a>Microsoft 파트너 네트워크 프로그램 등록
 

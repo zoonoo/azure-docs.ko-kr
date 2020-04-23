@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d723af5d994006c4ae4f90905ede73fa87326bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2808c8431a6b98b162920fb58a6e2ac0498d2055
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74014260"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081713"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>자습서: 인증서와 함께 Azure Active Directory Reporting API를 사용하여 데이터 가져오기
 
@@ -44,9 +44,9 @@ ms.locfileid: "74014260"
     - ADAL을 사용하는 사용자, 애플리케이션 키 및 인증서의 액세스 토큰
     - Graph API를 처리하는 페이지 단위의 결과
 
-6. 모듈을 처음 사용하는 경우 **Install-MSCloudIdUtilsModule**을 실행하고, 그렇지 않으면 **Import-Module** Powershell 명령을 사용하여 모듈을 가져옵니다. 세션이 이 화면과 유사해야 합니다: ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. 모듈을 처음 사용하는 경우 **설치-MSCloudIdUtilsModule을**실행하여 가져오기 **모듈** PowerShell 명령을 사용하여 가져온다. 세션이 이 화면과 유사해야 합니다: ![Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-7. **New-SelfSignedCertificate** Powershell commandlet을 사용하여 테스트 인증서를 만듭니다.
+7. 새로 **서명된 인증서** PowerShell 명령어를 사용하여 테스트 인증서를 만듭니다.
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
@@ -63,13 +63,13 @@ ms.locfileid: "74014260"
 
 1. [Azure Portal](https://portal.azure.com)로 이동하여 **Azure Active Directory**, **앱 등록**을 차례로 선택하고 목록에서 애플리케이션을 선택합니다. 
 
-2. **설정** > **키를** 선택하고 공개 키 **업로드를**선택합니다.
+2. 응용 프로그램 등록 **블레이드의** **관리** 섹션에서 인증서 & 비밀을 선택하고 **인증서 업로드를**선택합니다.
 
-3. 이전 단계의 인증서 파일을 선택하고 **저장**을 선택합니다. 
+3. 이전 단계에서 인증서 파일을 선택하고 **추가 를**선택합니다. 
 
-4. 방금 애플리케이션에 등록한 인증서의 지문 및 애플리케이션 ID를 적어 둡니다. 지문을 찾으려면 포털의 애플리케이션 페이지에서 **설정**으로 이동하고 **키**를 클릭합니다. **공개 키** 목록 아래에 지문이 표시됩니다.
+4. 방금 애플리케이션에 등록한 인증서의 지문 및 애플리케이션 ID를 적어 둡니다. 포털의 응용 프로그램 페이지에서 지문을 찾으려면 **관리** 섹션의 **인증서 & 비밀로** 이동합니다. 지문은 **인증서** 목록 아래에 있습니다.
 
-5. 인라인 매니페스트 편집기에서 애플리케이션 매니페스트를 열고 다음 스키마를 사용하여 *keyCredentials* 속성을 새 인증서 정보로 바꿉니다. 
+5. 인라인 매니페스트 편집기에서 응용 프로그램 매니페스트를 열고 *keyCredentials* 속성이 아래와 같이 새 인증서 정보로 업데이트되는지 확인합니다. 
 
    ```
    "keyCredentials": [
@@ -81,23 +81,20 @@ ms.locfileid: "74014260"
             "value":  "$base64Value" //base64 encoding of the certificate raw data
         }
     ]
-   ```
-
-6. 매니페스트를 저장합니다. 
-  
-7. 이제 이 인증서를 사용하여 MS Graph API에 대한 액세스 토큰을 가져올 수 있습니다. MSCloudIdUtils PowerShell 모듈에서 **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet을 사용하여 이전 단계에서 가져온 애플리케이션 ID와 지문을 전달합니다. 
+   ``` 
+6. 이제 이 인증서를 사용하여 MS Graph API에 대한 액세스 토큰을 가져올 수 있습니다. MSCloudIdUtils PowerShell 모듈에서 **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet을 사용하여 이전 단계에서 가져온 애플리케이션 ID와 지문을 전달합니다. 
 
    ![Azure portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
-8. Powershell 스크립트에서 액세스 토큰을 사용하여 Graph API를 쿼리합니다. MSCloudIDUtils에서 **Invoke-MSCloudIdMSGraphQuery** cmdlet을 사용하여 signins 및 directoryAudits 엔드포인트를 열거합니다. 이 cmdlet은 여러 페이지 단위의 결과를 처리한 다음 PowerShell 파이프라인에 해당 결과를 보냅니다.
+7. PowerShell 스크립트의 액세스 토큰을 사용하여 그래프 API를 쿼리합니다. MSCloudIDUtils에서 **Invoke-MSCloudIdMSGraphQuery** cmdlet을 사용하여 signins 및 directoryAudits 엔드포인트를 열거합니다. 이 cmdlet은 여러 페이지 단위의 결과를 처리한 다음 PowerShell 파이프라인에 해당 결과를 보냅니다.
 
-9. directoryAudits 엔드포인트를 쿼리하여 감사 로그를 검색합니다. 
+8. directoryAudits 엔드포인트를 쿼리하여 감사 로그를 검색합니다. 
    ![Azure Portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
-10. signins 엔드포인트를 쿼리하여 로그인 로그를 검색합니다.
+9. signins 엔드포인트를 쿼리하여 로그인 로그를 검색합니다.
     ![Azure Portal](./media/tutorial-access-api-with-certificates/query-signins.png)
 
-11. 이제 이 데이터를 CSV로 내보내고 SIEM 시스템에 저장하도록 선택할 수 있습니다. 예약된 태스크에서 스크립트를 래핑하여 원본 코드에서 애플리케이션 키를 저장하지 않고 주기적으로 테넌트에서 Azure AD 데이터를 가져올 수도 있습니다. 
+10. 이제 이 데이터를 CSV로 내보내고 SIEM 시스템에 저장하도록 선택할 수 있습니다. 예약된 태스크에서 스크립트를 래핑하여 원본 코드에서 애플리케이션 키를 저장하지 않고 주기적으로 테넌트에서 Azure AD 데이터를 가져올 수도 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

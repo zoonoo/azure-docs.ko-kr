@@ -1,18 +1,18 @@
 ---
 title: Azure IoT Hub에 대한 디바이스 구성 모범 사례 | Microsoft Docs
 description: 대규모 IoT 장치 관리와 관련된 반복적이고 복잡한 작업을 최소화하기 위해 자동 장치 관리를 사용하는 모범 사례에 대해 알아봅니다.
-author: Philmea
-ms.author: philmea
+author: robinsh
+ms.author: robinsh
 ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 99a9a2161cff4805d3181e54b88926d2d9b8daa6
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 67f0d9eb1fdac603ee82d568644e8ad8550d1c80
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770771"
+ms.locfileid: "82024781"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>IoT 솔루션 내에서 디바이스 구성에 대한 모범 사례
 

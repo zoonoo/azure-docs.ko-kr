@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 048ab7249b27839890bab3e677154ca3c7a0cc98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 949f1b3ee3db72e1c541c3dd4c5f74f364f1b514
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239431"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869889"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>기존 응용 프로그램 게이트웨이를 사용하여 응용 프로그램 게이트웨이 인그레스 컨트롤러(AGIC) 설치
 
@@ -20,7 +20,7 @@ ms.locfileid: "80239431"
 AGIC는 Kubernetes [침투](https://kubernetes.io/docs/concepts/services-networking/ingress/) 리소스를 모니터링하고 Kubernetes 클러스터의 상태에 따라 응용 프로그램 게이트웨이 구성을 만들고 적용합니다.
 
 ## <a name="outline"></a>개요:
-- [필수 조건](#prerequisites)
+- [필수 구성 요소](#prerequisites)
 - [AZURE 리소스 관리자 인증(ARM)](#azure-resource-manager-authentication)
     - 옵션 1: [Aad-pod-ID를 설정하고](#set-up-aad-pod-identity) ARM에서 Azure ID를 만듭니다.
     - 옵션 2: [서비스 주체 사용](#using-a-service-principal)
@@ -117,7 +117,7 @@ AGIC는 Kubernetes API 서버 및 Azure 리소스 관리자와 통신합니다. 
 1. Active Directory 서비스 보안 주체를 만들고 base64로 인코딩합니다. JSON Blob을 Kubernetes에 저장하려면 base64 인코딩이 필요합니다.
 
 ```azurecli
-az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0
+az ad sp create-for-rbac --sdk-auth | base64 -w0
 ```
 
 2. 파일에 base64 인코딩된 JSON Blob을 `helm-config.yaml` 추가합니다. 자세한 `helm-config.yaml` 내용은 다음 섹션에 있습니다.
@@ -184,7 +184,7 @@ armAuth:
     ## Alternatively you can use Service Principal credentials
     # armAuth:
     #    type: servicePrincipal
-    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
+    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --sdk-auth | base64 -w0" >>
     
     ################################################################################
     # Specify if the cluster is RBAC enabled or not
@@ -221,7 +221,7 @@ armAuth:
          --set appgw.subscriptionId=subscription-uuid \
          --set appgw.shared=false \
          --set armAuth.type=servicePrincipal \
-         --set armAuth.secretJSON=$(az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0) \
+         --set armAuth.secretJSON=$(az ad sp create-for-rbac --sdk-auth | base64 -w0) \
          --set rbac.enabled=true \
          --set verbosityLevel=3 \
          --set kubernetes.watchNamespace=default \

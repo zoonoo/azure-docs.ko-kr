@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 733a225c66040cb2ab819f041647120c8b63b6a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b945beaa7497e1ad19315bacf1284dd0cbc24d6a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77016020"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868068"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>오라클 RAC 설치를 위한 클라우드심플 프라이빗 클라우드 최적화
 
@@ -44,16 +44,16 @@ Oracle RAC 가상 시스템에는 특정 기능에 사용되는 여러 디스크
 
 다음 예제에서는 아래 표에 정의된 디스크를 사용합니다.
 
-| 디스크                                      | 목적                                       | 공유 디스크 |
+| 디스크                                      | 용도                                       | 공유 디스크 |
 |-------------------------------------------|-----------------------------------------------|-------------|
 | OS                                        | 운영 체제 디스크                         | 예          |
 | 그리드                                      | 오라클 그리드 소프트웨어설치 위치     | 예          |
 | DATABASE                                  | 오라클 데이터베이스 소프트웨어설치 위치 | 예          |
 | 오라홈                                   | 오라클 데이터베이스 바이너리의 기본 위치    | 예          |
-| 데이터1, 데이터2, 데이터3, 데이터4                | Oracle 데이터베이스 파일이 저장되는 디스크   | yes         |
-| REDO1, 다시 2, 다시 3, REDO4, REDO5, 다시 6  | 로그 디스크 다시 재생                                | yes         |
-| OCR1, OCR2, OCR3, OCR4, OCR5              | 투표 디스크                                  | yes         |
-| FRA1, FRA2                                | 빠른 복구 영역 디스크                      | yes         |
+| 데이터1, 데이터2, 데이터3, 데이터4                | Oracle 데이터베이스 파일이 저장되는 디스크   | 예         |
+| REDO1, 다시 2, 다시 3, REDO4, REDO5, 다시 6  | 로그 디스크 다시 재생                                | 예         |
+| OCR1, OCR2, OCR3, OCR4, OCR5              | 투표 디스크                                  | 예         |
+| FRA1, FRA2                                | 빠른 복구 영역 디스크                      | 예         |
 
 ![오라클 가상 머신 디스크 구성](media/oracle-vmdk.png)
 
@@ -169,7 +169,7 @@ SQL > alter database add logfile thread 2 ('+ORCLRAC_REDO1','+ORCLRAC_REDO2') si
 
 vSAN 정책은 VM 디스크에 저장된 데이터에 대한 허용 오류 및 디스크 스트라이프를 정의합니다.  생성된 저장소 정책은 VM을 만드는 동안 VM 디스크에 적용되어야 합니다.
 
-1. 프라이빗 [클라우드의 vSphere 클라이언트에 로그인합니다.](https://docs.azure.cloudsimple.com/vsphere-access)
+1. 프라이빗 [클라우드의 vSphere 클라이언트에 로그인합니다.](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access)
 2. 상단 메뉴에서 **정책 및 프로필을 선택합니다.**
 3. 왼쪽 메뉴에서 **VM 저장소 정책을** 선택한 다음 **VM 저장소 정책 만들기를**선택합니다.
 4. 정책에 대한 의미 있는 이름을 입력하고 **다음을 클릭합니다.**
@@ -259,7 +259,7 @@ VM-호스트 선호도 규칙은 VM이 원하는 호스트에서 실행되도록
 13. 만든 호스트 그룹을 선택합니다.
 14. **확인을** 클릭하여 규칙을 만듭니다.
 
-## <a name="references"></a>참조
+## <a name="references"></a>참조 항목
 
 * [vSAN 정책 소개](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-08911FD3-2462-4C1C-AE81-0D4DBC8F7990.html)
 * [공유 VMDK에 대한 VMware 다중 작성기 특성](https://docs.vmware.com/en/VMware-Cloud-on-AWS/solutions/VMware-Cloud-on-AWS.df6735f8b729fee463802083d46fdc75/GUID-A7642A82B3D6C5F7806DB40A3F2766D9.html)

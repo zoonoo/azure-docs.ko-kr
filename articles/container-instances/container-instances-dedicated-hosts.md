@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: adad0ddfc78530b3a3a7c139d9a95ec4790c8053
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a614d6b5d0cf5c6c1df5ffcb90e56960d6b8a2a9
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934141"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025036"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>전용 호스트에 배포
 
@@ -37,7 +37,7 @@ API 버전 2019-12-01부터 ACI `sku` 배포에 필요한 배포 템플릿의 �
 ## <a name="modify-your-json-deployment-template"></a>JSON 배포 템플릿 수정
 
 배포 템플릿에서 다음 속성을 수정하거나 추가합니다.
-* 에서 `resources`으로 `apiVersion` `2012-12-01`설정합니다.
+* 에서 `resources`으로 `apiVersion` `2019-12-01`설정합니다.
 * 컨테이너 그룹 속성 아래에 `sku` 값이 `Dedicated`있는 속성을 추가합니다.
 
 다음은 전용 sku를 사용하는 컨테이너 그룹 배포 템플릿의 리소스 섹션에 대한 예제 코드 입니다.

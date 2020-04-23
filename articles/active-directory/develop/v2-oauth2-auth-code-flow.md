@@ -12,12 +12,12 @@ ms.date: 01/31/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e5e462c52c8b06af6da5081f84a082138cd53a3f
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: fcd80c052edf659f93f97800da3112c1f11309cc
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677940"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868502"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>마이크로소프트 ID 플랫폼 및 OAuth 2.0 권한 부여 코드 흐름
 
@@ -35,7 +35,7 @@ OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](https://tools
 
 ## <a name="request-an-authorization-code"></a>인증 코드 요청
 
-인증 코드 흐름은 클라이언트가 사용자를 `/authorize` 엔드포인트로 보내는 것으로 시작됩니다. 이 요청에서 클라이언트는 `openid`사용자로부터 의 및 `offline_access` `https://graph.microsoft.com/mail.read `사용 권한을 요청합니다.  일부 권한은 관리자로 제한됩니다(예: 을 사용하여 `Directory.ReadWrite.All`조직의 디렉터리로 데이터 쓰기). 응용 프로그램에서 조직 사용자로부터 이러한 권한 중 하나에 대한 액세스를 요청하는 경우 사용자는 앱의 권한에 동의할 권한이 없다는 오류 메시지를 받습니다. 관리자 제한 범위에 대한 액세스를 요청하려면 회사 관리자에게 직접 요청해야 합니다.  자세한 내용은 [관리자 제한 권한을](v2-permissions-and-consent.md#admin-restricted-permissions)참조하십시오.
+인증 코드 흐름은 클라이언트가 사용자를 `/authorize` 엔드포인트로 보내는 것으로 시작됩니다. 이 요청에서 클라이언트는 `openid`사용자로부터 의 및 `offline_access` `https://graph.microsoft.com/mail.read ` 사용 권한을 요청합니다.  일부 권한은 관리자로 제한됩니다(예: 을 사용하여 `Directory.ReadWrite.All`조직의 디렉터리로 데이터 쓰기). 응용 프로그램에서 조직 사용자로부터 이러한 권한 중 하나에 대한 액세스를 요청하는 경우 사용자는 앱의 권한에 동의할 권한이 없다는 오류 메시지를 받습니다. 관리자 제한 범위에 대한 액세스를 요청하려면 회사 관리자에게 직접 요청해야 합니다.  자세한 내용은 [관리자 제한 권한을](v2-permissions-and-consent.md#admin-restricted-permissions)참조하십시오.
 
 ```
 // Line breaks for legibility only
@@ -76,7 +76,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 `response_mode=query` 를 사용한 성공적인 응답은 다음과 같습니다.
 
-```
+```HTTP
 GET https://login.microsoftonline.com/common/oauth2/nativeclient?
 code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 &state=12345
@@ -91,7 +91,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 
 앱이 적절하게 처리할 수 있도록 `redirect_uri` 에 오류 응답을 보낼 수도 있습니다.
 
-```
+```HTTP
 GET https://login.microsoftonline.com/common/oauth2/nativeclient?
 error=access_denied
 &error_description=the+user+canceled+the+authentication
@@ -122,7 +122,7 @@ error=access_denied
 
 authorization_code를 획득하고 사용자가 사용 권한을 부여했으므로 `code`를 원하는 리소스에 대한 `access_token`으로 교환할 수 있습니다. 이렇게 하려면 `/token` 엔드포인트에 `POST` 요청을 보내면 됩니다.
 
-```
+```HTTP
 // Line breaks for legibility only
 
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1
@@ -221,7 +221,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > Postman에서 이 요청을 실행하세요. (먼저 `Authorization` 헤더 바꾸기) [우체부에서 이 요청을 실행해 보십시오. ![](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-```
+```HTTP
 GET /v1.0/me/messages
 Host: https://graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
@@ -235,7 +235,7 @@ access_token은 수명이 짧으며, 만료되면 새로 고쳐야 리소스에 
 
 새 액세스 토큰을 획득하는 데 사용할 때 새로 고침 토큰이 해지되지는 않지만 이전 새로 고침 토큰은 삭제해야 합니다. [OAuth 2.0 사양은](https://tools.ietf.org/html/rfc6749#section-6) "권한 부여 서버는 새 새로 고침 토큰을 발행할 수 있으며, 이 경우 클라이언트는 이전 새로 고침 토큰을 삭제하고 새 새로 고침 토큰으로 교체해야 합니다. 권한 부여 서버는 클라이언트에 새 새로 고침 토큰을 실행한 후 이전 새로 고침 토큰을 취소할 수 있습니다."
 
-```
+```HTTP
 // Line breaks for legibility only
 
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1
@@ -276,6 +276,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }
 ```
+
 | 매개 변수     | 설명         |
 |---------------|-------------------------------------------------------------|
 | `access_token`  | 요청된 액세스 토큰입니다. 앱은 이 토큰을 사용하여 Web API와 같은 보안 리소스를 인증할 수 있습니다. |

@@ -9,25 +9,25 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3d06f3e8be449e7050c65c75339a0cff6efe19e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63dc18c522a1e2e3b03bdf806945e0be67774b18
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77025319"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870465"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>클라우드 단순 포털에서 프라이빗 클라우드 vCenter 권한 에스컬레이션
 
 프라이빗 클라우드 vCenter에 대한 관리 액세스를 위해 CloudSimple 권한을 일시적으로 에스컬레이션할 수 있습니다.  높은 권한을 사용하여 VMware 솔루션을 설치하고 ID 원본을 추가하며 사용자를 관리할 수 있습니다.
 
-vCenter SSO 도메인에서 새 사용자를 만들고 vCenter에 액세스할 수 있습니다.  새 사용자를 만들 때 vCenter에 액세스하기 위해 CloudSimple 기본 제공 그룹에 사용자를 추가합니다.  자세한 내용은 [VMware vCenter의 CloudSimple 프라이빗 클라우드 사용 권한 모델을](https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/)참조하십시오.
+vCenter SSO 도메인에서 새 사용자를 만들고 vCenter에 액세스할 수 있습니다.  새 사용자를 만들 때 vCenter에 액세스하기 위해 CloudSimple 기본 제공 그룹에 사용자를 추가합니다.  자세한 내용은 [VMware vCenter의 CloudSimple 프라이빗 클라우드 사용 권한 모델을](https://docs.microsoft.com/azure/vmware-cloudsimple/learn-private-cloud-permissions/)참조하십시오.
 
 > [!CAUTION]
 > 관리 구성 요소에 대한 구성을 변경하지 마십시오. 에스컬레이션된 권한 있는 상태 중에 수행된 작업은 시스템에 부정적인 영향을 미치거나 시스템을 사용할 수 없게 될 수 있습니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-에서 [https://portal.azure.com](https://portal.azure.com)Azure 포털에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
 ## <a name="escalate-privileges"></a>권한 높이기
 
@@ -88,5 +88,5 @@ vCenter SSO 도메인에서 새 사용자를 만들고 vCenter에 액세스할 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [활성 디렉터리를 사용하도록 vCenter ID 원본 설정](https://docs.azure.cloudsimple.com/set-vcenter-identity/)
-* 백업 워크로드 [가상 머신에 백업](https://docs.azure.cloudsimple.com/backup-workloads-veeam/) 솔루션 설치
+* [활성 디렉터리를 사용하도록 vCenter ID 원본 설정](https://docs.microsoft.com/azure/vmware-cloudsimple/set-vcenter-identity/)
+* 백업 워크로드 [가상 머신에 백업](https://docs.microsoft.com/azure/vmware-cloudsimple/backup-workloads-veeam/) 솔루션 설치

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: e06e71d4436ac6c64ff2edc876d7849d084482f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df8f68e47776f46ae2d1331f85bd76d6cfe17b80
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74671629"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869939"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure App Service 진단 개요
 
@@ -31,6 +31,10 @@ Azure Functions의 경우 함수 앱으로 이동하여 상단 탐색에서 **�
 앱 서비스 진단 홈페이지에서 각 홈페이지 타일의 키워드를 사용하여 앱의 문제를 가장 잘 설명하는 범주를 선택할 수 있습니다. 또한 이 페이지에서는 Windows 앱용 **진단 도구를** 찾을 수 있습니다. [(Windows 앱에만) 진단 도구를](#diagnostic-tools-only-for-windows-app)참조하십시오.
 
 ![홈페이지](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
+
+> [!NOTE]
+> 앱이 다운되거나 속도가 느린 경우 [프로파일링 추적을 수집하여](https://azure.github.io/AppService/2018/06/06/App-Service-Diagnostics-Profiling-an-ASP.NET-Web-App-on-Azure-App-Service.html) 문제의 근본 원인을 식별할 수 있습니다. 프로파일링은 경량이며 프로덕션 시나리오를 위해 설계되었습니다.
+>
 
 ## <a name="interactive-interface"></a>대화형 인터페이스
 
@@ -69,7 +73,7 @@ Azure Functions의 경우 함수 앱으로 이동하여 상단 탐색에서 **�
 
 많은 앱 문제가 애플리케이션 코드의 문제와 관련되어 있으므로 App Service 진단은 [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)와 통합되어 예외 및 종속성 문제를 강조 표시하고, 선택된 작동 중단 시간과의 상관 관계를 표시합니다. 응용 프로그램 인사이트는 별도로 활성화해야 합니다.
 
-![애플리케이션 정보](./media/app-service-diagnostics/application-insights-7.png)
+![Application Insights](./media/app-service-diagnostics/application-insights-7.png)
 
 Application Insights 예외 및 종속성을 보려면 **웹 앱 아래로** 또는 웹 앱 **느린** 타일 바로 가기를 선택합니다.
 

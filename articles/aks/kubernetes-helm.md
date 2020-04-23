@@ -1,19 +1,19 @@
 ---
-title: Azure Kubernetes에서 Helm을 사용하여 컨테이너 배포
+title: AKS에서 Helm을 사용 하 고 기존 응용 프로그램 설치
 description: Helm 패키징 도구를 사용하여 AKS(Azure Kubernetes) 클러스터에 컨테이너를 배포하는 방법 알아보기
 services: container-service
 author: zr-msft
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: zarhoads
-ms.openlocfilehash: 4a9ccaff0e3425c365a64ecb4fbadf3c7aa8dcfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e46bed5fc9fd83a907f8c9e716317a54548c58cc
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595181"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870246"
 ---
-# <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Helm을 사용하여 애플리케이션 설치
+# <a name="install-existing-applications-with-helm-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스(AKS)에서 Helm을 사용 하 고 기존 응용 프로그램 설치
 
 [Helm][helm]은 Kubernetes 애플리케이션을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. *APT*, *Yum* 등의 Linux 패키지 관리자와 마찬가지로 Helm은 사전 구성된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리하는 데 사용합니다.
 

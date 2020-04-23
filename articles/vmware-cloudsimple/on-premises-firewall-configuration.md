@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: df4c51953c6f50e30ba61b993cdb35856fcb8e25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 539665c4756a7dc87078922421b45a88404f58f1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77082960"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868136"
 ---
 # <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>온-프레미스에서 CloudSimple 프라이빗 클라우드 환경 및 애플리케이션에 액세스
 
@@ -24,7 +24,7 @@ Azure ExpressRoute 또는 사이트 간 VPN을 사용하여 온-프레미스 네
 
 프라이빗 클라우드 vCenter 및 NSX-T 관리자에 액세스하려면 아래 표에 정의된 포트를 온-프레미스 방화벽에서 열어야 합니다.  
 
-| 포트       | 원본                           | 대상                      | 목적                                                                                                                |
+| 포트       | 원본                           | 대상                      | 용도                                                                                                                |
 |------------|----------------------------------|----------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | 53 (UDP)   | 온-프레미스 DNS 서버          | 프라이빗 클라우드 DNS 서버        | 온-프레미스 네트워크에서 프라이빗 클라우드 DNS 서버로 *az.cloudsimple.io* DNS 조회를 전달하는 데 필요합니다.       |
 | 53 (UDP)   | 프라이빗 클라우드 DNS 서버        | 온-프레미스 DNS 서버          | DNS를 전달하는 데 필요한 것은 프라이빗 클라우드 vCenter에서 온-프레미스 DNS 서버로 온-프레미스 도메인 이름을 찾습니다. |
@@ -35,9 +35,9 @@ Azure ExpressRoute 또는 사이트 간 VPN을 사용하여 온-프레미스 네
 
 ## <a name="ports-required-for-using-on-premises-active-directory-as-an-identity-source"></a>온-프레미스 활성 디렉터리를 ID 원본으로 사용하는 데 필요한 포트
 
-온-프레미스 활성 디렉터리를 Private Cloud vCenter에서 ID 원본으로 구성하려면 테이블에 정의된 포트를 열어야 합니다.  구성 단계에 [대 한 CloudSimple 개인 클라우드에 vCenter에 대 한 ID 공급자로 Azure AD 사용을 참조](https://docs.azure.cloudsimple.com/azure-ad/) 하십시오.
+온-프레미스 활성 디렉터리를 Private Cloud vCenter에서 ID 원본으로 구성하려면 테이블에 정의된 포트를 열어야 합니다.  구성 단계에 [대 한 CloudSimple 개인 클라우드에 vCenter에 대 한 ID 공급자로 Azure AD 사용을 참조](https://docs.microsoft.com/azure/vmware-cloudsimple/azure-ad/) 하십시오.
 
-| 포트         | 원본                           | 대상                                         | 목적                                                                                                                                          |
+| 포트         | 원본                           | 대상                                         | 용도                                                                                                                                          |
 |--------------|----------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
 | 53 (UDP)      | 프라이빗 클라우드 DNS 서버        | 온-프레미스 DNS 서버                             | DNS를 전달하는 데 필요한 것은 프라이빗 클라우드 vCenter에서 온-프레미스 DNS 서버로 온-프레미스 활성 디렉터리 도메인 이름을 찾습니다.          |
 | 389(TCP/UDP) | 프라이빗 클라우드 관리 네트워크 | 온-프레미스 활성 디렉터리 도메인 컨트롤러     | 사용자 인증을 위해 프라이빗 클라우드 vCenter 서버에서 활성 디렉터리 도메인 컨트롤러로 LDAP 통신에 필요합니다.                |
@@ -49,7 +49,7 @@ Azure ExpressRoute 또는 사이트 간 VPN을 사용하여 온-프레미스 네
 
 Private Cloud에서 실행되는 액세스 워크로드 가상 시스템에는 온-프레미스 방화벽에서 포트를 열어야 합니다.  아래 표는 필요한 공통 포트중 일부와 그 용도를 보여줍니다.  응용 프로그램 별 포트 요구 사항은 응용 프로그램 설명서를 참조하십시오.
 
-| 포트         | 원본                         | 대상                          | 목적                                                                              |
+| 포트         | 원본                         | 대상                          | 용도                                                                              |
 |--------------|--------------------------------|--------------------------------------|--------------------------------------------------------------------------------------|
 | 22 (TCP)      | 온-프레미스 네트워크            | 프라이빗 클라우드 워크로드 네트워크       | 프라이빗 클라우드에서 실행되는 Linux 가상 머신에 대한 보안 셸 액세스.              |
 | 3389 (TCP)    | 온-프레미스 네트워크            | 프라이빗 클라우드 워크로드 네트워크       | 프라이빗 클라우드에서 실행되는 가상 머신을 Windows로 이동합니다.                 |
@@ -60,6 +60,6 @@ Private Cloud에서 실행되는 액세스 워크로드 가상 시스템에는 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [VLAN 및 서브넷 생성 및 관리](https://docs.azure.cloudsimple.com/create-vlan-subnet/)
-* [Azure ExpressRoute를 사용하여 온-프레미스 네트워크에 연결](https://docs.azure.cloudsimple.com/on-premises-connection/)
-* [온-프레미스에서 사이트 간 VPN 설정](https://docs.azure.cloudsimple.com/vpn-gateway/)
+* [VLAN 및 서브넷 생성 및 관리](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/)
+* [Azure ExpressRoute를 사용하여 온-프레미스 네트워크에 연결](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-connection/)
+* [온-프레미스에서 사이트 간 VPN 설정](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway/)

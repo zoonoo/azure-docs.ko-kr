@@ -3,12 +3,12 @@ title: 가상 시스템의 내용을 감사하는 방법에 대해 알아보기
 description: Azure Policy에서 게스트 구성 에이전트를 사용하여 가상 시스템 내부의 설정을 감사하는 방법에 대해 알아봅니다.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1721c0f1ca7c084d636278aabc96f8dac3293038
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 89f7cc3931971d70b441490f77b67ace89434c2b
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81759087"
+ms.locfileid: "82025223"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -31,8 +31,8 @@ Azure Policy는 Azure 리소스를 감사하고 [수정하는](../how-to/remedia
 > [!Important]
 > Azure 가상 컴퓨터에서 감사를 수행하려면 게스트 구성 확장이 필요합니다.
 > 확장을 대규모로 배포하려면 다음 정책 정의를 할당합니다.
->   - Windows VM에서 게스트 구성 정책을 사용하도록 설정하기 위한 필수 조건 배포
->   - Linux VM에서 게스트 구성 정책을 사용하도록 설정하기 위한 필수 조건 배포
+>   - [Windows VM에서 게스트 구성 정책을 사용하도록 설정하기 위한 필수 조건 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+>   - [Linux VM에서 게스트 구성 정책을 사용하도록 설정하기 위한 필수 조건 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ### <a name="limits-set-on-the-extension"></a>확장에 설정된 제한
 
@@ -44,7 +44,7 @@ Azure Policy는 Azure 리소스를 감사하고 [수정하는](../how-to/remedia
 
 다음 표에는 지원되는 각 운영 체제에서 사용되는 로컬 도구 목록이 나와 있습니다.
 
-|운영 체제|유효성 검사 도구|메모|
+|운영 체제|유효성 검사 도구|참고|
 |-|-|-|
 |Windows|[윈도우 파워쉘 원하는 상태 구성](/powershell/scripting/dsc/overview/overview) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| 루비와 파이썬이 컴퓨터에 없는 경우 게스트 구성 확장에 의해 설치됩니다. |
@@ -67,6 +67,8 @@ Azure Policy는 Azure 리소스를 감사하고 [수정하는](../how-to/remedia
 |OpenLogic|CentOS|7.3 이상|
 |Red Hat|Red Hat Enterprise Linux|7.4 이상|
 |Suse|SLES|12 SP3 이상|
+
+사용자 지정 가상 시스템 이미지는 위의 표의 운영 체제 중 하나인 경우 게스트 구성 정책에서 지원됩니다.
 
 ### <a name="unsupported-client-types"></a>지원되지 않는 클라이언트 유형
 

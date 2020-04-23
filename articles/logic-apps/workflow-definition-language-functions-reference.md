@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: 48be73a6385c9690909cb70abe558a2def1ace88
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: f557753c61af1e57490ae2d10b7f42475bd7c0a6
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81730519"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870227"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Azure 논리 앱 및 전원 자동화에 대한 식에서 함수를 사용하는 참조 가이드
 
@@ -2426,9 +2426,11 @@ iterationIndexes('<loopName>')
 
 *예제* 
 
-이 예제에서는 카운터 값이 5에 도달할 때까지 Until 루프에서 각 반복 중에 하나씩 변수가 되는 카운터 변수 및 증분을 만듭니다. 또한 이 예제는 각 반복에 대한 현재 인덱스를 추적하는 변수를 만듭니다. Until 루프에서 각 반복 중에 예제는 카운터를 증분한 다음 현재 인덱스 값에 카운터 값을 할당한 다음 카운터를 증분합니다. 언제든지 현재 인덱스 값을 검색하여 현재 반복 번호를 확인할 수 있습니다.
+이 예제에서는 카운터 값이 5에 도달할 때까지 Until 루프에서 각 반복 중에 하나씩 변수가 되는 카운터 변수 및 증분을 만듭니다. 또한 이 예제는 각 반복에 대한 현재 인덱스를 추적하는 변수를 만듭니다. Until 루프에서 각 반복 중에 예제는 카운터를 증분한 다음 현재 인덱스 값에 카운터 값을 할당한 다음 카운터를 증분합니다. 루프에 있는 동안 이 예제에서는 함수를 `iterationIndexes` 사용하여 현재 반복 인덱스를 참조합니다.
 
-```
+`iterationIndexes('Until_Max_Increment')`
+
+```json
 {
    "actions": {
       "Create_counter_variable": {
@@ -2459,7 +2461,7 @@ iterationIndexes('<loopName>')
             "Create_counter_variable": [ "Succeeded" ]
          }
       },
-      "Until": {
+      "Until_Max_Increment": {
          "type": "Until",
          "actions": {
             "Assign_current_index_to_counter": {
@@ -2472,6 +2474,15 @@ iterationIndexes('<loopName>')
                   "Increment_variable": [ "Succeeded" ]
                }
             },
+            "Compose": {
+               "inputs": "'Current index: ' @{iterationIndexes('Until_Max_Increment')}",
+               "runAfter": {
+                  "Assign_current_index_to_counter": [
+                     "Succeeded"
+                    ]
+                },
+                "type": "Compose"
+            },           
             "Increment_variable": {
                "type": "IncrementVariable",
                "inputs": {

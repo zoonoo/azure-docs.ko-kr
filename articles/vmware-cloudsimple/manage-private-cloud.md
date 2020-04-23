@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 620c0226d3aca907352658ebbe1b94c7673d91cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13496a18f4c99b69a5b8095caf5b74a04d1bba88
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77014830"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869295"
 ---
 # <a name="manage-private-cloud-resources-and-activity"></a>프라이빗 클라우드 리소스 및 활동 관리
 
@@ -21,7 +21,7 @@ ms.locfileid: "77014830"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-에서 [https://portal.azure.com](https://portal.azure.com)Azure 포털에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
 ## <a name="access-the-cloudsimple-portal"></a>CloudSimple 포털 액세스
 
@@ -37,13 +37,13 @@ ms.locfileid: "77014830"
 
 ## <a name="private-cloud-summary"></a>프라이빗 클라우드 요약
 
-선택한 프라이빗 클라우드에 대한 포괄적인 요약을 확인합니다.  요약 페이지에는 프라이빗 클라우드에 배포된 DNS 서버가 포함됩니다.  온-프레미스 DNS 서버에서 프라이빗 클라우드 DNS 서버로 DNS 전달을 설정할 수 있습니다.  DNS 전달에 대한 자세한 내용은 [온-프레미스에서 프라이빗 클라우드 vCenter의 이름 확인에 대한 DNS 구성을](https://docs.azure.cloudsimple.com/on-premises-dns-setup/)참조하십시오.
+선택한 프라이빗 클라우드에 대한 포괄적인 요약을 확인합니다.  요약 페이지에는 프라이빗 클라우드에 배포된 DNS 서버가 포함됩니다.  온-프레미스 DNS 서버에서 프라이빗 클라우드 DNS 서버로 DNS 전달을 설정할 수 있습니다.  DNS 전달에 대한 자세한 내용은 [온-프레미스에서 프라이빗 클라우드 vCenter의 이름 확인에 대한 DNS 구성을](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-dns-setup/)참조하십시오.
 
 ![프라이빗 클라우드 요약](media/private-cloud-summary.png)
 
 ### <a name="available-actions"></a>사용 가능한 작업
 
-* [vSphere 클라이언트를 시작합니다.](https://docs.azure.cloudsimple.com/vsphere-access/) 이 프라이빗 클라우드의 경우 vCenter에 액세스합니다.
+* [vSphere 클라이언트를 시작합니다.](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access) 이 프라이빗 클라우드의 경우 vCenter에 액세스합니다.
 * [노드를 구입합니다.](create-nodes.md) 이 프라이빗 클라우드에 노드를 추가합니다.
 * [을 확장합니다.](expand-private-cloud.md) 이 프라이빗 클라우드에 노드를 추가합니다.
 * **새로 고침**. 이 페이지의 정보를 업데이트합니다.
@@ -58,10 +58,10 @@ ms.locfileid: "77014830"
 
 ### <a name="available-actions"></a>사용 가능한 작업
 
-* [VLANS/서브넷을 추가합니다.](https://docs.azure.cloudsimple.com/create-vlan-subnet/) 이 프라이빗 클라우드에 VLAN/하위 집합을 추가합니다.
+* [VLANS/서브넷을 추가합니다.](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/) 이 프라이빗 클라우드에 VLAN/하위 집합을 추가합니다.
 
 다음 작업을 위해 VLAN/서브넷 선택
-* [방화벽 테이블을 연결합니다.](https://docs.azure.cloudsimple.com/firewall/) 이 프라이빗 클라우드에 방화벽 테이블을 연결합니다.
+* [방화벽 테이블을 연결합니다.](https://docs.microsoft.com/azure/vmware-cloudsimple/firewall/) 이 프라이빗 클라우드에 방화벽 테이블을 연결합니다.
 * **편집**
 * **삭제(사용자** 정의 VLAN/서브넷만 해당)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a81f3ffb7ec190943c50127b129523badf0ef0a7
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: d755573b53eb63d85165fb73fe4b97298dbeff09
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80882984"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868987"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>웹 API를 호출하는 데몬 앱 - 토큰 획득
 
@@ -173,7 +173,7 @@ private static IAuthenticationResult acquireToken() throws Exception {
 
 #### <a name="first-case-access-the-token-request-by-using-a-shared-secret"></a>첫 번째 경우: 공유 비밀을 사용하여 토큰 요청에 액세스
 
-```Text
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity.
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -186,7 +186,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 
 #### <a name="second-case-access-the-token-request-by-using-a-certificate"></a>두 번째 경우: 인증서를 사용하여 토큰 요청에 액세스
 
-```Text
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity.
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -215,7 +215,7 @@ MSAL.NET 응용 `AcquireTokenForClient` 프로그램 토큰 캐시를 사용합�
 API를 호출할 때 작업 오류를 **완료하기에 부족한 권한이** 있는 경우 테넌트 관리자는 응용 프로그램에 대한 권한을 부여해야 합니다. 위의 클라이언트 앱 등록 6단계를 참조하십시오.
 일반적으로 다음과 같은 오류가 표시됩니다.
 
-```JSon
+```json
 Failed to call the web API: Forbidden
 Content: {
   "error": {

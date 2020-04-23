@@ -12,12 +12,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7fb2bbcdd5f84e3637a108d0753566d3a9de7fd0
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 89ae088b9cbb3bb3c593cfcbbfb4ce619baccfa8
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677754"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868420"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft ID 플랫폼 및 암시적 부여 흐름
 
@@ -117,7 +117,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 `response_mode=fragment` 및 `response_type=id_token+token` 사용 시의 정상 응답은 다음과 같습니다. 쉽게 읽을 수 있도록 아래 예제에는 줄 바꿈이 적용되어 있습니다.
 
-```
+```HTTP
 GET https://localhost/myapp/#
 &token_type=Bearer
 &expires_in=3599
@@ -138,7 +138,7 @@ GET https://localhost/myapp/#
 
 앱이 적절하게 처리할 수 있도록 `redirect_uri` 에 오류 응답을 보낼 수도 있습니다.
 
-```
+```HTTP
 GET https://localhost/myapp/#
 error=access_denied
 &error_description=the+user+canceled+the+authentication
@@ -184,7 +184,7 @@ URL의 쿼리 매개 변수에 대한 자세한 내용은 [로그인 요청 보�
 
 `response_mode=fragment` 를 사용한 성공적인 응답은 다음과 같습니다.
 
-```
+```HTTP
 GET https://localhost/myapp/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=12345
@@ -206,7 +206,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 
 앱이 적절하게 처리할 수 있도록 `redirect_uri` 에 오류 응답을 보낼 수도 있습니다. `prompt=none`의 경우, 예상되는 오류는 다음과 같습니다.
 
-```
+```HTTP
 GET https://localhost/myapp/#
 error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently

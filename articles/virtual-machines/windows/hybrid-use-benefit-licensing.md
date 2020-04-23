@@ -1,24 +1,18 @@
 ---
 title: Windows Server용 Azure Hybrid Benefit
 description: Azure에 온-프레미스 라이선스를 가져오기 위해 Windows Software Assurance 혜택을 최대화하는 방법에 대해 알아봅니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: xujing-ms
-manager: gwallace
-editor: ''
-ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: 470e38c21a250273216f93eb38a5334a4bb581e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f84d4fcd85f1e718f414e63bbe76fd29fa32427d
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77911793"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869575"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server용 Azure Hybrid Benefit
 Software Assurance 고객은 Windows Server용 Azure Hybrid Benefit을 통해 온-프레미스 Windows Server 라이선스를 사용하고 Azure에서 Windows 가상 머신을 실행하여 비용을 절감할 수 있습니다. Windows OS를 사용하여 새 가상 머신을 배포하려면 Windows Server용 Azure Hybrid Benefit을 사용할 수 있습니다. 이 문서에서는 Windows Server용 Azure 하이브리드 혜택을 통해 새 VM을 배포하는 방법과 기존 실행 VM을 업데이트하는 방법에 대한 단계를 살펴봅니다. Windows Server용 Azure Hybrid Benefit 라이선스 및 비용 절감에 대한 자세한 내용은 [Windows Server용 Azure Hybrid Benefit 라이선스 페이지](https://azure.microsoft.com/pricing/hybrid-use-benefit/)를 참조하세요.

@@ -1,25 +1,21 @@
 ---
 title: Azure Instance Metadata Service
-description: RESTful 인터페이스는 Windows VM 계산, 네트워크 및 향후 유지 관리 이벤트에 대한 정보를 가져옵니다.
-services: virtual-machines-windows
-documentationcenter: ''
+description: RESTful 인터페이스를 사용하여 VM 계산, 네트워크 및 예정된 유지 관리 이벤트에 대한 정보를 얻을 수 있습니다.
 author: KumariSupriya
 manager: paulmey
-editor: ''
-tags: azure-resource-manager
-ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.service: virtual-machines
+ms.subservice: monitoring
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: f351bba9cd474eab0774efa5ffbd2b24499d105b
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: cb9453e1a25f4042c45d4e89229b555c996d4c8b
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520963"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870075"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -41,7 +37,7 @@ Azure의 Instance Metadata Service는 [Azure Resource Manager](https://docs.micr
 [일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
 [Azure China 21Vianet](https://www.azure.cn/)                                            | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
+[Azure 독일](https://azure.microsoft.com/overview/clouds/germany/)                    | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
 
 버전 2019-11-01은 현재 배포중이며 모든 지역에서 제공되지 않을 수 있습니다.
 
@@ -71,7 +67,7 @@ IMDS를 쿼리하는 방법에 대한 추가 예제는 [Azure 인스턴스 메�
 curl -H Metadata:true "http://169.254.169.254/metadata/instance"
 ```
 
-**Response**
+**응답**
 
 ```json
 {
@@ -110,7 +106,7 @@ API | 기본 데이터 형식 | 다른 형식
 /scheduledevents | json : | none
 /attested | json : | none
 
-기본이 아닌 응답 형식에 액세스하려면 요청된 형식을 요청의 쿼리 문자열 매개 변수로 지정합니다. 다음은 그 예입니다.
+기본이 아닌 응답 형식에 액세스하려면 요청된 형식을 요청의 쿼리 문자열 매개 변수로 지정합니다. 예를 들어:
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
@@ -126,7 +122,7 @@ Instance Metadata Service 엔드포인트는 라우팅이 불가능한 IP 주소
 
 ### <a name="error"></a>Error
 
-찾을 수 없는 데이터 요소 또는 형식이 잘못된 요청이 있으면 Instance Metadata Service는 표준 HTTP 오류를 반환합니다. 다음은 그 예입니다.
+찾을 수 없는 데이터 요소 또는 형식이 잘못된 요청이 있으면 Instance Metadata Service는 표준 HTTP 오류를 반환합니다. 예를 들어:
 
 HTTP 상태 코드 | 이유
 ----------------|-------
@@ -151,7 +147,7 @@ HTTP 상태 코드 | 이유
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
-**Response**
+**응답**
 
 > [!NOTE]
 > 응답은 JSON 문자열입니다. 다음 예제 응답은 가독성을 높이기 위해 적절히 인쇄되었습니다.
@@ -198,7 +194,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019-06-01"
 ```
 
-**Response**
+**응답**
 
 > [!NOTE]
 > 응답은 JSON 문자열입니다. 다음 예제 응답은 가독성을 높이기 위해 적절히 인쇄되었습니다.
@@ -331,7 +327,7 @@ curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-versio
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2019-06-01 -Method get
 ```
 
-**Response**
+**응답**
 
 > [!NOTE]
 > 응답은 JSON 문자열입니다. 다음 예제 응답은 가독성을 높이기 위해 적절히 인쇄되었습니다.
@@ -451,11 +447,11 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 다음 API는 메타데이터 끝점을 통해 사용할 수 있습니다.
 
-데이터 | Description | 도입된 버전
+데이터 | 설명 | 도입된 버전
 -----|-------------|-----------------------
 attested | [증명된 데이터](#attested-data) 참조 | 2018-10-01
 ID | Azure 리소스에 대한 관리 ID입니다. [액세스 토큰 획득](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)을 참조하세요. | 2018-02-01
-instance | [인스턴스 API](#instance-api) 참조 | 2017-04-02
+인스턴스 | [인스턴스 API](#instance-api) 참조 | 2017-04-02
 scheduledevents | [예정된 이벤트](scheduled-events.md) 참조 | 2017-08-01
 
 ### <a name="instance-api"></a>인스턴스 API
@@ -465,7 +461,7 @@ scheduledevents | [예정된 이벤트](scheduled-events.md) 참조 | 2017-08-01
 > [!NOTE]
 > 메타데이터 끝점을 통해 인스턴스/계산을 통해 다음 범주에 액세스합니다.
 
-데이터 | Description | 도입된 버전
+데이터 | 설명 | 도입된 버전
 -----|-------------|-----------------------
 아즈환경 | VM이 실행 중인 Azure 환경 | 2018-10-01
 customData | 이 기능은 현재 사용 안 되지 않습니다 및 사용할 수 있게 되면이 설명서를 업데이트 합니다. | 2019-02-01
@@ -490,7 +486,7 @@ tags | Virtual Machine에 대한 [태그](../../azure-resource-manager/managemen
 버전 | VM 이미지의 버전 | 2017-04-02
 vmId | VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
 vmScaleSetName | [가상 컴퓨터 규모 집합](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) 가상 시스템 규모 집합의 이름 | 2017-12-01
-vmSize | [VM 사이즈](sizes.md) | 2017-04-02
+vmSize | [VM 크기](sizes.md) | 2017-04-02
 영역 | 가상 머신의 [가용성 영역](../../availability-zones/az-overview.md) | 2017-12-01
 
 다음 네트워크 범주는 인스턴스 API를 통해 사용할 수 있습니다.
@@ -498,7 +494,7 @@ vmSize | [VM 사이즈](sizes.md) | 2017-04-02
 > [!NOTE]
 > 메타데이터 끝점을 통해 인스턴스/네트워크/인터페이스를 통해 다음 범주에 액세스합니다.
 
-데이터 | Description | 도입된 버전
+데이터 | 설명 | 도입된 버전
 -----|-------------|-----------------------
 ipv4/privateIpAddress | VM의 로컬 IPv4 주소 | 2017-04-02
 ipv4/publicIpAddress | VM의 공용 IPv4 주소 | 2017-04-02
@@ -526,7 +522,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-ver
 Api 버전은 필수 필드입니다. 지원되는 API 버전의 [서비스 가용성 섹션을](#service-availability) 참조하십시오.
 Nonce는 선택적 10자리 문자열입니다. 제공되지 않으면 IMDS는 현재 UTC 타임스탬프를 그 자리에 반환합니다. IMDS의 캐싱 메커니즘으로 인해 이전에 캐시된 nonce 값이 반환될 수 있습니다.
 
- **Response**
+ **응답**
 
 > [!NOTE]
 > 응답은 JSON 문자열입니다. 다음 예제 응답은 가독성을 높이기 위해 적절히 인쇄되었습니다.
@@ -558,7 +554,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI "http://169.254.169.254/met
 Api 버전은 필수 필드입니다. 지원되는 API 버전의 서비스 가용성 섹션을 참조하십시오.
 Nonce는 선택적 10자리 문자열입니다. 제공되지 않으면 IMDS는 현재 UTC 타임스탬프를 그 자리에 반환합니다. IMDS의 캐싱 메커니즘으로 인해 이전에 캐시된 nonce 값이 반환될 수 있습니다.
 
- **Response**
+ **응답**
 
 > [!NOTE]
 > 응답은 JSON 문자열입니다. 다음 예제 응답은 가독성을 높이기 위해 적절히 인쇄되었습니다.
@@ -583,7 +579,7 @@ Nonce는 선택적 10자리 문자열입니다. 제공되지 않으면 IMDS는 �
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
-**Response**
+**응답**
 
 ```text
 5c08b38e-4d57-4c23-ac45-aca61037f084
@@ -601,7 +597,7 @@ Instance Metadata Service를 통해 이 데이터를 직접 쿼리할 수 있습
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
 ```
 
-**Response**
+**응답**
 
 ```text
 0
@@ -617,7 +613,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platform
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01"
 ```
 
-**Response**
+**응답**
 
 > [!NOTE]
 > 응답은 JSON 문자열입니다. 다음 예제 응답은 가독성을 높이기 위해 적절히 인쇄되었습니다.
@@ -716,7 +712,7 @@ Azure에는 [Azure Government](https://azure.microsoft.com/overview/clouds/gover
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
-**Response**
+**응답**
 ```bash
 AzurePublicCloud
 ```
@@ -728,7 +724,7 @@ Azure 환경의 지역 및 값은 다음과 같습니다.
 [일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | Azure퍼블릭 클라우드
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUS정부 클라우드
 [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china)          | AzureChinaCloud
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
+[Azure 독일](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
 ### <a name="getting-the-tags-for-the-vm"></a>VM에 대한 태그 얻기
 
@@ -740,7 +736,7 @@ Azure 환경의 지역 및 값은 다음과 같습니다.
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
 ```
 
-**Response**
+**응답**
 
 ```text
 Department:IT;Environment:Test;Role:WebRole
@@ -754,7 +750,7 @@ Department:IT;Environment:Test;Role:WebRole
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=JSON"
 ```
 
-**Response**
+**응답**
 
 ```json
 [
@@ -798,7 +794,7 @@ Marketplace 공급업체는 해당 소프트웨어가 Azure에서만 실행되�
   openssl smime -verify -in sign.pk7 -inform pem -noverify
  ```
 
- **Response**
+ **응답**
 
 ```json
 Verification successful
@@ -820,7 +816,7 @@ Verification successful
 }
 ```
 
-데이터 | Description
+데이터 | 설명
 -----|------------
 nonce | 사용자가 요청과 함께 선택적 문자열을 제공했습니다. 요청에 nonce를 제공하지 않은 경우 현재 UTC 타임스탬프가 반환됩니다.
 계획 | Azure Marketplace 이미지의 VM에 대한 [플랜](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)에는 이름, 제품 및 게시자가 포함됩니다.
@@ -842,7 +838,7 @@ sku | VM 이미지에 대한 특정 SKU,`2019-11-01`
 [일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | *metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | *.metadata.azure.us
 [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | *.metadata.azure.cn
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | *.metadata.microsoftazure.de
+[Azure 독일](https://azure.microsoft.com/overview/clouds/germany/)                    | *.metadata.microsoftazure.de
 
 서명에 사용되는 인증서와 관련된 알려진 문제가 있습니다. 인증서가 퍼블릭 클라우드와 `metadata.azure.com` 정확히 일치하지 않을 수 있습니다. 따라서 인증 유효성 검사는 모든 `.metadata.azure.com` 하위 도메인에서 공통 이름을 허용 해야 합니다.
 
@@ -919,7 +915,7 @@ VM의 저장소 프로필은 이미지 참조, OS 디스크 및 데이터 디스
 
 이미지 참조 개체에는 OS 이미지에 대한 다음 정보가 포함되어 있습니다.
 
-데이터    | Description
+데이터    | 설명
 --------|-----------------
 id      | 리소스 ID
 제품   | 플랫폼 또는 마켓플레이스 이미지 제공
@@ -929,12 +925,12 @@ sku     | 이미지 스쿠
 
 OS 디스크 개체에는 VM에서 사용하는 OS 디스크에 대한 다음 정보가 포함되어 있습니다.
 
-데이터    | Description
+데이터    | 설명
 --------|-----------------
 캐싱 | 캐싱 요구 사항
 createOption | VM이 생성된 방법에 대한 정보
 디프 디스크 설정 | 임시 디스크 설정
-디스크크기GB | GB 디스크 크기
+diskSizeGB | GB 디스크 크기
 이미지   | 소스 사용자 이미지 가상 하드 디스크
 Lun     | 디스크의 논리 단위 번호
 관리 디스크 | 관리되는 디스크 매개 변수
@@ -944,12 +940,12 @@ Vhd     | 가상 하드 디스크
 
 데이터 디스크 배열에는 VM에 연결된 데이터 디스크 목록이 포함되어 있습니다. 각 데이터 디스크 개체에는 다음 정보가 포함됩니다.
 
-데이터    | Description
+데이터    | 설명
 --------|-----------------
 캐싱 | 캐싱 요구 사항
 createOption | VM이 생성된 방법에 대한 정보
 디프 디스크 설정 | 임시 디스크 설정
-디스크크기GB | GB 디스크 크기
+diskSizeGB | GB 디스크 크기
 암호화 설정 | 디스크에 대한 암호화 설정
 이미지   | 소스 사용자 이미지 가상 하드 디스크
 관리 디스크 | 관리되는 디스크 매개 변수
@@ -966,7 +962,7 @@ Vhd     | 가상 하드 디스크
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01"
 ```
 
-**Response**
+**응답**
 
 > [!NOTE]
 > 응답은 JSON 문자열입니다. 다음 예제 응답은 가독성을 높이기 위해 적절히 인쇄되었습니다.

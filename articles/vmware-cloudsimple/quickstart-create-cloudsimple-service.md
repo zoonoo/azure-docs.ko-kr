@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8ca8c5cacd2b1a1a7b4f70615831d2901510045e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7c137a75c0a021aa8bca3aec23da6c4d1ada300
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77024435"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868027"
 ---
 # <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>빠른 시작 - CloudSimple 서비스로 Azure VMware 솔루션 만들기
 
@@ -34,11 +34,11 @@ CloudSimple 서비스를 추가하려면 게이트웨이 서브넷을 만들어�
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-에서 [https://portal.azure.com](https://portal.azure.com)Azure 포털에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-the-service"></a>서비스 만들기
 
-1. **모든 서비스를**선택합니다.
+1. **모든 서비스**를 선택합니다.
 2. 클라우드 **단순 서비스를**검색합니다.
 
     ![검색 클라우드심플 서비스](media/create-cloudsimple-service-search.png)
@@ -63,7 +63,7 @@ CloudSimple 서비스를 추가하려면 게이트웨이 서브넷을 만들어�
 
 CloudSimple 프라이빗 클라우드 환경에 대한 종량제 용량을 설정하려면 Azure Portal에서 노드를 먼저 프로비전합니다.
 
-1. **모든 서비스를**선택합니다.
+1. **모든 서비스**를 선택합니다.
 2. 클라우드 **단순 노드 검색**.
 
     ![클라우드 단순 노드 검색](media/create-cloudsimple-node-search.png)
@@ -80,11 +80,11 @@ CloudSimple 프라이빗 클라우드 환경에 대한 종량제 용량을 설�
 9. 노드 리소스를 호스트할 전용 위치를 선택합니다.
 10. 노드 [유형을 선택합니다.](cloudsimple-node.md)
 11. 프로비전할 노드 수를 선택합니다.
-12. **검토 + 만들기를**선택합니다.
+12. **검토 + 만들기**를 선택합니다.
 13. 설정을 검토합니다. 설정을 수정하려면 이전 을 **클릭합니다.**
 14. **만들기**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [프라이빗 클라우드 만들기 및 환경 구성](quickstart-create-private-cloud.md)
-* [클라우드심플 서비스에](https://docs.azure.cloudsimple.com/cloudsimple-service) 대해 자세히 알아보기
+* [클라우드심플 서비스에](https://docs.microsoft.com/azure/vmware-cloudsimple/cloudsimple-service) 대해 자세히 알아보기

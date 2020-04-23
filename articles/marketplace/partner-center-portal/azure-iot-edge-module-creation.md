@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: c4eddf68e964b412e7270319630f41fc4d802241
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: cca54e4e456fe766b190f64657cd1aca1d9520e0
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81733157"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869139"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>IoT Edge 모듈 제품 만들기
 
@@ -223,6 +223,9 @@ IoT Edge 모듈은 설명 하단에 최소 하드웨어 요구 사항 단락을 
 ### <a name="marketplace-images"></a>마켓플레이스 이미지
 
 오퍼와 함께 사용할 로고와 이미지를 제공합니다. 모든 이미지는 .png 형식이어야 합니다. 흐릿한 이미지는 거부됩니다.
+
+>[!Note]
+>파일을 업로드하는 데 문제가 있는 경우 로컬 네트워크가 파트너 https://upload.xboxlive.com 센터에서 사용하는 서비스를 차단하지 않는지 확인합니다.
 
 #### <a name="store-logos"></a>스토어 로고
 

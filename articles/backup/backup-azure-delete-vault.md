@@ -1,18 +1,18 @@
 ---
 title: 마이크로소프트 Azure 복구 서비스 자격 증명 모음 삭제
-description: 이 문서에서는 종속성을 제거한 다음 Microsoft Azure 백업 복구 서비스(MARS) 자격 증명 모음을 삭제하는 방법을 알아봅니다.
+description: 이 문서에서는 종속성을 제거한 다음 Azure 백업 복구 서비스 자격 증명 모음을 삭제하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: f33f52048729b50015ba86db71118b9a21e1a2fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 69fed6c53914ed7aa16b04b5311ec69966734f25
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500397"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025138"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Azure 백업 복구 서비스 자격 증명 모음 삭제
 
-이 문서에서는 Microsoft Azure [백업](backup-overview.md) 복구 서비스(MARS) 자격 증명 모음을 삭제하는 방법에 대해 설명합니다. 종속성을 제거한 다음 볼트를 삭제하는 방법에 대한 지침이 포함되어 있습니다.
+이 문서에서는 [Azure 백업](backup-overview.md) 복구 서비스 자격 증명 모음을 삭제하는 방법에 대해 설명합니다. 종속성을 제거한 다음 볼트를 삭제하는 방법에 대한 지침이 포함되어 있습니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -107,7 +107,7 @@ MABS(Microsoft Azure 백업 서버) 또는 DPM(시스템 센터 데이터 보호
 ### <a name="delete-backup-items-from-the-mars-management-console"></a>MARS 관리 콘솔에서 백업 항목 삭제
 
 1. MARS 관리 콘솔을 열고 **작업** 창으로 이동한 다음 **백업 예약을**선택합니다.
-2. **예약된 백업 수정 또는 중지** 페이지에서 이 백업 일정 사용 중지를 선택하고 저장된 모든 **백업을 삭제합니다.** 그런 다음 **을 선택합니다.**
+2. **예약된 백업 수정 또는 중지** 페이지에서 이 백업 일정 사용 중지를 선택하고 저장된 모든 **백업을 삭제합니다.** 그다음에 **다음**을 선택합니다.
 
     ![예약된 백업을 수정하거나 중지합니다.](./media/backup-azure-delete-vault/modify-schedule-backup.png)
 

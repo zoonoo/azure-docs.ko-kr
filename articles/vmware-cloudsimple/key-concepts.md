@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: efe6cc132b062e833dc85c13cf2f6c5f6289484c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 410215550f728d6b11b02b3ef108d429481e42a0
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77564622"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869021"
 ---
 # <a name="key-concepts-for-administration-of-azure-vmware-solutions-by-cloudsimple"></a>클라우드심플에 의한 Azure VMware 솔루션 관리를 위한 주요 개념
 
@@ -61,4 +61,4 @@ CloudSimple 서비스를 사용하면 Azure 포털에서 VMware 가상 컴퓨터
 다음에 대해 자세히 알아봅니다.
 
 * [클라우드단순 가상 머신](cloudsimple-virtual-machines.md)
-* [Azure 구독 매핑](https://docs.azure.cloudsimple.com/azure-subscription-mapping/)
+* [Azure 구독 매핑](https://docs.microsoft.com/azure/vmware-cloudsimple/azure-subscription-mapping/)

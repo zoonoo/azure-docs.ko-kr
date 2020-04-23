@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 6f4dbedad56f6867558a8b70575ad906c8796612
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: f625f5df4f33c6516bd5c50f97c52404d76757a0
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392554"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024458"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Azure AD 로그인을 사용하도록 앱 서비스 또는 Azure Functions 앱 구성
 
@@ -72,7 +72,7 @@ ms.locfileid: "81392554"
 1. [Azure 포털에]로그인하고 **앱 서비스를**검색하고 선택한 다음 앱을 선택합니다. 앱의 **URL을**확인합니다. Azure Active Directory 앱 등록을 구성하는 데 사용합니다.
 1. **Azure Active Directory** > **앱 등록** > **새 등록을**선택합니다.
 1. 응용 **프로그램 등록** 페이지에서 앱 등록의 **이름을** 입력합니다.
-1. **URI 리디렉션에서** **웹을** 선택하고 `<app-url>/.auth/login/aad/callback`을 입력합니다. `https://contoso.azurewebsites.net/.auth/login/aad/callback`)을 입력합니다. 
+1. **URI 리디렉션에서** **웹을** 선택하고 `<app-url>/.auth/login/aad/callback`을 입력합니다. 예: `https://contoso.azurewebsites.net/.auth/login/aad/callback`. 
 1. **만들기**를 선택합니다.
 1. 앱 등록을 만든 후 **나중에 응용 프로그램(클라이언트) ID와** **디렉터리(테넌트) ID를** 복사합니다.
 1. **인증**을 선택합니다. **암시적 부여에서** **ID 토큰을** 사용하여 앱 서비스에서 OpenID Connect 사용자 로그인을 허용합니다.
@@ -97,10 +97,10 @@ ms.locfileid: "81392554"
 1. **인증 공급자**에서 **Azure Active Directory**를 선택합니다.
 1. **관리 모드에서** **고급** 을 선택하고 다음 표에 따라 앱 서비스 인증을 구성합니다.
 
-    |필드|Description|
+    |필드|설명|
     |-|-|
     |클라이언트 ID| 앱 등록의 **응용 프로그램(클라이언트) ID를** 사용합니다. |
-    |발급자 URL| 을 `https://login.microsoftonline.com/<tenant-id>/v2.0`사용하고 * \<테넌트 id>* 앱 등록의 **디렉터리(테넌트) ID로** 바꿉니다. 이 값은 사용자를 올바른 Azure AD 테넌트로 리디렉션하고 적절한 메타데이터를 다운로드하여 적절한 토큰 서명 키 및 토큰 발급자 클레임 값을 결정하는 데 사용됩니다. AAD v1을 사용하는 응용 프로그램에는 `/v2.0` 섹션을 생략할 수 있습니다. |
+    |발급자 URL| `<authentication-endpoint>/<tenant-id>/v2.0`및 인증 * \<끝점>* 클라우드 [환경에 대한 인증 끝점(예:](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) "전역https://login.microsoft.comAzure의 경우)으로 바꾸고 * \<테넌트 id>* 앱 등록이 생성된 **디렉터리(테넌트) ID로** 대체합니다. 이 값은 사용자를 올바른 Azure AD 테넌트로 리디렉션하고 적절한 메타데이터를 다운로드하여 적절한 토큰 서명 키 및 토큰 발급자 클레임 값을 결정하는 데 사용됩니다. AAD v1을 사용하는 응용 프로그램에는 `/v2.0` 섹션을 생략할 수 있습니다. |
     |클라이언트 보안(선택 사항)| 앱 등록에서 생성한 클라이언트 비밀을 사용합니다.|
     |허용된 토큰 잠재고객| 클라우드 또는 서버 앱이고 웹 앱에서 인증 토큰을 허용하려는 경우 여기에 웹 앱의 **응용 프로그램 ID URI를** 추가합니다. 구성된 **클라이언트 ID는** *항상* 암시적으로 허용된 대상으로 간주됩니다. |
 
@@ -114,7 +114,7 @@ ms.locfileid: "81392554"
 
 1. Azure [포털에서] **Active Directory** > 앱 등록**새 등록을****선택합니다.** > 
 1. 응용 **프로그램 등록** 페이지에서 앱 등록의 **이름을** 입력합니다.
-1. **URI 리디렉션에서** **공용 클라이언트(모바일 & 데스크톱)를** `<app-url>/.auth/login/aad/callback`선택하고 URL을 입력합니다. `https://contoso.azurewebsites.net/.auth/login/aad/callback`)을 입력합니다.
+1. **URI 리디렉션에서** **공용 클라이언트(모바일 & 데스크톱)를** `<app-url>/.auth/login/aad/callback`선택하고 URL을 입력합니다. 예: `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 
     > [!NOTE]
     > Microsoft Store 응용 프로그램의 경우 [패키지 SID를](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) URI로 대신 사용합니다.

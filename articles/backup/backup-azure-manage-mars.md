@@ -4,12 +4,12 @@ description: Azure 백업 서비스를 사용하여 MICROSOFT Azure 복구 서�
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 404341c8324d9e127e8d8e6bc8083926c0d3106f
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: a88ec4dc9283114e06eed424172dbb958850c2e9
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537358"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025104"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Azure 백업 서비스를 사용하여 Microsoft Azure 복구 서비스(MARS) 에이전트 백업 관리
 
@@ -79,8 +79,8 @@ ms.locfileid: "81537358"
 
     ![항목 선택](./media/backup-azure-manage-mars/select-items-remove.png)
 
-> [!NOTE]
-> 정책에서 볼륨을 완전히 제거할 때는 주의해서 진행하십시오.  다시 추가해야 하는 경우 새 볼륨으로 처리됩니다. 다음 예약된 백업은 증분 백업 대신 초기 백업(전체 백업)을 수행합니다. 나중에 항목을 일시적으로 제거하고 추가해야 하는 경우 **항목 제거** 대신 **제외 설정을** 사용하여 전체 백업 대신 증분 백업을 보장하는 것이 좋습니다.
+    > [!NOTE]
+    > 정책에서 볼륨을 완전히 제거할 때는 주의해서 진행하십시오.  다시 추가해야 하는 경우 새 볼륨으로 처리됩니다. 다음 예약된 백업은 증분 백업 대신 초기 백업(전체 백업)을 수행합니다. 나중에 항목을 일시적으로 제거하고 추가해야 하는 경우 **항목 제거** 대신 **제외 설정을** 사용하여 전체 백업 대신 증분 백업을 보장하는 것이 좋습니다.
 
 2. 이후 단계를 완료하고 **완료를** 클릭하여 작업을 완료합니다.
 
@@ -90,7 +90,7 @@ ms.locfileid: "81537358"
 
 - **보호를 중지하고 백업 데이터를 유지합니다.**
   - 이 옵션을 사용하면 이후의 모든 백업 작업이 보호되지 않습니다.
-  - Azure 백업 서비스는 모든 기존 복구 지점을 무기한 으로 유지합니다. 보호가 재개될 때까지 복구 지점이 만료되는지 확인되지 않습니다.
+  - Azure 백업 서비스는 모든 기존 복구 지점을 계속 유지합니다.  
   - 만료되지 않은 복구 지점에 대해 백업된 데이터를 복원할 수 있습니다.
   - 보호를 다시 시작하려는 경우 *백업 일정 다시 활성화* 옵션을 사용할 수 있습니다. 그 후 새 보존 정책에 따라 데이터가 유지됩니다.
 - **보호를 중지하고 백업 데이터를 삭제합니다.**
@@ -167,7 +167,6 @@ ms.locfileid: "81537358"
 
     ![암호를 생성합니다.](./media/backup-azure-manage-mars/passphrase2.png)
 - 암호가 원본 컴퓨터 이외의 대체 위치에 안전하게 저장되어 있는지 확인합니다. MARS 에이전트에 백업되는 컴퓨터가 여러 개인 경우 모든 암호를 추적합니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

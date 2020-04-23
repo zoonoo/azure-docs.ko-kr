@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 04/24/2019
+ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a82766be01476890bbf18b518ce21febe0d07f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab51030ad39e1360cabc7d63390af7c1654d2891
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79253612"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082121"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 동기화: Azure Active Directory에 동기화된 특성
 이 항목에서는 Azure AD Connect 동기화에 의해 동기화되는 특성을 보여 줍니다.  
@@ -375,7 +375,7 @@ ms.locfileid: "79253612"
 * Yammer(User만 사용됨)
 * [SharePoint와 같은 리소스에서 제공하는 하이브리드 B2B 조직 간 협업 시나리오](https://go.microsoft.com/fwlink/?LinkId=747036)
 
-이 그룹은 Azure AD Directory가 Office 365, Dynamics, 또는 Intune을 지원하지 않을 때 사용되는 특성의 집합입니다. 코어 특성의 작은 집합이 있습니다.
+이 그룹은 Azure AD Directory가 Office 365, Dynamics, 또는 Intune을 지원하지 않을 때 사용되는 특성의 집합입니다. 코어 특성의 작은 집합이 있습니다. 일부 타사 응용 프로그램에 대한 단일 사인온 또는 프로비전은 여기에 설명된 특성 외에 특성의 동기화를 구성해야 합니다. 응용 프로그램 요구 사항은 각 응용 프로그램에 대한 [SaaS 앱 자습서에](../saas-apps/tutorial-list.md) 설명되어 있습니다.
 
 | 특성 이름 | 사용자 | 연락처 | 그룹 | 주석 |
 | --- |:---:|:---:|:---:| --- |
@@ -396,7 +396,7 @@ ms.locfileid: "79253612"
 | usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역입니다. 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
-## <a name="windows-10"></a>윈도우 10
+## <a name="windows-10"></a>Windows 10
 Windows 10 도메인에 가입된 컴퓨터(디바이스)는 일부 특성을 Azure AD에 동기화합니다. 이 시나리오에 대한 자세한 내용은 [Windows 10 환경용 Azure AD에 도메인 조인된 디바이스 연결](../active-directory-azureadjoin-devices-group-policy.md)을 참조하세요. 이 특성은 항상 동기화되며 Windows 10은 선택 취소할 수 있는 앱으로 표시되지 않습니다. Windows 10 도메인에 가입된 컴퓨터는 특성 userCertificate를 채우는 것으로 식별됩니다.
 
 | 특성 이름 | 디바이스 | 주석 |
@@ -466,7 +466,7 @@ Active Directory에 디바이스 개체를 만듭니다. 이러한 개체는 Azu
 | msDS-IsManaged |X | |
 | msDS-RegisteredOwner |X | |
 
-## <a name="notes"></a>메모
+## <a name="notes"></a>참고
 * 대체 ID를 사용하면, 온-프레미스 특성 userPrincipalName은 Azure AD 특성 onPremisesUserPrinciparlName과 동기화됩니다. 대체 ID 특성(예: 메일)은 Azure AD 특성 userPrincipalName과 동기화됩니다.
 * 위의 목록에서 개체 형식 **User**는 개체 형식 **iNetOrgPerson**에도 적용됩니다.
 

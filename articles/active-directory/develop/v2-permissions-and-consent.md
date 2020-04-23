@@ -12,12 +12,12 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: 26bfbcb4762d889b2c56276e66e4bf8e0acb64b2
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 5495aa6fda189897985ed2f198f6e92c996f6fef
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677700"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868375"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트의 권한 및 동의
 
@@ -97,7 +97,7 @@ Microsoft ID 플랫폼(v2.0 끝점에 대한 요청)에서 앱은 `offline_acces
 
 [OpenID Connect 또는 OAuth 2.0](active-directory-v2-protocols.md) 권한 부여 요청에서 앱은 `scope` 쿼리 매개 변수를 사용하여 필요한 사용 권한을 요청할 수 있습니다. 예를 들어 사용자가 앱에 로그인하면 앱이 다음 예제와 같은 요청을 보냅니다(읽기 쉽도록 줄 바꿈 추가).
 
-```
+```HTTP
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
@@ -179,15 +179,15 @@ Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 �
 
 조직의 관리자로부터 권한을 요청할 준비가 되면 사용자를 Microsoft ID 플랫폼 *관리자 동의 끝점으로*리디렉션할 수 있습니다.
 
-```
+```HTTP
 // Line breaks are for legibility only.
-  GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
-  client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-  &state=12345
-  &redirect_uri=http://localhost/myapp/permissions
-  &scope=
-  https://graph.microsoft.com/calendars.read
-  https://graph.microsoft.com/mail.send
+GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&state=12345
+&redirect_uri=http://localhost/myapp/permissions
+&scope=
+https://graph.microsoft.com/calendars.read
+https://graph.microsoft.com/mail.send
 ```
 
 
@@ -206,7 +206,7 @@ Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 �
 
 관리자가 앱에 대한 사용 권한을 승인하는 경우 성공적인 응답은 다음과 같습니다.
 
-```
+```HTTP
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
@@ -220,7 +220,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 관리자가 앱에 대한 사용 권한을 승인하지 않는 경우 실패한 응답은 다음과 같습니다.
 
-```
+```HTTP
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
@@ -235,7 +235,7 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 사용자가 앱에 대한 사용 권한에 동의하면 앱이 일부 용량으로 리소스에 액세스할 수 있는 앱의 권한을 나타내는 액세스 토큰을 획득할 수 있습니다. 액세스 토큰은 단일 리소스에만 사용할 수 있지만 해당 리소스에 대해 앱에 부여된 모든 사용 권한이 액세스 토큰 안에 인코딩됩니다. 액세스 토큰을 획득하기 위해 앱은 다음과 같이 Microsoft ID 플랫폼 토큰 끝점에 요청을 할 수 있습니다.
 
-```
+```HTTP
 POST common/oauth2/v2.0/token HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/json
@@ -287,7 +287,7 @@ OAuth 2.0 프로토콜 및 액세스 토큰을 얻는 방법에 대한 자세한
 
 클라이언트가 고유한 `/.default` 범위를 요청하는 특수한 경우의 `/.default` 범위가 있습니다. 다음 예제에서는 이 시나리오를 보여 줍니다.
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?

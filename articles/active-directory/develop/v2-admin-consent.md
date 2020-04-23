@@ -12,16 +12,16 @@ ms.date: 12/3/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c9f633e0d205adaf5cefb2e3c036ce7f48253651
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 537d609c1281929203d1891f37614b7627e1683a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886384"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868677"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼에 대한 관리자 동의
 
-일부 사용 권한은 테넌트 내에서 부여되기 전에 관리자의 동의가 필요합니다.  관리자 동의 끝점을 사용하여 전체 테넌트에 권한을 부여할 수도 있습니다.  
+일부 사용 권한은 테넌트 내에서 부여되기 전에 관리자의 동의가 필요합니다.  관리자 동의 끝점을 사용하여 전체 테넌트에 권한을 부여할 수도 있습니다.
 
 ## <a name="recommended-sign-the-user-into-your-app"></a>권장 사항: 앱에 사용자를 로그인
 
@@ -33,25 +33,25 @@ ms.locfileid: "80886384"
 
 조직의 관리자로부터 권한을 요청할 준비가 되면 사용자를 Microsoft ID 플랫폼 *관리자 동의 끝점으로*리디렉션할 수 있습니다.
 
-```
+```HTTP
 // Line breaks are for legibility only.
-    GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
-  client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-  &state=12345
-  &redirect_uri=http://localhost/myapp/permissions
-    &scope=
-    https://graph.microsoft.com/calendars.read 
-    https://graph.microsoft.com/mail.send
+GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&state=12345
+&redirect_uri=http://localhost/myapp/permissions
+&scope=
+https://graph.microsoft.com/calendars.read
+https://graph.microsoft.com/mail.send
 ```
 
 
-| 매개 변수     | 조건     | Description                                                                               |
+| 매개 변수     | 조건     | 설명                                                                               |
 |--------------:|--------------:|:-----------------------------------------------------------------------------------------:|
 | `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. GUID에서 제공한 이름이거나, 친근한 이름 형식이거나, 예제에서처럼 `organizations`으로 일반 참조될 수 있습니다. 개인 계정은 테넌트의 컨텍스트를 제외하고 관리자동의를 제공할 수 없으므로 '일반'을 사용하지 마십시오. 테넌트를 관리하는 개인 계정과의 최상의 호환성을 보장하려면 가능하면 테넌트 ID를 사용하십시오. |
 | `client_id` | 필수 | Azure 포털 - 앱 [등록이](https://go.microsoft.com/fwlink/?linkid=2083908) 앱에 할당된 응용 **프로그램(클라이언트) ID입니다.** |
 | `redirect_uri` | 필수 |리디렉션 URI는 처리할 앱에 응답을 전송하려는 위치입니다. 앱 등록 포털에 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. |
 | `state` | 권장 | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태를 사용하여 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩할 수 있습니다. |
-|`scope`        | 필수      | 응용 프로그램에서 요청하는 사용 권한 집합을 정의합니다. 정적(/.default 사용) 또는 동적 범위일 수 있습니다.  여기에는 OIDC 범위`openid`(, `profile` `email` | 
+|`scope`        | 필수      | 응용 프로그램에서 요청하는 사용 권한 집합을 정의합니다. 정적(/.default 사용) 또는 동적 범위일 수 있습니다.  여기에는 OIDC 범위`openid`(, `profile` `email` |
 
 
 이 시점에서 Azure AD는 테넌트 관리자에게 요청을 완료하기 위해 로그인하도록 요구합니다. 관리자는 매개 변수에서 요청한 모든 권한을 승인하라는 `scope` 메시지가 표시됩니다.  정적 ()`/.default`값을 사용한 경우 v1.0 관리자 동의 끝점처럼 작동하고 앱에 필요한 권한에 있는 모든 범위에 대한 동의를 요청합니다.
@@ -64,7 +64,7 @@ ms.locfileid: "80886384"
 http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-a743-29f2956fd429&state=12345&scope=https%3a%2f%2fgraph.microsoft.com%2fCalendars.Read+https%3a%2f%2fgraph.microsoft.com%2fMail.Send
 ```
 
-| 매개 변수         | 설명                                                                                       |
+| 매개 변수         | Description                                                                                       |
 |------------------:|:-------------------------------------------------------------------------------------------------:|
 | `tenant`| 디렉터리 테넌트는 GUID 형식으로 요청한 권한을 애플리케이션에 부여합니다.|
 | `state`           | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다.|
@@ -77,7 +77,7 @@ http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-
 
 성공적인 응답에서 볼 수 있는 매개 변수에 추가하면 오류 매개 변수는 다음과 같습니다.
 
-| 매개 변수          | 설명                                                                                      |
+| 매개 변수          | Description                                                                                      |
 |-------------------:|:-------------------------------------------------------------------------------------------------:|
 | `error`            | 발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다.|
 | `error_description`| 개발자가 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다.|

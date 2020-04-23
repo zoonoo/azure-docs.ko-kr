@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: 544de1b4ac46a58d533f71a46266807a3b93820a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adbcf28cfbbe2ea3b7cc9c7fd0d1c76246938344
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77920045"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870400"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>진단 설정으로 로그 및 메트릭 분석
 
@@ -22,6 +22,9 @@ Azure Spring Cloud의 진단 기능을 사용하여 다음 서비스 중 한 가
 * 타사 서비스 또는 사용자 지정 분석 솔루션으로 수집을 위해 이벤트 허브로 로그를 스트리밍합니다.
 
 모니터링할 로그 범주 및 메트릭 범주를 선택합니다.
+
+> [!TIP]
+> 로그를 스트리밍하고 싶으신가요? 이 [Azure CLI 명령을](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)확인하십시오!
 
 ## <a name="logs"></a>로그
 

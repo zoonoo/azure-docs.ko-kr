@@ -7,12 +7,12 @@ manager: saudas
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: saudas
-ms.openlocfilehash: 907aa83bc293aacd9920d8fd79a1b3184dd1d5dc
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 7a71d3bd70d97df884f1bc962c0ef9897d7fd2cb
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767601"
+ms.locfileid: "82024407"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Azure Kubernetes 서비스에서 관리되는 ID 사용
 
@@ -25,7 +25,7 @@ AKS는 두 개의 관리되는 ID를 만듭니다.
 - **시스템 할당 된 관리 되는 ID:** Kubernetes 클라우드 공급자사용자를 대신 Azure 리소스를 만드는 데 사용 하는 ID입니다. 시스템 할당된 ID의 수명 주기는 클러스터의 수명 주기와 연결됩니다. 클러스터가 삭제되면 ID가 삭제됩니다.
 - **사용자 할당된 관리 ID**: 클러스터의 권한 부여에 사용되는 ID입니다. 예를 들어 사용자 할당ID는 AKS가 Azure 컨테이너 레지스트리(AC)를 사용하도록 권한을 부여하거나 kubelet이 Azure에서 메타데이터를 가져오는 권한을 부여할 때 사용됩니다.
 
-또한 추가 기능도 관리되는 ID를 사용하여 인증합니다. 각 추가 기능의 경우 관리되는 ID는 AKS에 의해 만들어지고 추가 기능의 수명 동안 지속됩니다. 리소스가 MC_* 리소스 그룹 외부에 있는 고유한 VNet, 정적 IP 주소 또는 연결된 Azure 디스크를 만들고 사용하려면 클러스터의 PrincipalID를 사용하여 역할 할당을 수행합니다. 역할 할당에 대한 자세한 내용은 [다른 Azure 리소스에 대한 대리자 액세스를](kubernetes-service-principal.md#delegate-access-to-other-azure-resources)참조하십시오.
+또한 추가 기능도 관리되는 ID를 사용하여 인증합니다. 각 추가 기능의 경우 관리되는 ID는 AKS에 의해 만들어지고 추가 기능의 수명 동안 지속됩니다. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -58,6 +58,9 @@ az aks create -g MyResourceGroup -n MyManagedCluster --enable-managed-identity
     "secret": null
   }
 ```
+
+> [!NOTE]
+> 리소스가 MC_* 리소스 그룹 외부에 있는 고유한 VNet, 정적 IP 주소 또는 연결된 Azure 디스크를 만들고 사용하려면 클러스터 시스템 할당된 관리되는 ID의 PrincipalID를 사용하여 역할 할당을 수행합니다. 역할 할당에 대한 자세한 내용은 [다른 Azure 리소스에 대한 대리자 액세스를](kubernetes-service-principal.md#delegate-access-to-other-azure-resources)참조하십시오.
 
 마지막으로 클러스터에 액세스하는 자격 증명을 가져옵니다.
 

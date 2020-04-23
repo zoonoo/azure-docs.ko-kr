@@ -13,12 +13,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 828bdab26684b29d664ea42d0b36f475c7872a80
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a282264ed3e9539bcc96babfc41376d2c6c35628
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309454"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868646"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>마이크로소프트 ID 플랫폼 및 OAuth 2.0 리소스 소유자 암호 자격 증명
 
@@ -50,8 +50,8 @@ ROPC 흐름은 단일 요청입니다: 클라이언트 식별 및 사용자의 �
 > [![우체부에서 이 요청을 실행해 보십시오.](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 
-```
-// Line breaks and spaces are for legibility only.  This is a public client, so no secret is required. 
+```HTTP
+// Line breaks and spaces are for legibility only.  This is a public client, so no secret is required.
 
 POST {tenant}/oauth2/v2.0/token
 Host: login.microsoftonline.com
@@ -67,13 +67,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
 | `tenant` | 필수 | 사용자를 로그인할 디렉터리 테넌트입니다. 이는 GUID 또는 친숙한 이름 형식일 수 있습니다. 이 매개 변수는 `common` 또는 `consumers`로 설정할 수 없고 `organizations`로 설정할 수 있습니다. |
-| `client_id` | 필수 | [Azure 포털 - 앱에](https://go.microsoft.com/fwlink/?linkid=2083908) 할당된 앱 등록 페이지인 응용 프로그램(클라이언트) ID입니다. | 
+| `client_id` | 필수 | [Azure 포털 - 앱에](https://go.microsoft.com/fwlink/?linkid=2083908) 할당된 앱 등록 페이지인 응용 프로그램(클라이언트) ID입니다. |
 | `grant_type` | 필수 | `password`로 설정해야 합니다. |
 | `username` | 필수 | 사용자의 메일 주소입니다. |
 | `password` | 필수 | 사용자 암호입니다. |
 | `scope` | 권장 | 앱에 필요한 [범위](v2-permissions-and-consent.md) 또는 권한의 공백으로 구분된 목록입니다. 대화형 흐름에서 관리자 또는 사용자는 미리 이러한 범위에 동의해야 합니다. |
-| `client_secret`| 때때로 필요 | 앱이 공용 클라이언트인 경우 `client_secret` 앱을 `client_assertion` 포함하거나 포함할 수 없습니다.  앱이 기밀 클라이언트인 경우 앱이 포함되어야 합니다. | 
-| `client_assertion` | 때때로 필요 | 인증서를 사용하여 `client_secret`생성된 다른 형식의 .  자세한 내용은 [인증서 자격 증명을](active-directory-certificate-credentials.md) 참조하십시오. | 
+| `client_secret`| 때때로 필요 | 앱이 공용 클라이언트인 경우 `client_secret` 앱을 `client_assertion` 포함하거나 포함할 수 없습니다.  앱이 기밀 클라이언트인 경우 앱이 포함되어야 합니다. |
+| `client_assertion` | 때때로 필요 | 인증서를 사용하여 `client_secret`생성된 다른 형식의 .  자세한 내용은 [인증서 자격 증명을](active-directory-certificate-credentials.md) 참조하십시오. |
 
 ### <a name="successful-authentication-response"></a>성공적인 인증 응답
 
@@ -90,7 +90,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 }
 ```
 
-| 매개 변수 | 형식 | 설명 |
+| 매개 변수 | 형식 | Description |
 | --------- | ------ | ----------- |
 | `token_type` | String | 항상 `Bearer`로 설정합니다. |
 | `scope` | 공백으로 구분된 문자열 | 액세스 토큰이 반환된 경우 이 매개 변수는 액세스 토큰이 유효한 범위를 나열합니다. |

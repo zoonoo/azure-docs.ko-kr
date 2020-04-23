@@ -1,24 +1,19 @@
 ---
 title: 가상 머신의 MATLAB 클러스터
 description: Microsoft Azure 가상 머신을 사용하여 계산 집약적인 병렬 MATLAB 작업을 실행하기 위한 MATLAB 분산 컴퓨팅 서버 클러스터를 만듭니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: mscurrell
-manager: gwallace
-editor: ''
-ms.assetid: e9980ce9-124a-41f1-b9ec-f444c8ea5c72
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: Windows
+ms.subservice: workloads
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: a2fb2479f5544b869b51e796085fcb4d0b76121a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d34481587fd48e2eddfd268c39f6bc4f7c4e0c76
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74038134"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869415"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Azure VM에 MATLAB 분산 컴퓨팅 서버 클러스터 만들기
 Microsoft Azure 가상 머신을 사용하여 계산 집약적인 병렬 MATLAB 작업을 실행하기 위한 MATLAB 분산 컴퓨팅 서버 클러스터를 하나 이상 만듭니다. MATLAB 분산 컴퓨팅 서버 소프트웨어를 VM에 설치하여 기본 이미지로 사용하고, Azure 빠른 시작 템플릿 또는 Azure PowerShell 스크립트( [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)에 제공됨)를 사용하여 클러스터를 배포하고 관리합니다. 배포 후에 클러스터에 연결하여 작업을 실행합니다.

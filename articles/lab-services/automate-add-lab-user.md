@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 70a6359923734c83590d4677bb2c93966c925d14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 81a8c5030f716246caf3dcd8b540bb47fcaf6520
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76718142"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82023625"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest 랩의 랩에 랩 사용자 추가 자동화
-Azure DevTest Labs를 사용하면 Azure 포털을 사용하여 셀프 서비스 개발 테스트 환경을 빠르게 만들 수 있습니다. 그러나 여러 팀과 여러 DevTest Labs 인스턴스가 있는 경우 생성 프로세스를 자동화하면 시간을 절약할 수 있습니다. [Azure 리소스 관리자 템플릿을](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) 사용하면 랩, 랩 VM, 사용자 지정 이미지, 수식을 만들고 자동화된 방식으로 사용자를 추가할 수 있습니다. 이 문서에서는 특히 DevTest Labs 인스턴스에 사용자를 추가하는 데 중점을 둡니다.
+Azure DevTest Labs를 사용하면 Azure 포털을 사용하여 셀프 서비스 개발 테스트 환경을 빠르게 만들 수 있습니다. 그러나 여러 팀과 여러 DevTest Labs 인스턴스가 있는 경우 생성 프로세스를 자동화하면 시간을 절약할 수 있습니다. [Azure 리소스 관리자 템플릿을](https://github.com/Azure/azure-devtestlab/tree/master/Environments) 사용하면 랩, 랩 VM, 사용자 지정 이미지, 수식을 만들고 자동화된 방식으로 사용자를 추가할 수 있습니다. 이 문서에서는 특히 DevTest Labs 인스턴스에 사용자를 추가하는 데 중점을 둡니다.
 
 사용자를 랩에 추가하려면 랩의 **DevTest Labs 사용자** 역할에 사용자를 추가합니다. 이 문서에서는 다음 방법 중 하나를 사용하여 사용자를 랩에 추가하도록 자동화하는 방법을 보여 주며 다음과 같은 방법을 보여 주며 있습니다.
 
@@ -132,7 +132,7 @@ $userObjectId = (Get-AzureRmADUser -UserPrincipalName ‘email@company.com').Id
 
 [Get-MsolUser,](/powershell/module/msonline/get-msoluser?view=azureadps-1.0) [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0)및 [Get-MsolServicePrincipal을](/powershell/module/msonline/get-msolserviceprincipal?view=azureadps-1.0)포함하는 Azure Active Directory PowerShell cmdlet을 사용할 수도 있습니다.
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>범위
 범위는 역할 할당이 적용되어야 하는 리소스 또는 리소스 그룹을 지정합니다. 리소스의 경우 범위는 다음과 같은 `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}`형태로 되어 있습니다. `subscription().subscriptionId` 템플릿은 `subscription-id` 이 함수를 사용하여 부품을 `resourceGroup().name` 채우고 템플릿 함수를 `resource-group-name` 사용하여 파트를 채웁니다. 이러한 함수를 사용하면 역할을 할당하는 랩이 현재 구독및 템플릿 배포가 이루어지는 리소스 그룹에 있어야 합니다. 마지막 부분은 `resource-name`랩의 이름입니다. 이 값은 이 예제의 템플릿 매개 변수를 통해 수신됩니다. 
 
 템플릿의 역할 범위는 다음과 같은 것입니다. 

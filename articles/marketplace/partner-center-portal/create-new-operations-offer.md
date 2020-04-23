@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: f7c4b25dad50b8fe620d358aa7fb3e9decabc2f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fbd8d9bdfb356ff9816056b85b1dc5688d17b58c
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294349"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869765"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>운영 제공을 위한 새로운 Dynamics 365 만들기
 
@@ -52,7 +52,7 @@ Operations 오퍼에 대한 Dynamics 365 를 만들기 시작하려면 먼저 [�
 
 #### <a name="free-trial-listing"></a>무료 평가판(목록)
 
-평가판을 받을 수 있는 유효한 *URL(http* 또는 *https로*시작)을 제공하여 무료 평가판에 대한 링크를 고객에게 나열합니다.  예: `https://contoso.com/trial/my-app` 제안 목록 무료 평가판은 서비스에서 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독이 없습니다.
+평가판을 받을 수 있는 유효한 *URL(http* 또는 *https로*시작)을 제공하여 무료 평가판에 대한 링크를 고객에게 나열합니다.  예를 들어 `https://contoso.com/trial/my-app`을 참조하십시오. 제안 목록 무료 평가판은 서비스에서 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독이 없습니다.
 
 > [!NOTE]
 > 응용 프로그램이 평가판 링크를 통해 받게 되는 토큰은 Azure Active Directory(Azure AD)를 통해 사용자 정보를 획득하여 앱에서 계정 생성을 자동화하는 데만 사용할 수 있습니다. Microsoft 계정은 이 토큰을 사용하는 인증에 대해 지원되지 않습니다.
@@ -96,7 +96,7 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 **속성** 페이지에서는 마켓플레이스에서 오퍼를 그룹화하는 데 사용되는 카테고리 및 산업, 앱 버전 및 쿠폰을 지원하는 법적 계약을 정의할 수 있습니다. 이 페이지를 완료한 후 **저장을** 선택합니다.
 
-### <a name="category"></a>Category
+### <a name="category"></a>범주
 
 최소 범주를 1개, 최대 3개 범주를 선택합니다. 이러한 카테고리는 적절한 마켓플레이스 검색 영역에 쿠폰을 배치하는 데 사용됩니다. 쿠폰이 쿠폰 설명에서 이러한 카테고리를 지원하는 방법을 문의하세요.
 
@@ -196,6 +196,9 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 이 섹션에서는 고객에게 제안을 표시할 때 사용할 로고와 이미지를 제공할 수 있습니다. 모든 이미지는 .png 형식이어야 합니다.
 
+>[!Note]
+>파일을 업로드하는 데 문제가 있는 경우 로컬 네트워크가 파트너 https://upload.xboxlive.com 센터에서 사용하는 서비스를 차단하지 않는지 확인합니다.
+
 #### <a name="store-logos"></a>스토어 로고
 
 **스몰(48 x 48)** 및 **대형(216 x 216)의**두 가지 크기로 오퍼의 로고를 제공합니다.
@@ -208,7 +211,7 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 쿠폰의 작동 방식을 보여 주는 스크린샷을 추가합니다. 스크린샷이 하나 이상 필요하며 최대 5개까지 추가할 수 있습니다. 모든 스크린샷은 1280 x 720 픽셀이어야 합니다.
 
-#### <a name="videos"></a>비디오
+#### <a name="videos"></a>동영상
 
 선택적으로 쿠폰을 보여주는 동영상을 최대 4개까지 추가할 수 있습니다. 이 동영상은 YouTube 및/또는 Vimeo에서 호스팅되어야 합니다. 각 동영상에 대해 동영상 이름, URL 및 동영상의 축소판 이미지(1280 x 720픽셀)를 입력합니다.
 

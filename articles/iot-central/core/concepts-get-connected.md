@@ -11,12 +11,12 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: f37b070c74abd8511fc597f9b159312d91281083
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 1398169c44dadcd11ad037e4e3a1cc0132e21f13
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81759121"
+ms.locfileid: "82024696"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT 센트럴에 연결하기
 
@@ -50,7 +50,7 @@ IoT Central은 장치와 응용 프로그램 간의 통신을 보호하기 위�
 
 ![개별 장치에 대한 SAS 키](./media/concepts-get-connected/single-device-sas.png)
 
-자세한 내용은 [Node.js 클라이언트 응용 프로그램 만들기 및 Azure IoT 중앙 응용 프로그램 자습서를 참조하세요.](./tutorial-connect-device.md)
+자세한 내용은 [Node.js 클라이언트 응용 프로그램 만들기 및 Azure IoT 중앙 응용 프로그램 자습서를 참조하세요.](./tutorial-connect-device-nodejs.md)
 
 ## <a name="connect-devices-at-scale-using-sas"></a>SAS를 사용하여 대규모로 장치 연결
 

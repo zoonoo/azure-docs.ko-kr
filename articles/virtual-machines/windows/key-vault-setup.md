@@ -1,25 +1,20 @@
 ---
-title: Azure 리소스 관리자에서 Windows VM용 키 볼트 설정
-description: Azure Resource Manager에서 사용할 주요 자격 증명 모음을 설정하는 방법
-services: virtual-machines-windows
-documentationcenter: ''
+title: 주요 자격 증명 모음 설정
+description: 가상 머신에서 사용할 키 볼트를 설정하는 방법.
 author: mimckitt
 manager: vashan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 33a483e2-cfbc-4c62-a588-5d9fd52491e2
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: security
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/24/2017
 ms.author: mimckitt
-ms.openlocfilehash: 098d4df3938f591cb72b3bfd59b7a5549469785c
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: e4bff4d1826d9586495207095eccf8f6c66164a0
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81451740"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870020"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager에서 가상 머신에 대한 주요 자격 증명 모음 설정
 

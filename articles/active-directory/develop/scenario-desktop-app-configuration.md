@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f6cd9e17045fc400d32e9822cef870f1763179ab
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: e0b43f7563c9dfac6374590f6b081197536fe31e
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885276"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869006"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>웹 API를 호출하는 데스크톱 앱: 코드 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "80885276"
 
 다음 Microsoft 인증 라이브러리(MSAL)는 데스크톱 응용 프로그램을 지원합니다.
 
-  Microsoft 인증 라이브러리 | Description
+  Microsoft 인증 라이브러리 | 설명
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Linux, Windows 및 macOS와 같은 여러 플랫폼에서 데스크톱 응용 프로그램 빌드를 지원합니다.
   ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | 여러 플랫폼에서 데스크톱 응용 프로그램 빌드를 지원합니다.
@@ -114,7 +114,7 @@ MSAL.NET 데스크톱 응용 프로그램을 구성하는 방법에 대해 자�
 
 다음과 같은 `appsettings.json` 구성 파일이 있는 .NET Core 콘솔 응용 프로그램을 상상해 보십시오.
 
-```JSon
+```json
 {
   "Authentication": {
     "AzureCloudInstance": "AzurePublic",
@@ -205,7 +205,7 @@ app = msal.PublicClientApplication(
     )
 ```
 
-# <a name="macos"></a>[Macos](#tab/macOS)
+# <a name="macos"></a>[MacOS](#tab/macOS)
 
 다음 코드는 공용 클라이언트 응용 프로그램을 인스턴스화하고 Microsoft Azure 공용 클라우드의 사용자에게 직장 또는 학교 계정 또는 개인 Microsoft 계정이 있는 로그인을 제공합니다.
 
@@ -216,7 +216,7 @@ Objective-C:
 ```objc
 NSError *msalError = nil;
 
-MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"];    
+MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"];
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&msalError];
 ```
 

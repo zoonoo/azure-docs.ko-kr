@@ -1,26 +1,19 @@
 ---
 title: Azure 인프라 연습 사례 예
 description: Azure에서 인프라 예제를 배포하기 위한 핵심 디자인 및 구현 지침에 대해 알아봅니다.
-documentationcenter: ''
-services: virtual-machines-windows
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 7032b586-e4e5-4954-952f-fdfc03fc1980
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: example-scenario
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab6f304d78357e261c68ebbcfcb3746844edce8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43e96b891e60dfcf8bc3c29b202bb60213905372
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74038571"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869462"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Windows VM에 대한 Azure 인프라 연습 예제
 이 문서에서는 예제 애플리케이션 인프라를 구축하는 과정을 안내합니다. 명명 규칙, 가용성 집합, 가상 네트워크 및 부하 분산 장치에 대한 모든 지침 및 결정 사항을 함께 제공하는 간단한 온라인 스토어용 인프라의 설계와 VM(가상 머신)의 실제 배포를 자세히 다룹니다.

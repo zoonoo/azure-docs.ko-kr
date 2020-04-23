@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: a8124e9860ba5703e96f96c90bc0cf37e42baf9c
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 2a3b14acad4990059a27201b7e1e6b9e93123194
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398352"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025172"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>.NET 코어(Microsoft.Azure.EventHubs)를 사용하여 Azure 이벤트 허브에서 이벤트를 보내거나 이벤트를 수신합니다.
 이 빠른 시작은 **Microsoft.Azure.EventHubs** .NET 코어 라이브러리를 사용하여 이벤트 허브에서 이벤트를 보내고 받는 방법을 보여 주며, 이 방법을 보여 주며, 이벤트 허브에서 이벤트를 보내고 받는 방법을 보여 주며,
@@ -34,7 +34,7 @@ Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기
 - **Microsoft Azure 구독**. Azure Event Hubs를 비롯한 Azure 서비스를 사용하려면 구독이 필요합니다.  기존 Azure 계정이 없는 경우 [평가판](https://azure.microsoft.com/free/)에 가입하거나 [계정을 만들 때](https://azure.microsoft.com) MSDN 구독자 혜택을 사용할 수 있습니다.
 - [Microsoft Visual Studio 2019](https://www.visualstudio.com)
 - [.NET Core Visual Studio 2015 또는 2017 도구](https://www.microsoft.com/net/core). 
-- **이벤트 허브 네임스페이스 및 이벤트 허브를 만듭니다.** 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 그런 다음 문서의 지침: 연결 **문자열** [가져옵니다.](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) 이 빠른 시작의 뒷부분에서 연결 문자열을 사용합니다.
+- **Event Hubs 네임스페이스 및 이벤트 허브 만들기** 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 그런 다음 문서의 지침: 연결 **문자열** [가져옵니다.](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) 이 빠른 시작의 뒷부분에서 연결 문자열을 사용합니다.
 
 ## <a name="send-events"></a>이벤트 보내기 
 이 섹션에서는 이벤트 허브로 이벤트를 전송하는 .NET Core 콘솔 애플리케이션을 만드는 방법을 보여줍니다. 
@@ -373,7 +373,7 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로**를 클릭�
 
 - [RBAC(역할 기반 액세스 제어) 샘플.](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) 
     
-    이러한 샘플은 이전 **Microsoft.Azure.EventHubs 라이브러리를** 사용하지만 최신 **Azure.Messaging.EventHubs 라이브러리를** 사용하도록 쉽게 업데이트할 수 있습니다. 샘플을 이전 라이브러리를 새 라이브러리로 이동하려면 [Microsoft.Azure.EventHubs에서 Azure.Messaging.EventHubs로 마이그레이션하는 가이드를](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md)참조하십시오.
+    이러한 샘플은 이전 **Microsoft.Azure.EventHubs 라이브러리를** 사용하지만 최신 **Azure.Messaging.EventHubs 라이브러리를** 사용하도록 쉽게 업데이트할 수 있습니다. 샘플을 이전 라이브러리를 새 라이브러리로 이동하려면 [Microsoft.Azure.EventHubs에서 Azure.Messaging.EventHubs로 마이그레이션하는 가이드를](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)참조하십시오.
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Azure 이벤트 허브의 기능 및 용어](event-hubs-features.md)
 - [Event Hubs FAQ](event-hubs-faq.md)

@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 9e7070e925d12df82adbc3683da5b10e48c5d4b0
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 810219bca5c75e3ee7e65c6b7302531bca89788d
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668126"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869956"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -187,7 +187,7 @@ F12 추적을 캡처할 수 있는 두 가지 옵션이 있습니다.
 3. 창의 메시지 영역을 마우스 오른쪽 단추로 클릭하고 **모두 복사**를 선택합니다.
 4. 복사된 텍스트를 파일에 붙여넣고 파일을 저장합니다.
 
-HAR 파일을 보려면 [HAR 뷰어](https://www.softwareishard.com/har/viewer/)를 사용할 수 있습니다.
+HAR 파일을 보려면 [HAR 뷰어](http://www.softwareishard.com/har/viewer/)를 사용할 수 있습니다.
 
 ## <a name="why-do-i-get-an-error-when-i-try-to-connect-an-app-service-web-app-to-a-virtual-network-that-is-connected-to-expressroute"></a>App Service 웹앱을 ExpressRoute에 연결된 가상 네트워크에 연결하려고 할 때 오류가 발생하는 이유는 무엇인가요?
 
@@ -275,7 +275,7 @@ Invoke-AzResourceAction -ResourceGroupName "<App Service Certificate Resource Gr
 
 App Service의 인증 및 권한 부여에 대한 자세한 문서는 다양한 ID 공급자 로그인에 대한 문서를 참조하세요.
 * [Azure Active Directory](configure-authentication-provider-aad.md)
-* [페이스 북](configure-authentication-provider-facebook.md)
+* [Facebook](configure-authentication-provider-facebook.md)
 * [Google](configure-authentication-provider-google.md)
 * [Microsoft 계정](configure-authentication-provider-microsoft.md)
 * [Twitter](configure-authentication-provider-twitter.md)

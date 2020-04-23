@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 063f2e1005db177420da7f81b799ab01fd212d7e
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 42c58a84c71b6573814e82517373db6900a83658
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478483"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025019"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs-version-5"></a>JavaScript(azure/event-hubs 버전 5)를 사용하여 이벤트 허브에서 이벤트 보내기 또는 받기
 이 빠른 시작에서는 **azure/event-hubs 버전 5** JavaScript 패키지를 사용하여 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다. 
@@ -185,7 +185,7 @@ Azure 스토리지 계정 및 BLOB 컨테이너를 만들려면 다음 단계를
 1. 명령 프롬프트에서 `node receive.js` 명령을 실행하여 이 파일을 실행합니다. 창에는 수신된 이벤트에 대한 메시지가 표시됩니다.
 
     > [!NOTE]
-    > 정보 제공을 위한 주석을 비롯한 전체 소스 코드는 [GitHub receiveEventsUsingCheckpointStore.js page 페이지](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsUsingCheckpointStore.js)로 이동하세요.
+    > 정보 제공을 위한 주석을 비롯한 전체 소스 코드는 [GitHub receiveEventsUsingCheckpointStore.js page 페이지](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsUsingCheckpointStore.js)로 이동하세요.
 
 축하합니다! 이벤트 허브에서 이벤트를 받았습니다. 이제 수신기 프로그램은 이벤트 허브에 있는 기본 소비자 그룹의 모든 파티션에서 이벤트를 수신합니다.
 

@@ -12,12 +12,12 @@ ms.date: 04/12/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ebec4cb6bbbac5b331eb2eb4145716e16e7320fa
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 161f97dc99ce5ce16d7c40126b95a769c4b79621
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677679"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868329"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>마이크로소프트 아이덴티티 플랫폼 및 오픈ID 연결 프로토콜
 
@@ -38,6 +38,7 @@ OpenID Connect는 앱이 로그인을 수행하는 데 필요한 대부분의 �
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
+
 > [!TIP]
 > 사용해 보세요. 테넌자 [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) `common` 구성을 보려면 클릭합니다.
 
@@ -52,7 +53,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 메타데이터는 간단한 JSON(JavaScript Object Notation) 문서입니다. 예제를 보려면 다음 코드 조각을 참조하세요. 이 조각의 내용은 [OpenID Connect 사양](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2)에 자세히 설명되어 있습니다.
 
-```
+```json
 {
   "authorization_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/authorize",
   "token_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/token",
@@ -84,7 +85,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 예를 들어:
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -123,7 +124,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 `response_mode=form_post`를 사용할 때의 성공적인 응답은 다음과 같습니다.
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded
@@ -140,7 +141,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 앱이 처리할 수 있도록 리디렉션 URI에 오류 응답을 보낼 수도 있습니다. 오류 응답은 다음과 같습니다.
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded
@@ -187,7 +188,7 @@ id_token 유효성을 검사한 후에는 사용자와 세션을 시작하고 id
 
 OpenID Connect 메타데이터 문서에 나열된 `end_session_endpoint`에 사용자를 리디렉션할 수 있습니다.
 
-```
+```HTTP
 GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
@@ -211,7 +212,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ## <a name="get-access-tokens"></a>액세스 토큰 가져오기
 액세스 토큰을 얻으려면 로그인 요청을 수정합니다.
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -236,7 +237,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 
 `response_mode=form_post`를 사용할 때의 성공적인 응답은 다음과 같습니다.
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded
@@ -254,7 +255,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 
 앱이 적절히 처리할 수 있도록 리디렉션 URI에 오류 응답을 보낼 수도 있습니다. 오류 응답은 다음과 같습니다.
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 45559978f710549088d75d0f0706b798ebad3821
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a39e1e19f65722b4b5ae809ca943da719a3c6e22
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314081"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869766"
 ---
 # <a name="create-a-new-saas-offer"></a>새로운 SaaS 제품 만들기
 
@@ -116,7 +116,7 @@ SaaS는 유료 결제 서비스를 사용하여 정액 요금, 사용자당 또�
 
 #### <a name="free-trial-listing"></a>무료 평가판(목록)
 
-[Azure Active Directory(Azure AD)를 사용하여 원클릭 인증을](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)통해 평가판을 얻을 수 있는 유효한 URL(http 또는 *https로*시작)을 제공하여 무료 평가판에 대한 링크가 있는 고객에게 제품을 나열합니다. *http*  예: `https://contoso.com/trial/saas-app` 제안 목록 무료 평가판은 서비스에서 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독이 없습니다.
+[Azure Active Directory(Azure AD)를 사용하여 원클릭 인증을](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)통해 평가판을 얻을 수 있는 유효한 URL(http 또는 *https로*시작)을 제공하여 무료 평가판에 대한 링크가 있는 고객에게 제품을 나열합니다. *http*  예를 들어 `https://contoso.com/trial/saas-app`을 참조하십시오. 제안 목록 무료 평가판은 서비스에서 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독이 없습니다.
 
 > [!NOTE]
 > 응용 프로그램이 평가판 링크를 통해 받게 되는 토큰은 Azure AD를 통해 사용자 정보를 획득하여 앱에서 계정 생성을 자동화하는 데만 사용할 수 있습니다. 이 토큰을 사용하는 인증에는 MSA(Microsoft 계정)가 지원되지 않습니다.
@@ -290,6 +290,9 @@ Microsoft는 표준 계약 템플릿을 제공합니다.
 
 다음 섹션으로 이동하기 전에 **저장해야** 합니다.
 
+>[!Note]
+>파일을 업로드하는 데 문제가 있는 경우 로컬 네트워크가 파트너 https://upload.xboxlive.com 센터에서 사용하는 서비스를 차단하지 않는지 확인합니다.
+
 #### <a name="additional-marketplace-listing-resources"></a>추가 마켓플레이스 리스팅 리소스
 
 - [마켓플레이스 오퍼 리스팅에 대한 모범 사례](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
@@ -399,7 +402,7 @@ Microsoft는 표준 계약 템플릿을 제공합니다.
 
 - **가격**: 월 USD 또는 연간 USD
 
-현지 통화(USD = 미국 달러)로 설정된 가격은 설정 중에 사용할 수 있는 현재 환율을 사용하여 선택한 모든 시장의 현지 통화로 변환됩니다. 가격 스프레드시트를 내보내고 각 시장의 가격을 검토하여 게시하기 전에 이러한 가격의 유효성을 검사합니다. 개별 시장에서 사용자 지정 가격을 설정하려면 가격 스프레드시트를 수정하고 가져옵니다. 이 가격 책정의 유효성을 검사하고 이러한 설정을 소유할 책임은 귀하에게 있습니다.
+USD(USD = 미국 달러)로 설정된 가격은 저장시 현재 환율을 사용하여 선택한 모든 시장의 현지 통화로 변환됩니다. 가격 스프레드시트를 내보내고 각 시장의 가격을 검토하여 게시하기 전에 이러한 가격의 유효성을 검사합니다. 개별 시장에서 사용자 지정 가격을 설정하려면 가격 스프레드시트를 수정하고 가져옵니다. 이 가격 책정의 유효성을 검사하고 이러한 설정을 소유할 책임은 귀하에게 있습니다.
 *\*가격 데이터를 내보내려면 먼저 가격 변경 사항을 저장해야 합니다.*
 
 계획이 게시된 후 변경할 수 있는 내용에 대한 몇 가지 제한 사항이 있으므로 게시하기 전에 가격을 신중하게 검토하십시오.

@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: ab3ab25df6ce41d4045a270754830d501fe40689
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8eb59eebd29c2cc94e20b71b467866686deec2f1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80347165"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869717"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>내 앱 포털에서 로그인 및 앱 시작
 
@@ -110,7 +110,7 @@ ms.locfileid: "80347165"
 
 iOS 및 Android 기기에서 인튠 관리 브라우저에서 조직의 앱을 보고 사용합니다.
 
-1. 모바일 장치에서 [Apple 앱 스토어와](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) Google Play [스토어에서](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser)Intune 관리 브라우저 앱을 다운로드하여 설치합니다.
+1. 모바일 장치에서 Apple 앱 스토어와 Google Play 스토어에서 Intune 관리 브라우저 앱을 다운로드하여 설치합니다.
 
 2. Intune 관리되는 브라우저 앱을 https://myapps.microsoft.com열거나, 에서와 같이 https://myapps.microsoft.com/contoso.com사용자 지정된 페이지로 연결되는 경우 조직에서 제공하는 링크를 사용하거나 로 이동합니다.
 

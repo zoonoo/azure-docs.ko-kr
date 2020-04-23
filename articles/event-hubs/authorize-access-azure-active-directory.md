@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 1fa8f7a48c03ead7e939185b23834b3049b3e21c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6216b56c8e8f0de4f9cd60306bbf9c5ed49a11ad
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064855"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025206"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Azure Active Directory를 사용하여 이벤트 허브 리소스에 대한 액세스 권한 부여
 Azure 이벤트 허브는 Azure Active Directory(Azure AD)를 사용하여 이벤트 허브 리소스에 대한 요청을 승인합니다. Azure AD를 사용하면 역할 기반 액세스 제어(RBAC)를 사용하여 사용자 또는 응용 프로그램 서비스 보안 주체일 수 있는 보안 주체에 대한 권한을 부여할 수 있습니다. 역할 및 역할 할당에 대해 자세히 알아보려면 [다양한 역할 이해를](../role-based-access-control/overview.md)참조하십시오.
@@ -65,7 +65,7 @@ Azure는 Azure AD 및 OAuth를 사용하여 이벤트 허브 데이터에 대한
 ## <a name="samples"></a>샘플
 - [Microsoft.Azure.EventHubs 샘플.](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) 
     
-    이러한 샘플은 이전 **Microsoft.Azure.EventHubs 라이브러리를** 사용하지만 최신 **Azure.Messaging.EventHubs 라이브러리를** 사용하도록 쉽게 업데이트할 수 있습니다. 샘플을 이전 라이브러리를 새 라이브러리로 이동하려면 [Microsoft.Azure.EventHubs에서 Azure.Messaging.EventHubs로 마이그레이션하는 가이드를](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md)참조하십시오.
+    이러한 샘플은 이전 **Microsoft.Azure.EventHubs 라이브러리를** 사용하지만 최신 **Azure.Messaging.EventHubs 라이브러리를** 사용하도록 쉽게 업데이트할 수 있습니다. 샘플을 이전 라이브러리를 새 라이브러리로 이동하려면 [Microsoft.Azure.EventHubs에서 Azure.Messaging.EventHubs로 마이그레이션하는 가이드를](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)참조하십시오.
 - [Azure.메시징.EventHubs 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
 
     이 샘플은 최신 **Azure.Messaging.EventHubs 라이브러리를** 사용하도록 업데이트되었습니다.

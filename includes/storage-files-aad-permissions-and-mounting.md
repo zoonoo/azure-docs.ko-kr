@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: e40171b95e6faae0020f8bf61410aad8999ddecb
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 608c2619c19a2b5fa7e39c1ecb82be40ff4e83f4
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536535"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82072623"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2. ID에 액세스 권한 할당
 
@@ -87,15 +87,6 @@ Azure Files는 NTFS 기본 및 고급 권한의 전체 집합을 지원합니다
 - NT AUTHORITY\SYSTEM:(F)
 - CREATOR OWNER:(OI)(CI)(IO)(F)
 
-### <a name="configure-ntfs-permissions-with-icacls"></a>icacls를 사용하여 NTFS 권한 구성
-루트 디렉터리를 비롯하여 파일 공유에 있는 모든 디렉터리와 파일에 대한 모든 권한을 부여하려면 다음 Windows 명령을 사용합니다. 예제의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
-
-```
-icacls <mounted-drive-letter>: /grant <user-email>:(f)
-```
-
-icacls를 사용하여 NTFS 사용 권한을 설정하는 방법과 지원되는 다양한 사용 권한에 대한 자세한 내용은 [icacls에 대한 명령줄 참조를](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls)참조하십시오.
-
 ### <a name="mount-a-file-share-from-the-command-prompt"></a>명령 프롬프트에서 파일 공유 탑재
 
 Windows **net use** 명령을 사용하여 Azure 파일 공유를 탑재합니다. 다음 예제의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다. 파일 공유 탑재에 대한 자세한 내용은 [Windows에서 Azure 파일 공유 사용을](../articles/storage/files/storage-how-to-use-files-windows.md)참조하십시오. 
@@ -103,6 +94,7 @@ Windows **net use** 명령을 사용하여 Azure 파일 공유를 탑재합니�
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
 ```
+
 ### <a name="configure-ntfs-permissions-with-windows-file-explorer"></a>Windows 파일 탐색기를 사용 하 고 NTFS 권한 구성
 Windows 파일 탐색기를 사용하여 루트 디렉터리를 포함하여 파일 공유 아래의 모든 디렉터리 및 파일에 대한 전체 권한을 부여합니다.
 
@@ -114,6 +106,15 @@ Windows 파일 탐색기를 사용하여 루트 디렉터리를 포함하여 파
 7.    **확인**을 선택합니다.
 8.    **보안** 탭에서 새 사용자에게 부여할 모든 권한을 선택합니다.
 9.    **적용**을 선택합니다.
+
+### <a name="configure-ntfs-permissions-with-icacls"></a>icacls를 사용하여 NTFS 권한 구성
+루트 디렉터리를 비롯하여 파일 공유에 있는 모든 디렉터리와 파일에 대한 모든 권한을 부여하려면 다음 Windows 명령을 사용합니다. 예제의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+
+```
+icacls <mounted-drive-letter>: /grant <user-email>:(f)
+```
+
+icacls를 사용하여 NTFS 사용 권한을 설정하는 방법과 지원되는 다양한 사용 권한에 대한 자세한 내용은 [icacls에 대한 명령줄 참조를](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls)참조하십시오.
 
 ## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4. 도메인 에 가입된 VM에서 파일 공유 마운트
 

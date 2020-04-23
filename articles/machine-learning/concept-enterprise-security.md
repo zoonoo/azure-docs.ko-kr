@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 9f3a1c3455aadfbd243cdc6ab2920849c8558841
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1af1a1ccd8bff8fc4b578ecdeec3ac5f7c2352b1
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414634"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082138"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure 기계 학습을 위한 엔터프라이즈 보안
 
@@ -42,9 +42,9 @@ Azure Active Directory(Azure AD)를 사용하도록 구성된 경우 다단계 �
 
 Azure Machine Learning은 웹 서비스에 대한 두 가지 형태의 인증( 키 및 토큰)을 지원합니다. 각 웹 서비스는 한 번에 하나의 인증 형식만 사용할 수 있습니다.
 
-|인증 방법|Description|Azure Container Instances|AKS|
+|인증 방법|설명|Azure Container Instances|AKS|
 |---|---|---|---|
-|키|키는 정적이며 새로 고칠 필요가 없습니다. 키는 수동으로 재생할 수 있습니다.|기본적으로 사용할 수 없게 설정되어 있습니다.| 기본적으로 사용하도록 설정됨|
+|Key|키는 정적이며 새로 고칠 필요가 없습니다. 키는 수동으로 재생할 수 있습니다.|기본적으로 사용할 수 없게 설정되어 있습니다.| 기본적으로 사용하도록 설정됨|
 |토큰|토큰은 지정된 기간 이후에 만료되며 새로 고쳐야 합니다.| 사용할 수 없음| 기본적으로 사용할 수 없게 설정되어 있습니다. |
 
 코드 예제의 경우 [웹 서비스 인증 섹션을](how-to-setup-authentication.md#web-service-authentication)참조하십시오.
@@ -183,7 +183,7 @@ Azure 기계 학습은 Azure Cosmos DB 인스턴스에 메트릭 및 메타데�
         > [!NOTE]
         > 이 키 자격 증명 모음 인스턴스는 작업 영역을 프로비전할 때 Azure 기계 학습에서 만든 키 자격 증명 모음과 다를 수 있습니다. 작업 영역에 동일한 키 볼트 인스턴스를 사용하려는 경우 [key_vault 매개 변수를](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)사용하여 작업 공간을 프로비저닝하는 동안 동일한 키 자격 증명 모음을 전달합니다. 
 
-이 Cosmos DB 인스턴스는 구독에서 Microsoft 관리 리소스 그룹에서 만들어집니다. 
+이 Cosmos DB 인스턴스는 구독에서 Microsoft 관리 리소스 그룹에서 만들어집니다. 관리되는 리소스 그룹의 이름이 형식입니다.<AML Workspace Resource Group Name><GUID>
 
 > [!IMPORTANT]
 > * 이 Cosmos DB 인스턴스를 삭제해야 하는 경우 이 인스턴스를 사용하는 Azure 기계 학습 작업 영역을 삭제해야 합니다. 

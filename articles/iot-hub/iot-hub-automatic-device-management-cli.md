@@ -1,19 +1,18 @@
 ---
 title: Azure IoT Hub(CLI)를 통한 대규모 자동 장치 관리 | 마이크로 소프트 문서
 description: Azure IoT Hub 자동 구성을 사용하여 여러 IoT 장치 또는 모듈 관리
-author: Philmea
-manager: bruz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
-ms.author: philmea
-ms.openlocfilehash: 76728b99f1e9309294079d4df88e563054e780e7
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.author: robinsh
+ms.openlocfilehash: 60d0ef30a1c7d948a9e837a8bc37c76ace415545
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767577"
+ms.locfileid: "82024968"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Azure CLI를 사용하는 자동 IoT 장치 및 모듈 관리
 

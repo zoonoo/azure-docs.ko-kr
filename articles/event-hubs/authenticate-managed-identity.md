@@ -9,12 +9,12 @@ manager: ''
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 672b663a9cab72d465ea00e0a5ade364eadbf64e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfc60fbc03021e72dccc0f60a7ac34d204ef6df9
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78251523"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025189"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Azure Active Directory를 사용하여 관리되는 ID를 인증하여 이벤트 허브 리소스에 액세스
 Azure 이벤트 허브는 Azure [리소스에 대한 관리ID를](../active-directory/managed-identities-azure-resources/overview.md)통해 Azure Active Directory(Azure AD) 인증을 지원합니다. Azure 리소스에 대한 관리되는 ID는 Azure 가상 시스템(VM), 기능 앱, 가상 시스템 확장 집합 및 기타 서비스에서 실행되는 응용 프로그램에서 Azure AD 자격 증명을 사용하여 Event Hubs 리소스에 대한 액세스를 승인할 수 있습니다. Azure AD 인증과 함께 Azure 리소스에 대해 관리되는 ID를 사용하면 클라우드에서 실행되는 응용 프로그램과 함께 자격 증명을 저장하지 않도록 할 수 있습니다.
@@ -24,10 +24,10 @@ Azure 이벤트 허브는 Azure [리소스에 대한 관리ID를](../active-dire
 ## <a name="enable-managed-identities-on-a-vm"></a>VM에서 관리 ID 사용
 Azure Resources에 대해 관리되는 ID를 사용하여 VM에서 이벤트 허브 리소스에 권한을 부여하려면 먼저 VM에서 Azure 리소스에 대해 관리되는 ID를 사용하도록 설정해야 합니다. Azure 리소스의 관리 ID를 사용하도록 설정하는 방법을 알아보려면 다음 문서 중 하나를 참조하세요.
 
-- [Azure 포털](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
-- [Azure 파워쉘](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+- [Azure Portal](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
+- [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Azure 리소스 관리자 템플릿](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Azure Resource Manager 템플릿](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Azure 리소스 관리자 클라이언트 라이브러리](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Azure AD에서 관리되는 ID에 대한 사용 권한 부여
@@ -72,7 +72,7 @@ RBAC 역할 할당에 대한 자세한 내용은 [Azure Active Directory를 사�
 역할을 할당하면 웹 응용 프로그램은 정의된 범위 내에서 이벤트 허브 리소스에 액세스할 수 있습니다. 
 
 ### <a name="test-the-web-application"></a>웹 애플리케이션 테스트
-1. 이벤트 허브 네임스페이스 및 이벤트 허브를 만듭니다. 
+1. Event Hubs 네임스페이스 및 이벤트 허브 만들기 
 2. Azure에 웹 앱을 배포합니다. GitHub의 웹 응용 프로그램에 대한 링크는 다음 탭 섹션을 참조하십시오. 
 3. SendReceive.aspx가 웹 앱의 기본 문서로 설정되어 있는지 확인합니다. 
 3. 웹 앱의 **ID를** 사용하도록 설정합니다. 
@@ -149,7 +149,7 @@ Apache Kafka 응용 프로그램을 사용하여 관리되는 ID OAuth를 사용
     - [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
 - [Microsoft.Azure.EventHubs 샘플.](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) 
     
-    이러한 샘플은 이전 **Microsoft.Azure.EventHubs 라이브러리를** 사용하지만 최신 **Azure.Messaging.EventHubs 라이브러리를** 사용하도록 쉽게 업데이트할 수 있습니다. 샘플을 이전 라이브러리를 새 라이브러리로 이동하려면 [Microsoft.Azure.EventHubs에서 Azure.Messaging.EventHubs로 마이그레이션하는 가이드를](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md)참조하십시오.
+    이러한 샘플은 이전 **Microsoft.Azure.EventHubs 라이브러리를** 사용하지만 최신 **Azure.Messaging.EventHubs 라이브러리를** 사용하도록 쉽게 업데이트할 수 있습니다. 샘플을 이전 라이브러리를 새 라이브러리로 이동하려면 [Microsoft.Azure.EventHubs에서 Azure.Messaging.EventHubs로 마이그레이션하는 가이드를](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)참조하십시오.
     이 샘플은 최신 **Azure.Messaging.EventHubs 라이브러리를** 사용하도록 업데이트되었습니다.
 - [카프카에 대한 이벤트 허브 - 관리 ID OAuth를 사용하여 메시지를 보내고받을](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity)
 

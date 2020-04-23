@@ -13,12 +13,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2a39dbb3676df5ed916203bdcbbc51d5a0da32a4
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 42f3ca233597d0fbc31ce656bd856875e873e3c2
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677843"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868479"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 장치 권한 부여 흐름
 
@@ -40,7 +40,7 @@ Microsoft ID 플랫폼은 사용자가 스마트 TV, IoT 장치 또는 프린터
 > Postman에서 이 요청을 실행해 보세요.
 > [![우체부에서 이 요청을 실행해 보십시오.](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/devicecode
@@ -61,7 +61,7 @@ scope=user.read%20openid%20profile
 
 성공적인 응답은 사용자가 로그인할 수 있는 필수 정보가 포함된 JSON 개체입니다.
 
-| 매개 변수 | 형식 | Description |
+| 매개 변수 | 형식 | 설명 |
 | ---              | --- | --- |
 |`device_code`     | String | 클라이언트와 권한 서버 간의 세션을 확인하는 데 사용되는 긴 문자열입니다. 클라이언트는 이 매개 변수를 사용하여 권한 부여 서버에서 액세스 토큰을 요청합니다. |
 |`user_code`       | String | 보조 장치에서 세션을 식별하는 데 사용되는 사용자에게 표시되는 짧은 문자열입니다.|
@@ -81,7 +81,7 @@ scope=user.read%20openid%20profile
 
 사용자가 `verification_uri`에서 인증하는 동안 클라이언트는 `device_code`을(를) 사용하여 요청된 토큰에 대한 `/token` 엔드포인트를 폴링해야 합니다.
 
-```
+```HTTP
 POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 Content-Type: application/x-www-form-urlencoded
 
@@ -90,7 +90,7 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 ```
 
-| 매개 변수 | 필수 | 설명|
+| 매개 변수 | 필수 | Description|
 | -------- | -------- | ---------- |
 | `tenant`  | 필수 | 초기 요청에 사용된 동일한 테넌트 또는 테넌트 별칭입니다. |
 | `grant_type` | 필수 | `urn:ietf:params:oauth:grant-type:device_code`이어야 합니다.|
@@ -123,7 +123,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 }
 ```
 
-| 매개 변수 | 형식 | Description |
+| 매개 변수 | 형식 | 설명 |
 | --------- | ------ | ----------- |
 | `token_type` | String| 항상 “전달자입니다. |
 | `scope` | 공백으로 구분된 문자열 | 액세스 토큰이 반환된 경우, 이는 액세스 토큰이 유효한 범위를 나열합니다. |

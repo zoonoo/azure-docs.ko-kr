@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 9441e7bb970508df4c002897ab726d6e683fa848
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 0773492c3042a6f8c906aa6ba1bc3c76ea8c0d8f
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81733354"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870586"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요를](../../azure-monitor/platform/itsmc-overview.md)참조하십시오.
@@ -197,12 +197,12 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 > [!NOTE]
 > "OAuth 설정"의 정의의 일부로 다음을 권장합니다.
 >
-> 1) **새로 고침 토큰 수명을 90일(7,776,000초)으로 업데이트합니다.** 2단계에서 [OAuth 설정의](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_SettingUpOAuth.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696739125&sdata=Q7mF6Ej8MCupKaEJpabTM56EDZ1T8vFVyihhoM594aA%3D&reserved=0) 일부로: 클라이언트가 종점 정의 후 인스턴스에 액세스할 수 있는 [끝점을 만들고,](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_CreateEndpointforExternalClients.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696749123&sdata=hoAJHJAFgUeszYCX1Q%2FXr4N%2FAKiFcm5WV7mwR2UqeWA%3D&reserved=0) In ServiceNow 블레이드 시스템 OAuth->응용 프로그램 레지스트리에 대 한 블레이드 정의 된 OAuth의 이름을 선택 하 고 "새로 고침 토큰 수명" 필드를 업데이트 7,776,000.
+> 1) **새로 고침 토큰 수명을 90일(7,776,000초)으로 업데이트합니다.** 2단계에서 [OAuth 설정의](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_SettingUpOAuth.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696739125&sdata=Q7mF6Ej8MCupKaEJpabTM56EDZ1T8vFVyihhoM594aA%3D&reserved=0) 일부로: 클라이언트가 끝점의 정의 후 [인스턴스에 액세스할 수 있는 끝점을 만듭니다.](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_CreateEndpointforExternalClients.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696749123&sdata=hoAJHJAFgUeszYCX1Q%2FXr4N%2FAKiFcm5WV7mwR2UqeWA%3D&reserved=0) 정의된 OAuth의 이름을 선택하고 새로 고침 토큰 수명 필드를 7,776,000(90초)로 업데이트합니다.
 > 끝에서 업데이트를 클릭합니다.
-> 2) **연결이 계속 유지되도록 내부 절차를 설정하는 것이 좋습니다.** 토큰을 새로 고치는 "토큰 수명 새로 고침"에 따라. 다음 작업을 수행하십시오 사전 새로 고침 토큰 예상 만료 시간 ("토큰 새로 고침 수명"이 만료되기 며칠 전에 권장).
+> 2) **연결이 계속 유지되도록 내부 절차를 설정하는 것이 좋습니다.** 토큰 새로 고침 수명에 따라 토큰을 새로 고칩니다. 다음 작업을 수행 하십시오 사전 새로 고침 토큰 예상 만료 시간 (새로 고침 토큰 수명 만료 일 전에 일 권장).
 >
 >>  1) [ITSM 커넥터 구성을 위한 수동 동기화 프로세스 완료](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow)
- >> 2) 보안상의 이유로 이전 키를 보관하지 않는 것이 좋지 않기 때문에 이전 새로 고침 토큰을 취소합니다. ServiceNow 블레이드에서 "시스템 OAuth"-> "토큰 관리"를 검색한 다음 OAuth 이름 및 만료 날짜에 따라 목록에서 이전 토큰을 선택합니다. "액세스 취소"->"해지를 클릭합니다.
+ >> 2) 보안상의 이유로 이전 키를 보관하지 않는 것이 좋지 않기 때문에 이전 새로 고침 토큰을 취소합니다. ServiceNow 블레이드에서 토큰 관리를 선택하는 것보다 시스템 OAuth를 검색합니다. OAuth 이름 및 만료 날짜에 따라 목록에서 이전 토큰을 선택합니다. 액세스 취소를 클릭하고 해지할 때보다 클릭합니다.
 
 - Microsoft Log Analytics 통합용 사용자 앱(ServiceNow 앱)을 설치합니다. [자세히 알아보기](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - 설치된 사용자 앱에 대한 통합 사용자 역할을 만듭니다. 통합 사용자 역할을 만드는 방법에 대한 자세한 내용은 [여기](#create-integration-user-role-in-servicenow-app)에 나와 있습니다.

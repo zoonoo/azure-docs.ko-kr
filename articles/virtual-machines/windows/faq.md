@@ -1,25 +1,18 @@
 ---
 title: Azure의 Windows VM에 대한 자주 묻는 질문
 description: 리소스 관리자 모델을 사용하여 만든 Windows 가상 머신에 대해 가장 일반적인 질문 중 일부에 대한 답변을 제공합니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-management
-ms.assetid: 757da816-a050-4889-a010-6f75d7978eb7
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: e3d2673ba52ba0cca36e2a999558313b64716ade
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33d530181f4cc389f81ea83dc42b774ccfc8fd85
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299617"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869617"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Windows Virtual Machines에 대한 자주 묻는 질문과 대답
 이 문서에서는 Azure에서 리소스 관리자 배포 모델을 사용하여 만든 Windows 가상 머신에 대한 일부 일반적인 질문을 해결합니다. 이 항목의 리눅스 버전에 대 한, [리눅스 가상 머신에 대 한 자주 묻는 질문을](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)참조 하십시오.

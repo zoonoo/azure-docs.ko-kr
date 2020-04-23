@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/12/2019
+ms.date: 04/21/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 3b2d78bd929e23d49a57f337022f6678114bb5fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 125f4188ed3f12f366c619af9efe3aa203987c19
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75457436"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870525"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>안전한 연결을 보장하기 위해 보안 전송 필요
 
@@ -25,7 +25,7 @@ ms.locfileid: "75457436"
 
 저장소 계정에 대한 보안 전송이 필요한 경우 암호화 없이 SMB를 통해 Azure File 공유에 연결하지 못합니다. 안전하지 않은 연결의 예로는 SMB 2.1, 암호화 없이 SMB 3.0 또는 Linux SMB 클라이언트의 일부 버전을 통해 만들어진 연결이 있습니다.
 
-기본적으로 Azure Portal에서 저장소 계정을 만들 때 **보안 전송 필요한** 속성이 활성화됩니다. 그러나 SDK를 사용하여 저장소 계정을 만들 때는 사용할 수 없습니다.
+기본적으로 저장소 계정을 만들 때 **보안 전송 필수** 속성이 활성화됩니다.
 
 > [!NOTE]
 > Azure Storage에서 사용자 지정 도메인 이름에 대해 HTTPS를 지원하지 않으므로 사용자 지정 도메인 이름을 사용할 때 이 옵션이 적용되지 않습니다. 또한 클래식 스토리지 계정은 지원되지 않습니다.
@@ -53,12 +53,12 @@ ms.locfileid: "75457436"
 
 프로그래밍 방식으로 보안 전송을 요구하려면 저장소 계정에 _supportsHttpsTrafficOnly_ 속성을 설정합니다. 저장소 리소스 공급자 REST API, 클라이언트 라이브러리 또는 도구를 사용하여 이 속성을 설정할 수 있습니다.
 
-* [나머지 API](/rest/api/storagerp/storageaccounts)
-* [Powershell](/powershell/module/az.storage/set-azstorageaccount)
-* [Cli](/cli/azure/storage/account)
+* [REST API](/rest/api/storagerp/storageaccounts)
+* [PowerShell](/powershell/module/az.storage/set-azstorageaccount)
+* [CLI](/cli/azure/storage/account)
 * [Nodejs](https://www.npmjs.com/package/azure-arm-storage/)
 * [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage)
-* [Python SDK](https://pypi.org/project/azure-mgmt-storage)
+* [파이썬 SDK](https://pypi.org/project/azure-mgmt-storage)
 * [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage)
 
 ## <a name="require-secure-transfer-with-powershell"></a>PowerShell으로 안전한 전송 필요

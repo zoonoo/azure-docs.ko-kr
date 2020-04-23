@@ -1,25 +1,18 @@
 ---
 title: PowerShell '를 사용하여 Azure VM용 OS 디스크 교체
 description: PowerShell을 사용하여 Azure Virtual Machine에서 사용하는 운영 체제 디스크를 변경합니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: ec66892804f3c2d1f831168a2955f2498462cbf3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 566347414ffe707b1d68a61b00ba21d19ff2b1eb
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74033020"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869378"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>PowerShell을 사용하여 Azure VM에서 사용하는 OS 디스크를 변경합니다.
 

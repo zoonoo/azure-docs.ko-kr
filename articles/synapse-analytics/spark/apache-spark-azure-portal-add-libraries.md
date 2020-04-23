@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 83dfd1b4df37018329b5d7a707e9b65fdf0782a6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 80414ccd6d5797614dd15bd61af8f37b3d2be05c
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427836"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870373"
 ---
 # <a name="add-and-manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure 시냅스 분석에서 아파치 스파크용 라이브러리 추가 및 관리
 
@@ -54,7 +54,17 @@ alabaster==0.7.10
 
 ![파이썬 라이브러리 추가](./media/apache-spark-azure-portal-add-libraries/add-python-libraries.png "파이썬 라이브러리 추가")
 
+### <a name="verifying-installed-libraries"></a>설치된 라이브러리 확인
+
+올바른 라이브러리의 올바른 버전이 설치되어 있는지 확인하려면 다음 코드를 실행합니다.
+
+```python
+import pip #needed to use the pip functions
+for i in pip.get_installed_distributions(local_only=True):
+    print(i)
+```
+
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
-- [아파치 스파크 문서](https://spark.apache.org/docs/2.4.4/)
+- [Apache Spark 설명서](https://spark.apache.org/docs/2.4.4/)

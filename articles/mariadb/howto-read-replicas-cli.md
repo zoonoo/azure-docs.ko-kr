@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: abf80e98881b73bed53c5a939a79bc8b3a9de2db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/21/2020
+ms.openlocfilehash: c5062bce572fbeda4143902ae6a04b31b9a89754
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530583"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025053"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Azure CLI 및 REST API를 사용하여 MariaDB용 Azure 데이터베이스에서 읽기 복제본을 만들고 관리하는 방법
 
@@ -38,16 +38,13 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 
 `az mariadb server replica create` 명령에는 다음과 같은 매개 변수가 필요합니다.
 
-| 설정 | 예제 값 | 설명  |
+| 설정 | 예제 값 | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  복제본 서버가 만들어지는 리소스 그룹입니다.  |
 | name | mydemoreplicaserver | 만들어지는 새 복제본 서버의 이름입니다. |
 | source-server | mydemoserver | 복제할 기존 마스터 서버의 이름 또는 ID입니다. |
 
 교차 영역 읽기 복제본을 `--location` 만들려면 매개 변수를 사용합니다. 
-
-> [!NOTE]
-> 교차 지역 복제가 미리 보기상태입니다.
 
 아래 CLI 예제는 미국 서부에서 복제본을 만듭니다.
 
@@ -71,7 +68,7 @@ az mariadb server replica list --server-name mydemoserver --resource-group myres
 
 `az mariadb server replica list` 명령에는 다음과 같은 매개 변수가 필요합니다.
 
-| 설정 | 예제 값 | 설명  |
+| 설정 | 예제 값 | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  복제본 서버가 만들어지는 리소스 그룹입니다.  |
 | 서버 이름 | mydemoserver | 마스터 서버의 이름 또는 ID입니다. |
@@ -89,7 +86,7 @@ az mariadb server replica stop --name mydemoreplicaserver --resource-group myres
 
 `az mariadb server replica stop` 명령에는 다음과 같은 매개 변수가 필요합니다.
 
-| 설정 | 예제 값 | 설명  |
+| 설정 | 예제 값 | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  복제본 서버가 있는 리소스 그룹입니다.  |
 | name | mydemoreplicaserver | 복제를 중지할 복제본 서버의 이름입니다. |

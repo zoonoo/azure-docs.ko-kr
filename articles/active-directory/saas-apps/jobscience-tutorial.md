@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f0ea5b922b2c958aabf5be3a6123bb81a8f0234
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 23d2694aa4936090367cf881379f81911ae70f9d
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80048501"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870536"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>자습서: Jobscience와 Azure Active Directory 통합
 
@@ -116,7 +116,7 @@ Jobscience에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `http://<company name>.my.salesforce.com`
     
     > [!NOTE] 
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값은 [Jobscience 클라이언트 지원 팀](https://www.jobscience.com/support) 또는 앞으로 만들 SSO 프로필에서 참조하세요. 이 내용은 자습서의 뒷부분에 설명되어 있습니다. 
+    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값은 [Jobscience 클라이언트 지원 팀](http://www.jobscience.com/support) 또는 앞으로 만들 SSO 프로필에서 참조하세요. 이 내용은 자습서의 뒷부분에 설명되어 있습니다. 
  
 1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)를** 클릭한 다음 인증서 파일을 컴퓨터에 저장합니다.
 
@@ -134,7 +134,7 @@ Jobscience에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 1. **설정**으로 이동합니다.
    
-   ![설치](./media/jobscience-tutorial/IC784358.png "설치 프로그램")
+   ![설정](./media/jobscience-tutorial/IC784358.png "설정")
 
 1. 왼쪽 탐색창의 **관리** 섹션에서 **도메인 관리**를 클릭해 관련된 섹션을 확장한 다음 **내 도메인**을 클릭해 **내 도메인** 페이지를 엽니다. 
    
@@ -146,7 +146,7 @@ Jobscience에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 1. Jobscience 회사 사이트에서 **보안 제어**를 클릭한 다음 **Single Sign-On 설정**을 클릭합니다.
     
-    ![보안 컨트롤](./media/jobscience-tutorial/ic784364.png "Single Sign On 설정")
+    ![Single Sign On 설정](./media/jobscience-tutorial/ic784364.png "Single Sign On 설정")
 
 1. **Single Sign-On 설정** 섹션에서 다음 단계를 수행합니다.
     
@@ -192,7 +192,7 @@ Jobscience에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 1. SP에서 시작한 Single Sign-On 로그인 URL을 가져오려면 **보안 제어** 메뉴 섹션에서 **Single Sign-On 설정**을 클릭합니다.
 
-    ![보안 컨트롤](./media/jobscience-tutorial/ic784368.png "Single Sign On 설정")
+    ![Single Sign On 설정](./media/jobscience-tutorial/ic784368.png "Single Sign On 설정")
     
     위 단계에서 만든 SSO 프로필을 클릭합니다. 이 페이지에서는 회사의 Single Sign-On URL을 보여줍니다(예: `https://companyname.my.salesforce.com?so=companyid`.    
 
@@ -245,7 +245,7 @@ Azure AD 사용자가 Jobscience에 로그인할 수 있도록 하려면 Jobscie
 
 1. 설정으로 이동합니다.
    
-   ![설치](./media/jobscience-tutorial/ic784358.png "설치 프로그램")
+   ![설정](./media/jobscience-tutorial/ic784358.png "설정")
 1. **사용자 관리 \> 사용자**로 이동합니다.
    
    ![사용자](./media/jobscience-tutorial/ic784369.png "사용자")
@@ -309,12 +309,12 @@ Azure AD 사용자가 Jobscience에 로그인할 수 있도록 하려면 Jobscie
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 Jobscience 타일을 클릭하면 Jobscience 애플리케이션에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개를](../user-help/active-directory-saas-access-panel-introduction.md)참조하십시오.
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [Azure Active 디렉터리와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: d5626f00e9627338349d9b579bcf26256148b551
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: d598f741c5add58a89aa2b7aa01802a7e35f9a19
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81731260"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869052"
 ---
 # <a name="create-an-azure-virtual-machine-offer"></a>Azure 가상 시스템 오퍼 만들기
 
@@ -240,7 +240,7 @@ Azure 가상 시스템 오퍼를 만들려면 먼저 파트너 센터에 상용 
 고객이 지원 티켓을 열 때 사용할 Microsoft 파트너에 대한 연락처 정보를 제공합니다. 이 목록에 는 나열되지 않습니다.
 
 - 이름
-- Email
+- 메일
 - Phone
 
 ### <a name="engineering-contact"></a>엔지니어링 연락처
@@ -248,12 +248,15 @@ Azure 가상 시스템 오퍼를 만들려면 먼저 파트너 센터에 상용 
 인증 문제를 포함하여 오퍼에 문제가 있는 경우 Microsoft에서 사용할 연락처 정보를 제공합니다. 이 목록에 는 나열되지 않습니다.
 
 - 이름
-- Email
+- 메일
 - Phone
 
 ### <a name="marketplace-media"></a>마켓플레이스 미디어
 
 오퍼와 함께 사용할 로고와 이미지를 제공합니다. 모든 이미지는 PNG 형식이어야 합니다. 이미지가 흐리면 제출이 거부됩니다.
+
+>[!Note]
+>파일을 업로드하는 데 문제가 있는 경우 로컬 네트워크가 파트너 https://upload.xboxlive.com 센터에서 사용하는 서비스를 차단하지 않는지 확인합니다.
 
 #### <a name="marketplace-logos"></a>마켓플레이스 로고
 
@@ -270,7 +273,7 @@ Azure 가상 시스템 오퍼를 만들려면 먼저 파트너 센터에 상용 
 
 쿠폰의 작동 방식을 보여주는 스크린샷을 최대 5개까지 추가합니다. 각 스크린샷의 크기와 PNG 형식은 1280 x 720 픽셀이어야 합니다. 스크린샷을 설명하기 위해 캡션을 추가해야 합니다.
 
-#### <a name="videos"></a>비디오
+#### <a name="videos"></a>동영상
 
 쿠폰을 보여주는 동영상을 최대 5개까지 추가할 수 있습니다. 이러한 서비스는 외부 비디오 서비스에서 호스팅되어야 합니다. 1280 x 720 픽셀 크기로 각 비디오의 이름, 웹 주소 및 동영상의 축소판 PNG 이미지를 입력합니다.
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: e591a7035db82425952a16f5c4c220e25d8517fe
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ee8bee832e48dc7354b4136e25be9bcc43eb90c5
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457181"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870551"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure 논리 앱의 보안 액세스 및 데이터
 
@@ -45,7 +45,7 @@ Azure Logic Apps에서 액세스를 제어하고 데이터를 보호하려면 �
 
 각 URL에는 `sp` `sv`이 `sig` 테이블에 설명된 대로 의 에서 와 서 및 쿼리 매개 변수가 포함 됩니다.
 
-| 쿼리 매개 변수 | Description |
+| 쿼리 매개 변수 | 설명 |
 |-----------------|-------------|
 | `sp` | 허용되는 HTTP 메서드에 대한 사용 권한을 지정합니다. |
 | `sv` | 서명을 생성하는 데 사용할 SAS 버전을 지정합니다. |
@@ -437,7 +437,7 @@ Resource [Manager 템플릿을 사용하여 논리 앱에 대한 배포를 자�
 
 이 예제 템플릿은 형식을 사용하는 여러 `securestring` 보안 매개 변수 정의가 있습니다.
 
-| 매개 변수 이름 | Description |
+| 매개 변수 이름 | 설명 |
 |----------------|-------------|
 | `TemplatePasswordParam` | 암호를 수락한 다음 워크플로 정의의 `basicAuthPasswordParam` 매개 변수로 전달되는 템플릿 매개 변수 |
 | `TemplateUsernameParam` | 그런 다음 워크플로 정의의 `basicAuthUserNameParam` 매개 변수로 전달되는 사용자 이름을 허용하는 템플릿 매개 변수 |
@@ -622,7 +622,7 @@ HTTP 및 HTTPS 끝점은 다양한 종류의 인증을 지원합니다. 이러�
 
 [기본](../active-directory-b2c/secure-rest-api.md) 옵션을 사용할 수 있는 경우 다음 속성 값을 지정합니다.
 
-| 속성 (디자이너) | Property(JSON) | 필수 | 값 | Description |
+| 속성 (디자이너) | Property(JSON) | 필수 | 값 | 설명 |
 |---------------------|-----------------|----------|-------|-------------|
 | **인증** | `type` | 예 | Basic | 사용할 인증 유형 |
 | **사용자 이름** | `username` | 예 | <*사용자 이름*>| 대상 서비스 엔드포인트에 대한 액세스를 인증하는 사용자 이름입니다. |
@@ -653,9 +653,9 @@ HTTP 및 HTTPS 끝점은 다양한 종류의 인증을 지원합니다. 이러�
 
 클라이언트 [인증서](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) 옵션을 사용할 수 있는 경우 다음 속성 값을 지정합니다.
 
-| 속성 (디자이너) | Property(JSON) | 필수 | 값 | Description |
+| 속성 (디자이너) | Property(JSON) | 필수 | 값 | 설명 |
 |---------------------|-----------------|----------|-------|-------------|
-| **인증** | `type` | 예 | **클라이언트 인증서** <br>또는 <br>`ClientCertificate` | TLS/SSL 클라이언트 인증서에 사용할 인증 유형입니다. 자체 서명된 인증서가 지원되지만 TLS/SSL에 대한 자체 서명된 인증서는 지원되지 않습니다. |
+| **인증** | `type` | 예 | **클라이언트 인증서** <br>또는 <br>`ClientCertificate` | TLS/SSL 클라이언트 인증서에 사용할 인증 유형 <p><p>**참고:** 자체 서명된 인증서가 지원되지만 TLS/SSL에 대한 자체 서명된 인증서는 지원되지 않습니다. HTTP 커넥터는 중간 TLS/SSL 인증서를 지원하지 않습니다. |
 | **Pfx** | `pfx` | 예 | <*인코딩된 pfx 파일 콘텐츠*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 <p><p>PFX 파일을 base64 인코딩 형식으로 변환하려면 다음 단계를 수행하여 PowerShell을 사용할 수 있습니다. <p>1. 인증서 내용을 변수에 저장합니다. <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. `ToBase64String()` 함수를 사용하여 인증서 내용을 변환하고 해당 콘텐츠를 텍스트 파일에 저장합니다. <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **암호** | `password`| 예 | <*암호 - 대 pfx 파일*> | PFX 파일에 액세스하기 위한 암호 |
 |||||
@@ -692,7 +692,7 @@ HTTP 및 HTTPS 끝점은 다양한 종류의 인증을 지원합니다. 이러�
 
 Active [Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) 옵션을 사용할 수 있는 경우 다음 속성 값을 지정합니다.
 
-| 속성 (디자이너) | Property(JSON) | 필수 | 값 | Description |
+| 속성 (디자이너) | Property(JSON) | 필수 | 값 | 설명 |
 |---------------------|-----------------|----------|-------|-------------|
 | **인증** | `type` | 예 | **Active Directory OAuth** <br>또는 <br>`ActiveDirectoryOAuth` | 사용할 인증 유형입니다. 논리 앱은 현재 [OAuth 2.0 프로토콜을](../active-directory/develop/v2-overview.md)따릅니다. |
 | **Authority** | `authority` | 예 | <*권한용 URL 토큰 발급자*> | 인증 토큰을 제공하는 기관의 URL입니다. 이 값은 기본적으로 `https://login.windows.net`입니다. |
@@ -746,7 +746,7 @@ Authorization: OAuth realm="Photos",
 
 원시 인증을 지원하는 트리거 또는 작업에서 다음 속성 값을 지정합니다.
 
-| 속성 (디자이너) | Property(JSON) | 필수 | 값 | Description |
+| 속성 (디자이너) | Property(JSON) | 필수 | 값 | 설명 |
 |---------------------|-----------------|----------|-------|-------------|
 | **인증** | `type` | 예 | Raw | 사용할 인증 유형 |
 | **값** | `value` | 예 | <*권한 부여-헤더-값*> | 인증에 사용할 권한 부여 헤더 값 |
@@ -781,7 +781,7 @@ Authorization: OAuth realm="Photos",
 
 1. 관리되는 ID를 사용하려는 트리거 또는 작업에서 다음 속성 값을 지정합니다.
 
-   | 속성 (디자이너) | Property(JSON) | 필수 | 값 | Description |
+   | 속성 (디자이너) | Property(JSON) | 필수 | 값 | 설명 |
    |---------------------|-----------------|----------|-------|-------------|
    | **인증** | `type` | 예 | **관리 ID** <br>또는 <br>`ManagedServiceIdentity` | 사용할 인증 유형 |
    | **관리 ID** | `identity` | 예 | * **시스템 할당된 관리되는 ID** <br>또는 <br>`SystemAssigned` <p><p>* *<사용자 할당 된 ID 이름*> | 사용할 관리되는 ID |

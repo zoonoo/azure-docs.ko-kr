@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 45a27be400753b56c42310a340334feba8a420c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c98ae7c95ac3fc186786612dd3d8d8bd55fa816f
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73906868"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024883"
 ---
 # <a name="working-with-security-policies"></a>보안 정책 작업
 
@@ -62,11 +62,11 @@ Security Center에서 보안 정책을 보려면
 
 1. 이 페이지에서 사용 가능한 옵션 중에서 선택합니다.
 
-    1. 산업 정책에서 작업하려면 **표준 추가를 클릭합니다.** 자세한 내용은 [동적 규정 준수 패키지 업데이트를](update-regulatory-compliance-packages.md)참조하십시오.
+    1. 산업 정책에서 작업하려면 **표준 추가를 선택합니다.** 자세한 내용은 [동적 규정 준수 패키지 업데이트를](update-regulatory-compliance-packages.md)참조하십시오.
 
-    1. 사용자 지정 이니셔티브를 할당하고 관리하려면 **사용자 지정 이니셔티브 추가를**클릭합니다. 자세한 내용은 [사용자 지정 보안 정책 사용을](custom-security-policies.md)참조하십시오.
+    1. 사용자 지정 이니셔티브를 할당하고 관리하려면 **사용자 지정 이니셔티브 추가를**선택합니다. 자세한 내용은 [사용자 지정 보안 정책 사용을](custom-security-policies.md)참조하십시오.
 
-    1. 기본 정책을 보고 편집하려면 **유효 정책 보기를** 클릭하고 아래에 설명된 대로 진행합니다. 
+    1. 기본 정책을 보고 편집하려면 **유효 정책 보기를** 선택하고 아래에 설명된 대로 진행합니다. 
 
        ![정책 화면](./media/security-center-policies/policy-screen.png)
        
@@ -96,20 +96,20 @@ Security Center는 Azure에서 사용자, 그룹 및 서비스에 할당할 수 
 기본 보안 정책이 사용자 환경과 관련이 없는 권장 사항을 생성하는 경우 권장 사항을 보내는 정책 정의를 사용하지 않도록 설정하여 중지할 수 있습니다.
 권장 사항에 대한 자세한 내용은 [보안 권장 사항 관리를](security-center-recommendations.md)참조하십시오.
 
-1. 보안 센터에서 **정책 & 준수** 섹션에서 보안 정책을 **클릭합니다.**
+1. 보안 센터에서 정책 **& 준수** 섹션에서 **보안 정책을**선택합니다.
 
    ![정책 관리](./media/tutorial-security-policy/policy-management.png)
 
-2. 권장 사항을 사용하지 않도록 설정하려는 구독 또는 관리 그룹을 클릭합니다.
+2. 권장 사항을 사용하지 않도록 설정할 구독 또는 관리 그룹을 선택합니다.
 
    > [!NOTE]
    > 관리 그룹은 해당 구독에 정책을 적용합니다. 따라서 정책을 사용하지 않도록 설정한 구독이 동일한 정책을 사용하는 관리 그룹에 속해 있는 경우 정책 권장 사항을 계속 받게 됩니다. 관리 수준에서 계속 정책이 적용되고 권장 사항이 생성됩니다.
 
-1. **유효 정책 보기를 클릭합니다.**
+1. **유효 정책 보기를**선택합니다.
 
    ![정책 사용 안 함](./media/tutorial-security-policy/view-effective-policy.png)
 
-1. 할당된 정책을 클릭합니다.
+1. 할당된 정책을 선택합니다.
 
    ![정책 사용 안 함](./media/tutorial-security-policy/security-policy.png)
 
@@ -117,7 +117,7 @@ Security Center는 Azure에서 사용자, 그룹 및 서비스에 할당할 수 
 
    ![정책 사용 안 함](./media/tutorial-security-policy/disable-policy.png)
 
-1. **저장**을 클릭합니다.
+1. **저장**을 선택합니다.
 
    > [!NOTE]
    > 사용 안 함 정책 변경 사항이 적용되기까지 최대 12시간이 걸릴 수 있습니다.

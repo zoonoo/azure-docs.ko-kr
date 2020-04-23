@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 5aa7abf7aafc14e71af5618cec892ef9f843d88a
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: f7ce5f5086bcf2d577fb998df307ee684d536c15
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81733065"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870092"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure 미디어 서비스 비디오 인덱서 릴리스 정보
 
@@ -40,7 +40,7 @@ ms.locfileid: "81733065"
 
 자세한 내용은 [위젯 유형](video-indexer-embed-widgets.md#widget-types) 섹션을 참조하세요. 
 
-## <a name="new-player-skin"></a>새로운 플레이어 스킨
+### <a name="new-player-skin"></a>새로운 플레이어 스킨
 
 새로운 플레이어 스킨이 업데이트된 디자인으로 출시되었습니다.
 

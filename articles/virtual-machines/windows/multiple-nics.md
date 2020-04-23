@@ -1,24 +1,18 @@
 ---
 title: 여러 NIC를 사용하는 Azure에서 Windows VM 생성 및 관리
 description: Azure PowerShell 또는 Resource Manager 템플릿을 사용하여 여러 NIC가 연결된 Windows VM을 만들고 관리하는 방법을 알아봅니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-ms.assetid: 9bff5b6d-79ac-476b-a68f-6f8754768413
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: 20a595e1386a8d33c919ad4ff151d65e30b31eda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6651ae21694022be86d8db08737c609aed3df569
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79249985"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870266"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>여러 NIC가 있는 Windows 가상 컴퓨터 만들기 및 관리
 Azure의 VM(가상 머신)에는 여러 가상 NIC(네트워크 인터페이스 카드)가 연결될 수 있습니다. 일반적인 시나리오는 프런트 엔드 및 백 엔드 연결에 대한 다른 서브넷을 포함하는 것입니다. VM의 여러 NIC를 여러 서브넷에 연결할 수 있지만 해당 서브넷은 모두 동일한 가상 네트워크(vNet)에 상주해야 합니다. 이 문서에서는 여러 NIC가 연결된 VM을 만드는 방법을 설명합니다. 또한 기존 VM에서 NIC를 추가하거나 제거하는 방법을 알아봅니다. [VM 크기](sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다.

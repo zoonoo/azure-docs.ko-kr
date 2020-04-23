@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 10831c0dc39fa241a43541850afae39593ae033b
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: a2fe7daf1476f19f6a6eea83174342fa1273fe14
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81678279"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867974"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>빠른 시작 - 프라이빗 클라우드 환경 구성
 
@@ -148,7 +148,7 @@ VLAN/서브넷이 생성됩니다.  이제 이 VLAN ID를 사용하여 프라이
 
 ## <a name="connect-your-environment-to-an-azure-virtual-network"></a>환경을 Azure 가상 네트워크에 연결
 
-CloudSimple은 프라이빗 클라우드를 위한 익스프레스루트 회로를 제공합니다. Azure에서 가상 네트워크를 ExpressRoute 회로에 연결할 수 있습니다. 연결 설정에 대한 자세한 내용은 ExpressRoute 를 [사용하여 Azure 가상 네트워크 연결의](https://docs.azure.cloudsimple.com/cloudsimple-azure-network-connection/)단계를 따릅니다.
+CloudSimple은 프라이빗 클라우드를 위한 익스프레스루트 회로를 제공합니다. Azure에서 가상 네트워크를 ExpressRoute 회로에 연결할 수 있습니다. 연결 설정에 대한 자세한 내용은 ExpressRoute 를 [사용하여 Azure 가상 네트워크 연결의](https://docs.microsoft.com/azure/vmware-cloudsimple/cloudsimple-azure-network-connection)단계를 따릅니다.
 
 ## <a name="sign-in-to-vcenter"></a>vCenter에 로그인
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/16/2020
 ms.author: borisb
-ms.openlocfilehash: e6a2e7c646782f5ad874124e4a86809ed1d79eea
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: c737189650d571fb62a770707e84ed15c5a37a57
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687393"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870513"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Azure의 Oracle 응용 프로그램 및 솔루션 개요
 
@@ -49,7 +49,7 @@ Azure에서 사용할 수 있는 비 Oracle Linux 이미지에 Oracle Database�
 
 * [Azure 사이트 복구를](../../../site-recovery/site-recovery-overview.md) 사용하여 Azure 및 온-프레미스 또는 물리적 서버의 Oracle Linux VM에 대한 재해 복구를 오케스트레이션하고 관리합니다. 
 
-* [Azure VMWare 솔루션](https://docs.azure.cloudsimple.com/oracle-rac/) 또는 [플래시그리드 스카이클러스터를](https://www.flashgrid.io/oracle-rac-in-azure/)사용하여 Azure에서 Oracle 실제 응용 프로그램 클러스터(RAC)를 활성화합니다.
+* [Azure VMWare 솔루션](https://docs.microsoft.com/azure/vmware-cloudsimple/oracle-real-application-clusters/) 또는 [플래시그리드 스카이클러스터를](https://www.flashgrid.io/oracle-rac-in-azure/)사용하여 Azure에서 Oracle 실제 응용 프로그램 클러스터(RAC)를 활성화합니다.
 
 ## <a name="backup-oracle-workloads"></a>백업 오라클 워크로드
 

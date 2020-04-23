@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f789f82288c9820214c4ab32c271bb547945d4d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 48b9f2dc64d1d3ddd8253a253dcab8ef972032f9
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77057382"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869738"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 LinkedIn Sales Navigator 구성
 
@@ -99,7 +99,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 11. **관리자 자격 증명** 아래에서 다음 필드를 입력합니다.
 
-    * **테넌트 URL** 필드에 https://api.linkedin.com을 입력합니다.
+    * **테넌트 URL** 필드에 https://developer.linkedin.com을 입력합니다.
 
     * **비밀 토큰** 필드에 1단계에서 생성한 액세스 토큰을 입력하고 **연결 테스트**를 클릭합니다.
 
@@ -124,4 +124,4 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱용 사용자 계정 프로비저닝 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

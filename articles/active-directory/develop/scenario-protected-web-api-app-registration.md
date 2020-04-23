@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 997dd98d35b74effe5d195f9a781fa0935286ee9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 214d379525f2ee534415d713aa298ec858a84c92
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537222"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868834"
 ---
 # <a name="protected-web-api-app-registration"></a>보호된 웹 API: 앱 등록
 
@@ -108,7 +108,7 @@ Microsoft ID 플랫폼 끝점에서v1.0 토큰및 v2.0 토큰을 발행할 수 �
 
 다음 샘플에서는 `appRoles`의 값이 고유한 GUID일 `id` 수 있는 의 내용을 보여 주며, 이 의 내용은 다음과 같은 내용을 보여 주며, 이의 내용은 다음과 같은 내용을 보여 주며, 그 내용은 다음과 같은 것이다.
 
-```JSon
+```json
 "appRoles": [
     {
     "allowedMemberTypes": [ "Application" ],

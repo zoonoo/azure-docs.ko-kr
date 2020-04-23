@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bb2cc90e586f71bb7c90efd62ba3705cd9223bc5
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: ead39343cca9943ba55d66509bd9917402efb8cf
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885500"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868980"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>웹 API를 호출하는 데몬 앱 - 코드 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "80885500"
 
 이러한 Microsoft 라이브러리는 데몬 앱을 지원합니다.
 
-  MSAL 라이브러리 | Description
+  MSAL 라이브러리 | 설명
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | .NET 프레임워크 및 .NET Core 플랫폼은 데몬 응용 프로그램을 빌드하는 데 지원됩니다. (UWP, Xamarin.iOS 및 Xamarin.Android는 이러한 플랫폼이 공용 클라이언트 응용 프로그램을 빌드하는 데 사용되기 때문에 지원되지 않습니다.)
   ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | 파이썬의 데몬 응용 프로그램 지원.
@@ -59,7 +59,7 @@ MSAL 라이브러리에서 클라이언트 자격 증명(비밀 또는 인증서
 
 [appsettings.json](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) [.NET 코어 콘솔 데몬](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) 샘플에서.
 
-```JSon
+```json
 {
   "Instance": "https://login.microsoftonline.com/{0}",
   "Tenant": "[Enter here the tenantID or domain name for your Azure AD tenant]",

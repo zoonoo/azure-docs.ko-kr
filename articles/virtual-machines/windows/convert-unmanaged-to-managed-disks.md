@@ -3,15 +3,16 @@ title: 비관리 디스크에서 관리 디스크로 Windows 가상 컴퓨터 �
 description: Resource Manager 배포 모델에서 PowerShell을 사용하여 비관리 디스크에서 관리 디스크로 Windows VM을 변환하는 방법
 author: roygara
 ms.service: virtual-machines-windows
+ms.subservice: disks
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 8c180cfc597c0ade27b1fe8cca5a8751176ea12e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8069b174b7a69cc2e6c47171159569c56a15563
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75460119"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081951"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>비관리 디스크에서 관리 디스크로 Windows 가상 컴퓨터 변환
 
@@ -94,7 +95,7 @@ ms.locfileid: "75460119"
 
 Azure Portal을 사용하여 관리되지 않는 디스크에서 관리 디스크로 변환할 수도 있습니다.
 
-1. [Azure 포털에](https://portal.azure.com)로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 포털의 VM 목록에서 VM을 선택합니다.
 3. VM 블레이드의 메뉴에서 **디스크**를 선택합니다.
 4. **디스크** 블레이드 상단에서 **관리 디스크로 마이그레이션**을 선택합니다.

@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: 1dbc08e01b9a36b1bc80ee6b81ceb2d92ff831cc
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: c2db0cca120d08b85229618547a2aaabbba437ad
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273718"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870211"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
@@ -445,7 +445,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
     확장 집합 모델에서(예: Azure Resource Explorer, PowerShell 또는 CLI 사용) 직접 관리 자격 증명을 업데이트합니다. 확장 집합이 업데이트되면 모든 새 VM에 새 자격 증명이 포함됩니다. 기존 VM은 이미지로 다시 설치되는 경우에만 새 자격 증명이 포함됩니다.
 
-- VM 액세스 확장을 사용하여 암호를 다시 설정합니다.
+- VM 액세스 확장을 사용하여 암호를 다시 설정합니다. [여기에](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)설명된 대로 암호 요구 사항을 따라야 합니다.
 
     다음 PowerShell 예제를 사용합니다.
 

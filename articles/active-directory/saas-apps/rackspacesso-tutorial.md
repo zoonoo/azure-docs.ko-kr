@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 31826f5d4d88c977f859a009bface2fddf3a1c88
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 98a160b361e316c87e61855825c2cc36fdbb06d1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67093192"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870293"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>자습서: Rackspace SSO와 Azure Active Directory 통합
 
@@ -187,7 +187,7 @@ Rackspace SSO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
 ### <a name="set-up-attribute-mapping-in-the-rackspace-control-panel"></a>Rackspace 제어판에서 특성 매핑 설정
 
-Rackspace는 **특성 매핑 정책**을 사용하여 Single Sign-On 사용자에게 Rackspace 역할 및 그룹을 할당합니다. **특성 매핑 정책**은 Azure AD SAML 클레임을 Rackspace에 필요한 사용자 구성으로 변환합니다. 추가 설명서는 Rackspace [특성 매핑 기본 사항 설명서](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/)에서 확인할 수 있습니다. 몇 가지 고려할 사항:
+Rackspace는 **특성 매핑 정책**을 사용하여 Single Sign-On 사용자에게 Rackspace 역할 및 그룹을 할당합니다. **특성 매핑 정책**은 Azure AD SAML 클레임을 Rackspace에 필요한 사용자 구성으로 변환합니다. 추가 설명서는 Rackspace [특성 매핑 기본 사항 설명서](https://developer.rackspace.com/docs/rackspace-federation/appendix/map/)에서 확인할 수 있습니다. 몇 가지 고려할 사항:
 
 * Azure AD 그룹을 사용하여 다양한 수준의 Rackspace 액세스 권한을 할당하려면 Azure **Rackspace SSO** Single Sign-On 설정에서 그룹 클레임을 사용하도록 설정해야 합니다. 그러면 **특성 매핑 정책**을 사용하여 해당 그룹을 원하는 Rackspace 역할 및 그룹에 일치시킵니다.
 
@@ -226,7 +226,7 @@ mapping:
 > [!TIP]
 > 정책 파일을 편집할 때 반드시 YAML 구문의 유효성을 검사하는 텍스트 편집기를 사용해야 합니다.
 
-더 많은 예제는 Rackspace [특성 매핑 기본 사항 설명서](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/)를 참조하세요.
+더 많은 예제는 Rackspace [특성 매핑 기본 사항 설명서](https://developer.rackspace.com/docs/rackspace-federation/appendix/map/)를 참조하세요.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

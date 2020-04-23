@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 30a4dcbd15d8a47d99b3a61879a7e61938d3b133
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 26a761708f56ff7aba8daf86d2991579e60291cb
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160543"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870202"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>자습서: Mitel MiCloud Connect와 Azure Active Directory 통합
 
@@ -202,7 +202,7 @@ BrittaSimon@contoso.com)을 입력합니다.
 
 이 섹션에서는 MiCloud Connect 계정에서 Britta Simon이라는 사용자를 만듭니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
-Mitel 계정 포털에 사용자를 추가하는 방법에 대한 자세한 내용은 Mitel 기술 자료의 [사용자 추가](https://docs.shoretel.com/connectcloud/Account/Users/AddUser) 문서를 참조하세요.
+Mitel 계정 포털에 사용자를 추가하는 방법에 대한 자세한 내용은 Mitel 기술 자료의 [사용자 추가](https://oneview.mitel.com/s/article/Adding-a-User-092815) 문서를 참조하세요.
 
 다음 세부 정보를 사용하여 사용자를 MiCloud Connect 계정에 만듭니다.
 

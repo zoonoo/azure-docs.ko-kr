@@ -6,12 +6,12 @@ ms.author: msangapu
 ms.date: 08/12/2019
 ms.topic: quickstart
 ms.devlang: javascript
-ms.openlocfilehash: fb79f4b87d8ddc5303fea834c81329315401464a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 08a246b07effb8d5f3e2473a4d7959882cf43235
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74688980"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687946"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Azure에서 Node.js 앱 만들기
 
@@ -107,7 +107,7 @@ code .
 ![웹앱에 배포](./media/quickstart-nodejs/deploy.png)
 
 > [!TIP]
-> '웹앱에 배포'를 입력하고 **Azure App Service: 웹앱에 배포** 명령을 실행하여 **명령 팔레트**(Ctrl+Shift+P)에서 배포할 수도 있습니다.
+> '웹앱에 배포'를 입력하고 **Azure App Service: 웹앱에 배포** 명령을 실행하여 명령 팔레트(Ctrl+Shift+P)에서 배포할 수도 있습니다.
 
 1. 현재 열려 있는 `myExpressApp` 디렉터리를 선택합니다.
 
@@ -159,12 +159,12 @@ code .
 
 몇 초 후에 로그 스트리밍 서비스에 연결되었다는 메시지가 표시됩니다. 페이지를 몇 번 새로 고쳐 더 많은 작업을 볼 수 있습니다.
 
-    ```bash
-    2019-09-20 20:37:39.574 INFO  - Initiating warmup request to container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node
-    2019-09-20 20:37:55.011 INFO  - Waiting for response to warmup request for container msdocs-vscode-node_2_00ac292a. Elapsed time = 15.4373071 sec
-    2019-09-20 20:38:08.233 INFO  - Container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node initialized successfully and is ready to serve requests.
-    2019-09-20T20:38:21  Startup Request, url: /Default.cshtml, method: GET, type: request, pid: 61,1,7, SCM_SKIP_SSL_VALIDATION: 0, SCM_BIN_PATH: /opt/Kudu/bin, ScmType: None
-    ```
+<pre>
+2019-09-20 20:37:39.574 INFO  - Initiating warmup request to container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node
+2019-09-20 20:37:55.011 INFO  - Waiting for response to warmup request for container msdocs-vscode-node_2_00ac292a. Elapsed time = 15.4373071 sec
+2019-09-20 20:38:08.233 INFO  - Container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node initialized successfully and is ready to serve requests.
+2019-09-20T20:38:21  Startup Request, url: /Default.cshtml, method: GET, type: request, pid: 61,1,7, SCM_SKIP_SSL_VALIDATION: 0, SCM_BIN_PATH: /opt/Kudu/bin, ScmType: None
+</pre>
 
 > [!div class="nextstepaction"]
 > [문제가 발생했습니다.](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=tailing-logs)

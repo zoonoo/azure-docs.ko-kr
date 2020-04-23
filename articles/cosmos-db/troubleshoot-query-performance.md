@@ -4,22 +4,22 @@ description: Azure Cosmos DB SQL 쿼리 문제를 식별, 진단 및 해결하�
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 02/10/2020
+ms.date: 04/20/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 852ed8c49eda7f13542eb0bad63d84e1cf770e92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a8b61f3719a60af567d10f8839987e613babc9e
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131371"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870448"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용할 때 쿼리 문제 해결
 
 이 문서에서는 Azure Cosmos DB에서 쿼리 문제를 해결하는 데 권장되는 일반적인 방법을 안내합니다. 이 문서에서 설명하는 단계를 잠재적인 쿼리 문제에 대한 완전한 방어책으로 간주해서는 안 되지만 여기에 가장 일반적인 성능 팁이 포함되어 있습니다. 이 문서를 Azure Cosmos DB 코어(SQL) API에서 느리거나 비용이 많이 드는 쿼리 문제를 해결하는 시작 장소로 사용해야 합니다. [진단 로그를](cosmosdb-monitor-resource-logs.md) 사용하여 느리거나 상당한 양의 처리량을 소비하는 쿼리를 식별할 수도 있습니다.
 
-Azure Cosmos DB에서 쿼리 최적화를 광범위하게 분류할 수 있습니다. 
+Azure Cosmos DB에서 쿼리 최적화를 광범위하게 분류할 수 있습니다.
 
 - 쿼리의 RU(요청 단위) 요금을 줄이는 최적화
 - 대기 시간을 줄이는 최적화
@@ -28,19 +28,18 @@ Azure Cosmos DB에서 쿼리 최적화를 광범위하게 분류할 수 있습�
 
 이 문서에서는 [영양](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) 데이터 집합을 사용하여 다시 만들 수 있는 예제를 제공합니다.
 
-## <a name="important"></a>중요
+## <a name="common-sdk-issues"></a>일반적인 SDK 문제
 
 - 최상의 성능을 위해 [성능 팁을](performance-tips.md)따르십시오.
     > [!NOTE]
     > 성능 향상을 위해 Windows 64비트 호스트 처리를 권장합니다. SQL SDK에는 로컬에서 쿼리를 구문 분석하고 최적화하는 네이티브 ServiceInterop.dll이 포함되어 있습니다. ServiceInterop.dll은 Windows x64 플랫폼에서만 지원됩니다. ServiceInterop.dll을 사용할 수 없는 Linux 및 기타 지원되지 않는 플랫폼의 경우 게이트웨이에 추가 네트워크 호출을 통해 최적화된 쿼리를 가져옵니다.
-- Azure Cosmos DB 쿼리는 최소 항목 수를 지원하지 않습니다.
-    - 코드는 0에서 최대 항목 수까지 모든 페이지 크기를 처리해야 합니다.
-    - 페이지의 항목 수는 예고 없이 변경될 수 있습니다.
-- 빈 페이지는 쿼리에 대해 예상되며 언제든지 나타날 수 있습니다.
-    - 빈 페이지는 노출로 인해 쿼리를 취소할 수 있으므로 SDK에 노출됩니다. 또한 SDK가 여러 네트워크 호출을 수행하고 있음을 분명히 합니다.
-    - Azure Cosmos DB에서 물리적 파티션이 분할되므로 빈 페이지가 기존 워크로드에 나타날 수 있습니다. 첫 번째 파티션에는 결과가 0으로 비어 페이지가 생성됩니다.
-    - 빈 페이지는 쿼리가 문서를 검색하는 데 백 엔드에 일정 시간 이상 걸리기 때문에 쿼리를 선점하여 쿼리를 선점하여 발생합니다. Azure Cosmos DB가 쿼리를 선점하는 경우 쿼리를 계속할 수 있는 연속 토큰을 반환합니다.
-- 쿼리를 완전히 드레인해야 합니다. SDK 샘플을 살펴보고 루프를 `while` `FeedIterator.HasMoreResults` 사용하여 전체 쿼리를 드레인합니다.
+- 쿼리에 대한 `MaxItemCount` a를 설정할 수 있지만 최소 항목 수를 지정할 수는 없습니다.
+    - 코드는 0에서 에 이르는 모든 `MaxItemCount`페이지 크기를 처리해야 합니다.
+    - 페이지의 항목 수는 항상 지정된 `MaxItemCount`항목보다 적습니다. 그러나, `MaxItemCount` 엄격 하 게 최대 이며이 금액 보다 더 적은 결과 있을 수 있습니다.
+- 이후 페이지에 결과가 있는 경우에도 쿼리에 빈 페이지가 있을 수 있습니다. 그 이유는 다음과 같은 것일 수 있습니다.
+    - SDK에서 여러 네트워크 호출을 수행할 수 있습니다.
+    - 쿼리가 문서를 검색하는 데 시간이 오래 걸릴 수 있습니다.
+- 모든 쿼리에는 쿼리를 계속할 수 있는 연속 토큰이 있습니다. 쿼리를 완전히 드레인해야 합니다. SDK 샘플을 살펴보고 루프를 `while` `FeedIterator.HasMoreResults` 사용하여 전체 쿼리를 드레인합니다.
 
 ## <a name="get-query-metrics"></a>쿼리 메트릭 받기
 
@@ -61,6 +60,8 @@ Azure Cosmos DB에서 쿼리를 최적화하는 경우 첫 번째 단계는 항�
 - [인덱싱 정책에 필요한 경로를 포함합니다.](#include-necessary-paths-in-the-indexing-policy)
 
 - [인덱스를 사용하는 시스템 함수를 이해합니다.](#understand-which-system-functions-use-the-index)
+
+- [인덱스를 사용하는 집계 쿼리를 이해합니다.](#understand-which-aggregate-queries-use-the-index)
 
 - [필터와 ORDER BY 절이 모두 있는 쿼리를 수정합니다.](#modify-queries-that-have-both-a-filter-and-an-order-by-clause)
 
@@ -190,7 +191,7 @@ SELECT * FROM c WHERE c.description = "Malabar spinach, cooked"
 
 식을 문자열 값범위로 변환할 수 있는 경우 인덱스를 사용할 수 있습니다. 그렇지 않으면 할 수 없습니다.
 
-인덱스를 사용할 수 있는 문자열 함수 목록은 다음과 같습니다.
+다음은 인덱스를 사용할 수 있는 몇 가지 일반적인 문자열 함수 목록입니다.
 
 - STARTSWITH(str_expr, str_expr)
 - LEFT(str_expr, num_expr) = str_expr
@@ -207,6 +208,50 @@ SELECT * FROM c WHERE c.description = "Malabar spinach, cooked"
 ------
 
 시스템 기능이 작동하지 않더라도 쿼리의 다른 부분에서도 인덱스를 사용할 수 있습니다.
+
+### <a name="understand-which-aggregate-queries-use-the-index"></a>인덱스를 사용하는 집계 쿼리 이해
+
+대부분의 경우 Azure Cosmos DB의 집계 시스템 함수는 인덱스를 사용합니다. 그러나 집계 쿼리의 필터 또는 추가 절에 따라 많은 수의 문서를 로드해야 할 수 있습니다. 일반적으로 쿼리 엔진은 먼저 같음 및 범위 필터를 적용합니다. 이러한 필터를 적용한 후 쿼리 엔진은 추가 필터를 평가하고 필요한 경우 나머지 문서를 로드하여 집계를 계산할 수 있습니다.
+
+예를 들어 이러한 두 샘플 쿼리를 감안할 때 `CONTAINS` 같음 및 시스템 함수 필터가 모두 `CONTAINS` 있는 쿼리는 일반적으로 시스템 함수 필터만 있는 쿼리보다 효율적입니다. 이는 같음 필터가 먼저 적용되고 더 비싼 `CONTAINS` 필터에 대해 문서를 로드하기 전에 인덱스를 사용하기 때문입니다.
+
+필터만 `CONTAINS` 있는 쿼리 - RU 요금이 더 높습니다.
+
+```sql
+SELECT COUNT(1) FROM c WHERE CONTAINS(c.description, "spinach")
+```
+
+같음 필터와 `CONTAINS` 필터를 모두 사용할 수 있는 쿼리 - RU 요금 절감:
+
+```sql
+SELECT AVG(c._ts) FROM c WHERE c.foodGroup = "Sausages and Luncheon Meats" AND CONTAINS(c.description, "spinach")
+```
+
+다음은 인덱스를 완전히 사용하지 않는 집계 쿼리의 추가 예입니다.
+
+#### <a name="queries-with-system-functions-that-dont-use-the-index"></a>인덱스를 사용하지 않는 시스템 함수가 있는 쿼리
+
+인덱스를 사용하는지 확인하려면 관련 [시스템 함수의 페이지를](sql-query-system-functions.md) 참조해야 합니다.
+
+```sql
+SELECT MAX(c._ts) FROM c WHERE CONTAINS(c.description, "spinach")
+```
+
+#### <a name="aggregate-queries-with-user-defined-functionsudfs"></a>사용자 정의 함수(UDF)로 쿼리 집계
+
+```sql
+SELECT AVG(c._ts) FROM c WHERE udf.MyUDF("Sausages and Luncheon Meats")
+```
+
+#### <a name="queries-with-group-by"></a>그룹 별 쿼리
+
+`GROUP BY` 절의 속성의 `GROUP BY` 카디널리티가 증가함에 따라 RU 요금이 증가합니다. 이 예제에서는 RU 요금이 높을 것으로 예상되므로 쿼리 엔진은 필터와 `c.foodGroup = "Sausages and Luncheon Meats"` 일치하는 모든 문서를 로드해야 합니다.
+
+```sql
+SELECT COUNT(1) FROM c WHERE c.foodGroup = "Sausages and Luncheon Meats" GROUP BY c.description
+```
+
+동일한 집계 쿼리를 자주 실행하려는 경우 개별 쿼리를 실행하는 것보다 [Azure Cosmos DB 변경 피드를](change-feed.md) 사용하여 실시간 구체화된 보기를 작성하는 것이 더 효율적일 수 있습니다.
 
 ### <a name="modify-queries-that-have-both-a-filter-and-an-order-by-clause"></a>필터와 ORDER BY 절이 모두 있는 쿼리 수정
 
