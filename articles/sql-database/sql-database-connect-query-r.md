@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
-ms.openlocfilehash: 7103afc29e4021d950d9a3634b190f4439ecfe8d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ROBOTS: NOINDEX
+ms.openlocfilehash: 23dc784586e85b8cbdc816ac5f4d54556fc1ffb7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76768506"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456994"
 ---
 # <a name="quickstart-use-r-with-machine-learning-services-to-query-an-azure-sql-database-preview"></a>빠른 시작: Machine Learning Services와 함께 R을 사용하여 Azure SQL 데이터베이스 쿼리(미리 보기)
 
@@ -30,16 +31,13 @@ ms.locfileid: "76768506"
 
 - 활성 구독이 있는 Azure 계정. [평가판 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Azure SQL 데이터베이스](sql-database-single-database-get-started.md)
-- R이 활성화된 [Machine Learning Services](sql-database-machine-learning-services-overview.md). [미리 보기에 가입](sql-database-machine-learning-services-overview.md#signup)하세요.
+- R이 활성화된 [Machine Learning Services](sql-database-machine-learning-services-overview.md).
 - [SSMS(SQL Server Management Studio)](/sql/ssms/sql-server-management-studio-ssms)
 
 > [!IMPORTANT]
 > 이 문서의 스크립트는 **Adventure Works** 데이터베이스를 사용하도록 작성되었습니다.
 
-> [!NOTE]
-> 공개 미리 보기로 제공되는 동안 Microsoft는 사용자를 온보딩하고 기존 또는 새 데이터베이스에 기계 학습을 사용하도록 설정하지만 현재 관리형 인스턴스 배포 옵션은 지원되지 않습니다.
-
-R이 포함된 Machine Learning Services는 데이터베이스 내 R 스크립트를 실행하는 데 사용되는 Azure SQL 데이터베이스의 기능입니다. 자세한 내용은 [R 프로젝트](https://www.r-project.org/)를 참조하세요.
+R이 포함된 Machine Learning Services는 데이터베이스 내 R 스크립트를 실행하는 데 사용되는 Azure SQL Database의 기능입니다. 자세한 내용은 [R 프로젝트](https://www.r-project.org/)를 참조하세요.
 
 ## <a name="get-sql-server-connection-information"></a>SQL Server 연결 정보 가져오기
 

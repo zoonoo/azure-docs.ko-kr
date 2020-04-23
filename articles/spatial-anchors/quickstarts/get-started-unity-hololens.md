@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 2a427eab107c70b19932b7b8ddc5a7fc531ef19a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 9e946d7f4616799768711ee8c18584a2a8fcff2a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77615421"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482002"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하는 Unity HoloLens 앱 만들기
 
@@ -33,7 +33,7 @@ ms.locfileid: "77615421"
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-- Windows 컴퓨터에 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 또는 2019.2</a> 이상 및 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> 이상이 설치된 Windows 컴퓨터가 필요합니다. Visual Studio 설치에는 **유니버설 Windows 플랫폼 개발** 워크로드 및 **Windows 10 SDK(10.0.18362.0 이상)** 구성 요소가 포함되어야 합니다. <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a> 및 <a href="https://git-lfs.github.com/">Git LFS</a>도 설치해야 합니다.
+- Windows 컴퓨터에 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 또는 2019.2</a> 및 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> 이상이 설치되어 있어야 합니다. Visual Studio 설치에는 **유니버설 Windows 플랫폼 개발** 워크로드 및 **Windows 10 SDK(10.0.18362.0 이상)** 구성 요소가 포함되어야 합니다. <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a> 및 <a href="https://git-lfs.github.com/">Git LFS</a>도 설치해야 합니다.
 - [개발자 모드](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio)가 설정된 HoloLens 디바이스가 필요합니다. 디바이스에 [Windows 10 2018년 10월 업데이트](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018)(RS5라고도 함)가 설치되어 있어야 합니다. HoloLens의 최신 릴리스로 업데이트하려면 **설정** 앱을 열고 **업데이트 및 보안**으로 이동한 다음, **업데이트 확인**을 선택합니다.
 - 앱에서 **SpatialPerception** 기능을 사용하도록 설정해야 합니다. 이 설정은 **빌드 설정** > **플레이어 설정** > **게시 설정** > **기능**에 있습니다.
 - 앱에서 **Windows Mixed Reality SDK**의 **Virtual Reality Supported**(가상 현실 지원)를 사용하도록 설정해야 합니다. 이 설정은 **빌드 설정** > **플레이어 설정** > **XR 설정**에 있습니다.

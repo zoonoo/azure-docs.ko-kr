@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: 564e69e3cd852c6a0f8c20278d4742b77f064298
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 59c45497ea6d9fcb216c83060a858ee6c96f1151
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75499986"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81449972"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin 그래프 지원
 Azure Cosmos DB는 [Apache Tinkerpop의](https://tinkerpop.apache.org) 그래프 순회 언어인 [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps)을 지원합니다. Gremlin 언어를 사용하여 그래프 엔터티(예: 꼭짓점 및 에지)를 만들고, 해당 엔터티 내에서 속성을 수정하고, 쿼리 및 순회를 수행하고, 엔터티를 삭제할 수 있습니다. 
@@ -46,11 +46,9 @@ TinkerPop은 광범위한 그래프 기술을 지원하는 표준입니다. 따�
 | 에지 기능 | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | 에지 만들기, 수정 및 삭제를 지원합니다. |
 | 에지 속성 기능 | Properties, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | 에지 속성 만들기, 수정 및 삭제를 지원합니다. |
 
-## <a name="gremlin-wire-format-graphson"></a>Gremlin 통신 형식: GraphSON
+## <a name="gremlin-wire-format"></a>Gremlin 통신 형식
 
-Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](https://tinkerpop.apache.org/docs/current/reference/#graphson)을 사용합니다. Azure Cosmos DB는 현재 "GraphSONv2" 버전을 지원합니다. GraphSON은 JSON을 사용하여 꼭짓점, 에지 및 속성(단일 및 다중 값 속성)을 나타내기 위한 Gremlin 표준 형식입니다.
-
-예를 들어 다음 코드 조각은 Azure Cosmos DB에서 *클라이언트로 반환되는* 꼭짓점의 GraphSON 표현을 보여 줍니다. 
+Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 JSON 형식을 사용합니다. Azure Cosmos DB는 현재 JSON 형식을 지원합니다. 예를 들어 다음 코드 조각은 Azure Cosmos DB에서 *클라이언트로 반환되는* 꼭짓점의 JSON 표현을 보여 줍니다.
 
 ```json
   {
@@ -89,7 +87,7 @@ Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](h
   }
 ```
 
-꼭짓점에 대해 GraphSON에서 사용되는 속성은 다음과 같습니다.
+JSON 형식에서 꼭짓점에 사용되는 속성은 다음과 같습니다.
 
 | 속성 | Description | 
 | --- | --- | --- |

@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 6a127510b454244b32ad481cdb32c5d2e8faf9a0
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 47485d8d9007a6cf6432b7bf401c7c1c34a9863a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991180"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536134"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>빠른 시작: iOS 또는 macOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -30,7 +30,7 @@ ms.locfileid: "80991180"
 > [!NOTE]
 > **필수 구성 요소**
 > * XCode 10 이상
-> * iOS 10 이상 
+> * iOS 10 이상
 > * macOS 10.12 이상
 
 > [!div renderon="docs"]
@@ -83,7 +83,7 @@ ms.locfileid: "80991180"
 #### <a name="step-4-configure-your-project"></a>4단계: 프로젝트 구성
 
 > [!div renderon="docs"]
-> 위의 옵션 1을 선택한 경우 이러한 단계를 건너뛸 수 있습니다. 
+> 위의 옵션 1을 선택한 경우 이러한 단계를 건너뛸 수 있습니다.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > 1. Zip 파일을 추출하고 XCode에서 프로젝트를 엽니다.
@@ -149,9 +149,9 @@ ms.locfileid: "80991180"
 >          </array>
 >       </dict>
 >    </array>
-> 
+>
 >    ```
-> 1. 앱을 빌드하고 실행합니다! 
+> 1. 앱을 빌드하고 실행합니다!
 
 ## <a name="more-information"></a>추가 정보
 
@@ -192,7 +192,7 @@ import MSAL
 
 ```swift
 let authority = try MSALAADAuthority(url: URL(string: kAuthority)!)
-            
+
 let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 ```
@@ -209,7 +209,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 
  ```swift
  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        
+
         return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
     }
 
@@ -221,21 +221,21 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 
  ```swift
  func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        
+
         guard let urlContext = URLContexts.first else {
             return
         }
-        
+
         let url = urlContext.url
         let sourceApp = urlContext.options.sourceApplication
-        
+
         MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
     }
  ```
 
-마지막으로 앱의 ***Info.plist***에 `CFBundleURLTypes`와 함께 `LSApplicationQueriesSchemes` 항목이 있어야 합니다. 샘플에는 이 항목이 포함되어 있습니다. 
+마지막으로 앱의 ***Info.plist***에 `CFBundleURLTypes`와 함께 `LSApplicationQueriesSchemes` 항목이 있어야 합니다. 샘플에는 이 항목이 포함되어 있습니다.
 
-   ```xml 
+   ```xml
    <key>LSApplicationQueriesSchemes</key>
    <array>
       <string>msauthv2</string>
@@ -249,10 +249,10 @@ MSAL에는 토큰 가져오기에 사용되는 두 가지 메서드인 `acquireT
 
 #### <a name="acquiretoken-get-a-token-interactively"></a>acquireToken: 대화형으로 토큰 가져오기
 
-상황에 따라 사용자가 Microsoft ID 플랫폼과 상호 작용해야 합니다. 이러한 경우 최종 사용자는 해당 계정을 선택하거나, 해당 자격 증명을 입력하거나, 앱의 권한에 동의해야 할 수 있습니다. 예를 들면 다음과 같습니다. 
+상황에 따라 사용자가 Microsoft ID 플랫폼과 상호 작용해야 합니다. 이러한 경우 최종 사용자는 해당 계정을 선택하거나, 해당 자격 증명을 입력하거나, 앱의 권한에 동의해야 할 수 있습니다. 예를 들면 다음과 같습니다.
 
 * 처음으로 사용자가 애플리케이션에 로그인한 경우
-* 사용자가 자신의 암호를 다시 설정하는 경우 해당 자격 증명을 입력해야 합니다. 
+* 사용자가 자신의 암호를 다시 설정하는 경우 해당 자격 증명을 입력해야 합니다.
 * 애플리케이션에서 처음으로 리소스에 대한 액세스를 요청하는 경우
 * MFA 또는 기타 조건부 액세스 정책이 필요한 경우
 
@@ -263,19 +263,19 @@ self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* 
 
 > |위치:||
 > |---------|---------|
-> | `scopes` | 요청된 범위(즉 Microsoft Graph의 경우 `[ "user.read" ]`, 사용자 지정 Web API(`api://<Application ID>/access_as_user`)의 경우 `[ "<Application ID URL>/scope" ]`)가 포함됩니다. |
+> | `scopes` | 요청된 범위(즉 Microsoft Graph의 경우 `[ "user.read" ]`, 사용자 지정 웹 API(`api://<Application ID>/access_as_user`)의 경우 `[ "<Application ID URL>/scope" ]`)가 포함됩니다. |
 
 #### <a name="acquiretokensilent-get-an-access-token-silently"></a>acquireTokenSilent: 자동으로 액세스 토큰 가져오기
 
-사용자가 토큰을 요청할 때마다 앱에서 사용자가 로그인하도록 요구하지 않아야 합니다. 사용자가 이미 로그인한 경우 다음 메서드를 사용하면 앱에서 토큰을 자동으로 요청할 수 있습니다. 
+사용자가 토큰을 요청할 때마다 앱에서 사용자가 로그인하도록 요구하지 않아야 합니다. 사용자가 이미 로그인한 경우 다음 메서드를 사용하면 앱에서 토큰을 자동으로 요청할 수 있습니다.
 
 ```swift
 self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previousAccount, error) in
-            
+
    guard let account = currentAccount else {
       return
    }
-            
+
    let silentParams = MSALSilentTokenParameters(scopes: self.kScopes, account: account)
    self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error) in /* Add your handling logic */}
 }
@@ -283,7 +283,7 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 
 > |위치: ||
 > |---------|---------|
-> | `scopes` | 요청된 범위(즉 Microsoft Graph의 경우 `[ "user.read" ]`, 사용자 지정 Web API(`api://<Application ID>/access_as_user`)의 경우 `[ "<Application ID URL>/scope" ]`가 포함됩니다. |
+> | `scopes` | 요청된 범위(즉 Microsoft Graph의 경우 `[ "user.read" ]`, 사용자 지정 웹 API(`api://<Application ID>/access_as_user`)의 경우 `[ "<Application ID URL>/scope" ]`)가 포함됩니다. |
 > | `account` | 토큰을 요청하는 계정입니다. 이 빠른 시작은 단일 계정 애플리케이션에 대한 것입니다. 다중 계정 앱을 빌드하려면 `accountsFromDeviceForParameters:completionBlock:`를 사용하여 토큰 요청에 사용할 계정을 식별하고 올바른 `accountIdentifier`를 전달하는 논리를 정의해야 합니다. |
 
 ## <a name="next-steps"></a>다음 단계

@@ -6,12 +6,12 @@ ms.date: 04/03/2020
 ms.custom: seo-python-october2019, cli-validate
 experimental: true
 experiment_id: 01a9132f-eaab-4c
-ms.openlocfilehash: 63daecca710e0e4d7b3326cea59c0c025c24f619
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 7f8d21cbccc1a6eec7f62ab5d129f3f0637b8d13
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811146"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085130"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>빠른 시작: Azure App Service on Linux에서 Python 앱 만들기
 
@@ -109,25 +109,25 @@ az webapp up --sku F1 -n <app-name>
 
 `<location_name>`이 **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia** 등과 같은 Azure 지역인 `-l <location-name>` 인수를 필요에 따라 포함할 수 있습니다. Azure 계정에 허용되는 지역 목록은 [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) 명령을 실행하여 검색할 수 있습니다.
 
-`az webapp up` 명령을 완전히 실행하는 데 몇 분 정도 걸릴 수 있습니다. 실행 시 다음 예와 유사한 정보가 표시됩니다. 여기서 `<app_name>`은 이전에 제공한 이름입니다.
+`az webapp up` 명령을 완전히 실행하는 데 몇 분 정도 걸릴 수 있습니다. 실행 시 다음 예와 유사한 정보가 표시됩니다. 여기서 `<app-name>`은 이전에 제공한 이름입니다.
 
 <pre>
 Creating Resource group 'appsvc_rg_Linux_centralus' ...
 Resource group creation complete
 Creating App service plan 'appsvc_asp_Linux_centralus' ...
 App service plan creation complete
-Creating app '<app-name>' ....
+Creating app '&lt;app-name&gt;' ....
 Configuring default logging for the app, if not already enabled
 Creating zip with contents of dir D:\Examples\python-docs-hello-world ...
 Getting scm site credentials for zip deployment
 Starting zip deployment. This operation can take a while to complete ...
 Deployment endpoint responded with status code 202
-You can launch the app at http://<app-name>.azurewebsites.net
+You can launch the app at http://&lt;app-name&gt;.azurewebsites.net
 {
-  "URL": "http://<app-name>.net",
+  "URL": "http://&lt;app-name&gt;.net",
   "appserviceplan": "appsvc_asp_Linux_centralus",
   "location": "eastus",
-  "name": "<app-name>",
+  "name": "&lt;app-name&gt;",
   "os": "Linux",
   "resourcegroup": "appsvc_rg_Linux_centralus",
   "runtime_version": "python|3.7",
@@ -227,6 +227,9 @@ az group delete -n <resource-group-name>
 
 > [!div class="nextstepaction"]
 > [자습서: PostgreSQL을 사용하는 Python(Django) 웹앱](tutorial-python-postgresql-app.md)
+
+> [!div class="nextstepaction"]
+> [Python 웹앱에 사용자 로그인 추가](../../active-directory/develop/quickstart-v2-python-webapp.md)
 
 > [!div class="nextstepaction"]
 > [Python 앱 구성](how-to-configure-python.md)

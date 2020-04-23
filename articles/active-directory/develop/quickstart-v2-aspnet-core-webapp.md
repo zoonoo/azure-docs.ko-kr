@@ -1,6 +1,6 @@
 ---
 title: ASP.NET Core 웹앱에 Microsoft로 로그인 추가 - Microsoft ID 플랫폼 | Azure
-description: OpenID Connect를 사용하여 ASP.NET Core 웹앱에서 Microsoft 로그인을 구현하는 방법을 알아봅니다.
+description: OpenID Connect를 사용하여 ASP.NET Core 웹앱에서 Microsoft 로그인을 구현하는 방법 알아보기
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: ac53a6cf6953255f51a6b586703147c5ce2338b6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a34264870ce812da5d7e7c790a1482d90b33d06a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81407148"
+ms.locfileid: "81536168"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>빠른 시작: ASP.NET Core 웹앱에 Microsoft로 로그인 추가
 이 빠른 시작에서는 코드 샘플을 사용하여 ASP.NET Core 웹앱이 모든 Azure AD(Azure Active Directory) 인스턴스에서 개인 계정(hotmail.com, outlook.com, 기타)과 회사 및 학교 계정에 로그인하는 방법을 배웁니다. (자세한 내용은 [샘플 작동 방식 ](#how-the-sample-works)을 참조하세요.)
@@ -71,15 +71,15 @@ ms.locfileid: "81407148"
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>3단계: 앱이 구성되었고 실행할 준비가 되었습니다.
-> 앱 속성 값을 사용하여 프로젝트를 구성했고 실행할 준비가 되었습니다. 
+> 앱 속성 값을 사용하여 프로젝트를 구성했고 실행할 준비가 되었습니다.
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
 > #### <a name="step-3-run-your-visual-studio-project"></a>3단계: Visual Studio 프로젝트 실행
 > 1. Zip 파일을 루트 폴더 안의 로컬 폴더(예: **C:\Azure-Samples**)로 추출합니다.
-> 1. Visual Studio에서 솔루션 열기 
-> 1. **appsettings.json** 파일을 편집합니다. `ClientId`를 찾아 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 값으로 `ClientId` 값을 업데이트합니다. 
+> 1. Visual Studio에서 솔루션 열기
+> 1. **appsettings.json** 파일을 편집합니다. `ClientId`를 찾아 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 값으로 `ClientId` 값을 업데이트합니다.
 >
 >    ```json
 >    "ClientId": "Enter_the_Application_Id_here"
@@ -141,7 +141,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-`AddAuthentication` 메서드는 브라우저 시나리오에 사용되는 쿠키 기반 인증을 추가하고 OpenID Connect에 대한 챌린지를 설정하도록 서비스를 구성합니다. 
+`AddAuthentication` 메서드는 브라우저 시나리오에 사용되는 쿠키 기반 인증을 추가하고 OpenID Connect에 대한 챌린지를 설정하도록 서비스를 구성합니다.
 
 `.AddAzureAd`가 포함된 줄은 애플리케이션에 Microsoft ID 플랫폼 인증을 추가합니다. 그런 다음, Microsoft ID 플랫폼 엔드포인트를 사용하여 로그인하도록 구성됩니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 4aa0cce83f9adc8c648656899ec6dc12d498e26b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1ff92b8a9477800477ebb2d79145ddaa78831f30
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77160451"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536066"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>빠른 시작: OpenID Connect를 사용하여 Node.js 웹앱에 로그인 추가
 
@@ -30,7 +30,7 @@ ms.locfileid: "77160451"
 
 * [Microsoft 계정](https://www.outlook.com) 또는 [ Office 365 개발자 프로그램](/office/developer-program/office-365-developer-program)
 
-## <a name="register-your-application"></a>애플리케이션 등록 
+## <a name="register-your-application"></a>애플리케이션 등록
 1. [Azure Portal](https://portal.azure.com/)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 계정이 여러 Azure AD 테넌트에 있는 경우:
     - 페이지의 오른쪽 위 모서리에 있는 메뉴에서 프로필을 선택한 다음, **디렉터리를 전환**합니다.
@@ -78,7 +78,7 @@ ms.locfileid: "77160451"
 
 프로젝트 루트 디렉터리에서 다음 명령을 실행합니다.
 
-`$ npm install`  
+`$ npm install`
 
 ## <a name="configure-the-application"></a>애플리케이션 구성
 

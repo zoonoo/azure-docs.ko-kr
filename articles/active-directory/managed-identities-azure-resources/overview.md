@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/25/2020
+ms.date: 04/18/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 707b03d46615f3acfa0797d1dc0865d53ef75dc0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2231d70e6c4368a7c896f9063b58cc97ee292f53
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282123"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682584"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Azure 리소스용 관리 ID란?
 
@@ -51,8 +51,12 @@ Azure 리소스에 대한 관리 ID 기능은 Azure 구독용 Azure AD에 무료
 - **사용자 할당 관리 ID**는 독립 실행형 Azure 리소스로 생성됩니다. 만들기 프로세스를 통해 Azure는 사용 중인 구독에서 신뢰하는 Azure AD 테넌트에 ID를 만듭니다. 생성된 ID는 하나 이상의 Azure 서비스 인스턴스에 할당할 수 있습니다. 사용자 할당 ID의 수명 주기는 할당된 Azure 서비스 인스턴스의 수명 주기와 별도로 관리됩니다.
 
 내부적으로 관리 ID는 Azure 리소스에만 사용할 수 있도록 잠긴 특별한 유형의 서비스 주체입니다. 관리 ID가 삭제되면 해당하는 서비스 주체가 자동으로 제거됩니다.
+또한 사용자 할당 ID 또는 시스템 할당 ID를 만들면 MSRP(관리 ID 리소스 공급자)에서 해당 ID에 내부적으로 인증서를 발급합니다. 
 
-코드가 관리 ID를 사용하여 Azure AD 인증을 지원하는 서비스용 액세스 토큰을 요청할 수 있습니다. 서비스 인스턴스가 사용하는 자격 증명 롤링은 Azure에서 처리합니다.
+코드가 관리 ID를 사용하여 Azure AD 인증을 지원하는 서비스용 액세스 토큰을 요청할 수 있습니다. 서비스 인스턴스가 사용하는 자격 증명 롤링은 Azure에서 처리합니다. 
+
+## <a name="credential-rotation"></a>자격 증명 회전
+자격 증명 회전은 Azure 리소스를 호스트하는 리소스 공급자에 의해 제어됩니다. 자격 증명의 기본 회전은 46일마다 발생합니다. 새 자격 증명을 요청하는 일은 리소스 공급자가 담당하므로 리소스 공급자는 46일 이상 기다릴 수 있습니다.
 
 다음 다이어그램은 관리 서비스 ID가 Azure VM(가상 머신)에서 작동하는 방식을 보여줍니다.
 

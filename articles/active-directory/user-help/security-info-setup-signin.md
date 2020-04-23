@@ -1,24 +1,24 @@
 ---
-title: 로그인 프롬프트에서 보안 정보 설정(미리 보기) - Azure AD
-description: 회사의 로그인 페이지에서 메시지가 표시된 후 회사 또는 학교 계정에 대한 보안 정보를 설정(미리 보기)하는 방법입니다.
+title: 로그인 프롬프트에서 보안 정보 설정 - Azure AD
+description: 회사의 로그인 페이지에서 메시지가 표시된 후 회사 또는 학교 계정에 대한 보안 정보를 설정하는 방법입니다.
 services: active-directory
 author: curtand
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 08/05/2019
+ms.date: 04/07/2020
 ms.author: curtand
-ms.openlocfilehash: c216dbfef99422fc49fde774dc57d5cbcc9f879a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: eb6b124ea0ec036cd9846652fbd9eac5f81eb560
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77063988"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454488"
 ---
-# <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>로그인 프롬프트에서 보안 정보 설정(미리 보기)
+# <a name="set-up-your-security-info-from-a-sign-in-prompt"></a>로그인 프롬프트에서 보안 정보 설정
 
 회사 또는 학교 계정에 로그인하는 즉시 보안 정보를 설정하라는 메시지가 표시되면 다음 단계를 수행할 수 있습니다.
 
@@ -122,7 +122,7 @@ ms.locfileid: "77063988"
 Outlook 2010과 같은 특정 앱은 2단계 인증을 지원하지 않습니다. 따라서 조직에서 2단계 인증을 사용하는 경우 앱이 작동하지 않습니다. 이 문제를 해결하려면 사용자의 일반 암호와는 별도로 자동으로 생성된 암호를 만들어 각 비 브라우저 앱과 함께 사용할 수 있습니다.
 
 >[!Note]
->마법사에서 이 옵션이 표시되지 않으면 관리자가 설정하지 않은 것입니다. 설정되지 않았지만 앱 암호를 사용해야 하는 경우 [보안 정보(미리 보기) 페이지에서 앱 암호 설정](security-info-app-passwords.md)의 단계를 따를 수 있습니다.
+>마법사에서 이 옵션이 표시되지 않으면 관리자가 설정하지 않은 것입니다. 설정되지 않았지만 앱 암호를 사용해야 하는 경우 [보안 정보 페이지에서 앱 암호 설정](security-info-app-passwords.md)의 단계를 따를 수 있습니다.
 
 앱 암호를 사용하는 경우 다음 사항을 고려해야 합니다.
 

@@ -5,18 +5,18 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 01/04/2017
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b385136183fba5d1e64db3763453d2f4b23d4d96
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f8449c516bce3f3ab949e88808f73c7240995f99
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80045179"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535641"
 ---
 # <a name="app-service-overview"></a>App Service 개요
 
 *Azure App Service*는 웹 애플리케이션, REST API 및 모바일 백 엔드를 호스트하는 HTTP 기반 서비스입니다. .NET, .NET Core, Java, Ruby, Node.js, PHP 또는 Python 등 원하는 언어로 개발할 수 있습니다. Windows 및 Linux 기반 환경에서 애플리케이션을 쉽게 실행하고 확장할 수 있습니다. Linux 기반 환경에 대한 자세한 내용은 [Linux의 App Service](containers/app-service-linux-intro.md)를 참조하세요. 
 
-App Service는 보안, 부하 분산, 자동 크기 조정 및 자동화된 관리와 같이 Microsoft Azure의 강력한 기능을 애플리케이션에 추가합니다. 또한 Azure DevOps, GitHub, Docker 허브 및 기타 원본, 패키지 관리, 스테이징 환경, 사용자 지정 도메인 및 SSL 인증서의 지속적인 배포와 같은 DevOps 기능도 활용할 수 있습니다. 
+App Service는 보안, 부하 분산, 자동 크기 조정 및 자동화된 관리와 같이 Microsoft Azure의 강력한 기능을 애플리케이션에 추가합니다. 또한 Azure DevOps, GitHub, Docker 허브 및 기타 원본, 패키지 관리, 스테이징 환경, 사용자 지정 도메인 및 TLS/SSL 인증서의 지속적인 배포와 같은 DevOps 기능도 활용할 수 있습니다. 
 
 App Service를 사용하면 Azure 컴퓨팅 리소스에 대한 비용을 지불하게 됩니다. 사용할 컴퓨팅 리소스는 앱을 실행하는 _App Service 계획_ 에 따라 결정됩니다. 자세한 내용은 [Azure App Service 계획 개요](overview-hosting-plans.md)를 참조하세요.
 
