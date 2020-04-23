@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 82094fadf7b11d97b0e9e74d9ba897baed16ee01
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 655194a1335ae258e27dff2c75a370578253794a
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80874282"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605863"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -185,7 +185,7 @@ Azure Resource Manager 템플릿을 사용하여 예산을 만들 수 있습니�
 
 다음 이미지를 선택하고 Azure Portal에 로그인하여 템플릿을 엽니다.
 
-[![Azure에 예산 만들기 템플릿 배포](./media/tutorial-acm-create-budgets/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fcreate-budget%2fazuredeploy.json)
+[![Azure에 예산 만들기 템플릿 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fcreate-budget%2fazuredeploy.json)
 
 모든 템플릿 매개 변수와 해당 설명의 목록을 보려면 [예산 만들기](https://azure.microsoft.com/resources/templates/create-budget/) 템플릿을 참조하세요.
 

@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
-ms.openlocfilehash: 0a73a2bc3fa76c945cf699133a41b38a9983a234
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: ebea6117420ee6de67025dfd4cfba71e905cb9ec
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345803"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453100"
 ---
 # <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>자습서: Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 클러스터링 모델 빌드
 
@@ -36,8 +37,6 @@ ms.locfileid: "80345803"
 [1부](sql-database-tutorial-clustering-model-prepare-data.md)에서는 클러스터링을 수행할 수 있도록 Azure SQL 데이터베이스에서 데이터를 준비하는 방법을 알아보았습니다.
 
 [3부](sql-database-tutorial-clustering-model-deploy.md)에서는 새 데이터를 기반으로 R에서 클러스터링을 수행할 수 있는 Azure SQL 데이터베이스에 저장 프로시저를 만드는 방법을 알아봅니다.
-
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

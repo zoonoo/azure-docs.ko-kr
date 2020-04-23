@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
-ms.openlocfilehash: 7779db053344f99238d38d5d49762730efbc5fc4
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: efcb73866c83dcc03b5db8b7b97f438fb3010511
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346315"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452811"
 ---
 # <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>자습서: Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 예측 모델 배포
 
@@ -39,8 +40,6 @@ ms.locfileid: "80346315"
 [1부](sql-database-tutorial-predictive-model-prepare-data.md)에서는 샘플 데이터베이스를 가져온 다음, R에서 예측 모델을 학습하는 데 사용할 데이터를 준비하는 방법을 살펴보았습니다.
 
 [2부](sql-database-tutorial-predictive-model-build-compare.md)에서는 R에서 여러 기계 학습 모델을 만들고 학습시킨 후 가장 정확한 모델을 선택하는 방법을 알아보았습니다.
-
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

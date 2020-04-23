@@ -5,7 +5,6 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -15,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6c8b29052b4ca1d3ccd6f1f9b6afba5177dbd6c8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d233cba65d190178c500f78d4817e233ab46d780
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80066488"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460073"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>자습서: Azure의 Linux 가상 머신을 위한 파일 백업 및 복원
 
@@ -156,7 +155,7 @@ Azure Backup 서비스에서 백업을 시작하면 백업 확장을 트리거�
 
     ![기본 nginx 웹 페이지](./media/tutorial-backup-vms/nginx-working.png)
 
-18. 로컬 컴퓨터에서 Azure Portal의 브라우저 탭으로 돌아가서 **3단계: 복구 후 디스크 분리**에서 **디스크 분리** 단추를 클릭합니다. 이 단계를 수행하지 않으면 12시간 후에 탑재 지점에 대한 연결이 자동으로 끊깁니다. 12시간이 지나면 새 스크립트를 다운로드하여 새 탑재 지점을 만들어야 합니다.
+18. 로컬 컴퓨터에서 Azure Portal용 브라우저 탭으로 돌아가고, **3단계: 복구 후 디스크 분리**에서 **디스크 분리** 단추를 클릭합니다. 이 단계를 수행하지 않으면 12시간 후에 탑재 지점에 대한 연결이 자동으로 끊깁니다. 12시간이 지나면 새 스크립트를 다운로드하여 새 탑재 지점을 만들어야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

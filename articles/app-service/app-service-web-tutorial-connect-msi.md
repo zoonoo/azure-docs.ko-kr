@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: mvc, cli-validate
-ms.openlocfilehash: af44f4a96567cc86c9f884cdfe5e28ff6b7bd8f3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 787809e4132defa101bb82659e8af1a2d9f1b9b6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78897677"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453797"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 
@@ -128,7 +128,7 @@ Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.1
 - `MyDbConnection`이라는 연결 문자열을 찾고 `connectionString` 값을 `"server=tcp:<server-name>.database.windows.net;database=<db-name>;UID=AnyString;Authentication=Active Directory Interactive"`로 바꿉니다. _\<server-name>_ 및 _\<db-name>_ 을 서버 이름 및 데이터베이스 이름으로 바꿉니다.
 
 > [!NOTE]
-> 방금 등록한 SqlAuthenticationProvider는 이전에 설치한 AppAuthentication 라이브러리를 기반으로 합니다. 기본적으로 시스템 할당 ID를 사용합니다. 사용자 할당 ID를 활용하려면 추가 구성을 제공해야 합니다. AppAuthentication 라이브러리는 [연결 문자열 지원](../key-vault/service-to-service-authentication.md#connection-string-support)을 참조하세요.
+> 방금 등록한 SqlAuthenticationProvider는 이전에 설치한 AppAuthentication 라이브러리를 기반으로 합니다. 기본적으로 시스템 할당 ID를 사용합니다. 사용자 할당 ID를 활용하려면 추가 구성을 제공해야 합니다. AppAuthentication 라이브러리는 [연결 문자열 지원](../key-vault/general/service-to-service-authentication.md#connection-string-support)을 참조하세요.
 
 SQL Database에 연결하는 데 필요한 모든 항목입니다. Visual studio에서 디버깅하는 경우 코드는 [Visual Studio 설정](#set-up-visual-studio)에서 구성한 Azure AD 사용자를 사용합니다. App Service 앱의 관리 ID에서 연결할 수 있도록 SQL Database 서버를 나중에 설정합니다.
 

@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 3f4f1f5e163dfed9f356aed538d934d0e4258790
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: c1d26fda57d665cc8d83f594f4efeebebc7bf139
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618875"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456892"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>자습서: Azure Key Vault를 사용하여 Blob 암호화 및 해독
 
@@ -23,7 +23,7 @@ ms.locfileid: "80618875"
 
 **예상 완료 시간:** 20분
 
-Azure Key Vault에 대한 개요는 [Azure Key Vault란?](../../key-vault/key-vault-overview.md)을 참조하세요.
+Azure Key Vault에 대한 개요는 [Azure Key Vault란?](../../key-vault/general/overview.md)을 참조하세요.
 
 Azure Storage에 대한 클라이언트 쪽 암호화의 개요 정보는 [Microsoft Azure Storage에 대한 클라이언트 쪽 암호화 및 Azure Key Vault](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
@@ -48,7 +48,7 @@ Azure Storage에 대한 클라이언트 쪽 암호화의 개요는 [Microsoft St
 
 ## <a name="set-up-your-azure-key-vault"></a>Azure Key Vault 설정
 
-이 자습서를 계속하려면 자습서 [빠른 시작: .NET 웹앱을 사용하여 Azure Key Vault에서 비밀 설정 및 검색](../../key-vault/quick-create-net.md)에 요약된 다음 단계를 수행해야 합니다.
+이 자습서를 계속하려면 자습서 [빠른 시작: .NET 웹앱을 사용하여 Azure Key Vault에서 비밀 설정 및 검색](../../key-vault/secrets/quick-create-net.md)에 요약된 다음 단계를 수행해야 합니다.
 
 * 키 자격 증명 모음을 만듭니다.
 * 키 또는 암호를 키 자격 증명 모음에 추가합니다.

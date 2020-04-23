@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
-ms.openlocfilehash: 52f4347fa545df88f11878709b4061662d5faffe
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0985b37280e3cd363ba1728a5ec33b0012611ab2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345746"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452930"
 ---
 # <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>자습서: Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 예측 모델 만들기
 
@@ -36,8 +37,6 @@ ms.locfileid: "80345746"
 [1부](sql-database-tutorial-predictive-model-prepare-data.md)에서는 샘플 데이터베이스를 가져온 다음, R에서 예측 모델을 학습하는 데 사용할 데이터를 준비하는 방법을 살펴보았습니다.
 
 [3부](sql-database-tutorial-predictive-model-deploy.md)에서는 데이터베이스에 모델을 저장한 다음, 1부 및 2부에서 개발한 R 스크립트로 저장 프로시저를 만드는 방법을 알아봅니다. 저장 프로시저는 SQL 데이터베이스에서 실행되어 새 데이터를 기반으로 예측을 만듭니다.
-
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

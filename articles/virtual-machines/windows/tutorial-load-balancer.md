@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -15,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 12/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 05a796d7bbe08f8e560c6545f3ed37c0f54b9cf9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 781ee9136c13f75ab53c662225cc12b28b1fb02e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74067856"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455702"
 ---
 # <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>자습서: Azure PowerShell을 통해 Azure에서 Windows 가상 머신의 부하를 분산하여 고가용성 애플리케이션을 만드는 방법
 부하 분산은 들어오는 요청을 여러 가상 머신에 분산하여 높은 수준의 가용성을 제공합니다. 이 자습서에서는 트래픽을 분산하고 고가용성을 제공하는 Azure Load Balancer의 여러 다른 구성 요소에 대해 알아봅니다. 다음 방법을 알아봅니다.
@@ -276,7 +275,7 @@ Set-AzNetworkInterface -NetworkInterface $nic
 앱이 실행되는 나머지 2개의 VM에서 부하 분산 장치가 트래픽을 분산하는 것을 확인하기 위해 웹 브라우저를 강제로 새로 고칠 수 있습니다. 이제 OS 업데이트 설치 또는 VM 다시 부팅을 수행 등의 유지 관리 작업을 VM에서 수행할 수 있습니다.
 
 ### <a name="add-a-vm-to-the-load-balancer"></a>부하 분산 장치에 VM 추가
-VM 유지 관리를 수행한 후에 또는 용량을 확장해야 하는 경우 가상 NIC의 *LoadBalancerBackendAddressPools* 속성을 *Get-AzLoadBalancer*에서 [BackendAddressPool](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer)로 설정합니다.
+VM 유지 관리를 수행한 후에 또는 용량을 확장해야 하는 경우 가상 NIC의 *LoadBalancerBackendAddressPools* 속성을 [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer)에서 *BackendAddressPool*로 설정합니다.
 
 부하 분산 장치를 가져옵니다.
 

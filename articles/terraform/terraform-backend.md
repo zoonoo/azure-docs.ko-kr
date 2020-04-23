@@ -3,12 +3,12 @@ title: 자습서 - Terraform 상태를 Azure Storage에 저장
 description: Azure Storage에서의 Terraform 상태 저장을 소개합니다.
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 1cc475e5070b21a7ea96585f2183c07d258acdc5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c94c66969c517bd0e51117ab7c6ed6a889149518
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75708427"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459018"
 ---
 # <a name="tutorial-store-terraform-state-in-azure-storage"></a>자습서: Terraform 상태를 Azure Storage에 저장
 
@@ -67,7 +67,7 @@ Azure Storage 액세스 키의 값을 사용하여 `ARM_ACCESS_KEY`라는 환경
 export ARM_ACCESS_KEY=<storage access key>
 ```
 
-Azure Storage 계정 액세스 키를 추가로 보호하려면 Azure Key Vault에 저장합니다. 그런 다음, 다음과 비슷한 명령을 사용하여 환경 변수를 설정할 수 있습니다. Azure Key Vault에 대한 자세한 내용은 [Azure Key Vault 설명서](../key-vault/quick-create-cli.md)를 참조하세요.
+Azure Storage 계정 액세스 키를 추가로 보호하려면 Azure Key Vault에 저장합니다. 그런 다음, 다음과 비슷한 명령을 사용하여 환경 변수를 설정할 수 있습니다. Azure Key Vault에 대한 자세한 내용은 [Azure Key Vault 설명서](../key-vault/secrets/quick-create-cli.md)를 참조하세요.
 
 ```bash
 export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --vault-name myKeyVault --query value -o tsv)

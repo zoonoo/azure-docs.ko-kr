@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: a4d7030f7a58a6252c6e596fc2c248163694a1e8
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 0fb80b8a3fe9dd642b1574b35ff48b30272ce848
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80880876"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533720"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>자습서: Microsoft ID 플랫폼 엔드포인트를 사용하는 다중 테넌트 디먼 빌드
 
@@ -30,7 +30,7 @@ ms.locfileid: "80880876"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-앱은 ASP.NET MVC 애플리케이션으로 빌드됩니다. OWIN OpenID Connect 미들웨어를 사용하여 사용자를 로그인합니다.  
+앱은 ASP.NET MVC 애플리케이션으로 빌드됩니다. OWIN OpenID Connect 미들웨어를 사용하여 사용자를 로그인합니다.
 
 이 샘플의 "daemon" 구성 요소는 `SyncController.cs` API 컨트롤러입니다. 컨트롤러가 호출되면 Microsoft Graph에서 고객의 Azure AD(Azure Active Directory) 테넌트에 있는 사용자 목록을 가져옵니다. `SyncController.cs`는 웹 애플리케이션의 AJAX 호출을 통해 트리거되며, [.NET용 MSAL(Microsoft 인증 라이브러리)](msal-overview.md)을 사용하여 Microsoft Graph에 대한 액세스 토큰을 획득합니다.
 
@@ -109,7 +109,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
    - **리디렉션 URI(선택 사항)** 섹션의 콤보 상자에서 **웹**을 선택하고, 다음 리디렉션 URI를 입력합니다.
        - **https://localhost:44316/**
        - **https://localhost:44316/Account/GrantPermissions**
-          
+
      셋 이상의 리디렉션 URI가 있는 경우 나중에 앱이 성공적으로 만들어지면 **인증** 탭에서 이러한 URI를 추가해야 합니다.
 1. **등록**을 선택하여 애플리케이션을 만듭니다.
 1. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 찾아서 기록해 둡니다. 이 프로젝트의 Visual Studio 구성 파일을 구성하는 데 필요합니다.
@@ -121,7 +121,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 
    1. 키 설명(예: **앱 비밀**)을 입력합니다.
    1. 키 기간을 **1년 후**, **2년 후** 또는 **만료 기한 제한 없음**으로 선택합니다.
-   1. **추가** 단추를 선택합니다. 
+   1. **추가** 단추를 선택합니다.
    1. 키 값이 표시되면 이를 복사하여 안전한 위치에 저장합니다. 나중에 Visual Studio에서 프로젝트를 구성하려면 이 키가 필요합니다. 다른 방법으로 다시 표시하거나 검색할 수 없습니다.
 1. 앱의 페이지 목록에서 **API 권한**을 선택합니다. 그렇다면
    1. **권한 추가**를 선택합니다.
@@ -174,21 +174,21 @@ Visual Studio에서 솔루션을 열어 프로젝트를 구성합니다.
 
 ## <a name="re-create-the-sample-app"></a>샘플 앱 다시 만들기
 
-1. Visual Studio에서 새 **Visual C#** **ASP.NET 웹 애플리케이션(.NET Framework)** 프로젝트를 만듭니다. 
+1. Visual Studio에서 새 **Visual C#** **ASP.NET 웹 애플리케이션(.NET Framework)** 프로젝트를 만듭니다.
 1. 다음 화면에서 **MVC** 프로젝트 템플릿을 선택합니다. 나중에 웹 API 컨트롤러를 추가하므로 **Web API**에 대한 폴더 및 코어 참조도 추가합니다. 선택된 프로젝트의 인증 모드를 기본값, 즉 **인증 없음**으로 둡니다.
-1. **솔루션 탐색기** 창에서 프로젝트, **F4** 키를 차례로 선택합니다. 
+1. **솔루션 탐색기** 창에서 프로젝트, **F4** 키를 차례로 선택합니다.
 1. 프로젝트 속성에서 **SSL 사용**을 **True**로 설정합니다. **SSL URL**의 정보를 적어둡니다. 이는 Azure Portal에서 이 애플리케이션의 등록을 구성할 때 필요합니다.
-1. 다음 ASP.NET OWIN 미들웨어 NuGet 패키지를 추가합니다. 
+1. 다음 ASP.NET OWIN 미들웨어 NuGet 패키지를 추가합니다.
    - Microsoft.Owin.Security.ActiveDirectory
    - Microsoft.Owin.Security.Cookies
    - Microsoft.Owin.Host.SystemWeb
    - Microsoft.IdentityModel.Protocol.Extensions
    - Microsoft.Owin.Security.OpenIdConnect
-   - Microsoft.Identity.Client 
+   - Microsoft.Identity.Client
 1. **App_Start** 폴더에서 다음을 수행합니다.
-   1. **Startup.Auth.cs**라는 클래스를 만듭니다. 
-   1. 네임스페이스 이름에서 **.App_Start**를 제거합니다. 
-   1. **Startup** 클래스의 코드를 샘플 앱의 동일한 파일에 있는 코드로 바꿉니다.       
+   1. **Startup.Auth.cs**라는 클래스를 만듭니다.
+   1. 네임스페이스 이름에서 **.App_Start**를 제거합니다.
+   1. **Startup** 클래스의 코드를 샘플 앱의 동일한 파일에 있는 코드로 바꿉니다.
    클래스 정의 전체를 사용해야 합니다. 정의가 **퍼블릭 클래스 Startup**에서 **퍼블릭 partial 클래스 Startup**으로 변경됩니다.
 1. **Startup.Auth.cs**에서 Visual Studio IntelliSense에서 제안한 대로 **using** 문을 추가하여 누락된 참조를 확인합니다.
 1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **추가**를 선택한 다음, **클래스**를 선택합니다.
@@ -220,12 +220,12 @@ Visual Studio에서 솔루션을 열어 프로젝트를 구성합니다.
 1. 웹 사이트가 만들어지면 **대시보드**에서 해당 웹 사이트를 찾아서 선택하여 앱 서비스의 **개요** 화면을 엽니다.
 1. 앱 서비스의 **개요** 탭에서 **게시 프로필 가져오기** 링크를 선택하여 게시 프로필을 다운로드하고 저장합니다. 원본 제어에서 배포와 같은 다른 배포 메커니즘을 사용할 수 있습니다.
 1. Visual Studio로 전환하고 다음을 수행합니다.
-   1. **dotnet-web-daemon-v2** 프로젝트로 이동합니다. 
+   1. **dotnet-web-daemon-v2** 프로젝트로 이동합니다.
    1. 솔루션 탐색기에서 마우스 오른쪽 단추로 프로젝트를 클릭한 다음, **게시**를 선택합니다.
    1. 아래쪽 표시줄에서 **프로필 가져오기**를 선택하고, 이전에 다운로드한 게시 프로필을 가져옵니다.
 1. **구성**을 선택합니다.
 1. **연결** 탭에서 "https"를 사용하도록 대상 URL을 업데이트합니다. 예를 들어 [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net)을 사용합니다. **다음**을 선택합니다.
-1. **설정** 탭에서 **조직 인증 사용**이 선택 취소되어 있는지 확인합니다.  
+1. **설정** 탭에서 **조직 인증 사용**이 선택 취소되어 있는지 확인합니다.
 1. **저장**을 선택합니다. 주 화면에서 **게시**를 선택합니다.
 
 Visual Studio에서 프로젝트를 게시하고, 브라우저를 프로젝트의 URL로 자동으로 엽니다. 프로젝트의 기본 웹 페이지가 표시되면 게시가 성공적으로 수행된 것입니다.
