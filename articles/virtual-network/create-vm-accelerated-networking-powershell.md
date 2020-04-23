@@ -1,5 +1,5 @@
 ---
-title: 빠른 네트워킹을 사용하여 Azure VM 만들기 - Azure PowerShell
+title: 가속화 된 네트워킹을 사용 하 여 Azure VM 만들기-Azure PowerShell
 description: 가속 네트워킹을 사용하는 Linux 가상 머신을 만드는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: ''
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: 16837782af2f08e27363091dc21587a100194cd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3807c1434e3758eafe299da7b30769b41d3ede87
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245058"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106307"
 ---
-# <a name="create-a-windows-virtual-machine-with-accelerated-networking-using-azure-powershell"></a>Azure PowerShell을 사용하여 빠른 네트워킹을 사용하여 Windows 가상 컴퓨터 만들기
+# <a name="create-a-windows-virtual-machine-with-accelerated-networking-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 가속화 된 네트워킹을 사용 하는 Windows 가상 머신 만들기
 
 이 자습서에서는 가속화된 네트워킹을 사용하여 Windows VM(가상 머신)을 만드는 방법에 대해 알아봅니다. 가속화된 네트워킹을 사용하여 Linux VM을 만들려면 [가속화된 네트워킹을 사용하여 Linux VM 만들기](create-vm-accelerated-networking-cli.md)를 참조합니다. 가속화된 네트워킹을 사용하면 VM에 대한 단일 루트 I/O 가상화(SR-IOV)를 구현할 수 있어 네트워킹 성능이 크게 향상됩니다. 이 고성능 경로는 데이터 경로에서 호스트를 우회함으로써 대기 시간, 지터 및 CPU 사용률을 줄이므로 지원되는 VM 유형에서 가장 까다로운 네트워크 워크로드에 사용합니다. 다음 그림에서는 가속 네트워킹을 사용할 때와 사용하지 않을 때 두 개의 VM 간의 통신을 보여줍니다.
 
 ![비교](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
-가속화된 네트워킹을 사용하지 않는 경우 VM에서 들어오고 나가는 모든 네트워킹 트래픽이 호스트와 가상 스위치를 통과해야 합니다. 가상 스위치는 네트워크 보안 그룹, 액세스 제어 목록, 격리 및 네트워크 트래픽에 대한 다른 네트워크 가상화 서비스 등, 모든 정책 적용을 제공합니다. 가상 스위치에 대한 자세한 내용은 [Hyper-V 네트워크 가상화 및 가상 스위치를](https://technet.microsoft.com/library/jj945275.aspx)참조하십시오.
+가속화된 네트워킹을 사용하지 않는 경우 VM에서 들어오고 나가는 모든 네트워킹 트래픽이 호스트와 가상 스위치를 통과해야 합니다. 가상 스위치는 네트워크 보안 그룹, 액세스 제어 목록, 격리 및 네트워크 트래픽에 대한 다른 네트워크 가상화 서비스 등, 모든 정책 적용을 제공합니다. 가상 스위치에 대해 자세히 알아보려면 [hyper-v 네트워크 가상화 및 가상 스위치](https://technet.microsoft.com/library/jj945275.aspx)를 참조 하세요.
 
 가속화된 네트워킹을 사용하는 경우 네트워크 트래픽이 VM의 NIC(네트워크 인터페이스)에 도착한 다음 VM으로 전달됩니다. 이제 가상 스위치가 적용되는 모든 네트워크 정책은 오프로드되어 하드웨어에 적용됩니다. 하드웨어에서 정책을 적용하면 NIC는 호스트에 적용된 모든 정책을 유지하면서 VM에 직접 네트워크 트래픽을 전달할 수 있으므로 호스트 및 가상 스위치를 우회할 수 있습니다.
 
@@ -43,13 +43,13 @@ ms.locfileid: "79245058"
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
 다음 배포는 즉시 Azure Gallery에서 기본으로 지원됩니다.
 * **Windows Server 2016 Datacenter** 
-* **윈도우 서버 2012 R2 데이터 센터**
-* **윈도우 서버 2019 데이터 센터**
+* **Windows Server 2012 R2 Datacenter**
+* **Windows Server 2019 Datacenter**
 
 ### <a name="supported-vm-instances"></a>지원되는 VM 인스턴스
 가속 네트워킹은 가장 일반적인 용도로 2개 이상의 vCPU가 포함된 계산 최적화 인스턴스 크기에서 지원됩니다.  이러한 지원되는 계열은 D/DSv2 및 F/Fs입니다.
 
-하이퍼스레딩을 지원하는 인스턴스에서 가속 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 지원되는 시리즈는 다음과 같습니다 D / Dsv3, E / Esv3, Fsv2, Lsv2, Ms / Mms 및 Ms / Mmsv2.
+하이퍼스레딩을 지원하는 인스턴스에서 가속 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 지원 되는 시리즈는 D/Dsv3, D/Dsv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms 및 Ms/Mmsv2입니다.
 
 VM 인스턴스에 대한 자세한 내용은 [Windows VM 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
@@ -64,19 +64,19 @@ VM 인스턴스에 대한 자세한 내용은 [Windows VM 크기](../virtual-mac
 
 ## <a name="create-a-windows-vm-with-azure-accelerated-networking"></a>Azure 가속화된 네트워킹을 사용하여 Windows VM 만들기
 ## <a name="portal-creation"></a>포털 만들기
-이 문서에서는 Azure Powershell을 사용하여 빠른 네트워킹을 사용하여 가상 컴퓨터를 만드는 단계를 제공하지만 [Azure Portal을 사용하여 빠른 네트워킹을 사용하는 가상 컴퓨터를 만들](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)수도 있습니다. 포털에서 가상 컴퓨터를 만들 때 가상 컴퓨터 블레이드 **만들기에서** **네트워킹** 탭을 선택합니다.  이 탭에는 **가속 네트워킹에**대한 옵션이 있습니다.  [지원되는 운영 체제](#supported-operating-systems) 및 [VM 크기를](#supported-vm-instances)선택한 경우 이 옵션은 자동으로 "켜기"로 채워집니다.  그렇지 않으면 가속 네트워킹에 대한 "꺼기" 옵션을 채우고 사용자에게 활성화되지 않은 이유를 제공합니다.   
-* *참고:* 지원되는 운영 체제만 포털을 통해 사용할 수 있습니다.  사용자 지정 이미지를 사용하고 있고 이미지가 가속 네트워킹을 지원하는 경우 CLI 또는 Powershell을 사용하여 VM을 만드십시오. 
+이 문서에서는 Azure Powershell을 사용 하 여 가속화 된 네트워킹을 사용 하는 가상 머신을 만드는 단계를 제공 하지만 [Azure Portal를 사용 하 여 가속화 된 네트워킹을 사용 하는 가상 머신을 만들](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)수도 있습니다. 포털에서 가상 컴퓨터를 만들 때 **가상 컴퓨터 만들기** 블레이드에서 **네트워킹** 탭을 선택 합니다.  이 탭에는 **가속화 된 네트워킹**옵션이 있습니다.  [지원 되는 운영 체제](#supported-operating-systems) 및 [VM 크기](#supported-vm-instances)를 선택한 경우이 옵션은 "설정"으로 자동으로 채워집니다.  그렇지 않은 경우에는 가속화 된 네트워킹에 대해 "Off" 옵션을 채우고 사용자에 게 사용 하지 않는 이유를 제공 합니다.   
+* *참고:* 지원 되는 운영 체제만 포털을 통해 사용 하도록 설정할 수 있습니다.  사용자 지정 이미지를 사용 하 고 이미지가 가속화 된 네트워킹을 지 원하는 경우 CLI 또는 Powershell을 사용 하 여 VM을 만듭니다. 
 
-가상 컴퓨터를 만든 후 가속 네트워킹이 활성화되어 있는지 확인의 지침에 따라 가속 네트워킹이 활성화되어 있는지 확인할 수 있습니다.
+가상 머신을 만든 후 가속화 된 네트워킹을 사용할 수 있는지 확인의 지침에 따라 가속화 된 네트워킹을 사용할 수 있는지 확인할 수 있습니다.
 
-## <a name="powershell-creation"></a>파워쉘 생성
+## <a name="powershell-creation"></a>Powershell 만들기
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Azure PowerShell](/powershell/azure/install-az-ps) 버전 1.0.0 이상 설치합니다. 현재 설치된 버전을 찾으려면 `Get-Module -ListAvailable Az`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [PowerShell 갤러리에서](https://www.powershellgallery.com/packages/Az)Az 모듈의 최신 버전을 설치합니다. PowerShell 세션에서 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)를 사용하여 Azure 계정에 로그인합니다.
+[Azure PowerShell](/powershell/azure/install-az-ps) 버전 1.0.0 이상을 설치 합니다. 현재 설치된 버전을 찾으려면 `Get-Module -ListAvailable Az`을 실행합니다. 설치 또는 업그레이드 해야 하는 경우 [PowerShell 갤러리](https://www.powershellgallery.com/packages/Az)에서 Az module의 최신 버전을 설치 합니다. PowerShell 세션에서 [AzAccount](/powershell/module/az.accounts/connect-azaccount)를 사용 하 여 Azure 계정에 로그인 합니다.
 
-다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup,* *myNic*및 *myVM이*포함되었습니다.
+다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *Myresourcegroup*, *MyNic*, *myresourcegroup*이 포함 됩니다.
 
 [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *centralus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
@@ -84,7 +84,7 @@ VM 인스턴스에 대한 자세한 내용은 [Windows VM 크기](../virtual-mac
 New-AzResourceGroup -Name "myResourceGroup" -Location "centralus"
 ```
 
-먼저 [New-AzVirtualNetworkSubnetConfig를](/powershell/module/az.Network/New-azVirtualNetworkSubnetConfig)사용하여 서브넷 구성을 만듭니다. 다음 예제에서는 *mySubnet*이라는 서브넷을 만듭니다.
+먼저 [AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/New-azVirtualNetworkSubnetConfig)를 사용 하 여 서브넷 구성을 만듭니다. 다음 예제에서는 *mySubnet*이라는 서브넷을 만듭니다.
 
 ```powershell
 $subnet = New-AzVirtualNetworkSubnetConfig `
@@ -92,7 +92,7 @@ $subnet = New-AzVirtualNetworkSubnetConfig `
     -AddressPrefix "192.168.1.0/24"
 ```
 
-*mySubnet* 서브넷을 사용하여 [New-AzVirtualNetwork를](/powershell/module/az.Network/New-azVirtualNetwork)사용하여 가상 네트워크를 만듭니다.
+*Mysubnet* 서브넷이 있는 [AzVirtualNetwork](/powershell/module/az.Network/New-azVirtualNetwork)를 사용 하 여 가상 네트워크를 만듭니다.
 
 ```powershell
 $vnet = New-AzVirtualNetwork -ResourceGroupName "myResourceGroup" `
@@ -104,7 +104,7 @@ $vnet = New-AzVirtualNetwork -ResourceGroupName "myResourceGroup" `
 
 ## <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
-먼저 [New-AzNetworkSecurityRuleConfig를](/powershell/module/az.Network/New-azNetworkSecurityRuleConfig)사용하여 네트워크 보안 그룹 규칙을 만듭니다.
+먼저 [AzNetworkSecurityRuleConfig](/powershell/module/az.Network/New-azNetworkSecurityRuleConfig)를 사용 하 여 네트워크 보안 그룹 규칙을 만듭니다.
 
 ```powershell
 $rdp = New-AzNetworkSecurityRuleConfig `
@@ -120,7 +120,7 @@ $rdp = New-AzNetworkSecurityRuleConfig `
     -DestinationPortRange 3389
 ```
 
-[New-AzNetworkSecurityGroup을](/powershell/module/az.Network/New-azNetworkSecurityGroup) 사용하여 네트워크 보안 그룹을 만들고 *허용 RDP-All* 보안 규칙을 할당합니다. *Allow-RDP-All* 규칙 외에도 네트워크 보안 그룹에는 여러 기본 규칙이 포함되어 있습니다. 하나의 기본 규칙이 인터넷에서 모든 인바운드 액세스를 사용하지 않도록 설정하기 때문에 원격으로 가상 머신에 연결할 수 있도록 *Allow-RDP-All* 규칙을 만들면 네트워크 보안 그룹에 할당됩니다.
+[AzNetworkSecurityGroup](/powershell/module/az.Network/New-azNetworkSecurityGroup) 를 사용 하 여 네트워크 보안 그룹을 만들고 해당 그룹에 *허용-rdp-tcp* 보안 규칙을 할당 합니다. *Allow-RDP-All* 규칙 외에도 네트워크 보안 그룹에는 여러 기본 규칙이 포함되어 있습니다. 하나의 기본 규칙이 인터넷에서 모든 인바운드 액세스를 사용하지 않도록 설정하기 때문에 원격으로 가상 머신에 연결할 수 있도록 *Allow-RDP-All* 규칙을 만들면 네트워크 보안 그룹에 할당됩니다.
 
 ```powershell
 $nsg = New-AzNetworkSecurityGroup `
@@ -130,7 +130,7 @@ $nsg = New-AzNetworkSecurityGroup `
     -SecurityRules $rdp
 ```
 
-네트워크 보안 그룹을 *mySubnet* 서브넷에 [연결하여 Set-AzVirtualNetworkSubnetConfig.](/powershell/module/az.Network/Set-azVirtualNetworkSubnetConfig) 네트워크 보안 그룹의 규칙은 서브넷에 배포된 모든 리소스에 효율적입니다.
+[AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/Set-azVirtualNetworkSubnetConfig)를 사용 하 여 *mysubnet* 서브넷에 네트워크 보안 그룹을 연결 합니다. 네트워크 보안 그룹의 규칙은 서브넷에 배포된 모든 리소스에 효율적입니다.
 
 ```powershell
 Set-AzVirtualNetworkSubnetConfig `
@@ -151,7 +151,7 @@ $publicIp = New-AzPublicIpAddress `
     -AllocationMethod Dynamic
 ```
 
-빠른 네트워킹을 사용하도록 설정한 [New-AzNetworkInterface를](/powershell/module/az.Network/New-azNetworkInterface) 사용하여 네트워크 인터페이스를 만들고 공용 IP 주소를 네트워크 인터페이스에 할당합니다. 다음 예제에서는 *myVnet* 가상 네트워크의 *mySubnet* 서브넷에서 *myNic*이라는 네트워크 인터페이스를 만들고 여기에 *myPublicIp* 공용 IP 주소를 할당합니다.
+가속화 된 네트워킹을 사용 하는 [AzNetworkInterface](/powershell/module/az.Network/New-azNetworkInterface) 를 사용 하 여 네트워크 인터페이스를 만들고 공용 IP 주소를 네트워크 인터페이스에 할당 합니다. 다음 예제에서는 *myVnet* 가상 네트워크의 *mySubnet* 서브넷에서 *myNic*이라는 네트워크 인터페이스를 만들고 여기에 *myPublicIp* 공용 IP 주소를 할당합니다.
 
 ```powershell
 $nic = New-AzNetworkInterface `
@@ -171,7 +171,7 @@ $nic = New-AzNetworkInterface `
 $cred = Get-Credential
 ```
 
-먼저 [New-AzVMConfig로](/powershell/module/az.compute/new-azvmconfig)VM을 정의합니다. 다음 예제에서는 가속 네트워킹(*Standard_DS4_v2*)을 지원하는 VM 크기를 사용하여 *myVM*이라는 VM을 정의합니다.
+먼저 [AzVMConfig](/powershell/module/az.compute/new-azvmconfig)를 사용 하 여 VM을 정의 합니다. 다음 예제에서는 가속 네트워킹(*Standard_DS4_v2*)을 지원하는 VM 크기를 사용하여 *myVM*이라는 VM을 정의합니다.
 
 ```powershell
 $vmConfig = New-AzVMConfig -VMName "myVm" -VMSize "Standard_DS4_v2"
@@ -195,13 +195,13 @@ $vmConfig = Set-AzVMSourceImage -VM $vmConfig `
     -Version "latest"
 ```
 
-[추가 AzVMNetworkInterface로](/powershell/module/az.compute/add-azvmnetworkinterface)이전에 만든 네트워크 인터페이스 연결:
+[AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)를 사용 하 여 이전에 만든 네트워크 인터페이스를 연결 합니다.
 
 ```powershell
 $vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
 
-마지막으로 [New-AzVM으로](/powershell/module/az.compute/new-azvm)VM을 만듭니다.
+마지막으로 [new-azvm](/powershell/module/az.compute/new-azvm)를 사용 하 여 VM을 만듭니다.
 
 ```powershell
 New-AzVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "centralus"
@@ -211,8 +211,8 @@ New-AzVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "centralus
 
 Azure에서 VM을 만들면 VM에 연결하고 Windows에서 드라이버가 설치되어 있는지를 확인합니다.
 
-1. 인터넷 브라우저에서 Azure [포털을](https://portal.azure.com) 열고 Azure 계정으로 로그인합니다.
-2. Azure 포털 맨 위에 있는 검색 *리소스* 텍스트가 포함된 상자에서 *myVm을*입력합니다. **myVm이** 검색 결과에 나타나면 클릭합니다. **연결** 단추 아래에서 **만드는 중**이 표시되는 경우 Azure에서 VM 만들기를 아직 완료하지 않은 것입니다. 따라서 **연결** 단추 아래에서 **만드는 중**가 더 이상 표시되지 않는 경우에만 개요의 왼쪽 위 모서리에 있는 **연결**을 클릭합니다.
+1. 인터넷 브라우저에서 Azure [portal](https://portal.azure.com) 을 열고 azure 계정으로 로그인 합니다.
+2. Azure Portal 맨 위에 텍스트 *검색 리소스가* 포함 된 상자에 *myvm*을 입력 합니다. 검색 결과에 **Myvm** 이 표시 되 면 클릭 합니다. **연결** 단추 아래에서 **만드는 중**이 표시되는 경우 Azure에서 VM 만들기를 아직 완료하지 않은 것입니다. 따라서 **연결** 단추 아래에서 **만드는 중**가 더 이상 표시되지 않는 경우에만 개요의 왼쪽 위 모서리에 있는 **연결**을 클릭합니다.
 3. [가상 머신 만들기](#create-the-virtual-machine)에서 입력한 사용자 이름과 암호를 입력합니다. Azure에서 Windows VM에 연결된 적이 없는 경우 [가상 머신에 연결](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine)을 참조하세요.
 4. [Windows 시작] 단추를 마우스 오른쪽 단추로 클릭한 다음 **디바이스 관리자**를 클릭합니다. **네트워크 어댑터** 노드를 펼칩니다. 다음 그림과 같이 **Mellanox ConnectX-3 Virtual Function Ethernet Adapter**가 나타나는지 확인합니다.
 
@@ -248,7 +248,7 @@ $nic.EnableAcceleratedNetworking = $true
 $nic | Set-AzNetworkInterface
 ```
 
-VM을 다시 시작하거나 가용성 집합의 경우 집합의 모든 VM을 다시 시작하고 가속 네트워킹이 활성화되어 있는지 확인합니다.
+VM을 다시 시작 하거나 가용성 집합에 있는 경우 집합의 모든 Vm을 다시 시작 하 고 가속화 된 네트워킹을 사용 하도록 설정 되었는지 확인 합니다.
 
 ```azurepowershell
 Start-AzVM -ResourceGroup "myResourceGroup" `

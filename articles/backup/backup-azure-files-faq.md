@@ -3,12 +3,12 @@ title: Azure Files 백업 FAQ
 description: 이 문서에서는 Azure Backup 서비스를 사용하여 Azure 파일 공유를 보호하는 방법에 대한 일반적인 질문과 답변을 검색합니다.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: b89e4a55bc8bc4ef2f4cdb50059537fe7708b6a6
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: d7b19fd11e6784a188a18f6a613eef5ff4f77764
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2020
-ms.locfileid: "82101164"
+ms.locfileid: "82105644"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Azure Files 백업에 대한 질문
 
@@ -74,7 +74,7 @@ Azure 파일 공유가 삭제 되 면 삭제 될 백업 목록이 표시 되 고
 
 ### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-them"></a>Azure 백업에서 만든 스냅숏에 액세스 하 고 탑재할 수 있나요?
 
-Azure Backup에서 수행 하는 모든 스냅숏에는 포털, PowerShell 또는 CLI에서 스냅숏 보기를 통해 액세스할 수 있습니다. Azure 파일 공유 스냅샷에 대한 자세한 내용은 [Azure Files(미리 보기)의 공유 스냅샷 개요](../storage/files/storage-snapshots-files.md)를 참조하세요.
+Azure Backup에서 수행 하는 모든 스냅숏에는 포털, PowerShell 또는 CLI에서 스냅숏 보기를 통해 액세스할 수 있습니다. Azure Files 공유 스냅숏에 대 한 자세한 내용은 [Azure Files에 대 한 공유 스냅숏 개요](../storage/files/storage-snapshots-files.md)를 참조 하세요.
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>백업에 대해 구성할 수 있는 최대 보존 기간은 얼마인가요?
 

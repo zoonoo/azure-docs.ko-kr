@@ -4,13 +4,13 @@ description: Application Insights에 필요한 서버 방화벽 예외
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 12/19/2019
-ms.openlocfilehash: 454138f8e0d92935126f446455810a444b0a053a
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 04/23/2020
+ms.openlocfilehash: 73147fe2e8c834fd4fc67c4c396bb095f616b6d8
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984149"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82105848"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 및 Log Analytics에서 사용되는 IP 주소
 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.
@@ -31,12 +31,12 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 | 목적 | URL | IP | 포트 |
 | --- | --- | --- | --- |
 | 원격 분석 |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170 | 443 |
-| 실시간 지표 스트림(미국 동부) |use.rt.prod.applicationinsights.trafficmanager.net |23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207 |443 |
-| 실시간 지표 스트림(미국 중남부) |ussc.rt.prod.applicationinsights.trafficmanager.net |157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113 |443 |
-| 실시간 지표 스트림(북유럽) |eun.rt.prod.applicationinsights.trafficmanager.net |40.115.103.168<br/>40.115.104.31<br/>40.87.140.215<br/>40.87.138.220 |443 |
-| 실시간 지표 스트림(서유럽) |euw.rt.prod.applicationinsights.trafficmanager.net |13.80.134.255<br/>40.68.61.229<br/>23.101.69.223<br/>52.232.106.242 |443 |
-| 실시간 지표 스트림(동아시아) |ase.rt.prod.applicationinsights.trafficmanager.net |23.100.90.7<br/>23.101.13.65<br/>23.101.0.142<br/>23.101.9.4 |443 |
-| 실시간 지표 스트림(동남아시아) |asse.rt.prod.applicationinsights.trafficmanager.net |207.46.224.101<br/>207.46.236.191<br/>137.116.151.139<br/>13.76.87.86 |443 |
+| 라이브 메트릭 스트림 (미국 동부) |use.rt.prod.applicationinsights.trafficmanager.net |23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207 |443 |
+| 라이브 메트릭 스트림 (미국 중 남부) |ussc.rt.prod.applicationinsights.trafficmanager.net |157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113 |443 |
+| 라이브 메트릭 스트림 (유럽 북부) |eun.rt.prod.applicationinsights.trafficmanager.net |40.115.103.168<br/>40.115.104.31<br/>40.87.140.215<br/>40.87.138.220 |443 |
+| 라이브 메트릭 스트림 (유럽 서부) |euw.rt.prod.applicationinsights.trafficmanager.net |13.80.134.255<br/>40.68.61.229<br/>23.101.69.223<br/>52.232.106.242 |443 |
+| 라이브 메트릭 스트림 (동아시아) |ase.rt.prod.applicationinsights.trafficmanager.net |23.100.90.7<br/>23.101.13.65<br/>23.101.0.142<br/>23.101.9.4 |443 |
+| 라이브 메트릭 스트림 (동남 아시아) |asse.rt.prod.applicationinsights.trafficmanager.net |207.46.224.101<br/>207.46.236.191<br/>137.116.151.139<br/>13.76.87.86 |443 |
 
 ## <a name="status-monitor"></a>상태 모니터
 상태 모니터 구성 - 변경하는 경우에만 필요합니다.
@@ -57,20 +57,20 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 
 ### <a name="service-tag"></a>서비스 태그
 
-Azure 네트워크 보안 그룹을 사용하는 경우 **인바운드 포트 규칙을** 추가하기만 하면 서비스 **태그를** **소스** 서비스 **ApplicationInsightsAvailability** **태그로**선택하여 응용 프로그램 인사이트 가용성 테스트에서 트래픽을 허용합니다.
+Azure 네트워크 보안 그룹을 사용 하는 경우 원본 **서비스 태그로** **서비스 태그** 를 **원본** 으로 선택 하 고 **ApplicationInsightsAvailability** 를 사용 하 여 가용성 테스트 Application Insights의 트래픽을 허용 하는 **인바운드 포트 규칙** 을 추가 하기만 하면 됩니다.
 
 >[!div class="mx-imgBorder"]
->![설정에서 인바운드 보안 규칙을 선택한 다음 탭 상단에서 추가를 선택합니다.](./media/ip-addresses/add-inbound-security-rule.png)
+>![설정 아래에서 인바운드 보안 규칙을 선택 하 고 탭 위쪽에서 추가를 선택 합니다.](./media/ip-addresses/add-inbound-security-rule.png)
 
 >[!div class="mx-imgBorder"]
->![인바운드 보안 규칙 탭 추가](./media/ip-addresses/add-inbound-security-rule2.png)
+>![인바운드 보안 규칙 추가 탭](./media/ip-addresses/add-inbound-security-rule2.png)
 
 이 주소에서 들어오는 트래픽에 대한 80(http) 및 443(https) 포트를 엽니다(IP 주소가 위치별로 그룹화됨).
 
-### <a name="addresses-grouped-by-location"></a>위치별로 그룹화된 주소
+### <a name="addresses-grouped-by-location"></a>위치별 그룹화 된 주소
 
 > [!NOTE]
-> 이러한 주소는 클래스리스 도메인 간 라우팅(CIDR) 표기화를 사용하여 나열됩니다. 즉, 같은 `51.144.56.112/28` 항목은 에서 `51.144.56.112` 시작하고 에서 끝나는 16개의 `51.144.56.127`IP와 동일합니다.
+> 이러한 주소는 클래스 없는 CIDR (도메인 간 라우팅) 표기법을 사용 하 여 나열 됩니다. 즉,와 같은 `51.144.56.112/28` 항목은에서 `51.144.56.112` 시작 하 여에서 `51.144.56.127`끝나는 16 개의 ip와 동일 합니다.
 
 ```
 Australia East
@@ -180,19 +180,12 @@ East US
 
 ```  
 
-## <a name="application-insights-api"></a>Application Insights API
-| 목적 | URI | IP | 포트 |
-| --- | --- | --- | --- |
-| API |api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io |23.96.58.253<br/>13.78.151.158<br/>40.74.59.40<br/>40.70.42.246<br/>40.117.198.0<br/>137.116.226.91<br/>52.163.88.44<br/>52.189.210.240<br/>13.77.201.34<br/>13.78.149.206<br/>52.232.28.146<br/>52.175.241.170<br/>20.36.36.66<br/>52.147.29.101<br/>40.115.155.252<br/>20.188.34.152<br/>52.141.32.103 |80,443 |
-| API 문서 |dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com |23.96.58.253<br/>13.78.151.158<br/>40.74.59.40<br/>40.70.42.246<br/>40.117.198.0<br/>137.116.226.91<br/>52.163.88.44<br/>52.189.210.240<br/>13.77.201.34<br/>13.78.149.206<br/>52.232.28.146<br/>52.175.241.170<br/>20.36.36.66<br/>52.147.29.101<br/>40.115.155.252<br/>20.188.34.152<br/>52.141.32.103 |80,443 |
-| Azure 파이프라인 주석 확장 |aigs1.aisvc.visualstudio.com |동적|443 |
+## <a name="application-insights--log-analytics-apis"></a>Application Insights & Log Analytics Api
 
-## <a name="log-analytics-api"></a>Log Analytics API
-
-| 목적 | URI | IP | 포트 |
+| 목적 | URI |  IP | 포트 |
 | --- | --- | --- | --- |
-| API |api.loganalytics.io<br/>*.api.loganalytics.io |23.96.58.253<br/>13.78.151.158<br/>40.74.59.40<br/>40.70.42.246<br/>40.117.198.0<br/>137.116.226.91<br/>52.163.88.44<br/>52.189.210.240<br/>13.77.201.34<br/>13.78.149.206<br/>52.232.28.146<br/>52.175.241.170<br/>20.36.36.66<br/>52.147.29.101<br/>40.115.155.252<br/>20.188.34.152<br/>52.141.32.103 |80,443 |
-| API 문서 |dev.loganalytics.io<br/>docs.loganalytics.io<br/>www.loganalytics.io |23.96.58.253<br/>13.78.151.158<br/>40.74.59.40<br/>40.70.42.246<br/>40.117.198.0<br/>137.116.226.91<br/>52.163.88.44<br/>52.189.210.240<br/>13.77.201.34<br/>13.78.149.206<br/>52.232.28.146<br/>52.175.241.170<br/>20.36.36.66<br/>52.147.29.101<br/>40.115.155.252<br/>20.188.34.152<br/>52.141.32.103 |80,443 |
+| API |`api.applicationinsights.io`<br/>`api1.applicationinsights.io`<br/>`api2.applicationinsights.io`<br/>`api3.applicationinsights.io`<br/>`api4.applicationinsights.io`<br/>`api5.applicationinsights.io`<br/>`dev.applicationinsights.io`<br/>`dev.applicationinsights.microsoft.com`<br/>`dev.aisvc.visualstudio.com`<br/>`www.applicationinsights.io`<br/>`www.applicationinsights.microsoft.com`<br/>`www.aisvc.visualstudio.com`<br/>`api.loganalytics.io`<br/>`*.api.loganalytics.io`<br/>`dev.loganalytics.io`<br>`docs.loganalytics.io`<br/>`www.loganalytics.io` |20.37.52.188 <br/> 20.37.53.231 <br/> 20.36.47.130 <br/> 20.40.124.0 <br/> 20.43.99.158 <br/> 20.43.98.234 <br/> 13.70.127.61 <br/> 40.81.58.225 <br/> 20.40.160.120 <br/> 23.101.225.155 <br/> 52.139.8.32 <br/> 13.88.230.43 <br/> 52.230.224.237 <br/> 52.242.230.209 <br/> 52.173.249.138 <br/> 52.229.218.221 <br/> 52.229.225.6 <br/> 23.100.94.221 <br/> 52.188.179.229 <br/> 52.226.151.250 <br/> 52.150.36.187 <br/> 40.121.135.131 <br/> 20.44.73.196 <br/> 20.41.49.208 <br/> 40.70.23.205 <br/> 20.40.137.91 <br/> 20.40.140.212 <br/> 40.89.189.61 <br/> 52.155.118.97 <br/> 52.156.40.142 <br/> 23.102.66.132 <br/> 52.231.111.52 <br/> 52.231.108.46 <br/> 52.231.64.72 <br/> 52.162.87.50 <br/> 23.100.228.32 <br/> 40.127.144.141 <br/> 52.155.162.238 <br/> 137.116.226.81 <br/> 52.185.215.171 <br/> 40.119.4.128 <br/> 52.171.56.178 <br/> 20.43.152.45 <br/> 20.44.192.217 <br/> 13.67.77.233 <br/> 51.104.255.249 <br/> 51.104.252.13 <br/> 51.143.165.22 <br/> 13.78.151.158 <br/> 51.105.248.23 <br/> 40.74.36.208 <br/> 40.74.59.40 <br/> 13.93.233.49 <br/> 52.247.202.90 |80,443 |
+| Azure 파이프라인 주석 확장 |aigs1.aisvc.visualstudio.com |동적|443 | 
 
 ## <a name="application-insights-analytics"></a>Application Insights 분석
 

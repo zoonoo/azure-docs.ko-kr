@@ -1,5 +1,5 @@
 ---
-title: B2B 통합을 위한 EDIFACT 메시지
+title: B2B 통합에 대 한 EDIFACT 메시지
 description: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 EDI 형식의 B2B 엔터프라이즈 통합용 EDIFACT 메시지 교환
 services: logic-apps
 ms.suite: integration
@@ -7,13 +7,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 07/26/2016
-ms.openlocfilehash: 3ada12a0cde122fb78815a1d3241d8acb9da2580
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: 8aed4f44b597235557a495a263c6a4ddf8e93ce7
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651460"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106324"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 EDIFACT 메시지 교환
 
@@ -36,7 +36,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 ## <a name="create-an-edifact-agreement"></a>EDIFACT 규약 만들기 
 
-1. [Azure 포털에](https://portal.azure.com "Azure portal")로그인합니다. 
+1. [Azure Portal](https://portal.azure.com "Azure portal")에 로그인합니다. 
 
 2. Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 "통합"을 입력한 다음, **통합 계정**을 선택합니다.
 
@@ -61,9 +61,9 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
    ![규약 세부 정보 제공](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
-   | 속성 | 설명 |
+   | 속성 | Description |
    | --- | --- |
-   | 이름 |규약 이름 |
+   | 속성 |규약 이름 |
    | 규약 유형 | EDIFACT여야 함 |
    | 호스트 파트너 |규약에는 호스트 및 게스트 파트너가 필요합니다. 호스트 파트너는 규약을 구성하는 조직을 나타냅니다. |
    | 호스트 ID |호스트 파트너의 식별자입니다. |
@@ -76,6 +76,10 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>규약에서 수신된 메시지를 처리하는 방법 구성
 
 규약 속성을 설정했으므로 규약이 이 계약을 통해 파트너로부터 받은 들어오는 메시지를 식별하고 처리하는 방법을 구성할 수 있습니다.
+
+> [!IMPORTANT]
+> EDIFACT 커넥터는 UTF-8 문자만 지원 합니다.
+> 출력에 예기치 않은 문자가 포함 되어 있는 경우 EDIFACT 메시지에서 UTF-8 문자 집합을 사용 하는지 확인 합니다.
 
 1. **추가** 아래에서 **수신 설정**을 선택합니다.
 사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 구성합니다. 속성 설명은 이 섹션에 있는 테이블을 참조하세요.
@@ -90,21 +94,21 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 ### <a name="identifiers"></a>식별자
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | UNB6.1(받는 사람 참조 암호) |1 ~ 14자 사이의 영숫자 값을 입력합니다. |
 | UNB6.2(받는 사람 참조 한정자) |1 ~ 2자의 영숫자 값을 입력합니다. |
 
 ### <a name="acknowledgments"></a>승인
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | 메시지(CONTRL) 수신 |기술(CONTRL) 승인을 교환 발신자에게 반환하려면 이 확인란을 선택합니다. 승인은 규약의 송신 설정을 기준으로 교환 발신자에게 전송됩니다. |
 | 승인(CONTRL) |기능(CONTRL) 승인을 교환 발신자에게 반환하려면 이 확인란을 선택합니다. 승인은 규약의 송신 설정을 기준으로 교환 발신자에게 전송됩니다. |
 
 ### <a name="schemas"></a>스키마
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | UNH2.1(유형) |트랜잭션 집합 유형을 선택합니다. |
 | UNH2.2(버전) |메시지 버전 번호를 입력합니다. (최소 1자, 최대 3자) |
@@ -114,9 +118,9 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 | UNG2.2(앱 보낸 사람 코드 한정자) |최대 4자의 영숫자 값을 입력합니다. |
 | SCHEMA |연결된 통합 계정으로부터 사용하려는 이전에 업로드한 스키마를 선택합니다. |
 
-### <a name="control-numbers"></a>제어 번호
+### <a name="control-numbers"></a>컨트롤 번호
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | 교환 컨트롤 번호 중복 허용 안 함 |중복 교환을 차단하려면 이 속성을 선택합니다. 이 확인란을 선택한 경우 EDIFACT 디코딩 작업에서 수신된 교환의 교환 컨트롤 번호(UNB5)가 이전에 처리된 교환 컨트롤 번호와 일치하지 않는지 확인합니다. 두 번호가 일치하는 경우 교환은 처리되지 않습니다. |
 | (일)마다 중복 UNB5 확인 |중복된 교환 컨트롤 번호를 허용하지 않도록 선택한 경우 이 설정에 적합한 값을 지정하여 확인을 수행하는 일 수를 지정할 수 있습니다. |
@@ -128,7 +132,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 각 유효성 검사 행을 완료하면 다른 행이 자동으로 추가됩니다. 모든 규칙을 지정하지 않으면 유효성 검사에서는 "기본" 행을 사용합니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | 메시지 유형 |EDI 메시지 유형을 선택합니다. |
 | EDI 유효성 검사 |스키마의 EDI 속성, 길이 제한, 빈 데이터 요소 및 후행 구분 기호로 정의되는 데이터 형식에 대해 EDI 유효성 검사를 수행합니다. |
@@ -139,7 +143,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 ### <a name="internal-settings"></a>내부 설정
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | 후행 구분 기호가 허용되는 경우 빈 XML 태그 만들기 |교환 발신자가 후행 구분 기호에 대해 빈 XML 태그를 포함하도록 하려면 이 확인란을 선택합니다. |
 | 교환을 트랜잭션 집합으로 분할 - 오류 발생 시 트랜잭션 집합 일시 중단|적절한 봉투를 트랜잭션 집합에 적용하여 교환의 각 트랜잭션 집합을 별도의 XML 문서로 구문 분석합니다. 유효성 검사에 실패하는 트랜잭션 집합만 일시 중단합니다. |
@@ -164,7 +168,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 ### <a name="identifiers"></a>식별자
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | UNB1.2(구문 버전) |**1**에서 **4** 사이의 값을 선택합니다. |
 | UNB2.3(보낸 사람 역라우팅 주소) |1 ~ 14자의 영숫자 값을 입력합니다. |
@@ -175,7 +179,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 ### <a name="acknowledgment"></a>승인
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | 메시지(CONTRL) 수신 |호스트 파트너가 기술(CONTRL) 승인을 받을 것으로 예상하는 경우 이 확인란을 선택합니다. 이 설정은 메시지를 보내는 호스트 파트너가 게스트 파트너의 승인을 요청하도록 지정합니다. |
 | 승인(CONTRL) |호스트 파트너가 기능(CONTRL) 승인을 받을 것으로 예상하는 경우 이 확인란을 선택합니다. 이 설정은 메시지를 보내는 호스트 파트너가 게스트 파트너의 승인을 요청하도록 지정합니다. |
@@ -183,7 +187,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 ### <a name="schemas"></a>스키마
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | UNH2.1(유형) |트랜잭션 집합 유형을 선택합니다. |
 | UNH2.2(버전) |메시지 버전 번호를 입력합니다. |
@@ -192,7 +196,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 ### <a name="envelopes"></a>봉투
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | UNB8(처리 우선 순위 코드) |1자를 넘지 않는 문자는 영문자 값을 입력합니다. |
 | UNB10(통신 규약) |1 ~ 40자의 영숫자 값을 입력합니다. |
@@ -204,7 +208,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 문자 집합 외에 각 메시지 유형에 사용할 다른 구분 기호 집합을 입력할 수 있습니다. 주어진 메시지 스키마의 문자 집합이 지정되지 않은 경우 기본 문자 집합이 사용됩니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | UNB1.1(시스템 식별자) |나가는 교환에서 적용할 EDIFACT 문자 집합을 선택합니다. |
 | 스키마 |드롭다운 목록에서 스키마를 선택합니다. 각 행을 완료한 후에 새 행이 자동으로 추가됩니다. 선택한 스키마의 경우 아래의 구분 기호 설명에 따라 사용하려는 구분 기호 집합을 선택합니다. |
@@ -214,9 +218,9 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 | Segment Terminator |EDI 세그먼트의 끝을 나타내려면 단일 문자를 입력합니다. |
 | 접미사 |세그먼트 식별자와 함께 사용할 문자를 선택합니다. 접미사를 지정하면 세그먼트 마침 표시 데이터 요소를 비워 둘 수 있습니다. 세그먼트 마침 표시를 비워 두는 경우 접미사를 지정해야 합니다. |
 
-### <a name="control-numbers"></a>제어 번호
+### <a name="control-numbers"></a>컨트롤 번호
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | UNB5(교환 컨트롤 번호) |접두사, 교환 컨트롤 번호 값의 범위, 접미사를 입력합니다. 이들 값은 나가는 교환을 생성하는 데 사용됩니다. 접두사와 접미사는 옵션이지만 컨트롤 번호는 필수입니다. 컨트롤 번호는 각 새 메시지에 대해 증가하지만, 접두사와 접미사는 동일하게 유지됩니다. |
 | UNG5(그룹 컨트롤 번호) |접두사, 교환 컨트롤 번호 값의 범위, 접미사를 입력합니다. 이들 값은 그룹 컨트롤 번호를 생성하는 데 사용됩니다. 접두사와 접미사는 옵션이지만 컨트롤 번호는 필수입니다. 컨트롤 번호는 최대값에 도달할 때까지 각 새 메시지에 대해 증가하지만, 접두사와 접미사는 동일하게 유지됩니다. |
@@ -226,7 +230,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 각 유효성 검사 행을 완료하면 다른 행이 자동으로 추가됩니다. 모든 규칙을 지정하지 않으면 유효성 검사에서는 "기본" 행을 사용합니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | 메시지 유형 |EDI 메시지 유형을 선택합니다. |
 | EDI 유효성 검사 |스키마의 EDI 속성, 길이 제한, 빈 데이터 요소 및 후행 구분 기호로 정의되는 데이터 형식에 대해 EDI 유효성 검사를 수행합니다. |
@@ -247,10 +251,10 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 Swagger 파일에 설명된 작업 및 제한과 같은 이 커넥터에 대한 자세한 내용은 [커넥터의 참조 페이지를](https://docs.microsoft.com/connectors/edifact/)참조하십시오.
+커넥터의 Swagger 파일에 설명 된 작업 및 제한과 같이이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/edifact/)를 참조 하세요.
 
 > [!NOTE]
-> [통합 서비스 환경(ISE)의](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)논리 앱의 경우 이 커넥터의 ISE 레이블이 지정된 버전은 [ISE 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용합니다.
+> [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블 버전은 [ise 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

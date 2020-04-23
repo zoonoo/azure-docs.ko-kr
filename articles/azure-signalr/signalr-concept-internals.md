@@ -6,20 +6,18 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 62afa5ee6993aa1bb3c7b5926e5320ab1fa510a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8ba34edfc382f0f03abe080d78a6a47dcb65501b
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74157604"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82105763"
 ---
 # <a name="azure-signalr-service-internals"></a>Azure SignalR Service 내부 기능
 
-Azure SignalR Service는 ASP.NET Core SignalR 프레임워크를 기반으로 구축되었습니다. 또한 ASP.NET SignalR을 미리 보기 기능으로 지원합니다.
+Azure SignalR Service는 ASP.NET Core SignalR 프레임워크를 기반으로 구축되었습니다. 또한 ASP.NET Core framework 위에서 ASP.NET SignalR by reimplementing ASP.NET SignalR의 데이터 프로토콜을 지원 합니다.
 
-> ASP.NET SignalR을 지원하기 위해 Azure SignalR Service는 ASP.NET Core 프레임워크를 기반으로 ASP.NET SignalR의 데이터 프로토콜을 다시 구현합니다.
-
-코드 몇 줄을 변경하여 로컬 ASP.NET Core SignalR 애플리케이션을 SignalR Service에서 작동하도록 쉽게 마이그레이션할 수 있습니다.
+몇 줄의 코드를 변경 하 여 로컬 ASP.NET Core SignalR 응용 프로그램 또는 ASP.NET SignalR 응용 프로그램을 SignalR Service와 함께 작동 하도록 쉽게 마이그레이션할 수 있습니다.
 
 아래 다이어그램에서는 애플리케이션 서버를 통해 SignalR Service를 사용하는 경우 일반적인 아키텍처를 설명합니다.
 

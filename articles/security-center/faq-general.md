@@ -1,6 +1,6 @@
 ---
-title: Azure 보안 센터 FAQ - 일반 질문
-description: 위협을 방지, 탐지 및 대응하는 데 도움이 되는 제품인 Azure Security Center에 대해 자주 묻는 일반적인 질문
+title: Azure Security Center FAQ-일반적인 질문
+description: 위협을 예방, 감지 및 대응 하는 데 도움이 되는 Azure Security Center에 대 한 일반적인 질문과 대답
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,29 +13,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 54263a8be900ed381d8450b460e5cf9e6117ac54
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: e2cc04be5a79009f92e275f9de46df60a8e23c8b
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436130"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106579"
 ---
-# <a name="faq---general-questions-about-azure-security-center"></a>FAQ - Azure 보안 센터에 대한 일반적인 질문
+# <a name="faq---general-questions-about-azure-security-center"></a>FAQ-Azure Security Center에 대 한 일반적인 질문
 
 ## <a name="what-is-azure-security-center"></a>Azure Security Center란?
-Azure Security Center를 사용하면 리소스 보안에 대한 가시성을 높이고 제어하여 위협을 방지, 탐지 및 대응할 수 있습니다. 이는 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
+Azure Security Center를 통해 리소스의 보안에 대 한 향상 된 가시성과 제어를 통해 위협을 예방, 감지 및 대응 하는 데 도움이 됩니다. 이는 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
 
-보안 센터는 로그 분석 에이전트를 사용하여 데이터를 수집하고 저장합니다. 자세한 내용은 [Azure 보안 센터의 데이터 수집을](security-center-enable-data-collection.md)참조하십시오.
+Security Center Log Analytics 에이전트를 사용 하 여 데이터를 수집 하 고 저장 합니다. 자세한 내용은 [Azure Security Center에서 데이터 수집](security-center-enable-data-collection.md)을 참조 하세요.
 
 
 ## <a name="how-do-i-get-azure-security-center"></a>Azure Security Center를 이용하려면 어떻게 해야 하나요?
-Azure Security Center는 Microsoft Azure 구독을 사용하도록 설정되어 있으며 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에서 액세스합니다. 액세스하려면 [포털에 로그인하고](https://portal.azure.com) **찾아보기를**선택하고 보안 **센터로**스크롤합니다.
+Azure Security Center는 Microsoft Azure 구독을 사용하도록 설정되어 있으며 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에서 액세스합니다. 이 파일에 액세스 하려면 [포털에 로그인](https://portal.azure.com)하 고 **찾아보기**를 선택한 다음 **Security Center**로 스크롤합니다.
 
 
 ## <a name="which-azure-resources-are-monitored-by-azure-security-center"></a>Azure Security Center에서는 어떤 Azure 리소스를 모니터링하나요?
 Azure Security Center에서는 다음과 같은 Azure 리소스를 모니터링합니다.
 
-* 가상 시스템(VM) [(클라우드 서비스](../cloud-services/cloud-services-choose-me.md)포함)
+* Vm (가상 머신) ( [Cloud Services](../cloud-services/cloud-services-choose-me.md)포함)
 * 가상 머신 크기 집합
 * Azure Virtual Networks
 * 컨테이너
@@ -44,11 +44,11 @@ Azure Security Center에서는 다음과 같은 Azure 리소스를 모니터링�
 * Azure Web Apps([App Service Environment](../app-service/environment/intro.md))
 * VM 및 App Service Environment에서 웹 애플리케이션 방화벽 같이 Azure 구독과 통합된 파트너 솔루션
 
-또한 Azure 이외의(온-프레미스 포함) 컴퓨터를 Azure 보안 센터에서 모니터링할 수도 있습니다. [Windows 컴퓨터와](./quick-onboard-windows-computer.md) [Linux 컴퓨터가](./quick-onboard-linux-computer.md) 모두 지원됩니다.
+또한 Azure 외의 컴퓨터 (온-프레미스 포함)도 Azure Security Center에서 모니터링할 수 있습니다. [Windows 컴퓨터](./quick-onboard-windows-computer.md) 및 [Linux 컴퓨터](./quick-onboard-linux-computer.md) 모두 지원 됩니다.
 
 
 ## <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>내 Azure 리소스의 현재 보안 상태를 확인하려면 어떻게 해야 하나요?
-**보안 센터 개요** 페이지에는 컴퓨팅, 네트워킹, 스토리지 & 데이터 및 응용 프로그램으로 세분화된 환경의 전반적인 보안 상태를 보여 줍니다. 각 리소스 유형에는 식별된 보안 취약점을 보여 주시는 표시등이 있습니다. 각 타일을 클릭하면 구독의 리소스 인벤토리와 함께 Security Center에서 식별하는 보안 문제 목록이 표시됩니다.
+**Security Center 개요** 페이지에는 계산, 네트워킹, 저장소 & 데이터 및 응용 프로그램 별로 분류 된 환경의 전반적인 보안 상태를 보여 줍니다. 각 리소스 종류에는 식별 된 보안 취약성을 나타내는 표시기가 있습니다. 각 타일을 클릭하면 구독의 리소스 인벤토리와 함께 Security Center에서 식별하는 보안 문제 목록이 표시됩니다.
 
 
 
@@ -59,7 +59,7 @@ Azure Security Center에서 사용하도록 설정한 보안 정책에 따라 �
 
 
 ## <a name="who-can-modify-a-security-policy"></a>보안 정책을 누가 수정할 수 있나요?
-보안 정책을 수정하려면 해당 구독의 보안 관리자이거나 소유자 또는 참가자여야 합니다.
+보안 정책을 수정 하려면 해당 구독의 소유자 또는 참가자 여야 합니다.
 
 보안 정책을 구성하는 방법을 자세히 알아보려면 [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md)을 참조하세요.
 
@@ -86,8 +86,8 @@ Azure Security Center는 리소스, 네트워크 및 맬웨어 방지 프로그�
 * 맬웨어 방지 프로그램 또는 웹 애플리케이션 방화벽 등과 같은 통합된 파트너 보안 솔루션에서의 보안 경고
 
 
-## <a name="why-did-secure-score-values-change"></a>보안 점수 값이 변경된 이유는 무엇입니까? <a name="secure-score-faq"></a>
-2019년 2월부터 보안 센터는 심각도에 더 잘 부합하도록 몇 가지 권장 사항의 점수를 조정했습니다. 이 조정의 결과로 전체 보안 점수 값이 변경될 수 있습니다.  보안 점수에 대한 자세한 내용은 [보안 점수 계산을](security-center-secure-score.md)참조하십시오.
+## <a name="why-did-secure-score-values-change"></a>보안 점수 값이 변경 되는 이유는 무엇 인가요? <a name="secure-score-faq"></a>
+2019 년 2 월 Security Center에는 심각도를 보다 잘 맞추기 위해 몇 가지 권장 사항의 점수를 조정 했습니다. 이러한 조정의 결과로 전체 보안 점수 값이 변경 될 수 있습니다.  보안 점수에 대 한 자세한 내용은 [보안 점수 계산](security-center-secure-score.md)을 참조 하세요.
 
 
 ## <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Microsoft 보안 응답 센터와 Azure Security Center에서 감지 및 경고된 위협 간의 차이점은 무엇입니까?

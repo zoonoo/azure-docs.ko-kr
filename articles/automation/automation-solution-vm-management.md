@@ -5,25 +5,27 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0331678b50d2448013556ab0694d0ca87045c3a3
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 10c66ba175484d8b95f26ef9330753151a92969b
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2020
-ms.locfileid: "82096919"
+ms.locfileid: "82106035"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Azure Automation에서 작업 시간 외 Vm 시작/중지 솔루션
 
 **업무 시간 외 Vm 시작/중지** 솔루션은 Azure virtual machines를 시작 하거나 중지 합니다. 사용자 정의 일정에서 컴퓨터를 시작 하거나 중지 하 고, Azure Monitor 로그를 통해 정보를 제공 하 고, [작업 그룹](../azure-monitor/platform/action-groups.md)을 사용 하 여 선택적 전자 메일을 보냅니다. 솔루션은 대부분의 시나리오에서 Azure Resource Manager 및 클래식 Vm을 모두 지원 합니다. 
 
-이 솔루션은 VM 비용을 최적화하려는 사용자에게 분산된 저비용 자동화 옵션을 제공합니다. 이 솔루션을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
+이 솔루션은 [new-azurermvm](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) cmdlet을 사용 하 여 vm을 시작 합니다. Vm을 중지 하는 데 [new-azurermvm](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) 를 사용 합니다.
+
+> [!NOTE]
+> **작업 시간 외 Vm 시작/중지** 솔루션은 사용 가능한 최신 버전의 Azure 모듈을 지원 하도록 업데이트 되었습니다.
+
+이 솔루션은 VM 비용을 최적화 하려는 사용자를 위해 분산 된 저렴 한 자동화 옵션을 제공 합니다. 이 솔루션을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
 - [Vm을 시작 및 중지 하도록 예약](automation-solution-vm-management-config.md#schedule)합니다.
 - [Azure 태그](automation-solution-vm-management-config.md#tags) (클래식 vm에서는 지원 되지 않음)를 사용 하 여 vm을 시작 하 고 오름차순으로 중지 하도록 예약 합니다.
 - [낮은 CPU 사용량](automation-solution-vm-management-config.md#cpuutil)에 따라 vm을 자동으로 중지 합니다.
-
-> [!NOTE]
-> **작업 시간 외 Vm 시작/중지** 솔루션은 사용 가능한 최신 버전의 Azure 모듈을 지원 하도록 업데이트 되었습니다.
 
 현재 솔루션에 대 한 제한 사항은 다음과 같습니다.
 
