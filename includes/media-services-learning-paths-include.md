@@ -13,7 +13,7 @@ ms.locfileid: "69014704"
 ---
 ### <a name="media-services-v3-latest"></a>Media Services v3(최신)
 
-Azure 미디어 서비스의 최신 버전을 확인하십시오! 
+최신 버전의 Azure Media Services을 확인 하세요. 
 
 * [개요](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
 * [개념](https://docs.microsoft.com/azure/media-services/latest/concepts-overview)
@@ -24,5 +24,5 @@ Azure 미디어 서비스의 최신 버전을 확인하십시오!
 
 * [개요](https://docs.microsoft.com/azure/media-services/previous/media-services-overview)
 * [계정 만들기](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-create-account)
-* [온디맨드 제공](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-vod-get-started)
-* [실시간 제공](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-live-passthrough-get-started)
+* [주문형 제공](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-vod-get-started)
+* [라이브 제공](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-live-passthrough-get-started)

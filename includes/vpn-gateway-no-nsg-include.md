@@ -16,6 +16,6 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "72935514"
 ---
 > [!IMPORTANT]
-> 게이트웨이 서브넷에서 작업할 때는 게이트웨이 서브넷에 NSG(네트워크 보안 그룹)를 연결하지 않습니다. 네트워크 보안 그룹을 이 서브넷에 연결하면 가상 네트워크 게이트웨이(VPN, Express Route 게이트웨이)가 예상대로 작동하지 않을 수 있습니다. 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹이란?](../articles/virtual-network/security-overview.md)을 참조하세요.
+> 게이트웨이 서브넷에서 작업할 때는 게이트웨이 서브넷에 NSG(네트워크 보안 그룹)를 연결하지 않습니다. 네트워크 보안 그룹을이 서브넷에 연결 하면 Virtual Network 게이트웨이 (VPN, Express 경로 게이트웨이)가 예상 대로 작동 하지 않을 수 있습니다. 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹이란?](../articles/virtual-network/security-overview.md)을 참조하세요.
 > 
 > 

@@ -1,6 +1,6 @@
 ---
 title: 클라이언트 쪽에 광고 삽입 | Microsoft 문서
-description: 이 도움말에서는 클라이언트 측의 미디어에 광고를 삽입하는 방법을 보여 줍니다.
+description: 이 문서에서는 클라이언트 쪽의 미디어에 광고를 삽입 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -586,7 +586,7 @@ ProgrammaticAdPage.xaml.cs 파일은 AdHandlerPlugin을 만들고, TimelineMarke
 ```
 
 ## <a name="implementing-an-ios-video-player-with-ad-support"></a>광고 지원이 포함된 iOS 비디오 플레이어 구현
-Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워크를 사용하여 비디오 플레이어 애플리케이션을 구현하는 방법을 보여 주는 샘플 애플리케이션 컬렉션이 포함됩니다. [Azure Media Player 프레임워크](https://github.com/Azure/azure-media-player-framework)에서 플레이어 프레임워크와 샘플을 다운로드할 수 있습니다. GitHub 페이지에는 플레이어 프레임워크에 대한 추가 정보와 플레이어 샘플소개가 포함된 위키 링크가 [있습니다.](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework)
+Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워크를 사용하여 비디오 플레이어 애플리케이션을 구현하는 방법을 보여 주는 샘플 애플리케이션 컬렉션이 포함됩니다. [Azure Media Player 프레임워크](https://github.com/Azure/azure-media-player-framework)에서 플레이어 프레임워크와 샘플을 다운로드할 수 있습니다. GitHub 페이지에는 플레이어 프레임 워크에 대 한 추가 정보를 포함 하는 Wiki에 대 한 링크와 플레이어 샘플에 대 한 소개 인 [Azure Media Player wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework)가 있습니다.
 
 ### <a name="scheduling-ads-with-vmap"></a>VMAP를 사용하여 광고 예약
 다음 예제에서는 VMAP 파일을 사용하여 광고를 예약하는 방법을 보여 줍니다.

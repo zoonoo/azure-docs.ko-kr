@@ -1,7 +1,7 @@
 ---
 title: OData 언어 개요
 titleSuffix: Azure Cognitive Search
-description: Azure 인지 검색 쿼리에 대한 필터, 선택 및 순서별에 대한 OData 언어 개요입니다.
+description: Azure Cognitive Search 쿼리에 대 한 필터, 선택 및 정렬에 대 한 OData 언어 개요입니다.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -26,27 +26,27 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77153879"
 ---
-# <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>및 Azure 인지 `$filter` `$orderby` `$select` 검색에서 OData 언어 개요
+# <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Azure Cognitive Search의, `$filter` `$orderby`및 `$select` 에 대 한 OData 언어 개요
 
-Azure Cognitive Search는 **$filter,** **$orderby**및 **$select** 식에 대한 OData 식 구문의 하위 집합을 지원합니다. 필터 식은 쿼리 구문 분석 때 평가되고, 검색을 특정 필드로 제한하거나 인덱스 검색 때 사용되는 일치 조건을 추가합니다. 순서별 표현식은 반환되는 문서를 정렬하기 위해 결과 집합에 대한 사후 처리 단계로 적용됩니다. 표현식을 선택하면 결과 집합에 포함되는 문서 필드가 결정됩니다. 이러한 식의 구문은 필드를 참조하기 위한 구문에 일부 겹치지만 **검색** 매개 변수에 사용되는 [단순](query-simple-syntax.md) 또는 [전체](query-lucene-syntax.md) 쿼리 구문과 구별됩니다.
+Azure Cognitive Search는 **$filter**, **$orderby**및 **$select** 식의 OData 식 구문 하위 집합을 지원 합니다. 필터 식은 쿼리 구문 분석 때 평가되고, 검색을 특정 필드로 제한하거나 인덱스 검색 때 사용되는 일치 조건을 추가합니다. Order by 식은 반환 되는 문서를 정렬 하기 위해 결과 집합에 대 한 사후 처리 단계로 적용 됩니다. 식 선택은 결과 집합에 포함 되는 문서 필드를 결정 합니다. 이러한 식의 구문은 **검색** 매개 변수에 사용 되는 [단순](query-simple-syntax.md) 또는 [전체](query-lucene-syntax.md) 쿼리 구문과 구분 됩니다. 하지만 필드를 참조 하는 구문에는 약간의 차이가 있습니다.
 
-이 문서에서는 필터, 순서별 및 선택 식에 사용되는 OData 표현식 언어에 대한 개요를 제공합니다. 언어는 가장 기본적인 요소로 시작하여 그 위에 구축, "상향식"을 제시한다. 각 매개 변수에 대한 최상위 구문은 별도의 문서에서 설명합니다.
+이 문서에서는 필터, order by 및 select 식에 사용 되는 OData 식 언어의 개요를 제공 합니다. 언어가 가장 기본적인 요소부터 시작 하 여 "상향식"으로 표시 됩니다. 각 매개 변수에 대 한 최상위 구문은 별도의 문서에 설명 되어 있습니다.
 
 - [$filter 구문](search-query-odata-filter.md)
 - [$orderby 구문](search-query-odata-orderby.md)
 - [$select 구문](search-query-odata-select.md)
 
-OData 표현식은 단순에서 매우 복잡한 것까지 다양하지만 모두 공통 요소를 공유합니다. Azure 인지 검색에서 OData 식의 가장 기본적인 부분은 다음과 같습니다.
+OData 식의 범위는 단순에서 매우 복잡 하지만 모두 공통 요소를 공유 합니다. Azure Cognitive Search에서 OData 식의 가장 기본적인 부분은 다음과 같습니다.
 
-- 인덱스의 특정 필드를 참조하는 **필드 경로입니다.**
-- **상수**- 특정 데이터 형식의 리터럴 값입니다.
+- 인덱스의 특정 필드를 참조 하는 **필드 경로**입니다.
+- **상수**는 특정 데이터 형식의 리터럴 값입니다.
 
 > [!NOTE]
-> Azure 인지 검색의 용어는 몇 가지 방법으로 [OData 표준과](https://www.odata.org/documentation/) 다릅니다. Azure Cognitive Search에서 필드를 호출하는 **필드를** OData의 **속성이라고** 하며 필드 **경로와** **속성 경로에**대해서도 비슷합니다. Azure Cognitive Search에 **있는 문서를** 포함하는 **인덱스를** OData에서 엔터티를 포함하는 **엔터티 집합으로** 보다 일반적으로 지칭됩니다. **entities** Azure 인지 검색 용어는 이 참조 전체에서 사용됩니다.
+> Azure Cognitive Search의 용어는 [OData 표준과](https://www.odata.org/documentation/) 다릅니다. Azure Cognitive Search에서 **필드** 를 호출 하는 것은 OData에서 **속성** 이라고 하며, **필드 경로** 와 **속성 경로**에 대해서도 마찬가지입니다. Azure Cognitive Search의 **문서** 를 포함 하는 **인덱스** 를 일반적으로 OData에서 **엔터티**를 포함 하는 **엔터티 집합** 이라고 합니다. Azure Cognitive Search 용어는이 참조 전체에서 사용 됩니다.
 
 ## <a name="field-paths"></a>필드 경로
 
-다음 EBNF(확장[백투스-나우어 양식)는](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)필드 경로의 문법을 정의합니다.
+다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))은 필드 경로의 문법을 정의 합니다.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -59,59 +59,59 @@ identifier ::= [a-zA-Z_][a-zA-Z_0-9]*
 대화형 구문 다이어그램도 사용할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Azure 인지 검색에 대 한 OData 구문 다이어그램](https://azuresearch.github.io/odata-syntax-diagram/#field_path)
+> [Azure Cognitive Search에 대 한 OData 구문 다이어그램](https://azuresearch.github.io/odata-syntax-diagram/#field_path)
 
 > [!NOTE]
-> 전체 EBNF에 대한 Azure 인지 검색에 대한 [OData 식 구문 참조를](search-query-odata-syntax-reference.md) 참조하십시오.
+> 전체 EBNF [Azure Cognitive Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 를 참조 하세요.
 
-필드 경로는 슬래시로 구분된 하나 이상의 **식별자로** 구성됩니다. 각 식별자는 ASCII 문자 또는 밑줄로 시작해야 하며 ASCII 문자, 숫자 또는 밑줄만 포함해야 하는 문자 시퀀스입니다. 문자는 대문자 또는 소문자일 수 있습니다.
+필드 경로는 슬래시로 구분 된 하나 이상의 **식별자** 로 구성 됩니다. 각 식별자는 ASCII 문자 또는 밑줄로 시작 해야 하 고 ASCII 문자, 숫자 또는 밑줄만 포함 하는 문자 시퀀스입니다. 문자는 대문자나 소문자 일 수 있습니다.
 
-식별자는 필터에서 컬렉션 식(또는)의`any` `all`컨텍스트에서 필드 이름 또는 [collection expression](search-query-odata-collection-operators.md) **범위 변수를** 참조할 수 있습니다. 범위 변수는 컬렉션의 현재 요소를 나타내는 루프 변수와 같습니다. 복잡한 컬렉션의 경우 해당 변수는 개체를 나타내므로 필드 패스를 사용하여 변수의 하위 필드를 참조할 수 있습니다. 이는 많은 프로그래밍 언어의 점 표기와 유사합니다.
+식별자는 필드 이름 또는 필터의 [컬렉션 식](search-query-odata-collection-operators.md) (`any` 또는 `all`)의 컨텍스트에서 **범위 변수** 를 참조할 수 있습니다. 범위 변수는 컬렉션의 현재 요소를 나타내는 루프 변수와 같습니다. 복합 컬렉션의 경우 해당 변수는 개체를 나타내므로 필드 경로를 사용 하 여 변수의 하위 필드를 참조할 수 있습니다. 이는 대부분의 프로그래밍 언어에서 점 표기법과 유사 합니다.
 
-필드 경로의 예는 다음 표에 나와 있습니다.
+다음 표에서는 필드 경로의 예를 보여 줍니다.
 
-| 필드 경로 | 설명 |
+| 필드 경로 | Description |
 | --- | --- |
-| `HotelName` | 인덱스의 최상위 필드를 참조합니다. |
-| `Address/City` | 인덱스에서 `City` 복잡한 필드의 하위 필드를 나타냅니다. `Address` 이 예제에서 형식에 `Edm.ComplexType` 해당합니다. |
-| `Rooms/Type` | 인덱스에서 `Type` 복잡한 컬렉션 필드의 하위 필드를 참조합니다. `Rooms` 이 예제에서 형식에 `Collection(Edm.ComplexType)` 해당합니다. |
-| `Stores/Address/Country` | 인덱스에서 `Country` 복합 컬렉션 필드의 `Address` 하위 필드의 하위 필드를 참조합니다. `Stores` 이 예제에서는 `Address` 형식이 `Edm.ComplexType` `Collection(Edm.ComplexType)` 있고 형식입니다. |
-| `room/Type` | `room` 범위 변수의 `Type` 하위 필드(예: 필터 식)를 참조합니다.`Rooms/any(room: room/Type eq 'deluxe')` |
-| `store/Address/Country` | 범위 변수의 `Country` `Address` 하위 필드의 하위 필드를 참조 합니다., 예를 들어 필터 식에서 `store``Stores/any(store: store/Address/Country eq 'Canada')` |
+| `HotelName` | 인덱스의 최상위 필드를 참조 합니다. |
+| `Address/City` | 인덱스에 있는 `City` 복합 필드의 하위 필드를 참조 합니다. `Address` 이 예제에서는 `Edm.ComplexType` 형식입니다. |
+| `Rooms/Type` | 인덱스에 있는 `Type` 복합 컬렉션 필드의 하위 필드를 참조 합니다. `Rooms` 이 예제에서는 `Collection(Edm.ComplexType)` 형식입니다. |
+| `Stores/Address/Country` | 인덱스에 있는 `Country` 복합 컬렉션 필드의 `Address` 하위 필드에 대 한 하위 필드를 참조 합니다. `Stores` 는 형식이 `Collection(Edm.ComplexType)` 며 `Address` 이 예제에서는 형식 `Edm.ComplexType` 입니다. |
+| `room/Type` | 는 필터 식 `Type` 에서와 같이 `room` 범위 변수의 하위 필드를 참조 합니다.`Rooms/any(room: room/Type eq 'deluxe')` |
+| `store/Address/Country` | 는 필터 식 `Country` 에서와 같이 `store` 범위 변수의 `Address` 하위 필드에 대 한 하위 필드를 참조 합니다.`Stores/any(store: store/Address/Country eq 'Canada')` |
 
-필드 경로의 의미는 컨텍스트에 따라 다릅니다. 필터에서 필드 경로는 현재 문서에서 필드의 *단일 인스턴스* 값을 나타냅니다. **$orderby**, **$select**와 같은 다른 컨텍스트에서 또는 [전체 Lucene 구문에서 필드 검색에서](query-lucene-syntax.md#bkmk_fields)필드 경로는 필드 자체를 참조합니다. 이러한 차이는 필터에서 필드 경로를 사용하는 방법에 몇 가지 영향을 미칩니다.
+필드 경로의 의미는 컨텍스트에 따라 달라 집니다. 필터에서 필드 경로는 현재 문서에 있는 필드의 *단일 인스턴스* 값을 나타냅니다. [전체 Lucene 구문에서](query-lucene-syntax.md#bkmk_fields) **$orderby**, **$select**또는 필드 지정 search와 같은 다른 컨텍스트에서 필드 경로는 필드 자체를 참조 합니다. 이러한 차이는 필터에서 필드 경로를 사용 하는 방법에 대 한 몇 가지 영향을 줍니다.
 
-필드 경로를 `Address/City`고려하십시오. 필터에서 이 필터는 "샌프란시스코"와 같이 현재 문서의 단일 도시를 나타냅니다. 반대로 많은 `Rooms/Type` 룸의 `Type` 하위 필드(예: 첫 번째 룸의 "표준", 두 번째 룸의 "디럭스" 등)를 나타냅니다. 하위 `Rooms/Type` 필드의 `Type` *단일 인스턴스를* 참조하지 않으므로 필터에서 직접 사용할 수 없습니다. 대신 룸 유형을 필터링하려면 다음과 같이 범위 변수가 있는 [lambda 식을](search-query-odata-collection-operators.md) 사용합니다.
+필드 경로 `Address/City`를 고려 합니다. 필터에서이는 "샌프란시스코"와 같이 현재 문서에 대 한 단일 도시를 나타냅니다. 이와 대조적으로 `Rooms/Type` 는 많은 대화방 `Type` 의 하위 필드 (예: "standard", 두 번째 방에 대 한 "deluxe")를 참조 합니다. 는 `Rooms/Type` 하위 필드 `Type`의 *단일 인스턴스* 를 참조 하지 않으므로 필터에 직접 사용할 수 없습니다. 대신, 방 유형을 필터링 하려면 다음과 같이 범위 변수와 함께 [람다 식을](search-query-odata-collection-operators.md) 사용 합니다.
 
     Rooms/any(room: room/Type eq 'deluxe')
 
-이 예제에서는 범위 `room` 변수가 `room/Type` 필드 경로에 나타납니다. 이렇게 하면 `room/Type` 현재 문서의 현재 룸 유형을 나타냅니다. 이 인스턴스는 `Type` 하위 필드의 단일 인스턴스이므로 필터에서 직접 사용할 수 있습니다.
+이 예에서는 범위 변수가 `room` `room/Type` 필드 경로에 표시 됩니다. 이러한 방식으로 `room/Type` 는 현재 문서에서 현재 대화방의 유형을 나타냅니다. 이는 `Type` 하위 필드의 단일 인스턴스이며 필터에 직접 사용할 수 있습니다.
 
 ### <a name="using-field-paths"></a>필드 경로 사용
 
-필드 경로는 Azure 인지 검색 [REST API의](https://docs.microsoft.com/rest/api/searchservice/)많은 매개 변수에 사용됩니다. 다음 표에는 사용할 수 있는 모든 장소와 사용 제한 사항이 나열되어 있습니다.
+필드 경로는 [Azure COGNITIVE SEARCH REST api](https://docs.microsoft.com/rest/api/searchservice/)의 많은 매개 변수에 사용 됩니다. 다음 표에서는 사용할 수 있는 모든 위치 및 사용에 대 한 제한 사항을 보여 줍니다.
 
 | API | 매개 변수 이름 | 제한 |
 | --- | --- | --- |
-| 인덱스 [만들기](https://docs.microsoft.com/rest/api/searchservice/create-index) 또는 [업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) | `suggesters/sourceFields` | None |
+| 인덱스 [만들기](https://docs.microsoft.com/rest/api/searchservice/create-index) 또는 [업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) | `suggesters/sourceFields` | 없음 |
 | 인덱스 [만들기](https://docs.microsoft.com/rest/api/searchservice/create-index) 또는 [업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) | `scoringProfiles/text/weights` | **검색 가능한** 필드만 참조할 수 있습니다. |
-| 인덱스 [만들기](https://docs.microsoft.com/rest/api/searchservice/create-index) 또는 [업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) | `scoringProfiles/functions/fieldName` | **필터링 가능한** 필드만 참조할 수 있습니다. |
-| [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search`있는 `queryType` 경우`full` | **검색 가능한** 필드만 참조할 수 있습니다. |
-| [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | **면이 있는** 필드만 참조할 수 있습니다. |
+| 인덱스 [만들기](https://docs.microsoft.com/rest/api/searchservice/create-index) 또는 [업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) | `scoringProfiles/functions/fieldName` | **필터링** 가능한 필드만 참조할 수 있습니다. |
+| [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search`가 `queryType` 인 경우`full` | **검색 가능한** 필드만 참조할 수 있습니다. |
+| [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | **패싯 가능** 필드만 참조할 수 있습니다. |
 | [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | **검색 가능한** 필드만 참조할 수 있습니다. |
 | [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | **검색 가능한** 필드만 참조할 수 있습니다. |
-| [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions) 및 [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `searchFields` | [제안자의](index-add-suggesters.md) 일부인 필드만 참조할 수 있습니다. |
-| [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents), [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions)및 [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `$filter` | **필터링 가능한** 필드만 참조할 수 있습니다. |
-| [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) 및 [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions) | `$orderby` | **정렬 가능한** 필드만 참조할 수 있습니다. |
-| [검색,](https://docs.microsoft.com/rest/api/searchservice/search-documents) [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions)및 [조회](https://docs.microsoft.com/rest/api/searchservice/lookup-document) | `$select` | **검색 가능한** 필드만 참조할 수 있습니다. |
+| [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions) 및 [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `searchFields` | [확인 기](index-add-suggesters.md) 의 일부인 필드만 참조할 수 있습니다. |
+| [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents), [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions)및 [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `$filter` | **필터링** 가능한 필드만 참조할 수 있습니다. |
+| [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents) 및 [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions) | `$orderby` | **정렬** 가능한 필드만 참조할 수 있습니다. |
+| [검색](https://docs.microsoft.com/rest/api/searchservice/search-documents), [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions)및 [조회](https://docs.microsoft.com/rest/api/searchservice/lookup-document) | `$select` | **검색할** 수 있는 필드만 참조할 수 있습니다. |
 
 ## <a name="constants"></a>상수
 
-OData의 상수는 지정된 [EDM(엔터티 데이터 모델)](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) 형식의 리터럴 값입니다. Azure 인지 [검색에서](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) 지원되는 형식 목록에 대한 지원되는 데이터 형식을 참조하십시오. 컬렉션 형식의 상수는 지원되지 않습니다.
+OData의 상수는 지정 된 EDM ( [엔터티 데이터 모델](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) ) 형식의 리터럴 값입니다. Azure Cognitive Search에서 지원 되는 형식 목록은 [지원 되는 데이터 형식](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) 을 참조 하세요. 컬렉션 형식의 상수는 지원 되지 않습니다.
 
-다음 표에서는 Azure Cognitive Search에서 지원하는 각 데이터 형식에 대한 상수 예제를 보여 주며 있습니다.
+다음 표에서는 Azure Cognitive Search에서 지 원하는 각 데이터 형식에 대 한 상수의 예를 보여 줍니다.
 
-| 데이터 형식 | 상수 예 |
+| 데이터 형식 | 예제 상수 |
 | --- | --- |
 | `Edm.Boolean` | `true`, `false` |
 | `Edm.DateTimeOffset` | `2019-05-06T12:30:05.451Z` |
@@ -124,16 +124,16 @@ OData의 상수는 지정된 [EDM(엔터티 데이터 모델)](https://docs.micr
 
 ### <a name="escaping-special-characters-in-string-constants"></a>문자열 상수에서 특수 문자 이스케이프
 
-OData의 문자열 상수는 따옴표로 구분됩니다. 따옴표를 포함할 수 있는 문자열 상수로 쿼리를 생성해야 하는 경우 포함된 따옴표를 두 배로 늘려서 이스케이프할 수 있습니다.
+OData의 문자열 상수는 작은따옴표로 구분 됩니다. 작은따옴표를 포함할 수 있는 문자열 상수를 사용 하 여 쿼리를 생성 해야 하는 경우 포함 된 따옴표를 두 배로 이스케이프할 수 있습니다.
 
-예를 들어 "Alice의 자동차"와 같은 형식이 지정되지 않은 아포스트로피가 있는 구는 `'Alice''s car'`OData에서 문자열 상수로 표시됩니다.
+예를 들어 "Alice의 car"와 같이 형식이 지정 되지 않은 아포스트로피를 사용 하는 구는 OData에서 문자열 상수로 `'Alice''s car'`표시 됩니다.
 
 > [!IMPORTANT]
-> 프로그래밍 방식으로 필터를 생성할 때는 사용자 입력에서 오는 문자열 상수를 이스케이프하는 것이 중요합니다. 이는 특히 필터를 사용하여 [보안 트리밍을](search-security-trimming-for-azure-search.md)구현할 때 [주입 공격의](https://wikipedia.org/wiki/SQL_injection)가능성을 완화하기 위한 것입니다.
+> 프로그래밍 방식으로 필터를 생성 하는 경우 사용자 입력에서 제공 되는 문자열 상수를 이스케이프 해야 합니다. 이는 특히 필터를 사용 하 여 [보안 트리밍을](search-security-trimming-for-azure-search.md)구현할 때 [삽입 공격의](https://wikipedia.org/wiki/SQL_injection)가능성을 완화 하기 위한 것입니다.
 
 ### <a name="constants-syntax"></a>상수 구문
 
-다음 EBNF(확장[백투스-Naur 양식)는](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)위의 표에 표시된 대부분의 상수에 대한 문법을 정의합니다. 지리적 공간 형식에 대한 문법은 [Azure 인지 검색의 OData 지리적 공간 함수에서](search-query-odata-geo-spatial-functions.md)찾을 수 있습니다.
+다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))는 위의 표에 표시 된 대부분의 상수에 대 한 문법을 정의 합니다. 지역 공간 형식에 대 한 문법은 [Azure Cognitive Search의 OData 지역 공간 함수](search-query-odata-geo-spatial-functions.md)에서 찾을 수 있습니다.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -198,18 +198,18 @@ boolean_literal ::= 'true' | 'false'
 대화형 구문 다이어그램도 사용할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Azure 인지 검색에 대 한 OData 구문 다이어그램](https://azuresearch.github.io/odata-syntax-diagram/#constant)
+> [Azure Cognitive Search에 대 한 OData 구문 다이어그램](https://azuresearch.github.io/odata-syntax-diagram/#constant)
 
 > [!NOTE]
-> 전체 EBNF에 대한 Azure 인지 검색에 대한 [OData 식 구문 참조를](search-query-odata-syntax-reference.md) 참조하십시오.
+> 전체 EBNF [Azure Cognitive Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 를 참조 하세요.
 
-## <a name="building-expressions-from-field-paths-and-constants"></a>필드 경로 및 상수에서 표현식 작성
+## <a name="building-expressions-from-field-paths-and-constants"></a>필드 경로 및 상수에서 식 작성
 
-필드 경로와 상수는 OData 식의 가장 기본적인 부분이지만 이미 전체 표현식 입니다. 실제로 Azure Cognitive Search의 **$select** 매개 변수는 쉼표로 구분된 필드 경로 목록에 불과하며 **$orderby** **$select**것보다 훨씬 복잡하지 않습니다. 인덱스에 형식 `Edm.Boolean` 필드가 있는 경우 해당 필드의 경로에 불과한 필터를 작성할 수도 있습니다. 상수와 `true` `false` 마찬가지로 유효한 필터입니다.
+필드 경로와 상수는 OData 식의 가장 기본적인 부분 이지만 이미 전체 식입니다. 실제로 Azure Cognitive Search의 **$select** 매개 변수는 아무것도 아니지만 쉼표로 구분 된 필드 경로 목록이 며 **$orderby** 는 **$select**보다 훨씬 복잡 하지 않습니다. 인덱스에 형식의 `Edm.Boolean` 필드가 있는 경우에도 해당 필드의 경로는 아니지만 필터를 작성할 수 있습니다. 상수 `true` 와 `false` 는 마찬가지로 유효한 필터입니다.
 
-그러나 대부분의 경우 두 개 이상의 필드와 상수를 참조하는 더 복잡한 식이 필요합니다. 이러한 식은 매개 변수에 따라 다른 방식으로 빌드됩니다.
+그러나 대부분의 경우에는 둘 이상의 필드와 상수를 참조 하는 더 복잡 한 식이 필요 합니다. 이러한 식은 매개 변수에 따라 다양 한 방식으로 빌드됩니다.
 
-다음 EBNF(확장[Backus-Naur Form)는](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form) **$filter,** **$orderby**및 **$select** 매개 변수에 대한 문법을 정의합니다. 필드 경로 및 상수를 참조하는 간단한 식에서 빌드됩니다.
+다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))은 **$filter**, **$orderby**및 **$select** 매개 변수에 대 한 문법을 정의 합니다. 이러한 작업은 필드 경로와 상수를 참조 하는 간단한 식에서 빌드됩니다.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -224,23 +224,23 @@ select_expression ::= '*' | field_path(',' field_path)*
 대화형 구문 다이어그램도 사용할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Azure 인지 검색에 대 한 OData 구문 다이어그램](https://azuresearch.github.io/odata-syntax-diagram/#filter_expression)
+> [Azure Cognitive Search에 대 한 OData 구문 다이어그램](https://azuresearch.github.io/odata-syntax-diagram/#filter_expression)
 
 > [!NOTE]
-> 전체 EBNF에 대한 Azure 인지 검색에 대한 [OData 식 구문 참조를](search-query-odata-syntax-reference.md) 참조하십시오.
+> 전체 EBNF [Azure Cognitive Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 를 참조 하세요.
 
-**$orderby** 및 **$select** 매개 변수는 쉼표로 구분된 간단한 식 목록입니다. **$filter** 매개 변수는 간단한 하위 표현식으로 구성된 부울 식입니다. These sub-expressions are combined using logical operators such as [ `and`, `or`, and `not` ](search-query-odata-logical-operators.md), comparison operators such as [ `eq`, `lt`, `gt`, and so on](search-query-odata-comparison-operators.md), and collection operators such as [ `any` and `all` ](search-query-odata-collection-operators.md).
+**$Orderby** 및 **$select** 매개 변수는 간단한 식의 쉼표로 구분 된 목록입니다. **$Filter** 매개 변수는 보다 간단한 하위 식으로 구성 된 부울 식입니다. 이러한 하위 식은 [ `and`,, 등 `or` `not` ](search-query-odata-logical-operators.md)의 논리 연산자를 사용 하 여 결합 되 고,, 등의 비교 연산자 [ `eq` `lt` `gt`](search-query-odata-comparison-operators.md)와 [ `any` 및 `all` ](search-query-odata-collection-operators.md)등의 컬렉션 연산자를 사용 하 여 결합 됩니다.
 
-**$filter** **$orderby**및 **$select** 매개 변수는 다음 문서에서 자세히 설명합니다.
+**$Filter**, **$orderby**및 **$select** 매개 변수는 다음 문서에 자세히 설명 되어 있습니다.
 
-- [Azure 인지 검색에서 OData $filter 구문](search-query-odata-filter.md)
-- [Azure 인지 검색에서 OData $orderby 구문](search-query-odata-orderby.md)
-- [Azure 인지 검색에서 OData $select 구문](search-query-odata-select.md)
+- [Azure Cognitive Search의 OData $filter 구문](search-query-odata-filter.md)
+- [Azure Cognitive Search의 OData $orderby 구문](search-query-odata-orderby.md)
+- [Azure Cognitive Search의 OData $select 구문](search-query-odata-select.md)
 
-## <a name="see-also"></a>참조  
+## <a name="see-also"></a>참고 항목  
 
-- [Azure 인지 검색에서 면탐색](search-faceted-navigation.md)
-- [Azure 인지 검색의 필터](search-filters.md)
-- [Azure 인지 검색 REST API&#41;&#40;문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Azure Cognitive Search의 패싯 탐색](search-faceted-navigation.md)
+- [Azure Cognitive Search의 필터](search-filters.md)
+- [Azure Cognitive Search REST API &#40;문서 검색&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 - [Lucene 쿼리 구문](query-lucene-syntax.md)
-- [Azure 인지 검색의 간단한 쿼리 구문](query-simple-syntax.md)
+- [Azure Cognitive Search의 단순 쿼리 구문](query-simple-syntax.md)
