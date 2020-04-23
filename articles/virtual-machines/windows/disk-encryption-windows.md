@@ -2,17 +2,18 @@
 title: Windows VM에 대한 Azure Disk Encryption 시나리오
 description: 이 문서에서는 다양한 시나리오에 대해 Windows VM용 Microsoft Azure 디스크 암호화를 사용하도록 설정하는 방법에 대한 지침을 제공합니다.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-windows
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f7b6e667df95d9279ad5c44caa4ba33a17909935
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: deb2860c8d027a0a258c4a962fe33d6f516e10dc
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113152"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085646"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Windows VM에 대한 Azure Disk Encryption 시나리오
 

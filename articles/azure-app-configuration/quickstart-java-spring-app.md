@@ -8,14 +8,14 @@ manager: maiye
 editor: ''
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 04/18/2020
 ms.author: lcozzens
-ms.openlocfilehash: c156d5f1242674adc53a2a813e9b2c140221ecfb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 69b9733f4d79f5fc42fe86ca0f8a97305205aeef
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80245313"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085062"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration을 사용하여 Java Spring 앱 만들기
 
@@ -143,25 +143,25 @@ ms.locfileid: "80245313"
 1. 앱의 리소스 디렉터리 아래에 `bootstrap.properties`라는 새 파일을 만들고, 다음 줄을 파일에 추가합니다. 샘플 값을 App Configuration 저장소에 대한 해당 속성으로 바꿉니다.
 
     ```CLI
-    spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
+    spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
 1. **APP_CONFIGURATION_CONNECTION_STRING**이이라는 환경 변수를 설정하고, App Configuration 저장소에 대한 액세스 키로 설정합니다. 명령줄에서 다음 명령을 실행하고 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
 
     ```cmd
-        setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
+    setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
     ```
 
     Windows PowerShell을 사용하는 경우 다음 명령을 실행합니다.
 
     ```azurepowershell
-        $Env:APP_CONFIGURATION_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
+    $Env:APP_CONFIGURATION_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
     ```
 
     macOS 또는 Linux를 사용하는 경우 다음 명령을 실행합니다.
 
     ```cmd
-        export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
+    export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
     ```
 
 ## <a name="build-and-run-the-app-locally"></a>로컬로 앱 빌드 및 실행

@@ -3,12 +3,12 @@ title: 템플릿 개요
 description: 리소스 배포에 Azure 리소스 관리자 템플릿을 사용하는 이점에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 02602b4d12ae4333c88b352e4c13923d67f2c591
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b3b5fb383ac89d0968a437f35aab656afa1913f0
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885738"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086337"
 ---
 # <a name="what-are-arm-templates"></a>ARM 템플릿이란?
 
@@ -50,7 +50,7 @@ ARM 템플릿과 다른 인프라 중 하나를 코드 서비스로 사용하는
 
 * **배포 청사진**: Microsoft에서 제공하는 [청사진을](../../governance/blueprints/overview.md) 활용하여 규정 및 규정 준수 표준을 충족할 수 있습니다. 이러한 Blueprint에는 다양한 아키텍처를 위한 미리 빌드된 템플릿이 포함됩니다.
 
-* **CI/CD 통합**: 템플릿을 지속적인 통합 및 지속적인 배포(CI/CD) 도구에 통합하여 릴리스 파이프라인을 자동화하여 빠르고 안정적인 애플리케이션 및 인프라 업데이트를 수행할 수 있습니다. Azure DevOps 및 리소스 관리자 템플릿 작업을 사용하여 Azure 파이프라인을 사용하여 ARM 템플릿 프로젝트를 지속적으로 빌드하고 배포할 수 있습니다. 자세한 내용은 [파이프라인이 있는 VS 프로젝트](add-template-to-azure-pipelines.md) 및 [Azure 파이프라인과의 지속적인 통합을](template-tutorial-use-azure-pipelines.md)참조하십시오.
+* **CI/CD 통합**: 템플릿을 지속적인 통합 및 지속적인 배포(CI/CD) 도구에 통합하여 릴리스 파이프라인을 자동화하여 빠르고 안정적인 애플리케이션 및 인프라 업데이트를 수행할 수 있습니다. Azure DevOps 및 리소스 관리자 템플릿 작업을 사용하여 Azure 파이프라인을 사용하여 ARM 템플릿 프로젝트를 지속적으로 빌드하고 배포할 수 있습니다. 자세한 내용은 파이프라인 및 자습서를 [사용하여 VS 프로젝트를](add-template-to-azure-pipelines.md) 참조하세요. [Tutorial: Continuous integration of Azure Resource Manager templates with Azure Pipelines](./deployment-tutorial-pipeline.md)
 
 * **내보내기 가능한 코드**: 리소스 그룹의 현재 상태를 내보내거나 특정 배포에 사용되는 템플릿을 확인하여 기존 리소스 그룹에 대한 템플릿을 얻을 수 있습니다. [내보낸 템플릿을](export-template-portal.md) 보는 것은 템플릿 구문에 대해 알아보는 유용한 방법입니다.
 

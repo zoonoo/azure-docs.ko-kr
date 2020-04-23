@@ -586,6 +586,9 @@
         - name: 비디오 인덱서
           tocHref: /azure/media-services/video-indexer/
           topicHref: /azure/media-services/video-indexer/
+        - name: Azure Media Player
+          tocHref: /azure/media-services/azure-media-player/
+          topicHref: /azure/media-services/azure-media-player/
     - name: 메시징 서비스
       tocHref: /azure/messaging-services/
       topicHref: /azure/messaging-services/

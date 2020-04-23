@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a6c9eb354bce09a5f652895f4af34df1f6750bec
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2609ff908b3c2f872cb63d3dcd7dcd481d316484
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80045753"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085861"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>자습서: 개인 레지스트리의 App Service에서 사용자 지정 이미지 빌드 및 실행
 
@@ -123,7 +123,7 @@ az acr credential show --name <azure-container-registry-name>
 
 출력에는 사용자 이름과 함께 두 개의 암호가 표시됩니다.
 
-```json
+<pre>
 {
   "passwords": [
     {
@@ -135,9 +135,9 @@ az acr credential show --name <azure-container-registry-name>
       "value": "{password}"
     }
   ],
-  "username": "<registry-username>"
+  "username": "&lt;registry-username&gt;"
 }
-```
+</pre>
 
 로컬 터미널 창에서 다음 예제와 같이 `docker login` 명령을 사용하여 Azure Container Registry에 로그인합니다. *\<azure-container-registry-name>* 및 *\<registry-username>* 을 레지스트리 값으로 바꿉니다. 메시지가 표시되면 이전 단계의 암호 중 하나를 입력합니다.
 
@@ -168,11 +168,11 @@ az acr repository list -n <azure-container-registry-name>
 
 다음과 같은 출력이 표시됩니다.
 
-```json
+<pre>
 [
   "mydockerimage"
 ]
-```
+</pre>
 
 ### <a name="create-app-service-plan"></a>App Service 플랜 만들기
 
@@ -188,7 +188,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 웹앱이 만들어지면 Azure CLI에서 다음 예제와 비슷한 출력을 표시합니다.
 
-```json
+<pre>
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -196,12 +196,12 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app-name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git",
+  "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git",
   "enabled": true,
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
 }
-```
+</pre>
 
 ### <a name="configure-registry-credentials-in-web-app"></a>웹앱에서 레지스트리 자격 증명 구성
 

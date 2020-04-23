@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 4a8b3cf47235e061e5dbcc08a409fce84d421771
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57ca5b0880d4b027e33bc0d01fc6225eb886029b
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77562210"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084994"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>GitHub 작업을 사용하여 앱 서비스에 배포
 
@@ -62,7 +62,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 4. 이제 분기의 워크플로 파일에서 배포 `.github/workflows/workflow.yml` Azure `publish-profile` Web App 작업의 입력에 대한 비밀을 바꿉습니다.
     
     ```yaml
-        - uses: azure/webapps-deploy@v1
+        - uses: azure/webapps-deploy@v2
           with:
             creds: ${{ secrets.azureWebAppPublishProfile }}
     ```
@@ -79,12 +79,12 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 |---------|---------|
 |**.NET**     | `actions/setup-dotnet` |
 |**Java**     | `actions/setup-java` |
-|**자바 스크립트** | `actions/setup-node` |
+|**JavaScript** | `actions/setup-node` |
 |**Python**     | `actions/setup-python` |
 
 다음 예제는 지원되는 다양한 언어에 대한 환경을 설정하는 워크플로의 일부를 보여 주며 있습니다.
 
-**자바 스크립트**
+**JavaScript**
 
 ```yaml
     - name: Setup Node 10.x
@@ -127,7 +127,7 @@ Azure App Service에서 지원하는 언어 및 언어에 따라 이 섹션은 �
 
 다음 예제에서는 웹 앱을 빌드하는 워크플로의 일부를 지원되는 다양한 언어로 보여 준다.
 
-**자바 스크립트**
+**JavaScript**
 
 ```yaml
     - name: 'Run npm'
@@ -182,13 +182,13 @@ Azure App Service에서 지원하는 언어 및 언어에 따라 이 섹션은 �
 ```
 ## <a name="deploy-to-app-service"></a>App Service에 배포
 
-앱을 앱 서비스 앱에 배포하려면 `azure/webapps-deploy@v1 ` 작업을 사용합니다. 이 작업에는 다음 네 가지 매개 변수가 있습니다.
+앱을 앱 서비스 앱에 배포하려면 `azure/webapps-deploy@v2` 작업을 사용합니다. 이 작업에는 다음 네 가지 매개 변수가 있습니다.
 
 | **매개 변수**  | **설명**  |
 |---------|---------|
 | **앱 이름** | (필수) 앱 서비스 앱 이름 | 
 | **게시 프로필** | (선택 사항) 웹 배포 비밀로 프로필 파일 내용 게시 |
-| **패키지** | (선택 사항) 패키지 또는 폴더로의 경로입니다. *.zip, *.war, *.jar 또는 배포폴더 |
+| **package** | (선택 사항) 패키지 또는 폴더로의 경로입니다. *.zip, *.war, *.jar 또는 배포폴더 |
 | **슬롯 이름** | (선택 사항) 프로덕션 슬롯 이외의 기존 슬롯 입력 |
 
 ### <a name="deploy-using-publish-profile"></a>게시 프로필을 사용하여 배포
@@ -219,7 +219,7 @@ jobs:
         npm run test --if-present
        
     - name: 'Run Azure webapp deploy action using publish profile credentials'
-          uses: azure/webapps-deploy@v1
+          uses: azure/webapps-deploy@v2
           with: 
             app-name: node-rn
             publish-profile: ${{ secrets.azureWebAppPublishProfile }}
@@ -258,7 +258,7 @@ jobs:
         npm run test --if-present
                
     # deploy web app using Azure credentials
-    - uses: azure/webapps-deploy@v1
+    - uses: azure/webapps-deploy@v2
       with:
         app-name: 'node-rn'
 

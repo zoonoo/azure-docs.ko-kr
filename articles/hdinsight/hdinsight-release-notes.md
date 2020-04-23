@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/20/2020
-ms.openlocfilehash: cdb31f1a46d7f46b69e9e0ad47a77ba6b32a50a0
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.date: 04/22/2020
+ms.openlocfilehash: f8331b64792781a89428f8c5070375c31c0da48d
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770827"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084892"
 ---
 # <a name="release-notes"></a>릴리스 정보
 
@@ -66,14 +66,3 @@ HDInsight는 클러스터 안정성과 성능 향상을 지속적으로 개선�
 ## <a name="component-version-change"></a>구성 요소 버전 변경
 이 릴리스의 구성 요소 버전 변경사항은 없습니다. HDInsight 4.0 광고 HDInsight 3.6의 현재 구성 요소 버전은 여기에서 확인할 수 있습니다.
 
-## <a name="known-issues"></a>알려진 문제
-
-2020년 3월 18일부터 서유럽 또는 북유럽의 일부 Azure HDInsight 고객은 이러한 리전에서 HDInsight 클러스터를 만들거나 확장할 때 오류 알림을 받았습니다. 이 문제와 관련된 오류는 다음과 같습니다.
-
-- 요청을 처리하는 동안 내부 서버 오류가 발생했습니다. 요청을 다시 시도하거나 지원팀에 문의하십시오.
-- 하나 이상의 리소스 배포 작업이 실패했습니다. 자세한 내용은 배포 작업을 나열하십시오. 사용 https://aka.ms/DeployOperations 에 대한 자세한 내용은 봐 주세요
-- 사용자 SubscriptionId\<'\>구독 ID ' 리소스 '클러스터\<이름>'을 만들 남아 있는 코어가 없습니다. 필수: \<\>X , 사용 가능: 0.
-
-엔지니어는 이 문제를 인식하고 적극적으로 조사하고 있습니다.
-
-추가 도움말을 보려면 [지원 요청을](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)만듭니다.

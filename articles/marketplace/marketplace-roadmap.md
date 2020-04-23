@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/02/2019
-ms.openlocfilehash: c6a3ac701442fb30e471bcc2c8f317e3988980f7
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 24e622f76e604d7c0c48e2f3c354e3b4aa64e549
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261978"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084909"
 ---
 # <a name="microsoft-commercial-marketplace-roadmap"></a>마이크로소프트 상용 마켓플레이스 로드맵
 
@@ -33,7 +33,7 @@ ms.locfileid: "81261978"
 * [표준 계약](https://aka.ms/standardcontract)
 * [SaaS 주문 처리 API](https://aka.ms/saasapiv2)
 * [마켓플레이스 지오 및 통화](https://aka.ms/marketplacegeos)
-* [Seller Insights](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/si-changes)
+* [Seller Insights](./partner-center-portal/analytics.md)
 * [마이크로소프트 빌드 마켓플레이스 블로그](https://aka.ms/marketplacebuildblog)
 * [마켓플레이스 5월 업데이트 블로그](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
 * 파트너 센터:[CPP에서](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc) [계정](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) / [관리 계정](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account) / 마이그레이션 만들기

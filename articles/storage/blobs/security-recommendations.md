@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 0ceef2561d84a1fa491ab9577e1eac789b62bef7
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 0b32f7e8fa2ec0d1d28f2fd42147e140d2d03341
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81454631"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086116"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Blob 저장소에 대한 보안 권장 사항
 
@@ -57,6 +57,7 @@ Azure 보안 센터는 Azure 리소스의 보안 상태를 주기적으로 분�
 | 방화벽 규칙 사용 | 방화벽 규칙을 구성하여 지정된 IP 주소 또는 범위에서 발생한 요청 또는 Azure 가상 네트워크(VNet)의 서브넷 목록에서 시작된 요청으로 저장소 계정에 대한 액세스를 제한합니다. 방화벽 규칙 구성에 대한 자세한 내용은 [Azure 파일 동기화 프록시 및 방화벽 설정을](../files/storage-sync-files-firewall-and-proxy.md)참조하십시오. | - |
 | 신뢰할 수 있는 Microsoft 서비스가 저장소 계정에 액세스할 수 있도록 허용 | Azure 가상 네트워크(VNet) 내에서 운영되는 서비스 또는 허용된 공용 IP 주소에서 요청이 발생하는 경우가 아니면 저장소 계정에 대한 방화벽 규칙을 설정하면 기본적으로 들어오는 데이터 요청이 차단됩니다. 차단되는 요청에는 다른 Azure 서비스, Azure Portal, 로깅 및 메트릭 서비스 등이 포함됩니다. 신뢰할 수 있는 Microsoft 서비스가 저장소 계정에 액세스할 수 있도록 예외를 추가하여 다른 Azure 서비스의 요청을 허용할 수 있습니다. 신뢰할 수 있는 Microsoft 서비스에 대한 예외 추가에 대한 자세한 내용은 [Azure 파일 동기화 프록시 및 방화벽 설정을](../files/storage-sync-files-firewall-and-proxy.md)참조하십시오.| - |
 | 프라이빗 엔드포인트 사용 | 개인 끝점은 Azure 가상 네트워크(VNet)에서 저장소 계정에 개인 IP 주소를 할당합니다. 개인 링크를 통해 VNet과 저장소 계정 간의 모든 트래픽을 보호합니다. 개인 끝점에 대한 자세한 내용은 [Azure 개인 끝점을 사용하여 저장소 계정에 개인적으로 연결 참조](../../private-link/create-private-endpoint-storage-portal.md) | - |
+| VNet 서비스 태그 사용 | 서비스 태그는 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그로 둘러싸인 주소 접두사를 관리하고 주소가 변경될 때 서비스 태그를 자동으로 업데이트합니다. Azure Storage에서 지원하는 서비스 태그에 대한 자세한 내용은 [Azure 서비스 태그 개요를](../../virtual-network/service-tags-overview.md)참조하십시오. 서비스 태그를 사용하여 아웃바운드 네트워크 규칙을 만드는 방법을 보여 주는 자습서의 경우 [PaaS 리소스에 대한 액세스 제한을](../../virtual-network/tutorial-restrict-network-access-to-resources.md)참조하십시오. | - |
 | 특정 네트워크에 대한 네트워크 액세스 제한 | 액세스가 필요한 클라이언트를 호스팅하는 네트워크에 대한 네트워크 액세스를 제한하면 리소스가 네트워크 공격에 노출되는 것을 줄일 수 있습니다. | [예](../../security-center/security-center-sql-service-recommendations.md) |
 
 ## <a name="loggingmonitoring"></a>로깅/모니터링
@@ -67,5 +68,5 @@ Azure 보안 센터는 Azure 리소스의 보안 상태를 주기적으로 분�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 설명서](https://docs.microsoft.com//azure/security/)
+- [Azure 보안 문서](https://docs.microsoft.com//azure/security/)
 - [보안 개발 문서](https://docs.microsoft.com/azure/security/develop/).

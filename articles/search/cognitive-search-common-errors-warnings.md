@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 72bf08dce36d857c1fe91bbe9806336dfa185f7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ed10e998ea05b6687190b1f87095f8bc28265905
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671984"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086617"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Azure 인지 검색에서 일반적인 인덱서 오류 및 경고 문제 해결
 
@@ -35,7 +35,7 @@ API 버전부터 `2019-05-06`항목 수준 인덱서 오류 및 경고는 원인
 | 속성 | Description | 예제 |
 | --- | --- | --- |
 | key | 오류 또는 경고의 영향을 받는 문서의 문서 ID입니다. | https:\//coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
-| name | 오류 또는 경고가 발생한 위치를 설명하는 작업 이름입니다. 이것은 다음과 같은 구조에 의해 생성됩니다: [범주]. [하위 범주]. [리소스유형]을 입력합니다. [리소스 이름] | 문서추출.azureblob.myBlob컨테이너 이름 강화.WebApiSkill.mySkillName 프로젝션.검색인덱스.출력필드매핑.myOutputFieldName 프로젝션.SearchIndex.MergeOrUpload.myIndexName 프로젝션.지식스토어.테이블.마이테이블네임 |
+| name | 오류 또는 경고가 발생한 위치를 설명하는 작업 이름입니다. 이것은 다음과 같은 구조에 의해 생성됩니다: [범주]. [하위 범주]. [리소스유형]을 입력합니다. [리소스 이름] | 문서추출.azureblob.myBlob컨테이너 이름 강화.WebApiSkill.mySkillName 프로젝션.검색인덱스.출력필드매핑.myOutputFieldName 프로젝션.SearchIndex.MergeOrUpload.myIndexName 프로젝션.지식스토어.지식스테이블 |
 | message | 오류 또는 경고에 대한 상위 수준 설명입니다. | Web Api 요청이 실패했기 때문에 기술을 실행할 수 없습니다. |
 | 자세히 | 사용자 지정 기술을 실행하는 데 실패한 경우 WebApi 응답과 같이 문제를 진단하는 데 도움이 될 수 있는 추가 세부 정보입니다. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 소스,`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` 펑 ... 스택 추적의 나머지 ... |
 | 문서링크 | 문제를 디버깅하고 해결하기 위한 자세한 정보가 있는 관련 문서에 대한 링크입니다. 이 링크는 종종 이 페이지의 아래 섹션 중 하나를 가리킵니다. | https://go.microsoft.com/fwlink/?linkid=2106475 |
@@ -91,6 +91,8 @@ Indexer는 데이터 원본에서 문서를 읽었지만 문서 내용을 지정
 
 ## <a name="error-could-not-execute-skill-because-the-web-api-request-failed"></a>오류: 웹 API 요청이 실패하여 기술을 실행할 수 없습니다.
 웹 API 호출에 실패했기 때문에 기술 실행이 실패했습니다. 일반적으로 이 장애 클래스는 사용자 지정 기술을 사용할 때 발생하며, 이 경우 문제를 해결하기 위해 사용자 지정 코드를 디버깅해야 합니다. 대신 오류가 기본 제공 기술에서 발생한 경우 오류 메시지를 참조하여 문제를 해결하는 데 도움이 됩니다.
+
+이 문제를 디버깅하는 동안 이 기술에 대한 [기술 입력 경고에](#warning-skill-input-was-invalid) 주의해야 합니다. 인덱서가 예기치 않은 입력을 전달하기 때문에 웹 API 끝점이 실패할 수 있습니다.
 
 <a name="could-not-execute-skill-because-web-api-skill-response-is-invalid"/>
 

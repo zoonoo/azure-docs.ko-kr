@@ -1,24 +1,18 @@
 ---
 title: Azure에서 관리되는 이미지에서 VM 만들기
-description: Resource Manager 배포 모델에서 Azure PowerShell 또는 Azure Portal을 사용하여 일반화된 관리되는 이미지로 Windows 가상 머신을 만듭니다.
-services: virtual-machines-windows
-documentationcenter: ''
+description: Azure PowerShell 또는 포털을 사용하여 일반화된 관리형 이미지에서 Windows 가상 컴퓨터를 만듭니다.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: de59edc2e2c702993efd6187a590264d9aac16a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b0c6689b66037067a4c5174738945b7c6fabd5b5
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74841934"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086320"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>관리되는 이미지에서 VM 만들기
 

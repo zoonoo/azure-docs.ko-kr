@@ -1,21 +1,19 @@
 ---
 title: Windows VM - Azure에서 데이터 디스크 분리
 description: Resource Manager 배포 모델을 사용하여 Azure의 가상 머신에서 데이터 디스크를 분리합니다.
-services: virtual-machines-windows
 author: cynthn
-manager: gwallace
 ms.service: virtual-machines-windows
+ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: cynthn
-ms.subservice: disks
-ms.openlocfilehash: 301f3abd26f702f3f29c8833c835ba7d0e41bcaf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c93bb5fd3e92c6a947fe997b58207b87b2717fd5
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75834599"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082767"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Windows 가상 컴퓨터에서 데이터 디스크를 분리하는 방법
 

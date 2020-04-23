@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: b-juche
-ms.openlocfilehash: d28f5469174a2659869ebb01ef01653b7190e30e
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: a73da39dafcc8be78fbe1c023693ffa4a19aa1d3
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772081"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085011"
 ---
-# <a name="benefits-of-using-azure-netapp-files-with-oracle-database"></a>오라클 데이터베이스와 Azure NetApp 파일을 사용 하 여 혜택
+# <a name="benefits-of-using-azure-netapp-files-with-oracle-database"></a>Oracle Database에서 Azure NetApp Files를 사용할 경우의 이점
 
 오라클 다이렉트 NFS(dNFS)를 사용하면 운영 체제의 자체 NFS 드라이버보다 더 높은 성능을 구동할 수 있습니다. 이 문서에서는 기술을 설명하고 dNFS와 기존 NFS 클라이언트(커널 NFS) 간의 성능 비교를 제공합니다. 또한 Azure NetApp 파일에서 dNFS를 사용하는 이점과 용이성을 보여 준다.  
 
@@ -39,7 +39,7 @@ ms.locfileid: "81772081"
 
 [직접 NFS용 오라클 FAQ는](http://www.orafaq.com/wiki/Direct_NFS) 오라클 dNFS가 최적화된 NFS 클라이언트임을 보여줍니다. NAS 스토리지 장치에 있는 NFS 스토리지에 빠르고 확장 가능한 액세스를 제공합니다(TCP/IP를 통해 액세스할 수 있음). dNFS는 주로 DAS 또는 SAN 저장소와 함께 사용되는 ASM과 같은 데이터베이스 커널에 내장되어 있습니다. 따라서 *NAS 저장소를 구현할 때 dNFS를 사용하고 SAN 저장소를 구현할 때 ASM을 사용하는 것이 지침입니다.*
 
-dNFS는 오라클 18c의 기본 옵션이며 RAC의 기본값입니다.
+dNFS는 오라클 18c의 기본 옵션입니다.
 
 dNFS는 오라클 데이터베이스 11g부터 사용할 수 있습니다. 아래 다이어그램은 dNFS와 기본 NFS를 비교합니다. dNFS를 사용하는 경우 Azure 가상 컴퓨터에서 실행되는 Oracle 데이터베이스는 기본 NFS 클라이언트보다 더 많은 I/O를 구동할 수 있습니다.
 

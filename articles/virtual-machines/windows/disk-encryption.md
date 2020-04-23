@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 3f6039382b970ca3b0d77042c60cb720f96466d2
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 930fcb4c023dc58fe0eeea65aa3fa5f78569e628
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81759207"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085674"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Azure 관리 디스크의 서버 측 암호화
 
@@ -66,7 +66,7 @@ DEK를 암호화하고 해독하기 위해 키를 사용하려면 키 볼트의 
 
 [!INCLUDE [virtual-machines-disks-encryption-regions](../../../includes/virtual-machines-disks-encryption-regions.md)]
 
-### <a name="restrictions"></a>제한
+### <a name="restrictions"></a>제한 사항
 
 현재 고객 관리 키에는 다음과 같은 제한 사항이 있습니다.
 

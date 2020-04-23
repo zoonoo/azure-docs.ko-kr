@@ -3,12 +3,12 @@ title: Azure 파이프라인 및 템플릿이 있는 CI/CD
 description: Visual Studio의 Azure 리소스 그룹 배포 프로젝트를 사용하여 리소스 관리자 템플릿을 배포하여 Azure 파이프라인에서 지속적인 통합을 설정하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 7617bf47595fce7baa533b0f7cc94a1803ddd349
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8eff1c7efae319106eb8a85af7823a820a0da39
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153457"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084654"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>ARM 템플릿을 Azure 파이프라인과 통합
 
@@ -28,7 +28,7 @@ Azure 파이프라인을 사용하여 템플릿을 배포하는 방법에는 두
 
 * Azure DevOps 조직이 있습니다. 없는 경우 무료로 만들 [수 있습니다.](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops) 팀에 이미 Azure DevOps 조직이 있는 경우 사용하려는 Azure DevOps 프로젝트의 관리자인지 확인합니다.
 
-* Azure 구독에 대한 [서비스 연결을](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) 구성했습니다. 파이프라인의 작업은 서비스 주체의 ID로 실행됩니다. 연결을 만드는 단계는 [DevOps 프로젝트 만들기를](template-tutorial-use-azure-pipelines.md#create-a-devops-project)참조하십시오.
+* Azure 구독에 대한 [서비스 연결을](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) 구성했습니다. 파이프라인의 작업은 서비스 주체의 ID로 실행됩니다. 연결을 만드는 단계는 [DevOps 프로젝트 만들기를](deployment-tutorial-pipeline.md#create-a-devops-project)참조하십시오.
 
 * **Azure 리소스 그룹** 시작 템플릿에서 만든 Visual Studio 프로젝트가 있습니다. 이러한 유형의 프로젝트를 만드는 방법은 [Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포를](create-visual-studio-deployment-project.md)참조하세요.
 
@@ -261,4 +261,4 @@ ContainerName: '<container-name>'
 
 ## <a name="next-steps"></a>다음 단계
 
-ARM 템플릿을 사용하여 Azure 파이프라인을 사용하는 단계별 프로세스는 [자습서: ARM 템플릿과 Azure 파이프라인의 지속적인 통합을](template-tutorial-use-azure-pipelines.md)참조하십시오.
+ARM 템플릿을 사용하여 Azure 파이프라인을 사용하는 단계별 프로세스는 [자습서: Azure 리소스 관리자 템플릿과 Azure 파이프라인의 지속적인 통합을](deployment-tutorial-pipeline.md)참조하십시오.

@@ -1,24 +1,18 @@
 ---
 title: Azure의 특수 VHD에서 Windows VM 만들기
 description: Resource Manager 배포 모델을 사용하여 특수한 관리 디스크를 OS 디스크로 연결하여 새 Windows VM을 만듭니다.
-services: virtual-machines-windows
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: fc157c2253a718860e028fa493574cb9aa2ccdf2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2939726898abc2abc0e62d0e36feedbfe7ba3645
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243368"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086405"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>PowerShell을 사용하여 특수 디스크에서 Windows VM 만들기
 

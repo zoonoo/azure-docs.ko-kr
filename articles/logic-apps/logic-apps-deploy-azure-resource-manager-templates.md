@@ -6,23 +6,23 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/01/2019
-ms.openlocfilehash: 95bfa7b1918da09e4f5913eeb2b57c290b093efe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 432e22879ce0eba89f04a1084e2d4a93a487dd45
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270447"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086439"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Azure 논리 앱에 대한 Azure 리소스 관리자 템플릿 배포
 
 논리 앱에 대한 Azure 리소스 관리자 템플릿을 만든 후 다음과 같은 방법으로 템플릿을 배포할 수 있습니다.
 
-* [Azure 포털](#portal)
+* [Azure Portal](#portal)
 * [Visual Studio](#visual-studio)
-* [Azure 파워쉘](#powershell)
+* [Azure PowerShell](#powershell)
 * [Azure CLI](#cli)
 * [Azure 리소스 관리자 REST API](../azure-resource-manager/templates/deploy-rest.md)
-* [Azure 데브옵스](#azure-pipelines)
+* [Azure DevOps](#azure-pipelines)
 
 <a name="portal"></a>
 
@@ -79,7 +79,7 @@ az group deployment create -g <Azure-resource-group-name> --template-uri https:/
 
 자세한 내용은 다음 항목을 참조하세요.
 
-* [리소스 관리자 템플릿과 Azure CLI로 리소스 배포](../azure-resource-manager/templates/deploy-cli.md) 
+* [리소스 관리자 템플릿과 Azure CLI로 리소스 배포](../azure-resource-manager/templates/deploy-cli.md)
 * [`az group deployment create`](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
 
 <a name="azure-pipelines"></a>
@@ -91,7 +91,7 @@ az group deployment create -g <Azure-resource-group-name> --template-uri https:/
 Azure 파이프라인을 사용하여 Azure 리소스 관리자 템플릿에 대한 지속적인 통합 및 지속적인 배포(CI/CD)에 대한 자세한 내용은 다음 항목 및 샘플을 참조하십시오.
 
 * [리소스 관리자 템플릿을 Azure 파이프라인과 통합](../azure-resource-manager/templates/add-template-to-azure-pipelines.md)
-* [자습서: Azure 파이프라인을 사용 하 고 Azure 리소스 관리자 템플릿에 대 한 지속적인 통합](../azure-resource-manager/templates/template-tutorial-use-azure-pipelines.md)
+* [자습서: Azure Pipelines를 사용한 Azure Resource Manager 템플릿의 지속적인 통합](../azure-resource-manager/templates/deployment-tutorial-pipeline.md)
 * [샘플: Azure 논리 앱에서 Azure Service 버스 큐에 연결하고 Azure DevOps에서 Azure 파이프라인으로 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [샘플: Azure 논리 앱에서 Azure 저장소 계정에 연결하고 Azure DevOps에서 Azure 파이프라인으로 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [샘플: Azure 논리 앱에 대한 함수 앱 작업을 설정하고 Azure DevOps에서 Azure 파이프라인으로 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)

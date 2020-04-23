@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 0767d6c003be8f4e0b28c8d8ce1d48b8f578dd86
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: ae76c30f63c87f7e741fff31792d520fb144b93b
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273531"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084280"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure에서 2세대 VM 지원
 
@@ -27,7 +27,7 @@ ms.locfileid: "81273531"
 1세대 VM은 Azure의 모든 VM 크기에서 지원됩니다(Mv2 시리즈 VM 제외). Azure는 이제 선택한 다음 VM 시리즈에 대한 2세대 지원을 제공합니다.
 
 * [B 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
-* [DC 시리즈](../dcv2-series.md)
+* [DCsv2 시리즈](../dcv2-series.md)
 * [DSv2 시리즈](../dv2-dsv2-series.md) 및 [Dsv3 시리즈](../dv3-dsv3-series.md)
 * [에스브3 시리즈](../ev3-esv3-series.md)
 * [Fsv2 시리즈](../fsv2-series.md)
@@ -68,7 +68,7 @@ Azure는 현재 온-프레미스 Hyper-V가 2세대 VM에 지원하는 일부 �
 | 가상화 기반 보안(VBS) | :heavy_check_mark:  | :x:   |
 | VHDX 형식                         | :heavy_check_mark:  | :x:   |
 
-## <a name="features-and-capabilities"></a>특징과 기능
+## <a name="features-and-capabilities"></a>기능 및 특성
 
 ### <a name="generation-1-vs-generation-2-features"></a>1세대 대 2 세대 기능
 
@@ -101,7 +101,7 @@ Azure 포털 또는 Azure CLI에서 UEFI 부팅을 지원하는 마켓플레이�
 다음은 Azure 포털에서 세대 2(Gen2) VM을 만드는 단계입니다.
 
 1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
-1. **리소스 만들기를 선택합니다.**
+1. **리소스 만들기**를 선택합니다.
 1. 왼쪽의 Azure 마켓플레이스에서 **모두 보기를** 클릭합니다.
 1. Gen2를 지원하는 이미지를 선택합니다.
 1. **만들기**를 클릭합니다.
@@ -145,7 +145,7 @@ Windows Server 2012를 OS로 만드는 경우 다음과 같이 1세대(BIOS) 또
 
 가상 시스템 규모 집합을 사용하여 생성 2 VM을 만들 수도 있습니다. Azure CLI에서 Azure 배율 집합을 사용하여 2세대 VM을 만듭니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 * **모든 Azure 리전에서 2세대 VM을 사용할 수 있습니까?**  
     예. 그러나 모든 지역에서 모든 [세대 2 VM 크기를](#generation-2-vm-sizes) 사용할 수 있는 것은 아닙니다. 2세대 VM의 가용성은 VM 크기의 가용성에 따라 달라집니다.

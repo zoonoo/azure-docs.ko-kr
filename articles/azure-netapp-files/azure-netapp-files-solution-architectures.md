@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 04/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 8eae528c965e599e7adfb546a09b0d5879e7c54f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a26e403671a2f69eeb785d92fa0c1d37a19e3ac5
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369518"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085079"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Azure NetApp Files를 사용하는 솔루션 아키텍처
 이 문서에서는 Azure NetApp 파일 사용에 대한 솔루션 아키텍처를 이해하는 데 도움이 되는 모범 사례에 대한 참조를 제공합니다.  
@@ -38,6 +38,7 @@ ms.locfileid: "80369518"
 
 * [Azure NetApp 파일을 사용하는 Azure 배포 모범 사례 가이드에 대한 오라클](https://www.netapp.com/us/media/tr-4780.pdf)
 * [오라클 VM 이미지 및 Microsoft Azure에 대한 배포: 공유 저장소 구성 옵션](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#shared-storage-configuration-options)
+* [Oracle Database에서 Azure NetApp Files를 사용할 경우의 이점](https://docs.microsoft.com/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-oracle-database)
 
 ## <a name="sap-application-solutions"></a>SAP 애플리케이션 솔루션 
 

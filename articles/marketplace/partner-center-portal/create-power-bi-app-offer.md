@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 776311d6e6395cbe462f958bd8685fa0259e1fc2
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: dc036ae3cba6aa4d3a689562afffb991fadc8c0a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674190"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867592"
 ---
 # <a name="create-a-power-bi-app"></a>Power BI 앱 만들기
 
@@ -55,7 +55,7 @@ Power BI 앱 오퍼를 만들려면 먼저 파트너 센터에 상용 마켓플�
 
 **제안 개요** 페이지에는 이 제안을 게시하는 데 필요한 단계(완료및 예정)와 각 단계를 완료하는 데 걸리는 시간이 시각적으로 표시됩니다.
 
-여기에는 선택한 선택에 따라 이 오퍼에서 작업을 수행하는 링크가 포함되어 있습니다. 다음은 그 예입니다.
+여기에는 선택한 선택에 따라 이 오퍼에서 작업을 수행하는 링크가 포함되어 있습니다. 예를 들어:
 
 - 제안이 초안인 경우 - [초안 오퍼 삭제](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - 오퍼가 실시간 인 경우 - [오퍼 판매 중지](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
@@ -96,7 +96,7 @@ Power BI 앱 오퍼를 만들려면 먼저 파트너 센터에 상용 마켓플�
 
 이 페이지에서는 마켓플레이스에서 쿠폰을 그룹화하는 데 사용되는 카테고리 및 산업, 앱 버전 및 쿠폰을 지원하는 법적 계약을 정의할 수 있습니다.
 
-### <a name="category"></a>Category
+### <a name="category"></a>범주
 
 최소 범주를 1개, 최대 3개 범주를 선택합니다. 이러한 카테고리는 적절한 마켓플레이스 검색 영역에 쿠폰을 배치하는 데 사용되며 쿠폰 세부정보 페이지에 표시됩니다. 쿠폰 설명에서 쿠폰이 이러한 범주를 지원하는 방법을 설명합니다.
 
@@ -221,6 +221,9 @@ PDF 형식으로 하나 이상의 최대 3개의 관련 마케팅 문서를 제�
 ### <a name="marketplace-images"></a>마켓플레이스 이미지
 
 오퍼와 함께 사용할 로고와 이미지를 제공합니다. 모든 이미지는 .png 형식이어야 합니다. 흐릿한 이미지는 거부됩니다.
+
+>[!Note]
+>파일을 업로드하는 데 문제가 있는 경우 로컬 네트워크가 파트너 https://upload.xboxlive.com 센터에서 사용하는 서비스를 차단하지 않는지 확인합니다.
 
 #### <a name="store-logos"></a>스토어 로고
 

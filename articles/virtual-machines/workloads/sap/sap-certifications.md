@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: ''
-ms.openlocfilehash: c19471fee9235faffba12a12d9f92de77f60fd4d
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: df80113b85153f4e52bcbefa7b33dab9da296173
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770514"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084824"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Microsoft Azure에서 실행되는 SAP 인증 및 구성
 
@@ -54,7 +54,7 @@ Microsoft Azure는 다음과 같은 SAP 제품에서 인증되었고 Microsoft�
 | --- | --- | --- | --- |
 | SAP Business Suite 소프트웨어 | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5 ~A11, D11 ~ D14, DS11에서 DS14로, DS11_v2 DS15_v2, GS1에서 GS5까지 D64s_v3, D2s_v3, gs1~ gs5, D2as_v4, D64as_v4, E2s_v3, E64s_v3, E2as_v4 E64as_v4, M64ms, M64ms, M64ms, M64ls, M32ls, M32ts, M208s_v2, M416s_v2 M208ms_v2 M416ms_v2, M416ms_v2 |
 | SAP Business All-in-One | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5 ~A11, D11 ~ D14, DS11에서 DS14로, DS11_v2 DS15_v2, GS1에서 GS5까지 D64s_v3, D2s_v3, gs1~ gs5, D2as_v4, D64as_v4, E2s_v3, E64s_v3, E2as_v4 E64as_v4, M64ms, M64ms, M64ms, M64ls, M32ls, M32ts, M208s_v2, M416s_v2 M208ms_v2 M416ms_v2, M416ms_v2 |
-| SAP BusinessObjects BI | Windows |해당 없음 |A5 ~A11, D11 ~ D14, DS11에서 DS14로, DS11_v2 DS15_v2, GS1에서 GS5까지 D64s_v3, D2s_v3, gs1~ gs5, D2as_v4, D64as_v4, E2s_v3, E64s_v3, E2as_v4 E64as_v4, M64ms, M64ms, M64ms, M64ls, M32ls, M32ts, M208s_v2, M416s_v2 M208ms_v2 M416ms_v2, M416ms_v2 |
+| SAP BusinessObjects BI | Windows |N/A |A5 ~A11, D11 ~ D14, DS11에서 DS14로, DS11_v2 DS15_v2, GS1에서 GS5까지 D64s_v3, D2s_v3, gs1~ gs5, D2as_v4, D64as_v4, E2s_v3, E64s_v3, E2as_v4 E64as_v4, M64ms, M64ms, M64ms, M64ls, M32ls, M32ts, M208s_v2, M416s_v2 M208ms_v2 M416ms_v2, M416ms_v2 |
 | SAP NetWeaver | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5 ~A11, D11 ~ D14, DS11에서 DS14로, DS11_v2 DS15_v2, GS1에서 GS5까지 D64s_v3, D2s_v3, gs1~ gs5, D2as_v4, D64as_v4, E2s_v3, E64s_v3, E2as_v4 E64as_v4, M64ms, M64ms, M64ms, M64ls, M32ls, M32ts, M208s_v2, M416s_v2 M208ms_v2 M416ms_v2, M416ms_v2 |
 
 ## <a name="other-sap-workload-supported-on-azure"></a>Azure에서 지원되는 다른 SAP 워크로드
@@ -65,7 +65,7 @@ Microsoft Azure는 다음과 같은 SAP 제품에서 인증되었고 Microsoft�
 | SAP BPC 10.01 MS SP08 | Windows 및 Linux | | 모든 NetWeaver 인증 VM 유형<br /> SAP Note #2451795 |
 | SAP 비즈니스 개체 BI 플랫폼 | Windows 및 Linux | | SAP Note #2145537 |
 | SAP Data Services 4.2 | | | SAP Note #2288344 |
-| SAP 하이브리스 커머스 플랫폼  | Windows | SQL Server, Oracle | 모든 NetWeaver 인증 VM 유형 <br /> [Hybris Wiki](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud) |
-| SAP 하이브리스 커머스 플랫폼  | SLES 12 이상 최근 | SAP HANA | 모든 NetWeaver 인증 VM 유형 <br /> [Hybris Wiki](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud) |
-| SAP 하이브리스 커머스 플랫폼  | RHEL 7 이상 최근 | SAP HANA | 모든 NetWeaver 인증 VM 유형 <br /> [Hybris Wiki](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud) |
+| SAP 하이브리스 커머스 플랫폼  | Windows | SQL Server, Oracle | 모든 NetWeaver 인증 VM 유형 <br /> [하이브리스 문서](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/6.7.0.0/en-US/8c71300f866910149b40c88dfc0de431.html) |
+| SAP 하이브리스 커머스 플랫폼  | SLES 12 이상 최근 | SAP HANA | 모든 NetWeaver 인증 VM 유형 <br /> [하이브리스 문서](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/6.7.0.0/en-US/8c71300f866910149b40c88dfc0de431.html) |
+| SAP 하이브리스 커머스 플랫폼  | RHEL 7 이상 최근 | SAP HANA | 모든 NetWeaver 인증 VM 유형 <br /> [하이브리스 문서]https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/6.7.0.0/en-US/8c71300f866910149b40c88dfc0de431.html) |
 | SAP (하이브리스) 상거래 플랫폼 1811 이상  | 창, SLES 또는 RHEL | SQL Azure DB | 모든 NetWeaver 인증 VM 유형 <br /> [하이브리스 문서](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1811/en-US/8c71300f866910149b40c88dfc0de431.html) |

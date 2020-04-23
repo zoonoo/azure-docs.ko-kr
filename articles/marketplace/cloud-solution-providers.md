@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: c4c8f21234cfbf040d57c0e1c8dbecbb698d7d50
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 9da8b6d8e5151bd6487d68c2796c261f19c11b55
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685918"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086558"
 ---
 # <a name="cloud-solution-providers"></a>클라우드 솔루션 공급 기업
 
@@ -195,4 +195,4 @@ Azure [마켓플레이스 및 앱소스 게시자 가이드를](https://docs.mic
 
 마켓플레이스 GTM 서비스에 대한 자세한 내용은 [시장 출시 를 참조하세요.](https://partner.microsoft.com/reach-customers/gtm)
 
-[파트너 센터](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 또는 [클라우드 파트너 포털에](https://cloudpartner.azure.com/) 로그인하여 쿠폰을 만들고 구성합니다.
+[파트너 센터에](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) 로그인하여 쿠폰을 만들고 구성하세요.

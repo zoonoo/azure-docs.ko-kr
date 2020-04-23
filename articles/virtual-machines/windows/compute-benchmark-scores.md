@@ -1,26 +1,20 @@
 ---
 title: Azure Windows VM에 대한 벤치마크 점수 계산
 description: Windows Server를 실행하는 Azure VM의 SPECint 컴퓨팅 벤치마크 점수를 비교합니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 69ae72ec-e8be-4e46-a8f0-e744aebb5cc2
 ms.service: virtual-machines-windows
+ms.subservice: sizes
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: 14e2cdd5d4a1662e86a055165fdd15a38d29225b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea6bca1367d4b34aa54b65e92e7cbfdd02642f4c
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651052"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086235"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Windows VM의 컴퓨팅 벤치마크 점수
 다음 SPECInt 벤치마크 점수는 Windows 서버를 실행하는 일부 Azure VM에 대한 계산 성능을 보여 준다. [Linux VM](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 대해 Compute 벤치마크 점수를 사용할 수도 있습니다.

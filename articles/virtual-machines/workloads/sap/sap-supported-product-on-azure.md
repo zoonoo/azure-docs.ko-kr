@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cfc66789360f78c927dd157305074ed5ea6f32a
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 8b2f4e7a16c967b26b545d1405f973bf8b8afaae
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768450"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086133"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Azure 배포에 지원되는 SAP 소프트웨어
 이 문서에서는 Azure 배포에 지원되는 SAP 소프트웨어와 필요한 운영 체제 릴리스 또는 DBMS 릴리스에 대해 설명하는 방법을 설명합니다.
@@ -135,7 +135,7 @@ Azure Kubernetes 서비스(AKS)의 SAP Datahub/Vora 지원은 [SAP 지원 노트
 
 SAP BPC 10.1 SP08에 대한 지원은 [#2451795 SAP 지원 노트에](https://launchpad.support.sap.com/#/notes/2451795) 설명되어 있습니다.
 
-Azure에서 SAP Hybris 상거래 플랫폼에 대한 지원은 [Hybris 위키에서](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud)자세히 설명합니다. SAP Hybris 상거래 플랫폼에 지원되는 DBMS를 사용하면 다음과 같은 목록이 나열됩니다.
+Azure의 SAP Hybris 상거래 플랫폼에 대한 지원은 [Hybris 설명서에서](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1811/en-US/8c71300f866910149b40c88dfc0de431.html)자세히 설명합니다. SAP Hybris 상거래 플랫폼에 지원되는 DBMS를 사용하면 다음과 같은 목록이 나열됩니다.
 
 - Windows 운영 체제 플랫폼에서 SQL 서버 및 오라클. SAP NetWeaver와 동일한 최소 릴리스가 적용됩니다. 자세한 내용은 [SAP 지원 #1928533](https://launchpad.support.sap.com/#/notes/1928533) 참조
 - 레드 햇과 수즈 리눅스에 SAP HANA. SAP HANA 인증 VM 유형은 [이 문서의](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#sap-hana-support)앞에서 설명한 대로 필요합니다. SAP(하이브리스) 커머스 플랫폼은 OLTP 워크로드로 간주됩니다.

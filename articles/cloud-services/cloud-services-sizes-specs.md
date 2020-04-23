@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 34cb4282f64544e67b3724699380d1d54fd9b806
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2549cb0408c9dad3e92f2cec9625757de45a10dc
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247476"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086252"
 ---
 # <a name="sizes-for-cloud-services"></a>Cloud Services에 적합한 크기
 이 항목에서는 클라우드 서비스 역할 인스턴스(웹 역할 및 작업자 역할)에서 사용 가능한 크기 및 옵션을 설명합니다. 또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다. 각 크기에 따라 [서비스 정의 파일](cloud-services-model-and-package.md#csdef)에 입력할 ID가 있습니다. 각 크기의 가격은 [Cloud Services 가격](https://azure.microsoft.com/pricing/details/cloud-services/) 페이지에서 확인할 수 있습니다.
@@ -147,6 +147,7 @@ Azure SKU에서 컴퓨팅(CPU) 성능을 비교하는 방법을 제공하고 성
 | Standard_D8_v3  | 8         | 32            | 200                  | 4/높음 |
 | Standard_D16_v3 | 16        | 64            | 400                  | 8/극히 높음 |
 | Standard_D32_v3 | 32        | 128           | 800                  | 8/극히 높음 |
+| Standard_D48_v3 | 48        | 192           | 1200                 | 8/극히 높음 |
 | Standard_D64_v3 | 64        | 256           | 1600                 | 8/극히 높음 |
 
 ## <a name="ev3-series"></a>Ev3 시리즈
@@ -158,6 +159,7 @@ Azure SKU에서 컴퓨팅(CPU) 성능을 비교하는 방법을 제공하고 성
 | Standard_E8_v3  | 8         | 64            | 200                  | 4/높음 |
 | Standard_E16_v3 | 16        | 128           | 400                  | 8/극히 높음 |
 | Standard_E32_v3 | 32        | 256           | 800                  | 8/극히 높음 |
+| Standard_E48_v3 | 48        | 384           | 1200                 | 8/극히 높음 |
 | Standard_E64_v3 | 64        | 432           | 1600                 | 8/극히 높음 |
 
 

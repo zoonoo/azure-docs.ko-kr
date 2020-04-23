@@ -2,17 +2,18 @@
 title: Windows VM용 Azure AD를 사용한 Azure 디스크 암호화(이전 릴리스)
 description: 이 문서에서는 Windows IaaS VM용 Microsoft Azure Disk Encryption을 사용하도록 설정하는 방법에 대한 지침을 제공합니다.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: d06be85e4d18bc0867835a307b44ec8813c79d7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8677fa2620c1edc646dcffe120938f03fd13a0e5
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72245007"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085624"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Windows VM용 Azure AD를 사용한 Azure 디스크 암호화(이전 릴리스)
 

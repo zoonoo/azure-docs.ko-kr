@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 39e3521339947263161979033406fb39e397373f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 61fbaf37577efdab0b147d437ae78fc4df0764cb
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348965"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084960"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure 함수에 대한 Azure Blob 저장소 트리거
 
@@ -40,7 +40,7 @@ Blob을 처리하는 또 다른 방법은 생성 또는 수정중인 Blob에 해
 
 ## <a name="example"></a>예제
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 다음 예제에서는 `samples-workitems` 컨테이너에서 Blob을 추가하거나 업데이트할 때 로그를 기록하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
@@ -103,7 +103,7 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 코드](functions-reference-node.md)의 Blob 트리거 바인딩을 보여줍니다. 함수는 `samples-workitems` 컨테이너에서 Blob을 추가하거나 업데이트할 때 로그를 씁니다.
 
@@ -196,7 +196,7 @@ public void run(
 
 ## <a name="attributes-and-annotations"></a>특성 및 주석
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 다음 특성을 사용하여 Blob 트리거를 구성합니다.
 
@@ -256,7 +256,7 @@ public void run(
 
 특성은 C# 스크립트에서 지원되지 않습니다.
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 속성은 자바 스크립트에서 지원되지 않습니다.
 
@@ -274,19 +274,19 @@ public void run(
 
 다음 표에서는 *function.json* 파일및 특성에서 설정한 바인딩 `BlobTrigger` 구성 속성에 대해 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**종류** | 해당 없음 | `blobTrigger`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
-|**direction** | 해당 없음 | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. 예외는 [사용](#usage) 섹션에서 표시됩니다. |
-|**(이름)** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다. |
-|**경로** | **BlobPath** |모니터링할 [컨테이너입니다.](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)  [Blob 이름 패턴](#blob-name-patterns)일 수 있습니다. |
+|**type** | 해당 없음 | `blobTrigger`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
+|**방향** | 해당 없음 | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. 예외는 [사용](#usage) 섹션에서 표시됩니다. |
+|**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다. |
+|**path** | **BlobPath** |모니터링할 [컨테이너입니다.](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)  [Blob 이름 패턴](#blob-name-patterns)일 수 있습니다. |
 |**연결** | **연결** | 이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob Storage 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>사용
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
@@ -294,7 +294,7 @@ public void run(
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 *function.json* `context.bindings.<NAME>` 에 `<NAME>` 정의된 값과 일치하는 위치를 사용하여 Blob 데이터에 액세스합니다.
 
@@ -352,7 +352,7 @@ Blob의 이름이 * {20140101}-soundfile.mp3인* `name` 경우 함수 코드의 
 
 ## <a name="metadata"></a>메타데이터
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
@@ -360,7 +360,7 @@ Blob의 이름이 * {20140101}-soundfile.mp3인* `name` 경우 함수 코드의 
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
-# <a name="javascript"></a>[자바 스크립트](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 module.exports = function (context, myBlob) {
@@ -391,7 +391,7 @@ Azure Functions는 사용자 함수 앱에서 사용하는(`AzureWebJobsStorage`
 * Blob 이름
 * ETag(Blob 버전 식별자, 예: "0x8D1DC6E70A277EF")
 
-Blob을 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해당 Blob에 대한 Blob 수신 확인을 수동으로 삭제하면 됩니다. 재처리가 즉시 발생하지는 않지만 나중에 수행되도록 보장됩니다.
+Blob을 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해당 Blob에 대한 Blob 수신 확인을 수동으로 삭제하면 됩니다. 재처리가 즉시 발생하지는 않지만 나중에 수행되도록 보장됩니다. 즉시 다시 처리하려면 *azure-webjobs-hosts/blobscaninfo의* *scaninfo* Blob을 업데이트할 수 있습니다. 속성 이후에 마지막으로 수정된 타임스탬프가 `LatestScan` 있는 모든 Blob은 다시 검색됩니다.
 
 ## <a name="poison-blobs"></a>독 덩어리
 

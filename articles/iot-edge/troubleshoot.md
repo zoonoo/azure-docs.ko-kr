@@ -4,19 +4,19 @@ description: 이 문서에서는 구성 요소 상태 및 로그 검색과 같�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/20/2019
+ms.date: 04/21/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 3529d6a67c6c8c19c053fe3170298658e90b4a54
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 2e15dffac73b4a50b1ef9288feaeb6073dea91e0
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81729265"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086524"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
 
@@ -40,20 +40,19 @@ IoT Edge 문제를 해결할 때 첫 번째 `check` 단계는 일반적인 문�
   iotedge check
   ```
 
-도구에서 실행되는 검사 유형은 다음과 같이 분류할 수 있습니다.
+문제 해결 도구는 다음 세 가지 범주로 정렬된 많은 검사를 실행합니다.
 
 * 구성 검사: *config.yaml* 및 컨테이너 엔진 문제를 포함하여 Edge 장치가 클라우드에 연결하지 못하도록 할 수 있는 세부 정보를 검사합니다.
 * 연결 검사: IoT Edge 런타임이 호스트 장치의 포트에 액세스할 수 있으며 모든 IoT Edge 구성 요소가 IoT Hub에 연결할 수 있도록 합니다.
 * 프로덕션 준비 상태 확인: CA(장치 인증 기관) 인증서 및 모듈 로그 파일 구성과 같은 권장 프로덕션 모범 사례를 찾습니다.
 
-진단 검사의 전체 목록은 [기본 제공 문제 해결 기능을](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md)참조하십시오.
+오류 또는 경고가 있는 경우 수행할 작업을 포함하여 이 도구가 실행되는 각 진단 검사에 대한 자세한 내용은 [IoT Edge 문제 해결 검사를](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md)참조하십시오.
 
 ## <a name="gather-debug-information-with-iotedge-support-bundle-command"></a>iotedge '지원 번들' 명령으로 디버그 정보 수집
 
 IoT Edge 장치에서 로그를 수집해야 하는 경우 가장 편리한 방법은 `support-bundle` 명령을 사용하는 것입니다. 기본적으로 이 명령은 모듈, IoT Edge 보안 관리자 및 컨테이너 엔진 로그, 'iotedge 검사' JSON 출력 및 기타 유용한 디버그 정보를 수집합니다. 그것은 쉽게 공유할 수 있도록 하나의 파일로 압축합니다. 명령은 `support-bundle` [릴리스 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) 이상에서 사용할 수 있습니다.
 
 플래그를 `support-bundle` `--since` 사용하여 명령을 실행하여 과거를 통해 로그를 얻을 수 있는 기간(시간)을 지정합니다. 예를 `6h` 들어 지난 6시간 이후, `6d` 지난 6일 이후, `6m` 지난 6분 이후로 로그를 받게 됩니다. 플래그를 `--help` 포함하여 전체 옵션 목록을 볼 수 있습니다.
-
 
 * Linux에서:
 

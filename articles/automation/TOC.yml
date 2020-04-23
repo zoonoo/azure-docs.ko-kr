@@ -134,7 +134,7 @@
           href: source-control-integration.md
     - name: 구성 관리
       items:
-        - name: State Configuration(DSC) 관리
+        - name: 상태 구성(DSC)
           items:
             - name: 개요
               href: automation-dsc-overview.md
@@ -156,7 +156,7 @@
               href: automation-dsc-diagnostics.md
             - name: DSC 관련 문제 해결
               href: troubleshoot/desired-state-configuration.md
-        - name: 변경 내용 추적 및 인벤토리 관리
+        - name: 변경 내용 추적 및 인벤토리
           items:
             - name: 개요
               href: change-tracking.md
@@ -182,7 +182,7 @@
                   href: troubleshoot/onboarding.md
                 - name: 변경 내용 추적 및 인벤토리 사용
                   href: troubleshoot/change-tracking.md
-    - name: 작업 시간 외 VM 시작/중지
+    - name: 작업이 없는 동안 VM 시작/중지
       items:
         - name: 개요
           href: automation-solution-vm-management.md

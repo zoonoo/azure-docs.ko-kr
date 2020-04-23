@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
 ms.custom: cli-validate
-ms.openlocfilehash: 92a9368bf6aa4f2cf043b3aabd443b37cdcde390
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2cafcab4e7f8e9d98fa993a13def1bfca061135f
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77523954"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085810"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>자습서: Web App for Containers에서 다중 컨테이너(미리 보기) 앱 만들기
 
@@ -87,7 +87,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 App Service 계획을 만든 경우 Cloud Shell은 다음 예제와 비슷한 정보를 표시합니다.
 
-```json
+<pre>
 {
   "adminSiteName": null,
   "appServicePlanName": "myAppServicePlan",
@@ -98,12 +98,12 @@ App Service 계획을 만든 경우 Cloud Shell은 다음 예제와 비슷한 �
   "location": "South Central US",
   "maximumNumberOfWorkers": 1,
   "name": "myAppServicePlan",
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
   "targetWorkerSizeId": 0,
   "type": "Microsoft.Web/serverfarms",
   "workerTierName": null
 }
-```
+</pre>
 
 ### <a name="docker-compose-with-wordpress-and-mysql-containers"></a>WordPress 및 MySQL 컨테이너가 포함된 Docker Compose
 
@@ -117,7 +117,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 웹앱이 만들어지면 Cloud Shell에서는 다음 예제와 비슷한 출력을 표시합니다.
 
-```json
+<pre>
 {
   "additionalProperties": {},
   "availabilityState": "Normal",
@@ -126,11 +126,11 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app-name>.azurewebsites.net",
+  "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
   "enabled": true,
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
 }
-```
+</pre>
 
 ### <a name="browse-to-the-app"></a>앱으로 이동
 
@@ -156,18 +156,18 @@ az mysql server create --resource-group myResourceGroup --name <mysql-server-nam
 
 서버를 만드는 작업이 완료될 때까지 몇 분 정도 걸릴 수 있습니다. MySQL 서버를 만들면 Cloud Shell은 다음 예제와 비슷한 정보를 표시합니다.
 
-```json
+<pre>
 {
   "administratorLogin": "adminuser",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<mysql-server-name>.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql-server-name>",
+  "fullyQualifiedDomainName": "&lt;mysql-server-name&gt;.database.windows.net",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/&lt;mysql-server-name&gt;",
   "location": "southcentralus",
-  "name": "<mysql-server-name>",
+  "name": "&lt;mysql-server-name&gt;",
   "resourceGroup": "myResourceGroup",
   ...
 }
-```
+</pre>
 
 ### <a name="configure-server-firewall"></a>서버 방화벽 구성
 
@@ -189,17 +189,17 @@ az mysql db create --resource-group myResourceGroup --server-name <mysql-server-
 
 데이터베이스를 만들면 Cloud Shell은 다음 예제와 비슷한 정보를 표시합니다.
 
-```json
+<pre>
 {
   "additionalProperties": {},
   "charset": "latin1",
   "collation": "latin1_swedish_ci",
-  "id": "/subscriptions/12db1644-4b12-4cab-ba54-8ba2f2822c1f/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql-server-name>/databases/wordpress",
+  "id": "/subscriptions/12db1644-4b12-4cab-ba54-8ba2f2822c1f/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/&lt;mysql-server-name&gt;/databases/wordpress",
   "name": "wordpress",
   "resourceGroup": "myResourceGroup",
   "type": "Microsoft.DBforMySQL/servers/databases"
 }
-```
+</pre>
 
 ### <a name="configure-database-variables-in-wordpress"></a>WordPress의 데이터베이스 변수 구성
 
@@ -213,17 +213,17 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app-na
 
 앱 설정을 만든 경우 Cloud Shell은 다음 예제와 비슷한 정보를 표시합니다.
 
-```json
+<pre>
 [
   {
     "name": "WORDPRESS_DB_HOST",
     "slotSetting": false,
-    "value": "<mysql-server-name>.mysql.database.azure.com"
+    "value": "&lt;mysql-server-name&gt;.mysql.database.azure.com"
   },
   {
     "name": "WORDPRESS_DB_USER",
     "slotSetting": false,
-    "value": "adminuser@<mysql-server-name>"
+    "value": "adminuser@&lt;mysql-server-name&gt;"
   },
   {
     "name": "WORDPRESS_DB_NAME",
@@ -241,7 +241,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app-na
     "value": "BaltimoreCyberTrustroot.crt.pem"
   }
 ]
-```
+</pre>
 
 환경 변수에 대한 자세한 내용은 [환경 변수 구성](configure-custom-container.md#configure-environment-variables)을 참조하세요.
 
@@ -287,14 +287,14 @@ az webapp config container set --resource-group myResourceGroup --name <app-name
 
 앱이 다시 구성되면 Cloud Shell에서는 다음 예제와 비슷한 정보를 표시합니다.
 
-```json
+<pre>
 [
   {
     "name": "DOCKER_CUSTOM_IMAGE_NAME",
     "value": "COMPOSE|dmVyc2lvbjogJzMuMycKCnNlcnZpY2VzOgogICB3b3JkcHJlc3M6CiAgICAgaW1hZ2U6IG1zYW5nYXB1L3dvcmRwcmVzcwogICAgIHBvcnRzOgogICAgICAgLSAiODAwMDo4MCIKICAgICByZXN0YXJ0OiBhbHdheXM="
   }
 ]
-```
+</pre>
 
 ### <a name="browse-to-the-app"></a>앱으로 이동
 
@@ -316,9 +316,9 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app-na
 
 앱 설정을 만든 경우 Cloud Shell은 다음 예제와 비슷한 정보를 표시합니다.
 
-```json
+<pre>
 [
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
   {
     "name": "WORDPRESS_DB_NAME",
     "slotSetting": false,
@@ -330,7 +330,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app-na
     "value": "TRUE"
   }
 ]
-```
+</pre>
 
 ### <a name="modify-configuration-file"></a>구성 파일 수정
 
@@ -363,7 +363,7 @@ az webapp config container set --resource-group myResourceGroup --name <app-name
 
 명령이 실행되면 다음 예제와 비슷한 출력이 표시됩니다.
 
-```json
+<pre>
 [
   {
     "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
@@ -375,7 +375,7 @@ az webapp config container set --resource-group myResourceGroup --name <app-name
     "value": "COMPOSE|dmVyc2lvbjogJzMuMycKCnNlcnZpY2VzOgogICBteXNxbDoKICAgICBpbWFnZTogbXlzcWw6NS43CiAgICAgdm9sdW1lczoKICAgICAgIC0gZGJfZGF0YTovdmFyL2xpYi9teXNxbAogICAgIHJlc3RhcnQ6IGFsd2F5cwogICAgIGVudmlyb25tZW50OgogICAgICAgTVlTUUxfUk9PVF9QQVNTV09SRDogZXhhbXBsZXBhc3MKCiAgIHdvcmRwcmVzczoKICAgICBkZXBlbmRzX29uOgogICAgICAgLSBteXNxbAogICAgIGltYWdlOiB3b3JkcHJlc3M6bGF0ZXN0CiAgICAgcG9ydHM6CiAgICAgICAtICI4MDAwOjgwIgogICAgIHJlc3RhcnQ6IGFsd2F5cwogICAgIGVudmlyb25tZW50OgogICAgICAgV09SRFBSRVNTX0RCX1BBU1NXT1JEOiBleGFtcGxlcGFzcwp2b2x1bWVzOgogICAgZGJfZGF0YTo="
   }
 ]
-```
+</pre>
 
 ### <a name="browse-to-the-app"></a>앱으로 이동
 
@@ -421,13 +421,13 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app-na
 
 앱 설정을 만든 경우 Cloud Shell은 다음 예제와 비슷한 정보를 표시합니다.
 
-```json
+<pre>
 [
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
   {
     "name": "WORDPRESS_DB_USER",
     "slotSetting": false,
-    "value": "adminuser@<mysql-server-name>"
+    "value": "adminuser@&lt;mysql-server-name&gt;"
   },
   {
     "name": "WP_REDIS_HOST",
@@ -435,7 +435,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app-na
     "value": "redis"
   }
 ]
-```
+</pre>
 
 ### <a name="update-app-with-new-configuration"></a>새 구성으로 앱 업데이트
 
@@ -447,14 +447,14 @@ az webapp config container set --resource-group myResourceGroup --name <app-name
 
 명령이 실행되면 다음 예제와 비슷한 출력이 표시됩니다.
 
-```json
+<pre>
 [
   {
     "name": "DOCKER_CUSTOM_IMAGE_NAME",
     "value": "COMPOSE|dmVyc2lvbjogJzMuMycKCnNlcnZpY2VzOgogICBteXNxbDoKICAgICBpbWFnZTogbXlzcWw6NS43CiAgICAgdm9sdW1lczoKICAgICAgIC0gZGJfZGF0YTovdmFyL2xpYi9teXNxbAogICAgIHJlc3RhcnQ6IGFsd2F5cwogICAgIGVudmlyb25tZW50OgogICAgICAgTVlTUUxfUk9PVF9QQVNTV09SRDogZXhhbXBsZXBhc3MKCiAgIHdvcmRwcmVzczoKICAgICBkZXBlbmRzX29uOgogICAgICAgLSBteXNxbAogICAgIGltYWdlOiB3b3JkcHJlc3M6bGF0ZXN0CiAgICAgcG9ydHM6CiAgICAgICAtICI4MDAwOjgwIgogICAgIHJlc3RhcnQ6IGFsd2F5cwogICAgIGVudmlyb25tZW50OgogICAgICAgV09SRFBSRVNTX0RCX1BBU1NXT1JEOiBleGFtcGxlcGFzcwp2b2x1bWVzOgogICAgZGJfZGF0YTo="
   }
 ]
-```
+</pre>
 
 ### <a name="browse-to-the-app"></a>앱으로 이동
 
@@ -494,17 +494,17 @@ WordPress가 Redis 서버에 연결됩니다. 연결 **상태**가 동일한 페
 
 다음 예제와 비슷한 출력이 표시됩니다.
 
-```json
+<pre>
 [
    {
       "machineName":"RD00XYZYZE567A",
       "lastUpdated":"2018-05-10T04:11:45Z",
       "size":25125,
-      "href":"https://<app-name>.scm.azurewebsites.net/api/vfs/LogFiles/2018_05_10_RD00XYZYZE567A_docker.log",
+      "href":"https://&lt;app-name&gt;.scm.azurewebsites.net/api/vfs/LogFiles/2018_05_10_RD00XYZYZE567A_docker.log",
       "path":"/home/LogFiles/2018_05_10_RD00XYZYZE567A_docker.log"
    }
 ]
-```
+</pre>
 
 각 컨테이너에 대한 로그와 부모 프로세스에 대한 추가 로그가 표시됩니다. 해당 `href` 값을 브라우저에 복사하여 로그를 살펴봅니다.
 

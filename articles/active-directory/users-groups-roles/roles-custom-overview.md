@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 04/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5c7919dcc89e34831cb4cae7921b60b35eb4c69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae244d93d679199aaa0bd08891cd34d4ca3a2ddc
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74024957"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085113"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Azure Active Directory에서 사용자 지정 관리자 역할(미리 보기)
 
@@ -35,6 +35,22 @@ Azure AD 역할 기반 액세스 제어는 Azure AD의 공개 미리 보기 기�
 역할 정의를 만든 후에는 역할 할당을 만들어 사용자에게 할당할 수 있습니다. 역할 할당은 지정된 범위의 역할 정의에 대한 권한을 사용자에게 부여합니다. 이 2단계 프로세스를 사용하면 단일 역할 정의를 만들고 여러 범위에서 여러 번 할당할 수 있습니다. 범위는 역할 구성원이 액세스할 수 있는 Azure AD 리소스 집합을 정의합니다. 가장 일반적인 범위는 조직 전체(조직 전체) 범위입니다. 사용자 지정 역할은 조직 전체 범위에서 할당할 수 있으며, 이는 역할 구성원이 조직의 모든 리소스에 대한 역할 권한을 가지고 있다는 것을 의미합니다. 개체 범위에서 사용자 지정 역할을 할당할 수도 있습니다. 개체 범위의 예는 단일 응용 프로그램입니다. 조직의 모든 응용 프로그램에 대해 한 사용자에게 동일한 역할을 할당한 다음 Contoso 비용 보고서 앱의 범위만 있는 다른 사용자에게 할당할 수 있습니다.  
 
 Azure AD 기본 제공 및 사용자 지정 역할은 [Azure 역할 기반 액세스 제어와](../../role-based-access-control/overview.md)유사한 개념에서 작동합니다. [이러한 두 역할 기반 액세스 제어 시스템의 차이점은](../../role-based-access-control/rbac-and-directory-admin-roles.md) Azure RBAC가 Azure 리소스 관리를 사용하여 가상 시스템 또는 저장소와 같은 Azure 리소스에 대한 액세스를 제어하고 Azure AD 사용자 지정 역할이 그래프 API를 사용하여 Azure AD 리소스에 대한 액세스를 제어한다는 것입니다. 두 시스템 모두 역할 정의 및 역할 할당의 개념을 활용합니다.
+
+### <a name="how-azure-ad-determines-if-a-user-has-access-to-a-resource"></a>Azure AD가 사용자가 리소스에 액세스할 수 있는지 여부를 결정하는 방법
+
+다음은 Azure AD가 관리 리소스에 액세스할 수 있는지 여부를 확인하는 데 사용하는 상위 수준 단계입니다. 이 정보를 사용하여 액세스 문제를 해결합니다.
+
+1. 사용자(또는 서비스 주체)는 Microsoft 그래프 또는 Azure AD 그래프 끝점에 대한 토큰을 획득합니다.
+
+1. 사용자는 발급된 토큰을 사용하여 Microsoft 그래프 또는 Azure AD 그래프를 통해 Azure Active Directory(Azure AD)를 호출합니다.
+
+1. 상황에 따라 Azure AD는 다음 작업 중 하나를 수행합니다.
+
+    - 사용자의 액세스 토큰에서 [위드 클레임을](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) 기반으로 사용자의 역할 멤버 자격을 평가합니다.
+    - 사용자에게 직접 또는 그룹 구성원 자격을 통해 사용자에게 적용되는 모든 역할 할당을 작업이 수행되는 리소스로 검색합니다.
+
+1. Azure AD는 API 호출의 작업이 사용자가 이 리소스에 대해 가지고 있는 역할에 포함되는지 여부를 결정합니다.
+1. 사용자에게 요청된 범위에서 작업에 대한 역할이 없으면 액세스 권한이 부여되지 않습니다. 그렇지 않으면 액세스 권한이 부여됩니다.
 
 ### <a name="role-assignments"></a>역할 할당
 
@@ -61,7 +77,7 @@ Azure 포털, Azure AD PowerShell 또는 그래프 API를 사용하여 [역할 �
 - 변경할 수 없는 Microsoft에서 만든 기본 제공 역할입니다.
 - 조직에서 만들고 관리하는 사용자 지정 역할입니다.
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>범위
 
 범위는 역할 할당의 일부로 특정 Azure AD 리소스에 허용되는 작업의 제한입니다. 역할을 할당할 때 특정 리소스에 대한 관리자의 액세스를 제한하는 범위를 지정할 수 있습니다. 예를 들어 개발자에게 사용자 지정 역할을 부여하지만 특정 응용 프로그램 등록을 관리하려는 경우 특정 응용 프로그램 등록을 역할 할당의 범위로 포함할 수 있습니다.
 

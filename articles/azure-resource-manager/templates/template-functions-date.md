@@ -2,13 +2,13 @@
 title: 템플릿 기능 - 날짜
 description: Azure 리소스 관리자 템플릿에서 날짜를 사용할 기능에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 75234a142b9f2fbe61c337bfeb378b47534bac79
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 04/22/2020
+ms.openlocfilehash: 364b41e9e92cb248a7bd2fac5a41eb535adbf440
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986279"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084790"
 ---
 # <a name="date-functions-for-arm-templates"></a>ARM 템플릿의 날짜 함수
 
@@ -21,11 +21,11 @@ ms.locfileid: "80986279"
 
 `dateTimeAdd(base, duration, [format])`
 
-기본 날짜 시간 값에 시간 기간을 추가합니다.
+시간 기간을 기준 값에 추가합니다. ISO 8601 형식이 예상됩니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | 형식 | Description |
 |:--- |:--- |:--- |:--- |
 | base | 예 | 문자열 | 추가의 시작 날짜 시간 값입니다. [ISO 8601 타임스탬프 형식을](https://en.wikipedia.org/wiki/ISO_8601)사용합니다. |
 | duration | 예 | 문자열 | 베이스에 추가할 시간 값입니다. 음수 값이 될 수 있습니다. [ISO 8601 기간 형식을](https://en.wikipedia.org/wiki/ISO_8601#Durations)사용합니다. |
@@ -142,7 +142,7 @@ ms.locfileid: "80986279"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | 형식 | Description |
 |:--- |:--- |:--- |:--- |
 | format |예 |문자열 |문자열로 변환할 URI 인코딩 값입니다. 표준 [형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 문자열을](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)사용합니다. |
 

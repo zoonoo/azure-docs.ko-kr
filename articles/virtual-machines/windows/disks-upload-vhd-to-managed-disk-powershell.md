@@ -5,15 +5,15 @@ author: roygara
 ms.author: rogarana
 ms.date: 03/27/2020
 ms.topic: article
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 55606aeeb9f6445027f5da49821dbc4970764ade
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 7c66507989357569828d4ef933cfdca735f71570
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421056"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085414"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Azure에 VHD를 업로드하거나 관리 디스크를 다른 지역으로 복사 - Azure PowerShell
 
@@ -26,7 +26,7 @@ ms.locfileid: "80421056"
 - 온-프레미스에서 VHD를 업로드하려는 경우: [Azure용으로 준비된](prepare-for-upload-vhd-image.md)고정 크기 VHD는 로컬에 저장됩니다.
 - 또는 복사 작업을 수행하려는 경우 Azure의 관리 디스크입니다.
 
-## <a name="getting-started"></a>시작
+## <a name="getting-started"></a>시작하기
 
 GUI를 통해 디스크를 업로드하려는 경우 Azure 저장소 탐색기를 사용하여 디스크를 업로드할 수 있습니다. 자세한 내용은 참조: [Azure 저장소 탐색기를 사용하여 Azure 관리 디스크를 관리합니다.](disks-use-storage-explorer-managed-disks.md)
 

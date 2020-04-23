@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: d2d74a90d6712089cff681381e11b1caec9d469d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f6e1896c97c96cd484d15fb9e6a3056e5c5d6b2
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283670"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086371"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -113,7 +113,7 @@ Event Hubs는 기존 Apache Kafka 기반 애플리케이션에서 사용할 수 
 
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 
-예제:
+예:
 
 bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=";
 
@@ -182,7 +182,7 @@ Event Hubs Dedicated 클러스터는 요구 사항이 가장 까다로운 고객
 결과는 Event Hubs 전용 클러스터로 달성할 수 있는 것에 대한 아이디어를 제공합니다. 또한 전용 클러스터는 마이크로 일괄 처리 및 장기 보존 시나리오에 Event Hubs 캡처를 사용하도록 설정된 상태로 제공됩니다.
 
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>Event Hubs Dedicated 클러스터를 만들려면 어떻게 할까요?
-[할당량 증가 지원 요청](https://portal.azure.com/#create/Microsoft.Support)을 제출하거나 [Event Hubs 팀](mailto:askeventhubs@microsoft.com)에 문의하여 Event Hubs Dedicated 클러스터를 만듭니다. 일반적으로 클러스터를 배포하고 전달하여 사용자가 사용할 수 있도록 하는 데 약 2주가 걸립니다. 이 프로세스는 Azure 포털 또는 Azure 리소스 관리자 템플릿을 통해 완전한 자체 서비스를 사용할 수 있게 될 때까지 일시적이며 클러스터를 배포하는 데 약 2시간이 걸립니다.
+[할당량 증가 지원 요청](https://portal.azure.com/#create/Microsoft.Support)을 제출하거나 [Event Hubs 팀](mailto:askeventhubs@microsoft.com)에 문의하여 Event Hubs Dedicated 클러스터를 만듭니다. 일반적으로 클러스터를 배포하고 전달하여 사용자가 사용할 수 있도록 하는 데 약 2주가 걸립니다. 이 프로세스는 Azure 포털을 통해 완전한 자체 서비스를 사용할 수 있게 될 때까지 일시적입니다.
 
 ## <a name="best-practices"></a>모범 사례
 

@@ -132,7 +132,7 @@
     - name: 업계 애플리케이션 템플릿
       items:
         - name: 소매
-          href: ../retail/overview-iot-central-retail-pnp.md
+          href: ../retail/overview-iot-central-retail.md
         - name: 에너지
           href: ../energy/overview-iot-central-energy.md
         - name: 정부

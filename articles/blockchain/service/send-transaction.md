@@ -1,15 +1,15 @@
 ---
 title: 스마트 계약 생성, 빌드 및 배포 - Azure Blockchain Service
 description: Visual Studio Code에서 Ethereum 확장용 Azure Blockchain Development Kit를 사용하여 Azure Blockchain Service에서 스마트 계약을 만들고 빌드하고 배포하는 방법에 대한 자습서입니다.
-ms.date: 12/06/2019
+ms.date: 04/22/2020
 ms.topic: tutorial
-ms.reviewer: chrisseg
-ms.openlocfilehash: 5b901ab904425a22d2fe9643ffa75a4e978efa88
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.reviewer: caleteet
+ms.openlocfilehash: dc23c680dfb2ed33cae2a251af16e1b1f25c6ac7
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74972885"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086660"
 ---
 # <a name="tutorial-create-buildanddeploysmartcontracts-on-azure-blockchain-service"></a>자습서: Azure Blockchain Service에서 스마트 계약 생성, 빌드 및 배포
 
@@ -41,7 +41,7 @@ Windows에서는 node-gyp 모듈에 설치된 C++ 컴파일러가 필요합니�
 * Visual Studio 2019가 설치된 경우 npm에 대한 MS 빌드 도구 경로를 설정합니다. 예를 들어 `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
 * 그렇지 않으면 *관리자 권한으로 실행* 명령 셸에서 `npm install --global windows-build-tools`를 사용하여 독립 실행형 VS 빌드 도구를 설치합니다.
 
-node-gyp에 대한 자세한 내용은 [GitHub의 node-gyp 리포지토리](https://github.com/node-gyp)를 참조하세요.
+node-gyp에 대한 자세한 내용은 [GitHub의 node-gyp 리포지토리](https://github.com/nodejs/node-gyp)를 참조하세요.
 
 ## <a name="create-a-smart-contract"></a>스마트 계약 만들기
 

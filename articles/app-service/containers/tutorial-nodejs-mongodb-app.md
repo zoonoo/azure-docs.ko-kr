@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 940b49d29707a55bc5d63d6f49cdef19ba3f28e5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c08b99b0449608309b42e51c0ffb8d4b71a0621f
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80045723"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085337"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Node.js 및 MongoDB 앱 작성
 
@@ -132,7 +132,7 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 
 Cosmos DB 계정을 만든 경우 Azure CLI는 다음 예와 비슷한 정보를 표시합니다.
 
-```json
+<pre>
 {
   "consistencyPolicy":
   {
@@ -141,12 +141,12 @@ Cosmos DB 계정을 만든 경우 Azure CLI는 다음 예와 비슷한 정보를
     "maxStalenessPrefix": 100
   },
   "databaseAccountOfferType": "Standard",
-  "documentEndpoint": "https://<cosmosdb-name>.documents.azure.com:443/",
+  "documentEndpoint": "https://&lt;cosmosdb-name&gt;.documents.azure.com:443/",
   "failoverPolicies":
   ...
-  < Output truncated for readability >
+  &lt; Output truncated for readability &gt;
 }
-```
+</pre>
 
 ## <a name="connect-app-to-production-configured-with-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 MongoDB API를 사용하여 구성된 프로덕션에 앱 연결
 
@@ -162,14 +162,14 @@ az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup
 
 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.
 
-```json
+<pre>
 {
   "primaryMasterKey": "RS4CmUwzGRASJPMoc0kiEvdnKmxyRILC9BWisAYh3Hq4zBYKr0XQiSE4pqx3UchBeO4QRCzUt1i7w0rOkitoJw==",
   "primaryReadonlyMasterKey": "HvitsjIYz8TwRmIuPEUAALRwqgKOzJUjW22wPL2U8zoMVhGvregBkBk9LdMTxqBgDETSq7obbwZtdeFY7hElTg==",
   "secondaryMasterKey": "Lu9aeZTiXU4PjuuyGBbvS1N9IRG3oegIrIh95U6VOstf9bJiiIpw3IfwSUgQWSEYM3VeEyrhHJ4rn3Ci0vuFqA==",
   "secondaryReadonlyMasterKey": "LpsCicpVZqHRy7qbMgrzbRKjbYCwCKPQRl0QpgReAOxMcggTvxJFA94fTi0oQ7xtxpftTJcXkjTirQ0pT7QFrQ=="
 }
-```
+</pre>
 
 `primaryMasterKey`의 값을 복사합니다. 이 정보는 다음 단계에서 필요합니다.
 
@@ -271,7 +271,7 @@ db: {
 
 [!INCLUDE [app-service-plan-no-h](../../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-```bash
+<pre>
 Counting objects: 5, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (5/5), done.
@@ -287,9 +287,9 @@ remote: Handling node.js deployment.
 .
 .
 remote: Deployment successful.
-To https://<app-name>.scm.azurewebsites.net/<app-name>.git
+To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
  * [new branch]      master -> master
-```
+</pre>
 
 배포 프로세스에서 `npm install` 후에 [Gulp](https://gulpjs.com/)를 실행하는 것을 알 수 있습니다. App Service는 배포 중에 Gulp 또는 Grunt 작업을 실행하지 않으므로 이 샘플 리포지토리는 사용 설정에 사용되는 추가 파일 두 개가 루트 디렉터리에 들어 있습니다.
 

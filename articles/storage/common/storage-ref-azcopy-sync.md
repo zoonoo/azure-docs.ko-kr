@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 1bff46c8584934ab8bcffce74763edc8363533d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d855019be7f357a35a26d14e68ba3d427d984e17
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76988246"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086031"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -65,6 +65,9 @@ azcopy sync <source> <destination> [flags]
 ```azcopy
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
 ```
+
+> [!NOTE]
+> 대상 Blob이 *있어야 합니다.* 대상에 아직 존재하지 않는 단일 파일을 복사하는 데 사용합니다. `azcopy copy` 그렇지 않으면 다음과 같은 `Cannot perform sync due to error: sync must happen between source and destination of the same type, e.g. either file <-> file, or directory/container <-> directory/container`오류가 발생합니다.
 
 위와 동일하지만 이번에는 파일 콘텐츠의 MD5 해시를 계산하고 Blob의 Content-MD5 속성으로 저장합니다.
 
@@ -164,4 +167,4 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 ## <a name="see-also"></a>참조
 
-- [아즈카피](storage-ref-azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

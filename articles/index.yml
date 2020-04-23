@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 7f78774b0c26e26bb0fb0da1ac7a11ab13ee23e0
-  ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+  ms.openlocfilehash: c4f5f9516e4c96876bbdb3e37680ccf0ce7fea7a
+  ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/21/2020
-  ms.locfileid: "81732923"
+  ms.lasthandoff: 04/23/2020
+  ms.locfileid: "82086507"
 highlightedContent:
   items:
   - title: Azure 개발자를 위한 시작 가이드
@@ -475,15 +475,6 @@ productDirectory:
     - featured
     - compute
     url: virtual-machines/linux/index.yml
-  - title: Mobile Apps
-    summary: 모든 모바일 앱용 백 엔드 빌드 및 호스팅
-    imageSrc: https://docs.microsoft.com/media/common/i_mobileapp.svg
-    azureCategories:
-    - compute
-    - containers
-    - mobile
-    - web
-    url: app-service-mobile/index.yml
   - title: Azure의 SAP HANA(대규모 인스턴스)
     summary: 모든 대규모 클라우드 공급자의 최대 SAP HANA 워크로드 실행
     imageSrc: https://static.docs.com/ui/media/product/azure/sap.svg

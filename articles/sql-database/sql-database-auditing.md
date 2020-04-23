@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 9e8aa9bbbdf166ba0caf29cd0bce22b8ed321e4e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 48cdbc8188604ce1992a1cb15289576ba92902a3
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685195"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086150"
 ---
 # <a name="azure-sql-auditing"></a>Azure SQL 감사
 
@@ -89,7 +89,7 @@ Azure SQL 데이터베이스 감사는 감사 레코드의 문자 필드에 대�
   
    ![스토리지 옵션](./media/sql-database-auditing-get-started/auditing-select-destination.png)
    
-### <a name=""></a><a id="audit-storage-destination">스토리지 대상에 대한 감사</a>
+### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>스토리지 대상에 대한 감사
 
 스토리지 계정에 감사 로그 작성을 구성하려면 **스토리지**를 선택하고 **스토리지 세부 정보**를 엽니다. 로그를 저장할 Azure 스토리지 계정을 선택한 다음, 보존 기간을 선택합니다. 그런 다음 **확인**을 클릭합니다. 보존 기간보다 오래된 로그는 삭제됩니다.
 
@@ -108,13 +108,13 @@ Azure SQL 데이터베이스 감사는 감사 레코드의 문자 필드에 대�
 - AAD 인증을 사용하는 경우 실패한 로그인 레코드는 SQL 감사 로그에 나타나지 *않습니다*. 실패한 로그인 감사 레코드를 보려면 이러한 이벤트의 세부 정보를 로깅하는 [Azure Active Directory 포털]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)을 방문해야 합니다.
 - [읽기 전용 복제본에](sql-database-read-scale-out.md) 대한 감사가 자동으로 활성화됩니다. 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대한 자세한 내용은 [SQL Database 감사 로그 형식을](sql-database-audit-log-format.md)참조하십시오. 
 
-### <a name=""></a><a id="audit-log-analytics-destination">로그 분석 대상에 대한 감사</a>
+### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>로그 분석 대상에 대한 감사
   
 Log Analytics 작업 영역에 감사 로그를 쓰도록 구성하려면 **Log Analytics(미리 보기)** 를 선택하고 **Log Analytics 세부 정보**를 엽니다. 로그를 쓸 Log Analytics 작업 영역을 선택하거나 만든 다음, **확인**을 클릭합니다.
    
    ![로그애널리틱스워크스페이스](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
-### <a name=""></a><a id="audit-event-hub-destination">이벤트 허브 대상에 대한 감사</a>
+### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>이벤트 허브 대상에 대한 감사
 
 > [!WARNING]
 > SQL 풀이 있는 서버에서 감사를 사용하도록 설정하면 **SQL 풀이 다시 시작되고 다시 일시 중지되어** 청구 요금이 발생할 수 있습니다.
@@ -199,7 +199,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 <!--The description in this section refers to preceding screen captures.-->
 
-#### <a name="auditing-geo-replicated-databases"></a>지역에서 복제된 데이터베이스 감사
+### <a name="auditing-geo-replicated-databases"></a>지역에서 복제된 데이터베이스 감사
 
 지역 복제 데이터베이스에서 주 데이터베이스에 대해 감사를 활성화하면 보조 데이터베이스에도 동일한 감사 정책이 적용됩니다. 또한 주 데이터베이스와는 별도로 **보조 서버**에서 감사를 활성화하여 보조 데이터베이스에 대한 감사를 설정할 수도 있습니다.
 
@@ -211,7 +211,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
     >[!IMPORTANT]
     >데이터베이스 수준 감사에서 보조 데이터베이스의 스토리지 설정은 주 데이터베이스와 동일하기 때문에 지역 간 트래픽이 발생합니다. 서버 수준 감사만 활성화하고 모든 데이터베이스에 대해 데이터베이스 수준 감사를 비활성화로 유지하는 것이 좋습니다.
 
-#### <a name="storage-key-regeneration"></a>스토리지 키 다시 생성
+### <a name="storage-key-regeneration"></a>스토리지 키 다시 생성
 
 프로덕션에서는 스토리지 키를 주기적으로 새로 고치게 됩니다. Azure Storage에 감사 로그를 작성하는 경우 키를 새로 고칠 때 감사 정책을 다시 저장해야 합니다. 프로세스는 다음과 같습니다.
 
@@ -226,7 +226,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 ## <a name="manage-azure-sql-server-and-database-auditing"></a><a id="manage-auditing"></a>Azure SQL 서버 및 데이터베이스 감사 관리
 
-#### <a name="using-azure-powershell"></a>Azure PowerShell 사용
+### <a name="using-azure-powershell"></a>Azure PowerShell 사용
 
 **PowerShell cmdlet(추가 필터링을 위한 WHERE 절 지원 포함)**:
 
@@ -239,7 +239,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 스크립트 예제는 [PowerShell을 사용하여 감사 및 위협 감지 구성](scripts/sql-database-auditing-and-threat-detection-powershell.md)을 참조하세요.
 
-#### <a name="using-rest-api"></a>REST API 사용
+### <a name="using-rest-api"></a>REST API 사용
 
 **나머지 API**:
 
@@ -255,7 +255,7 @@ WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입�
 - [데이터베이스 *확장* 감사 정책 받기](/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [서버 *확장* 감사 정책 받기](/rest/api/sql/server%20auditing%20settings/get)
 
-#### <a name="using-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿 사용
+### <a name="using-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿 사용
 
 다음 예제처럼 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 템플릿을 사용하여 Azure SQL 데이터베이스 감사를 관리할 수 있습니다.
 

@@ -7,12 +7,13 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: cynthn
-ms.openlocfilehash: 3d014014b540e5ea5959483427dec4b239ceaf7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: zivr
+ms.openlocfilehash: 53a9cd33f7bd2223be1c9f199b7a6d10d876c322
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476793"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082937"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>포털을 사용하여 전용 호스트에 VM 배포
 
@@ -28,7 +29,7 @@ ms.locfileid: "79476793"
 1. **인스턴스 세부 정보** 아래에서 **가상 머신 이름**에 *myVM*을 입력하고 **위치**에 *미국 동부*를 선택합니다.
 1. **가용성 옵션에서** **가용성 영역을**선택하고 드롭다운에서 *1을* 선택합니다.
 1. 크기에 대 한 **크기 변경을**선택 합니다. 사용 가능한 크기 목록에서 **표준 E2s v3과**같은 Esv3 시리즈 중 하나를 선택하십시오. 사용 가능한 모든 크기를 보려면 필터를 지워야 할 수 있습니다.
-1. **관리자 계정에서** *azureuser* 및 암호와 같은 사용자 이름을 제공합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.
+1. **관리자 계정**에서 *azureuser*와 같은 사용자 이름 및 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.
 1. **인바운드 포트 규칙**에서 **선택한 포트 허용**을 선택한 다음, 드롭다운에서 **RDP(3389)** 를 선택합니다.
 1. 페이지 상단에서 **고급** 탭을 선택하고 **호스트** 섹션에서 **호스트 그룹에** 대한 *myHostGroup을* 선택하고 **호스트에**대한 *myHostGroup을* 선택합니다. 
     ![호스트 그룹 및 호스트 선택](./media/dedicated-hosts-portal/advanced.png)

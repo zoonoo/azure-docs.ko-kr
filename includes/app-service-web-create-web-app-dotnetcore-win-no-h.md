@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: c1044f129b8f8e9b7e861633a58f3e894783de10
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 39e3e3ce0411b10b1adc89ed6e099396dfab9873
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77537923"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085438"
 ---
 [ App Service 계획에서 ](../articles/app-service/containers/app-service-linux-intro.md)웹앱`myAppServicePlan`을 만듭니다. 
 
@@ -25,8 +25,8 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 웹앱이 만들어지면 Azure CLI에서 다음 예제와 비슷한 출력을 표시합니다.
 
-```json
-Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git'
+<pre>
+Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git'
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -35,12 +35,12 @@ Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebs
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app-name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git",
+  "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git",
   "enabled": true,
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
 }
-```
+</pre>
 
 > [!NOTE]
 > Git 원격의 URL은 `deploymentLocalGitUrl` 형식으로 `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git` 속성에 표시됩니다. 나중에 필요하므로 이 URL을 저장합니다.

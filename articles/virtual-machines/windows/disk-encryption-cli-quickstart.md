@@ -3,15 +3,16 @@ title: Azure CLI를 사용하여 Windows VM 만들기 및 암호화
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 Windows 가상 머신을 만들고 암호화하는 방법을 배웁니다.
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: security
+ms.service: virtual-machines-windows
+ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
-ms.openlocfilehash: 786a906241b355cdae403c6ed08b60eb27045d6f
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: aa0dd0bf55d51800d6a9b4283aa9e653887bf2f1
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385251"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082801"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-vm-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Windows VM 만들기 및 암호화
 

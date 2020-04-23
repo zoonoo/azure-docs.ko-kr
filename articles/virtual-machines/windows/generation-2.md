@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 239e339d1870060d95d6c7e7b602be7d61af5f77
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
-ms.translationtype: HT
+ms.openlocfilehash: 53806a1a627c7ae6bc3470aa387be0982df914fa
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81869633"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082261"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure에서 2세대 VM 지원
 
@@ -28,7 +28,7 @@ ms.locfileid: "81869633"
 1세대 VM은 Azure의 모든 VM 크기에서 지원됩니다(Mv2 시리즈 VM 제외). Azure는 이제 선택한 다음 VM 시리즈에 대한 2세대 지원을 제공합니다.
 
 * [B 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
-* [DC 시리즈](../dcv2-series.md)
+* [DCsv2 시리즈](../dcv2-series.md)
 * [DSv2 시리즈](../dv2-dsv2-series.md) 및 [Dsv3 시리즈](../dv3-dsv3-series.md)
 * [Dasv4 시리즈](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series)
 * [에스브3 시리즈](../ev3-esv3-series.md)

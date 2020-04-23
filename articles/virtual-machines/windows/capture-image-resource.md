@@ -1,25 +1,19 @@
 ---
 title: Azure에서 관리되는 이미지 만들기
 description: Azure에서 일반화된 VM 또는 VHD의 관리 이미지를 만듭니다. 이미지를 사용하여 관리 디스크를 사용하는 여러 VM을 만들 수 있습니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: imaging
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 01619027ddc79530dc9541584efa9a3e518f5136
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 258bddec85e4ab182ff0b07c49cdc93f92264f95
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74842061"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084467"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure에서 일반화된 VM의 관리 이미지 만들기
 
@@ -70,7 +64,7 @@ Windows VM을 일반화하려면 다음 단계를 수행합니다.
 
 ## <a name="create-a-managed-image-in-the-portal"></a>포털에서 관리 이미지 만들기 
 
-1. [Azure 포털로](https://portal.azure.com) 이동하여 VM 이미지를 관리합니다. **가상 컴퓨터를**검색하고 선택합니다.
+1. [Azure 포털로](https://portal.azure.com) 이동하여 VM 이미지를 관리합니다. **가상 머신**을 검색하여 선택합니다.
 
 2. 목록에서 VM을 선택합니다.
 

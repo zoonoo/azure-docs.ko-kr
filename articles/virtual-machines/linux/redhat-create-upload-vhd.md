@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: guybo
-ms.openlocfilehash: 625dd1c8051d7949987d0dd19ee8a08347eedf14
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 4140f9f07a0fd653c8e0370d017cbae7effd0a07
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758645"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084314"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure용 RedHat 기반 가상 머신 준비
 이 문서에서는 Azure용 RHEL(Red Hat Enterprise Linux) 가상 머신을 준비하는 방법을 알아봅니다. 이 문서에 설명되어 있는 RHEL의 버전은 6.7+ 및 7.1+입니다. 이 문서에서 다룰 준비에 대한 하이퍼바이저는 Hyper-V, KVM(커널 기반 가상 머신) 및 VMware입니다. Red Hat 클라우드 액세스 프로그램에 참여하기 위한 자격 요구 사항에 대한 자세한 내용은 [Red Hat 클라우드 액세스 웹 사이트](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) 및 [Azure에서 실행 중인 RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure)을 참조하세요. RHEL 이미지 빌드를 자동화하는 방법은 [Azure 이미지 빌더를](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview)참조하십시오.
@@ -202,7 +202,7 @@ ms.locfileid: "81758645"
 
 1. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 
@@ -326,7 +326,7 @@ ms.locfileid: "81758645"
 
 1. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # waagent -force -deprovision
 
@@ -477,7 +477,7 @@ ms.locfileid: "81758645"
 
 1. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 
@@ -608,7 +608,7 @@ ms.locfileid: "81758645"
 
 1. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 
@@ -724,7 +724,7 @@ ms.locfileid: "81758645"
 
 1. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 

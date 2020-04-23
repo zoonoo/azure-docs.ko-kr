@@ -2,13 +2,13 @@
 title: 리소스 이름 지정 제한
 description: Azure 리소스 의 이름 지정에 대한 규칙 및 제한 사항을 보여 주며
 ms.topic: conceptual
-ms.date: 03/27/2020
-ms.openlocfilehash: f6203f987654b33b32da72bfec030a9d0ab69df8
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 04/22/2020
+ms.openlocfilehash: fab1ab2bb779b3826c852e49da7970030d34594d
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981531"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086388"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Azure 리소스에 대한 명명 규칙 및 제한 사항
 
@@ -534,6 +534,13 @@ ms.locfileid: "80981531"
 > | --- | --- | --- | --- |
 > | clusters | 리소스 그룹 | 4-63 | 숫자와 하이픈.<br><br>시작 및 끝은 숫자로. |
 > | workspaces | 리소스 그룹 | 4-63 | 숫자와 하이픈.<br><br>시작 및 끝은 숫자로. |
+
+## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
+
+> [!div class="mx-tableFixed"]
+> | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
+> | --- | --- | --- | --- |
+> | solutions | 작업 영역 | N/A | Microsoft에서 작성한 솔루션의 경우 이름은 패턴에 있어야 합니다.<br>`SolutionType(WorkspaceName)`<br><br>타사에서 작성한 솔루션의 경우 이름이 패턴에 있어야 합니다.<br>`SolutionType[WorkspaceName]`<br><br>예를 들어 유효한 이름은 다음과 같습니다.<br>`AntiMalware(contoso-IT)`<br><br>솔루션 유형은 대/소문자를 구분합니다. |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 

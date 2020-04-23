@@ -1,25 +1,18 @@
 ---
-title: Windows AWS VM을 Azure로 이동
+title: Windows AWS EC2 인스턴스를 Azure로 이동
 description: AWS(Amazon Web Services) EC2 Windows 인스턴스를 Azure 가상 머신으로 이동합니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 9bd01f24ac2cada02f51089d238519cd6c7e0248
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 59d1bf08c0680d222710b55c6d6bdb4d5745da56
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74039276"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084518"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>AWS(Amazon Web Services)에서 Azure 가상 머신으로 Windows VM 이동
 

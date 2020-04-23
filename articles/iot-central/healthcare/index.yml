@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: e5b8498039b16f3a5e3a68fc0c4329b3579d494a
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: a2eda11682ccd3329d1a9447aca3741ddd264da7
+  ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77623046"
+  ms.lasthandoff: 04/22/2020
+  ms.locfileid: "82024866"
 landingContent:
 - title: 의료 산업 솔루션 빌드
   linkLists:
@@ -34,7 +34,7 @@ landingContent:
     - text: 디바이스 템플릿 설정
       url: ../core/howto-set-up-template.md
     - text: 디바이스 연결
-      url: ../core/tutorial-connect-device.md
+      url: ../core/tutorial-connect-device-nodejs.md
     - text: IoT 플러그 앤 플레이(미리 보기) 디바이스 연결
       url: ../core/tutorial-connect-pnp-device.md
   - linkListType: how-to-guide
