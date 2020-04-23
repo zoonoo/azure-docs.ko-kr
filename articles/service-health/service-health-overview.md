@@ -3,28 +3,28 @@ title: Service Health 개요 | Microsoft Docs
 description: Azure 앱이 현재 및 향후 Azure 서비스 문제 및 유지 관리에 의해 어떤 영향을 받는지에 대한 개인 설정된 정보입니다.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: a1c6a10ab48125c030c9a35864f829438404ad97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 280be9f0df1f94dad59c1af147d499860571f86e
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898433"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097254"
 ---
-# <a name="service-health-overview"></a>서비스 상태 개요
+# <a name="service-health-overview"></a>Service Health 개요
 
 서비스 상태에서는 사용하는 영역에 있는 Azure 서비스의 상태를 추적하는 사용자 지정 가능한 대시보드를 제공합니다. 이 대시보드에서 지속적인 서비스 문제, 계획된 향후 유지 관리 또는 관련 상태 공지와 같은 활성 이벤트를 추적할 수 있습니다. 이벤트가 비활성화되면, 최대 90일 동안 상태 기록에 배치됩니다. 마지막으로 Service Health 대시보드를 사용하여 서비스 문제로 인해 영향이 발생할 경우 사전에 알리는 서비스 상태 경고를 만들고 관리할 수 있습니다.
 
 ## <a name="service-health-events"></a>Service Health 이벤트
 
-서비스 상태는 리소스에 영향을 미칠 수 있는 네 가지 유형의 상태 이벤트를 추적합니다.
+Service Health는 리소스에 영향을 줄 수 있는 네 가지 유형의 상태 이벤트를 추적 합니다.
 
 1. **서비스 문제** - 즉시 사용자에게 영향을 주는 Azure 서비스의 문제입니다. 
 2. **계획된 유지 관리** - 나중에 서비스의 가용성에 영향을 줄 수 있는 예정된 유지 관리입니다.  
-3. **상태 자문** - 주의가 필요한 Azure 서비스의 변경 내용입니다. Azure 기능이 사용되지 않거나 사용 할당량을 초과하는 경우를 예로 들 수 있습니다.
-4. **보안 권고(미리 보기)** - Azure 서비스의 가용성에 영향을 줄 수 있는 보안 관련 알림입니다.
+3. **상태 자문** - 주의가 필요한 Azure 서비스의 변경 내용입니다. Azure 기능을 사용 하지 않거나 업그레이드 요구 사항 (예: 지원 되는 PHP 프레임 워크로 업그레이드)을 예로 들 수 있습니다.
+4. **보안 권고 (미리 보기)** -Azure 서비스의 가용성에 영향을 줄 수 있는 보안 관련 알림입니다.
 
 > [!NOTE]
-> 서비스 상태 이벤트를 보려면 사용자에게 [구독에서 Reader 역할이 부여되어야](../role-based-access-control/role-assignments-portal.md) 합니다.
+> Service Health 이벤트를 보려면 사용자에 게 구독에 대 한 [읽기 권한자 역할을 부여](../role-based-access-control/role-assignments-portal.md) 해야 합니다.
 
 ## <a name="get-started-with-service-health"></a>Service Health 시작
 
@@ -44,7 +44,7 @@ Service Health 대시보드를 시작하려면 포털 대시보드에서 Service
 
 ## <a name="get-links-and-downloadable-explanations"></a>링크 및 다운로드할 수 있는 설명 가져오기 
 
-문제 관리 시스템에서 사용할 문제의 링크를 가져올 수 있습니다. PDF 및 CSV 파일을 다운로드하여 Azure 포털에 액세스할 수 없는 사용자와 공유할 수 있습니다.   
+문제 관리 시스템에서 사용할 문제의 링크를 가져올 수 있습니다. PDF 및 경우에 따라 CSV 파일을 다운로드 하 여 Azure Portal에 대 한 액세스 권한이 없는 사용자와 공유할 수 있습니다.   
 
 ![서비스 문제 관리 - 문제 관리](./media/service-health-overview/azure-service-health-overview-3.png)
 
@@ -68,4 +68,4 @@ Service Health는 Azure Monitor와 통합되어 업무상 중요한 리소스가
 
 ## <a name="next-steps"></a>다음 단계
 
-상태 문제 알림을 받도록 경고를 설정합니다. 자세한 내용은 [Azure 서비스 상태 경고를 설정하는 모범 사례를](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s)참조하십시오. 
+상태 문제 알림을 받도록 경고를 설정합니다. 자세한 내용은 [Azure Service Health 경고 설정 모범 사례](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s)를 참조 하세요. 

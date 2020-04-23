@@ -1,25 +1,18 @@
 ---
 title: Azure Resource Manager 템플릿의 가상 머신 | Microsoft Azure
 description: Azure Resource Manager 템플릿에서 가상 머신 리소스를 정의하는 방법에 대해 알아봅니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
 ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: c9bf1cf0564655c932e066e5b74225382375e9c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 04dba192488744d1b54b0a0e2d885c0b1766bdc6
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235413"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100535"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 가상 머신
 
@@ -281,7 +274,7 @@ Resource Manager는 배포되는 다른 리소스에 종속되지 않는 모든 
 
 몇 가지 프로필 요소는 가상 머신 리소스를 정의할 때 사용됩니다. 일부는 필요하고 일부는 선택 사항입니다. 예를 들어 hardwareProfile, osProfile, storageProfile 및 networkProfile 요소는 필요하지만 diagnosticsProfile은 선택 사항입니다. 이러한 프로필은 다음과 같은 설정을 정의합니다.
    
-- [크기](sizes.md)
+- [size](sizes.md)
 - [이름](/azure/architecture/best-practices/resource-naming) 및 자격 증명
 - 디스크 및 [운영 체제 설정](cli-ps-findimage.md)
 - [네트워크 인터페이스](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 

@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: 09b93cc1d1f05e185a1550fb8141423447e802b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 44050ab9367572a8160f6e268781478ca3313419
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "64730613"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100858"
 ---
 # <a name="azure-powershell-samples-for-azure-lab-services"></a>Azure Lab Services용 Azure PowerShell 샘플
 
@@ -25,9 +25,9 @@ ms.locfileid: "64730613"
 
 | |  |
 |---|---|
-|[랩에 외부 사용자 추가](scripts/add-external-user-to-lab.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 Azure DevTest Labs의 랩에 외부 사용자를 추가합니다. |
-|[랩에 마켓플레이스 이미지 추가](scripts/add-marketplace-images-to-lab.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 Azure DevTest Labs의 랩에 마켓플레이스 이미지를 추가합니다. |
-|[VHD에서 사용자 지정 이미지 만들기](scripts/create-custom-image-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 Azure DevTest Labs의 랩에 사용자 지정 이미지를 만듭니다. |
-|[랩에 사용자 지정 역할 만들기](scripts/create-custom-role-in-lab.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 Azure Lab Services의 랩에 사용자 지정 역할을 만듭니다. |
-|[랩에 허용되는 VM 크기 설정](scripts/set-allowed-vm-sizes-in-lab.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 랩에 허용되는 VM(가상 머신) 크기를 설정합니다. |
+|[랩에 외부 사용자 추가](scripts/add-external-user-to-lab.md)| 이 PowerShell 스크립트는 Azure DevTest Labs의 랩에 외부 사용자를 추가합니다. |
+|[랩에 마켓플레이스 이미지 추가](scripts/add-marketplace-images-to-lab.md)| 이 PowerShell 스크립트는 Azure DevTest Labs의 랩에 마켓플레이스 이미지를 추가합니다. |
+|[VHD에서 사용자 지정 이미지 만들기](scripts/create-custom-image-from-vhd.md)| 이 PowerShell 스크립트는 Azure DevTest Labs의 랩에 사용자 지정 이미지를 만듭니다. |
+|[랩에 사용자 지정 역할 만들기](scripts/create-custom-role-in-lab.md)| 이 PowerShell 스크립트는 Azure Lab Services의 랩에 사용자 지정 역할을 만듭니다. |
+|[랩에 허용되는 VM 크기 설정](scripts/set-allowed-vm-sizes-in-lab.md)| 이 PowerShell 스크립트는 랩에 허용되는 VM(가상 머신) 크기를 설정합니다. |
 

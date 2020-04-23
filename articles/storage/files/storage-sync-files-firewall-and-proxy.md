@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7f398012edc25ba6a04e230fa8049e7264f857bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5fc469c3db7da45f818230909026cedf6c71a4c
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294518"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101742"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure 파일 동기화 프록시 및 방화벽 설정
 Azure 파일 동기화는 온-프레미스 서버를 Azure Files에 연결하여, 다중 사이트 동기화 및 클라우드 계층화 기능을 사용하도록 설정합니다. 따라서 온-프레미스 서버가 인터넷에 연결되어야 합니다. IT 관리자는 서버가 Azure 클라우드 서비스에 연결하는 최상의 경로를 결정해야 합니다.
@@ -89,13 +89,14 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 
 다음 표에서는 통신에 필요한 도메인에 대해 설명합니다.
 
-| 서비스 | 퍼블릭 클라우드 엔드포인트 | Azure Government 엔드포인트 | 사용 |
+| 서비스 | 공용 클라우드 끝점 | Azure Government 엔드포인트 | 사용 |
 |---------|----------------|---------------|------------------------------|
 | **Azure 리소스 관리자** | `https://management.azure.com` | https://management.usgovcloudapi.net | 초기 서버 등록 호출을 포함하는 모든 사용자 호출(예: PowerShell)은 이 URL로 이동되거나 이 URL을 통해 이동됩니다. |
 | **Azure Active Directory** | https://login.windows.net<br>`https://login.microsoftonline.com` | https://login.microsoftonline.us | Azure Resource Manager 호출은 인증된 사용자가 수행해야 합니다. 성공하기 위해 이 URL이 사용자 인증에 사용됩니다. |
 | **Azure Active Directory** | https://graph.microsoft.com/ | https://graph.microsoft.com/ | Azure 파일 동기화 배포의 일부로, 구독의 Azure Active Directory에 서비스 주체가 만들어집니다. 이 URL이 해당 작업에 사용됩니다. 이 보안 주체는 Azure 파일 동기화 서비스에 대한 최소한의 권한 집합을 위임하는 데 사용됩니다. Azure 파일 동기화의 초기 설정을 수행하는 사용자는 구독 소유자 권한이 있는 인증된 사용자여야 합니다. |
-| **Azure 저장소** | &ast;.core.windows.net | &ast;core.usgovcloudapi.net | 서버는 파일을 다운로드할 때 스토리지 계정의 Azure 파일 공유와 직접 소통하면서 데이터 이동을 보다 효율적으로 수행합니다. 서버에는 대상으로 지정된 파일 공유 액세스만 허용하는 SAS 키가 있습니다. |
-| **Azure 파일 동기화** | &ast;.one.microsoft.com<br>&ast;.afs.azure.net | &ast;.afs.azure.us | 초기 서버 등록 후 서버는 해당 지역에서 Azure 파일 동기화 서비스 인스턴스에 대한 지역별 URL을 수신합니다. 서버는 이 URL을 사용하여 동기화를 처리하는 인스턴스와 직접 효율적으로 통신할 수 있습니다. |
+| **Azure Active Directory** | https://secure.aadcdn.microsoftonline-p.com | 공용 끝점 URL을 사용 합니다. | 이 URL은 Azure File Sync 서버 등록 UI가 관리자에 게 로그인 하는 데 사용 하는 Active Directory 인증 라이브러리에서 액세스 합니다. |
+| **Azure Storage** | &ast;.core.windows.net | &ast;. core.usgovcloudapi.net | 서버는 파일을 다운로드할 때 스토리지 계정의 Azure 파일 공유와 직접 소통하면서 데이터 이동을 보다 효율적으로 수행합니다. 서버에는 대상으로 지정된 파일 공유 액세스만 허용하는 SAS 키가 있습니다. |
+| **Azure 파일 동기화** | &ast;.one.microsoft.com<br>&ast;. afs.azure.net | &ast;. afs.azure.us | 초기 서버 등록 후 서버는 해당 지역에서 Azure 파일 동기화 서비스 인스턴스에 대한 지역별 URL을 수신합니다. 서버는 이 URL을 사용하여 동기화를 처리하는 인스턴스와 직접 효율적으로 통신할 수 있습니다. |
 | **Microsoft PKI** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Azure 파일 동기화 에이전트가 설치되면 PKI URL을 사용하여 Azure 파일 동기화 서비스 및 Azure 파일 공유와 통신하는 데 필요한 중간 인증서를 다운로드합니다. OCSP URL은 인증서의 상태를 확인하는 데 사용됩니다. |
 
 > [!Important]
@@ -103,7 +104,7 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 
 &ast;.one.microsoft.com이 너무 광범위한 경우 Azure File Sync 인스턴스의 명시적인 지역별 인스턴스로의 통신만 허용하여 서버 통신을 제한할 수 있습니다. 선택할 인스턴스는 서버를 배포 및 등록한 스토리지 동기화 서비스의 지역에 따라 다릅니다. 이 지역을 아래 표에서는 "기본 엔드포인트 URL"이라고 부릅니다.
 
-BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 스토리지) 스토리지 계정에서 Azure 파일 공유를 지정했을 수도 있습니다. 이 경우 Azure 파일 공유는 지속적인 지역 정전 시 쌍을 이루는 지역에 장애 조치(failover)됩니다. Azure 파일 동기화는 동일한 지역 쌍을 스토리지로 사용합니다. 따라서 GRS 저장소 계정을 사용하는 경우 서버가 Azure File Sync에 대해 페어링된 지역과 대화할 수 있도록 추가 URL을 사용하도록 설정해야 합니다. 아래 표는 이 것을 "페어링된 지역"이라고 합니다. 마찬가지로 Traffic Manager 프로필 URL도 사용하도록 설정해야 합니다. 이렇게 하면 장애 조치 시 네트워크 트래픽을 쌍을 이루는 지역으로 원활하게 다시 라우팅할 수 있으며, 이것을 아래 표에서는 "검색 URL"이라고 부릅니다.
+BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 스토리지) 스토리지 계정에서 Azure 파일 공유를 지정했을 수도 있습니다. 이 경우 Azure 파일 공유는 지속적인 지역 정전 시 쌍을 이루는 지역에 장애 조치(failover)됩니다. Azure 파일 동기화는 동일한 지역 쌍을 스토리지로 사용합니다. 따라서 GRS 저장소 계정을 사용 하는 경우 추가 Url을 사용 하도록 설정 하 여 서버에서 Azure File Sync에 대 한 쌍을 이루는 지역과 통신할 수 있도록 해야 합니다. 아래 표에서는이 "쌍을 이루는 지역"을 호출 합니다. 마찬가지로 Traffic Manager 프로필 URL도 사용하도록 설정해야 합니다. 이렇게 하면 장애 조치 시 네트워크 트래픽을 쌍을 이루는 지역으로 원활하게 다시 라우팅할 수 있으며, 이것을 아래 표에서는 "검색 URL"이라고 부릅니다.
 
 | 클라우드  | 지역 | 기본 엔드포인트 URL | 쌍을 이루는 지역 | 검색 URL |
 |--------|--------|----------------------|---------------|---------------|
@@ -141,28 +142,28 @@ BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 스�
 
 **예:**`"West US"`에 스토리지 동기화 서비스를 배포하고 서버를 등록합니다. 여기서 서버가 통신할 수 있는 URL은 다음과 같습니다.
 
-> - https:\//kailani.one.microsoft.com(기본 끝점: 미국 서부)
-> - https:\//kailani1.one.microsoft.com(페어링된 장애 조치 지역: 미국 동부)
-> - https:\//tm-kailani.one.microsoft.com(기본 지역의 검색 URL)
+> - https:\//kailani.one.microsoft.com (기본 끝점: 미국 서 부)
+> - https:\//kailani1.one.microsoft.com (페어링된 장애 조치 (failover) 지역: 미국 동부)
+> - https:\//tm-kailani.one.microsoft.com (주 지역의 검색 URL)
 
-### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Azure 파일 동기화 IP 주소에 대한 목록 허용
-Azure File Sync는 지정된 Azure 서비스에 대한 IP 주소 접두사 그룹을 나타내는 [서비스 태그](../../virtual-network/service-tags-overview.md)사용을 지원합니다. 서비스 태그를 사용하여 Azure File Sync 서비스와통신할 수 있는 방화벽 규칙을 만들 수 있습니다. Azure 파일 동기화에 대한 `StorageSyncService`서비스 태그는 .
+### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Azure File Sync IP 주소에 대 한 허용 목록
+Azure File Sync는 지정 된 Azure 서비스에 대 한 IP 주소 접두사 그룹을 나타내는 [서비스 태그](../../virtual-network/service-tags-overview.md)의 사용을 지원 합니다. 서비스 태그를 사용 하 여 Azure File Sync 서비스와의 통신을 가능 하 게 하는 방화벽 규칙을 만들 수 있습니다. Azure File Sync에 대 한 서비스 태그 `StorageSyncService`는입니다.
 
-Azure 내에서 Azure File Sync를 사용하는 경우 네트워크 보안 그룹에서 직접 서비스 태그 이름을 사용하여 트래픽을 허용할 수 있습니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [네트워크 보안 그룹을](../../virtual-network/security-overview.md)참조하십시오.
+Azure 내에서 Azure File Sync를 사용 하는 경우 네트워크 보안 그룹에서 직접 서비스 태그 이름을 사용 하 여 트래픽을 허용할 수 있습니다. 이 작업을 수행 하는 방법에 대 한 자세한 내용은 [네트워크 보안 그룹](../../virtual-network/security-overview.md)을 참조 하세요.
 
-온-프레미스에서 Azure File Sync를 사용하는 경우 서비스 태그 API를 사용하여 방화벽의 허용 목록에 대한 특정 IP 주소 범위를 얻을 수 있습니다. 이 정보를 가져오는 방법에는 두 가지가 있습니다.
+온-프레미스 Azure File Sync를 사용 하는 경우 서비스 태그 API를 사용 하 여 방화벽의 허용 목록에 대 한 특정 IP 주소 범위를 가져올 수 있습니다. 이 정보를 가져오는 방법에는 다음 두 가지가 있습니다.
 
-- 서비스 태그를 지원하는 모든 Azure 서비스에 대한 현재 IP 주소 범위는 JSON 문서 형식으로 Microsoft 다운로드 센터에 매주 게시됩니다. 각 Azure 클라우드에는 해당 클라우드와 관련된 IP 주소 범위가 있는 자체 JSON 문서가 있습니다.
+- 서비스 태그를 지 원하는 모든 Azure 서비스에 대 한 IP 주소 범위의 현재 목록은 Microsoft 다운로드 센터에서 JSON 문서 형식으로 매주 게시 됩니다. 각 Azure 클라우드는 해당 클라우드와 관련 된 IP 주소 범위를 포함 하는 자체 JSON 문서를 포함 합니다.
     - [Azure 공용](https://www.microsoft.com/download/details.aspx?id=56519)
     - [Azure 미국 정부](https://www.microsoft.com/download/details.aspx?id=57063)
     - [Azure 중국](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure 독일](https://www.microsoft.com/download/details.aspx?id=57064)
-- 서비스 태그 검색 API(미리 보기)를 사용하면 현재 서비스 태그 목록을 프로그래밍 방식으로 검색할 수 있습니다. 미리 보기에서 서비스 태그 검색 API는 Microsoft 다운로드 센터에 게시된 JSON 문서에서 반환된 정보보다 최신 정보가 아닌 정보를 반환할 수 있습니다. 자동화 기본 설정에 따라 API 표면을 사용할 수 있습니다.
-    - [나머지 API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-    - [Azure 파워쉘](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
+- 서비스 태그 검색 API (미리 보기)를 사용 하면 현재 서비스 태그 목록을 프로그래밍 방식으로 검색할 수 있습니다. 미리 보기에서 서비스 태그 검색 API는 Microsoft 다운로드 센터에 게시 된 JSON 문서에서 반환 된 정보 보다 최신 정보가 아닌 정보를 반환할 수 있습니다. Automation 기본 설정에 따라 API surface를 사용할 수 있습니다.
+    - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
+    - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
     - [Azure CLI](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
 
-서비스 태그 검색 API는 Microsoft 다운로드 센터에 게시된 JSON 문서만큼 자주 업데이트되지 않으므로 JSON 문서를 사용하여 온-프레미스 방화벽의 허용 목록을 업데이트하는 것이 좋습니다. 이 작업은 다음과 같이 수행할 수 있습니다.
+서비스 태그 검색 API는 Microsoft 다운로드 센터에 게시 된 JSON 문서 만큼 자주 업데이트 되지 않으므로 JSON 문서를 사용 하 여 온-프레미스 방화벽의 허용 목록을 업데이트 하는 것이 좋습니다. 이 작업은 다음과 같이 수행할 수 있습니다.
 
 ```PowerShell
 # The specific region to get the IP address ranges for. Replace westus2 with the desired region code 
@@ -259,12 +260,12 @@ if ($found) {
 }
 ```
 
-그런 다음 IP 주소 범위를 `$ipAddressRanges` 사용하여 방화벽을 업데이트할 수 있습니다. 방화벽/네트워크 어플라이언스의 웹 사이트에서 방화벽을 업데이트하는 방법에 대한 정보를 확인하십시오.
+그런 다음에서 `$ipAddressRanges` IP 주소 범위를 사용 하 여 방화벽을 업데이트할 수 있습니다. 방화벽을 업데이트 하는 방법에 대 한 자세한 내용은 방화벽/네트워크 어플라이언스의 웹 사이트를 확인 하세요.
 
-## <a name="test-network-connectivity-to-service-endpoints"></a>서비스 엔드포인트에 대한 네트워크 연결 테스트
-서버가 Azure 파일 동기화 서비스에 등록되면 테스트-StorageSyncNetworkConnectivity cmdlet 및 ServerRegistration.exe를 사용하여 이 서버와 관련된 모든 끝점(URL)과의 통신을 테스트할 수 있습니다. 이 cmdlet은 불완전한 통신으로 서버가 Azure File Sync로 완전히 작동하지 못하게 하고 프록시 및 방화벽 구성을 미세 조정하는 데 사용할 수 있는 문제를 해결하는 데 도움이 될 수 있습니다.
+## <a name="test-network-connectivity-to-service-endpoints"></a>서비스 끝점에 대 한 네트워크 연결 테스트
+서버를 Azure File Sync 서비스에 등록 한 후에는 테스트 StorageSyncNetworkConnectivity cmdlet 및 ServerRegistration을 사용 하 여이 서버와 관련 된 모든 끝점 (Url)과의 통신을 테스트할 수 있습니다. 이 cmdlet은 불완전 한 통신에서 서버가 Azure File Sync 완전히 작동 하지 않도록 하 고 프록시 및 방화벽 구성을 미세 조정 하는 데 사용할 수 있는 경우 문제를 해결 하는 데 도움이 됩니다.
 
-네트워크 연결 테스트를 실행하려면 Azure File Sync 에이전트 버전 9.1 이상을 설치하고 다음 PowerShell 명령을 실행합니다.
+네트워크 연결 테스트를 실행 하려면 Azure File Sync 에이전트 버전 9.1 이상을 설치 하 고 다음 PowerShell 명령을 실행 합니다.
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Test-StorageSyncNetworkConnectivity
@@ -276,6 +277,6 @@ Test-StorageSyncNetworkConnectivity
 방화벽 규칙을 제한하는 도메인을 설정하는 것도 보안을 강화하는 방법이 될 수 있습니다. 이러한 방화벽 구성을 사용하는 경우 시간이 지남에 따라 URL이 추가되고 변경될 수 있다는 점에 유의해야 합니다. 이 문서를 정기적으로 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md)
+- [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)
 - [Azure 파일 동기화 배포](storage-sync-files-deployment-guide.md)
 - [Azure 파일 동기화 모니터링](storage-sync-files-monitoring.md)

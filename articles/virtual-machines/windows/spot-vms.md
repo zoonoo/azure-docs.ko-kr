@@ -1,27 +1,28 @@
 ---
-title: Azure 스팟 VM 사용
-description: 스팟 VM을 사용하여 비용을 절감하는 방법을 알아봅니다.
+title: Azure 스폿 Vm 사용
+description: 별색 Vm을 사용 하 여 비용을 절감 하는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: dd59ccba74b2813b2d38073cac35ba80d97cf4d1
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.reviewer: jagaveer
+ms.openlocfilehash: c453e8a70a6cd4b9d33a6d40bebd2ac0a804e5e6
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548141"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100586"
 ---
-# <a name="use-spot-vms-in-azure"></a>Azure에서 스팟 VM 사용
+# <a name="use-spot-vms-in-azure"></a>Azure에서 스폿 Vm 사용
 
 [!INCLUDE [common-spot-vms](../../../includes/virtual-machines-common-spot-vms.md)]  
 
 
 ## <a name="next-steps"></a>다음 단계
-[포털,](spot-portal.md) [CLI](../linux/spot-cli.md) 또는 [PowerShell을](spot-powershell.md) 사용하여 스팟 VM을 배포합니다.
+[Portal](spot-portal.md), [CLI](../linux/spot-cli.md) 또는 [PowerShell](spot-powershell.md) 을 사용 하 여 스폿 vm을 배포 합니다.
 
-[스팟 VM 인스턴스를 통해 축척 세트를](../../virtual-machine-scale-sets/use-spot.md)배포할 수도 있습니다.
+또한 [별색 VM 인스턴스를 사용 하 여 확장 집합](../../virtual-machine-scale-sets/use-spot.md)을 배포할 수 있습니다.
 
-오류가 발생하면 [오류 코드를](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)참조하십시오.
+오류가 발생 하는 경우 [오류 코드](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조 하세요.

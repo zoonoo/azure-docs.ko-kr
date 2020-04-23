@@ -1,6 +1,6 @@
 ---
-title: PowerShell - Azure DevTest 랩의 랩에서 사용자 지정 역할 만들기
-description: 이 문서에서는 Azure DevTest 랩의 랩에 외부 사용자를 추가하는 Azure PowerShell 스크립트를 제공합니다.
+title: PowerShell-Azure DevTest Labs에서 랩에서 사용자 지정 역할 만들기
+description: 이 문서에서는 Azure DevTest Labs에서 랩에 외부 사용자를 추가 하는 Azure PowerShell 스크립트를 제공 합니다.
 services: lab-services
 author: spelluru
 manager: ''
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: 9605b3c63877335b8f180ae5fd2b06edc1601096
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7822d6ea46b7efc21f43e944d0a96f609df389a
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76760466"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100187"
 ---
 # <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>PowerShell을 사용하여 Azure DevTest Labs의 랩에 사용자 지정 역할 만들기
 
@@ -40,7 +40,7 @@ ms.locfileid: "76760466"
 
 | 명령 | 메모 |
 |---|---|
-| [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) | Azure RBAC를 사용하여 보안을 설정할 수 있는 Azure 리소스 공급자에 대한 작업을 가져옵니다. |
+| [AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) | Azure RBAC를 사용하여 보안을 설정할 수 있는 Azure 리소스 공급자에 대한 작업을 가져옵니다. |
 | [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | 할당에 사용할 수 있는 Azure RBAC 역할을 모두 나열합니다. |
 | [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) | 사용자 지정 역할을 만듭니다. |
 

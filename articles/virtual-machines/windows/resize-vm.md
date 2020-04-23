@@ -1,29 +1,23 @@
 ---
 title: Azure에서 Windows VM 크기 조정
-description: Azure 가상 시스템에 사용되는 VM 크기를 변경합니다.
-services: virtual-machines-windows
-documentationcenter: ''
+description: Azure 가상 컴퓨터에 사용 되는 VM 크기를 변경 합니다.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 057ff274-6dad-415e-891c-58f8eea9ed78
 ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: vm-windows
+ms.subservice: sizes
+ms.workload: infrastructure
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: 6718804d4635edb2628b53017ab9d377928afad8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f456af143ac6ec21bcb9b0c3ec75635c51f748ef
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75941732"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099889"
 ---
 # <a name="resize-a-windows-vm"></a>Windows VM 크기 조정
 
-이 문서에서는 VM을 다른 [VM 크기로](sizes.md)이동하는 방법을 보여 주며 있습니다.
+이 문서에서는 VM을 다른 [vm 크기로](sizes.md)이동 하는 방법을 보여 줍니다.
 
 VM(가상 머신)을 만든 후 VM 크기를 변경하여 VM의 크기를 확장 또는 축소할 수 있습니다. 경우에 따라 먼저 VM의 할당을 취소해야 합니다. 이는 현재 VM을 호스트하는 하드웨어 클러스터에서 새 크기를 사용할 수 없는 경우에 발생할 수 있습니다.
 
@@ -31,15 +25,15 @@ VM에서 Premium Storage를 사용하는 경우 크기의 **s** 버전을 선택
 
 ## <a name="use-the-portal"></a>포털 사용
 
-1. Azure [포털을](https://portal.azure.com)엽니다.
-1. 가상 컴퓨터의 페이지를 엽니다.
-1. 왼쪽 메뉴에서 **크기를**선택합니다.
-1. 사용 가능한 크기 목록에서 새 크기를 선택한 다음 **크기 조정을**선택합니다.
+1. [Azure Portal](https://portal.azure.com)을 엽니다.
+1. 가상 컴퓨터에 대 한 페이지를 엽니다.
+1. 왼쪽 메뉴에서 **크기**를 선택 합니다.
+1. 사용 가능한 크기 목록에서 새 크기를 선택 하 고 **크기 조정**을 선택 합니다.
 
 
-가상 시스템이 현재 실행 중인 경우 크기를 변경하면 가상 시스템이 다시 시작됩니다. 가상 컴퓨터를 중지하면 추가 크기가 표시될 수 있습니다.
+가상 컴퓨터가 현재 실행 되 고 있으면 크기를 변경 하면 가상 컴퓨터가 다시 시작 됩니다. 가상 컴퓨터를 중지 하면 추가 크기가 표시 될 수 있습니다.
 
-## <a name="use-powershell-to-resize-a-vm-not-in-an-availability-set"></a>PowerShell을 사용하여 가용성 집합에 없는 VM 크기를 조정합니다.
+## <a name="use-powershell-to-resize-a-vm-not-in-an-availability-set"></a>PowerShell을 사용 하 여 가용성 집합에 없는 VM의 크기 조정
 
 일부 변수를 설정합니다. 사용자 고유의 정보로 값을 대체합니다.
 
@@ -62,7 +56,7 @@ $vm.HardwareProfile.VmSize = "<newVMsize>"
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 
-원하는 크기가 나열되지 않은 경우에는 다음 명령을 실행하여 VM의 할당을 취소하고 크기를 조정한 다음, VM을 다시 시작합니다. ** \<newVMsize>** 원하는 크기로 바꿉니까?
+원하는 크기가 나열되지 않은 경우에는 다음 명령을 실행하여 VM의 할당을 취소하고 크기를 조정한 다음, VM을 다시 시작합니다. ** \<Newvmsize>** 을 원하는 크기로 바꿉니다.
    
 ```powershell
 Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName -Force
@@ -77,7 +71,7 @@ Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 > 
 > 
 
-## <a name="use-powershell-to-resize-a-vm-in-an-availability-set"></a>PowerShell을 사용하여 가용성 집합에서 VM 크기 조정
+## <a name="use-powershell-to-resize-a-vm-in-an-availability-set"></a>PowerShell을 사용 하 여 가용성 집합에서 VM의 크기 조정
 
 가용성 집합에서 VM에 대한 새 크기를 현재 VM을 호스트하는 하드웨어 클러스터에서 사용할 수 없는 경우 가용성 집합의 모든 VM을 할당 취소하여 VM 크기를 조정해야 합니다. 또한 VM 크기를 조정한 후 가용성 집합에서 다른 VM의 크기를 업데이트해야 할 수 있습니다. 가용성 집합에서 VM의 크기를 조정하려면 다음 단계를 수행합니다.
 
@@ -132,5 +126,5 @@ $vmIds = $as.VirtualMachinesReferences
 
 ## <a name="next-steps"></a>다음 단계
 
-추가 확장성을 위해 여러 VM 인스턴스를 실행하고 확장합니다. 자세한 내용은 [가상 컴퓨터 배율 집합에서 Windows 컴퓨터 자동 크기 조정을](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)참조하십시오.
+추가 확장성을 위해 여러 VM 인스턴스를 실행 하 고 규모를 확장 합니다. 자세한 내용은 [가상 머신 확장 집합에서 Windows 컴퓨터 자동 크기 조정](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)을 참조 하세요.
 

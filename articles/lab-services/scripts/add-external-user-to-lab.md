@@ -1,6 +1,6 @@
 ---
-title: PowerShell - Azure DevTest 랩의 랩에 외부 사용자를 추가합니다.
-description: 이 문서에서는 Azure DevTest 랩의 랩에 외부 사용자를 추가하는 Azure PowerShell 스크립트를 제공합니다.
+title: PowerShell-Azure DevTest Labs에서 랩에 외부 사용자 추가
+description: 이 문서에서는 Azure DevTest Labs에서 랩에 외부 사용자를 추가 하는 Azure PowerShell 스크립트를 제공 합니다.
 services: lab-services
 author: spelluru
 manager: ''
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: e9efe5476da051d905feff3d6803cb60ea0c4beb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40103294e2f610e3ff5879c650f835d4c3e4c207
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76760490"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101725"
 ---
 # <a name="use-powershell-to-add-an-external-user-to-a-lab-in-azure-devtest-labs"></a>PowerShell을 사용하여 Azure DevTest Labs의 랩에 외부 사용자 추가
 
@@ -40,7 +40,7 @@ ms.locfileid: "76760490"
 
 | 명령 | 메모 |
 |---|---|
-| [겟-아자드유저](/powershell/module/az.resources/get-azaduser) | Azure Active Directory에서 사용자 개체를 다시 시도합니다. |
+| [AzADUser](/powershell/module/az.resources/get-azaduser) | Azure Active Directory에서 사용자 개체를 다시 시도합니다. |
 | [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) | 지정된 범위에서 지정된 보안 주체에 지정된 역할을 할당합니다. |
 
 ## <a name="next-steps"></a>다음 단계

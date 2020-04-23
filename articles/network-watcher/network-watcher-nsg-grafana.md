@@ -1,5 +1,5 @@
 ---
-title: 그라파나를 사용하여 NSG 흐름 로그 관리
+title: Grafana를 사용 하 여 NSG 흐름 로그 관리
 titleSuffix: Azure Network Watcher
 description: Network Watcher 및 Grafana를 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그를 관리하고 분석합니다.
 services: network-watcher
@@ -14,19 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: damendo
-ms.openlocfilehash: c48d5a02cdb8ef63904642c6c2c76cb5d61e1f9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f038412079ad0620a445b85e4bbc3c325e1aa211
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840913"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100110"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Network Watcher 및 Grafana를 사용하여 네트워크 보안 그룹 흐름 로그 관리 및 분석
 
 [NSG(네트워크 보안 그룹) 흐름 로그](network-watcher-nsg-flow-logging-overview.md)는 네트워크 인터페이스의 송/수신 IP 트래픽을 이해하는 데 사용할 수 있는 정보를 제공합니다. 이러한 흐름 로그는 트래픽이 허용되거나 거부된 경우 각 NSG 규칙을 기준으로 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC, 흐름에 대한 5개의 튜플 정보(원본/대상 IP, 원본/대상 포트, 프로토콜)를 보여줍니다.
-
-> [!Warning]  
-> 다음 단계는 흐름 로그 버전 1을 사용하여 작동합니다. 자세한 내용은 [네트워크 보안 그룹에 대한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md)를 참조하세요. 다음 지침은 수정 없이 로그 파일의 버전 2를 사용하여 작동하지 않습니다.
 
 네트워크에는 흐름 로깅을 사용하도록 설정한 많은 NSG가 있을 수 있습니다. 이러한 양의 로깅 데이터는 구문 분석하고 심층적으로 이해하기 어려울 수 있습니다. 이 문서에서는 Grafana, 오픈 소스 그래프 도구, ElasticSearch, 분산 검색 및 분석 엔진, Logstash(오픈 소스 서버 쪽 데이터 처리 파이프라인)를 사용하여 일한 NSG 흐름 로그를 중앙에서 관리하기 위한 솔루션을 제공합니다.  
 
@@ -40,7 +37,7 @@ NSG 흐름 로그는 Network Watcher를 사용하여 사용할 수 있으며 Azu
 
 ### <a name="enable-network-security-group-flow-logging"></a>네트워크 보안 그룹 흐름 로그 사용
 
-이 시나리오에서는 계정에 있는 하나 이상의 네트워크 보안 그룹에서 네트워크 보안 그룹 흐름 로깅을 사용하도록 설정해야 합니다. 네트워크 보안 흐름 로그 사용에 대한 지침은 다음 문서를 참조하여 [네트워크 보안 그룹에 대한 플로우 로깅 을 소개합니다.](network-watcher-nsg-flow-logging-overview.md)
+이 시나리오에서는 계정에 있는 하나 이상의 네트워크 보안 그룹에서 네트워크 보안 그룹 흐름 로깅을 사용하도록 설정해야 합니다. 네트워크 보안 흐름 로그를 사용 하도록 설정 하는 방법에 대 한 지침은 [네트워크 보안 그룹에 대 한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md)문서를 참조 하세요.
 
 ### <a name="setup-considerations"></a>설치 고려 사항
 
@@ -107,6 +104,11 @@ Logstash를 사용하여 JSON 형식 흐름 로그를 흐름 튜플 수준으로
           "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
           "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
           "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
+      "flowstate" => "%{[records][properties][flows][flows][flowTuples][8]}"
+      "packetsSourceToDest" => "%{[records][properties][flows][flows][flowTuples][9]}"
+      "bytesSentSourceToDest" => "%{[records][properties][flows][flows][flowTuples][10]}"
+      "packetsDestToSource" => "%{[records][properties][flows][flows][flowTuples][11]}"
+      "bytesSentDestToSource" => "%{[records][properties][flows][flows][flowTuples][12]}"
         }
         add_field => {
           "time" => "%{[records][time]}"

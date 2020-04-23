@@ -1,6 +1,6 @@
 ---
 title: Hadoop에서 SSH 사용 - Azure HDInsight
-description: SSH(보안 셸)를 사용하여 HDInsight에 액세스할 수 있습니다. 이 문서에서는 Windows, Linux, Unix 또는 macOS 클라이언트의 ssh 및 scp 명령을 사용하여 HDInsight에 연결하는 방법에 대해 설명합니다.
+description: SSH(보안 셸)를 사용하여 HDInsight에 액세스할 수 있습니다. 이 문서에서는 Windows, Linux, Unix 또는 macOS 클라이언트에서 ssh 명령을 사용 하 여 HDInsight에 연결 하는 방법에 대 한 정보를 제공 합니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,25 +8,25 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: a53037b5f6c43de0e08bb1c5143f27d14600ca62
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 427a3fbebe858d50d774ebfa7de4576985135abf
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381412"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099175"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>SSH를 사용하여 HDInsight(Apache Hadoop)에 연결
 
-[SSH(Secure Shell)](https://en.wikipedia.org/wiki/Secure_Shell)를 사용하여 Azure HDInsight의 Apache Hadoop에 안전하게 연결하는 방법에 대해 알아봅니다. 가상 네트워크를 통한 연결에 대한 자세한 내용은 [Azure HDInsight 가상 네트워크 아키텍처를](./hdinsight-virtual-network-architecture.md) 참조하고 [Azure HDInsight 클러스터에 대한 가상 네트워크 배포 계획을 참조하세요.](./hdinsight-plan-virtual-network-deployment.md)
+[SSH(Secure Shell)](https://en.wikipedia.org/wiki/Secure_Shell)를 사용하여 Azure HDInsight의 Apache Hadoop에 안전하게 연결하는 방법에 대해 알아봅니다. 가상 네트워크를 통해 연결 하는 방법에 대 한 자세한 내용은 [Azure HDInsight virtual network 아키텍처](./hdinsight-virtual-network-architecture.md)를 참조 하세요. 또한 [Azure HDInsight 클러스터에 대 한 가상 네트워크 배포 계획](./hdinsight-plan-virtual-network-deployment.md)을 참조 하세요.
 
-다음 표에는 SSH 클라이언트를 사용하여 HDInsight에 연결할 때 필요한 주소 및 포트 정보가 포함되어 있습니다.
+다음 표에서는 SSH 클라이언트를 사용 하 여 HDInsight에 연결할 때 필요한 주소와 포트 정보를 포함 합니다.
 
 | 주소 | 포트 | 다음에 연결... |
 | ----- | ----- | ----- |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | 기본 헤드 노드 |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | 보조 헤드 노드 |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | 에지 노드(HDInsight의 ML 서비스) |
-| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | 에지 노드(에지 노드가 있는 경우 다른 클러스터 유형) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | 에 지 노드 (HDInsight의 ML 서비스) |
+| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | 에 지 노드 (다른 클러스터 유형,에 지 노드가 있는 경우) |
 
 `<clustername>`을 클러스터의 이름으로 바꿉니다. `<edgenodename>`을 에지 노드의 이름으로 바꿉니다.
 
@@ -41,21 +41,21 @@ ms.locfileid: "81381412"
 
 Linux, Unix 및 macOS 시스템은 `ssh` 및 `scp` 명령을 제공합니다. `ssh` 클라이언트는 일반적으로 Linux 또는 Unix 기반 시스템에서 원격 명령줄 세션을 만드는 데 사용됩니다. `scp` 클라이언트는 클라이언트와 원격 시스템 간에 파일을 안전하게 복사하는 데 사용됩니다.
 
-Microsoft Windows는 기본적으로 SSH 클라이언트를 설치하지 않습니다. `ssh` 및 `scp` 클라이언트는 Windows에서 다음 패키지를 통해 사용할 수 있습니다.
+Microsoft Windows는 기본적으로 SSH 클라이언트를 설치 하지 않습니다. `ssh` 및 `scp` 클라이언트는 Windows에서 다음 패키지를 통해 사용할 수 있습니다.
 
-* [OpenSSH 클라이언트](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). 이 클라이언트는 Windows10 가을 크리에이터 업데이트에 도입된 선택적 기능입니다.
+* [OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). 이 클라이언트는 Windows 10 구성 작성자 업데이트에 도입 된 선택적 기능입니다.
 
-* [윈도우 10에 우분투에 강타](https://docs.microsoft.com/windows/wsl/about).
+* [Windows 10에서 Ubuntu의 Bash](https://docs.microsoft.com/windows/wsl/about)
 
-* [Azure 클라우드 셸](../cloud-shell/quickstart.md). 클라우드 셸은 브라우저에서 Bash 환경을 제공합니다.
+* [Azure Cloud Shell](../cloud-shell/quickstart.md). Cloud Shell는 브라우저에서 Bash 환경을 제공 합니다.
 
-* [자트](https://git-scm.com/).
+* [Git](https://git-scm.com/)
 
-[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) 및 [MobaXterm과](https://mobaxterm.mobatek.net/)같은 여러 그래픽 SSH 클라이언트도 있습니다. 이러한 클라이언트를 사용하여 HDInsight에 연결할 수 있지만, 연결하는 프로세스는 `ssh` 유틸리티를 사용하는 것과 다릅니다. 자세한 내용은 사용 중이면 그래픽 클라이언트의 설명서를 참조하세요.
+[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) 및 [MobaXterm](https://mobaxterm.mobatek.net/)와 같은 여러 그래픽 SSH 클라이언트도 있습니다. 이러한 클라이언트를 사용하여 HDInsight에 연결할 수 있지만, 연결하는 프로세스는 `ssh` 유틸리티를 사용하는 것과 다릅니다. 자세한 내용은 사용 중인 그래픽 클라이언트의 설명서를 참조 하세요.
 
 ## <a name="authentication-ssh-keys"></a><a id="sshkey"></a>인증: SSH 키
 
-SSH 키는 [공개 키 암호화를](https://en.wikipedia.org/wiki/Public-key_cryptography) 사용하여 SSH 세션을 인증합니다. SSH 키는 암호보다 더 안전하며, Hadoop 클러스터에 대한 액세스를 안전하게 보호하는 쉬운 방법을 제공합니다.
+SSH 키는 [공개 키 암호화](https://en.wikipedia.org/wiki/Public-key_cryptography) 를 사용 하 여 ssh 세션을 인증 합니다. SSH 키는 암호보다 더 안전하며, Hadoop 클러스터에 대한 액세스를 안전하게 보호하는 쉬운 방법을 제공합니다.
 
 키를 사용하여 SSH 계정을 보호한 경우 클라이언트는 연결할 때 일치하는 프라이빗 키를 제공해야 합니다.
 
@@ -74,7 +74,7 @@ SSH 키는 [공개 키 암호화를](https://en.wikipedia.org/wiki/Public-key_cr
 
     ssh-keygen -t rsa -b 2048
 
-키 만들기 과정에서 정보를 하라는 메시지가 표시됩니다. 예를 들어, 키가 저장되는 위치 또는 암호를 사용할지 여부를 묻습니다. 프로세스가 완료된 후에 공개 키와 프라이빗 키라는 두 개의 파일이 만들어집니다.
+키 생성 프로세스 중에 정보를 입력 하 라는 메시지가 표시 됩니다. 예를 들어, 키가 저장되는 위치 또는 암호를 사용할지 여부를 묻습니다. 프로세스가 완료된 후에 공개 키와 프라이빗 키라는 두 개의 파일이 만들어집니다.
 
 * __공개 키__는 HDInsight 클러스터를 만드는 데 사용됩니다. 공개 키의 확장명은 `.pub`입니다.
 
@@ -87,14 +87,14 @@ SSH 키는 [공개 키 암호화를](https://en.wikipedia.org/wiki/Public-key_cr
 
 | 생성 방법 | 공개 키를 사용하는 방법 |
 | ------- | ------- |
-| Azure portal | __SSH에 대한 클러스터 로그인 암호 사용을__선택 취소한 다음 공개 __키를__ SSH 인증 유형으로 선택합니다. 마지막으로 공개 키 파일을 선택하거나 __SSH 공개 키__ 필드에 파일의 텍스트 내용을 붙여 넣습니다.</br>![HDInsight 클러스터 생성의 SSH 공개 키 대화 상자](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
-| Azure PowerShell | `-SshPublicKey` [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet의 매개 변수를 사용하고 공개 키의 내용을 문자열로 전달합니다.|
-| Azure CLI | az `--sshPublicKey` [hdinsight 의](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 매개 변수를 사용하여 명령을 만들고 공개 키의 내용을 문자열로 전달합니다. |
+| Azure portal | __Ssh에 대 한 클러스터 로그인 암호 사용__의 선택을 취소 하 고 ssh 인증 유형으로 __공개 키__ 를 선택 합니다. 마지막으로 공개 키 파일을 선택하거나 __SSH 공개 키__ 필드에 파일의 텍스트 내용을 붙여 넣습니다.</br>![HDInsight 클러스터 생성의 SSH 공개 키 대화 상자](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
+| Azure PowerShell | AzHdinsightCluster cmdlet `-SshPublicKey` 의 매개 변수 [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) 를 사용 하 여 공개 키의 내용을 문자열로 전달 합니다.|
+| Azure CLI | [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 명령의 매개 변수를 `--sshPublicKey` 사용 하 여 공개 키의 내용을 문자열로 전달 합니다. |
 | Resource Manager 템플릿 | 템플릿에서 SSH 키를 사용하는 예제는 [SSH 키를 사용하여 Linux에서 HDInsight 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/)를 참조하세요. [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) 파일의 `publicKeys` 요소는 클러스터를 만들 때 Azure에 키를 전달하는 데 사용됩니다. |
 
 ## <a name="authentication-password"></a>인증: 암호
 
-SSH 계정은 암호를 사용하여 보호될 수 있습니다. SSH를 사용하여 HDInsight에 연결하면 암호를 입력하라는 메시지가 표시됩니다.
+SSH 계정은 암호를 사용하여 보호될 수 있습니다. SSH를 사용 하 여 HDInsight에 연결 하는 경우 암호를 입력 하 라는 메시지가 표시 됩니다.
 
 > [!WARNING]  
 > Microsoft는 SSH에 암호 인증을 사용하는 것을 권장하지 않습니다. 암호는 추측할 수 있고 무차별 암호 대입 공격에 취약합니다. 대신 [인증하기 위한 SSH 키](#sshkey)를 사용하는 것이 좋습니다.
@@ -106,20 +106,20 @@ SSH 계정은 암호를 사용하여 보호될 수 있습니다. SSH를 사용�
 
 | 생성 방법 | 암호를 지정하는 방법 |
 | --------------- | ---------------- |
-| Azure portal | 기본적으로 SSH 사용자 계정에는 클러스터 로그인 계정인 동일한 암호가 있습니다. 다른 암호를 사용하려면 __SSH에 대한 클러스터 로그인 암호 사용을__선택 취소한 다음 __SSH 암호__ 필드에 암호를 입력합니다.</br>![HDInsight 클러스터 생성의 SSH 암호 대화 상자](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
-| Azure PowerShell | [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet의 `--SshCredential` 매개 변수를 `PSCredential` 사용하고 SSH 사용자 계정 이름과 암호가 포함된 개체를 전달합니다. |
-| Azure CLI | az `--ssh-password` [hdinsight 생성](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 명령의 매개 변수를 사용하고 암호 값을 제공합니다. |
+| Azure portal | 기본적으로 SSH 사용자 계정에는 클러스터 로그인 계정인 동일한 암호가 있습니다. 다른 암호를 사용 하려면 __ssh에 대 한 클러스터 로그인 암호 사용__의 선택을 취소 하 고 __ssh 암호__ 필드에 암호를 입력 합니다.</br>![HDInsight 클러스터 생성의 SSH 암호 대화 상자](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
+| Azure PowerShell | AzHdinsightCluster cmdlet `--SshCredential` 의 매개 변수 [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) 를 사용 하 고 SSH 사용자 계정 `PSCredential` 이름 및 암호를 포함 하는 개체를 전달 합니다. |
+| Azure CLI | [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 명령의 `--ssh-password` 매개 변수를 사용 하 여 암호 값을 제공 합니다. |
 | Resource Manager 템플릿 | 템플릿에서 암호를 사용하는 예제는 [SSH 암호를 사용하여 Linux에서 HDInsight 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/)를 참조하세요. [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) 파일의 `linuxOperatingSystemProfile` 요소는 클러스터를 만들 때 Azure에 SSH 계정 이름 및 암호를 전달하는 데 사용됩니다.|
 
 ### <a name="change-the-ssh-password"></a>SSH 암호 변경
 
 SSH 사용자 계정 암호를 변경하는 방법에 대한 내용은 [HDInsight 관리](hdinsight-administer-use-portal-linux.md#change-passwords) 문서의 __암호 변경__ 섹션을 참조하세요.
 
-## <a name="authentication-domain-joined-hdinsight"></a>HDInsight에 가입한 인증 도메인
+## <a name="authentication-domain-joined-hdinsight"></a>인증 도메인 가입 HDInsight
 
-__도메인 에 가입한 HDInsight 클러스터를__사용하는 경우 `kinit` SSH 로컬 사용자와 연결한 후 명령을 사용해야 합니다. 이 명령은 도메인 사용자 및 암호를 묻는 메시지를 표시하고 클러스터와 연결된 Azure Active Directory 도메인을 사용하여 세션을 인증합니다.
+__도메인에 가입 된 HDInsight 클러스터__를 사용 하는 경우 SSH 로컬 사용자와 `kinit` 연결한 후 명령을 사용 해야 합니다. 이 명령은 도메인 사용자 및 암호를 묻는 메시지를 표시하고 클러스터와 연결된 Azure Active Directory 도메인을 사용하여 세션을 인증합니다.
 
-또한 도메인 계정을 사용하여 각 도메인 에이그노드(예: 헤드 노드, 에지 노드)에서 Kerberos 인증을 활성화할 수 있습니다. 이렇게 하려면 sshd 구성 파일을 편집합니다.
+도메인 계정을 사용 하 여 각 도메인 가입 노드 (예: 헤드 노드,에 지 노드)에 대해 Kerberos 인증을 사용 하도록 설정할 수도 있습니다. 이렇게 하려면 sshd 구성 파일을 편집합니다.
 
 ```bash
 sudo vi /etc/ssh/sshd_config
@@ -131,13 +131,13 @@ sudo vi /etc/ssh/sshd_config
 sudo service sshd restart
 ```
 
-명령을 `klist` 사용하여 Kerberos 인증이 성공했는지 확인합니다.
+명령을 `klist` 사용 하 여 Kerberos 인증의 성공 여부를 확인 합니다.
 
 자세한 내용은 [도메인에 조인된 HDInsight 구성](./domain-joined/apache-domain-joined-configure.md)을 참조하세요.
 
 ## <a name="connect-to-nodes"></a>노드에 연결
 
-헤드 노드와 에지 노드(있는 경우)는 포트 22 및 23에서 인터넷을 통해 액세스할 수 있습니다.
+헤드 노드와에 지 노드 (있는 경우)는 인터넷을 통해 22 및 23 포트에서 액세스할 수 있습니다.
 
 * __헤드 노드__에 연결할 경우 기본 헤드 노드에 연결하려면 __22__ 포트, 보조 헤드 노드에 연결하려면 __23__ 포트를 사용하세요. 사용할 정규화된 도메인 이름은 `clustername-ssh.azurehdinsight.net`이며, 여기서 `clustername`은 사용자의 클러스터 이름입니다.
 
@@ -160,11 +160,11 @@ sudo service sshd restart
 > [!IMPORTANT]  
 > 이전 예에서는 암호 인증을 사용하고 있고 인증서 인증이 자동으로 발생하고 있다고 가정합니다. 인증에 SSH 키 쌍을 사용하고 인증서가 자동으로 사용되지 않을 경우 `-i` 매개 변수를 사용하여 프라이빗 키를 지정합니다. `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`)을 입력합니다.
 
-연결되면 SSH 사용자 이름과 연결된 노드를 나타내는 프롬프트가 변경됩니다. 예를 들어, `sshuser`로 기본 헤드 노드에 연결된 경우 프롬프트는 `sshuser@<active-headnode-name>:~$`입니다.
+연결 되 면 프롬프트가 변경 되어 SSH 사용자 이름 및 연결 된 노드를 표시 합니다. 예를 들어, `sshuser`로 기본 헤드 노드에 연결된 경우 프롬프트는 `sshuser@<active-headnode-name>:~$`입니다.
 
 ### <a name="connect-to-worker-and-apache-zookeeper-nodes"></a>작업자 및 Apache Zookeeper 노드에 연결
 
-작업자 노드와 사육사 노드는 인터넷에서 직접 액세스할 수 없습니다. 클러스터 헤드 노드 또는 에지 노드에서 액세스할 수 있습니다. 다음은 다른 노드에 연결하는 일반적인 단계입니다.
+작업자 노드 및 사육 사 노드는 인터넷에서 직접 액세스할 수 없습니다. 클러스터 헤드 노드 또는 에지 노드에서 액세스할 수 있습니다. 다음은 다른 노드에 연결하는 일반적인 단계입니다.
 
 1. SSH를 사용하여 헤드 또는 가장자리 노드에 연결:
 
@@ -187,7 +187,7 @@ __SSH 키__를 사용하여 SSH 계정을 보호하는 경우 SSH 전달이 클�
 > [!NOTE]  
 > 클러스터에서 모든 노드에 직접 액세스하는 다른 방법은 Azure Virtual Network에 HDInsight를 설치하는 것입니다. 그런 다음 동일한 가상 네트워크에 원격 컴퓨터를 조인하고 클러스터에 있는 모든 노드에 직접 액세스할 수 있습니다.
 >
-> 자세한 내용은 [HDInsight에 대한 가상 네트워크 계획을](hdinsight-plan-virtual-network-deployment.md)참조하십시오.
+> 자세한 내용은 [HDInsight에 대 한 가상 네트워크 계획](hdinsight-plan-virtual-network-deployment.md)을 참조 하세요.
 
 ### <a name="configure-ssh-agent-forwarding"></a>SSH 에이전트 전달 구성
 
@@ -217,9 +217,9 @@ __SSH 키__를 사용하여 SSH 계정을 보호하는 경우 SSH 전달이 클�
     /tmp/ssh-rfSUL1ldCldQ/agent.1792
     ```
 
-    아무 것도 반환되지 `ssh-agent` 않으면 실행되지 않습니다. 자세한 내용은 [ssh에서 ssh-agent 사용(http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh)의 에이전트 시작 스크립트 정보 또는 SSH 클라이언트 설명서를 참조하세요.
+    아무 것도 반환 되지 않으면 `ssh-agent` 가 실행 되지 않습니다. 자세한 내용은 [ssh에서 ssh-agent 사용(http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh)의 에이전트 시작 스크립트 정보 또는 SSH 클라이언트 설명서를 참조하세요.
 
-4. **ssh-agent가** 실행 중임을 확인한 후 다음을 사용하여 에이전트에 SSH 개인 키를 추가합니다.
+4. **Ssh 에이전트가** 실행 되 고 있는지 확인 한 후에는 다음을 사용 하 여 ssh 개인 키를 에이전트에 추가 합니다.
 
     ```bash
     ssh-add ~/.ssh/id_rsa
@@ -229,35 +229,8 @@ __SSH 키__를 사용하여 SSH 계정을 보호하는 경우 SSH 전달이 클�
 
 5. SSH를 사용하여 클러스터 에지 노드 또는 헤드 노드에 연결합니다. SSH 명령을 사용하여 작업자 또는 zookeeper 노드에 연결합니다. 전달된 키를 사용하여 연결이 설정됩니다.
 
-## <a name="copy-files"></a>파일 복사
-
-`scp` 유틸리티를 사용하면 클러스터의 개별 노드로 파일을 복사할 수 있습니다. 예를 들어 다음 명령은 로컬 시스템의 `test.txt` 디렉터리를 기본 헤드 노드로 복사합니다.
-
-```bash
-scp test.txt sshuser@clustername-ssh.azurehdinsight.net:
-```
-
-`:` 다음에 지정된 경로가 없으므로 파일은 `sshuser` 홈 디렉터리에 배치됩니다.
-
-다음 예제에서는 `test.txt` 파일을 기본 헤드 노드의 `sshuser` 홈 디렉터리에서 로컬 시스템으로 복사합니다.
-
-```bash
-scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
-```
-
-> [!IMPORTANT]  
-> `scp`는 클러스터 내 개별 노드의 파일 시스템에만 액세스할 수 있으며 해당 클러스터에 대한 HDFS 호환 스토리지의 데이터 액세스에는 사용할 수 없습니다.
->
-> SSH 세션에서 사용할 리소스를 업로드해야 할 때 `scp`를 사용합니다. 예를 들어 Python 스크립트를 업로드한 다음 SSH 세션에서 스크립트를 실행합니다.
->
-> HDFS 호환 스토리지로 데이터 직접 로드에 대한 자세한 내용은 다음 문서를 참조하세요.
->
-> * [Azure Storage를 사용하는 HDInsight](hdinsight-hadoop-use-blob-storage.md)
->
-> * [Azure Data Lake Storage를 사용하는 HDInsight](hdinsight-hadoop-use-data-lake-store.md)
-
 ## <a name="next-steps"></a>다음 단계
 
 * [HDInsight와 함께 SSH 터널링 사용](hdinsight-linux-ambari-ssh-tunnel.md)
-* [HDInsight로 가상 네트워크 계획](hdinsight-plan-virtual-network-deployment.md)
 * [HDInsight에서 에지 노드 사용](hdinsight-apps-use-edge-node.md#access-an-edge-node)
+* [HDInsight에서 SCP 사용](./use-scp.md)

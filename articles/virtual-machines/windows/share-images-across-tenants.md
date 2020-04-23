@@ -1,35 +1,33 @@
 ---
-title: Azure의 테넌자 간에 갤러리 이미지 공유
-description: 공유 이미지 갤러리를 사용하여 Azure 테넌에서 VM 이미지를 공유하는 방법을 알아봅니다.
-services: virtual-machines-windows
+title: Azure에서 테 넌 트 간에 갤러리 이미지 공유
+description: 공유 이미지 갤러리를 사용 하 여 Azure 테 넌 트 간에 VM 이미지를 공유 하는 방법을 알아봅니다.
 author: cynthn
-manager: gwallace
 ms.service: virtual-machines-windows
+ms.subservice: imaging
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/15/2019
 ms.author: cynthn
-ms.openlocfilehash: 9b7e7066f186017b7cc4408cd4f7edcc7e5f0dcd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c35799147d276bf4b6f07893b7cd975c5c5823c
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74065510"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101198"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants"></a>Azure 테넌에서 갤러리 VM 이미지 공유
+# <a name="share-gallery-vm-images-across-azure-tenants"></a>Azure 테 넌 트 간에 갤러리 VM 이미지 공유
 
-공유 이미지 갤러리를 사용하면 RBAC를 사용하여 이미지를 공유할 수 있습니다. RBAC를 사용하여 테넌트 내에서, 심지어 테넌트 외부의 개인에게도 이미지를 공유할 수 있습니다. 이 간단한 공유 옵션에 대한 자세한 내용은 [갤러리 공유](/azure/virtual-machines/windows/shared-images-portal#share-the-gallery)를 참조하십시오.
+공유 이미지 갤러리를 사용 하면 RBAC를 사용 하 여 이미지를 공유할 수 있습니다. RBAC를 사용 하 여 테 넌 트 내에서 이미지를 공유 하 고 테 넌 트 외부의 사용자도 공유할 수 있습니다. 이 간단한 공유 옵션에 대 한 자세한 내용은 [갤러리 공유](/azure/virtual-machines/windows/shared-images-portal#share-the-gallery)를 참조 하세요.
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
 
 > [!IMPORTANT]
-> 포털을 사용하여 다른 Azure 테넌트의 이미지에서 VM을 배포할 수 없습니다. 테넌자 간에 공유되는 이미지에서 VM을 만들려면 [Azure CLI](../linux/share-images-across-tenants.md) 또는 Powershell을 사용해야 합니다.
+> 포털을 사용 하 여 다른 azure 테 넌 트의 이미지에서 VM을 배포할 수 없습니다. 테 넌 트 간에 공유 되는 이미지에서 VM을 만들려면 [Azure CLI](../linux/share-images-across-tenants.md) 또는 Powershell을 사용 해야 합니다.
 
 ## <a name="create-a-vm-using-powershell"></a>PowerShell을 사용하여 VM 만들기
 
-응용 프로그램 ID, 비밀 및 테넌트 ID를 사용하여 두 테넌트에 로그인합니다. 
+응용 프로그램 ID, 암호 및 테 넌 트 ID를 사용 하 여 두 테 넌 트에 로그인 합니다. 
 
 ```azurepowershell-interactive
 $applicationId = '<App ID>'
@@ -42,7 +40,7 @@ Connect-AzAccount -ServicePrincipal -Credential $cred  -Tenant "<Tenant 1 ID>"
 Connect-AzAccount -ServicePrincipal -Credential $cred -Tenant "<Tenant 2 ID>"
 ```
 
-앱 등록에 대한 권한이 있는 리소스 그룹에 VM을 만듭니다. 이 예제의 정보를 사용자 고유의 정보로 바꿉꿉입니다.
+앱 등록에 대 한 권한이 있는 리소스 그룹에 VM을 만듭니다. 이 예제의 정보를 사용자 고유의 정보로 바꿉니다.
 
 
 
@@ -86,4 +84,4 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 포털을](shared-images-portal.md)사용하여 공유 이미지 갤러리 리소스를 만들 수도 있습니다.
+[Azure Portal](shared-images-portal.md)를 사용 하 여 공유 이미지 갤러리 리소스를 만들 수도 있습니다.

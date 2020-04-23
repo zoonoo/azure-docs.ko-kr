@@ -1,25 +1,20 @@
 ---
-title: Azure에서 가상 하드 드라이브의 스냅샷 만들기
+title: Azure에서 가상 하드 드라이브의 스냅숏 만들기
 description: 백업 또는 문제 해결을 위해 사용할 Azure VM의 복사본을 만드는 방법을 알아봅니다.
-documentationcenter: ''
 author: roygara
 manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 15eb778e-fc07-45ef-bdc8-9090193a6d20
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: bc74a3eea1f99de6080788d6f3fddcac823092dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92957bd078c04a9bb7ac35f9d30f042a44e10764
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75370904"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100637"
 ---
 # <a name="create-a-snapshot"></a>스냅샷 만들기
 
@@ -29,9 +24,9 @@ ms.locfileid: "75370904"
 
 ## <a name="use-the-azure-portal"></a>Azure Portal 사용 
 
-스냅샷을 만들려면 다음 단계를 완료합니다. 
-1.  Azure [포털에서](https://portal.azure.com) **리소스 만들기를**선택합니다.
-2. **스냅숏을**검색하고 선택합니다.
+스냅숏을 만들려면 다음 단계를 완료 합니다. 
+1.  [Azure Portal](https://portal.azure.com)에서 **리소스 만들기**를 선택 합니다.
+2. **스냅숏**을 검색 하 고 선택 합니다.
 3. **스냅샷** 창에서 만들기 **만들기**를 선택합니다. **스냅샷 만들기** 창이 나타납니다.
 4. 스냅샷의 **이름**을 입력합니다.
 5. 기존 [리소스 그룹](../../azure-resource-manager/management/overview.md#resource-groups)을 선택하거나 새 리소스 그룹의 이름을 입력합니다. 
@@ -42,7 +37,7 @@ ms.locfileid: "75370904"
 
 ## <a name="use-powershell"></a>PowerShell 사용
 
-다음 단계에서는 VHD 디스크를 복사하고 스냅샷 구성을 만드는 방법을 보여 준다. 그런 다음 [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet을 사용하여 디스크의 스냅샷을 만들 수 있습니다. 
+다음 단계에서는 VHD 디스크를 복사 하 고 스냅숏 구성을 만드는 방법을 보여 줍니다. 그런 다음 [AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet을 사용 하 여 디스크의 스냅숏을 만들 수 있습니다. 
 
  
 

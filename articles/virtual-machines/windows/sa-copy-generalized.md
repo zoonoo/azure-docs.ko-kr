@@ -1,25 +1,20 @@
 ---
-title: Azure에서 일반화된 VM의 관리되지 않는 이미지 만들기
+title: Azure에서 일반화 된 VM의 관리 되지 않는 이미지 만들기
 description: Azure에서 VM의 여러 복사본을 만드는 데 사용할 일반화된 Windows VM의 관리되지 않는 이미지를 만듭니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1f44f30666ead84b2bd2fc63d8a8eb624f70c85c
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.custom: storage-accounts
+ms.openlocfilehash: 130764ad5504ded398a9fdf9fa27d6cb936fbacc
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458082"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099787"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Azure VM에서 관리되지 않는 VM 이미지를 만드는 방법
 
@@ -30,20 +25,20 @@ ms.locfileid: "81458082"
  
 
 ## <a name="generalize-the-vm"></a>VM 일반화 
-이 섹션에서는 이미지로 사용하기 위해 Windows 가상 머신을 일반화하는 방법을 보여 줍니다. VM을 일반화하면 여러 정보 중에서 모든 개인 계정 정보가 제거되고 이미지로 사용할 컴퓨터가 준비됩니다. Sysprep에 대한 자세한 내용은 [Sysprep 사용 방법: 소개를](https://technet.microsoft.com/library/bb457073.aspx)참조하십시오.
+이 섹션에서는 이미지로 사용하기 위해 Windows 가상 머신을 일반화하는 방법을 보여 줍니다. VM을 일반화하면 여러 정보 중에서 모든 개인 계정 정보가 제거되고 이미지로 사용할 컴퓨터가 준비됩니다. Sysprep에 대 한 자세한 내용은 [Sysprep 사용 방법: 소개](https://technet.microsoft.com/library/bb457073.aspx)를 참조 하세요.
 
-가상 컴퓨터에서 실행되는 서버 역할이 Sysprep에서 지원되는지 확인합니다. 자세한 내용은 [서버 역할에 대한 Sysprep 지원을](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) 참조하십시오.
+가상 컴퓨터에서 실행되는 서버 역할이 Sysprep에서 지원되는지 확인합니다. 자세한 내용은 [서버 역할에 대 한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) 을 참조 하세요.
 
 > [!IMPORTANT]
 > Azure에 VHD를 처음으로 업로드하는 경우 Sysprep을 실행하기 전에 [VM을 준비](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)해야 합니다. 
 > 
 > 
 
-`sudo waagent -deprovision+user`을 사용하여 Linux VM을 일반화한 다음 PowerShell을 사용하여 VM을 캡처할 수 있습니다. CLI를 사용하여 VM을 캡처하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Linux 가상 컴퓨터를 일반화하고 캡처하는 방법을](../linux/capture-image.md)참조하세요.
+`sudo waagent -deprovision+user`을 사용하여 Linux VM을 일반화한 다음 PowerShell을 사용하여 VM을 캡처할 수 있습니다. CLI를 사용 하 여 VM을 캡처하는 방법에 대 한 자세한 내용은 [Azure CLI를 사용 하 여 Linux 가상 머신을 일반화 하 고 캡처하는 방법](../linux/capture-image.md)을 참조 하세요.
 
 
 1. Windows 가상 머신에 로그인
-2. 관리자로 명령 프롬프트 창을 엽니다. 디렉토리를 **%windir%\system32\sysprep로**변경한 `sysprep.exe`다음 실행합니다.
+2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 **%windir%\system32\sysprep**로 변경 하 고를 실행 `sysprep.exe`합니다.
 3. **시스템 준비 도구** 대화 상자에서 **시스템 OOBE(첫 실행 경험) 입력**을 선택하고 **일반화** 확인란을 선택했는지 확인합니다.
 4. **종료 옵션**에서 **종료**를 선택하고
 5. **확인**을 클릭합니다.
@@ -110,7 +105,7 @@ Save-AzVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
     -Path <C:\local\Filepath\Filename.json>
 ```
    
-JSON 파일 템플릿에서 이미지의 URL을 얻을 수 있습니다. **이미지의** > 전체 경로에 대한 리소스**저장소프로필** > **osDisk** > **이미지** > **uri** 섹션으로 이동합니다. 이미지의 URL은 `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`과 같습니다.
+JSON 파일 템플릿에서 이미지의 URL을 얻을 수 있습니다. 이미지의 전체 경로는 **resources** > **storageprofile** > **osDisk** > **image** > **uri** 섹션으로 이동 합니다. 이미지의 URL은 `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`과 같습니다.
    
 포털에서 URI를 확인할 수도 있습니다. 이미지는 스토리지 계정에서 **시스템** 라는 컨테이너에 복사됩니다. 
 
@@ -128,7 +123,7 @@ $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vh
 
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
-[가상 네트워크의](../../virtual-network/virtual-networks-overview.md)vNet 및 서브넷을 만듭니다.
+[가상 네트워크](../../virtual-network/virtual-networks-overview.md)의 vNet 및 서브넷을 만듭니다.
 
 1. 서브넷을 만듭니다. 다음 예제에서는 **10.0.0.0/24** 주소 접두사가 있는 **myResourceGroup** 리소스 그룹에 **mySubnet**으로 명명된 서브넷을 만듭니다.  
    

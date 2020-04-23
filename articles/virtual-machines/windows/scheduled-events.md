@@ -1,25 +1,18 @@
 ---
-title: Azure에서 Windows VM에 대한 예약된 이벤트
+title: Azure에서 Windows Vm에 대 한 Scheduled Events
 description: Windows 가상 머신에서 Azure 메타데이터 서비스를 사용하여 예정된 이벤트입니다.
-services: virtual-machines-windows, virtual-machines-linux, cloud-services
-documentationcenter: ''
 author: mimckitt
-manager: gwallace
-editor: ''
-tags: ''
-ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: mimckitt
-ms.openlocfilehash: c1e9ef8de65912c4f33e17ee2bb2175c76e7ea07
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 105279940546c8e5b40d1d8378b35f85af1ea98b
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258686"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099549"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure 메타데이터 서비스: Windows VM에 예정된 이벤트
 
@@ -44,10 +37,10 @@ Linux에서 예약된 이벤트에 대한 자세한 내용은 [Linux VM에 예�
 예약된 이벤트를 사용하면 애플리케이션에서 유지 관리가 발생하는 시간을 검색하고 이로 인한 영향을 제한하는 작업을 트리거할 수 있습니다. 예약된 이벤트를 사용하면 유지 관리 작업을 수행하기 전에 가상 머신에게 최소 시간을 부여할 수 있습니다. 자세한 내용은 아래 이벤트 예약 섹션을 참조하세요.
 
 예약된 이벤트는 다음과 같은 경우에 이벤트를 제공합니다.
-- [플랫폼 시작 유지](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) 관리(예: VM 재부팅, 라이브 마이그레이션 또는 호스트에 대한 업데이트 보존 메모리)
-- 곧 실패할 것으로 예상되는 [성능이 저하된 호스트 하드웨어에서](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) 가상 시스템이 실행되고 있습니다.
+- [플랫폼에서 시작 된 유지 관리](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (예: VM 다시 부팅, 실시간 마이그레이션 또는 호스트에 대 한 메모리 보존 업데이트)
+- 가상 컴퓨터가 곧 장애 조치 (failover) 될 수 있는 [저하 된 호스트 하드웨어](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) 에서 실행 되 고 있습니다.
 - 사용자가 시작하는 유지 관리(예: 사용자가 VM을 다시 시작하거나 다시 배포)
-- [스팟 VM](spot-vms.md) 및 [스팟 스케일 세트](../../virtual-machine-scale-sets/use-spot.md) 인스턴스 제거
+- [지점 VM](spot-vms.md) 및 [스폿 확장 집합](../../virtual-machine-scale-sets/use-spot.md) 인스턴스 제거
 
 ## <a name="the-basics"></a>기본 사항  
 
@@ -65,8 +58,8 @@ VNET 사용 VM의 경우 메타데이터 서비스를 정적 경로 조정 불�
 
 | 버전 | 릴리스 종류 | 영역 | 릴리스 정보 | 
 | - | - | - | - |
-| 2019-01-01 | 일반 공급 | 모두 | <li> 가상 머신 스케일 세트 EventType '종료'에 대한 추가 지원 |
-| 2017-11-01 | 일반 공급 | 모두 | <li> 스팟 VM 제거 이벤트 유형 '선점' 지원 추가<br> | 
+| 2019-01-01 | 일반 공급 | 모두 | <li> 가상 머신 확장 집합 EventType ' Terminate '에 대 한 지원이 추가 됨 |
+| 2017-11-01 | 일반 공급 | 모두 | <li> 스폿 VM 제거 EventType ' Preempt '에 대 한 지원이 추가 됨<br> | 
 | 2017-08-01 | 일반 공급 | 모두 | <li> IaaS VM의 리소스 이름에서 앞에 붙은 밑줄이 제거됨<br><li>모든 요청에 대해 메타데이터 헤더 요구 사항이 적용됨 | 
 | 2017-03-01 | 미리 보기 | 모두 |<li>초기 릴리스 |
 
@@ -118,12 +111,12 @@ DocumentIncarnation은 ETag로, 이벤트 페이로드가 지난 번 쿼리 후 
 ### <a name="event-properties"></a>이벤트 속성
 |속성  |  Description |
 | - | - |
-| EventId | 이 이벤트의 GUID(Globally Unique Identifier)입니다. <br><br> 예: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | 이 이벤트로 인해 발생하는 결과입니다. <br><br> 값 <br><ul><li> `Freeze`: 가상 시스템이 몇 초 동안 일시 중지하도록 예약됩니다. CPU 및 네트워크 연결이 일시 중단될 수 있지만 메모리 또는 열린 파일에는 영향을 미치지 않습니다. <li>`Reboot`: Virtual Machine을 다시 부팅하도록 예약합니다(비영구 메모리가 손실됨). <li>`Redeploy`: Virtual Machine을 다른 노드로 이동하도록 예약합니다(임시 디스크가 손실됨). <li>`Preempt`: 스팟 가상 머신이 삭제되고 있습니다(임시 디스크가 손실됨). <li> `Terminate`: 가상 시스템이 삭제될 예정입니다. |
+| EventId | 이 이벤트의 GUID(Globally Unique Identifier)입니다. <br><br> 예제: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
+| EventType | 이 이벤트로 인해 발생하는 결과입니다. <br><br> 값 <br><ul><li> `Freeze`: 가상 머신이 몇 초 동안 일시 중지 되도록 예약 되었습니다. CPU 및 네트워크 연결이 일시 중단 될 수 있지만 메모리 나 열린 파일에는 영향을 주지 않습니다. <li>`Reboot`: Virtual Machine을 다시 부팅하도록 예약합니다(비영구 메모리가 손실됨). <li>`Redeploy`: Virtual Machine을 다른 노드로 이동하도록 예약합니다(임시 디스크가 손실됨). <li>`Preempt`: 가상 컴퓨터를 삭제 하는 중입니다 (임시 디스크가 손실 됨). <li> `Terminate`: 가상 머신이 삭제 되도록 예약 되었습니다. |
 | ResourceType | 이 이벤트가 영향을 주는 리소스 형식입니다. <br><br> 값 <ul><li>`VirtualMachine`|
-| 리소스| 이 이벤트가 영향을 주는 리소스 목록입니다. 최대 하나의 [업데이트 도메인](manage-availability.md)에 있는 컴퓨터를 포함하지만 UD의 모든 컴퓨터를 포함할 수는 없습니다. <br><br> 예: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| 리소스| 이 이벤트가 영향을 주는 리소스 목록입니다. 최대 하나의 [업데이트 도메인](manage-availability.md)에 있는 컴퓨터를 포함하지만 UD의 모든 컴퓨터를 포함할 수는 없습니다. <br><br> 예제: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | 이벤트 상태 | 이 이벤트의 상태입니다. <br><br> 값 <ul><li>`Scheduled`: `NotBefore` 속성에 지정된 시간 이후 시작하도록 이 이벤트를 예약합니다.<li>`Started`: 이 이벤트가 시작되었습니다.</ul> `Completed` 또는 유사한 상태가 제공된 적이 없습니다. 이벤트가 완료되면 더 이상 이벤트가 반환되지 않습니다.
-| NotBefore| 이 시간이 지난 후 이 이벤트가 시작될 수 있습니다. <br><br> 예: <br><ul><li> 2016년 9월 19일 월요일 18:29:47 GMT  |
+| NotBefore| 이 시간이 지난 후 이 이벤트가 시작될 수 있습니다. <br><br> 예제: <br><ul><li> 2016년 9월 19일 월요일 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>이벤트 예약
 각 이벤트는 이벤트 유형에 따라 향후 최소한의 시간으로 예약됩니다. 이 시간은 이벤트의 `NotBefore` 속성에 반영됩니다. 
@@ -133,15 +126,15 @@ DocumentIncarnation은 ETag로, 이벤트 페이로드가 지난 번 쿼리 후 
 | 중지| 15분 |
 | Reboot | 15분 |
 | 재배포 | 10분 |
-| 선점 | 30초 |
-| 종료 | [사용자 구성 가능](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): 5~15분 |
+| 제한은 | 30초 |
+| 종료 | [사용자 구성 가능](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): 5 ~ 15 분 |
 
 > [!NOTE] 
-> 경우에 따라 Azure는 하드웨어 성능 저하로 인한 호스트 오류를 예측할 수 있으며 마이그레이션을 예약하여 서비스 중단을 완화하려고 시도합니다. 영향을 받는 가상 시스템은 일반적으로 며칠 `NotBefore` 후에 예약된 이벤트를 받게 됩니다. 실제 시간은 예측된 실패 위험 평가에 따라 다릅니다. Azure는 가능하면 7일 전에 미리 공지하려고 시도하지만 하드웨어가 곧 실패할 가능성이 높다는 예측이 있을 경우 실제 시간이 다르고 더 작을 수 있습니다. 시스템에서 마이그레이션을 시작하기 전에 하드웨어에 장애가 발생할 경우 서비스에 대한 위험을 최소화하려면 가능한 한 빨리 가상 컴퓨터를 자체 재배포하는 것이 좋습니다.
+> 경우에 따라 Azure는 저하 된 하드웨어로 인해 호스트 오류를 예측할 수 있으며 마이그레이션을 예약 하 여 서비스 중단을 완화 하려고 시도 합니다. 영향을 받는 가상 컴퓨터는 일반적으로 나중에 `NotBefore` 몇 일이 지나면 예약 된 이벤트를 수신 합니다. 실제 시간은 예측 된 실패 위험 평가에 따라 다릅니다. Azure는 가능한 경우 7 일의 사전 통지를 제공 하려고 하지만, 예측이 하드웨어 오류 imminently 가능성이 높은 경우에는 실제 시간이 달라 지 며,이는 더 작을 수 있습니다. 시스템에서 마이그레이션을 시작 하기 전에 하드웨어가 실패할 경우 서비스에 대 한 위험을 최소화 하려면 가능한 한 빨리 가상 머신을 다시 배포 하는 것이 좋습니다.
 
 ### <a name="event-scope"></a>이벤트 범위     
 예약된 이벤트는 다음으로 전달됩니다.
- - 독립 실행형 가상 시스템
+ - 독립 실행형 Virtual Machines
  - 클라우드 서비스의 모든 Virtual Machines      
  - 가용성 집합의 모든 Virtual Machines      
  - 확장 집합 배치 그룹의 모든 Virtual Machines         
@@ -234,6 +227,6 @@ foreach($event in $scheduledEvents.Events)
 ## <a name="next-steps"></a>다음 단계 
 
 - Azure Friday에서 [예약된 이벤트 데모](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance)를 참조하세요. 
-- [Azure 인스턴스 메타데이터 예약 이벤트 GitHub 리포지토리에서 예약된 이벤트](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm) 코드 샘플 검토
-- [인스턴스 메타데이터 서비스에서](instance-metadata-service.md)사용할 수 있는 API에 대해 자세히 알아보기
+- [Azure 인스턴스 메타 데이터 Scheduled Events GitHub 리포지토리에서](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm) Scheduled Events 코드 샘플을 검토 합니다.
+- [인스턴스 메타 데이터 서비스](instance-metadata-service.md)에서 사용 가능한 api에 대해 자세히 알아보세요.
 - [Azure에서 Windows 가상 머신에 대한 계획된 유지 관리](planned-maintenance.md)에 대해 알아봅니다.

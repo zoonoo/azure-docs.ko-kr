@@ -1,28 +1,25 @@
 ---
 title: Visual Studio에서 Azure VM에 웹앱 게시
 description: Visual Studio에서 Azure Virtual Machine으로 ASP.NET 웹 애플리케이션 게시
-services: virtual-machines-windows
 author: ghogen
 manager: jillfra
-tags: azure-service-management
-ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: 6e5db9b4e46019aa386057d51d956ff11d90f498
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: abf0570ee9f01a2378e8c0370cfc3ba5fecc7406
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71970871"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82098236"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Visual Studio에서 Azure Virtual Machine으로 ASP.NET 웹앱 게시
 
-이 문서에서는 Visual Studio 2019에서 **Microsoft Azure 가상** 컴퓨터 게시 기능을 사용하여 ASP.NET 웹 응용 프로그램을 Azure 가상 시스템(VM)에 게시하는 방법을 설명합니다.  
+이 문서에서는 Visual Studio 2019의 **Microsoft Azure Virtual Machines** 게시 기능을 사용 하 여 Azure VM (가상 머신)에 ASP.NET 웹 응용 프로그램을 게시 하는 방법을 설명 합니다.  
 
 ## <a name="prerequisites"></a>사전 요구 사항
 Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려면 VM 을 올바르게 설정해야 합니다.
@@ -58,7 +55,7 @@ Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려�
 
 7. 확인을 클릭하여 게시를 시작합니다.
 
-8. 자격 증명을 입력하라는 메시지가 표시되면 게시 권한으로 구성된 대상 VM에 사용자 계정의 사용자 이름과 암호를 입력합니다. 이러한 자격 증명은 일반적으로 VM을 만들 때 사용되는 관리자 사용자 이름 및 암호입니다.  
+8. 자격 증명을 입력 하 라는 메시지가 표시 되 면 게시 권한으로 구성 된 대상 VM에 사용자 계정의 사용자 이름 및 암호를 제공 합니다. 이러한 자격 증명은 일반적으로 VM을 만들 때 사용 되는 관리자 사용자 이름 및 암호입니다.  
 
    ![WebDeploy 로그인]
 
@@ -72,7 +69,7 @@ Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려�
 
 11. 게시에 성공하면 브라우저가 실행되어 새로 게시한 사이트의 URL이 열립니다.
 
-**성공!**
+**성공할!**
 
 이제 Azure Virtual Machine에 웹앱을 게시했습니다.
 
@@ -99,12 +96,12 @@ Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려�
 ![게시 설정 - 연결 페이지]
 
 #### <a name="save-user-name-and-password"></a>사용자 이름 및 암호 저장
-- 게시할 때마다 인증 정보를 제공하지 마십시오. 이렇게 하려면 **사용자 이름** 및 **암호** 필드를 채우고 **암호 저장** 상자를 선택합니다.
+- 게시할 때마다 인증 정보를 제공 하지 마십시오. 이렇게 하려면 **사용자 이름** 및 **암호** 필드를 입력 하 고 **암호 저장** 상자를 선택 합니다.
 - **연결 유효성 검사** 단추를 사용하여 올바른 정보를 입력했는지 확인합니다.
 
 #### <a name="deploy-to-clean-web-server"></a>깨끗한 웹 서버에 배포
 
-- 웹 서버에 각 업로드 후 웹 응용 프로그램의 깨끗한 복사본이 있고 이전 배포에서 다른 파일이 남아 있지 않도록 하려면 **설정** 탭의 대상 확인란에서 **추가 파일 제거를** 선택할 수 있습니다.
+- 각 업로드 후 웹 서버에 웹 응용 프로그램의 완전 한 복사본이 있고 이전 배포에서 다른 파일이 남아 있지 않은지 확인 하려면 **설정** 탭에서 **대상에서 추가 파일 제거** 확인란을 선택 합니다.
 
 - 경고: 이 설정으로 게시하면 웹 서버의 모든 파일이 삭제됩니다(wwwroot 디렉터리). 이 옵션을 사용하여 게시하기 전에 컴퓨터의 상태를 알고 있어야 합니다. 
 

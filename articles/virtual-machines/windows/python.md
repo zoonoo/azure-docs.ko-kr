@@ -1,24 +1,18 @@
 ---
-title: 파이썬을 사용하여 Azure에서 Windows VM 생성 및 관리
+title: Python을 사용 하 여 Azure에서 Windows VM 만들기 및 관리
 description: Python을 사용하여 Azure에서 Windows VM을 만들고 관리하는 방법을 설명합니다.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: 670c369e25639c859f6a8d8b3c65e329b5cf7f04
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: b2172d44b4136b51c0ea459868ebd5b0572bb004
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458184"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82098071"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Python을 사용하여 Azure에서 Windows VM 만들기 및 관리
 
@@ -38,8 +32,8 @@ ms.locfileid: "81458184"
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
 1. [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio)를 아직 설치하지 않았으면 설치합니다. 작업 페이지에서 **Python 개발**을 선택한 다음 **설치**를 클릭합니다. 요약하자면, **Python 3 64비트(3.6.0)** 가 자동으로 선택되는 것을 확인할 수 있습니다. Visual Studio를 이미 설치한 경우 Visual Studio 시작 관리자를 사용하여 Python 워크로드를 추가할 수 있습니다.
-2. Visual Studio를 설치하고 시작한 후 새**프로젝트** **파일** > 을**클릭합니다.** > 
-3. **템플릿** > **파이썬** > **파이썬 응용 프로그램을**클릭하고 프로젝트 이름에 *myPythonProject를* 입력하고 프로젝트 위치를 선택한 다음 **확인을**클릭합니다.
+2. Visual Studio를 설치 하 고 시작한 후 **파일** > **새로 만들기** > **프로젝트**를 클릭 합니다.
+3. **템플릿** > **python** *myPythonProject* **OK****Python Application**python 응용 프로그램을 클릭 하 고 프로젝트 이름으로 myPythonProject를 입력 한 다음 프로젝트의 위치를 선택 하 고 확인을 클릭 합니다. > 
 
 ## <a name="install-packages"></a>패키지 설치
 
@@ -124,7 +118,7 @@ compute_client = ComputeManagementClient(
 
 ### <a name="create-the-vm-and-supporting-resources"></a>VM 및 지원 리소스 만들기
 
-모든 리소스는 리소스 [그룹에](../../azure-resource-manager/management/overview.md)포함되어야 합니다.
+모든 리소스는 [리소스 그룹](../../azure-resource-manager/management/overview.md)에 포함 되어야 합니다.
 
 1. 리소스 그룹을 만들려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다.
 
@@ -571,6 +565,6 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 배포에 문제가 있는 경우 다음 단계는 Azure [Portal을 사용하여 리소스 그룹 배포 문제를 해결하는](../../resource-manager-troubleshoot-deployments-portal.md) 것입니다.
+- 배포에 문제가 있는 경우 다음 단계는를 [사용 하 여 리소스 그룹 배포 문제 해결](../../resource-manager-troubleshoot-deployments-portal.md) 을 확인 하는 것입니다 Azure Portal
 - [Azure Python 라이브러리](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)에 대한 자세한 내용
 

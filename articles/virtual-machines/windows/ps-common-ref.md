@@ -1,24 +1,18 @@
 ---
-title: Azure 가상 시스템에 대한 일반적인 PowerShell 명령
-description: Azure에서 Windows VM 만들기 및 관리를 시작하기 위한 공통 PowerShell 명령
-services: virtual-machines-windows
-documentationcenter: ''
+title: Azure Virtual Machines에 대 한 일반적인 PowerShell 명령
+description: Azure에서 Vm 만들기 및 관리를 시작 하는 데 사용할 수 있는 일반적인 PowerShell 명령입니다.
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ba3839a2-f3d5-4e19-a5de-95bfb1c0e61e
-ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.service: virtual-machines
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 3d08693b6b07b5a2f1fb40d0c4758ab43729bd76
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 8b99b6dd62920ed17d79281b448089754613d4e1
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81456365"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82098411"
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>Azure Virtual Machines를 만들고 관리하기 위한 공통 PowerShell 명령
 

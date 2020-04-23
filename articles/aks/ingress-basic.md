@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service) 클러스터에 기본 NGINX 수신 �
 services: container-service
 ms.topic: article
 ms.date: 12/20/2019
-ms.openlocfilehash: 8b9e4537d6dd771697accc1f9fbdc3b6e2584863
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: f6e07dde68f2f2ce0ccfbb7858fd1d217b993a62
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668531"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101487"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 수신 컨트롤러 만들기
 
@@ -27,21 +27,21 @@ ms.locfileid: "80668531"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 Helm을 사용하여 NGINX 수신 컨트롤러 및 샘플 웹앱을 설치합니다.
+이 문서에서는 [투구 3][helm] 을 사용 하 여 NGINX 수신 컨트롤러와 샘플 웹 앱을 설치 합니다.
 
-또한 이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+또한이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ## <a name="create-an-ingress-controller"></a>수신 컨트롤러 만들기
 
-받는 컨트롤러를 만들려면 Helm을 사용하여 *nginx-inress를 설치합니다.* 중복성을 추가하기 위해 NGINX 수신 컨트롤러의 두 복제본이 `--set controller.replicaCount` 매개 변수와 함께 배포됩니다. 수신 컨트롤러의 복제본을 실행하는 이점을 최대한 활용하려면 AKS 클러스터에 둘 이상의 노드가 있어야 합니다.
+수신 컨트롤러를 만들려면 투구를 사용 하 여 *nginx*를 설치 합니다. 중복성을 추가하기 위해 NGINX 수신 컨트롤러의 두 복제본이 `--set controller.replicaCount` 매개 변수와 함께 배포됩니다. 수신 컨트롤러의 복제본을 실행하는 이점을 최대한 활용하려면 AKS 클러스터에 둘 이상의 노드가 있어야 합니다.
 
-수신 컨트롤러도 Linux 노드에서 예약해야 합니다. 현재 AKS에서 미리 보기 중인 Windows Server 노드는 inress 컨트롤러를 실행해서는 안 됩니다. `--set nodeSelector` 매개 변수를 사용하여 노드 선택기를 지정하면 Linux 기반 노드에서 NGINX 수신 컨트롤러를 실행하도록 Kubernetes 스케줄러에 지시할 수 있습니다.
-
-> [!TIP]
-> 다음 예제는 기본 에서 인그레스 *리소스라는*이름의 침투 리소스에 대해 Kubernetes 네임스페이스를 만듭니다. 필요에 따라 사용자 고유의 환경에 대한 네임스페이스를 지정합니다.
+수신 컨트롤러도 Linux 노드에서 예약해야 합니다. Windows Server 노드 (현재 AKS에서 미리 보기 상태)는 수신 컨트롤러를 실행 해서는 안 됩니다. `--set nodeSelector` 매개 변수를 사용하여 노드 선택기를 지정하면 Linux 기반 노드에서 NGINX 수신 컨트롤러를 실행하도록 Kubernetes 스케줄러에 지시할 수 있습니다.
 
 > [!TIP]
-> 클러스터의 컨테이너에 대한 요청에 대한 [클라이언트 소스 IP 보존을][client-source-ip] 사용하려면 Helm 설치 명령에 추가합니다. `--set controller.service.externalTrafficPolicy=Local` 클라이언트 소스 IP는 *X-전달-For*아래의 요청 헤더에 저장됩니다. 클라이언트 소스 IP 보존을 사용하도록 설정된 usingres s 컨트롤러를 사용하는 경우 SSL 통과가 작동하지 않습니다.
+> 다음 예에서는 수신 *-기본*이라는 수신 리소스에 대 한 Kubernetes 네임 스페이스를 만듭니다. 필요에 따라 사용자 환경에 대 한 네임 스페이스를 지정 합니다.
+
+> [!TIP]
+> 클러스터의 컨테이너에 대 한 요청에 대 한 [클라이언트 원본 IP 유지][client-source-ip] 를 사용 하도록 설정 하려면 `--set controller.service.externalTrafficPolicy=Local` 투구 install 명령에를 추가 합니다. 클라이언트 원본 IP가 *X 전달-에 대 한*요청 헤더에 저장 됩니다. 클라이언트 원본 IP 유지를 사용 하는 수신 컨트롤러를 사용 하는 경우 SSL 통과는 작동 하지 않습니다.
 
 ```console
 # Create a namespace for your ingress resources
@@ -72,7 +72,7 @@ nginx-ingress-default-backend    ClusterIP      10.0.192.145   <none>        80/
 
 ## <a name="run-demo-applications"></a>데모 애플리케이션 실행
 
-작동 중인 수신 컨트롤러를 확인하기 위해 AKS 클러스터에서 두 개의 데모 애플리케이션을 실행하겠습니다. 이 예제에서 Helm은 간단한 *Hello 월드* 응용 프로그램의 두 인스턴스를 배포하는 데 사용됩니다.
+작동 중인 수신 컨트롤러를 확인하기 위해 AKS 클러스터에서 두 개의 데모 애플리케이션을 실행하겠습니다. 이 예제에서 투구는 간단한 *Hello 세계* 응용 프로그램의 두 인스턴스를 배포 하는 데 사용 됩니다.
 
 샘플 Helm 차트를 설치하려면, 먼저 다음과 같이 Azure 샘플 리포지토리를 Helm 환경에 추가합니다.
 
@@ -99,7 +99,7 @@ helm install aks-helloworld-two azure-samples/aks-helloworld \
 
 이제 두 애플리케이션이 모두 Kubernetes 클러스터에서 실행됩니다. 트래픽을 각 애플리케이션으로 라우팅하려면 Kubernetes 수신 리소스를 만듭니다. 수신 리소스는 두 애플리케이션 중 하나로 트래픽을 라우팅하는 규칙을 구성합니다.
 
-다음 예제에서는 *EXTERNAL_IP* 트래픽이 라는 `aks-helloworld`서비스로 라우팅됩니다. *EXTERNAL_IP/hello-world-two로의* 트래픽이 `aks-helloworld-two` 서비스로 라우팅됩니다. *EXTERNAL_IP/static에* 대한 트래픽은 정적 `aks-helloworld` 자산에 대한 명명된 서비스로 라우팅됩니다.
+다음 예제에서 *EXTERNAL_IP* 에 대 한 트래픽은 이라는 `aks-helloworld`서비스로 라우팅됩니다. *EXTERNAL_IP/hello-world-two* 에 대 한 트래픽은 `aks-helloworld-two` 서비스로 라우팅됩니다. *EXTERNAL_IP/정적* 으로의 트래픽은 정적 자산의 이라는 `aks-helloworld` 서비스로 라우팅됩니다.
 
 `hello-world-ingress.yaml` 파일을 만들고 다음 예제 YAML을 복사합니다.
 
@@ -156,27 +156,27 @@ ingress.extensions/hello-world-ingress-static created
 
 ## <a name="test-the-ingress-controller"></a>수신 컨트롤러 테스트
 
-수신 컨트롤러의 경로를 테스트하려면 두 개의 애플리케이션으로 이동합니다. *EXTERNAL_IP*와 같은 NGINX 인드레스 컨트롤러의 IP 주소로 웹 브라우저를 엽니다. 첫 번째 데모 애플리케이션은 다음 예제와 같이 웹 브라우저에 표시됩니다.
+수신 컨트롤러의 경로를 테스트하려면 두 개의 애플리케이션으로 이동합니다. NGINX 수신 컨트롤러의 IP 주소 (예: *EXTERNAL_IP*)에 대 한 웹 브라우저를 엽니다. 첫 번째 데모 애플리케이션은 다음 예제와 같이 웹 브라우저에 표시됩니다.
 
 ![수신 컨트롤러 뒤에서 실행 중인 첫 번째 앱](media/ingress-basic/app-one.png)
 
-이제 ip 주소에 */hello-world-2* 경로를 추가하여 *EXTERNAL_IP/hello-world-2.* 사용자 지정 제목이 있는 두 번째 데모 애플리케이션이 표시됩니다.
+이제 *EXTERNAL_IP/hello-world-two*와 같은 IP 주소에 */hello-world-two* 경로를 추가 합니다. 사용자 지정 제목이 있는 두 번째 데모 애플리케이션이 표시됩니다.
 
 ![수신 컨트롤러 뒤에서 실행 중인 두 번째 앱](media/ingress-basic/app-two.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 문서에서는 Helm을 사용하여 수신 구성 요소 및 샘플 앱을 설치했습니다. Helm 차트를 배포하면 다수의 Kubernetes 리소스가 생성됩니다. 이 리소스에는 Pod, 배포 및 서비스가 포함됩니다. 이러한 리소스를 정리하려면 전체 샘플 네임스페이스 또는 개별 리소스를 삭제할 수 있습니다.
+이 문서에서는 Helm을 사용하여 수신 구성 요소 및 샘플 앱을 설치했습니다. Helm 차트를 배포하면 다수의 Kubernetes 리소스가 생성됩니다. 이 리소스에는 Pod, 배포 및 서비스가 포함됩니다. 이러한 리소스를 정리 하려면 전체 샘플 네임 스페이스 또는 개별 리소스를 삭제할 수 있습니다.
 
-### <a name="delete-the-sample-namespace-and-all-resources"></a>샘플 네임스페이스 및 모든 리소스 삭제
+### <a name="delete-the-sample-namespace-and-all-resources"></a>샘플 네임 스페이스 및 모든 리소스 삭제
 
-전체 샘플 네임스페이스를 삭제하려면 `kubectl delete` 명령을 사용하고 네임스페이스 이름을 지정합니다. 네임스페이스의 모든 리소스가 삭제됩니다.
+전체 샘플 네임 스페이스를 삭제 하려면 `kubectl delete` 명령을 사용 하 고 네임 스페이스 이름을 지정 합니다. 네임 스페이스의 모든 리소스가 삭제 됩니다.
 
 ```console
 kubectl delete namespace ingress-basic
 ```
 
-그런 다음 AKS hello World 앱의 헬름 리포지토리를 제거합니다.
+그런 다음 AKS hello 세계 앱에 대 한 투구 리포지토리를 제거 합니다.
 
 ```console
 helm repo remove azure-samples
@@ -184,7 +184,7 @@ helm repo remove azure-samples
 
 ### <a name="delete-resources-individually"></a>리소스를 개별적으로 삭제
 
-또는 보다 세분화된 방법은 생성된 개별 리소스를 삭제하는 것입니다. 명령과 함께 투구 `helm list` 릴리스를 나열합니다. 다음 예제 출력과 같이 이름이 *nginx-ingress* 및 *aks-helloworld*인 차트를 찾습니다.
+또는 만든 개별 리소스를 삭제 하는 것이 더 세부적인 방법입니다. `helm list` 명령을 사용 하 여 투구 릴리스를 나열 합니다. 다음 예제 출력과 같이 이름이 *nginx-ingress* 및 *aks-helloworld*인 차트를 찾습니다.
 
 ```
 $ helm list --namespace ingress-basic
@@ -217,7 +217,7 @@ helm repo remove azure-samples
 kubectl delete -f hello-world-ingress.yaml
 ```
 
-마지막으로 자체 네임스페이스를 삭제할 수 있습니다. `kubectl delete` 명령을 사용하고 네임스페이스 이름을 지정합니다.
+마지막으로 자체 네임 스페이스를 삭제할 수 있습니다. 명령을 사용 `kubectl delete` 하 여 네임 스페이스 이름을 지정 합니다.
 
 ```console
 kubectl delete namespace ingress-basic
@@ -238,6 +238,7 @@ kubectl delete namespace ingress-basic
 - Let’s Encrypt를 사용하여 [동적 공용 IP 주소][aks-ingress-tls] 또는 [고정 공용 IP 주소][aks-ingress-static-tls]로 TLS 인증서를 자동으로 생성하는 수신 컨트롤러 만들기
 
 <!-- LINKS - external -->
+[helm]: https://helm.sh/
 [helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
 
