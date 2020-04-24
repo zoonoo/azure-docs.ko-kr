@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/21/2020
+ms.date: 04/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1377023af9d4f153671f15e214516ac29536638
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 7704a758f53b6ba26b1c9cf9e9e2811f533601f0
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82100076"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82112204"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -47,6 +47,14 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 >동기화를 위해 Azure AD Connect를 사용 하도록 설정한 경우 이전 버전 중 하나를 실행할 때 예정 된 결함에 대해 경고 하는 상태 알림을 자동으로 수신 하는 즉시 시작 됩니다.
 >
 >Azure AD Connect를 최신 버전으로 업그레이드 하는 방법에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) 를 참조 하세요.
+
+## <a name="15290"></a>1.5.29.0
+
+### <a name="release-status"></a>릴리스 상태
+04/23/2020: 다운로드를 위해 릴리스 됨
+
+### <a name="fixed-issues"></a>해결된 문제
+이 핫픽스 빌드는 MFA를 사용 하는 테 넌 트 관리자가 DSSO 사용 하도록 설정할 수 없는 빌드 1.5.20.0에 도입 된 문제를 해결 합니다.
 
 ## <a name="15220"></a>1.5.22.0
 
@@ -546,12 +554,12 @@ Azure AD Connect 버전 1.1.654.0 이상에서는 Azure AD Connect가 AD DS 계�
 *   특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다. SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
 *   다음과 같은 특정 권한을 할당합니다.
 
-Type     | 속성                          | 액세스 권한               | 적용 대상
+Type     | 이름                          | 액세스               | 적용 대상
 ---------|-------------------------------|----------------------|--------------|
 Allow    | SYSTEM                        | 모든 권한         | 이 개체  |
-Allow    | 엔터프라이즈 관리자             | 모든 권한         | 이 개체  |
-Allow    | 도메인 관리자                 | 모든 권한         | 이 개체  |
-Allow    | 관리자                | 모든 권한         | 이 개체  |
+Allow    | Enterprise Admins             | 모든 권한         | 이 개체  |
+Allow    | Domain Admins                 | 모든 권한         | 이 개체  |
+Allow    | Administrators                | 모든 권한         | 이 개체  |
 Allow    | 엔터프라이즈 도메인 컨트롤러 | 내용 보기        | 이 개체  |
 Allow    | 엔터프라이즈 도메인 컨트롤러 | 모든 속성 읽기  | 이 개체  |
 Allow    | 엔터프라이즈 도메인 컨트롤러 | 읽기 권한     | 이 개체  |
@@ -571,7 +579,7 @@ PowerShell 스크립트를 사용하여 조직에서 제공하거나 이전 Azur
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-Where 
+위치 
 
 **$ObjectDN** = 사용 권한을 강화해야 하는 Active Directory 계정입니다.
 
@@ -890,7 +898,7 @@ CBool(
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|선택|
-    |CertKeyAlgorithmParams|CertHashString|Where|
+    |CertKeyAlgorithmParams|CertHashString|위치|
     |||With|
 
 * 고객이 그룹 개체에 대한 sAMAccountName, domainNetBios 및 domainFQDN과 사용자 개체에 대한 distinguishedName을 전달하는 사용자 지정 동기화 규칙을 만들 수 있도록 스키마가 다음과 같이 변경되었습니다.

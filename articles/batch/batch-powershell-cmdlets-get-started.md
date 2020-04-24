@@ -1,26 +1,15 @@
 ---
-title: PowerShell 시작 - Azure Batch | Microsoft Docs
+title: PowerShell 시작
 description: Batch 리소스를 관리하는 데 사용할 수 있는 Azure PowerShell cmdlet에 대한 간략한 소개입니다.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
-ms.devlang: NA
 ms.topic: conceptual
-ms.tgt_pltfrm: powershell
-ms.workload: big-compute
 ms.date: 01/15/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 26691ca6b9d078ef18ac852c67fa2ac88dff2722
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79473c5fb63a5f5ad29194c65cd8094ea444dbd8
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023007"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115842"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>PowerShell cmdlet을 사용한 Batch 리소스 관리
 
@@ -30,7 +19,7 @@ Batch cmdlet의 전체 목록과 상세 cmdlet 구문은 [Azure Batch cmdlet 참
 
 이 문서는 Az Batch 1.0.0의 cmdlet를 기반으로 합니다. 서비스 업데이트 및 향상을 최대한 활용하기 위해서 Azure PowerShell 모듈을 자주 업데이트하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * [Azure PowerShell 모듈을 설치하고 구성합니다](/powershell/azure/overview). 시험판 모듈처럼 특정 Azure Batch 모듈을 설치하려면 [PowerShell 갤러리](https://www.powershellgallery.com/packages/Az.Batch/1.0.0)를 참조하세요.
 
@@ -50,13 +39,13 @@ Batch cmdlet의 전체 목록과 상세 cmdlet 구문은 [Azure Batch cmdlet 참
 
 ### <a name="create-a-batch-account"></a>Batch 계정 만들기
 
-**New-AzBatchAccount**는 지정된 리소스 그룹에서 Batch 계정을 만듭니다. 아직 리소스 그룹이 없는 경우 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet을 실행하여 만듭니다. **위치** 매개 변수에서 "미국 중부"와 같이 Azure 지역 중 하나를 지정합니다. 예를 들어:
+**New-AzBatchAccount**는 지정된 리소스 그룹에서 Batch 계정을 만듭니다. 아직 리소스 그룹이 없는 경우 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet을 실행하여 만듭니다. **위치** 매개 변수에서 "미국 중부"와 같이 Azure 지역 중 하나를 지정합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```powershell
 New-AzResourceGroup –Name MyBatchResourceGroup –Location "Central US"
 ```
 
-그런 다음, 새 리소스 그룹에 Batch 계정을 만듭니다. <*account_name*>의 계정 이름과 리소스 그룹의 위치 및 이름을 지정합니다. Batch 계정을 만드는 데 다소 시간이 걸릴 수 있습니다. 예를 들어:
+그런 다음, 새 리소스 그룹에 Batch 계정을 만듭니다. <*account_name*>의 계정 이름과 리소스 그룹의 위치 및 이름을 지정합니다. Batch 계정을 만드는 데 다소 시간이 걸릴 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```powershell
 New-AzBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
@@ -90,7 +79,7 @@ New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 ### <a name="delete-a-batch-account"></a>Batch 계정 삭제
 
-**Remove-AzBatchAccount**는 배치 계정을 삭제합니다. 예를 들어:
+**Remove-AzBatchAccount**는 배치 계정을 삭제합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```powershell
 Remove-AzBatchAccount -AccountName <account_name>
@@ -175,7 +164,7 @@ Get-AzBatchPool -Id "myPool" -BatchContext $context
 
 ### <a name="use-the-maxcount-parameter"></a>MaxCount 매개 변수 사용
 
-기본적으로 각 cmdlet은 최대 1000개의 개체를 반환합니다. 이 제한에 도달하면 더 적은 수의 개체를 반환하도록 필터를 조정하거나 **MaxCount** 매개 변수를 사용하여 최대값을 명시적으로 설정합니다. 예를 들어:
+기본적으로 각 cmdlet은 최대 1000개의 개체를 반환합니다. 이 제한에 도달하면 더 적은 수의 개체를 반환하도록 필터를 조정하거나 **MaxCount** 매개 변수를 사용하여 최대값을 명시적으로 설정합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```powershell
 Get-AzBatchTask -MaxCount 2500 -BatchContext $context
@@ -203,13 +192,13 @@ Get-AzBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-AzBatch
 
 애플리케이션 패키지는 풀에서 컴퓨팅 노드에 애플리케이션을 배포하는 간단한 방법을 제공합니다. Batch PowerShell cmdlet으로 Batch 계정에 애플리케이션 패키지를 업로드하여 관리하고 노드를 계산하는 패키지 버전을 배포할 수 있습니다.
 
-응용 프로그램 **만들기:**
+응용 프로그램을 **만듭니다** .
 
 ```powershell
 New-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 ```
 
-**추가합니다** .
+응용 프로그램 패키지를 **추가** 합니다.
 
 ```powershell
 New-AzBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0" -Format zip -FilePath package001.zip

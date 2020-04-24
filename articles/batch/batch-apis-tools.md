@@ -1,20 +1,15 @@
 ---
-title: 개발자를 위한 API 및 도구 - Azure Batch | Microsoft Docs
+title: 개발자를 위한 Api 및 도구
 description: Azure Batch 서비스를 사용하여 솔루션을 개발하는 데 사용할 수 있는 API 및 도구에 대해 알아봅니다.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 00d2a74946957f690979eec1d3a03a9b766299d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56c268675a39dfd3c70b3d8d8e457a2a200d7db6
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252325"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82114924"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Batch API 및 도구 개요
 
@@ -30,7 +25,7 @@ Azure Batch를 통한 병렬 워크로드 처리는 일반적으로 Batch API �
 ## <a name="azure-accounts-for-batch-development"></a>Batch 개발을 위한 Azure 계정
 Batch 솔루션을 개발할 경우 Azure 구독에서는 다음 계정을 사용합니다.
 
-* **일괄 처리 계정** - 풀, 계산 노드, 작업 및 작업을 포함한 Azure Batch 리소스는 Azure [Batch 계정과](batch-api-basics.md#account)연결됩니다. 애플리케이션에서 Batch 서비스를 요청할 때는 Azure Batch 계정 이름, 계정의 URL 및 액세스 키 또는 Azure Active Directory 토큰을 사용하여 요청을 인증합니다. Azure Portal 또는 프로그래밍 방식으로 [Batch 계정을 만들](batch-account-create-portal.md) 수 있습니다.
+* **Batch 계정** -풀, 계산 노드, 작업 및 태스크를 포함 하는 리소스 Azure Batch는 Azure [batch 계정과](batch-api-basics.md#account)연결 됩니다. 애플리케이션에서 Batch 서비스를 요청할 때는 Azure Batch 계정 이름, 계정의 URL 및 액세스 키 또는 Azure Active Directory 토큰을 사용하여 요청을 인증합니다. Azure Portal 또는 프로그래밍 방식으로 [Batch 계정을 만들](batch-account-create-portal.md) 수 있습니다.
 * **스토리지 계정** - Batch는 [Azure Storage][azure_storage]에 있는 파일에 대한 작업을 기본적으로 지원합니다. 거의 모든 Batch 시나리오에서는 Azure Blob Storage를 사용하여 태스크에서 실행하는 프로그램 및 프로그램에서 처리하는 데이터를 준비하고, 생성되는 출력 데이터를 저장합니다. Batch의 스토리지 계정 옵션은 [Batch 기능 개요](batch-api-basics.md#azure-storage-account)를 참조하세요.
 
 ## <a name="batch-service-apis"></a>Batch 서비스 API
@@ -39,10 +34,10 @@ Batch 솔루션을 개발할 경우 Azure 구독에서는 다음 계정을 사�
 
 | API | API 참조 | 다운로드 | 자습서 | 코드 샘플 | 자세한 정보 |
 | --- | --- | --- | --- | --- | --- |
-| **Batch REST** |[docs.microsoft.com][batch_rest] |해당 없음 |- |- | [지원되는 버전](/rest/api/batchservice/batch-service-rest-api-versioning) |
+| **Batch REST** |[docs.microsoft.com][batch_rest] |해당 없음 |- |- | [지원 되는 버전](/rest/api/batchservice/batch-service-rest-api-versioning) |
 | **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet][api_net_nuget] |[자습서](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [릴리스 정보](https://aka.ms/batch-net-dataplane-changelog) |
 | **Batch Python** |[docs.microsoft.com][api_python] |[PyPI][api_python_pypi] |[자습서](tutorial-parallel-python.md)|[GitHub][api_sample_python] | [추가 정보](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
-| **Batch Node.js** |[docs.microsoft.com][api_nodejs] |[Npm][api_nodejs_npm] |[자습서](batch-nodejs-get-started.md) |- | [추가 정보](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
+| **Batch Node.js** |[docs.microsoft.com][api_nodejs] |[npm][api_nodejs_npm] |[자습서](batch-nodejs-get-started.md) |- | [추가 정보](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
 | **Batch Java** |[docs.microsoft.com][api_java] |[Maven][api_java_jar] |- |[추가 정보][api_sample_java] | [추가 정보](https://github.com/Azure/azure-batch-sdk-for-java)|
 
 ## <a name="batch-management-apis"></a>Batch 관리 API
@@ -54,7 +49,7 @@ Batch용 Azure Resource Manager API는 Batch 계정에 대한 프로그래밍 �
 | **Batch 관리 REST** |[docs.microsoft.com][api_rest_mgmt] |해당 없음 |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
 | **Batch 관리 .NET** |[docs.microsoft.com][api_net_mgmt] |[NuGet][api_net_mgmt_nuget] | [자습서](batch-management-dotnet.md) |[GitHub][api_sample_net] |
 | **Batch 관리 Python** |[docs.microsoft.com][api_python_mgmt] |[PyPI][api_python_mgmt_pypi] |- |- |
-| **Batch 관리 Node.js** |[docs.microsoft.com][api_nodejs_mgmt] |[Npm][api_nodejs_mgmt_npm] |- |- | 
+| **Batch 관리 Node.js** |[docs.microsoft.com][api_nodejs_mgmt] |[npm][api_nodejs_mgmt_npm] |- |- | 
 | **Batch 관리 Java** |- |[Maven][api_java_mgmt_jar] |- |- |
 ## <a name="batch-command-line-tools"></a>Batch 명령줄 도구
 
@@ -68,9 +63,9 @@ Batch용 Azure Resource Manager API는 Batch 계정에 대한 프로그래밍 �
 Batch 애플리케이션 및 서비스를 빌드 및 디버깅하는 데 도움이 될 수 있는 추가 도구는 다음과 같습니다.
 
 * [Azure Portal][portal]: Azure Portal에서 Batch 풀, 작업 및 태스크를 만들고 모니터링하고 삭제할 수 있습니다. 작업을 실행하는 동안 해당하는 리소스 풀 및 다른 리소스 풀에 대한 상태 정보를 보고 풀에 있는 컴퓨팅 노드에서 파일을 다운로드할 수 있습니다. 예를 들어 문제를 해결하는 동안 실패한 작업의 `stderr.txt`를 다운로드할 수 있습니다. 또한 컴퓨팅 노드에 로그인하는 데 사용할 수 있는 RDP(원격 데스크톱) 파일을 다운로드할 수 있습니다.
-* [Azure Batch Explorer][batch_labs]: Batch Explorer(이전 이름은 BatchLabs)는 Azure Batch 애플리케이션을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows용 [설치 패키지를](https://azure.github.io/BatchExplorer/) 다운로드합니다.
-* [Azure 배치 조선소:](https://github.com/Azure/batch-shipyard)일괄 처리 조선소는 Azure Batch에서 컨테이너 기반 일괄 처리 및 HPC 워크로드를 프로비저닝, 실행 및 모니터링하는 데 도움이 되는 도구입니다.
-* [Azure 저장소 탐색기:][storage_explorer]엄격하게 Azure Batch 도구는 아니지만 저장소 탐색기는 Batch 솔루션을 개발하고 디버깅하는 동안 사용할 수 있는 또 다른 유용한 도구입니다.
+* [Azure Batch Explorer][batch_labs]: Batch Explorer(이전 이름은 BatchLabs)는 Azure Batch 애플리케이션을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows 용 [설치 패키지](https://azure.github.io/BatchExplorer/) 를 다운로드 합니다.
+* [Azure Batch Shipyard](https://github.com/Azure/batch-shipyard): batch Shipyard는 Azure Batch에서 컨테이너 기반 일괄 처리 및 HPC 워크 로드를 프로 비전, 실행 및 모니터링 하는 데 도움이 되는 도구입니다.
+* [Azure Storage 탐색기][storage_explorer]: 엄격 하 게 Azure Batch 도구는 아니지만 Storage 탐색기는 Batch 솔루션을 개발 하 고 디버깅 하는 동안에는 또 다른 유용한 도구입니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -3,12 +3,12 @@ title: 컨테이너 인스턴스 모니터링
 description: Azure Container Instances에서 컨테이너의 CPU 및 메모리와 같은 컴퓨팅 리소스의 소비를 모니터링하는 방법입니다.
 ms.topic: article
 ms.date: 04/24/2019
-ms.openlocfilehash: b4a66254c18d7e01b6d56e64e6b62721b620d499
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8d41e419abe43530186e256ac6253e2d4783f9b
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250028"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116370"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 리소스 모니터링
 
@@ -17,7 +17,7 @@ ms.locfileid: "78250028"
 이 문서에서는 Azure Portal 및 Azure CLI를 사용하여 컨테이너 인스턴스에 대한 Azure Monitor 메트릭 수집에 대해 자세히 설명합니다.
 
 > [!IMPORTANT]
-> Azure Container Instances의 Azure Monitor 메트릭은 현재 미리 보기로 제공되며, 일부 [제한 사항이 적용](#preview-limitations)됩니다. [추가 사용 조건][terms-of-use]에 동의하는 조건으로 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
+> Azure Container Instances의 Azure Monitor 메트릭은 현재 미리 보기로 제공되며, 일부 [제한 사항이 적용](#preview-limitations)됩니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
 
@@ -25,13 +25,13 @@ ms.locfileid: "78250028"
 
 ## <a name="available-metrics"></a>사용 가능한 메트릭
 
-Azure Monitor는 다음과 같은 [Azure Container Instances를 위한 메트릭][supported-metrics]을 제공합니다. 이러한 메트릭은 컨테이너 그룹 및 개별 컨테이너에 사용할 수 있습니다.
+Azure Monitor는 다음과 같은 [Azure Container Instances를 위한 메트릭][supported-metrics]을 제공합니다. 이러한 메트릭은 컨테이너 그룹 및 개별 컨테이너에 사용할 수 있습니다. 기본적으로 메트릭은 평균으로 집계 됩니다.
 
-* **CPU 사용량** - **밀리코어** 단위로 측정됩니다. 1밀리코어는 CPU 코어의 1/1000이므로 500밀리코어(또는 500m)는 CPU 코어의 50% 사용을 나타냅니다. 모든 코어에 대해 **평균 사용량**으로 집계됩니다.
+* **CPU 사용량** - **밀리코어** 단위로 측정됩니다. 한 millicore CPU 코어의 1/1000th 이므로 500 millicores는 0.5 CPU 코어의 사용량을 나타냅니다.
 
-* **메모리 사용량** - **평균 바이트**로 집계됩니다.
+* **메모리 사용량** (바이트)입니다.
 
-* **초당 수신된 네트워크 바이트** 및 **초당 전송된 네트워크 바이트** - **초당 평균 바이트 수**로 집계됩니다. 
+* 초당 **수신한 네트워크 바이트** 및 초당 **전송 된 네트워크 바이트**수입니다. 
 
 ## <a name="get-metrics---azure-portal"></a>메트릭 가져오기 - Azure Portal
 

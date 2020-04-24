@@ -1,25 +1,15 @@
 ---
-title: 효율적인 목록 쿼리 디자인 - Azure Batch | Microsoft Docs
+title: 효율적인 목록 쿼리 디자인
 description: 풀, 작업, 태스크 및 컴퓨팅 노드와 같은 Batch 리소스에 대한 정보를 요청할 때 쿼리를 필터링하여 성능을 향상시킵니다.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 12/07/2018
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: df923ac479ce5f5a3668c18c616b11348dc6c0b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fea8efd4e4946b67754bad98589b728e8d696425
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022242"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116114"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>쿼리를 만들어서 효율적으로 Batch 리소스 나열
 
@@ -172,7 +162,7 @@ filter, select 및 expand 문자열의 속성 이름은 이름과 대소문자 �
 | [CloudJob][net_job] |[작업 정보 가져오기][rest_get_job] |
 | [CloudJobSchedule][net_schedule] |[작업 일정 정보 가져오기][rest_get_schedule] |
 | [ComputeNode][net_node] |[노드 정보 가져오기][rest_get_node] |
-| [클라우드 풀][net_pool] |[풀 정보 가져오기][rest_get_pool] |
+| [CloudPool][net_pool] |[풀 정보 가져오기][rest_get_pool] |
 | [CloudTask][net_task] |[태스크 정보 가져오기][rest_get_task] |
 
 ## <a name="example-construct-a-filter-string"></a>예: filter 문자열 구성

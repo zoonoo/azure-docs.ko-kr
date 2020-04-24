@@ -1,22 +1,16 @@
 ---
-title: 경제적이며 우선 순위가 낮은 VM에서 워크로드 실행 - Azure Batch | Microsoft Docs
+title: 비용 효율적이 고 우선 순위가 낮은 Vm에서 워크 로드 실행
 description: 우선 순위가 낮은 VM을 프로비전하여 Azure Batch 워크로드의 비용을 줄이는 방법을 알아봅니다.
-services: batch
 author: mscurrell
-manager: evansma
-ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
-ms.service: batch
 ms.topic: article
-ms.workload: na
 ms.date: 03/19/2020
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 9f4b9ed9254eaf950311dd27d5716c4681707614
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ec75dac7e5615cddf942ff7939ea7e95315f8699
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80053903"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116046"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Batch에서 낮은 우선 순위 VM 사용
 
@@ -29,11 +23,11 @@ Azure Batch는 낮은 우선 순위 VM(가상 머신)을 사용하여 Batch 워�
 우선 순위가 낮은 VM은 전용 VM에 비해 상당히 저렴한 가격으로 제공됩니다. 가격 책정 세부 정보에 대해서는 [Batch 가격 책정](https://azure.microsoft.com/pricing/details/batch/)을 참조하세요.
 
 > [!NOTE]
-> [스팟 VM은](https://azure.microsoft.com/pricing/spot/) 이제 [단일 인스턴스 VM](https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms) 및 [VM 스케일 집합에](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot)사용할 수 있습니다. 스팟 VM은 우선 순위가 낮은 VM의 진화이지만 가격이 다를 수 있으며 스팟 VM을 할당할 때 선택적 최대 가격을 설정할 수 있습니다.
+> 이제 [단일 인스턴스 vm](https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms) 및 [VM 확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot)에 대 한 [스폿 vm](https://azure.microsoft.com/pricing/spot/) 을 사용할 수 있습니다. 지점 Vm은 우선 순위가 낮은 Vm의 진화 이지만, 해당 가격은 다를 수 있으며, 스폿 Vm을 할당할 때 선택적 최대 가격을 설정할 수 있습니다.
 >
-> Azure Batch 풀은 배치 [API 및 도구의](https://docs.microsoft.com/azure/batch/batch-apis-tools)새 버전으로 일반적으로 사용할 수 있는 몇 개월 이내에 스팟 VM을 지원하기 시작합니다. 스팟 VM 지원을 사용할 수 있게 되면 우선 순위가 낮은 VM은 더 이상 사용되지 않으며, 스팟 VM으로 마이그레이션할 수 있는 충분한 시간을 허용하기 위해 최소 12개월 동안 현재 API 및 도구 버전을 사용하여 계속 지원됩니다. 
+> Azure Batch 풀은 새로운 버전의 [Batch api 및 도구](https://docs.microsoft.com/azure/batch/batch-apis-tools)를 사용 하 여 일반 공급 되는 몇 개월 이내에 별색 vm을 지원 하기 시작 합니다. 지점 VM 지원을 사용할 수 있게 되 면 우선 순위가 낮은 Vm은 더 이상 사용 되지 않습니다. 현재 Api 및 도구 버전을 12 개월 이상 사용 하 여 해당 Vm으로의 마이그레이션에 충분 한 시간을 허용 하도록 계속 지원 됩니다. 
 >
-> 스팟 VM은 클라우드 [서비스 구성](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) 풀에서 지원되지 않습니다. 스팟 VM을 사용하려면 클라우드 서비스 풀을 [가상 컴퓨터 구성](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) 풀로 마이그레이션해야 합니다.
+> 지점 Vm은 [클라우드 서비스 구성](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) 풀에 대해 지원 되지 않습니다. 지점 Vm을 사용 하려면 클라우드 서비스 풀을 [가상 컴퓨터 구성](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) 풀로 마이그레이션해야 합니다.
 
 
 ## <a name="use-cases-for-low-priority-vms"></a>우선 순위가 낮은 VM에 대한 사용 사례
@@ -168,7 +162,7 @@ VM은 경우에 따라 선점될 수 있습니다. 선점될 경우 Batch는 다
 -   선점된 VM의 상태는 **선점됨**으로 업데이트됩니다.
 -   작업이 선점된 노드 VM에서 실행되면 해당 작업이 요청되고 다시 실행됩니다.
 -   VM은 효과적으로 삭제되므로 VM에 로컬로 저장된 모든 데이터는 손실됩니다.
--   풀은 계속해서 우선 순위가 낮은 노드의 목표 개수가 사용 가능해지도록 하려고 합니다. 대체 용량이 발견되면 노드는 해당 아이디를 유지하지만 작업 일정에 사용할 수 있기 전에 **만들기** 및 **시작** 상태를 거치면서 초기화됩니다.
+-   풀은 계속해서 우선 순위가 낮은 노드의 목표 개수가 사용 가능해지도록 하려고 합니다. 대체 용량이 발견 되 면 노드는 해당 Id를 유지 하지만 다시 초기화 되며, 작업 예약에 사용 하기 전에 **만들기** 및 **시작** 상태를 진행 합니다.
 -   선점 수는 Azure Portal에서 메트릭으로 사용할 수 있습니다.
 
 ## <a name="metrics"></a>메트릭
@@ -191,4 +185,4 @@ Azure Portal에서 메트릭을 확인하려면 다음을 수행합니다.
 
 * 배치를 사용하려는 사용자를 위한 중요한 정보는 [개발자를 Batch 기능 개요](batch-api-basics.md)를 참고합니다. 문서에는 Batch 애플리케이션을 빌드하는 동안 사용할 수 있는 풀, 노드, 작업 및 태스크와 같은 Batch 서비스 리소스 및 여러 API 기능에 대한 자세한 내용이 포함됩니다.
 * Batch 솔루션을 빌드하는 데 사용할 수 있는 [Batch API 및 도구](batch-apis-tools.md)에 대해 알아봅니다.
-* 우선 순위가 낮은 VM에서 스팟 VM으로의 이동을 계획하기 시작합니다. **클라우드 서비스 구성 풀에서** 우선 순위가 낮은 VM을 사용하는 경우 **가상 컴퓨터 구성** 풀로 이동하도록 계획합니다.
+* 우선 순위가 낮은 Vm에서 Vm으로의 이동 계획을 시작 합니다. **클라우드 서비스 구성** 풀에서 우선 순위가 낮은 vm을 사용 하는 경우 **가상 머신 구성** 풀로 이동 하도록 계획 합니다.

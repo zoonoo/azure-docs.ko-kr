@@ -1,24 +1,15 @@
 ---
-title: 데이터 저장소에 작업 및 작업 출력 유지 - Azure Batch
+title: 데이터 저장소에 작업 및 태스크 출력 유지-Azure Batch
 description: Batch 작업 및 태스크의 출력 데이터를 유지하기 위한 다양한 옵션을 알아봅니다. Azure Storage 또는 다른 데이터 저장소에 데이터를 유지할 수 있습니다.
-services: batch
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0809a838f1d34491eb4e276ce356eded9b98756e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3a0c8f7517e88bf4e5476c7bad98d167ce760a9a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022837"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116420"
 ---
 # <a name="persist-job-and-task-output"></a>작업 및 태스크 출력 유지
 

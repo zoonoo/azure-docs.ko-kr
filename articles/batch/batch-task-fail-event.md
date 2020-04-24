@@ -1,22 +1,14 @@
 ---
-title: Azure 일괄 처리 작업 실패 이벤트
+title: Azure Batch 태스크 실패 이벤트
 description: Batch 태스크 실패 이벤트에 대한 참조입니다. 이 이벤트는 태스크 완료 이벤트와 별도로 내보내지고, 태스크가 실패한 시기를 감지하는 데 사용될 수 있습니다.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 08/15/2019
-ms.author: labrenne
-ms.openlocfilehash: 2bc958d6dca2b3caae665e6f9b080c651ace9ea0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e973a7e0a2ab67300a0f6762c837336e12bae3b
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022888"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116454"
 ---
 # <a name="task-fail-event"></a>태스크 실패 이벤트
 
@@ -53,12 +45,12 @@ ms.locfileid: "77022888"
 
 |요소 이름|Type|메모|
 |------------------|----------|-----------|
-|`jobId`|String|작업을 포함하는 작업의 ID입니다.|
-|`id`|String|작업의 ID입니다.|
+|`jobId`|String|태스크가 포함 된 작업의 ID입니다.|
+|`id`|String|태스크의 ID입니다.|
 |`taskType`|String|태스크의 유형입니다. 이는 작업 관리자 태스크를 나타내는 'JobManager' 또는 작업 관리자 태스크가 아님을 나타내는 'User'가 될 수 있습니다. 작업 준비 태스크, 작업 릴리스 태스크 또는 시작 태스크의 경우 이 이벤트가 내보내지지 않습니다.|
 |`systemTaskVersion`|Int32|태스크에 대한 내부 재시도 카운터입니다. 내부적으로 Batch 서비스는 일시적인 문제를 해결하기 위해 태스크를 다시 시도할 수 있습니다. 이러한 문제에는 내부 일정 오류 또는 불량 상태의 컴퓨팅 노드 복구를 위한 시도가 포함될 수 있습니다.|
 |[`nodeInfo`](#nodeInfo)|복합 형식|태스크가 실행된 컴퓨팅 노드에 대한 정보를 포함합니다.|
-|[`multiInstanceSettings`](#multiInstanceSettings)|복합 형식|여러 컴퓨팅 노드가 필요한 다중 인스턴스 태스크임을 지정합니다.  자세한 [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) 내용은 를 참조하십시오.|
+|[`multiInstanceSettings`](#multiInstanceSettings)|복합 형식|여러 컴퓨팅 노드가 필요한 다중 인스턴스 태스크임을 지정합니다.  자세한 [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) 내용은을 참조 하세요.|
 |[`constraints`](#constraints)|복합 형식|이 태스크에 적용되는 실행 제약 조건입니다.|
 |[`executionInfo`](#executionInfo)|복합 형식|태스크 실행에 대한 정보를 포함합니다.|
 
@@ -66,8 +58,8 @@ ms.locfileid: "77022888"
 
 |요소 이름|Type|메모|
 |------------------|----------|-----------|
-|`poolId`|String|작업이 실행된 풀의 ID입니다.|
-|`nodeId`|String|작업이 실행된 노드의 ID입니다.|
+|`poolId`|String|태스크가 실행 된 풀의 ID입니다.|
+|`nodeId`|String|태스크가 실행 된 노드의 ID입니다.|
 
 ###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a> multiInstanceSettings
 
@@ -75,7 +67,7 @@ ms.locfileid: "77022888"
 |------------------|----------|-----------|
 |`numberOfInstances`|Int32|태스크에 필요한 컴퓨팅 노드 수입니다.|
 
-###  <a name="constraints"></a><a name="constraints"></a>제약 조건
+###  <a name="constraints"></a><a name="constraints"></a>적용
 
 |요소 이름|Type|메모|
 |------------------|----------|-----------|

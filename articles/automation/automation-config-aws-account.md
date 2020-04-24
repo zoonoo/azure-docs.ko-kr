@@ -1,35 +1,35 @@
 ---
-title: Amazon 웹 서비스를 통해 Azure 자동화 런북 인증
+title: Amazon Web Services를 사용하여 Azure Automation Runbook 인증
 description: 이 문서에서는 Azure Automation에서 AWS 리소스를 관리하는 Runbook에 대한 AWS 자격 증명을 만들고 유효성을 검사하는 방법을 설명합니다.
 keywords: aws 인증, aws 구성
 services: automation
 ms.subservice: process-automation
-ms.date: 04/17/2018
+ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 02ff9cedfbeaa36b2fafc84637ea3141b223a064
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 1bf60d17af1d9866de6a62ac538fa0bd9a15ce52
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310473"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82113394"
 ---
-# <a name="authenticate-azure-automation-runbooks-with-amazon-web-services"></a>Amazon 웹 서비스를 통해 Azure 자동화 런북 인증
+# <a name="authenticate-azure-automation-runbooks-with-amazon-web-services"></a>Amazon Web Services를 사용하여 Azure Automation Runbook 인증
 
 AWS(Amazon 웹 서비스)의 리소스를 사용하여 일반 작업을 자동화하는 일은 Azure의 Automation Runbook으로 할 수 있습니다. Azure의 리소스와 마찬가지로 Automation Runbook을 사용하여 AWS에서 많은 작업을 자동화할 수 있습니다. 다음 두 가지만 있으면 됩니다.
 
 * AWS 구독 및 일련의 자격 증명. 특히 AWS 액세스 키 및 비밀 키가 필요합니다. 자세한 내용은 [AWS 자격 증명 사용](https://docs.aws.amazon.com/powershell/latest/userguide/specifying-your-aws-credentials.html) 문서를 검토하세요.
 * Azure 구독 및 Automation 계정.
 
-AWS에 인증하려면 Azure Automation에서 실행 중인 Runbook을 인증하도록 AWS 자격 증명을 지정해야 합니다. Automation 계정이 이미 생성되고 AWS에서 인증하는 데 사용하려는 경우 다음 섹션의 단계를 수행할 수 있습니다. AWS 리소스를 대상으로 하는 Runbook에 계정을 전용으로 지정하려는 경우 먼저 새 [ 자동화 계정](automation-offering-get-started.md)을 만들고, (서비스 주체를 만드는 옵션을 건너뛰고) 다음 단계를 수행합니다.
+AWS에 인증하려면 Azure Automation에서 실행 중인 Runbook을 인증하도록 AWS 자격 증명을 지정해야 합니다. 이미 Automation 계정을 만들었고 해당 계정을 사용하여 AWS에 인증하려면 다음 섹션의 단계를 따르세요. AWS 리소스를 대상으로 하는 runbook에 대 한 계정을 전용으로 지정 하려면 먼저 새 [Automation 계정을](automation-create-standalone-account.md) 만들고 단계를 생략 하 여 실행 계정을 만들어야 합니다. 계정을 만든 후 다음 단계를 수행 하 여 구성을 완료 합니다.
 
 ## <a name="configure-automation-account"></a>Automation 계정 구성
 
 Azure Automation가 AWS와 통신하려면 먼저 AWS 자격 증명을 검색하여 Azure Automation에 자산으로 저장해야 합니다. AWS 문서 [AWS 계정에 대한 선택키 관리](https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)에 설명된 다음 단계를 수행하여 선택키를 만들고 **액세스 키 ID** 및 **암호 선택키**를 복사합니다(필요에 따라 키 파일을 다운로드하여 안전한 곳에 저장).
 
-AWS 보안 키를 만들어서 복사한 후에는 보안 키를 안전하게 보관하고 Runbook에서 참조할 수 있도록 Azure Automation 계정으로 자격 증명 자산을 만들어야 합니다. 섹션의 단계를 **따르십시오:** Azure 자동화 문서의 [자격 증명 자산에](shared-resources/credentials.md#create-a-new-credential-asset-with-the-azure-portal) 새 자격 증명을 만들고 다음 정보를 입력하려면 다음 정보를 입력합니다.
+AWS 보안 키를 만들어서 복사한 후에는 보안 키를 안전하게 보관하고 Runbook에서 참조할 수 있도록 Azure Automation 계정으로 자격 증명 자산을 만들어야 합니다. 섹션의 단계에 따라 [Azure Automation 문서의 자격 증명 자산](shared-resources/credentials.md#create-a-new-credential-asset-with-the-azure-portal) 에서 **새 자격 증명을 만들고** 다음 정보를 입력 합니다.
 
 1. **이름** 상자에 **AWScred**를 입력하거나 본인의 명명 기준에 따라 적합한 값을 입력합니다.
-2. 사용자 **이름** 상자에 **암호에 액세스 ID와** **비밀 액세스 키를** **입력하고** **암호 확인** 상자를 입력합니다.
+2. **사용자 이름** 상자에 **액세스 ID** 를 입력 **하 고 암호 및** **암호 확인** 상자에 **비밀 액세스 키** 를 입력 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

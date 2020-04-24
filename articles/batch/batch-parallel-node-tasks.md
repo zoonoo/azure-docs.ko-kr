@@ -1,25 +1,15 @@
 ---
-title: 작업을 병렬로 실행하여 계산 리소스 최적화 - Azure Batch
+title: 작업을 병렬로 실행 하 여 계산 리소스 최적화
 description: Azure Batch 풀의 각 노드에서 동시 작업을 실행하고 더 적은 수의 컴퓨팅 노드를 사용하여 효율성은 높이고 비용은 낮춥니다.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 538a067c-1f6e-44eb-a92b-8d51c33d3e1a
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/17/2019
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5465771cb97ef9d8d5c451a6bafc61c4621d3c4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 180294e7da95392e5c6c8055e53cea1ad3b4c7a6
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023636"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116760"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>동시에 태스크를 실행하여 Batch 컴퓨팅 노드의 사용량 극대화 
 
@@ -40,7 +30,7 @@ Azure Batch 풀의 각 컴퓨팅 노드에서 동시에 둘 이상의 작업을 
 ## <a name="enable-parallel-task-execution"></a>병렬 작업 실행 사용
 풀 수준에서 병렬 작업 실행을 위해 컴퓨팅 노드를 구성합니다. Batch .NET 라이브러리를 사용하여 풀을 만들 때 [CloudPool.MaxTasksPerComputeNode][maxtasks_net] 속성을 설정합니다. Batch REST API를 사용하는 경우 풀을 만들 때 요청 본문에 [maxTasksPerNode][rest_addpool] 요소를 설정합니다.
 
-Azure Batch를 사용하면 노드당 작업을 코어 노드 수(4배)까지 설정할 수 있습니다. 예를 들어, 풀이 노드 크기 “Large”로 구성되었다면(4코어) `maxTasksPerNode` 는 16으로 설정될 수 있습니다. 그러나 노드의 코어 수에 관계없이 노드당 256개 이상의 태스크를 가질 수 없습니다. 각 노드 크기에 대한 코어 수에 대한 자세한 내용은 [Cloud Services에 적합한 크기](../cloud-services/cloud-services-sizes-specs.md)를 참조하세요. 서비스 제한에 대한 자세한 내용은 [Azure Batch 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
+Azure Batch를 사용 하 여 노드당 작업을 코어 노드 수 (최대 4x)로 설정할 수 있습니다. 예를 들어, 풀이 노드 크기 “Large”로 구성되었다면(4코어) `maxTasksPerNode` 는 16으로 설정될 수 있습니다. 그러나 노드에 있는 코어 수에 관계 없이 노드당 256 개의 작업을 가질 수 없습니다. 각 노드 크기에 대한 코어 수에 대한 자세한 내용은 [Cloud Services에 적합한 크기](../cloud-services/cloud-services-sizes-specs.md)를 참조하세요. 서비스 제한에 대한 자세한 내용은 [Azure Batch 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
 
 > [!TIP]
 > 풀에 [자동 크기 조정 수식][enable_autoscaling]을 구성할 때는 `maxTasksPerNode` 값을 고려해야 합니다. 예를 들어, `$RunningTasks` 를 평가하는 수식은 노드당 작업 수 증가에 크게 영향을 받을 수 있습니다. 자세한 내용은 [Azure Batch 풀에서 자동으로 컴퓨팅 노드 크기 조정](batch-automatic-scaling.md)을 참조하세요.

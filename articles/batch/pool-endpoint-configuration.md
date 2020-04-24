@@ -1,19 +1,14 @@
 ---
-title: Azure Batch 풀에서 노드 엔드포인트 구성 | Microsoft Docs
+title: Azure Batch 풀에서 노드 끝점 구성
 description: Azure Batch 풀의 컴퓨팅 노드에서 SSH 또는 RDP 포트에 대한 액세스를 구성하거나 비활성화하는 방법입니다.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: labrenne
-ms.openlocfilehash: 098ccf999391412520989c4ec2433fd73bc0a72d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b0ae4b80757bfa647cd5322668d793fa66ffca3
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77017227"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82113853"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 컴퓨팅 노드에 대한 원격 액세스 구성 또는 비활성화
 
@@ -22,7 +17,7 @@ ms.locfileid: "77017227"
 사용자 환경에서 이러한 기본 외부 액세스 설정을 제한하거나 비활성화해야 할 수 있습니다. Batch API로 [PoolEndpointConfiguration](/rest/api/batchservice/pool/add#poolendpointconfiguration) 속성을 설정하여 이러한 설정을 수정할 수 있습니다. 
 
 ## <a name="about-the-pool-endpoint-configuration"></a>풀 엔드포인트 구성 정보
-이 엔드포인트 구성은 하나 이상의 프런트 엔드 포트 [NAT(Network Address Translation) 풀](/rest/api/batchservice/pool/add#inboundnatpool)로 이루어집니다. NAT 풀을 계산 노드의 일괄 처리 풀과 혼동하지 마십시오. 각 NAT 풀을 설정하여 풀의 계산 노드에서 기본 연결 설정을 재정의합니다. 
+이 엔드포인트 구성은 하나 이상의 프런트 엔드 포트 [NAT(Network Address Translation) 풀](/rest/api/batchservice/pool/add#inboundnatpool)로 이루어집니다. (NAT 풀을 계산 노드의 Batch 풀과 혼동 하지 마세요.) 풀의 계산 노드에 있는 기본 연결 설정을 재정의 하도록 각 NAT 풀을 설정 합니다. 
 
 각 NAT 풀 구성에는 하나 이상의 [NSG(네트워크 보안 그룹) 규칙](/rest/api/batchservice/pool/add#networksecuritygrouprule)이 포함되어 있습니다. 각 NSG 규칙은 엔드포인트에 대한 특정 네트워크 트래픽을 허용하거나 거부합니다. 모든 트래픽, [서비스 태그](../virtual-network/security-overview.md#service-tags)(예: "인터넷")로 식별된 트래픽 또는 특정 IP 주소나 서브넷에서 들어오는 트래픽을 허용하거나 거부하도록 선택할 수 있습니다.
 

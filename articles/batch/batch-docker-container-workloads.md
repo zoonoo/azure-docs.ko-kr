@@ -1,21 +1,15 @@
 ---
-title: 컨테이너 워크로드 - Azure 일괄 처리
-description: Azure Batch의 컨테이너 이미지에서 앱을 실행하고 확장하는 방법을 알아봅니다. 컨테이너 작업 실행을 지원하는 계산 노드 풀을 만듭니다.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
+title: 컨테이너 워크로드
+description: Azure Batch의 컨테이너 이미지에서 앱을 실행 하 고 크기를 조정 하는 방법을 알아봅니다. 컨테이너 작업 실행을 지 원하는 계산 노드의 풀을 만듭니다.
 ms.topic: article
-ms.workload: na
 ms.date: 03/02/2020
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 81f4e753ffbaaefd5761c9396a6533bac9f212c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 27edfe67152857a89840f5cd24b06d66ae8d94c1
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78254831"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116131"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch에서 컨테이너 애플리케이션 실행
 
@@ -27,9 +21,9 @@ Azure Batch를 사용하면 Azure에서 많은 수의 일괄 처리 계산 작�
 
 컨테이너를 사용하면 환경 및 종속 파일을 관리할 필요없이 Batch 작업을 실행하여 애플리케이션을 쉽게 실행할 수 있습니다. 컨테이너는 애플리케이션을 다양한 환경에서 실행될 수 있는 이식이 가능한 일체형 경량 단위로 배포합니다. 예를 들어, 컨테이너를 로컬로 빌드 및 테스트한 다음, Azure의 레지스트리 또는 다른 위치로 컨테이너 이미지를 업로드할 수 있습니다. 컨테이너 배포 모델은 애플리케이션을 호스트하는 어느 곳이든 애플리케이션의 런타임 환경이 항상 올바르게 설치 및 구성되도록 합니다. Batch의 컨테이너 기반 작업은 리소스 파일 및 출력 파일 관리, 애플리케이션 패키지 등 컨테이너가 아닌 작업의 기능을 활용할 수도 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-* **SDK 버전**: 배치 SDK는 다음 버전과 마찬가지로 컨테이너 이미지를 지원합니다.
+* **SDK 버전**: Batch sdk는 다음 버전의 컨테이너 이미지를 지원 합니다.
     * Batch REST API 버전 2017-09-01.6.0
     * Batch .NET SDK 버전 8.0.0
     * Batch Python SDK 버전 4.0
@@ -52,33 +46,33 @@ Azure Batch를 사용하면 Azure에서 많은 수의 일괄 처리 계산 작�
 
 ### <a name="windows-support"></a>Windows 지원
 
-일괄 처리는 컨테이너 지원 지정이 있는 Windows 서버 이미지를 지원합니다. 일반적으로 이러한 이미지 sku 이름은 `-with-containers` 또는 `-with-containers-smalldisk`에 접미사가 있습니다. 또한 [배치에서 지원되는 모든 이미지를 나열하는 API는](batch-linux-nodes.md#list-of-virtual-machine-images) 이미지가 Docker 컨테이너를 `DockerCompatible` 지원하는 경우 기능을 나타냅니다.
+Batch는 컨테이너 지원 명칭을 포함 하는 Windows server 이미지를 지원 합니다. 일반적으로 이러한 이미지 sku 이름의 접미사는 `-with-containers` 또는 `-with-containers-smalldisk`입니다. 또한 [모든 지원 되는 이미지를 나열 하는 API](batch-linux-nodes.md#list-of-virtual-machine-images) 는 이미지에서 `DockerCompatible` Docker 컨테이너를 지 원하는 경우 기능을 나타냅니다.
 
 Windows에서 Docker를 실행하는 VM에서 사용자 지정 이미지를 만들 수도 있습니다.
 
 ### <a name="linux-support"></a>Linux 지원
 
-Linux 컨테이너 워크로드의 경우 Batch는 현재 사용자 지정 이미지 없이 Azure 마켓플레이스에서 Microsoft Azure Batch에서 게시한 다음 Linux 이미지를 지원합니다.
+Linux 컨테이너 워크 로드의 경우 Batch는 현재 사용자 지정 이미지를 요구 하지 않고 Azure Marketplace Microsoft Azure Batch에서 게시 한 다음 Linux 이미지를 지원 합니다.
 
-#### <a name="vm-sizes-without-rdma"></a>RDMA가 없는 VM 크기
+#### <a name="vm-sizes-without-rdma"></a>RDMA를 사용 하지 않는 VM 크기
 
-- 게시자:`microsoft-azure-batch`
-  - 제공:`centos-container`
-  - 제공:`ubuntu-server-container`
+- 발행자`microsoft-azure-batch`
+  - 제안을`centos-container`
+  - 제안을`ubuntu-server-container`
 
-#### <a name="vm-sizes-with-rdma"></a>RDMA가 있는 VM 크기
+#### <a name="vm-sizes-with-rdma"></a>RDMA를 사용 하는 VM 크기
 
-- 게시자:`microsoft-azure-batch`
-  - 제공:`centos-container-rdma`
-  - 제공:`ubuntu-server-container-rdma`
+- 발행자`microsoft-azure-batch`
+  - 제안을`centos-container-rdma`
+  - 제안을`ubuntu-server-container-rdma`
 
-이러한 이미지는 Azure Batch 풀에서만 사용할 수 있으며 Docker 컨테이너 실행에 맞게 조정됩니다. 특징은 다음과 같습니다.
+이러한 이미지는 Azure Batch 풀 에서만 사용할 수 있으며 Docker 컨테이너 실행을 위해 설계 되었습니다. 특징은 다음과 같습니다.
 
-* 사전 설치된 Docker 호환 [모비](https://github.com/moby/moby) 컨테이너 런타임
+* 사전 설치 된 Docker 호환 [Moby](https://github.com/moby/moby) 컨테이너 런타임
 
-* Azure N 시리즈 VM에 대한 배포를 간소화하기 위해 사전 설치된 NVIDIA GPU 드라이버 및 NVIDIA 컨테이너 런타임
+* Azure N 시리즈 Vm에 대 한 배포를 간소화 하기 위해 사전 설치 된 NVIDIA GPU 드라이버 및 NVIDIA 컨테이너 런타임
 
-* `-rdma`의 접미사가 있는 이미지에 대한 Infiniband RDMA VM 크기를 지원하는 사전 설치/사전 구성된 이미지. 현재 이러한 이미지는 SR-IOV IB/RDMA VM 크기를 지원하지 않습니다.
+* 접미사가 있는 이미지에 대 한 Infiniband RDMA VM 크기를 지 원하는 미리 설치 된/미리 구성 된 이미지 `-rdma`입니다. 현재 이러한 이미지는 SR-IOV IB/RDMA VM 크기를 지원 하지 않습니다.
 
 Batch와 호환되는 Linux 배포판 중 하나에서 Docker를 실행하는 VM에서 사용자 지정 이미지를 만들 수도 있습니다. 자체 사용자 지정 Linux 이미지를 제공하려는 경우 [관리되는 사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](batch-custom-images.md)의 지침을 참조하세요.
 
@@ -231,7 +225,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 컨테이너 사용 풀에서 컨테이너 작업을 실행하려면 컨테이너별 설정을 지정합니다. 설정에는 사용할 이미지, 레지스트리 및 컨테이너 실행 옵션이 포함됩니다.
 
-* 작업 클래스의 `ContainerSettings` 속성을 사용하여 컨테이너별 설정을 구성합니다. 이러한 설정은 [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) 클래스에 의해 정의됩니다. `--rm` 컨테이너 옵션은 Batch에서 처리하므로 추가 `--runtime` 옵션이 필요하지 않습니다.
+* 작업 클래스의 `ContainerSettings` 속성을 사용하여 컨테이너별 설정을 구성합니다. 이러한 설정은 [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) 클래스에 의해 정의됩니다. `--rm` 컨테이너 옵션을 일괄 처리로 처리 하므로 추가 `--runtime` 옵션이 필요 하지 않습니다.
 
 * 컨테이너 이미지에 대해 작업(task)를 실행하는 경우 [클라우드 작업(task)](/dotnet/api/microsoft.azure.batch.cloudtask) 및 [작업(Job) 관리자 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask)에 컨테이너 설정이 필요합니다. 그러나 [시작 태스크](/dotnet/api/microsoft.azure.batch.starttask), [작업(Job) 준비 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) 및 [작업(Job) 관리자 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask)에는 컨테이너 설정이 필요하지 않습니다(즉, 컨테이너 컨텍스트 내에서 또는 노드에서 직접 실행될 수 있음).
 

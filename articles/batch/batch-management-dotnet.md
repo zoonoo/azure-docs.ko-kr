@@ -1,31 +1,20 @@
 ---
-title: 일괄 처리 관리 .NET 라이브러리를 사용하여 계정 리소스 관리
+title: Batch 관리 .NET 라이브러리를 사용 하 여 계정 리소스 관리
 description: Batch 관리 .NET 라이브러리로 Azure Batch 계정 리소스를 만들고, 삭제하며, 수정합니다.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 16279b23-60ff-4b16-b308-5de000e4c028
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/24/2017
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 79916d769ad8a7228aec8db965c29506ccd78ece
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 69e3eb04352feff11ee50acab11328adb7900539
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023687"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115995"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>.NET용 Batch 관리 클라이언트 라이브러리를 사용하여 Batch 계정 및 할당량 관리
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](batch-account-create-portal.md)
+> * [Azure Portal](batch-account-create-portal.md)
 > * [Batch 관리 .NET](batch-management-dotnet.md)
 > 
 > 
@@ -175,10 +164,10 @@ Batch Management .NET 라이브러리는 Azure 리소스 공급자 클라이언�
 샘플 애플리케이션을 실행하려면 먼저 Azure Portal의 Azure AD 테넌트에 애플리케이션을 등록하고 Azure Resource Manager API에 권한을 부여해야 합니다. [Active Directory를 사용하여 Batch Management 솔루션 인증](batch-aad-auth-management.md)에 제공된 단계를 수행합니다.
 
 
-[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Azure Active 디렉터리란?"
+[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Azure Active Directory 이란?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Azure AD에 대한 인증 시나리오"
-[aad_integrate]:../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md "응용 프로그램을 Azure Active 디렉터리와 통합"
+[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Azure AD에 대 한 인증 시나리오"
+[aad_integrate]:../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md "Azure Active Directory와 응용 프로그램 통합"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_mgmt_net]: https://msdn.microsoft.com/library/azure/mt463120.aspx

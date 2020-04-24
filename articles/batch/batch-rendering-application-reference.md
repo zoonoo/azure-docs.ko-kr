@@ -1,18 +1,16 @@
 ---
-title: 렌더링 애플리케이션 사용 - Azure Batch
-description: Azure 일괄 처리에서 렌더링 응용 프로그램을 사용하는 방법 이 문서에서는 각각의 렌더링 애플리케이션을 실행하는 방법을 간단히 설명합니다.
-services: batch
-ms.service: batch
+title: 렌더링 응용 프로그램 사용
+description: Azure Batch에서 렌더링 응용 프로그램을 사용 하는 방법 이 문서에서는 각각의 렌더링 애플리케이션을 실행하는 방법을 간단히 설명합니다.
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: dc0ce23c90a4ba6575ba26b37d97f94ba8fa1f63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6610724cd2ecb14d165b587f9df31353e8eb8e41
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75390474"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115808"
 ---
 # <a name="rendering-applications"></a>렌더링 애플리케이션
 
@@ -33,13 +31,13 @@ ms.locfileid: "75390474"
 
 `3dsmaxcmdio.exe` 애플리케이션을 호출하여 풀 노드에서 명령줄 렌더링을 수행합니다.  이 애플리케이션은 작업이 실행될 때 경로에 있습니다. `3dsmaxcmdio.exe` 애플리케이션은 `3dsmaxcmd.exe` 애플리케이션과 같은 사용할 수 있는 매개 변수를 가지며 이에 대해서는 [3ds Max 도움말 설명서](https://help.autodesk.com/view/3DSMAX/2018/ENU/)(렌더링 | 명령줄 렌더링 섹션)에서 설명하고 있습니다.
 
-예를 들어:
+예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```
 3dsmaxcmdio.exe -v:5 -rfw:0 -start:{0} -end:{0} -bitmapPath:"%AZ_BATCH_JOB_PREP_WORKING_DIR%\sceneassets\images" -outputName:dragon.jpg -w:1280 -h:720 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scenes\dragon.max"
 ```
 
-참고:
+메모:
 
 * 자산 파일을 찾을 수 있게 세심한 주의가 필요합니다.  **자산 추적** 창이나 명령줄에서 `-bitmapPath` 매개 변수를 사용하여 경로가 정확하고 상대적인지 확인합니다.
 * 자산 찾기 실패 등, 작업이 실행될 때 3ds Max에서 작성한 `stdout.txt` 파일을 확인하여 렌더링에 문제가 있는지 확인합니다.

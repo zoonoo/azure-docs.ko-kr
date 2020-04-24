@@ -1,52 +1,63 @@
 ---
-title: Azure 코스모스 DB 제어 평면 작업을 감사 하는 방법
-description: Azure Cosmos DB에서 지역 추가, 업데이트 처리량, 지역 장애 조치, VNet 추가 등과 같은 제어 평면 작업을 감사하는 방법에 대해 알아봅니다.
+title: Azure Cosmos DB 제어 평면 작업을 감사 하는 방법
+description: Azure Cosmos DB에서 지역 추가, 처리량 업데이트, 지역 장애 조치, VNet 추가 등의 제어 평면 작업을 감사 하는 방법에 대해 알아봅니다.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: sngun
-ms.openlocfilehash: 64ad8e6b1101d8486268c857b3a7752e1801f52c
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 32dd598b8fc62c0ec68f86f95b02f9f3d98cedd2
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80420277"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116301"
 ---
-# <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Azure 코스모스 DB 제어 평면 작업을 감사 하는 방법
+# <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Azure Cosmos DB 제어 평면 작업을 감사 하는 방법
 
-제어 평면 작업에는 Azure Cosmos 계정 또는 컨테이너에 대한 변경 내용이 포함됩니다. 예를 들어 Azure Cosmos 계정을 만들고, 리전을 추가하고, 처리량, 지역 장애 조치( 장애 조치) 등을 추가하는 것은 제어 평면 작업의 일부입니다. 이 문서에서는 Azure Cosmos DB에서 제어 평면 작업을 감사 하는 방법을 설명 합니다.
+Azure Cosmos DB의 컨트롤 평면은 Azure Cosmos 계정에서 다양 한 작업 집합을 수행할 수 있는 RESTful 서비스입니다. 리소스 모델에 대 한 작업을 수행 하기 위해 공용 리소스 모델 (예: 데이터베이스, 계정) 및 다양 한 작업을 노출 합니다. 제어 평면 작업에는 Azure Cosmos 계정 또는 컨테이너에 대 한 변경 내용이 포함 됩니다. 예를 들어 Azure Cosmos 계정 만들기, 지역 추가, 처리량 업데이트, 지역 장애 조치 (failover), VNet 추가 등의 작업은 제어 평면 작업 중 일부입니다. 이 문서에서는 Azure Cosmos DB에서 제어 평면 작업을 감사 하는 방법을 설명 합니다. Azure CLI, PowerShell 또는 Azure Portal를 사용 하 여 Azure Cosmos 계정에 대 한 제어 평면 작업을 실행할 수 있지만 컨테이너의 경우 Azure CLI 또는 PowerShell을 사용 합니다.
 
-## <a name="disable-key-based-metadata-write-access"></a>키 기반 메타데이터 쓰기 액세스 비활성화
- 
-Azure Cosmos DB에서 제어 평면 작업을 감사하기 전에 키 기반 메타데이터 쓰기 액세스 권한을 비활성화합니다. 키 기반 메타데이터 쓰기 액세스가 비활성화되면 계정 키를 통해 Azure Cosmos 계정에 연결하는 클라이언트가 계정에 액세스할 수 없습니다. 속성을 true로 `disableKeyBasedMetadataWriteAccess` 설정하여 쓰기 액세스를 비활성화할 수 있습니다. 이 속성을 설정한 후 적절한 RBAC(역할 기반 액세스 제어) 역할 및 자격 증명만 있는 사용자로부터 모든 리소스에 대한 변경이 발생할 수 있습니다. 이 속성을 설정하는 방법에 대한 자세한 내용은 [SDK의 변경 내용 방지 문서를 참조하세요.](role-based-access-control.md#preventing-changes-from-cosmos-sdk)
+다음은 제어 평면 작업을 감사 하는 몇 가지 예제 시나리오입니다.
 
- 메타데이터 쓰기 액세스를 해제할 때 다음 사항을 고려하십시오.
+* Azure Cosmos 계정에 대 한 방화벽 규칙이 수정 될 때 경고를 받을 수 있습니다. 이 경고는 Azure Cosmos 계정의 네트워크 보안을 제어 하는 규칙에 대 한 무단 수정을 확인 하 고 빠른 작업을 수행 하는 데 필요 합니다.
 
-* 응용 프로그램이 SDK 또는 계정 키를 사용하여 위의 리소스를 변경하는 메타데이터 호출(예: 수집, 업데이트 처리량 등)을 호출하지 않도록 평가하고 확인합니다.
+* Azure Cosmos 계정에서 새 지역을 추가 하거나 제거 하는 경우 경고를 받을 수 있습니다. 지역을 추가 하거나 제거 하면 청구 및 데이터 주권 요구 사항에 영향을 미칩니다. 이 경고는 계정에서 지역에 대 한 실수로 인 한 추가 또는 제거를 검색 하는 데 도움이 됩니다.
 
-* 현재 Azure 포털은 메타데이터 작업에 계정 키를 사용하므로 이러한 작업이 차단됩니다. 또는 Azure CLI, SDK 또는 리소스 관리자 템플릿 배포를 사용하여 이러한 작업을 수행합니다.
+* 변경 된 내용에 대 한 진단 로그에서 자세한 정보를 가져올 수 있습니다. 예를 들어 VNet이 변경 되었습니다.
 
-## <a name="enable-diagnostic-logs-for-control-plane-operations"></a>제어 평면 작업에 대한 진단 로그 사용
+## <a name="disable-key-based-metadata-write-access"></a>키 기반 메타 데이터 쓰기 액세스 사용 안 함
 
-Azure 포털을 사용하여 제어 평면 작업에 대한 진단 로그를 활성화할 수 있습니다. 다음 단계를 사용하여 제어 평면 작업에 로깅을 사용하도록 설정합니다.
+Azure Cosmos DB에서 제어 평면 작업을 감사 하기 전에 계정에 대 한 키 기반 메타 데이터 쓰기 액세스를 사용 하지 않도록 설정 합니다. 키 기반 메타 데이터 쓰기 액세스를 사용 하지 않도록 설정 하면 계정 키를 통해 Azure Cosmos 계정에 연결 하는 클라이언트가 계정에 액세스할 수 없습니다. 속성을 `disableKeyBasedMetadataWriteAccess` true로 설정 하 여 쓰기 액세스를 비활성화할 수 있습니다. 이 속성을 설정한 후에는 적절 한 RBAC (역할 기반 액세스 제어) 역할 및 자격 증명을 사용 하는 사용자가 리소스에 대 한 변경 내용을 수행할 수 있습니다. 이 속성을 설정 하는 방법에 대 한 자세한 내용은 [sdk에서 변경 방지](role-based-access-control.md#preventing-changes-from-cosmos-sdk) 문서를 참조 하세요. 쓰기 권한을 사용 하지 않도록 설정한 후에는 처리량에 대 한 SDK 기반 변경 내용이 계속 적용 됩니다.
 
-1. Azure [포털에](https://portal.azure.com) 로그인하고 Azure Cosmos 계정으로 이동합니다.
+메타 데이터 쓰기 액세스를 해제 하는 경우 다음 사항을 고려 하세요.
 
-1. 진단 **설정** 창을 열고 만들 로그에 대한 **이름을** 제공합니다.
+* SDK 또는 계정 키를 사용 하 여 응용 프로그램에서 위의 리소스 (예: 컬렉션 만들기, 업데이트 처리량, ...)를 변경 하는 메타 데이터 호출을 수행 하지 않도록 평가 하 고 확인 합니다.
 
-1. 로그 유형에 대한 **ControlPlane요청을** 선택하고 **로그 분석으로 보내기** 옵션을 선택합니다.
+* 현재 Azure Portal는 메타 데이터 작업에 계정 키를 사용 하므로 이러한 작업이 차단 됩니다. 또는 Azure CLI, Sdk 또는 리소스 관리자 템플릿 배포를 사용 하 여 이러한 작업을 수행 합니다.
 
-저장소 계정에 로그를 저장하거나 이벤트 허브로 스트리밍할 수도 있습니다. 이 문서에서는 로그를 로그 분석에 보낸 다음 쿼리하는 방법을 보여 주었습니다. 활성화한 후 진단 로그가 적용되는 데 몇 분 정도 걸립니다. 해당 지점 이후에 수행된 모든 제어 평면 작업을 추적할 수 있습니다. 다음 스크린샷은 제어 평면 로그를 사용하도록 설정하는 방법을 보여 주며,
+## <a name="enable-diagnostic-logs-for-control-plane-operations"></a>제어 평면 작업에 대 한 진단 로그 사용
+
+Azure Portal를 사용 하 여 제어 평면 작업에 대 한 진단 로그를 사용 하도록 설정할 수 있습니다. 을 사용 하도록 설정 하면 진단 로그에서 작업을 관련 세부 정보를 포함 하는 시작 및 완료 이벤트 쌍으로 기록 합니다. 예를 들어 영역 *Failoverstart* 및 영역 *failovercomplete* 는 지역 장애 조치 (failover) 이벤트를 완료 합니다.
+
+다음 단계를 사용 하 여 제어 평면 작업에 대 한 로깅을 사용 하도록 설정 합니다.
+
+1. [Azure Portal](https://portal.azure.com) 에 로그인 하 여 Azure Cosmos 계정으로 이동 합니다.
+
+1. **진단 설정** 창을 열고 만들 로그의 **이름을** 입력 합니다.
+
+1. 로그 형식에 대해 **ControlPlaneRequests** 를 선택 하 고 **Log Analytics 보내기** 옵션을 선택 합니다.
+
+저장소 계정 또는 스트림에 이벤트 허브에 로그를 저장할 수도 있습니다. 이 문서에서는 log analytics로 로그를 전송 하 고 쿼리 하는 방법을 보여 줍니다. 을 사용 하도록 설정한 후에는 진단 로그를 적용 하는 데 몇 분이 걸립니다. 해당 시점 이후에 수행 된 모든 제어 평면 작업을 추적할 수 있습니다. 다음 스크린샷에서는 제어 평면 로그를 사용 하도록 설정 하는 방법을 보여 줍니다.
 
 ![제어 평면 요청 로깅 사용](./media/audit-control-plane-logs/enable-control-plane-requests-logs.png)
 
 ## <a name="view-the-control-plane-operations"></a>제어 평면 작업 보기
 
-로깅을 설정한 후 다음 단계를 사용하여 특정 계정의 작업을 추적합니다.
+로깅을 켠 후 다음 단계를 사용 하 여 특정 계정에 대 한 작업을 추적 합니다.
 
-1. Azure [포털에](https://portal.azure.com)로그인합니다.
-1. 왼쪽 탐색에서 **모니터** 탭을 연 다음 **로그 창을 선택합니다.** 범위에서 해당 특정 계정으로 쿼리를 쉽게 실행할 수 있는 UI가 열립니다. 다음 쿼리를 실행하여 제어 평면 로그를 봅니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인 합니다.
+
+1. 왼쪽 탐색 창에서 **모니터** 탭을 열고 **로그** 창을 선택 합니다. 범위에서 해당 특정 계정으로 쿼리를 쉽게 실행할 수 있는 UI가 열립니다. 다음 쿼리를 실행 하 여 제어 평면 로그를 확인 합니다.
 
    ```kusto
    AzureDiagnostics
@@ -54,21 +65,94 @@ Azure 포털을 사용하여 제어 평면 작업에 대한 진단 로그를 활
    | where TimeGenerated >= ago(1h)
    ```
 
-다음 스크린샷은 Azure Cosmos 계정에 VNET이 추가될 때 로그를 캡처합니다.
+다음 스크린샷은 VNET이 Azure Cosmos 계정에 추가 될 때 로그를 캡처합니다.
 
-![VNet이 추가될 때 평면 로그 제어](./media/audit-control-plane-logs/add-ip-filter-logs.png)
+![VNet이 추가 될 때의 제어 평면 로그](./media/audit-control-plane-logs/add-ip-filter-logs.png)
 
-다음 스크린샷은 Cassandra 테이블의 처리량이 업데이트될 때 로그를 캡처합니다.
+다음 스크린샷은 Cassandra 테이블의 처리량이 업데이트 될 때 로그를 캡처합니다.
 
-![처리량이 업데이트될 때 평면 로그 제어](./media/audit-control-plane-logs/throughput-update-logs.png)
+![처리량이 업데이트 되는 경우의 제어 평면 로그](./media/audit-control-plane-logs/throughput-update-logs.png)
 
-## <a name="identify-the-identity-associated-to-a-specific-operation"></a>특정 작업에 연결된 ID 식별
+## <a name="identify-the-identity-associated-to-a-specific-operation"></a>특정 작업에 연결 된 id를 식별 합니다.
 
-추가 디버깅을 원하는 경우 활동 ID를 사용하거나 작업의 타임스탬프를 사용하여 **활동 로그에서** 특정 작업을 식별할 수 있습니다. 타임스탬프는 활동 ID가 명시적으로 전달되지 않는 일부 리소스 관리자 클라이언트에 사용됩니다. 활동 로그는 작업이 시작된 ID에 대한 세부 정보를 제공합니다. 다음 스크린샷은 활동 ID를 사용하고 활동 로그에서 활동 ID와 연결된 작업을 찾는 방법을 보여 주며 있습니다.
+추가로 디버깅 하려는 경우 작업 ID 또는 작업 타임 스탬프를 사용 하 여 **활동 로그** 에서 특정 작업을 식별할 수 있습니다. 타임 스탬프는 활동 ID가 명시적으로 전달 되지 않은 일부 리소스 관리자 클라이언트에 사용 됩니다. 활동 로그는 작업이 시작 된 id에 대 한 세부 정보를 제공 합니다. 다음 스크린샷에서는 활동 ID를 사용 하 고 활동 로그에서 활동 ID와 연결 된 작업을 찾는 방법을 보여 줍니다.
 
-![활동 ID를 사용하고 작업을 찾습니다.](./media/audit-control-plane-logs/find-operations-with-activity-id.png)
+![작업 ID를 사용 하 여 작업을 찾습니다.](./media/audit-control-plane-logs/find-operations-with-activity-id.png)
+
+## <a name="control-plane-operations-for-azure-cosmos-account"></a>Azure Cosmos 계정에 대 한 제어 평면 작업
+
+계정 수준에서 사용할 수 있는 제어 평면 작업은 다음과 같습니다. 대부분의 작업은 계정 수준에서 추적 됩니다. 이러한 작업은 Azure monitor에서 메트릭으로 사용할 수 있습니다.
+
+* 추가 된 지역
+* 지역이 제거 됨
+* 계정이 삭제 됨
+* 지역 장애 조치
+* 만든 계정
+* 가상 네트워크 삭제 됨
+* 계정 네트워크 설정 업데이트 됨
+* 계정 복제 설정 업데이트 됨
+* 계정 키가 업데이트 됨
+* 계정 백업 설정 업데이트 됨
+* 계정 진단 설정 업데이트 됨
+
+## <a name="control-plane-operations-for-database-or-containers"></a>데이터베이스 또는 컨테이너에 대 한 제어 평면 작업
+
+데이터베이스 및 컨테이너 수준에서 사용할 수 있는 제어 평면 작업은 다음과 같습니다. 이러한 작업은 Azure monitor에서 메트릭으로 사용할 수 있습니다.
+
+* SQL Database 업데이트 됨
+* 업데이트 된 SQL 컨테이너
+* SQL Database 처리량 업데이트 됨
+* SQL 컨테이너 처리량 업데이트
+* SQL Database 삭제 됨
+* 삭제 된 SQL 컨테이너
+* Cassandra Keyspace 업데이트 됨
+* Cassandra 테이블 업데이트 됨
+* Cassandra Keyspace 처리량 업데이트 됨
+* Cassandra 테이블 처리량이 업데이트 됨
+* Cassandra Keyspace Deleted
+* Cassandra 테이블 삭제 됨
+* Gremlin 데이터베이스 업데이트 됨
+* Gremlin 그래프가 업데이트 됨
+* Gremlin 데이터베이스 처리량이 업데이트 됨
+* Gremlin Graph 처리량이 업데이트 됨
+* Gremlin 데이터베이스 삭제 됨
+* Gremlin 그래프가 삭제 됨
+* Mongo 데이터베이스 업데이트 됨
+* Mongo 수집 업데이트 됨
+* Mongo 데이터베이스 처리량이 업데이트 됨
+* Mongo 수집 처리량이 업데이트 됨
+* Mongo 데이터베이스가 삭제 됨
+* Mongo 컬렉션이 삭제 됨
+* AzureTable 테이블 업데이트 됨
+* AzureTable 테이블 처리량이 업데이트 됨
+* AzureTable 테이블 삭제 됨
+
+## <a name="diagnostic-log-operations"></a>진단 로그 작업
+
+다음은 다양 한 작업에 대 한 진단 로그의 작업 이름입니다.
+
+* 국가 Addstart, 지역 Addcomplete
+* 지역 Removestart, RegionRemoveComplete
+* AccountDeleteStart, AccountDeleteComplete
+* 지역 Failoverstart, 지역 Failovercomplete
+* AccountCreateStart, AccountCreateComplete
+* AccountUpdateStart, AccountUpdateComplete
+* VirtualNetworkDeleteStart, VirtualNetworkDeleteComplete
+* DiagnosticLogUpdateStart, DiagnosticLogUpdateComplete
+
+API 관련 작업의 경우 작업은 다음과 같은 형식으로 이름이 지정 됩니다.
+
+* ApiKind + ApiKindResourceType + OperationType + Start/Complete
+* ApiKind + ApiKindResourceType + "처리량" + operationType + Start/Complete
+
+**예제** 
+
+* CassandraKeyspacesUpdateStart, CassandraKeyspacesUpdateComplete
+* CassandraKeyspacesThroughputUpdateStart, CassandraKeyspacesThroughputUpdateComplete
+
+*Resourcedetails* 속성은 전체 리소스 본문을 요청 페이로드로 포함 하 고 업데이트 하도록 요청 된 모든 속성을 포함 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 코스모스 DB용 Azure 모니터 탐색](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
+* [Azure Cosmos DB Azure Monitor 살펴보기](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
 * [Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그](use-metrics.md)

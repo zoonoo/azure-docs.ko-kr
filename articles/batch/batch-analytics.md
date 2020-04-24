@@ -1,22 +1,14 @@
 ---
-title: Azure 일괄 분석
+title: Azure Batch 분석
 description: Batch 분석의 항목에는 Batch 서비스 리소스에 사용할 수 있는 이벤트 및 경고에 대한 참조 정보가 포함되어 있습니다.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: labrenne
-ms.openlocfilehash: d9538461dfa48a961f9325566b2adaf265e8daeb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d35bf249a3ae5dd06f42b89c3d5c2773f9508603
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77025965"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82113071"
 ---
 # <a name="batch-analytics"></a>Batch 분석
 Batch 분석의 항목에는 Batch 서비스 리소스에 사용할 수 있는 이벤트 및 경고에 대한 참조 정보가 포함되어 있습니다.

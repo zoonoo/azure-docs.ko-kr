@@ -1,20 +1,15 @@
 ---
-title: 작업 및 노드에 대한 상태 계산 - Azure Batch | Microsoft Docs
+title: 태스크 및 노드의 개수 상태
 description: Batch 솔루션을 관리하고 모니터링할 수 있으려면 컴퓨팅 노드 및 Azure Batch 태스크의 상태를 계산합니다.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
-ms.topic: article
 ms.date: 09/07/2018
-ms.author: labrenne
+ms.topic: article
 ms.custom: seodec18
-ms.openlocfilehash: a7b58e96918d26851812aa96c18043121c081e94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1abff4c1a07ba0c5375228995330646204d33cd7
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023925"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116097"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>상태별로 노드 및 작업을 계산하여 Batch 솔루션 모니터링
 

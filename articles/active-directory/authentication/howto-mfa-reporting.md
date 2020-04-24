@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8665e58dc84a2ea9b5f2ed70a41bbdd0aa3aa9b
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 2df562d65ad064efb1be337e0b68cb8638536981
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82099158"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82112765"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에서 보고서
 
@@ -129,13 +129,13 @@ MFA의 로그인 활동 보고서를 통해 다음 정보에 액세스 할 수 �
 다음에 나오는 PowerShell을 사용하여 MFA에 등록한 사용자를 식별합니다. 이 명령 집합은 비활성화 된 사용자를 제외 합니다. 이러한 계정은 Azure AD에 대해 인증할 수 없기 때문입니다.
 
 ```powershell
-Get-MsolUser -All | Where-Object {$._StrongAuthenticationMethods -ne $null -and $._BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
+Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods -ne $null -and $_.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
 ```
 
 다음에 나오는 PowerShell을 사용하여 MFA에 등록하지 않은 사용자를 식별합니다. 이 명령 집합은 비활성화 된 사용자를 제외 합니다. 이러한 계정은 Azure AD에 대해 인증할 수 없기 때문입니다.
 
 ```powershell
-Get-MsolUser -All | Where-Object {$._StrongAuthenticationMethods.Count -eq 0 -and $._BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
+Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0 -and $_.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
 ```
 
 등록 된 사용자 및 출력 메서드를 식별 합니다. 
@@ -152,7 +152,7 @@ Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalNam
 
 다음 표는 다운로드 된 버전의 multi-factor authentication 활동 보고서를 사용 하 여 다단계 인증 문제를 해결 하는 데 사용할 수 있습니다. Azure Portal에 직접 표시 되지 않습니다.
 
-| 호출 결과 | Description | 광범위 한 설명 |
+| 호출 결과 | 설명 | 광범위 한 설명 |
 | --- | --- | --- |
 | SUCCESS_WITH_PIN | PIN이 입력됨 | 사용자가 PIN을 입력했습니다.  인증이 성공하면 사용자가 올바른 PIN을 입력한 것이며, 인증이 거부 된 경우 잘못 된 PIN을 입력 하거나 사용자가 표준 모드로 설정 됩니다. |
 | SUCCESS_NO_PIN | #만 입력 됨 | PIN 모드로 설정된 사용자의 인증이 거부되는 경우 사용자가 PIN을 입력하지 않고 #만 입력했음을 의미합니다.   표준 모드로 설정된 사용자가 인증에 성공하면 사용자가 표준 모드에서는 올바른 동작인 #만 입력했음을 의미합니다. |

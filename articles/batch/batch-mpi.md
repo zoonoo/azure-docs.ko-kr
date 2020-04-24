@@ -1,24 +1,15 @@
 ---
-title: 다중 인스턴스 작업을 사용하여 MPI 애플리케이션 실행 - Azure Batch | Microsoft Docs
+title: 다중 인스턴스 작업을 사용 하 여 MPI 응용 프로그램 실행
 description: Azure Batch에서 다중 인스턴스 작업 유형을 사용하여 MPI(메시지 전달 인터페이스) 애플리케이션을 실행하는 방법에 대해 알아봅니다.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
 ms.date: 03/13/2019
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1896fea3c401299b4f77235ab3c02d85708b7041
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aad2b649c92716a807d577bb4f112d47d447545e
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023670"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115978"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>다중 인스턴스 작업을 사용하여 Batch에서 MPI(메시지 전달 인터페이스) 애플리케이션 실행
 
@@ -104,8 +95,8 @@ Batch 풀에서 컴퓨팅 노드에 대해 A9 등, [RDMA 지원 크기](../virtu
   * [Cloud Services 크기](../cloud-services/cloud-services-sizes-specs.md)(Windows만 해당)
 * **VirtualMachineConfiguration** 풀
 
-  * [Azure에서 가상 머신 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(Linux)
-  * [Azure에서 가상 머신 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Windows)
+  * [Azure의 가상 머신 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux)
+  * [Azure의 가상 머신 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
 > [Linux 컴퓨팅 노드](batch-linux-nodes.md)에서 RDMA를 활용하려면 노드에서 **Intel MPI**를 사용해야 합니다. 
@@ -280,7 +271,7 @@ GitHub의 [MultiInstanceTasks][github_mpi] 코드 샘플에서는 다중 인스�
 
 ### <a name="execution"></a>실행
 1. GitHub에서 [azure-batch-samples][github_samples_zip]를 다운로드합니다.
-2. 비주얼 스튜디오 2019에서 멀티 인스턴스 작업 **솔루션을** 엽니다. `MultiInstanceTasks.sln` 솔루션 파일은 다음 위치에 있습니다.
+2. Visual Studio 2019에서 MultiInstanceTasks **솔루션** 을 엽니다. `MultiInstanceTasks.sln` 솔루션 파일은 다음 위치에 있습니다.
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. **Microsoft.Azure.Batch.Samples.Common** 프로젝트의 `AccountSettings.settings`에 Batch 계정 및 Storage 계정의 자격 증명을 입력합니다.

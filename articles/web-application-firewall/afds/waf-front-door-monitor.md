@@ -1,49 +1,49 @@
 ---
 title: Azure 웹 응용 프로그램 방화벽 모니터링 및 로깅
-description: FrontDoor 모니터링 및 로깅을 통해 WAF(웹 응용 프로그램 방화벽) 알아보기
+description: FrontDoor 모니터링 및 로깅을 사용 하는 WAF (웹 응용 프로그램 방화벽) 배우기
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: 4488fadf5db3b32049b5dce4bbee1fa76c320e96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4f666415a96307b89022c6caf6af90581f294f3
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284146"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115366"
 ---
 # <a name="azure-web-application-firewall-monitoring-and-logging"></a>Azure 웹 응용 프로그램 방화벽 모니터링 및 로깅 
 
-Azure 웹 응용 프로그램 방화벽(WAF) 모니터링 및 로깅은 Azure 모니터 및 Azure 모니터 로그와의 로깅 및 통합을 통해 제공됩니다.
+Azure WAF (웹 응용 프로그램 방화벽) 모니터링 및 로깅은 로깅 및 Azure Monitor 및 Azure Monitor 로그와의 통합을 통해 제공 됩니다.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-FrontDoor 로그가 있는 WAF는 [Azure 모니터.](../../azure-monitor/overview.md) Azure Monitor를 사용하면 WAF 경고 및 로그를 포함한 진단 정보를 추적할 수 있습니다. 진단 탭 아래의 포털또는 Azure Monitor 서비스를 통해 포털의 정문 리소스 내에서 WAF 모니터링을 직접 구성할 수 **있습니다.**
+FrontDoor 로그가 포함 된 WAF는 [Azure Monitor](../../azure-monitor/overview.md)와 통합 됩니다. Azure Monitor를 사용 하면 WAF 경고 및 로그를 포함 한 진단 정보를 추적할 수 있습니다. 포털의 프런트 도어 리소스 내에서 **진단** 탭 또는 Azure Monitor 서비스를 통해 waf 모니터링을 구성할 수 있습니다.
 
-Azure 포털에서 정문 리소스 유형으로 이동합니다. 왼쪽의 **모니터링**/**메트릭** 탭에서 **WebApplicationRequestRequestCount를** 추가하여 WAF 규칙과 일치하는 요청 수를 추적할 수 있습니다. 사용자 지정 필터는 작업 유형 및 규칙 이름에 따라 만들 수 있습니다.
+Azure Portal에서 Front 도어 리소스 유형으로 이동 합니다. 왼쪽의 **모니터링**/**메트릭** 탭에서 **WebApplicationFirewallRequestCount** 를 추가 하 여 waf 규칙과 일치 하는 요청 수를 추적할 수 있습니다. 작업 유형 및 규칙 이름에 따라 사용자 지정 필터를 만들 수 있습니다.
 
-![WAF메트릭](../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png)
+![WAFMetrics](../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png)
 
 ## <a name="logs-and-diagnostics"></a>로그 및 진단
 
-전면 도어가 있는 WAF는 감지하는 각 위협에 대한 자세한 보고를 제공합니다. 로깅은 Azure Diagnostics 로그에 통합되고 경고는 json 형식으로 기록됩니다. 이러한 로그는 [Azure Monitor 로그](../../azure-monitor/insights/azure-networking-analytics.md)와 통합될 수 있습니다.
+프런트 도어를 사용 하는 WAF는 검색 하는 각 위협에 대해 자세한 보고 기능을 제공 합니다. 로깅은 Azure Diagnostics 로그에 통합되고 경고는 json 형식으로 기록됩니다. 이러한 로그는 [Azure Monitor 로그](../../azure-monitor/insights/azure-networking-analytics.md)와 통합될 수 있습니다.
 
 ![WAFDiag](../media/waf-frontdoor-monitor/waf-frontdoor-diagnostics.png)
 
-FrontdoorAccessLog는 고객 백 엔드로 전달되는 모든 요청을 기록합니다. FrontdoorWebApplication방화벽로그는 WAF 규칙과 일치하는 모든 요청을 기록합니다.
+FrontdoorAccessLog는 고객 백 엔드에 전달 되는 모든 요청을 기록 합니다. FrontdoorWebApplicationFirewallLog은 WAF 규칙과 일치 하는 모든 요청을 기록 합니다.
 
-다음 예제 쿼리는 차단된 요청에 대한 WAF 로그를 가져옵니다.
+다음 예제 쿼리는 차단 된 요청에 대해 WAF 로그를 가져옵니다.
 
 ``` WAFlogQuery
 AzureDiagnostics
 | where ResourceType == "FRONTDOORS" and Category == "FrontdoorWebApplicationFirewallLog"
-| where action_name_s == "Block"
+| where action_s == "Block"
 
 ```
 
-다음은 WAF 로그에 기록된 요청의 예입니다.
+WAF 로그에서 기록 된 요청의 예는 다음과 같습니다.
 
 ``` WAFlogQuerySample
 {
@@ -74,7 +74,7 @@ AzureDiagnostics
 
 ```
 
-다음은 Access 로그에 기록된 요청의 예입니다.
+액세스 로그에서 기록 된 요청의 예는 다음과 같습니다.
 
 ``` AccessLogSample
 {
@@ -105,4 +105,4 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>다음 단계
 
-- [정문에](../../frontdoor/front-door-overview.md)대해 자세히 알아보십시오.
+- [전면 도어](../../frontdoor/front-door-overview.md)에 대해 자세히 알아보세요.
