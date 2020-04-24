@@ -1,25 +1,14 @@
 ---
-title: Azure Active Directory를 사용하여 일괄 처리 관리 솔루션 인증
-description: Azure Active Directory를 사용하여 일괄 처리 관리 .NET 라이브러리를 사용하는 응용 프로그램에서 인증합니다.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: batch
+title: Azure Active Directory를 사용 하 여 Batch Management 솔루션 인증
+description: Azure Active Directory를 사용 하 여 Batch 관리 .NET 라이브러리를 사용 하는 응용 프로그램에서 인증 하는 방법을 알아봅니다.
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/27/2017
-ms.author: labrenne
-ms.openlocfilehash: 5c217971bd213c97a2ee31a0a1f513b601d14df9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0aa95aa440303d1577b7646c1a9f1bc5b6e69ac2
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472982"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82114788"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch Management 솔루션 인증
 
@@ -131,10 +120,10 @@ Azure AD에 대한 자세한 내용은 [Azure Active Directory 설명서](https:
 Azure AD를 사용하여 Batch 서비스 애플리케이션을 인증하려면 [Active Directory를 사용하여 Batch 서비스 솔루션 인증](batch-aad-auth.md)을 참조하세요. 
 
 
-[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Azure Active 디렉터리란?"
+[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Azure Active Directory 이란?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Azure AD에 대한 인증 시나리오"
-[aad_integrate]: ../active-directory/active-directory-integrating-applications.md "응용 프로그램을 Azure Active 디렉터리와 통합"
+[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Azure AD에 대 한 인증 시나리오"
+[aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Azure Active Directory와 응용 프로그램 통합"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [azure_portal]: https://portal.azure.com
 [resman_overview]: ../azure-resource-manager/management/overview.md

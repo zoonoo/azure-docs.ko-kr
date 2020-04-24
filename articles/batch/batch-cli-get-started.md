@@ -1,25 +1,15 @@
 ---
-title: Batch용 Azure CLI 시작 | Microsoft Docs
+title: 일괄 처리에 대 한 Azure CLI 시작
 description: Azure CLI에서 Azure Batch 서비스 리소스를 관리하기 위한 Batch 명령에 대한 간단한 소개를 봅니다.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
-ms.service: batch
 ms.topic: conceptual
-ms.tgt_pltfrm: multiple
-ms.workload: big-compute
 ms.date: 07/24/2018
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30f71432ca008b87bddfb253f23ae3cef0ac390d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5fe73770dbe8dfe6d69cb08e1fbf44d42bff9e54
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77020185"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117372"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Azure CLI를 사용하여 Batch 리소스 관리
 
@@ -38,7 +28,7 @@ Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다.
 
 ## <a name="command-help"></a>명령 도움말
 
-명령에 `-h`를 추가하여 Azure CLI의 모든 명령에 대한 도움말 텍스트를 표시할 수 있습니다. 다른 모든 옵션은 생략합니다. 예를 들어:
+명령에 `-h`를 추가하여 Azure CLI의 모든 명령에 대한 도움말 텍스트를 표시할 수 있습니다. 다른 모든 옵션은 생략합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 * `az` 명령에 대한 도움말을 보려면 `az -h`을 입력합니다.
 * CLI에서 모든 Batch 명령의 목록을 가져오려면 `az batch -h`을 사용합니다.
@@ -83,7 +73,7 @@ Azure CLI를 사용하여 풀, 작업 및 태스크와 같은 Batch 리소스를
 
 Batch 계정에 대한 인증에는 다음 두 가지 옵션이 있습니다.
 
-- **Azure Active Directory(Azure AD) 인증을 사용하여** 
+- **Azure Active Directory (Azure AD) 인증 사용** 
 
     Azure AD로 인증하는 것은 Batch와 함께 Azure CLI를 사용할 때의 기본값이며, 대부분의 시나리오에 적합합니다. 
     
@@ -97,7 +87,7 @@ Batch 계정에 대한 인증에는 다음 두 가지 옵션이 있습니다.
     az batch account login -g myresource group -n mybatchaccount
     ```
 
-- **공유 키 인증을 사용하여**
+- **공유 키 인증 사용**
 
     [공유 키 인증](/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key)은 계정 액세스 키를 사용하여 Batch 서비스에 대한 Azure CLI 명령을 인증합니다.
 
@@ -113,7 +103,7 @@ Batch 계정에 대한 인증에는 다음 두 가지 옵션이 있습니다.
 
 ## <a name="use-azure-batch-cli-extension-commands"></a>Azure Batch CLI 확장 명령 사용
 
-Azure Batch CLI 확장을 설치하면 Azure CLI를 사용하여 코드를 작성하지 않고 엔드투엔드 일괄 작업을 실행할 수 있습니다. 확장에서 지원하는 Batch 명령은 JSON 템플릿을 사용하여 Azure CLI로 풀, 작업 및 태스크를 만들 수 있습니다. 또한 확장 CLI 명령을 사용하여 작업 입력 파일을 Batch 계정과 연결된 Azure Storage 계정에 업로드하고 여기에서 작업 출력 파일을 다운로드할 수 있습니다. 자세한 내용은 [Azure Batch CLI 템플릿 및 파일 전송 을](batch-cli-templates.md)참조하십시오.
+Azure Batch CLI 확장을 설치하면 Azure CLI를 사용하여 코드를 작성하지 않고 엔드투엔드 일괄 작업을 실행할 수 있습니다. 확장에서 지원하는 Batch 명령은 JSON 템플릿을 사용하여 Azure CLI로 풀, 작업 및 태스크를 만들 수 있습니다. 또한 확장 CLI 명령을 사용하여 작업 입력 파일을 Batch 계정과 연결된 Azure Storage 계정에 업로드하고 여기에서 작업 출력 파일을 다운로드할 수 있습니다. 자세한 내용은 [AZURE BATCH CLI 템플릿 및 파일 전송 사용](batch-cli-templates.md)을 참조 하세요.
 
 ## <a name="script-examples"></a>스크립트 예제
 
@@ -121,7 +111,7 @@ Azure Batch CLI 확장을 설치하면 Azure CLI를 사용하여 코드를 작�
 
 ## <a name="json-files-for-resource-creation"></a>리소스를 만들기 위한 JSON 파일
 
-풀 및 작업같은 Batch 리소스를 만들 때 매개 변수를 명령줄 옵션으로 전달하는 대신 새 리소스의 구성이 포함된 JSON 파일을 지정할 수 있습니다. 예를 들어:
+풀 및 작업같은 Batch 리소스를 만들 때 매개 변수를 명령줄 옵션으로 전달하는 대신 새 리소스의 구성이 포함된 JSON 파일을 지정할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```azurecli
 az batch pool create my_batch_pool.json

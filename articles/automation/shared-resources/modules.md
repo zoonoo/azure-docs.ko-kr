@@ -8,12 +8,12 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 995c87ca6f091e9ccf0b82af831bbf43ff17846f
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: c8d22e63be880c0cef0c4072e99ab85bf3250a1c
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82100841"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82114277"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Azure Automation에서 모듈 관리
 
@@ -22,7 +22,6 @@ Azure Automation를 사용 하면 PowerShell 모듈을 가져와서 DSC 구성�
 * [Azure PowerShell Az. Automation](/powershell/azure/new-azureps-module-az?view=azps-1.1.0)
 * [Azure PowerShell AzureRM](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-6.13.0)
 * Windows `Orchestrator.AssetManagement.Cmdlets` 용 Log Analytics 에이전트에 대 한 내부 모듈
-* [Azureautomation기관 Ingtoolkit](https://www.powershellgallery.com/packages/AzureAutomationAuthoringToolkit/0.2.3.9)
 * 기타 PowerShell 모듈
 * 사용자가 만든 사용자 지정 모듈 
 
@@ -40,12 +39,12 @@ Azure Automation runbook 및 DSC 컴파일 작업을 실행할 때 runbook을 �
 
 다음 표에서는 Automation 계정을 만들 때 기본적으로 가져오기를 Azure Automation 하는 모듈을 나열 합니다. Automation은 이러한 모듈의 최신 버전을 가져올 수 있습니다. 그러나 새 버전을 삭제 하는 경우에도 Automation 계정에서 원래 버전을 제거할 수 없습니다. 이러한 기본 모듈에는 여러 AzureRM 모듈이 포함 되어 있습니다. 
 
-Az. Automation 모듈이 runbook 및 DSC 구성에서 선호 됩니다. 그러나 Azure Automation는 루트 Az module을 신규 또는 기존 Automation 계정으로 자동으로 가져오지 않습니다. 이러한 모듈을 사용 하는 방법에 대 한 자세한 내용은 [Az modules로 마이그레이션](#migrating-to-az-modules)을 참조 하세요.
+Azure Automation은 루트 Az module을 신규 또는 기존 Automation 계정으로 자동으로 가져오지 않습니다. 이러한 모듈을 사용 하는 방법에 대 한 자세한 내용은 [Az modules로 마이그레이션](#migrating-to-az-modules)을 참조 하세요.
 
 > [!NOTE]
 > [Azure Automation에서 작업 시간 외 VM 시작/중지 솔루션](../automation-solution-vm-management.md)을 포함 하는 Automation 계정에서 모듈 및 runbook을 변경 하지 않는 것이 좋습니다.
 
-|모듈 이름|버전|
+|모듈 이름|Version|
 |---|---|
 | AuditPolicyDsc | 1.1.0.0 |
 | Azure | 1.0.3 |
@@ -72,6 +71,10 @@ Az. Automation 모듈이 runbook 및 DSC 구성에서 선호 됩니다. 그러�
 | xPowerShellExecutionPolicy | 1.1.0.0 |
 | xRemoteDesktopAdmin | 1.1.0.0 |
 
+## <a name="az-module-cmdlets"></a>Az module cmdlet
+
+Az. Automation의 경우 대부분의 cmdlet은 AzureRM 모듈과 동일한 이름을 갖습니다. 단, AzureRm 접두사는 Az로 변경 되었습니다. 이 명명 규칙을 따르지 않는 Az modules 목록은 [예외 목록](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters)을 참조 하십시오.
+
 ## <a name="internal-cmdlets"></a>내부 cmdlet
 
 다음 표에서는 `Orchestrator.AssetManagement.Cmdlets` 모듈에서 지 원하는 내부 cmdlet을 정의 합니다. Runbook 및 DSC 구성에서 이러한 cmdlet을 사용 하 여 Automation 계정 내에서 Azure 자산과 상호 작용할 수 있습니다. Cmdlet은 Azure PowerShell cmdlet 대신 사용 하 여 암호화 된 변수, 자격 증명 및 암호화 된 연결에서 비밀을 검색 하도록 설계 되었습니다. 
@@ -91,41 +94,47 @@ Az. Automation 모듈이 runbook 및 DSC 구성에서 선호 됩니다. 그러�
 
 내부 cmdlet은 Az 및 AzureRM cmdlet에서 이름을 다르게 지정 합니다. 내부 cmdlet 이름에는 명사에 "Azure" 또는 "Az"와 같은 단어가 포함 되지 않지만 "Automation" 이라는 단어를 사용 합니다. Azure sandbox 또는 Windows hybrid worker에서 runbook을 실행 하는 동안 Az 또는 AzureRM cmdlet을 사용 하는 것이 좋습니다. 이러한 매개 변수는 매개 변수를 덜 필요로 하며 이미 실행 중인 작업의 컨텍스트에서 실행 됩니다.
 
-Runbook의 컨텍스트 외부에서 Azure Automation 리소스를 조작 하는 데 Az 또는 AzureRM cmdlet을 사용 합니다. 이러한 경우에는 실행 계정을 사용 하 여 Azure에 인증 하는 경우 처럼 cmdlet을 사용 하는 경우 Azure에 암시적으로 연결 해야 합니다. 
+Runbook의 컨텍스트 외부에서 Azure Automation 리소스를 조작 하는 데 Az 또는 AzureRM cmdlet을 사용 하는 것이 좋습니다. 
 
-## <a name="modules-supporting-get-automationpscredential"></a>Get AutomationPSCredential을 지 원하는 모듈
+## <a name="module-supporting-get-automationpscredential"></a>Get AutomationPSCredential을 지 원하는 모듈
 
-Azure Automation 작성 도구 키트를 사용 하 여 로컬 개발 `Get-AutomationPSCredential` 을 위해 Cmdlet은 [Azureautomation기관 ingtoolkit](https://www.powershellgallery.com/packages/AzureAutomationAuthoringToolkit/0.2.3.9)어셈블리의 일부입니다. Automation 컨텍스트를 사용 하는 Azure의 경우 cmdlet은에 `Orchestrator.AssetManagement.Cmdlets`있습니다. Azure Automation 자격 증명 사용에 대 한 자세한 내용은 [Azure Automation의 자격 증명 자산](credentials.md)을 참조 하세요.
-
-는 `Get-AutomationPsCredential` 자격 증명을 `PSCredential` 사용 하는 대부분의 PowerShell cmdlet에 필요한 개체를 반환 합니다. [AzAutomationCredential](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationcredential?view=azps-3.8.0) cmdlet 대신이 cmdlet을 사용 해야 하는 경우가 많습니다. `Get-AzAutomationCredential`자격 증명에 대 한 메타 데이터를 포함 하는 [Credentialinfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.commands.automation.model.credentialinfo?view=azurerm-ps) 개체를 검색 합니다. 이 정보는 일반적으로 다른 cmdlet에 전달 하는 데 유용 하지 않습니다.
+Cmdlet `Get-AutomationPSCredential` 은 모듈 `Orchestrator.AssetManagement.Cmdlets`의 일부입니다. 이 cmdlet은 자격 `PSCredential` 증명을 사용 하는 대부분의 PowerShell cmdlet에 필요한 개체를 반환 합니다. Azure Automation 자격 증명 사용에 대 한 자세한 내용은 [Azure Automation의 자격 증명 자산](credentials.md)을 참조 하세요.
 
 ## <a name="migrating-to-az-modules"></a>Az 모듈로 마이그레이션
 
-Azure Automation에서 Az 모듈을 사용할 때 고려해 야 할 몇 가지 사항이 있습니다.
+### <a name="migration-considerations"></a>마이그레이션 고려 사항
 
-* 문제를 발생 시킬 수 있으므로 동일한 Automation 계정에서 AzureRM 모듈 및 Az 모듈을 실행 하지 않는 것이 좋습니다. [AzureRM에서 Az로 Azure PowerShell 마이그레이션을](https://docs.microsoft.com/powershell/azure/migrate-from-azurerm-to-az?view=azps-3.7.0)참조 하세요. 
+이 섹션에서는 Azure Automation의 Az 모듈로 마이그레이션할 때 고려해 야 할 사항에 대해 설명 합니다. 또한 [AzureRM에서 Az로 Azure PowerShell 마이그레이션을](https://docs.microsoft.com/powershell/azure/migrate-from-azurerm-to-az?view=azps-3.7.0)참조 하세요. 
 
-* Az modules을 가져오기 전에 별도 Automation 계정에서 모든 runbook 및 DSC 구성을 신중 하 게 테스트 해야 합니다. 
+#### <a name="use-of-azurerm-modules-and-az-modules-in-the-same-automation-account"></a>동일한 Automation 계정에서 AzureRM 모듈 및 Az 모듈 사용
 
-* Az module을 Automation 계정으로 가져오면 runbook에서 사용 하는 PowerShell 세션에 모듈을 자동으로 가져오지 않습니다. 다음과 같은 상황에서 모듈을 PowerShell 세션으로 가져올 수 있습니다.
+ 동일한 Automation 계정에서 AzureRM 모듈과 Az 모듈을 실행 하지 않는 것이 좋습니다. AzureRM에서 Az로 마이그레이션하려는 경우 전체 마이그레이션에 완전히 커밋하는 것이 좋습니다. 가장 중요 한 이유는 Azure Automation에서 시작 시간을 절약 하기 위해 Automation 계정 내에서 샌드박스를 재사용 하는 경우가 많습니다. 전체 모듈 마이그레이션을 수행 하지 않는 경우 AzureRM 모듈만 사용 하 여 작업을 시작한 다음 Az 모듈만 사용 하 여 다른 작업을 시작할 수 있습니다. 샌드박스가 즉시 중단 되 고 모듈이 호환 되지 않는다는 오류 메시지가 표시 됩니다. 이 경우에는 지정 된 runbook 또는 구성에 대해 임의로 충돌이 발생 합니다. 
 
-    * Runbook이 모듈에서 cmdlet을 호출 하는 경우
-    * Runbook이 import-module cmdlet을 사용 하 여 모듈을 명시적 [으로 가져오는 경우](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-7)
-    * Runbook이 다른 종속 모듈을 가져오는 경우
+#### <a name="import-of-az-modules-into-the-powershell-session"></a>PowerShell 세션으로 Az 모듈 가져오기
 
-모듈의 마이그레이션을 완료 한 후 Automation 계정에서 AzureRM 모듈을 사용 하 여 runbook을 시작 해 보세요. 또한 계정에서 AzureRM 모듈을 가져오거나 업데이트 하지 않는 것이 좋습니다. Az. Automation으로 마이그레이션한 계정을 고려 하 고 Az modules 에서만 작동 합니다.
+Az module을 Automation 계정으로 가져오면 runbook에서 사용 하는 PowerShell 세션에 모듈을 자동으로 가져오지 않습니다. 다음과 같은 상황에서 모듈을 PowerShell 세션으로 가져올 수 있습니다.
 
->[!IMPORTANT]
->새 Automation 계정을 만들 때 Azure Automation는 기본적으로 AzureRM 모듈을 설치 합니다. AzureRM cmdlet을 사용 하 여 자습서 runbook을 계속 업데이트할 수 있습니다. 그러나 이러한 runbook은 실행 해서는 안 됩니다.
+* Runbook이 모듈에서 cmdlet을 호출 하는 경우
+* Runbook이 import-module cmdlet을 사용 하 여 모듈을 명시적 [으로 가져오는 경우](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-7)
+* Runbook이 다른 종속 모듈을 가져오는 경우
+    
+#### <a name="testing-for-your-runbooks-and-dsc-configurations-prior-to-module-migration"></a>모듈 마이그레이션 전에 runbook 및 DSC 구성에 대 한 테스트
+
+Az 모듈로 마이그레이션하기 전에 별도 Automation 계정에서 모든 runbook 및 DSC 구성을 신중 하 게 테스트 해야 합니다. 
+
+#### <a name="updates-for-tutorial-runbooks"></a>자습서 runbook에 대 한 업데이트 
+
+새 Automation 계정을 만들 때 Az modules로 마이그레이션한 후에도 기본적으로 AzureRM 모듈을 설치 Azure Automation. AzureRM cmdlet을 사용 하 여 자습서 runbook을 계속 업데이트할 수 있습니다. 그러나 이러한 runbook은 실행 해서는 안 됩니다.
 
 ### <a name="stop-and-unschedule-all-runbooks-that-use-azurerm-modules"></a>AzureRM 모듈을 사용 하는 모든 runbook 중지 및 예약 해제
 
-AzureRM 모듈을 사용 하는 기존 runbook을 실행 하지 않도록 하려면 AzureRmAutomationSchedule cmdlet을 사용 하 여 영향을 받는 모든 runbook을 중지 하 고 예약 [취소](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationschedule?view=azurermps-6.13.0) 합니다. 필요에 따라 runbook에 대해 나중에 일정을 다시 예약할 수 있도록 각 일정을 개별적으로 검토 하는 것이 중요 합니다.
+AzureRM 모듈을 사용 하는 기존 runbook 또는 DSC 구성을 실행 하지 않도록 하려면 영향을 받는 모든 runbook 및 구성을 중지 하 고 예약 하지 않아야 합니다. 먼저 각 runbook 또는 DSC 구성과 해당 일정을 개별적으로 검토 하 여 필요한 경우 나중에 항목을 다시 예약할 수 있는지 확인 합니다. 
 
-```powershell
-Get-AzureRmAutomationSchedule -AutomationAccountName "Contoso17" -Name "DailySchedule08" -ResourceGroupName "ResourceGroup01" 
-Remove-AzureRmAutomationSchedule -AutomationAccountName "Contoso17" -Name "DailySchedule08" -ResourceGroupName "ResourceGroup01"
-```
+일정을 제거할 준비가 되 면 Azure Portal 또는 [AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationschedule?view=azurermps-6.13.0) cmdlet 중 하나를 사용할 수 있습니다. [일정 제거를](schedules.md#removing-a-schedule)참조 하세요.
+
+### <a name="remove-the-azurerm-modules"></a>AzureRM 모듈을 제거 합니다.
+
+Az 모듈을 가져오기 전에 AzureRM 모듈을 제거할 수 있습니다. 그러나 AzureRM 모듈을 삭제 하면 소스 제어 동기화가 중단 되 고 여전히 실패 하도록 예약 된 모든 스크립트가 발생할 수 있습니다. 모듈을 제거 하려면 [AzureRM 제거](https://docs.microsoft.com/powershell/azure/migrate-from-azurerm-to-az?view=azps-3.8.0#uninstall-azurerm)를 참조 하세요.
 
 ### <a name="import-the-az-modules"></a>Az 모듈 가져오기
 
@@ -144,17 +153,11 @@ Remove-AzureRmAutomationSchedule -AutomationAccountName "Contoso17" -Name "Daily
 
 ### <a name="test-your-runbooks"></a>Runbook 테스트
 
-Az 모듈을 Automation 계정으로 가져온 후에는 새 모듈을 사용 하도록 runbook 편집을 시작할 수 있습니다. AzureRm 접두사가 Az로 변경 된 경우를 제외 하 고 대부분의 cmdlet은 AzureRM 모듈의 이름과 동일 합니다. 이 명명 규칙을 따르지 않는 모듈 목록은 [예외 목록](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters)을 참조 하십시오.
-
-Runbook을 사용 하 여 runbook을 수정 하는 한 가지 방법은 runbook의 시작 부분 `Enable-AzureRmAlias -Scope Process` 에서를 사용 하는 것입니다. Runbook에이 명령을 추가 하 여 스크립트를 변경 없이 실행할 수 있습니다. 
+Az modules을 Automation 계정으로 가져온 후에는 runbook 및 DSC 구성 편집을 시작 하 여 새 모듈을 사용할 수 있습니다. Runbook을 사용 하 여 runbook을 수정 하는 한 가지 방법은 runbook의 시작 부분 `Enable-AzureRmAlias -Scope Process` 에서를 사용 하는 것입니다. Runbook에이 명령을 추가 하 여 스크립트를 변경 없이 실행할 수 있습니다. 
 
 ## <a name="authoring-modules"></a>제작 모듈
 
 Azure Automation에서 사용할 PowerShell 모듈을 제작할 때이 섹션의 고려 사항을 따르는 것이 좋습니다.
-
-### <a name="references-to-azurerm-and-az"></a>AzureRM 및 Az에 대 한 참조
-
-모듈에서 Az 모듈을 참조 하는 경우 AzureRM 모듈도 참조 하지 않도록 합니다. 두 모듈 집합을 동시에 사용할 수는 없습니다. 
 
 ### <a name="version-folder"></a>버전 폴더
 
@@ -215,7 +218,7 @@ myModule
 
   ![통합 모듈 도움말](../media/modules/module-activity-description.png)
 
-### <a name="connection-type"></a>연결 형식
+### <a name="connection-type"></a>연결 유형
 
 모듈이 외부 서비스에 연결 하는 경우 [연결 유형을](#adding-a-connection-type-to-your-module)정의 합니다. 모듈의 각 cmdlet은 연결 개체 (해당 연결 형식의 인스턴스)를 매개 변수로 허용 해야 합니다. 사용자는 cmdlet을 호출할 때마다 cmdlet의 해당 매개 변수에 연결 자산의 매개 변수를 매핑합니다. 이전 섹션의 예제를 기반으로 하는 다음 runbook 예제에서는 contoso 연결 자산을 사용 하 여 `ContosoConnection` contoso 리소스에 액세스 하 고 외부 서비스에서 데이터를 반환 합니다. 이 예제에서 필드는 `UserName` `Password` `PSCredential` 개체의 및 속성에 매핑되고 cmdlet에 전달 됩니다.
 

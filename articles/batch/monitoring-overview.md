@@ -1,21 +1,14 @@
 ---
-title: Azure Batch 모니터링 | Microsoft Docs
+title: 모니터 Azure Batch
 description: Azure Batch를 위한 Azure 모니터링 서비스, 메트릭, 진단 로그 및 기타 모니터링 기능에 대해 알아봅니다.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.workload: na
 ms.date: 04/05/2018
-ms.author: labrenne
-ms.openlocfilehash: d251229c522bd4d6daca894513eaae14d244d8a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8b11d0b7187d6c4b5b3ccff1e19eb533ff3f0da
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77025863"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82113894"
 ---
 # <a name="monitor-batch-solutions"></a>Batch 솔루션 모니터링
 
@@ -29,7 +22,7 @@ Batch 계정을 포함하는 구독 수준에서, [Azure 활동 로그](../azure
 
 특히 Batch 계정의 경우 활동 로그는 계정 생성/삭제 및 키 관리와 관련된 이벤트를 수집합니다.
 
-활동 로그에서 이벤트를 검색하는 한 가지 방법은Azure Portal을 사용하는 것입니다. **모든 서비스** > **활동 로그를 클릭합니다.** 또는 Azure CLI, PowerShell cmdlet 또는 Azure Monitor REST API를 사용하여 이벤트를 쿼리합니다. 활동 로그를 내보내거나 [활동 로그 경고](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md)를 구성할 수도 있습니다.
+활동 로그에서 이벤트를 검색하는 한 가지 방법은Azure Portal을 사용하는 것입니다. **모든 서비스** > **활동 로그**를 클릭 합니다. 또는 Azure CLI, PowerShell cmdlet 또는 Azure Monitor REST API를 사용하여 이벤트를 쿼리합니다. 활동 로그를 내보내거나 [활동 로그 경고](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md)를 구성할 수도 있습니다.
 
 ## <a name="batch-account-level-monitoring"></a>Batch 계정 수준 모니터링
 
@@ -40,7 +33,7 @@ Batch 계정을 포함하는 구독 수준에서, [Azure 활동 로그](../azure
 
 ## <a name="batch-resource-monitoring"></a>Batch 리소스 모니터링
 
-Batch 애플리케이션에서 Batch API를 사용하여 작업, 태스크, 노드, 풀을 포함한 리소스 상태를 모니터링하거나 쿼리할 수 있습니다. 예를 들어:
+Batch 애플리케이션에서 Batch API를 사용하여 작업, 태스크, 노드, 풀을 포함한 리소스 상태를 모니터링하거나 쿼리할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 * [상태별 태스크 및 컴퓨팅 노드 카운팅](batch-get-resource-counts.md)
 * [Batch 리소스를 효율적으로 나열하는 쿼리 만들기](batch-efficient-list-queries.md)
@@ -62,7 +55,7 @@ Batch 애플리케이션에서 Batch API를 사용하여 작업, 태스크, 노�
   > Application Insights를 사용하는 추가 비용이 발생할 수 있습니다. [가격 책정 옵션](https://azure.microsoft.com/pricing/details/application-insights/)을 참조하세요. 
   >
 
-* [Batch Explorer](https://github.com/Azure/BatchExplorer)는 Azure Batch 애플리케이션을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows용 [설치 패키지를](https://azure.github.io/BatchExplorer/) 다운로드합니다. 필요에 따라 Batch Explorer의 VM 성능 카운터 같은 [Application Insights 데이터를 표시](https://github.com/Azure/batch-insights)하도록 Batch 솔루션을 구성합니다.
+* [Batch Explorer](https://github.com/Azure/BatchExplorer)는 Azure Batch 애플리케이션을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows 용 [설치 패키지](https://azure.github.io/BatchExplorer/) 를 다운로드 합니다. 필요에 따라 Batch Explorer의 VM 성능 카운터 같은 [Application Insights 데이터를 표시](https://github.com/Azure/batch-insights)하도록 Batch 솔루션을 구성합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

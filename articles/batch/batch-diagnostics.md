@@ -1,25 +1,15 @@
 ---
-title: 메트릭, 경고 및 진단 로그 - Azure Batch | Microsoft Docs
+title: 메트릭, 경고 및 진단 로그
 description: 풀, 작업 등과 같은 Azure Batch 계정 리소스에 대해 진단 로그 이벤트를 기록 및 분석합니다.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: big-compute
 ms.date: 12/05/2018
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 68d5976a5a79dbde88b7f80b02b39793ffc86de9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f75a8302c8ba368138e6c8edee6c6069c5031d8
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78254851"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117304"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>진단 평가 및 모니터링을 위한 일괄 처리 메트릭, 경고 및 로그
 
@@ -44,13 +34,13 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 
 모든 배치 계정 메트릭을 보려면 다음을 수행합니다. 
 
-1. 포털에서 모든 **서비스** > **일괄 처리 계정을**클릭한 다음 Batch 계정의 이름을 클릭합니다.
+1. 포털에서 **모든 서비스** > **배치 계정**을 클릭 한 다음 batch 계정의 이름을 클릭 합니다.
 2. **모니터링**에서 **메트릭**을 클릭합니다.
 3. 하나 이상의 메트릭을 선택합니다. 원하는 경우 **구독**, **리소스 그룹**, **리소스 종류** 및 **리소스** 드롭다운 목록을 사용하여 추가 리소스 메트릭을 선택합니다.
-    * 카운트 기반 메트릭(예: "전용 코어 수" 또는 "우선 순위가 낮은 노드 수")의 경우 '평균' 집계를 사용합니다. 이벤트 기반 메트릭(예: '전체 이벤트 크기 조정')의 경우 '개수' 집계를 사용합니다.
+    * 개수 기반 메트릭 (예: "전용 코어 수" 또는 "낮은 우선 순위 노드 수")의 경우 "Average" 집계를 사용 합니다. 이벤트 기반 메트릭 (예: "풀 크기 조정 완료 이벤트")의 경우 "Count" 집계를 사용 합니다.
 
 > [!WARNING]
-> 차트 기간 동안 수신된 모든 데이터 포인트의 값을 추가하는 "Sum" 집계를 사용하지 마십시오.
+> 차트 기간 동안 수신 된 모든 데이터 요소의 값을 더하는 "Sum" 집계를 사용 하지 마십시오.
 > 
 > 
 
@@ -72,11 +62,11 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 
 메트릭 경고를 포털에서 구성하려면 다음을 수행합니다.
 
-1. **모든 서비스** > **일괄 처리 계정을**클릭한 다음 Batch 계정의 이름을 클릭합니다.
+1. **모든 서비스** > **배치 계정**을 클릭 한 다음 batch 계정의 이름을 클릭 합니다.
 2. **모니터링**에서 **경고 규칙** > **메트릭 경고 추가**를 클릭합니다.
 3. 메트릭, 경고 조건(예: 메트릭이 일정 기간 동안 특정 값을 초과하는 경우) 및 하나 이상의 알림을 선택합니다.
 
-또한 [REST API](https://docs.microsoft.com/rest/api/monitor/)를 사용하여 거의 실시간으로 경고를 구성할 수 있습니다. 자세한 내용은 [경고 개요](../azure-monitor/platform/alerts-overview.md)를 참조하십시오. 경고에 작업, 작업 또는 풀 관련 정보를 포함하려면 [Azure Monitor 경고가 있는 이벤트에 대한 응답에서](../azure-monitor/learn/tutorial-response.md) 검색 쿼리에 대한 정보를 참조하세요.
+또한 [REST API](https://docs.microsoft.com/rest/api/monitor/)를 사용하여 거의 실시간으로 경고를 구성할 수 있습니다. 자세한 내용은 [경고 개요](../azure-monitor/platform/alerts-overview.md)를 참조 하세요. 경고에 작업, 태스크 또는 풀 관련 정보를 포함 하려면 [Azure Monitor 경고를 사용 하 여 이벤트에 응답](../azure-monitor/learn/tutorial-response.md) 에서 검색 쿼리 정보를 참조 하세요.
 
 ## <a name="batch-diagnostics"></a>일괄 처리 진단
 
@@ -96,7 +86,7 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 
 * 일괄 처리 진단 로그 이벤트를 [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md)로 스트리밍합니다. Event Hubs는 초당 수백 건의 이벤트를 수집하여 모든 실시간 분석 공급자를 통해 변환 및 저장할 수 있습니다. 
 
-* 진단 [로그를 Azure Monitor 로그로](../log-analytics/log-analytics-overview.md)보내서 분석하거나 Power BI 또는 Excel에서 분석을 위해 내보낼 수 있습니다.
+* [Azure Monitor 로그](../log-analytics/log-analytics-overview.md)에 진단 로그를 전송 하 여 분석 하거나 Power BI 또는 Excel에서 분석용으로 내보낼 수 있습니다.
 
 > [!NOTE]
 > Azure 서비스를 사용하여 진단 로그 데이터를 저장하거나 처리하려면 추가 비용이 발생할 수 있습니다. 
@@ -104,13 +94,13 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 
 ### <a name="enable-collection-of-batch-diagnostic-logs"></a>일괄 처리 진단 로그의 컬렉션을 사용하도록 설정
 
-1. 포털에서 모든 **서비스** > **일괄 처리 계정을**클릭한 다음 Batch 계정의 이름을 클릭합니다.
+1. 포털에서 **모든 서비스** > **배치 계정**을 클릭 한 다음 batch 계정의 이름을 클릭 합니다.
 2. **모니터링**에서 **진단 로그** > **진단 켜기**를 클릭합니다.
-3. **진단 설정에서**설정의 이름을 입력하고 로그 대상(기존 저장소 계정, 이벤트 허브 또는 Azure Monitor 로그)을 선택합니다. **ServiceLog**와 **AllMetrics** 중 하나를 선택하거나 두 개를 모두 선택합니다.
+3. **진단 설정**에서 설정의 이름을 입력 하 고 로그 대상 (기존 저장소 계정, 이벤트 허브 또는 Azure Monitor 로그)을 선택 합니다. **ServiceLog**와 **AllMetrics** 중 하나를 선택하거나 두 개를 모두 선택합니다.
 
     스토리지 계정을 선택하는 경우 필요에 따라 보존 정책을 설정합니다. 보존 일 수를 지정하지 않으면 데이터는 스토리지 계정의 수명 동안 보존됩니다.
 
-4. **저장**을 클릭합니다.
+4. **Save**을 클릭합니다.
 
     ![일괄 처리 진단](media/batch-diagnostics/diagnostics-portal.png)
 
@@ -135,9 +125,9 @@ insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-각 `PT1H.json` Blob 파일에는 Blob URL에 지정된 시간 내에 발생한 JSON 형식의 이벤트가 포함됩니다(예: `h=12`). 현재 시간 동안 이벤트가 발생하는 동안 `PT1H.json` 파일에 추가됩니다. 진단 로그`m=00`이벤트가 `00`시간당 개별 Blob로 나뉘기 때문에 분 값 () 은 항상 입니다. (모든 시간은 UTC입니다.)
+각 `PT1H.json` blob 파일에는 blob URL에 지정 된 시간 내에 발생 한 JSON 형식 이벤트가 포함 됩니다 (예 `h=12`:). 현재 시간 동안 이벤트가 발생 하면 `PT1H.json` 파일에 추가 됩니다. 진단 로그 이벤트는`m=00`시간당 개별 blob `00`으로 나뉘어 있으므로 분 값 ()은 항상입니다. (모든 시간은 UTC입니다.)
 
-다음은 로그 파일의 `PoolResizeCompleteEvent` 항목의 `PT1H.json` 예입니다. 여기에는 전용 노드 및 우선 순위가 낮은 노드의 현재 및 대상 수와 작업의 시작 및 종료 시간에 대한 정보가 포함됩니다.
+`PT1H.json` 로그 파일에 있는 `PoolResizeCompleteEvent` 항목의 예는 다음과 같습니다. 여기에는 작업의 시작 시간과 종료 시간 뿐만 아니라 전용 및 우선 순위가 낮은 노드의 현재 및 목표 수에 대 한 정보가 포함 됩니다.
 
 ```
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}

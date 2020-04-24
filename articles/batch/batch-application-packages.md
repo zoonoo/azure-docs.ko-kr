@@ -1,25 +1,15 @@
 ---
-title: 컴퓨팅 노드에 애플리케이션 패키지 설치 - Azure Batch | Microsoft Docs
+title: 계산 노드에 응용 프로그램 패키지 설치
 description: Azure Batch의 애플리케이션 패키지 기능을 사용하여 Batch 컴퓨팅 노드에 설치할 여러 애플리케이션 및 버전을 간편하게 관리하세요.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/26/2019
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30301832381bdc7b5f001eec2c449c571f9fd671
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7824d3e2d8cfb7b52041e59a9007688c4ef1cafa
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79086229"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115621"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>애플리케이션을 배포하여 Batch 애플리케이션 패키지에서 노드 컴퓨팅
 
@@ -82,19 +72,19 @@ Batch에서 애플리케이션은 하나 이상의 애플리케이션을 포함�
 
 
 
-![Azure 포털에서 '저장소 계정 구성 없음' 경고][9]
+![Azure Portal에서 ' 저장소 계정이 구성 되지 않음 ' 경고가 발생 함][9]
 
 Batch 서비스는 연결된 Storage 계정을 사용하여 애플리케이션 패키지를 저장합니다. 계정 두 개를 연결한 후에 Batch는 연결된 스토리지 계정에 저장된 패키지를 컴퓨팅 노드에 자동으로 배포할 수 있습니다. Storage 계정을 Batch 계정에 연결하려면 **경고** 창에서 **Storage 계정**을 클릭한 다음, **Storage 계정**을 다시 클릭합니다.
 
 ![Azure 포털에서 스토리지 계정 블레이드 선택][10]
 
-Batch *계정과* 함께 사용할 저장소 계정을 만들고 여기에서 선택하는 것이 좋습니다. Storage 계정을 만든 후에 **Storage 계정** 창을 사용하여 Batch 계정에 연결할 수 있습니다.
+Batch 계정에 사용 하기 위해 *특별히* 저장소 계정을 만들고 여기에서 선택 하는 것이 좋습니다. Storage 계정을 만든 후에 **Storage 계정** 창을 사용하여 Batch 계정에 연결할 수 있습니다.
 
 > [!IMPORTANT] 
 > - 현재 [방화벽 규칙](../storage/common/storage-network-security.md)이 구성된 Azure Storage 계정에는 애플리케이션 패키지를 사용할 수 없습니다.
-> - **사용 으로** 설정된 **계층적 네임스페이스가** 있는 Azure Storage 계정은 응용 프로그램 패키지에 사용할 수 없습니다.
+> - **계층 네임 스페이스가** **Enabled** 로 설정 된 Azure Storage 계정은 응용 프로그램 패키지에 사용할 수 없습니다.
 
-Batch 서비스는 Azure Storage를 사용하여 애플리케이션 패키지를 블록 Blob으로 저장합니다. 블록 Blob 데이터에 대해 [정상적으로 요금이 청구되며][storage_pricing] 각 패키지의 크기가 최대 블록 Blob 크기를 초과할 수 없습니다. 자세한 내용은 [저장소 계정에 대한 Azure 저장소 확장성 및 성능 목표를](../storage/blobs/scalability-targets.md)참조하십시오. 비용을 최소화할 수 있도록 애플리케이션 패키지의 크기와 숫자에 신경 쓰고, 사용하지 않는 패키지를 주기적으로 제거해 주세요.
+Batch 서비스는 Azure Storage를 사용하여 애플리케이션 패키지를 블록 Blob으로 저장합니다. 블록 blob 데이터의 경우 [정상으로 청구][storage_pricing] 되 고 각 패키지의 크기는 최대 블록 blob 크기를 초과할 수 없습니다. 자세한 내용은 [저장소 계정에 대 한 확장성 및 성능 목표 Azure Storage](../storage/blobs/scalability-targets.md)를 참조 하세요. 비용을 최소화할 수 있도록 애플리케이션 패키지의 크기와 숫자에 신경 쓰고, 사용하지 않는 패키지를 주기적으로 제거해 주세요.
 
 ### <a name="view-current-applications"></a>현재 애플리케이션 보기
 Batch 계정의 애플리케이션을 보려면 **Batch 계정**이 표시되는 동안 왼쪽의 **애플리케이션** 메뉴 항목을 클릭합니다.
@@ -109,13 +99,13 @@ Batch 계정의 애플리케이션을 보려면 **Batch 계정**이 표시되는
 
 * **패키지**: 이 애플리케이션과 연결된 버전 번호입니다.
 * **기본 버전**: 풀에 대해 애플리케이션을 지정할 때 버전을 표시하지 않으면 설치되는 애플리케이션 버전입니다. 이 설정은 선택 사항입니다.
-* **업데이트 허용**: 패키지의 업데이트, 삭제 및 추가 기능을 허용하는지 여부를 지정하는 값입니다. 이 값을 **아니요**로 설정하면 애플리케이션에 패키지 업데이트 및 삭제를 사용할 수 없습니다. 새 애플리케이션 패키지 버전만 추가할 수 있습니다. 기본값은 **예입니다.**
+* **업데이트 허용**: 패키지의 업데이트, 삭제 및 추가 기능을 허용하는지 여부를 지정하는 값입니다. 이 값을 **아니요**로 설정하면 애플리케이션에 패키지 업데이트 및 삭제를 사용할 수 없습니다. 새 애플리케이션 패키지 버전만 추가할 수 있습니다. 기본값은 **예**입니다.
 
-계산 노드에서 응용 프로그램 패키지의 파일 구조를 보려면 포털에서 Batch 계정으로 이동합니다. Batch 계정에서 **풀로 이동합니다.** 관심 있는 계산 노드가 포함된 풀을 선택합니다.
+계산 노드에 응용 프로그램 패키지의 파일 구조를 표시 하려면 포털에서 Batch 계정으로 이동 합니다. Batch 계정에서 **풀**로 이동 합니다. 관심이 있는 계산 노드를 포함 하는 풀을 선택 합니다.
 
 ![풀의 노드][13]
 
-풀을 선택한 후에는 응용 프로그램 패키지가 설치된 계산 노드로 이동합니다. 거기에서 응용 프로그램 패키지의 세부 정보는 **응용 프로그램** 폴더에 있습니다. 계산 노드의 추가 폴더에는 시작 작업, 출력 파일, 오류 출력 등과 같은 다른 파일이 포함됩니다.
+풀을 선택한 후에는 응용 프로그램 패키지가 설치 된 계산 노드로 이동 합니다. 여기에서 응용 프로그램 패키지에 대 한 세부 정보는 **응용 프로그램** 폴더에 있습니다. 계산 노드의 추가 폴더에는 시작 작업, 출력 파일, 오류 출력 등의 다른 파일이 포함 되어 있습니다.
 
 ![노드의 파일][14]
 
@@ -133,7 +123,7 @@ Batch 계정의 애플리케이션을 보려면 **Batch 계정**이 표시되는
 ### <a name="add-a-new-application"></a>새 애플리케이션 추가
 새 애플리케이션을 만들려면 애플리케이션 패키지를 추가하고 고유한 새 애플리케이션 ID를 지정합니다. 새 애플리케이션 ID를 사용하여 추가하는 첫 번째 애플리케이션 패키지도 새 애플리케이션을 만듭니다.
 
-응용 프로그램**추가**를 **클릭합니다.** > 
+**애플리케이션** > **추가**를 클릭합니다.
 
 ![Azure 포털의 새 애플리케이션 블레이드][5]
 
@@ -173,7 +163,7 @@ Batch 계정의 애플리케이션을 보려면 **Batch 계정**이 표시되는
 
 ![Azure Portal의 애플리케이션 패키지 추가 블레이드][8]
 
-보시다시피 필드는 새 응용 **프로그램** 창의 필드와 일치하지만 **응용 프로그램 ID** 상자는 사용하지 않도록 설정됩니다. 새 애플리케이션에서 수행한 대로 새 패키지의 **버전**을 지정하고, **애플리케이션 패키지** .zip 파일을 찾은 다음 **확인**을 클릭하여 패키지를 업로드합니다.
+여기에서 볼 수 있듯이 필드는 **새 응용 프로그램** 창의 필드와 일치 하지만 **응용 프로그램 ID** 상자는 사용할 수 없습니다. 새 애플리케이션에서 수행한 대로 새 패키지의 **버전**을 지정하고, **애플리케이션 패키지** .zip 파일을 찾은 다음 **확인**을 클릭하여 패키지를 업로드합니다.
 
 ### <a name="update-or-delete-an-application-package"></a>애플리케이션 패키지 업데이트 또는 삭제
 기존 애플리케이션 패키지를 업데이트하거나 삭제하려면 해당 애플리케이션의 세부 정보를 연 다음, **패키지**를 클릭하고, 수정할 애플리케이션 패키지 행에서 **...(줄임표)** 를 클릭하여 수행할 작업을 선택합니다.
@@ -186,7 +176,7 @@ Batch 계정의 애플리케이션을 보려면 **Batch 계정**이 표시되는
 
 ![Azure 포털의 패키지 업데이트 블레이드][11]
 
-**삭제**
+**Delete**
 
 **삭제**를 클릭하면 패키지 버전을 삭제할 것인지 묻는 메시지가 나타나고, Batch가 Azure Storage에서 패키지를 삭제합니다. 애플리케이션의 기본 버전을 삭제하면 해당 애플리케이션의 **기본 버전** 설정이 제거됩니다.
 
@@ -258,7 +248,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-Linux 노드에서는 형식이 약간 다릅니다. 마침표(.), 하이픈(-) 및 숫자 기호(#)가 환경 변수에서 밑줄로 표시됩니다. 또한 애플리케이션 ID의 대/소문자는 유지됩니다. 예를 들어:
+Linux 노드에서는 형식이 약간 다릅니다. 마침표(.), 하이픈(-) 및 숫자 기호(#)가 환경 변수에서 밑줄로 표시됩니다. 또한 애플리케이션 ID의 대/소문자는 유지됩니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```
 Linux:
@@ -369,12 +359,12 @@ foreach (ApplicationSummary app in applications)
 [2]: ./media/batch-application-packages/app_pkg_02.png "Azure portal의 애플리케이션 타일"
 [3]: ./media/batch-application-packages/app_pkg_03.png "Azure portal의 애플리케이션 블레이드"
 [4]: ./media/batch-application-packages/app_pkg_04.png "Azure portal의 애플리케이션 세부 정보 블레이드"
-[5]: ./media/batch-application-packages/app_pkg_05.png "Azure 포털의 새 응용 프로그램 블레이드"
+[5]: ./media/batch-application-packages/app_pkg_05.png "Azure Portal의 새 응용 프로그램 블레이드"
 [7]: ./media/batch-application-packages/app_pkg_07.png "Azure portal의 패키지 업데이트 또는 삭제 드롭다운"
 [8]: ./media/batch-application-packages/app_pkg_08.png "Azure portal의 새 애플리케이션 패키지 블레이드"
 [9]: ./media/batch-application-packages/app_pkg_09.png "연결된 Storage 계정 없음 경고"
-[10]: ./media/batch-application-packages/app_pkg_10.png "Azure 포털에서 저장소 계정 블레이드 선택"
-[11]: ./media/batch-application-packages/app_pkg_11.png "Azure 포털에서 패키지 블레이드 업데이트"
+[10]: ./media/batch-application-packages/app_pkg_10.png "Azure Portal에서 저장소 계정 블레이드 선택"
+[11]: ./media/batch-application-packages/app_pkg_11.png "Azure Portal의 패키지 업데이트 블레이드"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Azure portal의 패키지 삭제 확인 대화 상자"
-[13]: ./media/batch-application-packages/package-file-structure.png "Azure 포털에서 노드 정보 계산"
-[14]: ./media/batch-application-packages/package-file-structure-node.png "Azure 포털에 표시되는 계산 노드의 파일"
+[13]: ./media/batch-application-packages/package-file-structure.png "Azure Portal의 계산 노드 정보"
+[14]: ./media/batch-application-packages/package-file-structure-node.png "Azure Portal에 표시 된 계산 노드의 파일"

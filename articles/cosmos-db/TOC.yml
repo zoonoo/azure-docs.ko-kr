@@ -112,7 +112,7 @@
           displayName: 'request units, RUs, RU'
           href: scaling-throughput.md
         - name: 충돌 유형 및 해결 정책
-          displayName: 'last write wins, custom'
+          displayName: 'last write wins, custom, multi master, multi-master'
           href: conflict-resolution-policies.md
         - name: 글로벌 배포 - 내부 살펴보기
           href: global-dist-under-the-hood.md
@@ -1180,8 +1180,8 @@
       href: 'https://azure.microsoft.com/try/cosmosdb/'
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
-    - name: 다중 마스터 혜택
-      href: multi-master-benefits.md
+    - name: 성능 수준
+      href: performance-levels.md
     - name: 사용 사례
       items:
         - name: 일반 사용 예

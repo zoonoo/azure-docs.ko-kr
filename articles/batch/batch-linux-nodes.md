@@ -1,25 +1,15 @@
 ---
 title: 가상 머신 컴퓨팅 노드에서 Linux 실행 - Azure Batch | Microsoft Docs
 description: Azure Batch의 Linux 가상 머신 풀에서 병렬 컴퓨팅 워크로드를 처리하는 방법에 대해 알아봅니다.
-services: batch
-documentationcenter: python
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: na
 ms.date: 06/01/2018
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 977504f41e93e37ae2c5ce9bdb1182a1cfe0a3fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7abdab248a6f19ec4d57018d65f883fdc838da21
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252286"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116794"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Batch 풀에서 Linux 컴퓨팅 노드 프로비전
 
@@ -39,16 +29,16 @@ Batch에서 컴퓨팅 노드 풀을 만드는 경우 노드 크기와 운영 체
 
 ### <a name="virtual-machine-image-reference"></a>가상 머신 이미지 참조
 
-Batch 서비스는 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하여 가상 머신 구성에서 컴퓨팅 노드를 제공합니다. [Azure Marketplace][vm_marketplace]의 이미지를 지정하거나 준비한 사용자 지정 이미지를 제공할 수 있습니다. 사용자 지정 이미지에 대한 자세한 내용은 [공유 이미지 갤러리를 사용하여 풀 만들기를](batch-sig-images.md)참조하십시오.
+Batch 서비스는 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하여 가상 머신 구성에서 컴퓨팅 노드를 제공합니다. [Azure Marketplace][vm_marketplace]의 이미지를 지정하거나 준비한 사용자 지정 이미지를 제공할 수 있습니다. 사용자 지정 이미지에 대 한 자세한 내용은 [공유 이미지 갤러리를 사용 하 여 풀 만들기](batch-sig-images.md)를 참조 하세요.
 
 가상 머신 이미지 참조를 구성할 때 가상 머신 이미지의 속성을 지정합니다. 가상 머신 이미지 참조를 만들 때 다음 속성이 필요합니다.
 
 | **이미지 참조 속성** | **예제** |
 | --- | --- |
 | 게시자 |Canonical |
-| 제안 |UbuntuServer |
+| 제품 |UbuntuServer |
 | SKU |18.04-LTS |
-| 버전 |최신 |
+| Version |최신 |
 
 > [!TIP]
 > 이러한 속성 및 Marketplace 이미지를 나열하는 방법에 대한 자세한 내용은 [CLI 또는 PowerShell로 Azure의 Linux 가상 머신 이미지 이동 및 선택](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 알아볼 수 있습니다. 일부 Marketplace 이미지가 현재 Batch와 호환되지 않습니다. 자세한 내용은 [노드 에이전트 SKU](#node-agent-sku)를 참조하세요.
@@ -58,7 +48,7 @@ Batch 서비스는 [가상 머신 확장 집합](../virtual-machine-scale-sets/v
 ### <a name="node-agent-sku"></a>노드 에이전트 SKU
 Batch 노드 에이전트는 풀의 각 노드에서 실행되고 노드와 Batch 서비스 간의 명령 및 컨트롤 인터페이스를 제공하는 프로그램입니다. SKU라고 하는 노드 에이전트의 구현은 서로 다른 운영 체제에 대해 여러 가지가 있습니다. 기본적으로 Virtual Machine 구성을 만들 때 먼저 가상 머신 이미지 참조를 지정한 다음 이미지에 설치할 노드 에이전트를 지정합니다. 일반적으로 각 노드 에이전트 SKU는 여러 가상 머신 이미지와 호환됩니다. 다음은 노드 에이전트 SKU의 몇 가지 예입니다.
 
-* batch.node.ubuntu 18.04
+* batch. ubuntu 18.04
 * batch.node.centos 7
 * batch.node.windows amd64
 
@@ -70,7 +60,7 @@ Batch 노드 에이전트는 풀의 각 노드에서 실행되고 노드와 Batc
 ## <a name="create-a-linux-pool-batch-python"></a>Linux 풀 만들기: Batch Python
 다음 코드 조각은 [Python용 Microsoft Azure Batch 클라이언트 라이브러리][py_batch_package]를 사용하여 Ubuntu Server 컴퓨팅 노드의 풀을 만드는 방법의 예를 보여 줍니다. Batch Python 모듈에 대한 참조 설명서는 Read the Docs의 [azure.batch package][py_batch_docs]에서 확인할 수 있습니다.
 
-이 코드 조각은 명시적으로 [ImageReference][py_imagereference]를 만들고 각 속성(게시자, 제품, SKU, 버전)을 지정합니다. 그러나 프로덕션 코드에서는 [list_supported_images][py_list_supported_images] 메서드를 사용하여 런타임에 사용 가능한 이미지 및 노드 에이전트 SKU 조합을 확인하고 선택하는 것이 좋습니다.
+이 코드 조각은 명시적으로 [ImageReference][py_imagereference]를 만들고 각 속성(게시자, 제품, SKU, 버전)을 지정합니다. 그러나 프로덕션 코드에서는 [list_supported_images][py_list_supported_images] 메서드를 사용 하 여 런타임 시 사용 가능한 이미지 및 노드 에이전트 SKU 조합을 결정 하 고 선택 하는 것이 좋습니다.
 
 ```python
 # Import the required modules from the
@@ -126,7 +116,7 @@ new_pool.virtual_machine_configuration = vmc
 client.pool.add(new_pool)
 ```
 
-앞에서 설명한 것처럼 [ImageReference를][py_imagereference] 명시적으로 만드는 대신 [list_supported_images][py_list_supported_images] 메서드를 사용하여 현재 지원되는 노드 에이전트/마켓플레이스 이미지 조합에서 동적으로 선택하는 것이 좋습니다. 다음 Python 코드 조각에서는 이 메서드의 사용 방법을 보여 줍니다.
+앞에서 설명한 것 처럼 [ImageReference][py_imagereference] 을 명시적으로 만드는 대신 현재 지원 되는 노드 에이전트/Marketplace 이미지 조합에서 동적으로 선택 하는 [list_supported_images][py_list_supported_images] 방법을 사용 하는 것이 좋습니다. 다음 Python 코드 조각에서는 이 메서드의 사용 방법을 보여 줍니다.
 
 ```python
 # Get the list of supported images from the Batch service
@@ -154,7 +144,7 @@ vmc = batchmodels.VirtualMachineConfiguration(
 ## <a name="create-a-linux-pool-batch-net"></a>Linux 풀 만들기: Batch .NET
 다음 코드 조각은 [Batch .NET][nuget_batch_net] 클라이언트 라이브러리를 사용하여 Ubuntu Server 컴퓨팅 노드의 풀을 만드는 방법의 예를 보여 줍니다. docs.microsoft.com에서 [Batch .NET 참조 설명서][api_net]를 찾을 수 있습니다.
 
-다음 코드 코드 조각은 [PoolOperations][net_pool_ops]를 사용합니다. [List지원이미지][net_list_supported_images] 메서드는 현재 지원되는 마켓플레이스 이미지 및 노드 에이전트 SKU 조합 목록에서 선택할 수 있습니다. 지원되는 조합 목록이 언제든지 바뀔 수 있으므로 이 기술이 바람직합니다. 가장 일반적으로 지원되는 조합을 추가합니다.
+다음 코드 조각에서는 [PoolOperations][net_pool_ops]를 사용 합니다. [ListSupportedImages][net_list_supported_images] 메서드를 선택 하 여 현재 지원 되는 Marketplace 이미지 및 노드 에이전트 SKU 조합의 목록에서 선택 합니다. 지원되는 조합 목록이 언제든지 바뀔 수 있으므로 이 기술이 바람직합니다. 가장 일반적으로 지원되는 조합을 추가합니다.
 
 ```csharp
 // Pool settings
@@ -198,7 +188,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 await pool.CommitAsync();
 ```
 
-이전 코드 조각은 [PoolOperations를][net_pool_ops]사용합니다. [ListSupportedImages][net_list_supported_images] 메서드를 동적으로 나열 하 고 지원 되는 이미지 및 노드 에이전트 SKU 조합에서 선택 (권장), [또한 ImageReference][net_imagereference] 명시적으로 구성할 수 있습니다.
+이전 코드 조각은 [PoolOperations][net_pool_ops]를 사용 합니다. 지원 되는 이미지 및 노드 에이전트 SKU 조합에서 동적으로 나열 하 고 선택 하는 [ListSupportedImages][net_list_supported_images] 메서드 (권장), [ImageReference][net_imagereference] 를 명시적으로 구성할 수도 있습니다.
 
 ```csharp
 ImageReference imageReference = new ImageReference(
@@ -209,7 +199,7 @@ ImageReference imageReference = new ImageReference(
 ```
 
 ## <a name="list-of-virtual-machine-images"></a>가상 머신 이미지 목록
-Batch 서비스 및 해당 노드 에이전트에 대해 지원되는 모든 마켓플레이스 가상 머신 이미지 목록을 얻으려면 [선택한][py_list_supported_images] 각 언어 SDK에서 list_supported_images(Python), [ListSupportedImages(Batch.NET)][net_list_supported_images] 또는 해당 API를 활용하십시오.
+Batch 서비스 및 해당 노드 에이전트에 대해 지원 되는 모든 Marketplace 가상 머신 이미지 목록을 얻으려면 선택한 각 언어 SDK의 [list_supported_images][py_list_supported_images] (Python), [ListSupportedImages][net_list_supported_images] (Batch .NET) 또는 해당 API를 활용 하세요.
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>SSH를 사용하여 Linux 노드에 연결
 개발 또는 문제 해결 동안 풀의 노드에 로그인할 필요가 있을 수 있습니다. Windows 컴퓨팅 노드와 달리 Linux 노드에 연결하기 위해 RDP(원격 데스크톱 프로토콜)를 사용할 수 없습니다. 대신, Batch 서비스는 원격 연결을 위해 각 노드에서 SSH 액세스를 사용하도록 설정합니다.
@@ -285,8 +275,8 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 
 노드에 사용자를 만들 때 암호 대신 SSH 공개 키를 지정할 수 있습니다. Python SDK에서는 [ComputeNodeUser][py_computenodeuser]에 **ssh_public_key** 매개 변수를 사용합니다. .NET에서는 [ComputeNodeUser][net_computenodeuser].[SshPublicKey][net_ssh_key] 속성을 사용합니다.
 
-## <a name="pricing"></a>가격 책정
-Azure Batch는 Azure Cloud Services 및 Azure Virtual Machines 기술을 기반으로 빌드됩니다. 일괄 처리 서비스 자체는 무료로 제공되므로 Batch 솔루션에서 소비하는 계산 리소스(및 관련 비용)에 대해서만 요금이 부과됩니다. **Cloud Services 구성**을 선택하는 경우 [Cloud Services 가격][cloud_services_pricing] 구조에 따라 요금이 청구됩니다. **Virtual Machine 구성**을 선택하는 경우 [Virtual Machines 가격][vm_pricing] 구조에 따라 요금이 청구됩니다.
+## <a name="pricing"></a>가격
+Azure Batch는 Azure Cloud Services 및 Azure Virtual Machines 기술을 기반으로 빌드됩니다. Batch 서비스 자체는 무료로 제공 됩니다. 즉, Batch 솔루션에서 사용 하는 계산 리소스 (및 관련 비용)에 대해서만 요금이 부과 됩니다. **Cloud Services 구성**을 선택하는 경우 [Cloud Services 가격][cloud_services_pricing] 구조에 따라 요금이 청구됩니다. **Virtual Machine 구성**을 선택하는 경우 [Virtual Machines 가격][vm_pricing] 구조에 따라 요금이 청구됩니다.
 
 [애플리케이션 패키지](batch-application-packages.md)를 사용하여 Batch 노드에 애플리케이션을 배포하는 경우에도 애플리케이션 패키지에서 사용하는 Azure Storage 리소스에 대한 요금이 청구됩니다.
 

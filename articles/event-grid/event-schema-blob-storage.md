@@ -1,5 +1,5 @@
 ---
-title: Azure Blob 저장소를 이벤트 그리드 원본으로
+title: Event Grid 원본으로 Azure Blob Storage
 description: Azure Event Grid를 사용하여 Blob Storage 이벤트에 제공되는 속성을 설명합니다.
 services: event-grid
 author: spelluru
@@ -7,60 +7,60 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: cfc6e4790b67137b423cc90d93874d4914f81251
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 8d22f8a2722dc55a13ce8e3752ca69d6e7251070
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393384"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115128"
 ---
-# <a name="azure-blob-storage-as-an-event-grid-source"></a>Azure Blob 저장소를 이벤트 그리드 원본으로
+# <a name="azure-blob-storage-as-an-event-grid-source"></a>Event Grid 원본으로 Azure Blob Storage
 
-이 문서에서는 Blob Storage 이벤트에 대한 속성 및 스키마를 제공합니다.이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요. 또한 Azure Blob Storage를 이벤트 소스로 사용할 수 있는 빠른 시작 및 자습서 목록도 제공합니다.
+이 문서에서는 Blob Storage 이벤트에 대한 속성 및 스키마를 제공합니다.이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요. 또한 이벤트 원본으로 Azure Blob Storage를 사용 하는 빠른 시작 및 자습서의 목록을 제공 합니다.
 
 
 >[!NOTE]
-> 저장소 계정만 **StorageV2 (범용 v2)**, **BlockBlobStorage**및 **BlobStorage** 지원 이벤트 통합. **스토리지(범용 v1)** 는 Event Grid와의 통합을 지원하지 *않습니다*.
+> Kind **StorageV2 (범용 v2)**, **Blockblobstorage**및 **blobstorage** 의 저장소 계정만 이벤트 통합을 지원 합니다. **Storage (범용 v1)** 는 Event Grid와의 통합을 지원 *하지* 않습니다.
 
 ## <a name="event-grid-event-schema"></a>Event Grid 이벤트 스키마
 
-### <a name="list-of-events-for-blob-rest-apis"></a>Blob REST API의 이벤트 목록
+### <a name="list-of-events-for-blob-rest-apis"></a>Blob REST Api에 대 한 이벤트 목록
 
-이러한 이벤트는 클라이언트가 Blob REST API를 호출하여 Blob을 만들거나 바꾸거나 삭제할 때 트리거됩니다.
+이러한 이벤트는 클라이언트가 Blob REST Api를 호출 하 여 blob을 만들거나 바꾸거나 삭제할 때 트리거됩니다.
 
- |이벤트 이름 |Description|
+ |이벤트 이름 |설명|
  |----------|-----------|
- |**Microsoft.Storage.BlobCreated** |Blob을 만들거나 대체할 때 트리거됩니다. <br>특히 이 이벤트는 클라이언트가 Blob `PutBlob` `PutBlockList`REST `CopyBlob` API에서 사용할 수 있는 " 또는 작업을 사용할 때 트리거됩니다.   |
- |**Microsoft.Storage.BlobDeleted** |Blob이 삭제될 때 트리거됩니다. <br>특히 이 이벤트는 클라이언트가 Blob `DeleteBlob` REST API에서 사용할 수 있는 작업을 호출할 때 트리거됩니다. |
+ |**Microsoft.Storage.BlobCreated** |Blob을 만들거나 바꿀 때 트리거됩니다. <br>특히이 이벤트는 클라이언트가 Blob REST API에서 사용할 수 `PutBlob`있는 `PutBlockList`, 또는 `CopyBlob` 작업을 사용 하는 경우 트리거됩니다.   |
+ |**Microsoft.Storage.BlobDeleted** |Blob이 삭제 될 때 트리거됩니다. <br>특히이 이벤트는 클라이언트가 Blob REST API에서 사용할 수 `DeleteBlob` 있는 작업을 호출 하는 경우 트리거됩니다. |
 
 > [!NOTE]
-> **Microsoft.Storage.BlobCreated** 이벤트가 블록 Blob이 완전히 커밋된 경우에만 트리거되도록 하려면 `CopyBlob`에 `PutBlob`대한 이벤트를 필터링합니다. `PutBlockList` 이러한 API 호출은 데이터가 블록 Blob에 완전히 커밋된 후에만 **Microsoft.Storage.BlobCreated** 이벤트를 트리거합니다. 필터를 만드는 방법에 대해 알아보려면 [이벤트 그리드에 대한 이벤트 필터](https://docs.microsoft.com/azure/event-grid/how-to-filter-events)를 참조하십시오.
+> 블록 Blob이 완전히 커밋된 경우에 **만 Microsoft. 저장소에 생성** 된 이벤트를 트리거하도록 `CopyBlob`하려면, `PutBlob`및 `PutBlockList` REST API 호출에 대 한 이벤트를 필터링 합니다. 이러한 API 호출은 데이터가 블록 Blob에 완전히 커밋된 후에만 **Microsoft. 저장소로 생성** 된 이벤트를 트리거합니다. 필터를 만드는 방법에 대 한 자세한 내용은 [Event Grid에 대 한 필터 이벤트](https://docs.microsoft.com/azure/event-grid/how-to-filter-events)를 참조 하세요.
 
-### <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Azure 데이터 레이크 스토리지 세대 2 REST API에 대한 이벤트 목록
+### <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Azure Data Lake Storage Gen 2 REST Api에 대 한 이벤트 목록
 
-이러한 이벤트는 저장소 계정에서 계층적 네임스페이스를 사용하도록 설정하고 클라이언트가 Azure Data Lake Storage Gen2 REST API를 호출하는 경우 트리거됩니다. 자세한 내용은 Azure Data Lake Storage [Introduction to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)Gen2를 참조하세요.
+이러한 이벤트는 저장소 계정에서 계층적 네임 스페이스를 사용 하도록 설정 하 고 클라이언트는 Azure Data Lake Storage Gen2 REST Api를 호출 하는 경우 트리거됩니다. Bout Azure Data Lake Storage Gen2 자세한 내용은 [Azure Data Lake Storage Gen2 소개](../storage/blobs/data-lake-storage-introduction.md)를 참조 하세요.
 
-|이벤트 이름|Description|
+|이벤트 이름|설명|
 |----------|-----------|
-|**Microsoft.Storage.BlobCreated** | Blob을 만들거나 대체할 때 트리거됩니다. <br>특히 이 이벤트는 클라이언트가 Azure `CreateFile` Data `FlushWithClose` Lake Storage Gen2 REST API에서 사용할 수 있는 및 작업을 사용할 때 트리거됩니다. |
-|**Microsoft.Storage.BlobDeleted** |Blob이 삭제될 때 트리거됩니다. <br>특히 이 이벤트는 클라이언트가 Azure Data `DeleteFile` Lake Storage Gen2 REST API에서 사용할 수 있는 작업을 호출할 때도 트리거됩니다. |
-|**마이크로소프트.스토리지.BlobRenamed**|Blob의 이름이 바뀌면 트리거됩니다. <br>특히 이 이벤트는 클라이언트가 Azure `RenameFile` Data Lake Storage Gen2 REST API에서 사용할 수 있는 작업을 사용할 때 트리거됩니다.|
-|**마이크로소프트.스토리지.디렉토리 생성**|디렉터리를 만들 때 트리거됩니다. <br>특히 이 이벤트는 클라이언트가 Azure `CreateDirectory` Data Lake Storage Gen2 REST API에서 사용할 수 있는 작업을 사용할 때 트리거됩니다.|
-|**마이크로소프트.스토리지.디렉토리 이름**|디렉터리 이름이 바뀌면 트리거됩니다. <br>특히 이 이벤트는 클라이언트가 Azure `RenameDirectory` Data Lake Storage Gen2 REST API에서 사용할 수 있는 작업을 사용할 때 트리거됩니다.|
-|**마이크로소프트.스토리지.디렉토리 삭제됨**|디렉터리가 삭제될 때 트리거됩니다. <br>특히 이 이벤트는 클라이언트가 Azure `DeleteDirectory` Data Lake Storage Gen2 REST API에서 사용할 수 있는 작업을 사용할 때 트리거됩니다.|
+|**Microsoft.Storage.BlobCreated** | Blob을 만들거나 바꿀 때 트리거됩니다. <br>특히이 이벤트는 클라이언트가 Azure Data Lake Storage Gen2 REST API에서 사용할 수 `CreateFile` 있는 `FlushWithClose` 및 작업을 사용 하는 경우 트리거됩니다. |
+|**Microsoft.Storage.BlobDeleted** |Blob이 삭제 될 때 트리거됩니다. <br>특히이 이벤트는 클라이언트가 Azure Data Lake Storage Gen2 REST API에서 사용할 수 있는 `DeleteFile` 작업을 호출 하는 경우에도 트리거됩니다. |
+|**BlobRenamed**|Blob의 이름을 바꾸면 트리거됩니다. <br>특히이 이벤트는 클라이언트가 Azure Data Lake Storage Gen2 REST API에서 사용할 수 `RenameFile` 있는 작업을 사용 하는 경우 트리거됩니다.|
+|**Microsoft. 저장소를 만들었습니다.**|디렉터리를 만들 때 트리거됩니다. <br>특히이 이벤트는 클라이언트가 Azure Data Lake Storage Gen2 REST API에서 사용할 수 `CreateDirectory` 있는 작업을 사용 하는 경우 트리거됩니다.|
+|**Microsoft. 저장소 이름 바꾸기**|디렉터리의 이름을 바꾸면 트리거됩니다. <br>특히이 이벤트는 클라이언트가 Azure Data Lake Storage Gen2 REST API에서 사용할 수 `RenameDirectory` 있는 작업을 사용 하는 경우 트리거됩니다.|
+|**Microsoft. 저장소 삭제**|디렉터리가 삭제 되 면 트리거됩니다. <br>특히이 이벤트는 클라이언트가 Azure Data Lake Storage Gen2 REST API에서 사용할 수 `DeleteDirectory` 있는 작업을 사용 하는 경우 트리거됩니다.|
 
 > [!NOTE]
-> **Microsoft.Storage.BlobCreated** 이벤트가 블록 Blob이 완전히 커밋된 경우에만 트리거되도록 하려면 `FlushWithClose` REST API 호출에 대한 이벤트를 필터링합니다. 이 API 호출은 데이터가 블록 Blob에 완전히 커밋된 후에만 **Microsoft.Storage.BlobCreated** 이벤트를 트리거합니다. 필터를 만드는 방법에 대해 알아보려면 [이벤트 그리드에 대한 이벤트 필터](https://docs.microsoft.com/azure/event-grid/how-to-filter-events)를 참조하십시오.
+> 블록 Blob이 완전히 커밋되는 경우에만 **Microsoft. 저장소에 생성** 된 이벤트가 트리거되도록 하려면 `FlushWithClose` REST API 호출에 대 한 이벤트를 필터링 합니다. 이 API 호출은 데이터가 블록 Blob에 완전히 커밋된 후에만 **Microsoft. Storage. BlobCreated** 이벤트를 트리거합니다. 필터를 만드는 방법에 대 한 자세한 내용은 [Event Grid에 대 한 필터 이벤트](https://docs.microsoft.com/azure/event-grid/how-to-filter-events)를 참조 하세요.
 
 <a id="example-event" />
 
 ### <a name="the-contents-of-an-event-response"></a>이벤트 응답의 내용
 
-이벤트가 트리거되면 Event Grid 서비스는 해당 이벤트에 대한 데이터를 구독 끝점으로 보냅니다.
+이벤트가 트리거될 때 Event Grid 서비스는 해당 이벤트에 대 한 데이터를 구독 끝점으로 보냅니다.
 
-이 섹션에는 각 Blob 저장소 이벤트에 대해 해당 데이터가 어떻게 보이는지에 대한 예제가 포함되어 있습니다.
+이 섹션에는 각 blob 저장소 이벤트에 대 한 데이터가 어떻게 표시 되는지 예가 포함 되어 있습니다.
 
-### <a name="microsoftstorageblobcreated-event"></a>마이크로소프트.스토리지.Blob생성 이벤트
+### <a name="microsoftstorageblobcreated-event"></a>Microsoft. 저장소. BlobCreated 이벤트
 
 ```json
 [{
@@ -88,18 +88,18 @@ ms.locfileid: "81393384"
 }]
 ```
 
-### <a name="microsoftstorageblobcreated-event-data-lake-storage-gen2"></a>Microsoft.Storage.Blob생성 이벤트(데이터 레이크 스토리지 Gen2)
+### <a name="microsoftstorageblobcreated-event-data-lake-storage-gen2"></a>Microsoft 저장소. BlobCreated 이벤트 (Data Lake Storage Gen2)
 
-Blob 저장소 계정에 계층적 네임스페이스가 있는 경우 데이터는 이러한 변경 사항을 제외하고 이전 예제와 유사합니다.
+Blob 저장소 계정에 계층적 네임 스페이스가 있는 경우 데이터는 이러한 변경 내용을 제외 하 고 이전 예제와 유사 하 게 표시 됩니다.
 
-* `dataVersion` 키는 `2`의 값으로 설정됩니다.
+* `dataVersion` 키가 값으로 설정 됩니다 `2`.
 
-* `data.api` 키가 문자열 `CreateFile` 또는 `FlushWithClose`로 설정됩니다.
+* `data.api` 키가 또는 `CreateFile` `FlushWithClose`문자열로 설정 된 경우
 
-* `contentOffset` 키는 데이터 집합에 포함됩니다.
+* `contentOffset` 키가 데이터 집합에 포함 됩니다.
 
 > [!NOTE]
-> 응용 프로그램에서 `PutBlockList` 작업을 사용하여 계정에 새 Blob을 업로드하는 경우 데이터에 이러한 변경 내용이 포함되지 않습니다.
+> 응용 프로그램에서 `PutBlockList` 작업을 사용 하 여 새 blob을 계정에 업로드 하는 경우 데이터에 이러한 변경 내용이 포함 되지 않습니다.
 
 ```json
 [{
@@ -128,7 +128,7 @@ Blob 저장소 계정에 계층적 네임스페이스가 있는 경우 데이터
 }]
 ```
 
-### <a name="microsoftstorageblobdeleted-event"></a>마이크로소프트.스토리지.Blob삭제 된 이벤트
+### <a name="microsoftstorageblobdeleted-event"></a>Microsoft. Storage. BlobDeleted 이벤트
 
 ```json
 [{
@@ -153,18 +153,18 @@ Blob 저장소 계정에 계층적 네임스페이스가 있는 경우 데이터
 }]
 ```
 
-### <a name="microsoftstorageblobdeleted-event-data-lake-storage-gen2"></a>Microsoft.Storage.Blob삭제 이벤트(데이터 레이크 스토리지 Gen2)
+### <a name="microsoftstorageblobdeleted-event-data-lake-storage-gen2"></a>Microsoft. Storage. BlobDeleted 이벤트 (Data Lake Storage Gen2)
 
-Blob 저장소 계정에 계층적 네임스페이스가 있는 경우 데이터는 이러한 변경 사항을 제외하고 이전 예제와 유사합니다.
+Blob 저장소 계정에 계층적 네임 스페이스가 있는 경우 데이터는 이러한 변경 내용을 제외 하 고 이전 예제와 유사 하 게 표시 됩니다.
 
-* `dataVersion` 키는 `2`의 값으로 설정됩니다.
+* `dataVersion` 키가 값으로 설정 됩니다 `2`.
 
-* `data.api` 키가 문자열로 `DeleteFile`설정됩니다.
+* `data.api` 키가 문자열로 `DeleteFile`설정 됩니다.
 
-* 키에는 `url` 경로가 `dfs.core.windows.net`포함되어 있습니다.
+* `url` 키에 경로가 `dfs.core.windows.net`포함 되어 있습니다.
 
 > [!NOTE]
-> 응용 프로그램이 `DeleteBlob` 작업을 사용하여 계정에서 Blob을 삭제하는 경우 데이터에 이러한 변경 내용이 포함되지 않습니다.
+> 응용 프로그램에서 `DeleteBlob` 작업을 사용 하 여 계정에서 blob을 삭제 하면 데이터에 이러한 변경 내용이 포함 되지 않습니다.
 
 ```json
 [{
@@ -190,7 +190,7 @@ Blob 저장소 계정에 계층적 네임스페이스가 있는 경우 데이터
 }]
 ```
 
-### <a name="microsoftstorageblobrenamed-event"></a>마이크로소프트.스토리지.BlobRenamed 이벤트
+### <a name="microsoftstorageblobrenamed-event"></a>BlobRenamed 이벤트
 
 ```json
 [{
@@ -215,7 +215,7 @@ Blob 저장소 계정에 계층적 네임스페이스가 있는 경우 데이터
 }]
 ```
 
-### <a name="microsoftstoragedirectorycreated-event"></a>Microsoft.Storage.Directory생성된 이벤트
+### <a name="microsoftstoragedirectorycreated-event"></a>Microsoft. Addresscreated 이벤트
 
 ```json
 [{
@@ -239,7 +239,7 @@ Blob 저장소 계정에 계층적 네임스페이스가 있는 경우 데이터
 }]
 ```
 
-### <a name="microsoftstoragedirectoryrenamed-event"></a>마이크로소프트.스토리지.디렉터리이름이 지정된 이벤트
+### <a name="microsoftstoragedirectoryrenamed-event"></a>Microsoft 저장소 이름 바꾸기 이벤트
 
 ```json
 [{
@@ -264,7 +264,7 @@ Blob 저장소 계정에 계층적 네임스페이스가 있는 경우 데이터
 }]
 ```
 
-### <a name="microsoftstoragedirectorydeleted-event"></a>Microsoft.Storage.Directory삭제된 이벤트
+### <a name="microsoftstoragedirectorydeleted-event"></a>Microsoft. 저장소 삭제 이벤트
 
 ```json
 [{
@@ -306,25 +306,25 @@ Blob 저장소 계정에 계층적 네임스페이스가 있는 경우 데이터
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | Type | 설명 |
 | -------- | ---- | ----------- |
 | api | 문자열 | 이벤트를 트리거하는 작업입니다. |
-| clientRequestId | 문자열 | 저장소 API 작업에 대한 클라이언트 제공 요청 ID입니다. 이 ID는 로그의 "클라이언트-요청-id" 필드를 사용하여 Azure Storage 진단 로그와 상관 관계를 지정하는 데 사용할 수 있으며 "x-ms-client-request-id" 헤더를 사용하여 클라이언트 요청에 제공할 수 있습니다. [로그 형식](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format)을 참조하세요. |
+| clientRequestId | 문자열 | 저장소 API 작업에 대 한 클라이언트 제공 요청 id입니다. 이 id는 로그의 "클라이언트-요청 id" 필드를 사용 하 여 Azure Storage 진단 로그와 상호 연결 하는 데 사용할 수 있으며, "x-y-id" 헤더를 사용 하 여 클라이언트 요청에 제공할 수 있습니다. [로그 형식](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format)을 참조하세요. |
 | requestId | 문자열 | 스토리지 API 작업에 대한 서비스에서 생성된 요청 ID입니다. 로그의 "request-id-header" 필드를 사용하여 Azure Storage 진단 로그와의 상관 관계를 지정하는 데 사용할 수 있으며, 'x-ms-request-id' 헤더에서 API 호출을 시작하여 반환됩니다. [로그 형식](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format)을 참조하세요. |
 | eTag | 문자열 | 조건부로 작업을 수행하는 데 사용할 수 있는 값입니다. |
 | contentType | 문자열 | Blob에 대해 지정된 콘텐츠 형식입니다. |
 | contentLength | integer | Blob의 크기(바이트)입니다. |
 | blobType | 문자열 | Blob의 형식입니다. 유효한 값은 "BlockBlob" 또는 "PageBlob"입니다. |
-| contentOffset | number | 이벤트 트리거 응용 프로그램이 파일에 쓰기를 완료한 지점에서 수행된 쓰기 작업의 바이트별 오프셋입니다. <br>계층적 네임스페이스가 있는 Blob 저장소 계정에서 트리거된 이벤트에 대해서만 나타납니다.|
-| 대상Url |문자열 | 작업이 완료된 후 존재할 파일의 URL입니다. 예를 들어 파일이름이 변경되면 속성에 `destinationUrl` 새 파일 이름의 URL이 포함됩니다. <br>계층적 네임스페이스가 있는 Blob 저장소 계정에서 트리거된 이벤트에 대해서만 나타납니다.|
-| 소스Url |문자열 | 작업 전에 있는 파일의 URL입니다. 예를 들어 파일의 이름이 바뀌면 이름 바꾸기 전에 원래 파일 이름의 URL이 `sourceUrl` 포함됩니다. <br>계층적 네임스페이스가 있는 Blob 저장소 계정에서 트리거된 이벤트에 대해서만 나타납니다. |
-| url | 문자열 | Blob에 대한 경로입니다. <br>클라이언트가 Blob REST API를 사용하는 경우 URL에는 * \<저장소-계정\>이름\<.blob.core.windows.net/\>/\<컨테이너 이름\>파일 이름입니다.* <br>클라이언트가 Data Lake Storage REST API를 사용하는 경우 URL에는 * \<저장소-계정\>\<이름 .dfs.core.windows.net/\>/\<파일 시스템\>이름 파일 이름입니다.* |
-| recursive | 문자열 | `True`모든 자식 디렉토리에서 작업을 수행하기 위해; 그렇지 `False`않으면 . <br>계층적 네임스페이스가 있는 Blob 저장소 계정에서 트리거된 이벤트에 대해서만 나타납니다. |
+| contentOffset | number | 이벤트 트리거 응용 프로그램에서 파일에 쓰기를 완료 한 시점에 수행 된 쓰기 작업의 오프셋 (바이트)입니다. <br>계층 네임 스페이스가 있는 blob storage 계정에서 트리거되는 이벤트에 대해서만 나타납니다.|
+| destinationUrl |문자열 | 작업이 완료 된 후 존재 하는 파일의 url입니다. 예를 들어 파일의 이름을 바꾸면 속성에 `destinationUrl` 새 파일 이름의 url이 포함 됩니다. <br>계층 네임 스페이스가 있는 blob storage 계정에서 트리거되는 이벤트에 대해서만 나타납니다.|
+| sourceUrl |문자열 | 작업 이전에 존재 하는 파일의 url입니다. 예를 `sourceUrl` 들어 파일의 이름을 바꾸면 이름 바꾸기 작업 이전의 원본 파일 이름 url이 포함 됩니다. <br>계층 네임 스페이스가 있는 blob storage 계정에서 트리거되는 이벤트에 대해서만 나타납니다. |
+| url | 문자열 | Blob에 대한 경로입니다. <br>클라이언트에서 REST API Blob을 사용 하는 경우 url의 구조 * \<\>는 blob.core.windows.net/\>/\<\>\<* 입니다.-name. <br>클라이언트에서 Data Lake Storage REST API를 사용 하는 경우 url * \<\>\<은 dfs.core.windows.net/파일\>/\<-이름 파일 이름\>* 입니다. |
+| recursive | 문자열 | `True`모든 자식 디렉터리에서 작업을 수행 하려면 그렇지 `False`않으면입니다. <br>계층 네임 스페이스가 있는 blob storage 계정에서 트리거되는 이벤트에 대해서만 나타납니다. |
 | sequencer | 문자열 | 특정 Blob 이름에 대한 이벤트의 논리적 순서를 나타내는 불투명 문자열 값입니다.  사용자는 표준 문자열 비교를 사용하여 동일한 Blob 이름에 대한 두 이벤트의 상대적 순서를 이해할 수 있습니다. |
 | storageDiagnostics | object | 경우에 따라 Azure Storage 서비스에 의해 포함되는 진단 데이터입니다. 포함될 경우, 이벤트 소비자는 무시해야 합니다. |
 
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
-|제목  |Description  |
+|제목  |설명  |
 |---------|---------|
 | [빠른 시작: Azure CLI를 사용하여 Blob Storage 이벤트를 사용자 지정 웹 엔드포인트로 라우팅](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Azure CLI를 사용하여 Blob Storage 이벤트를 WebHook로 전송하는 방법을 보여줍니다. |
 | [빠른 시작: PowerShell을 사용하여 Blob Storage 이벤트를 사용자 지정 웹 엔드포인트로 라우팅](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Azure PowerShell을 사용하여 Blob Storage 이벤트를 WebHook로 전송하는 방법을 보여줍니다. |
