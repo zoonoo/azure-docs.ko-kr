@@ -7,10 +7,12 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 멤버 만들기 - 포털
+    - name: 포털을 사용하여 멤버 만들기
       href: create-member.md
-    - name: 멤버 만들기 - CLI
+    - name: CLI를 사용하여 멤버 만들기
       href: create-member-cli.md
+    - name: 템플릿을 사용하여 멤버 만들기
+      href: create-member-template.md
     - name: 트랜잭션 노드에 연결
       items:
         - name: VS Code 사용

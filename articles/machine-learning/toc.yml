@@ -149,8 +149,9 @@
             - name: Private Link 사용
               displayName: private endpoint
               href: how-to-configure-private-link.md
-            - name: SSL로 웹 서비스 보호
+            - name: TLS로 웹 서비스 보호
               href: how-to-secure-web-service.md
+              displayName: ssl
             - name: AKS 배포에서 Azure AD ID 사용
               href: how-to-use-azure-ad-identity.md
             - name: 스토리지 액세스 키 다시 생성

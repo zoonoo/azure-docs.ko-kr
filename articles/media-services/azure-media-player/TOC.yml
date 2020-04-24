@@ -32,10 +32,12 @@
       href: azure-media-player-plugin-gallery.md
     - name: 지역화
       href: azure-media-player-localization.md
+- name: 샘플
+  items:
+    - name: Azure Media Player 샘플
+      href: 'https://github.com/Azure-Samples/azure-media-player-samples'
 - name: 참조
   items:
-    - name: 샘플
-      href: 'https://github.com/Azure-Samples/azure-media-player-samples'
     - name: API
       href: 'https://docs.microsoft.com/en-us/javascript/api/azuremediaplayer/?view=azure-node-latest'
     - name: API 메서드

@@ -108,7 +108,7 @@
           items:
             - name: Azure SQL 감사
               href: sql-database-auditing.md
-            - name: VNet 또는 방화벽 뒤의 스토리지
+            - name: VNet 또는 방화벽 뒤의 스토리지 계정에 대한 감사
               href: create-auditing-storage-account-vnet-firewall.md
             - name: 감사 로그 형식
               href: sql-database-audit-log-format.md

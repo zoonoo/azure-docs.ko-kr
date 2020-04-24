@@ -13,12 +13,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 07//2020
-  ms.openlocfilehash: a1c31725883204f473a46a3d20ca6fd4bbd741e8
-  ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+  ms.openlocfilehash: 2f2049f710dcdbb210594331fa69e6743f5e431e
+  ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
   ms.translationtype: HT
   ms.contentlocale: ko-KR
   ms.lasthandoff: 04/22/2020
-  ms.locfileid: "81755347"
+  ms.locfileid: "81869323"
 highlightedContent:
   items:
   - title: Azure Media Services v3 정보
@@ -39,9 +39,6 @@ highlightedContent:
   - title: Media Services v2에서 v3으로 마이그레이션
     itemType: concept
     url: ./latest/migrate-from-v2-to-v3.md
-  - title: Azure Media Services 사양
-    itemType: concept
-    url: media-services-specifications-live-timed-metadata.md
   - title: Azure Media Player
     itemType: overview
     url: azure-media-player/azure-media-player-overview.md
@@ -55,6 +52,9 @@ conceptualContent:
     - url: https://docs.microsoft.com/samples/browse/?products=azure-media-services
       itemType: sample
       text: 코드 샘플
+    - url: ./latest/release-notes.md
+      itemType: concept
+      text: Media Services v3의 새로운 기능 알아보기
   - title: 라이브 스트리밍
     links:
     - url: ./latest/live-streaming-overview.md
@@ -99,6 +99,17 @@ conceptualContent:
     - url: ./latest/analyze-videos-tutorial-with-api.md
       itemType: tutorial
       text: 비디오 분석
+  - title: Azure Media Services 사양에 대해 알아보기
+    links:
+    - url: media-services-specifications-live-timed-metadata.md
+      itemType: concept
+      text: 라이브 스트리밍의 시간 제한 메타데이터(RTMP 및 부드러운 스트리밍)
+    - url: media-services-specifications-ms-sstr-amendment-hevc.md
+      itemType: concept
+      text: HEVC용 부드러운 스트리밍 프로토콜(MS-SSTR) 수정 사항
+    - url: media-services-fmp4-live-ingest-overview.md
+      itemType: concept
+      text: 부드러운 스트리밍 수집 프로토콜
 additionalContent:
   sections:
   - items:
