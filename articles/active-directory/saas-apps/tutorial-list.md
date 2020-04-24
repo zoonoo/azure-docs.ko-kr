@@ -1,6 +1,6 @@
 ---
-title: Azure AD에서 사용할 SaaS 앱 통합 자습서를 프로 비전 하는 SSO 및 SCIM Microsoft Docs
-description: 다양 한 타사 software as a service 응용 프로그램과 함께 SSO (Azure Active Directory Single Sign-On) 및 SCIM 프로 비전을 구성 합니다.
+title: Azure AD에서 사용할 SaaS 앱 통합 자습서 | Microsoft Docs
+description: 다양한 타사 SaaS(Software as a Service) 애플리케이션에 대한 Azure Active Directory Single Sign-On 통합을 구성합니다.
 services: active-directory
 documentationcenter: ''
 author: jeevansd
@@ -12,23 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/22/2019
+ms.date: 10/10/2019
 ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 267efd103c3cfdca1aa6d3db10977bac9739f641
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: be265eee32a739bdfc2d4c3b746e01cd0c5ec06a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274462"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "82130403"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>SaaS 애플리케이션과 Azure Active Directory를 통합하는 방법에 대한 자습서
 
 Azure Active Directory와 클라우드 지원 [SaaS(Software as a Service)](https://azure.microsoft.com/overview/what-is-saas/) 애플리케이션을 통합할 수 있도록 구성 과정을 안내하는 자습서 모음을 개발했습니다.
 
-Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)를 참조하세요. 응용 프로그램 갤러리에 앱을 추가 하도록 요청 하려면 [여기](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) 를 클릭 하세요. 
+Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)를 참조하세요.
+
+[응용 프로그램 네트워크 포털](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) 을 사용 하 여 자동 프로 비전을 위해 갤러리에 추가할 [scim](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups) 사용 응용 프로그램 또는 sso 용 갤러리에 추가 될 SAML/oidc 사용 응용 프로그램을 요청 합니다.
 
 ## <a name="quick-links"></a>빠른 링크
 
@@ -37,7 +39,7 @@ Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketp
 | ![로고](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Atlassian 클라우드-사용자 프로 비전](atlassian-cloud-provisioning-tutorial.md)|
 | ![로고](./media/tutorial-list/active-directory-saas-servicenow-tutorial.png)| [ServiceNow](servicenow-tutorial.md)|[ServiceNow - 사용자 프로비전](servicenow-provisioning-tutorial.md)|
 | ![로고](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Slack - 사용자 프로비전](slack-provisioning-tutorial.md)|
-| ![로고](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| |
+| ![로고](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors-사용자 프로 비전](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial) |
 | ![로고](./media/tutorial-list/active-directory-saas-workday-tutorial.png)| [Workday](workday-tutorial.md)| [Workday - 사용자 프로비전](workday-inbound-tutorial.md)|
 
 더 많은 자습서를 찾으려면 왼쪽의 목차를 사용하세요.
@@ -56,16 +58,53 @@ Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketp
 
 | 로고 | Single Sign-On에 대한 애플리케이션 자습서 |        |
 | :--- | :--- | :--- |
+| ![로고](./media/tutorial-list/active-directory-saas-acquireio-tutorial.png)| [AcquireIO](acquireio-tutorial.md)|      |
+| ![로고](./media/tutorial-list/active-directory-saas-aha-tutorial.png)| [Aha!](aha-tutorial.md)|      |
 | ![로고](./media/tutorial-list/active-directory-saas-alertops-tutorial.png)| [AlertOps](alertops-tutorial.md)|      |
+| ![로고](./media/tutorial-list/active-directory-saas-amplitude-tutorial.png)| [Amplitude](amplitude-tutorial.md)|      |
+| ![로고](./media/tutorial-list/active-directory-saas-appraisd-tutorial.png)| [Appraisd](appraisd-tutorial.md)|      |
 | ![로고](./media/tutorial-list/active-directory-saas-arcgisenterprise-tutorial.png)| [ArcGIS Enterprise](arcgisenterprise-tutorial.md)|     |
 | ![로고](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)|     |
+| ![로고](./media/tutorial-list/active-directory-saas-carbonite-endpoint-backup-tutorial.png)| [Carbonite Endpoint Backup](carbonite-endpoint-backup-tutorial.md)|     |
+| ![로고](./media/tutorial-list/active-directory-saas-cakehr-tutorial.png)| [CakeHR](cakehr-tutorial.md)|     |
+| ![로고](./media/tutorial-list/active-directory-saas-deskradar-tutorial.png)| [Deskradar](deskradar-tutorial.md)|     |
 | ![로고](./media/tutorial-list/active-directory-saas-displayr-tutorial.png)| [Displayr](displayr-tutorial.md)|     |
+| ![로고](./media/tutorial-list/active-directory-saas-dmarcian-tutorial.png)| [dmarcian](dmarcian-tutorial.md)|     |
+| ![로고](./media/tutorial-list/active-directory-saas-docusign-tutorial.png)| [DocuSign](docusign-tutorial.md)|     |
+| ![로고](./media/tutorial-list/active-directory-saas-dome9arc-tutorial.png)| [Dome9 Arc](dome9arc-tutorial.md)|     |
+| ![로고](./media/tutorial-list/active-directory-saas-drift-tutorial.png)| [Drift](drift-tutorial.md)|     |
 | ![로고](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [Dropbox for Business](dropboxforbusiness-tutorial.md)|    |
+| ![로고](./media/tutorial-list/active-directory-saas-elium-tutorial.png)| [Elium](elium-tutorial.md)|     |
+| ![로고](./media/tutorial-list/active-directory-saas-envoy-tutorial.png)| [Envoy](envoy-tutorial.md)|     |
+| ![로고](./media/tutorial-list/active-directory-saas-evernote-tutorial.png)| [Evernote](evernote-tutorial.md)|     |
+| ![로고](./media/tutorial-list/active-directory-saas-expensein-tutorial.png)| [ExpenseIn](expensein-tutorial.md)|     |
+| ![로고](./media/tutorial-list/active-directory-saas-foodee-tutorial.png)| [Foodee](foodee-tutorial.md)|     |
 | ![로고](./media/tutorial-list/active-directory-saas-freedcamp-tutorial.png)| [Freedcamp](freedcamp-tutorial.md)|     |
 | ![로고](./media/tutorial-list/active-directory-saas-freshservice-tutorial.png)| [Freshservice](freshservice-tutorial.md)|     |
+| ![로고](./media/tutorial-list/active-directory-saas-harness-tutorial.png)| [Harness](harness-tutorial.md)|     |
+| ![로고](./media/tutorial-list/active-directory-saas-helpscout-tutorial.png)| [Help Scout](helpscout-tutorial.md)|     |
+| ![로고](./media/tutorial-list/active-directory-saas-hightail-tutorial.png)| [Hightail](hightail-tutorial.md)|     |
+| ![로고](./media/tutorial-list/active-directory-saas-hrworks-single-sign-on-tutorial.png)| [HRworks Single Sign-On](hrworks-single-sign-on-tutorial.md)|     |
 | ![로고](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [Jamf Pro](jamfprosamlconnector-tutorial.md)|     |
-| ![로고](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [지식 있는 모든 LMS](knowledge-anywhere-lms-tutorial.md)|     |
+| ![로고](./media/tutorial-list/active-directory-saas-kanbanize-tutorial.png)| [Kanbanize](kanbanize-tutorial.md)|     |
+| ![로고](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [Knowledge Anywhere LMS](knowledge-anywhere-lms-tutorial.md)|     |
+| ![로고](./media/tutorial-list/active-directory-saas-mondaycom-tutorial.png)| [monday.com](mondaycom-tutorial.md)|       |
+| ![로고](./media/tutorial-list/active-directory-saas-myworkdrive-tutorial.png)| [MyWorkDrive](myworkdrive-tutorial.md)|       |
+| ![로고](./media/tutorial-list/active-directory-saas-nuclino-tutorial.png)| [Nuclino](nuclino-tutorial.md)|       |
+| ![로고](./media/tutorial-list/active-directory-saas-people-tutorial.png)| [사람](people-tutorial.md)|       |
+| ![로고](./media/tutorial-list/active-directory-saas-purelyhr-tutorial.png)| [PurelyHR](purelyhr-tutorial.md)|       |
+| ![로고](./media/tutorial-list/active-directory-saas-ringcentral-tutorial.png)| [RingCentral](ringcentral-tutorial.md)|       |
+| ![로고](./media/tutorial-list/active-directory-saas-scalex-enterprise-tutorial.png)| [ScaleX Enterprise](scalex-enterprise-tutorial.md)|       |
 | ![로고](./media/tutorial-list/active-directory-saas-soloinsight-cloudgate-sso-tutorial.png)| [Soloinsight-CloudGate SSO](soloinsight-cloudgate-sso-tutorial.md)|       |
+| ![로고](./media/tutorial-list/active-directory-saas-target-process-tutorial.png)| [TargetProcess](target-process-tutorial.md)|       |
+| ![로고](./media/tutorial-list/active-directory-saas-teamphoria-tutorial.png)| [Teamphoria](teamphoria-tutorial.md)|       |
+| ![로고](./media/tutorial-list/active-directory-saas-textmagic-tutorial.png)| [TextMagic](textmagic-tutorial.md)|       |
+| ![로고](./media/tutorial-list/active-directory-saas-velpicsaml-tutorial.png)| [Velpic SAML](velpicsaml-tutorial.md)|       |
+| ![로고](./media/tutorial-list/active-directory-saas-wandera-tutorial.png)| [Wandera](wandera-tutorial.md)|       |
+| ![로고](./media/tutorial-list/active-directory-saas-watch-by-colors-tutorial.png)| [Watch by Colors](watch-by-colors-tutorial.md)|       |
+| ![로고](./media/tutorial-list/active-directory-saas-waywedo-tutorial.png)| [Way We Do](waywedo-tutorial.md)|       |
+| ![로고](./media/tutorial-list/active-directory-saas-workplacebyfacebook-tutorial.png)| [Workplace by Facebook](workplacebyfacebook-tutorial.md)|       |
+| ![로고](./media/tutorial-list/active-directory-saas-workteam-tutorial.png)| [Workteam](workteam-tutorial.md)|       |
 | ![로고](./media/tutorial-list/active-directory-saas-xaitporter-tutorial.png)| [XaitPorter](xaitporter-tutorial.md)|       |
 | ![로고](./media/tutorial-list/active-directory-saas-yodeck-tutorial.png)| [Yodeck](yodeck-tutorial.md)|        |
 | ![로고](./media/tutorial-list/active-directory-saas-zendesk-tutorial.png)| [Zendesk](zendesk-tutorial.md)|        |
@@ -73,7 +112,7 @@ Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketp
 | ![로고](./media/tutorial-list/active-directory-saas-zscaler-beta-tutorial.png)| [Zscaler Beta](zscaler-beta-tutorial.md)|       |
 | ![로고](./media/tutorial-list/active-directory-saas-zscaler-one-tutorial.png)| [Zscaler One](zscaler-one-tutorial.md)|       |
 | ![로고](./media/tutorial-list/active-directory-saas-zscalerprivateaccess-tutorial.png)| [ZPA(Zscaler Private Access)](zscalerprivateaccess-tutorial.md)|        |
-| ![로고](./media/tutorial-list/active-directory-saas-zscaler-three-tutorial.png)| [Zscaler 3](zscaler-three-tutorial.md)|       |
+| ![로고](./media/tutorial-list/active-directory-saas-zscaler-three-tutorial.png)| [Zscaler Three](zscaler-three-tutorial.md)|       |
 | ![로고](./media/tutorial-list/active-directory-saas-zscaler-two-tutorial.png)| [Zscaler Two](zscaler-two-tutorial.md)|        |
 | ![로고](./media/tutorial-list/active-directory-saas-zscaler-zscloud-tutorial.png)| [Zscaler ZSCloud](zscaler-zscloud-tutorial.md)|         |
 

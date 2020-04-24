@@ -1,7 +1,7 @@
 ---
-title: MSAL 마이그레이션 가이드(MSAL4j)까지의 ADAL | Azure
+title: ADAL에서 MSAL 마이그레이션 가이드 (MSAL4j) | Microsoft
 titleSuffix: Microsoft identity platform
-description: Azure Active Directory 인증 라이브러리(ADAL) Java 앱을 MSAL(Microsoft 인증 라이브러리)으로 마이그레이션하는 방법에 대해 알아봅니다.
+description: ADAL (Azure Active Directory Authentication Library) Java 앱을 MSAL (Microsoft Authentication Library)로 마이그레이션하는 방법에 대해 알아봅니다.
 services: active-directory
 author: sangonzal
 manager: CelesteDG
@@ -14,87 +14,91 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev
-ms.openlocfilehash: 7ba845e79074313f0ccf2c066ba016bd72d46efe
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 7729a30acb1b191378960887164bb4b32e225c36
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81534570"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128015"
 ---
-# <a name="adal-to-msal-migration-guide-for-java"></a>Java에 대한 MSAL 마이그레이션 가이드에 대한 ADAL
+# <a name="adal-to-msal-migration-guide-for-java"></a>Java 용 ADAL-MSAL 마이그레이션 가이드
 
-이 문서에서는 ADAL(Azure Active Directory 인증 라이브러리)을 사용하여 MSAL(Microsoft 인증 라이브러리)을 사용하는 앱을 마이그레이션하는 데 필요한 변경 사항을 간중합니다.
+이 문서에서는 MSAL (Microsoft Authentication Library)을 사용 하도록 ADAL (Azure Active Directory Authentication Library)을 사용 하는 앱을 마이그레이션하기 위해 변경 해야 하는 사항을 강조 합니다.
 
-Java용 Microsoft 인증 라이브러리(MSAL4J)와 Java용 Azure AD 인증 라이브러리(ADAL4J)는 모두 Azure AD 엔터티를 인증하고 Azure AD에서 토큰을 요청하는 데 사용됩니다. 지금까지 대부분의 개발자는 Azure AD 인증 라이브러리(ADAL)를 사용하여 토큰을 요청하여 Azure AD ID(회사 및 학교 계정)를 인증하기 위해 개발자 플랫폼(v1.0)을 위해 Azure AD와 협력해 왔습니다.
+Java 용 Microsoft Authentication Library (MSAL4J) 및 Azure AD 인증 Library for Java (ADAL4J)는 모두 azure ad 엔터티를 인증 하 고 Azure AD에서 토큰을 요청 하는 데 사용 됩니다. 지금까지 대부분의 개발자는 ADAL (Azure AD 인증 라이브러리)을 사용 하 여 토큰을 요청 하 여 Azure AD id (회사 및 학교 계정)를 인증 하기 위해 개발자 플랫폼용 Azure AD (v1.0)로 작업 했습니다.
 
-MSAL은 다음과 같은 이점을 제공합니다.
+MSAL은 다음과 같은 이점을 제공 합니다.
 
-- 최신 Microsoft ID 플랫폼 끝점을 사용하기 때문에 Azure AD ID, Microsoft 계정 및 Azure AD Business to Consumer(소비자)를 통해 소셜 및 로컬 계정과 같은 광범위한 Microsoft ID 집합을 인증할 수 있습니다.
-- 사용자는 최상의 Single-Sign-On 환경을 제공합니다.
-- 응용 프로그램에서 증분 동의를 활성화할 수 있으며 조건부 액세스를 지원하는 것이 더 쉽습니다.
+- 최신 Microsoft id 플랫폼 끝점을 사용 하기 때문에 azure ad id, Microsoft 계정, 소셜 및 로컬 계정과 같은 광범위 한 Microsoft id 집합을 Azure AD Business to Consumer (B2C)를 통해 인증할 수 있습니다.
+- 사용자는 최상의 single sign-on 환경을 이용할 수 있습니다.
+- 응용 프로그램에서 증분 동의를 설정할 수 있으며 조건부 액세스를 지 원하는 것이 더 쉽습니다.
 
-Java용 MSAL은 Microsoft ID 플랫폼과 함께 사용하는 것이 좋습니다. ADAL4J에는 새로운 기능이 구현되지 않습니다. 앞으로의 모든 노력은 MSAL 개선에 초점을 맞추고 있습니다.
+Java 용 MSAL은 Microsoft id 플랫폼에서 사용 하는 것이 좋습니다. ADAL4J에는 새로운 기능이 구현 되지 않습니다. 앞으로 진행 되는 모든 작업은 MSAL을 개선 하는 데 중점을 두었습니다.
 
 ## <a name="differences"></a>차이점
 
-개발자(v1.0) 엔드포인트(및 ADAL4J)를 위해 Azure AD로 작업한 경우 [Microsoft ID 플랫폼(v2.0) 끝점의 다른 점을](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison)읽어보시길 원할 수 있습니다.
+개발자 용 Azure AD () 끝점 (및 ADAL4J)을 사용 하 여 작업 하는 경우 v2.0 ( [Microsoft identity platform) 끝점에 대 한 다른 사항을](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison)읽을 수 있습니다.
 
 ## <a name="scopes-not-resources"></a>리소스가 아닌 범위
 
-ADAL4J는 리소스에 대한 토큰을 획득하는 반면 Java용 MSAL은 범위에 대한 토큰을 획득합니다. Java 클래스에 대한 여러 MSAL에는 범위 매개 변수가 필요합니다. 이 매개 변수는 요청된 원하는 사용 권한 및 리소스를 선언하는 문자열 목록입니다. 예제 범위를 보려면 [Microsoft 그래프의 범위를](https://docs.microsoft.com/graph/permissions-reference) 참조하십시오.
+ADAL4J는 리소스에 대 한 토큰을 획득 하는 반면, Java 용 MSAL은 범위 토큰을 획득 합니다. Java 클래스에 대 한 다양 한 MSAL에는 범위 매개 변수가 필요 합니다. 이 매개 변수는 필요한 사용 권한 및 요청 된 리소스를 선언 하는 문자열 목록입니다. 예제 범위를 보려면 [Microsoft Graph의 범위](https://docs.microsoft.com/graph/permissions-reference) 를 참조 하세요.
+
+리소스에 `/.default` 범위 접미사를 추가 하 여 v2.0 끝점 (ADAL)에서 Microsoft msal (id 플랫폼 끝점)으로 앱을 마이그레이션할 수 있습니다. 예를 들어의 `https://graph.microsoft.com`리소스 값에 대해 해당 하는 범위 값은 `https://graph.microsoft.com/.default`입니다.  리소스가 URL 형식이 아닌 폼 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`의 리소스 ID 인 경우 범위 값을으로 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`계속 사용할 수 있습니다.
+
+다양 한 범위 형식에 대 한 자세한 내용은 [Microsoft id 플랫폼의 사용 권한 및 동의](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) 및 v1.0 토큰을 [수락 하는 Web API에 대 한 범위](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes) 문서를 참조 하세요.
 
 ## <a name="core-classes"></a>핵심 클래스
 
-ADAL4J에서 클래스는 `AuthenticationContext` 기관을 통해 보안 토큰 서비스(STS) 또는 권한 부여 서버에 대한 연결을 나타냅니다. 그러나 Java용 MSAL은 클라이언트 응용 프로그램을 중심으로 설계되었습니다. 클라이언트 응용 프로그램을 `PublicClientApplication` 나타내는 `ConfidentialClientApplication` 두 개의 별도 클래스를 제공합니다.  후자의 `ConfidentialClientApplication`은 데몬 앱에 대한 응용 프로그램 식별자와 같은 비밀을 안전하게 유지 하도록 설계된 응용 프로그램을 나타냅니다.
+ADAL4J에서 클래스는 `AuthenticationContext` 권한을 통해 STS (보안 토큰 서비스) 또는 권한 부여 서버에 대 한 연결을 나타냅니다. 그러나 Java 용 MSAL은 클라이언트 응용 프로그램을 중심으로 설계 되었습니다. 이 클래스는 클라이언트 응용 프로그램 `PublicClientApplication` 을 `ConfidentialClientApplication` 나타내는 및의 두 가지 별도 클래스를 제공 합니다.  후자 `ConfidentialClientApplication`는 디먼 앱에 대 한 응용 프로그램 식별자와 같은 비밀을 안전 하 게 유지 하기 위해 디자인 된 응용 프로그램을 나타냅니다.
 
-다음 표에서는 ADAL4J 함수가 Java 함수에 대한 새 MSAL에 매핑하는 방법을 보여 주며 있습니다.
+다음 표에서는 ADAL4J 함수가 Java 함수의 새 MSAL에 매핑되는 방법을 보여 줍니다.
 
-| ADAL4J 방법| MSAL4J 방법|
+| ADAL4J 메서드| MSAL4J 메서드|
 |------|-------|
-|acquireToken(문자열 리소스, 클라이언트 자격 증명 자격 증명, 인증 호출 호출 콜백) | acquireToken(클라이언트 자격 증명 매개 변수)|
-|acquireToken(문자열 리소스, ClientAssertion 어설션, 인증 호출 호출 콜백)|acquireToken(클라이언트 자격 증명 매개 변수)|
-|acquireToken(문자열 리소스, 비대칭Key 자격 증명 자격 증명, 인증 콜백 콜백)|acquireToken(클라이언트 자격 증명 매개 변수)|
-|acquireToken (문자열 리소스, 문자열 clientId, 문자열 사용자 이름, 문자열 암호, 인증 호출 콜백 콜백)| acquire토큰(사용자 이름 암호 매개 변수)|
-|acquireToken (문자열 리소스, 문자열 clientId, 문자열 사용자 이름, 문자열 암호 = null, 인증 호출 콜백 콜백)|취득토큰(통합윈도우인증매개변수)|
-|acquireToken(문자열 리소스, UserAssertion 사용자어설, 클라이언트 자격 증명 자격 증명, 인증 호출 호출 콜백)| 취득 토큰(온비하프매개 변수)|
-|acquireTokenBy권한 코드() | acquireToken(권한 부여 코드매개 변수) |
-| 취득DeviceCode() 및 획득토큰비디바이스코드()| acquireToken(장치코드매개 변수)|
-|취득토큰비리프레시토큰()| acquireToken자동(자동 매개 변수)|
+|acquireToken (문자열 리소스, ClientCredential 자격 증명, AuthenticationCallback 콜백) | acquireToken (ClientCredentialParameters)|
+|acquireToken (문자열 리소스, ClientAssertion assertion, AuthenticationCallback 콜백)|acquireToken (ClientCredentialParameters)|
+|acquireToken (문자열 리소스, AsymmetricKeyCredential credential, AuthenticationCallback 콜백)|acquireToken (ClientCredentialParameters)|
+|acquireToken (문자열 리소스, 문자열 clientId, 문자열 사용자 이름, 문자열 암호, AuthenticationCallback 콜백)| acquireToken (UsernamePasswordParameters)|
+|acquireToken (문자열 리소스, 문자열 clientId, 문자열 사용자 이름, 문자열 암호 = null, AuthenticationCallback 콜백)|acquireToken (IntegratedWindowsAuthenticationParameters)|
+|acquireToken (문자열 리소스, UserAssertion userAssertion, ClientCredential 자격 증명, AuthenticationCallback 콜백)| acquireToken (OnBehalfOfParameters)|
+|acquireTokenByAuthorizationCode () | acquireToken (AuthorizationCodeParameters) |
+| acquireDeviceCode () 및 acquireTokenByDeviceCode ()| acquireToken (DeviceCodeParameters)|
+|acquireTokenByRefreshToken()| acquireTokenSilently(SilentParameters)|
 
-## <a name="iaccount-instead-of-iuser"></a>IUser 대신 I계정
+## <a name="iaccount-instead-of-iuser"></a>IUser 대신 IAccount
 
-ADAL4J는 사용자를 조작했습니다. 사용자가 단일 사용자 또는 소프트웨어 에이전트를 나타내지만 Microsoft ID 시스템에 하나 이상의 계정이 있을 수 있습니다. 예를 들어 사용자는 여러 Azure AD, Azure AD B2C 또는 Microsoft 개인 계정을 가질 수 있습니다.
+조작한 사용자를 ADAL4J 합니다. 사용자는 단일 사람이 나 소프트웨어 에이전트를 나타내므로 Microsoft id 시스템에 하나 이상의 계정을 포함할 수 있습니다. 예를 들어 사용자에 게 여러 Azure AD, Azure AD B2C 또는 Microsoft 개인 계정이 있을 수 있습니다.
 
-Java용 MSAL은 `IAccount` 인터페이스를 통해 계정의 개념을 정의합니다. 이것은 ADAL4J에서 획기적인 변화이지만 동일한 사용자가 여러 계정을 가질 수 있다는 사실과 다른 Azure AD 디렉터리에서도 캡처하기 때문에 좋은 변화입니다. Java용 MSAL은 홈 계정 정보가 제공되므로 게스트 시나리오에서 더 나은 정보를 제공합니다.
+Java 용 MSAL은 인터페이스를 `IAccount` 통해 계정의 개념을 정의 합니다. 이는 ADAL4J의 주요 변경 내용 이지만 동일한 사용자가 여러 계정을 가질 수 있다는 사실과 다른 Azure AD 디렉터리에 있을 수 있으므로이는 좋은 방법입니다. Java 용 MSAL은 홈 계정 정보를 제공 하기 때문에 게스트 시나리오에서 더 나은 정보를 제공 합니다.
 
 ## <a name="cache-persistence"></a>캐시 지속성
 
-ADAL4J는 토큰 캐시를 지원하지 않았습니다.
-Java용 MSAL은 가능한 경우 만료된 토큰을 자동으로 새로 고침하고 가능한 경우 사용자가 자격 증명을 제공하도록 불필요한 프롬프트를 방지하여 토큰 수명 관리를 간소화하기 위해 [토큰 캐시를](msal-acquire-cache-tokens.md) 추가합니다.
+ADAL4J는 토큰 캐시를 지원 하지 않습니다.
+Java 용 MSAL은 가능 하면 만료 된 토큰을 자동으로 새로 고쳐 토큰 수명 관리를 간소화 하 고 가능한 경우 사용자에 게 자격 증명을 제공 하는 불필요 한 프롬프트를 방지 하기 위해 [토큰 캐시](msal-acquire-cache-tokens.md) 를 추가 합니다.
 
-## <a name="common-authority"></a>공통 기관
+## <a name="common-authority"></a>Common Authority
 
-v1.0에서 `https://login.microsoftonline.com/common` 권한을 사용하는 경우 사용자는 모든 조직에 대해 AAD(Azure Active Directory) 계정으로 로그인할 수 있습니다.
+V1.0을 사용 하는 `https://login.microsoftonline.com/common` 경우 사용자는 모든 조직에 대해 AAD (Azure Active Directory) 계정으로 로그인 할 수 있습니다.
 
-v2.0에서 `https://login.microsoftonline.com/common` 권한을 사용하는 경우 사용자는 AAD 조직 또는 MsA(Microsoft 개인 계정)에 로그인할 수 있습니다. Java용 MSAL에서 AAD 계정에 대한 로그인을 제한하려면 `https://login.microsoftonline.com/organizations` 권한을 사용해야 합니다(ADAL4J와 동일한 동작). 권한을 지정하려면 클래스를 `authority` 만들 때 [PublicClientApplication.Builder](https://javadoc.io/doc/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.Builder.html) 메서드에서 `PublicClientApplication` 매개 변수를 설정합니다.
+V2.0에서 인증 기관을 `https://login.microsoftonline.com/common` 사용 하는 경우 사용자는 AAD 조직 또는 Microsoft MSA (개인 계정)를 사용 하 여 로그인 할 수 있습니다. Java 용 MSAL에서 AAD 계정에 로그인을 제한 하려는 경우 ADAL4J와 동일한 동작을 사용 `https://login.microsoftonline.com/organizations` 해야 합니다. 권한을 지정 하려면 `PublicClientApplication` 클래스를 만들 때 `authority` [publicclientapplication. Builder](https://javadoc.io/doc/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.Builder.html) 메서드에서 매개 변수를 설정 합니다.
 
 ## <a name="v10-and-v20-tokens"></a>v1.0 및 v2.0 토큰
 
 v1.0 엔드포인트(ADAL에서 사용)는 v1.0 토큰만 내보냅니다.
 
-msal에서 사용하는 v2.0 끝점에서는 v1.0 및 v2.0 토큰을 내보엠플니다. 웹 API의 응용 프로그램 매니페스트의 속성을 사용하면 개발자가 허용되는 토큰 버전을 선택할 수 있습니다. 응용 `accessTokenAcceptedVersion` [프로그램 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) 참조 문서를 참조하십시오.
+V2.0 끝점 (MSAL에서 사용)은 v1.0 및 v2.0 토큰을 내보낼 수 있습니다. 개발자는 web API의 응용 프로그램 매니페스트 속성을 사용 하 여 허용 되는 토큰 버전을 선택할 수 있습니다. `accessTokenAcceptedVersion` [응용 프로그램 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) 참조 설명서에서를 참조 하세요.
 
-v1.0 및 v2.0 토큰에 대한 자세한 내용은 [Azure Active Directory 액세스 토큰을](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)참조하십시오.
+V1.0 및 v2.0 토큰에 대 한 자세한 내용은 [Azure Active Directory 액세스 토큰](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)을 참조 하세요.
 
 ## <a name="adal-to-msal-migration"></a>ADAL에서 MSAL로 마이그레이션
 
-ADAL4J에서는 새로 고침 토큰이 노출되어 개발자가 캐시할 수 있었습니다. 그런 다음 `AcquireTokenByRefreshToken()` 사용자가 더 이상 연결되지 않을 때 사용자를 대신하여 대시보드를 새로 고치는 장기 실행 서비스 구현과 같은 솔루션을 사용하도록 설정하는 데 사용합니다.
+ADAL4J에서 새로 고침 토큰이 노출 되었으며 개발자가이를 캐시할 수 있습니다. 그런 다음를 사용 `AcquireTokenByRefreshToken()` 하 여 사용자가 더 이상 연결 되어 있지 않을 때 사용자를 대신 하 여 대시보드를 새로 고치는 장기 실행 서비스를 구현 하는 등의 솔루션을 사용 하도록 설정 합니다.
 
-Java용 MSAL은 보안상의 이유로 새로 고침 토큰을 노출하지 않습니다. 대신 MSAL은 새로 고침 토큰을 처리합니다.
+Java 용 MSAL은 보안상의 이유로 새로 고침 토큰을 노출 하지 않습니다. 대신, MSAL에서 토큰 새로 고침을 처리 합니다.
 
-Java용 MSAL에는 ADAL4j로 획득한 새로 고침 토큰을 clientApplication: [acquireToken(RefreshTokenParameters)로](https://javadoc.io/static/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.html#acquireToken-com.microsoft.aad.msal4j.RefreshTokenParameters-)마이그레이션할 수 있는 API가 있습니다. 이 메서드를 사용하면 이전에 사용한 새로 고침 토큰을 원하는 범위(리소스)와 함께 제공할 수 있습니다. 새로 고침 토큰은 새 토큰으로 교환되고 응용 프로그램에서 사용할 수 위해 캐시됩니다.
+Java 용 MSAL에는 ADAL4j을 사용 하 여 얻은 새로 고침 토큰을 ClientApplication: [acquireToken (RefreshTokenParameters)](https://javadoc.io/static/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.html#acquireToken-com.microsoft.aad.msal4j.RefreshTokenParameters-)로 마이그레이션할 수 있는 API가 있습니다. 이 메서드를 사용하면 이전에 사용한 새로 고침 토큰을 원하는 범위(리소스)와 함께 제공할 수 있습니다. 새로 고침 토큰은 새 토큰에 대해 교환 되 고 응용 프로그램에서 사용 하기 위해 캐시 됩니다.
 
-다음 코드 코드 조각은 기밀 클라이언트 응용 프로그램에서 일부 마이그레이션 코드를 보여 주며 다음과 같은 코드입니다.
+다음 코드 조각에서는 기밀 클라이언트 응용 프로그램의 일부 마이그레이션 코드를 보여 줍니다.
 
 ```java
 String rt = GetCachedRefreshTokenForSIgnedInUser(); // Get refresh token from where you have them stored
@@ -109,14 +113,14 @@ PublicClientApplication app = PublicClientApplication.builder(CLIENT_ID) // Clie
 IAuthenticationResult result = app.acquireToken(parameters);
 ```
 
-새 `IAuthenticationResult` 새로 고침 토큰이 캐시에 저장되는 동안 액세스 토큰 및 ID 토큰을 반환합니다.
-응용 프로그램에는 이제 IAccount도 포함됩니다.
+는 `IAuthenticationResult` 액세스 토큰 및 ID 토큰을 반환 하는 반면 새 새로 고침 토큰은 캐시에 저장 됩니다.
+응용 프로그램에는 이제 IAccount 포함 됩니다.
 
 ```java
 Set<IAccount> accounts =  app.getAccounts().join();
 ```
 
-캐시에 있는 토큰을 사용하려면 다음을 호출하십시오.
+현재 캐시에 있는 토큰을 사용 하려면 다음을 호출 합니다.
 
 ```java
 SilentParameters parameters = SilentParameters.builder(scope, accounts.iterator().next()).build();
